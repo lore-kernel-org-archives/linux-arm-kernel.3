@@ -4,84 +4,187 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE65ACE7A9D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 09:37:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CE2BCE7A9D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 09:39:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OC6voHihkkB7+cKa8+i7+PBpMqej3mooYMEUBFYOQpg=; b=hk+vD3H+J+GV1z1gqqqN/H8D4N
-	mRxOsfNtUzkygr+4DtPzfZ9bBMXBwspQCV14u7zlCBAbxkSzVcM71EXH9dCycxcorE2fZWm40kUgj
-	DcfBUL1pVMugxRvb6ZLn2IQ6oP0mT6OmeiS4ycigqsdUzJo4zoP8NaYaoqo9Kb+is6Hc8trLWuhfH
-	9WeFsbKsfS/TAzv/TYELN2joAiIEp4UCwGwX5Q1qrIxc86PZdxSvJwWG2DkzJmv9lxlmy/ylMLW3c
-	m8wo0voZuvQ11KfMnhljz80yvMJ6iJv53i4umF01FgqWC5vn0i5J+fyBZ/rS1uyVxjPKK7XA05rVY
-	4ORDZbpA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cHTrIA/ZZhz+Ue+PTBDziXRfTQLjO5Bl47i4ax8PxhE=; b=qWBuJNYyqyuGE36PFnO8cvLi1f
+	Dc3dXxz0hYIFSMSDrztmvCcWFHfSyvdOmwntyxqEUXdJx7mBKH8g8wz3LfbUGumO5oHbSkeJisan5
+	REuaZA9HL/YPcUNZdpLpNIgo2053JMSGCjkY1OuarBD5/+XX3JkMuw4aSEFqmBSd7o2X8u68jEXBs
+	8Ib7BxVYtHqJWa6Ju3DXzYtNhfHXDlH/RWlMEzOcreBjyxX+e3xu08+1VnZWWlds7/dP5kHCGkBqK
+	5tf7xl1zCub0/CxAZSwI4PxbS2Je/4Q4hoJrC4mJyfDBRX827MkNbfU5dAWZHxZnw6oS9EDLz6YqQ
+	rwIGcD2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJqFd-0000000BvqP-2si7;
-	Fri, 14 Nov 2025 09:37:53 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vJqH7-0000000BwCe-3tVH;
+	Fri, 14 Nov 2025 09:39:25 +0000
+Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJqFR-0000000Bvmw-08pe
+	id 1vJqH5-0000000BwCE-1UcJ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Nov 2025 09:37:42 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id ADCED4048F;
-	Fri, 14 Nov 2025 09:37:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6DF62C2BC87;
-	Fri, 14 Nov 2025 09:37:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763113060;
-	bh=3N2qHHebaLsgIZzS0J6BkkzTUjzTAKRxRZhlf8ATkdM=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=iDw/z3R4erxFbJeQbSJ4uRNPlm751QKbaX9se6e/Fz+n1PfHRHkqL2VltD4nw+Gua
-	 bWSyF3IJyTNN26VB1RCQRfYuWPJiueheKVkUSHt/4Yf0GjblMVtCclIg+8zDuIfiDA
-	 7HrtlBolMF9Glva2+hCtQcWV+JpFs9aGDdHMhBMAj4OWcv2H2XbrBKctH0ZCOcWJla
-	 jvQN3BWwV5ncQjFOK6rZm6/bPuSb0BPlq8YqpMeifSV/pU+sxQL701brSRoNPFb1O3
-	 WLaEe2MJUZI/0x8lOg6HRhJLum+cy7kKh/4c5/4aubrkdoGAK/tyvH8Uv/46CuRItE
-	 JD+Dm3gOyINAg==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1vJqFN-000000059uW-3oqS;
-	Fri, 14 Nov 2025 09:37:38 +0000
-Date: Fri, 14 Nov 2025 09:37:37 +0000
-Message-ID: <86ecq1t0ny.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Mark Brown <broonie@kernel.org>
-Cc: kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	kvm@vger.kernel.org,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oupton@kernel.org>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Christoffer Dall <christoffer.dall@arm.com>,
-	Volodymyr Babchuk <Volodymyr_Babchuk@epam.com>,
-	Yao Yuan <yaoyuan@linux.alibaba.com>,
-	Sascha Bischoff <Sascha.Bischoff@arm.com>,
-	Stephen Rothwell <sfr@canb.auug.org.au>,
-	Aishwarya.TCV@arm.com
-Subject: Re: [PATCH v2 04/45] KVM: arm64: Turn vgic-v3 errata traps into a patched-in constant
-In-Reply-To: <72e1e8b5-e397-4dc5-9cd6-a32b6af3d739@sirena.org.uk>
-References: <20251109171619.1507205-1-maz@kernel.org>
-	<20251109171619.1507205-5-maz@kernel.org>
-	<72e1e8b5-e397-4dc5-9cd6-a32b6af3d739@sirena.org.uk>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: broonie@kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, christoffer.dall@arm.com, Volodymyr_Babchuk@epam.com, yaoyuan@linux.alibaba.com, Sascha.Bischoff@arm.com, sfr@canb.auug.org.au, Aishwarya.TCV@arm.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Fri, 14 Nov 2025 09:39:24 +0000
+Received: from pps.filterd (m0241204.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5AE9ESiF1874939;
+	Fri, 14 Nov 2025 10:39:08 +0100
+Received: from mrwpr03cu001.outbound.protection.outlook.com (mail-francesouthazon11011015.outbound.protection.outlook.com [40.107.130.15])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 4adr7pa94y-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Fri, 14 Nov 2025 10:39:08 +0100 (CET)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=hE4LhXc8Be90VSv6m0LJgepAKF43MogsfZX1w3vKn4Vvynbrkeh9callYsonu05U9i4U+1D0OhQUCmAhcrRyBcrFJAmySGExnEg1xRVrKSdzecXxxVf+u3CGTRDLMa4HGF7aulT00kjeBlGLcU3LzCrY9ViNoeYp2hnpLma6viqm9k4XTTUOdl4gklcfrMtW4JV7mNQD1D93VUTtpwP44EqOilIHaCDq+G1QRjzCJBU2OKN78li3Xa0EJkW45WCfTulxnxH7XmZ8ZqzDxCRDntQZthRD/tcagOsYej/GP2jDS362pZVdqsE51o82KNCeYK303DoL6dcBMspC5jjIdg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=cHTrIA/ZZhz+Ue+PTBDziXRfTQLjO5Bl47i4ax8PxhE=;
+ b=jv3v7jjU/9xEeSTICFM89K/+nINUjlBsA9TAHviyB6sd8DEkeK32CM3NQTHZK8L3cF9DKiJ/abVexPasuRu03N221r2oZcVj0j4IMooknV6x5oEQm42YQAvRUVocNaWd93NXrsQKPaByAMOgYCmmVDJcm5hPZlqmAeb0vth6RpDO2OXwdZEe5oyClG/vmWVbHhFP2tkshjTiPc0jHZx9uhxHNJSo8ri/b8+1cXI7qoZKajlLRWXxVFUhrY5pHNMJ+pz+wORyYp8Cr67cmpxP0I6snty0NdrseSd76tzCzb/p9/CEeJM1cd48F9BBkz1E2hHNtM0BF7ZKQ3rvjazahg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 164.130.1.60) smtp.rcpttodomain=linux.intel.com smtp.mailfrom=foss.st.com;
+ dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=cHTrIA/ZZhz+Ue+PTBDziXRfTQLjO5Bl47i4ax8PxhE=;
+ b=cwdiEFfN3jRYmL3EuVIEAp8vM5scv9dk/pcybUKIGfpoMUJkI2fIC39+sXX25PTD7z9fnV0EuZBwfqAOM/+FMx16+u4ZtMKHEgoMqhQkjM3DawiEbSsTzGOQCXGnJ531M4nBqo8kaCkUKf7j/Me3/tzQLB24HLP4v8RB6CAlY1CSmOIJPBGJibVUcxN/+uh/3b4dZ083md86G8g0vpgh+x2xIxboD1i7mhhysbmsDI1MXKrTojigChBpQiD5rYPT5pEu1d2j9c9jw74gSXfYBOLVmTZryzGr3U7bkLKn0Qjaf8/caMQr84z843AG3Tw0E6BJn9kZarUvL196IwtqeQ==
+Received: from AS4P191CA0022.EURP191.PROD.OUTLOOK.COM (2603:10a6:20b:5d9::13)
+ by VI0PR10MB9217.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:800:2b0::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9320.17; Fri, 14 Nov
+ 2025 09:39:05 +0000
+Received: from AMS0EPF00000197.eurprd05.prod.outlook.com
+ (2603:10a6:20b:5d9:cafe::b8) by AS4P191CA0022.outlook.office365.com
+ (2603:10a6:20b:5d9::13) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9320.17 via Frontend Transport; Fri,
+ 14 Nov 2025 09:39:03 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.60)
+ smtp.mailfrom=foss.st.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=foss.st.com;
+Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
+ designate 164.130.1.60 as permitted sender) receiver=protection.outlook.com;
+ client-ip=164.130.1.60; helo=smtpO365.st.com;
+Received: from smtpO365.st.com (164.130.1.60) by
+ AMS0EPF00000197.mail.protection.outlook.com (10.167.16.219) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9320.13 via Frontend Transport; Fri, 14 Nov 2025 09:39:04 +0000
+Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpO365.st.com
+ (10.250.44.72) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Fri, 14 Nov
+ 2025 10:37:34 +0100
+Received: from [10.130.77.120] (10.130.77.120) by STKDAG1NODE2.st.com
+ (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Fri, 14 Nov
+ 2025 10:37:21 +0100
+Message-ID: <ba695c7d-32fa-4412-9029-26d9a0e73b11@foss.st.com>
+Date: Fri, 14 Nov 2025 10:37:20 +0100
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 1/1] PCI: stm32-ep: Don't use "proxy" headers
+To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+        <linux-pci@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+CC: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+        =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+        "Manivannan
+ Sadhasivam" <mani@kernel.org>,
+        Rob Herring <robh@kernel.org>, Bjorn Helgaas
+	<bhelgaas@google.com>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        "Alexandre Torgue" <alexandre.torgue@foss.st.com>
+References: <20251112085620.1452826-1-andriy.shevchenko@linux.intel.com>
+From: Christian Bruel <christian.bruel@foss.st.com>
+Content-Language: en-US
+In-Reply-To: <20251112085620.1452826-1-andriy.shevchenko@linux.intel.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.130.77.120]
+X-ClientProxiedBy: STKCAS1NODE1.st.com (10.75.128.134) To STKDAG1NODE2.st.com
+ (10.75.128.133)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AMS0EPF00000197:EE_|VI0PR10MB9217:EE_
+X-MS-Office365-Filtering-Correlation-Id: 87b8f2e2-9a1f-41a8-cba4-08de2361a644
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|1800799024|376014|7416014|36860700013|7053199007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?dldvZjVMdnNLbkxpWDRaVllXbGxMOEdMdnlNQjNkdmxiYUxOQ3pvTFp2TTIx?=
+ =?utf-8?B?SFQ5NlRxSG9hOHJHSW4vblgrdXZubHNDQXo4UCt4QmhSTXlGV0ZPK2RxN1U3?=
+ =?utf-8?B?dlRNZk9yTXVwM1VxOC9lM3BYSXc2N1gybnZ4R3hJVmFiMHNDd0hXNE9BWS9o?=
+ =?utf-8?B?SENYblVBaXkrZ2VhbVZpb0V3Z0hqblNEdERpZGRvRGtjSFJxaXkzN21UR256?=
+ =?utf-8?B?bGh2cis5a21hdDc1N1ViSExQY2R3SFBFenc4V2hybzNQYmhjZUM5cnppQ1M5?=
+ =?utf-8?B?elF3b0RQWUk3aUV3YmdNTmdVYzBLZWJrWTFGbk1lb0F4RXJ5VFZGckJUZDEy?=
+ =?utf-8?B?ZjZJN3Y5UjNEcVI5bEkycDBZZEV2WDdoMHcvREtxeTJpSEhsRElsV2JJcEsy?=
+ =?utf-8?B?ZXV1bUFsNFM1MUtlUE1ta3VIR0x5QmNYWVVjVTJ0WnhyNkV3WUYveDI1NHFC?=
+ =?utf-8?B?L1VyeU82OWdOUUV0ekY1Z01CejBvSWx4Wm13Snp4bEdwNHhqekloeitUTitu?=
+ =?utf-8?B?RTcvWS9OSjZ5SUdobEVVUlVaMzd6WnV0L2tpN045YUlhNjJuS3M5VU9FRXA5?=
+ =?utf-8?B?UFhNRDBLWUs1UTJCZEx3YkF3MmRDTzY1NzdneDdBZmpOS0ZUVjYvSnFMU3Av?=
+ =?utf-8?B?OWErRk5vQ0lQQzlXMURtbHBTREJVWTg0UXg5WWpWaG5YeWtJZjA4TWZkRGl3?=
+ =?utf-8?B?R2pHQkdBN052TFhwN2ZJT2JWMXRkSnVCamFqWjhtbHc3VlFJWHhLV1pnRjF6?=
+ =?utf-8?B?eFArNEpDK3V3R09aaXpMTTcrdU1keUIvdGNHRVhZQ1VRUzlzUWJKTVVKenlC?=
+ =?utf-8?B?d3hFTWxzaWlFdElFcWxLU0tMYk5DNnBvV0ZVS1FPQXQ3STdxOWJlbndYZzFX?=
+ =?utf-8?B?YWxSQkdYemY1WG1wNGhJdVNxazAramJUazVWQ01nSlhlWEMyeFNDaE4yKzNW?=
+ =?utf-8?B?aHkvY3BDa2hoaHFwRUxwNXduQktzMXdIU3MvcXM3OUlkV0NlclkxK3pMRVVa?=
+ =?utf-8?B?OUM1L2t5VjBtS3VrRUJKY0Uxd1FkRGpVelZiVk9MeGVFWEsxUGlhMmVsQitD?=
+ =?utf-8?B?Z1hGVkpKTWVXNktCK3dtT1RoWloyb0JIYnR6WFZCL0FpSW52Tm1yLzNSUkgy?=
+ =?utf-8?B?WnlJemxNZXRYbk90NlF5MEJ6WHV0UHlNZGJhbUp3UFlwU0ZGY1N4Y3dvVE1w?=
+ =?utf-8?B?NGhoZUJpbEpScVFGU3l2MS9wZUF2Y0laR1hDTnRQSUxwKzloa2hyZmZDKzBq?=
+ =?utf-8?B?aG9DUkdBZjNxa3RSWDhwZmlxNmJwaEwxR2ZCcm9pa0p0S3ljb3NoZmpJUzVH?=
+ =?utf-8?B?YXRCazBObTdvWndPTUxlVVhWYXd2L1kvVERaOTZPT0FoejlBdFhCc0FFOVdU?=
+ =?utf-8?B?TE44N1JyZ1ZuOFlpcllEMW5kNkZmQlRnMUdlWVBDeS9lejZmam9tK1NlL2FZ?=
+ =?utf-8?B?a3crdUVhZHI0WE1MYmREb2RldUR5WWM1bHpUdWYvVVlHeXVmdnQ2cjFrV3hJ?=
+ =?utf-8?B?d21UVFRzeng2aEhkLy9pZnpYNXk5NFRaVWJTcmNZVmlDaHpSYUFCbUxXRVFJ?=
+ =?utf-8?B?OTZJK0tITEJCclBXMTdMWUR1R2N4VXJFZnZvaktmME50Njk5TW9RRGc0YVl3?=
+ =?utf-8?B?cFhKV1cxbWhOS0N3cVN2V3RCbUcyOGFwOUlURmNPR0YvVXpCcmE2RFIwQ3pM?=
+ =?utf-8?B?c2lzaVpwaUt0V3hhbEJUbHFmN1AzSW9vdURxOXRpZExBdW1IZTdTNHN3dWhY?=
+ =?utf-8?B?L3o3RFY1KzV3T1BocDY1VXdRYWZoWlRaK3N2OHgzL0dOQ3RGWGdIMGx6SEh1?=
+ =?utf-8?B?VjRyQ0xvWFA3Sk5BdVF1R0JXK0hXekg3NXZwaHRwbXJmM050UUM4MHpqYkNK?=
+ =?utf-8?B?ODF6d3RhaHBWUmVEOHFFbEwvVERiQ1RHakpBNzFqTUFObzRLT0xOR0VVbi9u?=
+ =?utf-8?B?RnZtUTF4NWtBVXRpODlCNk1GTktOY2tmcVdEb21lSElXQlpuL2hKRFdYMEZm?=
+ =?utf-8?B?VWVIUmtyVmdOTm5uTWtkMGFveitaSlpHbWQ5RitQTXU4aUwwVHBMNENtV0F5?=
+ =?utf-8?B?MFhKTDBtdDkvRFlpOUxkMFNMOFNic3FHUmMxbGlqSXdzL2hCVnVFMFFVWUhx?=
+ =?utf-8?Q?15nA=3D?=
+X-Forefront-Antispam-Report: CIP:164.130.1.60;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(376014)(7416014)(36860700013)(7053199007);DIR:OUT;SFP:1101;
+X-OriginatorOrg: foss.st.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Nov 2025 09:39:04.0783
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 87b8f2e2-9a1f-41a8-cba4-08de2361a644
+X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.60];Helo=[smtpO365.st.com]
+X-MS-Exchange-CrossTenant-AuthSource: AMS0EPF00000197.eurprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR10MB9217
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMTE0MDA3NiBTYWx0ZWRfX8eXVla5eh7v2
+ fhog8TagOSRqSxdzawWrqicR9WFg5J+XelM8Uz+mFKNSf0DYQ3us5wLCtwrxhng0Zuz8tLtn/+9
+ nDSaRbrYuEI1ehRXOqpV/dqtDK3aABYcY4yNvNCGQdN6zVGduL1L7VRMyjtUK3ou2RmeVOoJiXU
+ m3nemjpIvzJfhH7Ngjewk8Gs7ivDNbEk1DCgrVkHkvMfYAQ/RE6hOV/wY2MkvA+/yyKXpHKXq2y
+ Cqw4+uYU1xSEK33/liWdRuxV0oTcUeGr1W1acOCx0NvbsIp5NfKQQBTLUr9WJffshAz5KqUoDPM
+ gdrWvbwgZBaRGcGXQovnIXRAUPwg/ppAefIEEBZk+nTXHFNXJGFGhS8t/3Wex7xSbvhDOGtpNGe
+ 99lRaTWgy5KnsuCIVOgqWvtXX6ytEg==
+X-Authority-Analysis: v=2.4 cv=avi/yCZV c=1 sm=1 tr=0 ts=6916f8bc cx=c_pps
+ a=BZvBpOJ3R6NwyQWCxJuAzg==:117 a=uCuRqK4WZKO1kjFMGfU4lQ==:17
+ a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=RA8ZoFPxCIQA:10 a=IkcTkHD0fZMA:10
+ a=6UeiqGixMTsA:10 a=s63m1ICgrNkA:10 a=KrXZwBdWH7kA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=QyXUC8HyAAAA:8 a=X7L7FT1YXr2pfEN7NscA:9
+ a=QEXdDO2ut3YA:10 a=cPQSjfK2_nFv0Q5t_7PE:22 a=HhbK4dLum7pmb74im6QT:22
+ a=pHzHmUro8NiASowvMSCR:22 a=Ew2E2A-JSTLzCXPT_086:22
+X-Proofpoint-ORIG-GUID: 63urpa-oYLNSOuFfXw_m2QZ6F-BZ6N73
+X-Proofpoint-GUID: 63urpa-oYLNSOuFfXw_m2QZ6F-BZ6N73
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
+ definitions=2025-11-14_02,2025-11-13_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 malwarescore=0
+ suspectscore=0 bulkscore=0 priorityscore=1501 impostorscore=0 adultscore=0
+ lowpriorityscore=0 phishscore=0 clxscore=1011 spamscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2510240001 definitions=main-2511140076
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251114_013741_119644_C78EC44A 
-X-CRM114-Status: GOOD (  19.80  )
+X-CRM114-CacheID: sfid-20251114_013923_702199_CBB70429 
+X-CRM114-Status: GOOD (  14.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,49 +199,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 13 Nov 2025 18:01:57 +0000,
-Mark Brown <broonie@kernel.org> wrote:
-> 
-> [1  <text/plain; us-ascii (quoted-printable)>]
-> On Sun, Nov 09, 2025 at 05:15:38PM +0000, Marc Zyngier wrote:
-> > The trap bits are currently only set to manage CPU errata. However,
-> > we are about to make use of them for purposes beyond beating broken
-> > CPUs into submission.
-> > 
-> > For this purpose, turn these errata-driven bits into a patched-in
-> > constant that is merged with the KVM-driven value at the point of
-> > programming the ICH_HCR_EL2 register, rather than being directly
-> > stored with with the shadow value..
-> 
-> We're seeing the no-vgic-v3 failures in -next with slightly different
-> symptoms to those that were seen in mainline and fixed with Sacha's
-> change da888524c393 ("KVM: arm64: vgic-v3: Trap all if no in-kernel
-> irqchip").  That change generated a conflict with this patch which
-> Stephen resolved in what looks like a reasonable fashion tactically but
-> I suspect needs some wider changes.  The test now fails with:
-> 
-> # selftests: kvm: no-vgic-v3
-> # Random seed: 0x6b8b4567
-> # ==== Test Assertion Failure ====
-> #   lib/arm64/processor.c:487: false
-> #   pid=2080 tid=2080 errno=4 - Interrupted system call
-> #      1	0x0000000000413d27: assert_on_unhandled_exception at processor.c:487
-> #      2	0x0000000000406c1f: _vcpu_run at kvm_util.c:1699
-> #      3	 (inlined by) vcpu_run at kvm_util.c:1710
-> #      4	0x000000000040308b: test_run_vcpu at no-vgic-v3.c:124
-> #      5	0x0000000000402253: test_guest_no_gicv3 at no-vgic-v3.c:155
-> #      6	 (inlined by) main at no-vgic-v3.c:174
-> #      7	0x0000ffff9dc17543: ?? ??:0
-> #      8	0x0000ffff9dc17617: ?? ??:0
-> #      9	0x000000000040242f: _start at ??:?
-> #   Unexpected exception (vector:0x4, ec:0x18)
-> not ok 25 selftests: kvm: no-vgic-v3 # exit=254
+Hello,
 
-Fix at 20251114093541.3216162-1-maz@kernel.org based on kvmarm/next. I
-haven't tried -next.
+On 11/12/25 09:56, Andy Shevchenko wrote:
+> Update header inclusions to follow IWYU (Include What You Use)
+> principle.
+> 
+> In this case replace of_gpio.h, which is subject to remove by the GPIOLIB
+> subsystem, with the respective headers that are being used by the driver.
+> 
+> Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+> ---
+>   drivers/pci/controller/dwc/pcie-stm32-ep.c | 2 +-
+>   1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/drivers/pci/controller/dwc/pcie-stm32-ep.c b/drivers/pci/controller/dwc/pcie-stm32-ep.c
+> index 3400c7cd2d88..2b9b451306fc 100644
+> --- a/drivers/pci/controller/dwc/pcie-stm32-ep.c
+> +++ b/drivers/pci/controller/dwc/pcie-stm32-ep.c
+> @@ -7,9 +7,9 @@
+>    */
+>   
+>   #include <linux/clk.h>
+> +#include <linux/gpio/consumer.h>
+>   #include <linux/mfd/syscon.h>
+>   #include <linux/of_platform.h>
+> -#include <linux/of_gpio.h>
+>   #include <linux/phy/phy.h>
+>   #include <linux/platform_device.h>
+>   #include <linux/pm_runtime.h>
 
-	M.
+<linux/gpio/consumer.h> is already included from pcie-designware.h
 
--- 
-Without deviation from the norm, progress is not possible.
+However, if it is still required for IWYU, could you kindly include it 
+in pcie-stm32.c as well while you are working on it?
+
+Thank you very much
+
+Christian
 
