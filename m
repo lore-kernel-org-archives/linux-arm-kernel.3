@@ -4,55 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5188CE7B1B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 14:55:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6389CE7B1B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 14:57:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BYPx3Iwn0SRg8X/Yra1qw75giYDVmbFRJ4eRzoGnCz0=; b=PkE5peg8m0A0llnqxt8gIE7Mu2
-	9Tx4lxin3ZnLw7lQT9WZiPvUQDcXcInR6tlISH9uydKtZYA2EFAksVxJac5tM3aqDfSqWzh2LNToX
-	EfIJHir1F87fv15vrOoQpqWuUiy9JK/lvJk3YXsEPiLaG4h7LPyv0bajXwYB9HO3H+tp7KVmcjy33
-	M2cSM/6ARApd6/VIpUAwvZusVNZNy/OvvuIGa4Jl1AIBJGEyiJg+Qr2e3ebm3VpgYvaAvthy3fDbw
-	aqQLrW1yg4uU00VdL7hs9fTRV5FeV3aAmL6pL33wXxg+X/GD8Cm26SDtqowJD6c9sm16RRY9gKxnq
-	bwWYTJaQ==;
+	bh=8bb0UJXfBdxAxh+iVnPVK+vs19ADwDSadYINv64vJMs=; b=Jm9/5h9rjzavHCGEVCK6TL6ein
+	8qditP7g/KTbpMbj+WaXNYQRs2DOWri8SpOco0NDG8jrY0zzI1iNdnpP3udiZrC84gCbCi+AfIw58
+	7adotpR1wta79YpCyQTJRpCGheGQhuzZXAxYkgCvkZ/v09pGf8T5Ceb8veRUQnKZibeB2PNyfOxo0
+	rPW+KJg+WrAxgi9UUCYDKC8WAbTjCElXMycVvGtIh1omcIFGsnq8hQtxEu55/1/Km1SLlcWxZNeXq
+	n3/x8TSzFTKztpqAYyPr3VWnkN9JfN9DWzBEdc55pqUNYCrjYRd8PVtaPZdYTRU2yA7LVz/u11mV7
+	KFFHoKsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJvCy-0000000CPKB-1OjQ;
-	Fri, 14 Nov 2025 14:55:28 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJvCv-0000000CPJl-0DWp
+	id 1vJvEx-0000000CPUM-37Gg;
+	Fri, 14 Nov 2025 14:57:31 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vJvEv-0000000CPTX-08aG
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Nov 2025 14:55:26 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BC5DD1063;
-	Fri, 14 Nov 2025 06:55:15 -0800 (PST)
-Received: from localhost (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0344C3F66E;
-	Fri, 14 Nov 2025 06:55:22 -0800 (PST)
-Date: Fri, 14 Nov 2025 14:55:21 +0000
-From: Leo Yan <leo.yan@arm.com>
-To: James Clark <james.clark@linaro.org>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mike Leach <mike.leach@linaro.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jonathan Corbet <corbet@lwn.net>, coresight@lists.linaro.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-doc@vger.kernel.org
-Subject: Re: [PATCH v4 04/13] coresight: Hide unused ETMv3 format attributes
-Message-ID: <20251114145521.GD3568724@e132581.arm.com>
-References: <20251112-james-cs-syncfreq-v4-0-165ba21401dc@linaro.org>
- <20251112-james-cs-syncfreq-v4-4-165ba21401dc@linaro.org>
+	Fri, 14 Nov 2025 14:57:30 +0000
+Received: from ideasonboard.com (93-61-96-190.ip145.fastwebnet.it [93.61.96.190])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 1036CB5;
+	Fri, 14 Nov 2025 15:55:24 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1763132124;
+	bh=UTl0W5+Bdo6I+bjM1sDG2qr2k/CxEVF6Tf83hOXGMzU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=PaZwhQLDGaev/igVb0jI/OydGH3dMJiRT5hie2WPZI9PhWjrvgydCncmP68HwsIgu
+	 NMOdv/Dod3ygTeAVnKJy2eINSdDKG2I3B7kqTPukZdAjBN9Jt3CCNjyRmGKUN7rBX6
+	 nd3GoNDppwdbVYgtEa5Z/5fN1XuPLYXj9XDckE7E=
+Date: Fri, 14 Nov 2025 15:57:21 +0100
+From: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+To: Sakari Ailus <sakari.ailus@linux.intel.com>
+Cc: Jacopo Mondi <jacopo.mondi@ideasonboard.com>, 
+	Daniel Scally <dan.scally@ideasonboard.com>, linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, Anthony.McGivern@arm.com, nayden.kanchev@arm.com, 
+	robh+dt@kernel.org, mchehab@kernel.org, krzysztof.kozlowski+dt@linaro.org, 
+	conor+dt@kernel.org, jerome.forissier@linaro.org, kieran.bingham@ideasonboard.com, 
+	laurent.pinchart@ideasonboard.com, Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+Subject: Re: [PATCH v13 15/15] Documentation: mali-c55: Document the mali-c55
+ parameter setting
+Message-ID: <umslyxkmj4gnr743c6ixsykay5w2seoeiy2hzidg6lb3fcizep@dglvrn7l7a4q>
+References: <20251111-c55-v13-0-3dc581355e3a@ideasonboard.com>
+ <20251111-c55-v13-15-3dc581355e3a@ideasonboard.com>
+ <2n4sn2aakwl7k2qvcefb7m2zzllytj7i4nup55xex2ggdngfkd@gwpxbpmlupko>
+ <aRdBbn4cpdn_7H0v@kekkonen.localdomain>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20251112-james-cs-syncfreq-v4-4-165ba21401dc@linaro.org>
+In-Reply-To: <aRdBbn4cpdn_7H0v@kekkonen.localdomain>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251114_065525_152387_785FE008 
-X-CRM114-Status: GOOD (  21.64  )
+X-CRM114-CacheID: sfid-20251114_065729_232666_EF58FCD8 
+X-CRM114-Status: GOOD (  24.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,73 +74,152 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 12, 2025 at 03:22:10PM +0000, James Clark wrote:
-> ETMv3 only has a few attributes, and setting unused ones results in an
-> error, so hide them to begin with.
-> 
-> Signed-off-by: James Clark <james.clark@linaro.org>
-> ---
->  drivers/hwtracing/coresight/coresight-etm-perf.c | 19 +++++++++++++++++++
->  1 file changed, 19 insertions(+)
-> 
-> diff --git a/drivers/hwtracing/coresight/coresight-etm-perf.c b/drivers/hwtracing/coresight/coresight-etm-perf.c
-> index 17afa0f4cdee..91132abca244 100644
-> --- a/drivers/hwtracing/coresight/coresight-etm-perf.c
-> +++ b/drivers/hwtracing/coresight/coresight-etm-perf.c
-> @@ -106,8 +106,27 @@ static struct attribute *etm_config_formats_attr[] = {
->  	NULL,
->  };
->  
-> +static umode_t etm_format_attr_is_visible(struct kobject *kobj,
-> +					  struct attribute *attr, int unused)
-> +{
-> +	/* ETM4 has all attributes */
-> +	if (IS_ENABLED(CONFIG_CORESIGHT_SOURCE_ETM4X))
-> +		return attr->mode;
-> +
-> +	/* ETM3 only has these attributes */
-> +	if (attr == &format_attr_cycacc.attr ||
-> +	    attr == &format_attr_timestamp.attr ||
-> +	    attr == &format_attr_retstack.attr ||
-> +	    attr == &format_attr_sinkid.attr ||
-> +	    attr == &format_attr_configid.attr)
+Hi Sakari,
+   can't say timing is what we excel the most at.
 
-Do we support configid for ETM3?
+Afaik Hans has applied the PR, and as all comments here are on ...
+comments, they will be addressed with patches on top
 
-> +		return attr->mode;
+On Fri, Nov 14, 2025 at 04:49:18PM +0200, Sakari Ailus wrote:
+> Hi Jacopo,
+>
+> On Thu, Nov 13, 2025 at 09:39:37AM +0100, Jacopo Mondi wrote:
+> > > +the data member with the blocks that need to be configured by the driver, but
+> > > +need not populate it with **all** the blocks, or indeed with any at all if there
+> > > +are no configuration changes to make. Populated blocks **must** be consecutive
+> > > +in the buffer. To assist both userspace and the driver in identifying the
+> > > +blocks each block-specific struct embeds :c:type:`v4l2_params_block_header` as
+> > > +its first member and userspace must populate the type member with a value from
+> > > +:c:type:`mali_c55_param_block_type`. Once the blocks have been populated
+> > > +into the data buffer, the combined size of all populated blocks shall be set in
+> > > +the data_size member of :c:type:`v4l2_params_buffer`. For example:
+> > > +
+> > > +.. code-block:: c
+> > > +
+> > > +	struct v4l2_params_buffer *params =
+> > > +		(struct v4l2_params_buffer *)buffer;
+> > > +
+> > > +	params->version = MALI_C55_PARAM_BUFFER_V1;
+> > > +	params->data_size = 0;
+> > > +
+> > > +	void *data = (void *)params->data;
+> > > +
+> > > +	struct mali_c55_params_awb_gains *gains =
+> > > +		(struct mali_c55_params_awb_gains *)data;
+> > > +
+> > > +	gains->header.type = MALI_C55_PARAM_BLOCK_AWB_GAINS;
+> > > +	gains->header.flags |= V4L2_PARAMS_FL_BLOCK_ENABLE;
+> > > +	gains->header.size = sizeof(struct mali_c55_params_awb_gains);
+> > > +
+> > > +	gains->gain00 = 256;
+> > > +	gains->gain00 = 256;
+> > > +	gains->gain00 = 256;
+> > > +	gains->gain00 = 256;
+> > > +
+> > > +	data += sizeof(struct mali_c55_params_awb_gains);
+> > > +	params->data_size += sizeof(struct mali_c55_params_awb_gains);
+> > > +
+> > > +	struct mali_c55_params_sensor_off_preshading *blc =
+> > > +		(struct mali_c55_params_sensor_off_preshading *)data;
+> > > +
+> > > +	blc->header.type = MALI_C55_PARAM_BLOCK_SENSOR_OFFS;
+> > > +	blc->header.flags |= V4L2_PARAMS_FL_BLOCK_ENABLE;
+> > > +	blc->header.size = sizeof(struct mali_c55_params_sensor_off_preshading);
+> > > +
+> > > +	blc->chan00 = 51200;
+> > > +	blc->chan01 = 51200;
+> > > +	blc->chan10 = 51200;
+> > > +	blc->chan11 = 51200;
+> > > +
+> > > +	params->total_size += sizeof(struct mali_c55_params_sensor_off_preshading);
+> >
+> > s/total_size/data_size
+> >
+> > And I've also updated it to use the v4l2-isp types
+> >
+> > +.. code-block:: c
+> > +
+> > +       struct v4l2_isp_params_buffer *params =
+> > +               (struct v4l2_isp_params_buffer *)buffer;
+>
+> What's the type of buffer here? If it's void, you can drop the cast.
+>
+> > +
+> > +       params->version = MALI_C55_PARAM_BUFFER_V1;
+> > +       params->data_size = 0;
+> > +
+> > +       void *data = (void *)params->data;
+>
+> No need for a cast here.
+>
+> > +
+> > +       struct mali_c55_params_awb_gains *gains =
+> > +               (struct mali_c55_params_awb_gains *)data;
+>
+> Ditto.
+>
+> Unless, I guess, you use C++. :-)
+>
 
-It is good to give a bit information why only these attributes
-supported, e.g.,
+It was C++ code yes :)
 
-  /*
-   * ETM3 only support subset attributes (see ETM3X_SUPPORTED_OPTIONS),
-   * keep 'sinkid' attr for specifying sink ID.
-   */
+> > +
+> > +       gains->header.type = MALI_C55_PARAM_BLOCK_AWB_GAINS;
+> > +       gains->header.flags |= V4L2_ISP_PARAMS_FL_BLOCK_ENABLE;
+> > +       gains->header.size = sizeof(struct mali_c55_params_awb_gains);
+> > +
+> > +       gains->gain00 = 256;
+> > +       gains->gain00 = 256;
+> > +       gains->gain00 = 256;
+> > +       gains->gain00 = 256;
+> > +
+> > +       data += sizeof(struct mali_c55_params_awb_gains);
+>
+> 	data += sizeof(*gains);
+>
+> ?
+>
+> > +       params->data_size += sizeof(struct mali_c55_params_awb_gains);
+>
+> Ditto.
+>
+> > +
+> > +       struct mali_c55_params_sensor_off_preshading *blc =
+> > +               (struct mali_c55_params_sensor_off_preshading *)data;
+> > +
+> > +       blc->header.type = MALI_C55_PARAM_BLOCK_SENSOR_OFFS;
+> > +       blc->header.flags |= V4L2_ISP_PARAMS_FL_BLOCK_ENABLE;
+> > +       blc->header.size = sizeof(struct mali_c55_params_sensor_off_preshading);
+> > +
+> > +       blc->chan00 = 51200;
+> > +       blc->chan01 = 51200;
+> > +       blc->chan10 = 51200;
+> > +       blc->chan11 = 51200;
+> > +
+> > +       params->data_size += sizeof(struct mali_c55_params_sensor_off_preshading);
+>
+> 	... += sizeof(*blc);
+>
+> ?
 
-Two side topics but not issues caused this patch:
+Patches will follow after v6.19 has been released
 
-- Since CTXTID/CTXTID2 is only used for ETM4x, we can remove "#if
-  IS_ENABLED(CONFIG_CORESIGHT_SOURCE_ETM4X)" from the
-  format_attr_contextid_show() function.
 
-- etm_parse_event_config() does not check attr->config3, thus user
-  sets 'cc_threshold' it will slip without any error report.
-
-Thanks,
-Leo
-
-> +
-> +	return 0;
-> +}
-> +
->  static const struct attribute_group etm_pmu_format_group = {
->  	.name   = "format",
-> +	.is_visible = etm_format_attr_is_visible,
->  	.attrs  = etm_config_formats_attr,
->  };
->  
-> 
-> -- 
-> 2.34.1
-> 
+>
+> >
+> > With your ack, I'll apply the following changes before sending the PR.
+> >
+> > Thanks
+> >   j
+> >
+> > > +
+> > >  Arm Mali-C55 uAPI data types
+> > >  ============================
+> > >
+> > >
+>
+> --
+> Regards,
+>
+> Sakari Ailus
 
