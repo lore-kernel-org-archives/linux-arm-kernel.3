@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D90ECE8D4B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 15:20:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1196CE8D40
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 15:20:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XJ4WnuV7O6nxrvBKevDCBSFVgvYolkGnRDZvj3KEJYQ=; b=0YEDGbDoXweIU7jSAFiOkJ9gQ1
-	q6t+69IXo3Ib0y7FwFq3HFPhjlf8eGxMmLvU4XLjiJJbjEfwIkLnz5TMz9ffzIjDfamStAbwzl4Yu
-	Pr+EEr8Xs8EkThIofYb6XKyh1TkgIjjegEb2qnJn0/g97q1Ud+YyO+d4sxLZV4Ew1SLpqo106/Ahq
-	+vxOJ9JFgodJDN0cwUCj6lg0RhYyWQgKroVgJ7W0lRT1bIcavmgvAnNxsqoqdgZmU0j2gxshx1yF+
-	Pd+9/t6P0PFYo3MiNpWTe/EsiBRVss7KFZCs1hKPP3SJfzPvDtDerfhOLApdQfpROJOBmJgoZcbOl
-	799OTT6g==;
+	bh=ylpwLKgCumQWiJnt4Gs7vUjRZR76xg2Ki5dwDpPOrMI=; b=nAB6WZRDLsV6N/+EyljSgK2W6Y
+	wf1hEd11pRtfzAElnq9eqKJ/H5x+vxXbuu78VhMSuMRDRMcjfHQUD4ZDsc4dJt8xfQl8xMb5ULfkQ
+	VGk84KXv7hi1MSowvNki3hIuO1Ymq5phxY0glIrRxY3ctZ2Ez/VwM/c82OFX/3ddwphwRbspSd/GV
+	bpkqyEubDYrfpAZaG+RM+l8aErm8UqCiWIFAS/CR0ul0hkX7ZZI9d2W194K+mSYr8nuyotfX2uk7Z
+	j/JYFFwrXPcPuAYIBpSsvhd7KZhpvYfZtcSw2o5VKa7souN+DHg4RkOfjm3njSEcANXpQqqS9yRPU
+	jrpVxvLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJvbE-0000000CWKP-2z7P;
-	Fri, 14 Nov 2025 15:20:32 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vJvbF-0000000CWMC-3Ayr;
+	Fri, 14 Nov 2025 15:20:33 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJvb8-0000000CWE0-2ptU;
+	id 1vJvb8-0000000CWE1-2hON;
 	Fri, 14 Nov 2025 15:20:28 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 87CA6445A7;
+	by sea.source.kernel.org (Postfix) with ESMTP id 8DE92445AB;
 	Fri, 14 Nov 2025 15:20:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 37160C4AF0E;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 5514AC4AF14;
 	Fri, 14 Nov 2025 15:20:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1763133620;
-	bh=dNRS/u2Cur0aQUVTVKq0CHh+/LPm8aobiExXj8EuXpA=;
+	bh=IPXLhU9MhtGdosnWLKdXzkql1hQIHaUXNsfC5nuzr/I=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=oJjmknloO+fk0Rxz5QoZUxRPuES+yvhvsZ5cb581b4xknqjCRo3gICz3wRG0Y4Mcx
-	 lmpXtOeKSbNGgn7V7vuW9cX8YE9z/WmYMTJ5sR7FXBq7D6dabwPTlX6PchlZ8PxZYl
-	 UbiquTNJThoUKsi2b8IFbt+D+FvZlWjS9M/tOYWwpy2GiZgHR9v1brz9fVqcaPthoD
-	 up+UVpApWmbjeben0SRBFS1m9eIH2aW388EIggl6bSAXlfAoRZNG6W9a82We/6MMfx
-	 IyBbEsyaVac7HV0qdzYydOgM4Au7M3y2e7RIlZavc1S6i1WKt4g6mxqHQr/0bgrc0r
-	 DKTWbtp7plqQQ==
+	b=bIaDNzUJC8C5LpYHWToPJdziM/pNGzJzLFjh0pnbP1zr3U82yBrudb6TEUgUfegf4
+	 qyPnxWsrVW6jnWt0DTu9gTnMSIYi0Y6QEPlnVQ8sYdPRwwrseY1nh/dHdgrf+rcp0Z
+	 bzkvW6B98hgps6TLsoN18F1h+W6/57yD+DpSrkdADW66Z2kUqqG2JlvwBYes8vFwsr
+	 PwfnxILv13ObiAiHN03QoB1JXmraLBPz/9GsKhSRVf7+0C8ph/ppTvSdk8KsLnWEKW
+	 YFWmdJSigpVBGB/eb6Ihsw2+W4UMraP7fr4lcM+lbKOEvpzpt3y81/Wb/Vc1411qkC
+	 Hys8IBwYejd6g==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 23648CE7B13;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 4878DCE8D40;
 	Fri, 14 Nov 2025 15:20:20 +0000 (UTC)
 From: Michael Riesch via B4 Relay <devnull+michael.riesch.collabora.com@kernel.org>
-Date: Fri, 14 Nov 2025 16:20:16 +0100
-Subject: [PATCH v15 05/14] media: rockchip: add driver for the rockchip
- camera interface
+Date: Fri, 14 Nov 2025 16:20:18 +0100
+Subject: [PATCH v15 07/14] media: rockchip: rkcif: add abstraction for dma
+ blocks
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20240220-rk3568-vicap-v15-5-8f4915ee365d@collabora.com>
+Message-Id: <20240220-rk3568-vicap-v15-7-8f4915ee365d@collabora.com>
 References: <20240220-rk3568-vicap-v15-0-8f4915ee365d@collabora.com>
 In-Reply-To: <20240220-rk3568-vicap-v15-0-8f4915ee365d@collabora.com>
 To: Mehdi Djait <mehdi.djait@linux.intel.com>, 
@@ -80,19 +80,19 @@ Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org,
  Michael Riesch <michael.riesch@collabora.com>, 
  Michael Riesch <michael.riesch@collabora.com>
 X-Mailer: b4 0.12.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1763133617; l=12611;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1763133617; l=26331;
  i=michael.riesch@collabora.com; s=20250410; h=from:subject:message-id;
- bh=X5Afk2knntsfJmF9FDW7swXc75gD8jesDHe46dQtoXM=;
- b=304RDce8BK/nir1ZWLhjxX4T9qmrr+ygIlWXF5aoc22uB/h/ZRE09n6x3ltBQK62AN+dxeXCK
- 1/p+qzEAjNUA83rzRdyVPdtxIj6FiSOO4LZ6MS0JVDWgOJXDE8TeBc/
+ bh=HsUs80iusj4Avc4anshfIleb6RLrRNvAXrGj0YqKc50=;
+ b=r2bWrxos/xs4swKsfbr5cYYoOaOiSqsGW0Ws7WawNQNzeGOnLaWWEvsnx8Fo86G0Bm5kwniEX
+ vWmYz13os5tAOmn7S5DVtcQvZHYgY3dLuJ4SE9RgjochmCi4u/7faFI
 X-Developer-Key: i=michael.riesch@collabora.com; a=ed25519;
  pk=+MWX1fffLFZtTPG/I6XdYm/+OSvpRE8D9evQaWbiN04=
 X-Endpoint-Received: by B4 Relay for michael.riesch@collabora.com/20250410
  with auth_id=371
 X-Original-From: Michael Riesch <michael.riesch@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251114_072026_782814_5D3C62EC 
-X-CRM114-Status: GOOD (  27.68  )
+X-CRM114-CacheID: sfid-20251114_072026_791157_590FCC5A 
+X-CRM114-Status: GOOD (  24.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,10 +110,11 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Michael Riesch <michael.riesch@collabora.com>
 
-Add the skeleton for a media controller centric V4L2 driver for the
-Rockchip Camera Interface (CIF).
-The skeleton features support for the PX30 Video Input Processor (VIP)
-and the RK3568 Video Capture (VICAP) unit.
+Add an abstraction for the DMA parts and the ping-pong scheme (a
+double-buffering mechanism) of the different CIF variants. Each
+stream is represented as V4L2 device whose corresponding media
+entity has one sink pad. This sink pad is connected to an instance
+of the INTERFACE/CROP abstraction.
 
 Tested-by: Gerald Loacker <gerald.loacker@wolfvision.net>
 Reviewed-by: Gerald Loacker <gerald.loacker@wolfvision.net>
@@ -121,411 +122,881 @@ Reviewed-by: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
 Reviewed-by: Mehdi Djait <mehdi.djait@linux.intel.com>
 Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
 ---
- MAINTAINERS                                        |   1 +
- drivers/media/platform/rockchip/Kconfig            |   1 +
- drivers/media/platform/rockchip/Makefile           |   1 +
- drivers/media/platform/rockchip/rkcif/Kconfig      |  18 ++
- drivers/media/platform/rockchip/rkcif/Makefile     |   4 +
- .../media/platform/rockchip/rkcif/rkcif-common.h   |  55 +++++
- drivers/media/platform/rockchip/rkcif/rkcif-dev.c  | 262 +++++++++++++++++++++
- 7 files changed, 342 insertions(+)
+ drivers/media/platform/rockchip/rkcif/Makefile     |   1 +
+ .../media/platform/rockchip/rkcif/rkcif-common.h   |  67 +++
+ .../platform/rockchip/rkcif/rkcif-interface.c      |  37 ++
+ .../media/platform/rockchip/rkcif/rkcif-stream.c   | 638 +++++++++++++++++++++
+ .../media/platform/rockchip/rkcif/rkcif-stream.h   |  32 ++
+ 5 files changed, 775 insertions(+)
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 0a3959696154..8d00d6d4b5bf 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -22250,6 +22250,7 @@ S:	Maintained
- F:	Documentation/admin-guide/media/rkcif*
- F:	Documentation/devicetree/bindings/media/rockchip,px30-vip.yaml
- F:	Documentation/devicetree/bindings/media/rockchip,rk3568-vicap.yaml
-+F:	drivers/media/platform/rockchip/rkcif/
- 
- ROCKCHIP CRYPTO DRIVERS
- M:	Corentin Labbe <clabbe@baylibre.com>
-diff --git a/drivers/media/platform/rockchip/Kconfig b/drivers/media/platform/rockchip/Kconfig
-index 9bbeec4996aa..ba401d32f01b 100644
---- a/drivers/media/platform/rockchip/Kconfig
-+++ b/drivers/media/platform/rockchip/Kconfig
-@@ -3,5 +3,6 @@
- comment "Rockchip media platform drivers"
- 
- source "drivers/media/platform/rockchip/rga/Kconfig"
-+source "drivers/media/platform/rockchip/rkcif/Kconfig"
- source "drivers/media/platform/rockchip/rkisp1/Kconfig"
- source "drivers/media/platform/rockchip/rkvdec/Kconfig"
-diff --git a/drivers/media/platform/rockchip/Makefile b/drivers/media/platform/rockchip/Makefile
-index 286dc5c53f7e..0e0b2cbbd4bd 100644
---- a/drivers/media/platform/rockchip/Makefile
-+++ b/drivers/media/platform/rockchip/Makefile
-@@ -1,4 +1,5 @@
- # SPDX-License-Identifier: GPL-2.0-only
- obj-y += rga/
-+obj-y += rkcif/
- obj-y += rkisp1/
- obj-y += rkvdec/
-diff --git a/drivers/media/platform/rockchip/rkcif/Kconfig b/drivers/media/platform/rockchip/rkcif/Kconfig
-new file mode 100644
-index 000000000000..efd82ac35bd8
---- /dev/null
-+++ b/drivers/media/platform/rockchip/rkcif/Kconfig
-@@ -0,0 +1,18 @@
-+config VIDEO_ROCKCHIP_CIF
-+	tristate "Rockchip Camera Interface (CIF)"
-+	depends on VIDEO_DEV
-+	depends on ARCH_ROCKCHIP || COMPILE_TEST
-+	depends on V4L_PLATFORM_DRIVERS
-+	depends on PM && COMMON_CLK
-+	select MEDIA_CONTROLLER
-+	select VIDEOBUF2_DMA_CONTIG
-+	select V4L2_FWNODE
-+	select VIDEO_V4L2_SUBDEV_API
-+	help
-+	  This is a driver for Rockchip Camera Interface (CIF). It is featured
-+	  in many Rockchips SoCs in different variations, such as the PX30
-+	  Video Input Processor (VIP, one Digital Video Port (DVP)) or the
-+	  RK3568 Video Capture (VICAP, one DVP, one MIPI CSI-2 receiver) unit.
-+
-+	  To compile this driver as a module, choose M here: the module
-+	  will be called rockchip-cif.
 diff --git a/drivers/media/platform/rockchip/rkcif/Makefile b/drivers/media/platform/rockchip/rkcif/Makefile
-new file mode 100644
-index 000000000000..c6837ed2f65c
---- /dev/null
+index 9d535fc27e51..256335d95050 100644
+--- a/drivers/media/platform/rockchip/rkcif/Makefile
 +++ b/drivers/media/platform/rockchip/rkcif/Makefile
-@@ -0,0 +1,4 @@
-+# SPDX-License-Identifier: GPL-2.0
-+obj-$(CONFIG_VIDEO_ROCKCHIP_CIF) += rockchip-cif.o
-+
-+rockchip-cif-objs += rkcif-dev.o
+@@ -3,3 +3,4 @@ obj-$(CONFIG_VIDEO_ROCKCHIP_CIF) += rockchip-cif.o
+ 
+ rockchip-cif-objs += rkcif-dev.o
+ rockchip-cif-objs += rkcif-interface.o
++rockchip-cif-objs += rkcif-stream.o
 diff --git a/drivers/media/platform/rockchip/rkcif/rkcif-common.h b/drivers/media/platform/rockchip/rkcif/rkcif-common.h
-new file mode 100644
-index 000000000000..b456a56b5ac4
---- /dev/null
+index f01536727a5d..63d5b45c7afe 100644
+--- a/drivers/media/platform/rockchip/rkcif/rkcif-common.h
 +++ b/drivers/media/platform/rockchip/rkcif/rkcif-common.h
-@@ -0,0 +1,55 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+/*
-+ * Rockchip Camera Interface (CIF) Driver
-+ *
-+ * Copyright (C) 2018 Rockchip Electronics Co., Ltd.
-+ * Copyright (C) 2023 Mehdi Djait <mehdi.djait@bootlin.com>
-+ * Copyright (C) 2025 Michael Riesch <michael.riesch@wolfvision.net>
-+ * Copyright (C) 2025 Collabora, Ltd.
-+ */
-+
-+#ifndef _RKCIF_COMMON_H
-+#define _RKCIF_COMMON_H
-+
-+#include <linux/clk.h>
-+#include <linux/mutex.h>
-+#include <linux/regmap.h>
-+
-+#include <media/media-device.h>
-+#include <media/media-entity.h>
-+#include <media/v4l2-common.h>
-+#include <media/v4l2-device.h>
-+#include <media/v4l2-fwnode.h>
-+#include <media/v4l2-mc.h>
-+#include <media/v4l2-subdev.h>
-+#include <media/videobuf2-v4l2.h>
-+
-+#define RKCIF_DRIVER_NAME "rockchip-cif"
-+#define RKCIF_CLK_MAX	  4
-+
-+struct rkcif_remote {
-+	struct v4l2_async_connection async_conn;
-+	struct v4l2_subdev *sd;
+@@ -33,6 +33,14 @@ enum rkcif_format_type {
+ 	RKCIF_FMT_TYPE_RAW,
+ };
+ 
++enum rkcif_id_index {
++	RKCIF_ID0,
++	RKCIF_ID1,
++	RKCIF_ID2,
++	RKCIF_ID3,
++	RKCIF_ID_MAX
 +};
 +
-+struct rkcif_match_data {
-+	const char *const *clks;
-+	unsigned int clks_num;
+ enum rkcif_interface_index {
+ 	RKCIF_DVP,
+ 	RKCIF_MIPI_BASE,
+@@ -63,6 +71,19 @@ enum rkcif_interface_type {
+ 	RKCIF_IF_MIPI,
+ };
+ 
++struct rkcif_buffer {
++	struct vb2_v4l2_buffer vb;
++	struct list_head queue;
++	dma_addr_t buff_addr[VIDEO_MAX_PLANES];
++	bool is_dummy;
 +};
 +
-+struct rkcif_device {
-+	struct device *dev;
-+
-+	const struct rkcif_match_data *match_data;
-+	struct clk_bulk_data clks[RKCIF_CLK_MAX];
-+	unsigned int clks_num;
-+	struct regmap *grf;
-+	struct reset_control *reset;
-+	void __iomem *base_addr;
-+
-+	struct media_device media_dev;
-+	struct v4l2_device v4l2_dev;
-+	struct v4l2_async_notifier notifier;
++struct rkcif_dummy_buffer {
++	struct rkcif_buffer buffer;
++	void *vaddr;
++	u32 size;
 +};
 +
-+#endif
-diff --git a/drivers/media/platform/rockchip/rkcif/rkcif-dev.c b/drivers/media/platform/rockchip/rkcif/rkcif-dev.c
+ struct rkcif_input_fmt {
+ 	u32 mbus_code;
+ 
+@@ -70,6 +91,12 @@ struct rkcif_input_fmt {
+ 	enum v4l2_field field;
+ };
+ 
++struct rkcif_output_fmt {
++	u32 fourcc;
++	u32 mbus_code;
++	u8 cplanes;
++};
++
+ struct rkcif_interface;
+ 
+ struct rkcif_remote {
+@@ -79,6 +106,42 @@ struct rkcif_remote {
+ 	struct rkcif_interface *interface;
+ };
+ 
++struct rkcif_stream {
++	enum rkcif_id_index id;
++	struct rkcif_device *rkcif;
++	struct rkcif_interface *interface;
++	const struct rkcif_output_fmt *out_fmts;
++	unsigned int out_fmts_num;
++
++	/* in ping-pong mode, two buffers can be provided to the HW */
++	struct rkcif_buffer *buffers[2];
++	int frame_idx;
++	int frame_phase;
++
++	/* in case of no available buffer, HW can write to the dummy buffer */
++	struct rkcif_dummy_buffer dummy;
++
++	bool stopping;
++	wait_queue_head_t wq_stopped;
++
++	/* queue of available buffers plus spinlock that protects it */
++	spinlock_t driver_queue_lock;
++	struct list_head driver_queue;
++
++	/* lock used by the V4L2 core */
++	struct mutex vlock;
++
++	struct media_pad pad;
++	struct media_pipeline pipeline;
++	struct v4l2_pix_format_mplane pix;
++	struct vb2_queue buf_queue;
++	struct video_device vdev;
++
++	void (*queue_buffer)(struct rkcif_stream *stream, unsigned int index);
++	int (*start_streaming)(struct rkcif_stream *stream);
++	void (*stop_streaming)(struct rkcif_stream *stream);
++};
++
+ struct rkcif_dvp {
+ 	u32 dvp_clk_delay;
+ };
+@@ -89,6 +152,8 @@ struct rkcif_interface {
+ 	enum rkcif_interface_index index;
+ 	struct rkcif_device *rkcif;
+ 	struct rkcif_remote *remote;
++	struct rkcif_stream streams[RKCIF_ID_MAX];
++	unsigned int streams_num;
+ 	const struct rkcif_input_fmt *in_fmts;
+ 	unsigned int in_fmts_num;
+ 
+@@ -99,6 +164,8 @@ struct rkcif_interface {
+ 	union {
+ 		struct rkcif_dvp dvp;
+ 	};
++
++	void (*set_crop)(struct rkcif_stream *stream, u16 left, u16 top);
+ };
+ 
+ struct rkcif_match_data {
+diff --git a/drivers/media/platform/rockchip/rkcif/rkcif-interface.c b/drivers/media/platform/rockchip/rkcif/rkcif-interface.c
+index 0fe9410e23ed..523103872b7a 100644
+--- a/drivers/media/platform/rockchip/rkcif/rkcif-interface.c
++++ b/drivers/media/platform/rockchip/rkcif/rkcif-interface.c
+@@ -157,15 +157,41 @@ static int rkcif_interface_set_routing(struct v4l2_subdev *sd,
+ 	if (ret)
+ 		return ret;
+ 
++	for (unsigned int i = 0; i < routing->num_routes; i++) {
++		const struct v4l2_subdev_route *route = &routing->routes[i];
++
++		if (route->source_stream >= RKCIF_ID_MAX)
++			return -EINVAL;
++	}
++
+ 	ret = v4l2_subdev_set_routing(sd, state, routing);
+ 
+ 	return ret;
+ }
+ 
++static int rkcif_interface_apply_crop(struct rkcif_stream *stream,
++				      struct v4l2_subdev_state *state)
++{
++	struct rkcif_interface *interface = stream->interface;
++	struct v4l2_rect *crop;
++
++	crop = v4l2_subdev_state_get_crop(state, RKCIF_IF_PAD_SRC, stream->id);
++	if (!crop)
++		return -EINVAL;
++
++	if (interface->set_crop)
++		interface->set_crop(stream, crop->left, crop->top);
++
++	return 0;
++}
++
+ static int rkcif_interface_enable_streams(struct v4l2_subdev *sd,
+ 					  struct v4l2_subdev_state *state,
+ 					  u32 pad, u64 streams_mask)
+ {
++	struct rkcif_interface *interface = to_rkcif_interface(sd);
++	struct rkcif_stream *stream;
++	struct v4l2_subdev_route *route;
+ 	struct v4l2_subdev *remote_sd;
+ 	struct media_pad *remote_pad;
+ 	u64 mask;
+@@ -174,6 +200,17 @@ static int rkcif_interface_enable_streams(struct v4l2_subdev *sd,
+ 		media_pad_remote_pad_first(&sd->entity.pads[RKCIF_IF_PAD_SINK]);
+ 	remote_sd = media_entity_to_v4l2_subdev(remote_pad->entity);
+ 
++	/* DVP has one crop setting for all IDs */
++	if (interface->type == RKCIF_IF_DVP) {
++		stream = &interface->streams[RKCIF_ID0];
++		rkcif_interface_apply_crop(stream, state);
++	} else {
++		for_each_active_route(&state->routing, route) {
++			stream = &interface->streams[route->sink_stream];
++			rkcif_interface_apply_crop(stream, state);
++		}
++	}
++
+ 	mask = v4l2_subdev_state_xlate_streams(state, RKCIF_IF_PAD_SINK,
+ 					       RKCIF_IF_PAD_SRC, &streams_mask);
+ 
+diff --git a/drivers/media/platform/rockchip/rkcif/rkcif-stream.c b/drivers/media/platform/rockchip/rkcif/rkcif-stream.c
 new file mode 100644
-index 000000000000..9215dbe90353
+index 000000000000..fd6593f4702f
 --- /dev/null
-+++ b/drivers/media/platform/rockchip/rkcif/rkcif-dev.c
-@@ -0,0 +1,262 @@
++++ b/drivers/media/platform/rockchip/rkcif/rkcif-stream.c
+@@ -0,0 +1,638 @@
 +// SPDX-License-Identifier: GPL-2.0
 +/*
 + * Rockchip Camera Interface (CIF) Driver
 + *
-+ * Copyright (C) 2018 Rockchip Electronics Co., Ltd.
-+ * Copyright (C) 2020 Maxime Chevallier <maxime.chevallier@bootlin.com>
-+ * Copyright (C) 2023 Mehdi Djait <mehdi.djait@bootlin.com>
 + * Copyright (C) 2025 Michael Riesch <michael.riesch@wolfvision.net>
 + * Copyright (C) 2025 Collabora, Ltd.
 + */
 +
-+#include <linux/clk.h>
-+#include <linux/delay.h>
-+#include <linux/interrupt.h>
-+#include <linux/mfd/syscon.h>
-+#include <linux/module.h>
-+#include <linux/of.h>
-+#include <linux/of_graph.h>
-+#include <linux/of_platform.h>
 +#include <linux/pm_runtime.h>
-+#include <linux/reset.h>
 +
++#include <media/v4l2-common.h>
 +#include <media/v4l2-fwnode.h>
++#include <media/v4l2-ioctl.h>
 +#include <media/v4l2-mc.h>
++#include <media/v4l2-subdev.h>
++#include <media/videobuf2-dma-contig.h>
 +
 +#include "rkcif-common.h"
++#include "rkcif-stream.h"
 +
-+static const char *const px30_vip_clks[] = {
-+	"aclk",
-+	"hclk",
-+	"pclk",
-+};
++#define CIF_REQ_BUFS_MIN 1
++#define CIF_MIN_WIDTH	 64
++#define CIF_MIN_HEIGHT	 64
++#define CIF_MAX_WIDTH	 8192
++#define CIF_MAX_HEIGHT	 8192
 +
-+static const struct rkcif_match_data px30_vip_match_data = {
-+	.clks = px30_vip_clks,
-+	.clks_num = ARRAY_SIZE(px30_vip_clks),
-+};
-+
-+static const char *const rk3568_vicap_clks[] = {
-+	"aclk",
-+	"hclk",
-+	"dclk",
-+	"iclk",
-+};
-+
-+static const struct rkcif_match_data rk3568_vicap_match_data = {
-+	.clks = rk3568_vicap_clks,
-+	.clks_num = ARRAY_SIZE(rk3568_vicap_clks),
-+};
-+
-+static const struct of_device_id rkcif_plat_of_match[] = {
-+	{
-+		.compatible = "rockchip,px30-vip",
-+		.data = &px30_vip_match_data,
-+	},
-+	{
-+		.compatible = "rockchip,rk3568-vicap",
-+		.data = &rk3568_vicap_match_data,
-+	},
-+	{}
-+};
-+MODULE_DEVICE_TABLE(of, rkcif_plat_of_match);
-+
-+static int rkcif_register(struct rkcif_device *rkcif)
++static inline struct rkcif_buffer *to_rkcif_buffer(struct vb2_v4l2_buffer *vb)
 +{
-+	return 0;
++	return container_of(vb, struct rkcif_buffer, vb);
 +}
 +
-+static void rkcif_unregister(struct rkcif_device *rkcif)
++static inline struct rkcif_stream *to_rkcif_stream(struct video_device *vdev)
 +{
++	return container_of(vdev, struct rkcif_stream, vdev);
 +}
 +
-+static int rkcif_notifier_bound(struct v4l2_async_notifier *notifier,
-+				struct v4l2_subdev *sd,
-+				struct v4l2_async_connection *asd)
++static struct rkcif_buffer *rkcif_stream_pop_buffer(struct rkcif_stream *stream)
 +{
-+	struct rkcif_remote *remote =
-+		container_of(asd, struct rkcif_remote, async_conn);
++	struct rkcif_buffer *buffer;
 +
-+	remote->sd = sd;
++	guard(spinlock_irqsave)(&stream->driver_queue_lock);
 +
-+	return 0;
++	if (list_empty(&stream->driver_queue))
++		return NULL;
++
++	buffer = list_first_entry(&stream->driver_queue, struct rkcif_buffer,
++				  queue);
++	list_del(&buffer->queue);
++
++	return buffer;
 +}
 +
-+static int rkcif_notifier_complete(struct v4l2_async_notifier *notifier)
++static void rkcif_stream_push_buffer(struct rkcif_stream *stream,
++				     struct rkcif_buffer *buffer)
 +{
-+	struct rkcif_device *rkcif =
-+		container_of(notifier, struct rkcif_device, notifier);
++	guard(spinlock_irqsave)(&stream->driver_queue_lock);
 +
-+	return v4l2_device_register_subdev_nodes(&rkcif->v4l2_dev);
++	list_add_tail(&buffer->queue, &stream->driver_queue);
 +}
 +
-+static const struct v4l2_async_notifier_operations rkcif_notifier_ops = {
-+	.bound = rkcif_notifier_bound,
-+	.complete = rkcif_notifier_complete,
-+};
-+
-+static irqreturn_t rkcif_isr(int irq, void *ctx)
++static inline void rkcif_stream_return_buffer(struct rkcif_buffer *buffer,
++					      enum vb2_buffer_state state)
 +{
-+	irqreturn_t ret = IRQ_NONE;
++	struct vb2_v4l2_buffer *vb = &buffer->vb;
 +
-+	return ret;
++	vb2_buffer_done(&vb->vb2_buf, state);
 +}
 +
-+static int rkcif_probe(struct platform_device *pdev)
++static void rkcif_stream_complete_buffer(struct rkcif_stream *stream,
++					 struct rkcif_buffer *buffer)
 +{
-+	struct device *dev = &pdev->dev;
-+	struct rkcif_device *rkcif;
-+	int ret, irq;
++	struct vb2_v4l2_buffer *vb = &buffer->vb;
 +
-+	rkcif = devm_kzalloc(dev, sizeof(*rkcif), GFP_KERNEL);
-+	if (!rkcif)
-+		return -ENOMEM;
++	vb->vb2_buf.timestamp = ktime_get_ns();
++	vb->sequence = stream->frame_idx;
++	vb2_buffer_done(&vb->vb2_buf, VB2_BUF_STATE_DONE);
++	stream->frame_idx++;
++}
 +
-+	rkcif->match_data = of_device_get_match_data(dev);
-+	if (!rkcif->match_data)
-+		return -ENODEV;
++void rkcif_stream_pingpong(struct rkcif_stream *stream)
++{
++	struct rkcif_buffer *buffer;
 +
-+	dev_set_drvdata(dev, rkcif);
-+	rkcif->dev = dev;
++	buffer = stream->buffers[stream->frame_phase];
++	if (!buffer->is_dummy)
++		rkcif_stream_complete_buffer(stream, buffer);
 +
-+	rkcif->base_addr = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(rkcif->base_addr))
-+		return PTR_ERR(rkcif->base_addr);
-+
-+	irq = platform_get_irq(pdev, 0);
-+	if (irq < 0)
-+		return irq;
-+
-+	ret = devm_request_irq(dev, irq, rkcif_isr, IRQF_SHARED,
-+			       dev_driver_string(dev), dev);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "failed to request irq\n");
-+
-+	if (rkcif->match_data->clks_num > RKCIF_CLK_MAX)
-+		return dev_err_probe(dev, -EINVAL, "invalid number of clocks\n");
-+
-+	rkcif->clks_num = rkcif->match_data->clks_num;
-+	for (unsigned int i = 0; i < rkcif->clks_num; i++)
-+		rkcif->clks[i].id = rkcif->match_data->clks[i];
-+	ret = devm_clk_bulk_get(dev, rkcif->clks_num, rkcif->clks);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "failed to get clocks\n");
-+
-+	rkcif->reset = devm_reset_control_array_get_exclusive(dev);
-+	if (IS_ERR(rkcif->reset))
-+		return PTR_ERR(rkcif->reset);
-+
-+	rkcif->grf = syscon_regmap_lookup_by_phandle(dev->of_node,
-+						     "rockchip,grf");
-+	if (IS_ERR(rkcif->grf))
-+		rkcif->grf = NULL;
-+
-+	pm_runtime_enable(&pdev->dev);
-+
-+	rkcif->media_dev.dev = dev;
-+	strscpy(rkcif->media_dev.model, RKCIF_DRIVER_NAME,
-+		sizeof(rkcif->media_dev.model));
-+	media_device_init(&rkcif->media_dev);
-+
-+	rkcif->v4l2_dev.mdev = &rkcif->media_dev;
-+	ret = v4l2_device_register(dev, &rkcif->v4l2_dev);
-+	if (ret)
-+		goto err_media_dev_cleanup;
-+
-+	ret = media_device_register(&rkcif->media_dev);
-+	if (ret < 0) {
-+		dev_err(dev, "failed to register media device: %d\n", ret);
-+		goto err_v4l2_dev_unregister;
++	buffer = rkcif_stream_pop_buffer(stream);
++	if (buffer) {
++		stream->buffers[stream->frame_phase] = buffer;
++		stream->buffers[stream->frame_phase]->is_dummy = false;
++	} else {
++		stream->buffers[stream->frame_phase] = &stream->dummy.buffer;
++		stream->buffers[stream->frame_phase]->is_dummy = true;
++		dev_dbg(stream->rkcif->dev,
++			"no buffer available, frame will be dropped\n");
 +	}
 +
-+	v4l2_async_nf_init(&rkcif->notifier, &rkcif->v4l2_dev);
-+	rkcif->notifier.ops = &rkcif_notifier_ops;
++	if (stream->queue_buffer)
++		stream->queue_buffer(stream, stream->frame_phase);
 +
-+	ret = rkcif_register(rkcif);
-+	if (ret) {
-+		dev_err(dev, "failed to register media entities: %d\n", ret);
-+		goto err_notifier_cleanup;
++	stream->frame_phase = 1 - stream->frame_phase;
++}
++
++static int rkcif_stream_init_buffers(struct rkcif_stream *stream)
++{
++	struct v4l2_pix_format_mplane *pix = &stream->pix;
++
++	stream->buffers[0] = rkcif_stream_pop_buffer(stream);
++	if (!stream->buffers[0])
++		goto err_buff_0;
++
++	stream->buffers[1] = rkcif_stream_pop_buffer(stream);
++	if (!stream->buffers[1])
++		goto err_buff_1;
++
++	if (stream->queue_buffer) {
++		stream->queue_buffer(stream, 0);
++		stream->queue_buffer(stream, 1);
 +	}
 +
-+	ret = v4l2_async_nf_register(&rkcif->notifier);
-+	if (ret)
-+		goto err_rkcif_unregister;
++	stream->dummy.size = pix->num_planes * pix->plane_fmt[0].sizeimage;
++	stream->dummy.vaddr =
++		dma_alloc_attrs(stream->rkcif->dev, stream->dummy.size,
++				&stream->dummy.buffer.buff_addr[0], GFP_KERNEL,
++				DMA_ATTR_NO_KERNEL_MAPPING);
++	if (!stream->dummy.vaddr)
++		goto err_dummy;
++
++	for (unsigned int i = 1; i < pix->num_planes; i++)
++		stream->dummy.buffer.buff_addr[i] =
++			stream->dummy.buffer.buff_addr[i - 1] +
++			pix->plane_fmt[i - 1].bytesperline * pix->height;
 +
 +	return 0;
 +
-+err_rkcif_unregister:
-+	rkcif_unregister(rkcif);
-+err_notifier_cleanup:
-+	v4l2_async_nf_cleanup(&rkcif->notifier);
-+	media_device_unregister(&rkcif->media_dev);
-+err_v4l2_dev_unregister:
-+	v4l2_device_unregister(&rkcif->v4l2_dev);
-+err_media_dev_cleanup:
-+	media_device_cleanup(&rkcif->media_dev);
-+	pm_runtime_disable(&pdev->dev);
-+	return ret;
++err_dummy:
++	rkcif_stream_return_buffer(stream->buffers[1], VB2_BUF_STATE_QUEUED);
++	stream->buffers[1] = NULL;
++
++err_buff_1:
++	rkcif_stream_return_buffer(stream->buffers[0], VB2_BUF_STATE_QUEUED);
++	stream->buffers[0] = NULL;
++err_buff_0:
++	return -EINVAL;
 +}
 +
-+static void rkcif_remove(struct platform_device *pdev)
++static void rkcif_stream_return_all_buffers(struct rkcif_stream *stream,
++					    enum vb2_buffer_state state)
 +{
-+	struct rkcif_device *rkcif = platform_get_drvdata(pdev);
++	struct rkcif_buffer *buffer;
 +
-+	v4l2_async_nf_unregister(&rkcif->notifier);
-+	rkcif_unregister(rkcif);
-+	v4l2_async_nf_cleanup(&rkcif->notifier);
-+	media_device_unregister(&rkcif->media_dev);
-+	v4l2_device_unregister(&rkcif->v4l2_dev);
-+	media_device_cleanup(&rkcif->media_dev);
-+	pm_runtime_disable(&pdev->dev);
++	if (stream->buffers[0] && !stream->buffers[0]->is_dummy) {
++		rkcif_stream_return_buffer(stream->buffers[0], state);
++		stream->buffers[0] = NULL;
++	}
++
++	if (stream->buffers[1] && !stream->buffers[1]->is_dummy) {
++		rkcif_stream_return_buffer(stream->buffers[1], state);
++		stream->buffers[1] = NULL;
++	}
++
++	while ((buffer = rkcif_stream_pop_buffer(stream)))
++		rkcif_stream_return_buffer(buffer, state);
++
++	if (stream->dummy.vaddr) {
++		dma_free_attrs(stream->rkcif->dev, stream->dummy.size,
++			       stream->dummy.vaddr,
++			       stream->dummy.buffer.buff_addr[0],
++			       DMA_ATTR_NO_KERNEL_MAPPING);
++		stream->dummy.vaddr = NULL;
++	}
 +}
 +
-+static int rkcif_runtime_suspend(struct device *dev)
++static int rkcif_stream_setup_queue(struct vb2_queue *queue,
++				    unsigned int *num_buffers,
++				    unsigned int *num_planes,
++				    unsigned int sizes[],
++				    struct device *alloc_devs[])
 +{
-+	struct rkcif_device *rkcif = dev_get_drvdata(dev);
++	struct rkcif_stream *stream = queue->drv_priv;
++	struct v4l2_pix_format_mplane *pix = &stream->pix;
 +
-+	/*
-+	 * Reset CIF (CRU, DMA, FIFOs) to allow a clean resume.
-+	 * Since this resets the IOMMU too, we cannot issue this reset when
-+	 * resuming.
-+	 */
-+	reset_control_assert(rkcif->reset);
-+	udelay(5);
-+	reset_control_deassert(rkcif->reset);
++	if (*num_planes) {
++		if (*num_planes != pix->num_planes)
++			return -EINVAL;
 +
-+	clk_bulk_disable_unprepare(rkcif->clks_num, rkcif->clks);
++		for (unsigned int i = 0; i < pix->num_planes; i++)
++			if (sizes[i] < pix->plane_fmt[i].sizeimage)
++				return -EINVAL;
++	} else {
++		*num_planes = pix->num_planes;
++		for (unsigned int i = 0; i < pix->num_planes; i++)
++			sizes[i] = pix->plane_fmt[i].sizeimage;
++	}
 +
 +	return 0;
 +}
 +
-+static int rkcif_runtime_resume(struct device *dev)
++static int rkcif_stream_prepare_buffer(struct vb2_buffer *vb)
 +{
-+	struct rkcif_device *rkcif = dev_get_drvdata(dev);
++	struct vb2_v4l2_buffer *vbuf = to_vb2_v4l2_buffer(vb);
++	struct rkcif_buffer *buffer = to_rkcif_buffer(vbuf);
++	struct rkcif_stream *stream = vb->vb2_queue->drv_priv;
++	const struct rkcif_output_fmt *fmt;
++	struct v4l2_pix_format_mplane *pix = &stream->pix;
++	unsigned int i;
++
++	memset(buffer->buff_addr, 0, sizeof(buffer->buff_addr));
++	for (i = 0; i < pix->num_planes; i++)
++		buffer->buff_addr[i] = vb2_dma_contig_plane_dma_addr(vb, i);
++
++	/* apply fallback for non-mplane formats, if required */
++	if (pix->num_planes == 1) {
++		fmt = rkcif_stream_find_output_fmt(stream, true,
++						   pix->pixelformat);
++		for (i = 1; i < fmt->cplanes; i++)
++			buffer->buff_addr[i] =
++				buffer->buff_addr[i - 1] +
++				pix->plane_fmt[i - 1].bytesperline *
++					pix->height;
++	}
++
++	for (i = 0; i < pix->num_planes; i++) {
++		unsigned long size = pix->plane_fmt[i].sizeimage;
++
++		if (vb2_plane_size(vb, i) < size) {
++			dev_err(stream->rkcif->dev,
++				"user buffer too small (%ld < %ld)\n",
++				vb2_plane_size(vb, i), size);
++			return -EINVAL;
++		}
++
++		vb2_set_plane_payload(vb, i, size);
++	}
++
++	vbuf->field = V4L2_FIELD_NONE;
++
++	return 0;
++}
++
++static void rkcif_stream_queue_buffer(struct vb2_buffer *vb)
++{
++	struct vb2_v4l2_buffer *vbuf = to_vb2_v4l2_buffer(vb);
++	struct rkcif_buffer *buffer = to_rkcif_buffer(vbuf);
++	struct rkcif_stream *stream = vb->vb2_queue->drv_priv;
++
++	rkcif_stream_push_buffer(stream, buffer);
++}
++
++static int rkcif_stream_start_streaming(struct vb2_queue *queue,
++					unsigned int count)
++{
++	struct rkcif_stream *stream = queue->drv_priv;
++	struct rkcif_device *rkcif = stream->rkcif;
++	u64 mask;
 +	int ret;
 +
-+	ret = clk_bulk_prepare_enable(rkcif->clks_num, rkcif->clks);
++	stream->frame_idx = 0;
++	stream->frame_phase = 0;
++
++	ret = video_device_pipeline_start(&stream->vdev, &stream->pipeline);
 +	if (ret) {
-+		dev_err(dev, "failed to enable clocks\n");
++		dev_err(rkcif->dev, "failed to start pipeline %d\n", ret);
++		goto err_out;
++	}
++
++	ret = pm_runtime_resume_and_get(rkcif->dev);
++	if (ret < 0) {
++		dev_err(rkcif->dev, "failed to get runtime pm, %d\n", ret);
++		goto err_pipeline_stop;
++	}
++
++	ret = rkcif_stream_init_buffers(stream);
++	if (ret)
++		goto err_runtime_put;
++
++	if (stream->start_streaming) {
++		ret = stream->start_streaming(stream);
++		if (ret < 0)
++			goto err_runtime_put;
++	}
++
++	mask = BIT_ULL(stream->id);
++	ret = v4l2_subdev_enable_streams(&stream->interface->sd,
++					 RKCIF_IF_PAD_SRC, mask);
++	if (ret < 0)
++		goto err_stop_stream;
++
++	return 0;
++
++err_stop_stream:
++	if (stream->stop_streaming)
++		stream->stop_streaming(stream);
++err_runtime_put:
++	pm_runtime_put(rkcif->dev);
++err_pipeline_stop:
++	video_device_pipeline_stop(&stream->vdev);
++err_out:
++	rkcif_stream_return_all_buffers(stream, VB2_BUF_STATE_QUEUED);
++	return ret;
++}
++
++static void rkcif_stream_stop_streaming(struct vb2_queue *queue)
++{
++	struct rkcif_stream *stream = queue->drv_priv;
++	struct rkcif_device *rkcif = stream->rkcif;
++	u64 mask;
++	int ret;
++
++	mask = BIT_ULL(stream->id);
++	v4l2_subdev_disable_streams(&stream->interface->sd, RKCIF_IF_PAD_SRC,
++				    mask);
++
++	stream->stopping = true;
++	ret = wait_event_timeout(stream->wq_stopped, !stream->stopping,
++				 msecs_to_jiffies(1000));
++
++	if (!ret && stream->stop_streaming)
++		stream->stop_streaming(stream);
++
++	pm_runtime_put(rkcif->dev);
++
++	rkcif_stream_return_all_buffers(stream, VB2_BUF_STATE_ERROR);
++
++	video_device_pipeline_stop(&stream->vdev);
++}
++
++static const struct vb2_ops rkcif_stream_vb2_ops = {
++	.queue_setup = rkcif_stream_setup_queue,
++	.buf_prepare = rkcif_stream_prepare_buffer,
++	.buf_queue = rkcif_stream_queue_buffer,
++	.wait_prepare = vb2_ops_wait_prepare,
++	.wait_finish = vb2_ops_wait_finish,
++	.start_streaming = rkcif_stream_start_streaming,
++	.stop_streaming = rkcif_stream_stop_streaming,
++};
++
++static int rkcif_stream_fill_format(struct rkcif_stream *stream,
++				    struct v4l2_pix_format_mplane *pix)
++{
++	const struct rkcif_output_fmt *fmt;
++	u32 height, width;
++	int ret;
++
++	fmt = rkcif_stream_find_output_fmt(stream, true, pix->pixelformat);
++	height = clamp_t(u32, pix->height, CIF_MIN_HEIGHT, CIF_MAX_HEIGHT);
++	width = clamp_t(u32, pix->width, CIF_MIN_WIDTH, CIF_MAX_WIDTH);
++	ret = v4l2_fill_pixfmt_mp(pix, fmt->fourcc, width, height);
++	if (ret)
++		return ret;
++
++	pix->field = V4L2_FIELD_NONE;
++
++	return 0;
++}
++
++static int rkcif_stream_try_format(struct file *file, void *fh,
++				   struct v4l2_format *f)
++{
++	struct rkcif_stream *stream = video_drvdata(file);
++	struct v4l2_pix_format_mplane *pix = &f->fmt.pix_mp;
++
++	return rkcif_stream_fill_format(stream, pix);
++}
++
++static int rkcif_stream_set_format(struct file *file, void *priv,
++				   struct v4l2_format *f)
++{
++	struct rkcif_stream *stream = video_drvdata(file);
++	struct v4l2_pix_format_mplane *pix = &f->fmt.pix_mp;
++	int ret;
++
++	if (vb2_is_busy(&stream->buf_queue))
++		return -EBUSY;
++
++	ret = rkcif_stream_try_format(file, priv, f);
++	if (ret)
++		return ret;
++
++	stream->pix = *pix;
++
++	return 0;
++}
++
++static int rkcif_stream_get_format(struct file *file, void *fh,
++				   struct v4l2_format *f)
++{
++	struct rkcif_stream *stream = video_drvdata(file);
++
++	f->fmt.pix_mp = stream->pix;
++
++	return 0;
++}
++
++static int rkcif_stream_enum_formats(struct file *file, void *priv,
++				     struct v4l2_fmtdesc *f)
++{
++	struct rkcif_stream *stream = video_drvdata(file);
++
++	if (f->index >= stream->out_fmts_num)
++		return -EINVAL;
++
++	f->pixelformat = stream->out_fmts[f->index].fourcc;
++
++	return 0;
++}
++
++static int rkcif_stream_enum_framesizes(struct file *file, void *fh,
++					struct v4l2_frmsizeenum *fsize)
++{
++	struct rkcif_stream *stream = video_drvdata(file);
++
++	if (fsize->index > 0)
++		return -EINVAL;
++
++	if (!rkcif_stream_find_output_fmt(stream, false, fsize->pixel_format))
++		return -EINVAL;
++
++	fsize->type = V4L2_FRMSIZE_TYPE_STEPWISE;
++	fsize->stepwise.min_width = CIF_MIN_WIDTH;
++	fsize->stepwise.max_width = CIF_MAX_WIDTH;
++	fsize->stepwise.step_width = 8;
++	fsize->stepwise.min_height = CIF_MIN_HEIGHT;
++	fsize->stepwise.max_height = CIF_MAX_HEIGHT;
++	fsize->stepwise.step_height = 8;
++
++	return 0;
++}
++
++static int rkcif_stream_querycap(struct file *file, void *priv,
++				 struct v4l2_capability *cap)
++{
++	struct rkcif_stream *stream = video_drvdata(file);
++	struct device *dev = stream->rkcif->dev;
++
++	strscpy(cap->driver, dev->driver->name, sizeof(cap->driver));
++	strscpy(cap->card, dev->driver->name, sizeof(cap->card));
++
++	return 0;
++}
++
++static const struct v4l2_ioctl_ops rkcif_stream_ioctl_ops = {
++	.vidioc_reqbufs = vb2_ioctl_reqbufs,
++	.vidioc_querybuf = vb2_ioctl_querybuf,
++	.vidioc_create_bufs = vb2_ioctl_create_bufs,
++	.vidioc_qbuf = vb2_ioctl_qbuf,
++	.vidioc_expbuf = vb2_ioctl_expbuf,
++	.vidioc_dqbuf = vb2_ioctl_dqbuf,
++	.vidioc_prepare_buf = vb2_ioctl_prepare_buf,
++	.vidioc_streamon = vb2_ioctl_streamon,
++	.vidioc_streamoff = vb2_ioctl_streamoff,
++	.vidioc_try_fmt_vid_cap_mplane = rkcif_stream_try_format,
++	.vidioc_s_fmt_vid_cap_mplane = rkcif_stream_set_format,
++	.vidioc_g_fmt_vid_cap_mplane = rkcif_stream_get_format,
++	.vidioc_enum_fmt_vid_cap = rkcif_stream_enum_formats,
++	.vidioc_enum_framesizes = rkcif_stream_enum_framesizes,
++	.vidioc_querycap = rkcif_stream_querycap,
++};
++
++static int rkcif_stream_link_validate(struct media_link *link)
++{
++	struct video_device *vdev =
++		media_entity_to_video_device(link->sink->entity);
++	struct v4l2_mbus_framefmt *source_fmt;
++	struct v4l2_subdev *sd;
++	struct v4l2_subdev_state *state;
++	struct rkcif_stream *stream = to_rkcif_stream(vdev);
++	int ret = -EINVAL;
++
++	if (!media_entity_remote_source_pad_unique(link->sink->entity))
++		return -ENOTCONN;
++
++	sd = media_entity_to_v4l2_subdev(link->source->entity);
++
++	state = v4l2_subdev_lock_and_get_active_state(sd);
++
++	source_fmt = v4l2_subdev_state_get_format(state, link->source->index,
++						  stream->id);
++	if (!source_fmt)
++		goto out;
++
++	if (source_fmt->height != stream->pix.height ||
++	    source_fmt->width != stream->pix.width) {
++		dev_dbg(stream->rkcif->dev,
++			"link '%s':%u -> '%s':%u not valid: %ux%u != %ux%u\n",
++			link->source->entity->name, link->source->index,
++			link->sink->entity->name, link->sink->index,
++			source_fmt->width, source_fmt->height,
++			stream->pix.width, stream->pix.height);
++		goto out;
++	}
++
++	ret = 0;
++
++out:
++	v4l2_subdev_unlock_state(state);
++	return ret;
++}
++
++static const struct media_entity_operations rkcif_stream_media_ops = {
++	.link_validate = rkcif_stream_link_validate,
++};
++
++static const struct v4l2_file_operations rkcif_stream_file_ops = {
++	.open = v4l2_fh_open,
++	.release = vb2_fop_release,
++	.unlocked_ioctl = video_ioctl2,
++	.poll = vb2_fop_poll,
++	.mmap = vb2_fop_mmap,
++};
++
++static int rkcif_stream_init_vb2_queue(struct vb2_queue *q,
++				       struct rkcif_stream *stream)
++{
++	q->type = V4L2_BUF_TYPE_VIDEO_CAPTURE_MPLANE;
++	q->io_modes = VB2_MMAP | VB2_DMABUF;
++	q->drv_priv = stream;
++	q->ops = &rkcif_stream_vb2_ops;
++	q->mem_ops = &vb2_dma_contig_memops;
++	q->buf_struct_size = sizeof(struct rkcif_buffer);
++	q->min_queued_buffers = CIF_REQ_BUFS_MIN;
++	q->timestamp_flags = V4L2_BUF_FLAG_TIMESTAMP_MONOTONIC;
++	q->lock = &stream->vlock;
++	q->dev = stream->rkcif->dev;
++
++	return vb2_queue_init(q);
++}
++
++int rkcif_stream_register(struct rkcif_device *rkcif,
++			  struct rkcif_stream *stream)
++{
++	struct rkcif_interface *interface = stream->interface;
++	struct v4l2_device *v4l2_dev = &rkcif->v4l2_dev;
++	struct video_device *vdev = &stream->vdev;
++	u32 link_flags = 0;
++	int ret;
++
++	stream->rkcif = rkcif;
++
++	INIT_LIST_HEAD(&stream->driver_queue);
++	spin_lock_init(&stream->driver_queue_lock);
++
++	init_waitqueue_head(&stream->wq_stopped);
++
++	mutex_init(&stream->vlock);
++
++	vdev->device_caps = V4L2_CAP_VIDEO_CAPTURE_MPLANE | V4L2_CAP_STREAMING |
++			    V4L2_CAP_IO_MC;
++	vdev->entity.ops = &rkcif_stream_media_ops;
++	vdev->fops = &rkcif_stream_file_ops;
++	vdev->ioctl_ops = &rkcif_stream_ioctl_ops;
++	vdev->lock = &stream->vlock;
++	vdev->minor = -1;
++	vdev->release = video_device_release_empty;
++	vdev->v4l2_dev = v4l2_dev;
++	vdev->vfl_dir = VFL_DIR_RX;
++	video_set_drvdata(vdev, stream);
++
++	stream->pad.flags = MEDIA_PAD_FL_SINK;
++
++	stream->pix.height = CIF_MIN_HEIGHT;
++	stream->pix.width = CIF_MIN_WIDTH;
++	rkcif_stream_fill_format(stream, &stream->pix);
++
++	rkcif_stream_init_vb2_queue(&stream->buf_queue, stream);
++
++	vdev->queue = &stream->buf_queue;
++	if (interface->type == RKCIF_IF_DVP)
++		snprintf(vdev->name, sizeof(vdev->name), "rkcif-dvp0-id%d",
++			 stream->id);
++	else if (interface->type == RKCIF_IF_MIPI)
++		snprintf(vdev->name, sizeof(vdev->name), "rkcif-mipi%d-id%d",
++			 interface->index - RKCIF_MIPI_BASE, stream->id);
++
++	ret = media_entity_pads_init(&vdev->entity, 1, &stream->pad);
++	if (ret < 0) {
++		dev_err(rkcif->dev,
++			"failed to initialize stream media pad: %d\n", ret);
 +		return ret;
 +	}
 +
++	ret = video_register_device(vdev, VFL_TYPE_VIDEO, -1);
++	if (ret < 0) {
++		dev_err(rkcif->dev, "failed to register video device: %d\n",
++			ret);
++		goto err_media_entity_cleanup;
++	}
++
++	/* enable only stream ID0 by default */
++	if (stream->id == RKCIF_ID0)
++		link_flags |= MEDIA_LNK_FL_ENABLED;
++
++	ret = media_create_pad_link(&interface->sd.entity, RKCIF_IF_PAD_SRC,
++				    &stream->vdev.entity, 0, link_flags);
++	if (ret) {
++		dev_err(rkcif->dev, "failed to link stream media pad: %d\n",
++			ret);
++		goto err_video_unregister;
++	}
++
++	v4l2_info(v4l2_dev, "registered %s as /dev/video%d\n", vdev->name,
++		  vdev->num);
++
 +	return 0;
++
++err_video_unregister:
++	video_unregister_device(&stream->vdev);
++err_media_entity_cleanup:
++	media_entity_cleanup(&stream->vdev.entity);
++	return ret;
 +}
 +
-+static const struct dev_pm_ops rkcif_plat_pm_ops = {
-+	.runtime_suspend = rkcif_runtime_suspend,
-+	.runtime_resume = rkcif_runtime_resume,
-+};
++void rkcif_stream_unregister(struct rkcif_stream *stream)
++{
++	video_unregister_device(&stream->vdev);
++	media_entity_cleanup(&stream->vdev.entity);
++}
 +
-+static struct platform_driver rkcif_plat_drv = {
-+	.driver = {
-+		   .name = RKCIF_DRIVER_NAME,
-+		   .of_match_table = rkcif_plat_of_match,
-+		   .pm = &rkcif_plat_pm_ops,
-+	},
-+	.probe = rkcif_probe,
-+	.remove = rkcif_remove,
-+};
-+module_platform_driver(rkcif_plat_drv);
++const struct rkcif_output_fmt *
++rkcif_stream_find_output_fmt(struct rkcif_stream *stream, bool ret_def,
++			     u32 pixelfmt)
++{
++	const struct rkcif_output_fmt *fmt;
 +
-+MODULE_DESCRIPTION("Rockchip Camera Interface (CIF) platform driver");
-+MODULE_LICENSE("GPL");
++	WARN_ON(stream->out_fmts_num == 0);
++
++	for (unsigned int i = 0; i < stream->out_fmts_num; i++) {
++		fmt = &stream->out_fmts[i];
++		if (fmt->fourcc == pixelfmt)
++			return fmt;
++	}
++
++	if (ret_def)
++		return &stream->out_fmts[0];
++	else
++		return NULL;
++}
+diff --git a/drivers/media/platform/rockchip/rkcif/rkcif-stream.h b/drivers/media/platform/rockchip/rkcif/rkcif-stream.h
+new file mode 100644
+index 000000000000..590faf5d1a87
+--- /dev/null
++++ b/drivers/media/platform/rockchip/rkcif/rkcif-stream.h
+@@ -0,0 +1,32 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++/*
++ * Rockchip Camera Interface (CIF) Driver
++ *
++ * Abstraction for the DMA part and the ping-pong scheme (a double-buffering
++ * mechanism) of the different CIF variants.
++ * Each stream is represented as V4L2 device whose corresponding media entity
++ * has one sink pad.
++ * The sink pad is connected to an instance of the INTERFACE/CROP abstraction
++ * in rkcif-interface.c.
++ *
++ * Copyright (C) 2025 Michael Riesch <michael.riesch@wolfvision.net>
++ * Copyright (C) 2025 Collabora, Ltd.
++ */
++
++#ifndef _RKCIF_STREAM_H
++#define _RKCIF_STREAM_H
++
++#include "rkcif-common.h"
++
++void rkcif_stream_pingpong(struct rkcif_stream *stream);
++
++int rkcif_stream_register(struct rkcif_device *rkcif,
++			  struct rkcif_stream *stream);
++
++void rkcif_stream_unregister(struct rkcif_stream *stream);
++
++const struct rkcif_output_fmt *
++rkcif_stream_find_output_fmt(struct rkcif_stream *stream, bool ret_def,
++			     u32 pixelfmt);
++
++#endif
 
 -- 
 2.39.5
