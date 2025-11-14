@@ -4,151 +4,186 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA8A2CDE01A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 07:42:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E78ACDE01B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 07:46:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mm7twLVzKka27X+qd7rHr6FL1OhCixwa+89c/SgpMC4=; b=4XkXluXJaEF/7DDU9p2nH/c005
-	6tGxcI4X3yL4B5BGmKsns11NeHmL6/jNzBtWXq3Nu9HSNMIL+8bu8mP1SPM8Oklu7tkRjyGas+y2q
-	zLJHQzM0jq88uJG8LJ1zzOyTwFWIn3KhxGNz2kqMqVbK9mtJpxyyt2bw2O6dAs/xZAz6ZuYNTcw6g
-	KXgREXcB/bnXndf3JaBAg4JhS8BeEzFXGjC2KSDsysrMnfWDkIUXGKB3QVOVAN2Is+3WSKBuLbaGH
-	t/p0NdL7Pix4m8fKnuyQlSTSR+XiAmJm/S3SG4Jydf9PqADd0OClHz5xM9DSKC6UTywrqtfNMlYxg
-	38wymMgg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:Message-ID:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=22bmImjJ5+Ac6HPAQVjZXfTfXAVtbXbfSMl2sscd34g=; b=4Qa8SXjSkQKwH8wMMe6bd5c1kZ
+	TZaR3L/OyJdxvxNrMREkNHsKKEoGkFzVdjrMa+UfuwRbLBjw+NPBC1WcagfKt1WyFqXBmrN50eieO
+	X4Rbc4G8iKyzwLN734Ri/2BXTDqP9W05WzNRIKKxONyb/Z+L3dMMEzMn0FUukNtSdz0Q19TnD9x4A
+	9B9mephx/K0qmWTMi0yQX/XggZG1geQFYWcQ3gZnaTaKDqlHEY0Z4F4PwZF6veugUbObaSqm/WFwu
+	E8Qalw8MZel1n5aclNk7c8M9eBUK4NxbYzKc7SOtm8gfCaPcnCAUXGz0W0HGk7TfK95WciIbi3ykH
+	wqEjf1eg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJoS6-0000000Blfx-1ftv;
-	Fri, 14 Nov 2025 07:42:38 +0000
-Received: from smtp-out1.suse.de ([195.135.223.130])
+	id 1vJoVk-0000000Blt4-43r5;
+	Fri, 14 Nov 2025 07:46:24 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJoS3-0000000Bley-42AN
+	id 1vJoVf-0000000Blsd-36MV
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Nov 2025 07:42:37 +0000
-Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id E60C32124D;
-	Fri, 14 Nov 2025 07:42:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1763106154; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=mm7twLVzKka27X+qd7rHr6FL1OhCixwa+89c/SgpMC4=;
-	b=YvbZ+ru+K/Wv/WXm3+WOatOWQhH/o8TQp/x+oXdKcbuHZ7xrsqoheOryklI0JDOku/NNW1
-	OK1oYBFV8/Mtb+4Az1M6XpVTqbTgag+ImcGRiNvEpzQwXk8HeSIGuKGv6hZ4vncG49kX9y
-	t8K7smI649srLFeIJEeBNGQ/3p3+vJ8=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1763106154;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=mm7twLVzKka27X+qd7rHr6FL1OhCixwa+89c/SgpMC4=;
-	b=BDsrF5lbaPr1AJ8thERV1D9ryp8fRJ/JwySsUJyfmnYoshViWX6unijUrvMtsZhXYNspD8
-	MjbuaKhYq9DmLHDA==
-Authentication-Results: smtp-out1.suse.de;
-	none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1763106153; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=mm7twLVzKka27X+qd7rHr6FL1OhCixwa+89c/SgpMC4=;
-	b=i0epigL8FDtNKcUfFhhJPdoGbE3Ty++jPf6Srhgwpq/VKkknYgvimKExrGms5LElSg8Dkb
-	X1hj8Sj0RLVGPZ6t4oGuIB4byzYjCLRypfnCmhAr+ozsdnny23XrmHocdvX1N/Ofiu4a24
-	8I2210VThixHBTHDiuzVq4NPBu1mts0=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1763106153;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=mm7twLVzKka27X+qd7rHr6FL1OhCixwa+89c/SgpMC4=;
-	b=WfaNjYvAZ7U+Q/vV7O0uJJrfExCjbYRhkNg2sDqSAmgaCTeIfVxk6MgKvWqMacF8K4TBGf
-	mYlTIi5gChv7moAg==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 7CFCC3EA61;
-	Fri, 14 Nov 2025 07:42:33 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id H254HGndFmm2agAAD6G6ig
-	(envelope-from <tzimmermann@suse.de>); Fri, 14 Nov 2025 07:42:33 +0000
-Message-ID: <36048dd7-796f-495d-b715-d8f65a7c2f98@suse.de>
-Date: Fri, 14 Nov 2025 08:42:33 +0100
+	Fri, 14 Nov 2025 07:46:23 +0000
+Received: from pps.filterd (m0369457.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5AE7XaXp1689467;
+	Fri, 14 Nov 2025 08:46:10 +0100
+Received: from gvxpr05cu001.outbound.protection.outlook.com (mail-swedencentralazon11013060.outbound.protection.outlook.com [52.101.83.60])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 4adr7j1mr5-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Fri, 14 Nov 2025 08:46:10 +0100 (CET)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=gqf6OYxCNWV381l/uZors4/gVEWZa0MyOGg16kNBmWZZV8kpQdrFVpyVmtYQs4ITSidTywStK9FsnrKTGhMf9Cgacb0lDsm+Ughcvj/pd0HqzvToeJucuVnd22vqWd6UjRbkwCe+tckXxTgGWFKj2z53kPBxEwY0X8b/Ypd7jSzbUA9nExgCyADzrsmzUPqqKKh2OAdLkitkrUXbJZzYFaZtB1fS1/aGVX/nRa10eL+8bJj8POkdSq4BeDA+t8Lr+W8CSdKkr65vra8U+NgmmHcbwOqm2nN9kcRmRcs4VK3xZngXVnJbyN7HExPpywmc8uquAfDF1Fl/IQUYxiwM5g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=22bmImjJ5+Ac6HPAQVjZXfTfXAVtbXbfSMl2sscd34g=;
+ b=xYpl/2BH2265nwf+1eTAnsCIVujkq5BueIiafdTF4+6wpVO19Evs/vi4it+OM1vCynu+jC9LlV+QVBdRpwwBmyKZYWUKrIFE9QgOompbiQCoRzfakXU4DPDHnQonFqXggAlbemoLkIWvxSVWOCJ5H/CFIOoSo3CFXHiR/81IMD2yq3Ga92RxIxwKU09ggnUi1VxfCDfGkw7mH31/AlaoN2Dkggr51KGPR0RQrzfapFUWeMa1AdTfNHQ15RxO4Xmag3fygW+kg2xQD49F8+oK2qOr7ljrbs+EzN4f+FnDcqbq1XvYQeisrYeunN6PmAYzc3ZlrHZDSrGcNl05e2XZlQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 164.130.1.59) smtp.rcpttodomain=gmail.com smtp.mailfrom=foss.st.com;
+ dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=22bmImjJ5+Ac6HPAQVjZXfTfXAVtbXbfSMl2sscd34g=;
+ b=dNLHxzlhGxZSHLPizQSqPfRUK3WVQ8+Q0w1rEY2W2iH2TS0mrFu6w+8pUm2klCR5nZXG9pQ51ffoDD/wwq2LOj1JTwI+gw2uNxbEvdZAQJNU6nzmy0X86rPbdbgKVbtuxyhO76lLQQOGUgNnTVvC7dR/XAm1mzE9erbOU3OXM0mmNUlS//zaNCW1HZ7jF2RoVAibL0XdqDA8fdtHRYf2kmhvtPJ7qgsHibF291Pp3tkfROsKCtsTGZNTyjjx3dXQvRP4zq0sGFzI16NM51GPoCnqIuq2omU9VkvPWLrlJ+LzjOftX+7q8WJVLc7LSe8oGj56wn4gy70BEPOm71Yfvg==
+Received: from DB8P191CA0022.EURP191.PROD.OUTLOOK.COM (2603:10a6:10:130::32)
+ by AM7PR10MB3142.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:20b:10f::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9298.16; Fri, 14 Nov
+ 2025 07:46:07 +0000
+Received: from DU2PEPF00028CFC.eurprd03.prod.outlook.com
+ (2603:10a6:10:130:cafe::11) by DB8P191CA0022.outlook.office365.com
+ (2603:10a6:10:130::32) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9320.17 via Frontend Transport; Fri,
+ 14 Nov 2025 07:46:06 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.59)
+ smtp.mailfrom=foss.st.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=foss.st.com;
+Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
+ designate 164.130.1.59 as permitted sender) receiver=protection.outlook.com;
+ client-ip=164.130.1.59; helo=smtpO365.st.com;
+Received: from smtpO365.st.com (164.130.1.59) by
+ DU2PEPF00028CFC.mail.protection.outlook.com (10.167.242.180) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9320.13 via Frontend Transport; Fri, 14 Nov 2025 07:46:06 +0000
+Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpo365.st.com
+ (10.250.44.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Fri, 14 Nov
+ 2025 08:46:16 +0100
+Received: from localhost (10.130.77.120) by STKDAG1NODE2.st.com
+ (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Fri, 14 Nov
+ 2025 08:46:05 +0100
+From: Christian Bruel <christian.bruel@foss.st.com>
+Date: Fri, 14 Nov 2025 08:45:52 +0100
+Subject: [PATCH] PCI: stm32: Fix LTSSM EP race with start link.
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/3] drm: zynqmp: Make the video plane primary
-To: Sean Anderson <sean.anderson@linux.dev>,
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
- Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
- dri-devel@lists.freedesktop.org
-Cc: linux-kernel@vger.kernel.org, Mike Looijmans <mike.looijmans@topic.nl>,
- David Airlie <airlied@gmail.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Anatoliy Klymenko <anatoliy.klymenko@amd.com>,
- Maxime Ripard <mripard@kernel.org>, linux-arm-kernel@lists.infradead.org,
- Simona Vetter <simona@ffwll.ch>, Michal Simek <michal.simek@amd.com>
-References: <20251113203715.2768107-1-sean.anderson@linux.dev>
-Content-Language: en-US
-From: Thomas Zimmermann <tzimmermann@suse.de>
-Autocrypt: addr=tzimmermann@suse.de; keydata=
- xsBNBFs50uABCADEHPidWt974CaxBVbrIBwqcq/WURinJ3+2WlIrKWspiP83vfZKaXhFYsdg
- XH47fDVbPPj+d6tQrw5lPQCyqjwrCPYnq3WlIBnGPJ4/jreTL6V+qfKRDlGLWFjZcsrPJGE0
- BeB5BbqP5erN1qylK9i3gPoQjXGhpBpQYwRrEyQyjuvk+Ev0K1Jc5tVDeJAuau3TGNgah4Yc
- hdHm3bkPjz9EErV85RwvImQ1dptvx6s7xzwXTgGAsaYZsL8WCwDaTuqFa1d1jjlaxg6+tZsB
- 9GluwvIhSezPgnEmimZDkGnZRRSFiGP8yjqTjjWuf0bSj5rUnTGiyLyRZRNGcXmu6hjlABEB
- AAHNJ1Rob21hcyBaaW1tZXJtYW5uIDx0emltbWVybWFubkBzdXNlLmRlPsLAjgQTAQgAOAIb
- AwULCQgHAgYVCgkICwIEFgIDAQIeAQIXgBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftODH
- AAoJEGgNwR1TC3ojx1wH/0hKGWugiqDgLNXLRD/4TfHBEKmxIrmfu9Z5t7vwUKfwhFL6hqvo
- lXPJJKQpQ2z8+X2vZm/slsLn7J1yjrOsoJhKABDi+3QWWSGkaGwRJAdPVVyJMfJRNNNIKwVb
- U6B1BkX2XDKDGffF4TxlOpSQzdtNI/9gleOoUA8+jy8knnDYzjBNOZqLG2FuTdicBXblz0Mf
- vg41gd9kCwYXDnD91rJU8tzylXv03E75NCaTxTM+FBXPmsAVYQ4GYhhgFt8S2UWMoaaABLDe
- 7l5FdnLdDEcbmd8uLU2CaG4W2cLrUaI4jz2XbkcPQkqTQ3EB67hYkjiEE6Zy3ggOitiQGcqp
- j//OwE0EWznS4AEIAMYmP4M/V+T5RY5at/g7rUdNsLhWv1APYrh9RQefODYHrNRHUE9eosYb
- T6XMryR9hT8XlGOYRwKWwiQBoWSDiTMo/Xi29jUnn4BXfI2px2DTXwc22LKtLAgTRjP+qbU6
- 3Y0xnQN29UGDbYgyyK51DW3H0If2a3JNsheAAK+Xc9baj0LGIc8T9uiEWHBnCH+RdhgATnWW
- GKdDegUR5BkDfDg5O/FISymJBHx2Dyoklv5g4BzkgqTqwmaYzsl8UxZKvbaxq0zbehDda8lv
- hFXodNFMAgTLJlLuDYOGLK2AwbrS3Sp0AEbkpdJBb44qVlGm5bApZouHeJ/+n+7r12+lqdsA
- EQEAAcLAdgQYAQgAIAIbDBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftOH6AAoJEGgNwR1T
- C3ojVSkIALpAPkIJPQoURPb1VWjh34l0HlglmYHvZszJWTXYwavHR8+k6Baa6H7ufXNQtThR
- yIxJrQLW6rV5lm7TjhffEhxVCn37+cg0zZ3j7zIsSS0rx/aMwi6VhFJA5hfn3T0TtrijKP4A
- SAQO9xD1Zk9/61JWk8OysuIh7MXkl0fxbRKWE93XeQBhIJHQfnc+YBLprdnxR446Sh8Wn/2D
- Ya8cavuWf2zrB6cZurs048xe0UbSW5AOSo4V9M0jzYI4nZqTmPxYyXbm30Kvmz0rYVRaitYJ
- 4kyYYMhuULvrJDMjZRvaNe52tkKAvMevcGdt38H4KSVXAylqyQOW5zvPc4/sq9c=
-In-Reply-To: <20251113203715.2768107-1-sean.anderson@linux.dev>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Spamd-Result: default: False [-4.30 / 50.00];
-	BAYES_HAM(-3.00)[99.99%];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	ARC_NA(0.00)[];
-	MIME_TRACE(0.00)[0:+];
-	RCVD_TLS_ALL(0.00)[];
-	RCPT_COUNT_TWELVE(0.00)[13];
-	MID_RHS_MATCH_FROM(0.00)[];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	FROM_HAS_DN(0.00)[];
-	FREEMAIL_CC(0.00)[vger.kernel.org,topic.nl,gmail.com,linux.intel.com,amd.com,kernel.org,lists.infradead.org,ffwll.ch];
-	TO_DN_SOME(0.00)[];
-	FROM_EQ_ENVFROM(0.00)[];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	RCVD_COUNT_TWO(0.00)[2];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo,suse.de:mid,suse.com:url,bootlin.com:url]
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-ID: <20251114-perst_ep-v1-1-e7976317a890@foss.st.com>
+X-B4-Tracking: v=1; b=H4sIAC/eFmkC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDI1NDQ0Nj3YLUouKS+NQCXYMkU/MkSzNzy+Q0SyWg8oKi1LTMCrBR0bG1tQA
+ vLg6dWgAAAA==
+X-Change-ID: 20251113-perst_ep-0b57b9679cf9
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+        =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+        "Manivannan
+ Sadhasivam" <mani@kernel.org>,
+        Rob Herring <robh@kernel.org>, Bjorn Helgaas
+	<bhelgaas@google.com>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        "Alexandre Torgue" <alexandre.torgue@foss.st.com>
+CC: <linux-pci@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        Christian Bruel <christian.bruel@foss.st.com>
+X-Mailer: b4 0.14.2
+X-Originating-IP: [10.130.77.120]
+X-ClientProxiedBy: STKCAS1NODE1.st.com (10.75.128.134) To STKDAG1NODE2.st.com
+ (10.75.128.133)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU2PEPF00028CFC:EE_|AM7PR10MB3142:EE_
+X-MS-Office365-Filtering-Correlation-Id: 582aa1ad-9180-4fde-42f9-08de2351de84
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|82310400026|1800799024|376014|7416014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?TDlUTk9naE8yTzBwcFhCaXN2bS9iNWx6Wk9mWUg4VUtHbzNNcFl1cUdYUVk1?=
+ =?utf-8?B?cVE2SGZ0WlZMVjJ4dWhzT002U3NnQUJKN0g2N1UrOHRxaFJ0VXpiVHIrVmdj?=
+ =?utf-8?B?U1l2MEZKSHVMM1ZERktzM3lmME1LNEZOS1VVQWMxVzdlUnUvaUNYU0tQeS9x?=
+ =?utf-8?B?Y2IyRlF6aDlaRkhseURSUVJuSHR6TTlIajhyZTl0TFBUVFhHM21ybVlCR2Rh?=
+ =?utf-8?B?RTluVEVPZ09rMEdQem1LL0Iva3FaTkNwZWV5VVV1VmFITThxRm1sd2xxZGVJ?=
+ =?utf-8?B?bFNhUUdFWDJ5OWsyb0tFeisyMmxwYmNDUzFFa0szeXpVUHg5NldreFE2WkFh?=
+ =?utf-8?B?Wk5zQklVT2RBdHA3SUo3b0l3NEVvL2JlYlhkajI4RGxCdjFEWE8yVko3WmR6?=
+ =?utf-8?B?OHZvQWhjSHI0N1pyR0Jxc0JvYXBqVUcyUlB2UTBPRmVzbE9mRTJYL3JlekNn?=
+ =?utf-8?B?ZTByenI0WUMrUWY3cmdGeHgrM1VkdHNRSUtkRTRsSWIzUGJ4aG10QVRyUFVT?=
+ =?utf-8?B?UW5aTTR1L2I3bEd4ZGxhb1dNUENMeGlLOHZLVmt4R3o0Um12QkJFbGJwc1FV?=
+ =?utf-8?B?ZzYxNEZHZHRYQkpJMlVqbVdibS9waHJtQ0MvcU1mK1EvM2Qzek1NaG5KeUlu?=
+ =?utf-8?B?SmJ2RDlyRGNBcDN0aksvSU11WTA0YlNKS2x1YmJrYU00TWNUSDR1T1dIWkxK?=
+ =?utf-8?B?RXV0NER5RjRkNmF5YWU0eExmTHJ6ZEhxeWc3Vm1nNVo0eXVhTllHUlBtbERt?=
+ =?utf-8?B?VXYxNEd6akFvaDU3QVN6ZVNqTFE5TEQ1am1qWk1ZbHUrVThaZWltSy9FZk45?=
+ =?utf-8?B?VStXeE5uQ1ZockY1QzZBQmIyMXd0OE56dkZPRHNsVHZRdWcremhGRVlOQVdk?=
+ =?utf-8?B?RXBxVmY5eWNiNDE3TmxYQnJEWTIyaFBTSmdvWGEvdk9zWUJKK21hN2VIeW1E?=
+ =?utf-8?B?aEp5K2UxQXBhQ2Vha0xXTERhUVVSWTZ1ZUxQbmo2ckJ6RUFjbDFPUGVmdUkz?=
+ =?utf-8?B?NjJ2ejd3ejdmZ3E3bWZQSys2R09aV0QzMDk0Q05LZjJ0blVodUhmMy9Zeitu?=
+ =?utf-8?B?NWZUTTQveFQ4UEhlKy93M3dKWXB4bDNjMmRCVUJVM0ZTemFKblB5ZU85OE8v?=
+ =?utf-8?B?TTRGZUVTNzhnKzBHM1JOUFFmb1hEclhCQ3FIRHZ5SU04WHNveW05UDRTQ3pN?=
+ =?utf-8?B?d1llZDZ6cWc4UWx5WS8wYm5XcmVZS05VNG5kcWhMMm1sUmQ2OVFnTXhTKzdn?=
+ =?utf-8?B?UWVaR0FSOVNtTmRZam4vUHZhNkxKaEMwZzU4TmVJbzBvZHQ0WE41eHVDbkpD?=
+ =?utf-8?B?akpmdlBMd1lFMW8zdEZTMUJPSTJFOXVRNFYxandJM3Fib3NYanZzMzBLNys1?=
+ =?utf-8?B?cEV4TVRsNEMzYjl5RGxWMnVPbmw2K3ZZSjhSYzRIYlJhcGEyblJlZFgyb1dX?=
+ =?utf-8?B?K1Y2ZUdoTWlzSTdtRENWT3FvQlNSZTJuZ0FPQTVQTG1aNUJFc0d1TC9VRzU4?=
+ =?utf-8?B?Q0Zid0lsQU5XYzc1dzJmQmZKOXV5SHhVZEZsUE1lWTB0NGUrWnFXMk9hdFd3?=
+ =?utf-8?B?amNDOXBKQ3pwdEU5NVJsL0UrOTljSDl4OUw2ZzNxQVdWaUV0U0M0V1VuWWJa?=
+ =?utf-8?B?cm90Z29XYkllblNnZXp3SHBFWE5RTGtMakp6RDJCbWRwNS9kVG1mbUhwY1J5?=
+ =?utf-8?B?b3JGcnBTa0xKWkdqb21wcnVNZlFkU1l3eXRtczNnSVNtSUFWZ3crZGxacU1I?=
+ =?utf-8?B?YWVpb29BS2tmZnhKbTBBMmlZRVpxckdFOFRsS0szTGh3NEczeXRBWTExQW1l?=
+ =?utf-8?B?UlFOdGllV3cySEVnNFRpK1lBVFRvMVh3aG9HZCt1N0RHSncvYW1hVDAxVTRO?=
+ =?utf-8?B?Ujk1UmxReTF6QTdlQmp4UGxoTTVDYzU4bGdVRDJ5djBtamNnMU9SQ1hSWkRz?=
+ =?utf-8?B?SGRJTklHUnpKZFFUYXFJSUxwNWhmU1JFa2FSM2pka08vRXhycEFIU01tNVR1?=
+ =?utf-8?B?L2NnNnpUZys2eTM0VkE1eTFlL2lyb2I0Tk4rNE5Vb1F2cG1FdnMxdno3aHE0?=
+ =?utf-8?B?b1hXME1qR0JhcWg0aGtjVWtVM095UFRRdFAzM2RPTS9KMyt3Qm1wNVJQbjd2?=
+ =?utf-8?Q?HAZw=3D?=
+X-Forefront-Antispam-Report: CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700013)(82310400026)(1800799024)(376014)(7416014);DIR:OUT;SFP:1101;
+X-OriginatorOrg: foss.st.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Nov 2025 07:46:06.4542
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 582aa1ad-9180-4fde-42f9-08de2351de84
+X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.59];Helo=[smtpO365.st.com]
+X-MS-Exchange-CrossTenant-AuthSource: DU2PEPF00028CFC.eurprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM7PR10MB3142
+X-Proofpoint-ORIG-GUID: Kfowze3cVYpml5vQzR2vq7YHWYEDczO7
+X-Authority-Analysis: v=2.4 cv=DPqCIiNb c=1 sm=1 tr=0 ts=6916de42 cx=c_pps
+ a=1PHydY8sO1AsXBlMK61GcQ==:117 a=d6reE3nDawwanmLcZTMRXA==:17
+ a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=RA8ZoFPxCIQA:10 a=IkcTkHD0fZMA:10
+ a=6UeiqGixMTsA:10 a=s63m1ICgrNkA:10 a=KrXZwBdWH7kA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=8b9GpE9nAAAA:8 a=kg8jcdQ32g1nc73lLdwA:9
+ a=QEXdDO2ut3YA:10 a=T3LWEMljR5ZiDmsYVIUa:22 a=cPQSjfK2_nFv0Q5t_7PE:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMTE0MDA2MCBTYWx0ZWRfX4klsyH19fKS5
+ 2pVbJSQdj7GzQoEQKKQBwxA2kybavo0GbVr2jqrtLNwMw3eJ2RLu7Aq+s/qTUmKAyEJpjRqsGEb
+ SPELIqRAJfzPs4xETp2xYo3SXY8jmhlvZhXkjbWwucp3Gb4jAOrlO75kB444p89v+Q1xcMFB/I/
+ cTgetZoBK3wP5iHvjMSiQCmrcH05gjjHrz0UKMENUjzvuwZ/KJyA4NNBqScZnboRQaujqmiWF+y
+ xIauW1QUdTmQ95Iu/bPIYiam+r/F89kpuD5kTX6LqwaoeaCxqge2NjNx8EzLM8Iva3j+SM8pqTj
+ t+aJSrmayBHoaXGGtC3hjFisJzcTm7yDSR4fUqHQK8QMA0dvjMuWDiBxyOdtqhhTbPO/PQYzDji
+ WX93e6JdV/FqoFpN/mt7CNT6QRYAiA==
+X-Proofpoint-GUID: Kfowze3cVYpml5vQzR2vq7YHWYEDczO7
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
+ definitions=2025-11-14_01,2025-11-13_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 impostorscore=0
+ suspectscore=0 lowpriorityscore=0 clxscore=1015 malwarescore=0 phishscore=0
+ priorityscore=1501 spamscore=0 bulkscore=0 adultscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2510240001 definitions=main-2511140060
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251113_234236_158098_6959C001 
-X-CRM114-Status: GOOD (  11.91  )
+X-CRM114-CacheID: sfid-20251113_234620_296418_F9EF42ED 
+X-CRM114-Status: GOOD (  10.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -163,45 +198,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi
+If the host has deasserted PERST# and started link training before the link
+is started on EP side, enabling LTSSM before the endpoint registers are
+initialized in the perst_irq handler results in probing incorrect values.
 
-Am 13.11.25 um 21:37 schrieb Sean Anderson:
-> The graphics plane does not support XRGB8888, which is the default mode
-> X uses for 24-bit color. Because of this, X must be set to use 16-bit
-> color, which has a measurable performance penalty. Make the video plane
-> the primary plane as it natively supports XRGB8888. An alternative
-> approach to add XRGB8888 to the graphics plane is discussed in [1], as
-> well as in patch 2.
+Thus, wait for the PERST# level-triggered interrupt to start link training
+at the end of initialization and cleanup the stm32_pcie_[start stop]_link
+functions.
 
-Did you try to set drm_device.mode_config.preferred_depth = 16, like at 
-[1]?  IIRC user space looks at this value to auto-detect the color format.
+Signed-off-by: Christian Bruel <christian.bruel@foss.st.com>
+---
+ drivers/pci/controller/dwc/pcie-stm32-ep.c | 38 ++++++------------------------
+ 1 file changed, 7 insertions(+), 31 deletions(-)
 
-[1] 
-https://elixir.bootlin.com/linux/v6.17.7/source/drivers/gpu/drm/tiny/cirrus-qemu.c#L542
+diff --git a/drivers/pci/controller/dwc/pcie-stm32-ep.c b/drivers/pci/controller/dwc/pcie-stm32-ep.c
+index 3400c7cd2d88a279c49ef36a99fc7537c381c384..d0654bb43759bb8d0f0d7badbf7bdae839241fcf 100644
+--- a/drivers/pci/controller/dwc/pcie-stm32-ep.c
++++ b/drivers/pci/controller/dwc/pcie-stm32-ep.c
+@@ -37,36 +37,9 @@ static void stm32_pcie_ep_init(struct dw_pcie_ep *ep)
+ 		dw_pcie_ep_reset_bar(pci, bar);
+ }
+ 
+-static int stm32_pcie_enable_link(struct dw_pcie *pci)
+-{
+-	struct stm32_pcie *stm32_pcie = to_stm32_pcie(pci);
+-
+-	regmap_update_bits(stm32_pcie->regmap, SYSCFG_PCIECR,
+-			   STM32MP25_PCIECR_LTSSM_EN,
+-			   STM32MP25_PCIECR_LTSSM_EN);
+-
+-	return dw_pcie_wait_for_link(pci);
+-}
+-
+-static void stm32_pcie_disable_link(struct dw_pcie *pci)
+-{
+-	struct stm32_pcie *stm32_pcie = to_stm32_pcie(pci);
+-
+-	regmap_update_bits(stm32_pcie->regmap, SYSCFG_PCIECR, STM32MP25_PCIECR_LTSSM_EN, 0);
+-}
+-
+ static int stm32_pcie_start_link(struct dw_pcie *pci)
+ {
+ 	struct stm32_pcie *stm32_pcie = to_stm32_pcie(pci);
+-	int ret;
+-
+-	dev_dbg(pci->dev, "Enable link\n");
+-
+-	ret = stm32_pcie_enable_link(pci);
+-	if (ret) {
+-		dev_err(pci->dev, "PCIe cannot establish link: %d\n", ret);
+-		return ret;
+-	}
+ 
+ 	enable_irq(stm32_pcie->perst_irq);
+ 
+@@ -77,11 +50,7 @@ static void stm32_pcie_stop_link(struct dw_pcie *pci)
+ {
+ 	struct stm32_pcie *stm32_pcie = to_stm32_pcie(pci);
+ 
+-	dev_dbg(pci->dev, "Disable link\n");
+-
+ 	disable_irq(stm32_pcie->perst_irq);
+-
+-	stm32_pcie_disable_link(pci);
+ }
+ 
+ static int stm32_pcie_raise_irq(struct dw_pcie_ep *ep, u8 func_no,
+@@ -152,6 +121,8 @@ static void stm32_pcie_perst_assert(struct dw_pcie *pci)
+ 
+ 	dev_dbg(dev, "PERST asserted by host\n");
+ 
++	regmap_update_bits(stm32_pcie->regmap, SYSCFG_PCIECR, STM32MP25_PCIECR_LTSSM_EN, 0);
++
+ 	pci_epc_deinit_notify(ep->epc);
+ 
+ 	stm32_pcie_disable_resources(stm32_pcie);
+@@ -192,6 +163,11 @@ static void stm32_pcie_perst_deassert(struct dw_pcie *pci)
+ 
+ 	pci_epc_init_notify(ep->epc);
+ 
++	/* Enable link training */
++	regmap_update_bits(stm32_pcie->regmap, SYSCFG_PCIECR,
++			   STM32MP25_PCIECR_LTSSM_EN,
++			   STM32MP25_PCIECR_LTSSM_EN);
++
+ 	return;
+ 
+ err_disable_resources:
 
-Best regards
-Thomas
+---
+base-commit: 31115ecec74fe5c679a149d7037009f26b3aa8a9
+change-id: 20251113-perst_ep-0b57b9679cf9
 
->
-> [1] https://lore.kernel.org/dri-devel/20250627145058.6880-1-mike.looijmans@topic.nl/
->
->
-> Sean Anderson (3):
->    drm: zynqmp: Check property creation status
->    drm: zynqmp: Make the video plane primary
->    drm: zynqmp: Add blend mode property to graphics plane
->
->   drivers/gpu/drm/xlnx/zynqmp_kms.c | 42 +++++++++++++++++++++++++------
->   1 file changed, 34 insertions(+), 8 deletions(-)
->
-
+Best regards,
 -- 
---
-Thomas Zimmermann
-Graphics Driver Developer
-SUSE Software Solutions Germany GmbH
-Frankenstr. 146, 90461 Nürnberg, Germany, www.suse.com
-GF: Jochen Jaser, Andrew McDonald, Werner Knoblich, (HRB 36809, AG Nürnberg)
-
+Christian Bruel <christian.bruel@foss.st.com>
 
 
