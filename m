@@ -4,56 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 479B1CD8CBF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 02:01:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82B8FCD8CBF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 02:13:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Subject:Message-ID:MIME-Version:To:Cc:Date:References:Content-Type:
-	In-Reply-To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kq+Oc886/LrLDNK1/htEPP+A49jj0wEsAdsPts936pM=; b=P7/Jg0gWwaaSH1aDE7rd6qIpXs
-	gn/TgsAXfZsdFQeeWD4Y9OJDCXYni7acsBs4AQo5kUpzbTsEHPBgMBaKBOW3GK1xdTz92HsuHbE1h
-	c/L3Mm9VQO/78PLn+DZcQxlAEm2KyrV0d+8IbM8VEyp15oTcd65K18n+k284felXY6TaNSlYsHxiA
-	B9W5Zl+A4Iua19EU/MgmmZlH4A9N34I0XprwnBuLau7t602s5+lS4yBQERrlrgyTlTYrlKynfrW80
-	cjy25XkEEKKVxr4aA+Z04mxbI55gtEs7/a+epLEuAEbxJCUt1cQBU83uP6MeGIXYuiUZwoLCXdPY6
-	HOLTFh6g==;
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SBM3vq37SG4A6w1IUkBk6VD1Hqp+KmIvSGnOQB9SSPA=; b=YzSY7QSC+z/+gyW9dZvCgVYTjX
+	w9BEtw6bJ8vOkv2vsicUpEYC3WOV/1mFku8pKFwbyEgGpO+mfchvO4v0ii3qMItceKP4Y/8PhuNZc
+	XtXOd7782d5vF5GGfgPdStrM/mzZmZuw7fW5ClEEyDaRLh9RCE0hfJbw1NhjBG/Fnz9KtcYa+2A0d
+	MXzTMB789WsQRYwrz1gMJ2ucpsUS41ilSibRHPF6hj64r1ny4e4hjAHCYsWsgJMTlmy81MCzNrmCJ
+	nTSvxG8905Rw7bOvEamauCaYhNLVeDvMYP2Qbqnctq+OpePQO4Td6JtOeLMg11oM3UtgH7RyI5hGX
+	X2N/mIMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJj7e-0000000BOqC-0Oo9;
-	Fri, 14 Nov 2025 02:01:10 +0000
-Received: from mail1.manjaro.org ([142.132.176.110])
+	id 1vJjJA-0000000BPH7-2BsE;
+	Fri, 14 Nov 2025 02:13:05 +0000
+Received: from mail-oi1-x235.google.com ([2607:f8b0:4864:20::235])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJj7Z-0000000BOpM-3H9A;
-	Fri, 14 Nov 2025 02:01:08 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPA id 2B94340FDC;
-	Fri, 14 Nov 2025 03:00:54 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=manjaro.org; s=dkim;
-	t=1763085657; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=kq+Oc886/LrLDNK1/htEPP+A49jj0wEsAdsPts936pM=;
-	b=NIGAVFUkmzy+jNAIJciKEgw5Ep3TqVeem7Td/7j/6XgIC+oFFnoTVeRPCv7Ylil+cysVHI
-	QceK/Td99BFv9Sbl8spI+HJk6baFEyh0flBqoIWFw03f/kTsFzWEDwLsVrYKFIx/i2V8Qz
-	V/+zfbsGDPE1lhVHoNWXu52nRhH/acAZ/c14/9+gECBnV+FfTOCtSb4ZWYV2qmVW8/XP0A
-	1vEU6xXNlVDrAqdZRIdc2tyzYTTt0dZ7FBw5kzqgdJG/PvibL3xkvLg5tKNvkQJMI0CBx2
-	UnQYz6RvuEKIiavrWwby7nyk1SaLgNnx/ZFQwnrEOqNulKrPv/To7cCL3m2Khw==
-From: "Dragan Simic" <dsimic@manjaro.org>
-In-Reply-To: <20251111172003.2324525-2-michael.opdenacker@rootcommit.com>
-Content-Type: text/plain; charset="utf-8"
-References: <20251111172003.2324525-1-michael.opdenacker@rootcommit.com> <20251111172003.2324525-2-michael.opdenacker@rootcommit.com>
-Date: Fri, 14 Nov 2025 03:00:54 +0100
-Cc: "Rob Herring" <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>, "Heiko Stuebner" <heiko@sntech.de>, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-To: michael.opdenacker@rootcommit.com
+	id 1vJjJ7-0000000BPFm-1iTy
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 14 Nov 2025 02:13:03 +0000
+Received: by mail-oi1-x235.google.com with SMTP id 5614622812f47-4503ee5c160so693063b6e.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Nov 2025 18:12:54 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bytedance.com; s=google; t=1763086374; x=1763691174; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=SBM3vq37SG4A6w1IUkBk6VD1Hqp+KmIvSGnOQB9SSPA=;
+        b=AxJs5IU3Ex7V7beompP1UGxRQNs1VlzlUiYP09xRs4MXUjQ21+cOKvMcBb6OaUNLNT
+         fPDGK2But6AP/ZUHm7stIDguZbXmoXNGfaUnC9Ao3RwcYwf9rY7lQF3nePflYk6gEy3Y
+         xd2RjJlHHP/bAZTreTc41GUimGHruCRaPBsoMHxnennj+P3t/UMQzhCNjHOOYhxE0dK3
+         ZwW2GOjWfFEJnMIWCK9bN8kzhKdcxaD3iGD+iYPGV/sKhpfpEr+14BuihWxFL/YzN24z
+         NKXfXZwtEXzziA9XgQRu6sq7KPd8IYy9YAOzoIOJTjEd12Qmse9Qwlk3ufHxMYYDcVDq
+         XIPg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1763086374; x=1763691174;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=SBM3vq37SG4A6w1IUkBk6VD1Hqp+KmIvSGnOQB9SSPA=;
+        b=m711g0W3AIrRJ0QczSNY+R21svQwZHQzba2h8cA08dzlf8mi0MLg5+wOTrBMdeD3ys
+         FtMqdfNYJLS14WroCpyWCXBMppd5RkJURoARRhZ0FwORgv/Gr+/3NyMgRohxUuqVp0zO
+         TRil46pBS3zNVl829cUtbXHHuX2+3E/1gyC03sDmwj7dXv/sMeYuSn4r/5BrHLwbK0mL
+         YLr429C6Oqm3XPngfEczqihBkgMVfdhzGE5IRN/6BzS7uysurg1InKJlKHC1m8UpEIiM
+         vH11bm1VknWh0GCBs6DdJ05TOHYk6WLGhKyXn/6qrUJbLBs+TBW8LUr/eyVTk2RCs9Ep
+         Wydg==
+X-Forwarded-Encrypted: i=1; AJvYcCWeb1SkV332ZSH3J64VuB776KfoPxJiT/7Eh5Gy6kQXCLLIecfZQkctBoOpSwVBNyowNc9U/IM5YEVmyB8WKIWb@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz8A+SBp4u4o4E8svk7zvBmW8fqWoHSnC55eNwj8/WNKg5RjOJy
+	/YEeR3wGGLeB7kF50gE0gRiiXCw6EU8WFWCin3ERHL5Qoyw8LzEWDv1FJtdDpVpfq4mDEQZGv4C
+	AZajdPLIiDU2pU/Bx/+2O7AhI76PpNQFVaMA297RrNA==
+X-Gm-Gg: ASbGncvanA9BiZRGggTcGs9qLEPuFqQauvD586k8Mq+QpY5HOr/fKEXGtgMTMDQzJrS
+	DbrERmVEY1Yna9QcY+UoDii7T4lqPgX/D3T+2C2vZWXKRZWnu/zpnWeZRdduXvHLnVvZehGIV7U
+	Aeh6Z0gDK557HKYFn9UFv3gPJOJs/UC8Ge2+oOZUBM/SVLglMLog0fuJB1u7IcZ7tz4iJWG2IcN
+	3txC7ALR5OUvng3Cg/1w+3mku3vbGYllF9D3Ud//fdoTssgILwrlLeu0+2PK2sYTJ7amgrdT33/
+	tXwgF2D4
+X-Google-Smtp-Source: AGHT+IHy0n4gQ/6J6Qsut3+AMNzWOn2pYSEr7TLktEg1mu/utZ4gYoyrlrE9G2GmaDzmMmkxvEL9sFE1ukImX70O6Wg=
+X-Received: by 2002:a05:6808:221f:b0:450:76f:b1a8 with SMTP id
+ 5614622812f47-450973ba31emr745094b6e.30.1763086373692; Thu, 13 Nov 2025
+ 18:12:53 -0800 (PST)
 MIME-Version: 1.0
-Message-ID: <e8235ec5-d857-1a0a-7108-3c2b8a5dbed9@manjaro.org>
-Subject: =?utf-8?q?Re=3A?= [PATCH 1/2] =?utf-8?q?dt-bindings=3A?==?utf-8?q?_arm=3A?=
- =?utf-8?q?_rockchip=3A?= Asus Tinkerboard 3 and 3S
-User-Agent: SOGoMail 5.12.3
+References: <20251111073459.44030-1-cuiyunhui@bytedance.com> <CAD=FV=VGvp5XsT9R9-LR-dSbGAZ5YVcm=HxBYibCcSdVnNkyPA@mail.gmail.com>
+In-Reply-To: <CAD=FV=VGvp5XsT9R9-LR-dSbGAZ5YVcm=HxBYibCcSdVnNkyPA@mail.gmail.com>
+From: yunhui cui <cuiyunhui@bytedance.com>
+Date: Fri, 14 Nov 2025 10:12:41 +0800
+X-Gm-Features: AWmQ_bkAOsbu28DhTbtm-Wf7KobQu9Ki7D8PlLDLwgn0w5kVCtpXXRPq6fTQ_oc
+Message-ID: <CAEEQ3wnGUDW_dqbbhM8nLeDH0kL=s89=8x2ESYs=Nm6AMzkV4A@mail.gmail.com>
+Subject: Re: [External] Re: [PATCH v5 0/2] Add HARDLOCKUP_DETECTOR_PERF
+ support for RISC-V
+To: Doug Anderson <dianders@chromium.org>
+Cc: akpm@linux-foundation.org, alex@ghiti.fr, anup@brainfault.org, 
+	aou@eecs.berkeley.edu, atish.patra@linux.dev, catalin.marinas@arm.com, 
+	johannes@sipsolutions.net, lihuafei1@huawei.com, mark.rutland@arm.com, 
+	masahiroy@kernel.org, maz@kernel.org, mingo@kernel.org, 
+	nicolas.schier@linux.dev, palmer@dabbelt.com, paul.walmsley@sifive.com, 
+	suzuki.poulose@arm.com, thorsten.blum@linux.dev, wangjinchao600@gmail.com, 
+	will@kernel.org, yangyicong@hisilicon.com, zhanjie9@hisilicon.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-perf-users@vger.kernel.org, linux-riscv@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-X-Last-TLS-Session-Version: None
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251113_180106_055230_45DE3C5F 
-X-CRM114-Status: GOOD (  12.35  )
+X-CRM114-CacheID: sfid-20251113_181301_653352_77334A8F 
+X-CRM114-Status: GOOD (  23.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,66 +104,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Michael,
+Hi Doug,
 
-Thanks for this patch!  Please, see some comments below.
+On Fri, Nov 14, 2025 at 6:51=E2=80=AFAM Doug Anderson <dianders@chromium.or=
+g> wrote:
+>
+> Hi,
+>
+> On Mon, Nov 10, 2025 at 11:35=E2=80=AFPM Yunhui Cui <cuiyunhui@bytedance.=
+com> wrote:
+> >
+> > After discussion [1],[2], hardlockup_perf cannot be completely replaced=
+ by
+> > the hardlockup_buddy approach, so this patch is still being submitted.
+> >
+> > v1->v2:
+> > The contents of arch/arm64/watchdog_hld.c are directly consolidated int=
+o
+> > kernel/watchdog_perf.c.
+> >
+> >
+> > v2->v3:
+> > Add CONFIG_WATCHDOG_PERF_ADJUST_PERIOD to enclose the period update log=
+ic,
+> > select it by default on arm64 and riscv, without affecting other arches
+> > like x86 and PPC.
+> >
+> > v3->v4:
+> > Place the line "select WATCHDOG_PERF_ADJUST_PERIOD if HARDLOCKUP_DETECT=
+OR_PERF && CPU_FREQ"
+> > in the Kconfig files for arm64 and riscv in one line, with no line brea=
+ks.
+> >
+> > v4->v5:
+> > Remove __weak from hw_nmi_get_sample_period()
+> >
+> > Link: https://lore.kernel.org/all/CAD=3DFV=3DUEhVCD6JehQi1wor2sSmtTLDyf=
+=3D37xfo-DOTK1=3Du1xzA@mail.gmail.com/ [1]
+> > Link: https://lore.kernel.org/all/20250916145122.416128-1-wangjinchao60=
+0@gmail.com/ [2]
+> >
+> > Yunhui Cui (2):
+> >   watchdog: move arm64 watchdog_hld into common code
+> >   riscv: add HARDLOCKUP_DETECTOR_PERF support
+> >
+> >  arch/arm64/Kconfig               |  1 +
+> >  arch/arm64/kernel/Makefile       |  1 -
+> >  arch/arm64/kernel/watchdog_hld.c | 94 --------------------------------
+> >  arch/riscv/Kconfig               |  3 +
+> >  drivers/perf/arm_pmu.c           | 10 +++-
+> >  drivers/perf/riscv_pmu_sbi.c     | 10 ++++
+> >  include/linux/perf/arm_pmu.h     |  2 -
+> >  kernel/watchdog_perf.c           | 83 ++++++++++++++++++++++++++++
+> >  lib/Kconfig.debug                |  8 +++
+> >  9 files changed, 114 insertions(+), 98 deletions(-)
+> >  delete mode 100644 arch/arm64/kernel/watchdog_hld.c
+>
+> Perhaps you missed that (I think) Andrew had already dropped your v4
+> due to the Kernel Test Robot finding a problem. See:
+>
+> https://lore.kernel.org/r/202510240701.eB6r97V3-lkp@intel.com
+>
+> I don't think you've fixed these problems in v5, have you? I think you
+> need a v6 for it? I haven't dug all the way, but I'd suspect the
+> compile error is if "HARDLOCKUP_DETECTOR_PERF" is defined but not
+> "CPU_FREQ". Indeed, that matches the config in the report...
+>
 
-On Tuesday, November 11, 2025 18:20 CET, michael.opdenacker@rootcommit.=
-com wrote:
-> From: Michael Opdenacker <michael.opdenacker@rootcommit.com>
->=20
-> Document the compatible strings for Asus Tinkerboard 3 [1] and 3S [2]=
-,
-> which are SBCs based on the Rockchip 3566 SoC.
+Thanks for the reminder. I indeed missed replying to the email dated
+October 26th regarding the error "ld.lld: error: undefined symbol:
+hw_nmi_get_sample_period".
+We can fix it directly as follows:
+-       select WATCHDOG_PERF_ADJUST_PERIOD if HARDLOCKUP_DETECTOR_PERF
+&& CPU_FREQ
++       select WATCHDOG_PERF_ADJUST_PERIOD if HARDLOCKUP_DETECTOR_PERF
+Because when CPU_FREQ is not defined, there is a stub function, and
+the corresponding max_cpu_freq will be set to SAFE_MAX_CPU_FREQ.
 
-For consistency, this should be s/Tinkerboard/Tinker Board/.
+>
+> -Doug
 
-> The "3S" version ("S" for "storage") just adds a 16 GB eMMC
-> and a "mask ROM" DIP switch to the "3" version.
->=20
-> Link: https://tinker-board.asus.com/series/tinker-board-3.html [1]
-> Link: https://tinker-board.asus.com/series/tinker-board-3s.html [2]
-
-These two lines should read like this, to serve as references, with
-an empty line afterwards, of course:
-
-  [1] https://tinker-board.asus.com/series/tinker-board-3.html
-  [2] https://tinker-board.asus.com/series/tinker-board-3s.html
-
-> Signed-off-by: Michael Opdenacker <michael.opdenacker@rootcommit.com>
-> ---
->  Documentation/devicetree/bindings/arm/rockchip.yaml | 11 +++++++++++
->  1 file changed, 11 insertions(+)
->=20
-> diff --git a/Documentation/devicetree/bindings/arm/rockchip.yaml b/Do=
-cumentation/devicetree/bindings/arm/rockchip.yaml
-> index 6aceaa8acbb2..451597a6cffb 100644
-> --- a/Documentation/devicetree/bindings/arm/rockchip.yaml
-> +++ b/Documentation/devicetree/bindings/arm/rockchip.yaml
-> @@ -86,6 +86,17 @@ properties:
->            - const: asus,rk3288-tinker-s
->            - const: rockchip,rk3288
-> =20
-> +      - description: Asus Tinker board 3
-
-This should be s/Tinker board/Tinker Board/, because it's actually
-a proper noun/name.
-
-> +        items:
-> +          - const: asus,rk3566-tinker-3
-> +          - const: rockchip,rk3566
-> +
-> +      - description: Asus Tinker board 3S
-
-The same as above.
-
-> +        items:
-> +          - const: asus,rk3566-tinker-3s
-> +          - const: asus,rk3566-tinker-3
-> +          - const: rockchip,rk3566
-> +
->        - description: Beelink A1
->          items:
->            - const: azw,beelink-a1
-
+Thanks,
+Yunhui
 
