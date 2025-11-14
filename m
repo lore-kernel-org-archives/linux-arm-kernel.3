@@ -4,150 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18032CE8D5B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 16:57:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AF46CE8D5D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 17:02:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6IFFl+PcYax86RL4UXsm0WHPJC17ukP44anrElAp3kg=; b=jLmD2td1ptCVPjLVozZYFuNuWg
-	W+pIRE6bjXxHsxkcEU2rwMq53qUdcIgt8B9Oq2uYqeE54nMT2ADMs/pTQUseuHoOS3uYbrwDLmzQx
-	n9Xh8OaLzauTcDjYhu+YjRoO3udfHILQ8eX9KG38Adzf3MB53aaMW10bCYx8GZ5Vy/un6hLj9ah4O
-	BNg+F459aO6b7Btd9UnAb8BG4aflr5jqWqXxoCUJ31ltN4QmLRi4/dT8troEkuiEOlm0tR1qmnVc2
-	2weM2RDNA5QwxblqkiQEwGxVv9vDifkiLmKdHunLZOR3e8MM//glhsD/V0gHNYVzXDKteWqdyL/Vt
-	tmBqhnsg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=/H7GHzQdEVJHWL6IxnBg2c0IP7Sxxl00BJqFqnDMZQs=; b=IMRDUEPAP+oQUX
+	fl4xywNXppzlnGMA4bLOKsArF2dgBtq18jj5jUOGBSpb9YLnUR4m5lmKRHOxXUqK4HzUM6HRRxvN9
+	E8O1NgSl06bjCQOlI6Vq2xdWTyZWrswEceIZx8OX28N7jyvbKZ91cfMY/dbhC5ugYApOwXEq2qvIi
+	22ryYrIUJAehZqBD3/jNKKrumzVLXze8KkBFbu/ZM34jjFXFcg5N49nci5qtRpPu6/0/5VGz9Hvx4
+	EeMSz5tK4z1PdPzp8MMGCfrT+D3yvy/cYFl93rrr83OtF5/FTAGjxyAlpdtCWcvbkgt41Sd63vwkx
+	sjKmRbuLPelmZWRZv8eg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJx6T-0000000CnHI-3jV0;
-	Fri, 14 Nov 2025 16:56:53 +0000
-Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1vJxBl-0000000Cnsq-3K1M;
+	Fri, 14 Nov 2025 17:02:21 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJx6R-0000000CnGZ-2tGN
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Nov 2025 16:56:52 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=BRiThRsATw0WP4GGwX1Vzc/B6TO27ChxdOHSJV3CyU/WDRx0x8/vCR3+Jujb58VcxYzq22dpkpWDJewk6EFL6OT8Ckn9BBQ/1bT4csSQgXI3Yol3rieJ8nt4U2ahl16JnHy3hWPJHeBuSh5rbjat7/ozuZhw7hHfvsW/kRZvCH0FQScrPP9y7a5y6l8R+yKUxrtqOf7l+pklIrhsnOAHfA/Zir/y+WtaL/s6jeE0Flx8ZDzquglut0UGnRj7XfP6H9keP8XlDUkU3w6Z9sFX8zuoSUH8wA94kwWpaK8mYdTXzB8CKMVlRtN3PuhriCTmbQbv3PCoTV1LeaSiYk7V1A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=6IFFl+PcYax86RL4UXsm0WHPJC17ukP44anrElAp3kg=;
- b=l2lipc00in1OXi9gJMrWocIRStjaxKk3GXfS4sYCaFurJ8IV1pZpPMBZh5V/fjf13poQyXBYiyNY6hSEhficOHRtI8a+A66KVvv1eLKumVDwgTPYIZkW5ICJnmXjknUy4zya+L6assDiUAG9f2fsY97MaGRrdTXHuwK8vCVUPBxQLt3O/4BbjNOhmlZiMKBhxy07/iwtjYmcVAszZUHYqSPWGNQS91tvF4lp53fD3/9IUFZqfsmbE9j0dX1Wsb34R1h5WD3B/cqEkxJyVrHoC0mpbehW4qiSkP9G7lPzGqcJITqRnqJw7xhwQzM/mCe+5tn2ipVyouZgBAmRtG4whQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=6IFFl+PcYax86RL4UXsm0WHPJC17ukP44anrElAp3kg=;
- b=bIFClWLSzIsvw0LRGiIb672EAun6mehESqqKU5bFMQ+SQACRzvL0WmnjkCnhEfIGS2OrPS0D2jJnqlIjtigKtnVLCl6b9nC3Ix6f8BNUrSxpAyatvNULQ0W9HasXeaty+NOwfILNpNButvLhkKA6jL0c5YOgowbiv359Yy1bOJZJrLIJ0U3Ml4UDMJfeETcKQr9TBd/hRyPJ8XvfixfFoepUewAG9ENU5VH7LuSqeYQs0xqxUynbWmFOGMMbYAKj/4+VZsshJVEG2w9TKt2pI/dbaG52p2GT9KYJq48qaUKGR6l2DvdsCeQul5wjqLneTofN13j4BIeYkkSIdpEBUQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from DB9PR04MB9626.eurprd04.prod.outlook.com (2603:10a6:10:309::18)
- by AS5PR04MB9825.eurprd04.prod.outlook.com (2603:10a6:20b:672::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9320.17; Fri, 14 Nov
- 2025 16:56:47 +0000
-Received: from DB9PR04MB9626.eurprd04.prod.outlook.com
- ([fe80::55ef:fa41:b021:b5dd]) by DB9PR04MB9626.eurprd04.prod.outlook.com
- ([fe80::55ef:fa41:b021:b5dd%4]) with mapi id 15.20.9320.013; Fri, 14 Nov 2025
- 16:56:46 +0000
-Date: Fri, 14 Nov 2025 11:56:39 -0500
-From: Frank Li <Frank.li@nxp.com>
-To: Vladimir Zapolskiy <vz@mleia.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>,
-	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
-	"moderated list:ARM/LPC32XX SOC SUPPORT" <linux-arm-kernel@lists.infradead.org>,
-	open list <linux-kernel@vger.kernel.org>, imx@lists.linux.dev
-Subject: Re: [PATCH 1/5] ARM: dts: lpc32xx: add bus surfix for simple-bus
-Message-ID: <aRdfR89CNvk7QRm8@lizhi-Precision-Tower-5810>
-References: <20251029202801.3963952-1-Frank.Li@nxp.com>
- <af66cc8a-051a-4512-9a02-468b17550775@mleia.com>
- <aRdWoQ/vPplF0aQA@lizhi-Precision-Tower-5810>
- <03494fa4-26e6-4691-8fa6-5bd99c2c25a1@mleia.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <03494fa4-26e6-4691-8fa6-5bd99c2c25a1@mleia.com>
-X-ClientProxiedBy: SJ0PR03CA0158.namprd03.prod.outlook.com
- (2603:10b6:a03:338::13) To DB9PR04MB9626.eurprd04.prod.outlook.com
- (2603:10a6:10:309::18)
+	id 1vJxBj-0000000Cnrk-09io;
+	Fri, 14 Nov 2025 17:02:20 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1763139246; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=P1zbySLBMoTuYWFzBJXE0e3U9S9ADb62KIYeWDu/hnFXM/rhr8nqeSPeVlb4n6oD0iydHND9ZBg6Qvcy7mBNwpNIppqyBXmiRpKxcyMq2mpHIkUFhZ/mob1UwQZBhE9VTYTkEzT7EO76CMqAS59cAjG1EEj7Z+xHZ8KqsC5yUDU=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1763139246; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=/H7GHzQdEVJHWL6IxnBg2c0IP7Sxxl00BJqFqnDMZQs=; 
+	b=n83DtCqhT9N/20fxJEKKf6WmBPorVU2gHXJBVnRLL1307/U0xu6Q6Kcpw7hzvbMXNGol2ZdtK8msFdmli9QPYTCqTDwBCbDMRlh7TOuhA25yREcmDeP98fl42xF+qJJwKNXHK8MkcVqUVtQlG1+Dhv3Wp0XZsv2ggh9aPV8UUpg=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
+	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1763139246;
+	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
+	h=From:From:Subject:Subject:Date:Date:Message-Id:Message-Id:MIME-Version:Content-Type:Content-Transfer-Encoding:To:To:Cc:Cc:Reply-To;
+	bh=/H7GHzQdEVJHWL6IxnBg2c0IP7Sxxl00BJqFqnDMZQs=;
+	b=YWhFOohSBAKRoxsUW21p5utSu/GZuw1B/PQeLZweWzonb8DZSyqcol1yKIoqASw8
+	rq66EqlN00hohSvpAVQYg68kpoTsUYsh0CO95Xuz6o+Fg/cZ3hJsh49o0iOBlq5GzWu
+	xqS+Ip85MTQdnd+iOfq2PjkcA9yERrHw9WL7XuI4=
+Received: by mx.zohomail.com with SMTPS id 1763139243754487.4274112916788;
+	Fri, 14 Nov 2025 08:54:03 -0800 (PST)
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Subject: [PATCH 00/13] MediaTek Interconnect Cleanup and MT8196 Enablement
+Date: Fri, 14 Nov 2025 17:53:54 +0100
+Message-Id: <20251114-mt8196-dvfsrc-v1-0-b956d4631468@collabora.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DB9PR04MB9626:EE_|AS5PR04MB9825:EE_
-X-MS-Office365-Filtering-Correlation-Id: d1abb935-32f6-4aab-5f10-08de239ecb92
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|366016|52116014|19092799006|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?Mh37MtHq4OD4VBch1t0kKIDZLj2VvBfzH7fTqSX2gjHjJ+m3EpHsrcfs6pM8?=
- =?us-ascii?Q?Rrtuf+3Eoq6dM4ILfe/nHWXKyTdPUJbUyP0akG7myeMEaraW75xi6llNN549?=
- =?us-ascii?Q?8/9RS0/Yd/J9GfizzJ/Z/KJCWgnewi3DLnb4rscvbAweYsjuBhISI2I+hRUG?=
- =?us-ascii?Q?VyrkQdKPH+UN0+FblJghwmj3AB9Jq67jmxoccRlCE6VaPjJD5mTH4UHj65PQ?=
- =?us-ascii?Q?Fu0SC91oJL7hRrHAf53tWSkVpBYmCkNp3psXoFmMhOkBc3ZMVfb9TGgxBuwF?=
- =?us-ascii?Q?fp/BHKNGi4fB4OCdsN6CCF3t/rpQphHooSMyZcI9MlwfCI/XiP4MexBHEWxc?=
- =?us-ascii?Q?kNofiiLfCt7EIklLAFHq3Wi+easxJdSjoPDEROn8MBLv/QKOpixxUJuLZukX?=
- =?us-ascii?Q?8BYq385/v4RqeWzCa79GJxi0eQFxYlWsvwqiNRAjiY7RBo8S2bvAJ56jb7YQ?=
- =?us-ascii?Q?Nc0AxjtVCWYO7lDMqarwNRJB8SBlVztsSNKVDZf5dO++ZqAlY5U3b0abGe40?=
- =?us-ascii?Q?JZmO0+on3Oefl9vS7SKhKpLYxivL9CRw0ynZMUf+sFeZlKZoauq/SNNxhUxq?=
- =?us-ascii?Q?PUfT3KtlZDsWige4Tu7NCZxbGrVzhqSmLaTwTiqT90w10e+sJuev0VZ0FdUk?=
- =?us-ascii?Q?3TXSOwhqMdzjh7SiUp+PHk4EF4iy/z2DeDG3QprQ6SX5xk3YQpXmRhoyKCoa?=
- =?us-ascii?Q?R9ZhbVf4b2wFjn5L8PdCucZf5V4z1cO9EJE8+Z8vgUJV3QN023YMQ+fcX4gX?=
- =?us-ascii?Q?xrzPoXMii6KTcCQQgkMywxaWb78o/T4Oit3Fecc6eQ/hg8/tp7r2ceA9ic+J?=
- =?us-ascii?Q?6cNnuuafnXtvgivtj+7hjCZ2uGtWBsfFiHKd54aI5sIKPGUF047XeHcRvNLG?=
- =?us-ascii?Q?ZU9JRSSdyaqSggIi5h07P0SvY0Wq4TW9ETZugPCk9lDKOthpGjBeTOAlWG29?=
- =?us-ascii?Q?G04a4/+IZtZXdVy/tVgObfjIYPBhWswz9eDAOrw2CTD938kL5gDTqpGDOYvo?=
- =?us-ascii?Q?8ol/tmVTsA33Fkdz76flVNzHNiA6AsCXPN6+hNDMmE/ZjWUDGdlezLkv2xHG?=
- =?us-ascii?Q?+vOD2H4Nb8psYpLEOxUF/s5LXRmeF76+4V7e621WfM5HZrnsL9yHei0z8enB?=
- =?us-ascii?Q?926JF3KkXaQRbdj2helK1HQ/XkyzlxTNABdnSKu7zN7yFNyYa0XnMB8SP3R2?=
- =?us-ascii?Q?A3FjXk/8dQOR1T2d/A780jRIyQCVwPKbnI1m17AH9RPIBC8Ge/XsnbWN2425?=
- =?us-ascii?Q?c8vu+RMZKtdvcSQGYVTFWo9i+SDY+7IUvun23pfJJiNB1RXYI/mtXDcsla81?=
- =?us-ascii?Q?R73jXwTu7dgg450AtWMjT7Zvr2scw9QuFsg+/rP/wtR+3uaRgHBMO23Mmp5/?=
- =?us-ascii?Q?I1rp+7jRWlmLnNGuGt9OJdG1WJBqwh7dtFMEzA8IweB9pK7pmoy0aTIRRWmJ?=
- =?us-ascii?Q?8lCzbRSa7rwE1MKZPN7nnWOrkloSPHNT9JBF8Fj7ydBzweBir8TESQ=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR04MB9626.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016)(52116014)(19092799006)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?1Mn18Q3YSY1gC3TXW306jcSstO5k5HlAVp7GSxnUosvx23BRVJlwsznT9NrZ?=
- =?us-ascii?Q?ReNRb9iy7rW3J8Xh/SE3/7LhNatxMME+1X0/QJbt0+2XahDZil001vouK3ml?=
- =?us-ascii?Q?7/HwazAK13Wfu2iS260Nug8xLa393H5VjszvghQ7Y015DdRhcGZgI2b4Tk++?=
- =?us-ascii?Q?sx0PVisW9i7NoRNIZq/ikmlr21UlteHreV+DUuqFHDhJwj4FaSSxVgf5Nmcy?=
- =?us-ascii?Q?vRlYExujCVdVXd7On4RRFF9K5rvS8dgjl2By6G38K9WRw0mfw4AbrI5kiMkj?=
- =?us-ascii?Q?zZlPuy0t9+9KL+kLUGlRdykTaoVQBch2JrjyJYrsI7icWMRGGARCr9VjT0Sa?=
- =?us-ascii?Q?2TC69wPvSHGL/2nUbcvaYiMkaPhB8UaODIhX7ihPSTMIREkxx3MHjk973MSj?=
- =?us-ascii?Q?hclCDWD5+rp3DwvMqk2VqVgczWsevv8Dct9ZBstOq5VaVqxH3E66bc9TKik5?=
- =?us-ascii?Q?gyM15Eshu55WKUbz5FdgJ8SqP1O8HcjglAycvm3fyGaCjJXMypG8DS/k3luh?=
- =?us-ascii?Q?ZmpoKdSSKdlmRKOLvntknBph3iqnkaYLIh9STLV8Lcp1jb8lNvFZx9I5ohsB?=
- =?us-ascii?Q?+t/gidgkhkd7keEnoLZlccC6UmqJd5mwcQStvuplHWCF4Xy4dniDmbrE6L9o?=
- =?us-ascii?Q?dA0phYCyUb7AKGanyCDYnnPTRQpnnwzOTuUnk2V0MsxA7g9srkbB7HnFMwZU?=
- =?us-ascii?Q?uDF/HzXVpc/S2AgRQ4275cOA4KQInXtX+ERfPutmkaRLkXMZ3FhHPOEZ7U0Z?=
- =?us-ascii?Q?wY2bv5tkLytgSM443+YPl2+Stvy781tzARS2MlbMA/ygsexlpnYCksB/v+0X?=
- =?us-ascii?Q?Pc3phefvgAdKYXzBMoXjTl7Ve7ldt65tY02SzCNTnZA3cp1OlAe75iE7MSOT?=
- =?us-ascii?Q?LQO++RP1+W6Z5MHLsOHqyaFZN2c3x4Lb4LcPCxVJVDXYT81qUVf6GrOaVlJN?=
- =?us-ascii?Q?MjoHz2Xug6hg+XnTMdZFEmDjxkKPfCPcwk1AvHxa2mH10V+IFgpc2XQgvill?=
- =?us-ascii?Q?DxH60gk0zHWilvxD0Ue91E6fv1ZzGUn71UgpJA627N+I6ndDFB88q6jCOYVL?=
- =?us-ascii?Q?0ERhqI3HCjrKhZHFTrjewULu4lsCe7Q6PYkQpOIYs6l8m+rTRn3SwotwaJXH?=
- =?us-ascii?Q?MALps9H0G8prNS2JYQFdH/YwvGnyXrLAumxsiziagj6pQ24D3lFyd/v6dQHS?=
- =?us-ascii?Q?5uqxAkU/aXUDpc21b4zwVElerZL+vkPgYyC/Vkw/gmyKk/rrjyy4PGTJw2tA?=
- =?us-ascii?Q?hgqXnNuJubcdkj7//0124fMjKziOBxPHdPnb3NGZ1zk4dqfjHTtnbQHUfy6K?=
- =?us-ascii?Q?rCGj7gylw5yNj9J0TUGmNTu7fbyJUYW1jKIi8gD8APSsEbcILzN8vnqPWHjy?=
- =?us-ascii?Q?ZCbMRB0bvmz0rVotImYTfxo4qwWyurHv83Gh1gCp7MPky2sEc2k+jY5+NPIz?=
- =?us-ascii?Q?cccU5iujJdpHmgoM7uuBZydS9QTxpLA3wGcy6UWeHszGHr1+wbRm4h9zdLdR?=
- =?us-ascii?Q?SozoaEDgQ3Ljr4evCxeUs/DlIqbG85ecYxSBpbXGT27RdJoGUOb6fmKP3ekS?=
- =?us-ascii?Q?x8mDk5kSnSzlJptCoCqeBYFkC9gNRJkV7NAd6tfR?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: d1abb935-32f6-4aab-5f10-08de239ecb92
-X-MS-Exchange-CrossTenant-AuthSource: DB9PR04MB9626.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Nov 2025 16:56:46.1868
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: GeJ3EANSqN7/syha+AeuzuhLehzHsF3dk4vYeIWAaLYRd+VFfKnk3XyBGpHUFBrAwPnTKT+l0+ljgg4DC5iW8Q==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS5PR04MB9825
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAKJeF2kC/zXMQQqDMBCF4auEWXfAEa3GqxQXNk7aWSS2k1QE8
+ e4NlS7/B+/bIbEKJxjMDsqrJFliCboYcM8pPhhlLg11VbdE1GDIPdkrzqtP6rC13vW2oq5rHJT
+ PS9nL9vNu49nK709h8znCfUqMbglB8mAibxn/NIzH8QURFBY6kAAAAA==
+X-Change-ID: 20251114-mt8196-dvfsrc-59fc8901774c
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Henry Chen <henryc.chen@mediatek.com>, Georgi Djakov <djakov@kernel.org>
+Cc: kernel@collabora.com, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, linux-pm@vger.kernel.org, 
+ Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251114_085651_738646_8A0A898F 
-X-CRM114-Status: GOOD (  29.08  )
+X-CRM114-CacheID: sfid-20251114_090219_151084_5DC595A6 
+X-CRM114-Status: GOOD (  10.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,94 +84,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 14, 2025 at 06:44:03PM +0200, Vladimir Zapolskiy wrote:
-> On 11/14/25 18:19, Frank Li wrote:
-> > On Fri, Nov 14, 2025 at 01:55:50AM +0200, Vladimir Zapolskiy wrote:
-> > > Hi Frank.
-> > >
-> > > On 10/29/25 22:27, Frank Li wrote:
-> > > > add bus surfix for simple-bus to fix below CHECK_DTBS warnings:
-> > >
-> > > typo in the subject and in the commit message above, s/surfix/suffix/
-> > >
-> > > > arm/boot/dts/nxp/lpc/lpc3250-ea3250.dtb: usb (simple-bus): $nodename:0: 'usb' does not match '^([a-z][a-z0-9\\-]+-bus|bus|localbus|soc|axi|ahb|apb)(@.+)?$'
-> > > >           from schema $id: http://devicetree.org/schemas/simple-bus.yaml#
-> > > >
-> > > > Signed-off-by: Frank Li <Frank.Li@nxp.com>
-> > > > ---
-> > > >    arch/arm/boot/dts/nxp/lpc/lpc32xx.dtsi | 6 +++---
-> > > >    1 file changed, 3 insertions(+), 3 deletions(-)
-> > > >
-> > > > diff --git a/arch/arm/boot/dts/nxp/lpc/lpc32xx.dtsi b/arch/arm/boot/dts/nxp/lpc/lpc32xx.dtsi
-> > > > index 2236901a00313..9790b0a1d6537 100644
-> > > > --- a/arch/arm/boot/dts/nxp/lpc/lpc32xx.dtsi
-> > > > +++ b/arch/arm/boot/dts/nxp/lpc/lpc32xx.dtsi
-> > > > @@ -86,7 +86,7 @@ dma: dma-controller@31000000 {
-> > > >    			#dma-cells = <2>;
-> > > >    		};
-> > > > -		usb {
-> > > > +		usb-bus {
-> > >
-> > > Device nodes under "usb" should be just elevated, the "simple-bus" here
-> > > was used only to group some controllers together.
-> > >
-> > > >    			#address-cells = <1>;
-> > > >    			#size-cells = <1>;
-> > > >    			compatible = "simple-bus";
-> > > > @@ -307,14 +307,14 @@ mpwm: pwm@400e8000 {
-> > > >    			};
-> > > >    		};
-> > > > -		fab {
-> > > > +		fab-bus {
-> > >
-> > > FAB shall find its place in the AXI/AHB/APB/... list, isn't it?
-> >
-> > what's FAB means? It is too short and hard to find exact information
-> > from google?
->
-> You may find UM10326 "LPC32x0 and LPC32x0/01 User manual" document online,
-> LPC32xx is an old and simple SoC.
->
-> FAB stands for Fast Access Bus, it's a bus behind AHB to FAB bridge, you
-> may get an overview from "Fig 3. LPC32x0 block diagram, AHB matrix view",
-> and "Table 4. Peripheral devices on the LPC32x0" lists all FAB peripherals.
->
-> So, FAB is very similar to APB functionally, could it be just another
-> name of APB?.. Likely we won't know for sure.
->
-> I'd suggest to send a change, which adds "fab" to the list of permitted
-> device tree node names with a "simple-bus" compatible. Or let me know,
-> and I'll do it myself whenever I find a minute for it...
+This series is a combination of binding changes, driver cleanups and new
+driver code to enable the interconnect on the MediaTek MT8196 SoC.
 
-If only use by NXP, I think it is not easy to add it. There are too much
-similar vendor specific bus name in other Soc.
+This series currently does not add any users of it (i.e., no bandwidth
+requests being made in affected device drivers), as the only one I
+quickly whippd up is in the UFS driver, which is undergoing some major
+refactoring upstream in a different series of mine.
 
-It is local in https://github.com/devicetree-org/dt-schema.git
-dt-schema/dtschema/schemas
+Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+---
+AngeloGioacchino Del Regno (8):
+      dt-bindings: soc: mediatek: dvfsrc: Add support for MT8196
+      dt-bindings: interconnect: mt8183-emi: Add support for MT8196 EMI
+      soc: mediatek: mtk-dvfsrc: Change error check for DVFSRCv4 START cmd
+      soc: mediatek: mtk-dvfsrc: Add and propagate DVFSRC bandwidth type
+      soc: mediatek: mtk-dvfsrc: Add a new callback for calc_dram_bw
+      soc: mediatek: mtk-dvfsrc: Write bandwidth to EMI DDR if present
+      soc: mediatek: mtk-dvfsrc: Add support for DVFSRCv4 and MT8196
+      interconnect: mediatek: Add support for MediaTek MT8196 EMI ICC
 
-    pattern: '^([a-z][a-z0-9\-]+-bus|bus|localbus|soc|axi|ahb|apb)(@.+)?$'
+Nicolas Frattaroli (5):
+      dt-bindings: soc: mediatek: dvfsrc: Document clock
+      soc: mediatek: mtk-dvfsrc: Get and Enable DVFSRC clock
+      soc: mediatek: mtk-dvfsrc: Rework bandwidth calculations
+      interconnect: mediatek: Don't hijack parent device
+      interconnect: mediatek: Aggregate bandwidth with saturating add
 
-Most likely Rob prefer use prefix.
+ .../bindings/interconnect/mediatek,mt8183-emi.yaml |   1 +
+ .../soc/mediatek/mediatek,mt8183-dvfsrc.yaml       |   7 +
+ drivers/interconnect/mediatek/Kconfig              |   7 +
+ drivers/interconnect/mediatek/Makefile             |   1 +
+ drivers/interconnect/mediatek/icc-emi.c            |   9 +-
+ drivers/interconnect/mediatek/mt8196.c             | 383 +++++++++++++++++++++
+ drivers/soc/mediatek/mtk-dvfsrc.c                  | 364 ++++++++++++++++++--
+ include/dt-bindings/interconnect/mediatek,mt8196.h |  48 +++
+ 8 files changed, 785 insertions(+), 35 deletions(-)
+---
+base-commit: d8a3d478ec9200b852095cb96d166ca7909f57e0
+change-id: 20251114-mt8196-dvfsrc-59fc8901774c
 
-Anyway, you can try if you want.
+Best regards,
+-- 
+Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 
-Frank
->
-> > > >    			#address-cells = <1>;
-> > > >    			#size-cells = <1>;
-> > > >    			compatible = "simple-bus";
-> > > >    			ranges = <0x20000000 0x20000000 0x30000000>;
-> > > >    			/* System Control Block */
-> > > > -			scb {
-> > > > +			scb-bus {
-> > > >    				compatible = "simple-bus";
-> > > >    				ranges = <0x0 0x40004000 0x00001000>;
-> > > >    				#address-cells = <1>;
-> > >
-> > > Here "simple-bus" is also unjustified...
->
-> --
-> Best wishes,
-> Vladimir
->
 
