@@ -4,70 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79B8ACDE017
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 06:59:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90D69CDE019
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 07:03:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZGMyiWLHd227KG2Ilbq09nuik7e49nTUOKDH0Fh1doA=; b=IJopCuHbrsdM0i+uOPhl+KGhCb
-	bam8Mf8xZA++5eqJaIZoFj3MbpMiFzZKtNabc68qUyYtezppzA003Hi6rv0+Pth3L/bHtEZsyJWw8
-	ZCitiZFocCghd3qYfeqhUvbZuR6UvqCFmv7p8DKq9AtAPKPVzzFMk4dWt8VpEo3RbqFV5Z05Xp8V9
-	EHusFwmqQhy4/5KXZixI6IHKQ1O8LctWr9u39+0XObfWOtrzmlof8sp7baaNbPgdpQyg3U9+4JhNJ
-	A8B+vfn3yydaZHrcjqQBPevC2GKSen/jo6Y5u3T0r9lx+De5LWqfaKKvgU5O9Xtk684k6hlDQdiiA
-	LBd/7s4A==;
+	bh=+9e6FQJYDBsPl1jkD3novF2T5qQ3BDazY3CfaJMvju8=; b=uYGRYanPGmPT/UlAOSk433pj/6
+	EsnSipyKGkDb4OkIrjELUpsbQJBpnvRd4j0wSgNNayJYcU1YRkWl8YhnDJ6O9jDnae9Wi2rr18kX/
+	ReTX2YW9XAwYL4jJW42OsOnTDGc27KlZ3OySTp45z7REYkQEp8EeDdNdZeIJ8zKDxujVzTWymMsCp
+	iPfpHufL1VufZ2bnXzqpX/NfwI9JypOTMJNAwVZm4IBm0gj52oGELVvkUKagTNGDvtbW0az9G6EEo
+	49q9d6003IbHdDSeAMixnHUOAQyNxgVEBR3yBTJwfPkW2wNGcnHhYH1VCiKDB8frQPvIXTrCUQktT
+	PJseW7rA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJnmV-0000000BhaC-0ahJ;
-	Fri, 14 Nov 2025 06:59:39 +0000
-Received: from mo-csw1802.securemx.jp ([210.130.202.152] helo=mo-csw.securemx.jp)
+	id 1vJnqE-0000000Bi7r-2I5h;
+	Fri, 14 Nov 2025 07:03:30 +0000
+Received: from fhigh-b2-smtp.messagingengine.com ([202.12.124.153])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJnmM-0000000BhWP-3PCd
+	id 1vJnqC-0000000Bi7V-0RTu
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Nov 2025 06:59:33 +0000
-DKIM-Signature: v=1;a=rsa-sha256;c=relaxed/simple;d=toshiba.co.jp;h=From:To:Cc
-	:Subject:Date:Message-Id:In-Reply-To:References:MIME-Version:
-	Content-Transfer-Encoding;i=yuji2.ishikawa@toshiba.co.jp;s=key1.smx;t=
-	1763103550;x=1764313150;bh=YaJyIx3BTM6PJFfw7uMgpOvCW7UERP6aBJv3zzwB6Uw=;b=eJ9
-	iISBNfHn9waddM58TVg7uBYBAmVKb/OVA5E7Z16f34ZaOFSHAoAupaCmqRsv4zgaMNme6RyBnv7rK
-	/D1HrbYK3us6n0Ipy57F4yaIzXEPyE+VngyM/w3jyBFROdEOC3XH0QbX46Vsf5LloxgV0ZNRwqZ7j
-	QAzmjdEl7qtdBtGGLGHQDERk/fTAu6ATtMXScx/vCZUQLc6UtZT6SDaS7MHien4r1RSS0M6gePRuL
-	eicOgfkgxr7ymYspke5V5v7WannW4C3SdER1JSUgtEOvVc1Pw6NpVgWeGYa1nQ0euHTwNqReLXHms
-	u8ONiwDE8wPUaV+CodET6gGBeX7BUDg==;
-Received: by mo-csw.securemx.jp (mx-mo-csw1802) id 5AE6x9N12206956; Fri, 14 Nov 2025 15:59:09 +0900
-X-Iguazu-Qid: 2yAakGMojjjxMf6t5U
-X-Iguazu-QSIG: v=2; s=0; t=1763103548; q=2yAakGMojjjxMf6t5U; m=G8E2yk525ojmYKyw2eN9CDf8Cr/CmjUVM/YdQ20WOvk=
-Received: from imx2-a.toshiba.co.jp (imx2-a.toshiba.co.jp [106.186.93.35])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (P-256) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	 id 4d77KR4My0zyPZ; Fri, 14 Nov 2025 15:59:07 +0900 (JST)
-X-SA-MID: 54822484
-From: Yuji Ishikawa <yuji2.ishikawa@toshiba.co.jp>
-To: Michael Turquette <mturquette@baylibre.com>,
-        Stephen Boyd <sboyd@kernel.org>,
-        Nobuhiro Iwamatsu <nobuhiro.iwamatsu.x90@mail.toshiba>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Philipp Zabel <p.zabel@pengutronix.de>
-Cc: linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-        Yuji Ishikawa <yuji2.ishikawa@toshiba.co.jp>
-Subject: [PATCH 1/2] clk: visconti: Do not define number of clocks in bindings
-Date: Fri, 14 Nov 2025 15:53:57 +0900
-X-TSB-HOP2: ON
-Message-Id: <20251114065358.854817-2-yuji2.ishikawa@toshiba.co.jp>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20251114065358.854817-1-yuji2.ishikawa@toshiba.co.jp>
-References: <20251114065358.854817-1-yuji2.ishikawa@toshiba.co.jp>
+	Fri, 14 Nov 2025 07:03:29 +0000
+Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
+	by mailfhigh.stl.internal (Postfix) with ESMTP id A0A797A013D;
+	Fri, 14 Nov 2025 02:03:25 -0500 (EST)
+Received: from phl-imap-02 ([10.202.2.81])
+  by phl-compute-04.internal (MEProxy); Fri, 14 Nov 2025 02:03:25 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm2; t=1763103805;
+	 x=1763190205; bh=+9e6FQJYDBsPl1jkD3novF2T5qQ3BDazY3CfaJMvju8=; b=
+	Kkr8BUxqPGK1Z3+4BpwkcXn5eWZ9hMKOCWH9VvtuOl+T5CZniYPcirw4hz4KbzdQ
+	GKsbIF3vOFzTZntkQ6NCK/rtrMeAMNRe3j5OUq9xExIihhTwc3Z/qRom3f8tL3yS
+	7n2V4faSNEDFfp/ujiH3LAvBsSEziqCvB2Rf++cCpMXwi+2OnPSN9NwwtHrT3YYW
+	Wz0ea1xFFlEXs3HBXsI9GRf7hXxIOlfP3v7G46WAjSqJVOZJary7yua61l1Afuaj
+	0qYzD+bxLzOZnEc+QWoEm2VXAp8kvLkMR/gXCROlc91RF47RX6WrFjoRjiv9CFZq
+	qG3sIpCL8ks0PqG32b3rtA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1763103805; x=
+	1763190205; bh=+9e6FQJYDBsPl1jkD3novF2T5qQ3BDazY3CfaJMvju8=; b=V
+	qrKIJLkCU7Mup7XIDF1GPVKKA5HtwWZ8hfI1GSxMH389tPz/7C6xyCWjp3gvQEDZ
+	foJS+VzCfYF2PT0hBwbTr4KUYAlAO0HaEExLkiyAHoKg10wDZoFKMsbFFoj114Dc
+	5Wity2sFlDERE1MOMPiMQZZJR0VhsYMMxYofbe8ltLdnxvvvqoqswy/wRopAjq68
+	N9WQnOW/dayWEX5etQkEAVT+sYVCJ6olEbiIJX6T10NXQDNao54wMcsP6krVnCrc
+	aeXE/f5cr2JL/yezBvx2EWoH0EuaefrGUHPI98nKSWvaIr5711lWo8X/2prxgu5K
+	y4g+Fa6yM8jYn6zirN7Fw==
+X-ME-Sender: <xms:PNQWacaVLBgC9nNxAwigGX5Drf_gq_HI7fBsev8LJN1HNxR62q6Ygg>
+    <xme:PNQWaSN9ovvEr8UNpipQJTb-Tytj75m2UJODHaIoQWt_WNoGL43TEbXLsZ-HG9x7t
+    0j-cAa8b-NsPptu3MkCZOWxBU6FuCLfPHKLizBNIb53mu5cfuCk_4c>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdeggddvtdeludejucetufdoteggodetrf
+    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
+    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
+    gurhepofggfffhvfevkfgjfhfutgfgsehtjeertdertddtnecuhfhrohhmpedftehrnhgu
+    uceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrthhtvg
+    hrnhephfdthfdvtdefhedukeetgefggffhjeeggeetfefggfevudegudevledvkefhvdei
+    necuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprghrnh
+    gusegrrhhnuggsrdguvgdpnhgspghrtghpthhtohepudefpdhmohguvgepshhmthhpohhu
+    thdprhgtphhtthhopegshhgvlhhgrggrshesghhoohhglhgvrdgtohhmpdhrtghpthhtoh
+    epkhhishhhohhnsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehkfihilhgtiiihnhhs
+    khhisehkvghrnhgvlhdrohhrghdprhgtphhtthhopehlphhivghrrghlihhsiheskhgvrh
+    hnvghlrdhorhhgpdhrtghpthhtohepmhgrnhhisehkvghrnhgvlhdrohhrghdprhgtphht
+    thhopehrohgshheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqrghrmh
+    dqkhgvrhhnvghlsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtohep
+    uhhnihgtohhrnhgpfigrnhhgsehouhhtlhhoohhkrdgtohhmpdhrtghpthhtohepshdqvh
+    gruggrphgrlhhlihesthhirdgtohhm
+X-ME-Proxy: <xmx:PNQWaXUUidTCGn64MDLMVcH47OvgeHBQFXeYoNhlQ4GbuQwTL4iPsg>
+    <xmx:PNQWaUwbGym5csyq4rlEQA7cA_CwvSknjLXJiP2xEfbGuENE6u-Uvg>
+    <xmx:PNQWaWxviwxkJ9-dMGWL06UcV7Ck3G16huzVzBcb5QYNJk0HI3Oxmw>
+    <xmx:PNQWaR24J5sgWpWmsX9owMhMU2_lhQL0E23a1XmsLbzraobsEovf6w>
+    <xmx:PdQWafCtN7VisKCATc9zZ-SqIK6ihquremM1SW5EHRJqIbo3FQZzl7kE>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id CE6DB700054; Fri, 14 Nov 2025 02:03:24 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-ThreadId: AO4N9SNPwumV
+Date: Fri, 14 Nov 2025 08:03:04 +0100
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Siddharth Vadapalli" <s-vadapalli@ti.com>,
+ "Lorenzo Pieralisi" <lpieralisi@kernel.org>,
+ =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+ "Manivannan Sadhasivam" <mani@kernel.org>, "Rob Herring" <robh@kernel.org>,
+ bhelgaas@google.com, "Chen Wang" <unicorn_wang@outlook.com>,
+ "Kishon Vijay Abraham I" <kishon@kernel.org>
+Cc: stable@vger.kernel.org, linux-pci@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ srk@ti.com
+Message-Id: <201b9ad1-3ebd-4992-acdd-925d2e357d22@app.fastmail.com>
+In-Reply-To: <250d2b94d5785e70530200e00c1f0f46fde4311b.camel@ti.com>
+References: <20251113092721.3757387-1-s-vadapalli@ti.com>
+ <084b804f-2999-4f8d-8372-43cfbf0c0d28@app.fastmail.com>
+ <250d2b94d5785e70530200e00c1f0f46fde4311b.camel@ti.com>
+Subject: Re: [PATCH] PCI: cadence: Kconfig: change PCIE_CADENCE configs from tristate
+ to bool
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251113_225931_160882_B35CE572 
-X-CRM114-Status: GOOD (  13.09  )
+X-CRM114-CacheID: sfid-20251113_230328_676849_99CE3BC7 
+X-CRM114-Status: GOOD (  19.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,72 +123,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Remove use of TMPV770X_NR_CLK.
-Instead, define number of clocks inside the driver directory.
+On Fri, Nov 14, 2025, at 06:47, Siddharth Vadapalli wrote:
+> On Thu, 2025-11-13 at 11:13 +0100, Arnd Bergmann wrote:
+>> On Thu, Nov 13, 2025, at 10:27, Siddharth Vadapalli wrote:
 
-The same for TMPV770X_NR_RESET and TMPV770X_NR_PLL.
+> Thank you for the suggestion. I think that the following Makefile changes
+> will be sufficient and Kconfig doesn't need to be modified:
+>
+> diff --git a/drivers/pci/controller/cadence/Makefile
+> b/drivers/pci/controller/cadence/Makefile
+> index 5e23f8539ecc..1a97c9b249b8 100644
+> --- a/drivers/pci/controller/cadence/Makefile
+> +++ b/drivers/pci/controller/cadence/Makefile
+> @@ -4,4 +4,6 @@ obj-$(CONFIG_PCIE_CADENCE_HOST) += pcie-cadence-host.o
+>  obj-$(CONFIG_PCIE_CADENCE_EP) += pcie-cadence-ep.o
+>  obj-$(CONFIG_PCIE_CADENCE_PLAT) += pcie-cadence-plat.o
+>  obj-$(CONFIG_PCI_J721E) += pci-j721e.o
+> +pci_j721e-y := pci-j721e.o pcie-cadence.o
+>  obj-$(CONFIG_PCIE_SG2042_HOST) += pcie-sg2042.o
+> +pci_sg2042_host-y := pci-sg2042.o pcie-cadence.o
+>
+> If either of PCI_J721E or SG2042_HOST is selected as a built-in module,
+> then pcie-cadence-host.c, pcie-cadence-ep.c and pcie-cadence.c drivers will
+> be built-in. If both PCI_J721E and SG2042_HOST are selected as loadable
+> modules, only then the library drivers will be enabled as loadable modules.
+>
+> Please let me know what you think.
 
-Signed-off-by: Yuji Ishikawa <yuji2.ishikawa@toshiba.co.jp>
----
- drivers/clk/visconti/clkc-tmpv770x.c | 8 ++++++--
- drivers/clk/visconti/pll-tmpv770x.c  | 5 ++++-
- 2 files changed, 10 insertions(+), 3 deletions(-)
+I don't think that the version above does what you want,
+this would build the pcie-cadence.o file into three separate
+modules and break in additional ways if a subset of them are
+built-in.
 
-diff --git a/drivers/clk/visconti/clkc-tmpv770x.c b/drivers/clk/visconti/clkc-tmpv770x.c
-index 6c753b2cb..94a736da6 100644
---- a/drivers/clk/visconti/clkc-tmpv770x.c
-+++ b/drivers/clk/visconti/clkc-tmpv770x.c
-@@ -17,6 +17,10 @@
- #include "clkc.h"
- #include "reset.h"
- 
-+/* Must be equal to the last clock/reset ID increased by one */
-+#define CLKS_NR	(TMPV770X_CLK_BUSLCK + 1)
-+#define RESETS_NR	(TMPV770X_RESET_SBUSCLK + 1)
-+
- static DEFINE_SPINLOCK(tmpv770x_clk_lock);
- static DEFINE_SPINLOCK(tmpv770x_rst_lock);
- 
-@@ -234,12 +238,12 @@ static int visconti_clk_probe(struct platform_device *pdev)
- 	if (IS_ERR(regmap))
- 		return PTR_ERR(regmap);
- 
--	ctx = visconti_init_clk(dev, regmap, TMPV770X_NR_CLK);
-+	ctx = visconti_init_clk(dev, regmap, CLKS_NR);
- 	if (IS_ERR(ctx))
- 		return PTR_ERR(ctx);
- 
- 	ret = visconti_register_reset_controller(dev, regmap, clk_reset_data,
--						 TMPV770X_NR_RESET,
-+						 RESETS_NR,
- 						 &visconti_reset_ops,
- 						 &tmpv770x_rst_lock);
- 	if (ret) {
-diff --git a/drivers/clk/visconti/pll-tmpv770x.c b/drivers/clk/visconti/pll-tmpv770x.c
-index 8360ccf88..a2208c5fc 100644
---- a/drivers/clk/visconti/pll-tmpv770x.c
-+++ b/drivers/clk/visconti/pll-tmpv770x.c
-@@ -16,6 +16,9 @@
- 
- #include "pll.h"
- 
-+/* Must be equal to the last pll ID increased by one */
-+#define PLLS_NR	(TMPV770X_PLL_PIIMGERPLL + 1)
-+
- static DEFINE_SPINLOCK(tmpv770x_pll_lock);
- 
- static const struct visconti_pll_rate_table pipll0_rates[] __initconst = {
-@@ -66,7 +69,7 @@ static void __init tmpv770x_setup_plls(struct device_node *np)
- 	if (!reg_base)
- 		return;
- 
--	ctx = visconti_init_pll(np, reg_base, TMPV770X_NR_PLL);
-+	ctx = visconti_init_pll(np, reg_base, PLLS_NR);
- 	if (IS_ERR(ctx)) {
- 		iounmap(reg_base);
- 		return;
--- 
-2.34.1
+I would still suggest combining pcie-cadence{,-ep,-host}.o into
+one module that is used by the other drivers, as that would address
+the build failure you are observing.
 
+An alternative would be to change the pcie-j721e.c file to only
+reference the host portion if host support is enabled for this
+driver.
 
+      Arnd
 
