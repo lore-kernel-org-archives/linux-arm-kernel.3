@@ -4,50 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C97DCE8D4F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 16:09:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26C49CE8D4D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 16:09:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=osocHl/mgN2vjk8w09ao44ppNimE1RJLnQaZk4rS0Uw=; b=v+DvOc161g/9a3AkqACiV28uly
-	Ehxr+AeMqdwatBy6MPNwT9BN7NCeeT0a84k88GEEBd2GFvv67d+8Skm8k4Vv7pVfBj8Dgmcy0xfPh
-	cnsJHZFj2vN7jB7Z1P6riUdBjchoN1ECltma3nFCG/4joTzyc+yThxVJAoWgKGb/D/ri+HuXROCLv
-	uMQgJPwVZuOXE7lQsObuouGJnOudxsjCqR36e4lEatya9zk2IgIZWKAtsMFIx15uU2N7SCsy0l4Bx
-	QMIF2HyVw+OV3XQQY4T7BMYRgnFx3HUIXkJrGRp3T9f01fQU24CUFj+kno0X51Z68LBI7Lx2Znfk6
-	jSS+m4QQ==;
+	bh=1Iz7V7ak97UfUzyYFft2r6fuqmg7b5+bJqXj2G5o5Hc=; b=1hlnaa2qCWbBQbVMxnjNQRxzbF
+	FAVe9NSDM/un3Q1qX9jk6UVDtf4t469rXyY/f0oSfISTOOGtSPkKvuh47siCDxXTHa2fZZhJNMamY
+	BfZUU2fYq63aSUIjOphTEUwTdugV+CkRP+ZSGR/MFdzuDE8h83Nspmf14lvueg2HzE9ndCOCMf8Em
+	aRCgmPlSBXUoY4NROlxZRQSvtiqUFt1YvCPiKecgqEMpPl/oeYwbuKp9HMotW2ZQFyhNicmsLSzzx
+	qlnNp8BkBmyU/AOGViR4GjXybtvnSroWTG9EQtrJ/mBlAQyD9N5nI7hongN6f+yMB88vfo1q/HPnk
+	O6hD0FxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJwM5-0000000CgF5-31g7;
-	Fri, 14 Nov 2025 16:08:57 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJwLm-0000000Cfp5-308R
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 14 Nov 2025 16:08:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=osocHl/mgN2vjk8w09ao44ppNimE1RJLnQaZk4rS0Uw=; b=Tcs+i4H9MoyiKKiUt6aqL52bO+
-	C3pq3ijQPioMkLlZkaPzxCVUDjhAT7Dz5iNf4dE3glGxeMVhu41sHFEUlhkCdtVEWd+iHSARnBGVL
-	Wdd90MtOHtkPUN6gJjv77JH3YFQ4fK2GaHKO8+8LKr4YB9M6N9cxw2taCJunjAKiSAwbMD44FG66I
-	MORP351GGvKzLBUi7Oe7dINeCf6PLjKXZwwdIq94P8ppligZp9yHWR8tPUq8/R/udS/F61cN8qMMT
-	GUGZ3a33D+rPXyRDB8VUWk1qopZatHJ/nOIhWgGlxZTOBdMamthhK0LbVYq6T+YXZXCuQox8hrn1u
-	WPZsQFkQ==;
+	id 1vJwM6-0000000CgFv-0FL1;
+	Fri, 14 Nov 2025 16:08:58 +0000
 Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJvU4-00000002vY6-2cAS
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vJwLo-0000000Cfpf-1GRY
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Nov 2025 15:13:10 +0000
+	Fri, 14 Nov 2025 16:08:42 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4E2031BCB;
-	Fri, 14 Nov 2025 08:08:27 -0800 (PST)
-Received: from raptor (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C6A833F5A1;
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4A9FD1BCA;
 	Fri, 14 Nov 2025 08:08:32 -0800 (PST)
+Received: from raptor (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BFD5D3F5A1;
+	Fri, 14 Nov 2025 08:08:37 -0800 (PST)
 From: Alexandru Elisei <alexandru.elisei@arm.com>
 To: maz@kernel.org,
 	oliver.upton@linux.dev,
@@ -61,17 +46,17 @@ To: maz@kernel.org,
 Cc: james.clark@linaro.org,
 	mark.rutland@arm.com,
 	james.morse@arm.com
-Subject: [RFC PATCH v6 24/35] KVM: arm64: Handle SPE hardware maintenance interrupts
-Date: Fri, 14 Nov 2025 16:07:05 +0000
-Message-ID: <20251114160717.163230-25-alexandru.elisei@arm.com>
+Subject: [RFC PATCH v6 26/35] KVM: arm64: Add comment to explain how trapped SPE registers are handled
+Date: Fri, 14 Nov 2025 16:07:07 +0000
+Message-ID: <20251114160717.163230-27-alexandru.elisei@arm.com>
 X-Mailer: git-send-email 2.51.2
 In-Reply-To: <20251114160717.163230-1-alexandru.elisei@arm.com>
 References: <20251114160717.163230-1-alexandru.elisei@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251114_151309_103820_D2035DF3 
-X-CRM114-Status: GOOD (  16.75  )
+X-CRM114-CacheID: sfid-20251114_080840_978640_26F820D1 
+X-CRM114-Status: GOOD (  15.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,120 +71,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Re-inject all maintenance interrupts raised by SPE while the guest was
-running.
+The SPE buffer registers are trapped, while the sampling control registers
+are directly accessed by the guest. The in-memory value of PMBSR_EL1 can be
+modified by both the guest, following a direct write, and the hardware,
+following a hardware maintenence interrupt. The in-memory value is never
+written to the hardware.
 
-Save the value of the hardware PMBSR_EL1 register in a separate variable,
-instead of updating the VCPU sysreg directly, to detect when the SPU
-asserted the interrupt, as opposed to the guest writing 1 to the
-PMBSR_EL1.S bit.
+The rest of the buffer register are written to the hardware at different
+times in the VCPU run loop.
+
+Add a comment explaining all of this.
 
 Signed-off-by: Alexandru Elisei <alexandru.elisei@arm.com>
 ---
- arch/arm64/include/asm/kvm_spe.h |  7 +++++++
- arch/arm64/kvm/arm.c             |  2 ++
- arch/arm64/kvm/hyp/vhe/spe-sr.c  |  2 +-
- arch/arm64/kvm/spe.c             | 27 +++++++++++++++++++++++++++
- 4 files changed, 37 insertions(+), 1 deletion(-)
+ arch/arm64/kvm/spe.c | 40 ++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 40 insertions(+)
 
-diff --git a/arch/arm64/include/asm/kvm_spe.h b/arch/arm64/include/asm/kvm_spe.h
-index a61c1c1de76f..7d8becf76314 100644
---- a/arch/arm64/include/asm/kvm_spe.h
-+++ b/arch/arm64/include/asm/kvm_spe.h
-@@ -17,9 +17,11 @@ struct kvm_spe {
- };
- 
- struct kvm_vcpu_spe {
-+	u64 hw_pmbsr_el1;	/* Updated on hardware management event */
- 	u64 host_pmscr_el2;	/* Host PMSCR_EL2 register, context switched. */
- 	int irq_num;		/* Buffer management interrupt number */
- 	bool initialized;	/* SPE initialized for the VCPU */
-+	bool irq_level;		/* Virtual buffer management interrupt level */
- };
- 
- DECLARE_STATIC_KEY_FALSE(kvm_spe_available);
-@@ -56,6 +58,8 @@ bool kvm_spe_has_feat_spe_fds(struct kvm *kvm);
- 
- void kvm_vcpu_spe_load(struct kvm_vcpu *vcpu);
- void kvm_vcpu_spe_put(struct kvm_vcpu *vcpu);
-+
-+void kvm_spe_sync_hwstate(struct kvm_vcpu *vcpu);
- #else
- struct kvm_spe {
- };
-@@ -111,6 +115,9 @@ static inline void kvm_vcpu_spe_load(struct kvm_vcpu *vcpu)
- static inline void kvm_vcpu_spe_put(struct kvm_vcpu *vcpu)
- {
- }
-+static inline void kvm_spe_sync_hwstate(struct kvm_vcpu *vcpu)
-+{
-+}
- #endif /* CONFIG_KVM_ARM_SPE */
- 
- #endif /* __ARM64_KVM_SPE_H__ */
-diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-index c5f5d5dbd695..a2c97daece24 100644
---- a/arch/arm64/kvm/arm.c
-+++ b/arch/arm64/kvm/arm.c
-@@ -1272,6 +1272,8 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
- 		if (kvm_vcpu_has_pmu(vcpu))
- 			kvm_pmu_sync_hwstate(vcpu);
- 
-+		kvm_spe_sync_hwstate(vcpu);
-+
- 		/*
- 		 * Sync the vgic state before syncing the timer state because
- 		 * the timer code needs to know if the virtual timer
-diff --git a/arch/arm64/kvm/hyp/vhe/spe-sr.c b/arch/arm64/kvm/hyp/vhe/spe-sr.c
-index fb8614435069..0fb625eadfa1 100644
---- a/arch/arm64/kvm/hyp/vhe/spe-sr.c
-+++ b/arch/arm64/kvm/hyp/vhe/spe-sr.c
-@@ -75,6 +75,6 @@ void __kvm_spe_save_guest_buffer(struct kvm_vcpu *vcpu, struct kvm_cpu_context *
- 	write_sysreg_s(0, SYS_PMBSR_EL1);
- 	isb();
- 	/* PMBSR_EL1 changed while the VCPU was running, save it */
--	ctxt_sys_reg(guest_ctxt, PMBSR_EL1) = pmbsr_el1;
-+	vcpu->arch.vcpu_spe.hw_pmbsr_el1 = pmbsr_el1;
- }
- NOKPROBE_SYMBOL(__kvm_spe_save_guest_buffer);
 diff --git a/arch/arm64/kvm/spe.c b/arch/arm64/kvm/spe.c
-index 85a1ac8bb57f..d163ddfdd8e2 100644
+index 6e8e0068e7e4..b138b564413b 100644
 --- a/arch/arm64/kvm/spe.c
 +++ b/arch/arm64/kvm/spe.c
-@@ -178,6 +178,33 @@ u64 kvm_spe_read_sysreg(struct kvm_vcpu *vcpu, int reg, u32 encoding)
- 	return val;
+@@ -126,6 +126,46 @@ u8 kvm_spe_get_pmsver_limit(void)
+ 	return min(pmsver, ID_AA64DFR0_EL1_PMSVer_V1P5);
  }
  
-+static void kvm_spe_update_irq_level(struct kvm_vcpu *vcpu, bool level)
-+{
-+	struct kvm_vcpu_spe *vcpu_spe = &vcpu->arch.vcpu_spe;
-+	int ret;
++/*
++ * Note on register handling:
++ *
++ * - Only the buffer registers (this includes PMBIDR_EL1) and PMSIDR_EL1 are
++ *   trapped, the rest of the registers the guest can access directly.
++ *
++ *  - PMBIDR_EL1 is trapped so KVM can advertise to the guest the maximum buffer
++ *  size set by userspace.
++ *
++ *  - PMSIDR_EL1 is trapped to hide the presence of features which the VM does
++ *  not have, but the hardware implements.
++ *
++ * - PMBLIMITR_EL1:
++ *   * Guest value is written to hardware only when
++ *   kvm_spe_profiling_buffer_enabled() is true. This is done after KVM enables
++ *   stage 2.
++ *   * KVM always disables the buffer (PMBLIMITR_EL1.E=0) when exiting the
++ *   guest. This is done before stage 2 is disabled.
++ *   * In-memory value of the register is updated following a direct write to
++ *   the register by the guest.
++ *
++ * - PMBSR_EL1:
++ *   * In-memory value of the register is never written to hardware.
++ *   * The hardware value of the register is cleared on guest exit if KVM
++ *   detects that the service bit is set.
++ *   * In-memory value of the register is updated in the following situations:
++ *     - Following a direct write to the register by the guest.
++ *     - When the buffer has been misprogrammed.
++ *     - When the hardware asserts the management event interrupt.
++ *
++ * - PMBPTR_EL1:
++ *   * Guest value is written to hardware:
++ *     - Before entering the guest, if kvm_spe_profiling_buffer_enabled() is
++ *     true.
++ *   * In-memory value of the register is updated:
++ *     - Following a direct write to the register by the guest.
++ *     - On each exit from the guest, if kvm_spe_profiling_buffer_enabled() was
++ *     true when the guest was entered.
++ */
 +
-+	if (vcpu_spe->irq_level == level)
-+		return;
-+
-+	vcpu_spe->irq_level = level;
-+	ret = kvm_vgic_inject_irq(vcpu->kvm, vcpu, vcpu_spe->irq_num, level, vcpu_spe);
-+	WARN_ONCE(ret, "kvm_vgic_inject_irq");
-+}
-+
-+void kvm_spe_sync_hwstate(struct kvm_vcpu *vcpu)
-+{
-+	struct kvm_vcpu_spe *vcpu_spe = &vcpu->arch.vcpu_spe;
-+
-+	if (!vcpu_has_spe(vcpu))
-+		return;
-+
-+	if (FIELD_GET(PMBSR_EL1_S, vcpu_spe->hw_pmbsr_el1)) {
-+		__vcpu_assign_sys_reg(vcpu, PMBSR_EL1, vcpu_spe->hw_pmbsr_el1);
-+		vcpu_spe->hw_pmbsr_el1 = 0;
-+		kvm_spe_update_irq_level(vcpu, true);
-+	}
-+}
-+
- static void kvm_spe_save_sampling_regs(struct kvm_vcpu *vcpu, struct kvm_cpu_context *ctxt)
+ /* Implements OtherSPEManagementEvent() from ARM DDI0487L.b */
+ static void kvm_spe_inject_other_event(struct kvm_vcpu *vcpu, u8 bsc)
  {
- 	struct kvm *kvm = vcpu->kvm;
 -- 
 2.51.2
 
