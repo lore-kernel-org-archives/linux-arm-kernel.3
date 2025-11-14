@@ -4,163 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA07BCDB463
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 00:57:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2944CCD98D1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 01:25:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XB1E5jSDLtRO1xlxGGz6kmW4ReovcQDIGSxPxx8GKZU=; b=pSvR8NnUGCwzj6dko+NvPXbBeW
-	FOCw9tRaB68CLHQ0dU9nzLt1qN/LVpEN2EOUo/XWVwPIOZu9EEE+s2VqZE2SGBTYfDTO+sALA6a0J
-	bNgk6MqnlofE2yMq7UFYSsdUIG6hdnYZLtK9RPATY1noJ9zpdhE15BwV7vxevqTvJ+bcNd5R0ypAC
-	PPWpnDQDZ3koZcYtXmjVnMr9GIJ9WDRBWppFXz9hrp9yqGYdZ05cvCJNpVUXWKIeKL2iLXc9yUpty
-	ZKX5A0rpambJ4Cbw+++gka/cRUidDXQykOQZ5HNzeqr9V4DVCVzfzXxUtzwZnkfxdOH8jmbZi7tOx
-	hT4Gsorg==;
+	bh=ahNR9fd2YMJk4CwYCWhBIEhgapoFugSz6eevmfUYQlE=; b=QgesIn8UMHAmObTKZb9OkQvqzJ
+	oqv9KQ3IcxnfPoqqj1CslXZ6pFY3N8JoIQ3f0+zVRmFu8T8U1uEfwJyscbrK8bACH4L+S3dEmVPVf
+	4DrofZWUMPJLjMIEq6Bn+Qerw4eWMxTw/Ky1Th2pAnehSGt6rmn2ek2tbCz+naQX4IDLz0yStFdDB
+	l6Bb/EeXfeQbtMpKAoePL6rGpbqN07AvhfLstId+BDIRDY20YRiPb2q1iNr8c+0ncdNrV7vdLURgc
+	kxKHWvCWqjMdeiaz2lA1PrNLzkngaF6u21iUW2qXQs53Ku91BsusZqUayEfXOmKJbXm4bl+ko0+0Z
+	AA75enfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJi8B-0000000BMnO-4818;
-	Fri, 14 Nov 2025 00:57:40 +0000
-Received: from mail-koreacentralazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c40f::6] helo=SEYPR02CU001.outbound.protection.outlook.com)
+	id 1vJiZM-0000000BNcF-2Lfe;
+	Fri, 14 Nov 2025 01:25:44 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJi88-0000000BMmy-3u1T
+	id 1vJiZJ-0000000BNbo-31ZO
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Nov 2025 00:57:38 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=yNieUa/sGhcIROqKdxEywcbqyHobMy+kLGuPlTp/VYLUu/4ozh+FKKFSQz+CQLTXGMB2Wrig117XOdCn8q+lnTKXlWNV6A8dTER7rwmz8PM8jPXFSitYiVPZ+KCIbkDFFRATq3JRFqNGw/z/U/I6KA5qaoXa7FFequRwW7OrzNsp/30DFK+wtRStg7jBtmD5Kiv9KpgExHRY0GxAdMatACJVRllBV+GHMSznSQqss231xhGxrdCy/z3OqXGIGtjFM2OMkr8FPiv+lu1L0VwVWw1zCBakXf79gxlvSuQS6HbrEtjW69nBsKT/sOUP145wRCVcQLH2+fhr5ml1yyDALQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=XB1E5jSDLtRO1xlxGGz6kmW4ReovcQDIGSxPxx8GKZU=;
- b=pIADS1f52NKv9Ly3EXlFmlojL+buqrlzX/wTUqg/+2QPdnGAAwDQeYTRnLeAg/giTGaSIUfgVtmu4HtKytGA5TY0DDRCHot5RwQsXayPQwqXDvbPEWCnyRcPBp07HMr1rvskxcm/T0ZLWo7vYK0akTmuCXAQz+ro+3JWryavzulACHM148RiP8b/VIc4dhwHEB8EJj7pdNQ6Y508u8zXQXHg5fvAr0P5X/3xO0H7pag1VQbMWTMt60vRDIsNLvOFP38+sgkeYqRsb7uupgCpYDP1XnArFqCYnzUFul/k/DB6yoD9N5qULQ4gIi+MxXf173qzj1ITXn2gZBG2HojgMA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=aspeedtech.com; dmarc=pass action=none
- header.from=aspeedtech.com; dkim=pass header.d=aspeedtech.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=aspeedtech.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=XB1E5jSDLtRO1xlxGGz6kmW4ReovcQDIGSxPxx8GKZU=;
- b=L7fn8iDG4OS60Y6BFWUEf4DtJOsJdsDaSPAbyOFQ/JwjqfyJSY4libWnJk1qkw6c9CK48vXyVngFJIM6mFOyfJUpZ0UkQRDE4F8UV1tZkMzjmUnG4QnJbyeHip0YmUYUUXTA8jdgT3/yY1iy/63CdmUeeMB2heNxIsCKHFknQmRjwgIdaapn9o7birhI4US9qgz7sWPn5zKCI01G+mt/q3vc78GWw7J2bAuyhCCj8GrtzVPAuztCucahc10sad7E1PY7WhXRl7Tm1LX3htpZKtzZFKryufZTPAb5XwXER1PXbdkS1mFGuEl3ahXFUjTlQjBJHfUlkIWM2Jr8mbzyyw==
-Received: from TYZPR06MB5203.apcprd06.prod.outlook.com (2603:1096:400:1f9::9)
- by TY0PR06MB5402.apcprd06.prod.outlook.com (2603:1096:400:217::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9320.17; Fri, 14 Nov
- 2025 00:57:24 +0000
-Received: from TYZPR06MB5203.apcprd06.prod.outlook.com
- ([fe80::b7e4:5d25:213:ef9b]) by TYZPR06MB5203.apcprd06.prod.outlook.com
- ([fe80::b7e4:5d25:213:ef9b%3]) with mapi id 15.20.9320.013; Fri, 14 Nov 2025
- 00:57:23 +0000
-From: Chin-Ting Kuo <chin-ting_kuo@aspeedtech.com>
-To: Conor Dooley <conor@kernel.org>
-CC: "robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
-	<krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
-	"joel@jms.id.au" <joel@jms.id.au>, "andrew@codeconstruct.com.au"
-	<andrew@codeconstruct.com.au>, "clg@kaod.org" <clg@kaod.org>,
-	"clg@redhat.com" <clg@redhat.com>, "broonie@kernel.org" <broonie@kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-aspeed@lists.ozlabs.org"
-	<linux-aspeed@lists.ozlabs.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "openbmc@lists.ozlabs.org"
-	<openbmc@lists.ozlabs.org>, "linux-spi@vger.kernel.org"
-	<linux-spi@vger.kernel.org>, BMC-SW <BMC-SW@aspeedtech.com>
-Subject: RE: [PATCH 1/4] dt-bindings: spi: aspeed,ast2600-fmc: Add AST2700 SoC
- support
-Thread-Topic: [PATCH 1/4] dt-bindings: spi: aspeed,ast2600-fmc: Add AST2700
- SoC support
-Thread-Index: AQHcVHsCAB7l5otGZECo6+KptV6p7bTxAJuAgABZLSA=
-Date: Fri, 14 Nov 2025 00:57:23 +0000
-Message-ID: <TYZPR06MB52031D72CBC176D38A71EB12B2CAA@TYZPR06MB5203.apcprd06.prod.outlook.com>
-References: <20251113085332.89688-1-chin-ting_kuo@aspeedtech.com>
- <20251113085332.89688-2-chin-ting_kuo@aspeedtech.com>
- <20251113-reroute-backlit-b2e1d1b6dc04@spud>
-In-Reply-To: <20251113-reroute-backlit-b2e1d1b6dc04@spud>
-Accept-Language: en-US, zh-TW
-Content-Language: zh-TW
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=aspeedtech.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: TYZPR06MB5203:EE_|TY0PR06MB5402:EE_
-x-ms-office365-filtering-correlation-id: 489a379b-f243-4fe2-b71b-08de2318c5ae
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016|38070700021;
-x-microsoft-antispam-message-info: =?us-ascii?Q?4I5y8HVlwKTJu/lUJksCntnWwCNDKN84k8vIuTbPNGij1IWomuqhEmpybYMo?=
- =?us-ascii?Q?NhgH1DMkZ4GPfvcXK48ttBNkee9Rt79oow91t/Kuz+Kyz99hTFajmMlN5CTQ?=
- =?us-ascii?Q?AREUlVkTpg7yu/lE31+CRURo8sjjNPYA40327/bjaQh+7hccVSYGrHHYuH3t?=
- =?us-ascii?Q?YdoygsU5TmVWja1HsJlZukqQOWv8Mu/tpMPMIDBgXiClaHKsCemfe60AxyAC?=
- =?us-ascii?Q?DFddDuo7QBRGjxrtCZgvVRva/iQnwTGAwD21cqYXbKZCiGsLB3hi/N4ITMdK?=
- =?us-ascii?Q?nxFygaGVgONm0vVHuLxz9Dpgk2fkgM1JAfSP+GO+pDFwrACbk4H1rYecw7mM?=
- =?us-ascii?Q?62rqvlE1Zb+nfDG0e6K9KU9VRK3c253xik1MFu9qd6wZUDUe5GTS/nHEOVq9?=
- =?us-ascii?Q?bGa7gcvcU2CVcISOaWdvq88GhASRG4+U0LWQLGA032G/6jEjU+lpNXnxvn5s?=
- =?us-ascii?Q?0ndLY4UK1Bblv/J4AVFIXGsUTN+oG9f5U9aMUEKXaF6JR+1XRMY2VTh2qsgT?=
- =?us-ascii?Q?P6C2LIleldT8CKM4HQ7Omy3cVBk5anNAJPS+83GjmZ8TcNs9NiUVLMMarBSH?=
- =?us-ascii?Q?SUwP1SoDJqqNhfcwoR68QmyChfBZE2MYIObWNdxWyNhgLnwNVQbdTK3iMoWP?=
- =?us-ascii?Q?CpXHZFcuBL0CSUX9ya5lmQbxHXwmRT22W+X5Ti5qt2DE4gvMyA9naw6IqNya?=
- =?us-ascii?Q?4YrH1UsfaHSn8+EHRQOQr8wMMbTdgyKRpKEQSllEahk1Bm3Mk03aWq5t5M6H?=
- =?us-ascii?Q?JdHW0ds2jfQGP2EblkKPiO+JTU/N6K+HnGIsxB3CZb31rcki7AZ7ayQnxSoj?=
- =?us-ascii?Q?O32M5gGrnBQR+WVI1ForOaR5otS/RhH6uH7G0DdjMOmkxL8rYl7xAtShmJBV?=
- =?us-ascii?Q?FVKDYbOUa6sjgoFSRbSHGFsCKaGsTVyjVsAFDU5ut5/7uDHYnZDB5J7qZXic?=
- =?us-ascii?Q?vkdHxz3cHbyMrhLLkxtKz+apgdH5Ed9LzKGTWPj3bIY98fluZdAQI0OJvjlN?=
- =?us-ascii?Q?Jfvbr5L+lf/HZ6ZppwQpG6cAL5b/S0s3qRUY4gGebzj0YH/P6j12fHPj2UfZ?=
- =?us-ascii?Q?2myLuajpC8wjYLZznoJn+DVPvw+lOIh+K4GYfYgtXbI4T1MNz3QchxsAcAbG?=
- =?us-ascii?Q?ayUdhGzprgPA8QtQMs5UiTq4EwlWsGIK8iAuWaxfpTBfw2M3wVSAU1EC9T/8?=
- =?us-ascii?Q?V3XiJOVbP8D54vKFpy4TZqwdJkAFbMdz/SZ9rsFrtgBq6XjZAtg27/lQJ4SY?=
- =?us-ascii?Q?xqVZfPnQkgbT+x9ZpcHYiBN0RaE675coK2vKapoJg9Myr4MZfzqVme2IxO7a?=
- =?us-ascii?Q?wsMNKy2AM+ZJ23Ohnk/Gwyg8NhFgUPM95Xu8TUvBXQhefLtG9BVANQEDBH3n?=
- =?us-ascii?Q?Jg+eFYVARYGJPSEnlejy1PTzi4jqiDHFJZzTDEbgSO33w3LDGFWKgK+MfgW1?=
- =?us-ascii?Q?9Q0jxgELLIs1RpuAN2QS59YjA5rJBz+wT3iSIzYZXKePz9O8zPbCoQG4AXYd?=
- =?us-ascii?Q?A4IrGoj+hjzyLsOsg8lBsSPymu6cI1is8vCd?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYZPR06MB5203.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016)(38070700021);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?JC5oc48J+EILfvZT1SiMlfZwIB9t4zOVw9UymbXjTIOE+j6dD0WTUFMj/CIX?=
- =?us-ascii?Q?am1Bzz4p95xt45NdoOwyr28dL028wPby2qV6Za64Iyw9YoeLWq4Pel3Q7DbB?=
- =?us-ascii?Q?zIEUb0Iz6GvR6EqDeI/rLWC+IJbQ9pLZjTSJU4Y+4FLiz0JO5spPf7uIiK1K?=
- =?us-ascii?Q?h1+qjt0+dURKAgWxpWgUOva9lEyIb/DeC9W2ZXD2gvTpZ+blj/0uO3yVGffU?=
- =?us-ascii?Q?jsmiod6HzG9Vggw51qF5bz6nwv7pLbEKtW12PwEowpwsgW1DgF2hUbwWL5iH?=
- =?us-ascii?Q?lp3vGsoPUCu82A0QXhLVUVYyt0r+SDcP3cbv51JSvDoUAp/jFBlkOTcc5KCv?=
- =?us-ascii?Q?HyDqI0+A2LEmpqv47E+U+p87a8bRG7iD11vDs5oBOHwbaSVR8Hbi4vV1hxDt?=
- =?us-ascii?Q?fxeI8AqjKqfH7rtAUmnonNUmb+Yw12ivFulytoMb5P/z9dGUAY69LcMYvwTN?=
- =?us-ascii?Q?z5f0XMZthc/VqaBls8UsjxmhNiqBp3PuC3nNwDOVAYBQLT22a8SqmXeryy6S?=
- =?us-ascii?Q?ejro3CgrrPEyNRyu6ETBMr12ejkUrPfvjpjsF0OhivctFDm3Er6iiFUjrUtn?=
- =?us-ascii?Q?6EbKOwN9NxnCCf9r8NYqYIcf1Ig4++jh/4Ii/bT5iyO40c81H4HcxPISVURY?=
- =?us-ascii?Q?SUX6tqiJfzPPUVfAg2tSFS6eXZ5MwwjYdLJSohHBl/kEnX4OkDZk2UGO1lNq?=
- =?us-ascii?Q?k61/ONXbrKpJJakrLnhhK67OtpzCNnsNDlQJUbpIZL/6nZTtvi17ExAOPkaQ?=
- =?us-ascii?Q?V6jOWH/VoJjQoaY7ZHqY9q3mlBJH4wWw89zkxpfZZxMpIie3D4A4y7Z6cFWN?=
- =?us-ascii?Q?t5s7OI1vNDiXaEiD9YkJBcyaRuFM1BOmagYiUyxRoD0ngzQn2PZ6aNvHC9el?=
- =?us-ascii?Q?f+5Jot1a6OOstguJmNsXqz1USGOlvi8c1Jj3u1EjKnjKf42I148/C8RFeloX?=
- =?us-ascii?Q?AEfDb06FHmRi6T84iWVuyfW6UnKak29EbzRdN8+OLX+D0Gu8hSf/Bw1Liv+I?=
- =?us-ascii?Q?e+N817ac68eS+fYfEf9yDm/DBOtfjss0fsTA7vuVBN86IH5rkGXkTKXdZhuy?=
- =?us-ascii?Q?DBfyba9QrDQGfDCXUydKdG0n6CWKBPxABm3agc74h7QX2CmNttFzbmMcocP3?=
- =?us-ascii?Q?QGPFY+BhKPTXliq/wlEJ8A8iMXqIZtwnQvwB9AwMqSJu8HRllQ7ftPvmiZXO?=
- =?us-ascii?Q?+ZQjJuuFSBoyx8IJ8Zhvc3Nse1j/kxzUJwnGYpc2hjgSCxio3FWTDK3xMAQQ?=
- =?us-ascii?Q?LCHdw3Bu9zx8uhsD6CdI/4DBPrQaJMWHvCaiUaVFKNxoI3iggbK69ti6gm8x?=
- =?us-ascii?Q?b8B4TAXGiOQiiBKg8Z+R6OWlt46N4FqvnPdcGUSQ7db2pWbxBaBd6GqHRabm?=
- =?us-ascii?Q?RSOmPGOBWWM59mzAaLwSedyePhmfPfXwCu31SzYvThiPgxPi4k59FJ3t3IbD?=
- =?us-ascii?Q?ZSbCjgPRACxRjfegAkuUgwqb/HZPKOtvP6ETtwWqu3DvTwGEoFbhKJkkUzVb?=
- =?us-ascii?Q?M/NaQ6N3mbamfK6nB1sJ4mWYpqg9We8n9BYFmcw3Isbnbvf39anHk8baW/gs?=
- =?us-ascii?Q?3Hl9pkmbZbqNgznbLxJTPZUtZxBowr9L2FXGK7zUyI+96o2NJ1rT58QVBQWz?=
- =?us-ascii?Q?/A=3D=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Fri, 14 Nov 2025 01:25:42 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 94F06441E8;
+	Fri, 14 Nov 2025 01:25:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 67573C2BCB0;
+	Fri, 14 Nov 2025 01:25:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1763083540;
+	bh=jUpqsgzm9mQmlDwIMnmXwws2iJVd0X9NrGflGeH7Iqg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Z09gLaMZlZrJHbraZakAvPZQ2kqgik/E3cfI2zd2AjI6xpvGjYqFZURz2b+UzBcTc
+	 8SwRLAul1ddhZmoa7yCwX9IFyPmrEIhWuLBuE4sFEpMh/Xj2ayDrZBOlDWhT8JFLCn
+	 K8AAzeBFl1lClijNSqUnLKDYyGpjtc9SHPUCKg3gZQchcPRcFs1kpedjTT0p80gN33
+	 nBZ3PHgGXXwZFMdtT0BOjlUvnj/c7xeVt5LlNIMMGA7Rv/7IaPLQFA1I2DV7S1aZEx
+	 +YQAP3xbmuM/xOibvOJvy24sED0Q4VX4dZwkiNH1jFlFvXA+HctaCLc3x8eQyQz83/
+	 u7OWf0KRaOl4w==
+Date: Fri, 14 Nov 2025 01:25:32 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Inochi Amaoto <inochiama@gmail.com>
+Cc: Conor Dooley <conor+dt@kernel.org>, Han Gao <rabenda.cn@gmail.com>,
+	Icenowy Zheng <uwu@icenowy.me>,
+	Vivian Wang <wangruikang@iscas.ac.cn>, Yao Zi <ziyao@disroot.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Chen Wang <unicorn_wang@outlook.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
+	netdev@vger.kernel.org, devicetree@vger.kernel.org,
+	sophgo@lists.linux.dev, linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, Yixun Lan <dlan@gentoo.org>,
+	Longbin Li <looong.bin@gmail.com>,
+	Conor Dooley <conor.dooley@microchip.com>
+Subject: Re: [PATCH v8 1/3] dt-bindings: net: sophgo,sg2044-dwmac: add phy
+ mode restriction
+Message-ID: <20251114-apache-sprung-f1a29b873696@spud>
+References: <20251114003805.494387-1-inochiama@gmail.com>
+ <20251114003805.494387-2-inochiama@gmail.com>
+ <yjl3gnf2gwh327wbbwcbkxwnqy5tyhwutffovlxhcm7b4vr2xu@he4tg6bcrduu>
 MIME-Version: 1.0
-X-OriginatorOrg: aspeedtech.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: TYZPR06MB5203.apcprd06.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 489a379b-f243-4fe2-b71b-08de2318c5ae
-X-MS-Exchange-CrossTenant-originalarrivaltime: 14 Nov 2025 00:57:23.5682
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 43d4aa98-e35b-4575-8939-080e90d5a249
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: d8tSFpCwgQuJc7E6UWVlBeEeZMd7HreS1xqvHOYl37VrammQgnANCXhgKP7MXDoNFuKAa9425ASTAskmGQl2Pg5l+s09ykoYGwYg1hGUdGA=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TY0PR06MB5402
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="NIRjo9fMfQbx0LeW"
+Content-Disposition: inline
+In-Reply-To: <yjl3gnf2gwh327wbbwcbkxwnqy5tyhwutffovlxhcm7b4vr2xu@he4tg6bcrduu>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251113_165736_987066_912F7007 
-X-CRM114-Status: GOOD (  19.53  )
+X-CRM114-CacheID: sfid-20251113_172541_803688_DC1AF834 
+X-CRM114-Status: GOOD (  22.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -175,64 +94,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Conor,
 
-Thanks for the review.
+--NIRjo9fMfQbx0LeW
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-> -----Original Message-----
-> From: Conor Dooley <conor@kernel.org>
-> Sent: Friday, November 14, 2025 3:36 AM
-> Subject: Re: [PATCH 1/4] dt-bindings: spi: aspeed,ast2600-fmc: Add AST270=
-0
-> SoC support
+On Fri, Nov 14, 2025 at 08:44:15AM +0800, Inochi Amaoto wrote:
+> On Fri, Nov 14, 2025 at 08:38:03AM +0800, Inochi Amaoto wrote:
+> > As the ethernet controller of SG2044 and SG2042 only supports
+> > RGMII phy. Add phy-mode property to restrict the value.
+> >=20
+> > Also, since SG2042 has internal rx delay in its mac, make
+> > only "rgmii-txid" and "rgmii-id" valid for phy-mode.
+> >=20
+> > Fixes: e281c48a7336 ("dt-bindings: net: sophgo,sg2044-dwmac: Add suppor=
+t for Sophgo SG2042 dwmac")
+> > Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+> > Acked-by: Conor Dooley <conor.dooley@microchip.com>
 >=20
-> On Thu, Nov 13, 2025 at 04:53:29PM +0800, Chin-Ting Kuo wrote:
-> > Add AST2700 to the list of supported SoCs in the ASPEED FMC/SPI binding=
-s.
->=20
-> Please add information here as to why these devices are not compatible wi=
-th
-> the ast2600 ones. With that info,
-> Acked-by: Conor Dooley <conor.dooley@microchip.com>
-> pw-bot: changes-requested
->=20
-
-Okay, some differences between AST2600 and AST2700 will be described in the=
- next patch version.
-
-> >
-> > Signed-off-by: Chin-Ting Kuo <chin-ting_kuo@aspeedtech.com>
 > > ---
-> >  Documentation/devicetree/bindings/spi/aspeed,ast2600-fmc.yaml | 4
-> > +++-
-> >  1 file changed, 3 insertions(+), 1 deletion(-)
-> >
-> > diff --git
-> > a/Documentation/devicetree/bindings/spi/aspeed,ast2600-fmc.yaml
-> > b/Documentation/devicetree/bindings/spi/aspeed,ast2600-fmc.yaml
-> > index 57d932af4506..80e542624cc6 100644
-> > --- a/Documentation/devicetree/bindings/spi/aspeed,ast2600-fmc.yaml
-> > +++ b/Documentation/devicetree/bindings/spi/aspeed,ast2600-fmc.yaml
-> > @@ -12,7 +12,7 @@ maintainers:
-> >
-> >  description: |
-> >    This binding describes the Aspeed Static Memory Controllers (FMC
-> > and
-> > -  SPI) of the AST2400, AST2500 and AST2600 SOCs.
-> > +  SPI) of the AST2400, AST2500, AST2600 and AST2700 SOCs.
-> >
+> >  .../bindings/net/sophgo,sg2044-dwmac.yaml     | 19 +++++++++++++++++++
+> >  1 file changed, 19 insertions(+)
+> >=20
+> > diff --git a/Documentation/devicetree/bindings/net/sophgo,sg2044-dwmac.=
+yaml b/Documentation/devicetree/bindings/net/sophgo,sg2044-dwmac.yaml
+> > index ce21979a2d9a..e8d3814db0e9 100644
+> > --- a/Documentation/devicetree/bindings/net/sophgo,sg2044-dwmac.yaml
+> > +++ b/Documentation/devicetree/bindings/net/sophgo,sg2044-dwmac.yaml
+> > @@ -70,6 +70,25 @@ required:
+> > =20
 > >  allOf:
-> >    - $ref: spi-controller.yaml#
-> > @@ -20,6 +20,8 @@ allOf:
-> >  properties:
-> >    compatible:
-> >      enum:
-> > +      - aspeed,ast2700-fmc
-> > +      - aspeed,ast2700-spi
-> >        - aspeed,ast2600-fmc
-> >        - aspeed,ast2600-spi
-> >        - aspeed,ast2500-fmc
-> > --
-> > 2.34.1
-> >
+> >    - $ref: snps,dwmac.yaml#
+> > +  - if:
+> > +      properties:
+> > +        compatible:
+> > +          contains:
+> > +            const: sophgo,sg2042-dwmac
+> > +    then:
+> > +      properties:
+> > +        phy-mode:
+> > +          enum:
+>=20
+> > +            - rgmii-rxid
+> > +            - rgmii-id
+>=20
+> Hi, Conor,
+>=20
+> I have restricted the phy-mode with wrong mode here, it should be
+> rgmii-rxid instead of rgmii-txid as the SG2042 always add rx delay
+> in their mac. As this is more like a mistake for me when writing
+> the binding, I keep you tag with the fix. If you need something
+> further, please let me know.
+
+Yeah that's fine chief. In general, if it is some hardware detail
+that I couldn't possibly know was correct or incorrect without
+reading the device's documentation then I probably don't care about
+the binding change required for it when it's so minimal. Probably the
+same goes for Rob and Krzysztof.
+
+--NIRjo9fMfQbx0LeW
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaRaFDAAKCRB4tDGHoIJi
+0sHeAQCiwuHrj6CHOoRLG+GG2NyvoAYv/ledOLpXXMp9wFne6AD/ac6tU8Z1tAkf
+gGLcZaOgphtF9IndUwUcVjxW0F1kDAM=
+=Gnn9
+-----END PGP SIGNATURE-----
+
+--NIRjo9fMfQbx0LeW--
 
