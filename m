@@ -4,90 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78A3BCEACCC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 21:41:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14CB0CEACCC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 21:41:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PjweDXC53XwQZbFadB0VeUGTrRTkXXH8S0NXW5hYqlc=; b=oUysNgL/DoCeJUopdYfL8BOHaa
-	fHWrweLISeAkyYByJun1CJopUURLCD7ilvwrSSY6SYUf7M3raJtc+h9ggI4MC+DxoJfL14BWXcNkO
-	cYKGdERj/Xcogf5OSBBHfX/G+yIkH2rm+VnW+4HYw2xWkxrMQcwqt5cGQSdzwnejqO20iDTjbN5Jg
-	qsZAZhfw4KFCMogw88EHZQF8tImbeYpfds4xgEg2BRJK9Qn0UtodRYWmwQ/YJGtTiPSZgfSRZr9DL
-	wdVLerp+ZUj2s6fLRBwqfIca95xk0F4kxmxKhKSrTh0eXfI9WP/DDr2e8QfnuWa7NnCO0NRy30xOZ
-	ikhvUu5g==;
+	bh=uY1UjNXsGvOoIk4pnpJlYhtQYGWMnV7zZL4cG77pwUw=; b=UUCKrcZ5zO+Y0LoJl3pUWxTWkx
+	4rrVmqBGyHI+8F3QrKUn6LvsBL1cssr1QL/tebzUwdWYM6tQiZH1vcCYNCACyklgTWHIwr6+826oC
+	ld5h7ATzJtcakIlLAELZS6tVBwDjois4BsvLxhUsIqp95Vz6S083g21PYsC4CYkfRWCIgK9dH5FO1
+	62z2627g+CPP/1dhf1FFb4LRZfJp0fPdekbPKMW0ZnQN2u5imiLEO/TXESRCkA1c9VaSvSZLVgjGV
+	SjFUco1PgwwGMp1qjpUVFzJ4SsrBFnTmfASODKTmPFV/REOIHhyIRwBbRABzNl+ggqrlYv38zcqEl
+	skOny76w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vK1XU-0000000D8gH-3s2h;
-	Fri, 14 Nov 2025 21:41:04 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1vK1Xq-0000000D8lV-2FgZ;
+	Fri, 14 Nov 2025 21:41:26 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vK1XS-0000000D8fU-0OFZ;
-	Fri, 14 Nov 2025 21:41:03 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1763156459;
-	bh=M3gF+t8IsgI6PSTZgp2iLX1qTLe8b068JiSeWW4M8FE=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
-	b=arbSYLwShp22qZCf6edowX9KnBzYQDEeDNdbA32u0Jav+GL2yInfowzdJwGrakGgd
-	 1/vkoS8uRwAT0Gs4LQWgWy1oh0HTIkhiXN2swHZnCtnvXDm9qfndofaAk5FWvVuu6w
-	 09Nv8Te8YOC4D53r1DWdfve+v9+IPFyovsCcWALBMBsXOfZ4lJxGfF9PPMeLKYTEj4
-	 Y3QTxX09jMMntCWMoOMvlX6si9rqrUcs8IwzisIpeoX1LS2C5ecg4JLsC7PHqtmWnX
-	 fPvKjJk4hBk1wsANtn+F0gmg8DDRznCJInVmVve+CfxS0eCNJEeJqc28AGKcn8Qmww
-	 g3YUiD2L7EjOA==
-Received: from [IPv6:2606:6d00:11:696f::c41] (unknown [IPv6:2606:6d00:11:696f::c41])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits))
-	(No client certificate requested)
-	(Authenticated sender: nicolas)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 78C8217E013C;
-	Fri, 14 Nov 2025 22:40:56 +0100 (CET)
-Message-ID: <e5e4d2af07ae43f6681020db340f6d9f0fb56ba9.camel@collabora.com>
-Subject: Re: [PATCH v3 4/6] media: mediatek: encoder: Add a new platform
- data member
-From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-To: Kyrie Wu <kyrie.wu@mediatek.com>, Tiffany Lin
- <tiffany.lin@mediatek.com>,  Andrew-CT Chen <andrew-ct.chen@mediatek.com>,
- Yunfei Dong <yunfei.dong@mediatek.com>, Mauro Carvalho Chehab	
- <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski	
- <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Matthias Brugger	
- <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno	
- <angelogioacchino.delregno@collabora.com>, Hans Verkuil
- <hverkuil@xs4all.nl>,  Christophe JAILLET <christophe.jaillet@wanadoo.fr>,
- Sebastian Fricke <sebastian.fricke@collabora.com>, Nathan Hebert	
- <nhebert@chromium.org>, Arnd Bergmann <arnd@arndb.de>, Irui Wang	
- <irui.wang@mediatek.com>, George Sun <george.sun@mediatek.com>, 
-	linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org
-Cc: Neil Armstrong <neil.armstrong@linaro.org>, Andrzej Pietrasiewicz
-	 <andrzejtp2010@gmail.com>
-Date: Fri, 14 Nov 2025 16:40:54 -0500
-In-Reply-To: <20250814085642.17343-5-kyrie.wu@mediatek.com>
-References: <20250814085642.17343-1-kyrie.wu@mediatek.com>
-	 <20250814085642.17343-5-kyrie.wu@mediatek.com>
-Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
- keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
- /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
- cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
- CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
- abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
- nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
- AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
- smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
- AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
- iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
- ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
- bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
-Organization: Collabora Canada
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-EvRa1YfHI+xPZWk5CuRJ"
-User-Agent: Evolution 3.58.1 (3.58.1-1.fc43) 
+	id 1vK1Xo-0000000D8kS-00aJ
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 14 Nov 2025 21:41:25 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 5D4B144278
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Nov 2025 21:41:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3CEC9C2BC9E
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Nov 2025 21:41:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1763156483;
+	bh=870jrKcu3+KExQtVbENYeTTMwFI1maOpGdGAxr2Wqk8=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=NC0xxulKy/jVNsKu2R/tGkPcaCYwklP3aCdr0YuDrqo9Xf1BMj70GHOVB/x7T13fc
+	 qU1A3v1x9XrtQ0c8xSf8OADRSL5K+1urQOAVJ8cNeEFWEmjZVWuhBOkeHgTHS3ngF7
+	 jPwhSztkgPhTT/qVJgpNxF1JOAD+uqtvQkTUQ+E26SxQOdFQXdCiDx3XnXXJNK8RU/
+	 2Vw7bEWpXeohGB1XY4JvKXTth4xCsIuPQfdwZXqrSkdwpOdlWL6WCEqN90Ff14rvTh
+	 zDzv9J/aQx+5IXxQlDqcehvahGXpC3GL/kFgcD/f9Vd4lnSaNFQaxQOOYp0INu0SqM
+	 Y1o9ShchqWI9w==
+Received: by mail-lj1-f172.google.com with SMTP id 38308e7fff4ca-37a33f49018so20883541fa.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Nov 2025 13:41:23 -0800 (PST)
+X-Gm-Message-State: AOJu0YwSpRyDQ4tQkgQ4ltvRoaYY/YyjquCW4OmVWV9eeO2Z019Nm/gP
+	c7HRv7nBkRW5UF6P2T3zDn4/qs3qkZLMlopJlrjf30ykHEOCCElujPfdTUdEKpxtjObpKglhVkm
+	0+4P+w5gkTjrOVAnKmNe88PCyIWuuPHY=
+X-Google-Smtp-Source: AGHT+IFe29zqo8gCkaVXCnGx37R00NX2gqT1LHiMtVBd28KTVWuGUdLf+hz9jkToQkMKok2Ij0Qi5JeaMuvCOyDXR+c=
+X-Received: by 2002:a2e:8a98:0:b0:379:348:80da with SMTP id
+ 38308e7fff4ca-37babb5eed2mr11178121fa.8.1763156481579; Fri, 14 Nov 2025
+ 13:41:21 -0800 (PST)
 MIME-Version: 1.0
+References: <20251114085058.2195900-1-sumit.garg@kernel.org> <20251114085058.2195900-2-sumit.garg@kernel.org>
+In-Reply-To: <20251114085058.2195900-2-sumit.garg@kernel.org>
+From: Ard Biesheuvel <ardb@kernel.org>
+Date: Fri, 14 Nov 2025 22:41:10 +0100
+X-Gmail-Original-Message-ID: <CAMj1kXEsJMp8O-BckAoizDQRyirbZN+jYjYF9GGga4kd30em=A@mail.gmail.com>
+X-Gm-Features: AWmQ_bn_38f2aWCNi1v3PYjks773oxLFEOd0gS6-DSalAed6w3PWFNsA8Tlp6A8
+Message-ID: <CAMj1kXEsJMp8O-BckAoizDQRyirbZN+jYjYF9GGga4kd30em=A@mail.gmail.com>
+Subject: Re: [PATCH 1/2] efi/reboot: Add support for EFI_RESET_PLATFORM_SPECIFIC
+To: Sumit Garg <sumit.garg@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-efi@vger.kernel.org, 
+	linux-arm-msm@vger.kernel.org, catalin.marinas@arm.com, will@kernel.org, 
+	mark.rutland@arm.com, andersson@kernel.org, konradybcio@kernel.org, 
+	dmitry.baryshkov@oss.qualcomm.com, shivendra.pratap@oss.qualcomm.com, 
+	leif.lindholm@oss.qualcomm.com, linux-kernel@vger.kernel.org, 
+	Sumit Garg <sumit.garg@oss.qualcomm.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251114_134102_312376_523CC5A2 
-X-CRM114-Status: GOOD (  18.29  )
+X-CRM114-CacheID: sfid-20251114_134124_344730_4D1B4F9B 
+X-CRM114-Status: GOOD (  26.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,188 +85,121 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
---=-EvRa1YfHI+xPZWk5CuRJ
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-
-Le jeudi 14 ao=C3=BBt 2025 =C3=A0 16:56 +0800, Kyrie Wu a =C3=A9crit=C2=A0:
-> From: Irui Wang <irui.wang@mediatek.com>
->=20
-> Add a new platform data member to indicate each encoder IC, so that the
-> get chip name function by 'of_device_is_compatible' can be removed.
->=20
-> Signed-off-by: Irui Wang <irui.wang@mediatek.com>
-
-I'm very happy of that cleanup,
-
-Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-
-thanks,
-Nicolas
-
+On Fri, 14 Nov 2025 at 09:51, Sumit Garg <sumit.garg@kernel.org> wrote:
+>
+> From: Sumit Garg <sumit.garg@oss.qualcomm.com>
+>
+> UEFI specification provides support for EfiResetPlatformSpecific reset
+> type as follows:
+>
+> "
+> ResetSystem:
+>
+> Calling this interface with ResetType of EfiResetPlatformSpecific
+> causes a system-wide reset. The exact type of the reset is defined
+> by the EFI_GUID that follows the Null-terminated Unicode string passed
+> into ResetData. If the platform does not recognize the EFI_GUID in
+> ResetData the platform must pick a supported reset type to perform.
+> The platform may optionally log the parameters from any non-normal
+> reset that occurs.
+> "
+>
+> Lets use the ResetData to pass the platform specific reboot command
+> issued and leave it's interpretation to UEFI implementation following
+> the specification.
+>
+> Signed-off-by: Sumit Garg <sumit.garg@oss.qualcomm.com>
 > ---
-> =C2=A0.../mediatek/vcodec/encoder/mtk_vcodec_enc.c=C2=A0 | 23 ++---------=
---------
-> =C2=A0.../vcodec/encoder/mtk_vcodec_enc_drv.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0 |=C2=A0 6 +++++
-> =C2=A0.../vcodec/encoder/mtk_vcodec_enc_drv.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0 |=C2=A0 2 ++
-> =C2=A03 files changed, 10 insertions(+), 21 deletions(-)
->=20
-> diff --git a/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_en=
-c.c b/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc.c
-> index 03512bf7a072..1a7be3e57eef 100644
-> --- a/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc.c
-> +++ b/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc.c
-> @@ -198,34 +198,15 @@ static int vidioc_enum_fmt_vid_out(struct file *fil=
-e, void *priv,
-> =C2=A0			=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 pdata->num_output_formats);
-> =C2=A0}
-> =C2=A0
-> -static int mtk_vcodec_enc_get_chip_name(void *priv)
-> -{
-> -	struct mtk_vcodec_enc_ctx *ctx =3D fh_to_enc_ctx(priv);
-> -	struct device *dev =3D &ctx->dev->plat_dev->dev;
-> -
-> -	if (of_device_is_compatible(dev->of_node, "mediatek,mt8173-vcodec-enc")=
-)
-> -		return 8173;
-> -	else if (of_device_is_compatible(dev->of_node, "mediatek,mt8183-vcodec-=
-enc"))
-> -		return 8183;
-> -	else if (of_device_is_compatible(dev->of_node, "mediatek,mt8192-vcodec-=
-enc"))
-> -		return 8192;
-> -	else if (of_device_is_compatible(dev->of_node, "mediatek,mt8195-vcodec-=
-enc"))
-> -		return 8195;
-> -	else if (of_device_is_compatible(dev->of_node, "mediatek,mt8188-vcodec-=
-enc"))
-> -		return 8188;
-> -	else
-> -		return 8173;
-> -}
-> -
-> =C2=A0static int vidioc_venc_querycap(struct file *file, void *priv,
-> =C2=A0				struct v4l2_capability *cap)
-> =C2=A0{
-> =C2=A0	struct mtk_vcodec_enc_ctx *ctx =3D fh_to_enc_ctx(priv);
-> +	const struct mtk_vcodec_enc_pdata *pdata =3D ctx->dev->venc_pdata;
-> =C2=A0	struct device *dev =3D &ctx->dev->plat_dev->dev;
-> -	int platform_name =3D mtk_vcodec_enc_get_chip_name(priv);
-> =C2=A0
-> =C2=A0	strscpy(cap->driver, dev->driver->name, sizeof(cap->driver));
-> -	snprintf(cap->card, sizeof(cap->card), "MT%d video encoder", platform_n=
-ame);
-> +	snprintf(cap->card, sizeof(cap->card), "MT%d video encoder", pdata->ven=
-c_model_num);
-> =C2=A0
-> =C2=A0	return 0;
-> =C2=A0}
-> diff --git a/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_en=
-c_drv.c b/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv=
-.c
-> index bb913dfe5f04..50936949d527 100644
-> --- a/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.c
-> +++ b/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.c
-> @@ -380,6 +380,7 @@ static int mtk_vcodec_probe(struct platform_device *p=
-dev)
-> =C2=A0}
-> =C2=A0
-> =C2=A0static const struct mtk_vcodec_enc_pdata mt8173_avc_pdata =3D {
-> +	.venc_model_num =3D 8173,
-> =C2=A0	.capture_formats =3D mtk_video_formats_capture_h264,
-> =C2=A0	.num_capture_formats =3D ARRAY_SIZE(mtk_video_formats_capture_h264=
-),
-> =C2=A0	.output_formats =3D mtk_video_formats_output,
-> @@ -390,6 +391,7 @@ static const struct mtk_vcodec_enc_pdata mt8173_avc_p=
-data =3D {
-> =C2=A0};
-> =C2=A0
-> =C2=A0static const struct mtk_vcodec_enc_pdata mt8173_vp8_pdata =3D {
-> +	.venc_model_num =3D 8173,
-> =C2=A0	.capture_formats =3D mtk_video_formats_capture_vp8,
-> =C2=A0	.num_capture_formats =3D ARRAY_SIZE(mtk_video_formats_capture_vp8)=
-,
-> =C2=A0	.output_formats =3D mtk_video_formats_output,
-> @@ -400,6 +402,7 @@ static const struct mtk_vcodec_enc_pdata mt8173_vp8_p=
-data =3D {
-> =C2=A0};
-> =C2=A0
-> =C2=A0static const struct mtk_vcodec_enc_pdata mt8183_pdata =3D {
-> +	.venc_model_num =3D 8183,
-> =C2=A0	.uses_ext =3D true,
-> =C2=A0	.capture_formats =3D mtk_video_formats_capture_h264,
-> =C2=A0	.num_capture_formats =3D ARRAY_SIZE(mtk_video_formats_capture_h264=
-),
-> @@ -411,6 +414,7 @@ static const struct mtk_vcodec_enc_pdata mt8183_pdata=
- =3D {
-> =C2=A0};
-> =C2=A0
-> =C2=A0static const struct mtk_vcodec_enc_pdata mt8188_pdata =3D {
-> +	.venc_model_num =3D 8188,
-> =C2=A0	.uses_ext =3D true,
-> =C2=A0	.capture_formats =3D mtk_video_formats_capture_h264,
-> =C2=A0	.num_capture_formats =3D ARRAY_SIZE(mtk_video_formats_capture_h264=
-),
-> @@ -423,6 +427,7 @@ static const struct mtk_vcodec_enc_pdata mt8188_pdata=
- =3D {
-> =C2=A0};
-> =C2=A0
-> =C2=A0static const struct mtk_vcodec_enc_pdata mt8192_pdata =3D {
-> +	.venc_model_num =3D 8192,
-> =C2=A0	.uses_ext =3D true,
-> =C2=A0	.capture_formats =3D mtk_video_formats_capture_h264,
-> =C2=A0	.num_capture_formats =3D ARRAY_SIZE(mtk_video_formats_capture_h264=
-),
-> @@ -434,6 +439,7 @@ static const struct mtk_vcodec_enc_pdata mt8192_pdata=
- =3D {
-> =C2=A0};
-> =C2=A0
-> =C2=A0static const struct mtk_vcodec_enc_pdata mt8195_pdata =3D {
-> +	.venc_model_num =3D 8195,
-> =C2=A0	.uses_ext =3D true,
-> =C2=A0	.capture_formats =3D mtk_video_formats_capture_h264,
-> =C2=A0	.num_capture_formats =3D ARRAY_SIZE(mtk_video_formats_capture_h264=
-),
-> diff --git a/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_en=
-c_drv.h b/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv=
-.h
-> index 426b1398f815..b3206a7b592d 100644
-> --- a/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.h
-> +++ b/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.h
-> @@ -21,6 +21,7 @@
-> =C2=A0/**
-> =C2=A0 * struct mtk_vcodec_enc_pdata - compatible data for each IC
-> =C2=A0 *
-> + * @venc_model_num: encoder model number
-> =C2=A0 * @uses_ext: whether the encoder uses the extended firmware messag=
-ing format
-> =C2=A0 * @min_bitrate: minimum supported encoding bitrate
-> =C2=A0 * @max_bitrate: maximum supported encoding bitrate
-> @@ -33,6 +34,7 @@
-> =C2=A0 * @uses_common_fw_iface: whether the encoder uses common driver in=
-terface
-> =C2=A0 */
-> =C2=A0struct mtk_vcodec_enc_pdata {
-> +	u16 venc_model_num;
-> =C2=A0	bool uses_ext;
-> =C2=A0	u64 min_bitrate;
-> =C2=A0	u64 max_bitrate;
+>  drivers/firmware/efi/reboot.c | 25 +++++++++++++++----------
+>  include/linux/efi.h           |  5 +++--
+>  2 files changed, 18 insertions(+), 12 deletions(-)
+>
+> diff --git a/drivers/firmware/efi/reboot.c b/drivers/firmware/efi/reboot.c
+> index ceae84c19d22..23a2fc68e9c9 100644
+> --- a/drivers/firmware/efi/reboot.c
+> +++ b/drivers/firmware/efi/reboot.c
+> @@ -10,7 +10,7 @@ static struct sys_off_handler *efi_sys_off_handler;
+>
+>  int efi_reboot_quirk_mode = -1;
+>
+> -void efi_reboot(enum reboot_mode reboot_mode, const char *__unused)
+> +void efi_reboot(enum reboot_mode reboot_mode, const char *data)
+>  {
+>         const char *str[] = { "cold", "warm", "shutdown", "platform" };
+>         int efi_mode, cap_reset_mode;
+> @@ -18,14 +18,18 @@ void efi_reboot(enum reboot_mode reboot_mode, const char *__unused)
+>         if (!efi_rt_services_supported(EFI_RT_SUPPORTED_RESET_SYSTEM))
+>                 return;
+>
+> -       switch (reboot_mode) {
+> -       case REBOOT_WARM:
+> -       case REBOOT_SOFT:
+> -               efi_mode = EFI_RESET_WARM;
+> -               break;
+> -       default:
+> -               efi_mode = EFI_RESET_COLD;
+> -               break;
+> +       if (data) {
+> +               efi_mode = EFI_RESET_PLATFORM_SPECIFIC;
+> +       } else {
+> +               switch (reboot_mode) {
+> +               case REBOOT_WARM:
+> +               case REBOOT_SOFT:
+> +                       efi_mode = EFI_RESET_WARM;
+> +                       break;
+> +               default:
+> +                       efi_mode = EFI_RESET_COLD;
+> +                       break;
+> +               }
+>         }
+>
+>         /*
+> @@ -43,7 +47,8 @@ void efi_reboot(enum reboot_mode reboot_mode, const char *__unused)
+>                 efi_mode = cap_reset_mode;
+>         }
+>
+> -       efi.reset_system(efi_mode, EFI_SUCCESS, 0, NULL);
+> +       efi.reset_system(efi_mode, EFI_SUCCESS, sizeof(data),
 
---=-EvRa1YfHI+xPZWk5CuRJ
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-Content-Transfer-Encoding: 7bit
+You cannot use sizeof() here - it will return the size of a pointer to
+const char.
 
------BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaReh5wAKCRDZQZRRKWBy
-9CXKAQDNDAfNOKCIBvVuUN6h/HCoZwSUJAeu8n4D46L0sOZWOgEA+mZTe25xAc77
-vtt/G0mwiqaKECK7tEIBJz4BfqLanAU=
-=A0Sk
------END PGP SIGNATURE-----
-
---=-EvRa1YfHI+xPZWk5CuRJ--
+> +                        (efi_char16_t *)data);
+>  }
+>
+>  bool __weak efi_poweroff_required(void)
+> diff --git a/include/linux/efi.h b/include/linux/efi.h
+> index a98cc39e7aaa..5324db1518b6 100644
+> --- a/include/linux/efi.h
+> +++ b/include/linux/efi.h
+> @@ -256,6 +256,7 @@ typedef union efi_boot_services efi_boot_services_t;
+>  #define EFI_RESET_COLD 0
+>  #define EFI_RESET_WARM 1
+>  #define EFI_RESET_SHUTDOWN 2
+> +#define EFI_RESET_PLATFORM_SPECIFIC 3
+>
+>  /*
+>   * EFI Runtime Services table
+> @@ -874,7 +875,7 @@ static inline bool efi_enabled(int feature)
+>  {
+>         return test_bit(feature, &efi.flags) != 0;
+>  }
+> -extern void efi_reboot(enum reboot_mode reboot_mode, const char *__unused);
+> +extern void efi_reboot(enum reboot_mode reboot_mode, const char *data);
+>
+>  bool __pure __efi_soft_reserve_enabled(void);
+>
+> @@ -895,7 +896,7 @@ static inline bool efi_enabled(int feature)
+>         return false;
+>  }
+>  static inline void
+> -efi_reboot(enum reboot_mode reboot_mode, const char *__unused) {}
+> +efi_reboot(enum reboot_mode reboot_mode, const char *data) {}
+>
+>  static inline bool efi_soft_reserve_enabled(void)
+>  {
+> --
+> 2.48.1
+>
 
