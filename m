@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66B22CE7B13
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 15:02:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DECD8CE7B1B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 15:03:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=b4IT63puubgpuedNrSBejwiXJhFoMe1SM8s9x/q/mXU=; b=bTC+83lgPYVFBedrWxrZ6xqbvt
-	QnMeACTGsO1A7JoxeKNxxKGyV5oKv1MJfgY/KC7NcLdiDwBr4Ee8N7bIZmRao1jX8o9N1zW6FVAtO
-	uquErEGPTPkS5sUMC15vrIZOXtHK246y268Gu/GB8ztgJUDnvn6QSeywG/st6XT+aMedVb5rTTbEB
-	o3qSbSu7KhZKCWEM7tKcPy22mDEfRh8VzdAhGrzY6A/a+Y5lHmxonjPlPPeScDb+LiuAFzyUjBMml
-	HzZ/kNgofmCs/8Ult6rTROPCZ/li2cz62xo4MHG2txrBYoEyVKQXS03AUPApMHfNaaaQXeO9xHJTp
-	TE8xBhQw==;
+	bh=gOlu8hBDGdeSMsm+Xh5M8vOkl2dHtZBdnmdHu3tigmo=; b=fFPj+7Dmy6d1hbRr6UEj4dfnVI
+	nr0jMi0GEQn7TYvI0cdiqaAXxS6JV6+5vSAMvK6gycnQxOEfJyP0etY+OLso50niqQutJCei75VWz
+	pFPI5XmkZfSVzSd0gJUAl8kRkTT5+6OP046424WgSr1U9jC707qGRNlR+A56dXTjMpYV6qaOWBM1Y
+	9EHTd0HL0LW9vDj4QoKI8pTOLiTXG31Zc3Y1oJ2pUXi6nESOnXDRbDzEOGch0+Zacbu8/iAZ93Bn5
+	jMm7SMpCif4vJJ0rDZvSjwKpchta4xgiQvQuePXO91rTYBTLQnIIIo57kS1sNN1b8MuTHrUZYg7Q8
+	hJ3Em/GA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJvK8-0000000CPnR-1GZQ;
-	Fri, 14 Nov 2025 15:02:52 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1vJvKO-0000000CPuo-2mhm;
+	Fri, 14 Nov 2025 15:03:08 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJvK5-0000000CPlW-1ko4
+	id 1vJvKM-0000000CPsp-1x9Q
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Nov 2025 15:02:50 +0000
+	Fri, 14 Nov 2025 15:03:07 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1763132568;
+	s=mimecast20190719; t=1763132585;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=b4IT63puubgpuedNrSBejwiXJhFoMe1SM8s9x/q/mXU=;
-	b=d2RsY0j2cJcYDianwcvo9ZrZdEy6x8OEPtveS1WtPfYNIvQIpZD5nQ4nuRCQcTWgrgTb/J
-	kBCATzPgSVMJO9i05l6zMUJvPVR7UxXGjTqMM4FWWHJ1uJ3etKOtodxg7PNAZx1fbt6Uxe
-	TVOpFK9KQ8diJzcqIBF1veaVC7vypHY=
-Received: from mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com
+	bh=gOlu8hBDGdeSMsm+Xh5M8vOkl2dHtZBdnmdHu3tigmo=;
+	b=IjD34IuuHgdjcSbrclR7auTbl+AOIZXoi5dBht+Y8sHOo+tG27W+bKpwXA7VQ+2dtZuHi3
+	WS+eU7/+xon4xrR0On5CipSCj2OBK1FgpaLhfBIUviuiSY0d3Oq7aXNbhgAU0INlqO9voS
+	BHDh4s4HVO17gx1/RdWR3un8d+UlHqs=
+Received: from mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com
  (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
  relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-563-NweJLrEmMpKdNLpvmtUD0Q-1; Fri,
- 14 Nov 2025 10:02:45 -0500
-X-MC-Unique: NweJLrEmMpKdNLpvmtUD0Q-1
-X-Mimecast-MFC-AGG-ID: NweJLrEmMpKdNLpvmtUD0Q_1763132559
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-30-eCuXdCzbMACz_ODxDptErw-1; Fri,
+ 14 Nov 2025 10:03:03 -0500
+X-MC-Unique: eCuXdCzbMACz_ODxDptErw-1
+X-Mimecast-MFC-AGG-ID: eCuXdCzbMACz_ODxDptErw_1763132572
 Received: from mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.12])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 3FF231954230;
-	Fri, 14 Nov 2025 15:02:36 +0000 (UTC)
+	by mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 976E819560BC;
+	Fri, 14 Nov 2025 15:02:51 +0000 (UTC)
 Received: from vschneid-thinkpadt14sgen2i.remote.csb (unknown [10.45.226.10])
-	by mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id C56B419560B9;
-	Fri, 14 Nov 2025 15:02:19 +0000 (UTC)
+	by mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id B71AB1956048;
+	Fri, 14 Nov 2025 15:02:36 +0000 (UTC)
 From: Valentin Schneider <vschneid@redhat.com>
 To: linux-kernel@vger.kernel.org,
 	linux-mm@kvack.org,
@@ -102,17 +102,17 @@ Cc: Josh Poimboeuf <jpoimboe@kernel.org>,
 	Daniel Wagner <dwagner@suse.de>,
 	Petr Tesarik <ptesarik@suse.com>,
 	Shrikanth Hegde <sshegde@linux.ibm.com>
-Subject: [PATCH v7 01/31] objtool: Make validate_call() recognize indirect calls to pv_ops[]
-Date: Fri, 14 Nov 2025 16:01:03 +0100
-Message-ID: <20251114150133.1056710-2-vschneid@redhat.com>
+Subject: [PATCH v7 02/31] objtool: Flesh out warning related to pv_ops[] calls
+Date: Fri, 14 Nov 2025 16:01:04 +0100
+Message-ID: <20251114150133.1056710-3-vschneid@redhat.com>
 In-Reply-To: <20251114150133.1056710-1-vschneid@redhat.com>
 References: <20251114150133.1056710-1-vschneid@redhat.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Scanned-By: MIMEDefang 3.0 on 10.30.177.12
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251114_070249_536044_4970D143 
-X-CRM114-Status: GOOD (  14.92  )
+X-CRM114-CacheID: sfid-20251114_070306_575219_9A364B78 
+X-CRM114-Status: GOOD (  13.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,75 +127,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-call_dest_name() does not get passed the file pointer of validate_call(),
-which means its invocation of insn_reloc() will always return NULL. Make it
-take a file pointer.
-
-While at it, make sure call_dest_name() uses arch_dest_reloc_offset(),
-otherwise it gets the pv_ops[] offset wrong.
-
-Fabricating an intentional warning shows the change; previously:
-
-  vmlinux.o: warning: objtool: __flush_tlb_all_noinstr+0x4: call to {dynamic}() leaves .noinstr.text section
-
-now:
-
-  vmlinux.o: warning: objtool: __flush_tlb_all_noinstr+0x4: call to pv_ops[1]() leaves .noinstr.text section
+I had to look into objtool itself to understand what this warning was
+about; make it more explicit.
 
 Signed-off-by: Valentin Schneider <vschneid@redhat.com>
 Acked-by: Josh Poimboeuf <jpoimboe@kernel.org>
 ---
- tools/objtool/check.c | 14 ++++++++------
- 1 file changed, 8 insertions(+), 6 deletions(-)
+ tools/objtool/check.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/tools/objtool/check.c b/tools/objtool/check.c
-index 9004fbc067693..12b6967e5fd0d 100644
+index 12b6967e5fd0d..1efa9f1bf16ba 100644
 --- a/tools/objtool/check.c
 +++ b/tools/objtool/check.c
-@@ -3325,7 +3325,7 @@ static inline bool func_uaccess_safe(struct symbol *func)
- 	return false;
- }
+@@ -3363,7 +3363,7 @@ static bool pv_call_dest(struct objtool_file *file, struct instruction *insn)
  
--static inline const char *call_dest_name(struct instruction *insn)
-+static inline const char *call_dest_name(struct objtool_file *file, struct instruction *insn)
- {
- 	static char pvname[19];
- 	struct reloc *reloc;
-@@ -3334,9 +3334,9 @@ static inline const char *call_dest_name(struct instruction *insn)
- 	if (insn_call_dest(insn))
- 		return insn_call_dest(insn)->name;
- 
--	reloc = insn_reloc(NULL, insn);
-+	reloc = insn_reloc(file, insn);
- 	if (reloc && !strcmp(reloc->sym->name, "pv_ops")) {
--		idx = (reloc_addend(reloc) / sizeof(void *));
-+		idx = (arch_dest_reloc_offset(reloc_addend(reloc)) / sizeof(void *));
- 		snprintf(pvname, sizeof(pvname), "pv_ops[%d]", idx);
- 		return pvname;
+ 	list_for_each_entry(target, &file->pv_ops[idx].targets, pv_target) {
+ 		if (!target->sec->noinstr) {
+-			WARN("pv_ops[%d]: %s", idx, target->name);
++			WARN("pv_ops[%d]: indirect call to %s() leaves .noinstr.text section", idx, target->name);
+ 			file->pv_ops[idx].clean = false;
+ 		}
  	}
-@@ -3415,17 +3415,19 @@ static int validate_call(struct objtool_file *file,
- {
- 	if (state->noinstr && state->instr <= 0 &&
- 	    !noinstr_call_dest(file, insn, insn_call_dest(insn))) {
--		WARN_INSN(insn, "call to %s() leaves .noinstr.text section", call_dest_name(insn));
-+		WARN_INSN(insn, "call to %s() leaves .noinstr.text section", call_dest_name(file, insn));
- 		return 1;
- 	}
- 
- 	if (state->uaccess && !func_uaccess_safe(insn_call_dest(insn))) {
--		WARN_INSN(insn, "call to %s() with UACCESS enabled", call_dest_name(insn));
-+		WARN_INSN(insn, "call to %s() with UACCESS enabled",
-+			  call_dest_name(file, insn));
- 		return 1;
- 	}
- 
- 	if (state->df) {
--		WARN_INSN(insn, "call to %s() with DF set", call_dest_name(insn));
-+		WARN_INSN(insn, "call to %s() with DF set",
-+			  call_dest_name(file, insn));
- 		return 1;
- 	}
- 
 -- 
 2.51.0
 
