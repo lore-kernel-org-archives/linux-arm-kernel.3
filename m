@@ -4,148 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53D22CDE00F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 06:27:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BDE0CDE011
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Nov 2025 06:46:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=t4vMwFFp4X/mlBWxNickQ1YWz8STFBIbPqwQXtWSFjI=; b=4YQXXOi+CgQc22XdXBgCXdRfEz
-	3OrkPnXshLy4nYbiKycTNd3jLB6yQLr+BUGJYzHhNZaUCRs/vty4+IRwqA9yAyvMNUf2crf8EjMeE
-	pT28/HfRp22LvnCN9ECFf2f9o/WXpB6yofMUSUTl1mAqbjGOgI3oxzTgQpKtCi+6w6a51lzTIzG+s
-	/9iWOHzMAA8/LG7gPMdI+HSEap8WsfBl6dVfQPWiXqMDBrdAIJ/G3yzUbOauzc+bYn3WPt8WHeZ62
-	fKITowZDG3rxvsSOwwaPwXmCPtYAqxFVZaLdpg2hIgSMDOqr6TkVBavcCXnpgEl+MnajYDQpwVIBV
-	mIOtuDqw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=g41ZlfK29fM863Pwf07Q3hPzs6Ufs0fvl4z4IAmyq2k=; b=QyyAVCafrPyKh9/HObjnF8iCXy
+	l7KXAp+eXb2Or8mzCCmYxV/Vy4pG/Hpjtt6RIrQJXNpxHs78ndZqYh0jjiO5vCM+pQ+Tfm5ItQuuc
+	wxvsTqXMPdR0otq4YZIjmgPd3+Kq9yVD6cB3kRGuNiVd+PoNbGWgdg9qmMAmUG1G435T41imytfcz
+	jn2hfS1dILkZ3m4Lh54qP5R49chbTof4c6PaqAhCwPb6TjA+dqjFuQ1x8wNfcQCicI37noLGPdbvT
+	3/BiVDo7a60riTBv0U626pAK1E6mOaxOAs+GpuQ1oEbni4Bm9c3asfzWBEdBntcvoeGeuDs3ovTfH
+	6cymoIHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJnGx-0000000BeTR-0WUQ;
-	Fri, 14 Nov 2025 06:27:03 +0000
-Received: from mail-southcentralusazon11012052.outbound.protection.outlook.com ([40.93.195.52] helo=SN4PR2101CU001.outbound.protection.outlook.com)
+	id 1vJnZX-0000000BgEE-2QJK;
+	Fri, 14 Nov 2025 06:46:15 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vJnGt-0000000BeRc-2HnG
+	id 1vJnZU-0000000BgDl-2f5V
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Nov 2025 06:27:01 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=kAqIxyHPJngonIFlpl32YXFaSFI2qRywFQj+9qT+gTBUI6VvkBgmmnsNRsVP1G3TkPYgv63ruGzyD1xfSnJOzonIy7MCRerFXW+fMMI4M4Q8d/Z/JWekW5TtVkxM40bro+P8WxStBP8xrvGP3hVXb1rhmuetBL0M2/EQculVhE2oQqOz6dDgAwg+Ne/WUmG/LLx9DL2KIqidqtIabB3htlkV0ylHuXhoHGvgcZ+VaYsEqcm2tykEpdWwGxBZngBfnSThFJErNSqaXOQ66t5LwxLI6htQVSRP3Wcemsn/Hrjv1lRIiUblvwWOpV6pKze2n/42mHuO4mtOVk4Sue9VIw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=t4vMwFFp4X/mlBWxNickQ1YWz8STFBIbPqwQXtWSFjI=;
- b=PxrJTjjgT7sN+fNlhFYhR/yOWSt7YPDsfRP7d8jAx4k+eSycu7156FbAlZUlcaw4NZiI1Vz7VPpNiHwDMKwfECCtRZxYEvMpjCInXTb/r8WjuGMXRpCqRWZ7SbynQUxW959EM2X1Wg0xJ9Z0CGT5u9DIqGM7j8U1lR08eXZTXokn1vEyXcJhrjMlxSFPDP8mks8GfZgFrfYoNhZLhuksZtYRn9Y7WGpnCil5wb7ffxr6BDDdECdcIzSeNXJLs4yJoj4itp04hJgvx+PlIIMCQC9JZiufx9lze1P2EkeGv9RbA+iQbqnvlCKoj2GTrNTcv8wZqCoymM4FYg7lFthFdg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=t4vMwFFp4X/mlBWxNickQ1YWz8STFBIbPqwQXtWSFjI=;
- b=Kjjd+Calg4lVAHWtNjjzHz3nEgtCoX6O3ocvwcPRVm8xITasN/KWy16TSEM70/sEVZ0AeiCM4vKy40f5XGP6woNAY9OwfjM10DEK6UMFKk4nSY+kJ4OWWtKY64wCZIEl3m4ufmssFbroU0ieXlfFioHk+QcKxUrZFgYYPQF9TPWNSGToNFn7Z97WVrNIaiehZbEBFGAqvmSQ1kP2KS4T5HPHDMkTpTWiaz0begkca+zIa9Ptbd7QFt9X3ngHYeXbB53j9/Bbpq8aBvlPgiUN0rotjwAyN3hv9vopQObQwjuv9FOcvCr1n9cCQ3FDp5BzQx4i63gbZXdmwRSuUjRUlg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CH1PPFDAD84AB72.namprd12.prod.outlook.com
- (2603:10b6:61f:fc00::627) by BL4PR12MB9506.namprd12.prod.outlook.com
- (2603:10b6:208:590::12) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9320.17; Fri, 14 Nov
- 2025 06:26:53 +0000
-Received: from CH1PPFDAD84AB72.namprd12.prod.outlook.com
- ([fe80::7816:ec9f:a1fe:e5c9]) by CH1PPFDAD84AB72.namprd12.prod.outlook.com
- ([fe80::7816:ec9f:a1fe:e5c9%6]) with mapi id 15.20.9320.013; Fri, 14 Nov 2025
- 06:26:53 +0000
-Date: Thu, 13 Nov 2025 22:26:48 -0800
-From: Marc Olberding <molberding@nvidia.com>
-To: Andrew Jeffery <andrew@codeconstruct.com.au>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 2/2] dts: aspeed: Add a dts for the nvidia msx4 hpm
-Message-ID: <aRbLqH8pLWCQryhu@molberding.nvidia.com>
-References: <20251108-msx1_devicetree-v3-0-c7cb477ade27@nvidia.com>
- <20251108-msx1_devicetree-v3-2-c7cb477ade27@nvidia.com>
- <a030d7a2e2d36064bd86fe2af1ec6e4baabd9946.camel@codeconstruct.com.au>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <a030d7a2e2d36064bd86fe2af1ec6e4baabd9946.camel@codeconstruct.com.au>
-X-ClientProxiedBy: MW3PR06CA0017.namprd06.prod.outlook.com
- (2603:10b6:303:2a::22) To CH1PPFDAD84AB72.namprd12.prod.outlook.com
- (2603:10b6:61f:fc00::627)
+	Fri, 14 Nov 2025 06:46:13 +0000
+Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5ADMbJeY1486313;
+	Fri, 14 Nov 2025 06:46:02 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=g41ZlfK29fM863Pwf07Q3h
+	Pzs6Ufs0fvl4z4IAmyq2k=; b=MGrUdl/I64Lbg1fZf09WOFZ9JiSTe3Qndrl/e+
+	dBGd52z3o26ZvGxefW8wzK9MpnwHj77HXFeUj4jpATPkUzO5Dl3k3Gzm8HA6g+kB
+	saDf6GlY4YJFJJcOhy+P04HZ66E5gDP88YHQH+Vo7p3b7WRV6t7WlwkhOI+yPt2f
+	WWletiBdlCSpeQpe/SP9G9t01d4j8LWEDDbIspw6t6418/jiUaxvDTxfFF1cQsHf
+	k0YQekcfOocs+34UVIPwAQSg4KwAuxi7HkVQ5gWCA1zY0nKPT41zMwQCME0F7z9H
+	S4LkLeVe0sbtSbmY0Sf+n9RSrMYuUi+68iKEziyPRbn2TQIg==
+Received: from nasanppmta05.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4adr9ch5be-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 14 Nov 2025 06:46:02 +0000 (GMT)
+Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
+	by NASANPPMTA05.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 5AE6k1u6023234
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 14 Nov 2025 06:46:01 GMT
+Received: from hu-vikramsa-hyd.qualcomm.com (10.80.80.8) by
+ nasanex01b.na.qualcomm.com (10.46.141.250) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1748.24; Thu, 13 Nov 2025 22:45:55 -0800
+From: Vikram Sharma <quic_vikramsa@quicinc.com>
+To: <bryan.odonoghue@linaro.org>, <mchehab@kernel.org>, <robh@kernel.org>,
+        <krzk+dt@kernel.org>, <conor+dt@kernel.org>, <andersson@kernel.org>,
+        <konradybcio@kernel.org>, <hverkuil-cisco@xs4all.nl>,
+        <cros-qcom-dts-watchers@chromium.org>, <catalin.marinas@arm.com>,
+        <will@kernel.org>
+CC: <linux-arm-kernel@lists.infradead.org>, <quic_svankada@quicinc.com>,
+        <linux-media@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>,
+        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <quic_nihalkum@quicinc.com>, <quic_vikramsa@quicinc.com>
+Subject: [PATCH v5 0/3] Add CCI and imx577 sensor support for monaco evk
+Date: Fri, 14 Nov 2025 12:15:38 +0530
+Message-ID: <20251114064541.446276-1-quic_vikramsa@quicinc.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH1PPFDAD84AB72:EE_|BL4PR12MB9506:EE_
-X-MS-Office365-Filtering-Correlation-Id: 01ba02c7-e20f-43b2-abb3-08de2346cd57
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|366016|1800799024;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?uWwRM99y9aeN47EsvXDO6LyqP3b1ayyOYFIRVdLE33ot7WqSlJDdmElwj1Pp?=
- =?us-ascii?Q?qZPlOvhpFu4obLNzFXJG4jAPxMKKEZtZGVTk7FZdfAW1K62lUHHevO/jHYGx?=
- =?us-ascii?Q?SeXFR5QmTmVnpeoeYIqt/0J1mMBSblIB4Ns/yUF0UapuHgM/3c+TpyqtWNKC?=
- =?us-ascii?Q?uR6Ih2YxYwi10TfiOQ6KH96pX6ZxBfwSBb+DdLa8EqTz/sRrpHprsFIORTBq?=
- =?us-ascii?Q?dRKPsLNXN/s/auF2Vr4fKKF4Xs8W0wVjYcdcpNqiFnEvHGm1XG8IBcbZGcVk?=
- =?us-ascii?Q?uLCLatURogU2ckO+370YECBmpgDjs9gA7yMNxe0zz56PhZTtGeVDE5qNGhwu?=
- =?us-ascii?Q?d4NZI499R6h9MC7ttTwd7JszneCGfKDdFiwvTcJiQyVG49WQkJqIkvHYv7CG?=
- =?us-ascii?Q?8kTFIBQlMLjtGiBsH+qEGLNxJL3c5C8tsVfQleWhswoKpBNRXZ8LwjxPCkte?=
- =?us-ascii?Q?3esQ5g/nIZvDeM3qa34ZWRxQTwVBOD8Xhx3m871RgHdfuut/pmJAB8sIKLMr?=
- =?us-ascii?Q?bSBJdv2QRyzulsbLU8IXO4Xk3bbfoxwGb2z0HssOz8zLuHXcWAk8YKRjBpKD?=
- =?us-ascii?Q?ihgY0G+85bI9BaUsmMjO1zR30dCKzmuZB+5LtICSIJYqtZ1V2sh8p/lbtwsg?=
- =?us-ascii?Q?OvY2NoNoW62ljP4tSDU33wwjZHtcP3PLGGSU9vmdevrkD4Lk5O+jbic8MBdM?=
- =?us-ascii?Q?Cs5n5yu0yZWJxgI09bJiZW0c+IeC0W0HlUViUTlN0zZDzLDGtOXkPOKz4V7R?=
- =?us-ascii?Q?wYUq2dNVotpNqm7KsRE8NfNt6lt+cb44Vt3YdG2H7NAQPZ2EeLe0mfonlxgM?=
- =?us-ascii?Q?DioJm3lPzu89Cah1IuYLz7/PpJZI9WLVovxdJ5Az+tFKvEVlUlfi6i4ZMepZ?=
- =?us-ascii?Q?145Vn92pDjrs6svoQuCIAvYO+jNEs/TcS+VVPicVVtkBiteKek5p133u/zui?=
- =?us-ascii?Q?wVVEimGV7p7162bITbqi9JPEJIUo5ftUx2zozTUMwkXRhPn6QrMrZm1mTaTH?=
- =?us-ascii?Q?I+CEEoqnCAUkX0TXTRiY5QKNC81CkDDF1eqYCwN5sffMB+DMMdujOuJZ7NbH?=
- =?us-ascii?Q?p51ONGTzrpvKsvT97qmshlww42KyZMmIZDCXtcv8IG9nSAh75tcI9BvCyDPU?=
- =?us-ascii?Q?pG5NYTwfZgT1jLzRSDAzhJRdHgFm/M2ihMKtcWkjLD6My+PJ7JHriSUqolya?=
- =?us-ascii?Q?AlVYdSHCIm5IahCUedM65ZMDC/lHqBmbMIs1vbaxp4jaUvnrXntOoN17ZjjU?=
- =?us-ascii?Q?G6IQiaeBh0BqFTvs0hD/Qg7XzL6KyZ1MXaxqFUIZ3OeGU9PSGT5gnP8/SsmU?=
- =?us-ascii?Q?ncBNo3FnESqnR4WtsZIRTz3vp0JzD6TM6endkNeEZs9PZ+GvYBFXftHZh4ag?=
- =?us-ascii?Q?uB2tvNP4s0jBJyHyoNFp0qKQh3ZqZZbgxmwG3zKs3uX2ux6T1keVJiSyvcDr?=
- =?us-ascii?Q?Zvt187wQuGua3TuBi1WnOa5x73CtKxVI?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH1PPFDAD84AB72.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(1800799024);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?yxJK9fibSuNUrfUL3LMAgUlX3DeuMzuOXldzkwQtXBSluSqIknmgcye/QwxW?=
- =?us-ascii?Q?HuwJJYDxanXhak/8QHRXlXsXQOR/cYdNWdatP8ygpTfixdbAQAC+hClDNzm0?=
- =?us-ascii?Q?uHeo7zHaCHU7TeIn/PX266derwtkdWLHHSppgfNTqtVVsXaG+ywscYk/KOes?=
- =?us-ascii?Q?+tKCwtidU49VvIuKRMWkWRu6j8L/zWiCxHREYxWNlZcCidUagQaJSGuxxKxW?=
- =?us-ascii?Q?8FFCWh0bsramXhaAC311dhHkYxewg7NxO2ihTKL7CAlnJG7mGkbPn/WXjfrA?=
- =?us-ascii?Q?2W0KFzWVd87pSEZKBnBh2P8DWBi3DuS457xlpbrVdNCr9H40IfkFweoCB+x1?=
- =?us-ascii?Q?lW+I0q4dnfMvp3L9/zknvutvLBb6NZLIvwPjcK2UAYv5HDEsPwnpwBfyLXlU?=
- =?us-ascii?Q?wrgUCWF8Z3tgO+UexRF3VWRzUb80j4y8TS4IvgBt2fz1DoESg2ELJAvViA1c?=
- =?us-ascii?Q?782MpxWfNxvtf0MiiG2A6fhLH1BFNJNQZGm/vhbqtNwztFH0wfH0X7jM8rtV?=
- =?us-ascii?Q?Wp/mLokwGNDCuk5CkPXURgVAFQMNcI9B956xBpPB4QK3q4OFdMY8lOLT5Ll+?=
- =?us-ascii?Q?9vxO4aqDyffQ1W/uJr2kdADZNynZPLI4/TtTef30vMI9qXEWrd9BBrqP3fFe?=
- =?us-ascii?Q?gcbiwEU1hBQOu1NQhqONr12AXWWtEXgA7FkB/bS6oQqE0h8pCzGl8gyySNy5?=
- =?us-ascii?Q?vOQIiyN78rKqgSNG/q84PLkwfKu3WXZXPogqnXFlnINck8CIX8WWeTUReEGY?=
- =?us-ascii?Q?HQsvtJdclqPN+CcglD3eDXYVjwu8G6iY7JL9x2PuCRGyDNiDJUCrqS6oeiIr?=
- =?us-ascii?Q?Kpjs06Qj43yYhTm/tIwLg9scQ7fp8j9AtFZekl8QjaHbKPmq5bsdMXasOjyx?=
- =?us-ascii?Q?5UL5PhsykItGmHrAMHrLisXk2l0dQaGhYQjQzIBX7mglo7URF6e43xZpJoF8?=
- =?us-ascii?Q?FFxapH3Dp1UVJ59BqDEgm44BfImPdTATtqaBZRTFLHQ6Mwxohp1JURol+zRn?=
- =?us-ascii?Q?I59r61St2NKo9S2ao/J2RzWnDkqJAixrqGDqkvBYu4yLMJBppEJafVGNllCg?=
- =?us-ascii?Q?tD79DbHBGBKjAeMcyXyAwqEAve4NYvQeOx1+4ZXdDwOWZcxS2z+sGgn3nquI?=
- =?us-ascii?Q?j+HIYinvnMIIDsSD+5LPsvisSCAc/mPVvPhAM/aV0RCoLfuz/dhUu/HS+zjh?=
- =?us-ascii?Q?Qspxg3IHyl0Eotg2xGpRepN+ed5cBTxcjCoXvpdP5jZjgfHsYAyKHF3/m9tR?=
- =?us-ascii?Q?HhW4w9k3F1xsxYgwKmjEqxT7RiLOb9wWuFvLaahc7g1Bf2duxfd9L0XeIFGv?=
- =?us-ascii?Q?1/XJfdIhkDcuTG05hfNyXe/o4t19fbgfMf9XXiVWB4UGkch4rAMvVufQ4CcU?=
- =?us-ascii?Q?Fd2FUBrh7/gzPtIlB5rPlVA3QPOW8ZwkUZPO50IXr01oXBICIC9XbW4dQ5aN?=
- =?us-ascii?Q?0iswwEG9aBwzzhbs5fUXML2VC2ssEZrByADlGzaXKu04P93XJGcVmHM8ee1a?=
- =?us-ascii?Q?8hTArUkIFD2nB57hG1sN8GHZObpscjz457ioBKH6+I+vzaqSLLMp1KWyOKDZ?=
- =?us-ascii?Q?E9G8gnAE9q6FAJCvWqiHgCuXsd0EwsBrKcbN/7U1?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 01ba02c7-e20f-43b2-abb3-08de2346cd57
-X-MS-Exchange-CrossTenant-AuthSource: CH1PPFDAD84AB72.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Nov 2025 06:26:53.6577
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: aLk3ORG7mDBYrf0JRyUwIDHaKSnGmMCuSDkL9NrtSrrsMlBfQ/fQCXIRNqgSkp98V8TLuUA+m/LlRRfssZjRIg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BL4PR12MB9506
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
+ nasanex01b.na.qualcomm.com (10.46.141.250)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-GUID: Nq_CULvA0midnqJlnfLCVhcZ7eb5-k78
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMTE0MDA1MCBTYWx0ZWRfX25fI4IzSxIe4
+ XP0ETdLgqjUQ+VVD2ky9/5+HIuwtoa5b111pjMpu5vexCQ2Gy3TGEmfGy93RSx33IUCasMUXIbU
+ XE3QE5W+0+fsc+e+DjKBU4hp0K6uFy1XaIGeqKHxYZY185UIpfakPrr4IIIUAkg5fzmk6PCNAYq
+ QnpOTPIKCy4hskhg9/up+2JVH7Z0HbG/eJu0lqf8LHC0XiIwlsLCaHtLyofmaEWMu/oMYaWWhOs
+ 40+7V6M6bsPJ4sh3LXn1CMtAPMxiFtL1q8pq1eFTxz8xd5y6pcJxVVoBXSsi1b+Qez+YaSdoXSr
+ U2mPuyNhuWFjj7jMC1f7YN3IH9WCs/3B1N9ardt54qBIrBuUmu8Gn8X5DkH4R+7I4hJsvJ34Vps
+ Q7QJUpmCJ2sBtugHk/keIJH/cBbXLQ==
+X-Authority-Analysis: v=2.4 cv=MNdtWcZl c=1 sm=1 tr=0 ts=6916d02a cx=c_pps
+ a=JYp8KDb2vCoCEuGobkYCKw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
+ a=GEpy-HfZoHoA:10 a=6UeiqGixMTsA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=VwQbUJbxAAAA:8 a=COk6AnOGAAAA:8 a=EUspDBNiAAAA:8 a=yYjbjCPdd4sGEI68VPkA:9
+ a=TjNXssC_j7lpFel5tvFf:22 a=cPQSjfK2_nFv0Q5t_7PE:22
+X-Proofpoint-ORIG-GUID: Nq_CULvA0midnqJlnfLCVhcZ7eb5-k78
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
+ definitions=2025-11-14_01,2025-11-13_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 suspectscore=0 priorityscore=1501 bulkscore=0 spamscore=0
+ clxscore=1015 lowpriorityscore=0 adultscore=0 malwarescore=0 phishscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2510240001 definitions=main-2511140050
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251113_222659_773325_4CCFBF09 
-X-CRM114-Status: GOOD (  20.78  )
+X-CRM114-CacheID: sfid-20251113_224612_682418_D1017E0F 
+X-CRM114-Status: GOOD (  15.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -160,55 +112,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 14, 2025 at 02:46:19PM +1030, Andrew Jeffery wrote:
-> > +	model = "AST2600 MSX4 Kernel";
-> 
-> I find this to be a curious model name :)
-> 
-> Are there no other reasonable names?
-> 
-For better or worse, this is the most accurate name, and matches the hpm hardware itself.
-We may need multi-hpm support for the resulting firmware at some point, so matching
-the hpm to the device tree seemed like the simplest thing to do. If this doesn't
-match the way the kernel deals with this sort of thing, please let me know the best path forward.
+From: Nihal Kumar Gupta <nihalkum@qti.qualcomm.com>
 
-> > +	compatible = "nvidia,msx4-bmc", "aspeed,ast2600";
-> > +
-> > +	aliases {
-> > +		serial0 = &uart1;
-> > +		serial1 = &uart2;
-> > +		serial2 = &uart3;
-> > +		serial3 = &uart4;
-> > +		serial4 = &uart5;
-> 
-> Just checking whether you're actually using all of these? I guess the
-> uart nodes further down suggest so?
->
+Monaco EVK is a single-board computer based on the Qualcomm QCS8300 SoC.
+It lacks a camera sensor in its default configuration.
+This series adds CCI support and enables the IMX577 sensor via CSIPHY1
+through device tree overlay.
 
-These UARTs are wired up on this platform. Userspace may not use them today,
-but we want to enable doing so without needing further device tree updates, in
-case they are needed for debug where a BMC firmware flash would be unpalatable.
+We have tested IMX577 Sensor on CCI1 with following commands:
+- media-ctl --reset
+- media-ctl -V '"imx577 3-001a":0[fmt:SRGGB10/4056x3040 field:none]'
+- media-ctl -V '"msm_csiphy1":0[fmt:SRGGB10/4056x3040]'
+- media-ctl -V '"msm_csid0":0[fmt:SRGGB10/4056x3040]'
+- media-ctl -V '"msm_vfe0_rdi0":0[fmt:SRGGB10/4056x3040]'
+- media-ctl -l '"msm_csiphy1":1->"msm_csid0":0[1]'
+- media-ctl -l '"msm_csid0":1->"msm_vfe0_rdi0":0[1]'
+- yavta -B capture-mplane -c -I -n 5 -f SRGGB10P -s 4056x3040 -F /dev/video1
+---
 
-> 
-> Seems curious to enable all of these I2C controllers yet have no
-> devices under them? Can you elaborate?
-> 
-> Andrew
+This patch series depends on patch series:
+https://lore.kernel.org/all/20251107162521.511536-1-quic_vikramsa@quicinc.com
 
-Unfortunately, the devices that we need over i2c are not
-guaranteed to be available at BMC boot, and are probed in userspace through
-the new_device sysfs node from the i2c subsystem. The BMC doesn't
-have direct control over when these devices are accessible,
-they are available after the host has completed POST.
+Bindings for Supplies are added by below patch:
+https://lore.kernel.org/all/20251107162521.511536-1-quic_vikramsa@quicinc.com
 
-As far as I can tell, there isn't a great way to defer probe for devices
-that the BMC doesn't have immediate control over whether its accessible.
-Regulators seem like a match, but it seems to assume that you can directly
-turn on the power domain that the device is tied to, which isn't the case here
-for various reasons.
+Changes in v5:
+- Rename cciX_i2cY_* to cciX_Y_* to shorten the labels - Vladimir 
+- Added description of pins with MCLK function - Vladimir 
+- Link to v4:
+  https://lore.kernel.org/all/20251015131303.2797800-1-quic_vikramsa@quicinc.com
 
-Please let me know if I'm ignorant of a way to deal with this issue.
+Changes in v4:
+- Remove the AXI source clock from the CCI node - Konrad
+- Updated the qcs8300-camss device tree binding.
+- Link to v3:
+  https://lore.kernel.org/all/20250917130647.1701883-1-quic_vikramsa@quicinc.com
 
-Thanks for the Review,
-Marc
+Changes in v3:
+- Updated and Wrapped commit messages for [PATCH v2 1/3] and [PATCH v2 2/3] - Rob
+- Link to v2:
+  https://lore.kernel.org/all/20250912141134.2799078-1-quic_vikramsa@quicinc.com
+
+Changes in v2:
+- Remove the patch that adds PHY supply documentation in the qcs8300 CAMSS. 
+  bindings. This change should be submitted together with the qcs8300 bindings patch.
+- Fix indentation and regulator node name - Krzysztof.
+- Update commit message as suggested - Dmitry.
+- Link to v1:
+  https://lore.kernel.org/lkml/20250909114241.840842-1-quic_vikramsa@quicinc.com
+
+Used following tools for the sanity check of these changes.
+- make -j32 W=1
+- checkpatch.pl
+- make DT_CHECKER_FLAGS=-m W=1 DT_SCHEMA_FILES=i2c/qcom,i2c-cci.yaml dt_binding_check
+- make CHECK_DTBS=y W=1 DT_SCHEMA_FILES=i2c/qcom,i2c-cci.yaml
+- make DT_CHECKER_FLAGS=-m W=1 DT_SCHEMA_FILES=media/qcom,qcs8300-camss.yaml dt_binding_check
+- make CHECK_DTBS=y W=1 DT_SCHEMA_FILES=media/qcom,qcs8300-camss.yaml
+
+Signed-off-by: Nihal Kumar Gupta <quic_nihalkum@quicinc.com>
+Signed-off-by: Vikram Sharma <quic_vikramsa@quicinc.com>
+
+Nihal Kumar Gupta (3):
+  dt-bindings: i2c: qcom-cci: Document qcs8300 compatible
+  arm64: dts: qcom: qcs8300: Add CCI definitions
+  arm64: dts: qcom: monaco-evk-camera: Add DT overlay
+
+ .../devicetree/bindings/i2c/qcom,i2c-cci.yaml |   2 +
+ arch/arm64/boot/dts/qcom/Makefile             |   4 +
+ .../dts/qcom/monaco-evk-camera-imx577.dtso    | 105 ++++++
+ arch/arm64/boot/dts/qcom/monaco.dtsi          | 303 ++++++++++++++++++
+ 4 files changed, 414 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/qcom/monaco-evk-camera-imx577.dtso
+
+-- 
+2.34.1
+
 
