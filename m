@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B78F6CEB2CC
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Nov 2025 12:21:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64447CEB2CD
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Nov 2025 12:21:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=zovnOE292PEQj4KB9jsZe/YvWFt1u7BUHcsifAqQZmA=; b=eV/+Bk/nKa1UcpWhPWyr9Ysyo9
-	p9qGz5EOggBPHQtp56/unUN4wYptbcrAV2LqpnZUY+arLlb/+42CZEHcH+zGwSPVrRp5+HyrEPaiq
-	Lx5TYlLeUMBruBIe3taRoiypA0M0lgspm4Goj/kYCSCeHxMDxELLULD0Va8HTZQTL7RA9g9oC0yGX
-	gO3pLESrQjkaNOO4o2MIesckOiiwwFuPw0hFLjc53U5sjd+M6kQgPLjOSxdVY8K9V9ZjTmTCFshux
-	2U2o69yqZiqLUsmdTNWxQ3WM1+tHIfYaNdK+syHazV+2n0Cqi4Rulu6MqeipSfdysLUiD/6UVt1yI
-	PpsFt4oQ==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kgvhkHFBBzvKPJg9dLwHvj+UDOIJqagbfyxczfMeyuA=; b=v3HTmbg60VsV089Vn3XcZS9MNg
+	zEkJb777ckMGEm+2kHiLn0xQslECpgOzYBONi+zO4DO7yUG3gOjcCJBu8U56FOODhp9xtO9vgOCFT
+	mLByXdKeFpe4lB8b4ojnPxti2r/U9qJwdRTc83HLt9UwY7SNyYwN1eu2/88t+LzyHupVwsd0ZSMrr
+	KnkuNG6tw677yWo0ZFLJVSIjbz8Krc3UjbMaodiIxwQUyAjlVl6M3EXqk0h1rszgQxgIP4qCluh4f
+	hpQ9pkSa0msNCzzzzmvZzqF29qIkxAHyUWWaK8scTBMHIYIXWUX10OHSV/+roeMnMjrQp7U33Ib+K
+	4gmxAUXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKFHX-0000000DlVh-48cV;
-	Sat, 15 Nov 2025 12:21:32 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vKFHc-0000000DlWU-2HqX;
+	Sat, 15 Nov 2025 12:21:36 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKFHV-0000000DlVK-3ND6
+	id 1vKFHb-0000000DlWD-2mYX
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 15 Nov 2025 12:21:30 +0000
+	Sat, 15 Nov 2025 12:21:35 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 24D94432EF;
+	by tor.source.kernel.org (Postfix) with ESMTP id 6F44560052;
+	Sat, 15 Nov 2025 12:21:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 72599C4CEF5;
 	Sat, 15 Nov 2025 12:21:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 683ABC16AAE;
-	Sat, 15 Nov 2025 12:21:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763209289;
-	bh=CvW3RPjAQHRDOfHqugrlxCPi56fwvh2F4UBJhuXf3jY=;
-	h=From:To:Cc:Subject:Date:From;
-	b=qp5p5xX7ENbuB1mPVuIYCFnQYSYEPZ5tpWjz30Y0M31mP4b20X/sC9/9ZCzECXwMN
-	 LDbhsstItv8lHknHCJvXhUcCiRgI2oX4W0rPhrIBFQo/6FWKmqmjRUzhHStlgSZTBn
-	 NFIxnDFkB4UJsXn3jdPl/pYr3gvX/tk02FY4t8j8NiGRCvhAlWePlAG2r+NYvB7guk
-	 FzxN7BQbuBeCnKcdDQPItEO9PCTqX+o0od9GC6xr2FFu080JYl86KdwFmMl1xVpms6
-	 3+C9e4H+4hzDhu3ibGRicQ/fsSc4yLa7tEP36hiAXFcBT6bkudn2Z2RzxhBUdHLDnE
-	 OjUplpuBVEnZA==
+	s=k20201202; t=1763209294;
+	bh=avO0zpLxyi3tvTmbM/WVmfIlk/427UKM8doZxyoj6Cg=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=K1+3VldCGa52eZ/Zo9eHfml5HhFLEVqgR3n9XtEeu6QAjh3Am5hDmX4t+djYzeiHu
+	 mzDNoXpTh//8eVqq5dqIzbJLEwXXSmgiOtoQnANHt9m37XXdg5dcC0hqB298vmobjJ
+	 cXsizUghYcXIBNDtZ0WuQbjkybj3P9RGym/UcjQNJVbjzX5IngWDGIeOKYfaDUwwzT
+	 vOQ1gzwm66U/NvQDkl7Vx9oa8mUdcd3mROhtQXtoyjTZYBPfqQietdG2Q0oPMwlH2h
+	 wMH2knPzRBeTeKMpA50kGQDVPJR4c790AYNKlopkmkSaBWBMcjSwMES5Z6uV/YS2B8
+	 6CyS+nXy2LFqg==
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Jyri Sarha <jyri.sarha@iki.fi>,
 	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
@@ -66,15 +66,14 @@ To: Jyri Sarha <jyri.sarha@iki.fi>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mmc@vger.kernel.org
 Cc: Krzysztof Kozlowski <krzk@kernel.org>
-Subject: [PATCH 1/3] dt-bindings: display/ti: Simplify dma-coherent property
-Date: Sat, 15 Nov 2025 13:21:21 +0100
-Message-ID: <20251115122120.35315-4-krzk@kernel.org>
+Subject: [PATCH 2/3] dt-bindings: dma: xilinx: Simplify dma-coherent property
+Date: Sat, 15 Nov 2025 13:21:22 +0100
+Message-ID: <20251115122120.35315-5-krzk@kernel.org>
 X-Mailer: git-send-email 2.48.1
+In-Reply-To: <20251115122120.35315-4-krzk@kernel.org>
+References: <20251115122120.35315-4-krzk@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251115_042129_863959_8864BB16 
-X-CRM114-Status: GOOD (  10.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,38 +94,23 @@ Simplify dma-coherent property to match common syntax.
 
 Signed-off-by: Krzysztof Kozlowski <krzk@kernel.org>
 ---
- Documentation/devicetree/bindings/display/ti/ti,am65x-dss.yaml | 3 +--
- Documentation/devicetree/bindings/display/ti/ti,j721e-dss.yaml | 3 +--
- 2 files changed, 2 insertions(+), 4 deletions(-)
+ .../devicetree/bindings/dma/xilinx/xlnx,zynqmp-dma-1.0.yaml    | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/display/ti/ti,am65x-dss.yaml b/Documentation/devicetree/bindings/display/ti/ti,am65x-dss.yaml
-index 361e9cae6896..38fcee91211e 100644
---- a/Documentation/devicetree/bindings/display/ti/ti,am65x-dss.yaml
-+++ b/Documentation/devicetree/bindings/display/ti/ti,am65x-dss.yaml
-@@ -84,8 +84,7 @@ properties:
+diff --git a/Documentation/devicetree/bindings/dma/xilinx/xlnx,zynqmp-dma-1.0.yaml b/Documentation/devicetree/bindings/dma/xilinx/xlnx,zynqmp-dma-1.0.yaml
+index b5399c65a731..2da86037ad79 100644
+--- a/Documentation/devicetree/bindings/dma/xilinx/xlnx,zynqmp-dma-1.0.yaml
++++ b/Documentation/devicetree/bindings/dma/xilinx/xlnx,zynqmp-dma-1.0.yaml
+@@ -59,8 +59,7 @@ properties:
+   power-domains:
      maxItems: 1
-     description: phandle to the associated power domain
  
 -  dma-coherent:
--    type: boolean
+-    description: present if dma operations are coherent
 +  dma-coherent: true
  
-   ports:
-     $ref: /schemas/graph.yaml#/properties/ports
-diff --git a/Documentation/devicetree/bindings/display/ti/ti,j721e-dss.yaml b/Documentation/devicetree/bindings/display/ti/ti,j721e-dss.yaml
-index fad7cba58d39..65ae8a1c3998 100644
---- a/Documentation/devicetree/bindings/display/ti/ti,j721e-dss.yaml
-+++ b/Documentation/devicetree/bindings/display/ti/ti,j721e-dss.yaml
-@@ -103,8 +103,7 @@ properties:
-     maxItems: 1
-     description: phandle to the associated power domain
- 
--  dma-coherent:
--    type: boolean
-+  dma-coherent: true
- 
-   ports:
-     $ref: /schemas/graph.yaml#/properties/ports
+ required:
+   - "#dma-cells"
 -- 
 2.48.1
 
