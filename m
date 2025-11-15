@@ -4,69 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5537BCE8D6B
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Nov 2025 02:20:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73822CE8D7A
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Nov 2025 02:21:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IC8ra2WkCXTbox9QBmPWj03HY/eP1w0qxjSM9mRN5Fo=; b=U1CnezOY25fGZdlW9yNr5uM81O
-	6JYhRhQTsQx7Pct/60/zStYWYI4qeKG02d/gEwtAm/Yms5pxRUC7gRTBtEKQdN9VRu6pi/fTvSx41
-	+wwWJuCODJDjqQoWilGQuod/PxxBG9WFkX9vPbLRFUgVKw3gKczRolGPPRmyUsJP6C0sqzT6bJeXa
-	i2YGLQTBhZ/oK56j5rzCR0h5ZETmDMlA51TvJRDKswM91EdeFf6iqGp9v7lRnUh75ik/5Z4V6nqx2
-	s6a5ixFSf2cIMiDUT83HTIeTw7VOa67LHrn4MZW0kA9jhlkBIzcfGkerCHsYczuFEhFJpXHCn15TC
-	CpVfz1mA==;
+	bh=SbuBNQczlLUG9KXdbmoq6UM3KotrjW3EyKj2mpRpQqk=; b=u6xRDcFLZBD9Aq+DFOqzQy1dis
+	QRv296NHAIm7BN7t+omr1/x1qeR6XnC3cKxHJ8dk83ugDK+PDMg13DNKc36y6Wfr6w2gCDGEISAx7
+	4eTjBVnlFVZi5RfWzkcRojTyy3aAmQMO7Cl4n/DoMKmtWJ1GEAhfjnn+i67z6DCJ1IOGVOnjPsv7p
+	DQWY2vmN7Buup2ECR/FSvSupyiwnN5Z2qUwUKv98mdxyO0wgVtCSDv8FbPssZdbfwhrCU72rfUpXm
+	qu86n78ZkaB3cD1ZhJFI61vcgv/yQcfbegnou1K7nxMWlL/jRapAoRXvI9cCGLEHzbv86Aq58Ailv
+	C99zh2NA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vK5uB-0000000DMBD-2JR0;
-	Sat, 15 Nov 2025 02:20:47 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vK5v4-0000000DMGV-0a7V;
+	Sat, 15 Nov 2025 02:21:43 +0000
+Received: from mail-m81152.xmail.ntesmail.com ([156.224.81.152])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vK5u8-0000000DMAq-28aI
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 15 Nov 2025 02:20:45 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7FC7343EC5;
-	Sat, 15 Nov 2025 02:20:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 579E6C4CEF8;
-	Sat, 15 Nov 2025 02:20:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763173242;
-	bh=1nbnsS4EqlOU2qhDQ7Tb3xjj4GMZ9cC54/ecuLvYD6I=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=vEEftl0tcrRC4jXXSWLWksXw53WnJvCpsY+wntW6mK2dpgZjNceyubJ71a8jB+tv/
-	 8ZPe0JgiRR2gOv77GxmhSdaFi7wEZ2Tadt7XA/FVpOmqgrwleeNyW3mZ77Ob+jHpF6
-	 oJYNviHJcHkA6HnQDTwqDBStRLV6GNHY9QMKHOIxsSH6VYaVlO8Qvjl9TzJG8NlnT6
-	 3mlJSeph8OPia4cjLR3Gu3Unh+KL/fFjwglrR9ans9gxkYQ4YeHznXXBSW610RmP5Q
-	 TShRFyWUGdWMnbhLyw+H9ENwegcjcAXQhI1xKdmVwGEVx684czfl5F+AEe9Y3ahNW1
-	 DWN9439GWWxvQ==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id EAD083A78A62;
-	Sat, 15 Nov 2025 02:20:11 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	id 1vK5uy-0000000DMFH-3w3Z;
+	Sat, 15 Nov 2025 02:21:39 +0000
+Received: from [172.16.12.165] (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 29a9f9e79;
+	Sat, 15 Nov 2025 10:21:29 +0800 (GMT+08:00)
+Message-ID: <ffd05070-9879-4468-94e3-b88968b4c21b@rock-chips.com>
+Date: Sat, 15 Nov 2025 10:21:28 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Cc: shawn.lin@rock-chips.com, Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+ Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>,
+ Bjorn Helgaas <bhelgaas@google.com>, Heiko Stuebner <heiko@sntech.de>,
+ linux-pci <linux-pci@vger.kernel.org>,
+ linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
+ linux-kernel <linux-kernel@vger.kernel.org>,
+ devicetree <devicetree@vger.kernel.org>, krzk+dt <krzk+dt@kernel.org>,
+ conor+dt <conor+dt@kernel.org>, Johan Jonker <jbx6244@gmail.com>,
+ linux-rockchip <linux-rockchip@lists.infradead.org>,
+ Simon Glass <sjg@chromium.org>, Philipp Tomsich <philipp.tomsich@vrull.eu>,
+ Kever Yang <kever.yang@rock-chips.com>, Tom Rini <trini@konsulko.com>,
+ u-boot@lists.denx.de, =?UTF-8?B?5byg54Oo?= <ye.zhang@rock-chips.com>
+Subject: Re: [PATCH] arm64: dts: rockchip: align bindings to PCIe spec
+To: Geraldo Nascimento <geraldogabriel@gmail.com>
+References: <aQsIXcQzeYop6a0B@geday>
+ <67b605b0-7046-448a-bc9b-d3ac56333809@rock-chips.com>
+ <aQ1c7ZDycxiOIy8Y@geday>
+ <d9e257bd-806c-48b4-bb22-f1342e9fc15a@rock-chips.com>
+ <aRLEbfsmXnGwyigS@geday>
+ <AGsAmwCFJj0ZQ4vKzrqC84rs.3.1762847224180.Hmail.ye.zhang@rock-chips.com>
+ <aRQ_R90S8T82th45@geday> <aRUvr0UggTYkkCZ_@geday> <aRazCssWVdAOmy7D@geday>
+ <e8524bf8-a90c-423f-8a58-9ef05a3db1dd@rock-chips.com>
+ <aReSPbRxCgdNRI9y@geday>
+From: Shawn Lin <shawn.lin@rock-chips.com>
+In-Reply-To: <aReSPbRxCgdNRI9y@geday>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net V4] veth: more robust handing of race to avoid txq
- getting
- stuck
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <176317321050.1911668.3467356936047783737.git-patchwork-notify@kernel.org>
-Date: Sat, 15 Nov 2025 02:20:10 +0000
-References: <176295323282.307447.14790015927673763094.stgit@firesoul>
-In-Reply-To: <176295323282.307447.14790015927673763094.stgit@firesoul>
-To: Jesper Dangaard Brouer <hawk@kernel.org>
-Cc: netdev@vger.kernel.org, toke@toke.dk, eric.dumazet@gmail.com,
- davem@davemloft.net, kuba@kernel.org, pabeni@redhat.com,
- ihor.solodrai@linux.dev, mst@redhat.com, makita.toshiaki@lab.ntt.co.jp,
- toshiaki.makita1@gmail.com, bpf@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- kernel-team@cloudflare.com
+X-HM-Tid: 0a9a85514c4609cckunm48e2a22b4fe54e
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGk8aGlZPSxkZGhhDTEoZSExWFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
+	hVSktLVUpCS0tZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=OkVE0Rau8ZcS49W5FkYWVPEVseZOuBmXemzSCxTH3JXT0XCeVR0NHLZhFDDykAl88/Mir5HmZQIkS7SHXHT2nrvk2Wkjnli7GWi+T/yPdtny9sj+CM7uBZvIOaY6Py4ekP45aeOdzGzIKycYnM1cOE10FmPlEbaa5In/e0SQNzk=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=SbuBNQczlLUG9KXdbmoq6UM3KotrjW3EyKj2mpRpQqk=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251114_182044_570777_31C6521A 
-X-CRM114-Status: UNSURE (   8.95  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251114_182138_140511_A297D910 
+X-CRM114-Status: GOOD (  20.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,34 +88,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
 
-This patch was applied to netdev/net.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
-
-On Wed, 12 Nov 2025 14:13:52 +0100 you wrote:
-> Commit dc82a33297fc ("veth: apply qdisc backpressure on full ptr_ring to
-> reduce TX drops") introduced a race condition that can lead to a permanently
-> stalled TXQ. This was observed in production on ARM64 systems (Ampere Altra
-> Max).
+在 2025/11/15 星期六 4:34, Geraldo Nascimento 写道:
+> On Fri, Nov 14, 2025 at 05:16:21PM +0800, Shawn Lin wrote:
+>> Don't worry, it's helpful, so I think Ye could have a look.
+>> May I ask if the failure only happened to one specific board?
 > 
-> The race occurs in veth_xmit(). The producer observes a full ptr_ring and
-> stops the queue (netif_tx_stop_queue()). The subsequent conditional logic,
-> intended to re-wake the queue if the consumer had just emptied it (if
-> (__ptr_ring_empty(...)) netif_tx_wake_queue()), can fail. This leads to a
-> "lost wakeup" where the TXQ remains stopped (QUEUE_STATE_DRV_XOFF) and
-> traffic halts.
+> Hi Shawn,
 > 
-> [...]
+> Yes, testing is restricted to my Radxa Rock Pi N10 board.
+> 
+>>
+>> Another thing I noticed is about one commit:
+>> 114b06ee108c ("PCI: rockchip: Set Target Link Speed to 5.0 GT/s before
+>> retraining")
+>>
+>> It said: "Rockchip controllers can support up to 5.0 GT/s link speed."
+>> But we issued an errata long time ago to announced it doesn't, you could
+>> also check the PCIe part of RK3399 datasheet:
+>> https://opensource.rock-chips.com/images/d/d7/Rockchip_RK3399_Datasheet_V2.1-20200323.pdf
+> 
+> OK, I'm partly responsible for that as author of the commit in question.
+> 
+> First off let me say I do not intend to send any patches setting
+> max-link-speed to TWO for this platform.
+> 
+> I understand you issued an erratum, but are you absolutely sure about
+> that erratum? Because my testing shows otherwise:
 
-Here is the summary with links:
-  - [net,V4] veth: more robust handing of race to avoid txq getting stuck
-    https://git.kernel.org/netdev/net/c/5442a9da6978
+Sure.
 
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
+The reason is that Gen2 is merely functional, but this does not mean it 
+is 100% production-ready. It has some inherent issues that cannot be 
+resolved, which may lead to failures beyond imagination. Even if the 
+probability of occurrence is as low as 1 in 100,000. I cannot share 
+further details. Therefore, the official documentation should be your 
+primary reference, rather than relying solely on simple evaluations.
 
+> 
+> ---
+> With max-link-speed = <2>
+> pci 0000:01:00.0: 16.000 Gb/s available PCIe bandwidth, limited by 5.0 GT/s PCIe x4 link at 0000:00:00.0 (capable of 31.504 Gb/s with 8.0 GT/s PCIe x4 link)
+> 
+> /dev/nvme0n1:
+>   Timing cached reads:   3002 MB in  2.00 seconds = 1502.21 MB/sec
+>   Timing buffered disk reads: 2044 MB in  3.00 seconds = 680.79 MB/sec
+> ---
+> With max-link-speed = <1>
+> pci 0000:01:00.0: 8.000 Gb/s available PCIe bandwidth, limited by 2.5 GT/s PCIe x4 link at 0000:00:00.0 (capable of 31.504 Gb/s with 8.0 GT/s PCIe x4 link)
+> 
+> /dev/nvme0n1:
+>   Timing cached reads:   2730 MB in  2.00 seconds = 1366.15 MB/sec
+>   Timing buffered disk reads: 2028 MB in  3.00 seconds = 675.71 MB/sec
+> ---
+> 
+> As you can see, not only the kernel PCI driver recognizes 5.0 GT/s PCIe
+> link but there's even a marginal increase in cached reads as measured by
+> hdparm, the gains are of course limited by CPU performance.
+> 
+>> Also we set max-link-speed to ONE in rk3399-base.dtsi but seems another
+>> patch slip in: 755fff528b1b ("arm64: dts: rockchip: add variables for
+>> pcie completion to helios64")
+> 
+> I can't speak for patches I haven't authored, but I believe you're
+> welcome to send a correction.
+> 
+> Thank you,
+> Geraldo Nascimento
+> 
 
 
