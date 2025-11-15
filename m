@@ -4,86 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 129F8CEB2CC
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Nov 2025 13:21:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5CB9CEB2D8
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Nov 2025 14:04:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NmhMJH3F1o1E6aa5Z4U+3zLs9l+DoTP7Qs6GyCRaodA=; b=cTDowsVEJj/jtWml46UKP6ux7P
-	lqM/ns1ykpxGneP1AmSpErrt+EO9G9TnYB5hUjDZtFygNnOZ+5opPPItkhpZgTyR8LiZFoaz8JeCV
-	fiJUVnD5uG+iCyRG9CrA3GbWo7MGufQJlzZjK/8VZ0RkbN3j1PmLVDcHMOBMq6JRhk1C4q5ORnhPx
-	GHCeYhVaP7c7/32tXs4sxeA6kkEKxQFjj3CbUFXjhPDxZKc7FLDiCJlqj0vpuXCVbiEmpdWQKQ+t9
-	IMb2ld4ucnC3bJigtHzHnAH2ShP8ejMKA2OWOYOhXo0zOcjwvKWZWfNY66peYDl8iXcxCTJLwiLMD
-	bqF5UG0g==;
+	bh=pKvYUG6QyuYwze0pX76iQK1U7NhM2svZNXWBkQgxwp0=; b=zpQEIyGpWSwAK/pSEAR/NRAM49
+	DxnokzJHrHjz0snOSVWihaK2JRIjW/wrbrnm3wJ5Sx1QgfDTSUZDTa8tKbxM8IEVPXNhS1yKTENoE
+	1VlgdVdrHL1lNhPr9cv/CnrLRMG84IqxNrParU+nTJochZ96utKn8an80b/fuyuac8JRAd4YlIzij
+	O2I0XKN7+7M/j8pq4Hi9JnPrFSP9Xx/dghb/OLAyi7HAD/KJNlBmQ5TdUbWzgfjP9rCV6jc3dzrPU
+	xFWrHH59pvBhCex75YmD8QGSBLMA8ul+RB4R5pT2cM3pkw4PLw7nk375B1i82Y8b9Qi0w+2kBh4GJ
+	tJ/uoOIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKGDN-0000000DnIY-3dnn;
-	Sat, 15 Nov 2025 13:21:17 +0000
-Received: from pegase2.c-s.fr ([93.17.235.10])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKGDA-0000000DnBp-2PPS
+	id 1vKGtA-0000000DpNB-1rHR;
+	Sat, 15 Nov 2025 14:04:28 +0000
+Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vKGt7-0000000DpM0-0o7Y
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 15 Nov 2025 13:21:08 +0000
-Received: from localhost (mailhub4.si.c-s.fr [172.26.127.67])
-	by localhost (Postfix) with ESMTP id 4d7v6G0cFvz9sSy;
-	Sat, 15 Nov 2025 13:52:06 +0100 (CET)
-X-Virus-Scanned: amavisd-new at c-s.fr
-Received: from pegase2.c-s.fr ([172.26.127.65])
-	by localhost (pegase2.c-s.fr [127.0.0.1]) (amavisd-new, port 10024)
-	with ESMTP id PGr5geNtPDyH; Sat, 15 Nov 2025 13:52:05 +0100 (CET)
-Received: from messagerie.si.c-s.fr (messagerie.si.c-s.fr [192.168.25.192])
-	by pegase2.c-s.fr (Postfix) with ESMTP id 4d7v6F6R1mz9sSv;
-	Sat, 15 Nov 2025 13:52:05 +0100 (CET)
-Received: from localhost (localhost [127.0.0.1])
-	by messagerie.si.c-s.fr (Postfix) with ESMTP id BE1708B770;
-	Sat, 15 Nov 2025 13:52:05 +0100 (CET)
-X-Virus-Scanned: amavisd-new at c-s.fr
-Received: from messagerie.si.c-s.fr ([127.0.0.1])
-	by localhost (messagerie.si.c-s.fr [127.0.0.1]) (amavisd-new, port 10023)
-	with ESMTP id OkSLQJsfn8js; Sat, 15 Nov 2025 13:52:05 +0100 (CET)
-Received: from [192.168.235.99] (unknown [192.168.235.99])
-	by messagerie.si.c-s.fr (Postfix) with ESMTP id 0FFDE8B76E;
-	Sat, 15 Nov 2025 13:52:03 +0100 (CET)
-Message-ID: <95bb5163-a9f0-4d70-b647-a069483b1168@csgroup.eu>
-Date: Sat, 15 Nov 2025 13:52:03 +0100
+	Sat, 15 Nov 2025 14:04:26 +0000
+Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-42b39d51dcfso1528654f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 15 Nov 2025 06:04:24 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=tuxon.dev; s=google; t=1763215463; x=1763820263; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=pKvYUG6QyuYwze0pX76iQK1U7NhM2svZNXWBkQgxwp0=;
+        b=MEGXV4+LkJLbH68c5SW7CJrpcKl/iUy180mSfNZnOVi4ldFfInDeycMQJRHS1/Xwoq
+         Y1Kcci4fAgksFRsxxJWC1fCmaFLKE9DRuxrC41i3AsSiypI+iwQTqPdX4Z+GNABhgWsf
+         3thTK5iI+BAhVoitULNSH1U1GAsUS7u/raVcc+jfWai4xd3t+trJjc8or0frIAI3aX+6
+         WrdjIym+I6Ijsqi1TzfmuGNyuNIYi8S2+QFXzmx3pyJf81NuK+SXbgqFxPYcGJIwfQr7
+         ejen9Tb1rf6rZmSbgwhRPmYyHrM5/3OmppqvaNeItrGn4daH1gzMxIIJ6qqHl+rAbbP8
+         n4sw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1763215463; x=1763820263;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=pKvYUG6QyuYwze0pX76iQK1U7NhM2svZNXWBkQgxwp0=;
+        b=OqWUHPyIPJYdstZmiZpqG7flQxZDcg8P8tRkCDsDYrqp7UmpbzmA6Gj9LkYi+Zn2zv
+         5Bs4ZcmjY51qAcQ18tiHcuOHoLBo/I0kaR5qPFQ/0UUwMSb6AZfOipQ/aN7nLzNJ/lNr
+         OtUHQkppsMX+m+6J17bLMxaqoDLi1bycJ6WuCuxezPtMeWah1Sh4MLppWbCFE800zRKi
+         jsx/ktFHsnLpuqzfRz3CH9T65e94u/fzxhY5LEPICMuaBWaJbUlkVHGiXOfKpbpTltIk
+         blA+0H11HG+CT4NwbRMaxlVNh3ps10C5XVkyVjtn6bpX/AGS9bazEiLtOQpa+yGUaaVh
+         hPAg==
+X-Gm-Message-State: AOJu0YwU610Ui+wfpFexbIAHLG8o9JOQ7Ec4Ya8mtVqd/LAzIuKAU1sm
+	dPedYT4OyTfrpZ9oZJuVjfmRfQhNd0p966SqkQwfA1Y4snuYmaQpL6YCfWXbzmnuGTk=
+X-Gm-Gg: ASbGnctf8LWKOd1Ij9MQGVo2wsziJCw4AtRWiI3AKEBhKIorvZWJ6XiVv49xK/7BoA2
+	e/p/OHmTrL+c+9mYHMGe3OT76IDUbH9kr1jHrGNlTILciEQCIpedUhoFO0DIrBSh23RRf+e1E1j
+	0iPAd15vTdkcJjpsq9oGSkcWoA1DZT/aJkf5CKesh961uWIVJqaxKc0gKNcRlAMHkxfEw9Eop2b
+	5T8zlF03kHKWfgDcn/6d6cPZ8Z4Xv3A51WXhJjrqwmanYBJdpSQw4ZHsnNfUJpDni4ijaoLcTCb
+	EQM8Qxhg6u9V3h2ValGrzn1rRw0jwhvT5+jl2XBytlXhEp0zmFtMcV1eFV+r610Muhio/8UQzYq
+	cz20eJ/W/H8+ZwfRu9ODsXQEUEGsCyE4yftz7AhyOYXWFKw/zXKK+YKOoO5IaWwuZFyNl1APl8b
+	7Es7LOtFhNw+Rwe2ZvRH0=
+X-Google-Smtp-Source: AGHT+IFngBuo06OnXJJuUDkq4i3N5EO3BmBgXJQN+Zh3JAeA5AwDW+ND3ORBOMBIncLe0W3XOIS7Yg==
+X-Received: by 2002:a05:600c:45c4:b0:477:8a2a:123e with SMTP id 5b1f17b1804b1-4778feaf9bdmr67343465e9.33.1763215462926;
+        Sat, 15 Nov 2025 06:04:22 -0800 (PST)
+Received: from [192.168.50.4] ([82.78.167.134])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-477988060e8sm17748445e9.5.2025.11.15.06.04.21
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sat, 15 Nov 2025 06:04:22 -0800 (PST)
+Message-ID: <446ed1ed-7541-4e49-b777-72e3c3de5a98@tuxon.dev>
+Date: Sat, 15 Nov 2025 16:04:20 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v16 01/15] dt-bindings: net: Introduce the
- ethernet-connector description
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>, davem@davemloft.net
-Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-msm@vger.kernel.org, thomas.petazzoni@bootlin.com,
- Andrew Lunn <andrew@lunn.ch>, Jakub Kicinski <kuba@kernel.org>,
- Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
- Russell King <linux@armlinux.org.uk>, linux-arm-kernel@lists.infradead.org,
- Herve Codina <herve.codina@bootlin.com>,
- Florian Fainelli <f.fainelli@gmail.com>,
- Heiner Kallweit <hkallweit1@gmail.com>,
- Vladimir Oltean <vladimir.oltean@nxp.com>,
- =?UTF-8?Q?K=C3=B6ry_Maincent?= <kory.maincent@bootlin.com>,
- =?UTF-8?Q?Marek_Beh=C3=BAn?= <kabel@kernel.org>,
- Oleksij Rempel <o.rempel@pengutronix.de>,
- =?UTF-8?Q?Nicol=C3=B2_Veronese?= <nicveronese@gmail.com>,
- Simon Horman <horms@kernel.org>, mwojtas@chromium.org,
- Antoine Tenart <atenart@kernel.org>, devicetree@vger.kernel.org,
- Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>,
- Romain Gantois <romain.gantois@bootlin.com>,
- Daniel Golle <daniel@makrotopia.org>,
- Dimitri Fedrau <dimitri.fedrau@liebherr.com>
-References: <20251113081418.180557-1-maxime.chevallier@bootlin.com>
- <20251113081418.180557-2-maxime.chevallier@bootlin.com>
-From: Christophe Leroy <christophe.leroy@csgroup.eu>
-Content-Language: fr-FR
-In-Reply-To: <20251113081418.180557-2-maxime.chevallier@bootlin.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH] ARM: dts: microchip: sama5d2: fix spi flexcom fifo size
+ to 32
+To: nicolas.ferre@microchip.com,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Ryan Wanner <ryan.wanner@microchip.com>,
+ Cristian Birsan <cristian.birsan@microchip.com>, stable@vger.kernel.org
+References: <20251114140225.30372-1-nicolas.ferre@microchip.com>
+From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
+Content-Language: en-US
+In-Reply-To: <20251114140225.30372-1-nicolas.ferre@microchip.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251115_052106_552008_7DE6D091 
-X-CRM114-Status: GOOD (  23.24  )
+X-CRM114-CacheID: sfid-20251115_060425_418576_EAAD4202 
+X-CRM114-Status: UNSURE (   6.91  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,150 +107,15 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-Le 13/11/2025 à 09:14, Maxime Chevallier a écrit :
-> The ability to describe the physical ports of Ethernet devices is useful
-> to describe multi-port devices, as well as to remove any ambiguity with
-> regard to the nature of the port.
+On 11/14/25 16:02, nicolas.ferre@microchip.com wrote:
+> From: Nicolas Ferre <nicolas.ferre@microchip.com>
 > 
-> Moreover, describing ports allows for a better description of features
-> that are tied to connectors, such as PoE through the PSE-PD devices.
+> Unlike standalone spi peripherals, on sama5d2, the flexcom spi have fifo
+> size of 32 data. Fix flexcom/spi nodes where this property is wrong.
 > 
-> Introduce a binding to allow describing the ports, for now with 2
-> attributes :
-> 
->   - The number of pairs, which is a quite generic property that allows
->     differentating between multiple similar technologies such as BaseT1
->     and "regular" BaseT (which usually means BaseT4).
-> 
->   - The media that can be used on that port, such as BaseT for Twisted
->     Copper, BaseC for coax copper, BaseS/L for Fiber, BaseK for backplane
->     ethernet, etc. This allows defining the nature of the port, and
->     therefore avoids the need for vendor-specific properties such as
->     "micrel,fiber-mode" or "ti,fiber-mode".
-> 
-> The port description lives in its own file, as it is intended in the
-> future to allow describing the ports for phy-less devices.
-> 
-> Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+> Fixes: 6b9a3584c7ed ("ARM: dts: at91: sama5d2: Add missing flexcom definitions")
+> Cc: <stable@vger.kernel.org> # 5.8+
+> Signed-off-by: Nicolas Ferre <nicolas.ferre@microchip.com>
 
-Reviewed-by: Christophe Leroy <christophe.leroy@csgroup.eu>
-
-> ---
->   .../bindings/net/ethernet-connector.yaml      | 57 +++++++++++++++++++
->   .../devicetree/bindings/net/ethernet-phy.yaml | 18 ++++++
->   MAINTAINERS                                   |  1 +
->   3 files changed, 76 insertions(+)
->   create mode 100644 Documentation/devicetree/bindings/net/ethernet-connector.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/net/ethernet-connector.yaml b/Documentation/devicetree/bindings/net/ethernet-connector.yaml
-> new file mode 100644
-> index 000000000000..2ccac24bd8d6
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/net/ethernet-connector.yaml
-> @@ -0,0 +1,57 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/net/ethernet-connector.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Generic Ethernet Connector
-> +
-> +maintainers:
-> +  - Maxime Chevallier <maxime.chevallier@bootlin.com>
-> +
-> +description:
-> +  An Ethernet Connector represents the output of a network component such as
-> +  a PHY, an Ethernet controller with no PHY, or an SFP module.
-> +
-> +properties:
-> +
-> +  pairs:
-> +    description:
-> +      Defines the number of BaseT pairs that are used on the connector.
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-> +    enum: [1, 2, 4]
-> +
-> +  media:
-> +    description:
-> +      The mediums, as defined in 802.3, that can be used on the port.
-> +    enum:
-> +      - BaseT
-> +      - BaseK
-> +      - BaseS
-> +      - BaseC
-> +      - BaseL
-> +      - BaseD
-> +      - BaseE
-> +      - BaseF
-> +      - BaseV
-> +      - BaseMLD
-> +
-> +required:
-> +  - media
-> +
-> +allOf:
-> +  - if:
-> +      properties:
-> +        media:
-> +          contains:
-> +            const: BaseT
-> +    then:
-> +      required:
-> +        - pairs
-> +    else:
-> +      properties:
-> +        pairs: false
-> +
-> +additionalProperties: true
-> +
-> +...
-> diff --git a/Documentation/devicetree/bindings/net/ethernet-phy.yaml b/Documentation/devicetree/bindings/net/ethernet-phy.yaml
-> index bb4c49fc5fd8..58634fee9fc4 100644
-> --- a/Documentation/devicetree/bindings/net/ethernet-phy.yaml
-> +++ b/Documentation/devicetree/bindings/net/ethernet-phy.yaml
-> @@ -281,6 +281,17 @@ properties:
->   
->       additionalProperties: false
->   
-> +  mdi:
-> +    type: object
-> +
-> +    patternProperties:
-> +      '^connector-[0-9]+$':
-> +        $ref: /schemas/net/ethernet-connector.yaml#
-> +
-> +        unevaluatedProperties: false
-> +
-> +    additionalProperties: false
-> +
->   required:
->     - reg
->   
-> @@ -317,5 +328,12 @@ examples:
->                       default-state = "keep";
->                   };
->               };
-> +            /* Fast Ethernet port, with only 2 pairs wired */
-> +            mdi {
-> +                connector-0 {
-> +                    pairs = <2>;
-> +                    media = "BaseT";
-> +                };
-> +            };
->           };
->       };
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 0dc4aa37d903..92d6309a968d 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -9277,6 +9277,7 @@ R:	Russell King <linux@armlinux.org.uk>
->   L:	netdev@vger.kernel.org
->   S:	Maintained
->   F:	Documentation/ABI/testing/sysfs-class-net-phydev
-> +F:	Documentation/devicetree/bindings/net/ethernet-connector.yaml
->   F:	Documentation/devicetree/bindings/net/ethernet-phy.yaml
->   F:	Documentation/devicetree/bindings/net/mdio*
->   F:	Documentation/devicetree/bindings/net/qca,ar803x.yaml
-
+Applied to at91-dt, thanks!
 
