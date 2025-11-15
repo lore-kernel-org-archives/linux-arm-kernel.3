@@ -4,59 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DECECEB2C6
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Nov 2025 15:05:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 391F7CEB2C6
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Nov 2025 16:01:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NNnrZR0zI4lJMA+fv0lDsJcoCn1Kwm1I2wOTJ0jEJ2Q=; b=xQfWYd/kbiBEiKV0ryh9+gsZLF
-	liM9Inrt1PdscFP0eFLuvenFPz3ZP79bNE4I0E0GYbbXHRLE2V73T0RJ6tQYtklYzA3pMy6c99/XE
-	DOfDJwEr6CtSUyESmOVEqRLdYh8QaGplALz2oID76S7elXBQHM/BFP//QaL35Rq1p6U9BwCJFTdnv
-	Xh8lOdbALkUZwXmJWpVte5I8uAiCsqCSgF4f8v/g60YHT6DZnXT61L268FYZu6O15m297gCYPsxQo
-	fRGaV4PxUfl/uMjlNNndawVHpsK/XwDWv4/MF6Ii7CTfOnxVRP7UaZZbfxcu4K6IuoTu/oAdvaNWK
-	5Us47Dcg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XAznu96VRABKw0CFI7fWPxI8d/hUiFChPDfvJPT4n1s=; b=XTpKCADQXaYQ878SWOeZ+4izT7
+	KBQ9Fe0ZV09w6G6Y3ru3kmB2/i4dJsHcqMMM6h2tWiGwe1bVxZXoGjtDUNCCBvLvC3eCBfdAk9uI0
+	SXaQh5IRwmzgH4PQ0Je0k2h81L8VpjG4myvS3CYQyCad7qE74zn2DsyjyjmhfTDanozSm5cGHAvmD
+	FBve7klEx23hhuACnYktYOI02PEcXeVGTZSQ96YzCbvbvIHy72m2SPsbam+wtdC6YU1CnhKn3vlwu
+	tzV467iR+oZIEGJSByhiVcA7VGpAHmz6rkTH7iys2uHDEAUHnW97v8Gj2iBeppqc2ndo8+eEjcq4S
+	0LHA6z+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKHqJ-0000000Ds7h-2Bda;
-	Sat, 15 Nov 2025 15:05:35 +0000
-Received: from mail-m49198.qiye.163.com ([45.254.49.198])
+	id 1vKIid-0000000Du7T-3TJR;
+	Sat, 15 Nov 2025 16:01:43 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKHqE-0000000Ds78-43Cq;
-	Sat, 15 Nov 2025 15:05:33 +0000
-Received: from localhost.localdomain (unknown [116.25.95.231])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 29b1c85f7;
-	Sat, 15 Nov 2025 23:00:21 +0800 (GMT+08:00)
-From: Chukun Pan <amadeus@jmu.edu.cn>
-To: heiko@sntech.de
-Cc: amadeus@jmu.edu.cn,
-	conor+dt@kernel.org,
-	devicetree@vger.kernel.org,
-	krzk+dt@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	robh@kernel.org
-Subject: Re: (subset) [PATCH 1/6] arm64: dts: rockchip: add mmc aliases for 100ASK DshanPi A1
-Date: Sat, 15 Nov 2025 23:00:10 +0800
-Message-Id: <20251115150010.1052575-1-amadeus@jmu.edu.cn>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <176307502906.495066.9339764118786240746.b4-ty@sntech.de>
-References: <176307502906.495066.9339764118786240746.b4-ty@sntech.de>
+	id 1vKIiL-0000000Du6d-0qk4;
+	Sat, 15 Nov 2025 16:01:40 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 21F6D437EE;
+	Sat, 15 Nov 2025 16:01:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 83865C4CEF7;
+	Sat, 15 Nov 2025 16:01:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1763222484;
+	bh=aL2drUjldjMwfOWSXiuQaZYAafjyhHSOp1Hy4vQYSSg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=jM0DL6WInt/lvzvDDb/SeVzLxDQcGUoVyjrmPprDnwOJcHgUeXTQeM1DbouIs1wio
+	 hL2dng5a3gWtUklyuINPSrCuFJssjoDICPIXqncLAmA45aVRNFzkcv8pz6PsBHo5O3
+	 RTvwAg3YVypK9v9Hj6ZSeY/haCkaGo7nA936PZlZ3jn0mRKHFKgl4KU0wHao80Eyg3
+	 +vCHetJv6gQEkD+J9wH3VI/+JjpVMAVaxW/U7vrTjDIHnv11GimYMabQsuTWWIkY1o
+	 71vk2Q2808sG4g4DYyjruinMlmexgA19YoSo6rvS7JkeiGSYCnEiLLTw+PvQFAU1N3
+	 nR9+9uaucaA0w==
+Date: Sat, 15 Nov 2025 17:01:19 +0100
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+To: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>
+Cc: Ray Liu <ray.liu@airoha.com>, Mark Brown <broonie@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-arm-kernel@lists.infradead.org, linux-spi@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-mediatek@lists.infradead.org,
+	Andreas Gnau <andreas.gnau@iopsys.eu>
+Subject: Re: [PATCH 1/3] spi: airoha-snfi: en7523: workaround flash damaging
+ if UART_TXD was short to GND
+Message-ID: <aRijz3wMTGdmy2tq@lore-rh-laptop>
+References: <20251114233431.1920015-1-mikhail.kshevetskiy@iopsys.eu>
+ <20251114233431.1920015-2-mikhail.kshevetskiy@iopsys.eu>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a9a8808101203a2kunmc099134524c7f0
-X-HM-MType: 10
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVkaGkMZVkIfQx4aHksZSh0YSlYeHw5VEwETFhoSFy
-	QUDg9ZV1kYEgtZQVlKSk1VSU5VQk5VSUhKWVdZFhoPEhUdFFlBWU9LSFVKS0hKTkxOVUpLS1VKQk
-	tLWQY+
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="EKzBAkeZKZ1ooe9j"
+Content-Disposition: inline
+In-Reply-To: <20251114233431.1920015-2-mikhail.kshevetskiy@iopsys.eu>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251115_070531_229374_8ADBB01C 
-X-CRM114-Status: UNSURE (   4.92  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251115_080125_311152_C2A5E6E5 
+X-CRM114-Status: GOOD (  26.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,22 +81,150 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
 
-> Applied, thanks!
+--EKzBAkeZKZ1ooe9j
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-> [4/6] arm64: dts: rockchip: fixes supply for 100ASK DshanPi A1
->       commit: 621bb09a76fa12a9e61c9d745ae524db86abf781
+> We found that some serial console may pull TX line to GROUND during board
+> boot time. Airoha uses TX line as one of it's BOOT pins. This will lead
+> to booting in RESERVED boot mode.
+>=20
+> It was found that some flashes operates incorrectly in RESERVED mode.
+> Micron and Skyhigh flashes are definitely affected by the issue,
+> Winbond flashes are NOT affected.
+>=20
+> Details:
+> --------
+> DMA reading of odd pages on affected flashes operates incorrectly. Page
+> reading offset (start of the page) on hardware level is replaced by 0x10.
+> Thus results in incorrect data reading. Usage of UBI make things even
+> worse. Any attempt to access UBI leads to ubi damaging. As result OS load=
+ing
+> becomes impossible.
+>=20
+> Non-DMA reading is OK.
+>=20
+> This patch detects booting in reserved mode, turn off DMA and print big
+> fat warning.
+>=20
+> Signed-off-by: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>
+> ---
+>  drivers/spi/spi-airoha-snfi.c | 40 ++++++++++++++++++++++++++++++-----
+>  1 file changed, 35 insertions(+), 5 deletions(-)
+>=20
+> diff --git a/drivers/spi/spi-airoha-snfi.c b/drivers/spi/spi-airoha-snfi.c
+> index 8408aee9c06e..0e84a9addfa5 100644
+> --- a/drivers/spi/spi-airoha-snfi.c
+> +++ b/drivers/spi/spi-airoha-snfi.c
+> @@ -1013,6 +1013,11 @@ static const struct spi_controller_mem_ops airoha_=
+snand_mem_ops =3D {
+>  	.dirmap_write =3D airoha_snand_dirmap_write,
+>  };
+> =20
+> +static const struct spi_controller_mem_ops airoha_snand_nodma_mem_ops =
+=3D {
+> +	.supports_op =3D airoha_snand_supports_op,
+> +	.exec_op =3D airoha_snand_exec_op,
+> +};
+> +
+>  static int airoha_snand_setup(struct spi_device *spi)
+>  {
+>  	struct airoha_snand_ctrl *as_ctrl;
+> @@ -1058,7 +1063,8 @@ static int airoha_snand_probe(struct platform_devic=
+e *pdev)
+>  	struct device *dev =3D &pdev->dev;
+>  	struct spi_controller *ctrl;
+>  	void __iomem *base;
+> -	int err;
+> +	int err, dma_enabled;
 
-Sorry, I don't know if this is a problem:
+here you can use bool for dma_enable:
 
-The commit message started with an extra ">".
+	bool dma_enable =3D true;
 
->From the schematic, the supply of ES8388 chip and the vmmc-supply
-of SD card both originate from the VCC3V3_S0 regulator, fix it.
+> +	u32 sfc_strap;
+> =20
+>  	ctrl =3D devm_spi_alloc_host(dev, sizeof(*as_ctrl));
+>  	if (!ctrl)
+> @@ -1092,12 +1098,36 @@ static int airoha_snand_probe(struct platform_dev=
+ice *pdev)
+>  		return dev_err_probe(dev, PTR_ERR(as_ctrl->spi_clk),
+>  				     "unable to get spi clk\n");
+> =20
+> -	err =3D dma_set_mask(as_ctrl->dev, DMA_BIT_MASK(32));
+> -	if (err)
+> -		return err;
+> +	dma_enabled =3D 1;
+> +	if (device_is_compatible(dev, "airoha,en7523-snand")) {
+> +		err =3D regmap_read(as_ctrl->regmap_ctrl,
+> +				  REG_SPI_CTRL_SFC_STRAP, &sfc_strap);
+> +		if (err)
+> +			return err;
+> +
+> +		if (!(sfc_strap & 0x04)) {
+> +			dma_enabled =3D 0;
 
-https://git.kernel.org/pub/scm/linux/kernel/git/mmind/linux-rockchip.git/commit/?id=621bb09a76fa12a9e61c9d745ae524db86abf781
+			dma_enable =3D false;
 
-Thanks,
-Chukun
+> +			dev_warn(dev,
+> +				"=3D=3D=3D WARNING =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D\n"
+
+you do not need to add "WARNING here".
+
+> +				"Detected booting in RESERVED mode (UART_TXD was short to GND).\n"
+> +				"This mode is known for incorrect DMA reading of some flashes.\n"
+> +				"Usage of DMA for flash operations will be disabled to prevent data\=
+n"
+> +				"damage. Unplug your serial console and power cycle the board\n"
+> +				"to boot with full performance.\n"
+> +				"=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D\n");
+> +		}
+> +	}
+> +
+> +	if (dma_enabled) {
+> +		err =3D dma_set_mask(as_ctrl->dev, DMA_BIT_MASK(32));
+> +		if (err)
+> +			return err;
+> +	}
+> =20
+>  	ctrl->num_chipselect =3D 2;
+> -	ctrl->mem_ops =3D &airoha_snand_mem_ops;
+> +	ctrl->mem_ops =3D dma_enabled ?
+> +				&airoha_snand_mem_ops :
+> +				&airoha_snand_nodma_mem_ops;
+
+nit: no need to add a new-line here:
+
+	ctrl->mem_ops =3D dma_enabled ? &airoha_snand_mem_ops
+				    : &airoha_snand_nodma_mem_ops;
+
+
+Regards,
+Lorenzo
+
+>  	ctrl->bits_per_word_mask =3D SPI_BPW_MASK(8);
+>  	ctrl->mode_bits =3D SPI_RX_DUAL;
+>  	ctrl->setup =3D airoha_snand_setup;
+> --=20
+> 2.51.0
+>=20
+
+--EKzBAkeZKZ1ooe9j
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCaRijzAAKCRA6cBh0uS2t
+rPpqAQCeg58jE6lmb6Y9qpYRoRN3SrKAtGS9xzuVhgfpBcZdmQEAlXeQDN+GWzjQ
+94j4LASAucndNW9KD6ss5bbbiaMR6wk=
+=fAZF
+-----END PGP SIGNATURE-----
+
+--EKzBAkeZKZ1ooe9j--
 
