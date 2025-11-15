@@ -4,113 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4C98CEB2C1
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Nov 2025 06:03:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9CF4CEB2C4
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Nov 2025 07:02:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
-	:Cc:MIME-Version:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=22V9LA5EG25ixQqAK3BaH6CZbg6omG/q5oeXsF1qKJY=; b=HS4XnyHWfz2nwe
-	CJfz0GwKqfLGHxMUkdMYhJAbJaRuCjFZqWLlT3mI0UrNXwwdHRcI4gWyiWnqUe4PlAdhvyDiKHqLX
-	/W8kvBvKUNWOoLF/E/01jsXSfjeWVjakzXQqGhBt7aRnfGnxlkc6MVW+gUuBUyix3YCbk26Ssyg3t
-	u4oYv6Ce+GuFeA9jieGO5k5qQ4CBx8aRp49G6vwaeDASaVx+X/o/O1s+57sGs2P+hB40GdPeF4h0d
-	Z9KOs6TqQoseAowhRblCfdIcUOct9EAhAJOzRfT3lV5cvIk/9D8PvitKur4qcGBGfFzLOkJSBUr7I
-	C8bcWAUUiPEtOLmqhgYA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IOYSOoZ7kZHsHMrtVsrNZvrMCn7UoqoHGgR3M03FgNs=; b=ORVOrJ6BVwpIsxUDdTR6DrkpWJ
+	mAK/QlML8rpmD8phkXbs/e+4kku/aGwLZ9ASyIaokmj+51hmt4bj9i/IuamB2GAFQzPeJXJTRx88O
+	GR8Gdn2U41toQV+tvhGlkniwiM5Ho57jrUccSD1QTMum/07ZTiWX7umB6lYGlhOKltkB/LSIEMudU
+	buiUvXR5b5xrQPoBswS+DxPmWQHGartK1chU3W9CxB0QShbc7mot1vmr4rA3QU5Jpln9VFWw+/64S
+	v+DulShpFmknAOOrSUFRLFAnLFy2EMFWcBrW9Gs5yIXlAoq3TDnFch2DbVb82FpupDqqmid6WAr2x
+	w5hBFaUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vK9Ns-0000000DWiu-1cnE;
-	Sat, 15 Nov 2025 06:03:40 +0000
-Received: from hedgehog.birch.relay.mailchannels.net ([23.83.209.81])
+	id 1vKAIu-0000000DYZx-3WAg;
+	Sat, 15 Nov 2025 07:02:36 +0000
+Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vK9Np-0000000DWiV-3dAy;
-	Sat, 15 Nov 2025 06:03:39 +0000
-X-Sender-Id: hostingeremail|x-authuser|michael.opdenacker@rootcommit.com
-Received: from relay.mailchannels.net (localhost [127.0.0.1])
-	by relay.mailchannels.net (Postfix) with ESMTP id 64EAA82216B;
-	Sat, 15 Nov 2025 06:03:36 +0000 (UTC)
-Received: from fr-int-smtpout30.hostinger.io (100-96-111-23.trex-nlb.outbound.svc.cluster.local [100.96.111.23])
-	(Authenticated sender: hostingeremail)
-	by relay.mailchannels.net (Postfix) with ESMTPA id 48FBF822130;
-	Sat, 15 Nov 2025 06:03:34 +0000 (UTC)
-ARC-Seal: i=1; a=rsa-sha256; d=mailchannels.net; s=arc-2022; cv=none;
-	t=1763186616;
-	b=w2Jtwj/0FnGUAqDQH3DA3adxITImHXLaqF16kOU5IXehEj5lAPdUukH3AelDbns15TNYu2
-	o1ZNIlOsW2GTQZmYBCl5G9b7thog0IAnPJiZbMR+Ox4PITinGOlXJNsd3FquQqyNqYspg7
-	QIUjXHs9dCRxgBz5mpos4mGRuuHViuOPDvTAoKEC6xFfrc6nv+YQd0QE8l9JMXRQXJ1NCY
-	tfQCWn6+q2rmodEmv8hITTwj6rQvtGOXZ+IQr8FLKV8OdrCZZ8PgoOsiB5Tg6OwYfSxWGB
-	2iL4go7zDy4eab6z4ZAj/JnxYdljTeiNE7+IOLvDDg1nplHfrFk55Lph8lAlpw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed;
- d=mailchannels.net;
-	s=arc-2022; t=1763186615;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:dkim-signature;
-	bh=22V9LA5EG25ixQqAK3BaH6CZbg6omG/q5oeXsF1qKJY=;
-	b=U++NZFef/+4f7VLMGSZJkebmyrS2q5R/wt7EPslRDfoJsbMFrtxzgnrf7N9B2ZFI+BDggH
-	YzffzH+6QiSHf8gmGk4g76snONjqBybnjDXTNEu36TyuVlpeue1jfaU81sU9TcV3SgpSGP
-	UMPa4ad3PbudBdC5hRqB7ZVua2NRIWm0a02RhBkWZaHl7L6PJXfc1yoYBshqlk0j0YJc6S
-	ucjUACHA03fdP/wPlqsupaD4Z4Z8NCpBomhft21CJHQSsVBP2RYcnLrETCdtjHxJNmKMwY
-	VXQfdSc7F78UdLvdTuJLnm8wnCw1q7CUBtKrgoz+gG963euXO2+3nNgv+nxc8g==
-ARC-Authentication-Results: i=1;
-	rspamd-5664d6b969-mmzxk;
-	auth=pass smtp.auth=hostingeremail
- smtp.mailfrom=michael.opdenacker@rootcommit.com
-X-Sender-Id: hostingeremail|x-authuser|michael.opdenacker@rootcommit.com
-X-MC-Relay: Neutral
-X-MailChannels-SenderId: hostingeremail|x-authuser|michael.opdenacker@rootcommit.com
-X-MailChannels-Auth-Id: hostingeremail
-X-Shade-Arithmetic: 460b30fe28521824_1763186616178_192050952
-X-MC-Loop-Signature: 1763186616178:2873199001
-X-MC-Ingress-Time: 1763186616178
-Received: from fr-int-smtpout30.hostinger.io (fr-int-smtpout30.hostinger.io
- [148.222.54.7])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384)
-	by 100.96.111.23 (trex/7.1.3);
-	Sat, 15 Nov 2025 06:03:36 +0000
-Received: from [IPV6:2a04:cec0:120c:d90f:a2e1:5df1:fe6e:7680] (unknown [IPv6:2a04:cec0:120c:d90f:a2e1:5df1:fe6e:7680])
-	(Authenticated sender: michael.opdenacker@rootcommit.com)
-	by smtp.hostinger.com (smtp.hostinger.com) with ESMTPSA id 4d7k2q6W7wz2xNr;
-	Sat, 15 Nov 2025 06:03:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rootcommit.com;
-	s=hostingermail-a; t=1763186612;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=22V9LA5EG25ixQqAK3BaH6CZbg6omG/q5oeXsF1qKJY=;
-	b=diS6MqfpzNDzmvO/x1gdzL6YRZ+gXusTOuVlMNysWipMgYL7LWuCTVoE5a0gL5B+zWQGxz
-	TvG0D/5v5pEBopi+AhbrgFK07z11rcAgmgvv+ctyteNlIWA9H123MLd1PlpeU2cpdgGTa+
-	TgP600MkiIIIQoSY2RPBBPOWKr9BUAsntobvFIaMgeVr880jiSwimIp7Daz5VB64aE/8FH
-	9Awy0XnoDqwIl6Wt5w9IwNbjlf/Hef5PTrmiOoRYuXVx2x8Fg3/qSt3gTz7oJ8xfSBvI1A
-	O54mKaIrMzhALSkEknPeHo8Op2teUtIFXtWL9dhBi0PMISWyk/TwWwvVZxXRMQ==
-Message-ID: <bb74679a-ce21-4373-bcc5-1214e9bf832e@rootcommit.com>
+	id 1vKAIr-0000000DYZI-3YFu
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 15 Nov 2025 07:02:35 +0000
+Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-7b8d99ad095so2204233b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Nov 2025 23:02:33 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1763190152; x=1763794952; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=IOYSOoZ7kZHsHMrtVsrNZvrMCn7UoqoHGgR3M03FgNs=;
+        b=AhDUQZsx8qeQRpwLxK0VjU4k1r6P9ZL+2AqXgCjxzbTcCdlTP9ZdCV79MgLGMscSdx
+         5+Ki5/eFFQ46i3O/vpCl+vRphUDC/l7HCZdKB/fhgZ4P2Oea1vU6v8fXasFyKE3yQwet
+         XYVD1q49OLGNNLRwj/6EoRM+KY+EA+12zgLYr7jr9JVytXT+i5am952IHRB9AGZfJ6Ii
+         tgjGcmGGb5kke4lHsY34JZDQHJjU+aW5p60GREeizhFYsoaR6iheECuJD7yiHp2HNFQe
+         xUDOJKvfmc8UfryjxUk4rNygAE+wtSlGxCZYbMQq6Uos3xXfyx+H+kZe4yg9CFxnDdaF
+         LgRA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1763190152; x=1763794952;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=IOYSOoZ7kZHsHMrtVsrNZvrMCn7UoqoHGgR3M03FgNs=;
+        b=eIu0ZW1oMLYzZxIBiCoYrIanV1HGzY7vJWzX5a/g7/sGpcHr8i0LH9OWtewdZhWLxq
+         bjJxS5/VALPav9o5AUmYOW2JEOwxWMJH98csFUJ4HrclMqnjsT/6eEKmAvmARlUN0Fjk
+         3fEqvVAj7m1uyLwA+62dqCXyXfLcxljX87IFOxdEYMWE7h+/v7ppPtBZvBa/slFUE1zh
+         cNRLrCdiyB2MQrj2RrUsrtlHtAL2wq+LuVYQYk8bBTEUJ8gSa+ex8nWFYxJ4e4UXI0uK
+         EzEZpr47jjBrTPVYzdKHlfgZoBEpu8crI+AsZ6wFXxjr2NTvEmZL3xr5/g6RX4hjXYJx
+         VA+w==
+X-Forwarded-Encrypted: i=1; AJvYcCVJZKaZRW53MxBFZ+KIuBMCk49syPDEAOYv8fSXWsIiwbTsWv2tjcxcNmhswtFRYMMk8h1ulHsyFRn40jv4xNPT@lists.infradead.org
+X-Gm-Message-State: AOJu0YyAuxJwwh5ureZAkrpQzEwknCNqVkh4JwGnZDp1tB9l+DMeyGyK
+	KaiA5zNbo7j716zzcWzKUTmEvPnaY4U2PDUB6cH7JIjYoKwdgHKJBBm0
+X-Gm-Gg: ASbGncu9g/wI3zr5J3ORayA56afT8O6h2waioVsiqqajwLGsAj+lJE3amoudKBuSS7x
+	eUWpm900bVI2VY3fdYw2nElvQfJvhRYEOldVDOacH+W/pcF2kS959f50NnYgz03XuogrmLN4INb
+	SnIyWSap4kYQbde9H275HknHPGpI41Zo5qkFBHJg+dsXo4/+V5uCig6YIEoHZ4K8VgcZi043UG0
+	xEvwyq/hyxzSQwlkxFsszx9DRW99qahVxKNYTBl5O15R5G4S73f5kNi4YC/HUj88cQm5a19QD8u
+	aQcRhvu8rDsvSsdO/IU7LSE4ZSVk7MfOsTX8nFwZbQCYl+SC+i0omfBxOKTaOFD5lq3JkWc3kN7
+	OXbsHcT/PL7eWATg4YSXApsnxfI0qxT8Is++FrSXI4OYBlYxyPtfjmUaqg8eBJplZaoXqqaZEHA
+	avtda8zbd9
+X-Google-Smtp-Source: AGHT+IF6Rm2Drf+1xlFmZRzPIXc1lSKc1tNyqq8bFT5+2d7X7z6WfhOem4D1nutU3J7fGxCS13ODNw==
+X-Received: by 2002:a05:7022:b90c:b0:11a:4ffb:984f with SMTP id a92af1059eb24-11b411f05dcmr1444305c88.11.1763190151853;
+        Fri, 14 Nov 2025 23:02:31 -0800 (PST)
+Received: from geday ([2804:7f2:800b:a008::dead:c001])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-11b80fd6790sm4677580c88.10.2025.11.14.23.02.26
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 14 Nov 2025 23:02:31 -0800 (PST)
+Date: Sat, 15 Nov 2025 04:02:24 -0300
+From: Geraldo Nascimento <geraldogabriel@gmail.com>
+To: Shawn Lin <shawn.lin@rock-chips.com>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	linux-pci <linux-pci@vger.kernel.org>,
+	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
+	linux-kernel <linux-kernel@vger.kernel.org>,
+	devicetree <devicetree@vger.kernel.org>,
+	krzk+dt <krzk+dt@kernel.org>, conor+dt <conor+dt@kernel.org>,
+	Johan Jonker <jbx6244@gmail.com>,
+	linux-rockchip <linux-rockchip@lists.infradead.org>,
+	Simon Glass <sjg@chromium.org>,
+	Philipp Tomsich <philipp.tomsich@vrull.eu>,
+	Kever Yang <kever.yang@rock-chips.com>,
+	Tom Rini <trini@konsulko.com>, u-boot@lists.denx.de,
+	=?utf-8?B?5byg54Oo?= <ye.zhang@rock-chips.com>
+Subject: Re: [PATCH] arm64: dts: rockchip: align bindings to PCIe spec
+Message-ID: <aRglgNL5eumu4XbS@geday>
+References: <aQ1c7ZDycxiOIy8Y@geday>
+ <d9e257bd-806c-48b4-bb22-f1342e9fc15a@rock-chips.com>
+ <aRLEbfsmXnGwyigS@geday>
+ <AGsAmwCFJj0ZQ4vKzrqC84rs.3.1762847224180.Hmail.ye.zhang@rock-chips.com>
+ <aRQ_R90S8T82th45@geday>
+ <aRUvr0UggTYkkCZ_@geday>
+ <aRazCssWVdAOmy7D@geday>
+ <e8524bf8-a90c-423f-8a58-9ef05a3db1dd@rock-chips.com>
+ <aReSPbRxCgdNRI9y@geday>
+ <ffd05070-9879-4468-94e3-b88968b4c21b@rock-chips.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Cc: michael.opdenacker@rootcommit.com, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, heiko@sntech.de, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 2/2] arm64: dts: rockchip: Add Asus Tinker Board 3 and
- 3S device tree
-To: Dragan Simic <dsimic@manjaro.org>
-References: <12d6e151-dfa0-ca0a-5888-ddffb2dbdec7@manjaro.org>
-Content-Language: en-US
-From: Michael Opdenacker <michael.opdenacker@rootcommit.com>
-Organization: Root Commit
-In-Reply-To: <12d6e151-dfa0-ca0a-5888-ddffb2dbdec7@manjaro.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-Date: Sat, 15 Nov 2025 06:03:31 +0000 (UTC)
-X-CM-Envelope: MS4xfBhh+tXSvsPbD5H7iNzCO9gve8ko1ClBApKZM2HN4hoCJ8bcKcs9ulpFY3KXwA9DgWbEdVzQi4K8/ejXA6+S4r51pNvjP0F4gFIHaIrzMeKTcRqSkXeU nIObt1x4r1BceyJXy49kfa/LT3jsKC/Nu/5EMiOf+t3lwaw/cDEVAU7xaHBwrc6RcXtE80nMmfEwXxhOyt/WfVzs5ViVWuwDWT9azj+od2RyJ+/g8V3tQFuO urpbnIjdPURB+xSrvul5wb0qlOtfy0RZK7VJ0HZXda0PBrRwjyNLkLfCEHvnQoMBNUfKNhg8+SVvdwojv1yKZUkzYSigIlYDGVizh/eJ8bAvtR9/4L0zFEgM ilkipZsF5J3YS5WQ3AoiLWEoV2PBFmF7FptZ0Ams0yNIjeJTPSDG1PX8BdOb3GaSfWN6OQOZpM/MIu3gTAWLf3MI1iY4lpIGlHbvsMS3qtL/O5TQUWotD8// lFM94hLv5S48jAVJ5fj6DgBBa5+xA04BohY31ZXevOhu8Ee4XJa+QK2p2YrDANBXx5nzcVAjcrvpEJKxIBd+JH1xFXzsrRfohgt6Z0fW70ef/G7wzWUOU8+O LsxZ7suvM3DfQMuPtJjOKAG3wedFse7lv4YdVdTeGhpH7ETyv4BaD0ZCtydG/uTvqy83Yvo/WK/OANZoTikFU/gU
-X-CM-Analysis: v=2.4 cv=DJTd4DNb c=1 sm=1 tr=0 ts=691817b4 a=eHakbqL08FGSeumsndRQeQ==:617 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10 a=iGHA9ds3AAAA:8 a=d70CFdQeAAAA:8 a=DLBR4L6yPKTlh_JyUqwA:9 a=QEXdDO2ut3YA:10 a=NXIwzYraRHkA:10 a=nM-MV4yxpKKO9kiQg6Ot:22 a=NcxpMcIZDGm-g932nG_k:22
-X-AuthUser: michael.opdenacker@rootcommit.com
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <ffd05070-9879-4468-94e3-b88968b4c21b@rock-chips.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251114_220338_213080_6774C221 
-X-CRM114-Status: UNSURE (   9.93  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251114_230233_877134_605089EC 
+X-CRM114-Status: GOOD (  22.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,41 +124,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Dragan,
+On Sat, Nov 15, 2025 at 10:21:28AM +0800, Shawn Lin wrote:
+> 
+> 在 2025/11/15 星期六 4:34, Geraldo Nascimento 写道:
+> >> Another thing I noticed is about one commit:
+> >> 114b06ee108c ("PCI: rockchip: Set Target Link Speed to 5.0 GT/s before
+> >> retraining")
+> >>
+> >> It said: "Rockchip controllers can support up to 5.0 GT/s link speed."
+> >> But we issued an errata long time ago to announced it doesn't, you could
+> >> also check the PCIe part of RK3399 datasheet:
+> >> https://opensource.rock-chips.com/images/d/d7/Rockchip_RK3399_Datasheet_V2.1-20200323.pdf
+> > 
+> > OK, I'm partly responsible for that as author of the commit in question.
+> > 
+> > First off let me say I do not intend to send any patches setting
+> > max-link-speed to TWO for this platform.
+> > 
+> > I understand you issued an erratum, but are you absolutely sure about
+> > that erratum? Because my testing shows otherwise:
+> 
+> Sure.
+> 
+> The reason is that Gen2 is merely functional, but this does not mean it 
+> is 100% production-ready. It has some inherent issues that cannot be 
+> resolved, which may lead to failures beyond imagination. Even if the 
+> probability of occurrence is as low as 1 in 100,000. I cannot share 
+> further details. Therefore, the official documentation should be your 
+> primary reference, rather than relying solely on simple evaluations.
 
-Thanks one more time for the reviews, much appreciated :)
+Hi Shawn,
 
-On 11/15/25 01:53, Dragan Simic wrote:
-> Hello Michael,
->
-> Thanks for the v2!  Please, see one nitpick below.
->
-> On Friday, November 14, 2025 16:46 CET, michael.opdenacker@rootcommit.com wrote:
->> From: Michael Opdenacker <michael.opdenacker@rootcommit.com>
-> I'm sorry for not mentioning it in my earlier responses, but this
-> line is redundant, because it duplicates the From value found in
-> the actual email message.
+indeed, the situation is not favorable and we should strive to make
+amends. I'm sorry I based the commit on outdated information, I was
+none the wiser.
 
+What I propose is to add a comment to driver core saying that path
+to 5.0 GT/s shouldn't be taken and users are strongly discouraged to
+mess with the maximum link speed in DT.
 
-This actually comes from my Git settings. I need this when I send 
-patches to the Yocto project and OpenEmbedded. That's because their 
-mailing list server which alters the address of senders ("<sender> via 
-lists.yoctoproject.org"), and ultimately the commit author identity in 
-Git. See 
-https://docs.yoctoproject.org/contributor-guide/submit-changes.html#fixing-your-from-identity
+We deal with corner case of helios64 in another patch and make sure
+there are no DTs engaging 5.0 GT/s.
 
-I've checked that my patches apply fine and that this "From:" line 
-doesn't appear in the commits in the tree.
-So, can I keep this?
+This should close the loop-hole.
 
-:D
-Thanks again
-Michael.
-
--- 
-Michael Opdenacker
-Root Commit
-Embedded Linux Training and Consulting
-https://rootcommit.com
-
+Regards,
+Geraldo Nascimento
 
