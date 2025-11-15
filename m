@@ -4,61 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5B57CEB2CD
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Nov 2025 11:54:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B78F6CEB2CC
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Nov 2025 12:21:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aELsIUzLiqlHggHr/vvjmtG9hFo4MABRnCl29hm0mCY=; b=gFjhIMgonE5AcOwQOrIHMi96V3
-	+XyNUspI4AWuTxFsCyRTyRQ4ZAmlvCW/us4JLHDhILo6fvOFbvLgfp5c7MMwAxkf6WlK3vTWd2Vhc
-	Rb+/CRjUgDJ96DZ7APKqOpJyMSxtd1cqTeOqgTbGsEpwZJ2cDY+R7Q5eLNSiMuXWL6EbjF0PHF75L
-	2GoZR0kj3QBV4Pnw5iMdRr/4IqyzK8MORbQA58Pe6wCrDQ0MiXvNS/dylxZDRlJ/PJt4lG7mlTadf
-	p3owGkrDclJsrpJWJTbSHaF4wtY1uPVTgauhnm6itBERF0bBoh/fbH82XBMw4rDSkBsDKIvmS3XWP
-	J1B9DPPg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=zovnOE292PEQj4KB9jsZe/YvWFt1u7BUHcsifAqQZmA=; b=eV/+Bk/nKa1UcpWhPWyr9Ysyo9
+	p9qGz5EOggBPHQtp56/unUN4wYptbcrAV2LqpnZUY+arLlb/+42CZEHcH+zGwSPVrRp5+HyrEPaiq
+	Lx5TYlLeUMBruBIe3taRoiypA0M0lgspm4Goj/kYCSCeHxMDxELLULD0Va8HTZQTL7RA9g9oC0yGX
+	gO3pLESrQjkaNOO4o2MIesckOiiwwFuPw0hFLjc53U5sjd+M6kQgPLjOSxdVY8K9V9ZjTmTCFshux
+	2U2o69yqZiqLUsmdTNWxQ3WM1+tHIfYaNdK+syHazV+2n0Cqi4Rulu6MqeipSfdysLUiD/6UVt1yI
+	PpsFt4oQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKEqy-0000000Dkhk-3JLH;
-	Sat, 15 Nov 2025 11:54:04 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vKFHX-0000000DlVh-48cV;
+	Sat, 15 Nov 2025 12:21:32 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKEqx-0000000DkhW-1PU3
+	id 1vKFHV-0000000DlVK-3ND6
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 15 Nov 2025 11:54:03 +0000
+	Sat, 15 Nov 2025 12:21:30 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2E4B2600AA;
-	Sat, 15 Nov 2025 11:54:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 54B10C4CEF8;
-	Sat, 15 Nov 2025 11:54:01 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 24D94432EF;
+	Sat, 15 Nov 2025 12:21:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 683ABC16AAE;
+	Sat, 15 Nov 2025 12:21:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763207641;
-	bh=SFB7UaLZKoJrkoVjVZhNqv3hZFUKGA+4m7Bp1LsdL2w=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ZOMX0Fj3iIPiDVFtVpxagbIGgwOwiXzYHeNfDxdzn3Y+Drgoad1nvs/ZVmSQjT8Z1
-	 1ILqDkPZgBPFl5NIhf6jgWLbKGTp5ifd9Aa0BwwubeY8Sn+v8OnkBJovhA5ba1kQOu
-	 EhGYVfZQE1G9gebiPQI8/JwqLQ/bZS5Z7GqDVxu/BOnEgF4/lCH+XpC0V7wNxrdV1S
-	 tPgJQViGcYmbfV7ddftluG2Bt6mSFnzcg1CAxf45RBfSfukQvPBhASjJeY79G8YxMD
-	 Nf3+0+dbw8/tiB1P0kyhnmvTM+GCNU7MHmKhznPNGoi3edo6dDmVeVvAfIO8jxxRmG
-	 kqOvyxMxqvcbw==
-Date: Sat, 15 Nov 2025 12:53:59 +0100
+	s=k20201202; t=1763209289;
+	bh=CvW3RPjAQHRDOfHqugrlxCPi56fwvh2F4UBJhuXf3jY=;
+	h=From:To:Cc:Subject:Date:From;
+	b=qp5p5xX7ENbuB1mPVuIYCFnQYSYEPZ5tpWjz30Y0M31mP4b20X/sC9/9ZCzECXwMN
+	 LDbhsstItv8lHknHCJvXhUcCiRgI2oX4W0rPhrIBFQo/6FWKmqmjRUzhHStlgSZTBn
+	 NFIxnDFkB4UJsXn3jdPl/pYr3gvX/tk02FY4t8j8NiGRCvhAlWePlAG2r+NYvB7guk
+	 FzxN7BQbuBeCnKcdDQPItEO9PCTqX+o0od9GC6xr2FFu080JYl86KdwFmMl1xVpms6
+	 3+C9e4H+4hzDhu3ibGRicQ/fsSc4yLa7tEP36hiAXFcBT6bkudn2Z2RzxhBUdHLDnE
+	 OjUplpuBVEnZA==
 From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Maud Spierings <maudspierings@gocontroll.com>
-Cc: Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 2/3] arm64: dts: freescale: moduline-display: fix
- compatible
-Message-ID: <20251115-spicy-gifted-newt-3644ec@kuoka>
-References: <20251114-disp_fix-v1-0-49cbe826afc2@gocontroll.com>
- <20251114-disp_fix-v1-2-49cbe826afc2@gocontroll.com>
+To: Jyri Sarha <jyri.sarha@iki.fi>,
+	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Vinod Koul <vkoul@kernel.org>,
+	Michal Simek <michal.simek@amd.com>,
+	Ulf Hansson <ulf.hansson@linaro.org>,
+	Michael Tretter <m.tretter@pengutronix.de>,
+	Harini Katakam <harini.katakam@amd.com>,
+	Shyam Pandey <radhey.shyam.pandey@amd.com>,
+	dri-devel@lists.freedesktop.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	dmaengine@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mmc@vger.kernel.org
+Cc: Krzysztof Kozlowski <krzk@kernel.org>
+Subject: [PATCH 1/3] dt-bindings: display/ti: Simplify dma-coherent property
+Date: Sat, 15 Nov 2025 13:21:21 +0100
+Message-ID: <20251115122120.35315-4-krzk@kernel.org>
+X-Mailer: git-send-email 2.48.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20251114-disp_fix-v1-2-49cbe826afc2@gocontroll.com>
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251115_042129_863959_8864BB16 
+X-CRM114-Status: GOOD (  10.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,17 +89,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 14, 2025 at 03:11:50PM +0100, Maud Spierings wrote:
-> The compatibles should include the SoM compatible, this board is based
-> on the Ka-Ro TX8P-ML81 SoM, so add it. Also add the hardware revision to
-> the board compatible.
-> 
-> This is a breaking change, but it is early enough that it can be
-> corrected without causing any issues.
+Common boolean properties need to be only allowed in the binding
+(":true"), because their type is already defined by core DT schema.
+Simplify dma-coherent property to match common syntax.
 
-You did not describe what is here wrong that it needs a correction.
+Signed-off-by: Krzysztof Kozlowski <krzk@kernel.org>
+---
+ Documentation/devicetree/bindings/display/ti/ti,am65x-dss.yaml | 3 +--
+ Documentation/devicetree/bindings/display/ti/ti,j721e-dss.yaml | 3 +--
+ 2 files changed, 2 insertions(+), 4 deletions(-)
 
-Best regards,
-Krzysztof
+diff --git a/Documentation/devicetree/bindings/display/ti/ti,am65x-dss.yaml b/Documentation/devicetree/bindings/display/ti/ti,am65x-dss.yaml
+index 361e9cae6896..38fcee91211e 100644
+--- a/Documentation/devicetree/bindings/display/ti/ti,am65x-dss.yaml
++++ b/Documentation/devicetree/bindings/display/ti/ti,am65x-dss.yaml
+@@ -84,8 +84,7 @@ properties:
+     maxItems: 1
+     description: phandle to the associated power domain
+ 
+-  dma-coherent:
+-    type: boolean
++  dma-coherent: true
+ 
+   ports:
+     $ref: /schemas/graph.yaml#/properties/ports
+diff --git a/Documentation/devicetree/bindings/display/ti/ti,j721e-dss.yaml b/Documentation/devicetree/bindings/display/ti/ti,j721e-dss.yaml
+index fad7cba58d39..65ae8a1c3998 100644
+--- a/Documentation/devicetree/bindings/display/ti/ti,j721e-dss.yaml
++++ b/Documentation/devicetree/bindings/display/ti/ti,j721e-dss.yaml
+@@ -103,8 +103,7 @@ properties:
+     maxItems: 1
+     description: phandle to the associated power domain
+ 
+-  dma-coherent:
+-    type: boolean
++  dma-coherent: true
+ 
+   ports:
+     $ref: /schemas/graph.yaml#/properties/ports
+-- 
+2.48.1
 
 
