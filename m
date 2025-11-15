@@ -4,69 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 391F7CEB2C6
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Nov 2025 16:01:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8136BCEB2EE
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Nov 2025 17:44:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XAznu96VRABKw0CFI7fWPxI8d/hUiFChPDfvJPT4n1s=; b=XTpKCADQXaYQ878SWOeZ+4izT7
-	KBQ9Fe0ZV09w6G6Y3ru3kmB2/i4dJsHcqMMM6h2tWiGwe1bVxZXoGjtDUNCCBvLvC3eCBfdAk9uI0
-	SXaQh5IRwmzgH4PQ0Je0k2h81L8VpjG4myvS3CYQyCad7qE74zn2DsyjyjmhfTDanozSm5cGHAvmD
-	FBve7klEx23hhuACnYktYOI02PEcXeVGTZSQ96YzCbvbvIHy72m2SPsbam+wtdC6YU1CnhKn3vlwu
-	tzV467iR+oZIEGJSByhiVcA7VGpAHmz6rkTH7iys2uHDEAUHnW97v8Gj2iBeppqc2ndo8+eEjcq4S
-	0LHA6z+g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=iS8st6S4NEhfwQi2ADWQ0RHyYWa8wB83L+ih+AMC2co=; b=jhbAOPaJePp/ON
+	keT9GZF3LY6mS7Yhsl/MBI8larVc+XNclBWrr25R2VsI3s7PpwNpM1Fmg05rFnsU7MSIZr55u6hPg
+	rqGxnL00xSwNOi4lf2JbSm7MdG94t1GcVz8aHhCH2N1YfYxxsOez4GlYXnPrPfqS8TCnkGbLPxxgf
+	OMFVwinYDT7ujmpdY4wipNnGQGzbUV92s0f90IWVb6jp0anO+ggH4B4MQ+ibGnkRo3AEK4j+dR81k
+	VwJWQmvQB8Oev7pa/e9OQMCq0fjij7RqsL+wAP2lNVGGl+IW3WkTDbDnhcvlFJfNR1/Hc8QZOtiF8
+	c3Mxe4+Lvs8m1DBda6Ig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKIid-0000000Du7T-3TJR;
-	Sat, 15 Nov 2025 16:01:43 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vKKJa-0000000Dxgy-0IFN;
+	Sat, 15 Nov 2025 17:43:58 +0000
+Received: from mail-ej1-f41.google.com ([209.85.218.41])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKIiL-0000000Du6d-0qk4;
-	Sat, 15 Nov 2025 16:01:40 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 21F6D437EE;
-	Sat, 15 Nov 2025 16:01:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 83865C4CEF7;
-	Sat, 15 Nov 2025 16:01:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763222484;
-	bh=aL2drUjldjMwfOWSXiuQaZYAafjyhHSOp1Hy4vQYSSg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=jM0DL6WInt/lvzvDDb/SeVzLxDQcGUoVyjrmPprDnwOJcHgUeXTQeM1DbouIs1wio
-	 hL2dng5a3gWtUklyuINPSrCuFJssjoDICPIXqncLAmA45aVRNFzkcv8pz6PsBHo5O3
-	 RTvwAg3YVypK9v9Hj6ZSeY/haCkaGo7nA936PZlZ3jn0mRKHFKgl4KU0wHao80Eyg3
-	 +vCHetJv6gQEkD+J9wH3VI/+JjpVMAVaxW/U7vrTjDIHnv11GimYMabQsuTWWIkY1o
-	 71vk2Q2808sG4g4DYyjruinMlmexgA19YoSo6rvS7JkeiGSYCnEiLLTw+PvQFAU1N3
-	 nR9+9uaucaA0w==
-Date: Sat, 15 Nov 2025 17:01:19 +0100
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-To: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>
-Cc: Ray Liu <ray.liu@airoha.com>, Mark Brown <broonie@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-arm-kernel@lists.infradead.org, linux-spi@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-mediatek@lists.infradead.org,
-	Andreas Gnau <andreas.gnau@iopsys.eu>
-Subject: Re: [PATCH 1/3] spi: airoha-snfi: en7523: workaround flash damaging
- if UART_TXD was short to GND
-Message-ID: <aRijz3wMTGdmy2tq@lore-rh-laptop>
-References: <20251114233431.1920015-1-mikhail.kshevetskiy@iopsys.eu>
- <20251114233431.1920015-2-mikhail.kshevetskiy@iopsys.eu>
+	id 1vKKJX-0000000Dxg3-3RzP
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 15 Nov 2025 17:43:57 +0000
+Received: by mail-ej1-f41.google.com with SMTP id a640c23a62f3a-b737c6c13e1so126454766b.3
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 15 Nov 2025 09:43:54 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1763228633; x=1763833433;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :reply-to:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=iS8st6S4NEhfwQi2ADWQ0RHyYWa8wB83L+ih+AMC2co=;
+        b=Hw+wYH06ledrgl+EdG1ad+PzXYquOwOzBlW2cvSqgiNbQA7JZXsZrnq28aj8Fclo3E
+         CwMciMLasDPYPbdRBwEtwWVi3DLgNh4+p/GSPTbST+Nf2vtPYN2YQbky5DMfHQsDIKwg
+         B3vcWmCf1gDeesU1djBwORngo2hU8niAzBfxtrmXbAVpDKibwiqTd0hw1DC6ccuZ+X6i
+         ia0Se29q/KYKKoPMyNB4wfav7beezYcYZol6yiE1YvN6qVfpEWpDn4kOY8GylRkUXkVl
+         VarB3/6b3Lsy0XIwNLw+KEqx9Ct1rr2VyoU4BcaG7Ml+Fzd7Tg3GTETBOrJjOej9w3sW
+         zSnQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXtTTgxH+JiGw26gpX9PICeY0xS20i37s4dgeiks1EIYF2IJYBdT69CkcwauLD8E9j02HewNTk32LX3CRtUWvAQ@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz7VBjbb9UEvYiObJmzx0tA2eAZgmJady7YLPIYZJA9EJvnFDZG
+	9WitdEsSPlRW4oWkk1ydx/Dv/x7CopUWAWQdSH7tNkEu6P5kzia1/giUGbmczNRl
+X-Gm-Gg: ASbGncsKCTGRRFS8JD42zI12p9j0eXjbsWJL6TMHpIWbAxHT+81RHOVrE7HjEdRP3Iu
+	KtluOFJAssFhh0C7oEvma1RiZr5H4lcq/jmH4Bf6TRjLSqQAgykDI5PhRiHKmLuTYW2wCA0J9tI
+	KdUm/RiGIMnZ7TAzr2dfNqh1G+XYCaWtwU4H2P9JnLgKAAnt67ZAsnru/MIsyz8AIWpd86lQqui
+	DKmesHcuXRw/yQ4ySqk7udu+xrvFz+Y/XoW0LxunXqW2wSZf6gLmY7aZLxp7DSvDdJpBuu7xyxG
+	bKjeYfZxFcc3keFTx9PHy9M5CVpXJxqqrba5m+X7XG5JslN6lzQYBZlaJdZgGjxTi8byv/lSVKS
+	nmA6mfOW6FgkHNAbSe7D08Pk40B2NuWawjiYVVQrD95YH4rK1AKDml1p39UcyRPOPGas4fH8w5c
+	D/JTYrC3XSSa5GHUUFOHWxtSS6WDqg
+X-Google-Smtp-Source: AGHT+IHGT+waQI/aKIzvWQsr9EQeXqnjGKIfL71F5LworsA3MpgIAD8tgXEs7LBEkqlX0w/kB079Sw==
+X-Received: by 2002:a17:907:1b1b:b0:b72:af1f:af7d with SMTP id a640c23a62f3a-b736789cb8dmr742981566b.29.1763228633014;
+        Sat, 15 Nov 2025 09:43:53 -0800 (PST)
+Received: from mail-ej1-f50.google.com (mail-ej1-f50.google.com. [209.85.218.50])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b734fa81223sm671715466b.4.2025.11.15.09.43.52
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sat, 15 Nov 2025 09:43:52 -0800 (PST)
+Received: by mail-ej1-f50.google.com with SMTP id a640c23a62f3a-b735e278fa1so407122266b.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 15 Nov 2025 09:43:52 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCU9DOij0hsHocZ6aEUrRwRUpSgMcIvQ8E+qMJ9+HUDCTbs7aJXewTAdYLHGYyX5SKKgFzPraIAQkdhSnQJGRD9P@lists.infradead.org
+X-Received: by 2002:a05:651c:41d5:b0:37a:4c29:3a90 with SMTP id
+ 38308e7fff4ca-37babac1aa5mr18627811fa.0.1763228257141; Sat, 15 Nov 2025
+ 09:37:37 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="EKzBAkeZKZ1ooe9j"
-Content-Disposition: inline
-In-Reply-To: <20251114233431.1920015-2-mikhail.kshevetskiy@iopsys.eu>
+References: <20251115141347.13087-1-jernej.skrabec@gmail.com> <20251115141347.13087-4-jernej.skrabec@gmail.com>
+In-Reply-To: <20251115141347.13087-4-jernej.skrabec@gmail.com>
+From: Chen-Yu Tsai <wens@csie.org>
+Date: Sun, 16 Nov 2025 01:37:24 +0800
+X-Gmail-Original-Message-ID: <CAGb2v64xOrLzPYNOfFNFfPckR8EUF_U6xY0J_a3G7b0Ymb4OnA@mail.gmail.com>
+X-Gm-Features: AWmQ_bmhcY2-o8gJRo_3ltGzVFP1TpTD5csESojSsWw724bLMcf3HNL8i2V4XHQ
+Message-ID: <CAGb2v64xOrLzPYNOfFNFfPckR8EUF_U6xY0J_a3G7b0Ymb4OnA@mail.gmail.com>
+Subject: Re: [PATCH 3/7] clk: sunxi-ng: de2: Export register regmap for DE33
+To: Jernej Skrabec <jernej.skrabec@gmail.com>
+Cc: samuel@sholland.org, mripard@kernel.org, maarten.lankhorst@linux.intel.com, 
+	tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch, robh@kernel.org, 
+	krzk+dt@kernel.org, conor+dt@kernel.org, mturquette@baylibre.com, 
+	sboyd@kernel.org, dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251115_080125_311152_C2A5E6E5 
-X-CRM114-Status: GOOD (  26.13  )
+X-CRM114-CacheID: sfid-20251115_094355_885694_EEEB2A22 
+X-CRM114-Status: GOOD (  27.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,153 +97,130 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: wens@csie.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
---EKzBAkeZKZ1ooe9j
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-> We found that some serial console may pull TX line to GROUND during board
-> boot time. Airoha uses TX line as one of it's BOOT pins. This will lead
-> to booting in RESERVED boot mode.
->=20
-> It was found that some flashes operates incorrectly in RESERVED mode.
-> Micron and Skyhigh flashes are definitely affected by the issue,
-> Winbond flashes are NOT affected.
->=20
-> Details:
-> --------
-> DMA reading of odd pages on affected flashes operates incorrectly. Page
-> reading offset (start of the page) on hardware level is replaced by 0x10.
-> Thus results in incorrect data reading. Usage of UBI make things even
-> worse. Any attempt to access UBI leads to ubi damaging. As result OS load=
-ing
-> becomes impossible.
->=20
-> Non-DMA reading is OK.
->=20
-> This patch detects booting in reserved mode, turn off DMA and print big
-> fat warning.
->=20
-> Signed-off-by: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>
+On Sat, Nov 15, 2025 at 10:14=E2=80=AFPM Jernej Skrabec
+<jernej.skrabec@gmail.com> wrote:
+>
+> DE33 clock pre-set plane mapping, which is not something that we want
+> from clock driver. Export registers instead, so DRM driver can set them
+> properly.
+>
+> Signed-off-by: Jernej Skrabec <jernej.skrabec@gmail.com>
 > ---
->  drivers/spi/spi-airoha-snfi.c | 40 ++++++++++++++++++++++++++++++-----
->  1 file changed, 35 insertions(+), 5 deletions(-)
->=20
-> diff --git a/drivers/spi/spi-airoha-snfi.c b/drivers/spi/spi-airoha-snfi.c
-> index 8408aee9c06e..0e84a9addfa5 100644
-> --- a/drivers/spi/spi-airoha-snfi.c
-> +++ b/drivers/spi/spi-airoha-snfi.c
-> @@ -1013,6 +1013,11 @@ static const struct spi_controller_mem_ops airoha_=
-snand_mem_ops =3D {
->  	.dirmap_write =3D airoha_snand_dirmap_write,
+>  drivers/clk/sunxi-ng/ccu-sun8i-de2.c | 53 ++++++++++++++++++++++++++--
+>  1 file changed, 50 insertions(+), 3 deletions(-)
+>
+> diff --git a/drivers/clk/sunxi-ng/ccu-sun8i-de2.c b/drivers/clk/sunxi-ng/=
+ccu-sun8i-de2.c
+> index a6cd0f988859..2841ec922025 100644
+> --- a/drivers/clk/sunxi-ng/ccu-sun8i-de2.c
+> +++ b/drivers/clk/sunxi-ng/ccu-sun8i-de2.c
+> @@ -6,9 +6,11 @@
+>  #include <linux/clk.h>
+>  #include <linux/clk-provider.h>
+>  #include <linux/io.h>
+> +#include <linux/mfd/syscon.h>
+>  #include <linux/module.h>
+>  #include <linux/of.h>
+>  #include <linux/platform_device.h>
+> +#include <linux/regmap.h>
+>  #include <linux/reset.h>
+>
+>  #include "ccu_common.h"
+> @@ -250,6 +252,41 @@ static const struct sunxi_ccu_desc sun50i_h616_de33_=
+clk_desc =3D {
+>         .num_resets     =3D ARRAY_SIZE(sun50i_h5_de2_resets),
 >  };
-> =20
-> +static const struct spi_controller_mem_ops airoha_snand_nodma_mem_ops =
-=3D {
-> +	.supports_op =3D airoha_snand_supports_op,
-> +	.exec_op =3D airoha_snand_exec_op,
+>
+> +/*
+> + * Add a regmap for the DE33 plane driver to access plane
+> + * mapping registers.
+> + * Only these registers are allowed to be written, to prevent
+> + * overriding clock and reset configuration.
+> + */
+> +
+> +#define SUN50I_DE33_CHN2CORE_REG 0x24
+> +#define SUN50I_DE33_PORT02CHN_REG 0x28
+> +#define SUN50I_DE33_PORT12CHN_REG 0x2c
+> +
+> +static bool sun8i_de2_ccu_regmap_accessible_reg(struct device *dev,
+> +                                               unsigned int reg)
+> +{
+> +       switch (reg) {
+> +       case SUN50I_DE33_CHN2CORE_REG:
+> +       case SUN50I_DE33_PORT02CHN_REG:
+> +       case SUN50I_DE33_PORT12CHN_REG:
+> +               return true;
+> +       default:
+> +               return false;
+> +       }
+> +}
+
+Since the registers are contiguous, I think it makes a bit more sense
+to use the .rd_table and .wr_table. A bonus is that the check can be
+inlined in the core instead of calling a function pointer.
+
+> +static const struct regmap_config sun8i_de2_ccu_regmap_config =3D {
+> +       .reg_bits       =3D 32,
+> +       .val_bits       =3D 32,
+> +       .reg_stride     =3D 4,
+> +       .max_register   =3D 0xe0,
+
+None of the registers past SUN50I_DE33_PORT12CHN_REG are accessible,
+so we should probably just put that here.
+
+> +
+> +       /* other devices have no business accessing other registers */
+> +       .readable_reg   =3D sun8i_de2_ccu_regmap_accessible_reg,
+> +       .writeable_reg  =3D sun8i_de2_ccu_regmap_accessible_reg,
 > +};
 > +
->  static int airoha_snand_setup(struct spi_device *spi)
+>  static int sunxi_de2_clk_probe(struct platform_device *pdev)
 >  {
->  	struct airoha_snand_ctrl *as_ctrl;
-> @@ -1058,7 +1063,8 @@ static int airoha_snand_probe(struct platform_devic=
-e *pdev)
->  	struct device *dev =3D &pdev->dev;
->  	struct spi_controller *ctrl;
->  	void __iomem *base;
-> -	int err;
-> +	int err, dma_enabled;
-
-here you can use bool for dma_enable:
-
-	bool dma_enable =3D true;
-
-> +	u32 sfc_strap;
-> =20
->  	ctrl =3D devm_spi_alloc_host(dev, sizeof(*as_ctrl));
->  	if (!ctrl)
-> @@ -1092,12 +1098,36 @@ static int airoha_snand_probe(struct platform_dev=
-ice *pdev)
->  		return dev_err_probe(dev, PTR_ERR(as_ctrl->spi_clk),
->  				     "unable to get spi clk\n");
-> =20
-> -	err =3D dma_set_mask(as_ctrl->dev, DMA_BIT_MASK(32));
-> -	if (err)
-> -		return err;
-> +	dma_enabled =3D 1;
-> +	if (device_is_compatible(dev, "airoha,en7523-snand")) {
-> +		err =3D regmap_read(as_ctrl->regmap_ctrl,
-> +				  REG_SPI_CTRL_SFC_STRAP, &sfc_strap);
-> +		if (err)
-> +			return err;
+>         struct clk *bus_clk, *mod_clk;
+> @@ -303,13 +340,23 @@ static int sunxi_de2_clk_probe(struct platform_devi=
+ce *pdev)
+>         }
+>
+>         /*
+> -        * The DE33 requires these additional (unknown) registers set
+> +        * The DE33 requires these additional plane mapping registers set
+>          * during initialisation.
+>          */
+>         if (of_device_is_compatible(pdev->dev.of_node,
+>                                     "allwinner,sun50i-h616-de33-clk")) {
+> -               writel(0, reg + 0x24);
+> -               writel(0x0000a980, reg + 0x28);
+> +               struct regmap *regmap;
 > +
-> +		if (!(sfc_strap & 0x04)) {
-> +			dma_enabled =3D 0;
-
-			dma_enable =3D false;
-
-> +			dev_warn(dev,
-> +				"=3D=3D=3D WARNING =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D\n"
-
-you do not need to add "WARNING here".
-
-> +				"Detected booting in RESERVED mode (UART_TXD was short to GND).\n"
-> +				"This mode is known for incorrect DMA reading of some flashes.\n"
-> +				"Usage of DMA for flash operations will be disabled to prevent data\=
-n"
-> +				"damage. Unplug your serial console and power cycle the board\n"
-> +				"to boot with full performance.\n"
-> +				"=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D\n");
-> +		}
-> +	}
+> +               regmap =3D devm_regmap_init_mmio(&pdev->dev, reg,
+> +                                              &sun8i_de2_ccu_regmap_conf=
+ig);
+> +               if (IS_ERR(regmap)) {
+> +                       ret =3D PTR_ERR(regmap);
+> +                       goto err_assert_reset;
+> +               }
 > +
-> +	if (dma_enabled) {
-> +		err =3D dma_set_mask(as_ctrl->dev, DMA_BIT_MASK(32));
-> +		if (err)
-> +			return err;
-> +	}
-> =20
->  	ctrl->num_chipselect =3D 2;
-> -	ctrl->mem_ops =3D &airoha_snand_mem_ops;
-> +	ctrl->mem_ops =3D dma_enabled ?
-> +				&airoha_snand_mem_ops :
-> +				&airoha_snand_nodma_mem_ops;
+> +               ret =3D of_syscon_register_regmap(pdev->dev.of_node, regm=
+ap);
 
-nit: no need to add a new-line here:
-
-	ctrl->mem_ops =3D dma_enabled ? &airoha_snand_mem_ops
-				    : &airoha_snand_nodma_mem_ops;
+dev_of_node(&pdev->dev) instead of directly accessing the member.
+IIRC this is the new preferred style.
 
 
-Regards,
-Lorenzo
+Thanks
+ChenYu
 
->  	ctrl->bits_per_word_mask =3D SPI_BPW_MASK(8);
->  	ctrl->mode_bits =3D SPI_RX_DUAL;
->  	ctrl->setup =3D airoha_snand_setup;
-> --=20
-> 2.51.0
->=20
-
---EKzBAkeZKZ1ooe9j
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCaRijzAAKCRA6cBh0uS2t
-rPpqAQCeg58jE6lmb6Y9qpYRoRN3SrKAtGS9xzuVhgfpBcZdmQEAlXeQDN+GWzjQ
-94j4LASAucndNW9KD6ss5bbbiaMR6wk=
-=fAZF
------END PGP SIGNATURE-----
-
---EKzBAkeZKZ1ooe9j--
+> +               if (ret)
+> +                       goto err_assert_reset;
+>         }
+>
+>         ret =3D devm_sunxi_ccu_probe(&pdev->dev, reg, ccu_desc);
+> --
+> 2.51.2
+>
+>
 
