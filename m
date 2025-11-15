@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 419CCCEB2CD
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Nov 2025 11:53:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5B57CEB2CD
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Nov 2025 11:54:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Bh3ThtU0In/1NmkwGk0zE8aNY2It+42+Y4j6fcAopj8=; b=RFyftnWrOEMWyPpdeJddCAY9vo
-	yZ5L7MBnTNuRNZx6AU9uYAsit5xffTBmv4RWV2xxOeL5+ZT7AFkmABc+XKUBPSLq6g/in7WQ8odm6
-	0CDvtB5opeYufA2OeFICFmVRyNM3YJaHmHRrl+48ykDqPWUF9sU/wZtiC/zvVJi48KgfPdjWqnQTJ
-	J1QVJSXWWRe+QKE7RURuLyr4uPdlNdbmxdW54bY+5OMK/PR+l1enyxoF+8fSNNQ1kd0oHO8836BZb
-	x3cmGtG2zomzPVCzlFqeGNjoiHZnApGzC3DNd4PixSbYwgdUdC4hkFvGonwhy8GXpCCvpl0clbAzX
-	XtFS+btQ==;
+	bh=aELsIUzLiqlHggHr/vvjmtG9hFo4MABRnCl29hm0mCY=; b=gFjhIMgonE5AcOwQOrIHMi96V3
+	+XyNUspI4AWuTxFsCyRTyRQ4ZAmlvCW/us4JLHDhILo6fvOFbvLgfp5c7MMwAxkf6WlK3vTWd2Vhc
+	Rb+/CRjUgDJ96DZ7APKqOpJyMSxtd1cqTeOqgTbGsEpwZJ2cDY+R7Q5eLNSiMuXWL6EbjF0PHF75L
+	2GoZR0kj3QBV4Pnw5iMdRr/4IqyzK8MORbQA58Pe6wCrDQ0MiXvNS/dylxZDRlJ/PJt4lG7mlTadf
+	p3owGkrDclJsrpJWJTbSHaF4wtY1uPVTgauhnm6itBERF0bBoh/fbH82XBMw4rDSkBsDKIvmS3XWP
+	J1B9DPPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKEqR-0000000DkeP-1uBn;
-	Sat, 15 Nov 2025 11:53:31 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vKEqy-0000000Dkhk-3JLH;
+	Sat, 15 Nov 2025 11:54:04 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKEqO-0000000Dkdy-2jre
+	id 1vKEqx-0000000DkhW-1PU3
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 15 Nov 2025 11:53:29 +0000
+	Sat, 15 Nov 2025 11:54:03 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A3CB944147;
-	Sat, 15 Nov 2025 11:53:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F0F69C113D0;
-	Sat, 15 Nov 2025 11:53:25 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 2E4B2600AA;
+	Sat, 15 Nov 2025 11:54:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 54B10C4CEF8;
+	Sat, 15 Nov 2025 11:54:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763207606;
-	bh=D3IZQ41ljbOFBJR+0W2Ew4JgT55JZ3FTpbKG4ou+aYI=;
+	s=k20201202; t=1763207641;
+	bh=SFB7UaLZKoJrkoVjVZhNqv3hZFUKGA+4m7Bp1LsdL2w=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=pvrNxn6Qpy0xKwoi/njFVhX6Stcy5YSXfgVxKasMFqqTquUDSBb01L6MVWBgV5idE
-	 2UME7pZsFhH8loRYLEgySoF512XrFF6o9PUzYMiDiATwXIQ/RsGoWWwtsvww+Tqczp
-	 bjyOL0Ol5gTlZiyKqx6uZ+9AtFXFhajfpTTpPGOKsBhs184Wihi3isW/c+ciyssJ2p
-	 S5qf9OdoRiXGrjyxwD8Pt5PiRVZUvqFsT6DuM3tVleeOMjRZ0gBHe6Oh3KdRxSMHuf
-	 q68e2Ckb1vF/jkUTzFNYy9TshLiTAzTEvRMhkHcoRt244oyxkC+d0VzgM+XpQuLQPR
-	 dJOm64VufQraA==
-Date: Sat, 15 Nov 2025 12:53:23 +0100
+	b=ZOMX0Fj3iIPiDVFtVpxagbIGgwOwiXzYHeNfDxdzn3Y+Drgoad1nvs/ZVmSQjT8Z1
+	 1ILqDkPZgBPFl5NIhf6jgWLbKGTp5ifd9Aa0BwwubeY8Sn+v8OnkBJovhA5ba1kQOu
+	 EhGYVfZQE1G9gebiPQI8/JwqLQ/bZS5Z7GqDVxu/BOnEgF4/lCH+XpC0V7wNxrdV1S
+	 tPgJQViGcYmbfV7ddftluG2Bt6mSFnzcg1CAxf45RBfSfukQvPBhASjJeY79G8YxMD
+	 Nf3+0+dbw8/tiB1P0kyhnmvTM+GCNU7MHmKhznPNGoi3edo6dDmVeVvAfIO8jxxRmG
+	 kqOvyxMxqvcbw==
+Date: Sat, 15 Nov 2025 12:53:59 +0100
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Maud Spierings <maudspierings@gocontroll.com>
 Cc: Rob Herring <robh@kernel.org>, 
@@ -50,18 +50,15 @@ Cc: Rob Herring <robh@kernel.org>,
 	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
 	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org, 
 	linux-kernel@vger.kernel.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 1/3] dt-bindings: arm: fsl: moduline-display: fix
+Subject: Re: [PATCH 2/3] arm64: dts: freescale: moduline-display: fix
  compatible
-Message-ID: <20251115-liberal-lori-of-youth-a9c3fd@kuoka>
+Message-ID: <20251115-spicy-gifted-newt-3644ec@kuoka>
 References: <20251114-disp_fix-v1-0-49cbe826afc2@gocontroll.com>
- <20251114-disp_fix-v1-1-49cbe826afc2@gocontroll.com>
+ <20251114-disp_fix-v1-2-49cbe826afc2@gocontroll.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20251114-disp_fix-v1-1-49cbe826afc2@gocontroll.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251115_035328_736021_4F885E91 
-X-CRM114-Status: GOOD (  16.52  )
+In-Reply-To: <20251114-disp_fix-v1-2-49cbe826afc2@gocontroll.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,47 +73,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 14, 2025 at 03:11:49PM +0100, Maud Spierings wrote:
+On Fri, Nov 14, 2025 at 03:11:50PM +0100, Maud Spierings wrote:
 > The compatibles should include the SoM compatible, this board is based
 > on the Ka-Ro TX8P-ML81 SoM, so add it. Also add the hardware revision to
 > the board compatible.
 > 
 > This is a breaking change, but it is early enough that it can be
 > corrected without causing any issues.
-> 
-> Fixes: 24e67d28ef95 ("dt-bindings: arm: fsl: Add GOcontroll Moduline Display")
-> Signed-off-by: Maud Spierings <maudspierings@gocontroll.com>
-> ---
->  Documentation/devicetree/bindings/arm/fsl.yaml | 7 ++++++-
->  1 file changed, 6 insertions(+), 1 deletion(-)
-> 
-> diff --git a/Documentation/devicetree/bindings/arm/fsl.yaml b/Documentation/devicetree/bindings/arm/fsl.yaml
-> index 21b7168d61f5..8949a98acd87 100644
-> --- a/Documentation/devicetree/bindings/arm/fsl.yaml
-> +++ b/Documentation/devicetree/bindings/arm/fsl.yaml
-> @@ -1105,7 +1105,6 @@ properties:
->                - gateworks,imx8mp-gw74xx   # i.MX8MP Gateworks Board
->                - gateworks,imx8mp-gw75xx-2x # i.MX8MP Gateworks Board
->                - gateworks,imx8mp-gw82xx-2x # i.MX8MP Gateworks Board
-> -              - gocontroll,moduline-display # GOcontroll Moduline Display controller
->                - prt,prt8ml             # Protonic PRT8ML
->                - skov,imx8mp-skov-basic # SKOV i.MX8MP baseboard without frontplate
->                - skov,imx8mp-skov-revb-hdmi # SKOV i.MX8MP climate control without panel
-> @@ -1163,6 +1162,12 @@ properties:
->            - const: engicam,icore-mx8mp             # i.MX8MP Engicam i.Core MX8M Plus SoM
->            - const: fsl,imx8mp
->  
-> +      - description: Ka-Ro TX8P-ML81 SoM based boards
-> +        items:
-> +          - const: gocontroll,moduline-display-106
 
-You need old compatible here as well, you cannot drop it.
-
-I don't understand why you need board revision - commit msg should
-explain that.
-
-> +          - const: karo,tx8p-ml81
-> +          - const: fsl,imx8mp
+You did not describe what is here wrong that it needs a correction.
 
 Best regards,
 Krzysztof
