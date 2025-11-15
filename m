@@ -4,93 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5CB9CEB2D8
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Nov 2025 14:04:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCF68CEB2C6
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Nov 2025 14:14:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pKvYUG6QyuYwze0pX76iQK1U7NhM2svZNXWBkQgxwp0=; b=zpQEIyGpWSwAK/pSEAR/NRAM49
-	DxnokzJHrHjz0snOSVWihaK2JRIjW/wrbrnm3wJ5Sx1QgfDTSUZDTa8tKbxM8IEVPXNhS1yKTENoE
-	1VlgdVdrHL1lNhPr9cv/CnrLRMG84IqxNrParU+nTJochZ96utKn8an80b/fuyuac8JRAd4YlIzij
-	O2I0XKN7+7M/j8pq4Hi9JnPrFSP9Xx/dghb/OLAyi7HAD/KJNlBmQ5TdUbWzgfjP9rCV6jc3dzrPU
-	xFWrHH59pvBhCex75YmD8QGSBLMA8ul+RB4R5pT2cM3pkw4PLw7nk375B1i82Y8b9Qi0w+2kBh4GJ
-	tJ/uoOIg==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=tO9M0rK2lTwB71cTYp3Jpf3ChX0WRs4mW1Amu6CT/w0=; b=csrb7w66GwJoEmSGnr8TY9b+kl
+	wyFkzgyn7qAuNSocKcOq4CB+2DlDia2dh5Mgn/bp4fKbHsjrH/+qcvaI+z/DT9S3/HqcVuKmQDNZL
+	ctHoMTy1sGm25JTfp1RRz+FmwqEDHUvr96PjkvBaNsZJPV1Bln8qY11czTRplfvfhbKx5ppThKOXv
+	vx3w0lvt4Y8AYEAB5wlTywpyNnxH5mqpYcAq9iaJVevAUseJK4qtP3IKp0wHQPLIFov1JABK0Vhgy
+	fJzvA/w6pM1UYMW7TH4GyZuCq371zRTORdzqO8uwx7ewaRn4YcnT8PZN+R82IboRRqQiTDAmMK4KK
+	IcFXUPJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKGtA-0000000DpNB-1rHR;
-	Sat, 15 Nov 2025 14:04:28 +0000
-Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
+	id 1vKH2g-0000000DphV-1vnW;
+	Sat, 15 Nov 2025 14:14:18 +0000
+Received: from mail-ed1-x52b.google.com ([2a00:1450:4864:20::52b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKGt7-0000000DpM0-0o7Y
+	id 1vKH2d-0000000DpgL-0FBt
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 15 Nov 2025 14:04:26 +0000
-Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-42b39d51dcfso1528654f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 15 Nov 2025 06:04:24 -0800 (PST)
+	Sat, 15 Nov 2025 14:14:17 +0000
+Received: by mail-ed1-x52b.google.com with SMTP id 4fb4d7f45d1cf-640a503fbe8so4934124a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 15 Nov 2025 06:14:14 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tuxon.dev; s=google; t=1763215463; x=1763820263; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=pKvYUG6QyuYwze0pX76iQK1U7NhM2svZNXWBkQgxwp0=;
-        b=MEGXV4+LkJLbH68c5SW7CJrpcKl/iUy180mSfNZnOVi4ldFfInDeycMQJRHS1/Xwoq
-         Y1Kcci4fAgksFRsxxJWC1fCmaFLKE9DRuxrC41i3AsSiypI+iwQTqPdX4Z+GNABhgWsf
-         3thTK5iI+BAhVoitULNSH1U1GAsUS7u/raVcc+jfWai4xd3t+trJjc8or0frIAI3aX+6
-         WrdjIym+I6Ijsqi1TzfmuGNyuNIYi8S2+QFXzmx3pyJf81NuK+SXbgqFxPYcGJIwfQr7
-         ejen9Tb1rf6rZmSbgwhRPmYyHrM5/3OmppqvaNeItrGn4daH1gzMxIIJ6qqHl+rAbbP8
-         n4sw==
+        d=gmail.com; s=20230601; t=1763216053; x=1763820853; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=tO9M0rK2lTwB71cTYp3Jpf3ChX0WRs4mW1Amu6CT/w0=;
+        b=evpRLuOhxHB11f4FQm39sGS3iUHWntCYsM7HSpS/BZ8IzvjNEyQB/4KIJYfYwS62Ep
+         GCspyGoNj0LxzTyWTjFKmX0pf+N9rbjREEuwAd5TinES9U4M71dTaB6G3OwfY0doYhLr
+         e8GNmN9PdoRA3GGAqMjwjhWfLzvTa08J8ErS1QPBAV7A9F+pnX0HsMqsqIwSiaeOH2Ir
+         5a9Bg5aW65uAwVYvWrERoqPbqr8PGC0qR58nwjs51b8xI5aSJ/tNMwFzDh25UFOz7EVm
+         vIQJp5eA9xKqnIJrlz+r07QDLBd5r9MllZcPMbbv2ZarZuwKCaiTFRbemfEzbBKWGTex
+         WWuA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763215463; x=1763820263;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=pKvYUG6QyuYwze0pX76iQK1U7NhM2svZNXWBkQgxwp0=;
-        b=OqWUHPyIPJYdstZmiZpqG7flQxZDcg8P8tRkCDsDYrqp7UmpbzmA6Gj9LkYi+Zn2zv
-         5Bs4ZcmjY51qAcQ18tiHcuOHoLBo/I0kaR5qPFQ/0UUwMSb6AZfOipQ/aN7nLzNJ/lNr
-         OtUHQkppsMX+m+6J17bLMxaqoDLi1bycJ6WuCuxezPtMeWah1Sh4MLppWbCFE800zRKi
-         jsx/ktFHsnLpuqzfRz3CH9T65e94u/fzxhY5LEPICMuaBWaJbUlkVHGiXOfKpbpTltIk
-         blA+0H11HG+CT4NwbRMaxlVNh3ps10C5XVkyVjtn6bpX/AGS9bazEiLtOQpa+yGUaaVh
-         hPAg==
-X-Gm-Message-State: AOJu0YwU610Ui+wfpFexbIAHLG8o9JOQ7Ec4Ya8mtVqd/LAzIuKAU1sm
-	dPedYT4OyTfrpZ9oZJuVjfmRfQhNd0p966SqkQwfA1Y4snuYmaQpL6YCfWXbzmnuGTk=
-X-Gm-Gg: ASbGnctf8LWKOd1Ij9MQGVo2wsziJCw4AtRWiI3AKEBhKIorvZWJ6XiVv49xK/7BoA2
-	e/p/OHmTrL+c+9mYHMGe3OT76IDUbH9kr1jHrGNlTILciEQCIpedUhoFO0DIrBSh23RRf+e1E1j
-	0iPAd15vTdkcJjpsq9oGSkcWoA1DZT/aJkf5CKesh961uWIVJqaxKc0gKNcRlAMHkxfEw9Eop2b
-	5T8zlF03kHKWfgDcn/6d6cPZ8Z4Xv3A51WXhJjrqwmanYBJdpSQw4ZHsnNfUJpDni4ijaoLcTCb
-	EQM8Qxhg6u9V3h2ValGrzn1rRw0jwhvT5+jl2XBytlXhEp0zmFtMcV1eFV+r610Muhio/8UQzYq
-	cz20eJ/W/H8+ZwfRu9ODsXQEUEGsCyE4yftz7AhyOYXWFKw/zXKK+YKOoO5IaWwuZFyNl1APl8b
-	7Es7LOtFhNw+Rwe2ZvRH0=
-X-Google-Smtp-Source: AGHT+IFngBuo06OnXJJuUDkq4i3N5EO3BmBgXJQN+Zh3JAeA5AwDW+ND3ORBOMBIncLe0W3XOIS7Yg==
-X-Received: by 2002:a05:600c:45c4:b0:477:8a2a:123e with SMTP id 5b1f17b1804b1-4778feaf9bdmr67343465e9.33.1763215462926;
-        Sat, 15 Nov 2025 06:04:22 -0800 (PST)
-Received: from [192.168.50.4] ([82.78.167.134])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-477988060e8sm17748445e9.5.2025.11.15.06.04.21
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 15 Nov 2025 06:04:22 -0800 (PST)
-Message-ID: <446ed1ed-7541-4e49-b777-72e3c3de5a98@tuxon.dev>
-Date: Sat, 15 Nov 2025 16:04:20 +0200
+        d=1e100.net; s=20230601; t=1763216053; x=1763820853;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=tO9M0rK2lTwB71cTYp3Jpf3ChX0WRs4mW1Amu6CT/w0=;
+        b=lyjd/ZDEzPSdDA8ucrFC901i0iKiYMUAbrAW1/7XP5OFXORpS6y07/JPUXMGTfqhNV
+         FVx59V3VtH1KLJFhQ4rJ4gPe1DqoOIoNMKdd4eCn1bLFCIwVLfxd9JuyyiHQv1Ue3ngQ
+         POehsfuXnp9y/ytiFDWHYZOxH/pujsvUXpGSgU0VnLI3E2SRxMnoVP9kQNcaIA9bto0n
+         jNsexq2uQZ5YWHdmUU72YpW4nCVxJbEdAiDXv+AQVONwU1YmScyzdQplTdPzE314QKQp
+         YqgpNpQenzrut7DdEi+5CLWc5uSnPqv6bHavBpqGsPUeiInCgNUeoVKY3SXzi4Kojw+D
+         uPQw==
+X-Forwarded-Encrypted: i=1; AJvYcCWixoKuz6fO78BzaUyEfAA+rQ0AaiLQ6WrJaEFsu2K1FoaGUbOU+DaKs1OcDdAr2jEYUxt9m7E0NyyBPkZlqTHB@lists.infradead.org
+X-Gm-Message-State: AOJu0YzHLz+E3EAxLS78D/s+wRT3TJ3+gt4nWDS0Sy288tMVN2Ol9OvZ
+	WM7MlqUNJjco6hvs/M5BGwnidNKdwvkp79tCqv9zoFRq/IneVO1EigoR
+X-Gm-Gg: ASbGncsD/Sq3uOUgoJfUxrsk2fLbuh4sXpQORAEUsAxcmA4xpO6ZVEEaQg4TL1FaznY
+	dc7kDSXx4ZH19ZiX2O341MB40yb5Zrfla0mv7sYaDrvsqvoirTobXCLwMOtfr2nIViSpi/4l0tm
+	5ATIbUE0vtyyWBuEySHDOJR+nwF+l991MGozKlmUHq+z2wES4YIaGh6RdVorqMh/z1Spgk+eHSD
+	qsJ66g+YIxqzh2VxGtDHrZKrpoPg56iH2bBFm4+Sxwvve0DNY3g2ctCpKmHACfwjqh42fWj18bC
+	ONPUU2KF3TQmnt8blua1kpz1mNGDhJH2xzxDfx7ng+UTPf3XYyAVWHLeGny+N+QkpiQiEmbtv38
+	9R5LxXaT+rg+yPL0qMyWqVsou6U3mfCu5ONyBJUJodfx8TZUrnpWSb1D5rUJ41AoPDqvOWInvqw
+	nABtRdWxMySthGCBMViEIwj5RpKmpqsKmy0vAud19hBzV33CebA2Jws1Lp
+X-Google-Smtp-Source: AGHT+IFp+Taw68EnwDXLkJFHgktvsI4Q2Kx6E5s2D/JuSsEx96b8Hqrxaybkmry8X04xeOfOSy8LRw==
+X-Received: by 2002:a17:907:25cd:b0:b72:6383:4c57 with SMTP id a640c23a62f3a-b7367b79f4fmr713777466b.55.1763216052568;
+        Sat, 15 Nov 2025 06:14:12 -0800 (PST)
+Received: from jernej-laptop (178-79-73-218.dynamic.telemach.net. [178.79.73.218])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b734fda933fsm606189866b.56.2025.11.15.06.14.11
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 15 Nov 2025 06:14:12 -0800 (PST)
+From: Jernej Skrabec <jernej.skrabec@gmail.com>
+To: wens@csie.org,
+	samuel@sholland.org
+Cc: mripard@kernel.org,
+	maarten.lankhorst@linux.intel.com,
+	tzimmermann@suse.de,
+	airlied@gmail.com,
+	simona@ffwll.ch,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	mturquette@baylibre.com,
+	sboyd@kernel.org,
+	dri-devel@lists.freedesktop.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	linux-clk@vger.kernel.org,
+	Jernej Skrabec <jernej.skrabec@gmail.com>
+Subject: [PATCH 0/7] drm/sun4i: update DE33 support
+Date: Sat, 15 Nov 2025 15:13:40 +0100
+Message-ID: <20251115141347.13087-1-jernej.skrabec@gmail.com>
+X-Mailer: git-send-email 2.51.2
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] ARM: dts: microchip: sama5d2: fix spi flexcom fifo size
- to 32
-To: nicolas.ferre@microchip.com,
- Alexandre Belloni <alexandre.belloni@bootlin.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Ryan Wanner <ryan.wanner@microchip.com>,
- Cristian Birsan <cristian.birsan@microchip.com>, stable@vger.kernel.org
-References: <20251114140225.30372-1-nicolas.ferre@microchip.com>
-From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
-Content-Language: en-US
-In-Reply-To: <20251114140225.30372-1-nicolas.ferre@microchip.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251115_060425_418576_EAAD4202 
-X-CRM114-Status: UNSURE (   6.91  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251115_061415_116142_CAA50A3E 
+X-CRM114-Status: GOOD (  13.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,17 +112,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+This is second series out of tree which aims at properly introducing
+support for H616 Display Engine 3.3. Previous series [1] reorganized
+driver so proper DE33 support can be easily implemented.
 
+H616 DE33 support was actually introduced a while back, but it was done
+without fully understanding hardware design. Fortunately, no user of
+H616 DE33 binding was introduced, so we have a chance to update bindings
+and introduce proper DE33 support. Issue with existing binding is that it
+considers planes as resource which is hardwired to each mixer as it was
+done on older Display Engine generations (DE3 and lower). That is not the
+case anymore. This series introduces new driver for planes management,
+which allows doing proper plane assignments.
 
-On 11/14/25 16:02, nicolas.ferre@microchip.com wrote:
-> From: Nicolas Ferre <nicolas.ferre@microchip.com>
-> 
-> Unlike standalone spi peripherals, on sama5d2, the flexcom spi have fifo
-> size of 32 data. Fix flexcom/spi nodes where this property is wrong.
-> 
-> Fixes: 6b9a3584c7ed ("ARM: dts: at91: sama5d2: Add missing flexcom definitions")
-> Cc: <stable@vger.kernel.org> # 5.8+
-> Signed-off-by: Nicolas Ferre <nicolas.ferre@microchip.com>
+Remaining patches, which introduce all the missing bits to fully support
+display pipeline on H616 SoC, will be sent once this series is merged.
+WIP patches, which can be used for testing purposes, can be found at [2].
 
-Applied to at91-dt, thanks!
+Please take a look.
+
+Best regards,
+Jernej
+
+[1] https://lore.kernel.org/linux-sunxi/20251104180942.61538-1-jernej.skrabec@gmail.com/T/#t
+[2] https://github.com/jernejsk/linux-1/commits/sun4i-drm-refactor/
+
+Jernej Skrabec (7):
+  drm/sun4i: Add support for DE33 CSC
+  drm/sun4i: vi_layer: Limit formats for DE33
+  clk: sunxi-ng: de2: Export register regmap for DE33
+  dt-bindings: display: allwinner: Add DE33 planes
+  drm/sun4i: Add planes driver
+  dt-bindings: display: allwinner: Update H616 DE33 binding
+  drm/sun4i: switch DE33 to new bindings
+
+ .../allwinner,sun50i-h616-de33-planes.yaml    |  44 ++++
+ .../allwinner,sun8i-a83t-de2-mixer.yaml       |  16 +-
+ drivers/clk/sunxi-ng/ccu-sun8i-de2.c          |  53 ++++-
+ drivers/gpu/drm/sun4i/Kconfig                 |   8 +
+ drivers/gpu/drm/sun4i/Makefile                |   1 +
+ drivers/gpu/drm/sun4i/sun50i_planes.c         | 205 ++++++++++++++++++
+ drivers/gpu/drm/sun4i/sun50i_planes.h         |  43 ++++
+ drivers/gpu/drm/sun4i/sun8i_csc.c             |  71 ++++++
+ drivers/gpu/drm/sun4i/sun8i_csc.h             |   5 +
+ drivers/gpu/drm/sun4i/sun8i_mixer.c           | 130 ++++++-----
+ drivers/gpu/drm/sun4i/sun8i_mixer.h           |  10 +-
+ drivers/gpu/drm/sun4i/sun8i_vi_layer.c        |  36 ++-
+ 12 files changed, 543 insertions(+), 79 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/display/allwinner,sun50i-h616-de33-planes.yaml
+ create mode 100644 drivers/gpu/drm/sun4i/sun50i_planes.c
+ create mode 100644 drivers/gpu/drm/sun4i/sun50i_planes.h
+
+-- 
+2.51.2
+
 
