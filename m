@@ -4,67 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32FC1CD4F3E
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Nov 2025 04:04:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB75CCD4F3E
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Nov 2025 07:47:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SzECtJsIWw4uXwE207Uew56sWP/Hi8jDptmOvx0q6Rc=; b=P3V8eZDVZWO08sFZFz03+RQNUD
-	mwu4YoBjN6cZYxhzHtufgAB8uqwBHnkLgnYnySuqpn7mx+VgxUEeC/g/l8g8qdTwSqs1KgG2SDIa9
-	UQqOjP/Ci+724Jf1WhnX/aegxwwfojHP4aSDK3W7IPupYYZsXRua5E0qlTdyYHdIJWsvlmKjIx+LI
-	PbvzSxll/fRZSKEqmcAIpayyBd0OJ4i8I1ocsJcJtEO7+nhkEKJCQbU5BuXLGxgi+j+kHbrepKThT
-	otAr/56W1GNYENtwbE7jiWKR3gpwKE+lCzRAxO+SWqCYov//mlnx1j4dstrL08iw5p34smIHOXaRH
-	x+lmF+1g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YjeauMGvhixKRVKtVDbcZpK+rXhbvA3+HVN56bMzdns=; b=PmZGEBV0sXIsowKFH+g9EXl8u+
+	4N9zLLhdZm7PXV1Io385oPEP5kF4faA0GjUzuPHirllwGnj3ijb7qXZXbfUjKLcciHSPr0uWVib4f
+	7iVxOH+RXxCLm4qifRIC2uZBEhL7gnGojiJvu/AvOouPzMP6UMhrZ8jSVyB7kgPjeeS//4ZPOkc0D
+	DZcXeIODbcXwxL3MrAKZXZSnPgSGeOgPhJaqW8d3H78tDM+OB3viEhI1BBX8nGhD9ZfRax+neIExX
+	K0q27beVu73TlHh0lEJCUvRUX+3IMIwqnNmNvY74kP/Q79jgB0fgg/K7DVWXoc5DZgj6K1wSkQTo5
+	m5VobBZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKTzW-0000000ELf9-0QO2;
-	Sun, 16 Nov 2025 04:03:54 +0000
-Received: from mail-m16.yeah.net ([1.95.21.14])
+	id 1vKXTl-0000000ES5F-0shZ;
+	Sun, 16 Nov 2025 07:47:21 +0000
+Received: from canpmsgout08.his.huawei.com ([113.46.200.223])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKTzT-0000000ELeg-2ebP
+	id 1vKXTi-0000000ES4K-0O7n
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 16 Nov 2025 04:03:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yeah.net;
-	s=s110527; h=Date:From:To:Subject:Message-ID:MIME-Version:
-	Content-Type; bh=SzECtJsIWw4uXwE207Uew56sWP/Hi8jDptmOvx0q6Rc=;
-	b=ChXMptBtzotGwu9WczLRdZ1I9cBfwNwr+3Tjt932mnVvxSWKoRxCitSitQoc65
-	HjQj36I71NvU9ew6GP1w+iOj6dmnBUw2d5MyEwapujYfCbu2TNCuvOIjX5gwUPyN
-	FnLI30+SPmOKeOKYSjzOcDtQz3ViqXXZ58rfGdG0VuQ10=
-Received: from dragon (unknown [])
-	by gzsmtp1 (Coremail) with SMTP id Mc8vCgDnS5gQTRlpbiE2AQ--.7844S3;
-	Sun, 16 Nov 2025 12:03:30 +0800 (CST)
-Date: Sun, 16 Nov 2025 12:03:28 +0800
-From: Shawn Guo <shawnguo2@yeah.net>
-To: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-Cc: linux-kernel@vger.kernel.org, Shawn Guo <shawnguo@kernel.org>,
-	linux-amarula@amarulasolutions.com, Mark Brown <broonie@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Michael Trimarchi <michael@amarulasolutions.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Fabio Estevam <festevam@gmail.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Rob Herring <robh@kernel.org>, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2 1/2] ARM: dts: imx28-amarula-rmm: add I2S audio
-Message-ID: <aRlNEJLVvFpEwf4o@dragon>
-References: <20251027161040.2020623-1-dario.binacchi@amarulasolutions.com>
+	Sun, 16 Nov 2025 07:47:20 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=YjeauMGvhixKRVKtVDbcZpK+rXhbvA3+HVN56bMzdns=;
+	b=e+5hP5vh0YfDBH+LcUmpfTiwCVvjkQWlvJJUqvqx0ExUJcFgq6rx2ANrkvtYhgK5IPmqZM6+j
+	ESyVHnve5GNwXdQc0mtuyPxhTG7cLCxr+jO59+0zXy56iiartz13YMj2ViMjIjsrKIYsIeVMIwh
+	kUCS4MLwRUFApG1dcFAZVLI=
+Received: from mail.maildlp.com (unknown [172.19.88.163])
+	by canpmsgout08.his.huawei.com (SkyGuard) with ESMTPS id 4d8NFm5nRVzmV6q;
+	Sun, 16 Nov 2025 15:45:16 +0800 (CST)
+Received: from kwepemk500012.china.huawei.com (unknown [7.202.194.97])
+	by mail.maildlp.com (Postfix) with ESMTPS id D2AF1180043;
+	Sun, 16 Nov 2025 15:46:58 +0800 (CST)
+Received: from [10.67.120.228] (10.67.120.228) by
+ kwepemk500012.china.huawei.com (7.202.194.97) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Sun, 16 Nov 2025 15:46:58 +0800
+Message-ID: <6dff34d1-731e-4e18-a719-04da498b28ee@huawei.com>
+Date: Sun, 16 Nov 2025 15:46:57 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251027161040.2020623-1-dario.binacchi@amarulasolutions.com>
-X-CM-TRANSID: Mc8vCgDnS5gQTRlpbiE2AQ--.7844S3
-X-Coremail-Antispam: 1Uf129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7v73
-	VFW2AGmfu7bjvjm3AaLaJ3UbIYCTnIWIevJa73UjIFyTuYvjxU7YiiDUUUU
-X-Originating-IP: [117.82.150.42]
-X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiIhL3XWkZTRJ-8wAA35
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/3] arm64: topology: Use current freq in governor for
+ idle cpus in cpuinfo_avg_freq
+To: Beata Michalska <beata.michalska@arm.com>
+CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<catalin.marinas@arm.com>, <will@kernel.org>, <ptsm@linux.microsoft.com>,
+	<linuxarm@huawei.com>, <jonathan.cameron@huawei.com>,
+	<zhanjie9@hisilicon.com>, <prime.zeng@hisilicon.com>,
+	<wanghuiqiang@huawei.com>, <xuwei5@huawei.com>, <zhenglifeng1@huawei.com>,
+	<zhangpengjie2@huawei.com>
+References: <20251104075544.3243606-1-yubowen8@huawei.com>
+ <20251104075544.3243606-3-yubowen8@huawei.com> <aRIc20ErWTQr4dRa@arm.com>
+From: "yubowen (H)" <yubowen8@huawei.com>
+In-Reply-To: <aRIc20ErWTQr4dRa@arm.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.67.120.228]
+X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
+ kwepemk500012.china.huawei.com (7.202.194.97)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251115_200352_298680_650345EC 
-X-CRM114-Status: UNSURE (   8.00  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251115_234718_750296_C07FB4C3 
+X-CRM114-Status: GOOD (  26.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,15 +83,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 27, 2025 at 05:10:23PM +0100, Dario Binacchi wrote:
-> Add support for I2S audio on Amarula rmm board. Audio codec
-> TLV320AIC3X is connected as slave to SAIF0, which provides
-> bitclock, frame and MCLK.
-> 
-> Co-developed-by: Michael Trimarchi <michael@amarulasolutions.com>
-> Signed-off-by: Michael Trimarchi <michael@amarulasolutions.com>
-> Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
 
-Applied both, thanks!
+在 2025/11/11 1:11, Beata Michalska 写道:
+> On Tue, Nov 04, 2025 at 03:55:43PM +0800, Bowen Yu wrote:
+>> The current cpuinfo_avg_freq interface returns an error when all CPUs
+>> under a policy are idle, which is relatively common. To address this, it
+>> is better to use the current frequency stored in the governor. This
+>> implementation is also used on x86 architecture.
+> Well, the very reason of having this knob was not to mix hardware and software
+> view of so called 'current frequency'. Note that for x86 there is a dedicated
+> config option that keeps the behaviour you have mentioned for backward
+> compatibility.
+>
+>
+> cpuinfo_avg_freq -> average freq as seen by hw
+> cpuinfo_cur_freq -> closes one can get to current frequency - hw feedback
+> scaling_cur_freq -> requested freq, so smth the software believes should be the
+> 		    current freq (often might not be)
+>
+> The following thread might be useful -> [1]
+>
+> ---
+> [1] https://lore.kernel.org/all/20240603114811.oio3uemniib5uaa2@vireshk-i7/
+> ---
+>
+> BR
+> Beata
+Hi Beata,
 
+Thank you for pointing out the important distinction between hardware and
+software views of current frequency. The motivation behind this patch is
+not to blur these boundaries, but rather to avoid returning -EAGAIN when
+all CPUs under a policy are idle — a relatively common scenario,
+especially in idle or low-utilization systems.
+
+I'm relatively new to x86 architecture, so I might be missing something,
+but it appears that on x86, a fallback to software-derived frequency
+(e.g., via scaling_cur_freq) is always in effect in arch_freq_get_on_cpu()
+when the last hardware update is too stale. However, I couldn't locate the
+config option that controls this behavior — could you please clarify which
+option you were referring to?
+
+I fully understand the concern about mixing hardware and software
+frequency views. That said, when no CPU is active and hardware provides
+no real-time feedback, there is no available hardware source for current
+frequency. In such cases, falling back to the last known frequency
+(as maintained by the cpufreq core) seems like a reasonable compromise
+— it provides a stale-but-plausible value instead of an error, which
+improves usability for monitoring tools and user-space interfaces.
+
+That said, I'm open to better alternatives. If there's a more appropriate
+way to handle this scenario — such as deferring to the governor,
+introducing a policy-specific fallback, or adjusting the cpufreq core
+logic — I’d be happy to revise the patch accordingly.
+
+Thanks again for the reference thread [1], it's very helpful.
+
+BR
+Bowen Yu
+>> Since the current frequency in the governor is the last known frequency,
+>> it should be more user-friendly.
+>>
+>> This patch also removes redundant !housekeeping_cpu() check since it is
+>> inherently done when checking jiffies.
+>>
+>> Original output when all cpus under a policy are idle:
+>> [root@localhost home]# cat /sys/devices/system/cpu/cpufreq/policy0/
+>> cpuinfo_avg_freq
+>> cat: /sys/devices/system/cpu/cpufreq/policy0/cpuinfo_avg_freq: Resource
+>>   temporarily unavailable
+>>
+>> Output after changes:
+>> [root@localhost home]# cat /sys/devices/system/cpu/cpufreq/policy0
+>> /cpuinfo_avg_freq
+>> 1200000
+>>
+>> Signed-off-by: Bowen Yu <yubowen8@huawei.com>
+>> ---
+>>   arch/arm64/kernel/topology.c | 11 +++++------
+>>   1 file changed, 5 insertions(+), 6 deletions(-)
+>>
+>> diff --git a/arch/arm64/kernel/topology.c b/arch/arm64/kernel/topology.c
+>> index c0dbc27289ea..f1370a4a4df9 100644
+>> --- a/arch/arm64/kernel/topology.c
+>> +++ b/arch/arm64/kernel/topology.c
+>> @@ -333,14 +333,13 @@ int arch_freq_get_on_cpu(int cpu)
+>>   				if (!idle_cpu(ref_cpu))
+>>   					break;
+>>   			}
+>> +
+>> +			if (ref_cpu >= nr_cpu_ids) {
+>> +				cpufreq_cpu_put(policy);
+>> +				return cpufreq_quick_get(start_cpu);
+>> +			}
+>>   
+>>   			cpufreq_cpu_put(policy);
+>> -
+>> -			if (ref_cpu >= nr_cpu_ids)
+>> -				/* No alternative to pull info from */
+>> -				return -EAGAIN;
+>> -
+>> -			cpu = ref_cpu;
+>>   		} else {
+>>   			break;
+>>   		}
+>> -- 
+>> 2.33.0
 
