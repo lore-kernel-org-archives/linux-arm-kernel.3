@@ -4,100 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25FF8CD4F3E
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Nov 2025 11:01:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6542CCD4F3E
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Nov 2025 11:29:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uRv0x/mbD31ezymVtnCbBZQgh6UPxXX7neGyCw/P4/k=; b=fiNzxTyHb9idkX7ItP3/vxqhVF
-	E/0+zhs4kZYfEs7lFKopkO1l0ob0yaI+c98PG9hVv6wj5SLG6yxyOYGlnZKRH0P0UMQVAq0hzRTeQ
-	bCGXAIqwT0+g+Oagy48O8qmJzWVTwRkVU6MpPHZro/4tNmMp63BymviSFeAS44z6xdQ7ADrlRGrtF
-	qymqDwhS+/zaFuee6+/KciVZwtLkAB+60HG5MTt9QuMGcDL1l18mP/+IixPjDoVuLNeFHJopOA+H2
-	i54sYrfIqti3zkrLUT6fsxGY6KsgAj7Um+6YwxX7KrXhRtgrYi269IviPSiFozGlT8F2vTxF9J3LR
-	Cje2iNlA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Ra2QegA7D/dDAJ/hRxQQrP8IL6HCZeHrcVNE3yzAL8w=; b=NSD7squdJXtAXNSjfBgzuSJ2/g
+	buJMK+Dh4g8iB3v0zkb/iAcJeZhxKdc7ocuPejKFqEFwholWw/Foh+sO/8fFwcPutxSntxa+Q9dkb
+	yx3VLvmpYznIXSNdOG01FTKWHduJye3WJTVWR0MYrxBnYVcaixLo3/Bt9eWnIMaHAIzAxo2qH68n+
+	m82SMV483ZVP0obyTUvr9WR/Coux2BXpqOIa2L535uv9qGiU7qE8GGpUX8TLinyBIcq6btDJNrFuN
+	EyPQ8wFwb5SuX6JmfjBg48nEmKBoUEfHgiWGdHBzTZgsM5IMw2HvVRRa3YgZ7/be3pcnWkLUGijwP
+	RzQFcV/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKaVP-0000000EYx9-2pB9;
-	Sun, 16 Nov 2025 11:01:15 +0000
-Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
+	id 1vKawl-0000000EZoL-3kgG;
+	Sun, 16 Nov 2025 11:29:31 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKaVL-0000000EYwp-3Zj9
+	id 1vKawk-0000000EZoF-40Pv
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 16 Nov 2025 11:01:13 +0000
-Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-2958db8ae4fso31612235ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 16 Nov 2025 03:01:11 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1763290871; x=1763895671; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:references:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=uRv0x/mbD31ezymVtnCbBZQgh6UPxXX7neGyCw/P4/k=;
-        b=YuUqi/VnwYViJZB/8wqW1eiSF2s8nkEXTvptp6q9bPjl4DszjjrWWpO/UulxXPGQiC
-         VdP5DkrmutF4xEecTF0pYJZTbRcJSTq3NVihsCqdhwy9cnYVLt5cFGkhat4783MNldwx
-         DsjPUe9Rn1oObv3u3uOAvlrI2fi/arkfoVupnipivVmQfUw8npEJQgcevpZH9VHTJIlt
-         TAZ1YtpQjhwCUwzGxCKL7zfjYokbgl4NZ8uVBv5ViQy027/qaDEjIHkc/TXA4ANcGtFo
-         PSZzxFMgPIAZFeJNxZwO6IJgcrK/3+IZfp4FUUWnfFEcAF++u0JeM8ipLUt14GqzxV7c
-         DWQQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763290871; x=1763895671;
-        h=content-transfer-encoding:in-reply-to:from:references:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=uRv0x/mbD31ezymVtnCbBZQgh6UPxXX7neGyCw/P4/k=;
-        b=U1jdP9xg/lP8OHJKKBa6FXJtF29wvs457JMs1h8YlLVtkJSFIrPO2EVWXj6ZGsASdz
-         9Sym0lYGXpyRPuJIff2fpjP3B+9aHkYFoIu80wKTeltUTiadxVCt3fIF7421Jdf8uvG8
-         JjX6WLz6Et3NDiVK7AyGo71F5Ncg2DYdsiOayQIBDA/8rj8qMR34GRckYrONDaV3A4pX
-         oFOEeQspK7SjHz4wf717V7h2CNjVnwubVdq7Zg/CBXiDqYXB1SCi+gi75gyLL4LRT8WT
-         /TVfqepXHWaeVtD8L5gs6oxhMJ+2c2LjOHzs3ogTSHVOBAcaGXBZl4F0vpjqOwB3TPig
-         FJWA==
-X-Forwarded-Encrypted: i=1; AJvYcCWwR0Y/UyVggHB+KF9EjHoHXkSR098daR4KQ1hy5mvDa9yOTOKBAKib9Z4TkLTDWHgLR3XZzenEEIT19a4WwN8r@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywkb3/BMAo7RwREILxGmQ/sFi+9xSRmNgQ7bq0+CgLiscsms7Q7
-	oHVW0Ap6LHFPjam4tgEKwAXNTFUOz92EmKVmTxvA87pX8ej9L0r62HxHJcdMeAtw
-X-Gm-Gg: ASbGncu2hF3gAifeE/8lvA2G9MfeMYDexvM1yRIqA3VFSIVDWcHTAZIf7Cr3IwPyOy9
-	qfKudAdt2liF52PBbRmDq+ihrBaOJI2jImSZw7+OW0nasX4WniHqZzThjEgG+3Y2B2zSVJ3mubD
-	D18xYqyx7TZGAqdAvkd98nnQ6KXR6N0Y8wtptSqHqVHGX/2HUBsLpuVEw7LK9LAAsFgexpIbSUG
-	EzbXxccdw4Cf0g9K8WWuV11xXlwEjDj8lNXi5Vus/pflV77AftIyTNS7vVaVfpISQOySLbr6TkC
-	ZMSV/+BAVy4b0nbNXUIO884HtdETCZo5BwXbqo4rNqN7+4Lgh2930nxMKwD7dJkv4deEsOh1X08
-	OjOQ/LEWDpmMNgnPe8drQm7TE+WGRCFObsXAN/Ct8F+fZ7mESOigSG0PmiqkAwduX5agu2uhlP+
-	+xpBwN+XOUhkTE3D5nfCzEvPSZSJXltJk=
-X-Google-Smtp-Source: AGHT+IGwXKVh3JoXqwDVnEA8t27M4iTiBciJSt6uHCX3HWuQiqFLuOCSzc0jDkXVTsETAHbo8/8pyQ==
-X-Received: by 2002:a17:902:c945:b0:295:5da6:6014 with SMTP id d9443c01a7336-2986a6d07f2mr112271255ad.22.1763290870736;
-        Sun, 16 Nov 2025 03:01:10 -0800 (PST)
-Received: from [192.168.1.2] ([122.171.252.231])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-bc375081023sm9414287a12.21.2025.11.16.03.01.05
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 16 Nov 2025 03:01:10 -0800 (PST)
-Message-ID: <456bba04-07b7-4c27-96fc-9bf226b12fd9@gmail.com>
-Date: Sun, 16 Nov 2025 16:31:04 +0530
+	Sun, 16 Nov 2025 11:29:31 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 20C2A60183;
+	Sun, 16 Nov 2025 11:29:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4A557C4CEF1;
+	Sun, 16 Nov 2025 11:29:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1763292569;
+	bh=mnXvqYmImcinYneeN4zW9LnuvANHy8IWtl4d1UPxOE8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Wzunf4+Dqpm8I172TRzSWUXI6UzmdSlHBq8WRdCWcS94xCaQm+lKMWs54tSMmFeSu
+	 0GmB/twTiwhYFSrxFAG1f3TYhJ7Gd42+wN5/tmmAJRuT3km0Uq2dRgy6vQDE+FSKSG
+	 Ks6rda4N7Eam799dwq3KdZDNuxIqAwMe6/i4Iy++9UxUjxAMwD/tZB3XJCg9TygBmi
+	 yYG3g3vk3adHL/vlhpDzM0UjZjNeiTH2SelYpRF+zwBb06K7yET+XUXd8Ftwiw67CA
+	 p8+z0LYsDz/GVpjoHsbqJqVqSwlQXit2P5MxXdrnVIIAUvONjeYP4QsV9P4aJMlu3n
+	 VoSpxAaT3fE+w==
+Date: Sun, 16 Nov 2025 12:29:27 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Jernej Skrabec <jernej.skrabec@gmail.com>
+Cc: wens@csie.org, samuel@sholland.org, mripard@kernel.org, 
+	maarten.lankhorst@linux.intel.com, tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch, 
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, mturquette@baylibre.com, 
+	sboyd@kernel.org, dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	linux-clk@vger.kernel.org
+Subject: Re: [PATCH 4/7] dt-bindings: display: allwinner: Add DE33 planes
+Message-ID: <20251116-humongous-ant-from-betelgeuse-c0c416@kuoka>
+References: <20251115141347.13087-1-jernej.skrabec@gmail.com>
+ <20251115141347.13087-5-jernej.skrabec@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4] arm64: errata: Work around AmpereOne's erratum
- AC04_CPU_23
-Content-Language: en-US
-To: D Scott Phillips <scott@os.amperecomputing.com>,
- Catalin Marinas <catalin.marinas@arm.com>,
- James Clark <james.clark@linaro.org>, James Morse <james.morse@arm.com>,
- Joey Gouly <joey.gouly@arm.com>, Kevin Brodsky <kevin.brodsky@arm.com>,
- Marc Zyngier <maz@kernel.org>, Mark Brown <broonie@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>, Oliver Upton <oliver.upton@linux.dev>,
- "Rob Herring (Arm)" <robh@kernel.org>,
- Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>,
- Shiqi Liu <shiqiliu@hust.edu.cn>, Will Deacon <will@kernel.org>,
- Yicong Yang <yangyicong@hisilicon.com>, kvmarm@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250513184514.2678288-1-scott@os.amperecomputing.com>
-From: Jaikiran Pai <jai.forums2013@gmail.com>
-In-Reply-To: <20250513184514.2678288-1-scott@os.amperecomputing.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251116_030111_915058_F402A8ED 
-X-CRM114-Status: UNSURE (   9.91  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20251115141347.13087-5-jernej.skrabec@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,27 +73,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Scott,
+On Sat, Nov 15, 2025 at 03:13:44PM +0100, Jernej Skrabec wrote:
+> Allwinner Display Engine 3.3 contains planes, which are shared resources
+> between all mixers present in SoC. They can be assigned to specific
+> mixer by using registers which reside in display clocks MMIO.
+> 
+> Add a binding for them.
+> 
+> Signed-off-by: Jernej Skrabec <jernej.skrabec@gmail.com>
+> ---
+>  .../allwinner,sun50i-h616-de33-planes.yaml    | 44 +++++++++++++++++++
+>  1 file changed, 44 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/display/allwinner,sun50i-h616-de33-planes.yaml
+> 
+> diff --git a/Documentation/devicetree/bindings/display/allwinner,sun50i-h616-de33-planes.yaml b/Documentation/devicetree/bindings/display/allwinner,sun50i-h616-de33-planes.yaml
+> new file mode 100644
+> index 000000000000..801e5068a6b5
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/display/allwinner,sun50i-h616-de33-planes.yaml
+> @@ -0,0 +1,44 @@
+> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/display/allwinner,sun50i-h616-de33-planes.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Allwinner H616 Display Engine 3.3 planes
+> +
+> +maintainers:
+> +  - Jernej Skrabec <jernej.skrabec@gmail.com>
+> +
+> +description: |
 
-On 14/05/25 12:15 am, D Scott Phillips wrote:
-> On AmpereOne AC04, updates to HCR_EL2 can rarely corrupt simultaneous
-> translations for data addresses initiated by load/store instructions.
-> Only instruction initiated translations are vulnerable, not translations
-> from prefetches for example. A DSB before the store to HCR_EL2 is
-> sufficient to prevent older instructions from hitting the window for
-> corruption, and an ISB after is sufficient to prevent younger
-> instructions from hitting the window for corruption.
+Do not need '|' unless you need to preserve formatting.
 
-I see that this patch enables the workaround only for AmpereOne AC04 
-systems. Do you happen to know if the underlying issue for which this 
-patch was introduced, impacts (or can impact) AmpereOne AC03 systems too:
+> +  Display Engine 3.3 planes are independent of mixers, contrary to
+> +  previous generations of Display Engine. Planes can be assigned to
+> +  mixers independently and even dynamically during runtime.
+> +
+> +properties:
+> +  compatible:
+> +    enum:
+> +      - allwinner,sun50i-h616-de33-planes
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  allwinner,plane-mapping:
+> +    $ref: /schemas/types.yaml#/definitions/phandle
+> +    description: Phandle of Display Engine clock node
 
-CPU implementer    : 0xc0
-CPU architecture: 8
-CPU variant    : 0x0
-CPU part    : 0xac3
-CPU revision    : 1
+You description is almost duplicating property name. You need to explain
+here how this device uses them.
 
--Jaikiran
+Esxpecially that clocks do not go via custom properties.
+
+Best regards,
+Krzysztof
 
 
