@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BB66CEACEF
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Nov 2025 13:50:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77AE3CEACEF
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Nov 2025 13:50:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HFF4qIvkAwehv5Tg/aWnvtUclSg9Yim0HrFAtniNGnY=; b=x2/wyonTFgEnXYAy7EHb9kzVYJ
-	wvTPGqEWQ49Y6zz8p/W5P53s7YN5ITV8FfRBJLT8RjR44NLrNA25eXMHNaPKtKba8T6dZdEX/ymXJ
-	OlwN8aCcB4rfPGAZWdyHPRJvAW6QAE2uGgbQkr0pn+GYjTdQO9CwR/+k7YclN8G1Xduka2GJikZq2
-	uzbBnS5IHOE8phI9hs/14Yaxr0zUmwhUEPAmQLMhQU3sohUdMSVkjAI8E1JdRPNp/+yuEYpeIvHx7
-	lilwLlTiUjw5+p9Vf97RRbhuDHQg0lGjJ/IUe7gRDcc7bO/DNoRmPTr4fqI15/cgs/QsqFwWkKYoK
-	wIG3otYA==;
+	bh=BPO9NrD7t7ozHNmv9SwKBa5YjnO0HgIRT0temEkfh70=; b=bYwrI9N8pj54t7sSv9P1D70tR7
+	sx015+l7Sg/9uJ3XDhn2ubn0jQSezLdrdgyTqvIoQtZWzC7KpH0DnnP0NZ6kD98um6wfWANfMTCh9
+	HRyJ8CiV8Cl4uwryN3s82KtVLvqvO/4M+oQtTHaoRjJv9u7BOoMoWQ0TCpzB7unNXi7DxaY7kpQOd
+	iW/+d5JjuG0SZMETKbOIsI1dmsaMKNdsFmpzhnc68rTUeSbjzBBdG845sShvjUZCYkAS057dY0v+y
+	fjoloM35S/N/n2d5RU+sb/Fu5FIx2HZfJf4o6YgABkVsJLQKBV7WA+qFrcYoz9lCrlQYhsUSTOS6h
+	C2ehK26Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKd8e-0000000Eho1-2VaI;
-	Sun, 16 Nov 2025 13:49:56 +0000
+	id 1vKd8v-0000000EhvN-1p7t;
+	Sun, 16 Nov 2025 13:50:13 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKd8d-0000000Ehnf-1V0j;
-	Sun, 16 Nov 2025 13:49:55 +0000
+	id 1vKd8r-0000000EhtU-2bJk;
+	Sun, 16 Nov 2025 13:50:11 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
 	:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Sender:Reply-To:Content-ID:Content-Description;
-	bh=HFF4qIvkAwehv5Tg/aWnvtUclSg9Yim0HrFAtniNGnY=; b=M8WsB/sEjhEH7KzNHGK8f56xfa
-	DBv2F8yFklhtWoa4F9pN0So2vAC6kcl2J3IUVAds1EaVw7Fl1GnXbNxCZq4uNOljvvi+SMPNghYl7
-	a8lobohb+CGGxDFQJkuBWxF7z+NkFDvDwnYh6N1EVaMvL1yEU2j8ZU3QSJnZRQGFRujFOgD2tjWLP
-	HLKJ8BOcXicQGu71BaNqNlaO+r2oOsLW16CvilY9C/Dicuya9vb0QzF7zqreSV3OQVmxTC7wv11sm
-	MezibgCU8ZbXFk/h0VpjnA7LDu7VFvzQIJNpCTd7JWtTmSaRHg3lLye2h2qxwJ+Nc2mx+nxFc9zgg
-	aqfGmgPA==;
+	bh=BPO9NrD7t7ozHNmv9SwKBa5YjnO0HgIRT0temEkfh70=; b=TpS+xd3M3g9s19Oc3mWs8VSFZ7
+	rTez3qB38WehkMBkoW8THvSKvFRHZxTNASMmQKVS2Zb7WPd3YNLhVIQM5lRmZWUrut2X8UvbZrgr9
+	UeTBYGWpx3KVSoD3mvAlIsYFtISjMmx1Fq/iyVBBOqesB+w++9Cujf0dqQlPgn9k3n1+w0BDtUz3/
+	cJ3J++L9OJlHLoycXbzafXG+R5sjAby3MntDfhSUvb726AifmCBoupuARHmrI0xzxbli7Pz1PvUi2
+	BqBcu96Yxh8F98wB6TU6fi/2ni+K937QSf6s/9vBajqAbCQfpx6KBcfhjAZl7B/GnK9+VkMIY5X3o
+	STp9ChwQ==;
 Received: from s2.avantea.pl ([46.242.128.95])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKcGw-00000005MHb-28b3;
-	Sun, 16 Nov 2025 12:54:28 +0000
+	id 1vKcHA-00000005MJ6-2aWm;
+	Sun, 16 Nov 2025 12:54:42 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=szczodrzynski.pl; s=x; h=Content-Transfer-Encoding:Content-Type:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender
 	:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
 	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=HFF4qIvkAwehv5Tg/aWnvtUclSg9Yim0HrFAtniNGnY=; b=nkS2MsQums1TjT8SkZ1fGdaVKd
-	QPvsnOWFgznnU6N7/RYsk7wYdXekhIuNo1Q28VxUXIYmiQkV1LEi0jNDbqratmvo083E9fKJI4rMi
-	NwxJb+Xp4dvxiexFm/7wjGkjP3qXFCS8MPxdBJa5bcXIXlnqrfdkjEicb+BjzyecRk9BM/hgqYDuW
-	oOuetjWS6PIpkthZIpkj3y9sclWvtTUX0Rwf+az3bNgTkOEaN1pS2WWIyx8NEp5bvsO47kWIPUyLR
-	FuSFnPLZUrOh46hh3rVjNmDgztQiNjRmtY6CCipITkHD4cSRC7fwi5ODmkqM2/T80g12Lqayq2fk7
-	88ivLjgg==;
+	bh=BPO9NrD7t7ozHNmv9SwKBa5YjnO0HgIRT0temEkfh70=; b=Gg+j1iN23n1xHJQNAyHu8/3ZYX
+	XvHAhG3jyG1PpNQAeLFit19IsBKmN86Nb2Zyj5mlmQkN2/V005zWuP9lJbWs5szW7dntwRKci25Xc
+	c86GTd+4URPW9Mo7oXm5Sfkv8k8oY7nGo8rMz1N0tUjMYdn9vdkMweUcgWvaIVAvQHK9tYfGnUX94
+	bXBBYvqTqs9NayEiTXczKmSDDVG3UFmu6qGReiG59Z6aVEj0iNS4ri6YivZmggmB67Nw9jVLEwHhQ
+	JRi/6HGoJ6M6S92GuxSn3ccsNEg1WnZLCse3sTRbfjw8AUN/t95E8QktjTbPWLOUtP7h9KbunJBhd
+	wuHQycew==;
 Received: from [62.171.184.96] (helo=buildhost.contaboserver.net)
 	by s2.avantea.pl with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
 	(Exim 4.98.1)
 	(envelope-from <kuba@szczodrzynski.pl>)
-	id 1vKd8W-0000000FXUh-2saU;
-	Sun, 16 Nov 2025 14:49:48 +0100
+	id 1vKd8k-0000000FXVf-3tGq;
+	Sun, 16 Nov 2025 14:50:03 +0100
 From: =?UTF-8?q?Kuba=20Szczodrzy=C5=84ski?= <kuba@szczodrzynski.pl>
 To: Maxime Ripard <mripard@kernel.org>,
 	Samuel Holland <samuel@sholland.org>,
@@ -79,9 +79,9 @@ Cc: David Airlie <airlied@gmail.com>,
 	dri-devel@lists.freedesktop.org,
 	parthiban@linumiz.com,
 	paulk@sys-base.io
-Subject: [PATCH v3 4/6] dt-bindings: display: sun4i: Add D1s/T113 combo D-PHY bindings
-Date: Sun, 16 Nov 2025 14:49:43 +0100
-Message-Id: <20251116134943.447443-1-kuba@szczodrzynski.pl>
+Subject: [PATCH v3 5/6] riscv: dts: allwinner: d1s-t113: Add D-PHY to TCON LCD0
+Date: Sun, 16 Nov 2025 14:49:57 +0100
+Message-Id: <20251116134957.447529-1-kuba@szczodrzynski.pl>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20251116134609.447043-1-kuba@szczodrzynski.pl>
 References: <20251116134609.447043-1-kuba@szczodrzynski.pl>
@@ -90,8 +90,8 @@ Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-Authenticated-Id: kuba@szczodrzynski.pl
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251116_125426_671209_3CA154C8 
-X-CRM114-Status: UNSURE (   7.68  )
+X-CRM114-CacheID: sfid-20251116_125440_817793_54BFF0BF 
+X-CRM114-Status: UNSURE (   8.61  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -110,30 +110,26 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 The sun4i TCON needs a reference to the D-PHY in order to support LVDS
 on Allwinner D1s/T113.
 
-Add phys and phy-names to DT bindings.
+Add phys and phy-names to sunxi-d1s-t113 common device tree.
 
 Signed-off-by: Kuba Szczodrzyński <kuba@szczodrzynski.pl>
 ---
- .../bindings/display/allwinner,sun4i-a10-tcon.yaml          | 6 ++++++
- 1 file changed, 6 insertions(+)
+ arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/display/allwinner,sun4i-a10-tcon.yaml b/Documentation/devicetree/bindings/display/allwinner,sun4i-a10-tcon.yaml
-index 724d93b91..52589341f 100644
---- a/Documentation/devicetree/bindings/display/allwinner,sun4i-a10-tcon.yaml
-+++ b/Documentation/devicetree/bindings/display/allwinner,sun4i-a10-tcon.yaml
-@@ -115,6 +115,12 @@ properties:
-           - const: edp
-           - const: lvds
+diff --git a/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi b/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi
+index 63e252b44..78aa61607 100644
+--- a/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi
++++ b/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi
+@@ -876,6 +876,8 @@ tcon_lcd0: lcd-controller@5461000 {
+ 			resets = <&ccu RST_BUS_TCON_LCD0>,
+ 				 <&ccu RST_BUS_LVDS0>;
+ 			reset-names = "lcd", "lvds";
++			phys = <&dphy>;
++			phy-names = "combo-phy";
+ 			#clock-cells = <0>;
  
-+  phys:
-+    maxItems: 1
-+
-+  phy-names:
-+    const: combo-phy
-+
-   ports:
-     $ref: /schemas/graph.yaml#/properties/ports
- 
+ 			ports {
 -- 
 2.25.1
 
