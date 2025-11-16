@@ -4,73 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03DE5CD4F3E
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Nov 2025 12:25:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC696CEACEF
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Nov 2025 12:29:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=b2Tzy4wpEnBc0N39re5MYS8e6Cpyy1OT/u1kY6JsWT4=; b=WBBU6GGb0jzCwsXKpNmnLE2M03
-	AJ7dJeUK5zbIQ3mJgL9YLLB9bsnWzSMjQuBc2mMZU5SyZoQXc3qAE4AbItXJLDQxAxTIRkKpEiIY7
-	ircO3+Dwg8QWuRvX5cNMsUv4qDSnMoOJj0Ghnsnq7mjBQnWlMg5VBhEiCY54Y0HkV0Uyu0LpzzagD
-	ftHe2M1Fbf8CnMCk0fvxafy8H8pRa+ZO61Fm1W93WHQLxjstJ/LHqz0V+uqPDyg0UK1/pRMGoD8ry
-	L5fr//HiQ9QA+gX5D5Gcjl0gCFnl9Kqcdaezlshxb72A8/UlP15fxVRhUtkJYadh/QaTOSvH1k4ez
-	nYPMwqsQ==;
+	bh=53I/2kcZjlKfPTnbOipCisLCf2u/EtrbHyC2OuS8iX8=; b=BF8eelU3rYTDue3bjn3JmFoPUo
+	cVjCp42z9A6FIAgKw0kOr9wkMwlYMY9VcZmXnptTf6taVMIOTHOEIl34RvneR8SRen0IObrQ342SA
+	hSmvPk+2L+uRPfEBC10c5njJsanJKit2nD1HJf4oG/BbnBS0smmtQFbYPdj5GrjhROSWVHuYRqM5d
+	SH7xuYkjTU4+FHXrl8ZYUGqZf5B2DENxi31G5udVgrWp8liauHV7VbAfjx1s8hN8aTB1hDa6Agym1
+	ja+2d8ZiKkBu1nnicPvutiURJN1tSd+NHCnCMCLePNYS0rMqG2XXKRmFDw0kPyQ1emsEzKKhOx0kc
+	vA0IkL3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKboq-0000000Ecfk-1RbK;
-	Sun, 16 Nov 2025 12:25:27 +0000
-Received: from mail-m16.yeah.net ([1.95.21.14])
+	id 1vKbsO-0000000Ecoy-3Xrd;
+	Sun, 16 Nov 2025 12:29:04 +0000
+Received: from mail-m16.yeah.net ([220.197.32.18])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKbom-0000000EcfR-2SpO
+	id 1vKbsM-0000000Ecof-3M1H
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 16 Nov 2025 12:25:22 +0000
+	Sun, 16 Nov 2025 12:29:04 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yeah.net;
 	s=s110527; h=Date:From:To:Subject:Message-ID:MIME-Version:
-	Content-Type; bh=b2Tzy4wpEnBc0N39re5MYS8e6Cpyy1OT/u1kY6JsWT4=;
-	b=gbE7CM0NAwSA09/hPaYqd21DLNQ39SGc+N7sEA4KoeUHRwGOlm6GF/W5hlEwlJ
-	Wd0LVyxzpZ8znLc/wDxdoiLXIGn/f28f5RVE3nkUOLL74fmgmMaK8/ZtqqypcUF6
-	gqp6HZcYfY3/FohbeCd3OfoGZZuW2sLTndSv8lHHUuPBI=
+	Content-Type; bh=53I/2kcZjlKfPTnbOipCisLCf2u/EtrbHyC2OuS8iX8=;
+	b=fTEGyHXso6w6OD78EhmpLqWOPHEMlaPYXyHdPMGO+bFPT6gGMX+WohQxl8Asng
+	zR98VI700Twk7KiVyoN/+wyzTw32ab8dzNMrKBk1xs5Q6ZX/9Ukf2PzfnQVajvs5
+	oz4I87vo9VTAf/tvBamJDmIyqYQa2IxkevUvyf1+dtdG0=
 Received: from dragon (unknown [])
-	by gzsmtp2 (Coremail) with SMTP id Ms8vCgCHw0agwhlp52glAg--.8033S3;
-	Sun, 16 Nov 2025 20:25:06 +0800 (CST)
-Date: Sun, 16 Nov 2025 20:25:04 +0800
+	by gzsmtp1 (Coremail) with SMTP id Mc8vCgC3d2N0wxlpKqM7AQ--.7952S3;
+	Sun, 16 Nov 2025 20:28:38 +0800 (CST)
+Date: Sun, 16 Nov 2025 20:28:36 +0800
 From: Shawn Guo <shawnguo2@yeah.net>
-To: jan.petrous@oss.nxp.com
-Cc: Chester Lin <chester62515@gmail.com>,
-	Matthias Brugger <mbrugger@suse.com>,
-	Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>,
-	NXP S32 Linux Team <s32@nxp.com>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+To: Marek Vasut <marek.vasut@mailbox.org>
+Cc: linux-arm-kernel@lists.infradead.org,
+	Christoph Niedermaier <cniedermaier@dh-electronics.com>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Richard Cochran <richardcochran@gmail.com>,
-	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	netdev@vger.kernel.org,
-	Enric Balletbo i Serra <eballetb@redhat.com>
-Subject: Re: [PATCH v3] arm64: dts: freescale: Add GMAC Ethernet for S32G2
- EVB and RDB2 and S32G3 RDB3
-Message-ID: <aRnCoAjkfti12We1@dragon>
-References: <20251103-nxp-s32g-boards-v3-1-b51db0b8b3ff@oss.nxp.com>
+	Fabio Estevam <festevam@gmail.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, kernel@dh-electronics.com,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] arm64: dts: imx8mp: Add missing LED enumerators for DH
+ electronics i.MX8M Plus DHCOM on PDK2
+Message-ID: <aRnDdLxl-2gKYcVl@dragon>
+References: <20251104015031.219863-1-marek.vasut@mailbox.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251103-nxp-s32g-boards-v3-1-b51db0b8b3ff@oss.nxp.com>
-X-CM-TRANSID: Ms8vCgCHw0agwhlp52glAg--.8033S3
-X-Coremail-Antispam: 1Uf129KBjvdXoWrAryrCr17tF1DZr48JF48Crg_yoWxWwc_Cr
-	y7GF4kAasrAFZ7Xa4rKw45XFnYga15J348Jws8Xr12qas5G34DZFn8t34Yv3yfZFZ5A342
-	9wnYvr10ya4ayjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7IUjHmh5UUUUU==
+In-Reply-To: <20251104015031.219863-1-marek.vasut@mailbox.org>
+X-CM-TRANSID: Mc8vCgC3d2N0wxlpKqM7AQ--.7952S3
+X-Coremail-Antispam: 1Uf129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7v73
+	VFW2AGmfu7bjvjm3AaLaJ3UbIYCTnIWIevJa73UjIFyTuYvjxUOzuWUUUUU
 X-Originating-IP: [117.82.150.42]
-X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiOAJ53mkZwqJzCwAA31
+X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiOBauFGkZw3Z1JwAA3D
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251116_042521_399338_C7A260D5 
-X-CRM114-Status: UNSURE (   7.82  )
+X-CRM114-CacheID: sfid-20251116_042903_158534_922B135C 
+X-CRM114-Status: UNSURE (   7.30  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -86,22 +81,12 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 03, 2025 at 10:24:01AM +0100, Jan Petrous via B4 Relay wrote:
-> From: "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
+On Tue, Nov 04, 2025 at 02:50:13AM +0100, Marek Vasut wrote:
+> The LED enumerators are missing, which prevents the LEDs from being
+> accurately told apart by label. Fill in the enumerators the same way
+> they are already present on PDK3.
 > 
-> Add support for the Ethernet connection over GMAC controller connected to
-> the Micrel KSZ9031 Ethernet RGMII PHY located on the boards.
-> 
-> The mentioned GMAC controller is one of two network controllers
-> embedded on the NXP Automotive SoCs S32G2 and S32G3.
-> 
-> The supported boards:
->  * EVB:  S32G-VNP-EVB with S32G2 SoC
->  * RDB2: S32G-VNP-RDB2
->  * RDB3: S32G-VNP-RDB3
-> 
-> Tested-by: Enric Balletbo i Serra <eballetb@redhat.com>
-> Signed-off-by: Jan Petrous (OSS) <jan.petrous@oss.nxp.com>
+> Signed-off-by: Marek Vasut <marek.vasut@mailbox.org>
 
 Applied, thanks!
 
