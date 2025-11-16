@@ -4,71 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05524CEACEF
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Nov 2025 03:51:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DF6ECD4F3E
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Nov 2025 03:56:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9T2DbJXTL02gDuKqRKAHj63zBLmVwp0FHpFWKELvs6o=; b=p/cZQGIIMDPiO7OfLkP5jiDlNh
-	e7N5yAxORxHdFttNcxh+slgVyy2B6I2MD+TMkV3M+KUsi3524FzD6fji3rEdK5jtv/bQE02Ft1FFA
-	sGhqj1qOfKOthQAV6TeeaOLateV7XmjXhb3x2kZkUQFC82wv5hy/eTZ6+S/iyW0zjxy3TkcsoG+XJ
-	5PxlXT81UUI4LATjSaF6oVwVHYCG4jFJp9XplrIZSqUIAm9QrdGO5Is7onQFSYYZ52u9RgkCM2QD+
-	JolzIGcNMDgOaFAYAq0f/Z0lyDpusWdi4YHq4c1WlaLd1OfloYDks/3UROCR+qQp990N2qwzMxSdM
-	qF54fpsg==;
+	bh=+d11/97yRmoOItITlX8hl7n6rNBG3cdfrFwI8I9S/Yo=; b=Nk/XNhSyCpm7l+/2wykfUsgXDG
+	ePk2d96AMIj/uKA+LsyZ02g3FlpLlG69zbGiiI+s4Wp0/E3cpjw/LNGmx4QX3XNHFcFa3ivH95K+5
+	Wdq7I8Bk6eo4M5sobN2ScRFADJx8j01drbnzKAc3X8ct/DQQNQKkkC5Ab0rW6BrxIWcGbBa9Cqe4M
+	Rnj6DcbSzeArmvZ0Is+KkztpmQ5g/i+wNFDvpRyCkpC66Tz0pXADAsQwFhTtofZYVFnr0b31vSbcZ
+	mVnjESDbIpOHQcCinzyKcnmz2JGT0r2IiSwG31peitJGqqUGayh3yndWsDCXbpwm0cpHD9C3gTMhj
+	WaGCHydg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKTnl-0000000EKxZ-1cKK;
-	Sun, 16 Nov 2025 03:51:45 +0000
+	id 1vKTsW-0000000ELFS-0R33;
+	Sun, 16 Nov 2025 03:56:40 +0000
 Received: from mail-m16.yeah.net ([220.197.32.17])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKTni-0000000EKwX-3Pdt
+	id 1vKTsR-0000000ELEz-3RZC
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 16 Nov 2025 03:51:44 +0000
+	Sun, 16 Nov 2025 03:56:37 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yeah.net;
 	s=s110527; h=Date:From:To:Subject:Message-ID:MIME-Version:
-	Content-Type; bh=9T2DbJXTL02gDuKqRKAHj63zBLmVwp0FHpFWKELvs6o=;
-	b=HRXqVbriK/FgeE7H6K/G1lLF9PBP9XAYmclO+P7pLfBBklJ5poTiXzOEeBqjNd
-	ilKXnYYDrlkbsjK+RHk4hJB0GyEAB6bJwJgWFc4xYNIim4N+h7WGasO+sWWeAUFK
-	NXEBdqxWqzvb02vkr9eUrlZzaKYUDdauZIVU+Z43mJCbw=
+	Content-Type; bh=+d11/97yRmoOItITlX8hl7n6rNBG3cdfrFwI8I9S/Yo=;
+	b=NgJpJ+zBDX0MZ6JrWYa/UG5i1llDwj6bUNli3bHCZGvMo99R5xwOZwmYqvOgDp
+	B/IQoge6LZBZdyAytuk8P8Ma2Ff9VQPHQJ7zk4ncADLSNXHYvhyxq/0lzmz3rBRT
+	yTf36Lw6CY/ItBVsWx0NiQKC7rjGBtqEBbW6Y7z0kLpBs=
 Received: from dragon (unknown [])
-	by gzsmtp3 (Coremail) with SMTP id M88vCgCnKou+SRlpHYgSAg--.7957S3;
-	Sun, 16 Nov 2025 11:49:21 +0800 (CST)
-Date: Sun, 16 Nov 2025 11:49:18 +0800
+	by gzsmtp2 (Coremail) with SMTP id Ms8vCgDn4UNjSxlpT8UfAg--.7837S3;
+	Sun, 16 Nov 2025 11:56:21 +0800 (CST)
+Date: Sun, 16 Nov 2025 11:56:19 +0800
 From: Shawn Guo <shawnguo2@yeah.net>
-To: Shengjiu Wang <shengjiu.wang@nxp.com>
-Cc: andrzej.hajda@intel.com, neil.armstrong@linaro.org, rfoss@kernel.org,
-	Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
-	jernej.skrabec@gmail.com, maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com,
-	simona@ffwll.ch, lumag@kernel.org, dianders@chromium.org,
-	cristian.ciocaltea@collabora.com, luca.ceresoli@bootlin.com,
-	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
-	victor.liu@nxp.com, shawnguo@kernel.org, s.hauer@pengutronix.de,
-	kernel@pengutronix.de, festevam@gmail.com, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, p.zabel@pengutronix.de,
-	devicetree@vger.kernel.org, l.stach@pengutronix.de,
-	shengjiu.wang@gmail.com, perex@perex.cz, tiwai@suse.com,
-	linux-sound@vger.kernel.org
-Subject: Re: [PATCH v7 7/7] arm64: dts: imx8mp-evk: enable hdmi_pai device
-Message-ID: <aRlJvijH-F8pz10O@dragon>
-References: <20250923053001.2678596-1-shengjiu.wang@nxp.com>
- <20250923053001.2678596-8-shengjiu.wang@nxp.com>
+To: max.oss.09@gmail.com
+Cc: Max Krummenacher <max.krummenacher@toradex.com>,
+	Stefan Eichenberger <stefan.eichenberger@toradex.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Fabio Estevam <festevam@gmail.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v1 0/5] arm64: dts: imx8-apalis: add additional
+ functionality
+Message-ID: <aRlLY_rWgeAXGEV-@dragon>
+References: <20251027093133.2344267-1-max.oss.09@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250923053001.2678596-8-shengjiu.wang@nxp.com>
-X-CM-TRANSID: M88vCgCnKou+SRlpHYgSAg--.7957S3
-X-Coremail-Antispam: 1Uf129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7v73
-	VFW2AGmfu7bjvjm3AaLaJ3UbIYCTnIWIevJa73UjIFyTuYvjxUbWlkUUUUU
+In-Reply-To: <20251027093133.2344267-1-max.oss.09@gmail.com>
+X-CM-TRANSID: Ms8vCgDn4UNjSxlpT8UfAg--.7837S3
+X-Coremail-Antispam: 1Uf129KBjvdXoWrtFWruF13KrW7Cw1DAr4Utwb_yoWxuFc_ur
+	1YkFnrWa12gF4kKw45JF4I9FWY9F409FyIq3y7W3srW34SvF1rAr48XryF9w18tr4jkrsr
+	ZFs5Zw4DXws8ujkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7IUU2jg7UUUUU==
 X-Originating-IP: [117.82.150.42]
-X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiNgEjiGkZScFifQAA37
+X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiNQWM8WkZS2WKnwAA3G
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251115_195143_193792_5736ECBC 
-X-CRM114-Status: UNSURE (   5.44  )
+X-CRM114-CacheID: sfid-20251115_195636_164881_79F8F23A 
+X-CRM114-Status: UNSURE (   7.41  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -84,16 +83,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 23, 2025 at 01:30:01PM +0800, Shengjiu Wang wrote:
-> Enable hdmi_pai device.
+On Mon, Oct 27, 2025 at 10:30:06AM +0100, max.oss.09@gmail.com wrote:
+> From: Max Krummenacher <max.krummenacher@toradex.com>
 > 
-> Aud2htx module, hdmi_pai and hdmi controller compose the hdmi audio
-> pipeline.
+> Cleanup the regulator used for the Wi-Fi module.
+> Improve ADC node by specifing the used reference volatage.
+> Add thermal nodes and cooling devices for the PMIC.
+> Cleanup TODOs no longer applicable.
 > 
-> Signed-off-by: Shengjiu Wang <shengjiu.wang@nxp.com>
-> Reviewed-by: Frank Li <Frank.Li@nxp.com>
-> Tested-by: Alexander Stein <alexander.stein@ew.tq-group.com>
+> 
+> Max Krummenacher (3):
+>   arm64: dts: imx8-apalis: cleanup todo
+>   arm64: dts: imx8-apalis: add thermal nodes
+>   arm64: dts: imx8-apalis: specify adc reference voltage regulator
+> 
+> Stefan Eichenberger (2):
+>   arm64: dts: imx8-apalis: rename wifi regulator
+>   arm64: dts: imx8-apalis: use startup-delay-us for wifi regulator
 
-Applied, thanks!
+Applied all, thanks!
 
 
