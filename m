@@ -4,95 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C5A2CD4F3E
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Nov 2025 16:20:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9290FCCD19A
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Nov 2025 16:26:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IcWG0c7Ap4vHQVKjcGsS3wLPIyj8+cOECPrxfy8qqX8=; b=rbhzCxi7l0Mu7RhcYfsyYOXDrd
-	JOXFmRaYNj9z0j1Co9fH0RySQIKKwhthUj/HQgBjiC0ZeZJpx4EBWRRxIDTgyBnie82IouxzqzCnb
-	58GSdI4HatERy0Ab9ujNf+tg4vAXYBHcfiEqD4H0zCzCloIdYblYOqc2yKJKbpy9Z8nyBVGc99r6c
-	x9k447oZIprxc8jPDKXhMHWTRihWvqK0CTA0sRacBGkAdYGz2eUwoISpWU39SLLo6WIskjPsAt9Jq
-	zQcSiEOzscHlmiCTUggus53Ku3A0lnhDQIHfKDfArvOzk1B+5zXJYdMIYboIpAlGONJR74eUP76TY
-	4+OyGi1A==;
+	bh=utji8Aq0mvq0N87Jf82ivnv0+hotmgIQKp4IeytxJts=; b=BnEL4uEWa3xoXsYCDFVAIPCW6h
+	cfHRlt0QPPTfB/NOSxXQOt5Uwf+SP+S1W39TMnEPrRao9946shAYhxq8OERcifcO0mNLPJPTOjiCo
+	gZD1DLTB3xXe8j9LIuqlpeOkqfULqoou2DTYC7/KLGrrz6/0zj/4Pmba5vjkPqKIzGSmTrWgqsSc9
+	vwFFo7lasQflzloevEGl2JjFpI/ehZ4/r5cUOfBq83wKO1WutZxkERyTgEil5avE9Hz6LeMDjK6lr
+	yzUJVcP0+aeTdAeezfiWJ+ooNR9zfStRq8mmZs8v1mn1kpRtcpT4R3IrjJNDnRSuhwPf/10ge8KOo
+	IyNKunVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKfUd-0000000Epve-0PdC;
-	Sun, 16 Nov 2025 16:20:47 +0000
-Received: from mail-ej1-x62d.google.com ([2a00:1450:4864:20::62d])
+	id 1vKfZy-0000000Eq7X-1rrH;
+	Sun, 16 Nov 2025 16:26:18 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKfUY-0000000EpvF-3JAb
+	id 1vKfZv-0000000Eq7C-1m5h
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 16 Nov 2025 16:20:44 +0000
-Received: by mail-ej1-x62d.google.com with SMTP id a640c23a62f3a-b737c6c13e1so212376066b.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 16 Nov 2025 08:20:40 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1763310039; x=1763914839; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=IcWG0c7Ap4vHQVKjcGsS3wLPIyj8+cOECPrxfy8qqX8=;
-        b=AvVdgby1cMhAZZjc2e6sQAMYyCWLq4KKQVO411mOCSFbBI+GS5mhXZFK9sdbUanai1
-         XWbFSz9xWtTZDuUVEjLpcZnmj8tYuBDZzw7Ik4YErjGLGlitRbuz7hXfV0Cv/NrquX/E
-         Frin+yrrlWfWi3YI3F37fiEjWmSA5CmQsloxNhiRANgOi6UtL3f/9X54dqbeZcL3WG00
-         vXbpD+g20moIlKGU6FcIjP4Ik9VvjD2w+vOPbIgXHZY617J7jfjTgXyFdpV0Bp7/0Cz2
-         w2ckwHGjRKbi8NO9pHeMR3IPDrqAP0955zkC8iapchf4GZlNAYqMYax0cCJKubg3HaJ0
-         bAfA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763310039; x=1763914839;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=IcWG0c7Ap4vHQVKjcGsS3wLPIyj8+cOECPrxfy8qqX8=;
-        b=ujtB7sB7SlGbruAeCEwdTlGOu/C5dbgcihJI8O5uOtJkm63Tf7kzNY+iTB7PrVM8Y7
-         akXu2mDCQ3859iviUQDQLHxt3kkNZ91MwlUZFqELezlugPUK+e0zWEzT6ycLz8KB+7Mz
-         SAw8wxf33VxMzVkJ+dQaS1UAQpvwjj/Kq8l8adz7bwG7cMfnIS4hfwSoOIr7co7S5UsL
-         Zl8vwOwI8SCA5zAKCYFKvCsBaQ41jxCQZ/0YoauCYQ1DOLZku2d8CiTh6T2h4XeqGTcH
-         +PIQt+8/+MHBBFLtmo7XWi6rutthRyC7q21xF8WQ6oPfbPodsarG6OoAuLeB9e/6WooJ
-         Xcdw==
-X-Forwarded-Encrypted: i=1; AJvYcCUbFsPQUGYmmfNzcIvAGTY8SJTrZxUwX6PXsqBrbEwqX3ve6BiyDroXQdq06ZkZoWznKeLHZrhcN1xA54Rr/Ltr@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywq3ykfF9r1WnqWl7r89gJ8IBq22lVmdoi5ejhQyooLWkQRxOFk
-	qKFSpjyChjGVDZfy2i055PuVgkD2wceeX9hs/aQ/cdYq3cOm8TGUdGJI
-X-Gm-Gg: ASbGncvewMx7ROEj2GK2MG/3UyHoKNyFn/7Es6IR2oKNvUxDB+KGVxtkaPG969zAdPg
-	7ABH5ukMZ+dxDd8wsF/Ppcbzg4Kdcb0i6baTFgKIUiGhRLfMp+C4k3JCdfS43bapS0vnS32rt3n
-	NinI4/hQiyyUVQo3b72pyacDKsMM7LKH5Hy2sh6fB5Vm+ufuAoJlONeVOyStnCx2G0XQoPrw0t3
-	dcexG7G3q3MU7FLnTChM9dwe89K2ghWfSRm5qvArREq5iVkxBljtIkp09m+D3YYRo7J9qhxtLjH
-	Tmn7VsWFg/+eUzW1YXKbgCAUh3ZH6z93Zxg+4Odv5d6JzJ5dSkyxAwobIL1ga26YKxnuIme8m7Y
-	2ZdX3PRUbIatrmTPA3bdYoWHJpCwYeztomd9jhMAgOK8kkgk4tG7okTtoMrtptdtqbejeqQbI/d
-	3sVb/oR44k59oS42HE5j6jg9/0nOkrZJ7zqL8L/hQzM788SvDs+RTPyalrti6w6Pf4xWREsv9V8
-	PxLnQ==
-X-Google-Smtp-Source: AGHT+IGimZSxkgoIOpfCKAWCHgTmcdkmEWm6/VMebPbmR8mxODGAMWNDh5ErsjYw3DRmDL/5wQcxSw==
-X-Received: by 2002:a17:907:1c81:b0:b71:2145:dfc8 with SMTP id a640c23a62f3a-b7367962422mr1083057166b.39.1763310038731;
-        Sun, 16 Nov 2025 08:20:38 -0800 (PST)
-Received: from jernej-laptop.localnet (178-79-73-218.dynamic.telemach.net. [178.79.73.218])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b734fdae69fsm852257866b.51.2025.11.16.08.20.37
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 16 Nov 2025 08:20:38 -0800 (PST)
-From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
-To: Vincent Mailhol <mailhol@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
- Samuel Holland <samuel@sholland.org>,
- Gerhard Bertelsmann <info@gerhard-bertelsmann.de>,
- Maxime Ripard <mripard@kernel.org>, Marc Kleine-Budde <mkl@pengutronix.de>
-Cc: kernel@pengutronix.de, linux-can@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
- linux-kernel@vger.kernel.org, stable@vger.kernel.org,
- Thomas =?UTF-8?B?TcO8aGxiYWNoZXI=?= <tmuehlbacher@posteo.net>,
- Marc Kleine-Budde <mkl@pengutronix.de>
-Subject: Re: [PATCH can] can: sun4i_can: sun4i_can_interrupt(): fix max irq loop
- handling
-Date: Sun, 16 Nov 2025 17:20:37 +0100
-Message-ID: <2804881.mvXUDI8C0e@jernej-laptop>
-In-Reply-To: <20251116-sun4i-fix-loop-v1-1-3d76d3f81950@pengutronix.de>
+	Sun, 16 Nov 2025 16:26:16 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <mkl@pengutronix.de>)
+	id 1vKfZp-0000le-9L; Sun, 16 Nov 2025 17:26:09 +0100
+Received: from moin.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::7b] helo=bjornoya.blackshift.org)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <mkl@pengutronix.de>)
+	id 1vKfZo-000lyM-0x;
+	Sun, 16 Nov 2025 17:26:08 +0100
+Received: from pengutronix.de (p54b152ce.dip0.t-ipconnect.de [84.177.82.206])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(Client did not present a certificate)
+	(Authenticated sender: mkl-all@blackshift.org)
+	by smtp.blackshift.org (Postfix) with ESMTPSA id E81E14A0D9F;
+	Sun, 16 Nov 2025 16:26:07 +0000 (UTC)
+Date: Sun, 16 Nov 2025 17:26:07 +0100
+From: Marc Kleine-Budde <mkl@pengutronix.de>
+To: Jernej =?utf-8?Q?=C5=A0krabec?= <jernej.skrabec@gmail.com>
+Cc: Vincent Mailhol <mailhol@kernel.org>, Chen-Yu Tsai <wens@csie.org>, 
+	Samuel Holland <samuel@sholland.org>, Gerhard Bertelsmann <info@gerhard-bertelsmann.de>, 
+	Maxime Ripard <mripard@kernel.org>, kernel@pengutronix.de, linux-can@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	stable@vger.kernel.org, Thomas =?utf-8?Q?M=C3=BChlbacher?= <tmuehlbacher@posteo.net>
+Subject: Re: [PATCH can] can: sun4i_can: sun4i_can_interrupt(): fix max irq
+ loop handling
+Message-ID: <20251116-mysterious-delightful-spaniel-18d220-mkl@pengutronix.de>
 References: <20251116-sun4i-fix-loop-v1-1-3d76d3f81950@pengutronix.de>
+ <2804881.mvXUDI8C0e@jernej-laptop>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="em24b66ivg3z2dow"
+Content-Disposition: inline
+In-Reply-To: <2804881.mvXUDI8C0e@jernej-laptop>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: mkl@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251116_082043_462944_786C0E9D 
-X-CRM114-Status: GOOD (  10.42  )
+X-CRM114-CacheID: sfid-20251116_082615_487043_538A5199 
+X-CRM114-Status: GOOD (  17.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,30 +84,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dne nedelja, 16. november 2025 ob 16:55:26 Srednjeevropski standardni =C4=
+
+--em24b66ivg3z2dow
+Content-Type: text/plain; protected-headers=v1; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH can] can: sun4i_can: sun4i_can_interrupt(): fix max irq
+ loop handling
+MIME-Version: 1.0
+
+On 16.11.2025 17:20:37, Jernej =C5=A0krabec wrote:
+> Dne nedelja, 16. november 2025 ob 16:55:26 Srednjeevropski standardni =C4=
 =8Das je Marc Kleine-Budde napisal(a):
-> Reading the interrupt register `SUN4I_REG_INT_ADDR` causes all of its bits
-> to be reset. If we ever reach the condition of handling more than
-> `SUN4I_CAN_MAX_IRQ` IRQs, we will have read the register and reset all its
-> bits but without actually handling the interrupt inside of the loop body.
->=20
-> This may, among other issues, cause us to never `netif_wake_queue()` again
-> after a transmission interrupt.
->=20
-> Fixes: 0738eff14d81 ("can: Allwinner A10/A20 CAN Controller support - Ker=
-nel module")
-> Cc: stable@vger.kernel.org
-> Co-developed-by: Thomas M=C3=BChlbacher <tmuehlbacher@posteo.net>
-> Signed-off-by: Thomas M=C3=BChlbacher <tmuehlbacher@posteo.net>
-> Signed-off-by: Marc Kleine-Budde <mkl@pengutronix.de>
-> ---
-> I've ported the fix from the sja1000 driver to the sun4i_can, which based
-> on the sja1000 driver.
+> > Reading the interrupt register `SUN4I_REG_INT_ADDR` causes all of its b=
+its
+> > to be reset. If we ever reach the condition of handling more than
+> > `SUN4I_CAN_MAX_IRQ` IRQs, we will have read the register and reset all =
+its
+> > bits but without actually handling the interrupt inside of the loop bod=
+y.
+> >
+> > This may, among other issues, cause us to never `netif_wake_queue()` ag=
+ain
+> > after a transmission interrupt.
+> >
+> > Fixes: 0738eff14d81 ("can: Allwinner A10/A20 CAN Controller support - K=
+ernel module")
+> > Cc: stable@vger.kernel.org
+> > Co-developed-by: Thomas M=C3=BChlbacher <tmuehlbacher@posteo.net>
+> > Signed-off-by: Thomas M=C3=BChlbacher <tmuehlbacher@posteo.net>
+> > Signed-off-by: Marc Kleine-Budde <mkl@pengutronix.de>
+> > ---
+> > I've ported the fix from the sja1000 driver to the sun4i_can, which bas=
+ed
+> > on the sja1000 driver.
+>
+> Acked-by: Jernej Skrabec <jernej.skrabec@gmail.com>
 
-Acked-by: Jernej Skrabec <jernej.skrabec@gmail.com>
+Thank you very much! I have seen a lot of feedback from you about the
+sun4i driver. Would you like to become the maintainer of the driver?
 
-Best regards,
-Jernej
+regards,
+Marc
 
+--=20
+Pengutronix e.K.                 | Marc Kleine-Budde          |
+Embedded Linux                   | https://www.pengutronix.de |
+Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
+Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
 
+--em24b66ivg3z2dow
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEn/sM2K9nqF/8FWzzDHRl3/mQkZwFAmkZ+xoACgkQDHRl3/mQ
+kZzTlwf+KKSw3ld6WMWkRDCymQOeVahqaRqN6JLXg1lCVaiFL5OC0OApQ1hYnCLR
+rEnb47cb4jxA/HVt1O2aCS6sOT+OKVSU5kOhFbFFnwcZxrGe54PzPDM//9iHNzd6
+k0HxI1kejcL9ehlMgY5kxUyQG0YUyl2IZjMoPIldc0STty7sK6sBwC4Cq2R6lGtb
+/7RSNZk95tKD7mOabKemeCJDkVrQ0XW2OK9HZaWTxcPEOcmSkp61pZ6rkzJPx06M
+fPPFvVvG3stojpsJXrslsB/hl+NIjh02w+Tvk6fO+UvyXHsIbKVIpe/aLDUWaRwv
+65u3bPD6FMVnzSXzfHs0jijKWABtBw==
+=CLj+
+-----END PGP SIGNATURE-----
+
+--em24b66ivg3z2dow--
 
