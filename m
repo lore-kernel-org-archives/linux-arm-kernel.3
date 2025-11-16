@@ -4,71 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25B76CD4F3E
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Nov 2025 09:50:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2EFFCD4F3E
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Nov 2025 09:58:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U4A5sC6vx4DwfGfQ1k1Mlreu32CFe9N+OnTRiJsS5XI=; b=da25X42XdDPaVr75hFBOHlDHfE
-	yovP660/G8X8DKDZeLVGoQFPYRe+bpa3dx3EuK3q39mHW6s/rfHmR2aCUi5Nn1smEbEdDkGsQJRT9
-	Ctn6u70aQK5/fgKbh6Qy9r93MBgNA2hanMUgq6bIYCZy2jSBaLtyKjD/f6fPlpkCVHjmWy9u0xq6o
-	X6iVXEUm7gvxoCKWi2poMaIT1/6l3NKrIzRqvv0q1Fu8jfSCvQaAHaK0juiknyCzS/9Tj54zzsiDl
-	x4RIoOFi16/QkTwf1K4P8hMFOVExPSBhuRlzCUR9ssduT79bu4oYyHC7zofx8STYRB8UdyKO8q147
-	hAVZwtNw==;
+	bh=L/q/AVGR8/RLFNl3U55Jp3zAzhPBmJRaurGlvbnRsa8=; b=1cP279uHVUKnW6c5wXintX+eQb
+	f0d4KV7LwrG9PkpUCATCIg4lEZPjHQbnboIFBO7qy1IaeDg+tB4yprKGBg8EI9P0ZfX2nzBT8Ggxb
+	e7edDLjExlK2gadH9x8lAqJX73pWjFIn1wmtl37W31FxvXs6QqN8v/qNihPN2RPVaFtIRg8kztQJM
+	49/G4B4pOcZ3v3R24BrtEI4u3+FE8+B4fONQH5NUhcq793fvaxYFiyoVJ4rf6ybgpyBCFjt+Chw5s
+	6+M93NIa/lOGcl4Tr/DK8mHJLfs+9NTSNtfA/szjVae4RGEsxIdBfIBgmbLZu16MX6C8roPSRn0V1
+	tZ8hexFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKZOj-0000000EWdM-2gvO;
-	Sun, 16 Nov 2025 09:50:17 +0000
-Received: from mail-m16.yeah.net ([220.197.32.17])
+	id 1vKZWl-0000000EWsz-2U9e;
+	Sun, 16 Nov 2025 09:58:35 +0000
+Received: from mail-m16.yeah.net ([1.95.21.17])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKZOg-0000000EWd1-2yx4
+	id 1vKZWi-0000000EWsZ-3se9
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 16 Nov 2025 09:50:16 +0000
+	Sun, 16 Nov 2025 09:58:34 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yeah.net;
 	s=s110527; h=Date:From:To:Subject:Message-ID:MIME-Version:
-	Content-Type; bh=U4A5sC6vx4DwfGfQ1k1Mlreu32CFe9N+OnTRiJsS5XI=;
-	b=S1m1+eEgNtV/MtOka1ZTSFj7g7N6dqQ0meJ2NODGU7I8LFnBtJ1kLw0iAt74W8
-	NOsO3LJU8uYGjjF22TB8C4ANXw+uI9QYCnyy0nfugZ8pptDeOiU7z3XCfRRWbxhk
-	isfbNf6LRjgm2gN8BtUZIZNfloKijhgq/50FxDL8PSMng=
+	Content-Type; bh=L/q/AVGR8/RLFNl3U55Jp3zAzhPBmJRaurGlvbnRsa8=;
+	b=NVfGM1+NNXoSfCZuZfMyzw0avrtRsSfVKBEgKWreGrlavlglFXw2+vNM9twf4b
+	qQNlyF1RTwP+7PIhVnrgwXhUQbkpY4Mf0qKpXoFuHR2vSiRUKHWe/+71fQsyJ2/c
+	3c1rV0BZmZwKis3LrD3pvelAh1zAdoWPFk0Vv5lK7ElDc=
 Received: from dragon (unknown [])
-	by gzsmtp3 (Coremail) with SMTP id M88vCgDHr4c1nhlpklwWAg--.8044S3;
-	Sun, 16 Nov 2025 17:49:43 +0800 (CST)
-Date: Sun, 16 Nov 2025 17:49:41 +0800
+	by gzsmtp2 (Coremail) with SMTP id Ms8vCgAXn886oBlp3LsjAg--.8159S3;
+	Sun, 16 Nov 2025 17:58:20 +0800 (CST)
+Date: Sun, 16 Nov 2025 17:58:18 +0800
 From: Shawn Guo <shawnguo2@yeah.net>
 To: Frank Li <Frank.Li@nxp.com>
-Cc: Jean-Baptiste Maneyrol <jean-baptiste.maneyrol@tdk.com>,
-	Jonathan Cameron <jic23@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
 	Sascha Hauer <s.hauer@pengutronix.de>,
 	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, linux-iio@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 2/2] arm64: dts: imx8qxp-mek: Add sensors under i2c1 bus
-Message-ID: <aRmeNSTudl1mBvsn@dragon>
-References: <20251029-qxp_sensor-v1-0-e97ee1de96d8@nxp.com>
- <20251029-qxp_sensor-v1-2-e97ee1de96d8@nxp.com>
+	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, Joy Zou <joy.zou@nxp.com>,
+	Richard Zhu <hongxing.zhu@nxp.com>, Sherry Sun <sherry.sun@nxp.com>
+Subject: Re: [PATCH 00/12] arm64: dts: imx8qxp: collect some imx8qxp-mek dts
+ patches
+Message-ID: <aRmgOiqUXLk8BIDe@dragon>
+References: <20251029-8qxp_dts-v1-0-cf61b7e5fc78@nxp.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251029-qxp_sensor-v1-2-e97ee1de96d8@nxp.com>
-X-CM-TRANSID: M88vCgDHr4c1nhlpklwWAg--.8044S3
-X-Coremail-Antispam: 1Uf129KBjvJXoW7ZF4ktrW5CrWxKF45Zr17GFg_yoW8XF4Dpr
-	97Z393Wr1SvF12k34agFs5GFZ8Cw4rGFn09FnrJayFkrsruFyDt3W7Krnxuw48XF4xXw4S
-	qF1vvr1jkrnxXr7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07URGQDUUUUU=
+In-Reply-To: <20251029-8qxp_dts-v1-0-cf61b7e5fc78@nxp.com>
+X-CM-TRANSID: Ms8vCgAXn886oBlp3LsjAg--.8159S3
+X-Coremail-Antispam: 1Uf129KBjvdXoWrZryfKw13tr1fAF1kCw45Wrg_yoWDJrg_uw
+	4FkFn5C3yYyr4fA345A3Z29rW0gryFyrykWry2gwn3X3WxWFyayFy0v34fWw18GF4fWF1D
+	Aw18Xw1UXr45WjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7IUjOeOJUUUUU==
 X-Originating-IP: [117.82.150.42]
-X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiIBhWu2kZnjh-mwAA3n
+X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiIhzXPWkZoDzehwAA3h
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251116_015015_091791_1D46EBFD 
-X-CRM114-Status: GOOD (  12.29  )
+X-CRM114-CacheID: sfid-20251116_015833_311136_0CD1F749 
+X-CRM114-Status: UNSURE (   8.68  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,76 +80,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 29, 2025 at 03:27:19PM -0400, Frank Li wrote:
-> Add sensors under i2c1 bus.
+On Wed, Oct 29, 2025 at 03:54:36PM -0400, Frank Li wrote:
+> collect some imx8qxp-mek dts patches.
 > 
 > Signed-off-by: Frank Li <Frank.Li@nxp.com>
 > ---
->  arch/arm64/boot/dts/freescale/imx8qxp-mek.dts | 32 +++++++++++++++++++++++++++
->  1 file changed, 32 insertions(+)
-> 
-> diff --git a/arch/arm64/boot/dts/freescale/imx8qxp-mek.dts b/arch/arm64/boot/dts/freescale/imx8qxp-mek.dts
-> index 7b033744554105de6dbc4366f21e3c90f1768deb..9a96018e6f0680ac503135726f4899aca121e7f6 100644
-> --- a/arch/arm64/boot/dts/freescale/imx8qxp-mek.dts
-> +++ b/arch/arm64/boot/dts/freescale/imx8qxp-mek.dts
-> @@ -450,10 +450,36 @@ i2c@2 {
->  			#size-cells = <0>;
->  			reg = <2>;
->  
-> +			accelerometer@1e {
-> +				compatible = "nxp,fxos8700";
-> +				reg = <0x1e>;
-> +			};
-> +
-> +			gyroscope@21 {
-> +				compatible = "nxp,fxas21002c";
-> +				reg = <0x21>;
-> +			};
-> +
->  			pressure-sensor@60 {
->  				compatible = "fsl,mpl3115";
->  				reg = <0x60>;
->  			};
-> +
-> +			/* Ref SCH-54536 */
-> +			pressure-sensor@77 {
-> +				compatible = "meas,ms5611";
-> +				reg = <0x77>;
-> +			};
-> +
-> +			inertial-meter@68 {
+> Frank Li (9):
+>       arm64: dts: imx8qxp: add MAC address in ocotp
+>       arm64: dts: imx8qxp: add readonly for ocotp
 
-Keep devices sorted in slave address.
+Skip this one
 
-Shawn
+>       arm64: dts: imx8qxp: add wakeup source for power-key
+>       arm64: dts: imx8qxp-mek: add state_100mhz and state_200mhz for usdhc
+>       arm64: dts: imx8qxp-mek: update usdhc1 clock to 400Mhz
+>       arm64: dts: imx8qxp-mek: add flexspi and flash
+>       arm64: dts: imx8qxp-mek: add phandle ocotp mac-address for fec
+>       arm64: dts: imx8qxp-mek: add fec2 support
+>       arm64: dts: imx8qxp-mek: change space with tab
+> 
+> Joy Zou (1):
+>       arm64: dts: imx8: add edma error interrupt support
+> 
+> Richard Zhu (1):
+>       arm64: dts: imx8qxp-mek: Add supports-clkreq property to PCIe M.2 port
 
-> +				compatible = "invensense,icm20602";
-> +				reg = <0x68>;
-> +			};
-> +
-> +			inertial-meter@69 {
-> +				compatible = "invensense,iam20380";
-> +				reg = <0x69>;
-> +			};
->  		};
->  
->  		i2c@3 {
-> @@ -483,6 +509,12 @@ light-sensor@44 {
->  				interrupt-parent = <&lsio_gpio1>;
->  				interrupts = <2 IRQ_TYPE_EDGE_FALLING>;
->  			};
-> +
-> +			/* Ref SCH-54536 */
-> +			light-sensort@60 {
-> +				compatible = "vishay,vcnl4035";
-> +				reg = <0x60>;
-> +			};
->  		};
->  	};
->  
+Skip this one
+
 > 
-> -- 
-> 2.34.1
-> 
+> Sherry Sun (1):
+>       arm64: dts: imx8qxp-mek: Add lpuart1 to support the M.2 PCIE9098 bluetooth
+
+Applied the rest, thanks!
 
 
