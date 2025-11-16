@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6542CCD4F3E
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Nov 2025 11:29:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92F84CEBF61
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Nov 2025 11:33:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ra2QegA7D/dDAJ/hRxQQrP8IL6HCZeHrcVNE3yzAL8w=; b=NSD7squdJXtAXNSjfBgzuSJ2/g
-	buJMK+Dh4g8iB3v0zkb/iAcJeZhxKdc7ocuPejKFqEFwholWw/Foh+sO/8fFwcPutxSntxa+Q9dkb
-	yx3VLvmpYznIXSNdOG01FTKWHduJye3WJTVWR0MYrxBnYVcaixLo3/Bt9eWnIMaHAIzAxo2qH68n+
-	m82SMV483ZVP0obyTUvr9WR/Coux2BXpqOIa2L535uv9qGiU7qE8GGpUX8TLinyBIcq6btDJNrFuN
-	EyPQ8wFwb5SuX6JmfjBg48nEmKBoUEfHgiWGdHBzTZgsM5IMw2HvVRRa3YgZ7/be3pcnWkLUGijwP
-	RzQFcV/g==;
+	bh=03eKKn8Z6d+buJQ5PNiCzHmTpIadEDWV3E1AziXTX/o=; b=GltrPNDGLV6LX5Er8Ae4UKDm1H
+	c9dmG2VkBYwxvEl2aOyiunv+sX3FQvLEta3bJnnm3FP9lDffhCAT5sWsaEPFCpzp6QFTM/dtTT3YK
+	sHFM3dgN2uUaZk8t4Ol5uvtgvZWmaPST0Z6BCVBjmoksAc617rQePD3/K1EAuVpSQxJMgnk2Gf9m7
+	Tr72Be8vJ+uHlSt+fzD0moXmy8J5+TblK/XN4p/DBj7RPvnfWx09JhpuRVeAUJtYj/hhf4TrkZ665
+	lT+AHFC47tc4Ptv4+nLwKz8Diau1TDF2kQAyzeGzZayk+wZmEajn8RUoBDLWalk7VqVv8gP0OUar5
+	sFAJ3pFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKawl-0000000EZoL-3kgG;
-	Sun, 16 Nov 2025 11:29:31 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vKb0X-0000000EZza-1wqm;
+	Sun, 16 Nov 2025 11:33:25 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKawk-0000000EZoF-40Pv
+	id 1vKb0V-0000000EZyp-08NM
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 16 Nov 2025 11:29:31 +0000
+	Sun, 16 Nov 2025 11:33:24 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 20C2A60183;
-	Sun, 16 Nov 2025 11:29:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4A557C4CEF1;
-	Sun, 16 Nov 2025 11:29:29 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 5EFD844158;
+	Sun, 16 Nov 2025 11:33:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A80B7C4CEF1;
+	Sun, 16 Nov 2025 11:33:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763292569;
-	bh=mnXvqYmImcinYneeN4zW9LnuvANHy8IWtl4d1UPxOE8=;
+	s=k20201202; t=1763292802;
+	bh=aTVKcWg8+7e+j27IM4wyG63oyRGSBSps9hXBl5rry+4=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Wzunf4+Dqpm8I172TRzSWUXI6UzmdSlHBq8WRdCWcS94xCaQm+lKMWs54tSMmFeSu
-	 0GmB/twTiwhYFSrxFAG1f3TYhJ7Gd42+wN5/tmmAJRuT3km0Uq2dRgy6vQDE+FSKSG
-	 Ks6rda4N7Eam799dwq3KdZDNuxIqAwMe6/i4Iy++9UxUjxAMwD/tZB3XJCg9TygBmi
-	 yYG3g3vk3adHL/vlhpDzM0UjZjNeiTH2SelYpRF+zwBb06K7yET+XUXd8Ftwiw67CA
-	 p8+z0LYsDz/GVpjoHsbqJqVqSwlQXit2P5MxXdrnVIIAUvONjeYP4QsV9P4aJMlu3n
-	 VoSpxAaT3fE+w==
-Date: Sun, 16 Nov 2025 12:29:27 +0100
+	b=O9lwb9MtrAwaMgWxarcIBMhbs88fyByN1BXLpUCIMMB9VGpbHAI70G8h6pfD8VPMh
+	 elnjiiZFkkuJlAohkMpH3CJr9VOmJ3ZtZfrB+HAy0/p+kXeaQcXjHpa5JC0bqeyFJA
+	 2YGALecHiW3KJV4NejWLA4Oq6BSoTDsOp69+AuqEb3a+DASnPHhQH5vbFCoJsIcFSA
+	 mIY66abzLRKzkOeIs36AzO9AvLG9h1xpzpJcCGWkcK3xYlfgaiWpLfYksTYv9zOsOx
+	 JT+pdLB0NdaAwU+awik54ZLMs2lh3XHJi6wH/k/4bZGlQPOzmEs0e1jGY6QzfT6Fr0
+	 PwW+fxwZuD+HA==
+Date: Sun, 16 Nov 2025 12:33:19 +0100
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Jernej Skrabec <jernej.skrabec@gmail.com>
 Cc: wens@csie.org, samuel@sholland.org, mripard@kernel.org, 
@@ -51,14 +51,18 @@ Cc: wens@csie.org, samuel@sholland.org, mripard@kernel.org,
 	sboyd@kernel.org, dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
 	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
 	linux-clk@vger.kernel.org
-Subject: Re: [PATCH 4/7] dt-bindings: display: allwinner: Add DE33 planes
-Message-ID: <20251116-humongous-ant-from-betelgeuse-c0c416@kuoka>
+Subject: Re: [PATCH 6/7] dt-bindings: display: allwinner: Update H616 DE33
+ binding
+Message-ID: <20251116-pigeon-of-optimal-blizzard-2cb3b3@kuoka>
 References: <20251115141347.13087-1-jernej.skrabec@gmail.com>
- <20251115141347.13087-5-jernej.skrabec@gmail.com>
+ <20251115141347.13087-7-jernej.skrabec@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20251115141347.13087-5-jernej.skrabec@gmail.com>
+In-Reply-To: <20251115141347.13087-7-jernej.skrabec@gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251116_033323_111379_DAE7E7B0 
+X-CRM114-Status: GOOD (  13.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,60 +77,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Nov 15, 2025 at 03:13:44PM +0100, Jernej Skrabec wrote:
-> Allwinner Display Engine 3.3 contains planes, which are shared resources
-> between all mixers present in SoC. They can be assigned to specific
-> mixer by using registers which reside in display clocks MMIO.
+On Sat, Nov 15, 2025 at 03:13:46PM +0100, Jernej Skrabec wrote:
+> As it turns out, current H616 DE33 binding was written based on
+> incomplete understanding of DE33 design. Namely, planes are shared
+> resource and not tied to specific mixer, which was the case for previous
+> generations of Display Engine (DE3 and earlier).
 > 
-> Add a binding for them.
+> This means that current DE33 binding doesn't properly reflect HW and
+> using it would mean that second mixer (used for second display output)
+> can't be supported.
 > 
-> Signed-off-by: Jernej Skrabec <jernej.skrabec@gmail.com>
-> ---
->  .../allwinner,sun50i-h616-de33-planes.yaml    | 44 +++++++++++++++++++
->  1 file changed, 44 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/display/allwinner,sun50i-h616-de33-planes.yaml
+> Update DE33 mixer binding so instead of referencing planes register
+> space, it contains phandle to newly introduced DE33 planes node.
 > 
-> diff --git a/Documentation/devicetree/bindings/display/allwinner,sun50i-h616-de33-planes.yaml b/Documentation/devicetree/bindings/display/allwinner,sun50i-h616-de33-planes.yaml
-> new file mode 100644
-> index 000000000000..801e5068a6b5
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/display/allwinner,sun50i-h616-de33-planes.yaml
-> @@ -0,0 +1,44 @@
-> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/display/allwinner,sun50i-h616-de33-planes.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Allwinner H616 Display Engine 3.3 planes
-> +
-> +maintainers:
-> +  - Jernej Skrabec <jernej.skrabec@gmail.com>
-> +
-> +description: |
+> There is no user of this binding yet, so changes can be made safely,
+> without breaking any backward compatibility.
 
-Do not need '|' unless you need to preserve formatting.
+And why would you configure statically - per soc - always the same plane
+as per mixer? If you do that, it means it is really fixed and internal
+to display engine thus should not be exposed in DT.
 
-> +  Display Engine 3.3 planes are independent of mixers, contrary to
-> +  previous generations of Display Engine. Planes can be assigned to
-> +  mixers independently and even dynamically during runtime.
-> +
-> +properties:
-> +  compatible:
-> +    enum:
-> +      - allwinner,sun50i-h616-de33-planes
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  allwinner,plane-mapping:
-> +    $ref: /schemas/types.yaml#/definitions/phandle
-> +    description: Phandle of Display Engine clock node
-
-You description is almost duplicating property name. You need to explain
-here how this device uses them.
-
-Esxpecially that clocks do not go via custom properties.
+Describing each IP block resource in DT is way too granular.
 
 Best regards,
 Krzysztof
