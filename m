@@ -4,62 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2951CEBF61
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Nov 2025 11:34:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7CF3CD4F3E
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Nov 2025 11:37:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kBb9AspvLf557uhFIN3gJrajK3T/0l2G151szkeQDiY=; b=LvYZTck8Rt+h3fs4Mi4qHKc7nu
-	0Rp857gKpDQpLcaS8LwsAHWNOEoQ6TYiTM6/Jpy+ZyGeq+e5tA8JBtzeKC3iV87Chobhm2YeAEJ/6
-	kqDX6EIHRZBb9wIS1oBa35FbrRoq+T823zquPhGPSxfz3T9EAKFGo6knTZpVytgsAh3KSc/ufIHCJ
-	RKiwt38LogDpBr4xI7HRhRgFNsCxk2//wRfEoVCIq3YnlRqxLOZScl5K3RVldcV8Bm46IZHeRC8er
-	1qKLSlrqbt9QIgDRZwqql90Au6DWPa/c4kYdzV8C2INy56wUoaltlK/FeARq0AD0p/fm/EGZDkZ1L
-	brEPBbDA==;
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZSgkbmykPuiwOC+1Xlw9AJigNKFRIXP5sGs9bJMCeBY=; b=QFRpPSdw3L8HdADHXgci9XY8YZ
+	j9RimBssfoQ/ap0f0k9tnPAWseJr1nJQyNVeOIYfHRauBJ9k1SJgHlsyI6Rpi1DPr8fsdLaMkJag7
+	KyP89xTs/U2R2rpgvuibGL6IouzFAr/V+FfOJWuFHAJQEsKtOzPsyIqIGUOyT/aOSlk5CG+gcDhIk
+	LosjNOrox7x8oFQdx8kP77czFeXCXKQ8LuPBvi3+Gm9Gau8zWuau1N7VsFUzFHHj+8iCXiKeA+b5m
+	53Uf2BQbXqv4EwuvXbUsFjX4OEYdEN4GfA6KcdZPnATCXFfDKiBaicdXpy4n/Xrloz8q9AhMcRSAM
+	ujZGWFJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKb19-0000000Ea3P-3KYe;
-	Sun, 16 Nov 2025 11:34:03 +0000
+	id 1vKb4Q-0000000EaEL-1gdy;
+	Sun, 16 Nov 2025 11:37:26 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKb18-0000000Ea3H-2OXE
+	id 1vKb4P-0000000EaEB-2oUX
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 16 Nov 2025 11:34:02 +0000
+	Sun, 16 Nov 2025 11:37:25 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7583F601B4;
-	Sun, 16 Nov 2025 11:34:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 492FAC4CEF1;
-	Sun, 16 Nov 2025 11:33:57 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 16BAB60147;
+	Sun, 16 Nov 2025 11:37:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4B8C7C4CEFB;
+	Sun, 16 Nov 2025 11:37:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763292841;
-	bh=ny3KeeNSWknIOt9YTbOdCbwoCy7TChNZ7dJtDoWPC0U=;
-	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
-	b=Dq2o3am8UhFpUdR7ehx3B9NmzrjIMZgUOkqGvmEbTxarqQ24b7uf9u+J6iaZlLf1G
-	 DIvD6jNZpQqLNKFFWW2kZCV2xJfn6Ea0eeBF0QfnYGyFb74bTGVZ8/eCgSZOlDsTiw
-	 AHSQEETowYK/u/G9mVkrbcbYMHMh58QF//ppYmNBym5IgfnhQJ2HB4t4DOjw2OAVD5
-	 KBmG0hFFvQTDg7Ys3bOPZA/ul1fHbBunYJX0BJ/Uyz9LPbkIUGk5Y1gXB97vQs7UQs
-	 Y6lctvHk+cVjk3pDEMdwGeQt5kOMYoYs8mhWUrn7V+2+Cm25cuDo4wQX77cM7Waouq
-	 WHm6PLhcwy2ww==
-Message-ID: <4b4ebcc2-491a-42d3-9758-60de80ce5eb6@kernel.org>
-Date: Sun, 16 Nov 2025 12:33:55 +0100
+	s=k20201202; t=1763293044;
+	bh=im6DmuF4iGlVO4Ak2kfup34KlXMP9GQla5lGTKsOf/U=;
+	h=Date:Subject:To:References:From:In-Reply-To:From;
+	b=KFwzBUUpqwGmxhPYxOmQG9+UYQ+otttsEDSuEEbNyyxcLLHSeA22hxPvyakf+qjPC
+	 dQHSKbgxg5kYHk8NMKuakRUY+1/+gtvMu9ebTP5c6u9ZBCvp7gMvBv4EVJEezdH4g8
+	 wLY6r5l+FBjShVq0uNmASlRf0fBDivePjljaEUywDVgRABpPhNJ300RRTEX/kvUbG9
+	 sd5qIF2pegLLZbODiijzD35tCxpU2tBV33z4E2/82cBfKemrP44E/g++5epvlsFDGh
+	 +cj6GtRqBY2G9AcbBcPHxtvRcR7iofx6qYc0RBsg50qkoi5nwf1S1SodX/q3QvpdZC
+	 kYV1qF2cQWOQQ==
+Message-ID: <ba5db26e-b59d-4074-9436-3e71257fa70f@kernel.org>
+Date: Sun, 16 Nov 2025 12:37:15 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 6/7] dt-bindings: display: allwinner: Update H616 DE33
- binding
+Subject: Re: [PATCH v7 1/7] dt-bindings: display: imx: add HDMI PAI for
+ i.MX8MP
+To: Shengjiu Wang <shengjiu.wang@nxp.com>, andrzej.hajda@intel.com,
+ neil.armstrong@linaro.org, rfoss@kernel.org,
+ Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
+ jernej.skrabec@gmail.com, maarten.lankhorst@linux.intel.com,
+ mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch,
+ lumag@kernel.org, dianders@chromium.org, cristian.ciocaltea@collabora.com,
+ luca.ceresoli@bootlin.com, dri-devel@lists.freedesktop.org,
+ linux-kernel@vger.kernel.org, victor.liu@nxp.com, shawnguo@kernel.org,
+ s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, p.zabel@pengutronix.de,
+ devicetree@vger.kernel.org, l.stach@pengutronix.de, shengjiu.wang@gmail.com,
+ perex@perex.cz, tiwai@suse.com, linux-sound@vger.kernel.org
+References: <20250923053001.2678596-1-shengjiu.wang@nxp.com>
+ <20250923053001.2678596-2-shengjiu.wang@nxp.com>
+ <aPc9-wYxGB1KYPyQ@phenom.ffwll.local>
 From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Jernej Skrabec <jernej.skrabec@gmail.com>
-Cc: wens@csie.org, samuel@sholland.org, mripard@kernel.org,
- maarten.lankhorst@linux.intel.com, tzimmermann@suse.de, airlied@gmail.com,
- simona@ffwll.ch, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- mturquette@baylibre.com, sboyd@kernel.org, dri-devel@lists.freedesktop.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
- linux-clk@vger.kernel.org
-References: <20251115141347.13087-1-jernej.skrabec@gmail.com>
- <20251115141347.13087-7-jernej.skrabec@gmail.com>
- <20251116-pigeon-of-optimal-blizzard-2cb3b3@kuoka>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
  xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
@@ -104,7 +109,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20251116-pigeon-of-optimal-blizzard-2cb3b3@kuoka>
+In-Reply-To: <aPc9-wYxGB1KYPyQ@phenom.ffwll.local>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -121,31 +126,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 16/11/2025 12:33, Krzysztof Kozlowski wrote:
-> On Sat, Nov 15, 2025 at 03:13:46PM +0100, Jernej Skrabec wrote:
->> As it turns out, current H616 DE33 binding was written based on
->> incomplete understanding of DE33 design. Namely, planes are shared
->> resource and not tied to specific mixer, which was the case for previous
->> generations of Display Engine (DE3 and earlier).
+On 21/10/2025 10:02, Simona Vetter wrote:
+> On Tue, Sep 23, 2025 at 01:29:55PM +0800, Shengjiu Wang wrote:
+>> Add binding for the i.MX8MP HDMI parallel Audio interface block.
 >>
->> This means that current DE33 binding doesn't properly reflect HW and
->> using it would mean that second mixer (used for second display output)
->> can't be supported.
+>> The HDMI TX Parallel Audio Interface (HTX_PAI) is a digital module that
+>> acts as the bridge between the Audio Subsystem to the HDMI TX Controller.
+>> This IP block is found in the HDMI subsystem of the i.MX8MP SoC.
 >>
->> Update DE33 mixer binding so instead of referencing planes register
->> space, it contains phandle to newly introduced DE33 planes node.
+>> Aud2htx module in Audio Subsystem, HDMI PAI module and HDMI TX
+>> Controller compose the HDMI audio pipeline.
 >>
->> There is no user of this binding yet, so changes can be made safely,
->> without breaking any backward compatibility.
+>> In fsl,imx8mp-hdmi-tx.yaml, add port@2 that is linked to pai_to_hdmi_tx.
+>>
+>> Signed-off-by: Shengjiu Wang <shengjiu.wang@nxp.com>
+>> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+>> Tested-by: Alexander Stein <alexander.stein@ew.tq-group.com>
 > 
-> And why would you configure statically - per soc - always the same plane
-> as per mixer? If you do that, it means it is really fixed and internal
-> to display engine thus should not be exposed in DT.
-> 
-> Describing each IP block resource in DT is way too granular.
-> 
+> dt patches need an ack from dt maintainers before you push them, please
+> make sure you follow that for the next changes.
 
-BTW, everything is update, thus subject is really non-informative.
+Huh? Review is an Ack as well. We NEVER give both Rb and Ack. Either Ack
+or Review, because Review carries much stronger acceptance.
 
 Best regards,
 Krzysztof
