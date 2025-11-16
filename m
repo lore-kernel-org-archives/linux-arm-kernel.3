@@ -4,78 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CF9FCD4F3E
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Nov 2025 12:08:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D209CCEBF61
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Nov 2025 12:10:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=iNn0qP/249kJDQzGSS/F/L8+NQ46eWkZ/7Q+EwQ3/5A=; b=uqiVtC5OLXFV5Y
-	+Wqz7CPP3c5Dxi6TRsh+YnaEmVWYjxMGyPQITjicgwQQsDzSGQFYBP7A32WkG/F6xYTcs2qIViGZs
-	gTqyygoH8VyQlDHru8AhVLa1MSbAZpOQlChOczSbT62Aaf2JYADp11YQ5cGmlzWgVN8OaQuco6gOI
-	u+iGbWg1IBygZ8z/HyVkit1zuRo2Z0tOSHgKH8VUaujVOn5uNrV/+QApQFi7GRs+hoB4yY15Xpr8r
-	mzdzn4dfUwGCoNbcniWGPBlBiUZ3MWWjSvJNNT3m0if5rxRC+RGAKdU/FKyL7UBMfU3WT6JngS672
-	P7iYHcnlf45dT8QZUMXA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BnsF6JeZIC4Q2fWv2jeLUTcHN7i4Xl69LvES25j5B6Y=; b=eefqsxNAFziNthWk2NOuunFZCk
+	gNkN1zczD7a5UPN5e3DfsuuAIBatDXjT4dCao2HTKhjLr1n/c9qF+Erk0nprxMxp8rrCdQadzNmns
+	iBIr/EhftLyzoWTdj6VeGQ33dJ/ZZxNfqYb8isKCkjckTZ6bMdr38y6c8kHFaWGU+SAiRZEx2cfY0
+	Hq1oOSSlkOe9xja+Ql8DPmlXenX4QN9O4w/gZbgCl1gTJqLhC0/7j/xM/FL1NcphEdmU5uSFsowyo
+	uEQjbd0I21jJL+qVfYYE+iWYZ5SC40cNC2eiMzr1srysXYOvCnsYkDy3Ywypwg1F5y+JbqG7s2m9b
+	b2eHswDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKbXy-0000000Ebvy-0drw;
-	Sun, 16 Nov 2025 12:07:58 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vKbad-0000000Ec5Z-2kj7;
+	Sun, 16 Nov 2025 12:10:43 +0000
+Received: from mail-ed1-x533.google.com ([2a00:1450:4864:20::533])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKbXu-0000000EbvX-43IS
+	id 1vKbaZ-0000000Ec53-2h2I
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 16 Nov 2025 12:07:56 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3151A43650
-	for <linux-arm-kernel@lists.infradead.org>; Sun, 16 Nov 2025 12:07:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D8307C2BCAF
-	for <linux-arm-kernel@lists.infradead.org>; Sun, 16 Nov 2025 12:07:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763294873;
-	bh=iNn0qP/249kJDQzGSS/F/L8+NQ46eWkZ/7Q+EwQ3/5A=;
-	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc:From;
-	b=m9bQeEPgYrSLZI637fXuUKI8PVad8FU3ii4iMgR2lx+EE18IZlvLI8V1QQpE3APAp
-	 +lniZsf4NXDG9QQ1bhI4jowjW+8emoAyRM5cbpi7SGIwj4lls6Ows7eKfgnYJR7FvD
-	 3BbuBnlv61bZgehE/8Kb1NjBRRk+2M+atX0g5tZ4/5Pja5/KCazyxxLpBQaIhya0jd
-	 rYQ/bf5zlZyU14VBtFbQJmeURdA2YJ6KfK2BgxremSmP6cIVwEZMGuVcvYW4XrQyjM
-	 5saxI+Q3o6VvHMFFYHr1pQ7AKNgwRbqiw4NTBcNYpSjyKTTXab714xPMoeVwlwxZhK
-	 LOJkLBBLHfNlg==
-Received: by mail-lj1-f178.google.com with SMTP id 38308e7fff4ca-37902f130e1so27392981fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 16 Nov 2025 04:07:53 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCVXAlt0y+u1HfBBnASv7HzNjLB7ponlrrj5kch2ULrrXTb2j7kQuIo03gZQi0QZBpiZHmBfEDfzPGhX0SHZX+gE@lists.infradead.org
-X-Gm-Message-State: AOJu0YwW673p0s62B+g6Ve89hOeooRgFtzYYrXN0ksvDgvenPJoQRGcG
-	CGXAuJm/jh+vDLHXJuISCCA7ehzb1ISMvrlVsKjSIlY0l9hdS0sO1fIQrjxGPsryxLphkmTgsVy
-	3TFovWC5ErQ1U4nHdYx/jr1N8nXW4gKg=
-X-Google-Smtp-Source: AGHT+IEvIN8OBOVj188eKaOm21h0kLrZfEbd8gXOEWO1ViahGfGkiAHVWIOgpRFEEEODq4tccJOhUGpdSt0NBiXPH2A=
-X-Received: by 2002:a2e:8a87:0:b0:37b:b00b:7988 with SMTP id
- 38308e7fff4ca-37bb00b7bccmr18734591fa.29.1763294871956; Sun, 16 Nov 2025
- 04:07:51 -0800 (PST)
-MIME-Version: 1.0
+	Sun, 16 Nov 2025 12:10:42 +0000
+Received: by mail-ed1-x533.google.com with SMTP id 4fb4d7f45d1cf-640d0ec9651so5686818a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 16 Nov 2025 04:10:39 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1763295038; x=1763899838; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=BnsF6JeZIC4Q2fWv2jeLUTcHN7i4Xl69LvES25j5B6Y=;
+        b=A945jVN9YXqxlPfXk2w2VZeJ58nhuqW1D7chql/FpCLDvHrXib4B9iGnCnZa1lwKAj
+         ARJWoZTAC4D53Aa2vcIFVVMJu8XqZMDK9m31Z0g239nQlRps8XBj9eq8ndMCGgVjE8QW
+         E2kK/pixIOijarelmbS8ml5/sN/8BN6ANAOXSBlriQvvayTTFoAuLLemjALHsS7h/t7C
+         VczI/n7a96DLJxXiJ/1O06Jt7iwLGZDeEfWuaai0bgJ16+zyt+dNCrTl+Mi+AIKdP0CK
+         zakQo0irqiaXZPQOMbZTidURXU/ujmxUXblEoQvWpuU0S+L9+c9eT8VbpD6rJ9kliD7O
+         YEuA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1763295038; x=1763899838;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=BnsF6JeZIC4Q2fWv2jeLUTcHN7i4Xl69LvES25j5B6Y=;
+        b=SQOMSNFce7UwjzT78kJD7tfg71o1UD09NRMiiDYsoNj0ZFMzvTC1C3UWiTXb+XrSMe
+         ObiIHCrzEq0nrSiK2myTFM+I1jiTDabzrvbPEekSpfwY75qhmklwHKfbCapnk0499M6I
+         i+gJtWdQJvOTh5NiybYCYUYB/vxDe7kAXkc6jLJxCPa7yw1aAJ4oPd1dOa49oX2MM2sz
+         QKTwOliqBo2QDImL0Q25d3LbMdq3iRvr6FSUZQuFxgdrTg9/YqMeIRGa4St9D6EIVdRu
+         +sJbS93iyXlN3AgM/6wBFhvb0lquDkMRp1bob2tGIVFM+VsFa/mXb7AIjrf2i+uMPuXZ
+         +P4A==
+X-Forwarded-Encrypted: i=1; AJvYcCXNPxX8FboryIjcM6Qf+XZ4QVN6GTy5eYN1T7gIaAf5e14adUcU5gvJjg+JO+gOClzzzv9hD3Ygkjl/ZZuJNfZc@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz3B6JsHyIfVwOSLbqSySAIfw44vnxr9mqxxXniAHM9a39IgxMo
+	pbfeCCzdUN+7RB0TNoA329z/ObNn9meuyJILA2mtsTYIqpjBW1xF8yZ/
+X-Gm-Gg: ASbGncuaFT6jj3KGBEYx/HhZ7jaAK8dluGMdHCPuvPhQrUtm6VtAxcm+S8Ovm++cT6I
+	SJ49f8vEK7rJdgtmzB4nKjUzp+Xrxp8lixOcsZ/heoHUSUCtYrSAt/5OlNcFv48WE11dXBvTek4
+	+c8Vwpgjdn3wfi/vAKXVJ+JCdMbxU6Lvy/ETo1+v+Vt1pHsxkxKjMH1RaWsUqVg/xgrA+1cWkJh
+	MhR0B9TY0RsKEsFt/Pb+I80mwJH2bWHfEKBCoF/P23na1gtstP1Id3+BECckRDF6m8DbR1CpYwd
+	B7bOBwwn7yPMB19ZqY29oC+xLEcVexM0d+s14gq/JpqQ5D2vYj0x1RPloX8RAoJ6otXOa28EbTN
+	qnBdYDLKzESE+qOO5qBzgFhP7UZPql9qVyKlWyXoO/u2q6vaSFztVdPex8t83L86ErwFr3v+1FU
+	uVY/ZDm2A9HyveXXvJM/SUZDXmG9LRUKbRjieL0ejTSR004NG2f5CDjkMKgQ==
+X-Google-Smtp-Source: AGHT+IG5Pb4oZTy+N/ijhNzo5h6b+rv9IQmhgKS6Icb7AJg8wd0rdoZ0YkfWkZADk7dGg/KIAneikA==
+X-Received: by 2002:a05:6402:5112:b0:641:9aac:e4bd with SMTP id 4fb4d7f45d1cf-64350e9ed21mr8531044a12.26.1763295037690;
+        Sun, 16 Nov 2025 04:10:37 -0800 (PST)
+Received: from jernej-laptop.localnet (178-79-73-218.dynamic.telemach.net. [178.79.73.218])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6433a4b1fadsm8008375a12.31.2025.11.16.04.10.36
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 16 Nov 2025 04:10:37 -0800 (PST)
+From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: wens@csie.org, samuel@sholland.org, mripard@kernel.org,
+ maarten.lankhorst@linux.intel.com, tzimmermann@suse.de, airlied@gmail.com,
+ simona@ffwll.ch, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ mturquette@baylibre.com, sboyd@kernel.org, dri-devel@lists.freedesktop.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
+ linux-clk@vger.kernel.org
+Subject: Re: [PATCH 4/7] dt-bindings: display: allwinner: Add DE33 planes
+Date: Sun, 16 Nov 2025 13:10:35 +0100
+Message-ID: <3659815.iIbC2pHGDl@jernej-laptop>
+In-Reply-To: <f8979d59-0f71-438f-92ec-bf1077279dce@kernel.org>
 References: <20251115141347.13087-1-jernej.skrabec@gmail.com>
- <20251116-pigeon-of-optimal-blizzard-2cb3b3@kuoka> <4b4ebcc2-491a-42d3-9758-60de80ce5eb6@kernel.org>
- <10753322.nUPlyArG6x@jernej-laptop>
-In-Reply-To: <10753322.nUPlyArG6x@jernej-laptop>
-From: Chen-Yu Tsai <wens@kernel.org>
-Date: Sun, 16 Nov 2025 20:07:38 +0800
-X-Gmail-Original-Message-ID: <CAGb2v65tBHCE7RYPBKKD2j5=rwoH1+pYasNbF5X1=GMSumcHsg@mail.gmail.com>
-X-Gm-Features: AWmQ_bnmhrPCrlQnEh24KiJ1VDf4jAXcqEIaG3lMOfIOQYYG1c8ox1KSD4eS4QE
-Message-ID: <CAGb2v65tBHCE7RYPBKKD2j5=rwoH1+pYasNbF5X1=GMSumcHsg@mail.gmail.com>
-Subject: Re: [PATCH 6/7] dt-bindings: display: allwinner: Update H616 DE33 binding
-To: =?UTF-8?Q?Jernej_=C5=A0krabec?= <jernej.skrabec@gmail.com>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, samuel@sholland.org, mripard@kernel.org, 
-	maarten.lankhorst@linux.intel.com, tzimmermann@suse.de, airlied@gmail.com, 
-	simona@ffwll.ch, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	mturquette@baylibre.com, sboyd@kernel.org, dri-devel@lists.freedesktop.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	linux-clk@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+ <4691137.LvFx2qVVIh@jernej-laptop>
+ <f8979d59-0f71-438f-92ec-bf1077279dce@kernel.org>
+MIME-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251116_040755_044308_A2BFE27F 
-X-CRM114-Status: GOOD (  26.39  )
+X-CRM114-CacheID: sfid-20251116_041041_077210_3B878E7A 
+X-CRM114-Status: GOOD (  20.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,76 +103,100 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: wens@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Nov 16, 2025 at 8:00=E2=80=AFPM Jernej =C5=A0krabec <jernej.skrabec=
-@gmail.com> wrote:
->
-> Hi!
->
-> Dne nedelja, 16. november 2025 ob 12:33:55 Srednjeevropski standardni =C4=
+Dne nedelja, 16. november 2025 ob 12:49:45 Srednjeevropski standardni =C4=
 =8Das je Krzysztof Kozlowski napisal(a):
-> > On 16/11/2025 12:33, Krzysztof Kozlowski wrote:
-> > > On Sat, Nov 15, 2025 at 03:13:46PM +0100, Jernej Skrabec wrote:
-> > >> As it turns out, current H616 DE33 binding was written based on
-> > >> incomplete understanding of DE33 design. Namely, planes are shared
-> > >> resource and not tied to specific mixer, which was the case for prev=
-ious
-> > >> generations of Display Engine (DE3 and earlier).
-> > >>
-> > >> This means that current DE33 binding doesn't properly reflect HW and
-> > >> using it would mean that second mixer (used for second display outpu=
-t)
-> > >> can't be supported.
-> > >>
-> > >> Update DE33 mixer binding so instead of referencing planes register
-> > >> space, it contains phandle to newly introduced DE33 planes node.
-> > >>
-> > >> There is no user of this binding yet, so changes can be made safely,
-> > >> without breaking any backward compatibility.
-> > >
-> > > And why would you configure statically - per soc - always the same pl=
-ane
-> > > as per mixer? If you do that, it means it is really fixed and interna=
-l
-> > > to display engine thus should not be exposed in DT.
->
-> Not sure I understand what you mean. H616 SoC has 6 planes which are
-> represented with single DE33 planes node (see previous DT binding).
-> Driver has to decide initial allocation. For example, 3 planes for each
-> mixer. However, nothing prevents to allocate 1 plane to first mixer and
-> 5 to other. You can even allocate all 6 planes to one mixer and none to
-> the other, if board has only one output enabled.
->
-> In any case, plane allocation is runtime decision and has nothing to do
-> with DT. Since planes are shared resource, their register space can't be
-> assigned to only one mixer.
->
-> See [1] for example how this would look like.
->
-> > >
-> > > Describing each IP block resource in DT is way too granular.
-> > >
-> >
-> > BTW, everything is update, thus subject is really non-informative.
->
-> I guess "fix" would be more descriptive.
+> On 16/11/2025 12:44, Jernej =C5=A0krabec wrote:
+> > Hi!
+> >=20
+> > Dne nedelja, 16. november 2025 ob 12:29:27 Srednjeevropski standardni =
+=C4=8Das je Krzysztof Kozlowski napisal(a):
+> >> On Sat, Nov 15, 2025 at 03:13:44PM +0100, Jernej Skrabec wrote:
+> >>> Allwinner Display Engine 3.3 contains planes, which are shared resour=
+ces
+> >>> between all mixers present in SoC. They can be assigned to specific
+> >>> mixer by using registers which reside in display clocks MMIO.
+> >>>
+> >>> Add a binding for them.
+> >>>
+> >>> Signed-off-by: Jernej Skrabec <jernej.skrabec@gmail.com>
+> >>> ---
+> >>>  .../allwinner,sun50i-h616-de33-planes.yaml    | 44 +++++++++++++++++=
+++
+> >>>  1 file changed, 44 insertions(+)
+> >>>  create mode 100644 Documentation/devicetree/bindings/display/allwinn=
+er,sun50i-h616-de33-planes.yaml
+> >>>
+> >>> diff --git a/Documentation/devicetree/bindings/display/allwinner,sun5=
+0i-h616-de33-planes.yaml b/Documentation/devicetree/bindings/display/allwin=
+ner,sun50i-h616-de33-planes.yaml
+> >>> new file mode 100644
+> >>> index 000000000000..801e5068a6b5
+> >>> --- /dev/null
+> >>> +++ b/Documentation/devicetree/bindings/display/allwinner,sun50i-h616=
+=2Dde33-planes.yaml
+> >>> @@ -0,0 +1,44 @@
+> >>> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
+> >>> +%YAML 1.2
+> >>> +---
+> >>> +$id: http://devicetree.org/schemas/display/allwinner,sun50i-h616-de3=
+3-planes.yaml#
+> >>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> >>> +
+> >>> +title: Allwinner H616 Display Engine 3.3 planes
+> >>> +
+> >>> +maintainers:
+> >>> +  - Jernej Skrabec <jernej.skrabec@gmail.com>
+> >>> +
+> >>> +description: |
+> >>
+> >> Do not need '|' unless you need to preserve formatting.
+> >>
+> >>> +  Display Engine 3.3 planes are independent of mixers, contrary to
+> >>> +  previous generations of Display Engine. Planes can be assigned to
+> >>> +  mixers independently and even dynamically during runtime.
+> >>> +
+> >>> +properties:
+> >>> +  compatible:
+> >>> +    enum:
+> >>> +      - allwinner,sun50i-h616-de33-planes
+> >>> +
+> >>> +  reg:
+> >>> +    maxItems: 1
+> >>> +
+> >>> +  allwinner,plane-mapping:
+> >>> +    $ref: /schemas/types.yaml#/definitions/phandle
+> >>> +    description: Phandle of Display Engine clock node
+> >>
+> >> You description is almost duplicating property name. You need to expla=
+in
+> >> here how this device uses them.
+> >=20
+> > So I guess I can copy commit description here? It is needed to
+> > access registers from different core, so it can assign (map)
+> > planes between mixers at runtime.
+>=20
+>=20
+> "to assign (map) planes between mixers." is enough.
+>=20
+> But it looks unfortunately like a spaghetti.
+>=20
+> Your mixer binding references via phandle this planes. These planes
+> reference via phandle some other region to configure planes between mixer=
+s.
+>=20
+> Isn't this the job of this device?
 
-Or maybe be more specific, like "split out layers register space to
-separate binding / node".
+It is a bit confusing, yes. There is no clean split in register space
+for some functionality. Register space for this node on H616 SoC
+represents 6 planes (each plane consist of framebuffer management, CSC
+unit, scaler, etc.) but not actual registers which tell to which mixer
+they are currently assigned.
+
+Best regards,
+Jernej
 
 
-ChenYu
-
-> Best regards,
-> Jernej
->
-> [1] https://github.com/jernejsk/linux-1/blob/d93d56d92db52c7ff228c0532a10=
-45de02e0662c/arch/arm64/boot/dts/allwinner/sun50i-h616.dtsi#L181-L235
->
->
->
->
 
