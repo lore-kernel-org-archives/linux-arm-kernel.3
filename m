@@ -4,88 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DA54CE8D6B
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8AACCEACEF
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 17:00:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xCtNmtF9ftpetIg4Hf9F97yBZ1udfSvg+DWHKxu+fA8=; b=KqdStEBYuugXULaOALZq0QfC93
-	uinNghTYxk0E9pzHYaJvDIOSOuEEd2VEDIrl60HKJ7OhBfOkbnbUvoOML+HfdS65bJQJp2+2CTbFO
-	cazRzU4mJ/IRC/QBe6PBJdJVJt27Opcn9E7onl7bFjt63nX3N9GURnEFFUSndx/Mk+laN73/l6Th+
-	tWVf97e26gzbfIKyPhVdvgLuxqPvBXaPJMQvArdnbtDs0+AJa5KF8oGqXsaIhElfKO/S2YheXBm/d
-	WSLA0PQ7qzGHTOS4LXiO0wbqDumcG7VnpjscRQMTNWnbWGkkp+NuU/BOgTj5zhThFNKs7NxXPesup
-	z2PrHiWA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=38kOTGwSVXD9GNu9mdeIzS44NWGPEtjj3Q0AREFhaIs=; b=VptOlbf8wO5F83m2yJ+1O7h+AS
+	C+TlmGa0ZJ6teCYVOSXFJr/XI8YGQ7uM/Kvu+poJmKrDfhqyYBgZ3e0rkept6GL7MALhcxD2/BtU9
+	bdzrbjLcQSlqAoGeyhWsAK5zNO6lPGwmLv2v5lczlMfsVCXhPNhjSLCmTrgYRZynb3M8wLRZNLfUr
+	j7ndRZ9usAJrEySnmaxi7lRmXMPqF60Q8epK0E2epg5fuqkQtNIHax0wZvLV4YsbfyBHbBA/+ocKO
+	99t87D9YaoEY0ltDjQWgfi3GCxm3saaT+i9zdXgUR9aPZVV+rZ1mhXiCut2zwAMDHUboHv6OWcivp
+	RTntRphA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vL2al-0000000GRk0-0Wxl;
-	Mon, 17 Nov 2025 17:00:39 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vL2ag-0000000GRgq-3WNk;
+	id 1vL2ak-0000000GRiu-0zLm;
+	Mon, 17 Nov 2025 17:00:38 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vL2ae-0000000GRfo-2BnJ
+	for linux-arm-kernel@lists.infradead.org;
 	Mon, 17 Nov 2025 17:00:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=xCtNmtF9ftpetIg4Hf9F97yBZ1udfSvg+DWHKxu+fA8=; b=HcSVToZ1ZLC5H0V7UeEAlyssZK
-	ynNbXpviQxZ9+fIc6mkMdAICJ2ZujB9FsskMw4qGnk0O8ddgxXqEyZjgJlh4uhuJcre+vw+Ki85z/
-	IW1FWXwbQMfBP+a7I8qPDBkx4/sWzZltuUChmCfOnNsPfpjea4AqmF6QQeugQYl2kRfEZ3+ylHqsi
-	vv/XqXu9Ged0IPuqimVY4NvMc1jxo4HRdO/z1LDY6bhr+SNoJsUZxEmzhXRFka0BSKkS5ujqlCv92
-	54E3rmFyswJ2P0wpV0yhcrk6eAqZLMaovTB3okOt5Zuyc0clvc50qe5N2YW8oWe9/em4caNqH/dDW
-	P3Lvs/hg==;
-Received: from smtpout-04.galae.net ([185.171.202.116])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vL1j0-00000007iTX-1lhb;
-	Mon, 17 Nov 2025 16:05:08 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 676A0C12659;
-	Mon, 17 Nov 2025 17:00:09 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 7D42A606B9;
-	Mon, 17 Nov 2025 17:00:31 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 563AC10371D02;
-	Mon, 17 Nov 2025 18:00:29 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1763398830; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=xCtNmtF9ftpetIg4Hf9F97yBZ1udfSvg+DWHKxu+fA8=;
-	b=bVNsauQ6+aiQFNqm1gnrEKP1milOrr7eWGqqQrZ9N1KM/B02ZUVUNi3s1/8r4+pgZlWCLv
-	K5o9fIxBJ4yQb+eHnsHDoKQZHwwbKJaZbUrI7kIDqw7SXoFA9M/SkBm5lz4pcKBiSybljy
-	e3m19c3A3JU69+3lZDJvkeNzulJm0RpFO2nTm+fi3g5EIE5YQmJ8IPcL9jXytDVT5KEl2k
-	b4I/KW1n+ItUf+G9KZI5TNSSUoydBrM97yut876R0QXKv4ihMd0QTFLdOSCpmzsrK6D5Qw
-	kJzauURsHk5U/JpxSCFSjBPFfD+zOUqfkzy9DwcBVghKxyexXp438xB+iTpSNA==
-From: Gregory CLEMENT <gregory.clement@bootlin.com>
-Date: Mon, 17 Nov 2025 18:00:15 +0100
-Subject: [PATCH 2/3] dt-bindings: mtd: physmap: Allow using memory-region
- to access memory resources
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2E355FEC;
+	Mon, 17 Nov 2025 09:00:21 -0800 (PST)
+Received: from e134344.cambridge.arm.com (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id C422F3F66E;
+	Mon, 17 Nov 2025 09:00:23 -0800 (PST)
+From: Ben Horgan <ben.horgan@arm.com>
+To: james.morse@arm.com
+Cc: amitsinght@marvell.com,
+	baisheng.gao@unisoc.com,
+	baolin.wang@linux.alibaba.com,
+	bobo.shaobowang@huawei.com,
+	carl@os.amperecomputing.com,
+	catalin.marinas@arm.com,
+	dakr@kernel.org,
+	dave.martin@arm.com,
+	david@redhat.com,
+	dfustini@baylibre.com,
+	fenghuay@nvidia.com,
+	gregkh@linuxfoundation.org,
+	gshan@redhat.com,
+	guohanjun@huawei.com,
+	jeremy.linton@arm.com,
+	jonathan.cameron@huawei.com,
+	kobak@nvidia.com,
+	lcherian@marvell.com,
+	lenb@kernel.org,
+	linux-acpi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	lpieralisi@kernel.org,
+	peternewman@google.com,
+	quic_jiles@quicinc.com,
+	rafael@kernel.org,
+	robh@kernel.org,
+	rohit.mathew@arm.com,
+	scott@os.amperecomputing.com,
+	sdonthineni@nvidia.com,
+	sudeep.holla@arm.com,
+	tan.shaopeng@fujitsu.com,
+	will@kernel.org,
+	xhao@linux.alibaba.com,
+	Ben Horgan <ben.horgan@arm.com>
+Subject: [PATCH v5 00/34] arm_mpam: Add basic mpam driver
+Date: Mon, 17 Nov 2025 16:59:39 +0000
+Message-ID: <20251117170014.4113754-1-ben.horgan@arm.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20251117-mtd-memregion-v1-2-7b35611c79a6@bootlin.com>
-References: <20251117-mtd-memregion-v1-0-7b35611c79a6@bootlin.com>
-In-Reply-To: <20251117-mtd-memregion-v1-0-7b35611c79a6@bootlin.com>
-To: Rob Herring <robh@kernel.org>, Saravana Kannan <saravanak@google.com>, 
- Linus Walleij <linus.walleij@linaro.org>, 
- Miquel Raynal <miquel.raynal@bootlin.com>, 
- Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
- Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>, 
- =?utf-8?q?Beno=C3=AEt_Monin?= <benoit.monin@bootlin.com>, 
- =?utf-8?q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-mtd@lists.infradead.org, 
- Gregory CLEMENT <gregory.clement@bootlin.com>
-X-Mailer: b4 0.14.3
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251117_160506_570557_2609D5C8 
-X-CRM114-Status: UNSURE (   9.93  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251117_090032_637579_9CC8D670 
+X-CRM114-Status: GOOD (  23.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,114 +93,138 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable access to memory resources not only via I/O address using reg,
-but also through a portion of main memory using memory-region. To
-achieve this, new compatible strings have been introduced: mtd-mem and
-mtd-memro.
+Hi all,
 
-Signed-off-by: Gregory CLEMENT <gregory.clement@bootlin.com>
----
- .../devicetree/bindings/mtd/mtd-physmap.yaml       | 59 +++++++++++++++-------
- 1 file changed, 40 insertions(+), 19 deletions(-)
+Not much substantial changed in this iteration. Some rework relating to
+acpi_pptt_cache and a related proposed fix in acpica. Lots of little tidy ups
+here and there.
 
-diff --git a/Documentation/devicetree/bindings/mtd/mtd-physmap.yaml b/Documentation/devicetree/bindings/mtd/mtd-physmap.yaml
-index 1b375dee83b0c..0f75a1204b263 100644
---- a/Documentation/devicetree/bindings/mtd/mtd-physmap.yaml
-+++ b/Documentation/devicetree/bindings/mtd/mtd-physmap.yaml
-@@ -13,10 +13,6 @@ description: |
-   Flash chips (Memory Technology Devices) are often used for solid state
-   file systems on embedded devices.
- 
--allOf:
--  - $ref: mtd.yaml#
--  - $ref: /schemas/memory-controllers/mc-peripheral-props.yaml#
--
- properties:
-   compatible:
-     oneOf:
-@@ -61,6 +57,8 @@ properties:
-           - jedec-flash
-           - mtd-ram
-           - mtd-rom
-+          - mtd-mem
-+          - mtd-memro
- 
-   reg:
-     description: |
-@@ -116,6 +114,10 @@ properties:
-     minItems: 1
-     maxItems: 8
- 
-+  memory-region:
-+    items:
-+      - description: Memory regions to map into mtd
-+
-   '#address-cells':
-     const: 1
- 
-@@ -129,21 +131,25 @@ properties:
- 
- required:
-   - compatible
--  - reg
--
--if:
--  properties:
--    compatible:
--      contains:
--        const: cortina,gemini-flash
--then:
--  properties:
--    syscon:
--      $ref: /schemas/types.yaml#/definitions/phandle
--      description:
--        Phandle to the syscon controller
--  required:
--    - syscon
-+
-+allOf:
-+  - $ref: mtd.yaml#
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            enum:
-+              - mtd-mem
-+              - mtd-memro
-+    then:
-+      required:
-+        - memory-region
-+      properties:
-+        addr-gpios: false
-+    else:
-+      $ref: /schemas/memory-controllers/mc-peripheral-props.yaml#
-+      required:
-+        - reg
- 
- unevaluatedProperties: false
- 
-@@ -223,4 +229,19 @@ examples:
-             reg = <0 0x04000000>;
-         };
-     };
-+
-+  - |
-+    /* An example using mtd-mem */
-+    mem_logs: mem_logs@10000800 {
-+        reg = <0x1 0x0000800 0x0 0x000f800>;
-+        no-map;
-+    };
-+
-+    sram {
-+        compatible = "mtd-mem";
-+        memory-region = <&mem_log>;
-+        bank-width = <4>;
-+        device-width = <1>;
-+    };
-+
- ...
+Thanks for all the reviews and testing so far. As I mentioned before, it would be
+great to get this taken up quickly. There are lots more patches to come before
+we have a working MPAM story and this driver is hidden behind the expert
+config. See patches for changelogs and below for branches.
+
+Ben
+
+Previous cover letter from James:
+
+This is just enough MPAM driver for ACPI. DT got ripped out. If you need DT
+support - please share your DTS so the DT folk know the binding is what is
+needed.
+This doesn't contain any of the resctrl code, meaning you can't actually drive it
+from user-space yet. Because of that, its hidden behind CONFIG_EXPERT.
+This will change once the user interface is connected up.
+
+This is the initial group of patches that allows the resctrl code to be built
+on top. Including that will increase the number of trees that may need to
+coordinate, so breaking it up make sense.
+
+The locking got simplified, but is still strange - this is because of the 'mpam-fb'
+firmware interface specification that is still alpha. That thing needs to wait for
+an interrupt after every system register write, which significantly impacts the
+driver. Some features just won't work, e.g. reading the monitor registers via
+perf.
+
+I've not found a platform that can test all the behaviours around the monitors,
+so this is where I'd expect the most bugs.
+
+The MPAM spec that describes all the system and MMIO registers can be found here:
+https://developer.arm.com/documentation/ddi0598/db/?lang=en
+(Ignored the 'RETIRED' warning - that is just arm moving the documentation around.
+ This document has the best overview)
+
+The expectation is this will go via the arm64 tree.
+
+This series is based on v6.18-rc4, and can be retrieved from:
+https://git.kernel.org/pub/scm/linux/kernel/git/morse/linux.git mpam/driver/v5
+
+The rest of the driver can be found here:
+https://git.kernel.org/pub/scm/linux/kernel/git/morse/linux.git mpam/snapshot/v6.18-rc4-v5
+
+What is MPAM? Set your time-machine to 2020:
+https://lore.kernel.org/lkml/20201030161120.227225-1-james.morse@arm.com/
+
+This series was previously posted here:
+[v4] https://lore.kernel.org/linux-arm-kernel/20251107123450.664001-1-ben.horgan@arm.com/
+[v3] https://lore.kernel.org/linux-arm-kernel/20251017185645.26604-1-james.morse@arm.com/
+[v2] lore.kernel.org/r/20250910204309.20751-1-james.morse@arm.com
+[v1] lore.kernel.org/r/20250822153048.2287-1-james.morse@arm.com
+[RFC] lore.kernel.org/r/20250711183648.30766-2-james.morse@arm.com
+
+Ben Horgan (5):
+  ACPI / PPTT: Add acpi_pptt_cache_v1_full to use pptt cache as one
+    structure
+  platform: Define platform_device_put cleanup handler
+  ACPI: Define acpi_put_table cleanup handler and acpi_get_table_ret()
+    helper
+  arm_mpam: Consider overflow in bandwidth counter state
+  MAINTAINERS: new entry for MPAM Driver
+
+James Morse (27):
+  ACPI / PPTT: Add a helper to fill a cpumask from a processor container
+  ACPI / PPTT: Stop acpi_count_levels() expecting callers to clear
+    levels
+  ACPI / PPTT: Find cache level by cache-id
+  ACPI / PPTT: Add a helper to fill a cpumask from a cache_id
+  arm64: kconfig: Add Kconfig entry for MPAM
+  ACPI / MPAM: Parse the MPAM table
+  arm_mpam: Add probe/remove for mpam msc driver and kbuild boiler plate
+  arm_mpam: Add the class and component structures for firmware
+    described ris
+  arm_mpam: Add MPAM MSC register layout definitions
+  arm_mpam: Add cpuhp callbacks to probe MSC hardware
+  arm_mpam: Probe hardware to find the supported partid/pmg values
+  arm_mpam: Add helpers for managing the locking around the mon_sel
+    registers
+  arm_mpam: Probe the hardware features resctrl supports
+  arm_mpam: Merge supported features during mpam_enable() into
+    mpam_class
+  arm_mpam: Reset MSC controls from cpuhp callbacks
+  arm_mpam: Add a helper to touch an MSC from any CPU
+  arm_mpam: Extend reset logic to allow devices to be reset any time
+  arm_mpam: Register and enable IRQs
+  arm_mpam: Use a static key to indicate when mpam is enabled
+  arm_mpam: Allow configuration to be applied and restored during cpu
+    online
+  arm_mpam: Probe and reset the rest of the features
+  arm_mpam: Add helpers to allocate monitors
+  arm_mpam: Add mpam_msmon_read() to read monitor value
+  arm_mpam: Track bandwidth counter state for power management
+  arm_mpam: Add helper to reset saved mbwu state
+  arm_mpam: Add kunit test for bitmap reset
+  arm_mpam: Add kunit tests for props_mismatch()
+
+Rohit Mathew (2):
+  arm_mpam: Probe for long/lwd mbwu counters
+  arm_mpam: Use long MBWU counters if supported
+
+ MAINTAINERS                         |    8 +
+ arch/arm64/Kconfig                  |   25 +
+ drivers/Kconfig                     |    2 +
+ drivers/Makefile                    |    1 +
+ drivers/acpi/arm64/Kconfig          |    3 +
+ drivers/acpi/arm64/Makefile         |    1 +
+ drivers/acpi/arm64/mpam.c           |  411 ++++
+ drivers/acpi/pptt.c                 |  282 ++-
+ drivers/acpi/tables.c               |    2 +-
+ drivers/resctrl/Kconfig             |   24 +
+ drivers/resctrl/Makefile            |    4 +
+ drivers/resctrl/mpam_devices.c      | 2723 +++++++++++++++++++++++++++
+ drivers/resctrl/mpam_internal.h     |  656 +++++++
+ drivers/resctrl/test_mpam_devices.c |  389 ++++
+ include/linux/acpi.h                |   26 +
+ include/linux/arm_mpam.h            |   66 +
+ include/linux/platform_device.h     |    1 +
+ 17 files changed, 4605 insertions(+), 19 deletions(-)
+ create mode 100644 drivers/acpi/arm64/mpam.c
+ create mode 100644 drivers/resctrl/Kconfig
+ create mode 100644 drivers/resctrl/Makefile
+ create mode 100644 drivers/resctrl/mpam_devices.c
+ create mode 100644 drivers/resctrl/mpam_internal.h
+ create mode 100644 drivers/resctrl/test_mpam_devices.c
+ create mode 100644 include/linux/arm_mpam.h
 
 -- 
-2.51.0
+2.43.0
 
 
