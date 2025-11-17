@@ -4,68 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA94CCEACEF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 07:21:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38B51CE8D6B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 07:30:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Sy5M9BW0zFBfl9eLOJAPcz6IGBWtZ9VyU8IBvCBTtu0=; b=PI2TKCAKt8BPUBgkiApyDOBbDk
-	7IhxBHczW8yA2K/NOesHUBuMf8dMhsEYMlmrt/jjvJbKrhIwCuGtrnp7qfTse7CFvCKztMp4GoAFl
-	46kKoFK2OjTQYwYZ8bHZm0cUkQX2qJXGu0CvzNjTzFOaaz91Y59JNep9d9/tW2RyNN03I1lonTKGI
-	rdWLP/AbR9DAZ5ljN4TgKI1FJSLWp4sXTtdt6aK/X0VTRRahDqWNiPLFGMcG7bOaB9lcPQJB4u6Nj
-	wREWSVkC3JW5w/9gNt21Rx6oqg2XBsOQwyyspJ5EqS46QdM4Yvuh5Edlee9kdurfFxbydf3pyABzI
-	kFPnjPQA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:Message-ID:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=oK4Ve9O/PRX7M9Aw9BNaO8rFPHLoVqmtNP6LUflFsfw=; b=rpF0/diu+xnHosicV9ixg5ZGt7
+	JK05vdtC+sKU1BadQqPoBJuVmhORJfRhwBOjVjodHryR2V7v6AkRoBAR9+QmNn9I6Ebi86Zm/CBij
+	flvvcHlx18bp+ckg0qSK0abWn2Fh+/rSXb804vlxqPLX+yZ1+kT2IbNTHu4pW2WOKADEUQWH2xDNF
+	BLdV3jhSTIE2S+cjrYWiqMmXzFWQVIwSLzE1LnqQ3yXO6/jw5WTN508y5X9+1kLiJAaxCMhrLFIlP
+	aQGky+euuLPZIQrzjt294Uybvt1oOiDFr68XQ+/tmsf4M7P7a1tVjz5+2j5RzLJnLrvq6YdKTZ6WQ
+	6N2wmGZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKtXx-0000000FbW5-30PE;
-	Mon, 17 Nov 2025 07:21:09 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vKtgz-0000000Fc45-2zdZ;
+	Mon, 17 Nov 2025 07:30:29 +0000
+Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKtXs-0000000FbVV-0JKM
+	id 1vKtgw-0000000Fc3X-3FmL
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Nov 2025 07:21:08 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id F1E484346C;
-	Mon, 17 Nov 2025 07:21:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 56D81C4CEF5;
-	Mon, 17 Nov 2025 07:21:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763364062;
-	bh=tx1EQAISjX9lGOb14ffit3i4ZUagycgBEd3Frvd4LA8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=L/6t8s7ziwKgH/pXRNhCOmPQK1hCu7lViGR+DFoD9xGgsaltHb47bQlfXXSNY4rbh
-	 Hct0jnvPwIDvk0E/k4mfphGHMuXr/Y3a09eL6ImGIsFjs2zkjiTQblLKB/ihG4UveG
-	 LFeghF1Y63MLEasIkrWa4SSuYCkNZ24Go0zLbllbfWHqYHleP0D0Mu5F0emANXGJVm
-	 BQk444MEv/bNN+4MbDGvxs1L2xzkkEbduHHAyV6Pt7NghN3Pt4/PHZIEAkiBAgmmrL
-	 nyQmd34ehjZJfbfChKb2DUaYtBrPdqlKJLcKLQsmWflAs+Wr2AEkBeT5MYaRnH9dbN
-	 pJtk9woIA8vsA==
-Date: Sun, 16 Nov 2025 23:20:59 -0800
-From: Namhyung Kim <namhyung@kernel.org>
-To: James Clark <james.clark@linaro.org>
-Cc: Leo Yan <leo.yan@arm.com>, Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Ian Rogers <irogers@google.com>, Jiri Olsa <jolsa@kernel.org>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Arnaldo Carvalho de Melo <acme@redhat.com>,
-	linux-perf-users@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 00/25] perf arm_spe: Extend operations
-Message-ID: <aRrM2y4O_3aaa2Ee@google.com>
-References: <20251112-perf_support_arm_spev1-3-v3-0-e63c9829f9d9@arm.com>
- <CAP-5=fXiiWRDPzONNNZQZc4QOBQoz=kRnJq77on5r4w9aDx-XA@mail.gmail.com>
+	Mon, 17 Nov 2025 07:30:28 +0000
+Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Mon, 17 Nov
+ 2025 15:30:19 +0800
+Received: from [127.0.1.1] (192.168.10.13) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
+ Transport; Mon, 17 Nov 2025 15:30:19 +0800
+From: Jacky Chou <jacky_chou@aspeedtech.com>
+Date: Mon, 17 Nov 2025 15:30:18 +0800
+Subject: [PATCH net-next] dt-bindings: net: aspeed: add AST2700 MDIO
+ compatible
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAP-5=fXiiWRDPzONNNZQZc4QOBQoz=kRnJq77on5r4w9aDx-XA@mail.gmail.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-ID: <20251117-aspeed_mdio_ast2700-v1-1-8ecb0032f554@aspeedtech.com>
+X-B4-Tracking: v=1; b=H4sIAAnPGmkC/x3MQQrCMBBG4auUWRuYhEjUq4iUofmrszAtmVAKp
+ Xc3uPwW7x1kqAqjx3BQxaamS+nwl4Gmj5Q3nOZuChyu3vvkxFYgj9+syyjWQmJ2Iny7T3HmmCL
+ 1cq2Ydf9fn1TQXMHe6HWePwe0PEVvAAAA
+X-Change-ID: 20251117-aspeed_mdio_ast2700-aa089c4f0474
+To: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+	<davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
+	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring
+	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+	<conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, Andrew Jeffery
+	<andrew@codeconstruct.com.au>
+CC: Andrew Jeffery <andrew@aj.id.au>, <netdev@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-aspeed@lists.ozlabs.org>, <linux-kernel@vger.kernel.org>, Jacky Chou
+	<jacky_chou@aspeedtech.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1763364619; l=1811;
+ i=jacky_chou@aspeedtech.com; s=20251031; h=from:subject:message-id;
+ bh=Mj81EjxdRx03SMF1BDIPz2LcJycE1MUESozyiljFuRA=;
+ b=w1pnZrswHVUrLtVnSbCd+/kYz2W6un9gP9YIqrCt17cyhGIyuTN64gvRCKimRyU5NtSUScT/z
+ AFYvOFYRWI/AaJbK6RY9ErunXmDpLSkNe1srNsJn009Mm3M63KvZK/6
+X-Developer-Key: i=jacky_chou@aspeedtech.com; a=ed25519;
+ pk=8XBx7KFM1drEsfCXTH9QC2lbMlGU4XwJTA6Jt9Mabdo=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251116_232104_137217_F38366AA 
-X-CRM114-Status: GOOD (  18.35  )
+X-CRM114-CacheID: sfid-20251116_233026_844708_4027EF3E 
+X-CRM114-Status: UNSURE (   9.88  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,40 +82,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
+Add "aspeed,ast2700-mdio" compatible to the binding schema with a fallback
+to "aspeed,ast2600-mdio".
 
-On Thu, Nov 13, 2025 at 09:01:47AM -0800, Ian Rogers wrote:
-> On Wed, Nov 12, 2025 at 10:24 AM Leo Yan <leo.yan@arm.com> wrote:
-> >
-> > This series enhances tooling to support new operations:
-> >
-> >   - Support for MTE tag since Arm SPE v1.3;
-> >   - Support for Advanced SIMD extension and SVE operations;
-> >   - Support memcpy, memset and GCS operations;
-> >   - Support extended operations for atomic, Acquire/Release and
-> >     Exclusive instructions.
-> >   - Enhance the data source for associated info, like floating-point,
-> >     conditional, data processing, etc.
-> >
-> > This series is divided into three parts:
-> >
-> >   Patches 01 ~ 06: Support raw dump for new operations;
-> >   Patches 07 ~ 17: Export the operation info into records, so that the
-> >                    information can be later consumed by samples.
-> >   Patches 18 ~ 25: Set the operation info into sample's data source and
-> >                    SIMD flag, and updated the document.
-> >
-> > This patch series is tested on FVP for native parsing and x86_64 for
-> > cross parsing.
-> >
-> > Signed-off-by: Leo Yan <leo.yan@arm.com>
-> 
-> Reviewed-by: Ian Rogers <irogers@google.com>
+Although the MDIO controller on AST2700 is functionally the same as the
+one on AST2600, it's good practice to add a SoC-specific compatible for
+new silicon. This allows future driver updates to handle any 2700-specific
+integration issues without requiring devicetree changes or complex
+runtime detection logic.
 
-Can I get some comments from ARM folks?  I think I can merge part 1 and
-2 before changing the kernel interface.
+For now, the driver continues to bind via the existing
+"aspeed,ast2600-mdio" compatible, so no driver changes are needed.
 
-Thanks,
-Namhyung
+Signed-off-by: Jacky Chou <jacky_chou@aspeedtech.com>
+---
+ Documentation/devicetree/bindings/net/aspeed,ast2600-mdio.yaml | 8 +++++++-
+ 1 file changed, 7 insertions(+), 1 deletion(-)
+
+diff --git a/Documentation/devicetree/bindings/net/aspeed,ast2600-mdio.yaml b/Documentation/devicetree/bindings/net/aspeed,ast2600-mdio.yaml
+index d6ef468495c5..1c90e7c15a44 100644
+--- a/Documentation/devicetree/bindings/net/aspeed,ast2600-mdio.yaml
++++ b/Documentation/devicetree/bindings/net/aspeed,ast2600-mdio.yaml
+@@ -13,13 +13,19 @@ description: |+
+   The ASPEED AST2600 MDIO controller is the third iteration of ASPEED's MDIO
+   bus register interface, this time also separating out the controller from the
+   MAC.
++  The ASPEED AST2700 MDIO controller is similar to the AST2600's.
+ 
+ allOf:
+   - $ref: mdio.yaml#
+ 
+ properties:
+   compatible:
+-    const: aspeed,ast2600-mdio
++    oneOf:
++      - const: aspeed,ast2600-mdio
++      - items:
++          - enum:
++              - aspeed,ast2700-mdio
++          - const: aspeed,ast2600-mdio
+ 
+   reg:
+     maxItems: 1
+
+---
+base-commit: c9dfb92de0738eb7fe6a591ad1642333793e8b6e
+change-id: 20251117-aspeed_mdio_ast2700-aa089c4f0474
+
+Best regards,
+-- 
+Jacky Chou <jacky_chou@aspeedtech.com>
 
 
