@@ -4,72 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F24C2CEBF61
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 17:03:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F8BDCE8D6B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 17:03:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SbHWQL6CHG1qQSbhFwue1TRmnY1K9v+wrVZ79IKrQH4=; b=r6rzdVvsSYgRiPfakgz66iGSWH
-	2F57XBdhy2qe0JHAb9Lox/ecYu4C5vClZx2KYcCxbj3zpvD6I+nGz2FP0gfvOTBSjDQLXgiB83GXu
-	ID6vMMxqjfVF84yWobtDpGlmQGO/rtajVpYovHS16k8XpD3tsg/fhJAdLUXq5FPo1ttSJeY8yRtnY
-	2qOVZFwMWy5yemRZQjxUTQYugxmESztdg4hmzTQjpMOWTAuhuntP41DTy1GJ6aQoVZ0rqNpNZ1MDV
-	vbL7pwD2AU2o0Y9+2ASdVPx4gsaOCyGPqA1WhVnmhmUsY1ij2d3o2eyM42aPdndVXVbIxr+DxYrLY
-	7wHx6/eg==;
+	bh=ZTzIFH58OgfRPadayLxlhagNNAeB/Zehz3kp4rma/sg=; b=sHpDFYc4+z+e6X/ChyZaT+NKJH
+	k27n3zRwMtkwAiEeAVZfOkjcsAeOE9gKqVyAJ+kqTqcRmxrbuFympg3cZSFll12pe8ShZwr9hysT4
+	HR41RRcjdn8sFN/F/5FO7JojVw23hl2HwO+O7370PEcN8DtzyVMH9EpMMc+IZ4d3r+dMy4DPcH6aM
+	VO6t4vAh5yvZp3Sy4KSIrR+fCCZ9asCA1Qj11T6X7BpQ5i0oup1LGFJSVobrwBGt3P4NSjCe1GcUF
+	Au97iztU7hnXSUIrCcd2jMM0CIL0degUdmBVFZt3UtuUNSANEvaKKsCF1W/HVNkqiy2iTDJshiMlg
+	3wT4CXZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vL2dB-0000000GUGD-17wY;
-	Mon, 17 Nov 2025 17:03:09 +0000
-Received: from dispatch1-us1.ppe-hosted.com ([148.163.129.49])
+	id 1vL2dJ-0000000GUPi-1zZz;
+	Mon, 17 Nov 2025 17:03:17 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vL2d5-0000000GUBP-3w08;
-	Mon, 17 Nov 2025 17:03:07 +0000
-X-Virus-Scanned: Proofpoint Essentials engine
-Received: from mail3.candelatech.com (mail.candelatech.com [208.74.158.173])
-	by mx1-us1.ppe-hosted.com (PPE Hosted ESMTP Server) with ESMTP id 05118C400A3;
-	Mon, 17 Nov 2025 17:02:55 +0000 (UTC)
-Received: from [172.18.0.200] (unknown [64.190.177.183])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
-	(No client certificate requested)
-	by mail3.candelatech.com (Postfix) with ESMTPSA id 8702213C2B5;
-	Mon, 17 Nov 2025 09:02:22 -0800 (PST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mail3.candelatech.com 8702213C2B5
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=candelatech.com;
-	s=default; t=1763398959;
-	bh=GQ2l1FtCQk8a5A/D6+r+0V3xCadwcOHKmikQp/6m8Jc=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=lV4klJotUTpo5zZioJImRUnz4+PgMWxD09OsZg5+JbtOusDqQ2VrYm9wfUgc3Ij1c
-	 PZ/XVJvrzAHl3AlyZ16aIdoRpHC3KtbaFsdE8YsHfcsoKnGLtiXwLvSY7wXIqL62ny
-	 5jDDkBVVsGAnftytdwSNiEUzjJ7eLDAlOPdcONag=
-Message-ID: <49fdf52b-32cb-427e-ab95-a81856840a1e@candelatech.com>
-Date: Mon, 17 Nov 2025 09:02:18 -0800
+	id 1vL2dI-0000000GUNo-2TRA
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 17 Nov 2025 17:03:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=ZTzIFH58OgfRPadayLxlhagNNAeB/Zehz3kp4rma/sg=; b=foRdDmt5an5nLcF+OttZGG9tjo
+	daWw1RYjCOTGJ22PpE7FR0guMZGqy5kfttFuSdH+DznOsmzpd54skZ41dJLlA+zwPcSFHrtSXWt+9
+	hSJJjQKCRwQTZbvk3WXYHt9JLHUK53+F7X3wGgNNwV/rDKcUuDL+LTk193ONPZPhRjteS5E1RQp1Q
+	pWY/wIQvz/ZnyaYNZUzIJLhb75+GSrhebgVaI/BMrVjXq7uJ351J29kXS209ZntudCBtzOYVJrm81
+	tKMwxjiLe8TEk7UiysWlGsoLM6s2LDaoW/8csv/D9zKmtLIxSe1kvHTiw+U+cQVTD0OodIdWP9fjF
+	/C9pTs2A==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vL1lb-00000007jK0-38eE
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 17 Nov 2025 16:07:49 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 13C8E1692;
+	Mon, 17 Nov 2025 09:03:05 -0800 (PST)
+Received: from e134344.cambridge.arm.com (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 9B6663F66E;
+	Mon, 17 Nov 2025 09:03:07 -0800 (PST)
+From: Ben Horgan <ben.horgan@arm.com>
+To: james.morse@arm.com
+Cc: amitsinght@marvell.com,
+	baisheng.gao@unisoc.com,
+	baolin.wang@linux.alibaba.com,
+	bobo.shaobowang@huawei.com,
+	carl@os.amperecomputing.com,
+	catalin.marinas@arm.com,
+	dakr@kernel.org,
+	dave.martin@arm.com,
+	david@redhat.com,
+	dfustini@baylibre.com,
+	fenghuay@nvidia.com,
+	gregkh@linuxfoundation.org,
+	gshan@redhat.com,
+	guohanjun@huawei.com,
+	jeremy.linton@arm.com,
+	jonathan.cameron@huawei.com,
+	kobak@nvidia.com,
+	lcherian@marvell.com,
+	lenb@kernel.org,
+	linux-acpi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	lpieralisi@kernel.org,
+	peternewman@google.com,
+	quic_jiles@quicinc.com,
+	rafael@kernel.org,
+	robh@kernel.org,
+	rohit.mathew@arm.com,
+	scott@os.amperecomputing.com,
+	sdonthineni@nvidia.com,
+	sudeep.holla@arm.com,
+	tan.shaopeng@fujitsu.com,
+	will@kernel.org,
+	xhao@linux.alibaba.com,
+	Ben Horgan <ben.horgan@arm.com>,
+	Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>,
+	Zeng Heng <zengheng4@huawei.com>
+Subject: [PATCH v5 30/34] arm_mpam: Use long MBWU counters if supported
+Date: Mon, 17 Nov 2025 17:00:09 +0000
+Message-ID: <20251117170014.4113754-31-ben.horgan@arm.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20251117170014.4113754-1-ben.horgan@arm.com>
+References: <20251117170014.4113754-1-ben.horgan@arm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH mt76] wifi: mt76: mt7996: Do not run ieee80211_iter_keys()
- for scanning links in mt7996_vif_link_remove()
-To: Lorenzo Bianconi <lorenzo@kernel.org>, Felix Fietkau <nbd@nbd.name>,
- Ryder Lee <ryder.lee@mediatek.com>, Shayne Chen <shayne.chen@mediatek.com>,
- Sean Wang <sean.wang@mediatek.com>, Matthias Brugger
- <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: linux-wireless@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org
-References: <20251115-mt7996-key-iter-link-remove-fix-v1-1-4f3f4e1eaa78@kernel.org>
-Content-Language: en-MW
-From: Ben Greear <greearb@candelatech.com>
-Organization: Candela Technologies
-In-Reply-To: <20251115-mt7996-key-iter-link-remove-fix-v1-1-4f3f4e1eaa78@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-MDID: 1763398977-UsmcDBX0i5jE
-X-PPE-STACK: {"stack":"us5"}
-X-MDID-O: us5;ut7;1763398977;UsmcDBX0i5jE;<greearb@candelatech.com>;40f3b03bb24907b736a33b345f288e14
-X-PPE-TRUSTED: V=1;DIR=OUT;
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251117_090306_407007_ADDA22E9 
-X-CRM114-Status: GOOD (  19.74  )
+X-CRM114-CacheID: sfid-20251117_160748_173777_A86C1212 
+X-CRM114-Status: GOOD (  21.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,93 +112,305 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/15/25 2:41 AM, Lorenzo Bianconi wrote:
-> mt7996_vif_link_remove routine is executed by mt76_scan_complete()
-> without holding the wiphy mutex triggering the following lockdep warning.
+From: Rohit Mathew <rohit.mathew@arm.com>
 
-Hello Lorenzo,
+Now that the larger counter sizes are probed, make use of them.
 
-Thank you for the patch.  This appears to fix the lockdep splats I was
-seeing, and kernel is stable in at least initial testing.
+Callers of mpam_msmon_read() may not know (or care!) about the different
+counter sizes. Allow them to specify mpam_feat_msmon_mbwu and have the
+driver pick the counter to use.
 
-Thanks,
-Ben
+Only 32bit accesses to the MSC are required to be supported by the
+spec, but these registers are 64bits. The lower half may overflow
+into the higher half between two 32bit reads. To avoid this, use
+a helper that reads the top half multiple times to check for overflow.
 
-> 
->   WARNING: CPU: 0 PID: 72 at net/mac80211/key.c:1029 ieee80211_iter_keys+0xe4/0x1a0 [mac80211]
->   CPU: 0 UID: 0 PID: 72 Comm: kworker/u32:2 Tainted: G S                  6.18.0-rc5+ #27 PREEMPT(full)
->   Tainted: [S]=CPU_OUT_OF_SPEC
->   Hardware name: Default string Default string/SKYBAY, BIOS 5.12 02/15/2023
->   Workqueue: phy3 mt76_scan_work [mt76]
->   RIP: 0010:ieee80211_iter_keys+0xe4/0x1a0 [mac80211]
->   Code: 4c 48 83 c4 10 5b 5d 41 5c 41 5d 41 5e 41 5f c3 48 8b 47 48 be ff ff ff ff 48 8d 78 68 e8 b4 eb 1e e1 85 c0 0f 85 49
-> ff ff ff 4c 8b ab 90 1a 00 00 48 8d 83 90
->   RSP: 0018:ffffc900002f7cb0 EFLAGS: 00010246
->   RAX: 0000000000000000 RBX: ffff888127e00ee0 RCX: 0000000000000000
->   RDX: 0000000000000000 RSI: ffff888127e00788 RDI: ffff88811132b5c8
->   RBP: ffffffffa0ddf400 R08: 0000000000000001 R09: 000000009dcc1dac
->   R10: 0000000000000001 R11: ffff88811132b5a0 R12: ffffc900002f7d00
->   R13: ffff8882581e6a80 R14: ffff888127e0afc8 R15: ffff888158832038
->   FS:  0000000000000000(0000) GS:ffff8884da486000(0000) knlGS:0000000000000000
->   CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
->   CR2: 0000000030a0fd90 CR3: 0000000002c52004 CR4: 00000000003706f0
->   Call Trace:
->    <TASK>
->    ? lock_acquire+0xc2/0x2c0
->    mt7996_vif_link_remove+0x64/0x2b0 [mt7996e]
->    mt76_put_vif_phy_link+0x41/0x50 [mt76]
->    mt76_scan_complete+0x77/0x100 [mt76]
->    mt76_scan_work+0x2eb/0x3f0 [mt76]
->    ? process_one_work+0x1e5/0x6d0
->    process_one_work+0x221/0x6d0
->    worker_thread+0x19a/0x340
->    ? rescuer_thread+0x450/0x450
->    kthread+0x108/0x220
->    ? kthreads_online_cpu+0x110/0x110
->    ret_from_fork+0x1c6/0x220
->    ? kthreads_online_cpu+0x110/0x110
->    ret_from_fork_asm+0x11/0x20
->    </TASK>
->   irq event stamp: 45471
->   hardirqs last  enabled at (45477): [<ffffffff813d446e>] __up_console_sem+0x5e/0x70
->   hardirqs last disabled at (45482): [<ffffffff813d4453>] __up_console_sem+0x43/0x70
->   softirqs last  enabled at (44500): [<ffffffff81f2ae0c>] napi_pp_put_page+0xac/0xd0
->   softirqs last disabled at (44498): [<ffffffff81fa32a0>] page_pool_put_unrefed_netmem+0x290/0x3d0
->   ---[ end trace 0000000000000000 ]---
-> 
-> Fix the issue skipping ieee80211_iter_keys() for scanning links in
-> mt7996_vif_link_remove routine since we have not uploaded any hw keys
-> for these links.
-> 
-> Fixes: 04414d7bba78 ("wifi: mt76: mt7996: delete vif keys when requested")
-> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
-> ---
->   drivers/net/wireless/mediatek/mt76/mt7996/main.c | 3 ++-
->   1 file changed, 2 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/main.c b/drivers/net/wireless/mediatek/mt76/mt7996/main.c
-> index 2a45db398fd597180c0b2bfc12e019b514f24fd6..beed795edb24c67e1b7b44fe87fd5de125a21d94 100644
-> --- a/drivers/net/wireless/mediatek/mt76/mt7996/main.c
-> +++ b/drivers/net/wireless/mediatek/mt76/mt7996/main.c
-> @@ -392,7 +392,8 @@ void mt7996_vif_link_remove(struct mt76_phy *mphy, struct ieee80211_vif *vif,
->   	};
->   	int idx = msta_link->wcid.idx;
->   
-> -	ieee80211_iter_keys(mphy->hw, vif, mt7996_key_iter, &it);
-> +	if (!mlink->wcid->offchannel)
-> +		ieee80211_iter_keys(mphy->hw, vif, mt7996_key_iter, &it);
->   
->   	mt7996_mcu_add_sta(dev, link_conf, NULL, link, NULL,
->   			   CONN_STATE_DISCONNECT, false);
-> 
-> ---
-> base-commit: 09600421ffe2acc1a00ec466b25485f11b6bb957
-> change-id: 20251115-mt7996-key-iter-link-remove-fix-7cf4d529c5a0
-> 
-> Best regards,
+Signed-off-by: Rohit Mathew <rohit.mathew@arm.com>
+[morse: merged multiple patches from Rohit, added explicit counter selection ]
+Signed-off-by: James Morse <james.morse@arm.com>
+Cc: Peter Newman <peternewman@google.com>
+Reviewed-by: Ben Horgan <ben.horgan@arm.com>
+Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+Reviewed-by: Fenghua Yu <fenghuay@nvidia.com>
+Reviewed-by: Gavin Shan <gshan@redhat.com>
+Tested-by: Fenghua Yu <fenghuay@nvidia.com>
+Tested-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
+Tested-by: Carl Worth <carl@os.amperecomputing.com>
+Tested-by: Gavin Shan <gshan@redhat.com>
+Tested-by: Zeng Heng <zengheng4@huawei.com>
+Signed-off-by: Ben Horgan <ben.horgan@arm.com>
+---
+Changes since v3:
+Peter:
+Fix type checking, use mpam_feat_msmon_mbwu_<n>counter
+Reset/configuration order of long counters
+---
+ drivers/resctrl/mpam_devices.c | 145 ++++++++++++++++++++++++++++-----
+ 1 file changed, 126 insertions(+), 19 deletions(-)
 
-
+diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
+index c371a22147b7..af0cd44c7517 100644
+--- a/drivers/resctrl/mpam_devices.c
++++ b/drivers/resctrl/mpam_devices.c
+@@ -905,6 +905,50 @@ struct mon_read {
+ 	int				err;
+ };
+ 
++static bool mpam_ris_has_mbwu_long_counter(struct mpam_msc_ris *ris)
++{
++	return (mpam_has_feature(mpam_feat_msmon_mbwu_63counter, &ris->props) ||
++		mpam_has_feature(mpam_feat_msmon_mbwu_44counter, &ris->props));
++}
++
++static u64 mpam_msc_read_mbwu_l(struct mpam_msc *msc)
++{
++	int retry = 3;
++	u32 mbwu_l_low;
++	u64 mbwu_l_high1, mbwu_l_high2;
++
++	mpam_mon_sel_lock_held(msc);
++
++	WARN_ON_ONCE((MSMON_MBWU_L + sizeof(u64)) > msc->mapped_hwpage_sz);
++	WARN_ON_ONCE(!cpumask_test_cpu(smp_processor_id(), &msc->accessibility));
++
++	mbwu_l_high2 = __mpam_read_reg(msc, MSMON_MBWU_L + 4);
++	do {
++		mbwu_l_high1 = mbwu_l_high2;
++		mbwu_l_low = __mpam_read_reg(msc, MSMON_MBWU_L);
++		mbwu_l_high2 = __mpam_read_reg(msc, MSMON_MBWU_L + 4);
++
++		retry--;
++	} while (mbwu_l_high1 != mbwu_l_high2 && retry > 0);
++
++	if (mbwu_l_high1 == mbwu_l_high2)
++		return (mbwu_l_high1 << 32) | mbwu_l_low;
++
++	pr_warn("Failed to read a stable value\n");
++	return MSMON___L_NRDY;
++}
++
++static void mpam_msc_zero_mbwu_l(struct mpam_msc *msc)
++{
++	mpam_mon_sel_lock_held(msc);
++
++	WARN_ON_ONCE((MSMON_MBWU_L + sizeof(u64)) > msc->mapped_hwpage_sz);
++	WARN_ON_ONCE(!cpumask_test_cpu(smp_processor_id(), &msc->accessibility));
++
++	__mpam_write_reg(msc, MSMON_MBWU_L, 0);
++	__mpam_write_reg(msc, MSMON_MBWU_L + 4, 0);
++}
++
+ static void gen_msmon_ctl_flt_vals(struct mon_read *m, u32 *ctl_val,
+ 				   u32 *flt_val)
+ {
+@@ -931,7 +975,9 @@ static void gen_msmon_ctl_flt_vals(struct mon_read *m, u32 *ctl_val,
+ 			*flt_val |= FIELD_PREP(MSMON_CFG_CSU_FLT_XCL, ctx->csu_exclude_clean);
+ 
+ 		break;
+-	case mpam_feat_msmon_mbwu:
++	case mpam_feat_msmon_mbwu_31counter:
++	case mpam_feat_msmon_mbwu_44counter:
++	case mpam_feat_msmon_mbwu_63counter:
+ 		*ctl_val |= MSMON_CFG_MBWU_CTL_TYPE_MBWU;
+ 
+ 		if (mpam_has_feature(mpam_feat_msmon_mbwu_rwbw, &m->ris->props))
+@@ -953,7 +999,9 @@ static void read_msmon_ctl_flt_vals(struct mon_read *m, u32 *ctl_val,
+ 		*ctl_val = mpam_read_monsel_reg(msc, CFG_CSU_CTL);
+ 		*flt_val = mpam_read_monsel_reg(msc, CFG_CSU_FLT);
+ 		break;
+-	case mpam_feat_msmon_mbwu:
++	case mpam_feat_msmon_mbwu_31counter:
++	case mpam_feat_msmon_mbwu_44counter:
++	case mpam_feat_msmon_mbwu_63counter:
+ 		*ctl_val = mpam_read_monsel_reg(msc, CFG_MBWU_CTL);
+ 		*flt_val = mpam_read_monsel_reg(msc, CFG_MBWU_FLT);
+ 		break;
+@@ -966,6 +1014,9 @@ static void read_msmon_ctl_flt_vals(struct mon_read *m, u32 *ctl_val,
+ static inline void clean_msmon_ctl_val(u32 *cur_ctl)
+ {
+ 	*cur_ctl &= ~MSMON_CFG_x_CTL_OFLOW_STATUS;
++
++	if (FIELD_GET(MSMON_CFG_x_CTL_TYPE, *cur_ctl) == MSMON_CFG_MBWU_CTL_TYPE_MBWU)
++		*cur_ctl &= ~MSMON_CFG_MBWU_CTL_OFLOW_STATUS_L;
+ }
+ 
+ static void write_msmon_ctl_flt_vals(struct mon_read *m, u32 ctl_val,
+@@ -984,12 +1035,17 @@ static void write_msmon_ctl_flt_vals(struct mon_read *m, u32 ctl_val,
+ 		mpam_write_monsel_reg(msc, CSU, 0);
+ 		mpam_write_monsel_reg(msc, CFG_CSU_CTL, ctl_val | MSMON_CFG_x_CTL_EN);
+ 		break;
+-	case mpam_feat_msmon_mbwu:
++	case mpam_feat_msmon_mbwu_31counter:
++	case mpam_feat_msmon_mbwu_44counter:
++	case mpam_feat_msmon_mbwu_63counter:
+ 		mpam_write_monsel_reg(msc, CFG_MBWU_FLT, flt_val);
+ 		mpam_write_monsel_reg(msc, CFG_MBWU_CTL, ctl_val);
+ 		mpam_write_monsel_reg(msc, CFG_MBWU_CTL, ctl_val | MSMON_CFG_x_CTL_EN);
+ 		/* Counting monitors require NRDY to be reset by software */
+-		mpam_write_monsel_reg(msc, MBWU, 0);
++		if (m->type == mpam_feat_msmon_mbwu_31counter)
++			mpam_write_monsel_reg(msc, MBWU, 0);
++		else
++			mpam_msc_zero_mbwu_l(m->ris->vmsc->msc);
+ 		break;
+ 	default:
+ 		pr_warn("Unexpected monitor type %d\n", m->type);
+@@ -998,8 +1054,17 @@ static void write_msmon_ctl_flt_vals(struct mon_read *m, u32 ctl_val,
+ 
+ static u64 mpam_msmon_overflow_val(enum mpam_device_features type)
+ {
+-	/* TODO: scaling, and long counters */
+-	return BIT_ULL(hweight_long(MSMON___VALUE));
++	/* TODO: implement scaling counters */
++	switch (type) {
++	case mpam_feat_msmon_mbwu_63counter:
++		return BIT_ULL(hweight_long(MSMON___LWD_VALUE));
++	case mpam_feat_msmon_mbwu_44counter:
++		return BIT_ULL(hweight_long(MSMON___L_VALUE));
++	case mpam_feat_msmon_mbwu_31counter:
++		return BIT_ULL(hweight_long(MSMON___VALUE));
++	default:
++		return 0;
++	}
+ }
+ 
+ static void __ris_msmon_read(void *arg)
+@@ -1029,7 +1094,12 @@ static void __ris_msmon_read(void *arg)
+ 	 * This saves waiting for 'nrdy' on subsequent reads.
+ 	 */
+ 	read_msmon_ctl_flt_vals(m, &cur_ctl, &cur_flt);
+-	overflow = cur_ctl & MSMON_CFG_x_CTL_OFLOW_STATUS;
++
++	if (mpam_feat_msmon_mbwu_31counter == m->type)
++		overflow = cur_ctl & MSMON_CFG_x_CTL_OFLOW_STATUS;
++	else if (mpam_feat_msmon_mbwu_44counter == m->type ||
++		 mpam_feat_msmon_mbwu_63counter == m->type)
++		overflow = cur_ctl & MSMON_CFG_MBWU_CTL_OFLOW_STATUS_L;
+ 
+ 	clean_msmon_ctl_val(&cur_ctl);
+ 	gen_msmon_ctl_flt_vals(m, &ctl_val, &flt_val);
+@@ -1041,7 +1111,9 @@ static void __ris_msmon_read(void *arg)
+ 		overflow = false;
+ 	} else if (overflow) {
+ 		mpam_write_monsel_reg(msc, CFG_MBWU_CTL,
+-				      cur_ctl & ~MSMON_CFG_x_CTL_OFLOW_STATUS);
++				      cur_ctl &
++				      ~(MSMON_CFG_x_CTL_OFLOW_STATUS |
++					MSMON_CFG_MBWU_CTL_OFLOW_STATUS_L));
+ 	}
+ 
+ 	switch (m->type) {
+@@ -1051,11 +1123,24 @@ static void __ris_msmon_read(void *arg)
+ 			nrdy = now & MSMON___NRDY;
+ 		now = FIELD_GET(MSMON___VALUE, now);
+ 		break;
+-	case mpam_feat_msmon_mbwu:
+-		now = mpam_read_monsel_reg(msc, MBWU);
+-		if (mpam_has_feature(mpam_feat_msmon_mbwu_hw_nrdy, rprops))
+-			nrdy = now & MSMON___NRDY;
+-		now = FIELD_GET(MSMON___VALUE, now);
++	case mpam_feat_msmon_mbwu_31counter:
++	case mpam_feat_msmon_mbwu_44counter:
++	case mpam_feat_msmon_mbwu_63counter:
++		if (m->type != mpam_feat_msmon_mbwu_31counter) {
++			now = mpam_msc_read_mbwu_l(msc);
++			if (mpam_has_feature(mpam_feat_msmon_mbwu_hw_nrdy, rprops))
++				nrdy = now & MSMON___L_NRDY;
++
++			if (m->type == mpam_feat_msmon_mbwu_63counter)
++				now = FIELD_GET(MSMON___LWD_VALUE, now);
++			else
++				now = FIELD_GET(MSMON___L_VALUE, now);
++		} else {
++			now = mpam_read_monsel_reg(msc, MBWU);
++			if (mpam_has_feature(mpam_feat_msmon_mbwu_hw_nrdy, rprops))
++				nrdy = now & MSMON___NRDY;
++			now = FIELD_GET(MSMON___VALUE, now);
++		}
+ 
+ 		if (nrdy)
+ 			break;
+@@ -1118,13 +1203,26 @@ static int _msmon_read(struct mpam_component *comp, struct mon_read *arg)
+ 	return any_err;
+ }
+ 
++static enum mpam_device_features mpam_msmon_choose_counter(struct mpam_class *class)
++{
++	struct mpam_props *cprops = &class->props;
++
++	if (mpam_has_feature(mpam_feat_msmon_mbwu_63counter, cprops))
++		return mpam_feat_msmon_mbwu_63counter;
++	if (mpam_has_feature(mpam_feat_msmon_mbwu_44counter, cprops))
++		return mpam_feat_msmon_mbwu_44counter;
++
++	return mpam_feat_msmon_mbwu_31counter;
++}
++
+ int mpam_msmon_read(struct mpam_component *comp, struct mon_cfg *ctx,
+ 		    enum mpam_device_features type, u64 *val)
+ {
+ 	int err;
+ 	struct mon_read arg;
+ 	u64 wait_jiffies = 0;
+-	struct mpam_props *cprops = &comp->class->props;
++	struct mpam_class *class = comp->class;
++	struct mpam_props *cprops = &class->props;
+ 
+ 	might_sleep();
+ 
+@@ -1134,6 +1232,9 @@ int mpam_msmon_read(struct mpam_component *comp, struct mon_cfg *ctx,
+ 	if (!mpam_has_feature(type, cprops))
+ 		return -EOPNOTSUPP;
+ 
++	if (type == mpam_feat_msmon_mbwu)
++		type = mpam_msmon_choose_counter(class);
++
+ 	arg = (struct mon_read) {
+ 		.ctx = ctx,
+ 		.type = type,
+@@ -1142,8 +1243,8 @@ int mpam_msmon_read(struct mpam_component *comp, struct mon_cfg *ctx,
+ 	*val = 0;
+ 
+ 	err = _msmon_read(comp, &arg);
+-	if (err == -EBUSY && comp->class->nrdy_usec)
+-		wait_jiffies = usecs_to_jiffies(comp->class->nrdy_usec);
++	if (err == -EBUSY && class->nrdy_usec)
++		wait_jiffies = usecs_to_jiffies(class->nrdy_usec);
+ 
+ 	while (wait_jiffies)
+ 		wait_jiffies = schedule_timeout_uninterruptible(wait_jiffies);
+@@ -1282,12 +1383,13 @@ static int mpam_restore_mbwu_state(void *_ris)
+ 	int i;
+ 	struct mon_read mwbu_arg;
+ 	struct mpam_msc_ris *ris = _ris;
++	struct mpam_class *class = ris->vmsc->comp->class;
+ 
+ 	for (i = 0; i < ris->props.num_mbwu_mon; i++) {
+ 		if (ris->mbwu_state[i].enabled) {
+ 			mwbu_arg.ris = ris;
+ 			mwbu_arg.ctx = &ris->mbwu_state[i].cfg;
+-			mwbu_arg.type = mpam_feat_msmon_mbwu;
++			mwbu_arg.type = mpam_msmon_choose_counter(class);
+ 
+ 			__ris_msmon_read(&mwbu_arg);
+ 		}
+@@ -1322,8 +1424,13 @@ static int mpam_save_mbwu_state(void *arg)
+ 		cur_ctl = mpam_read_monsel_reg(msc, CFG_MBWU_CTL);
+ 		mpam_write_monsel_reg(msc, CFG_MBWU_CTL, 0);
+ 
+-		val = mpam_read_monsel_reg(msc, MBWU);
+-		mpam_write_monsel_reg(msc, MBWU, 0);
++		if (mpam_ris_has_mbwu_long_counter(ris)) {
++			val = mpam_msc_read_mbwu_l(msc);
++			mpam_msc_zero_mbwu_l(msc);
++		} else {
++			val = mpam_read_monsel_reg(msc, MBWU);
++			mpam_write_monsel_reg(msc, MBWU, 0);
++		}
+ 
+ 		cfg->mon = i;
+ 		cfg->pmg = FIELD_GET(MSMON_CFG_x_FLT_PMG, cur_flt);
 -- 
-Ben Greear <greearb@candelatech.com>
-Candela Technologies Inc  http://www.candelatech.com
+2.43.0
+
 
