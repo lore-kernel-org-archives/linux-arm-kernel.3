@@ -4,86 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9082CEACEF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 11:26:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F36BDCE8D6B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 11:28:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=49ctbnqVDAwIBJX5k40l0vJpezvfhKgkxScmbFVG3vs=; b=PedYUhChfqxQgwlw/gAcidVX2+
-	trbr7xFc010877CwGDJB2VzpdZIzYjEAYp5CKWou4FNioQkMLnOLOKuSWb3Rs0ZbChoHy8dTe3hiV
-	CE0eWCOI0kRwmr1ifCmzTAJJzR72AQBqvbI+YADu1gBZJV0cxeYwE6rlXUzKiZWAW1+EKaIdLGYDo
-	HJm7DaTOU7ccoTVI+eslszn5H60ImHdsCU9+LPatrvYNBF2vEgRrfeDjLwgtHnlokP5P3JUC5e3iq
-	FaRvJ1mx//SpCmehPmqZc+vw77+nwwiyTWvLwehqftEGcKHAzngU3Ew6VXkIb+EbW7zGFhjEl1FGh
-	Cy8cCcyQ==;
+	bh=CiueHhRnJ9ulMkCTFCHoEDYLpdo+U4EyQeF7wYBnCfI=; b=4pGMadqMNFDLPKZzCBZ72NcxSD
+	aHFbrl4LDL/Hhe/CnNdNtyoN9uwuLMyulyte2USC8laBlu6sZNM8jGtoJq4XTJbb7SD+vrjc9ca5m
+	7jbdTHzO5sEjI8RjJjFUYZomfWA46CAz7hGHjhckzUX95TZ4ub7dCyEOhXv7cpozQOPnd7SpMyOQh
+	8tlJi0fMdsuDiyKih3CEgXRQWD3BEuVR4wW/2iN6S9BtRZeQUb1WcZv4gn0xDYXPF4V0Y0Enfo+wS
+	hkkS4qiQk/MhbQxfKelNB9U2GvW7S6UL113RVeFy+XpuTyQOK/sG0a+Ya+p2HrHjqAytDRr4Jo+FG
+	brNyVS7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKxNP-0000000Fxzo-3fNP;
-	Mon, 17 Nov 2025 11:26:31 +0000
-Received: from mail-qt1-x82d.google.com ([2607:f8b0:4864:20::82d])
+	id 1vKxPO-0000000FyAP-3Uug;
+	Mon, 17 Nov 2025 11:28:34 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKxNO-0000000FxzT-01Ag
+	id 1vKxPN-0000000FyA7-33k0
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Nov 2025 11:26:31 +0000
-Received: by mail-qt1-x82d.google.com with SMTP id d75a77b69052e-4edb8d6e98aso673221cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Nov 2025 03:26:29 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1763378789; x=1763983589; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=49ctbnqVDAwIBJX5k40l0vJpezvfhKgkxScmbFVG3vs=;
-        b=yuYF0d/Fjvo2ezN4lRvVIyAAijZzvnzLDrNe2fI4Eublel8bqLI6EdC8VbttDwitrE
-         5GHkYff1JExWxRzOjF2MgKDGVtQOvnnmvt7dRL8j5/NUBTJxK9/IhZt1EWScDJTe0zXw
-         h4enaf8GiW3qyj5J7nItM9Wymm6Einb7drfLyMHJqW9BsRM6XCCvEzGSPPy8hjHS7UDM
-         fgv+CwUwmy0iecmgkeTne9NEZ+Q1G1nx8RkM3RUrsyHkkjC4IaQD4SvxnsIZpeu4J3Se
-         FyY8igofbuVMtmbUWytIMdj7kFYsNBiaisjwl2aQMB625j4WKVuMTcFXRVEr+O030cQ/
-         jJXQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763378789; x=1763983589;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=49ctbnqVDAwIBJX5k40l0vJpezvfhKgkxScmbFVG3vs=;
-        b=iT8ha4OrZYzjoLOcQnnwyYT4+oo1SdhsJR5lQHsxhpRMPzCqNeqWv2aoxq9/+rXR/5
-         kUKEo2hx1G1FCdOAT04VyEyHIc08zsOyBWRcZVAn1sArGgqZEoV+3n885nWxrVShBOQB
-         O947CAQx3HkgHGBhEpWLLp0U0jRQl220ybsfpPpYn/fu2aXP8+dJrLLMKOjXVBxejJCA
-         ZaYWidSWU3lHzyE3wrv3tLSjEvnodIhxNR13X4L+ORePoRTL5HYQvy106EfKtCe/5/US
-         daVum60wUXOxmjU5/iiKZvNxVH4heNVRdbAgrrf5u/YhwvGd0GviBng0LZSX3d29Za1e
-         Wc5g==
-X-Forwarded-Encrypted: i=1; AJvYcCW/gwM7oIFNN8Cz/Q2yjEBwi9coiUwMagyEHp+ejfCtd0H4Hn6AE+vHRbbXHJys+lQ46BO2Lh8xIeD9kgyJEHCi@lists.infradead.org
-X-Gm-Message-State: AOJu0YxTrxiWF8OmH3DPp85SktZXVKzufBufStV1ULKsMxQp/PcHOUpw
-	IYx3nkANkNxrBkOVpbFmAejcpv2dpBPQFYSrPNdU2wD52JbLnFyMJBTrCiF9ygK+3+FijonDQ86
-	zLK5/DEATmw3ybWM5ckkGOtnzQVtSsFQzxRkANx8m
-X-Gm-Gg: ASbGnctQhdyqi48a26YTV4rN3dz46r5P4O8doSlBDCRcvo48YC31+gnJ2Vod38nMpJR
-	ApdSXnhNbMlMrouugBItoe4j0lR60mdcjShSvGMUEo6bBVabio8Ih0biM7yauIIUMhKLAM4Fqpj
-	b22gkF3eQdHpITkRhQzof0+pkXIoqH897NaslbLnwy1ex6MTxrshqLUEgcb5bqEN3c1lr0AVH+e
-	QnDiTnWm99hQPvWTFNUkrQ0i6APZDEU2Soqowg8OtPiUuz7vMVlsK8fQg7bcYjwHpDHww+9zzI9
-	sGjpbwgHbUWriC/O
-X-Google-Smtp-Source: AGHT+IEioMYFsqCc/4jnG0fmbEwZ6LA1WtQ/uRrIvwVWDiUcLFKyLiTmWE933E92hMBlL3D5tgBe1zTgaGIOHcn1qNw=
-X-Received: by 2002:a05:622a:1191:b0:4b7:9b06:ca9f with SMTP id
- d75a77b69052e-4ee0279d624mr12602131cf.2.1763378788577; Mon, 17 Nov 2025
- 03:26:28 -0800 (PST)
-MIME-Version: 1.0
-References: <20251117091527.1119213-1-maz@kernel.org> <20251117091527.1119213-5-maz@kernel.org>
-In-Reply-To: <20251117091527.1119213-5-maz@kernel.org>
-From: Fuad Tabba <tabba@google.com>
-Date: Mon, 17 Nov 2025 11:25:52 +0000
-X-Gm-Features: AWmQ_bmeFv51Sa8WTg6Ls1D8vjiLqQnByeUS2NLYDYoerk0mUC01snRaXzO25Vg
-Message-ID: <CA+EHjTwEj_-tDvq2+2x9MxTom2yw7Rx0ZZg7XuBOWxFxBJ-n9Q@mail.gmail.com>
-Subject: Re: [PATCH v3 4/5] KVM: arm64: GICv3: Remove vgic_hcr workaround
- handling leftovers
-To: Marc Zyngier <maz@kernel.org>
-Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	kvm@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Oliver Upton <oupton@kernel.org>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Christoffer Dall <christoffer.dall@arm.com>, 
+	Mon, 17 Nov 2025 11:28:33 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id CF44C60143;
+	Mon, 17 Nov 2025 11:28:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 796A8C19425;
+	Mon, 17 Nov 2025 11:28:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1763378912;
+	bh=hdkCa9GLlXOFEKazFI6YIXZl54t/xf43XIXxQ2WHmsQ=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=olpCmwZHh7kRdwZ4Jdn8CAsbf0cuwdmdL6osbk/mw3mfqndJ+zZDdknmVGSVqubdD
+	 lYAsqjPAqieDGa2khqIcc5/el0L6nPbI/fyek2jo2fvr9Ue/QHLHx2PY81ufUuZJq/
+	 Le/IKSaRLwhqzbWtJv7qTLjfEhkFgGjrVCvKUrbpFmvgzx69s2IXY3JaXmgpqzwReh
+	 1300KU9uFOY7KElD+QRCawUPhrAHT5Rnl+76TpPcDx5fJdlwzzXdLLxddY9t5xl3va
+	 e0CoValZiyzMpnDVJ250cNF3QMWajt320UsXZU5y3+e7MXYRHR2fg4muElg5CqRyeP
+	 hUylNU+7PdAaA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vKxPK-00000005ndG-0LVa;
+	Mon, 17 Nov 2025 11:28:30 +0000
+Date: Mon, 17 Nov 2025 11:28:29 +0000
+Message-ID: <865xb8ucde.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Fuad Tabba <tabba@google.com>
+Cc: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	kvm@vger.kernel.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Christoffer Dall <christoffer.dall@arm.com>,
 	Mark Brown <broonie@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251117_032630_048645_A6671045 
-X-CRM114-Status: GOOD (  15.48  )
+Subject: Re: [PATCH v3 1/5] KVM: arm64: GICv3: Don't advertise ICH_HCR_EL2.En==1 when no vgic is configured
+In-Reply-To: <CA+EHjTy93dmoTysS91+jFmey8ei55VWNUf-FsqVz9Ho4W1NWBQ@mail.gmail.com>
+References: <20251117091527.1119213-1-maz@kernel.org>
+	<20251117091527.1119213-2-maz@kernel.org>
+	<CA+EHjTy93dmoTysS91+jFmey8ei55VWNUf-FsqVz9Ho4W1NWBQ@mail.gmail.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: tabba@google.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, christoffer.dall@arm.com, broonie@kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,42 +89,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 17 Nov 2025 at 09:20, Marc Zyngier <maz@kernel.org> wrote:
->
-> There's a bizarre or'ing of a 0 with the guest's ICH_HCR_EL2's
-> value, which is a leftover from the host workaround merging
-> code. Just kill it.
->
-> Fixes: ca30799f7c2d0 ("KVM: arm64: Turn vgic-v3 errata traps into a patched-in constant")
-> Signed-off-by: Marc Zyngier <maz@kernel.org>
-> ---
+On Mon, 17 Nov 2025 10:34:36 +0000,
+Fuad Tabba <tabba@google.com> wrote:
+> 
+> Hi Marc,
+> 
+> On Mon, 17 Nov 2025 at 09:15, Marc Zyngier <maz@kernel.org> wrote:
+> >
+> > Configuring GICv3 to deal with the lack of GIC in the guest relies
+> > on not setting ICH_HCR_EL2.En in the shadow register, as this is
+> > an indication of the fact that we want to trap all system registers
+> > to report an UNDEF in the guest.
+> >
+> > Make sure we leave vgic_hcr untouched in this case.
+> >
+> > Reported-by: Mark Brown <broonie@kernel.org>
+> > Tested-by: Mark Brown <broonie@kernel.org>
+> > Closes: https://lore.kernel.org/r/72e1e8b5-e397-4dc5-9cd6-a32b6af3d739@sirena.org.uk
+> > Fixes: 877324a1b5415 ("KVM: arm64: Revamp vgic maintenance interrupt configuration")
+> > Signed-off-by: Marc Zyngier <maz@kernel.org>
+> > ---
+> >  arch/arm64/kvm/vgic/vgic-v3.c | 3 +++
+> >  1 file changed, 3 insertions(+)
+> >
+> > diff --git a/arch/arm64/kvm/vgic/vgic-v3.c b/arch/arm64/kvm/vgic/vgic-v3.c
+> > index 598621b14a30d..1d6dd1b545bdd 100644
+> > --- a/arch/arm64/kvm/vgic/vgic-v3.c
+> > +++ b/arch/arm64/kvm/vgic/vgic-v3.c
+> > @@ -26,6 +26,9 @@ void vgic_v3_configure_hcr(struct kvm_vcpu *vcpu,
+> >  {
+> >         struct vgic_v3_cpu_if *cpuif = &vcpu->arch.vgic_cpu.vgic_v3;
+> >
+> > +       if (!irqchip_in_kernel(vcpu->kvm))
+> > +               return;
+> > +
+> 
+> Bear with me, since I'm not too familiar with this code. This is the
+> only function that initializes cpuif->vgic_hcr. Should we be
+> explicitly setting it to 0, or warn if ICH_HCR_EL2_En is set?
 
-Reviewed-by: Fuad Tabba <tabba@google.com>
+It must be zero by construction, as the vcpu structure (which this is
+part of) is always zeroed at allocation time, and the only way to
+populate this field to have created an irqchip and start populating
+the shadow structure, right after this test.
 
-Cheers,
-/fuad
+If we start doubting the state of bits of the vcpu structure that
+should never be written to because of some particular configuration,
+then we should address this globally, not piecemeal.
 
->  arch/arm64/kvm/vgic/vgic-v3-nested.c | 3 +--
->  1 file changed, 1 insertion(+), 2 deletions(-)
->
-> diff --git a/arch/arm64/kvm/vgic/vgic-v3-nested.c b/arch/arm64/kvm/vgic/vgic-v3-nested.c
-> index bf37fd3198ba7..40f7a37e0685c 100644
-> --- a/arch/arm64/kvm/vgic/vgic-v3-nested.c
-> +++ b/arch/arm64/kvm/vgic/vgic-v3-nested.c
-> @@ -323,10 +323,9 @@ static void vgic_v3_create_shadow_state(struct kvm_vcpu *vcpu,
->                                         struct vgic_v3_cpu_if *s_cpu_if)
->  {
->         struct vgic_v3_cpu_if *host_if = &vcpu->arch.vgic_cpu.vgic_v3;
-> -       u64 val = 0;
->         int i;
->
-> -       s_cpu_if->vgic_hcr = __vcpu_sys_reg(vcpu, ICH_HCR_EL2) | val;
-> +       s_cpu_if->vgic_hcr = __vcpu_sys_reg(vcpu, ICH_HCR_EL2);
->         s_cpu_if->vgic_vmcr = __vcpu_sys_reg(vcpu, ICH_VMCR_EL2);
->         s_cpu_if->vgic_sre = host_if->vgic_sre;
->
-> --
-> 2.47.3
->
->
+Thanks,
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
