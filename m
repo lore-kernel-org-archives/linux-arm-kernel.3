@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EAD0CEBF96
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 13:31:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A37B0CED242
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 13:31:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=O3MpI9LxI/OlMZoqxaz/4H0SoLaP3c9QUvB4fy5mP1A=; b=vNfiQO3GSFN/r2Lk0cJBjxs1ra
-	dBSe1jH+3CPiS4KdpS8crSdtcbLJhXfSZ6lGv00/WV/EjeG+tWQNBTfXVb1ie8qsE83aLIhtBuQ87
-	YW9/8VaIl9WYHQcwYPUUGf4VFpYbKlwT5zHVCakOZX2GRguNhUGPgxG9Aem5sVZKoZANRHVKKMnlx
-	OZgxevfEHwv5O4tQ9rvUjHp6P8EPWibsLcX4mFeSNQDgD1xfzYU/BuN1/K9reZIfFyNUz345y8Tpz
-	S2pbeE5N4RTPHOoFTj8pd5EbnP6maqzb9J/nzHOphdnxGICmkb50qPVDzMPp8o/QUn66RaCtbNO9V
-	lYzySupQ==;
+	bh=1MqVMJTTo6T38F+TamEic2utqXgvdR5R1B5+ka+htpM=; b=JuOEFSulEVwkxyBa/ybk1i9Uyg
+	4fggIX5iN5bcd2zTLEivKIMFG/8fPo2XxtT8E+pUEQuMJQAYZOVwG8sNCYTnmner0m6eFQ3iXSl9s
+	2ldQCF6Ogu6h+Sjk//2fvxutOi1gfidrsl886CHrf1JH0k00+pFYrsUUSmmsv8Lh8R+f3R+JlvHZX
+	utFkh9d4uBVfv/iQPnufxRhTFZgIWeIzveHFpPCoFoPBgWdtTNaPY8xsXKeroyMH8MYsI8asK9wuc
+	Gs1DTBvXijTF+ziRf5tNFarJeXCHJO+OBkAww/Y62VCqnCxUrSnLTvkEp5Z3AqrIwJ+HcRGrKAKwz
+	G6shJA9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKzKJ-0000000GBCW-1jwg;
+	id 1vKzKJ-0000000GBDC-38Qv;
 	Mon, 17 Nov 2025 13:31:27 +0000
 Received: from canpmsgout10.his.huawei.com ([113.46.200.225])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKzK9-0000000GB4c-1h6l
+	id 1vKzKA-0000000GB5b-33lJ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Nov 2025 13:31:19 +0000
+	Mon, 17 Nov 2025 13:31:20 +0000
 dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
 	c=relaxed/relaxed; q=dns/txt;
 	h=From;
-	bh=O3MpI9LxI/OlMZoqxaz/4H0SoLaP3c9QUvB4fy5mP1A=;
-	b=3EKFsV5Cza6woM5b+7/9KO21oWD3ebNmUQfUorFXJgBFOnJc+TeLzpC4gPEMpecW3kzaJp50X
-	Rc8t5B8D3kKY6RfYFkm7QXfN4EWH3Q+oW4ZgAEeoKjuE8XJ58PY6qs27Q9rLjAKjnfH0SZAz6uS
-	uRhmZNwBbM9cmJcAT0ISzF0=
-Received: from mail.maildlp.com (unknown [172.19.163.44])
-	by canpmsgout10.his.huawei.com (SkyGuard) with ESMTPS id 4d97rZ3Tc0z1K9Bq;
-	Mon, 17 Nov 2025 21:29:34 +0800 (CST)
+	bh=1MqVMJTTo6T38F+TamEic2utqXgvdR5R1B5+ka+htpM=;
+	b=KmCsfjIbe5OZG8mPkBkAf7aSmDbVJXEEuudK77nDVckGswYjWj2Kq03qz9Lmhv7uWsTCPZfSs
+	pBncWxfGQ9qpVsUABLLe2BQSMApCF8lJe9OAvWm0zeJwLVIkQqm1r8nwu4kTilkBPHEB5mm62bS
+	VipywHoR2ah4t+hf3LglecA=
+Received: from mail.maildlp.com (unknown [172.19.88.214])
+	by canpmsgout10.his.huawei.com (SkyGuard) with ESMTPS id 4d97rb6B0Dz1K9Bq;
+	Mon, 17 Nov 2025 21:29:35 +0800 (CST)
 Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id 7929814010D;
-	Mon, 17 Nov 2025 21:31:15 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id D815E1A016C;
+	Mon, 17 Nov 2025 21:31:16 +0800 (CST)
 Received: from huawei.com (10.90.53.73) by dggpemf500011.china.huawei.com
  (7.185.36.131) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Mon, 17 Nov
- 2025 21:31:14 +0800
+ 2025 21:31:15 +0800
 From: Jinjie Ruan <ruanjinjie@huawei.com>
 To: <catalin.marinas@arm.com>, <will@kernel.org>, <oleg@redhat.com>,
 	<tglx@linutronix.de>, <peterz@infradead.org>, <luto@kernel.org>,
@@ -56,9 +56,9 @@ To: <catalin.marinas@arm.com>, <will@kernel.org>, <oleg@redhat.com>,
 	<lihongbo22@huawei.com>, <linux-arm-kernel@lists.infradead.org>,
 	<linux-kernel@vger.kernel.org>, <linux-kselftest@vger.kernel.org>
 CC: <ruanjinjie@huawei.com>
-Subject: [PATCH v7 07/11] arm64/ptrace: Use syscall_get_arguments() heleper
-Date: Mon, 17 Nov 2025 21:30:44 +0800
-Message-ID: <20251117133048.53182-8-ruanjinjie@huawei.com>
+Subject: [PATCH v7 08/11] entry: Add arch_ptrace_report_syscall_entry/exit()
+Date: Mon, 17 Nov 2025 21:30:45 +0800
+Message-ID: <20251117133048.53182-9-ruanjinjie@huawei.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20251117133048.53182-1-ruanjinjie@huawei.com>
 References: <20251117133048.53182-1-ruanjinjie@huawei.com>
@@ -69,8 +69,8 @@ X-Originating-IP: [10.90.53.73]
 X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
  dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251117_053117_633452_B7D084FC 
-X-CRM114-Status: GOOD (  11.01  )
+X-CRM114-CacheID: sfid-20251117_053119_101541_2FC63A0D 
+X-CRM114-Status: GOOD (  11.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,57 +85,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The generic entry check audit context first and use
-syscall_get_arguments() helper.
+Differ from generic entry, due to historical reasons, ARM64 need to
+save/restore during syscall entry/exit because ARM64 use a scratch
+register (ip(r12) on AArch32, x7 on AArch64) to denote syscall entry/exit.
 
-In order to switch to the generic entry for arm64,
+In preparation for moving arm64 over to the generic entry code,
+add arch_ptrace_report_syscall_entry/exit() as the default
+ptrace_report_syscall_entry/exit() implementation. This allows
+arm64 to implement the architecture specific version.
 
-- Also use the helper.
-
-- Extract the syscall_enter_audit() helper to make it clear.
-
-- Check audit context for syscall_enter_audit(), which only adds
-  one additional check without any other differences as
-  audit_syscall_entry() check it first otherwise do nothing.
-
-No functional changes.
-
+Suggested-by: Mark Rutland <mark.rutland@arm.com>
+Suggested-by: Kevin Brodsky <kevin.brodsky@arm.com>
+Suggested-by: Thomas Gleixner <tglx@linutronix.de>
 Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
 ---
- arch/arm64/kernel/ptrace.c | 14 ++++++++++++--
- 1 file changed, 12 insertions(+), 2 deletions(-)
+ kernel/entry/syscall-common.c | 43 +++++++++++++++++++++++++++++++++--
+ 1 file changed, 41 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm64/kernel/ptrace.c b/arch/arm64/kernel/ptrace.c
-index 9af3046a2ce9..9455ccf1ecc1 100644
---- a/arch/arm64/kernel/ptrace.c
-+++ b/arch/arm64/kernel/ptrace.c
-@@ -2376,6 +2376,17 @@ static void report_syscall_exit(struct pt_regs *regs)
+diff --git a/kernel/entry/syscall-common.c b/kernel/entry/syscall-common.c
+index 66e6ba7fa80c..27310e611567 100644
+--- a/kernel/entry/syscall-common.c
++++ b/kernel/entry/syscall-common.c
+@@ -17,6 +17,25 @@ static inline void syscall_enter_audit(struct pt_regs *regs, long syscall)
  	}
  }
  
-+static inline void syscall_enter_audit(struct pt_regs *regs, long syscall)
++/**
++ * arch_ptrace_report_syscall_entry - Architecture specific
++ *				      ptrace_report_syscall_entry().
++ *
++ * Invoked from syscall_trace_enter() to wrap ptrace_report_syscall_entry().
++ * Defaults to ptrace_report_syscall_entry.
++ *
++ * The main purpose is to support arch-specific ptrace_report_syscall_entry()
++ * implementation.
++ */
++static __always_inline int arch_ptrace_report_syscall_entry(struct pt_regs *regs);
++
++#ifndef arch_ptrace_report_syscall_entry
++static __always_inline int arch_ptrace_report_syscall_entry(struct pt_regs *regs)
 +{
-+	if (unlikely(audit_context())) {
-+		unsigned long args[6];
-+
-+		syscall_get_arguments(current, regs, args);
-+		audit_syscall_entry(syscall, args[0], args[1], args[2], args[3]);
-+	}
-+
++	return ptrace_report_syscall_entry(regs);
 +}
++#endif
 +
- int syscall_trace_enter(struct pt_regs *regs, long syscall, unsigned long flags)
+ long syscall_trace_enter(struct pt_regs *regs, long syscall,
+ 				unsigned long work)
  {
- 	int ret;
-@@ -2406,8 +2417,7 @@ int syscall_trace_enter(struct pt_regs *regs, long syscall, unsigned long flags)
- 		 syscall = syscall_get_nr(current, regs);
+@@ -34,7 +53,7 @@ long syscall_trace_enter(struct pt_regs *regs, long syscall,
+ 
+ 	/* Handle ptrace */
+ 	if (work & (SYSCALL_WORK_SYSCALL_TRACE | SYSCALL_WORK_SYSCALL_EMU)) {
+-		ret = ptrace_report_syscall_entry(regs);
++		ret = arch_ptrace_report_syscall_entry(regs);
+ 		if (ret || (work & SYSCALL_WORK_SYSCALL_EMU))
+ 			return -1L;
  	}
+@@ -84,6 +103,26 @@ static inline bool report_single_step(unsigned long work)
+ 	return work & SYSCALL_WORK_SYSCALL_EXIT_TRAP;
+ }
  
--	audit_syscall_entry(syscall, regs->orig_x0, regs->regs[1],
--			    regs->regs[2], regs->regs[3]);
-+	syscall_enter_audit(regs, syscall);
++/**
++ * arch_ptrace_report_syscall_exit - Architecture specific
++ *				     ptrace_report_syscall_exit.
++ *
++ * Invoked from syscall_exit_work() to wrap ptrace_report_syscall_exit().
++ *
++ * The main purpose is to support arch-specific ptrace_report_syscall_exit
++ * implementation.
++ */
++static __always_inline void arch_ptrace_report_syscall_exit(struct pt_regs *regs,
++							    int step);
++
++#ifndef arch_ptrace_report_syscall_exit
++static __always_inline void arch_ptrace_report_syscall_exit(struct pt_regs *regs,
++							    int step)
++{
++	ptrace_report_syscall_exit(regs, step);
++}
++#endif
++
+ void syscall_exit_work(struct pt_regs *regs, unsigned long work)
+ {
+ 	bool step;
+@@ -108,5 +147,5 @@ void syscall_exit_work(struct pt_regs *regs, unsigned long work)
  
- 	return regs->syscallno;
+ 	step = report_single_step(work);
+ 	if (step || work & SYSCALL_WORK_SYSCALL_TRACE)
+-		ptrace_report_syscall_exit(regs, step);
++		arch_ptrace_report_syscall_exit(regs, step);
  }
 -- 
 2.34.1
