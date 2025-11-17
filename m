@@ -4,106 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E4CBCE8D6B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 08:54:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A1B2CEACEF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 09:05:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=b7EAVyYC4388fQn/O8BhgvxdKAbjDZgqvyRrtSQ9BZE=; b=sA7ORXa6Kyd+hG6qg80Jk5+Rmk
-	1s9Iocdcp+LEyfFe1U2yai4+ljCZTcIS2HHhnl8w5ec7TYbYcNuFREdsT/nKYw//yK1zTCoFKnfjr
-	KEjyknm5leFLzgI+lqgnsxHhrsGC3/8xtztGEM40a4NMcKdeLwVnP8VVy0xTbonxHhRKkeTaT89K+
-	pHoanqMpeV+7okCAaC8GJVDKeXTZJlOlW5t63p/HoAqRxCVgsUz0YTkVf7srnjES34bKQH+bczTSR
-	OJZn/Y+kC6N3lW1s9pkvFFNCqdSjVUyOLWOhtP7uOXxPtPIjcmOe2E9XeJEIXsV0HIa2Jm/90jkgo
-	ZdWhCjpg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=dc0V6uSK5r5A6NQwmKa55NukJxjqQrLEAaKU2mAU2+s=; b=BUZgJNZgal5Acj
+	SGJPhSQ0bEdo66Kq1796aKFs4bB1bCJqJ5VEDzyPVc2TWR2cZmfdVi2q9+Zu3u2l/rCJeonejTYId
+	rrWbj7GQ90p8E+2PiCVXf/z5JxTXP1WE5b5VS26edPiZ3MMKHfIq0T7Nwc0XtNbGlYvmAmdMISXT1
+	W/wM/qL8XmtRPejMWQSuczyk4eCsKn+G11vCCbgTVY3TdeINHqjD+AGUdSVgcElCD6mona1fqAzoG
+	vVPNvbTJBO4W/956/CM6gAI0LTWILmeSYnPwsbJ9bMN5OQCUEin4MU5u6zM2+uRK0GC0n8MTiP+9o
+	ygutaWE+34e715CLkQLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKuzn-0000000FioC-23bW;
-	Mon, 17 Nov 2025 08:53:59 +0000
-Received: from fout-a8-smtp.messagingengine.com ([103.168.172.151])
+	id 1vKvB5-0000000Fjxy-2nbL;
+	Mon, 17 Nov 2025 09:05:39 +0000
+Received: from mail-lf1-x132.google.com ([2a00:1450:4864:20::132])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKuzk-0000000Fina-1tKi
+	id 1vKvB2-0000000FjxD-3njU
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Nov 2025 08:53:58 +0000
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailfout.phl.internal (Postfix) with ESMTP id D971AEC0171;
-	Mon, 17 Nov 2025 03:53:52 -0500 (EST)
-Received: from phl-imap-02 ([10.202.2.81])
-  by phl-compute-04.internal (MEProxy); Mon, 17 Nov 2025 03:53:52 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm2; t=1763369632;
-	 x=1763456032; bh=b7EAVyYC4388fQn/O8BhgvxdKAbjDZgqvyRrtSQ9BZE=; b=
-	mUFSSRHHfKieh0uUiysRstw7VV32oLzs2SUl1Ip6o5KCnMdAhLPT4Lp5nxrgVAQ2
-	ZDhoSUaByLQshOlr2sewPVheOT0j8vfxw9iFrW5MqAHQY8u1A+dUQoQnP6Euhqf7
-	zPBOWRNpt56kGJCdDfOroYkB/45QGUOIV8yKXaMsztbkAZpvUHMcdxY3By4lpT50
-	Kfnl7jnnhq/2QHUObZ+8AgDrSesWsA/LYxmsy+aku+GHgO8ke9UryoWb4pp1JJnl
-	Z7rNDzAu82fV9KYJGZusfxMWoOME0UntQbDnZ6yc1e2E6P09C4NUXcP/WQWVycu/
-	wT7VdRtVy+E8FndCmupuDw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1763369632; x=
-	1763456032; bh=b7EAVyYC4388fQn/O8BhgvxdKAbjDZgqvyRrtSQ9BZE=; b=f
-	j+7GrfF7d3POP7/iMHRLGwbpgd6fGizfN2G9fUflZFuR6u6f2WdJ4jvn6ub9tlpG
-	kRcHA3tebz9pDn3NNm8KfPutcXi//xc3F0m/uXOtOq+YpdMDrdXCmWwxKXCa7G/P
-	uObpjUZBMupO0sx1HgtLai/pkm+bGi/9EJXYZf+oZUT5yzhYfuSHiVPMlBWa60oA
-	aTj1JuWFcOrhMZBHLdAd1oxa/kqwtyxr0M0tPnGrzUdZqOkGPiXcxUaO1/bSShPc
-	JMCehov34DZ7cSEinLmDlM0I4MHFpcbKeWI5crl6rSScnQsA++4YL5jus1NEfM2j
-	de79nV1D7ZIgGTNUXogtA==
-X-ME-Sender: <xms:n-IaaQBlm_72udvTnx8KuPJXAm9VZ4RF4BLNHyfoI7n3hnvqFIiJeg>
-    <xme:n-IaadXUdvwEJAJZNxIkN7HOYsE4p7Z8y5BY12ocKJN13UNx6k_f1PezXyr_tWBn5
-    p-stwOoFPXxv-tNHGNIxmIbrjVBoiNElXTYrzeqUPeRazXgvuaNDEI>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdeggddvudektdefucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
-    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
-    gurhepofggfffhvfevkfgjfhfutgfgsehtjeertdertddtnecuhfhrohhmpedftehrnhgu
-    uceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrthhtvg
-    hrnhephfdthfdvtdefhedukeetgefggffhjeeggeetfefggfevudegudevledvkefhvdei
-    necuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprghrnh
-    gusegrrhhnuggsrdguvgdpnhgspghrtghpthhtohepuddupdhmohguvgepshhmthhpohhu
-    thdprhgtphhtthhopehsthhighhgvgesrghnthgtohhmrdguvgdprhgtphhtthhopehmrg
-    hkvgdvgeesihhstggrshdrrggtrdgtnhdprhgtphhtthhopegrkhhpmheslhhinhhugidq
-    fhhouhhnuggrthhiohhnrdhorhhgpdhrtghpthhtohepghhrvghgkhhhsehlihhnuhigfh
-    houhhnuggrthhiohhnrdhorhhgpdhrtghpthhtoheplhhinhhugidqrghrmhdqkhgvrhhn
-    vghlsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtohepvhiisehmlh
-    gvihgrrdgtohhmpdhrtghpthhtohepshhtvghrnhesrhhofihlrghnugdrhhgrrhhvrghr
-    ugdrvgguuhdprhgtphhtthhopehpihhothhrrdifohhjthgrshiitgiihihksehtihhmvg
-    hshihsrdgtohhmpdhrtghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvghgvrhdrkhgv
-    rhhnvghlrdhorhhg
-X-ME-Proxy: <xmx:n-IaaT-W4wAKWyR-NET1UzLnPhX3qOVAKOPXZkn-8GBQzn5L4OpECQ>
-    <xmx:n-IaaWERYlC8UZcc3hDUmvAtfF1uktYEllaj0VGgUad5NCfJwj13XA>
-    <xmx:n-IaadStuvWE83BaF8gH8qo8Msjo_LmVApfdiVRX2sL5HlOt5vgyLQ>
-    <xmx:n-IaadQahtVV2LqJfMmqoR08DURcHJyZ0UAKRHvsS49qmVwF2xzduQ>
-    <xmx:oOIaae95SXimFtEFYHXCELJorvkC4rFO44IFaHDw_k2yDCWrT4tRtmlr>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id BF8A2700054; Mon, 17 Nov 2025 03:53:51 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Mon, 17 Nov 2025 09:05:38 +0000
+Received: by mail-lf1-x132.google.com with SMTP id 2adb3069b0e04-5957e017378so4614983e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Nov 2025 01:05:36 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1763370334; x=1763975134; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=dc0V6uSK5r5A6NQwmKa55NukJxjqQrLEAaKU2mAU2+s=;
+        b=G1lwu6Yn3CEyu4h1J6YrvUiORJemYjKFXV/tYZ6FuNwre4wDW5dV2gJLNzxtv9cP76
+         ekVGWFWuTl99eJRyG8qRpU3uVu1CVtw/QkQ24WNLdrsL3TzWQneBI0EXhfImlTWI6W/S
+         0jzOHoNiepoLAvp4/Kj7H++FyHx2jEZt1p0AG+FYGiRzjsxT0dKDV7dJjqXa2GL3WOXl
+         VbpmtuPzJHlAr8Ojy3q/JYUlvWk434Lfbnyse87phLEKQR+0SglQgiIz/4Wplh1/w382
+         j6KALnPwS0MFzFJhTEhIrkZ4JP7kIHkEtdccC//zB55KxcJSzW2JoOgU1jc0W6eT3iMy
+         YLhw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1763370334; x=1763975134;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=dc0V6uSK5r5A6NQwmKa55NukJxjqQrLEAaKU2mAU2+s=;
+        b=Ffrk3nTkvJINHRsd1d5XjzlL4sZwodkSh8qL7mgS5R9hUNaXf92VUoykha9I89J+nQ
+         CJdOmYdSRBkhjrvbtl9Tjp2dgUX06a8DpieUEg0qWqv+ARliyNLamYhrImJ6sAw8qQmt
+         Io1HfimnTsYqaFkfEShlD54BlY9ry1B/knuR+peyg4Widu0w5WZpiQiozdW+gkA0LTCT
+         KK74ysG/j3uFa8OquZ5tomkNp71b26YzAZv2pEDN+rdBKWwgOsAkgYId46AciolpuSyb
+         5ma/XGzLjxoYGjyfAAIBI3YhGm4CiZOvyVV5PJvaZMEUnbcPLT8OLb5TxkhF1Hreuj7X
+         +1Sw==
+X-Forwarded-Encrypted: i=1; AJvYcCV5n6q81QFXD/mJ9oAenlBK6rdz1umeIfDyfCfrANZNgdCvv01m8/pXDjQJEGCNrUImaoTepOmI3cpndB6G3+40@lists.infradead.org
+X-Gm-Message-State: AOJu0YyyHVvHVriVdvFsezcfMderDcypHxxje1ttj+bS6AFcqaiTkwFp
+	k8WflRNwav+CYhLnLq/F25mAhzZnTC+jCzeGC8wj7gIrclmKowRfhbRY
+X-Gm-Gg: ASbGncuX+tbiDbAZdlAyNF3YlKeuHT02btSpkO85+uoHCohRER9jTdKLwXA7zc4QqQ6
+	/mFpaoCA0tYxW/Q3NglldoEjHNuR739h8ncH8uiaB3crPpCmXGJQGa71kGJstbWmxEtBt+VIvQ2
+	0EEdHoEoIjFp3oZapTZ7vDcRXbIKMM4F65neiFEIIcES44GrXik1witO8Z+QzXc7yX6NsAtdkcv
+	T7htBuk1kRBctjacFG44Tm2WRd2eX0TrjpkW2CnPDAFPJWTUYdaP/PO+wm1+Qjn4bzXexnbPaIb
+	3+Z/FIVdL4g+fFJMwSklhTkilQANpkbaWXgMr7G/GiMuFO+ocPIkyRFJA1xVe6wYQ/sYnrZ0v1c
+	YURlyjIgnxb/KbXJ0WPBqJGAMk2DF4MqbmZYko3bC2KdCIuqgYlJdB1n1XkeV+AJrwi/I0xT/3k
+	rCgLi18nZhixfDOzet43VuJuEWtOunPC2yDWIPBF9Ow7ROW+qd/Hg8CYrd
+X-Google-Smtp-Source: AGHT+IF9iVW0fdi7kfbYLREb/n/Cv1Xn4XKgZU7eShHWEirTBc55yfsSKxO9Mv0CCYMHSH/dq/K+Qg==
+X-Received: by 2002:a05:6512:230c:b0:595:9386:6b8c with SMTP id 2adb3069b0e04-59593866ea9mr525912e87.52.1763370334306;
+        Mon, 17 Nov 2025 01:05:34 -0800 (PST)
+Received: from [192.168.1.168] (83-233-6-197.cust.bredband2.com. [83.233.6.197])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-59580405693sm3023727e87.76.2025.11.17.01.05.33
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 17 Nov 2025 01:05:33 -0800 (PST)
+From: Marcus Folkesson <marcus.folkesson@gmail.com>
+Subject: [PATCH RESEND v3 0/5] I2C Mux per channel bus speed
+Date: Mon, 17 Nov 2025 10:04:57 +0100
+Message-Id: <20251117-i2c-mux-v3-0-696c83e3505a@gmail.com>
 MIME-Version: 1.0
-X-ThreadId: ADv9w-7PmNmc
-Date: Mon, 17 Nov 2025 09:53:21 +0100
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Ma Ke" <make24@iscas.ac.cn>, "Alan Stern" <stern@rowland.harvard.edu>,
- "Vladimir Zapolskiy" <vz@mleia.com>, piotr.wojtaszczyk@timesys.com,
- "Greg Kroah-Hartman" <gregkh@linuxfoundation.org>, stigge@antcom.de
-Cc: linux-usb@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, "Andrew Morton" <akpm@linux-foundation.org>,
- stable@vger.kernel.org
-Message-Id: <4fe5b63e-072c-419c-a1b9-bc21aec7e083@app.fastmail.com>
-In-Reply-To: <20251117013428.21840-1-make24@iscas.ac.cn>
-References: <20251117013428.21840-1-make24@iscas.ac.cn>
-Subject: Re: [PATCH v2] USB: ohci-nxp: Fix error handling in ohci-hcd-nxp driver
-Content-Type: text/plain
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+To: Wolfram Sang <wsa+renesas@sang-engineering.com>, 
+ Peter Rosin <peda@axentia.se>, 
+ Michael Hennerich <michael.hennerich@analog.com>, 
+ Bartosz Golaszewski <brgl@bgdev.pl>, Andi Shyti <andi.shyti@kernel.org>
+Cc: linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, 
+ Marcus Folkesson <marcus.folkesson@gmail.com>, 
+ Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2666;
+ i=marcus.folkesson@gmail.com; h=from:subject:message-id;
+ bh=4QBKB6Il0FtSYd/ap/LeXMOphioqXNw9dMPyFWJ8QJI=;
+ b=owEBbQKS/ZANAwAKAYiATm9ZXVIyAcsmYgBpGuVAk+R8nVxy9pFlAJFZVCkYDRmQFIMODmwqp
+ f8QEmABpyKJAjMEAAEKAB0WIQQFUaLotmy1TWTBLGWIgE5vWV1SMgUCaRrlQAAKCRCIgE5vWV1S
+ Mn7yEADVderhvJe3xkcl3xeQxYz7gC+48h+X12wE5mIKuteQz8HJ6ev//FqO2/SZpfZLeoExA1J
+ zqF8QfSRIqwxIA1ReLbQl//ikrLvi/7jHu5IoTcwWkpNO2PKhC4sPI+DqvmTBNgM4tHAs3PPYt1
+ bNroESpygkBxpoQgGgiZSbqgUGL6DJDZYFR4SYp94gKC2ZNE+XQBozJgJ46MejWqRS6XvNb0gYn
+ gvxnVy3UzCXsruZKTQ974XURw1HI9k3zR+BaWjdf/yNkhfyI01Qib4fOyarbaqqjav7+fsmRVyJ
+ 5yH60InV0sOIvflQVmK0/sw5GZmrtpMr39UocK8UuK410cETtEbDj1jpOcMFY2Tm2YLN5UgXVBT
+ Gs93fkhnHwmwh8Ur3Gh3gG5ndm9luU6jMOxOVL5Huf51qv9D7tKfY6eBMvW2OTSagIgaEmbKSxe
+ IWGsdC8kumhYD7+i1qGcvMYMkafacR1nHBlMeCdXAvNCbR529It4/dKvuXMnXp9XN/ziGHkDmMv
+ Aayox0mFoLos2rZv0FhoAqln/GM7nU/2JHQmCtMf0T1YrpL9/XiX3ANkGtwzgbZesGKtQzaQvzb
+ Ub9Ji9lKbXgGh/WTXkjMvEbJMPZ9g444ZaqqNa8l+lZP7UykZnjjGrWiYdkD3HYJLVIbILm48ZX
+ H9+ggXzn3Ss/jww==
+X-Developer-Key: i=marcus.folkesson@gmail.com; a=openpgp;
+ fpr=AB91D46C7E0F6E6FB2AB640EC0FE25D598F6C127
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251117_005357_048909_D0FCFED0 
-X-CRM114-Status: GOOD (  29.16  )
+X-CRM114-CacheID: sfid-20251117_010536_987276_B5398F1B 
+X-CRM114-Status: GOOD (  16.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,189 +119,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 17, 2025, at 02:34, Ma Ke wrote:
-> When obtaining the ISP1301 I2C client through the device tree, the
-> driver does not release the device reference in the probe failure path
-> or in the remove function. This could cause a reference count leak,
-> which may prevent the device from being properly unbound or freed,
-> leading to resource leakage.
->
-> Fix this by storing whether the client was obtained via device tree
-> and only releasing the reference in that case.
->
-> Found by code review.
->
-> Cc: stable@vger.kernel.org
-> Fixes: 73108aa90cbf ("USB: ohci-nxp: Use isp1301 driver")
-> Signed-off-by: Ma Ke <make24@iscas.ac.cn>
+This was a RFC on how to implement a feature to have different bus
+speeds on different channels with an I2C multiplexer/switch.
+As no major complaints on the design came up during the review, I
+decided to submit the series without the RFC tag.
 
-The patch looks fine in principle, however I don't see any way
-this driver would be probed without devicetree, and I think
-it would be better to remove all the traces of the pre-DT
-logic in it.
+The benefit with this feature is that you may group devices after
+the fastest bus speed they can handle.
+A real-world example is that you could have e.g. a display running @400kHz
+and a smart battery running @100kHz using the same I2C controller.
 
-The lpc32xx platform was converted to DT back in 2012, so
-any reference to the old variant is dead code. Something like
-the patch below should work here.
+There are many corner cases where this may cause a problem for some
+hardware topologies. I've tried to describe those I could think of
+in the documentation, see Patch #5.
 
-Other thoughts on this driver, though I I'm not sure anyone
-is going to have the energy to implement these:
+E.g. one risk is that if the mux driver does not disconnect channels
+when Idle, this may cause a higher frequency to "leak" through to
+devices that are supposed to run at lower bus speed.
+This is not only a "problem" for changing bus speed but could also be
+an issue for potential address conflicts.
 
- - the reference to isp1301_i2c_client should be kept in
-   the hcd private data, after allocating a structure, by
-   setting driver->hcd_priv_size.
- - instead of looking for the i2c device, I would suppose
-   it should look for a usb_phy instead, as there is no
-   guarantee on the initialization being ordered at the
-   moment.
- - instead of a usb_phy, the driver should probably use
-   a generic phy (a much larger rework).
+The implementation is split up into several patches:
 
-     Arnd
+Patch #1 Introduce a callback for the i2c controller to set bus speed
+Patch #2 Introduce functionality to adjust bus speed depending on mux
+         channel.
+Patch #3 Cleanup i2c-davinci driver a bit to prepare it for set_clk_freq
+Parch #4 Implement set_clk_freq for the i2c-davinci driver
+Parch #5 Update documentation with this feature
 
-diff --git a/drivers/usb/host/ohci-nxp.c b/drivers/usb/host/ohci-nxp.c
-index 24d5a1dc5056..4c072ce02f4d 100644
---- a/drivers/usb/host/ohci-nxp.c
-+++ b/drivers/usb/host/ohci-nxp.c
-@@ -155,22 +155,12 @@ static int ohci_hcd_nxp_probe(struct platform_device *pdev)
- 	struct device_node *isp1301_node;
- 	struct clk *usb_host_clk;
- 
--	if (pdev->dev.of_node) {
--		isp1301_node = of_parse_phandle(pdev->dev.of_node,
--						"transceiver", 0);
--	} else {
--		isp1301_node = NULL;
--	}
--
--	isp1301_i2c_client = isp1301_get_client(isp1301_node);
-+	isp1301_node = of_parse_phandle(pdev->dev.of_node, "transceiver", 0);
-+	isp1301_i2c_client = of_find_i2c_device_by_node(isp1301_node);
- 	of_node_put(isp1301_node);
- 	if (!isp1301_i2c_client)
- 		return -EPROBE_DEFER;
- 
--	ret = dma_coerce_mask_and_coherent(&pdev->dev, DMA_BIT_MASK(32));
--	if (ret)
--		goto fail_disable;
--
- 	dev_dbg(&pdev->dev, "%s: " DRIVER_DESC " (nxp)\n", hcd_name);
- 	if (usb_disabled()) {
- 		dev_err(&pdev->dev, "USB is disabled\n");
-@@ -223,7 +213,7 @@ static int ohci_hcd_nxp_probe(struct platform_device *pdev)
- fail_resource:
- 	usb_put_hcd(hcd);
- fail_disable:
--	isp1301_i2c_client = NULL;
-+	put_device(isp1301_i2c_client);
- 	return ret;
- }
- 
-@@ -234,24 +224,19 @@ static void ohci_hcd_nxp_remove(struct platform_device *pdev)
- 	usb_remove_hcd(hcd);
- 	ohci_nxp_stop_hc();
- 	usb_put_hcd(hcd);
--	isp1301_i2c_client = NULL;
-+	put_device(isp1301_i2c_client);
- }
- 
--/* work with hotplug and coldplug */
--MODULE_ALIAS("platform:usb-ohci");
--
--#ifdef CONFIG_OF
- static const struct of_device_id ohci_hcd_nxp_match[] = {
- 	{ .compatible = "nxp,ohci-nxp" },
- 	{},
- };
- MODULE_DEVICE_TABLE(of, ohci_hcd_nxp_match);
--#endif
- 
- static struct platform_driver ohci_hcd_nxp_driver = {
- 	.driver = {
--		.name = "usb-ohci",
--		.of_match_table = of_match_ptr(ohci_hcd_nxp_match),
-+		.name = "usb-ohci-lpc32xx",
-+		.of_match_table = ohci_hcd_nxp_match,
- 	},
- 	.probe = ohci_hcd_nxp_probe,
- 	.remove = ohci_hcd_nxp_remove,
-diff --git a/drivers/usb/phy/phy-isp1301.c b/drivers/usb/phy/phy-isp1301.c
-index f9b5c411aee4..3a8fa333a4f7 100644
---- a/drivers/usb/phy/phy-isp1301.c
-+++ b/drivers/usb/phy/phy-isp1301.c
-@@ -24,20 +24,12 @@ struct isp1301 {
- 
- #define phy_to_isp(p)		(container_of((p), struct isp1301, phy))
- 
--static const struct i2c_device_id isp1301_id[] = {
--	{ "isp1301" },
--	{ }
--};
--MODULE_DEVICE_TABLE(i2c, isp1301_id);
--
- static const struct of_device_id isp1301_of_match[] = {
- 	{.compatible = "nxp,isp1301" },
- 	{ },
- };
- MODULE_DEVICE_TABLE(of, isp1301_of_match);
- 
--static struct i2c_client *isp1301_i2c_client;
--
- static int __isp1301_write(struct isp1301 *isp, u8 reg, u8 value, u8 clear)
- {
- 	return i2c_smbus_write_byte_data(isp->client, reg | clear, value);
-@@ -114,8 +106,6 @@ static int isp1301_probe(struct i2c_client *client)
- 	i2c_set_clientdata(client, isp);
- 	usb_add_phy_dev(phy);
- 
--	isp1301_i2c_client = client;
--
- 	return 0;
- }
- 
-@@ -124,7 +114,6 @@ static void isp1301_remove(struct i2c_client *client)
- 	struct isp1301 *isp = i2c_get_clientdata(client);
- 
- 	usb_remove_phy(&isp->phy);
--	isp1301_i2c_client = NULL;
- }
- 
- static struct i2c_driver isp1301_driver = {
-@@ -134,25 +123,10 @@ static struct i2c_driver isp1301_driver = {
- 	},
- 	.probe = isp1301_probe,
- 	.remove = isp1301_remove,
--	.id_table = isp1301_id,
- };
- 
- module_i2c_driver(isp1301_driver);
- 
--struct i2c_client *isp1301_get_client(struct device_node *node)
--{
--	struct i2c_client *client;
--
--	/* reference of ISP1301 I2C node via DT */
--	client = of_find_i2c_device_by_node(node);
--	if (client)
--		return client;
--
--	/* non-DT: only one ISP1301 chip supported */
--	return isp1301_i2c_client;
--}
--EXPORT_SYMBOL_GPL(isp1301_get_client);
--
- MODULE_AUTHOR("Roland Stigge <stigge@antcom.de>");
- MODULE_DESCRIPTION("NXP ISP1301 USB transceiver driver");
- MODULE_LICENSE("GPL");
-diff --git a/include/linux/usb/isp1301.h b/include/linux/usb/isp1301.h
-index fa986b926a12..135dd785d984 100644
---- a/include/linux/usb/isp1301.h
-+++ b/include/linux/usb/isp1301.h
-@@ -66,6 +66,4 @@
- 
- #define ISP1301_I2C_REG_CLEAR_ADDR	1	/* Register Address Modifier */
- 
--struct i2c_client *isp1301_get_client(struct device_node *node);
--
- #endif /* __LINUX_USB_ISP1301_H */
+Signed-off-by: Marcus Folkesson <marcus.folkesson@gmail.com>
+---
+Changes in v3:
+- Return -EINVAL if channel is faster than parent (kernel test robot)
+- Link to v2: https://lore.kernel.org/r/20251002-i2c-mux-v2-0-b698564cd956@gmail.com
+
+Changes in v2:
+- Changed bus_freq field to bus_freq_hz in davinci_i2c_dev (Bartosz Golaszewski)
+- Removed idle_state from mux core (Peter Rosin)
+- Link to v1: https://lore.kernel.org/r/20250922-i2c-mux-v1-0-28c94a610930@gmail.com
+
+---
+Marcus Folkesson (5):
+      i2c: core: add callback to change bus frequency
+      i2c: mux: add support for per channel bus frequency
+      i2c: davinci: calculate bus freq from Hz instead of kHz
+      i2c: davinci: add support for setting bus frequency
+      docs: i2c: i2c-topology: add section about bus speed
+
+ Documentation/i2c/i2c-topology.rst | 176 +++++++++++++++++++++++++++++++++++++
+ drivers/i2c/busses/i2c-davinci.c   |  41 ++++++---
+ drivers/i2c/i2c-mux.c              | 116 +++++++++++++++++++++---
+ include/linux/i2c.h                |  13 +++
+ 4 files changed, 324 insertions(+), 22 deletions(-)
+---
+base-commit: 22f20375f5b71f30c0d6896583b93b6e4bba7279
+change-id: 20250913-i2c-mux-b0063de2ae4d
+
+Best regards,
+-- 
+Marcus Folkesson <marcus.folkesson@gmail.com>
+
 
