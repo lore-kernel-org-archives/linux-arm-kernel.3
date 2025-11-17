@@ -4,81 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1E53CE8D6B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 18:07:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C702CEACEF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 18:10:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kbQvNxOOHP1bRK+Beh5JpYKJSBUIAKvfGGVsx2FOfoI=; b=K5Zds7YFArCKaMpxePjxQAtwBb
-	+h8yZh5/nVw94keZrgjqJ6B2uZHTqE7NCs0782nTRC9wDuKGnKhevyHpWKJrPEWWuKH0Lt0UFVtdY
-	7haW9TP93nva+wyvnkauMt+I8ijOBSx9JRo0oltzQ3IEQBgUDHIo5A0rTes9NqZ4OPQyaEHTB4VHs
-	wtsrWNzKWPzhrxvMgJq7bM68OZYGeSuBtufwAOpGopY5HgiECafjOOP+whPYXFplgJ4Y/KRxGWlXX
-	HrLONa6ut5q0BwTBuJ4k2k66OirsA3Kf0sAQ91o0Hfma+ilwM9wSGuwzK5IoUQLKqPrCIPDrxcLl9
-	lEzSb7gw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=bAkL1Z1gQqOYv9fn52lDehmUngUxGCXsulPI0imzeMs=; b=dbmAkcrupe3CMu45LiD6RnsdYx
+	k8lMIjepwaF0jK649ubaQ4P4rDRSKQC488hb4qf2WNKTP63rYQ3lC6sh9BSsVcEyYZDFom6QqolkX
+	aLD1yPVj7PNJIQum2TXTWrf/ZUFXp6uwG+zVHoVPM7BXcWqNiieQTMsTv3KShxUlXK7J4b3XbNjRq
+	2Ipwh8IKx42vKmd1YGbu3aOTPvk0IgPHVEA36CAmnCe7n8EN+y0lDx8Wlv6ZoBqP/9kEsAqLNLRgo
+	3YTiJvtcfVmfd6oWvz493WTH1itHfQZul5U7tuYYZNrB9J+UMTUvDbtdqZqUNjUyw9v6X2rc6VdeQ
+	4xc56wJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vL3d6-0000000GaP3-0zha;
-	Mon, 17 Nov 2025 18:07:08 +0000
-Received: from mail-ej1-x630.google.com ([2a00:1450:4864:20::630])
+	id 1vL3gQ-0000000Gaht-2zQj;
+	Mon, 17 Nov 2025 18:10:34 +0000
+Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vL3d3-0000000GaOZ-3YFV
+	id 1vL3gN-0000000GahA-2mcC
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Nov 2025 18:07:07 +0000
-Received: by mail-ej1-x630.google.com with SMTP id a640c23a62f3a-b73a9592fb8so165037166b.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Nov 2025 10:07:04 -0800 (PST)
+	Mon, 17 Nov 2025 18:10:32 +0000
+Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-297e982506fso55167405ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Nov 2025 10:10:31 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1763402823; x=1764007623; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=kbQvNxOOHP1bRK+Beh5JpYKJSBUIAKvfGGVsx2FOfoI=;
-        b=ir3HOys854uFXf3RGGqhQ9DRcv45CHyLNLieKx4SerII4oQbbdTxEBaQ1tcdkbBy5/
-         J5T3oINamBwV2vCMuKj+PHI2y9O3lO/JU7RZkyHLSswPeYxSGC14o5ZkTUjEwp4/wxzD
-         5SW5Jd9K3argUykUns9LBrr/gK2gmd5ZCu3/E=
+        d=gmail.com; s=20230601; t=1763403030; x=1764007830; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=bAkL1Z1gQqOYv9fn52lDehmUngUxGCXsulPI0imzeMs=;
+        b=lALcw2PBYeWR/OD4I6mo0lA7f9u5u/Slcu0cnF1V2j4LcccX+XZDjVSW3OxdRqsOWz
+         iDR69tjwiey37Fmif5MrSb6SImu4+TCtnRnpesmqJdi67tYaoUDRuNw8N16VO3EM8/q2
+         J4IXyYKgc/iHY13ZrjDrT82VyXLpkDGlp1g5hURjo/FVuePTfyQrviPuufUaBFQua/2B
+         8E5Lqitvoq5mIyctLx0ozC5SPRc8W/b2T2aMDqAOwHdKMzYc9LxiysN7vCdt63mWIcZ0
+         LgZIv2rx630uDTX7bKKvHXzz7s3q+0NFkmVv4NZAeaDvNRKlJjs2yTO8/Am2++24VVcd
+         YOeg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763402823; x=1764007623;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=1e100.net; s=20230601; t=1763403030; x=1764007830;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=kbQvNxOOHP1bRK+Beh5JpYKJSBUIAKvfGGVsx2FOfoI=;
-        b=aHfE6rh6iKR3X0s2XWE4LyOAIWyBtML0Zu7khCbbayBfD4UK/Rp2NYYnkIIRNm439O
-         CWyxpQ7kU+u9r4KmDTvFUPfSCPvalfEz2E5YF/i1HjNfILxghHqDLBxN3ixLqMyboiat
-         M5Th6a+GSROUC3/LZTP0c6oH3PGuqAr/dbVUA4IMaZUSfgC3UfvR0rCwh+Kq60ThDCdy
-         RUDCfemhywhqycZIEBD7oCa7/Ld9lQ4ko/Vg3F5CDQwUsWxNhnQYtL2Vkw3hVoi1WUM2
-         wp1GJyYZaHvl2uhG8k5Y+2Bom7BLY8kPWXPqgs0EGjxZCTkBKd4duzoaD+YQ1Knj1ED4
-         DW1g==
-X-Gm-Message-State: AOJu0YxDXboj8kCQDE70AgpUvwM0XSEd8wcvS3/X65k586MRUoePILIF
-	2kaeF3+fid2qBjhH6/s8pUbrH1Yi+G9N104vzuv6BLBGHzOrPvto9JPmHFtjq8fgpBm8vtREDNs
-	loHGmJn12/VlqbVdQG6WRidNxtW+7gwdixXIfNerI
-X-Gm-Gg: ASbGncvkQFI3w+d6mERD8YcwTz8dQ8SlEaHvIvJ7tsdx6/ACgJh0zp/T622fpPKi1hQ
-	taahMlRy1bqoGya3ZvjRvB5rw55eb/brSpO7Q2W5ElbVtoxVHSn2lfcf7ihRf5nEPUR4fS+tsHG
-	/LbYVQ4E3Q9IxPNyBT4LSTtA/mbzlZEhgHzSBjIv13WNc1Eh25gQ9D5HxNJOgfNKNuHVod8D8Ae
-	8faBu9zmxu3NB8eXoY66qDqvWsQQMU8jitwfoHqtr3gFPSy6Otj2TcAaRkyMoFRKjpdMA==
-X-Google-Smtp-Source: AGHT+IHxERKAenp/k82ZYfDYPQzP16PBEcdO1AFVXQY2bWnclI/6Gd2t6arEP4kn6Qv0kAwZilzVjbZBG58ijeau8VE=
-X-Received: by 2002:a17:907:7208:b0:b72:6224:7e95 with SMTP id
- a640c23a62f3a-b758bb20782mr30796066b.1.1763402823616; Mon, 17 Nov 2025
- 10:07:03 -0800 (PST)
+        bh=bAkL1Z1gQqOYv9fn52lDehmUngUxGCXsulPI0imzeMs=;
+        b=JJiIyTw0tzNw6qZDpalSiIsiNo2w7AJlhAKixFZPOZRcw8jTrundU38EP+DXU3gn+c
+         Qd2QAboxsaiwt5WmsYJJh8rz8Q+HQTPupQPc2rZFpswfq45068wugRsv7uibtvp+Y7D9
+         4QgNQD9IkThZDbal37Xd+7C13BbVpLkxdO2REUmPte5alK0bH+hfhBpztDI7ECZddl6m
+         yitd1b4ip7vgTgYTeT3lecID9woB/sbFZLmF+voJgwO23X0DDe7fERM0DJWyUhK6ngPg
+         Pbmxf1BpwDWooZn5yho8PbyMmADQUjrOGXI49o5rqJMXTgKOa4aRzIKqDKp3NGuQFWPf
+         u5YA==
+X-Forwarded-Encrypted: i=1; AJvYcCV7GTNNIvKvHbSqM6yTLXS7QhmUY1kBK2Y/Nnp2msbXTSMUIMdLanqm4Pc8LnK/DNOgU4szuAdar5iuUK6O/Vd8@lists.infradead.org
+X-Gm-Message-State: AOJu0YxoY4RcOTFGiGjrqEzgCeoV5M7IfIhCG9NLshO11nolUqfEZGyY
+	l140H3I4Ii1SrD9vA7AN1ejlAUYNy8qlDrdiFT9E/RljP5RIFqmdnCaM
+X-Gm-Gg: ASbGncteeiWQIXc2SPxmVJ1Ax906jyGmO//aChqNRCMS+TXEQcjceChw9WLTSGl56Kd
+	32VDFRNe7Qw93l77CYKwDrFae8cAKJWMhaNr2Tej7Pfv3SblZLc3VMoN73MllqUlQM6CbmjMklo
+	XUMDtqOr4bRR5rB+lPBtBdCPwv2FhQj47DXdecgK9QccHhDqk4fpepVPo5vYCLvgZWgGCwcymJ+
+	hKceQXYao+4qTxohP6dpbM3U5h5wG9WXEz0NLsAGjyXeFuGCoAsYsgEyKONpnQspFeBlypFd6L5
+	b4w5NTFdITd4g6ZoiK6zppaFKNb96+W0q32uiDrKaxnHzr2gzULpS9fdd3DtqcvchgK7iwDwbb8
+	tot/sNhhR3Bh89oV6H/DVarBWw6xb8Kq4l2JqOYR4j0PRHlBhwE04HbLiP8TgeyydGy11WFlUwH
+	cI4o9u+Te+kIflcg1xFS2TQ9KxOy59PA==
+X-Google-Smtp-Source: AGHT+IGmunqrQlVpfahUUkxZIBVj+bc+HmF1/RslcMS43E5s/13BnptrYkrUhKGL+v/DRdjNaQZxAQ==
+X-Received: by 2002:a17:902:f641:b0:295:5625:7e41 with SMTP id d9443c01a7336-2986a6ec9c1mr175237865ad.22.1763403030526;
+        Mon, 17 Nov 2025 10:10:30 -0800 (PST)
+Received: from rockpi-5b ([45.112.0.172])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2985c245ecdsm147237955ad.32.2025.11.17.10.10.26
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 17 Nov 2025 10:10:29 -0800 (PST)
+From: Anand Moon <linux.amoon@gmail.com>
+To: Shawn Lin <shawn.lin@rock-chips.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	linux-pci@vger.kernel.org (open list:PCIE DRIVER FOR ROCKCHIP),
+	linux-rockchip@lists.infradead.org (open list:PCIE DRIVER FOR ROCKCHIP),
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/Rockchip SoC support),
+	linux-kernel@vger.kernel.org (open list)
+Cc: Anand Moon <linux.amoon@gmail.com>
+Subject: [RFC v1 0/5] Fix some register offset as per RK3399 TRM part 2
+Date: Mon, 17 Nov 2025 23:40:08 +0530
+Message-ID: <20251117181023.482138-1-linux.amoon@gmail.com>
+X-Mailer: git-send-email 2.50.1
 MIME-Version: 1.0
-References: <20251114142741.1919072-1-sjg@chromium.org> <20251114142741.1919072-5-sjg@chromium.org>
- <aafebce6-f369-40b7-81eb-2dccd650fdab@pengutronix.de>
-In-Reply-To: <aafebce6-f369-40b7-81eb-2dccd650fdab@pengutronix.de>
-From: Simon Glass <sjg@chromium.org>
-Date: Mon, 17 Nov 2025 11:06:52 -0700
-X-Gm-Features: AWmQ_bkR9nDeBL-ff1vtzhkizD0kzRR5uLcqJ7eIK01hyC1J1TbG8v5coiVUPLA
-Message-ID: <CAFLszThpTg-FBoNG_tQ0xve0LkYWER85EJeHuem-_JUD8J1Ocw@mail.gmail.com>
-Subject: Re: [PATCH v5 4/8] scripts/make_fit: Provide a way to add built modules
-To: Ahmad Fatoum <a.fatoum@pengutronix.de>
-Cc: linux-arm-kernel@lists.infradead.org, 
-	Masahiro Yamada <masahiroy@kernel.org>, Chen-Yu Tsai <wenst@chromium.org>, Tom Rini <trini@konsulko.com>, 
-	=?UTF-8?B?SiAuIE5ldXNjaMOkZmVy?= <j.ne@posteo.net>, 
-	Nicolas Schier <nsc@kernel.org>, linux-kernel@vger.kernel.org, 
-	=?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251117_100705_947077_6DD7F1B4 
-X-CRM114-Status: GOOD (  20.16  )
+X-CRM114-CacheID: sfid-20251117_101031_702319_A3B31385 
+X-CRM114-Status: UNSURE (   9.05  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,69 +106,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ahmad,
+In order to enable ASPM we need to fix the register offset as
+RK3399 TRM part 2 - PCIe Controller.
 
-On Sat, 15 Nov 2025 at 07:39, Ahmad Fatoum <a.fatoum@pengutronix.de> wrote:
->
-> Hello Simon,
->
-> On 14.11.25 15:27, Simon Glass wrote:
-> > Provide arguments to support building a ramdisk from a directory tree of
-> > modules. This is a convenient way to try out a kernel with its modules.
-> >
-> > This makes use of the cpio tool rather than attempting to use a python
-> > module or our own code. The list of modules is provided in a file.
-> >
-> > Signed-off-by: Simon Glass <sjg@chromium.org>
-> > Reviewed-by: Nicolas Schier <nsc@kernel.org>
-> > Suggested-by: Ahmad Fatoum <a.fatoum@pengutronix.de>
->
-> Thanks for taking up the suggestion! I just Cc'd you on a patch that
-> generates a CPIO with the modules directly as a make target.
->
-> I'd prefer going down that route instead as to reuse as much existing code
-> as possible.
->
-> Maybe this even covers Thomas' use case from the other thread?
+Tested on Radxa Rock Pi 4b.
 
-From my testing, FIT_MODULES=1 this seems to require that
-modules_install be done first. But my existing approach builds a FIT
-without needing to do the install step.
+Thanks
+-Anand
 
-Just adding the dependency, like this:
+Anand Moon (5):
+  PCI: rockchip: Fix Link Control register offset and enable ASPM/CLKREQ
+  PCI: rockchip: Fix Device Control register offset for Max payload size
+  PCI: rockchip: Fix Slot Capability Register offset for slot power
+    limit
+  PCI: rockchip: Fix Link Control and Status Register 2 for target link
+    speed
+  PCI: rockchip: Fix Linkwidth Control Register offset for Retrain Link
 
-image.fit: $(if $(FIT_MODULES),cpio-modules-pkg)
+ drivers/pci/controller/pcie-rockchip-host.c | 31 +++++++++++----------
+ drivers/pci/controller/pcie-rockchip.h      |  5 ++++
+ 2 files changed, 21 insertions(+), 15 deletions(-)
 
-results in:
 
-time ARCH=arm64
-CROSS_COMPILE=/home/sglass/.buildman-toolchains/gcc-13.1.0-nolibc/aarch64-linux/bin/aarch64-linux-
-make O=/tmp/kern -j30 image.fit FIT_MODULES=1 -s
-fixdep: error opening file: init/.main.o.d: No such file or directory
-make[4]: *** [/scratch/sglass/linux/scripts/Makefile.build:287:
-init/main.o] Error 2
-make[4]: *** Deleting file 'init/main.o'
-make[4]: *** Waiting for unfinished jobs....
-make[3]: *** [/scratch/sglass/linux/scripts/Makefile.build:556: init] Error 2
-make[3]: *** Waiting for unfinished jobs....
-/home/sglass/.buildman-toolchains/gcc-13.1.0-nolibc/aarch64-linux/bin/aarch64-linux-ar:
-init/main.o: No such file or directory
-make[6]: *** [/scratch/sglass/linux/scripts/Makefile.build:473:
-init/built-in.a] Error 123
-make[5]: *** [/scratch/sglass/linux/scripts/Makefile.build:556: init] Error 2
-make[4]: *** [/scratch/sglass/linux/Makefile:2017: .] Error 2
-make[3]: *** [/scratch/sglass/linux/scripts/Makefile.package:193:
-modules-install] Error 2
-make[2]: *** [/scratch/sglass/linux/Makefile:1647: cpio-modules-pkg] Error 2
-make[2]: *** Waiting for unfinished jobs....
+base-commit: e7c375b181600caf135cfd03eadbc45eb530f2cb
+-- 
+2.50.1
 
-Makefile has the ability to sequence things, but in this case we are
-effectively adding a target within the Makefile.
-
-What do you suggest?
-
-[..]
-
-Regards,
-Simon
 
