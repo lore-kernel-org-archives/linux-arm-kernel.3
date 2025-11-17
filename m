@@ -4,156 +4,141 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F19E2CEACEF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 14:11:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C7D0CEBF92
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 14:12:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=j31M6W20uEBiKJiOsyxMXe5wI1O9DbfibFtCfzdK93w=; b=oE4RlCduYxFfBqXQUDpRY7jKU1
-	Ve9TfQmOa8higH0sWvlOyRzkwFf7j3o/YjwzjHWSILV5LiYh0DApqbWj/8edGiECRO+KFRb8HqFE6
-	8Bw5IDXkvWFHHW5a8bM4MULxwirRDl69atd9RyD7/eHUa2hKhS7icwnDzTe/xZx0W1cEVDvrkx6ZN
-	aVmnU5WaulG2SahGGEKFYoVLbAkWaDypR4ID/LMgkgi/ITPMMdWRB+S/diUU1yp0yhcTUAb5kacZN
-	6I/2IY66kV4VL8JEdJA0UK9Tm7sJ1x+cYsoqoZNQTkKwoI9FmC0dQGiLgj2fx6JwnA93sFhK7ldBh
-	iKf6BB8g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=QTEL6Izch0K5ZAgdjedJYC59oup2Y9TdQVDCw4sXrt4=; b=QnoWnlWmDv9G8UjGcIles3SPMt
+	O7+QgW7HW/e391AlJaR57iRHFyk0lrD5SQ//F53VPvpuPW1z6fuFa2gTuVbSJXs46MLFRbV6JheoP
+	0dy05nnXyUxoP6/MtpfAdDcwZPmdvWyDmUZD6BdPVxHXMbHa4ieLr9xTDasQZJ0kSZGfuscS2M5Sv
+	O4s39dctM1BmA86Ot6kOVvLYY+AMZMotsJx+dFzPwcQDS27NTwWNl6wSu8pDmY4cjaFjJsyL8KH2T
+	3TidJY8xaziLnM5A63alxV9147pD3F+W+Yccz8lpz9KI8nwQd9CIS0EL6sHRfX9vIqPWB4tqp4OK1
+	xedWn1ZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKzxN-0000000GEw6-2MDN;
-	Mon, 17 Nov 2025 14:11:49 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1vKzxs-0000000GEzn-3hkE;
+	Mon, 17 Nov 2025 14:12:20 +0000
+Received: from mail-westus2azon11010011.outbound.protection.outlook.com ([52.101.46.11] helo=CO1PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKzxL-0000000GEvG-2I92
+	id 1vKzxp-0000000GEzH-3H3d
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Nov 2025 14:11:48 +0000
-Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5AHAKOpS3932621
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Nov 2025 14:11:46 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	j31M6W20uEBiKJiOsyxMXe5wI1O9DbfibFtCfzdK93w=; b=VwW+gQ1bZKZ4bchC
-	0eJAWTU0VhFxfW1xuIn75ZsOvLyxTQrNZ1t8te6kxDyjM1hZVtlBS5t7caEgkLne
-	1cVCEybNvgdIr/8kSF6m8DwZxbJ5HES/sOt8tYmLsbJ9S8TVboE/HkX8gceqA1TO
-	/My0IsHahPTUpNJrusBF72DkQ9NgV0eAKTvwYwzIR3Gl9O5KDpIeQiPu8RlccaUH
-	a54WhQPVksyZz+wN3Ip73+XBZo6poBe/3quHKAJpSr5j7RGUIS/YOAzBZ4J1dxi2
-	6y/XlSMOATHyo7jb5IgPoEfEy8fUy77ri1l0VTdpC4cwlhRQvvpNx5UhHurjLZ+3
-	1gEbRA==
-Received: from mail-ua1-f71.google.com (mail-ua1-f71.google.com [209.85.222.71])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4ag1v90mbu-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Nov 2025 14:11:46 +0000 (GMT)
-Received: by mail-ua1-f71.google.com with SMTP id a1e0cc1a2514c-935153c7434so228952241.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Nov 2025 06:11:46 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1763388706; x=1763993506; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=j31M6W20uEBiKJiOsyxMXe5wI1O9DbfibFtCfzdK93w=;
-        b=RwQ9x12ypskEx0dZgu12l+0qIOtD7MnHKD+w6PlbJylCBx9bkaZriYySX2SlFtdZUn
-         HEbFrf9wu1AkKYuXHhF8yExaQ0SwizFy5RO1m3zvo+6Bl3fsIDNQHyBrVDIz6u9bKDRZ
-         /RPPO82mMv2C/tXWoVL27FGx7tpIYo7MzsS8FezqDKQFwZsMxGBo0+/PR47rDRYa2JRv
-         c9VRwS9TkLb6WUXfgYkzuAzLwh0zsktK8l5rYrPNMAWhvqYKaELfSjPOxy1KV7mYFktr
-         EXDPEcn4AZBNu0iuM0d/vVkLIqOVWaHDpvJBXyRkbf4ZYq3S8hEfS9IHkZa8lff4unz+
-         ogQQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763388706; x=1763993506;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=j31M6W20uEBiKJiOsyxMXe5wI1O9DbfibFtCfzdK93w=;
-        b=wOqO2VWFqHJLg3sZnaAoeIkrnuRYx8pZZLjrs/+t7U/8emov7mNwPC3cc12XWwLuKY
-         zj8i+HyvvwXFlyrv9U/6EKmO4H1C+Zg1ZUz5Bhs+Tq5Idb9IT3Dp2UknIhV7hsNRynXp
-         rR8I19iELNttSIFL3Si4XrNYqlqu1bUjiirad/k4KVUSQKiu3fAODDW/WHALOpanHu12
-         8cvLhAnOfwr1obtup+0ThbmSxfy+YdGDLfXUsWayh34MpQc/8faqDg9JBFkRBCjni9Zk
-         hVItf/9U5jO4Nb216038yAcQK1cED1k5OeEGw6XQyFnhy0rqpA9Gwx8r1Ag/a4/t//5q
-         0NPg==
-X-Forwarded-Encrypted: i=1; AJvYcCUjFP3m5VUi9OqZJvEbvCLG//e+Sgzhwh0vwFxwi4RwBV6yiKR2n9zMUH/lb0mNyMtbV9rwlSgkGFwcjtJMsaad@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw5XmsknVVV001IFDGHGidIrfsFdMkIyUgTFgtl+d1B0O/6mIXP
-	MkGSk1BRqCH5rvzStC/SaykT3sajYSUO0yZdWiRf+hsb80N7nrDJHHwyIoy+XigacCOChWwyxfW
-	wtpV73xjkvf/mOSl+0xU2YgI4Jn3LBR+AsjLQFbIUgOXKK2HnL6a275X/S2EpwmuMQJ1DfqWmXm
-	mbrw==
-X-Gm-Gg: ASbGncvrOKqcecKDnyn9tuUWBw2iI7e0BDdSPQSnNfoHe/rCklOys6oKN7cO5eM/nex
-	rThk/x//U7y4ynpCAs5ueEbWVOu5mfr9AJLoq90D5edLT42pa0cQEsSp3NPvLEBRfypVjMyKKMv
-	DCAsBejVlPAt6SmMig8/QuCiqd9C2ytBb87uE58JVWOSYg9N+hk1dGfgN83bThjLwcstZd8xpEY
-	aQt/wwLE762SmHgc2je7b5/D5AhCvKEDPj6xKaztQq6uXDSu5HwhCZ9V6fQW0ZNC1e2SG8HjjEz
-	xHi54mYMrTUDB3b4L3z2arg9EHN+bewdUjIbOBFbpis9KuJlI3B4d1e6o8z+kR3EXx/yRXbZlj8
-	ejao/EK9pfG3iTt2ljJcUl2IfTkZREDn6fu90I1wXuH20fxJsmBGbo9Eb
-X-Received: by 2002:a67:e703:0:b0:5db:ce49:5c64 with SMTP id ada2fe7eead31-5dfc85a1070mr1838394137.5.1763388705853;
-        Mon, 17 Nov 2025 06:11:45 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IENBd0uWmCrys3Bjr4M1SOKmS2/3SUY9Sd2AfbAO69+iQX3Prr35SDtghb4rlEALS2PgI5ogQ==
-X-Received: by 2002:a67:e703:0:b0:5db:ce49:5c64 with SMTP id ada2fe7eead31-5dfc85a1070mr1838348137.5.1763388705349;
-        Mon, 17 Nov 2025 06:11:45 -0800 (PST)
-Received: from [192.168.119.202] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b734fdae69fsm1066684766b.51.2025.11.17.06.11.41
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 17 Nov 2025 06:11:44 -0800 (PST)
-Message-ID: <e2d50441-bb32-4a66-b00f-7c656c8817e1@oss.qualcomm.com>
-Date: Mon, 17 Nov 2025 15:11:40 +0100
+	Mon, 17 Nov 2025 14:12:20 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=VnKs51Vw2qNFP1CAOTfUVV+s4uARYUl+Aey3slLJAkXZCYVFf3o8FkNLtxZymiVORhu43rbxYxwL8De1kkcyaQunBmxjH6S7yvwdbJjtx3oXI+fIfOqryiKSTkTijOigGRcGAsjJxyctamUxvyDQBtpwoBW/IuoRHEiTd0eY7kn/UGOG95MqYqi6hVk0niwGw2N3CCKzlHyAIauYZExKGN7Az9vClX7BHAZfyKdAHCiNKFkynilyy74UduL5jEgrx3IP+Nz9EBmYU/5o1wRNgSq9QpSjWcNf9KiAa9cBl1FKwVNe0jLgoRndXjEjbb26HyTp1s+5ng7gSu2wh0hZjQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=QTEL6Izch0K5ZAgdjedJYC59oup2Y9TdQVDCw4sXrt4=;
+ b=ELQhvSN0EhAHrR/Po4kYCj7iBwcnRNdNjc6ywbBDGhgdTiOhMz5+bUl+Oz+EZ4LYt+AbbDLHSR/RI3YrJ0y+9geq1sjm/9UHbdE3RHAIMWPMdMVcYH30rSWeR48/PmRaack/QEMk1WztrYkMhj950M3YB3LtB2ihS+5UZsStL+0R1uFdtCGgKOGJVdvXvcZoujbAAGD6KQfFa8KBuV3u7GsH2tA+EhqcMnh5C6utUqLOMSAgpkq4HJWOOZK572zmtavTrfJr2lusp/iEeEVHiesenugk2fodTo+yIhdZ+P9SyyqIRwaCvUb/eEMI62Syx0Dpnp2YuyMCPBQsoLny/Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.23.194) smtp.rcpttodomain=atomide.com smtp.mailfrom=ti.com; dmarc=pass
+ (p=quarantine sp=none pct=100) action=none header.from=ti.com; dkim=none
+ (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=QTEL6Izch0K5ZAgdjedJYC59oup2Y9TdQVDCw4sXrt4=;
+ b=s1ZEL4GQEjFu+C1Gzrl3vqy5j8JkSp1u7XTrObHzrRW/UiPBn4vSoYRI+tarn7cIHPzgIGqgT/4gXdwE/wnHITToY/+YQ8P+HCnCCAttReGrO7SJsaMSyLe5fQRCDEu8O2KY/LU4uA4ZpQqOLCoNnWVRD6q/+4ob+PtQfqh+Orw=
+Received: from SJ0PR03CA0262.namprd03.prod.outlook.com (2603:10b6:a03:3a0::27)
+ by SA6PR10MB8037.namprd10.prod.outlook.com (2603:10b6:806:442::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9320.21; Mon, 17 Nov
+ 2025 14:12:10 +0000
+Received: from SJ5PEPF000001F2.namprd05.prod.outlook.com
+ (2603:10b6:a03:3a0:cafe::69) by SJ0PR03CA0262.outlook.office365.com
+ (2603:10b6:a03:3a0::27) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9320.22 via Frontend Transport; Mon,
+ 17 Nov 2025 14:12:09 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.194)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.23.194 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.194; helo=lewvzet200.ext.ti.com; pr=C
+Received: from lewvzet200.ext.ti.com (198.47.23.194) by
+ SJ5PEPF000001F2.mail.protection.outlook.com (10.167.242.70) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9343.9 via Frontend Transport; Mon, 17 Nov 2025 14:12:09 +0000
+Received: from DLEE200.ent.ti.com (157.170.170.75) by lewvzet200.ext.ti.com
+ (10.4.14.103) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 17 Nov
+ 2025 08:12:06 -0600
+Received: from DLEE200.ent.ti.com (157.170.170.75) by DLEE200.ent.ti.com
+ (157.170.170.75) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 17 Nov
+ 2025 08:12:06 -0600
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE200.ent.ti.com
+ (157.170.170.75) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Mon, 17 Nov 2025 08:12:06 -0600
+Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 5AHEC6V92618964;
+	Mon, 17 Nov 2025 08:12:06 -0600
+Date: Mon, 17 Nov 2025 08:12:06 -0600
+From: Nishanth Menon <nm@ti.com>
+To: SoC <soc@kernel.org>, <arm@kernel.org>
+CC: SoC list <soc@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, Santosh Shilimkar <ssantosh@kernel.org>,
+	"Tony Lindgren" <tony@atomide.com>, Vignesh Raghavendra <vigneshr@ti.com>
+Subject: [GIT PULL] soc: ti: Driver updates for v6.18
+Message-ID: <20251117141206.pqjzjzegxajziyof@resort>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 11/20] drm/msm/a6xx: Improve MX rail fallback in RPMH
- vote init
-To: Akhil P Oommen <akhilpo@oss.qualcomm.com>,
-        Rob Clark <robin.clark@oss.qualcomm.com>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>, Sean Paul <sean@poorly.run>,
-        Dmitry Baryshkov <lumag@kernel.org>,
-        Abhinav Kumar
- <abhinav.kumar@linux.dev>,
-        Jessica Zhang <jesszhan0024@gmail.com>,
-        Marijn Suijten <marijn.suijten@somainline.org>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Jonathan Marek <jonathan@marek.ca>,
-        Jordan Crouse
- <jordan@cosmicpenguin.net>,
-        Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
-        Joerg Roedel <joro@8bytes.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>,
-        Connor Abbott <cwabbott0@gmail.com>
-Cc: linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org,
-        dri-devel@lists.freedesktop.org, freedreno@lists.freedesktop.org,
-        linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-        devicetree@vger.kernel.org
-References: <20251114-kaana-gpu-support-v3-0-92300c7ec8ff@oss.qualcomm.com>
- <20251114-kaana-gpu-support-v3-11-92300c7ec8ff@oss.qualcomm.com>
-Content-Language: en-US
-From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-In-Reply-To: <20251114-kaana-gpu-support-v3-11-92300c7ec8ff@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-ORIG-GUID: 4O4SXdkDc8mLE7qmYx0F0hUvOTSofA-t
-X-Proofpoint-GUID: 4O4SXdkDc8mLE7qmYx0F0hUvOTSofA-t
-X-Authority-Analysis: v=2.4 cv=acVsXBot c=1 sm=1 tr=0 ts=691b2d22 cx=c_pps
- a=KB4UBwrhAZV1kjiGHFQexw==:117 a=FpWmc02/iXfjRdCD7H54yg==:17
- a=IkcTkHD0fZMA:10 a=6UeiqGixMTsA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=EUspDBNiAAAA:8 a=VffenE3n-DyGx4saXfUA:9
- a=QEXdDO2ut3YA:10 a=o1xkdb1NAhiiM49bd1HK:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMTE3MDEyMSBTYWx0ZWRfXzFW3aI6Sjubm
- 8e6wXzhkKPKXB7IjqL+cY6fjkehRn2rHwxZZMPez81RZnIy967r+6mdzQJQfKNBQWRA6CkVI7VB
- fiFGA1qQzW6TdRz+DJ5CaHeyUtRqZ1g0jMd2uQxXFeOHnBdDKP4oMKsMMSmd3G0UNY49y+A5luU
- X79snMto4CRtivc/arDzbYGuwxEt8I7xbiAZH8M7ZFdX71rKZteKUgZYmDd1gPN0f+UK6/lNubx
- 6JMRBApBmZCbxNCuYUAoXh8wv6hqUnKhP9Ma4A+ApSKWWbQzdEFwZpTcLFBwwspRCzPpVsBPuQg
- rMPhDysIK6inaqH/2WWTed27nGzxmVFUMHcnBCB9g2I4dGJKtr1V8dPfLxONEBsOa2MuciB++TW
- jzLcXdaiX/vJKYTfByEzmu56Ahm9Fw==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
- definitions=2025-11-17_03,2025-11-13_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- adultscore=0 suspectscore=0 clxscore=1015 priorityscore=1501 malwarescore=0
- spamscore=0 bulkscore=0 impostorscore=0 phishscore=0 lowpriorityscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2510240001 definitions=main-2511170121
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="cvve6pb4a3vhlaqm"
+Content-Disposition: inline
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ5PEPF000001F2:EE_|SA6PR10MB8037:EE_
+X-MS-Office365-Filtering-Correlation-Id: e7509da9-5d26-4f55-352e-08de25e34c15
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|36860700013|82310400026;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?xCObZZIYH4i7eSbreSU90Jsl7/d2Ag0lEkgUQnGfMzUcFjNRkT5FnsleOFsj?=
+ =?us-ascii?Q?BB7P7kPkn4d9Nvkvt7TCl536mlKBweSTMqmxviJv2oLq4/bCCRGd7P58kkiN?=
+ =?us-ascii?Q?aXanf5xxmVZGT2jZ0cUCB7TsiKZgzr+xK0sFPtm3eT8xDGGslAppgTvFjZAs?=
+ =?us-ascii?Q?KPzCcM/1Qp6Nn8gUGapI+UlRG7YVmd1iWueOHx6ZgCRmjYBZhNagdcYsd41q?=
+ =?us-ascii?Q?rlCpWdK0m79Wd9qYfiT+Rqj04UdFUr7bw0SRqKk5ndq0oHWu/ZXfVCeoyM37?=
+ =?us-ascii?Q?fqARhN73AduKZhUdUW/yhUWcoTzxEI6+q4wH6z6f38ldaM7IZzEJxLQ2j9sg?=
+ =?us-ascii?Q?q4BFfjlMO2QlTt8i+9+hZzKUy62C2ae80rhQU2gkbrpMejA+jGniqmSSbDZj?=
+ =?us-ascii?Q?SNaJpjfOqb2kKWwPuBaMAEUcH9ZRS+/e+eduk63yO9SSiw+N0E4/SkbkvsR7?=
+ =?us-ascii?Q?7bxO7TL5Ebw+AF7e2iNmcjUDjljgOMT/FU8OGY0fYHbE8QMx9lxvSDQJPTn1?=
+ =?us-ascii?Q?O1UNgMAanlBjES+eXFQmKwtlKJlN7bOQGy+QBeUxeeN3Botwi01lOUclrToC?=
+ =?us-ascii?Q?F7WoHynW2kLxLapF6TLqgFRIFl/opIXIcMScc9akLBqco43MclNV+mFmEipo?=
+ =?us-ascii?Q?p9vqDBuuA7ZMvLars36eXT+GOzMle9YQN9QoU39S1d1S47il8SISWye8XS93?=
+ =?us-ascii?Q?EuTFLbmfNNrebyox/SnlLAPbRBtNlz0W/ZM7LQSULmAfArGMgZPr5J2YHVqz?=
+ =?us-ascii?Q?44ITfjlvBShDvkmySAy51iIjkLzbYbNr/KIHkrX27OGSTHX/sHDv2UUJ7aKv?=
+ =?us-ascii?Q?NKSH/lSCbuKRBRj7B/SODoSjMaf+o+lggPosCakota0HCUv1yipZIeSHLvKQ?=
+ =?us-ascii?Q?q1cMXMIJ7pZ7Pg7Jcu13Q2KjvJY1vp4/qn8F6i1IDi54TJeOIWG8u8Ouv0/V?=
+ =?us-ascii?Q?EJhajYkeEM9vArWLIIKUqoXVyWu/PbwjHEdB5M5uq72pMETT0LuZ2D2h4H9O?=
+ =?us-ascii?Q?T+gmPoKMgt8UPvqTq60zDVxcFwWYgOvXmiXP+0dav7ue2yoTjwazZ7DsXKKb?=
+ =?us-ascii?Q?zG9n02rFR/lZBQGSyNH7vNUuWXmP7kntMS9FYLoMCr3/SG3TFgumVN77j9mE?=
+ =?us-ascii?Q?WNBW23VLnJiAzuGsjGvIK/lUrzE/sff/untH9s+Sl4tUeJ9Lv5uQQy1auvQ2?=
+ =?us-ascii?Q?0YPR4SQBbXYklDT+v1DDhHZOLdzShNXxACt1PxWClPy5b4JMgkCkXT4kLtvz?=
+ =?us-ascii?Q?y4WdKRg1uWaJ1ALSqvu/2vf+s0F+ExqVVoHqY8xd9Rn3YaL/gN1i3tSaF+UL?=
+ =?us-ascii?Q?twRV7+udf5WfHadr8wd6UohRKroVaPrXiPhxUGiyq+PP6JvspYWKfBod8/D+?=
+ =?us-ascii?Q?iW5qTmUqc8tzGCwdZT1184fiYxIwIkEuCmv38gWqsfANBTQbgBpmzWyEK4Fg?=
+ =?us-ascii?Q?W5XHi9qtor0vRzp2ErUMXonQdWMuvUiEZ3jmYRMhVQAqUCqSGilExE2yhWWZ?=
+ =?us-ascii?Q?spZD2iud7bV4D5jR7i0lKF+NoElWZoJMrXxs+9rt3d80ODW14/nPP7gmqTvn?=
+ =?us-ascii?Q?Z0KufmjeTLjrxJvlEEI=3D?=
+X-Forefront-Antispam-Report: CIP:198.47.23.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet200.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(1800799024)(36860700013)(82310400026);DIR:OUT;SFP:1101;
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Nov 2025 14:12:09.6707
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: e7509da9-5d26-4f55-352e-08de25e34c15
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.194];Helo=[lewvzet200.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ5PEPF000001F2.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA6PR10MB8037
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251117_061147_706454_38E6131A 
-X-CRM114-Status: GOOD (  12.49  )
+X-CRM114-CacheID: sfid-20251117_061217_946822_5B221BA0 
+X-CRM114-Status: UNSURE (   8.80  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -168,18 +153,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/14/25 12:29 AM, Akhil P Oommen wrote:
-> Current logic assumes that the voltage corners in both MxG and MxA are
-> always same. This is not true for recent targets. So, rework the rpmh init
-> sequence to probe and calculate the votes with the respective rails, ie,
-> GX rails should use MxG as secondary rail and Cx rail should use MxA as
-> the secondary rail.
-> 
-> Fixes: d6225e0cd096 ("drm/msm/adreno: Add support for X185 GPU")
-> Signed-off-by: Akhil P Oommen <akhilpo@oss.qualcomm.com>
-> ---
+--cvve6pb4a3vhlaqm
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+Hi,
 
-Konrad
+Please pull
+
+The following changes since commit 3a8660878839faadb4f1a6dd72c3179c1df56787:
+
+  Linux 6.18-rc1 (2025-10-12 13:42:36 -0700)
+
+are available in the Git repository at:
+
+  https://git.kernel.org/pub/scm/linux/kernel/git/ti/linux.git tags/ti-driv=
+er-soc-for-v6.19
+
+for you to fetch changes up to e0431ff998bd32dcc1e591a45b4e156fcb0325a3:
+
+  firmware: ti_sci: Partial-IO support (2025-11-13 13:03:55 -0600)
+
+----------------------------------------------------------------
+TI SoC driver updates for v6.19
+
+- ti_sci: Add Partial-IO poweroff support and sys_off handler integration
+- ti_sci: Gate IO isolation programming on firmware capability flag
+- ti_sci: cleanup by replacing ifdeffery in PM ops with pm_sleep_ptr() macro
+
+----------------------------------------------------------------
+Markus Schneider-Pargmann (TI.com) (2):
+      firmware: ti_sci: Support transfers without response
+      firmware: ti_sci: Partial-IO support
+
+Thomas Richard (TI.com) (2):
+      firmware: ti_sci: Replace ifdeffery by pm_sleep_ptr() macro
+      firmware: ti_sci: Set IO Isolation only if the firmware is capable
+
+ drivers/firmware/ti_sci.c | 155 ++++++++++++++++++++++++++++++++++++++----=
+----
+ drivers/firmware/ti_sci.h |   7 +++
+ 2 files changed, 135 insertions(+), 27 deletions(-)
+--=20
+Regards,
+Nishanth Menon
+Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5=
+ 849D 1736 249D
+https://ti.com/opensource
+
+--cvve6pb4a3vhlaqm
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEE+KKGk1TrgjIXoxo03bWEnRc2JJ0FAmkbLS8ACgkQ3bWEnRc2
+JJ2rZg/6AysHiSYmTwvTLPODcudRC/vh928BfHENSjGBjAbmSpdUE8Xntw4cqVJ0
+mtwg4bKFdymYynUfItyIfvxaIYLIi/p0YOcp51I/mcvmAAELUlGYQTaV1SeXY8Px
+UiIUDXVpHbNi+r1wWJi6cteiXsJzWJg4Sj/uCxU6g/oR8LcMEjBoczkSyOZKJScX
+q0Z6cJhio9yUpTuXm2mB0PWlZDmXOQWaCen3w0iZRQP8u6v8OwkliI083dQa/GX/
+9QFIuhfV5PD9jWtI3zcH5fL3wcOCxagLypN2E9t3luC8Y/2mzVtVZvw7iiISy9D8
+8XmF8X98bYNEn3xu5y3c/NHus7W5OwuXr3OkwaZ18WJEet5z4ghsIIRh2//M/9+N
+c6huWLQqGs/NoPV8+eTwFZjxjl1YynC1gNEqWYKLgyeZyn1qshHRgMeQRqVReQPH
+Bpyc09yAA7MXB1UzIqzR/ktWmN87jXa2679cE3ody/AHB40GxNJPeXsJxkWueJ9Y
+zEVFfy75TFR8vU+qmFIzJq/H4DrvW7PCH0NlWIf3PoDHg3m7LvvkVG67i2akjbDO
+QacDitTVdZ1cZfXGdBISlnkY91Mc5H2wxPbQHyT6u89CsLcHJdzEixxaC8ofIXOe
+TlQvawDEcna0y75Tv6pnVQs+fIvOGDX/Mzro5qePBaRvCdYQQsY=
+=rCGs
+-----END PGP SIGNATURE-----
+
+--cvve6pb4a3vhlaqm--
 
