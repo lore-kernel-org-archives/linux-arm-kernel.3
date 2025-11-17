@@ -4,89 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46875CEBF61
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 14:52:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A8E5CEBF61
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 14:56:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=E2msBzv7WSueld5/KoS1mtRsvHobokM0CCxMsMp1dgo=; b=gUs65B0ej/5JN6oN6PY9lxt1+x
-	7+7fw4V+ONjjSqaxMdPD0dgtEost8GmLS+NFXxbZFzab0j7ybUcgflxQl4yJ4PfImiOOYvLiso6g3
-	+qiMv61eCusRLvUL/3YusVGi1YK0IOSK1vkpJgYPp4vpED+6BvmVfZDoZICQSKecvxz4HzUiClSR7
-	5kmBvwtuRSbcx/OI3GQOAxWQdIr/sm+GOzFACtRLtV5xa2N4WsLQr/oDrtq96SSwFnO3ER+tJFN+8
-	uCmqj0F/9N7vmXNIhYbVaC3Qc6yAUH5qZeRVmCAnRIWYIuzHwHyDFJTidQneyOgZuCOQZjGELaAZE
-	VESqo47w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bDTMAjFTHZZURat4atsXS5dyJJHx/gXD6vpgW9NtTRs=; b=zFxqjNq9bs0U8iXKm2ZAS5KqxP
+	1VeIvmmq7wsHuqu1A9Jn5NoSvKsEnWTsyN2aVBn7EIKt91/dGJc/j+3h9evH3LDlDyuFDbtM9T175
+	IGgmde7Vbe5nxL8NhNj+SBB47EPqdXXxrD+qETGkCCI2L5GWW9FjzPqCVYZtkuaR12QdSOLOAblIQ
+	gnCZl1Dr5YPYzIJ8ph1RY6CywRUMw+3fYFFo2liGt3RmYjLudPV/4euKZJ2HtUJwuu7WNNtIo9iLP
+	RWpMblRfYKlI+Sh398o9O2H5mYIKzG18KcmJCWivGzNlQXTq50rDpRFio1skGK3ds4n2k1ScgKHu1
+	yugc8aGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vL0ah-0000000GHXP-0BWm;
-	Mon, 17 Nov 2025 14:52:27 +0000
-Received: from mail-lf1-x12e.google.com ([2a00:1450:4864:20::12e])
+	id 1vL0eX-0000000GHpW-0Wan;
+	Mon, 17 Nov 2025 14:56:25 +0000
+Received: from mail-qt1-x82c.google.com ([2607:f8b0:4864:20::82c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vL0ae-0000000GHWq-1Fo7
+	id 1vL0eU-0000000GHov-2sx6
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Nov 2025 14:52:25 +0000
-Received: by mail-lf1-x12e.google.com with SMTP id 2adb3069b0e04-59578e38613so4761719e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Nov 2025 06:52:22 -0800 (PST)
+	Mon, 17 Nov 2025 14:56:24 +0000
+Received: by mail-qt1-x82c.google.com with SMTP id d75a77b69052e-4edb7c8232aso64677191cf.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Nov 2025 06:56:22 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1763391141; x=1763995941; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=E2msBzv7WSueld5/KoS1mtRsvHobokM0CCxMsMp1dgo=;
-        b=eoMoNNGOptPUZzTQFr5t6z8MhIKeP8y2yplRofWnVK7Z6x3uFaeCmFbhj1RPLGMQTy
-         8G9xyxVpmRiOh7IiFD7hYJbjLiCBLGzH5+urTF3eC3WWAPgvmay2xdGHC/As6TbV0y3/
-         Rt5+eLZrFarbFNepmzli6qj+eKu/mUAmLbJcRZfPuaSvqwwoDmJGGXK/Nxb1mN2C3Gps
-         VofCMB3qnEsw83gc34yEzRPxAqgQzlQlI4viPooyWWzYJH4PY+Btnh95+4iG5ur9LrIH
-         xZm5+4j9yOZUdvS5bQoEa9d5u1lwq2BeaEMwZpDnfte8pdswxiIm3NEpV+Djjlc8XQcs
-         wm2A==
+        d=rowland.harvard.edu; s=google; t=1763391381; x=1763996181; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=bDTMAjFTHZZURat4atsXS5dyJJHx/gXD6vpgW9NtTRs=;
+        b=rhoAE9p011Zi22rvUMjOSB9g2ImpvO1cumoY/IY3BmeC+CgNjOlG8LwAgXPUUvrf7X
+         r3KK5m4GaQmkB92snMCYOtRJ3G+W6BuWpinzSrPqrRjlnjq9N3kZ2IkNntQxK38BAxxP
+         HFLFX2ciCgW+AzQcFXBlR1FEtVL8hCPjwHrtVPeG7sU7Xx2TdOHrzYn4dSEXiC7/xNbG
+         doVcKDIV/ZdCV2IBoKDf+u8N8HmcBaGrkv2jAf071hU2JxXCt9aN7V8rw/RWO54yxuZN
+         XbZvej4mumjlM12XrmZbC/+BMdP9fKpb9ooSes7/+4N/fCgV8+32Yc26AEig1MmAkWMe
+         121g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763391141; x=1763995941;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=E2msBzv7WSueld5/KoS1mtRsvHobokM0CCxMsMp1dgo=;
-        b=Aj+i+EO0yvrxdvdjCuAFCrrfdwdfCCnYNDUT5ntxlpGUsCRFI73xTpFTVNDAwLhLL0
-         WB4EpXeJgQ0Na66EBCtYLdtCSTd5RARt7/t2/z1hnEBuOFSyey1HS4++us+EE0q5DWIh
-         SDWTosgglzF2PixtFlcOrttgLdvjoOjKayTlLb1mbJpVAq1JDjygfN+9/NpdBW8Nq6UO
-         HOaQS9V3PKug8pW36vlCwrA30P0Y5bfrrCn8cgxoCdN+iEVsWfBNFMMc7pRtJq7inGOT
-         9XwyB/rKh3P2SY1kuYgsmSmdWgXgWNLfGlJUOsJiMwqds7LCgO6jJ5p0T1z5zr5IH/iN
-         RKCg==
-X-Forwarded-Encrypted: i=1; AJvYcCUNXF/S69ApFweEBy0AiuplAhWVi3hc9tai9dyFyqw+4aU2mHbctxUBbQ0/FAANB7YJ62uE1Kjp2foOZlwXhiMV@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz9LuzYBvClVEMwUkNwBOEY7kRjTxdYPUdAP5b5EEI2evvWZ51p
-	p3EDhUJICqm/t+HTwcb07W0l5jOSyZv3tXfulmT+xckM4kS+uu3UNwHqjZwm7Q1thnwbKGQxmKM
-	djPr8EbO4gpJgxJHyVl4YILs5bPVyuiE=
-X-Gm-Gg: ASbGncsX/aPCm/CVPYNZJ35lKHG5zCEPWzJRtUkdUxVQQK/t0Ygs8tP+15XMekB5OuB
-	HKqW3TlLvu2514t6eQGBE5vdcSmDyc/NkMx9KX81JkLOJi6rX/h3DqsymZfTrvsgLfHrF2tabri
-	xS3dhrRg+mARgxGoYwGAgJCUmuA2U/KphJfKgw8fub4Badbvza8lv4Av8DX2J8g5WpHxMMbq5vl
-	OeVRLe9LUT8bb0OHqbrxKX4pF2r8QAI/RS1VN0f8cZs/mxslbiFZchLoKTlPwJdZbL9kzugVY0s
-	TH8RvUabMBBpg3AxndevpENXq1U=
-X-Google-Smtp-Source: AGHT+IFWM6h2Rvtm8RkhWj2jEpDk8QuIv+uwfqZ7nxdfep6jv5iqz1/m/jBBMwF7isKVulGKioEmeomT4OdX1HrsVJQ=
-X-Received: by 2002:a05:6512:1552:10b0:595:909d:1af6 with SMTP id
- 2adb3069b0e04-595909d1dcamr1123293e87.28.1763391140693; Mon, 17 Nov 2025
- 06:52:20 -0800 (PST)
+        d=1e100.net; s=20230601; t=1763391381; x=1763996181;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=bDTMAjFTHZZURat4atsXS5dyJJHx/gXD6vpgW9NtTRs=;
+        b=jMAQYfJ5axJy20/xxQbiZod8XjibsLq2jm3xzrWWQH6Gti8oe6gc8V0thgFt3/ly6A
+         YnVWMkucnGY5ZlrggsAwlFBNJTXl03En1XXhiVNH7ZVj86q7V+b7lFTnaLs8/ifa/MF3
+         S2BvyvkZ0ZUWDguPVPsyur84xqYnjyNhzQiQQznJ+ZvN6mdGi1sxuVuWGJEiD4JMkXDX
+         VQV4YgksjVi5+ezmTULUMeUxe1yfjjDx333tQ2b+syWPkbEfuQcOvuBU/ZdXR4lXekNq
+         moJCWnahe1VNIsVv3cp8sTp+e/vR34YutEHtN+HJ2lza7GErA+LLEGxgdTg1+wTge0IO
+         8Mbw==
+X-Forwarded-Encrypted: i=1; AJvYcCXVoFXuiYMjGgdTgGk3hnVtiephXWJ3JT+IzWLsqHhUL/qWSi1jeJM9K3P87AHZ8UhuRYQn4R7v3/xGIocWV5fe@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz2IVqt6BfILHLfIUtLv+yopXa0zhWvodDAtNVfOXaatpyNxf7v
+	xurKIadPkEWK0vusVMAjBUx9/7dklQHETReybdlOttRZQgtFU+8X3ooSDQ0Sv2vWyg==
+X-Gm-Gg: ASbGncsO/FCu475mFr1pbyosjCtWgAqYO8k8dmDbsgDGgw2C29mv5IRl9YBpln+KPzl
+	oZYTOAEQ1wZTpDmRP7qp4ev8PRXoAj/2dOneM+j3lD+Js11IEjoF8rY0fDwc012mWUJ4J17tUMh
+	4SB8NKOkBNdtCRq0HLeM32HOC4JlKfW+4aWVqFK75diUCwbYaaDqDwrlnOMlHiXkKVc/peTEh82
+	uR7q58paXPhoAn/UJNN3Egfq9FaFBlnSGfvHzRP40ZL9iIibv01s54BQfUOOVmKaQjFuROPRGJI
+	s7ARZoMtGrpOaeuJhY3CSwgjCJfYi1e0KwOolQOYZ7eGD5wmddYkDZqql3N1mkrJ91KsEhU3K09
+	Aq+PJHZ2r9twoHSjJKu9p98cCQPbYImLYuHRQAQpQraolAbEuiflbsgFEPvQAqWNkSnSWHC4JOG
+	d8X/utCLbmhTQcZfMZNLivvi8BDfUuBQ==
+X-Google-Smtp-Source: AGHT+IEA4s9TEMA/DC/kZYt/NdkfOC8lgCBVVGJx2NH4cSc3zU3y7yNtT3OeFcpvLBqvdCfUiBKB3w==
+X-Received: by 2002:ac8:5805:0:b0:4ee:1e82:e3f4 with SMTP id d75a77b69052e-4ee1e82e6a9mr56880141cf.64.1763391381300;
+        Mon, 17 Nov 2025 06:56:21 -0800 (PST)
+Received: from rowland.harvard.edu ([140.247.181.15])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-4ede88799bbsm84283071cf.34.2025.11.17.06.56.20
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 17 Nov 2025 06:56:20 -0800 (PST)
+Date: Mon, 17 Nov 2025 09:56:18 -0500
+From: Alan Stern <stern@rowland.harvard.edu>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: Ma Ke <make24@iscas.ac.cn>, Vladimir Zapolskiy <vz@mleia.com>,
+	piotr.wojtaszczyk@timesys.com,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, stigge@antcom.de,
+	linux-usb@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Andrew Morton <akpm@linux-foundation.org>, stable@vger.kernel.org
+Subject: Re: [PATCH v2] USB: ohci-nxp: Fix error handling in ohci-hcd-nxp
+ driver
+Message-ID: <9834be77-29e0-4a65-93f6-b61bf724f922@rowland.harvard.edu>
+References: <20251117013428.21840-1-make24@iscas.ac.cn>
+ <4fe5b63e-072c-419c-a1b9-bc21aec7e083@app.fastmail.com>
 MIME-Version: 1.0
-References: <20251117123643.711968-1-alexander.stein@ew.tq-group.com> <20251117123643.711968-4-alexander.stein@ew.tq-group.com>
-In-Reply-To: <20251117123643.711968-4-alexander.stein@ew.tq-group.com>
-From: Fabio Estevam <festevam@gmail.com>
-Date: Mon, 17 Nov 2025 11:52:09 -0300
-X-Gm-Features: AWmQ_bnEYQsdBy2VHM5TVlUlvxtXcSe8WkHYIS9A8Mb6DlSo_EpO1i8bwOVaCQo
-Message-ID: <CAOMZO5ByfNSYLAMwxFh4KfwtpPRFiFydQOtB8_avu0un8u9rMw@mail.gmail.com>
-Subject: Re: [PATCH 3/8] arm64: dts: tqma8mpql-mba8mpxl: Fix HDMI CEC pad
- control settings
-To: Alexander Stein <alexander.stein@ew.tq-group.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Martin Schmiedel <Martin.Schmiedel@tq-group.com>, linux@ew.tq-group.com, 
-	devicetree@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <4fe5b63e-072c-419c-a1b9-bc21aec7e083@app.fastmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251117_065224_379399_6A63B829 
-X-CRM114-Status: GOOD (  15.64  )
+X-CRM114-CacheID: sfid-20251117_065622_948855_F342E5E3 
+X-CRM114-Status: GOOD (  31.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,45 +104,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 17, 2025 at 9:37=E2=80=AFAM Alexander Stein
-<alexander.stein@ew.tq-group.com> wrote:
->
-> As per datasheet of the HDMI protection IC the CEC_IC pin has be
+On Mon, Nov 17, 2025 at 09:53:21AM +0100, Arnd Bergmann wrote:
+> On Mon, Nov 17, 2025, at 02:34, Ma Ke wrote:
+> > When obtaining the ISP1301 I2C client through the device tree, the
+> > driver does not release the device reference in the probe failure path
+> > or in the remove function. This could cause a reference count leak,
+> > which may prevent the device from being properly unbound or freed,
+> > leading to resource leakage.
+> >
+> > Fix this by storing whether the client was obtained via device tree
+> > and only releasing the reference in that case.
+> >
+> > Found by code review.
+> >
+> > Cc: stable@vger.kernel.org
+> > Fixes: 73108aa90cbf ("USB: ohci-nxp: Use isp1301 driver")
+> > Signed-off-by: Ma Ke <make24@iscas.ac.cn>
+> 
+> The patch looks fine in principle, however I don't see any way
+> this driver would be probed without devicetree, and I think
+> it would be better to remove all the traces of the pre-DT
+> logic in it.
+> 
+> The lpc32xx platform was converted to DT back in 2012, so
+> any reference to the old variant is dead code. Something like
+> the patch below should work here.
+> 
+> Other thoughts on this driver, though I I'm not sure anyone
+> is going to have the energy to implement these:
+> 
+>  - the reference to isp1301_i2c_client should be kept in
+>    the hcd private data, after allocating a structure, by
+>    setting driver->hcd_priv_size.
+>  - instead of looking for the i2c device, I would suppose
+>    it should look for a usb_phy instead, as there is no
+>    guarantee on the initialization being ordered at the
+>    moment.
+>  - instead of a usb_phy, the driver should probably use
+>    a generic phy (a much larger rework).
 
-Typo: "has be" --> "has been"
+Considering what the comments at the start of the file say:
 
-The same typo is present on patch 7.
+ * Currently supported OHCI host devices:
+ * - NXP LPC32xx
 
+ * NOTE: This driver does not have suspend/resume functionality
+ * This driver is intended for engineering development purposes only
 
-> configured as open-drain.
->
-> Fixes: 418d1d840e42 ("arm64: dts: freescale: add initial device tree for =
-TQMa8MPQL with i.MX8MP")
-> Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
-> ---
->  arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql-mba8mpxl.dts | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->
-> diff --git a/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql-mba8mpxl.dts =
-b/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql-mba8mpxl.dts
-> index ff2bacf24bfd2..03b75d4cf699a 100644
-> --- a/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql-mba8mpxl.dts
-> +++ b/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql-mba8mpxl.dts
-> @@ -868,7 +868,7 @@ pinctrl_hdmi: hdmigrp {
->                 fsl,pins =3D <MX8MP_IOMUXC_HDMI_DDC_SCL__HDMIMIX_HDMI_SCL=
- 0x400001c2>,
->                            <MX8MP_IOMUXC_HDMI_DDC_SDA__HDMIMIX_HDMI_SDA 0=
-x400001c2>,
->                            <MX8MP_IOMUXC_HDMI_HPD__HDMIMIX_HDMI_HPD     0=
-x40000010>,
-> -                          <MX8MP_IOMUXC_HDMI_CEC__HDMIMIX_HDMI_CEC     0=
-x40000010>;
-> +                          <MX8MP_IOMUXC_HDMI_CEC__HDMIMIX_HDMI_CEC     0=
-x40000030>;
->         };
->
->         pinctrl_hoggpio2: hoggpio2grp {
-> --
-> 2.43.0
->
+I wonder whether any existing systems actually use this driver.
+
+Alan Stern
 
