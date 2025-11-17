@@ -4,89 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15B2DCEBF92
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 17:00:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F1A0CE8D6B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 17:00:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BTriyQZYYbnJqpQ9NHQXwg7JbzvLw55voRo8bIRkgF0=; b=K6mcyd228LMBAZC0FZOO7WimuO
-	4qXwOjoqZJrIs39+czIaMJFek9QzyTqgVAaxBiYkrf774U+jCDcSWADP4SpqRw25CeUUxVjtezNLD
-	3yQwA5a5Z+jDsbn3ZXyo87tcw01gab+ZpgJMWmxCPuIMq5CTsyVH+JXjEcIwq/QrnaaLfTYUyvEGG
-	WGf2jSTMsAswMQa0e7iyyY8pd+CFBsD9SK2YrqVFA8I8wSfq8Lt0/R+k+JSuMpdSSRPt/xTVGDwr/
-	ex0mSpbLYdJUNsXcoOaCGBkb3VyidcjELnMMxIQVONvksgIzmpvcj3z5zLQ93FpUHo0ejQxPiTGAu
-	wzTVdSqg==;
+	bh=fvPU8WU5IYJSoXCXyRX08jz2GIeV4F1+xsgWGuXHHPg=; b=o3Ct/i1H5GYd89CO4+b8CnSQxz
+	40eJw1BjigEwNNDjCahfKRqicPUliYBeLaNEVd0Q8Y8TVBaqRBy03ajaf4ofTtQi9SdOlsTQkJub/
+	gqsfFxvjypyA5nbpvZNdZg+qMo8AuSOTNEcWy4TyZbiOKpEUgv1Ao6viQFw7i6qTmAhQWv+DllyGg
+	sebgMfXGMxRrkx3bA0TQRXjT+tNFFRsRRJX128g6bvLy0T2wn63RiPRx5bu7R2Zb52CZIcSaJfc7m
+	O57rKqDtvPF2tTCdOIuAtKW1bCDyKn6D5qCkQDmU7K+NI17496wr8lKHFdCmnG+wDReA7j/cD8f1O
+	xzIv6t5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vL2am-0000000GRmA-20LQ;
-	Mon, 17 Nov 2025 17:00:40 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vL2aj-0000000GRiB-0Q5W
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 17 Nov 2025 17:00:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=BTriyQZYYbnJqpQ9NHQXwg7JbzvLw55voRo8bIRkgF0=; b=M54rmhTnXVTCTqBtidaxGmwBcy
-	T2X/fyCH4vkh8Wm0MO0iLOpgVgd3UYp2QqPUFEGuKK7AerqkXYbkVGE4a36a+yC0i29nu6pHC6fzN
-	5o4aJ3A6Yoa6uWn6+hSXt4op0tqfxnP6taz/C5hDSvv03D0sqv1/w/1+sakqwOEvHSba4Ep6Vkt8W
-	DRQX0mDhzdLj81Wns0SuNcQUnRDIQYJy6ANAi1rEBt9xcJPco0XnT/q2rfHeP1Hr66YJCyBhhjJoW
-	UPYo3PBqE4RgH6BgkkW4cAa90mm+AKjM3ElfgokhL0pZ7mwxCje2D17xfGnwjyeA21/YXxwvNJO5q
-	Wq8zOSYA==;
-Received: from smtpout-03.galae.net ([185.246.85.4])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vL1j2-00000007iUC-2sFF
+	id 1vL2at-0000000GRus-2FIi;
+	Mon, 17 Nov 2025 17:00:47 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vL2ar-0000000GRre-0tyv
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Nov 2025 16:05:10 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id CD6694E41735;
-	Mon, 17 Nov 2025 17:00:33 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 64D26606B9;
-	Mon, 17 Nov 2025 17:00:33 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 30FBE10371D6C;
-	Mon, 17 Nov 2025 18:00:31 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1763398832; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=BTriyQZYYbnJqpQ9NHQXwg7JbzvLw55voRo8bIRkgF0=;
-	b=wB7TJ5hhEtRLjauj1zMHEQ1cQIK27amC9ga1W11a70zOBJhLoHgrrUOOonOCkZ8/qD90iG
-	wnP4xQS+yHVkG3j7Ee7wptzA86yYAVFqYxl3YOE4MMNmwannthlYdG/gXJfEjiM5zTBWi0
-	X/Gg9qxS0liPgSejCEod9xs9E92pj2e4eAsShgj91ZskfgGa6A0EyfPdAgxPBdrE3EvErR
-	A08/Ywfv9hIUV9xZvfuF22L3bupVTcnvQHmbza0NMhYjcRTREaAuf8Wj+J7Vg3IAtG3bCR
-	PW/H25BH+0W+yKD2evuFmGEgEMBqrZlP80qMIc861C5djHzyOVfLiOt57NuXvg==
-From: Gregory CLEMENT <gregory.clement@bootlin.com>
-Date: Mon, 17 Nov 2025 18:00:16 +0100
-Subject: [PATCH 3/3] mtd: physmap: Add support for RAM reserved memory
- regions
+	Mon, 17 Nov 2025 17:00:46 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 32CED1596;
+	Mon, 17 Nov 2025 09:00:37 -0800 (PST)
+Received: from e134344.cambridge.arm.com (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id C2C083F66E;
+	Mon, 17 Nov 2025 09:00:39 -0800 (PST)
+From: Ben Horgan <ben.horgan@arm.com>
+To: james.morse@arm.com
+Cc: amitsinght@marvell.com,
+	baisheng.gao@unisoc.com,
+	baolin.wang@linux.alibaba.com,
+	bobo.shaobowang@huawei.com,
+	carl@os.amperecomputing.com,
+	catalin.marinas@arm.com,
+	dakr@kernel.org,
+	dave.martin@arm.com,
+	david@redhat.com,
+	dfustini@baylibre.com,
+	fenghuay@nvidia.com,
+	gregkh@linuxfoundation.org,
+	gshan@redhat.com,
+	guohanjun@huawei.com,
+	jeremy.linton@arm.com,
+	jonathan.cameron@huawei.com,
+	kobak@nvidia.com,
+	lcherian@marvell.com,
+	lenb@kernel.org,
+	linux-acpi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	lpieralisi@kernel.org,
+	peternewman@google.com,
+	quic_jiles@quicinc.com,
+	rafael@kernel.org,
+	robh@kernel.org,
+	rohit.mathew@arm.com,
+	scott@os.amperecomputing.com,
+	sdonthineni@nvidia.com,
+	sudeep.holla@arm.com,
+	tan.shaopeng@fujitsu.com,
+	will@kernel.org,
+	xhao@linux.alibaba.com,
+	Ben Horgan <ben.horgan@arm.com>
+Subject: [PATCH v5 03/34] ACPI / PPTT: Add acpi_pptt_cache_v1_full to use pptt cache as one structure
+Date: Mon, 17 Nov 2025 16:59:42 +0000
+Message-ID: <20251117170014.4113754-4-ben.horgan@arm.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20251117170014.4113754-1-ben.horgan@arm.com>
+References: <20251117170014.4113754-1-ben.horgan@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20251117-mtd-memregion-v1-3-7b35611c79a6@bootlin.com>
-References: <20251117-mtd-memregion-v1-0-7b35611c79a6@bootlin.com>
-In-Reply-To: <20251117-mtd-memregion-v1-0-7b35611c79a6@bootlin.com>
-To: Rob Herring <robh@kernel.org>, Saravana Kannan <saravanak@google.com>, 
- Linus Walleij <linus.walleij@linaro.org>, 
- Miquel Raynal <miquel.raynal@bootlin.com>, 
- Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
- Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>, 
- =?utf-8?q?Beno=C3=AEt_Monin?= <benoit.monin@bootlin.com>, 
- =?utf-8?q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-mtd@lists.infradead.org, 
- Gregory CLEMENT <gregory.clement@bootlin.com>
-X-Mailer: b4 0.14.3
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251117_160508_814850_93901BE3 
-X-CRM114-Status: GOOD (  23.17  )
+X-CRM114-CacheID: sfid-20251117_090045_336465_2B892799 
+X-CRM114-Status: GOOD (  18.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,122 +95,133 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-MTD fixed-partitions can now be exposed for reserved RAM regions, not
-just ROM reg regions. This is achieved by using a memory-region
-phandle to reference the reserved RAM region instead of the reg
-property.
+In actbl2.h, acpi_pptt_cache describes the fields in the original
+Cache Type Structure. In PPTT table version 3 a new field was added at the
+end, cache_id. This is described in acpi_pptt_cache_v1 but rather than
+including all v1 fields it just includes this one.
 
-Based on the work of Muhammad Musa <muhammad.musa@intel.com>
+In lieu of this being fixed in acpica, introduce acpi_pptt_cache_v1_full to
+contain all the fields of the Cache Type Structure . Update the existing
+code to use this new struct. This simplifies the code and removes a
+non-standard use of ACPI_ADD_PTR.
 
-Signed-off-by: Gregory CLEMENT <gregory.clement@bootlin.com>
+Signed-off-by: Ben Horgan <ben.horgan@arm.com>
 ---
- drivers/mtd/maps/physmap-core.c | 56 ++++++++++++++++++++++++++++++++++-------
- 1 file changed, 47 insertions(+), 9 deletions(-)
+I have opened a pull request to acpica to update acpi_pptt_cache_v1 to
+include all fields. https://github.com/acpica/acpica/pull/1059
 
-diff --git a/drivers/mtd/maps/physmap-core.c b/drivers/mtd/maps/physmap-core.c
-index 2bd7a1af898c9..f084f6f34d611 100644
---- a/drivers/mtd/maps/physmap-core.c
-+++ b/drivers/mtd/maps/physmap-core.c
-@@ -39,6 +39,7 @@
- #include <linux/mtd/cfi_endian.h>
- #include <linux/io.h>
- #include <linux/of.h>
-+#include <linux/of_reserved_mem.h>
- #include <linux/pm_runtime.h>
- #include <linux/gpio/consumer.h>
+Change since v4:
+Use fields directly in acpi_pptt_cache_v1_full
+Delay the casting
+
+Changes since v3:
+New patch
+---
+ drivers/acpi/pptt.c | 47 +++++++++++++++++++++++++++++++++++----------
+ 1 file changed, 37 insertions(+), 10 deletions(-)
+
+diff --git a/drivers/acpi/pptt.c b/drivers/acpi/pptt.c
+index 2856254e29d7..53fde9bd8140 100644
+--- a/drivers/acpi/pptt.c
++++ b/drivers/acpi/pptt.c
+@@ -21,6 +21,25 @@
+ #include <linux/cacheinfo.h>
+ #include <acpi/processor.h>
  
-@@ -263,6 +264,14 @@ static const struct of_device_id of_flash_match[] = {
- 		.type = "rom",
- 		.compatible = "direct-mapped"
- 	},
-+	{
-+		.compatible = "mtd-mem",
-+		.data = "map_ram",
-+	},
-+	{
-+		.compatible = "mtd-memro",
-+		.data = "map_rom",
-+	},
- 	{ /* sentinel */ },
- };
- MODULE_DEVICE_TABLE(of, of_flash_match);
-@@ -446,8 +455,9 @@ static int physmap_flash_pdata_init(struct platform_device *dev)
- static int physmap_flash_probe(struct platform_device *dev)
- {
- 	struct physmap_flash_info *info;
--	int err = 0;
--	int i;
-+	struct resource *res_array;
-+	int err = 0, is_rsvd_mem = 0, nreg = 0;
-+	int i, curr_reg;
- 
- 	if (!dev->dev.of_node && !dev_get_platdata(&dev->dev))
- 		return -EINVAL;
-@@ -459,9 +469,13 @@ static int physmap_flash_probe(struct platform_device *dev)
- 	while (platform_get_resource(dev, IORESOURCE_MEM, info->nmaps))
- 		info->nmaps++;
- 
--	if (!info->nmaps)
--		return -ENODEV;
--
-+	if (!info->nmaps) {
-+		info->nmaps = of_reserved_mem_region_total_count(dev->dev.of_node);
-+		if (info->nmaps > 0)
-+			is_rsvd_mem = 1;
-+		else
-+			return -ENODEV;
-+	}
- 	info->maps = devm_kzalloc(&dev->dev,
- 				  sizeof(*info->maps) * info->nmaps,
- 				  GFP_KERNEL);
-@@ -503,7 +517,23 @@ static int physmap_flash_probe(struct platform_device *dev)
- 	for (i = 0; i < info->nmaps; i++) {
- 		struct resource *res;
- 
--		info->maps[i].virt = devm_platform_get_and_ioremap_resource(dev, i, &res);
-+		if (is_rsvd_mem) {
-+			if (nreg <= i) {
-+				int cnt = of_reserved_mem_region_to_resource_array(&dev->dev,
-+							   dev->dev.of_node, i, &res_array);
-+				if (cnt < 0) {
-+					err = cnt;
-+					goto err_out;
-+				}
-+				nreg += cnt;
-+				curr_reg = 0;
-+			}
-+			res = &res_array[curr_reg++];
-+			info->maps[i].virt = devm_ioremap_resource(&dev->dev, res);
-+		} else {
-+			info->maps[i].virt = devm_platform_get_and_ioremap_resource(dev, i, &res);
-+		}
++/*
++ * The acpi_pptt_cache_v1 in actbl2.h, which is imported from acpica,
++ * only contains the cache_id field rather than all the fields of the
++ * Cache Type Structure. Use this alternative structure until it is
++ * resolved in acpica.
++ */
++struct acpi_pptt_cache_v1_full {
++	struct acpi_subtable_header header;
++	u16 reserved;
++	u32 flags;
++	u32 next_level_of_cache;
++	u32 size;
++	u32 number_of_sets;
++	u8 associativity;
++	u8 attributes;
++	u16 line_size;
++	u32 cache_id;
++};
 +
- 		if (IS_ERR(info->maps[i].virt)) {
- 			err = PTR_ERR(info->maps[i].virt);
- 			goto err_out;
-@@ -519,9 +549,17 @@ static int physmap_flash_probe(struct platform_device *dev)
- 			info->maps[i].phys = res->start;
+ static struct acpi_subtable_header *fetch_pptt_subtable(struct acpi_table_header *table_hdr,
+ 							u32 pptt_ref)
+ {
+@@ -56,6 +75,18 @@ static struct acpi_pptt_cache *fetch_pptt_cache(struct acpi_table_header *table_
+ 	return (struct acpi_pptt_cache *)fetch_pptt_subtable(table_hdr, pptt_ref);
+ }
  
- 		info->win_order = fls64(resource_size(res)) - 1;
--		info->maps[i].size = BIT(info->win_order +
--					 (info->gpios ?
--					  info->gpios->ndescs : 0));
-+		/* When using a memory region, the size is not necessarily a
-+		 * power of 2, so win_order is not applicable. Since GPIOs are
-+		 * unavailable in this context, directly using the region's size
-+		 * is safe.
-+		 */
-+		if (is_rsvd_mem)
-+			info->maps[i].size = resource_size(res);
-+		else
-+			info->maps[i].size = BIT(info->win_order +
-+						 (info->gpios ?
-+						  info->gpios->ndescs : 0));
++static struct acpi_pptt_cache_v1_full *upgrade_pptt_cache(struct acpi_pptt_cache *cache)
++{
++	if (cache->header.length < sizeof(struct acpi_pptt_cache_v1_full))
++		return NULL;
++
++	/* No use for v1 if the only additional field is invalid */
++	if (!(cache->flags & ACPI_PPTT_CACHE_ID_VALID))
++		return NULL;
++
++	return (struct acpi_pptt_cache_v1_full *)cache;
++}
++
+ static struct acpi_subtable_header *acpi_get_pptt_resource(struct acpi_table_header *table_hdr,
+ 							   struct acpi_pptt_processor *node,
+ 							   int resource)
+@@ -111,7 +142,7 @@ static unsigned int acpi_pptt_walk_cache(struct acpi_table_header *table_hdr,
+ 	if (res->type != ACPI_PPTT_TYPE_CACHE)
+ 		return 0;
  
- 		info->maps[i].map_priv_1 = (unsigned long)dev;
+-	cache = (struct acpi_pptt_cache *) res;
++	cache = (struct acpi_pptt_cache *)res;
+ 	while (cache) {
+ 		local_level++;
  
-
+@@ -355,7 +386,6 @@ static struct acpi_pptt_cache *acpi_find_cache_node(struct acpi_table_header *ta
+  * @this_leaf: Kernel cache info structure being updated
+  * @found_cache: The PPTT node describing this cache instance
+  * @cpu_node: A unique reference to describe this cache instance
+- * @revision: The revision of the PPTT table
+  *
+  * The ACPI spec implies that the fields in the cache structures are used to
+  * extend and correct the information probed from the hardware. Lets only
+@@ -365,10 +395,9 @@ static struct acpi_pptt_cache *acpi_find_cache_node(struct acpi_table_header *ta
+  */
+ static void update_cache_properties(struct cacheinfo *this_leaf,
+ 				    struct acpi_pptt_cache *found_cache,
+-				    struct acpi_pptt_processor *cpu_node,
+-				    u8 revision)
++				    struct acpi_pptt_processor *cpu_node)
+ {
+-	struct acpi_pptt_cache_v1* found_cache_v1;
++	struct acpi_pptt_cache_v1_full *found_cache_v1;
+ 
+ 	this_leaf->fw_token = cpu_node;
+ 	if (found_cache->flags & ACPI_PPTT_SIZE_PROPERTY_VALID)
+@@ -418,9 +447,8 @@ static void update_cache_properties(struct cacheinfo *this_leaf,
+ 	    found_cache->flags & ACPI_PPTT_CACHE_TYPE_VALID)
+ 		this_leaf->type = CACHE_TYPE_UNIFIED;
+ 
+-	if (revision >= 3 && (found_cache->flags & ACPI_PPTT_CACHE_ID_VALID)) {
+-		found_cache_v1 = ACPI_ADD_PTR(struct acpi_pptt_cache_v1,
+-	                                      found_cache, sizeof(struct acpi_pptt_cache));
++	found_cache_v1 =  upgrade_pptt_cache(found_cache);
++	if (found_cache_v1) {
+ 		this_leaf->id = found_cache_v1->cache_id;
+ 		this_leaf->attributes |= CACHE_ID;
+ 	}
+@@ -445,8 +473,7 @@ static void cache_setup_acpi_cpu(struct acpi_table_header *table,
+ 		pr_debug("found = %p %p\n", found_cache, cpu_node);
+ 		if (found_cache)
+ 			update_cache_properties(this_leaf, found_cache,
+-						ACPI_TO_POINTER(ACPI_PTR_DIFF(cpu_node, table)),
+-						table->revision);
++						ACPI_TO_POINTER(ACPI_PTR_DIFF(cpu_node, table)));
+ 
+ 		index++;
+ 	}
 -- 
-2.51.0
+2.43.0
 
 
