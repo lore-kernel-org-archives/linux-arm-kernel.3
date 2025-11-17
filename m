@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A57F1CE8D6B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 09:23:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57960CEACEF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 09:23:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PzAWroGHIdmdoXl8NVQtp090YEM7bqWnfRxnaV1KkGo=; b=rFQ1G0pa6JBQKvHaddJUBSwG31
-	bIvJZNEhdNZqEaNP9q1QDcoU3F98OeM27Us2AbjRMuIKmU20wtOLcGqh8jWSB4WzFL/LiESCQnsAV
-	UIb2+a/vHbjnHjS6Wm7QKAyJywPYChdEBK4UUkD37PJUdkyStw9p6rw6dJ1wCJb0lOwRw6DOnW9/6
-	CKhdw5PhPlf4t9lWH4yojd2QR5eTThoR+x4m1DvGAmm27trohPSx2LjCiVZy2wS/W2OLngO4FmPCd
-	wNbnFGuS4HPKqOd6ZlVo+btL/D5Fs/cPjR7vGsli5hCDpi3Kul49GhnWomjAfrzl68HLVLBsl2cIL
-	CuNLez6g==;
+	bh=ls6BhycMR0MQRWTct/mgvvWpOHnBz+eWKJ5OIFsE9Og=; b=3GdLy0Qa/ukXXP7afp+0Vl3UUn
+	LxtEkL/maEnRWc92HYd12OsZ8XlmYeMrLzN07JNKVJcY/EIadNlb9oZd66td/NPeQAW1zAGZQwQmG
+	U6W7H3Czm2D5kF8Jn9hyQq2GxJtYVqcBvZpeHSj+3e71DO/RAvQWQUSw3aw4RrNd/iyWDp06Fo+KJ
+	2MiwO+ma+NhAfxW2kueAyU25mjz8/Almq0cJY4nH+zcd/BMH1MHJ9qbYR25TAKqD3vqglmhdHjMVx
+	aIFo84R/5j+8vEFYHInnsNU06xp7lPb46t6XvvTnbD2AdzHsqDXAO6Kn9xQg8phuAXxEi7RlHiHF6
+	It4XQ1kg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKvRs-0000000Fmgm-2J8l;
+	id 1vKvRs-0000000FmgK-12nf;
 	Mon, 17 Nov 2025 09:23:00 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKvRq-0000000Fmf1-2xvG
+	id 1vKvRq-0000000Fmep-0r8C
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 17 Nov 2025 09:22:58 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 650B96025C;
+	by tor.source.kernel.org (Postfix) with ESMTP id 4CE156024C;
 	Mon, 17 Nov 2025 09:22:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1F6D1C4AF54;
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 74E49C4AF66;
 	Mon, 17 Nov 2025 09:15:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1763370941;
-	bh=+pZ+pPRp95id58hrbhMyP0vzhLBregav22mAd+QANho=;
+	bh=pOniaDpg1ssIIVZiNyGjODYWvRzJsYp/OU7Z8zQYRTQ=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=V+gSvDa/ILB+oL4oLhVOqUWWpxfJM273ANBQnV8UYLvu4j1FTyFaxpDRzBhSKYxPg
-	 0dfQvBqgEuKo8J35iBU7apZK7g8I828u4H4BMNnbAcut0RmAHfeEoaxF+IDZ+8mWm6
-	 eO9F1Ry4pRQA7N9QkaPQWGrdxQJr9nsGy6ILBIyg1LBF56pH1xLn/zzvrUbVB3Bk3s
-	 B658/Jpp4OwpeaErpoxKMBpfvUpPkkl2qsfZCLvzkwL3ru16o5vFjU802xDkg4Ocsj
-	 SMTjdsGhfBJCo9anhIksF6YKKHlYkb92dQrIYI5XDUr2gxN0YqiL3Q4/xcuy4+A3Kf
-	 Wvid+R+QHlSvA==
+	b=boymVtrN4mxIXbc5wLw+2GucZh67VyH9jdb724NQG65eSANlhXIdJNp6gXgZPVyer
+	 NJVeCqVMVLW+utF7hoyBddCdacvmR9t9qSuD+PkHBudNP7UD8/CGEqirC1D23s7gOr
+	 A5C8ch203yZ47EdQHNuwiqvb7uyea/3r94vseaGQw+wXmfda3B8KSDTb+6CJUKLcZR
+	 8QTbryIF4WAFkxsEOa8PES9VwUFXCdlgIzg9U9NME8DkyEfIMbDHQqyPAo+2tuSoxB
+	 6HydtULHckTVnTAc73sI2rndypTvOZyHMLZ31bg2xlyntZ7eeggQPLH4UwNjgun+Jk
+	 xgxDFZRCaJ5tw==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1vKvKk-00000005lB2-42Bm;
+	id 1vKvKl-00000005lB2-2jTl;
 	Mon, 17 Nov 2025 09:15:39 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
@@ -59,9 +59,9 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Christoffer Dall <christoffer.dall@arm.com>,
 	Fuad Tabba <tabba@google.com>,
 	Mark Brown <broonie@kernel.org>
-Subject: [PATCH v3 2/5] KVM: arm64: GICv3: Completely disable trapping on vcpu exit
-Date: Mon, 17 Nov 2025 09:15:24 +0000
-Message-ID: <20251117091527.1119213-3-maz@kernel.org>
+Subject: [PATCH v3 5/5] KVM: arm64: GICv3: Force exit to sync ICH_HCR_EL2.En
+Date: Mon, 17 Nov 2025 09:15:27 +0000
+Message-ID: <20251117091527.1119213-6-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20251117091527.1119213-1-maz@kernel.org>
 References: <20251117091527.1119213-1-maz@kernel.org>
@@ -85,38 +85,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Fuad reports that on QEMU, the DIR trapping is still effective after
-a vcpu exit and that the host is running nVHE, resulting in a BUG()
-(we only expect DIR to be trapped for the guest, and never the host).
+FEAT_NV2 is pretty terrible for anything that tries to enforce immediate
+effects, and writing to ICH_HCR_EL2 in the hope to disable a maintenance
+interrupt is vain. This only hits memory, and the guest hasn't cleared
+anything -- the MI will fire.
 
-As it turns out, this is an implementation-dependent behaviour, which
-the architecture allows, but that seem to be relatively uncommon across
-implementations.
+For example, running the vgic_irq test under NV results in about 800
+maintenance interrupts being actually handled by the L1 guest,
+when none were expected.
 
-Fix this by completely zeroing the ICH_HCR_EL2 register when the
-vcpu exits.
+As a cheap workaround, read back ICH_MISR_EL2 after writing 0 to
+ICH_HCR_EL2. This is very cheap on real HW, and causes a trap to
+the host in NV, giving it the opportunity to retire the pending
+MI. With this, the above test tuns to completion without any MI
+being actually handled.
 
-Reported-by: Fuad Tabba <tabba@google.com>
-Fixes: ca30799f7c2d0 ("KVM: arm64: Turn vgic-v3 errata traps into a patched-in constant")
-Closes: https://lore.kernel.org/r/CA+EHjTzRwswNq+hZQDD5tXj+-0nr04OmR201mHmi82FJ0VHuJA@mail.gmail.com
+Yes, this is really poor...
+
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/kvm/hyp/vgic-v3-sr.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ arch/arm64/kvm/hyp/vgic-v3-sr.c      | 7 +++++++
+ arch/arm64/kvm/vgic/vgic-v3-nested.c | 6 ++++--
+ 2 files changed, 11 insertions(+), 2 deletions(-)
 
 diff --git a/arch/arm64/kvm/hyp/vgic-v3-sr.c b/arch/arm64/kvm/hyp/vgic-v3-sr.c
-index e950efa225478..71199e1a92940 100644
+index 99342c13e1794..f503cf01ac82c 100644
 --- a/arch/arm64/kvm/hyp/vgic-v3-sr.c
 +++ b/arch/arm64/kvm/hyp/vgic-v3-sr.c
-@@ -243,7 +243,7 @@ void __vgic_v3_save_state(struct vgic_v3_cpu_if *cpu_if)
- 		cpu_if->vgic_hcr |= val & ICH_HCR_EL2_EOIcount;
+@@ -244,6 +244,13 @@ void __vgic_v3_save_state(struct vgic_v3_cpu_if *cpu_if)
  	}
  
--	write_gicreg(compute_ich_hcr(cpu_if) & ~ICH_HCR_EL2_En, ICH_HCR_EL2);
-+	write_gicreg(0, ICH_HCR_EL2);
+ 	write_gicreg(0, ICH_HCR_EL2);
++
++	/*
++	 * Hack alert: On NV, this results in a trap so that the above
++	 * write actually takes effect...
++	 */
++	isb();
++	read_gicreg(ICH_MISR_EL2);
  }
  
  void __vgic_v3_restore_state(struct vgic_v3_cpu_if *cpu_if)
+diff --git a/arch/arm64/kvm/vgic/vgic-v3-nested.c b/arch/arm64/kvm/vgic/vgic-v3-nested.c
+index 40f7a37e0685c..d6797632157a0 100644
+--- a/arch/arm64/kvm/vgic/vgic-v3-nested.c
++++ b/arch/arm64/kvm/vgic/vgic-v3-nested.c
+@@ -94,8 +94,10 @@ static int lr_map_idx_to_shadow_idx(struct shadow_if *shadow_if, int idx)
+  *
+  * - because most of the ICH_*_EL2 registers live in the VNCR page, the
+  *   quality of emulation is poor: L1 can setup the vgic so that an MI would
+- *   immediately fire, and not observe anything until the next exit. Trying
+- *   to read ICH_MISR_EL2 would do the trick, for example.
++ *   immediately fire, and not observe anything until the next exit.
++ *   Similarly, a pending MI is not immediately disabled by clearing
++ *   ICH_HCR_EL2.En. Trying to read ICH_MISR_EL2 would do the trick, for
++ *   example.
+  *
+  * System register emulation:
+  *
 -- 
 2.47.3
 
