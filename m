@@ -4,73 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E31F4CEBF97
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 13:31:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC467CEBF61
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 13:32:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=30ysq1zKlbnYeZwp+m2gLXTGDwEJmQJK7zrgP/PsCwA=; b=b6uU9C5F4I5+KzO3d8ZAE3d2hY
-	pJuivlebJ0EiREKWllHxvmaVVxlPaxvKCCkmYdxevqBlhE1OCTdT//8PBYz7/Ie3o/jid9sVC4FBK
-	9kvW6GHrsQbLxv38aDznh5xUBwfwyi1Na8Pbwvs4SKG2MGm3uNEDm3/YCirZrfF+mK1MNBBKS9ouA
-	iUnwJoWWd9rnARMmAMrrZjsQfQK7HDDjAQYKf4oiP5aBDx8GEybrF2IHjB6U6KPVI2zDHQCjrMYdJ
-	npboPHdEnC+Hx442MXWOby4dUlCTJzZ8DZeZjI06pTnuMtwhilHiAoeqKx679YzpVAdqWZnMX6oDk
-	0GF+Grig==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=x3uTEEH3Ols2WGNu4Z1L/X82Kd6kePvwoY28gb37Z6I=; b=N4u8DCdVs/TgF6JTs5qlKo05M9
+	n3d9KqDXUI2ddlIGLrnEJYMj25/9MBzWo0sfuFr+ixvdBOWm/gtYGdNJ/TYf5H5YWIZtjnRBsKvOW
+	EFYs+y2H4BxvPAkJtDNd61MB/a1/GV/Qg7dGAMiTeypNvZnYYxskI5qOE2h3gCUpQuPoDGJkqwmJj
+	fI9VJV7qThWUiiXMy+n5eUNl10uQZ6MdkyZQabbeyDSyCfWYpcHrHsFez97d45znvY6Pd8QnToyxn
+	744bzsvkA414wy1J6UmlLqgn7k1bdpJBaEtkCT1v1SSJpqJkdPgl82os+EbFNK+8CVctNMsiy4RLx
+	nusI5XJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKzKJ-0000000GBC3-0MKu;
-	Mon, 17 Nov 2025 13:31:27 +0000
-Received: from canpmsgout04.his.huawei.com ([113.46.200.219])
+	id 1vKzKl-0000000GBlM-3xAj;
+	Mon, 17 Nov 2025 13:31:55 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKzK8-0000000GB3f-3j8i
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Nov 2025 13:31:18 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=30ysq1zKlbnYeZwp+m2gLXTGDwEJmQJK7zrgP/PsCwA=;
-	b=Z1uA/unQOJAeHJXfkKp+yStnZd4muxK8p5GFf9i9u82AOLbVoFgwUMcFfC6D4XNNnKqj1scJ8
-	nECxV8SYy1tpy6yxSOp+UOdVnvo1wjm2wdToy8ivrQtR09iAQqYiGzIdYUFSICykJUnQM/3Ya0M
-	qsAV5G8NPZQUBPDBZwNEUAE=
-Received: from mail.maildlp.com (unknown [172.19.88.194])
-	by canpmsgout04.his.huawei.com (SkyGuard) with ESMTPS id 4d97rV55prz1prKL;
-	Mon, 17 Nov 2025 21:29:30 +0800 (CST)
-Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id 148EB140132;
-	Mon, 17 Nov 2025 21:31:14 +0800 (CST)
-Received: from huawei.com (10.90.53.73) by dggpemf500011.china.huawei.com
- (7.185.36.131) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Mon, 17 Nov
- 2025 21:31:12 +0800
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-To: <catalin.marinas@arm.com>, <will@kernel.org>, <oleg@redhat.com>,
-	<tglx@linutronix.de>, <peterz@infradead.org>, <luto@kernel.org>,
-	<shuah@kernel.org>, <kees@kernel.org>, <wad@chromium.org>,
-	<akpm@linux-foundation.org>, <ldv@strace.io>, <macro@orcam.me.uk>,
-	<deller@gmx.de>, <mark.rutland@arm.com>, <song@kernel.org>, <mbenes@suse.cz>,
-	<ryan.roberts@arm.com>, <ada.coupriediaz@arm.com>,
-	<anshuman.khandual@arm.com>, <broonie@kernel.org>, <kevin.brodsky@arm.com>,
-	<pengcan@kylinos.cn>, <dvyukov@google.com>, <kmal@cock.li>,
-	<lihongbo22@huawei.com>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <linux-kselftest@vger.kernel.org>
-CC: <ruanjinjie@huawei.com>
-Subject: [PATCH v7 06/11] arm64/ptrace: Expand secure_computing() in place
-Date: Mon, 17 Nov 2025 21:30:43 +0800
-Message-ID: <20251117133048.53182-7-ruanjinjie@huawei.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20251117133048.53182-1-ruanjinjie@huawei.com>
-References: <20251117133048.53182-1-ruanjinjie@huawei.com>
+	id 1vKzKh-0000000GBgV-18V4;
+	Mon, 17 Nov 2025 13:31:53 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 6C38643BED;
+	Mon, 17 Nov 2025 13:31:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 52752C116B1;
+	Mon, 17 Nov 2025 13:31:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1763386310;
+	bh=HQLe8ljyUSnJS1Ubv6hHWxv8Q6ipFIR0W8WbkEayAqM=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=bz0QRcYo2TLp9gd907vG44hr3MMbhj7jKfIPIA330fn/78n1WmICynOmPnebcIMeN
+	 F2BgBDj3IBo4vNiQCHebQvjUqAlyCXejMBlnJmyfPCoHi2WAAKve8k6Dxn02EOl2i/
+	 4CLh5F8joeM9gM0BweRASNURWuY6MEr7Mbbld4yYmhm9tuBL40Gd3F2dMaYs20BbMR
+	 S21WVuDBo8OG/sor87pKFttTRccch5LzsEieyRBNSVDhRNoUszBNO6IXeowR0VeWVT
+	 ufU9AQ+IaIU0De0xgV4+oLCBK+aX9t6blhrF/HbpsnJPkve7PPFI4n8OyIXEtIyQlA
+	 gAAOQpV5z4kug==
+Message-ID: <38d7aacd-1c05-4040-8575-bdec0587e08f@kernel.org>
+Date: Mon, 17 Nov 2025 14:31:45 +0100
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/3] dt-bindings: mfd: Add Realtek MISC system
+ controller
+To: =?UTF-8?B?WXUtQ2h1biBMaW4gW+ael+elkOWQm10=?= <eleanor.lin@realtek.com>,
+ "afaerber@suse.de" <afaerber@suse.de>, "robh@kernel.org" <robh@kernel.org>,
+ "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+ "conor+dt@kernel.org" <conor+dt@kernel.org>, "lee@kernel.org"
+ <lee@kernel.org>, =?UTF-8?B?SmFtZXMgVGFpIFvmiLTlv5fls7Bd?=
+ <james.tai@realtek.com>
+Cc: "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-realtek-soc@lists.infradead.org"
+ <linux-realtek-soc@lists.infradead.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ =?UTF-8?B?Q1lfSHVhbmdb6buD6Ymm5pmPXQ==?= <cy.huang@realtek.com>,
+ =?UTF-8?B?U3RhbmxleSBDaGFuZ1vmmIzogrLlvrdd?= <stanley_chang@realtek.com>
+References: <20251113123009.26568-1-eleanor.lin@realtek.com>
+ <20251113123009.26568-3-eleanor.lin@realtek.com>
+ <e799389ce8b4449baba83a893361bdd4@realtek.com>
+ <94198d5f-e49f-4b38-8288-3be29efd142b@kernel.org>
+ <15951264289d44f797ebd4e05238b380@realtek.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
+ cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
+ JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
+ gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
+ J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
+ NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
+ BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
+ vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
+ Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
+ TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
+ S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
+ FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJoF1BKBQkWlnSaAAoJEBuTQ307
+ QWKbHukP/3t4tRp/bvDnxJfmNdNVn0gv9ep3L39IntPalBFwRKytqeQkzAju0whYWg+R/rwp
+ +r2I1Fzwt7+PTjsnMFlh1AZxGDmP5MFkzVsMnfX1lGiXhYSOMP97XL6R1QSXxaWOpGNCDaUl
+ ajorB0lJDcC0q3xAdwzRConxYVhlgmTrRiD8oLlSCD5baEAt5Zw17UTNDnDGmZQKR0fqLpWy
+ 786Lm5OScb7DjEgcA2PRm17st4UQ1kF0rQHokVaotxRM74PPDB8bCsunlghJl1DRK9s1aSuN
+ hL1Pv9VD8b4dFNvCo7b4hfAANPU67W40AaaGZ3UAfmw+1MYyo4QuAZGKzaP2ukbdCD/DYnqi
+ tJy88XqWtyb4UQWKNoQqGKzlYXdKsldYqrLHGoMvj1UN9XcRtXHST/IaLn72o7j7/h/Ac5EL
+ 8lSUVIG4TYn59NyxxAXa07Wi6zjVL1U11fTnFmE29ALYQEXKBI3KUO1A3p4sQWzU7uRmbuxn
+ naUmm8RbpMcOfa9JjlXCLmQ5IP7Rr5tYZUCkZz08LIfF8UMXwH7OOEX87Y++EkAB+pzKZNNd
+ hwoXulTAgjSy+OiaLtuCys9VdXLZ3Zy314azaCU3BoWgaMV0eAW/+gprWMXQM1lrlzvwlD/k
+ whyy9wGf0AEPpLssLVt9VVxNjo6BIkt6d1pMg6mHsUEVzsFNBFVDXDQBEADNkrQYSREUL4D3
+ Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
+ MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
+ OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
+ GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
+ 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
+ YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
+ 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
+ BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
+ JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
+ 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
+ YpsFAmgXUF8FCRaWWyoACgkQG5NDfTtBYptO0w//dlXJs5/42hAXKsk+PDg3wyEFb4NpyA1v
+ qmx7SfAzk9Hf6lWwU1O6AbqNMbh6PjEwadKUk1m04S7EjdQLsj/MBSgoQtCT3MDmWUUtHZd5
+ RYIPnPq3WVB47GtuO6/u375tsxhtf7vt95QSYJwCB+ZUgo4T+FV4hquZ4AsRkbgavtIzQisg
+ Dgv76tnEv3YHV8Jn9mi/Bu0FURF+5kpdMfgo1sq6RXNQ//TVf8yFgRtTUdXxW/qHjlYURrm2
+ H4kutobVEIxiyu6m05q3e9eZB/TaMMNVORx+1kM3j7f0rwtEYUFzY1ygQfpcMDPl7pRYoJjB
+ dSsm0ZuzDaCwaxg2t8hqQJBzJCezTOIkjHUsWAK+tEbU4Z4SnNpCyM3fBqsgYdJxjyC/tWVT
+ AQ18NRLtPw7tK1rdcwCl0GFQHwSwk5pDpz1NH40e6lU+NcXSeiqkDDRkHlftKPV/dV+lQXiu
+ jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
+ zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
+ XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
+In-Reply-To: <15951264289d44f797ebd4e05238b380@realtek.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.90.53.73]
-X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
- dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251117_053117_084097_841B29FB 
-X-CRM114-Status: GOOD (  10.74  )
+X-CRM114-CacheID: sfid-20251117_053151_392104_FDA8246E 
+X-CRM114-Status: UNSURE (   9.61  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,38 +132,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The generic entry expand secure_computing() in place and call
-__secure_computing() directly.
+On 17/11/2025 13:41, Yu-Chun Lin [林祐君] wrote:
+>>>
+>>
+>> None of them. You need SoC specific compatibles which can be used as
+>> fallbacks for SoC specific compatibles. There is plenty of examples for this
+>> already, but anyway this does not solve the problem that you still did not
+>> properly describe the hardware but instead use your downstream as
+>> arguments.
+>>
+>> This will get you nowhere.
+> 
+> To implement this fallback structure, my understanding is that the
+> SoC-level DTSI should override the node and prepend its SoC-specific
+> Compatible, while the common DTSI only provides the family-level
+> compatible.
+> 
+> /* common DTSI */
+> misc: syscon@... {
+>     compatible = "realtek,kent-misc", "syscon", "simple-mfd";
 
-In order to switch to the generic entry for arm64, refactor
-secure_computing() for syscall_trace_enter().
+No. You changed nothing. How does this differ from options I disagreed with?
 
-No functional changes.
+Anyway, there is no such SoC as "kent" and I was clear - you need SoC
+compatibles.
 
-Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
----
- arch/arm64/kernel/ptrace.c | 7 +++++--
- 1 file changed, 5 insertions(+), 2 deletions(-)
+Define what is your SoC first.
 
-diff --git a/arch/arm64/kernel/ptrace.c b/arch/arm64/kernel/ptrace.c
-index 707951ad5d24..9af3046a2ce9 100644
---- a/arch/arm64/kernel/ptrace.c
-+++ b/arch/arm64/kernel/ptrace.c
-@@ -2387,8 +2387,11 @@ int syscall_trace_enter(struct pt_regs *regs, long syscall, unsigned long flags)
- 	}
- 
- 	/* Do the secure computing after ptrace; failures should be fast. */
--	if (secure_computing() == -1)
--		return NO_SYSCALL;
-+	if (flags & _TIF_SECCOMP) {
-+		ret = __secure_computing(NULL);
-+		if (ret == -1L)
-+			return NO_SYSCALL;
-+	}
- 
- 	/* Either of the above might have changed the syscall number */
- 	syscall = syscall_get_nr(current, regs);
--- 
-2.34.1
-
+Best regards,
+Krzysztof
 
