@@ -4,85 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A13BCEBF61
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 17:00:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15B2DCEBF92
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 17:00:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xaH7bH4n89PZzmBYh+Pduor1uBQnvp7We6nXt1R0ivk=; b=3dzJB02uAgfaC2h6g3Oe2gbjbm
-	g8/6jew0aKxSQIhmJ33CnR7MQ0RJSQ4sFY7uBCeW9U2PYsTtYphiqfddVoFNTUZg1xLbR9uWetY4O
-	2y7Fa7FAH7X8NiWNo2nPUl4upYsWaqhDvdZqHlQqbCnsf81D571ECVmaned60uble+KUuU0YdaaLK
-	0h4s1w/v23wyI9iVtTBHj5HJ07a/oku+cTai+7x2AJ032JdWRLrKrzQNL0SheKx8w86Ycfjf5G3Z9
-	zYYrx/d6w3D5vv0+6N5MQxCyy71dZsinD9qUOZsPL6+nyLk6gWmTGTxmFOcx+3c8tM9d3/7WOHyqU
-	dwS/fOQw==;
+	bh=BTriyQZYYbnJqpQ9NHQXwg7JbzvLw55voRo8bIRkgF0=; b=K6mcyd228LMBAZC0FZOO7WimuO
+	4qXwOjoqZJrIs39+czIaMJFek9QzyTqgVAaxBiYkrf774U+jCDcSWADP4SpqRw25CeUUxVjtezNLD
+	3yQwA5a5Z+jDsbn3ZXyo87tcw01gab+ZpgJMWmxCPuIMq5CTsyVH+JXjEcIwq/QrnaaLfTYUyvEGG
+	WGf2jSTMsAswMQa0e7iyyY8pd+CFBsD9SK2YrqVFA8I8wSfq8Lt0/R+k+JSuMpdSSRPt/xTVGDwr/
+	ex0mSpbLYdJUNsXcoOaCGBkb3VyidcjELnMMxIQVONvksgIzmpvcj3z5zLQ93FpUHo0ejQxPiTGAu
+	wzTVdSqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vL2al-0000000GRkX-3Ayy;
-	Mon, 17 Nov 2025 17:00:39 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vL2ah-0000000GRhR-04PV
+	id 1vL2am-0000000GRmA-20LQ;
+	Mon, 17 Nov 2025 17:00:40 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vL2aj-0000000GRiB-0Q5W
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 17 Nov 2025 17:00:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=BTriyQZYYbnJqpQ9NHQXwg7JbzvLw55voRo8bIRkgF0=; b=M54rmhTnXVTCTqBtidaxGmwBcy
+	T2X/fyCH4vkh8Wm0MO0iLOpgVgd3UYp2QqPUFEGuKK7AerqkXYbkVGE4a36a+yC0i29nu6pHC6fzN
+	5o4aJ3A6Yoa6uWn6+hSXt4op0tqfxnP6taz/C5hDSvv03D0sqv1/w/1+sakqwOEvHSba4Ep6Vkt8W
+	DRQX0mDhzdLj81Wns0SuNcQUnRDIQYJy6ANAi1rEBt9xcJPco0XnT/q2rfHeP1Hr66YJCyBhhjJoW
+	UPYo3PBqE4RgH6BgkkW4cAa90mm+AKjM3ElfgokhL0pZ7mwxCje2D17xfGnwjyeA21/YXxwvNJO5q
+	Wq8zOSYA==;
+Received: from smtpout-03.galae.net ([185.246.85.4])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vL1j2-00000007iUC-2sFF
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Nov 2025 17:00:36 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8A0891007;
-	Mon, 17 Nov 2025 09:00:26 -0800 (PST)
-Received: from e134344.cambridge.arm.com (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 150303F66E;
-	Mon, 17 Nov 2025 09:00:28 -0800 (PST)
-From: Ben Horgan <ben.horgan@arm.com>
-To: james.morse@arm.com
-Cc: amitsinght@marvell.com,
-	baisheng.gao@unisoc.com,
-	baolin.wang@linux.alibaba.com,
-	bobo.shaobowang@huawei.com,
-	carl@os.amperecomputing.com,
-	catalin.marinas@arm.com,
-	dakr@kernel.org,
-	dave.martin@arm.com,
-	david@redhat.com,
-	dfustini@baylibre.com,
-	fenghuay@nvidia.com,
-	gregkh@linuxfoundation.org,
-	gshan@redhat.com,
-	guohanjun@huawei.com,
-	jeremy.linton@arm.com,
-	jonathan.cameron@huawei.com,
-	kobak@nvidia.com,
-	lcherian@marvell.com,
-	lenb@kernel.org,
-	linux-acpi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	lpieralisi@kernel.org,
-	peternewman@google.com,
-	quic_jiles@quicinc.com,
-	rafael@kernel.org,
-	robh@kernel.org,
-	rohit.mathew@arm.com,
-	scott@os.amperecomputing.com,
-	sdonthineni@nvidia.com,
-	sudeep.holla@arm.com,
-	tan.shaopeng@fujitsu.com,
-	will@kernel.org,
-	xhao@linux.alibaba.com,
-	Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>,
-	Zeng Heng <zengheng4@huawei.com>,
-	Ben Horgan <ben.horgan@arm.com>
-Subject: [PATCH v5 01/34] ACPI / PPTT: Add a helper to fill a cpumask from a processor container
-Date: Mon, 17 Nov 2025 16:59:40 +0000
-Message-ID: <20251117170014.4113754-2-ben.horgan@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20251117170014.4113754-1-ben.horgan@arm.com>
-References: <20251117170014.4113754-1-ben.horgan@arm.com>
+	Mon, 17 Nov 2025 16:05:10 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id CD6694E41735;
+	Mon, 17 Nov 2025 17:00:33 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 64D26606B9;
+	Mon, 17 Nov 2025 17:00:33 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 30FBE10371D6C;
+	Mon, 17 Nov 2025 18:00:31 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1763398832; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=BTriyQZYYbnJqpQ9NHQXwg7JbzvLw55voRo8bIRkgF0=;
+	b=wB7TJ5hhEtRLjauj1zMHEQ1cQIK27amC9ga1W11a70zOBJhLoHgrrUOOonOCkZ8/qD90iG
+	wnP4xQS+yHVkG3j7Ee7wptzA86yYAVFqYxl3YOE4MMNmwannthlYdG/gXJfEjiM5zTBWi0
+	X/Gg9qxS0liPgSejCEod9xs9E92pj2e4eAsShgj91ZskfgGa6A0EyfPdAgxPBdrE3EvErR
+	A08/Ywfv9hIUV9xZvfuF22L3bupVTcnvQHmbza0NMhYjcRTREaAuf8Wj+J7Vg3IAtG3bCR
+	PW/H25BH+0W+yKD2evuFmGEgEMBqrZlP80qMIc861C5djHzyOVfLiOt57NuXvg==
+From: Gregory CLEMENT <gregory.clement@bootlin.com>
+Date: Mon, 17 Nov 2025 18:00:16 +0100
+Subject: [PATCH 3/3] mtd: physmap: Add support for RAM reserved memory
+ regions
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20251117-mtd-memregion-v1-3-7b35611c79a6@bootlin.com>
+References: <20251117-mtd-memregion-v1-0-7b35611c79a6@bootlin.com>
+In-Reply-To: <20251117-mtd-memregion-v1-0-7b35611c79a6@bootlin.com>
+To: Rob Herring <robh@kernel.org>, Saravana Kannan <saravanak@google.com>, 
+ Linus Walleij <linus.walleij@linaro.org>, 
+ Miquel Raynal <miquel.raynal@bootlin.com>, 
+ Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>, 
+ =?utf-8?q?Beno=C3=AEt_Monin?= <benoit.monin@bootlin.com>, 
+ =?utf-8?q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mtd@lists.infradead.org, 
+ Gregory CLEMENT <gregory.clement@bootlin.com>
+X-Mailer: b4 0.14.3
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251117_090035_139117_DF726DCA 
-X-CRM114-Status: GOOD (  16.98  )
+X-CRM114-CacheID: sfid-20251117_160508_814850_93901BE3 
+X-CRM114-Status: GOOD (  23.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,159 +101,122 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: James Morse <james.morse@arm.com>
+MTD fixed-partitions can now be exposed for reserved RAM regions, not
+just ROM reg regions. This is achieved by using a memory-region
+phandle to reference the reserved RAM region instead of the reg
+property.
 
-The ACPI MPAM table uses the UID of a processor container specified in
-the PPTT to indicate the subset of CPUs and cache topology that can
-access each MPAM System Component (MSC).
+Based on the work of Muhammad Musa <muhammad.musa@intel.com>
 
-This information is not directly useful to the kernel. The equivalent
-cpumask is needed instead.
-
-Add a helper to find the processor container by its id, then walk
-the possible CPUs to fill a cpumask with the CPUs that have this
-processor container as a parent.
-
-CC: Dave Martin <dave.martin@arm.com>
-Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
-Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
-Reviewed-by: Fenghua Yu <fenghuay@nvidia.com>
-Reviewed-by: Gavin Shan <gshan@redhat.com>
-Reviewed-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
-Tested-by: Fenghua Yu <fenghuay@nvidia.com>
-Tested-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
-Tested-by: Peter Newman <peternewman@google.com>
-Tested-by: Carl Worth <carl@os.amperecomputing.com>
-Tested-by: Gavin Shan <gshan@redhat.com>
-Tested-by: Zeng Heng <zengheng4@huawei.com>
-Signed-off-by: James Morse <james.morse@arm.com>
-Signed-off-by: Ben Horgan <ben.horgan@arm.com>
+Signed-off-by: Gregory CLEMENT <gregory.clement@bootlin.com>
 ---
-Changes since v4:
-Remove blank line
+ drivers/mtd/maps/physmap-core.c | 56 ++++++++++++++++++++++++++++++++++-------
+ 1 file changed, 47 insertions(+), 9 deletions(-)
 
-Changes since v3:
-Refer to processor hierarchy in comments (Jonathan)
-Fix indent (Jonathan)
----
- drivers/acpi/pptt.c  | 84 ++++++++++++++++++++++++++++++++++++++++++++
- include/linux/acpi.h |  3 ++
- 2 files changed, 87 insertions(+)
-
-diff --git a/drivers/acpi/pptt.c b/drivers/acpi/pptt.c
-index 54676e3d82dd..b8248c0092fe 100644
---- a/drivers/acpi/pptt.c
-+++ b/drivers/acpi/pptt.c
-@@ -817,3 +817,87 @@ int find_acpi_cpu_topology_hetero_id(unsigned int cpu)
- 	return find_acpi_cpu_topology_tag(cpu, PPTT_ABORT_PACKAGE,
- 					  ACPI_PPTT_ACPI_IDENTICAL);
- }
-+
-+/**
-+ * acpi_pptt_get_child_cpus() - Find all the CPUs below a PPTT
-+ * processor hierarchy node
-+ *
-+ * @table_hdr:		A reference to the PPTT table
-+ * @parent_node:	A pointer to the processor hierarchy node in the
-+ *			table_hdr
-+ * @cpus:		A cpumask to fill with the CPUs below @parent_node
-+ *
-+ * Walks up the PPTT from every possible CPU to find if the provided
-+ * @parent_node is a parent of this CPU.
-+ */
-+static void acpi_pptt_get_child_cpus(struct acpi_table_header *table_hdr,
-+				     struct acpi_pptt_processor *parent_node,
-+				     cpumask_t *cpus)
-+{
-+	struct acpi_pptt_processor *cpu_node;
-+	u32 acpi_id;
-+	int cpu;
-+
-+	cpumask_clear(cpus);
-+
-+	for_each_possible_cpu(cpu) {
-+		acpi_id = get_acpi_id_for_cpu(cpu);
-+		cpu_node = acpi_find_processor_node(table_hdr, acpi_id);
-+
-+		while (cpu_node) {
-+			if (cpu_node == parent_node) {
-+				cpumask_set_cpu(cpu, cpus);
-+				break;
-+			}
-+			cpu_node = fetch_pptt_node(table_hdr, cpu_node->parent);
-+		}
-+	}
-+}
-+
-+/**
-+ * acpi_pptt_get_cpus_from_container() - Populate a cpumask with all CPUs in a
-+ *                                       processor container
-+ * @acpi_cpu_id:	The UID of the processor container
-+ * @cpus:		The resulting CPU mask
-+ *
-+ * Find the specified Processor Container, and fill @cpus with all the cpus
-+ * below it.
-+ *
-+ * Not all 'Processor Hierarchy' entries in the PPTT are either a CPU
-+ * or a Processor Container, they may exist purely to describe a
-+ * Private resource. CPUs have to be leaves, so a Processor Container
-+ * is a non-leaf that has the 'ACPI Processor ID valid' flag set.
-+ */
-+void acpi_pptt_get_cpus_from_container(u32 acpi_cpu_id, cpumask_t *cpus)
-+{
-+	struct acpi_table_header *table_hdr;
-+	struct acpi_subtable_header *entry;
-+	unsigned long table_end;
-+	u32 proc_sz;
-+
-+	cpumask_clear(cpus);
-+
-+	table_hdr = acpi_get_pptt();
-+	if (!table_hdr)
-+		return;
-+
-+	table_end = (unsigned long)table_hdr + table_hdr->length;
-+	entry = ACPI_ADD_PTR(struct acpi_subtable_header, table_hdr,
-+			     sizeof(struct acpi_table_pptt));
-+	proc_sz = sizeof(struct acpi_pptt_processor);
-+	while ((unsigned long)entry + proc_sz <= table_end) {
-+		if (entry->type == ACPI_PPTT_TYPE_PROCESSOR) {
-+			struct acpi_pptt_processor *cpu_node;
-+
-+			cpu_node = (struct acpi_pptt_processor *)entry;
-+			if (cpu_node->flags & ACPI_PPTT_ACPI_PROCESSOR_ID_VALID &&
-+			    !acpi_pptt_leaf_node(table_hdr, cpu_node) &&
-+			    cpu_node->acpi_processor_id == acpi_cpu_id) {
-+				acpi_pptt_get_child_cpus(table_hdr, cpu_node, cpus);
-+				break;
-+			}
-+		}
-+		entry = ACPI_ADD_PTR(struct acpi_subtable_header, entry,
-+				     entry->length);
-+	}
-+}
-diff --git a/include/linux/acpi.h b/include/linux/acpi.h
-index 5ff5d99f6ead..4752ebd48132 100644
---- a/include/linux/acpi.h
-+++ b/include/linux/acpi.h
-@@ -1541,6 +1541,7 @@ int find_acpi_cpu_topology(unsigned int cpu, int level);
- int find_acpi_cpu_topology_cluster(unsigned int cpu);
- int find_acpi_cpu_topology_package(unsigned int cpu);
- int find_acpi_cpu_topology_hetero_id(unsigned int cpu);
-+void acpi_pptt_get_cpus_from_container(u32 acpi_cpu_id, cpumask_t *cpus);
- #else
- static inline int acpi_pptt_cpu_is_thread(unsigned int cpu)
- {
-@@ -1562,6 +1563,8 @@ static inline int find_acpi_cpu_topology_hetero_id(unsigned int cpu)
- {
- 	return -EINVAL;
- }
-+static inline void acpi_pptt_get_cpus_from_container(u32 acpi_cpu_id,
-+						     cpumask_t *cpus) { }
- #endif
+diff --git a/drivers/mtd/maps/physmap-core.c b/drivers/mtd/maps/physmap-core.c
+index 2bd7a1af898c9..f084f6f34d611 100644
+--- a/drivers/mtd/maps/physmap-core.c
++++ b/drivers/mtd/maps/physmap-core.c
+@@ -39,6 +39,7 @@
+ #include <linux/mtd/cfi_endian.h>
+ #include <linux/io.h>
+ #include <linux/of.h>
++#include <linux/of_reserved_mem.h>
+ #include <linux/pm_runtime.h>
+ #include <linux/gpio/consumer.h>
  
- void acpi_arch_init(void);
+@@ -263,6 +264,14 @@ static const struct of_device_id of_flash_match[] = {
+ 		.type = "rom",
+ 		.compatible = "direct-mapped"
+ 	},
++	{
++		.compatible = "mtd-mem",
++		.data = "map_ram",
++	},
++	{
++		.compatible = "mtd-memro",
++		.data = "map_rom",
++	},
+ 	{ /* sentinel */ },
+ };
+ MODULE_DEVICE_TABLE(of, of_flash_match);
+@@ -446,8 +455,9 @@ static int physmap_flash_pdata_init(struct platform_device *dev)
+ static int physmap_flash_probe(struct platform_device *dev)
+ {
+ 	struct physmap_flash_info *info;
+-	int err = 0;
+-	int i;
++	struct resource *res_array;
++	int err = 0, is_rsvd_mem = 0, nreg = 0;
++	int i, curr_reg;
+ 
+ 	if (!dev->dev.of_node && !dev_get_platdata(&dev->dev))
+ 		return -EINVAL;
+@@ -459,9 +469,13 @@ static int physmap_flash_probe(struct platform_device *dev)
+ 	while (platform_get_resource(dev, IORESOURCE_MEM, info->nmaps))
+ 		info->nmaps++;
+ 
+-	if (!info->nmaps)
+-		return -ENODEV;
+-
++	if (!info->nmaps) {
++		info->nmaps = of_reserved_mem_region_total_count(dev->dev.of_node);
++		if (info->nmaps > 0)
++			is_rsvd_mem = 1;
++		else
++			return -ENODEV;
++	}
+ 	info->maps = devm_kzalloc(&dev->dev,
+ 				  sizeof(*info->maps) * info->nmaps,
+ 				  GFP_KERNEL);
+@@ -503,7 +517,23 @@ static int physmap_flash_probe(struct platform_device *dev)
+ 	for (i = 0; i < info->nmaps; i++) {
+ 		struct resource *res;
+ 
+-		info->maps[i].virt = devm_platform_get_and_ioremap_resource(dev, i, &res);
++		if (is_rsvd_mem) {
++			if (nreg <= i) {
++				int cnt = of_reserved_mem_region_to_resource_array(&dev->dev,
++							   dev->dev.of_node, i, &res_array);
++				if (cnt < 0) {
++					err = cnt;
++					goto err_out;
++				}
++				nreg += cnt;
++				curr_reg = 0;
++			}
++			res = &res_array[curr_reg++];
++			info->maps[i].virt = devm_ioremap_resource(&dev->dev, res);
++		} else {
++			info->maps[i].virt = devm_platform_get_and_ioremap_resource(dev, i, &res);
++		}
++
+ 		if (IS_ERR(info->maps[i].virt)) {
+ 			err = PTR_ERR(info->maps[i].virt);
+ 			goto err_out;
+@@ -519,9 +549,17 @@ static int physmap_flash_probe(struct platform_device *dev)
+ 			info->maps[i].phys = res->start;
+ 
+ 		info->win_order = fls64(resource_size(res)) - 1;
+-		info->maps[i].size = BIT(info->win_order +
+-					 (info->gpios ?
+-					  info->gpios->ndescs : 0));
++		/* When using a memory region, the size is not necessarily a
++		 * power of 2, so win_order is not applicable. Since GPIOs are
++		 * unavailable in this context, directly using the region's size
++		 * is safe.
++		 */
++		if (is_rsvd_mem)
++			info->maps[i].size = resource_size(res);
++		else
++			info->maps[i].size = BIT(info->win_order +
++						 (info->gpios ?
++						  info->gpios->ndescs : 0));
+ 
+ 		info->maps[i].map_priv_1 = (unsigned long)dev;
+ 
+
 -- 
-2.43.0
+2.51.0
 
 
