@@ -4,74 +4,161 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEBCBCEACEF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 09:23:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 566BACE8D6B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 09:23:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=0qfsLN/izZJpHMJKPTcI6aIlgqqbdXz9ZMgpXVG2H6s=; b=26KDhoIL59Q40b0jap344os82i
-	/bBA3KS6P7LGN5FO2Uf3TqC53Gbxn8dscGbP6Y2XXeJAKO31D0NobGbyJlTTBj7W+TfkyhoC82EsJ
-	1uKxBUxBSUrVZK1wjItoLh8CcVYFcnklJWLVVDpAwfdk+oyrPJDbOrANBPkQEsb4zmj0+bUt/SHdY
-	7jg8MHIxSuia/bGCXklwOWw+DUIMtzOBkSmL58eaqnfjG0tulN8Ht39UcOhOh+eJKMJaCOhkwZmn9
-	0eHZ4hwOPdkOGbDfJ+f77f0hDRTuGbYptR2S3UYoMMxMrcAZC/IGEqv9BSb+xdcl5YCYSSmfKNHXZ
-	idY0WA7g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:CC:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3ZsPPNjNU3zxqvYUeiesR5K/f2Dm3oWhMaWmc6Zxdic=; b=f3oZTrDEKpu9hlcRZHtghpbIzU
+	JuBmX5gfRCtThUs2qS3ZiJcYnT8cebOu3FD8jm2rjn3oC7WPwT7rSAPLe78jSQyO0oesW1jU0IKVk
+	ZE78U5LZhYRsjTLpIAiocLiZy4IkYNtcJcwc7sPoA7n93q6I1Ox6NymNzyrWhOixzrzVKKxIAGG0E
+	L3b9Ym1i8ZK5mPQ5BFNxfsCr2khuBMbK7ydtIiRhEVmtIb3rxBt/CbXoY5qwwp7Qkd9cfeY+b/gXf
+	3moZwn5Y9wwSFB8l9mrKmkksOEN+Cbv/+sgegxKJTiaPkJn6NZNTsARdV/bj/m8eneoLqLtNYE7kY
+	UnNo/uNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKvS4-0000000Fmlx-0dNX;
+	id 1vKvS4-0000000Fmmo-3H8Y;
 	Mon, 17 Nov 2025 09:23:12 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+Received: from mail-southcentralusazon11012019.outbound.protection.outlook.com ([40.93.195.19] helo=SN4PR2101CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKvRp-0000000Fmeg-3e7h
+	id 1vKvRp-0000000Fmej-4B5e
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Nov 2025 09:22:59 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9EF60445AA;
-	Mon, 17 Nov 2025 09:22:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D9CEEC4AF1D;
-	Mon, 17 Nov 2025 09:15:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763370940;
-	bh=mH/Jp7MHuDkzj0cxiq1eLsInTqMdrk+HHd3BkgjUU08=;
-	h=From:To:Cc:Subject:Date:From;
-	b=pQUxZ5N11uoXXupgGNvToPT7NVMZWZSD3hMglZkeH0cLnf8c1S/j1Hj5QRimtiUMk
-	 niDaJzdb6wQhbstLpyocrd8RCkLWKBgAk0IseaIn1MhO3vAJ9IyDzdUnupeHtMihz4
-	 ltTJ5bfnSwReL24GBCgqUD9fGYKYdukvW7kGX37RTMvpjWrW+2SXTJICcDlDdUyUaR
-	 FJ75yTqWmh3WfqpCIPwbKe2QXTJvy8s+piZHJ0oWB3RUDf6JeHIDYbdKWoGeJvCCwk
-	 oBqtUhYB1az0D3FQo6fY5I7DorgStpac2/q0LUdNJ7Nf7vrdwwBOwsqJBx60dfqVk1
-	 CBuKkiahc7/jA==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1vKvKk-00000005lB2-1nkE;
-	Mon, 17 Nov 2025 09:15:38 +0000
-From: Marc Zyngier <maz@kernel.org>
-To: kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	kvm@vger.kernel.org
-Cc: Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oupton@kernel.org>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Christoffer Dall <christoffer.dall@arm.com>,
-	Fuad Tabba <tabba@google.com>,
-	Mark Brown <broonie@kernel.org>
-Subject: [PATCH v3 0/5] KVM: arm64: Add LR overflow infrastructure (the dregs, the bad and the ugly)
-Date: Mon, 17 Nov 2025 09:15:22 +0000
-Message-ID: <20251117091527.1119213-1-maz@kernel.org>
-X-Mailer: git-send-email 2.47.3
+	Mon, 17 Nov 2025 09:23:00 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=DagQ787yWsZg04O2dNjAynSue5tA/Q8YXaKJ5b070C0pQPBm+3gd8ajW1OSiUwy0RbBwptEawqp9O3N4puvRRtIBRfefhAS1BmlRpmO7KOH9GTzuvtr+x0/qTCj3niCva2Y6y1fq7HslpHx3kSoRgSOz60OY7dhFtEBc/+EjI9ptmAjSPjz3KYg7lPNKnc/ZWETGJFikySksjPc5/mfg0GwSo9R5bpP2PyJmWOKVWkG/AmW2selMHkjrQUfo2VrWsatmdan8GcQ/bq4mqsbG9JOr2xPsF52VOhgZt+C/kh4uJATXNhXCDhP55160niEBnwhSOnfR2TyyNQugTQQ/2Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=3ZsPPNjNU3zxqvYUeiesR5K/f2Dm3oWhMaWmc6Zxdic=;
+ b=tlAfgzg7Xdi+Q3ha6vSL8Gwu026XMBrKpiMGATEE6Qy382pZa6IfcOE0mJYzO9NvLE3ha3MKos1bPirM/dTCIDb5H/NpRn8lvn9y+YMqoAVeAqeIHh7xhb8DHTAHk2c5zTi/vy+t5qFf+0x155JBoL8J1DQ3u0C8COE4mtT8RY0vIc752hSokMA3d315Q/RWFX+mxhBmR8LhN9tg64WvSVdhM9Yy3Yt5DkETA63zvYH6XOhI2lGO1iIME+19A8PWK+tWM3+WSieiepBShV5IbuJQ4kllx/39ORJirqkF0JAwIzUf5oz2eg2Qs0LV87SZR69sv6LnjBCAKpL7F8Wtbw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.23.194) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=3ZsPPNjNU3zxqvYUeiesR5K/f2Dm3oWhMaWmc6Zxdic=;
+ b=CEueWkIudHPUFHNZwQ/VVVZv8HJIV4A7yKL0YB2u0CKc8woavU8iPnnhhadOYv45aok2pWi0PW9Bm6pHxdisOkdoH5QjFT+5tiGxXsIdyjrhHIgw779ko1p+zR0TFjVMF+u6Xl/PD/85iceIPwQ3nun+/qXzdiYyqi3erfbd0lY=
+Received: from SJ0PR13CA0193.namprd13.prod.outlook.com (2603:10b6:a03:2c3::18)
+ by CO1PR10MB4673.namprd10.prod.outlook.com (2603:10b6:303:91::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9320.17; Mon, 17 Nov
+ 2025 09:22:52 +0000
+Received: from SJ1PEPF00002320.namprd03.prod.outlook.com
+ (2603:10b6:a03:2c3:cafe::5b) by SJ0PR13CA0193.outlook.office365.com
+ (2603:10b6:a03:2c3::18) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9343.10 via Frontend Transport; Mon,
+ 17 Nov 2025 09:22:49 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.194)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.23.194 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.194; helo=lewvzet200.ext.ti.com; pr=C
+Received: from lewvzet200.ext.ti.com (198.47.23.194) by
+ SJ1PEPF00002320.mail.protection.outlook.com (10.167.242.86) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9343.9 via Frontend Transport; Mon, 17 Nov 2025 09:22:52 +0000
+Received: from DLEE201.ent.ti.com (157.170.170.76) by lewvzet200.ext.ti.com
+ (10.4.14.103) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 17 Nov
+ 2025 03:22:46 -0600
+Received: from DLEE212.ent.ti.com (157.170.170.114) by DLEE201.ent.ti.com
+ (157.170.170.76) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 17 Nov
+ 2025 03:22:46 -0600
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE212.ent.ti.com
+ (157.170.170.114) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Mon, 17 Nov 2025 03:22:46 -0600
+Received: from [10.24.73.74] (uda0492258.dhcp.ti.com [10.24.73.74])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 5AH9MhNO2247971;
+	Mon, 17 Nov 2025 03:22:43 -0600
+Message-ID: <8ac2ed36a85f854a54ee1d05599891632087869d.camel@ti.com>
+Subject: Re: [PATCH] PCI: cadence: Kconfig: change PCIE_CADENCE configs from
+ tristate to bool
+From: Siddharth Vadapalli <s-vadapalli@ti.com>
+To: Arnd Bergmann <arnd@arndb.de>
+CC: Lorenzo Pieralisi <lpieralisi@kernel.org>, Krzysztof
+ =?UTF-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, Manivannan Sadhasivam
+	<mani@kernel.org>, Rob Herring <robh@kernel.org>, <bhelgaas@google.com>,
+	"Chen Wang" <unicorn_wang@outlook.com>, Kishon Vijay Abraham I
+	<kishon@kernel.org>, <stable@vger.kernel.org>, <linux-pci@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<srk@ti.com>
+Date: Mon, 17 Nov 2025 14:53:00 +0530
+In-Reply-To: <37f6f8ce-12b2-44ee-a94c-f21b29c98821@app.fastmail.com>
+References: <20251113092721.3757387-1-s-vadapalli@ti.com>
+	 <084b804f-2999-4f8d-8372-43cfbf0c0d28@app.fastmail.com>
+	 <250d2b94d5785e70530200e00c1f0f46fde4311b.camel@ti.com>
+	 <201b9ad1-3ebd-4992-acdd-925d2e357d22@app.fastmail.com>
+	 <7eaa4d917f7639913838abd4fd64ae8fe73a8cfc.camel@ti.com>
+	 <37f6f8ce-12b2-44ee-a94c-f21b29c98821@app.fastmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.1-1 
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, christoffer.dall@arm.com, tabba@google.com, broonie@kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ1PEPF00002320:EE_|CO1PR10MB4673:EE_
+X-MS-Office365-Filtering-Correlation-Id: 945134fc-81cc-4adf-1020-08de25bae25f
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|32650700017|36860700013|1800799024|7416014|376014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?RXNSWkYyNTZ4aUhwQnNOcXpNZjdJOWhxc1FSbkdGdkpwcEgxNTRmMFNMQ1FI?=
+ =?utf-8?B?M0N6eE4xeVB6VmtpVHlyaDRrNGRlaWhkdWNRdkExbVQzSFJqSFMwTFU0dUR1?=
+ =?utf-8?B?T0ViaHVNS0NzNktIdVZ3WHJ6WlNSaXYzYTVVc21Kb3RTTzN4TUw5Mkh6ZUxE?=
+ =?utf-8?B?UXNqV1k2cmxsa04zV3hndkNDOEFOcERYYzFjWFAvdEZPdWNKcXdtVEpXcnpz?=
+ =?utf-8?B?T1dVNVNDUEJGdk9wYjI3TWdrdElpUHYwOWpzdVFYQjhXSDJpclhtU1M1REVK?=
+ =?utf-8?B?UUcyL2VIVzI5eXFsZWI5RGpsRmRhMUFYV2dsMkNrVXpVZFVqTXdIdlVkNXlL?=
+ =?utf-8?B?NEYxS3N3QTh1MWNXU1NZS0JERmt6UTFWdlBqMldzVnNNZ3JCM2VORWZleFRV?=
+ =?utf-8?B?bWdtc3RqUFpxYW1rWlpVL2lKWEE5UEdWNUFUVlR5c1VKSVRkWWZxUzhVaEl3?=
+ =?utf-8?B?cVZXQjlLeFFTWElUY1NaaUJXaERoSzhBRmNHSzFqbHQzV1ltRWJDaERId3hS?=
+ =?utf-8?B?MU94c1VFR3YyNWljZDB3bXhQZlM5SFR6VnhPMFpoTE9MKzlkNTJyS3JsSDAw?=
+ =?utf-8?B?OVMreWNpTVZsYUxNUkVwNUFFVzBGd0JrUXd0ZEE0NFJiaDJ5OFpZckx0Rmtq?=
+ =?utf-8?B?R0RQM2VzS0pXZW1NQjVHVGFXR0p3MEMrNGo4UWdqYW9JQ0owc045M3NST2xZ?=
+ =?utf-8?B?bzhBNlVmZmJ2Z2Z0a2NiazNKUTdGOHRxdXBaaUpzNm9lTUhOT1BOZGxmbEtG?=
+ =?utf-8?B?MGFDL1o3SjEyNXMwNHIzbVl4eVRPKytTUGcyK1pidmg4cXNZTkhFVjhZdWlD?=
+ =?utf-8?B?NEYzOU5uTTllb1ZqNXAyVUtEcWhZTUU4cUF4RWVoRlJpZWdiM21vNVcxZU9C?=
+ =?utf-8?B?T21UVnZIbnl3ZERucnl0WXBmK2ZsTDczajh2RUFESXFEbE05T2o1RTg3YmZI?=
+ =?utf-8?B?M1ZvUHRMMGlCMDJLd3FoR1Z1YW5rRENCbC82QWpqN2cxZVdhVzRxVFluK2lY?=
+ =?utf-8?B?djNTVHJDMlNVNjcwNGtGYUtNRXJER2k1OVVidkxHdXJ0bG11eDY5VTVSbDZH?=
+ =?utf-8?B?R0Y1UHhOYVdZOWYvWTFXZ3pKNXlZZ0p6U0pIZXVzakI4bVVyWDFMYk9EOXFm?=
+ =?utf-8?B?V1N3RHhIY1RkYnNoaEdkOUZoUXdYNnNoZ2J6dVpqNzUrMEtZaTNYL0g1Tkl3?=
+ =?utf-8?B?Z1JHMGsrbUdNN2VtWG5MSzFrWVUvQ2RZZjc0Q2E0eDY2UjNTYjZEcjNVTGxR?=
+ =?utf-8?B?SmlJT2hlUjlxbVFSNytLaVFzOEJ2a25wUjUxUHNNbjhUSWhMVFhTUk9jVkVW?=
+ =?utf-8?B?ZUZHUDRRWStnUmFJeVBwRmFwODJQYkUwVWw2TTByK084Tzk5RWtCdkpjblox?=
+ =?utf-8?B?UWRZVnFNbEE4Z1RnSnRrekZLU0NaSUtPUEpaeDRXM0JTTnVKbThaTjJGUHIy?=
+ =?utf-8?B?QzhCWU94RTNCYVAvcjdvcU1hcmJWSDJ0dE5rNnVRSWorS3AxRFRYQ0Z2NHlF?=
+ =?utf-8?B?MndmTlVYenlNaS9FZG1leFJYTXpZVTJvNjVkelkyTzkwOUhETHhCMjRGZjc3?=
+ =?utf-8?B?NUxtMmZnWlRqd2xxeTUvSXBKUU5UZng5RkRzQnJTOTg2Z3Vzell5dnR4Kzlk?=
+ =?utf-8?B?citueFdOd0d2Z213MGVDM3l2MkVtY05RekkzNDl3cXE3eDV4eWU3clhvQ0tM?=
+ =?utf-8?B?MklPRUVVbTZESTVXajVCYUcvNWxKUTFpRmw3TnNCTVdxYmE4enRlTi95aEhN?=
+ =?utf-8?B?OVU2SjZJVE5WYlBXZGprN2I1R2x0c2cvV2NTdWQ1RzllUDlKbGxtWTQ1ZTFO?=
+ =?utf-8?B?N2RxdTVRUEVqV2V2SlArSHJGSjZaYWRWSTkzbFZ3aFN6N05SQUtUSXFMZWov?=
+ =?utf-8?B?MFpxWGROMmdCdEM1OURnUXpTbE1uQlI2MXVjL2RIMUxvdGE2Nm12T2ZZL2Zm?=
+ =?utf-8?B?UHg1d2RLQkpFRDVTSzR1Wjg3WFVOUm85NTV0MThXVi9GRWFwSGxwcitOZCs5?=
+ =?utf-8?B?bDJlVDVIUUVwbThJbjYzTzlQOW5sK0dGTVdDeEFvVDd3NHQrbmlrZGNyc1Vh?=
+ =?utf-8?B?Z2hObVVObjRwS3NLNlZPcDNaakdkVUcrRWZJZm04OTBVZnNxTXkwbkpYSS9Z?=
+ =?utf-8?Q?SDFc=3D?=
+X-Forefront-Antispam-Report: CIP:198.47.23.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet200.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(32650700017)(36860700013)(1800799024)(7416014)(376014);DIR:OUT;SFP:1101;
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Nov 2025 09:22:52.3842
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 945134fc-81cc-4adf-1020-08de25bae25f
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.194];Helo=[lewvzet200.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF00002320.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CO1PR10MB4673
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251117_012257_949863_AD3ADCC6 
-X-CRM114-Status: GOOD (  20.06  )
+X-CRM114-CacheID: sfid-20251117_012258_039291_B84FB601 
+X-CRM114-Status: GOOD (  23.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,63 +173,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This is a follow-up to the original series [1] (and fixes [2][3])
-with a bunch of bug-fixes and improvements. At least one patch has
-already been posted, but I thought I might repost it as part of a
-series, since I accumulated more stuff:
+On Mon, 2025-11-17 at 10:06 +0100, Arnd Bergmann wrote:
+> On Mon, Nov 17, 2025, at 07:05, Siddharth Vadapalli wrote:
+> > On Fri, 2025-11-14 at 08:03 +0100, Arnd Bergmann wrote:
+> > > On Fri, Nov 14, 2025, at 06:47, Siddharth Vadapalli wrote:
+>=20
+> > I understand that the solution should be fixing the pci-j721e.c driver
+> > rather than updating Kconfig or Makefile. Thank you for the feedback. I
+> > will update the pci-j721e.c driver to handle the case that is triggerin=
+g
+> > the build error.
+>=20
+> Ok, thanks!
+>=20
+> I think a single if(IS_ENABLED(CONFIG_PCI_J721E_HOST)) check
+> is probably enough to avoid the link failure
+>=20
+> --- a/drivers/pci/controller/cadence/pci-j721e.c
+> +++ b/drivers/pci/controller/cadence/pci-j721e.c
+> @@ -669,7 +669,8 @@ static void j721e_pcie_remove(struct platform_device =
+*pdev)
+>         struct cdns_pcie_ep *ep;
+>         struct cdns_pcie_rc *rc;
+> =20
+> -       if (pcie->mode =3D=3D PCI_MODE_RC) {
+> +       if (IS_ENABLED(CONFIG_PCI_J721E_HOST) &&
+> +           pcie->mode =3D=3D PCI_MODE_RC) {
+>                 rc =3D container_of(cdns_pcie, struct cdns_pcie_rc, pcie)=
+;
+>                 cdns_pcie_host_disable(rc);
+>=20
+>=20
+> but you may want to split it up further to get better dead
+> code elimination and prevent similar bugs from reappearing when
+> another call gets added without this type of check.
+>=20
+> If you split j721e_pcie_driver into a host and an ep driver
+> structure with their own probe/remove callbacks, you can
+> move the IS_ENABLED() check all the way into module_init()
+> function.
 
-- The first patch addresses Mark's observation that the no-vgic-v3
-  test has been broken once more. At some point, we'll have to retire
-  that functionality, because even if we keep fixing the SR handling,
-  nobody tests the actual interrupt state exposure to userspace, which
-  I'm pretty sure has badly been broken for at least 5 years.
+Thank you for the suggestion :)
 
-- The second one addresses a report from Fuad that on QEMU,
-  ICH_HCR_EL2.TDIR traps ICC_DIR_EL1 on top of ICV_DIR_EL1, leading to
-  the host exploding on deactivating an interrupt. This behaviour is
-  allowed by the spec, so make sure we clear all trap bits
+Would it work if I send a quick fix for `cdns_pcie_host_disable` using
+IS_ENABLED in the existing driver implementation and then send the
+refactoring series later? This is to resolve the build error quickly until
+the refactoring series is ready.
 
-- Running vgic_irq in an L1 guest (the test being an L2) results in a
-  MI storm on the host, as the state synchronisation is done at the
-  wrong place, much like it was on the non-NV path before it was
-  reworked. Apply the same methods to the NV code, and enjoy much
-  better MI emulation, now tested all the way into an L3.
+On the other hand, if it should be fixed the right way by refactoring, I
+will not post the temporary fix. Please let me know.
 
-- Nuke a small leftover from previous rework.
-
-- Force a read-back of ICH_MISR_EL2 when disabling the vgic, so that
-  the trap prevents too many spurious MIs in an L1 guest, as the write
-  to ICH_HCR_EL2 does exactly nothing on its own when running under
-  FEAT_NV2.
-
-Oliver: this is starting to be a large series of fixes on top of the
-existing series, plus the two patches you have already added. I'd be
-happy to respin a full v4 with the fixes squashed into their original
-patches. On the other hand, if you want to see the history in its full
-glory, that also works for me.
-
-[1] https://msgid.link/20251109171619.1507205-1-maz@kernel.org
-[2] https://msgid.link/20251113172524.2795158-1-maz@kernel.org
-[3] https://lore.kernel.org/kvmarm/86frahu21h.wl-maz@kernel.org
-
-Marc Zyngier (5):
-  KVM: arm64: GICv3: Don't advertise ICH_HCR_EL2.En==1 when no vgic is
-    configured
-  KVM: arm64: GICv3: Completely disable trapping on vcpu exit
-  KVM: arm64: GICv3: nv: Resync LRs/VMCR/HCR early for better MI
-    emulation
-  KVM: arm64: GICv3: Remove vgic_hcr workaround handling leftovers
-  KVM: arm64: GICv3: Force exit to sync ICH_HCR_EL2.En
-
- arch/arm64/include/asm/kvm_hyp.h     |  1 +
- arch/arm64/kvm/hyp/vgic-v3-sr.c      | 11 +++-
- arch/arm64/kvm/vgic/vgic-v3-nested.c | 78 ++++++++++++++++------------
- arch/arm64/kvm/vgic/vgic-v3.c        |  3 ++
- arch/arm64/kvm/vgic/vgic.c           |  6 ++-
- arch/arm64/kvm/vgic/vgic.h           |  1 +
- 6 files changed, 62 insertions(+), 38 deletions(-)
-
--- 
-2.47.3
-
+Regards,
+Siddharth.
 
