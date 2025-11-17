@@ -4,73 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F224CEACEF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 19:55:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFD11CEACEF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 20:00:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=J7Vvlxd+X+pSIr3KKaZRu4ytQq2StehwuON4q3HOrHw=; b=eDW4M39baLP9G7xrD7xTcTfA6s
-	tqcpOQB2/TIow70oLtytY1uKIQvACWstOenZQzsg5PBIoQODd5CyLARuriigIUz56EzOW2mLfSTpA
-	imoT4q03KhFTnaTeCGwHb/MzHrcSdDZGei+AaysJikaeVpqM5txHQfTejqHHwg1QHDBxT59GGE8lP
-	INntiGUMfYY1M32ljFXVBi8JNmmT8ZyylXaXcorzPEEQUeCjsLOptn6iim+r9zDvpUSejTolbAOvs
-	fFReXqswjTUsNHXJo5EerqTiuEBz47Xce/vESNU6Y8FrpfsJ1GtguFXKKxx+Yvnw7NBCNs0k2Sqo4
-	o+p6krbQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=6awVeAnCPFYv1YMLUff/01V2rcXe57qwmUCtyQKLpkU=; b=yEmd5HozcXNxCP
+	6cjEs6AewBD96MSNMJrshkbyu0Z8eXc9mCB9soKOBELDqIBtwxKekTp160cc8qGarpboJVXkGZiew
+	+LgohxyfsoK0m2QwC1/0e1Xn2dHTMpzXYLGJdqxdELUqKRc6VPpGtWus7nEY+7npHVEGHle823HTC
+	q3nSHh8yrXLR/Wce6SpLP4c0N56kQSBg518zkq6IQlKdRujN5FO1j0r+iYFPLWw+5ZqLDs4VsYnua
+	38tB/ByXef3XUfklFJlcwq+AFMQhdjnz/MBBW+qk1H9ZSUG1KtIAoLsqhl2rnjUJ5rqebbOj/e9PQ
+	sroYj6MPoEn7ms8P0cZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vL5K7-0000000GnDN-3iub;
-	Mon, 17 Nov 2025 19:55:39 +0000
+	id 1vL5Oj-0000000GnbG-04sa;
+	Mon, 17 Nov 2025 20:00:25 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vL5K7-0000000GnDE-0MLC
+	id 1vL5Oh-0000000GnaW-1WZd
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Nov 2025 19:55:39 +0000
+	Mon, 17 Nov 2025 20:00:23 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2414460250;
-	Mon, 17 Nov 2025 19:55:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3B096C2BC86;
-	Mon, 17 Nov 2025 19:55:35 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id C2C9F601B6;
+	Mon, 17 Nov 2025 20:00:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D7CBAC2BCB0;
+	Mon, 17 Nov 2025 20:00:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763409337;
-	bh=5NYv7IhXQWWcpLL+EOWuBkb9pQPJESIJu5lfgINYai8=;
-	h=From:To:Cc:Subject:Date:From;
-	b=SbIqvnS4+ghe1JRWib/V+hwCkB40FtAWp7of4kJ2Yi56O/km3W6+p215vYD7+e4lN
-	 BYGurIMvo1CnhkHjy/YvnmcqenT9kd8IMfcoJ78RIBh+ycW5WonNf/XSanW9+4IbjL
-	 MZX+obPMMudSNeyRNWTt/0g1vUahVyg4ZeF+UiE/cZcxn1iec+pgl+WadS2R4lpv/n
-	 At/Tf4Xvm8Lsd/lbMfGgsUyRAVM1ejZKVBppG4Z2muxVVEH9/rPIpy1nSJSnvh5UXC
-	 hZ4p+QfIim3LBPLr5skvWxt8yG+J/Nq87IFCrCPbE6cO5vY0XOyvM9pN/7sWXYlKVw
-	 +nnuxkQNejkRg==
-From: Bjorn Andersson <andersson@kernel.org>
-To: arm@kernel.org,
-	soc@kernel.org
-Cc: linux-arm-msm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Arnd Bergmann <arnd@arndb.de>,
-	Jingyi Wang <jingyi.wang@oss.qualcomm.com>,
-	Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>,
-	Christian Marangi <ansuelsmth@gmail.com>,
-	Gabor Juhos <j4g8y7@gmail.com>,
-	Haotian Zhang <vulab@iscas.ac.cn>,
-	Johan Hovold <johan@kernel.org>,
-	Komal Bajaj <komal.bajaj@oss.qualcomm.com>,
-	Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>,
-	Abel Vesa <abel.vesa@linaro.org>,
-	Akhil P Oommen <akhilpo@oss.qualcomm.com>,
-	Anjelique Melendez <anjelique.melendez@oss.qualcomm.com>,
-	Neeraj Soni <neeraj.soni@oss.qualcomm.com>,
-	Pankaj Patil <pankaj.patil@oss.qualcomm.com>,
-	Prasad Kumpatla <prasad.kumpatla@oss.qualcomm.com>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Sibi Sankar <sibi.sankar@oss.qualcomm.com>,
-	Yongxing Mou <yongxing.mou@oss.qualcomm.com>
-Subject: [GIT PULL] Qualcomm driver updates for v6.19
-Date: Mon, 17 Nov 2025 13:59:54 -0600
-Message-ID: <20251117200001.3169354-1-andersson@kernel.org>
-X-Mailer: git-send-email 2.51.0
+	s=k20201202; t=1763409622;
+	bh=KL4ddw+mqA9q22Tcaw70/uKb4mnlKlO94DBUCy7tcEA=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=O6++nN2su5fvC7YOL15YxY2wHD1NrJgke+r+C0Y1ErXQ84kSI31a9ghucWfinpUml
+	 5tBYLffCZUK9GNG4Hc9NhVpPOT9duH29630dMPSTA21GCcnYuv6R93gslma2ULiIXr
+	 V21ywJO8p+odEWY/cyVZ3q6TCqQmIudAEeLgFZTSIIvK3RN6CSz41NthOmAQQ7o7q4
+	 qU1os6pqo6wIvwbA7L0jg8CryqTD5Clxu4gauREAzFpXePpcVuylWNvkeegLEireYL
+	 SDhlb+j6NR/j1aRSJPDMMwPW6iMXgYa2zbx7blo9t0hpAcYiTXAwxiQwoZLGfstfeA
+	 dN9UqjE2383ug==
+Date: Mon, 17 Nov 2025 14:00:20 -0600
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Christian Bruel <christian.bruel@foss.st.com>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	linux-pci@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] PCI: stm32: Fix LTSSM EP race with start link.
+Message-ID: <20251117200020.GA2518034@bhelgaas>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <367c8b88-79e7-4e8d-bf70-9d283696aba2@foss.st.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,132 +73,131 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, Nov 17, 2025 at 01:04:47PM +0100, Christian Bruel wrote:
+> On 11/14/25 19:59, Bjorn Helgaas wrote:
+> > On Fri, Nov 14, 2025 at 08:45:52AM +0100, Christian Bruel wrote:
+> > > If the host has deasserted PERST# and started link training before the link
+> > > is started on EP side, enabling LTSSM before the endpoint registers are
+> > > initialized in the perst_irq handler results in probing incorrect values.
+> > > 
+> > > Thus, wait for the PERST# level-triggered interrupt to start link training
+> > > at the end of initialization and cleanup the stm32_pcie_[start stop]_link
+> > > functions.
+> > 
+> > I've seen this kind of thing in other drivers, and I wondered whether
+> > it was safe because the host asserts and deasserts PERST#
+> > asynchronously, independent of anything the endpoint is doing.
+> > 
+> > I assume it's possible that the host deasserts PERST# before this
+> > driver has the stm32_pcie_ep_perst_irq_thread() thread set up.  If
+> > that happens and the driver doesn't see the PERST# interrupt, does
+> > everything still work correctly?
+> 
+> yes it does. the PERST# interrupt is level-triggered and, if already
+> de-asserted, fires only when enabled (it is NOAUTOEN) with start_link.
+> 
+> At that point, the host can enumerate by performing a manual rescan or
+> rebind the PCIe driver, restarting the entire probe sequence.
+> 
+> Tested the pcie_epf_test driver with various power-up sequences: full
+> power-up the host or device first, and stop or standby PM suspend/resume.
 
-The following changes since commit 3a8660878839faadb4f1a6dd72c3179c1df56787:
+Help me think through this.  I guess the interesting case is when the
+host boots first and enumerates devices before the stm32 endpoint is
+ready, right?
 
-  Linux 6.18-rc1 (2025-10-12 13:42:36 -0700)
+I suppose the endpoint LTSSM is initially disabled, so the link is
+down, and the host enumeration didn't find anything?
 
-are available in the Git repository at:
+Where does the link come up?  I see the pci_epc_start_store() that
+eventually leads to stm32_pcie_start_link(), which enables perst_irq.
+Since you requested perst_irq with IRQF_TRIGGER_HIGH, and PERST# is
+deasserted, does that trigger stm32_pcie_ep_perst_irq_thread() and
+call stm32_pcie_perst_deassert() to enable the LTSSM?
 
-  https://git.kernel.org/pub/scm/linux/kernel/git/qcom/linux.git tags/qcom-drivers-for-6.19
+When the link comes up, if the Downstream Port supports hotplug and
+pciehp is enabled, it might notice the link-up event and treat this as
+a hot-add?
 
-for you to fetch changes up to 186b8f8fcc86949eaf0c3bd11a47048ec4c78b5b:
+Otherwise the user would have to manually rescan to notice the
+endpoint?
 
-  soc: qcom: mdt_loader: rename 'firmware' parameter of qcom_mdt_load() (2025-11-11 09:48:57 -0600)
-
-----------------------------------------------------------------
-Qualcomm driver updates for v6.19
-
-Support for hardware-keymanager v1 support for wrapped keys is introduce
-in the ICE driver.
-
-Support for the new Kaanapali mobile platform is added to last-level
-cache controller, pd-mapper, and UBWC drivers.
-
-UBWC driver gains support for the Monaco and Glymur platforms.
-
-The PMIC GLINK driver is extended to handle the differences found in
-targets where the related firmware runs on the SoCCP.
-
-Support for running on targets without initialized SMEM is provided, by
-reworking the SMEM driver to differentiate between "not yet probed" and
-"probed but there was no SMEM". An unwanted WARN_ON() that triggered if
-clients asked for a SMEM item beyond the currently running system's
-limit, was removed, to allow new use cases to gracefully fail on old
-targets.
-
-The Qualcomm socinfo driver is extended with support for version 20
-through 23 and support for providing version information about more than
-32 remote processors. Identifiers for QCS6490 and SM8850 are also added.
-
-Additionally, a number of smaller bug fixes and cleanups in PBS, OCMEM,
-GSBI, TZMEM, and MDT-loader are included.
-
-----------------------------------------------------------------
-Abel Vesa (1):
-      soc: qcom: ubwc: Add configuration Glymur platform
-
-Akhil P Oommen (1):
-      soc: qcom: ubwc: Add config for Kaanapali
-
-Anjelique Melendez (1):
-      soc: qcom: pmic_glink: Add support for SOCCP remoteproc channels
-
-Christian Marangi (2):
-      err.h: add INIT_ERR_PTR() macro
-      soc: qcom: smem: better track SMEM uninitialized state
-
-Gabor Juhos (2):
-      soc: qcom: mdt_loader: merge __qcom_mdt_load() and qcom_mdt_load_no_init()
-      soc: qcom: mdt_loader: rename 'firmware' parameter of qcom_mdt_load()
-
-Haotian Zhang (2):
-      soc: qcom: gsbi: fix double disable caused by devm
-      soc: qcom: smem: fix hwspinlock resource leak in probe error paths
-
-Jingyi Wang (6):
-      dt-bindings: cache: qcom,llcc: Document the Kaanapali LLCC
-      soc: qcom: llcc-qcom: Add support for Kaanapali
-      dt-bindings: arm: qcom,ids: Add SoC ID for SM8850
-      soc: qcom: socinfo: Add SM8850 SoC ID
-      dt-bindings: soc: qcom,aoss-qmp: Document the Kaanapali AOSS channel
-      dt-bindings: firmware: qcom,scm: Document SCM on Kaanapali SOC
-
-Johan Hovold (2):
-      soc: qcom: ocmem: fix device leak on lookup
-      soc: qcom: pbs: fix device leak on lookup
-
-Kathiravan Thirumoorthy (4):
-      soc: qcom: socinfo: arrange the socinfo_image_names array in alphabetical order
-      soc: qcom: socinfo: add the missing entries to the smem image table
-      soc: qcom: smem: drop the WARN_ON() on SMEM item validation
-      soc: qcom: socinfo: add support to extract more than 32 image versions
-
-Komal Bajaj (2):
-      dt-bindings: arm: qcom,ids: Add SoC ID for QCS6490
-      soc: qcom: socinfo: Add SoC ID for QCS6490
-
-Mukesh Ojha (2):
-      soc: qcom: socinfo: Add support for new fields in revision 20
-      soc: qcom: socinfo: Add reserve field to support future extension
-
-Neeraj Soni (1):
-      soc: qcom: ice: Add HWKM v1 support for wrapped keys
-
-Pankaj Patil (1):
-      dt-bindings: firmware: qcom,scm: Document Glymur scm
-
-Prasad Kumpatla (1):
-      soc: qcom: pd-mapper: Add Kaanapali compatible
-
-Randy Dunlap (1):
-      firmware: qcom: tzmem: fix qcom_tzmem_policy kernel-doc
-
-Sibi Sankar (1):
-      dt-bindings: soc: qcom,aoss-qmp: Document the Glymur AOSS side channel
-
-Yongxing Mou (1):
-      soc: qcom: ubwc: Add QCS8300 UBWC cfg
-
- .../devicetree/bindings/cache/qcom,llcc.yaml       |   2 +
- .../devicetree/bindings/firmware/qcom,scm.yaml     |   3 +
- .../bindings/soc/qcom/qcom,aoss-qmp.yaml           |   2 +
- drivers/soc/qcom/ice.c                             |  81 +++--
- drivers/soc/qcom/llcc-qcom.c                       | 373 +++++++++++++++++++++
- drivers/soc/qcom/mdt_loader.c                      |  52 ++-
- drivers/soc/qcom/ocmem.c                           |   2 +-
- drivers/soc/qcom/pmic_glink.c                      |   9 +-
- drivers/soc/qcom/qcom-pbs.c                        |   2 +
- drivers/soc/qcom/qcom_gsbi.c                       |   8 -
- drivers/soc/qcom/qcom_pd_mapper.c                  |  10 +
- drivers/soc/qcom/smem.c                            |  33 +-
- drivers/soc/qcom/socinfo.c                         | 102 +++++-
- drivers/soc/qcom/ubwc_config.c                     |  24 ++
- include/dt-bindings/arm/qcom,ids.h                 |   2 +
- include/linux/err.h                                |   8 +
- include/linux/firmware/qcom/qcom_tzmem.h           |  15 +-
- include/linux/soc/qcom/llcc-qcom.h                 |   7 +
- include/linux/soc/qcom/socinfo.h                   |   4 +
- include/linux/soc/qcom/ubwc.h                      |   1 +
- 20 files changed, 645 insertions(+), 95 deletions(-)
+> > > Signed-off-by: Christian Bruel <christian.bruel@foss.st.com>
+> > > ---
+> > >   drivers/pci/controller/dwc/pcie-stm32-ep.c | 38 ++++++------------------------
+> > >   1 file changed, 7 insertions(+), 31 deletions(-)
+> > > 
+> > > diff --git a/drivers/pci/controller/dwc/pcie-stm32-ep.c b/drivers/pci/controller/dwc/pcie-stm32-ep.c
+> > > index 3400c7cd2d88a279c49ef36a99fc7537c381c384..d0654bb43759bb8d0f0d7badbf7bdae839241fcf 100644
+> > > --- a/drivers/pci/controller/dwc/pcie-stm32-ep.c
+> > > +++ b/drivers/pci/controller/dwc/pcie-stm32-ep.c
+> > > @@ -37,36 +37,9 @@ static void stm32_pcie_ep_init(struct dw_pcie_ep *ep)
+> > >   		dw_pcie_ep_reset_bar(pci, bar);
+> > >   }
+> > > -static int stm32_pcie_enable_link(struct dw_pcie *pci)
+> > > -{
+> > > -	struct stm32_pcie *stm32_pcie = to_stm32_pcie(pci);
+> > > -
+> > > -	regmap_update_bits(stm32_pcie->regmap, SYSCFG_PCIECR,
+> > > -			   STM32MP25_PCIECR_LTSSM_EN,
+> > > -			   STM32MP25_PCIECR_LTSSM_EN);
+> > > -
+> > > -	return dw_pcie_wait_for_link(pci);
+> > > -}
+> > > -
+> > > -static void stm32_pcie_disable_link(struct dw_pcie *pci)
+> > > -{
+> > > -	struct stm32_pcie *stm32_pcie = to_stm32_pcie(pci);
+> > > -
+> > > -	regmap_update_bits(stm32_pcie->regmap, SYSCFG_PCIECR, STM32MP25_PCIECR_LTSSM_EN, 0);
+> > > -}
+> > > -
+> > >   static int stm32_pcie_start_link(struct dw_pcie *pci)
+> > >   {
+> > >   	struct stm32_pcie *stm32_pcie = to_stm32_pcie(pci);
+> > > -	int ret;
+> > > -
+> > > -	dev_dbg(pci->dev, "Enable link\n");
+> > > -
+> > > -	ret = stm32_pcie_enable_link(pci);
+> > > -	if (ret) {
+> > > -		dev_err(pci->dev, "PCIe cannot establish link: %d\n", ret);
+> > > -		return ret;
+> > > -	}
+> > >   	enable_irq(stm32_pcie->perst_irq);
+> > > @@ -77,11 +50,7 @@ static void stm32_pcie_stop_link(struct dw_pcie *pci)
+> > >   {
+> > >   	struct stm32_pcie *stm32_pcie = to_stm32_pcie(pci);
+> > > -	dev_dbg(pci->dev, "Disable link\n");
+> > > -
+> > >   	disable_irq(stm32_pcie->perst_irq);
+> > > -
+> > > -	stm32_pcie_disable_link(pci);
+> > >   }
+> > >   static int stm32_pcie_raise_irq(struct dw_pcie_ep *ep, u8 func_no,
+> > > @@ -152,6 +121,8 @@ static void stm32_pcie_perst_assert(struct dw_pcie *pci)
+> > >   	dev_dbg(dev, "PERST asserted by host\n");
+> > > +	regmap_update_bits(stm32_pcie->regmap, SYSCFG_PCIECR, STM32MP25_PCIECR_LTSSM_EN, 0);
+> > > +
+> > >   	pci_epc_deinit_notify(ep->epc);
+> > >   	stm32_pcie_disable_resources(stm32_pcie);
+> > > @@ -192,6 +163,11 @@ static void stm32_pcie_perst_deassert(struct dw_pcie *pci)
+> > >   	pci_epc_init_notify(ep->epc);
+> > > +	/* Enable link training */
+> > > +	regmap_update_bits(stm32_pcie->regmap, SYSCFG_PCIECR,
+> > > +			   STM32MP25_PCIECR_LTSSM_EN,
+> > > +			   STM32MP25_PCIECR_LTSSM_EN);
+> > > +
+> > >   	return;
+> > >   err_disable_resources:
+> > > 
+> > > ---
+> > > base-commit: 31115ecec74fe5c679a149d7037009f26b3aa8a9
+> > > change-id: 20251113-perst_ep-0b57b9679cf9
+> > > 
+> > > Best regards,
+> > > -- 
+> > > Christian Bruel <christian.bruel@foss.st.com>
+> > > 
+> 
 
