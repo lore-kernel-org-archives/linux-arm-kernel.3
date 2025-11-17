@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E62EECE8D6B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 17:01:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8136DCEACEF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 17:01:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LB26A+ST7VrNFiyWGCzB2HZPSFWhS0shs5dZWcn4sBs=; b=WpmB6Ixjtv7VM7/L8J1Mgm9y1s
-	69WWAzrcwwz228fTJuFaQy8/MrO2LTex0UuqXLXMdxcqLfCK/Y80wAQDdcYApKZtDmPVcu21MmG/D
-	kD2+zyh+kiPWyWBA7IodLBMQyu3JYZrAmRa+ntsYbYSdxnybOQu2D9OnxHM+R4/5QRoLd2j6zYY2g
-	CCEm4JXEOkQXArImrPka4K0YgNTZswCCUliT1vEuh4elhsjLR4wGUZuXOB0ztbfwmdJ7YQGxXKM08
-	h0gJX6cViJcD74zyGps1MqstkAKGhdVi9S96mbkydD6UiqVQA9PVfTD1rQIWHeIegauyfz9kxlxTX
-	jlTJFpCA==;
+	bh=6R3X2OzpZkGp4Ajzeh/ixBQq4STUQZLgvyQlKgsTBS0=; b=a0Y4HJTRzd9SIObT8ndvjlxojs
+	LUrtnh47m3urn5jd7afpaGUDdNrocDcbpNJjSpBbY1pjgFjlSKrN0FUprwr420Qcqw2CJIk2E6tWB
+	al8oNBsRHOr6dpf5pwPMcrgj13aICp2yVT9aMrBupPbObTe2v0tzL3TFQtXO3moGHHvyu9aphyahW
+	4VV1SxWHoWAbBQjl9JfgUbtjIn1yFxo0mjtiHk/Cl9gkL+nPGXBiZnCGDKMO2h5JkV6p0WEyw6uoH
+	Hxhqc+xQ0A96gkLHM6hb0QF4Et5lIQyXuLwsa61H4nxgFPnxmz1ZOEcFsY+U18uz3vf7XVy3jRqgR
+	f4M0CjSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vL2bD-0000000GSGL-0SDp;
-	Mon, 17 Nov 2025 17:01:07 +0000
+	id 1vL2bI-0000000GSM9-26Bu;
+	Mon, 17 Nov 2025 17:01:12 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vL2bC-0000000GSES-0YX6
+	id 1vL2bH-0000000GSKK-1yQl
 	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 17 Nov 2025 17:01:06 +0000
+	Mon, 17 Nov 2025 17:01:11 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=LB26A+ST7VrNFiyWGCzB2HZPSFWhS0shs5dZWcn4sBs=; b=Gn15Hrh4onDtmDEAF1w+G1UHa7
-	lfQCQkZsKAVwMy+fIvY3xtsS723X4QKA0EwOvwH1dwv+dEfiHqFeeOtq7La/hL5MqZ4W44A0QCfUR
-	3ZJHPcywXQEhtaB0/AKZq5IS/M+g753sGAZiWKe80Q8nlp7AG67GnIicCNu7U2Oa8QmH978NceKki
-	1SPH+prB9cTIzPZTxRHR0OIWG2ECouvTErxYv7wRC2I2C4By5Ob4gnq4cSM+wQ5Sitf7ALHs83pXu
-	4dp5nGEJef+HFyA/Ke1FaphthKpYhzDTMm3tyy9viT2bqO09lyeYYwdGi8eO/WI2+jsWfc5nnUKu4
-	dqiSVoVw==;
+	bh=6R3X2OzpZkGp4Ajzeh/ixBQq4STUQZLgvyQlKgsTBS0=; b=qe9fCcE1MgKKm90Ajvwgxpnm/X
+	3/v8m8MRKQawtt0GQ8WmI/pDeq8SRaKkrwvlvi322oB3/8jl82W8nVD+8NjmjKr0wOpzF23Sc79zc
+	I4nSfJesg7X5SnHaNxc3fTtqoDc0MEcrkoNPXxnx9EZtdanfZ0lTHm+bj3kBiCcsO0o/JR5ZgjXK2
+	ZY6qrfjVB5AsZQwRSz3xOVJAqsVoYFWWPREJ4af9C1+ig85KEx5pBfC7tbye0jkuO9Kwji+z8WCpL
+	WasKjlAP972jInPdHOXRhCoUNhzkRTIDQhHAPjH6gcpSgP9ZHClEgbNDI3MlLc22A0QSasnW3mz6n
+	McGDrxVw==;
 Received: from foss.arm.com ([217.140.110.172])
 	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vL1jV-00000007idC-15dN
+	id 1vL1ja-00000007ifG-2d20
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Nov 2025 16:05:39 +0000
+	Mon, 17 Nov 2025 16:05:44 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CA853FEC;
-	Mon, 17 Nov 2025 09:00:53 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 24EA81007;
+	Mon, 17 Nov 2025 09:00:59 -0800 (PST)
 Received: from e134344.cambridge.arm.com (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 58D403F66E;
-	Mon, 17 Nov 2025 09:00:56 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id AF7113F66E;
+	Mon, 17 Nov 2025 09:01:01 -0800 (PST)
 From: Ben Horgan <ben.horgan@arm.com>
 To: james.morse@arm.com
 Cc: amitsinght@marvell.com,
@@ -85,19 +85,20 @@ Cc: amitsinght@marvell.com,
 	will@kernel.org,
 	xhao@linux.alibaba.com,
 	Ben Horgan <ben.horgan@arm.com>,
-	Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>,
-	Zeng Heng <zengheng4@huawei.com>
-Subject: [PATCH v5 06/34] arm64: kconfig: Add Kconfig entry for MPAM
-Date: Mon, 17 Nov 2025 16:59:45 +0000
-Message-ID: <20251117170014.4113754-7-ben.horgan@arm.com>
+	Zeng Heng <zengheng4@huawei.com>,
+	Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
+Subject: [PATCH v5 07/34] platform: Define platform_device_put cleanup handler
+Date: Mon, 17 Nov 2025 16:59:46 +0000
+Message-ID: <20251117170014.4113754-8-ben.horgan@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20251117170014.4113754-1-ben.horgan@arm.com>
 References: <20251117170014.4113754-1-ben.horgan@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251117_160537_570079_E4EAB4DF 
-X-CRM114-Status: GOOD (  14.00  )
+X-CRM114-CacheID: sfid-20251117_160542_913033_2811F601 
+X-CRM114-Status: UNSURE (   8.99  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,69 +113,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: James Morse <james.morse@arm.com>
+Define a cleanup helper for use with __free to destroy platform devices
+automatically when the pointer goes out of scope. This is only intended to
+be used in error cases and so should be used with return_ptr() or
+no_free_ptr() directly to avoid the automatic destruction on success.
 
-The bulk of the MPAM driver lives outside the arch code because it
-largely manages MMIO devices that generate interrupts. The driver
-needs a Kconfig symbol to enable it. As MPAM is only found on arm64
-platforms, the arm64 tree is the most natural home for the Kconfig
-option.
+A first use of this is introduced in a subsequent commit.
 
-This Kconfig option will later be used by the arch code to enable
-or disable the MPAM context-switch code, and to register properties
-of CPUs with the MPAM driver.
-
-Signed-off-by: James Morse <james.morse@arm.com>
-Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
-Reviewed-by: Ben Horgan <ben.horgan@arm.com>
-Reviewed-by: Fenghua Yu <fenghuay@nvidia.com>
 Reviewed-by: Gavin Shan <gshan@redhat.com>
+Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+Reviewed-by: Fenghua Yu <fenghuay@nvidia.com>
 Tested-by: Fenghua Yu <fenghuay@nvidia.com>
-Tested-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
-Tested-by: Peter Newman <peternewman@google.com>
 Tested-by: Carl Worth <carl@os.amperecomputing.com>
 Tested-by: Gavin Shan <gshan@redhat.com>
 Tested-by: Zeng Heng <zengheng4@huawei.com>
-CC: Dave Martin <dave.martin@arm.com>
+Tested-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
 Signed-off-by: Ben Horgan <ben.horgan@arm.com>
 ---
- arch/arm64/Kconfig | 23 +++++++++++++++++++++++
- 1 file changed, 23 insertions(+)
+ include/linux/platform_device.h | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index 6663ffd23f25..67015d51f7b5 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -2023,6 +2023,29 @@ config ARM64_TLB_RANGE
- 	  ARMv8.4-TLBI provides TLBI invalidation instruction that apply to a
- 	  range of input addresses.
+diff --git a/include/linux/platform_device.h b/include/linux/platform_device.h
+index 074754c23d33..23a30ada2d4c 100644
+--- a/include/linux/platform_device.h
++++ b/include/linux/platform_device.h
+@@ -232,6 +232,7 @@ extern int platform_device_add_data(struct platform_device *pdev,
+ extern int platform_device_add(struct platform_device *pdev);
+ extern void platform_device_del(struct platform_device *pdev);
+ extern void platform_device_put(struct platform_device *pdev);
++DEFINE_FREE(platform_device_put, struct platform_device *, if (_T) platform_device_put(_T))
  
-+config ARM64_MPAM
-+	bool "Enable support for MPAM"
-+	help
-+	  Memory System Resource Partitioning and Monitoring (MPAM) is an
-+	  optional extension to the Arm architecture that allows each
-+	  transaction issued to the memory system to be labelled with a
-+	  Partition identifier (PARTID) and Performance Monitoring Group
-+	  identifier (PMG).
-+
-+	  Memory system components, such as the caches, can be configured with
-+	  policies to control how much of various physical resources (such as
-+	  memory bandwidth or cache memory) the transactions labelled with each
-+	  PARTID can consume.  Depending on the capabilities of the hardware,
-+	  the PARTID and PMG can also be used as filtering criteria to measure
-+	  the memory system resource consumption of different parts of a
-+	  workload.
-+
-+	  Use of this extension requires CPU support, support in the
-+	  Memory System Components (MSC), and a description from firmware
-+	  of where the MSCs are in the address space.
-+
-+	  MPAM is exposed to user-space via the resctrl pseudo filesystem.
-+
- endmenu # "ARMv8.4 architectural features"
- 
- menu "ARMv8.5 architectural features"
+ struct platform_driver {
+ 	int (*probe)(struct platform_device *);
 -- 
 2.43.0
 
