@@ -4,58 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74520CCD19A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 02:51:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4788ECEACEF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 03:31:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2Rc8D4q2Dzza1+AgMr3WZxPkKLjKy1EbrcUjgA93dTE=; b=UFeLvnhpvnA9or7J/k1Xh9pDSN
-	Pt8OXOeW6tn27/ylcT/h9uoIHLz5lqNLzFrYvNoKwE3YgR2RTcs7KIGeQYx9v/5nKW6nwYTsMdilG
-	PhC+R5Kwz2za8XIbTzNNXj6ibgvDm5PkWnCQIweGAx654aqTOuAdxzEi32zDREYGPaGRW53IBjKGc
-	eqEYrmZ1V81hBg5XySxS2xjZabuyrbgLMMs3jb17CPcSFG7Xp3lciyULHtzq6xbEThxmG9f6+Lpog
-	y2v6EisSW1wfa2vQ/P5zeOkr0FSudasYwuFh8PJmmvBnr8Se6ADlCJyfg3htlBUVwOn0oLvz8VIiI
-	8gWSaHMg==;
+	bh=KReXLnFQW0yav0zw0jWMaM3yvXqCjQuWYlLmz81Ci+o=; b=VTekmXpMUI89wH8QYBaTXw6Uii
+	FYOi5jUgYo8XR0/071l9ADBRm6XDeO7ztNgFqESSDwHsC/INJxX+VNW6oxWZfzX1ZKStiZfTIwueS
+	BJt1RHvaajQ86HPxvlXSGEzXyx25ulw3AIQBd403vTLMdkfoCl/1+seDT60VAO1yqj71DdQ1zlioi
+	CkMG4Jtm5KbvdJFvZKiroQToZBgxxLkpjwXxjD1WuQUoDvBSc2MMZnm1CS0HsOlDABLHWEsms8uC6
+	WI5TJG6hAPv36txIpWZZ0Hz1naADUUMdIrCksT6mXFODbVocS4NuC65K7IJR7/qtE+qApL3XBDXnK
+	ZH7v9feA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKpKe-0000000FKPY-3qcM;
-	Mon, 17 Nov 2025 02:51:09 +0000
-Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
+	id 1vKpxL-0000000FNX6-2jVH;
+	Mon, 17 Nov 2025 03:31:07 +0000
+Received: from inva021.nxp.com ([92.121.34.21])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKpKX-0000000FKKa-0XoG
+	id 1vKpxF-0000000FNWP-2V0U
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Nov 2025 02:51:03 +0000
-Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Mon, 17 Nov
- 2025 10:50:41 +0800
-Received: from twmbx02.aspeed.com (192.168.10.13) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
- Transport; Mon, 17 Nov 2025 10:50:41 +0800
-From: Ryan Chen <ryan_chen@aspeedtech.com>
-To: <ryan_chen@aspeedtech.com>, <bmc-sw@aspeedtech.com>,
-	<andriy.shevchenko@linux.intel.com>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-	<conor+dt@kernel.org>, <benh@kernel.crashing.org>, <joel@jms.id.au>,
-	<andi.shyti@kernel.org>, <jk@codeconstruct.com.au>,
-	<andrew@codeconstruct.com.au>, <p.zabel@pengutronix.de>,
-	<naresh.solanki@9elements.com>, <linux-i2c@vger.kernel.org>,
-	<openbmc@lists.ozlabs.org>, <devicetree@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-aspeed@lists.ozlabs.org>,
-	<linux-kernel@vger.kernel.org>
-Subject: [PATCH v23 3/4] i2c: ast2600: Add controller driver for new register layout
-Date: Mon, 17 Nov 2025 10:50:39 +0800
-Message-ID: <20251117025040.3622984-4-ryan_chen@aspeedtech.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20251117025040.3622984-1-ryan_chen@aspeedtech.com>
-References: <20251117025040.3622984-1-ryan_chen@aspeedtech.com>
+	Mon, 17 Nov 2025 03:31:06 +0000
+Received: from inva021.nxp.com (localhost [127.0.0.1])
+	by inva021.eu-rdc02.nxp.com (Postfix) with ESMTP id D4FAA200C7B;
+	Mon, 17 Nov 2025 04:30:57 +0100 (CET)
+Received: from aprdc01srsp001v.ap-rdc01.nxp.com (aprdc01srsp001v.ap-rdc01.nxp.com [165.114.16.16])
+	by inva021.eu-rdc02.nxp.com (Postfix) with ESMTP id 77EBB2037BC;
+	Mon, 17 Nov 2025 04:30:57 +0100 (CET)
+Received: from lsvm11u0000395.swis.ap-northeast-2.aws.nxp.com (lsvm11u0000395.swis.ap-northeast-2.aws.nxp.com [10.52.9.99])
+	by aprdc01srsp001v.ap-rdc01.nxp.com (Postfix) with ESMTP id 49B061800098;
+	Mon, 17 Nov 2025 11:30:55 +0800 (+08)
+Date: Mon, 17 Nov 2025 12:30:54 +0900
+From: Joseph Guo <qijian.guo@nxp.com>
+To: Francesco Valla <francesco@valla.it>
+Cc: Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, Justin Jiang <justin.jiang@nxp.com>,
+	Tom Zheng <haidong.zheng@nxp.com>,
+	Steven Yang <steven.yang@nxp.com>
+Subject: Re: [PATCH 1/2] arm64: dts: freescale: Add FRDM-IMX91 basic support
+Message-ID: <aRqW7oUpfa8hiIpv@lsvm11u0000395.swis.ap-northeast-2.aws.nxp.com>
+References: <20251114-imx91_frdm-v1-0-e5763bdf9336@nxp.com>
+ <20251114-imx91_frdm-v1-1-e5763bdf9336@nxp.com>
+ <aRcncfZNMCTqSQlG@bywater>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aRcncfZNMCTqSQlG@bywater>
+X-Virus-Scanned: ClamAV using ClamSMTP
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251116_185101_540251_940A4E23 
-X-CRM114-Status: GOOD (  29.62  )
+X-CRM114-CacheID: sfid-20251116_193102_067407_096203CC 
+X-CRM114-Status: GOOD (  30.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,1343 +75,776 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add i2c-ast2600 new register mode driver to support AST2600
-i2c new register mode. This i2c-ast2600 new driver and the
-legacy i2c-aspeed driver both match the same compatible string
-"aspeed,ast2600-i2c-bus" because they target the same I2C
-controller IP on AST2600. However, AST2600 SoCs may configure
-the controller instances to operate either in the legacy
-register layout or the new layout (via global register).
-The new register mode support following.
+On Fri, Nov 14, 2025 at 01:58:25PM +0100, Francesco Valla wrote:
+> Hi Joseph,
+> 
+> thank you for the patch, I very recently acquired a FRDM-IMX91 and I
+> think it has great potential.
+> 
+> Some observations follow - they all assume the design files available on
+> the NXP website are updated and aligned with the actual population.
+>
 
-- Add new clock divider option for more flexible and accurate
- clock rate generation
-- Add tCKHighMin timing to guarantee SCL high pulse width.
-- Add support dual pool buffer mode, split 32 bytes pool buffer
- of each device into 2 x 16 bytes for Tx and Rx individually.
-- Increase DMA buffer size to 4096 bytes and support byte alignment.
-- Re-define the base address of BUS1 ~ BUS16 and Pool buffer.
-- Re-define registers for separating controller and target
- mode control.
-- Support 4 individual DMA buffers for controller Tx and Rx,
- target Tx and Rx.
+Hi Francesco,
 
-And following is new register set for package transfer sequence.
-- New Master operation mode:
-  S -> Aw -> P
-  S -> Aw -> TxD -> P
-  S -> Ar -> RxD -> P
-  S -> Aw -> TxD -> Sr -> Ar -> RxD -> P
-- Bus SDA lock auto-release capability for new controller DMA
- command mode.
-- Bus auto timeout for new controller/target DMA mode.
+Thanks for your review. Please kindly see my comment.
+> On Fri, Nov 14, 2025 at 03:55:32PM +0900, Joseph Guo wrote:
+> > The FRDM i.MX 91 development board is a low-cost and
+> > compact developmentboard featuring the i.MX 91 applications processor.
+> > 
+> > Add FRDM-IMX91 board support.
+> > - Enable ADC1.
+> > - Enable lpuart1 and lpuart5.
+> > - Enable network eqos and fec.
+> > - Enable I2C bus and children nodes under I2C bus.
+> > - Enable USB and related nodes.
+> > - Enable uSDHC1, uSDHC2 and uSDHC3.
+> > - Enable MU1 and MU2.
+> > - Enable Watchdog3.
+> > - Enable MQS
+> > 
+> > Co-developed-by: Tom Zheng <haidong.zheng@nxp.com>
+> > Signed-off-by: Tom Zheng <haidong.zheng@nxp.com>
+> > Co-developed-by: Steven Yang <steven.yang@nxp.com>
+> > Signed-off-by: Steven Yang <steven.yang@nxp.com>
+> > Signed-off-by: Joseph Guo <qijian.guo@nxp.com>
+> > ---
+> >  arch/arm64/boot/dts/freescale/Makefile             |   1 +
+> >  arch/arm64/boot/dts/freescale/imx91-11x11-frdm.dts | 823 +++++++++++++++++++++
+> >  2 files changed, 824 insertions(+)
+> > 
+> > +	model = "NXP FRDM-IMX91";
+> > +
+> > +	aliases {
+> > +		ethernet0 = &fec;
+> > +		ethernet1 = &eqos;
+> > +		gpio0 = &gpio1;
+> > +		gpio1 = &gpio2;
+> > +		gpio2 = &gpio3;
+> > +		gpio3 = &gpio4;
+> > +		i2c0 = &lpi2c1;
+> > +		i2c1 = &lpi2c2;
+> > +		i2c2 = &lpi2c3;
+> > +		mmc0 = &usdhc1;
+> > +		mmc1 = &usdhc2;
+> > +		mmc2 = &usdhc3;
+> > +		rtc0 = &bbnsm_rtc;
+> 
+> Please add the pcf2131 RTC here (for which a backup battery can be
+> fitted).
+Yes Sure, it should be added.
 
-Since the register layout is selected via a global register at
-runtime and both drivers bind to the same compatible string,
-this patch defines the driver selection at build-time using
-Kconfig, ensuring that only one driver is compiled into the
-kernel. This approach avoids ambiguity and ensures consistent
-behavior for each platform configuration.
+> > +		pinctrl-0 = <&pinctrl_reg_usdhc2_vmmc>;
+> > +		pinctrl-names = "default";
+> > +		regulator-max-microvolt = <3300000>;
+> > +		regulator-min-microvolt = <3300000>;
+> > +		regulator-name = "VSD_3V3";
+> > +		gpio = <&gpio3 7 GPIO_ACTIVE_HIGH>;
+> > +		enable-active-high;
+> > +	};
+> > +
+> > +	reg_usdhc3_vmmc: regulator-usdhc3 {
+> > +		compatible = "regulator-fixed";
+> > +		regulator-max-microvolt = <3300000>;
+> > +		regulator-min-microvolt = <3300000>;
+> > +		regulator-name = "WLAN_EN";
+> > +		vin-supply = <&reg_m2_pwr>;
+> > +		gpio = <&pcal6524 20 GPIO_ACTIVE_HIGH>;
+> 
+> By default population, line 20 of the PCAL6524 should be connected to
+> the reset line of the PCAL6408; the regulator supplying USDHC3 devices
+> should be only the aldready preset reg_m2_pwr.
+> 
+This regualor is defined as PDn pin of the wifi IW610/612 module.
+The PDn pin should have some delay after VCC.
+> > +		enable-active-high;
+> > +		/*
+> > +		 * IW612 wifi chip needs more delay than other wifi chips to complete
+> > +		 * the host interface initialization after power up, otherwise the
+> > +		 * internal state of IW612 may be unstable, resulting in the failure of
+> > +		 * the SDIO3.0 switch voltage.
+> > +		 */
+> 
+> The WiFi chipseti here should be a IW610 and not a IW612 - if the
+> comment still stands, it should report the correct name.
+> 
+Yes, it is IW610, the comment need to stand, and I will add about the detail
+of this regulator to explain why this regulator needed.
 
-The following is two versus register layout.
-Old register mode:
-{I2CD00}: Function Control Register
-{I2CD04}: Clock and AC Timing Control Register
-{I2CD08}: Clock and AC Timing Control Register
-{I2CD0C}: Interrupt Control Register
-{I2CD10}: Interrupt Status Register
-{I2CD14}: Command/Status Register
-{I2CD18}: Slave Device Address Register
-{I2CD1C}: Pool Buffer Control Register
-{I2CD20}: Transmit/Receive Byte Buffer Register
-{I2CD24}: DMA Mode Buffer Address Register
-{I2CD28}: DMA Transfer Length Register
-{I2CD2C}: Original DMA Mode Buffer Address Setting
-{I2CD30}: Original DMA Transfer Length Setting and Final Status
+...
+> > +	mdio {
+> > +		compatible = "snps,dwmac-mdio";
+> > +		#address-cells = <1>;
+> > +		#size-cells = <0>;
+> > +		clock-frequency = <5000000>;
+> > +
+> > +		ethphy1: ethernet-phy@1 {
+> > +			reg = <1>;
+> > +			realtek,clkout-disable;
+> 
+> Isn't the PHY from Motorcomm?
+> 
 
-New Register mode
-{I2CC00}: Master/Slave Function Control Register
-{I2CC04}: Master/Slave Clock and AC Timing Control Register
-{I2CC08}: Master/Slave Transmit/Receive Byte Buffer Register
-{I2CC0C}: Master/Slave Pool Buffer Control Register
-{I2CM10}: Master Interrupt Control Register
-{I2CM14}: Master Interrupt Status Register
-{I2CM18}: Master Command/Status Register
-{I2CM1C}: Master DMA Buffer Length Register
-{I2CS20}: Slave~ Interrupt Control Register
-{I2CS24}: Slave~ Interrupt Status Register
-{I2CS28}: Slave~ Command/Status Register
-{I2CS2C}: Slave~ DMA Buffer Length Register
-{I2CM30}: Master DMA Mode Tx Buffer Base Address
-{I2CM34}: Master DMA Mode Rx Buffer Base Address
-{I2CS38}: Slave~ DMA Mode Tx Buffer Base Address
-{I2CS3C}: Slave~ DMA Mode Rx Buffer Base Address
-{I2CS40}: Slave Device Address Register
-{I2CM48}: Master DMA Length Status Register
-{I2CS4C}: Slave  DMA Length Status Register
-{I2CC50}: Current DMA Operating Address Status
-{I2CC54}: Current DMA Operating Length  Status
+Yes, should be dropped.
+> > +		};
+> > +	};
+> > +};
+> > +
+> > +&fec {
+> > +	phy-handle = <&ethphy2>;
+> > +	phy-mode = "rgmii-id";
+> > +	pinctrl-0 = <&pinctrl_fec>;
+> > +	pinctrl-1 = <&pinctrl_fec_sleep>;
+> > +	pinctrl-names = "default", "sleep";
+> > +	fsl,magic-packet;
+> > +	status = "okay";
+> > +
+> > +	mdio {
+> > +		#address-cells = <1>;
+> > +		#size-cells = <0>;
+> > +		clock-frequency = <5000000>;
+> > +
+> > +		ethphy2: ethernet-phy@2 {
+> > +			reg = <2>;
+> > +			realtek,clkout-disable;
+> 
+> See above about the PHY manufacturer.
+> 
+Ditto
+> > +		};
+> > +	};
+> > +};
+> > +
+> > +&flexcan2 {
+> > +	pinctrl-0 = <&pinctrl_flexcan2>;
+> > +	pinctrl-1 = <&pinctrl_flexcan2_sleep>;
+> > +	pinctrl-names = "default", "sleep";
+> > +	xceiver-supply = <&reg_can2_stby>;
+> 
+> A CAN PHY should be used here for the management of the standby line.
+>
 
-Add a new core file(i2c-aspeed-core.c) to avoid device tree
-ABI break, allow both old and new device trees using the same
-compatible string "aspeed,ast2600-i2c-bus" to function correctly.
+Yes, should be changed to use can phy here.
+> > +	status = "okay";
+> > +};
+> > +
+> > +&lpi2c1 {
+> > +	clock-frequency = <400000>;
+> > +	pinctrl-0 = <&pinctrl_lpi2c1>;
+> > +	pinctrl-names = "default";
+> > +	status = "okay";
+> > +
+> > +	pcal6408: gpio@20 {
+> > +		compatible = "nxp,pcal9554b";
+> > +		reg = <0x20>;
+> > +		#gpio-cells = <2>;
+> > +		gpio-controller;
+> > +		vcc-supply = <&reg_usdhc3_vmmc>;
+> 
+> Supply here is buck5 and not reg_usdhc3_vmmc.
+> 
+reg_usdhc3_vmmc is controlled pcal6424_20.
+It is the reset pin of the pcal6408, shared with wifi PDn pin.
+> > +		status = "okay";
+> > +	};
+> > +};
+> > +
+> > +&lpi2c2 {
+> > +	#address-cells = <1>;
+> > +	#size-cells = <0>;
+> > +	clock-frequency = <400000>;
+> > +	pinctrl-0 = <&pinctrl_lpi2c2>;
+> > +	pinctrl-names = "default";
+> > +	status = "okay";
+> > +
+> > +	pcal6524: gpio@22 {
+> > +		compatible = "nxp,pcal6524";
+> > +		reg = <0x22>;
+> > +		#interrupt-cells = <2>;
+> > +		interrupt-controller;
+> > +		interrupts = <27 IRQ_TYPE_LEVEL_LOW>;
+> > +		#gpio-cells = <2>;
+> > +		gpio-controller;
+> > +		interrupt-parent = <&gpio3>;
+> > +		pinctrl-0 = <&pinctrl_pcal6524>;
+> > +		pinctrl-names = "default";
+> > +	};
+> > +
+> > +	pmic@25 {
+> > +		compatible = "nxp,pca9451a";
+> > +		reg = <0x25>;
+> > +		interrupts = <11 IRQ_TYPE_EDGE_FALLING>;
+> > +		interrupt-parent = <&pcal6524>;
+> > +
+> > +		regulators {
+> > +			buck1: BUCK1 {
+> > +				regulator-always-on;
+> > +				regulator-boot-on;
+> > +				regulator-max-microvolt = <2237500>;
+> > +				regulator-min-microvolt = <650000>;
+> > +				regulator-name = "BUCK1";
+> > +				regulator-ramp-delay = <3125>;
+> > +			};
+> > +
+> > +			buck2: BUCK2 {
+> > +				regulator-always-on;
+> > +				regulator-boot-on;
+> > +				regulator-max-microvolt = <2187500>;
+> > +				regulator-min-microvolt = <600000>;
+> > +				regulator-name = "BUCK2";
+> > +				regulator-ramp-delay = <3125>;
+> > +			};
+> > +
+> > +			buck4: BUCK4 {
+> > +				regulator-always-on;
+> > +				regulator-boot-on;
+> > +				regulator-max-microvolt = <3400000>;
+> > +				regulator-min-microvolt = <600000>;
+> > +				regulator-name = "BUCK4";
+> > +			};
+> > +
+> > +			buck5: BUCK5 {
+> > +				regulator-always-on;
+> > +				regulator-boot-on;
+> > +				regulator-max-microvolt = <3400000>;
+> > +				regulator-min-microvolt = <600000>;
+> > +				regulator-name = "BUCK5";
+> > +			};
+> > +
+> > +			buck6: BUCK6 {
+> > +				regulator-always-on;
+> > +				regulator-boot-on;
+> > +				regulator-max-microvolt = <3400000>;
+> > +				regulator-min-microvolt = <600000>;
+> > +				regulator-name = "BUCK6";
+> > +			};
+> > +
+> > +			ldo1: LDO1 {
+> > +				regulator-always-on;
+> > +				regulator-boot-on;
+> > +				regulator-max-microvolt = <3300000>;
+> > +				regulator-min-microvolt = <1600000>;
+> > +				regulator-name = "LDO1";
+> > +			};
+> > +
+> > +			ldo4: LDO4 {
+> > +				regulator-always-on;
+> > +				regulator-boot-on;
+> > +				regulator-max-microvolt = <3300000>;
+> > +				regulator-min-microvolt = <800000>;
+> > +				regulator-name = "LDO4";
+> > +			};
+> > +
+> > +			ldo5: LDO5 {
+> > +				regulator-always-on;
+> > +				regulator-boot-on;
+> > +				regulator-max-microvolt = <3300000>;
+> > +				regulator-min-microvolt = <1800000>;
+> > +				regulator-name = "LDO5";
+> > +			};
+> > +		};
+> > +	};
+> > +};
+> > +
+> > +&lpi2c3 {
+> > +	#address-cells = <1>;
+> > +	#size-cells = <0>;
+> > +	clock-frequency = <400000>;
+> > +	pinctrl-0 = <&pinctrl_lpi2c3>;
+> > +	pinctrl-names = "default";
+> > +	status = "okay";
+> > +
+> > +	ptn5110: tcpc@50 {
+> > +		compatible = "nxp,ptn5110", "tcpci";
+> > +		reg = <0x50>;
+> > +		interrupts = <27 IRQ_TYPE_LEVEL_LOW>;
+> > +		interrupt-parent = <&gpio3>;
+> > +
+> > +		typec1_con: connector {
+> > +			compatible = "usb-c-connector";
+> > +			data-role = "dual";
+> > +			label = "USB-C";
+> > +			op-sink-microwatt = <15000000>;
+> > +			power-role = "dual";
+> > +			self-powered;
+> > +			sink-pdos = <PDO_FIXED(5000, 3000, PDO_FIXED_USB_COMM)
+> > +				     PDO_VAR(5000, 20000, 3000)>;
+> > +			source-pdos = <PDO_FIXED(5000, 3000, PDO_FIXED_USB_COMM)>;
+> > +			try-power-role = "sink";
+> > +
+> > +			ports {
+> > +				#address-cells = <1>;
+> > +				#size-cells = <0>;
+> > +
+> > +				port@0 {
+> > +					reg = <0>;
+> > +
+> > +					typec1_dr_sw: endpoint {
+> > +						remote-endpoint = <&usb1_drd_sw>;
+> > +					};
+> > +				};
+> > +			};
+> > +		};
+> > +	};
+> > +
+> > +	pcf2131: rtc@53 {
+> > +		compatible = "nxp,pcf2131";
+> > +		reg = <0x53>;
+> > +		interrupts = <1 IRQ_TYPE_EDGE_FALLING>;
+> > +		interrupt-parent = <&pcal6524>;
+> > +		status = "okay";
+> > +	};
+> > +};
+> > +
+> > +&lpspi3 {
+> > +	cs-gpios = <&gpio2 8 GPIO_ACTIVE_LOW>;
+> > +	pinctrl-0 = <&pinctrl_lpspi3>;
+> > +	pinctrl-1 = <&pinctrl_lpspi3>;
+> > +	pinctrl-names = "default", "sleep";
+> > +	gpio = <&pcal6408 0 GPIO_ACTIVE_HIGH>;
+> 
+> Is the SPI driver capturing this GPIO line?
+>
+This should be a gpio hog, will change.
 
-Signed-off-by: Ryan Chen <ryan_chen@aspeedtech.com>
----
- drivers/i2c/busses/Makefile          |    2 +-
- drivers/i2c/busses/i2c-aspeed-core.c |   89 +++
- drivers/i2c/busses/i2c-aspeed-core.h |   19 +
- drivers/i2c/busses/i2c-aspeed.c      |   43 +-
- drivers/i2c/busses/i2c-ast2600.c     | 1018 ++++++++++++++++++++++++++
- 5 files changed, 1136 insertions(+), 35 deletions(-)
- create mode 100644 drivers/i2c/busses/i2c-aspeed-core.c
- create mode 100644 drivers/i2c/busses/i2c-aspeed-core.h
- create mode 100644 drivers/i2c/busses/i2c-ast2600.c
-
-diff --git a/drivers/i2c/busses/Makefile b/drivers/i2c/busses/Makefile
-index fb985769f5ff..606b35196960 100644
---- a/drivers/i2c/busses/Makefile
-+++ b/drivers/i2c/busses/Makefile
-@@ -37,7 +37,7 @@ obj-$(CONFIG_I2C_POWERMAC)	+= i2c-powermac.o
- obj-$(CONFIG_I2C_ALTERA)	+= i2c-altera.o
- obj-$(CONFIG_I2C_AMD_MP2)	+= i2c-amd-mp2-pci.o i2c-amd-mp2-plat.o
- obj-$(CONFIG_I2C_AMD_ASF)	+= i2c-amd-asf-plat.o
--obj-$(CONFIG_I2C_ASPEED)	+= i2c-aspeed.o
-+obj-$(CONFIG_I2C_ASPEED)	+= i2c-aspeed.o i2c-ast2600.o i2c-aspeed-core.o
- obj-$(CONFIG_I2C_AT91)		+= i2c-at91.o
- i2c-at91-y			:= i2c-at91-core.o i2c-at91-master.o
- i2c-at91-$(CONFIG_I2C_AT91_SLAVE_EXPERIMENTAL)	+= i2c-at91-slave.o
-diff --git a/drivers/i2c/busses/i2c-aspeed-core.c b/drivers/i2c/busses/i2c-aspeed-core.c
-new file mode 100644
-index 000000000000..a2878e1273ed
---- /dev/null
-+++ b/drivers/i2c/busses/i2c-aspeed-core.c
-@@ -0,0 +1,89 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * ASPEED I2C core driver
-+ *
-+ * Copyright (C) ASPEED Technology Inc.
-+ */
-+
-+#include <linux/module.h>
-+#include <linux/of_device.h>
-+#include <linux/of_platform.h>
-+
-+#include "i2c-aspeed-core.h"
-+
-+struct aspeed_i2c_core_priv {
-+	void (*remove)(struct platform_device *pdev);
-+	void *bus_data;
-+};
-+
-+static const struct of_device_id aspeed_i2c_of_match[] = {
-+	{
-+		.compatible = "aspeed,ast2400-i2c-bus",
-+		.data = (const void *)AST2400_I2C
-+	},
-+	{
-+		.compatible = "aspeed,ast2500-i2c-bus",
-+		.data = (const void *)AST2500_I2C
-+	},
-+	{
-+		.compatible = "aspeed,ast2600-i2c-bus",
-+		.data = (const void *)AST2600_I2C
-+	},
-+	{ }
-+};
-+
-+MODULE_DEVICE_TABLE(of, aspeed_i2c_of_match);
-+
-+static int aspeed_i2c_core_probe(struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct aspeed_i2c_core_priv *priv;
-+	const struct of_device_id *match;
-+	int ret;
-+
-+	priv = devm_kzalloc(&pdev->dev, sizeof(*priv), GFP_KERNEL);
-+	if (!priv)
-+		return -ENOMEM;
-+
-+	match = of_match_device(aspeed_i2c_of_match, dev);
-+	if (!match)
-+		return -ENODEV;
-+
-+	if (device_is_compatible(dev, "aspeed,ast2600-i2c-bus") &&
-+	    device_property_present(dev, "aspeed,global-regs")) {
-+		ret = ast2600_i2c_probe(match, pdev);
-+		priv->remove = ast2600_i2c_remove;
-+	} else {
-+		ret = aspeed_i2c_probe_bus(match, pdev);
-+		priv->remove = aspeed_i2c_remove_bus;
-+	}
-+
-+	priv->bus_data = platform_get_drvdata(pdev);
-+	platform_set_drvdata(pdev, priv);
-+	return ret;
-+}
-+
-+static void aspeed_i2c_core_remove(struct platform_device *pdev)
-+{
-+	struct aspeed_i2c_core_priv *priv = platform_get_drvdata(pdev);
-+
-+	if (!priv || !priv->remove)
-+		return;
-+
-+	platform_set_drvdata(pdev, priv->bus_data);
-+	return priv->remove(pdev);
-+}
-+
-+static struct platform_driver aspeed_i2c_driver = {
-+	.probe  = aspeed_i2c_core_probe,
-+	.remove = aspeed_i2c_core_remove,
-+	.driver = {
-+		.name           = "i2c-aspeed-core",
-+		.of_match_table = aspeed_i2c_of_match,
-+	},
-+};
-+module_platform_driver(aspeed_i2c_driver);
-+
-+MODULE_AUTHOR("Ryan Chen <ryan_chen@aspeedtech.com>");
-+MODULE_DESCRIPTION("Unified ASPEED I2C driver (AST24xx/AST25xx/AST2600)");
-+MODULE_LICENSE("GPL");
-diff --git a/drivers/i2c/busses/i2c-aspeed-core.h b/drivers/i2c/busses/i2c-aspeed-core.h
-new file mode 100644
-index 000000000000..6e0091018985
---- /dev/null
-+++ b/drivers/i2c/busses/i2c-aspeed-core.h
-@@ -0,0 +1,19 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+#ifndef _I2C_ASPEED_CORE_H
-+#define _I2C_ASPEED_CORE_H
-+
-+#include <linux/of.h>
-+#include <linux/platform_device.h>
-+
-+enum i2c_version {
-+	AST2400_I2C,
-+	AST2500_I2C,
-+	AST2600_I2C,
-+	AST2700_I2C,
-+};
-+
-+int aspeed_i2c_probe_bus(const struct of_device_id *match, struct platform_device *pdev);
-+void aspeed_i2c_remove_bus(struct platform_device *pdev);
-+int ast2600_i2c_probe(const struct of_device_id *match, struct platform_device *pdev);
-+void ast2600_i2c_remove(struct platform_device *pdev);
-+#endif
-diff --git a/drivers/i2c/busses/i2c-aspeed.c b/drivers/i2c/busses/i2c-aspeed.c
-index a26b74c71206..8466c98b6c7b 100644
---- a/drivers/i2c/busses/i2c-aspeed.c
-+++ b/drivers/i2c/busses/i2c-aspeed.c
-@@ -25,6 +25,8 @@
- #include <linux/reset.h>
- #include <linux/slab.h>
- 
-+#include "i2c-aspeed-core.h"
-+
- /* I2C Register */
- #define ASPEED_I2C_FUN_CTRL_REG				0x00
- #define ASPEED_I2C_AC_TIMING_REG1			0x04
-@@ -978,26 +980,9 @@ static int aspeed_i2c_reset(struct aspeed_i2c_bus *bus)
- 	return ret;
- }
- 
--static const struct of_device_id aspeed_i2c_bus_of_table[] = {
--	{
--		.compatible = "aspeed,ast2400-i2c-bus",
--		.data = aspeed_i2c_24xx_get_clk_reg_val,
--	},
--	{
--		.compatible = "aspeed,ast2500-i2c-bus",
--		.data = aspeed_i2c_25xx_get_clk_reg_val,
--	},
--	{
--		.compatible = "aspeed,ast2600-i2c-bus",
--		.data = aspeed_i2c_25xx_get_clk_reg_val,
--	},
--	{ }
--};
--MODULE_DEVICE_TABLE(of, aspeed_i2c_bus_of_table);
--
--static int aspeed_i2c_probe_bus(struct platform_device *pdev)
-+int aspeed_i2c_probe_bus(const struct of_device_id *match,
-+			 struct platform_device *pdev)
- {
--	const struct of_device_id *match;
- 	struct aspeed_i2c_bus *bus;
- 	struct clk *parent_clk;
- 	int irq, ret;
-@@ -1033,12 +1018,10 @@ static int aspeed_i2c_probe_bus(struct platform_device *pdev)
- 		bus->bus_frequency = I2C_MAX_STANDARD_MODE_FREQ;
- 	}
- 
--	match = of_match_node(aspeed_i2c_bus_of_table, pdev->dev.of_node);
--	if (!match)
-+	if ((enum i2c_version)(uintptr_t)match->data == AST2400_I2C)
- 		bus->get_clk_reg_val = aspeed_i2c_24xx_get_clk_reg_val;
- 	else
--		bus->get_clk_reg_val = (u32 (*)(struct device *, u32))
--				match->data;
-+		bus->get_clk_reg_val = aspeed_i2c_25xx_get_clk_reg_val;
- 
- 	/* Initialize the I2C adapter */
- 	spin_lock_init(&bus->lock);
-@@ -1081,8 +1064,9 @@ static int aspeed_i2c_probe_bus(struct platform_device *pdev)
- 
- 	return 0;
- }
-+EXPORT_SYMBOL_GPL(aspeed_i2c_probe_bus);
- 
--static void aspeed_i2c_remove_bus(struct platform_device *pdev)
-+void aspeed_i2c_remove_bus(struct platform_device *pdev)
- {
- 	struct aspeed_i2c_bus *bus = platform_get_drvdata(pdev);
- 	unsigned long flags;
-@@ -1099,16 +1083,7 @@ static void aspeed_i2c_remove_bus(struct platform_device *pdev)
- 
- 	i2c_del_adapter(&bus->adap);
- }
--
--static struct platform_driver aspeed_i2c_bus_driver = {
--	.probe		= aspeed_i2c_probe_bus,
--	.remove		= aspeed_i2c_remove_bus,
--	.driver		= {
--		.name		= "aspeed-i2c-bus",
--		.of_match_table	= aspeed_i2c_bus_of_table,
--	},
--};
--module_platform_driver(aspeed_i2c_bus_driver);
-+EXPORT_SYMBOL_GPL(aspeed_i2c_remove_bus);
- 
- MODULE_AUTHOR("Brendan Higgins <brendanhiggins@google.com>");
- MODULE_DESCRIPTION("Aspeed I2C Bus Driver");
-diff --git a/drivers/i2c/busses/i2c-ast2600.c b/drivers/i2c/busses/i2c-ast2600.c
-new file mode 100644
-index 000000000000..04cb38e018a6
---- /dev/null
-+++ b/drivers/i2c/busses/i2c-ast2600.c
-@@ -0,0 +1,1018 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * ASPEED AST2600 new register set I2C controller driver
-+ *
-+ * Copyright (C) ASPEED Technology Inc.
-+ */
-+#include <linux/array_size.h>
-+#include <linux/bits.h>
-+#include <linux/clk.h>
-+#include <linux/completion.h>
-+#include <linux/delay.h>
-+#include <linux/dma-mapping.h>
-+#include <linux/err.h>
-+#include <linux/i2c.h>
-+#include <linux/i2c-smbus.h>
-+#include <linux/interrupt.h>
-+#include <linux/io.h>
-+#include <linux/minmax.h>
-+#include <linux/mfd/syscon.h>
-+#include <linux/module.h>
-+#include <linux/platform_device.h>
-+#include <linux/property.h>
-+#include <linux/regmap.h>
-+#include <linux/reset.h>
-+#include <linux/slab.h>
-+#include <linux/string_helpers.h>
-+#include <linux/unaligned.h>
-+
-+#include "i2c-aspeed-core.h"
-+
-+#define AST2600_I2CG_ISR			0x00
-+#define AST2600_I2CG_SLAVE_ISR		0x04
-+#define AST2600_I2CG_OWNER		0x08
-+#define AST2600_I2CG_CTRL		0x0C
-+#define AST2600_I2CG_CLK_DIV_CTRL	0x10
-+
-+#define AST2600_I2CG_SLAVE_PKT_NAK	BIT(4)
-+#define AST2600_I2CG_M_S_SEPARATE_INTR	BIT(3)
-+#define AST2600_I2CG_CTRL_NEW_REG	BIT(2)
-+#define AST2600_I2CG_CTRL_NEW_CLK_DIV	BIT(1)
-+#define AST2600_GLOBAL_INIT	\
-+	(AST2600_I2CG_CTRL_NEW_REG | AST2600_I2CG_CTRL_NEW_CLK_DIV)
-+/*
-+ * APB clk : 100Mhz
-+ * div	: scl		: baseclk [APB/((div/2) + 1)] : tBuf [1/bclk * 16]
-+ * I2CG10[31:24] base clk4 for i2c auto recovery timeout counter (0xC6)
-+ * I2CG10[23:16] base clk3 for Standard-mode (100Khz) min tBuf 4.7us
-+ * 0x3c : 100.8Khz	: 3.225Mhz					  : 4.96us
-+ * 0x3d : 99.2Khz	: 3.174Mhz					  : 5.04us
-+ * 0x3e : 97.65Khz	: 3.125Mhz					  : 5.12us
-+ * 0x40 : 97.75Khz	: 3.03Mhz					  : 5.28us
-+ * 0x41 : 99.5Khz	: 2.98Mhz					  : 5.36us (default)
-+ * I2CG10[15:8] base clk2 for Fast-mode (400Khz) min tBuf 1.3us
-+ * 0x12 : 400Khz	: 10Mhz						  : 1.6us
-+ * I2CG10[7:0] base clk1 for Fast-mode Plus (1Mhz) min tBuf 0.5us
-+ * 0x08 : 1Mhz		: 20Mhz						  : 0.8us
-+ */
-+#define I2CCG_DIV_CTRL 0xC6411208
-+
-+/* 0x00 : I2CC Controller/Target Function Control Register  */
-+#define AST2600_I2CC_FUN_CTRL		0x00
-+#define AST2600_I2CC_SLAVE_ADDR_RX_EN		BIT(20)
-+#define AST2600_I2CC_MASTER_RETRY_MASK		GENMASK(19, 18)
-+#define AST2600_I2CC_MASTER_RETRY(x)		(((x) & GENMASK(1, 0)) << 18)
-+#define AST2600_I2CC_BUS_AUTO_RELEASE		BIT(17)
-+#define AST2600_I2CC_M_SDA_LOCK_EN			BIT(16)
-+#define AST2600_I2CC_MULTI_MASTER_DIS		BIT(15)
-+#define AST2600_I2CC_M_SCL_DRIVE_EN			BIT(14)
-+#define AST2600_I2CC_MSB_STS				BIT(9)
-+#define AST2600_I2CC_SDA_DRIVE_1T_EN		BIT(8)
-+#define AST2600_I2CC_M_SDA_DRIVE_1T_EN		BIT(7)
-+#define AST2600_I2CC_M_HIGH_SPEED_EN		BIT(6)
-+/* reserver 5 : 2 */
-+#define AST2600_I2CC_SLAVE_EN			BIT(1)
-+#define AST2600_I2CC_MASTER_EN			BIT(0)
-+
-+/* 0x04 : I2CC Controller/Target Clock and AC Timing Control Register #1 */
-+#define AST2600_I2CC_AC_TIMING		0x04
-+#define AST2600_I2CC_TTIMEOUT(x)			(((x) & GENMASK(4, 0)) << 24)
-+#define AST2600_I2CC_TCKHIGHMIN(x)			(((x) & GENMASK(3, 0)) << 20)
-+#define AST2600_I2CC_TCKHIGH(x)			(((x) & GENMASK(3, 0)) << 16)
-+#define AST2600_I2CC_TCKLOW(x)			(((x) & GENMASK(3, 0)) << 12)
-+#define AST2600_I2CC_THDDAT(x)			(((x) & GENMASK(1, 0)) << 10)
-+#define AST2600_I2CC_TOUTBASECLK(x)			(((x) & GENMASK(1, 0)) << 8)
-+#define AST2600_I2CC_TBASECLK(x)			((x) & GENMASK(3, 0))
-+
-+/* 0x08 : I2CC Controller/Target Transmit/Receive Byte Buffer Register */
-+#define AST2600_I2CC_STS_AND_BUFF		0x08
-+#define AST2600_I2CC_TX_DIR_MASK			GENMASK(31, 29)
-+#define AST2600_I2CC_SDA_OE				BIT(28)
-+#define AST2600_I2CC_SDA_O				BIT(27)
-+#define AST2600_I2CC_SCL_OE				BIT(26)
-+#define AST2600_I2CC_SCL_O				BIT(25)
-+
-+#define AST2600_I2CC_SCL_LINE_STS			BIT(18)
-+#define AST2600_I2CC_SDA_LINE_STS			BIT(17)
-+#define AST2600_I2CC_BUS_BUSY_STS			BIT(16)
-+
-+#define AST2600_I2CC_GET_RX_BUFF(x)			(((x) >> 8) & GENMASK(7, 0))
-+
-+/* 0x0C : I2CC Controller/Target Pool Buffer Control Register  */
-+#define AST2600_I2CC_BUFF_CTRL		0x0C
-+#define AST2600_I2CC_GET_RX_BUF_LEN(x)      (((x) & GENMASK(29, 24)) >> 24)
-+#define AST2600_I2CC_SET_RX_BUF_LEN(x)		(((((x) - 1) & GENMASK(4, 0)) << 16) | BIT(0))
-+#define AST2600_I2CC_SET_TX_BUF_LEN(x)		(((((x) - 1) & GENMASK(4, 0)) << 8) | BIT(0))
-+#define AST2600_I2CC_GET_TX_BUF_LEN(x)      ((((x) & GENMASK(12, 8)) >> 8) + 1)
-+
-+/* 0x10 : I2CM Controller Interrupt Control Register */
-+#define AST2600_I2CM_IER			0x10
-+/* 0x14 : I2CM Controller Interrupt Status Register   : WC */
-+#define AST2600_I2CM_ISR			0x14
-+
-+#define AST2600_I2CM_PKT_TIMEOUT			BIT(18)
-+#define AST2600_I2CM_PKT_ERROR			BIT(17)
-+#define AST2600_I2CM_PKT_DONE			BIT(16)
-+
-+#define AST2600_I2CM_BUS_RECOVER_FAIL		BIT(15)
-+#define AST2600_I2CM_SDA_DL_TO			BIT(14)
-+#define AST2600_I2CM_BUS_RECOVER			BIT(13)
-+#define AST2600_I2CM_SMBUS_ALT			BIT(12)
-+
-+#define AST2600_I2CM_SCL_LOW_TO			BIT(6)
-+#define AST2600_I2CM_ABNORMAL			BIT(5)
-+#define AST2600_I2CM_NORMAL_STOP			BIT(4)
-+#define AST2600_I2CM_ARBIT_LOSS			BIT(3)
-+#define AST2600_I2CM_RX_DONE			BIT(2)
-+#define AST2600_I2CM_TX_NAK				BIT(1)
-+#define AST2600_I2CM_TX_ACK				BIT(0)
-+
-+/* 0x18 : I2CM Controller Command/Status Register   */
-+#define AST2600_I2CM_CMD_STS		0x18
-+#define AST2600_I2CM_PKT_ADDR(x)			(((x) & GENMASK(6, 0)) << 24)
-+#define AST2600_I2CM_PKT_EN				BIT(16)
-+#define AST2600_I2CM_SDA_OE_OUT_DIR			BIT(15)
-+#define AST2600_I2CM_SDA_O_OUT_DIR			BIT(14)
-+#define AST2600_I2CM_SCL_OE_OUT_DIR			BIT(13)
-+#define AST2600_I2CM_SCL_O_OUT_DIR			BIT(12)
-+#define AST2600_I2CM_RECOVER_CMD_EN			BIT(11)
-+
-+#define AST2600_I2CM_RX_DMA_EN			BIT(9)
-+#define AST2600_I2CM_TX_DMA_EN			BIT(8)
-+/* Command Bit */
-+#define AST2600_I2CM_RX_BUFF_EN			BIT(7)
-+#define AST2600_I2CM_TX_BUFF_EN			BIT(6)
-+#define AST2600_I2CM_STOP_CMD			BIT(5)
-+#define AST2600_I2CM_RX_CMD_LAST			BIT(4)
-+#define AST2600_I2CM_RX_CMD				BIT(3)
-+
-+#define AST2600_I2CM_TX_CMD				BIT(1)
-+#define AST2600_I2CM_START_CMD			BIT(0)
-+
-+/* 0x1C : I2CM Controller DMA Transfer Length Register	 */
-+#define AST2600_I2CM_DMA_LEN		0x1C
-+/* Tx Rx support length 1 ~ 4096 */
-+#define AST2600_I2CM_SET_RX_DMA_LEN(x)	((((x) & GENMASK(11, 0)) << 16) | BIT(31))
-+#define AST2600_I2CM_SET_TX_DMA_LEN(x)	(((x) & GENMASK(11, 0)) | BIT(15))
-+
-+/* 0x20 : I2CS Target Interrupt Control Register   */
-+#define AST2600_I2CS_IER			0x20
-+/* 0x24 : I2CS Target Interrupt Status Register	 */
-+#define AST2600_I2CS_ISR			0x24
-+
-+#define AST2600_I2CS_ADDR_INDICATE_MASK	GENMASK(31, 30)
-+#define AST2600_I2CS_SLAVE_PENDING			BIT(29)
-+
-+#define AST2600_I2CS_WAIT_TX_DMA			BIT(25)
-+#define AST2600_I2CS_WAIT_RX_DMA			BIT(24)
-+
-+#define AST2600_I2CS_ADDR3_NAK			BIT(22)
-+#define AST2600_I2CS_ADDR2_NAK			BIT(21)
-+#define AST2600_I2CS_ADDR1_NAK			BIT(20)
-+
-+#define AST2600_I2CS_ADDR_MASK			GENMASK(19, 18)
-+#define AST2600_I2CS_PKT_ERROR			BIT(17)
-+#define AST2600_I2CS_PKT_DONE			BIT(16)
-+#define AST2600_I2CS_INACTIVE_TO			BIT(15)
-+
-+#define AST2600_I2CS_SLAVE_MATCH			BIT(7)
-+#define AST2600_I2CS_ABNOR_STOP			BIT(5)
-+#define AST2600_I2CS_STOP				BIT(4)
-+#define AST2600_I2CS_RX_DONE_NAK			BIT(3)
-+#define AST2600_I2CS_RX_DONE			BIT(2)
-+#define AST2600_I2CS_TX_NAK				BIT(1)
-+#define AST2600_I2CS_TX_ACK				BIT(0)
-+
-+/* 0x28 : I2CS Target CMD/Status Register   */
-+#define AST2600_I2CS_CMD_STS		0x28
-+#define AST2600_I2CS_ACTIVE_ALL			GENMASK(18, 17)
-+#define AST2600_I2CS_PKT_MODE_EN			BIT(16)
-+#define AST2600_I2CS_AUTO_NAK_NOADDR		BIT(15)
-+#define AST2600_I2CS_AUTO_NAK_EN			BIT(14)
-+
-+#define AST2600_I2CS_ALT_EN				BIT(10)
-+#define AST2600_I2CS_RX_DMA_EN			BIT(9)
-+#define AST2600_I2CS_TX_DMA_EN			BIT(8)
-+#define AST2600_I2CS_RX_BUFF_EN			BIT(7)
-+#define AST2600_I2CS_TX_BUFF_EN			BIT(6)
-+#define AST2600_I2CS_RX_CMD_LAST			BIT(4)
-+
-+#define AST2600_I2CS_TX_CMD				BIT(2)
-+
-+#define AST2600_I2CS_DMA_LEN		0x2C
-+#define AST2600_I2CS_SET_RX_DMA_LEN(x)	(((((x) - 1) & GENMASK(11, 0)) << 16) | BIT(31))
-+#define AST2600_I2CS_SET_TX_DMA_LEN(x)	((((x) - 1) & GENMASK(11, 0)) | BIT(15))
-+
-+/* I2CM Controller DMA Tx Buffer Register   */
-+#define AST2600_I2CM_TX_DMA			0x30
-+/* I2CM Controller DMA Rx Buffer Register	*/
-+#define AST2600_I2CM_RX_DMA			0x34
-+/* I2CS Target DMA Tx Buffer Register   */
-+#define AST2600_I2CS_TX_DMA			0x38
-+/* I2CS Target DMA Rx Buffer Register   */
-+#define AST2600_I2CS_RX_DMA			0x3C
-+
-+#define AST2600_I2CS_ADDR_CTRL		0x40
-+
-+#define	AST2600_I2CS_ADDR3_MASK		GENMASK(22, 16)
-+#define	AST2600_I2CS_ADDR2_MASK		GENMASK(14, 8)
-+#define	AST2600_I2CS_ADDR1_MASK		GENMASK(6, 0)
-+
-+#define AST2600_I2CM_DMA_LEN_STS		0x48
-+#define AST2600_I2CS_DMA_LEN_STS		0x4C
-+
-+#define AST2600_I2C_GET_TX_DMA_LEN(x)		((x) & GENMASK(12, 0))
-+#define AST2600_I2C_GET_RX_DMA_LEN(x)        (((x) & GENMASK(28, 16)) >> 16)
-+
-+/* 0x40 : Target Device Address Register */
-+#define AST2600_I2CS_ADDR3_ENABLE			BIT(23)
-+#define AST2600_I2CS_ADDR3(x)			((x) << 16)
-+#define AST2600_I2CS_ADDR2_ENABLE			BIT(15)
-+#define AST2600_I2CS_ADDR2(x)			((x) << 8)
-+#define AST2600_I2CS_ADDR1_ENABLE			BIT(7)
-+#define AST2600_I2CS_ADDR1(x)			(x)
-+
-+#define I2C_TARGET_MSG_BUF_SIZE		256
-+
-+#define AST2600_I2C_DMA_SIZE		4096
-+
-+#define CONTROLLER_TRIGGER_LAST_STOP	(AST2600_I2CM_RX_CMD_LAST | AST2600_I2CM_STOP_CMD)
-+#define TARGET_TRIGGER_CMD	(AST2600_I2CS_ACTIVE_ALL | AST2600_I2CS_PKT_MODE_EN)
-+
-+#define AST_I2C_TIMEOUT_CLK		0x1
-+
-+enum xfer_mode {
-+	BYTE_MODE,
-+	BUFF_MODE,
-+	DMA_MODE,
-+};
-+
-+struct ast2600_i2c_bus {
-+	struct i2c_adapter	adap;
-+	struct device		*dev;
-+	void __iomem		*reg_base;
-+	struct regmap		*global_regs;
-+	struct clk		*clk;
-+	struct i2c_timings	timing_info;
-+	struct completion	cmd_complete;
-+	struct i2c_msg		*msgs;
-+	u8			*controller_dma_safe_buf;
-+	dma_addr_t		controller_dma_addr;
-+	u32			apb_clk;
-+	u32			timeout;
-+	int			irq;
-+	int			cmd_err;
-+	int			msgs_index;
-+	int			msgs_count;
-+	int			controller_xfer_cnt;
-+	size_t			buf_index;
-+	size_t			buf_size;
-+	enum xfer_mode		mode;
-+	bool			multi_master;
-+	/* Buffer mode */
-+	void __iomem		*buf_base;
-+	struct i2c_smbus_alert_setup	alert_data;
-+};
-+
-+static void ast2600_i2c_ac_timing_config(struct ast2600_i2c_bus *i2c_bus)
-+{
-+	unsigned long base_clk[16];
-+	int baseclk_idx = 0;
-+	int divisor = 0;
-+	u32 clk_div_reg;
-+	u32 scl_low;
-+	u32 scl_high;
-+	u32 data;
-+
-+	regmap_read(i2c_bus->global_regs, AST2600_I2CG_CLK_DIV_CTRL, &clk_div_reg);
-+
-+	for (int i = 0; i < ARRAY_SIZE(base_clk); i++) {
-+		if (i == 0)
-+			base_clk[i] = i2c_bus->apb_clk;
-+		else if (i < 5)
-+			base_clk[i] = (i2c_bus->apb_clk * 2) /
-+			   (((clk_div_reg >> ((i - 1) * 8)) & GENMASK(7, 0)) + 2);
-+		else
-+			base_clk[i] = base_clk[4] >> (i - 4);
-+
-+		if ((base_clk[i] / i2c_bus->timing_info.bus_freq_hz) <= 32) {
-+			baseclk_idx = i;
-+			divisor = DIV_ROUND_UP(base_clk[i], i2c_bus->timing_info.bus_freq_hz);
-+			break;
-+		}
-+	}
-+	baseclk_idx = min(baseclk_idx, 15);
-+	divisor = min(divisor, 32);
-+	scl_low = min(divisor * 9 / 16 - 1, 15);
-+	scl_high = (divisor - scl_low - 2) & GENMASK(3, 0);
-+	data = (scl_high - 1) << 20 | scl_high << 16 | scl_low << 12 | baseclk_idx;
-+	if (i2c_bus->timeout) {
-+		data |= AST2600_I2CC_TOUTBASECLK(AST_I2C_TIMEOUT_CLK);
-+		data |= AST2600_I2CC_TTIMEOUT(i2c_bus->timeout);
-+	}
-+
-+	writel(data, i2c_bus->reg_base + AST2600_I2CC_AC_TIMING);
-+}
-+
-+static int ast2600_i2c_recover_bus(struct ast2600_i2c_bus *i2c_bus)
-+{
-+	u32 state = readl(i2c_bus->reg_base + AST2600_I2CC_STS_AND_BUFF);
-+	int ret = 0;
-+	u32 ctrl;
-+	int r;
-+
-+	dev_dbg(i2c_bus->dev, "%d-bus recovery bus [%x]\n", i2c_bus->adap.nr, state);
-+
-+	ctrl = readl(i2c_bus->reg_base + AST2600_I2CC_FUN_CTRL);
-+
-+	/* Disable controller */
-+	writel(ctrl & ~(AST2600_I2CC_MASTER_EN | AST2600_I2CC_SLAVE_EN),
-+	       i2c_bus->reg_base + AST2600_I2CC_FUN_CTRL);
-+
-+	writel(readl(i2c_bus->reg_base + AST2600_I2CC_FUN_CTRL) | AST2600_I2CC_MASTER_EN,
-+	       i2c_bus->reg_base + AST2600_I2CC_FUN_CTRL);
-+
-+	reinit_completion(&i2c_bus->cmd_complete);
-+	i2c_bus->cmd_err = 0;
-+
-+	/* Check 0x14's SDA and SCL status */
-+	state = readl(i2c_bus->reg_base + AST2600_I2CC_STS_AND_BUFF);
-+	if (!(state & AST2600_I2CC_SDA_LINE_STS) && (state & AST2600_I2CC_SCL_LINE_STS)) {
-+		writel(AST2600_I2CM_RECOVER_CMD_EN, i2c_bus->reg_base + AST2600_I2CM_CMD_STS);
-+		r = wait_for_completion_timeout(&i2c_bus->cmd_complete, i2c_bus->adap.timeout);
-+		if (r == 0) {
-+			dev_dbg(i2c_bus->dev, "recovery timed out\n");
-+			writel(ctrl, i2c_bus->reg_base + AST2600_I2CC_FUN_CTRL);
-+			return -ETIMEDOUT;
-+		} else if (i2c_bus->cmd_err) {
-+			dev_dbg(i2c_bus->dev, "recovery error\n");
-+			ret = -EPROTO;
-+		}
-+	}
-+
-+	/* Recovery done */
-+	state = readl(i2c_bus->reg_base + AST2600_I2CC_STS_AND_BUFF);
-+	if (state & AST2600_I2CC_BUS_BUSY_STS) {
-+		dev_dbg(i2c_bus->dev, "Can't recover bus [%x]\n", state);
-+		ret = -EPROTO;
-+	}
-+
-+	/* restore original controller setting */
-+	writel(ctrl, i2c_bus->reg_base + AST2600_I2CC_FUN_CTRL);
-+	return ret;
-+}
-+
-+static int ast2600_i2c_setup_dma_tx(u32 cmd, struct ast2600_i2c_bus *i2c_bus)
-+{
-+	struct i2c_msg *msg = &i2c_bus->msgs[i2c_bus->msgs_index];
-+	int xfer_len = msg->len - i2c_bus->controller_xfer_cnt;
-+	int ret;
-+
-+	cmd |= AST2600_I2CM_PKT_EN;
-+
-+	if (xfer_len > AST2600_I2C_DMA_SIZE)
-+		xfer_len = AST2600_I2C_DMA_SIZE;
-+	else if (i2c_bus->msgs_index + 1 == i2c_bus->msgs_count)
-+		cmd |= AST2600_I2CM_STOP_CMD;
-+
-+	if (cmd & AST2600_I2CM_START_CMD) {
-+		cmd |= AST2600_I2CM_PKT_ADDR(msg->addr);
-+		if (xfer_len) {
-+			i2c_bus->controller_dma_safe_buf = i2c_get_dma_safe_msg_buf(msg, 1);
-+			if (!i2c_bus->controller_dma_safe_buf)
-+				return -ENOMEM;
-+			i2c_bus->controller_dma_addr =
-+				dma_map_single(i2c_bus->dev, i2c_bus->controller_dma_safe_buf,
-+					       msg->len, DMA_TO_DEVICE);
-+			ret = dma_mapping_error(i2c_bus->dev, i2c_bus->controller_dma_addr);
-+			if (ret) {
-+				i2c_put_dma_safe_msg_buf(i2c_bus->controller_dma_safe_buf, msg,
-+							 false);
-+				i2c_bus->controller_dma_safe_buf = NULL;
-+				return ret;
-+			}
-+		}
-+	}
-+
-+	if (xfer_len) {
-+		cmd |= AST2600_I2CM_TX_DMA_EN | AST2600_I2CM_TX_CMD;
-+		writel(AST2600_I2CM_SET_TX_DMA_LEN(xfer_len - 1),
-+		       i2c_bus->reg_base + AST2600_I2CM_DMA_LEN);
-+		writel(i2c_bus->controller_dma_addr + i2c_bus->controller_xfer_cnt,
-+		       i2c_bus->reg_base + AST2600_I2CM_TX_DMA);
-+	}
-+
-+	writel(cmd, i2c_bus->reg_base + AST2600_I2CM_CMD_STS);
-+
-+	return 0;
-+}
-+
-+static int ast2600_i2c_setup_buff_tx(u32 cmd, struct ast2600_i2c_bus *i2c_bus)
-+{
-+	struct i2c_msg *msg = &i2c_bus->msgs[i2c_bus->msgs_index];
-+	int xfer_len = msg->len - i2c_bus->controller_xfer_cnt;
-+	u32 wbuf_dword;
-+	int i;
-+
-+	cmd |= AST2600_I2CM_PKT_EN;
-+
-+	if (xfer_len > i2c_bus->buf_size)
-+		xfer_len = i2c_bus->buf_size;
-+	else if (i2c_bus->msgs_index + 1 == i2c_bus->msgs_count)
-+		cmd |= AST2600_I2CM_STOP_CMD;
-+
-+	if (cmd & AST2600_I2CM_START_CMD)
-+		cmd |= AST2600_I2CM_PKT_ADDR(msg->addr);
-+
-+	if (xfer_len) {
-+		cmd |= AST2600_I2CM_TX_BUFF_EN | AST2600_I2CM_TX_CMD;
-+		/*
-+		 * The controller's buffer register supports dword writes only.
-+		 * Therefore, write dwords to the buffer register in a 4-byte aligned,
-+		 * and write the remaining unaligned data at the end.
-+		 */
-+		for (i = 0; i < xfer_len; i += 4) {
-+			int xfer_cnt = i2c_bus->controller_xfer_cnt + i;
-+
-+			switch (min(xfer_len - i, 4) % 4) {
-+			case 1:
-+				wbuf_dword = msg->buf[xfer_cnt];
-+				break;
-+			case 2:
-+				wbuf_dword = get_unaligned_le16(&msg->buf[xfer_cnt]);
-+				break;
-+			case 3:
-+				wbuf_dword = get_unaligned_le24(&msg->buf[xfer_cnt]);
-+				break;
-+			default:
-+				wbuf_dword = get_unaligned_le32(&msg->buf[xfer_cnt]);
-+				break;
-+			}
-+			writel(wbuf_dword, i2c_bus->buf_base + i);
-+		}
-+		writel(AST2600_I2CC_SET_TX_BUF_LEN(xfer_len),
-+		       i2c_bus->reg_base + AST2600_I2CC_BUFF_CTRL);
-+	}
-+
-+	writel(cmd, i2c_bus->reg_base + AST2600_I2CM_CMD_STS);
-+
-+	return 0;
-+}
-+
-+static int ast2600_i2c_setup_byte_tx(u32 cmd, struct ast2600_i2c_bus *i2c_bus)
-+{
-+	struct i2c_msg *msg = &i2c_bus->msgs[i2c_bus->msgs_index];
-+	int xfer_len;
-+
-+	xfer_len = msg->len - i2c_bus->controller_xfer_cnt;
-+
-+	cmd |= AST2600_I2CM_PKT_EN;
-+
-+	if (cmd & AST2600_I2CM_START_CMD)
-+		cmd |= AST2600_I2CM_PKT_ADDR(msg->addr);
-+
-+	if ((i2c_bus->msgs_index + 1 == i2c_bus->msgs_count) &&
-+	    ((i2c_bus->controller_xfer_cnt + 1) == msg->len))
-+		cmd |= AST2600_I2CM_STOP_CMD;
-+
-+	if (xfer_len) {
-+		cmd |= AST2600_I2CM_TX_CMD;
-+		writel(msg->buf[i2c_bus->controller_xfer_cnt],
-+		       i2c_bus->reg_base + AST2600_I2CC_STS_AND_BUFF);
-+	}
-+
-+	writel(cmd, i2c_bus->reg_base + AST2600_I2CM_CMD_STS);
-+
-+	return 0;
-+}
-+
-+static int ast2600_i2c_setup_dma_rx(u32 cmd, struct ast2600_i2c_bus *i2c_bus)
-+{
-+	struct i2c_msg *msg = &i2c_bus->msgs[i2c_bus->msgs_index];
-+	int xfer_len = msg->len - i2c_bus->controller_xfer_cnt;
-+	int ret;
-+
-+	cmd |= AST2600_I2CM_PKT_EN | AST2600_I2CM_RX_DMA_EN | AST2600_I2CM_RX_CMD;
-+
-+	if (msg->flags & I2C_M_RECV_LEN)
-+		xfer_len = 1;
-+	else if (xfer_len > AST2600_I2C_DMA_SIZE)
-+		xfer_len = AST2600_I2C_DMA_SIZE;
-+	else if (i2c_bus->msgs_index + 1 == i2c_bus->msgs_count)
-+		cmd |= CONTROLLER_TRIGGER_LAST_STOP;
-+
-+	writel(AST2600_I2CM_SET_RX_DMA_LEN(xfer_len - 1), i2c_bus->reg_base + AST2600_I2CM_DMA_LEN);
-+
-+	if (cmd & AST2600_I2CM_START_CMD) {
-+		cmd |= AST2600_I2CM_PKT_ADDR(msg->addr);
-+		i2c_bus->controller_dma_safe_buf = i2c_get_dma_safe_msg_buf(msg, 1);
-+		if (!i2c_bus->controller_dma_safe_buf)
-+			return -ENOMEM;
-+		if (msg->flags & I2C_M_RECV_LEN)
-+			i2c_bus->controller_dma_addr =
-+				dma_map_single(i2c_bus->dev, i2c_bus->controller_dma_safe_buf,
-+					       I2C_SMBUS_BLOCK_MAX + 3, DMA_FROM_DEVICE);
-+		else
-+			i2c_bus->controller_dma_addr =
-+				dma_map_single(i2c_bus->dev, i2c_bus->controller_dma_safe_buf,
-+					       msg->len, DMA_FROM_DEVICE);
-+		ret = dma_mapping_error(i2c_bus->dev, i2c_bus->controller_dma_addr);
-+		if (ret) {
-+			i2c_put_dma_safe_msg_buf(i2c_bus->controller_dma_safe_buf, msg, false);
-+			i2c_bus->controller_dma_safe_buf = NULL;
-+			return -ENOMEM;
-+		}
-+	}
-+	writel(i2c_bus->controller_dma_addr, i2c_bus->reg_base + AST2600_I2CM_RX_DMA);
-+
-+	writel(cmd, i2c_bus->reg_base + AST2600_I2CM_CMD_STS);
-+
-+	return 0;
-+}
-+
-+static int ast2600_i2c_setup_buff_rx(u32 cmd, struct ast2600_i2c_bus *i2c_bus)
-+{
-+	struct i2c_msg *msg = &i2c_bus->msgs[i2c_bus->msgs_index];
-+	int xfer_len = msg->len - i2c_bus->controller_xfer_cnt;
-+
-+	cmd |= AST2600_I2CM_PKT_EN | AST2600_I2CM_RX_BUFF_EN | AST2600_I2CM_RX_CMD;
-+
-+	if (cmd & AST2600_I2CM_START_CMD)
-+		cmd |= AST2600_I2CM_PKT_ADDR(msg->addr);
-+
-+	if (msg->flags & I2C_M_RECV_LEN) {
-+		dev_dbg(i2c_bus->dev, "smbus read\n");
-+		xfer_len = 1;
-+	} else if (xfer_len > i2c_bus->buf_size) {
-+		xfer_len = i2c_bus->buf_size;
-+	} else if (i2c_bus->msgs_index + 1 == i2c_bus->msgs_count) {
-+		cmd |= CONTROLLER_TRIGGER_LAST_STOP;
-+	}
-+	writel(AST2600_I2CC_SET_RX_BUF_LEN(xfer_len), i2c_bus->reg_base + AST2600_I2CC_BUFF_CTRL);
-+
-+	writel(cmd, i2c_bus->reg_base + AST2600_I2CM_CMD_STS);
-+
-+	return 0;
-+}
-+
-+static int ast2600_i2c_setup_byte_rx(u32 cmd, struct ast2600_i2c_bus *i2c_bus)
-+{
-+	struct i2c_msg *msg = &i2c_bus->msgs[i2c_bus->msgs_index];
-+
-+	cmd |= AST2600_I2CM_PKT_EN | AST2600_I2CM_RX_CMD;
-+
-+	if (cmd & AST2600_I2CM_START_CMD)
-+		cmd |= AST2600_I2CM_PKT_ADDR(msg->addr);
-+
-+	if (msg->flags & I2C_M_RECV_LEN) {
-+		dev_dbg(i2c_bus->dev, "smbus read\n");
-+	} else if ((i2c_bus->msgs_index + 1 == i2c_bus->msgs_count) &&
-+		   ((i2c_bus->controller_xfer_cnt + 1) == msg->len)) {
-+		cmd |= CONTROLLER_TRIGGER_LAST_STOP;
-+	}
-+
-+	writel(cmd, i2c_bus->reg_base + AST2600_I2CM_CMD_STS);
-+
-+	return 0;
-+}
-+
-+static int ast2600_i2c_do_start(struct ast2600_i2c_bus *i2c_bus)
-+{
-+	struct i2c_msg *msg = &i2c_bus->msgs[i2c_bus->msgs_index];
-+
-+	/* send start */
-+	dev_dbg(i2c_bus->dev, "[%d] %s %d byte%s %s 0x%02x\n",
-+		i2c_bus->msgs_index, str_read_write(msg->flags & I2C_M_RD),
-+		msg->len, str_plural(msg->len),
-+		msg->flags & I2C_M_RD ? "from" : "to", msg->addr);
-+
-+	i2c_bus->controller_xfer_cnt = 0;
-+	i2c_bus->buf_index = 0;
-+
-+	if (msg->flags & I2C_M_RD) {
-+		if (i2c_bus->mode == DMA_MODE)
-+			return ast2600_i2c_setup_dma_rx(AST2600_I2CM_START_CMD, i2c_bus);
-+		else if (i2c_bus->mode == BUFF_MODE)
-+			return ast2600_i2c_setup_buff_rx(AST2600_I2CM_START_CMD, i2c_bus);
-+		else
-+			return ast2600_i2c_setup_byte_rx(AST2600_I2CM_START_CMD, i2c_bus);
-+	} else {
-+		if (i2c_bus->mode == DMA_MODE)
-+			return ast2600_i2c_setup_dma_tx(AST2600_I2CM_START_CMD, i2c_bus);
-+		else if (i2c_bus->mode == BUFF_MODE)
-+			return ast2600_i2c_setup_buff_tx(AST2600_I2CM_START_CMD, i2c_bus);
-+		else
-+			return ast2600_i2c_setup_byte_tx(AST2600_I2CM_START_CMD, i2c_bus);
-+	}
-+}
-+
-+static int ast2600_i2c_irq_err_to_errno(u32 irq_status)
-+{
-+	if (irq_status & AST2600_I2CM_ARBIT_LOSS)
-+		return -EAGAIN;
-+	if (irq_status & (AST2600_I2CM_SDA_DL_TO | AST2600_I2CM_SCL_LOW_TO))
-+		return -EBUSY;
-+	if (irq_status & (AST2600_I2CM_ABNORMAL))
-+		return -EPROTO;
-+
-+	return 0;
-+}
-+
-+static void ast2600_i2c_controller_package_irq(struct ast2600_i2c_bus *i2c_bus, u32 sts)
-+{
-+	struct i2c_msg *msg = &i2c_bus->msgs[i2c_bus->msgs_index];
-+	int xfer_len;
-+	int i;
-+
-+	sts &= ~AST2600_I2CM_PKT_DONE;
-+	writel(AST2600_I2CM_PKT_DONE, i2c_bus->reg_base + AST2600_I2CM_ISR);
-+	switch (sts) {
-+	case AST2600_I2CM_PKT_ERROR:
-+		i2c_bus->cmd_err = -EAGAIN;
-+		complete(&i2c_bus->cmd_complete);
-+		break;
-+	case AST2600_I2CM_PKT_ERROR | AST2600_I2CM_TX_NAK: /* a0 fix for issue */
-+		fallthrough;
-+	case AST2600_I2CM_PKT_ERROR | AST2600_I2CM_TX_NAK | AST2600_I2CM_NORMAL_STOP:
-+		i2c_bus->cmd_err = -ENXIO;
-+		complete(&i2c_bus->cmd_complete);
-+		break;
-+	case AST2600_I2CM_NORMAL_STOP:
-+		/* write 0 byte only have stop isr */
-+		i2c_bus->msgs_index++;
-+		if (i2c_bus->msgs_index < i2c_bus->msgs_count) {
-+			if (ast2600_i2c_do_start(i2c_bus)) {
-+				i2c_bus->cmd_err = -ENOMEM;
-+				complete(&i2c_bus->cmd_complete);
-+			}
-+		} else {
-+			i2c_bus->cmd_err = i2c_bus->msgs_index;
-+			complete(&i2c_bus->cmd_complete);
-+		}
-+		break;
-+	case AST2600_I2CM_TX_ACK:
-+	case AST2600_I2CM_TX_ACK | AST2600_I2CM_NORMAL_STOP:
-+		if (i2c_bus->mode == DMA_MODE)
-+			xfer_len = AST2600_I2C_GET_TX_DMA_LEN(readl(i2c_bus->reg_base +
-+							  AST2600_I2CM_DMA_LEN_STS));
-+		else if (i2c_bus->mode == BUFF_MODE)
-+			xfer_len = AST2600_I2CC_GET_TX_BUF_LEN(readl(i2c_bus->reg_base +
-+							   AST2600_I2CC_BUFF_CTRL));
-+		else
-+			xfer_len = 1;
-+
-+		i2c_bus->controller_xfer_cnt += xfer_len;
-+
-+		if (i2c_bus->controller_xfer_cnt == msg->len) {
-+			if (i2c_bus->mode == DMA_MODE) {
-+				dma_unmap_single(i2c_bus->dev, i2c_bus->controller_dma_addr,
-+						 msg->len, DMA_TO_DEVICE);
-+				i2c_put_dma_safe_msg_buf(i2c_bus->controller_dma_safe_buf, msg,
-+							 true);
-+				i2c_bus->controller_dma_safe_buf = NULL;
-+			}
-+			i2c_bus->msgs_index++;
-+			if (i2c_bus->msgs_index == i2c_bus->msgs_count) {
-+				i2c_bus->cmd_err = i2c_bus->msgs_index;
-+				complete(&i2c_bus->cmd_complete);
-+			} else {
-+				if (ast2600_i2c_do_start(i2c_bus)) {
-+					i2c_bus->cmd_err = -ENOMEM;
-+					complete(&i2c_bus->cmd_complete);
-+				}
-+			}
-+		} else {
-+			if (i2c_bus->mode == DMA_MODE)
-+				ast2600_i2c_setup_dma_tx(0, i2c_bus);
-+			else if (i2c_bus->mode == BUFF_MODE)
-+				ast2600_i2c_setup_buff_tx(0, i2c_bus);
-+			else
-+				ast2600_i2c_setup_byte_tx(0, i2c_bus);
-+		}
-+		break;
-+	case AST2600_I2CM_RX_DONE:
-+	case AST2600_I2CM_RX_DONE | AST2600_I2CM_NORMAL_STOP:
-+		/* do next rx */
-+		if (i2c_bus->mode == DMA_MODE) {
-+			xfer_len = AST2600_I2C_GET_RX_DMA_LEN(readl(i2c_bus->reg_base +
-+								    AST2600_I2CM_DMA_LEN_STS));
-+		} else if (i2c_bus->mode == BUFF_MODE) {
-+			xfer_len = AST2600_I2CC_GET_RX_BUF_LEN(readl(i2c_bus->reg_base +
-+								     AST2600_I2CC_BUFF_CTRL));
-+			for (i = 0; i < xfer_len; i++)
-+				msg->buf[i2c_bus->controller_xfer_cnt + i] =
-+					readb(i2c_bus->buf_base + 0x10 + i);
-+		} else {
-+			xfer_len = 1;
-+			msg->buf[i2c_bus->controller_xfer_cnt] =
-+				AST2600_I2CC_GET_RX_BUFF(readl(i2c_bus->reg_base +
-+						     AST2600_I2CC_STS_AND_BUFF));
-+		}
-+
-+		if (msg->flags & I2C_M_RECV_LEN) {
-+			u8 recv_len = AST2600_I2CC_GET_RX_BUFF(readl(i2c_bus->reg_base
-+						       + AST2600_I2CC_STS_AND_BUFF));
-+			msg->len = min_t(unsigned int, recv_len, I2C_SMBUS_BLOCK_MAX);
-+			msg->len += ((msg->flags & I2C_CLIENT_PEC) ? 2 : 1);
-+			msg->flags &= ~I2C_M_RECV_LEN;
-+			if (!recv_len)
-+				i2c_bus->controller_xfer_cnt = 0;
-+			else
-+				i2c_bus->controller_xfer_cnt = 1;
-+		} else {
-+			i2c_bus->controller_xfer_cnt += xfer_len;
-+		}
-+
-+		if (i2c_bus->controller_xfer_cnt == msg->len) {
-+			if (i2c_bus->mode == DMA_MODE) {
-+				dma_unmap_single(i2c_bus->dev, i2c_bus->controller_dma_addr,
-+						 msg->len, DMA_FROM_DEVICE);
-+				i2c_put_dma_safe_msg_buf(i2c_bus->controller_dma_safe_buf,
-+							 msg, true);
-+				i2c_bus->controller_dma_safe_buf = NULL;
-+			}
-+
-+			i2c_bus->msgs_index++;
-+			if (i2c_bus->msgs_index == i2c_bus->msgs_count) {
-+				i2c_bus->cmd_err = i2c_bus->msgs_index;
-+				complete(&i2c_bus->cmd_complete);
-+			} else {
-+				if (ast2600_i2c_do_start(i2c_bus)) {
-+					i2c_bus->cmd_err = -ENOMEM;
-+					complete(&i2c_bus->cmd_complete);
-+				}
-+			}
-+		} else {
-+			if (i2c_bus->mode == DMA_MODE)
-+				ast2600_i2c_setup_dma_rx(0, i2c_bus);
-+			else if (i2c_bus->mode == BUFF_MODE)
-+				ast2600_i2c_setup_buff_rx(0, i2c_bus);
-+			else
-+				ast2600_i2c_setup_byte_rx(0, i2c_bus);
-+		}
-+		break;
-+	default:
-+		dev_dbg(i2c_bus->dev, "unhandled sts %x\n", sts);
-+		break;
-+	}
-+}
-+
-+static int ast2600_i2c_controller_irq(struct ast2600_i2c_bus *i2c_bus)
-+{
-+	u32 sts = readl(i2c_bus->reg_base + AST2600_I2CM_ISR);
-+	u32 ctrl;
-+
-+	sts &= ~AST2600_I2CM_SMBUS_ALT;
-+
-+	if (AST2600_I2CM_BUS_RECOVER_FAIL & sts) {
-+		writel(AST2600_I2CM_BUS_RECOVER_FAIL, i2c_bus->reg_base + AST2600_I2CM_ISR);
-+		ctrl = readl(i2c_bus->reg_base + AST2600_I2CC_FUN_CTRL);
-+		writel(0, i2c_bus->reg_base + AST2600_I2CC_FUN_CTRL);
-+		writel(ctrl, i2c_bus->reg_base + AST2600_I2CC_FUN_CTRL);
-+		i2c_bus->cmd_err = -EPROTO;
-+		complete(&i2c_bus->cmd_complete);
-+		return 1;
-+	}
-+
-+	if (AST2600_I2CM_BUS_RECOVER & sts) {
-+		writel(AST2600_I2CM_BUS_RECOVER, i2c_bus->reg_base + AST2600_I2CM_ISR);
-+		i2c_bus->cmd_err = 0;
-+		complete(&i2c_bus->cmd_complete);
-+		return 1;
-+	}
-+
-+	i2c_bus->cmd_err = ast2600_i2c_irq_err_to_errno(sts);
-+	if (i2c_bus->cmd_err) {
-+		writel(AST2600_I2CM_PKT_DONE, i2c_bus->reg_base + AST2600_I2CM_ISR);
-+		complete(&i2c_bus->cmd_complete);
-+		return 1;
-+	}
-+
-+	if (AST2600_I2CM_PKT_DONE & sts) {
-+		ast2600_i2c_controller_package_irq(i2c_bus, sts);
-+		return 1;
-+	}
-+
-+	return 0;
-+}
-+
-+static irqreturn_t ast2600_i2c_bus_irq(int irq, void *dev_id)
-+{
-+	struct ast2600_i2c_bus *i2c_bus = dev_id;
-+
-+	return IRQ_RETVAL(ast2600_i2c_controller_irq(i2c_bus));
-+}
-+
-+static int ast2600_i2c_controller_xfer(struct i2c_adapter *adap, struct i2c_msg *msgs, int num)
-+{
-+	struct ast2600_i2c_bus *i2c_bus = i2c_get_adapdata(adap);
-+	unsigned long timeout;
-+	int ret;
-+
-+	if (!i2c_bus->multi_master &&
-+	    (readl(i2c_bus->reg_base + AST2600_I2CC_STS_AND_BUFF) & AST2600_I2CC_BUS_BUSY_STS)) {
-+		ret = ast2600_i2c_recover_bus(i2c_bus);
-+		if (ret)
-+			return ret;
-+	}
-+
-+	i2c_bus->cmd_err = 0;
-+	i2c_bus->msgs = msgs;
-+	i2c_bus->msgs_index = 0;
-+	i2c_bus->msgs_count = num;
-+	reinit_completion(&i2c_bus->cmd_complete);
-+	ret = ast2600_i2c_do_start(i2c_bus);
-+	if (ret)
-+		goto controller_out;
-+	timeout = wait_for_completion_timeout(&i2c_bus->cmd_complete, i2c_bus->adap.timeout);
-+	if (timeout == 0) {
-+		u32 ctrl = readl(i2c_bus->reg_base + AST2600_I2CC_FUN_CTRL);
-+
-+		dev_dbg(i2c_bus->dev, "timeout isr[%x], sts[%x]\n",
-+			readl(i2c_bus->reg_base + AST2600_I2CM_ISR),
-+			readl(i2c_bus->reg_base + AST2600_I2CC_STS_AND_BUFF));
-+		writel(0, i2c_bus->reg_base + AST2600_I2CC_FUN_CTRL);
-+		writel(ctrl, i2c_bus->reg_base + AST2600_I2CC_FUN_CTRL);
-+
-+		if (i2c_bus->multi_master &&
-+		    (readl(i2c_bus->reg_base + AST2600_I2CC_STS_AND_BUFF) &
-+		    AST2600_I2CC_BUS_BUSY_STS))
-+			ast2600_i2c_recover_bus(i2c_bus);
-+
-+		ret = -ETIMEDOUT;
-+	} else {
-+		ret = i2c_bus->cmd_err;
-+	}
-+
-+	dev_dbg(i2c_bus->dev, "bus%d-m: %d end\n", i2c_bus->adap.nr, i2c_bus->cmd_err);
-+
-+controller_out:
-+	if (i2c_bus->mode == DMA_MODE) {
-+		if (i2c_bus->controller_dma_safe_buf) {
-+			struct i2c_msg *msg = &i2c_bus->msgs[i2c_bus->msgs_index];
-+
-+			if (msg->flags & I2C_M_RD)
-+				dma_unmap_single(i2c_bus->dev, i2c_bus->controller_dma_addr,
-+						 msg->len, DMA_FROM_DEVICE);
-+			else
-+				dma_unmap_single(i2c_bus->dev, i2c_bus->controller_dma_addr,
-+						 msg->len, DMA_TO_DEVICE);
-+			i2c_put_dma_safe_msg_buf(i2c_bus->controller_dma_safe_buf, msg, true);
-+			i2c_bus->controller_dma_safe_buf = NULL;
-+		}
-+	}
-+
-+	return ret;
-+}
-+
-+static void ast2600_i2c_init(struct ast2600_i2c_bus *i2c_bus)
-+{
-+	struct platform_device *pdev = to_platform_device(i2c_bus->dev);
-+	u32 fun_ctrl = AST2600_I2CC_BUS_AUTO_RELEASE | AST2600_I2CC_MASTER_EN;
-+
-+	/* I2C Reset */
-+	writel(0, i2c_bus->reg_base + AST2600_I2CC_FUN_CTRL);
-+
-+	i2c_bus->multi_master = device_property_read_bool(&pdev->dev, "multi-master");
-+	if (!i2c_bus->multi_master)
-+		fun_ctrl |= AST2600_I2CC_MULTI_MASTER_DIS;
-+
-+	/* Enable Controller Mode */
-+	writel(fun_ctrl, i2c_bus->reg_base + AST2600_I2CC_FUN_CTRL);
-+	/* disable target address */
-+	writel(0, i2c_bus->reg_base + AST2600_I2CS_ADDR_CTRL);
-+
-+	/* Set AC Timing */
-+	ast2600_i2c_ac_timing_config(i2c_bus);
-+
-+	/* Clear Interrupt */
-+	writel(GENMASK(27, 0), i2c_bus->reg_base + AST2600_I2CM_ISR);
-+}
-+
-+static u32 ast2600_i2c_functionality(struct i2c_adapter *adap)
-+{
-+	return I2C_FUNC_I2C | I2C_FUNC_SMBUS_EMUL | I2C_FUNC_SMBUS_BLOCK_DATA;
-+}
-+
-+static const struct i2c_algorithm i2c_ast2600_algorithm = {
-+	.xfer = ast2600_i2c_controller_xfer,
-+	.functionality = ast2600_i2c_functionality,
-+};
-+
-+int ast2600_i2c_probe(const struct of_device_id *match, struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct ast2600_i2c_bus *i2c_bus;
-+	struct reset_control *rst;
-+	const char *xfer_mode;
-+	struct resource *res;
-+	u32 global_ctrl;
-+	int ret;
-+
-+	i2c_bus = devm_kzalloc(dev, sizeof(*i2c_bus), GFP_KERNEL);
-+	if (!i2c_bus)
-+		return -ENOMEM;
-+
-+	i2c_bus->reg_base = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(i2c_bus->reg_base))
-+		return PTR_ERR(i2c_bus->reg_base);
-+
-+	rst = devm_reset_control_get_shared_deasserted(dev, NULL);
-+	if (IS_ERR(rst))
-+		return dev_err_probe(dev, PTR_ERR(rst), "Missing reset ctrl\n");
-+
-+	i2c_bus->global_regs =
-+		syscon_regmap_lookup_by_phandle(dev_of_node(dev), "aspeed,global-regs");
-+	if (IS_ERR(i2c_bus->global_regs))
-+		return PTR_ERR(i2c_bus->global_regs);
-+
-+	regmap_read(i2c_bus->global_regs, AST2600_I2CG_CTRL, &global_ctrl);
-+	if ((global_ctrl & AST2600_GLOBAL_INIT) != AST2600_GLOBAL_INIT) {
-+		regmap_write(i2c_bus->global_regs, AST2600_I2CG_CTRL, AST2600_GLOBAL_INIT);
-+		regmap_write(i2c_bus->global_regs, AST2600_I2CG_CLK_DIV_CTRL, I2CCG_DIV_CTRL);
-+	}
-+
-+	i2c_bus->dev = dev;
-+	i2c_bus->mode = BUFF_MODE;
-+	if (!device_property_read_string(dev, "aspeed,transfer-mode", &xfer_mode)) {
-+		if (!strcmp(xfer_mode, "dma"))
-+			i2c_bus->mode = DMA_MODE;
-+		else if (!strcmp(xfer_mode, "byte"))
-+			i2c_bus->mode = BYTE_MODE;
-+		else
-+			i2c_bus->mode = BUFF_MODE;
-+	}
-+
-+	if (i2c_bus->mode == BUFF_MODE) {
-+		i2c_bus->buf_base = devm_platform_get_and_ioremap_resource(pdev, 1, &res);
-+		if (IS_ERR(i2c_bus->buf_base))
-+			i2c_bus->mode = BYTE_MODE;
-+		else
-+			i2c_bus->buf_size = resource_size(res) / 2;
-+	}
-+
-+	/*
-+	 * i2c timeout counter: use base clk4 1Mhz,
-+	 * per unit: 1/(1000/1024) = 1024us
-+	 */
-+	ret = device_property_read_u32(dev, "i2c-scl-clk-low-timeout-us", &i2c_bus->timeout);
-+	if (!ret)
-+		i2c_bus->timeout /= 1024;
-+
-+	init_completion(&i2c_bus->cmd_complete);
-+
-+	i2c_bus->irq = platform_get_irq(pdev, 0);
-+	if (i2c_bus->irq < 0)
-+		return i2c_bus->irq;
-+
-+	platform_set_drvdata(pdev, i2c_bus);
-+
-+	i2c_bus->clk = devm_clk_get(i2c_bus->dev, NULL);
-+	if (IS_ERR(i2c_bus->clk))
-+		return dev_err_probe(i2c_bus->dev, PTR_ERR(i2c_bus->clk), "Can't get clock\n");
-+
-+	i2c_bus->apb_clk = clk_get_rate(i2c_bus->clk);
-+
-+	i2c_parse_fw_timings(i2c_bus->dev, &i2c_bus->timing_info, true);
-+
-+	/* Initialize the I2C adapter */
-+	i2c_bus->adap.owner = THIS_MODULE;
-+	i2c_bus->adap.algo = &i2c_ast2600_algorithm;
-+	i2c_bus->adap.retries = 0;
-+	i2c_bus->adap.dev.parent = i2c_bus->dev;
-+	device_set_node(&i2c_bus->adap.dev, dev_fwnode(dev));
-+	i2c_bus->adap.algo_data = i2c_bus;
-+	strscpy(i2c_bus->adap.name, pdev->name);
-+	i2c_set_adapdata(&i2c_bus->adap, i2c_bus);
-+
-+	ast2600_i2c_init(i2c_bus);
-+
-+	ret = devm_request_irq(dev, i2c_bus->irq, ast2600_i2c_bus_irq, 0,
-+			       dev_name(dev), i2c_bus);
-+	if (ret < 0)
-+		return dev_err_probe(dev, ret, "Unable to request irq %d\n", i2c_bus->irq);
-+
-+	writel(AST2600_I2CM_PKT_DONE | AST2600_I2CM_BUS_RECOVER,
-+	       i2c_bus->reg_base + AST2600_I2CM_IER);
-+
-+	ret = devm_i2c_add_adapter(dev, &i2c_bus->adap);
-+	if (ret)
-+		return ret;
-+
-+	return 0;
-+}
-+EXPORT_SYMBOL_GPL(ast2600_i2c_probe);
-+
-+void ast2600_i2c_remove(struct platform_device *pdev)
-+{
-+	struct ast2600_i2c_bus *i2c_bus = platform_get_drvdata(pdev);
-+
-+	/* Disable everything. */
-+	writel(0, i2c_bus->reg_base + AST2600_I2CC_FUN_CTRL);
-+	writel(0, i2c_bus->reg_base + AST2600_I2CM_IER);
-+}
-+EXPORT_SYMBOL_GPL(ast2600_i2c_remove);
-+
-+MODULE_AUTHOR("Ryan Chen <ryan_chen@aspeedtech.com>");
-+MODULE_DESCRIPTION("ASPEED AST2600 I2C Controller Driver");
-+MODULE_LICENSE("GPL");
--- 
-2.34.1
-
+Regards,
+Joseph
+> > +	status = "okay";
+> > +
+> > +	spidev0: spi@0 {
+> > +		compatible = "lwn,bk4";
+> > +		reg = <0>;
+> > +		spi-max-frequency = <1000000>;
+> > +	};
+> > +};
+> > +
+> > +&lpuart1 {
+> > +	pinctrl-0 = <&pinctrl_uart1>;
+> > +	pinctrl-names = "default";
+> > +	status = "okay";
+> > +};
+> > +
+> > +&lpuart5 {
+> > +	pinctrl-0 = <&pinctrl_uart5>;
+> > +	pinctrl-names = "default";
+> > +	status = "okay";
+> > +
+> > +	bluetooth {
+> > +		compatible = "nxp,88w8987-bt";
+> > +	};
+> > +};
+> > +
+> > +&mqs1 {
+> > +	clocks = <&clk IMX93_CLK_MQS1_GATE>;
+> > +	clock-names = "mclk";
+> > +	pinctrl-0 = <&pinctrl_mqs1>;
+> > +	pinctrl-names = "default";
+> > +	status = "okay";
+> > +};
+> > +
+> > +&sai1 {
+> > +	clocks = <&clk IMX93_CLK_SAI1_IPG>, <&clk IMX93_CLK_DUMMY>,
+> > +		 <&clk IMX93_CLK_SAI1_GATE>, <&clk IMX93_CLK_DUMMY>,
+> > +		 <&clk IMX93_CLK_DUMMY>, <&clk IMX93_CLK_AUDIO_PLL>;
+> > +	clock-names = "bus", "mclk0", "mclk1", "mclk2", "mclk3", "pll8k";
+> > +	assigned-clocks = <&clk IMX93_CLK_SAI1>;
+> > +	assigned-clock-parents = <&clk IMX93_CLK_AUDIO_PLL>;
+> > +	assigned-clock-rates = <24576000>;
+> > +	#sound-dai-cells = <0>;
+> > +	fsl,sai-mclk-direction-output;
+> > +	status = "okay";
+> > +};
+> > +
+> > +&usbotg1 {
+> > +	adp-disable;
+> > +	disable-over-current;
+> > +	dr_mode = "otg";
+> > +	hnp-disable;
+> > +	srp-disable;
+> > +	usb-role-switch;
+> > +	samsung,picophy-dc-vol-level-adjust = <7>;
+> > +	samsung,picophy-pre-emp-curr-control = <3>;
+> > +	status = "okay";
+> > +
+> > +	port {
+> > +		usb1_drd_sw: endpoint {
+> > +			remote-endpoint = <&typec1_dr_sw>;
+> > +		};
+> > +	};
+> > +};
+> > +
+> > +&usbotg2 {
+> > +	disable-over-current;
+> > +	dr_mode = "host";
+> > +	samsung,picophy-dc-vol-level-adjust = <7>;
+> > +	samsung,picophy-pre-emp-curr-control = <3>;
+> > +	status = "okay";
+> > +};
+> > +
+> > +&usdhc1 {
+> > +	bus-width = <8>;
+> > +	non-removable;
+> > +	pinctrl-0 = <&pinctrl_usdhc1>;
+> > +	pinctrl-1 = <&pinctrl_usdhc1_100mhz>;
+> > +	pinctrl-2 = <&pinctrl_usdhc1_200mhz>;
+> > +	pinctrl-names = "default", "state_100mhz", "state_200mhz";
+> > +	status = "okay";
+> > +};
+> > +
+> > +&usdhc2 {
+> > +	bus-width = <4>;
+> > +	cd-gpios = <&gpio3 00 GPIO_ACTIVE_LOW>;
+> > +	no-mmc;
+> > +	no-sdio;
+> > +	pinctrl-0 = <&pinctrl_usdhc2>, <&pinctrl_usdhc2_gpio>;
+> > +	pinctrl-1 = <&pinctrl_usdhc2_100mhz>, <&pinctrl_usdhc2_gpio>;
+> > +	pinctrl-2 = <&pinctrl_usdhc2_200mhz>, <&pinctrl_usdhc2_gpio>;
+> > +	pinctrl-3 = <&pinctrl_usdhc2_sleep>, <&pinctrl_usdhc2_gpio_sleep>;
+> > +	pinctrl-names = "default", "state_100mhz", "state_200mhz", "sleep";
+> > +	vmmc-supply = <&reg_usdhc2_vmmc>;
+> > +	status = "okay";
+> > +};
+> > +
+> > +&usdhc3 {
+> > +	bus-width = <4>;
+> > +	keep-power-in-suspend;
+> > +	mmc-pwrseq = <&usdhc3_pwrseq>;
+> > +	non-removable;
+> > +	pinctrl-0 = <&pinctrl_usdhc3>, <&pinctrl_usdhc3_wlan>;
+> > +	pinctrl-1 = <&pinctrl_usdhc3_100mhz>, <&pinctrl_usdhc3_wlan>;
+> > +	pinctrl-2 = <&pinctrl_usdhc3_200mhz>, <&pinctrl_usdhc3_wlan>;
+> > +	pinctrl-3 = <&pinctrl_usdhc3_sleep>, <&pinctrl_usdhc3_wlan>;
+> > +	pinctrl-names = "default", "state_100mhz", "state_200mhz", "sleep";
+> > +	vmmc-supply = <&reg_usdhc3_vmmc>;
+> > +	wakeup-source;
+> > +	status = "okay";
+> > +};
+> > +
+> > +&wdog3 {
+> > +	fsl,ext-reset-output;
+> > +	status = "okay";
+> > +};
+> > +
+> > +&iomuxc {
+> > +	pinctrl_eqos: eqosgrp {
+> > +		fsl,pins = <
+> > +			MX91_PAD_ENET1_MDC__ENET1_MDC				0x57e
+> > +			MX91_PAD_ENET1_MDIO__ENET_QOS_MDIO			0x57e
+> > +			MX91_PAD_ENET1_RD0__ENET_QOS_RGMII_RD0			0x57e
+> > +			MX91_PAD_ENET1_RD1__ENET_QOS_RGMII_RD1			0x57e
+> > +			MX91_PAD_ENET1_RD2__ENET_QOS_RGMII_RD2			0x57e
+> > +			MX91_PAD_ENET1_RD3__ENET_QOS_RGMII_RD3			0x57e
+> > +			MX91_PAD_ENET1_RXC__ENET_QOS_RGMII_RXC			0x5fe
+> > +			MX91_PAD_ENET1_RX_CTL__ENET_QOS_RGMII_RX_CTL		0x57e
+> > +			MX91_PAD_ENET1_TD0__ENET_QOS_RGMII_TD0			0x57e
+> > +			MX91_PAD_ENET1_TD1__ENET1_RGMII_TD1			0x57e
+> > +			MX91_PAD_ENET1_TD2__ENET_QOS_RGMII_TD2			0x57e
+> > +			MX91_PAD_ENET1_TD3__ENET_QOS_RGMII_TD3			0x57e
+> > +			MX91_PAD_ENET1_TXC__CCM_ENET_QOS_CLOCK_GENERATE_TX_CLK	0x5fe
+> > +			MX91_PAD_ENET1_TX_CTL__ENET_QOS_RGMII_TX_CTL		0x57e
+> > +		>;
+> > +	};
+> > +
+> > +	pinctrl_eqos_sleep: eqosgrpsleep {
+> > +		fsl,pins = <
+> > +			MX91_PAD_ENET1_MDC__GPIO4_IO0				0x31e
+> > +			MX91_PAD_ENET1_MDIO__GPIO4_IO1				0x31e
+> > +			MX91_PAD_ENET1_RD0__GPIO4_IO10				0x31e
+> > +			MX91_PAD_ENET1_RD1__GPIO4_IO11				0x31e
+> > +			MX91_PAD_ENET1_RD2__GPIO4_IO12				0x31e
+> > +			MX91_PAD_ENET1_RD3__GPIO4_IO13				0x31e
+> > +			MX91_PAD_ENET1_RXC__GPIO4_IO9				0x31e
+> > +			MX91_PAD_ENET1_RX_CTL__GPIO4_IO8			0x31e
+> > +			MX91_PAD_ENET1_TD0__GPIO4_IO5				0x31e
+> > +			MX91_PAD_ENET1_TD1__GPIO4_IO4				0x31e
+> > +			MX91_PAD_ENET1_TD2__GPIO4_IO3				0x31e
+> > +			MX91_PAD_ENET1_TD3__GPIO4_IO2				0x31e
+> > +			MX91_PAD_ENET1_TXC__GPIO4_IO7				0x31e
+> > +			MX91_PAD_ENET1_TX_CTL__GPIO4_IO6			0x31e
+> > +		>;
+> > +	};
+> > +
+> > +	pinctrl_fec: fecgrp {
+> > +		fsl,pins = <
+> > +			MX91_PAD_ENET2_MDC__ENET2_MDC				0x57e
+> > +			MX91_PAD_ENET2_MDIO__ENET2_MDIO				0x57e
+> > +			MX91_PAD_ENET2_RD0__ENET2_RGMII_RD0			0x57e
+> > +			MX91_PAD_ENET2_RD1__ENET2_RGMII_RD1			0x57e
+> > +			MX91_PAD_ENET2_RD2__ENET2_RGMII_RD2			0x57e
+> > +			MX91_PAD_ENET2_RD3__ENET2_RGMII_RD3			0x57e
+> > +			MX91_PAD_ENET2_RXC__ENET2_RGMII_RXC			0x5fe
+> > +			MX91_PAD_ENET2_RX_CTL__ENET2_RGMII_RX_CTL		0x57e
+> > +			MX91_PAD_ENET2_TD0__ENET2_RGMII_TD0			0x57e
+> > +			MX91_PAD_ENET2_TD1__ENET2_RGMII_TD1			0x57e
+> > +			MX91_PAD_ENET2_TD2__ENET2_RGMII_TD2			0x57e
+> > +			MX91_PAD_ENET2_TD3__ENET2_RGMII_TD3			0x57e
+> > +			MX91_PAD_ENET2_TXC__ENET2_RGMII_TXC			0x5fe
+> > +			MX91_PAD_ENET2_TX_CTL__ENET2_RGMII_TX_CTL		0x57e
+> > +		>;
+> > +	};
+> > +
+> > +	pinctrl_fec_sleep: fecsleepgrp {
+> > +		fsl,pins = <
+> > +			MX91_PAD_ENET2_MDC__GPIO4_IO14				0x51e
+> > +			MX91_PAD_ENET2_MDIO__GPIO4_IO15				0x51e
+> > +			MX91_PAD_ENET2_RD0__GPIO4_IO24				0x51e
+> > +			MX91_PAD_ENET2_RD1__GPIO4_IO25				0x51e
+> > +			MX91_PAD_ENET2_RD2__GPIO4_IO26				0x51e
+> > +			MX91_PAD_ENET2_RD3__GPIO4_IO27				0x51e
+> > +			MX91_PAD_ENET2_RXC__GPIO4_IO23				0x51e
+> > +			MX91_PAD_ENET2_RX_CTL__GPIO4_IO22			0x51e
+> > +			MX91_PAD_ENET2_TD0__GPIO4_IO19				0x51e
+> > +			MX91_PAD_ENET2_TD1__GPIO4_IO18				0x51e
+> > +			MX91_PAD_ENET2_TD2__GPIO4_IO17				0x51e
+> > +			MX91_PAD_ENET2_TD3__GPIO4_IO16				0x51e
+> > +			MX91_PAD_ENET2_TXC__GPIO4_IO21				0x51e
+> > +			MX91_PAD_ENET2_TX_CTL__GPIO4_IO20			0x51e
+> > +		>;
+> > +	};
+> > +
+> > +	pinctrl_flexcan2: flexcan2grp {
+> > +		fsl,pins = <
+> > +			MX91_PAD_GPIO_IO25__CAN2_TX				0x139e
+> > +			MX91_PAD_GPIO_IO27__CAN2_RX				0x139e
+> > +		>;
+> > +	};
+> > +
+> > +	pinctrl_flexcan2_sleep: flexcan2sleepgrp {
+> > +		fsl,pins = <
+> > +			MX91_PAD_GPIO_IO25__GPIO2_IO25				0x31e
+> > +			MX91_PAD_GPIO_IO27__GPIO2_IO27				0x31e
+> > +		>;
+> > +	};
+> > +
+> > +	pinctrl_lpi2c1: lpi2c1grp {
+> > +		fsl,pins = <
+> > +			MX91_PAD_I2C1_SCL__LPI2C1_SCL				0x40000b9e
+> > +			MX91_PAD_I2C1_SDA__LPI2C1_SDA				0x40000b9e
+> > +		>;
+> > +	};
+> > +
+> > +	pinctrl_lpi2c2: lpi2c2grp {
+> > +		fsl,pins = <
+> > +			MX91_PAD_I2C2_SCL__LPI2C2_SCL				0x40000b9e
+> > +			MX91_PAD_I2C2_SDA__LPI2C2_SDA				0x40000b9e
+> > +		>;
+> > +	};
+> > +
+> > +	pinctrl_lpi2c3: lpi2c3grp {
+> > +		fsl,pins = <
+> > +			MX91_PAD_GPIO_IO28__LPI2C3_SDA				0x40000b9e
+> > +			MX91_PAD_GPIO_IO29__LPI2C3_SCL				0x40000b9e
+> > +		>;
+> > +	};
+> > +
+> > +	pinctrl_lpspi3: lpspi3grp {
+> > +		fsl,pins = <
+> > +			MX91_PAD_GPIO_IO08__GPIO2_IO8				0x3fe
+> > +			MX91_PAD_GPIO_IO09__LPSPI3_SIN				0x3fe
+> > +			MX91_PAD_GPIO_IO10__LPSPI3_SOUT				0x3fe
+> > +			MX91_PAD_GPIO_IO11__LPSPI3_SCK				0x3fe
+> > +		>;
+> > +	};
+> > +
+> > +	pinctrl_mqs1: mqs1grp {
+> > +		fsl,pins = <
+> > +			MX91_PAD_PDM_CLK__MQS1_LEFT				0x31e
+> > +			MX91_PAD_PDM_BIT_STREAM0__MQS1_RIGHT			0x31e
+> > +		>;
+> > +	};
+> > +
+> > +	pinctrl_pcal6524: pcal6524grp {
+> > +		fsl,pins = <
+> > +			MX91_PAD_CCM_CLKO2__GPIO3_IO27				0x31e
+> > +		>;
+> > +	};
+> > +
+> > +	pinctrl_reg_usdhc2_vmmc: regusdhc2vmmcgrp {
+> > +		fsl,pins = <
+> > +			MX91_PAD_SD2_RESET_B__GPIO3_IO7				0x31e
+> > +		>;
+> > +	};
+> > +
+> > +	pinctrl_uart1: uart1grp {
+> > +		fsl,pins = <
+> > +			MX91_PAD_UART1_RXD__LPUART1_RX				0x31e
+> > +			MX91_PAD_UART1_TXD__LPUART1_TX				0x31e
+> > +		>;
+> > +	};
+> > +
+> > +	pinctrl_uart5: uart5grp {
+> > +		fsl,pins = <
+> > +			MX91_PAD_DAP_TDO_TRACESWO__LPUART5_TX			0x31e
+> > +			MX91_PAD_DAP_TDI__LPUART5_RX				0x31e
+> > +			MX91_PAD_DAP_TMS_SWDIO__LPUART5_RTS_B			0x31e
+> > +			MX91_PAD_DAP_TCLK_SWCLK__LPUART5_CTS_B			0x31e
+> > +		>;
+> > +	};
+> > +
+> > +	pinctrl_usdhc1: usdhc1grp {
+> > +		fsl,pins = <
+> > +			MX91_PAD_SD1_CLK__USDHC1_CLK				0x1582
+> > +			MX91_PAD_SD1_CMD__USDHC1_CMD				0x1382
+> > +			MX91_PAD_SD1_DATA0__USDHC1_DATA0			0x1382
+> > +			MX91_PAD_SD1_DATA1__USDHC1_DATA1			0x1382
+> > +			MX91_PAD_SD1_DATA2__USDHC1_DATA2			0x1382
+> > +			MX91_PAD_SD1_DATA3__USDHC1_DATA3			0x1382
+> > +			MX91_PAD_SD1_DATA4__USDHC1_DATA4			0x1382
+> > +			MX91_PAD_SD1_DATA5__USDHC1_DATA5			0x1382
+> > +			MX91_PAD_SD1_DATA6__USDHC1_DATA6			0x1382
+> > +			MX91_PAD_SD1_DATA7__USDHC1_DATA7			0x1382
+> > +			MX91_PAD_SD1_STROBE__USDHC1_STROBE			0x1582
+> > +		>;
+> > +	};
+> > +
+> > +	pinctrl_usdhc1_100mhz: usdhc1-100mhzgrp {
+> > +		fsl,pins = <
+> > +			MX91_PAD_SD1_CLK__USDHC1_CLK				0x158e
+> > +			MX91_PAD_SD1_CMD__USDHC1_CMD				0x138e
+> > +			MX91_PAD_SD1_DATA0__USDHC1_DATA0			0x138e
+> > +			MX91_PAD_SD1_DATA1__USDHC1_DATA1			0x138e
+> > +			MX91_PAD_SD1_DATA2__USDHC1_DATA2			0x138e
+> > +			MX91_PAD_SD1_DATA3__USDHC1_DATA3			0x138e
+> > +			MX91_PAD_SD1_DATA4__USDHC1_DATA4			0x138e
+> > +			MX91_PAD_SD1_DATA5__USDHC1_DATA5			0x138e
+> > +			MX91_PAD_SD1_DATA6__USDHC1_DATA6			0x138e
+> > +			MX91_PAD_SD1_DATA7__USDHC1_DATA7			0x138e
+> > +			MX91_PAD_SD1_STROBE__USDHC1_STROBE			0x158e
+> > +		>;
+> > +	};
+> > +
+> > +	pinctrl_usdhc1_200mhz: usdhc1-200mhzgrp {
+> > +		fsl,pins = <
+> > +			MX91_PAD_SD1_CLK__USDHC1_CLK				0x15fe
+> > +			MX91_PAD_SD1_CMD__USDHC1_CMD				0x13fe
+> > +			MX91_PAD_SD1_DATA0__USDHC1_DATA0			0x13fe
+> > +			MX91_PAD_SD1_DATA1__USDHC1_DATA1			0x13fe
+> > +			MX91_PAD_SD1_DATA2__USDHC1_DATA2			0x13fe
+> > +			MX91_PAD_SD1_DATA3__USDHC1_DATA3			0x13fe
+> > +			MX91_PAD_SD1_DATA4__USDHC1_DATA4			0x13fe
+> > +			MX91_PAD_SD1_DATA5__USDHC1_DATA5			0x13fe
+> > +			MX91_PAD_SD1_DATA6__USDHC1_DATA6			0x13fe
+> > +			MX91_PAD_SD1_DATA7__USDHC1_DATA7			0x13fe
+> > +			MX91_PAD_SD1_STROBE__USDHC1_STROBE			0x15fe
+> > +		>;
+> > +	};
+> > +
+> > +	pinctrl_usdhc2_gpio: usdhc2gpiogrp {
+> > +		fsl,pins = <
+> > +			MX91_PAD_SD2_CD_B__GPIO3_IO0				0x31e
+> > +		>;
+> > +	};
+> > +
+> > +	pinctrl_usdhc2_gpio_sleep: usdhc2gpiogrpsleep {
+> > +		fsl,pins = <
+> > +			MX91_PAD_SD2_CD_B__GPIO3_IO0				0x51e
+> > +		>;
+> > +	};
+> > +
+> > +	pinctrl_usdhc2: usdhc2grp {
+> > +		fsl,pins = <
+> > +			MX91_PAD_SD2_CLK__USDHC2_CLK				0x1582
+> > +			MX91_PAD_SD2_CMD__USDHC2_CMD				0x1382
+> > +			MX91_PAD_SD2_DATA0__USDHC2_DATA0			0x1382
+> > +			MX91_PAD_SD2_DATA1__USDHC2_DATA1			0x1382
+> > +			MX91_PAD_SD2_DATA2__USDHC2_DATA2			0x1382
+> > +			MX91_PAD_SD2_DATA3__USDHC2_DATA3			0x1382
+> > +			MX91_PAD_SD2_VSELECT__USDHC2_VSELECT			0x51e
+> > +		>;
+> > +	};
+> > +
+> > +	pinctrl_usdhc2_sleep: usdhc2grpsleep {
+> > +		fsl,pins = <
+> > +			MX91_PAD_SD2_CLK__GPIO3_IO1				0x51e
+> > +			MX91_PAD_SD2_CMD__GPIO3_IO2				0x51e
+> > +			MX91_PAD_SD2_DATA0__GPIO3_IO3				0x51e
+> > +			MX91_PAD_SD2_DATA1__GPIO3_IO4				0x51e
+> > +			MX91_PAD_SD2_DATA2__GPIO3_IO5				0x51e
+> > +			MX91_PAD_SD2_DATA3__GPIO3_IO6				0x51e
+> > +			MX91_PAD_SD2_VSELECT__GPIO3_IO19			0x51e
+> > +		>;
+> > +	};
+> > +
+> > +	pinctrl_usdhc2_100mhz: usdhc2-100mhzgrp {
+> > +		fsl,pins = <
+> > +			MX91_PAD_SD2_CLK__USDHC2_CLK				0x158e
+> > +			MX91_PAD_SD2_CMD__USDHC2_CMD				0x138e
+> > +			MX91_PAD_SD2_DATA0__USDHC2_DATA0			0x138e
+> > +			MX91_PAD_SD2_DATA1__USDHC2_DATA1			0x138e
+> > +			MX91_PAD_SD2_DATA2__USDHC2_DATA2			0x138e
+> > +			MX91_PAD_SD2_DATA3__USDHC2_DATA3			0x138e
+> > +			MX91_PAD_SD2_VSELECT__USDHC2_VSELECT			0x51e
+> > +		>;
+> > +	};
+> > +
+> > +	pinctrl_usdhc2_200mhz: usdhc2-200mhzgrp {
+> > +		fsl,pins = <
+> > +			MX91_PAD_SD2_CLK__USDHC2_CLK				0x15fe
+> > +			MX91_PAD_SD2_CMD__USDHC2_CMD				0x13fe
+> > +			MX91_PAD_SD2_DATA0__USDHC2_DATA0			0x13fe
+> > +			MX91_PAD_SD2_DATA1__USDHC2_DATA1			0x13fe
+> > +			MX91_PAD_SD2_DATA2__USDHC2_DATA2			0x13fe
+> > +			MX91_PAD_SD2_DATA3__USDHC2_DATA3			0x13fe
+> > +			MX91_PAD_SD2_VSELECT__USDHC2_VSELECT			0x51e
+> > +		>;
+> > +	};
+> > +
+> > +	pinctrl_usdhc3: usdhc3grp {
+> > +		fsl,pins = <
+> > +			MX91_PAD_SD3_CLK__USDHC3_CLK				0x1582
+> > +			MX91_PAD_SD3_CMD__USDHC3_CMD				0x1382
+> > +			MX91_PAD_SD3_DATA0__USDHC3_DATA0			0x1382
+> > +			MX91_PAD_SD3_DATA1__USDHC3_DATA1			0x1382
+> > +			MX91_PAD_SD3_DATA2__USDHC3_DATA2			0x1382
+> > +			MX91_PAD_SD3_DATA3__USDHC3_DATA3			0x1382
+> > +		>;
+> > +	};
+> > +
+> > +	pinctrl_usdhc3_sleep: usdhc3grpsleep {
+> > +		fsl,pins = <
+> > +			MX91_PAD_SD3_CLK__GPIO3_IO20				0x31e
+> > +			MX91_PAD_SD3_CMD__GPIO3_IO21				0x31e
+> > +			MX91_PAD_SD3_DATA0__GPIO3_IO22				0x31e
+> > +			MX91_PAD_SD3_DATA1__GPIO3_IO23				0x31e
+> > +			MX91_PAD_SD3_DATA2__GPIO3_IO24				0x31e
+> > +			MX91_PAD_SD3_DATA3__GPIO3_IO25				0x31e
+> > +		>;
+> > +	};
+> > +
+> > +	pinctrl_usdhc3_wlan: usdhc3wlangrp {
+> > +		fsl,pins = <
+> > +			MX91_PAD_CCM_CLKO1__GPIO3_IO26				0x31e
+> > +		>;
+> > +	};
+> > +
+> > +	pinctrl_usdhc3_100mhz: usdhc3-100mhzgrp {
+> > +		fsl,pins = <
+> > +			MX91_PAD_SD3_CLK__USDHC3_CLK				0x158e
+> > +			MX91_PAD_SD3_CMD__USDHC3_CMD				0x138e
+> > +			MX91_PAD_SD3_DATA0__USDHC3_DATA0			0x138e
+> > +			MX91_PAD_SD3_DATA1__USDHC3_DATA1			0x138e
+> > +			MX91_PAD_SD3_DATA2__USDHC3_DATA2			0x138e
+> > +			MX91_PAD_SD3_DATA3__USDHC3_DATA3			0x138e
+> > +		>;
+> > +	};
+> > +
+> > +	pinctrl_usdhc3_200mhz: usdhc3-200mhzgrp {
+> > +		fsl,pins = <
+> > +			MX91_PAD_SD3_CLK__USDHC3_CLK				0x15fe
+> > +			MX91_PAD_SD3_CMD__USDHC3_CMD				0x13fe
+> > +			MX91_PAD_SD3_DATA0__USDHC3_DATA0			0x13fe
+> > +			MX91_PAD_SD3_DATA1__USDHC3_DATA1			0x13fe
+> > +			MX91_PAD_SD3_DATA2__USDHC3_DATA2			0x13fe
+> > +			MX91_PAD_SD3_DATA3__USDHC3_DATA3			0x13fe
+> > +		>;
+> > +	};
+> > +};
+> > 
+> > -- 
+> > 2.34.1
+> > 
+> > 
+> 
+> Regards,
+> Francesco
 
