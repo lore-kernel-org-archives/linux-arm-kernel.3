@@ -4,107 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DBA0CE8D6B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 16:48:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7174CEACEF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 16:48:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vIkYMJgRGW1JPeB/kOo/OLCi0kmAJSDUfWo25iuY2Iw=; b=jAvBtzAgGL3k3nKtWG4hk2PlYu
-	gTpEsjPKamxKl1VL0KVm9bMkMSVoOV4cbqEnSneGdGtHML6E5FTBFb5vmnQEWc7lt0uqvJCa3ztA4
-	uHrCmPP5PuSN0wu/c3s2D0G5NAIincI9xbgxLRw6BiJ+p9pceydjzdTMH4cRJoeLUC9up8Uk1w+CP
-	dum1ppu0W3v/9VVRulz6/zwsTQzleTzXJQWQ2K2Yf0oyoP98aZJsEUDUDoSRg8ecs9fSRfby4dHmQ
-	S18T4ik0GXeeo126Sp4ky7sSuHzYQG6mlXJRRWl8MaiCIZqBxuVChzAyfzKNjUNaRuKeFFIJ4S4wk
-	hBuqtH6g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Tx5pCt6UywoMhHGKyGxCGcYK9d/RLDNyjfLAZJe7BNY=; b=vNI9hjU9Q+O5pOzZqwW/72R/dN
+	2ZPYtd1Ynn1xTFnJ91wkAtFHFKStVMxwlaPs2ApNVOGrcIAF8mm2bss+nk41DgRyJx1GLpUnMjkWL
+	N5oGwfmaDllUWsKRr0fKc9s5X5i4dxVVOuRRHNOiuUqn3L715s9wdQZv95JHNMEisDCtgNNwHuVD8
+	4As5tBqxsdNCeW+W++CZWo3uN4S62nM7b0xtNaL6vH0qYPkP2gLTxx/uDe8f0O/BvIPj6m2IdyEtX
+	Pv0DnYZj5XrEX2tkmDsF1MFpVgDKNCM1VqIcwQuH85pstKQTyqSxGS6sVxazEG7I/OAPCja+itjCr
+	Ft6T67lg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vL2OO-0000000GQBY-3IPn;
-	Mon, 17 Nov 2025 16:47:52 +0000
-Received: from fhigh-a7-smtp.messagingengine.com ([103.168.172.158])
+	id 1vL2OZ-0000000GQDw-2X9k;
+	Mon, 17 Nov 2025 16:48:03 +0000
+Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vL2OL-0000000GQAz-4Afw
+	id 1vL2OX-0000000GQD2-08Lb
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Nov 2025 16:47:51 +0000
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailfhigh.phl.internal (Postfix) with ESMTP id 1C12514001BA;
-	Mon, 17 Nov 2025 11:47:48 -0500 (EST)
-Received: from phl-imap-02 ([10.202.2.81])
-  by phl-compute-04.internal (MEProxy); Mon, 17 Nov 2025 11:47:48 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm2; t=1763398068;
-	 x=1763484468; bh=vIkYMJgRGW1JPeB/kOo/OLCi0kmAJSDUfWo25iuY2Iw=; b=
-	HM8h5RPx03UmtcjuvC/ESKwsWMN9/RwppelGNftAqykf6HTT/bI+BVGsJVDo2y5X
-	Mb4ylOzPKgdG9KLXJUv7/JWvdUpsSf7KNtreJCEuMY7a6gO1+kWdWhHWdATa7xZR
-	FyDeoLV2GbPSBJRdTU7DZ7ksHuVa8TJ+kdrfaWj3Zi5YtIfytsoFQxYSq7VuoY7l
-	G2E3ry3XOE3WNNKtoQnBas1syGdgKmRDTt1jsVuI3cVk6zhSpzSm36pqIqhsOsFh
-	2XTbSkDLKeJJBMlt2vfk2J0gDDlyYDvvRBK82Q+9ed5JS4bBdlYMn7DIb71c44je
-	JYZAxxmRsUjs4Gq7RP+rJQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1763398068; x=
-	1763484468; bh=vIkYMJgRGW1JPeB/kOo/OLCi0kmAJSDUfWo25iuY2Iw=; b=u
-	JBxfwBA7qo6ixAf5ceZ8gSW8TN5aVKZjMJIGf+ycGs4xvt3YIpjqBhnUEG0EiKPI
-	xeAP/gtSSv5R3lkeyFM1gaGAR+hq3dMmVk8EcGtX6FT9IGKxgDaCZH2hZYdPnsyj
-	nCzaHnX2Q4J/PkCjcAbu+HXkTpP0iLDa0bQ02fZJaG78XIfYPaVHci+CRBdz09S0
-	/p9O8wds1dZ8GYMyCJoqWO6cu/7/YKGRTJO0f59G+Y9q0t3dgOA8m1V6QMN9rSZ5
-	gsD5LBhtpOGZ9Hbadp7aNnr5FsXL7TOMLMRNs56FqYutpoM7dhK9ajpVsL27T/dZ
-	bHHwtarTLAJA3IqEFpL4Q==
-X-ME-Sender: <xms:s1EbaUPgEDzANVlWf-ZHyA0q62mUXOa58dvWBkWaXl9k2Oy_t2gBBQ>
-    <xme:s1EbaVyC_m8odYIM5JtgxIpHBO2zi9rwIn7nn7OApcxghFS9ZjJNydPuQW3c4zmFP
-    _YwtvBBFYsG1UPxCYF6l9q6pyuWmW1rWPoyaIDzer366widYNdaoJg>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdeggddvudekleejucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
-    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
-    gurhepofggfffhvfevkfgjfhfutgfgsehtjeertdertddtnecuhfhrohhmpedftehrnhgu
-    uceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrthhtvg
-    hrnhephfdthfdvtdefhedukeetgefggffhjeeggeetfefggfevudegudevledvkefhvdei
-    necuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprghrnh
-    gusegrrhhnuggsrdguvgdpnhgspghrtghpthhtohepuddtpdhmohguvgepshhmthhpohhu
-    thdprhgtphhtthhopegtrghtrghlihhnrdhmrghrihhnrghssegrrhhmrdgtohhmpdhrtg
-    hpthhtohepjhgvrhgvmhihrdhlihhnthhonhesrghrmhdrtghomhdprhgtphhtthhopehm
-    rghrkhdrrhhuthhlrghnugesrghrmhdrtghomhdprhgtphhtthhopehrhigrnhdrrhhosg
-    gvrhhtshesrghrmhdrtghomhdprhgtphhtthhopegrrhgusgeskhgvrhhnvghlrdhorhhg
-    pdhrtghpthhtohepkhgvvghssehkvghrnhgvlhdrohhrghdprhgtphhtthhopeifihhllh
-    eskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvghl
-    sehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtoheplhhinhhugidqkh
-    gvrhhnvghlsehvghgvrhdrkhgvrhhnvghlrdhorhhg
-X-ME-Proxy: <xmx:s1EbadZDx65v0mmmgkWeR7ok3ap2FoNRwy3KE3QcDA2YePt5YktR2Q>
-    <xmx:s1EbaaadFGjO6-C3VXjLXeWmAPlsrIxN7nlFjMx9ClxsA9k_K5wa0A>
-    <xmx:s1EbaaysMrNyT5TqJZToRfVL0KFsIRQcC-s-nwkFdvWfaTV_Yd6Flw>
-    <xmx:s1EbaecduOxZOwWBh2ayJ79pUz_QKcMBGv1VkHBueBor8wUlwPYFFw>
-    <xmx:tFEbad2fhg3pRDeaLIuFCUUjflUjShRkjAy0UxTLqXonmsQ2Yv0uAyQH>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id A37CC700054; Mon, 17 Nov 2025 11:47:47 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Mon, 17 Nov 2025 16:48:02 +0000
+Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-298039e00c2so57746045ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Nov 2025 08:48:00 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1763398080; x=1764002880; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=Tx5pCt6UywoMhHGKyGxCGcYK9d/RLDNyjfLAZJe7BNY=;
+        b=NSyeivclh/xyt7grG3M5ADWlnNbEsV+1RmSvrM4TMfAfw+PHYYg7ZFelLY0VQDNqt2
+         qVGKEApRkYJHLpJxrmeQcpCcE1dfBXLweoSBOr4lwgPDvE8+su2zfAHf69RVcbZNLtER
+         1681xMJvXyJ0S1LwA04vndgBpZQWkMOHcDkEnHaQdWJQTkjJLgP3PjCKAlbx0/5Avh2Z
+         Tzf5jRyBVUZbKUX97NHLXh++L5Mr50josiYL/yxiE1jUs7Te4Z5fxM2MjBfqoWjO8wYA
+         iPNksDi38kRgiL9UIBSJrPxlkqw5ohzdeUq2Ks2iJxIr6/Bc/GkDXdRz///wtkb0linM
+         4/4w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1763398080; x=1764002880;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=Tx5pCt6UywoMhHGKyGxCGcYK9d/RLDNyjfLAZJe7BNY=;
+        b=VURXvwKpzheOubMmLXr/evi+VBOwKyBTbOj7t+rckFmhmmwD/t8p9lyo0XqtbVQfTM
+         xDD/9pwT8N7zzuHK319K3lG/eQdHuDU3hCx6YMp7uA7LNNFHiF5hV1aNjcl78fON6m7f
+         65rkJg707qlamzSP5qbKO5DNgi/yz4zhFoD8ocNT1Q04hCdnWuwgdEcqYXkoSZBonqWY
+         AR74R0F9eWze00ervchqJj/52f7KkO0ZYqkRG2ynHbkSp2+AFvZKOuw4U3VvF8qEnaOj
+         ik0QDwaPMw7vURNFSSltBixcEudjBnim93sAggLv8TGCSa0iuM9crv4oIse/g0i5BG9s
+         497w==
+X-Forwarded-Encrypted: i=1; AJvYcCWyUujpeIspMZ+a0b/nyeEoxuyR4RoqsaFpw9JN8OJo57eMiZ9NDUOR/p+n6BfwwxulvN/5aD//lYME+s52B+R8@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz89r05yavM63zw4n1bkjCc9BCYGlDc7TsvDfB5GVK32RrSJwPP
+	HNcXVWlKkuZZFE2PWVfUm8gmQrDPKqs+EKc2khNPOqeRJRAemNPh8KwHytEGFejuOlY=
+X-Gm-Gg: ASbGncsmQVEdobvva9yfOiN7WKYiXQH5FPidN3UpfoS6usZLir20UBRYeuOFQ+SKNL3
+	HUqywCQmCtfDa80Bry8V9OmDSCqz6unLVev68dzKW9m3c3xwROL5t+jEqrjEKDtYH57qCP+xX3g
+	uE8eXotO7hHndAO2jSLVbUr7QE/Ze/StBb+2AG5w5Ihdh5XVKQK7QqziX+/SnrcwztPA/YAQM4K
+	eQWaRYUrfYzOiZ+yLWDH8YoRYdVd7k1lXJch5xA/K8KCdHkl7WSev2Pun78Or8t7+soJUpDz3Oe
+	fzMegVE97CrYSoQZ1iiOwZ5xKb/LD9SsO8rZWffqQOZBOoMnzf54jkUGEpOY/XFxdt+6L2kVX80
+	6wQZhYsIdHWC4skWUr2n9uGKxr30a0u2lKFGl5K+3g+4JRqoLuIEVZ1cZbmFbNGLUs90DuMIgGg
+	U521sQXxFHuMKptQ==
+X-Google-Smtp-Source: AGHT+IFOJfgBMktrjQ4WzqODR90mVSuboNdF+0l09QpBE2YhVUppij7GQo1/v8CGTNYHNVGS0fdYMw==
+X-Received: by 2002:a17:903:24f:b0:290:9332:eebd with SMTP id d9443c01a7336-2986a6bc404mr159661345ad.10.1763398079908;
+        Mon, 17 Nov 2025 08:47:59 -0800 (PST)
+Received: from p14s ([2604:3d09:148c:c800:df44:9b1b:6b35:3fb0])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2985c2bed16sm144069755ad.86.2025.11.17.08.47.58
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 17 Nov 2025 08:47:59 -0800 (PST)
+Date: Mon, 17 Nov 2025 09:47:56 -0700
+From: Mathieu Poirier <mathieu.poirier@linaro.org>
+To: Huayu Zong <huayu.zong@mediatek.com>
+Cc: Bjorn Andersson <andersson@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	Project_Global_Chrome_Upstream_Group@mediatek.com
+Subject: Re: [PATCH v3 1/3] remoteproc: mediatek: Support platform reg
+ offsets in mtk_scp_of_data
+Message-ID: <aRtRvBZ1zaxW0N20@p14s>
+References: <20251110101342.24261-1-huayu.zong@mediatek.com>
+ <20251110101342.24261-2-huayu.zong@mediatek.com>
 MIME-Version: 1.0
-X-ThreadId: A5NgtTiaP10B
-Date: Mon, 17 Nov 2025 17:47:05 +0100
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Ryan Roberts" <ryan.roberts@arm.com>, "Kees Cook" <kees@kernel.org>,
- "Ard Biesheuvel" <ardb@kernel.org>, "Jeremy Linton" <jeremy.linton@arm.com>,
- "Will Deacon" <will@kernel.org>, "Catalin Marinas" <Catalin.Marinas@arm.com>,
- "Mark Rutland" <mark.rutland@arm.com>
-Cc: "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
- "Linux Kernel Mailing List" <linux-kernel@vger.kernel.org>,
- "Jason A. Donenfeld" <Jason@zx2c4.com>
-Message-Id: <dd5b4423-0954-44d5-99a5-0052b62c55af@app.fastmail.com>
-In-Reply-To: <dd8c37bc-795f-4c7a-9086-69e584d8ab24@arm.com>
-References: <66c4e2a0-c7fb-46c2-acce-8a040a71cd8e@arm.com>
- <dd8c37bc-795f-4c7a-9086-69e584d8ab24@arm.com>
-Subject: Re: [DISCUSSION] kstack offset randomization: bugs and performance
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251110101342.24261-2-huayu.zong@mediatek.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251117_084750_539779_7C3D771D 
-X-CRM114-Status: GOOD (  16.57  )
+X-CRM114-CacheID: sfid-20251117_084801_087154_977794CA 
+X-CRM114-Status: GOOD (  24.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,50 +107,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 17, 2025, at 12:31, Ryan Roberts wrote:
-> On 17/11/2025 11:30, Ryan Roberts wrote:
->> Hi All,
->> 
->> Over the last few years we had a few complaints that syscall performance on
->> arm64 is slower than x86. Most recently, it was observed that a certain Java
->> benchmark that does a lot of fstat and lseek is spending ~10% of it's time in
->> get_random_u16(). Cue a bit of digging, which led me to [1] and also to some new
->> ideas about how performance could be improved.
+Good day,
 
+On Mon, Nov 10, 2025 at 06:13:29PM +0800, Huayu Zong wrote:
+> Some platforms only differ in HW register offsets, but can share
+> the same API. Refine struct mtk_scp_of_data to allow setting HW
+> register offsets via platform data, enabling better code reuse
+> and easier support for new platforms.
+> 
+> Signed-off-by: Huayu Zong <huayu.zong@mediatek.com>
+> ---
+>  drivers/remoteproc/mtk_common.h |  5 +++++
+>  drivers/remoteproc/mtk_scp.c    | 18 ++++++++++++++++--
+>  2 files changed, 21 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/remoteproc/mtk_common.h b/drivers/remoteproc/mtk_common.h
+> index fd5c539ab2ac..d45480ad332e 100644
+> --- a/drivers/remoteproc/mtk_common.h
+> +++ b/drivers/remoteproc/mtk_common.h
+> @@ -112,6 +112,11 @@ struct mtk_scp_of_data {
+>  
+>  	u32 host_to_scp_reg;
+>  	u32 host_to_scp_int_bit;
+> +	u32 scp_to_host_ipc_clr_reg;
+> +	u32 scp_to_spm_ipc_clr_reg;
+> +
+> +	u32 scp_secure_domain_reg;
+> +	u32 scp_domain_value;
+>  
+>  	size_t ipi_buf_offset;
+>  	const struct mtk_scp_sizes_data *scp_sizes;
+> diff --git a/drivers/remoteproc/mtk_scp.c b/drivers/remoteproc/mtk_scp.c
+> index 10e3f9eb8cd2..c3c37cae933a 100644
+> --- a/drivers/remoteproc/mtk_scp.c
+> +++ b/drivers/remoteproc/mtk_scp.c
+> @@ -236,7 +236,7 @@ static void mt8192_scp_irq_handler(struct mtk_scp *scp)
+>  		 * MT8192_SCP2APMCU_IPC.
+>  		 */
+>  		writel(MT8192_SCP_IPC_INT_BIT,
+> -		       scp->cluster->reg_base + MT8192_SCP2APMCU_IPC_CLR);
+> +		       scp->cluster->reg_base + scp->data->scp_to_host_ipc_clr_reg);
+>  	} else {
+>  		scp_wdt_handler(scp, scp_to_host);
+>  		writel(1, scp->cluster->reg_base + MT8192_CORE0_WDT_IRQ);
+> @@ -561,7 +561,7 @@ static int mt8188_scp_c1_before_load(struct mtk_scp *scp)
+>  static int mt8192_scp_before_load(struct mtk_scp *scp)
+>  {
+>  	/* clear SPM interrupt, SCP2SPM_IPC_CLR */
+> -	writel(0xff, scp->cluster->reg_base + MT8192_SCP2SPM_IPC_CLR);
+> +	writel(0xff, scp->cluster->reg_base + scp->data->scp_to_spm_ipc_clr_reg);
+>  
+>  	writel(1, scp->cluster->reg_base + MT8192_CORE0_SW_RSTN_SET);
+>  
+> @@ -575,6 +575,18 @@ static int mt8192_scp_before_load(struct mtk_scp *scp)
+>  	/* enable MPU for all memory regions */
+>  	writel(0xff, scp->cluster->reg_base + MT8192_CORE0_MEM_ATT_PREDEF);
+>  
+> +	/* Set the domain of master in SCP.
+> +	 *
+> +	 * In the SCP, cores, DMA, and SPI are masters. When these masters
+> +	 * access memory or devices, they need to carry a domain ID. This
+> +	 * domain ID is used to determine whether they have permission to
+> +	 * access the target device or memory.
+> +	 */
+> +
+> +	if (scp->data->scp_secure_domain_reg)
+> +		writel(scp->data->scp_domain_value,
+> +		       scp->cluster->reg_base + scp->data->scp_secure_domain_reg);
+> +
 
->> I believe this helps the mean latency significantly without sacrificing any
->> strength. But it doesn't reduce the tail latency because we still have to call
->> into the crng eventually.
->> 
->> So here's another idea: Could we use siphash to generate some random bits? We
->> would generate the secret key at boot using the crng. Then generate a 64 bit
->> siphash of (cntvct_el0 ^ tweak) (where tweak increments every time we generate a
->> new hash). As long as the key remains secret, the hash is unpredictable.
->> (perhaps we don't even need the timer value). For every hash we get 64 bits, so
->> that would last for 10 syscalls at 6 bits per call. So we would still have to
->> call siphash every 10 syscalls, so there would still be a tail, but from my
->> experiements, it's much less than the crng:
+This change is not related to the description in the changelog, nor the other
+changes in this patch.  Please do another patch.
 
-IIRC, Jason argued against creating another type of prng inside of the
-kernel for a special purpose. 
-
-As I understand, the other architectures already just use the cycle counter
-because that is random enough, but for arm64 the cntvct runs on an
-unspecified frequency that is often too low.
-
-However, most future machines are ARMv9.1 or higher and require a 1GHz
-timer frequency. I also checked Graviton-3 (Neoverse-V1, ARMv8.4), which
-is running its timer at 1.05GHz.
-
-My M2 Mac is running at a slower 24MHz timer. Between two getpid()
-syscalls, I see cntvct_el0 advance between 20 and 70 cycles, which
-still gives a few bits of entropy but not the six bits we actually
-want to use.
-
-How about we just check the timer frequency at boot and patch out the
-get_random_u16 call for a cntvct read if it gets updated fast enough?
-That would at least take care of the overhead on most new designs and
-hopefully on a large subset of the servers that are in active use.
-
-      Arnd
+>  	return 0;
+>  }
+>  
+> @@ -1527,6 +1539,8 @@ static const struct mtk_scp_of_data mt8192_of_data = {
+>  	.scp_da_to_va = mt8192_scp_da_to_va,
+>  	.host_to_scp_reg = MT8192_GIPC_IN_SET,
+>  	.host_to_scp_int_bit = MT8192_HOST_IPC_INT_BIT,
+> +	.scp_to_host_ipc_clr_reg = MT8192_SCP2APMCU_IPC_CLR,
+> +	.scp_to_spm_ipc_clr_reg = MT8192_SCP2SPM_IPC_CLR,
+>  	.scp_sizes = &default_scp_sizes,
+>  };
+>  
+> -- 
+> 2.45.2
+> 
 
