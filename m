@@ -4,89 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6CAFCCD19A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 02:12:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C789FCD4F3E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 02:13:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kiclg+ICV3isWwwDeMvQP4a8YD6UqUKW5pl+uehC4+8=; b=Wt6pWtiMx+4Um/YF7cw1cGR/Rn
-	gwCAFuxf1+dGeC4yFeo091qk47cu/azPvb+6EcnGu2GSidLSAGp/EzCsOZpW82aYljmbbOkO0cw8B
-	x9/X8z67Fah6jDnprov0csxrEutW3x42os/EpjgNU30Ych1r/qD5tduWyKjwzOXg24WDvf+5M5nnC
-	bQuRRjV0vhYt8Wp9NqlOcHYww5sD6bugXXS42bxY4dTwbRrJa9JVjHMNPeCscbKtaMNqixwGWwVGI
-	Uhz2qYHbYv/8uSeyKutQWiYH/pgobfquedAKLJBmMm3rhMIlRiUwfpGytDWuhqKpoEFJngTLX/otv
-	g1VWTUnA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9bRlceZO1C6R5p58rYRLtXjrtmiq3B0PMRv5qsrWzJ4=; b=RfZNnckZBue2z0Lijoa4JLqeov
+	vHxTxxonuCHUrxi02bRwiV0klnUc10FOmAgZIUf6JITR6Y4TY3b380FrAbUPcoZ8ZF9ojNeOVQghJ
+	+yUoo0Ix+qq+Y2QnnjJL0yP4rFX/QcMW5ZY+EI6YlgaCTSE2H2Zx32ntiy+aof8YtWxaHfWa/KQWR
+	VyBpdLL4of2vGhbQHxDdnRP+0RUD/QeryU3eg5uOlhK68dRnaj/k1lNEGFBiPdlLGaZApsBE9prWQ
+	VrPEgzzIxshLdMNgAo3rgl6Fw5lUWUQ+uP7mFHmjKuMyopEKdn67Q9yvdnJxNgtqiAc5KXLyal6NN
+	gLEHzK8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKojc-0000000FIB7-4BIz;
-	Mon, 17 Nov 2025 02:12:53 +0000
-Received: from mail-qt1-x832.google.com ([2607:f8b0:4864:20::832])
+	id 1vKoka-0000000FIJj-0mDb;
+	Mon, 17 Nov 2025 02:13:52 +0000
+Received: from out-177.mta0.migadu.com ([2001:41d0:1004:224b::b1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKoja-0000000FIAk-3Dx6
+	id 1vKokX-0000000FIG0-18fC
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Nov 2025 02:12:52 +0000
-Received: by mail-qt1-x832.google.com with SMTP id d75a77b69052e-4ee13dc0c52so10183501cf.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 16 Nov 2025 18:12:49 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rowland.harvard.edu; s=google; t=1763345569; x=1763950369; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=kiclg+ICV3isWwwDeMvQP4a8YD6UqUKW5pl+uehC4+8=;
-        b=QKwbD7AvjBicfqadfBIbNs74TrsvuEVEv5w2n7auYgnqui1hXGp4pQX9/EnqVpC6ir
-         6L0bYPruPJx6UM3fcKWqQJoZNFox+5Cl7FHXXMPXWmi0teodll2st4lIWcW7ZI9akwaj
-         3t+3vMqYAX7xdzLH7qBSV+7M0hpmRqEFpcNto8sVN2/5ZPW58tYvffMc0FU47wsNbfC3
-         EczCWOWFLxXSv0P4DBkJO6DnmTH7UPkDw88a5Hec8ThM1TcxRU/n1ezA/BEufHK4nn43
-         bZHcVjJbWxJl6tr6qSbqlE2vYkLfYc44lLGINnxQfovFMTK6g+DAcUIwOGmCnRxFylI3
-         jbMA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763345569; x=1763950369;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=kiclg+ICV3isWwwDeMvQP4a8YD6UqUKW5pl+uehC4+8=;
-        b=ULUdGERxUvmriarl2DTkhXa6nmBdqg3VxQvF6P88OD2ck3rTP9T9sRuVoL/jIb6lzp
-         leWTjFqACldUUC9jVKipMCLaFm/0bMPYnR7dxI30madDeyXD0HT2WoMDQjuF8OHZcODG
-         93EmEcAyxoXRRp7xV4G685YOUQ+KnanatvxyDEBzKWINnwp33q0M54yD+gmaShJhFAD1
-         D1aeuXqCq/uluRJOCH4licA9p8r//PlkScnBfxeIfp43Yck/RNIj5pf+oBwLpdm1O0+V
-         8IfAe3m+DpR2OqBXxyswpw7XafjZRss98Q1vrHVTv808kE/Bvtfud0tfFs8ie90X79RO
-         lxLQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVx7SS5bH1rrj85q2Htu17juBnqS98LkZ5HkV9A9NG6h+6brNPkZQDMdrvv9fwAuIX5wNzoCUBnCai2S4517h15@lists.infradead.org
-X-Gm-Message-State: AOJu0YwfvIfko6uQJEKyDMsCXawGmRIvPv307rQAMGXyqsvxwlw/2EIp
-	qzD9MqNfrA7/GujOihFRKRCgGC7/KUCzga5k1S/Uj4cJ5/jxkFYhQ41apgiLrCkzRA==
-X-Gm-Gg: ASbGncsDDoDEJOEHY+906JRp6fp3GrS64AoUm4XvXOwRjwUrd3nNDTxx89qKmBGV/Ak
-	sRzOQdpV2FB0oabi/y8gj+prN+05ApIrDuH8vTYnk4Bd/FBvDHNOFKfJck+l69qZBZn+NKy0EeJ
-	jepAtUtNuNBrSNESVeT4zNHuwS5EFD9L+6W0MO+9kCoKVOjdSYGFLLhIxSkYqqHN41CECZDDH6U
-	7NnA/+r5vqkJYXLG8tobx2cdYO/V5M5rSzLo+Z2J4+mwQpHQbrDnIt2p2doV5K91uw17jyR7ilz
-	vknb7LWjdB9ueuGnEo7TziJjps8e19wMRn1GCZdOwIUb0lp5uoY7UHaUZzPEyDGakBUZS7r4tp5
-	QQfrKDep08dM5odZdpcGKjYwmDrX6BRWIKtcCC8yE4ZvTLEtMV3zvHclqsb0cXczFzkA3/mTtAZ
-	Vm9A==
-X-Google-Smtp-Source: AGHT+IF7aGO2MtqCmmlI9cMAEmYhFjVvHTERbxwvkt+rHOGTTynDRbR2K+xvEJ5DiSzvgQDHQlegoA==
-X-Received: by 2002:a05:622a:18a2:b0:4ee:2510:198a with SMTP id d75a77b69052e-4ee25101ab2mr9280681cf.39.1763345568881;
-        Sun, 16 Nov 2025 18:12:48 -0800 (PST)
-Received: from rowland.harvard.edu ([2601:19b:d03:1700::e258])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-4ee16389879sm29098271cf.24.2025.11.16.18.12.47
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 16 Nov 2025 18:12:48 -0800 (PST)
-Date: Sun, 16 Nov 2025 21:12:45 -0500
-From: Alan Stern <stern@rowland.harvard.edu>
-To: Ma Ke <make24@iscas.ac.cn>
-Cc: vz@mleia.com, piotr.wojtaszczyk@timesys.com, gregkh@linuxfoundation.org,
-	arnd@arndb.de, stigge@antcom.de, linux-usb@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	akpm@linux-foundation.org, stable@vger.kernel.org
-Subject: Re: [PATCH v2] USB: ohci-nxp: Fix error handling in ohci-hcd-nxp
- driver
-Message-ID: <288508e8-9d97-4c90-a0d4-ef6798110211@rowland.harvard.edu>
-References: <20251117013428.21840-1-make24@iscas.ac.cn>
+	Mon, 17 Nov 2025 02:13:51 +0000
+Message-ID: <a292bf98-74e2-405c-bb7c-3686959cdb10@linux.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1763345612;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=9bRlceZO1C6R5p58rYRLtXjrtmiq3B0PMRv5qsrWzJ4=;
+	b=lQ5JiOely5tHyGp2pAH8z5p5pbcr3zVr7pDjZVelZ51U+TMw9mXWes4IPp64XMDa273P1K
+	QDdFxm+S0bKeuiHP5f56NS+ckIz8eWbHpVyAmtzT9rB02m+tC73zNxxQEq3I2QhKjHqM0b
+	LUEqj65XO5k4hBvudXphSzjc8TZnGF0=
+Date: Mon, 17 Nov 2025 10:13:24 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251117013428.21840-1-make24@iscas.ac.cn>
+Subject: Re: [PATCH V2] clocksource/drivers/rda: Add sched_clock_register for
+ RDA8810PL SoC
+To: mani@kernel.org, daniel.lezcano@linaro.org, tglx@linutronix.de,
+ linux-arm-kernel@lists.infradead.org, linux-unisoc@lists.infradead.org,
+ linux-kernel@vger.kernel.org, enlin.mu@unisoc.com
+References: <20251107063347.3692-1-enlin.mu@linux.dev>
+Content-Language: en-US
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: "enlin.mu" <enlin.mu@linux.dev>
+In-Reply-To: <20251107063347.3692-1-enlin.mu@linux.dev>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251116_181251_063660_E32BDBCA 
-X-CRM114-Status: GOOD (  24.45  )
+X-CRM114-CacheID: sfid-20251116_181349_822665_6A301F19 
+X-CRM114-Status: GOOD (  17.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,72 +70,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 17, 2025 at 09:34:28AM +0800, Ma Ke wrote:
-> When obtaining the ISP1301 I2C client through the device tree, the
-> driver does not release the device reference in the probe failure path
-> or in the remove function. This could cause a reference count leak,
-> which may prevent the device from being properly unbound or freed,
-> leading to resource leakage.
+Hi Everyone
+
+Who can help review this patch?
+
+thanks
+
+On 2025/11/7 14:33, Enlin Mu wrote:
+> From: Enlin Mu <enlin.mu@unisoc.com>
 > 
-> Fix this by storing whether the client was obtained via device tree
-> and only releasing the reference in that case.
+> The current system log timestamp accuracy is tick, which can not
+> meet the usage requirements and needs to reach nanoseconds.
+> Therefore, the sched_clock_register funciton needs to be add.
 > 
-> Found by code review.
-> 
-> Cc: stable@vger.kernel.org
-> Fixes: 73108aa90cbf ("USB: ohci-nxp: Use isp1301 driver")
-> Signed-off-by: Ma Ke <make24@iscas.ac.cn>
+> Signed-off-by: Enlin Mu <enlin.mu@unisoc.com>
 > ---
-> Changes in v2:
-> - only released the device reference when the ISP1301 client was obtained through device tree, not in the non-DT case where the global variable is used;
-> - removed unnecessary NULL checks as suggested by reviewer.
-> ---
-
-Acked-by: Alan Stern <stern@rowland.harvard.edu>
-
-
->  drivers/usb/host/ohci-nxp.c | 6 ++++++
->  1 file changed, 6 insertions(+)
+>   drivers/clocksource/timer-rda.c | 9 ++++++++-
+>   1 file changed, 8 insertions(+), 1 deletion(-)
 > 
-> diff --git a/drivers/usb/host/ohci-nxp.c b/drivers/usb/host/ohci-nxp.c
-> index 24d5a1dc5056..081b8c7f21a0 100644
-> --- a/drivers/usb/host/ohci-nxp.c
-> +++ b/drivers/usb/host/ohci-nxp.c
-> @@ -50,6 +50,7 @@ static const char hcd_name[] = "ohci-nxp";
->  static struct hc_driver __read_mostly ohci_nxp_hc_driver;
->  
->  static struct i2c_client *isp1301_i2c_client;
-> +static bool isp1301_using_dt;
->  
->  static void isp1301_configure_lpc32xx(void)
->  {
-> @@ -161,6 +162,7 @@ static int ohci_hcd_nxp_probe(struct platform_device *pdev)
->  	} else {
->  		isp1301_node = NULL;
->  	}
-> +	isp1301_using_dt = (isp1301_node != NULL);
->  
->  	isp1301_i2c_client = isp1301_get_client(isp1301_node);
->  	of_node_put(isp1301_node);
-> @@ -223,6 +225,8 @@ static int ohci_hcd_nxp_probe(struct platform_device *pdev)
->  fail_resource:
->  	usb_put_hcd(hcd);
->  fail_disable:
-> +	if (isp1301_using_dt)
-> +		put_device(&isp1301_i2c_client->dev);
->  	isp1301_i2c_client = NULL;
->  	return ret;
->  }
-> @@ -234,6 +238,8 @@ static void ohci_hcd_nxp_remove(struct platform_device *pdev)
->  	usb_remove_hcd(hcd);
->  	ohci_nxp_stop_hc();
->  	usb_put_hcd(hcd);
-> +	if (isp1301_using_dt)
-> +		put_device(&isp1301_i2c_client->dev);
->  	isp1301_i2c_client = NULL;
->  }
->  
-> -- 
-> 2.17.1
-> 
+> diff --git a/drivers/clocksource/timer-rda.c b/drivers/clocksource/timer-rda.c
+> index fd1199c189bf..0be8e05970e2 100644
+> --- a/drivers/clocksource/timer-rda.c
+> +++ b/drivers/clocksource/timer-rda.c
+> @@ -13,6 +13,7 @@
+>   
+>   #include <linux/init.h>
+>   #include <linux/interrupt.h>
+> +#include <linux/sched_clock.h>
+>   
+>   #include "timer-of.h"
+>   
+> @@ -153,7 +154,7 @@ static struct timer_of rda_ostimer_of = {
+>   	},
+>   };
+>   
+> -static u64 rda_hwtimer_read(struct clocksource *cs)
+> +static u64 rda_hwtimer_clocksource_read(void)
+>   {
+>   	void __iomem *base = timer_of_base(&rda_ostimer_of);
+>   	u32 lo, hi;
+> @@ -167,6 +168,11 @@ static u64 rda_hwtimer_read(struct clocksource *cs)
+>   	return ((u64)hi << 32) | lo;
+>   }
+>   
+> +static u64 rda_hwtimer_read(struct clocksource *cs)
+> +{
+> +	return rda_hwtimer_clocksource_read();
+> +}
+> +
+>   static struct clocksource rda_hwtimer_clocksource = {
+>   	.name           = "rda-timer",
+>   	.rating         = 400,
+> @@ -185,6 +191,7 @@ static int __init rda_timer_init(struct device_node *np)
+>   		return ret;
+>   
+>   	clocksource_register_hz(&rda_hwtimer_clocksource, rate);
+> +	sched_clock_register(rda_hwtimer_clocksource_read, 64, rate);
+>   
+>   	clockevents_config_and_register(&rda_ostimer_of.clkevt, rate,
+>   					0x2, UINT_MAX);
+
 
