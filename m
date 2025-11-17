@@ -4,129 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 717BCCEACEF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 09:32:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88136CEACEF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 09:36:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7E7WiAQ8nMpI6y33yPslhWFJnkDpf0YV+3TomhWwhtI=; b=IALgwQ5QgD1vaaxZefBWSaXDuy
-	+vcU0AGJfwXMhtlJGNUH5GxLuHkiJ/z/QpBoG/7KeZ6qjKFXSo2d+gXCVZ/XdiBfCNRDoj+DWO52x
-	8G65UqL8g5lmEeZWyaj+okk9h71ioweAoVLVrCBD8xUv5pSW46LGEj/m8jJLHhr3bie/GsQOCEteJ
-	8SM6ygM/eCZsf59prlx7BS8jBud26uM9/jNZSj8gC7E32wz61KiFpV0/xJsZ75rCmrIDhTWFt9LvF
-	x+2WFXn+QuRh/pqSAXLSCHGjr2QuM1HgI2hp9CdugwMB7xvxAjLU6X+tIGSEMGPzhpNjhPjVZvxfQ
-	WMQUq5AQ==;
+	bh=WgU9XUgj2TLzJK4V0f6yxH+gniqWUXfT8cg0cyckfJc=; b=z2Ag+I4O6FkLoKTPU85wcsWefk
+	ttEeWFXpGUr5aVL7TXkIH8cht5Po8nO5n8gy0sMwi5Yd4N/ckZCHsTLLt0IY+Yuo9lc7DOMy+xl8N
+	BZqCQnAI1gPiqoJV+KiR5ncpLJyQXN1U3e3eSRkT2IU1RtAV6trkhHCf819bMucxC+azPpZFLdTJu
+	6m8KK//loHxjdjAtBHJrW2VKIJSvVMDpObIo1DEkJWHGD1MDAMKSdTP2PaWgzf95CKnnDbrM0me3u
+	823xEA/3pDwM/eCMHs0y6bI3Tysm9MBq7v8lJT8KRvr95f3X6GbH5WDMlyIEaudpCEwbQeeYlrBz0
+	NWFqEaVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKvb1-0000000Fnix-16pV;
-	Mon, 17 Nov 2025 09:32:27 +0000
-Received: from mail-koreacentralazon11023121.outbound.protection.outlook.com ([40.107.44.121] helo=SEYPR02CU001.outbound.protection.outlook.com)
+	id 1vKvep-0000000Fnzq-11qP;
+	Mon, 17 Nov 2025 09:36:23 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKvay-0000000Fni7-1yc4
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Nov 2025 09:32:25 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=lpVuO8psbfTjm6EZS2DM30lKaRvarACpwPQTcPjXAIUlxVkNVP6EuVSTlBDFr9HWamx0ny5PZ0M16oHEeT5kT+zJyDlKcoWwcNr0UeSo+UMmVqCfKFz40GBpMrb6OeUa0AAMiH7P2dLhbVtWCf3OlfFGtI2Rw7weoiwx+knhH//yENCsG6J+JUREk4tcVwn49R8En7OWAHmLX7wobY8tVu4thCGNzw1ivpMLYhEH0ZLPDAtrkK/myYt8ERTHzNOYMYfMbg3iVdt39X0nDsnMDp5D7GPFtcsyiFmCC4JMyv4ko5qjSwi2Z+y//VzsD/a6Ou9TMQq0mX1U28yAXUPY9A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=7E7WiAQ8nMpI6y33yPslhWFJnkDpf0YV+3TomhWwhtI=;
- b=Kcy7/Wm+m/zuvg2fqqCWH8bJNV/WPiPxY+x8ty3DV+bv9D1wDAZwMS1+IxyrfTRfmzwx93CgrbLjGAWTE7rDApr9hivAQbrh3LcqhifHK7oqUEOiyX/ndX5KW8EC4jzd+Xe8K4jfurZb2nCPixLVBgViKPhuDOoEeSEmlrvSHhd1gS9dhZXkLvC0Lr5Y9H1PpaE2l0x5gjM5kjaR25E2ZVNVjC3eeryBbzQoVa6/TWVx1uvekD61zpt6hAbPKhbgHBOxQ2J+M3yUnhJUxm6fVeo7URLmJgJsobJxGzs9ROcp5gLaURKleqbZPmqKt+/wgxMLnYlB5L/BT+k1Rr0hyQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 222.71.101.198) smtp.rcpttodomain=amd.com smtp.mailfrom=cixtech.com;
- dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
- not signed); arc=none (0)
-Received: from SG2PR01CA0191.apcprd01.prod.exchangelabs.com
- (2603:1096:4:189::6) by SEZPR06MB5691.apcprd06.prod.outlook.com
- (2603:1096:101:af::13) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9320.19; Mon, 17 Nov
- 2025 09:32:14 +0000
-Received: from SG1PEPF000082E5.apcprd02.prod.outlook.com
- (2603:1096:4:189:cafe::c3) by SG2PR01CA0191.outlook.office365.com
- (2603:1096:4:189::6) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9320.21 via Frontend Transport; Mon,
- 17 Nov 2025 09:32:28 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 222.71.101.198)
- smtp.mailfrom=cixtech.com; dkim=none (message not signed)
- header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
-Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
- 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
- client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
-Received: from smtprelay.cixcomputing.com (222.71.101.198) by
- SG1PEPF000082E5.mail.protection.outlook.com (10.167.240.8) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9343.9 via Frontend Transport; Mon, 17 Nov 2025 09:32:13 +0000
-Received: from nchen-desktop (unknown [172.16.64.25])
-	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id 80CC541C0143;
-	Mon, 17 Nov 2025 17:32:12 +0800 (CST)
-Date: Mon, 17 Nov 2025 17:32:11 +0800
-From: Peter Chen <peter.chen@cixtech.com>
-To: Jun Guo <jun.guo@cixtech.com>
-Cc: <fugang.duan@cixtech.com>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-	<conor+dt@kernel.org>, <broonie@kernel.org>,
-	<linux-spi@vger.kernel.org>, <michal.simek@amd.com>,
-	<cix-kernel-upstream@cixtech.com>,
-	<linux-arm-kernel@lists.infradead.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v3 3/3] arm64: dts: cix: add a compatible string for the
- cix sky1 SoC
-Message-ID: <aRrrm5kEYGIG-aP_@nchen-desktop>
-References: <20251031073003.3289573-1-jun.guo@cixtech.com>
- <20251031073003.3289573-4-jun.guo@cixtech.com>
+	id 1vKven-0000000FnzS-3jj8;
+	Mon, 17 Nov 2025 09:36:21 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 11D4B6019A;
+	Mon, 17 Nov 2025 09:36:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 49DB4C4CEF5;
+	Mon, 17 Nov 2025 09:36:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1763372180;
+	bh=uQCgN5v/OVl4jrNZEJCu3UP4oTLCnPh1F7riEXXRBnE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=mz5bOdV2sb45qmJ5UH/A2M5QIE1RAPwKS7ebX4SuqggdroXfvKR2HX3pfuUVUKZfT
+	 cOiT2EzGoEGZbeL4qpOKZ4GNA3/uXCOJkXEWBRaZlykG2/JwZiEPm8QKW/7uh19SdY
+	 uQSy9X4QMtBIqK7IaVnqG7FiCqtD/ky5OaAODiMnV2F6exVcViDIthxBfAta0lrTYl
+	 zHc2nMpLX+BymuGBq5PfIPgSaoNTZKXphC976AtHwAaO8031wUuzz7LgjarwtO0HuW
+	 BY8GvV1jFJUCgtlAnFJKnHUw9o13fOe+E9lYg7WLlJZK5j/h5LCfu6skNiE1OCKOKM
+	 hsxLgpQdIkJ4w==
+Date: Mon, 17 Nov 2025 15:06:08 +0530
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Enlin Mu <enlin.mu@linux.dev>
+Cc: daniel.lezcano@linaro.org, tglx@linutronix.de, 
+	linux-arm-kernel@lists.infradead.org, linux-unisoc@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	enlin.mu@unisoc.com
+Subject: Re: [PATCH V2] clocksource/drivers/rda: Add sched_clock_register for
+ RDA8810PL SoC
+Message-ID: <jdok5u7aryu6n6aleeox6cy5epkvxdrdnklxzo3kbuffhrifir@qdkvdk67o3lq>
+References: <20251107063347.3692-1-enlin.mu@linux.dev>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20251031073003.3289573-4-jun.guo@cixtech.com>
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SG1PEPF000082E5:EE_|SEZPR06MB5691:EE_
-X-MS-Office365-Filtering-Correlation-Id: 66f21231-15d5-4262-334a-08de25bc30a1
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|82310400026|36860700013|1800799024;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?M/uDj3SeoeCPGbNB50f47nAYHxdcOJKAn3lHezBVel23ovXiLhonSAW9T8Dj?=
- =?us-ascii?Q?SKUq3/IeBVK7yIcUAf93xDlyPO5yef4vmWr1oyKx/WI0qb0FTEA7hYsUP5V/?=
- =?us-ascii?Q?W+JNXAtYHr1HsFFylF1tBnBLX4FWZFBgLKcdC1kAxjSHIGYBbjFwRXr0Ylig?=
- =?us-ascii?Q?HEu4GYotIMm3bcFsj+RebashnpeNPMB3aFlDvEdQcRNN3YuIMUSJ7HBdVBe9?=
- =?us-ascii?Q?bb4LIhQRWoyVRTe3orPd5Q5JGnoH+YzJQgaRO1PG+Zd5FKIQf+CgwL9ZGy3z?=
- =?us-ascii?Q?L1b8q/odmInZmk087iqx6vXBhYh9o5zO7gdReNIQ7oTkTpjnH8RQhG+s96pr?=
- =?us-ascii?Q?WC7yW4kGUoDMDD4Im9K54HAsP7wxI8eczB5mKtfFoubD+Obe4BJ4Sj8/3fBg?=
- =?us-ascii?Q?d389aqORyAR1vkUyskH1kj6PrFVouM50ELQpuqpvZKsbbMImoeO3MvRdZTfv?=
- =?us-ascii?Q?A9FSZjpMWg0eOk3CaboIB0wyqIOF7iqHLfJsadgGJhpaDLMXO9OZ06QHHXzR?=
- =?us-ascii?Q?DCUf0bZ5GeK25WGYrQR79i0LNRO1vXL8NLHU+N+9fpFtdXj1P+hT6YQIQTDP?=
- =?us-ascii?Q?N+Y1djAgzFrISZZQHaA0lUtfo81lhtWTxn31hG+h/qHGaXnBvMnWugW6Xmp1?=
- =?us-ascii?Q?56Dfl/V8PdhF7sYpnsehDBNBclpvw+GqptuLxmaSwDkHiNEcn1PqTvoiVr/j?=
- =?us-ascii?Q?ZJYXukjosJ2krhoO86TOu4juC0bSHCfSGXcihPfsL0f8VrdIdqspaW91g2aB?=
- =?us-ascii?Q?3dW4uxuAWiOkUyEnHuRxzrxHwMVOmrYGG+7L3Bonax5LNbRaytkYa41RzFuT?=
- =?us-ascii?Q?881bu/Htt6KVuz0EkNwQDgyhgA5i2d4nF/K3/XagB/xUeBp08fx5XBkjIqQN?=
- =?us-ascii?Q?z7jYNYXnPeTXoBTA+brxyL5Gw9NUMwvxZZ1OwfA6HsDrl1ymfI6E7k0/uF5C?=
- =?us-ascii?Q?xP26PuS9VfhtWm6iD5Bu5ArZsi8w0wYMB1Wh93E5JUl4xH+yRRUFD0Lb811k?=
- =?us-ascii?Q?jvucdA1SNKxYvopjD7PdoF7SnXV6SGMrfs24+ATJNDyuQhwG+OcfSWhIZEBe?=
- =?us-ascii?Q?YwJjsrJ2pRrXEV3mOVr/WPbM1xxVGvfyHcCYh8HWFM2CG92B6ACWeLiPNTdF?=
- =?us-ascii?Q?fsFwoFVP3tRgrxi9TpKFTJSRBFMfykhcAM1hKyZIhEc8x3eXKjCqwE2hoBiW?=
- =?us-ascii?Q?nSRjKCuo68tcX0oLohC9upExnnS03/AD88/TRBSjnuMt5051Im80swwBQVbe?=
- =?us-ascii?Q?kL7zG8fUG0RdPOqyACIGjjinzYDAdNkzNMChKegP0HX3O9M8f4iSBlc0jqBj?=
- =?us-ascii?Q?QofRuXpiqmZ3XDHBegemZ7V5+uHh9egZNoITmBT7Ar37W3TXkJWHp7kIt6Kq?=
- =?us-ascii?Q?3dF7PwKVyroOYDqFNTq4HQPqld7++sgFygz/DkNpqfqmRU/s6tbkQVFBpldY?=
- =?us-ascii?Q?B9Yep/TY4C/oTuxm9yZxLwZf487hHMGjyoHHK9om66N0PEWvvDtsfqrOZA+V?=
- =?us-ascii?Q?dCt6XLSluxjsugdVyziq6fMxUcWx81qfyAAk91terq0qghPym1a5gZ/DXLxr?=
- =?us-ascii?Q?gJWCRDH54QBRaM1aFug=3D?=
-X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(82310400026)(36860700013)(1800799024);DIR:OUT;SFP:1102;
-X-OriginatorOrg: cixtech.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Nov 2025 09:32:13.1352
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 66f21231-15d5-4262-334a-08de25bc30a1
-X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
-X-MS-Exchange-CrossTenant-AuthSource: SG1PEPF000082E5.apcprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEZPR06MB5691
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251117_013224_512482_0EECE09A 
-X-CRM114-Status: GOOD (  15.44  )
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20251107063347.3692-1-enlin.mu@linux.dev>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,49 +70,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 25-10-31 15:30:03, Jun Guo wrote:
-> The SPI IP design for the cix sky1 SoC uses a FIFO with a data width
-> of 32 bits, instead of the default 8 bits. Therefore, a compatible
-> string is added to specify the FIFO data width configuration for the
-> cix sky1 SoC.
+On Fri, Nov 07, 2025 at 02:33:47PM +0800, Enlin Mu wrote:
+> From: Enlin Mu <enlin.mu@unisoc.com>
 > 
-> Signed-off-by: Jun Guo <jun.guo@cixtech.com>
+> The current system log timestamp accuracy is tick, which can not
+> meet the usage requirements and needs to reach nanoseconds.
 
-Applied, Thanks.
+Which 'usage requirement' you are referring here?
 
-Peter
+> Therefore, the sched_clock_register funciton needs to be add.
+> 
+> Signed-off-by: Enlin Mu <enlin.mu@unisoc.com>
+
+But I'm happy to see a patch from Unisoc for RDA Micro SoC :)
+
+- Mani
+
 > ---
->  arch/arm64/boot/dts/cix/sky1.dtsi | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
+>  drivers/clocksource/timer-rda.c | 9 ++++++++-
+>  1 file changed, 8 insertions(+), 1 deletion(-)
 > 
-> diff --git a/arch/arm64/boot/dts/cix/sky1.dtsi b/arch/arm64/boot/dts/cix/sky1.dtsi
-> index d21387224e79..189b9a3be55c 100644
-> --- a/arch/arm64/boot/dts/cix/sky1.dtsi
-> +++ b/arch/arm64/boot/dts/cix/sky1.dtsi
-> @@ -265,7 +265,7 @@ i2c7: i2c@4080000 {
->  		};
+> diff --git a/drivers/clocksource/timer-rda.c b/drivers/clocksource/timer-rda.c
+> index fd1199c189bf..0be8e05970e2 100644
+> --- a/drivers/clocksource/timer-rda.c
+> +++ b/drivers/clocksource/timer-rda.c
+> @@ -13,6 +13,7 @@
 >  
->  		spi0: spi@4090000 {
-> -			compatible = "cdns,spi-r1p6";
-> +			compatible = "cix,sky1-spi-r1p6", "cdns,spi-r1p6";
->  			reg = <0x0 0x04090000 0x0 0x10000>;
->  			clocks = <&scmi_clk CLK_TREE_FCH_SPI0_APB>,
->  				 <&scmi_clk CLK_TREE_FCH_SPI0_APB>;
-> @@ -275,7 +275,7 @@ spi0: spi@4090000 {
->  		};
+>  #include <linux/init.h>
+>  #include <linux/interrupt.h>
+> +#include <linux/sched_clock.h>
 >  
->  		spi1: spi@40a0000 {
-> -			compatible = "cdns,spi-r1p6";
-> +			compatible = "cix,sky1-spi-r1p6", "cdns,spi-r1p6";
->  			reg = <0x0 0x040a0000 0x0 0x10000>;
->  			clocks = <&scmi_clk CLK_TREE_FCH_SPI1_APB>,
->  				 <&scmi_clk CLK_TREE_FCH_SPI1_APB>;
+>  #include "timer-of.h"
+>  
+> @@ -153,7 +154,7 @@ static struct timer_of rda_ostimer_of = {
+>  	},
+>  };
+>  
+> -static u64 rda_hwtimer_read(struct clocksource *cs)
+> +static u64 rda_hwtimer_clocksource_read(void)
+>  {
+>  	void __iomem *base = timer_of_base(&rda_ostimer_of);
+>  	u32 lo, hi;
+> @@ -167,6 +168,11 @@ static u64 rda_hwtimer_read(struct clocksource *cs)
+>  	return ((u64)hi << 32) | lo;
+>  }
+>  
+> +static u64 rda_hwtimer_read(struct clocksource *cs)
+> +{
+> +	return rda_hwtimer_clocksource_read();
+> +}
+> +
+>  static struct clocksource rda_hwtimer_clocksource = {
+>  	.name           = "rda-timer",
+>  	.rating         = 400,
+> @@ -185,6 +191,7 @@ static int __init rda_timer_init(struct device_node *np)
+>  		return ret;
+>  
+>  	clocksource_register_hz(&rda_hwtimer_clocksource, rate);
+> +	sched_clock_register(rda_hwtimer_clocksource_read, 64, rate);
+>  
+>  	clockevents_config_and_register(&rda_ostimer_of.clkevt, rate,
+>  					0x2, UINT_MAX);
 > -- 
-> 2.34.1
+> 2.39.5
 > 
 
 -- 
-
-Best regards,
-Peter
+மணிவண்ணன் சதாசிவம்
 
