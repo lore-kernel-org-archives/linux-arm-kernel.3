@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC538CEACEF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 12:37:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD98CCEACEF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 12:37:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=+xF4bO/fTs8QrjNJoxW4GipCjwad45AsUDQqmvp/V/s=; b=1ltoToGLB9x73Kga/ugOek31gy
-	nCQGSUe2UOdp+7tE+WixBmQhKz8p9Jxhkf1YpAUnMHg9ieEaW91lxUQ1xOINugHcwrpDFw4oWcfuY
-	my9FjaXbi7EKfCzvn5ztL1NwEbJ2M1MjKM6eBgrOnH/lSdNtdgls4dtMf9IX1yAVSW91HLj4xMskl
-	HriUB96lS1OkfiQ7FhZvejR9pLtQic24RkElbyuwr2E49aV+x7GA0QY2APwwC3h6acoyN8P62p9OP
-	Ri++s73UmVfDD+06K4W414xk4gncNl7IcVo/WgZtx/jtVA06V4EXp6xB9lXsA2tBA9oLCQ6VsNzjW
-	MUVsB2XA==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=A8W5mptCdk0S8QGbadr+z6jPfJ8L5En4UezduXTQKbg=; b=E7Oq/vuXdsnfPhqzmokVc0uDNG
+	idHtewuoAVBwKu4AAXDyDdobVhWPoWepDwNy2zJsFMH6OA1NmkPNhCouJX0kCNQwxme0nlnR6KFp+
+	91Lp4Z4+Vu0coMz7/SNK1F/u9oOlD7gHZSJHAEuPDFigSSykbFTMQuT9DGH0Aey7l/cYZxCco10U2
+	OlA14B0J3oSgjkIdgev1ZneuGxREr8qXO6uaOtiwbpOEDl+OXPdmhOiT8ecQfdBUoAVyfUQECJygm
+	wZDynAW0/NftQ9LQPGnp6qXn+2pBS+57J34AbTkRiN4SYl2YrzTmbbXxhaD8kI3ud6Ku1Oymt+CZq
+	BiWBo2eQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKyTx-0000000G4iP-1tny;
-	Mon, 17 Nov 2025 12:37:21 +0000
-Received: from mx-relay15-hz2.antispameurope.com ([83.246.65.157])
+	id 1vKyU4-0000000G4lj-1X38;
+	Mon, 17 Nov 2025 12:37:28 +0000
+Received: from mx-relay50-hz3.antispameurope.com ([94.100.134.239])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKyTs-0000000G4gu-2sTf
+	id 1vKyTw-0000000G4hd-1RRz
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Nov 2025 12:37:20 +0000
-ARC-Authentication-Results: i=1; mx-gate15-hz2.hornetsecurity.com 1; spf=pass
+	Mon, 17 Nov 2025 12:37:21 +0000
+ARC-Authentication-Results: i=1; mx-gate50-hz3.hornetsecurity.com 1; spf=pass
  reason=mailfrom (ip=94.100.132.6, headerfrom=ew.tq-group.com)
  smtp.mailfrom=ew.tq-group.com
  smtp.helo=hmail-p-smtp01-out03-hz1.hornetsecurity.com; dmarc=pass
  header.from=ew.tq-group.com orig.disposition=pass
 ARC-Message-Signature: a=rsa-sha256;
- bh=+xF4bO/fTs8QrjNJoxW4GipCjwad45AsUDQqmvp/V/s=; c=relaxed/relaxed;
+ bh=A8W5mptCdk0S8QGbadr+z6jPfJ8L5En4UezduXTQKbg=; c=relaxed/relaxed;
  d=hornetsecurity.com; h=from:to:date:subject:mime-version:; i=1; s=hse1;
- t=1763383022;
- b=Z2qJfSB962gswPHV2BifEuY5btiUtEK5UGmvYAJf9dihEg+2LLn4U/b8us0ZZyzyuFb7iV77
- os/pfvyF+xLx06gU037KzSuH+WdKZW+TNPThe67TIPSdAgWfSmrlmEXWkDlrB7CelnONDutnFGa
- G3LEEmdopZhUOznIcvH0y4We8OO+wnK2ZRAxCb+WEfgDt65fQPh6QH6ErB2ZnBJeliI+A8dA8aw
- ds5fcH9ob/2fegHu54GGWoCrmUVcD9VC2ugpbUowDeNaBtQPSmcS5fAdaZ/SzqYGgSSs42tUTQC
- 8iglhYhJ0ktWxs/XDWBqLs/sA3dk2Mh0u/cE+U38XD0Fw==
+ t=1763383029;
+ b=Bq9IaxTlyp9h5HOr06OLwfB8yz7Mt3cB2BT4Ghj2UuEjln8ixYYq1tymrYxUoVw6Jw0cqhpO
+ FK1DAvqlCmBdSS0xTPf2SvW2H7w/Yu1fKbj7H6gsmcgyf2lVruoHyz7SilyT7j5vvfbX3HGijtf
+ 2Y+DWLkapQeB4F5O3qXdTDHOeeWNb2bAAsD0ezJ9n5bXO+A9XNhi2m1rxIE57lCQZcYzhgKC2xc
+ xgteSPWWtlStEPW2UH9YAlaO/q/3nPWRaTqb6aj3sMf9Rww6pC9DkSV2lc7SRFYSymmLTLmuM9G
+ aeVW5IHQkzdYvVh8ETeYzJ39kfnRz+Dam/WCwlu3O1CCQ==
 ARC-Seal: a=rsa-sha256; cv=none; d=hornetsecurity.com; i=1; s=hse1;
- t=1763383022;
- b=DRe3KppFTDLRLi6x+lJlSvPfO+Innkwdrbeo67CJxZcnwH/EapH0hgQJEdKQ/iXnQATCJOui
- GF/3LuzuyVurL4+UMmsuMPH5g6wYZndMrqaZi+Nxf6hEl4FF2CuXbGlLKnCkrQrdJ7V+oMCmoay
- T1IzQ+9ru799gQUqG9tZQbFy9YsBctdbX+riL0ADB9Lyd9NzbsjI2sMzIdcn5kk9tstyk+pIGJG
- k0IBTxB8To5WCDhxuRvRl1xSQ4NyH/vJ3d3vzNHY8MVfPTQBXmL85Eibd0m0FflOunPR3X1ELBI
- 7+oDrNxwOoSEYFE3OmTqtRIHuHb8k8UwBCARk9gErvm5A==
-Received: from he-nlb01-hz1.hornetsecurity.com ([94.100.132.6]) by mx-relay15-hz2.antispameurope.com;
- Mon, 17 Nov 2025 13:37:02 +0100
+ t=1763383029;
+ b=etlRTWyJ+ztTITTu/vJ40CL2iOovO3r5lwyT1ERGotpwAacZRhxcSVfWHxHWgorbtdkZhgU2
+ 0Kn/ialUt3a3eVgDbdRcfwybWvYJOITIVbZYGECId6krlfqWANNSLcN/+Lq1hoQL39bSb55hBZ8
+ YlFROazR5jXOFokc0/6I5hiQp6YXJT+ZSVn9EPOvkAzaXpbpi3ZVItIwTvzj+0jPIcWalFwIu3w
+ aER4bq4W4gWgis0oRjjSz9k3BS2rcSQgS1j1viqKKYJnesPJBsvMTtKr5naNr520KM23QB3VMUm
+ 5MAOI2qP/NDS4/hWGGQ2q9rlAd6ZTKCYBX37C0NNP6bBQ==
+Received: from he-nlb01-hz1.hornetsecurity.com ([94.100.132.6]) by mx-relay50-hz3.antispameurope.com;
+ Mon, 17 Nov 2025 13:37:08 +0100
 Received: from steina-w.tq-net.de (host-82-135-125-110.customer.m-online.net [82.135.125.110])
 	(Authenticated sender: alexander.stein@ew.tq-group.com)
-	by hmail-p-smtp01-out03-hz1.hornetsecurity.com (Postfix) with ESMTPSA id 1F7C8CC0DBA;
-	Mon, 17 Nov 2025 13:36:48 +0100 (CET)
+	by hmail-p-smtp01-out03-hz1.hornetsecurity.com (Postfix) with ESMTPSA id 82C15CC0E8A;
+	Mon, 17 Nov 2025 13:36:54 +0100 (CET)
 From: Alexander Stein <alexander.stein@ew.tq-group.com>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -63,18 +63,18 @@ To: Rob Herring <robh@kernel.org>,
 	Pengutronix Kernel Team <kernel@pengutronix.de>,
 	Fabio Estevam <festevam@gmail.com>,
 	Alexander Stein <alexander.stein@ew.tq-group.com>,
-	Martin Schmiedel <Martin.Schmiedel@tq-group.com>,
-	Richard Cochran <richardcochran@gmail.com>
+	Martin Schmiedel <Martin.Schmiedel@tq-group.com>
 Cc: linux@ew.tq-group.com,
 	devicetree@vger.kernel.org,
 	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	netdev@vger.kernel.org
-Subject: [PATCH 0/8] TQMa8MPxL DT fixes
-Date: Mon, 17 Nov 2025 13:36:27 +0100
-Message-ID: <20251117123643.711968-1-alexander.stein@ew.tq-group.com>
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 4/8] arm64: dts: tqma8mpql-mba8mpxl: Add HDMI audio output support
+Date: Mon, 17 Nov 2025 13:36:31 +0100
+Message-ID: <20251117123643.711968-5-alexander.stein@ew.tq-group.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20251117123643.711968-1-alexander.stein@ew.tq-group.com>
+References: <20251117123643.711968-1-alexander.stein@ew.tq-group.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-cloud-security-sender: alexander.stein@ew.tq-group.com
@@ -83,24 +83,23 @@ X-cloud-security-crypt: load encryption module
 X-cloud-security-Mailarchiv: E-Mail archived for: alexander.stein@ew.tq-group.com
 X-cloud-security-Mailarchivtype: outbound
 X-cloud-security-Virusscan: CLEAN
-X-cloud-security-disclaimer: This E-Mail was scanned by E-Mailservice on mx-relay15-hz2.antispameurope.com with 4d96gh6p7Dz2FbSG
+X-cloud-security-disclaimer: This E-Mail was scanned by E-Mailservice on mx-relay50-hz3.antispameurope.com with 4d96gq1pMmz2nHWF
 X-cloud-security-connect: he-nlb01-hz1.hornetsecurity.com[94.100.132.6], TLS=1, IP=94.100.132.6
-X-cloud-security-Digest: 328a4f074a2d613aa025241cbcc29309
-X-cloud-security: scantime:1.739
+X-cloud-security-Digest: 963b827203f1c42a2a4c49ed014a0b11
+X-cloud-security: scantime:1.906
 DKIM-Signature: a=rsa-sha256;
- bh=+xF4bO/fTs8QrjNJoxW4GipCjwad45AsUDQqmvp/V/s=; c=relaxed/relaxed;
+ bh=A8W5mptCdk0S8QGbadr+z6jPfJ8L5En4UezduXTQKbg=; c=relaxed/relaxed;
  d=ew.tq-group.com;
  h=content-type:mime-version:subject:from:to:message-id:date; s=hse1;
- t=1763383021; v=1;
- b=bM9GOjYvsoif4C36pLCqRKNdQCnQrxwXDdBeByIxpG8s3pVwWcxkA/VcTBnwDbUaEF6u4Bcp
- vJpaopSoiuL98Mm0CqOB2aXskNd6N3BmvyOTDAvCC7m6IxuVRzJ7v/kaslCNaJDZBCplJVbNsxE
- q9uVVdYZIjhwUFzQm22FrLU7p1Mo45CcUinTSVapu2QkALDwchh/ZpBJyIORLSIY1iUNrSrCspx
- OmDDn7xfhZaWvtrpHm7cZrEb2seZ6pdTFSCXA5NyxZ72LQVum+XSxUtJ3UCOqjrkEA8uiXoHl+j
- Yr5d4qRvbdaz224rZ5Dy5ifa1VX7FD3HVU5INa1xXYI4g==
+ t=1763383028; v=1;
+ b=ldlcl0j+1hvN4Artbia28Oom/VAcVAv6mrK+8wkV+0cFI42cOk2/VduGhHlyAQdP9KROkpb+
+ 0OmE7Fj984g7a8aJvZuLIzbAXhg3LGCkzawrmS+8nFBCzi3zUbDO6vO0HpbQcccITiNgj8dlUdy
+ VAwhlVAwZ51ber5Cv1+tREuKtiUmxSSrB1KDoPwe1nM+1UOPKsbM9aQSavNoF4xvxNosHaGdtcH
+ 4qXjL9qOg9R10in6GE7hFk/vMJUoejnGVQ4uto5l5Ym/E4XAzNQjU/Klo4hIL8lWNT5HWy3EVBG
+ /vOl/m77xv/c07uaMIimwfS2QvKMAzJ8wmYZ+epTnPBPQ==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251117_043716_868858_21E3B0FF 
-X-CRM114-Status: UNSURE (   9.77  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251117_043720_521080_51E8BD6E 
+X-CRM114-Status: GOOD (  11.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,32 +114,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Add the HDMI audio soundcard and enable necessary nodes.
 
-this seris includes small fixes for TQMa8MPxL both on MBa8MPxL and
-MBa8MP-RAS314. The ethernet IRQ type has been changed to level-low and CEC
-pad configuration has been fixed to use open-drain output.
-For both boards the HDMI audio output support has been added as well as
-the ENET event2 signal on MBa8MPxL, which can be enabled using
-/sys/class/ptp/ptp1/period.
+Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
+---
+ .../dts/freescale/imx8mp-tqma8mpql-mba8mpxl.dts   | 15 +++++++++++++++
+ 1 file changed, 15 insertions(+)
 
-Best regards,
-Alexander
-
-Alexander Stein (8):
-  arm64: dts: tqma8mpql-mba8mpxl: Adjust copyright text format
-  arm64: dts: tqma8mpql-mba8mpxl: Fix Ethernet PHY IRQ support
-  arm64: dts: tqma8mpql-mba8mpxl: Fix HDMI CEC pad control settings
-  arm64: dts: tqma8mpql-mba8mpxl: Add HDMI audio output support
-  arm64: dts: tqma8mpql-mba8mpxl: Configure IEEE 1588 event out signal
-  arm64: dts: tqma8mpql-mba8mp-ras314: Fix Ethernet PHY IRQ support
-  arm64: dts: tqma8mpql-mba8mp-ras314: Fix HDMI CEC pad control settings
-  arm64: dts: tqma8mpql-mba8mp-ras314: Add HDMI audio output support
-
- .../imx8mp-tqma8mpql-mba8mp-ras314.dts        | 21 ++++++++++++--
- .../freescale/imx8mp-tqma8mpql-mba8mpxl.dts   | 29 +++++++++++++++----
- 2 files changed, 41 insertions(+), 9 deletions(-)
-
+diff --git a/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql-mba8mpxl.dts b/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql-mba8mpxl.dts
+index 03b75d4cf699a..ac889a69da69a 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql-mba8mpxl.dts
++++ b/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql-mba8mpxl.dts
+@@ -248,6 +248,13 @@ sound {
+ 			"Line Out Jack", "LOR";
+ 	};
+ 
++	sound-hdmi {
++		compatible = "fsl,imx-audio-hdmi";
++		model = "audio-hdmi";
++		audio-cpu = <&aud2htx>;
++		hdmi-out;
++	};
++
+ 	thermal-zones {
+ 		soc-thermal {
+ 			trips {
+@@ -290,6 +297,10 @@ map3 {
+ 	};
+ };
+ 
++&aud2htx {
++	status = "okay";
++};
++
+ &ecspi1 {
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&pinctrl_ecspi1>;
+@@ -486,6 +497,10 @@ &gpio5 {
+ 			  "", "", "", "";
+ };
+ 
++&hdmi_pai {
++	status = "okay";
++};
++
+ &hdmi_pvi {
+ 	status = "okay";
+ };
 -- 
 2.43.0
 
