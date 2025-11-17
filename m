@@ -4,87 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDE93CEACEF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 10:19:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55DFBCE8D6B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 10:19:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
+	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7dSZwG+Ut4tx3N9fD6TcZFfeIFY+rAbw7tsG6scq/hU=; b=HLIgtE/WnmrVUxuT3eGJdeKMRi
-	+nybf6jONQZDR5i/kfutDByBMa3maII36GxALD/otVPMDhYu1Pp2qMvyrJuOFRWpA0YjTQ4BXHM4J
-	Sb1eQoJoTPLNLTGhrYgv6XqFadervulbyIguza65jbfLTa4/xEsb4A27IBvcQXkfC/r0p/iCYnObl
-	x7Add0zWEvYULUo+VrBTIcl7jaJ8g0EyriaIU4XLhzqBHcsYKfqyj0f8XfRP88xotxRqdzKJQnqWe
-	XXkcSuya/wqed5k/ygBETynb7tOGBtvxRjr2vCvGqIyEHs5mownQ55RMONYUPO8pSgJXDdpAvZmVU
-	MQQ5EUkw==;
+	bh=/ufHH1DbWx28LxxSzUkyemZUrxXGaMbaGJk+v9vhV04=; b=aiGgo0eD/21+6w6zje75grODft
+	TfPyywFFlNBiviQ1+nslKQ+u1YVUZm6O1fvzszKlWx1Lzgzlv7QXG4bnsEMsvjD4szvQFfiZiGFYr
+	LJm7qSVgcD/fXTBWoXSGLW2vcvkJC4hh/Yhc1GUMTrs6JytdnDo4Ln6Hylwn6assDNA/ugToAaON9
+	tQkG6AaJ7z+L5mgCcPDdFBkIQrp2/NSFvx1Lk5iZo7yQfEY86r3F+cJszeuQpsoxo240s+GX0qaok
+	OxjOIY+OXLzGfX8N+gxBLtcx5iedGDqsIOFvmfSaez2B0zcZDZU3Me55AYBKMbJKiIrOi5Q/lpVWk
+	8HH5+RUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKwKD-0000000Fs8C-37Ns;
-	Mon, 17 Nov 2025 10:19:09 +0000
-Received: from mail-qt1-x82c.google.com ([2607:f8b0:4864:20::82c])
+	id 1vKwKX-0000000FsBd-0EBa;
+	Mon, 17 Nov 2025 10:19:29 +0000
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKwKA-0000000Fs7k-2pgQ
+	id 1vKwKU-0000000FsAe-2s6A
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Nov 2025 10:19:08 +0000
-Received: by mail-qt1-x82c.google.com with SMTP id d75a77b69052e-4edb8d6e98aso653571cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Nov 2025 02:19:06 -0800 (PST)
+	Mon, 17 Nov 2025 10:19:27 +0000
+Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-47118259fd8so29890325e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Nov 2025 02:19:26 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1763374745; x=1763979545; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=7dSZwG+Ut4tx3N9fD6TcZFfeIFY+rAbw7tsG6scq/hU=;
-        b=j+Gbu/JdBdAvovyE14jWKwlSCxp3d/AmRECkpy7EmOtzrqg33m4MizJpGtjQHs85Rg
-         vWOJa5rGz51f9b3hgWHNsEoJKQ80nQ/gn7wxbeznTLi5HjQSRutIKtbZu0RiUrPUsTrG
-         gG+55fHtahRNxYL8nbZvDDM4804QVhN8M/NwpzK6O0PuNNPp30GVpFWR8UJ/Z6ZJnTYQ
-         0CawCtYo06ru8jDQiV7jffdFpc6CbGmXVRJJVD9+vvIobsnC258AvgiWnekvHHtyWv2k
-         xYrWr7Mg/s8UXzp6M4ReDsZxjVkXf6DlcTOdrZ/ZWaHYHNae6Z6Tvmqyio8qbidSmRP0
-         KWaQ==
+        d=linaro.org; s=google; t=1763374765; x=1763979565; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:references:cc:to:subject:reply-to:from:user-agent
+         :mime-version:date:message-id:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=/ufHH1DbWx28LxxSzUkyemZUrxXGaMbaGJk+v9vhV04=;
+        b=sk1OCBLqFTl0zOE6Z6rykjJZzmXD9VzlMIZ+c02+qORbZdM/3INB2ZyCa0Yi/Th2lI
+         gpEjNgvWuyzMUq+X8S/mJuPksa2Jqxf5Cnip60xMV7XPy3hknI7dNKMb+jaYdpJX8+Qi
+         tUp/J73W/Wj56WMn+XIjl/XwIfayQm2/CUS1DZPMq4qAIi6rdVDRz/0i0mXfwWsN49I3
+         4XMydAZhda7cpkUVAI8wRSN5ICZYeQ8Ci6w9oSV4uUQqHvu5ZfiXVa7w7w8vG9u5B36E
+         nWVFQa75U6jvpIOnHdqcix6ZXnesdCDO804TXyp2Jn6snxp7uUetmjTSezgFjJsxSfC6
+         dMOg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763374745; x=1763979545;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=7dSZwG+Ut4tx3N9fD6TcZFfeIFY+rAbw7tsG6scq/hU=;
-        b=d0Trwx1ZVnZtFClmeTMUGM/A6xSYj8eDBZCBtFWZyE8K9tAAqVdE5k+azvJ8YD/9JE
-         c3g05n7oD7e6uHamkz4Ac6zO+foc74ITaKQLzYVZr4bCKptDuV5coy1ZQ5KDk6GSZjZd
-         FdknlMtKI/S8mrvm6tjPYSf/YldnkbhTyedkelVzB3FXf9ChPMQ66FSC0Mt9LRfeHvLu
-         pLEBZ1PYyVr7ktuCA3dF8OWRvbNUO8Cidvz7Yx3NrlOY9if6d+L0NLKv2AK5T0AQhmQ5
-         jHrQiyQuuTFwtogtJo5rHQia+tXXo/SUFRxlhTOb1IhGQoomebt0Nr7wd4smW6Ebim4G
-         baJQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXvP+ikgItwmW4GKUtW90F+3dTDcTFflflXP1byCV+zhjcOlij5YQR/faXBjpeyBIOcNXBGkrDWua99Ktgxpaio@lists.infradead.org
-X-Gm-Message-State: AOJu0YxbTFT5exQDUShnKh7t0D/OR13zcvZ4RYdzrw+7zyN8L3h6jb5e
-	HD6M7r08irikP2NfU8LubHbv7VH+qBYbwiSwMOp/u21e8ePw/7RXEeSHKW3MD8Vs7odBgD1cdkH
-	sCQ0M5TkoL6pOPT5bL868IXIW1bM39TQMCcXrpdc5
-X-Gm-Gg: ASbGncuCjQp0R6aZad+yeiemZFzjT9jBByyHcIy+qbKIXdP7YwGPTqArlDSUCe0kysv
-	qaG2wZ4MLniXuQnFqC2JFF5MGmiCbAV3DzggoXGVacan4l6nlnifSjuxXhRqulSaG+8r8HumR8Q
-	2rQwh85duJrHEPaoXx4rr2WAc4NUanNPxw81oGk/sVjg9y9A7Tad29wN/NJ5AoS+JuQmTrqET/S
-	mRPjHT0PbiN9mSnOeT7pWxCXZKZa/VRzJGlSwnBB7XM//1fg60p2l9E5APZP6KrBpmk5exwas//
-	TjVfHQ==
-X-Google-Smtp-Source: AGHT+IFNmczB2ds9iTzz5FRf7oU0BYqq8SdTaWadzkP1SRAFOc8Pnz8a3JfCCCKf6Zz2U+3uKM0Q8RAviooSDsFqVnQ=
-X-Received: by 2002:a05:622a:9:b0:4ed:70d6:6618 with SMTP id
- d75a77b69052e-4ee0292790emr11283261cf.10.1763374745320; Mon, 17 Nov 2025
- 02:19:05 -0800 (PST)
+        d=1e100.net; s=20230601; t=1763374765; x=1763979565;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:references:cc:to:subject:reply-to:from:user-agent
+         :mime-version:date:message-id:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=/ufHH1DbWx28LxxSzUkyemZUrxXGaMbaGJk+v9vhV04=;
+        b=uhMlmWVqmxROWVffT7yQQcZxzY0hzjLOSlC8XsJhFRJI6dDk7SNWUJhdPy9ihtToan
+         uxL5APUF3JxV1q2mULx5+sNFtPslZS4+2ZWTBP40Htwjv6Q1n4Go4PCFVVCrzL+tCswU
+         XRv+h16FhNIlm2Ys9EedoYJqt6FucvevSpw5H1S3y7oF2aPqoPea2z9VyJp4TIHY44zB
+         wJFhAYaoB671KMFHqgjfhwnfGQiKwcD7WOkmHAk5r0kZokCPnfHaaThjixgutDjDg2a4
+         IKrLxSiy9kH1iH0TxDeM3IYmtORidTl9QeDcHvf2Gw46YGMvqpObnu9/6uC7ddjY2kQh
+         jedQ==
+X-Forwarded-Encrypted: i=1; AJvYcCU/UPk2MWza2J//6udq+lSV/ictsnDWY8xdxR7RKpg162sY+Gzuu345POKdn/K4+wnM8HkffQWXwwq1CGPQicDl@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz/YpI+RFvHIXIOsATgct4+Rw0hrjRPejame8AUTi0ww0ra8vdQ
+	ONOQnpG2rCYWV2r2GdAHxrLED/y20EvYufau0o9AcUqtPgNBOY18C0Ni0ePuZewmGvk=
+X-Gm-Gg: ASbGncvq/Q+spzQubFPnG3/j1g1Zui3LhBKwjggzAWdz4dbSwJniKt7hECCJkSFMAqr
+	bEudnEnqY3Qvyr8+RwPAIkQpthb/Bdaod9F7PVD99kZKuUM1P2RJuiRT8zSYSvF36xCDw4MnFkZ
+	yUbwGiTlg1MCJkDKhroZn4leh8Sjc/qtsnpPb5HlihdbLhSYkB4Uap9AuqibeINVvHsdKtvFD0o
+	FrB+wr+ui1Gyz+Hg9B6495RyCSjCXYMEqpNXD6Lna1R95t3CFqgoUiO2lrxBcKSRGjldiH9zQYq
+	sKAEeKrDeHYAmE1eXWxm3c2az1Nbylg5fI42bv5Zthx/7MJTkFLcEy2IYE7syX8CBGZPwq1oU8j
+	oUFx1XmiiE8cwexR2Lu1SLDbmUyp0qGqlqYnjdDJdP8OfJ5izsBJvxP0JUoMfrGQQNNt60pDGpF
+	j5wjuKf8F95250uiSFTscZaDbXW1g9SJNNDcfrYYgBS3QQIy+i095G86l4ktnb3DY=
+X-Google-Smtp-Source: AGHT+IFD/7Ms5qKA1NSF5rB52XXIf71igLr4Y8ieRfFKXp34t1o4f4rOZNN2lU09OjGHE+RX/5So/g==
+X-Received: by 2002:a05:600c:4594:b0:477:73e9:dc17 with SMTP id 5b1f17b1804b1-4778feba6c6mr110482505e9.35.1763374764616;
+        Mon, 17 Nov 2025 02:19:24 -0800 (PST)
+Received: from ?IPV6:2a01:e0a:3d9:2080:d631:aa74:9313:e9f3? ([2a01:e0a:3d9:2080:d631:aa74:9313:e9f3])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4778bb54bbesm107384065e9.5.2025.11.17.02.19.22
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 17 Nov 2025 02:19:23 -0800 (PST)
+Message-ID: <592374f6-6fb3-47a0-a834-ba6702f4b2a6@linaro.org>
+Date: Mon, 17 Nov 2025 11:19:22 +0100
 MIME-Version: 1.0
-References: <20251117091527.1119213-1-maz@kernel.org> <CA+EHjTzudrep2hEno4RPwh8H88txiVYFoU7AyJYVWG9SFSk87Q@mail.gmail.com>
- <867bvpt25u.wl-maz@kernel.org>
-In-Reply-To: <867bvpt25u.wl-maz@kernel.org>
-From: Fuad Tabba <tabba@google.com>
-Date: Mon, 17 Nov 2025 10:18:28 +0000
-X-Gm-Features: AWmQ_bkalvPmo1B-rqo9IVXjMt6TjFkbAXf4VPzF4RKYlhIEuPNWjQgsoTvi3Ag
-Message-ID: <CA+EHjTyLGFUDbyr_B1uj5ZpxQA9ypCBy0ZUNRQ8M8VdLmXimnw@mail.gmail.com>
-Subject: Re: [PATCH v3 0/5] KVM: arm64: Add LR overflow infrastructure (the
- dregs, the bad and the ugly)
-To: Marc Zyngier <maz@kernel.org>
-Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	kvm@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Oliver Upton <oupton@kernel.org>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Christoffer Dall <christoffer.dall@arm.com>, 
-	Mark Brown <broonie@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+From: Neil Armstrong <neil.armstrong@linaro.org>
+Subject: Re: [PATCH 2/5] soc: amlogic: meson-gx-socinfo: add new SoCs id
+To: xianwei.zhao@amlogic.com, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Kevin Hilman <khilman@baylibre.com>,
+ Jerome Brunet <jbrunet@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20251117-soc-info-s6-s7-s7d-v1-0-6ab8aab03dce@amlogic.com>
+ <20251117-soc-info-s6-s7-s7d-v1-2-6ab8aab03dce@amlogic.com>
+Content-Language: en-US, fr
+Autocrypt: addr=neil.armstrong@linaro.org; keydata=
+ xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
+ GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
+ BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
+ qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
+ 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
+ AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
+ OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
+ Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
+ YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
+ GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
+ UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
+ GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
+ yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
+ QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
+ SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
+ 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
+ Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
+ oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
+ M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
+ 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
+ KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
+ 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
+ QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
+Organization: Linaro
+In-Reply-To: <20251117-soc-info-s6-s7-s7d-v1-2-6ab8aab03dce@amlogic.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251117_021906_716929_ABE3C163 
-X-CRM114-Status: GOOD (  19.76  )
+X-CRM114-CacheID: sfid-20251117_021926_765887_ACAB18EB 
+X-CRM114-Status: GOOD (  13.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,50 +130,52 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: Neil Armstrong <neil.armstrong@linaro.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marc,
+Hi,
 
-On Mon, 17 Nov 2025 at 09:54, Marc Zyngier <maz@kernel.org> wrote:
->
-> Hi Fuad,
->
-> On Mon, 17 Nov 2025 09:40:47 +0000,
-> Fuad Tabba <tabba@google.com> wrote:
-> >
-> > Hi Marc,
-> >
-> > On Mon, 17 Nov 2025 at 09:15, Marc Zyngier <maz@kernel.org> wrote:
-> > >
-> > > This is a follow-up to the original series [1] (and fixes [2][3])
-> > > with a bunch of bug-fixes and improvements. At least one patch has
-> > > already been posted, but I thought I might repost it as part of a
-> > > series, since I accumulated more stuff:
-> >
-> > I'd like to test this series as well. Do you have it applied in one of
-> > your branches at
-> > https://git.kernel.org/pub/scm/linux/kernel/git/maz/arm-platforms.git
-> > , or which commit is it based on?
->
-> I just pushed a new branch
->
-> https://git.kernel.org/pub/scm/linux/kernel/git/maz/arm-platforms.git/log/?h=kvm-arm64/vgic-lr-overflow-fixes
->
-> that is based on -rc5, kvmarm/next, kvmarm-fixes-6.18-rc3 plus these
-> patches. Let me know how this fares for you.
+On 11/17/25 11:17, Xianwei Zhao via B4 Relay wrote:
+> From: Xianwei Zhao <xianwei.zhao@amlogic.com>
+> 
+> Add new definition for Amlogi SoCs, include S6, S7, S7D.
+> 
+> Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
+> ---
+>   drivers/soc/amlogic/meson-gx-socinfo.c | 7 ++++++-
+>   1 file changed, 6 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/soc/amlogic/meson-gx-socinfo.c b/drivers/soc/amlogic/meson-gx-socinfo.c
+> index 7549f1644e5e..6fbb70c8922d 100644
+> --- a/drivers/soc/amlogic/meson-gx-socinfo.c
+> +++ b/drivers/soc/amlogic/meson-gx-socinfo.c
+> @@ -45,7 +45,9 @@ static const struct meson_gx_soc_id {
+>   	{ "S4", 0x37 },
+>   	{ "A5", 0x3c },
+>   	{ "C3", 0x3d },
+> -	{ "A4", 0x40 },
 
-Great! I've applied the pKVM patches on top of it. So far so good.
-I'll test this series more thoroughly and review it as well. Stay tuned...
+Why did you drop A4 ?
 
-Cheers,
-/fuad
+> +	{ "S7", 0x46 },
+> +	{ "S7D", 0x47 },
+> +	{ "S6", 0x48 },
+>   };
+>   
+>   static const struct meson_gx_package_id {
+> @@ -86,6 +88,9 @@ static const struct meson_gx_package_id {
+>   	{ "A311D2", 0x36, 0x1, 0xf },
+>   	{ "A113X2", 0x3c, 0x1, 0xf },
+>   	{ "A113L2", 0x40, 0x1, 0xf },
+> +	{ "S805X3", 0x46, 0x3, 0xf },
+> +	{ "S905X5M", 0x47, 0x1, 0xf },
+> +	{ "S905X5", 0x48, 0x1, 0xf },
+>   };
+>   
+>   static inline unsigned int socinfo_to_major(u32 socinfo)
+> 
 
->
-> Thanks,
->
->         M.
->
-> --
-> Without deviation from the norm, progress is not possible.
+Thanks,
+Neil
 
