@@ -4,71 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15036CEBF92
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 18:49:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D28A5CEACEF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 18:49:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:From:Subject:Message-ID:References:Mime-Version:
 	In-Reply-To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=M5WVE3Hl8yIdruGNt8XIVgNufhaprbpT9QA5T5hpVt8=; b=uC7k8ZWeWOIpYOY6znCVB7Pe6+
-	rYhP1QEwrmxI+TGmXhcJeapJEPGjkYCWHB5/ChRCtxoZgpFu9GU+IiQQZ+3SiOVJSyO1NF+YUb033
-	D3AICeXzeVYbJqeY0qdMT2vyXq8kCIM9/kaOoRi+2nZRxMOHcCj57GkvSB75i7O/qIGJxBkDtBI3Y
-	7HfXaINFbpo49uEVtraYVlqDXoAC/XK7Qkx+3j3rScCbtZ+Fb6rpnWcSdVbA4Ibe51Vcp7aP3UrLf
-	Kdg03SMxMRBp53z0ZZS7EHdINFFCSsbS7l9SsuVUK/vdnMFfYJ2Crd+ZmuIoGQNoM8F6DRNDEoVLE
-	CjCx5T0A==;
+	bh=7Pr/AhyDI18gHyudCTe0PajcLVV2Ma7cRe8uP5zP/9Y=; b=OLuwAUJc/1UbUTIjLdDcs4JQ0V
+	bm5awifMMz9SLKiMoX1so46JNMjHyxpSNCRzptsWFg66pSXFR8Tc2XggZpIWKZT6QgG+QMdufHqy+
+	lXKYPPdnAxLjnF4VPiw3VWIbdK7x7yZlg9R3KCfrw2UulFg+m8p80c0lXhVP1vCGaw8thyEDwbL03
+	Y0CMSBKwxMIW/r9RsLLS8CNe4cAl5NZZvYP3ReyN1usFo5y7k6U00lxurjIwyytKmZL92F4QRI87M
+	TS29y3kOQgvtfR94ipqnGOHtSYwYEcgLf/lFcTO5HTG4qqOxQ8yCAiunfK2qMVe5KWXbvpFQOLqMC
+	3FzcCR9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vL4Hg-0000000Gdyy-01oY;
-	Mon, 17 Nov 2025 18:49:04 +0000
-Received: from mail-wm1-f73.google.com ([209.85.128.73])
+	id 1vL4IH-0000000Gehd-2r60;
+	Mon, 17 Nov 2025 18:49:41 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vL4HR-0000000Gddl-2ly7
+	id 1vL4HX-0000000GdlP-0vLu
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 17 Nov 2025 18:48:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:Cc:To:From:Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=7Pr/AhyDI18gHyudCTe0PajcLVV2Ma7cRe8uP5zP/9Y=; b=bj/CS0b1YdmoY+Pk4ZwCaICLkN
+	vD8lMXrdxpSLUlC4Q9+oA3y3okOccVaMoeunB9BbYdsbd4ox1hAEnlokvQNM+uW8AqyK6ceCvF91k
+	VqxiEj66DCBxqwPdO4N99qdTSVmrytGxuRT3MmifUwyVvmNc4V9Ef78PnPerpNYKiPYiXXo23XOgj
+	oAkD5bPV5uR+4nvzHLyTBmK/6HjK/35FIo0BRcM93Iqq82p5hnHG9X2eMD5Mv37H0/UGl88p0UGlI
+	yBma3xiqTQEvnFeVutKfA+F/yGEUgk7c0TWMkb+1Wt0QGSmnSKnqQb13qftBO6fqoiuqEgaYW6NDg
+	QuPflyFw==;
+Received: from mail-wr1-x44a.google.com ([2a00:1450:4864:20::44a])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vL3Pp-00000007wfP-21zm
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Nov 2025 18:48:51 +0000
-Received: by mail-wm1-f73.google.com with SMTP id 5b1f17b1804b1-477a11d9f89so1924705e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Nov 2025 10:48:48 -0800 (PST)
+	Mon, 17 Nov 2025 17:53:28 +0000
+Received: by mail-wr1-x44a.google.com with SMTP id ffacd0b85a97d-42b2c8fb84fso2461655f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Nov 2025 10:48:51 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1763405327; x=1764010127; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1763405330; x=1764010130; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:from:subject:message-id:references
          :mime-version:in-reply-to:date:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=M5WVE3Hl8yIdruGNt8XIVgNufhaprbpT9QA5T5hpVt8=;
-        b=I8wH2x8aS4MAUjpc1P6/8QfVbroonChAU6cyVyKuJRitw9D6a7SKRFTi3uErVB2B7z
-         ZPoMlEmD0rw+B5l6aknm6mTPTUpVyk4VAoTH3zSFElTd1IZEOem/6whZJ8PQGTAq8Gaq
-         +A04nC8j79DGfM3XzIJSTOmfedeZms8mnDu6U6ckSPVlmKJ2lokh2gdEh67kQn1otHeg
-         esPDlnmtp9qjU5WuLSDkkfSqj1h3PiQ8QamBEQJvnaJPwNQcmdtZ6d3AZK60Xv0FSBCs
-         1sIQQfVitkOQmtGvmqWkgac7FklFgUYrjGBBiSiHhgTnPDgRj+iJ/6vCsoJp2hzNKUXw
-         jpmg==
+        bh=7Pr/AhyDI18gHyudCTe0PajcLVV2Ma7cRe8uP5zP/9Y=;
+        b=T++9JMdYf65679I+0yvUSFwZnguHyczQHYdlhUGnOW6rsGkonR3k/9ePMHXkxntdyo
+         lMwn7Cys9FThrYZnsLqo5krbTEhTcP/NewM841t6vmPeBbjx38op7wE/eE0tUpgi0SC2
+         QMnqhJgtIseZ26Rfv8Fee22IVxVM38w70PdwlaBvWM7dtZ2fVzokl0pdFhm72675JF9U
+         hGASv4+EBsL0sqlvtrZA3wT1QWK8meMd9lJvjfxbYMbIGM/TzU3pRVrIZyyzzGfxu3XT
+         uUkSOoQqAgK4AjnlItMB+TLtLpBWZ5lVmAoVCdqajRs1daWbH5+eggvNfeIyUZ6hoEj2
+         XHxg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763405327; x=1764010127;
+        d=1e100.net; s=20230601; t=1763405330; x=1764010130;
         h=content-transfer-encoding:cc:to:from:subject:message-id:references
          :mime-version:in-reply-to:date:x-gm-message-state:from:to:cc:subject
          :date:message-id:reply-to;
-        bh=M5WVE3Hl8yIdruGNt8XIVgNufhaprbpT9QA5T5hpVt8=;
-        b=lUkvgkCTxQttN6/10yzZoh+vmoaB+ZGVpt/TWUxnXsz/6nMBB5PYdrF+QU3/MLvMMU
-         nPQdL2gCDlpcwcXzBajLF/7nMDrT13DWpWYXZDu2cuA4ECo8BHBUlQmR/vpvYpba026o
-         ZSQvr7pUWZaT7Mtx/HckTh18ovLOYFbSjoA4c5UMYQVBMuGdQVkK74tV2cTCG8v9jVCk
-         EotsavlYJKXFRWrIOy0Uvl7yxJTHd5S4h1cjaCuuqH0MBFgtUguzO7XHfkqONQMdBXrg
-         kllRhR94t4QgRNj0DFWuYVXaqPJQhm/h51iGZ30jgYy8Agg0V6TKjo6zhtEqS+VE4SgZ
-         RDbA==
-X-Gm-Message-State: AOJu0Yxb1a1DuxVZ4JvOiWhuUhJO48D9huaDe+FPFu+Yu5NJyI2r0i9T
-	yf9NcKc+yZtOw8DkUCAzeEKVud3Z/FaMB3APw9Ig19p6NRPYVcGpZalxqGg+fA3bHyF5/UaRSmp
-	PVlzYU6Zw41pMuZCAohajSIAUYQn/Nz+Lw40WM49laAFaf2r9xNPZkSw6xIE0FpPXozMKuwqZDn
-	/1UZymHKYTciXEYBzJVkXrTfRNHpEXSSXOZ2ktiVHMVJNRxbM6UdWB11pq+DS0mShNwQ==
-X-Google-Smtp-Source: AGHT+IHvvN75ZRrmEK6mbR78xTnUzHtBzNs3L5jIM2mnz88x+TZ3qPg9z7gWLJIqDbGhhpJDNO5GQC2qpVQ4ZQ==
-X-Received: from wmgg23.prod.google.com ([2002:a05:600d:17:b0:477:7aa2:99cb])
+        bh=7Pr/AhyDI18gHyudCTe0PajcLVV2Ma7cRe8uP5zP/9Y=;
+        b=Wj2gXS1ZnVRttQH0NGYTsQoDoR6cj4ieBbx094Pr1PSC7X5mjgfIUmFLhCv2X3wah6
+         BOLMCwDuKAnJ8aR5Wx5YMsagMFxxprHOCHmIFSTWosR/NPgQ6eCT0RpYP4wORXbbGspd
+         i3o9ZVT3ZRIf9gEe//RqeK2f7edaIvD6dvdJ0Vhcf62posg7lAIX+raF0fRLEGnIqKNc
+         M6+4H9IL170zbA2p2S1FX7iN/POqKhViLbBQZn4ybFD9JO6jScYVph4RApqnVn4g9ZiV
+         MoPoIt7jrpeMfCE2oGqrlwytDBU+OXdqD0wgSSRxmdjYpNfoT88QY5ZparyIXeb0jrkz
+         W6ZQ==
+X-Gm-Message-State: AOJu0YxhX/6+S1PUy6XrHt59l5TrfUENpbyegqQTsjQ3leyl9R84ugS4
+	s22B8rc3djF/sG6Auq1ekNxCAfqkmogXJ0ZEQwAQdYATC/f/dMY1I7+WNMvOTZkshMV5Lclr8gR
+	NRAOgugSio5lriwlV8H6cUyrCytk/cfRYwk2Jhdl8o6MFUZyAtp3LtIZ309vwNlYWrEZnEuwv0Y
+	hTXMQ1p2u+is58jKojYMG1kk1gxFbZriJvO5rBmPe4+a6/Y5odqMQvpcn4Gpq9u96sEw==
+X-Google-Smtp-Source: AGHT+IEp1GJrifJg25A7HBsu430z3IudVIoooo816bFplXawdroOYHu2KCfVFavBNdBdQ4MlmLiDzZJPVbDY1w==
+X-Received: from wrbee4.prod.google.com ([2002:a05:6000:2104:b0:42b:3308:563])
  (user=smostafa job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:4452:b0:477:8b2e:aa8f with SMTP id 5b1f17b1804b1-4778fe6a42fmr114864735e9.15.1763405326933;
- Mon, 17 Nov 2025 10:48:46 -0800 (PST)
-Date: Mon, 17 Nov 2025 18:48:08 +0000
+ 2002:a05:6000:1849:b0:429:d725:4125 with SMTP id ffacd0b85a97d-42b5959e88dmr13794450f8f.54.1763405329830;
+ Mon, 17 Nov 2025 10:48:49 -0800 (PST)
+Date: Mon, 17 Nov 2025 18:48:11 +0000
 In-Reply-To: <20251117184815.1027271-1-smostafa@google.com>
 Mime-Version: 1.0
 References: <20251117184815.1027271-1-smostafa@google.com>
 X-Mailer: git-send-email 2.52.0.rc1.455.g30608eb744-goog
-Message-ID: <20251117184815.1027271-22-smostafa@google.com>
-Subject: [PATCH v5 21/27] iommu/arm-smmu-v3-kvm: Emulate CMDQ for host
+Message-ID: <20251117184815.1027271-25-smostafa@google.com>
+Subject: [PATCH v5 24/27] iommu/arm-smmu-v3-kvm: Emulate GBPA
 From: Mostafa Saleh <smostafa@google.com>
 To: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
 	kvmarm@lists.linux.dev, iommu@lists.linux.dev
@@ -80,8 +95,8 @@ Cc: catalin.marinas@arm.com, will@kernel.org, maz@kernel.org,
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251117_104849_733938_FB84DC87 
-X-CRM114-Status: GOOD (  21.51  )
+X-CRM114-CacheID: sfid-20251117_175325_584492_91C57BE1 
+X-CRM114-Status: GOOD (  13.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,189 +111,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Don=E2=80=99t allow access to the command queue from the host:
-- ARM_SMMU_CMDQ_BASE: Only allowed to be written when CMDQ is disabled, we
-  use it to keep track of the host command queue base.
-  Reads return the saved value.
-- ARM_SMMU_CMDQ_PROD: Writes trigger command queue emulation which sanitise
-  and filters the whole range. Reads returns the host copy.
-- ARM_SMMU_CMDQ_CONS: Writes move the sw copy of the cons, but the host can=
-=E2=80=99t
-  skip commands once submitted. Reads return the emulated value and the err=
-or
-  bits in the actual cons.
+The last bit of emulation is GBPA. it must be always set to ABORT,
+as when the SMMU is disabled it=E2=80=99s not allowed for the host to bypas=
+s
+the SMMU.
+
+That =E2=80=98s is done by setting the GBPA to ABORT at init time, and host
+writes are always ignored and host reads always return ABORT.
 
 Signed-off-by: Mostafa Saleh <smostafa@google.com>
 ---
- .../iommu/arm/arm-smmu-v3/pkvm/arm-smmu-v3.c  | 119 +++++++++++++++++-
- 1 file changed, 115 insertions(+), 4 deletions(-)
+ .../iommu/arm/arm-smmu-v3/pkvm/arm-smmu-v3.c  | 21 ++++++++++++++++---
+ 1 file changed, 18 insertions(+), 3 deletions(-)
 
 diff --git a/drivers/iommu/arm/arm-smmu-v3/pkvm/arm-smmu-v3.c b/drivers/iom=
 mu/arm/arm-smmu-v3/pkvm/arm-smmu-v3.c
-index a970b43e6a7e..746ffc4b0a70 100644
+index fbe1e13fc15d..0a2ce6c06f4f 100644
 --- a/drivers/iommu/arm/arm-smmu-v3/pkvm/arm-smmu-v3.c
 +++ b/drivers/iommu/arm/arm-smmu-v3/pkvm/arm-smmu-v3.c
-@@ -60,6 +60,16 @@ static void smmu_reclaim_pages(u64 phys, size_t size)
- 	WARN_ON(__pkvm_hyp_donate_host(phys >> PAGE_SHIFT, size >> PAGE_SHIFT));
- }
-=20
-+static void smmu_copy_from_host(struct hyp_arm_smmu_v3_device *smmu,
-+				void *dst_hyp_va, void *src_hyp_va,
-+				size_t size)
-+{
-+	/* Clean and inval DC as the kernel uses NC mapping. */
-+	if (!(smmu->features & ARM_SMMU_FEAT_COHERENCY))
-+		kvm_flush_dcache_to_poc(src_hyp_va, size);
-+	memcpy(dst_hyp_va, src_hyp_va, size);
-+}
-+
- /*
-  * CMDQ, STE host copies are accessed by the hypervisor, we share them to
-  * - Prevent the host from passing protected VM memory.
-@@ -89,7 +99,6 @@ static int smmu_unshare_pages(phys_addr_t addr, size_t si=
-ze)
+@@ -115,6 +115,14 @@ static int smmu_unshare_pages(phys_addr_t addr, size_t=
+ size)
  	return 0;
  }
 =20
--__maybe_unused
++static int smmu_abort_gbpa(struct hyp_arm_smmu_v3_device *smmu)
++{
++	writel_relaxed(GBPA_UPDATE | GBPA_ABORT, smmu->base + ARM_SMMU_GBPA);
++	/* Wait till UPDATE is cleared. */
++	return smmu_wait(false,
++			 readl_relaxed(smmu->base + ARM_SMMU_GBPA) =3D=3D GBPA_ABORT);
++}
++
  static bool smmu_cmdq_has_space(struct arm_smmu_queue *cmdq, u32 n)
  {
  	struct arm_smmu_ll_queue *llq =3D &cmdq->llq;
-@@ -327,6 +336,88 @@ static int smmu_init(void)
- 	return ret;
- }
+@@ -435,6 +443,10 @@ static int smmu_init_device(struct hyp_arm_smmu_v3_dev=
+ice *smmu)
+ 	if (ret)
+ 		goto out_ret;
 =20
-+static bool smmu_filter_command(struct hyp_arm_smmu_v3_device *smmu, u64 *=
-command)
-+{
-+	u64 type =3D FIELD_GET(CMDQ_0_OP, command[0]);
++	ret =3D smmu_abort_gbpa(smmu);
++	if (ret)
++		goto out_ret;
 +
-+	switch (type) {
-+	case CMDQ_OP_CFGI_STE:
-+		/* TBD: SHADOW_STE*/
-+		break;
-+	case CMDQ_OP_CFGI_ALL:
-+	{
-+		/*
-+		 * Linux doesn't use range STE invalidation, and only use this
-+		 * for CFGI_ALL, which is done on reset and not on an new STE
-+		 * being used.
-+		 * Although, this is not architectural we rely on the current Linux
-+		 * implementation.
-+		 */
-+		WARN_ON((FIELD_GET(CMDQ_CFGI_1_RANGE, command[1]) !=3D 31));
-+		break;
-+	}
-+	case CMDQ_OP_TLBI_NH_ASID:
-+	case CMDQ_OP_TLBI_NH_VA:
-+	case 0x13: /* CMD_TLBI_NH_VAA: Not used by Linux */
-+	{
-+		/* Only allow VMID =3D 0*/
-+		if (FIELD_GET(CMDQ_TLBI_0_VMID, command[0]) =3D=3D 0)
-+			break;
-+		break;
-+	}
-+	case 0x10: /* CMD_TLBI_NH_ALL: Not used by Linux */
-+	case CMDQ_OP_TLBI_EL2_ALL:
-+	case CMDQ_OP_TLBI_EL2_VA:
-+	case CMDQ_OP_TLBI_EL2_ASID:
-+	case CMDQ_OP_TLBI_S12_VMALL:
-+	case 0x23: /* CMD_TLBI_EL2_VAA: Not used by Linux */
-+		return WARN_ON(true);
-+	case CMDQ_OP_CMD_SYNC:
-+		if (FIELD_GET(CMDQ_SYNC_0_CS, command[0]) =3D=3D CMDQ_SYNC_0_CS_IRQ) {
-+			/* Allow it, but let the host timeout, as this should never happen. */
-+			command[0] &=3D ~CMDQ_SYNC_0_CS;
-+			command[0] |=3D FIELD_PREP(CMDQ_SYNC_0_CS, CMDQ_SYNC_0_CS_SEV);
-+			command[1] &=3D ~CMDQ_SYNC_1_MSIADDR_MASK;
-+		}
-+		break;
-+	}
-+
-+	return false;
-+}
-+
-+static void smmu_emulate_cmdq_insert(struct hyp_arm_smmu_v3_device *smmu)
-+{
-+	u64 *host_cmdq =3D hyp_phys_to_virt(smmu->cmdq_host.q_base & Q_BASE_ADDR_=
-MASK);
-+	int idx;
-+	u64 cmd[CMDQ_ENT_DWORDS];
-+	bool skip;
-+	u32 space;
-+	bool use_wfe =3D smmu->features & ARM_SMMU_FEAT_SEV;
-+
-+	if (!is_cmdq_enabled(smmu))
-+		return;
-+
-+	space =3D (1 << (smmu->cmdq_host.llq.max_n_shift)) - queue_space(&smmu->c=
-mdq_host.llq);
-+	/* Wait for the command queue to have some space. */
-+	WARN_ON(smmu_wait(use_wfe, smmu_cmdq_has_space(&smmu->cmdq, space)));
-+
-+	while (space--) {
-+		idx =3D Q_IDX(&smmu->cmdq_host.llq, smmu->cmdq_host.llq.cons);
-+		queue_inc_cons(&smmu->cmdq_host.llq);
-+
-+		smmu_copy_from_host(smmu, cmd, &host_cmdq[idx * CMDQ_ENT_DWORDS],
-+				    CMDQ_ENT_DWORDS << 3);
-+		skip =3D smmu_filter_command(smmu, cmd);
-+		if (skip)
-+			continue;
-+		smmu_add_cmd_raw(smmu, cmd);
-+	}
-+
-+	writel_relaxed(smmu->cmdq.llq.prod, smmu->cmdq.prod_reg);
-+
-+	WARN_ON(smmu_wait(use_wfe, smmu_cmdq_empty(&smmu->cmdq)));
-+}
-+
- static void smmu_emulate_cmdq_enable(struct hyp_arm_smmu_v3_device *smmu)
- {
- 	smmu->cmdq_host.llq.max_n_shift =3D smmu->cmdq_host.q_base & Q_BASE_LOG2S=
-IZE;
-@@ -360,17 +451,37 @@ static bool smmu_dabt_device(struct hyp_arm_smmu_v3_d=
+ 	return 0;
+=20
+ out_ret:
+@@ -672,10 +684,13 @@ static bool smmu_dabt_device(struct hyp_arm_smmu_v3_d=
 evice *smmu,
- 		mask =3D read_only & ~(IDR0_S2P | IDR0_VMID16 | IDR0_MSI | IDR0_HYP);
- 		WARN_ON(len !=3D sizeof(u32));
- 		break;
--	/* Passthrough the register access for bisectiblity, handled later */
- 	case ARM_SMMU_CMDQ_BASE:
- 		if (is_write) {
- 			/* Not allowed by the architecture */
- 			WARN_ON(is_cmdq_enabled(smmu));
- 			smmu->cmdq_host.q_base =3D val;
-+		} else {
-+			regs->regs[rd] =3D smmu->cmdq_host.q_base;
+ 			smmu->host_ste_cfg =3D val;
  		}
+ 		goto out_ret;
+-	/* Passthrough the register access for bisectiblity, handled later */
+ 	case ARM_SMMU_GBPA:
 -		mask =3D read_write;
 -		break;
-+		goto out_ret;
- 	case ARM_SMMU_CMDQ_PROD:
-+		if (is_write) {
-+			smmu->cmdq_host.llq.prod =3D val;
-+			smmu_emulate_cmdq_insert(smmu);
-+		} else {
-+			regs->regs[rd] =3D smmu->cmdq_host.llq.prod;
-+		}
-+		goto out_ret;
- 	case ARM_SMMU_CMDQ_CONS:
-+		if (is_write) {
-+			/* Not allowed by the architecture */
-+			WARN_ON(is_cmdq_enabled(smmu));
-+			smmu->cmdq_host.llq.cons =3D val;
-+		} else {
-+			/* Propagate errors back to the host.*/
-+			u32 cons =3D readl_relaxed(smmu->base + ARM_SMMU_CMDQ_CONS);
-+			u32 err =3D CMDQ_CONS_ERR & cons;
++		/* Ignore write, always read to abort. */
++		if (!is_write)
++			regs->regs[rd] =3D GBPA_ABORT;
 +
-+			regs->regs[rd] =3D smmu->cmdq_host.llq.cons | err;
-+		}
++		WARN_ON(len !=3D sizeof(u32));
 +		goto out_ret;
-+	/* Passthrough the register access for bisectiblity, handled later */
- 	case ARM_SMMU_STRTAB_BASE:
- 	case ARM_SMMU_STRTAB_BASE_CFG:
- 	case ARM_SMMU_GBPA:
+ 	case ARM_SMMU_CR0:
+ 		if (is_write) {
+ 			bool last_cmdq_en =3D is_cmdq_enabled(smmu);
 --=20
 2.52.0.rc1.455.g30608eb744-goog
 
