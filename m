@@ -4,90 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 946DBCE8D6B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 06:43:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D43D2CEACEF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 06:44:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ztzu8L8EDjVQmWigMrq/r3UxqoaXtRAo05IFtuz6rNQ=; b=mejNCRPBHkg1HERMnofLAw+Skm
-	+MKhhkSVbjtepaxirWFD/54vCD8OC+olIKYSGKTnDFMM5P809aM6qbbMZzK5fRbjXlAhasNMQryus
-	cG+7eKSyZ7v0eoS8jBqADBnHs1yeokcDEIn30YCn6e/sHVKsbUDhbLJGhlVFbfQEg9Mvwmsb9uofv
-	qv5xUbE0spvcX8suMfa5DDz80yjIP8AoA+AloSEJwn/ub40BvOva6V7TMWxZC6jCXbNC3jI3D6g25
-	W3/FXJvIocVDHSJkaAUHmt+rOmNCePiTP83Iv5w6Y5bl4OA07PR0t6P0BY/j9nYW8uuA0OqxdpUNw
-	CY6TJP6w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WA6PlkdbLEYL3UDRClSUNU5vQgD5IcE1FmAyVN44e/4=; b=NacUWs7TAKtddAi2C4NvzV2x1v
+	YexLxAY5U8gDBJjSZMO+gB3WpfNQFx2UjQs6gpfnsjCx3SQ1VNpHB0QjORixd+1Xuo9OjslO7l4sG
+	ajr0/jPIg0EsEUyIvJ+X6AuE7vMMDb8z5KzVh+xeIz9pV4JoSzPH6laQD0/j39THGaLqPFOLjl09i
+	0cWrQ2sQuBRIJ8uYTrkD7nwNE5MuNxexdnaQC8RgDKF5FnF0cr+vkbf86rVaM1enFFjnIwGATL+Ke
+	IzmDP7lFWLJFprWdd0wTImLIJtv93xkBlpI+57lUK5UjXCh5Qt8I8tflIH9BES4IZcpB/VWc0qSYl
+	vshF6cnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKsxs-0000000FXAa-10J7;
-	Mon, 17 Nov 2025 06:43:52 +0000
-Received: from mail-lf1-x12c.google.com ([2a00:1450:4864:20::12c])
+	id 1vKsxx-0000000FXCY-2TyU;
+	Mon, 17 Nov 2025 06:43:57 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKsxp-0000000FX9t-22sa
+	id 1vKsxt-0000000FXAs-2fM0
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Nov 2025 06:43:51 +0000
-Received: by mail-lf1-x12c.google.com with SMTP id 2adb3069b0e04-5957db5bdedso3576576e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 16 Nov 2025 22:43:48 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1763361827; x=1763966627; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ztzu8L8EDjVQmWigMrq/r3UxqoaXtRAo05IFtuz6rNQ=;
-        b=C5A+S6GMqR8l8EP2ZyhHedBNZX5YgaBiEe+kYgWIFqcEHQbZKrrGH/GPoBzH12yvpa
-         TsND/pbOkZipDBwUV+qOLvUZQu9Hs4n+OrmS8zVy0a0tfaesJpZNUMO1+gmyvIdqUElw
-         dItTMb6UuRO3zYRDbfcjMIGasIzJY82kdQsKc=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763361827; x=1763966627;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=ztzu8L8EDjVQmWigMrq/r3UxqoaXtRAo05IFtuz6rNQ=;
-        b=cBBiDnfbbErMqjwPa5D4jaJJ3Jwgngn8+a1A1NhwBIQy0waEHWTxZzGWcnEzxpDNsO
-         j1c3ecWBRjrBFiB3rgsvKgLZ+f1eyNuhEOYZ1GNj4M87IJyV3cREtAStLgvAxhF5pVVz
-         vfDV11RQO0bsOmD8+puRtt0pPZUVZ6HvbQt5IZA0mTti7jkj93WYmmeUlEox4T/vC5t4
-         WTHSNRLyMwUWiUMw8mBqGadR5OteoCxC7GyowqjdDVkhwOIvOcH32G+cmaY7T5/BDuXC
-         gajVT6D6Bzq6XSX+ZP9JyqhCobQLxj0eC8+m8K4Sm9rkcmO0CwI+LpoPabAQkmLiRr5Q
-         0Olw==
-X-Forwarded-Encrypted: i=1; AJvYcCVI/yfdJYiBrWzOkkrmoBngSymLKtFWZArThyVYK2PSC7YzHy6y4izsvWfgKu9jWMeYJ2N13DY+uAcaARQLr4zE@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz+/3BNabz8GWnxDdFBdo/LkYUv9BnW+RzMsTKqUKJ6rn+VfW4n
-	RtajanJPT1Z7nYcDH+DdmVSWC68cAraAbgmiCGr+sd6peWuRhGQqKoGXUZ9HDDh23x3AtSvb+FE
-	mBkv49YBHV267ByRbiH3cFDJj/TIusnaGwDlf6JrtQWO0K+lD3GOlSw==
-X-Gm-Gg: ASbGnctJPZNTFicNDM9hahDKvtDPVykEPspVpcLMk8gjTWgYDkDkYJgYUmeHqS/r/Ba
-	C4rMXtDFp5sCQItXzYaHfMXPAqqroxAMezE0Vdf2pd/6/SZobGN8HjHl10flOpLDJnLNpUvZ90a
-	/WDKF3ksz/BTZBCKcvdsorxYE24LrX07h5p7vRlpyPwnq4JuF6AUg92niNfDGlAbz6NlJdDr9KS
-	sQWs2jKqDdlT9WoJ3bj5oe97d9fLhYwvZWXDYtBjM1KZNnHoS40UR205TKc6rQQQty+/v483b2+
-	xcaWK2godE6ntss=
-X-Google-Smtp-Source: AGHT+IEC+yNRKOQ9NawANN7tyYA6Ho86/PVANukDuW3Y5gE7g+0lwkQo3dAyt0tv+U9auseXUxL2sMmlRPYBB0lWDTU=
-X-Received: by 2002:a05:6512:39cf:b0:594:5000:4554 with SMTP id
- 2adb3069b0e04-59584205e12mr3303964e87.28.1763361826796; Sun, 16 Nov 2025
- 22:43:46 -0800 (PST)
+	Mon, 17 Nov 2025 06:43:55 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 9558D43D1F;
+	Mon, 17 Nov 2025 06:43:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3F640C4CEF1;
+	Mon, 17 Nov 2025 06:43:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1763361832;
+	bh=eMKrosCr86r2AZmru6BsvrPdgcCkjYmPkZP9Gz9nReo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Whi8aGx3Dtn1aCjHzt0gA1ifjb1f2/ocPhTX2P0NEKiVl1mBfzTi+LsR6Bou9cB+E
+	 qN2WlEZW8WlpfvLIKegiO5R/odPCeNfZPpvsDMmAfHbR1qtzGaFQCFQLAmzeRZFM30
+	 /FN7ZBgk12a2mbEgmcw4UWEa9gxzzg6fwQVs/Ak9t+kTPvsdFf/IRTTJ0mZI0guA82
+	 t7RqVQMSv3UK1gIzYe4hszUoYt7EG402u5YmHMnFD4Cn8l8uMMPaqJkvgeF5r6dui7
+	 FDIACmxCW2akz6vG5L1zkiZlr2pEgVu1X112G8s93TP+jg1NqXSpM2k7WFci7RAofW
+	 UX7B2jnJ0WONg==
+Date: Mon, 17 Nov 2025 12:13:45 +0530
+From: Sumit Garg <sumit.garg@kernel.org>
+To: Ard Biesheuvel <ardb@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-efi@vger.kernel.org,
+	linux-arm-msm@vger.kernel.org, catalin.marinas@arm.com,
+	will@kernel.org, mark.rutland@arm.com, andersson@kernel.org,
+	konradybcio@kernel.org, dmitry.baryshkov@oss.qualcomm.com,
+	shivendra.pratap@oss.qualcomm.com, leif.lindholm@oss.qualcomm.com,
+	linux-kernel@vger.kernel.org,
+	Sumit Garg <sumit.garg@oss.qualcomm.com>
+Subject: Re: [PATCH 2/2] arm64: efi: Pass reboot cmd parameter to efi_reboot()
+Message-ID: <aRrEIeBBPBCE5oYb@sumit-X1>
+References: <20251114085058.2195900-1-sumit.garg@kernel.org>
+ <20251114085058.2195900-3-sumit.garg@kernel.org>
+ <CAMj1kXE4Fo3i9f3npB0MBSOZP0x7HgF4A0KX_aUSBEBmar=NpA@mail.gmail.com>
+ <aRb2_OmkRTD46vnx@sumit-X1>
+ <CAMj1kXFpi1fMuAhuaBbMSd57F79E7Z0u4okzkKL+_6eKfGUKXA@mail.gmail.com>
+ <CAMj1kXE60LrWi8Au6qQ4EMQDFxQCJt5h6hBLuQHCz3HEp=2o3w@mail.gmail.com>
+ <aRcdiwgM9h_S7rP-@sumit-X1>
+ <CAMj1kXGN=LFL0Cfp6DonAxTLMK7E4Pb0ocYRtQGBr52EHiRmrw@mail.gmail.com>
 MIME-Version: 1.0
-References: <20251111192422.4180216-1-dianders@chromium.org>
- <20251111112158.4.I5032910018cdd7d6be7aea78870d04c0dc381d6e@changeid>
- <40e67c6d-2430-483b-b4b1-0220ffbd6418@kernel.org> <CAGXv+5Gx+skrUR3PXt=RSL8YyKZYeQCkJ-3qW9wtrHrr9aqWAg@mail.gmail.com>
- <312ca473-77a6-4b95-b558-bb121294fbc9@kernel.org>
-In-Reply-To: <312ca473-77a6-4b95-b558-bb121294fbc9@kernel.org>
-From: Chen-Yu Tsai <wenst@chromium.org>
-Date: Mon, 17 Nov 2025 14:43:35 +0800
-X-Gm-Features: AWmQ_bl2shuWAHtLdGE1SHKrUg5L4s7uIhfcqFtBi7QSUqtHRD0ALPKOeLoheIw
-Message-ID: <CAGXv+5EdkibBaB1-AyyfYO-STtmZzvTh1t-p+QW3jGb8cHY5wg@mail.gmail.com>
-Subject: Re: [PATCH 4/4] arm64: dts: google: Add initial dts for frankel,
- blazer, and mustang
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Douglas Anderson <dianders@chromium.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Peter Griffin <peter.griffin@linaro.org>, =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
-	Tudor Ambarus <tudor.ambarus@linaro.org>, linux-samsung-soc@vger.kernel.org, 
-	Roy Luo <royluo@google.com>, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, Julius Werner <jwerner@chromium.org>, 
-	William McVicker <willmcvicker@google.com>, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CAMj1kXGN=LFL0Cfp6DonAxTLMK7E4Pb0ocYRtQGBr52EHiRmrw@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251116_224349_640612_01EE861A 
-X-CRM114-Status: GOOD (  65.70  )
+X-CRM114-CacheID: sfid-20251116_224353_741970_F95145F5 
+X-CRM114-Status: GOOD (  42.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,273 +83,151 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 12, 2025 at 5:49=E2=80=AFPM Krzysztof Kozlowski <krzk@kernel.or=
-g> wrote:
->
-> On 12/11/2025 10:35, Chen-Yu Tsai wrote:
-> > On Wed, Nov 12, 2025 at 4:14=E2=80=AFPM Krzysztof Kozlowski <krzk@kerne=
-l.org> wrote:
-> >>
-> >> On 11/11/2025 20:22, Douglas Anderson wrote:
-> >>> Add barebones device trees for frankel (Pixel 10), blazer (Pixel 10
-> >>> Pro), and mustang (Pixel 10 Pro XL). These device trees are enough to
-> >>> boot to a serial prompt using an initramfs.
-> >>>
-> >>> Many things can be noted about these device trees:
-> >>>
-> >>> 1. They are organized as "dts" files for the main SoC and "dtso"
-> >>>    overlays for the boards. There is discussion about this in the
-> >>>    bindings patch ("dt-bindings: arm: google: Add bindings for
-> >>>    frankel/blazer/mustang").
-> >>> 2. They won't boot with the currently shipping bootloader. The curren=
-t
-> >>>    bootloader hardcodes several paths to nodes that it wants to updat=
-e
-> >>>    and considers it a fatal error if it can't find these nodes.
-> >>>    Interested parties will need to wait for fixes to land and a new
-> >>>    bootloader to be rolled out before attempting to use these.
-> >>> 3. They only add one revision (MP1) of each of frankel, blazer, and
-> >>>    mustang. With this simple barebones device tree, there doesn't
-> >>>    appear to be any difference between the revisions. More revisions
-> >>>    will be added as needed in the future. The heuristics in the
-> >>>    bootloader will pick the MP1 device tree if there are not any
-> >>>    better matches.
-> >>> 4. They only add the dts for the B0 SoC for now. The A0 SoC support
-> >>>    can be added later if we find the need.
-> >>> 5. Even newer versions of the bootloader will still error out if they
-> >>>    don't find a UFS node to add calibration data to. Until UFS is
-> >>>    supported, we provide a bogus UFS node for the bootloader. While
-> >>>    the bootloader could be changed, there is no long-term benefit
-> >>>    since eventually the device tree will have a UFS node.
-> >>> 6. They purposely choose to use the full 64-bit address and size cell=
-s
-> >>>    for the root node and the `soc@0` node. Although I haven't tested
-> >>>    the need for this, I presume the arguments made in commit
-> >>>    bede7d2dc8f3 ("arm64: dts: qcom: sdm845: Increase address and size
-> >>>    cells for soc") would apply here.
-> >>> 7. Though it looks as if the UART is never enabled, the bootloader
-> >>>    knows to enable the UART when the console is turned on. Baud rate
-> >>>    is configurable in the bootloader so is never hardcoded in the
-> >>>    device tree.
-> >>>
-> >>> Signed-off-by: Douglas Anderson <dianders@chromium.org>
-> >>> ---
-> >>> To avoid fragmenting the discussion, IMO:
-> >>> * Let's have the discussion about using the "dts" for SoC and the
-> >>>   "dtso" for the boards in response to the bindings (patch #1).
-> >>
-> >> That's discussion here, bindings are irrelevant to this.
-> >>
-> >>> * If we want to have a discussion about putting "board-id" and
-> >>>   "model-id" at the root of the board overlays, we can have it
-> >>>   here. I'll preemptively note that the "board-id" and "model-id"
-> >>>   won't show up in the final combined device tree and they are just
-> >>>   used by the tool (mkdtimg). We could change mkdtimg to parse the
-> >>>   "compatible" strings of the overlays files (since I've put the IDs
-> >>>   there too), but official the docs [1] seem to indicate that
-> >>>   top-level properties like this are OK.
-> >>>
-> >>> In order for these device trees to pass validation without warnings,
-> >>> it's assumed you have my dtc patches:
-> >>> * https://lore.kernel.org/r/20251110204529.2838248-1-dianders@chromiu=
-m.org
-> >>> * https://lore.kernel.org/r/20251110204529.2838248-2-dianders@chromiu=
-m.org
-> >>>
-> >>> [1] https://git.kernel.org/pub/scm/utils/dtc/dtc.git/tree/Documentati=
-on/dt-object-internal.txt?h=3Dmain
-> >>>
-> >>>  arch/arm64/boot/dts/google/Makefile           |   9 +
-> >>>  arch/arm64/boot/dts/google/lga-b0.dts         | 391 ++++++++++++++++=
-++
-> >>>  .../arm64/boot/dts/google/lga-blazer-mp1.dtso |  22 +
-> >>>  .../boot/dts/google/lga-frankel-mp1.dtso      |  22 +
-> >>>  .../boot/dts/google/lga-mustang-mp1.dtso      |  22 +
-> >>>  .../boot/dts/google/lga-muzel-common.dtsi     |  17 +
-> >>>  6 files changed, 483 insertions(+)
-> >>>  create mode 100644 arch/arm64/boot/dts/google/lga-b0.dts
-> >>>  create mode 100644 arch/arm64/boot/dts/google/lga-blazer-mp1.dtso
-> >>>  create mode 100644 arch/arm64/boot/dts/google/lga-frankel-mp1.dtso
-> >>>  create mode 100644 arch/arm64/boot/dts/google/lga-mustang-mp1.dtso
-> >>>  create mode 100644 arch/arm64/boot/dts/google/lga-muzel-common.dtsi
-> >>>
-> >>> diff --git a/arch/arm64/boot/dts/google/Makefile b/arch/arm64/boot/dt=
-s/google/Makefile
-> >>> index a6b187e2d631..276001e91632 100644
-> >>> --- a/arch/arm64/boot/dts/google/Makefile
-> >>> +++ b/arch/arm64/boot/dts/google/Makefile
-> >>> @@ -1 +1,10 @@
-> >>>  # SPDX-License-Identifier: (GPL-2.0+ OR BSD-3-Clause)
-> >>> +
-> >>> +dtb-$(CONFIG_ARCH_GOOGLE) +=3D \
-> >>> +     lga-blazer-mp1.dtb \
-> >>> +     lga-frankel-mp1.dtb \
-> >>> +     lga-mustang-mp1.dtb
-> >>> +
-> >>> +lga-blazer-mp1-dtbs          :=3D lga-b0.dtb lga-blazer-mp1.dtbo
-> >>> +lga-frankel-mp1-dtbs         :=3D lga-b0.dtb lga-frankel-mp1.dtbo
-> >>> +lga-mustang-mp1-dtbs         :=3D lga-b0.dtb lga-mustang-mp1.dtbo
-> >>> diff --git a/arch/arm64/boot/dts/google/lga-b0.dts b/arch/arm64/boot/=
-dts/google/lga-b0.dts
-> >>> new file mode 100644
-> >>> index 000000000000..83c2db4f20ef
-> >>> --- /dev/null
-> >>> +++ b/arch/arm64/boot/dts/google/lga-b0.dts
-> >>> @@ -0,0 +1,391 @@
-> >>> +// SPDX-License-Identifier: GPL-2.0 OR BSD-3-Clause
-> >>> +/*
-> >>> + * Google Tensor G5 (laguna) SoC rev B0
-> >>> + *
-> >>> + * Copyright 2024-2025 Google LLC.
-> >>> + */
-> >>> +
-> >>> +/dts-v1/;
-> >>> +
-> >>> +#include <dt-bindings/interrupt-controller/arm-gic.h>
-> >>> +#include <dt-bindings/interrupt-controller/irq.h>
-> >>> +
-> >>> +/ {
-> >>> +     model =3D "Google Tensor G5 rev B0";
-> >>> +     compatible =3D "google,soc-id-0005-rev-10", "google,lga";
-> >>
-> >> So that's SoC, thus must not be a DTS file, but DTSI.
-> >>
-> >> ...
-> >>
-> >>
-> >> ...
-> >>
-> >>
-> >>> diff --git a/arch/arm64/boot/dts/google/lga-frankel-mp1.dtso b/arch/a=
-rm64/boot/dts/google/lga-frankel-mp1.dtso
-> >>> new file mode 100644
-> >>> index 000000000000..133494de7a9b
-> >>> --- /dev/null
-> >>> +++ b/arch/arm64/boot/dts/google/lga-frankel-mp1.dtso
-> >>
-> >> And that's a board, so DTS.
-> >>
-> >>> @@ -0,0 +1,22 @@
-> >>> +// SPDX-License-Identifier: GPL-2.0 OR BSD-3-Clause
-> >>> +/*
-> >>> + * Google Pixel 10 (frankel) MP 1
-> >>> + *
-> >>> + * Copyright 2024-2025 Google LLC.
-> >>> + */
-> >>> +
-> >>> +/dts-v1/;
-> >>> +/plugin/;
-> >>> +
-> >>> +#include "lga-muzel-common.dtsi"
-> >>> +
-> >>> +/ {
-> >>> +     board-id =3D <0x070306>;
-> >>> +     board-rev =3D <0x010000>;
-> >>
-> >> Undocumented ABI, which you cannot document because these properties a=
-re
-> >> not allowed. You cannot have them.
+On Fri, Nov 14, 2025 at 04:47:18PM +0100, Ard Biesheuvel wrote:
+> On Fri, 14 Nov 2025 at 13:16, Sumit Garg <sumit.garg@kernel.org> wrote:
 > >
-> > This is part of the discussion I want to have at Plumbers. But I suppos=
-e
-> > we can start here.
->
-> Then the patch should be called RFC as not yet ready for merging. :)
->
+> > On Fri, Nov 14, 2025 at 10:35:33AM +0100, Ard Biesheuvel wrote:
+> > > On Fri, 14 Nov 2025 at 10:33, Ard Biesheuvel <ardb@kernel.org> wrote:
+> > > >
+> > > > On Fri, 14 Nov 2025 at 10:31, Sumit Garg <sumit.garg@kernel.org> wrote:
+> > > > >
+> > > > > On Fri, Nov 14, 2025 at 10:26:03AM +0100, Ard Biesheuvel wrote:
+> > > > > > On Fri, 14 Nov 2025 at 09:51, Sumit Garg <sumit.garg@kernel.org> wrote:
+> > > > > > >
+> > > > > > > From: Sumit Garg <sumit.garg@oss.qualcomm.com>
+> > > > > > >
+> > > > > > > EFI ResetSystem runtime service allows for platform specific reset type
+> > > > > > > allowing the OS to pass reset data for the UEFI implementation to take
+> > > > > > > corresponding action. So lets pass the reboot cmd parameter for the EFI
+> > > > > > > driver to determine whether it's a platform specific reset requested or
+> > > > > > > not.
+> > > > > > >
+> > > > > > > Signed-off-by: Sumit Garg <sumit.garg@oss.qualcomm.com>
+> > > > > > > ---
+> > > > > > >  arch/arm64/kernel/process.c | 2 +-
+> > > > > > >  1 file changed, 1 insertion(+), 1 deletion(-)
+> > > > > > >
+> > > > > > > diff --git a/arch/arm64/kernel/process.c b/arch/arm64/kernel/process.c
+> > > > > > > index fba7ca102a8c..51784986c568 100644
+> > > > > > > --- a/arch/arm64/kernel/process.c
+> > > > > > > +++ b/arch/arm64/kernel/process.c
+> > > > > > > @@ -136,7 +136,7 @@ void machine_restart(char *cmd)
+> > > > > > >          * ResetSystem().
+> > > > > > >          */
+> > > > > > >         if (efi_enabled(EFI_RUNTIME_SERVICES))
+> > > > > > > -               efi_reboot(reboot_mode, NULL);
+> > > > > > > +               efi_reboot(reboot_mode, cmd);
+> > > > > > >
+> > > > > >
+> > > > > > I agree with the general principle. However, there are already
+> > > > > > existing callers of kernel_restart() that would end up passing a
+> > > > > > random string to efi_reboot(), resulting in platform specific reset
+> > > > > > with undefined result.
+> > > > >
+> > > > > Yeah true but the UEFI spec says:
+> > > > >
+> > > > > "If the platform does not recognize the EFI_GUID in ResetData the platform
+> > > > > must pick a supported reset type to perform. The platform may optionally
+> > > > > log the parameters from any non-normal reset that occurs."
+> > > > >
+> > > > > So, in these cases the UEFI implementation can fallback to normal reset
+> > > > > optionally logging the reset data being passed. Does that sounds
+> > > > > reasonable to you?
+> > > > >
+> > > >
+> > > > What the UEFI spec says might deviate from how real platforms in the
+> > > > field will behave when being passed a reset type that nobody ever
+> > > > tried passing before.
 > >
-> > The Android DTB partition format uses six 32-bit integers for matching,
-> > as opposed to a compatible string used in FIT images. Two of the intege=
-rs
-> > are the "id" and "rev" numbers in the example above. The remaining four
-> > are custom and left up to the (vendor) bootloader implementation.
+> > I suppose from OS point of view, we need to follow the UEFI
+> > specification. However, there will be scope for quirks later if the real
+> > world problems occur. Currently, in case of EFI reboot we are just
+> > ignoring the reboot cmd parameter.
 > >
-> > The values for these fields need to be stored somewhere with the .dts.
-> > The compiled DTB is useless if the user cannot build a proper image for
-> > the bootloader to consume, and that involves putting in the right numbe=
-rs
-> > in these fields. The android "mkdtimg" tool can either take the values
-> > from some known properties within the DTB, or have them fed to it
-> > externally.
+> > If you have in mind any sanity checks we should do here then feel free
+> > to propose and I can try to implement them.
 > >
-> > So if we don't want these numbers in the dts itself, then we should com=
-e
-> > up with some format to store them beside the dts files.
->
-> Re-iterating comment from Rob long time ago: adding such new properties
-> is fine, but they must come for more than one user and be universal
-> across these users.
+> > >
+> > > Also, the GUID is expected to follow an unbounded NULL terminated
+> > > UTF-16 string in memory, so we could easily cause a crash by doing
+> > > this if \0\0 doesn't appear in the memory following the string.
+> >
+> > Okay I see, would following change on top of this patchset address this
+> > concern?
+> >
+> > --- a/drivers/firmware/efi/reboot.c
+> > +++ b/drivers/firmware/efi/reboot.c
+> > @@ -5,6 +5,7 @@
+> >   */
+> >  #include <linux/efi.h>
+> >  #include <linux/reboot.h>
+> > +#include <linux/ucs2_string.h>
+> >
+> >  static struct sys_off_handler *efi_sys_off_handler;
+> >
+> > @@ -14,11 +15,18 @@ void efi_reboot(enum reboot_mode reboot_mode, const char *data)
+> >  {
+> >         const char *str[] = { "cold", "warm", "shutdown", "platform" };
+> >         int efi_mode, cap_reset_mode;
+> > +       unsigned long reset_data_sz = 0;
+> > +       efi_char16_t *reset_data = NULL;
+> >
+> >         if (!efi_rt_services_supported(EFI_RT_SUPPORTED_RESET_SYSTEM))
+> >                 return;
+> >
+> >         if (data) {
+> > +               reset_data_sz = ucs2_strlen(data) * sizeof(efi_char16_t);
+> 
+> You can't just run ucs2_strlen() on an arbitrary buffer.
+> 
+> > +               reset_data = kzalloc(reset_data_sz + 2, GFP_KERNEL);
+> > +               memcpy(reset_data, data, reset_data_sz);
+> > +               reset_data_sz += 2;
+> > +
+> 
+> What happened to the GUID? It comes after the UTF-16 string, no?
 
-Is Android universal enough? As mentioned above, Android defines some
-fields that it wants in its DTBO partition header. I am doubtful we
-could generalize further, since each bootloader scheme wants different
-things.
+Ah, I missed putting the GUID here.
 
-> And of course the ABI needs to be documented which did not happen here.
->
-> I indeed said incorrectly that "properties are not allowed". The
-> properties could be allowed if we document them according to above Rob's
-> comment, but that did not happen.
->
-> Adding these properties per one SoC vendor is not really allowed, like
-> qcom,board-id and qcom,msm-id, but maybe you intend to make it generic.
+> 
+> >                 efi_mode = EFI_RESET_PLATFORM_SPECIFIC;
+> >         } else {
+> >                 switch (reboot_mode) {
+> > @@ -47,8 +55,7 @@ void efi_reboot(enum reboot_mode reboot_mode, const char *data)
+> >                 efi_mode = cap_reset_mode;
+> >         }
+> >
+> > -       efi.reset_system(efi_mode, EFI_SUCCESS, sizeof(data),
+> > -                        (efi_char16_t *)data);
+> > +       efi.reset_system(efi_mode, EFI_SUCCESS, reset_data_sz, reset_data);
+> >  }
+> >
+> 
+> I think the main issue here is tying machine_restart(), which takes a
+> u8[] argument, to efi_reboot(), which takes a (u16[]) + L"\0" + GUID
+> buffer. So the change to efi_reboot() looks fine to me, we just cannot
+> call it directly from machine_restart() as you are suggesting.
 
-That is indeed not great. I believe this part predates the DTBO partition
-format, and is also related to how vendors split their base DTB and
-overlays, such as the scheme Doug presented.
+It mostly looks like the concerns you are highlighing are related to
+random commands being passed to UEFI platform specific reset API. I
+suppose this can be addressed using following allow list (based on
+analysis done in patch-set [1]) for platform specific reset types. Your
+views?
 
-Maybe the new Android Generic Boot Loader (GBL) work will provide
-unification. I will reach out to them to see what's happening in that space=
-.
+static const efi_platform_reset_type_t platform_reset_types[] = {
+        {EFI_RESET_BOOTLOADER_GUID,                     L"bootloader"           },
+        {EFI_RESET_DM_VERITY_GUID,                      L"dm-verity-device-corrupted"   },
+        {EFI_RESET_EDL_GUID,                            L"edl"                  },
+        {EFI_RESET_FASTBOOT_GUID,                       L"fastboot"             },
+        {EFI_RESET_LOADER_GUID,                         L"loader"               },
+        {EFI_RESET_REBOOT_AB_UPDATE_GUID,               L"reboot-ab-update"     },
+        {EFI_RESET_RECOVERY_GUID,                       L"recovery"             },
+        {EFI_RESET_RESCUE_GUID,                         L"rescue"               },
+        {EFI_RESET_SHUTDOWN_THERMAL_GUID,               L"shutdown-thermal"     },
+        {EFI_RESET_SHUTDOWN_THERMAL_BATTERY_GUID,       L"shutdown-thermal-battery"     },
+}
 
-> > On a similar note, we would have a similar problem with FIT images and
-> > overlays. The FIT image format maps a (series of) compatible string(s)
-> > to one DTB and any number of overlays. If overlays are involved, then
-> > the compatible string cannot come from the DTB itself, and the mapping
-> > must be stored somewhere.
->
-> I recall, although cannot find now references to, a email talk on the
-> list saying that such overlays should have their own compatible, thus
-> solving this mapping problem.
+[1] https://lore.kernel.org/all/20251109-arm-psci-system_reset2-vendor-reboots-v17-0-46e085bca4cc@oss.qualcomm.com/
 
-Rob provided it in the other thread. The per-overlay compatible allows
-identifying the overlay instead of using the filename, which I think
-is much appreciated. But we still need a mapping of what a final device
-compatible breaks down to.
-
-For example, say we have the the following:
-
-- product common base "google,yoda" (DTB)
-- codec option one "google,yoda-codec-rt5682i" (DTBO)
-- codec option two "google,yoda-codec-rt5682s" (DTBO)
-- WWAN module and SAR sensor option "google,yoda,wwan" (DTBO)
-
-We then have different SKUs that are a combination of the above:
-
-- product SKU "google,yoda-sku0"
-  combine "google,yoda", "google,yoda-codec-rt5682s", and "google,yoda,wwan=
-"
-
-- product SKU "google,yoda-sku4"
-  combine "google,yoda", "google,yoda-codec-rt5682i", and "google,yoda,wwan=
-"
-
-- product SKU "google,yoda-sku16"
-  combine "google,yoda" and "google,yoda-codec-rt5682s"
-
-This is the mapping we have to put _somewhere_. The bootloader only
-knows about "google,yoda-skuXYZ" and "google,yoda", as described in
-the Chromebook boot flow document [1].
-
-Now I suppose we could have per-SKU DTBOs that just update the base
-compatible string, and have Makefile rules put them all together.
-But we have something like 32 SKUs just for this product alone, and
-I don't think we want to add that many dtso files. The whole reason
-for us to switch to overlays was to avoid the explosion of SKU-based
-DTB files.
-
-
-Thanks
-ChenYu
-
-[1] Documentation/arch/arm/google/chromebook-boot-flow.rst
+-Sumit
 
