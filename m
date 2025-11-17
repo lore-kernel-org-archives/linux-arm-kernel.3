@@ -4,143 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB783CEBF61
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 12:52:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C51A9CEACEF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 12:53:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+3xseSfgGSk8z8D1AyjLt0MJGVhHLoyQosqZuz8elzY=; b=1Y7IWMkRhNehmGjjRKS3V6hZ9e
-	7w2XJbDAHko++MMHELHuVyxjw/yjibZ5I3Owq2zNLmV8yzIMxLEGb98Uf0fX28pUs0sQIf+DIwmhb
-	/Mj1KdHBSJJEyyjdBIawx9RtbCXUnUiFxK3E91SrCGW9qRN4/zlzK2ryLjrQqET9CT8N2WnmWVbHj
-	iKXhgWJJeKUoTeLYwJN0uqZlfSkONZp1rqHkIzVmGGhhJVhmA3yyd8qnJpIoZOk8VHgfugk5HTadO
-	jEdYtzdMW+wBPhjtbndha1ZMLoxu3UKLO0lRfGDO2WGRU5lySi4+YIDwsnkK6daklgpOszn4snqrJ
-	O9mrTPlA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Rx6TyPg/Ri0gk36crVaT4XnJR2eZ8w7/cMUnmQ/NjY0=; b=HjMn20TmDDk5i1j0X8ccrX+Bmk
+	ZmhOkFr3JndnWUKfvTUcvLZ1MRohbnNBBdjNiSOKpDVVhb1AuoKH5kaqaRjwsPjHoCxlHMie8soE9
+	cEqceEVmM4vPHyB9/lRkYvnHgQcSaNNCfSahb5uizaL6LO3tl9ed43etmQ4Li4pwDj9P1gTjEK95E
+	3Pek4EZ88UVL5JrSZ/8L5NeIuzLst8/kLr77OTQK0NlWnn8KL1USe7aHjo686kPROqyIMP6l+heGd
+	9g3DPElN3B3ZgbCqZzH4oELhdemIXzMcCcdwDKqFYVS4s78sC63Rivzkyg6JyJJdlAm2XQhq8x1y/
+	dZvI2gZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKyiI-0000000G83T-3dYu;
-	Mon, 17 Nov 2025 12:52:10 +0000
-Received: from mail-japaneastazon11022117.outbound.protection.outlook.com ([52.101.126.117] helo=TYPPR03CU001.outbound.protection.outlook.com)
+	id 1vKyji-0000000G8C2-15ip;
+	Mon, 17 Nov 2025 12:53:38 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKyiF-0000000G834-2D00
+	id 1vKyjf-0000000G8Bh-1YMd
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Nov 2025 12:52:09 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=c3wKZPinBMHAHzrWY9nJc5o1lBA+LeWB0LRtqylyLKZajQqLvDDVmtzjg3XWv+Mi1bb5tqU1H+QK9wwln18PCGddIJv5w+bcen+A7wxQ9Zs+3YbYC1+cGOaot4qnFEz2bGfebik99/p2m+g6i+NxNrn0vyVU74ekH7as3lbqIWEtTf6L299qOmkJsqYTwDswJsq3/oNJ1ndjHZ47nMu1wjK7gSNu65PLmNlCW18e+lbsH2T3UQ4qmCAO/8U/Pnn7MOXadapsKiR5Ial9QxqqlFYErVAFS5oeJWb7+4/hAGq7RlF/xEc06TDoFptlYW4u6UiVPKaq+Q+rgzS7ATNiQQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=+3xseSfgGSk8z8D1AyjLt0MJGVhHLoyQosqZuz8elzY=;
- b=PnhBvfF4DvEbZWb4Ih4BBHpAAHFE379i4Xg01tI+T3wzBoeOvZ5oh4Xls3IOzR2Jgj6gj69PazQ+E/McLgt7XIPQCYfrPg2H/7XkN2hQxhQwV81kxETJtb962mgzFAGaGutnTYrTWIlMe/ZI2oecZh4DKKzwy4kyXYJkx0eDm4lDPMhE8HFABCTZf+WNmxl5amA1sksq6fzUtTEVsBYbsPmNt5zQbdepEvyZT8pbsi9u1CzMqX/s7KVExCb7f4HWMV2sb+eLci3GcqtQNOz06kOyb0PU+P1LGL4IFKKE04xKHlLsV/CQpw6HpI+bBP9OUzjemQYYDSALI9a1Ao8+2A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 222.71.101.198) smtp.rcpttodomain=arm.com smtp.mailfrom=cixtech.com;
- dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
- not signed); arc=none (0)
-Received: from SG2PR02CA0138.apcprd02.prod.outlook.com (2603:1096:4:188::12)
- by TY0PR06MB5404.apcprd06.prod.outlook.com (2603:1096:400:219::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9320.22; Mon, 17 Nov
- 2025 12:52:01 +0000
-Received: from SG2PEPF000B66D0.apcprd03.prod.outlook.com
- (2603:1096:4:188:cafe::be) by SG2PR02CA0138.outlook.office365.com
- (2603:1096:4:188::12) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9320.21 via Frontend Transport; Mon,
- 17 Nov 2025 12:52:01 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 222.71.101.198)
- smtp.mailfrom=cixtech.com; dkim=none (message not signed)
- header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
-Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
- 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
- client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
-Received: from smtprelay.cixcomputing.com (222.71.101.198) by
- SG2PEPF000B66D0.mail.protection.outlook.com (10.167.240.26) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9343.9 via Frontend Transport; Mon, 17 Nov 2025 12:52:00 +0000
-Received: from [172.20.96.43] (unknown [172.20.96.43])
-	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id 73DD841C0145;
-	Mon, 17 Nov 2025 20:51:59 +0800 (CST)
-Message-ID: <08142bd3-4a17-4c4f-88ff-fd81e9941a18@cixtech.com>
-Date: Mon, 17 Nov 2025 20:51:59 +0800
+	Mon, 17 Nov 2025 12:53:36 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 21BB6401FB
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Nov 2025 12:53:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7D249C4CEF1;
+	Mon, 17 Nov 2025 12:53:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1763384014;
+	bh=vTlFSXL5C/aWINfpBdSRXsDpIpVWuHNUtGuY/3CzWKU=;
+	h=From:To:Cc:Subject:Date:From;
+	b=JIdNq+it2Pszavsm9zuM33PUXh0wvJGvGE0DHncYhfcZF4ZzBP9k8ljOZzW4mkNbQ
+	 d7F4MOtZMm4TWxmHUwiRxTeqgaeIH1i1zK2GrENy26MSeOZWCSGcKmzzfypO4V37cu
+	 WIWN/SSKXfoIRu4Ip8WB9YbstRQ29yff1V4hIwU6qwuDni2C+2LcoFsroqzRXGJMyh
+	 iEyMwPXkTbka6MGKPbOv3Q6AOlX3XEusW85KwqZTrnjmrev66qAPx05n9Cbrzd9Fqy
+	 3VmNP7nvWut7gWESclJdI+Jd6Yzyqk4WozHWfgqq8OVFarSXJ3tji2TU67x7j14yiB
+	 wOE9wjh+dfApA==
+From: Dinh Nguyen <dinguyen@kernel.org>
+To: linux-arm-kernel@lists.infradead.org,
+	soc@lists.linux.dev
+Cc: dinguyen@kernel.org
+Subject: [GIT PULL] arm/arm64: dts: socfpga: updates for v6.19
+Date: Mon, 17 Nov 2025 06:53:31 -0600
+Message-ID: <20251117125331.381114-1-dinguyen@kernel.org>
+X-Mailer: git-send-email 2.42.0.411.g813d9a9188
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/3] dt-bindings: dma: arm-dma350: update DT binding docs
-To: Krzysztof Kozlowski <krzk@kernel.org>, peter.chen@cixtech.com,
- fugang.duan@cixtech.com, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, vkoul@kernel.org, ychuang3@nuvoton.com,
- schung@nuvoton.com, robin.murphy@arm.com
-Cc: dmaengine@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, cix-kernel-upstream@cixtech.com,
- linux-arm-kernel@lists.infradead.org
-References: <20251117015943.2858-1-jun.guo@cixtech.com>
- <20251117015943.2858-2-jun.guo@cixtech.com>
- <bfe6a067-704b-45c1-919e-6a7dfb08b984@kernel.org>
- <aea1429d-b67e-4c42-ad19-88d04f69467b@cixtech.com>
- <024eb64f-74bd-4170-a6c1-09c4af647926@kernel.org>
- <62b59d52-7107-4426-b922-812d343195db@kernel.org>
-Content-Language: en-US
-From: Jun Guo <jun.guo@cixtech.com>
-In-Reply-To: <62b59d52-7107-4426-b922-812d343195db@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SG2PEPF000B66D0:EE_|TY0PR06MB5404:EE_
-X-MS-Office365-Filtering-Correlation-Id: 3a0ef6cb-06f0-45bd-2bec-08de25d819ba
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|1800799024|7416014|82310400026|376014|921020;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?bVo2Z0drUTR6c2xnaGc5b09KQkYyN29VbVZBQlNUU2Q0SFV4NG9KVXJTTmF0?=
- =?utf-8?B?WkFJYmt2SzNOREtlVm5OQU8vZXk4enVkajk4T1A5ZWJCcDJCOVp6VCtQRXJ0?=
- =?utf-8?B?RkkrT0s4UnVoUWo0SnN1T0ZKdmsxTVlEY1ZvTFUxVHNCR2tpdXFtTUlTVVNl?=
- =?utf-8?B?Y0JybVpXbUx2NE9vbjBUbXZBdUNjL3IxcnNrNUFTSnNKTFlESm8weVcxd1p4?=
- =?utf-8?B?dWNYWGs4SHlXQ1VkZ0tvMUxmbGtJeXFOdGVnNTRmSzBvZ2lOMVRsNjNwd0NB?=
- =?utf-8?B?Yjk0UjVLS0d1cXdhb2ppbWdEUnBybGxEQ1BMUmlLN3NSQm12MTRuRmQ1cGNQ?=
- =?utf-8?B?c0lGZEhOYWxwbGlLSzVFZnRyZ2pBRGRnVHBIbnRpamUyWTdNWlpTQTN6TEt6?=
- =?utf-8?B?ZWcwekk4cU5seWxSUDI3Ty9vZWM1SWhLQktLYkZZU3JVVS9HcktIbUt1TXE1?=
- =?utf-8?B?MkNjZXpzK09lelJETVdITXFnTEVhVHlva3A5akpIK3o3bWlwYWg2MEhIYTZv?=
- =?utf-8?B?Rnd1VnJmVjAvZldSdFdHdTljSzd0YkVtYXN6cWtxNmVpeHZUS2w0eDMvZEhw?=
- =?utf-8?B?aW01Rk5rNy9SblFEYjJwREs3OWl5dm9kZEVXOFE1MG9OSnZIRzIrYjJXTEdI?=
- =?utf-8?B?Y2RhMkJERkRNRzArNnVwNXk3cDNNblBUbmlBOTJKVTlFTW9XUlJkTkp6czlV?=
- =?utf-8?B?aUlOTE9OSm1sYXh5V0hLblpOMXZmejFFVzh2ZWZESXJScUtyRXNlOVNldUhi?=
- =?utf-8?B?WmpVL1NEVlBlejVpVHppdnZOTWsraXh6OCtCaE9UTWJWeng1bXovaCtoanov?=
- =?utf-8?B?V25PRGNOc0tHRjZSZlp0SXVJVnE0MHhQUE9iQjRzbHhBYWVjR1dYKzI1RnR0?=
- =?utf-8?B?dGcwNHFUR3FESXE2MXVsd0U0OWgrb2dPOGFZQ3lCVkdlSzV6WC9tcTlvcVhY?=
- =?utf-8?B?MHdjUGs1bmt4S2xPQkdaaTdTWFowdHF3SHRIbTBOUnNXYWIybGd2VXFnNzJD?=
- =?utf-8?B?NFg5anVRTjJuWDZUczNZZ29iamE5alZwNmx1cGp2V3ZxL3ZmQ2pDN0pZK2Jk?=
- =?utf-8?B?aGIxaUNtVjhiY1Z3Y3p6SU13UG05MlVlQUMwd0xBOGNPeVJhM3BmaitFaHZY?=
- =?utf-8?B?SHN4Z0lKR3JWUHB6WU83aWxOWEttWnBkaGNxVzVjaTBTZU90NCtQcGxOdGJs?=
- =?utf-8?B?eTYwb2NPbFp1Yzd5WXVvRVdBT2E4Rms2NnRMbzBUcVpsdUVYaThMc2kycGlB?=
- =?utf-8?B?YWs3UjA0cGtTUnhncll1Rjd5Q3EyZjliOTRYZnZTdXowdHJSd2ZOa0J0am5Y?=
- =?utf-8?B?L0JiQTBEUFlwaHZ4azVnL0w4RFJ2MGJqblQ3Z1NqMTJYbTBIT1F2NFl5Q1Fl?=
- =?utf-8?B?ZllNYlBPcXFDcDhqRHBLQmpNNmJTbDR4MWtreXZBMW03WUpXeDJLL1IvOEZ0?=
- =?utf-8?B?QkFRNGxVQThsdi9xak5wanFMTlNEY0c3RUhSMms2OVZpTkNNU1RLdnVteldZ?=
- =?utf-8?B?bFlLSjcrOGlnVHRmaHNjek1oVUh6NmV0NUltTllya3hqVWlacWNHWEhvQng0?=
- =?utf-8?B?WDZXeFMvNnpyT3VBeE1SbDhVbzFWV1p0NFlxcWIzT0dBWlI0TGtMTnppUmVo?=
- =?utf-8?B?Q3JFR1psbS9xczgxNjNhUnJySlNaUzgxclJDa1VPMWdSTG51QXJ5ak9KLzFF?=
- =?utf-8?B?NDhBZFJqcmROc0dzeHJxYWdtNjNla2tvbGp0NXNpYnM1YURXK0JVaUxOWk5H?=
- =?utf-8?B?TnJob2VTYkJEcjZiTlBlMldjcTY2eUszRFd5ZWFMdDNRRmNqdmQ0N0pncVFj?=
- =?utf-8?B?bk9UbzNETmlGMWlhYmFtclh1Umd4MExHeEQvVUFWZ3hmSXlTQmljL21vMnk0?=
- =?utf-8?B?MlVLYWVFM254cUZFWDhaUENQcDQ2dVBMTjNveU9EcExsd25uSHdNRFYyN1Rp?=
- =?utf-8?B?MjlpTzJlYmhZOTJTZGtrZEQ3TTA5cHhVUTJKSkRLVjVNN3FrSEFhTmlLbXRK?=
- =?utf-8?B?QjZlZ2YxZ1ZPRXFWWXpjSlhvK3lpdXF3U1lEa0tqVW1uWlRTcVMxRkRacXo5?=
- =?utf-8?B?OS9kcWhaU3NNa1UwbzRVbzZ0T2JJb3FsVkcvVDVXOFV0c0hlL3dDR0pZYkRv?=
- =?utf-8?Q?6CdYPZiASRCZY959UA/tJmREZ?=
-X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700013)(1800799024)(7416014)(82310400026)(376014)(921020);DIR:OUT;SFP:1102;
-X-OriginatorOrg: cixtech.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Nov 2025 12:52:00.6108
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3a0ef6cb-06f0-45bd-2bec-08de25d819ba
-X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
-X-MS-Exchange-CrossTenant-AuthSource: SG2PEPF000B66D0.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TY0PR06MB5404
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251117_045207_570779_8FEB9DFE 
-X-CRM114-Status: GOOD (  17.43  )
+X-CRM114-CacheID: sfid-20251117_045335_467459_1C9DB299 
+X-CRM114-Status: GOOD (  17.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -155,57 +69,178 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+The following changes since commit 3a8660878839faadb4f1a6dd72c3179c1df56787:
 
-On 11/17/2025 3:13 PM, Krzysztof Kozlowski wrote:
-> EXTERNAL EMAIL
-> 
-> On 17/11/2025 08:11, Krzysztof Kozlowski wrote:
->> On 17/11/2025 08:07, Jun Guo wrote:
->>>
->>> On 11/17/2025 2:11 PM, Krzysztof Kozlowski wrote:
->>>> On 17/11/2025 02:59, Jun Guo wrote:
->>>>> - Add new compatible strings to the DT binding documents to support
->>>> This is not a list.
->>>>
->>>> Also, subject is completely redundant. Everything is an update. Why are
->>>> you repeating DT binding docs?
->>>>
->>> Thank you. I will incorporate your feedback in the next version.>>   cix
->>> sky1 SoC.
->>>>>
->>>>> Signed-off-by: Jun Guo<jun.guo@cixtech.com>
->>>>> ---
->>>> You just broke all existing platforms. Please test your code properly.
->>> The patch includes proper checks. Since this platform is the first user
->>
->> Nah, tests are here incomplete - look at the binding and DTS users...
->> nothing there, so you cannot test it.
->>
->>> of the driver in the current codebase, the change won't affect other
->>> platforms.
->>
->> NAK, and you keep pushing... I just told you it will break everyone,
->> which is obvious from the diff.
-> 
-> But if that was intentional change of ABI, then could be fine, but you
-> must provide in commit msg proper detailed rationale WHY you are
-> changing ABI and WHAT is the ABI impact of that change.
-> 
-I'm not entirely sure if I fully grasped your point, but I also 
-identified the potential issue. I've reworked the patch to accommodate 
-both the default DTS case with a single compatible string and the 
-scenario where platform-specific compatible strings need to be added. 
-Could you please review it again and confirm if this aligns with your 
-intent?
+  Linux 6.18-rc1 (2025-10-12 13:42:36 -0700)
 
-properties:
-   compatible:
-     contains:
-       enum:
-         - cix,sky1-dma-350
-         - arm,dma-350
+are available in the Git repository at:
 
-Best regards,
-Jun
+  git://git.kernel.org/pub/scm/linux/kernel/git/dinguyen/linux.git tags/socfpga_dts_updates_for_v6.19
 
+for you to fetch changes up to 38eff72f2d3a83475d70ac3a1280b5051d1e46b0:
+
+  arm64: dts: socfpga: agilex5: update qspi partitions for 013b board (2025-11-17 05:37:59 -0600)
+
+----------------------------------------------------------------
+SoCFPGA DTS updates for v6.19
+- Add 4-bit SPI bus width(n5x, stratix10, agilex and agilex5)
+- Agilex5 updates:
+	- Add GMAC0 for NAND daughter card
+	- Add SMMU support
+	- Add VGIC maintenance interrupt
+	- Add L2 and L3 cache
+	- Add support for the 013b board
+	- Add I3C support
+- Add support for the Enclustra Mercury+ SA1 SoM based on Cyclone5
+- Add support for Agilex3 board(a variant of the Agilex5 board)
+- dt-bindings update:
+	- Document iommu in cdns,hp-nfc, snps,dw-axi-dmac and Agilex5
+	- Document Enclustra Mercury SA1 and AA1 boards
+	- Document Agilex5 013b board
+	- Document Agilex3 board
+- Fix dtbs_check warnings:
+	- stratix10-swvp
+	- Agilex(NAND and Clock manager)
+	- Move sdmmc-ecc to base DTSI file(Stratix10)
+
+----------------------------------------------------------------
+Adrian Ng Ho Yin (3):
+      arm64: dts: socfpga: agilex5: Add L2 and L3 cache
+      arm64: dts: socfpga: agilex5: Add SMMU-V3-PMCG nodes
+      arm64: dts: intel: agilex5: Add Altera compatible for I3C controllers
+
+Boon Khai Ng (1):
+      arm64: dts: agilex5: Add GMAC0 node for NAND daughter card
+
+Dinh Nguyen (5):
+      arm64: dts: socfpga: move sdmmc-ecc to the base DTSI file
+      arm64: dts: socfpga: stratix10-swvp: fix dtbs_check warnings swvp
+      arm64: dts: socfpga: agilex: fix dtbs_check warning for clock manager
+      arm64: dts: socfpga: agilex: fix dtbs_check warning for NAND
+      arm64: dts: socfpga: agilex5: fix CHECK_DTBS warning for NAND
+
+Fong, Yan Kei (4):
+      arm64: dts: socfpga: n5x: Add 4-bit SPI bus width
+      arm64: dts: socfpga: stratix10: Add 4-bit SPI bus width
+      arm64: dts: socfpga: agilex: Add 4-bit SPI bus width
+      arm64: dts: socfpga: agilex5: Add 4-bit SPI bus width
+
+Khairul Anuar Romli (5):
+      dt-bindings: mtd: cdns,hp-nfc: Add iommu property
+      dt-bindings: dma: snps,dw-axi-dmac: Add iommu property
+      arm64: dts: socfpga: agilex5: Add SMMU nodes
+      dt-bindings: firmware: svc: Add IOMMU support for Agilex5
+      arm64: dts: socfpga: Add Agilex5 SVC node with memory region
+
+Lothar Rubusch (11):
+      ARM: dts: socfpga: add Enclustra boot-mode dtsi
+      ARM: dts: socfpga: add Enclustra base-board dtsi
+      ARM: dts: socfpga: add Enclustra Mercury SA1
+      dt-bindings: altera: add Enclustra Mercury SA1
+      ARM: dts: socfpga: add Enclustra Mercury+ SA2
+      dt-bindings: altera: add binding for Mercury+ SA2
+      ARM: dts: socfpga: add Mercury AA1 variants
+      dt-bindings: altera: add Mercury AA1 variants
+      ARM: dts: socfpga: removal of generic PE1 dts
+      dt-bindings: altera: removal of generic PE1 dts
+      ARM: dts: socfpga: add Enclustra SoM dts files
+
+Niravkumar L Rabara (6):
+      arm64: dts: socfpga: agilex5: add VGIC maintenance interrupt
+      dt-bindings: intel: Add Agilex5 SoCFPGA 013b board
+      arm64: dts: socfpga: agilex5: add support for 013b board
+      dt-bindings: intel: Add Agilex3 SoCFPGA board
+      arm64: dts: socfpga: add Agilex3 board
+      arm64: dts: socfpga: agilex5: update qspi partitions for 013b board
+
+ Documentation/devicetree/bindings/arm/altera.yaml  |  24 +++-
+ .../devicetree/bindings/arm/intel,socfpga.yaml     |   7 +
+ .../devicetree/bindings/dma/snps,dw-axi-dmac.yaml  |   3 +
+ .../bindings/firmware/intel,stratix10-svc.yaml     |  15 +++
+ .../devicetree/bindings/mtd/cdns,hp-nfc.yaml       |   3 +
+ arch/arm/boot/dts/intel/socfpga/Makefile           |  25 +++-
+ .../intel/socfpga/socfpga_arria10_mercury_aa1.dtsi | 143 ++++++++++++++++----
+ .../socfpga_arria10_mercury_aa1_pe1_emmc.dts       |  16 +++
+ .../socfpga_arria10_mercury_aa1_pe1_qspi.dts       |  16 +++
+ .../socfpga_arria10_mercury_aa1_pe1_sdmmc.dts      |  16 +++
+ .../socfpga_arria10_mercury_aa1_pe3_emmc.dts       |  16 +++
+ .../socfpga_arria10_mercury_aa1_pe3_qspi.dts       |  16 +++
+ .../socfpga_arria10_mercury_aa1_pe3_sdmmc.dts      |  16 +++
+ .../socfpga_arria10_mercury_aa1_st1_emmc.dts       |  16 +++
+ .../socfpga_arria10_mercury_aa1_st1_qspi.dts       |  16 +++
+ .../socfpga_arria10_mercury_aa1_st1_sdmmc.dts      |  16 +++
+ .../intel/socfpga/socfpga_arria10_mercury_pe1.dts  |  55 --------
+ .../socfpga/socfpga_cyclone5_mercury_sa1.dtsi      | 143 ++++++++++++++++++++
+ .../socfpga_cyclone5_mercury_sa1_pe1_emmc.dts      |  16 +++
+ .../socfpga_cyclone5_mercury_sa1_pe1_qspi.dts      |  16 +++
+ .../socfpga_cyclone5_mercury_sa1_pe1_sdmmc.dts     |  16 +++
+ .../socfpga_cyclone5_mercury_sa1_pe3_emmc.dts      |  16 +++
+ .../socfpga_cyclone5_mercury_sa1_pe3_qspi.dts      |  16 +++
+ .../socfpga_cyclone5_mercury_sa1_pe3_sdmmc.dts     |  16 +++
+ .../socfpga_cyclone5_mercury_sa1_st1_emmc.dts      |  16 +++
+ .../socfpga_cyclone5_mercury_sa1_st1_qspi.dts      |  16 +++
+ .../socfpga_cyclone5_mercury_sa1_st1_sdmmc.dts     |  16 +++
+ .../socfpga/socfpga_cyclone5_mercury_sa2.dtsi      | 146 +++++++++++++++++++++
+ .../socfpga_cyclone5_mercury_sa2_pe1_qspi.dts      |  16 +++
+ .../socfpga_cyclone5_mercury_sa2_pe1_sdmmc.dts     |  16 +++
+ .../socfpga_cyclone5_mercury_sa2_pe3_qspi.dts      |  16 +++
+ .../socfpga_cyclone5_mercury_sa2_pe3_sdmmc.dts     |  16 +++
+ .../socfpga_cyclone5_mercury_sa2_st1_qspi.dts      |  16 +++
+ .../socfpga_cyclone5_mercury_sa2_st1_sdmmc.dts     |  16 +++
+ .../socfpga_enclustra_mercury_bootmode_emmc.dtsi   |  12 ++
+ .../socfpga_enclustra_mercury_bootmode_qspi.dtsi   |   8 ++
+ .../socfpga_enclustra_mercury_bootmode_sdmmc.dtsi  |   8 ++
+ .../socfpga/socfpga_enclustra_mercury_pe1.dtsi     |  33 +++++
+ .../socfpga/socfpga_enclustra_mercury_pe3.dtsi     |  55 ++++++++
+ .../socfpga/socfpga_enclustra_mercury_st1.dtsi     |  15 +++
+ arch/arm64/boot/dts/altera/socfpga_stratix10.dtsi  |   9 ++
+ .../boot/dts/altera/socfpga_stratix10_socdk.dts    |  15 +--
+ .../dts/altera/socfpga_stratix10_socdk_nand.dts    |  13 --
+ .../boot/dts/altera/socfpga_stratix10_swvp.dts     |   3 -
+ arch/arm64/boot/dts/intel/Makefile                 |   2 +
+ arch/arm64/boot/dts/intel/socfpga_agilex.dtsi      |   1 +
+ .../arm64/boot/dts/intel/socfpga_agilex3_socdk.dts | 132 +++++++++++++++++++
+ arch/arm64/boot/dts/intel/socfpga_agilex5.dtsi     | 115 +++++++++++++++-
+ .../arm64/boot/dts/intel/socfpga_agilex5_socdk.dts |   2 +
+ .../boot/dts/intel/socfpga_agilex5_socdk_013b.dts  | 126 ++++++++++++++++++
+ .../boot/dts/intel/socfpga_agilex5_socdk_nand.dts  |  18 +++
+ arch/arm64/boot/dts/intel/socfpga_agilex_socdk.dts |   2 +
+ .../boot/dts/intel/socfpga_agilex_socdk_nand.dts   |   2 +-
+ arch/arm64/boot/dts/intel/socfpga_n5x_socdk.dts    |   2 +
+ 54 files changed, 1410 insertions(+), 111 deletions(-)
+ create mode 100644 arch/arm/boot/dts/intel/socfpga/socfpga_arria10_mercury_aa1_pe1_emmc.dts
+ create mode 100644 arch/arm/boot/dts/intel/socfpga/socfpga_arria10_mercury_aa1_pe1_qspi.dts
+ create mode 100644 arch/arm/boot/dts/intel/socfpga/socfpga_arria10_mercury_aa1_pe1_sdmmc.dts
+ create mode 100644 arch/arm/boot/dts/intel/socfpga/socfpga_arria10_mercury_aa1_pe3_emmc.dts
+ create mode 100644 arch/arm/boot/dts/intel/socfpga/socfpga_arria10_mercury_aa1_pe3_qspi.dts
+ create mode 100644 arch/arm/boot/dts/intel/socfpga/socfpga_arria10_mercury_aa1_pe3_sdmmc.dts
+ create mode 100644 arch/arm/boot/dts/intel/socfpga/socfpga_arria10_mercury_aa1_st1_emmc.dts
+ create mode 100644 arch/arm/boot/dts/intel/socfpga/socfpga_arria10_mercury_aa1_st1_qspi.dts
+ create mode 100644 arch/arm/boot/dts/intel/socfpga/socfpga_arria10_mercury_aa1_st1_sdmmc.dts
+ delete mode 100644 arch/arm/boot/dts/intel/socfpga/socfpga_arria10_mercury_pe1.dts
+ create mode 100644 arch/arm/boot/dts/intel/socfpga/socfpga_cyclone5_mercury_sa1.dtsi
+ create mode 100644 arch/arm/boot/dts/intel/socfpga/socfpga_cyclone5_mercury_sa1_pe1_emmc.dts
+ create mode 100644 arch/arm/boot/dts/intel/socfpga/socfpga_cyclone5_mercury_sa1_pe1_qspi.dts
+ create mode 100644 arch/arm/boot/dts/intel/socfpga/socfpga_cyclone5_mercury_sa1_pe1_sdmmc.dts
+ create mode 100644 arch/arm/boot/dts/intel/socfpga/socfpga_cyclone5_mercury_sa1_pe3_emmc.dts
+ create mode 100644 arch/arm/boot/dts/intel/socfpga/socfpga_cyclone5_mercury_sa1_pe3_qspi.dts
+ create mode 100644 arch/arm/boot/dts/intel/socfpga/socfpga_cyclone5_mercury_sa1_pe3_sdmmc.dts
+ create mode 100644 arch/arm/boot/dts/intel/socfpga/socfpga_cyclone5_mercury_sa1_st1_emmc.dts
+ create mode 100644 arch/arm/boot/dts/intel/socfpga/socfpga_cyclone5_mercury_sa1_st1_qspi.dts
+ create mode 100644 arch/arm/boot/dts/intel/socfpga/socfpga_cyclone5_mercury_sa1_st1_sdmmc.dts
+ create mode 100644 arch/arm/boot/dts/intel/socfpga/socfpga_cyclone5_mercury_sa2.dtsi
+ create mode 100644 arch/arm/boot/dts/intel/socfpga/socfpga_cyclone5_mercury_sa2_pe1_qspi.dts
+ create mode 100644 arch/arm/boot/dts/intel/socfpga/socfpga_cyclone5_mercury_sa2_pe1_sdmmc.dts
+ create mode 100644 arch/arm/boot/dts/intel/socfpga/socfpga_cyclone5_mercury_sa2_pe3_qspi.dts
+ create mode 100644 arch/arm/boot/dts/intel/socfpga/socfpga_cyclone5_mercury_sa2_pe3_sdmmc.dts
+ create mode 100644 arch/arm/boot/dts/intel/socfpga/socfpga_cyclone5_mercury_sa2_st1_qspi.dts
+ create mode 100644 arch/arm/boot/dts/intel/socfpga/socfpga_cyclone5_mercury_sa2_st1_sdmmc.dts
+ create mode 100644 arch/arm/boot/dts/intel/socfpga/socfpga_enclustra_mercury_bootmode_emmc.dtsi
+ create mode 100644 arch/arm/boot/dts/intel/socfpga/socfpga_enclustra_mercury_bootmode_qspi.dtsi
+ create mode 100644 arch/arm/boot/dts/intel/socfpga/socfpga_enclustra_mercury_bootmode_sdmmc.dtsi
+ create mode 100644 arch/arm/boot/dts/intel/socfpga/socfpga_enclustra_mercury_pe1.dtsi
+ create mode 100644 arch/arm/boot/dts/intel/socfpga/socfpga_enclustra_mercury_pe3.dtsi
+ create mode 100644 arch/arm/boot/dts/intel/socfpga/socfpga_enclustra_mercury_st1.dtsi
+ create mode 100644 arch/arm64/boot/dts/intel/socfpga_agilex3_socdk.dts
+ create mode 100644 arch/arm64/boot/dts/intel/socfpga_agilex5_socdk_013b.dts
 
