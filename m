@@ -4,49 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FC53CE8D6B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 07:11:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 930EACEACEF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 07:13:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6U1k7zvEkqlHdxOLwyQvOGQ8XHpg91i11nXkn1dlekk=; b=JYkw2490cFAyrtWrcdmDsEFh2Z
-	OV7Y0vC1YMQYVLvujmZeUm+EfmS/efqtKVskcWOFUCsj96zwn3egLuK7MHFBOU+jJ7ELau7XKCbP7
-	0Utry33ZThOBOckLiDBVnmFrl6EcB//+NthHzLPbQdyRlBBVH5f00IlguPxmrtN4ocaw/DKZ2WNOT
-	SXrd2RMA0qhPySQiPw6jBdlBgvK6ShhHHy+NkWoYJWB2pzf/5V9jHrzD1WSmr/EZrXM1M/DAT9j6I
-	zNjGc7p8p84cff4YXbA0YVcv0mN6Icn8ZtaGsJaYhvhJB0epALnuVAe+ju5RyC2EJnyMX/czMcJBj
-	Dk69VLyQ==;
+	bh=6UBN8UWZoPjwcWMu/yIjNAeqv7p0ykfq3qn7G42BKPQ=; b=Zhx4kBfZAKt8oP6hOZKWNN+JwQ
+	4ze1rHBlNnvk2rlFGkwscsy2Um74RZDSkwbh/0Khq7azQNiQXNQYr3dDU/2GBVAWT88bpqaBacknt
+	Ive61CJVnuVeg4IA8/pGBGd8oAmlV/aA2Vwkltnb4dEeG975/3TUvf0RtetB2h5rvQBeJshxHUTjw
+	qz197x2K858CcldyCUD+6glrojUMKFru0Aenjc5JmqiudzO4ivKa0x9aufD4PawN4aTrGxORF6Lgy
+	RDffk4bstl6MgSmhSQb5fyWpo0E9tR5I8D4wDmDyENZlTlGLuNwgzZERMupnEoePJCwuBnhpK8WSV
+	YnyY2eEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKtOR-0000000FaT6-2wK1;
-	Mon, 17 Nov 2025 07:11:19 +0000
+	id 1vKtQJ-0000000Fagj-2n75;
+	Mon, 17 Nov 2025 07:13:15 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKtOQ-0000000FaSg-0Ck0
+	id 1vKtQI-0000000FagI-0eWQ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Nov 2025 07:11:19 +0000
+	Mon, 17 Nov 2025 07:13:15 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A9662406FC;
-	Mon, 17 Nov 2025 07:11:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4E665C116B1;
-	Mon, 17 Nov 2025 07:11:14 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 90B3740562;
+	Mon, 17 Nov 2025 07:13:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 186DDC19423;
+	Mon, 17 Nov 2025 07:13:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763363477;
-	bh=J833T3cSgGVdo3N5aXKIgaPaWQ3FtV8Bjcv4hepLj8I=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=W4siq8oIGB5PiMLK42LEkAaUpn77c5jgos4Ago7QrlsSUKasS46q240vVm942bVRV
-	 dCuTaiAdS8cXdrVHvGIDJFK8bf5Hj3d7evaeiJhtI92roadE1RPfB/KucKpNk3bmJp
-	 Pn/3pmxvVgXpvp6nULpZXWNxk03yr8yFlz5UOzNO6I1hxuy0X+i7N1rzHZRvVRPb3Y
-	 +FGUQRqhUCdq7HJy2iNyIZ4Ef/T1EazSMCoEPpYwJSPp+/caycYjO5BV5lg1nIOsQF
-	 LGRDlW9LipP9jMkdgm2FVz6wXupvj4IO6ZNpg5/WkD6JD1UtdmHJayUpbfjWc7aTK8
-	 0aaysPgMZYQyA==
-Message-ID: <024eb64f-74bd-4170-a6c1-09c4af647926@kernel.org>
-Date: Mon, 17 Nov 2025 08:11:12 +0100
+	s=k20201202; t=1763363593;
+	bh=gQAL1HVQqIDXQAwO5/2yL98G+63SyAz5plbmwfWpIeI=;
+	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
+	b=OzjQRk4fswXooFc7fP5wQOD4SnMr0vbHO9ORgeYWQGxSfmAhZRGXQFWVfccBIztvV
+	 O0P7z6KJwhg588GdQWuQRHzbk5CZ2/it7HfvdEwH1k2uYrF8u17f8Xle7co5+fZwa2
+	 60+sNLG1oik52MINpwHoiMOExz7Q+DoE31fJGDY/PXBKnHudlSUCme7qMeyaUJIqzb
+	 ikByORU4kLM0qoyakco2a+TqWnGNB8Q10M/QmJLyu0AX2MZJPj8Iw94IA0uVoMoGst
+	 +atL1sEnBTUEtUnCpH1YOsiJzGIrgXPtboHMyr1mx8S9ip8szSdCkJAxPqsIH4xkQX
+	 G7+BZQRZ+hPGg==
+Message-ID: <62b59d52-7107-4426-b922-812d343195db@kernel.org>
+Date: Mon, 17 Nov 2025 08:13:08 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH 1/3] dt-bindings: dma: arm-dma350: update DT binding docs
+From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Jun Guo <jun.guo@cixtech.com>, peter.chen@cixtech.com,
  fugang.duan@cixtech.com, robh@kernel.org, krzk+dt@kernel.org,
  conor+dt@kernel.org, vkoul@kernel.org, ychuang3@nuvoton.com,
@@ -58,7 +59,7 @@ References: <20251117015943.2858-1-jun.guo@cixtech.com>
  <20251117015943.2858-2-jun.guo@cixtech.com>
  <bfe6a067-704b-45c1-919e-6a7dfb08b984@kernel.org>
  <aea1429d-b67e-4c42-ad19-88d04f69467b@cixtech.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+ <024eb64f-74bd-4170-a6c1-09c4af647926@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
  xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
@@ -103,12 +104,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <aea1429d-b67e-4c42-ad19-88d04f69467b@cixtech.com>
+In-Reply-To: <024eb64f-74bd-4170-a6c1-09c4af647926@kernel.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251116_231118_138166_618F56F8 
-X-CRM114-Status: GOOD (  12.84  )
+X-CRM114-CacheID: sfid-20251116_231314_240897_FB448AE8 
+X-CRM114-Status: GOOD (  14.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,32 +124,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 17/11/2025 08:07, Jun Guo wrote:
-> 
-> On 11/17/2025 2:11 PM, Krzysztof Kozlowski wrote:
->> On 17/11/2025 02:59, Jun Guo wrote:
->>> - Add new compatible strings to the DT binding documents to support
->> This is not a list.
+On 17/11/2025 08:11, Krzysztof Kozlowski wrote:
+> On 17/11/2025 08:07, Jun Guo wrote:
 >>
->> Also, subject is completely redundant. Everything is an update. Why are
->> you repeating DT binding docs?
->>
-> Thank you. I will incorporate your feedback in the next version.>>   cix 
-> sky1 SoC.
+>> On 11/17/2025 2:11 PM, Krzysztof Kozlowski wrote:
+>>> On 17/11/2025 02:59, Jun Guo wrote:
+>>>> - Add new compatible strings to the DT binding documents to support
+>>> This is not a list.
 >>>
->>> Signed-off-by: Jun Guo<jun.guo@cixtech.com>
->>> ---
->> You just broke all existing platforms. Please test your code properly.
-> The patch includes proper checks. Since this platform is the first user 
+>>> Also, subject is completely redundant. Everything is an update. Why are
+>>> you repeating DT binding docs?
+>>>
+>> Thank you. I will incorporate your feedback in the next version.>>   cix 
+>> sky1 SoC.
+>>>>
+>>>> Signed-off-by: Jun Guo<jun.guo@cixtech.com>
+>>>> ---
+>>> You just broke all existing platforms. Please test your code properly.
+>> The patch includes proper checks. Since this platform is the first user 
+> 
+> Nah, tests are here incomplete - look at the binding and DTS users...
+> nothing there, so you cannot test it.
+> 
+>> of the driver in the current codebase, the change won't affect other 
+>> platforms.
+> 
+> NAK, and you keep pushing... I just told you it will break everyone,
+> which is obvious from the diff.
 
-Nah, tests are here incomplete - look at the binding and DTS users...
-nothing there, so you cannot test it.
-
-> of the driver in the current codebase, the change won't affect other 
-> platforms.
-
-NAK, and you keep pushing... I just told you it will break everyone,
-which is obvious from the diff.
+But if that was intentional change of ABI, then could be fine, but you
+must provide in commit msg proper detailed rationale WHY you are
+changing ABI and WHAT is the ABI impact of that change.
 
 Best regards,
 Krzysztof
