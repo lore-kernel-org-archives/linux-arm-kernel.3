@@ -4,81 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CAABCE8D6B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 19:25:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4B45CEACEF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 19:25:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2KZR03qrYWfL+hqOEhvg6H8HbQEXcqsPCpsuOc8JBOM=; b=L/vtpJtAPKEqpzFGteQIMrKVvI
-	POqTC4OJtoGwCj1kHbep0zRybc0yQNmfVNxRtkgfdKTC9lckr+LXZKBvfJOWOkCQ0GJIyTeoLgVer
-	NXYvmicfD/rLiOxby2aM9GKtJe4XfX6FUXZTfeUVbyV8vb+0w7Px27sGZPE7+Ri8MVz8io9bsrNHs
-	UvFNFQctW+vmdErsXl2ofzMAP6bSFy4mwHhqKTyEvPVnWDYPLfjeYA8IOLyD0VPFutKTUMfyBx4HA
-	PlcjRcDc01O8mHZYT+h34DNcTj9JvPTwrZhAPCHyT8jbnvdxyfMMJ6wizhY8jGJRoZTcac9jceKMr
-	L5qe59ww==;
+	bh=1zgCxkJZSFRK1AKKNBtdkeqQK6ohtd7W3GdcpqKDOuE=; b=NHyBc4sh+kqeqOEoKEBJYHplwi
+	5Ib0itCSrXM1hgtNAML7y4qcrLoOOEWDFn3xJfj4tzM6z9Thuspq5HXQGj7UruMtjNqNlEGdpP9Bg
+	qS4o6qNzvcemje9axmVQqyxv0NySBH11m6p8ALDYhhpZvd6t1E8yXVGr74lP/svzSeoeGUS5UONGb
+	O6bzRNgMHWlGr6ubgdTUxXrrwsdXBexlbMbCUtPppK/9yjjA4hAL1s4x11f2dYzwlTX6fhOHJoAhf
+	3AK74rsE1xYmBC2it6ELui4MJiE4kniEsKYcqa8XNSnrwEfmYBQDJF3XGxcAJZRq/GxtysWB+/zTQ
+	1HPnrkUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vL4qK-0000000GkWp-0MeF;
-	Mon, 17 Nov 2025 19:24:52 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vL4qx-0000000GkcH-3VFj;
+	Mon, 17 Nov 2025 19:25:31 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vL4qI-0000000GkWR-00r6
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Nov 2025 19:24:51 +0000
+	id 1vL4qv-0000000GkbU-0004;
+	Mon, 17 Nov 2025 19:25:30 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3D7AA4456E;
-	Mon, 17 Nov 2025 19:24:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CF75AC2BCB3;
-	Mon, 17 Nov 2025 19:24:42 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 5EE41409F9;
+	Mon, 17 Nov 2025 19:25:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2A7CBC2BC86;
+	Mon, 17 Nov 2025 19:25:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763407488;
-	bh=xtiqSnsAY4ywiCLioxymP9tv/WYEi/Go85PcqJsXmq0=;
+	s=k20201202; t=1763407528;
+	bh=p3z57pTtowM+hDOfFVIHcuBANjDIJ4b/jNR1Mf6AWis=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=UjIiM7hIzNMJPp4VAhTX2RWA9enHgG3jM/EMaRIKQ60RgFWc4llVEYrM6PGmalzqR
-	 W4ZGjjaFB+REtntjrJW5Qqotow5499nTdOzhCiEfNUR4wKNOc5PjZlRb2En24YMVn4
-	 7TvJNW5o7o+UD4uwBhgqzAyD6I6ufpdr99Pu/4fZ2VTF02jXuUX8nZOe6av5lkrHZ/
-	 yWo3A5QlgH6J76XnbvV7vT9rNXQLAOqpADi+mm0V9b0VkGfKzXX73fpGBvIiaoEhCJ
-	 DN7xgTchv4ioEpXASKMPh3NY3gMIiBWkcfz3EW5C6oXxcKQfbG5SS9tgXSTxcFTZgg
-	 iMJ2CFhw0DRTg==
-Date: Mon, 17 Nov 2025 19:24:40 +0000
+	b=qrovRAUdV8rCkExxc7HVnOCFxhFytmmAJp9VkWfz5WmcI+BSimbHnhvV2MychMZQc
+	 8u3FxmfzsNpipCRZc5p7fVfU8969DaKo/2huPDtgepF86PnqPasVKReZ2Nyj/fHUeK
+	 xkdxWViB537InOUXl7xYqa8m2ICTzTEv5Fcc33Sw8SqVuEp12GjCklZeei+tPQI03z
+	 TXBMKS5tu53LiSkau0zJjGsjvk+Q1WuueDPZ3D3xeBnYBk9q8j9+levBGQgU/54j3L
+	 faiXPIrq2UCk9J2HgaBpJl9Ci7PeeFaJ2QkNNWQCWeSJINpzPOrEZpVw7wT1qoWjl2
+	 IVFUGCqsTUc6Q==
+Date: Mon, 17 Nov 2025 19:25:22 +0000
 From: Conor Dooley <conor@kernel.org>
-To: Josua Mayer <josua@solid-run.com>
+To: xianwei.zhao@amlogic.com
 Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
 	Neil Armstrong <neil.armstrong@linaro.org>,
-	Jessica Zhang <jessica.zhang@oss.qualcomm.com>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	Thierry Reding <thierry.reding@gmail.com>,
-	Jon Nettleton <jon@solid-run.com>,
-	Mikhail Anikin <mikhail.anikin@solid-run.com>,
-	Yazan Shhady <yazan.shhady@solid-run.com>,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	dri-devel@lists.freedesktop.org, linux-input@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v3 02/11] dt-bindings: display: panel: ronbo,rb070d30:
- panel-common ref
-Message-ID: <20251117-herbal-absently-c37ba6077679@spud>
-References: <20251117-imx8mp-hb-iiot-v3-0-bf1a4cf5fa8e@solid-run.com>
- <20251117-imx8mp-hb-iiot-v3-2-bf1a4cf5fa8e@solid-run.com>
+	Kevin Hilman <khilman@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/5] dt-bindings: arm: amlogic: meson-gx-ao-secure:
+ support more SoCs
+Message-ID: <20251117-cement-hasty-15626e8c78a0@spud>
+References: <20251117-soc-info-s6-s7-s7d-v1-0-6ab8aab03dce@amlogic.com>
+ <20251117-soc-info-s6-s7-s7d-v1-1-6ab8aab03dce@amlogic.com>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="jJ92fiK/uBFIDD/7"
+	protocol="application/pgp-signature"; boundary="Ovf/zn3cUQ3ngyH4"
 Content-Disposition: inline
-In-Reply-To: <20251117-imx8mp-hb-iiot-v3-2-bf1a4cf5fa8e@solid-run.com>
+In-Reply-To: <20251117-soc-info-s6-s7-s7d-v1-1-6ab8aab03dce@amlogic.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251117_112450_101682_5EBE271F 
-X-CRM114-Status: GOOD (  19.78  )
+X-CRM114-CacheID: sfid-20251117_112529_060678_AC7C01E9 
+X-CRM114-Status: GOOD (  12.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,95 +80,60 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---jJ92fiK/uBFIDD/7
+--Ovf/zn3cUQ3ngyH4
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Mon, Nov 17, 2025 at 01:28:44PM +0100, Josua Mayer wrote:
-> Add missing ref on panel-common.yaml for this dsi panel so that common
-> properties can be shared.
+On Mon, Nov 17, 2025 at 06:17:00PM +0800, Xianwei Zhao via B4 Relay wrote:
+> From: Xianwei Zhao <xianwei.zhao@amlogic.com>
 >=20
-> Drop reset-gpios and backlight as they are already in panel-common.
+> Add new compatible for ao-secure of Amlogic SoCs(S6,S7,S7D).
 >=20
-> Switch from additionalProperties to unevaluatedProperties so that common
-> panel properties are available without repeating them in this binding.
->=20
-> Notably panel-common defines the "port" property for linking panels to a
-> source - which was missing from this panel. Mark it as required.
->=20
-> Signed-off-by: Josua Mayer <josua@solid-run.com>
+> Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
 
-Forgot my tag I think.
 Acked-by: Conor Dooley <conor.dooley@microchip.com>
 pw-bot: not-applicable
 
 > ---
->  .../devicetree/bindings/display/panel/ronbo,rb070d30.yaml  | 14 +++++---=
-------
->  1 file changed, 5 insertions(+), 9 deletions(-)
+>  .../devicetree/bindings/arm/amlogic/amlogic,meson-gx-ao-secure.yaml    |=
+ 3 +++
+>  1 file changed, 3 insertions(+)
 >=20
-> diff --git a/Documentation/devicetree/bindings/display/panel/ronbo,rb070d=
-30.yaml b/Documentation/devicetree/bindings/display/panel/ronbo,rb070d30.ya=
-ml
-> index 04f86e0cbac91..6940373015833 100644
-> --- a/Documentation/devicetree/bindings/display/panel/ronbo,rb070d30.yaml
-> +++ b/Documentation/devicetree/bindings/display/panel/ronbo,rb070d30.yaml
-> @@ -9,6 +9,9 @@ title: Ronbo RB070D30 DSI Display Panel
->  maintainers:
->    - Maxime Ripard <mripard@kernel.org>
-> =20
-> +allOf:
-> +  - $ref: panel-common.yaml#
-> +
->  properties:
->    compatible:
->      const: ronbo,rb070d30
-> @@ -20,10 +23,6 @@ properties:
->      description: GPIO used for the power pin
->      maxItems: 1
-> =20
-> -  reset-gpios:
-> -    description: GPIO used for the reset pin
-> -    maxItems: 1
-> -
->    shlr-gpios:
->      description: GPIO used for the shlr pin (horizontal flip)
->      maxItems: 1
-> @@ -35,10 +34,6 @@ properties:
->    vcc-lcd-supply:
->      description: Power regulator
-> =20
-> -  backlight:
-> -    description: Backlight used by the panel
-> -    $ref: /schemas/types.yaml#/definitions/phandle
-> -
->  required:
->    - compatible
->    - power-gpios
-> @@ -47,5 +42,6 @@ required:
->    - shlr-gpios
->    - updn-gpios
->    - vcc-lcd-supply
-> +  - port
-> =20
-> -additionalProperties: false
-> +unevaluatedProperties: false
+> diff --git a/Documentation/devicetree/bindings/arm/amlogic/amlogic,meson-=
+gx-ao-secure.yaml b/Documentation/devicetree/bindings/arm/amlogic/amlogic,m=
+eson-gx-ao-secure.yaml
+> index b4f6695a6015..fa7c403c874a 100644
+> --- a/Documentation/devicetree/bindings/arm/amlogic/amlogic,meson-gx-ao-s=
+ecure.yaml
+> +++ b/Documentation/devicetree/bindings/arm/amlogic/amlogic,meson-gx-ao-s=
+ecure.yaml
+> @@ -34,6 +34,9 @@ properties:
+>                - amlogic,a4-ao-secure
+>                - amlogic,c3-ao-secure
+>                - amlogic,s4-ao-secure
+> +              - amlogic,s6-ao-secure
+> +              - amlogic,s7-ao-secure
+> +              - amlogic,s7d-ao-secure
+>                - amlogic,t7-ao-secure
+>            - const: amlogic,meson-gx-ao-secure
+>            - const: syscon
 >=20
 > --=20
-> 2.51.0
+> 2.37.1
+>=20
 >=20
 
---jJ92fiK/uBFIDD/7
+--Ovf/zn3cUQ3ngyH4
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaRt2eAAKCRB4tDGHoIJi
-0hrHAQCBaAmVJzC1Z0STWj1jk4/PdSurZ065qolA+crJiZFTBwEA624wDBQFzZga
-EVu79ROyCjko8bQ+2VEAS6lgAsh+eQ4=
-=Qt2L
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaRt2ogAKCRB4tDGHoIJi
+0gaYAQDiO8JsyUEsnXAM6pxAuMrCvpdZcXxoyFnzI6sK6oPaAwEAi8lxR9FnXNFM
+tj2itrKWEslAmVMsNHQ5i8a35itZmAk=
+=9IX8
 -----END PGP SIGNATURE-----
 
---jJ92fiK/uBFIDD/7--
+--Ovf/zn3cUQ3ngyH4--
 
