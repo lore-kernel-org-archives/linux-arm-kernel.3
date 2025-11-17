@@ -4,136 +4,162 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89E05CEACEF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 05:38:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7721CEACEF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 05:38:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ij+zGrZP39izW7VSXxtNQBt2rAsGHOP1QJw0Oj7RuU8=; b=CURYh7iNuLNRsuZPSGdTvykhIl
-	j/HV9PU4bWyWi0MLTnMgmXAgL3McmK4cJqvs8ZoD8yxFwwfxP4Gp4h83QoFYk8oG+0jUVxbrw+csa
-	p6xcrS/Jm9JiHe5DsYVtv9XKPfRVkM0nJdCMWMrp50rl4TiwBzRvGcfDu3VcUHDP1X8QjIR+y1G/1
-	WBpxCVcvuO1OpMmbY00MxyHZFyrtPJNKmo3LQm/zSS3B9e8nB9X7spIz9hryfIoxXKFaCaLu9VsIJ
-	7sQfv06C86eXgFgPpAeWl/omAeVD6L41iSSZsuNsKK+OW9YHBwOtmSQEWTgGf7U9fiWNx891AnqiI
-	zxpa465w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Q9et8WNlfurwtfjeRAZZ80X96xjkfIHgD0oXVKNyG7U=; b=QUbHxUfNvlNbbhHVp8fNUZgrkV
+	6AHPRVR9RMMVWxc5QQ3yzq7kUQwtOkbSsM1cn0xR8kKORGwqMScTddmZMtnhQMFQZAj1BAtdnhs49
+	7VOXpYCGP7ZryGDdr91sow1+f0kiilMznPO/B3KUo3V86Asoccanf32M4MsRqRBnSNHooDxYn1nCB
+	xIg+VM8YesPIgOFKlKD+43gbuG5JgEbV6pgr3mBVh7OxHX+rHXG6tWEr4NkHcKLpJMZP5D99u5D6+
+	x4KWw+aAMsvq7TUxZpePNKukpWiIPscCbyazrm7kPB5cTcMPnpJqhFTHTgePC60liWZyxy7IRzNx/
+	me6zAmdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKrwM-0000000FSXa-2HoW;
-	Mon, 17 Nov 2025 05:38:14 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1vKrwq-0000000FScP-2Oky;
+	Mon, 17 Nov 2025 05:38:44 +0000
+Received: from mail-northeuropeazon11012002.outbound.protection.outlook.com ([52.101.66.2] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKrwJ-0000000FSXC-36tF
+	id 1vKrwm-0000000FSb7-49UJ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Nov 2025 05:38:13 +0000
-Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5AH4o1AQ3266190
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Nov 2025 05:38:09 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	Ij+zGrZP39izW7VSXxtNQBt2rAsGHOP1QJw0Oj7RuU8=; b=LZVJCNzrzdDIg2w4
-	IQ3kEGgsz6n1+UdO4UbFEFF+hkRA3abfumbtTPJe0vXgSD0Q+KvtsrTz5i/S5KEa
-	Chuhqc0nWKjxPaBRoYyR1Hid00Zybu0VAm5f+/RstcpZli8imJTAcU0B6aGSycu2
-	+MT3tvDHq4bx5Qkj+Imn/ulRKg09tu1PuGFSG/VdVeyxlhduy7Qfq/kq50MqD/Gh
-	rhavpk3wV5fqEtLfPc2hXxiqT7XauNHIXLDwC86nOWnYfVVdx5t6QjTX1WD711nf
-	PCppVrBYhhk3OuWuW2iCFLhK3sOdh6pmW9rjjOfj9iSq12pA9wPSxo9Bxo4PPhoK
-	tDbD6A==
-Received: from mail-pl1-f200.google.com (mail-pl1-f200.google.com [209.85.214.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4aejh33g7b-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Nov 2025 05:38:08 +0000 (GMT)
-Received: by mail-pl1-f200.google.com with SMTP id d9443c01a7336-2958a134514so51540205ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 16 Nov 2025 21:38:08 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1763357888; x=1763962688; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=Ij+zGrZP39izW7VSXxtNQBt2rAsGHOP1QJw0Oj7RuU8=;
-        b=ZFwtDjjMpsEtoNnwXp2017zsCZd1s5DJncWzhA66DU+qx9aEA+llqqjPIg52+qzYDL
-         fhPpO6NvusDAidjZsZy6vIGkAF0T/Ifq/TrDqQvV4EEWRNfOnpWyVYYiilAvJR/1mLgV
-         XrYLrxjkoUaklR/OcOYs+KweejYSPL487rYYyb019OGoU1LiaGqtAZCu79HqERAG3i8O
-         +wabaCcXgMvE3XJJNyAkpuXSga/Cw6UT6iT3lBaYB8dCGcbgBSpNSa7m3KhwX1tBoQzY
-         Uq5GSoPoiM0oY8LmyPEC2FLNJlNZFEw09o/nR7MEfqEP9W/pjsLOWEbkjZg1XG0uJWRK
-         oeug==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763357888; x=1763962688;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Ij+zGrZP39izW7VSXxtNQBt2rAsGHOP1QJw0Oj7RuU8=;
-        b=utPIwsNNvoxNxht9cEtCu7G5GvdlIsx7cu/vCvt/YsucTJ0ieI+gg0/SK9D2hl083+
-         JyP84OljEI/0vp3zt4mEd+RSZLscpfEV6fDHcaxQZnBnOFgGWvPtiXSX4rSWnj5uM6qb
-         cGA8xeX7oSnPqwak2kdamVZcX4xu0InEmq8WD6mfHrkZ+YoBsWQaDibp3g88vkSFvK9l
-         jEPHzuFqVAIFC1RSJrMFo/Vr9ow+IkfJ5Rs30KUULokc2E+Vdq6pdnv97S+P4jjeNzwF
-         OzhzksfGYpKsEa/4Bmv2U8YlMEOG3K6hZnPpYEgJO2nxBT+VSATi4mBU7MtUJvZWIrpU
-         1YSw==
-X-Forwarded-Encrypted: i=1; AJvYcCXjlMK1341mwEZ+2t0MwHxLV0vrb6ZmixPKSDXTdY6JYB0u5sGQv02y59X2xAj7w4fGgshPAxCjPfFrD4BWDC9F@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx8y8gneXR84W+Yoy8GRwbjoWGUEUWcRZWuKW9+6ZJQY7sU9z1k
-	uM7/k2GPLJAt9k3T2jqx+wlgcr2vJcYk1cXYej16S1EnyUsyTIi3SHr1MKckww0jRqCbdnXMa7Y
-	q7TnvdxCLPh4OknLhNxVd2Lwu/adPAWmnfJ9qnev+ISKvsw8UJZHnSu4d7sHxo2upQzlmvJbHxZ
-	PoEA==
-X-Gm-Gg: ASbGncvyor/NRFc5ELi8YXU5hyHQiiwQ7C53uI19B+ByOrPVZDk/KOtU0Tux8bXDqCs
-	mYnj9B3xV/ybJbI+Q8R2FE3xmHcwA3O8FPygCygbGTXQHy16BMT6pIb0xudl+iPxrBNsW0B4FHh
-	AIMtAVDdRnMJ99JKzZGtpCQFOfkAVKrmSZNpKzrxi1rR7f83yXlm/6WGJqRV4zHZaj69QNc9rho
-	Z1ZJmaACnwlcQF2kcdmM2IbVUxt6Pf+vwqfKxgmaKpTy0I72/0g1ruJDjUDIPW2HqTjOCkQzc3C
-	0y8kIZQFFe7faxk0sMXj1gB/rFlJ2GzgTYjBOjjcJ5hIRS7nfWA+8FEOMCjTgur2dgFhC3w4F7k
-	kqwTXemGS5Pi0rKDS5JfmRxixlfGJsoqgUF2f6Xfj5Z9/o5EScKFtOSXBZt28/wg=
-X-Received: by 2002:a17:903:1a28:b0:297:f088:56e6 with SMTP id d9443c01a7336-2986a6ec32emr130499485ad.25.1763357887799;
-        Sun, 16 Nov 2025 21:38:07 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IFYqUFXKLsOkhEiX9l4+zz+nyyWRjSor9RSpHrl4xaX6xAJ0ck8S4Cs4Tcptvd5SBcxgZNH4A==
-X-Received: by 2002:a17:903:1a28:b0:297:f088:56e6 with SMTP id d9443c01a7336-2986a6ec32emr130499255ad.25.1763357887305;
-        Sun, 16 Nov 2025 21:38:07 -0800 (PST)
-Received: from [10.133.33.82] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2985c2c0fe8sm124895515ad.80.2025.11.16.21.38.04
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 16 Nov 2025 21:38:06 -0800 (PST)
-Message-ID: <06f4fbac-1f49-4dd0-8834-d23f8abd3fe3@oss.qualcomm.com>
-Date: Mon, 17 Nov 2025 13:38:01 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 0/3] add sysfs nodes to configure TPDA's registers
-To: Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Mike Leach <mike.leach@linaro.org>,
-        James Clark <james.clark@linaro.org>,
-        Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-        Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-        linux-kernel@vger.kernel.org, Tao Zhang <tao.zhang@oss.qualcomm.com>
-References: <20251028-configure_tpda_reg-v4-0-23000805d21d@oss.qualcomm.com>
+	Mon, 17 Nov 2025 05:38:42 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=P9yXAQkuAygcxMzgGEnh3V/eMYb6FOuGId29MhljpjzflfAF6AMxPMPtsvjg2QXQ6pdhGAuJLOac7CjLgaPyvD8/N+rqrNZBpZfnGYo5ZC2zznQ7zSpFRhN+vVJa9jU/77JMqYqJlcLzEp+Vt7BCp9o9rszPMv5l+F+YFNccYxIpgM6uMg5GnLYN65XFcuPcmNXWCYBZBdQko8jIti/3hEyC6HwSuVyyoKsHhv8sRfe8Bbh0gURELItlv63YhXujzidPugBLQ0iBK7ONb+vNpqX5UEmpnXkRYaw39KTGKq59xgnyiarpkfQOjKZnjNH2c7Q8BO+l4jfs7u7hLubgQA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Q9et8WNlfurwtfjeRAZZ80X96xjkfIHgD0oXVKNyG7U=;
+ b=E5NtpLrEryzLezhJIgRdffFAl+BMOcQKGdfOVz1LinJGGTC+TrlnW2NQ+jGfBhwO+ZIP7Ps5z6rjgz9FTP/eePjP+FBHJF7CtwE/BLVmAdA2zD9zVa+c9zws+SdQ6w2qRO9LfBj1PvG5RdVA26mi/NwCYLtcdjPWd6X9fwarARIoqraLiBJyD9TmgJpQJhPgpy1weEh1qU8y1C/KS7fi5Em4xTorTeGw392JWYNwhJmOhUHcbAHXSErr0cAlLg19IU+WMqvBYC8M3OqyJVISfPAS+m3JVIxK8LBl8gU9HjvHxwIcutAcCjSzEPLTVqcs1bACl+oK2pZVzHMFfVcvhg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Q9et8WNlfurwtfjeRAZZ80X96xjkfIHgD0oXVKNyG7U=;
+ b=OGOcmorDeoVmoFWZikSus7RIAS7kNTW9HQvtk/lhHr51dI2O0wOaAdWe1VDcPB6C1huaMVc+64j1i84xm+AqYlrH6ZAw4LIYSVhnW45+GOIO33bxrz6k/yBG+dbsXf178RwoJm1wdUq9UK9nQuDN16HNhAewmWKK4cJeLwlwMigZkCv2bhsEu/tG/BsC0PNHRsxFvED3rfKGQVPpzz7d65PUcHFwlYq7kBFmlOWNvOHabL1em05aVUya/8bn8fCLl75MuJZ2cmbKJNddIusK9ENH6Hv8f3dp+Yq+bnPA4q1GF5QEhXdNv4c2xN7PaEmPpfqvVHZtJ3FqykqskVYqhg==
+Received: from AM9PR04MB8604.eurprd04.prod.outlook.com (2603:10a6:20b:43b::21)
+ by DU2PR04MB8581.eurprd04.prod.outlook.com (2603:10a6:10:2d8::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9320.21; Mon, 17 Nov
+ 2025 05:38:33 +0000
+Received: from AM9PR04MB8604.eurprd04.prod.outlook.com
+ ([fe80::e751:223e:aa3d:5827]) by AM9PR04MB8604.eurprd04.prod.outlook.com
+ ([fe80::e751:223e:aa3d:5827%3]) with mapi id 15.20.9320.021; Mon, 17 Nov 2025
+ 05:38:33 +0000
+From: Pankaj Gupta <pankaj.gupta@nxp.com>
+To: Marco Felsch <m.felsch@pengutronix.de>
+CC: Jonathan Corbet <corbet@lwn.net>, Rob Herring <robh@kernel.org>, Krzysztof
+ Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Shawn Guo
+	<shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix
+ Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>, "linux-doc@vger.kernel.org"
+	<linux-doc@vger.kernel.org>, Frank Li <frank.li@nxp.com>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
+Subject: RE: [EXT] Re: [PATCH v19 0/7] firmware: imx: driver for NXP
+ secure-enclave
+Thread-Topic: [EXT] Re: [PATCH v19 0/7] firmware: imx: driver for NXP
+ secure-enclave
+Thread-Index: AQHcLvztIykpoCx+vU2TOsTcO77HnbTExb+AgBDxjcGAC9UegIAFbnEAgAbBcwCAAR8p0IAAkf6AgAKJhEA=
+Date: Mon, 17 Nov 2025 05:38:32 +0000
+Message-ID: <AM9PR04MB86044BD66836899EB1C64D8A95C9A@AM9PR04MB8604.eurprd04.prod.outlook.com>
+References: <20250927-imx-se-if-v19-0-d1e7e960c118@nxp.com>
+ <20251016114151.jzmapaecsmmnkpt3@pengutronix.de>
+ <AM9PR04MB8604C2AAA70406883320C5C995FCA@AM9PR04MB8604.eurprd04.prod.outlook.com>
+ <20251103190811.wp4o7hlnus6ynn32@pengutronix.de>
+ <AM9PR04MB8604AA80EC97E06AADBF334695C3A@AM9PR04MB8604.eurprd04.prod.outlook.com>
+ <20251111131442.nddhk3475oapf2zh@pengutronix.de>
+ <AM9PR04MB86047231B5320C01759BFCAE95CCA@AM9PR04MB8604.eurprd04.prod.outlook.com>
+ <20251112150501.qkjclsoq2bg75ed5@pengutronix.de>
+In-Reply-To: <20251112150501.qkjclsoq2bg75ed5@pengutronix.de>
+Accept-Language: en-US
 Content-Language: en-US
-From: Jie Gan <jie.gan@oss.qualcomm.com>
-In-Reply-To: <20251028-configure_tpda_reg-v4-0-23000805d21d@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-ORIG-GUID: AKffAGAYrgL_g8pLQjo5fxEDUy27KLtr
-X-Authority-Analysis: v=2.4 cv=EtnfbCcA c=1 sm=1 tr=0 ts=691ab4c0 cx=c_pps
- a=IZJwPbhc+fLeJZngyXXI0A==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
- a=IkcTkHD0fZMA:10 a=6UeiqGixMTsA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8
- a=rf22lFbXz3lptHW25oMA:9 a=QEXdDO2ut3YA:10 a=uG9DUKGECoFWVXl0Dc02:22
-X-Proofpoint-GUID: AKffAGAYrgL_g8pLQjo5fxEDUy27KLtr
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMTE3MDA0NSBTYWx0ZWRfX7DRT6zvFE/rQ
- SWtrgdjQQQZ1ZeKtRrcSelJWQRucQZCxATIGVpRA0zeE/eOr6+gxAUeMcTxts94kiWIHu8XhjpW
- d/yGadwdqPApyMJ/dlYxGVPkRwcUX8u2IggKTS8rj9fxqOV7H5MkhABBdvKNDKwUDsmd7/Gawp2
- DUqhnrl3e3MrV2rY/9x9N5Vzi05gHxyTc5VKOAyusPdFAbZLEAmSrJh8N/RsP5jTMPr5kZuDxOM
- k9lh9FHmVhxVmTUZETr/1IpjLj799UWUgJezBU2D5rMHwjAbYQomtq8a8k2BeKlwcxg9vsmfE1G
- QO0fukQ9h4iCLftkKuqCp0TJEw0haV2RKzwj/iV85i4m4ptJAZC1WloLUwLANyU+kUlPok3CE/i
- MUjKOydjHuyFy2sx1JWmasA333dCzQ==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
- definitions=2025-11-17_02,2025-11-13_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 clxscore=1015 lowpriorityscore=0 adultscore=0 suspectscore=0
- priorityscore=1501 spamscore=0 impostorscore=0 bulkscore=0 malwarescore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2510240001 definitions=main-2511170045
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: AM9PR04MB8604:EE_|DU2PR04MB8581:EE_
+x-ms-office365-filtering-correlation-id: ab9287e0-afa6-46fc-7121-08de259b8be3
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014|19092799006|38070700021;
+x-microsoft-antispam-message-info: =?us-ascii?Q?7XkDVLFFIpECAnbG38ugJCZntr4kom4OSE4Tg1k3GgRtEvHQXnY2WfnVR/NN?=
+ =?us-ascii?Q?HjalJZudusw1/8tOjjuW5sF4FMRfskcc+pL9jvckBfmysRs0Y7BS92LqZp3d?=
+ =?us-ascii?Q?+RvyHB1jkJPCNXxR207wEnOEj+Wc0p01EeG3GFiSarHePz5Q0Xd4mXEBn4+/?=
+ =?us-ascii?Q?9JRCsKWjz5LmE+mpuo8+WLsiX74BJBdsBtjTQ/Dg+FoL0V/wWjfJNqIOi6Ta?=
+ =?us-ascii?Q?TMX/CYgSOj358bMjUVWpfHXusw8QXUx/ZEi9tgb12zcrBvqIg2DG45yYBe6j?=
+ =?us-ascii?Q?ZAZMqSSWwtaj2a8q1U+zA7ksjMX+I6Cemnfcvz4nM3hLY/T2L63+8rlpZNmp?=
+ =?us-ascii?Q?Zp5jJOlPuROs6koUStwBaZIIbcazH0hO4MSilU8w2E5Ah03TqXYkfdnp1lf6?=
+ =?us-ascii?Q?9zLbTXHAuxHFnj70VlEXBZNU1E1JDrQIcrAIRlLrOV1eecZPNXhP3hXwtFu0?=
+ =?us-ascii?Q?aIIM6xMAmIs5FLq9p7F+vUIUdhC1f+XCRm+T0e7KU/bgsUmRUofOGYJ73OcX?=
+ =?us-ascii?Q?Smy7E80nzCjTl1s1aMvQ3QNi397i9Qwz0QrjipBgK27HOSiHF9PisN0HS7+D?=
+ =?us-ascii?Q?lrutty4fftTDnLALstW8DqZGFbJa6qxrJ98fXHpUuICdoR763zPREKn6uB3c?=
+ =?us-ascii?Q?vdFOzHSwU3+UCf9kS1gU8jKZFzE4+iWCJzPVqRX88cjUrgjoBms3CM/8OJyl?=
+ =?us-ascii?Q?Hx9m4Phe4NCouX/czxs+f3VzSBZnd4rV5Clo3c4t0HUpHtLNwrK3s3M12j3d?=
+ =?us-ascii?Q?kPnk9wl1XcLknUdiKUHqcZXKiADat6MMd+h+ygiUvYvHOWFZeVWV9yfKWOVo?=
+ =?us-ascii?Q?IHqPQJBFmulBV5nb4OCAsNas64Oj6kADGCzvEHXGZvNuPzHExFWoqJ7JnN2Q?=
+ =?us-ascii?Q?e3ezXgzTbQuE7/9gzQMEZQwOA4m1KG01ZBCUmuBqIdcXlunpA8Q6BH/0M6uq?=
+ =?us-ascii?Q?hZs/owNzC7m4iA6eJEMGAo8bvvNDyJ1+OjbuWJ+OwHZUiMs4w9W6F0cgJL2z?=
+ =?us-ascii?Q?HjHlZCWILL5taUuv8VjAoPkJhsYavtqM4pVMOtibv9u1sBYq57w1jctauH1F?=
+ =?us-ascii?Q?w5EEAkQ545zalSDmxj/8dat6iryv9bnyFjlkG5inu2kb5DuygMF9VNtrB60L?=
+ =?us-ascii?Q?YUH17dvit/3OCm40z4k/r3DhDnbXaFsnGs2AY0A4dqu8KFNM32+0alaBwjF2?=
+ =?us-ascii?Q?Qrg/TQx8XHTspqgb75AnhOv+Cv84PbNPZqT87YkdV5PoGR7p6mbDrJVFaawj?=
+ =?us-ascii?Q?C/Cn0PWlpnJDXxNRPGdQpiOJT30oZ9V4SVhT/UF6GMGBFmFZ/Tlc4/XLKkxA?=
+ =?us-ascii?Q?zWinlHK0+EWID7p1XYTr6obDhN2hoQevIcN02eUkDzkcGsGlRPn/ueLmNtqN?=
+ =?us-ascii?Q?qEqVuCV/wY4MeiOPgPcUlMjjyGgK7jax06XibXaHvl08P0NCWbPOJLTNwJs2?=
+ =?us-ascii?Q?gtb5XhFvTQRS7Kz9zxwJm4hOaJewj5uekfoU2qeEqO/wDO2PvLCjPw=3D=3D?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8604.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(19092799006)(38070700021);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?fsMjJ3j926RSPxSTpZSwJRQk/UsvtoN2qfxXZCbE4ujs4xCifra5oh0R46NG?=
+ =?us-ascii?Q?/ceq1mP0V/AyeCqtPV/BY3wVofYSvBOGKgQf6c+kqJRb5adQaUGdh0HNV0ej?=
+ =?us-ascii?Q?oc0K2sfYi7NEkPJyTx5sN6QcAT5++bRt5bowwDZE3hv8/m3i4lf0Z5z0sM0m?=
+ =?us-ascii?Q?1oeZh4CdOUWK6pEvpqh8T7zDJ031s8HabxeeNye3WqafXOXt+TR3oTrvSvda?=
+ =?us-ascii?Q?4kjEeduo6XpP8TC2WcfqR7LTBFHOhCmqbtEhchU2CkBkIlJ7o3Wyw/hLyCVQ?=
+ =?us-ascii?Q?DB9++TnGIWiuGZhdyHxp8qlOMFHilmVUpckgLdfSEu7qA9m8abOEg9ppcJOs?=
+ =?us-ascii?Q?U5t+amqBewnC850dx5CmJBKK9V6pWkLQcus323/tLg06GcSW8GV0MwVOrMi2?=
+ =?us-ascii?Q?zJrTe7nWBLVeK3lX6GoXBaFVCFPtsFe2eqJjgqxFZi2DBcgQD7msErEF4MNn?=
+ =?us-ascii?Q?cXg69QKJWAqeYjsUepzDQuSwcRZABecYImZoK2PzR+rYApHkfEFiFKGhPgjo?=
+ =?us-ascii?Q?M3FHSNbD4mLxDYcArmYBBcW918yZUTg8mhRA9uf4Xo5DtKvJLxydkSfF7UeV?=
+ =?us-ascii?Q?+ZEshFqiwgy6T02LrXgd4N5g1H9BH8H+EzPOkFpzX3eERotyDWz4+yARXYW1?=
+ =?us-ascii?Q?+trbFlAbL07r45Mts/LGAYEUKGirg19kqApT8NX1uvjdyBhzuZTiVXmNtowb?=
+ =?us-ascii?Q?B4xm1QLTTsPBgeEk5zJLaluoWkt9nrR355m+KEpj9ppurKedYNYNLoyJFC/Q?=
+ =?us-ascii?Q?d4tZ2OqAlEfhIbLkLsHniclYjCE4C18LoNYgan8t5wz3J19M65ST6J8f1MUG?=
+ =?us-ascii?Q?NYuWRjNahVwM5v8xjAyXiwGPgwM/5LKla+ccbfDSiIJVpUuNKFgqk4tL/xp4?=
+ =?us-ascii?Q?XcMy257R1ZWGhvyAJGLWt1doPj1wClxOT0FRAKMrf11xfNBckt69oUNXKQPS?=
+ =?us-ascii?Q?kR6M9q5nOFm62jpzrPGBEBuTSujZOlel+kBDAJNLoIFX4+ZrBHQii3XawE/T?=
+ =?us-ascii?Q?wvPywggbMHM8xmnDCTS6jaVWdEzGpLSATgUrlXMtMaDdr9OL38/MbzbbunSe?=
+ =?us-ascii?Q?mmM4psod373nqspKqIEEIJ2CwttL/yKDXQH5JvNUyhGRvhlKCcmFCJO/CdvE?=
+ =?us-ascii?Q?FeIgUK4d95Yp8gg2IO/LrrnxVu0kc5E+ypwSHopUDrWPP7OSnyXVw3Vsqx8A?=
+ =?us-ascii?Q?UlWV792ZENjiHRstKepyRFyV/TH4ceOXRnMzzqBC9v2PASyFohVu7e0Fjkzr?=
+ =?us-ascii?Q?gUDZcxWygzMSdmcumN8RTsCuVX+iEGAW4L2jOyDV3/Xex7E5QqzwEn4CLURc?=
+ =?us-ascii?Q?ZTy5t/LbbomzoOz9iuJTyVJ4SQX4ymdAhj8BmWGKwOFC1bG9zl9KRkQMhn1G?=
+ =?us-ascii?Q?kAsHct1LHDve0ksQrTRT2uAGqTO8weJSvZlwvA5NIUo65qTV0hBiNj+bDfnN?=
+ =?us-ascii?Q?OH6TTRMBO/P0cwbdURkzVTkdyj6dEk955++4yfj2Iwv60eqIlXPWRBmGBjs9?=
+ =?us-ascii?Q?OhKWBVtrxYT5V4HuhyuIfi8Qgoc5b4ZEGBN8t2QfWI6sRnuyhCr9Wdknimf3?=
+ =?us-ascii?Q?oeNydZIkqkCcVyu9N+RkAc4g0yUhecya29nQK8H+?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8604.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ab9287e0-afa6-46fc-7121-08de259b8be3
+X-MS-Exchange-CrossTenant-originalarrivaltime: 17 Nov 2025 05:38:32.9795
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: wdZ8pypVD4lliZ4QinUUr1XDpEfg13ZuABXoq+HGlnR1oFD7T58OFIz3JIxRM+zvm/2frcNU8TvyWmgxCg+3EQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR04MB8581
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251116_213811_905764_D9273AC8 
-X-CRM114-Status: GOOD (  17.44  )
+X-CRM114-CacheID: sfid-20251116_213841_201623_609515CE 
+X-CRM114-Status: GOOD (  39.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -148,50 +174,226 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+> > > > Voltage regulation for i.MX93 in Linux kernel, is done by ELE.
+> > > >
+> > > > During Linux suspend-resume, Secure-enclave (V2X on i.MX95) part=20
+> > > > of wake-up domain, will be managed by secure-enclaves(ELE) part=20
+> > > > of always-on domain.
+> > >
+> > > So to sum-up, please correct me if I got it wrong:
+> > >
+> > >  - NXP puts the ELE into the non-secure world, in case only one MU
+> > >    exists. The reason for this is that the ELE is also used to handle
+> > >    power-management.
+> >
+> > For NXP SoCs with multi-MU(s) too, NXP proposes to put ELE driver=20
+> > into non-secure world.
+>=20
+> With the ELE-FW and OP-TEE OS fix applied both worlds can communicate.
+> Therefore it doesn't matter and I didn't mentioned it explicit above.
+>=20
+> That beeing said, with both worlds capable to talk to ELE and the ELE=20
+> beeing very system critical, both worlds have to agree to the=20
+> responsibilities, e.g. OP- TEE OS is not allow to manipulate the power-st=
+ate behind the back of Linux.
+Yes, your understanding is correct.
 
+>=20
+> > >  - NXP exposes an uAPI which can be used to send arbitrary=20
+> > > commands from userspace to the ELE. (no filtering done yet)
+> >
+> > It is not correct to say that no filtering is done.
+> > Before sending as well as after receiving the message, the message=20
+> > header of the buffers are parsed to check:
+> > - TX-buffer with Command-tag is allowed to be sent, RX-buffer with resp=
+onse-tag is allowed to be received, without logging errors.
 
-On 10/28/2025 10:02 AM, Jie Gan wrote:
-> Patchset 1 introduces configuration of the cross-trigger registers with
-> appropriate values to enable proper generation of cross-trigger packets.
-> 
-> Patchset 2 introduces a logic to configure the TPDA_SYNCR register,
-> which determines the frequency of ASYNC packet generation. These packets
-> assist userspace tools in accurately identifying each valid packet.
-> 
-> Patchset 3 introduces a sysfs node to initiate a flush request for the
-> specific port, forcing the data to synchronize and be transmitted to the
-> sink device.
-> 
+> I really don't want to step to deep into this, but that beeing said.=20
+> If you refer to cmd_tag, than this tag is used by your below mentioned=20
+> library also for NVM access. NVM is clearly something we do have a=20
+> linux-framework and uAPI for.
 
-Gentle reminder.
+Will add a command parser in v20, which will prevent sending any arbitrary =
+command.
 
-> Changes in V4:
-> 1. Document sysfs nodes with correct kernel version and date.
-> Link to V3 - https://lore.kernel.org/linux-arm-kernel/20250827105545.7140-1-jie.gan@oss.qualcomm.com/
-> 
-> Changes in V3:
-> 1. Optimizing codes according to James's comment.
-> Link to V2 - https://lore.kernel.org/all/20250827042042.6786-1-jie.gan@oss.qualcomm.com/
-> 
-> Changes in V2:
-> 1. Refactoring the code based on James's comment for optimization.
-> Link to V1 - https://lore.kernel.org/all/20250826070150.5603-1-jie.gan@oss.qualcomm.com/
-> 
-> Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
-> ---
-> Tao Zhang (3):
->        coresight: tpda: add sysfs nodes for tpda cross-trigger configuration
->        coresight: tpda: add logic to configure TPDA_SYNCR register
->        coresight: tpda: add sysfs node to flush specific port
-> 
->   .../ABI/testing/sysfs-bus-coresight-devices-tpda   |  50 ++++
->   drivers/hwtracing/coresight/coresight-tpda.c       | 278 +++++++++++++++++++++
->   drivers/hwtracing/coresight/coresight-tpda.h       |  33 ++-
->   3 files changed, 360 insertions(+), 1 deletion(-)
-> ---
-> base-commit: 8fec172c82c2b5f6f8e47ab837c1dc91ee3d1b87
-> change-id: 20251028-configure_tpda_reg-f3396f97f9a1
-> 
-> Best regards,
+>=20
+> > - TX buffer size & Rx-Buffer size should match the size mentioned in=20
+> > the
+> buffer.
+> > - FW version from the header is checked, if required secondary or=20
+> > runtime
+> FW Is loaded, before forwarding the request to ELE.
+> > - In certain cases especially for exceptions, the message IDs are=20
+> > also
+> compared.
+> >
+> > >
+> > >  --> Sounds to me that the userpace can influence the system behavior
+> > >      very badly.
+> > >
+> >
+> > Messages created and sent by User-space
+> > library(https://eur01.safelinks.protection.outlook.com/?url=3Dhttps%3A
+> > %2
+> > F%2Fgithub.com%2Fnxp-imx%2Fimx-secure-
+> enclave&data=3D05%7C02%7Cpankaj.gupta%40nxp.com%7Ce1d7cb78bda54edf
+> 36d608de21fce1f6%7C686ea1d3bc2b4c6fa92cd99c5c301635%7C0%7C0%7C6
+> 38985567165069017%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOn
+> RydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ
+> %3D%3D%7C0%7C%7C%7C&sdata=3DoE5nFyHRdW9ouWMy3VgiaGcgY7XKF4oZ
+> Mbnt95HZ1%2F8%3D&reserved=3D0), are scrutinized as stated above in the=20
+> kernel driver.
+>=20
+> This is uAPI which can be used by everyone and because your library=20
+> may not implement access to power-managment calls doesn't mean that other=
+ libs do.
+> I'm not sure if your proposed driver will block such attempts from usersp=
+ace.
 
+Will add a command parser in v20, which will prevent sending any arbitrary =
+command & any such attempt from userspace.
+>=20
+> > Moreover,
+> > As part of this library, message creation, send-receive, IOCTLS etc.
+> > kernel interface implementation logic, is not exposed to users of=20
+> > this library.
+>=20
+> Your library is not the interface, the interface is the uAPI exposed=20
+> by the kernel.
+Agreed, that library is not the interface here. I never meant that.
+I was trying to put the point that in order to exchange any arbitrary messa=
+ge, rootfs needs to be compromised
+- either to allow any arbitrary/un-authorized application to send any arbit=
+rary message,
+- or to allow executing compromised library.
+But Yes, you are correct that here we are talking kernel driver, not usersp=
+ace.
+=20
+> This interface/your driver needs to handle valid and invalid access,=20
+> e.g. hsm -> valid, nvm -> not valid since it is abstracted via NVMEM.
+
+Kernel driver do ensure to handle only valid, and discard invalid access.
+The in-coming command with command_tag are given to the dev_context which i=
+s marked receiver.
+If the receiver is not assigned/set, it will be discarded.
+The in-coming command with resp_tag are given to the dev_context which is t=
+he initiator of the initial command request.
+If this is not followed, it will deny the message exchanged.
+
+Will add a command parser in v20, which will prevent sending any arbitrary =
+command.
+
+>=20
+> > With the help of secure-boot and IMA-EVM, rootfs can be restricted=20
+> > to not allow any new application or modified userspace library, to=20
+> > execute.
+> >
+> > This way bad impact to the system behavior can be prevented.
+>=20
+> Sorry but I really have to say that I have to NACK. Your interface is=20
+> the kernel uAPI and not some NXP userspace library.
+
+Will add a command parser in v20, which will prevent sending any arbitrary =
+command from kernel driver.
+
+>=20
+> An attacker could gain runtime system access and poke the ELE with=20
+> arbitrary commands till he finds a fw-bug using the kernel uAPI (not=20
+> your library of course).
+
+Though the same command parser exists in ELE FW, which discards any arbitra=
+ry command.
+Will add a command parser in v20, which will discard any arbitrary command =
+and power management API(s), from uAPI.
+Request you or other, to share any comment apart from this, that can be add=
+ressed in v20.=20
+Will send v20 by end of this week.
+
+Thanks & regards
+Pankaj
+>=20
+> > > > > > * Linux HWRNG.
+> > > > > > * Loading the secondary runtime fw.
+> > > > >
+> > > > > What is a secondary runtime-fw?
+> > > > ELE FW size is larger than the size of ELE internal secure memory.
+> > > > Hence FW is split into two.
+> > > >
+> > > > Primary FW, is the FW, that enables features that helps for SoC boo=
+t-up.
+> > > > Secondary runtime FW, is the FW, that enables features like HSM.
+> > >
+> > > Ah okay, thanks for the input.
+> > >
+> > > > > To conclude this longly discussion:
+> > >
+> > > ...
+> > >
+> > > > > I still have mixed feeling about the fusing (including the=20
+> > > > > 1-MU case), since it requires a secure-world OS in place once=20
+> > > > > the LOCK_DOWN
+> > > fuse was burned.
+> > > > > It's fine by me if NXP wants to have and wants to maintain a=20
+> > > > > multi-path
+> > > here.
+> > > >
+> > > > Write fuse API will be added, to allow writing fuses from secure=20
+> > > > world too.
+> > >
+> > > This is a device life-cycle problem and if NXP decides to maintain=20
+> > > multiple write paths, depending on the runtime-SoC state, this is=20
+> > > fine by
+> me.
+> > >
+> > > What needs to be ensured is, that the fuse-issue doesn't exist for=20
+> > > the 1-MU case (i.MX8ULP) as you said.
+> >
+> > As said above "Write fuse API will be added, to allow writing fuses=20
+> > from secure world too."
+> > This will be true for 1 MU or multi-MU.
+>=20
+> In your previous mail you just said that there is no such issue with=20
+> the write path. Now you say that the single-MU case needs the same=20
+> workaround.. At least I have read it that way.
+
+>=20
+> > > > > Last but least, the uAPI which can be used to send arbitrary=20
+> > > > > ELE commands seems unusual. But I don't know how=20
+> > > > > secure-enclaves are abstracted within the kernel, so these are ju=
+st my two cents.
+> > > >
+> > > > it's not unusual at all. The pattern of userspace sending=20
+> > > > commands directly to the kernel via a queue is quite common like:
+> > > >
+> > > > GPUs: As you mentioned, userspace drivers (like those in Vulkan=20
+> > > > or
+> > > > CUDA) often build command buffers and submit them directly to=20
+> > > > the kernel or hardware.
+> > >
+> > > That's right, but these drivers do at least some filtering on the=20
+> > > OPs and check if they are allowed. According your patchset, you=20
+> > > just write
+> > > (se_if_fops_write()) the provided userspace buffer.
+> >
+> > We are validating the buffer size against the size mentioned in the=20
+> > buffer header.
+> > Refer above comments for more details.
+> >
+> > > > Secure Enclaves: In systems like Intel SGX or AMD SEV, userspace=20
+> > > > applications interact with enclaves via ioctl or mmap=20
+> > > > interfaces, often sending structured commands or messages.
+> > >
+> > > What I'm aware of is, that most secure-enclaves are switching to=20
+> > > the standard TPM API.
+> >
+> > In case of NXP SoC with ELE HW IP, ELE is considered as on-SoC TPM.=20
+> > No additional or external TPM is needed, if ELE is present on SoC.
+>=20
+> I said "TPM API" not "TPM device", may it be fTPM or dTPM. I think AMD=20
+> switched to fTPM, so no special userspace-requirements must be fulfilled.
+> However, this is also off-topic.
+>=20
+> Regards,
+>   Marco
+>=20
 
