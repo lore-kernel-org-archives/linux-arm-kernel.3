@@ -4,76 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B09AECE8D6B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 09:54:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F381BCEACEF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 09:55:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UqRA/NvUKybTCLvc1+1X5+rVPsos4aROSmxSBt/SqTw=; b=awCowGw7mnjnpFNwohXAz1FJWr
-	Nsu/jWtangE73QiHvySgpf1bM3Lzee1QSl5Qj7/Tc41YLWWggtEUa/olKcUpGX3OPoiJGEdygfS2B
-	pk+CXsL3N1Nn4uLrHFKIYYCNjfoBMt3RdExqi9nJ6b9a4PpOzK+p1sVryw43UEjOCN3omymeVHD9b
-	dRf8jfAf/w+kVWN1nsWmz7UIEdWmRrtytQa67gGa+0EEBM5KVibabuqzvC3/q/n/impNrpSC5rMJI
-	RHTxEzuDLKw0dAeO7v5DFhefUfVsTx/vrgsrf9ezybxmTRy0fYwEut24sO14t/TrNAFlD8kJ7qZY8
-	py09zygg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=yQakO2W4jxxWZ2irP7gAZmr+hAQ7O/Ov4z2X+DwzoWo=; b=b6en48pANUo3YPSfRuSyeqJsmf
+	nAEeB43Co7q7mWbdXRZAbFjSZPVUmxLVL+3vMPcftn3GBGkanBIx72f5HJwjNw/9DMfclw/WRmFMt
+	kGCa1FQwMMdOG3unz2P0ecHBdtzODN93Caprypna/mYyKDohFHn/+S39aE9Oq18CbnamCBWHDKjUc
+	B5tVnrvXSo8RveFTWEzs/umAI0VPCjXXOFHJGVqlhfqS1ve232lAljHnB6beuhG/nRPLaoc4ZPa0B
+	kOhu+xC5DAQfS8M+yZhDiS9KeSUEC228mXJxkRbjMCgHyezB+/9Db9Qhklbnt7O06mS8LNyXZ9HAU
+	y7rfYhQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKvwI-0000000FpDG-3PUf;
-	Mon, 17 Nov 2025 09:54:26 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vKvwn-0000000FpH7-0bIa;
+	Mon, 17 Nov 2025 09:54:57 +0000
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKvwH-0000000FpD6-0ie6
+	id 1vKvwk-0000000FpGV-3ws9
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Nov 2025 09:54:25 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4D6B56019A;
-	Mon, 17 Nov 2025 09:54:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DD9D5C19425;
-	Mon, 17 Nov 2025 09:54:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763373264;
-	bh=Zmfx1RTjvD3nEoZ4oerYCG3aVTzAJqjCCY0jo844NB4=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=Vc+J1bXB8+zUMI3qGrVPUT1iFVcz91R9cTWIavqSvqMnezPRPE5nTKqHCeCnRPFI1
-	 fmikykBEjzzl7vnaKKpN1p7SFxYLT8UCEXCl3oHei1lYHSQIVoVFs3ja2VijfaA+PO
-	 2943wyQAX70SRY2PjtUxMetl0I0xol/SMawj7XzYwjH9GKCQohJT5w5oP3k/ONHIcU
-	 48l6htOq0TvVRBMEw9mbzR6RaqwlQxYw8lKKWjK4Sa5TPEvI4tqa2r1nTiLw70W/RC
-	 /XRBPLEOLxVYbndBdx3UUTT5Mm7V1jb3MhCbK/Pyw2NZGT9fydFmZYGWTK8yH9bYXY
-	 ccgwleaBYazaQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1vKvwD-00000005m0a-3hA5;
-	Mon, 17 Nov 2025 09:54:21 +0000
-Date: Mon, 17 Nov 2025 09:54:21 +0000
-Message-ID: <867bvpt25u.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Fuad Tabba <tabba@google.com>
-Cc: kvmarm@lists.linux.dev,
+	Mon, 17 Nov 2025 09:54:56 +0000
+Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-4775ae77516so45788955e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Nov 2025 01:54:54 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1763373293; x=1763978093; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=yQakO2W4jxxWZ2irP7gAZmr+hAQ7O/Ov4z2X+DwzoWo=;
+        b=d23x5DGF1KU18zsydIbakIeb0eINGjA+9FhXhjNcRYzdbpxzH1S7zFSR3EDsf00ZkE
+         TMt4n/AqyKvWRUPzJLCkl9D/1Tajyrdzku7z1mLtXqBwAWdSSrVc734RWbVGs24H8cXW
+         C98h9yeBiNYthx4E3a3ORiORO+c9ACe+u+Tpx7+h2WccJ0Gwywk4nmfN8oqCwuxTynJe
+         rDD9v3uKXeBDLRj8VYjdUj2TfUhlhDVrMODKhpcBNIoO/m7JEyII4RNzUPFJYAEPFrbN
+         c/lNO5CiRjw85vt3MJjoEN6TJXMzVfl8MGxG22haQaC3/VjF5Rx1RdHY6et9RfUI0Ejf
+         w3TQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1763373293; x=1763978093;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=yQakO2W4jxxWZ2irP7gAZmr+hAQ7O/Ov4z2X+DwzoWo=;
+        b=qiXHdKXA8kzRlXH1hdtRo554/Cat0tgCBSM3gaeiYtfPMMgSFBRCtlCtYxlmnl9R1N
+         WLtkBfF3DnDIVlVDXuYUmrdYfOfU0crrWXDCqAt8g56TuqQ1jJrQQdzL+IJ9bLTS0lSZ
+         mJotQMkVgmKErjOnH/psdhLFyjg1ocOrUf6SxyjwHwOVphn838urZzWMo0v4mecj92dj
+         nuuoHAGlHSEdyAgE2sm6niGQvj0xXUyw7VfOWmIeMJCpRVDImJ4quUrggqOXt+ytR96S
+         BBWlkaDyjpaxsd8jX5P1Mj61w4zkAT821b/1Sh1kTWTLdXDB1dVgxawka9jxjloyP1j7
+         YCmA==
+X-Forwarded-Encrypted: i=1; AJvYcCWle/hUm6RmrAvHXpEh795w0fnXaqtPUeReAAxe99dQrwd20UKrKeKTSe6X0gTjB2hw8e0oalk8iiq/ObGe7HaH@lists.infradead.org
+X-Gm-Message-State: AOJu0YyLaOZ+sI0ZrM1Fy0xrab9ChRg7npRDSJH/fuNlSbdgyF4BuOYx
+	jr12+oUte5RLxs4LfCiZLV6eKGtw0NVErQ1JAMr7FkmLNr0K50P2w0gqYtA+sigWZDk=
+X-Gm-Gg: ASbGncspcFnhoFNp6E86rfFfnCJHJiU2dYKsd7R+C5uyBNY962Xa7gJHvqJ6Y8ylU1j
+	wbInye5Agqsd1qmaX4Yq2S39cZIZ0qWhezbJcfqnhCYLVYYnqx6OWlaHAq/Aa38nyZUcVjWPh8x
+	00vi9PE+OqVDann7ZwuFeaIdXWFhupas1H6I39/sPPNFFfLFq8VPH/LgXvkMBcd5OwPH80IJC7Q
+	DTeW4jXcLUk4mUj1iUGVONygTLggVbFWxoFVtpAiZJWgPtOCxK1Ecz9p8gZVSwEHTdawke3HPbS
+	E/5x8gSDfaxC9yKC7FdXIZfoJw2uU/VUoLnyUu4JgLLuw3+k62g6hjA2Xp44amAsy/AHOAC5RpB
+	0rtiHJcUHXquDBnnCwk0b9Gd6aPM0L0vQTYKJTDMMRa9LD0OrOKORCYzgbmlJ6c42swMcr+4/1f
+	oxxMj0
+X-Google-Smtp-Source: AGHT+IFhjSKYX/arBJL3/rXffXBpiEHsSupWSNw5jzv7CJLF3z4ydrD8nr7kTuUVeh7M/OglnfLL9Q==
+X-Received: by 2002:a05:600c:4752:b0:477:7b30:a6fe with SMTP id 5b1f17b1804b1-4778fe6391amr100771505e9.18.1763373293056;
+        Mon, 17 Nov 2025 01:54:53 -0800 (PST)
+Received: from brgl-uxlite ([2a01:cb1d:dc:7e00:36dc:12ef:ca32:1a1c])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-47787e8e6acsm310053395e9.9.2025.11.17.01.54.52
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 17 Nov 2025 01:54:52 -0800 (PST)
+From: Bartosz Golaszewski <brgl@bgdev.pl>
+To: Mark Brown <broonie@kernel.org>
+Cc: Linus Walleij <linus.walleij@linaro.org>,
+	linux-gpio@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	kvm@vger.kernel.org,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oupton@kernel.org>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Christoffer Dall <christoffer.dall@arm.com>,
-	Mark Brown <broonie@kernel.org>
-Subject: Re: [PATCH v3 0/5] KVM: arm64: Add LR overflow infrastructure (the dregs, the bad and the ugly)
-In-Reply-To: <CA+EHjTzudrep2hEno4RPwh8H88txiVYFoU7AyJYVWG9SFSk87Q@mail.gmail.com>
-References: <20251117091527.1119213-1-maz@kernel.org>
-	<CA+EHjTzudrep2hEno4RPwh8H88txiVYFoU7AyJYVWG9SFSk87Q@mail.gmail.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: tabba@google.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, christoffer.dall@arm.com, broonie@kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	linux-arm-msm@vger.kernel.org,
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Subject: [GIT PULL] Immutable branch between the GPIO, ASoC and regulator trees for v6.19-rc1
+Date: Mon, 17 Nov 2025 10:54:41 +0100
+Message-ID: <20251117095441.46680-1-brgl@bgdev.pl>
+X-Mailer: git-send-email 2.51.0
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251117_015455_002403_61EE7AB0 
+X-CRM114-Status: GOOD (  13.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,36 +100,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Fuad,
+From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 
-On Mon, 17 Nov 2025 09:40:47 +0000,
-Fuad Tabba <tabba@google.com> wrote:
-> 
-> Hi Marc,
-> 
-> On Mon, 17 Nov 2025 at 09:15, Marc Zyngier <maz@kernel.org> wrote:
-> >
-> > This is a follow-up to the original series [1] (and fixes [2][3])
-> > with a bunch of bug-fixes and improvements. At least one patch has
-> > already been posted, but I thought I might repost it as part of a
-> > series, since I accumulated more stuff:
-> 
-> I'd like to test this series as well. Do you have it applied in one of
-> your branches at
-> https://git.kernel.org/pub/scm/linux/kernel/git/maz/arm-platforms.git
-> , or which commit is it based on?
+Hi Mark!
 
-I just pushed a new branch
+Please pull the following changes into the ASoC and regulator trees as
+a prerequisite to applying patches 8-10 for v6.19-rc1 from the series
+improving support for shared GPIOs[1].
 
-https://git.kernel.org/pub/scm/linux/kernel/git/maz/arm-platforms.git/log/?h=kvm-arm64/vgic-lr-overflow-fixes
+Please note that there's a small conflict between v6.18-rc1 and my
+gpio/for-next branch where gpio_chip_hwgpio() has been renamed to
+gpiod_hwgpio().
 
-that is based on -rc5, kvmarm/next, kvmarm-fixes-6.18-rc3 plus these
-patches. Let me know how this fares for you.
+In linux-next it can be fixed like this:
 
-Thanks,
+diff --git a/drivers/gpio/gpiolib-shared.c b/drivers/gpio/gpiolib-shared.c
+index fa1d16635ea78..c22eaf05eef23 100644
+--- a/drivers/gpio/gpiolib-shared.c
++++ b/drivers/gpio/gpiolib-shared.c
+@@ -462,7 +462,7 @@ static struct gpio_shared_entry *gpiod_shared_find(struct auxiliary_device *adev
+ 			entry->shared_desc = shared_desc;
+ 
+ 			pr_debug("Device %s acquired a reference to the shared GPIO %u owned by %s\n",
+-				 dev_name(&adev->dev), gpio_chip_hwgpio(shared_desc->desc),
++				 dev_name(&adev->dev), gpiod_hwgpio(shared_desc->desc),
+ 				 gpio_device_get_label(shared_desc->desc->gdev));
 
-	M.
+Thanks!
+Bartosz
 
--- 
-Without deviation from the norm, progress is not possible.
+[1] https://lore.kernel.org/all/20251112-gpio-shared-v4-0-b51f97b1abd8@linaro.org/
+
+The following changes since commit 3a8660878839faadb4f1a6dd72c3179c1df56787:
+
+  Linux 6.18-rc1 (2025-10-12 13:42:36 -0700)
+
+are available in the Git repository at:
+
+  git://git.kernel.org/pub/scm/linux/kernel/git/brgl/linux.git tags/gpio/shared-gpios-for-v6.19-rc1
+
+for you to fetch changes up to e511d484cbe44fe48a1b9f621f6a947c72503f9e:
+
+  arm64: select HAVE_SHARED_GPIOS for ARCH_QCOM (2025-11-17 10:16:51 +0100)
+
+----------------------------------------------------------------
+Immutable branch between the GPIO, ASoC and regulator trees for v6.19-rc1
+
+Add better support for GPIOs shared by multiple consumers.
+
+----------------------------------------------------------------
+Bartosz Golaszewski (7):
+      string: provide strends()
+      gpiolib: define GPIOD_FLAG_SHARED
+      gpiolib: implement low-level, shared GPIO support
+      gpio: shared-proxy: implement the shared GPIO proxy driver
+      gpiolib: support shared GPIOs in core subsystem code
+      gpio: provide gpiod_is_shared()
+      arm64: select HAVE_SHARED_GPIOS for ARCH_QCOM
+
+ arch/arm64/Kconfig.platforms     |   1 +
+ drivers/gpio/Kconfig             |  17 ++
+ drivers/gpio/Makefile            |   2 +
+ drivers/gpio/gpio-shared-proxy.c | 333 +++++++++++++++++++++++
+ drivers/gpio/gpiolib-shared.c    | 558 +++++++++++++++++++++++++++++++++++++++
+ drivers/gpio/gpiolib-shared.h    |  71 +++++
+ drivers/gpio/gpiolib.c           |  70 ++++-
+ drivers/gpio/gpiolib.h           |   2 +
+ include/linux/gpio/consumer.h    |   9 +
+ include/linux/string.h           |  18 ++
+ lib/tests/string_kunit.c         |  13 +
+ 11 files changed, 1085 insertions(+), 9 deletions(-)
+ create mode 100644 drivers/gpio/gpio-shared-proxy.c
+ create mode 100644 drivers/gpio/gpiolib-shared.c
+ create mode 100644 drivers/gpio/gpiolib-shared.h
 
