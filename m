@@ -4,56 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF516CE8D6B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 11:31:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED855CE8D6B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 11:32:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:Cc:References:To:From:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YQ3UB0hesgQPUFSx2pfu7xbgx6eH6GUnSMzFHpWtycM=; b=uhB9Oga5cVv9P+QFGWYAvqOVdH
-	CGO97qNzWaWKdB/k0s9vBHZpC892Xff/53ADeEp/y8E5e3h3EpcYzy9dpni7QNdrVY+7/dyL1cRTc
-	HYSUSJR5b+kCCXcZkiNzgeVVcqXbaiqysGrDRZn9DFjYSTXS3FocyWomVGoq4flkUqZmcfzQAJeN8
-	c3TXwckWhovLfn6p9hXhZksTw/7K2RPSH4Yplh2GsBT7ibjnE69M70FMS5prH0YLHTCc3hnekIqVV
-	br29Dmy6Y63+Er0WL2wPkGGybjj7kPF4J2KemwV3Bwn88GLj3D2MVC30cp1U8grhcI65asODs25jb
-	fvw5evSg==;
+	bh=Sbkf9hQK7yk+ZrnM+FQkMnwcTBzYXUs690EVvlYAsyA=; b=a3TQWRhhd9AI65DvyyLM3y8BD4
+	pU0RNdvMa6brZh/goprUy3EDQ8MEpniQdIqNaN4OxnLGTzFkC5jVDG2FQOfBv3QY1uydlm1vQh1iC
+	XJ3aNIY2mi7o4LRDliuEymDiWuodCG61AB4nVzHzte8f61GK0gzBezzvFK5XzHk/zkwtZfTOgFpDd
+	7898DeAZHwL0zTGAUDeBcXdtuuT6+ffESSux9qLzl0YXnbJKLmkTpFWRIaad+LjKzzLjnGFezhHHU
+	nlVMgHb8umz3l4+AFf/Xyvu2IIvfShArR63HaPjwaOLX19xko4wlMHi3p7+LdI/QZt3yIgIHYM7BC
+	TQB4X9ag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKxSF-0000000FyUY-1KzD;
-	Mon, 17 Nov 2025 11:31:31 +0000
+	id 1vKxSu-0000000FyZb-2rAo;
+	Mon, 17 Nov 2025 11:32:12 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKxSC-0000000FyTn-0bdE
+	id 1vKxSs-0000000FyYv-0xsI
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Nov 2025 11:31:30 +0000
+	Mon, 17 Nov 2025 11:32:11 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6338BFEC;
-	Mon, 17 Nov 2025 03:31:17 -0800 (PST)
-Received: from [10.57.86.198] (unknown [10.57.86.198])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C2B083F66E;
-	Mon, 17 Nov 2025 03:31:23 -0800 (PST)
-Message-ID: <dd8c37bc-795f-4c7a-9086-69e584d8ab24@arm.com>
-Date: Mon, 17 Nov 2025 11:31:22 +0000
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3063DFEC;
+	Mon, 17 Nov 2025 03:32:00 -0800 (PST)
+Received: from [10.57.87.92] (unknown [10.57.87.92])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 72FA03F66E;
+	Mon, 17 Nov 2025 03:32:05 -0800 (PST)
+Message-ID: <00586912-661e-4092-a69d-87defe26db59@arm.com>
+Date: Mon, 17 Nov 2025 11:32:03 +0000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [DISCUSSION] kstack offset randomization: bugs and performance
+Subject: Re: [PATCH 2/3] dma: arm-dma350: add support for shared interrupt
+ mode
+To: Jun Guo <jun.guo@cixtech.com>, peter.chen@cixtech.com,
+ fugang.duan@cixtech.com, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, vkoul@kernel.org, ychuang3@nuvoton.com,
+ schung@nuvoton.com
+Cc: dmaengine@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, cix-kernel-upstream@cixtech.com,
+ linux-arm-kernel@lists.infradead.org
+References: <20251117015943.2858-1-jun.guo@cixtech.com>
+ <20251117015943.2858-3-jun.guo@cixtech.com>
+From: Robin Murphy <robin.murphy@arm.com>
 Content-Language: en-GB
-From: Ryan Roberts <ryan.roberts@arm.com>
-To: Kees Cook <kees@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
- Ard Biesheuvel <ardb@kernel.org>, Jeremy Linton <jeremy.linton@arm.com>,
- Will Deacon <will@kernel.org>, Catalin Marinas <Catalin.Marinas@arm.com>,
- Mark Rutland <mark.rutland@arm.com>
-References: <66c4e2a0-c7fb-46c2-acce-8a040a71cd8e@arm.com>
-Cc: "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
-In-Reply-To: <66c4e2a0-c7fb-46c2-acce-8a040a71cd8e@arm.com>
-Content-Type: text/plain; charset=UTF-8
+In-Reply-To: <20251117015943.2858-3-jun.guo@cixtech.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251117_033128_303517_D6D79D32 
-X-CRM114-Status: GOOD (  42.16  )
+X-CRM114-CacheID: sfid-20251117_033210_355361_08BAAE70 
+X-CRM114-Status: GOOD (  30.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,129 +70,214 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Sorry; forgot to add Mark and the lists!
+On 2025-11-17 1:59 am, Jun Guo wrote:
+> - The arm dma350 controller's hardware implementation varies: some
+>   designs dedicate a separate interrupt line for each channel, while
+>   others have all channels sharing a single interrupt.This patch adds
+>   support for the hardware design where all DMA channels share a
+>   single interrupt.
 
+We already request the channel interrupts as shared, precisely because 
+they could well end up muxed to the same physical interrupt line. I 
+missed that the dedicated combined interrupt output had its own separate 
+enable, but for that we may as well just set INTREN_ANYCHINTR_EN 
+unconditionally - the rest of this seems pointless.
 
-On 17/11/2025 11:30, Ryan Roberts wrote:
-> Hi All,
-> 
-> Over the last few years we had a few complaints that syscall performance on
-> arm64 is slower than x86. Most recently, it was observed that a certain Java
-> benchmark that does a lot of fstat and lseek is spending ~10% of it's time in
-> get_random_u16(). Cue a bit of digging, which led me to [1] and also to some new
-> ideas about how performance could be improved.
-> 
-> But I'll get to the performance angle in a bit. First, I want to discuss some
-> bugs that I believe I have uncovered during code review...
-> 
-> 
-> Bug 1: We have the following pattern:
-> 
-> add_random_kstack_offset()
->   enable_interrupts_and_preemption()
->     do_syscall()
->   disable_interrupts_and_preemption()
-> choose_random_kstack_offset(random)
-> 
-> Where add_random_kstack_offset() adds an offset to the stack that was chosen by
-> a previous call to choose_random_kstack_offset() and stored in a per-cpu
-> variable. But since preemption is enabled during the syscall, surely an attacker
-> could defeat this by arranging for the thread to be preempted or migrated while
-> executing the syscall? That way the new offset is calculated for a different CPU
-> and a subsequent syscall on the original CPU will use the original offset?
-> 
-> I think we could just pass the random seed to add_random_kstack_offset() so that
-> we consume the old and buffer the new atomically? We would still buffer it
-> across syscalls to avoid the guessability issue that's documented. Then
-> choose_random_kstack_offset() could be removed. Or we could store
-> per-task_struct given it is only 32-bits?
-> 
-> 
-> Bug 2: add_random_kstack_offset() and choose_random_kstack_offset() both
-> document their requirement to be called with interrupts and preemption disabled.
-> They use raw_cpu_*(), which require this. But on arm64, they are called from
-> invoke_syscall(), where interrupts and preemption are _enabled_. In practice, I
-> don't think this will cause functional harm for arm64's implementations of
-> raw_cpu_*(), but means that it's possible that the wrong per-cpu structure is
-> being referred to. Perhaps there is a way for user code to exploit this to
-> defeat the purpose of the feature.
-> 
-> This should be straightforward to fix; if we take the task_struct approach for
-> bug 1, then that would also fix this issue too because the requirement to be in
-> atomic context goes away. Otherwsise it can be moved earlier in the callchain,
-> before interrupts are enabled.
-> 
-> 
-> Then we get to the performance aspect...
-> 
-> arm64 uses get_random_u16() to get 16 bits from a per-cpu entropy buffer that
-> originally came from the crng. get_random_u16() does
-> local_lock_irqsave()/local_unlock_irqrestore() inside every call (both the
-> fastpath and the slow path). It turns out that this locking/unlocking accounts
-> for 30%-50% of the total cost of kstack offset randomization. By introducing a
-> new raw_try_get_random_uX() helper that's called from a context where irqs are
-> disabled, I can eliminate that cost. (I also plan to dig into exactly why it's
-> costing so much).
-> 
-> Furthermore, given we are actually only using 6 bits of entropy per syscall, we
-> could instead just request a u8 instead of a u16 and only throw away 2 bits
-> instead of 10 bits. This means we drain the entropy buffer half as quickly and
-> make half as many slow calls into the crng:
-> 
-> +-----------+---------------+--------------+-----------------+-----------------+
-> | Benchmark | randomize=off | randomize=on | + no local_lock | + get_random_u8 |
-> |           |    (baseline) |              |                 |                 |
-> +===========+===============+==============+=================+=================+
-> | getpid    |          0.19 |  (R) -11.43% |      (R) -8.41% |      (R) -5.97% |
-> +-----------+---------------+--------------+-----------------+-----------------+
-> | getppid   |          0.19 |  (R) -13.81% |      (R) -7.83% |      (R) -6.14% |
-> +-----------+---------------+--------------+-----------------+-----------------+
-> | invalid   |          0.18 |  (R) -12.22% |      (R) -5.55% |      (R) -3.70% |
-> +-----------+---------------+--------------+-----------------+-----------------+
-> 
-> I expect we could even choose to re-buffer and save those 2 bits so we call the
-> slow path even less often.
-> 
-> I believe this helps the mean latency significantly without sacrificing any
-> strength. But it doesn't reduce the tail latency because we still have to call
-> into the crng eventually.
-> 
-> So here's another idea: Could we use siphash to generate some random bits? We
-> would generate the secret key at boot using the crng. Then generate a 64 bit
-> siphash of (cntvct_el0 ^ tweak) (where tweak increments every time we generate a
-> new hash). As long as the key remains secret, the hash is unpredictable.
-> (perhaps we don't even need the timer value). For every hash we get 64 bits, so
-> that would last for 10 syscalls at 6 bits per call. So we would still have to
-> call siphash every 10 syscalls, so there would still be a tail, but from my
-> experiements, it's much less than the crng:
-> 
-> +-----------+---------------+--------------+-----------------+-----------------+
-> | Benchmark | randomize=off | randomize=on |         siphash |   Jeremy's prng |
-> |           |    (baseline) |              |                 |                 |
-> +===========+===============+==============+=================+=================+
-> | getpid    |          0.19 |  (R) -11.43% |      (R) -5.74% |      (R) -2.06% |
-> +-----------+---------------+--------------+-----------------+-----------------+
-> | getppid   |          0.19 |  (R) -13.81% |      (R) -3.39% |      (R) -2.59% |
-> +-----------+---------------+--------------+-----------------+-----------------+
-> | invalid   |          0.18 |  (R) -12.22% |      (R) -2.43% |          -1.31% |
-> +-----------+---------------+--------------+-----------------+-----------------+
-> 
-> Could this give us a middle ground between strong-crng and
-> weak-timestamp-counter? Perhaps the main issue is that we need to store the
-> secret key for a long period?
-> 
-> 
-> Anyway, I plan to work up a series with the bugfixes and performance
-> improvements. I'll add the siphash approach as an experimental addition and get
-> some more detailed numbers for all the options. But wanted to raise it all here
-> first to get any early feedback.
-> 
-> 
-> [1]
-> https://lore.kernel.org/linux-arm-kernel/20240305221824.3300322-1-jeremy.linton@arm.com/
-> 
-> Thanks,
-> Ryan
-> 
+Thanks,
+Robin.
 
+> Signed-off-by: Jun Guo <jun.guo@cixtech.com>
+> ---
+>   drivers/dma/arm-dma350.c | 115 +++++++++++++++++++++++++++++++++++----
+>   1 file changed, 105 insertions(+), 10 deletions(-)
+> 
+> diff --git a/drivers/dma/arm-dma350.c b/drivers/dma/arm-dma350.c
+> index 9efe2ca7d5ec..cb1907be18d0 100644
+> --- a/drivers/dma/arm-dma350.c
+> +++ b/drivers/dma/arm-dma350.c
+> @@ -14,6 +14,7 @@
+>   #include "virt-dma.h"
+>   
+>   #define DMAINFO			0x0f00
+> +#define DRIVER_NAME		"arm-dma350"
+>   
+>   #define DMA_BUILDCFG0		0xb0
+>   #define DMA_CFG_DATA_WIDTH	GENMASK(18, 16)
+> @@ -142,6 +143,9 @@
+>   #define LINK_LINKADDR		BIT(30)
+>   #define LINK_LINKADDRHI		BIT(31)
+>   
+> +/* DMA NONSECURE CONTROL REGISTER */
+> +#define DMANSECCTRL		0x20c
+> +#define INTREN_ANYCHINTR_EN	BIT(0)
+>   
+>   enum ch_ctrl_donetype {
+>   	CH_CTRL_DONETYPE_NONE = 0,
+> @@ -192,6 +196,7 @@ struct d350_chan {
+>   
+>   struct d350 {
+>   	struct dma_device dma;
+> +	void __iomem *base;
+>   	int nchan;
+>   	int nreq;
+>   	struct d350_chan channels[] __counted_by(nchan);
+> @@ -461,7 +466,61 @@ static void d350_issue_pending(struct dma_chan *chan)
+>   	spin_unlock_irqrestore(&dch->vc.lock, flags);
+>   }
+>   
+> -static irqreturn_t d350_irq(int irq, void *data)
+> +static irqreturn_t d350_global_irq(int irq, void *data)
+> +{
+> +	struct d350 *dmac = (struct d350 *)data;
+> +	struct device *dev = dmac->dma.dev;
+> +	irqreturn_t ret = IRQ_NONE;
+> +	int i;
+> +
+> +	for (i = 0; i < dmac->nchan; i++) {
+> +		struct d350_chan *dch = &dmac->channels[i];
+> +		u32 ch_status;
+> +
+> +		ch_status = readl(dch->base + CH_STATUS);
+> +		if (!ch_status)
+> +			continue;
+> +
+> +		ret = IRQ_HANDLED;
+> +
+> +		if (ch_status & CH_STAT_INTR_ERR) {
+> +			struct virt_dma_desc *vd = &dch->desc->vd;
+> +			u32 errinfo = readl_relaxed(dch->base + CH_ERRINFO);
+> +
+> +			if (errinfo &
+> +			    (CH_ERRINFO_AXIRDPOISERR | CH_ERRINFO_AXIRDRESPERR))
+> +				vd->tx_result.result = DMA_TRANS_READ_FAILED;
+> +			else if (errinfo & CH_ERRINFO_AXIWRRESPERR)
+> +				vd->tx_result.result = DMA_TRANS_WRITE_FAILED;
+> +			else
+> +				vd->tx_result.result = DMA_TRANS_ABORTED;
+> +
+> +			vd->tx_result.residue = d350_get_residue(dch);
+> +		} else if (!(ch_status & CH_STAT_INTR_DONE)) {
+> +			dev_warn(dev, "Channel %d unexpected IRQ: 0x%08x\n", i,
+> +				 ch_status);
+> +		}
+> +
+> +		writel_relaxed(ch_status, dch->base + CH_STATUS);
+> +
+> +		spin_lock(&dch->vc.lock);
+> +		if (ch_status & CH_STAT_INTR_DONE) {
+> +			vchan_cookie_complete(&dch->desc->vd);
+> +			dch->status = DMA_COMPLETE;
+> +			dch->residue = 0;
+> +			d350_start_next(dch);
+> +		} else if (ch_status & CH_STAT_INTR_ERR) {
+> +			vchan_cookie_complete(&dch->desc->vd);
+> +			dch->status = DMA_ERROR;
+> +			dch->residue = dch->desc->vd.tx_result.residue;
+> +		}
+> +		spin_unlock(&dch->vc.lock);
+> +	}
+> +
+> +	return ret;
+> +}
+> +
+> +static irqreturn_t d350_channel_irq(int irq, void *data)
+>   {
+>   	struct d350_chan *dch = data;
+>   	struct device *dev = dch->vc.chan.device->dev;
+> @@ -506,10 +565,18 @@ static irqreturn_t d350_irq(int irq, void *data)
+>   static int d350_alloc_chan_resources(struct dma_chan *chan)
+>   {
+>   	struct d350_chan *dch = to_d350_chan(chan);
+> -	int ret = request_irq(dch->irq, d350_irq, IRQF_SHARED,
+> -			      dev_name(&dch->vc.chan.dev->device), dch);
+> -	if (!ret)
+> -		writel_relaxed(CH_INTREN_DONE | CH_INTREN_ERR, dch->base + CH_INTREN);
+> +	int ret = 0;
+> +
+> +	if (dch->irq) {
+> +		ret = request_irq(dch->irq, d350_channel_irq, IRQF_SHARED,
+> +				  dev_name(&dch->vc.chan.dev->device), dch);
+> +		if (ret) {
+> +			dev_err(chan->device->dev, "Failed to request IRQ %d\n", dch->irq);
+> +			return ret;
+> +		}
+> +	}
+> +
+> +	writel_relaxed(CH_INTREN_DONE | CH_INTREN_ERR, dch->base + CH_INTREN);
+>   
+>   	return ret;
+>   }
+> @@ -526,7 +593,7 @@ static void d350_free_chan_resources(struct dma_chan *chan)
+>   static int d350_probe(struct platform_device *pdev)
+>   {
+>   	struct device *dev = &pdev->dev;
+> -	struct d350 *dmac;
+> +	struct d350 *dmac = NULL;
+>   	void __iomem *base;
+>   	u32 reg;
+>   	int ret, nchan, dw, aw, r, p;
+> @@ -556,6 +623,7 @@ static int d350_probe(struct platform_device *pdev)
+>   		return -ENOMEM;
+>   
+>   	dmac->nchan = nchan;
+> +	dmac->base = base;
+>   
+>   	reg = readl_relaxed(base + DMAINFO + DMA_BUILDCFG1);
+>   	dmac->nreq = FIELD_GET(DMA_CFG_NUM_TRIGGER_IN, reg);
+> @@ -582,6 +650,26 @@ static int d350_probe(struct platform_device *pdev)
+>   	dmac->dma.device_issue_pending = d350_issue_pending;
+>   	INIT_LIST_HEAD(&dmac->dma.channels);
+>   
+> +	/* Cix Sky1 has a common host IRQ for all its channels. */
+> +	if (of_device_is_compatible(pdev->dev.of_node, "cix,sky1-dma-350")) {
+> +		int host_irq = platform_get_irq(pdev, 0);
+> +
+> +		if (host_irq < 0)
+> +			return dev_err_probe(dev, host_irq,
+> +					     "Failed to get IRQ\n");
+> +
+> +		ret = devm_request_irq(&pdev->dev, host_irq, d350_global_irq,
+> +				       IRQF_SHARED, DRIVER_NAME, dmac);
+> +		if (ret)
+> +			return dev_err_probe(
+> +				dev, ret,
+> +				"Failed to request the combined IRQ %d\n",
+> +				host_irq);
+> +
+> +		/* Combined Non-Secure Channel Interrupt Enable */
+> +		writel_relaxed(INTREN_ANYCHINTR_EN, dmac->base + DMANSECCTRL);
+> +	}
+> +
+>   	/* Would be nice to have per-channel caps for this... */
+>   	memset = true;
+>   	for (int i = 0; i < nchan; i++) {
+> @@ -595,10 +683,16 @@ static int d350_probe(struct platform_device *pdev)
+>   			dev_warn(dev, "No command link support on channel %d\n", i);
+>   			continue;
+>   		}
+> -		dch->irq = platform_get_irq(pdev, i);
+> -		if (dch->irq < 0)
+> -			return dev_err_probe(dev, dch->irq,
+> -					     "Failed to get IRQ for channel %d\n", i);
+> +
+> +		if (!of_device_is_compatible(pdev->dev.of_node,
+> +					     "cix,sky1-dma-350")) {
+> +			dch->irq = platform_get_irq(pdev, i);
+> +			if (dch->irq < 0)
+> +				return dev_err_probe(
+> +					dev, dch->irq,
+> +					"Failed to get IRQ for channel %d\n",
+> +					i);
+> +		}
+>   
+>   		dch->has_wrap = FIELD_GET(CH_CFG_HAS_WRAP, reg);
+>   		dch->has_trig = FIELD_GET(CH_CFG_HAS_TRIGIN, reg) &
+> @@ -640,6 +734,7 @@ static void d350_remove(struct platform_device *pdev)
+>   }
+>   
+>   static const struct of_device_id d350_of_match[] __maybe_unused = {
+> +	{ .compatible = "cix,sky1-dma-350" },
+>   	{ .compatible = "arm,dma-350" },
+>   	{}
+>   };
 
