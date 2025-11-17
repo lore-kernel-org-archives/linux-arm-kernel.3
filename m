@@ -4,117 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA12BCEACEF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 11:53:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD9C2CE8D6B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 11:57:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sirKSudQmUfm2PMajOFhgYVc+TEjZ1DgMMWOEINnoWg=; b=L/o/JrFUlbuhERhG9qc93GNS+y
-	wtXhOruD7FStW1A86s6dJeoM0+jQCpu7NKLzN/FxmVpaRjtyoou+LLbFoUGSyehthStGuB0pcK5yG
-	wPNruDm29h/CMujgPnt7dWVO96V20Fm/mz8LTxcRsP4lAmiwAbCoNEf71lG6iSrXnUREvWvpmThUx
-	SZ0u7qwRRRVt6Adf54b4ScmZoNwWom3unosngjAt+IlfB4K0Bb7D0fWnCpgxECO4GkdoAH5JYWq6B
-	LRlN6f5eq4rYs+0urcB3R4Qd2hB+Z1iUyJJ8wqBtryVlyOF/7k0reMQ6VCLPLIduZquCoYf1pQFqz
-	rffxtISA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Ll1uXMxWvxmz95IRsYiLS+6peKBMZCQ88LeHFHRfFpk=; b=qkuDpmmV5o8K+lDFMcpyixfq+S
+	Vrw7X0CUUOxUQWh/yk3Cx4EwSXPBktQlterUobD92yHBegIgnS5DerAfDpIVK/FWa3vJAbYlfiX1a
+	Y4y9VLo7cZlxyxprplJZtV/WaJSOlG/Z4tFkuFRYNQL63Qc+YZ6ULt3Zm7Tt9i1pE0ObNWB5YTqaY
+	lddx4pG2EussZ7VQGZJUSvXNBpAhtYiGJFdXfyTGN6j+a3NNlEkIarM6iuzXcuVKf6E6zq4XWIepC
+	vflGG/hLZyww0bZ/63DTqfKNNAONNR1ivUcJ7pWaZKIciih4erpQgazjKnYfdg2a5/EHEtLshKugc
+	yERTGk7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKxnr-0000000G0wz-0NZ6;
-	Mon, 17 Nov 2025 11:53:51 +0000
+	id 1vKxqr-0000000G1Cz-1uCE;
+	Mon, 17 Nov 2025 11:56:57 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKxno-0000000G0wP-3W6f;
-	Mon, 17 Nov 2025 11:53:49 +0000
+	id 1vKxqo-0000000G1Cc-3ESG
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 17 Nov 2025 11:56:55 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2357A4384E;
-	Mon, 17 Nov 2025 11:53:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A3106C113D0;
-	Mon, 17 Nov 2025 11:53:43 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 66238439F7;
+	Mon, 17 Nov 2025 11:56:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3FF00C4CEF1;
+	Mon, 17 Nov 2025 11:56:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763380428;
-	bh=6GXYWM9Syb2o1/9t2hy3Kt1Te5j+iFVw3fhIdkAvyIM=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=lHLTm+BCQzN3zqnkHYWeooQg4U70yTt8NZTbdsZuHL+m/LGVUNDsmt0hSec90UFGR
-	 5fl7H2K60nnsEE6bSyNl8kXF4LOLsesezrsW7raqrhA9vR2dI8HNJqqmrrfdf6YEV3
-	 UgLKlIpwV0ih44gAiDpwCjTgA6lXJqWQP9BEk0VEou/WdWHm3410a60Zlg8+E4QNTk
-	 NSbXNAV2h4Eyb78Gj7fRqIv8KXgDyncA72AIhW0U9ZLuPpKWM1QrOKEV+8PPEHxT7Q
-	 w1ivc6QL843zANcTtixlzsRnvb2RKPmo9gBgUwpfdAVgw6VFuJTwV3JA4t3XVGsHeg
-	 GackUczZ3aJsg==
-Message-ID: <1cc0a6a8-2291-4eb6-8f4f-be0ded01d96f@kernel.org>
-Date: Mon, 17 Nov 2025 12:53:41 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 4/6] dt-bindings: display: sun4i: Add D1s/T113 combo
- D-PHY bindings
-To: =?UTF-8?Q?Kuba_Szczodrzy=C5=84ski?= <kuba@szczodrzynski.pl>
-Cc: Maxime Ripard <mripard@kernel.org>, Samuel Holland <samuel@sholland.org>,
- Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Thomas Zimmermann <tzimmermann@suse.de>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-phy@lists.infradead.org,
- devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org,
- parthiban@linumiz.com, paulk@sys-base.io
-References: <20251116134609.447043-1-kuba@szczodrzynski.pl>
- <20251116134943.447443-1-kuba@szczodrzynski.pl>
- <20251117-faithful-unique-millipede-d8bae5@kuoka>
- <a0347d10-475d-4dd2-b53e-ca7905869887@szczodrzynski.pl>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <a0347d10-475d-4dd2-b53e-ca7905869887@szczodrzynski.pl>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+	s=k20201202; t=1763380614;
+	bh=kB9ZXKohVrn5IEX6S+MiFF63aw8Py7ecNIx3DP7Yi+E=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=aSN0iYkknKkvL0mij60oWERa1I1nFDaXLZGicletaKLuv+pgGNmTLofH7Xf409+u2
+	 0SGzgm1GEyLD3Sn/ZtmvWY/mSdJ94pmrBc5Y0NmFUosSrN6kuTZjDd8HFDK056E5xe
+	 rRSubGAb3LKV1vwS/S4rbVoG4QGoTSQRTBrldmLUwfG7Bm6wHZNepJiO1emO/1/Ohn
+	 AS6ykqNckSmvEwmPREXaC3xg/QTrxhdi4fOJ1s9IBRhoQpB23WVGvY8zQTibIRJstd
+	 pIELReB4DkVkdcwBN+17uFx2D0/QEPLfCaOaog1rh2nooNzKLpiwQvbTQgLLRqweh6
+	 RVj+Pp0Q9Anlw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vKxql-00000005oR5-4B8h;
+	Mon, 17 Nov 2025 11:56:52 +0000
+Date: Mon, 17 Nov 2025 11:56:51 +0000
+Message-ID: <861plwub24.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Fuad Tabba <tabba@google.com>
+Cc: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	kvm@vger.kernel.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Christoffer Dall <christoffer.dall@arm.com>,
+	Volodymyr Babchuk <Volodymyr_Babchuk@epam.com>,
+	Yao Yuan <yaoyuan@linux.alibaba.com>
+Subject: Re: [PATCH v2 29/45] KVM: arm64: GICv3: Set ICH_HCR_EL2.TDIR when interrupts overflow LR capacity
+In-Reply-To: <CA+EHjTwcf7HXypmt-1gS2G8GK5iBt3VQrpmRiHysr571J96VvA@mail.gmail.com>
+References: <20251109171619.1507205-1-maz@kernel.org>
+	<20251109171619.1507205-30-maz@kernel.org>
+	<CA+EHjTzRwswNq+hZQDD5tXj+-0nr04OmR201mHmi82FJ0VHuJA@mail.gmail.com>
+	<86cy5ku06v.wl-maz@kernel.org>
+	<CA+EHjTzi9Q9hqAu1Xk51hO3uz0FdUGjdPSViN4RAD6tuXJkvYQ@mail.gmail.com>
+	<86a50otsuh.wl-maz@kernel.org>
+	<CA+EHjTwcf7HXypmt-1gS2G8GK5iBt3VQrpmRiHysr571J96VvA@mail.gmail.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: tabba@google.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, christoffer.dall@arm.com, Volodymyr_Babchuk@epam.com, yaoyuan@linux.alibaba.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251117_035348_913769_21A8F61A 
-X-CRM114-Status: UNSURE (   6.97  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251117_035654_854051_9351674C 
+X-CRM114-Status: GOOD (  43.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,19 +97,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 17/11/2025 12:08, Kuba Szczodrzyński wrote:
-> Will do.
+On Mon, 17 Nov 2025 08:22:05 +0000,
+Fuad Tabba <tabba@google.com> wrote:
 > 
->> You don't need names in the first place, you have only one
->> entry.
+> Hi Marc,
 > 
-> However, phy-names was added because of how other bindings are made, such as "allwinner,sun4i-a10-musb" (single phy entry with const name).
+> On Fri, 14 Nov 2025 at 17:41, Marc Zyngier <maz@kernel.org> wrote:
+> >
+> > On Fri, 14 Nov 2025 15:53:33 +0000,
+> > Fuad Tabba <tabba@google.com> wrote:
+> > >
+> > > Hi Marc,
+> > >
+> > > On Fri, 14 Nov 2025 at 15:02, Marc Zyngier <maz@kernel.org> wrote:
+> > > >
+> > > > On Fri, 14 Nov 2025 14:20:46 +0000,
+> > > > Fuad Tabba <tabba@google.com> wrote:
+> > > > >
+> > > > > Hi Marc,
+> > > > >
+> > > > > On Sun, 9 Nov 2025 at 17:17, Marc Zyngier <maz@kernel.org> wrote:
+> > > > > >
+> > > > > > Now that we are ready to handle deactivation through ICV_DIR_EL1,
+> > > > > > set the trap bit if we have active interrupts outside of the LRs.
+> > > > > >
+> > > > > > Signed-off-by: Marc Zyngier <maz@kernel.org>
+> > > > > > ---
+> > > > > >  arch/arm64/kvm/vgic/vgic-v3.c | 7 +++++++
+> > > > > >  1 file changed, 7 insertions(+)
+> > > > > >
+> > > > > > diff --git a/arch/arm64/kvm/vgic/vgic-v3.c b/arch/arm64/kvm/vgic/vgic-v3.c
+> > > > > > index 1026031f22ff9..26e17ed057f00 100644
+> > > > > > --- a/arch/arm64/kvm/vgic/vgic-v3.c
+> > > > > > +++ b/arch/arm64/kvm/vgic/vgic-v3.c
+> > > > > > @@ -42,6 +42,13 @@ void vgic_v3_configure_hcr(struct kvm_vcpu *vcpu,
+> > > > > >                 ICH_HCR_EL2_VGrp0DIE : ICH_HCR_EL2_VGrp0EIE;
+> > > > > >         cpuif->vgic_hcr |= (cpuif->vgic_vmcr & ICH_VMCR_ENG1_MASK) ?
+> > > > > >                 ICH_HCR_EL2_VGrp1DIE : ICH_HCR_EL2_VGrp1EIE;
+> > > > > > +
+> > > > > > +       /*
+> > > > > > +        * Note that we set the trap irrespective of EOIMode, as that
+> > > > > > +        * can change behind our back without any warning...
+> > > > > > +        */
+> > > > > > +       if (irqs_active_outside_lrs(als))
+> > > > > > +               cpuif->vgic_hcr |= ICH_HCR_EL2_TDIR;
+> > > > > >  }
+> > > > >
+> > > > > I just tested these patches as they are on kvmarm/next
+> > > > > 2ea7215187c5759fc5d277280e3095b350ca6a50 ("Merge branch
+> > > > > 'kvm-arm64/vgic-lr-overflow' into kvmarm/next"), without any
+> > > > > additional pKVM patches. I tried running it with pKVM (non-protected)
+> > > > > and with just plain nVHE. In both cases, I get a trap to EL2 (0x18)
+> > > > > when booting a non-protected guest, which triggers a bug in
+> > > > > handle_trap() arch/arm64/kvm/hyp/nvhe/hyp-main.c:706
+> > > > >
+> > > > > This trap is happening because of setting this particular trap (TDIR).
+> > > > > Just removing this trap from vgic_v3_configure_hcr() from the ToT on
+> > > > > kvmarm/next boots fine.
+> > > >
+> > > > This is surprising, as I'm not hitting this on actual HW. Are you
+> > > > getting a 0x18 trap? If so, is it coming from the host? Can you
+> > > > correlate the PC with what the host is doing?
+> > >
+> > > I should have given you that earlier, sorry.
+> > >
+> > > Yes, it's an 0x18 trap from the host (although it happens when I boot
+> > > a guest). Here is the relevant part of the backtrace addr2lined and
+> > > the full one below.
+> > >
+> > > handle_percpu_devid_irq+0x90/0x120 (kernel/irq/chip.c:930)
+> > > generic_handle_domain_irq+0x40/0x64 (include/linux/irqdesc.h:?)
+> > > gic_handle_irq+0x4c/0x110 (include/linux/irqdesc.h:?)
+> > > call_on_irq_stack+0x30/0x48 (arch/arm64/kernel/entry.S:893)
+> > >
+> > > [   28.454804] Code: d65f03c0 92800008 f9000008 17fffffa (d4210000)
+> > > [   28.454873] kvm [266]: Hyp Offset: 0xfff1205c3fe00000
+> > > [   28.455157] Kernel panic - not syncing: HYP panic:
+> > > [   28.455157] PS:204023c9 PC:000e5fa4413e39bc ESR:00000000f2000800
+> > > [   28.455157] FAR:ffff800082733d3c HPFAR:0000000000500000 PAR:0000000000000000
+> >
+> > I expect you have a write to ICC_DIR_EL1 at this address?
+> 
+> It almost surely must be, but tracking it down hasn't been that easy.
+> That said, I think it's ending up in gic_eoimode1_eoi_irq(), which
+> calls gic_write_dir() if !gic_arm64_erratum_2941627_needed(d).
+> 
+> I wonder if your hardware needs that erratum.
 
+No, it doesn't. And this erratum only kicks in if the deactivated
+interrupt is an SPI that has been moved to another CPU while being
+handled (i.e. never).
 
-It looks like USB binding, not a display one, so not really applicable
-argument. Do existing display drivers using this binding rely on names
-of phy or not?
+It really isn't related to the GIC itself (which the erratum above is
+about), but to the CPU interface, and whether TDIR applies to
+ICC_DIR_EL1 on top of the virtual variant.
 
-Best regards,
-Krzysztof
+The architecture "deprecates" not trapping, and QEMU abides by this
+deprecation. HW that predates the deprecation didn't get the message,
+oddly enough... Neither did I, until you reported the crash!
+
+Thanks,
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
