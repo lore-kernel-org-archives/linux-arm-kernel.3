@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53850CEBF93
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 09:23:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EEECCE8D6B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 09:23:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iUIxZquQXVtX0uERjRMa8YtmaaoNV1JazioE3K4AHfE=; b=s/6usuY+O53UiFo66MFXojeQ38
-	1Vs+CRxgoeiqh/alVEk6l/IFhgovuy6myCQaO+2eE6RW0Zx5I4Ns44gtx8iwO0OLjKfJHor6Yp5AX
-	kemP4QYVtrF0mDTDKqMhhqg9+wVrPUzHyOJC/MBB176qN+lvXkLGVT5T96wXuNAMd3nnoXsCnmshB
-	rLCw7bgj46JpMXFEIG06DbavSqgfKFQFgxxRuuktp+rDh+JzyE3v0S/jaO3RUILZ8bhv7hdjyMgPN
-	qDHx/9IF5ndX266n7tCqlSjXlq6l3ePoRDp6oh+FP/s7lrI6pCAeqPrvrVjwGiZoBPMlhJZcEx6fx
-	Yvp9PZ2g==;
+	bh=dycF/AfvGI7erBDaxByd5SMrHEsMfJCe3rrAWOrmqh8=; b=XNOl7fMv2M6Oh50dvWvl02kD2g
+	8nudnOcNfCG9Sod3TTSPqg/gkWvM+Qrkb7mxOs2MDOBJTebrHrr34fATWxU9EqcsNe691CxGnXR0m
+	ZZfu9kVTeSKup1VI2TSr8+9J2FX/EAWftRi9YnGUvMh9swGqJonI+tvxH/qj/eLwt7GtOcfvMSaG/
+	nccC+bsodzBpxrV4d1pL/IlcWAsfxr3UnJpkEAgIY2w4xkpJKtukZ0SOmgpEqw2GBPLsh0S2Q/bCy
+	3Ua9sX6bsO5nNKr60ZV5GzClxzokeHYG+qzNWQ4YiJ5Wbr6DpTF9k1v5c+WcpuXdyX8h9mbfSGjH6
+	xPO8Bcmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKvRs-0000000Fmh6-3UYn;
-	Mon, 17 Nov 2025 09:23:00 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKvRp-0000000Fmek-3uiS
-	for linux-arm-kernel@lists.infradead.org;
+	id 1vKvRr-0000000FmgB-40Ug;
 	Mon, 17 Nov 2025 09:22:59 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vKvRq-0000000Fmel-0rAs
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 17 Nov 2025 09:22:58 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id DF40E445D7;
-	Mon, 17 Nov 2025 09:22:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0A4FBC4AF52;
+	by tor.source.kernel.org (Postfix) with ESMTP id 2384C6023A;
+	Mon, 17 Nov 2025 09:22:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7A157C4AF60;
 	Mon, 17 Nov 2025 09:15:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1763370941;
-	bh=/C45AVhwxcbfmGnWQDgEhd+JCA1eBfJ8Dc8LALrDDmI=;
+	bh=CVwY6QjTysUk+TJ+4eWGwF3UQ2kV890ZxMoP0eVGLxE=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=tSg8Bt0BqSwHhYjQtoje1u+k2RBy8dQ87yR/Bs4uAaCvTmSbtl2ACGRx5E9bHBZk1
-	 ohczO2mg4ZRG0C9QsdyOXYcj27qHjdO0vHnpFsHEue/ciNI9dC2PwtZtggDhaXn/KT
-	 tXutSYNAQhvusb040UPOeO129XDuezryOM7foVGY2Qd/WCuWjmTkWk9rt36ElzfS7t
-	 tWu8JHmrd3Fpm9A12MaTwKDcbnwfY8YSP+gpC/13+r+bTVIue8t5k64SijX2+FjTL7
-	 kRfUJjjuV/FySUEio1qHfDa84XGzEcUIsnAPtthtBpnhRaDVlpBt52l5Ok/Ka1DAda
-	 P1q7rxg8j76dg==
+	b=Vkd2qkPc31XBQ+7SbDtXvamJWJ43A7BJdn+dV2uT2p7Zs9fKZGPGU24M6qYDcmzLs
+	 RgzDbjV7c9nDTc3/5wDvifImZyMOqfUsKERE2K8JL9s/tXcz1s3ZSNTV3kN5osa7JU
+	 phG64a9cDptRjou9J1AHGf+H0mmRgqjsHPNCZtB9o8P1799ifkGP/IQCghpicReD1E
+	 SQcsP92gzWG4f5b9Xb7ydBtklcBFEp7QBbWdjtI7mXnBIrKAj+t9VFXAARul6UN560
+	 Z7XvcGBFm92UoS02Y+IrBd2hZ+dOMrKneR0G8er4bjtqWOUkYJz68fBbTpm25Prcw2
+	 OCeps4j0qs34g==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1vKvKk-00000005lB2-32gG;
-	Mon, 17 Nov 2025 09:15:38 +0000
+	id 1vKvKl-00000005lB2-1pUi;
+	Mon, 17 Nov 2025 09:15:39 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
@@ -59,9 +59,9 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Christoffer Dall <christoffer.dall@arm.com>,
 	Fuad Tabba <tabba@google.com>,
 	Mark Brown <broonie@kernel.org>
-Subject: [PATCH v3 1/5] KVM: arm64: GICv3: Don't advertise ICH_HCR_EL2.En==1 when no vgic is configured
-Date: Mon, 17 Nov 2025 09:15:23 +0000
-Message-ID: <20251117091527.1119213-2-maz@kernel.org>
+Subject: [PATCH v3 4/5] KVM: arm64: GICv3: Remove vgic_hcr workaround handling leftovers
+Date: Mon, 17 Nov 2025 09:15:26 +0000
+Message-ID: <20251117091527.1119213-5-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20251117091527.1119213-1-maz@kernel.org>
 References: <20251117091527.1119213-1-maz@kernel.org>
@@ -71,9 +71,6 @@ X-SA-Exim-Connect-IP: 185.219.108.64
 X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, christoffer.dall@arm.com, tabba@google.com, broonie@kernel.org
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251117_012257_988983_81928671 
-X-CRM114-Status: GOOD (  10.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,36 +85,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Configuring GICv3 to deal with the lack of GIC in the guest relies
-on not setting ICH_HCR_EL2.En in the shadow register, as this is
-an indication of the fact that we want to trap all system registers
-to report an UNDEF in the guest.
+There's a bizarre or'ing of a 0 with the guest's ICH_HCR_EL2's
+value, which is a leftover from the host workaround merging
+code. Just kill it.
 
-Make sure we leave vgic_hcr untouched in this case.
-
-Reported-by: Mark Brown <broonie@kernel.org>
-Tested-by: Mark Brown <broonie@kernel.org>
-Closes: https://lore.kernel.org/r/72e1e8b5-e397-4dc5-9cd6-a32b6af3d739@sirena.org.uk
-Fixes: 877324a1b5415 ("KVM: arm64: Revamp vgic maintenance interrupt configuration")
+Fixes: ca30799f7c2d0 ("KVM: arm64: Turn vgic-v3 errata traps into a patched-in constant")
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/kvm/vgic/vgic-v3.c | 3 +++
- 1 file changed, 3 insertions(+)
+ arch/arm64/kvm/vgic/vgic-v3-nested.c | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
 
-diff --git a/arch/arm64/kvm/vgic/vgic-v3.c b/arch/arm64/kvm/vgic/vgic-v3.c
-index 598621b14a30d..1d6dd1b545bdd 100644
---- a/arch/arm64/kvm/vgic/vgic-v3.c
-+++ b/arch/arm64/kvm/vgic/vgic-v3.c
-@@ -26,6 +26,9 @@ void vgic_v3_configure_hcr(struct kvm_vcpu *vcpu,
+diff --git a/arch/arm64/kvm/vgic/vgic-v3-nested.c b/arch/arm64/kvm/vgic/vgic-v3-nested.c
+index bf37fd3198ba7..40f7a37e0685c 100644
+--- a/arch/arm64/kvm/vgic/vgic-v3-nested.c
++++ b/arch/arm64/kvm/vgic/vgic-v3-nested.c
+@@ -323,10 +323,9 @@ static void vgic_v3_create_shadow_state(struct kvm_vcpu *vcpu,
+ 					struct vgic_v3_cpu_if *s_cpu_if)
  {
- 	struct vgic_v3_cpu_if *cpuif = &vcpu->arch.vgic_cpu.vgic_v3;
+ 	struct vgic_v3_cpu_if *host_if = &vcpu->arch.vgic_cpu.vgic_v3;
+-	u64 val = 0;
+ 	int i;
  
-+	if (!irqchip_in_kernel(vcpu->kvm))
-+		return;
-+
- 	cpuif->vgic_hcr = ICH_HCR_EL2_En;
+-	s_cpu_if->vgic_hcr = __vcpu_sys_reg(vcpu, ICH_HCR_EL2) | val;
++	s_cpu_if->vgic_hcr = __vcpu_sys_reg(vcpu, ICH_HCR_EL2);
+ 	s_cpu_if->vgic_vmcr = __vcpu_sys_reg(vcpu, ICH_VMCR_EL2);
+ 	s_cpu_if->vgic_sre = host_if->vgic_sre;
  
- 	if (irqs_pending_outside_lrs(als))
 -- 
 2.47.3
 
