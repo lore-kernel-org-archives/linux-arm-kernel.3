@@ -4,70 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 903A0CEACEF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 17:26:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09C4ACE8D6B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 17:27:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tPpowp5s4cCgPqPs5Seek2e/RjhHjB5CsKosHVwoQBo=; b=h8D0pjpyC5CljDqXH8BWiAXAF0
-	cEw/5Srs2I5X55jPk/pxD6cqSID/ZOGkOLNP1ydKp2YPxcyZW2ts1WATclpFXNXdh8NFbxG8LxGwX
-	/Sg/3Sk+SWlSbh21MtTL5j4pshHBBBSCcQ5pmd6VW8dWNxw/ZDjakxcquGAdlbnWwgzOIfrfFB/+2
-	DhUpUp5PftgqsRaJJZt1mzJv+g1NkpbqsHsFd0WqfqExpouofxxv78VrDNDsCiAYhYNMf+gipelwD
-	mFAd5rcsjogyKZeSKMv2Brdtk+aP97cDfgjsnL7luqP25ee8ZihbAUAyl9wp7I2ZtaYJojnJtjtZA
-	x/SBF9gQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=6rbKBgmKTQtWUUeEbXSUWDvuJjTtNqK/XhptsEjZldg=; b=WNjD3VAAU+xlxWKDR+jk9Wu5i0
+	BdkQ8KanBLDxm+iJfRdAmt7qt5H4JFNo7bdu1bv/L6LLIf7Q8i5Zawgdsb8rMIjgJQ3s1gpHawpyq
+	TEyYlWqbCk8fyBR4yPGvkKQ8QjcF1tmkPpz5X6rkTXem0HaZQ8aliEmc/Y4wpukdNjbVzwuIQ1JCF
+	bD/Kb7K5toCdNoVTVAgyi+4kiJidkb7OrMJORXn7d4fUZIiAdQq0Mq4dnsLJuFmnca4Z6Rxe2Vg1S
+	h9goyApArnPLqEwiGUGOoWTSH081p8ICEWnYbp9HYG2yISkeLim6/Sbw+jdRoP03bRggWTZjQBa8T
+	+DLvKg8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vL2zO-0000000GX2v-2Dme;
-	Mon, 17 Nov 2025 17:26:06 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vL30O-0000000GXBF-3pxM;
+	Mon, 17 Nov 2025 17:27:08 +0000
+Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vL2zK-0000000GX2J-3KX8
+	id 1vL30L-0000000GXAc-1OSa
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Nov 2025 17:26:05 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id CC839418CA;
-	Mon, 17 Nov 2025 17:25:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 07559C2BCB3;
-	Mon, 17 Nov 2025 17:25:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763400359;
-	bh=yKuOcA1E6JYLWEtbHHE6NrpR/zqdElFzEm6ItyaPGGo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=P4SpzHryZiMx3688QfU+siCjFVkFAEXdYqon6LXmIkdT3zsRi0txqCbzoQeYsN16D
-	 C0kUZ1Ixmb/l85+Zz6Y/vUs8QSuwog9vbMMPPBesMuIbvthyTIBbtQpkyJORRsF+lb
-	 VPKc26BqXvzieshaQ0HlGMW76CIBF4HLMqSYF3icQHmD/9QmeWFpfUfliYCigVCeku
-	 zUgOkga2daiCwo42Sq4JpE/HrrnIS22zqOXUzYRZcEOjctdoasyjI2fTyxMxUp5M/x
-	 aMtCjW4rLte0x5aq24yGkgnj0go4mmNx2ccqeV/tn1VX3QbntUi5LKSWzo1nU12lXV
-	 mRmxo8hh7Thgg==
-Received: by finisterre.sirena.org.uk (Postfix, from userid 1000)
-	id 5CDA01ACCCAA; Mon, 17 Nov 2025 17:25:55 +0000 (GMT)
-Date: Mon, 17 Nov 2025 17:25:55 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Haibo Chen <haibo.chen@nxp.com>
-Cc: Han Xu <han.xu@nxp.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, linux-spi@vger.kernel.org,
-	imx@lists.linux.dev, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2 2/2] spi: add driver for NXP XSPI controller
-Message-ID: <aRtao9FoPug78T93@sirena.co.uk>
-References: <20251117-xspi-v2-0-e651323993fe@nxp.com>
- <20251117-xspi-v2-2-e651323993fe@nxp.com>
+	Mon, 17 Nov 2025 17:27:07 +0000
+Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-297d4ac44fbso41312625ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Nov 2025 09:27:04 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1763400424; x=1764005224; darn=lists.infradead.org;
+        h=mime-version:message-id:date:subject:cc:to:from:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=6rbKBgmKTQtWUUeEbXSUWDvuJjTtNqK/XhptsEjZldg=;
+        b=R6BV3xSkI2FlDby9CT2k3La+hZTwzoVnBicqOieE1sdeB0aZ4kJiq91Yv125sNvWFq
+         kw4rlS36X886+9iaN0cXko2IFMUB2gkdTETr+vJMT3yY6X2og6OXeE4dBRLd6t3fU/hf
+         0KfdFfhEorGql8cpUCBK9YuRcLKgbKTtwvmZcbG3xwBtvRWW5UAO4NDy1F70V2KImznw
+         MOsxv81I7RMQEeHXvihjYPLwM0NmUBQdR3fknrL6qZE3f6xehalHQZ7R/8JXvisUiLsJ
+         BxrclO4mLCmIVyvi9MV4ulFk+cp88GdnyQnjTublkJsujIu7DVjBaeKyHTn8Bvgr7dOP
+         Xwrw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1763400424; x=1764005224;
+        h=mime-version:message-id:date:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=6rbKBgmKTQtWUUeEbXSUWDvuJjTtNqK/XhptsEjZldg=;
+        b=LJRvdkC4ovnqxqPLS9gCdPE7b16/1+usxf+RjezZ+IOSJm+XCu1ioxvl3EHqoRZaCS
+         buNXx7+p51bTew4fR9Q/JUTJ5ZMijIAoeqaRltHFyvCHsyiVFPHUX5mcNwP9/QNuSaCz
+         gz0q1GnK3QxXvD9oTDc+HkdTf0VM0jL9EU1D+z9M1E4RNDozFM1a1QTQUckoQQoMD4ed
+         NXKgxP5Hjliq6DzNlbYz5klVZ1kbovxVM2HluXPslGcW/Qf6vbmHW/5rBVk0eL2aeT3+
+         20dR5Zl9SJKQ2qafMSSzhlkcX9CSJLbRV9hx+9AJ6XdVlYHmSRcDJ3kKlHvFY8Eo8H3C
+         JKzw==
+X-Forwarded-Encrypted: i=1; AJvYcCXqyekkDMAP6N3QQl57/osR/Z9vcuIWEcUV+nBwsSr4YDJtppIXfQsHNer8B4G+Ig4AWkFvQoRFQBq6B6zk4+0x@lists.infradead.org
+X-Gm-Message-State: AOJu0YyIzycRkch3hucIc1eDKRpJ7UOwX4wNcooj03t+HjJ2JT/CXcxY
+	S/ccvcVEcbpRHYrPw69sDNchb1FmAK+tzzMlBDEKbKJKSfiC7BI0RAy6DaocA1NvEMoS/w6FJrq
+	afZyIWz0=
+X-Gm-Gg: ASbGncsQ6dNbj1TzzHJd8+SzZejYIELk/zt/y8FELSu5Bb5zNF1nW2EWsAXLtA2BYVa
+	PIThKFCSRsJaNh+CxFaGn/8EEZ79yMXkRw2ywJWzMdFa9AwoxqG2qUkwvoD5LjL2ujCK+sT4a+y
+	aZJFET8VnBBwu0h8gUpjjQoQfRf+Mnaoj9tJlE2k42Lex4ncK/Glb9wd80feC1dQm6qSbV4WZu6
+	6mUk41dTQt28fSXPKXgfBM9us/Zy0y1dS2H6E4VXLx+7pAexhj7a1oaJVH3p42IQ0fJFKzVxcWP
+	C8p/9DuWjhGEMDfLnFPLQQdkR3Ff1kpIUW6HiToY04lflsuksXCkcTWMXpQTWgnaboYcpmwjTRh
+	Tj8uZKBpyKEqtX7M22vFCG1V2zAdh4FK4njXvoQ80XWkvL7LeaA5GAbguqNplG/wWrTOKOhO30A
+	==
+X-Google-Smtp-Source: AGHT+IFA0UUsyMIJqov1zn7h2UMQsI01nWNIxprKp+P66lGVB1wQy6f1ak+AtImwdL+V+x6WJmuOzQ==
+X-Received: by 2002:a17:903:191:b0:294:fc13:7e8c with SMTP id d9443c01a7336-299f552c33emr1059985ad.13.1763400424299;
+        Mon, 17 Nov 2025 09:27:04 -0800 (PST)
+Received: from localhost ([71.212.208.158])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-29864b00fc9sm121055215ad.40.2025.11.17.09.27.03
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 17 Nov 2025 09:27:03 -0800 (PST)
+From: Kevin Hilman <khilman@baylibre.com>
+To: soc@lists.linux.dev
+Cc: linux-omap@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: [GIT PULL] soc: omap: updates for v6.19
+Date: Mon, 17 Nov 2025 09:27:03 -0800
+Message-ID: <7h7bvolgd4.fsf@baylibre.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="rwvwRa94OgcAe6fn"
-Content-Disposition: inline
-In-Reply-To: <20251117-xspi-v2-2-e651323993fe@nxp.com>
-X-Cookie: marriage, n.:
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251117_092602_897094_5569E496 
-X-CRM114-Status: GOOD (  20.73  )
+X-CRM114-CacheID: sfid-20251117_092705_478698_4F4C510F 
+X-CRM114-Status: UNSURE (   7.84  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,69 +95,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+The following changes since commit 3a8660878839faadb4f1a6dd72c3179c1df56787:
 
---rwvwRa94OgcAe6fn
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+  Linux 6.18-rc1 (2025-10-12 13:42:36 -0700)
 
-On Mon, Nov 17, 2025 at 07:04:25PM +0800, Haibo Chen wrote:
+are available in the Git repository at:
 
-> Add driver support for NXP XSPI controller.
->=20
-> XSPI is a flexsible SPI host controller which supports up to
-> 2 external devices (2 CS). It support Single/Dual/Quad/Octal
-> mode data transfer.
+  git://git.kernel.org/pub/scm/linux/kernel/git/khilman/linux-omap.git tags/omap-for-v6.19/soc-signed
 
-This looks pretty good, a couple of small points:
+for you to fetch changes up to ae18c465b3ae0879a023b4a89c032064afb78234:
 
-> +static irqreturn_t nxp_xspi_irq_handler(int irq, void *dev_id)
-> +{
-> +	struct nxp_xspi *xspi =3D dev_id;
-> +	u32 reg;
-> +
-> +	/* Clear interrupt */
-> +	reg =3D readl(xspi->iobase + XSPI_FR);
-> +	writel(XSPI_FR_TFF, xspi->iobase + XSPI_FR);
-> +
-> +	if (reg & XSPI_FR_TFF)
-> +		complete(&xspi->c);
-> +
-> +	return IRQ_HANDLED;
-> +}
+  ARM: OMAP2+: Fix falg->flag typo in omap_smc2() (2025-11-04 14:47:46 -0800)
 
-This just unconditionally acks interrupts without checking if there was
-actually anything there - that means that if some design shares the
-interrupt or it spuriously fires then the interrupt core won't handle
-things properly.  The driver should really return IRQ_NONE if there is
-no interrupt pending.
+----------------------------------------------------------------
+ARM: OMAP2+: Fix falg->flag typo in omap_smc2()
 
-> +		WARN_ON(!(reg & XSPI_FR_TBFF));
-> +		if (i =3D=3D ALIGN_DOWN(op->data.nbytes, 4)) {
-> +			/* Use 0xFF for extra bytes */
-> +			left =3D 0xFFFFFFFF;
-> +			/* The last 1 to 3 bytes */
-> +			memcpy((u8 *)&left, buf + i, op->data.nbytes - i);
-> +			writel(left, base + XSPI_TBDR);
-> +		} else
-> +			writel(*(u32 *)(buf + i), base + XSPI_TBDR);
+----------------------------------------------------------------
+Ali Khan (1):
+      ARM: OMAP2+: Fix falg->flag typo in omap_smc2()
 
-If one side of the if has { } they both should.
-
---rwvwRa94OgcAe6fn
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmkbWqIACgkQJNaLcl1U
-h9Cj1Qf/R8qxjz0qsI4C3BoN6FDOe28ICoQTHqVmPLMIpfom3TcZClQiO7IVXRUk
-W8dFn7GPJqSo5ZhFrPceTTFMUVUXqXu+/QQwChY52k+7kIGfnVIUDBDZH0nQ+P7n
-W1LRdzEW0cVyHFWE7M2KZXLV4Ff3b3DugtyEklo1sWSCB9VHzqJMU+gInqxQPkBX
-6LWXKffPhTbOiXK2zbIr2GIECTRj16EI9K8OxKVI1Nn7t9rMHX4bxAu/D3CJ4CcS
-LAjvJFFnFvOFrG4OcXhK5ed2EV1bTilll1Wzbg+H11QmcfFeVmkz6EmDAvaskaYH
-q841AnbKzH5h/s6mjO7Ts88s1OYEWg==
-=7syi
------END PGP SIGNATURE-----
-
---rwvwRa94OgcAe6fn--
+ arch/arm/mach-omap2/omap-secure.h | 2 +-
+ arch/arm/mach-omap2/omap-smc.S    | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
 
