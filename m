@@ -4,70 +4,152 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEF62CEACEF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 16:10:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 607D1CEACEF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 16:12:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SwAPPDquHtcNm47PaRnhELwXgDi0cjA+vnOu+Fa7qBE=; b=hdvCo0zNFrNfLXBRcuw3PFMrHQ
-	CJYqVVEeioyiwq8AvohHipO9uQkzCDZCcFZ5ahNt/h5LGoXAM+jvxZWZwswiwOPpt2fPKbfv3T+qD
-	WRkjjx5GHQgFmdEagUoiWjQCPsAQksjXLji1zsCCb2/qb/QsJ8iDxnO72Llz3I22vQ1znmjjdT1wF
-	4NGMM6eNU6udncUoJJh4VW3sHFUm+h1xyeZ8psfCnitPwpxQQDYxyYmmHpLigyYsuV7EsMcB3u2Oy
-	HSGqJ5AjSec11RBHteXBZfG8CXgQOTwDuoner83fg9A+/6fhEifnUhBMeh/c5G5OfutPAXNTAKn8i
-	fEVw35Dg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XMQM6LBpVQQC8+RtDd4VsIjqshBW83gDoI+P5c4/3WY=; b=I37Fm7k1MON6otQOGx9KexIMpq
+	VMIl5sGjcNqncG35rI3hoP9i67ll2qMeZPVgyRk6DFbUMH/FX803G/99YegdJxSB7szs2TGwydEdp
+	8ma44/VVHtHDz2BPezwQhxUOoyLy6R2dwB1Av7zXkGdwjyY/BoFOdB4D1E82E+l2T3frJ0x3xWRcX
+	mdloQeQAPzX6RQl2MJ8MumNJ9CfB9+HLQWlXA13+rzKdlXogeztqZp51CmkQZX6wBvwE3+kQs5Yob
+	TDuqn8Drp75wWgeed5wzv5fwSDjvk9o66/SH+DOHTL44bLVj81VH2vAzjMkw3ogy6/PGMmgjHty+s
+	YJMYjoMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vL1nu-0000000GNYp-1Usk;
-	Mon, 17 Nov 2025 16:10:10 +0000
-Received: from out-181.mta0.migadu.com ([2001:41d0:1004:224b::b5])
+	id 1vL1qX-0000000GNmM-3vZK;
+	Mon, 17 Nov 2025 16:12:53 +0000
+Received: from mail-westeuropeazon11010026.outbound.protection.outlook.com ([52.101.69.26] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vL1nr-0000000GNXm-031q
+	id 1vL1qV-0000000GNlo-2NBk
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Nov 2025 16:10:08 +0000
-Message-ID: <7248b96f-be82-4b89-87e4-f86b3898bc55@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1763395802;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=SwAPPDquHtcNm47PaRnhELwXgDi0cjA+vnOu+Fa7qBE=;
-	b=lBS4GNQ/vb9F6Vn/H9S43xfWCRoEeB5UrFnWt3WBDy+U0RbpDu5SAii+DYIYorWbkpkzWV
-	K/TDPrFQV4wt4IYlP33rqlxWYcWmvwZpNedARWTDnTXWvpK87WtJpg8DYGE9+ksAUpMOU2
-	ROGZ/mbtzBV9DQc6Lib9c62Ai2zK4iE=
-Date: Mon, 17 Nov 2025 11:09:57 -0500
+	Mon, 17 Nov 2025 16:12:52 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=iXd9OIx7HeX5Con+wQm9xZRCug6CfxfZ8/T8EVJ7nWC9Km2cfylACO+7Fgv7FOQXQTnbGaL5X+PkWKklOK6RUKnHLjlGRdVt5vbCoU3K3vUfBa68CQ+f0pI3BFsJkCzgkEurPfudpVc7lek0m8rcAT08hl3cYfqXW4TEdmXrDoMr1VgNXUaC2SNfH1Wy5mo/h/h2LEoY0tuE5YdqEJKho7DvCcl5n+BPEWCew6FEqOUnKuFUoO8I2cpo8dEggIWeyNWJMx6ETz03+6/TUGNptDvlvhdu6/lX/Vjlw+Hd0lBTA1+F0TGL9Z3M6KwbHewZ+p5EdcajTt7bxJgYCy4lgw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=XMQM6LBpVQQC8+RtDd4VsIjqshBW83gDoI+P5c4/3WY=;
+ b=kwuZ0XJ90oOfGd9oIb+WszWtSuG06Zj3zR/Aj93kL2+oEdy82tdycKWXIv1yV0NmeWqY/mrCsq/SsatYK32sWn5T2UWkacyAOnKgBheMu3OCArD58MQoUEs3F8QhuXHxH166sRRXCazPs8TKwBzTpylXGC4XVWWY2CM9ETu82VJlrb5hvkrByKHfJ1nsVMPpdLH9t13394TJItoAEOb4NaiMxESp7Kji3g+pBnuD6QpE3Ls6mqXklj3+yHpBxWmPpjloy2xtr80GLTv7ZOLeRNJ6qtB6zyl3Xniz+iprcPYv9qT72Pb/PKEYCcLkgaUCYN19jREQf5bkGlAG0DhDZA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=XMQM6LBpVQQC8+RtDd4VsIjqshBW83gDoI+P5c4/3WY=;
+ b=M+haOUt3lG79Ya4XBH4wicbbGL+3IvJOHOqWdkVaoXnv1DZBo3pdq0UbOEIlrBq9Wi3Fqtz0DwJY9DV/xkVMxBT8u3s4Mcf6Wv85UzW4a2NSe30bqLA9zoF8KbT0citjpu/ClNgZkR64mRwd89/NH8V5dkrQik3dI4xmSktHXa1PqgWHrBc6gAr4Ds9sP/vYohVWjzjjYtfKlfgzaIMYv9DgDXHN1M1MV/ztIshPzE7Os3zfMNnPBLKGwpk8ZwSA8zI5mR/FAduWGWpU8dHTuZ7txr+sluzQTySLoL9rKjJ93kc9vEH/XgLuUfjbaldYGPMdMY3oQXR7YEjExmoKnw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from DB9PR04MB9626.eurprd04.prod.outlook.com (2603:10a6:10:309::18)
+ by AS8PR04MB7575.eurprd04.prod.outlook.com (2603:10a6:20b:29c::23) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9320.22; Mon, 17 Nov
+ 2025 16:12:46 +0000
+Received: from DB9PR04MB9626.eurprd04.prod.outlook.com
+ ([fe80::55ef:fa41:b021:b5dd]) by DB9PR04MB9626.eurprd04.prod.outlook.com
+ ([fe80::55ef:fa41:b021:b5dd%4]) with mapi id 15.20.9320.018; Mon, 17 Nov 2025
+ 16:12:46 +0000
+Date: Mon, 17 Nov 2025 11:12:37 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: Vladimir Zapolskiy <vz@mleia.com>
+Cc: Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	"moderated list:ARM/LPC32XX SOC SUPPORT" <linux-arm-kernel@lists.infradead.org>,
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
+	open list <linux-kernel@vger.kernel.org>, imx@lists.linux.dev
+Subject: Re: [PATCH v2 5/5] ARM: dts: lpc3250-phy3250: remove deprecated
+ at25* property
+Message-ID: <aRtJdTMxFaXdVnvs@lizhi-Precision-Tower-5810>
+References: <20251114174712.1206027-1-Frank.Li@nxp.com>
+ <20251114174712.1206027-5-Frank.Li@nxp.com>
+ <face044b-01ed-4077-b497-3caaccf57c98@mleia.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <face044b-01ed-4077-b497-3caaccf57c98@mleia.com>
+X-ClientProxiedBy: SJ0P220CA0010.NAMP220.PROD.OUTLOOK.COM
+ (2603:10b6:a03:41b::14) To DB9PR04MB9626.eurprd04.prod.outlook.com
+ (2603:10a6:10:309::18)
 MIME-Version: 1.0
-Subject: Re: [PATCH 2/3] drm: zynqmp: Make the video plane primary
-To: "Klymenko, Anatoliy" <Anatoliy.Klymenko@amd.com>,
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
- Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
- "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>
-Cc: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- Mike Looijmans <mike.looijmans@topic.nl>, David Airlie <airlied@gmail.com>,
- Thomas Zimmermann <tzimmermann@suse.de>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>, Simona Vetter <simona@ffwll.ch>,
- "Simek, Michal" <michal.simek@amd.com>
-References: <20251113203715.2768107-1-sean.anderson@linux.dev>
- <20251113203715.2768107-3-sean.anderson@linux.dev>
- <MW4PR12MB71651E0E82AD8E4898DBD017E6CDA@MW4PR12MB7165.namprd12.prod.outlook.com>
- <680bee12-6bac-4634-8a02-4b1717a90aa2@linux.dev>
- <MW4PR12MB7165F8413848B53CB8C7C031E6CBA@MW4PR12MB7165.namprd12.prod.outlook.com>
-Content-Language: en-US
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Sean Anderson <sean.anderson@linux.dev>
-In-Reply-To: <MW4PR12MB7165F8413848B53CB8C7C031E6CBA@MW4PR12MB7165.namprd12.prod.outlook.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Migadu-Flow: FLOW_OUT
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DB9PR04MB9626:EE_|AS8PR04MB7575:EE_
+X-MS-Office365-Filtering-Correlation-Id: 536d9bdd-240e-4605-3b04-08de25f42565
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|19092799006|52116014|1800799024|366016|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?d+1EkSyDg0/Y0Pc7WRPYCh9k9kmXPkwNhgN4lTu0yKnHLMZogR3tLUVO33Kh?=
+ =?us-ascii?Q?s8eq/5GwhSznzmwTbqqM3Oqaf/jscFmGHM1w04ermEHNemN/VNdgFJ6ab+zF?=
+ =?us-ascii?Q?q/sQy0vLSAPHFkixe2d4L05u6FPiWgSKMuhcrG/y0HprQ05Gj3pNsTH8arMt?=
+ =?us-ascii?Q?/7ZCc088fTK9vn3q+EoMXl9ega1g9HYwuLG+DZtTUIREE2AUUt0AbZO4Z6XW?=
+ =?us-ascii?Q?TDGLFrJa0W8LkOXtO6WxPNHx9MCRJlaCaumh6NwAJReEHwKv4Jd/oxNSeudB?=
+ =?us-ascii?Q?YTBAbC+KYeHRb3dkYNZLYOBnjIjYpno5bhy7CPb9YHrQzJhZXLZAAR5QBpmp?=
+ =?us-ascii?Q?gArbbScKqkbsF1lKJ5LXGgTsFjvyYWctYoCOc0R6KIcan62iXdgaEtjgEjPz?=
+ =?us-ascii?Q?vW9H0B/QSonIS8h0sbsapJizpGtdBsdf5w9kJDn+jdQ5z1vveaUYBGBv1U4I?=
+ =?us-ascii?Q?wOxETwXL1r/E0Bn6w8drXX/HcjKcDlFuomzOyyImXBGnBgnslnn0/mfjtSVM?=
+ =?us-ascii?Q?E5wUMtSHMw1g9dSauu/CnnF7mRxN9GgwCBIirV0cwz86LB4z2d/r9f64HHrc?=
+ =?us-ascii?Q?wWvfy8AnAn4flSvat7q8y8JxhfjG/XnclIZe5I6GJSGyJepIF815Bzr6DVZq?=
+ =?us-ascii?Q?79SVdMIFuH4PTSg04ip40NXCdaSBFRsbvKgm1VQDL1QaNSs7R3hLdTkbDyrN?=
+ =?us-ascii?Q?lZnqr4l2L2qvvaRxzgmNkPfDbDz0wSVX+02vXBmbFyi/Hy0jGhWRESx8WudW?=
+ =?us-ascii?Q?BYHx34p9DnoC49ZHqJH1mjWJN93Wq4vXFX4xuEtjZP2INe4otZjCwsposXLm?=
+ =?us-ascii?Q?f7b9zrYF24bDpV4622Q1D5fVc7Y4uOLMz0Ae//dSJhL0JJ1wiCD0mkmWiggK?=
+ =?us-ascii?Q?7B/okO3ClVeG8Ud0YlidgBJtnTCGKsAr/t5y8TSESHdUmc6P4LongZNep4wv?=
+ =?us-ascii?Q?dOOgcjRMKzdWIsfoPeZe5fPUqkWKFE3Xr5pPBfn4PdgJHm+a+5+wg3bXFm6p?=
+ =?us-ascii?Q?RRmDxVYYsz7R8n8jneRk8we9Gi2KcYC5UZmzVHZFF74yA1cNaJn+E5v+o6r7?=
+ =?us-ascii?Q?3PR1me+Bjc8fV1DI1V4P810m48n1RPiiC3A+c7VjKcbOjFhUsG+eQjHSMxoG?=
+ =?us-ascii?Q?cIngoEmnX3YkFZZRMTi8K4F82TTs6YTCAbf8B0YCh7UZFlX0xnyWTaWfnRjC?=
+ =?us-ascii?Q?Dfh9xVtnpexbmbJffY2S8dC5A+TzPSzT2DmA8jJuAt98xjNGpdRxyYFOHck4?=
+ =?us-ascii?Q?IpzFDGjNBXDGvGnkt8YCyc5o9TBTN+jAZwmzqxsZCkRRYAu/KUzgetJAGLLp?=
+ =?us-ascii?Q?FP/rifKs4MXmHjxvaOTCRlkUWa97CuRp2j4iqFz77p4DyeIy4koKuCh4mnOq?=
+ =?us-ascii?Q?EVKCX1ajKkU4NaQGtwL1QnytyjPsYKKP38l28njV4YoFv9FTwnAzhBpc9ci6?=
+ =?us-ascii?Q?dIqzNHnv7vPyMBSRvc/5/L+r375sSma04oLMoSecakNYoUMYjbL0/4mSaky7?=
+ =?us-ascii?Q?H5OkSlxcf4uHy4cc59WrAJzu0t2GCrF4AZDN?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR04MB9626.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(19092799006)(52116014)(1800799024)(366016)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ZJNIxtpY7sWWTsjJ2l/LrGXzA8ERQKSR1hk6QFneWn9BX6AbhEE5yI7iZ1ET?=
+ =?us-ascii?Q?K38wEJQ/Z5etIIsnUi+Dd2i+yYU/v4xwmScWwkETRnqgxNurXro2O33CTyu4?=
+ =?us-ascii?Q?r0pHt/jCHj9BySPoDCZFFP+b9gMiBq/1Igk54YbQBiyY7l0FJwGBzbkVA6uz?=
+ =?us-ascii?Q?1kl24LHFaEE3pJ/UiKdWqDq6J55+bgB7blp/ep7AgxQLunFoc5Q3UZwb0FVz?=
+ =?us-ascii?Q?otDKnCrzL12AlcdjfoQFM4G2WHMQBSkmpvDIebon2rRzGdpbZw4ZzvK+lWZD?=
+ =?us-ascii?Q?e+/+MPZFu4H2ZKo7yo3LGKpMVeyl2VO+DH9arHVHgLwHdh2dVzrhmL26oizl?=
+ =?us-ascii?Q?dhqHIFqU+soKcC1Sjh30vKQqW2Wh/xTDjsvQUj4h0/J9ZcNT5gASDF5I67w/?=
+ =?us-ascii?Q?ujbz9b77OMJXcoNbk0p0VtJaPeg17f4qqVRGfbVOk6QtfhM5QZSKRL0PkwaH?=
+ =?us-ascii?Q?bzwPU72vbE9JXyU3oYvQgNnMKqIQXvrE+wZ0cMv1DDUgZBTsaozKN1dhv8Bf?=
+ =?us-ascii?Q?eqWGJ4/1buhI8rnAqL0JZXTRS+Yj3UdINlf4bV/PvZnhp5PguPvuekAnwCoy?=
+ =?us-ascii?Q?G2M9vj7eQ8vDkjsQPNp2IcqeuYOyofchjU5n3VpeTK16E/li5Q6bt4Y7E0rk?=
+ =?us-ascii?Q?crq8vHuLOebmeGvQPXDugEOkowYm0y/nvfwa+00RD4Jop1u3QzteNXjGdI5y?=
+ =?us-ascii?Q?gLAXQDw2Z46F0z5hVCiwMCmBmVy9WKhyVuIxMMYRvLrSfwHIPlZsKL9qxCxp?=
+ =?us-ascii?Q?Jizq9YCAXqP28t7tMVgR2TK27l/vTZ/dcKsuoLNg/WbDkjeqJke9dEdi1KGu?=
+ =?us-ascii?Q?Y4ouU8rB8H2ENykgqkURcSWHeEdELihiNlVMdwvHHx99Zng2uHzY7ZEIYf1b?=
+ =?us-ascii?Q?iGlz0Ow9a1IMLKJfdrCznn6Ub91YryIB06TmtIr76Wil9qcq23E3Mq/jesMT?=
+ =?us-ascii?Q?h0kWqzWiSJ9bYWGU2OaUq15lwIjBbPsZjQ2qDbD2pD8zjsoEqPUAfi1sQ2DD?=
+ =?us-ascii?Q?FiBzM0TePtAkyqvoQcjCJCnDEuys76MxnMKNcedWHqLJMgCJwa0dXFPiGU8b?=
+ =?us-ascii?Q?FFeIPSWFmWGgwG3LyqSlhO62fJ0HFoSHSsPW4W7gBEzg+/U+X8fa94szUYYD?=
+ =?us-ascii?Q?DGkA35H2/jaiJR2ZPmq7ikJjDw4k9+44tmMfZJW/+OBf1w3XaV2w1/LzIKP+?=
+ =?us-ascii?Q?hctHxcFl2euCBvTpI3fNTWvPeRwwPOv6gUAk6xPv61mi+SKzoKjyyl94WD1B?=
+ =?us-ascii?Q?UGBIkC/hEFBa7ICA71rZBard5fcJrwQWoPGWY5bEjSNi93dMb9PjX9MdtnvE?=
+ =?us-ascii?Q?mAbEor5Zbep3AoLMncF5jqnwXBdJEENREJSTEc/u93QYk+saOD6ChV54mPR4?=
+ =?us-ascii?Q?CkyE//wIz950D3FZawPsWZU+dqBhfcc3usA+qAhZmdXaEq01mFWiSsoMLCMk?=
+ =?us-ascii?Q?O7IaSjfCbp8zj8CA7OsLA7g6dAXmk2aLgk56HYF0Yl5zdy56bsq/OD1XAoxN?=
+ =?us-ascii?Q?/E5sPlZCuSFLF5pCcvONSdUeL2bdMTRfQxQhhbZs1zT/29raLVMN2RuYQTHS?=
+ =?us-ascii?Q?AyhfSd+x4+9CqH62jkN+A+rS2p1atQTt9gPlhmZE?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 536d9bdd-240e-4605-3b04-08de25f42565
+X-MS-Exchange-CrossTenant-AuthSource: DB9PR04MB9626.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Nov 2025 16:12:46.4970
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 5M5sUzm5v6hWQOQPhBvFWCcuwcpZANYAXZXeh3k90WgzozntyOiH5g2mBrdCKl0/NVgaRvQS3c2QSVAURmtzKA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB7575
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251117_081007_289142_20A0FC0A 
-X-CRM114-Status: GOOD (  37.59  )
+X-CRM114-CacheID: sfid-20251117_081251_627204_BE94FC36 
+X-CRM114-Status: GOOD (  19.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,187 +164,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/14/25 19:57, Klymenko, Anatoliy wrote:
-> [AMD Official Use Only - AMD Internal Distribution Only]
-> 
->> -----Original Message-----
->> From: dri-devel <dri-devel-bounces@lists.freedesktop.org> On Behalf Of Sean
->> Anderson
->> Sent: Thursday, November 13, 2025 2:52 PM
->> To: Klymenko, Anatoliy <Anatoliy.Klymenko@amd.com>; Laurent Pinchart
->> <laurent.pinchart@ideasonboard.com>; Tomi Valkeinen
->> <tomi.valkeinen@ideasonboard.com>; dri-devel@lists.freedesktop.org
->> Cc: linux-kernel@vger.kernel.org; Mike Looijmans <mike.looijmans@topic.nl>;
->> David Airlie <airlied@gmail.com>; Thomas Zimmermann
->> <tzimmermann@suse.de>; Maarten Lankhorst
->> <maarten.lankhorst@linux.intel.com>; Maxime Ripard <mripard@kernel.org>;
->> linux-arm-kernel@lists.infradead.org; Simona Vetter <simona@ffwll.ch>; Simek,
->> Michal <michal.simek@amd.com>
->> Subject: Re: [PATCH 2/3] drm: zynqmp: Make the video plane primary
->>
->> Caution: This message originated from an External Source. Use proper caution
->> when opening attachments, clicking links, or responding.
->>
->>
->> On 11/13/25 17:45, Klymenko, Anatoliy wrote:
->> > [AMD Official Use Only - AMD Internal Distribution Only]
->> >
->> > Hi Sean,
->> >
->> > Thanks a lot for the patch (and tackling the alpha issue in general)
->> >
->> >> -----Original Message-----
->> >> From: Sean Anderson <sean.anderson@linux.dev>
->> >> Sent: Thursday, November 13, 2025 12:37 PM
->> >> To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>; Tomi Valkeinen
->> >> <tomi.valkeinen@ideasonboard.com>; dri-devel@lists.freedesktop.org
->> >> Cc: linux-kernel@vger.kernel.org; Mike Looijmans
->> <mike.looijmans@topic.nl>;
->> >> David Airlie <airlied@gmail.com>; Thomas Zimmermann
->> >> <tzimmermann@suse.de>; Maarten Lankhorst
->> >> <maarten.lankhorst@linux.intel.com>; Klymenko, Anatoliy
->> >> <Anatoliy.Klymenko@amd.com>; Maxime Ripard <mripard@kernel.org>;
->> linux-
->> >> arm-kernel@lists.infradead.org; Simona Vetter <simona@ffwll.ch>; Simek,
->> >> Michal <michal.simek@amd.com>; Sean Anderson
->> >> <sean.anderson@linux.dev>
->> >> Subject: [PATCH 2/3] drm: zynqmp: Make the video plane primary
->> >>
->> >> Caution: This message originated from an External Source. Use proper
->> caution
->> >> when opening attachments, clicking links, or responding.
->> >>
->> >>
->> >> The zynqmp has two planes: "video" and "graphics". The video plane
->> >>
->> >> - Is on the bottom (zpos=0) (except when chroma keying as the master
->> plane)
->> >> - Supports "live" input (e.g. from an external source)
->> >> - Supports RGB, YUV, and YCbCr formats, including XRGB8888
->> >> - Does not support transparency, except via chroma keying (colorkey)
->> >> - Must cover the entire screen (translation/resizing not supported)
->> >>
->> >> The graphics plane
->> >>
->> >> - Is on the top (zpos=1)
->> >> - Supports "live" input (e.g. from an external source)
->> >> - Supports RGB and YUV444 formats, but not XRGB8888
->> >> - Supports transparency either via
->> >>   - Global alpha channel, which disables per-pixel alpha when enabled
->> >>   - Per-pixel alpha, which cannot be used with global alpha
->> >>   - Chroma keying (colorkey)
->> >> - Must cover the entire screen (translation/resizing not supported)
->> >>
->> >> Currently the graphics plane is the primary plane. Make the video plane
->> >> the primary plane:
->> >>
->> >> - The video plane supports XRGB8888, which is the default 24-bit
->> >>   colorspace for X. This results in improved performance when compared
->> >>   to RGB565.
->> >> - The graphics plane can be used as an overlay because it has a higher
->> >>   z-pos and supports a per-pixel alpha channel. Unfortunately, clients
->> >>   like weston cannot currently take advantage of this because they
->> >>   expect overlay planes to support translation/resizing.
->> >>
->> >> One downside to this approach could be that the graphics plane has worse
->> >> support for YUV and YCBCr, so it may be more difficult to compose video
->> >
->> > Not just more difficult but practically impossible:
->> > 1. GFX (in Xilinx terminology) plane doesn't support pixel upscaling, so
->> > no support for NV12, YUY2 and other common video pixel formats.
->> > 2. Both planes are unscalable, this means we can only output native
->> > display resolution video on the top plane, or display thick black frame
->> > around the picture. We are losing GFX masking capabilities.
->>
->> The graphics masking capabilities are the same as they always were.
->>
->> > 3. We won't be able to render subtitles on top of the video.
->> > Probably the only practical video player option remains here is to render
->> > video to a texture and embed it into graphics composition.
->>
->> OK, but none of this is currently possible either because of the global
->> alpha setting. So do you have a specific program in mind that plays
->> video and will do it with an "underlay" plane?
->>
-> 
-> webOS, Roku OS, just to name a few. But most importantly, AMD has quite
-> a few customers using "underlay" plane because of its YUV 420 capability.
+On Sat, Nov 15, 2025 at 02:23:50AM +0200, Vladimir Zapolskiy wrote:
+> On 11/14/25 19:47, Frank Li wrote:
+> > Remove duplicated deprecated at25* property because the same common
+> > property already were added.
+> >
+> > Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> > ---
+> > changes in v2
+> > - new patch
+> > ---
+> >   arch/arm/boot/dts/nxp/lpc/lpc3250-phy3250.dts | 4 ----
+> >   1 file changed, 4 deletions(-)
+> >
+> > diff --git a/arch/arm/boot/dts/nxp/lpc/lpc3250-phy3250.dts b/arch/arm/boot/dts/nxp/lpc/lpc3250-phy3250.dts
+> > index 15463a96938cc..0f96ea0337a1f 100644
+> > --- a/arch/arm/boot/dts/nxp/lpc/lpc3250-phy3250.dts
+> > +++ b/arch/arm/boot/dts/nxp/lpc/lpc3250-phy3250.dts
+> > @@ -213,10 +213,6 @@ eeprom: eeprom@0 {
+> >   		pl022,wait-state = <0>;
+> >   		pl022,duplex = <0>;
+> > -		at25,byte-len = <0x8000>;
+> > -		at25,addr-mode = <2>;
+> > -		at25,page-size = <64>;
+> > -
+> >   		size = <0x8000>;
+> >   		address-width = <16>;
+> >   		pagesize = <64>;
+>
+> Just squash this change with the 3/5 from the series, or I can do it on
+> patch application.
 
-Can you link to a specific example where the plane is selected based on
-its primary/overlay status and not based on its format support?  I'm not
-too familiar with these distros, but e.g. [1] selects the plane based on
-the format, and doesn't care which one is primary.
+Yes, you can squash when apply.
 
---Sean
-
-[1] https://github.com/webosose/omx-components/blob/27b33e17c25023f2c7ffbbfda10169fb500dacdc/src/omxdrm/videorenderer.cpp#L469
-
->> >> streams into the window of a media player. However, no existing software
->> >> could rely on this because there is no way to enable the per-pixel alpha
->> >> channel when the graphics plane is enabled. This makes it impossible to
->> >
->> > This situation is a driver bug not a fatum.
->>
->> And yet the driver bug provides ample evidence that no one is doing this,
->> so we don't need to worry about it.
->>
->> --Sean
->>
->> > Per pixel alpha blending works
->> > just fine if we disable global alpha. We just need to avoid enabling it when
->> > we have alpha capable GFX plane format.
->> >
->> >> "carve out" an area in the graphics plane where the video plane shows
->> >> through. This limitation is addressed in the next patch, but it means we
->> >> do not need to worry about compatibility in this area.
->> >>
->> >> An alternate approach could be to pretend that the graphics plane
->> >> supports XRGB8888 by using the supported ARGB8888 mode instead and
->> >> enabling the global alpha channel. However, this would rule out ever
->> >> using the per-pixel alpha channel.
->> >>
->> >> Signed-off-by: Sean Anderson <sean.anderson@linux.dev>
->> >> ---
->> >>
->> >>  drivers/gpu/drm/xlnx/zynqmp_kms.c | 6 +++---
->> >>  1 file changed, 3 insertions(+), 3 deletions(-)
->> >>
->> >> diff --git a/drivers/gpu/drm/xlnx/zynqmp_kms.c
->> >> b/drivers/gpu/drm/xlnx/zynqmp_kms.c
->> >> index c80a2d4034f3..456ada9ac003 100644
->> >> --- a/drivers/gpu/drm/xlnx/zynqmp_kms.c
->> >> +++ b/drivers/gpu/drm/xlnx/zynqmp_kms.c
->> >> @@ -161,8 +161,8 @@ static int zynqmp_dpsub_create_planes(struct
->> >> zynqmp_dpsub *dpsub)
->> >>                 if (!formats)
->> >>                         return -ENOMEM;
->> >>
->> >> -               /* Graphics layer is primary, and video layer is overlay. */
->> >> -               type = i == ZYNQMP_DPSUB_LAYER_VID
->> >> +               /* Graphics layer is overlay, and video layer is primary. */
->> >> +               type = i == ZYNQMP_DPSUB_LAYER_GFX
->> >>                      ? DRM_PLANE_TYPE_OVERLAY :
->> >> DRM_PLANE_TYPE_PRIMARY;
->> >>                 ret = drm_universal_plane_init(&dpsub->drm->dev, plane, 0,
->> >>                                                &zynqmp_dpsub_plane_funcs,
->> >> @@ -322,7 +322,7 @@ static const struct drm_crtc_funcs
->> >> zynqmp_dpsub_crtc_funcs = {
->> >>
->> >>  static int zynqmp_dpsub_create_crtc(struct zynqmp_dpsub *dpsub)
->> >>  {
->> >> -       struct drm_plane *plane = &dpsub->drm-
->> >> >planes[ZYNQMP_DPSUB_LAYER_GFX];
->> >> +       struct drm_plane *plane = &dpsub->drm-
->> >> >planes[ZYNQMP_DPSUB_LAYER_VID];
->> >>         struct drm_crtc *crtc = &dpsub->drm->crtc;
->> >>         int ret;
->> >>
->> >> --
->> >> 2.35.1.1320.gc452695387.dirty
->> >
->> > Thank you,
->> > Anatoliy
-> 
-> Thank you,
-> Anatoliy
+Frank
+>
+> My ask about splitting the changes was about a separation of the 4/5 change,
+> and it was done as expected, thank you.
+>
+> --
+> Best wishes,
+> Vladimir
 
