@@ -4,85 +4,141 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D02DCEACEF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 11:36:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50234CEACEF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 11:37:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=InxzUv4fZ1uU4fFpdnx0a5dxJKeuOiNcfcnGKmmDKis=; b=16J3inenp45gJU61k0nUs/QSDJ
-	dPCmGpvcwJ7naRpbbjjrucpKbQmaQtMynWvPzIernW492sezsrvIUvK/Kypyjg6Qez9KJusPl4U+L
-	ud4FO8Wx3u4SbUJSV3ykIc86+CQg2vV05p1oLNeH02u2SmRzH9H1JpO4EzFrdQ7ZmdwqYuZY4z/y9
-	IvsJg7d1+HXSRgw4YMEDT7CkVawpfldq72zNXUk2MldX8htZHCpHxjEQ5nzEaGhRXERafxwWaYsun
-	0N0jCm536Fwa+QY60rfZ8JYNeE7di0+ZDkUwKWSTv0X0d2D/Ov0RSum2AahDL7k9WvAYCMB7YChC0
-	9yIwBKrQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gQJEWaGWtJwIgHiHzR2yg48GdT5dypcvdCNI8DUXwTw=; b=YazmJxl7VIup7hKMuVeFYHmEMf
+	KSaSoNl6Tlf3bQzG50lbUswK1wyDNrbzYE7LoAMfoCQRIiLfiyupELmjc8dbhI03IylNJ6C7HFadY
+	TBiVjdECejUbWta7Wi6ZDhjQlhT4+IGN8jRHuS/QDhDgkZTcBEIC0IWiiLXGMGKuwaR9vObNnJTRg
+	WhfKYdxznByanD7lQ1/cBIVlNR3GSs8F+ihECVvtmqwf1Xtss6P4qzwsgCLPwtlaA7tIuGi02P3cQ
+	6dqveRNnDtaWDSYGwdjG5FPJNsseNNpEmOMpAzr3/vMCh6CyPpf+BbZf/Fzlb8lu3IAVfS+FlNuqb
+	Tjeibmqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKxWY-0000000FzEi-2Ah7;
-	Mon, 17 Nov 2025 11:35:58 +0000
-Received: from mail-qt1-x82b.google.com ([2607:f8b0:4864:20::82b])
+	id 1vKxY6-0000000FzPS-2uhr;
+	Mon, 17 Nov 2025 11:37:34 +0000
+Received: from mail-japaneastazon11022130.outbound.protection.outlook.com ([52.101.126.130] helo=TYPPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKxWW-0000000FzEK-3CHI
+	id 1vKxY3-0000000FzP4-14wa
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Nov 2025 11:35:57 +0000
-Received: by mail-qt1-x82b.google.com with SMTP id d75a77b69052e-4ed67a143c5so563061cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Nov 2025 03:35:56 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1763379355; x=1763984155; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=InxzUv4fZ1uU4fFpdnx0a5dxJKeuOiNcfcnGKmmDKis=;
-        b=sMJupcnw7Y6cC+0PV/doWp94PRDYjfcQRBJylqgDHWmjJyR1aUoyRtTNVRRTtxgmo1
-         jn78Lfrbo/glETsK6BlSLF+yuNxHbOGmXiJ2qAOcU7P1NSczTEI7c2YqBIAZBqDRM01/
-         5GfeompZ+jCuea3lNmswkD+99pxEgmGwhuS++vNRjZLMh+vKycpuPLhD+5R3avfuyZNM
-         +isVelWXUXUHFUg6Z0AWtiwUgQoy+BPIzRKSi0h9oXT0teqN1WgV3am78dpdZsQYlK+I
-         3SXNWmH3GxlqxNk4C0IEPEMGdwWVf5CGt17ggCJM5D/vpUD5tZiFxqlzAXZCFYBOXlEr
-         iW5w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763379355; x=1763984155;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=InxzUv4fZ1uU4fFpdnx0a5dxJKeuOiNcfcnGKmmDKis=;
-        b=K9UU7F6+3XCY7YJbH3T/BjZEADthdvJ4CJRUHhncTVfkLa/8kfLpohxUJT1hq7MjG/
-         UHGef1z2iOOKGK03lY6B7baugEp+1hwoE6DN7cfSm+5aLRPh5MYbIu6anO4PMig24er7
-         gzpWJeDeq09s9HBcGDQw8JwZb+M+3MBr1fthptlPcfKPCSpO3H4AlikmLjkfRsYztnGD
-         TLMWiLIUNGneetDqxrrR4noASfQchS0qREsnlfdHHUO5DfO78xejGU+smyYhlfWLr6pd
-         N102NubEeh+dTugimDqVS/QUlpcaMMAG+6UtmejeM6xLXKuQWgH8OAoQB1wEahfyxRn/
-         Onsg==
-X-Forwarded-Encrypted: i=1; AJvYcCUjVG/QJ1zS0XYIYHm0VaMlqMnVzUQNkkschsReIUzJ2ibxpy4xHLfnOiBXlbqXeujBqyrvoRnwomTXRzvSesu3@lists.infradead.org
-X-Gm-Message-State: AOJu0YxiQ2CdN4PZKx6Z7b0Pb8TLtqQ4ai0NjuGIwSzXdGAjGScTYu1K
-	7My0YkiECbDN7yzem4KAwyLe2bRWUA//BgXlN3bQ3RAeFscUFa+XuRzbp/BIkXSAoL3ftb4hNe1
-	/EjYwgo4jznginkg69aYQvHCGLjoMoG7WmvC3mQJHZEH3EdIsiuEiA5KpTDo=
-X-Gm-Gg: ASbGncv5zG2+wGuPs0L3AhTBW7Av6W7LOUfIVBKFEjbjX18K/t5ne7g0J0zot2E+d/3
-	ZT+ihdwmvKNNX0weaoRBunr9X47lsGGXo78IKOCl14wJ7r70dSWYTsn2LhZC1sM/2wHqZK87e+l
-	bQRE2wFLFAT3ukiabnIesGh9am45VTLzcbMZQ61Aw4eEqL4MTpwm0bZ6AZGxbLFFtKlqZruH7u9
-	O36Ar8hFDBb/uC6Sp/xo2leIS58lcYDGMUfnZ9TCi9W+OJdl0deu5FxYyIt+G9v4bB1WuH81shQ
-	IJiOlA==
-X-Google-Smtp-Source: AGHT+IEeSiW3i7KxR/7PtZwLbRJe4Rt/AuAzXIflTZcma7G9RYj/Byd8sqTWf75xRzlbievXcmfG+TwcqMMRZMTyoY0=
-X-Received: by 2002:ac8:7fcd:0:b0:4ed:ff79:e678 with SMTP id
- d75a77b69052e-4ee02b0dba6mr11656171cf.18.1763379355279; Mon, 17 Nov 2025
- 03:35:55 -0800 (PST)
+	Mon, 17 Nov 2025 11:37:33 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=A+cmTtyP9MwJHnFuwvNQbVt1dLHKzEjvW/SRJnUFb5lRP1BF4AVGjkvf5RtpJ/8NI01rpWzK14yuavcDkRLNpcbkbMX1hZ7kzaOAAOebWfNzT4SIV7vSPvKcQK9p6nUBZBTCVqZoqwVf70Ewi6Hu7rmzNL+zGeGEERvEzDe+JPUfLekwqeZAwwtPIslOsrrAX9qtXQRaEet8Yfqup3CT/khz5dWbw/+NOSi+dVl2R+6ZrEk8yZ7j9zqB5/VT3EJ+T8iSoV5p1FrGbNmPQKe0S031Am6LbRlQsKag/IEpNuoDA75up/F2MAkRFnJ7Wv2+fuvxBBzRKa1bwpF5BwXsxA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=gQJEWaGWtJwIgHiHzR2yg48GdT5dypcvdCNI8DUXwTw=;
+ b=vL7lhDTY1QOgn8nKCfdJreZpAXZ7q8bnnCCv0gUOdtUVgndZrpknSyQ2iBjIUqcGzMFOaPQDYIR12mRG1sGFJwgaM4xLZz/GPIPGWfj8r/N7zyiYNTr1ckOwZ+qm3ybSnwKC1lCnCS/jjfcg/HN1E02eYUreCkEDN1Nuvb5mUc9aawUnL7l/9Adorczu7D4p5sgYeUAoEbyDBGG7UA0D2QPQAggrdcDmLdEVapIG2oxFBvO2OJzlh/+OPruvCt5lGip9IBWQq/o5g7C1UmPkjtIrmfS/g7ZZHI0SQ4oCE+25mDLf5gLUuQmFSQqL8BfR7qbRMU+RNaWBDIPU1xx3Ww==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 222.71.101.198) smtp.rcpttodomain=arm.com smtp.mailfrom=cixtech.com;
+ dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
+ not signed); arc=none (0)
+Received: from OS7PR01CA0283.jpnprd01.prod.outlook.com (2603:1096:604:259::11)
+ by SE2PPF279E222DB.apcprd06.prod.outlook.com (2603:1096:108:1::7c9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9320.16; Mon, 17 Nov
+ 2025 11:37:21 +0000
+Received: from OSA0EPF000000C8.apcprd02.prod.outlook.com
+ (2603:1096:604:259:cafe::da) by OS7PR01CA0283.outlook.office365.com
+ (2603:1096:604:259::11) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9320.21 via Frontend Transport; Mon,
+ 17 Nov 2025 11:37:24 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 222.71.101.198)
+ smtp.mailfrom=cixtech.com; dkim=none (message not signed)
+ header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
+Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
+ 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
+ client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
+Received: from smtprelay.cixcomputing.com (222.71.101.198) by
+ OSA0EPF000000C8.mail.protection.outlook.com (10.167.240.54) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9343.9 via Frontend Transport; Mon, 17 Nov 2025 11:37:19 +0000
+Received: from [172.20.96.43] (unknown [172.20.96.43])
+	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id D609C40A5A2B;
+	Mon, 17 Nov 2025 19:37:16 +0800 (CST)
+Message-ID: <22f66fbf-8637-4826-a2e6-69d16333c2b8@cixtech.com>
+Date: Mon, 17 Nov 2025 19:37:16 +0800
 MIME-Version: 1.0
-References: <20251117091527.1119213-1-maz@kernel.org> <20251117091527.1119213-6-maz@kernel.org>
-In-Reply-To: <20251117091527.1119213-6-maz@kernel.org>
-From: Fuad Tabba <tabba@google.com>
-Date: Mon, 17 Nov 2025 11:35:18 +0000
-X-Gm-Features: AWmQ_bnrhZokZgmcow0lXNWcucVmFJ-Nro-VXQIq3EmXDZs9hFHaUagkAg0JMFQ
-Message-ID: <CA+EHjTxVr7uk8Ofhb2VHjDw+LfC4ZSz4dDun5+xLcnRQy5AKaQ@mail.gmail.com>
-Subject: Re: [PATCH v3 5/5] KVM: arm64: GICv3: Force exit to sync ICH_HCR_EL2.En
-To: Marc Zyngier <maz@kernel.org>
-Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	kvm@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Oliver Upton <oupton@kernel.org>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Christoffer Dall <christoffer.dall@arm.com>, 
-	Mark Brown <broonie@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/3] dma: arm-dma350: add support for shared interrupt
+ mode
+To: Krzysztof Kozlowski <krzk@kernel.org>, peter.chen@cixtech.com,
+ fugang.duan@cixtech.com, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, vkoul@kernel.org, ychuang3@nuvoton.com,
+ schung@nuvoton.com, robin.murphy@arm.com
+Cc: dmaengine@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, cix-kernel-upstream@cixtech.com,
+ linux-arm-kernel@lists.infradead.org
+References: <20251117015943.2858-1-jun.guo@cixtech.com>
+ <20251117015943.2858-3-jun.guo@cixtech.com>
+ <eb9eae64-f414-4b04-9a10-4dd8a9088e96@kernel.org>
+Content-Language: en-US
+From: Jun Guo <jun.guo@cixtech.com>
+In-Reply-To: <eb9eae64-f414-4b04-9a10-4dd8a9088e96@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: OSA0EPF000000C8:EE_|SE2PPF279E222DB:EE_
+X-MS-Office365-Filtering-Correlation-Id: 532562e6-0fac-40da-2553-08de25cdaacc
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|82310400026|36860700013|7416014|376014|921020;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?NkVOSTR1QTRVY1RHWktXRk5LaGhOdVdIWHJXbm8xeGdVemI1dVlEeE1BbXNW?=
+ =?utf-8?B?dXBWc1I5L2h3aUpaTkVZK0M1b3JUSmd2NURYT3lvZ25tSXd5dDhCdHNRRHNs?=
+ =?utf-8?B?TEV2c3BhVmNVSi9zUVRpR1FTVk8xSFRZc3BkZ0xUY3g4SDVXYTJRR2QrZTAr?=
+ =?utf-8?B?cFN5VEtOekdFR1BFYmlqMUNvbUxuVXIrNEozeFMzc1N4UGt4NDcxNTdsMkZB?=
+ =?utf-8?B?T2xDZUxzajJ1cGVrYklJZFJpNW5rbGpMWWVmWlkzb1UvN1ArWHA2LzNkbVl5?=
+ =?utf-8?B?US9Zamo2RVY3M2liUW9xeXBhTlE4Y3BnR0dVYklkWHZwcUtVUG5Ba3JLYlBa?=
+ =?utf-8?B?bDNBaG1MRzN4Q0h2NUowT1B4cEpPbVd4NU5RUHBUNHo1bGVRdkFSd3ZML2Yw?=
+ =?utf-8?B?OWV4TUxPbHpFRlEwLzZsUFlqNUo1OGVIUlRSQ0RZVklKbUN0aDBPcnUwdjdw?=
+ =?utf-8?B?MDRObFdkejN3a1BxalFHTTlZbDJsSzZjWlFjY1BYZnlwb3pGd0tUaDROMGky?=
+ =?utf-8?B?RnQxYTEwL3AxZjdYS0dtU0piZEJTYWNCK1lMaEE2YlhnclF3cEZUOUxkUjJn?=
+ =?utf-8?B?VW1ZVWRvSWcxVEtRcmVPRDNuQzl3ZFNkVFZhWFZYMFBJdC9GaHROaGhxUjcx?=
+ =?utf-8?B?YXVDcWpjNGljTUsrY1FncFN4TjQ1Mkg1SHl1Z3BrZTJieXNoMi95dDBraWk1?=
+ =?utf-8?B?S3FabzFzTHZVUVdXN1c4b1dadStsN1g0Y2plWTRWVVBvelJGbmlJWllWWmpm?=
+ =?utf-8?B?Y2sveDRtZGliajVhQ2tzenNETzJvSUVBQkV1WmsyRk1iUFl4L3NaU2twaEtQ?=
+ =?utf-8?B?ZUFQMFdZWHljUlJPb25iRDRXWXdCdS9LdWJsamtjQkUybW9DL0w2NlFCandj?=
+ =?utf-8?B?L0Q4ZEdjNXBLWXZ3dmxlckZ1QWlJaUdGWFRzQVM1OXdyVEVWcDRLeE8rSnN6?=
+ =?utf-8?B?VFpxYjE3TmlSNU5YcnQyYWRQS2daYkVPT3ZOWm9aQzZ6MnMxV0QxYU5DMWpX?=
+ =?utf-8?B?eWpLYkpuaDNVQ1BxcU10QkRPbXpxLy9wTEFXWlZ4akVSZHhzYkZmb28xMlZ3?=
+ =?utf-8?B?empIV0lHV0xLT3ZOMmZJYnlTaDdJMmxZVDBGSkc3OUliV2I5UFVOam4xM3ZZ?=
+ =?utf-8?B?Nk1USXd1WW8rQWgxQmJxTmEvalgwMlFJT1lodEswdnU2WDZZNzRib1FCdDg5?=
+ =?utf-8?B?amphb0J2ZVZKRlJpR2gxbnc2MjcyaUI2cjc5d1A2TCswTzllRVZ3NU1lRTRS?=
+ =?utf-8?B?UUo2M25PaHhWa0lSTnBwUFFPTTdpNmtONW0vZHBNVEwvRmRvd0hjMGxnODhK?=
+ =?utf-8?B?aERxUm1XbHpoZU9lNkFVU1kxa250am1vTXordzc4NG5wRVdQa2ExcWZiUWdU?=
+ =?utf-8?B?cXFCVXZ4VzQrQjVwSEZoVDNuOFNTeEo2NURVT2N1d0JtcTVnVkh4UUUrWC9h?=
+ =?utf-8?B?MGtXUG5tcDFzcjBwY0RqYTF2Mkk4RVF1NVNQQXlva0RvNXVOT0t3S0pwaVVl?=
+ =?utf-8?B?NXBXUWZjK2E5dzQwbENDdEJ5bW9ZYkVFaFF4ZmpmVktvbzl5RFBHeW1kMDly?=
+ =?utf-8?B?RVR3UHlFTWU0TVVQVUNHV3o0VWJZZ3NvblM0SW5mUnhpeE1ibGVEdHdmRktT?=
+ =?utf-8?B?aWJwNW5VZUdIVks1T0FaSXpabkdXRzQvbDR4RnJ5ZUgxTzhEcGc3ME1CdmRU?=
+ =?utf-8?B?Z09Odm1Qdmp3VjM2bXJHQWtpb2RpeEdwdG9BVGcyNjA4SkVDRTVnRTBDNTN2?=
+ =?utf-8?B?RVZtVXczUE5YNzJ1TzBCRDhMbWZkYTZUV0p4ZHJBUkJRZFphUTFDRm5ja2xi?=
+ =?utf-8?B?emo0WkFjbTRhV0pvTHI5N3Y1OUVBWnczYnlKUEZ3MUpZWUN6VTNDTURvMFpS?=
+ =?utf-8?B?MEdpa3REMFNRcXB3bmIzRDRzb1BkaCtmNFM3Y0pRcXR5bWRacmZFRVpQZjhi?=
+ =?utf-8?B?UVNyc3VLRGl4NXlyUGVSWjdjVjBORUxZZUJUNXlyMFRxUTlxaThYTmlDU0U1?=
+ =?utf-8?B?RUJrMmdBbVd3N3o4UDZSaEViUzFGL1JYTmxoYm9XQjMvcjZSWllrK2VIbHg0?=
+ =?utf-8?B?d2txWmJVU2pCLzFOem10anBQSWlocWw1dUs5TGV2dW5Ib0R3MGxSb294Mjlu?=
+ =?utf-8?Q?wdi9IKqNPaqbrfnBXsuUXS/4Z?=
+X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(36860700013)(7416014)(376014)(921020);DIR:OUT;SFP:1102;
+X-OriginatorOrg: cixtech.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Nov 2025 11:37:19.1872
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 532562e6-0fac-40da-2553-08de25cdaacc
+X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
+X-MS-Exchange-CrossTenant-AuthSource: OSA0EPF000000C8.apcprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SE2PPF279E222DB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251117_033556_816625_F9224ACE 
-X-CRM114-Status: GOOD (  26.72  )
+X-CRM114-CacheID: sfid-20251117_033731_305453_C45CFD8F 
+X-CRM114-Status: GOOD (  21.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,85 +153,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marc,
-
-On Mon, 17 Nov 2025 at 09:22, Marc Zyngier <maz@kernel.org> wrote:
->
-> FEAT_NV2 is pretty terrible for anything that tries to enforce immediate
-> effects, and writing to ICH_HCR_EL2 in the hope to disable a maintenance
-> interrupt is vain. This only hits memory, and the guest hasn't cleared
-> anything -- the MI will fire.
->
-> For example, running the vgic_irq test under NV results in about 800
-> maintenance interrupts being actually handled by the L1 guest,
-> when none were expected.
->
-> As a cheap workaround, read back ICH_MISR_EL2 after writing 0 to
-> ICH_HCR_EL2. This is very cheap on real HW, and causes a trap to
-> the host in NV, giving it the opportunity to retire the pending
-> MI. With this, the above test tuns to completion without any MI
-> being actually handled.
-
-nit: tuns->runs
 
 
->
-> Yes, this is really poor...
->
-> Signed-off-by: Marc Zyngier <maz@kernel.org>
-> ---
->  arch/arm64/kvm/hyp/vgic-v3-sr.c      | 7 +++++++
->  arch/arm64/kvm/vgic/vgic-v3-nested.c | 6 ++++--
->  2 files changed, 11 insertions(+), 2 deletions(-)
->
-> diff --git a/arch/arm64/kvm/hyp/vgic-v3-sr.c b/arch/arm64/kvm/hyp/vgic-v3-sr.c
-> index 99342c13e1794..f503cf01ac82c 100644
-> --- a/arch/arm64/kvm/hyp/vgic-v3-sr.c
-> +++ b/arch/arm64/kvm/hyp/vgic-v3-sr.c
-> @@ -244,6 +244,13 @@ void __vgic_v3_save_state(struct vgic_v3_cpu_if *cpu_if)
->         }
->
->         write_gicreg(0, ICH_HCR_EL2);
-> +
-> +       /*
-> +        * Hack alert: On NV, this results in a trap so that the above
-> +        * write actually takes effect...
-> +        */
-> +       isb();
-> +       read_gicreg(ICH_MISR_EL2);
->  }
+On 11/17/2025 2:13 PM, Krzysztof Kozlowski wrote:
+> On 17/11/2025 02:59, Jun Guo wrote:
+>> - The arm dma350 controller's hardware implementation varies: some
+> That's not a list. Look at git history to learn how to write expected
+> commit messages.
+> 
+>>   designs dedicate a separate interrupt line for each channel, while
+>>   others have all channels sharing a single interrupt.This patch adds
+>>   support for the hardware design where all DMA channels share a
+>>   single interrupt.
+>>
+>> Signed-off-by: Jun Guo<jun.guo@cixtech.com>
+>> ---
+>>   drivers/dma/ar
+> 
+> 
+>> @@ -526,7 +593,7 @@ static void d350_free_chan_resources(struct dma_chan *chan)
+>>   static int d350_probe(struct platform_device *pdev)
+>>   {
+>>        struct device *dev = &pdev->dev;
+>> -     struct d350 *dmac;
+>> +     struct d350 *dmac = NULL;
+>>        void __iomem *base;
+>>        u32 reg;
+>>        int ret, nchan, dw, aw, r, p;
+>> @@ -556,6 +623,7 @@ static int d350_probe(struct platform_device *pdev)
+>>                return -ENOMEM;
+>>
+>>        dmac->nchan = nchan;
+>> +     dmac->base = base;
+>>
+>>        reg = readl_relaxed(base + DMAINFO + DMA_BUILDCFG1);
+>>        dmac->nreq = FIELD_GET(DMA_CFG_NUM_TRIGGER_IN, reg);
+>> @@ -582,6 +650,26 @@ static int d350_probe(struct platform_device *pdev)
+>>        dmac->dma.device_issue_pending = d350_issue_pending;
+>>        INIT_LIST_HEAD(&dmac->dma.channels);
+>>
+>> +     /* Cix Sky1 has a common host IRQ for all its channels. */
+>> +     if (of_device_is_compatible(pdev->dev.of_node, "cix,sky1-dma-350")) {
+> No, see further
+> 
+>> +             int host_irq = platform_get_irq(pdev, 0);
+>> +
+>> +             if (host_irq < 0)
+>> +                     return dev_err_probe(dev, host_irq,
+>> +                                          "Failed to get IRQ\n");
+>> +
+>> +             ret = devm_request_irq(&pdev->dev, host_irq, d350_global_irq,
+>> +                                    IRQF_SHARED, DRIVER_NAME, dmac);
+>> +             if (ret)
+>> +                     return dev_err_probe(
+>> +                             dev, ret,
+>> +                             "Failed to request the combined IRQ %d\n",
+>> +                             host_irq);
+>> +
+>> +             /* Combined Non-Secure Channel Interrupt Enable */
+>> +             writel_relaxed(INTREN_ANYCHINTR_EN, dmac->base + DMANSECCTRL);
+>> +     }
+>> +
+>>        /* Would be nice to have per-channel caps for this... */
+>>        memset = true;
+>>        for (int i = 0; i < nchan; i++) {
+>> @@ -595,10 +683,16 @@ static int d350_probe(struct platform_device *pdev)
+>>                        dev_warn(dev, "No command link support on channel %d\n", i);
+>>                        continue;
+>>                }
+>> -             dch->irq = platform_get_irq(pdev, i);
+>> -             if (dch->irq < 0)
+>> -                     return dev_err_probe(dev, dch->irq,
+>> -                                          "Failed to get IRQ for channel %d\n", i);
+>> +
+>> +             if (!of_device_is_compatible(pdev->dev.of_node,
+>> +                                          "cix,sky1-dma-350")) {
+> No, use driver match data for that. Sprinkling compatibles everywhere
+> does not scale.
+> 
+I have another question: by "driver match data", are you referring to 
+the data variable in the struct of_device_id?
+> Also, this is in contrary with the binding, which did not say your
+> device has no interrupts.
+I need to clarify here: the issue with my chip platform is not the lack 
+of interrupts, but that all DMA channels share a single interrupt. The 
+current driver, however, defaults to assigning an individual interrupt 
+for each DMA channel.
 
-nit: is it worth gating this with "ARM64_HAS_NESTED_VIRT"?
-
-Otherwise,
-Reviewed-by: Fuad Tabba <tabba@google.com>
-
-Cheers,
-/fuad
-
-
-
-
->  void __vgic_v3_restore_state(struct vgic_v3_cpu_if *cpu_if)
-> diff --git a/arch/arm64/kvm/vgic/vgic-v3-nested.c b/arch/arm64/kvm/vgic/vgic-v3-nested.c
-> index 40f7a37e0685c..d6797632157a0 100644
-> --- a/arch/arm64/kvm/vgic/vgic-v3-nested.c
-> +++ b/arch/arm64/kvm/vgic/vgic-v3-nested.c
-> @@ -94,8 +94,10 @@ static int lr_map_idx_to_shadow_idx(struct shadow_if *shadow_if, int idx)
->   *
->   * - because most of the ICH_*_EL2 registers live in the VNCR page, the
->   *   quality of emulation is poor: L1 can setup the vgic so that an MI would
-> - *   immediately fire, and not observe anything until the next exit. Trying
-> - *   to read ICH_MISR_EL2 would do the trick, for example.
-> + *   immediately fire, and not observe anything until the next exit.
-> + *   Similarly, a pending MI is not immediately disabled by clearing
-> + *   ICH_HCR_EL2.En. Trying to read ICH_MISR_EL2 would do the trick, for
-> + *   example.
->   *
->   * System register emulation:
->   *
-> --
-> 2.47.3
->
->
 
