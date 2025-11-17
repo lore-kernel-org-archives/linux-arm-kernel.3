@@ -4,121 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58152CEACEF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 12:39:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EA79CEBF91
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 12:39:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P9DIIyED+hINuNByK4J2Qg8Q4Ih9PbTE9JwMpAdErrQ=; b=GGR0dgNxj3sFuskxxZYdyozG3Z
-	Y/w4ZBGAzNZcMW8H4KNJudFAgvEqhr9jW0Ot/U/jJcz3POvvYMceVa+2GFdY7lW82luENDizy6qvs
-	ZLt05iXKMlyPOgoNWpicoojWK+d5hMKg8o2pMNO/wsoa4XxLO7fsVZlJlaIFE2kHDZ1KxpYwuYh2c
-	/8Aur5wom/C3Ggxu6ogQWIZZ54ZKykCqRBfibK42p3+HyQ+J/ulMHGoX/hGyzdcEU4Q0Q/wh9SDZi
-	2txGAmgMLyp9ymsWRCfm2i07+JokdSnFcfJQUYzSgZjfempJOYNzFEDXp09Xr0iPxQgCa2bBNA5S+
-	MVOHYCxQ==;
+	bh=FLrE+Xe/tM2iNWEeeW9NyARXz//zc48PjG10FHjnRc4=; b=cg2JjmD+GBzfMkNeCtTeOVwFnf
+	UOJsiPRsFyjGPKz8gnApQtzkoJrGyUgJQTAkE20RqE9QvOkq1le4Qw0vcsdzF9pCarI9sok9dVYFl
+	mjNVG97vzLtVtR4nIfBz4JttFeW1HXf8L6WuxcWtX/SAXH6b6ID0h13/vnO5PuROhN7hILGcDTAhz
+	03mePtgjnRE86xkv4WnfQ8FeWL6OU9eE0EXCgf5bwn1suuuso9ndVKAUk59vR8XK4xyZF039GgMRB
+	vEJ/74nMgPc+sDDRwR+zSGJ/vmpsoVzkqaQfZWm4chEH7ltmFexkbyhYNFkGcZwSKGRRRfpzza6k+
+	aWWFnF3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKyWB-0000000G6Eq-0cVx;
-	Mon, 17 Nov 2025 12:39:39 +0000
-Received: from s2.avantea.pl ([46.242.128.95])
+	id 1vKyWN-0000000G6Rv-3r2G;
+	Mon, 17 Nov 2025 12:39:51 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKyW6-0000000G69A-3usF;
-	Mon, 17 Nov 2025 12:39:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=szczodrzynski.pl; s=x; h=Content-Transfer-Encoding:Content-Type:In-Reply-To
-	:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=P9DIIyED+hINuNByK4J2Qg8Q4Ih9PbTE9JwMpAdErrQ=; b=gvGG6mXbWWqnacGdEpxLT6qodC
-	NcNZuL5sxJsvH6xqxfMIaH/qzFlkZwxI1ygMiVIV6fpk5UMGvt5IPmzTP8PA8lBrNXTC1VyNe/J36
-	YIXDsFHFIeiwMmLHRNJVHx+szj6TZ0L7Lfm9wRzEKTSUUeySq7Zst8OsFseoW8xU3GkJQtgVd7Px2
-	HBHiq52XmWe1ak6jONUe3Gl32+O4hmHT9wkPN0GqeGAE4rBlTMAMdRTBI0XZ9sELH6UbvQ1WmXCDh
-	HqoENYj7yMevYnLiAozjnNsBM7s0Ja6Xyde23GNZGS1VIR7IJ/ciOWHg2Ik9N7yuqqUabS6ciEGdP
-	kwMTUcDw==;
-Received: from d100-116.icpnet.pl ([77.65.100.116] helo=[192.168.0.120])
-	by s2.avantea.pl with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.98.1)
-	(envelope-from <kuba@szczodrzynski.pl>)
-	id 1vKyW0-0000000H4xw-0X9t;
-	Mon, 17 Nov 2025 13:39:28 +0100
-Message-ID: <47f0b6b3-7cdb-4871-ad7c-d71d28679caa@szczodrzynski.pl>
-Date: Mon, 17 Nov 2025 13:39:18 +0100
+	id 1vKyWJ-0000000G6Mo-3n2P;
+	Mon, 17 Nov 2025 12:39:50 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1763383185;
+	bh=PB0+E1D0L9+GU+4xrKEDPFnH7XAiL88Ghkuup4edRvg=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=ZP7xUdZnA+iY2xvQ8ruQCK64QTmNTmonLAj+Vbid/uSAR+6FRmf5Eq0BP5K31uPGT
+	 rqUcz219GgcDxiw+FxHk1dZY2YBIdkMK54oQNItk8i7dc64jZeOXpdCAqh1CmCy+NT
+	 5hFZMneqk/XMQ3B/GuBmDwgLET0MaI481++oUiS2z2623N73G1UyjbvOzdqPdHFxom
+	 ZY0CYo9c/18qEsBGpQHAVV6jy/psfKck9AwYTgTToI3uydfMJRoNqaKaXF+WMswgJ4
+	 EB//qy4LohQqYIm9zJPersg7sfaP8GTc12OKs+Syew73dJNJXMCBJJ2Whdtwdg3aSA
+	 KAL5YuMdDH9kA==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id C3CF917E009B;
+	Mon, 17 Nov 2025 13:39:44 +0100 (CET)
+Message-ID: <0e3c692f-a6ef-4d1a-a412-a57b0a0ee8ee@collabora.com>
+Date: Mon, 17 Nov 2025 13:39:44 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 4/6] dt-bindings: display: sun4i: Add D1s/T113 combo
- D-PHY bindings
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Maxime Ripard <mripard@kernel.org>, Samuel Holland <samuel@sholland.org>,
- Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Thomas Zimmermann <tzimmermann@suse.de>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-phy@lists.infradead.org,
- devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org,
- parthiban@linumiz.com, paulk@sys-base.io
-References: <20251116134609.447043-1-kuba@szczodrzynski.pl>
- <20251116134943.447443-1-kuba@szczodrzynski.pl>
- <20251117-faithful-unique-millipede-d8bae5@kuoka>
- <a0347d10-475d-4dd2-b53e-ca7905869887@szczodrzynski.pl>
- <1cc0a6a8-2291-4eb6-8f4f-be0ded01d96f@kernel.org>
-Content-Language: pl
-From: =?UTF-8?Q?Kuba_Szczodrzy=C5=84ski?= <kuba@szczodrzynski.pl>
-Autocrypt: addr=kuba@szczodrzynski.pl; keydata=
- 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
-In-Reply-To: <1cc0a6a8-2291-4eb6-8f4f-be0ded01d96f@kernel.org>
+Subject: Re: [PATCH 12/13] interconnect: mediatek: Don't hijack parent device
+To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
+ <matthias.bgg@gmail.com>, Henry Chen <henryc.chen@mediatek.com>,
+ Georgi Djakov <djakov@kernel.org>
+Cc: kernel@collabora.com, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, linux-pm@vger.kernel.org
+References: <20251114-mt8196-dvfsrc-v1-0-b956d4631468@collabora.com>
+ <20251114-mt8196-dvfsrc-v1-12-b956d4631468@collabora.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20251114-mt8196-dvfsrc-v1-12-b956d4631468@collabora.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Authenticated-Id: kuba@szczodrzynski.pl
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251117_043935_182333_54286D9D 
-X-CRM114-Status: UNSURE (   8.02  )
+X-CRM114-CacheID: sfid-20251117_043948_108923_4AF9A8B7 
+X-CRM114-Status: UNSURE (   8.82  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -134,22 +81,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-W dniu 2025-11-17 o 12:53:41, Krzysztof Kozlowski pisze:
+Il 14/11/25 17:54, Nicolas Frattaroli ha scritto:
+> If the intention is that users of the interconnect declare their
+> relationship to the child icc_emi node of the dvfsrc controller, then
+> this code never worked. That's because it uses the parent dvfsrc device
+> as the device it passes to the interconnect core framework, which means
+> all the OF parsing is broken.
+> 
+> Use the actual device instead, and pass the dvfsrc parent into the
+> dvfsrc calls.
+> 
+> Fixes: b45293799f75 ("interconnect: mediatek: Add MediaTek MT8183/8195 EMI Interconnect driver")
+> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 
-> On 17/11/2025 12:08, Kuba Szczodrzyński wrote:
->> Will do.
->>
->>> You don't need names in the first place, you have only one
->>> entry.
->> However, phy-names was added because of how other bindings are made, such as "allwinner,sun4i-a10-musb" (single phy entry with const name).
->
-> It looks like USB binding, not a display one, so not really applicable
-> argument. Do existing display drivers using this binding rely on names
-> of phy or not?
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 
-Actually, existing display bindings that use PHY rely on their names.
-See: allwinner,sun6i-a31-mipi-dsi, allwinner,sun8i-a83t-dw-hdmi, as well as some bindings for different SoCs.
 
-> Best regards,
-> Krzysztof
 
