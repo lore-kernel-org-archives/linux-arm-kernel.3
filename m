@@ -4,84 +4,218 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0CE1CEACEF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 07:36:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9258CEACEF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 07:36:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:In-Reply-To:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kf/sGnMP+uPwRoS11MP/BvqHNSifHXfJ38KYiWc+Knw=; b=m40ebPaSf98JQm8FOGNHu8ET3Z
-	x0MgWq58mcwTRG9zGPaDgvrqxvT/vc9aguJqEzioHF2ovkfQaOIhzQZXI4m/H+aQ3jBO5wH84dcoX
-	X+sTnLoLhxseVqBpSbprA9hsP+Ba3ivPtgxLITwFjYcdS1min+9ZtEdP6yaYiqatcvGYwn6IbH/za
-	aAXtH0bDaIfxaqP0hMzZ+6IWfWc63euRfH+M/UaEJuAAOVGyalIoFAwnyHVk1YVM62C/G/E+H3MrU
-	1Sp5c09QT8+eD1IuGXiHd+vfLo0aUGSCzpg5d5bz4cqsUqjXQwzSjXIqVAxLAvCLZLtUjJPTTT4ei
-	u5fDH1ZQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6Lr3knktHg7oJVwT55J6/d7gO/AXDJJslZxMdOVP6uY=; b=GcF2cSIhw9GVaJeCXXa/fcNUqM
+	YEJmnllBGi96kBzFrW6hlyDLR2BGd5CLNJ9NDks6NuEC61SRClkG0+liXlrXy9fLh5wXNVBYMs4na
+	QBvMSCOdkt3rD4Z+vxI54ZWM4amj6S/D11kr2kcdqc/6Q31Z1pY/ufV9ChCjswC8aUdZitrLL/jfo
+	v14Vp0FqJRmYmKyRi2L2rWBBMsgCM5FvFZcM0Tk2l+1xCkPY0d3zqptnD+kFQVBOe7UMav0W85LwW
+	PWBWuukt2RbgPB5xT1//Ggv09fSpTViYoBHC6APhrjNYFarMvErRx5or3UE6Y4aWnRSkDOqKDe5xw
+	JeHNCbng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKtmZ-0000000Fchb-1E9Q;
-	Mon, 17 Nov 2025 07:36:15 +0000
-Received: from mailout4.samsung.com ([203.254.224.34])
+	id 1vKtmf-0000000Fclx-3ROz;
+	Mon, 17 Nov 2025 07:36:21 +0000
+Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKtmU-0000000FcfB-0mYI
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Nov 2025 07:36:13 +0000
-Received: from epcas2p2.samsung.com (unknown [182.195.41.54])
-	by mailout4.samsung.com (KnoxPortal) with ESMTP id 20251117073605epoutp0472c3b9ed6bdf01af4ff9ce7251962af6~4uxfVvPcP1492114921epoutp048
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Nov 2025 07:36:05 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout4.samsung.com 20251117073605epoutp0472c3b9ed6bdf01af4ff9ce7251962af6~4uxfVvPcP1492114921epoutp048
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1763364965;
-	bh=kf/sGnMP+uPwRoS11MP/BvqHNSifHXfJ38KYiWc+Knw=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=psxdoYvmWGihS5oKKR10YM8ErvwPfDHE88WeK2o9+2R9gD+2/grMYfuyxzXrSfvYW
-	 ojUf65zh8T0WxRKqu5Gm7qAhThGNhfL/TcAuNqOK+qEiOxbbdgY1GtoQrmOKqGg0vq
-	 hMFu7Ci9A2df6AbNTCZDxTtyTyAfMQi/lpT7Bp4E=
-Received: from epsnrtp03.localdomain (unknown [182.195.42.155]) by
-	epcas2p2.samsung.com (KnoxPortal) with ESMTPS id
-	20251117073604epcas2p264339cf8275f57eaad3e9d3f61b27270~4uxe4d9uF2295622956epcas2p25;
-	Mon, 17 Nov 2025 07:36:04 +0000 (GMT)
-Received: from epcas2p2.samsung.com (unknown [182.195.38.201]) by
-	epsnrtp03.localdomain (Postfix) with ESMTP id 4d900h1ynzz3hhT9; Mon, 17 Nov
-	2025 07:36:04 +0000 (GMT)
-Received: from epsmtip2.samsung.com (unknown [182.195.34.31]) by
-	epcas2p1.samsung.com (KnoxPortal) with ESMTPA id
-	20251117073603epcas2p1366028012403591bd297764f91694181~4uxd6TeVq0038400384epcas2p1x;
-	Mon, 17 Nov 2025 07:36:03 +0000 (GMT)
-Received: from perf.dsn.sec.samsung.com (unknown [10.229.95.91]) by
-	epsmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20251117073603epsmtip2ac73eb334fb72e3640c6709a1a679ba8~4uxd0HYnv2919729197epsmtip2K;
-	Mon, 17 Nov 2025 07:36:03 +0000 (GMT)
-From: Youngmin Nam <youngmin.nam@samsung.com>
-To: krzk@kernel.org, s.nawrocki@samsung.com, alim.akhtar@samsung.com,
-	linus.walleij@linaro.org, peter.griffin@linaro.org,
-	semen.protsenko@linaro.org
-Cc: ryu.real@samsung.com, d7271.choe@samsung.com,
-	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
-	linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, Youngmin Nam
-	<youngmin.nam@samsung.com>
-Subject: [RFT PATCH v2 2/5] pinctrl: samsung: fix incorrect pin-bank entries
- on Exynos2200/7885/8890/8895
-Date: Mon, 17 Nov 2025 16:41:37 +0900
-Message-Id: <20251117074140.4090939-3-youngmin.nam@samsung.com>
-X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20251117074140.4090939-1-youngmin.nam@samsung.com>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CMS-MailID: 20251117073603epcas2p1366028012403591bd297764f91694181
-X-Msg-Generator: CA
+	id 1vKtmZ-0000000Fcha-2Abx;
+	Mon, 17 Nov 2025 07:36:17 +0000
+X-UUID: 1711a648c38811f09f706fa2197c6ceb-20251117
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=MIME-Version:Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From; bh=6Lr3knktHg7oJVwT55J6/d7gO/AXDJJslZxMdOVP6uY=;
+	b=grAbL7H61ZP/nt+Jyl8x5xxVZUBLS16dTLES09bnVp2w5/nCB5fainNSds6T2kGzgDslqSAWt3yvWUl1iv7oBTn6HoPAj2WBw8BeCNenTh0Ox4PSuOJMDiJHbzmHr+eYc7uvGKcS98a2u4sQtHmo3B/7Yohj3F6zsfwBEwZgkBQ=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.6,REQID:722f572e-fb28-42e8-87d9-964ecdb1f7f9,IP:0,UR
+	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
+	elease,TS:0
+X-CID-META: VersionHash:a9d874c,CLOUDID:f3d5f957-17e4-43d2-bf73-55337eed999a,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102|110|111|836|888|898,
+	TC:-5,Content:0|15|50,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BE
+	C:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 1711a648c38811f09f706fa2197c6ceb-20251117
+Received: from mtkmbs09n1.mediatek.inc [(172.21.101.35)] by mailgw01.mediatek.com
+	(envelope-from <kyrie.wu@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 2019610011; Mon, 17 Nov 2025 00:36:11 -0700
+Received: from mtkmbs10n1.mediatek.inc (172.21.101.34) by
+ MTKMBS09N2.mediatek.inc (172.21.101.94) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1748.26; Mon, 17 Nov 2025 15:36:08 +0800
+Received: from SI4PR04CU002.outbound.protection.outlook.com (172.21.101.237)
+ by mtkmbs10n1.mediatek.inc (172.21.101.34) with Microsoft SMTP Server id
+ 15.2.1748.26 via Frontend Transport; Mon, 17 Nov 2025 15:36:08 +0800
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=yvHt1tBP9gQR5TF6gRSMQaBMW5ELwBuTRCz6IqfBhjgit/CokzxkYK/zAWPWqnZJ0Zojgr2tdJc2EbZp+8CzivGAVYzrfZjoYRsJ4TMUiXzaIY6d1C7TRF+/aC7zH2hWLG4bREpeAeTK9/ZHqGDrGJK86PGucVH9OUTfwD9Y9fqzrtFgqzEEt8UkN9gwzMQCaGZFsubNefYTxIv6L5FIqQH36IYMl+R99z77iFcomYqUMegtx1N+cqDUoBKVTD+63/41jec3njas9xL6GTF27Eotm71sB5suU38Ia7K21gj2NCBi5Z508YGXjuW3ZM3nxOASi98CPJtUC7lMFX6wZg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=6Lr3knktHg7oJVwT55J6/d7gO/AXDJJslZxMdOVP6uY=;
+ b=haIU4g13ai9QVHVufVjSTMe/utcQQr0ad9rSlDfrOzhWPBrFzfW+4TPH4JlUHo58iTHQpA9wg96oQ3+qpdu7SJVDa+zqVIU0YCvFaCtV8m1o6oIXPozyo9cndJtS6EjAT36fyPQcYPAPCsmdmMYmYKEKUxAHItXUk/tqtXq4SbV6ala7HuFlMKw0BKAeIngw9NghWbNT1rjFqlfFyGS8cNLKEomdE518tb6IBEzOsigFBfYS+ibep6jCsp4gvcYtwFyBLueiYZ103kw1UBDYDfuRc4AaFGiErYc3Jcsi+IH8xhLWSjrX+EK+BzQ28oc28rlUl5XeiU8DZS6pXbIwQw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=mediatek.com; dmarc=pass action=none header.from=mediatek.com;
+ dkim=pass header.d=mediatek.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=mediateko365.onmicrosoft.com; s=selector2-mediateko365-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=6Lr3knktHg7oJVwT55J6/d7gO/AXDJJslZxMdOVP6uY=;
+ b=sbIBn1RTj4WN95iXrUh81KCSPs4aXiSLlXqVJ3hR3og6S3t1reB9XHmz054wfn26XfgDjwDqQtA6eHELxsTPKZyTsXnP753q+VIhRB8+4v7y362ar2JHUAFl2LiMucTDvBpVrWU1ZFflx/IPK123nFoxtjfHmp2dCpHlMngiW90=
+Received: from PUZPR03MB6186.apcprd03.prod.outlook.com (2603:1096:301:b9::5)
+ by SE1PPF080775CC1.apcprd03.prod.outlook.com (2603:1096:108:1::844) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9320.19; Mon, 17 Nov
+ 2025 07:36:02 +0000
+Received: from PUZPR03MB6186.apcprd03.prod.outlook.com
+ ([fe80::a013:f3b3:a461:8ece]) by PUZPR03MB6186.apcprd03.prod.outlook.com
+ ([fe80::a013:f3b3:a461:8ece%4]) with mapi id 15.20.9320.018; Mon, 17 Nov 2025
+ 07:36:02 +0000
+From: =?utf-8?B?S3lyaWUgV3UgKOWQtOaZlyk=?= <Kyrie.Wu@mediatek.com>
+To: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
+	=?utf-8?B?R2VvcmdlIFN1biAo5a2Z5p6XKQ==?= <George.Sun@mediatek.com>,
+	=?utf-8?B?VGlmZmFueSBMaW4gKOael+aFp+ePiik=?= <tiffany.lin@mediatek.com>,
+	"nhebert@chromium.org" <nhebert@chromium.org>, "linux-media@vger.kernel.org"
+	<linux-media@vger.kernel.org>, "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>, "mchehab@kernel.org" <mchehab@kernel.org>,
+	"nicolas.dufresne@collabora.com" <nicolas.dufresne@collabora.com>,
+	"hverkuil@xs4all.nl" <hverkuil@xs4all.nl>,
+	=?utf-8?B?S3lyaWUgV3UgKOWQtOaZlyk=?= <Kyrie.Wu@mediatek.com>,
+	=?utf-8?B?WXVuZmVpIERvbmcgKOiRo+S6kemjnik=?= <Yunfei.Dong@mediatek.com>,
+	"conor+dt@kernel.org" <conor+dt@kernel.org>,
+	=?utf-8?B?SXJ1aSBXYW5nICjnjovnkZ4p?= <Irui.Wang@mediatek.com>,
+	"robh@kernel.org" <robh@kernel.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>,
+	=?utf-8?B?WWlsb25nIFpob3UgKOWRqOaYk+m+mSk=?= <Yilong.Zhou@mediatek.com>,
+	"matthias.bgg@gmail.com" <matthias.bgg@gmail.com>, "krzk+dt@kernel.org"
+	<krzk+dt@kernel.org>, "arnd@arndb.de" <arnd@arndb.de>,
+	=?utf-8?B?QW5kcmV3LUNUIENoZW4gKOmZs+aZuui/qik=?=
+	<Andrew-CT.Chen@mediatek.com>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>
+CC: "andrzejtp2010@gmail.com" <andrzejtp2010@gmail.com>,
+	"neil.armstrong@linaro.org" <neil.armstrong@linaro.org>
+Subject: Re: [PATCH v5 5/8] media: mediatek: vcodec: fix vp9 4096x2176 fail
+ for profile2
+Thread-Topic: [PATCH v5 5/8] media: mediatek: vcodec: fix vp9 4096x2176 fail
+ for profile2
+Thread-Index: AQHcTuSm9J6VepoZjEGhhb0MM0oiWbTlwzQAgBDIpgA=
+Date: Mon, 17 Nov 2025 07:36:01 +0000
+Message-ID: <dea9519e6b72c12ea15760fc3bd7c7746dbfd5de.camel@mediatek.com>
+References: <20251106061323.2193-1-kyrie.wu@mediatek.com>
+	 <20251106061323.2193-6-kyrie.wu@mediatek.com>
+	 <bd2f63265df829ec9bb3498c83126827415c2ebf.camel@collabora.com>
+In-Reply-To: <bd2f63265df829ec9bb3498c83126827415c2ebf.camel@collabora.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=mediatek.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: PUZPR03MB6186:EE_|SE1PPF080775CC1:EE_
+x-ms-office365-filtering-correlation-id: 514eb33b-7ae5-445c-aaf0-08de25abf578
+x-ld-processed: a7687ede-7a6b-4ef6-bace-642f677fbe31,ExtAddr
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024|921020|38070700021;
+x-microsoft-antispam-message-info: =?utf-8?B?Szh3L2psNjdKeUNRMDBQOEZNdkcwam1MK2RQNjZ1KzdDcHdoVThYL2tWUjU5?=
+ =?utf-8?B?VTJDUk1BVDk0bUk3djY5dHZmQzFVTnp3d055bWF5elhCR3dVNkplRFdFa0Ra?=
+ =?utf-8?B?MnJyRlhHM0dKdlMxRndsdzBOVEh1eGJka3dFd0FUNmwvMVFqNVdBMTNkQm0v?=
+ =?utf-8?B?elp6L3NOWjluYU1ET1BOWmtId2NlYnVCZDVwVEhiV0xrdStTNXAreTFKVGNw?=
+ =?utf-8?B?WVR2QVB6bng5RDZ6ZER1OHkza2U1ZjhnVnBKRnE1OThISm5EdUdoVkl4Wkl6?=
+ =?utf-8?B?ODVBSDBnMWRGRWNnOWdMaUdXcWpTQTk2VG43NHB6QWh1UjltdlhiSmNONFNk?=
+ =?utf-8?B?a0V2UzRpUWNLQVp0TlppVTcvdEZ1clExaXJKQWptM3RzV2FkMjBHdW1LQTEx?=
+ =?utf-8?B?NkU1ZlZhL1dqOXh0endUK0tGRUppVm9aUFdQTkdHUXhFZ3BNWjVIY2lxT0NW?=
+ =?utf-8?B?eFdYV2FSRFdkaEpmRE1RL25pUlhweGh1S1RaNXhNa3hWTFVlVGQ2aTUrM1J3?=
+ =?utf-8?B?MTV1RE1UYmxBdFJubHQrNVNIZ2JwbjBwbnhMSkczQktGZ0Y4WEdtNll2ODlV?=
+ =?utf-8?B?QVFjM1N1TlZObUJuVjFDaWlIMzIvcGhiWEZteU1yN3MzTjQ0ZGNYay9nTHE3?=
+ =?utf-8?B?R3Z6dTliajNsT1JpWXJRWWNNTkNjOWcxQktLSy8wYVVVWnk1UHNtV0VDVnNo?=
+ =?utf-8?B?NEFyN2J5cXRGbWczSzhYeEUyZ0NsNWVIaTlmNUVUaFBadEZlVWRTOVZQNjJU?=
+ =?utf-8?B?NWRDejRQT2pOb0JZTWxLMXZQcTNudEU1QTR4U3RXb0NxL2hhbEVEYzlVejVl?=
+ =?utf-8?B?ckdxVk53SUt6RmJ4dHh3Sk1xaVIxUkNPdEFlcjlPbENnRC8rVGJlMVh4MnJF?=
+ =?utf-8?B?T2JpZUpPa2Q2U1ZOTE5XRW1ZSm5uaEZ4d0ZKS2daWlVzNStjMHRoZUYzZzFR?=
+ =?utf-8?B?NHoxSkM2NGpMS0wzWVRiMVJlYzRqd1F2VFdMU3dWUVZNM3hvaThsQ1VHaVl1?=
+ =?utf-8?B?d0xBbE8rcFN3NSs2M2gwNEU4dXh6RHZNYkVsemg3VzJzaEFoQnhKV1AycmJv?=
+ =?utf-8?B?bEJXN2UwT3VvZEpQbTQ2bTdldmZka2RrUkZiRGwyazZ4VEc1RU1tYS9ZWHNh?=
+ =?utf-8?B?VGtKMlhBRGxXSTlRQmN0QzVtUy9pTk4zVG9hSE51ZERJb2drWmRpcDBsTzcz?=
+ =?utf-8?B?azkybWpJbTd3QTN6U3NCYkRoRERNd1RLQ0VyV1kyQVRSYjVUTmtxVHVybWx3?=
+ =?utf-8?B?M0w4M2JDMlFnU0Vycm5YVGFaa3N2VGd6Q3p4L0pCS3N5WWU0TFl1bWVUaGFr?=
+ =?utf-8?B?Yi9XQ2NxQUoxb0JWdUg1WTdJVGJQR1BTY01WUVdPLzZ5WDVTcElTV0FIcWhG?=
+ =?utf-8?B?UnFmbHNCRDd0dzNpcDhKTi9DRTRGaEV1c2JDMHM2bG9nVVYvV2VRVTV1OWxL?=
+ =?utf-8?B?SGxVU2NJSndjK1VmK1AwQmJmTTIyK2duTG05YWlBRnZVRSs3d01SWmxscHJR?=
+ =?utf-8?B?aWRzY0x5M2hlMXU4RXpNeEs5bFhUUkhWVVNmYldkbFprOUNsYWpKNFFnVGZu?=
+ =?utf-8?B?dlBpZloxamhVZ0RIUVpmOHpUKzRVQXhxeW1uOHN5ekc0WFBpd2RhNFVoY0Zv?=
+ =?utf-8?B?Y1hRSGpVQUVlTE5uT2QveXNtekpPWkZ1c2dvNWxuN1ZKUVlLNFB4NjNmRk5h?=
+ =?utf-8?B?QmpCUkR4c1M1YndaeVN0TW9icU9GWWNmK1dENUN3cGhMYk01QXN5dWNTK0lE?=
+ =?utf-8?B?eUhpbE95akhXWXIyejRoZmtreTZyam9Da3Foa1o2VnNnVnJyaEd0ZnJ1OHN4?=
+ =?utf-8?B?dE00WjBjV05sMkpJdFowZTBGblNjTVJLVnUrZk5LWjJKeGxpZ09DTSs0MjVn?=
+ =?utf-8?B?K2NKTmJLWUtpWWJHVnpvZFdQdERVMklWODFHRCtVMXBEVzNXN3lxaGlaa1dG?=
+ =?utf-8?B?NStOSGlBNk45ZERRSkdIenArRXZtSHh6YnFWZlNaTHhpYjVUUUZEZ2s2UjFC?=
+ =?utf-8?B?SXVxaTAyYWJmREdCTVU0eW5WQVBnVWFpbUdHN2JGMVNyeXBRY0l0cUZTY2Np?=
+ =?utf-8?B?YW4wWDJvdzlwUktPWWppZWE3SENlSzJ4NWsxQT09?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PUZPR03MB6186.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024)(921020)(38070700021);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?S1hkdUhSa3ZyRFNUUVZNaStvYmpJWnlRbEpBWFZhY0lhbS9DcjZHWVpwdzc0?=
+ =?utf-8?B?K0JxNVhvMm5ySTNvRmd3TlNMd1JMalhGVzZwemw5c25IUUNKdmkwN2I3WVpV?=
+ =?utf-8?B?U2lkMXhnZTd1ZkxTTXZVL3JjWHVMY3MzUzNaWm1OUlVmQ01FZE9lYnpJRGlB?=
+ =?utf-8?B?c1ordVNEMkVuTHFQRUhMbVl6VVgyWHFWeW9RSDhWRU9JUWRpY1ZnYVJIem5q?=
+ =?utf-8?B?c3lubUdBZmthUjVEVnEyckpwRHExVC9sdkhrTm5VQUdjZGlsaHo0QVBIeDdG?=
+ =?utf-8?B?bTliNVVqcExMY0lZbE5iRnJ4VXlPdmdhNmFEOXJNMGdpNVZBbS9vVzNDTFJW?=
+ =?utf-8?B?aGhaKys5Vlo5aStlcmY5RHVKQjhObzRtVmFRdGo5QU43VWtmWWZsVnJkdjZ6?=
+ =?utf-8?B?L1VwZDliSmhoSVdRR3BXRU5ESHUvR2dhY0VBczEzeTNiMmxueW5pWk9md05y?=
+ =?utf-8?B?ZHoxcnFXTTVwR0V4dmZzNHdrOUM5WFFXVnphWWxHVUpVTWpGZ0FUSUFnTkNO?=
+ =?utf-8?B?RnltdStYa2doWHlGVDlXSFJwY1NRM0dQMjIvYXZKcFZQNFNtM0ZHKzVlVHFB?=
+ =?utf-8?B?dHJ4bHhSL3pCZi8yTDNOY1k5bW1RaDIrWWJZZGtRL3dTeVFBbjVkck04RTJy?=
+ =?utf-8?B?b0tTZFpxcEhzYUhCd1FNN2dSeUxsL2dFV3FlSmtpY3puQS9qY1lhOTdzTVlj?=
+ =?utf-8?B?WjJzSFArdk5YVXpJUXpXRE54UUdtUFhqc1YvVXFMR2czRW8wOWkrUmdPSzlq?=
+ =?utf-8?B?NzJMTmhXcGJxOVJrS0xCQ3krVGRSVWMxeXcxSThPUkpLQzNTbnRNL2M3WEFD?=
+ =?utf-8?B?YlJ1Yy9vd0RSWmNFdVFyWC9KSUZDcDJiNHgwNXhPaFBlOHlyd3dRSlp0Ynp3?=
+ =?utf-8?B?S3pLcndlbWYwbGJ3WXloZnoxR2NJdWFJSmExMU0zOURLQTZEell6SmV1SURa?=
+ =?utf-8?B?OWI4akVyTmhTRklnQ3BrZWMxZ0kyOVh1WXR4R1JSVFJYamZURGVxaklCenJU?=
+ =?utf-8?B?eHJRM2N1cUt5Vlh3NXB0S3FHek9qeTNXWWJEZC82YWt0TmFwQldrSEJrekx1?=
+ =?utf-8?B?aHdPQ0Z0blBMSEpoRTNyWloxZzBreFV1Q3hnTlllQWZkY20yZTFOSzVlZzZX?=
+ =?utf-8?B?QisvTTVQaG94NzdDN3FGdDdFaGNOcTE1SHhHL1RCdjkrekZjeXlaUlhNS1Y4?=
+ =?utf-8?B?WndLWWtqVGpHZWNrV2N2NXVlaXlYV3lUVUJ4Vm1oRzBsRGN0bzBicnVoTndo?=
+ =?utf-8?B?d1hDRzZJWCs2V3c1NStndytMU2ZLVVpHWXNIcTIzNU1vZ3RORFFEU09RSFlY?=
+ =?utf-8?B?dXRYSUhiS1VPMEJoczlNUCt2VWJJcGVxY2luSENnYXd6ZTZHT3RrZmVPbWRT?=
+ =?utf-8?B?UGE4NDc2NkE5V251bmNxK3JvOEl0UVRHd1dxU1ZGeEtrZkQ1VTgrMEJkSk9o?=
+ =?utf-8?B?WjRVRCtjUTIyRDE1Q3NXMUlraTZLaUZRb1VNekRqU0Z6SjZQbmN4KzExY2xH?=
+ =?utf-8?B?YUNIMlNORVdFUXh3YjZ4NXMzdkM5NVgrZm42d20yVTlBSmhxK2FMZ1J1Z3lO?=
+ =?utf-8?B?UzlKMlBhcXZkdVdUS1hXNGpCNVcwL1dTcVR0VS95U0ZCZisrcHlUVDVxTmVW?=
+ =?utf-8?B?RnpXK1I2VGxvMitCQTVmMHpVUVB1bElYSWZyaHhSV01qU3hWOG9WRC9aV1Ro?=
+ =?utf-8?B?QzZPZUpQeEx1TW5PbXo4OEFnczlDV2E0NnJORDFyRzVVY0xWOXY4UkZ4L2Vo?=
+ =?utf-8?B?N0ljLzZCUDc5NHdPcGg0N01EOG9NTk5veDl1ZnJudTN5eFBJYUZDVVFQZmI1?=
+ =?utf-8?B?eGN1Y0UxaHFVYjdQVFk4ZkZPZ2hYQzVBM2VuMzQ2aFR3L1I5WXd3QUdGdzg4?=
+ =?utf-8?B?dWRVT2FuZG1tNmZoQXRSYVdrSENSRFpuaXpmbGVBdlVtSmN6bmkwVWlPV2tD?=
+ =?utf-8?B?WVVieGtNN3pqYzJ2ZStleEZ1RTNiNzFNNVozZER1OU5PbE5rOVVhRVgrUE1a?=
+ =?utf-8?B?SlNTT1ZneHlvQ0xsakszNkx2RElYNGU1Y2hWQVJCeURITGxCWkc5N01BTXpq?=
+ =?utf-8?B?M2VBTXpFQUx6QmNoRnpRS3ZhWnRiSDFZZitmTE1UTEsrS3VMcVVVUFUySU1o?=
+ =?utf-8?Q?Wm8lSQy4OJ+J4d8n85H0otwYO?=
 Content-Type: text/plain; charset="utf-8"
-X-Sendblock-Type: AUTO_CONFIDENTIAL
-CMS-TYPE: 102P
-cpgsPolicy: CPGSC10-234,Y
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20251117073603epcas2p1366028012403591bd297764f91694181
-References: <20251117074140.4090939-1-youngmin.nam@samsung.com>
-	<CGME20251117073603epcas2p1366028012403591bd297764f91694181@epcas2p1.samsung.com>
+Content-ID: <19D58358BB8F3F41B42FB7F3062683EB@apcprd03.prod.outlook.com>
+Content-Transfer-Encoding: base64
+MIME-Version: 1.0
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: PUZPR03MB6186.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 514eb33b-7ae5-445c-aaf0-08de25abf578
+X-MS-Exchange-CrossTenant-originalarrivaltime: 17 Nov 2025 07:36:02.0758
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: a7687ede-7a6b-4ef6-bace-642f677fbe31
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: lLaI7QymMjmLPt35an4RfkfjRcAV0I7Crd21wdks9nqiFICIhTpHdzyDowpYu2jtJyrPdVG8W8iYVspilXGHGQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SE1PPF080775CC1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251116_233611_301627_735E6861 
-X-CRM114-Status: GOOD (  13.54  )
+X-CRM114-CacheID: sfid-20251116_233615_733031_E164615B 
+X-CRM114-Status: GOOD (  18.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,160 +230,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patch corrects wrong pin bank table definitions for 4 SoCs based on
-their TRMs.
-
-Exynos2200
-- gpq0/1/2 were using EXYNOS_PIN_BANK_EINTN(), which implies a
-  'bank_type_off' layout (.fld_width = {4,1,2,2,2,2}).
-- Per the SoC TRM these banks must use the 'alive' layout
-  (.fld_width = {4,1,4,4}).
-- Switch them to EXYNOS9_PIN_BANK_EINTN(exynos9_bank_type_alive, ...).
-
-Exynos7885
-- etc0, etc1: update bank type to match the SoC TRM.
-- gpq0 is a non-wakeup interrupt bank; change EINTW -> EINTN accordingly.
-
-Exynos8890
-- Per the SoC TRM, rename bank ect0 to gpb3 and mark it as
-  a non-external interrupt bank.
-- gpi1, gpi2: update bank type to match the SoC TRM.
-  exynos8895_bank_type_off (.fld_width = {4,1,2,3,2,2}) ->
-  exynos5433_bank_type_off (.fld_width = {4,1,2,4,2,2})
-- Per the SoC TRM, mark etc1 as a non-external interrupt bank.
-- apply lower case style for hex numbers.
-
-Exynos8895
-- gpa4 is a non-wakeup interrupt bank per the SoC TRM.
-  change EINTW -> EINTN. (The bank_type itself was correct and is kept
-  unchanged.)
-- apply lower case style for hex numbers.
-
-This aligns the pin-bank tables with the documented bitfield layouts and
-wakeup domains. No DT/ABI change.
-
-Signed-off-by: Youngmin Nam <youngmin.nam@samsung.com>
-Reviewed-by: Sam Protsenko <semen.protsenko@linaro.org>
-Tested-by: Sam Protsenko <semen.protsenko@linaro.org>
----
- .../pinctrl/samsung/pinctrl-exynos-arm64.c    | 40 +++++++++----------
- 1 file changed, 20 insertions(+), 20 deletions(-)
-
-diff --git a/drivers/pinctrl/samsung/pinctrl-exynos-arm64.c b/drivers/pinctrl/samsung/pinctrl-exynos-arm64.c
-index d11b2d4ca913..b4a7d86b82fe 100644
---- a/drivers/pinctrl/samsung/pinctrl-exynos-arm64.c
-+++ b/drivers/pinctrl/samsung/pinctrl-exynos-arm64.c
-@@ -95,9 +95,9 @@ static const struct samsung_pin_bank_data exynos2200_pin_banks0[] __initconst =
- 	EXYNOS9_PIN_BANK_EINTW(exynos9_bank_type_alive, 8, 0x40, "gpa2", 0x08),
- 	EXYNOS9_PIN_BANK_EINTW(exynos9_bank_type_alive, 8, 0x60, "gpa3", 0x0c),
- 	EXYNOS9_PIN_BANK_EINTW(exynos9_bank_type_alive, 2, 0x80, "gpa4", 0x10),
--	EXYNOS_PIN_BANK_EINTN(4, 0xa0, "gpq0"),
--	EXYNOS_PIN_BANK_EINTN(2, 0xc0, "gpq1"),
--	EXYNOS_PIN_BANK_EINTN(2, 0xe0, "gpq2"),
-+	EXYNOS9_PIN_BANK_EINTN(exynos9_bank_type_alive, 4, 0xa0, "gpq0"),
-+	EXYNOS9_PIN_BANK_EINTN(exynos9_bank_type_alive, 2, 0xc0, "gpq1"),
-+	EXYNOS9_PIN_BANK_EINTN(exynos9_bank_type_alive, 2, 0xe0, "gpq2"),
- };
- 
- /* pin banks of exynos2200 pin-controller - CMGP */
-@@ -768,12 +768,12 @@ const struct samsung_pinctrl_of_match_data exynos7870_of_data __initconst = {
- 
- /* pin banks of exynos7885 pin-controller 0 (ALIVE) */
- static const struct samsung_pin_bank_data exynos7885_pin_banks0[] __initconst = {
--	EXYNOS_PIN_BANK_EINTN(3, 0x000, "etc0"),
--	EXYNOS_PIN_BANK_EINTN(3, 0x020, "etc1"),
-+	EXYNOS9_PIN_BANK_EINTN(exynos9_bank_type_alive, 3, 0x000, "etc0"),
-+	EXYNOS9_PIN_BANK_EINTN(exynos9_bank_type_alive, 3, 0x020, "etc1"),
- 	EXYNOS9_PIN_BANK_EINTW(exynos9_bank_type_alive, 8, 0x040, "gpa0", 0x00),
- 	EXYNOS9_PIN_BANK_EINTW(exynos9_bank_type_alive, 8, 0x060, "gpa1", 0x04),
- 	EXYNOS9_PIN_BANK_EINTW(exynos9_bank_type_alive, 8, 0x080, "gpa2", 0x08),
--	EXYNOS9_PIN_BANK_EINTW(exynos9_bank_type_alive, 5, 0x0a0, "gpq0", 0x0c),
-+	EXYNOS9_PIN_BANK_EINTN(exynos9_bank_type_alive, 5, 0x0a0, "gpq0"),
- };
- 
- /* pin banks of exynos7885 pin-controller 1 (DISPAUD) */
-@@ -1502,7 +1502,7 @@ static const struct samsung_pin_bank_data exynos8890_pin_banks1[] __initconst =
- /* pin banks of exynos8890 pin-controller 2 (CCORE) */
- static const struct samsung_pin_bank_data exynos8890_pin_banks2[] __initconst = {
- 	/* Must start with EINTG banks, ordered by EINT group number. */
--	EXYNOS9_PIN_BANK_EINTG(exynos8895_bank_type_off, 2, 0x000, "etc0", 0x00),
-+	EXYNOS9_PIN_BANK_EINTN(exynos8895_bank_type_off, 2, 0x000, "gpb3"),
- };
- 
- /* pin banks of exynos8890 pin-controller 3 (ESE) */
-@@ -1520,8 +1520,8 @@ static const struct samsung_pin_bank_data exynos8890_pin_banks4[] __initconst =
- /* pin banks of exynos8890 pin-controller 5 (FSYS0) */
- static const struct samsung_pin_bank_data exynos8890_pin_banks5[] __initconst = {
- 	/* Must start with EINTG banks, ordered by EINT group number. */
--	EXYNOS9_PIN_BANK_EINTG(exynos8895_bank_type_off, 4, 0x000, "gpi1", 0x00),
--	EXYNOS9_PIN_BANK_EINTG(exynos8895_bank_type_off, 8, 0x020, "gpi2", 0x04),
-+	EXYNOS9_PIN_BANK_EINTG(exynos5433_bank_type_off, 4, 0x000, "gpi1", 0x00),
-+	EXYNOS9_PIN_BANK_EINTG(exynos5433_bank_type_off, 8, 0x020, "gpi2", 0x04),
- };
- 
- /* pin banks of exynos8890 pin-controller 6 (FSYS1) */
-@@ -1544,15 +1544,15 @@ static const struct samsung_pin_bank_data exynos8890_pin_banks8[] __initconst =
- 	EXYNOS9_PIN_BANK_EINTG(exynos8895_bank_type_off, 6, 0x040, "gpd1", 0x08),
- 	EXYNOS9_PIN_BANK_EINTG(exynos8895_bank_type_off, 4, 0x060, "gpd2", 0x0c),
- 	EXYNOS9_PIN_BANK_EINTG(exynos8895_bank_type_off, 4, 0x080, "gpd3", 0x10),
--	EXYNOS9_PIN_BANK_EINTG(exynos8895_bank_type_off, 2, 0x0A0, "gpb1", 0x14),
--	EXYNOS9_PIN_BANK_EINTG(exynos8895_bank_type_off, 2, 0x0C0, "gpb2", 0x18),
--	EXYNOS9_PIN_BANK_EINTG(exynos8895_bank_type_off, 3, 0x0E0, "gpb0", 0x1c),
-+	EXYNOS9_PIN_BANK_EINTG(exynos8895_bank_type_off, 2, 0x0a0, "gpb1", 0x14),
-+	EXYNOS9_PIN_BANK_EINTG(exynos8895_bank_type_off, 2, 0x0c0, "gpb2", 0x18),
-+	EXYNOS9_PIN_BANK_EINTG(exynos8895_bank_type_off, 3, 0x0e0, "gpb0", 0x1c),
- 	EXYNOS9_PIN_BANK_EINTG(exynos8895_bank_type_off, 5, 0x100, "gpc0", 0x20),
- 	EXYNOS9_PIN_BANK_EINTG(exynos8895_bank_type_off, 5, 0x120, "gpc1", 0x24),
- 	EXYNOS9_PIN_BANK_EINTG(exynos8895_bank_type_off, 6, 0x140, "gpc2", 0x28),
- 	EXYNOS9_PIN_BANK_EINTG(exynos8895_bank_type_off, 8, 0x160, "gpc3", 0x2c),
- 	EXYNOS9_PIN_BANK_EINTG(exynos8895_bank_type_off, 4, 0x180, "gpk0", 0x30),
--	EXYNOS9_PIN_BANK_EINTG(exynos8895_bank_type_off, 7, 0x1A0, "etc1", 0x34),
-+	EXYNOS9_PIN_BANK_EINTN(exynos8895_bank_type_off, 7, 0x1a0, "etc1"),
- };
- 
- /* pin banks of exynos8890 pin-controller 9 (PERIC1) */
-@@ -1563,9 +1563,9 @@ static const struct samsung_pin_bank_data exynos8890_pin_banks9[] __initconst =
- 	EXYNOS9_PIN_BANK_EINTG(exynos8895_bank_type_off, 8, 0x040, "gpe6", 0x08),
- 	EXYNOS9_PIN_BANK_EINTG(exynos8895_bank_type_off, 8, 0x060, "gpj1", 0x0c),
- 	EXYNOS9_PIN_BANK_EINTG(exynos8895_bank_type_off, 2, 0x080, "gpj2", 0x10),
--	EXYNOS9_PIN_BANK_EINTG(exynos8895_bank_type_off, 8, 0x0A0, "gpe2", 0x14),
--	EXYNOS9_PIN_BANK_EINTG(exynos8895_bank_type_off, 8, 0x0C0, "gpe3", 0x18),
--	EXYNOS9_PIN_BANK_EINTG(exynos8895_bank_type_off, 8, 0x0E0, "gpe4", 0x1c),
-+	EXYNOS9_PIN_BANK_EINTG(exynos8895_bank_type_off, 8, 0x0a0, "gpe2", 0x14),
-+	EXYNOS9_PIN_BANK_EINTG(exynos8895_bank_type_off, 8, 0x0c0, "gpe3", 0x18),
-+	EXYNOS9_PIN_BANK_EINTG(exynos8895_bank_type_off, 8, 0x0e0, "gpe4", 0x1c),
- 	EXYNOS9_PIN_BANK_EINTG(exynos8895_bank_type_off, 8, 0x100, "gpe1", 0x20),
- 	EXYNOS9_PIN_BANK_EINTG(exynos8895_bank_type_off, 4, 0x120, "gpe7", 0x24),
- 	EXYNOS9_PIN_BANK_EINTG(exynos8895_bank_type_off, 3, 0x140, "gpg0", 0x28),
-@@ -1647,7 +1647,7 @@ static const struct samsung_pin_bank_data exynos8895_pin_banks0[] __initconst =
- 	EXYNOS9_PIN_BANK_EINTW(bank_type_alive, 8, 0x040, "gpa1", 0x04),
- 	EXYNOS9_PIN_BANK_EINTW(bank_type_alive, 8, 0x060, "gpa2", 0x08),
- 	EXYNOS9_PIN_BANK_EINTW(bank_type_alive, 8, 0x080, "gpa3", 0x0c),
--	EXYNOS9_PIN_BANK_EINTW(bank_type_alive, 7, 0x0a0, "gpa4", 0x24),
-+	EXYNOS9_PIN_BANK_EINTN(bank_type_alive, 7, 0x0a0, "gpa4"),
- };
- 
- /* pin banks of exynos8895 pin-controller 1 (ABOX) */
-@@ -1695,15 +1695,15 @@ static const struct samsung_pin_bank_data exynos8895_pin_banks7[] __initconst =
- 	EXYNOS9_PIN_BANK_EINTG(bank_type_off, 3, 0x000, "gpb0", 0x00),
- 	EXYNOS9_PIN_BANK_EINTG(bank_type_off, 5, 0x020, "gpc0", 0x04),
- 	EXYNOS9_PIN_BANK_EINTG(bank_type_off, 5, 0x040, "gpc1", 0x08),
--	EXYNOS9_PIN_BANK_EINTG(bank_type_off, 8, 0x060, "gpc2", 0x0C),
-+	EXYNOS9_PIN_BANK_EINTG(bank_type_off, 8, 0x060, "gpc2", 0x0c),
- 	EXYNOS9_PIN_BANK_EINTG(bank_type_off, 8, 0x080, "gpc3", 0x10),
- 	EXYNOS9_PIN_BANK_EINTG(bank_type_off, 4, 0x0a0, "gpk0", 0x14),
- 	EXYNOS9_PIN_BANK_EINTG(bank_type_off, 8, 0x0c0, "gpe5", 0x18),
--	EXYNOS9_PIN_BANK_EINTG(bank_type_off, 8, 0x0e0, "gpe6", 0x1C),
-+	EXYNOS9_PIN_BANK_EINTG(bank_type_off, 8, 0x0e0, "gpe6", 0x1c),
- 	EXYNOS9_PIN_BANK_EINTG(bank_type_off, 8, 0x100, "gpe2", 0x20),
- 	EXYNOS9_PIN_BANK_EINTG(bank_type_off, 8, 0x120, "gpe3", 0x24),
- 	EXYNOS9_PIN_BANK_EINTG(bank_type_off, 8, 0x140, "gpe4", 0x28),
--	EXYNOS9_PIN_BANK_EINTG(bank_type_off, 4, 0x160, "gpf0", 0x2C),
-+	EXYNOS9_PIN_BANK_EINTG(bank_type_off, 4, 0x160, "gpf0", 0x2c),
- 	EXYNOS9_PIN_BANK_EINTG(bank_type_off, 8, 0x180, "gpe1", 0x30),
- 	EXYNOS9_PIN_BANK_EINTG(bank_type_off, 2, 0x1a0, "gpg0", 0x34),
- };
--- 
-2.39.2
-
+T24gVGh1LCAyMDI1LTExLTA2IGF0IDEwOjE3IC0wNTAwLCBOaWNvbGFzIER1ZnJlc25lIHdyb3Rl
+Og0KPiBIaSwNCj4gDQo+IExlIGpldWRpIDA2IG5vdmVtYnJlIDIwMjUgw6AgMTQ6MTMgKzA4MDAs
+IEt5cmllIFd1IGEgw6ljcml0IDoNCj4gPiBUaGUgZHJhbSBhZGRyIG9mIHZwOSBkZWNvZGVyIHRp
+bGUgbnVtYmVyLCB3aGljaCB1c2UgZHJhbSBtb2RlDQo+ID4gdG8gc2V0IHRpbGUgaW5mb3JtYXRp
+b24sIG1heSByZWFjaCB0byAzNmJpdHMgZm9yIDQwOTZ4MjE3Ni4NCj4gPiBJdCBuZWVkcyB0byBn
+ZXQgdGhlIGhpZ2hlc3QgNGJpdCBvZiB0aWxlIGJ1ZmZlciBhZGRyZXNzIHRvDQo+ID4gc2V0IHRp
+bGUgYnVmZmVyIGFkZHJlc3MuDQo+IA0KPiBBbiBhZnRlciB0aG91Z2h0LCBJIGRvbid0IHNlZSBh
+bnkgY2FsbCB0bw0KPiB2YjJfZG1hX2NvbnRpZ19zZXRfbWF4X3NlZ19zaXplKCkgb3INCj4gZG1h
+X3NldF9jb2hlcmVudF9tYXNrKCkgd2l0aCBETUFfQklUX01BU0soMzIpL0RNQV9CSVRfTUFTSygz
+NikgaW4NCj4gdGhpcyBkcml2ZXIuDQo+IEhvdyBkbyB5b3UgY29udHJvbCB0aGlzID8NCj4gDQo+
+IE5pY29sYXMNCg0KRGVhciBOaWNvbGFzLA0KDQpUaGUgdGlsZSBidWZmZXIgaXMgaGFuZGxlZCBp
+biBWQ1AsIG5vdCBpbiBrZXJuZWwgZHJpdmVyLiBXZSBvbmx5DQpnZXQgdGhlIGZ1bGwgY29ycmVj
+dCBhZGRyZXNzIGluIGtlcm5lbC4NCg0KVGhhbmtzLg0KDQpSZWdhcmRzLA0KS3lyaWUNCj4gDQo+
+ID4gDQo+ID4gRml4ZXM6IDVkNDE4MzUxY2E4ZjEgKCJtZWRpYTogbWVkaWF0ZWs6IHZjb2RlYzog
+c3VwcG9ydCBzdGF0ZWxlc3MNCj4gPiBWUDkNCj4gPiBkZWNvZGluZyIpDQo+ID4gDQo+ID4gU2ln
+bmVkLW9mZi1ieTogS3lyaWUgV3UgPGt5cmllLnd1QG1lZGlhdGVrLmNvbT4NCj4gPiBSZXZpZXdl
+ZC1ieTogQW5nZWxvR2lvYWNjaGlubyBEZWwgUmVnbm8NCj4gPiA8YW5nZWxvZ2lvYWNjaGluby5k
+ZWxyZWdub0Bjb2xsYWJvcmEuY29tPg0KPiA+IC0tLQ0KPiA+ICAuLi4vbWVkaWF0ZWsvdmNvZGVj
+L2RlY29kZXIvdmRlYy92ZGVjX3ZwOV9yZXFfbGF0X2lmLmMgICAgICAgfCA1DQo+ID4gKysrKy0N
+Cj4gPiAgMSBmaWxlIGNoYW5nZWQsIDQgaW5zZXJ0aW9ucygrKSwgMSBkZWxldGlvbigtKQ0KPiA+
+IA0KPiA+IGRpZmYgLS1naXQNCj4gPiBhL2RyaXZlcnMvbWVkaWEvcGxhdGZvcm0vbWVkaWF0ZWsv
+dmNvZGVjL2RlY29kZXIvdmRlYy92ZGVjX3ZwOV9yZXFfDQo+ID4gbGF0X2lmLmMNCj4gPiBiL2Ry
+aXZlcnMvbWVkaWEvcGxhdGZvcm0vbWVkaWF0ZWsvdmNvZGVjL2RlY29kZXIvdmRlYy92ZGVjX3Zw
+OV9yZXFfDQo+ID4gbGF0X2lmLmMNCj4gPiBpbmRleCBkOTY2OTE0ZGI0YjkuLjkxYzU2M2MwNDli
+ZCAxMDA2NDQNCj4gPiAtLS0NCj4gPiBhL2RyaXZlcnMvbWVkaWEvcGxhdGZvcm0vbWVkaWF0ZWsv
+dmNvZGVjL2RlY29kZXIvdmRlYy92ZGVjX3ZwOV9yZXFfDQo+ID4gbGF0X2lmLmMNCj4gPiArKysN
+Cj4gPiBiL2RyaXZlcnMvbWVkaWEvcGxhdGZvcm0vbWVkaWF0ZWsvdmNvZGVjL2RlY29kZXIvdmRl
+Yy92ZGVjX3ZwOV9yZXFfDQo+ID4gbGF0X2lmLmMNCj4gPiBAQCAtMTE1Niw3ICsxMTU2LDEwIEBA
+IHN0YXRpYyBpbnQNCj4gPiB2ZGVjX3ZwOV9zbGljZV9zZXR1cF90aWxlX2J1ZmZlcihzdHJ1Y3QN
+Cj4gPiB2ZGVjX3ZwOV9zbGljZV9pbnN0YW5jZSAqaW5zdA0KPiA+ICAJCQl0aWxlcy0+c2l6ZVtp
+XVtqXSA9IHNpemU7DQo+ID4gIAkJCWlmICh0aWxlcy0+bWlfcm93c1tpXSkgew0KPiA+ICAJCQkJ
+KnRiKysgPSAoc2l6ZSA8PCAzKSArICgob2Zmc2V0IDw8IDMpICYNCj4gPiAweDdmKTsNCj4gPiAt
+CQkJCSp0YisrID0gcGEgJiB+MHhmOw0KPiA+ICsJCQkJKnRiID0gcGEgJiB+MHhmOw0KPiA+ICsJ
+CQkJaWYNCj4gPiAoSVNfRU5BQkxFRChDT05GSUdfQVJDSF9ETUFfQUREUl9UXzY0QklUKSkNCj4g
+PiArCQkJCQkqdGIgfD0gKHBhID4+IDMyKSAmIDB4ZjsNCj4gPiArCQkJCXRiKys7DQo+ID4gIAkJ
+CQkqdGIrKyA9IChwYSA8PCAzKSAmIDB4N2Y7DQo+ID4gIAkJCQltaV9yb3cgPSAodGlsZXMtPm1p
+X3Jvd3NbaV0gLSAxKSAmDQo+ID4gMHgxZmY7DQo+ID4gIAkJCQltaV9jb2wgPSAodGlsZXMtPm1p
+X2NvbHNbal0gLSAxKSAmDQo+ID4gMHgzZjsNCg==
 
