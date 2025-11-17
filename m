@@ -4,156 +4,136 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B47ACEACEF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 17:17:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54A40CEACEF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 17:18:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Message-ID:Date:References:In-Reply-To:Subject:To:From:Reply-To:Cc:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OFvMfj3k58/0neyP/RksIYQz+jG/67M4nI4GBBkeZHg=; b=nPBDt0SzmSF/4F+LbkzQawxBda
-	Lpgv5DmuumR0EwtuCEm+lQz+D9ojXmSfIcow7ECkzAZIwT9WKnHo4kwjck6LiXqRE6Jy9mht8yMYr
-	Yaj2vjeZIB8zOrAvGGccHshpYz7pVipz5c1k67gGfla7Fk9ORchLMw0pWIMQg3VnmMIWTA6XfAF94
-	ajl57L8LdAvX+YZqDt0wenkMlVWqyi6zugn4dEx3L9HGVNodbq6rGEXL/avsXqrvRlkF9I4c3t9r5
-	wm2LaxVFyydSjcl9igfimkh1YleOmacCotiNNoPgFCzcsB6tpX6GGghJm4CgxuCSxVFo/BCa9KcmG
-	lq+Vnqjg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=i93olX92WqAcMU2/NsjuIGXAvZ22y9Ah3If85Gfr8Ow=; b=Pwf3BRHB4RDAq2DnDcGoKYX22x
+	6j8fgCawe4vkYm/g0Zbw0XgAPLFnVyBzAQZt4Ve92A39oTDfE31nTXpVvjP3W3zGdfz74oTw9uIfQ
+	YXj4h56KDCCe6inSz/jst61Dvg9Av5xSUIEKVA13SEP2IXPJHroLTwxkxdfURt981pQQk52FlvZpZ
+	tvaIleyyX1RZoF5ynhT7qEXjaNtDTPVqetTK9fucED02ZHC4LweEqFZ6AjucN0mDst+9Fxk/vGYh0
+	bAQsmPH+esPv9hSplqbFYOSoTFl9ht/cga8CwgUZtrh0AFIMOoxcDhyYVPCSzJbIqfTII004RsHXG
+	/hLuqfjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vL2r3-0000000GWO5-1aeK;
-	Mon, 17 Nov 2025 17:17:29 +0000
-Received: from mail-westus2azlp170120002.outbound.protection.outlook.com ([2a01:111:f403:c007::2] helo=MW6PR02CU001.outbound.protection.outlook.com)
+	id 1vL2rV-0000000GWRW-3LVO;
+	Mon, 17 Nov 2025 17:17:57 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vL2r1-0000000GWNi-2Si8
+	id 1vL2rS-0000000GWR3-3HGh
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Nov 2025 17:17:28 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=r9X5SFW3wOevlexizsgx304XlhTO8I809wD30D74FfOIJ7BljgHXzxTE8iyj8dt3RJuf8825p/x9sy4nqjnMAgkEGuTb+cb0TnI6+vyP0JL18MFgAKYMOdkpA40amL78M7k+9SH9TUu3QY+0lJ+9oRam8cjZkx101RVh+E2kaSdiR1lQrw3kAG9Ae1a4lBWVlxQCNZhFSGS6gmh7eR05HJpDb/bfC1enEjEGbxNJLlDXJVb7djkV9SclgSsbGrN8UVYXcKBJmqJvzzjR2GmU7PTrYM78y21wnFnajJsZlK8rTM3LqwTCyTbmnCPS3MGIuwHp4i4gED3KfTCkruwrXw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=OFvMfj3k58/0neyP/RksIYQz+jG/67M4nI4GBBkeZHg=;
- b=CQXFD1M7FVsR8163FPdFs7n35NEUURs/ReHBVPfywj4uW6Um0GbouLGcirw/GOw4jV2nYnJwrf8ME5b62cTcML62P+Stw5SohTpsNblZcFVBMbOchI8uCXSkdE6rZyPjgR+y+2q/qu+4gnlk3rovQZdlBUdTJ0QGk4joM0FUVQuNYcnjHLG6mdHvUjMjFBVzyACqqL5TX0kDkuEDDGJMyl6xvSEE1rCSb9hicsoYHdF68T56kd8rzboP7QAFcQVRBcxApF8W8q5HCA7WdNCregC1NKBCUyZH+sPEGuWmgSHfaF3rM/H9R2lknmEd196i/GqGIKI9emZoasjz3uAjwA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
- header.from=os.amperecomputing.com; dkim=pass
- header.d=os.amperecomputing.com; arc=none
+	Mon, 17 Nov 2025 17:17:55 +0000
+Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5AHAkMeI2790796
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Nov 2025 17:17:54 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	i93olX92WqAcMU2/NsjuIGXAvZ22y9Ah3If85Gfr8Ow=; b=mSKJsYvNcgJG2DO+
+	S3tSss88S85wvJ3o7N7LILxkPDMEHZVJaKyjDJ1DucgTVWlrLjtZF5tRrL4Y7QZm
+	nIoMyZ16FrhfHwgPiyC7T3Pu4KJ5xRIVWR7WazUT5RPZNiw/51VcxnE2BnSn1j1K
+	dsJnghBkf4o7mttt7xjzcgVlZx9gvaAtezl6DXMJaPTYsBfKJiwshwJ1vMl4rIlL
+	eIUzS/ZXD6wKoH2Yb+qXAh3e2VIlVobf4oHSXgcEVQWImqv33MAHcrFgi8T5uoka
+	exxNKi5SEz0/FYMQkZmTcTRL8Gm4y5K7wPZcCvpcCcyOvpA7Kj6W8hxPn/9GnNIx
+	L4dfQw==
+Received: from mail-pl1-f199.google.com (mail-pl1-f199.google.com [209.85.214.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4afu5bjeev-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Nov 2025 17:17:54 +0000 (GMT)
+Received: by mail-pl1-f199.google.com with SMTP id d9443c01a7336-299ddb0269eso16985355ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Nov 2025 09:17:54 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=os.amperecomputing.com; s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=OFvMfj3k58/0neyP/RksIYQz+jG/67M4nI4GBBkeZHg=;
- b=m8N8mFj+ivZuF/+tRIp8Ytfcb8fcr6q5A3wrDyq4da+EdRPMf9DCPGQlNXhPIPI3TR5mswQayZXFP8bUYG3pqbXjgH7l4qAGk7crWgqEOihogCYA9/yJHyjD2gpUEqnMOru2jj5t3e7pG+pXTbKHDopm6nG6qj3t4t+PY5Xr3UE=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
-Received: from LV2PR01MB7792.prod.exchangelabs.com (2603:10b6:408:14f::10) by
- CYYPR01MB8262.prod.exchangelabs.com (2603:10b6:930:c8::21) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9320.21; Mon, 17 Nov 2025 17:17:20 +0000
-Received: from LV2PR01MB7792.prod.exchangelabs.com
- ([fe80::2349:ebe6:2948:adb9]) by LV2PR01MB7792.prod.exchangelabs.com
- ([fe80::2349:ebe6:2948:adb9%5]) with mapi id 15.20.9320.021; Mon, 17 Nov 2025
- 17:17:20 +0000
-From: D Scott Phillips <scott@os.amperecomputing.com>
-To: Jaikiran Pai <jai.forums2013@gmail.com>, Catalin Marinas
- <catalin.marinas@arm.com>, James Clark <james.clark@linaro.org>, James
- Morse <james.morse@arm.com>, Joey Gouly <joey.gouly@arm.com>, Kevin
- Brodsky <kevin.brodsky@arm.com>, Marc Zyngier <maz@kernel.org>, Mark Brown
- <broonie@kernel.org>, Mark Rutland <mark.rutland@arm.com>, Oliver Upton
- <oliver.upton@linux.dev>, "Rob Herring (Arm)" <robh@kernel.org>, Shameer
- Kolothum <shameerali.kolothum.thodi@huawei.com>, Shiqi Liu
- <shiqiliu@hust.edu.cn>, Will Deacon <will@kernel.org>, Yicong Yang
- <yangyicong@hisilicon.com>, kvmarm@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4] arm64: errata: Work around AmpereOne's erratum
- AC04_CPU_23
-In-Reply-To: <456bba04-07b7-4c27-96fc-9bf226b12fd9@gmail.com>
-References: <20250513184514.2678288-1-scott@os.amperecomputing.com>
- <456bba04-07b7-4c27-96fc-9bf226b12fd9@gmail.com>
-Date: Mon, 17 Nov 2025 09:17:14 -0800
-Message-ID: <86bjl0o9yd.fsf@scott-ph-mail.amperecomputing.com>
-Content-Type: text/plain
-X-ClientProxiedBy: MW4PR04CA0333.namprd04.prod.outlook.com
- (2603:10b6:303:8a::8) To LV2PR01MB7792.prod.exchangelabs.com
- (2603:10b6:408:14f::10)
+        d=oss.qualcomm.com; s=google; t=1763399874; x=1764004674; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:date:message-id:subject
+         :references:in-reply-to:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=i93olX92WqAcMU2/NsjuIGXAvZ22y9Ah3If85Gfr8Ow=;
+        b=UE5RIPXUj9DqvPUiNURjiG9wPNXqjeZ8QK7tajO1P9uJlGTACmQO9kPSDWuUPNB7d8
+         ly8uljG4qiIV60RK6ikS3Ojuq+YEpgHLS7hmKUOjffkZVGg3j668ufPaWQZqSXl7FMMc
+         cczF2IALyoBfZKavDUFo6dckPidX5pXbbKwZLGCaUt66Hl9R+iB3AzuebWrsZvZz8hh8
+         i/EO4725HmRNdcEW7tuXjLMA9WpHM8bMyIpaN68rQp20tWtLJB5XP/xtFBOfXKaSYVhJ
+         JRBRdHCzAVlrJdv6BWSwHm/c+Xyy3Iu6+il4lXY4gz169vI8LIuiaOd/t0blVdTF/B4E
+         UgQw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1763399874; x=1764004674;
+        h=content-transfer-encoding:mime-version:date:message-id:subject
+         :references:in-reply-to:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=i93olX92WqAcMU2/NsjuIGXAvZ22y9Ah3If85Gfr8Ow=;
+        b=H+q5podDo+NNcwLRk2G5TktAhou9sXmLh2GLZLnFQMGU1KSTpOwgsRCdMKSF3AHl7c
+         z+RMMTtEG12ryWAtPopP8j9g9DDt+91Y5Giy3oVKBFmk+1sv1MQ5xVQMJQc/Gfkac4DM
+         2YWPJYMCtUMsTYZkrqK0nN2OZHUzUv63rQX73NcvuwmOEyws7e0aDiOEJREoeWYX+jxn
+         Jxt/kMBKbcPysdp88AtMDDJfsVBpvYp7up+uQJp7J2um/RkKuDI8VlbUjfZ5aU4gDhyn
+         tceM+TR/f49MJa0jLS0Uo/9gGr8GV3yovJH1lXy5uNhVofQGnnpFnYhlxCUyu82uSPkF
+         VkFw==
+X-Forwarded-Encrypted: i=1; AJvYcCXBbUrIsg9hjipJJw3S9GZaCreAXmvOi0Ft9Ez8OsMJnmibMdfpqiFK69T6mZFhhwKXknJvInYsJVtLKDIUSsLI@lists.infradead.org
+X-Gm-Message-State: AOJu0YzsTXIm++rUMjE4QUMjlKyAsHpvR+Z7RTbDe8Ts80kLcDMfnbEz
+	hs3LuiA3WFCGvZ5J/ZjLO689zVI8+SUwx9hFXDPGq4Vcinp0qaYQlZIGROTLrKcbD6CNkwaBc9W
+	V4m4wTgGd1pvN5B0XrS2gR5qsp7GpzLmNQgvFP9y+srESPG/goIsiaV097cu7YzasNeHY+Octww
+	Cc6Q==
+X-Gm-Gg: ASbGnctvzncPeetfa5TyrpwmuuKc88wZcooSvJrZ7SPlEBdgmXeS2LFLknwEj4DMiwj
+	n2C62xin4ydpWfb/CufuNufsWzThPJdRKg7jYlLSRac1M9IwBH4XjAYFH1V0J7wLDQHfi5R4eJy
+	1k9vwthKqUW9sac6/fNWXZbAPSQ9z3cz4f2YpyheEtwJSnUW5GwjGmxTpTeKOTQXgDS2Q+ayLS8
+	jhiuz6OVBKLA3uG6RduoD6PkZYQHzL4Gwa+2gqjHufJd4MmPdNP3999yPEPWlU3l96oXINclYHe
+	JeL7EIrcUrkFvfO+mNgPyr/RO39E29ec7ABeQhaDebuV98pyMVOQAcgm7yMXFgbRXlrtuRNw
+X-Received: by 2002:a17:902:d607:b0:295:6a69:4ad5 with SMTP id d9443c01a7336-2986a75e3abmr163279065ad.56.1763399873600;
+        Mon, 17 Nov 2025 09:17:53 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IHXqHYNFy2gFUByh/xB5XQrlDQJxkWr13L5mGpmFTI1mFj2T5raib6vRXVu9+YiT1oOKIIsdw==
+X-Received: by 2002:a17:902:d607:b0:295:6a69:4ad5 with SMTP id d9443c01a7336-2986a75e3abmr163278645ad.56.1763399873107;
+        Mon, 17 Nov 2025 09:17:53 -0800 (PST)
+Received: from [192.168.1.102] ([120.60.57.34])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2985c2b06b6sm146804555ad.55.2025.11.17.09.17.47
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 17 Nov 2025 09:17:52 -0800 (PST)
+From: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
+X-Google-Original-From: Manivannan Sadhasivam <mani@kernel.org>
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+        =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+        Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Christian Bruel <christian.bruel@foss.st.com>
+Cc: linux-pci@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+In-Reply-To: <20251114-atu_align_ep-v1-1-88da5366fa04@foss.st.com>
+References: <20251114-atu_align_ep-v1-1-88da5366fa04@foss.st.com>
+Subject: Re: [PATCH] PCI: stm32: Fix EP page_size alignment
+Message-Id: <176339986701.12619.4602667156488973060.b4-ty@kernel.org>
+Date: Mon, 17 Nov 2025 22:47:47 +0530
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV2PR01MB7792:EE_|CYYPR01MB8262:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5935b2d9-aa77-4ea3-4b53-08de25fd2a2b
-X-MS-Exchange-AtpMessageProperties: SA
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|52116014|376014|1800799024|366016|921020|38350700014|7053199007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?XDUnTmtQvAwP/1KV/UuPeAlSrb5Ym/qzGD0xf7SqU3jnEbFDsLArogLOiYvV?=
- =?us-ascii?Q?r4+2BoG1M/WdSeBClK3AVUPeTl9HZU4CTSifftUCl1a/ic2yKKdMzyra0dyi?=
- =?us-ascii?Q?g3+VT286VoyOM1e94ygrEKSNTQK1nbx94wlvBlDDP6XpsknGFWWvpw3IffC8?=
- =?us-ascii?Q?AQm3bmm2ffG+fCV2Fu0Ns12zH2Ydw1SesvfpUoDf+K/9a8Yrm1QxFFH4eWm7?=
- =?us-ascii?Q?a+FOIbqXu8S0iZX/44rz5vVI2Yjev2k7itzHRo/8Xl8roCHsc6/5X800IZgT?=
- =?us-ascii?Q?+7bB9pAn+ha/u4/bhFgh5krG3TIFHP6uGB3dArGe+T1cG/zlJtemL7LL6/V9?=
- =?us-ascii?Q?KPSHz2uKYJVZ9devqqGpmVx8SvwnjDSMTyu+ynB0y5SMTDCQmils2KSqpfUx?=
- =?us-ascii?Q?9fD/yCPrpBoj82Lvot0H0G0+JqgQjDwzSRiwNWfs5DipqTwhbTJC58Nmlu3x?=
- =?us-ascii?Q?fWN7YHKh8Mo3TA+QSH2CENVhEGJgvPvB9+1SeuUb1BXb5hNNwbvDEp6YBi/C?=
- =?us-ascii?Q?q8PNmCZnyQyXyZ9GskgFwfzfGB4hchJtF6YpI/ke0YZFccoytN7mGNUVVEWL?=
- =?us-ascii?Q?nqgrCemtHyK1cdLsKUIYrk/myvzIZg3r106yamX0TIEI3pXfMnFlLbdAMVGw?=
- =?us-ascii?Q?ek5OyKx26r5c/PcoF36BpLBpgFMSKq8QELVbkQJz0ajcwJjviCtqFuUw9wTD?=
- =?us-ascii?Q?1YoPCloM1Z2H92+hT6EYVSwE+VaR54mzZjOzUJ3hP+eZ4EB8OuE6FVcsi2hN?=
- =?us-ascii?Q?GH6jgN8ZNzjDLHVDzVICbP6GVHOiKXQcG3dCQSXiXatoQgbeNUdc5kyHdTfp?=
- =?us-ascii?Q?rKkKGpPxpZn8LfIptSkKpRfi3RIr1eR8K4qAj3YR0LU+ZRG6dlg8Cq56hgMV?=
- =?us-ascii?Q?DGbOc0elE9NeI8SFFMwVAJZinA9Sw0MnzbO1o0z0Y2r0ONKJb7YiKjjUM9Kd?=
- =?us-ascii?Q?+BhX24d2M49wrJVzC1izn8lkOU73E+6w74RJRL5Dwgyd6Vv4ks0fIVq9eA8d?=
- =?us-ascii?Q?irRARwyX5BAmr5ZVYPWbsE38ftd+idO8JqzcLQxIQpw4MnCYCrcXLG1z56bn?=
- =?us-ascii?Q?sgTt4Js5dPi5vdUBMfUBP3h9m8M6ODZANz+XAacckO3kteUr9fY9pzr7SH6x?=
- =?us-ascii?Q?Ii2qBIquM7NPSoCIUGcqzJT/6gMCFGN9DOYsoDhTEzV+UiBWiOu0UVUXIERD?=
- =?us-ascii?Q?SwPur1dYDcpVuG014Ubtup+HMbZHUtUFJCHkwVrsSjOZDOIrmH7yNNNcRDph?=
- =?us-ascii?Q?QsOxdJ9mBMAFenAix+Q/OsSwL3RWNp1+pnT+KxBCTtXe+j3kxt5PY1XjsETc?=
- =?us-ascii?Q?IBDgw7mziwM0CRKehG1EqbmPWfUlKuyh0txn10jOlzlfOfGYTpl/G0YqKTV8?=
- =?us-ascii?Q?Hh2Fc3k4/AUsBRAPeVfvKV4as+QcuepuZ6SmMi+AccFQknWldEr5/o961udY?=
- =?us-ascii?Q?bufIzWcTYSKS2nWTZYDiv2YVgqNvgf9x3kLsBOfHDbIy6V4lKW6l9C/LNZem?=
- =?us-ascii?Q?Zf8n2HuLJ1Bk9MqVEhQy28mQsHSr8GXhwnAUA6EebUzRj3DxHIjvaqKxMw?=
- =?us-ascii?Q?=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV2PR01MB7792.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(52116014)(376014)(1800799024)(366016)(921020)(38350700014)(7053199007);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?247wiHT0eRQvaIoRAcM7N9Gn6nwC429D/fuXXZfIJJTM4ynzd4xHOpiIUBDe?=
- =?us-ascii?Q?rAJXPnw0EijoVEEfR20SEv6KQbSw8dYlqhhtSD2dckEgJT1w1o6ZYaHZD794?=
- =?us-ascii?Q?k+Zoi14NgwCTyJ12GEPPsWESWOtFrVH6nCPSjpB51BxgmwyyUx8T6LnlBSM+?=
- =?us-ascii?Q?B9DF7Kc971wVPgA5cjX9xKty6w3WVAH52GXVwd3TeqJTbMAbe8y8dKzct0IV?=
- =?us-ascii?Q?cXpRsrlps6hxXhArExYwaES/R+OjSFhMRuAoJNT97jD5RP64FtasPwzyxdiL?=
- =?us-ascii?Q?WsvnQsAqBifTwZnR9Py3AgLYKei2pX9HEvIZ8nUtcZNYB3nSEVa8UI7MLnRJ?=
- =?us-ascii?Q?Lb7PUWoCR/8CIKTJqgWcUqqRGhXN713uvf6C/bMbX//8FVQ285Ce0ZCEnhfM?=
- =?us-ascii?Q?iG7/uyHXVIIWEDDbLaCisNnXX/nf6/hQgT8akpVo+oBn2tlPxrwLeUoqsZ55?=
- =?us-ascii?Q?zCtcL4DukP8Eh768KfV9YwUDmMU7uy8yCJDZlu0jF172zb0tSGPOYO8lDkV6?=
- =?us-ascii?Q?+mlaNDAr0pE2Td5zir+Ihlnn3TKVtudnKXtTkh2SB0g5zti3C5XvNFPt7Kz7?=
- =?us-ascii?Q?4MCDttYWk6YlXuYBASLPMt3ZmE8ENNbqEJ8k02U7IK9wZ8b5gONZpI1KBKlb?=
- =?us-ascii?Q?7wfxrtILh2JrKiQqrGF1VcbwiInU/lWqWQkiBWywLAVJZg+yvVr6QwrqFbMK?=
- =?us-ascii?Q?Vu2QJCNS9WOqM4yUyRShsuaV1eoWb5wktYT+SvJSNTdD2bU6aWRRTrsQ0aEO?=
- =?us-ascii?Q?2kXCCScP7xOi+4qMdkbbchzev0bh9JNrKYhDNdetE/uSIojjnCT90d76WTQy?=
- =?us-ascii?Q?zzBozpuClMwiRR/ISs0S7byHMgZL/HDl1a3yiTS6ohq2Y7JvMGXEzvMh95Cb?=
- =?us-ascii?Q?P68AtA464d8DjefuW8zLysKrZ1uSDkiWCCuyn3H51J9c6kMjFR3Pqbp56Pqe?=
- =?us-ascii?Q?qzxngab4WUjgJvkhiVN9sBnR34FFlnbh467Ww1kyJoOdNXhc3qBW+uZhDfAp?=
- =?us-ascii?Q?O2U36JxhgNuhwRWS9v6vYkM4hArsg3qhM4+OvGPlxhEGoewl1RAoTs3jkKNL?=
- =?us-ascii?Q?eggw7EZ2zGc52tiEKWCof2pg3VJ1bsaX1axPHTP/ycbbm9+g/t28Gym7IV9s?=
- =?us-ascii?Q?puiKl7aqsLGmw8RWRsB9/vyyqpziI7YScoV5Q+5y8AxEh/sUYxieIbEw1Ou6?=
- =?us-ascii?Q?8ud8Vsd0Rduakvf0Np1cikALjl+pFLN8zbUszjV0CIF8c/1ohvXJ3exs0xXE?=
- =?us-ascii?Q?kgivov6uEpp+ANkadcyUOFimlVoh62uyhr6ieIiqfa4/1E3vhT/qRpTi5EQE?=
- =?us-ascii?Q?pJ9buF2DeETXqdINoEVvg+SiCLYSotv+62Ky4f1GVxHxBJ2E35Oid7njSggl?=
- =?us-ascii?Q?sa0gfqKrDa7/wI/++xxbgfvS0bBmJorTU7ISvkF1wRBqlPJQrfKkhpdyXBmL?=
- =?us-ascii?Q?gSGg5kbdTqKcm7cf7A1jS2+tthrHtBLHlCzO6Ef1kzDR/cW24NOjyEmwW6zL?=
- =?us-ascii?Q?4hhPoZ3/dptfHZb4BSlsXPb0Rf59eX2YvCF7oLRUBiytDfCxKyZu7xtEsCWm?=
- =?us-ascii?Q?1lAWPh3+pZX5tIgIRs1gK6l8og/ZfeMKE8zdZLVI9ozpbfp30Z97lcEPc61H?=
- =?us-ascii?Q?epWA5c5r5LlkNk+dBefMd3I=3D?=
-X-OriginatorOrg: os.amperecomputing.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5935b2d9-aa77-4ea3-4b53-08de25fd2a2b
-X-MS-Exchange-CrossTenant-AuthSource: LV2PR01MB7792.prod.exchangelabs.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Nov 2025 17:17:20.0767
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: XDjBv+rWoUjzHO6yHMn3CDACmkfYA1zOFo5nB/QHHsdF1hC+LlW+nN1zAnw6H3s1POnfb/dwqk/5OfhyAdKitokBlgIOP5dnLIihtpxzsPrNJZkMrh/phZ2R40IPTXyl
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CYYPR01MB8262
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.14.3
+X-Proofpoint-GUID: y9oDCcdrqC-Rolbv_KfYoep1UsiCcgn3
+X-Proofpoint-ORIG-GUID: y9oDCcdrqC-Rolbv_KfYoep1UsiCcgn3
+X-Authority-Analysis: v=2.4 cv=Xvz3+FF9 c=1 sm=1 tr=0 ts=691b58c2 cx=c_pps
+ a=JL+w9abYAAE89/QcEU+0QA==:117 a=SvArCPxluHhT4bP621h3eQ==:17
+ a=IkcTkHD0fZMA:10 a=6UeiqGixMTsA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=VwQbUJbxAAAA:8 a=do5hrM8nwbRZ-HPJZGUA:9
+ a=QEXdDO2ut3YA:10 a=324X-CrmTo6CU4MGRt3R:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMTE3MDE0NyBTYWx0ZWRfXwMNHOPmJU/Y2
+ BAdG6xATyqk5oqv7knRVbrapIk5qYHGDlqi2Nm6hkIwDlp6H6Rxxd3MlJ1pVcwFlhdmYniUAzk+
+ lBY7qX/gFeMATAZWYTX0M+868QRDzgwxhu36ZuSw7ehBSxISMkbQBOWGGQuvQP6moGlFzHHt9rn
+ ONODRhSKrXH61W5Q8hJQm7KVJdRiO6Tj+Le7F7fGt1TDzOaMNHlL2FuUrXyGUdEgZlI8rUVSWvx
+ soK2cSfMKq+sn9vlO6hhR8TxuejT6/lZdzdv0NH1FS8KSn4muKkYitcVmDRk5VoLGB8997g+Q9p
+ lf0IdfFaYZc8haQNnMYb0tNQjf4WIdmDFOHT5LpLitM9TbU9fX/VxKo2I9RADTV3YHZw8a9buvU
+ A4gAWA8874XOqK6vXlUudx+7hhOoBg==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
+ definitions=2025-11-17_03,2025-11-13_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ adultscore=0 impostorscore=0 lowpriorityscore=0 spamscore=0 bulkscore=0
+ phishscore=0 priorityscore=1501 clxscore=1015 suspectscore=0 malwarescore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2510240001 definitions=main-2511170147
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251117_091727_642079_D759797A 
-X-CRM114-Status: GOOD (  11.21  )
+X-CRM114-CacheID: sfid-20251117_091754_831569_3DCBED32 
+X-CRM114-Status: UNSURE (   9.45  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -168,22 +148,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Jaikiran Pai <jai.forums2013@gmail.com> writes:
 
-> Hello Scott,
->
-> On 14/05/25 12:15 am, D Scott Phillips wrote:
->> On AmpereOne AC04, updates to HCR_EL2 can rarely corrupt simultaneous
->> translations for data addresses initiated by load/store instructions.
->> Only instruction initiated translations are vulnerable, not translations
->> from prefetches for example. A DSB before the store to HCR_EL2 is
->> sufficient to prevent older instructions from hitting the window for
->> corruption, and an ISB after is sufficient to prevent younger
->> instructions from hitting the window for corruption.
->
-> I see that this patch enables the workaround only for AmpereOne AC04 
-> systems. Do you happen to know if the underlying issue for which this 
-> patch was introduced, impacts (or can impact) AmpereOne AC03 systems too:
+On Fri, 14 Nov 2025 09:08:05 +0100, Christian Bruel wrote:
+> pci_epc_mem_alloc_addr() will allocate the cpu addr from the ATU
+> window phys base and a page number. The resulting cpu addr must be
+> correcly aligned with the ATU required alignment.
+> 
+> 
 
-Hi Jaikiran, this issue impacts ac04 only, it is not present on ac03.
+Applied, thanks!
+
+[1/1] PCI: stm32: Fix EP page_size alignment
+      commit: cf2eff021ee3c179a4ec4a6c1d34a27fd92b8acf
+
+Best regards,
+-- 
+Manivannan Sadhasivam <mani@kernel.org>
+
 
