@@ -4,72 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35E22CEBF61
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Nov 2025 21:48:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3EAACCD19A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 01:17:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Subject:Message-ID:MIME-Version:To:Cc:Date:References:Content-Type:
+	In-Reply-To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y9OkpCSXm5G+5kJ5oftsEKt+9Cndebe3Oy1eyFj4LhU=; b=OrO5CBWhnk7c5n1r7r6Da+cJZV
-	E/JGXU0A6WKJsmGw8Tok6jLv6fn/9YfkXiXRi/e2w9Z2jPQ4oE5sLm/Kaul7/VuZ2uw9xu1PLfSiC
-	7mfOsN1cgNFPO2V7EOfS/MJSTZeBUhT3BRK/M8evI/RJIWyfFGoamuUyS1MsfpcLQOcN5Kwr9djQT
-	r3OApybexpC1FYtdaj4RK9YScSSL9Qu97ec9gTHibGwFjhhig5zaxs4I4nZ3pkSv5EkbHO4vvWkua
-	d4MRTHN/0+Xn7bDvBJoJF6QGXjrYxZ2UDGu3F1Sfc9YFlr22YTzJN8l52/0wmPMBWeSepKHL1OJsu
-	lvAwRFKA==;
+	bh=ayCI78s0sFTeRE+mYXvPdg5dHDi/jDMZJzVBaBaUiuk=; b=Mc9Q3DLSOQzQjSeB8lsX9Y6mpG
+	bmNHEMYSnx8oI+4g4wZ+NL649u8c7N5ri8OuQHbh4d+OKvp0+6+bSHCA9oKG5tRaWUpb3rmnUxDEJ
+	I1eLSnlseVWhVQ9sTniKFK8LC1Vm7gCkKi4h2ZaS3j95flonnAYTjHzr0cpZghCutdlRnKq2xricE
+	EwZUN3CSTNP9rrX63Pc/26cTJpd5l+Vo1QSpHfqmc63O5zFA2+ThXoYDclrcTKJFWZ+8aT1Z+K9NU
+	Z9EvXG3M5JgLm6LIhoLPyaBGvrsJI65LHMRhHx7cY8JjddjdFrn0j/0xWNZxNXWU5ojV0A1uCWq5A
+	xdE3TZxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKkbK-0000000F8fb-2S1C;
-	Sun, 16 Nov 2025 21:48:02 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vKnrw-0000000FFuq-00vB;
+	Mon, 17 Nov 2025 01:17:24 +0000
+Received: from mail1.manjaro.org ([142.132.176.110])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKkbG-0000000F8fA-3Ss7;
-	Sun, 16 Nov 2025 21:48:00 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A5F8340223;
-	Sun, 16 Nov 2025 21:47:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4E12EC2BCB3;
-	Sun, 16 Nov 2025 21:47:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763329676;
-	bh=pWYF/le3Qm/HubEQE1Ds+oFzfoE/9PrQTt+2HHhwDxE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ILn1eG2GIfhzddilwyMY53H3eTd+v6fsSyeUw8F1O/HAxBcnkLPn0og6f4TAr82uM
-	 iUeiQm0+sMmujTVpiLZ4Ft1LrRJuiUSlnseR+KKiwnE6YFdxcuQDD3n37BXTAw8npN
-	 //7HQNGVI9qzv51Ma4nxZdN/PJnvglleQHx5eqINJDcln+RomKZXkyWDYGzc/JqXR+
-	 EavK9h4BzP7xwSO2rfYnkrHQN8OmykyNVOhkuFDtVXCeyaxhhchEr4bye3eomkR/vX
-	 K+vYNiem75+HCJ1PfUdaIUsBB6fzeMXJPcCxWW+5RWxymWXQHx+KBmBMX9EeyemBQi
-	 Fhil+lQVQsqHw==
-Received: by finisterre.sirena.org.uk (Postfix, from userid 1000)
-	id 0F9841ACCC98; Sun, 16 Nov 2025 21:47:53 +0000 (GMT)
-Date: Sun, 16 Nov 2025 21:47:53 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>
-Cc: Lorenzo Bianconi <lorenzo@kernel.org>, Ray Liu <ray.liu@airoha.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-arm-kernel@lists.infradead.org, linux-spi@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-mediatek@lists.infradead.org,
-	Andreas Gnau <andreas.gnau@iopsys.eu>
-Subject: Re: [PATCH v2 1/3] spi: airoha-snfi: en7523: workaround flash
- damaging if UART_TXD was short to GND
-Message-ID: <aRpGidWIakkclJTz@sirena.co.uk>
-References: <20251116120038.672178-1-mikhail.kshevetskiy@iopsys.eu>
- <20251116120038.672178-2-mikhail.kshevetskiy@iopsys.eu>
+	id 1vKnrr-0000000FFuO-11cP;
+	Mon, 17 Nov 2025 01:17:23 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPA id 768CA4118B;
+	Mon, 17 Nov 2025 02:17:12 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=manjaro.org; s=dkim;
+	t=1763342234; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=ayCI78s0sFTeRE+mYXvPdg5dHDi/jDMZJzVBaBaUiuk=;
+	b=PoYARTsooGdjq3wnQNA8x72KudChF71ko5NH0iTGj3hnqKcMmltTC6ZR9Cuz9PBqHMGZE1
+	uRu4zviJiEzSLqKiMUVKma1gnBCt9QndRT7yeON+ZP2/83raE6ljp9fixSgtdSFnqW9J47
+	kq5HNoKeylpEjrpiV/VneuW2gQQjg8sAPcpGFGZxj1FZIYpUuPpTaqjWlUtGhh2ao2YYdx
+	NHK5Yn9TgQM/pCnSAPY85vppSbRWkbKW37LdgqQpp9tHEWiisRRwWwcBsSeiv2DP6X6YtV
+	mDlqNdaqq/UhIqN3ydZyZc0G0jFr4hsDIh66e4b7HZeDnO8m2/5W3unvYQxeDA==
+From: "Dragan Simic" <dsimic@manjaro.org>
+In-Reply-To: <2455319.NG923GbCHz@diego>
+Content-Type: text/plain; charset="utf-8"
+References: <12d6e151-dfa0-ca0a-5888-ddffb2dbdec7@manjaro.org>
+ <bb74679a-ce21-4373-bcc5-1214e9bf832e@rootcommit.com>
+ <24561990-8293-0505-5837-eca416d01bb7@manjaro.org> <2455319.NG923GbCHz@diego>
+Date: Mon, 17 Nov 2025 02:17:12 +0100
+Cc: "Michael Opdenacker" <michael.opdenacker@rootcommit.com>, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+To: =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="HRdJb4bqzkeBOF7F"
-Content-Disposition: inline
-In-Reply-To: <20251116120038.672178-2-mikhail.kshevetskiy@iopsys.eu>
-X-Cookie: marriage, n.:
+Message-ID: <a5e7824d-03c7-fa0a-473f-193e172420d2@manjaro.org>
+Subject: =?utf-8?q?Re=3A?= [PATCH v2 2/2] =?utf-8?q?arm64=3A?==?utf-8?q?_dts=3A?=
+ =?utf-8?q?_rockchip=3A?= Add Asus Tinker Board 3 and 3S device tree
+User-Agent: SOGoMail 5.12.3
+Content-Transfer-Encoding: quoted-printable
+X-Last-TLS-Session-Version: None
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251116_134759_277390_00F22443 
-X-CRM114-Status: GOOD (  11.46  )
+X-CRM114-CacheID: sfid-20251116_171719_777199_0F36C4A5 
+X-CRM114-Status: UNSURE (   6.08  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,39 +71,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hello Heiko,
 
---HRdJb4bqzkeBOF7F
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+On Sunday, November 16, 2025 00:27 CET, Heiko St=C3=BCbner <heiko@sntec=
+h.de> wrote:
+> Am Samstag, 15. November 2025, 08:14:58 Mitteleurop=C3=A4ische Normal=
+zeit schrieb Dragan Simic:
+> > BTW, my responses are currently jailed by the linux-rockchip mailin=
+g
+> > list, requiring manual approval, as a result of the mail server I'm
+> > using sometimes inserting some strange invisible UTF-8 characters
+> > into the email subjects.  Oh well. :)
+>=20
+> I guess that mailserver needs a fix :-)
 
-On Sun, Nov 16, 2025 at 03:00:36PM +0300, Mikhail Kshevetskiy wrote:
+Indeed, something is, unfortunately, really messed up there, :/
+to the point that even one of my "unjailed" responses in this
+thread ended up in a separate lore thread. [1]
 
-> +				"==================================================================\n"
-> +				"Detected booting in RESERVED mode (UART_TXD was short to GND).\n"
-> +				"This mode is known for incorrect DMA reading of some flashes.\n"
-> +				"Usage of DMA for flash operations will be disabled to prevent data\n"
-> +				"damage. Unplug your serial console and power cycle the board\n"
-> +				"to boot with full performance.\n"
-> +				"==================================================================\n");
+[1] https://lore.kernel.org/linux-rockchip/e4cd11d0-463c-e707-5110-6b92=
+899b1ba3@manjaro.org/T/#u
 
-Multi-line prints aren't idiomatic for the kernel, we usually have just
-one line per print.  If you want multiple lines use multiple prints
-(like the trace_printk() warning).
-
---HRdJb4bqzkeBOF7F
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmkaRogACgkQJNaLcl1U
-h9D9Nwf9GJmi40PrVoWCgwvdveggyr3o6bLdQm18NZ1RaW6oocbyUMtURrM3jG9W
-mUnxJSemDZyVRAkCAp9yun0ua+O+YLzIKVli6pV0TTv9Y6g6LBcIWDS6qI1KC77r
-n2WBDwxhYzG8ZtvmCzCUb73qBdLSEZPGi6QBnrdskcsSlnyWm8fJiM7voTf/0wwD
-qUqgcEvPBSK91uxNPnoTedAnKnn0SvJHOzlNbh/bEpTUeXnNQkvcz13phACo4Cb5
-/VhF2xyDMqQAJltFnpmSw6LhBx5d3OJXurxTZNhfHvY79/bU0qzIfeyjpyOxtyRP
-aI37YjjZM/CNW2oupnvUQ1P505auzw==
-=wx4p
------END PGP SIGNATURE-----
-
---HRdJb4bqzkeBOF7F--
 
