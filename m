@@ -4,66 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E5E2CEACEF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 16:09:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEF62CEACEF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 16:10:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=04nkUmBTgyIlhi8kTBcDCYFcY4NIfVtCc0B9MV8VWWQ=; b=ILcV+0MWGcCqtRH4TQIXvymKlf
-	+21rN3E4yB4M5ZCwfDLjIlE4l6hCXHJFzfi8eFKmYPLIdlSGOn6oBZV5VOvkYKcx/d/J7iSFSUJJA
-	AmB9/fSoihPFLAzz4VsLiw1PR3sbxH69YFSbXo2d3KmzrkQ584pPlRQmLAwusVqYDmBWWxerkH7Jy
-	oxwwOPpCDwBQkrYnd/jtRUzqvVoLzdVVcYOB+D04Pt/m2dFPkHFbmvO6lk9A1DKk1d76fd5z9gXYr
-	tqDlV6xoTK0qkwH+AO8Hnqnnb1Gebx3ft0It01w+S3SkVp/nRHd3dsTNHkvH5o43cknNfL1JeHQ0b
-	Ap8ZGjsA==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SwAPPDquHtcNm47PaRnhELwXgDi0cjA+vnOu+Fa7qBE=; b=hdvCo0zNFrNfLXBRcuw3PFMrHQ
+	CJYqVVEeioyiwq8AvohHipO9uQkzCDZCcFZ5ahNt/h5LGoXAM+jvxZWZwswiwOPpt2fPKbfv3T+qD
+	WRkjjx5GHQgFmdEagUoiWjQCPsAQksjXLji1zsCCb2/qb/QsJ8iDxnO72Llz3I22vQ1znmjjdT1wF
+	4NGMM6eNU6udncUoJJh4VW3sHFUm+h1xyeZ8psfCnitPwpxQQDYxyYmmHpLigyYsuV7EsMcB3u2Oy
+	HSGqJ5AjSec11RBHteXBZfG8CXgQOTwDuoner83fg9A+/6fhEifnUhBMeh/c5G5OfutPAXNTAKn8i
+	fEVw35Dg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vL1mq-0000000GNLZ-0rLg;
-	Mon, 17 Nov 2025 16:09:04 +0000
-Received: from fanzine2.igalia.com ([213.97.179.56])
+	id 1vL1nu-0000000GNYp-1Usk;
+	Mon, 17 Nov 2025 16:10:10 +0000
+Received: from out-181.mta0.migadu.com ([2001:41d0:1004:224b::b5])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vL1ml-0000000GNKa-3RE0
+	id 1vL1nr-0000000GNXm-031q
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Nov 2025 16:09:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
-	s=20170329; h=Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:
-	Date:Subject:Cc:To:From:Sender:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
-	List-Post:List-Owner:List-Archive;
-	bh=04nkUmBTgyIlhi8kTBcDCYFcY4NIfVtCc0B9MV8VWWQ=; b=KCTfzP4FTJdFfn96PtfV6QHJDT
-	bpU8DdKzyLnnR7BWwpijzGEMm46GE7RmTeSRB0amFaS7Br1op3y5F3V4hPG+1v3LU9hIC+eUMhEL/
-	7T5bdYnmXSYpKqABU7gbzKoLE6X5/H7qhciSedCOYEM1jXjLoUzwe/tbyzyH+sesz55OIUM/iS070
-	VvWP+kmYQkKplXx4j01acUSlvRt4YQmdzPRgnY4mA3SEpncnhjer3/ffCD6fquSl0hOcgmUStr61/
-	DWi9DA8fxV0IwluUZvhks+bYOteH0t80jDfPleabbziZn2kvD+KrlKqq5HTLbGV8O7eYNeKIZ+kde
-	P8O1q1LQ==;
-Received: from [187.101.0.152] (helo=steammachine)
-	by fanzine2.igalia.com with esmtpsa 
-	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256) (Exim)
-	id 1vL1ma-001drl-Vm; Mon, 17 Nov 2025 17:08:48 +0100
-From: =?UTF-8?q?Andr=C3=A9=20Almeida?= <andrealmeid@igalia.com>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Mark Brown <broonie@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	kernel-dev@igalia.com,
-	Ryan Houdek <Sonicadvance1@gmail.com>,
-	Billy Laws <blaws05@gmail.com>,
-	=?UTF-8?q?Andr=C3=A9=20Almeida?= <andrealmeid@igalia.com>
-Subject: [RFC PATCH v2 0/1] arch: arm64: Implement unaligned atomic emulation
-Date: Mon, 17 Nov 2025 13:08:40 -0300
-Message-ID: <20251117160841.334224-1-andrealmeid@igalia.com>
-X-Mailer: git-send-email 2.51.2
+	Mon, 17 Nov 2025 16:10:08 +0000
+Message-ID: <7248b96f-be82-4b89-87e4-f86b3898bc55@linux.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1763395802;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=SwAPPDquHtcNm47PaRnhELwXgDi0cjA+vnOu+Fa7qBE=;
+	b=lBS4GNQ/vb9F6Vn/H9S43xfWCRoEeB5UrFnWt3WBDy+U0RbpDu5SAii+DYIYorWbkpkzWV
+	K/TDPrFQV4wt4IYlP33rqlxWYcWmvwZpNedARWTDnTXWvpK87WtJpg8DYGE9+ksAUpMOU2
+	ROGZ/mbtzBV9DQc6Lib9c62Ai2zK4iE=
+Date: Mon, 17 Nov 2025 11:09:57 -0500
 MIME-Version: 1.0
+Subject: Re: [PATCH 2/3] drm: zynqmp: Make the video plane primary
+To: "Klymenko, Anatoliy" <Anatoliy.Klymenko@amd.com>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
+ "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>
+Cc: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ Mike Looijmans <mike.looijmans@topic.nl>, David Airlie <airlied@gmail.com>,
+ Thomas Zimmermann <tzimmermann@suse.de>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>, Simona Vetter <simona@ffwll.ch>,
+ "Simek, Michal" <michal.simek@amd.com>
+References: <20251113203715.2768107-1-sean.anderson@linux.dev>
+ <20251113203715.2768107-3-sean.anderson@linux.dev>
+ <MW4PR12MB71651E0E82AD8E4898DBD017E6CDA@MW4PR12MB7165.namprd12.prod.outlook.com>
+ <680bee12-6bac-4634-8a02-4b1717a90aa2@linux.dev>
+ <MW4PR12MB7165F8413848B53CB8C7C031E6CBA@MW4PR12MB7165.namprd12.prod.outlook.com>
+Content-Language: en-US
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Sean Anderson <sean.anderson@linux.dev>
+In-Reply-To: <MW4PR12MB7165F8413848B53CB8C7C031E6CBA@MW4PR12MB7165.namprd12.prod.outlook.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251117_080900_972933_E16F43FE 
-X-CRM114-Status: GOOD (  18.55  )
+X-CRM114-CacheID: sfid-20251117_081007_289142_20A0FC0A 
+X-CRM114-Status: GOOD (  37.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,102 +82,187 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patch proposes adding kernel-side emulation for unaligned atomic
-instructions on ARM64. This is intended for x86 emulators (like FEX)
-that struggle to effectively handle such operations in userspace alone.
-Such handling is required as x86 permits such unaligned accesses (albeit
-sometimes with a performance penalty as in the case of split-locks[1])
-but ARM64 does not and will raise a bus error.
+On 11/14/25 19:57, Klymenko, Anatoliy wrote:
+> [AMD Official Use Only - AMD Internal Distribution Only]
+> 
+>> -----Original Message-----
+>> From: dri-devel <dri-devel-bounces@lists.freedesktop.org> On Behalf Of Sean
+>> Anderson
+>> Sent: Thursday, November 13, 2025 2:52 PM
+>> To: Klymenko, Anatoliy <Anatoliy.Klymenko@amd.com>; Laurent Pinchart
+>> <laurent.pinchart@ideasonboard.com>; Tomi Valkeinen
+>> <tomi.valkeinen@ideasonboard.com>; dri-devel@lists.freedesktop.org
+>> Cc: linux-kernel@vger.kernel.org; Mike Looijmans <mike.looijmans@topic.nl>;
+>> David Airlie <airlied@gmail.com>; Thomas Zimmermann
+>> <tzimmermann@suse.de>; Maarten Lankhorst
+>> <maarten.lankhorst@linux.intel.com>; Maxime Ripard <mripard@kernel.org>;
+>> linux-arm-kernel@lists.infradead.org; Simona Vetter <simona@ffwll.ch>; Simek,
+>> Michal <michal.simek@amd.com>
+>> Subject: Re: [PATCH 2/3] drm: zynqmp: Make the video plane primary
+>>
+>> Caution: This message originated from an External Source. Use proper caution
+>> when opening attachments, clicking links, or responding.
+>>
+>>
+>> On 11/13/25 17:45, Klymenko, Anatoliy wrote:
+>> > [AMD Official Use Only - AMD Internal Distribution Only]
+>> >
+>> > Hi Sean,
+>> >
+>> > Thanks a lot for the patch (and tackling the alpha issue in general)
+>> >
+>> >> -----Original Message-----
+>> >> From: Sean Anderson <sean.anderson@linux.dev>
+>> >> Sent: Thursday, November 13, 2025 12:37 PM
+>> >> To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>; Tomi Valkeinen
+>> >> <tomi.valkeinen@ideasonboard.com>; dri-devel@lists.freedesktop.org
+>> >> Cc: linux-kernel@vger.kernel.org; Mike Looijmans
+>> <mike.looijmans@topic.nl>;
+>> >> David Airlie <airlied@gmail.com>; Thomas Zimmermann
+>> >> <tzimmermann@suse.de>; Maarten Lankhorst
+>> >> <maarten.lankhorst@linux.intel.com>; Klymenko, Anatoliy
+>> >> <Anatoliy.Klymenko@amd.com>; Maxime Ripard <mripard@kernel.org>;
+>> linux-
+>> >> arm-kernel@lists.infradead.org; Simona Vetter <simona@ffwll.ch>; Simek,
+>> >> Michal <michal.simek@amd.com>; Sean Anderson
+>> >> <sean.anderson@linux.dev>
+>> >> Subject: [PATCH 2/3] drm: zynqmp: Make the video plane primary
+>> >>
+>> >> Caution: This message originated from an External Source. Use proper
+>> caution
+>> >> when opening attachments, clicking links, or responding.
+>> >>
+>> >>
+>> >> The zynqmp has two planes: "video" and "graphics". The video plane
+>> >>
+>> >> - Is on the bottom (zpos=0) (except when chroma keying as the master
+>> plane)
+>> >> - Supports "live" input (e.g. from an external source)
+>> >> - Supports RGB, YUV, and YCbCr formats, including XRGB8888
+>> >> - Does not support transparency, except via chroma keying (colorkey)
+>> >> - Must cover the entire screen (translation/resizing not supported)
+>> >>
+>> >> The graphics plane
+>> >>
+>> >> - Is on the top (zpos=1)
+>> >> - Supports "live" input (e.g. from an external source)
+>> >> - Supports RGB and YUV444 formats, but not XRGB8888
+>> >> - Supports transparency either via
+>> >>   - Global alpha channel, which disables per-pixel alpha when enabled
+>> >>   - Per-pixel alpha, which cannot be used with global alpha
+>> >>   - Chroma keying (colorkey)
+>> >> - Must cover the entire screen (translation/resizing not supported)
+>> >>
+>> >> Currently the graphics plane is the primary plane. Make the video plane
+>> >> the primary plane:
+>> >>
+>> >> - The video plane supports XRGB8888, which is the default 24-bit
+>> >>   colorspace for X. This results in improved performance when compared
+>> >>   to RGB565.
+>> >> - The graphics plane can be used as an overlay because it has a higher
+>> >>   z-pos and supports a per-pixel alpha channel. Unfortunately, clients
+>> >>   like weston cannot currently take advantage of this because they
+>> >>   expect overlay planes to support translation/resizing.
+>> >>
+>> >> One downside to this approach could be that the graphics plane has worse
+>> >> support for YUV and YCBCr, so it may be more difficult to compose video
+>> >
+>> > Not just more difficult but practically impossible:
+>> > 1. GFX (in Xilinx terminology) plane doesn't support pixel upscaling, so
+>> > no support for NV12, YUY2 and other common video pixel formats.
+>> > 2. Both planes are unscalable, this means we can only output native
+>> > display resolution video on the top plane, or display thick black frame
+>> > around the picture. We are losing GFX masking capabilities.
+>>
+>> The graphics masking capabilities are the same as they always were.
+>>
+>> > 3. We won't be able to render subtitles on top of the video.
+>> > Probably the only practical video player option remains here is to render
+>> > video to a texture and embed it into graphics composition.
+>>
+>> OK, but none of this is currently possible either because of the global
+>> alpha setting. So do you have a specific program in mind that plays
+>> video and will do it with an "underlay" plane?
+>>
+> 
+> webOS, Roku OS, just to name a few. But most importantly, AMD has quite
+> a few customers using "underlay" plane because of its YUV 420 capability.
 
-User applications that wish to enable support for this can use the new
-pctrl() flag `PR_ARM64_UNALIGN_ATOMIC_EMULATE`. Some optimizations and
-instructions were left for future revisions of this patchset.
+Can you link to a specific example where the plane is selected based on
+its primary/overlay status and not based on its format support?  I'm not
+too familiar with these distros, but e.g. [1] selects the plane based on
+the format, and doesn't care which one is primary.
 
-Emulators like FEX attempt to emulate this in userspace, but with
-caveats in two areas:
+--Sean
 
- * Performance
+[1] https://github.com/webosose/omx-components/blob/27b33e17c25023f2c7ffbbfda10169fb500dacdc/src/omxdrm/videorenderer.cpp#L469
 
-It should first be noted that due to x86's TSO (total store order)
-memory model, ARM64 atomic instructions must be used for all memory
-accesses. This results in unaligned loads/stores being much more common
-than one would expect and the overhead of emulating them significantly
-impacting performance.  For this common case of unaligned loads/stores,
-code backpatching is used in FEX to avoid repeated overhead from
-handling the same faulting access. This replaces faulting unaligned
-atomic ARM64 instructions with regular load/stores and memory barriers.
-This comes at a cost of introducing significant performance problems if
-a function like memcpy ends up being patched because it very
-infrequently happens to be used with unaligned memory. This is severe
-enough to make games like Mirror's Edge and Assassin's Creed: Origin
-unplayable without application-specific configuration.
-
-Microbenchmarks[2] measure a 4x decrease in overhead with kernel-side
-handling compared to userspace, and this figure is currently even larger
-when FEX is ran under Wine. Such a dramatic decrease would make it
-reasonable for FEX to default to the no-backpatching path and provide
-consistent performance. 
-
- * Correctness:
-
-x86 atomic accesses can cross 16-byte (LSE2) granules, but there is no
-ARM64 instruction that would allow for direct atomic emulation of this.
-As such, a lock must be taken for correctness. While this is easy to
-emulate in userspace within a process, correct atomic cross-granule
-operations on shared memory mapped into multiple processes would require
-a lock shared between all FEX instances which cannot be implemented
-safely in userspace as is (robust futexes do not work here as they are
-under the control of the emulated x86 program). Note, this is a less
-coarse restriction than split locks on x86, which are only concerned
-with accesses crossing a 64 byte cacheline size.
-
- * Precedent:
-
-Both XNU and NT kernels support unaligned atomic emulation for their
-respective x86 emulators. Windows additionally supports 'volatile
-metadata', which is emitted by newer versions of MSVC to inform
-emulators which specific load/store accesses require atomic handling
-[3]. FEX supports this together with an extension mechanism [4] which
-can be manually populated to avoid e.g. the aforementioned Assassin's
-Creed slowdown.
-
-This implementation is a RFC so we can learn more about how to make this
-code upstream and what the maintainers think of such feature being
-merged here. The code is a simplified version of the original work done
-by Billy Laws, where we accept just a subset of 64bit atomic
-instructions that are enough to be used with a benchmark tool[2], and
-this is the proposed interface being used by FEX: [5].
-
-Thanks!
-	André
-
-[1] https://lwn.net/Articles/911219/
-[2] https://gitlab.freedesktop.org/freedesktop/snippets/-/snippets/7875
-[3] https://learn.microsoft.com/en-us/cpp/build/reference/volatile?view=msvc-170
-[4] https://github.com/FEX-Emu/FEX/pull/4773
-[5] https://github.com/FEX-Emu/FEX/pull/4985
-
----
-Changelog:
- - Added a check for LSE Atomic instruction for the prctl()
- v1: https://lore.kernel.org/lkml/20251106160735.2638485-1-andrealmeid@igalia.com/
-
-André Almeida (1):
-  arch: arm64: Implement unaligned atomic emulation
-
- arch/arm64/include/asm/exception.h   |   1 +
- arch/arm64/include/asm/processor.h   |   3 +
- arch/arm64/include/asm/thread_info.h |   1 +
- arch/arm64/kernel/Makefile           |   2 +-
- arch/arm64/kernel/process.c          |  15 +
- arch/arm64/kernel/unaligned_atomic.c | 520 +++++++++++++++++++++++++++
- arch/arm64/mm/fault.c                |  10 +
- include/uapi/linux/prctl.h           |   5 +
- kernel/sys.c                         |   7 +-
- 9 files changed, 562 insertions(+), 2 deletions(-)
- create mode 100644 arch/arm64/kernel/unaligned_atomic.c
-
--- 
-2.51.2
-
+>> >> streams into the window of a media player. However, no existing software
+>> >> could rely on this because there is no way to enable the per-pixel alpha
+>> >> channel when the graphics plane is enabled. This makes it impossible to
+>> >
+>> > This situation is a driver bug not a fatum.
+>>
+>> And yet the driver bug provides ample evidence that no one is doing this,
+>> so we don't need to worry about it.
+>>
+>> --Sean
+>>
+>> > Per pixel alpha blending works
+>> > just fine if we disable global alpha. We just need to avoid enabling it when
+>> > we have alpha capable GFX plane format.
+>> >
+>> >> "carve out" an area in the graphics plane where the video plane shows
+>> >> through. This limitation is addressed in the next patch, but it means we
+>> >> do not need to worry about compatibility in this area.
+>> >>
+>> >> An alternate approach could be to pretend that the graphics plane
+>> >> supports XRGB8888 by using the supported ARGB8888 mode instead and
+>> >> enabling the global alpha channel. However, this would rule out ever
+>> >> using the per-pixel alpha channel.
+>> >>
+>> >> Signed-off-by: Sean Anderson <sean.anderson@linux.dev>
+>> >> ---
+>> >>
+>> >>  drivers/gpu/drm/xlnx/zynqmp_kms.c | 6 +++---
+>> >>  1 file changed, 3 insertions(+), 3 deletions(-)
+>> >>
+>> >> diff --git a/drivers/gpu/drm/xlnx/zynqmp_kms.c
+>> >> b/drivers/gpu/drm/xlnx/zynqmp_kms.c
+>> >> index c80a2d4034f3..456ada9ac003 100644
+>> >> --- a/drivers/gpu/drm/xlnx/zynqmp_kms.c
+>> >> +++ b/drivers/gpu/drm/xlnx/zynqmp_kms.c
+>> >> @@ -161,8 +161,8 @@ static int zynqmp_dpsub_create_planes(struct
+>> >> zynqmp_dpsub *dpsub)
+>> >>                 if (!formats)
+>> >>                         return -ENOMEM;
+>> >>
+>> >> -               /* Graphics layer is primary, and video layer is overlay. */
+>> >> -               type = i == ZYNQMP_DPSUB_LAYER_VID
+>> >> +               /* Graphics layer is overlay, and video layer is primary. */
+>> >> +               type = i == ZYNQMP_DPSUB_LAYER_GFX
+>> >>                      ? DRM_PLANE_TYPE_OVERLAY :
+>> >> DRM_PLANE_TYPE_PRIMARY;
+>> >>                 ret = drm_universal_plane_init(&dpsub->drm->dev, plane, 0,
+>> >>                                                &zynqmp_dpsub_plane_funcs,
+>> >> @@ -322,7 +322,7 @@ static const struct drm_crtc_funcs
+>> >> zynqmp_dpsub_crtc_funcs = {
+>> >>
+>> >>  static int zynqmp_dpsub_create_crtc(struct zynqmp_dpsub *dpsub)
+>> >>  {
+>> >> -       struct drm_plane *plane = &dpsub->drm-
+>> >> >planes[ZYNQMP_DPSUB_LAYER_GFX];
+>> >> +       struct drm_plane *plane = &dpsub->drm-
+>> >> >planes[ZYNQMP_DPSUB_LAYER_VID];
+>> >>         struct drm_crtc *crtc = &dpsub->drm->crtc;
+>> >>         int ret;
+>> >>
+>> >> --
+>> >> 2.35.1.1320.gc452695387.dirty
+>> >
+>> > Thank you,
+>> > Anatoliy
+> 
+> Thank you,
+> Anatoliy
 
