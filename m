@@ -4,35 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1CD5CEACEF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 17:03:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B474BCE8D6B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 17:03:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EOmvFOME0nMbNaanzMXkyAO9bkD35S2W2XnriHrjGUM=; b=uiLtYWDSNeJq8DIFIQZCuqd7i4
-	bIhADBdRmHGqJD/vkoSsJqo4cBdjJDCBWYBiEnyG3eQ0kL9Bp0xJe++M6D1V3LLP/TGbMNwxIUedO
-	Q2ccviEOceghWDikDkSIZjWBcsbfPPpfvx56TjoKwB2DMFJhWeqPIpojOGP6x2fujhv8y1N1FbLai
-	U+bTQxENMPI1vBiTiDV8rPBTiGV7MoJqMtvW2K2hUeGHd08S9PtymWgI0ZMtxUe5RkC0d6yL5usqs
-	QGMYjW+2ybouxe0P0d0WCY7qrjJseTcL90nuMty61sCUn25b+2sU9F5RgkQyxOJZ83d/8I+6+5b6Z
-	IEFrPzDw==;
+	bh=LkoMndG+CRUTj0LaM/Ba6eSbq1NdHiM0kkuJdBKsna8=; b=DzlTCntN8aMjrxDkYJOKpjznhU
+	Q/kYFZZ2fhKxnIX6Ph3uyacqw/oXHHSvAIy/cQlUItseOXsCEhh2AthXxakrW4s6roPEvUJz0+j0G
+	6ZeDHb/7+Je+nEiavqWgV9cZil6KKb+sdMjuJd2lPveiLa7Ee6dd/UxJUxdP3AhNoNoZuoVsx5NjG
+	p6VXWUBcEIf2jYzGxHyduA9+0JD/U+RLunqaiXYDjzysSlTIeKOEYWG8B0rqGYU+1EtS6BNaijXgn
+	BGnJYPmL6+AifxjSpEbt3r/qcbwAVqvkRxPkCF2HYBj4wuVuyC5JEitZhw+/iawWCT0A/ySRjtSkb
+	l2GdUEHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vL2dR-0000000GUYd-1Uzx;
-	Mon, 17 Nov 2025 17:03:25 +0000
+	id 1vL2dY-0000000GUfv-0YQp;
+	Mon, 17 Nov 2025 17:03:32 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vL2dW-0000000GUdY-1Rdf
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 17 Nov 2025 17:03:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=LkoMndG+CRUTj0LaM/Ba6eSbq1NdHiM0kkuJdBKsna8=; b=l2RkHCfMoqSA+b3ZjmY+wSORcX
+	J2xfgmYJ+QHAZhqgmhcyqw21upKBEM4JCDBExjscVuYnR8mnG7AXo778C7Dk/oSQT2/Pr8vRN4tED
+	vX/02GAWP5mJXCAFkSG4S9VXy3fh+p89LNsNAFAkrZBmplKasEZAKYZUOS8m4D7ohBpivp9LhESBe
+	Vv7EFuVDIxMTvGtTla6ON8k2zOg/ZjsDMszgJ4v/F6B60OncBBppRRMbEb/eD5VTMyXfDxIQt4PFr
+	bpxstHeCR3KaszTfXqV12fcwxtQbNUafo96xKXHLJXkqdZiHxl0V58r7lUaDrhWj7hMwCLCUNK/a5
+	R0o48hww==;
 Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vL2dK-0000000GURC-2pHe
+	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vL1lm-00000007jMv-2YNu
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Nov 2025 17:03:22 +0000
+	Mon, 17 Nov 2025 16:08:03 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 822C6FEC;
-	Mon, 17 Nov 2025 09:03:10 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D2DF1168F;
+	Mon, 17 Nov 2025 09:03:15 -0800 (PST)
 Received: from e134344.cambridge.arm.com (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id ECFF53F66E;
-	Mon, 17 Nov 2025 09:03:12 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 692253F66E;
+	Mon, 17 Nov 2025 09:03:18 -0800 (PST)
 From: Ben Horgan <ben.horgan@arm.com>
 To: james.morse@arm.com
 Cc: amitsinght@marvell.com,
@@ -69,21 +84,20 @@ Cc: amitsinght@marvell.com,
 	tan.shaopeng@fujitsu.com,
 	will@kernel.org,
 	xhao@linux.alibaba.com,
-	Fenghua Yu <fenghuay@nvdia.com>,
-	Zeng Heng <zengheng4@huawei.com>,
-	Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>,
-	Ben Horgan <ben.horgan@arm.com>
-Subject: [PATCH v5 31/34] arm_mpam: Add helper to reset saved mbwu state
-Date: Mon, 17 Nov 2025 17:00:10 +0000
-Message-ID: <20251117170014.4113754-32-ben.horgan@arm.com>
+	Jonathan Cameron <Jonathan.Cameron@huawei.com>,
+	Ben Horgan <ben.horgan@arm.com>,
+	Zeng Heng <zengheng4@huawei.com>
+Subject: [PATCH v5 32/34] arm_mpam: Add kunit test for bitmap reset
+Date: Mon, 17 Nov 2025 17:00:11 +0000
+Message-ID: <20251117170014.4113754-33-ben.horgan@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20251117170014.4113754-1-ben.horgan@arm.com>
 References: <20251117170014.4113754-1-ben.horgan@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251117_090318_854540_169392CA 
-X-CRM114-Status: GOOD (  17.12  )
+X-CRM114-CacheID: sfid-20251117_160800_549888_1A02DED8 
+X-CRM114-Status: GOOD (  17.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,133 +114,134 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: James Morse <james.morse@arm.com>
 
-resctrl expects to reset the bandwidth counters when the filesystem
-is mounted.
+The bitmap reset code has been a source of bugs. Add a unit test.
 
-To allow this, add a helper that clears the saved mbwu state. Instead
-of cross calling to each CPU that can access the component MSC to
-write to the counter, set a flag that causes it to be zero'd on the
-the next read. This is easily done by forcing a configuration update.
+This currently has to be built in, as the rest of the driver is
+builtin.
 
+Suggested-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
 Signed-off-by: James Morse <james.morse@arm.com>
-Cc: Peter Newman <peternewman@google.com>
-Reviewed-by: Fenghua Yu <fenghuay@nvdia.com>
-Reviewed-by: Gavin Shan <gshan@redhat.com>
 Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+Reviewed-by: Ben Horgan <ben.horgan@arm.com>
+Reviewed-by: Fenghua Yu <fenghuay@nvidia.com>
+Reviewed-by: Gavin Shan <gshan@redhat.com>
 Tested-by: Fenghua Yu <fenghuay@nvidia.com>
 Tested-by: Carl Worth <carl@os.amperecomputing.com>
 Tested-by: Gavin Shan <gshan@redhat.com>
 Tested-by: Zeng Heng <zengheng4@huawei.com>
-Tested-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
 Signed-off-by: Ben Horgan <ben.horgan@arm.com>
 ---
-Changes since v3:
-Correct type checking, use mpam_feat_msmon_mbwu_<n>counter
----
- drivers/resctrl/mpam_devices.c  | 48 ++++++++++++++++++++++++++++++++-
- drivers/resctrl/mpam_internal.h |  2 ++
- 2 files changed, 49 insertions(+), 1 deletion(-)
+ drivers/resctrl/Kconfig             |  9 ++++
+ drivers/resctrl/mpam_devices.c      |  4 ++
+ drivers/resctrl/test_mpam_devices.c | 69 +++++++++++++++++++++++++++++
+ 3 files changed, 82 insertions(+)
+ create mode 100644 drivers/resctrl/test_mpam_devices.c
 
+diff --git a/drivers/resctrl/Kconfig b/drivers/resctrl/Kconfig
+index 5f7f748e611e..c808e0470394 100644
+--- a/drivers/resctrl/Kconfig
++++ b/drivers/resctrl/Kconfig
+@@ -12,4 +12,13 @@ config ARM64_MPAM_DRIVER_DEBUG
+ 	help
+ 	  Say yes here to enable debug messages from the MPAM driver.
+ 
++config MPAM_KUNIT_TEST
++	bool "KUnit tests for MPAM driver " if !KUNIT_ALL_TESTS
++	depends on KUNIT=y
++	default KUNIT_ALL_TESTS
++	help
++	  Enable this option to run tests in the MPAM driver.
++
++	  If unsure, say N.
++
+ endif
 diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
-index af0cd44c7517..a4bc86e6127e 100644
+index a4bc86e6127e..342525d671df 100644
 --- a/drivers/resctrl/mpam_devices.c
 +++ b/drivers/resctrl/mpam_devices.c
-@@ -1075,6 +1075,7 @@ static void __ris_msmon_read(void *arg)
- 	bool overflow;
- 	struct mon_read *m = arg;
- 	struct mon_cfg *ctx = m->ctx;
-+	bool reset_on_next_read = false;
- 	struct mpam_msc_ris *ris = m->ris;
- 	struct msmon_mbwu_state *mbwu_state;
- 	struct mpam_props *rprops = &ris->props;
-@@ -1089,6 +1090,20 @@ static void __ris_msmon_read(void *arg)
- 		  FIELD_PREP(MSMON_CFG_MON_SEL_RIS, ris->ris_idx);
- 	mpam_write_monsel_reg(msc, CFG_MON_SEL, mon_sel);
+@@ -2717,3 +2717,7 @@ static int __init mpam_msc_driver_init(void)
  
-+	switch (m->type) {
-+	case mpam_feat_msmon_mbwu_31counter:
-+	case mpam_feat_msmon_mbwu_44counter:
-+	case mpam_feat_msmon_mbwu_63counter:
-+		mbwu_state = &ris->mbwu_state[ctx->mon];
-+		if (mbwu_state) {
-+			reset_on_next_read = mbwu_state->reset_on_next_read;
-+			mbwu_state->reset_on_next_read = false;
-+		}
-+		break;
-+	default:
-+		break;
-+	}
+ /* Must occur after arm64_mpam_register_cpus() from arch_initcall() */
+ subsys_initcall(mpam_msc_driver_init);
 +
- 	/*
- 	 * Read the existing configuration to avoid re-writing the same values.
- 	 * This saves waiting for 'nrdy' on subsequent reads.
-@@ -1106,7 +1121,7 @@ static void __ris_msmon_read(void *arg)
- 	config_mismatch = cur_flt != flt_val ||
- 			  cur_ctl != (ctl_val | MSMON_CFG_x_CTL_EN);
- 
--	if (config_mismatch) {
-+	if (config_mismatch || reset_on_next_read) {
- 		write_msmon_ctl_flt_vals(m, ctl_val, flt_val);
- 		overflow = false;
- 	} else if (overflow) {
-@@ -1263,6 +1278,37 @@ int mpam_msmon_read(struct mpam_component *comp, struct mon_cfg *ctx,
- 	return err;
- }
- 
-+void mpam_msmon_reset_mbwu(struct mpam_component *comp, struct mon_cfg *ctx)
++#ifdef CONFIG_MPAM_KUNIT_TEST
++#include "test_mpam_devices.c"
++#endif
+diff --git a/drivers/resctrl/test_mpam_devices.c b/drivers/resctrl/test_mpam_devices.c
+new file mode 100644
+index 000000000000..0cfb41b665c4
+--- /dev/null
++++ b/drivers/resctrl/test_mpam_devices.c
+@@ -0,0 +1,69 @@
++// SPDX-License-Identifier: GPL-2.0
++// Copyright (C) 2025 Arm Ltd.
++/* This file is intended to be included into mpam_devices.c */
++
++#include <kunit/test.h>
++
++static void test_mpam_reset_msc_bitmap(struct kunit *test)
 +{
-+	struct mpam_msc *msc;
-+	struct mpam_vmsc *vmsc;
-+	struct mpam_msc_ris *ris;
++	char __iomem *buf = kunit_kzalloc(test, SZ_16K, GFP_KERNEL);
++	struct mpam_msc fake_msc = {};
++	u32 *test_result;
 +
-+	if (!mpam_is_enabled())
++	if (!buf)
 +		return;
 +
-+	guard(srcu)(&mpam_srcu);
-+	list_for_each_entry_srcu(vmsc, &comp->vmsc, comp_list,
-+				 srcu_read_lock_held(&mpam_srcu)) {
-+		if (!mpam_has_feature(mpam_feat_msmon_mbwu, &vmsc->props))
-+			continue;
++	fake_msc.mapped_hwpage = buf;
++	fake_msc.mapped_hwpage_sz = SZ_16K;
++	cpumask_copy(&fake_msc.accessibility, cpu_possible_mask);
 +
-+		msc = vmsc->msc;
-+		list_for_each_entry_srcu(ris, &vmsc->ris, vmsc_list,
-+					 srcu_read_lock_held(&mpam_srcu)) {
-+			if (!mpam_has_feature(mpam_feat_msmon_mbwu, &ris->props))
-+				continue;
++	/* Satisfy lockdep checks */
++	mutex_init(&fake_msc.part_sel_lock);
++	mutex_lock(&fake_msc.part_sel_lock);
 +
-+			if (WARN_ON_ONCE(!mpam_mon_sel_lock(msc)))
-+				continue;
++	test_result = (u32 *)(buf + MPAMCFG_CPBM);
 +
-+			ris->mbwu_state[ctx->mon].correction = 0;
-+			ris->mbwu_state[ctx->mon].reset_on_next_read = true;
-+			mpam_mon_sel_unlock(msc);
-+		}
-+	}
++	mpam_reset_msc_bitmap(&fake_msc, MPAMCFG_CPBM, 0);
++	KUNIT_EXPECT_EQ(test, test_result[0], 0);
++	KUNIT_EXPECT_EQ(test, test_result[1], 0);
++	test_result[0] = 0;
++	test_result[1] = 0;
++
++	mpam_reset_msc_bitmap(&fake_msc, MPAMCFG_CPBM, 1);
++	KUNIT_EXPECT_EQ(test, test_result[0], 1);
++	KUNIT_EXPECT_EQ(test, test_result[1], 0);
++	test_result[0] = 0;
++	test_result[1] = 0;
++
++	mpam_reset_msc_bitmap(&fake_msc, MPAMCFG_CPBM, 16);
++	KUNIT_EXPECT_EQ(test, test_result[0], 0xffff);
++	KUNIT_EXPECT_EQ(test, test_result[1], 0);
++	test_result[0] = 0;
++	test_result[1] = 0;
++
++	mpam_reset_msc_bitmap(&fake_msc, MPAMCFG_CPBM, 32);
++	KUNIT_EXPECT_EQ(test, test_result[0], 0xffffffff);
++	KUNIT_EXPECT_EQ(test, test_result[1], 0);
++	test_result[0] = 0;
++	test_result[1] = 0;
++
++	mpam_reset_msc_bitmap(&fake_msc, MPAMCFG_CPBM, 33);
++	KUNIT_EXPECT_EQ(test, test_result[0], 0xffffffff);
++	KUNIT_EXPECT_EQ(test, test_result[1], 1);
++	test_result[0] = 0;
++	test_result[1] = 0;
++
++	mutex_unlock(&fake_msc.part_sel_lock);
 +}
 +
- static void mpam_reset_msc_bitmap(struct mpam_msc *msc, u16 reg, u16 wd)
- {
- 	u32 num_words, msb;
-diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
-index d3eb92b79b98..5d023eade398 100644
---- a/drivers/resctrl/mpam_internal.h
-+++ b/drivers/resctrl/mpam_internal.h
-@@ -209,6 +209,7 @@ struct mon_cfg {
- /* Changes to msmon_mbwu_state are protected by the msc's mon_sel_lock. */
- struct msmon_mbwu_state {
- 	bool		enabled;
-+	bool		reset_on_next_read;
- 	struct mon_cfg	cfg;
- 
- 	/*
-@@ -368,6 +369,7 @@ int mpam_apply_config(struct mpam_component *comp, u16 partid,
- 
- int mpam_msmon_read(struct mpam_component *comp, struct mon_cfg *ctx,
- 		    enum mpam_device_features, u64 *val);
-+void mpam_msmon_reset_mbwu(struct mpam_component *comp, struct mon_cfg *ctx);
- 
- int mpam_get_cpumask_from_cache_id(unsigned long cache_id, u32 cache_level,
- 				   cpumask_t *affinity);
++static struct kunit_case mpam_devices_test_cases[] = {
++	KUNIT_CASE(test_mpam_reset_msc_bitmap),
++	{}
++};
++
++static struct kunit_suite mpam_devices_test_suite = {
++	.name = "mpam_devices_test_suite",
++	.test_cases = mpam_devices_test_cases,
++};
++
++kunit_test_suites(&mpam_devices_test_suite);
 -- 
 2.43.0
 
