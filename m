@@ -4,92 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A8E5CEBF61
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 14:56:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F149CEBF61
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 15:00:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bDTMAjFTHZZURat4atsXS5dyJJHx/gXD6vpgW9NtTRs=; b=zFxqjNq9bs0U8iXKm2ZAS5KqxP
-	1VeIvmmq7wsHuqu1A9Jn5NoSvKsEnWTsyN2aVBn7EIKt91/dGJc/j+3h9evH3LDlDyuFDbtM9T175
-	IGgmde7Vbe5nxL8NhNj+SBB47EPqdXXxrD+qETGkCCI2L5GWW9FjzPqCVYZtkuaR12QdSOLOAblIQ
-	gnCZl1Dr5YPYzIJ8ph1RY6CywRUMw+3fYFFo2liGt3RmYjLudPV/4euKZJ2HtUJwuu7WNNtIo9iLP
-	RWpMblRfYKlI+Sh398o9O2H5mYIKzG18KcmJCWivGzNlQXTq50rDpRFio1skGK3ds4n2k1ScgKHu1
-	yugc8aGQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nmgQRjDb8Oft8KIz4WO2O7/+6kdhzlFMXqAK4ZWWCP4=; b=JVIJLqPlO+qz3vFv7vX2PC1aK0
+	mZau3jCWI2S+8rFl8pZyop9WmeXbuaeHZkeTm5qfRHUyFWqN5pJivFDx3/2rLiDF+4G5bmAiSsCTG
+	xeDL1hbv6Bx+x39GTNsoA3FJcDuIupf61JUzqJs1tb0yoMK/XCyu/eH6DdTaaIwe66ADRZJfHhNT3
+	U0A85LqFyejv5Nwk1eaBXMfhZhMrwVlSh3uvC62ylXXY9/jQ+1+RZZD4TNpaU8n8zybvHl5ZpGKV/
+	RVkLncep0HERur5xQTgK1SRzFAMeRVR6mwAJVttReRocenGVDNxVk5cVPIctiPbQx0/vaTJfRqt1Y
+	FqddeoiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vL0eX-0000000GHpW-0Wan;
-	Mon, 17 Nov 2025 14:56:25 +0000
-Received: from mail-qt1-x82c.google.com ([2607:f8b0:4864:20::82c])
+	id 1vL0hy-0000000GIBQ-1BWM;
+	Mon, 17 Nov 2025 14:59:58 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vL0eU-0000000GHov-2sx6
+	id 1vL0hw-0000000GIB8-3753
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Nov 2025 14:56:24 +0000
-Received: by mail-qt1-x82c.google.com with SMTP id d75a77b69052e-4edb7c8232aso64677191cf.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Nov 2025 06:56:22 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rowland.harvard.edu; s=google; t=1763391381; x=1763996181; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=bDTMAjFTHZZURat4atsXS5dyJJHx/gXD6vpgW9NtTRs=;
-        b=rhoAE9p011Zi22rvUMjOSB9g2ImpvO1cumoY/IY3BmeC+CgNjOlG8LwAgXPUUvrf7X
-         r3KK5m4GaQmkB92snMCYOtRJ3G+W6BuWpinzSrPqrRjlnjq9N3kZ2IkNntQxK38BAxxP
-         HFLFX2ciCgW+AzQcFXBlR1FEtVL8hCPjwHrtVPeG7sU7Xx2TdOHrzYn4dSEXiC7/xNbG
-         doVcKDIV/ZdCV2IBoKDf+u8N8HmcBaGrkv2jAf071hU2JxXCt9aN7V8rw/RWO54yxuZN
-         XbZvej4mumjlM12XrmZbC/+BMdP9fKpb9ooSes7/+4N/fCgV8+32Yc26AEig1MmAkWMe
-         121g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763391381; x=1763996181;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=bDTMAjFTHZZURat4atsXS5dyJJHx/gXD6vpgW9NtTRs=;
-        b=jMAQYfJ5axJy20/xxQbiZod8XjibsLq2jm3xzrWWQH6Gti8oe6gc8V0thgFt3/ly6A
-         YnVWMkucnGY5ZlrggsAwlFBNJTXl03En1XXhiVNH7ZVj86q7V+b7lFTnaLs8/ifa/MF3
-         S2BvyvkZ0ZUWDguPVPsyur84xqYnjyNhzQiQQznJ+ZvN6mdGi1sxuVuWGJEiD4JMkXDX
-         VQV4YgksjVi5+ezmTULUMeUxe1yfjjDx333tQ2b+syWPkbEfuQcOvuBU/ZdXR4lXekNq
-         moJCWnahe1VNIsVv3cp8sTp+e/vR34YutEHtN+HJ2lza7GErA+LLEGxgdTg1+wTge0IO
-         8Mbw==
-X-Forwarded-Encrypted: i=1; AJvYcCXVoFXuiYMjGgdTgGk3hnVtiephXWJ3JT+IzWLsqHhUL/qWSi1jeJM9K3P87AHZ8UhuRYQn4R7v3/xGIocWV5fe@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz2IVqt6BfILHLfIUtLv+yopXa0zhWvodDAtNVfOXaatpyNxf7v
-	xurKIadPkEWK0vusVMAjBUx9/7dklQHETReybdlOttRZQgtFU+8X3ooSDQ0Sv2vWyg==
-X-Gm-Gg: ASbGncsO/FCu475mFr1pbyosjCtWgAqYO8k8dmDbsgDGgw2C29mv5IRl9YBpln+KPzl
-	oZYTOAEQ1wZTpDmRP7qp4ev8PRXoAj/2dOneM+j3lD+Js11IEjoF8rY0fDwc012mWUJ4J17tUMh
-	4SB8NKOkBNdtCRq0HLeM32HOC4JlKfW+4aWVqFK75diUCwbYaaDqDwrlnOMlHiXkKVc/peTEh82
-	uR7q58paXPhoAn/UJNN3Egfq9FaFBlnSGfvHzRP40ZL9iIibv01s54BQfUOOVmKaQjFuROPRGJI
-	s7ARZoMtGrpOaeuJhY3CSwgjCJfYi1e0KwOolQOYZ7eGD5wmddYkDZqql3N1mkrJ91KsEhU3K09
-	Aq+PJHZ2r9twoHSjJKu9p98cCQPbYImLYuHRQAQpQraolAbEuiflbsgFEPvQAqWNkSnSWHC4JOG
-	d8X/utCLbmhTQcZfMZNLivvi8BDfUuBQ==
-X-Google-Smtp-Source: AGHT+IEA4s9TEMA/DC/kZYt/NdkfOC8lgCBVVGJx2NH4cSc3zU3y7yNtT3OeFcpvLBqvdCfUiBKB3w==
-X-Received: by 2002:ac8:5805:0:b0:4ee:1e82:e3f4 with SMTP id d75a77b69052e-4ee1e82e6a9mr56880141cf.64.1763391381300;
-        Mon, 17 Nov 2025 06:56:21 -0800 (PST)
-Received: from rowland.harvard.edu ([140.247.181.15])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-4ede88799bbsm84283071cf.34.2025.11.17.06.56.20
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 17 Nov 2025 06:56:20 -0800 (PST)
-Date: Mon, 17 Nov 2025 09:56:18 -0500
-From: Alan Stern <stern@rowland.harvard.edu>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: Ma Ke <make24@iscas.ac.cn>, Vladimir Zapolskiy <vz@mleia.com>,
-	piotr.wojtaszczyk@timesys.com,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, stigge@antcom.de,
-	linux-usb@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Andrew Morton <akpm@linux-foundation.org>, stable@vger.kernel.org
-Subject: Re: [PATCH v2] USB: ohci-nxp: Fix error handling in ohci-hcd-nxp
- driver
-Message-ID: <9834be77-29e0-4a65-93f6-b61bf724f922@rowland.harvard.edu>
-References: <20251117013428.21840-1-make24@iscas.ac.cn>
- <4fe5b63e-072c-419c-a1b9-bc21aec7e083@app.fastmail.com>
+	Mon, 17 Nov 2025 14:59:56 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 1ABA7601E8;
+	Mon, 17 Nov 2025 14:59:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DCEFDC113D0;
+	Mon, 17 Nov 2025 14:59:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1763391595;
+	bh=nmgQRjDb8Oft8KIz4WO2O7/+6kdhzlFMXqAK4ZWWCP4=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=J1eHrOyY1qSiec0KjVR9jemBmuciaXDsxGaZ2NAuDuH36u/O8Qijmj7mzAxsWlWMo
+	 B13geUyMxyfjuqJ+Lu8qqNBaa3ulndbPfZjFIbOObRaZfy1SRNWrsL87XQhf16jvKo
+	 iunOMdDpxFZmzVty9B3ijKNnrayYKzD2LxZ4cdVmh4ZVJI0hmpYBUvmZJTdF7SGBVD
+	 yZhdfXucrVLt9xlI3z56uOrZCyeAw58utOn9g1OaT6vy4yarFmmrovj5fnwdlGlFD0
+	 Gffv8cC/iSHIbEMh5JXF32z8NWGbUXSnLQ9F+uYaeljx17KIZG4HjdKBo9yFONO058
+	 rY4HRpkb18cbA==
+From: Sasha Levin <sashal@kernel.org>
+To: Eric Biggers <ebiggers@kernel.org>
+Cc: stable@vger.kernel.org,
+	linux-crypto@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Ard Biesheuvel <ardb@kernel.org>,
+	"Jason A . Donenfeld" <Jason@zx2c4.com>,
+	Herbert Xu <herbert@gondor.apana.org.au>
+Subject: Re: [PATCH 5.10] lib/crypto: arm/curve25519: Disable on CPU_BIG_ENDIAN
+Date: Mon, 17 Nov 2025 09:59:53 -0500
+Message-ID: <20251117145953.3875849-1-sashal@kernel.org>
+X-Mailer: git-send-email 2.51.0
+In-Reply-To: <20251111202949.242994-1-ebiggers@kernel.org>
+References: <20251111202949.242994-1-ebiggers@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <4fe5b63e-072c-419c-a1b9-bc21aec7e083@app.fastmail.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251117_065622_948855_F342E5E3 
-X-CRM114-Status: GOOD (  31.07  )
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,54 +72,8 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 17, 2025 at 09:53:21AM +0100, Arnd Bergmann wrote:
-> On Mon, Nov 17, 2025, at 02:34, Ma Ke wrote:
-> > When obtaining the ISP1301 I2C client through the device tree, the
-> > driver does not release the device reference in the probe failure path
-> > or in the remove function. This could cause a reference count leak,
-> > which may prevent the device from being properly unbound or freed,
-> > leading to resource leakage.
-> >
-> > Fix this by storing whether the client was obtained via device tree
-> > and only releasing the reference in that case.
-> >
-> > Found by code review.
-> >
-> > Cc: stable@vger.kernel.org
-> > Fixes: 73108aa90cbf ("USB: ohci-nxp: Use isp1301 driver")
-> > Signed-off-by: Ma Ke <make24@iscas.ac.cn>
-> 
-> The patch looks fine in principle, however I don't see any way
-> this driver would be probed without devicetree, and I think
-> it would be better to remove all the traces of the pre-DT
-> logic in it.
-> 
-> The lpc32xx platform was converted to DT back in 2012, so
-> any reference to the old variant is dead code. Something like
-> the patch below should work here.
-> 
-> Other thoughts on this driver, though I I'm not sure anyone
-> is going to have the energy to implement these:
-> 
->  - the reference to isp1301_i2c_client should be kept in
->    the hcd private data, after allocating a structure, by
->    setting driver->hcd_priv_size.
->  - instead of looking for the i2c device, I would suppose
->    it should look for a usb_phy instead, as there is no
->    guarantee on the initialization being ordered at the
->    moment.
->  - instead of a usb_phy, the driver should probably use
->    a generic phy (a much larger rework).
+Subject: lib/crypto: arm/curve25519: Disable on CPU_BIG_ENDIAN
+Queue: 5.10
 
-Considering what the comments at the start of the file say:
-
- * Currently supported OHCI host devices:
- * - NXP LPC32xx
-
- * NOTE: This driver does not have suspend/resume functionality
- * This driver is intended for engineering development purposes only
-
-I wonder whether any existing systems actually use this driver.
-
-Alan Stern
+Thanks for the backport!
 
