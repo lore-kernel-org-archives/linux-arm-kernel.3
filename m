@@ -4,66 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8533CE8D6B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 20:49:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0A72CEACEF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 20:53:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=6PDWQNI3746KP4iwu+sqKxkUTRstcvfD9uTrFphufcA=; b=EZuW2MfOyfsp2tuYtVIFBxNdMz
-	ARBExzAhwPkiW5+TM8ox786HjWX3djvGdjpeo8rjvDNT8hAPI2Xyn/v7T6NHpijoGnJc0tmy9G4YH
-	JTq6EEjOICWVPI4yVWiDQZyBp8QMPJQzpvrZdeznYrjBfbzxkZ9PLHOm0ro1lc59ekAfoJlGx1Ceb
-	GRoGlOd9XY+uwiAkPMXt63M0MgpFjCMK7jNw1fyWv56qcuBGekIQUSJFOXii0iR/C9ce2ROlKeDRz
-	rdmAM0aQFLs4fMmuQjyqoqReMTznad/SJdjkN5JD8/Z49yM7h9jncXobDZDCLzJ8sMPJyLpbThvIo
-	Gpi1TNPQ==;
+	bh=QeKhpy+k+Ju0I5n286iJ1jTMBjaoWddMqjTUhFfrA68=; b=BgzyJaRKI+dBEyfrbpmXklr6xa
+	DMmpEF5RWv8/yE3VLkiYrfIvQ8eOpCg0SxlsdLWUPho763jmwccXIu9nIZLrVK12DtRzysKlKnT9K
+	wLJDOxySVpj6LfQ0P6BXOXWTmJ1c9L5BGR87neVqfldLdJv3510+DDd22SvgrSEBM9vlwf0GziHxH
+	wxcMg1UK4DpRsR/1Ct/4ZhEEdP4aG828eMlG0YE5RitaqQqe+YIMA5LlU6bccfwj66IVd7vEKR3MS
+	XZoY5QjB6aRtNccPyN3pfTMVKblISHRd+gOtV8rDKUOy9H9YxgnU5ZoGulQV+Bl2pkpXyhE+jlRPC
+	STzpOOcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vL69p-0000000GqAF-0kPv;
-	Mon, 17 Nov 2025 20:49:05 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vL6EI-0000000GqYL-2ks5;
+	Mon, 17 Nov 2025 20:53:42 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vL69m-0000000Gq9r-0JuK
+	id 1vL6EI-0000000GqYF-0lcZ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Nov 2025 20:49:03 +0000
+	Mon, 17 Nov 2025 20:53:42 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 58BAD4040B;
-	Mon, 17 Nov 2025 20:48:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 00D83C4CEF1;
-	Mon, 17 Nov 2025 20:48:56 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 547D0601B0;
+	Mon, 17 Nov 2025 20:53:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 719E5C4CEF5;
+	Mon, 17 Nov 2025 20:53:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763412538;
-	bh=LNX/MUXct3+YGTpPeyt0DAy4pLb/SDYVq6fjd8A1QSM=;
+	s=k20201202; t=1763412821;
+	bh=5mZb4MWOPgD2NLuK8mo1ofEG6fMCr5dXSRetbgXpbL8=;
 	h=From:To:Cc:Subject:Date:From;
-	b=jEFgoRav+0aRb13RQ/u6NPNSfk0KDo0YHUQx3q6BvZxTkLrQY8Vaj/Fp2v6QxbUp+
-	 jy2JeOn/kjl+ycvGYSO2Kk4SoSYpUEizC8aYv9cC2JP/6ZTCTosPbWzI4IYukSF1h6
-	 XA9OwJf1X9xRVxPY04g/uDhUY9KKVn2Be6COTV3r5zFavDCVUmKcrl615Z9WGs5wpd
-	 ig2OcAcimaLo86Yx+Pf0YDekkaFjVB3ynFfjgHSxN/kSrt4hXGDGlXd+nRTE6E4n/Y
-	 EkUb/tV3fG9cR6uchObtn2dLFjBTrauXNmIp6qkwn92R/wLdBatr8OcgFhk0QrwpYJ
-	 tZmUo8iYH9hXA==
+	b=d4kV/DdGD0cPpNvpq7MH3tU3e4wiZpuCXASeeSq3/oOMPX+HHoruAr6Ps8xhwLPJp
+	 +HH2HLm0bXFMPX112pMyuZgXQrq/NBdltVZxY5MoM7T4xv2kx55y4w/2yTIk2xAVXm
+	 sK9sQIJKUqxhl1o8ZZzPT+gCxey9HLAsEb4HIhTtM8ieeVQtNW1OoB4lpJ3QnzFKR7
+	 AHHO7so75xmRkmLF1YygHK8Xfc6r3fBG3h0B/RzBGo7D7dPwVOYT1hawdaNswQYtbO
+	 +7XCqW+lmLmhXl1GGujjrz8fLvFka2XBnezox+0OIns71ef4dFbR/fg+Ce7bOmYNAY
+	 Ld3gYrVaYQ9pw==
 From: Bjorn Andersson <andersson@kernel.org>
 To: arm@kernel.org,
 	soc@kernel.org
 Cc: linux-arm-msm@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	Arnd Bergmann <arnd@arndb.de>,
-	Fange Zhang <fange.zhang@oss.qualcomm.com>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	Luca Weiss <luca.weiss@fairphone.com>,
-	Luo Jie <quic_luoj@quicinc.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>,
-	Melody Olvera <melody.olvera@oss.qualcomm.com>
-Subject: [GIT PULL] Qualcomm Arm64 defconfig updates for v6.19
-Date: Mon, 17 Nov 2025 14:53:39 -0600
-Message-ID: <20251117205341.3177221-1-andersson@kernel.org>
+	Antony Kurniawan Soemardi <linux@smankusors.com>,
+	Raymond Hackley <raymondhackley@protonmail.com>
+Subject: [GIT PULL] Qualcomm Arm32 DeviceTree updates for v6.19
+Date: Mon, 17 Nov 2025 14:58:23 -0600
+Message-ID: <20251117205824.3178198-1-andersson@kernel.org>
 X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251117_124902_158081_6E557AB0 
-X-CRM114-Status: UNSURE (   5.87  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,40 +77,37 @@ The following changes since commit 3a8660878839faadb4f1a6dd72c3179c1df56787:
 
 are available in the Git repository at:
 
-  https://git.kernel.org/pub/scm/linux/kernel/git/qcom/linux.git tags/qcom-arm64-defconfig-for-6.19
+  https://git.kernel.org/pub/scm/linux/kernel/git/qcom/linux.git tags/qcom-arm32-for-6.19
 
-for you to fetch changes up to fdc7da1733d9d57c466e386d4242864d9e75c6f3:
+for you to fetch changes up to 84df51667a196a0eadb22294eed1c6440241d74a:
 
-  arm64: defconfig: Enable SX150x GPIO expander driver (2025-11-12 14:49:45 -0600)
-
-----------------------------------------------------------------
-Qualcomm Arm64 defconfig updates for v6.19
-
-Enable config options for the hardare used across Fairphone 3, 4, and 5.
-Then enable Novatek display panels founds on Xiaomi Pocophone F1, and
-the SM8750 MTP, eUSB2 PHY found in SM8750, NSS clock controller found in
-IPQ5424, the SX150x gpio expander used in QCS615 reference device, and
-the support for UFS inline crypto.
+  ARM: dts: qcom: msm8226-samsung-ms013g: add simple-framebuffer (2025-11-02 12:07:08 -0600)
 
 ----------------------------------------------------------------
-Fange Zhang (1):
-      arm64: defconfig: Enable SX150x GPIO expander driver
+Qualcomm Arm32 DeviceTree updates for v6.19
 
-Krzysztof Kozlowski (1):
-      arm64: defconfig: Enable two Novatek display panels for MTP8750 and Tianma
+In addition to a variety of cleanups and reordering of nodes, four GSBIs
+are added to the MSM8960 platform.
+On the MSM8226-based Samsung Galaxy Grand 2, a simple framebuffer is
+defined.
 
-Luca Weiss (1):
-      arm64: defconfig: Enable configs for Fairphone 3, 4, 5 smartphones
+----------------------------------------------------------------
+Antony Kurniawan Soemardi (5):
+      ARM: dts: qcom: msm8960: reorder nodes and properties
+      ARM: dts: qcom: msm8960: inline qcom-msm8960-pins.dtsi
+      ARM: dts: qcom: msm8960: add I2C nodes for gsbi10 and gsbi12
+      ARM: dts: qcom: msm8960: add I2C nodes for gsbi1 and gsbi8
+      ARM: dts: qcom: msm8960: rename msmgpio node to tlmm
 
-Luo Jie (1):
-      arm64: defconfig: Build NSS clock controller driver for IPQ5424
+Raymond Hackley (1):
+      ARM: dts: qcom: msm8226-samsung-ms013g: add simple-framebuffer
 
-Manivannan Sadhasivam (1):
-      arm64: defconfig: Enable SCSI UFS Crypto and Block Inline encryption drivers
-
-Melody Olvera (1):
-      arm64: defconfig: Add M31 eUSB2 PHY config
-
- arch/arm64/configs/defconfig | 33 +++++++++++++++++++++++++++++++++
- 1 file changed, 33 insertions(+)
+ .../boot/dts/qcom/qcom-msm8226-samsung-ms013g.dts  |  31 +-
+ arch/arm/boot/dts/qcom/qcom-msm8960-cdp.dts        |  10 +-
+ arch/arm/boot/dts/qcom/qcom-msm8960-pins.dtsi      |  61 --
+ .../dts/qcom/qcom-msm8960-samsung-expressatt.dts   |  12 +-
+ .../boot/dts/qcom/qcom-msm8960-sony-huashan.dts    |   2 +-
+ arch/arm/boot/dts/qcom/qcom-msm8960.dtsi           | 746 ++++++++++++++-------
+ 6 files changed, 534 insertions(+), 328 deletions(-)
+ delete mode 100644 arch/arm/boot/dts/qcom/qcom-msm8960-pins.dtsi
 
