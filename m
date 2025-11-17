@@ -4,66 +4,202 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DB5ECEACEF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 04:32:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6AEBCEACEF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 04:52:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yBh/kaRoByn6GV6GRxpAfMDmXSxqGAofk5vXsebspKg=; b=pEnZ0EIM6gFCB6Df8ok1RQiiou
-	x4VXK/+w4D3sXY2nuX/2fWr7qNRCWHtBDD4BjoPBajaZwlytIYOvQTnWwVwSBvQJ4OnMT9vmP1b9/
-	4MYyZ90/DY9a+y7zqZgnHXZEjRaPnKCowvQbrtGESZJ7raAbn2b+e2o7fL+DYjrfuOhIApjM+VYiQ
-	m91u8s0UKxpk5oukLuFis7gaF5lx3qtKD7OOt+CC9vcwMj7byWouI4B45zf9ezg5FSRdfI1dHHvP0
-	f7YlCCIDtTLpvUr5wFawDrP/ljUCyqM08YReft/PfBsdF6B2EiE5g0yvGJDKuzi93EgMWDBrfmz4W
-	/7RI+TTA==;
+	bh=yVpjkvIAFujTzLdeNxagXAYEIc+p8n8AOSzHKs7Xx/U=; b=jmEYdaPNZ4Z0nINH13hFWu6aHu
+	M870Qnp6LiGXlaC7wtOuJMp08CTbAAeFZBInFed9i+32OCgDlrETypMSDSzfTDYA+CFz4AODuHtRt
+	y87yg8pw4KnMfQl4wE/ryQHekfVA9NYsV261khktzzuS6inqu9Ll2iHCWXsOIKqFou/+6ai7yPDqi
+	26RQt684gPA/NVwJlrRAUnEeM9plCjBUBIYyIrldN8Q17sx3WnOJ3l/QKWU0LuH7EWetPwp1DUSe0
+	jI8rDGgTxNWIvPf7zWt/oKRFQfBTT4sf/XAA4014jybYtNDx/RaG4oz2/TrZICAVsEaWobU8N0Q8a
+	GmCw+YvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKqul-0000000FPhn-2iQL;
-	Mon, 17 Nov 2025 04:32:31 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vKrDs-0000000FQc3-2tgQ;
+	Mon, 17 Nov 2025 04:52:16 +0000
+Received: from mgamail.intel.com ([198.175.65.20])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKquj-0000000FPhS-426f
+	id 1vKrDo-0000000FQbd-407U
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Nov 2025 04:32:31 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 67D6141878;
-	Mon, 17 Nov 2025 04:32:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0C383C4CEF5;
-	Mon, 17 Nov 2025 04:32:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763353947;
-	bh=HL6MeUGnbH+gyiyOSqBbks00vNfOL44P0gMp+dpGVxk=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=eS8uyNUdvX+Eb9FUkupN5W9tMTE4VtZXmnOBnD1FAxPktA7J8tjfmrRa18EQr7Axr
-	 M0qb9yn8mZicfgAEbhaLP2G92N8qKf3jqHVbV2G3hHlJFfjvVamIc/QUBiiSVv3n19
-	 rfjWTmGsyv4p/SyiZ5L2PBF7iBjgHG/HkxvThyRBeTaLa41N+6cmR7kSo6qHbZkKtB
-	 CGECLvha9J0avRzEC1UU1+Oy+R9KHcUVW+kywJsXcDYXJeQZkYFHzwx3wDDnmE5eTc
-	 dggKcVI/FJj8MKL3ut5dYjx6m0QJ6805S2oJHpNeV/HXuN1W6f9GO8E1LDZ42j9TU2
-	 zHfv9Zrirsbyw==
-Date: Sun, 16 Nov 2025 22:32:25 -0600
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	Mon, 17 Nov 2025 04:52:14 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1763355133; x=1794891133;
+  h=from:to:cc:subject:date:message-id:references:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=qXrhoLJfnfZJvqQ8dt6qx0+MhIUMIqKU6coJQ2Npdx4=;
+  b=YVsANAJCwlclK6snIiRNSGQfPytV9C3VET+O8d9RZx/EOl1zrQP0sMPK
+   Op5DMVj8waD3g72HSFofABqlczPVJp/sRoVkgRujQcq875lqYaerEMNkK
+   goq1b4avD3TrIVrd6Ecl/Xm6rQiZUXXhj2CM67mV5jTAwWDIJRXBD1bXx
+   90eoBjNRfA3aCwdquzc/mNvnbmXJVQKLz5IMery+s/uedhbxsNq3sxMcI
+   WseLYZ5OVv5x315xoACY5jDOWa972OEeidtjyx7s4XgF0ceKKATXXECDM
+   /Cnstka/AXz8TE6U+k+y3aQQFRUrONm7KEXn5B2fwWBsvNanwN0InsXN6
+   w==;
+X-CSE-ConnectionGUID: Cwl/RWuJSG+tpfn7Ynj2Jw==
+X-CSE-MsgGUID: viRgWtvhTY2c6LlDFCZ4dg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11615"; a="65059113"
+X-IronPort-AV: E=Sophos;i="6.19,310,1754982000"; 
+   d="scan'208";a="65059113"
+Received: from fmviesa002.fm.intel.com ([10.60.135.142])
+  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Nov 2025 20:52:09 -0800
+X-CSE-ConnectionGUID: +VBuYxSbQvOqolhiD8mRKA==
+X-CSE-MsgGUID: 11THVQssRE+Gn+07bZuEPQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.19,310,1754982000"; 
+   d="scan'208";a="213746540"
+Received: from fmsmsx903.amr.corp.intel.com ([10.18.126.92])
+  by fmviesa002.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Nov 2025 20:52:09 -0800
+Received: from FMSMSX902.amr.corp.intel.com (10.18.126.91) by
+ fmsmsx903.amr.corp.intel.com (10.18.126.92) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.27; Sun, 16 Nov 2025 20:52:09 -0800
+Received: from fmsedg903.ED.cps.intel.com (10.1.192.145) by
+ FMSMSX902.amr.corp.intel.com (10.18.126.91) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.27 via Frontend Transport; Sun, 16 Nov 2025 20:52:09 -0800
+Received: from SN4PR0501CU005.outbound.protection.outlook.com (40.93.194.43)
+ by edgegateway.intel.com (192.55.55.83) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.27; Sun, 16 Nov 2025 20:52:08 -0800
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=q64utWFopU/OiZlLcYMHdYYhGIqHAAXilitk9gVhQnavGPQkpHhPRopDpdkqlTDZygZ7hhVOEtAycpFNhh88x9O4aOaIAcEm7ai29T4sPtrSm1AGgBkH4ASZm5oql/U/1WnUPmnecubxQzwnNSefOYLARlDdOoepVc4ycUxWKJIj6FmGyTEqtM9sTUWqoBZxjLYx53l82I089BgQoqXBlXXnHdZWffwP+c0s2wMMKrH4xLc52GY8FOX/ufe7qcsJSIKPvYMFvawSQshS/VZPm1NVmyByJWqjr9O5wXOtVUJ90xpeTHdsIUqSpZyKBBqCMvJhtVl3AfWUfK69fYUUDg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=yVpjkvIAFujTzLdeNxagXAYEIc+p8n8AOSzHKs7Xx/U=;
+ b=IGw8MPbFKZabfIOMbXnw+hwHWkdAB/8OWReM9h9q/8eauUFG05LbWSV4x2UjLkYi/slXRAgSTY2NBCtre6/gD9v2yOWBbJc8ppwupHCGhT+738/DdEi8Tpw+a8w3PdQ4I97RRy7I8N8DQ6V89NXAy5ojVjdGxQeHvcSJE2bkkMLshKSPHjkSPvBpRqq1lJ7gMf7pxdejN/Qy8GvRG0cLgeQhF0h6jtlhbcGRDjku7KZzI009CE1xCB3sYLgBQ8V23xmwGzUEyW6p+u7dqqd0uZNpcg7YxFyoX3p6p5B//ClRGEtjzMCfTcY6j33xBmZle2W7pNl8a9a+E3WC9a8gyw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Received: from BN9PR11MB5276.namprd11.prod.outlook.com (2603:10b6:408:135::18)
+ by DM3PPFF3DEC9799.namprd11.prod.outlook.com (2603:10b6:f:fc00::f61) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9320.21; Mon, 17 Nov
+ 2025 04:52:05 +0000
+Received: from BN9PR11MB5276.namprd11.prod.outlook.com
+ ([fe80::b576:d3bd:c8e0:4bc1]) by BN9PR11MB5276.namprd11.prod.outlook.com
+ ([fe80::b576:d3bd:c8e0:4bc1%5]) with mapi id 15.20.9320.013; Mon, 17 Nov 2025
+ 04:52:05 +0000
+From: "Tian, Kevin" <kevin.tian@intel.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+CC: "joro@8bytes.org" <joro@8bytes.org>, "afael@kernel.org"
+	<afael@kernel.org>, "bhelgaas@google.com" <bhelgaas@google.com>,
+	"alex@shazbot.org" <alex@shazbot.org>, "jgg@nvidia.com" <jgg@nvidia.com>,
+	"will@kernel.org" <will@kernel.org>, "robin.murphy@arm.com"
+	<robin.murphy@arm.com>, "lenb@kernel.org" <lenb@kernel.org>,
+	"baolu.lu@linux.intel.com" <baolu.lu@linux.intel.com>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "iommu@lists.linux.dev"
+	<iommu@lists.linux.dev>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-acpi@vger.kernel.org"
+	<linux-acpi@vger.kernel.org>, "linux-pci@vger.kernel.org"
+	<linux-pci@vger.kernel.org>, "kvm@vger.kernel.org" <kvm@vger.kernel.org>,
+	"patches@lists.linux.dev" <patches@lists.linux.dev>, "Jaroszynski, Piotr"
+	<pjaroszynski@nvidia.com>, "Sethi, Vikram" <vsethi@nvidia.com>,
+	"helgaas@kernel.org" <helgaas@kernel.org>, "etzhao1900@gmail.com"
+	<etzhao1900@gmail.com>
+Subject: RE: [PATCH v5 5/5] pci: Suspend iommu function prior to resetting a
+ device
+Thread-Topic: [PATCH v5 5/5] pci: Suspend iommu function prior to resetting a
+ device
+Thread-Index: AQHcUsnzy6x4f36ohkm++SV8i6qV3LTx7zWggACMYQCAA9kXgA==
+Date: Mon, 17 Nov 2025 04:52:05 +0000
+Message-ID: <BN9PR11MB52761B6B1751BF64AEAA3F948CC9A@BN9PR11MB5276.namprd11.prod.outlook.com>
+References: <cover.1762835355.git.nicolinc@nvidia.com>
+ <a166b07a254d3becfcb0f86e4911af556acbe2a9.1762835355.git.nicolinc@nvidia.com>
+ <BN9PR11MB52762516D6259BBD8C3740518CCAA@BN9PR11MB5276.namprd11.prod.outlook.com>
+ <aRduRi8zBHdUe4KO@Asurada-Nvidia>
+In-Reply-To: <aRduRi8zBHdUe4KO@Asurada-Nvidia>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: BN9PR11MB5276:EE_|DM3PPFF3DEC9799:EE_
+x-ms-office365-filtering-correlation-id: cd279431-86af-41f4-2753-08de25950e7e
+x-ld-processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016|38070700021;
+x-microsoft-antispam-message-info: =?us-ascii?Q?acs19deDGZ0o+xzvlfbCa0QURXOMU6SXDNsqDXjuvZQNTgWFayYrIU9m+FjK?=
+ =?us-ascii?Q?9NDGqgPjijCyJh90F42USkI7Xor4FD1HMkUaeXucHnAE/J2ymnldCb/nG8po?=
+ =?us-ascii?Q?e/owjQQgDO48YBnuYVTSDEZgIRueBUSWS1VjSj9IG8ogesStL6FVZ/CuyrK1?=
+ =?us-ascii?Q?q2o5PnkqN+WweQ1gvKgJbE+719PsrgXYIp9QYaTD2d7CItphdgbJKebarnoJ?=
+ =?us-ascii?Q?Q7cKC1ygVOCAn8yUw8riqP2d+nD7LDhMKmY19BCVQNzmNHt/KHRGK92VoX/H?=
+ =?us-ascii?Q?b2uJEGzBhVAawX5pDfa6Gs0UGdZqrsp05xrDYZ6NgftBG3D6FoveHuF4tyOV?=
+ =?us-ascii?Q?CPzZE6zw7Uv3JCH4fyxjrjgcKRr7L32i7RWQhXd2P7rtOZe8uAWeQXFw7E4x?=
+ =?us-ascii?Q?uYWHoAxbAZDqqK3FnEjI/9NjYm2h8kbCFJI8LeyQpGums2AyDstHXnfQha1P?=
+ =?us-ascii?Q?LSK0l6Easg2vFALLL/1Xx/huq/Sc5+UCwHHTMbQ+NEqLIsb3JBzlC3NdgN24?=
+ =?us-ascii?Q?wuflY6+dEbNQhpCeTq4dCIEr4nV4E8A6ZAU69FqHy/l/B+zVJnH/gI6r0GqK?=
+ =?us-ascii?Q?xHCWfKLqXEcRfNGroGNm8iYKCHWtf0cM5rWhyNBO0oMDiD/+TLkfEFV0T564?=
+ =?us-ascii?Q?FWWacfPdWB4x8MuWZKWU+naJVUu6va2Ns1kqpbVVxK5gWb6Cyb7fTZevVDc3?=
+ =?us-ascii?Q?XRyc7f9UyKP2z8b4aXTDneNzYQvJQCRCaWfOnYFIgZV3HRyipLPHFWWFTLxD?=
+ =?us-ascii?Q?xbDPlzf/++lnc+huE3HLzqi+9QDfIrr6Z0bvlraRFqpCLfOg90IOobYz8UEp?=
+ =?us-ascii?Q?Bz1k69hq5o0GBrrjjggsMq0E1EvGrFujL6pycjvFLnlKAqPqR2X5KenKHsU8?=
+ =?us-ascii?Q?4Ye6TpWVvq7bBrE1M3NZAZV0u2VmcFr4LTji7XK8LDU0KBJ99MTTauEW2d5D?=
+ =?us-ascii?Q?ZQc74FilP3gK/z6EOZ8zcjinq5Y8J4eEn6pmmKBM+uNEabY+ivwNm5maPYu6?=
+ =?us-ascii?Q?MzwidRPgeCZKCbYj4zN2Q9UyEAGwKcID7GiLc5CH6UzLWPWxQ2RGYzs/B8kk?=
+ =?us-ascii?Q?Zq4tBJIokJqhk51eoNF0G/U5unUzuD1BUxPmXivHnkTozPHOByitpl/4GIZG?=
+ =?us-ascii?Q?k4UauWSChtyxfP1F/tlfeZHnbiSt+jUO0mrwDhDQnY8gV+9hO4lqYuKUWFKQ?=
+ =?us-ascii?Q?u5NSTYy4OMOYk92qqRgfxS3CM+V8q+VWivnWRNMLQDyV6AfhCZhdLm6ZcvDD?=
+ =?us-ascii?Q?U+11fZN5Nw5sw8ZHi6IiW5hJOPv4Pt6nN42uSxjp++ElGBLM9q4dWuwLfF/v?=
+ =?us-ascii?Q?vG4TPj4GNPUsjsHB1xetbcVmy+JoVYAlxXiJUSZx2NzSVuvHzmUjIq2SIm0F?=
+ =?us-ascii?Q?DXBcPcAFPaVquGyMbvKHD7QdSkPisgslu8tG8B5XgMhtIVOcvcvQRIChbHel?=
+ =?us-ascii?Q?BUB+I/xOgoZOSBn1kup4QoP3RHjvc2OO8ziV03XP99ng3QYsXBrQ51IXTIPx?=
+ =?us-ascii?Q?L9Rc/NpFUP+PugwTuHSs9fgtgx5VqaofSok5?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BN9PR11MB5276.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016)(38070700021);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?PjOPmYip5B9u5u3Zor0GoCLmrfigVh50WMNkL+kzmVHiy9JzbRU50x/eNjfI?=
+ =?us-ascii?Q?ZmHOiVu1+x2JuzxQor6Rj77qtInEB2npENSXjp6YgcaeY9Hl3Ea/rhDFSAsK?=
+ =?us-ascii?Q?i92ExGuu/yiRtDOIB8zlPyE+hVBugTPuSTV7DuPns+8y3DOKbQAe5eLlo5BT?=
+ =?us-ascii?Q?7D+Yenyp0/P0qIZBhId6meYOfPiFmzuzD+0WFPluhlPPg4Ls8fTebo0W0NXa?=
+ =?us-ascii?Q?rjtynTNJRApFPD9wyjANyUytzuT0CybYXTmgchFA9zGkzY/K/hc8SGrJX1vs?=
+ =?us-ascii?Q?IZHz0UR0TGGVDK+JZrxHIYzW5nyKTq1hG/m17I3T85mrLSaVCe4hYlHB2Pjm?=
+ =?us-ascii?Q?LYBBf8Mgd5zWnBm3pR9gnnIDGpg0W49e3/nVoOFeGmU9UsAUlFZb9E5SH/pf?=
+ =?us-ascii?Q?Ynp6yHBg6RcFBl463ss2LpWqz/mmXiFrvtadNiOGP4O/1gJciYA5JLlHf10T?=
+ =?us-ascii?Q?aZPGSt3golJNybXARs9TCieRZ+pXTxY7tOzC/ZikirFjQW5TgigQjG4kRQV6?=
+ =?us-ascii?Q?ZFOQAiWzV6ZtmT5WAHWxOijS64Ip8nO0ksTtWqr4wf3D+A7LFq9se6OtFI7u?=
+ =?us-ascii?Q?DvkThluvaznAJMMJCLMnkUzocNRMsP3hPvNe7w8eWBtlmi8GoMZc2mf4tOHq?=
+ =?us-ascii?Q?Yp6UaXPxwaw6TQiOh3fIjG5U6uvWPhy3bF3MQSwB22NYRhCDBHBcOqaXJvVm?=
+ =?us-ascii?Q?ZFX0B9j8S0sDYUzpVe8aUILEKYjZYW1QG8jjF9rFmya3s3sU4D4LhLO3Ue3d?=
+ =?us-ascii?Q?smjHfOVI6oiySWAiAnouUqUOhXsNxdV9x2yhsY9e64CQqkIIXi6FY8+7o1oz?=
+ =?us-ascii?Q?kaAloQSscbcVefJkabEk9Ib8AMmXo8TQ8152TOY0zgdAEE6Q5xrsyTpGlxL/?=
+ =?us-ascii?Q?F3VmW2Amd3YE1X8F0OBgsRUAyZMixOdmJwlkj8/YygxjcOSV+NPQW4kdBdwy?=
+ =?us-ascii?Q?O3JDZub2+b8AAVJkY6YHnYh4GHuU1qosb/xqYGum5O3j+9vwcXaQXGrxaQUO?=
+ =?us-ascii?Q?9xut8DvdWuLfeBJGeZ6j5ubXYsjy9kuxJdK9YoWkJkRNAGRCfXVnB9Xz+cDW?=
+ =?us-ascii?Q?I/uzLrDea/lxIhWgtUSVByWC2ZX0DydWkGzL/CJTvaH/02KEbCZtvnSsunBf?=
+ =?us-ascii?Q?McGYmn4nLWzaMggce72aBZrvJxiUYjR35QXbrxvEjFYycIZDNvnFC4YwH7oc?=
+ =?us-ascii?Q?Z+lOhHQtsHBZreziJLvt9avajeptPly8+Ez1l+JMu9OVDMfwyiS7Cc9nLURH?=
+ =?us-ascii?Q?GwwYti8GDn4NWcF2WZ1Avn6XPpQNTQgTvkorVS5yvqLtLxaalmEOppygIRiR?=
+ =?us-ascii?Q?LLUXsmo07kefp+fFsdUAs1zu5y4/LTk91aL4wCtNqs7XM6o3ZUjsyw1+nPfo?=
+ =?us-ascii?Q?PCxfziR9abzd8TUETJr+99tBgB/ILr9GC64htnDGiNcPIrlUFUWI5VH+Cmol?=
+ =?us-ascii?Q?WhNd+5dwTNXaU9zLSQ0d8mLSBYeZEqzEOf87ZlJ9KRk6JkfL7gCVfCj9xicg?=
+ =?us-ascii?Q?ITf/Hbmee4HED4G7889a/jBQvGmaobraQf07DfzaMV9rHuPwuQVPwo2JUWpm?=
+ =?us-ascii?Q?m4e4vSolP8b6QkHSjVwcftXC1ookBwzGAwIM+f1g?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: openbmc@lists.ozlabs.org, andi.shyti@kernel.org, 
- andriy.shevchenko@linux.intel.com, bmc-sw@aspeedtech.com, 
- jk@codeconstruct.com.au, linux-i2c@vger.kernel.org, 
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, joel@jms.id.au, 
- andrew@codeconstruct.com.au, p.zabel@pengutronix.de, conor+dt@kernel.org, 
- naresh.solanki@9elements.com, krzk+dt@kernel.org, benh@kernel.crashing.org, 
- linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org
-To: Ryan Chen <ryan_chen@aspeedtech.com>
-In-Reply-To: <20251117025040.3622984-2-ryan_chen@aspeedtech.com>
-References: <20251117025040.3622984-1-ryan_chen@aspeedtech.com>
- <20251117025040.3622984-2-ryan_chen@aspeedtech.com>
-Message-Id: <176335394552.766711.17435291607317271489.robh@kernel.org>
-Subject: Re: [PATCH v23 1/4] dt-bindings: i2c: Split AST2600 binding into a
- new YAML
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: BN9PR11MB5276.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: cd279431-86af-41f4-2753-08de25950e7e
+X-MS-Exchange-CrossTenant-originalarrivaltime: 17 Nov 2025 04:52:05.6342
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: /xM5ZZeOM5w+vIR5c0bPqIuRK4BOA/WNJN6ZcO663z0tkSEQisI9pZ/PnOf7DrbfVSkIswI7l5alLonaPHNSVw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM3PPFF3DEC9799
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251116_203230_042772_E5169F3C 
-X-CRM114-Status: GOOD (  17.36  )
+X-CRM114-CacheID: sfid-20251116_205213_083520_85EA2B8F 
+X-CRM114-Status: GOOD (  19.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,64 +214,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+> From: Nicolin Chen <nicolinc@nvidia.com>
+> Sent: Saturday, November 15, 2025 2:01 AM
+>=20
+> On Fri, Nov 14, 2025 at 09:45:31AM +0000, Tian, Kevin wrote:
+> > > From: Nicolin Chen <nicolinc@nvidia.com>
+> > > Sent: Tuesday, November 11, 2025 1:13 PM
+> > >
+> > > +/*
+> > > + * Per PCIe r6.3, sec 10.3.1 IMPLEMENTATION NOTE, software disables
+> ATS
+> > > before
+> > > + * initiating a reset. Notify the iommu driver that enabled ATS.
+> > > + */
+> > > +int pci_reset_iommu_prepare(struct pci_dev *dev)
+> > > +{
+> > > +	if (pci_ats_supported(dev))
+> > > +		return iommu_dev_reset_prepare(&dev->dev);
+> > > +	return 0;
+> > > +}
+> >
+> > the comment says "driver that enabled ATS", but the code checks
+> > whether ATS is supported.
+> >
+> > which one is desired?
+>=20
+> The comments says "the iommu driver that enabled ATS". It doesn't
+> conflict with what the PCI core checks here?
 
-On Mon, 17 Nov 2025 10:50:37 +0800, Ryan Chen wrote:
-> The AST2600 I2C controller introduces a completely new register
-> map and Separate control/target register sets, unlike the mixed
-> layout used in AST2400/AST2500.
-> 
-> In addition, at new AST2600 configuration registers and transfer
-> modes require new DT properties, which are incompatible with
-> existing bindings. Therefore, this creates a dedicated binding
-> file for AST2600 to properly describe these new hardware
-> capabilities.
-> 
-> A subsequent change will modify this new binding to properly
-> describe the AST2600 hardware.
-> 
-> The example section updated to reflect the actual AST2600 SoC
-> register layout and interrupt configuration.
-> Reference: aspeed-g6.dtsi (lines 885-897)
-> 
-> -I2C bus and buffer register offsets
->  - AST2600 I2C controller register base starts from 0x80, and the
->    buffer region is located at 0xc00, as defined in AST2600 SOC
->    register map.
-> 
-> -Interrupt configuration
->  - AST2600 I2C controller are connected to ARM GIC interrupt
->    controller rather than the legacy internal interrupt controller.
-> 
-> Signed-off-by: Ryan Chen <ryan_chen@aspeedtech.com>
-> ---
->  .../bindings/i2c/aspeed,ast2600-i2c.yaml      | 66 +++++++++++++++++++
->  .../devicetree/bindings/i2c/aspeed,i2c.yaml   |  3 +-
->  2 files changed, 67 insertions(+), 2 deletions(-)
->  create mode 100644 Documentation/devicetree/bindings/i2c/aspeed,ast2600-i2c.yaml
-> 
+actually this is sent to all IOMMU drivers. there is no check on whether
+a specific driver has enabled ATS in this path.
 
-My bot found errors running 'make dt_binding_check' on your patch:
+>=20
+> > > +	/* Have to call it after waiting for pending DMA transaction */
+> > > +	ret =3D pci_reset_iommu_prepare(dev);
+> > > +	if (ret) {
+> > > +		pci_err(dev, "failed to stop IOMMU\n");
+> >
+> > the error message could be more informative.
+>=20
+> OK. Perhaps print the ret value.
+>=20
 
-yamllint warnings/errors:
-./Documentation/devicetree/bindings/i2c/aspeed,ast2600-i2c.yaml:25:1: [warning] too many blank lines (2 > 1) (empty-lines)
-
-dtschema/dtc warnings/errors:
-
-doc reference errors (make refcheckdocs):
-
-See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20251117025040.3622984-2-ryan_chen@aspeedtech.com
-
-The base for the series is generally the latest rc1. A different dependency
-should be noted in *this* patch.
-
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
-
-pip3 install dtschema --upgrade
-
-Please check and re-submit after running the above command yourself. Note
-that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-your schema. However, it must be unset to test all examples with your schema.
-
+and mention that it's for PCI reset.
 
