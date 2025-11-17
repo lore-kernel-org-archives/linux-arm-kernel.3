@@ -4,111 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B023DCEACEF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 13:29:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BD93CEACEF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 13:31:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EcyiYdjlqtvdFNvYb9RfTALcUwtFvRPvu4SaAxEZ9ho=; b=H/l/Y/ZuLXRDm3w6C6ToA//kXq
-	aKAcZQH5xcQ+/FP61Ao3b+t+HgpJKekrmWlAzjamppKUg2T2NEOOs0rh5aq0u6/13RA7ewdXQSNhN
-	wp0eDSVluLRSEa53vA0422ksXqcCG7wmIGoN/xg4uiC2AzmLV+eBOSqYdeHqgauXdSFMeTrmOs7FW
-	VyDcfsrAhmOwyMBWQ0I6k8VYMjIGQuq2MFtQ1tg5Izsup/05l9UUo9fNWYKis4Eyi9YSLDaD/MRFw
-	rdjlimb9mKPM+uQrm9VikONkArzQ7o2s59lcbWjn8J3CbAbmZzXym9JgzFdL4Pweh8vY3PY/OMK0L
-	g8ZtJ9wQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=L7VSQzrso9GSPLc8m0QenwYICMxW9oDwCZBjF11X5ag=; b=eCc8fenWVUsK8voRaMvLCF2w7G
+	h0XnMUx6GHJYcOW6gogVsIhHFvHgoav7FQlqJxCvi5u4F+xrZcw33lKCW434sPwbptpUC1liWn6Mj
+	qQtfrylT4A8VJF7622P/JyxijrpiBLlYmzB+a6hOqLRFCIZYePqG+U12N+myZPpAA71J3L6qIc7gb
+	Ru7NcI0a+npIji947+bBBWRF7qwdyn3cNdz4eXA0svdrPLD8hqA2/VLYamjgr8uthjJbBltHI3UDE
+	BDvg3KP+gNSex47xqBewSrH7unXukTHCE5uJdmrRxBHD6ZOLg6oMfG+jpClAui4VqrSOYkFBN00Vd
+	uPOMkFTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKzI6-0000000GAqo-1Vzq;
-	Mon, 17 Nov 2025 13:29:10 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vKzKB-0000000GB6a-0RpI;
+	Mon, 17 Nov 2025 13:31:19 +0000
+Received: from canpmsgout03.his.huawei.com ([113.46.200.218])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKzI5-0000000GAqg-0h8r
+	id 1vKzK7-0000000GB3V-0dHJ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Nov 2025 13:29:09 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 12826601FA;
-	Mon, 17 Nov 2025 13:29:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 467C9C19422;
-	Mon, 17 Nov 2025 13:29:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763386147;
-	bh=gv2gXvqWNBRE2gsB37FQd1r+Dio+HXuMvuIz/e6eQTA=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=TaU2hNHJ9Fy8Pxh3bAjRoh8C2ikueevsd6YU10cuuKPBe8/lOghS3iSSr5DplFemB
-	 HnE3K/z0JOPYlIbrgEc2Vd4Pp7aeXKxZ3qj631pPi7t7Y/tpnbsmgZU+nrwFS4nzL4
-	 oclcgalX/F9YT3xnyLt1CQw9H/gBazwwbB5XIHfcPCrbCo2gFvr5z6E83wINEGPhhq
-	 wqUv9Bc6nHwLz52w7acPoyXAnKkKafviq2VCY57xyrChvQ/zCIMyGFoY3kMza+r6qa
-	 xYDbt2NhVDXl/RjUVolUen/GPH06AG8I0XJQz1VMFPW1L3+jXpE1f3ytaFHtUIi8AD
-	 b5glYuECPyugA==
-Message-ID: <7df26091-97be-4494-8140-5e2ca54780ea@kernel.org>
-Date: Mon, 17 Nov 2025 14:29:02 +0100
+	Mon, 17 Nov 2025 13:31:17 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=L7VSQzrso9GSPLc8m0QenwYICMxW9oDwCZBjF11X5ag=;
+	b=pnc6gW7eV6qXsHPrMzzc+1zBhX5PMceiCd1YbXc0Ij2ZQKwwNIXX6586xpe/44NNKqp92FxRe
+	KLkIjSlAFHiXQAuzR4SzdX+F2b9s0CUzEP6/zCxmA5DEnM932nDKCe0RkHYm/wDubEkBmrqMWzs
+	zYM4yx+QIx44xM7UxHf54S8=
+Received: from mail.maildlp.com (unknown [172.19.163.174])
+	by canpmsgout03.his.huawei.com (SkyGuard) with ESMTPS id 4d97rH2l06zpSyw;
+	Mon, 17 Nov 2025 21:29:19 +0800 (CST)
+Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
+	by mail.maildlp.com (Postfix) with ESMTPS id 480FC140202;
+	Mon, 17 Nov 2025 21:31:11 +0800 (CST)
+Received: from huawei.com (10.90.53.73) by dggpemf500011.china.huawei.com
+ (7.185.36.131) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Mon, 17 Nov
+ 2025 21:31:09 +0800
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+To: <catalin.marinas@arm.com>, <will@kernel.org>, <oleg@redhat.com>,
+	<tglx@linutronix.de>, <peterz@infradead.org>, <luto@kernel.org>,
+	<shuah@kernel.org>, <kees@kernel.org>, <wad@chromium.org>,
+	<akpm@linux-foundation.org>, <ldv@strace.io>, <macro@orcam.me.uk>,
+	<deller@gmx.de>, <mark.rutland@arm.com>, <song@kernel.org>, <mbenes@suse.cz>,
+	<ryan.roberts@arm.com>, <ada.coupriediaz@arm.com>,
+	<anshuman.khandual@arm.com>, <broonie@kernel.org>, <kevin.brodsky@arm.com>,
+	<pengcan@kylinos.cn>, <dvyukov@google.com>, <kmal@cock.li>,
+	<lihongbo22@huawei.com>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <linux-kselftest@vger.kernel.org>
+CC: <ruanjinjie@huawei.com>
+Subject: [PATCH v7 04/11] entry: Add syscall_exit_to_user_mode_prepare() helper
+Date: Mon, 17 Nov 2025 21:30:41 +0800
+Message-ID: <20251117133048.53182-5-ruanjinjie@huawei.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20251117133048.53182-1-ruanjinjie@huawei.com>
+References: <20251117133048.53182-1-ruanjinjie@huawei.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/3] dt-bindings: dma: arm-dma350: update DT binding docs
-To: Jun Guo <jun.guo@cixtech.com>, peter.chen@cixtech.com,
- fugang.duan@cixtech.com, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, vkoul@kernel.org, ychuang3@nuvoton.com,
- schung@nuvoton.com, robin.murphy@arm.com
-Cc: dmaengine@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, cix-kernel-upstream@cixtech.com,
- linux-arm-kernel@lists.infradead.org
-References: <20251117015943.2858-1-jun.guo@cixtech.com>
- <20251117015943.2858-2-jun.guo@cixtech.com>
- <bfe6a067-704b-45c1-919e-6a7dfb08b984@kernel.org>
- <aea1429d-b67e-4c42-ad19-88d04f69467b@cixtech.com>
- <024eb64f-74bd-4170-a6c1-09c4af647926@kernel.org>
- <62b59d52-7107-4426-b922-812d343195db@kernel.org>
- <08142bd3-4a17-4c4f-88ff-fd81e9941a18@cixtech.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
- cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
- JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
- gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
- J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
- NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
- BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
- vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
- Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
- TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
- S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
- FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJoF1BKBQkWlnSaAAoJEBuTQ307
- QWKbHukP/3t4tRp/bvDnxJfmNdNVn0gv9ep3L39IntPalBFwRKytqeQkzAju0whYWg+R/rwp
- +r2I1Fzwt7+PTjsnMFlh1AZxGDmP5MFkzVsMnfX1lGiXhYSOMP97XL6R1QSXxaWOpGNCDaUl
- ajorB0lJDcC0q3xAdwzRConxYVhlgmTrRiD8oLlSCD5baEAt5Zw17UTNDnDGmZQKR0fqLpWy
- 786Lm5OScb7DjEgcA2PRm17st4UQ1kF0rQHokVaotxRM74PPDB8bCsunlghJl1DRK9s1aSuN
- hL1Pv9VD8b4dFNvCo7b4hfAANPU67W40AaaGZ3UAfmw+1MYyo4QuAZGKzaP2ukbdCD/DYnqi
- tJy88XqWtyb4UQWKNoQqGKzlYXdKsldYqrLHGoMvj1UN9XcRtXHST/IaLn72o7j7/h/Ac5EL
- 8lSUVIG4TYn59NyxxAXa07Wi6zjVL1U11fTnFmE29ALYQEXKBI3KUO1A3p4sQWzU7uRmbuxn
- naUmm8RbpMcOfa9JjlXCLmQ5IP7Rr5tYZUCkZz08LIfF8UMXwH7OOEX87Y++EkAB+pzKZNNd
- hwoXulTAgjSy+OiaLtuCys9VdXLZ3Zy314azaCU3BoWgaMV0eAW/+gprWMXQM1lrlzvwlD/k
- whyy9wGf0AEPpLssLVt9VVxNjo6BIkt6d1pMg6mHsUEVzsFNBFVDXDQBEADNkrQYSREUL4D3
- Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
- MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
- OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
- GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
- 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
- YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
- 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
- BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
- JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
- 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
- YpsFAmgXUF8FCRaWWyoACgkQG5NDfTtBYptO0w//dlXJs5/42hAXKsk+PDg3wyEFb4NpyA1v
- qmx7SfAzk9Hf6lWwU1O6AbqNMbh6PjEwadKUk1m04S7EjdQLsj/MBSgoQtCT3MDmWUUtHZd5
- RYIPnPq3WVB47GtuO6/u375tsxhtf7vt95QSYJwCB+ZUgo4T+FV4hquZ4AsRkbgavtIzQisg
- Dgv76tnEv3YHV8Jn9mi/Bu0FURF+5kpdMfgo1sq6RXNQ//TVf8yFgRtTUdXxW/qHjlYURrm2
- H4kutobVEIxiyu6m05q3e9eZB/TaMMNVORx+1kM3j7f0rwtEYUFzY1ygQfpcMDPl7pRYoJjB
- dSsm0ZuzDaCwaxg2t8hqQJBzJCezTOIkjHUsWAK+tEbU4Z4SnNpCyM3fBqsgYdJxjyC/tWVT
- AQ18NRLtPw7tK1rdcwCl0GFQHwSwk5pDpz1NH40e6lU+NcXSeiqkDDRkHlftKPV/dV+lQXiu
- jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
- zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
- XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <08142bd3-4a17-4c4f-88ff-fd81e9941a18@cixtech.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.90.53.73]
+X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
+ dggpemf500011.china.huawei.com (7.185.36.131)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251117_053115_731414_883920BF 
+X-CRM114-Status: GOOD (  12.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,65 +85,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 17/11/2025 13:51, Jun Guo wrote:
-> 
-> On 11/17/2025 3:13 PM, Krzysztof Kozlowski wrote:
->> EXTERNAL EMAIL
->>
->> On 17/11/2025 08:11, Krzysztof Kozlowski wrote:
->>> On 17/11/2025 08:07, Jun Guo wrote:
->>>>
->>>> On 11/17/2025 2:11 PM, Krzysztof Kozlowski wrote:
->>>>> On 17/11/2025 02:59, Jun Guo wrote:
->>>>>> - Add new compatible strings to the DT binding documents to support
->>>>> This is not a list.
->>>>>
->>>>> Also, subject is completely redundant. Everything is an update. Why are
->>>>> you repeating DT binding docs?
->>>>>
->>>> Thank you. I will incorporate your feedback in the next version.>>   cix
->>>> sky1 SoC.
->>>>>>
->>>>>> Signed-off-by: Jun Guo<jun.guo@cixtech.com>
->>>>>> ---
->>>>> You just broke all existing platforms. Please test your code properly.
->>>> The patch includes proper checks. Since this platform is the first user
->>>
->>> Nah, tests are here incomplete - look at the binding and DTS users...
->>> nothing there, so you cannot test it.
->>>
->>>> of the driver in the current codebase, the change won't affect other
->>>> platforms.
->>>
->>> NAK, and you keep pushing... I just told you it will break everyone,
->>> which is obvious from the diff.
->>
->> But if that was intentional change of ABI, then could be fine, but you
->> must provide in commit msg proper detailed rationale WHY you are
->> changing ABI and WHAT is the ABI impact of that change.
->>
-> I'm not entirely sure if I fully grasped your point, but I also 
-> identified the potential issue. I've reworked the patch to accommodate 
-> both the default DTS case with a single compatible string and the 
-> scenario where platform-specific compatible strings need to be added. 
-> Could you please review it again and confirm if this aligns with your 
-> intent?
-> 
-> properties:
->    compatible:
->      contains:
+In the generic entry code, the part before
+syscall_exit_to_user_mode_work() calls syscall_exit_work(), which
+serves the same purpose as syscall_exit_to_user_mode_prepare()
+in arm64.
 
-Which example uses such syntax?
+In preparation for moving arm64 over to the generic entry
+code, extract syscall_exit_to_user_mode_prepare() helper from
+syscall_exit_to_user_mode_work().
 
->        enum:
->          - cix,sky1-dma-350
->          - arm,dma-350
+No functional changes.
 
-It's completely different than previous, so I don't know what you want
-to achieve, but maybe you wanted to explain lack of compatibility in the
-commit msg. Anyway, send proper patches with proper justification (and
-for above would really need to be proper).
+Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
+---
+ include/linux/entry-common.h | 35 ++++++++++++++++++++++-------------
+ 1 file changed, 22 insertions(+), 13 deletions(-)
 
-Best regards,
-Krzysztof
+diff --git a/include/linux/entry-common.h b/include/linux/entry-common.h
+index 7177436f0f9e..cd6dacb2d8bf 100644
+--- a/include/linux/entry-common.h
++++ b/include/linux/entry-common.h
+@@ -137,20 +137,11 @@ static __always_inline long syscall_enter_from_user_mode(struct pt_regs *regs, l
+  */
+ void syscall_exit_work(struct pt_regs *regs, unsigned long work);
+ 
+-/**
+- * syscall_exit_to_user_mode_work - Handle work before returning to user mode
+- * @regs:	Pointer to currents pt_regs
+- *
+- * Same as step 1 and 2 of syscall_exit_to_user_mode() but without calling
+- * exit_to_user_mode() to perform the final transition to user mode.
+- *
+- * Calling convention is the same as for syscall_exit_to_user_mode() and it
+- * returns with all work handled and interrupts disabled. The caller must
+- * invoke exit_to_user_mode() before actually switching to user mode to
+- * make the final state transitions. Interrupts must stay disabled between
+- * return from this function and the invocation of exit_to_user_mode().
++/*
++ * Syscall specific exit to user mode preparation. Runs with interrupts
++ * enabled.
+  */
+-static __always_inline void syscall_exit_to_user_mode_work(struct pt_regs *regs)
++static __always_inline void syscall_exit_to_user_mode_prepare(struct pt_regs *regs)
+ {
+ 	unsigned long work = READ_ONCE(current_thread_info()->syscall_work);
+ 	unsigned long nr = syscall_get_nr(current, regs);
+@@ -171,6 +162,24 @@ static __always_inline void syscall_exit_to_user_mode_work(struct pt_regs *regs)
+ 	 */
+ 	if (unlikely(work & SYSCALL_WORK_EXIT))
+ 		syscall_exit_work(regs, work);
++}
++
++/**
++ * syscall_exit_to_user_mode_work - Handle work before returning to user mode
++ * @regs:	Pointer to currents pt_regs
++ *
++ * Same as step 1 and 2 of syscall_exit_to_user_mode() but without calling
++ * exit_to_user_mode() to perform the final transition to user mode.
++ *
++ * Calling convention is the same as for syscall_exit_to_user_mode() and it
++ * returns with all work handled and interrupts disabled. The caller must
++ * invoke exit_to_user_mode() before actually switching to user mode to
++ * make the final state transitions. Interrupts must stay disabled between
++ * return from this function and the invocation of exit_to_user_mode().
++ */
++static __always_inline void syscall_exit_to_user_mode_work(struct pt_regs *regs)
++{
++	syscall_exit_to_user_mode_prepare(regs);
+ 	local_irq_disable_exit_to_user();
+ 	exit_to_user_mode_prepare(regs);
+ }
+-- 
+2.34.1
+
 
