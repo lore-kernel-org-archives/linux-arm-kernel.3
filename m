@@ -4,58 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B150CE8D6B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 17:47:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3FE9CE8D6B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 18:00:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4ojdKn/lOKMgAMWdudaRLs7ijZOQmGIm1euzqJpBPpw=; b=BkUS26Go7ehYQW73oNleL0W/TA
-	eoCWfLsk1QTZ+MTWo07glPkufxqLRlKbjWuRFVGvHKbes2fzhq825agvkJtLknSLtRJ4dsYZ2/QoD
-	UtR+wnGqDCKMg6UzIxzNhXVqjwhf+Fpu0xwCaZC26sJtFK4Mqnk6+NQCPKejpP3LhDWCBQSYNoRoQ
-	nT96uyujYo1l7OXwTNO+9PD4BDWBioBM8UKbpFdZkGOX4Xl7BFGgvqy5eSDwMouFV6cX/VR9QZiP6
-	XqyNLBDlyEhF88fKcYX/heBtXey/9uvU5jlYbWUgMPuIDONz5jWypVLP7DH02IPvY2pL+HmFw2G5k
-	pHetnCQQ==;
+	bh=JfkXP2476JqIpwYb5Ytos/1URd2mNI2Lz/nX6PYl+Ho=; b=JZa4mYh+AVZA/MkOVON4du9UXy
+	YmRZ//1fwvFR4/p0Mvd8GPUnOkW5q9yz7mbZxboZjpWaOEw/YAxdkL/A0Kry5JrxY7MJZ+31lacE2
+	jQLIpqhfGXga3uBS9nukMCWWxaaGfWOqlkOEvsHJ3PRyzq4lm4Gi2qdO2C3jUpLy/7BPcqYrZoLhi
+	/grSey808MrpxCyBpk7QQ0779l8CL3H6L5Hxp6w/UBiNNsc1fAO5GSS/FDQdc0DF33yRCwoylPd32
+	U0gbtPUaXFkwwjCl0fwHyYIc38lRdE4JfcHS9BY2z437eC2CvYzbHsbQSINpitEZ13BCKdqZ7AKbw
+	oV3B8h3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vL3Jb-0000000GYxL-2QIu;
-	Mon, 17 Nov 2025 17:46:59 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vL3JZ-0000000GYwn-1xHM
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Nov 2025 17:46:58 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D295EFEC;
-	Mon, 17 Nov 2025 09:46:48 -0800 (PST)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8EE8E3F66E;
-	Mon, 17 Nov 2025 09:46:54 -0800 (PST)
-Date: Mon, 17 Nov 2025 17:46:49 +0000
-From: Mark Rutland <mark.rutland@arm.com>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: Ryan Roberts <ryan.roberts@arm.com>, Kees Cook <kees@kernel.org>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Jeremy Linton <jeremy.linton@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Catalin Marinas <Catalin.Marinas@arm.com>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
-	"Jason A. Donenfeld" <Jason@zx2c4.com>
-Subject: Re: [DISCUSSION] kstack offset randomization: bugs and performance
-Message-ID: <aRtfabU9UaflfHYm@J2N7QTR9R3>
-References: <66c4e2a0-c7fb-46c2-acce-8a040a71cd8e@arm.com>
- <dd8c37bc-795f-4c7a-9086-69e584d8ab24@arm.com>
- <dd5b4423-0954-44d5-99a5-0052b62c55af@app.fastmail.com>
+	id 1vL3WD-0000000GZpB-4C1k;
+	Mon, 17 Nov 2025 18:00:02 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vL3WA-0000000GZoT-3OHf;
+	Mon, 17 Nov 2025 17:59:59 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id F1C54439FA;
+	Mon, 17 Nov 2025 17:59:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2BD0AC2BCB2;
+	Mon, 17 Nov 2025 17:59:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1763402397;
+	bh=zz92o1OZD/mEvjkXD1QCuckIGo1/cOITFNC020wMh5U=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=G7wTL+Kwv71q3PJg8tZNc2IK9+lrvGbk+0oKeD5VCy7QwY0k1lD2K7E59pyif5rUR
+	 L3N4IVnNL5SsOkfK0N6LJ+xx0iyGzo4L3QR4Uhn/sm88vIPkvLIPNscM1WyBOLgZt4
+	 vH0iKLhr99IU3X+m2M0d2qFfk0wx5uEEBn72RPNAJPgxHZZcwYgx1BdjPD+CMHqnQw
+	 mVxQ6qcSixYgig27PIerRvK8nJ6kEwOhnh5L0AEtxBF+S6IqqezpH+fkk0bDS0xCa/
+	 P0EZNo67g4ZzEERjC19H4ofT9fMsYXWmhHg8MNWp1fzbLcw1Lq5Rg4Pb1fBG+IPtzK
+	 QOJHf8n3yHe1Q==
+Date: Mon, 17 Nov 2025 11:59:55 -0600
+From: Rob Herring <robh@kernel.org>
+To: Gregory CLEMENT <gregory.clement@bootlin.com>
+Cc: Saravana Kannan <saravanak@google.com>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Miquel Raynal <miquel.raynal@bootlin.com>,
+	Richard Weinberger <richard@nod.at>,
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>,
+	=?iso-8859-1?Q?Beno=EEt?= Monin <benoit.monin@bootlin.com>,
+	=?iso-8859-1?Q?Th=E9o?= Lebrun <theo.lebrun@bootlin.com>,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-mtd@lists.infradead.org
+Subject: Re: [PATCH 2/3] dt-bindings: mtd: physmap: Allow using memory-region
+ to access memory resources
+Message-ID: <20251117175955.GA225586-robh@kernel.org>
+References: <20251117-mtd-memregion-v1-0-7b35611c79a6@bootlin.com>
+ <20251117-mtd-memregion-v1-2-7b35611c79a6@bootlin.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <dd5b4423-0954-44d5-99a5-0052b62c55af@app.fastmail.com>
+In-Reply-To: <20251117-mtd-memregion-v1-2-7b35611c79a6@bootlin.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251117_094657_565170_237E7510 
-X-CRM114-Status: GOOD (  19.43  )
+X-CRM114-CacheID: sfid-20251117_095958_910781_1AC988B5 
+X-CRM114-Status: GOOD (  20.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,54 +83,128 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 17, 2025 at 05:47:05PM +0100, Arnd Bergmann wrote:
-> As I understand, the other architectures already just use the cycle counter
-> because that is random enough, but for arm64 the cntvct runs on an
-> unspecified frequency that is often too low.
+On Mon, Nov 17, 2025 at 06:00:15PM +0100, Gregory CLEMENT wrote:
+> Enable access to memory resources not only via I/O address using reg,
+> but also through a portion of main memory using memory-region. To
+> achieve this, new compatible strings have been introduced: mtd-mem and
+> mtd-memro.
 > 
-> However, most future machines are ARMv9.1 or higher and require a 1GHz
-> timer frequency. I also checked Graviton-3 (Neoverse-V1, ARMv8.4), which
-> is running its timer at 1.05GHz.
-
-Note that 1GHz requirement is for the *effective frequency*, not the
-underlying counter resolution. The 1GHz requirement means that the
-counter must increment by 10^9 per second, but it doesn't mean that it
-actually increments by 1 every 1 ns.
-
-See ARM DDI 0487 L.b, page D12-6793, which says:
-
-| Counter resolution
-|
-| The counter resolution is a representation of how frequently the
-| counter is updated.
-|
-| For example, a counter might have an effective frequency of 1GHz, but
-| the actual clock runs at 125MHz and therefore the counter resolution
-| is 125Mhz.
-|
-| From Armv8.6, Arm recommends the counter resolution is not less than
-| 50MHz in normal running operation.
-
-... and note that (unfortunately) that latter point is a recommendation,
-not a requirement.
-
-> My M2 Mac is running at a slower 24MHz timer. Between two getpid()
-> syscalls, I see cntvct_el0 advance between 20 and 70 cycles, which
-> still gives a few bits of entropy but not the six bits we actually
-> want to use.
+> Signed-off-by: Gregory CLEMENT <gregory.clement@bootlin.com>
+> ---
+>  .../devicetree/bindings/mtd/mtd-physmap.yaml       | 59 +++++++++++++++-------
+>  1 file changed, 40 insertions(+), 19 deletions(-)
 > 
-> How about we just check the timer frequency at boot and patch out the
-> get_random_u16 call for a cntvct read if it gets updated fast enough?
-> That would at least take care of the overhead on most new designs and
-> hopefully on a large subset of the servers that are in active use.
+> diff --git a/Documentation/devicetree/bindings/mtd/mtd-physmap.yaml b/Documentation/devicetree/bindings/mtd/mtd-physmap.yaml
+> index 1b375dee83b0c..0f75a1204b263 100644
+> --- a/Documentation/devicetree/bindings/mtd/mtd-physmap.yaml
+> +++ b/Documentation/devicetree/bindings/mtd/mtd-physmap.yaml
+> @@ -13,10 +13,6 @@ description: |
+>    Flash chips (Memory Technology Devices) are often used for solid state
+>    file systems on embedded devices.
+>  
+> -allOf:
+> -  - $ref: mtd.yaml#
+> -  - $ref: /schemas/memory-controllers/mc-peripheral-props.yaml#
+> -
+>  properties:
+>    compatible:
+>      oneOf:
+> @@ -61,6 +57,8 @@ properties:
+>            - jedec-flash
+>            - mtd-ram
+>            - mtd-rom
+> +          - mtd-mem
+> +          - mtd-memro
 
-As above, we cannot rely on the frequency for this, and I don't think we
-should use the timer in this way.
+I thought we had a flag for read only.
 
-To be clear, my objection here is purely about the timer. I don't want
-us to rely upon something that doesn't actually provide the guarantee we
-need. I'm more than happy with the mechanism for randomization being
-changed.
+>  
+>    reg:
+>      description: |
+> @@ -116,6 +114,10 @@ properties:
+>      minItems: 1
+>      maxItems: 8
+>  
+> +  memory-region:
+> +    items:
+> +      - description: Memory regions to map into mtd
+> +
+>    '#address-cells':
+>      const: 1
+>  
+> @@ -129,21 +131,25 @@ properties:
+>  
+>  required:
+>    - compatible
+> -  - reg
+> -
+> -if:
+> -  properties:
+> -    compatible:
+> -      contains:
+> -        const: cortina,gemini-flash
+> -then:
+> -  properties:
+> -    syscon:
+> -      $ref: /schemas/types.yaml#/definitions/phandle
+> -      description:
+> -        Phandle to the syscon controller
+> -  required:
+> -    - syscon
+> +
+> +allOf:
+> +  - $ref: mtd.yaml#
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            enum:
+> +              - mtd-mem
+> +              - mtd-memro
+> +    then:
+> +      required:
+> +        - memory-region
+> +      properties:
+> +        addr-gpios: false
+> +    else:
+> +      $ref: /schemas/memory-controllers/mc-peripheral-props.yaml#
+> +      required:
+> +        - reg
+>  
+>  unevaluatedProperties: false
+>  
+> @@ -223,4 +229,19 @@ examples:
+>              reg = <0 0x04000000>;
+>          };
+>      };
+> +
+> +  - |
+> +    /* An example using mtd-mem */
+> +    mem_logs: mem_logs@10000800 {
+> +        reg = <0x1 0x0000800 0x0 0x000f800>;
+> +        no-map;
+> +    };
+> +
+> +    sram {
 
-Mark.
+It's really an abuse of /reserved-memory to define regions outside of 
+what's defined in /memory nodes (or whatever defines system memory). Is 
+that the case here with the suspicious 'sram'?
+
+If we do keep this, I'd rather just add the properties below into the 
+/reserved-memory node itself. Devices are created for those nodes if 
+they have 'compatible'.
+
+
+> +        compatible = "mtd-mem";
+> +        memory-region = <&mem_log>;
+> +        bank-width = <4>;
+> +        device-width = <1>;
+> +    };
+> +
+>  ...
+> 
+> -- 
+> 2.51.0
+> 
 
