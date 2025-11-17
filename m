@@ -4,57 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C51A9CEACEF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 12:53:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00F62CEBF61
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 12:54:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Rx6TyPg/Ri0gk36crVaT4XnJR2eZ8w7/cMUnmQ/NjY0=; b=HjMn20TmDDk5i1j0X8ccrX+Bmk
-	ZmhOkFr3JndnWUKfvTUcvLZ1MRohbnNBBdjNiSOKpDVVhb1AuoKH5kaqaRjwsPjHoCxlHMie8soE9
-	cEqceEVmM4vPHyB9/lRkYvnHgQcSaNNCfSahb5uizaL6LO3tl9ed43etmQ4Li4pwDj9P1gTjEK95E
-	3Pek4EZ88UVL5JrSZ/8L5NeIuzLst8/kLr77OTQK0NlWnn8KL1USe7aHjo686kPROqyIMP6l+heGd
-	9g3DPElN3B3ZgbCqZzH4oELhdemIXzMcCcdwDKqFYVS4s78sC63Rivzkyg6JyJJdlAm2XQhq8x1y/
-	dZvI2gZw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=j0PeYkxx4r+5jJsF9hbC2hTxYP/y6FVcRV15IQ6oSzc=; b=QUHXix7Xm72AUomqi9TFR7C0l5
+	wAdCkB0ufgYtm0SV/keNOFL97mgNLWOKPTiSCpoOPhcgDPavNjqUJybxQxLxOHkcD1VU9/eHqXchP
+	Rt7CO39HXZxSeffXHLayXjW3985v/Tc6NRHKas8aFlZArGsMHHKfk19Ehm6Fr5W1MJxYOoX5ufg1M
+	HCgM+NE4we9E9tiCRCqDqxQe9sHdeYNfBGy59VaFcTZ53UBYgoA75nud7lB5vpX6F/WDTakAHPrK7
+	bcVWrWBt7hDfZjJCET6BlaVXHwvZ8EInLZZS52KUNsVUC17TGDwDttHwKyH6kmUd436/QIwFehpws
+	gB+Yb8FA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKyji-0000000G8C2-15ip;
-	Mon, 17 Nov 2025 12:53:38 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vKykn-0000000G8Lw-15iu;
+	Mon, 17 Nov 2025 12:54:45 +0000
+Received: from mail-qt1-x82b.google.com ([2607:f8b0:4864:20::82b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKyjf-0000000G8Bh-1YMd
+	id 1vKykk-0000000G8LX-1y44
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Nov 2025 12:53:36 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 21BB6401FB
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Nov 2025 12:53:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7D249C4CEF1;
-	Mon, 17 Nov 2025 12:53:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763384014;
-	bh=vTlFSXL5C/aWINfpBdSRXsDpIpVWuHNUtGuY/3CzWKU=;
-	h=From:To:Cc:Subject:Date:From;
-	b=JIdNq+it2Pszavsm9zuM33PUXh0wvJGvGE0DHncYhfcZF4ZzBP9k8ljOZzW4mkNbQ
-	 d7F4MOtZMm4TWxmHUwiRxTeqgaeIH1i1zK2GrENy26MSeOZWCSGcKmzzfypO4V37cu
-	 WIWN/SSKXfoIRu4Ip8WB9YbstRQ29yff1V4hIwU6qwuDni2C+2LcoFsroqzRXGJMyh
-	 iEyMwPXkTbka6MGKPbOv3Q6AOlX3XEusW85KwqZTrnjmrev66qAPx05n9Cbrzd9Fqy
-	 3VmNP7nvWut7gWESclJdI+Jd6Yzyqk4WozHWfgqq8OVFarSXJ3tji2TU67x7j14yiB
-	 wOE9wjh+dfApA==
-From: Dinh Nguyen <dinguyen@kernel.org>
-To: linux-arm-kernel@lists.infradead.org,
-	soc@lists.linux.dev
-Cc: dinguyen@kernel.org
-Subject: [GIT PULL] arm/arm64: dts: socfpga: updates for v6.19
-Date: Mon, 17 Nov 2025 06:53:31 -0600
-Message-ID: <20251117125331.381114-1-dinguyen@kernel.org>
-X-Mailer: git-send-email 2.42.0.411.g813d9a9188
+	Mon, 17 Nov 2025 12:54:43 +0000
+Received: by mail-qt1-x82b.google.com with SMTP id d75a77b69052e-4ee243b98caso206011cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Nov 2025 04:54:42 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1763384081; x=1763988881; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=j0PeYkxx4r+5jJsF9hbC2hTxYP/y6FVcRV15IQ6oSzc=;
+        b=dPRAM+v8exAp5v++B2uXokKd1ogfleSXFx8ASQVVz7apF1K33DYpo45VQdJt7sYiVo
+         PpVOJ8y7UZRf/UB70SKZTm2iCRQJK1YXEFjC6iWMjoKivwPT7rbLTbtMvg/vwlEr7Kwg
+         SGy+cWizTxWZIKV6A1qX3cuc1dLIadjkTYdzlsV7RxKi5q69QuoYklkx2dtOqH+dtvUG
+         IQ6jmL5vscgY3Xr/G3LlqKTrrQ6DC0+g/25mCJTq9KK3ZOLBxr4rknEw5zT96jNO2U6q
+         zz3GxotsCmFLT8Sh9xvzz3uGn3CotEBA5NqA/BrVfsOr29LGb7EypFxD07hRfGixr+j0
+         5NaQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1763384081; x=1763988881;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=j0PeYkxx4r+5jJsF9hbC2hTxYP/y6FVcRV15IQ6oSzc=;
+        b=hH5hr+7mdBuubMoZ5Wzz/X2P1GK1iph103YymlCLw/zZT8gGRB2BA0tjMUS3uGOfxJ
+         uAOBf6S2RIUf8Sco6rb3HPFhFPxRbO5KrgKI7wF93RLOEWxQ+82+gbHxytbRSPEARBrt
+         6D/WWValEVaG0muWnzcID9/gNj3EqhtVhv7T5owHivMrB1pC+jRORyRGW/5iqwgTkpEu
+         br0gif0rlQOqYY4z/YtkkqTY8bjUHn4SiRgXRssqsrcPTTGzGsSVUD2hV+n7hYGRHoi0
+         thEtuYIIEoJSZVQHcRUYEDLYVUKeCK8lvGxLm8QYSthxz7qs/81nAstusjjaapjv8GeH
+         b4zw==
+X-Forwarded-Encrypted: i=1; AJvYcCW7zTE6PmONv6xs3Lyj/xIa9kslHnqGUqprlwUoWbUyXR0eom8bjfGeHmEKNMNFuqIBvVdDgxiTVguS9Yd2utHv@lists.infradead.org
+X-Gm-Message-State: AOJu0YzbOOJQUHk7SIHA9uPhYQSu9hzbZ39pqjNCwXydR5QqnHoSGDSi
+	JXfNnzigYIGDDViXvLkBlLc0mU0faNlNA7z+W3A0bq7MbHjWfjeDskMY9CmDhdEQjBnyy2QSd7V
+	HKSqStBFrB4toez03y0UjkMl8pkjCWecYgRhtt8Nw
+X-Gm-Gg: ASbGncuBzEAaJeS/CafUEUf8oJ6/ypzW1UDIl+RiQJ7FGn81dSUJmng1j8MvXY1zoK4
+	q3IuSjgwkJu/rpa1cu+O+Ya+a4IBFfzppQnZkRvXbKezLhZWJdNXjjV9pPUwXhHCY5aFnEbrUZB
+	KWm5MOmDErSEHlkAExZwn3I9L2Ob2acYgRWjD1g8aUb6+gyXTP1Z1VYHhq/zK3U18/5Ed+DRcby
+	uHW4Pffid8RzQ47Z/P1DSzWIVaejrtDk3uTx53faeGlPkrowC/xBtHBvStHDZ3RwvVUi9lySKxj
+	6jRlZQ==
+X-Google-Smtp-Source: AGHT+IGyUPT3wn6gNyvpaQ2io1rn1H6hCVd0hgtsdhKIadTArqZSFCNMUbFtSog8erGv//K0RpdAaxu0Wib8dQEX/+I=
+X-Received: by 2002:a05:622a:1a23:b0:4e6:eaea:af3f with SMTP id
+ d75a77b69052e-4ee029e00ddmr10626351cf.3.1763384080849; Mon, 17 Nov 2025
+ 04:54:40 -0800 (PST)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20251117091527.1119213-1-maz@kernel.org> <CA+EHjTzudrep2hEno4RPwh8H88txiVYFoU7AyJYVWG9SFSk87Q@mail.gmail.com>
+ <867bvpt25u.wl-maz@kernel.org> <CA+EHjTyLGFUDbyr_B1uj5ZpxQA9ypCBy0ZUNRQ8M8VdLmXimnw@mail.gmail.com>
+In-Reply-To: <CA+EHjTyLGFUDbyr_B1uj5ZpxQA9ypCBy0ZUNRQ8M8VdLmXimnw@mail.gmail.com>
+From: Fuad Tabba <tabba@google.com>
+Date: Mon, 17 Nov 2025 12:54:04 +0000
+X-Gm-Features: AWmQ_bmjMm1Pn-peAzaMdg9UHlblAmHGoqWm7U5eN4zTrXFoNWlFVMWvJb4f2Ww
+Message-ID: <CA+EHjTx=sqkOfvoXO-gtAP9oZ+HJnfqFWzeughu+sTv9uJx7zw@mail.gmail.com>
+Subject: Re: [PATCH v3 0/5] KVM: arm64: Add LR overflow infrastructure (the
+ dregs, the bad and the ugly)
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	kvm@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Oliver Upton <oupton@kernel.org>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Christoffer Dall <christoffer.dall@arm.com>, 
+	Mark Brown <broonie@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251117_045335_467459_1C9DB299 
-X-CRM114-Status: GOOD (  17.09  )
+X-CRM114-CacheID: sfid-20251117_045442_516187_C47B5370 
+X-CRM114-Status: GOOD (  22.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,178 +99,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The following changes since commit 3a8660878839faadb4f1a6dd72c3179c1df56787:
+Hi Marc,
 
-  Linux 6.18-rc1 (2025-10-12 13:42:36 -0700)
+On Mon, 17 Nov 2025 at 10:18, Fuad Tabba <tabba@google.com> wrote:
+>
+> Hi Marc,
+>
+> On Mon, 17 Nov 2025 at 09:54, Marc Zyngier <maz@kernel.org> wrote:
+> >
+> > Hi Fuad,
+> >
+> > On Mon, 17 Nov 2025 09:40:47 +0000,
+> > Fuad Tabba <tabba@google.com> wrote:
+> > >
+> > > Hi Marc,
+> > >
+> > > On Mon, 17 Nov 2025 at 09:15, Marc Zyngier <maz@kernel.org> wrote:
+> > > >
+> > > > This is a follow-up to the original series [1] (and fixes [2][3])
+> > > > with a bunch of bug-fixes and improvements. At least one patch has
+> > > > already been posted, but I thought I might repost it as part of a
+> > > > series, since I accumulated more stuff:
+> > >
+> > > I'd like to test this series as well. Do you have it applied in one of
+> > > your branches at
+> > > https://git.kernel.org/pub/scm/linux/kernel/git/maz/arm-platforms.git
+> > > , or which commit is it based on?
+> >
+> > I just pushed a new branch
+> >
+> > https://git.kernel.org/pub/scm/linux/kernel/git/maz/arm-platforms.git/log/?h=kvm-arm64/vgic-lr-overflow-fixes
+> >
+> > that is based on -rc5, kvmarm/next, kvmarm-fixes-6.18-rc3 plus these
+> > patches. Let me know how this fares for you.
+>
+> Great! I've applied the pKVM patches on top of it. So far so good.
+> I'll test this series more thoroughly and review it as well. Stay tuned...
 
-are available in the Git repository at:
+For this series, and the series that it sits on top of (i.e.,
+https://git.kernel.org/pub/scm/linux/kernel/git/maz/arm-platforms.git/log/?h=kvm-arm64/vgic-lr-overflow-fixes):
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/dinguyen/linux.git tags/socfpga_dts_updates_for_v6.19
+Tested-by: Fuad Tabba <tabba@google.com>
 
-for you to fetch changes up to 38eff72f2d3a83475d70ac3a1280b5051d1e46b0:
+On QEMU, nVHE, hVHE protected mode, and protected VMs (with the latest
+Android pKVM patches applied on top).
 
-  arm64: dts: socfpga: agilex5: update qspi partitions for 013b board (2025-11-17 05:37:59 -0600)
+Thanks,
+/fuad
 
-----------------------------------------------------------------
-SoCFPGA DTS updates for v6.19
-- Add 4-bit SPI bus width(n5x, stratix10, agilex and agilex5)
-- Agilex5 updates:
-	- Add GMAC0 for NAND daughter card
-	- Add SMMU support
-	- Add VGIC maintenance interrupt
-	- Add L2 and L3 cache
-	- Add support for the 013b board
-	- Add I3C support
-- Add support for the Enclustra Mercury+ SA1 SoM based on Cyclone5
-- Add support for Agilex3 board(a variant of the Agilex5 board)
-- dt-bindings update:
-	- Document iommu in cdns,hp-nfc, snps,dw-axi-dmac and Agilex5
-	- Document Enclustra Mercury SA1 and AA1 boards
-	- Document Agilex5 013b board
-	- Document Agilex3 board
-- Fix dtbs_check warnings:
-	- stratix10-swvp
-	- Agilex(NAND and Clock manager)
-	- Move sdmmc-ecc to base DTSI file(Stratix10)
-
-----------------------------------------------------------------
-Adrian Ng Ho Yin (3):
-      arm64: dts: socfpga: agilex5: Add L2 and L3 cache
-      arm64: dts: socfpga: agilex5: Add SMMU-V3-PMCG nodes
-      arm64: dts: intel: agilex5: Add Altera compatible for I3C controllers
-
-Boon Khai Ng (1):
-      arm64: dts: agilex5: Add GMAC0 node for NAND daughter card
-
-Dinh Nguyen (5):
-      arm64: dts: socfpga: move sdmmc-ecc to the base DTSI file
-      arm64: dts: socfpga: stratix10-swvp: fix dtbs_check warnings swvp
-      arm64: dts: socfpga: agilex: fix dtbs_check warning for clock manager
-      arm64: dts: socfpga: agilex: fix dtbs_check warning for NAND
-      arm64: dts: socfpga: agilex5: fix CHECK_DTBS warning for NAND
-
-Fong, Yan Kei (4):
-      arm64: dts: socfpga: n5x: Add 4-bit SPI bus width
-      arm64: dts: socfpga: stratix10: Add 4-bit SPI bus width
-      arm64: dts: socfpga: agilex: Add 4-bit SPI bus width
-      arm64: dts: socfpga: agilex5: Add 4-bit SPI bus width
-
-Khairul Anuar Romli (5):
-      dt-bindings: mtd: cdns,hp-nfc: Add iommu property
-      dt-bindings: dma: snps,dw-axi-dmac: Add iommu property
-      arm64: dts: socfpga: agilex5: Add SMMU nodes
-      dt-bindings: firmware: svc: Add IOMMU support for Agilex5
-      arm64: dts: socfpga: Add Agilex5 SVC node with memory region
-
-Lothar Rubusch (11):
-      ARM: dts: socfpga: add Enclustra boot-mode dtsi
-      ARM: dts: socfpga: add Enclustra base-board dtsi
-      ARM: dts: socfpga: add Enclustra Mercury SA1
-      dt-bindings: altera: add Enclustra Mercury SA1
-      ARM: dts: socfpga: add Enclustra Mercury+ SA2
-      dt-bindings: altera: add binding for Mercury+ SA2
-      ARM: dts: socfpga: add Mercury AA1 variants
-      dt-bindings: altera: add Mercury AA1 variants
-      ARM: dts: socfpga: removal of generic PE1 dts
-      dt-bindings: altera: removal of generic PE1 dts
-      ARM: dts: socfpga: add Enclustra SoM dts files
-
-Niravkumar L Rabara (6):
-      arm64: dts: socfpga: agilex5: add VGIC maintenance interrupt
-      dt-bindings: intel: Add Agilex5 SoCFPGA 013b board
-      arm64: dts: socfpga: agilex5: add support for 013b board
-      dt-bindings: intel: Add Agilex3 SoCFPGA board
-      arm64: dts: socfpga: add Agilex3 board
-      arm64: dts: socfpga: agilex5: update qspi partitions for 013b board
-
- Documentation/devicetree/bindings/arm/altera.yaml  |  24 +++-
- .../devicetree/bindings/arm/intel,socfpga.yaml     |   7 +
- .../devicetree/bindings/dma/snps,dw-axi-dmac.yaml  |   3 +
- .../bindings/firmware/intel,stratix10-svc.yaml     |  15 +++
- .../devicetree/bindings/mtd/cdns,hp-nfc.yaml       |   3 +
- arch/arm/boot/dts/intel/socfpga/Makefile           |  25 +++-
- .../intel/socfpga/socfpga_arria10_mercury_aa1.dtsi | 143 ++++++++++++++++----
- .../socfpga_arria10_mercury_aa1_pe1_emmc.dts       |  16 +++
- .../socfpga_arria10_mercury_aa1_pe1_qspi.dts       |  16 +++
- .../socfpga_arria10_mercury_aa1_pe1_sdmmc.dts      |  16 +++
- .../socfpga_arria10_mercury_aa1_pe3_emmc.dts       |  16 +++
- .../socfpga_arria10_mercury_aa1_pe3_qspi.dts       |  16 +++
- .../socfpga_arria10_mercury_aa1_pe3_sdmmc.dts      |  16 +++
- .../socfpga_arria10_mercury_aa1_st1_emmc.dts       |  16 +++
- .../socfpga_arria10_mercury_aa1_st1_qspi.dts       |  16 +++
- .../socfpga_arria10_mercury_aa1_st1_sdmmc.dts      |  16 +++
- .../intel/socfpga/socfpga_arria10_mercury_pe1.dts  |  55 --------
- .../socfpga/socfpga_cyclone5_mercury_sa1.dtsi      | 143 ++++++++++++++++++++
- .../socfpga_cyclone5_mercury_sa1_pe1_emmc.dts      |  16 +++
- .../socfpga_cyclone5_mercury_sa1_pe1_qspi.dts      |  16 +++
- .../socfpga_cyclone5_mercury_sa1_pe1_sdmmc.dts     |  16 +++
- .../socfpga_cyclone5_mercury_sa1_pe3_emmc.dts      |  16 +++
- .../socfpga_cyclone5_mercury_sa1_pe3_qspi.dts      |  16 +++
- .../socfpga_cyclone5_mercury_sa1_pe3_sdmmc.dts     |  16 +++
- .../socfpga_cyclone5_mercury_sa1_st1_emmc.dts      |  16 +++
- .../socfpga_cyclone5_mercury_sa1_st1_qspi.dts      |  16 +++
- .../socfpga_cyclone5_mercury_sa1_st1_sdmmc.dts     |  16 +++
- .../socfpga/socfpga_cyclone5_mercury_sa2.dtsi      | 146 +++++++++++++++++++++
- .../socfpga_cyclone5_mercury_sa2_pe1_qspi.dts      |  16 +++
- .../socfpga_cyclone5_mercury_sa2_pe1_sdmmc.dts     |  16 +++
- .../socfpga_cyclone5_mercury_sa2_pe3_qspi.dts      |  16 +++
- .../socfpga_cyclone5_mercury_sa2_pe3_sdmmc.dts     |  16 +++
- .../socfpga_cyclone5_mercury_sa2_st1_qspi.dts      |  16 +++
- .../socfpga_cyclone5_mercury_sa2_st1_sdmmc.dts     |  16 +++
- .../socfpga_enclustra_mercury_bootmode_emmc.dtsi   |  12 ++
- .../socfpga_enclustra_mercury_bootmode_qspi.dtsi   |   8 ++
- .../socfpga_enclustra_mercury_bootmode_sdmmc.dtsi  |   8 ++
- .../socfpga/socfpga_enclustra_mercury_pe1.dtsi     |  33 +++++
- .../socfpga/socfpga_enclustra_mercury_pe3.dtsi     |  55 ++++++++
- .../socfpga/socfpga_enclustra_mercury_st1.dtsi     |  15 +++
- arch/arm64/boot/dts/altera/socfpga_stratix10.dtsi  |   9 ++
- .../boot/dts/altera/socfpga_stratix10_socdk.dts    |  15 +--
- .../dts/altera/socfpga_stratix10_socdk_nand.dts    |  13 --
- .../boot/dts/altera/socfpga_stratix10_swvp.dts     |   3 -
- arch/arm64/boot/dts/intel/Makefile                 |   2 +
- arch/arm64/boot/dts/intel/socfpga_agilex.dtsi      |   1 +
- .../arm64/boot/dts/intel/socfpga_agilex3_socdk.dts | 132 +++++++++++++++++++
- arch/arm64/boot/dts/intel/socfpga_agilex5.dtsi     | 115 +++++++++++++++-
- .../arm64/boot/dts/intel/socfpga_agilex5_socdk.dts |   2 +
- .../boot/dts/intel/socfpga_agilex5_socdk_013b.dts  | 126 ++++++++++++++++++
- .../boot/dts/intel/socfpga_agilex5_socdk_nand.dts  |  18 +++
- arch/arm64/boot/dts/intel/socfpga_agilex_socdk.dts |   2 +
- .../boot/dts/intel/socfpga_agilex_socdk_nand.dts   |   2 +-
- arch/arm64/boot/dts/intel/socfpga_n5x_socdk.dts    |   2 +
- 54 files changed, 1410 insertions(+), 111 deletions(-)
- create mode 100644 arch/arm/boot/dts/intel/socfpga/socfpga_arria10_mercury_aa1_pe1_emmc.dts
- create mode 100644 arch/arm/boot/dts/intel/socfpga/socfpga_arria10_mercury_aa1_pe1_qspi.dts
- create mode 100644 arch/arm/boot/dts/intel/socfpga/socfpga_arria10_mercury_aa1_pe1_sdmmc.dts
- create mode 100644 arch/arm/boot/dts/intel/socfpga/socfpga_arria10_mercury_aa1_pe3_emmc.dts
- create mode 100644 arch/arm/boot/dts/intel/socfpga/socfpga_arria10_mercury_aa1_pe3_qspi.dts
- create mode 100644 arch/arm/boot/dts/intel/socfpga/socfpga_arria10_mercury_aa1_pe3_sdmmc.dts
- create mode 100644 arch/arm/boot/dts/intel/socfpga/socfpga_arria10_mercury_aa1_st1_emmc.dts
- create mode 100644 arch/arm/boot/dts/intel/socfpga/socfpga_arria10_mercury_aa1_st1_qspi.dts
- create mode 100644 arch/arm/boot/dts/intel/socfpga/socfpga_arria10_mercury_aa1_st1_sdmmc.dts
- delete mode 100644 arch/arm/boot/dts/intel/socfpga/socfpga_arria10_mercury_pe1.dts
- create mode 100644 arch/arm/boot/dts/intel/socfpga/socfpga_cyclone5_mercury_sa1.dtsi
- create mode 100644 arch/arm/boot/dts/intel/socfpga/socfpga_cyclone5_mercury_sa1_pe1_emmc.dts
- create mode 100644 arch/arm/boot/dts/intel/socfpga/socfpga_cyclone5_mercury_sa1_pe1_qspi.dts
- create mode 100644 arch/arm/boot/dts/intel/socfpga/socfpga_cyclone5_mercury_sa1_pe1_sdmmc.dts
- create mode 100644 arch/arm/boot/dts/intel/socfpga/socfpga_cyclone5_mercury_sa1_pe3_emmc.dts
- create mode 100644 arch/arm/boot/dts/intel/socfpga/socfpga_cyclone5_mercury_sa1_pe3_qspi.dts
- create mode 100644 arch/arm/boot/dts/intel/socfpga/socfpga_cyclone5_mercury_sa1_pe3_sdmmc.dts
- create mode 100644 arch/arm/boot/dts/intel/socfpga/socfpga_cyclone5_mercury_sa1_st1_emmc.dts
- create mode 100644 arch/arm/boot/dts/intel/socfpga/socfpga_cyclone5_mercury_sa1_st1_qspi.dts
- create mode 100644 arch/arm/boot/dts/intel/socfpga/socfpga_cyclone5_mercury_sa1_st1_sdmmc.dts
- create mode 100644 arch/arm/boot/dts/intel/socfpga/socfpga_cyclone5_mercury_sa2.dtsi
- create mode 100644 arch/arm/boot/dts/intel/socfpga/socfpga_cyclone5_mercury_sa2_pe1_qspi.dts
- create mode 100644 arch/arm/boot/dts/intel/socfpga/socfpga_cyclone5_mercury_sa2_pe1_sdmmc.dts
- create mode 100644 arch/arm/boot/dts/intel/socfpga/socfpga_cyclone5_mercury_sa2_pe3_qspi.dts
- create mode 100644 arch/arm/boot/dts/intel/socfpga/socfpga_cyclone5_mercury_sa2_pe3_sdmmc.dts
- create mode 100644 arch/arm/boot/dts/intel/socfpga/socfpga_cyclone5_mercury_sa2_st1_qspi.dts
- create mode 100644 arch/arm/boot/dts/intel/socfpga/socfpga_cyclone5_mercury_sa2_st1_sdmmc.dts
- create mode 100644 arch/arm/boot/dts/intel/socfpga/socfpga_enclustra_mercury_bootmode_emmc.dtsi
- create mode 100644 arch/arm/boot/dts/intel/socfpga/socfpga_enclustra_mercury_bootmode_qspi.dtsi
- create mode 100644 arch/arm/boot/dts/intel/socfpga/socfpga_enclustra_mercury_bootmode_sdmmc.dtsi
- create mode 100644 arch/arm/boot/dts/intel/socfpga/socfpga_enclustra_mercury_pe1.dtsi
- create mode 100644 arch/arm/boot/dts/intel/socfpga/socfpga_enclustra_mercury_pe3.dtsi
- create mode 100644 arch/arm/boot/dts/intel/socfpga/socfpga_enclustra_mercury_st1.dtsi
- create mode 100644 arch/arm64/boot/dts/intel/socfpga_agilex3_socdk.dts
- create mode 100644 arch/arm64/boot/dts/intel/socfpga_agilex5_socdk_013b.dts
+> Cheers,
+> /fuad
+>
+> >
+> > Thanks,
+> >
+> >         M.
+> >
+> > --
+> > Without deviation from the norm, progress is not possible.
 
