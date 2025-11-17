@@ -4,152 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 607D1CEACEF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 16:12:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55208CE8D6B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 16:29:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XMQM6LBpVQQC8+RtDd4VsIjqshBW83gDoI+P5c4/3WY=; b=I37Fm7k1MON6otQOGx9KexIMpq
-	VMIl5sGjcNqncG35rI3hoP9i67ll2qMeZPVgyRk6DFbUMH/FX803G/99YegdJxSB7szs2TGwydEdp
-	8ma44/VVHtHDz2BPezwQhxUOoyLy6R2dwB1Av7zXkGdwjyY/BoFOdB4D1E82E+l2T3frJ0x3xWRcX
-	mdloQeQAPzX6RQl2MJ8MumNJ9CfB9+HLQWlXA13+rzKdlXogeztqZp51CmkQZX6wBvwE3+kQs5Yob
-	TDuqn8Drp75wWgeed5wzv5fwSDjvk9o66/SH+DOHTL44bLVj81VH2vAzjMkw3ogy6/PGMmgjHty+s
-	YJMYjoMw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=t9V36LK4duRtYZbWY4PLHqlm0tdSmL++GHQdZoya/jc=; b=FJej0i7KQ1qDrGJKQbnorrV/yt
+	eElDKr5oK15z3QNFNaBCKl25sYB6R+cCDn++5Nc/GOgKiSegt11337+4fezoC6nq2VDcATQVpJF9j
+	VNyoXRRV8yt33nhvTB37LbZ45B5AAb7/Lsj8ZOtCZQ75PVTVVLiqH69mcqW5tRW40xUHnSFt9GM98
+	1dQ+ONKBVEExFS++2/9vo2V3PVQU6k/9hNRDB4TZBw83K36rhS5pWdCh928WET/I8n7XGtx+Ce51L
+	hBgYvWHtZZ1zMxZiH9CY0KxoFYZ9bl/s0PayDJpjCAxnobDpFJnIy1TVAkv4KdeLOqL3ZM3iVaZLZ
+	brnKGSAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vL1qX-0000000GNmM-3vZK;
-	Mon, 17 Nov 2025 16:12:53 +0000
-Received: from mail-westeuropeazon11010026.outbound.protection.outlook.com ([52.101.69.26] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1vL26u-0000000GOci-2xNP;
+	Mon, 17 Nov 2025 16:29:48 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vL1qV-0000000GNlo-2NBk
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Nov 2025 16:12:52 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=iXd9OIx7HeX5Con+wQm9xZRCug6CfxfZ8/T8EVJ7nWC9Km2cfylACO+7Fgv7FOQXQTnbGaL5X+PkWKklOK6RUKnHLjlGRdVt5vbCoU3K3vUfBa68CQ+f0pI3BFsJkCzgkEurPfudpVc7lek0m8rcAT08hl3cYfqXW4TEdmXrDoMr1VgNXUaC2SNfH1Wy5mo/h/h2LEoY0tuE5YdqEJKho7DvCcl5n+BPEWCew6FEqOUnKuFUoO8I2cpo8dEggIWeyNWJMx6ETz03+6/TUGNptDvlvhdu6/lX/Vjlw+Hd0lBTA1+F0TGL9Z3M6KwbHewZ+p5EdcajTt7bxJgYCy4lgw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=XMQM6LBpVQQC8+RtDd4VsIjqshBW83gDoI+P5c4/3WY=;
- b=kwuZ0XJ90oOfGd9oIb+WszWtSuG06Zj3zR/Aj93kL2+oEdy82tdycKWXIv1yV0NmeWqY/mrCsq/SsatYK32sWn5T2UWkacyAOnKgBheMu3OCArD58MQoUEs3F8QhuXHxH166sRRXCazPs8TKwBzTpylXGC4XVWWY2CM9ETu82VJlrb5hvkrByKHfJ1nsVMPpdLH9t13394TJItoAEOb4NaiMxESp7Kji3g+pBnuD6QpE3Ls6mqXklj3+yHpBxWmPpjloy2xtr80GLTv7ZOLeRNJ6qtB6zyl3Xniz+iprcPYv9qT72Pb/PKEYCcLkgaUCYN19jREQf5bkGlAG0DhDZA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=XMQM6LBpVQQC8+RtDd4VsIjqshBW83gDoI+P5c4/3WY=;
- b=M+haOUt3lG79Ya4XBH4wicbbGL+3IvJOHOqWdkVaoXnv1DZBo3pdq0UbOEIlrBq9Wi3Fqtz0DwJY9DV/xkVMxBT8u3s4Mcf6Wv85UzW4a2NSe30bqLA9zoF8KbT0citjpu/ClNgZkR64mRwd89/NH8V5dkrQik3dI4xmSktHXa1PqgWHrBc6gAr4Ds9sP/vYohVWjzjjYtfKlfgzaIMYv9DgDXHN1M1MV/ztIshPzE7Os3zfMNnPBLKGwpk8ZwSA8zI5mR/FAduWGWpU8dHTuZ7txr+sluzQTySLoL9rKjJ93kc9vEH/XgLuUfjbaldYGPMdMY3oQXR7YEjExmoKnw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from DB9PR04MB9626.eurprd04.prod.outlook.com (2603:10a6:10:309::18)
- by AS8PR04MB7575.eurprd04.prod.outlook.com (2603:10a6:20b:29c::23) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9320.22; Mon, 17 Nov
- 2025 16:12:46 +0000
-Received: from DB9PR04MB9626.eurprd04.prod.outlook.com
- ([fe80::55ef:fa41:b021:b5dd]) by DB9PR04MB9626.eurprd04.prod.outlook.com
- ([fe80::55ef:fa41:b021:b5dd%4]) with mapi id 15.20.9320.018; Mon, 17 Nov 2025
- 16:12:46 +0000
-Date: Mon, 17 Nov 2025 11:12:37 -0500
-From: Frank Li <Frank.li@nxp.com>
-To: Vladimir Zapolskiy <vz@mleia.com>
-Cc: Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>,
+	id 1vL26t-0000000GOcX-0VGy;
+	Mon, 17 Nov 2025 16:29:47 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 48A72601EA;
+	Mon, 17 Nov 2025 16:29:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 76B97C113D0;
+	Mon, 17 Nov 2025 16:29:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1763396986;
+	bh=0k5mR40qmeCxrKeXa+VfhKq6tty412bsrbm9w0g98Cw=;
+	h=From:To:Cc:Subject:Date:From;
+	b=bMV/850B7PPh9ft0sYYM8BHDWHuUMsdalXTPEt/+javid34XRFEWVe6NGEi333dgc
+	 0JNMz1iw2l7qM0zQQFD9UYbtPQls62f489+4yrEkYaAMllE4CXghQ4V03HZMV5w221
+	 XMadMCenWGM2s+UA22EbHazv+6FkajZQe/CWPusY+WUDzdSC5yx2MAh8E1Uv3wdTTL
+	 y0LWX9ZCOtj9bHfxgMz5+HOnJfiivwbI6bu/5PxgkJNeI9S591Hl5hYYMD1EQ4UDN6
+	 ImCyr3twIyvGYqUNP2EfeAOH+yodxM4ORX6leIBpUOv7zXmFc8v06zZ0rmV3yQ+4gZ
+	 NIG5QWHiNrLjA==
+From: Conor Dooley <conor@kernel.org>
+To: linux-kernel@vger.kernel.org
+Cc: conor@kernel.org,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	Lee Jones <lee@kernel.org>,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	"moderated list:ARM/LPC32XX SOC SUPPORT" <linux-arm-kernel@lists.infradead.org>,
-	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
-	open list <linux-kernel@vger.kernel.org>, imx@lists.linux.dev
-Subject: Re: [PATCH v2 5/5] ARM: dts: lpc3250-phy3250: remove deprecated
- at25* property
-Message-ID: <aRtJdTMxFaXdVnvs@lizhi-Precision-Tower-5810>
-References: <20251114174712.1206027-1-Frank.Li@nxp.com>
- <20251114174712.1206027-5-Frank.Li@nxp.com>
- <face044b-01ed-4077-b497-3caaccf57c98@mleia.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <face044b-01ed-4077-b497-3caaccf57c98@mleia.com>
-X-ClientProxiedBy: SJ0P220CA0010.NAMP220.PROD.OUTLOOK.COM
- (2603:10b6:a03:41b::14) To DB9PR04MB9626.eurprd04.prod.outlook.com
- (2603:10a6:10:309::18)
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH 1/2] dt-bindings: mfd: document control-scb and sysreg-scb on pic64gx
+Date: Mon, 17 Nov 2025 16:29:29 +0000
+Message-ID: <20251117-aeration-smock-5e7ac06e2942@spud>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DB9PR04MB9626:EE_|AS8PR04MB7575:EE_
-X-MS-Office365-Filtering-Correlation-Id: 536d9bdd-240e-4605-3b04-08de25f42565
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|19092799006|52116014|1800799024|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?d+1EkSyDg0/Y0Pc7WRPYCh9k9kmXPkwNhgN4lTu0yKnHLMZogR3tLUVO33Kh?=
- =?us-ascii?Q?s8eq/5GwhSznzmwTbqqM3Oqaf/jscFmGHM1w04ermEHNemN/VNdgFJ6ab+zF?=
- =?us-ascii?Q?q/sQy0vLSAPHFkixe2d4L05u6FPiWgSKMuhcrG/y0HprQ05Gj3pNsTH8arMt?=
- =?us-ascii?Q?/7ZCc088fTK9vn3q+EoMXl9ega1g9HYwuLG+DZtTUIREE2AUUt0AbZO4Z6XW?=
- =?us-ascii?Q?TDGLFrJa0W8LkOXtO6WxPNHx9MCRJlaCaumh6NwAJReEHwKv4Jd/oxNSeudB?=
- =?us-ascii?Q?YTBAbC+KYeHRb3dkYNZLYOBnjIjYpno5bhy7CPb9YHrQzJhZXLZAAR5QBpmp?=
- =?us-ascii?Q?gArbbScKqkbsF1lKJ5LXGgTsFjvyYWctYoCOc0R6KIcan62iXdgaEtjgEjPz?=
- =?us-ascii?Q?vW9H0B/QSonIS8h0sbsapJizpGtdBsdf5w9kJDn+jdQ5z1vveaUYBGBv1U4I?=
- =?us-ascii?Q?wOxETwXL1r/E0Bn6w8drXX/HcjKcDlFuomzOyyImXBGnBgnslnn0/mfjtSVM?=
- =?us-ascii?Q?E5wUMtSHMw1g9dSauu/CnnF7mRxN9GgwCBIirV0cwz86LB4z2d/r9f64HHrc?=
- =?us-ascii?Q?wWvfy8AnAn4flSvat7q8y8JxhfjG/XnclIZe5I6GJSGyJepIF815Bzr6DVZq?=
- =?us-ascii?Q?79SVdMIFuH4PTSg04ip40NXCdaSBFRsbvKgm1VQDL1QaNSs7R3hLdTkbDyrN?=
- =?us-ascii?Q?lZnqr4l2L2qvvaRxzgmNkPfDbDz0wSVX+02vXBmbFyi/Hy0jGhWRESx8WudW?=
- =?us-ascii?Q?BYHx34p9DnoC49ZHqJH1mjWJN93Wq4vXFX4xuEtjZP2INe4otZjCwsposXLm?=
- =?us-ascii?Q?f7b9zrYF24bDpV4622Q1D5fVc7Y4uOLMz0Ae//dSJhL0JJ1wiCD0mkmWiggK?=
- =?us-ascii?Q?7B/okO3ClVeG8Ud0YlidgBJtnTCGKsAr/t5y8TSESHdUmc6P4LongZNep4wv?=
- =?us-ascii?Q?dOOgcjRMKzdWIsfoPeZe5fPUqkWKFE3Xr5pPBfn4PdgJHm+a+5+wg3bXFm6p?=
- =?us-ascii?Q?RRmDxVYYsz7R8n8jneRk8we9Gi2KcYC5UZmzVHZFF74yA1cNaJn+E5v+o6r7?=
- =?us-ascii?Q?3PR1me+Bjc8fV1DI1V4P810m48n1RPiiC3A+c7VjKcbOjFhUsG+eQjHSMxoG?=
- =?us-ascii?Q?cIngoEmnX3YkFZZRMTi8K4F82TTs6YTCAbf8B0YCh7UZFlX0xnyWTaWfnRjC?=
- =?us-ascii?Q?Dfh9xVtnpexbmbJffY2S8dC5A+TzPSzT2DmA8jJuAt98xjNGpdRxyYFOHck4?=
- =?us-ascii?Q?IpzFDGjNBXDGvGnkt8YCyc5o9TBTN+jAZwmzqxsZCkRRYAu/KUzgetJAGLLp?=
- =?us-ascii?Q?FP/rifKs4MXmHjxvaOTCRlkUWa97CuRp2j4iqFz77p4DyeIy4koKuCh4mnOq?=
- =?us-ascii?Q?EVKCX1ajKkU4NaQGtwL1QnytyjPsYKKP38l28njV4YoFv9FTwnAzhBpc9ci6?=
- =?us-ascii?Q?dIqzNHnv7vPyMBSRvc/5/L+r375sSma04oLMoSecakNYoUMYjbL0/4mSaky7?=
- =?us-ascii?Q?H5OkSlxcf4uHy4cc59WrAJzu0t2GCrF4AZDN?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR04MB9626.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(19092799006)(52116014)(1800799024)(366016)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ZJNIxtpY7sWWTsjJ2l/LrGXzA8ERQKSR1hk6QFneWn9BX6AbhEE5yI7iZ1ET?=
- =?us-ascii?Q?K38wEJQ/Z5etIIsnUi+Dd2i+yYU/v4xwmScWwkETRnqgxNurXro2O33CTyu4?=
- =?us-ascii?Q?r0pHt/jCHj9BySPoDCZFFP+b9gMiBq/1Igk54YbQBiyY7l0FJwGBzbkVA6uz?=
- =?us-ascii?Q?1kl24LHFaEE3pJ/UiKdWqDq6J55+bgB7blp/ep7AgxQLunFoc5Q3UZwb0FVz?=
- =?us-ascii?Q?otDKnCrzL12AlcdjfoQFM4G2WHMQBSkmpvDIebon2rRzGdpbZw4ZzvK+lWZD?=
- =?us-ascii?Q?e+/+MPZFu4H2ZKo7yo3LGKpMVeyl2VO+DH9arHVHgLwHdh2dVzrhmL26oizl?=
- =?us-ascii?Q?dhqHIFqU+soKcC1Sjh30vKQqW2Wh/xTDjsvQUj4h0/J9ZcNT5gASDF5I67w/?=
- =?us-ascii?Q?ujbz9b77OMJXcoNbk0p0VtJaPeg17f4qqVRGfbVOk6QtfhM5QZSKRL0PkwaH?=
- =?us-ascii?Q?bzwPU72vbE9JXyU3oYvQgNnMKqIQXvrE+wZ0cMv1DDUgZBTsaozKN1dhv8Bf?=
- =?us-ascii?Q?eqWGJ4/1buhI8rnAqL0JZXTRS+Yj3UdINlf4bV/PvZnhp5PguPvuekAnwCoy?=
- =?us-ascii?Q?G2M9vj7eQ8vDkjsQPNp2IcqeuYOyofchjU5n3VpeTK16E/li5Q6bt4Y7E0rk?=
- =?us-ascii?Q?crq8vHuLOebmeGvQPXDugEOkowYm0y/nvfwa+00RD4Jop1u3QzteNXjGdI5y?=
- =?us-ascii?Q?gLAXQDw2Z46F0z5hVCiwMCmBmVy9WKhyVuIxMMYRvLrSfwHIPlZsKL9qxCxp?=
- =?us-ascii?Q?Jizq9YCAXqP28t7tMVgR2TK27l/vTZ/dcKsuoLNg/WbDkjeqJke9dEdi1KGu?=
- =?us-ascii?Q?Y4ouU8rB8H2ENykgqkURcSWHeEdELihiNlVMdwvHHx99Zng2uHzY7ZEIYf1b?=
- =?us-ascii?Q?iGlz0Ow9a1IMLKJfdrCznn6Ub91YryIB06TmtIr76Wil9qcq23E3Mq/jesMT?=
- =?us-ascii?Q?h0kWqzWiSJ9bYWGU2OaUq15lwIjBbPsZjQ2qDbD2pD8zjsoEqPUAfi1sQ2DD?=
- =?us-ascii?Q?FiBzM0TePtAkyqvoQcjCJCnDEuys76MxnMKNcedWHqLJMgCJwa0dXFPiGU8b?=
- =?us-ascii?Q?FFeIPSWFmWGgwG3LyqSlhO62fJ0HFoSHSsPW4W7gBEzg+/U+X8fa94szUYYD?=
- =?us-ascii?Q?DGkA35H2/jaiJR2ZPmq7ikJjDw4k9+44tmMfZJW/+OBf1w3XaV2w1/LzIKP+?=
- =?us-ascii?Q?hctHxcFl2euCBvTpI3fNTWvPeRwwPOv6gUAk6xPv61mi+SKzoKjyyl94WD1B?=
- =?us-ascii?Q?UGBIkC/hEFBa7ICA71rZBard5fcJrwQWoPGWY5bEjSNi93dMb9PjX9MdtnvE?=
- =?us-ascii?Q?mAbEor5Zbep3AoLMncF5jqnwXBdJEENREJSTEc/u93QYk+saOD6ChV54mPR4?=
- =?us-ascii?Q?CkyE//wIz950D3FZawPsWZU+dqBhfcc3usA+qAhZmdXaEq01mFWiSsoMLCMk?=
- =?us-ascii?Q?O7IaSjfCbp8zj8CA7OsLA7g6dAXmk2aLgk56HYF0Yl5zdy56bsq/OD1XAoxN?=
- =?us-ascii?Q?/E5sPlZCuSFLF5pCcvONSdUeL2bdMTRfQxQhhbZs1zT/29raLVMN2RuYQTHS?=
- =?us-ascii?Q?AyhfSd+x4+9CqH62jkN+A+rS2p1atQTt9gPlhmZE?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 536d9bdd-240e-4605-3b04-08de25f42565
-X-MS-Exchange-CrossTenant-AuthSource: DB9PR04MB9626.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Nov 2025 16:12:46.4970
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 5M5sUzm5v6hWQOQPhBvFWCcuwcpZANYAXZXeh3k90WgzozntyOiH5g2mBrdCKl0/NVgaRvQS3c2QSVAURmtzKA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB7575
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251117_081251_627204_BE94FC36 
-X-CRM114-Status: GOOD (  19.88  )
+X-Developer-Signature: v=1; a=openpgp-sha256; l=9655; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=ChDTUZ9MY24jy5W4apv1nC1KHi7HZfRF9Amxe1XkbGQ=; b=owGbwMvMwCVWscWwfUFT0iXG02pJDJnSvukSWzbM7V2nPWOS2JfVsg8X+y+tevFvk2Bv676nD 7S4b7J3dJSyMIhxMciKKbIk3u5rkVr/x2WHc89bmDmsTCBDGLg4BWAi5ncZ/tluihKd3rt/zzLr niyP4yvne/+c5Tgz90mdvMGniP7arfWMDPtTSrznsBRv/C7e0aodc+Epb8WFQ2/XBX/+qRhrEqX WwQAA
+X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -164,45 +77,263 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Nov 15, 2025 at 02:23:50AM +0200, Vladimir Zapolskiy wrote:
-> On 11/14/25 19:47, Frank Li wrote:
-> > Remove duplicated deprecated at25* property because the same common
-> > property already were added.
-> >
-> > Signed-off-by: Frank Li <Frank.Li@nxp.com>
-> > ---
-> > changes in v2
-> > - new patch
-> > ---
-> >   arch/arm/boot/dts/nxp/lpc/lpc3250-phy3250.dts | 4 ----
-> >   1 file changed, 4 deletions(-)
-> >
-> > diff --git a/arch/arm/boot/dts/nxp/lpc/lpc3250-phy3250.dts b/arch/arm/boot/dts/nxp/lpc/lpc3250-phy3250.dts
-> > index 15463a96938cc..0f96ea0337a1f 100644
-> > --- a/arch/arm/boot/dts/nxp/lpc/lpc3250-phy3250.dts
-> > +++ b/arch/arm/boot/dts/nxp/lpc/lpc3250-phy3250.dts
-> > @@ -213,10 +213,6 @@ eeprom: eeprom@0 {
-> >   		pl022,wait-state = <0>;
-> >   		pl022,duplex = <0>;
-> > -		at25,byte-len = <0x8000>;
-> > -		at25,addr-mode = <2>;
-> > -		at25,page-size = <64>;
-> > -
-> >   		size = <0x8000>;
-> >   		address-width = <16>;
-> >   		pagesize = <64>;
->
-> Just squash this change with the 3/5 from the series, or I can do it on
-> patch application.
+From: Conor Dooley <conor.dooley@microchip.com>
 
-Yes, you can squash when apply.
+On pic64gx these syscons are identical to those on mpfs, and should use
+a fallback. Add support for multiple fallback compatibles to syscon.yaml
+with these as the first two users.
 
-Frank
->
-> My ask about splitting the changes was about a separation of the 4/5 change,
-> and it was done as expected, thank you.
->
-> --
-> Best wishes,
-> Vladimir
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+---
+Awful diff, sorry!
+
+CC: Nicolas Ferre <nicolas.ferre@microchip.com>
+CC: Alexandre Belloni <alexandre.belloni@bootlin.com>
+CC: Claudiu Beznea <claudiu.beznea@tuxon.dev>
+CC: Lee Jones <lee@kernel.org>
+CC: Rob Herring <robh@kernel.org>
+CC: Krzysztof Kozlowski <krzk+dt@kernel.org>
+CC: Conor Dooley <conor+dt@kernel.org>
+CC: devicetree@vger.kernel.org
+CC: linux-kernel@vger.kernel.org
+CC: linux-arm-kernel@lists.infradead.org
+CC: linux-mediatek@lists.infradead.org
+
+---
+ .../devicetree/bindings/mfd/syscon.yaml       | 219 +++++++++---------
+ 1 file changed, 114 insertions(+), 105 deletions(-)
+
+diff --git a/Documentation/devicetree/bindings/mfd/syscon.yaml b/Documentation/devicetree/bindings/mfd/syscon.yaml
+index 657c38175fba..50f0012f4ebe 100644
+--- a/Documentation/devicetree/bindings/mfd/syscon.yaml
++++ b/Documentation/devicetree/bindings/mfd/syscon.yaml
+@@ -133,111 +133,120 @@ select:
+ 
+ properties:
+   compatible:
+-    items:
+-      - enum:
+-          - airoha,en7581-pbus-csr
+-          - al,alpine-sysfabric-service
+-          - allwinner,sun8i-a83t-system-controller
+-          - allwinner,sun8i-h3-system-controller
+-          - allwinner,sun8i-v3s-system-controller
+-          - allwinner,sun50i-a64-system-controller
+-          - altr,l3regs
+-          - altr,sdr-ctl
+-          - amd,pensando-elba-syscon
+-          - amlogic,meson-mx-assist
+-          - amlogic,meson-mx-bootrom
+-          - amlogic,meson8-analog-top
+-          - amlogic,meson8b-analog-top
+-          - amlogic,meson8-pmu
+-          - amlogic,meson8b-pmu
+-          - apm,merlin-poweroff-mailbox
+-          - apm,mustang-poweroff-mailbox
+-          - apm,xgene-csw
+-          - apm,xgene-efuse
+-          - apm,xgene-mcb
+-          - apm,xgene-rb
+-          - apm,xgene-scu
+-          - atmel,sama5d2-sfrbu
+-          - atmel,sama5d3-nfc-io
+-          - atmel,sama5d3-sfrbu
+-          - atmel,sama5d4-sfrbu
+-          - axis,artpec6-syscon
+-          - brcm,cru-clkset
+-          - brcm,sr-cdru
+-          - brcm,sr-mhb
+-          - cirrus,ep7209-syscon1
+-          - cirrus,ep7209-syscon2
+-          - cirrus,ep7209-syscon3
+-          - cnxt,cx92755-uc
+-          - freecom,fsg-cs2-system-controller
+-          - fsl,imx93-aonmix-ns-syscfg
+-          - fsl,imx93-wakeupmix-syscfg
+-          - fsl,ls1088a-reset
+-          - fsl,vf610-anatop
+-          - fsl,vf610-mscm-cpucfg
+-          - hisilicon,dsa-subctrl
+-          - hisilicon,hi6220-sramctrl
+-          - hisilicon,hip04-ppe
+-          - hisilicon,pcie-sas-subctrl
+-          - hisilicon,peri-subctrl
+-          - hpe,gxp-sysreg
+-          - loongson,ls1b-syscon
+-          - loongson,ls1c-syscon
+-          - lsi,axxia-syscon
+-          - marvell,armada-3700-cpu-misc
+-          - marvell,armada-3700-nb-pm
+-          - marvell,armada-3700-avs
+-          - marvell,armada-3700-usb2-host-device-misc
+-          - marvell,armada-3700-usb2-host-misc
+-          - marvell,dove-global-config
+-          - mediatek,mt2701-pctl-a-syscfg
+-          - mediatek,mt2712-pctl-a-syscfg
+-          - mediatek,mt6397-pctl-pmic-syscfg
+-          - mediatek,mt7988-topmisc
+-          - mediatek,mt8135-pctl-a-syscfg
+-          - mediatek,mt8135-pctl-b-syscfg
+-          - mediatek,mt8173-pctl-a-syscfg
+-          - mediatek,mt8365-infracfg-nao
+-          - mediatek,mt8365-syscfg
+-          - microchip,lan966x-cpu-syscon
+-          - microchip,mpfs-control-scb
+-          - microchip,mpfs-sysreg-scb
+-          - microchip,sam9x60-sfr
+-          - microchip,sama7d65-ddr3phy
+-          - microchip,sama7d65-sfrbu
+-          - microchip,sama7g5-ddr3phy
+-          - mscc,ocelot-cpu-syscon
+-          - mstar,msc313-pmsleep
+-          - nuvoton,ma35d1-sys
+-          - nuvoton,wpcm450-shm
+-          - qcom,apq8064-mmss-sfpb
+-          - qcom,apq8064-sps-sic
+-          - rockchip,px30-qos
+-          - rockchip,rk3036-qos
+-          - rockchip,rk3066-qos
+-          - rockchip,rk3128-qos
+-          - rockchip,rk3228-qos
+-          - rockchip,rk3288-qos
+-          - rockchip,rk3368-qos
+-          - rockchip,rk3399-qos
+-          - rockchip,rk3528-qos
+-          - rockchip,rk3562-qos
+-          - rockchip,rk3568-qos
+-          - rockchip,rk3576-qos
+-          - rockchip,rk3588-qos
+-          - rockchip,rv1126-qos
+-          - st,spear1340-misc
+-          - stericsson,nomadik-pmu
+-          - starfive,jh7100-sysmain
+-          - ti,am62-opp-efuse-table
+-          - ti,am62-usb-phy-ctrl
+-          - ti,am625-dss-oldi-io-ctrl
+-          - ti,am62p-cpsw-mac-efuse
+-          - ti,am654-dss-oldi-io-ctrl
+-          - ti,j784s4-acspcie-proxy-ctrl
+-          - ti,j784s4-pcie-ctrl
+-          - ti,keystone-pllctrl
+-      - const: syscon
++    oneOf:
++      - items:
++          - enum:
++              - airoha,en7581-pbus-csr
++              - al,alpine-sysfabric-service
++              - allwinner,sun8i-a83t-system-controller
++              - allwinner,sun8i-h3-system-controller
++              - allwinner,sun8i-v3s-system-controller
++              - allwinner,sun50i-a64-system-controller
++              - altr,l3regs
++              - altr,sdr-ctl
++              - amd,pensando-elba-syscon
++              - amlogic,meson-mx-assist
++              - amlogic,meson-mx-bootrom
++              - amlogic,meson8-analog-top
++              - amlogic,meson8b-analog-top
++              - amlogic,meson8-pmu
++              - amlogic,meson8b-pmu
++              - apm,merlin-poweroff-mailbox
++              - apm,mustang-poweroff-mailbox
++              - apm,xgene-csw
++              - apm,xgene-efuse
++              - apm,xgene-mcb
++              - apm,xgene-rb
++              - apm,xgene-scu
++              - atmel,sama5d2-sfrbu
++              - atmel,sama5d3-nfc-io
++              - atmel,sama5d3-sfrbu
++              - atmel,sama5d4-sfrbu
++              - axis,artpec6-syscon
++              - brcm,cru-clkset
++              - brcm,sr-cdru
++              - brcm,sr-mhb
++              - cirrus,ep7209-syscon1
++              - cirrus,ep7209-syscon2
++              - cirrus,ep7209-syscon3
++              - cnxt,cx92755-uc
++              - freecom,fsg-cs2-system-controller
++              - fsl,imx93-aonmix-ns-syscfg
++              - fsl,imx93-wakeupmix-syscfg
++              - fsl,ls1088a-reset
++              - fsl,vf610-anatop
++              - fsl,vf610-mscm-cpucfg
++              - hisilicon,dsa-subctrl
++              - hisilicon,hi6220-sramctrl
++              - hisilicon,hip04-ppe
++              - hisilicon,pcie-sas-subctrl
++              - hisilicon,peri-subctrl
++              - hpe,gxp-sysreg
++              - loongson,ls1b-syscon
++              - loongson,ls1c-syscon
++              - lsi,axxia-syscon
++              - marvell,armada-3700-cpu-misc
++              - marvell,armada-3700-nb-pm
++              - marvell,armada-3700-avs
++              - marvell,armada-3700-usb2-host-device-misc
++              - marvell,armada-3700-usb2-host-misc
++              - marvell,dove-global-config
++              - mediatek,mt2701-pctl-a-syscfg
++              - mediatek,mt2712-pctl-a-syscfg
++              - mediatek,mt6397-pctl-pmic-syscfg
++              - mediatek,mt7988-topmisc
++              - mediatek,mt8135-pctl-a-syscfg
++              - mediatek,mt8135-pctl-b-syscfg
++              - mediatek,mt8173-pctl-a-syscfg
++              - mediatek,mt8365-infracfg-nao
++              - mediatek,mt8365-syscfg
++              - microchip,lan966x-cpu-syscon
++              - microchip,mpfs-control-scb
++              - microchip,mpfs-sysreg-scb
++              - microchip,sam9x60-sfr
++              - microchip,sama7d65-ddr3phy
++              - microchip,sama7d65-sfrbu
++              - microchip,sama7g5-ddr3phy
++              - mscc,ocelot-cpu-syscon
++              - mstar,msc313-pmsleep
++              - nuvoton,ma35d1-sys
++              - nuvoton,wpcm450-shm
++              - qcom,apq8064-mmss-sfpb
++              - qcom,apq8064-sps-sic
++              - rockchip,px30-qos
++              - rockchip,rk3036-qos
++              - rockchip,rk3066-qos
++              - rockchip,rk3128-qos
++              - rockchip,rk3228-qos
++              - rockchip,rk3288-qos
++              - rockchip,rk3368-qos
++              - rockchip,rk3399-qos
++              - rockchip,rk3528-qos
++              - rockchip,rk3562-qos
++              - rockchip,rk3568-qos
++              - rockchip,rk3576-qos
++              - rockchip,rk3588-qos
++              - rockchip,rv1126-qos
++              - st,spear1340-misc
++              - stericsson,nomadik-pmu
++              - starfive,jh7100-sysmain
++              - ti,am62-opp-efuse-table
++              - ti,am62-usb-phy-ctrl
++              - ti,am625-dss-oldi-io-ctrl
++              - ti,am62p-cpsw-mac-efuse
++              - ti,am654-dss-oldi-io-ctrl
++              - ti,j784s4-acspcie-proxy-ctrl
++              - ti,j784s4-pcie-ctrl
++              - ti,keystone-pllctrl
++          - const: syscon
++      - items:
++          - const: microchip,pic64gx-control-scb
++          - const: microchip,mpfs-control-scb
++          - const: syscon
++      - items:
++          - const: microchip,pic64gx-sysreg-scb
++          - const: microchip,mpfs-sysreg-scb
++          - const: syscon
+ 
+   reg:
+     maxItems: 1
+-- 
+2.51.0
+
 
