@@ -4,96 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19493CE8D6B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 18:11:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82099CEACEF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 18:48:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gazcyDKCqVDM4NaE88dT10YpQkqHH5/XsZTj015pVas=; b=tOFvUfxB5L764tp5yezdQJjlcI
-	VhG5PVTLXuZii6dP/8InvfMOiiE5VSYTbHjxtIrYcGKEplEL2GY/7QT3mV3lO3QKffHkw+QQFQw0e
-	RdWGeGQ54llWqZ6WzWQsdBxtfwTpOh4p/KUBSZnvylNdUQ/vyR1eOhY5sLpFnpyWue6Yfo+WnVRuU
-	GiP1htDzOLdMywXuLMHWOwSdlnGlk62LV4tYVEjjnHZoT1INrlh6wbPzP5WD0Ywjwu5D+z1bZBVlY
-	J/PPPdl3r4tvGrvmBB8HjzY1FtIQDn15gv2qogBFAYxaC9isU3ypPizvDjyn+92c/4awqVu0Itz6j
-	yvJNDJGQ==;
+	Content-Type:Cc:To:From:Subject:Message-ID:Mime-Version:Date:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=mQPdbRFOlFRQV2M3CnpwjihoUC+ROTyADJUsM+cRT4o=; b=2XHOSDvb9jGFrf219y8rpSSls8
+	Njy279WidV2YX5hfXppWtjzz1EoP3amNtmbTQS/AgQ8142hjXuIep2yZpYX/Vw3fl4tM+bZJNqEWs
+	rHRCyg8ttZ/IKHxuur5jWMKq8IlduZ8R+ISmTlvJsbPOCIKeQi1J4/7Sj6eASS1ca7bWLZKzkMgJM
+	2n2xjkU60b0Tv7wjgnA8nZCOZ+UPOPIXe2f8OlM3w/QIevoaLyYeL/iGPsfk79FWzWD9lIIV5hJnW
+	n7hYoo+ypCw2uA7xIIMVMFVB6k1xG+SS7kW4QamJz+A6y2q3+31F4BQLlP/qVol1WNuqJQhSDFaex
+	zX2gaZJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vL3gt-0000000Gb3b-2BLP;
-	Mon, 17 Nov 2025 18:11:03 +0000
-Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
+	id 1vL4H9-0000000GdPe-1iiG;
+	Mon, 17 Nov 2025 18:48:31 +0000
+Received: from mail-wr1-x44a.google.com ([2a00:1450:4864:20::44a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vL3gq-0000000Gb0U-37IL
+	id 1vL4H6-0000000GdOL-32dV
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Nov 2025 18:11:01 +0000
-Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-2958db8ae4fso42678565ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Nov 2025 10:11:00 -0800 (PST)
+	Mon, 17 Nov 2025 18:48:30 +0000
+Received: by mail-wr1-x44a.google.com with SMTP id ffacd0b85a97d-429cbed2b8fso1878788f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Nov 2025 10:48:27 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1763403060; x=1764007860; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=gazcyDKCqVDM4NaE88dT10YpQkqHH5/XsZTj015pVas=;
-        b=CRcYmBOdgZsQxpuG0C2L38zuuDvivbdLuX4Q4MUmjlFB6DpN1Bmx4TtPcc1Xdksg8P
-         M16nTcx18TARGCqJgnVmHQ82i1D5dGZo/FeOq0bAYiHcI8V2GMT58OMy4idse0M/rQoZ
-         XzA8xD5eHFnaCvIsBLQ8987u5fTywvb9YEFxbaIN5kJqU4oIYAivIn1oBzBsxIyMArrQ
-         TKS8/y9gsWqfq33Rsdi/8VDtcws5GqFIT+laKnSl0Mm1JjBQ/RAvVqsTj1dUbsrvo+8T
-         BRcPGrrsnhJ8PpUFlwEFpVEuRjOvvDi5dYYAfYU5VcsU74xyvgPZ0vdaIJeQtLpt/W/O
-         t8mw==
+        d=google.com; s=20230601; t=1763405306; x=1764010106; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:from:subject:message-id
+         :mime-version:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=mQPdbRFOlFRQV2M3CnpwjihoUC+ROTyADJUsM+cRT4o=;
+        b=rZ4TVQqcctgNpxOnlFM8qsnMxvzdu0kQeEvLaHOQiSNLX2BT52EslwAVlPUN4dru8Z
+         SXJdKPQtfGuYR6wcEbelY/lCZAhhgQMafHsCb05kxe2OnPnTNVXl28jYApoKWvJYXU8C
+         lzSTaZzC0WzhjCglbIEiAFrDfoWrOIjn5241lAp7r7zbR3WO+7EoyzwApwy440XyODgn
+         1MYELq81mwUffqn7Tebv3cwKwytpMWh+jXkYoAeDI844TIIigewYXyG/2bnv3dsEKKPo
+         g7QRknAV/wQpGcjrJlsC4hqUQ6v8YQ1ggi2qNdn3iu+MSbwwl7NrsnOlL2QIvxGk/lu1
+         otdA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763403060; x=1764007860;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=gazcyDKCqVDM4NaE88dT10YpQkqHH5/XsZTj015pVas=;
-        b=q+JQ6YlagcuIYueVlWbYXit/yowt2w2yjV1jIQN43jPX4AbAdS0MSrvCoJFRnQvK+c
-         z9YvWWn15EhbCiLuaLjQK+XER5jNYEVpJTG5EJ5msWcpweyt0pS8t59vgsqxLCw/xFcd
-         wmO/RTae2yNiUelbUZfsKMy5yGsWqs3pHdX2GX/STNDBTllsdU/KAA7NTDAYRI73+CHz
-         TR9ftr8EUvy+37unEN2ud8lMAqNHgCVJAyfOKrA6Q5dl6N4NnXnqTFr4rpASV6Wpuy7E
-         YrCdhMfcE0xLVrt54Oj2H2z8yYZh74bRZX+R9IQ6S6WIt9Zw+XS6OOVQRynernTHjIQf
-         CUWw==
-X-Forwarded-Encrypted: i=1; AJvYcCUZoyC/NCYpKqHf+2iNbenJHkyxnrfBgt/BjHAv3m0ITpaVOk3TNjQjcut8G4X3oGLIa2RWgND8AI+jbxZbYuAX@lists.infradead.org
-X-Gm-Message-State: AOJu0YxnqjLz6TIuqPgvJacYTSE8oqMt03zIPfz6Ux9pztm+5pSl6DNE
-	GdpZ2s+e6ktadpzbR8piDniRuJYT/PV3Vfh2YV+ukO6eqcoan9T8WCFe
-X-Gm-Gg: ASbGnctnyHGyciaiyxKCHxncMha9sJfYOmFbewWkMCPloVwR97jhCK0oLmPk6Dficih
-	1k14dSgCMBvbwQbAC4yoKMKZQuY3F4AUc98ZcXGtyQF5UN1pyCdGCla7BdozDjWoN6GGNENgLG/
-	lI74gVFypcL7vAhkud5zl/atqgpp9E/YZbkHGT8t4iYM+rR5Rf0TIuEna4oJ2oVVzr5gnFw41I0
-	1p9xFb4hl8DAPyrDxzZKRW/vwcRMXx1f23Mt1z56EidHW5H6/IJzHL0C6NlqS/2kcI3OyGD+GBL
-	r3n4qWmP9n5uHCciqJtKtADrDZ0h7YM5gCh+1oyRGuhBD3ZdBxEmbe/J8/Z3HTVgH59EwQIU7Lq
-	0MJDt0yOSOGpAZTopKZIAjVLKKBjAWlo//vAdXztlf7djX5aPhcOplXmG4fF0srkvqa8FG44gLA
-	gt4pHR7Hp+s0ycD4y055c=
-X-Google-Smtp-Source: AGHT+IEH430mBOahI/CtVHCqRSIqCGq9hYMzLu8e8nwRDN0slBe2X4NbiY309RgQgf9w07IlP9p0SA==
-X-Received: by 2002:a17:903:ac7:b0:295:557e:746a with SMTP id d9443c01a7336-2986a6d04femr131798225ad.13.1763403059763;
-        Mon, 17 Nov 2025 10:10:59 -0800 (PST)
-Received: from rockpi-5b ([45.112.0.172])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2985c245ecdsm147237955ad.32.2025.11.17.10.10.55
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 17 Nov 2025 10:10:59 -0800 (PST)
-From: Anand Moon <linux.amoon@gmail.com>
-To: Shawn Lin <shawn.lin@rock-chips.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	linux-pci@vger.kernel.org (open list:PCIE DRIVER FOR ROCKCHIP),
-	linux-rockchip@lists.infradead.org (open list:PCIE DRIVER FOR ROCKCHIP),
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/Rockchip SoC support),
-	linux-kernel@vger.kernel.org (open list)
-Cc: Anand Moon <linux.amoon@gmail.com>
-Subject: [RFC v1 5/5] PCI: rockchip: Fix Linkwidth Control Register offset for Retrain Link
-Date: Mon, 17 Nov 2025 23:40:13 +0530
-Message-ID: <20251117181023.482138-6-linux.amoon@gmail.com>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <20251117181023.482138-1-linux.amoon@gmail.com>
-References: <20251117181023.482138-1-linux.amoon@gmail.com>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+        d=1e100.net; s=20230601; t=1763405306; x=1764010106;
+        h=content-transfer-encoding:cc:to:from:subject:message-id
+         :mime-version:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=mQPdbRFOlFRQV2M3CnpwjihoUC+ROTyADJUsM+cRT4o=;
+        b=m0JOafKgLM/sySiA6mftm9/RG9MXrZfv7WsbVpRnMnwE0beCiXWL26m+QScEcf2pk+
+         BwrOjXuZxIDH3JTXISHwJgyIH/j+GHgGtPFhYCo7BIQlCrL96Enjdk3PoA85BCNG6I5S
+         6SpIBATMRN5q8dbRYqyjoCf+XkxGloWB2rNF6l+AhEFKgh/Y8h/86vaxPkkLY5xgbKDq
+         CBOgi29EU8ykf3Ez093i8+TqBkX0SH28XsWdodriXSgqTkcRJgRNY73YmkAKb7Zb4aQJ
+         oi5e51W1MQOqlOLFI7H+OxSeP8irjVvf9xYM2BrBtMPk5WQtg2WtxUZPM9bUSOND2472
+         nMOA==
+X-Gm-Message-State: AOJu0YyelHKDaLY7/3oYYiilZORYQNe30RlyCiuT8xaJbixLUnlsJFyt
+	pqybVBhQaEHYCIUl3sXEZUiYATUwgtbzHcoq9o86G+vT158qkMp9tTv4I8mN5yX4AEroq37e35f
+	VPyG52Yk0tBdbUSRwSQuCL8DHHpi1Dd0TSr3yFCNS53dJjz31SH3esHjalQ8AXP1Qzyi/sKW7Kk
+	Een2Vw2sWjG6XVxx5YqUC7jqu6uh9Cc1e5wnQwAPsSiHY8HSyr7uZDb++YSDvxZ+oIRQ==
+X-Google-Smtp-Source: AGHT+IH6k0Kpp/PjB+jSzNj/xVrwaT5fMRtpFc9z29ENKIOcBKsGRq+08bxuJJ/JrJdhKeQ4q392SvELM4Y4YA==
+X-Received: from wrbee10.prod.google.com ([2002:a05:6000:210a:b0:429:de3f:827d])
+ (user=smostafa job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:6000:2f83:b0:42b:3c3e:5d2e with SMTP id ffacd0b85a97d-42b5932345dmr12287897f8f.1.1763405305694;
+ Mon, 17 Nov 2025 10:48:25 -0800 (PST)
+Date: Mon, 17 Nov 2025 18:47:47 +0000
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.52.0.rc1.455.g30608eb744-goog
+Message-ID: <20251117184815.1027271-1-smostafa@google.com>
+Subject: [PATCH v5 00/27] KVM: arm64: SMMUv3 driver for pKVM (trap and emulate)
+From: Mostafa Saleh <smostafa@google.com>
+To: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	kvmarm@lists.linux.dev, iommu@lists.linux.dev
+Cc: catalin.marinas@arm.com, will@kernel.org, maz@kernel.org, 
+	oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, 
+	yuzenghui@huawei.com, joro@8bytes.org, jean-philippe@linaro.org, jgg@ziepe.ca, 
+	praan@google.com, danielmentz@google.com, mark.rutland@arm.com, 
+	qperret@google.com, tabba@google.com, Mostafa Saleh <smostafa@google.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251117_101100_782033_4F266DC5 
-X-CRM114-Status: GOOD (  15.14  )
+X-CRM114-CacheID: sfid-20251117_104828_858570_9251FD9B 
+X-CRM114-Status: GOOD (  30.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,47 +93,259 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-As per 17.6.7.1.21 Linkwidth Control Register (PCIE_RC_CONFIG_LWC) reside
-at offset 0x50 within the Root Complex (RC) configuration space, not at
-the offset of the PCI Express Capability List (0xc0). Following changes
-corrects the register offset to use PCIE_RC_CONFIG_LWC (0x50) to configure
-Retrain link.
+This is v5 of pKVM SMMUv3 support with trap and emulate
 
-Signed-off-by: Anand Moon <linux.amoon@gmail.com>
----
- drivers/pci/controller/pcie-rockchip-host.c | 4 ++--
- drivers/pci/controller/pcie-rockchip.h      | 1 +
- 2 files changed, 3 insertions(+), 2 deletions(-)
+v1: Implements full fledged pv interface
+https://lore.kernel.org/kvmarm/20230201125328.2186498-1-jean-philippe@linar=
+o.org/
 
-diff --git a/drivers/pci/controller/pcie-rockchip-host.c b/drivers/pci/controller/pcie-rockchip-host.c
-index b3c9b9cbeb8d..aae3def64bf0 100644
---- a/drivers/pci/controller/pcie-rockchip-host.c
-+++ b/drivers/pci/controller/pcie-rockchip-host.c
-@@ -338,9 +338,9 @@ static int rockchip_pcie_host_init_port(struct rockchip_pcie *rockchip)
- 		status &= ~PCI_EXP_LNKCTL2_TLS;
- 		status |= PCI_EXP_LNKCTL2_TLS_5_0GT;
- 		rockchip_pcie_write(rockchip, status, PCIE_RC_CONFIG_LC2 + PCI_EXP_LNKCTL2);
--		status = rockchip_pcie_read(rockchip, PCIE_RC_CONFIG_CR + PCI_EXP_LNKCTL);
-+		status = rockchip_pcie_read(rockchip, PCIE_RC_CONFIG_LWC + PCI_EXP_LNKCTL);
- 		status |= PCI_EXP_LNKCTL_RL;
--		rockchip_pcie_write(rockchip, status, PCIE_RC_CONFIG_CR + PCI_EXP_LNKCTL);
-+		rockchip_pcie_write(rockchip, status, PCIE_RC_CONFIG_LWC + PCI_EXP_LNKCTL);
- 
- 		err = readl_poll_timeout(rockchip->apb_base + PCIE_CORE_CTRL,
- 					 status, PCIE_LINK_IS_GEN2(status), 20,
-diff --git a/drivers/pci/controller/pcie-rockchip.h b/drivers/pci/controller/pcie-rockchip.h
-index a83ce7787466..5bcaef7bba4c 100644
---- a/drivers/pci/controller/pcie-rockchip.h
-+++ b/drivers/pci/controller/pcie-rockchip.h
-@@ -160,6 +160,7 @@
- #define PCIE_RC_CONFIG_DC		(PCIE_RC_CONFIG_BASE + 0xc8)
- #define PCIE_RC_CONFIG_LC		(PCIE_RC_CONFIG_BASE + 0xd0)
- #define PCIE_RC_CONFIG_SR		(PCIE_RC_CONFIG_BASE + 0xd4)
-+#define PCIE_RC_CONFIG_LWC		(PCIE_RC_CONFIG_BASE + 0x50)
- #define PCIE_RC_CONFIG_LC2		(PCIE_RC_CONFIG_BASE + 0xf0)
- #define PCIE_RC_CONFIG_L1_SUBSTATE_CTRL2 (PCIE_RC_CONFIG_BASE + 0x90c)
- #define PCIE_RC_CONFIG_THP_CAP		(PCIE_RC_CONFIG_BASE + 0x274)
--- 
-2.50.1
+v2:  Implements full fledged pv interface (+ more features as evtq and s1)
+https://lore.kernel.org/kvmarm/20241212180423.1578358-1-smostafa@google.com=
+/
+
+v3: Only DMA isolation (using pv)
+https://lore.kernel.org/kvmarm/20250728175316.3706196-1-smostafa@google.com=
+/
+
+v4: trap and emulate
+https://lore.kernel.org/all/20250819215156.2494305-1-smostafa@google.com/
+
+This series is based on the review feedback on v4 + some other
+improvements, most notably:
+- Add hardening checks in MMIO donation [Will]
+- Add missing CMOs for non-coherent SMMU emulation [Will]
+- Rely on aux bus to probe the emulated SMMUs, and make the KVM
+  driver a platform driver [Jason]
+- Replace TLB invalidation macro with inline function [Will]
+- Set carevout size from KConfig and cmdline instead of hooks [Will]
+- Fix S2 TLB invalidation if SMMUs where disabled
+- Re-work command queue emulation to avoid unnecessary MMIO writes to
+  make it more efficient.
+- Update GBPA emulation to reflect HW state
+- Minor cleanups, file renames and rewording of commits
+
+This series applies on iommu-next (includes recent kunit rework)
+
+Design:
+=3D=3D=3D=3D=3D=3D=3D
+
+Assumptions:
+------------
+One of the important points, is that this doesn=E2=80=99t emulate the full
+SMMUv3 architecture, but only the parts used by Linux kernel,
+that=E2=80=99s why enablement of this (ARM_SMMU_V3_PKVM) depends on
+(ARM_SMMU_V3=3Dy) so we are sure of the driver behaviour.
+
+Any new change in the driver will likely trigger a WARN_ON ending up
+in panic.
+
+Most notable assumptions:
+- Changing of stream table format/size or l2 pointers is not allowed
+  after initialization.
+- leaf=3D0 CFGI is not allowed
+- CFGI_ALL with any value but 31 is not allowed
+- Some commands which are not used are not allowed (ex CMD_TLBI_NH_ALL)
+- Values set in ARM_SMMU_CR1 are hardcoded and don't change.
+
+Emulation logic mainly targets:
+
+1) Command Queue
+----------------
+At boot time, the hypervisor will allocate a shadow command queue
+(doesn=E2=80=99t need to match the host size) which then sets up in HW, the=
+n
+it will trap access to
+
+i) ARM_SMMU_CMDQ_BASE
+That can only be written when the cmdq is disabled. Then on enable,
+the hypervisor will put the host command queue in a shared state to
+avoid transition into the hypervisor or VMs. It will be unshared with
+the cmdq is disabled
+
+ii) ARM_SMMU_CMDQ_PROD
+Trigger emulation code, where the hypervisor will copy the commands
+between cons and prod, of the host queue and sanitise them (mostly
+WARNs if the host is malicious and issuing commands it shouldn=E2=80=99t)
+then eagerly consume them, updating the host cons.
+
+iii) ARM_SMMU_CMDQ_CONS
+No much logic, just return the emulated cons + error bits.
+
+2) Stream table
+---------------
+Similar to the command queue, the first level is allocated at boot
+with max possible size, then the hypervisor  will trap access to:
+i) ARM_SMMU_STRTAB_BASE/ARM_SMMU_STRTAB_BASE_CFG: Keep track of
+   the stream table to put it in a shared state.
+
+On CFGI_STE, the hypervisor will read the STE in scope from the host
+copy, shadow L2 pointers if needed and attach stage-2.
+
+3) GBPA
+-------
+The hypervisor will set GBPA to abort at boot, then any read from the
+host will return ABORT and writes are ignored.
+If the host tries to clear GBPA, it will look like GBPA is refusing
+to update and time out.
+
+Dealing with timers
+-------------------
+In another series Vincent adds some timer abstractions for tracing in
+the hypervisor, after checking and having a discussion with him, it
+seems there isn=E2=80=99t enough common base to justify having a dependency
+between the 2 series, but it=E2=80=99s possible which ever series lands fir=
+st,
+the other one might need to adapt to it.
+https://lore.kernel.org/all/20250821081412.1008261-17-vdonnefort@google.com=
+/
+
+Bisectibility:
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+I wrote the patches where most of them are bisectable at run time (so
+we can run with a prefix of the series till MMIO emulation, cmdq
+emulation, STE or full nested) that was very helpful in debugging,
+and I kept it like this to make debugging easier.
+
+Constraints:
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+1) Discovery:
+-------------
+Only device trees are supported at the moment.
+I don=E2=80=99t usually use ACPI, but I can look into adding that later.
+(not make this series bigger)
+
+2) Errata:
+----------
+Some HW with both stage-1 and stage-2 but can=E2=80=99t run nested
+translation due to some errata, which makes the driver remove
+nesting for MMU_700, I believe this is too restrictive.
+At the moment KVM will use nesting if advertised. (Or we need
+other mechanism to exclude only the affected HW)
+
+3) Shadow page table
+--------------------
+Uses page granularity (leaf) for memory, that=E2=80=99s because of the lack
+of split_block_unmap() logic. I am currently looking into the
+possibility of sharing page tables, if that turned complicated (as
+expected) it might be worth to re-add this logic
+
+Boot and Probe ordering:
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+The main SMMUv3 MUST be only bound/probed after KVM fully initialises
+so it can set up the MMIO emulation.
+
+The KVM SMMUv3 driver is loaded early before KVM init so it can
+register itself, during that point it will probe all the SMMUs from the
+platform bus and bind them to the driver.
+
+Then at a later init call it will create an auxiliary device per SMMU,
+that the main driver will probe. The main driver still relies on this
+device(parent) for all driver activity. (Check comment in patch 14.
+
+Future work
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+1) Sharing page tables will be an interesting optimization, but
+   requires dealing with stage-2 page faults (which are handled
+   by the kernel), BBM and possibly more complexity.
+
+2) There is currently ongoing work to enable RPM, that will possibly
+   enable/disable the SMMU frequently, we might need some optimizations
+   to avoid re-shadowing the CMDQ/STE unnecessarily.
+
+3) Look into ACPI support.
+
+4) Some optimizations (as using block mappings for memory)
+
+Patches overview
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+The patches are split as follows:
+
+Patches 01-03: Core hypervisor: Add donation for NC, dealing with
+               MMIO and arch timer abstraction.
+Patches 04-07: Refactoring of io-pgtable-arm and SMMUv3 driver
+Patches 09-11: Hypervisor IOMMU core: pagetable management, dabts..
+Patches 12-27: KVM SMMUv3 code
+
+Tested on Qemu(S1 only, S2 only and nested)  and Morello board.
+Also tested with PAGE_SIZE 4k,16k, and 64k.
+
+A development branch can be found in:
+https://android-kvm.googlesource.com/linux/+/refs/heads/pkvm-smmu-v5
+
+Jean-Philippe Brucker (1):
+  iommu/arm-smmu-v3-kvm: Add SMMUv3 driver
+
+Mostafa Saleh (26):
+  KVM: arm64: Add a new function to donate memory with prot
+  KVM: arm64: Donate MMIO to the hypervisor
+  KVM: arm64: pkvm: Add pkvm_time_get()
+  iommu/io-pgtable-arm: Factor kernel specific code out
+  iommu/arm-smmu-v3: Split code with hyp
+  iommu/arm-smmu-v3: Move TLB range invalidation into common code
+  iommu/arm-smmu-v3: Move IDR parsing to common functions
+  KVM: arm64: iommu: Introduce IOMMU driver infrastructure
+  KVM: arm64: iommu: Shadow host stage-2 page table
+  KVM: arm64: iommu: Add memory pool
+  KVM: arm64: iommu: Support DABT for IOMMU
+  iommu/arm-smmu-v3-kvm: Add the kernel driver
+  iommu/arm-smmu-v3: Support probing KVM emulated devices
+  iommu/arm-smmu-v3-kvm: Create array for hyp SMMUv3
+  iommu/arm-smmu-v3-kvm: Take over SMMUs
+  iommu/arm-smmu-v3-kvm: Probe SMMU HW
+  iommu/arm-smmu-v3-kvm: Add MMIO emulation
+  iommu/arm-smmu-v3-kvm: Shadow the command queue
+  iommu/arm-smmu-v3-kvm: Add CMDQ functions
+  iommu/arm-smmu-v3-kvm: Emulate CMDQ for host
+  iommu/arm-smmu-v3-kvm: Shadow stream table
+  iommu/arm-smmu-v3-kvm: Shadow STEs
+  iommu/arm-smmu-v3-kvm: Emulate GBPA
+  iommu/arm-smmu-v3-kvm: Support io-pgtable
+  iommu/arm-smmu-v3-kvm: Shadow the CPU stage-2 page table
+  iommu/arm-smmu-v3-kvm: Enable nesting
+
+ .../admin-guide/kernel-parameters.txt         |    4 +
+ arch/arm64/include/asm/kvm_arm.h              |    2 +
+ arch/arm64/include/asm/kvm_host.h             |    6 +
+ arch/arm64/kvm/Kconfig                        |    7 +
+ arch/arm64/kvm/Makefile                       |    2 +-
+ arch/arm64/kvm/hyp/include/nvhe/iommu.h       |   21 +
+ arch/arm64/kvm/hyp/include/nvhe/mem_protect.h |    3 +
+ arch/arm64/kvm/hyp/include/nvhe/pkvm.h        |    2 +
+ arch/arm64/kvm/hyp/nvhe/Makefile              |   10 +-
+ arch/arm64/kvm/hyp/nvhe/iommu/iommu.c         |  130 ++
+ arch/arm64/kvm/hyp/nvhe/mem_protect.c         |  116 +-
+ arch/arm64/kvm/hyp/nvhe/setup.c               |   23 +
+ arch/arm64/kvm/hyp/nvhe/timer-sr.c            |   32 +
+ arch/arm64/kvm/hyp/pgtable.c                  |    9 +-
+ arch/arm64/kvm/iommu.c                        |   44 +
+ arch/arm64/kvm/pkvm.c                         |    1 +
+ drivers/iommu/Makefile                        |    2 +-
+ drivers/iommu/arm/Kconfig                     |    9 +
+ drivers/iommu/arm/arm-smmu-v3/Makefile        |    3 +-
+ .../arm/arm-smmu-v3/arm-smmu-v3-common-lib.c  |  114 ++
+ .../iommu/arm/arm-smmu-v3/arm-smmu-v3-kvm.c   |  190 +++
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c   |  400 ++----
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h   |  254 ++++
+ .../iommu/arm/arm-smmu-v3/pkvm/arm-smmu-v3.c  | 1068 +++++++++++++++++
+ .../iommu/arm/arm-smmu-v3/pkvm/arm_smmu_v3.h  |   65 +
+ .../arm/arm-smmu-v3/pkvm/io-pgtable-arm-hyp.c |   68 ++
+ drivers/iommu/io-pgtable-arm-kernel.c         |  103 ++
+ drivers/iommu/io-pgtable-arm.c                |  103 +-
+ drivers/iommu/io-pgtable-arm.h                |   30 +
+ 29 files changed, 2402 insertions(+), 419 deletions(-)
+ create mode 100644 arch/arm64/kvm/hyp/include/nvhe/iommu.h
+ create mode 100644 arch/arm64/kvm/hyp/nvhe/iommu/iommu.c
+ create mode 100644 arch/arm64/kvm/iommu.c
+ create mode 100644 drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-common-lib.c
+ create mode 100644 drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-kvm.c
+ create mode 100644 drivers/iommu/arm/arm-smmu-v3/pkvm/arm-smmu-v3.c
+ create mode 100644 drivers/iommu/arm/arm-smmu-v3/pkvm/arm_smmu_v3.h
+ create mode 100644 drivers/iommu/arm/arm-smmu-v3/pkvm/io-pgtable-arm-hyp.c
+ create mode 100644 drivers/iommu/io-pgtable-arm-kernel.c
+
+
+base-commit: 3ee8acab4e5038a261a72ea2e6035cff89168010
+--=20
+2.52.0.rc1.455.g30608eb744-goog
 
 
