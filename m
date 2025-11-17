@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CAE2CEACEF
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 846A0CE8D6B
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 18:49:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,76 +12,76 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VXBWv8Dw5hE8mlU4Sm4VTohDwotOri7T9rWgww1xmos=; b=rzdKrgSMvgfdRBPbRD84JrA+FU
-	KO0tmj/7hzMapGeGQ/siB9s21LMPB81qpmoo3M+Ci2CoammkFfFR5vJBCYiFs5uzjH3rLc0igk9Sv
-	81hx8eFmOXT8jkk26gnS7QBb7kZLDTniA4EaLnzaYMQ/+SwOm38G4fTvyGMzIVo0vqT7y691po1qN
-	dAF2Z5tgm2D24mpwEIQJdE+qn8Fjb/PEhbjWeB3ywJsnJkTPlFr2a/HdFQYPSBM4J3H6KMgdZFCi4
-	iFjkbPr4oyUpZT3PKBqbsTvneTC3U3/BHjb9d9m9vfuxTROY6Ck9tp8ZrzAuJIyvtr6+yDENJa7f9
-	pC62QFSg==;
+	bh=HZRHy3svuNchmJFYToVRnx2mDpnN1m/iPQ4+pK/3fxU=; b=BsBlAFY7Ry3KYCLwhqJL6P4W2W
+	Vh5zKIzvL1eTF8asT0gTpvxbZ8EwZXXrX4JHWZ5C8E9OMe0wqzyiV4Y7x5fLnevspkgIqdrTTMF5F
+	3NTh6EjGZA7jTy/feAAJcC1z7Yt5mFV0UN2koBGBnpO2EV/65Z45qmZkOUBmHiuuZ4+40iHA2FlXS
+	AYfsPbybgcLB8Y5FKUqp7bAbo2YEBPqdMFrKLdL783bQFXTKyulizOHMzdeMCl3S9BVOcf4Ntnjda
+	DR4XbB9+KBv0X3oAgDtV03WrR0DQXbei4EpuTmsxDClxLXQOwjXpub7xgXEYousEwjrBtr4kXa5rZ
+	9f+DlQgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vL4HX-0000000Gdn2-3oj6;
-	Mon, 17 Nov 2025 18:48:56 +0000
+	id 1vL4Ha-0000000Gds6-2A0v;
+	Mon, 17 Nov 2025 18:48:58 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vL4HL-0000000GdYd-0BlO
+	id 1vL4HP-0000000Gdc4-0GsK
 	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 17 Nov 2025 18:48:43 +0000
+	Mon, 17 Nov 2025 18:48:47 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
 	Message-ID:References:Mime-Version:In-Reply-To:Date:Sender:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=VXBWv8Dw5hE8mlU4Sm4VTohDwotOri7T9rWgww1xmos=; b=MyLrIhykPdhqfsMqW1Lqy78pro
-	qQC+ntxMYsiArGk4WXfwjyhUr2NTf853V+5srkZKwu7zHWrk7gd9YnkwdgSem/SYeYdzqTNDi31W5
-	smzIRTKqUemUQajOTEetzckU12ir1GGTRCG3DIXvji9kjcy1fK6DwMMYZ6DzgqNmUhY8HmMYdxTWe
-	Jp6YvxJ0Svv9IDCWXxy7wnUmMi3m2MRxeVfq+jeZz6BSsF5IiDdEUdHnfDrPFMucHFqmiZLiGSccp
-	nWwPbRp/kgiP3DHazeTSrjJ2pMZ+4DyaQnY/5ypwebZynR87iS36eKp1MQ9gYSPrHasPaqVxRA96P
-	Y4SHIbNw==;
+	bh=HZRHy3svuNchmJFYToVRnx2mDpnN1m/iPQ4+pK/3fxU=; b=mB9cmAhuurM+LuocP8rEws7Vi2
+	iaHwttTmYsYWcde75cnYI/YCBp6fi1ovNJ0NCAMNsEdNgNZ0uYYsZQL7xzeNEtcAPSOT6CLGzlzRG
+	zNEZhkZx94CPS9/XtxnXGvgSdLOS7ERHzBpbmHn83GHeHzGJm0TAIKdMXcXKJSpzQYbGgHCjkVn5m
+	J1TongZ3h01pNBmpqKRcIb164EDkPiAgWrfkLoH1BtGsDK4pQLEaKXeAGP0SyVgQX5Oa7HZi0jPKo
+	2plHKJfTAVxSv+zBDg41bIvG+gNuOUvV/+DgBtCpLyOWP/XsLX7lwqVg7rZucHNuUowC4IRzdPrt7
+	qdaC6FAg==;
 Received: from mail-wr1-x449.google.com ([2a00:1450:4864:20::449])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vL3Pd-00000007wb8-460S
+	id 1vL3Pi-00000007wcM-2SH0
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Nov 2025 17:53:16 +0000
-Received: by mail-wr1-x449.google.com with SMTP id ffacd0b85a97d-42b2e448bd9so2994381f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Nov 2025 10:48:39 -0800 (PST)
+	Mon, 17 Nov 2025 17:53:20 +0000
+Received: by mail-wr1-x449.google.com with SMTP id ffacd0b85a97d-42b2b642287so2698891f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Nov 2025 10:48:43 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1763405318; x=1764010118; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1763405322; x=1764010122; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=VXBWv8Dw5hE8mlU4Sm4VTohDwotOri7T9rWgww1xmos=;
-        b=10W9MORMu73nCKt3WrZ08z+1fZcLyLzz1R56uE2zu4gLGIHmGqzMK16mMHhgANGpSA
-         1YFlxzQ6nGefwl5XrydQ5S24ujeJnHnVNuqCHWPouCWslJMjDQ9aQA9EF9McbauGfW3F
-         PYpNaxoe4Lf/aHUd5PHiAfOlw1VIQ3zTxSU0kj8PO2Ix045kz/Z+jBqVdYnYKCFOv0vW
-         ioSj0Z8vV6BVjjSFNIuxisIf6WO86ZG86/s5XhlmQD2tOc3ZZTvRlG6ylFZtoy1K6Gw/
-         Krse3r+sxqBC9dWKz9L04TntNOyFuvDanyipR/vgHYBWxgmaEDMV4FdwrdLbw1Vey79c
-         sUrg==
+        bh=HZRHy3svuNchmJFYToVRnx2mDpnN1m/iPQ4+pK/3fxU=;
+        b=QbsQJHo+iZjpQBktqaepQstrBcDUbBaVyrq+54v7eRbIEfjgLOWbQ/aMmve/BykQWb
+         izAliz2uLmXuXHXIqJKmEZXNi3B2rbG/D7nsa+06VUJXLNu9tyw95pVoBOYZYCA7TeYA
+         Co2qntCLyK1HLpoIMZju8M2JX36Xu5fwXPWVTpmSPL1I0j9gjD2W0tgkXoCfnIUFOZWR
+         w+C8wluPbcNZrO8G4ubJmG50sZjz2hk39m687li7Ly9hDwdo+e5vQz5Sf+O81YZwixgy
+         YZPxtchp5C8GOY1m7TBQYHJFBBmZQFQWHJY4+Z/mThu2RV3ZmM4pHGSo7CSA9U18tRa/
+         h/TA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763405318; x=1764010118;
+        d=1e100.net; s=20230601; t=1763405322; x=1764010122;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=VXBWv8Dw5hE8mlU4Sm4VTohDwotOri7T9rWgww1xmos=;
-        b=Qgp1iZcR8uBS9yIiSLo9hpzZ40ehQ8lX6PtQa8bahNUuOZ9wATgHxw+dCogo2pULKf
-         TFfRN/bLR+LsYeChXIMIU4miWygU3m4NS5xCgJchQJovUIDrvVeq9Kne/TNfaYJoZlwk
-         V01JXFFlYLlGQC1OipljjtalwYSVdutYQYlgEBc7LzW50HiWi3pjYNXQTCN838ojNbEB
-         GXowvP+0+dnkNUBuW07cFTECKSCRahwRKxAPdhp2r0VbI9NKzHbyH8n/OJsReWpHtswH
-         1hK631UBF6q32azt2+JvxlefE0ppJxBMgZ67BunU+WpQRjy1OOZEO93abbGpFCQ8N7Mq
-         lAXQ==
-X-Gm-Message-State: AOJu0YyvIcuIMFGmpsmeh9RDNpjOYA7vrBoeKnAL9u5LxdbdGQf1YnI4
-	p7uyrOIlRerAXgC6hsbcj+gAtp0pTpyFXEtP7IGwaIqoHJfQ8fid4fSkSixU+OaKaKKhHEjF1JS
-	pxP8Svyr7d9yCygTbsFUUwDogPJCOhAIUG1XRsUdnjxdgeQrjQDxumvpp7X1xvtei4Hzz8jJGo0
-	VbRxD7a0zKzJEKG2BdLhXqJhlzy8GxuZgdqIqsZsyMuaJXwRgl0z2R7ggz1pxS2gNnPA==
-X-Google-Smtp-Source: AGHT+IHQBDWwjO/s1zZNuEFY1oL5kAjhY98F1o68vfkU7yeDw2zqyTvhCAFTbYHvFaunhrv4os5cxfn9oBJJZA==
-X-Received: from wrxe9.prod.google.com ([2002:a05:6000:1209:b0:428:563f:ce93])
+        bh=HZRHy3svuNchmJFYToVRnx2mDpnN1m/iPQ4+pK/3fxU=;
+        b=Qf+Tga5Xcu8RsDUOXO37SGQBlw0lr+eYw4BhFF2awH4fbRG/O5bYzOEhcx8W8zihsx
+         2dyjt8fMlZSvFtCW7LzIEV3wE6w9ZOMMr3PqKiMUgZ20YtVyOe7bdeIqaCYeGlIuJUX/
+         e6cNSFa2YuGgIo0mWWewZAM2vtjpkXL0Nf+my1y3xb2B+8cWJxB6E7uKe61UNY3Z2+r4
+         6Rz0jJW+uefwCjDM/MRJ8zuh6Re8WkTBoDyxHA7sgcbbQVDvL82v/CSOzDMYQuZUYIO5
+         Z9AsCcPt3+UMLGkOkdOLOS8Lv0UoL4G7XU2Z1d0g9IduXptvhnw7MoVaK1KrFHtUklbZ
+         Grzg==
+X-Gm-Message-State: AOJu0YxpKXWl6R9muyhTRRzey2WBWgKmwYn+/EwTiTwKpmg0UXu3D8LB
+	8Ppgo4PIxicZ8DKzTdzeREtT05gBovDtmAhN41j0SsL9ZPyuIJl+UmmyuerIlln8uPAxz8nkv0h
+	BlEp7T18HnJfCdL9YLcQegOZJckwrLRhLhq0Qe9moFoAHa3e5/BUxzKxShvtJIHJ+NY1aMuG1rl
+	d15hJ4a/QHWmzH6VaOymErWBJm1jPE3nkdgdWjcoiYkXSZydgM5qLIZgSESw5yM1BO6g==
+X-Google-Smtp-Source: AGHT+IEzcJDMw53+AVSQNytxPGimAg5Et4Wx8256qZ8eJwNoP5G/5wvwA6REx65+VnhZk9Fj+izitvg/zOxMdw==
+X-Received: from wrpz8.prod.google.com ([2002:adf:f748:0:b0:42b:32f2:9092])
  (user=smostafa job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6000:615:b0:42b:3a1b:f71a with SMTP id ffacd0b85a97d-42b5934e2b6mr13388046f8f.23.1763405318003;
- Mon, 17 Nov 2025 10:48:38 -0800 (PST)
-Date: Mon, 17 Nov 2025 18:47:59 +0000
+ 2002:a05:6000:2509:b0:3fb:aca3:d5d9 with SMTP id ffacd0b85a97d-42b5933916bmr12787870f8f.1.1763405321905;
+ Mon, 17 Nov 2025 10:48:41 -0800 (PST)
+Date: Mon, 17 Nov 2025 18:48:03 +0000
 In-Reply-To: <20251117184815.1027271-1-smostafa@google.com>
 Mime-Version: 1.0
 References: <20251117184815.1027271-1-smostafa@google.com>
 X-Mailer: git-send-email 2.52.0.rc1.455.g30608eb744-goog
-Message-ID: <20251117184815.1027271-13-smostafa@google.com>
-Subject: [PATCH v5 12/27] iommu/arm-smmu-v3-kvm: Add SMMUv3 driver
+Message-ID: <20251117184815.1027271-17-smostafa@google.com>
+Subject: [PATCH v5 16/27] iommu/arm-smmu-v3-kvm: Take over SMMUs
 From: Mostafa Saleh <smostafa@google.com>
 To: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
 	kvmarm@lists.linux.dev, iommu@lists.linux.dev
@@ -92,8 +92,8 @@ Cc: catalin.marinas@arm.com, will@kernel.org, maz@kernel.org,
 	qperret@google.com, tabba@google.com, Mostafa Saleh <smostafa@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251117_175314_164262_BF2D08C0 
-X-CRM114-Status: GOOD (  16.60  )
+X-CRM114-CacheID: sfid-20251117_175318_885825_0374EC9A 
+X-CRM114-Status: GOOD (  17.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,111 +108,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Jean-Philippe Brucker <jean-philippe@linaro.org>
+Donate the array with SMMU description to the hypervisor as it
+can't be changed by the host after de-privileges.
 
-Add the skeleton for an Arm SMMUv3 driver at EL2.
+Also, donate the SMMU resources to the hypervisor.
 
-Signed-off-by: Jean-Philippe Brucker <jean-philippe@linaro.org>
 Signed-off-by: Mostafa Saleh <smostafa@google.com>
 ---
- arch/arm64/kvm/hyp/nvhe/Makefile              |  5 ++++
- drivers/iommu/arm/Kconfig                     |  9 ++++++
- .../iommu/arm/arm-smmu-v3/pkvm/arm-smmu-v3.c  | 29 +++++++++++++++++++
- .../iommu/arm/arm-smmu-v3/pkvm/arm_smmu_v3.h  | 16 ++++++++++
- 4 files changed, 59 insertions(+)
- create mode 100644 drivers/iommu/arm/arm-smmu-v3/pkvm/arm-smmu-v3.c
- create mode 100644 drivers/iommu/arm/arm-smmu-v3/pkvm/arm_smmu_v3.h
+ .../iommu/arm/arm-smmu-v3/pkvm/arm-smmu-v3.c  | 81 ++++++++++++++++++-
+ 1 file changed, 80 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm64/kvm/hyp/nvhe/Makefile b/arch/arm64/kvm/hyp/nvhe/Makefile
-index 8210788d6f88..197685817546 100644
---- a/arch/arm64/kvm/hyp/nvhe/Makefile
-+++ b/arch/arm64/kvm/hyp/nvhe/Makefile
-@@ -32,6 +32,11 @@ hyp-obj-y += ../../../kernel/smccc-call.o
- hyp-obj-$(CONFIG_LIST_HARDENED) += list_debug.o
- hyp-obj-y += $(lib-objs)
- 
-+HYP_SMMU_V3_DRV_PATH = ../../../../../drivers/iommu/arm/arm-smmu-v3
-+
-+hyp-obj-$(CONFIG_ARM_SMMU_V3_PKVM) += $(HYP_SMMU_V3_DRV_PATH)/pkvm/arm-smmu-v3.o \
-+	$(HYP_SMMU_V3_DRV_PATH)/arm-smmu-v3-common-lib.o
-+
- ##
- ## Build rules for compiling nVHE hyp code
- ## Output of this folder is `kvm_nvhe.o`, a partially linked object
-diff --git a/drivers/iommu/arm/Kconfig b/drivers/iommu/arm/Kconfig
-index ef42bbe07dbe..7eeb94d2499d 100644
---- a/drivers/iommu/arm/Kconfig
-+++ b/drivers/iommu/arm/Kconfig
-@@ -142,3 +142,12 @@ config QCOM_IOMMU
- 	select ARM_DMA_USE_IOMMU
- 	help
- 	  Support for IOMMU on certain Qualcomm SoCs.
-+
-+config ARM_SMMU_V3_PKVM
-+	bool "ARM SMMUv3 support for protected Virtual Machines"
-+	depends on KVM && ARM64 && ARM_SMMU_V3=y
-+	help
-+	  Enable a SMMUv3 driver in the KVM hypervisor, to protect VMs against
-+	  memory accesses from devices owned by the host.
-+
-+	  Say Y here if you intend to enable KVM in protected mode.
 diff --git a/drivers/iommu/arm/arm-smmu-v3/pkvm/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/pkvm/arm-smmu-v3.c
-new file mode 100644
-index 000000000000..fa8b71152560
---- /dev/null
+index fa8b71152560..b56feae81dda 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/pkvm/arm-smmu-v3.c
 +++ b/drivers/iommu/arm/arm-smmu-v3/pkvm/arm-smmu-v3.c
-@@ -0,0 +1,29 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * pKVM hyp driver for the Arm SMMUv3
-+ *
-+ * Copyright (C) 2022 Linaro Ltd.
-+ */
-+#include <asm/kvm_hyp.h>
+@@ -7,15 +7,94 @@
+ #include <asm/kvm_hyp.h>
+ 
+ #include <nvhe/iommu.h>
++#include <nvhe/mem_protect.h>
+ 
+ #include "arm_smmu_v3.h"
+ 
+ size_t __ro_after_init kvm_hyp_arm_smmu_v3_count;
+ struct hyp_arm_smmu_v3_device *kvm_hyp_arm_smmu_v3_smmus;
+ 
++#define for_each_smmu(smmu) \
++	for ((smmu) = kvm_hyp_arm_smmu_v3_smmus; \
++	     (smmu) != &kvm_hyp_arm_smmu_v3_smmus[kvm_hyp_arm_smmu_v3_count]; \
++	     (smmu)++)
 +
-+#include <nvhe/iommu.h>
-+
-+#include "arm_smmu_v3.h"
-+
-+size_t __ro_after_init kvm_hyp_arm_smmu_v3_count;
-+struct hyp_arm_smmu_v3_device *kvm_hyp_arm_smmu_v3_smmus;
-+
-+static int smmu_init(void)
++/* Transfer ownership of memory */
++static int smmu_take_pages(u64 phys, size_t size)
 +{
-+	return -ENOSYS;
++	WARN_ON(!PAGE_ALIGNED(phys) || !PAGE_ALIGNED(size));
++	return __pkvm_host_donate_hyp(phys >> PAGE_SHIFT, size >> PAGE_SHIFT);
 +}
 +
-+static void smmu_host_stage2_idmap(phys_addr_t start, phys_addr_t end, int prot)
++static void smmu_reclaim_pages(u64 phys, size_t size)
 +{
++	WARN_ON(!PAGE_ALIGNED(phys) || !PAGE_ALIGNED(size));
++	WARN_ON(__pkvm_hyp_donate_host(phys >> PAGE_SHIFT, size >> PAGE_SHIFT));
 +}
 +
-+/* Shared with the kernel driver in EL1 */
-+struct kvm_iommu_ops smmu_ops = {
-+	.init				= smmu_init,
-+	.host_stage2_idmap		= smmu_host_stage2_idmap,
-+};
-diff --git a/drivers/iommu/arm/arm-smmu-v3/pkvm/arm_smmu_v3.h b/drivers/iommu/arm/arm-smmu-v3/pkvm/arm_smmu_v3.h
-new file mode 100644
-index 000000000000..f6ad91d3fb85
---- /dev/null
-+++ b/drivers/iommu/arm/arm-smmu-v3/pkvm/arm_smmu_v3.h
-@@ -0,0 +1,16 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+#ifndef __KVM_ARM_SMMU_V3_H
-+#define __KVM_ARM_SMMU_V3_H
++/* Put the device in a state that can be probed by the host driver. */
++static void smmu_deinit_device(struct hyp_arm_smmu_v3_device *smmu)
++{
++	int i;
++	size_t nr_pages = smmu->mmio_size >> PAGE_SHIFT;
 +
-+#include <asm/kvm_asm.h>
++	for (i = 0 ; i < nr_pages ; ++i) {
++		u64 pfn = (smmu->mmio_addr >> PAGE_SHIFT) + i;
 +
-+struct hyp_arm_smmu_v3_device {
-+};
++		WARN_ON(__pkvm_hyp_donate_host_mmio(pfn));
++	}
++}
 +
-+extern size_t kvm_nvhe_sym(kvm_hyp_arm_smmu_v3_count);
-+#define kvm_hyp_arm_smmu_v3_count kvm_nvhe_sym(kvm_hyp_arm_smmu_v3_count)
++static int smmu_init_device(struct hyp_arm_smmu_v3_device *smmu)
++{
++	int i;
++	size_t nr_pages;
 +
-+extern struct hyp_arm_smmu_v3_device *kvm_nvhe_sym(kvm_hyp_arm_smmu_v3_smmus);
-+#define kvm_hyp_arm_smmu_v3_smmus kvm_nvhe_sym(kvm_hyp_arm_smmu_v3_smmus)
++	if (!PAGE_ALIGNED(smmu->mmio_addr | smmu->mmio_size))
++		return -EINVAL;
 +
-+#endif /* __KVM_ARM_SMMU_V3_H */
++	nr_pages = smmu->mmio_size >> PAGE_SHIFT;
++	for (i = 0 ; i < nr_pages ; ++i) {
++		u64 pfn = (smmu->mmio_addr >> PAGE_SHIFT) + i;
++
++		/*
++		 * This should never happen, so it's fine to be strict to avoid
++		 * complicated error handling.
++		 */
++		WARN_ON(__pkvm_host_donate_hyp_mmio(pfn));
++	}
++	smmu->base = hyp_phys_to_virt(smmu->mmio_addr);
++
++	return 0;
++}
++
+ static int smmu_init(void)
+ {
+-	return -ENOSYS;
++	int ret;
++	struct hyp_arm_smmu_v3_device *smmu;
++	size_t smmu_arr_size = PAGE_ALIGN(sizeof(*kvm_hyp_arm_smmu_v3_smmus) *
++					  kvm_hyp_arm_smmu_v3_count);
++
++	kvm_hyp_arm_smmu_v3_smmus = kern_hyp_va(kvm_hyp_arm_smmu_v3_smmus);
++	ret = smmu_take_pages(hyp_virt_to_phys(kvm_hyp_arm_smmu_v3_smmus),
++			      smmu_arr_size);
++	if (ret)
++		return ret;
++
++	for_each_smmu(smmu) {
++		ret = smmu_init_device(smmu);
++		if (ret)
++			goto out_reclaim_smmu;
++	}
++
++	return 0;
++
++out_reclaim_smmu:
++	while (smmu != kvm_hyp_arm_smmu_v3_smmus)
++		smmu_deinit_device(--smmu);
++	smmu_reclaim_pages(hyp_virt_to_phys(kvm_hyp_arm_smmu_v3_smmus),
++			   smmu_arr_size);
++	return ret;
+ }
+ 
+ static void smmu_host_stage2_idmap(phys_addr_t start, phys_addr_t end, int prot)
 -- 
 2.52.0.rc1.455.g30608eb744-goog
 
