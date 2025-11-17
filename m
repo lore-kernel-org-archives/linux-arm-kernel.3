@@ -4,71 +4,166 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D43D2CEACEF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 06:44:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 850DDCE8D6B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 06:47:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WA6PlkdbLEYL3UDRClSUNU5vQgD5IcE1FmAyVN44e/4=; b=NacUWs7TAKtddAi2C4NvzV2x1v
-	YexLxAY5U8gDBJjSZMO+gB3WpfNQFx2UjQs6gpfnsjCx3SQ1VNpHB0QjORixd+1Xuo9OjslO7l4sG
-	ajr0/jPIg0EsEUyIvJ+X6AuE7vMMDb8z5KzVh+xeIz9pV4JoSzPH6laQD0/j39THGaLqPFOLjl09i
-	0cWrQ2sQuBRIJ8uYTrkD7nwNE5MuNxexdnaQC8RgDKF5FnF0cr+vkbf86rVaM1enFFjnIwGATL+Ke
-	IzmDP7lFWLJFprWdd0wTImLIJtv93xkBlpI+57lUK5UjXCh5Qt8I8tflIH9BES4IZcpB/VWc0qSYl
-	vshF6cnQ==;
+	bh=4xC1VZKVmq6ddvJwl/6u0IABXRLtbJIlCJNv3zyycEg=; b=Ma2AIQ1sTimsiWXjyphGew7thb
+	qPoP/sh782LgHHN1cIMyQUxwABff1nDWMgNd9qUCASlaNKr1gm1J1JZ1UV7lzSdIspruZcuwmZWz6
+	Dq4knNL4itlSeAyIB+xLqKvTytLqKHON5maw0AIT3IppcPz5wc8Rq7hcx6x3mJOJ72HxemSijYtuL
+	XOHYkW+8ykHJbaKBRd+4P6Oyz1L0W4adGlIFfJqQpRpVAzB6eKnDT41x4PvCe46HdG44NwXIVF8dx
+	CX7/siPm7ZJ6yIdVwXevXM9iYFHwATe6CMHVIl6lhlWMJnckoEX8VkYOE0Qdm+GuebT9LnWHDwfNm
+	4Z4qWPmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKsxx-0000000FXCY-2TyU;
-	Mon, 17 Nov 2025 06:43:57 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vKt0v-0000000FXZ8-2lqB;
+	Mon, 17 Nov 2025 06:47:01 +0000
+Received: from mail-northcentralusazon11013021.outbound.protection.outlook.com ([40.107.201.21] helo=CH4PR04CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKsxt-0000000FXAs-2fM0
+	id 1vKt0t-0000000FXYd-1Wzu
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Nov 2025 06:43:55 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9558D43D1F;
-	Mon, 17 Nov 2025 06:43:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3F640C4CEF1;
-	Mon, 17 Nov 2025 06:43:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763361832;
-	bh=eMKrosCr86r2AZmru6BsvrPdgcCkjYmPkZP9Gz9nReo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Whi8aGx3Dtn1aCjHzt0gA1ifjb1f2/ocPhTX2P0NEKiVl1mBfzTi+LsR6Bou9cB+E
-	 qN2WlEZW8WlpfvLIKegiO5R/odPCeNfZPpvsDMmAfHbR1qtzGaFQCFQLAmzeRZFM30
-	 /FN7ZBgk12a2mbEgmcw4UWEa9gxzzg6fwQVs/Ak9t+kTPvsdFf/IRTTJ0mZI0guA82
-	 t7RqVQMSv3UK1gIzYe4hszUoYt7EG402u5YmHMnFD4Cn8l8uMMPaqJkvgeF5r6dui7
-	 FDIACmxCW2akz6vG5L1zkiZlr2pEgVu1X112G8s93TP+jg1NqXSpM2k7WFci7RAofW
-	 UX7B2jnJ0WONg==
-Date: Mon, 17 Nov 2025 12:13:45 +0530
-From: Sumit Garg <sumit.garg@kernel.org>
-To: Ard Biesheuvel <ardb@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-efi@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org, catalin.marinas@arm.com,
-	will@kernel.org, mark.rutland@arm.com, andersson@kernel.org,
-	konradybcio@kernel.org, dmitry.baryshkov@oss.qualcomm.com,
-	shivendra.pratap@oss.qualcomm.com, leif.lindholm@oss.qualcomm.com,
-	linux-kernel@vger.kernel.org,
-	Sumit Garg <sumit.garg@oss.qualcomm.com>
-Subject: Re: [PATCH 2/2] arm64: efi: Pass reboot cmd parameter to efi_reboot()
-Message-ID: <aRrEIeBBPBCE5oYb@sumit-X1>
-References: <20251114085058.2195900-1-sumit.garg@kernel.org>
- <20251114085058.2195900-3-sumit.garg@kernel.org>
- <CAMj1kXE4Fo3i9f3npB0MBSOZP0x7HgF4A0KX_aUSBEBmar=NpA@mail.gmail.com>
- <aRb2_OmkRTD46vnx@sumit-X1>
- <CAMj1kXFpi1fMuAhuaBbMSd57F79E7Z0u4okzkKL+_6eKfGUKXA@mail.gmail.com>
- <CAMj1kXE60LrWi8Au6qQ4EMQDFxQCJt5h6hBLuQHCz3HEp=2o3w@mail.gmail.com>
- <aRcdiwgM9h_S7rP-@sumit-X1>
- <CAMj1kXGN=LFL0Cfp6DonAxTLMK7E4Pb0ocYRtQGBr52EHiRmrw@mail.gmail.com>
+	Mon, 17 Nov 2025 06:47:00 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=s9azzEcA5/DQWWFHasGOIJJLgPjwPPKzbPHYfZ8QAIUmSDW/psUoqWPK83dYQCaPXi4+FXV4wqq0FGEM5QYPEPvwlZAFU5UIneAskxlSyh8u69f2UiQ339n8gL0JLdTB/RDvUYASJvnuSG4/k+OAm9cUKY23w0StHlQuC7NS1L2UhuOfnXWTRNiXOZPOQsRzSAiBMnX0205/sU1sm3vuLSdLkDSmdKaCZBAIMZh86KMdLBSWGwHhQwYGk2uCgM/kF7y6UhVgxDjGRtb/sajupeAVpHwwLvsl+gVhP/7z9f94zkIMlkWpzgyWTWGJLSDpdC5qbihDc9xiOe/wCl22cw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=4xC1VZKVmq6ddvJwl/6u0IABXRLtbJIlCJNv3zyycEg=;
+ b=Jcx5g3eooSSjDQEQEYTNag8II2woTHkqKeMDEcJ7l768ZtDxrSxr7N7JM4N7I/XOEYWHk6LnKM47iniwcmcxOKvLeCOf7j7FZXJUguKeV85mqavSVSabMzUBoEr4y2MArKsBiJv08jZgZs5E50OO4ZnVh2wMvKtLR9X7SaovgdymhQUPqVuoIaL39qIx+ZSJdDEraoXlsorti1k1HJjsNse8Q5qdIZsCUsabBP9AIYMynh02DwOst5Lg+w+5npU6fR1a9O33V1sQkOTOwrD9FPCAhlhAiix5DFrTyrVRyMC9bA5zAieQLmEHSM+amR0xT85oJs+XqyOe6f8iamuzOg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=4xC1VZKVmq6ddvJwl/6u0IABXRLtbJIlCJNv3zyycEg=;
+ b=eway4MicR34QqT/3VnloOkDvssvbtpz6RFkppC/yK7u56R1y3LzViBxI2a59bjeBnqhunmxGa2gccMi8gZSEoIPkz9KP+5/+VxlkZkUff11m6+LLBKtjjBswoFMVGYYOkI/9FJbO4APvaOsFkvokYHr/WS5vfMX/B6SDB8+1H3c=
+Received: from SA3PR12MB7922.namprd12.prod.outlook.com (2603:10b6:806:314::12)
+ by MW6PR12MB8959.namprd12.prod.outlook.com (2603:10b6:303:23c::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9320.21; Mon, 17 Nov
+ 2025 06:46:53 +0000
+Received: from SA3PR12MB7922.namprd12.prod.outlook.com
+ ([fe80::9b6:464:1a68:ed47]) by SA3PR12MB7922.namprd12.prod.outlook.com
+ ([fe80::9b6:464:1a68:ed47%6]) with mapi id 15.20.9320.019; Mon, 17 Nov 2025
+ 06:46:53 +0000
+From: "Katakam, Harini" <harini.katakam@amd.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>, Jyri Sarha <jyri.sarha@iki.fi>,
+	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, David Airlie
+	<airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Maarten Lankhorst
+	<maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+	Vinod Koul <vkoul@kernel.org>, "Simek, Michal" <michal.simek@amd.com>, Ulf
+ Hansson <ulf.hansson@linaro.org>, Michael Tretter <m.tretter@pengutronix.de>,
+	"Pandey, Radhey Shyam" <radhey.shyam.pandey@amd.com>,
+	"dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"dmaengine@vger.kernel.org" <dmaengine@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-mmc@vger.kernel.org"
+	<linux-mmc@vger.kernel.org>
+Subject: RE: [PATCH 2/3] dt-bindings: dma: xilinx: Simplify dma-coherent
+ property
+Thread-Topic: [PATCH 2/3] dt-bindings: dma: xilinx: Simplify dma-coherent
+ property
+Thread-Index: AQHcVipjsH7TYINoC0qSGcnNCETQ07T2b1gA
+Date: Mon, 17 Nov 2025 06:46:53 +0000
+Message-ID: <SA3PR12MB7922C34E4E40FA70212B0FD49EC9A@SA3PR12MB7922.namprd12.prod.outlook.com>
+References: <20251115122120.35315-4-krzk@kernel.org>
+ <20251115122120.35315-5-krzk@kernel.org>
+In-Reply-To: <20251115122120.35315-5-krzk@kernel.org>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+msip_labels: MSIP_Label_f265efc6-e181-49d6-80f4-fae95cf838a0_Enabled=True;MSIP_Label_f265efc6-e181-49d6-80f4-fae95cf838a0_SiteId=3dd8961f-e488-4e60-8e11-a82d994e183d;MSIP_Label_f265efc6-e181-49d6-80f4-fae95cf838a0_SetDate=2025-11-17T06:46:31.0000000Z;MSIP_Label_f265efc6-e181-49d6-80f4-fae95cf838a0_Name=Open
+ Source;MSIP_Label_f265efc6-e181-49d6-80f4-fae95cf838a0_ContentBits=3;MSIP_Label_f265efc6-e181-49d6-80f4-fae95cf838a0_Method=Privileged
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: SA3PR12MB7922:EE_|MW6PR12MB8959:EE_
+x-ms-office365-filtering-correlation-id: 576955ba-ae9b-48f0-e107-08de25a517f0
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016|921020|38070700021;
+x-microsoft-antispam-message-info: =?us-ascii?Q?goFhREWHpu7VsjZUPsvmuYfTndZknAeB8NR5/n+VWLIKkllrrwQ0GYfUrVwP?=
+ =?us-ascii?Q?hs2aU4/jSSrHaGeYsU6t8N+TvyFpvNeKLEm4PxW++DC+9xCTmUUMVRcIfPub?=
+ =?us-ascii?Q?l9IiutOw3h2GRzE5r0EXUMfA+01R5GeZCigUWq30jrXJsC2i6VGPB4slp/Tg?=
+ =?us-ascii?Q?tsjcvSQ2KmRfcMA252cdkDK5V8SW4/+6VDfEvv0+gxY72+klkWgsHe90MvFL?=
+ =?us-ascii?Q?lNHsP/6OhM8eeS7kx/d/kSlwUafPrqsOhjiCC9mslwMIOoyNmJouAIoEIo86?=
+ =?us-ascii?Q?5OoS8ixVoRoB3Nzm8MN4Kd4JnCMICRSjsN5a50yZg/94dJfLk61r9JlWIJqj?=
+ =?us-ascii?Q?WBab8dRfBkwFwaieGvuqDo88cHtPg1lYuRLlu9CGDBOXE7sGD7kZEhVmupuX?=
+ =?us-ascii?Q?02YeTZQsOjjs6TzzPJGWLA5nYU4vqB8HT8SKUrJxybV/6j65Q8ybNfhIkybD?=
+ =?us-ascii?Q?oEIS8tkydDaaNtF9dSOBnBFHqkZ9iCcU407nP0uWNmOnHtEDw+XCCtq101wO?=
+ =?us-ascii?Q?b2agwkJELIJNQ83i8kY9SG8AX9xIiLHm78LYUfi5fZyhTRhUX6ektxvIQkbe?=
+ =?us-ascii?Q?6BumZqSDgH8JkBB4ySeC+sc5A+h6INKBVbay2S24dB1J8e+PL16KiGMYvXnm?=
+ =?us-ascii?Q?wiuawmePzB5nlvFWUqvQ7+BIMTdd4xh0+OwxyrGZFHfX300KkuRPGCdIQnDd?=
+ =?us-ascii?Q?knG2FH50WYIg/7zuxKPvNPo7IhRE7cyrVrJ5/sWJIcPEMiyat0pOAQCyqTm0?=
+ =?us-ascii?Q?cElhHG8IHeQmGJJuMt69R3Q6ZtGdY6WRfAqvYJ9cxpLh3KgU7kZc+LedjM66?=
+ =?us-ascii?Q?viBVTT02XH34lVXFxJ2Ya0IqLfP0jHcpskTeQQYlqj9EbEAw3KCM2L1dKyqG?=
+ =?us-ascii?Q?DedM3H5/8ypgcK+DQVg7PjTivpesIQ6urltyLckM/xdJRlb/zkOGakYU7ZXx?=
+ =?us-ascii?Q?PVXurAPY6auNKQx9JPcWAhKWla28mLoX1BYwgJ6vFAxUzELCf1g27GwLHZQ1?=
+ =?us-ascii?Q?8epIRO8MLbHffUBaX8XcbfbN7Huc7OT4jMJksFNHx1GdkIG5MoiqI4xGPXe/?=
+ =?us-ascii?Q?gfvlTP0QN7XYx1PXz1kIx9K5/YpgkTdlZYQJfoNpGAdk68YlaYNtORI4Kkf6?=
+ =?us-ascii?Q?bO5G0ukqC/O60iw0dPDd/EMTVNplvEAe6M2vYiT2kX0eRRSsAUcwXQ7KaX94?=
+ =?us-ascii?Q?ULyDImBaaQhMEhA8JV2MRLolH7GQFHPAThFlmQskk0n0o5ngcA3qviJlCiO6?=
+ =?us-ascii?Q?GE9OuAFPL29S93PTMNTmwhLOu8qmP2R+1yqQl/GR8vU1X4Uq2x8IWs34YApZ?=
+ =?us-ascii?Q?lhZmRbPgrPkJ1oKjEE7Z1oeT59WwJtpl6zJgAdMR50zMhIFKrTYv0AhxDo8M?=
+ =?us-ascii?Q?6S8uDaiUKvN679EzTg70gScW1W5KjQHLtd2HnVHhY3N0BJugTr3DLvTIaCt8?=
+ =?us-ascii?Q?Ns2pqbMU5hi5gEp9VHFVEL05A3LHjG3e4ybTg+m9+D7KpcnF0bYyHRQCtDo9?=
+ =?us-ascii?Q?iT3XvHO8xSQX7j0YIv/iG5hKdyZhYF9orP04h9nrE7D1MhcVmac52Sjnbg?=
+ =?us-ascii?Q?=3D=3D?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SA3PR12MB7922.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016)(921020)(38070700021);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?afJpNG7HT4SUZgQdvdhMDB1HjNWGliBl/1e2PV+RmDLuxs+sF30HfcCLxoGo?=
+ =?us-ascii?Q?LabL21Ra/A/k9zBcABhx2r/UVtk+v9edJVm978m/VZZkDAiddoK1DsmgyWwM?=
+ =?us-ascii?Q?/72HHzVugSrNgqIEREUP5A6BX/MrTf/RbRO5fX49qJWn4EgA+kzBjeQU+mCu?=
+ =?us-ascii?Q?cBbO1DrY0E84AuVpxcMpoaOaZj8/sPP3gBHtYGfX9VUssLtZxzL/VMoT7ciq?=
+ =?us-ascii?Q?GGOpDCKFGQ9TzFIWniOfkzmUr/PyZsiml8o1w7s2y15lYbfTaH85iNVieDTa?=
+ =?us-ascii?Q?ZIpN6lM0JtLY5UtYVjUTN1kPuenpV2hqHG4k6xe+9nOl4+386iiSd1OpH+dy?=
+ =?us-ascii?Q?9jtypV21IDjHzbzSXn2sFpJG9QxpHKrqIZ1OXkgUDMIkh3PWABuyFIrxbyXa?=
+ =?us-ascii?Q?CZWiYqokde0SCdb+JtvOedzarURO65U5VThZesnphJiuPdeRl0th52Fc+W+V?=
+ =?us-ascii?Q?b7N5Gn1NT7mUY57w79nD9BWvsO2exluwnauPcoKzz7Uq4EmvFo0IEIQJE7Zp?=
+ =?us-ascii?Q?G+mL0ffRqq1BlCQ1fqqDVW3STY69fT87+tHDDhygmVdDegLZptRHA4Oiu154?=
+ =?us-ascii?Q?zuEwJYFmuwmdVWhcKf2tQemvjXZEKRDZqo7Iktgvc+uPe9ey9cBzSobXr31U?=
+ =?us-ascii?Q?EV6lpxROh5Sk49g43uO91pLm31cLXyJkrfUuJThNCLFawDrRoUFMXmOUYo87?=
+ =?us-ascii?Q?sqokAOqk4Hki8l4REjb3O/9MTwu9+4LIequA82kdfGgQOJHwm4b5g3YHTdXv?=
+ =?us-ascii?Q?RQ26+OTQden8zZmir1J5ay3VHHFyk4yFtTG1CDfO3IRSp2ndFwgcBQcPGQ08?=
+ =?us-ascii?Q?yDGEUooDsNOo4ITDnhl3gGHpja5vG79oiXLdj8qvZzBNbgkpFsJ0EUbMqTxm?=
+ =?us-ascii?Q?mRL0UEcwr7CoorDZU0fQGfOf+Yd0jasTdCHPm/YKKzzG+B8FhDKkT3Jh3Rdy?=
+ =?us-ascii?Q?1VWM9Z4fuUE75+N91kLc4SqL6F9qL6fk/ED70GDFQNFzrlXQX3a7BDnGwziE?=
+ =?us-ascii?Q?nfhd1zwVr6GEhLUIEivgRos1vW8uixZUqz0+Jm5b9aRNgaoJGBdBYIzg/jJT?=
+ =?us-ascii?Q?MM06MmAjWm31ZGoAb6myQeFDiUWHhMwh2odRAR+SDOaiNcu+sRv90YiM7aHy?=
+ =?us-ascii?Q?2uHcfKQMEIhkkT22sfqvtuieeoDeB17a8unvcFjjHHYkhUxhNbu129Qtq+iv?=
+ =?us-ascii?Q?JvJ8DZdl1pOQVnXDZbzdV8/HszHM7t7KOifztol6kwQni8AAl5sZE0B3WZge?=
+ =?us-ascii?Q?OBflo9s9Gb1/OPDRNF85R3oKMteML7UaYZOAmRVydsToiODv0t58DLn2hK0n?=
+ =?us-ascii?Q?ejhPnSmZ37iU8XChq10vxyc+iMe4vORPSC21Ft5FYpdLQ8LWeHpl5ahbEGqF?=
+ =?us-ascii?Q?g2+Pn/7ohmSFREzIW2kal4xKDDC6LEAb7PWeBPKuNUpKVGS5rAg3Nof1e13u?=
+ =?us-ascii?Q?2qDh20GWY/SiGfGoOEnvro7XNJQjmq+s7MAYH1K6crdo5URAQfIs2mLLrqr0?=
+ =?us-ascii?Q?1y68yiffMLDKrBse7HecaLPXEmFvYlrPDV1tr9iOwf5MEvM49lIeSCfCv+MI?=
+ =?us-ascii?Q?BwFI6+fiWiap6n/OVI0=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CAMj1kXGN=LFL0Cfp6DonAxTLMK7E4Pb0ocYRtQGBr52EHiRmrw@mail.gmail.com>
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: SA3PR12MB7922.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 576955ba-ae9b-48f0-e107-08de25a517f0
+X-MS-Exchange-CrossTenant-originalarrivaltime: 17 Nov 2025 06:46:53.4601
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: oBcAoMJtPmoBxGynewwqXoTnWZtNbpGjgCVG8G7dWWqskHXFUGifEzOICOG9Hbu3
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW6PR12MB8959
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251116_224353_741970_F95145F5 
-X-CRM114-Status: GOOD (  42.18  )
+X-CRM114-CacheID: sfid-20251116_224659_451748_D5F6866A 
+X-CRM114-Status: GOOD (  15.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,151 +178,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 14, 2025 at 04:47:18PM +0100, Ard Biesheuvel wrote:
-> On Fri, 14 Nov 2025 at 13:16, Sumit Garg <sumit.garg@kernel.org> wrote:
-> >
-> > On Fri, Nov 14, 2025 at 10:35:33AM +0100, Ard Biesheuvel wrote:
-> > > On Fri, 14 Nov 2025 at 10:33, Ard Biesheuvel <ardb@kernel.org> wrote:
-> > > >
-> > > > On Fri, 14 Nov 2025 at 10:31, Sumit Garg <sumit.garg@kernel.org> wrote:
-> > > > >
-> > > > > On Fri, Nov 14, 2025 at 10:26:03AM +0100, Ard Biesheuvel wrote:
-> > > > > > On Fri, 14 Nov 2025 at 09:51, Sumit Garg <sumit.garg@kernel.org> wrote:
-> > > > > > >
-> > > > > > > From: Sumit Garg <sumit.garg@oss.qualcomm.com>
-> > > > > > >
-> > > > > > > EFI ResetSystem runtime service allows for platform specific reset type
-> > > > > > > allowing the OS to pass reset data for the UEFI implementation to take
-> > > > > > > corresponding action. So lets pass the reboot cmd parameter for the EFI
-> > > > > > > driver to determine whether it's a platform specific reset requested or
-> > > > > > > not.
-> > > > > > >
-> > > > > > > Signed-off-by: Sumit Garg <sumit.garg@oss.qualcomm.com>
-> > > > > > > ---
-> > > > > > >  arch/arm64/kernel/process.c | 2 +-
-> > > > > > >  1 file changed, 1 insertion(+), 1 deletion(-)
-> > > > > > >
-> > > > > > > diff --git a/arch/arm64/kernel/process.c b/arch/arm64/kernel/process.c
-> > > > > > > index fba7ca102a8c..51784986c568 100644
-> > > > > > > --- a/arch/arm64/kernel/process.c
-> > > > > > > +++ b/arch/arm64/kernel/process.c
-> > > > > > > @@ -136,7 +136,7 @@ void machine_restart(char *cmd)
-> > > > > > >          * ResetSystem().
-> > > > > > >          */
-> > > > > > >         if (efi_enabled(EFI_RUNTIME_SERVICES))
-> > > > > > > -               efi_reboot(reboot_mode, NULL);
-> > > > > > > +               efi_reboot(reboot_mode, cmd);
-> > > > > > >
-> > > > > >
-> > > > > > I agree with the general principle. However, there are already
-> > > > > > existing callers of kernel_restart() that would end up passing a
-> > > > > > random string to efi_reboot(), resulting in platform specific reset
-> > > > > > with undefined result.
-> > > > >
-> > > > > Yeah true but the UEFI spec says:
-> > > > >
-> > > > > "If the platform does not recognize the EFI_GUID in ResetData the platform
-> > > > > must pick a supported reset type to perform. The platform may optionally
-> > > > > log the parameters from any non-normal reset that occurs."
-> > > > >
-> > > > > So, in these cases the UEFI implementation can fallback to normal reset
-> > > > > optionally logging the reset data being passed. Does that sounds
-> > > > > reasonable to you?
-> > > > >
-> > > >
-> > > > What the UEFI spec says might deviate from how real platforms in the
-> > > > field will behave when being passed a reset type that nobody ever
-> > > > tried passing before.
-> >
-> > I suppose from OS point of view, we need to follow the UEFI
-> > specification. However, there will be scope for quirks later if the real
-> > world problems occur. Currently, in case of EFI reboot we are just
-> > ignoring the reboot cmd parameter.
-> >
-> > If you have in mind any sanity checks we should do here then feel free
-> > to propose and I can try to implement them.
-> >
-> > >
-> > > Also, the GUID is expected to follow an unbounded NULL terminated
-> > > UTF-16 string in memory, so we could easily cause a crash by doing
-> > > this if \0\0 doesn't appear in the memory following the string.
-> >
-> > Okay I see, would following change on top of this patchset address this
-> > concern?
-> >
-> > --- a/drivers/firmware/efi/reboot.c
-> > +++ b/drivers/firmware/efi/reboot.c
-> > @@ -5,6 +5,7 @@
-> >   */
-> >  #include <linux/efi.h>
-> >  #include <linux/reboot.h>
-> > +#include <linux/ucs2_string.h>
-> >
-> >  static struct sys_off_handler *efi_sys_off_handler;
-> >
-> > @@ -14,11 +15,18 @@ void efi_reboot(enum reboot_mode reboot_mode, const char *data)
-> >  {
-> >         const char *str[] = { "cold", "warm", "shutdown", "platform" };
-> >         int efi_mode, cap_reset_mode;
-> > +       unsigned long reset_data_sz = 0;
-> > +       efi_char16_t *reset_data = NULL;
-> >
-> >         if (!efi_rt_services_supported(EFI_RT_SUPPORTED_RESET_SYSTEM))
-> >                 return;
-> >
-> >         if (data) {
-> > +               reset_data_sz = ucs2_strlen(data) * sizeof(efi_char16_t);
-> 
-> You can't just run ucs2_strlen() on an arbitrary buffer.
-> 
-> > +               reset_data = kzalloc(reset_data_sz + 2, GFP_KERNEL);
-> > +               memcpy(reset_data, data, reset_data_sz);
-> > +               reset_data_sz += 2;
-> > +
-> 
-> What happened to the GUID? It comes after the UTF-16 string, no?
+[Public]
 
-Ah, I missed putting the GUID here.
+> -----Original Message-----
+> From: Krzysztof Kozlowski <krzk@kernel.org>
+> Sent: Saturday, November 15, 2025 5:51 PM
+> To: Jyri Sarha <jyri.sarha@iki.fi>; Tomi Valkeinen
+> <tomi.valkeinen@ideasonboard.com>; David Airlie <airlied@gmail.com>;
+> Simona Vetter <simona@ffwll.ch>; Maarten Lankhorst
+> <maarten.lankhorst@linux.intel.com>; Maxime Ripard <mripard@kernel.org>;
+> Thomas Zimmermann <tzimmermann@suse.de>; Rob Herring
+> <robh@kernel.org>; Krzysztof Kozlowski <krzk+dt@kernel.org>; Conor Dooley
+> <conor+dt@kernel.org>; Vinod Koul <vkoul@kernel.org>; Simek, Michal
+> <michal.simek@amd.com>; Ulf Hansson <ulf.hansson@linaro.org>; Michael
+> Tretter <m.tretter@pengutronix.de>; Katakam, Harini
+> <harini.katakam@amd.com>; Pandey, Radhey Shyam
+> <radhey.shyam.pandey@amd.com>; dri-devel@lists.freedesktop.org;
+> devicetree@vger.kernel.org; linux-kernel@vger.kernel.org;
+> dmaengine@vger.kernel.org; linux-arm-kernel@lists.infradead.org; linux-
+> mmc@vger.kernel.org
+> Cc: Krzysztof Kozlowski <krzk@kernel.org>
+> Subject: [PATCH 2/3] dt-bindings: dma: xilinx: Simplify dma-coherent prop=
+erty
+>
+> Common boolean properties need to be only allowed in the binding (":true"=
+),
+> because their type is already defined by core DT schema.
+> Simplify dma-coherent property to match common syntax.
+>
+> Signed-off-by: Krzysztof Kozlowski <krzk@kernel.org>
 
-> 
-> >                 efi_mode = EFI_RESET_PLATFORM_SPECIFIC;
-> >         } else {
-> >                 switch (reboot_mode) {
-> > @@ -47,8 +55,7 @@ void efi_reboot(enum reboot_mode reboot_mode, const char *data)
-> >                 efi_mode = cap_reset_mode;
-> >         }
-> >
-> > -       efi.reset_system(efi_mode, EFI_SUCCESS, sizeof(data),
-> > -                        (efi_char16_t *)data);
-> > +       efi.reset_system(efi_mode, EFI_SUCCESS, reset_data_sz, reset_data);
-> >  }
-> >
-> 
-> I think the main issue here is tying machine_restart(), which takes a
-> u8[] argument, to efi_reboot(), which takes a (u16[]) + L"\0" + GUID
-> buffer. So the change to efi_reboot() looks fine to me, we just cannot
-> call it directly from machine_restart() as you are suggesting.
+Thanks,
+Reviewed-by: Harini Katakam <harini.katakam@amd.com>
 
-It mostly looks like the concerns you are highlighing are related to
-random commands being passed to UEFI platform specific reset API. I
-suppose this can be addressed using following allow list (based on
-analysis done in patch-set [1]) for platform specific reset types. Your
-views?
+Regards,
+Harini
 
-static const efi_platform_reset_type_t platform_reset_types[] = {
-        {EFI_RESET_BOOTLOADER_GUID,                     L"bootloader"           },
-        {EFI_RESET_DM_VERITY_GUID,                      L"dm-verity-device-corrupted"   },
-        {EFI_RESET_EDL_GUID,                            L"edl"                  },
-        {EFI_RESET_FASTBOOT_GUID,                       L"fastboot"             },
-        {EFI_RESET_LOADER_GUID,                         L"loader"               },
-        {EFI_RESET_REBOOT_AB_UPDATE_GUID,               L"reboot-ab-update"     },
-        {EFI_RESET_RECOVERY_GUID,                       L"recovery"             },
-        {EFI_RESET_RESCUE_GUID,                         L"rescue"               },
-        {EFI_RESET_SHUTDOWN_THERMAL_GUID,               L"shutdown-thermal"     },
-        {EFI_RESET_SHUTDOWN_THERMAL_BATTERY_GUID,       L"shutdown-thermal-battery"     },
-}
+> ---
+>  .../devicetree/bindings/dma/xilinx/xlnx,zynqmp-dma-1.0.yaml    | 3 +--
+>  1 file changed, 1 insertion(+), 2 deletions(-)
+>
+> diff --git a/Documentation/devicetree/bindings/dma/xilinx/xlnx,zynqmp-dma=
+-
+> 1.0.yaml b/Documentation/devicetree/bindings/dma/xilinx/xlnx,zynqmp-
+> dma-1.0.yaml
+> index b5399c65a731..2da86037ad79 100644
+> --- a/Documentation/devicetree/bindings/dma/xilinx/xlnx,zynqmp-dma-
+> 1.0.yaml
+> +++ b/Documentation/devicetree/bindings/dma/xilinx/xlnx,zynqmp-dma-
+> 1.0.y
+> +++ aml
+> @@ -59,8 +59,7 @@ properties:
+>    power-domains:
+>      maxItems: 1
+>
+> -  dma-coherent:
+> -    description: present if dma operations are coherent
+> +  dma-coherent: true
+>
+>  required:
+>    - "#dma-cells"
+> --
+> 2.48.1
 
-[1] https://lore.kernel.org/all/20251109-arm-psci-system_reset2-vendor-reboots-v17-0-46e085bca4cc@oss.qualcomm.com/
-
--Sumit
 
