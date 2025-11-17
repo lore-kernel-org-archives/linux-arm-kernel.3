@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BF93CEBF93
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 12:37:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0404CEBF61
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 12:37:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9pJ5eqwsRiOt65RV7so49519D0zNC8o9Y8EmhxoJEHY=; b=g6ElCkhU07nQkgBO9VG8DhNVz2
-	bXlzGNDXbP6NHBTz3FQmJ7fUNdrQh/BOL7mNVSw6GaH+PhxDjFVYnIXu5gHnXxzVMJ93PwcFIjNAS
-	4SzR985HcMWjYL6L82SDcs1I9sxVFGCVRxLM22ztazxwDq7OAYvuYNDQ4roCEaPOfhm/b2nC7N7bl
-	obgrz77fV4/sdU//rLgJI3n2/JgMbcjgixI47nKuhwmX05vW2AvL6ZEbCZkHIiwoNo7xX/poqHVJz
-	pm9T12kl0DxdlD96Hck9R+wOsu47lJBL7txtgK2VcQY2GfVz/Rqh/p3KKLo1c7Rk0Tk40c5tvf/GO
-	ns6iB+3Q==;
+	bh=nmy9fyQ6PEbPx0XQ71lGiSv7DepEPOFim0DYw8pJHy4=; b=QYPQUP7Nl4UOWOuD6Jsbt+eMD4
+	1ZixxjzGceTo3PXnuWxTIFDYFuEJha+lQSarxkXI9uMVGoJsKc19mA46DzuQGRBNiyMGrTDgjOEVO
+	DW1Jb5H2V04NdxXuNGzcshkUCzuC4Fk6sP3iJp2DkgxtEgD5SWWEHgIGFFb5xHSo9qnijAjpGo+TQ
+	8NxexNZNkJd/H0xLFnTZUihAaPpUi5EZob+yhdlTPHe0C7qL/2zipOxm/zovUIOrl4XOZRhgkpqWT
+	Xr0U5+fk4NliXUrtvAjYmuLrIUeAU6AAo4AEjCa48mtFVF9fnv8rH0tF/OFsDzbRCXzEny7ww6cp3
+	m9tHE5NQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKyU4-0000000G4lJ-0CTo;
-	Mon, 17 Nov 2025 12:37:28 +0000
-Received: from mx-relay26-hz2.antispameurope.com ([94.100.136.226])
+	id 1vKyUG-0000000G4up-0Y0q;
+	Mon, 17 Nov 2025 12:37:40 +0000
+Received: from mx-relay47-hz3.antispameurope.com ([94.100.134.236])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKyTu-0000000G4gy-0GFi
+	id 1vKyU2-0000000G4kO-49OU
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Nov 2025 12:37:21 +0000
-ARC-Authentication-Results: i=1; mx-gate26-hz2.hornetsecurity.com 1; spf=pass
+	Mon, 17 Nov 2025 12:37:28 +0000
+ARC-Authentication-Results: i=1; mx-gate47-hz3.hornetsecurity.com 1; spf=pass
  reason=mailfrom (ip=94.100.132.6, headerfrom=ew.tq-group.com)
  smtp.mailfrom=ew.tq-group.com
  smtp.helo=hmail-p-smtp01-out03-hz1.hornetsecurity.com; dmarc=pass
  header.from=ew.tq-group.com orig.disposition=pass
 ARC-Message-Signature: a=rsa-sha256;
- bh=9pJ5eqwsRiOt65RV7so49519D0zNC8o9Y8EmhxoJEHY=; c=relaxed/relaxed;
+ bh=nmy9fyQ6PEbPx0XQ71lGiSv7DepEPOFim0DYw8pJHy4=; c=relaxed/relaxed;
  d=hornetsecurity.com; h=from:to:date:subject:mime-version:; i=1; s=hse1;
- t=1763383027;
- b=Qj9Bwo+C4pMBa+D8M0XyDd8SfuCi8L/TEMDgXL/GveC2dXSKvzFYr7kbEJ0LhAF/+Yt6LaNK
- vqSIpUGw8wm4NBXJFtzuIMgP0jgsvRGJkby/e3eG8wgWDLnnQPpQKmszEUSSXSxh78QKiHnIHlK
- OP8aAw4OQcDIYBtNDkTzjMz0gu9OawWrXA9siX4czk3pdvwEsNG9IGJ7ZN/T9t5vhEJvNXml+Xw
- pEpaVoCYQthP3yVG9TG7pvzqHSIFWyPAsmOU/lWAmFuQwGLidSw9gf3HyyGWSAxal9J3o8Z480H
- 9iJ1Jjr7fKzuFuLfhJWw6pkApTPBHME0TGRV4eIofZG8g==
+ t=1763383034;
+ b=I0StgQorTFEEsBtjaL5FwoW84FpSXuafwTf7apXtb7k0ZM5c+kElN2/tp46GwqIR49yrqLlA
+ 7nqo60UaqVgZy8kzpkp/Jk6Rno/MfkiEloWTmReF0yzKSm8L3IXcbBrBUHWtx610ScEDpP1tqQt
+ wS6+K9i5KaqI/oARWFwoNEOZkxauEsiUG1Xm3jQorX40n4v7Czx2AizRJcZOmPzZwpvSQsvW7dU
+ Pv1Uyl0z8w/E6be1UGrHunuKCbbVHlG7UA7eU/a3Ctz3s5MY1Y0rBBBva5VMeEOoKbv1iAzCzjL
+ Io7TZQXS8D9enb2m6v3fV/u2KtBSxJMX7pqGm6dImdPyg==
 ARC-Seal: a=rsa-sha256; cv=none; d=hornetsecurity.com; i=1; s=hse1;
- t=1763383027;
- b=q96T8IxXBmhu8dH5YoWi6gIa0wsjpuKDJiL91nlDL8PR2o+OPR2m1hgwmVyNzA2RpXI4NTwX
- pHQGOD+b0CvYyrSSF8GSslir/Vz1DfF7HCPtsSFleastN7VpUhkTI5ntlxfKsmGeBipUakob2VZ
- ICkX2dZpoUHTAc4XVgHYbdSHvu7WCwgj0tLDK7pj6naMAocWs9d8ZDLOefaQu11ekwIlh4ObIjm
- RMnKHg0V2dzpkGXFnb7vuEX0Dzh8V1IWsjIU58qEixx5YskfKtTH+r3RQvLGiEyUAVp9akSfD/p
- Yquv4+oagtkFvlSA/1bUOgzTOB/2NBz8yxmhKmldfpAng==
-Received: from he-nlb01-hz1.hornetsecurity.com ([94.100.132.6]) by mx-relay26-hz2.antispameurope.com;
- Mon, 17 Nov 2025 13:37:07 +0100
+ t=1763383034;
+ b=iwa0W6melFSHi5FFCdrxvX/8iZUnkBXq3cDytgfIN+lhBJ8NhlVx2mxDHhPxxdi5gIVZUkF2
+ IlqTZ5+dd/8EqW1FT8WXur38tbR+JehApuXBgut4YLd3WN2GP0d61AtxHIljwO8H2uC41EoyGm0
+ ocynX/PYTCeJnoAWWquJE/w8GtBWdsbW0qeGhMR5a6Beiem3TNpUpYX6GB8xGlW8aEeEjuYbeDk
+ JLU7L5XSCswm75N0UkLsWnEATeo3/OoO5n1Vz4vX850uQQIE8OnuJ1VBStyeNTvmV0cjo/jqW8L
+ YBHh9Dbu4Z2wPckMGGA1xfS67I8ZbynFAfSLS/x8GeZkw==
+Received: from he-nlb01-hz1.hornetsecurity.com ([94.100.132.6]) by mx-relay47-hz3.antispameurope.com;
+ Mon, 17 Nov 2025 13:37:13 +0100
 Received: from steina-w.tq-net.de (host-82-135-125-110.customer.m-online.net [82.135.125.110])
 	(Authenticated sender: alexander.stein@ew.tq-group.com)
-	by hmail-p-smtp01-out03-hz1.hornetsecurity.com (Postfix) with ESMTPSA id E4E9CCC0E93;
-	Mon, 17 Nov 2025 13:36:52 +0100 (CET)
+	by hmail-p-smtp01-out03-hz1.hornetsecurity.com (Postfix) with ESMTPSA id 185C9CC0DF3;
+	Mon, 17 Nov 2025 13:36:56 +0100 (CET)
 From: Alexander Stein <alexander.stein@ew.tq-group.com>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -69,9 +69,9 @@ Cc: linux@ew.tq-group.com,
 	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 3/8] arm64: dts: tqma8mpql-mba8mpxl: Fix HDMI CEC pad control settings
-Date: Mon, 17 Nov 2025 13:36:30 +0100
-Message-ID: <20251117123643.711968-4-alexander.stein@ew.tq-group.com>
+Subject: [PATCH 5/8] arm64: dts: tqma8mpql-mba8mpxl: Configure IEEE 1588 event out signal
+Date: Mon, 17 Nov 2025 13:36:32 +0100
+Message-ID: <20251117123643.711968-6-alexander.stein@ew.tq-group.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20251117123643.711968-1-alexander.stein@ew.tq-group.com>
 References: <20251117123643.711968-1-alexander.stein@ew.tq-group.com>
@@ -83,23 +83,23 @@ X-cloud-security-crypt: load encryption module
 X-cloud-security-Mailarchiv: E-Mail archived for: alexander.stein@ew.tq-group.com
 X-cloud-security-Mailarchivtype: outbound
 X-cloud-security-Virusscan: CLEAN
-X-cloud-security-disclaimer: This E-Mail was scanned by E-Mailservice on mx-relay26-hz2.antispameurope.com with 4d96gn57Xmz2CqVx
+X-cloud-security-disclaimer: This E-Mail was scanned by E-Mailservice on mx-relay47-hz3.antispameurope.com with 4d96gr5rnvz4Mb39
 X-cloud-security-connect: he-nlb01-hz1.hornetsecurity.com[94.100.132.6], TLS=1, IP=94.100.132.6
-X-cloud-security-Digest: 4c76057e9791c4f80819dc8ef33cc562
-X-cloud-security: scantime:2.123
+X-cloud-security-Digest: 99c01bc02baa59d35c741e13cb81e250
+X-cloud-security: scantime:2.386
 DKIM-Signature: a=rsa-sha256;
- bh=9pJ5eqwsRiOt65RV7so49519D0zNC8o9Y8EmhxoJEHY=; c=relaxed/relaxed;
+ bh=nmy9fyQ6PEbPx0XQ71lGiSv7DepEPOFim0DYw8pJHy4=; c=relaxed/relaxed;
  d=ew.tq-group.com;
  h=content-type:mime-version:subject:from:to:message-id:date; s=hse1;
- t=1763383027; v=1;
- b=mWu98ewDX4M+gUbdJ23hVT13ma3BqDhlRvlEuEscxTNmMsEuGcJLegGhkz8MambbigLtfWRy
- F4RsAiazaDPx4jeYv0+gP/cdABojz4FG0Em7JCCR3yQySXuDxqTLj+Je76a9xyICD26aVwawa6Y
- nqdAKTzKYHWSTPOKKBfBf9qs1JxxYa4uxxGrei6KdopsLFQphaD71jHbDZEdxpuHT76OqWC3zl3
- 4fyTL9AMZT6gNCY0pTPauT/kSEePXlbAeEOZ/Yxa0ALWSujReNJvK6I7kraahUG1Bb2XTjpHhdB
- hntYLmLPjIc9nXJG+VOIbnV7iVc8/pOVoVFNpfIQduq1g==
+ t=1763383033; v=1;
+ b=cmlFyByi0qbhlEI3YAkIc1wnOIqnafK9MbHKgyD++OxI236VyoTkd82zJFPeHLH1eofduzPr
+ 3wmtMhT+OUTIhCHSJ/WzwOHsbKsDOrzDgi7eAgum3sGSEWxRPQtW2tUjCxQAaMz2Oe7wNkW6NgK
+ G2mWM2MegSQUq5ABMT/MWR95vMxOqfqzJUj0cKCyaGc34jOaUWpqH4z9PbnfHqG2S/2sCZOGrZa
+ tz+qclwBAeAjXGYrCYDhjdAgIKhnMBv+p5s6GVWMboc6ZRaveW2LH6kiqlaXAgVlyZ+h/b5SlsP
+ HmcITNoEjONzEvzG+W/bnXZ2FABS/BJJe6wOWcDIm/8Fg==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251117_043718_245139_EE022AA2 
-X-CRM114-Status: GOOD (  12.94  )
+X-CRM114-CacheID: sfid-20251117_043727_179649_00BAA49E 
+X-CRM114-Status: GOOD (  11.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,28 +114,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-As per datasheet of the HDMI protection IC the CEC_IC pin has be
-configured as open-drain.
+The event out signal on channel 2 is available on pad SAI2_RXD0 which is
+connected to X63 pin 13.
 
-Fixes: 418d1d840e42 ("arm64: dts: freescale: add initial device tree for TQMa8MPQL with i.MX8MP")
 Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
 ---
- arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql-mba8mpxl.dts | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql-mba8mpxl.dts | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
 diff --git a/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql-mba8mpxl.dts b/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql-mba8mpxl.dts
-index ff2bacf24bfd2..03b75d4cf699a 100644
+index ac889a69da69a..fdfe246c56407 100644
 --- a/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql-mba8mpxl.dts
 +++ b/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql-mba8mpxl.dts
-@@ -868,7 +868,7 @@ pinctrl_hdmi: hdmigrp {
- 		fsl,pins = <MX8MP_IOMUXC_HDMI_DDC_SCL__HDMIMIX_HDMI_SCL	0x400001c2>,
- 			   <MX8MP_IOMUXC_HDMI_DDC_SDA__HDMIMIX_HDMI_SDA	0x400001c2>,
- 			   <MX8MP_IOMUXC_HDMI_HPD__HDMIMIX_HDMI_HPD	0x40000010>,
--			   <MX8MP_IOMUXC_HDMI_CEC__HDMIMIX_HDMI_CEC	0x40000010>;
-+			   <MX8MP_IOMUXC_HDMI_CEC__HDMIMIX_HDMI_CEC	0x40000030>;
+@@ -807,7 +807,8 @@ pinctrl_eqos: eqosgrp {
+ 			   <MX8MP_IOMUXC_ENET_TD2__ENET_QOS_RGMII_TD2			0x12>,
+ 			   <MX8MP_IOMUXC_ENET_TD3__ENET_QOS_RGMII_TD3			0x12>,
+ 			   <MX8MP_IOMUXC_ENET_TX_CTL__ENET_QOS_RGMII_TX_CTL		0x12>,
+-			   <MX8MP_IOMUXC_ENET_TXC__CCM_ENET_QOS_CLOCK_GENERATE_TX_CLK	0x14>;
++			   <MX8MP_IOMUXC_ENET_TXC__CCM_ENET_QOS_CLOCK_GENERATE_TX_CLK	0x14>,
++			   <MX8MP_IOMUXC_SAI2_RXD0__ENET_QOS_1588_EVENT2_OUT		0x16>;
  	};
  
- 	pinctrl_hoggpio2: hoggpio2grp {
+ 	pinctrl_eqos_event: eqosevtgrp {
 -- 
 2.43.0
 
