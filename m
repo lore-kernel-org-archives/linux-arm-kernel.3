@@ -4,110 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46589CEBF97
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 09:05:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12EBECE8D6B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 09:08:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IqroyQdOYaFGXyI0EFoglrlTY6uLJckjii9oPbBz5cs=; b=q+iY3KWVYGwNwiQcEXqCJ7Iue0
-	QixvFwFRrTFJMHkxHeib27ebauS8b6OyqNyKYvRIxBqM81jObdc88ERiUyeKzcLuR+JftDfYqeRMW
-	+8DzpAiyi2SDrLdlHSoGJO+aMlck8qbVfrxjmNa1gaMi4iAeM0H5MTHGHfKDnLRtU/R+lNaCQ7jJn
-	c0QKf4zzFnrH1wegrl+BzN1GJd5iYs0K7Zpw1o2Hevneen6Huym0p5eWkFe9wvjCcCIS+AJSoUYHs
-	j6AT1q+zHvpxnJpl4qQFblZj0U10yjChvxh7NCRveRt+cSM90Ir91cEHnvZjIkNAa7fomMamaFY8p
-	uQ+WoGTQ==;
+	bh=PO+HprFxowvXbocpvtAlTvfgsKxJ9kwRQfs+WUVErPM=; b=VZxX86WV49ajwKtaIhf+Ax4YPV
+	o6IZ8jy649RlOWrRwwVqjoknTOayVkeg/FOETuedKc8cP6iJe3p4hYdGSbwHEqAygqv4n/hunD65d
+	6+s7mONqvDyRqGV4GfCiKy3InyKXfIDXiGdkmCZAIINbyMxtjUYkv3RuvFwQVSsOtuw/Ngg3qngi2
+	nDXbEzKmxqGTuEZfXQt1EFf+cu3aMbqyhkcvvW/iIPQu+O3TUuQHcntRAQWM+Rm4Z8COFp5Mkz2pN
+	7+17icoWRq2AFp38jNtJ/+CqaF0EzJfWnnIOFV7ynxFZ/JTkB8bBCPNFTfqcF+tebEbA0KufeIWdw
+	qjoAYr5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKvBF-0000000Fk2X-0ncn;
-	Mon, 17 Nov 2025 09:05:49 +0000
-Received: from mail-lf1-x129.google.com ([2a00:1450:4864:20::129])
+	id 1vKvDT-0000000FkdA-1UXQ;
+	Mon, 17 Nov 2025 09:08:07 +0000
+Received: from fhigh-a2-smtp.messagingengine.com ([103.168.172.153])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKvBB-0000000Fk0A-1cOu
+	id 1vKvDQ-0000000FkcI-26zf
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Nov 2025 09:05:46 +0000
-Received: by mail-lf1-x129.google.com with SMTP id 2adb3069b0e04-595825c8eb3so3911254e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Nov 2025 01:05:44 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1763370343; x=1763975143; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=IqroyQdOYaFGXyI0EFoglrlTY6uLJckjii9oPbBz5cs=;
-        b=Csy0aeKRXMxXpkmKULKa4i/m4ljeovkLMprx42ZUQoWEhTEEmMBeFAmXmAd5wxnZLy
-         lXNkAUx4IA3ME3r5747VHtMgA7Uv9tvIpChd9sWhEobmAXBBjEWKLAnudRrrEn57VO+P
-         y4P2eGskM7PGBvxt/ycZ1OFG4zDxQnXYFTsyd1md7eKPQHZz1SwcGTQdX0gs5JXojOOn
-         HCTrdtgPvEnyvqigCxjd4dveDxDhCMsR6BZnfzdfBH3DG7z07VSDBhrZEaqE0vvul1NV
-         6+1c7oUM2rys27h7c3L1p3c66ppbuFsq4piDzTD9YHg+p8+u+gCgc6wYD8y/ZVrNIcDh
-         O1GQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763370343; x=1763975143;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=IqroyQdOYaFGXyI0EFoglrlTY6uLJckjii9oPbBz5cs=;
-        b=nuftSmYhZxkPBWLHJqvDjsPGw7t8O33n2+XGV1hoEzj+XMOpUDMk18HjSOX5W5TV5G
-         0zRHYaTVul/FEMqZsEVaoSzwdCNnXCeiff8O3N31KWXmUQPKpVonYE5XpXJSxx40si+U
-         hX/k99ZRRLQJi22Ij9jZecjQ1L2D8uQQPDMnpy9ACZcMWsQ6GL6jf4I3JRUth5x+dNP6
-         E4OGImIPIOXX04hm90+JgAXX2/ZznRCjqUrY9gZvAb/kPkXMytyxgoElblq3do/VQtJR
-         rf6b/EkqZG3INua1s+Q5kM9QovtgHHtW+XMq7oQEVA2DzBaBD/1NUJyTHuOC69SwfDzY
-         4W1g==
-X-Forwarded-Encrypted: i=1; AJvYcCUpE9upqldREG2fJcquPUCKf0jtOsxkadm41HhxZyJXRMhKa1hfwBDKyMnot1I2St8gMUSLUwUCbuBBZ90hrLei@lists.infradead.org
-X-Gm-Message-State: AOJu0YxWrLdBDFpdhu66Mg8D3xyHxcoWn7gNWBNoE9aktKe475Ucmrr0
-	ZxDp/EJLmhJ25WmELbhHX8jQIR76amtWY3XYt1HhBqIp2sXc4mHYLGON
-X-Gm-Gg: ASbGncuZzMbm/tBn+ZAOC7dXQvOgT47hImfDQnKJZx/isvKb9NS1CQ3VSQZUUGOzXLs
-	h4QSTO/wLFRWdtxLipwtX1AUnq7bWY9BIOfCzNj2FNLYetrAIE/ou2qPAJ0tGLBY52c9+D5eqjj
-	LLxl7UVBju4Tyn5bIfWNPG1rjm9eYPmaU8hwb7Vtgcuh+6c93wpNAF1DDeeW7ur/ntVixdfzSV7
-	x4ZexE9b+czgttsL7PGII5U1WEy3WN4hm5fPO4tRh82FbVKl4j9Tb7d6YmlwAfFEljc74Vv2YMG
-	Qw8FzK4e4UB9yb+jSQhdLfeRloViNFf+L1Nnly/reRvaHocbvZRMpPTF6DkRH0xdzOq7LOKagTr
-	L8zc3JZsUJjiMfYvdsugVu/BVaVkG9XGJ7+tzoP6zBKJ/6qIibfhGmzJ9Q22VT+5011clQACEkq
-	9Y935Xd0xvB5iCvh72oWTOzz/kcDEtJb1EuPPiG55/9qD7Jg==
-X-Google-Smtp-Source: AGHT+IH1QlOEMHn/T48dJG9KlH+9zufr1/cuKa9qEA/HpIN2fSwsKbCmNjV+s1Ae9oWDFiNXgn3XjQ==
-X-Received: by 2002:a05:6512:3054:b0:595:7fed:aae9 with SMTP id 2adb3069b0e04-595841ee9d7mr3951060e87.12.1763370343041;
-        Mon, 17 Nov 2025 01:05:43 -0800 (PST)
-Received: from [192.168.1.168] (83-233-6-197.cust.bredband2.com. [83.233.6.197])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-59580405693sm3023727e87.76.2025.11.17.01.05.41
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 17 Nov 2025 01:05:42 -0800 (PST)
-From: Marcus Folkesson <marcus.folkesson@gmail.com>
-Date: Mon, 17 Nov 2025 10:05:02 +0100
-Subject: [PATCH RESEND v3 5/5] docs: i2c: i2c-topology: add section about
- bus speed
+	Mon, 17 Nov 2025 09:08:05 +0000
+Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
+	by mailfhigh.phl.internal (Postfix) with ESMTP id 2FC731400138;
+	Mon, 17 Nov 2025 04:08:03 -0500 (EST)
+Received: from phl-imap-02 ([10.202.2.81])
+  by phl-compute-04.internal (MEProxy); Mon, 17 Nov 2025 04:08:03 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm2; t=1763370483;
+	 x=1763456883; bh=PO+HprFxowvXbocpvtAlTvfgsKxJ9kwRQfs+WUVErPM=; b=
+	pl1Mou2a8h7kYUp3llgfzWaQkTkptKjNgKWve02MAli3WV7Yy+zFFzUiMVV55q8C
+	Gp9sO5auj0GBfNeNQSZFd45BmUjMqTPIEr/60m1CKIQny8PWwO/CiplylIBhEwxK
+	KPLSfkD5eEfxClT7Prcdsw5IzdArD3ReYb+bPpp3S7lYVqy5zAWZpp8JUxmhA1Yq
+	8jmkklnrt4xxtxWsvzZvuhtvWKGes3TQJUzguU4fIPMWnipTK/d6D6EYlr0Qp+Hy
+	bYHDTu2OduDkeTL/JPGJfLIHNPvG1IMBj2vGL/S+ywoodvbh5FlyeYK3K9bgS1dl
+	p/SP3CP2uWErMGLKjHavyg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1763370483; x=
+	1763456883; bh=PO+HprFxowvXbocpvtAlTvfgsKxJ9kwRQfs+WUVErPM=; b=g
+	tUVWTtWQ9suuL5LE40z44bT+w2Tc0tk/1HmA3x9NuY7ziwGlRqlDman8J8F+71vg
+	cJjaFHJwUtsw3qZFyN26JF6jMgwp31QPsqVrNdgbjXK2/6jgC0wwOeWJpNQFivE/
+	HNvR4jVkAzHAutI9LXVQf+DqiG76fwr0PweuF+MT8xQ2vx+wQw3yZRr7UF+kUQV1
+	Xg8iyh9qRWPxSxPwtDx9mNzu92I62pxTQ0lNapNUJ/ICsMWWAfyo//0yAFCDRDet
+	fs6QP2t2z+xOWIxUVzhiLWKDzIKAadJiuiK86z7wKnz0KY3UwoNfAZKfPITmz8CB
+	M4IPzbNXf9ffR8J+y8BdQ==
+X-ME-Sender: <xms:8uUaaUo3h4NKJxokYbYGzN1po5V5t6oJllHAQTC1H277R2Kv3GeaKA>
+    <xme:8uUaaVfaBXz5BBBqyxYdy3U_GsM1p8yCymviuTaYLY2gksVrVsmVRFbKV2JdtG4Pi
+    qve-MD0bAgnWxMFJdbNGD6ldAB329EE_UMjPDMSOqID6Rcp06-5MlH5>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdeggddvudektdeiucetufdoteggodetrf
+    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
+    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
+    gurhepofggfffhvfevkfgjfhfutgfgsehtjeertdertddtnecuhfhrohhmpedftehrnhgu
+    uceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrthhtvg
+    hrnhephfdthfdvtdefhedukeetgefggffhjeeggeetfefggfevudegudevledvkefhvdei
+    necuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprghrnh
+    gusegrrhhnuggsrdguvgdpnhgspghrtghpthhtohepudefpdhmohguvgepshhmthhpohhu
+    thdprhgtphhtthhopegshhgvlhhgrggrshesghhoohhglhgvrdgtohhmpdhrtghpthhtoh
+    epkhhishhhohhnsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehkfihilhgtiiihnhhs
+    khhisehkvghrnhgvlhdrohhrghdprhgtphhtthhopehlphhivghrrghlihhsiheskhgvrh
+    hnvghlrdhorhhgpdhrtghpthhtohepmhgrnhhisehkvghrnhgvlhdrohhrghdprhgtphht
+    thhopehrohgshheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqrghrmh
+    dqkhgvrhhnvghlsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtohep
+    uhhnihgtohhrnhgpfigrnhhgsehouhhtlhhoohhkrdgtohhmpdhrtghpthhtohepshdqvh
+    gruggrphgrlhhlihesthhirdgtohhm
+X-ME-Proxy: <xmx:8uUaaXkPpeIadKJMvzQsGDBOWh1Tjcyb_HYNz-fc5QIn_5I_yTtsIA>
+    <xmx:8-UaaQCUOi64x4mS4xdvxIWltUmj6-C2bwKXVe8MKvDIl17qfISE1Q>
+    <xmx:8-UaaRCMU9_LSXcsRQbaYW2jNnFweHe2YeZWhDYIUnZBMUItkuS2VA>
+    <xmx:8-UaafFBR8Oni9HUqk8SYx1FY8THGzhwWa1NMngIWtX0bbzWGBCJDw>
+    <xmx:8-UaafQesAiugEDtRmw1jUGiKcTBd3esQoZhIahysN1L032ZoLvjuIN3>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id DF8F9700063; Mon, 17 Nov 2025 04:08:02 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+X-ThreadId: AO4N9SNPwumV
+Date: Mon, 17 Nov 2025 10:06:57 +0100
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Siddharth Vadapalli" <s-vadapalli@ti.com>
+Cc: "Lorenzo Pieralisi" <lpieralisi@kernel.org>,
+ =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+ "Manivannan Sadhasivam" <mani@kernel.org>, "Rob Herring" <robh@kernel.org>,
+ bhelgaas@google.com, "Chen Wang" <unicorn_wang@outlook.com>,
+ "Kishon Vijay Abraham I" <kishon@kernel.org>, stable@vger.kernel.org,
+ linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, srk@ti.com
+Message-Id: <37f6f8ce-12b2-44ee-a94c-f21b29c98821@app.fastmail.com>
+In-Reply-To: <7eaa4d917f7639913838abd4fd64ae8fe73a8cfc.camel@ti.com>
+References: <20251113092721.3757387-1-s-vadapalli@ti.com>
+ <084b804f-2999-4f8d-8372-43cfbf0c0d28@app.fastmail.com>
+ <250d2b94d5785e70530200e00c1f0f46fde4311b.camel@ti.com>
+ <201b9ad1-3ebd-4992-acdd-925d2e357d22@app.fastmail.com>
+ <7eaa4d917f7639913838abd4fd64ae8fe73a8cfc.camel@ti.com>
+Subject: Re: [PATCH] PCI: cadence: Kconfig: change PCIE_CADENCE configs from tristate
+ to bool
+Content-Type: text/plain
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251117-i2c-mux-v3-5-696c83e3505a@gmail.com>
-References: <20251117-i2c-mux-v3-0-696c83e3505a@gmail.com>
-In-Reply-To: <20251117-i2c-mux-v3-0-696c83e3505a@gmail.com>
-To: Wolfram Sang <wsa+renesas@sang-engineering.com>, 
- Peter Rosin <peda@axentia.se>, 
- Michael Hennerich <michael.hennerich@analog.com>, 
- Bartosz Golaszewski <brgl@bgdev.pl>, Andi Shyti <andi.shyti@kernel.org>
-Cc: linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, 
- Marcus Folkesson <marcus.folkesson@gmail.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=8159;
- i=marcus.folkesson@gmail.com; h=from:subject:message-id;
- bh=Pi8rg8aDh1DzKC60rhi2IjK0Atc4BXPx6hzEn3Z2p8o=;
- b=owEBbQKS/ZANAwAKAYiATm9ZXVIyAcsmYgBpGuVYDNc2zbHJruLUp5iqBcRmx68oP2FwF21ZE
- olHkhj6ysaJAjMEAAEKAB0WIQQFUaLotmy1TWTBLGWIgE5vWV1SMgUCaRrlWAAKCRCIgE5vWV1S
- MnsMD/0dDrtOrZWY7f8n04gRG4qqZeolpcQCyrxdYCd88B8QfjW9T/eFOOEXL0dfOqGs6aTOZT4
- jEda0NvWG7OrdEvfHINxqTlEF8qAhrSrIInMMIphrfF45xdJYYXeaT11R7U4AXjvpuM2glCETAU
- FalnstcWYv2UypkNkJwqaQyB4Vu4PRbD+UiJAKDW+wkWnM26PJ8D0yDLzq58c00RSm2R7ARVWp4
- Nwr0wzUlw2x//y0JzCjF52yI5o6iPiAPMaa7XATtmZz5jR9mJaUQ2hZNtIWXZ2ZCtTjlFVfZEfB
- 8HnnNi9qcZQm/usFqpgqgPywZyv6ClTFdiIW7FJJN6AdrpCOCm0kd5XfP9EC2Lkl2SGuAE0xfFo
- ThOizwU/S2lyQAPwSbdGFe2jrFohMUGwYf7lm08+jcc6wss4bRftPo1z5QbQAZoj0XEvIgTuTzo
- eb8UzVvIvJnPKWbo/1fTBF9VRSKMmWXHGsebm7Bm9WlED0Mfr5kVpRkDxKrL0twE33laabWsd/o
- O9ndpIq0JaxThshPaks6j5GixcvwmCJ6k/pfgKGCmqbiqlhrqbu1F5L8LA/lPQrqoZIZrw82irR
- /CkFgCmM3HN2CjGISZxTf5vn+uHSnlzxl42YGECS50F3tfywiZ68gXtsE/NaXcER3ybXx+mVaAV
- GvVa6kF1eJabsew==
-X-Developer-Key: i=marcus.folkesson@gmail.com; a=openpgp;
- fpr=AB91D46C7E0F6E6FB2AB640EC0FE25D598F6C127
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251117_010545_572672_58F0967D 
-X-CRM114-Status: GOOD (  18.27  )
+X-CRM114-CacheID: sfid-20251117_010804_620064_391AE121 
+X-CRM114-Status: GOOD (  13.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,203 +124,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Describe what needs to be consideraed and taken into account
-when using different bus speeds for different mux channels.
+On Mon, Nov 17, 2025, at 07:05, Siddharth Vadapalli wrote:
+> On Fri, 2025-11-14 at 08:03 +0100, Arnd Bergmann wrote:
+>> On Fri, Nov 14, 2025, at 06:47, Siddharth Vadapalli wrote:
 
-Signed-off-by: Marcus Folkesson <marcus.folkesson@gmail.com>
----
- Documentation/i2c/i2c-topology.rst | 176 +++++++++++++++++++++++++++++++++++++
- 1 file changed, 176 insertions(+)
+> I understand that the solution should be fixing the pci-j721e.c driver
+> rather than updating Kconfig or Makefile. Thank you for the feedback. I
+> will update the pci-j721e.c driver to handle the case that is triggering
+> the build error.
 
-diff --git a/Documentation/i2c/i2c-topology.rst b/Documentation/i2c/i2c-topology.rst
-index 48fce0f7491b..2c4a1364ce82 100644
---- a/Documentation/i2c/i2c-topology.rst
-+++ b/Documentation/i2c/i2c-topology.rst
-@@ -367,6 +367,182 @@ When D1 or D2 are accessed, accesses to D3 and D4 are locked out while
- accesses to D5 may interleave. When D3 or D4 are accessed, accesses to
- all other devices are locked out.
+Ok, thanks!
+
+I think a single if(IS_ENABLED(CONFIG_PCI_J721E_HOST)) check
+is probably enough to avoid the link failure
+
+--- a/drivers/pci/controller/cadence/pci-j721e.c
++++ b/drivers/pci/controller/cadence/pci-j721e.c
+@@ -669,7 +669,8 @@ static void j721e_pcie_remove(struct platform_device *pdev)
+        struct cdns_pcie_ep *ep;
+        struct cdns_pcie_rc *rc;
  
-+Bus Speed and I2C Multiplexers
-+================================
-+
-+I2C bus multiplexers allows multiple downstream channels to be exposed
-+as separate I2C adapters which also could set their own bus speed.
-+
-+The multiplexer itself cannot change the bus speed as it use the upstream
-+clock and data lines to communicate with the downstream devices. The speed
-+is therfor changed in the root adapter resulting in that the whole bus is
-+affected.
-+
-+This increases the complexity of the topology and some considerations must
-+be taken into.
-+
-+Bus speed
-+----------
-+
-+Downstream channels of an I2C multiplexer can only operate at the same or
-+lower bus speed as the upstream bus. This is because the upstream bus may
-+have devices that cannot operate at higher speeds and those will be affected
-+by the speed change.
-+
-+The example below illustrates the problem.
-+The root adapter is operating at 100kHz. D2 can only operate with 100kHz,
-+but D2 can operate at 400kHz. When D1 is selected, the bus speed of the
-+root adapter would have to be is set to 400kHz, a speed that D2 may not support.
-+
-+This topology is therefor not allowed: ::
-+
-+                          .----------. 400kHz .--------.
-+        .--------. 100kHz |   mux-   |--------| dev D1 |
-+        |  root  |--+-----|  locked  |        '--------'
-+        '--------'  |     |  mux M1  |
-+                    |     '----------'
-+                    |  .--------.
-+                    '--| dev D2 |
-+                       '--------'
-+
-+
-+This topology is allowed: ::
-+
-+                          .----------. 100kHz .--------.
-+        .--------. 400kHz |   mux-   |--------| dev D2 |
-+        |  root  |--+-----|  locked  |        '--------'
-+        '--------'        |  mux M1  |--. 400kHz .--------.
-+                          '----------'  '--------| dev D1 |
-+                                                 '--------'
-+
-+Preferred topology
-+-------------------
-+
-+The preferred topology when using different bus speeds is to have the multiplexer
-+connected directly to the root adapter without any devices as siblings.
-+By this arrangement, the bus speed can be changed without affecting any other devices
-+and many of the caveats are avoided.
-+
-+Other multiplexers in parallell is still okay as those are locked out during transfers.
-+
-+This is the preferred topology: ::
-+
-+                          .----------. 100kHz .--------.
-+        .--------. 400kHz |   mux-   |--------| dev D2 |
-+        |  root  |--+-----|  locked  |        '--------'
-+        '--------'        |  mux M1  |--. 400kHz .--------.
-+                          '----------'  '--------| dev D1 |
-+                                                 '--------'
-+Locking
-+--------
-+
-+If the multiplexer is mux-locked, transfers to D3 may interleave between the
-+select-transfer-deselect to D1 or D2.
-+This results in a situation where the bus speed to D3 may be lower than it
-+is supposed to be. This is usually not a problem.
-+
-+This topology is allowed but some transfers to D3 may be at 100kHz: ::
-+
-+                          .----------. 100kHz .--------.
-+        .--------. 400kHz |   mux-   |--------| dev D1 |
-+        |  root  |--+-----|  locked  |        '--------'
-+        '--------'  |     |  mux M1  |--. 400kHz .--------.
-+                    |     '----------'  '--------| dev D2 |
-+                    |  .--------.                '--------'
-+                    '--| dev D3 |
-+                       '--------'
-+
-+Multiple muxes in series
-+--------------------------
-+
-+When multiple muxes are used in series the same rules applies.
-+
-+Transfers to D3 may interleave between select-transfer-deselect to D1, which
-+results that the bus speed to D2 or D3 will be at 100KHz.
-+
-+Transfers to D2 may interleave between select-transfer-deselect to D1, which
-+results in that the bus speed to D1 may be at 400kHz as the transfer to D2
-+will set the bus speed to before the transfer to D1 starts.
-+
-+This is probably a bad topology ::
-+
-+                     .----------. 400kHz .----------. 100kHz .--------.
-+    .--------.400kHz |   mux-   |--------|   mux-   |--------| dev D1 |
-+    |  root  |--+----|  locked  | 400kHz |  locked  |        '--------'
-+    '--------'  |    |  mux M1  |--.     |  mux M2  |
-+                |    '----------'  |     '----------'
-+                |  .--------.      |  .--------.
-+                '--| dev D3 |      '--| dev D2 |
-+                   '--------'         '--------'
-+
-+Multiple muxes in parallell
-+----------------------------
-+
-+When multiple muxes are used in parallell all access to other muxes are locked out
-+so this is not a problem.
-+
-+If the muxes are mux-locked, access to D3 may still interleave though.
-+
-+In the example below, D3 may not interleave between select-transfer-deselect for D1
-+or D2 as both muxes are parent-locked: ::
-+
-+
-+                   .----------. 100kHz   .--------.
-+                   |  parent- |----------| dev D1 |
-+                .--|  locked  |          '--------'
-+                |  |  mux M1  |
-+                |  '----------'
-+                |      .----------. 400KHz  .--------.
-+    .--------. 400kHz  |  parent- |---------| dev D2 |
-+    |  root  |--+------|  locked  |         '--------'
-+    '--------'  |      |  mux M2  |
-+                |      '----------'
-+                |  .--------.
-+                '--| dev D3 |
-+                   '--------'
-+
-+Idle state
-+-----------
-+
-+Muxes have an idle state, which is the state the channels is put into when no channel
-+is active. The state is typically one of the following:
-+
-+- All channels are disconnected
-+- The last selected channel is left as-is
-+- A predefined channel is selected
-+
-+Muxes that support an idle state where all channels are disconnected are preferred when using
-+different bus speeds. Otherwise high bus speeds may "leak" through to devices that
-+may not support that higher speed.
-+
-+Consider the following example: ::
-+
-+                          .----------. 100kHz .--------.
-+        .--------. 400kHz |   mux-   |--------| dev D1 |
-+        |  root  |--+-----|  locked  |        '--------'
-+        '--------'  |     |  mux M1  |--. 400kHz .--------.
-+                    |     '----------'  '--------| dev D2 |
-+                    |  .--------.                '--------'
-+                    '--| dev D3 |
-+                       '--------'
-+
-+If the idle state of M1 is:
-+- All channels disconnected: No problem, D1 and D2 are not affected by communication
-+  to D3.
-+- Last selected channel: Problem if D1 was the last selected channel. High speed
-+  communication to D3 will be "leaked" to D1.
-+- Predefined channel: Problem, if the predefined channel D1. Set predefined channel
-+  to D2 as D2 may handle 400kHz.
-+
-+Supported controllers
-+-----------------------
-+
-+Not all I2C controllers support setting the bus speed dynamically.
-+At the time of writint, the following controllers has support:
-+
-+============================   =============================================
-+i2c-davinci                    Supports dynamic bus speed
-+============================   =============================================
- 
- Mux type of existing device drivers
- ===================================
+-       if (pcie->mode == PCI_MODE_RC) {
++       if (IS_ENABLED(CONFIG_PCI_J721E_HOST) &&
++           pcie->mode == PCI_MODE_RC) {
+                rc = container_of(cdns_pcie, struct cdns_pcie_rc, pcie);
+                cdns_pcie_host_disable(rc);
 
--- 
-2.51.2
 
+but you may want to split it up further to get better dead
+code elimination and prevent similar bugs from reappearing when
+another call gets added without this type of check.
+
+If you split j721e_pcie_driver into a host and an ep driver
+structure with their own probe/remove callbacks, you can
+move the IS_ENABLED() check all the way into module_init()
+function.
+
+     Arnd
 
