@@ -4,55 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44A0DCEACEF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 19:13:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34AB7CEBF8D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 19:13:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=S6LcICyBa/1soH/3gHBQS+INlICwkZAcXtWkwxSMBkQ=; b=YE9FcEzW5Ohx1p2YdaAscjQ9gA
-	88KcRJqGrGF308YctX3800gxScjNb7RH64Knrv7I9zy3CQdnYuBzQclqQ3WgI6mYeOtvd4FHrP/lz
-	85zTj8zulxGn6Bx7evtDHUCrd3aH2/UqWmyFg3NQGxSm3Gc8VhNb7p93ryNm7z/dsy0FLHSvr/don
-	RUKXQIxTBWvmk/iJFmtMOSnTDREp8ZoIeE08joS4Dsgx1Wys9X+h6TyWK7oMe+Kh7tLD6uqNubyC/
-	KCmpMvvC8s39NphjXl+iPHSZheqBlLbGxEswJBtLkEMU7FVTGQcpupLRqUkOmkk+ZVQoIBFUvgrX6
-	1gGY5CqA==;
+	bh=fW8y+pDMl5hGQ9sPnlF2Lcw6l0B/Y7yloEZ/f+aofb8=; b=mK4+h7HC193/AvQ8ZYmoEQ6XVL
+	CieOT58aIylAWp4P9l19KqWGy1HHFFvTt+y8U4JRjvMZ4L9S3k4NSCStbLSTYe/kr7f3m1YQFVBU2
+	BKObwKjDvK0MEfmNqsgd3HKozLqBtZ/L56DRoTCrC564Vhm+Cc6hIR0ndZE9tXYCJ63tUu5UxRSfy
+	VCgvx1JBy5QHaEJ95aaVi4sRu0yHLqflttMRO29rSIqQFemLyLjG23nqWDLz35ZLTLjW19jy91oPK
+	Mh0teZbaU1h9I7nWRz33SJRIyAlIvMym+c93pJBoZ0/MsDv9cEbIq9+I2L/rETOf0WLmOz6wohcyD
+	Hxlk26qg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vL4fG-0000000GiD4-2GzL;
-	Mon, 17 Nov 2025 19:13:28 +0000
-Received: from sender3-pp-f112.zoho.com ([136.143.184.112])
+	id 1vL4fJ-0000000GiFQ-2lDa;
+	Mon, 17 Nov 2025 19:13:29 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vL4f6-0000000Gi2z-2rmZ;
-	Mon, 17 Nov 2025 19:13:17 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1763406768; cv=none; 
+	id 1vL4fB-0000000Gi8y-1frQ;
+	Mon, 17 Nov 2025 19:13:22 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1763406774; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=cVM9978GDavgE50qYqu/y/GBTUKtg3eiRR5t6sf9f64Rf50DbbU3nqSJEAxVskfXsGARweifmsqym/Cfe4W74z0kcs97SVo4iKhD53tw7jAJSwUD2pdw0JkcMV81Jk5jIP6Nl3FBlgCevS9w1B4Qfbb7a19mSJT+t5EQR788cYo=
+	b=U8xLtUf1JkSU4irWo5t9v+N5tbr8fuIwF3WsKDv2i73F1hxoSomrPwkyikcTea/ZRjhe7IDHvX3+rJ2jPlaKfrSJViVdYUca23DPhrANSFgESmKa1Bmur6ukOxDDxxhdc62jdC9hA1ofKbxbfFK+Kgy5jtMDmfJFIbLSWKr1E1Y=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1763406768; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=S6LcICyBa/1soH/3gHBQS+INlICwkZAcXtWkwxSMBkQ=; 
-	b=MktG0vxhPEiJmpcbNWUw3bfyL3uMsrZbWiJwUUuYwQmsqZQEEWUek66E0nQ3Ini0sAYP2xXJ1Ox+qtSgyDmx/UnyOFUj8p07EOdAPbAq0VyvrmpFn9Fjupee44ZpRPdfDrwXh8OYp7HuLSijyCpGCzG2UvNFcFmlXtIHbfkz7jc=
+	t=1763406774; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=fW8y+pDMl5hGQ9sPnlF2Lcw6l0B/Y7yloEZ/f+aofb8=; 
+	b=atimN2P3ElBUe2s9aDBAXsRYsfOWUFN037Epk+vi9rRmns8KeqR2Moxbik+S3rYRpzVJd0dbrkxGidR5fEfw31UZfwfSgQCPPvz0s1Pnf/rW2GKdpPsM5/c67cuXr6CBOQW83/rYUP/oafn7idxXZR3L2cv0sg3Ue5KaJNgKgcw=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
 	dkim=pass  header.i=collabora.com;
 	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
 	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1763406768;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1763406774;
 	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
 	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
-	bh=S6LcICyBa/1soH/3gHBQS+INlICwkZAcXtWkwxSMBkQ=;
-	b=h5mnxMVbJ75hfO3GUG5awBD3Be9327Rs80GR6qflKO84rDj1lwNlCXDaTAZ4ONob
-	VW0NPofk659ym0BLJYpwmT8KgvT0AW4LVhJ0reojxBXIMAMQgXPF6E563Z5QKU2rI7a
-	bQNdXDAKNtDYqCUbpOtjZwgOrrD801Qvu/8ztvQg=
-Received: by mx.zohomail.com with SMTPS id 1763406765821183.3489410114414;
-	Mon, 17 Nov 2025 11:12:45 -0800 (PST)
+	bh=fW8y+pDMl5hGQ9sPnlF2Lcw6l0B/Y7yloEZ/f+aofb8=;
+	b=aFQazYmh1rjqCYqQKNQDGpp/GUX9ytk87Lg+5AUI9ZCFWg3tGwVR8lXHvSAW1gOj
+	mvPUzY+2qaGIkoy1MStW14joH1ys/4w6mHRNUip+lfAcuJ+k8OVIAbnZcSmwIm9NHYf
+	fueQjxe83tbqRUaUrVJixNJy4hv0lJS8nS6lnZ4A=
+Received: by mx.zohomail.com with SMTPS id 1763406772083636.4830146566981;
+	Mon, 17 Nov 2025 11:12:52 -0800 (PST)
 From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Date: Mon, 17 Nov 2025 20:11:48 +0100
-Subject: [PATCH v4 04/10] drm/bridge: Act on the DRM color format property
+Date: Mon, 17 Nov 2025 20:11:49 +0100
+Subject: [PATCH v4 05/10] drm/bridge: dw-hdmi-qp: Set bridge
+ supported_formats
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251117-color-format-v4-4-0ded72bd1b00@collabora.com>
+Message-Id: <20251117-color-format-v4-5-0ded72bd1b00@collabora.com>
 References: <20251117-color-format-v4-0-0ded72bd1b00@collabora.com>
 In-Reply-To: <20251117-color-format-v4-0-0ded72bd1b00@collabora.com>
 To: Harry Wentland <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>, 
@@ -80,8 +81,8 @@ Cc: kernel@collabora.com, amd-gfx@lists.freedesktop.org,
  Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251117_111316_789790_00DCAE82 
-X-CRM114-Status: GOOD (  13.13  )
+X-CRM114-CacheID: sfid-20251117_111321_502499_7F4AC905 
+X-CRM114-Status: GOOD (  10.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,94 +97,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The new DRM color format property allows userspace to request a specific
-color format on a connector. In turn, this fills the connector state's
-color_format member to switch color formats.
+The drm_bridge "supported_formats" member stores a bitmask of supported
+HDMI output formats if the bridge is in fact an HDMI bridge.
 
-Make drm_bridges consider the color_format set in the connector state
-during the atomic bridge check. Specifically, reject any output bus
-formats that do not correspond to the requested color format.
+However, until now, the synopsys dw-hdmi-qp driver did not set this
+member in the bridge it creates.
+
+Set it based on the platform data's supported_formats member, and
+default to BIT(HDMI_COLORSPACE_RGB) if it's absent, which preserves the
+previous behaviour.
 
 Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 ---
- drivers/gpu/drm/drm_bridge.c | 57 ++++++++++++++++++++++++++++++++++++++++++++
- 1 file changed, 57 insertions(+)
+ drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-diff --git a/drivers/gpu/drm/drm_bridge.c b/drivers/gpu/drm/drm_bridge.c
-index 8f355df883d8..b7df5cbad832 100644
---- a/drivers/gpu/drm/drm_bridge.c
-+++ b/drivers/gpu/drm/drm_bridge.c
-@@ -1052,6 +1052,59 @@ static int select_bus_fmt_recursive(struct drm_bridge *first_bridge,
- 	return ret;
- }
- 
-+static bool __pure bus_format_is_color_fmt(u32 bus_fmt, enum drm_color_format fmt)
-+{
-+	if (bus_fmt == MEDIA_BUS_FMT_FIXED)
-+		return true;
-+
-+	switch (fmt) {
-+	case DRM_COLOR_FORMAT_NONE:
-+	case DRM_COLOR_FORMAT_AUTO:
-+		return true;
-+	case DRM_COLOR_FORMAT_RGB444:
-+		switch (bus_fmt) {
-+		case MEDIA_BUS_FMT_RGB888_1X24:
-+		case MEDIA_BUS_FMT_RGB101010_1X30:
-+		case MEDIA_BUS_FMT_RGB121212_1X36:
-+		case MEDIA_BUS_FMT_RGB161616_1X48:
-+			return true;
-+		default:
-+			return false;
-+		}
-+	case DRM_COLOR_FORMAT_YCBCR444:
-+		switch (bus_fmt) {
-+		case MEDIA_BUS_FMT_YUV8_1X24:
-+		case MEDIA_BUS_FMT_YUV10_1X30:
-+		case MEDIA_BUS_FMT_YUV12_1X36:
-+		case MEDIA_BUS_FMT_YUV16_1X48:
-+			return true;
-+		default:
-+			return false;
-+		}
-+	case DRM_COLOR_FORMAT_YCBCR422:
-+		switch (bus_fmt) {
-+		case MEDIA_BUS_FMT_UYVY8_1X16:
-+		case MEDIA_BUS_FMT_UYVY10_1X20:
-+		case MEDIA_BUS_FMT_UYVY12_1X24:
-+			return true;
-+		default:
-+			return false;
-+		}
-+	case DRM_COLOR_FORMAT_YCBCR420:
-+		switch (bus_fmt) {
-+		case MEDIA_BUS_FMT_UYYVYY8_0_5X24:
-+		case MEDIA_BUS_FMT_UYYVYY10_0_5X30:
-+		case MEDIA_BUS_FMT_UYYVYY12_0_5X36:
-+		case MEDIA_BUS_FMT_UYYVYY16_0_5X48:
-+			return true;
-+		default:
-+			return false;
-+		}
-+	}
-+
-+	return false;
-+}
-+
- /*
-  * This function is called by &drm_atomic_bridge_chain_check() just before
-  * calling &drm_bridge_funcs.atomic_check() on all elements of the chain.
-@@ -1137,6 +1190,10 @@ drm_atomic_bridge_chain_select_bus_fmts(struct drm_bridge *bridge,
+diff --git a/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c b/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
+index fe4c026280f0..cf888236bd65 100644
+--- a/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
++++ b/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
+@@ -1269,6 +1269,11 @@ struct dw_hdmi_qp *dw_hdmi_qp_bind(struct platform_device *pdev,
+ 		dev_warn(dev, "Set ref_clk_rate to vendor default\n");
  	}
  
- 	for (i = 0; i < num_out_bus_fmts; i++) {
-+		if (!bus_format_is_color_fmt(out_bus_fmts[i], conn_state->color_format)) {
-+			ret = -ENOTSUPP;
-+			continue;
-+		}
- 		ret = select_bus_fmt_recursive(bridge, last_bridge, crtc_state,
- 					       conn_state, out_bus_fmts[i]);
- 		if (ret != -ENOTSUPP)
++	if (plat_data->supported_formats)
++		hdmi->bridge.supported_formats = plat_data->supported_formats;
++	else
++		hdmi->bridge.supported_formats = BIT(HDMI_COLORSPACE_RGB);
++
+ 	dw_hdmi_qp_init_hw(hdmi);
+ 
+ 	ret = devm_request_threaded_irq(dev, plat_data->main_irq,
 
 -- 
 2.51.2
