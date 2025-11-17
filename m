@@ -4,107 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2952ECEACEF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 16:35:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DBA0CE8D6B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 16:48:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YNVxHgEignw0rdNNAyxd1EhtIF5KPoYz+FgIgcJ0ztA=; b=4pwTLb1GcetCo2zbm4lhGq8XQG
-	+dY88EoqSWoX+74hfJzk6E7Zm7UHP72m6sfD2bETXjB2FI9mmVl6qdqQQu7BB4DuA/N1VU+RNPFLy
-	yfrZwImajLVeQP7OxXAYHO4jHUz+0aEO9dVK0XXmc0SavAkxKTxZI9MMf1cfws/Xv8DCme45i9k5M
-	Q+ME+v4goK0RFvhjxRXDLnFqrpbgS/amRqCEEGwl6DWtpbpqaVvfHiUT8jI0IU/+/WkOdO7tFIbw2
-	UorYU4+MLhyNW7q8nIx9Q7DpZAXovV3qwCHGIbIqqimXXWRwdD9LV9cjyXhDKyv+6B3DWbAZZHvcB
-	IusRjZRQ==;
+	bh=vIkYMJgRGW1JPeB/kOo/OLCi0kmAJSDUfWo25iuY2Iw=; b=jAvBtzAgGL3k3nKtWG4hk2PlYu
+	gTpEsjPKamxKl1VL0KVm9bMkMSVoOV4cbqEnSneGdGtHML6E5FTBFb5vmnQEWc7lt0uqvJCa3ztA4
+	uHrCmPP5PuSN0wu/c3s2D0G5NAIincI9xbgxLRw6BiJ+p9pceydjzdTMH4cRJoeLUC9up8Uk1w+CP
+	dum1ppu0W3v/9VVRulz6/zwsTQzleTzXJQWQ2K2Yf0oyoP98aZJsEUDUDoSRg8ecs9fSRfby4dHmQ
+	S18T4ik0GXeeo126Sp4ky7sSuHzYQG6mlXJRRWl8MaiCIZqBxuVChzAyfzKNjUNaRuKeFFIJ4S4wk
+	hBuqtH6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vL2Cc-0000000GPMe-3s6H;
-	Mon, 17 Nov 2025 16:35:42 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vL2OO-0000000GQBY-3IPn;
+	Mon, 17 Nov 2025 16:47:52 +0000
+Received: from fhigh-a7-smtp.messagingengine.com ([103.168.172.158])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vL2Cc-0000000GPM5-0sDz
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 17 Nov 2025 16:35:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=YNVxHgEignw0rdNNAyxd1EhtIF5KPoYz+FgIgcJ0ztA=; b=MuI+8vDjHO3QSfOXCvnKA2GWmX
-	5vQCh3baNd6Uq5gADosA+4ACH5ztJXng81wXIKjjdF/ZA3/my3ew4T4Luc2OZ9yZjsZq5hk4uM4eP
-	Rg5ZeypaeZGcfPsDkvbF0en05bgDLrfRpRbBFwoxnv8V1/WNYasxTcZaVIsEeRD9cbLPBOJLqgKm4
-	pPHigZp3BI/LPc3dt82yvNLFxDd26LMb1UrVmXBE7CWMxvicL6WE7LWkQZv7jhNNkKsWDahcYVZVp
-	6OHWScc7ZkEA/ubShdNN+PX6EPCIaXNbUKlWnUodDitCm0P7HF9aclIHOxhW5EzITdnpV6SNsNw5r
-	sRJVje0Q==;
-Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vL1Kv-00000007fPl-1Euq
+	id 1vL2OL-0000000GQAz-4Afw
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Nov 2025 15:40:15 +0000
-Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-42bb288c219so1716104f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Nov 2025 08:35:38 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tuxon.dev; s=google; t=1763397337; x=1764002137; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=YNVxHgEignw0rdNNAyxd1EhtIF5KPoYz+FgIgcJ0ztA=;
-        b=JjDrEw8VeM0lf19FBpLrvvxSGp3CQY4t6RxBT0styelIIu5S4FgAWgeo+AuYbLa0x4
-         3fQiMp/mqrz03JcwW0NBnyMK0jYsLtQVdmIqWvv7uwvE0QxbOQHNNPfzgNCybwTf+X2u
-         sutJQ4WKZIMnHi5zPLx3SCX4TrUiqgei48l1+q/oCb2qJsk7wtVnsYA83h4uNBmdO7eJ
-         Ifth5mtO9YoZto7pxjuBSnkwq2FEZzkgRo+oRorNWo3/A4MdnPYF8ztdcfYM5KkLwywG
-         6KKyFo0Q06pA+wjrkewg5h98E8lR0hLWIjaChb0jhXES+knS5MbKwou7guowkRPo5kmB
-         LfOw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763397337; x=1764002137;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=YNVxHgEignw0rdNNAyxd1EhtIF5KPoYz+FgIgcJ0ztA=;
-        b=cQf9B5Mz++tWpuPjQvznLg5FBactfAwEr5Hb71IRUbyI+rYxd7hm/f63gVHiLPQGbi
-         Sbu0W6kcOjqOlloGaw8OfrswijmLYRvuXkXyFAM6CPK73CcSSip7Uzmf8iLzYEBhW636
-         ILGcYHPdIEotM6bwmrWcSCU/OIW2I3RVpsrxrXm6gCl15pCGMhybWuqhSCEOPQYw+VrJ
-         fh+0aohPY01esPZbl/DfWfpXmaEt3n3NN10IPKg3Jic8vsMsHC9ptSLPpgTaiwxk2y57
-         rkXiQGg/4JiT5UpjTktzTZowPgchV50IOLR5VHkkSRWx2zP3XHzh3SvvEVzsU0Dct/DH
-         /dkQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUko60zLKcpjSzq9fFA325K0w5oqGEISCuS+YAWDbutLzW4FdhHsAferjrPC8ci+CRZu10sepPxVbUY3pA5yULh@lists.infradead.org
-X-Gm-Message-State: AOJu0YxK1C4VPnk7sWjOCe1QSmPLXroOeqTwAt6Mo9BD8vpM4gt8WaO9
-	PbxXEDd1z/mX73MRGJzyd0HMzzYbS2aeO5LovhnanlfJuDtaFLDs7iAJ69F3Qps+rR5aNIDVoDy
-	8NtfqU2o=
-X-Gm-Gg: ASbGncvvJyQ+aIRGvJqkZlanoDGJnBXVN4aJJXNjSBADJEMSIam7plCe4pLPmauT4iH
-	E70qnrkGW78LpHCx+PHrNTfwmqxZkxsAt2Yt2NXsSqOOijmTGxdZTey4aXdacACrZMaMahCUeRR
-	e6yEkTSfXnxAbNuHTPTX6G1HcKTe8+gwQIgHsbOohBch5McJTzgtTbHIKdJSfK5T34Ow0CuGOSU
-	TrY5kweLnuc3EERWdwaSeUjx8SXdouvfmEYgO6Pjd4ffDZlZRLrKFlkxsLIwSksdquiGEa66Uvq
-	LKIVjQK9HPmDFYYtAPrB+r31Ps0ODLuJE9FhX0WNZDFixslP7mJ2PVRRZf89zPp17/djNJ1KDMp
-	3ojj3Xz1aVPPP7rKr/GWDbbiAbkDf8puL5A5+Xlflk4fVw4LkuD+QB+g7g8C7Ev5BawAjtU1BNs
-	Au1e6wZIcPMT1s6kW5Jrk=
-X-Google-Smtp-Source: AGHT+IF3/goP6VZz6KB9mB4A+moE0SqG2R//vWIM4SpwtPFRE2NyqXDCVpSYWlzEa695N/dGCGaNYQ==
-X-Received: by 2002:a05:6000:616:b0:42b:483f:da8b with SMTP id ffacd0b85a97d-42b5934b2c8mr13569533f8f.25.1763397336928;
-        Mon, 17 Nov 2025 08:35:36 -0800 (PST)
-Received: from claudiu-X670E-Pro-RS.. ([82.78.167.134])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42b53f1fd50sm26904384f8f.38.2025.11.17.08.35.35
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 17 Nov 2025 08:35:36 -0800 (PST)
-From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
-To: soc@kernel.org,
-	arm@kernel.org
-Cc: nicolas.ferre@microchip.com,
-	alexandre.belloni@bootlin.com,
-	claudiu.beznea@tuxon.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: [GIT PULL] Microchip AT91 device tree updates for v6.19
-Date: Mon, 17 Nov 2025 18:35:33 +0200
-Message-ID: <20251117163533.209608-2-claudiu.beznea@tuxon.dev>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20251117163533.209608-1-claudiu.beznea@tuxon.dev>
-References: <20251117163533.209608-1-claudiu.beznea@tuxon.dev>
+	Mon, 17 Nov 2025 16:47:51 +0000
+Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
+	by mailfhigh.phl.internal (Postfix) with ESMTP id 1C12514001BA;
+	Mon, 17 Nov 2025 11:47:48 -0500 (EST)
+Received: from phl-imap-02 ([10.202.2.81])
+  by phl-compute-04.internal (MEProxy); Mon, 17 Nov 2025 11:47:48 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm2; t=1763398068;
+	 x=1763484468; bh=vIkYMJgRGW1JPeB/kOo/OLCi0kmAJSDUfWo25iuY2Iw=; b=
+	HM8h5RPx03UmtcjuvC/ESKwsWMN9/RwppelGNftAqykf6HTT/bI+BVGsJVDo2y5X
+	Mb4ylOzPKgdG9KLXJUv7/JWvdUpsSf7KNtreJCEuMY7a6gO1+kWdWhHWdATa7xZR
+	FyDeoLV2GbPSBJRdTU7DZ7ksHuVa8TJ+kdrfaWj3Zi5YtIfytsoFQxYSq7VuoY7l
+	G2E3ry3XOE3WNNKtoQnBas1syGdgKmRDTt1jsVuI3cVk6zhSpzSm36pqIqhsOsFh
+	2XTbSkDLKeJJBMlt2vfk2J0gDDlyYDvvRBK82Q+9ed5JS4bBdlYMn7DIb71c44je
+	JYZAxxmRsUjs4Gq7RP+rJQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1763398068; x=
+	1763484468; bh=vIkYMJgRGW1JPeB/kOo/OLCi0kmAJSDUfWo25iuY2Iw=; b=u
+	JBxfwBA7qo6ixAf5ceZ8gSW8TN5aVKZjMJIGf+ycGs4xvt3YIpjqBhnUEG0EiKPI
+	xeAP/gtSSv5R3lkeyFM1gaGAR+hq3dMmVk8EcGtX6FT9IGKxgDaCZH2hZYdPnsyj
+	nCzaHnX2Q4J/PkCjcAbu+HXkTpP0iLDa0bQ02fZJaG78XIfYPaVHci+CRBdz09S0
+	/p9O8wds1dZ8GYMyCJoqWO6cu/7/YKGRTJO0f59G+Y9q0t3dgOA8m1V6QMN9rSZ5
+	gsD5LBhtpOGZ9Hbadp7aNnr5FsXL7TOMLMRNs56FqYutpoM7dhK9ajpVsL27T/dZ
+	bHHwtarTLAJA3IqEFpL4Q==
+X-ME-Sender: <xms:s1EbaUPgEDzANVlWf-ZHyA0q62mUXOa58dvWBkWaXl9k2Oy_t2gBBQ>
+    <xme:s1EbaVyC_m8odYIM5JtgxIpHBO2zi9rwIn7nn7OApcxghFS9ZjJNydPuQW3c4zmFP
+    _YwtvBBFYsG1UPxCYF6l9q6pyuWmW1rWPoyaIDzer366widYNdaoJg>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdeggddvudekleejucetufdoteggodetrf
+    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
+    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
+    gurhepofggfffhvfevkfgjfhfutgfgsehtjeertdertddtnecuhfhrohhmpedftehrnhgu
+    uceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrthhtvg
+    hrnhephfdthfdvtdefhedukeetgefggffhjeeggeetfefggfevudegudevledvkefhvdei
+    necuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprghrnh
+    gusegrrhhnuggsrdguvgdpnhgspghrtghpthhtohepuddtpdhmohguvgepshhmthhpohhu
+    thdprhgtphhtthhopegtrghtrghlihhnrdhmrghrihhnrghssegrrhhmrdgtohhmpdhrtg
+    hpthhtohepjhgvrhgvmhihrdhlihhnthhonhesrghrmhdrtghomhdprhgtphhtthhopehm
+    rghrkhdrrhhuthhlrghnugesrghrmhdrtghomhdprhgtphhtthhopehrhigrnhdrrhhosg
+    gvrhhtshesrghrmhdrtghomhdprhgtphhtthhopegrrhgusgeskhgvrhhnvghlrdhorhhg
+    pdhrtghpthhtohepkhgvvghssehkvghrnhgvlhdrohhrghdprhgtphhtthhopeifihhllh
+    eskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvghl
+    sehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtoheplhhinhhugidqkh
+    gvrhhnvghlsehvghgvrhdrkhgvrhhnvghlrdhorhhg
+X-ME-Proxy: <xmx:s1EbadZDx65v0mmmgkWeR7ok3ap2FoNRwy3KE3QcDA2YePt5YktR2Q>
+    <xmx:s1EbaaadFGjO6-C3VXjLXeWmAPlsrIxN7nlFjMx9ClxsA9k_K5wa0A>
+    <xmx:s1EbaaysMrNyT5TqJZToRfVL0KFsIRQcC-s-nwkFdvWfaTV_Yd6Flw>
+    <xmx:s1EbaecduOxZOwWBh2ayJ79pUz_QKcMBGv1VkHBueBor8wUlwPYFFw>
+    <xmx:tFEbad2fhg3pRDeaLIuFCUUjflUjShRkjAy0UxTLqXonmsQ2Yv0uAyQH>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id A37CC700054; Mon, 17 Nov 2025 11:47:47 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-ThreadId: A5NgtTiaP10B
+Date: Mon, 17 Nov 2025 17:47:05 +0100
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Ryan Roberts" <ryan.roberts@arm.com>, "Kees Cook" <kees@kernel.org>,
+ "Ard Biesheuvel" <ardb@kernel.org>, "Jeremy Linton" <jeremy.linton@arm.com>,
+ "Will Deacon" <will@kernel.org>, "Catalin Marinas" <Catalin.Marinas@arm.com>,
+ "Mark Rutland" <mark.rutland@arm.com>
+Cc: "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+ "Linux Kernel Mailing List" <linux-kernel@vger.kernel.org>,
+ "Jason A. Donenfeld" <Jason@zx2c4.com>
+Message-Id: <dd5b4423-0954-44d5-99a5-0052b62c55af@app.fastmail.com>
+In-Reply-To: <dd8c37bc-795f-4c7a-9086-69e584d8ab24@arm.com>
+References: <66c4e2a0-c7fb-46c2-acce-8a040a71cd8e@arm.com>
+ <dd8c37bc-795f-4c7a-9086-69e584d8ab24@arm.com>
+Subject: Re: [DISCUSSION] kstack offset randomization: bugs and performance
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251117_154013_494484_D6CBD8C1 
-X-CRM114-Status: UNSURE (   8.45  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251117_084750_539779_7C3D771D 
+X-CRM114-Status: GOOD (  16.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,32 +119,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The following changes since commit 3a8660878839faadb4f1a6dd72c3179c1df56787:
+On Mon, Nov 17, 2025, at 12:31, Ryan Roberts wrote:
+> On 17/11/2025 11:30, Ryan Roberts wrote:
+>> Hi All,
+>> 
+>> Over the last few years we had a few complaints that syscall performance on
+>> arm64 is slower than x86. Most recently, it was observed that a certain Java
+>> benchmark that does a lot of fstat and lseek is spending ~10% of it's time in
+>> get_random_u16(). Cue a bit of digging, which led me to [1] and also to some new
+>> ideas about how performance could be improved.
 
-  Linux 6.18-rc1 (2025-10-12 13:42:36 -0700)
 
-are available in the Git repository at:
+>> I believe this helps the mean latency significantly without sacrificing any
+>> strength. But it doesn't reduce the tail latency because we still have to call
+>> into the crng eventually.
+>> 
+>> So here's another idea: Could we use siphash to generate some random bits? We
+>> would generate the secret key at boot using the crng. Then generate a 64 bit
+>> siphash of (cntvct_el0 ^ tweak) (where tweak increments every time we generate a
+>> new hash). As long as the key remains secret, the hash is unpredictable.
+>> (perhaps we don't even need the timer value). For every hash we get 64 bits, so
+>> that would last for 10 syscalls at 6 bits per call. So we would still have to
+>> call siphash every 10 syscalls, so there would still be a tail, but from my
+>> experiements, it's much less than the crng:
 
-  https://git.kernel.org/pub/scm/linux/kernel/git/at91/linux.git tags/at91-dt-6.19
+IIRC, Jason argued against creating another type of prng inside of the
+kernel for a special purpose. 
 
-for you to fetch changes up to 7d5864dc5d5ea6a35983dd05295fb17f2f2f44ce:
+As I understand, the other architectures already just use the cycle counter
+because that is random enough, but for arm64 the cntvct runs on an
+unspecified frequency that is often too low.
 
-  ARM: dts: microchip: sama5d2: fix spi flexcom fifo size to 32 (2025-11-15 15:53:56 +0200)
+However, most future machines are ARMv9.1 or higher and require a 1GHz
+timer frequency. I also checked Graviton-3 (Neoverse-V1, ARMv8.4), which
+is running its timer at 1.05GHz.
 
-----------------------------------------------------------------
-Microchip AT91 device tree updates for v6.19
+My M2 Mac is running at a slower 24MHz timer. Between two getpid()
+syscalls, I see cntvct_el0 advance between 20 and 70 cycles, which
+still gives a few bits of entropy but not the six bits we actually
+want to use.
 
-This update includes:
-- FIFO size fixes for some Flexcom UARTs and SPIs
+How about we just check the timer frequency at boot and patch out the
+get_random_u16 call for a cntvct read if it gets updated fast enough?
+That would at least take care of the overhead on most new designs and
+hopefully on a large subset of the servers that are in active use.
 
-----------------------------------------------------------------
-Nicolas Ferre (3):
-      ARM: dts: microchip: sama7d65: fix uart fifo size to 32
-      ARM: dts: microchip: sama7g5: fix uart fifo size to 32
-      ARM: dts: microchip: sama5d2: fix spi flexcom fifo size to 32
-
- arch/arm/boot/dts/microchip/sama5d2.dtsi  | 10 +++++-----
- arch/arm/boot/dts/microchip/sama7d65.dtsi |  6 +++---
- arch/arm/boot/dts/microchip/sama7g5.dtsi  |  4 ++--
- 3 files changed, 10 insertions(+), 10 deletions(-)
+      Arnd
 
