@@ -4,63 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88602CEACEF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 08:05:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7FC3CEACEF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 08:12:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kE9STIm8KUZQX12/DufbuUnxZERm/BljT5dIO0DUYHY=; b=oP56q7eElpUBnRvjlDzBzr8hyX
-	2UaDwGwEZtkpk98k/W9Let0KNDy/YAUfiXL9ahw18CpifnHkKJZ9GC6enGtNaeY0rzZa0VUm16tOn
-	NkV4I+ZjTQfu2BdcVl1M2mk58NtSyN581JKKDrUCjQDQa8uopejeDph1QCVcofm7Bjg2jgTKxMjsV
-	5qWO7neX8yy0WyIlhzNRdq2peMCH4nDzdkdKAw20xdvdXCo/FHuPZd+FHWmu+kwzZKhq5oakiCAJ2
-	td+BMpFHLQ94BiW70ju+F9z4ykWKKUhxyHlEyD0OlWOuCM6Au9GrL85ElBtPRswsvc8Q0GZsei/iQ
-	Q5dkan4w==;
+	bh=2bDYLyxefIAgKxrJNARxxGvbDosLQ3gHMkGDOSNcCak=; b=PM5iPgsW0RmsWTzH/yHmINSKUZ
+	wSpM1r5ODTb99l6Ip1K4h2dvSOqDKUmiaJLUtIk6OWTSbyHXkt+xgTVuPo7j49vVDzhcVHDGON6Do
+	9Gki8tW5NLOZ9+Yb3AvaBaGOofTkGWADyKEZ5uYL8CSHWLNfm2SWMppRmCwqUAta4Q1OlHYxdPUei
+	H/oYh2D6aLPdp9jVXLd9LftFB8nKM81WzROQ2eh+Y4/Q/hQWZ3PLFTM/YUkgORr5aNPdZafOm4M/D
+	tb5Ii59j2ipY/bh6Ecj85OVqBQut0Cx0L0fVeevKDGXweJCwf8qby/jvn0t86HpH/f6DGRjfP2f07
+	zrwnB/gA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKuEN-0000000FeyU-35RI;
-	Mon, 17 Nov 2025 08:04:59 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vKuLA-0000000FfZ7-3Qg2;
+	Mon, 17 Nov 2025 08:12:00 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKuEL-0000000Fey1-1DfB
+	id 1vKuLA-0000000FfYn-1Gwi
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Nov 2025 08:04:58 +0000
+	Mon, 17 Nov 2025 08:12:00 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A5090409D6;
-	Mon, 17 Nov 2025 08:04:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E26E7C4CEF5;
-	Mon, 17 Nov 2025 08:04:53 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id AAB03601AD;
+	Mon, 17 Nov 2025 08:11:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0B75BC4CEFB;
+	Mon, 17 Nov 2025 08:11:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763366696;
-	bh=s19wSxnPT+YygSkYrSYJjkga6Fjh4a1QLyBns/OjMYE=;
+	s=k20201202; t=1763367119;
+	bh=QMolonPvm96jL6+i1Kcb1a/cDsrx5r/l/mv6KCVHyq8=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=mtrIrhLlbEtiR4G69n/BSz0mQ83awCZefY5rG7qokcJlrTl6z/puFes56c/r/8Wpz
-	 wwljrAAb6Ul3jV6WovvqR5Nw0lbjF1KDf+qcglENxYD8HSaTb49f/8JPq37L1jkbfE
-	 AgIpKDZNyhQv1N0mbzfsChkOaNZniRKtjhyNWrrORBlskYkDe6w/vrhEvzHFHgNzbV
-	 /0CY7Sy/6sRNCz8x7t8VLNBpMZYZYlChXlfRBRpcQ3gJvKpXPGQnt7MrORa6Hhvsj/
-	 LxDhg7m4yT0gmCBN02IwK6GRG47Z3ZbSjANYvnXIKYwRK3KH8Y5/kVDDFrslTFtIYz
-	 SKu64ZSYhBSrg==
-Message-ID: <7e498feb-15a2-4688-acfb-15021026f5c0@kernel.org>
-Date: Mon, 17 Nov 2025 09:04:52 +0100
+	b=p9uV+LUQ1stpek2GpVe8cnFcKFunP/M008q/76VUL53JuDB2RydnD0yIlU8VQdDod
+	 ziycqKEbmP46rDF5MClHt+JWb0ANjP8tDM4us4oTuktpneCWaRXrxonXXCR8yfVqJI
+	 kVKPiqBHf4k6HJWQaVUKW7rgtr+uCtAuk81u21cJCs1m7Cz9KeIg79ZXjknZRIePTx
+	 qaTsBive77MvEB7yVwH3Kuu5bGQyxBhiNzaJjXnU9lUKklIgiVYP9fC1tybULnLvPM
+	 JrNRh/TAk2XurkTq+j19kPn+YmCKEZARZp1wUORNJzaYy4yBCC/mIedggTC1ZQ3j0v
+	 qhaJuXN9a7ogA==
+Message-ID: <3ddf1b76-8376-4d56-837f-c9b06d04af94@kernel.org>
+Date: Mon, 17 Nov 2025 09:11:53 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: defconfig: Fix V3D deferred probe timeout
-To: Mark Brown <broonie@kernel.org>,
- Florian Fainelli <florian.fainelli@broadcom.com>
-Cc: Stefan Wahren <wahrenst@gmx.net>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- bcm-kernel-feedback-list@broadcom.com, kernel-dev@igalia.com,
- Ulf Hansson <ulf.hansson@linaro.org>,
- Marek Szyprowski <m.szyprowski@samsung.com>,
- linux-arm-kernel@lists.infradead.org, Arnd Bergmann <arnd@arndb.de>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>
-References: <20251104174518.11783-1-wahrenst@gmx.net>
- <cbb49407-5b66-409d-8a0b-260e50932156@gmx.net>
- <aRnXMzuxPXfmRf30@sirena.co.uk>
- <a56e3318-b29f-438c-9da3-556555d633d8@broadcom.com>
- <aRoQa80RE_3yAoTI@sirena.co.uk>
+Subject: Re: [PATCH] arm64: dts: exynos: gs101-pixel: add all S2MPG1x
+ regulators
+To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
+ Peter Griffin <peter.griffin@linaro.org>,
+ Tudor Ambarus <tudor.ambarus@linaro.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>
+Cc: Will McVicker <willmcvicker@google.com>, Juan Yescas
+ <jyescas@google.com>, Douglas Anderson <dianders@chromium.org>,
+ kernel-team@android.com, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20251113-s2mpg1x-regulators-dts-v1-1-80a70ef42be1@linaro.org>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -106,12 +104,9 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <aRoQa80RE_3yAoTI@sirena.co.uk>
+In-Reply-To: <20251113-s2mpg1x-regulators-dts-v1-1-80a70ef42be1@linaro.org>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251117_000457_376823_41F9B49E 
-X-CRM114-Status: GOOD (  14.45  )
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,28 +121,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 16/11/2025 18:56, Mark Brown wrote:
-> On Sun, Nov 16, 2025 at 09:14:39AM -0800, Florian Fainelli wrote:
->> On 11/16/2025 5:52 AM, Mark Brown wrote:
-> 
->>> Yes, it seems to work.  Given that this patch was applied I had been
->>> expecting it to show up in -next but that doesn't seem to be the case?
-> 
->> It was applied on Nov 14th:
-> 
->> https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git/commit/?id=020e792ca39b
-> 
-> Ah, that's the pull request you sent with it in getting pulled in to the
-> main SoC tree.  I was expecting your tree to be in -next directly as
-> well (a lot of individual SoC trees are) so when you applied it on the
+On 13/11/2025 14:31, André Draszik wrote:
+> +			ldo12m {
+> +				regulator-name = "vdd_cpucl0_m";
+> +				regulator-min-microvolt = <700000>;
+> +				regulator-max-microvolt = <1300000>;
+> +				regulator-ramp-delay = <6250>;
+> +				regulator-always-on;
+> +				samsung,ext-control = <S2MPG10_EXTCTRL_PWREN>;
+> +			};
+> +
+> +			ldo13m {
+> +				regulator-name = "vdd_tpu_m";
+> +				regulator-min-microvolt = <450000>;
+> +				regulator-max-microvolt = <950000>;
+> +				regulator-ramp-delay = <12500>;
+> +				regulator-always-on;
+> +				samsung,ext-control = <S2MPG10_EXTCTRL_TPU_EN>;
+> +			};
 
-And every individual maintainer's SoC tree should be there... There is
-an exception for media because their upstream does not pull from
-sub-maintainers but rebases, which would lead to duplicated commits, but
-that not the case for SoC tree.
+Please add here brief comment that ldo14m is to be defined per-board.
+Same for all other cases which are missing from common DTSI.
 
-> 4th it'd start appearing.
+> +
+> +			ldo15m {
+> +				regulator-name = "vdd_slc_m";
+> +				regulator-min-microvolt = <450000>;
+> +				regulator-max-microvolt = <950000>;
+> +				regulator-ramp-delay = <12500>;
+> +				regulator-always-on;
+> +			};
+> +
+> +			ldo16m {
+> +				regulator-name = "vdd085_pcie0";
+> +				regulator-min-microvolt = <725000>;
+> +				regulator-max-microvolt = <1300000>;
+> +			};
+> +
 
+...
+
+> ---
+> base-commit: edf57d8dafc63f9298a209e518ea6a2e0df78ed0
+> change-id: 20250603-s2mpg1x-regulators-dts-aea4bde3dff9
+> prerequisite-change-id: 20250603-s2mpg1x-regulators-7a41c8399abf:v4
+> prerequisite-patch-id: 9d4a1e0afe6eb45dcd35a9537b7d5b4e35e801c3
+> prerequisite-patch-id: 928fd84e5f6207a2fd98dd8372a91df0776ecfde
+> prerequisite-patch-id: b87abb6b9a8fc104f0f752bca0e9347d17de72e0
+> prerequisite-patch-id: e053834e5bec411f5c512b63a3528e49aad11ee2
+> prerequisite-patch-id: 4fdd195c0b3fea537144ac8d82bb40a38cbde117
+> prerequisite-patch-id: cc716fef97d6c25c0589d7269b8f34e04ea96216
+> prerequisite-patch-id: 20ff503abaf2fcaef4328e1f8009ed3df242bad3
+> prerequisite-patch-id: a0d80e8f49401dd79a7e4dda2517e00228aa3087
+> prerequisite-patch-id: 2368af876ec7c643d9765d3fb1e9bc4991023a18
+> prerequisite-patch-id: b70d5648790458e72db82e26b180bbd7301469b3
+> prerequisite-patch-id: 92be1aa6f95b2a5795df84e11a602e97a41b2938
+> prerequisite-patch-id: 86625bb109da618cbb8aef07fa717257918077b8
+> prerequisite-patch-id: 2016c6cd5e0d51daddada37232e3b99c8f4ad77b
+> prerequisite-patch-id: d323362e84d3991bd949745579aec34897620321
+> prerequisite-patch-id: b1571de42ac7dcf0fe8ddb77650a656244ff751b
+> prerequisite-patch-id: 44ea2393bc4df716427cbac9b7f080a683ba1c0b
+> prerequisite-patch-id: c968c5b557897767bfc2629de79b1ede8ab48767
+> prerequisite-patch-id: 221800199a94e12e928dc9606c82b6eb33cffa3a
+> prerequisite-patch-id: c76d8055f620e0b5fa81101a31db08fd5a60e773
+> prerequisite-patch-id: be0027a934451be02b1c4653bac8b6bc2ae2bd85
+
+This would block this from merging, so then please add RFC prefix. But
+probably these are not actual dependencies, so they should not be here.
 
 Best regards,
 Krzysztof
