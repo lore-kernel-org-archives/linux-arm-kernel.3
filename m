@@ -4,154 +4,168 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB089CEE343
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 17:57:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31E4CCEE347
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 17:57:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MGfq3+o76gasNqjhRUD5fDSxtMn7/maZ/Vlsn3dafG4=; b=M70n83O/f9aM/BxJwwrbZZ3vJ3
-	kSkgbSHzvfg3VSMV00qwR901JI25UNpULpANdW85IGthwViWVEqMYLTPSWyWa2MjPA8tm6S5YiEjz
-	MBULFuZAaCwJTjMPGn2hhuiMl8CUpOc7sjmnLim+Kb8iUoM3R7/CEEA0j8HQw3jH97rd623tabhYg
-	2B1Ip5BR2nojzV5PnXNSyQP5RVk09TF8G5s+CTOn+N7mXuhhF+1+E/HkjTQvrZkMxYP6OP1qcXy7Y
-	tCEH66MZlfwsDWvujeL/PjMiG8sfkK0A1MuGqR/nGJwYqmHK9WJ5+3cGKQfpwuH+GeTBXL8Pt9B7x
-	hlviC4kw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9vQuHJaX7BJA2GP0FQnoozugrBhvrlZmEYk1lf/MCXk=; b=EAVmyscZimC4OUHwdPbB57AHDL
+	SjAeQeeN6/JBeY1D5a6MWhzDo7kH4o90GMluKlJRd1LqL638puCKkVNkUjL1ewu28cT6m+yhSoKqL
+	XmNsOTnCmMxp5M5WH1f+mm9ICbXIZjjRyJ/EoZnCSgnpPjdF7ScfRTp9jKvbCjzev8SK1BnE5mTfN
+	Aqb0+LuB2/LAQJ7d6T5UiDahmjgLBg1Oma34ToYheCI3aZmIzrp+OKAYRDY5emgYelKY1kphS+LBK
+	QSkb4ISlKMjddL7KNoxXEgKKUdO/uXe3bYUxyvLHcqdDbsxnyFm2qbPfQrRcM3ngqYGM7dHqndioC
+	YYx9kEjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLPwf-00000000ta2-2p5c;
-	Tue, 18 Nov 2025 17:56:49 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1vLPwx-00000000tcJ-469J;
+	Tue, 18 Nov 2025 17:57:07 +0000
+Received: from mail-northeuropeazon11012032.outbound.protection.outlook.com ([52.101.66.32] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLPwe-00000000tZf-0VCo
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Nov 2025 17:56:49 +0000
-Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5AIG4NEB2249858
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Nov 2025 17:56:47 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	MGfq3+o76gasNqjhRUD5fDSxtMn7/maZ/Vlsn3dafG4=; b=VwmT8sKIt895LNEz
-	nwSV2POpOiQMw4EJCsVpK5GouVyWWNQZJ1P6cik/hjPgO4GxpurwtjD7LuUnMYb/
-	bPWDsi/sXEfi4S4XbTcgu0LrBRo0GYJXljXPaMAy1HqQy46w+FmJZM3bHqzPC1hc
-	GkpMr/ezsxZFq8ynz9hbFSU5g5Nh45FC4OBrq+/RBzt2KRz14Obd/pVyhaBNphZB
-	R2BBcweU7do7EBFhZTez5gotoEl5BwAluHE2aRi/TUC6HiKkB0RO314WJ2lZZB/K
-	cSGPE71k5SWTGHiMbjNPHDdNRjI9/XXy8OccCbSEnVG8YXLYT6lTMfst37Ml9csq
-	d1XdFg==
-Received: from mail-pl1-f197.google.com (mail-pl1-f197.google.com [209.85.214.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4agnc5hp1w-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Nov 2025 17:56:47 +0000 (GMT)
-Received: by mail-pl1-f197.google.com with SMTP id d9443c01a7336-297dabf9fd0so75134405ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Nov 2025 09:56:47 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1763488607; x=1764093407; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=MGfq3+o76gasNqjhRUD5fDSxtMn7/maZ/Vlsn3dafG4=;
-        b=ExVOE7AyBoie7DGvFJMvDK8so5pA17hdzyV5du+vdZvFvAimu9ioVeZC8K0+ZqYv6e
-         TFSlwrnxAB2ncq/UYiCgRa+1Wr2M/8inLXLfuJoqDxwY1eYjbLAtr1O2K3seu0Kq51Lf
-         WBPaJL4qF7mAChW38ZrWBxeF227et9fUhssJyC2hWMH+dhfAmqlCvjNniHsiJQizBZiP
-         KizJ31SFIBDOjFy+vvR4wVcp1BqVFMsods721Nh4tbzEh8EOdHrE2dzAgHBQm6Vb3m6v
-         WQMT7Gm1bQgq/anG5CLfdu4I7W4ExMT0YxWxHXWrDwUrVYakE2XT9x1JeQ4G2wcvFxRe
-         3BUQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763488607; x=1764093407;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=MGfq3+o76gasNqjhRUD5fDSxtMn7/maZ/Vlsn3dafG4=;
-        b=AWTkax21NSbjvL6J5pbIiTffBQ31a5nv6i7nrpht0Bk1JCP1Vq1b0mgByFrwFqHe6I
-         uHKcKJXHSoND7QVLGkPCWtknxmh+Iw+1n44i83/h6vGdF3x6krlEmYJPaRdIFnmIwDOX
-         Uqxvl+kVTcsVxBeUsBEXN5e3VYuFkrB+mh2nYitmwCOty2E3YxHwuLK5Wd5RqDPPBWcj
-         fcI89/lGy1nQIUxDhmTqQ5NiSngaTAKWd6iL2lccQKiDh28/zinBv1wP3du3rSczJjt8
-         PsOC6LzzKJI186SZQNM615gmC0bZodS8sp5BJKNJXX9/P5rFx3Hf6eX1bDbvjY4fCclA
-         dF4g==
-X-Forwarded-Encrypted: i=1; AJvYcCUVY9SawsesNq68mEtcEi8wMjNALuQMnTfAfMpVr8C6S3ROFj7qvkJrq3wL9yvEBoZqXJJGZSAfbjgGDOemtTov@lists.infradead.org
-X-Gm-Message-State: AOJu0YxPlg56JE+A3p2b3p5FEEIHXybiB0fUQB2X/6TkljXeohR48oAg
-	Cm6+eZrmj2tQc6OcBj7aIqKsy1+M9qZi4jY36AUDG+f+wuJAuwNQ3D/BgnQIXG48z/2SRKekt4L
-	rZmafBd3uQp+diIrqJMhaT4L08vxHU0vvuzpdHXc5knHy7CTwGKlSjfln0IwxiqzFb/Gyvcd4XA
-	L1jw==
-X-Gm-Gg: ASbGncsfUFNsllacc4cshCunpMhwRnks4m7lrLZVEPbh9rL4GaPWjI6tuI+82lnksKe
-	bQ86+k+y/GrHP8a4GMe5D6Y3+sTstk1lbXLJhMUq4uXK3PyNNimmD3SMW3r/Xi83T2BmsNCssCb
-	J/Qd4rzZklpP33hLJjWb+KqMPY7eZeaTl4o1i/iVnLqmHqcLLF/DSPRy8q3OH8fPvSi+ppSAAqC
-	U+QHSwJuj2c9Qx/E7EMmgxQ+WzVa0Y6GjqvuxB+nAo7GEuR0PXtGBCr3w66AbzrtzJyEoxnOEHP
-	C1LgJh/mq25d1vynJUzxt2ZGTO6BQlEWtrGL3UuU//VF17TwBNWv7NOggNeIiD9TC/H+l1q6vdi
-	dhFWzfbnk0gWuWWlJ3fqKMRE=
-X-Received: by 2002:a17:903:388d:b0:298:8a9:766a with SMTP id d9443c01a7336-2986a76744amr178497785ad.53.1763488606654;
-        Tue, 18 Nov 2025 09:56:46 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IHQlMErgROQXlsJJoTVKsYRv9QN0O/2YGJMmSrS6nuYJu/7XEVDBts4CiDzoWr4bcLhtAddlA==
-X-Received: by 2002:a17:903:388d:b0:298:8a9:766a with SMTP id d9443c01a7336-2986a76744amr178497255ad.53.1763488606089;
-        Tue, 18 Nov 2025 09:56:46 -0800 (PST)
-Received: from [192.168.1.13] ([106.222.233.13])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2985c2346b8sm181565255ad.16.2025.11.18.09.56.38
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 18 Nov 2025 09:56:45 -0800 (PST)
-Message-ID: <dcaaba7e-1073-4900-a4c8-88dac40be434@oss.qualcomm.com>
-Date: Tue, 18 Nov 2025 23:26:37 +0530
+	id 1vLPwv-00000000tbP-33Ia;
+	Tue, 18 Nov 2025 17:57:07 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=IGayamgqDVw99n/wRcUvtjzr6IcpEjOVlQxY7DTPmD4ra913B1zactLkudfdr5YR7nCSEj2ovuQp7Vn9hCc3qtjnoKNZGpxHgKycAA4xoysuW6GhDhuDvKAGbyvZqj9Q/rAbmjl/OSF5h3M95ECG5byf9g+PRghgfXHboFa0eR7YgrfaPRGnSG5CCKla6cy5IhwVRXE3ineUHmbvwAnZOsvBmLMjwo0ixQACbHNOPeqBQ/Ikhd1KX4jlyt7NY4hprn8T10uISnFsrf1fmus3IztrBZKVLbWN+SWu3dHkKYnSLQ6lkgKjm3Vf8QQs8/l4WwiGWFa9IAhW7kMZks8tLA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=9vQuHJaX7BJA2GP0FQnoozugrBhvrlZmEYk1lf/MCXk=;
+ b=j7LDn9vzPywOILw7t+Lr0iap1tpvduDf5S17Z566xTHJ6brVM3Xejep/2DNO6dc+5tJGPNs9wrGSYsVl2zDhkvGiyles/jAFE2VJlGIvYfE2BXSgGUuQgrEmhMKUDCfII7FV7khjHOQz4drTFap5R/iSfYEmjRFzgWlzyVvgryAjIt0w1RPzX0s9AJThbeDowGIGq+66IH5XKU95LlGH+8cpr10q/uwwO6abBdofe/JpkytSwRsGuDNKJ3/Q99JO/yyeNuBy73Z9B9uE93DQTd6pZgq5PbtKqd2ZRTHcWJn0oJBbHwKWs2iPT/8G2i6FB8uWS6iJ8WVe6xf3chwuvQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=9vQuHJaX7BJA2GP0FQnoozugrBhvrlZmEYk1lf/MCXk=;
+ b=muTVcPcBOQH9pI823tCcHpG8iJN02vy69e4Dqp1UWJVPcFwmMNhst9JA5g4icnHYB8n/WCu212fw3vt1TjFAY1Oh0FKNGTi3NT+xSZxkdsWa06tcUyxhmDhGfJnkUSDAT7LjtRqhpuXvugdsQp2N30ihS9cSSqY4DzA1zRc3rMpZmMPoywqq3NWiIItxBDnWXGH82s8Ge4HYr2GewMijQurtoM3/o7Fxv4r6cSMQQj5Wh1ASWLpP/2XeyFx/nnD62J1QnayugXqa/3GyBYIs9NC63zvBSmuQgEWsr52UAEN9114PH4dUshWNTyudOVXYR4O/Or4ohISNHyBri1qCGA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from DB9PR04MB9626.eurprd04.prod.outlook.com (2603:10a6:10:309::18)
+ by AS8PR04MB8104.eurprd04.prod.outlook.com (2603:10a6:20b:3b1::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9320.21; Tue, 18 Nov
+ 2025 17:57:00 +0000
+Received: from DB9PR04MB9626.eurprd04.prod.outlook.com
+ ([fe80::55ef:fa41:b021:b5dd]) by DB9PR04MB9626.eurprd04.prod.outlook.com
+ ([fe80::55ef:fa41:b021:b5dd%4]) with mapi id 15.20.9320.021; Tue, 18 Nov 2025
+ 17:57:00 +0000
+Date: Tue, 18 Nov 2025 12:56:50 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Cc: Rui Miguel Silva <rmfrfs@gmail.com>,
+	Martin Kepplinger <martink@posteo.de>,
+	Purism Kernel Team <kernel@puri.sm>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Eugen Hristev <eugen.hristev@linaro.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>,
+	Alice Yuan <alice.yuan@nxp.com>, Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Steve Longerbeam <slongerbeam@gmail.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	linux-media@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org,
+	linux-staging@lists.linux.dev
+Subject: Re: [PATCH v3 02/31] media: v4l2-common: Add helper function
+ v4l_get_required_align_by_bpp()
+Message-ID: <aRyzYoCTNJQrlsou@lizhi-Precision-Tower-5810>
+References: <20250821-95_cam-v3-0-c9286fbb34b9@nxp.com>
+ <20250821-95_cam-v3-2-c9286fbb34b9@nxp.com>
+ <20251027011927.GS13023@pendragon.ideasonboard.com>
+ <aP+nf1hpvkafxHrF@lizhi-Precision-Tower-5810>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aP+nf1hpvkafxHrF@lizhi-Precision-Tower-5810>
+X-ClientProxiedBy: PH8PR15CA0015.namprd15.prod.outlook.com
+ (2603:10b6:510:2d2::23) To DB9PR04MB9626.eurprd04.prod.outlook.com
+ (2603:10a6:10:309::18)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 15/22] drm/msm/adreno: Support AQE engine
-To: Connor Abbott <cwabbott0@gmail.com>
-Cc: Rob Clark <robin.clark@oss.qualcomm.com>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>, Sean Paul <sean@poorly.run>,
-        Dmitry Baryshkov <lumag@kernel.org>,
-        Abhinav Kumar
- <abhinav.kumar@linux.dev>,
-        Jessica Zhang <jesszhan0024@gmail.com>,
-        Marijn Suijten <marijn.suijten@somainline.org>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Jonathan Marek <jonathan@marek.ca>,
-        Jordan Crouse
- <jordan@cosmicpenguin.net>,
-        Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
-        Joerg Roedel <joro@8bytes.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>, linux-arm-msm@vger.kernel.org,
-        linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org,
-        freedreno@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
-        iommu@lists.linux.dev, devicetree@vger.kernel.org
-References: <20251118-kaana-gpu-support-v4-0-86eeb8e93fb6@oss.qualcomm.com>
- <20251118-kaana-gpu-support-v4-15-86eeb8e93fb6@oss.qualcomm.com>
- <CACu1E7HzsnSjz0SiUJT0SMNJ7cFhiNdtUE9jKHpvD3UzG6EegQ@mail.gmail.com>
-Content-Language: en-US
-From: Akhil P Oommen <akhilpo@oss.qualcomm.com>
-In-Reply-To: <CACu1E7HzsnSjz0SiUJT0SMNJ7cFhiNdtUE9jKHpvD3UzG6EegQ@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-Proofpoint-GUID: IYKMLc5iL2OALJuXpsD-alxr89nFnVdS
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMTE4MDE0NSBTYWx0ZWRfX+DkMKgajJXG3
- iKM6fJWFAuRNf0Ai4x+8nBj8cGrcIAsttJHahG37rGpLUXR3suT+f2nojphEcWen1Vz/toqDaoz
- TYFhM89LgEnIql8Fols6Ml+yfaivS60GSMmYbaczLgCkUuFLoTJ4h160agANxIc6sqLgw3mkNNb
- c7mVrTmHN5kMrgEeIgCaB0G1mFFx3w84nfqDuNYbFo95L7rDf5ZVwkO00Z440MciVdeyHixHXKR
- +6xYlPbZB84AVXLkve6OVdglHhZFuaqC8j2h2m+A4qUv8HYQR4yEhsPrvi6RF3sCUfSJm7V/CRU
- sQvnlG7TCml4Er6ezTUCKFp2692vhaSAAFj7VqvRCYc51HEhsqaJVe0QSI9UdcnbIj3ceiiXpUj
- j8KpnSx5fKxT3PF7iCiV6hEdnFebIg==
-X-Authority-Analysis: v=2.4 cv=BYTVE7t2 c=1 sm=1 tr=0 ts=691cb35f cx=c_pps
- a=cmESyDAEBpBGqyK7t0alAg==:117 a=/VsID1VB8JbHTH3F2fYZMQ==:17
- a=IkcTkHD0fZMA:10 a=6UeiqGixMTsA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=EUspDBNiAAAA:8 a=neJfBgYAGg7YAZYFY1IA:9
- a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10 a=1OuFwYUASf3TG4hYMiVC:22
-X-Proofpoint-ORIG-GUID: IYKMLc5iL2OALJuXpsD-alxr89nFnVdS
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
- definitions=2025-11-18_02,2025-11-18_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 spamscore=0 bulkscore=0 clxscore=1015 priorityscore=1501
- lowpriorityscore=0 suspectscore=0 phishscore=0 impostorscore=0 adultscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2510240001 definitions=main-2511180145
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DB9PR04MB9626:EE_|AS8PR04MB8104:EE_
+X-MS-Office365-Filtering-Correlation-Id: 02bc0dcd-9de6-48c6-cf19-08de26cbdf23
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|376014|52116014|1800799024|19092799006|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?VNFY0mfwCWEPiieSGVCslXeb7mqhG9p4SXx+CjUZDPKk2kBQ2j5SG0f8WH4S?=
+ =?us-ascii?Q?HlmrCoQ0p4u3UimZWiFJR95lonskqypSklddCG4FngL8eFTA1VoCgFP1VDTQ?=
+ =?us-ascii?Q?fq7LIsQ/2spgmZoo5w4AwUI7yIXKVPRsrsJfwDLKJijd7A+U52mxbbVRfd+N?=
+ =?us-ascii?Q?4EqOPrVGg6LEzGHQgvcMuCi7KnGQqOiiWtR1rMvqEaOqMG23596nfyq4CIFG?=
+ =?us-ascii?Q?JQVIr8P+HH01ktI5Ig848cVuvSb0upfuwp9Hw3lLW8O/9y62Fx1gP8/jVdZJ?=
+ =?us-ascii?Q?xvcCmQKhFYNoF/O8WpifsL4j9oVf6poYQ11QUljg7up+MMDbH2IDkwIwbhKb?=
+ =?us-ascii?Q?b+hxn5DBCe0/fmRaFiAJaOu+6yuwdjfPQojAObh++Jh1QTmq74OI70mRIrG5?=
+ =?us-ascii?Q?sVm3aTDOHnEWg25fxTiCpHbMFrGSxySaeFaNXRWuc5ORO3WufiJ60KZ3Cl+u?=
+ =?us-ascii?Q?GMvHtoYFrwAFheBw7gIkLjsiPTHcV0IQnA09uArwIZRIdOLLDUD4t5TPZdvp?=
+ =?us-ascii?Q?Almotj4tuoUqg7AZn9A8IKpdzqpaDetFWpafmEzhK1idvciXqHavcOEZBUjq?=
+ =?us-ascii?Q?juNAudU7tqFUaUOdaJ8Nua++apw9c/XtIHFtP1cPb0JjPRS7NK8kHNPrHqvg?=
+ =?us-ascii?Q?D5H7HU3bTYRNHLjAMzNZgPQC8ecNecAivAU0V+RilcTzr0oXb9svasXH/LVz?=
+ =?us-ascii?Q?uso4fkzdroJKuFCNl0PbqBjdlRM4WHvO8Q8TPCZ9tytu6Ud0s/oVwEORoWEM?=
+ =?us-ascii?Q?Vvj6j1z/7uLRyqoI1fR4nkjE12yXkei3mToj4BOoY1oIfAHCisIXm9E5NiYw?=
+ =?us-ascii?Q?Y9DRiC+VZklYQWtfFCz7NCUhu+bifMOBzgZOrKboNe6csjCwceozc0ihoTae?=
+ =?us-ascii?Q?YNh4+b0ohg6hB8S2/2k1Z0mQn0pNJrpzRdfeWZ3VibIVJY7Dh88xDWW6a5s1?=
+ =?us-ascii?Q?d9B/cXHy0VQi57xY64HHYoPkm/VCgkH+oHdctY3I7Zvvr7ftwV0F86xYdi7j?=
+ =?us-ascii?Q?5tH4Li431csaF0s4u3lNvzGHTOnLU5vam0K7wFS08jD0Zo3ty0UqRORFToi9?=
+ =?us-ascii?Q?s2UgEB7s4/6ec9UfUK4p3U46bsiVQeM0f2VAYUDRQBkMfy28IwEzKAEoZns3?=
+ =?us-ascii?Q?99sU5CLcjsdOx9TO0Hi96FOCiENxrxgAT0ZhPC+vESguTFOcPEOyhQzC5P0w?=
+ =?us-ascii?Q?bgiBz6iv455pcGG0OJDP0POthJidcINWodg127aj2NDN72bFuiV+UKqBIcLJ?=
+ =?us-ascii?Q?lKiWg8qDWXLGBwbDEsRAUmcxRAsLTk7X9MU0/Ej3AGduR2Pe0qxmmyPvnvvk?=
+ =?us-ascii?Q?NWnW14AsMAKfcwuaYp/05UO78lmYZo8w5b+FgkBB6YlEl4j77toq1kdYsSbf?=
+ =?us-ascii?Q?sS2xwufY7fVts9ZDBATJbz6+YNapHyaJYov+9lSoaD/1nRaKzkpfWx0R+QqE?=
+ =?us-ascii?Q?lgsOMWKMPTXg4etHTGYYDiN+mfDpPR8q5wDZvsL/WhKWDP1UCIizzFjulyiw?=
+ =?us-ascii?Q?Omf1orEkdi9iYr3kMcJK2rG/nqkgbu7jKXaIFZpVKY8vRUFM4pOwPLkMDQ?=
+ =?us-ascii?Q?=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR04MB9626.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(52116014)(1800799024)(19092799006)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?gj3f9LvuqSw/cJMLGBj/GgcaGGT4mlv4hboV2HtSiiwlVCDa7I7fc8zxC6nw?=
+ =?us-ascii?Q?mFME/W+eEzaCT5as/px0L3GD+FVdKmsAYddO5aoglq0pM9fg0s0Qhx2NA5vR?=
+ =?us-ascii?Q?WojW9kPwLU/RWiRgMbRmsPSOGk+sZWUYEvsW1f8AHx/XKbQ3kF7oIhSUyPqb?=
+ =?us-ascii?Q?WKyV4u+A4s7qndpWPx0LGQxxIIwUozxSeCAnGtNJh/MS5pcwu0yHQBTgBCp5?=
+ =?us-ascii?Q?QIqC3Q8h6opQwnWwKrYNPGXdBG3UBFaT5ZGiWe300vEiiLdcJE4JmXZ28ZNX?=
+ =?us-ascii?Q?HWztpYMHJEcOA92OLQeQS+vYjLvFHbBqwa+KCz9bk++pcRyw9nQltD1NGguA?=
+ =?us-ascii?Q?Vg1LFCNr7IdfHfTzuBMLNQ2tsX8/6R2DwyPzttMAbCh/74VdYkktZ71jioeX?=
+ =?us-ascii?Q?uE6Bl1841+i4yNpxHTM7Z+XaU7nDp8pGQauchummxMqyZkI5oE9HqibkQOyv?=
+ =?us-ascii?Q?hfuyfdkxtq9twmFUMUplOANkIQIowhV53PlbRH54gmsIoYnIXhjgOEWXy3Wi?=
+ =?us-ascii?Q?zP7mqomGYIfFX469eA3FufKbone1urR95ZWTHZPF7mVtbOxZn49hfMhJTm9J?=
+ =?us-ascii?Q?cj8qYyDP1RKQNKzXtb/0KM3rvdaIng/8sNWw4cXOxTwWkX6Bp9V0CNAag5jJ?=
+ =?us-ascii?Q?/EBvLqCjx7LQczCTIkrMIgdG4E1kBOnNL28IFTMiVUgJW9XJjgSpd/Bv9c78?=
+ =?us-ascii?Q?ixBlsnyILeS5ozLLtIX+rVzLtwDiW3T+1FwsVpFiWRl1b3mGYuohI7mtfzjZ?=
+ =?us-ascii?Q?X84r+v6e8lw7KXeiGbQzINPCbbxV0D2GjoxjcEELIeY80drrtYWxqXfWmyX/?=
+ =?us-ascii?Q?mCYTOCO9FZ3I8AWIKFkZ3dEq4Z4dCsAgKEtdPoXVvPtsEpGrtcKYL3XLYiYq?=
+ =?us-ascii?Q?rtnfCduHhgHI48lgt983hW4JszmhKaalYnw71o9/6xYMyGVE8t5TAIesUJoH?=
+ =?us-ascii?Q?AI1R+8spOhVZLr6L4AYyIIXdusJ46t3ipe47ss59hQb+Cbxn3qrvxwrO0ASX?=
+ =?us-ascii?Q?28uKq1Po/hFXt+YBqW9ixppSKLPP4FqWn0S+3b7Y8kdH/p1LLoe5RR1h1NUm?=
+ =?us-ascii?Q?9dGfHlzjB4cdalDsVpWp84WZQ8mMDIkiaKS7YPxg5e3g0wa8HeibwcldnQwi?=
+ =?us-ascii?Q?HuBrXkyQmch6QwSh5EOL9e2Ni4QYfevKfcOq4TylwD39dXju87E9m9D5sj5a?=
+ =?us-ascii?Q?qpHfJjOxSkyWETrTqDdDT6V8+5c1IOLGd92N8Af+IsMDbRuIQkDmZuGz1qCD?=
+ =?us-ascii?Q?JQx/fQBf+mc+bwJVXT8wA+bQC6Eod9FMqnj+9M/lUCeULTBVnKAEmX9LgLme?=
+ =?us-ascii?Q?fxs5dNE70S0WkOxCQZ/iNVDQLwbRpJd+CfYrVEds5zNn+XTiX5C8T+rvtKei?=
+ =?us-ascii?Q?aMvlb2hNNmVR1Pi30oWl8JpTA4rVmrGOm8wwRnp2G7m/km7maJWpizw+NpFn?=
+ =?us-ascii?Q?Ntt/gjRB3S0BZ+jYMAe3FaJI9UMBvqfTuCVZ42Fr9XrI2ppCR3QBfsMN/9Hd?=
+ =?us-ascii?Q?+DEeVuw8dU3nOQeOJgdo76gyH/or2w25FuOF86tg12yYH8Uzxj50RhQGEK7D?=
+ =?us-ascii?Q?Ij8dqtT0VNH+dsFcZPqEXw+EehV7MKyIQNhjVKv5?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 02bc0dcd-9de6-48c6-cf19-08de26cbdf23
+X-MS-Exchange-CrossTenant-AuthSource: DB9PR04MB9626.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2025 17:57:00.3400
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: JWQ/oFlUbQsO3cEdmqc5Txq4olMGE4QdBgTjAjvrKKA4mlO/6Kqa9abppg+EHsDuHCRzlDOlEoH8tjGHdx47Ew==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8104
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251118_095648_170503_4CF9CCF5 
-X-CRM114-Status: GOOD (  25.19  )
+X-CRM114-CacheID: sfid-20251118_095705_791947_60E69E8F 
+X-CRM114-Status: GOOD (  34.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -166,122 +180,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/18/2025 9:26 PM, Connor Abbott wrote:
-> On Tue, Nov 18, 2025 at 3:53 AM Akhil P Oommen <akhilpo@oss.qualcomm.com> wrote:
->>
->> AQE (Applicaton Qrisc Engine) is a dedicated core inside CP which aides
->> in Raytracing related workloads. Add support for loading the AQE firmware
->> and initialize the necessary registers.
->>
->> Since AQE engine has dependency on preemption context records, expose
->> Raytracing support to userspace only when preemption is enabled.
-> 
-> I guess the plan is to expose MSM_PARAM_AQE later once preemption
-> records are in place and for now just load the firmware to ensure that
-> people have it?
-> 
-> The interrupt error handling is still missing, but I guess that can be
-> handled later if that's the plan.
+On Mon, Oct 27, 2025 at 01:10:23PM -0400, Frank Li wrote:
+> On Mon, Oct 27, 2025 at 03:19:27AM +0200, Laurent Pinchart wrote:
+> > On Thu, Aug 21, 2025 at 04:15:37PM -0400, Frank Li wrote:
+> > > Add helper v4l_get_required_align_by_bpp() to help get width alignment
+> > > requirement. Basic replace below logic and enhance to any 2^[0..31] in
+> > > drivers/media/platform/nxp/imx-mipi-csis.c
+> > >
+> > > mipi_csis_set_fmt(
+> > > {
+> > >         ...
+> > >
+> > >         switch (csis_fmt->width % 8) {
+> > >         case 0:
+> > >                 align = 0;
+> > >                 break;
+> > >         case 4:
+> > >                 align = 1;
+> > >                 break;
+> > >         case 2:
+> > >         case 6:
+> > >                 align = 2;
+> > >                 break;
+> > >         default:
+> > >                 /* 1, 3, 5, 7 */
+> > >                 align = 3;
+> > >                 break;
+> > >         }
+> > > 	...
+> > > }
+> > >
+> > > Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> > > ---
+> > > The same patch will be see at https://lore.kernel.org/imx/20250729-imx8qxp_pcam-v4-2-4dfca4ed2f87@nxp.com/
+> > > dw csi2 patch also this
+> > > ---
+> > >  include/media/v4l2-common.h | 30 ++++++++++++++++++++++++++++++
+> > >  1 file changed, 30 insertions(+)
+> > >
+> > > diff --git a/include/media/v4l2-common.h b/include/media/v4l2-common.h
+> > > index 39dd0c78d70f7b935c2e10f9767646d2cedd3079..0a9da5e8daaddf26903d9ff4bed08b283dcd38b2 100644
+> > > --- a/include/media/v4l2-common.h
+> > > +++ b/include/media/v4l2-common.h
+> > > @@ -704,4 +704,34 @@ static inline bool v4l2_is_quant_valid(__u8 quantization)
+> > >  	       quantization == V4L2_QUANTIZATION_LIM_RANGE;
+> > >  }
+> > >
+> > > +/**
+> > > + * v4l_get_required_align_by_bpp - get align requirement for
+> > > + *	v4l_bound_align_image(). (bpp * width) % (1 << align) have to be 0.
+> > > + *	given number bpp, get width's alignment requirement. For example,
+> > > + *	if align is 3, means require bpp * width must be multiples of 8.
+> > > + *	    bpp     return  width's requirememnt
+> > > + *	    0       0       none
+> > > + *	    1       3       8 (need 3 zero bits)
+> > > + *	    2       2       4
+> > > + *	    3       3       8
+> > > + *	    4       1       2
+> > > + *	    5       3       8
+> > > + *	    6       2       4
+> > > + *	    7       3       8
+> >
+> > This is supposed to be a brief one-line description. The rest of the
+> > documentation goes after the argument.
+> >
+> > Also, have checked the formatting of the generated documentation ?
+> >
+> > > + * @bpp: input bpp
+> >
+> > I have no idea if this is a bits per pixel or bytes per pixel value. I'm
+> > actually not sure what the function is even supposed to do. It feels
+> > it's really a ad-hoc helper, I would like to see it being used in
+> > multiple drivers to see if it makes sense.
+>
+> drivers/media/platform/nxp/imx-mipi-csis.c
+> imx_cpi_set_fmt() in
+> https://lore.kernel.org/imx/20250729-imx8qxp_pcam-v4-3-4dfca4ed2f87@nxp.com/
+>
+> I am not sure if userspace to pass down a old width to driver, like 1033.
 
-Correct. The stale 2nd para in the commit text will be removed when Rob
-apply the patches.
+Do you agree this change, I can post this patch + imx-mipi-csis.c as
+sperate patches?
 
--Akhil
+dwc csi2 need split more small serise to reduce review efforts.
 
-> 
-> Connor
-> 
->>
->> Signed-off-by: Akhil P Oommen <akhilpo@oss.qualcomm.com>
->> ---
->>  drivers/gpu/drm/msm/adreno/a6xx_gpu.c   | 22 ++++++++++++++++++++++
->>  drivers/gpu/drm/msm/adreno/a6xx_gpu.h   |  2 ++
->>  drivers/gpu/drm/msm/adreno/a8xx_gpu.c   |  3 +++
->>  drivers/gpu/drm/msm/adreno/adreno_gpu.h |  1 +
->>  4 files changed, 28 insertions(+)
->>
->> diff --git a/drivers/gpu/drm/msm/adreno/a6xx_gpu.c b/drivers/gpu/drm/msm/adreno/a6xx_gpu.c
->> index 810b64b909f5..9a643bcccdcf 100644
->> --- a/drivers/gpu/drm/msm/adreno/a6xx_gpu.c
->> +++ b/drivers/gpu/drm/msm/adreno/a6xx_gpu.c
->> @@ -1118,6 +1118,23 @@ static int a6xx_ucode_load(struct msm_gpu *gpu)
->>                 }
->>         }
->>
->> +       if (!a6xx_gpu->aqe_bo && adreno_gpu->fw[ADRENO_FW_AQE]) {
->> +               a6xx_gpu->aqe_bo = adreno_fw_create_bo(gpu,
->> +                       adreno_gpu->fw[ADRENO_FW_AQE], &a6xx_gpu->aqe_iova);
->> +
->> +               if (IS_ERR(a6xx_gpu->aqe_bo)) {
->> +                       int ret = PTR_ERR(a6xx_gpu->aqe_bo);
->> +
->> +                       a6xx_gpu->aqe_bo = NULL;
->> +                       DRM_DEV_ERROR(&gpu->pdev->dev,
->> +                               "Could not allocate AQE ucode: %d\n", ret);
->> +
->> +                       return ret;
->> +               }
->> +
->> +               msm_gem_object_set_name(a6xx_gpu->aqe_bo, "aqefw");
->> +       }
->> +
->>         /*
->>          * Expanded APRIV and targets that support WHERE_AM_I both need a
->>          * privileged buffer to store the RPTR shadow
->> @@ -2400,6 +2417,11 @@ static void a6xx_destroy(struct msm_gpu *gpu)
->>                 drm_gem_object_put(a6xx_gpu->sqe_bo);
->>         }
->>
->> +       if (a6xx_gpu->aqe_bo) {
->> +               msm_gem_unpin_iova(a6xx_gpu->aqe_bo, gpu->vm);
->> +               drm_gem_object_put(a6xx_gpu->aqe_bo);
->> +       }
->> +
->>         if (a6xx_gpu->shadow_bo) {
->>                 msm_gem_unpin_iova(a6xx_gpu->shadow_bo, gpu->vm);
->>                 drm_gem_object_put(a6xx_gpu->shadow_bo);
->> diff --git a/drivers/gpu/drm/msm/adreno/a6xx_gpu.h b/drivers/gpu/drm/msm/adreno/a6xx_gpu.h
->> index e6218b0b9732..3a054fcdeb4a 100644
->> --- a/drivers/gpu/drm/msm/adreno/a6xx_gpu.h
->> +++ b/drivers/gpu/drm/msm/adreno/a6xx_gpu.h
->> @@ -59,6 +59,8 @@ struct a6xx_gpu {
->>
->>         struct drm_gem_object *sqe_bo;
->>         uint64_t sqe_iova;
->> +       struct drm_gem_object *aqe_bo;
->> +       uint64_t aqe_iova;
->>
->>         struct msm_ringbuffer *cur_ring;
->>         struct msm_ringbuffer *next_ring;
->> diff --git a/drivers/gpu/drm/msm/adreno/a8xx_gpu.c b/drivers/gpu/drm/msm/adreno/a8xx_gpu.c
->> index c9cd7546024a..e011e80ceb50 100644
->> --- a/drivers/gpu/drm/msm/adreno/a8xx_gpu.c
->> +++ b/drivers/gpu/drm/msm/adreno/a8xx_gpu.c
->> @@ -627,6 +627,9 @@ static int hw_init(struct msm_gpu *gpu)
->>                 goto out;
->>
->>         gpu_write64(gpu, REG_A8XX_CP_SQE_INSTR_BASE, a6xx_gpu->sqe_iova);
->> +       if (a6xx_gpu->aqe_iova)
->> +               gpu_write64(gpu, REG_A8XX_CP_AQE_INSTR_BASE_0, a6xx_gpu->aqe_iova);
->> +
->>         /* Set the ringbuffer address */
->>         gpu_write64(gpu, REG_A6XX_CP_RB_BASE, gpu->rb[0]->iova);
->>         gpu_write(gpu, REG_A6XX_CP_RB_CNTL, MSM_GPU_RB_CNTL_DEFAULT);
->> diff --git a/drivers/gpu/drm/msm/adreno/adreno_gpu.h b/drivers/gpu/drm/msm/adreno/adreno_gpu.h
->> index c496b63ffd41..0aca222c46bc 100644
->> --- a/drivers/gpu/drm/msm/adreno/adreno_gpu.h
->> +++ b/drivers/gpu/drm/msm/adreno/adreno_gpu.h
->> @@ -27,6 +27,7 @@ enum {
->>         ADRENO_FW_PFP = 1,
->>         ADRENO_FW_GMU = 1, /* a6xx */
->>         ADRENO_FW_GPMU = 2,
->> +       ADRENO_FW_AQE = 3,
->>         ADRENO_FW_MAX,
->>  };
->>
->>
->> --
->> 2.51.0
->>
+Frank
 
+>
+> Frank
+>
+> >
+> > > + * @align: expected alignment, 2^(align).
+> > > + *
+> > > + * return: required alignment.
+> > > + */
+> > > +static inline u32 v4l_get_required_align_by_bpp(u32 bpp, u32 align)
+> > > +{
+> > > +	int pos;
+> > > +
+> > > +	if (bpp == 0)
+> > > +		return 0;
+> > > +
+> > > +	pos = ffs(bpp) - 1;
+> > > +	return pos > align ? 0 : align - pos;
+> > > +}
+> > > +
+> > >  #endif /* V4L2_COMMON_H_ */
+> > >
+> >
+> > --
+> > Regards,
+> >
+> > Laurent Pinchart
 
