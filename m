@@ -4,65 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DE5BCEBF93
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 07:16:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 356D1CCD19A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 07:17:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EfrW3EP3oTNyLr5Dfyph5fZjMkDlGpINPOBqV9A9KO0=; b=3ZtullPiEH03GQy/pNQKkS8Fu/
-	gmoDnQ5VAB2lqX1T0vOQsy2Lv4HAGfhUOXfyizX/SmdzbfNd7DLpsr8zmHYex2n9FcJ9ztvd/J9R9
-	FnsPjejpGNfEiY1wTsvmqYSMR8LT5f3ndZkDFGmkMLp3F6JicyH4f9YZ96FymBVOr+PUDuv9GTR0F
-	qffP8MaiMM9Cbo6q+ZXLxoGaPe/Shdw4EiIOV9e1CbmuLSZWNQW+lzN1ALxaew2okTb/l7KQQL+Jh
-	eZK6yV2CRmUg7cCzWyzUrM7T7JV1Bea8lAHIFR3znEh/GIUnOCz70kI2IvjmpIDB/aR+eheQI1Na5
-	NqQBCBmg==;
+	bh=1h/LtINK8q4zriSv56jSMYuYj4wBO4XsX7/xajbaKQg=; b=LhIZUKYBa4vPbLDScWRdAgJ8r9
+	H3rc7bUVXFUPatbiwtHlZRw5W4p+qLmr0sxmH/Suh0oaofQHUi+EXkzPW0fSJheofPd3eCTpPenPB
+	sqf6eLldxXvKKmzQTfPEciEr3TmgMBiVLggFU3k6UpygPYL+5OR67kALEMeNncIs27pc6sxg+sVJ+
+	DQjLUHD1NSLW/RvuDZ+yURPJX3pIryerNn45aSefJCYXTYsl+mL2vsnYKL7ZZA1UH6f9tvoew1O30
+	r+qIeTgVAnWvC+AEC6bUwTGsXOVmw8TnNO0BIH7XTDjW/M+CO9e1QvnTn95ylGLn2akpYrfJy/91C
+	6FuriVag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLFxP-0000000HXpp-0EtB;
-	Tue, 18 Nov 2025 07:16:55 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vLFy4-0000000HXvy-0fhI;
+	Tue, 18 Nov 2025 07:17:36 +0000
+Received: from mail-pg1-x52d.google.com ([2607:f8b0:4864:20::52d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLFxM-0000000HXpQ-1EMe
+	id 1vLFy1-0000000HXv3-3TL4
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Nov 2025 07:16:53 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id DFBD444580;
-	Tue, 18 Nov 2025 07:16:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8E3A8C4CEFB;
-	Tue, 18 Nov 2025 07:16:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763450210;
-	bh=o/KD4CFjTa5b+jI1V4WECs+Cr2gk3wDlEmLAaFnD4Ao=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=UvQmVK3nMgoYR91ZphsqYWV0kU9oHzB14ClmsFfmVBjTSOEJMREcoW+bExW/4lYNB
-	 qsBVlJgxcMYg3Q6lk3XVcGP7KbJvkswko9cpTr4M2DV1loH/L1yfLhyFkvL2CpQP0H
-	 O8RO5eTZwqtyQ6b/SzifEjPeADuyZ/9PEIbXs7zU1910PfRnM55l2wRPm0S6yZiPAY
-	 PRO4ACHkktfiw9ALsPokgf4lZBKVNJw8FGgiMWfIwG/nbEWC/kSOeIQisvvG2YXel/
-	 CZP8j6YcWyD+pZC2j/JJwGyMBGJnaSr4vWwGfRl8Re9dqRN0zqOpLc85WI0GEDsYBe
-	 nFQI6w5AU2jcg==
-Date: Mon, 17 Nov 2025 23:16:49 -0800
-From: Oliver Upton <oupton@kernel.org>
-To: Marc Zyngier <maz@kernel.org>
-Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	kvm@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Christoffer Dall <christoffer.dall@arm.com>,
-	Fuad Tabba <tabba@google.com>, Mark Brown <broonie@kernel.org>
-Subject: Re: [PATCH v3 5/5] KVM: arm64: GICv3: Force exit to sync
- ICH_HCR_EL2.En
-Message-ID: <aRwdYZ98cwIeg-P3@kernel.org>
-References: <20251117091527.1119213-1-maz@kernel.org>
- <20251117091527.1119213-6-maz@kernel.org>
+	Tue, 18 Nov 2025 07:17:34 +0000
+Received: by mail-pg1-x52d.google.com with SMTP id 41be03b00d2f7-b553412a19bso3810735a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Nov 2025 23:17:33 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1763450252; x=1764055052; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=1h/LtINK8q4zriSv56jSMYuYj4wBO4XsX7/xajbaKQg=;
+        b=HayV3wRSSmvCmagaWzhp2p1S+AmyhUhI2uvB74jib93v1xnRRYM6PHSUDbwM4KAN/+
+         xCFd3Mket/EBcankl19qbRHPgb2XxGKF+wAfXnmSsKYuBWs/K/YL9OCLBmuiBUwhttAM
+         cl1fMTo5i0BgjQDwwwjEsLoO5czvanyIGrOZdz5Ai2AMO1DyO/0/QIWwf0DjvTPpYyGf
+         z8IVOs1jMcPTsvQHuPD/K05nsxSFFrX2jpFQp+XxdaC6ce2DqvHlNXc7OLcuDsuT3zaG
+         uqDelYqY77DFMXRK0SWu5cgAtZSWBE+Eub6zqGxuPdmrplqxpsjuBiSTTuc/VAeqOJyr
+         XDww==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1763450252; x=1764055052;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=1h/LtINK8q4zriSv56jSMYuYj4wBO4XsX7/xajbaKQg=;
+        b=fPddvYLGm1cZ9Mry35UMDCJZczYu8jMO5Uad/q/9pdOeac1vfNoy2U96a88jH2Qcfr
+         FXUlHsklU1xkeTBkZEwnd3mM+GQ9N/GvC6oTHLBMXig+lGzqedQUDb9eYbnOHY+SwQeU
+         kqD+9D0NV+v2JABT+deC3l1npwaBsWSN0jIDgd8D5JocVhE840pd8s7toviLQr0Y245P
+         4gcDBc4k8+hJ3GqSnr3t+zzQo/jipGZ83jgmVJkcTuYW3E6SU/FKAFxIBRiyKTCo1pLk
+         F2bs4gFZym/HEqx+/8EniAu+BjSdmjPs0z102CroPSwWxhSw//7YUF4rLx9bhbwaD0Nw
+         8xcw==
+X-Forwarded-Encrypted: i=1; AJvYcCUrxl6YMtGe7HLc2NHPuVNN5ZfVfOZ0oAQzIeu7fKqPRsIEHbMoR+dxDK0H03XExhWzXPhGRkHRcPqHl7yBUG/N@lists.infradead.org
+X-Gm-Message-State: AOJu0YzS8e4QcvpMumn0o8w+sq5JNNEZpXC5Bans6biv6DuLO9PePPzt
+	tlnQ+IsN7ofiMLt6oXQ510HOABigb+6c94w4Setr4ZBatfE8nbaGgUblM0i+j/6R
+X-Gm-Gg: ASbGncv+7PNUfmDmV2Pyqezl0IGDw3P8+gCFo6uVoOk8OMH9SIwTFH+olHWZgmovDSV
+	WRtmoj1b5uGKt4d4uEhan4LDjdt3mR1v3Y+cGMZ2TnhQHeSPwRDEYcSaeoaYx/8Tl9Af7ht9xwm
+	oU7XZQWcXqxJ8k4l/CnYLtXWCG+kz6oUpt/6E0dqRNRm/yN2xo0FhRaIMvQRQyiIZixBoMaHnpb
+	sInJzvSshtYrJKJsOwWLbE2yj6QZf794azhBW8AFjBNnbd2hYj7PiGV0vE0tCGDLcQv++lBfPgX
+	Dh4Y+ewz4AzFlqmgPIfc3onMEUj2E+RNXQHJB+TL567B1tzBjHzNqeOR7njsfMThFvZTeqGtdWw
+	Xo0TziN4sT/1IkGYG/0h39hyiKbj1A5sMoxf/YSEa8LBFCTsG5Uwe9NimYe/RGwCsU0bPbmd1GA
+	==
+X-Google-Smtp-Source: AGHT+IF7vM7dWQA7a8j5a3/LMB+ij9tgBYk+NU42Vt0dswOO93rmrv5IDEUmNpYrednFhDvN1YDVVQ==
+X-Received: by 2002:a05:7300:ce8e:b0:2a4:3593:6453 with SMTP id 5a478bee46e88-2a4ab88119cmr5119698eec.3.1763450252407;
+        Mon, 17 Nov 2025 23:17:32 -0800 (PST)
+Received: from geday ([2804:7f2:800b:b822::dead:c001])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2a49db7a753sm54420555eec.6.2025.11.17.23.17.28
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 17 Nov 2025 23:17:31 -0800 (PST)
+Date: Tue, 18 Nov 2025 04:17:25 -0300
+From: Geraldo Nascimento <geraldogabriel@gmail.com>
+To: Dragan Simic <dsimic@manjaro.org>
+Cc: Shawn Lin <shawn.lin@rock-chips.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Johan Jonker <jbx6244@gmail.com>,
+	linux-rockchip@lists.infradead.org, linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org
+Subject: Re: [PATCH v2 0/4] PCI: rockchip: 5.0 GT/s speed may be dangerous
+Message-ID: <aRwdhbt0AcLQ1LgF@geday>
+References: <e5d5c0dc-81d6-ae0e-7552-c2e4fb39bb0a@manjaro.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251117091527.1119213-6-maz@kernel.org>
+In-Reply-To: <e5d5c0dc-81d6-ae0e-7552-c2e4fb39bb0a@manjaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251117_231652_356932_4C26C938 
-X-CRM114-Status: GOOD (  23.83  )
+X-CRM114-CacheID: sfid-20251117_231733_870220_C2962D77 
+X-CRM114-Status: GOOD (  12.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,60 +108,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hey Marc,
-
-On Mon, Nov 17, 2025 at 09:15:27AM +0000, Marc Zyngier wrote:
-> FEAT_NV2 is pretty terrible for anything that tries to enforce immediate
-> effects, and writing to ICH_HCR_EL2 in the hope to disable a maintenance
-> interrupt is vain. This only hits memory, and the guest hasn't cleared
-> anything -- the MI will fire.
+On Tue, Nov 18, 2025 at 07:45:45AM +0100, Dragan Simic wrote:
+> Technically, you shouldn't have included my Reviewed-by tags in some
+> of the patches in the v2 of this series, because the patches were
+> either modified significantly since I gave my Reviewed-by for them
+> in the v1, or they were actually introduced in the v2.
 > 
-> For example, running the vgic_irq test under NV results in about 800
-> maintenance interrupts being actually handled by the L1 guest,
-> when none were expected.
+> However, I checked all four patches in the v2 again and everything
+> is still fine, so just to make sure, please feel free to include for
+> the entire series:
 > 
-> As a cheap workaround, read back ICH_MISR_EL2 after writing 0 to
-> ICH_HCR_EL2. This is very cheap on real HW, and causes a trap to
-> the host in NV, giving it the opportunity to retire the pending
-> MI. With this, the above test tuns to completion without any MI
-> being actually handled.
+> Reviewed-by: Dragan Simic <dsimic@manjaro.org>
 
-Just to make sure I'm following, the scenario you're talking about is
-we've already put the vgic into a non-nested state, populated an LR with
-the pending MI at the time of that switch and L0 has no signal for when
-it can drop the LR / pending state.
+Hi Dragan,
 
-> Yes, this is really poor...
+Oops, sorry about that, and thanks for calling me out on this matter.
+I'll definitely bear this in mind for future submissions.
 
-+1 :-/
+Glad it worked out in the end.
 
-> Signed-off-by: Marc Zyngier <maz@kernel.org>
-> ---
->  arch/arm64/kvm/hyp/vgic-v3-sr.c      | 7 +++++++
->  arch/arm64/kvm/vgic/vgic-v3-nested.c | 6 ++++--
->  2 files changed, 11 insertions(+), 2 deletions(-)
-> 
-> diff --git a/arch/arm64/kvm/hyp/vgic-v3-sr.c b/arch/arm64/kvm/hyp/vgic-v3-sr.c
-> index 99342c13e1794..f503cf01ac82c 100644
-> --- a/arch/arm64/kvm/hyp/vgic-v3-sr.c
-> +++ b/arch/arm64/kvm/hyp/vgic-v3-sr.c
-> @@ -244,6 +244,13 @@ void __vgic_v3_save_state(struct vgic_v3_cpu_if *cpu_if)
->  	}
->  
->  	write_gicreg(0, ICH_HCR_EL2);
-> +
-> +	/*
-> +	 * Hack alert: On NV, this results in a trap so that the above
-> +	 * write actually takes effect...
-> +	 */
-> +	isb();
-> +	read_gicreg(ICH_MISR_EL2);
-
-I'm all for writing correct code but since we don't actually care about
-the value of MISR_EL2 do we need the ISB? There's no need for a CSE for
-non-NV and you'd get it 'for free' by way of exception entry in the NV
-case.
-
-Thanks,
-Oliver
+Regards,
+Geraldo Nascimento
 
