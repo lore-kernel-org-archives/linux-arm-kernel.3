@@ -4,84 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C8D2CED26E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 10:53:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D46C2CED603
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 10:53:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=GNWvzmtFgayxDKFBCqPDOF8dv3RuxqQ/CWFcJK3lnBY=; b=ZxMGMOy5HZdQC9
-	TlQaqz4n3hQ574voozpXuHbhTPPy6WYtALPuY8H+zmHCsOANoXDbFUV4KFQ9eNbaRsA7X2DPdcS1N
-	mliGgIkSuj2DIk22495hqiT0ozd/M+mgpySChJ9pIMMTncYj6tc43InTFLOBqTwYGg+1on+gsM47G
-	9qArpTyTAbglodU00+i93egVcmRONQ7W7T74cpg2igiWLZ4oqHb9zJXa3hbYNESfjmEmlwFt/yrjk
-	+DnxDqh0BvoBa/C+Z+5B/KxQdkLmYXGncALXJZnpYCnOMBsKR/8SnjaKVZqMvGBGYB8mkkr8TjfBx
-	EUCCHgUfTbEKt6ahcKRQ==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jrmpJ7r5olEuuHW8bES57a8T6LK6exu5hSOQkrAzRxY=; b=b9C2nCg2hbN3QwiVTApgh2kF5g
+	PuLuJzF1lb4uwQfr1ASKmT37VLieEIereEk6TKVgJfjjod8V2d4YbiRjlZJ872VYIPzpfsyHNdMDd
+	mgPnlnqBv5JQh3EWWNbLkuNp3FmrSHCbyDoRHDOZf8tbDHtd2fG2empezL3n1SRmdzGHw6eLXXMj3
+	pVhVE5uFPP/7uJUvCt8bx5cvsHUtCpetcdSz/Iqwn+867sUfGzZKeWWxHaUlMVVHtOxXCUVbffjYn
+	9nOBoIb3mviUSaCfQn2I7x56cxn5oWmSVd56pFiWRRQHn/mWsZ/eXQJDYsiE8eCNeQ/QIVOPrwj9l
+	Rkd9IdUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLJL5-00000000HVb-0F1p;
-	Tue, 18 Nov 2025 10:53:35 +0000
-Received: from mail-pf1-x432.google.com ([2607:f8b0:4864:20::432])
+	id 1vLJLB-00000000HWh-1Ssd;
+	Tue, 18 Nov 2025 10:53:42 +0000
+Received: from mail-pj1-x102a.google.com ([2607:f8b0:4864:20::102a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLJL1-00000000HUx-3eF4
+	id 1vLJL4-00000000HVL-3DEH
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Nov 2025 10:53:32 +0000
-Received: by mail-pf1-x432.google.com with SMTP id d2e1a72fcca58-7bc248dc16aso3048087b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Nov 2025 02:53:31 -0800 (PST)
+	Tue, 18 Nov 2025 10:53:37 +0000
+Received: by mail-pj1-x102a.google.com with SMTP id 98e67ed59e1d1-343ee44d89aso7671850a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Nov 2025 02:53:34 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1763463211; x=1764068011; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=GNWvzmtFgayxDKFBCqPDOF8dv3RuxqQ/CWFcJK3lnBY=;
-        b=GS6wh3PyOfhX7YahxJg29zQonXUtJ4ykdwvRUdLQjtTX4uGZlhTgLYkFUI7wia94hV
-         PKN+i9u0q5pDlU/d0QJdo1/6lkgQQ8Xh0nEbKkY/f1IqKoVJXVPy8qQywVk3tcl/npf/
-         vbBD3/NPnsAn5lnIpyTVyHPxXL/mf6b4bxaeQS07KAIhVgoiQLbocn/gB1Kc7y2a6Tv9
-         Ilblvw8NKOWgEa5t7eTFKYTAGCv+uQX+shVzleVcIeuhtkmLuzXgVzs8pBIFk4XOMycV
-         NJkn9hj5C5mXpYYIGs5BFbf/tLmiXtdZRXtYs+vc8Qotrf6+nw4bh5jWQbyCzErO28J0
-         efpQ==
+        d=gmail.com; s=20230601; t=1763463214; x=1764068014; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=jrmpJ7r5olEuuHW8bES57a8T6LK6exu5hSOQkrAzRxY=;
+        b=NTksRLztu0dalx+r/DrSw6MIk6uAOiL7mxrTPse8H1X1g5ECskTWt7IpeyuZSUZBSg
+         Oz48BNlq4S1Acp0h298QFh+GG6e6FmtkJQZ9gMJap1s8cNTmpSosfDMZAlWbs3KWE/6u
+         cRbqmRJFApcAp8hKbRycWyipeu/U+FKuVecKH2ti0WkJxZBJRXeVe+5BFbnQiDNVsjzD
+         0UqEwYV8q1yL2Fwhq+HElhKC+ExksRUvsRisEeYeriCspKtK/w2CYmthguieYjJ77F+C
+         cIseT9NYrNyTp/F+YlSnVsKBIqtVkT9Cx05RzqS0Emxd79tqgPI4VlNrJrVfgN6QDgRC
+         KkTA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763463211; x=1764068011;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=GNWvzmtFgayxDKFBCqPDOF8dv3RuxqQ/CWFcJK3lnBY=;
-        b=jqlsUnEN00o2t4IE+5RJdBy/iOogblftnXjFyjNWofMSDNX3lP4nJmL6HWkvfAUVEZ
-         +57Q6gbr8mVb730CJDUEVJkAP89k2OUiNqPerBWIt4NqtL/xZIGZqHpqjir4L38dI12d
-         zDS/F/k/EszLrDQw3zf9AFmceYyOCSGxulRSxq3ZUcQLvP/jVJaPB5PY7XjJXAahTVyF
-         416Oo16yt8BbceQCk0JpJ9ZLDqd7d/WQJ4dO/dYoHKgOYpioA90e1XvBjrSFn66pVaUh
-         Ndc4BgsSL58WDhwhFcjt1b9q50lXxgIAO1X1RV2g4zY0RvX2YhWQI3jYrY+CMHH49GJy
-         3mrA==
-X-Forwarded-Encrypted: i=1; AJvYcCX2fqRSbL6B9yM0CZMHFnmn2HWuVnWdnExMjM4tXjxoHR7vuMraDJwUFAlQoAniFPoY76BnWYlojtDB1D+pPqav@lists.infradead.org
-X-Gm-Message-State: AOJu0YxjylFNrFfn0VoqbyeJ4Rqt4AeqI/b61CoGxAXWw3hjIb8fJ2sc
-	XxDGMaw3Ozg0k1LFHqWEuozA3lOn8sc4SAqU0FPbZj9I4Peo0WLy38hm
-X-Gm-Gg: ASbGncvVRB0oKyqoxE6NvkauPN+3krU6+8rNhh7/l91qZif0d9wF6wdtDoofEgVRvRU
-	qNknvg1H/u+FYzNLT+6NvuG6U2HDDA3gjFH/aP6jt00+YbXBh6l6Mh0W7C4LY08cLkP7W2ML1OI
-	UXX9c3AGGjMyurnVnXnf5guTYbo3nEnO27O5jjIPk7EL4YGCm8dB7OtcHdoSG4bkuXZBGDQuF8b
-	+jWiL0Td2mRhGDaE4D4ioAyPd7W2VNg5CUAM5DBlb0OkH10EGdvGbkcrJTHKKAy5DB7ns+vFYnh
-	kOgTr8Fz0CN4KmrB+EVdVNFWR41LLtLH8cF4ZxdZcN2rzd9gKzUlRDNVNi+ioRSATiR6DlybzS1
-	YOKD2jTh1i8JRVEQqgiyUt7SUVgm6E2thOHVbQVVWm60Ntvrllk52gW4K2eZ0xeBOPsXHCvTVoZ
-	83YJ1A//Dqv26Tn3ohsQt1FCH0zslDj+yo0mRIdsSIWStwlHStXwXgiDXYM+E/AOG5l83QY6bF8
-	tSl0/2g5qgCKmD2HZFYL7iGX4WgMM56LebYM2A42CqgGvb4RENOuIcOuISZeuKrSFXcnvNczhQd
-	YmpfuhEESBfUZF37em7R
-X-Google-Smtp-Source: AGHT+IEdCXwcY6BKlnXmAUl8RmB+RxuF8va+wI/WcFKa5as/7KVxKeQKOmmuuoUTbstwS+jBd1TywQ==
-X-Received: by 2002:a05:6a20:7f8c:b0:342:1265:158f with SMTP id adf61e73a8af0-35ba2598df9mr19914810637.51.1763463210498;
-        Tue, 18 Nov 2025 02:53:30 -0800 (PST)
+        d=1e100.net; s=20230601; t=1763463214; x=1764068014;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=jrmpJ7r5olEuuHW8bES57a8T6LK6exu5hSOQkrAzRxY=;
+        b=aj5HrrmxYwwu8hff5pB1tgrzAqoDyHxc81PCbawmzOpDXHqWyB8kojQ6gFfnqhxzG3
+         UIYEma5T26XITZeu5qOJNH5Rdongy+PeAn63FiKSEmxYA28WPqMw2i7PguzQMmxzK/ZZ
+         uE1yszquQwI9GNW/B/GjCrf1GvFkgeU7tfSOwwZBCkKdrR+eALtz4cTKESKib3yPDMVU
+         87UJkrPMiZ0ZOEPXW5KuDIPJLKgKje0UpsovIuVUNlHKOR3yh1cxGD22ejZvFuzR5VED
+         6TpsgKxRzgcEtJ2by+JTWn9KviV5hMsqTZCOPshmVAFsv7PslAc1/wvjXFe5akpiv5qZ
+         w0rQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXTJ9wDSJ3yD689JQiePO4lKefsxmFcvIDzM59eqpR+MK1daiUsHd3pXivsds5uLfW9UBqEGtQJ2gJKhQZC+THt@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy9OCSqygk0lupW8WCE9ST91UNsEFi64jRHIMcr/x3LWqH0KgNA
+	gUTw4GnGNW17Dn6UOIeIkGjKmuZU8yPNbemL505/RdGALhGUSIrhb5d8OmWADQ==
+X-Gm-Gg: ASbGncu+XJpjp4HDer8EzQDE0jMwN/yK1sXTOfqIhq6FsYaQjuO5nAwQowV7PrlUpnh
+	kl2KYG880k4HzN/pXgpLfNkuWliPa1/ElS1wEjBwO7pscAV9ILxfQybJbmZYhOGg85x43fPDJbU
+	AYuFoL8XbHlUc2jF6/kPTgHnAjy1GGTjxyjhaLgHd1TJHmNuQRrc6IKDVAssprLbvniTiR6GX4i
+	Himu5pJpWUfnEenPIv/HpuzO9Mae9ts70SdhcIAR3Y4TB5y9XiUbftSxDK/8qNBp6YlykdLOuW8
+	ubsvCQJ+xV91h0c8uTvV8u3gAfjM//jXpK5h+J5Ql8fsqmCaQLAmByZO9RYDxNkS7/k+kI154nr
+	KCLXsbFd/R1OenBhtGP091Wni10vMDe1WxBsVr6y80jjkPfIjO++eGlILh1ISFOjsrCCi4yQcHY
+	Mc3dNFne6CFD7cheKfpsNlryC155QjMRxRjT0F9ropk7WZ3zuK4Y0OMK19LdG5PlgCu8UfWeR/P
+	0qqxh7WNbbK8OFca3lIj5FHKKbSuECo/Ni4tgdUOcVyG9E+MGwQo/+ky7kiZm5KNvGSTiBHX1fT
+	DcMQiX+JL2Vzq28ADsvl
+X-Google-Smtp-Source: AGHT+IF2voj8h6VBZFwIEhidYuX7kxZ+HtyxeIJgX87w+aBlexyKiWI8vQ8KfVgjLMBTqVzQwR2WDw==
+X-Received: by 2002:a17:90b:564b:b0:339:a243:e96d with SMTP id 98e67ed59e1d1-343fa796a3emr15961735a91.36.1763463213843;
+        Tue, 18 Nov 2025 02:53:33 -0800 (PST)
 Received: from 2001-b400-e30c-5507-a914-c4dd-0879-41e4.emome-ip6.hinet.net (2001-b400-e30c-5507-a914-c4dd-0879-41e4.emome-ip6.hinet.net. [2001:b400:e30c:5507:a914:c4dd:879:41e4])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7b924be368bsm16274111b3a.9.2025.11.18.02.53.27
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7b924be368bsm16274111b3a.9.2025.11.18.02.53.31
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 18 Nov 2025 02:53:30 -0800 (PST)
+        Tue, 18 Nov 2025 02:53:33 -0800 (PST)
 From: Kevin Tung <kevin.tung.openbmc@gmail.com>
-Subject: [PATCH 0/3] Revise Meta Yosemite5 devicetree
-Date: Tue, 18 Nov 2025 18:53:17 +0800
-Message-Id: <20251118-yv5_revise_dts-v1-0-fcd6b44b4497@gmail.com>
+Date: Tue, 18 Nov 2025 18:53:18 +0800
+Subject: [PATCH 1/3] ARM: dts: aspeed: yosemite5: Increase i2c4/i2c12 bus
+ speed to 400 kHz
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAB1QHGkC/x2MQQqAIBAAvyJ7TnAFo/pKRES71V4sNKSQ/p54H
- JiZDJGDcIRBZQicJMrpC2CjYD0Wv7MWKgzWWIeInX6Tm6vIM91Ro2U0TNQ7aqFEV+BNnjocp+/
- 7ARGWMDtgAAAA
-X-Change-ID: 20251118-yv5_revise_dts-12e10edd95d6
+Message-Id: <20251118-yv5_revise_dts-v1-1-fcd6b44b4497@gmail.com>
+References: <20251118-yv5_revise_dts-v1-0-fcd6b44b4497@gmail.com>
+In-Reply-To: <20251118-yv5_revise_dts-v1-0-fcd6b44b4497@gmail.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, 
  Andrew Jeffery <andrew@codeconstruct.com.au>
@@ -91,17 +91,16 @@ Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  Ken Chen <Ken.Chen@quantatw.com>, Leo Yang <Leo-Yang@quantatw.com>, 
  Kevin Tung <kevin.tung.openbmc@gmail.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1763463207; l=809;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1763463207; l=1020;
  i=kevin.tung.openbmc@gmail.com; s=20250924; h=from:subject:message-id;
- bh=B61xDsu9dYZf19PlWoIS09j6kYYtBqsX7QXm1aJx68U=;
- b=yCgOZ8n1862RHQxibfMqzDonVmCN/NYAhOA+hvlCEIiGwrky0Mnhf//CgYJS8ZcvvF3N35qNf
- CwWdaa6W6g6CUHT5Te0Ec7UWyo83rnHS5dTgkOXDtkrxcm5J6jNcukF
+ bh=V8hyqVc8AxjSIpi8Rf3ei8SCie7TL3OVm+o7PWaDSjI=;
+ b=yTLo22srLoWN9l+075TqUif2qS7lg3gob+kFc4OjeXJUO/YBHZ72RwuTKPHKn3l6CUs3SlW4+
+ J6OpEW19//0Aq9exBxEepLLubirjgzAcXrA2O791MxNZOKzZMQ6ItH3
 X-Developer-Key: i=kevin.tung.openbmc@gmail.com; a=ed25519;
  pk=PjAss0agA0hiuLfIBlA9j/qBmJaPCDP+jmQIUB6SE7g=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251118_025331_918258_3E4A698A 
-X-CRM114-Status: UNSURE (   7.42  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251118_025334_833362_1B22E17C 
+X-CRM114-Status: GOOD (  10.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,29 +115,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Summary:
-Revise linux device tree entry related to Meta (Facebook) Yosemite5.
-
-Changes in v1:
-- Increase i2c4/i2c12 bus speed to 400 kHz
-- Update sensor configuration
-- Rename sgpio P0_I3C_APML_ALERT_L
+Configure i2c4 and i2c12 to operate at 400 kHz instead of 100 kHz.
+This update aligns the bus settings with the hardware capabilities
+and improves MCTP communication performance.
 
 Signed-off-by: Kevin Tung <kevin.tung.openbmc@gmail.com>
 ---
-Kevin Tung (3):
-      ARM: dts: aspeed: yosemite5: Increase i2c4/i2c12 bus speed to 400 kHz
-      ARM: dts: aspeed: yosemite5: Update sensor configuration
-      ARM: dts: aspeed: yosemite5: Rename sgpio P0_I3C_APML_ALERT_L
+ arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-yosemite5.dts | 2 ++
+ 1 file changed, 2 insertions(+)
 
- .../boot/dts/aspeed/aspeed-bmc-facebook-yosemite5.dts  | 18 +++---------------
- 1 file changed, 3 insertions(+), 15 deletions(-)
----
-base-commit: 111e542d267576de402d0836603e1def2b60316b
-change-id: 20251118-yv5_revise_dts-12e10edd95d6
+diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-yosemite5.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-yosemite5.dts
+index 2486981f3d6bd36f3fe780b21e834b85242f8aa9..7991e9360847532cff9aad4ad4ed57d4c30668a0 100644
+--- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-yosemite5.dts
++++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-yosemite5.dts
+@@ -231,6 +231,7 @@ sbtsi@4c {
+ &i2c4 {
+ 	multi-master;
+ 	mctp-controller;
++	clock-frequency = <400000>;
+ 	status = "okay";
+ 
+ 	mctp@10 {
+@@ -782,6 +783,7 @@ adc@4b {
+ &i2c12 {
+ 	multi-master;
+ 	mctp-controller;
++	clock-frequency = <400000>;
+ 	status = "okay";
+ 
+ 	mctp@10 {
 
-Best regards,
 -- 
-Kevin Tung <kevin.tung.openbmc@gmail.com>
+2.51.2
 
 
