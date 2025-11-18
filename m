@@ -4,152 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38E53CCD19A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 07:19:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E283BCEBF93
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 07:20:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=oWI9Rjducvk/Tpm5RXiMWL0Q96yn4CnXUk1yYNHy+MU=; b=UvTSd/3+OzWS2gLEd/LXa/IMMF
-	g3ySPQRn1PN9B6dye5mSdytDvQCY92GrkHwHnBZTkOoz/ADFNOsYuNMuoTDzeEtITZNbn6Y0feJAq
-	PnNb9sQPepq0Kt1Yfyo/EVKjR920QmqYXqdvrBhKySQ+b8W41sMZuQM0AKGne+KYIzoPt+xoJqVok
-	I16c1YtK8A8ZZ7ttHqXIskAGv99vQGjDgM8/MsqEu3g1mT/gpYOa9cc5rTCc5GUhJTd6bKczC4rNr
-	f1h/4dC2VIrOP/GNqVyUsBuJG4Q5lA99NSvF4S587rog5pDNP9Dkiq1dSXOIII1Ov2KraGn8bHkp2
-	mUbshSOQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=clqFkk5QMErRdxE/ex0Hwthz5N8MB3BzZsm2/zTzYc0=; b=13r6P4Ps+BRD1/Bd/dCbNi5EDb
+	YHL1r4O3XwV1OCsNCD9sM0otiNc19i5WeDlP/HpTXMAnCeoUzfUjyBRcggj2vr3f72eZg0tLSUwy8
+	wjMqF0ozMd7bQhAHDrvDY1R+UvroLyi7ETkbpdQYxllSEl3XDcbqH7H95bJ0dHfvnAtt2pWpqFwjN
+	qjvkCCeTRWvzTlhzqzeY4DrGcW1nUrU3+OaaiQ/9Owk4OT5y4KYpLjVeLNp+tsAi7QpB0mAMddz+Q
+	aCAI2teWIYlGMMzMln72CbiD3j7te4fkbKqZdiHkdpevovSGvr1IHKh4YPRZg+Nf9GOyduB4LpukV
+	lz5MQatA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLFzm-0000000HYBO-0Xe9;
-	Tue, 18 Nov 2025 07:19:22 +0000
-Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1vLG1H-0000000HYR8-09DS;
+	Tue, 18 Nov 2025 07:20:55 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLFzi-0000000HY9S-2sz7
+	id 1vLG1D-0000000HYQn-1olg
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Nov 2025 07:19:19 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=xiQrkrK1aEwpgJyElKcQFrxyXdoNk4qDjvnFX3ez2rtD30jHYjUpSBlt0ztTAtTaqTC6cuiTbPuxBBeWTMBw4b8VMzlry4zv3eEA2biE1xHVUb4HRbb72VMx+Nfu0yk0ccv0k+Xdtz/a4sl7aFYrtvKTbprZ58PuKO0fQ0SE4RFNayo93ovkNstuBhOEi27Vppw+cDkX0cBkiUjj6f8GSp65h3QPT78+FlviGZpQOLC2syAr5gBi/1jx2cRTImNJ/HRUUgEvQzklNYt2KSmUKmOAFOYKKdhE/rSGcwTy0cfdq/G0Jnrbh2FXY/7ztv8rPDnrk515OWoT+SI75DYm9w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=oWI9Rjducvk/Tpm5RXiMWL0Q96yn4CnXUk1yYNHy+MU=;
- b=Cwhiw2TYoyDI+1pUIwOMyJf2C906LWgDG8jjtdFPHQ6Gi+jH4MOzIWXrusRXqpzv13yGDNXEvQUJqdfa73LZYojhbhTzG296NlbiLd7YNM9auPYSScTaBnYgw+xuBgxnP//Hkc0QuLjnVPFilabuxFzyXL7NHy0EQg/m0n/IXEthQjnohcW1UleUo5tiiJo15zuF4Tjy6IPwftZYUrtzl3Im4U0ioVrfRDyfMIotuOyH8AIaF+cdttbuSVPinjlRK4HpxGaWKFP1oTLA2qXcpxjxENryxVUsLKMbGynbiDniVazwTdriCRchmxk4ObRjeQqgDoDPp3l7Ki1bj3UBAg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=oWI9Rjducvk/Tpm5RXiMWL0Q96yn4CnXUk1yYNHy+MU=;
- b=kKO5paLJN+hJnvNflQuyDPqkW9c6OJd7MH/W1WcaTbliuDs/TD6Fu5h2J/b3Wi60OxtPTVvziguW+soybW+pNy+QG+xR27uvK0XuBWdKjbqnHPjnGRAcr+RGqrCONxWtA3j8YHDdSfcRJ0sfUUz5u4pF7CzIEalB16JdwURgk8gVEB8EVuOcKz7PmiuavQec/Ddxj3iU8lUWziHeWiLCDIUSXJpUZjK/T2p4y0Y90TGLcH9IjcB/lKll9qGPxpa1qHvYnLn9kKSC3Pl3NDoF6GuElK1qMNELULxDpOTln/35wCSNZCGAShx7hhicGF/Q15tDP7GZUI9rhGdU28JHkg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from VI2PR04MB11147.eurprd04.prod.outlook.com
- (2603:10a6:800:293::14) by AM9PR04MB8289.eurprd04.prod.outlook.com
- (2603:10a6:20b:3e8::8) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9343.10; Tue, 18 Nov
- 2025 07:19:13 +0000
-Received: from VI2PR04MB11147.eurprd04.prod.outlook.com
- ([fe80::75ad:fac7:cfe7:b687]) by VI2PR04MB11147.eurprd04.prod.outlook.com
- ([fe80::75ad:fac7:cfe7:b687%6]) with mapi id 15.20.9320.021; Tue, 18 Nov 2025
- 07:19:13 +0000
-From: Carlos Song <carlos.song@nxp.com>
-To: aisheng.dong@nxp.com,
-	andi.shyti@kernel.org,
-	shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	frank.li@nxp.com
-Cc: linux-i2c@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Carlos Song <carlos.song@nxp.com>
-Subject: [PATCH] i2c: imx-lpi2c: change to PIO mode in system-wide suspend/resume progress
-Date: Tue, 18 Nov 2025 15:18:37 +0800
-Message-Id: <20251118071837.1419558-1-carlos.song@nxp.com>
-X-Mailer: git-send-email 2.34.1
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: AS4P191CA0022.EURP191.PROD.OUTLOOK.COM
- (2603:10a6:20b:5d9::13) To VI2PR04MB11147.eurprd04.prod.outlook.com
- (2603:10a6:800:293::14)
+	Tue, 18 Nov 2025 07:20:53 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 773B2601A7;
+	Tue, 18 Nov 2025 07:20:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 10CC7C4CEF1;
+	Tue, 18 Nov 2025 07:20:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1763450450;
+	bh=j+MYg21RyAED4d0T7A8bQOMTtInQi6sOoDxd6eR1Muk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=auyuCTfQWiotWzkuYWbY3kpLpU1Rx9vv6Ce6mePeTlvdStH2Mlq/MJ0L17XFdeYHr
+	 rPw5mvZiWtV57Bti6p32Ki0iGz8l0N289niGMqWyULzI2S67/OF2J2ClZ30l1NVMZT
+	 SwqYRKAUWiAAv2xwzyJNP8fdeAyHQlfcYj0oCMYZ6booge8jwliQKyLdy4KrO1P5qs
+	 Ri00Ujz2q199Go/WiONfVpbVz5whlik+KM4Hc9EY07glIlJ4A2oZ8lkJOL7X6yscjb
+	 O0ztnAYtRpuGe0AkCAO6a1vh3BIgj40zKn07NAprKsSCqHXxqe6/UW5CI5k5V7CaWr
+	 UfncsehknxHEw==
+Date: Mon, 17 Nov 2025 23:20:48 -0800
+From: Oliver Upton <oupton@kernel.org>
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	kvm@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Christoffer Dall <christoffer.dall@arm.com>,
+	Fuad Tabba <tabba@google.com>, Mark Brown <broonie@kernel.org>
+Subject: Re: [PATCH v3 0/5] KVM: arm64: Add LR overflow infrastructure (the
+ dregs, the bad and the ugly)
+Message-ID: <aRweUM4O71ecPvVr@kernel.org>
+References: <20251117091527.1119213-1-maz@kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: VI2PR04MB11147:EE_|AM9PR04MB8289:EE_
-X-MS-Office365-Filtering-Correlation-Id: fb351f40-1b1e-4764-f11e-08de2672c616
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|1800799024|376014|52116014|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?as2kTqgi6MULyqINGxwITaAhZFnSgHUstwhEEqh90rfhZtn/5hZ5rUECz1Ap?=
- =?us-ascii?Q?PkEAomm2V8v/PJbIsl+Ci/h7j299X0AE6Ph6tfyUzO9ivluV7D3lceJEXQHl?=
- =?us-ascii?Q?Hl0yXm8TVudIonRXtT7ltFfM5jiXqZP+KDZLBNtCN++QRrBuGKwZeh8A113I?=
- =?us-ascii?Q?GxCbmsLiDALClhR/PytewNk9qd2Z8e2OdGM2RSFk3UUI8v/4/8bgJE1WHNJs?=
- =?us-ascii?Q?uHSHKl6h45rfYN3z8rpjzF0FZ4oMIHDu2UbUiGnSrvzhoYpNZDeftxRDv0z0?=
- =?us-ascii?Q?OFOFlLefupfoJmFaXcgqlerXyRcmqqtEiKXi3mJnMrDvT4+5lEmuVX51uR70?=
- =?us-ascii?Q?e1Ixzuf7xQCi0T0Ke+a2INUEOkp4hBZjruu5ko0SauO6L/hiPvwVi3y7QhLv?=
- =?us-ascii?Q?SKLPxYRX1ct72xDYP1P5A2DyL2IPDLWQfxdGx6JLP9bL1qwkuiOSYGcQWiKC?=
- =?us-ascii?Q?AJwA5goqRgD51104kNSs8w+D1lR7cJe+bB1tWMpnKrflY2lDTMKhfYRnXHhp?=
- =?us-ascii?Q?pcNJwEL77t5cqVeiGyu32c8DwuY6ewogoBxy+V87WM/UdaQhiP3oeWbbG8G+?=
- =?us-ascii?Q?pjN2RPrn7eg4Ht9doAjgXmZ2J9Ja6Fo0CGyQ9FFcW+7HxDh7Hw9ORw5mk0rm?=
- =?us-ascii?Q?6CttFt/0sjRR4J29HCLN+i0+yjXu45xeN7wk0Q3Ja5g7xox8lKwVpEj5F3lL?=
- =?us-ascii?Q?ICN4bOtAlO+qf64+U7DkvY6x9v7plcdpCHFBphlSXmLbSAIvtUpTxB5EbhBD?=
- =?us-ascii?Q?i7UG0089AGY3DeIk/NDGrQ15EuLrh6zp16uCfelOac8lliUMfU/pr2l2OXg+?=
- =?us-ascii?Q?KjC2B2FMjcdxq4s73cZYPhBwCIfj97iN2Rt2bQsLjpRaogtnpBIybDb8VKMW?=
- =?us-ascii?Q?RTWFCn7OKZlZOnZtST/N3vv2yIaktGPozlqfLXWzn6j1YDOe11/k6L0ZkWE2?=
- =?us-ascii?Q?qQs0AQl5amUXjh4GIvjO2wghjaA/KovxBHCxshbtChK0NgzNfiNEHz/fRnyv?=
- =?us-ascii?Q?lDnaHIoKv3+ocusz3RiGWg4/S9F18U5QWa0+HjRzU6+7o2SSxAsGC+CusNBY?=
- =?us-ascii?Q?P9FgRIRAd6QuKSWnqGSp9pZnjmFK/56mDNmlL/BRCYMAqyc159cEBsZPy3C9?=
- =?us-ascii?Q?riAo63BFbS/rZQ6NLOMy30UDdL+uZQK0798JL4GZ4t7K3zJopPPHczw3R7Cu?=
- =?us-ascii?Q?5kwimPLMoFniv+dpbNsJIGsJZ7IIuw48RzToZQf/2fm48qCQ4me51BKdPw0t?=
- =?us-ascii?Q?oJDtwNUSyccrNcPSxrFlxiNnDWFs+EXM379EvXt+NRe4XQHMtp6VdhmtBsJy?=
- =?us-ascii?Q?zwcc8kbb0/ABb3oA+fsm8+ugCfAZqYBLpcITP951++YtMoRzj7P0Z8WccFPD?=
- =?us-ascii?Q?YTJKnaPa3O95TAt1awwa4SAp0jrEo3Vmg2duueelmr5CwEAghgFnQMXnyUdZ?=
- =?us-ascii?Q?/Kz0H91rcaFh6VlkavTId750Brmci+7pqteG3G+hDWoLgx6xk+Gf7M+kjB1Q?=
- =?us-ascii?Q?YojIpeHXldXzB81V6R/MY/NUhIUcnmDpZxQ/?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI2PR04MB11147.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(1800799024)(376014)(52116014)(366016)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?K2fZJ3ROwKBqhqpEZrDPki5M01ABQPin1Zv6f67Qw9y+o+wvYUoSEwEKW0za?=
- =?us-ascii?Q?vW1iLgtsTjF3ScceIq/UOOTmjTkdTGmCfSROQl/Fsv/p0APKWdvIN3I50OH3?=
- =?us-ascii?Q?8hrH/LpMvPtlbn0Fo29VB1GYG7EYJ9t8EUp+iEsehcGEWz9/7hKD4DOwiwOb?=
- =?us-ascii?Q?OpiD3PXGOV5TaMkvbCKNWyKs2IFuEgNkJ1VmL+WAqXxGp6jMg8094dZqV4wT?=
- =?us-ascii?Q?cW+7cbzf1p5pKgQpWG1EHtHLzqAjvlpmF7T2B2Bf1J1kiZCUNV0DDyKswavt?=
- =?us-ascii?Q?YYZoup1kt8ENl2zlv4Sk52NMN1xigOxkhYbC2tf5/ANvR3m03KI8iIRGh9M6?=
- =?us-ascii?Q?9szX/FmT2Y9z3xciEmlNveGLxPWrzM4hALxBu367bBVS3TWDhOdhc71MOQWS?=
- =?us-ascii?Q?gv204wjj48/ugWd4UY74JksT0yEHnX6MOUpaDi7/UoiYnkgJypKBncU7up5z?=
- =?us-ascii?Q?mQC5XjYeSxLFMohZkTJeJ20dKcf+KwYps04HtBbnxr0jdS7gvG5MWANZ6CPd?=
- =?us-ascii?Q?ElCtYVaX3RWq0X4Le0erNNcCjEPl8TTcQJ8kor+pp9iH7pmCc6wsWnkZUtgo?=
- =?us-ascii?Q?MlJQ+cNItOWML5/86H+Syhgi+P+i0fJCff4PkY1Jkpf8xAGBeOF2V/a1XQfV?=
- =?us-ascii?Q?aGifsjvC62Tp1wT750FZFWoTTJoESCsGL6WDGHcuqQuTstnDlyeTkks7DZkq?=
- =?us-ascii?Q?dAsM/SAOpsH3TCiQn1yE8HOehVc6I+JIWou58TxN9Ki7+Vuqwvbn9tfSbSln?=
- =?us-ascii?Q?BxH6L6HqdEuSG1T8DWghD+/QPBOOEi956TlnO8PHDDyqfcU4bSHyMKt9zMVp?=
- =?us-ascii?Q?aTLPViH5azXKAD/kCOT++SVLBP393pxg6cs/UK3NZpVqOMds76HNx90bBuq6?=
- =?us-ascii?Q?+fSmgaQ8HTVMbyC6yN1r9kMZN7k3qrADWGOZpKsLYHBuiw7uym+RWoRb8TuE?=
- =?us-ascii?Q?srWv9Ow3ovV7/6iXP4M0g1T/ZzS2ncR2ZfGcXqL/VzYFxrW8pVTDo6WlWelO?=
- =?us-ascii?Q?zdkNwxdCYRZCWFgIPGrb/X5f+//YgVEPCm2j2hq2Qpk5YIqBjVmmpbRjlVFC?=
- =?us-ascii?Q?fJz0W86yD90RS6SKYLXy2ZOkYnbfOtj3W/4+0nCH99UKbnnRsyadXF6RRdhc?=
- =?us-ascii?Q?VOKLaj4eTTIiXzt4AvokI2QlCerJxRPbyjRttACLzo+jG1lKswQRQh8o4oQh?=
- =?us-ascii?Q?YAWRBYruldkEIzfHL1JzXV9GXGj4BXWeWgQrXoLR0TW0mJKyZYfrtxe1NwsB?=
- =?us-ascii?Q?KQGuuPzUfhSy1nbnNsspi1qZaLduYU5l+HZ12KzWeAg168ZNFDfPo4Ao03LG?=
- =?us-ascii?Q?nnaTNgEQ1HgsYJedBIOyxeZVOlaKILpNM4NPcwuIxoU4iDXvHuDh6DJEiSFS?=
- =?us-ascii?Q?alL5jHEXPlPK3f4f98Q4kV/dxUHY22Grnd70ScW71rUuus5OIc9maSqYSquc?=
- =?us-ascii?Q?mmdjDAPoadSALUMjCyV17fTveMgiKAnAmQC8eh7JXKM383tgA9a6SdfkQYZ+?=
- =?us-ascii?Q?SHWi+BjHqABncjJwyTuuGYrocEKxsnZ8VGGeYVplSc8qGa5byjnG0Ss8a7sG?=
- =?us-ascii?Q?Eg8bZ7K4QQfWMGv94Tkivu5pqKAoc8y3YkzyQyx7?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: fb351f40-1b1e-4764-f11e-08de2672c616
-X-MS-Exchange-CrossTenant-AuthSource: VI2PR04MB11147.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2025 07:19:12.9554
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: t7K+PJRXW3ppaUjtgCBAFyCY3xIs07h+JY2ZI4SzwfvW892IadqAsUWikPiI6T0OLiXVAirlhx/LvZfbLpg5Kg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8289
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251117_231918_735323_5348280D 
-X-CRM114-Status: GOOD (  12.14  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251117091527.1119213-1-maz@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -164,35 +73,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-If a system-wide suspend or resume transition is in progress. LPI2C should
-use PIO to transfer data not DMA to avoid issue caused by not ready DMA HW
-resource.
+On Mon, Nov 17, 2025 at 09:15:22AM +0000, Marc Zyngier wrote:
+> This is a follow-up to the original series [1] (and fixes [2][3])
+> with a bunch of bug-fixes and improvements. At least one patch has
+> already been posted, but I thought I might repost it as part of a
+> series, since I accumulated more stuff:
+> 
+> - The first patch addresses Mark's observation that the no-vgic-v3
+>   test has been broken once more. At some point, we'll have to retire
+>   that functionality, because even if we keep fixing the SR handling,
+>   nobody tests the actual interrupt state exposure to userspace, which
+>   I'm pretty sure has badly been broken for at least 5 years.
+> 
+> - The second one addresses a report from Fuad that on QEMU,
+>   ICH_HCR_EL2.TDIR traps ICC_DIR_EL1 on top of ICV_DIR_EL1, leading to
+>   the host exploding on deactivating an interrupt. This behaviour is
+>   allowed by the spec, so make sure we clear all trap bits
+> 
+> - Running vgic_irq in an L1 guest (the test being an L2) results in a
+>   MI storm on the host, as the state synchronisation is done at the
+>   wrong place, much like it was on the non-NV path before it was
+>   reworked. Apply the same methods to the NV code, and enjoy much
+>   better MI emulation, now tested all the way into an L3.
+> 
+> - Nuke a small leftover from previous rework.
+> 
+> - Force a read-back of ICH_MISR_EL2 when disabling the vgic, so that
+>   the trap prevents too many spurious MIs in an L1 guest, as the write
+>   to ICH_HCR_EL2 does exactly nothing on its own when running under
+>   FEAT_NV2.
+> 
+> Oliver: this is starting to be a large series of fixes on top of the
+> existing series, plus the two patches you have already added. I'd be
+> happy to respin a full v4 with the fixes squashed into their original
+> patches. On the other hand, if you want to see the history in its full
+> glory, that also works for me.
 
-Fixes: a09c8b3f9047 ("i2c: imx-lpi2c: add eDMA mode support for LPI2C")
-Signed-off-by: Carlos Song <carlos.song@nxp.com>
----
- drivers/i2c/busses/i2c-imx-lpi2c.c | 7 +++++++
- 1 file changed, 7 insertions(+)
+I'll pick up these patches in a moment but at this point I'd prefer a
+clean history. Plan is to send out the 6.19 pull sometime next week so
+any time before then would be great for v4.
 
-diff --git a/drivers/i2c/busses/i2c-imx-lpi2c.c b/drivers/i2c/busses/i2c-imx-lpi2c.c
-index 2a0962a0b441..5050e14a9919 100644
---- a/drivers/i2c/busses/i2c-imx-lpi2c.c
-+++ b/drivers/i2c/busses/i2c-imx-lpi2c.c
-@@ -592,6 +592,13 @@ static bool is_use_dma(struct lpi2c_imx_struct *lpi2c_imx, struct i2c_msg *msg)
- 	if (!lpi2c_imx->can_use_dma)
- 		return false;
- 
-+	/*
-+	 * When system is in suspend process. LPI2C should use PIO to transfer data to
-+	 * avoid issue caused by not ready DMA HW resource.
-+	 */
-+	if (pm_suspend_in_progress())
-+		return false;
-+
- 	/*
- 	 * When the length of data is less than I2C_DMA_THRESHOLD,
- 	 * cpu mode is used directly to avoid low performance.
--- 
-2.34.1
+Thanks for ironing out all the quirks :)
 
+Best,
+Oliver
 
