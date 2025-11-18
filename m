@@ -4,149 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4183CEE328
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 16:01:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3DCCCEE331
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 16:03:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WK4s4a9oI44Po+t0VcUOtFDRIv/rRTKMQ09dNSun6s8=; b=JgBrOoThazI6/ovnj/1QlZq9RW
-	yxamh/Q20RXsbE9w5Ry8kyiqfRIn0cgyG3pDIt5JgSgdde9NeuRUHVFOoto9L99qEQmqJtpQbOeJy
-	IvW/CzHTH5TSuWe3HGIGy5zTmhwIkfZnQVdvsUartuBwXpTiN+R2lUSaTeZeUBnQW6OzP8jAfDPuF
-	8knSjaoJZuzsIqc1VfJ9Iq3Rp+iM7qHP8td+k4pgsoVWeVLIIJRzTEnYPGFC9Ao2jOT7p7Hl8w9Dx
-	R4BkPaFXP1PdN2uKFZSj6qJjCJTQxL+NwonXIhTfeKt1hPIQxU3ytJkHdltPS1APFEiYYOO3FoF1y
-	Lcej5w3w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ZolYxKyR2TKNDHC7G73SjkM6m/AelgK287SOoaUodeI=; b=KyJh+uMtI22kQ4V+uJFsUMy20u
+	gtaqkU5I+Lx7DbJbewtioFRBvjXvuwB5unjoUK/cv9ZnjN3IsiuBk20cr8mpUQiWxyNpKgu5It5D6
+	j/QBa3Q5NSxI8FaxNnHnB0Se6l3m1/+UOENMoaUH7Hb9NTY5EQw1KWBXdnrh60M7yM1Uv/z9uDXOp
+	ijaFSj+YbEw+c1tLvK/J/2ZHvimIQNKmedlsdxABf5Mb/UnOfwV0/hqjR/E41/bpFI59PZsTJHacD
+	wh/pAIwOTpZexbkgnPKEwi5PN/9kiAjAMiZcgTX4mwazx+Gpt9hoMIcKpsusdludj0Mng4uMwjrfJ
+	E99vJWdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLO8s-00000000fwJ-2Nik;
-	Tue, 18 Nov 2025 16:01:18 +0000
-Received: from mail-swedencentralazon11013026.outbound.protection.outlook.com ([52.101.83.26] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1vLOAP-00000000g4d-1swc;
+	Tue, 18 Nov 2025 16:02:53 +0000
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLO8p-00000000fvn-37ue
+	id 1vLOAM-00000000g4A-2t3N
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Nov 2025 16:01:16 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Wcx3M5iMKmIIVyKd0EvUYXFAeBK4zVc1lXQacLRQtkCqQbAbjclZHRsSNJ+U+GVpd+3ZVkZ4orI1Z5292m4IwUEDGI9jsVRc57PZ7FySS2x/9s9dRtZrdi6UQk7M3GZevXHxIrXeAbdaxA17mL1Q2n6eQgdn4dmsCwQdbuGv6TLKouMHYyjq2zpdottIjyWxGbJkTqqPEy3aBhmA8vKHzOAsr9skZ/Xa3XBFw+GGrZMJTkaF/vVfurpGxlQIYtnCtwkZQB5jFByfxWuWdsp3sSwFFMEbIWTpaOIctwS3238xsKDDPJtbG8gqen0Cnkj5c9dIwI3E84m4NwD2nUfVVQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=WK4s4a9oI44Po+t0VcUOtFDRIv/rRTKMQ09dNSun6s8=;
- b=yidbYO+vqLYC2v/rlBw/q0w4ebTLTidOsrPQFdEjJJP+0mRtbkAEaOOvxOJCph45PTgbKSZWZzXs5bPzGbRw1uCLdZgKEyIqgsdleuxtAVp/shNeNMIrq9re1DN51Wo78byG5fTfY4zBg3ka+tbLNYZ72njXijtrvw7v0ECcGaGRW4Ju9fmmy3HtRKnhq4TgmeVBtgPwCRq0zY3/aKQYouVLTOx9znLbYWeGXM3i51tf05G+ieb/6Tb7UhyI7ns/APdyBg3SaBA9zW3MCU5dZJnMtQUf3GTwqY+1N8EztBm7Cj3Hljpb1TOatHYnJCQsPqnSL4zpTNTqYYlQ/hXIeg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=WK4s4a9oI44Po+t0VcUOtFDRIv/rRTKMQ09dNSun6s8=;
- b=adHTo3NGrA5bafzjnCuGpH9CrQqhOknDSXfMFLMvo31gTdGqtiDZzTZpX9EGcGIIJPg9QsU61/fNqIDAvlihoRiS59jgqxGiSlB3qGAzopDYgU0d/Qkr+VN5aRMHsKHe8XtJwROgeyFMZwaH0PItzhv0UaWpcw2KsaVcLHDql4Zq0uFHtitVbaYDLkIre8vUHXeB0bbaoFpamKCzmMD/m7xowGNXNjWiK9qyzH/LeTUXC5QPaSgjuZ1SSOHH22uC/g3KG3PpCBlKGP4bFbCOuFGZrZO8Ki6Z9lPBZZrni67ni83D6/0QeM4drrSrzd7qZwMdwmbDsbH60AfOFcTizQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from DB9PR04MB9626.eurprd04.prod.outlook.com (2603:10a6:10:309::18)
- by AM9PR04MB8601.eurprd04.prod.outlook.com (2603:10a6:20b:438::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9320.22; Tue, 18 Nov
- 2025 16:01:11 +0000
-Received: from DB9PR04MB9626.eurprd04.prod.outlook.com
- ([fe80::55ef:fa41:b021:b5dd]) by DB9PR04MB9626.eurprd04.prod.outlook.com
- ([fe80::55ef:fa41:b021:b5dd%4]) with mapi id 15.20.9320.021; Tue, 18 Nov 2025
- 16:01:10 +0000
-Date: Tue, 18 Nov 2025 11:01:02 -0500
-From: Frank Li <Frank.li@nxp.com>
-To: Haibo Chen <haibo.chen@nxp.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm64: dts: imx943-evk: add flexcan support
-Message-ID: <aRyYPnn7H/+y+OEA@lizhi-Precision-Tower-5810>
-References: <20251118-dts-v1-1-81b6249f455f@nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251118-dts-v1-1-81b6249f455f@nxp.com>
-X-ClientProxiedBy: SJ0PR05CA0203.namprd05.prod.outlook.com
- (2603:10b6:a03:330::28) To DB9PR04MB9626.eurprd04.prod.outlook.com
- (2603:10a6:10:309::18)
+	Tue, 18 Nov 2025 16:02:52 +0000
+Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-4779cb0a33fso36924345e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Nov 2025 08:02:49 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1763481768; x=1764086568; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=ZolYxKyR2TKNDHC7G73SjkM6m/AelgK287SOoaUodeI=;
+        b=mt+ga9JFrm8U3s5QsdlQEeHjtEbnzPUrwpeKzdGMS7X/35oNBgV+gkhPIQua84nqjc
+         Zp5t3MV+ju3sMg5p0c3JmmGKW40JCQvjyLTBMP4hFeWoRroNUwdIGuh5b4QxO81QuMEC
+         6Off0C/LZNUtepid/RPQjv184cPX6B7GqsBhWgih1aclJTSTXtYTh3ikm4tI52ySaJIZ
+         RryfaryI2EJDwhYrpdMp+S/nmLdnyqMaTvZELHbUgqsBfTV6E5elO/wCLdRyGFkV9qng
+         RdzWUkINi94Emo0GnG/iwCAYqXfcGk/G83xSgR4RcM0L1/bhNoInW00QTFc3gjSGLl21
+         UUmQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1763481768; x=1764086568;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ZolYxKyR2TKNDHC7G73SjkM6m/AelgK287SOoaUodeI=;
+        b=Brlw2DHhPDRLZup3II+yTRP09sQKFxCH86wKZ++/0Pd52yLFU5yBu0cowiP7nvg77B
+         gvV6CoooVTqE8cN4Cxpqo/cWErnphOOKLY3DAzmZOynyODnlvWkaUhSbe/zHHk1JKAVY
+         +3oOSqkUMLRCbqYcn4D8iPhq9wB65PYzLZecBQVpuKi7Kjaeg1iYCW7hk/cIGL51Rggs
+         Rl2HzrpPMTaGuLouSNjnVCxzOBBTbX7gTqpPvtaooZOXyK8UPyLbJuzEXHT2KWgz0DHZ
+         qz4zteTNuBTmZ4RQdljpDxx+YbVYVqkDH7HzTvMlXygs830ZqFTWdRkoHkGbCPdxPghe
+         oXCQ==
+X-Forwarded-Encrypted: i=1; AJvYcCU5Gsv+6p5DN0IqQ/DEhNhVZH7bzDYWXCair1GiFhEL1Th9hJRoYbWPIxU101p7ZiKJd+xS6JHdx0vKHwTzbUfa@lists.infradead.org
+X-Gm-Message-State: AOJu0YzmHpCUq2r9AqtzIrYstE3zQU9x7uU/LVb6b8XPdPMPixduWJ0i
+	d/QT4H0oPWlG1lUWXuy7ppMDYTli6N36Mm6QOkPV15cvFPb2z0+deQGy6FTTxjbDArM=
+X-Gm-Gg: ASbGnctkT9/cNaHIl4c7rKydh+fheWCIOA7G8CW/wMAU0pSVHKA2TeYk1itupZyRD1h
+	ztekv0VOLXrNjxiLD5Tdd6uUYdhoRfJiyffrrxz1wUFWVRw98fgStXdm1p2qSXXAUPWurOFsBoQ
+	l9G1gi6QOhy8vbIdseUQglYVllRnH/e0g3lhQSFL17h3msq0TqNJa+pyd3ABtSJ1q9+8W43l5Wq
+	N3FBswVy23EEgGSpAibcFCzXyNDSEIYt5woHg/y+/5uNgVCSreFy87xilleLItgCtQeOn4N2pqz
+	+P4la4KHN+PrUn4ojTYsWouZGVWJw2c/fQuHz5/X3T0XFG6uDm3v536mFU4YKLxv+cSHODXpShj
+	W6QmAx1n3HUOZDj1kc3IkwXRiX9AlQt9XqTbSG2d7432Mf7B42eUeY9W00t6gbpVrNtYfxTKziy
+	5Sk+LAKlu1imlmrHmADwE=
+X-Google-Smtp-Source: AGHT+IHU3f+2VnZb17HyfN3q7vH0maabvSkwzyf6Chngf7ZnCh4C8B1MIKZ3LBGCUAyWOLacnrXL3g==
+X-Received: by 2002:a05:600c:4505:b0:477:7a87:48d1 with SMTP id 5b1f17b1804b1-4778fea8810mr178621825e9.30.1763481768019;
+        Tue, 18 Nov 2025 08:02:48 -0800 (PST)
+Received: from vingu-cube.. ([2a01:e0a:f:6020:76db:cf5c:2806:ec0b])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4779fc42f25sm171954575e9.6.2025.11.18.08.02.44
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 18 Nov 2025 08:02:45 -0800 (PST)
+From: Vincent Guittot <vincent.guittot@linaro.org>
+To: chester62515@gmail.com,
+	mbrugger@suse.com,
+	ghennadi.procopciuc@oss.nxp.com,
+	s32@nxp.com,
+	bhelgaas@google.com,
+	jingoohan1@gmail.com,
+	lpieralisi@kernel.org,
+	kwilczynski@kernel.org,
+	mani@kernel.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	Ionut.Vicovan@nxp.com,
+	larisa.grigore@nxp.com,
+	Ghennadi.Procopciuc@nxp.com,
+	ciprianmarian.costea@nxp.com,
+	bogdan.hamciuc@nxp.com,
+	Frank.li@nxp.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-pci@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev
+Cc: cassel@kernel.org
+Subject: [PATCH 0/4 v5] PCI: s32g: Add support for PCIe controller
+Date: Tue, 18 Nov 2025 17:02:34 +0100
+Message-ID: <20251118160238.26265-1-vincent.guittot@linaro.org>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DB9PR04MB9626:EE_|AM9PR04MB8601:EE_
-X-MS-Office365-Filtering-Correlation-Id: 3dd7d712-54c7-4dd0-e593-08de26bbb139
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|52116014|376014|19092799006|7416014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?BBlZ/igPybJ4yFsEmoYZiJ0L2HXA0HRKxYQZ9V6bsU3OBO9zj+Z8H1GPuXxq?=
- =?us-ascii?Q?7ErKCliu8vmuFZmC4OWX/fV19Di/1rG1wA1kq5KLRjmDH3c5Yj+W19e53yVD?=
- =?us-ascii?Q?JgAhSfGX5a9vTaLUE5yKOnO9wmGqcNa29VHi4MADRYNvzXDKbYImADD/xYKn?=
- =?us-ascii?Q?zB3MxCNGweDay47BjPWRzchXI4bBOoEdY1+05iGi7hi+U7hQ+wFga9PVqThd?=
- =?us-ascii?Q?tZK8oE3ssLxGcLaf/ocUDdidmYBIqGm870sXSyoeGzt9yyUf/N9MGNwVAJ0C?=
- =?us-ascii?Q?iV43Dm5ROCXSx55bsEucglN7+30wU0X8m2aJ6albFlP4rmNARGtvFYgsVGfV?=
- =?us-ascii?Q?gGE7FvrWXr52aRVPFUUrLlrlsVwmO2jJX0SbkjmZLi3kgG3xvw8nyCpRRG6m?=
- =?us-ascii?Q?LhvEbFQmsgDcbkF1L2OEou73zDyqIWHoefThI7IqLttL9lcoImw0ixJ+WhCE?=
- =?us-ascii?Q?ft9vjYTjOb+/PrxL3FP9UdHxW1J26driS+T3TJiuGpJCjemhwaXD7SedrJ26?=
- =?us-ascii?Q?fN/xADwP96Vq4Mkc2g3x0OVl+af6rdKZ5j+a0GN9gyFOXgyGoDndhFJiEwG/?=
- =?us-ascii?Q?oV6WXkHXzliefRFTrPJvKxQ5ocOmjnj6/DWXimRVKqVr0U3ZQYrr/YCdhlI/?=
- =?us-ascii?Q?yJL0GtQlodbVPYrR3A0+hdYpgNcrLgzs2e+CZ2fSyOXUoSEc8q1VpwNk0Ywi?=
- =?us-ascii?Q?fB5q1KFT1XU/3AdbzO+hVr4NqIENdpgDrtOfq3wgeV9sbdJje/77ZUdetdCE?=
- =?us-ascii?Q?vb+wAOEyTMdYvTYhnpNsJAIpV7vDDX2w0hNgQx17LJEepH36nEFAJoVTFXT+?=
- =?us-ascii?Q?yMAriVm2yTWtoY2qSzN/HCIRSJqwnMHqXEnNa4clzZYhWJ00whaHd/ltWoQx?=
- =?us-ascii?Q?es8jTRHgYtCQmxTQOAbbOG8Ak0hPo7DM59ttzHL4Ujlo9JVIrKrOfCi1jGT6?=
- =?us-ascii?Q?V218AeFtHKs8HoW+4OC6dw0IqwSW041NJ3nEsqH4j218qLEyIFJ8N+FeAeY0?=
- =?us-ascii?Q?hB4en5n2lq6MtwvdIkASU5fHGukAYAZ7N/c97aQAaeO1noiFPCsD/f77jqld?=
- =?us-ascii?Q?vnc2nAGIc+Qe6v53ZxSTh1kYoNiVk0MPWdN5lcqpetsdXU6QDEYs4Ulxs37Z?=
- =?us-ascii?Q?QKzbbulRYH+KPGrjZDcNArHfpxVMjYEGWoytvTq+QN4i2TO+vXEw0XOtUaeb?=
- =?us-ascii?Q?bEsHnP3GqUG5mJVEx/DA/sa429WDaiMU06dZ9GJMJA4sbAEARHhFHxDmy8Fb?=
- =?us-ascii?Q?PiqYWwN7TKjm3S2SQkVwRRgzbIk7H3XAAEoT6eTlp3Drw+caFeExST3qsafo?=
- =?us-ascii?Q?2MIad8lkiDHHrvbfCs+tDL7cwBZFdCv3dZNY/EvZnp3VV+acBNH7/thNNkpB?=
- =?us-ascii?Q?4WgbkfKkQ9JjOYt/P/Ls9mjhgqOpex3IJ3qxwYOR4SSkYagWOdcP5A6uL2zV?=
- =?us-ascii?Q?mPfyM7b5ERMsCR04GSc3Drt7p4I8Wdz8HQVK9IaVseR1f+vi1btg+hUQ2S6V?=
- =?us-ascii?Q?F4KRftA3q5sK63YvubgBTmrQt15LeKdXJEln?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR04MB9626.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(52116014)(376014)(19092799006)(7416014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?T0vgr5V3IfVwz9LE1kClWDaTv+uI57Qj3FS7zPDj5geMpzz13xMsfi+A4a0B?=
- =?us-ascii?Q?KLYbscmLxxZWpfV3v+upakRjWLy4vsIhHawlVM42HyeIJbr5V7ASlhEB8E2l?=
- =?us-ascii?Q?z/Kw9X1D4neLeIFjx2YDMy1vBLZXXsUTOwZxTN2ZSWLnYE34Kpk8zCgrlETj?=
- =?us-ascii?Q?h5uPIehDk2IJKnQJaVvoFXlAU2NDd3+Axo0xottjHIlJEhu9bYrz5CCFjlca?=
- =?us-ascii?Q?XHxC09V1PSe/m6riYv/Yy7mqVPzq87FJgCThxoAXtwF9PPl4BtHNDoHejGO7?=
- =?us-ascii?Q?oZI52H03ABUfWU5+tWnxYiphVwxAZ3QzXMIH+esI62cMgwRCTXEf9XW9tYoF?=
- =?us-ascii?Q?Xu4Pg634Uq+TTFf4eZj+AsZ6X+kWEBQSo8K1bVN6JTZObBaA3hhXvW7LCWq2?=
- =?us-ascii?Q?91gWzOt9xVe7nxsaZVxCLMdArRwQtngAl2xjuBF7fI2tz5HFMGLy44b63rjR?=
- =?us-ascii?Q?ycx0sey5la7wwy0EZVj7BafsSIfQKw59tMykXTbSAr4Ij6x0JZdjJ59253fe?=
- =?us-ascii?Q?QY6tmTvNWRos0Ey/NQoNycFfH+10OPr46nLSqfm6ajPcUvsaHQE487SI1wqt?=
- =?us-ascii?Q?DtnI0OoVV6luZJwz9vUov+DuDe7QxUsbDtHHYEYr5ZTPFiRnSMf2pi5L4hJY?=
- =?us-ascii?Q?hPRzB+Ie0YgrOCeRFRgMg1wE0BIoS8TI2C4WziEytdMiOb+wjgawtiHqaEJs?=
- =?us-ascii?Q?f6uOGsbrUvqEbC2rIERx2K/ZRbZKsOmC1ySLnCmTV0ElvZUNoPPpbOIZozil?=
- =?us-ascii?Q?7P+pxgtLjK6/5MVDZh1FLgpFeY127ZdZ/Gl984bBX6ZWT9AMkTo2VFozXbWF?=
- =?us-ascii?Q?wNiFJig3WVnFmEW5T/FwqonzDsJo35H+53vL5DNyjfp/8Ao1VwYqeT2jnURb?=
- =?us-ascii?Q?muV/95LaGdp3fviC6gAzMfqI0BIuSdf/3BMHk91Br1f9adidqamaqFdceurO?=
- =?us-ascii?Q?r4/ldOaZWQvjRv8JrikzGaJHvie0EivoS0NqL2qrbpl5Qe1+ui+OnfwNAiVL?=
- =?us-ascii?Q?/u8pUBL+eRa7FmMdyyV8GQlZyAZnA2VWOJSorF2ArZ5PqXTSt/hfO1ewkFzo?=
- =?us-ascii?Q?QzVA0GWqWviMiNvsJauNkZlTD9ToChz/AVJJaCnzPDmhroRiRCTfJzCljFA7?=
- =?us-ascii?Q?hjgRP13rWlRQZKbthb+QuvR8FNK2HaNJoFsCUO3LCwtjrkbEwhCpRTanTE4h?=
- =?us-ascii?Q?wzSc46ym6WgQTJCbNsURT2XgTQFGO9a4R5vabXpVvDBInTo9LqGFg8M2y87x?=
- =?us-ascii?Q?+/AsZ9vxoT9i8O3b2sqwd69+UEuFmEMUHO/5l8rEoTk+2TYd81hDW4elW+v+?=
- =?us-ascii?Q?ZYdMQb7fpczJxHu4kzSxTCCbsZkbYI85awz921gzn+8rUirIm/GO92j+YppC?=
- =?us-ascii?Q?QyNQAVQ5g/EdqVTFj5iYxWSCRk4KgqRYG5SfMw4OXwsU1bc2yrpoywlea4e9?=
- =?us-ascii?Q?uwqO4VryNRjVWkqB+6/EYhGb+5Wo3QLPxdHFcjAaAfmCN58RgkNZDsXvs7WU?=
- =?us-ascii?Q?NThnG8ndPI+eLkNGFLE+0srSSiE8ByNPRUGuiH0H+othnpie09tmSglg8xC2?=
- =?us-ascii?Q?FqSKqtMx1yt1uXoTCVXKZiRaCzJNSUOZFnYYrsdl?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3dd7d712-54c7-4dd0-e593-08de26bbb139
-X-MS-Exchange-CrossTenant-AuthSource: DB9PR04MB9626.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2025 16:01:10.8952
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: rU9cT2l65g2fzjRsln2AXZKhtZz5kgiCYVCmBKb/5T2AQve66XxkKIo19aghLkCjOGxtBla36P4KBxirjv+DOQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8601
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251118_080115_790046_A253180C 
-X-CRM114-Status: GOOD (  17.55  )
+X-CRM114-CacheID: sfid-20251118_080250_764505_75A5DC53 
+X-CRM114-Status: GOOD (  15.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -161,94 +117,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 18, 2025 at 03:09:24PM +0800, Haibo Chen wrote:
-> Add flexcan2 and flexcan4, and related phys support.
->
-> Signed-off-by: Haibo Chen <haibo.chen@nxp.com>
-> ---
->  arch/arm64/boot/dts/freescale/imx943-evk.dts | 43 ++++++++++++++++++++++++++++
->  1 file changed, 43 insertions(+)
->
-> diff --git a/arch/arm64/boot/dts/freescale/imx943-evk.dts b/arch/arm64/boot/dts/freescale/imx943-evk.dts
-> index c8c3eff9df1a23c52e74bf2bc5d4ba543bb5a65b..9b2fce25532fa0dbca3a14041399adec0f753e68 100644
-> --- a/arch/arm64/boot/dts/freescale/imx943-evk.dts
-> +++ b/arch/arm64/boot/dts/freescale/imx943-evk.dts
-> @@ -34,6 +34,22 @@ dmic: dmic {
->  		#sound-dai-cells = <0>;
->  	};
->
-> +	flexcan2_phy: can-phy0 {
-> +		compatible = "nxp,tjr1443";
-> +		#phy-cells = <0>;
-> +		max-bitrate = <8000000>;
-> +		enable-gpios = <&pcal6416_i2c6_u50 3 GPIO_ACTIVE_HIGH>;
-> +		standby-gpios = <&pcal6416_i2c6_u50 4 GPIO_ACTIVE_LOW>;
-> +	};
-> +
-> +	flexcan4_phy: can-phy1 {
-> +		compatible = "nxp,tjr1443";
-> +		#phy-cells = <0>;
-> +		max-bitrate = <8000000>;
-> +		enable-gpios = <&pcal6416_i2c3_u171 0 GPIO_ACTIVE_HIGH>;
-> +		standby-gpios = <&pcal6416_i2c3_u171 1 GPIO_ACTIVE_LOW>;
-> +	};
-> +
+The S32G SoC family has 2 PCIe controllers based on Designware IP.
 
-Is it orderred? can-phy0 should be before dmic: dmic. (use nodename order).
+Add the support for Host mode.
 
-Frank
+Change since v4:
 
->  	reg_usdhc2_vmmc: regulator-usdhc2 {
->  		compatible = "regulator-fixed";
->  		off-on-delay-us = <12000>;
-> @@ -127,6 +143,20 @@ memory@80000000 {
->  	};
->  };
->
-> +&flexcan2 {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&pinctrl_flexcan2>;
-> +	phys = <&flexcan2_phy>;
-> +	status = "okay";
-> +};
-> +
-> +&flexcan4 {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&pinctrl_flexcan4>;
-> +	phys = <&flexcan4_phy>;
-> +	status = "okay";
-> +};
-> +
->  &lpi2c3 {
->  	clock-frequency = <400000>;
->  	pinctrl-0 = <&pinctrl_lpi2c3>;
-> @@ -431,6 +461,19 @@ &sai3 {
->  };
->
->  &scmi_iomuxc {
-> +	pinctrl_flexcan2: flexcan2grp {
-> +		fsl,pins = <
-> +			IMX94_PAD_GPIO_IO34__CAN2_TX		0x39e
-> +			IMX94_PAD_GPIO_IO35__CAN2_RX		0x39e
-> +		>;
-> +	};
-> +
-> +	pinctrl_flexcan4: flexcan4grp {
-> +		fsl,pins = <
-> +			IMX94_PAD_GPIO_IO36__CAN4_TX		0x39e
-> +			IMX94_PAD_GPIO_IO37__CAN4_RX		0x39e
-> +		>;
-> +	};
->
->  	pinctrl_ioexpander_int2: ioexpanderint2grp {
->  		fsl,pins = <
->
-> ---
-> base-commit: 187dac290bfd0741b9d7d5490af825c33fd9baa4
-> change-id: 20251118-dts-ad4bd4fdacd6
->
-> Best regards,
-> --
-> Haibo Chen <haibo.chen@nxp.com>
->
+- Moved allof position and added interrupt-names' restriction in yaml file
+- Removed PCIE_S32G_PE0_LINK_DBG_2 and instead use PCIE_PORT_DEBUG0|1
+  after receiving confirmation that they are the same.
+
+Change since v3:
+
+- Added Root Port node and reorder irq in binding
+- Added Root Port management in driver 
+- Fix Kconfig PCIE_NXP_S32G position
+- Use default pme_turn_off method
+- Use ops->init() to simplify init and suspend/resume sequence
+- Fix some typos.
+- Removed MPS and ERROR config. Let core code configs them.
+- Removed s32g_pcie_disable_equalization() from internal team request
+- Removed dw_pcie_link_up() from suspend/resume functions with [1]
+
+- I'm still waiting feedback from internal team before removing
+.get_ltssm() and .link_up() functions.
+
+[1] https://lore.kernel.org/all/20251107044319.8356-1-manivannan.sadhasivam@oss.qualcomm.com/
+
+Change since v2:
+
+- More cleanup on DT binding to comply with schemas/pci/snps,dw-pcie.yaml
+- Added new reg and bit fields in pcie-designware.h 
+- Rename Kconfig PCIE_NXP_S32G and files to use pcie-nxp-s32g prefix
+- Prefixed s32G registers with PCIE_S32G_ and use generic regs otherwise
+- Use memblock_start_of_DRAM to set coherency boundary and add comments
+- Fixed suspend/resume sequence by adding missing pme_turn_off function
+- Added .probe_type = PROBE_PREFER_ASYNCHRONOUS to speedup probe
+- Added pm_runtime_no_callbacks() as device doesn't have runtime ops
+- Use writel/readl in ctrl function instead of dw_pcie_write/read
+- Move Maintainer section in a dedicated entry
+
+Change since v1:
+
+- Cleanup DT binding
+  - Removed useless description and fixed typo, naming and indentation.
+  - Removed nxp,phy-mode binding until we agreed on a generic binding.
+    Default (crnss) mode is used for now. Generic binding wil be discussed
+    in a separate patch.
+  - Removed max-link-speed and num-lanes which are coming from
+    snps,dw-pcie-common.yaml. They are needed only if to restrict from the
+    the default hw config.
+  - Added unevaluatedProperties: false
+  - Keep Phys in host node until dw support Root Port node.
+
+- Removed nxp-s32g-pcie-phy-submode.h until there is a generic clock and
+  spectrum binding.
+
+- Rename files to start with pcie-s32g instead of pci-s32g
+
+- Cleanup pcie-s32-reg.h and use dw_pcie_find_capability()
+
+- cleanup and rename in s32g-pcie.c in addtion to remove useless check or
+  duplicate code.
+
+- dw_pcie_suspend/resume_noirq() doesn't woork, need to set child device
+  to reach lowest state.
+
+- Added L: imx@lists.linux.dev in MAINTAINERS
+
+
+Vincent Guittot (4):
+  dt-bindings: PCI: s32g: Add NXP PCIe controller
+  PCI: dw: Add more registers and bitfield definition
+  PCI: s32g: Add initial PCIe support (RC)
+  MAINTAINERS: Add MAINTAINER for NXP S32G PCIe driver
+
+ .../bindings/pci/nxp,s32g-pcie.yaml           | 130 ++++++
+ MAINTAINERS                                   |   9 +
+ drivers/pci/controller/dwc/Kconfig            |  10 +
+ drivers/pci/controller/dwc/Makefile           |   1 +
+ drivers/pci/controller/dwc/pcie-designware.h  |   8 +
+ .../pci/controller/dwc/pcie-nxp-s32g-regs.h   |  21 +
+ drivers/pci/controller/dwc/pcie-nxp-s32g.c    | 391 ++++++++++++++++++
+ 7 files changed, 570 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/pci/nxp,s32g-pcie.yaml
+ create mode 100644 drivers/pci/controller/dwc/pcie-nxp-s32g-regs.h
+ create mode 100644 drivers/pci/controller/dwc/pcie-nxp-s32g.c
+
+-- 
+2.43.0
+
 
