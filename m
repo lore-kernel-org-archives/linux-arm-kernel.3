@@ -4,75 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 849B8CED24B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 09:30:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3C6ECED25D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 09:36:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zgBjRtUaeM1idizUdgBkeMC+v2iP9RJTGkwmFa1FYv0=; b=c8xaGF3XDID8tZ4sqvt+Y4cRt3
-	eR7WTzamCxZY4y3fpZp6Irx68ovca/WhUNSw2AVranTXFJxseMOI9xcVlz7FIeseJ7MJIzh9xAeCi
-	l4yxr+mzRAptXHqKCE0+nl2pewIp7UJ6XD+teuTFhd48iiw1Esue0Xts8+IweJ8Kto+HQ6+Qjq47A
-	JNgT7A51H8Hlv9ne2UYRufQk9GiDSNh5b9a2ZvFhri4BYxnhPQQMPUDJ1k62xs6otGKUV1bCq2vA4
-	sesKBO/NZ+M33ZxdSK9UW906RdrziXuYuFXIEuMZL6RzgxlnzvY8NrrR5evJhD7vzB1hAmig1oVKw
-	utbeiMzw==;
+	bh=rEvi4irZMh7BdHer+Uvyk++950Iay/jYYvaZ8oyV+RU=; b=GTNoUMpwT9JDJjxVMMBFqHW3gj
+	ovr7lhz3SYLZFmZEwMtVMGR1FX7jCRhp4ao/vdgnbMyPZB6mI62QOECsIVrsfLJAGzIxcgYBNmmC9
+	CXhy+ok7ynVuGzo/11RJ+MVaMHDywjcnQDYarxRwvlAzI0Q7YjXXsjiRc+hlXPKjU2Z6cgyG6OEME
+	zsk+j0wH+SK30ucXtU273TMWejuOAJnePKm56zeJSS/aoCi2D+ri8nVRlkU63PTSmM2ghMMXV6ohu
+	4Ptj4cQTJnH78PSsHFp0xk8YzR1sOYoq7xKDpdUd3QWDfAdQxlkSQRBqgFmBVFGS0E/qVH2BGCXTI
+	6Gg+CI8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLI31-00000000A80-0tiG;
-	Tue, 18 Nov 2025 09:30:51 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1vLI8A-00000000AYs-36It;
+	Tue, 18 Nov 2025 09:36:10 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLI2x-00000000A5o-3FlP
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Nov 2025 09:30:49 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.31])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4d9fTk1j18zJ46cb;
-	Tue, 18 Nov 2025 17:30:02 +0800 (CST)
-Received: from dubpeml100005.china.huawei.com (unknown [7.214.146.113])
-	by mail.maildlp.com (Postfix) with ESMTPS id 3F92E140277;
-	Tue, 18 Nov 2025 17:30:44 +0800 (CST)
-Received: from localhost (10.48.158.191) by dubpeml100005.china.huawei.com
- (7.214.146.113) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Tue, 18 Nov
- 2025 09:30:42 +0000
-Date: Tue, 18 Nov 2025 09:30:41 +0000
-From: Jonathan Cameron <jonathan.cameron@huawei.com>
-To: Conor Dooley <conor@kernel.org>
-CC: Randy Dunlap <rdunlap@infradead.org>, Catalin Marinas
-	<catalin.marinas@arm.com>, <linux-cxl@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-arch@vger.kernel.org>,
-	<linux-mm@kvack.org>, Dan Williams <dan.j.williams@intel.com>, "H . Peter
- Anvin" <hpa@zytor.com>, Peter Zijlstra <peterz@infradead.org>, "Andrew
- Morton" <akpm@linux-foundation.org>, Arnd Bergmann <arnd@arndb.de>, "Drew
- Fustini" <fustini@kernel.org>, Linus Walleij <linus.walleij@linaro.org>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>, Krzysztof Kozlowski
-	<krzk@kernel.org>, <james.morse@arm.com>, Will Deacon <will@kernel.org>,
-	Davidlohr Bueso <dave@stgolabs.net>, <linuxarm@huawei.com>, Yushan Wang
-	<wangyushan12@huawei.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, "Mark
- Rutland" <mark.rutland@arm.com>, Dave Hansen <dave.hansen@linux.intel.com>,
-	Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>, <x86@kernel.org>, Andy Lutomirski
-	<luto@kernel.org>, Dave Jiang <dave.jiang@intel.com>
-Subject: Re: [PATCH v6 3/7] lib: Support
- ARCH_HAS_CPU_CACHE_INVALIDATE_MEMREGION
-Message-ID: <20251118093041.00000c9e@huawei.com>
-In-Reply-To: <20251117-definite-uncounted-7cc07a377a71@spud>
-References: <20251117104800.2041329-1-Jonathan.Cameron@huawei.com>
-	<20251117104800.2041329-4-Jonathan.Cameron@huawei.com>
-	<3bf1793a-2ffd-4017-b4bf-dc63f3a2a7c8@infradead.org>
-	<20251117-definite-uncounted-7cc07a377a71@spud>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	id 1vLI82-00000000AWp-0IN8;
+	Tue, 18 Nov 2025 09:36:09 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1763458558;
+	bh=lc+F7Hvm4Wkoib4H4TPx44xrDSu+c+Or4u0b8i2ExqY=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=abpeeBX5ma5aNdtFhHGu9AzS493vi0e4XM1spxySUlsVe5nwe7+WbNX+Xq8nqD0Yj
+	 3vdT0FZO4PXWxujnPC6odJqzo0W4USP2128oSUSk8aWBzUYWv1AxEtdWSZbx+v/avP
+	 aP3OK8P1Y1dsOZVVPhxe6rnUnx8pmx1wA3kLxWRN4Bdyj439aYuHgcSQTBgYfa7EX/
+	 ORLqelFB0L+EQ4phMkq4SWaymKrQ/YXeUXRmBmU27a0vZDSpsJMlawtuCkO5180kHj
+	 c1zFaATVr8gX+SvzLqbnR6D8tE0KX1G700rnr+jzJRzweQeTtWVFFKMcJP25MH8TuF
+	 pLxfmEqp5LhLw==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id B361F17E0342;
+	Tue, 18 Nov 2025 10:35:57 +0100 (CET)
+Message-ID: <679c1f30-7c62-484e-b4e5-7351a23f15e5@collabora.com>
+Date: Tue, 18 Nov 2025 10:35:57 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: dts: mediatek: Apply all DT overlays at build time
+To: "Rob Herring (Arm)" <robh@kernel.org>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org
+References: <20251117211306.725678-1-robh@kernel.org>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20251117211306.725678-1-robh@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.48.158.191]
-X-ClientProxiedBy: lhrpeml100009.china.huawei.com (7.191.174.83) To
- dubpeml100005.china.huawei.com (7.214.146.113)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251118_013048_107456_4C8916FD 
-X-CRM114-Status: GOOD (  26.49  )
+X-CRM114-CacheID: sfid-20251118_013603_776716_4E0C3E94 
+X-CRM114-Status: GOOD (  18.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,102 +76,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 18 Nov 2025 00:13:07 +0000
-Conor Dooley <conor@kernel.org> wrote:
-
-> On Mon, Nov 17, 2025 at 10:51:11AM -0800, Randy Dunlap wrote:
-> > Hi,
-> > 
-> > On 11/17/25 2:47 AM, Jonathan Cameron wrote:  
-> > > diff --git a/lib/Kconfig b/lib/Kconfig
-> > > index e629449dd2a3..e11136d188ae 100644
-> > > --- a/lib/Kconfig
-> > > +++ b/lib/Kconfig
-> > > @@ -542,6 +542,10 @@ config MEMREGION
-> > >  config ARCH_HAS_CPU_CACHE_INVALIDATE_MEMREGION
-> > >  	bool
-> > >  
-> > > +config GENERIC_CPU_CACHE_MAINTENANCE
-> > > +	bool
-> > > +	select ARCH_HAS_CPU_CACHE_INVALIDATE_MEMREGION
-> > > +
-> > >  config ARCH_HAS_MEMREMAP_COMPAT_ALIGN
-> > >  	bool  
-> > 
-> > Architectures and/or platforms select ARCH_HAS_*.
-> > 
-> > With this change above, it becomes the only entry in
-> > lib/Kconfig that does "select ARCH_HAS_anytning".
-> > 
-> > so I think this is wrong, back*wards.  
+Il 17/11/25 22:13, Rob Herring (Arm) ha scritto:
+> It's a requirement that DT overlays be applied at build time in order to
+> validate them as overlays are not validated on their own.
 > 
-> Maybe it is backwards, but I feel like this way is more logical. ARM64
-> has memregion invalidation only because this generic approach is
-> enabled, so the arch selects what it needs to get the support.
-
-Exactly this. Catalin requested this form in response to an earlier
-version where arm64 Kconfig just had both selects for pretty much that
-reason. This is expected to be used on a subset of architectures.
-It is similar to things like GENERIC_ARCH_NUMA in this respect (though the
-arch_numa_init() etc in there are called only from other arch code
-so no ARCH_HAS_ symbols are associated with them).
-
-> Alternatively, something like
-
-I'm fine with this solution if Randy prefers it.
-
-Thanks for your help with this.
-
-Jonathan
-
-> | diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-> | index 5f7f63d24931..75b2507f7eb2 100644
-> | --- a/arch/arm64/Kconfig
-> | +++ b/arch/arm64/Kconfig
-> | @@ -21,6 +21,7 @@ config ARM64
-> |  	select ARCH_ENABLE_THP_MIGRATION if TRANSPARENT_HUGEPAGE
-> |  	select ARCH_HAS_CACHE_LINE_SIZE
-> |  	select ARCH_HAS_CC_PLATFORM
-> | +	select ARCH_HAS_CPU_CACHE_INVALIDATE_MEMREGION
-> |  	select ARCH_HAS_CURRENT_STACK_POINTER
-> |  	select ARCH_HAS_DEBUG_VIRTUAL
-> |  	select ARCH_HAS_DEBUG_VM_PGTABLE
-> | @@ -146,7 +147,6 @@ config ARM64
-> |  	select GENERIC_ARCH_TOPOLOGY
-> |  	select GENERIC_CLOCKEVENTS_BROADCAST
-> |  	select GENERIC_CPU_AUTOPROBE
-> | -	select GENERIC_CPU_CACHE_MAINTENANCE
-> |  	select GENERIC_CPU_DEVICES
-> |  	select GENERIC_CPU_VULNERABILITIES
-> |  	select GENERIC_EARLY_IOREMAP
-> | diff --git a/lib/Kconfig b/lib/Kconfig
-> | index 09aec4a1e13f..ac223e627bc5 100644
-> | --- a/lib/Kconfig
-> | +++ b/lib/Kconfig
-> | @@ -544,8 +544,9 @@ config ARCH_HAS_CPU_CACHE_INVALIDATE_MEMREGION
-> |  	bool
-> |  
-> |  config GENERIC_CPU_CACHE_MAINTENANCE
-> | -	bool
-> | -	select ARCH_HAS_CPU_CACHE_INVALIDATE_MEMREGION
-> | +	def_bool y
-> | +	depends on ARCH_HAS_CPU_CACHE_INVALIDATE_MEMREGION
-> | +	depends on ARM64
-> |  
-> |  config ARCH_HAS_MEMREMAP_COMPAT_ALIGN
-> |  	bool
-> implies (to me at least) that arm64 has memregion invalidation as an
-> architectural feature and that the GENERIC_CPU_CACHE_MAINTENANCE option
-> is a just common cross-arch code, like generic entry etc, rather than
-> being the option gating the drivers that provide the feature in the
-> first place.
+> Add targets for all the Mediatek overlays.
 > 
-> I didn't really care which way it went, and was gonna post something to
-> squash and avoid another revision, but I found the resultant Kconfig
-> setup to be make less sense to me than what came before. If the switched
-> around version is less likely to be problematic etc, then sure, but I
-> amn't convinced by switching it at a first glance.
+> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+> ---
+> This will soon be a warning[1].
 > 
+> Note that if it is desired that the combined .dtb is not installed, then
+> the combined .dtb should be added to 'dtb-' variable instead.
+> 
+
+Uhm, sorry, can't we do something such that we don't generate a DTB with a
+preapplied overlay?
+
+Even something like generating those and deleting before build finalization
+could work, I guess, though that'd be hacky maybe.
+
+I don't know if this is the case, but I'm worried that various people have
+scripts to copy DTBs somewhere (in some partition) or embed those in images,
+and if they get the preapplied overlay dtbs in the same place, havoc could
+happen as the bootloaders might be selecting wrong dtbs (as a plus, there is
+no dtbo that varies machine compatible strings, rightfully).
+
+Cheers,
+Angelo
+
+> [1] https://lore.kernel.org/all/20251114222759.4181152-1-robh@kernel.org/
+> ---
+>   arch/arm64/boot/dts/mediatek/Makefile | 16 ++++++++++++++++
+>   1 file changed, 16 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/mediatek/Makefile b/arch/arm64/boot/dts/mediatek/Makefile
+> index a4df4c21399e..4e92bd9f0e53 100644
+> --- a/arch/arm64/boot/dts/mediatek/Makefile
+> +++ b/arch/arm64/boot/dts/mediatek/Makefile
+> @@ -15,16 +15,30 @@ dtb-$(CONFIG_ARCH_MEDIATEK) += mt7986a-acelink-ew-7886cax.dtb
+>   dtb-$(CONFIG_ARCH_MEDIATEK) += mt7986a-bananapi-bpi-r3.dtb
+>   dtb-$(CONFIG_ARCH_MEDIATEK) += mt7986a-bananapi-bpi-r3-mini.dtb
+>   dtb-$(CONFIG_ARCH_MEDIATEK) += mt7986a-bananapi-bpi-r3-emmc.dtbo
+> +mt7986a-bananapi-bpi-r3-emmc-dtbs := mt7986a-bananapi-bpi-r3.dtb mt7986a-bananapi-bpi-r3-emmc.dtbo
+> +dtb-$(CONFIG_ARCH_MEDIATEK) += mt7986a-bananapi-bpi-r3-emmc.dtb
+>   dtb-$(CONFIG_ARCH_MEDIATEK) += mt7986a-bananapi-bpi-r3-nand.dtbo
+> +mt7986a-bananapi-bpi-r3-nand-dtbs := mt7986a-bananapi-bpi-r3.dtb mt7986a-bananapi-bpi-r3-nand.dtbo
+> +dtb-$(CONFIG_ARCH_MEDIATEK) += mt7986a-bananapi-bpi-r3-nand.dtb
+>   dtb-$(CONFIG_ARCH_MEDIATEK) += mt7986a-bananapi-bpi-r3-nor.dtbo
+> +mt7986a-bananapi-bpi-r3-nor-dtbs := mt7986a-bananapi-bpi-r3.dtb mt7986a-bananapi-bpi-r3-nor.dtbo
+> +dtb-$(CONFIG_ARCH_MEDIATEK) += mt7986a-bananapi-bpi-r3-nor.dtb
+>   dtb-$(CONFIG_ARCH_MEDIATEK) += mt7986a-bananapi-bpi-r3-sata.dtbo
+> +mt7986a-bananapi-bpi-r3-sata-dtbs := mt7986a-bananapi-bpi-r3.dtb mt7986a-bananapi-bpi-r3-sata.dtbo
+> +dtb-$(CONFIG_ARCH_MEDIATEK) += mt7986a-bananapi-bpi-r3-sata.dtb
+>   dtb-$(CONFIG_ARCH_MEDIATEK) += mt7986a-bananapi-bpi-r3-sd.dtbo
+> +mt7986a-bananapi-bpi-r3-sd-dtbs := mt7986a-bananapi-bpi-r3.dtb mt7986a-bananapi-bpi-r3-sd.dtbo
+> +dtb-$(CONFIG_ARCH_MEDIATEK) += mt7986a-bananapi-bpi-r3-sd.dtb
+>   dtb-$(CONFIG_ARCH_MEDIATEK) += mt7986a-rfb.dtb
+>   dtb-$(CONFIG_ARCH_MEDIATEK) += mt7986b-rfb.dtb
+>   dtb-$(CONFIG_ARCH_MEDIATEK) += mt7988a-bananapi-bpi-r4.dtb
+>   dtb-$(CONFIG_ARCH_MEDIATEK) += mt7988a-bananapi-bpi-r4-2g5.dtb
+>   dtb-$(CONFIG_ARCH_MEDIATEK) += mt7988a-bananapi-bpi-r4-emmc.dtbo
+> +mt7988a-bananapi-bpi-r4-emmc-dtbs := mt7988a-bananapi-bpi-r4.dtb mt7988a-bananapi-bpi-r4-emmc.dtbo
+> +dtb-$(CONFIG_ARCH_MEDIATEK) += mt7988a-bananapi-bpi-r4-emmc.dtb
+>   dtb-$(CONFIG_ARCH_MEDIATEK) += mt7988a-bananapi-bpi-r4-sd.dtbo
+> +mt7988a-bananapi-bpi-r4-sd-dtbs := mt7988a-bananapi-bpi-r4.dtb mt7988a-bananapi-bpi-r4-sd.dtbo
+> +dtb-$(CONFIG_ARCH_MEDIATEK) += mt7988a-bananapi-bpi-r4-sd.dtb
+>   dtb-$(CONFIG_ARCH_MEDIATEK) += mt8167-pumpkin.dtb
+>   dtb-$(CONFIG_ARCH_MEDIATEK) += mt8173-elm.dtb
+>   dtb-$(CONFIG_ARCH_MEDIATEK) += mt8173-elm-hana.dtb
+> @@ -104,6 +118,8 @@ dtb-$(CONFIG_ARCH_MEDIATEK) += mt8390-genio-700-evk.dtb
+>   dtb-$(CONFIG_ARCH_MEDIATEK) += mt8395-kontron-3-5-sbc-i1200.dtb
+>   dtb-$(CONFIG_ARCH_MEDIATEK) += mt8395-radxa-nio-12l.dtb
+>   dtb-$(CONFIG_ARCH_MEDIATEK) += mt8395-radxa-nio-12l-8-hd-panel.dtbo
+> +mt8395-radxa-nio-12l-8-hd-panel-dtbs := mt8395-radxa-nio-12l.dtb mt8395-radxa-nio-12l-8-hd-panel.dtbo
+> +dtb-$(CONFIG_ARCH_MEDIATEK) += mt8395-radxa-nio-12l-8-hd-panel.dtb
+>   dtb-$(CONFIG_ARCH_MEDIATEK) += mt8516-pumpkin.dtb
+>   
+>   # Device tree overlays support
 
 
 
