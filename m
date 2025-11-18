@@ -4,40 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D783DCEE341
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 17:11:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADED1CEE33B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 17:11:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
 	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZIVix5WvX9EQSjQTFslCxqneopeSe8orG20ZDYvlVaw=; b=PKozMPnrbAmdnQUKU0UsyW0/Z/
-	fvkrjDl+wqz8z9hQZhcXATx/K9JSBourOJswQj+X3eHAGZfIcsijahx4H7wzs1Ny7KFyDJEFsmxa6
-	s/JapELPOp+7tIYWWjWJ8LRnHUG9KVKgNMOQLYiDdwofONYyW/gCD3skM0Ygj9aS0KDcCWC0lBu4N
-	qkkoc0wrVLxaoR77Z89H4pnJmAAK1S2RmItk+rui99He+yiKhxgKMr7gXrieJzCaG7jzoH0c/Mv1C
-	nL9WVweR+v5pKWnPI+K+ZY2ZTielQj60cGW0hiFDupw/QH7MnQGwh91Fy6LH3xwv6I3reiSM0+ziX
-	62iFUtWA==;
+	bh=hXlXkNZaf4JT4aI/TFpE5oAVKGJQ0KwImp9ELhzIUsM=; b=ZB+qn9sVS0/XXRK+75p7LtI5F9
+	GjEcPSsCze1KA2T4owMcLg79D5+ncQdBIciNp1mK3Eyd3yC5aRCcT74w3zpSNlD83PwgbS4Hpi2bS
+	0i9JRjmQs6Ii0re2Br0WhzFzTPbJQG3r0yWArsWXyEID36VsTDRnwFzIw7C94RQHXM8qDz8/PcaFG
+	NZ4tOnFykWzdbqikabhgx/TvP/CSEI9Pz1dAcrfpLt6HbTnUj4Saqz5JJo5ru1MLELGBB9Ia7pEUJ
+	Vf/HBKzvmnjoZ+LLsdTZ26t97sDj6iQf0E5Ajt1IILj9bUnuWiDivRJvALyyP+WZFE5Sf2atpgjS4
+	P0NYHFUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLPEJ-00000000p59-252t;
-	Tue, 18 Nov 2025 17:10:59 +0000
+	id 1vLPEj-00000000pAe-0GRJ;
+	Tue, 18 Nov 2025 17:11:25 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLPEE-00000000p4V-1XQ2
+	id 1vLPEg-00000000pA6-2kcS
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Nov 2025 17:10:57 +0000
+	Tue, 18 Nov 2025 17:11:23 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 649E91516;
-	Tue, 18 Nov 2025 09:10:45 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1ED541595;
+	Tue, 18 Nov 2025 09:11:14 -0800 (PST)
 Received: from [10.57.39.196] (unknown [10.57.39.196])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 51BE83F66E;
-	Tue, 18 Nov 2025 09:10:47 -0800 (PST)
-Message-ID: <57c2c83c-9eea-40e0-9f95-47f21b1c75be@arm.com>
-Date: Tue, 18 Nov 2025 18:10:44 +0100
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8977C3F66E;
+	Tue, 18 Nov 2025 09:11:16 -0800 (PST)
+Message-ID: <af048915-40d3-4007-880a-090c1f079e59@arm.com>
+Date: Tue, 18 Nov 2025 18:11:13 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 03/11] arm64/ptrace: Refator el0_svc_common()
+Subject: Re: [PATCH v7 04/11] entry: Add syscall_exit_to_user_mode_prepare()
+ helper
 To: Jinjie Ruan <ruanjinjie@huawei.com>, catalin.marinas@arm.com,
  will@kernel.org, oleg@redhat.com, tglx@linutronix.de, peterz@infradead.org,
  luto@kernel.org, shuah@kernel.org, kees@kernel.org, wad@chromium.org,
@@ -48,15 +49,15 @@ To: Jinjie Ruan <ruanjinjie@huawei.com>, catalin.marinas@arm.com,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
  linux-kselftest@vger.kernel.org
 References: <20251117133048.53182-1-ruanjinjie@huawei.com>
- <20251117133048.53182-4-ruanjinjie@huawei.com>
+ <20251117133048.53182-5-ruanjinjie@huawei.com>
 From: Kevin Brodsky <kevin.brodsky@arm.com>
 Content-Language: en-GB
-In-Reply-To: <20251117133048.53182-4-ruanjinjie@huawei.com>
+In-Reply-To: <20251117133048.53182-5-ruanjinjie@huawei.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251118_091056_325434_0B538B17 
-X-CRM114-Status: GOOD (  25.20  )
+X-CRM114-CacheID: sfid-20251118_091122_819108_B1D0A42F 
+X-CRM114-Status: GOOD (  22.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,146 +72,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In subject: s/refator/refactor/
-
-Also nit: this is less about ptrace than about syscall entry, so maybe
-"arm64/syscall:"?
-
 On 17/11/2025 14:30, Jinjie Ruan wrote:
-> Compared to the generic entry code, arm64 terminate the process
+> In the generic entry code, the part before
+> syscall_exit_to_user_mode_work() calls syscall_exit_work(), which
+> serves the same purpose as syscall_exit_to_user_mode_prepare()
+> in arm64.
 
-s/terminate/terminates/ (similar observation for other commit messages)
+This is really hard to parse, I suppose the point is that the beginning
+of syscall_exit_to_user_mode_work() can be reused on arm64 and therefore
+it makes sense to split it?
 
-> after report_syscall_exit() if the syscall is issued within
-> a restartable sequence.
-
-Presumably this implies that forcing SIGSEGV before or after calling the
-tracing handlers makes no difference, if so it should be clarified.
-
-> In preparation for moving arm64 over to the generic entry code,
-> refactor el0_svc_common() as below:
+> In preparation for moving arm64 over to the generic entry
+> code, extract syscall_exit_to_user_mode_prepare() helper from
+> syscall_exit_to_user_mode_work().
 >
-> - Extract syscall_exit_to_user_mode_prepare() to replace the
->   the combination of read_thread_flags() and syscall_trace_exit(),
->   also move the syscall exit check logic into it.
->
-> - Move rseq_syscall() ahead, so the CONFIG_DEBUG_RSEQ check is
->   not needed.
->
-> - Move has_syscall_work() helper into asm/syscall.h, which will be
->   reused by ptrace.c.
+> No functional changes.
 >
 > Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
-> ---
->  arch/arm64/include/asm/syscall.h |  7 ++++++-
->  arch/arm64/kernel/ptrace.c       | 10 +++++++++-
->  arch/arm64/kernel/syscall.c      | 26 +++++---------------------
->  3 files changed, 20 insertions(+), 23 deletions(-)
->
-> diff --git a/arch/arm64/include/asm/syscall.h b/arch/arm64/include/asm/syscall.h
-> index d69f590a989b..6225981fbbdb 100644
-> --- a/arch/arm64/include/asm/syscall.h
-> +++ b/arch/arm64/include/asm/syscall.h
-> @@ -114,7 +114,12 @@ static inline int syscall_get_arch(struct task_struct *task)
->  	return AUDIT_ARCH_AARCH64;
->  }
->  
-> +static inline bool has_syscall_work(unsigned long flags)
-> +{
-> +	return unlikely(flags & _TIF_SYSCALL_WORK);
-> +}
-> +
->  int syscall_trace_enter(struct pt_regs *regs, long syscall, unsigned long flags);
-> -void syscall_trace_exit(struct pt_regs *regs, unsigned long flags);
-> +void syscall_exit_to_user_mode_prepare(struct pt_regs *regs);
->  
->  #endif	/* __ASM_SYSCALL_H */
-> diff --git a/arch/arm64/kernel/ptrace.c b/arch/arm64/kernel/ptrace.c
-> index bbb868f6b292..95984bbf53db 100644
-> --- a/arch/arm64/kernel/ptrace.c
-> +++ b/arch/arm64/kernel/ptrace.c
-> @@ -2403,7 +2403,7 @@ int syscall_trace_enter(struct pt_regs *regs, long syscall, unsigned long flags)
->  	return regs->syscallno;
->  }
->  
-> -void syscall_trace_exit(struct pt_regs *regs, unsigned long flags)
-> +static void syscall_trace_exit(struct pt_regs *regs, unsigned long flags)
->  {
->  	audit_syscall_exit(regs);
->  
-> @@ -2412,8 +2412,16 @@ void syscall_trace_exit(struct pt_regs *regs, unsigned long flags)
->  
->  	if (flags & (_TIF_SYSCALL_TRACE | _TIF_SINGLESTEP))
->  		report_syscall_exit(regs);
-> +}
-> +
-> +void syscall_exit_to_user_mode_prepare(struct pt_regs *regs)
-> +{
-> +	unsigned long flags = read_thread_flags();
->  
->  	rseq_syscall(regs);
-> +
-> +	if (has_syscall_work(flags) || flags & _TIF_SINGLESTEP)
-> +		syscall_trace_exit(regs, flags);
 
-Since we're trying to align as much with the generic code as possible,
-we might as well rename this function to syscall_exit_work() as well.
+The position of this patch in the series seems a little arbitrary (it
+has no dependency on other patches), it might make more sense to group
+it with the other generic patches (i.e. move it to patch 7).
 
->  }
->  
->  /*
-> diff --git a/arch/arm64/kernel/syscall.c b/arch/arm64/kernel/syscall.c
-> index 6e3fe760e0bb..9713b038d750 100644
-> --- a/arch/arm64/kernel/syscall.c
-> +++ b/arch/arm64/kernel/syscall.c
-> @@ -65,11 +65,6 @@ static void invoke_syscall(struct pt_regs *regs, unsigned int scno,
->  	choose_random_kstack_offset(get_random_u16());
->  }
->  
-> -static inline bool has_syscall_work(unsigned long flags)
-> -{
-> -	return unlikely(flags & _TIF_SYSCALL_WORK);
-> -}
-> -
->  static void el0_svc_common(struct pt_regs *regs, int scno, int sc_nr,
->  			   const syscall_fn_t syscall_table[])
->  {
-> @@ -125,26 +120,15 @@ static void el0_svc_common(struct pt_regs *regs, int scno, int sc_nr,
->  		if (scno == NO_SYSCALL)
->  			syscall_set_return_value(current, regs, -ENOSYS, 0);
->  		scno = syscall_trace_enter(regs, regs->syscallno, flags);
-> -		if (scno == NO_SYSCALL)
-> -			goto trace_exit;
+Otherwise:
 
-Why not keep the goto instead of duplicating the call? It could be
-renamed if necessary.
+Reviewed-by: Kevin Brodsky <kevin.brodsky@arm.com>
 
 - Kevin
 
-> +		if (scno == NO_SYSCALL) {
-> +			syscall_exit_to_user_mode_prepare(regs);
-> +			return;
-> +		}
->  	}
+> ---
+>  include/linux/entry-common.h | 35 ++++++++++++++++++++++-------------
+>  1 file changed, 22 insertions(+), 13 deletions(-)
+>
+> diff --git a/include/linux/entry-common.h b/include/linux/entry-common.h
+> index 7177436f0f9e..cd6dacb2d8bf 100644
+> --- a/include/linux/entry-common.h
+> +++ b/include/linux/entry-common.h
+> @@ -137,20 +137,11 @@ static __always_inline long syscall_enter_from_user_mode(struct pt_regs *regs, l
+>   */
+>  void syscall_exit_work(struct pt_regs *regs, unsigned long work);
 >  
->  	invoke_syscall(regs, scno, sc_nr, syscall_table);
->  
-> -	/*
-> -	 * The tracing status may have changed under our feet, so we have to
-> -	 * check again. However, if we were tracing entry, then we always trace
-> -	 * exit regardless, as the old entry assembly did.
-> -	 */
-> -	if (!has_syscall_work(flags) && !IS_ENABLED(CONFIG_DEBUG_RSEQ)) {
-> -		flags = read_thread_flags();
-> -		if (!has_syscall_work(flags) && !(flags & _TIF_SINGLESTEP))
-> -			return;
-> -	}
-> -
-> -trace_exit:
-> -	flags = read_thread_flags();
-> -	syscall_trace_exit(regs, flags);
+> -/**
+> - * syscall_exit_to_user_mode_work - Handle work before returning to user mode
+> - * @regs:	Pointer to currents pt_regs
+> - *
+> - * Same as step 1 and 2 of syscall_exit_to_user_mode() but without calling
+> - * exit_to_user_mode() to perform the final transition to user mode.
+> - *
+> - * Calling convention is the same as for syscall_exit_to_user_mode() and it
+> - * returns with all work handled and interrupts disabled. The caller must
+> - * invoke exit_to_user_mode() before actually switching to user mode to
+> - * make the final state transitions. Interrupts must stay disabled between
+> - * return from this function and the invocation of exit_to_user_mode().
+> +/*
+> + * Syscall specific exit to user mode preparation. Runs with interrupts
+> + * enabled.
+>   */
+> -static __always_inline void syscall_exit_to_user_mode_work(struct pt_regs *regs)
+> +static __always_inline void syscall_exit_to_user_mode_prepare(struct pt_regs *regs)
+>  {
+>  	unsigned long work = READ_ONCE(current_thread_info()->syscall_work);
+>  	unsigned long nr = syscall_get_nr(current, regs);
+> @@ -171,6 +162,24 @@ static __always_inline void syscall_exit_to_user_mode_work(struct pt_regs *regs)
+>  	 */
+>  	if (unlikely(work & SYSCALL_WORK_EXIT))
+>  		syscall_exit_work(regs, work);
+> +}
+> +
+> +/**
+> + * syscall_exit_to_user_mode_work - Handle work before returning to user mode
+> + * @regs:	Pointer to currents pt_regs
+> + *
+> + * Same as step 1 and 2 of syscall_exit_to_user_mode() but without calling
+> + * exit_to_user_mode() to perform the final transition to user mode.
+> + *
+> + * Calling convention is the same as for syscall_exit_to_user_mode() and it
+> + * returns with all work handled and interrupts disabled. The caller must
+> + * invoke exit_to_user_mode() before actually switching to user mode to
+> + * make the final state transitions. Interrupts must stay disabled between
+> + * return from this function and the invocation of exit_to_user_mode().
+> + */
+> +static __always_inline void syscall_exit_to_user_mode_work(struct pt_regs *regs)
+> +{
 > +	syscall_exit_to_user_mode_prepare(regs);
+>  	local_irq_disable_exit_to_user();
+>  	exit_to_user_mode_prepare(regs);
 >  }
->  
->  void do_el0_svc(struct pt_regs *regs)
 
