@@ -4,77 +4,163 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D85A2CEE35A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 22:16:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6D82CF2562
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 22:21:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+GQmSWJXWqWL3qxm9AX9CXgB8VtCo4TJcQ8Q4ntTz+0=; b=OPQr72mflF49+JE4hFoqecV6No
-	ZGo3L78kMiRE41c9WVpjCU0LvIcpamL73QElfRD6BSSRibE1hvkpfhGyTIpmgpSVuBqT9X9TsTXYr
-	e8SBdPICev2YEmagrd620Ew0fIPFKFIUQT7hUU+iwdaGj0jyjOHq1wkrQFSQdGo+AQutXpZzkp0Xo
-	nMBqQuelT1ssvIHOR3NRAdnOeq+6N/26yc/oAhiJssi2iY+YNY4dp02Q4mU5rMMuv2EYBLnUgLdK9
-	x8WbnfIrBixpzhB1v5MWxuPsXKKAAuVcDB1ljVd2WGH9wIJY5lPmd4JSe+lstaXf/UUwB/xZYkg2o
-	DLH1xIUw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SHOEvHUPcJHh+ClDJwxyDR77gmCsGy5OdMPMXhA3oOE=; b=YQWzVsY9pm8MHcCCUtYNlu8Mcc
+	+WwZ2v7CowLcJRPPISEvu1E7AMSFk6JRVxGqvtwrTrYxZdFFFx9NNxyBjg//fnRe5LtD6wcSotykB
+	6525Frexqy7u1ZrYcAj/YbwIo9Yx+yFQkYnavHrCtb4eGqsUvICu8g2n4TXwEW34YjuyA8NhSmpN9
+	YqG92xLtv1mjTLcSbfJZmUS5gKRe36PBfMfJZzsKVTgrbbDluubIzi97OcG56OAJTo+ctsJ/BFKwD
+	ZZRKZe1Fv78v6zAU0vvw2i9xfB7jKUTA4s26Wif8DtsVB6mr+Da4zstm4oHNFaojPNrUzXU08X+Ro
+	29XtYLtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLTzb-00000001AZw-0a5f;
-	Tue, 18 Nov 2025 22:16:07 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1vLU4H-00000001Asl-1n93;
+	Tue, 18 Nov 2025 22:20:57 +0000
+Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLTzY-00000001AZN-2CUY
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Nov 2025 22:16:06 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1763504163;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=+GQmSWJXWqWL3qxm9AX9CXgB8VtCo4TJcQ8Q4ntTz+0=;
-	b=eWrFmU69+lYV9O/GaklhFE3KgC1gKx6q9oaCu+2woP+l5LbXas2zOYUcEjSDi3wNF9hC5G
-	2RAHhQ0qudIs563JgjiUfUAQm/DMpLWXCKbJ5ojV/GHfe1c1PL0G05KGi2bH1FgePG+SE9
-	3HQX17UjjS5wsBwJllt/rxIhGLqHbJs=
-Received: from mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-655-aIUV0x0aMsyvzeu3_78doQ-1; Tue,
- 18 Nov 2025 17:13:29 -0500
-X-MC-Unique: aIUV0x0aMsyvzeu3_78doQ-1
-X-Mimecast-MFC-AGG-ID: aIUV0x0aMsyvzeu3_78doQ_1763504008
-Received: from mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.111])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 2C958195608A;
-	Tue, 18 Nov 2025 22:13:28 +0000 (UTC)
-Received: from thinkpad-p1.kanata.rendec.net (unknown [10.22.88.100])
-	by mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 42675180049F;
-	Tue, 18 Nov 2025 22:13:26 +0000 (UTC)
-From: Radu Rendec <rrendec@redhat.com>
-To: Marc Zyngier <maz@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Manivannan Sadhasivam <mani@kernel.org>
-Cc: Will Deacon <will@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	id 1vLU4C-00000001Arx-2Cet;
+	Tue, 18 Nov 2025 22:20:53 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=pKADVJC2Z+KQSV2jSo3VXSK1Yi2tMLGbNREG11IG03hjrFZUh/LLlo6G08FBNd8fJprxRdIoERDBCd6eoSAnx5B3N/CG5gHl9WCeA2oCBkMnXbilc7m+s/npar+pjCRTFkoKrNBKNEfpbLoSp4MfDkRBtt4dkZOos/MYr/4dfa3TbCb3v4gOHTSh3YRK1Tht5WSBDM3E/cx7Ce0feYFZ1Kwe5p20in+B1u7yKhyXdndc5i/ihGLO2ktsAFXUVcDESeaSppRmVEj8bf6TiLHCrZkd2s87rAfLwVkxJZ1Bj8OrOYYXuv3KRnkXL3LjNvd0zacl5L6jfmTdY7b/bGc+YQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=SHOEvHUPcJHh+ClDJwxyDR77gmCsGy5OdMPMXhA3oOE=;
+ b=y+fTgF5oesJU3wcaRy25BPSYgtfSH+RwJTqKpwFUeO5Gq8XEUIw0y3PfsYLtnhMNpoVhPt392Is2dH55tsaOGNGAmxPLeIQx0mLamiDBK/b6fzz5cqpDCmzpnC5K/3FMAKqrk0XacVAbFDKBNEE2yPF8E+t86V5XzwEYEFJUs7dQSu2ZKNfRe7n6bet2vzg5JMfRfChrejqt2/yZtE6Vj22mB/W7DMDPddxHH5R5QracI2sdRzs2clwEUxkCsrkc5q+Tjdx/iV9+1UgPOhBFfK70j16MPbX96o3hP4hAVbLwefdohGrF4/kVgQTwygQNqn3Z/XIRFv4ACgDpV2irdw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=SHOEvHUPcJHh+ClDJwxyDR77gmCsGy5OdMPMXhA3oOE=;
+ b=iK1eSRHA0x3OaAM7LXb4IthTQa+z6wvbgzSkgVw/+P8dHeDwEcCcmnoxUjKaQMSjY0AY1OsHeoxLumgFyRUOddUUj733TU7L8dMeGUZIwBH6U92iBqfxxr9jXv7JVCfaTukufd3bZVSQudrcWVOMIUok6sZpNMnvF7Df8KlDrjHEv7ktNQW0GTWB4pVxh3jP2IEBTJ1uq5b7DEavOGmHE+R8RoHYeQUA/4egc4+PGKBmLRjPqc+oGGF88MVIDgZnfTuu38rDDCi/c7b4vNoxoudLE1U07IaZkbHc+4pZmCZw2pxepAZtDPaxwHWapLErOMF1KRYmC3O8Xq9ll04S3A==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from DB9PR04MB9626.eurprd04.prod.outlook.com (2603:10a6:10:309::18)
+ by VI0PR04MB11991.eurprd04.prod.outlook.com (2603:10a6:800:307::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9320.22; Tue, 18 Nov
+ 2025 22:20:46 +0000
+Received: from DB9PR04MB9626.eurprd04.prod.outlook.com
+ ([fe80::55ef:fa41:b021:b5dd]) by DB9PR04MB9626.eurprd04.prod.outlook.com
+ ([fe80::55ef:fa41:b021:b5dd%4]) with mapi id 15.20.9320.021; Tue, 18 Nov 2025
+ 22:20:46 +0000
+Date: Tue, 18 Nov 2025 17:20:36 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: Bjorn Helgaas <helgaas@kernel.org>
+Cc: Niklas Cassel <cassel@kernel.org>, Shawn Lin <shawn.lin@rock-chips.com>,
+	Manivannan Sadhasivam <mani@kernel.org>,
 	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 1/2] PCI: host-common: Do not set drvdata in pci_host_common_init()
-Date: Tue, 18 Nov 2025 17:12:43 -0500
-Message-ID: <20251118221244.372423-2-rrendec@redhat.com>
-In-Reply-To: <20251118221244.372423-1-rrendec@redhat.com>
-References: <20251118221244.372423-1-rrendec@redhat.com>
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Rob Herring <robh@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+	Kever Yang <kever.yang@rock-chips.com>,
+	Simon Xue <xxm@rock-chips.com>, Damien Le Moal <dlemoal@kernel.org>,
+	Dragan Simic <dsimic@manjaro.org>, FUKAUMI Naoki <naoki@radxa.com>,
+	Diederik de Haas <diederik@cknow-tech.com>,
+	Richard Zhu <hongxing.zhu@nxp.com>,
+	Lucas Stach <l.stach@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Conor Dooley <conor@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Jonathan Hunter <jonathanh@nvidia.com>,
+	Hans Zhang <hans.zhang@cixtech.com>, linux-tegra@vger.kernel.org,
+	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, kernel@pengutronix.de,
+	Bjorn Helgaas <bhelgaas@google.com>
+Subject: Re: [PATCH v2 1/4] PCI: dwc: Advertise L1 PM Substates only if
+ driver requests it
+Message-ID: <aRzxNMJ+byxZiF3i@lizhi-Precision-Tower-5810>
+References: <20251118214312.2598220-1-helgaas@kernel.org>
+ <20251118214312.2598220-2-helgaas@kernel.org>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251118214312.2598220-2-helgaas@kernel.org>
+X-ClientProxiedBy: PH8P223CA0006.NAMP223.PROD.OUTLOOK.COM
+ (2603:10b6:510:2db::12) To DB9PR04MB9626.eurprd04.prod.outlook.com
+ (2603:10a6:10:309::18)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.111
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DB9PR04MB9626:EE_|VI0PR04MB11991:EE_
+X-MS-Office365-Filtering-Correlation-Id: 41173596-5125-4f65-6fe1-08de26f0b8a0
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|19092799006|7416014|52116014|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?0F1pFDkE5xzKvpurjqwrGy3+ue8TN47Sn88YgjsiP6oua1tQxEnezwZd7RmS?=
+ =?us-ascii?Q?gvYnjPuIWyFsXxuILxNcqV95VWPxJVB9WHLJbDHIZZidqma4of8doxmD/3n5?=
+ =?us-ascii?Q?vAusIsZa8wSZKB40mTNK60FUA4G9+E8k/3z0Js0M5+QQ4AVY0EM6R6LfTD9X?=
+ =?us-ascii?Q?szVTd05ysrvV8354+vQ5oLQAMMtZCOWeW7bplYNnxXo3j9SDtfIx88ZYzlR7?=
+ =?us-ascii?Q?u/vVVU+GSPjYysjymG01aSGpp5Gb7fSyqDfuymQGrzELfZMIq9RsPUTwBa/H?=
+ =?us-ascii?Q?cgwQWakUl1bHwqkHyhmUIujfNpD0vvN86Lm1Q2fnT5WRwSCQmrd3pkyrjDWJ?=
+ =?us-ascii?Q?NMkDaNGjSHSox2RQYH2gApSGohGyKBpy8xLd4nwHmwC4AjTh/rX98sXHIrRK?=
+ =?us-ascii?Q?I4JGldeu0oWuOA20ftR2PZOBsr5dI++o7FQ7zwJHxtF5Eok5Mqo5xeBZdQ9s?=
+ =?us-ascii?Q?kpimV4uDMrjqb36ND9Yu9QjEN4aq6AO0p419HRMPkB1/HXWrI9ufx3jUVWLz?=
+ =?us-ascii?Q?s5Sq5eKDswH3asqMQ9GjpnxVBEUSI0ALwApxI0+ps+8SS6zkc6PexEGrzBE1?=
+ =?us-ascii?Q?NQauqyZZNAtEwAHxrr+P6xMxtIbM5agOUKhb/QwuQ1BaJyvU7swT+AyKHFc4?=
+ =?us-ascii?Q?EIJaWNNO3ZwaPVeWLcFDFnjuVHgyfTbFauYBXD301g8RkXm4Xod9MoNciNBs?=
+ =?us-ascii?Q?azAa1NAp4tH7DWf93UZMtcGfzUh47FT7UUF1eh4sq9w0sGbO4lWjozjz7O83?=
+ =?us-ascii?Q?6+GGrYNXBySHzYMtUTX4ouni68YZnj4yAY7NAHkIQoklqH5S+39XGWQMeMrQ?=
+ =?us-ascii?Q?2+Cvgh1ty5J8dmvm+HiKcb4AH4Mo5/y4mGsQXi2AvmG/La7+i+wEfnNdASph?=
+ =?us-ascii?Q?7zvFL64efd1H7P4CxnjiZaIJpnP4f1MDdlI0Z84A+HWGmaEeuKLgJ4/dZ8HI?=
+ =?us-ascii?Q?qdP0m1bWx8BdaVT9zuAz6iVHcxLd5oOH9Hpnf+ZQ1pkJF+mTWRne7Idd3jeS?=
+ =?us-ascii?Q?dAmd0HBkSCZX5bVJzK58m2v4SAydVZKSKPg72zl0sbI4e3+ae/Ip3gLqpt7D?=
+ =?us-ascii?Q?WFooFtT7azjlD8bxDDblCrFpOQEjWI1y3RlupHceprT7YRNKwpdf0D8k3nUA?=
+ =?us-ascii?Q?+NWhyHRIiVo9NFjvtTHGd66OKRiVbY0hUOcJGWBjgEmCTmJ7xT3LQpP2Eaeo?=
+ =?us-ascii?Q?Eobut4ux/2TMVRqEE1UCHj/Bo+1329fsCKpzLkhwDEnuCsdFhFz5Mk8HcP+j?=
+ =?us-ascii?Q?ajAeezk4PeDcIS8rj67mLXxvaAOMh7Z216rpmJXcOFA3Cvk3wjNT+jYkjF/8?=
+ =?us-ascii?Q?T/wMIybj+utW9Jb/IFZmexdSK5KjcNKhpJs4FPd1kqqc0EiDQJ4/xzrTlnb6?=
+ =?us-ascii?Q?i/MIQwHyK/WKVGXq/0rqy0OrEYNp3EBoSz9EtjlycPjthU4QTHJ5dlRum4QP?=
+ =?us-ascii?Q?KzyZNytTvumlngIY9vnONHu+8z41O4Yq?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR04MB9626.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(19092799006)(7416014)(52116014)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?2uhNJqTARQGoS4w2NBSVP3KVqW12h8C6IV3o+j35j7abowkkOdse5nObV7Vr?=
+ =?us-ascii?Q?3jX5UAFjHGjMFcc09BF2fIGsSlp12uru1goRecQR1RYAoyvGim7I9eacVdpb?=
+ =?us-ascii?Q?zXmi64wrhYXrbkPZ0IyfpLlhfCSKDZ5Mt0kwZVXAH+du7G1r+VAdvKvmZtgr?=
+ =?us-ascii?Q?2ceLnOGyLEYV8GRumj566wMnoTvo5cki4FQ16M2ktgtE2nL9xa34/5tEz30W?=
+ =?us-ascii?Q?LwGxtG9q7bQcHemtcWk1wAgrlBEereJEuFx7b/LTveRKBf6eaxfLOcAqet9X?=
+ =?us-ascii?Q?sqIuhS6y42p1hSr1JAM4zVnQDXfetIOrcQCz4ZvIFShQcGe/oM1yujw0G5RQ?=
+ =?us-ascii?Q?1Y2Idtl/syPvzBHZjQScUelyQst7B/K2y7eTokAwLmQfnVvL9UY5+GARr0rB?=
+ =?us-ascii?Q?FicuSmzdXOUE3iPoc7e2z/Qdww9khFRk5ef3c71dRXNLGwm9oytDD6Skmmk1?=
+ =?us-ascii?Q?TuXPLpJQzkVeVrfI8OblzbybgiuISgu2H47wkgoiwA6XLm4J9KU8DytVgPXV?=
+ =?us-ascii?Q?szqRBkKFWvuLN3b86xQ0tEXp30QDLa0uWNIWgJVUuoufKSObXBsQx1Fo1C5I?=
+ =?us-ascii?Q?FO9gzAg06wj70pSqAxyFID73A/DZ4VDfFktBuVSDGBtUtGUvTIsWYihxfhoU?=
+ =?us-ascii?Q?YlQ5Ma8qSnxB2IuwBPCakbavEc9QHey8Ef0Y5R2Z6/1zDMBRpdAhO8otSatX?=
+ =?us-ascii?Q?x5bw35wjCi9MCf1WvhmiRtaNsqnXULNCWzOozTpsB9Ey9S+xOuJ2MeYh8TDg?=
+ =?us-ascii?Q?xDi0QXhKb77Z0TSVST7+bVVZjBly6JTSTf6i/8oVfg9eGHeMDhcrVwrxLJAU?=
+ =?us-ascii?Q?MULkc/d4VwEaH5vF+eqISkfT1qEeHHK3UANBRJDQVj77Kgr51PYqTzDhbNuK?=
+ =?us-ascii?Q?Hug1sqcj7tHOYXJ5m+P2fYD77kOkTzFrJevfqJp2+KXtSQZLi2ZXzywXJ6/d?=
+ =?us-ascii?Q?FA4eUiLhGHZM1zWJ+qsv1KtldB9x6p7UW+/zjuiBHcB3d/mjV0YPp8YuSzRu?=
+ =?us-ascii?Q?GpCoMY2R6AqPuUtsIcOgTDTlL7JNl30xmm9KqUz8sJbnJBA6yvew2JnAJTsx?=
+ =?us-ascii?Q?JxqmEtUghsN1h26kRBtcJAHxpazxTwa4LJmB75GAwrvOR3UZS19T3msbf/b4?=
+ =?us-ascii?Q?jF8XqHYVwULkyvNU5MRPZErd1uWtRDPZeqV3U6iKoFYtu4TgtZWNZuIFZvo5?=
+ =?us-ascii?Q?8lUq71uZHuQsY9LX0EznRV1XxB4YQ9RHTPeugysO+sImQi55AjX7lPr2KVtE?=
+ =?us-ascii?Q?UAVokt4zP8CHrdjhL1uHY4f1sSdBYUcH/fWS62PkfKkHqQ6SEWl3hcRYXVWa?=
+ =?us-ascii?Q?urbpwKlgNSao0kMWTROR9hq30TA5eXoP6z4zRUijurMhalKQC4n8mX4/o7SB?=
+ =?us-ascii?Q?kFSKTD5n+5af+vAlU/dRKKGC18VTAxqp99IwyeP8AeE8C1MsSJ8CN6MTsykZ?=
+ =?us-ascii?Q?eJLONJchLnDL65trjPgz5FvJp1O9eiiqsJu7dzcqwaC8Kqz0faTvY5+ol3fF?=
+ =?us-ascii?Q?91owjgFSt+I2NKy1GnzIJ3fqF/eFW3hm+eltC6EYVsfd517b0fZv5toWxM5y?=
+ =?us-ascii?Q?Mx0zOt97fR7zEnJ7pXEir8Nmr56LRfRA3GZmaV/a?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 41173596-5125-4f65-6fe1-08de26f0b8a0
+X-MS-Exchange-CrossTenant-AuthSource: DB9PR04MB9626.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2025 22:20:46.6376
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: lO7q7eiUuKce/hf2jkOdKVhXu1mvnT0S+ka0eXt2ZAyo6tDcrSwJ/61SLiJ7P9w+sdSA5hjIyGEmeNmAEdgngw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB11991
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251118_141605_080113_A45A65F5 
-X-CRM114-Status: GOOD (  17.61  )
+X-CRM114-CacheID: sfid-20251118_142052_728287_547CFA8F 
+X-CRM114-Status: GOOD (  28.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,142 +175,174 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Currently pci_host_common_init() uses the platform device's drvdata to
-store the pointer to the allocated struct pci_host_bridge. This makes
-sense for drivers that use pci_host_common_{probe,remove}() directly as
-the platform probe/remove functions, but leaves no option for more
-complex drivers to store a pointer to their own private data.
+On Tue, Nov 18, 2025 at 03:42:15PM -0600, Bjorn Helgaas wrote:
+> From: Bjorn Helgaas <bhelgaas@google.com>
+>
+> L1 PM Substates require the CLKREQ# signal and may also require
+> device-specific support.  If CLKREQ# is not supported or driver support is
+> lacking, enabling L1.1 or L1.2 may cause errors when accessing devices,
+> e.g.,
+>
+>   nvme nvme0: controller is down; will reset: CSTS=0xffffffff, PCI_STATUS=0x10
+>
+> If the kernel is built with CONFIG_PCIEASPM_POWER_SUPERSAVE=y or users
+> enable L1.x via sysfs, users may trip over these errors even if L1
+> Substates haven't been enabled by firmware or the driver.
+>
+> To prevent such errors, disable advertising the L1 PM Substates unless the
+> driver sets "dw_pcie.l1ss_support" to indicate that it knows CLKREQ# is
+> present and any device-specific configuration has been done.
+>
+> Set "dw_pcie.l1ss_support" in tegra194 (if DT includes the
+> "supports-clkreq' property) and qcom (for cfg_2_7_0, cfg_1_9_0, cfg_1_34_0,
+> and cfg_sc8280xp controllers) so they can continue to use L1 Substates.
+>
+> Based on Niklas's patch:
+> https://patch.msgid.link/20251017163252.598812-2-cassel@kernel.org
+>
+> Signed-off-by: Bjorn Helgaas <bhelgaas@google.com>
+> ---
+>  .../pci/controller/dwc/pcie-designware-ep.c   |  2 ++
+>  .../pci/controller/dwc/pcie-designware-host.c |  2 ++
+>  drivers/pci/controller/dwc/pcie-designware.c  | 24 +++++++++++++++++++
+>  drivers/pci/controller/dwc/pcie-designware.h  |  2 ++
+>  drivers/pci/controller/dwc/pcie-qcom.c        |  2 ++
+>  drivers/pci/controller/dwc/pcie-tegra194.c    |  3 +++
+>  6 files changed, 35 insertions(+)
+>
+> diff --git a/drivers/pci/controller/dwc/pcie-designware-ep.c b/drivers/pci/controller/dwc/pcie-designware-ep.c
+> index 7f2112c2fb21..ad6c0fd67a65 100644
+> --- a/drivers/pci/controller/dwc/pcie-designware-ep.c
+> +++ b/drivers/pci/controller/dwc/pcie-designware-ep.c
+> @@ -966,6 +966,8 @@ int dw_pcie_ep_init_registers(struct dw_pcie_ep *ep)
+>  	if (ep->ops->init)
+>  		ep->ops->init(ep);
+>
+> +	dw_pcie_hide_unsupported_l1ss(pci);
+> +
 
-Change pci_host_common_init() to return the pointer to the allocated
-struct pci_host_bridge, and move the platform_set_drvdata() call to
-pci_host_common_probe(). This way, drivers that implement their own
-probe function can still use pci_host_common_init() but store their own
-pointer in the platform device's drvdata.
+Need call dw_pcie_dbi_ro_wr_en(pci) to access PCI_L1SS_CAP.
 
-For symmetry, move the release code to a new function that takes a
-pointer to struct pci_host_bridge, and make pci_host_common_release() a
-wrapper to it that extracts the pointer from the platform device's
-drvdata. This way, drivers that store their own private pointer in the
-platform device's drvdata can still use the library release code.
+just ref below code
 
-No functional change to the existing users of pci-host-common is
-intended, with the exception of the pcie-apple driver, which is modified
-in a subsequent patch.
+	/*
+         * PTM responder capability can be disabled only after disabling
+         * PTM root capability.
+         */
+        if (ptm_cap_base) {
+                dw_pcie_dbi_ro_wr_en(pci);
+                reg = dw_pcie_readl_dbi(pci, ptm_cap_base + PCI_PTM_CAP);
+                reg &= ~PCI_PTM_CAP_ROOT;
+                dw_pcie_writel_dbi(pci, ptm_cap_base + PCI_PTM_CAP, reg);
 
-Signed-off-by: Radu Rendec <rrendec@redhat.com>
----
- drivers/pci/controller/pci-host-common.c | 36 ++++++++++++++++--------
- drivers/pci/controller/pci-host-common.h |  6 ++--
- 2 files changed, 29 insertions(+), 13 deletions(-)
+                reg = dw_pcie_readl_dbi(pci, ptm_cap_base + PCI_PTM_CAP);
+                reg &= ~(PCI_PTM_CAP_RES | PCI_PTM_GRANULARITY_MASK);
+                dw_pcie_writel_dbi(pci, ptm_cap_base + PCI_PTM_CAP, reg);
+                dw_pcie_dbi_ro_wr_dis(pci);
+        }
 
-diff --git a/drivers/pci/controller/pci-host-common.c b/drivers/pci/controller/pci-host-common.c
-index 810d1c8de24e9..86002195c93ac 100644
---- a/drivers/pci/controller/pci-host-common.c
-+++ b/drivers/pci/controller/pci-host-common.c
-@@ -52,25 +52,24 @@ struct pci_config_window *pci_host_common_ecam_create(struct device *dev,
- }
- EXPORT_SYMBOL_GPL(pci_host_common_ecam_create);
- 
--int pci_host_common_init(struct platform_device *pdev,
--			 const struct pci_ecam_ops *ops)
-+struct pci_host_bridge *pci_host_common_init(struct platform_device *pdev,
-+					     const struct pci_ecam_ops *ops)
- {
- 	struct device *dev = &pdev->dev;
- 	struct pci_host_bridge *bridge;
- 	struct pci_config_window *cfg;
-+	int rc;
- 
- 	bridge = devm_pci_alloc_host_bridge(dev, 0);
- 	if (!bridge)
--		return -ENOMEM;
-+		return ERR_PTR(-ENOMEM);
- 
- 	of_pci_check_probe_only();
- 
--	platform_set_drvdata(pdev, bridge);
--
- 	/* Parse and map our Configuration Space windows */
- 	cfg = pci_host_common_ecam_create(dev, bridge, ops);
- 	if (IS_ERR(cfg))
--		return PTR_ERR(cfg);
-+		return (struct pci_host_bridge *)cfg;
- 
- 	bridge->sysdata = cfg;
- 	bridge->ops = (struct pci_ops *)&ops->pci_ops;
-@@ -78,31 +77,46 @@ int pci_host_common_init(struct platform_device *pdev,
- 	bridge->disable_device = ops->disable_device;
- 	bridge->msi_domain = true;
- 
--	return pci_host_probe(bridge);
-+	rc = pci_host_probe(bridge);
-+	if (rc)
-+		return ERR_PTR(rc);
-+
-+	return bridge;
- }
- EXPORT_SYMBOL_GPL(pci_host_common_init);
- 
- int pci_host_common_probe(struct platform_device *pdev)
- {
- 	const struct pci_ecam_ops *ops;
-+	struct pci_host_bridge *bridge;
- 
- 	ops = of_device_get_match_data(&pdev->dev);
- 	if (!ops)
- 		return -ENODEV;
- 
--	return pci_host_common_init(pdev, ops);
-+	bridge = pci_host_common_init(pdev, ops);
-+	if (IS_ERR(bridge))
-+		return PTR_ERR(bridge);
-+
-+	platform_set_drvdata(pdev, bridge);
-+
-+	return 0;
- }
- EXPORT_SYMBOL_GPL(pci_host_common_probe);
- 
--void pci_host_common_remove(struct platform_device *pdev)
-+void pci_host_common_release(struct pci_host_bridge *bridge)
- {
--	struct pci_host_bridge *bridge = platform_get_drvdata(pdev);
--
- 	pci_lock_rescan_remove();
- 	pci_stop_root_bus(bridge->bus);
- 	pci_remove_root_bus(bridge->bus);
- 	pci_unlock_rescan_remove();
- }
-+EXPORT_SYMBOL_GPL(pci_host_common_release);
-+
-+void pci_host_common_remove(struct platform_device *pdev)
-+{
-+	pci_host_common_release(platform_get_drvdata(pdev));
-+}
- EXPORT_SYMBOL_GPL(pci_host_common_remove);
- 
- MODULE_DESCRIPTION("Common library for PCI host controller drivers");
-diff --git a/drivers/pci/controller/pci-host-common.h b/drivers/pci/controller/pci-host-common.h
-index 51c35ec0cf37d..018e593bafe47 100644
---- a/drivers/pci/controller/pci-host-common.h
-+++ b/drivers/pci/controller/pci-host-common.h
-@@ -11,11 +11,13 @@
- #define _PCI_HOST_COMMON_H
- 
- struct pci_ecam_ops;
-+struct pci_host_bridge;
- 
- int pci_host_common_probe(struct platform_device *pdev);
--int pci_host_common_init(struct platform_device *pdev,
--			 const struct pci_ecam_ops *ops);
-+struct pci_host_bridge *pci_host_common_init(struct platform_device *pdev,
-+					     const struct pci_ecam_ops *ops);
- void pci_host_common_remove(struct platform_device *pdev);
-+void pci_host_common_release(struct pci_host_bridge *bridge);
- 
- struct pci_config_window *pci_host_common_ecam_create(struct device *dev,
- 	struct pci_host_bridge *bridge, const struct pci_ecam_ops *ops);
--- 
-2.51.1
+Frank
 
+
+>  	ptm_cap_base = dw_pcie_find_ext_capability(pci, PCI_EXT_CAP_ID_PTM);
+>
+>  	/*
+> diff --git a/drivers/pci/controller/dwc/pcie-designware-host.c b/drivers/pci/controller/dwc/pcie-designware-host.c
+> index 20c9333bcb1c..7abeb771e32d 100644
+> --- a/drivers/pci/controller/dwc/pcie-designware-host.c
+> +++ b/drivers/pci/controller/dwc/pcie-designware-host.c
+> @@ -1060,6 +1060,8 @@ int dw_pcie_setup_rc(struct dw_pcie_rp *pp)
+>  		PCI_COMMAND_MASTER | PCI_COMMAND_SERR;
+>  	dw_pcie_writel_dbi(pci, PCI_COMMAND, val);
+>
+> +	dw_pcie_hide_unsupported_l1ss(pci);
+> +
+>  	dw_pcie_config_presets(pp);
+>  	/*
+>  	 * If the platform provides its own child bus config accesses, it means
+> diff --git a/drivers/pci/controller/dwc/pcie-designware.c b/drivers/pci/controller/dwc/pcie-designware.c
+> index c644216995f6..6e6a0dac5b53 100644
+> --- a/drivers/pci/controller/dwc/pcie-designware.c
+> +++ b/drivers/pci/controller/dwc/pcie-designware.c
+> @@ -1081,6 +1081,30 @@ void dw_pcie_edma_remove(struct dw_pcie *pci)
+>  	dw_edma_remove(&pci->edma);
+>  }
+>
+> +void dw_pcie_hide_unsupported_l1ss(struct dw_pcie *pci)
+> +{
+> +	u16 l1ss;
+> +	u32 l1ss_cap;
+> +
+> +	if (pci->l1ss_support)
+> +		return;
+> +
+> +	l1ss = dw_pcie_find_ext_capability(pci, PCI_EXT_CAP_ID_L1SS);
+> +	if (!l1ss)
+> +		return;
+> +
+> +	/*
+> +	 * Unless the driver claims "l1ss_support", don't advertise L1 PM
+> +	 * Substates because they require CLKREQ# and possibly other
+> +	 * device-specific configuration.
+> +	 */
+> +	l1ss_cap = dw_pcie_readl_dbi(pci, l1ss + PCI_L1SS_CAP);
+> +	l1ss_cap &= ~(PCI_L1SS_CAP_PCIPM_L1_1 | PCI_L1SS_CAP_ASPM_L1_1 |
+> +		      PCI_L1SS_CAP_PCIPM_L1_2 | PCI_L1SS_CAP_ASPM_L1_2 |
+> +		      PCI_L1SS_CAP_L1_PM_SS);
+> +	dw_pcie_writel_dbi(pci, l1ss + PCI_L1SS_CAP, l1ss_cap);
+> +}
+> +
+>  void dw_pcie_setup(struct dw_pcie *pci)
+>  {
+>  	u32 val;
+> diff --git a/drivers/pci/controller/dwc/pcie-designware.h b/drivers/pci/controller/dwc/pcie-designware.h
+> index e995f692a1ec..a68eea47d451 100644
+> --- a/drivers/pci/controller/dwc/pcie-designware.h
+> +++ b/drivers/pci/controller/dwc/pcie-designware.h
+> @@ -516,6 +516,7 @@ struct dw_pcie {
+>  	int			max_link_speed;
+>  	u8			n_fts[2];
+>  	struct dw_edma_chip	edma;
+> +	bool			l1ss_support;	/* L1 PM Substates support */
+>  	struct clk_bulk_data	app_clks[DW_PCIE_NUM_APP_CLKS];
+>  	struct clk_bulk_data	core_clks[DW_PCIE_NUM_CORE_CLKS];
+>  	struct reset_control_bulk_data	app_rsts[DW_PCIE_NUM_APP_RSTS];
+> @@ -573,6 +574,7 @@ int dw_pcie_prog_ep_inbound_atu(struct dw_pcie *pci, u8 func_no, int index,
+>  				int type, u64 parent_bus_addr,
+>  				u8 bar, size_t size);
+>  void dw_pcie_disable_atu(struct dw_pcie *pci, u32 dir, int index);
+> +void dw_pcie_hide_unsupported_l1ss(struct dw_pcie *pci);
+>  void dw_pcie_setup(struct dw_pcie *pci);
+>  void dw_pcie_iatu_detect(struct dw_pcie *pci);
+>  int dw_pcie_edma_detect(struct dw_pcie *pci);
+> diff --git a/drivers/pci/controller/dwc/pcie-qcom.c b/drivers/pci/controller/dwc/pcie-qcom.c
+> index 805edbbfe7eb..61c2f4e2f74d 100644
+> --- a/drivers/pci/controller/dwc/pcie-qcom.c
+> +++ b/drivers/pci/controller/dwc/pcie-qcom.c
+> @@ -1067,6 +1067,8 @@ static int qcom_pcie_init_2_7_0(struct qcom_pcie *pcie)
+>  	val &= ~REQ_NOT_ENTR_L1;
+>  	writel(val, pcie->parf + PARF_PM_CTRL);
+>
+> +	pci->l1ss_support = true;
+> +
+>  	val = readl(pcie->parf + PARF_AXI_MSTR_WR_ADDR_HALT_V2);
+>  	val |= EN;
+>  	writel(val, pcie->parf + PARF_AXI_MSTR_WR_ADDR_HALT_V2);
+> diff --git a/drivers/pci/controller/dwc/pcie-tegra194.c b/drivers/pci/controller/dwc/pcie-tegra194.c
+> index 10e74458e667..3934757baa30 100644
+> --- a/drivers/pci/controller/dwc/pcie-tegra194.c
+> +++ b/drivers/pci/controller/dwc/pcie-tegra194.c
+> @@ -703,6 +703,9 @@ static void init_host_aspm(struct tegra_pcie_dw *pcie)
+>  	val |= (pcie->aspm_pwr_on_t << 19);
+>  	dw_pcie_writel_dbi(pci, pcie->cfg_link_cap_l1sub, val);
+>
+> +	if (pcie->supports_clkreq)
+> +		pci->l1ss_support = true;
+> +
+>  	/* Program L0s and L1 entrance latencies */
+>  	val = dw_pcie_readl_dbi(pci, PCIE_PORT_AFR);
+>  	val &= ~PORT_AFR_L0S_ENTRANCE_LAT_MASK;
+> --
+> 2.43.0
+>
 
