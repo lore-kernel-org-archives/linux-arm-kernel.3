@@ -4,129 +4,150 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2EFACEDD8A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 13:50:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC3D5CED63B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 13:56:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
-	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dY87Qd6K9FmYpUIN2v9FDUk/qdoG5fxW/x7OSqsCn3w=; b=Fo3TPNp6qnoz2DSs/iLwiw/H8d
-	B1e9nPEYe21KIX/rMjchOJHlfwHNrnHLTaj6Xx0o6Ta5png0Cc43mq7m6e6inkToQhIWLquQ6/agZ
-	QULk+ChED1hk0WiIut32VxQ6WZH1W3RP+6pu2NzhiXwO4bg8XuG1oSvAQVClCgEo7ocPWOjivmnql
-	wxgHnIExI+f1MxeRxgBbP85Zar/cRNB5rqWmWOF04Bm+d5460E1Ydu0X/Wit6ziKj8PWFLrynLKLi
-	C/fDeVkH38lagCWwdTUABeeTLnZEqkB4tQ3NZkTZyyLD5PXLo1drOWxE8bH+55JXZUAysB9adpMpt
-	CNtJeKVA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Dbi/SDEbhwv9x9qUnIJcSmxMwVDSSZlgVZJIO9G4GsI=; b=wpZoZBYOyIoELyjsQFM8IHZIw3
+	vDuvvAnxTMo3lK7WgoNcKAKsF3f4c1Y9hECizYLfSkGYDVJO5GsqPonWFYSZUWCD5jRjObM6e++Wx
+	ku3Pd/sUoYCtX/q8zWZbXv6Cmcm5Vr9X9BXQdckxqZscHYi5dDPvprSNDWOurURaxj11h5Ak82H0q
+	X1ROpiXbnYtabUTzUmJ/E427i338nAi/mWt0DyfP8SoKq2bPe9XlxEQL9S8c7TcN6K61lM3liQqyw
+	gaaZbuiDJqxYCOrVQVvemQefZP0MlZ4PgqVSQ0n7GddJ4gEbxQEalRj7a/Segykb7CxU/03sS5flK
+	jOTDyJxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLM6Z-00000000UTB-3CzF;
-	Tue, 18 Nov 2025 13:50:47 +0000
-Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
+	id 1vLMBj-00000000Uu5-48nH;
+	Tue, 18 Nov 2025 13:56:07 +0000
+Received: from mail-westusazon11010018.outbound.protection.outlook.com ([52.101.85.18] helo=BYAPR05CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLM6T-00000000UPq-0j6z
+	id 1vLMBf-00000000Usf-1xcP
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Nov 2025 13:50:45 +0000
-Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-42b31c610fcso4766467f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Nov 2025 05:50:40 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1763473839; x=1764078639; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:references:cc:to:subject:reply-to:from:user-agent
-         :mime-version:date:message-id:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=dY87Qd6K9FmYpUIN2v9FDUk/qdoG5fxW/x7OSqsCn3w=;
-        b=lkJrogEx+owEeZPlwXICzFL7YWtKJ5mCyJ/EZ2+PXvAKg6xpVrqyLIzzl+6j7GRJ4f
-         r5aOOCsN0rNXk0cU2co7rKvzCDPyPpAdazdpaLVxegxOll5i9I2/ZuDRRNaR7c6C6mCR
-         j6gDP88VholnlbzfjN6CTpxQDyY2qF4duitnRwYhS0RYl+ERrao34L2p3P/RzxNBy6h6
-         KanBaJcYr8RwzE+o975LpBQ+DOKKo7STamrB+9L8bGTVT8LOxDdYxiIFq/48hmsn2tAB
-         x/lj/VWWVW9R/5s1y1b9OYFnHs8YZVTl2vmOz7Ws0bJWmzq2RWbBu9z1kiFp5Wl3UObp
-         a7vA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763473839; x=1764078639;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:references:cc:to:subject:reply-to:from:user-agent
-         :mime-version:date:message-id:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=dY87Qd6K9FmYpUIN2v9FDUk/qdoG5fxW/x7OSqsCn3w=;
-        b=uU9IMob4KRTNJcAs0VCdOOC+eec0GkM6/wiRzR/We2RVVNxolfi2rZtYSdeN65g+9Q
-         k/T1cDQJHmV74DcTHCY5cqJSANqpMRTdIxGGZ6jToWMC8fuYl/XPJZFT0EbY3fPEHu3t
-         6M7mAmYOtk8s2FLPDUgaQvj0a7nYhPPnvcAJngI+J7G15v3fLq3CnEa3nlZ36hl7cLhR
-         fAArpkn2YGJ540Bd6JTsYDEANtmx+4DtTnrcC+DAWCoHOPnvbEowOLHYac3y9nvV4x9n
-         GbjYZp8ErdqzJJuM7RQhxxF7mS9lmXedOK/K6vukoOv67D2nsoQI8TC2lJPBh1wlkrt2
-         Y6ug==
-X-Forwarded-Encrypted: i=1; AJvYcCWlZ8K68Jj1iz0fJJu+Zvi+zMj7YQZHLPRUUKXy9Zl/GI8bGXqoSrsJZxkqRjPHnWyJIfcAIJyrf016xoom4otA@lists.infradead.org
-X-Gm-Message-State: AOJu0YzphlC/hrI6R0K5TdFH8lvA80QZOSigjdvtObKFcmr8DVjwQGPS
-	G524e3BF5/tqtakP46rK3USV7d6bvFIFZ3/+kTBkS+cP2Odebco/vdywxVMfazqzloc=
-X-Gm-Gg: ASbGnctr7jqxT6dd2fRX4U7GBSW+GI9LO1o9fVikxXlah6cr+RB7aQYu9+YCuMIhTvD
-	OFsrs5iZL3vjzkVldcTln+XSQ7Eq0aHqxfAwy+FI2At+LaiNvxQmkCNqT488OtcVYJtnAkm4Hp0
-	j6e/G6xXS5FwCfRMQ+CPBk2FV+BHMeomt97jqCdQ/KXzKXjkuOY3U+Xt6ecThHSEpJkuKh5B1Cl
-	jQ96JoDYHijMlEwkUlMANLDnHZSPtUAvEXAzkV1RNqrhUiQY6wIlLod02OJaQ+YEP27IhUbtZ27
-	6VVna9lhK0tuJVATG3XwyWQ32uk0CQeeIhGSi6ugThaYe8siS0hg8DewtHT69DHfAhJQSBcLUu0
-	0eLx89GgqaUNHKsQoJuPnOsCe9NQ6j8dOmXqGvb6xaj/IHs1ODAqbM8ljCr5GTKd1AMy+V/dj2y
-	INoGgqWfxmcQjfFjCJw5f9jmrevcfcxSq2J1xKyxXoMQ/MHOcwRzIujdTK51Cj1Zk=
-X-Google-Smtp-Source: AGHT+IHO7NgHAvMoNL+Vwr0gsrbLBbRzB68mfS+LYvq/Q1H/ixopITAemFG2PunekaEBn/eSbVurMg==
-X-Received: by 2002:a05:6000:24c7:b0:428:52c7:feae with SMTP id ffacd0b85a97d-42b593869b1mr16288107f8f.32.1763473839029;
-        Tue, 18 Nov 2025 05:50:39 -0800 (PST)
-Received: from ?IPV6:2a01:e0a:3d9:2080:366e:5264:fffe:1c49? ([2a01:e0a:3d9:2080:366e:5264:fffe:1c49])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42b53e85e6fsm32359458f8f.18.2025.11.18.05.50.37
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 18 Nov 2025 05:50:38 -0800 (PST)
-Message-ID: <e21760e8-4eaf-4181-a328-5d0d205b7ae0@linaro.org>
-Date: Tue, 18 Nov 2025 14:50:37 +0100
+	Tue, 18 Nov 2025 13:56:06 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=H1/DNRSddPht56LFSA3Gr2j2sRBb/qmfDFw8Vv+wpjYQcZmuy3U9dFLbkJjaYJ1/LAfbZI9hMH5zflQ681dnuCcK7aNMlQNNFnfIKtaTBAKpwJKoYGNgaAT5JyglmzoCT7ORk5UdYVG8XPb1tk3Pi9UI18li571wa7GrynobrFG9zP9jwxjz3EVNtdTTBcMyyb4DcoOdLtld4O/HAePMJUdwY2TA+HSVhqOFfr2IBp6PbEeSPlHw21sUzjlwbUJv/EPoZ3W0+kUa9xGKrnFON3jFXQjX0mIE2Q5LV8uFOReWna0V+GM/MScHwOSXZNj7WfB8ChZmy4LFwZtsJh2TLw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Dbi/SDEbhwv9x9qUnIJcSmxMwVDSSZlgVZJIO9G4GsI=;
+ b=fDDSyWdEjOlF9btt9N9T2QGv/VsP5/jnbNZWkFBNV1OdAudiPY5p/F4aW/sC8QHafa/tW7Jb7gTzHj6PpXQkeU53LqUqWpOZM8QFkAspx2T6UF7vHzm+PHHxEW502psFE3FQzUCehsiBWpp604qP5OvSqBt6VNM+w7UJEawG0GkW9eEaZAS56Kf387lgZ4hlekIMFNwx6bfNSO1xUUU5ALC1qlwkrySmc1XBeBA7KzvW9bvm+3k+0xm7qZWQHfPigX4xfzdVzWSw+HKeSlsI7vfzHi2cUhjfFa/MUBXwYL68WWiC6tdzZffs01XVQzJftigbabI+j7hqoa+ADIbuUw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.21.194) smtp.rcpttodomain=kernel.org smtp.mailfrom=ti.com; dmarc=pass
+ (p=quarantine sp=none pct=100) action=none header.from=ti.com; dkim=none
+ (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Dbi/SDEbhwv9x9qUnIJcSmxMwVDSSZlgVZJIO9G4GsI=;
+ b=mjRiTdqPuk932D1Ca6yNkiqh1zF1Siakx5llwvZVGYTJTwDtJlZn8TYgi+dIqb1nsqxDi55OojdXkizl+/xS08KBY7m7384YS7nx5tMwazQd0bdF4Qos0i2GkQyRIv+0Nev9WYN/Q35PedCJmrMwaQvNJqGW2DHRWPxVx78hXMs=
+Received: from PH7P223CA0026.NAMP223.PROD.OUTLOOK.COM (2603:10b6:510:338::31)
+ by DS0PR10MB7245.namprd10.prod.outlook.com (2603:10b6:8:fd::6) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9320.22; Tue, 18 Nov 2025 13:55:53 +0000
+Received: from CY4PEPF0000EE34.namprd05.prod.outlook.com
+ (2603:10b6:510:338:cafe::a1) by PH7P223CA0026.outlook.office365.com
+ (2603:10b6:510:338::31) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9343.10 via Frontend Transport; Tue,
+ 18 Nov 2025 13:55:52 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.194)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
+Received: from flwvzet200.ext.ti.com (198.47.21.194) by
+ CY4PEPF0000EE34.mail.protection.outlook.com (10.167.242.40) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9343.9 via Frontend Transport; Tue, 18 Nov 2025 13:55:51 +0000
+Received: from DFLE214.ent.ti.com (10.64.6.72) by flwvzet200.ext.ti.com
+ (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 18 Nov
+ 2025 07:55:48 -0600
+Received: from DFLE211.ent.ti.com (10.64.6.69) by DFLE214.ent.ti.com
+ (10.64.6.72) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 18 Nov
+ 2025 07:55:47 -0600
+Received: from fllvem-mr07.itg.ti.com (10.64.41.89) by DFLE211.ent.ti.com
+ (10.64.6.69) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Tue, 18 Nov 2025 07:55:47 -0600
+Received: from lelv0854.itg.ti.com (lelv0854.itg.ti.com [10.181.64.140])
+	by fllvem-mr07.itg.ti.com (8.18.1/8.18.1) with ESMTP id 5AIDtl3f605856;
+	Tue, 18 Nov 2025 07:55:47 -0600
+Received: from localhost (meghana-pc.dhcp.ti.com [10.24.69.13] (may be forged))
+	by lelv0854.itg.ti.com (8.14.7/8.14.7) with ESMTP id 5AIDtkwo004165;
+	Tue, 18 Nov 2025 07:55:47 -0600
+From: Meghana Malladi <m-malladi@ti.com>
+To: <horms@kernel.org>, <namcao@linutronix.de>, <vadim.fedorenko@linux.dev>,
+	<jacob.e.keller@intel.com>, <m-malladi@ti.com>, <christian.koenig@amd.com>,
+	<sumit.semwal@linaro.org>, <sdf@fomichev.me>, <john.fastabend@gmail.com>,
+	<hawk@kernel.org>, <daniel@iogearbox.net>, <ast@kernel.org>,
+	<pabeni@redhat.com>, <kuba@kernel.org>, <edumazet@google.com>,
+	<davem@davemloft.net>, <andrew+netdev@lunn.ch>
+CC: <linaro-mm-sig@lists.linaro.org>, <dri-devel@lists.freedesktop.org>,
+	<linux-media@vger.kernel.org>, <bpf@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <netdev@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <srk@ti.com>, Vignesh Raghavendra
+	<vigneshr@ti.com>, Roger Quadros <rogerq@kernel.org>, <danishanwar@ti.com>
+Subject: [PATCH net-next v6 0/6] Add AF_XDP zero copy support
+Date: Tue, 18 Nov 2025 19:25:36 +0530
+Message-ID: <20251118135542.380574-1-m-malladi@ti.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: Neil Armstrong <neil.armstrong@linaro.org>
-Subject: Re: [PATCH 5/9] drm/panel: ilitek-ili9881d: Add support for
- Wanchanglong W552946AAA panel
-To: Chaoyi Chen <kernel@airkyi.com>,
- Jessica Zhang <jessica.zhang@oss.qualcomm.com>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Sandy Huang <hjc@rock-chips.com>,
- =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
- Andy Yan <andy.yan@rock-chips.com>, Vinod Koul <vkoul@kernel.org>,
- Kishon Vijay Abraham I <kishon@kernel.org>
-Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-phy@lists.infradead.org,
- Chaoyi Chen <chaoyi.chen@rock-chips.com>
-References: <20251106020632.92-1-kernel@airkyi.com>
- <20251106020632.92-6-kernel@airkyi.com>
-Content-Language: en-US, fr
-Autocrypt: addr=neil.armstrong@linaro.org; keydata=
- xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
- GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
- BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
- qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
- 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
- AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
- OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
- Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
- YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
- GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
- UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
- GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
- yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
- QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
- SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
- 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
- Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
- oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
- M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
- 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
- KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
- 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
- QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
-Organization: Linaro
-In-Reply-To: <20251106020632.92-6-kernel@airkyi.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CY4PEPF0000EE34:EE_|DS0PR10MB7245:EE_
+X-MS-Office365-Filtering-Correlation-Id: bcfc0923-3683-47d9-bd34-08de26aa2f43
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|82310400026|7416014|1800799024|36860700013|921020;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?kjgwSamNIf2UpUJG5mE+YJtocnY7AJEoOCK+ZHmOxVJd1DylsqMAfYVhcKcz?=
+ =?us-ascii?Q?ergCyl+sEOLz+coNcN55MVJBJzlIHoNRsRff/dJETCCmz3dyHwln7PldQ1Xi?=
+ =?us-ascii?Q?CIQrLJeY6pViSx2LkYSluqbOjCtL+FUwWJW6uSCrLBvwswO11TwIYRrZGUK2?=
+ =?us-ascii?Q?nCBIO0PRTRH5pFmR+GF2a49TWltOfCIbhBBWxaSUiSDLnYGXiFzuPsjhXpx6?=
+ =?us-ascii?Q?EPFoI9h+K9N8u0wa0QErYdaP9ER6mCIG5JuvgLQ0XDsPVr68aW9HtZsqbL1R?=
+ =?us-ascii?Q?rhbAs9qrLEvERMnMcX/+3dHTcoZB5QyF4wn2i/BUCL8Cobq8xDD6OyWvXvXG?=
+ =?us-ascii?Q?EHUf4jV+ItWiTiqCqBtM5cdDC0v7blv4wg2HaU7sRhtpwP2iNeUMCpbX+kRK?=
+ =?us-ascii?Q?EKIDSlv84/q/zm6KOzmqsP/KowusVNBLsJd/97Fl/EtcUqcjsYoqPsi1ux9Q?=
+ =?us-ascii?Q?aLN495BUPNl0T7E9GXuAGk/petjGCHREtOIKAcsKqlQ4GGGuASfYtHD3oUK5?=
+ =?us-ascii?Q?/43Z+CGGnQQqh1mM/VRD+um/1DzWVWBZASEeEMjnMboVY5rhCbG+VHd11R0W?=
+ =?us-ascii?Q?+FwRJ8iPFi/Reit8IhsEEQY9W/qWXu/VzXUwN29lx1yJevLBSy5S8TKU4KtI?=
+ =?us-ascii?Q?hsya97+ms/VHI+UdbsdyyQzuOrbZq+B2QQlUdiSTIFAuexCa5lmS3Hqmu95O?=
+ =?us-ascii?Q?nf9QEDuMxW9vhL94YRBx28QUJi0+BwfbjmCIjPF/eRoUp6SIgXmbriTQbyvj?=
+ =?us-ascii?Q?Mou/8aFlvSlgUj8ob3QHm/Itv66JuDEFofdVYbcRCqge3xlb2Ojs8drgRzm/?=
+ =?us-ascii?Q?UcRsaEHiZfx3RhqPkX5cc0Lbgbf0OGPjVsaGDrLcx6bdkWyn+ig8s/ws0UPE?=
+ =?us-ascii?Q?NPpAFWoMPIxhVVw7rZ+BViSBGn5k12FR66UqOI+eHPH8WrqL8iM3m33lzJbz?=
+ =?us-ascii?Q?rwqeEv3NBbChCgUP8eqZRAHk956MPLeaN5wHAc1fg76aXuMRbJJkWfOE3ar8?=
+ =?us-ascii?Q?dgyGQmqtR2EhQYBTRi9UFb8AY6q7u0gWwNg92tRzxtKp7zhbN7Uj7HRp+s23?=
+ =?us-ascii?Q?MC9X26blPg131ZHFr0nUKRh4MzpYE7cQW93GfzCMdUtFyLpdKzajtnKp6+yf?=
+ =?us-ascii?Q?fIP8YnxAKcCpHBW5H8ods3zUH1cKD5D2/SaDDvef+OAdln0cSkziFSahhL12?=
+ =?us-ascii?Q?iTwLa/roYzuVZxOo+V0Axk5Ia6SiTyihe5fr1G5YT6reYhn8RaG+g5SyxqYB?=
+ =?us-ascii?Q?C+wzgz3uaFLD2XHW+ycgElzTByszrBI/BqJIN+uRDTEhTarOGdWemgfXvPgF?=
+ =?us-ascii?Q?yRXdweqW7eEteCKuj/O94Y+Zg2/Kx3UoyDBi0Um9v/sXEfW8zc6aZf0bqe7C?=
+ =?us-ascii?Q?a7CM3MXN7pwqQ5qcEPWuwfN0ERpAKaDnfMfNEe4WDW3AXFvQ2wiGOQAxSoMT?=
+ =?us-ascii?Q?3K0DtoyHrHTq7fQUbXDSGoaXTjTCt4gmjj2UUZ8gPlXZv74DWmhZtREerKJA?=
+ =?us-ascii?Q?7ovC69xp8HES4o3VfaLLEVRs5US8/ev5fYtXt98QwP1cm5/npCjVOrjGqXkh?=
+ =?us-ascii?Q?EbTViv9IffvieMeC2Q5CbIEzwYiLNxN1tN9Oup2j?=
+X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(376014)(82310400026)(7416014)(1800799024)(36860700013)(921020);DIR:OUT;SFP:1101;
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2025 13:55:51.1520
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: bcfc0923-3683-47d9-bd34-08de26aa2f43
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: CY4PEPF0000EE34.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR10MB7245
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251118_055043_918127_DE60B71B 
-X-CRM114-Status: GOOD (  15.15  )
+X-CRM114-CacheID: sfid-20251118_055604_107302_D8EA2A90 
+X-CRM114-Status: UNSURE (   7.61  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,283 +159,54 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: Neil Armstrong <neil.armstrong@linaro.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/6/25 03:06, Chaoyi Chen wrote:
-> From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-> 
-> W552946AAA is a panel by Wanchanglong. This panel utilizes the
-> Ilitek ILI9881D controller.
-> 
-> W552946AAA is similar to W552946ABA, but the W552946AAA only
-> uses 2 lanes.
-> 
-> Tested on rk3506g-evb1-v10.
-> 
-> Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-> ---
->   drivers/gpu/drm/panel/panel-ilitek-ili9881c.c | 225 ++++++++++++++++++
->   1 file changed, 225 insertions(+)
-> 
-> diff --git a/drivers/gpu/drm/panel/panel-ilitek-ili9881c.c b/drivers/gpu/drm/panel/panel-ilitek-ili9881c.c
-> index ad4993b2f92a..9b3e9450808d 100644
-> --- a/drivers/gpu/drm/panel/panel-ilitek-ili9881c.c
-> +++ b/drivers/gpu/drm/panel/panel-ilitek-ili9881c.c
-> @@ -820,6 +820,204 @@ static const struct ili9881c_instr tl050hdv35_init[] = {
->   	ILI9881C_COMMAND_INSTR(0xd3, 0x39),
->   };
->   
-> +static const struct ili9881c_instr w552946aaa_init[] = {
-> +	ILI9881C_SWITCH_PAGE_INSTR(3),
-> +	ILI9881C_COMMAND_INSTR(0x01, 0x00),
-> +	ILI9881C_COMMAND_INSTR(0x02, 0x00),
-> +	ILI9881C_COMMAND_INSTR(0x03, 0x53),
-> +	ILI9881C_COMMAND_INSTR(0x04, 0x53),
-> +	ILI9881C_COMMAND_INSTR(0x05, 0x13),
-> +	ILI9881C_COMMAND_INSTR(0x06, 0x04),
-> +	ILI9881C_COMMAND_INSTR(0x07, 0x02),
-> +	ILI9881C_COMMAND_INSTR(0x08, 0x02),
-> +	ILI9881C_COMMAND_INSTR(0x09, 0x00),
-> +	ILI9881C_COMMAND_INSTR(0x0a, 0x00),
-> +	ILI9881C_COMMAND_INSTR(0x0b, 0x00),
-> +	ILI9881C_COMMAND_INSTR(0x0c, 0x00),
-> +	ILI9881C_COMMAND_INSTR(0x0d, 0x00),
-> +	ILI9881C_COMMAND_INSTR(0x0e, 0x00),
-> +	ILI9881C_COMMAND_INSTR(0x0f, 0x00),
-> +	ILI9881C_COMMAND_INSTR(0x10, 0x00),
-> +	ILI9881C_COMMAND_INSTR(0x11, 0x00),
-> +	ILI9881C_COMMAND_INSTR(0x12, 0x00),
-> +	ILI9881C_COMMAND_INSTR(0x13, 0x00),
-> +	ILI9881C_COMMAND_INSTR(0x14, 0x00),
-> +	ILI9881C_COMMAND_INSTR(0x15, 0x08),
-> +	ILI9881C_COMMAND_INSTR(0x16, 0x10),
-> +	ILI9881C_COMMAND_INSTR(0x17, 0x00),
-> +	ILI9881C_COMMAND_INSTR(0x18, 0x08),
-> +	ILI9881C_COMMAND_INSTR(0x19, 0x00),
-> +	ILI9881C_COMMAND_INSTR(0x1a, 0x00),
-> +	ILI9881C_COMMAND_INSTR(0x1b, 0x00),
-> +	ILI9881C_COMMAND_INSTR(0x1c, 0x00),
-> +	ILI9881C_COMMAND_INSTR(0x1d, 0x00),
-> +	ILI9881C_COMMAND_INSTR(0x1e, 0xc0),
-> +	ILI9881C_COMMAND_INSTR(0x1f, 0x80),
-> +	ILI9881C_COMMAND_INSTR(0x20, 0x02),
-> +	ILI9881C_COMMAND_INSTR(0x21, 0x09),
-> +	ILI9881C_COMMAND_INSTR(0x22, 0x00),
-> +	ILI9881C_COMMAND_INSTR(0x23, 0x00),
-> +	ILI9881C_COMMAND_INSTR(0x24, 0x00),
-> +	ILI9881C_COMMAND_INSTR(0x25, 0x00),
-> +	ILI9881C_COMMAND_INSTR(0x26, 0x00),
-> +	ILI9881C_COMMAND_INSTR(0x27, 0x00),
-> +	ILI9881C_COMMAND_INSTR(0x28, 0x55),
-> +	ILI9881C_COMMAND_INSTR(0x29, 0x03),
-> +	ILI9881C_COMMAND_INSTR(0x2a, 0x00),
-> +	ILI9881C_COMMAND_INSTR(0x2b, 0x00),
-> +	ILI9881C_COMMAND_INSTR(0x2c, 0x00),
-> +	ILI9881C_COMMAND_INSTR(0x2d, 0x00),
-> +	ILI9881C_COMMAND_INSTR(0x2e, 0x00),
-> +	ILI9881C_COMMAND_INSTR(0x2f, 0x00),
-> +	ILI9881C_COMMAND_INSTR(0x30, 0x00),
-> +	ILI9881C_COMMAND_INSTR(0x31, 0x00),
-> +	ILI9881C_COMMAND_INSTR(0x32, 0x00),
-> +	ILI9881C_COMMAND_INSTR(0x33, 0x00),
-> +	ILI9881C_COMMAND_INSTR(0x34, 0x04),
-> +	ILI9881C_COMMAND_INSTR(0x35, 0x05),
-> +	ILI9881C_COMMAND_INSTR(0x36, 0x05),
-> +	ILI9881C_COMMAND_INSTR(0x37, 0x00),
-> +	ILI9881C_COMMAND_INSTR(0x38, 0x3c),
-> +	ILI9881C_COMMAND_INSTR(0x39, 0x35),
-> +	ILI9881C_COMMAND_INSTR(0x3a, 0x00),
-> +	ILI9881C_COMMAND_INSTR(0x3b, 0x40),
-> +	ILI9881C_COMMAND_INSTR(0x3c, 0x00),
-> +	ILI9881C_COMMAND_INSTR(0x3d, 0x00),
-> +	ILI9881C_COMMAND_INSTR(0x3e, 0x00),
-> +	ILI9881C_COMMAND_INSTR(0x3f, 0x00),
-> +	ILI9881C_COMMAND_INSTR(0x40, 0x00),
-> +	ILI9881C_COMMAND_INSTR(0x41, 0x88),
-> +	ILI9881C_COMMAND_INSTR(0x42, 0x00),
-> +	ILI9881C_COMMAND_INSTR(0x43, 0x00),
-> +	ILI9881C_COMMAND_INSTR(0x44, 0x1f),
-> +	ILI9881C_COMMAND_INSTR(0x50, 0x01),
-> +	ILI9881C_COMMAND_INSTR(0x51, 0x23),
-> +	ILI9881C_COMMAND_INSTR(0x52, 0x45),
-> +	ILI9881C_COMMAND_INSTR(0x53, 0x67),
-> +	ILI9881C_COMMAND_INSTR(0x54, 0x89),
-> +	ILI9881C_COMMAND_INSTR(0x55, 0xab),
-> +	ILI9881C_COMMAND_INSTR(0x56, 0x01),
-> +	ILI9881C_COMMAND_INSTR(0x57, 0x23),
-> +	ILI9881C_COMMAND_INSTR(0x58, 0x45),
-> +	ILI9881C_COMMAND_INSTR(0x59, 0x67),
-> +	ILI9881C_COMMAND_INSTR(0x5a, 0x89),
-> +	ILI9881C_COMMAND_INSTR(0x5b, 0xab),
-> +	ILI9881C_COMMAND_INSTR(0x5c, 0xcd),
-> +	ILI9881C_COMMAND_INSTR(0x5d, 0xef),
-> +	ILI9881C_COMMAND_INSTR(0x5e, 0x03),
-> +	ILI9881C_COMMAND_INSTR(0x5f, 0x14),
-> +	ILI9881C_COMMAND_INSTR(0x60, 0x15),
-> +	ILI9881C_COMMAND_INSTR(0x61, 0x0c),
-> +	ILI9881C_COMMAND_INSTR(0x62, 0x0d),
-> +	ILI9881C_COMMAND_INSTR(0x63, 0x0e),
-> +	ILI9881C_COMMAND_INSTR(0x64, 0x0f),
-> +	ILI9881C_COMMAND_INSTR(0x65, 0x10),
-> +	ILI9881C_COMMAND_INSTR(0x66, 0x11),
-> +	ILI9881C_COMMAND_INSTR(0x67, 0x08),
-> +	ILI9881C_COMMAND_INSTR(0x68, 0x02),
-> +	ILI9881C_COMMAND_INSTR(0x69, 0x0a),
-> +	ILI9881C_COMMAND_INSTR(0x6a, 0x02),
-> +	ILI9881C_COMMAND_INSTR(0x6b, 0x02),
-> +	ILI9881C_COMMAND_INSTR(0x6c, 0x02),
-> +	ILI9881C_COMMAND_INSTR(0x6d, 0x02),
-> +	ILI9881C_COMMAND_INSTR(0x6e, 0x02),
-> +	ILI9881C_COMMAND_INSTR(0x6f, 0x02),
-> +	ILI9881C_COMMAND_INSTR(0x70, 0x02),
-> +	ILI9881C_COMMAND_INSTR(0x71, 0x02),
-> +	ILI9881C_COMMAND_INSTR(0x72, 0x06),
-> +	ILI9881C_COMMAND_INSTR(0x73, 0x02),
-> +	ILI9881C_COMMAND_INSTR(0x74, 0x02),
-> +	ILI9881C_COMMAND_INSTR(0x75, 0x14),
-> +	ILI9881C_COMMAND_INSTR(0x76, 0x15),
-> +	ILI9881C_COMMAND_INSTR(0x77, 0x0f),
-> +	ILI9881C_COMMAND_INSTR(0x78, 0x0e),
-> +	ILI9881C_COMMAND_INSTR(0x79, 0x0d),
-> +	ILI9881C_COMMAND_INSTR(0x7a, 0x0c),
-> +	ILI9881C_COMMAND_INSTR(0x7b, 0x11),
-> +	ILI9881C_COMMAND_INSTR(0x7c, 0x10),
-> +	ILI9881C_COMMAND_INSTR(0x7d, 0x06),
-> +	ILI9881C_COMMAND_INSTR(0x7e, 0x02),
-> +	ILI9881C_COMMAND_INSTR(0x7f, 0x0a),
-> +	ILI9881C_COMMAND_INSTR(0x80, 0x02),
-> +	ILI9881C_COMMAND_INSTR(0x81, 0x02),
-> +	ILI9881C_COMMAND_INSTR(0x82, 0x02),
-> +	ILI9881C_COMMAND_INSTR(0x83, 0x02),
-> +	ILI9881C_COMMAND_INSTR(0x84, 0x02),
-> +	ILI9881C_COMMAND_INSTR(0x85, 0x02),
-> +	ILI9881C_COMMAND_INSTR(0x86, 0x02),
-> +	ILI9881C_COMMAND_INSTR(0x87, 0x02),
-> +	ILI9881C_COMMAND_INSTR(0x88, 0x08),
-> +	ILI9881C_COMMAND_INSTR(0x89, 0x02),
-> +	ILI9881C_COMMAND_INSTR(0x8a, 0x02),
-> +	ILI9881C_SWITCH_PAGE_INSTR(4),
-> +	ILI9881C_COMMAND_INSTR(0x00, 0x80),
-> +	ILI9881C_COMMAND_INSTR(0x70, 0x00),
-> +	ILI9881C_COMMAND_INSTR(0x71, 0x00),
-> +	ILI9881C_COMMAND_INSTR(0x66, 0xfe),
-> +	ILI9881C_COMMAND_INSTR(0x82, 0x15),
-> +	ILI9881C_COMMAND_INSTR(0x84, 0x15),
-> +	ILI9881C_COMMAND_INSTR(0x85, 0x15),
-> +	ILI9881C_COMMAND_INSTR(0x3a, 0x24),
-> +	ILI9881C_COMMAND_INSTR(0x32, 0xac),
-> +	ILI9881C_COMMAND_INSTR(0x8c, 0x80),
-> +	ILI9881C_COMMAND_INSTR(0x3c, 0xf5),
-> +	ILI9881C_COMMAND_INSTR(0x88, 0x33),
-> +	ILI9881C_SWITCH_PAGE_INSTR(1),
-> +	ILI9881C_COMMAND_INSTR(0x22, 0x0a),
-> +	ILI9881C_COMMAND_INSTR(0x31, 0x00),
-> +	ILI9881C_COMMAND_INSTR(0x53, 0x78),
-> +	ILI9881C_COMMAND_INSTR(0x55, 0x7b),
-> +	ILI9881C_COMMAND_INSTR(0x60, 0x20),
-> +	ILI9881C_COMMAND_INSTR(0x61, 0x00),
-> +	ILI9881C_COMMAND_INSTR(0x62, 0x0d),
-> +	ILI9881C_COMMAND_INSTR(0x63, 0x00),
-> +	ILI9881C_COMMAND_INSTR(0xa0, 0x00),
-> +	ILI9881C_COMMAND_INSTR(0xa1, 0x10),
-> +	ILI9881C_COMMAND_INSTR(0xa2, 0x1c),
-> +	ILI9881C_COMMAND_INSTR(0xa3, 0x13),
-> +	ILI9881C_COMMAND_INSTR(0xa4, 0x15),
-> +	ILI9881C_COMMAND_INSTR(0xa5, 0x26),
-> +	ILI9881C_COMMAND_INSTR(0xa6, 0x1a),
-> +	ILI9881C_COMMAND_INSTR(0xa7, 0x1d),
-> +	ILI9881C_COMMAND_INSTR(0xa8, 0x67),
-> +	ILI9881C_COMMAND_INSTR(0xa9, 0x1c),
-> +	ILI9881C_COMMAND_INSTR(0xaa, 0x29),
-> +	ILI9881C_COMMAND_INSTR(0xab, 0x5b),
-> +	ILI9881C_COMMAND_INSTR(0xac, 0x26),
-> +	ILI9881C_COMMAND_INSTR(0xad, 0x28),
-> +	ILI9881C_COMMAND_INSTR(0xae, 0x5c),
-> +	ILI9881C_COMMAND_INSTR(0xaf, 0x30),
-> +	ILI9881C_COMMAND_INSTR(0xb0, 0x31),
-> +	ILI9881C_COMMAND_INSTR(0xb1, 0x32),
-> +	ILI9881C_COMMAND_INSTR(0xb2, 0x00),
-> +	ILI9881C_COMMAND_INSTR(0xb1, 0x2e),
-> +	ILI9881C_COMMAND_INSTR(0xb2, 0x32),
-> +	ILI9881C_COMMAND_INSTR(0xb3, 0x00),
-> +	ILI9881C_COMMAND_INSTR(0xb6, 0x02),
-> +	ILI9881C_COMMAND_INSTR(0xb7, 0x03),
-> +	ILI9881C_COMMAND_INSTR(0xc0, 0x00),
-> +	ILI9881C_COMMAND_INSTR(0xc1, 0x10),
-> +	ILI9881C_COMMAND_INSTR(0xc2, 0x1c),
-> +	ILI9881C_COMMAND_INSTR(0xc3, 0x13),
-> +	ILI9881C_COMMAND_INSTR(0xc4, 0x15),
-> +	ILI9881C_COMMAND_INSTR(0xc5, 0x26),
-> +	ILI9881C_COMMAND_INSTR(0xc6, 0x1a),
-> +	ILI9881C_COMMAND_INSTR(0xc7, 0x1d),
-> +	ILI9881C_COMMAND_INSTR(0xc8, 0x67),
-> +	ILI9881C_COMMAND_INSTR(0xc9, 0x1c),
-> +	ILI9881C_COMMAND_INSTR(0xca, 0x29),
-> +	ILI9881C_COMMAND_INSTR(0xcb, 0x5b),
-> +	ILI9881C_COMMAND_INSTR(0xcc, 0x26),
-> +	ILI9881C_COMMAND_INSTR(0xcd, 0x28),
-> +	ILI9881C_COMMAND_INSTR(0xce, 0x5c),
-> +	ILI9881C_COMMAND_INSTR(0xcf, 0x30),
-> +	ILI9881C_COMMAND_INSTR(0xd0, 0x31),
-> +	ILI9881C_COMMAND_INSTR(0xd1, 0x2e),
-> +	ILI9881C_COMMAND_INSTR(0xd2, 0x32),
-> +	ILI9881C_COMMAND_INSTR(0xd3, 0x00),
-> +	ILI9881C_SWITCH_PAGE_INSTR(0),
-> +};
-> +
->   static const struct ili9881c_instr w552946ab_init[] = {
->   	ILI9881C_SWITCH_PAGE_INSTR(3),
->   	ILI9881C_COMMAND_INSTR(0x01, 0x00),
-> @@ -1772,6 +1970,23 @@ static const struct drm_display_mode tl050hdv35_default_mode = {
->   	.height_mm	= 110,
->   };
->   
-> +static const struct drm_display_mode w552946aaa_default_mode = {
-> +	.clock		= 65000,
-> +
-> +	.hdisplay	= 720,
-> +	.hsync_start	= 720 + 52,
-> +	.hsync_end	= 720 + 52 + 8,
-> +	.htotal		= 720 + 52 + 8 + 48,
-> +
-> +	.vdisplay	= 1280,
-> +	.vsync_start	= 1280 + 16,
-> +	.vsync_end	= 1280 + 16 + 6,
-> +	.vtotal		= 1280 + 16 + 6 + 15,
-> +
-> +	.width_mm	= 68,
-> +	.height_mm	= 121,
-> +};
-> +
->   static const struct drm_display_mode w552946aba_default_mode = {
->   	.clock		= 64000,
->   
-> @@ -1983,6 +2198,15 @@ static const struct ili9881c_desc tl050hdv35_desc = {
->   	.default_address_mode = 0x03,
->   };
->   
-> +static const struct ili9881c_desc w552946aaa_desc = {
-> +	.init = w552946aaa_init,
-> +	.init_length = ARRAY_SIZE(w552946aaa_init),
-> +	.mode = &w552946aaa_default_mode,
-> +	.mode_flags = MIPI_DSI_MODE_VIDEO | MIPI_DSI_MODE_VIDEO_BURST |
-> +		      MIPI_DSI_MODE_LPM | MIPI_DSI_MODE_NO_EOT_PACKET,
-> +	.lanes = 2,
-> +};
-> +
->   static const struct ili9881c_desc w552946aba_desc = {
->   	.init = w552946ab_init,
->   	.init_length = ARRAY_SIZE(w552946ab_init),
-> @@ -2023,6 +2247,7 @@ static const struct of_device_id ili9881c_of_match[] = {
->   	{ .compatible = "feixin,k101-im2byl02", .data = &k101_im2byl02_desc },
->   	{ .compatible = "startek,kd050hdfia020", .data = &kd050hdfia020_desc },
->   	{ .compatible = "tdo,tl050hdv35", .data = &tl050hdv35_desc },
-> +	{ .compatible = "wanchanglong,w552946aaa", .data = &w552946aaa_desc },
->   	{ .compatible = "wanchanglong,w552946aba", .data = &w552946aba_desc },
->   	{ .compatible = "ampire,am8001280g", .data = &am8001280g_desc },
->   	{ .compatible = "raspberrypi,dsi-7inch", &rpi_7inch_desc },
+This series adds AF_XDP zero coppy support to icssg driver.
 
-Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
+Tests were performed on AM64x-EVM with xdpsock application [1].
+
+A clear improvement is seen Transmit (txonly) and receive (rxdrop)
+for 64 byte packets. 1500 byte test seems to be limited by line
+rate (1G link) so no improvement seen there in packet rate
+
+Having some issue with l2fwd as the benchmarking numbers show 0
+for 64 byte packets after forwading first batch packets and I am
+currently looking into it.
+
+AF_XDP performance using 64 byte packets in Kpps.
+AF_XDP performance using 64 byte packets in Kpps.
+Benchmark:	XDP-SKB		XDP-Native	XDP-Native(ZeroCopy)
+rxdrop		253		473		656
+txonly		350		354		855
+l2fwd 		178		240		0
+
+AF_XDP performance using 1500 byte packets in Kpps.
+Benchmark:	XDP-SKB		XDP-Native	XDP-Native(ZeroCopy)
+rxdrop		82		82		82
+txonly		81		82		82
+l2fwd 		81		82		82
+
+[1]: https://github.com/xdp-project/bpf-examples/tree/master/AF_XDP-example
+v5: https://lore.kernel.org/all/20251111101523.3160680-1-m-malladi@ti.com/
+
+Meghana Malladi (6):
+  net: ti: icssg-prueth: Add functions to create and destroy Rx/Tx
+    queues
+  net: ti: icssg-prueth: Add XSK pool helpers
+  net: ti: icssg-prueth: Add AF_XDP zero copy for TX
+  net: ti: icssg-prueth: Make emac_run_xdp function independent of page
+  net: ti: icssg-prueth: Add AF_XDP zero copy for RX
+  net: ti: icssg-prueth: Enable zero copy in XDP features
+
+ drivers/net/ethernet/ti/icssg/icssg_common.c | 469 ++++++++++++++++---
+ drivers/net/ethernet/ti/icssg/icssg_prueth.c | 394 +++++++++++++---
+ drivers/net/ethernet/ti/icssg/icssg_prueth.h |  25 +-
+ 3 files changed, 739 insertions(+), 149 deletions(-)
+
+
+base-commit: c9dfb92de0738eb7fe6a591ad1642333793e8b6e
+-- 
+2.43.0
+
 
