@@ -4,67 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3881BCED624
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 12:15:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CD2CCED635
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 12:15:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=PdaNkm8I4niznPEUbNS/W7/TCNp+7FIal1+IGmZBKy4=; b=1zg5vxN4BWJ7Zkc46RFUbfpxqp
-	CmaWy4M5BkIki/ttB8wn4PrtgRR/I/5Nayi+vnUM7Yz5s4SMn5r3axpXxtk9X/dc5w785s2MrtLnu
-	qTc1YQO4RMYzjL3uW3RzUcTbo5Nkp9nbayfpbi/cCf2cLkRclyxIKrLZdwg+lFxJ8eBlpmcdUfN5x
-	HxRNl+S8PJO1WgKVXDEBO1QZf4KHAoVPmtcMQ0abFVL+8xbhs7qjo0quGOyEj48Q/Krzh1HjN+8PW
-	a9+yCWDjaYjLWd2zMrhn8K5nxtQdFXIYKQ9m1UmNqEeH+7k0LLb31G/JtK6adpqP6q0AiRTDLZhyH
-	kwtW/miA==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=szk5tryMXW3LyEBOZGcjXu0tgh4kIq7mJsookjBWBB0=; b=dCRrOgFaNwQI3l/Lhyz9B3UR4n
+	ND4jNGdgrnlceyPRano8/Di7hhRmPAJW4WH46W9MI5gWD8MmBTylQXFHYdSoPwEHi202wLyai7x/s
+	xNl4nbvWcm1cZNtpFlyllLc3r9VqoXqn/M8zA5LnqqkM56LgwZ+2YkGseuj0qxkL3wkAkwoj0UjG7
+	HFwj8qfoamWK1kZS3SflQOSwGJ3L59tUmnj9HZ9Qkr44yfemyeYpkNf2YzPYwYPOV13+q5PYSy0oi
+	b6NzMHjYsY56NjmXL5Yc606brSV6/LPP9xnjV2RcDk60SwRwPIj2G79pLd57LMTZa1rXBePO3A7mD
+	8c0nTkHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLKbp-00000000OO8-01LW;
-	Tue, 18 Nov 2025 12:14:57 +0000
-Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
+	id 1vLKcW-00000000OaH-1Vfn;
+	Tue, 18 Nov 2025 12:15:40 +0000
+Received: from mx.nabladev.com ([2a00:f820:417:0:178:251:229:89])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLKbk-00000000ONN-2ztr;
-	Tue, 18 Nov 2025 12:14:55 +0000
-Received: from DESKTOP-L0HPE2S (unknown [124.16.141.245])
-	by APP-03 (Coremail) with SMTP id rQCowAAXpdc1YxxplUAwAQ--.30158S2;
-	Tue, 18 Nov 2025 20:14:47 +0800 (CST)
-From: Haotian Zhang <vulab@iscas.ac.cn>
-To: lee@kernel.org,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com
-Cc: linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Haotian Zhang <vulab@iscas.ac.cn>
-Subject: [PATCH] mfd: mt6358-irq: Fix missing irq_domain_remove() in error path
-Date: Tue, 18 Nov 2025 20:14:27 +0800
-Message-ID: <20251118121427.583-1-vulab@iscas.ac.cn>
-X-Mailer: git-send-email 2.50.1.windows.1
+	id 1vLKcT-00000000OYS-3OXb
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 18 Nov 2025 12:15:39 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 4487710A4A8;
+	Tue, 18 Nov 2025 13:15:35 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nabladev.com;
+	s=dkim; t=1763468135; h=from:subject:date:message-id:to:cc:mime-version:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=szk5tryMXW3LyEBOZGcjXu0tgh4kIq7mJsookjBWBB0=;
+	b=GAPhR+cnAScOKWqNQNSvf0IS/OUKbsOdpskhLSgFLmqYdQa/ulxuS39Dpr0j9oc7UwBFyD
+	npR4lzWHD9Gj/i4cq7i9nBwCGq8sEXN0AsuHa2xbA07ExD+OFv74isa3DMkNAM3KB/Mb/0
+	87U9MV4TSekdDuZE24Aav08AHoemnFzI3AfcR0kvdi96rJuIUwRRbucXwjaKdG8R1eEO4H
+	jEGfSRxnLqi6BbNITR7SDeMpyahJNO5RhawcrpSyeJrBNsIV0mxrCGf51uWfqjPyKJ7Naj
+	QLsKrWw3GoaDJkt0QBzhix58BlW64w/pCtWtVf8iNXt8Q8if9MnyZaJPbVBgwg==
+From: Marek Vasut <marex@nabladev.com>
+To: linux-arm-kernel@lists.infradead.org
+Cc: Marek Vasut <marex@nabladev.com>,
+	Christian Eggers <ceggers@arri.de>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Fabio Estevam <festevam@gmail.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Markus Heidelberg <m.heidelberg@cab.de>,
+	Rob Herring <robh@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 3/4] dt-bindings: arm: fsl: Document ifm VHIP4 EvalBoard v1 and v2
+Date: Tue, 18 Nov 2025 13:13:12 +0100
+Message-ID: <20251118121513.88352-3-marex@nabladev.com>
+X-Mailer: git-send-email 2.51.0
+In-Reply-To: <20251118121513.88352-1-marex@nabladev.com>
+References: <20251118121513.88352-1-marex@nabladev.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: rQCowAAXpdc1YxxplUAwAQ--.30158S2
-X-Coremail-Antispam: 1UD129KBjvdXoW7GFWxtry3KrW7Cr1rXr1rtFb_yoWftwb_CF
-	yvqrnxuw1UJF1akw1Iqr43urWq9r4kWFnFkFs2y3W3GFy7Kwn2vrn0vr97Kr47C3y7CFsx
-	WFZ0qrW3Ar1fCjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUIcSsGvfJTRUUUbckFF20E14v26r4j6ryUM7CY07I20VC2zVCF04k26cxKx2IYs7xG
-	6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8w
-	A2z4x0Y4vE2Ix0cI8IcVAFwI0_JFI_Gr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr0_
-	Cr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_GcCE3s
-	1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E2Ix0
-	cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r4j6F4UMcvjeVCFs4IE7xkEbVWUJVW8Jw
-	ACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lc7CjxVAaw2AFwI0_JF0_
-	Jw1l42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxV
-	WUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r126r1DMIIYrxkI
-	7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r
-	1j6r4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI
-	42IY6I8E87Iv6xkF7I0E14v26r1j6r4UYxBIdaVFxhVjvjDU0xZFpf9x0JUf8nOUUUUU=
-X-Originating-IP: [124.16.141.245]
-X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiCREKA2kcPhU0EgABso
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251118_041453_125152_29DE9653 
-X-CRM114-Status: UNSURE (   7.12  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251118_041538_012833_8D6A932C 
+X-CRM114-Status: GOOD (  10.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,32 +78,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-If devm_request_threaded_irq() fails after irq_domain_add_linear()
-succeeds in mt6358_irq_init(), the function returns without removing
-the created IRQ domain, leading to a resource leak.
+Document ifm i.MX8MN VHIP4 EvalBoard v1 and v2 reference design binding.
+This system exists in two generations, v1 and v2, which share a lot of
+commonality. The boards come with either single gigabit ethernet or an
+KSZ8794 fast-ethernet switch, boot from eMMC, and offer CAN interfaces
+via Microchip MCP25xx SPI CAN controllers, UART, and USB host. The GPU
+is not available in the SoC populated on these devices.
 
-Call irq_domain_remove() in the error path after a successful
-irq_domain_add_linear() to properly release the IRQ domain.
-
-Fixes: 2b91c28f2abd ("mfd: Add support for the MediaTek MT6358 PMIC")
-Signed-off-by: Haotian Zhang <vulab@iscas.ac.cn>
+Signed-off-by: Marek Vasut <marex@nabladev.com>
 ---
- drivers/mfd/mt6358-irq.c | 1 +
- 1 file changed, 1 insertion(+)
+Cc: Christian Eggers <ceggers@arri.de>
+Cc: Conor Dooley <conor+dt@kernel.org>
+Cc: Fabio Estevam <festevam@gmail.com>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
+Cc: Markus Heidelberg <m.heidelberg@cab.de>
+Cc: Rob Herring <robh@kernel.org>
+Cc: Shawn Guo <shawnguo@kernel.org>
+Cc: devicetree@vger.kernel.org
+Cc: imx@lists.linux.dev
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org
+---
+ Documentation/devicetree/bindings/arm/fsl.yaml | 9 +++++++++
+ 1 file changed, 9 insertions(+)
 
-diff --git a/drivers/mfd/mt6358-irq.c b/drivers/mfd/mt6358-irq.c
-index f467b00d2366..74cf20843044 100644
---- a/drivers/mfd/mt6358-irq.c
-+++ b/drivers/mfd/mt6358-irq.c
-@@ -285,6 +285,7 @@ int mt6358_irq_init(struct mt6397_chip *chip)
- 	if (ret) {
- 		dev_err(chip->dev, "Failed to register IRQ=%d, ret=%d\n",
- 			chip->irq, ret);
-+		irq_domain_remove(chip->irq_domain);
- 		return ret;
- 	}
+diff --git a/Documentation/devicetree/bindings/arm/fsl.yaml b/Documentation/devicetree/bindings/arm/fsl.yaml
+index 68a2d5fecc43b..4d0aee780bcb2 100644
+--- a/Documentation/devicetree/bindings/arm/fsl.yaml
++++ b/Documentation/devicetree/bindings/arm/fsl.yaml
+@@ -1071,6 +1071,15 @@ properties:
+               - gw,imx8mn-gw7902          # i.MX8MM Gateworks Board
+           - const: fsl,imx8mn
  
++      - description: ifm i.MX8MN VHIP4 based boards
++        items:
++          - enum:
++              - ifm,imx8mn-vhip4-evalboard-v1
++              - ifm,imx8mn-vhip4-evalboard-v2
++          - const: ifm,imx8mn-vhip4-evalboard
++          - const: ifm,imx8mn-vhip4
++          - const: fsl,imx8mn
++
+       - description: Variscite VAR-SOM-MX8MN based boards
+         items:
+           - enum:
 -- 
-2.50.1.windows.1
+2.51.0
 
 
