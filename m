@@ -4,88 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58BC0CED606
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 11:17:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F4B7CED606
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 11:18:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ICI58HqE+ly7YapWrb44Ml5uRJuKE+CUkOe4M7qjE5M=; b=ps//jLm/bJM3bVCOV22nF9PgSs
-	UIrztV1fUuyQR4AzR8a0j4eOf5QL3LwGkp4/TM5H7Q0mdDMF7fqEDQofPepSZn9hNqCJkiHzWQFSX
-	NdkmVhouw2wclGxlUYYXz7I8uG8lT9Bpb0WTL6MmRzUbmCv48sLo+LlNiSZLzVu9X8zYWTa935BDq
-	CaXC53/PW1Pg9tWldXYIbiD0df92qIRoevkflQv7WQpyZbhPBZfppL6j/HgleeJBNvOMMFqBJQZiT
-	4wTGWc3YYRxsvkNEgxN/yIV5ahgdrZj+n3tTRH5CAYNl/QhWpaHS+36OBeIQJ4oJTdEH3I/6ihqqs
-	fYHo5gZA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
+	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Gw2RAS9z2/AKPOpj9C3KeuA6m32UimKQaTe/G+VHdaE=; b=2lHR14H5d68X5VP1Oz47+MGKKE
+	0PNsoHLk8s7atkjgTARYdze8W1PR4qr4EHf7+epSK78gRHRyDqIR7E3UA6EaN1CLPo0WaPhZuPVi0
+	N7yJKXmFZwxpJYy3+nJqNJwediLOdEyLVrFnGmvhCfwwmh/vDwRW1fv1LcSnHYV9Qh7S0Beg8RQSf
+	h8+DYnKtPILZjIJYBsU3YxCFhaEQxHIo7NrmD5t2AUKPq+pEINhImCikdj3bAbCtQk9D3Tn7/Tecn
+	IyuUFX/BH9zBhmLIlof/9j/g978Ssy5rQW0mBd8+HNu1VjJnuHzsMD7X+3JxtNIE/uvW/mZEm4EgI
+	Lwj4JJlQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLJhc-00000000K6i-1SaZ;
-	Tue, 18 Nov 2025 11:16:52 +0000
-Received: from mail-ed1-x52c.google.com ([2a00:1450:4864:20::52c])
+	id 1vLJit-00000000KHh-0C8E;
+	Tue, 18 Nov 2025 11:18:11 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLJhZ-00000000K5w-3L28
+	id 1vLJiq-00000000KGv-047L
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Nov 2025 11:16:51 +0000
-Received: by mail-ed1-x52c.google.com with SMTP id 4fb4d7f45d1cf-6418b55f86dso8579283a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Nov 2025 03:16:49 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1763464608; x=1764069408; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=ICI58HqE+ly7YapWrb44Ml5uRJuKE+CUkOe4M7qjE5M=;
-        b=QOq9cbPRCTQE+iCuYos8DhOy7bZuXGcf8KJdKur5vsa4CZpcELkCDHghc1/46APfJZ
-         maYCNeT255v02uM3LsvHKNoya2kVCDTXL9nahSXBS5K77o/5M7hekoWZBeCoHxw+dOWS
-         ZECinoVqmpPQQ5I2bA0+BffTNihgTmF1gPFLzVGxWml3TwYbpGki+2nFRLBANG/6H+U1
-         qp9VY7bXWicHlx/tG4d1Bd9TgbLo7guJmK1QwkqLSkkKXPoqtOlprnkMKy4QRY8+6yVD
-         6ZS4rfvgzgF5OljAyhyfDRKZRjdfzW6MgEUulP0DMac4jXSaMd+jAsnA8jXUgB1VBTog
-         5PlA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763464608; x=1764069408;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ICI58HqE+ly7YapWrb44Ml5uRJuKE+CUkOe4M7qjE5M=;
-        b=ejCMRHNwc/t6FYcPfkt5mrv2yopOvAeunMb7QhxrRHSpFF4I1/0hR2tXExmhMXhjrm
-         GfOAtYiOuaGSqLr5i6t3pXNVhdbF3Negwq967+DhWEdIVVjswhDT3YNzQ1vln3ZAgFlh
-         Yn10c8gF4+j1YyT9YrUTbHMEc7xLntUoRZ5kOKWPQiMbHFksv8SwG/IdOpioZyra4Lmy
-         VYwlw4R/5var+lHrf+x4k1qt3VqwIzd1Lf1K3sUSRFPExPC+9NFw1SYVLDo4kwPKdoYB
-         tL1lrCsEjg4xv/Al27w6ihUCtzSjmEjqer3G59U2m/4cfEzYybJTX80LnzgvEQSLypxd
-         QP9A==
-X-Forwarded-Encrypted: i=1; AJvYcCWUIIUUAKApO0UUT30P9kgIteOFV0ZhlcBTb+OHoq/Vp1AmXNXN9SAwuqtiOCr/yXLeQNn5n/T9yEKvW4rG3VNF@lists.infradead.org
-X-Gm-Message-State: AOJu0YxPPrTKGqZWNfnj81x7xE8OhQLPVqyV9shNZHJSCRfNxaomp5NN
-	hCEAJwPhPqV2C8ngNgjhVh/0ExmKjtz0DLU4Pq9rneckZjzH2sQ0fOJm1Qe4IRAKLDoUOkaty/v
-	+UFzGiXy/pYfCooU+xP+H7btohfgw7vA=
-X-Gm-Gg: ASbGncsK3vK15WKkJdL7n96H8V2oP3Xcblg0xrBysX6EoTXrAr7zY81S8XGHP2V5/cz
-	NBbzYbcCrA+/fTukskXr7789qPTR8x+r9cBh94qCWbZJlkxy7RbWOqCgZw3Hh1bt/+iqb+IMI/G
-	n1CZnja05onRueQCpo83YjdIl11BGnZ3R1fmcINbcF8Vrz0jvWm5IGpkmVWZXQNyTf4+nbvUA5I
-	/hqf32ZiaBrlU1iz2SdU3iLQ+xJTTTE4ZpHPyIk/DxJo/DnFqIkjPeRPXfAHXFlL+/Nhg==
-X-Google-Smtp-Source: AGHT+IGk8eL0HoWbK04CZRhqLg9Zqyg4kUzMUvvqXtI9msvINBej1DvZVcQa01Y7VyQwGu9XDV2OL2RxowdJygXo/7w=
-X-Received: by 2002:a05:6402:26d1:b0:640:ecaa:1973 with SMTP id
- 4fb4d7f45d1cf-64350e8ccb6mr13827406a12.24.1763464607610; Tue, 18 Nov 2025
- 03:16:47 -0800 (PST)
+	Tue, 18 Nov 2025 11:18:09 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:Reply-To:Content-ID
+	:Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:
+	Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:
+	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=Gw2RAS9z2/AKPOpj9C3KeuA6m32UimKQaTe/G+VHdaE=; b=jhYjBCC+RZJsFwpImZv35aSNd7
+	7DgFCeD6yzUJOdWGMUH+2zB3A1lOU7gmkGVDf0PLk/Fn5vUunP7N/SRT4cjW9yixxIc/YHxAQpqhX
+	zr1XCrRxmhT+2dQZspqPSWGGt5hC6OHdBdyJRS7swVA8zBSXT1KpMFgi4pOAjrTxumlQTcWWZTAh1
+	JJnWfV3ujDvz4SMtsmO1C2Whk9wRc6TxhmWT13xGDDn7p2Ah1h88fMTughel8iUPB+fkv8Dr2OAzX
+	CombRCgVYXTyWhvpsLVVlyw/DfKBYdxgdn3yq5dv7houpuLPfe05MUii9U2woqG34NzAwzaU7iyn1
+	Yib9ydsQ==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:57464 helo=rmk-PC.armlinux.org.uk)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <rmk@armlinux.org.uk>)
+	id 1vLJik-0000000039I-2tXE;
+	Tue, 18 Nov 2025 11:18:02 +0000
+Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
+	id 1vLJij-0000000ExKZ-3C9s;
+	Tue, 18 Nov 2025 11:18:01 +0000
+From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>,
+	Heiner Kallweit <hkallweit1@gmail.com>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>
+Subject: [PATCH net-next] net: stmmac: dwc-qos-eth: simplify switch() in
+ dwc_eth_dwmac_config_dt()
 MIME-Version: 1.0
-References: <20251117181023.482138-3-linux.amoon@gmail.com> <20251118005056.GA2541796@bhelgaas>
-In-Reply-To: <20251118005056.GA2541796@bhelgaas>
-From: Anand Moon <linux.amoon@gmail.com>
-Date: Tue, 18 Nov 2025 16:46:30 +0530
-X-Gm-Features: AWmQ_bksxI4TM_0iWFBAZwf_P1h7XfT3sMIf2tlbZ560ebj9GBa7XRzaoXRCoWo
-Message-ID: <CANAwSgSMiRrPp5G+guGQSsqArz7M750NAg8SQoorUQ7gJhUxHQ@mail.gmail.com>
-Subject: Re: [RFC v1 2/5] PCI: rockchip: Fix Device Control register offset
- for Max payload size
-To: Bjorn Helgaas <helgaas@kernel.org>
-Cc: Shawn Lin <shawn.lin@rock-chips.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-	=?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
-	Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
-	Heiko Stuebner <heiko@sntech.de>, 
-	"open list:PCIE DRIVER FOR ROCKCHIP" <linux-pci@vger.kernel.org>, 
-	"open list:PCIE DRIVER FOR ROCKCHIP" <linux-rockchip@lists.infradead.org>, 
-	"moderated list:ARM/Rockchip SoC support" <linux-arm-kernel@lists.infradead.org>, 
-	open list <linux-kernel@vger.kernel.org>
-Content-Type: text/plain; charset="UTF-8"
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <E1vLJij-0000000ExKZ-3C9s@rmk-PC.armlinux.org.uk>
+Date: Tue, 18 Nov 2025 11:18:01 +0000
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251118_031649_873140_B5C52B61 
-X-CRM114-Status: GOOD (  33.62  )
+X-CRM114-CacheID: sfid-20251118_031808_262917_ABA1B22F 
+X-CRM114-Status: GOOD (  11.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,147 +87,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Bjorn
+Simplify the the switch() statement in dwc_eth_dwmac_config_dt().
+Although this is not speed-critical, simplifying it can make it more
+readable. This also drastically improves the code emitted by the
+compiler.
 
-Thanks for your review comments.
+On aarch64, with the original code, the compiler loads registers with
+every possible value, and then has a tree of test-and-branch statements
+to work out which register to store. With the simplified code, the
+compiler can load a register with '4' and shift it appropriately.
 
-On Tue, 18 Nov 2025 at 06:21, Bjorn Helgaas <helgaas@kernel.org> wrote:
->
-> On Mon, Nov 17, 2025 at 11:40:10PM +0530, Anand Moon wrote:
-> > As per 17.6.6.1.29 PCI Express Device Capabilities Register
-> > (PCIE_RC_CONFIG_DC) reside at offset 0xc8 within the Root Complex (RC)
-> > configuration space, not at the offset of the PCI Express Capability
-> > List (0xc0). Following changes corrects the register offset to use
-> > PCIE_RC_CONFIG_DC (0xc8) to configure Max Payload Size.
-> >
-> > Signed-off-by: Anand Moon <linux.amoon@gmail.com>
-> > ---
-> >  drivers/pci/controller/pcie-rockchip-host.c | 4 ++--
-> >  drivers/pci/controller/pcie-rockchip.h      | 1 +
-> >  2 files changed, 3 insertions(+), 2 deletions(-)
-> >
-> > diff --git a/drivers/pci/controller/pcie-rockchip-host.c b/drivers/pci/controller/pcie-rockchip-host.c
-> > index f0de5b2590c4..d51780f4a254 100644
-> > --- a/drivers/pci/controller/pcie-rockchip-host.c
-> > +++ b/drivers/pci/controller/pcie-rockchip-host.c
-> > @@ -382,10 +382,10 @@ static int rockchip_pcie_host_init_port(struct rockchip_pcie *rockchip)
-> >               rockchip_pcie_write(rockchip, status, PCIE_RC_CONFIG_CR + PCI_EXP_LNKCAP);
-> >       }
-> >
-> > -     status = rockchip_pcie_read(rockchip, PCIE_RC_CONFIG_CR + PCI_EXP_DEVCTL);
-> > +     status = rockchip_pcie_read(rockchip, PCIE_RC_CONFIG_DC + PCI_EXP_DEVCTL);
-> >       status &= ~PCI_EXP_DEVCTL_PAYLOAD;
-> >       status |= PCI_EXP_DEVCTL_PAYLOAD_256B;
-> > -     rockchip_pcie_write(rockchip, status, PCIE_RC_CONFIG_CR + PCI_EXP_DEVCTL);
-> > +     rockchip_pcie_write(rockchip, status, PCIE_RC_CONFIG_DC + PCI_EXP_DEVCTL);
-> >
-> >       return 0;
-> >  err_power_off_phy:
-> > diff --git a/drivers/pci/controller/pcie-rockchip.h b/drivers/pci/controller/pcie-rockchip.h
-> > index 5d8a3ae38599..c0ec6c32ea16 100644
-> > --- a/drivers/pci/controller/pcie-rockchip.h
-> > +++ b/drivers/pci/controller/pcie-rockchip.h
-> > @@ -157,6 +157,7 @@
-> >  #define PCIE_EP_CONFIG_LCS           (PCIE_EP_CONFIG_BASE + 0xd0)
-> >  #define PCIE_RC_CONFIG_RID_CCR               (PCIE_RC_CONFIG_BASE + 0x08)
-> >  #define PCIE_RC_CONFIG_CR            (PCIE_RC_CONFIG_BASE + 0xc0)
-> > +#define PCIE_RC_CONFIG_DC            (PCIE_RC_CONFIG_BASE + 0xc8)
->
-> Per the RK3399 TRM:
->
->   DEVCAP              0xc4
->   DEVCTL and DEVSTA   0xc8
->   LNKCAP              0xcc
->   LNKCTL and LNKSTA   0xd0
->   SLTCAP              0xd4
->   SLTCTL and SLTSTA   0xd8
->
-> That all makes good sense and matches the relative offsets in the PCIe
-> Capability.
->
-> I have no idea how we got from that to the mind-bendingly obtuse
-> #defines here:
->
->   PCIE_RC_CONFIG_CR == PCIE_RC_CONFIG_BASE + 0xc0
->                     == 0xa00000 + 0xc0
->                     == 0xa000c0
->
->   PCIE_RC_CONFIG_DC == PCIE_RC_CONFIG_BASE + 0xc8
->                     == 0xa00000 + 0xc8
->                     == 0xa000c8
->
->   PCIE_RC_CONFIG_LC == PCIE_RC_CONFIG_BASE + 0xd0
->                     == 0xa00000 + 0xd0
->                     == 0xa000d0
->
->   PCIE_RC_CONFIG_SR == PCIE_RC_CONFIG_BASE + 0xd4
->                     == 0xa00000 + 0xd4
->                     == 0xa000d4
->
-> And they're used like this:
->
->   PCIE_RC_CONFIG_CR + PCI_EXP_LNKCAP == 0xa000c0 + 0x0c
->                                      == 0xa000cc
->
->   PCIE_RC_CONFIG_CR + PCI_EXP_LNKCTL == 0xa000c0 + 0x10
->                                      == 0xa000d0
->
->   PCIE_RC_CONFIG_DC + PCI_EXP_DEVCTL == 0xa000c8 + 0x08
->                                      == 0xa000d0     <-- same as LNKCTL?
->
->   PCIE_RC_CONFIG_SR + PCI_EXP_DEVCAP == 0xa000d4 + 0x04
->                                      == 0xa000d8     <--
->
->   PCIE_RC_CONFIG_LC + PCI_EXP_LNKCTL == 0xa000d0 + 0x10
->                                      == 0xa000e0     <-- but LNKCTL was at 0xa000d0 above?
->
-> And the mappings don't make any sense to me:
-You are correct, PCIE_RC_CONFIG_DC + PCI_EXP_DEVCTL  results in an
-incorrect offset.
+This shrinks the text size on aarch64 from 4289 bytes to 4153 bytes,
+a reduction of 3%.
 
-As per my understanding
-#define PCI_EXP_DEVCTL 0x08 /* Device Control */
-#define  PCI_EXP_DEVCTL_PAYLOAD 0x00e0 /* Max_Payload_Size */
-#define  PCI_EXP_DEVCTL_PAYLOAD_128B 0x0000 /* 128 Bytes */
-#define  PCI_EXP_DEVCTL_PAYLOAD_256B 0x0020 /* 256 Bytes */
-#define  PCI_EXP_DEVCTL_PAYLOAD_512B 0x0040 /* 512 Bytes */
-#define  PCI_EXP_DEVCTL_PAYLOAD_1024B 0x0060 /* 1024 Bytes */
+Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+---
+ .../stmicro/stmmac/dwmac-dwc-qos-eth.c        | 26 +++----------------
+ 1 file changed, 3 insertions(+), 23 deletions(-)
 
-What I was thinking about was mapping it to a register to offset the
-Max_Payload_Size (7:5) at PCIE_RC_CONFIG_DC (0xa000c8).
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-dwc-qos-eth.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-dwc-qos-eth.c
+index c7cd6497d42d..e6d5893c5905 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac-dwc-qos-eth.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-dwc-qos-eth.c
+@@ -84,29 +84,9 @@ static int dwc_eth_dwmac_config_dt(struct platform_device *pdev,
+ 	device_property_read_u32(dev, "snps,burst-map", &burst_map);
+ 
+ 	/* converts burst-map bitmask to burst array */
+-	for (bit_index = 0; bit_index < 7; bit_index++) {
+-		if (burst_map & (1 << bit_index)) {
+-			switch (bit_index) {
+-			case 0:
+-			plat_dat->axi->axi_blen[a_index] = 4; break;
+-			case 1:
+-			plat_dat->axi->axi_blen[a_index] = 8; break;
+-			case 2:
+-			plat_dat->axi->axi_blen[a_index] = 16; break;
+-			case 3:
+-			plat_dat->axi->axi_blen[a_index] = 32; break;
+-			case 4:
+-			plat_dat->axi->axi_blen[a_index] = 64; break;
+-			case 5:
+-			plat_dat->axi->axi_blen[a_index] = 128; break;
+-			case 6:
+-			plat_dat->axi->axi_blen[a_index] = 256; break;
+-			default:
+-			break;
+-			}
+-			a_index++;
+-		}
+-	}
++	for (bit_index = 0; bit_index < 7; bit_index++)
++		if (burst_map & (1 << bit_index))
++			plat_dat->axi->axi_blen[a_index++] = 4 << bit_index;
+ 
+ 	/* dwc-qos needs GMAC4, AAL, TSO and PMT */
+ 	plat_dat->core_type = DWMAC_CORE_GMAC4;
+-- 
+2.47.3
 
-Sorry for the noise.
->
->   CR -> LNKCAP & LNKCTL
->   DC -> DEVCTL (ok, this one makes a *little* sense)
->   SR -> DEVCAP
->   LC -> LNKCTL (would make some sense except that we have CR above)
->
-> This is all just really hard to read.  It looks like if we defined a
-> single base address for the PCIe Capability, we shouldn't need all the
-> _CR, _DC, _LC, _SR, etc #defines.  E.g., we could have
->
->   #define ROCKCHIP_RP_PCIE_CAP ...
-#define ROCKCHIP_RP_PCIE_CAP (PCIE_RC_CONFIG_BASE + 0xc0)
-Is this ok? But the current code uses the same.
->
->   rockchip_pcie_read(rockchip, ROCKCHIP_RP_PCIE_CAP + PCI_EXP_DEVCAP)
->   rockchip_pcie_read(rockchip, ROCKCHIP_RP_PCIE_CAP + PCI_EXP_LNKCTL)
->   ...
->
-> with maybe some minor adjustment for 16-bit registers since Rockchip
-> only seems to support 32-bit accesses (?)
->
-> None of these registers are *Root Complex* registers; they're all part
-> of a PCIe Capability, which applies to a Root *Port*.
->
-Ok, I understood
-> >  #define PCIE_RC_CONFIG_LC            (PCIE_RC_CONFIG_BASE + 0xd0)
-> >  #define PCIE_RC_CONFIG_L1_SUBSTATE_CTRL2 (PCIE_RC_CONFIG_BASE + 0x90c)
-> >  #define PCIE_RC_CONFIG_THP_CAP               (PCIE_RC_CONFIG_BASE + 0x274)
-> > --
-> > 2.50.1
-> >
-Thanks
--Anand
 
