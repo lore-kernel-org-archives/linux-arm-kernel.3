@@ -4,113 +4,174 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9742CCED240
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 05:27:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63866CED240
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 05:30:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
-	:Cc:MIME-Version:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=79QY2zbPjct8a5PYToQ8bQ7v7KXz4YmkpWIvFX2JDyw=; b=fqtKl2v2t0iebz
-	l/G3HTP0bhetIRGMuUNaVI05uUxS33l6H29jOSGIzS97IL59Jn0HrHB9kHhGsOCGUptKPIhavGA+F
-	f2dyQcwElEw1XAH0oYbgi+vJlrHSB1Z8MwiRFBxs1hPbvPvWG1SW2kM7lEPujWE+lqO+slcbKV0Ux
-	YIh3Ur7PaGgf/+lABG8Om6YNE70Ja+wX/xmZo7hfL/pBu+kUWUkQ1rKG5NSlhjfGwRmXJctUbu9bd
-	S1bnFtrwD3V/YJioTWJYAiYGWk+SjY9yN0fACyapVEugug5YkrcNxju/0TveVT/dDSM4sPeaZSph+
-	icF9i4l1ORHD7BXtCidg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wyFhl1hEzPvW46Y59mJkUDzXPFkTfwnJuoQO2RfRWAI=; b=lwF43Nzs00SLZrH2k0XdJo8XIi
+	iLBthEhHjeriAWMqlmPniT2G4ylbd/Hcyq0wWw5KBwQaxGlLTitqR80WFOeBAWFdo+CtbYlxYMHlJ
+	XiQ9bqc6NWusBRvTUsQn3FxkpzTDsQEgcJGTT45E2egDPb6aARdr7FnxXly+HIxPWSjzhKuGZF8Tn
+	14tALEzJCFUwtwqFJyBcgPSW/F8oFKm2iF87WkjKIEW5ijjrujSiNtS2qE2JJdM94pbtCTRIxYSni
+	QmvTwSEaHn/EgXzAKD7xcoNjdON2JUQrJCU8ataMZ6cQJKsRQ5pM/bo2Bg7R5Nh3ZvhtuoIihs2+2
+	YhLO3Ivg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLEFU-0000000HQk6-0VQG;
-	Tue, 18 Nov 2025 05:27:28 +0000
-Received: from bumble.maple.relay.mailchannels.net ([23.83.214.25])
+	id 1vLEIH-0000000HQw5-3hVg;
+	Tue, 18 Nov 2025 05:30:21 +0000
+Received: from mail-northcentralusazon11010039.outbound.protection.outlook.com ([52.101.193.39] helo=CH1PR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLEFQ-0000000HQjd-0rHA;
-	Tue, 18 Nov 2025 05:27:27 +0000
-X-Sender-Id: hostingeremail|x-authuser|michael.opdenacker@rootcommit.com
-Received: from relay.mailchannels.net (localhost [127.0.0.1])
-	by relay.mailchannels.net (Postfix) with ESMTP id 549CC161D2D;
-	Tue, 18 Nov 2025 05:27:23 +0000 (UTC)
-Received: from de-fra-smtpout10.hostinger.io (trex-green-0.trex.outbound.svc.cluster.local [100.98.178.132])
-	(Authenticated sender: hostingeremail)
-	by relay.mailchannels.net (Postfix) with ESMTPA id 0DAC316270B;
-	Tue, 18 Nov 2025 05:27:20 +0000 (UTC)
-ARC-Seal: i=1; a=rsa-sha256; d=mailchannels.net; s=arc-2022; cv=none;
-	t=1763443642;
-	b=d8NiZckuUTmtENzUS9A7/G97h6snHeV9d0r5N6QE3uII6cabCnRR5A1SpE5hqSeOG/2jH4
-	oPU8yA5fq9QusXNHZ3Mc+SL6TmtEGqjXnep/e1naRcsSnUtMotJ1AvJGJuqJirXAw6L0TW
-	+s/FUDBfzTniu+5wmFcPjyjrC1E7mW9RmYqAhASlDhCm666zj0gabk/mj6LjN+MdiRtDOQ
-	b4g0a52todUYiSKlKJtxqhBcjms90WQOAUU69/0+6sdYOt0ZguYWOWcl7zHKsRs7S9K9B0
-	kOFNQUc5MZ/ZHkeT3osPiN+pLLyHZiL5kfp4yl0ah0wluRJl9yfBsnNmnTGPNw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed;
- d=mailchannels.net;
-	s=arc-2022; t=1763443642;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:dkim-signature;
-	bh=79QY2zbPjct8a5PYToQ8bQ7v7KXz4YmkpWIvFX2JDyw=;
-	b=PXzcnj90+OZ0C4nz04bqKplEPDe2JhtZOLQ92mY5WMSUfbMeE6DUUUUw0ra/gSCRSWN+Od
-	SJPQOLqfllPpM1awadzeweZqebsYnisu13TFmgzdyyCpaUj+8VbTO5WCZ9NA9QvmWBxfxW
-	CcuapYRcbYCOakp4aJjzACXxVG/RoKUvDFeRsMgpYkLdfWAv3F+dSRE6r5trHDMPnWGHxy
-	MMop6RYViNqNQOlUNrk8pjas5n+4pl8HchwMqld6H242qnEsY8CuzO9XX9zdqTBkv9uUAL
-	ULt/QBIccUAbiUi2h5gdAJUJEyqZSuG2rW1vRHdN5YTSKdzViq9znLsiVGRnog==
-ARC-Authentication-Results: i=1;
-	rspamd-5ffd6989c9-rtptl;
-	auth=pass smtp.auth=hostingeremail
- smtp.mailfrom=michael.opdenacker@rootcommit.com
-X-Sender-Id: hostingeremail|x-authuser|michael.opdenacker@rootcommit.com
-X-MC-Relay: Neutral
-X-MailChannels-SenderId: hostingeremail|x-authuser|michael.opdenacker@rootcommit.com
-X-MailChannels-Auth-Id: hostingeremail
-X-Attack-White: 2d7b2b2964c91d28_1763443643081_3621785217
-X-MC-Loop-Signature: 1763443643081:4046718970
-X-MC-Ingress-Time: 1763443643081
-Received: from de-fra-smtpout10.hostinger.io (de-fra-smtpout10.hostinger.io
- [148.222.55.9])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384)
-	by 100.98.178.132 (trex/7.1.3);
-	Tue, 18 Nov 2025 05:27:23 +0000
-Received: from [IPV6:2001:861:4450:d360:58d4:4bb6:ecd1:1918] (unknown [IPv6:2001:861:4450:d360:58d4:4bb6:ecd1:1918])
-	(Authenticated sender: michael.opdenacker@rootcommit.com)
-	by smtp.hostinger.com (smtp.hostinger.com) with ESMTPSA id 4d9Y5b6Rc0z418m;
-	Tue, 18 Nov 2025 05:27:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rootcommit.com;
-	s=hostingermail-a; t=1763443636;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=79QY2zbPjct8a5PYToQ8bQ7v7KXz4YmkpWIvFX2JDyw=;
-	b=gILU6ZmT+LlDjvY6kAog4t0qNPWKuzZ+NdqRvWHtPOF0m0AzJOMw1gYv4dD7L4Fcw5knum
-	19mlN1XfMjCKfIlixM+gM3P0OBgvLUytkDbPTritxuIEulCo13cZHlRWsDh7UBuFNYlE1V
-	dh5nL1XcA5cyxP4mcv+gE4W7OXP+8I1TentKuWCcaE+Zvj4tMdZ6ODdllpFWme7LlQ5Hc3
-	/hHfqQ2RHo9aMBGzYQ6xMlWGdi6c9Oc5/MEd+MKFcGitMpYLgzufPUFDPUwekCZ7juY0/E
-	1gx/QyNhvsfjuMJtN899j0QdPZr66+NcxSfO4UEIA2PeWhjIESsod2ZmzRvcfA==
-Message-ID: <0c224662-b3c2-4075-8b68-c0ae27421ba8@rootcommit.com>
-MIME-Version: 1.0
+	id 1vLEIB-0000000HQvf-3KfS
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 18 Nov 2025 05:30:20 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=CaO0aZsZJIUlClcddPQPysggP13ub5Wcn5fXeU0rzleDphLPBzOXqVtqdWpYRg1vYIPKVORVw6++8UeaUQYYx4xgO2Z8FMQlddckCqY71I2OrYekATPgEbBmKXla+qRCRshVxg3Ou5VRpL1BLGs3LWmvUB8stFe5ZlF27v6uw/C9PZeyLmqvAbyhSvJYGcRvwgNkI0jo5kxbW97d9CMkSx2YoV8KEuAUC03gd22p69RZOuQDtYs+FmRjEv4yhSF+EYJZrpNr1mZTphTt2EmCLXQd2R3Mjex5YFRRZ19YJfU7auxmUwkRC/K0f2DpO6YJSjuC+WKTn4x7sxmmnkjMZg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=wyFhl1hEzPvW46Y59mJkUDzXPFkTfwnJuoQO2RfRWAI=;
+ b=IGVRbItSwJpMaiCAYmU+2diHNS67sPqVlVSeE7r0ZCcjCAAA6lJToJl0SCuBlgIvDOv44dXy7SfElQAghRBsGmw7B2UEKuUUlcM+7tTmqxMV7InPMG8KyK2FOT4hWZjqoYUCbomu1MrdEVzRwF54i63nmvmLOqSjKwY2SXfV/FhAf5d3Y9Pcqa3trWLjDbLgMmEcJxQtQ8s4C0E/rNkNRd9mMLYZQNz/DrzEO6gLaTAUmP1UjURnkyqqHGFBtFgopefEQqi9RQJ/iLXRkYRf/LzHzknlGLyjEgyhlNBEoEQFEbrVtlPVvV+2ns5nuNJ8c7l+Rr3G/Aijws4w0jQ61w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=wyFhl1hEzPvW46Y59mJkUDzXPFkTfwnJuoQO2RfRWAI=;
+ b=J/Xu10OWnKPoMxuW2X5+Gu9QUHrXRZp6dgyUPopU1RdxtfTEAeakWMXAcL102CCYlc27hi8i48Wdq+QPOycnsb8w+3mg8MBcFfwrfggYFiF+27z/j0Qo+ihBq6KEOOgwLaVKM6fC3i73cfMru45lCQwJZT7QjxZ629iX5shcQTn8FCrYCfcFVlTQcC6bhVGd3ls51bY0P8kfCP4Or7qajydfOtrzL+G3CWPqdDmdF/hn2zOQFaNSEgtS91c6NiWJLtDpQ1UItx9+a6gjLiNDFwsz0aFbTznaTYAazNWSGTrCodkqwDmaSnvWnBMpU/5mCJ82vcuTc+kRHWNRKFRifQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from DM6PR12MB2667.namprd12.prod.outlook.com (2603:10b6:5:42::28) by
+ DS7PR12MB6005.namprd12.prod.outlook.com (2603:10b6:8:7c::17) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9320.19; Tue, 18 Nov 2025 05:30:11 +0000
+Received: from DM6PR12MB2667.namprd12.prod.outlook.com
+ ([fe80::bd88:b883:813d:54a2]) by DM6PR12MB2667.namprd12.prod.outlook.com
+ ([fe80::bd88:b883:813d:54a2%6]) with mapi id 15.20.9275.015; Tue, 18 Nov 2025
+ 05:30:11 +0000
+Message-ID: <9f1feadc-076b-49cd-9cbb-d2fec0950128@nvidia.com>
+Date: Mon, 17 Nov 2025 21:30:08 -0800
 User-Agent: Mozilla Thunderbird
-Cc: michael.opdenacker@rootcommit.com, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, heiko@sntech.de, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 1/2] dt-bindings: arm: rockchip: Add Asus Tinker Board
- 3 and 3S
-To: Dragan Simic <dsimic@manjaro.org>
-References: <e4cd11d0-463c-e707-5110-6b92899b1ba3@manjaro.org>
-Content-Language: en-US, fr
-From: Michael Opdenacker <michael.opdenacker@rootcommit.com>
-Organization: Root Commit
-In-Reply-To: <e4cd11d0-463c-e707-5110-6b92899b1ba3@manjaro.org>
+Subject: Re: [PATCH v5 21/34] arm_mpam: Register and enable IRQs
+To: Ben Horgan <ben.horgan@arm.com>, james.morse@arm.com
+Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
+ baolin.wang@linux.alibaba.com, bobo.shaobowang@huawei.com,
+ carl@os.amperecomputing.com, catalin.marinas@arm.com, dakr@kernel.org,
+ dave.martin@arm.com, david@redhat.com, dfustini@baylibre.com,
+ gregkh@linuxfoundation.org, gshan@redhat.com, guohanjun@huawei.com,
+ jeremy.linton@arm.com, jonathan.cameron@huawei.com, kobak@nvidia.com,
+ lcherian@marvell.com, lenb@kernel.org, linux-acpi@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ lpieralisi@kernel.org, peternewman@google.com, quic_jiles@quicinc.com,
+ rafael@kernel.org, robh@kernel.org, rohit.mathew@arm.com,
+ scott@os.amperecomputing.com, sdonthineni@nvidia.com, sudeep.holla@arm.com,
+ tan.shaopeng@fujitsu.com, will@kernel.org, xhao@linux.alibaba.com,
+ Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>, Zeng Heng <zengheng4@huawei.com>
+References: <20251117170014.4113754-1-ben.horgan@arm.com>
+ <20251117170014.4113754-22-ben.horgan@arm.com>
+Content-Language: en-US
+From: Fenghua Yu <fenghuay@nvidia.com>
+In-Reply-To: <20251117170014.4113754-22-ben.horgan@arm.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-Date: Tue, 18 Nov 2025 05:27:15 +0000 (UTC)
-X-CM-Envelope: MS4xfJLqo7/gRzsBM5gglqfBElMacoghunKCV7PiG5Q9KaWvdsmLLHWorQ2d9kWzZGsbDOU9m1P9AFVxV9VEIUi1iqL9dCaeyrAUZGAhTrTctD1GtA67LiRd jxpaDXYYYBiJvyPWDmwScz5KeIigzW1FBNT8q3VnRbqjuQ6KS8iCVTfTfgkneZLUXaV+GQ2FMJd/QD7Zs9cjO810THpJpK5t3KQJCy8sfYQfo1BRitTYjxJO msA8awJ16SzOZ+T/9YaznJtC9p5fWtEprqYBDFwLzAoCeCAPkMwEOx85WPCLonQx1s3/mIqcXjD5P+62YO31fo15cW821alZ5N1MQBtfMn2p1xQJN5E3yOCz n3DAJSzg27Ob/yZ+DiZmzMkLY+z45e6aboGSRZWrZdMjFsqPyheQrScEOWTR57xVon9FVOcRw3S9zGw1SnWAy/qzKBgxAqQ/Fm5nwWnt1PS6xe0sZvZMVPj/ 8krMIKj9jjvI7Gp+JmJlnr4lY9Oqy5mgmKyEdxA1rPYvxBp+JP33LTPkxdp1PWy9OLNnO6uPP1lSh/M6qspDnpNngDAOKki/eUGS7YNUmQkz1a76S7S1oq7/ EGubvqZvUWMZIlMSQ7zntiYvTPW1X7AD0oeyJm9iT9iRfhA5F4/H0WfXNko75EM30U4=
-X-CM-Analysis: v=2.4 cv=Ceda56rl c=1 sm=1 tr=0 ts=691c03b4 a=RES+y31bSy/BcHStaSTKQg==:617 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10 a=d70CFdQeAAAA:8 a=lefHfciQTmdIgl6NApMA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10 a=NcxpMcIZDGm-g932nG_k:22
-X-AuthUser: michael.opdenacker@rootcommit.com
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: SJ0PR05CA0180.namprd05.prod.outlook.com
+ (2603:10b6:a03:339::35) To DM6PR12MB2667.namprd12.prod.outlook.com
+ (2603:10b6:5:42::28)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DM6PR12MB2667:EE_|DS7PR12MB6005:EE_
+X-MS-Office365-Filtering-Correlation-Id: 88c014e6-eefa-4f1d-8c78-08de26638afa
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|366016|376014|1800799024|7053199007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?eERvTkFvdWUvYVdyczVnQVFNK0ZUSG85YmNUQ1IvYWVRL3I4bWtVaWNGMEJn?=
+ =?utf-8?B?NWdPQ0t2dGIxdjluUHdUbVVBL1c3aE1ha1NYdUtUV3dHT2dUTm9rY2J0eFl5?=
+ =?utf-8?B?QlRVUnFKbkIrT3RQcnhlWCtiT0x6dHNtam53Zi91ODRnOEticjRocDZqdU04?=
+ =?utf-8?B?Y0Z1cWVxTXRkVnF3c2d0bHhkQWxuYXJuVGI5Yjg3QmxwcXMxMzJwZ2didUlC?=
+ =?utf-8?B?cEQyNENwTlFiM0hrdW9kS1dyeE13SWgwYTk2RkFzVFhkMXVtUW5pZHIrUkNE?=
+ =?utf-8?B?UXdDZWxjSVpCN1hMN1RRTDJQVzB5NWkzcW1HNVdHWUZYQ3NCb3FXYmltaFNm?=
+ =?utf-8?B?eGwrOEE5a0tQbkpOVU1zZGtpckE3VzFFRFphUW1Bd3R4WmhsN0YvWGlOdVNv?=
+ =?utf-8?B?b3RVeDFwdEMxMjMzelhpWWNkTFoxU0dQYUd6bVlRL3VyYkY1aG1sZWZCeCtD?=
+ =?utf-8?B?d1JpYnpwK1k0SWZtand4b3NVSGlVZzQzUWR1RS9iK3pJRHpPUmFXS2pUMGdZ?=
+ =?utf-8?B?RmR0aytKeWpGTkYvME55R1RWUlB6ZnNQZjU5YUw1dWdjNEdxS2tzS3JFTFhu?=
+ =?utf-8?B?dnNLTDJmdk1vTmxNZnpXZ3dHb2sxVURNTTJuYVRFK0grVmNJODJjWmhzZGwr?=
+ =?utf-8?B?M3V1b1ZvQkxKTkxyeldEZHhPMGdDd1ltYStTWG9aRkFkQVpnOVZOSHk1SnBS?=
+ =?utf-8?B?bmVadGhYeThhTWRPdDJKaG56bmd3c0QzWExJTjB6WUE3U09CdDdpOCtnbzdm?=
+ =?utf-8?B?UHNFWUFOMEYvcmZVZDIzMzdXSXJrTUhOcEgrT2hxKzB0WlBycHVQT3JhYlJH?=
+ =?utf-8?B?VGQrVFFNOElyZTVQNnIwWnB0QW5UZmpib3RJdUhiaHppYmEzRUNjdjUrcCt3?=
+ =?utf-8?B?cDdtam1TcG0wZ1MvbFpMcDNCK25LTnRCcnd3RERUN2FzSW1pZHZzRis2WVht?=
+ =?utf-8?B?b05pbWZtTkhMUEpHcmRNUnBYYUJkd09lTUZKV2lvb3Blcno3SGp4alM3dXpN?=
+ =?utf-8?B?V1VxN0t1YzV2MVI4VnpLWi92bDJ3b2RsVmpEWGwxWVFPL01NQWllU2VNSWpx?=
+ =?utf-8?B?QXVlWkdsTUlLbjV3Q29MT0lKZHlvcHp3WmhUay95QkhNU2JxYlN4QTJqam1V?=
+ =?utf-8?B?czNuZ25UQUV4ZWdwMFNBSUJ3eEwxTTJQV0RYRDBkanJ3bVg2VkRRWExpZmt2?=
+ =?utf-8?B?b05za0ludk5MQ2d4TlRLcEhrZHpTRGxiZHRTYllUdjZLTkNyc21yTkxpUWFT?=
+ =?utf-8?B?UURzUUdrcXNzNjJ3TG85S0poWmxGa3hBUkJuNVpuSkxkK2dGR1RTTnBzTm0r?=
+ =?utf-8?B?WDlWY1c0aDBjSkJ1VjNTWWdSM0xYNmpYYW9wOGl1cXg4eWF3UzlPUnZsZ3FC?=
+ =?utf-8?B?b2dYOTFFYnJGK2hxRHlmbHhRNG5xaitGc1pvYzdZUFFBNE43d0JvZU1jOG9U?=
+ =?utf-8?B?K2NhWFJPNm1mNk1Fd05hWHF0YXNYMEdjc2tORklQUDVaMnVJQ0hlZ0FpdlFk?=
+ =?utf-8?B?TjVzNTNPMGUvMWNzN2F4UjMrL2k1Lzc0TXFxQ1lPRzVnSnlGcWpJTVc5bVpH?=
+ =?utf-8?B?WkVlREdlZlRZT3hHcVZtL2N4b1FxZVdUMXNaSHZjVFB2S1N4VmdtbXp6QVpZ?=
+ =?utf-8?B?S01oaWgxdnhEakRGSHFNRUcyLzAza2ZXWGNsRVlJalFETGkrNFdjWUF4MXo2?=
+ =?utf-8?B?RUVjRFFrSzFtVCs0eU5aQXl5WlU4YUp5OHFwTXdpTGlzN0g5ZmttMDVEcm9U?=
+ =?utf-8?B?Z1ZrZ2V1UUw3WU50TU1PeWxjbUd5ci83SW9VczB4NldJNVVTUW1peU1laWRz?=
+ =?utf-8?B?dXVkSitWYzhBbGZ2YWdpSVNyT3ppQnJsbFlIMTZYN0ppcTZ5STFlVllUV01n?=
+ =?utf-8?B?eHFQREN0WCtoTUphaEdwTitVT3UxWUlvaVdNMEZXRU5ZYlFDdHJwd3R0SCtU?=
+ =?utf-8?Q?VfaW2lyQ0PNnflsnTmzR97WRQJflZHy9?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM6PR12MB2667.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(366016)(376014)(1800799024)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?b3RraUdseDE5SXQwem1lMXVOcmZxL2lKaGZ3Mm02M2E4YTJ1dmxtOXRJc2x1?=
+ =?utf-8?B?TG9FWTNYNUZtZ291MVdabHE4YWdzeHRZbVRGQlF3dFY4a0h2S0lwcnBaUWhR?=
+ =?utf-8?B?V0JLS0ZDYlI2TnlwTEx5UlNrZ05MVWtuM3NVekcvb1c1NXdvb3J2NldzeDZD?=
+ =?utf-8?B?OTB4NkpOdWNlV0g5UitZMi9GallxVjdZM2x0d3VSNlZ0eDZZVkV5SDdpb3hP?=
+ =?utf-8?B?TXFkVVNnd3BkZS9zTGhiQzlKbmsrOWplMW1mRzRDNm15L3lsRXBZbjJWaEZN?=
+ =?utf-8?B?L1hwK2NWRTVLTngyVjNoMVk1K3RFWndmbTBWUnJqVzVDN3pKeTAxMGdOUlEy?=
+ =?utf-8?B?YWRTSHhZTGJYTnQ0bzhwUTBtbm9wSUhjSGNJYXpIQUZFMzNTM3F2WDFwdGdM?=
+ =?utf-8?B?dXN1SmtSa1NWQTRIU2Jjb2V3Q0tFMnl3ZEpzZVBmUUZQWjhvUWN0a0FjZlAx?=
+ =?utf-8?B?M21FYUxKRmcwNCtyck5UQ3JuLzRXcjlUMUU3SmoyN1UzbVZ0MkVwZUVuYlJY?=
+ =?utf-8?B?Si9kMFpJN3FQSk5TaWhNZEhWY1J4S1U3TGt4V1RlZ2FpQ0E1VUpNckdDRkJF?=
+ =?utf-8?B?a1dsMFhXSTJyVUlHNlA5dFg3UUxmUTNuWlJEdmc1QldId3hueXBKMGtEWnZ4?=
+ =?utf-8?B?cVFpTlZDa1NEa3lad1N6QmlHR2QzdXRTMXZpQWluREpmOFdRZjMwSXZDOGVk?=
+ =?utf-8?B?M3pDeDVVMGI4NnBUT0xUNGlTSUZESHZWbEhUeDhVc0IwMnJMTEdDKzNud0g2?=
+ =?utf-8?B?TVRST3RMeVM4b3MrQXpwOWlBQ3l4Uk5GdWF4Y2llWDloTWluUFBzTHZmdlUv?=
+ =?utf-8?B?aFF4djRCT3dId3gvWWc3aWo4UUd2aHpMazlKakE0TkxUYVpjYitTanZGS2RV?=
+ =?utf-8?B?bXJSV05tYW83UDRYQUtJNnk5SE5IZHQ2UC9PY3paVGJHaGtqTWR0bzdpZjVo?=
+ =?utf-8?B?d0R1bDNtZ3VtNHNmMWg0WmVBS09Ga1lGeTYybFF3TDJuSzl5a0FxNTUrS1hn?=
+ =?utf-8?B?ZitybEpYREhtY0owcHFOTlZLVmlsTGZDakxVT0pkRFZZSFVXb1pMWTI4dm9v?=
+ =?utf-8?B?QUdmMFF1VXNrdFVFS2RMNEwvT2srUjg2RThUYW9jdlovTXZzTFNST0pMemQx?=
+ =?utf-8?B?R1AvcUdnS0xtTVU4OXFncEZZb1AyL0QvU1hZUnNya3VMaUFpbWVaUW82ci82?=
+ =?utf-8?B?VnhIQnpyRzQxYjJyTG5uRXpyWXozb3VRRGZERHRZQzRyM1k3QjA1M0VEeW51?=
+ =?utf-8?B?YkxkelJlOTI5c2g0S09KK3hubDZKVFN3cU1sbjhuVmJOWlF4ZVU3ZjdFcHlx?=
+ =?utf-8?B?cjBqVHFNRXF2ZTA1bklYSGVoUlM1ZkpwZkVSMWNQQ1NmU0pIRkRnQW5nTk45?=
+ =?utf-8?B?aUF4eG1RM2QybzNpbjIwekNJdUMrL2kwQXMrTEZlbDBnczhKVEVNb0dDZ0V3?=
+ =?utf-8?B?MFRaR3NkaWtlczdOYkZkcE1TbFBaNHlUOVgxbmxBRUhZcjQ3SUNVNDNvYkJW?=
+ =?utf-8?B?NENaYXpxRS9nQXBhV3ovVGpVWTd0YjArQVBRV2Y2UWZPbFBhMCtnZlh3R0NL?=
+ =?utf-8?B?Z0FGS3FtZktHVTFDV0g0RDh1eUl3QzhneEdLbHcwazE5TkZ0TVNoWXd2ek9B?=
+ =?utf-8?B?cm1kN3QzMmlvTVBNMW9uVnkwNnZsWFFINzBzTFN6MTk5S0gweER0N1plS01B?=
+ =?utf-8?B?Sk5ZcUdIdmc4OXJ5MWJ4K3B6QldJakQ2TmQzT085RUZKRkNBaEdFRmVDZDlF?=
+ =?utf-8?B?OU5CbDRlTVFOUG5LWTYwdS9MWGFIc3JsbGxlSFM4Y1M1aGp6cFhLMDg2SVBk?=
+ =?utf-8?B?SHVpbklVNHR4NDdFL2VadUlsYnMvSFJFc2VXTzM0aVJwTGlGRDVrZ3JyYUg3?=
+ =?utf-8?B?azE1cTRlV2k5OTZ3SzdxRkpLVzhwaVFRSVdDVEVqVGNuOTIrNjRQZG80ZnZH?=
+ =?utf-8?B?MDA5RDAxZ3BQWlpkNENQNlhIbnFSR2I1NGcwVmltSWxuclk5ekJVYmlwVVBV?=
+ =?utf-8?B?c0JZM3lRUElZbmNqakQ1cmlXM1p4bFJEVlJ5TmlWVGxUNFJ5aWhxUTVzNjFS?=
+ =?utf-8?B?c0h6OENqdDRGTVM1NjZzV2hMZUdLMWNyYjB0d0RjbHRyQ0p6M1lEUHA3dGpN?=
+ =?utf-8?Q?bDbHWHkt6HBASFfpl4xXNHGHL?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 88c014e6-eefa-4f1d-8c78-08de26638afa
+X-MS-Exchange-CrossTenant-AuthSource: DM6PR12MB2667.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2025 05:30:11.0345
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: BnKIBHhDKRBkkQaFchHAJHMsiM20D9CRGNm+mmZnSIAyKeMgUKZrVAMz3h5vdN3m7tZo5+nONfs1c41cUBHgQA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS7PR12MB6005
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251117_212725_722819_E5ADE1C6 
-X-CRM114-Status: UNSURE (   8.94  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251117_213017_665966_88AD724D 
+X-CRM114-Status: GOOD (  12.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,59 +186,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Dragan
 
-On 11/15/25 01:52, Dragan Simic wrote:
-> I'm sorry again for not mentioning it in my earlier responses,
-> but shouldn't this addition be specified like below:
->
->       - description: Asus Tinker Board 3/3S
->         items:
->           - enum:
-> 	   - asus,rk3566-tinker-board-3
->             - asus,rk3566-tinker-board-3s
->           - const: rockchip,rk3566
->
-> ... because the introduced .dts files define the actual board DTs,
-> by descending from the common .dtsi file, while they're compatible
-> in the sense of the 3S board variant extending the 3 variant.
 
-Actually, "make dtbs_check" fails if rk3566-tinker-board-3s.dts has:
-compatible = "asus,rk3566-tinker-board-3s", 
-"asus,rk3566-tinker-board-3", "rockchip,rk3566";
+On 11/17/25 09:00, Ben Horgan wrote:
+> From: James Morse <james.morse@arm.com>
+> 
+> Register and enable error IRQs. All the MPAM error interrupts indicate a
+> software bug, e.g. out of range partid. If the error interrupt is ever
+> signalled, attempt to disable MPAM.
+> 
+> Only the irq handler accesses the MPAMF_ESR register, so no locking is
+> needed. The work to disable MPAM after an error needs to happen at process
+> context as it takes mutex. It also unregisters the interrupts, meaning
+> it can't be done from the threaded part of a threaded interrupt.
+> Instead, mpam_disable() gets scheduled.
+> 
+> Enabling the IRQs in the MSC may involve cross calling to a CPU that
+> can access the MSC.
+> 
+> Once the IRQ is requested, the mpam_disable() path can be called
+> asynchronously, which will walk structures sized by max_partid. Ensure
+> this size is fixed before the interrupt is requested.
+> 
+> CC: Rohit Mathew <rohit.mathew@arm.com>
+> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+> Reviewed-by: Gavin Shan <gshan@redhat.com>
+> Tested-by: Rohit Mathew <rohit.mathew@arm.com>
+> Tested-by: Fenghua Yu <fenghuay@nvidia.com>
+> Tested-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
+> Tested-by: Peter Newman <peternewman@google.com>
+> Tested-by: Carl Worth <carl@os.amperecomputing.com>
+> Tested-by: Gavin Shan <gshan@redhat.com>
+> Tested-by: Zeng Heng <zengheng4@huawei.com>
+> Signed-off-by: James Morse <james.morse@arm.com>
+> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
 
-The failure is:
-arch/arm64/boot/dts/rockchip/rk3566-tinker-board-3s.dtb: / 
-(asus,rk3566-tinker-board-3s): compatible: 'oneOf' conditional failed, 
-one must be fixed:
-     ['asus,rk3566-tinker-board-3s', 'asus,rk3566-tinker-board-3', 
-'rockchip,rk3566'] is too long
-     ['asus,rk3566-tinker-board-3s', 'asus,rk3566-tinker-board-3', 
-'rockchip,rk3566'] is too short
+Reviewed-by: Fenghua Yu <fenghuay@nvidia.com>
 
-If I understand correctly, to keep the rk3566-tinker-board-3s.dts file 
-as it is, you need Asus Tinker Board 3 and 3S to have two different 
-descriptions as in V2:
+Thanks.
 
-- description: Asus Tinker Board 3 items: - const: 
-asus,rk3566-tinker-board-3 - const: rockchip,rk3566 - description: Asus 
-Tinker Board 3S items: - const: asus,rk3566-tinker-board-3s - const: 
-asus,rk3566-tinker-board-3 - const: rockchip,rk3566
-
-The other solution is to remove the "asus,rk3566-tinker-board-3" 
-compatible from rk3566-tinker-board-3s.dts, which is not a big deal in 
-my opinion. In addition, if some code turns out to work only on 3 but 
-not on 3S, though that's not expected if 3S is indeed a superset of 3, 
-we won't be stuck.
-
-I can submit a V3 along these lines.
-Cheers
-Michael.
-
--- 
-Michael Opdenacker
-Root Commit
-Yocto Project and OpenEmbedded Training course - Learn by doing:
-https://rootcommit.com/training/yocto/
-
+-Fenghua
 
