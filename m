@@ -4,152 +4,161 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62E27CEBF93
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 06:50:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50B37CCD19A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 06:54:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=7NdONRSD0BeajyfYzy+X5O7slm079JoxorRHY4kTlyI=; b=VVl9jLGPBSYWMxasAbCnA12jJ0
-	AyyiO7R7rDNuTkuLO9Of0Fb6raCDaL8hCM814BmMmkW0UxR5O9FUaq83pXxdmzhvGPW1To4ij1bg8
-	dvQkwtjac9bzrqNogEdaRHTIplp3u+Znz3xkkRCZspy8zITmaQC4aQNPf3mOuP5x0SNpbbTloPl8y
-	S15T5Yx0HqjfWiX392mx+QgjM8a5pHJuepGr5frB7cNMi88OqKQSMUJYJ/v4AiRhZGXpY28CUKIe3
-	uvvTTgXWgv3PE24puBmGGa+M7pgIFuVnCSbjhQJ9NUaKBZ5HKx3vjxyDbaeq5MiTPhiu31lbnqlzf
-	4+NoQ87A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Osjqj8V1FDppRyv1k4z6s36nOM8ym2tk+tZRpFrgiTk=; b=tgw4ZFDoGbsuVLTEd5FOnhSV3m
+	Deo2W6TqdhW69h6Md5ETLw3Reu2AAi06Y4s74cXY3xObdIRNDGngGk7GxfBPwXAKUmgpZbd4B+yO5
+	gJ6pumyjxgt5ufkDEDYUzNfif/+YmErgtuSzNbM7unKsGmSrbWo2dShrL0B1G+zesgqZIh9JvA3/V
+	A5j9WNzU2rrr7wr67XGjMgG7d+v9/WtSgett2d8lLCubaOLbJc94XQVOHS/CqOhFzWYY0FWSwgfzJ
+	6Iql+5y6gLUgkuUbSpJf7Uc9qO8jyNBcpxZJMLJuoyle6J+rLhi2SYGgoEhU4oHgiDmemgbUCtdE7
+	GVZKtXXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLFY5-0000000HVpR-3s76;
-	Tue, 18 Nov 2025 06:50:45 +0000
-Received: from mail-francesouthazon11011046.outbound.protection.outlook.com ([40.107.130.46] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1vLFbC-0000000HWC1-3dTw;
+	Tue, 18 Nov 2025 06:53:59 +0000
+Received: from mail-eastusazon11011048.outbound.protection.outlook.com ([52.101.52.48] helo=BL2PR02CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLFY3-0000000HVp0-4591
+	id 1vLFb8-0000000HW94-45bZ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Nov 2025 06:50:45 +0000
+	Tue, 18 Nov 2025 06:53:57 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=q7FFFEP7kXBg7DS49JGOMKhBxzwgk0XLnMx+Ar26dfgbhTM5yiBEoZcMExElbrCThtu23AYq/HhGhW20adA243eUfhujzbxX2NCdTzivRUhk2P3jARunVbr3bJXkkPk6KlvW+qiZeTkZsdeKTBdSCvF0WsxMFQ4K4RzCnthX8Kneh+2eLJ4D6VeupNExEmAWyK4YO0ghh6icG/HKIR8c3UrR9/VYqWFtxWjvib6GZz/dshIGfs9tl0GZ+CUIwHn2R/wStkWlokMezNTE92CH5WxsKOd1dTSA2r7ZZj6ydD7122x5Ah9zTcU25niQ1tocVB5y2H6Y4dXtsrDunfytQA==
+ b=Nw6bB5w+NDH4to3wYg83jkh7IZhy16CTYcvLeJ5TJ26u7cpXEyMKLn0m1esMUOIylpjeNFJcEMYHKXjKo3fAwH1YX3s4XlDZt5cMOagqAzNIl58Oj0kD7ZB7WI0ui7ph/kjkAPUT7dVKmC0Mim1c9fILyeCWbWoPOpCqPd3+sqeYDkj8P0L0I7/wKxAWMG3kTCelsJL1FvWOkILZKYtrz58LWhDHl0zyLDi2P1AbZkgwJWI2awa/FQU8YQMlH8QYX/XIV1v5N/f3CH1QCT697mmcwAolZFmNapPfnW/qKiFNoIybv/84wadd0jyNlyiQ5SCSpBbNCtB8xmBKs0ZKqw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=7NdONRSD0BeajyfYzy+X5O7slm079JoxorRHY4kTlyI=;
- b=cYFk59UezVjpMryxnr8S3uCtFpozH+2r1gL1bT/TpaD+TyOBgkqsPxwIJlWsC/9qqS5PWSI1hp0F91WeaATQkXjZjpRlf6zDBH9xKIduNtWXwg/nCCL1CKBIBBcYkCHbATaCh1oWEztbO/h0+uD8kT/rxobWIBKDZ9F/ExLZVBUlwTaKq8E6Wgzl41tTPrWdoV+9dvrPruJ+Je1OaCW5IW3e1MrxFXneCbHAay6I17noda4brq4hdUQpPZlHKSe4HaXBfrntuxXkeyqFfBjzb1DADZDmsdKbs1d4DDK6pgpsStah510sPjpwqWwcnBWtGQP5wh+b5YJ/AB2TEKZwEg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ bh=Osjqj8V1FDppRyv1k4z6s36nOM8ym2tk+tZRpFrgiTk=;
+ b=BlllSa5MSlbe2ggVELCnzvetjUgFZAvI7LP9KxXNMQ8lb1oVPaMRXvhKmZ+kmvnk6zLaVK/Bc95oEpIxpq3+FpvqJL8X7OdU7QQiHZGqLel6c59X+s0nq/OAeYxIgC6XmCiTFbpnwiZ//lxtfrIqby55YchHwox0V3MmFSaiYUHiY9XyZ8aKo7HELQcIqjcHo7lChYgADK+y4OGMkU2prX3UTRq0zaqEnhb5RD03FX0yLXrZQRKy1CZGLt1RDdc534OZhf2yGaRdQEcKH4xpb/5AM0NzzeIpE1Q6YS3jKGS5ET5nzTdlrReRUETgloGxjL1Q5dO1iE4DLi91sZocRA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.160) smtp.rcpttodomain=linux.intel.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=7NdONRSD0BeajyfYzy+X5O7slm079JoxorRHY4kTlyI=;
- b=dZ23SoERON0Q5Bjkqyniekduc12npwjYC+YmR9WMUTR6mB00uoySeXLaEBz2abTqXEkgV6fJRBrFhFOvspG0CVwBrIHQFlc4C8Gzo2HR2opX0d3REmDYJhvjqkDpn7nfVRLeuAXsL55jJ9YYC8jees33sByOYyWL8qFtAP9T6Rq+VllAh/mOyW2lS6xeCEYzdcagrmKk/0nbioDziHVHSUNGVntUHFbR6WIrdhXO/5bbGClXuzSb/oHQMnn0vnO1vtQmj6+CrPOGB3uxaD6XPgOqJsP0pRbDamFQoSsoLY4L+XXZyB9YFgR7AYTFTYxSfxicyrXfh0kGmv7NQBAtKA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from VI2PR04MB11147.eurprd04.prod.outlook.com
- (2603:10a6:800:293::14) by DB9PR04MB9843.eurprd04.prod.outlook.com
- (2603:10a6:10:4c1::20) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9320.22; Tue, 18 Nov
- 2025 06:50:39 +0000
-Received: from VI2PR04MB11147.eurprd04.prod.outlook.com
- ([fe80::75ad:fac7:cfe7:b687]) by VI2PR04MB11147.eurprd04.prod.outlook.com
- ([fe80::75ad:fac7:cfe7:b687%6]) with mapi id 15.20.9320.021; Tue, 18 Nov 2025
- 06:50:39 +0000
-From: Carlos Song <carlos.song@nxp.com>
-To: broonie@kernel.org,
-	shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	frank.li@nxp.com
-Cc: linux-spi@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Carlos Song <carlos.song@nxp.com>,
-	Clark Wang <xiaoning.wang@nxp.com>
-Subject: [PATCH v3] spi: imx: add 16/32 bits per word support for target PIO mode
-Date: Tue, 18 Nov 2025 14:50:12 +0800
-Message-Id: <20251118065012.1418279-1-carlos.song@nxp.com>
-X-Mailer: git-send-email 2.34.1
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: AM0PR04CA0042.eurprd04.prod.outlook.com
- (2603:10a6:208:1::19) To VI2PR04MB11147.eurprd04.prod.outlook.com
- (2603:10a6:800:293::14)
+ bh=Osjqj8V1FDppRyv1k4z6s36nOM8ym2tk+tZRpFrgiTk=;
+ b=b2kycD9pVubNet3HQ98+MIRWk+HRcjDg/T9o9yyY/uREAUMACsEmNF8MzqT/adn82TC3GSTHYI1edx1+wSqLHkxkFBwqSrGtCxp/cnP/U/f7zuDg1Sa4fnw6jH/Vpzd3XYRKkqNdvBMF+rFs0Ipt9g3QnF4cfeZTUPDGP7PW2KsSGfXBzztZo3pnIlKeabpBFITDGcfoP+duZO6dsEZi4DrlEn0v/G0BPWPbE09EsNikI/JS7I++ZTKZLnuatfqu/hxvgHBeJCresnQdNoViSUtAfxlTaWZ1BpiHg7q+magV8QvR9Drg6CcG4FcCDyKAjOwC3GRVqY7CByABTnKw/Q==
+Received: from SJ0PR05CA0136.namprd05.prod.outlook.com (2603:10b6:a03:33d::21)
+ by LV3PR12MB9268.namprd12.prod.outlook.com (2603:10b6:408:216::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9320.23; Tue, 18 Nov
+ 2025 06:53:48 +0000
+Received: from MWH0EPF000A6733.namprd04.prod.outlook.com
+ (2603:10b6:a03:33d:cafe::be) by SJ0PR05CA0136.outlook.office365.com
+ (2603:10b6:a03:33d::21) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9343.10 via Frontend Transport; Tue,
+ 18 Nov 2025 06:53:44 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.160) by
+ MWH0EPF000A6733.mail.protection.outlook.com (10.167.249.25) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9343.9 via Frontend Transport; Tue, 18 Nov 2025 06:53:47 +0000
+Received: from rnnvmail203.nvidia.com (10.129.68.9) by mail.nvidia.com
+ (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 17 Nov
+ 2025 22:53:31 -0800
+Received: from rnnvmail205.nvidia.com (10.129.68.10) by rnnvmail203.nvidia.com
+ (10.129.68.9) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 17 Nov
+ 2025 22:53:30 -0800
+Received: from Asurada-Nvidia (10.127.8.11) by mail.nvidia.com (10.129.68.10)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Mon, 17 Nov 2025 22:53:29 -0800
+Date: Mon, 17 Nov 2025 22:53:28 -0800
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Baolu Lu <baolu.lu@linux.intel.com>
+CC: "Tian, Kevin" <kevin.tian@intel.com>, "joro@8bytes.org" <joro@8bytes.org>,
+	"afael@kernel.org" <afael@kernel.org>, "bhelgaas@google.com"
+	<bhelgaas@google.com>, "alex@shazbot.org" <alex@shazbot.org>,
+	"jgg@nvidia.com" <jgg@nvidia.com>, "will@kernel.org" <will@kernel.org>,
+	"robin.murphy@arm.com" <robin.murphy@arm.com>, "lenb@kernel.org"
+	<lenb@kernel.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "iommu@lists.linux.dev"
+	<iommu@lists.linux.dev>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-acpi@vger.kernel.org"
+	<linux-acpi@vger.kernel.org>, "linux-pci@vger.kernel.org"
+	<linux-pci@vger.kernel.org>, "kvm@vger.kernel.org" <kvm@vger.kernel.org>,
+	"patches@lists.linux.dev" <patches@lists.linux.dev>, "Jaroszynski, Piotr"
+	<pjaroszynski@nvidia.com>, "Sethi, Vikram" <vsethi@nvidia.com>,
+	"helgaas@kernel.org" <helgaas@kernel.org>, "etzhao1900@gmail.com"
+	<etzhao1900@gmail.com>
+Subject: Re: [PATCH v5 5/5] pci: Suspend iommu function prior to resetting a
+ device
+Message-ID: <aRwX6B7kEMj2i9mm@Asurada-Nvidia>
+References: <cover.1762835355.git.nicolinc@nvidia.com>
+ <a166b07a254d3becfcb0f86e4911af556acbe2a9.1762835355.git.nicolinc@nvidia.com>
+ <BN9PR11MB52762516D6259BBD8C3740518CCAA@BN9PR11MB5276.namprd11.prod.outlook.com>
+ <aRduRi8zBHdUe4KO@Asurada-Nvidia>
+ <BN9PR11MB52761B6B1751BF64AEAA3F948CC9A@BN9PR11MB5276.namprd11.prod.outlook.com>
+ <aRt2/0rcdjcGk1Z1@Asurada-Nvidia>
+ <BN9PR11MB527649AD7D251EAAFDFB753A8CD6A@BN9PR11MB5276.namprd11.prod.outlook.com>
+ <aRvO9KWjWC5rk/Vx@Asurada-Nvidia>
+ <4eeda61a-c71d-4ad1-8ac7-a14942f7a864@linux.intel.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <4eeda61a-c71d-4ad1-8ac7-a14942f7a864@linux.intel.com>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: VI2PR04MB11147:EE_|DB9PR04MB9843:EE_
-X-MS-Office365-Filtering-Correlation-Id: 3f0c7cd2-07ae-493c-bd78-08de266ec887
+X-MS-TrafficTypeDiagnostic: MWH0EPF000A6733:EE_|LV3PR12MB9268:EE_
+X-MS-Office365-Filtering-Correlation-Id: f2de03f8-b0ce-41f4-4208-08de266f38fe
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|376014|52116014|366016|1800799024|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?shZk5eBa2heFVbH9DMU63WRBbojH8FZ8JpQusVArz6VtEprodjJ2gNSVA6c3?=
- =?us-ascii?Q?DO41xBexHTif3VDUyoAlymJVfHRZ3h+xucCmI9UQEwioSusW2SGqTYomiWwU?=
- =?us-ascii?Q?XINCQy9eqlWadBOCQiyrxXxUgbUU0fl11ZiF6SyL19BeOa+mJktY4/ZFouzE?=
- =?us-ascii?Q?EHXV7137HdikfGIh3hKZzcHiX4d1K9OTobQbLM0SfFWaJqg/F7vTCTMVYYSf?=
- =?us-ascii?Q?XylKx3WNLPd+DO8L8XIVd1iYnBaWwnW97WSnPMvt3fJb2/vrRMqXTwZ3y+rd?=
- =?us-ascii?Q?tXaRVGg32jm7UCKhKlyP0f94giYHPdpJ/RjFcLiDB/suXF3w1bOG3EYd3Xlz?=
- =?us-ascii?Q?Ob770cm8BltSwdrTIgzFRpaMhZkdz+gPLn5XVjqh1GwKH4POc5TcgLSGF36j?=
- =?us-ascii?Q?JCAfvFjVh60JPkzw9CFDhFg7JCTY71KHMiIv02U4AWroaaqlZNsyf11PGECt?=
- =?us-ascii?Q?hQ6/xPj41xS4462Cd7VJo+Vno20markFbsOhYkmX4PZvFnQ1JZ7uPiFcAmV4?=
- =?us-ascii?Q?9BKUmWDtUk9gjbYsEtuJsAs/IYWhZt8RFOdKi412SHX1oVhhODz08ZW6ZP8X?=
- =?us-ascii?Q?5zb+ntfYTfOoaAikNmO5MI3SUPptE072NREMoHKbstWydIIQr6zgIgr379gO?=
- =?us-ascii?Q?pWu93udeHuGbR9EBS92mthmDo/2l2nuUZdjvZsYDE4F0UjAewJnO9ly4AyPA?=
- =?us-ascii?Q?5hByi5zyeGYEX68ieHJ2Mc4vHTUvhpt6hLJnKugdMNfZqGztOzPJz7ISRw73?=
- =?us-ascii?Q?cp43RA6lqIO5M1ask8gWMlZjcfBiJqUjcaPiw0iZe8ZdiehGwcidn2jClGnE?=
- =?us-ascii?Q?dsi/Ypti0b3IGE4zHg0Bg9QTVyxAcuC89VYgiyOYZ1yo+TTkSAfRlR1CRU8f?=
- =?us-ascii?Q?0dsevQ6ediVyP1bslVhhrsFiUhY16ES9ICXqLHq7RVOqrnLuncc3IpGlLwzv?=
- =?us-ascii?Q?qF4lvAA5MprCfI29ccK+u02WBjZuW2aav/EDmYFtnvo15kjdzgh8Ga0iFOTF?=
- =?us-ascii?Q?9wr86KkdQPybtJBAkZBVNghsF3soAA+ktj/iTYD/s5gD5IMxzr6R9FOEtvDg?=
- =?us-ascii?Q?o28XB804cynYcVtot6sH5ZdHrhKpOqdr7ItwCQA02z0r78hUzW+Wa21hANXX?=
- =?us-ascii?Q?YRWknBBSM8XRiwYuw+Sif+A5rLFex9RUHyuJuU2oylzTdK08Wcin3+CFm+PW?=
- =?us-ascii?Q?x+rRJC1n0W0/BLetFW9JiPeCwkr61gD3o/CTquqFKZ/BDCnkQVmQBttbvquM?=
- =?us-ascii?Q?v2HcS7rcIfYT0xWLdWsbbHbMKVDMKl8C/nQZfVYtLWQUL0gw0bpMJXR2J/SN?=
- =?us-ascii?Q?69SuC4LltuQTECOUxwViNO2LADdFtY2VCnY3UCxiR2WZipM4K4IiyhPC77EX?=
- =?us-ascii?Q?PZUnpZRVoaVK2QGjluMB7iDbVBCNENXvZ5rrwRLJgjviNtrJHo7EyPWvsFfP?=
- =?us-ascii?Q?altzyqET19cQ+CAV5LRMQuRMH/l2hU/kAyvKi36/xa57Z4OEJBw2LBi9mq1v?=
- =?us-ascii?Q?7tQydlcv3WdNN0Lvk9lqhQ2l2xchsYZRMVkS?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI2PR04MB11147.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(376014)(52116014)(366016)(1800799024)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?K6oBgy3LtxC2ADu5fSlkxfquY0hZy+pNJw/PyDRZKLsSOMlSWcXJYYbN0zhL?=
- =?us-ascii?Q?fY14a3OwOsjIaM/LiCkdrWifGrFaY4rtlpp3iKWpQgQbfAibOnpQ4OTIP55h?=
- =?us-ascii?Q?GJGXu9Gl9oCjOeMwTsI+YfNECkV36Dpbry4PS+mLFhPq29DNEBCnS2Y1j5kl?=
- =?us-ascii?Q?Qzd9AvyeRHz/8PQlxT/YJaf6zF1AeFE9Z5x5guFl4DeQ8hETkt4NeZ1IY02O?=
- =?us-ascii?Q?Gx+72jlO1hCKob4do89R1nRVaoq3r1OH21LTdWu8cJ4LjstEkXsdXB0XsfW5?=
- =?us-ascii?Q?WLgkltH0AJOEKuTf/qgmTQFy+gDVfqyaXJukbRes0LJS0SAx3kqfNebWKb5U?=
- =?us-ascii?Q?w3ZAg+QIVY32Nf8pJdxMLtg9TOcUjFW7hfTsv7s2j2pk5auUI9R7gva1uKtl?=
- =?us-ascii?Q?HfFCL9GxqzKuKSaEvPqlf6RMuhTDid3QOItlde3QTo4oKbuDmdpXVSxDvqGw?=
- =?us-ascii?Q?gdOBHCUGOuk7z6X4boE9Uqu9TGUuQYpkvl3egeKCGRlVWHFBz8975UxCXw5r?=
- =?us-ascii?Q?F+rCsaqvGNUllte4ZpHvTY35sRw1gDpPzHikd4norTc4NtL0vgCbBqvlhSr6?=
- =?us-ascii?Q?ipbB4wIi6FprogDxOQ2sjCv259X/O2riCIvcW6nsXrvbMCcz/Ne0Qki/Q3QP?=
- =?us-ascii?Q?DWNJ1595uZVepgpQWXrZ6UCW6JmGtg4mf6ODPAg4eEySiN2bvgtAdZok+Da/?=
- =?us-ascii?Q?sZBg1S5PfG24NzLLFl0d/LeNIqvBJIR+autOu3SSopcIwpRhVs9HRvqMEX4O?=
- =?us-ascii?Q?xMBUYH+dgkkQIPP0oJtZUftS2cia0NYap4oZi95t+wOvEmecScEdlfx3IhYf?=
- =?us-ascii?Q?0Sa+zH8VnTGJu06mpWu7lJGXiHPSSsochgVUAXGWcKmqSMplUPeSeSKNdze6?=
- =?us-ascii?Q?BESzls4oODy3G5m3kIpJ2lDP1EVAbDZMpF1wkB/V8RQXVuUnhW54YUWuGqdp?=
- =?us-ascii?Q?rzpYFD+b7o6Ykf9zHJ2wmjELaa46frZsl5t4mDM9yVOr9r7RD17QolorEuUw?=
- =?us-ascii?Q?QAtRK3PHIqMXyoSJh3uIZRsTJgGpuJIctLDQCtMY0XJM+Bu71WijX+DNP30Z?=
- =?us-ascii?Q?7AP8+bvQ5QU71Y9Qi6Xa6zYBAgDZq9cXSd+haTss59UMaXaz/1R5fRN6ohbk?=
- =?us-ascii?Q?ybUUplwXLCSqGgMECynbZdJek0N4UbRE1MvdF8fEm10N2ddm6ZoQZMZdXQyO?=
- =?us-ascii?Q?/dLbc2CFRSbCnbJ/EChEL+9ei0rvZ3BOQxoxH1G5UzZQL+ScHC+qv/yBbfFH?=
- =?us-ascii?Q?DPto3p68eUIBLRua9jIyZkrUHcYKKfCYrcbEXu0zOkCSmd84AHeUPFgoVNSi?=
- =?us-ascii?Q?otEyw90pgXhQcL9uoachK6FB1+ND2DdEctNqXLrmPrQnm1IuD9PaHec+q4WN?=
- =?us-ascii?Q?kyKfVbsqvtTUbIGgN1tlguaYue1udAhWCMC6royrGFpnRmW3fem4OYG9jxYU?=
- =?us-ascii?Q?QQi2BOi47ZxsxERYKRaa/kKYzl6iZiHegOdkq/JpkMIdzfX3tNWsmvVl0YV3?=
- =?us-ascii?Q?mGaRjOthZRpyYOUmNOpu3freVV5NzZTDXYoJVjuUuCQjI3S0P9fsCiR0+4C5?=
- =?us-ascii?Q?ocYHeMF3/GItWaGyZFJqYVae0PONy3x+rbNjn1xw?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3f0c7cd2-07ae-493c-bd78-08de266ec887
-X-MS-Exchange-CrossTenant-AuthSource: VI2PR04MB11147.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2025 06:50:39.0521
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|82310400026|376014|7416014|36860700013;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?PqDQaSPC8TBaQhDOo/r19KkLolg07dQOQkj+kbqLRSsW10UzM8IcypT5Tt8Z?=
+ =?us-ascii?Q?2Zy0FIEeo32dXhCtGKJQXrUre3rZgtl2DQUbgcYrfH0DR7+FJPJ7jNk3ltbg?=
+ =?us-ascii?Q?6j7mfkWZ5bTbR3N6tMglpBo753mFXaapROeL1ow0mcEHr5pXg6JerPmvLtvy?=
+ =?us-ascii?Q?6ocksc5REf4SxMqyzNW3R91uz1IIKe93pW3cpoFznV2FFywOW/Chl2na8dTf?=
+ =?us-ascii?Q?OoSTUSceynM7855r2xv04wOBusUL6nrCWP9gokrQb2DMsoKM1MW7eqTg/qIm?=
+ =?us-ascii?Q?nO3UnrvsWErPYesNp7YmDdW3nJPkkqCSp2xCx/48JHYLG7P4bEsyfWd7c3PK?=
+ =?us-ascii?Q?4h/7sRyb3csNp+Pz2jRHfTr/JNnoncRzjKIGwA+cgEDw/8kAtJD/yA03DkM0?=
+ =?us-ascii?Q?qAz0ChmBft1mXPIwmiLT/p20VgNXaYEHpCIUdZvnB4XnL+lPdU67RrJxpRsL?=
+ =?us-ascii?Q?ep1obFs/zUj9qvPqBd4zS7JqEfqdZ11JAX60/HrT0hPVExwsSOXPF13hvTGq?=
+ =?us-ascii?Q?UOjZbxCBmsMbcqwiJy6tkMN/6N9+ZPoNGh4yY5Ir63u4Ei6FjHdolGH8zbWx?=
+ =?us-ascii?Q?YSaC9jnSgi/KGFCl9NnWOlVVyaTfb3Q+B/w8Jco+/qI8jN/KW9SZ8+vyqoqN?=
+ =?us-ascii?Q?wFLCsbJfhWBUmOhKSJeuQmTKmahOmWKjoP4Ngyi3tFVHaTfCFjSXEEGHNllL?=
+ =?us-ascii?Q?rdJ1XOEp7Z//EDCYAtZU98FhvRxRe1GcUBv2VxLIY2oN+sf8/MP5VYLmbR+7?=
+ =?us-ascii?Q?Hoxrlpz4SXyBO41JDSedbjG39JpnHNgeSytGV4zUlBTw89y5YbocsBTDKJEu?=
+ =?us-ascii?Q?dVFlBRNDjd9lFfmR7VrOSP4U+bSE9hZXzUMMo6whKdxtBPAd7NN7lrhfNQb/?=
+ =?us-ascii?Q?5Gttp83wyIR7uIJoJvLt+x4f1uOi7T7L/IICWuN/1GbHVlUjZo5Eis/XFg8g?=
+ =?us-ascii?Q?E6D8ZqnoxI0IpyOlEjQ1Uo2JQ8CXlFp8/w/vB6pJQCjWuaviSETFNd+34Cbr?=
+ =?us-ascii?Q?pmGUKjNcHNMlDY48b252VXTKTP7R6FBsXWLiTgSiAdjzhDsA+1O3uKiN157V?=
+ =?us-ascii?Q?cCKmfnaudN/hhpLWitlWu1q/w55g/cDG8yp85dhpLgkonWnePlhpsTdYXE2H?=
+ =?us-ascii?Q?i08+nausG7ioaZuWgc3zZ0+LQFD0j7CxeJ9r8xlfOLWx3cHLXTtdfgmds1os?=
+ =?us-ascii?Q?8/y03Kl/oGXGaljC5zmJroGNF3NgQ0lB0PwevyvwjUx57qJVlr4tL3JzCiBj?=
+ =?us-ascii?Q?qOfAIrX646uaFCKISffivg68YwkhiuwFIXk1BDI5CdChWhVELvlCPK6YwIEz?=
+ =?us-ascii?Q?K/XeM1BbZ4DdzJ1RC4tOKOdEJZOOHAh8ZKDFAYcdZhVSHVuaAStC7xl/oMkk?=
+ =?us-ascii?Q?VQPvGJ9NETffMO22x5NE/TZT/lQnC5EDhb6pqzqnaBb7dT3lvboKRNUQVofE?=
+ =?us-ascii?Q?vJmckB62F02ZWSaBDrM8M2v5/cm0LEEOeIVKa9ea+P+buBkW1XEnb4FWxc8g?=
+ =?us-ascii?Q?xycEr1fj2JHadVWp6mELu/6wVkFOaO9qoN6gKYtz5MLhxse/iNbnE1FGtwyV?=
+ =?us-ascii?Q?v28JJK7P4EO8eiCVJqM=3D?=
+X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(376014)(7416014)(36860700013);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2025 06:53:47.1575
  (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: THMthH6XncSbMvWmuuHNibUdjl3XhS4Y9pRxmBlUgW/NhatxBV39J8VnxQNRHQ1ZWA6qKR42TXgkgsdT9f+9pg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB9843
+X-MS-Exchange-CrossTenant-Network-Message-Id: f2de03f8-b0ce-41f4-4208-08de266f38fe
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: MWH0EPF000A6733.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV3PR12MB9268
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251117_225044_060336_0297CB1F 
-X-CRM114-Status: GOOD (  18.29  )
+X-CRM114-CacheID: sfid-20251117_225355_189798_D9B1F18A 
+X-CRM114-Status: UNSURE (   7.52  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -164,112 +173,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable 16/32 bits per word support for spi-imx target PIO mode.
+On Tue, Nov 18, 2025 at 01:38:40PM +0800, Baolu Lu wrote:
+> The VT-d driver enables ATS in the iommu probe_finalize() path (for
+> scalable mode).
+.. 
+> iommu_enable_pci_ats() will eventually call pci_enable_ats() after some
+> necessary checks.
 
-Signed-off-by: Carlos Song <carlos.song@nxp.com>
-Signed-off-by: Clark Wang <xiaoning.wang@nxp.com>
----
-In SPI target mode, we write/read 32 bits word in 32 bits width TXFIFO and
-RXFIFO. 32 bits point is used to get the logic value from memory. CPU only
-handle the logic value with FIFO, logic value is the same with value in
-FIFO. However, in different CPU endian, the logic value is different.
+Oh, I missed that one.
 
-For example from TX:
-SPI tx_buff bytes order in memory:
-addr0 addr1 addr2 addr3
-0x11  0x22  0x33  0x44
-
-For little endian CPU:
-Get a logic value by u32 point: 0x44332211, CPU send logic value to bus
-following little endian, the bytes flow in AXI bus:
-0x11 0x22 0x33 0x44
-but when write 32 bits word to FIFO, all bytes are grouped to one 32
-bits word following the little endian to 0x44332211.
-
-so 0x44332211 is writed to TXFIFO:
-bit31~24 bit23~16 bit15~bit8 bit7~bit0
-0x44     0x33     0x22       0x11
-
-For big endian CPU:
-Get a logic value by u32 point: 0x11223344, CPU send logic value to bus
-following big endian, the bytes flow in AXI bus:
-0x11 0x22 0x33 0x44
-but when write 32 bits word to FIFO, all bytes are grouped to one 32
-bits word following the big endian to 0x11223344.
-
-so 0x11223344 is writen to TXFIFO:
-bit31~24 bit23~16 bit15~bit8 bit7~bit0
-0x11     0x22     0x33       0x44
-
-Because SPI spec is not ruled for bytes order, so SPI should keep bytes
-order following the CPU endian.
-The bytes order in memory is the same with logic value in big endian.
-So don't need to handle data for big endian CPU.
-But for little endian SOC, there is some diferences:
-1. When bits per word = 8:
-every word is byte, so bytes order should always keep the same with memory,
-u32 word is 0x44332211, but CPU should send logic value 0x11223344.
-So we should swap every bytes for the u32 word 0x44332211.
-2. When bits per word = 16:
-every word is two bytes, so every half word should be little endian:
-u32 word is 0x44332211, but CPU should send logic value 0x22114433
-so we should swap every half word for the u32 word 0x44332211.
-3. When bits per word = 32:
-every word is 4 bytes, so every 4 bytes word should be little endian:
-u32 word is 0x44332211 CPU should send logic value 0x44332211,
-so don't need to do any bytes swap for this word.
----
- drivers/spi/spi-imx.c | 21 +++++++++++++++++++--
- 1 file changed, 19 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/spi/spi-imx.c b/drivers/spi/spi-imx.c
-index 1dd20e9d9605..b8b79bb7fec3 100644
---- a/drivers/spi/spi-imx.c
-+++ b/drivers/spi/spi-imx.c
-@@ -425,8 +425,15 @@ static void spi_imx_buf_tx_swap(struct spi_imx_data *spi_imx)
- 
- static void mx53_ecspi_rx_target(struct spi_imx_data *spi_imx)
- {
--	u32 val = ioread32be(spi_imx->base + MXC_CSPIRXDATA);
-+	u32 val = readl(spi_imx->base + MXC_CSPIRXDATA);
-+#ifdef __LITTLE_ENDIAN
-+	unsigned int bytes_per_word = spi_imx_bytes_per_word(spi_imx->bits_per_word);
- 
-+	if (bytes_per_word == 1)
-+		swab32s(&val);
-+	else if (bytes_per_word == 2)
-+		swahw32s(&val);
-+#endif
- 	if (spi_imx->rx_buf) {
- 		int n_bytes = spi_imx->target_burst % sizeof(val);
- 
-@@ -447,6 +454,9 @@ static void mx53_ecspi_tx_target(struct spi_imx_data *spi_imx)
- {
- 	u32 val = 0;
- 	int n_bytes = spi_imx->count % sizeof(val);
-+#ifdef __LITTLE_ENDIAN
-+	unsigned int bytes_per_word;
-+#endif
- 
- 	if (!n_bytes)
- 		n_bytes = sizeof(val);
-@@ -459,7 +469,14 @@ static void mx53_ecspi_tx_target(struct spi_imx_data *spi_imx)
- 
- 	spi_imx->count -= n_bytes;
- 
--	iowrite32be(val, spi_imx->base + MXC_CSPITXDATA);
-+#ifdef __LITTLE_ENDIAN
-+	bytes_per_word = spi_imx_bytes_per_word(spi_imx->bits_per_word);
-+	if (bytes_per_word == 1)
-+		swab32s(&val);
-+	else if (bytes_per_word == 2)
-+		swahw32s(&val);
-+#endif
-+	writel(val, spi_imx->base + MXC_CSPITXDATA);
- }
- 
- /* MX51 eCSPI */
--- 
-2.34.1
-
+Thanks!
+Nicolin
 
