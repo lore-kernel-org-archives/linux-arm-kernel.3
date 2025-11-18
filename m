@@ -4,97 +4,187 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AF5ECEE336
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 16:15:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 623F9CEE338
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 16:20:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gJbSaVfQsu8Be7gi3N3Qdz/1czwLOuz34Pc1Hp3AGq4=; b=BkqO2sb4h7+jWj+SoV+Eak+G3v
-	5Yd+U7mPpcOu0xPZttesuVB8k/Vr86O84kyfMAVC+KkeENLB4tVWOSWU6p6XMbRoB39UbnJ6nnn2p
-	FrqwoqHGv5c3Ia//dEc3A8isdg2QwKLpEPT3RzKsLJRrHyjXYjFoL86yBO8gjKbjqbMOSMYuQJYv4
-	qhe4MdcLiGD6JwYJDf3uVg5KZ5H+EwmzOk384XlsPYxljP/zXmTB9fDDWc4BQBdpor2fP7yrXMt/6
-	zn4+KefppVDIOkABpCPfb+pnGliMUu3GzpJz4151tLMa9rWoH96cRwHFqZqa6l5pCIbfDWdPTmsbw
-	5EG6JRMA==;
+	Content-Type:MIME-Version:Message-ID:Date:Subject:CC:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=sbtycFlbNUPUuIqzvpz735DM2l8j5LKUR75TnWyK1r0=; b=yka03f4ywOVwthGGJBj/ZG0rkG
+	b/Nr01BLHvx2MFn4N802ju1vyB83FptMwlP3qQhJfPmoel5DPuVzY/KNbW7iZEK/wMvnK6spP6TTI
+	iB2ENuD/mwcZBt123WGNu0QS5KC9bXYO7SnxAOKIJAAZeZk1LgvFGYwaNdtxVVoXc7OXL8GVnEur0
+	Sz5P75gIoNGk+zmXm/XckFozNpt0HWlyxfJ4O0P99iTwVOSfmKU0IQqUJQ+q7+ye3RaLZFAxyccBk
+	8QVTwSDcyM4rEpaVVkPHNiw5xZQufn8l+eQcVkbd761S7Twi5d+ioQnYl/UFsJHJgQfQz/n7vfg5e
+	Zw7F+Sgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLOMl-00000000hMR-0hnW;
-	Tue, 18 Nov 2025 16:15:39 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	id 1vLORC-00000000hiK-0vru;
+	Tue, 18 Nov 2025 16:20:14 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLOMi-00000000hLt-3R1A
+	id 1vLOR8-00000000hhr-3D6E
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Nov 2025 16:15:38 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-47790b080e4so23651565e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Nov 2025 08:15:36 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1763482535; x=1764087335; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=gJbSaVfQsu8Be7gi3N3Qdz/1czwLOuz34Pc1Hp3AGq4=;
-        b=AlDuXPaWkJZI9VYWjQ8YvD8mGUiOA7QjMGZFz20a3++xroIQ3rktLVmRkWoHJ9jTCZ
-         8PwF2/WLIfa267vbmz85mMExQdrTI3jcyMLyGFfOVwThvlvdeFr/DgwggZHzTJt41svz
-         CYmdR+w9MjjZ6YXvdoX4SN+jzwNruepbgfSTDakp4nO9oU5pgMMi3+15P0sx7RvJqKKE
-         1A09IoTwdWmw+YAACrMaa9/php1PLme4bUDWDYpgVdofRiHPiBQ8r5VZkoyA3chMxq67
-         S43bdkEYtB72TSXoSn7/GHSb8EsqDDv9/MhhNzhN3beUcT49jJRDx9RRnFicRFWwIRMy
-         R96A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763482535; x=1764087335;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=gJbSaVfQsu8Be7gi3N3Qdz/1czwLOuz34Pc1Hp3AGq4=;
-        b=Kx4UdWcdLlpEcCj48PRtNi1r0tLzpiqSrfjmbjS5qNZPpxRhHmiJ3n99jX/pYQu2K2
-         XGUHSfMdBG5kPFY1Wna06vSMwp+fzkByCbUUjI4tvEjJcY9nTw4o7JQyaChd9cBkIrj9
-         XQxlwM2lfUeXQhCD7ZpoY4a6oKeMSa3VnyEbxswMhHHR5RPHmWNabyTY1rXRovnimfJi
-         DysnCChrO4bbp5WwmT+/oYnLe/7z9Jbf32TMzhseycFHGrakh20seFw0esTToYJCwBHQ
-         SA9vSS1t/oDNevjRfZqyt4esmpDhDuV23Hk6zuHrLg+Ubq+SOaFTpoCAc62WYyS0FKZu
-         mWZQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUuKfsNLhdGrU9dtv/8auiS7txobfTElhGse0csXc8/78f0Ay9OGz4OWDDsjAET0v253K1GxDE1ePs21FWx/rH5@lists.infradead.org
-X-Gm-Message-State: AOJu0YzU+9kemDO6PR7zR4b51LCPsRvIGuZRJcgDuQ5P7fcuiiE1vcrC
-	jo4qnrPgUOTE6DWAchlCOUi349xp3K6v45lOMEKy47Glg8JVFCBGjnuUsjyCCz8usuE=
-X-Gm-Gg: ASbGnctN4rfdBaYgeyRfLC8biNollr2Go09knpr3LFZiA7xtjjE9VxI6vpQyLhMypLJ
-	1vTXk6Da4D5M2uX8owqWvvwhe8yLo1ngIv1ReOSDxVW7YJAGoJUFjV0b5gkXsOv7Q7DQ9yS1QGG
-	N2IsGG0gLoN+gjgWRxbIU2REJs/h9eVwXPsv3CbnKKzFwBn2SW4AYo2rQf/fKSvIGc+VnNhIUZU
-	AV8fiT1FJK34hAcm0yvqamz2CZnt+HQCNBPgJDLbG0lRNou5bfwTBHqeeUuq0MfFmjaz4ufRgvh
-	FMGyXQAlmH0DvMGGKMYZTttmnoNExiDcr25K0gzStfevYwLTk9lBrNjD6oHl8Cs0eMxY4tDzE9y
-	6+RAURFq4VGcgK9Gh75CvTpTGz23IP3V/BaC0kcMO4kATR36L8w3CnPdwnzKvqfB1/9a5VF1+5P
-	Jnf87vYAj9oMPAS/Gi
-X-Google-Smtp-Source: AGHT+IFNyjTOc2O+E2kBBP4fBbkcbWJS9AWlQK7jCUXfXz1xZUJdgxvuleAKgQPv4ma+ub1UTOpP7g==
-X-Received: by 2002:a05:600c:a43:b0:477:3543:3a3b with SMTP id 5b1f17b1804b1-4778fe59f2amr146578905e9.6.1763482534892;
-        Tue, 18 Nov 2025 08:15:34 -0800 (PST)
-Received: from [192.168.1.3] ([185.48.77.170])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-477a974cdc8sm22479365e9.2.2025.11.18.08.15.32
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 18 Nov 2025 08:15:33 -0800 (PST)
-Message-ID: <4003a48f-73e0-4296-bcdc-6a975807c2d5@linaro.org>
-Date: Tue, 18 Nov 2025 16:15:31 +0000
+	Tue, 18 Nov 2025 16:20:12 +0000
+Received: from pps.filterd (m0046660.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5AIGHrLN414293;
+	Tue, 18 Nov 2025 17:19:49 +0100
+Received: from as8pr04cu009.outbound.protection.outlook.com (mail-westeuropeazon11011020.outbound.protection.outlook.com [52.101.70.20])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 4agndtj26q-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Tue, 18 Nov 2025 17:19:48 +0100 (CET)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=KdEGjd6IK/XbLv6gfWCbVICCDqfZJ79lCsGz/G8v8SKyzpyqxr8pt6uqFtZF/wuZgKL2GgsooFCvKRlZC1zONWYVswK4W0ySlqqAQu8Q4SPVFuCyP0+hpsUxDKVqyep2PW8xdDWWXIMsOJ/w4kTAYtv3vVKaUkiUv0rADQL5ZMLZI88wK6QNdL1pyAL7iVf8qK3Aig+d/gbo4JVWxjyXQ6g3/VT6wMPjyOxNyAZFX6diZ3wurAy2rqhTaB3WHqFVxVaFbK1hL3ltAMffGb+qx9VgWZXYL1cmLztDG6c+w4GThbVwrFqVQo3NdYzOibTXY629ze4uGkVOODVgjO8+Bg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=sbtycFlbNUPUuIqzvpz735DM2l8j5LKUR75TnWyK1r0=;
+ b=sMG4rd2Nd2NB4VAv1+hgidD8s0VlIUzNWVVNuTIFkX0GuLctsve5MHaTkziXl6BmO1QxzwdiBBCUVvyic5Nl3sIMgpxUswoTLlnltRRGd9yydXW2UN0SllwqFwlejMIZXzMpltWNixQjBJo5rc7Xk7gnEFB69672wCI8kGux8og5uNYAgO8OQQu23CrfCmAETGiMDj7h7Hda/IdN2K4os5GWu2Ec01PW+YPJk8cjBA4mMacrA38RnjZiFiM4CI9mXcMKPlwnMY33wJHVpVGUVmtyoA8WimBDHES3PjspGvzwRkpW9SPDatxSWPWiPQ4j1C1Jn84QR7l2tb2sHZziUQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 164.130.1.59) smtp.rcpttodomain=linaro.org smtp.mailfrom=foss.st.com;
+ dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=sbtycFlbNUPUuIqzvpz735DM2l8j5LKUR75TnWyK1r0=;
+ b=LmK0NR7SJ/7BeIlBIMzCE/qHms+xmvByIqPSuZJumWjnzzzclntHVUEKkEyAkfZdKoLRdwfdMWQwg/xx6qXYG2qzmwmFkPlQOO3AxE2Ctgy/90KB/NJtzihr7+qOBuIYgidxY+iqW92QbbF4wDKDFPlmmoSVKrMnrHmPyhtaqHoSSxaXbc5F9NyQvGEfu8cwORHfdRmh/5sDma3JJDJgB8BFnIKxk6ArWZVDipZbQf3Sz1BzBLJAyFkkaQ6fDK5xD6gz1+RpzbVMMEyr3fzoddVp20+Mxqo8ek0+iM/3Zza9uI9wSXl3asQ1n2cb/4k+/zAyV8/jusLZS6/5x2YQ8g==
+Received: from DB8PR04CA0001.eurprd04.prod.outlook.com (2603:10a6:10:110::11)
+ by GV2PR10MB7605.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:150:bd::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9320.22; Tue, 18 Nov
+ 2025 16:19:43 +0000
+Received: from DB1PEPF00039233.eurprd03.prod.outlook.com
+ (2603:10a6:10:110:cafe::86) by DB8PR04CA0001.outlook.office365.com
+ (2603:10a6:10:110::11) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9320.23 via Frontend Transport; Tue,
+ 18 Nov 2025 16:19:43 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.59)
+ smtp.mailfrom=foss.st.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=foss.st.com;
+Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
+ designate 164.130.1.59 as permitted sender) receiver=protection.outlook.com;
+ client-ip=164.130.1.59; helo=smtpO365.st.com;
+Received: from smtpO365.st.com (164.130.1.59) by
+ DB1PEPF00039233.mail.protection.outlook.com (10.167.8.106) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9343.9 via Frontend Transport; Tue, 18 Nov 2025 16:19:43 +0000
+Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpo365.st.com
+ (10.250.44.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Tue, 18 Nov
+ 2025 17:19:56 +0100
+Received: from localhost (10.48.86.11) by STKDAG1NODE2.st.com (10.75.128.133)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.2.2562.17; Tue, 18 Nov
+ 2025 17:19:42 +0100
+From: Antonio Borneo <antonio.borneo@foss.st.com>
+To: Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue
+	<alexandre.torgue@foss.st.com>,
+        <linux-gpio@vger.kernel.org>, <devicetree@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+CC: Antonio Borneo <antonio.borneo@foss.st.com>,
+        =?UTF-8?q?Cl=C3=A9ment=20Le=20Goffic?= <legoffic.clement@gmail.com>,
+        "Amelie
+ Delaunay" <amelie.delaunay@foss.st.com>,
+        Pascal Paillet
+	<p.paillet@foss.st.com>
+Subject: [PATCH v2 00/15] pinctrl: stm32: rework SoC package and add STM32MP21
+Date: Tue, 18 Nov 2025 17:19:21 +0100
+Message-ID: <20251118161936.1085477-1-antonio.borneo@foss.st.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 13/13] coresight: docs: Document etm4x timestamp
- interval option
-To: Leo Yan <leo.yan@arm.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
- Mike Leach <mike.leach@linaro.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Jonathan Corbet <corbet@lwn.net>, coresight@lists.linaro.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-doc@vger.kernel.org
-References: <20251112-james-cs-syncfreq-v4-0-165ba21401dc@linaro.org>
- <20251112-james-cs-syncfreq-v4-13-165ba21401dc@linaro.org>
- <20251114180503.GM3568724@e132581.arm.com>
-Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <20251114180503.GM3568724@e132581.arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.48.86.11]
+X-ClientProxiedBy: SAFCAS1NODE2.st.com (10.75.90.13) To STKDAG1NODE2.st.com
+ (10.75.128.133)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DB1PEPF00039233:EE_|GV2PR10MB7605:EE_
+X-MS-Office365-Filtering-Correlation-Id: 8de02919-5330-4c99-dfe7-08de26be4844
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|82310400026|7416014|1800799024|36860700013|13003099007|921020;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?bTllcXRla1pPREI4TjhRa1Qvc0EybWZGemxmTEIreStVczB5SGdRRVBxRTZa?=
+ =?utf-8?B?NXIyaGJUemVGOHBUdktyZTNOYUk2bW5SZnp5OFU4NjdHdUtIQ29ObDcvOGtl?=
+ =?utf-8?B?SlJncUI1UmJLbU9EekhuTFRIUDgrdEQxMjI1eDUwZGtPeEsrNDlRMHFlTFBE?=
+ =?utf-8?B?NFNVczlnQ1A1L3ZrSUlHbmFQSVRsYlZneDdKZlNjYm9td3pHTjBTUlZGeGx0?=
+ =?utf-8?B?ZFZwcEg1WDJhY3ptYVByZFd4Mm5sNHdyMlNTN3N4VDZuSzRVVENCTk00NldL?=
+ =?utf-8?B?WG5aU25jZmlMUVc3Z3ZtZkF1b3hMb1UwSnVPSkhxRll2WE80SWsrOUNlSGpE?=
+ =?utf-8?B?SnlCeDdJMi9uMktoRHRtUW5rektLWnViRGpyWnpXL0daVlN4UldmWUc4cG9m?=
+ =?utf-8?B?QWNkVlZ2TndadW9zMmFuelFTWHZnbXJhNUs3OS9nZzNNaTloSEpNa2thaCt0?=
+ =?utf-8?B?QW4waVhVRlZlOXlBS3lPanJvSS9HUDVmRnZXcHVhQUJ6dlMwclo3eGk1NS9M?=
+ =?utf-8?B?ZmdPclpJR1lzMElFODcxc3lVNSswaW41c2R1cEUyMVpqVlRjMXVoUTgzbElM?=
+ =?utf-8?B?MHRDdUFkS0Q0VFV4SEVmM054RHhTVy9sdHd4L2lWN20vRml4NVRGQk5VWGxl?=
+ =?utf-8?B?SVFDYVljdWJNL1dCbVlENHV0WUorenR4VnN2TVZ5UmhvK1RJM3BZQ2Npd1pZ?=
+ =?utf-8?B?U2VtY1Rhc0F2dlFLbXRRTHhCa3l2Ri9QUHZuTEVXZFFuWFpuQytpVlJsR0VJ?=
+ =?utf-8?B?THcxU1BiR05lclp6N1lKUTAxUUJ4Z2JodEtIR1lnNWJObTNOWStBMHM4R3Jr?=
+ =?utf-8?B?dUlyaXY1ZkZlQWR6NFJOc01jR1lMT2FmV1oyVzJHMm9jTk4wU1dKOWtGV3Ra?=
+ =?utf-8?B?dXg2RWRud3MyeVlsU0R6U1VGcStVNVgyS2lNUWp4WjBQOTFwV054T1kyYjVK?=
+ =?utf-8?B?ZE9oRnBjd3VMak1YenE2Z0lPcWpHZTFxVkYrM200TmI4UzUxR05lUXpiUWZJ?=
+ =?utf-8?B?Vm5iVy8rcWZSUHBKdnhVVVV5ZERTVURRbVlGcEFaK0Q4TW56dWRLSkE2NzVS?=
+ =?utf-8?B?RjNQTStGMVVoaGRydDl2ZytkdU9GRk9hbG5iK3FUTWZBaU1US3FCRXhSS3lG?=
+ =?utf-8?B?ckt5M3pqSTQ1MS9vNmV5RmliVFA0ckcyQTczaHprTEJxVUxVaWl3QlpiQ3Mv?=
+ =?utf-8?B?N3UvdE42N3V2Ym16aHJreGVQUDZURWJQOW5KbmdOUncxT0V1aUNETWxTSnVD?=
+ =?utf-8?B?b0ZWV3doTlpJNEtOZXYrc0JqbnpnMnNUUEtPL3o5Myt3d2JFT3NSYjc3RTZt?=
+ =?utf-8?B?SE8vVXV2NGMwRk9XNWRxS05YODEwbUV2a3QxUHYrSmZoZ2RwYUNuQnVRdmJE?=
+ =?utf-8?B?akMydzFkNFFZQnZuUzl0UkZRVWlZcEp6Wk9YTDJsRlNGYmdxdWY5NmdUNWxu?=
+ =?utf-8?B?amdCN0QvSXM0Yit2Z1FMUkludzVBczRteEViTSsvWTc0ek5Va3FjVnhUVGxS?=
+ =?utf-8?B?b0NpQXNJVnhydDZKcHFkQkN1eVhQdDhwRC9zcDZmZzdodnp4L0RKLzYzZUV4?=
+ =?utf-8?B?NGpKRzl4aW13aUZwa1JrU0hxaDB5VEJheEdGa2FNMkNiMjdpM2Via3lUbkxR?=
+ =?utf-8?B?TUczUzhOT0VKeTF0ZUsrbzRobWN1MGVEV3NjUG95WXNKMUV1c01FUll4TVhI?=
+ =?utf-8?B?UzlQWk1DaHdGOUxzc1g4b1p3Ynp0a1ZRVGlYYzdIT3FmQlFpMVN6MEtnWktp?=
+ =?utf-8?B?V2M5VmRqZTFHSmxXbEdrcCttNlFJSGRMalpRUjRnWUR1ancrdHdUQUJ1b1FQ?=
+ =?utf-8?B?WnpFM2kxK09USUVoQmVPTXZNSFlOQ0YvNG9yZ0Voem5EYUcrZi9qM1JwWXZl?=
+ =?utf-8?B?dkQwdU5DTm51MEJPclJEZkJjakZnQlQ4WmxaWVl6bWk3N1FJd2JMU0puc0oy?=
+ =?utf-8?B?NFJKMGFZeEQ1WjB0aTQrZFR0dHlqU2FKN0ZyNHp3bGUxQ1FVd3VYeGdKaXJw?=
+ =?utf-8?B?SHA3YTJvVkt5bnVGTmxNVEYxRTRCTHFsZTZDUWwzbEJPZEc5bXpRU3daZmhn?=
+ =?utf-8?B?bWJUcW9hcVQ0VytaQkY2ZENqVklqdjAvVHdnaERaSGFIOVpWRWloUEVyVHdx?=
+ =?utf-8?Q?y2MfbJvC9QxrH0qN1iCj1HJIU?=
+X-Forefront-Antispam-Report: CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(82310400026)(7416014)(1800799024)(36860700013)(13003099007)(921020);DIR:OUT;SFP:1101;
+X-OriginatorOrg: foss.st.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2025 16:19:43.0221
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8de02919-5330-4c99-dfe7-08de26be4844
+X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.59];Helo=[smtpO365.st.com]
+X-MS-Exchange-CrossTenant-AuthSource: DB1PEPF00039233.eurprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR10MB7605
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMTE4MDEzMSBTYWx0ZWRfX9ogwA9BFtOJP
+ JronamUQFHyVTt8HCWlTGmgjA6fwXM2cnSd+7Goet3aPkTB7bA101RMtKxL7x38cpY5h731v6Vm
+ GfFHrrUtoMDIypcNNPT2s6pj8CUVQaX8E9lzz6/KlhNvchTFnpnel246fPeNSIR4ykmseTAGbuH
+ jRXgvmRNa2HTu4KymT4HKboyGAXY81B1CcwfJu3fDankbcH/+9FRMuMh7AL48nNhhqEsfforadu
+ SlEjqRBFOyU7YZ9y0vXulP1OT0LcSNM9+xa2sNfCsWQzHWiZFFrxYAokiphGIEI/CPH1Eqzh3+X
+ eDzGxElSLNmiHDpn5ogkHQDb0O3Hq984WyxSsVrnUOvmA0cfaOL/YhwY7z8c5Jj258ggl6Ru+/y
+ j7E94U0zYPzBiYMkjr+wlxTu4VJMlA==
+X-Proofpoint-GUID: LmUsbQSHjwJNVmqbpSi17NvqmOKxM6yK
+X-Authority-Analysis: v=2.4 cv=Uqhu9uwB c=1 sm=1 tr=0 ts=691c9ca4 cx=c_pps
+ a=AOycmoUevleOEOAMEpukkw==:117 a=d6reE3nDawwanmLcZTMRXA==:17
+ a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=y9YUpebZf6kA:10 a=IkcTkHD0fZMA:10
+ a=6UeiqGixMTsA:10 a=s63m1ICgrNkA:10 a=KrXZwBdWH7kA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=VwQbUJbxAAAA:8 a=8b9GpE9nAAAA:8
+ a=3TsN7hw2_K0hBqRFV8MA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
+ a=T3LWEMljR5ZiDmsYVIUa:22 a=cPQSjfK2_nFv0Q5t_7PE:22
+X-Proofpoint-ORIG-GUID: LmUsbQSHjwJNVmqbpSi17NvqmOKxM6yK
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
+ definitions=2025-11-18_02,2025-11-18_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 spamscore=0
+ clxscore=1011 priorityscore=1501 suspectscore=0 adultscore=0 phishscore=0
+ bulkscore=0 malwarescore=0 lowpriorityscore=0 impostorscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2510240001 definitions=main-2511180131
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251118_081536_886361_64F6908A 
-X-CRM114-Status: GOOD (  25.66  )
+X-CRM114-CacheID: sfid-20251118_082011_397018_7FEFFEF2 
+X-CRM114-Status: GOOD (  15.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,74 +199,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+This v2 is a subset of the v1, split-out to simplify the review.
+The old patches concerned in v1 where 10/14, 11/14 and 14/14.
+
+This subset:
+- obsoletes the numeric values of the property 'st,package' in STM32
+  pinctrl and replaces it with a string value. Keeps backward
+  compatibility for old DTs;
+- updates the DT to use the new values for 'st,package';
+- add new packages to STM32MP25;
+- add pinctrl driver and bindings for STM32MP21, including the extra
+  dependencies of optee and exti nodes;
+- on board STM32MP215f-DK, use the pinctrl driver to properly setup
+  the UART and add the heartbeat LED.
 
 
-On 14/11/2025 6:05 pm, Leo Yan wrote:
-> On Wed, Nov 12, 2025 at 03:22:19PM +0000, James Clark wrote:
->> Document how the new field is used, maximum value and the interaction
->> with SYNC timestamps.
->>
->> Signed-off-by: James Clark <james.clark@linaro.org>
->> ---
->>   Documentation/trace/coresight/coresight.rst | 15 +++++++++++++--
->>   1 file changed, 13 insertions(+), 2 deletions(-)
->>
->> diff --git a/Documentation/trace/coresight/coresight.rst b/Documentation/trace/coresight/coresight.rst
->> index 806699871b80..80b5ed09d69b 100644
->> --- a/Documentation/trace/coresight/coresight.rst
->> +++ b/Documentation/trace/coresight/coresight.rst
->> @@ -613,8 +613,19 @@ They are also listed in the folder /sys/bus/event_source/devices/cs_etm/format/
->>        - Session local version of the system wide setting: :ref:`ETM_MODE_RETURNSTACK
->>          <coresight-return-stack>`
->>      * - timestamp
->> -     - Session local version of the system wide setting: :ref:`ETMv4_MODE_TIMESTAMP
->> -       <coresight-timestamp>`
->> +     - Controls generation and interval of timestamps.
->> +
->> +       0 = off, 1 = maximum interval .. 15 = minimum interval.
-> 
-> I am struggling to understand the "maximum" and "minimum" usage here.
-> 
-> Seems to me, you are saying:
-> 
->      1 = maximum frequency .. 15 = minimum frequency
-> 
+Changes v1 -> v2 subset:
+- rebased on linux-pinctrl branch for-next;
+- replace numeric values of property 'st,package' with strings;
+- add users of pinctrl driver on board STM32MP215f-DK;
+- Link to v1: https://lore.kernel.org/lkml/20241022155658.1647350-1-antonio.borneo@foss.st.com/
 
-Yes the documentation was the wrong way around. Will flip it.
 
->> +
->> +       Values 1 - 14 use a counter that decrements every cycle to generate a
->> +       timestamp on underflow. The reload value for the counter is 2 raised to
->> +       the power of timestamp interval - 1. If the value is 1 then the reload
->> +       value is 1, if the value is 11 then the reload value is 1024 etc.
-> 
-> I saw your replying to Randy, yeah, the formula would be much clear.
-> 
->> +
->> +       Setting the minimum interval (15) will disable the counter generated
->> +       timestamps, freeing the counter resource, leaving only ones emitted when
->> +       a SYNC packet is generated for every 4096 bytes of trace.
-> 
-> "every 4096 bytes" is not always true.
-> 
-> Isn't this defined in TRCSYNCPR.PERIOD?  Maybe just say "... for every
-> period of trace defined in TRCSYNCPR.PERIOD", or even more general
-> "... for every period of trace".
-> 
-> Thanks,
-> Leo
-> 
+Amelie Delaunay (4):
+  pinctrl: stm32: add stm32mp215 pinctrl support
+  dt-bindings: pinctrl: stm32: support for stm32mp215 and additional
+    packages
+  arm64: dts: st: introduce stm32mp21 pinctrl files
+  arm64: dts: st: add pinctrl to usart2 on stm32mp215f-dk board
 
-It would only not be true when using a custom config. I can say that 
-it's TRCSYNCPR.PERIOD but that the default is 4096 bytes.
+Antonio Borneo (7):
+  pinctrl: stm32: accept string value for property 'st,package'
+  dt-bindings: pinctrl: stm32: use strings for enum property
+    'st,package'
+  arm: dts: stm32: update property 'st,package' to new bindings
+  arm64: dts: st: update property 'st,package' to new bindings
+  dt-bindings: pinctrl: stm32: add new package to stm32mp257 pinctrl
+    support
+  arm64: dts: st: add interrupt to optee node on stm32mp21
+  arm64: dts: st: add pinctrl nodes on stm32mp21
 
->> +
->>      * - cc_threshold
->>        - Cycle count threshold value. If nothing is provided here or the provided value is 0, then the
->>          default value i.e 0x100 will be used. If provided value is less than minimum cycles threshold
->>
->> -- 
->> 2.34.1
->>
+Clément Le Goffic (3):
+  pinctrl: stm32: add new package to stm32mp257 pinctrl support
+  arm64: dts: st: add new package file for stm32mp25 pinctrl
+  arm64: dts: st: add exti1 and exti2 nodes on stm32mp21
+
+Pascal Paillet (1):
+  arm64: dts: st: add heartbeat LED on stm32mp215f-dk board
+
+ .../bindings/pinctrl/st,stm32-pinctrl.yaml    |   26 +-
+ .../boot/dts/st/stm32mp15xxaa-pinctrl.dtsi    |    4 +-
+ .../boot/dts/st/stm32mp15xxab-pinctrl.dtsi    |    2 +-
+ .../boot/dts/st/stm32mp15xxac-pinctrl.dtsi    |    4 +-
+ .../boot/dts/st/stm32mp15xxad-pinctrl.dtsi    |    2 +-
+ arch/arm64/boot/dts/st/stm32mp21-pinctrl.dtsi |   38 +
+ arch/arm64/boot/dts/st/stm32mp211.dtsi        |  294 +++
+ arch/arm64/boot/dts/st/stm32mp215f-dk.dts     |   31 +
+ .../boot/dts/st/stm32mp21xxal-pinctrl.dtsi    |   71 +
+ .../boot/dts/st/stm32mp21xxam-pinctrl.dtsi    |   71 +
+ .../boot/dts/st/stm32mp21xxan-pinctrl.dtsi    |   71 +
+ .../boot/dts/st/stm32mp21xxao-pinctrl.dtsi    |   63 +
+ .../boot/dts/st/stm32mp25xxai-pinctrl.dtsi    |    2 +-
+ .../boot/dts/st/stm32mp25xxaj-pinctrl.dtsi    |   71 +
+ .../boot/dts/st/stm32mp25xxak-pinctrl.dtsi    |    2 +-
+ .../boot/dts/st/stm32mp25xxal-pinctrl.dtsi    |    2 +-
+ drivers/pinctrl/stm32/Kconfig                 |    6 +
+ drivers/pinctrl/stm32/Makefile                |    1 +
+ drivers/pinctrl/stm32/pinctrl-stm32.c         |   36 +-
+ drivers/pinctrl/stm32/pinctrl-stm32.h         |   29 +-
+ drivers/pinctrl/stm32/pinctrl-stm32mp157.c    |  352 ++--
+ drivers/pinctrl/stm32/pinctrl-stm32mp215.c    | 1807 +++++++++++++++++
+ drivers/pinctrl/stm32/pinctrl-stm32mp257.c    |  344 ++--
+ 23 files changed, 2958 insertions(+), 371 deletions(-)
+ create mode 100644 arch/arm64/boot/dts/st/stm32mp21-pinctrl.dtsi
+ create mode 100644 arch/arm64/boot/dts/st/stm32mp21xxal-pinctrl.dtsi
+ create mode 100644 arch/arm64/boot/dts/st/stm32mp21xxam-pinctrl.dtsi
+ create mode 100644 arch/arm64/boot/dts/st/stm32mp21xxan-pinctrl.dtsi
+ create mode 100644 arch/arm64/boot/dts/st/stm32mp21xxao-pinctrl.dtsi
+ create mode 100644 arch/arm64/boot/dts/st/stm32mp25xxaj-pinctrl.dtsi
+ create mode 100644 drivers/pinctrl/stm32/pinctrl-stm32mp215.c
+
+
+base-commit: 61cbe48d9d1ff277bc54051fbab8b733b2e64ccb
+-- 
+2.34.1
 
 
