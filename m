@@ -4,86 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20297CF2560
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 23:03:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC943CF2561
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 23:04:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/CkKy4I7Nd+j6TrDrYR1KHm4hZaUOzQggilxM6L2z5U=; b=Z0N6XW+fEOn26LZ634SUL/oo4i
-	sQ1zl5dlk6im9xR4gJ8HHuLuZIralR7JPX22E5e8uMzLUs11KDajhnSCRVx4zDgJsKj3sIHua7iQb
-	jw8U0mnMWytTxsUZ4P6N50UiJ9cB2FR0LAo4Whpw8cI94g/OaFBVDoguALcFwm86wYCVoF3q8XPxz
-	enrWk5wWS0Fwcu2+eFM4uOKJFJeMNuQqlb1JWHNZ3jMa40oXGrWKatFyinZZ4PzdvP1pCP+3+wOM9
-	HZYhZmecTxQoifqv886AozHU2RLgIfLbeBddYjNlElcWQtooa1v9Ot3T/UKGG1sL3GK25iY3gPbZw
-	qn+YUQ4Q==;
+	bh=DpyxSY5WvJi0HmvpcS1llhG6ee+xNYXsAMhYQ5ST4Es=; b=PHUEhtf1ZiZ0KyWOsmthB5fV0o
+	O+yZ9ZsTNM7ZI9V/zOnCvOQM0JtRUaGukS4cyZWm/OuEUVNSL3IoQg1X9TDRxSUWhE8rFKCv858j+
+	4tv/rVYZUFCmyxawJ/3IXA4u0Sxux0TA1ulRi/JjoKv3frzMqRtbrvvYkbGaL1YtBOLykDjJq0oKC
+	tWPvLG52u7AVP6Bum1GFmvYAk1EUst4uPuiUbrw6b8GRjKWqLL4wlozofBVEiPi+16lx70vxIAJl9
+	QXIHxPf9KlEvFK1abT6N0BW1JcBC14AmvDhd9VniG0lvIlrcD0ZFIsTklnJSwj4gsfkrOh8ZPlFM9
+	s7QTQsew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLUjD-00000001D9Q-34BK;
-	Tue, 18 Nov 2025 23:03:15 +0000
-Received: from mail-yx1-xb135.google.com ([2607:f8b0:4864:20::b135])
+	id 1vLUkD-00000001DIS-2XlJ;
+	Tue, 18 Nov 2025 23:04:17 +0000
+Received: from mail-yx1-xb12c.google.com ([2607:f8b0:4864:20::b12c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLUjA-00000001D8h-3kIT
+	id 1vLUkB-00000001DH7-07bQ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Nov 2025 23:03:14 +0000
-Received: by mail-yx1-xb135.google.com with SMTP id 956f58d0204a3-640d0895d7cso500976d50.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Nov 2025 15:03:12 -0800 (PST)
+	Tue, 18 Nov 2025 23:04:16 +0000
+Received: by mail-yx1-xb12c.google.com with SMTP id 956f58d0204a3-640d790d444so5466228d50.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Nov 2025 15:04:14 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1763506992; x=1764111792; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1763507054; x=1764111854; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=/CkKy4I7Nd+j6TrDrYR1KHm4hZaUOzQggilxM6L2z5U=;
-        b=d0zr14SNKPEKAMkgKxP9FtU3DsE9K2e/q3ztcnVdQH0S5NGvt9vFmHB2QUBG3qQ50X
-         qYfvqojn2IYZ5xnOEAzgSCuYeYBg8xNS6byrCIJRdgN8Qg50KEV5F2uukVfv+/x91KZo
-         wefaK10udGGFbTd/nUffHgaLLCI1mOUHJfxLuozZE9ERg0Hp78h0qQj+eXYTivuoA/aA
-         RF8sL5VY8BSuIZxTkQUPZ2nTmH6j6IAckVwE9T0rIweP8RUaKKLkMbvVzvggeXwV3l/c
-         wD3uhw2IH6G3L+FLTNJgKvDrUKBdLDYRpPmrZsb3jLjpqfB0fFNOw/ZrzAnOmlb+YHIC
-         BlfA==
+        bh=DpyxSY5WvJi0HmvpcS1llhG6ee+xNYXsAMhYQ5ST4Es=;
+        b=HtEPdHQHQLgopvvbsytwou8Lfwvm2aEin+jN578QE6hQetJHFmBBFqniRTPw11TBOH
+         fR3rxEVtWFWSmhZz4CMOXTXOETmMbilGGb5KBCC4/d525U8T0caAcY9vOL/xLi+aHDcQ
+         Z3AflI+W4+vyXYILqydJiaw/lGrAneJEAKSK5q98BmzZqH19WYAcOxvMcfNnXapTtIf3
+         AOzWK1CLp1FfwfAn/RqmNq8LbNQFTlCcAdbMIBZMi3qxk2gIjl/eE0p0Ww14EjARweOi
+         oVcUOtNHnsAOm/e5lLQikHMM+xTEYg9Pjal0jwzrxk/UDDdG5944yh6yKF/pkMuvayPt
+         cqKg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763506992; x=1764111792;
+        d=1e100.net; s=20230601; t=1763507054; x=1764111854;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=/CkKy4I7Nd+j6TrDrYR1KHm4hZaUOzQggilxM6L2z5U=;
-        b=Yo/rbGnPsam1KQpPOQptoORSe9IOEAoVjPUI4bXZ9zsgkr31ok01HY0/o5xlPIEsU9
-         1Jq7qmDP/a4aHIIo+8NcFMzUWG/BRUKqhQzRxxz+2Wl7gSp1Z7xpgIa0MhS3L4V4Sn0a
-         IylAg1S8ri2jT0WzlIfjfRGQu8zyn4vSIAbZ13lPE23vnhijGBeG3/icCYjXFWEXhJIJ
-         TLr9KoQrLXoJ/zD5jLzB7RpCoRRhG+vS1drvYFrq6qs0az0VQ2P1/cgxZG70DuNHsVtI
-         3l0TEH6VIDw2ud5t2nzVQzKe/3U5XipANet40htk0ZzrWGkpLOFAAgX7vo7Jbm7RdwCE
-         BXyA==
-X-Forwarded-Encrypted: i=1; AJvYcCVpdYSntOKaOqgpfrhjbr0XQO91rT1v9Ef79BR7Bb0sG5QdXFd9O+fTWpMAw+5Q47oSKc+PXh9WbXXaHR1FqJLS@lists.infradead.org
-X-Gm-Message-State: AOJu0YwFxNEBQtNJ5c19DL1rqM226tidgojnEqTHORdMdGE0AIA9NB5d
-	oM7K08Pdj7S+1XUEarYAnNE9OPlQwfCIxLDjMlNIu+efdbnaD/qXsN+a3wMONu/bKlzoqEBd1yn
-	KZ53uNewUkCYri6JD3wf0EiM338OmXLdlbrt3A9Cb0A==
-X-Gm-Gg: ASbGncueAVoztW94o2iUSFBKNAv+6sTNzMjl5uuRvwKf6s2sdPJ7otVHgHwpmfmZpi5
-	U4iUnV//oPhuFiqo/EirzOkU5HrB7yy7J8KtdhqW+u+9oG2nFzj5r5SjXbplNMgEQK5mwRED96Z
-	qZn8E9UjA6yIHr8+NErAfrSOLHgV/CTSIWkdreldfPtlr8gmqa5Mx3/n9MR76GdbjHi3zxpWune
-	EawvmNDAH58fT9UAgSNEiOSh6t9qKoMMrCJ2MM95hdqBmUINTXHWFMNWUl35lrQtvznvTk=
-X-Google-Smtp-Source: AGHT+IEWG/T70U51QkboX+BFArhMW1GqtsSC5NyxbuNNMatQpKCwXgLG1q4spEcInbcCfufWgaMLYLHwYyBGvQc+TgU=
-X-Received: by 2002:a05:690e:4106:b0:63f:b985:66b5 with SMTP id
- 956f58d0204a3-642ed60ce63mr266853d50.6.1763506991657; Tue, 18 Nov 2025
- 15:03:11 -0800 (PST)
+        bh=DpyxSY5WvJi0HmvpcS1llhG6ee+xNYXsAMhYQ5ST4Es=;
+        b=WdPIFaUwlH5XAclc5PwMOrsTGuz8EfWW3SeV/662CYVHNfgD5uQjpp3AYz0EoD93Nl
+         5HZekmiRtT6qFFf03I6R7mdI/rIfa03hLpTyuvtVzc4OpmahTNhvudkN+PMuEWwo/YEP
+         UG9VfI6T3pERe2jTPFFbUJV7peUROYhH+JsJp9Z6btE6l+ZLkMRKCdfjqacOw+qbxRTH
+         vKLTCn1m5vwmXXt2lPy6hagBZx/naFG6q8MH5bjesfbRW7h5rc2T6dhOr+/9ayCX7/NB
+         HZRYD3BBElI8hIlS0F0dhQY/Vh08n8uSURGJ5v5WaBqtvnA7lygta5Vk8uwrBHDDjQo1
+         BYzg==
+X-Forwarded-Encrypted: i=1; AJvYcCWEjtSZ81tjczyKTIZjOk+kqGU8goEQht+F/pCvYx2qk+23SDTz1TDCki/rTIj54Rbzt9KmBut58enNPSWicuaL@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywq7KOXVwp4Le+UfuGV2sd9sR85n79LD8P36HUqTkl9vrgP/w+s
+	EVVqOTJ8j3HnsOPTpclCusu5y0q1BrD/CycH9Ga+8d+qFjYg4OGngFqbXxXMRq8wlxfKWjl4nOa
+	F2YxCxNSDuEgQ+nkIfX8p4fUU32UR3Doo1HalZDSdpw==
+X-Gm-Gg: ASbGncsBwu+vQhqPsaqkr852W7wf09pMPUfRxhxhdZRLbFvGllxy13chWxYk/f5M1My
+	ydvbbeRdXH+qsRXAAKhtoiIe5zD8U1u7rJOP8xbiQ8ytFEJOAte2OP1/VLRZnkh4oY6YY6KbvSf
+	ZkC3T/itmxbPdbKv3NG/PNH+SnfjRvAWdRcFnPMUFmxFKWnhl/DAG/w8PqhshXjKNjaC5TTh8Lm
+	EyLt5Afq4k+Za8ZSyTy/dY68B7dmUXMYm0/RJ//PEVdc2tWXdE218ABYDItVn5eyM6REz/1dt/Q
+	QCtbnw==
+X-Google-Smtp-Source: AGHT+IELB+09mf9khX/1UFEnPeAm1lrX0fgELMFuofsGX4R6IFFA6KPF6dwvDM7AxfFurD19MW+eZHnF90lveBd3oI4=
+X-Received: by 2002:a05:690e:155c:20b0:641:f5bc:6984 with SMTP id
+ 956f58d0204a3-641f5bc71d8mr9451804d50.80.1763507053863; Tue, 18 Nov 2025
+ 15:04:13 -0800 (PST)
 MIME-Version: 1.0
-References: <20251115100000.177791-1-amadeus@jmu.edu.cn>
-In-Reply-To: <20251115100000.177791-1-amadeus@jmu.edu.cn>
+References: <20251112-pinctrl-airoha-fix-an7583-drive-e2-confg-usage-v1-1-d2550d55e988@kernel.org>
+In-Reply-To: <20251112-pinctrl-airoha-fix-an7583-drive-e2-confg-usage-v1-1-d2550d55e988@kernel.org>
 From: Linus Walleij <linus.walleij@linaro.org>
-Date: Wed, 19 Nov 2025 00:02:56 +0100
-X-Gm-Features: AWmQ_bnUW-BUpl8V9jWIRwhTERbiqNe1byNfSmfq0uZuXktxGoeLDqptYWTthh4
-Message-ID: <CACRpkdbMPGL=s7gmQsRTNpzdBanWHRX857bcg0Jiu0Zfp=hSyg@mail.gmail.com>
-Subject: Re: [PATCH 1/1] pinctrl: airoha: fix pinctrl function mismatch issue
-To: Chukun Pan <amadeus@jmu.edu.cn>
-Cc: Lorenzo Bianconi <lorenzo@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
-	angelogioacchino.delregno@collabora.com, 
-	Christian Marangi <ansuelsmth@gmail.com>, Sean Wang <sean.wang@kernel.org>, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org
+Date: Wed, 19 Nov 2025 00:03:58 +0100
+X-Gm-Features: AWmQ_bmTrpDRkDleDNb2XMlOjcgLl6u_OW5kVkCUfJvH2chNj2IWVVvyVcdyP9M
+Message-ID: <CACRpkdaFq9PBxvxG2t6xDTN9M-7psvo=VDTCpu_qhvk30zFrMA@mail.gmail.com>
+Subject: Re: [PATCH] pinctrl: airoha: Fix AIROHA_PINCTRL_CONFS_DRIVE_E2 in an7583_pinctrl_match_data
+To: Nathan Chancellor <nathan@kernel.org>
+Cc: Christian Marangi <ansuelsmth@gmail.com>, Lorenzo Bianconi <lorenzo@kernel.org>, 
+	Sean Wang <sean.wang@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	linux-mediatek@lists.infradead.org, linux-gpio@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, llvm@lists.linux.dev, 
+	patches@lists.linux.dev
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251118_150312_937193_BB57EA74 
-X-CRM114-Status: GOOD (  10.77  )
+X-CRM114-CacheID: sfid-20251118_150415_082264_E1630C49 
+X-CRM114-Status: GOOD (  12.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,26 +100,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Nov 15, 2025 at 11:00=E2=80=AFAM Chukun Pan <amadeus@jmu.edu.cn> wr=
-ote:
+On Wed, Nov 12, 2025 at 7:44=E2=80=AFPM Nathan Chancellor <nathan@kernel.or=
+g> wrote:
 
-> The blamed commit made the following changes:
+> Clang warns (or errors with CONFIG_WERROR=3Dy / W=3De):
 >
-> -#define PINCTRL_FUNC_DESC(id)...
-> -               .desc =3D PINCTRL_PINFUNCTION(#id, ...
-> +#define PINCTRL_FUNC_DESC(id, table)...
-> +               .desc =3D PINCTRL_PINFUNCTION(#id, ...
+>   pinctrl/mediatek/pinctrl-airoha.c:2064:41: error: variable 'an7583_pinc=
+trl_drive_e2_conf' is not needed and will not be emitted [-Werror,-Wunneede=
+d-internal-declaration]
+>    2064 | static const struct airoha_pinctrl_conf an7583_pinctrl_drive_e2=
+_conf[] =3D {
+>         |                                         ^~~~~~~~~~~~~~~~~~~~~~~=
+~~~~~
 >
-> -       PINCTRL_FUNC_DESC(pon)...
-> +       PINCTRL_FUNC_DESC("pon", pon)...
+> Due to a typo, an7583_pinctrl_drive_e2_conf is only used within
+> ARRAY_SIZE() (hence no instance of -Wunused-variable), which is
+> evaluated at compile time, so it will not be needed in the final object
+> file.
 >
-> It's clear that the id of funcs doesn't match the definition.
-> Remove redundant #string from the definition to fix this issue:
-> pinctrl-airoha ...: invalid function mdio in map table
+> Fix the .confs assignment for AIROHA_PINCTRL_CONFS_DRIVE_E2 in
+> an7583_pinctrl_match_data to clear up the warning.
 >
-> Fixes: 4043b0c45f85 ("pinctrl: airoha: generalize pins/group/function/con=
-fs handling")
-> Signed-off-by: Chukun Pan <amadeus@jmu.edu.cn>
+> Closes: https://github.com/ClangBuiltLinux/linux/issues/2142
+> Fixes: 3ffeb17a9a27 ("pinctrl: airoha: add support for Airoha AN7583 PINs=
+")
+> Signed-off-by: Nathan Chancellor <nathan@kernel.org>
 
 Patch applied!
 
