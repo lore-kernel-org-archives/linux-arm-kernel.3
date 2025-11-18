@@ -4,206 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23294CED25D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 09:39:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F3D0CED260
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 09:42:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ivkwV5oE/STrAI9iGXT8kA/El3W1suq9EaS6QtN/xoc=; b=0uXiepvKG8xDo3HPujETxfKpoZ
-	d8IFfkBwm0B0jlAdxWltQZllSrzfdnIrGxmJIE0rR0Yxv83q6oVdL3ZbJbCUBRLvp7Wd95QiKpl9V
-	Vv2zfcFmS38UpwRi6xeWprbavvt6uvnTPGx6TCZTWrEHSeXfUNg4VDcLCKQ8LPy7t+8VRvYs67Ojz
-	vobV1/XmdhTN4tYlzu1XGqyRdm9BUm+Z3op6ahVSR2qXIOJT2eVG30Kg/oltJGEPIDq9Q6XM/dvZH
-	59w0+YqjgZTWBl11N4NwLz8m5eA/GyRR9VWXRKSTQekFKjYVkveY81BPGIgE4jkRQWb9jpRi7h9nL
-	yTdhbeIw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
+	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=L/ZuUtKm2/sE7cdwEXicDQSkRQeYVOM81nL04//AKHk=; b=Px/CKZ7OFX0Ga/IOfGtT+NXGFE
+	oHDJ9IImRK4oUoVOFVhUSS7Ln5OVYgF8KwctcPG94KSyQyuo3CxTiHPJzkbIfrVjY0HQrpEuWVrf6
+	DYQsJbOue6KgcsVs9SThrXjQcuAlJFyTOSHi2zDDu8vbEeagusj8mJ2zcXUL6u1AoPrUUj05iB/5t
+	NuiZ+7wu1HvfwzgfBsVHd16fLGYpB7dt07q90PgFmDVOLbTbfT8dEHHVCMSEd+58xQVnDnr78a+mq
+	AjYVNkj+8M19uYrVsD1ixRnIG1CpHA1h94+7v3AqKcZy2n8fzY+V/wF1NJMWHNFbGmu2QIJEep8DH
+	zsRhHr0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLIBR-00000000Avx-24Ho;
-	Tue, 18 Nov 2025 09:39:33 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1vLIDp-00000000B8b-2Wtg;
+	Tue, 18 Nov 2025 09:42:01 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLIBO-00000000AvC-38oc;
-	Tue, 18 Nov 2025 09:39:31 +0000
-X-UUID: 7780c5d8c46211f0a52f393f94899d25-20251118
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=MIME-Version:Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From; bh=ivkwV5oE/STrAI9iGXT8kA/El3W1suq9EaS6QtN/xoc=;
-	b=s3xQLcn//XsMgf5abEKMmz7S7Irn/CwkSVfRtvDcjWYsedNijIQF5J8eWoG+nMswUYvhvitZ3/GStJap4wNJJfvYq3mf2aEs5CnUZM9yPsFj6SJNHZWSCyl6i2z6CMQD+wOOkcr1Zdq1OKMsD0mrUwsskqNkuNz0SFMqwNA92Yo=;
-X-CID-CACHE: Type:Local,Time:202511180239-07,HitQuantity:1
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.6,REQID:c09ddbfc-32ff-4fec-aa7e-9bb41c155619,IP:0,UR
-	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
-	elease,TS:0
-X-CID-META: VersionHash:a9d874c,CLOUDID:19840658-17e4-43d2-bf73-55337eed999a,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102|110|111|836|888|898,
-	TC:-5,Content:0|15|50,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BE
-	C:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 7780c5d8c46211f0a52f393f94899d25-20251118
-Received: from mtkmbs11n1.mediatek.inc [(172.21.101.185)] by mailgw02.mediatek.com
-	(envelope-from <johnny-cc.chang@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 2074089616; Tue, 18 Nov 2025 02:39:23 -0700
-Received: from mtkmbs10n1.mediatek.inc (172.21.101.34) by
- MTKMBS09N2.mediatek.inc (172.21.101.94) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1748.26; Tue, 18 Nov 2025 17:39:20 +0800
-Received: from SG2PR04CU010.outbound.protection.outlook.com (172.21.101.237)
- by mtkmbs10n1.mediatek.inc (172.21.101.34) with Microsoft SMTP Server id
- 15.2.1748.26 via Frontend Transport; Tue, 18 Nov 2025 17:39:20 +0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=rU1hW6+jGgsvCuEJ7RR6LdNUyUWpxxmrUeWS5D/mJ7LAEm02V7O3BIp9Ms/WWj+Y1IY+xu0z0M7dka/6qxCfeAmj84lUhNlxwJo8zmeYWcZrBOVM/8cKW2trFRWcwyvkWi9qfiZmTIe9SPOTs9PccHTihtxy7ziWiqqkmRt3eM6+CxSivN5opE8lJnrtsN8KIPeh97zopaoqLdKrRhWUmRc9vPOQ1CbiJRXn3y+a8cDW70IFa/w/uC6F82ntFMYefDUV8GIbQ4ZIkAsm489HpYhs8o+WADKK4FAs9CQjpCMvIDWN61MnhbGD/NaswOF35p6bV5U5PHuXIG505/i9sA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ivkwV5oE/STrAI9iGXT8kA/El3W1suq9EaS6QtN/xoc=;
- b=HXvwhFYOax7BpQTbwToAhY9J8VoFgdAP8AqMs3kqbJrR70zuJSWbPSSGxlAwBxubmvCTqM/zQb8sFTdgVOZqjKiTkIu9HZ8xWDgsJAHc/e/B9U4jZr/PZl9D6oArQ7UysuqZDJrFUnygNkihnj3/A5HzrRhEBlEESjkdDZNvbL0CGhUZeqcLviRkbheIAw35AeL6QUJZbBzp156XPtgTI0QjkCTbPWFmnGX8EJLNSMf0gMnPd/KuCa+5zPQ3E+bOZIq7eNjoSpw7aGY2mKsRcHpDMK7bUXL/YIWOhYBHIZ7ivHtLAdkCjiw/jprbqylUYssXgNlGaRhfpl8onbgEnA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=mediatek.com; dmarc=pass action=none header.from=mediatek.com;
- dkim=pass header.d=mediatek.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=mediateko365.onmicrosoft.com; s=selector2-mediateko365-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ivkwV5oE/STrAI9iGXT8kA/El3W1suq9EaS6QtN/xoc=;
- b=gMq/Rk0eKe6BmxPjRzpVh8fBV/WoUHo326ANv+bsePY73VMFfUOl0JcGNDjTovHIkWgs0RijPQFwbcjfFQ4K5Qv1YdlKZklPIwYqtRs0sjBucMNpgi1LjbKlgRDYjTiKef84KT81cs1w6YAbjt7eyAd46RENBCZzBQeU8uYUN/E=
-Received: from TYZPR03MB6164.apcprd03.prod.outlook.com (2603:1096:400:12f::10)
- by TYZPR03MB7639.apcprd03.prod.outlook.com (2603:1096:400:426::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9320.20; Tue, 18 Nov
- 2025 09:39:18 +0000
-Received: from TYZPR03MB6164.apcprd03.prod.outlook.com
- ([fe80::4975:7e68:a99b:d655]) by TYZPR03MB6164.apcprd03.prod.outlook.com
- ([fe80::4975:7e68:a99b:d655%5]) with mapi id 15.20.9320.018; Tue, 18 Nov 2025
- 09:39:18 +0000
-From: =?utf-8?B?Sm9obm55LUNDIENoYW5nICjlvLXmmYvlmIkp?=
-	<Johnny-CC.Chang@mediatek.com>
-To: "lukas@wunner.de" <lukas@wunner.de>
-CC: Project_Global_Digits_Upstream_Group
-	<Project_Global_Digits_Upstream_Group@mediatek.com>, "AngeloGioacchino Del
- Regno" <angelogioacchino.delregno@collabora.com>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-pci@vger.kernel.org"
-	<linux-pci@vger.kernel.org>, "linux-mediatek@lists.infradead.org"
-	<linux-mediatek@lists.infradead.org>, "bhelgaas@google.com"
-	<bhelgaas@google.com>, "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>
-Subject: Re: [PATCH] PCI: Mark Nvidia GB10 to avoid bus reset
-Thread-Topic: [PATCH] PCI: Mark Nvidia GB10 to avoid bus reset
-Thread-Index: AQHcVHnastJoxsIJbEqLLkQpp8yUiLTwWe4AgAfbiIA=
-Date: Tue, 18 Nov 2025 09:39:18 +0000
-Message-ID: <39028d84844a08b8b716eb3941cc02562d21dc84.camel@mediatek.com>
-References: <20251113084441.2124737-1-Johnny-CC.Chang@mediatek.com>
-	 <aRWnYCI6Ax14XNJq@wunner.de>
-In-Reply-To: <aRWnYCI6Ax14XNJq@wunner.de>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=mediatek.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: TYZPR03MB6164:EE_|TYZPR03MB7639:EE_
-x-ms-office365-filtering-correlation-id: 7eb5e5a1-7b62-4fe5-873a-08de26865859
-x-ld-processed: a7687ede-7a6b-4ef6-bace-642f677fbe31,ExtAddr
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|1800799024|376014|38070700021;
-x-microsoft-antispam-message-info: =?utf-8?B?RERhS2NBSGsvK2lxUGt3Z2QrbFNIOTlCcGlHeVdBVFNYSkc0bFN0d1dabTJa?=
- =?utf-8?B?UnRzaVJsdHJxdW1NQUY3NXpPckVhTmd2ZFlkdHRMVnNYMWxmc0NGdEZpYmFZ?=
- =?utf-8?B?OUhmWXBtb09ZWURvWW92Z1BuN3ZXeVFtKzFueU8zcTcrQzRmVmVwZnpTL1NQ?=
- =?utf-8?B?eUR6SlBWV2NRcktKcjV0ZDVyYlQ2UCtFa0dPS1pZV3ZGNEVkci9RK2VSNmEw?=
- =?utf-8?B?UmdxYUd5TW9KVWhtajZqbTJwRTlhZHFpRXhza1Y5Q3BlZmdEUm5rc0xSdW5U?=
- =?utf-8?B?OUNNVEhIdGNHUWw1NDlSbnVpUzFJUUwwakNJRGhITzVhZ0ZKRVMzRjh5c2hR?=
- =?utf-8?B?VUlzdzJ3NGdkckRsOXNrNkx2SytOREIwbnBvOWxFNU02OUpNSVZ3ZTBzSjlt?=
- =?utf-8?B?WGp0b3ZEN2hicGl6T0JOdmRqVTVKNjZIaDFEaXFidHNQNi9EU2dJRmhZTlJi?=
- =?utf-8?B?TEdSejR1MjZqdHJlamFzd3R5QTlBV1I2Z3FWakd3dnFkNVhLNUlmUFBoV2FQ?=
- =?utf-8?B?UE5WZnY3Sy9Ob3lPd1NHUUZEcFZoZTJQRzkxbmUyKzhHdFgwTlR0WjN0U2d0?=
- =?utf-8?B?ODJNbEY3a2RvQVYwQ1pWMDkrQ0RZdnVyc2pyMEJ5RlpDbG9TSHViUEtkT3ZN?=
- =?utf-8?B?Qmxid2FVeEZqcW9MSS9GcEVqVnF3RnBNbzIycWV5SUJUVjhDYTJXbHhqbURa?=
- =?utf-8?B?UmZzaGhqaFd3WUVmbkx4QWd4dThCZFZiY3pUeHFFaUNtTENIUmVMdnJvZEk3?=
- =?utf-8?B?bE96SGgrSGR5b0IwL3VaYzRKakV0MjVhb29mc2hhZUpQc2R2Z0Uvd3hLL3F3?=
- =?utf-8?B?SHo0bHNWR2QySlo4SllDOGNPOVVFREhCbkZPR2FrQ0VEQ1pHSFlJbVNNQ2J4?=
- =?utf-8?B?R2FDSkEyOE14SUxCZXp6TXRrR3VRZnJMdXZZSEh6dkdLcUZIVk9pRFRVY3Q3?=
- =?utf-8?B?VGZ4Vit0Q3dFem0zNlNJaVNEU2pFVE42cmVkdjRERWt5ZUliZFZxZ29CYi9v?=
- =?utf-8?B?bWhsVnd2RVVhS1pQMUg3MkxDS0ZBc2I4ZW4zTmFuaHNHUDFtR0MwMWppTFFa?=
- =?utf-8?B?TUtuRzN0a0t2WVUzdjAxNVJhbTQvOHpCdUlVVTFkcUZvQm9iVFhNWEU0dWFT?=
- =?utf-8?B?T3UvU2VCZGNVVFpUZFh2MzE0UUZIV29sQXJlOFhpcytiWGdrdVk5Wm5rVS92?=
- =?utf-8?B?aWNNcDBlMzFkTkdZeU9EWHIzbHJObEFkdmRJY29TUjZlc0J5bUF6T0ZjNXhV?=
- =?utf-8?B?enlvejlkc2krbVYxdTl6VVBycHNvTVZGTFU0d2R1YlFPd1Jic2YxR0R6Ri92?=
- =?utf-8?B?WndvdDRnVW4xcjlTQmg1QkxycnFiNjZzUWI4UU1XeUZKWlArb3VvR0I5V1Ba?=
- =?utf-8?B?bU9kRFpuVndDd0lXYlh6Z0hZdW1KcjN2TFJ0RjNYYytjSGJ0SW01aEVKaUdK?=
- =?utf-8?B?dFZqaThJZkJyenZSYUtXV3c1ZXloQWJzZ1NkZVRJb0UveXo0YWtkVEJXN1ZO?=
- =?utf-8?B?cWF4WEVWL3hrN2kxNVArR1Mwemh0alM0VWRxbmlaaE1rSXpTVXZaZ3Zzc3JJ?=
- =?utf-8?B?NEZHOE1jSVYzUUlSSFZUVExhcUVlUVVxYlRoK3prc1Q3dURMYkkvT1NsYTM2?=
- =?utf-8?B?a3RPTTc5TkZ4N2dpTk9BMDUyd2Z5UEhxc0hxRVlJZDg5cU5yQlB4L0JONlJG?=
- =?utf-8?B?UGk2OVlpbHRvT1VBTFJCaks0TkFzLzM1SDVReWFlRUlqK0paQmNsbWxNckdu?=
- =?utf-8?B?eittTFB6UnY3VnRtUnhyQ1A2eVlmMVVOYVM4a09NMGNWM0hza3BVMkVVUUtK?=
- =?utf-8?B?YW5ETTUvaS9Mek5VV3dpYmpreXBVUHpnbU5YdjFRcnc3Y1BCbmNlS3ZtMUNE?=
- =?utf-8?B?b2w4WXZBcEVZY3ZNemZQY00yaVBneWppQXh4WStGQkRMTXRIdExiSkJQRExq?=
- =?utf-8?B?b01vU1lHdjdwNFlZVTRNSDBVRUlwanR6TWZRRWZVTHR2N0dvcFRVeHNTMVZM?=
- =?utf-8?B?Q3c3QkhMaFpZVFl0aHhSOUlvZGFwSGFZcHVhT01UdXM3WXNKNGYzUmdUOFZv?=
- =?utf-8?Q?xhUBvF?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYZPR03MB6164.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(38070700021);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?WDAxcVJuend5Ym1kODN1VFZhdnRkR2tBTTdjeDRtZyt3dlBwbXprcVlacjMx?=
- =?utf-8?B?TkRuMUI1eEVsVzNVRTcvUG5HTWFvN1MrRkZwZUFEdzg3eEFEcFk0S1l0cHpw?=
- =?utf-8?B?eERTR0lMVUhERmp5MmpBMFhHaGNsYTYzaExXaERac2N2VlJGYjcxZko5RTZZ?=
- =?utf-8?B?Yjl3aXgwRHFnU0thT0QzcElJcEZ6MzZBRjB0MWpIT0hrK3VZYzlGNWN0NXZK?=
- =?utf-8?B?aFlBK2lZWkFRSERJL3hCd29iWC9PTUhxejNLdi9ETW5tS3JMakZad1lMd2FJ?=
- =?utf-8?B?RTlONS81TmtYc3VYbkZaZEZ1Qk5RN0hCSHlkcmxLRHNmVm56YlFLSFBib2o3?=
- =?utf-8?B?NERyay81bzJoNlBBY1o5OGpVQVlhMzJtbE5mUk1UMTBkSFFCbFl0U3dmUFlG?=
- =?utf-8?B?K2p1dlFvY21iaUZwRE1tYTlpbGdQWEpWMWZYN05kSlNRMXBlQUxTT3gyWnpi?=
- =?utf-8?B?WEYwTDFiVUMzbmp1Y2oyZHBWbFB4OERYUURNNmladGRMa1NJK1R5V0laU2dJ?=
- =?utf-8?B?RGdhSG9aTjE2ZDZwQVVScU5hdXY2ZWd1UEQweDZDeTFUenB0NUVSdUgrelZH?=
- =?utf-8?B?QUl2UDFFWjVZYmg5VEY4YURoYUpMZjFrZGpZdCtPZ0NWdko0MUtVS2I3MVJI?=
- =?utf-8?B?RGl5QTRJWUVoMUlVb2dJbVd4dE5VS0JLSld5UWx0NGMwTHptaWQyNkRlTGtQ?=
- =?utf-8?B?YWhYMndhTDU5VHRLNWRwQXlKMG9EQkorcy96TEFJaUNXekR3NkhoSUNHL2dZ?=
- =?utf-8?B?c2pQWGdocGFlVUtiRm5MZHQzd0JUYmpKVldBR0lNc0Y0Q1BpTExSQ0ZXOEtS?=
- =?utf-8?B?V0F2cGx2SDdjTWFPc3ExUktZRXVDMFRwQnB2emNWM1FkSjIzTHNZelpQNlZL?=
- =?utf-8?B?NFl5UFhFbHpCYVE4eDRvamp4ZURXL1JFakFoSHNHdjl0ZDZ3WmNRRENBTmps?=
- =?utf-8?B?WXJ1WGcvd3lmSURMU0JUclBwVDZadkYySlNhZkh2NFN5Sm9pYnlocVl2S0pt?=
- =?utf-8?B?MGdrNkZRaWdHbTd6OU5qNWdzTkExaWg2TEdIU3l4SEpYaDVobFNSTEtiV01s?=
- =?utf-8?B?ZTVpcHJUdVN6K25qa2o4YVhHRnZuMldTVFU4bGlZb3BrRm1XMHJRUGZEQWJz?=
- =?utf-8?B?YXczbmVZb1c1aktSSmJncStFYmJXZ0dNSFNlQjBTT0lOVFpXcjRmUGNqWExJ?=
- =?utf-8?B?NmhQYTVOS3JnRWs4R1dOQkNBUVNQVFU3UTFHbytFU1l0dFdySkxHK3kyQjc5?=
- =?utf-8?B?QVg0YXZuM3hIT1ltL2lzakhYQkd6ckhhdlNnRjByZUpwYWtRUWxXK3N5TXVv?=
- =?utf-8?B?bzRQdTk2V3R0MW9iVGFoWkovRmc3Wit1TzcvQitMRWFwQkRtUkdJQnFNRUdt?=
- =?utf-8?B?V0dXZlVUeWM2cnBDbXBQMHNkY3YvY0xRMTFFZ1FIMXVQQklqL2gwR2E0czVP?=
- =?utf-8?B?bnV2VHpxWkpNYXJvZ2FWR3BlNGlvYXpFbERkNkpaM1pNWFhKYlRxVmdyZ0ZC?=
- =?utf-8?B?d1o0RU5RbnJvZFJQTFZIS0orZzVwRjdpYUtlZ2hUWExzRzZMOVdUblkwRGJt?=
- =?utf-8?B?V2N4dzhIS3B4MG5TNTBwSDNXRDNMcTFFWTdta2FvdkVlbVVFbVZLQ2dUa0J6?=
- =?utf-8?B?T0xhT1pzMXJHSWZvMUJEbHlSUXJQb2p1cVlKSG1od0xBcEF5VWpkSDlpRVRS?=
- =?utf-8?B?MkwzZWExdUtabHJlOVVTTVRJSk5LQnk5enpOMGRRUUlieTNPd2ZrdlM0WTd6?=
- =?utf-8?B?UENaYlY0Ym00ck0yRFF2ZkxEa1E1eEpiWDBqMmtyN0x6WmhGUSs2QmRtZU5X?=
- =?utf-8?B?bUozOXRJQ0JHR3NDSTd6TW5DV1VGZUVTblhUWTZ6SkFRczVFL040aHJ4RUt2?=
- =?utf-8?B?cVlNWG5mbVlYTjhsQUI5c21ZbEE1bHN2cWF6OFozZFQySW4zeTVmZXFab1VB?=
- =?utf-8?B?d3N2QXVyVERrVThTdEtZUkYwUkYxdFExT0lQbVc0YitrbXByb2Q0cGIyLzZM?=
- =?utf-8?B?NVlWemVwNzFDM0RlcWtLU3hCT0I1aGxEU1dYclZUbDR2c3VDNkErTncvcHZQ?=
- =?utf-8?B?OEc1MkFDc3EzcmRhZE1lYUx6TE42T2pxbGszWDNLeUZ2eCtabHlURjZkd2hz?=
- =?utf-8?B?VnBteXcwWnc2dDkwdVdObjVFNm1WTHRKU3dsOHU5dWMxWHY0VWpWbmxyOU8r?=
- =?utf-8?B?YlE9PQ==?=
-Content-Type: text/plain; charset="utf-8"
-Content-ID: <914DFE9D30118F4C8A2E295BCDED1B26@apcprd03.prod.outlook.com>
-Content-Transfer-Encoding: base64
+	id 1vLIDm-00000000B7y-0ppL
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 18 Nov 2025 09:42:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:Reply-To:Content-ID
+	:Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:
+	Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:
+	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=L/ZuUtKm2/sE7cdwEXicDQSkRQeYVOM81nL04//AKHk=; b=q5RkO1pIO7C1OVj6+a49cmpyYO
+	iVx2KoZZ4jKybKEtiooSFVLVxvLTkIx4nXvT5ajVqjWxLz3ahG6tO1KR+0P+wRQ45CL+1Oz8G71ig
+	n31ZdPzfl9ykipOXAbtielIuUjwamg5cpIRG0UcOLyvd0V1ifmi7bawhA2iH+CFc1OAmWCjjlx3Ho
+	hX/vdT6NHy2foLpU0WtD3V9FdCmtGIYt25TKhI35YkKn6vHwCBSCeFS/urqy9Ptl+6+e4/DMbG+p+
+	O/SMUbFQUfbJ5OnGVKT6een5YWCvy7A97FlbJFyMCpp4hiuspiVESXUY9oYqsjJ9zzJnrzrKKjZkZ
+	kj/Q3KKA==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:57002 helo=rmk-PC.armlinux.org.uk)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <rmk@armlinux.org.uk>)
+	id 1vLIDO-0000000030R-1bJs;
+	Tue, 18 Nov 2025 09:41:34 +0000
+Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
+	id 1vLIDN-0000000Evur-2NLU;
+	Tue, 18 Nov 2025 09:41:33 +0000
+From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>,
+	Heiner Kallweit <hkallweit1@gmail.com>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	bpf@vger.kernel.org,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Jesper Dangaard Brouer <hawk@kernel.org>,
+	John Fastabend <john.fastabend@gmail.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>,
+	Stanislav Fomichev <sdf@fomichev.me>
+Subject: [PATCH net-next] net: stmmac: convert priv->sph* to boolean and
+ rename
 MIME-Version: 1.0
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: TYZPR03MB6164.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7eb5e5a1-7b62-4fe5-873a-08de26865859
-X-MS-Exchange-CrossTenant-originalarrivaltime: 18 Nov 2025 09:39:18.2511
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: a7687ede-7a6b-4ef6-bace-642f677fbe31
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: DHsoVOteZTFj/ocyTbSyO9dtif/Mw/0as93ABFCBuI7VewDyCMvYz5nWODZSyY6DowQ5R5T9Kruf11p26TaELG0WwSfWxLE07n3zQSyilTE=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYZPR03MB7639
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <E1vLIDN-0000000Evur-2NLU@rmk-PC.armlinux.org.uk>
+Date: Tue, 18 Nov 2025 09:41:33 +0000
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251118_013930_802623_9784B2C9 
-X-CRM114-Status: UNSURE (   9.87  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251118_014158_898853_0D0946BF 
+X-CRM114-Status: GOOD (  17.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -218,13 +93,164 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-T24gVGh1LCAyMDI1LTExLTEzIGF0IDEwOjM5ICswMTAwLCBMdWthcyBXdW5uZXIgd3JvdGU6DQo+
-IE9uIFRodSwgTm92IDEzLCAyMDI1IGF0IDA0OjQ0OjA2UE0gKzA4MDAsIEpvaG5ueSBDaGFuZyB3
-cm90ZToNCj4gPiBOdmlkaWEgR0IxMCBQQ0llIGhvc3RzIHdpbGwgZW5jb3VudGVyIHByb2JsZW0g
-b2NjYXNpb25hbGx5DQo+ID4gYWZ0ZXIgU0JSKHNlY29uZGFyeSBidXMgcmVzZXQpIGlzIGFwcGxp
-ZWQuDQo+IA0KPiBDb3VsZCB5b3UgZWxhYm9yYXRlIHdoYXQga2luZHMgb2YgcHJvYmxlbXMgb2Nj
-dXIsIGhvdyBvZnRlbiB0aGV5DQo+IG9jY3VyLCBldGM/DQoNClRoZXJlIGlzIGFib3V0IDEvMTAw
-MCBjaGFuY2UgdGhhdCBhZnRlciBTQlIgaXMgYXBwbGllZCwgYW55IGZ1cnRoZXINCmFjY2VzcyB2
-aWEgdGhpcyByb290IHBvcnQgd2lsbCBiZSBibG9ja2VkIGFuZCBtYWtlIHN5c3RlbSBjcmFzaC4g
-DQoNClRoYW5rcywNCg0KSm9obm55DQo=
+priv->sph* only have 'true' and 'false' used with them, yet they are an
+int. Change their type to a bool, and rename to make their usage more
+clear.
+
+Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+---
+ drivers/net/ethernet/stmicro/stmmac/stmmac.h  |  4 +--
+ .../net/ethernet/stmicro/stmmac/stmmac_main.c | 26 +++++++++----------
+ .../stmicro/stmmac/stmmac_selftests.c         |  2 +-
+ .../net/ethernet/stmicro/stmmac/stmmac_xdp.c  |  2 +-
+ 4 files changed, 17 insertions(+), 17 deletions(-)
+
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac.h b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
+index e9ed5086c049..012b0a477255 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac.h
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
+@@ -254,8 +254,8 @@ struct stmmac_priv {
+ 	int hwts_tx_en;
+ 	bool tx_path_in_lpi_mode;
+ 	bool tso;
+-	int sph;
+-	int sph_cap;
++	bool sph_active;
++	bool sph_capable;
+ 	u32 sarc_type;
+ 	u32 rx_riwt[MTL_MAX_RX_QUEUES];
+ 	int hwts_rx_en;
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+index d08ff8f5ff15..db68c89316ec 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+@@ -1523,7 +1523,7 @@ static int stmmac_init_rx_buffers(struct stmmac_priv *priv,
+ 		buf->page_offset = stmmac_rx_offset(priv);
+ 	}
+ 
+-	if (priv->sph && !buf->sec_page) {
++	if (priv->sph_active && !buf->sec_page) {
+ 		buf->sec_page = page_pool_alloc_pages(rx_q->page_pool, gfp);
+ 		if (!buf->sec_page)
+ 			return -ENOMEM;
+@@ -2109,7 +2109,7 @@ static int __alloc_dma_rx_desc_resources(struct stmmac_priv *priv,
+ 	pp_params.offset = stmmac_rx_offset(priv);
+ 	pp_params.max_len = dma_conf->dma_buf_sz;
+ 
+-	if (priv->sph) {
++	if (priv->sph_active) {
+ 		pp_params.offset = 0;
+ 		pp_params.max_len += stmmac_rx_offset(priv);
+ 	}
+@@ -3603,7 +3603,7 @@ static int stmmac_hw_setup(struct net_device *dev)
+ 	}
+ 
+ 	/* Enable Split Header */
+-	sph_en = (priv->hw->rx_csum > 0) && priv->sph;
++	sph_en = (priv->hw->rx_csum > 0) && priv->sph_active;
+ 	for (chan = 0; chan < rx_cnt; chan++)
+ 		stmmac_enable_sph(priv, priv->ioaddr, sph_en, chan);
+ 
+@@ -4895,7 +4895,7 @@ static inline void stmmac_rx_refill(struct stmmac_priv *priv, u32 queue)
+ 				break;
+ 		}
+ 
+-		if (priv->sph && !buf->sec_page) {
++		if (priv->sph_active && !buf->sec_page) {
+ 			buf->sec_page = page_pool_alloc_pages(rx_q->page_pool, gfp);
+ 			if (!buf->sec_page)
+ 				break;
+@@ -4906,7 +4906,7 @@ static inline void stmmac_rx_refill(struct stmmac_priv *priv, u32 queue)
+ 		buf->addr = page_pool_get_dma_addr(buf->page) + buf->page_offset;
+ 
+ 		stmmac_set_desc_addr(priv, p, buf->addr);
+-		if (priv->sph)
++		if (priv->sph_active)
+ 			stmmac_set_desc_sec_addr(priv, p, buf->sec_addr, true);
+ 		else
+ 			stmmac_set_desc_sec_addr(priv, p, buf->sec_addr, false);
+@@ -4941,12 +4941,12 @@ static unsigned int stmmac_rx_buf1_len(struct stmmac_priv *priv,
+ 	int coe = priv->hw->rx_csum;
+ 
+ 	/* Not first descriptor, buffer is always zero */
+-	if (priv->sph && len)
++	if (priv->sph_active && len)
+ 		return 0;
+ 
+ 	/* First descriptor, get split header length */
+ 	stmmac_get_rx_header_len(priv, p, &hlen);
+-	if (priv->sph && hlen) {
++	if (priv->sph_active && hlen) {
+ 		priv->xstats.rx_split_hdr_pkt_n++;
+ 		return hlen;
+ 	}
+@@ -4969,7 +4969,7 @@ static unsigned int stmmac_rx_buf2_len(struct stmmac_priv *priv,
+ 	unsigned int plen = 0;
+ 
+ 	/* Not split header, buffer is not available */
+-	if (!priv->sph)
++	if (!priv->sph_active)
+ 		return 0;
+ 
+ 	/* Not last descriptor */
+@@ -6037,8 +6037,8 @@ static int stmmac_set_features(struct net_device *netdev,
+ 	 */
+ 	stmmac_rx_ipc(priv, priv->hw);
+ 
+-	if (priv->sph_cap) {
+-		bool sph_en = (priv->hw->rx_csum > 0) && priv->sph;
++	if (priv->sph_capable) {
++		bool sph_en = (priv->hw->rx_csum > 0) && priv->sph_active;
+ 		u32 chan;
+ 
+ 		for (chan = 0; chan < priv->plat->rx_queues_to_use; chan++)
+@@ -6987,7 +6987,7 @@ int stmmac_xdp_open(struct net_device *dev)
+ 	}
+ 
+ 	/* Adjust Split header */
+-	sph_en = (priv->hw->rx_csum > 0) && priv->sph;
++	sph_en = (priv->hw->rx_csum > 0) && priv->sph_active;
+ 
+ 	/* DMA RX Channel Configuration */
+ 	for (chan = 0; chan < rx_cnt; chan++) {
+@@ -7736,8 +7736,8 @@ int stmmac_dvr_probe(struct device *device,
+ 	if (priv->dma_cap.sphen &&
+ 	    !(priv->plat->flags & STMMAC_FLAG_SPH_DISABLE)) {
+ 		ndev->hw_features |= NETIF_F_GRO;
+-		priv->sph_cap = true;
+-		priv->sph = priv->sph_cap;
++		priv->sph_capable = true;
++		priv->sph_active = priv->sph_capable;
+ 		dev_info(priv->device, "SPH feature enabled\n");
+ 	}
+ 
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c
+index a01bc394d1ac..e90a2c469b9a 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c
+@@ -1721,7 +1721,7 @@ static int stmmac_test_sph(struct stmmac_priv *priv)
+ 	struct stmmac_packet_attrs attr = { };
+ 	int ret;
+ 
+-	if (!priv->sph)
++	if (!priv->sph_active)
+ 		return -EOPNOTSUPP;
+ 
+ 	/* Check for UDP first */
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_xdp.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_xdp.c
+index aa6f16d3df64..d7e4db7224b0 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_xdp.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_xdp.c
+@@ -129,7 +129,7 @@ int stmmac_xdp_set_prog(struct stmmac_priv *priv, struct bpf_prog *prog,
+ 		bpf_prog_put(old_prog);
+ 
+ 	/* Disable RX SPH for XDP operation */
+-	priv->sph = priv->sph_cap && !stmmac_xdp_is_enabled(priv);
++	priv->sph_active = priv->sph_capable && !stmmac_xdp_is_enabled(priv);
+ 
+ 	if (if_running && need_update)
+ 		stmmac_xdp_open(dev);
+-- 
+2.47.3
+
 
