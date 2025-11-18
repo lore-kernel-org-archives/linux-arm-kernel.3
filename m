@@ -4,71 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87096CCD19A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 04:11:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C2A8CED243
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 04:11:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BDAoJsdvgOOXOBHWJUVVxiGfTHyo8kvSzyzlmWb+VEU=; b=IP9NdY23VrCTXuSqHt/qG0L7ax
-	qc5Jd73MDsFYEXRss2Sj8/ELKoB/1N3TP5pRrNuj1AMCV841yItHOxoVtkor9nHkg97k6KG2dfQ1W
-	203bENvqfWpt9JQPH4UTXSXjZY5Gkkq7KTgIuU3bzI6jqXXASyhKGNnbVmpmL2A34EllQ/T6i90gW
-	hX7osPaG86+i9Ik1g80h9b/8uUJ/ahzBO1sy3jny2WtBsrL2a4BmwpcFiqfyc1Z8t/vCaxoiSnF4/
-	L3nG9vaOjg0BU11oruT/DA1pnz+T361E7xzUv49oqJ3oKGoCYktnWGdhe+Nd7/mvJyv0RxRUazkzJ
-	RXnmaJQQ==;
+	bh=2hzt/Yhd2Q0zU85Ks0HVBO3VycKu+YCYvTiNFdvMuVU=; b=kmKu2xQm0315/zo0cPuDUIToV2
+	+VsPSSrxvm/sKmM6q5dS3hiUWN7AbtzgJk/cnV71ZC5xjlzVGstHlqzEYPxmWpXXdozOkVXfTQb4c
+	VU6G8yQOCpjkgCRE1cE9qo6ao8rbn0v2/51nNwL6B8Xs/s7h5f9w/QgRHc//KjzYHb+sg0Y0M2W5w
+	m/cAUz7xcAjtQQ77tHSLKQMXEYanonqTfIInrBPtDPk5Ody8OHQYXxgNBRqnN0nwR3Xbncuzj9x68
+	SCeoTTdubugDt4O2aBZX4d+gytXN+tpK8h04ZohgnNkEiSqDHfykCsvCpZJTCF7avFdjyyEgFp+50
+	jKsG6zuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLD45-0000000HLWz-3OFW;
-	Tue, 18 Nov 2025 04:11:37 +0000
-Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
+	id 1vLD46-0000000HLXn-1oly;
+	Tue, 18 Nov 2025 04:11:38 +0000
+Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLD3b-0000000HLTi-0kqZ
+	id 1vLD3g-0000000HLUS-0o10
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 18 Nov 2025 04:11:34 +0000
-Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-29516a36affso59139685ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Nov 2025 20:11:06 -0800 (PST)
+Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-2953e415b27so53266505ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Nov 2025 20:11:11 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1763439066; x=1764043866; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1763439071; x=1764043871; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=BDAoJsdvgOOXOBHWJUVVxiGfTHyo8kvSzyzlmWb+VEU=;
-        b=bwhBu3dsg2zEwHuFopwFNwjfLnxLQgEQXm/366thq28VW/cCrJK5PiEgqyQAwquuDN
-         +WHAi431OKLrOTyJO22YYjUqnq0w1hlJgOQ7t11jEfLQhIH/fvOMGFQSsLbp4ERkCLJ5
-         tMWC2a3jsjbVaED7vudpsrnky4Ab9lICKE8hqHcXPzBIZqN6JGJbP0k7t+bjU5XBRb6U
-         SBQ3NjjKdl6bJHlsbodR5P88cCvGlzLUuSEU2CBeirvHUtqfpKbIBDRqOw5VcNTf1w8L
-         9cek0H8G+/52KpA0BwVLQ+xut47XUYPVPblusYN5I1CN32Gg2c8Vu9EJfu5md7sd1kkE
-         He7Q==
+        bh=2hzt/Yhd2Q0zU85Ks0HVBO3VycKu+YCYvTiNFdvMuVU=;
+        b=Ox8ERTt3uPxZgoQQ4TUVyt98ugsjZnHicn6it7ue5a2fKgLtLnMcxk19MjArwTq5pj
+         B85fKPx9sChoqcFmw+PD6LANw+8qfMY/dYWO/c8FKd/2djpfzzmHJcnLad5fnd6qh0Z2
+         l4zVUJe6pqYYTzxPPTliPJS0b+9xQL6q5hmjYRq/9NftQ27z+TVAx3lG2VMRnoUo8hND
+         TOqKpSmFO5VX0RqtK/Up26NH6ayv6zeNArrljKQ8hEFJ0VGNB68eeGgCCDc/eaKc9Vxi
+         o+tMWX8MWpi5r43i7xSgA2NpyazVGZxSDAr4UwM0vIJZgAdkmFA0bHsYqTjCbcN/kAYo
+         c29g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763439066; x=1764043866;
+        d=1e100.net; s=20230601; t=1763439071; x=1764043871;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=BDAoJsdvgOOXOBHWJUVVxiGfTHyo8kvSzyzlmWb+VEU=;
-        b=L5kfUh3lS7Vev4VZYWtNjA/jJxwhmtiOINXCYOdkx/yOT7w6O4OiKKrU+Pjrrh6yMu
-         z5nTlBTJZiP0gmQGPvE1ZRdPHoF9XKW8IJzrtm9XMP2VuZjWNcRA15l2NlljHaQXbGni
-         ArgHUv0eupKBKaKtUKc8LghyRuQ+YG3wHmSLy73kdslEWb13BEKR+ByI6LDuSxjk9TEv
-         Rh1EyxITizl0eJOB/rKS25fso83gt9tNLhsEXPcyrt/KW8dfdeGQd/LJDtgDw/sNxs83
-         OMpCV0MJ7I9U3fDIGaSCbjtd56mTdSWvJyeuEzajoYhva5AstdgQ/o4TaanvHBpIl1n3
-         pj4A==
-X-Gm-Message-State: AOJu0YwkCbs3YRyvtmK6xkxyhVddJUghSI2aZAPkPByFhBrij+ph1MW4
-	kJEP8lZ6Ylf4PmM7mE3pDnlc7t9L3KTo4c9KuGMYvDP29n7Oeid8BmEh
-X-Gm-Gg: ASbGncugIEVd8R3HI5CCORpihFXY1pSFo3PJ7IXDL/l75PA9xZwInWXEh/LECa9UaDK
-	rRg5/3Ph5SDkzIG6lh7R/Oj9PCx2trIeE8P0zbn0W4VyTPHU51nbRXlzPUs2XaxACIzfq6u/gUg
-	8fykrlaqyvW0z0kVf9/IaMNirlm9VYqHxKspxfBvKr4+Klp21Av4jiEGdMze8bS9GAokvnYcPer
-	2c4gNTxN107lMEQQXAgosL428fqL0vvumiMTFbJUkQty8qLnN6Mi0bCTK3yCscK9jZlKtotCMu0
-	FwPOjZKh5L2n8PCzEWaasaGf1VeOJZ1CcKi9IJAYZPL+MhJ+9e9WP5GjWWya9gLyz9Qecjs0Id4
-	G93BmYXFt+coXM8l/5BzQLOVTGJnlwu16mJXbO41z8Scsl+CLbGJWX5GHXQSFS8dNfgq6p14s+k
-	Cbtw==
-X-Google-Smtp-Source: AGHT+IFWfA9iG7jd5oINwxqC9subA2gUrhWeuBi98jZqy9meWujj94Sw12xkpdJk1gBOH1qHv6uzdg==
-X-Received: by 2002:a17:903:2449:b0:295:275d:21d8 with SMTP id d9443c01a7336-2986a5eb5e1mr178663325ad.0.1763439065671;
-        Mon, 17 Nov 2025 20:11:05 -0800 (PST)
+        bh=2hzt/Yhd2Q0zU85Ks0HVBO3VycKu+YCYvTiNFdvMuVU=;
+        b=T74GtAuFUbZvs7xizefaIzc4nexIVDBr+GrwlT2TCWpwxtuf/I+1d2tmeuKBfCERqb
+         NswmcUUKOuz/NTdjf4c+pBRbGTF28NjCJ3xN8vCjwNgCql7Gz14uNRlNA967mAqFyqVz
+         3kFaP5hQy1s4/3yQkdxu3ZwHpX/AW9nkE04IngdKDWWmbj0x245o6bNAP53KYnnQNEdd
+         K0yfFCiF1HYHpX+i8BWT53nPKCzWxsq0pPoMc8rXtRUzih5wUJt2svMI1cTmmdnLxcxR
+         6TEJRPcaYrs3yTDZU55N+uoXYjfOhSgCQWz0TASxGyatus1O8pF0MBbSw/Df9v7SIIwj
+         5aYA==
+X-Gm-Message-State: AOJu0YxBdYmWxTjWq0zYx5GBtcA3Z74c+dZFJnQvYuWY7ejABkpRWi/0
+	Y1Vvh2ajMyLjE6bh4Po8NEK4MYkdHyzYTSsyKnq+Dkvw0hsqcJAiV4XC
+X-Gm-Gg: ASbGncuSrkno+cp4xcp9jFjh6ee8ODd2+sa49H2MM016+qyitFcygNPkZeoOrZLZOPq
+	Ygp7PVuNQxvXoJPZC36BG+NKyUGp7Cl8g25UzMxUleUF9xXsos38TfBVStHwESojipEM1kdumwV
+	pt88lZiVi3PxFsc4T2HatThU7ngd1EATBl5E7w+OtF1DhrsBGwFjM7/+qgZWQ+giVyyQgQmUFlA
+	aF/6CPJeM3BB7mrrfIeJ8TSA7hIHNtrBc7L5bCtzhPy+S9jHmOsad244Ljzi9WDS1TFExBCaq5q
+	px1GQPy+NBQfzsHbnHXcyiKL2hBQnyht3xWJGfFCNXpoY6lHoA313qoCovq3drhxc/cagJB8dpe
+	lBndx4fGcfwSfyRBUVKKc9r1T//NqFz1LmgGRmvQN9L8HFTqpFibQCI/B3amJNTOW81U=
+X-Google-Smtp-Source: AGHT+IGcCBVdBoXqKSY2BZj3DNXlEiz7tcJ6DeA111nPsNH6eJc+P3Idt2q1M10eR6ZPnR6b5zeWIA==
+X-Received: by 2002:a17:903:41c7:b0:298:344:1229 with SMTP id d9443c01a7336-2986a76b5cfmr179755145ad.55.1763439071070;
+        Mon, 17 Nov 2025 20:11:11 -0800 (PST)
 Received: from gmail.com ([218.32.81.133])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2985c2cca00sm155514805ad.101.2025.11.17.20.11.03
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2985c2cca00sm155514805ad.101.2025.11.17.20.11.08
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 17 Nov 2025 20:11:05 -0800 (PST)
+        Mon, 17 Nov 2025 20:11:10 -0800 (PST)
 From: Peter Shen <sjg168@gmail.com>
 To: devicetree@vger.kernel.org
 Cc: linux-arm-kernel@lists.infradead.org,
@@ -82,17 +81,18 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	Krzysztof Kozlowski <krzk@kernel.org>,
 	peter.shen@amd.com,
 	Peter Shen <sjg168@gmail.com>
-Subject: [PATCH v7 0/2] ARM: dts: aspeed: Add Device Tree for Facebook Anacapa BMC
-Date: Tue, 18 Nov 2025 12:10:56 +0800
-Message-Id: <20251118041058.1342672-1-sjg168@gmail.com>
+Subject: [PATCH v7 2/2] ARM: dts: aspeed: Add Device Tree for Facebook Anacapa BMC
+Date: Tue, 18 Nov 2025 12:10:58 +0800
+Message-Id: <20251118041058.1342672-3-sjg168@gmail.com>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20251112211248.3711889-1-sjg168@gmail.com>
+In-Reply-To: <20251118041058.1342672-1-sjg168@gmail.com>
 References: <20251112211248.3711889-1-sjg168@gmail.com>
+ <20251118041058.1342672-1-sjg168@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251117_201107_245243_8C68DB07 
-X-CRM114-Status: GOOD (  13.16  )
+X-CRM114-CacheID: sfid-20251117_201112_275327_30519A46 
+X-CRM114-Status: GOOD (  16.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,45 +107,1081 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patch series introduces the initial Device Tree support for the 
-Facebook Anacapa BMC platform, which is based on the Aspeed AST2600 SoC. 
-It configures the platform-specific peripherals and aliases for OpenBMC 
-usage.
+Add the initial device tree source file for the Facebook Anacapa BMC
+platform, based on the Aspeed AST2600 SoC.
 
-The series is comprised of two patches:
-1. Adds the compatible string for the board to the binding documentation.
-2. Adds the main Device Tree Source file for the Anacapa BMC.
+This device tree configures the platform-specific peripherals and
+aliases for OpenBMC usage.
 
-**This patch series is a re-submission of v6 (series starting at:**
-**<https://lore.kernel.org/all/20251112211248.3711889-1-sjg168@gmail.com>)**
-
-Changes in v7:
-* Dropped the unused 'pcc_memory' reserved memory region as suggested 
-    by Andrew Jeffery.
-* Reordered the 'spi-gpio' properties to group all '-gpios' properties 
-    together for better readability (Andrew Jeffery).
-* Moved the 'pinctrl_ncsi3_default' pinctrl group from the board DTS 
-    file to 'arch/arm/boot/dts/aspeed-g6.dtsi' (assuming this dtsi 
-    change is applied separately or already in the base) to make it 
-    available for other platforms (Andrew Jeffery).
-* Revised the 'gpio-line-names' for better clarity and alignment with 
-    schematic signal names, avoiding confusion with pin-muxed functions 
-    (Andrew Jeffery).
-* Improved the formatting and readability of 'sgpio-line-names' list.
-* Removed the unused 'led-2' definition from the 'leds' node.
-* Added support for the ADC128D818 sensor to the I2C bus.
-* No functional changes in the binding patch (1/2).
-
-Peter Shen (2):
-  dt-bindings: arm: aspeed: Add compatible for Facebook Anacapa BMC
-  ARM: dts: aspeed: Add Device Tree for Facebook Anacapa BMC
-
- .../bindings/arm/aspeed/aspeed.yaml           |    1 +
+Signed-off-by: Peter Shen <sjg168@gmail.com>
+---
  arch/arm/boot/dts/aspeed/Makefile             |    1 +
  .../aspeed/aspeed-bmc-facebook-anacapa.dts    | 1044 +++++++++++++++++
- 3 files changed, 1046 insertions(+)
+ 2 files changed, 1045 insertions(+)
  create mode 100644 arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa.dts
 
+diff --git a/arch/arm/boot/dts/aspeed/Makefile b/arch/arm/boot/dts/aspeed/Makefile
+index 0f0b5b707654..e1b2fc7b8c08 100644
+--- a/arch/arm/boot/dts/aspeed/Makefile
++++ b/arch/arm/boot/dts/aspeed/Makefile
+@@ -17,6 +17,7 @@ dtb-$(CONFIG_ARCH_ASPEED) += \
+ 	aspeed-bmc-asus-x4tf.dtb \
+ 	aspeed-bmc-bytedance-g220a.dtb \
+ 	aspeed-bmc-delta-ahe50dc.dtb \
++	aspeed-bmc-facebook-anacapa.dtb \
+ 	aspeed-bmc-facebook-bletchley.dtb \
+ 	aspeed-bmc-facebook-catalina.dtb \
+ 	aspeed-bmc-facebook-clemente.dtb \
+diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa.dts
+new file mode 100644
+index 000000000000..a9bed728339b
+--- /dev/null
++++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa.dts
+@@ -0,0 +1,1044 @@
++// SPDX-License-Identifier: GPL-2.0-or-later
++
++/dts-v1/;
++#include "aspeed-g6.dtsi"
++#include <dt-bindings/gpio/aspeed-gpio.h>
++#include <dt-bindings/i2c/i2c.h>
++
++/ {
++	model = "Facebook Anacapa BMC";
++	compatible = "facebook,anacapa-bmc", "aspeed,ast2600";
++
++	aliases {
++		serial0 = &uart1;
++		serial2 = &uart3;
++		serial3 = &uart4;
++		serial4 = &uart5;
++		i2c16 = &i2c0mux0ch0;
++		i2c17 = &i2c0mux0ch1;
++		i2c18 = &i2c0mux0ch2;
++		i2c19 = &i2c0mux0ch3;
++		i2c20 = &i2c1mux0ch0;
++		i2c21 = &i2c1mux0ch1;
++		i2c22 = &i2c1mux0ch2;
++		i2c23 = &i2c1mux0ch3;
++		i2c24 = &i2c4mux0ch0;
++		i2c25 = &i2c4mux0ch1;
++		i2c26 = &i2c4mux0ch2;
++		i2c27 = &i2c4mux0ch3;
++		i2c28 = &i2c4mux0ch4;
++		i2c29 = &i2c4mux0ch5;
++		i2c30 = &i2c4mux0ch6;
++		i2c31 = &i2c4mux0ch7;
++		i2c32 = &i2c8mux0ch0;
++		i2c33 = &i2c8mux0ch1;
++		i2c34 = &i2c8mux0ch2;
++		i2c35 = &i2c8mux0ch3;
++		i2c36 = &i2c10mux0ch0;
++		i2c37 = &i2c10mux0ch1;
++		i2c38 = &i2c10mux0ch2;
++		i2c39 = &i2c10mux0ch3;
++		i2c40 = &i2c10mux0ch4;
++		i2c41 = &i2c10mux0ch5;
++		i2c42 = &i2c10mux0ch6;
++		i2c43 = &i2c10mux0ch7;
++		i2c44 = &i2c11mux0ch0;
++		i2c45 = &i2c11mux0ch1;
++		i2c46 = &i2c11mux0ch2;
++		i2c47 = &i2c11mux0ch3;
++		i2c48 = &i2c11mux0ch4;
++		i2c49 = &i2c11mux0ch5;
++		i2c50 = &i2c11mux0ch6;
++		i2c51 = &i2c11mux0ch7;
++		i2c52 = &i2c13mux0ch0;
++		i2c53 = &i2c13mux0ch1;
++		i2c54 = &i2c13mux0ch2;
++		i2c55 = &i2c13mux0ch3;
++		i2c56 = &i2c13mux0ch4;
++		i2c57 = &i2c13mux0ch5;
++		i2c58 = &i2c13mux0ch6;
++		i2c59 = &i2c13mux0ch7;
++	};
++
++	chosen {
++		stdout-path = "serial4:57600n8";
++	};
++
++	iio-hwmon {
++		compatible = "iio-hwmon";
++		io-channels = <&adc0 0>, <&adc0 1>, <&adc0 2>, <&adc0 3>,
++				  <&adc0 4>, <&adc0 5>, <&adc0 6>, <&adc0 7>,
++				  <&adc1 2>;
++	};
++
++	leds {
++		compatible = "gpio-leds";
++
++		led-0 {
++			label = "bmc_heartbeat_amber";
++			gpios = <&gpio0 ASPEED_GPIO(P, 7) GPIO_ACTIVE_LOW>;
++			linux,default-trigger = "heartbeat";
++		};
++
++		led-1 {
++			label = "fp_id_amber";
++			default-state = "off";
++			gpios = <&gpio0 ASPEED_GPIO(B, 5) GPIO_ACTIVE_HIGH>;
++		};
++	};
++
++	memory@80000000 {
++		device_type = "memory";
++		reg = <0x80000000 0x80000000>;
++	};
++
++	reserved-memory {
++		#address-cells = <1>;
++		#size-cells = <1>;
++		ranges;
++
++		video_engine_memory: video {
++			size = <0x02c00000>;
++			alignment = <0x00100000>;
++			compatible = "shared-dma-pool";
++			reusable;
++		};
++
++		gfx_memory: framebuffer {
++			size = <0x01000000>;
++			alignment = <0x01000000>;
++			compatible = "shared-dma-pool";
++			reusable;
++		};
++	};
++
++	p3v3_bmc_aux: regulator-p3v3-bmc-aux {
++		compatible = "regulator-fixed";
++		regulator-name = "p3v3_bmc_aux";
++		regulator-min-microvolt = <3300000>;
++		regulator-max-microvolt = <3300000>;
++		regulator-always-on;
++	};
++
++	spi_gpio: spi {
++		compatible = "spi-gpio";
++		#address-cells = <1>;
++		#size-cells = <0>;
++
++		sck-gpios = <&gpio0 ASPEED_GPIO(Z, 3) GPIO_ACTIVE_HIGH>;
++		mosi-gpios = <&gpio0 ASPEED_GPIO(Z, 4) GPIO_ACTIVE_HIGH>;
++		miso-gpios = <&gpio0 ASPEED_GPIO(Z, 5) GPIO_ACTIVE_HIGH>;
++		cs-gpios = <&gpio0 ASPEED_GPIO(Z, 0) GPIO_ACTIVE_LOW>;
++		num-chipselects = <1>;
++		status = "okay";
++
++		tpm@0 {
++			compatible = "infineon,slb9670", "tcg,tpm_tis-spi";
++			spi-max-frequency = <33000000>;
++			reg = <0>;
++		};
++	};
++};
++
++&adc0 {
++	aspeed,int-vref-microvolt = <2500000>;
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_adc0_default &pinctrl_adc1_default
++		&pinctrl_adc2_default &pinctrl_adc3_default
++		&pinctrl_adc4_default &pinctrl_adc5_default
++		&pinctrl_adc6_default &pinctrl_adc7_default>;
++	status = "okay";
++};
++
++&adc1 {
++	aspeed,int-vref-microvolt = <2500000>;
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_adc10_default>;
++	status = "okay";
++};
++
++&ehci1 {
++	status = "okay";
++};
++
++&uhci {
++	status = "okay";
++};
++
++&fmc {
++	status = "okay";
++
++	flash@0 {
++		status = "okay";
++		m25p,fast-read;
++		label = "bmc";
++		spi-max-frequency = <50000000>;
++#include "openbmc-flash-layout-128.dtsi"
++	};
++
++	flash@1 {
++		status = "okay";
++		m25p,fast-read;
++		label = "alt-bmc";
++		spi-max-frequency = <50000000>;
++	};
++};
++
++&gpio0 {
++	gpio-line-names =
++
++	/*A0-A7*/
++	"","","","","","","","",
++
++	/*B0-B7*/
++	"BATTERY_DETECT", "", "", "BMC_READY",
++	"", "FM_ID_LED", "", "",
++
++	/*C0-C7*/
++	"","","","","","","","",
++
++	/*D0-D7*/
++	"","","","","","","","",
++
++	/*E0-E7*/
++	"","","","","","","","",
++
++	/*F0-F7*/
++	"","","","","","","","",
++
++	/*G0-G7*/
++	"FM_MUX1_SEL", "", "", "",
++	"", "", "FM_DEBUG_PORT_PRSNT_N", "FM_BMC_DBP_PRESENT_N",
++
++	/*H0-H7*/
++	"","","","","","","","",
++
++	/*I0-I7*/
++	"", "", "", "",
++	"", "FLASH_WP_STATUS", "BMC_JTAG_MUX_SEL", "",
++
++	/*J0-J7*/
++	"","","","","","","","",
++
++	/*K0-K7*/
++	"","","","","","","","",
++
++	/*L0-L7*/
++	"","","","","","","","",
++
++	/*M0-M7*/
++	"", "BMC_FRU_WP", "", "",
++	"", "", "", "",
++
++	/*N0-N7*/
++	"LED_POSTCODE_0", "LED_POSTCODE_1", "LED_POSTCODE_2", "LED_POSTCODE_3",
++	"LED_POSTCODE_4", "LED_POSTCODE_5", "LED_POSTCODE_6", "LED_POSTCODE_7",
++
++	/*O0-O7*/
++	"","","","","","","","",
++
++	/*P0-P7*/
++	"PWR_BTN_BMC_BUF_N", "", "ID_RST_BTN_BMC_N", "",
++	"PWR_LED", "", "", "BMC_HEARTBEAT_N",
++
++	/*Q0-Q7*/
++	"","","","","","","","",
++
++	/*R0-R7*/
++	"","","","","","","","",
++
++	/*S0-S7*/
++	"", "", "SYS_BMC_PWRBTN_N", "",
++	"", "", "", "RUN_POWER_FAULT",
++
++	/*T0-T7*/
++	"","","","","","","","",
++
++	/*U0-U7*/
++	"","","","","","","","",
++
++	/*V0-V7*/
++	"","","","","","","","",
++
++	/*W0-W7*/
++	"","","","","","","","",
++
++	/*X0-X7*/
++	"","","","","","","","",
++
++	/*Y0-Y7*/
++	"","","","","","","","",
++
++	/*Z0-Z7*/
++	"SPI_BMC_TPM_CS2_N", "", "", "SPI_BMC_TPM_CLK",
++	"SPI_BMC_TPM_MOSI", "SPI_BMC_TPM_MISO", "", "";
++};
++
++&gpio1 {
++	gpio-line-names =
++	/*18A0-18A7*/
++	"","","","","","","","",
++
++	/*18B0-18B7*/
++	"","","","",
++	"FM_BOARD_BMC_REV_ID0", "FM_BOARD_BMC_REV_ID1",
++	"FM_BOARD_BMC_REV_ID2", "",
++
++	/*18C0-18C7*/
++	"","","","","","","","",
++
++	/*18D0-18D7*/
++	"","","","","","","","",
++
++	/*18E0-18E3*/
++	"FM_BMC_PROT_LS_EN", "AC_PWR_BMC_BTN_N", "", "";
++};
++
++// L Bridge Board
++&i2c0 {
++	status = "okay";
++
++	i2c-mux@70 {
++		compatible = "nxp,pca9546";
++		reg = <0x70>;
++		#address-cells = <1>;
++		#size-cells = <0>;
++		i2c-mux-idle-disconnect;
++
++		i2c0mux0ch0: i2c@0 {
++			reg = <0>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++		};
++		i2c0mux0ch1: i2c@1 {
++			reg = <1>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++		};
++		i2c0mux0ch2: i2c@2 {
++			reg = <2>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++		};
++		i2c0mux0ch3: i2c@3 {
++			reg = <3>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++		};
++	};
++};
++
++// R Bridge Board
++&i2c1 {
++	status = "okay";
++
++	i2c-mux@70 {
++		compatible = "nxp,pca9546";
++		reg = <0x70>;
++		#address-cells = <1>;
++		#size-cells = <0>;
++		i2c-mux-idle-disconnect;
++
++		i2c1mux0ch0: i2c@0 {
++			reg = <0>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++		};
++		i2c1mux0ch1: i2c@1 {
++			reg = <1>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++		};
++		i2c1mux0ch2: i2c@2 {
++			reg = <2>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++		};
++		i2c1mux0ch3: i2c@3 {
++			reg = <3>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++		};
++	};
++};
++
++// MB - E1.S
++&i2c4 {
++	status = "okay";
++
++	i2c-mux@70 {
++		compatible = "nxp,pca9548";
++		reg = <0x70>;
++		#address-cells = <1>;
++		#size-cells = <0>;
++		i2c-mux-idle-disconnect;
++
++		i2c4mux0ch0: i2c@0 {
++			reg = <0>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++		};
++		i2c4mux0ch1: i2c@1 {
++			reg = <1>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++		};
++		i2c4mux0ch2: i2c@2 {
++			reg = <2>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++		};
++		i2c4mux0ch3: i2c@3 {
++			reg = <3>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++		};
++		i2c4mux0ch4: i2c@4 {
++			reg = <4>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++		};
++		i2c4mux0ch5: i2c@5 {
++			reg = <5>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++		};
++		i2c4mux0ch6: i2c@6 {
++			reg = <6>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++		};
++		i2c4mux0ch7: i2c@7 {
++			reg = <7>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++		};
++	};
++};
++
++// AMC
++&i2c5 {
++	status = "okay";
++};
++
++// MB
++&i2c6 {
++	status = "okay";
++
++	// HPM FRU
++	eeprom@50 {
++		compatible = "atmel,24c256";
++		reg = <0x50>;
++	};
++};
++
++// SCM
++&i2c7 {
++	status = "okay";
++
++
++};
++
++// MB - PDB
++&i2c8 {
++	status = "okay";
++
++	i2c-mux@72 {
++		compatible = "nxp,pca9546";
++		reg = <0x72>;
++		#address-cells = <1>;
++		#size-cells = <0>;
++		i2c-mux-idle-disconnect;
++
++		i2c8mux0ch0: i2c@0 {
++			reg = <0>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++
++			adc@1f {
++				compatible = "ti,adc128d818";
++				reg = <0x1f>;
++				ti,mode = /bits/ 8 <1>;
++			};
++
++			gpio@22 {
++				compatible = "nxp,pca9555";
++				reg = <0x22>;
++				gpio-controller;
++				#gpio-cells = <2>;
++
++				gpio-line-names =
++					"RPDB_FAN_FULL_SPEED_R_N", "RPDB_I2C_TEMP75_U8_ALERT_R_N",
++					"RPDB_I2C_TMP432_U29_ALERT_R_N", "RPDB_GLOBAL_WP",
++					"RPDB_FAN_CT_FAN_FAIL_R_N", "",
++					"", "",
++					"RPDB_ALERT_P50V_HSC2_R_N", "RPDB_ALERT_P50V_HSC3_R_N",
++					"RPDB_ALERT_P50V_HSC4_R_N", "RPDB_ALERT_P50V_STBY_R_N",
++					"RPDB_I2C_P12V_MB_VRM_ALERT_R_N",
++					"RPDB_I2C_P12V_STBY_VRM_ALERT_R_N",
++					"RPDB_PGD_P3V3_STBY_PWRGD_R",
++					"RPDB_P12V_STBY_VRM_PWRGD_BUF_R";
++			};
++
++			gpio@24 {
++				compatible = "nxp,pca9555";
++				reg = <0x24>;
++				gpio-controller;
++				#gpio-cells = <2>;
++
++				gpio-line-names =
++					"RPDB_EAM2_PRSNT_MOS_N_R", "RPDB_EAM3_PRSNT_MOS_N_R",
++					"RPDB_PWRGD_P50V_HSC4_SYS_R",
++					"RPDB_PWRGD_P50V_STBY_SYS_BUF_R",
++					"RPDB_P50V_FAN1_R2_PG", "RPDB_P50V_FAN2_R2_PG",
++					"RPDB_P50V_FAN3_R2_PG", "RPDB_P50V_FAN4_R2_PG",
++					"", "RPDB_FAN1_PRSNT_N_R",
++					"", "RPDB_FAN2_PRSNT_N_R",
++					"RPDB_FAN3_PRSNT_N_R", "RPDB_FAN4_PRSNT_N_R",
++					"", "";
++			};
++
++			// R-PDB FRU
++			eeprom@50 {
++				compatible = "atmel,24c128";
++				reg = <0x50>;
++			};
++		};
++		i2c8mux0ch1: i2c@1 {
++			reg = <1>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++
++			gpio@22 {
++				compatible = "nxp,pca9555";
++				reg = <0x22>;
++				gpio-controller;
++				#gpio-cells = <2>;
++
++				gpio-line-names =
++					"LPDB_FAN_FULL_SPEED_R_N","LPDB_I2C_TEMP75_U8_ALERT_R_N",
++					"LPDB_I2C_TMP432_U29_ALERT_R_N","LPDB_GLOBAL_WP",
++					"LPDB_FAN_CT_FAN_FAIL_R_N","",
++					"","",
++					"LPDB_ALERT_P50V_HSC0_R_N","LPDB_ALERT_P50V_HSC1_R_N",
++					"LPDB_ALERT_P50V_HSC5_R_N","LPDB_I2C_P12V_SW_VRM_ALERT_R_N",
++					"LPDB_EAM0_PRSNT_MOS_N_R","LPDB_EAM1_PRSNT_MOS_N_R",
++					"LPDB_PWRGD_P50V_HSC5_SYS_R","";
++			};
++
++			gpio@24 {
++				compatible = "nxp,pca9555";
++				reg = <0x24>;
++				gpio-controller;
++				#gpio-cells = <2>;
++
++				gpio-line-names =
++					"LPDB_P50V_FAN1_R2_PG","LPDB_P50V_FAN2_R2_PG",
++					"LPDB_P50V_FAN3_R2_PG","LPDB_P50V_FAN4_R2_PG",
++					"LPDB_P50V_FAN5_R2_PG","LPDB_FAN1_PRSNT_N_R",
++					"LPDB_FAN2_PRSNT_N_R","LPDB_FAN3_PRSNT_N_R",
++					"LPDB_FAN4_PRSNT_N_R","LPDB_FAN5_PRSNT_N_R",
++					"","",
++					"","",
++					"","";
++			};
++
++			// L-PDB FRU
++			eeprom@50 {
++				compatible = "atmel,24c128";
++				reg = <0x50>;
++			};
++		};
++		i2c8mux0ch2: i2c@2 {
++			reg = <2>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++		};
++		i2c8mux0ch3: i2c@3 {
++			reg = <3>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++		};
++	};
++};
++
++// SCM
++&i2c9 {
++	status = "okay";
++
++	// SCM FRU
++	eeprom@50 {
++		compatible = "atmel,24c128";
++		reg = <0x50>;
++	};
++
++	// BSM FRU
++	eeprom@56 {
++		compatible = "atmel,24c64";
++		reg = <0x56>;
++	};
++};
++
++// R Bridge Board
++&i2c10 {
++	status = "okay";
++
++	i2c-mux@71 {
++		compatible = "nxp,pca9548";
++		reg = <0x71>;
++		#address-cells = <1>;
++		#size-cells = <0>;
++		i2c-mux-idle-disconnect;
++
++		i2c10mux0ch0: i2c@0 {
++			reg = <0>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++		};
++		i2c10mux0ch1: i2c@1 {
++			reg = <1>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++		};
++		i2c10mux0ch2: i2c@2 {
++			reg = <2>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++		};
++		i2c10mux0ch3: i2c@3 {
++			reg = <3>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++		};
++		i2c10mux0ch4: i2c@4 {
++			reg = <4>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++		};
++		i2c10mux0ch5: i2c@5 {
++			reg = <5>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++
++			gpio@22 {
++				compatible = "nxp,pca9555";
++				reg = <0x22>;
++				gpio-controller;
++				#gpio-cells = <2>;
++
++				gpio-line-names =
++					"","",
++					"","RBB_CPLD_REFRESH_IN_PRGRS_R_L",
++					"RBB_EAM0_NIC_CBL_PRSNT_R_L","RBB_EAM1_NIC_CBL_PRSNT_R_L",
++					"RBB_AINIC_JTAG_MUX_R2_SEL","RBB_SPI_MUX0_R2_SEL",
++					"RBB_AINIC_PRSNT_R_L","RBB_AINIC_OE_R_N",
++					"RBB_AINIC_BOARD_R2_ID","RBB_RST_USB2_HUB_R_N",
++					"RBB_RST_FT4222_R_N","RBB_RST_MCP2210_R_N",
++					"","";
++			};
++
++			// R Bridge Board FRU
++			eeprom@52 {
++				compatible = "atmel,24c256";
++				reg = <0x52>;
++			};
++		};
++		i2c10mux0ch6: i2c@6 {
++			reg = <6>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++		};
++		i2c10mux0ch7: i2c@7 {
++			reg = <7>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++		};
++	};
++};
++
++// L Bridge Board
++&i2c11 {
++	status = "okay";
++
++	i2c-mux@71 {
++		compatible = "nxp,pca9548";
++		reg = <0x71>;
++		#address-cells = <1>;
++		#size-cells = <0>;
++		i2c-mux-idle-disconnect;
++
++		i2c11mux0ch0: i2c@0 {
++			reg = <0>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++		};
++		i2c11mux0ch1: i2c@1 {
++			reg = <1>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++		};
++		i2c11mux0ch2: i2c@2 {
++			reg = <2>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++		};
++		i2c11mux0ch3: i2c@3 {
++			reg = <3>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++		};
++		i2c11mux0ch4: i2c@4 {
++			reg = <4>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++		};
++		i2c11mux0ch5: i2c@5 {
++			reg = <5>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++
++			gpio@22 {
++				compatible = "nxp,pca9555";
++				reg = <0x22>;
++				gpio-controller;
++				#gpio-cells = <2>;
++
++				gpio-line-names =
++					"","",
++					"","LBB_CPLD_REFRESH_IN_PRGRS_R_L",
++					"LBB_EAM0_NIC_CBL_PRSNT_R_L","LBB_EAM1_NIC_CBL_PRSNT_R_L",
++					"LBB_AINIC_JTAG_MUX_R2_SEL","LBB_SPI_MUX0_R2_SEL",
++					"LBB_AINIC_PRSNT_R_L","LBB_AINIC_OE_R_N",
++					"LBB_AINIC_BOARD_R2_ID","LBB_RST_USB2_HUB_R_N",
++					"LBB_RST_FT4222_R_N","LBB_RST_MCP2210_R_N",
++					"","";
++			};
++
++			// L Bridge Board FRU
++			eeprom@52 {
++				compatible = "atmel,24c256";
++				reg = <0x52>;
++			};
++		};
++		i2c11mux0ch6: i2c@6 {
++			reg = <6>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++		};
++		i2c11mux0ch7: i2c@7 {
++			reg = <7>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++		};
++	};
++};
++
++// Debug Card
++&i2c12 {
++	status = "okay";
++};
++
++// MB
++&i2c13 {
++	status = "okay";
++
++	i2c-mux@70 {
++		compatible = "nxp,pca9548";
++		reg = <0x70>;
++		#address-cells = <1>;
++		#size-cells = <0>;
++		i2c-mux-idle-disconnect;
++
++		i2c13mux0ch0: i2c@0 {
++			reg = <0>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++		};
++		i2c13mux0ch1: i2c@1 {
++			reg = <1>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++		};
++		i2c13mux0ch2: i2c@2 {
++			reg = <2>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++		};
++		i2c13mux0ch3: i2c@3 {
++			reg = <3>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++
++			adc@1f {
++				compatible = "ti,adc128d818";
++				reg = <0x1f>;
++				ti,mode = /bits/ 8 <1>;
++			};
++		};
++		i2c13mux0ch4: i2c@4 {
++			reg = <4>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++
++			// HPM BRD ID FRU
++			eeprom@51 {
++				compatible = "atmel,24c256";
++				reg = <0x51>;
++			};
++		};
++		i2c13mux0ch5: i2c@5 {
++			reg = <5>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++		};
++		i2c13mux0ch6: i2c@6 {
++			reg = <6>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++		};
++		i2c13mux0ch7: i2c@7 {
++			reg = <7>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++		};
++	};
++};
++
++// SCM
++&i2c14 {
++	status = "okay";
++};
++
++&i2c15 {
++	status = "okay";
++};
++
++&lpc_ctrl {
++	status = "okay";
++};
++
++&kcs2 {
++	aspeed,lpc-io-reg = <0xca8>;
++	status = "okay";
++};
++
++&kcs3 {
++	aspeed,lpc-io-reg = <0xca2>;
++	status = "okay";
++};
++
++&mac2 {
++	status = "okay";
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_ncsi3_default>;
++	use-ncsi;
++};
++
++&sgpiom0 {
++	ngpios = <128>;
++	bus-frequency = <2000000>;
++	gpio-line-names =
++	/*in - out - in - out */
++	/* A0-A7 line 0-15 */
++	"", "FM_CPU0_SYS_RESET_N", "", "CPU0_KBRST_N",
++	"", "FM_CPU0_PROCHOT_trigger_N", "", "FM_CLR_CMOS_R_P0",
++	"", "Force_I3C_SEL", "", "SYSTEM_Force_Run_AC_Cycle",
++	"", "", "", "",
++
++	/* B0-B7 line 16-31 */
++	"Channel0_leakage_EAM3", "FM_CPU_FPGA_JTAG_MUX_SEL",
++	"Channel1_leakage_EAM0", "FM_SCM_JTAG_MUX_SEL",
++	"Channel2_leakage_Manifold1", "FM_BRIDGE_JTAG_MUX_SEL",
++	"Channel3_leakage", "FM_CPU0_NMI_SYNC_FLOOD_N",
++	"Channel4_leakage_Manifold2", "",
++	"Channel5_leakage_EAM1", "",
++	"Channel6_leakage_CPU_DIMM", "",
++	"Channel7_leakage_EAM2", "",
++
++	/* C0-C7 line 32-47 */
++	"RSVD_RMC_GPIO3", "", "", "",
++	"", "", "", "",
++	"LEAK_DETECT_RMC_N", "", "", "",
++	"", "", "", "",
++
++	/* D0-D7 line 48-63 */
++	"PWRGD_PDB_EAMHSC0_CPLD_PG_R", "",
++	"PWRGD_PDB_EAMHSC1_CPLD_PG_R", "",
++	"PWRGD_PDB_EAMHSC2_CPLD_PG_R", "",
++	"PWRGD_PDB_EAMHSC3_CPLD_PG_R", "",
++	"AMC_BRD_PRSNT_CPLD_L", "", "", "",
++	"", "", "", "",
++
++	/* E0-E7 line 64-79 */
++	"AMC_PDB_EAMHSC0_CPLD_EN_R", "",
++	"AMC_PDB_EAMHSC1_CPLD_EN_R", "",
++	"AMC_PDB_EAMHSC2_CPLD_EN_R", "",
++	"AMC_PDB_EAMHSC3_CPLD_EN_R", "",
++	"", "", "", "",
++	"", "", "", "",
++
++	/* F0-F7 line 80-95 */
++	"PWRGD_PVDDCR_CPU1_P0", "SGPIO_READY",
++	"PWRGD_PVDDCR_CPU0_P0", "",
++	"", "", "", "",
++	"", "", "", "",
++
++	/* G0-G7 line 96-111 */
++	"PWRGD_PVDDCR_SOC_P0", "",
++	"PWRGD_PVDDIO_P0", "",
++	"PWRGD_PVDDIO_MEM_S3_P0", "",
++	"PWRGD_CHMP_CPU0_FPGA", "",
++	"PWRGD_CHIL_CPU0_FPGA", "",
++	"PWRGD_CHEH_CPU0_FPGA", "",
++	"PWRGD_CHAD_CPU0_FPGA", "FM_BMC_READY_PLD",
++	"", "",
++
++	/* H0-H7 line 112-127 */
++	"PWRGD_P3V3", "",
++	"P12V_DDR_IP_PWRGD_R", "",
++	"P12V_DDR_AH_PWRGD_R", "",
++	"PWRGD_P12V_VRM1_CPLD_PG_R", "",
++	"PWRGD_P12V_VRM0_CPLD_PG_R", "",
++	"PWRGD_PDB_HSC4_CPLD_PG_R", "",
++	"PWRGD_PVDD18_S5_P0_PG", "",
++	"PWRGD_PVDD33_S5_P0_PG", "",
++
++	/* I0-I7 line 128-143 */
++	"EAM0_BRD_PRSNT_R_L", "",
++	"EAM1_BRD_PRSNT_R_L", "",
++	"EAM2_BRD_PRSNT_R_L", "",
++	"EAM3_BRD_PRSNT_R_L", "",
++	"EAM0_CPU_MOD_PWR_GD_R", "",
++	"EAM1_CPU_MOD_PWR_GD_R", "",
++	"EAM2_CPU_MOD_PWR_GD_R", "",
++	"EAM3_CPU_MOD_PWR_GD_R", "",
++
++	/* J0-J7 line 144-159 */
++	"PRSNT_L_BIRDGE_R", "",
++	"PRSNT_R_BIRDGE_R", "",
++	"BRIDGE_L_MAIN_PG_R", "",
++	"BRIDGE_R_MAIN_PG_R", "",
++	"BRIDGE_L_STBY_PG_R", "",
++	"BRIDGE_R_STBY_PG_R", "",
++	"", "", "", "",
++
++	/* K0-K7 line 160-175 */
++	"ADC_I2C_ALERT_N", "",
++	"TEMP_I2C_ALERT_R_L", "",
++	"CPU0_VR_SMB_ALERT_CPLD_N", "",
++	"COVER_INTRUDER_R_N", "",
++	"HANDLE_INTRUDER_CPLD_N", "",
++	"IRQ_MCIO_CPLD_WAKE_R_N", "",
++	"APML_CPU0_ALERT_R_N", "",
++	"PDB_ALERT_R_N", "",
++
++	/* L0-L7 line 176-191 */
++	"CPU0_SP7R1", "", "CPU0_SP7R2", "",
++	"CPU0_SP7R3", "", "CPU0_SP7R4", "",
++	"CPU0_CORETYPE0", "", "CPU0_CORETYPE1", "",
++	"CPU0_CORETYPE2", "", "FM_BIOS_POST_CMPLT_R_N", "",
++
++	/* M0-M7 line 192-207 */
++	"EAM0_SMERR_CPLD_R_L", "",
++	"EAM1_SMERR_CPLD_R_L", "",
++	"EAM2_SMERR_CPLD_R_L", "",
++	"EAM3_SMERR_CPLD_R_L", "",
++	"CPU0_SMERR_N_R", "",
++	"CPU0_NV_SAVE_N_R", "",
++	"PDB_PWR_LOSS_CPLD_N", "",
++	"IRQ_BMC_SMI_ACTIVE_R_N", "",
++
++	/* N0-N7 line 208-223 */
++	"AMCROT_BMC_S5_RDY_R", "",
++	"AMC_RDY_R", "",
++	"AMC_STBY_PGOOD_R", "",
++	"CPU_AMC_SLP_S5_R_L", "",
++	"AMC_CPU_EAMPG_R", "",
++	"", "", "", "",
++
++	/* O0-O7 line 224-239 */
++	"HPM_PWR_FAIL", "Port80_b0",
++	"FM_DIMM_IP_FAIL", "Port80_b1",
++	"FM_DIMM_AH_FAIL", "Port80_b2",
++	"HPM_AMC_THERMTRIP_R_L", "Port80_b3",
++	"FM_CPU0_THERMTRIP_N", "Port80_b4",
++	"PVDDCR_SOC_P0_OCP_L", "Port80_b5",
++	"CPLD_SGPIO_RDY", "Port80_b6",
++	"", "Port80_b7",
++
++	/* P0-P7 line 240-255 */
++	"CPU0_SLP_S5_N_R", "NFC_VEN",
++	"CPU0_SLP_S3_N_R", "",
++	"FM_CPU0_PWRGD", "",
++	"PWRGD_RMC", "",
++	"FM_RST_CPU0_RESET_N", "",
++	"FM_PWRGD_CPU0_PWROK", "",
++	"wS5_PWR_Ready", "",
++	"wS0_ON_N", "PWRGD_P1V0_AUX";
++	status = "okay";
++};
++
++// BIOS Flash
++&spi2 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_spi2_default>;
++	status = "okay";
++	reg = <0x1e631000 0xc4>, <0x50000000 0x8000000>;
++
++	flash@0 {
++		compatible = "jedec,spi-nor";
++		label = "pnor";
++		spi-max-frequency = <12000000>;
++		spi-tx-bus-width = <2>;
++		spi-rx-bus-width = <2>;
++		status = "okay";
++	};
++};
++
++// HOST BIOS Debug
++&uart1 {
++	status = "okay";
++};
++
++&uart3 {
++	status = "okay";
++};
++
++&uart4 {
++	status = "okay";
++};
++
++// BMC Debug Console
++&uart5 {
++	status = "okay";
++};
++
++&uart_routing {
++	status = "okay";
++};
++
++&wdt1 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_wdtrst1_default>;
++	aspeed,reset-type = "soc";
++	aspeed,external-signal;
++	aspeed,ext-push-pull;
++	aspeed,ext-active-high;
++	aspeed,ext-pulse-duration = <256>;
++	status = "okay";
++};
++
++&vhub {
++	status = "okay";
++	pinctrl-names = "default";
++};
++
++&video {
++	status = "okay";
++	memory-region = <&video_engine_memory>;
++};
++
++&gfx {
++	status = "okay";
++	memory-region = <&gfx_memory>;
++};
 -- 
 2.34.1
 
