@@ -4,71 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3DCCCEE331
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 16:03:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AAE2CEE332
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 16:03:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ZolYxKyR2TKNDHC7G73SjkM6m/AelgK287SOoaUodeI=; b=KyJh+uMtI22kQ4V+uJFsUMy20u
-	gtaqkU5I+Lx7DbJbewtioFRBvjXvuwB5unjoUK/cv9ZnjN3IsiuBk20cr8mpUQiWxyNpKgu5It5D6
-	j/QBa3Q5NSxI8FaxNnHnB0Se6l3m1/+UOENMoaUH7Hb9NTY5EQw1KWBXdnrh60M7yM1Uv/z9uDXOp
-	ijaFSj+YbEw+c1tLvK/J/2ZHvimIQNKmedlsdxABf5Mb/UnOfwV0/hqjR/E41/bpFI59PZsTJHacD
-	wh/pAIwOTpZexbkgnPKEwi5PN/9kiAjAMiZcgTX4mwazx+Gpt9hoMIcKpsusdludj0Mng4uMwjrfJ
-	E99vJWdw==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WSJqWy4wfSXZhaQaKW322RhPmT1j8xGKth4T2OfqmIA=; b=ZFZ3+Z5sA0renb/oDU1taa5L5R
+	RrTy/kkIyOQQ/UHeOro5D2nD8umUCfAGTYm1rNeMVSTkHnIG4dhLinyZUeGTePhCuaOdAZjU1tiZ4
+	2QxNwj4v5IdoNjO5vGP+4dInbs6KQa8Npnsgwb90ezXVQMHcLNlENJP8o/+2dU3jkm3bwwSU2sv/p
+	gnpTvs886TqPtyq5r+hHQYb1BQuxsF9G3Dm/SLOeZ595A7eC9O5d2IDlmkqhSrJzgnisD7pdAyRWe
+	fRKJIwJ/Ra/F+dl++4AuAVs/mz9Ezww9npScXyVNyFMoMTdOpG3PYTpNLdTMfp3OUondm0+l792Yh
+	xPWJx8UQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLOAP-00000000g4d-1swc;
-	Tue, 18 Nov 2025 16:02:53 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1vLOAX-00000000g7N-0v8D;
+	Tue, 18 Nov 2025 16:03:01 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLOAM-00000000g4A-2t3N
+	id 1vLOAU-00000000g5i-0CyK
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Nov 2025 16:02:52 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-4779cb0a33fso36924345e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Nov 2025 08:02:49 -0800 (PST)
+	Tue, 18 Nov 2025 16:03:00 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-477632d9326so38780245e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Nov 2025 08:02:57 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1763481768; x=1764086568; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=ZolYxKyR2TKNDHC7G73SjkM6m/AelgK287SOoaUodeI=;
-        b=mt+ga9JFrm8U3s5QsdlQEeHjtEbnzPUrwpeKzdGMS7X/35oNBgV+gkhPIQua84nqjc
-         Zp5t3MV+ju3sMg5p0c3JmmGKW40JCQvjyLTBMP4hFeWoRroNUwdIGuh5b4QxO81QuMEC
-         6Off0C/LZNUtepid/RPQjv184cPX6B7GqsBhWgih1aclJTSTXtYTh3ikm4tI52ySaJIZ
-         RryfaryI2EJDwhYrpdMp+S/nmLdnyqMaTvZELHbUgqsBfTV6E5elO/wCLdRyGFkV9qng
-         RdzWUkINi94Emo0GnG/iwCAYqXfcGk/G83xSgR4RcM0L1/bhNoInW00QTFc3gjSGLl21
-         UUmQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763481768; x=1764086568;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=linaro.org; s=google; t=1763481776; x=1764086576; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=ZolYxKyR2TKNDHC7G73SjkM6m/AelgK287SOoaUodeI=;
-        b=Brlw2DHhPDRLZup3II+yTRP09sQKFxCH86wKZ++/0Pd52yLFU5yBu0cowiP7nvg77B
-         gvV6CoooVTqE8cN4Cxpqo/cWErnphOOKLY3DAzmZOynyODnlvWkaUhSbe/zHHk1JKAVY
-         +3oOSqkUMLRCbqYcn4D8iPhq9wB65PYzLZecBQVpuKi7Kjaeg1iYCW7hk/cIGL51Rggs
-         Rl2HzrpPMTaGuLouSNjnVCxzOBBTbX7gTqpPvtaooZOXyK8UPyLbJuzEXHT2KWgz0DHZ
-         qz4zteTNuBTmZ4RQdljpDxx+YbVYVqkDH7HzTvMlXygs830ZqFTWdRkoHkGbCPdxPghe
-         oXCQ==
-X-Forwarded-Encrypted: i=1; AJvYcCU5Gsv+6p5DN0IqQ/DEhNhVZH7bzDYWXCair1GiFhEL1Th9hJRoYbWPIxU101p7ZiKJd+xS6JHdx0vKHwTzbUfa@lists.infradead.org
-X-Gm-Message-State: AOJu0YzmHpCUq2r9AqtzIrYstE3zQU9x7uU/LVb6b8XPdPMPixduWJ0i
-	d/QT4H0oPWlG1lUWXuy7ppMDYTli6N36Mm6QOkPV15cvFPb2z0+deQGy6FTTxjbDArM=
-X-Gm-Gg: ASbGnctkT9/cNaHIl4c7rKydh+fheWCIOA7G8CW/wMAU0pSVHKA2TeYk1itupZyRD1h
-	ztekv0VOLXrNjxiLD5Tdd6uUYdhoRfJiyffrrxz1wUFWVRw98fgStXdm1p2qSXXAUPWurOFsBoQ
-	l9G1gi6QOhy8vbIdseUQglYVllRnH/e0g3lhQSFL17h3msq0TqNJa+pyd3ABtSJ1q9+8W43l5Wq
-	N3FBswVy23EEgGSpAibcFCzXyNDSEIYt5woHg/y+/5uNgVCSreFy87xilleLItgCtQeOn4N2pqz
-	+P4la4KHN+PrUn4ojTYsWouZGVWJw2c/fQuHz5/X3T0XFG6uDm3v536mFU4YKLxv+cSHODXpShj
-	W6QmAx1n3HUOZDj1kc3IkwXRiX9AlQt9XqTbSG2d7432Mf7B42eUeY9W00t6gbpVrNtYfxTKziy
-	5Sk+LAKlu1imlmrHmADwE=
-X-Google-Smtp-Source: AGHT+IHU3f+2VnZb17HyfN3q7vH0maabvSkwzyf6Chngf7ZnCh4C8B1MIKZ3LBGCUAyWOLacnrXL3g==
-X-Received: by 2002:a05:600c:4505:b0:477:7a87:48d1 with SMTP id 5b1f17b1804b1-4778fea8810mr178621825e9.30.1763481768019;
-        Tue, 18 Nov 2025 08:02:48 -0800 (PST)
+        bh=WSJqWy4wfSXZhaQaKW322RhPmT1j8xGKth4T2OfqmIA=;
+        b=qbd4GazF/2YzTDknnN4ndORQIMZ6YrlY6MdSAaAsvo1fORBLqZpx7QhAA9YmfovL7t
+         6PrrSaOVrIeiiKZezsJBAjXDiNCKuiKy6/tu4eDDG+DL3sk9BJ8P6obGZOXLKiQDNb7u
+         IHZusa0NihG5PI9iuFYimQ5s3P3qyuRHcP8tjO5XQG4SatiiUeICohgMdOFU88py+yKQ
+         BO6o15tIlyyqL7E1RvN5vHKBj1Sd0TqSZ4KxLrxXcnNEjoraw/yWvW6i/o3j34c6m1xE
+         iXDeQknD28U7JSR87UmMCblaXZ8GwA/KKj7IZ01j2PwYGYPgeMAmHNI/rq41LreUK6/4
+         DK+A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1763481776; x=1764086576;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=WSJqWy4wfSXZhaQaKW322RhPmT1j8xGKth4T2OfqmIA=;
+        b=TlwnDAsLBSGWzVDMNAHcFENGaROgVkPbooPEJZDn3hwHUklkcfXmwRzwV5po97VBKV
+         Fx9m2Ps0K6JWm9scQBdugkpwPQaoJSGaoo+A9myJxlqrHlJP7ghYPXOHnznnIpdj14xf
+         ej8joeSXKi7ztYOKXvv/BjcsyN7odfPnVadlz2fj8sAvlKS4s/5gvmrIVM6oX2V0pIvh
+         VS3ZZol7VrNx2L8XFfswbf89ah2NTya8eEG8zcCX6/RPkS6HBgOysl7QnnV9wHAtqtUz
+         iinEEjiQ3EN9UZWGBKK+eNCA09D2tIN0uLFTH0QFNfnvW4p1ZI3SFCh9tU7L32c3cz7h
+         pfqg==
+X-Forwarded-Encrypted: i=1; AJvYcCXfl5sT4mSOdBgtOpFgISbuZ4JM7KuAGR5Iu8HbvEOCIiaGmd5CvxEP1vkCxxZyX9jSIsgxYBxlmNWDpZkn8yep@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxjwvy0XGvlGiCQ31U30YkueTyg2DFIHI7Dv30PUeogbFYSdr/A
+	aqJsAn28JKkBFj9MTMhC8MmVVrSKtZiGj/Hs2sAMR7OshwU7jVLXeNWpGV8K2ccSqnU=
+X-Gm-Gg: ASbGnctoNC44aFTaoaCXv2lonsvcJTIkwtUIj3F0y1/xXe82h4I+VKIVSLNcA5N6eVr
+	qMyqz7xWzvXk0ms/VzljvJkS+X9cMjIe6srkiJC5gIsOkR7kq+V2bp8uwkAxFbePaQWKwbWL8UF
+	JK0Ss6AHsPi8L6LzJmfzFlfCe/xlBFM+pFSiU7ruon3kwfspRebeZQsP0TOFm7sDFIdlT4PFBDj
+	soIZLqP0hYLLKBYQ+BKmoRIGWrk0zED6MMa6o7OJiUll4pQXfJRj8l0YbCynNBW5NtFvYhCPzrH
+	UZaZQc8YTo4XRRJ0aIe8h4N8hRcG+eqvwzwXu9UFklTr0HpNUR0nF1EzCnp+id8RwlHgo5x37rP
+	kuFaHm9mXBkMUYssnSCISOtOjtr6Ags0qBOxScUzsM5lKTIHkr/R/eTBb/csKW9y3Er5NRoZD86
+	xP7wAJFgHjzMuNg2G3R64=
+X-Google-Smtp-Source: AGHT+IG+BDNHdoKr+nmoBcJhjAG/ZnTb/B28SkxQADb4sfx6Pq139Gu1ATJ4y3Mlt9Ib3CscQR65Pg==
+X-Received: by 2002:a05:600c:1f12:b0:471:c72:c7f8 with SMTP id 5b1f17b1804b1-4778fe9b44dmr169442525e9.21.1763481776169;
+        Tue, 18 Nov 2025 08:02:56 -0800 (PST)
 Received: from vingu-cube.. ([2a01:e0a:f:6020:76db:cf5c:2806:ec0b])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4779fc42f25sm171954575e9.6.2025.11.18.08.02.44
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4779fc42f25sm171954575e9.6.2025.11.18.08.02.52
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 18 Nov 2025 08:02:45 -0800 (PST)
+        Tue, 18 Nov 2025 08:02:52 -0800 (PST)
 From: Vincent Guittot <vincent.guittot@linaro.org>
 To: chester62515@gmail.com,
 	mbrugger@suse.com,
@@ -94,15 +95,18 @@ To: chester62515@gmail.com,
 	linux-kernel@vger.kernel.org,
 	imx@lists.linux.dev
 Cc: cassel@kernel.org
-Subject: [PATCH 0/4 v5] PCI: s32g: Add support for PCIe controller
-Date: Tue, 18 Nov 2025 17:02:34 +0100
-Message-ID: <20251118160238.26265-1-vincent.guittot@linaro.org>
+Subject: [PATCH 2/4 v5] PCI: dw: Add more registers and bitfield definition
+Date: Tue, 18 Nov 2025 17:02:36 +0100
+Message-ID: <20251118160238.26265-3-vincent.guittot@linaro.org>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20251118160238.26265-1-vincent.guittot@linaro.org>
+References: <20251118160238.26265-1-vincent.guittot@linaro.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251118_080250_764505_75A5DC53 
-X-CRM114-Status: GOOD (  15.07  )
+X-CRM114-CacheID: sfid-20251118_080259_438026_EB3211E8 
+X-CRM114-Status: UNSURE (   9.09  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,93 +121,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The S32G SoC family has 2 PCIe controllers based on Designware IP.
+Add new registers and bitfield definition:
+- GEN3_RELATED_OFF_EQ_PHASE_2_3 field of GEN3_RELATED_OFF
+- 3 Coherency control registers
 
-Add the support for Host mode.
+Signed-off-by: Vincent Guittot <vincent.guittot@linaro.org>
+---
+ drivers/pci/controller/dwc/pcie-designware.h | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
-Change since v4:
-
-- Moved allof position and added interrupt-names' restriction in yaml file
-- Removed PCIE_S32G_PE0_LINK_DBG_2 and instead use PCIE_PORT_DEBUG0|1
-  after receiving confirmation that they are the same.
-
-Change since v3:
-
-- Added Root Port node and reorder irq in binding
-- Added Root Port management in driver 
-- Fix Kconfig PCIE_NXP_S32G position
-- Use default pme_turn_off method
-- Use ops->init() to simplify init and suspend/resume sequence
-- Fix some typos.
-- Removed MPS and ERROR config. Let core code configs them.
-- Removed s32g_pcie_disable_equalization() from internal team request
-- Removed dw_pcie_link_up() from suspend/resume functions with [1]
-
-- I'm still waiting feedback from internal team before removing
-.get_ltssm() and .link_up() functions.
-
-[1] https://lore.kernel.org/all/20251107044319.8356-1-manivannan.sadhasivam@oss.qualcomm.com/
-
-Change since v2:
-
-- More cleanup on DT binding to comply with schemas/pci/snps,dw-pcie.yaml
-- Added new reg and bit fields in pcie-designware.h 
-- Rename Kconfig PCIE_NXP_S32G and files to use pcie-nxp-s32g prefix
-- Prefixed s32G registers with PCIE_S32G_ and use generic regs otherwise
-- Use memblock_start_of_DRAM to set coherency boundary and add comments
-- Fixed suspend/resume sequence by adding missing pme_turn_off function
-- Added .probe_type = PROBE_PREFER_ASYNCHRONOUS to speedup probe
-- Added pm_runtime_no_callbacks() as device doesn't have runtime ops
-- Use writel/readl in ctrl function instead of dw_pcie_write/read
-- Move Maintainer section in a dedicated entry
-
-Change since v1:
-
-- Cleanup DT binding
-  - Removed useless description and fixed typo, naming and indentation.
-  - Removed nxp,phy-mode binding until we agreed on a generic binding.
-    Default (crnss) mode is used for now. Generic binding wil be discussed
-    in a separate patch.
-  - Removed max-link-speed and num-lanes which are coming from
-    snps,dw-pcie-common.yaml. They are needed only if to restrict from the
-    the default hw config.
-  - Added unevaluatedProperties: false
-  - Keep Phys in host node until dw support Root Port node.
-
-- Removed nxp-s32g-pcie-phy-submode.h until there is a generic clock and
-  spectrum binding.
-
-- Rename files to start with pcie-s32g instead of pci-s32g
-
-- Cleanup pcie-s32-reg.h and use dw_pcie_find_capability()
-
-- cleanup and rename in s32g-pcie.c in addtion to remove useless check or
-  duplicate code.
-
-- dw_pcie_suspend/resume_noirq() doesn't woork, need to set child device
-  to reach lowest state.
-
-- Added L: imx@lists.linux.dev in MAINTAINERS
-
-
-Vincent Guittot (4):
-  dt-bindings: PCI: s32g: Add NXP PCIe controller
-  PCI: dw: Add more registers and bitfield definition
-  PCI: s32g: Add initial PCIe support (RC)
-  MAINTAINERS: Add MAINTAINER for NXP S32G PCIe driver
-
- .../bindings/pci/nxp,s32g-pcie.yaml           | 130 ++++++
- MAINTAINERS                                   |   9 +
- drivers/pci/controller/dwc/Kconfig            |  10 +
- drivers/pci/controller/dwc/Makefile           |   1 +
- drivers/pci/controller/dwc/pcie-designware.h  |   8 +
- .../pci/controller/dwc/pcie-nxp-s32g-regs.h   |  21 +
- drivers/pci/controller/dwc/pcie-nxp-s32g.c    | 391 ++++++++++++++++++
- 7 files changed, 570 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/pci/nxp,s32g-pcie.yaml
- create mode 100644 drivers/pci/controller/dwc/pcie-nxp-s32g-regs.h
- create mode 100644 drivers/pci/controller/dwc/pcie-nxp-s32g.c
-
+diff --git a/drivers/pci/controller/dwc/pcie-designware.h b/drivers/pci/controller/dwc/pcie-designware.h
+index e995f692a1ec..e60b77f1b5e6 100644
+--- a/drivers/pci/controller/dwc/pcie-designware.h
++++ b/drivers/pci/controller/dwc/pcie-designware.h
+@@ -121,6 +121,7 @@
+ 
+ #define GEN3_RELATED_OFF			0x890
+ #define GEN3_RELATED_OFF_GEN3_ZRXDC_NONCOMPL	BIT(0)
++#define GEN3_RELATED_OFF_EQ_PHASE_2_3		BIT(9)
+ #define GEN3_RELATED_OFF_RXEQ_RGRDLESS_RXTS	BIT(13)
+ #define GEN3_RELATED_OFF_GEN3_EQ_DISABLE	BIT(16)
+ #define GEN3_RELATED_OFF_RATE_SHADOW_SEL_SHIFT	24
+@@ -138,6 +139,13 @@
+ #define GEN3_EQ_FMDC_MAX_PRE_CURSOR_DELTA	GENMASK(13, 10)
+ #define GEN3_EQ_FMDC_MAX_POST_CURSOR_DELTA	GENMASK(17, 14)
+ 
++#define COHERENCY_CONTROL_1_OFF			0x8E0
++#define CFG_MEMTYPE_BOUNDARY_LOW_ADDR_MASK	GENMASK(31, 2)
++#define CFG_MEMTYPE_VALUE			BIT(0)
++
++#define COHERENCY_CONTROL_2_OFF			0x8E4
++#define COHERENCY_CONTROL_3_OFF			0x8E8
++
+ #define PCIE_PORT_MULTI_LANE_CTRL	0x8C0
+ #define PORT_MLTI_UPCFG_SUPPORT		BIT(7)
+ 
 -- 
 2.43.0
 
