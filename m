@@ -4,57 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D915CED60F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 11:05:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64CAFCED603
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 11:06:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=J7Ukgm/BIguZnm5z2Fhn+vkaR7oKSydx2si/893PWF0=; b=U7Rx5sh2H/i6E1YVXe7d2OLcjX
-	FTsvOLPqWC3LQSf0EUzEurE0zdaGNj/Ok6/xZyLpao1MQLsCbvvIlS2lyA4qGIWv4EK4OdvtFLjGn
-	hrd2VD4uI30qjKVN5QduYJLp0h8f66/vebiTxcrkUFR27e3vtqeLAJwq2/JKWnCgCLNDoMY2/JeuD
-	2rYMhRIGJ5AJe2/nqNggqBbky3Jd4WsTZTEMo0Iq5EPooF4lsVEEJt9M/EjptWMzigeSp/OZWYuuD
-	GCs0Q3GbH89GeSMXQnerl7hOIXRY3hp8ZDG91TmVlr11AEl9K9F5SDRmQGvWL/4s85slpEstC4oyf
-	gqxmB2FA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rznW4veM8hvEBr7K9Kk+x/E9iEVFb+rZaZWNxBnbgH0=; b=L6eU6UZkXh3T2evIe/KqwlnWfK
+	iuIaavK0wsX9L3c85urdMGAFkRnP8KZD5fEKdecjqfF3f17gTKCT5iSyNHcYGyZogHDQQlhIo2GlW
+	5wafSMK4V3YAdh8hWEdrrQA7aMLqtvu4160MpfUHi5H/coNzXbewj6NA7JodtteZc5iuIv6VMXyWK
+	35LDfgA3eywC6k/u3QpGwr2vGJRB47UsczCo/7C5l3gOySiRZ6dj71iS9Sbxqt4X6QiYTtr+ZLkZN
+	T7Hnak8fqwcCZfCOKSJLzrGVPnn0x97FOIG73NeNbbExQmZtYOtnJceLaAvUrxkaTzZs7a/YizMHt
+	e31+41uQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLJWg-00000000IbA-0Jg9;
-	Tue, 18 Nov 2025 11:05:34 +0000
+	id 1vLJWx-00000000Icx-1dYh;
+	Tue, 18 Nov 2025 11:05:51 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLJWd-00000000Iah-25al
+	id 1vLJWu-00000000IcN-27Jf
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Nov 2025 11:05:32 +0000
+	Tue, 18 Nov 2025 11:05:49 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 140D5FEC;
-	Tue, 18 Nov 2025 03:05:21 -0800 (PST)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 548B23F66E;
-	Tue, 18 Nov 2025 03:05:27 -0800 (PST)
-Date: Tue, 18 Nov 2025 11:05:21 +0000
-From: Mark Rutland <mark.rutland@arm.com>
-To: Kees Cook <kees@kernel.org>
-Cc: Ryan Roberts <ryan.roberts@arm.com>, Arnd Bergmann <arnd@arndb.de>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Jeremy Linton <jeremy.linton@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Catalin Marinas <Catalin.Marinas@arm.com>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 81643FEC;
+	Tue, 18 Nov 2025 03:05:40 -0800 (PST)
+Received: from [10.1.25.191] (XHFQ2J9959.cambridge.arm.com [10.1.25.191])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B2D463F66E;
+	Tue, 18 Nov 2025 03:05:46 -0800 (PST)
+Message-ID: <ee19b0eb-8039-4598-ac94-09fd0417fd84@arm.com>
+Date: Tue, 18 Nov 2025 11:05:45 +0000
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
 Subject: Re: [DISCUSSION] kstack offset randomization: bugs and performance
-Message-ID: <aRxS8fQWhvxYiTbl@J2N7QTR9R3>
+Content-Language: en-GB
+To: Jeremy Linton <jeremy.linton@arm.com>, Kees Cook <kees@kernel.org>,
+ Arnd Bergmann <arnd@arndb.de>, Ard Biesheuvel <ardb@kernel.org>,
+ Will Deacon <will@kernel.org>, Catalin Marinas <Catalin.Marinas@arm.com>,
+ Mark Rutland <mark.rutland@arm.com>
+Cc: "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
 References: <66c4e2a0-c7fb-46c2-acce-8a040a71cd8e@arm.com>
  <dd8c37bc-795f-4c7a-9086-69e584d8ab24@arm.com>
- <202511171221.517FC4F@keescook>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <202511171221.517FC4F@keescook>
+ <b0c4bfc1-1070-48ae-a51a-d6a32f534022@arm.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <b0c4bfc1-1070-48ae-a51a-d6a32f534022@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251118_030531_686306_A99CEC40 
-X-CRM114-Status: GOOD (  35.00  )
+X-CRM114-CacheID: sfid-20251118_030548_625527_35570912 
+X-CRM114-Status: GOOD (  39.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,63 +70,225 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 17, 2025 at 12:27:36PM -0800, Kees Cook wrote:
-> On Mon, Nov 17, 2025 at 11:31:22AM +0000, Ryan Roberts wrote:
-> > On 17/11/2025 11:30, Ryan Roberts wrote:
-> > > I think we could just pass the random seed to add_random_kstack_offset() so that
-> > > we consume the old and buffer the new atomically? We would still buffer it
-> > > across syscalls to avoid the guessability issue that's documented. Then
-> > > choose_random_kstack_offset() could be removed. Or we could store
-> > > per-task_struct given it is only 32-bits?
+On 17/11/2025 20:56, Jeremy Linton wrote:
+> Hi,
 > 
-> I had wanted to avoid both growing task_struct and to avoid tying the
-> randomness to a given task -- then unpredictability could be higher
-> (barring the bug above), and could be only reduced to per-thread by
-> pinning a thread exclusively to a single CPU.
-
-I appreciate the rationale of not growing task struct, but I think the
-"unpredictability could be higher" rationale doesn't hold any water.
-
-If an adversary has userspace code execution, they can pin the thread to
-a CPU. Regardless of whether they have that capability, in common cases
-the thread isn't going to migrate for a number of syscalls if those are
-non-blocking. The unpredictability gained by CPU migrations is slim to
-none.
-
-From a thread model perspective, we need this to be unpredictable
-*regardless* of any pinning.
-
-From a quick look at task struct, it appears that (on 64-bit platforms)
-there are several opportunities for rearranging fields to pack things
-together and save bytes. I think that if the state is sufficiently
-small, we don't actually have to grow task struct. Practically speaking,
-if this is small enough no-one will notice.
-
-> > > Bug 2: add_random_kstack_offset() and choose_random_kstack_offset() both
-> > > document their requirement to be called with interrupts and preemption disabled.
-> > > They use raw_cpu_*(), which require this. But on arm64, they are called from
-> > > invoke_syscall(), where interrupts and preemption are _enabled_. In practice, I
-> > > don't think this will cause functional harm for arm64's implementations of
-> > > raw_cpu_*(), but means that it's possible that the wrong per-cpu structure is
-> > > being referred to. Perhaps there is a way for user code to exploit this to
-> > > defeat the purpose of the feature.
-> > > 
-> > > This should be straightforward to fix; if we take the task_struct approach for
-> > > bug 1, then that would also fix this issue too because the requirement to be in
-> > > atomic context goes away. Otherwsise it can be moved earlier in the callchain,
-> > > before interrupts are enabled.
+> On 11/17/25 5:31 AM, Ryan Roberts wrote:
+>> Sorry; forgot to add Mark and the lists!
+>>
+>>
+>> On 17/11/2025 11:30, Ryan Roberts wrote:
+>>> Hi All,
+>>>
+>>> Over the last few years we had a few complaints that syscall performance on
+>>> arm64 is slower than x86. Most recently, it was observed that a certain Java
+>>> benchmark that does a lot of fstat and lseek is spending ~10% of it's time in
+>>> get_random_u16(). Cue a bit of digging, which led me to [1] and also to some new
+>>> ideas about how performance could be improved.
+>>>
+>>> But I'll get to the performance angle in a bit. First, I want to discuss some
+>>> bugs that I believe I have uncovered during code review...
+>>>
+>>>
+>>> Bug 1: We have the following pattern:
+>>>
+>>> add_random_kstack_offset()
+>>>    enable_interrupts_and_preemption()
+>>>      do_syscall()
+>>>    disable_interrupts_and_preemption()
+>>> choose_random_kstack_offset(random)
+>>>
+>>> Where add_random_kstack_offset() adds an offset to the stack that was chosen by
+>>> a previous call to choose_random_kstack_offset() and stored in a per-cpu
+>>> variable. But since preemption is enabled during the syscall, surely an attacker
+>>> could defeat this by arranging for the thread to be preempted or migrated while
+>>> executing the syscall? That way the new offset is calculated for a different CPU
+>>> and a subsequent syscall on the original CPU will use the original offset?
+>>>
+>>> I think we could just pass the random seed to add_random_kstack_offset() so that
+>>> we consume the old and buffer the new atomically? We would still buffer it
+>>> across syscalls to avoid the guessability issue that's documented. Then
+>>> choose_random_kstack_offset() could be removed. Or we could store
+>>> per-task_struct given it is only 32-bits?
+>>>
+>>>
+>>> Bug 2: add_random_kstack_offset() and choose_random_kstack_offset() both
+>>> document their requirement to be called with interrupts and preemption disabled.
+>>> They use raw_cpu_*(), which require this. But on arm64, they are called from
+>>> invoke_syscall(), where interrupts and preemption are _enabled_. In practice, I
+>>> don't think this will cause functional harm for arm64's implementations of
+>>> raw_cpu_*(), but means that it's possible that the wrong per-cpu structure is
+>>> being referred to. Perhaps there is a way for user code to exploit this to
+>>> defeat the purpose of the feature.
+>>>
+>>> This should be straightforward to fix; if we take the task_struct approach for
+>>> bug 1, then that would also fix this issue too because the requirement to be in
+>>> atomic context goes away. Otherwsise it can be moved earlier in the callchain,
+>>> before interrupts are enabled.
+>>>
+>>>
+>>> Then we get to the performance aspect...
+>>>
+>>> arm64 uses get_random_u16() to get 16 bits from a per-cpu entropy buffer that
+>>> originally came from the crng. get_random_u16() does
+>>> local_lock_irqsave()/local_unlock_irqrestore() inside every call (both the
+>>> fastpath and the slow path). It turns out that this locking/unlocking accounts
+>>> for 30%-50% of the total cost of kstack offset randomization. By introducing a
+>>> new raw_try_get_random_uX() helper that's called from a context where irqs are
+>>> disabled, I can eliminate that cost. (I also plan to dig into exactly why it's
+>>> costing so much).
 > 
-> I can't speak to these internals, just that I'd hope to avoid forcing
-> the randomness down to the thread-level.
+> IIRC it was because there is another thread filling batch of random numbers.
 
-From my perspective this would be *much* nicer as a per-thread property,
-since it wouldn't have any problematic interactions with preemption, and
-wouldn't force awkward requirements on architecture code.
+Err, why should that cause slow down? The lock is a local_lock, so it shouldn't
+cause contention between 2 cpus. Conceptually each CPU has a different lock, right?
 
-i.e. I completely disagree -- I think this would be much better per
-thread.
+For non-RT:
 
-Using siphash per thread sounds fine to me.
+#define local_lock_irqsave(lock, flags)				\
+	__local_lock_irqsave(this_cpu_ptr(lock), flags)
 
-Mark.
+
+#define __local_lock_irqsave(lock, flags)			\
+	do {							\
+		local_irq_save(flags);				\
+		__local_lock_acquire(lock);			\
+	} while (0)
+
+
+
+local_irq_save() resolves to these 2 functions, which don't "look" expensive:
+
+static __always_inline unsigned long __daif_local_save_flags(void)
+{
+	return read_sysreg(daif);
+}
+static __always_inline void __daif_local_irq_disable(void)
+{
+	barrier();
+	asm volatile("msr daifset, #3");
+	barrier();
+}
+
+
+
+__local_lock_acquire resolves to this where, the lock is a local_lock_t, so this
+doesn't do anything:
+
+#define __local_lock_acquire(lock)					\
+	do {								\
+		local_trylock_t *tl;					\
+		local_lock_t *l;					\
+									\
+		l = (local_lock_t *)(lock);				\
+		tl = (local_trylock_t *)l;				\
+		_Generic((lock),					\
+			local_trylock_t *: ({				\
+				lockdep_assert(tl->acquired == 0);	\
+				WRITE_ONCE(tl->acquired, 1);		\
+			}),						\
+			local_lock_t *: (void)0);			\
+		local_lock_acquire(l);					\
+	} while (0)
+
+> 
+> 
+>>>
+>>> Furthermore, given we are actually only using 6 bits of entropy per syscall, we
+>>> could instead just request a u8 instead of a u16 and only throw away 2 bits
+>>> instead of 10 bits. This means we drain the entropy buffer half as quickly and
+>>> make half as many slow calls into the crng:
+>>>
+>>> +-----------+---------------+--------------+-----------------+-----------------+
+>>> | Benchmark | randomize=off | randomize=on | + no local_lock | + get_random_u8 |
+>>> |           |    (baseline) |              |                 |                 |
+>>> +===========+===============+==============+=================+=================+
+>>> | getpid    |          0.19 |  (R) -11.43% |      (R) -8.41% |      (R) -5.97% |
+>>> +-----------+---------------+--------------+-----------------+-----------------+
+>>> | getppid   |          0.19 |  (R) -13.81% |      (R) -7.83% |      (R) -6.14% |
+>>> +-----------+---------------+--------------+-----------------+-----------------+
+>>> | invalid   |          0.18 |  (R) -12.22% |      (R) -5.55% |      (R) -3.70% |
+>>> +-----------+---------------+--------------+-----------------+-----------------+
+>>>
+>>> I expect we could even choose to re-buffer and save those 2 bits so we call the
+>>> slow path even less often.
+>>>
+>>> I believe this helps the mean latency significantly without sacrificing any
+>>> strength. But it doesn't reduce the tail latency because we still have to call
+>>> into the crng eventually.
+>>>
+>>> So here's another idea: Could we use siphash to generate some random bits? We
+>>> would generate the secret key at boot using the crng. Then generate a 64 bit
+>>> siphash of (cntvct_el0 ^ tweak) (where tweak increments every time we generate a
+>>> new hash). As long as the key remains secret, the hash is unpredictable.
+>>> (perhaps we don't even need the timer value). For every hash we get 64 bits, so
+>>> that would last for 10 syscalls at 6 bits per call. So we would still have to
+>>> call siphash every 10 syscalls, so there would still be a tail, but from my
+>>> experiements, it's much less than the crng:
+>>>
+>>> +-----------+---------------+--------------+-----------------+-----------------+
+>>> | Benchmark | randomize=off | randomize=on |         siphash |   Jeremy's prng |
+>>> |           |    (baseline) |              |                 |                 |
+>>> +===========+===============+==============+=================+=================+
+>>> | getpid    |          0.19 |  (R) -11.43% |      (R) -5.74% |      (R) -2.06% |
+>>> +-----------+---------------+--------------+-----------------+-----------------+
+>>> | getppid   |          0.19 |  (R) -13.81% |      (R) -3.39% |      (R) -2.59% |
+>>> +-----------+---------------+--------------+-----------------+-----------------+
+>>> | invalid   |          0.18 |  (R) -12.22% |      (R) -2.43% |          -1.31% |
+>>> +-----------+---------------+--------------+-----------------+-----------------+
+>>>
+>>> Could this give us a middle ground between strong-crng and
+>>> weak-timestamp-counter? Perhaps the main issue is that we need to store the
+>>> secret key for a long period?
+> 
+> This is sorta fundamental with the (C)PRNG's. There is an estimated cycle (2^112
+> it says for prandom) and the more state you keep hidden to increase that value
+> slower the generation becomes.
+> 
+> If your not worried about tail latency, then just use prandom per the patch
+> below and xor in some data from the get_random_* into the local state on some
+> interval. Say every million calls. One might argue for a couple bits of a
+> counter on some interval would be enough if the tsc is good enough for x86, but
+> frankly any counter must be independent from the core cpu clocks to have any
+> hope of those values being unpredictable. Or just reseed it only on a subset of
+> syscalls known to have a lot of variance, or some other per-cpu work, that at
+> least will hide when its being reseeded from someone measuring the latency
+> variance.
+
+All sound reasonable to me. Lemme get some data for different options.
+
+> 
+> I guess it depends on how strong you believe the existing system is. My
+> perspective is that resseding it is probably a waste of time since its being
+> quantized down to 2^5 bits anyway.
+
+nit: it's 6 bits so 2^6 = 64 values.
+
+I tend to agree; If you have some stack attack where you need to know the
+offset, I guess you can just select one offset and repeat the attack until it
+suceeds, and on average it will succeed 1 in 64 times? It doesn't sound like we
+should be paying such a performance price for that level of protection to me.
+
+Thanksm,
+Ryan
+
+> 
+>>>
+>>>
+>>> Anyway, I plan to work up a series with the bugfixes and performance
+>>> improvements. I'll add the siphash approach as an experimental addition and get
+>>> some more detailed numbers for all the options. But wanted to raise it all here
+>>> first to get any early feedback.
+>>>
+>>>
+>>> [1]
+>>> https://lore.kernel.org/linux-arm-kernel/20240305221824.3300322-1-
+>>> jeremy.linton@arm.com/
+>>>
+>>> Thanks,
+>>> Ryan
+>>>
+>>
+> 
+
 
