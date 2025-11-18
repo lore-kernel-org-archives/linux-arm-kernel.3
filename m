@@ -4,108 +4,148 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36050CEE328
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 16:03:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0D20CEE332
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 16:03:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EbUXnWJiMgu3Cjju37fWmgqS2Nw7wZk0yffLxoWu3P8=; b=BgWYGfebEdfjfUeN9K7cUO6mr9
-	nXN4kIcg3bBeLWo/+Kume1k65NMi0t6CJIyY//B6LLkuL4Ivf5+rNtEP/cuI15rbRgIv2C+9xY5v6
-	suAJxDuHRYWtJXC6/O0KSBdHJYhGjUIlZkepmGDRTahYgKM4rZb5MF9vf3FSMOSf6IgYJT9IVw4i+
-	KNnzWKOYcRLVjGLNnUk8tL3R0oHn5D5+udIhRHPrqjQt7KZfOdHRys6k02xE6TITHOXKpDrKT+Z6i
-	4fzg4Q+YQcgMV4WwXlgMWJ7C+xgktuj4Ob6KiyvPngsf4Xilx/QnHNyn5ITBHG2KkiM8J2t+XgQQg
-	bl8kWmjw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=e5EHTEtVE+xR84UPs5uI9XUt+n6LYVna3joUU+w0XYU=; b=CD1RrAOY2HGHovYjbSBu9ZY3+T
+	zvlTqFZUFZ1hg4Ao8lzcf6U7ZlARG8pcVcbwpXXHsL5lGdVa6NLfqVTrdvTUjV5116NGxtVJhxnR9
+	1eTYsxPSjEg2ewGdoz8zUmc8/AMbQxpffcXSFH95ZKT2r1B6tzsA5YAk+x3Izf5YoptXAXee4mBsp
+	QVbfv/bbmY0Qg9R3daNvtWXOYlvGXUXfEE1OADJKD9U8WmQ84PE3kuWxvznhD3HgKnV81cVTSuzd4
+	GkBXaOdn3fEKYT0QSBwmxgTdXxibA1VMivCVWd9xE9pchNbsfZr0zDjQQqctCaslFfkh4QS2YwBfz
+	eqfnIxOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLOAd-00000000gAc-2SVZ;
-	Tue, 18 Nov 2025 16:03:07 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	id 1vLOAu-00000000gKN-3Xrg;
+	Tue, 18 Nov 2025 16:03:24 +0000
+Received: from mail-westeuropeazon11011030.outbound.protection.outlook.com ([52.101.70.30] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLOAX-00000000g7A-2ryN
+	id 1vLOAs-00000000gIL-1DDk
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Nov 2025 16:03:04 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-47775fb6c56so58009055e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Nov 2025 08:03:01 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1763481780; x=1764086580; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=EbUXnWJiMgu3Cjju37fWmgqS2Nw7wZk0yffLxoWu3P8=;
-        b=gqyhKyd8uN0WXkOwi0Py7MmsF3r/IdIgaJTGMcIlUu65KL2nrGG1F9fZ9CrtJbnxc3
-         op9IhkKdurYkmNcBW/VaT3tqwNjRt5hTaE2dnzeEhgBEDcL8DKEmfQ4GPO/+X84Ctk0y
-         xdaCe+NRQ+P0dlwWtla9BDNHx0e1InTlPxWS9n3jNnX3rK48lA2R97/efiOJxm0dLeIz
-         2FlbpaQAXfd1eZiXqQBnaJXiVzw1LN/7eDD76w3rnGjcnSZVvi+ndDjGiC9az1GNF2tl
-         OFwz85db96n6v/NpVrcvK7oqMwWHosh00Xtc6Hw+SVpA9BXhUWGHcPjF8O0HS5F5CVKZ
-         o2mQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763481780; x=1764086580;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=EbUXnWJiMgu3Cjju37fWmgqS2Nw7wZk0yffLxoWu3P8=;
-        b=iRn85NcN/xiL/9kvJRXijrecmWOIci5nFdPTgR3Ac6FbJLQOZAi5QSyM6BuC7iBVUG
-         d4BE6v2y0RejsX+IsFgLhYjpx0fSISwdtYR2pE74JrUJrHA0cZoGE1r+dsCs1H/RYC81
-         F396ZDdD8aNEgg5EIdSn+NePcW3PocbVkGMyoMFUgivwBdnDLWEplPw/mO8GfAu+pIka
-         B6zf3A6Nzb8PyHrOWeFFvKSknfTDwHwz1Y3gKyhzdbKDC3tu/Ui1W+ptjITqpclD5dYw
-         VeNfB+etA3ueU9uunYDpElS5+v8/ooIavmZUJ3Wu25z16rw5UeXOqhhJwi9llOtLDNrj
-         S7PQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWcJoujIpF7kIcdyiqk1bKPObvzhE7zZatOyzSGnqvd8XaIorGjqVHWgt68jIXaZLUQPLu0Kqvt54NsHNBPTmT2@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy5BzvXdTOayDMUz4oBVU4zUR/sQY4Y3Zu3SYc5ZYGW/QDDsNK/
-	TmxsSykZYCBOjHbtDF9Fxkh6zhWeOlb7dygDpj4/Gyk7TvlhQ04IfWmN8hI5ni9DUWI=
-X-Gm-Gg: ASbGncsoDW5t1EjpnQLXGKw+CVigXOeHvb4ia40+T1imxceJT4P0OhYrZeIZgZZ1C68
-	GXPk3ugayzIk8BAdKBtlrQWxJ0V+qlT4Rxh1FS/l7h7oX0TLNc8zwNWG/flpx30wzuafzElCjQD
-	orq7AX+WUF/DMMIRxUu7haH/DuwRptemraBdGHaNk3DUM/enX4NgI/xhKQ4PZ+kQjXyX75JUCcI
-	aTJgrvmzPAWxRpvU1udcx1gaL+wrbeCZ5wTEK4vgHMIakOZ0H3NFoNuP2LaF8pZbVkPCxUVV9F3
-	cmhPjeLL2s7i542VniWq+x+PyGZG4HO3rhlu6WhyAQlXD4b9vP5uu/zRS4WpEVXPIPTAGCBcKtw
-	Th+SyPLnWg0Q0QgODXHeclKhkhaXe4nVHF9YvDaFsanEnWJBpR2HZZxr14ekLhtVJDgxp6Kt+zt
-	qChcCDSkk42lR9Sp/lyttbMhWuflKN/A==
-X-Google-Smtp-Source: AGHT+IEOBFhSvsd6R+GN4SrXaQZQxvUFQpzHkQT09I9M4b2MWgROdMDgN+AFRcEiEMeNDCt1yB3EXg==
-X-Received: by 2002:a05:600c:5703:b0:477:9fcf:3fe3 with SMTP id 5b1f17b1804b1-4779fcf4706mr69121415e9.0.1763481779475;
-        Tue, 18 Nov 2025 08:02:59 -0800 (PST)
-Received: from vingu-cube.. ([2a01:e0a:f:6020:76db:cf5c:2806:ec0b])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4779fc42f25sm171954575e9.6.2025.11.18.08.02.56
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 18 Nov 2025 08:02:56 -0800 (PST)
-From: Vincent Guittot <vincent.guittot@linaro.org>
-To: chester62515@gmail.com,
-	mbrugger@suse.com,
-	ghennadi.procopciuc@oss.nxp.com,
-	s32@nxp.com,
-	bhelgaas@google.com,
-	jingoohan1@gmail.com,
-	lpieralisi@kernel.org,
-	kwilczynski@kernel.org,
-	mani@kernel.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	Ionut.Vicovan@nxp.com,
-	larisa.grigore@nxp.com,
-	Ghennadi.Procopciuc@nxp.com,
-	ciprianmarian.costea@nxp.com,
-	bogdan.hamciuc@nxp.com,
-	Frank.li@nxp.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-pci@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev
-Cc: cassel@kernel.org
-Subject: [PATCH 3/4 v5] PCI: s32g: Add initial PCIe support (RC)
-Date: Tue, 18 Nov 2025 17:02:37 +0100
-Message-ID: <20251118160238.26265-4-vincent.guittot@linaro.org>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20251118160238.26265-1-vincent.guittot@linaro.org>
-References: <20251118160238.26265-1-vincent.guittot@linaro.org>
+	Tue, 18 Nov 2025 16:03:23 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ePDSGuAjy+WZRyTu2vtoDqjGDfuU987ufsngMqejuBN2yFYmsnBnby9UE9yrU9pCeMpblL8mWvFkyW0v8I1hyOw1TrBm6G8ZvLtvdYsFWr8giAF+y6WSTX6g8v5t+btILP8eAT0gL051sS1Mh36b1xLTsip8EDMkb0E1t2nR7NB4S2DL4ALvSHrp/zvjq5PKbgyN7iE3DiWRjJchhsmOJK/bKlZ8lYTSxpb9WmH1h+8gVUk6BKRawQcZ+CP+QQz/7dkmJQfp8bCpyVya6cWRcbPmjgCIPi01kGIP+WDPw32kBr8G0kEFVU/MOPd9gYEYN7Irda/54Co4fEgWdiU2/w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=e5EHTEtVE+xR84UPs5uI9XUt+n6LYVna3joUU+w0XYU=;
+ b=Br5fhSXrRHVuglTw6QeFBZ+KKXEBuGrPBVZvTBfWizkvtvmAgrhNlciBDbwx0OTlBlh0MkvubH4XbRFzqPMlgeFamb8weHA++KYnQj7ppNRYP/6XnP82n6YxjFr+yrLqO1/+BTkNNqUOvjWkchAixgubr9Ts8Vqq/NAOdHUAmZHLdEBlXh0MWudFYAzE1lhJU+jInMvjrueIzI6psmo+FkppdqyhBsTPjNmxIyhoyfW0aSdWJwr5AJJzyGdqZM3xYWgRqBz9qoGQRtGyoWkwc3QTtk3zJJuQixEoxyjeg9slWybZcG0vFS3fYY1+4AlMepJXggQgUnrIEIhk7yIFTA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=e5EHTEtVE+xR84UPs5uI9XUt+n6LYVna3joUU+w0XYU=;
+ b=VIwI2hiINVAs8bHuRfcQlwbeTJMm/NDVEFY+jMt2hxAhJWaJqioeu4Y6NdW8SOVHeZxTXA8piTqgO3uuWUxvwNPI3QoVNBsDFpnH3jUl7CEJxXdR4uuJbImq0o5EQnQPk5hvUn8KMa85QFjduCY7onoO4SbmY2jLkTz5Y/CuIQtxu0ll/Y078M70F5+XD+rUmcR8AeMGCmuu3I4ABUbBchi1+nOUYDq/NlLwIbQnZ0qGMkdpLm78E0doOYG8bQR/7M5/mTwD7LypVWMlDbUhjTmdkc9Ff324giFgLoCApw93pqmdOnarwBIA9YCUvKJqHfeWOFfamH8lwkauWBgRWA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from DB9PR04MB9626.eurprd04.prod.outlook.com (2603:10a6:10:309::18)
+ by GVXPR04MB9733.eurprd04.prod.outlook.com (2603:10a6:150:119::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9320.22; Tue, 18 Nov
+ 2025 16:03:19 +0000
+Received: from DB9PR04MB9626.eurprd04.prod.outlook.com
+ ([fe80::55ef:fa41:b021:b5dd]) by DB9PR04MB9626.eurprd04.prod.outlook.com
+ ([fe80::55ef:fa41:b021:b5dd%4]) with mapi id 15.20.9320.021; Tue, 18 Nov 2025
+ 16:03:18 +0000
+Date: Tue, 18 Nov 2025 11:03:11 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: Carlos Song <carlos.song@nxp.com>
+Cc: broonie@kernel.org, shawnguo@kernel.org, s.hauer@pengutronix.de,
+	kernel@pengutronix.de, festevam@gmail.com,
+	linux-spi@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Clark Wang <xiaoning.wang@nxp.com>
+Subject: Re: [PATCH v3] spi: imx: add 16/32 bits per word support for target
+ PIO mode
+Message-ID: <aRyYv3yej6Pc/HrU@lizhi-Precision-Tower-5810>
+References: <20251118065012.1418279-1-carlos.song@nxp.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251118065012.1418279-1-carlos.song@nxp.com>
+X-ClientProxiedBy: PH8PR22CA0021.namprd22.prod.outlook.com
+ (2603:10b6:510:2d1::7) To DB9PR04MB9626.eurprd04.prod.outlook.com
+ (2603:10a6:10:309::18)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DB9PR04MB9626:EE_|GVXPR04MB9733:EE_
+X-MS-Office365-Filtering-Correlation-Id: 024828c5-241c-461a-4b16-08de26bbfd73
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|19092799006|52116014|376014|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?ImFftc1rO0sBoYtxHlxrZPCAunIGRXARUcW2agbM0gx/1smhKIi1mB4cgHJh?=
+ =?us-ascii?Q?jIUD/ZgtRzw2BMGvvxyz4xYOFtMylt7vcVkmg+hWdx3cMOxYcIDnAjGAPDxf?=
+ =?us-ascii?Q?+AuIAQCNPAVaewkaOYUb7kXG2LzElfrtZwSWOWayKUz0Fiacd/zd4JhfZk9N?=
+ =?us-ascii?Q?CrcxQkmG0/wyshxWKjmJxLu18opiJIbgJQ5D2VjTDDCI3c2eyIK9cXDhtpUg?=
+ =?us-ascii?Q?iEX7k6X/vNOpgKMq8KpzAPenyBY9Euw+HeDhmTEN9/nPRXYK8Enuvc0XtwJS?=
+ =?us-ascii?Q?33A4SSYJg2/Tc3tm1++c/fx+aWdIKaw3sLv2OQ8MARASOQAA5/RgjhjvHILf?=
+ =?us-ascii?Q?oakwZgU4B7zjiUw+HnEx3czgd49XU3c+XF55njiOvlRpXvd6bfzCJEn6llb5?=
+ =?us-ascii?Q?aZjKs1dYkV5Ch+vdfOBDrGLGT1bDlO3EP6hIxMLCI+teqzzmPpH8qVVUuzSx?=
+ =?us-ascii?Q?+JV8PirnO8wkyhdX4lDI22Q8Sx9gX7U+wwQT7Lzunlr6kppMXBTZ0jJpQX4d?=
+ =?us-ascii?Q?yOT9D6K59xiT13hxP0W17BIOJ8p9a7OhWMMjfohi8eWC6VUMAk3yv3johrhN?=
+ =?us-ascii?Q?j97hP55t0tJs6SGvK0dd/MsqZH+m+HlvD0R903Ao5I6iOTmypaYS6givLARy?=
+ =?us-ascii?Q?eK663mELCJosOAM/jyfkqCtp8QjKWDmXJ2NjY/39HotI2SgoEAe3OYpS2TGw?=
+ =?us-ascii?Q?llyvC1D6VIDzKKXysLKVMuW3dj1unatMV6fO9/eS4lG2lIkffa/uS0nkuCBY?=
+ =?us-ascii?Q?EZ4sWuOCv8HwdiGv/Lo1p85bEyWfgLdHJTb08N20S6Y7ckln3otmzv1rWh2d?=
+ =?us-ascii?Q?cXElzdSBB6MthTnHe8QLkWV2NaQEWd7LeA80oYUHbIL6mJPidk/i3LSAt9yf?=
+ =?us-ascii?Q?Esbjzh/HXZe6OOSTfGwCAkRSI4/cgOyikKYyHeRAn4/xLAMdLbqiqHHMK7mU?=
+ =?us-ascii?Q?BAmZlIyoy8y4FZa7GxfBH/IW4Ywh3eyXU1iuQeedGZ8HF95pU6eYoyvYM9ls?=
+ =?us-ascii?Q?qE9A+JwvyFSiD9ytmo3cwl1d2FMmNcRFcS1Zc6K2qQQaBEICImr6kW2xA47d?=
+ =?us-ascii?Q?rqQ2wMKQ6aDysTa1JaDJZUE1bm22OwKjBonR71nO8pX2M732dVHDdCHnKHDe?=
+ =?us-ascii?Q?3V8wHkKcEu26nbTHPnuIc2rXeSXeDObl6Kw9VW5+Ax3+cInuaCA4r2G8z8Fj?=
+ =?us-ascii?Q?F452e9/hJukBRuqqiya66mzBp4eyE7lf4lt058TmOrKSuyvMPIjmCQwtpYaZ?=
+ =?us-ascii?Q?kN5oF4FCPpXec+B3YAkYZyCGYzJ8xyW0pJTzlFR5uM57yXdXgjkdOYTXslqO?=
+ =?us-ascii?Q?eis9ukUZ0RjOESvgbZfL3vkjNmDQpN6xO6jPZ0VUz7oBlUMEUDP6PEo9bgCN?=
+ =?us-ascii?Q?WTfZOUi+N3x2M8H47XjMQNAEWkv2XOJAYHoEreIXNZsrAcuCN/z36CPVDJdE?=
+ =?us-ascii?Q?6lfnJz4xYC4hidh7MEbhkmkIP0B/cavi2zZ1o9ow2kPE5s7AFjxb8skhHvbp?=
+ =?us-ascii?Q?NxB1yAJM0rhigM9T8pKK+Dq/8NnzodB7GCCs?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR04MB9626.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(19092799006)(52116014)(376014)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Qe+IbeqHRHGNGEwFm69RD6PwfThkMAadzDjKKm6Opwk/+VrXgSYJdB3gKOFq?=
+ =?us-ascii?Q?nH4HEn8wICoRccFcyQ/DTMNxfXrPVclb3yvw8j0UgyvQPeIfUNRt13mxukQB?=
+ =?us-ascii?Q?MuXwojQCgJFgA+PnzwovyrInMvpTlVpMdzlc4vpAVU73Q+nqe/U5MWWoLFMw?=
+ =?us-ascii?Q?2VUiunRwSWn79aaTsKJ83OCRgIIxjmrsLLJuATxlX2dJvJJV+XgzmXNA8kA2?=
+ =?us-ascii?Q?6tnmYg/YBvsju4qPvDy/M0fwCFgAiv/40ZyUbtsAvFPR0aX/R2KPT/eXfp5O?=
+ =?us-ascii?Q?0ltxRKaAZuHqWMuKcY7FsO68HFrrqtqiQLV+9q/YK6bzDTvkZ2rOdAaE9Bgj?=
+ =?us-ascii?Q?Y/qvczzizhRmRimIXK/GWvzJCz2munsVq5oJa2/OCcisXQiRSR7LjCGN91/8?=
+ =?us-ascii?Q?oaJUgzDtbM0aj1y8xwr2sWL9cESoR5YJA1frgDWoAj1uQUevowocFPyGAXaa?=
+ =?us-ascii?Q?xwDH4pAWfO+4WgofwHf+SDVvSgNne95xd+crUmxGZjop4fym2P1N5iU945FA?=
+ =?us-ascii?Q?i7aEcEoXxIM0mChr4HkWJGaS6udlnbTwQWZWPlzlIPXJkirVjNdFreNtRijd?=
+ =?us-ascii?Q?O4jRp6P7hUkdBOOWESyQg4C2w6jBK5xmHwNZxVaybmPQA5xJ+8scrD6YaTGh?=
+ =?us-ascii?Q?7rJ4EYwOWwNSP3AkkkiFEoBp20ZAkVvtTmm/slklq5KMm+MbomG551hPPgUb?=
+ =?us-ascii?Q?nPpiJWz4zjh6H9rmVbGsqgae9FI56722YatpWvrPZsgH15X10U+CwnEdaqM1?=
+ =?us-ascii?Q?1CpkI7IC5fr3HBsJKrhPHKNKdBEd6n6T8f1rGrmZ5iYKtQuzR5RNhT1gWfej?=
+ =?us-ascii?Q?0yY+e6tId3DJXJjLhzkDOwqeMWfIPHV7hUqVONdiS9aJOLpKhpLdaEzBsAD9?=
+ =?us-ascii?Q?XKADR40dCyzYB5qjiBtim6kO4zSmAOu7k5d2MzMa110kQhJ7/hUVz0Yjyt1t?=
+ =?us-ascii?Q?Gtv9ChxBb/6d+j2op9GwTvC4sKwBzwrdcLggX/7jXV461NiNJKcGVEQtd0tH?=
+ =?us-ascii?Q?cxStBicYsG0NvxfAttQ6auJv7L/kKIqIIBr18L/bVEdB9AO5/MLuwGC0e0Cn?=
+ =?us-ascii?Q?by4CxcOE07SAiwTHwYjEm2so+JW/jYMnS2uuUSDgafhgQGcODbl8Da1M+3o7?=
+ =?us-ascii?Q?/iK611Qw1FDcMPB/WFvJ/JEGpx9B/RpPUQwfWbaDTTur2c6doFm4ejy9pAjh?=
+ =?us-ascii?Q?Xhv77O1h9BiOMc9ZE0fMZzARgFdoo5D25A6hu3C5xKlO1VUaW2KmbSb4b4Id?=
+ =?us-ascii?Q?K0ei3X3sso65GHXwJcr1IT1x/gdEObdXNcP7JnQUzSW9PLYAGxumpfLExELh?=
+ =?us-ascii?Q?mRCEg3wsho4FbyawUznmd8t/LysMVI9m16IgCN52Cl48klQjoAIXkCGGGb+d?=
+ =?us-ascii?Q?oKDzzmvyufcF3ULi/V64w1lWoqcuQRUtepjWyGlWPWYQA5PiiXW0mC6C5uyC?=
+ =?us-ascii?Q?kbFm17QdD+Jrr0HYD4e8NUTnvy1NWHI8h10cywkquesvI7PwXbu95OvKg5VZ?=
+ =?us-ascii?Q?hvFqw5DcqtE+IDxd9FGcSrAKMOHi3+jTqVgTO/mIn/R3ckJHKwe+/+KLmjy3?=
+ =?us-ascii?Q?LmLfJvIAyKWbxd0xAFiCfKw/b8gvWH5LFQRzoclc?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 024828c5-241c-461a-4b16-08de26bbfd73
+X-MS-Exchange-CrossTenant-AuthSource: DB9PR04MB9626.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2025 16:03:18.7926
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: C150U8mSActKjO2EuM4z5nyqGE+jIgF0IKN2hn+aX/ZlOL2321WAbZxdHsGkMz9KFlBiYRO6VcBwUasp8JQ2yA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB9733
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251118_080303_395986_A34D7A6A 
-X-CRM114-Status: GOOD (  28.30  )
+X-CRM114-CacheID: sfid-20251118_080322_336182_FA841341 
+X-CRM114-Status: GOOD (  29.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,485 +160,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add initial support of the PCIe controller for S32G Soc family. Only
-host mode is supported.
+On Tue, Nov 18, 2025 at 02:50:12PM +0800, Carlos Song wrote:
+> Enable 16/32 bits per word support for spi-imx target PIO mode.
+>
+> Signed-off-by: Carlos Song <carlos.song@nxp.com>
+> Signed-off-by: Clark Wang <xiaoning.wang@nxp.com>
 
-Co-developed-by: Ionut Vicovan <Ionut.Vicovan@nxp.com>
-Signed-off-by: Ionut Vicovan <Ionut.Vicovan@nxp.com>
-Co-developed-by: Ciprian Marian Costea <ciprianmarian.costea@nxp.com>
-Signed-off-by: Ciprian Marian Costea <ciprianmarian.costea@nxp.com>
-Co-developed-by: Ghennadi Procopciuc <Ghennadi.Procopciuc@nxp.com>
-Signed-off-by: Ghennadi Procopciuc <Ghennadi.Procopciuc@nxp.com>
-Co-developed-by: Larisa Grigore <larisa.grigore@nxp.com>
-Signed-off-by: Larisa Grigore <larisa.grigore@nxp.com>
-Signed-off-by: Vincent Guittot <vincent.guittot@linaro.org>
----
- drivers/pci/controller/dwc/Kconfig            |  10 +
- drivers/pci/controller/dwc/Makefile           |   1 +
- .../pci/controller/dwc/pcie-nxp-s32g-regs.h   |  21 +
- drivers/pci/controller/dwc/pcie-nxp-s32g.c    | 391 ++++++++++++++++++
- 4 files changed, 423 insertions(+)
- create mode 100644 drivers/pci/controller/dwc/pcie-nxp-s32g-regs.h
- create mode 100644 drivers/pci/controller/dwc/pcie-nxp-s32g.c
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
-diff --git a/drivers/pci/controller/dwc/Kconfig b/drivers/pci/controller/dwc/Kconfig
-index 349d4657393c..e276956c3fca 100644
---- a/drivers/pci/controller/dwc/Kconfig
-+++ b/drivers/pci/controller/dwc/Kconfig
-@@ -256,6 +256,16 @@ config PCIE_TEGRA194_EP
- 	  in order to enable device-specific features PCIE_TEGRA194_EP must be
- 	  selected. This uses the DesignWare core.
- 
-+config PCIE_NXP_S32G
-+	tristate "NXP S32G PCIe controller (host mode)"
-+	depends on ARCH_S32 || COMPILE_TEST
-+	select PCIE_DW_HOST
-+	help
-+	  Enable support for the PCIe controller in NXP S32G based boards to
-+	  work in Host mode. The controller is based on DesignWare IP and
-+	  can work either as RC or EP. In order to enable host-specific
-+	  features PCIE_NXP_S32G must be selected.
-+
- config PCIE_DW_PLAT
- 	bool
- 
-diff --git a/drivers/pci/controller/dwc/Makefile b/drivers/pci/controller/dwc/Makefile
-index 7ae28f3b0fb3..3301bbbad78c 100644
---- a/drivers/pci/controller/dwc/Makefile
-+++ b/drivers/pci/controller/dwc/Makefile
-@@ -10,6 +10,7 @@ obj-$(CONFIG_PCI_DRA7XX) += pci-dra7xx.o
- obj-$(CONFIG_PCI_EXYNOS) += pci-exynos.o
- obj-$(CONFIG_PCIE_FU740) += pcie-fu740.o
- obj-$(CONFIG_PCI_IMX6) += pci-imx6.o
-+obj-$(CONFIG_PCIE_NXP_S32G) += pcie-nxp-s32g.o
- obj-$(CONFIG_PCIE_SPEAR13XX) += pcie-spear13xx.o
- obj-$(CONFIG_PCI_KEYSTONE) += pci-keystone.o
- obj-$(CONFIG_PCI_LAYERSCAPE) += pci-layerscape.o
-diff --git a/drivers/pci/controller/dwc/pcie-nxp-s32g-regs.h b/drivers/pci/controller/dwc/pcie-nxp-s32g-regs.h
-new file mode 100644
-index 000000000000..81e35b6227d1
---- /dev/null
-+++ b/drivers/pci/controller/dwc/pcie-nxp-s32g-regs.h
-@@ -0,0 +1,21 @@
-+/* SPDX-License-Identifier: GPL-2.0+ */
-+/*
-+ * Copyright 2015-2016 Freescale Semiconductor, Inc.
-+ * Copyright 2016-2023, 2025 NXP
-+ */
-+
-+#ifndef PCIE_S32G_REGS_H
-+#define PCIE_S32G_REGS_H
-+
-+/* PCIe controller Sub-System */
-+
-+/* PCIe controller 0 General Control 1 */
-+#define PCIE_S32G_PE0_GEN_CTRL_1		0x50
-+#define DEVICE_TYPE_MASK			GENMASK(3, 0)
-+#define SRIS_MODE				BIT(8)
-+
-+/* PCIe controller 0 General Control 3 */
-+#define PCIE_S32G_PE0_GEN_CTRL_3		0x58
-+#define LTSSM_EN				BIT(0)
-+
-+#endif  /* PCI_S32G_REGS_H */
-diff --git a/drivers/pci/controller/dwc/pcie-nxp-s32g.c b/drivers/pci/controller/dwc/pcie-nxp-s32g.c
-new file mode 100644
-index 000000000000..eaa6b5363afe
---- /dev/null
-+++ b/drivers/pci/controller/dwc/pcie-nxp-s32g.c
-@@ -0,0 +1,391 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * PCIe host controller driver for NXP S32G SoCs
-+ *
-+ * Copyright 2019-2025 NXP
-+ */
-+
-+#include <linux/interrupt.h>
-+#include <linux/io.h>
-+#include <linux/memblock.h>
-+#include <linux/module.h>
-+#include <linux/of_device.h>
-+#include <linux/of_address.h>
-+#include <linux/pci.h>
-+#include <linux/phy/phy.h>
-+#include <linux/platform_device.h>
-+#include <linux/pm_runtime.h>
-+#include <linux/sizes.h>
-+#include <linux/types.h>
-+
-+#include "pcie-designware.h"
-+#include "pcie-nxp-s32g-regs.h"
-+
-+struct s32g_pcie_port {
-+	struct list_head list;
-+	struct phy *phy;
-+};
-+
-+struct s32g_pcie {
-+	struct dw_pcie	pci;
-+	void __iomem *ctrl_base;
-+	struct list_head ports;
-+};
-+
-+#define to_s32g_from_dw_pcie(x) \
-+	container_of(x, struct s32g_pcie, pci)
-+
-+static void s32g_pcie_writel_ctrl(struct s32g_pcie *s32g_pp, u32 reg, u32 val)
-+{
-+	writel(val, s32g_pp->ctrl_base + reg);
-+}
-+
-+static u32 s32g_pcie_readl_ctrl(struct s32g_pcie *s32g_pp, u32 reg)
-+{
-+	return readl(s32g_pp->ctrl_base + reg);
-+}
-+
-+static void s32g_pcie_enable_ltssm(struct s32g_pcie *s32g_pp)
-+{
-+	u32 reg;
-+
-+	reg = s32g_pcie_readl_ctrl(s32g_pp, PCIE_S32G_PE0_GEN_CTRL_3);
-+	reg |= LTSSM_EN;
-+	s32g_pcie_writel_ctrl(s32g_pp, PCIE_S32G_PE0_GEN_CTRL_3, reg);
-+}
-+
-+static void s32g_pcie_disable_ltssm(struct s32g_pcie *s32g_pp)
-+{
-+	u32 reg;
-+
-+	reg = s32g_pcie_readl_ctrl(s32g_pp, PCIE_S32G_PE0_GEN_CTRL_3);
-+	reg &= ~LTSSM_EN;
-+	s32g_pcie_writel_ctrl(s32g_pp, PCIE_S32G_PE0_GEN_CTRL_3, reg);
-+}
-+
-+static int s32g_pcie_start_link(struct dw_pcie *pci)
-+{
-+	struct s32g_pcie *s32g_pp = to_s32g_from_dw_pcie(pci);
-+
-+	s32g_pcie_enable_ltssm(s32g_pp);
-+
-+	return 0;
-+}
-+
-+static void s32g_pcie_stop_link(struct dw_pcie *pci)
-+{
-+	struct s32g_pcie *s32g_pp = to_s32g_from_dw_pcie(pci);
-+
-+	s32g_pcie_disable_ltssm(s32g_pp);
-+}
-+
-+static struct dw_pcie_ops s32g_pcie_ops = {
-+	.start_link = s32g_pcie_start_link,
-+	.stop_link = s32g_pcie_stop_link,
-+};
-+
-+/* Configure the AMBA AXI Coherency Extensions (ACE) interface */
-+static void s32g_pcie_reset_mstr_ace(struct dw_pcie *pci, u64 ddr_base_addr)
-+{
-+	u32 ddr_base_low = lower_32_bits(ddr_base_addr);
-+	u32 ddr_base_high = upper_32_bits(ddr_base_addr);
-+
-+	dw_pcie_dbi_ro_wr_en(pci);
-+	dw_pcie_writel_dbi(pci, COHERENCY_CONTROL_3_OFF, 0x0);
-+
-+	/*
-+	 * Ncore is a cache-coherent interconnect module that enables the
-+	 * integration of heterogeneous coherent and non-coherent agents in
-+	 * the chip. Ncore Transactions to peripheral should be non-coherent
-+	 * or it might drop them.
-+	 *
-+	 * One example where this is needed are PCIe MSIs, which use NoSnoop=0
-+	 * and might end up routed to Ncore.
-+	 * Define the start of DDR as seen by Linux as the boundary between
-+	 * "memory" and "peripherals", with peripherals being below.
-+	 */
-+	dw_pcie_writel_dbi(pci, COHERENCY_CONTROL_1_OFF,
-+			   (ddr_base_low & CFG_MEMTYPE_BOUNDARY_LOW_ADDR_MASK));
-+	dw_pcie_writel_dbi(pci, COHERENCY_CONTROL_2_OFF, ddr_base_high);
-+	dw_pcie_dbi_ro_wr_dis(pci);
-+}
-+
-+static int s32g_init_pcie_controller(struct dw_pcie_rp *pp)
-+{
-+	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
-+	struct s32g_pcie *s32g_pp = to_s32g_from_dw_pcie(pci);
-+	u32 val;
-+
-+	/* Set RP mode */
-+	val = s32g_pcie_readl_ctrl(s32g_pp, PCIE_S32G_PE0_GEN_CTRL_1);
-+	val &= ~DEVICE_TYPE_MASK;
-+	val |= FIELD_PREP(DEVICE_TYPE_MASK, PCI_EXP_TYPE_ROOT_PORT);
-+
-+	/* Use default CRNS */
-+	val &= ~SRIS_MODE;
-+
-+	s32g_pcie_writel_ctrl(s32g_pp, PCIE_S32G_PE0_GEN_CTRL_1, val);
-+
-+	/*
-+	 * Make sure we use the coherency defaults (just in case the settings
-+	 * have been changed from their reset values)
-+	 */
-+	s32g_pcie_reset_mstr_ace(pci, memblock_start_of_DRAM());
-+
-+	dw_pcie_dbi_ro_wr_en(pci);
-+
-+	val = dw_pcie_readl_dbi(pci, PCIE_PORT_FORCE);
-+	val |= PORT_FORCE_DO_DESKEW_FOR_SRIS;
-+	dw_pcie_writel_dbi(pci, PCIE_PORT_FORCE, val);
-+
-+	val = dw_pcie_readl_dbi(pci, GEN3_RELATED_OFF);
-+	val |= GEN3_RELATED_OFF_EQ_PHASE_2_3;
-+	dw_pcie_writel_dbi(pci, GEN3_RELATED_OFF, val);
-+
-+	dw_pcie_dbi_ro_wr_dis(pci);
-+
-+	return 0;
-+}
-+
-+static const struct dw_pcie_host_ops s32g_pcie_host_ops = {
-+	.init = s32g_init_pcie_controller,
-+};
-+
-+static int s32g_init_pcie_phy(struct s32g_pcie *s32g_pp)
-+{
-+	struct dw_pcie *pci = &s32g_pp->pci;
-+	struct device *dev = pci->dev;
-+	struct s32g_pcie_port *port, *tmp;
-+	int ret;
-+
-+	list_for_each_entry(port, &s32g_pp->ports, list) {
-+		ret = phy_init(port->phy);
-+		if (ret) {
-+			dev_err(dev, "Failed to init serdes PHY\n");
-+			goto err_phy_revert;
-+		}
-+
-+		ret = phy_set_mode_ext(port->phy, PHY_MODE_PCIE, 0);
-+		if (ret) {
-+			dev_err(dev, "Failed to set mode on serdes PHY\n");
-+			goto err_phy_exit;
-+		}
-+
-+		ret = phy_power_on(port->phy);
-+		if (ret) {
-+			dev_err(dev, "Failed to power on serdes PHY\n");
-+			goto err_phy_exit;
-+		}
-+	}
-+
-+	return 0;
-+
-+err_phy_exit:
-+	phy_exit(port->phy);
-+
-+err_phy_revert:
-+	list_for_each_entry_continue_reverse(port, &s32g_pp->ports, list) {
-+		phy_power_off(port->phy);
-+		phy_exit(port->phy);
-+	}
-+
-+	list_for_each_entry_safe(port, tmp, &s32g_pp->ports, list)
-+		list_del(&port->list);
-+
-+	return ret;
-+}
-+
-+static void s32g_deinit_pcie_phy(struct s32g_pcie *s32g_pp)
-+{
-+	struct s32g_pcie_port *port, *tmp;
-+
-+	list_for_each_entry_safe(port, tmp, &s32g_pp->ports, list) {
-+		phy_power_off(port->phy);
-+		phy_exit(port->phy);
-+		list_del(&port->list);
-+	}
-+}
-+
-+static int s32g_pcie_init(struct device *dev, struct s32g_pcie *s32g_pp)
-+{
-+	int ret;
-+
-+	s32g_pcie_disable_ltssm(s32g_pp);
-+
-+	ret = s32g_init_pcie_phy(s32g_pp);
-+	if (ret)
-+		return ret;
-+
-+	return 0;
-+}
-+
-+static void s32g_pcie_deinit(struct s32g_pcie *s32g_pp)
-+{
-+	s32g_pcie_disable_ltssm(s32g_pp);
-+
-+	s32g_deinit_pcie_phy(s32g_pp);
-+}
-+
-+static int s32g_pcie_parse_port(struct s32g_pcie *s32g_pp, struct device_node *node)
-+{
-+	struct device *dev = s32g_pp->pci.dev;
-+	struct s32g_pcie_port *port;
-+	int num_lanes;
-+
-+	port = devm_kzalloc(dev, sizeof(*port), GFP_KERNEL);
-+	if (!port)
-+		return -ENOMEM;
-+
-+	port->phy = devm_of_phy_get(dev, node, NULL);
-+	if (IS_ERR(port->phy))
-+		return dev_err_probe(dev, PTR_ERR(port->phy),
-+				"Failed to get serdes PHY\n");
-+
-+	INIT_LIST_HEAD(&port->list);
-+	list_add_tail(&port->list, &s32g_pp->ports);
-+
-+	/*
-+	 * The DWC core initialization code cannot parse yet the num-lanes
-+	 * attribute in the Root Port node. The S32G only supports one Root
-+	 * Port for now so its driver can parse the node and set the num_lanes
-+	 * field of struct dwc_pcie before calling dw_pcie_host_init().
-+	 */
-+	if (!of_property_read_u32(node, "num-lanes", &num_lanes))
-+		s32g_pp->pci.num_lanes = num_lanes;
-+
-+	return 0;
-+}
-+
-+static int s32g_pcie_parse_ports(struct device *dev, struct s32g_pcie *s32g_pp)
-+{
-+	struct s32g_pcie_port *port, *tmp;
-+	int ret = -ENOENT;
-+
-+	for_each_available_child_of_node_scoped(dev->of_node, of_port) {
-+		if (!of_node_is_type(of_port, "pci"))
-+			continue;
-+
-+		ret = s32g_pcie_parse_port(s32g_pp, of_port);
-+		if (ret)
-+			goto err_port;
-+	}
-+
-+err_port:
-+	list_for_each_entry_safe(port, tmp, &s32g_pp->ports, list)
-+		list_del(&port->list);
-+
-+	return ret;
-+}
-+
-+static int s32g_pcie_get_resources(struct platform_device *pdev,
-+				   struct s32g_pcie *s32g_pp)
-+{
-+	struct dw_pcie *pci = &s32g_pp->pci;
-+	struct device *dev = &pdev->dev;
-+	int ret;
-+
-+	pci->dev = dev;
-+	pci->ops = &s32g_pcie_ops;
-+
-+	s32g_pp->ctrl_base = devm_platform_ioremap_resource_byname(pdev, "ctrl");
-+	if (IS_ERR(s32g_pp->ctrl_base))
-+		return PTR_ERR(s32g_pp->ctrl_base);
-+
-+	INIT_LIST_HEAD(&s32g_pp->ports);
-+
-+	ret = s32g_pcie_parse_ports(dev, s32g_pp);
-+	if (ret)
-+		return dev_err_probe(dev, ret,
-+				"Failed to parse Root Port: %d\n", ret);
-+
-+	platform_set_drvdata(pdev, s32g_pp);
-+
-+	return 0;
-+}
-+
-+static int s32g_pcie_probe(struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct s32g_pcie *s32g_pp;
-+	struct dw_pcie_rp *pp;
-+	int ret;
-+
-+	s32g_pp = devm_kzalloc(dev, sizeof(*s32g_pp), GFP_KERNEL);
-+	if (!s32g_pp)
-+		return -ENOMEM;
-+
-+	ret = s32g_pcie_get_resources(pdev, s32g_pp);
-+	if (ret)
-+		return ret;
-+
-+	pm_runtime_no_callbacks(dev);
-+	devm_pm_runtime_enable(dev);
-+	ret = pm_runtime_get_sync(dev);
-+	if (ret < 0)
-+		goto err_pm_runtime_put;
-+
-+	ret = s32g_pcie_init(dev, s32g_pp);
-+	if (ret)
-+		goto err_pm_runtime_put;
-+
-+	pp = &s32g_pp->pci.pp;
-+	pp->ops = &s32g_pcie_host_ops;
-+	pp->use_atu_msg = true;
-+
-+	ret = dw_pcie_host_init(pp);
-+	if (ret)
-+		goto err_pcie_deinit;
-+
-+	return 0;
-+
-+err_pcie_deinit:
-+	s32g_pcie_deinit(s32g_pp);
-+err_pm_runtime_put:
-+	pm_runtime_put(dev);
-+
-+	return ret;
-+}
-+
-+static int s32g_pcie_suspend_noirq(struct device *dev)
-+{
-+	struct s32g_pcie *s32g_pp = dev_get_drvdata(dev);
-+	struct dw_pcie *pci = &s32g_pp->pci;
-+
-+	return dw_pcie_suspend_noirq(pci);
-+}
-+
-+static int s32g_pcie_resume_noirq(struct device *dev)
-+{
-+	struct s32g_pcie *s32g_pp = dev_get_drvdata(dev);
-+	struct dw_pcie *pci = &s32g_pp->pci;
-+
-+	return dw_pcie_resume_noirq(pci);
-+}
-+
-+static const struct dev_pm_ops s32g_pcie_pm_ops = {
-+	NOIRQ_SYSTEM_SLEEP_PM_OPS(s32g_pcie_suspend_noirq,
-+				  s32g_pcie_resume_noirq)
-+};
-+
-+static const struct of_device_id s32g_pcie_of_match[] = {
-+	{ .compatible = "nxp,s32g2-pcie" },
-+	{ /* sentinel */ },
-+};
-+MODULE_DEVICE_TABLE(of, s32g_pcie_of_match);
-+
-+static struct platform_driver s32g_pcie_driver = {
-+	.driver = {
-+		.name	= "s32g-pcie",
-+		.of_match_table = s32g_pcie_of_match,
-+		.suppress_bind_attrs = true,
-+		.pm = pm_sleep_ptr(&s32g_pcie_pm_ops),
-+		.probe_type = PROBE_PREFER_ASYNCHRONOUS,
-+	},
-+	.probe = s32g_pcie_probe,
-+};
-+
-+module_platform_driver(s32g_pcie_driver);
-+
-+MODULE_AUTHOR("Ionut Vicovan <Ionut.Vicovan@nxp.com>");
-+MODULE_DESCRIPTION("NXP S32G PCIe Host controller driver");
-+MODULE_LICENSE("GPL");
--- 
-2.43.0
-
+> ---
+> In SPI target mode, we write/read 32 bits word in 32 bits width TXFIFO and
+> RXFIFO. 32 bits point is used to get the logic value from memory. CPU only
+> handle the logic value with FIFO, logic value is the same with value in
+> FIFO. However, in different CPU endian, the logic value is different.
+>
+> For example from TX:
+> SPI tx_buff bytes order in memory:
+> addr0 addr1 addr2 addr3
+> 0x11  0x22  0x33  0x44
+>
+> For little endian CPU:
+> Get a logic value by u32 point: 0x44332211, CPU send logic value to bus
+> following little endian, the bytes flow in AXI bus:
+> 0x11 0x22 0x33 0x44
+> but when write 32 bits word to FIFO, all bytes are grouped to one 32
+> bits word following the little endian to 0x44332211.
+>
+> so 0x44332211 is writed to TXFIFO:
+> bit31~24 bit23~16 bit15~bit8 bit7~bit0
+> 0x44     0x33     0x22       0x11
+>
+> For big endian CPU:
+> Get a logic value by u32 point: 0x11223344, CPU send logic value to bus
+> following big endian, the bytes flow in AXI bus:
+> 0x11 0x22 0x33 0x44
+> but when write 32 bits word to FIFO, all bytes are grouped to one 32
+> bits word following the big endian to 0x11223344.
+>
+> so 0x11223344 is writen to TXFIFO:
+> bit31~24 bit23~16 bit15~bit8 bit7~bit0
+> 0x11     0x22     0x33       0x44
+>
+> Because SPI spec is not ruled for bytes order, so SPI should keep bytes
+> order following the CPU endian.
+> The bytes order in memory is the same with logic value in big endian.
+> So don't need to handle data for big endian CPU.
+> But for little endian SOC, there is some diferences:
+> 1. When bits per word = 8:
+> every word is byte, so bytes order should always keep the same with memory,
+> u32 word is 0x44332211, but CPU should send logic value 0x11223344.
+> So we should swap every bytes for the u32 word 0x44332211.
+> 2. When bits per word = 16:
+> every word is two bytes, so every half word should be little endian:
+> u32 word is 0x44332211, but CPU should send logic value 0x22114433
+> so we should swap every half word for the u32 word 0x44332211.
+> 3. When bits per word = 32:
+> every word is 4 bytes, so every 4 bytes word should be little endian:
+> u32 word is 0x44332211 CPU should send logic value 0x44332211,
+> so don't need to do any bytes swap for this word.
+> ---
+>  drivers/spi/spi-imx.c | 21 +++++++++++++++++++--
+>  1 file changed, 19 insertions(+), 2 deletions(-)
+>
+> diff --git a/drivers/spi/spi-imx.c b/drivers/spi/spi-imx.c
+> index 1dd20e9d9605..b8b79bb7fec3 100644
+> --- a/drivers/spi/spi-imx.c
+> +++ b/drivers/spi/spi-imx.c
+> @@ -425,8 +425,15 @@ static void spi_imx_buf_tx_swap(struct spi_imx_data *spi_imx)
+>
+>  static void mx53_ecspi_rx_target(struct spi_imx_data *spi_imx)
+>  {
+> -	u32 val = ioread32be(spi_imx->base + MXC_CSPIRXDATA);
+> +	u32 val = readl(spi_imx->base + MXC_CSPIRXDATA);
+> +#ifdef __LITTLE_ENDIAN
+> +	unsigned int bytes_per_word = spi_imx_bytes_per_word(spi_imx->bits_per_word);
+>
+> +	if (bytes_per_word == 1)
+> +		swab32s(&val);
+> +	else if (bytes_per_word == 2)
+> +		swahw32s(&val);
+> +#endif
+>  	if (spi_imx->rx_buf) {
+>  		int n_bytes = spi_imx->target_burst % sizeof(val);
+>
+> @@ -447,6 +454,9 @@ static void mx53_ecspi_tx_target(struct spi_imx_data *spi_imx)
+>  {
+>  	u32 val = 0;
+>  	int n_bytes = spi_imx->count % sizeof(val);
+> +#ifdef __LITTLE_ENDIAN
+> +	unsigned int bytes_per_word;
+> +#endif
+>
+>  	if (!n_bytes)
+>  		n_bytes = sizeof(val);
+> @@ -459,7 +469,14 @@ static void mx53_ecspi_tx_target(struct spi_imx_data *spi_imx)
+>
+>  	spi_imx->count -= n_bytes;
+>
+> -	iowrite32be(val, spi_imx->base + MXC_CSPITXDATA);
+> +#ifdef __LITTLE_ENDIAN
+> +	bytes_per_word = spi_imx_bytes_per_word(spi_imx->bits_per_word);
+> +	if (bytes_per_word == 1)
+> +		swab32s(&val);
+> +	else if (bytes_per_word == 2)
+> +		swahw32s(&val);
+> +#endif
+> +	writel(val, spi_imx->base + MXC_CSPITXDATA);
+>  }
+>
+>  /* MX51 eCSPI */
+> --
+> 2.34.1
+>
 
