@@ -4,72 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49803CEDD8A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 14:00:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD9EECEDD89
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 14:01:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1T9L6GNFxVeySHO4fK7pztQOaxOzwYo2ILkJ3QC3pyY=; b=FEnpYl1EAieMce9RutB5nGyuC5
-	zml3lgna1WZWVo2yK88r7na3c8tRrsyA8ej1qWp9rgoyu6CvFlwUJNBJLtnLkCXw4P6rgAAQaQiL4
-	kqAvnBT1sBdmxJe0Uu8iOCiHDNTdh6xzvDeismUDyUseq3WVwmUlwGtB5D+K5/zHvi9RJkeqvQYtu
-	d8HIiKDwysy1EB1nspDpjCQ+Bu2N0oKb3WydqdDGD2L4nb3pF57Coe9s34GZmAksLejq/AT/IyI8v
-	d5hysDAgI08Frdycvvc8uehf2iEK0EnFWMUy/Xp1yoHeP13xpPYwoug3L5UnoEG+bbucCyP513Cju
-	42GgkmTg==;
+	bh=kUQiNM1iR2tDzAghTzR3NUuXi2I+iCz3M8l6XyCorP4=; b=2tvWf/1ZuWR1nuSHA6vJfoTLqn
+	5i4+b35Zgh1PEToiMx1yWp3q6A3vqOrU1oztYStDbMaf3QACEIkLpFHTOZpO9ikBOxI7/IvTKB5rH
+	GSl/Gxvb7QJKFbGg/U3uPShxrRc7AlnCgi4TconTp5iI825FzZ4JzhgPqiv3x8scOEILBStDYvj7N
+	WSPoPTyNXSw582mGucjZ5/1XFQhHOUjS/Ula2bEjRUVafzQN+WKas+yvFBv84EjsDF6Oi38mOs7CS
+	FH1bTB0ktPlsJGIPA7Cz+/zrqKaACyMavZcKkioGn0VmaX9GbTImcIMx+Mlv46WPbRwEAMGs8+ZPR
+	UcstT11w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLMFl-00000000WTh-3UgU;
-	Tue, 18 Nov 2025 14:00:17 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1vLMGg-00000000Wgh-2yid;
+	Tue, 18 Nov 2025 14:01:14 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLMFj-00000000WSs-3iav
+	id 1vLMGe-00000000WfO-2NpT
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Nov 2025 14:00:17 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 8FAA54E4175B;
-	Tue, 18 Nov 2025 14:00:13 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 5EF33606FE;
-	Tue, 18 Nov 2025 14:00:13 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id E891010371DD3;
-	Tue, 18 Nov 2025 15:00:10 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1763474412; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=1T9L6GNFxVeySHO4fK7pztQOaxOzwYo2ILkJ3QC3pyY=;
-	b=GwVHwhM0ZXmBzkSyBjZN/AiXpiutG2xbKiY+F25x3Vc8hAaL8BUxv9fCOApJM+edWzt8mH
-	MUqOlKjs4IAh/IpCxP/Kg8k+aE8TYWAtuyVjtQTVdLs3+E5WlvAgAAf5thKL5fJdUGhfnt
-	xPJJtNJzsX2PR/Jln0+oRXIpRrrjftSacS558PssKLG2Z7FC4ILyvoOA5KThBv72YTxDl6
-	0sLDe6Nafd6FapcU6BfDYV0R0IpOSSaF7pgkcciW6PsJHAhvuUuqAFC8fMgflGpnq4e7fe
-	Ud0r7ycdege9sLBCX6q+LsFUIMKYoKeYkWU1Yl0x3HoWdkDIy7J1V5vAMdhoog==
-Message-ID: <ec621eb4-8a4f-47fd-a544-44d8130fcbb8@bootlin.com>
-Date: Tue, 18 Nov 2025 15:00:10 +0100
+	Tue, 18 Nov 2025 14:01:14 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-4779d47be12so23594615e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Nov 2025 06:01:12 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1763474471; x=1764079271; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=kUQiNM1iR2tDzAghTzR3NUuXi2I+iCz3M8l6XyCorP4=;
+        b=Zl/bqu1c9ln7hbQvle5SOYzL9wwJ5vJWm5WFf1Bvur+lUYeVtpfyjBNIx20XsEGuEB
+         vBzmfbj3/6H2OYuMCgaudWe7LYbFFhAU5hUIl7xU9FN58XizF7RfxZKXSrYBXLJ3skBZ
+         4POhyaEf2iR+n+0RAp3mlu9fTsrJjeSz2E3eg2O+086wMyGWwJKvjFlUyWC0wUaQXf2c
+         WT5w+ySJ/8eJcKUejRpzVw6IPTx1UiU6kBSGcbbz9BoNl+/6f0mESueC+w+BRVJ4oML4
+         O65PLnac3KCmTDyLTNRf3IeDZHWlkn4GsirdFpOBU/Pi35pIjErEdsVHZ4eKKjWDJRta
+         fw6w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1763474471; x=1764079271;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=kUQiNM1iR2tDzAghTzR3NUuXi2I+iCz3M8l6XyCorP4=;
+        b=eZ4MtMXApAlfgHjkfm1cVm8YlYWHAFn8CbC6Y2dW07tzPA08AHwS9h3NeDl9b3K6HQ
+         q+WaiMpm/XjBsaYsQDFeBcqB30b34zwggQYjmNfrp+m+5NzOE5ilST4WNtPispiQCt9g
+         4gODJq/wzUdIJwzosRY11MPxgH2LDolk9v7HT1IqlZfT5p8c/yBr7VJqDOQjFTQr5AVK
+         E3dWfjJ4PYry6ZdZA6RgzTnZeNN49YR2FbUaWc0o5PXSslalsvoBsAMVhpLtYJ6kH0kg
+         ITAos6hGk/Btk2AsKSFY231ubmeSYsQrMqn4w6MH1qZAImCUxdUMosxvXioLhUrB1SgO
+         Apnw==
+X-Gm-Message-State: AOJu0YwQX2L6WcDd6a4vXOb7/aNKWhIAp+YSqpJi+Ba1cpMYt0JqIfPG
+	zV2/UYkndJfxrmj+4p7jYsiSO23QDB2PK6LVSoYtuhA+COLBhQAiaYzj1FotyVDWvEQ=
+X-Gm-Gg: ASbGncswFTMSlrkZ2ZfHuysQjkJPvbBUjrzmRGFUNhWaEVcEIVdlPDGsGZ7gsufI7pH
+	JhOcCH+kSl/O2kEFXnNr4+jqLBbIyyBhpSQLy0ZfG2MmKYrouD3pprQeTLEmWmcmw2S/DQ0sXDQ
+	8Odzio8fPu+vUt6c+pEI6PMCTJ8n0jbId5daTnpuhYJXPglf3D7g4aowhiDjuMKD7M2ytkaAARj
+	EcHIti0ZWZQTNeHFEqQNkL3VpdVx+RKdT2NFPGbl4zDBnO0VFc0lZpXAKVuXjDgP4f/EsZczukm
+	7GJ5dbnSHTrT9klDG1uB1236hrA9wy9U2dhHH3pD6jid8tBmKQUxU3+4rBA+RjV2dbqWdTGrS9X
+	lj805pq3vkTi38TEaEKOw4CK/U0caftpX6FXHDT+ZFcv9guj8kf2aM7rmsrLf7fPyxz27Be+eUT
+	3kFdcNKb8sigydGihAdjreBXm9HXw=
+X-Google-Smtp-Source: AGHT+IFV7jGZZLi+9VlgcvikNoydlmxYBSoOTOe6Mj5xjf+0oslhVnUW95h+9A6e60q9KlZeiWFBjw==
+X-Received: by 2002:a05:600c:8b22:b0:477:7b16:5fb1 with SMTP id 5b1f17b1804b1-4778fe553a5mr150619835e9.7.1763474470556;
+        Tue, 18 Nov 2025 06:01:10 -0800 (PST)
+Received: from [10.11.12.107] ([5.12.85.52])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42c97745f79sm18177019f8f.23.2025.11.18.06.01.09
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 18 Nov 2025 06:01:10 -0800 (PST)
+Message-ID: <729cddf3-a21b-4503-b9c8-d3b5708243e9@linaro.org>
+Date: Tue, 18 Nov 2025 16:01:08 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next 2/2] net: stmmac: stmmac_is_jumbo_frm() returns
- boolean
-To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
- Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, linux-arm-kernel@lists.infradead.org,
- linux-stm32@st-md-mailman.stormreply.com,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
- Paolo Abeni <pabeni@redhat.com>
-References: <aRxDqJSWxOdOaRt4@shell.armlinux.org.uk>
- <E1vLIWW-0000000Ewkl-21Ia@rmk-PC.armlinux.org.uk>
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Subject: Re: [PATCH 0/4] soc: samsung: exynos-chipid: trivial updates to
+ simplify code
+To: Krzysztof Kozlowski <krzk@kernel.org>,
+ Alim Akhtar <alim.akhtar@samsung.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, peter.griffin@linaro.org,
+ andre.draszik@linaro.org, willmcvicker@google.com, kernel-team@android.com
+References: <20251112-chipid-trivial-v1-0-ec2dea03bd83@linaro.org>
 Content-Language: en-US
-In-Reply-To: <E1vLIWW-0000000Ewkl-21Ia@rmk-PC.armlinux.org.uk>
+From: Tudor Ambarus <tudor.ambarus@linaro.org>
+In-Reply-To: <20251112-chipid-trivial-v1-0-ec2dea03bd83@linaro.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251118_060016_209869_59875912 
-X-CRM114-Status: GOOD (  19.30  )
+X-CRM114-CacheID: sfid-20251118_060112_625982_C8C72A82 
+X-CRM114-Status: UNSURE (   7.48  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,109 +107,14 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-On 18/11/2025 11:01, Russell King (Oracle) wrote:
-> stmmac_is_jumbo_frm() returns whether the driver considers the frame
-> size to be a jumbo frame, and thus returns 0/1 values. This is boolean,
-> so convert it to return a boolean and use false/true instead. Also
-> convert stmmac_xmit()'s is_jumbo to be bool, which causes several
-> variables to be repositioned to keep it in reverse Christmas-tree
-> order.
+On 11/12/25 10:48 AM, Tudor Ambarus wrote:
+> Trivial patches to simplify code done while handling the GS101 chipid
+> support. Compile tested only.
 > 
-> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 
-Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+These trivial patches are superseded by the following patch set:
+https://lore.kernel.org/linux-samsung-soc/20251118-gs101-chipid-v2-0-e9f1e7460e35@linaro.org/T/#t
 
-Maxime
-
-> ---
->  drivers/net/ethernet/stmicro/stmmac/chain_mode.c  | 9 ++++-----
->  drivers/net/ethernet/stmicro/stmmac/hwif.h        | 2 +-
->  drivers/net/ethernet/stmicro/stmmac/ring_mode.c   | 9 ++-------
->  drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 6 +++---
->  4 files changed, 10 insertions(+), 16 deletions(-)
-> 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/chain_mode.c b/drivers/net/ethernet/stmicro/stmmac/chain_mode.c
-> index d14b56e5ed40..120a009c9992 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/chain_mode.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/chain_mode.c
-> @@ -83,14 +83,13 @@ static int jumbo_frm(struct stmmac_tx_queue *tx_q, struct sk_buff *skb,
->  	return entry;
->  }
->  
-> -static unsigned int is_jumbo_frm(unsigned int len, int enh_desc)
-> +static bool is_jumbo_frm(unsigned int len, bool enh_desc)
->  {
-> -	unsigned int ret = 0;
-> +	bool ret = false;
->  
->  	if ((enh_desc && (len > BUF_SIZE_8KiB)) ||
-> -	    (!enh_desc && (len > BUF_SIZE_2KiB))) {
-> -		ret = 1;
-> -	}
-> +	    (!enh_desc && (len > BUF_SIZE_2KiB)))
-> +		ret = true;
->  
->  	return ret;
->  }
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/hwif.h b/drivers/net/ethernet/stmicro/stmmac/hwif.h
-> index 4953e0fab547..f257ce4b6c66 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/hwif.h
-> +++ b/drivers/net/ethernet/stmicro/stmmac/hwif.h
-> @@ -541,7 +541,7 @@ struct stmmac_rx_queue;
->  struct stmmac_mode_ops {
->  	void (*init) (void *des, dma_addr_t phy_addr, unsigned int size,
->  		      unsigned int extend_desc);
-> -	unsigned int (*is_jumbo_frm)(unsigned int len, int ehn_desc);
-> +	bool (*is_jumbo_frm)(unsigned int len, bool enh_desc);
->  	int (*jumbo_frm)(struct stmmac_tx_queue *tx_q, struct sk_buff *skb,
->  			 int csum);
->  	int (*set_16kib_bfsize)(int mtu);
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/ring_mode.c b/drivers/net/ethernet/stmicro/stmmac/ring_mode.c
-> index 039903c424df..382d94a3b972 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/ring_mode.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/ring_mode.c
-> @@ -91,14 +91,9 @@ static int jumbo_frm(struct stmmac_tx_queue *tx_q, struct sk_buff *skb,
->  	return entry;
->  }
->  
-> -static unsigned int is_jumbo_frm(unsigned int len, int enh_desc)
-> +static bool is_jumbo_frm(unsigned int len, bool enh_desc)
->  {
-> -	unsigned int ret = 0;
-> -
-> -	if (len >= BUF_SIZE_4KiB)
-> -		ret = 1;
-> -
-> -	return ret;
-> +	return len >= BUF_SIZE_4KiB;
->  }
->  
->  static void refill_desc3(struct stmmac_rx_queue *rx_q, struct dma_desc *p)
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> index db68c89316ec..12fc31c909c4 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> @@ -4579,18 +4579,18 @@ static bool stmmac_has_ip_ethertype(struct sk_buff *skb)
->   */
->  static netdev_tx_t stmmac_xmit(struct sk_buff *skb, struct net_device *dev)
->  {
-> -	unsigned int first_entry, tx_packets, enh_desc;
-> +	bool enh_desc, has_vlan, set_ic, is_jumbo = false;
->  	struct stmmac_priv *priv = netdev_priv(dev);
->  	unsigned int nopaged_len = skb_headlen(skb);
-> -	int i, csum_insertion = 0, is_jumbo = 0;
->  	u32 queue = skb_get_queue_mapping(skb);
->  	int nfrags = skb_shinfo(skb)->nr_frags;
-> +	unsigned int first_entry, tx_packets;
->  	int gso = skb_shinfo(skb)->gso_type;
->  	struct stmmac_txq_stats *txq_stats;
->  	struct dma_edesc *tbs_desc = NULL;
->  	struct dma_desc *desc, *first;
->  	struct stmmac_tx_queue *tx_q;
-> -	bool has_vlan, set_ic;
-> +	int i, csum_insertion = 0;
->  	int entry, first_tx;
->  	dma_addr_t des;
->  	u32 sdu_len;
-
+Please consider reviewing the replacement set instead. Thanks!
+ta
 
