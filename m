@@ -4,86 +4,157 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2A17CED609
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 11:12:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E242CED609
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 11:14:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vs1GD3cr3TVaJIXpcY72HSarziedKD3sXlmLsB3hlnI=; b=WNNedSsC/NEUjf3hvDgfiAfHmT
-	Q2jYre7UB0+An3CF2dwPNhnpfOdS//HV+j9Ic8gxkXKncqiOvHJcODnOc+yLaJHNCjjb5tT3Jdm/m
-	RiZBaAkzPr5enac9jWp6tcuFtrKfJbGFUWIsNZVbqbzDGqr7LUbRsC1Ido53jPHhwJzFWB5TUOeLi
-	F3q9B0EIUHZT3bI6Tw6R67KVj//V9FFfTEL3Kb0/CNQyDzx2Tjx4dPsUb2Ez/DkQ8UWN+SgYx6I4k
-	R9lQoMjFTkCylwMEn/wqpJp258cbmw5Qj9mp7ECYwDCnMCIgHv2NnXmBeozxAR/YM0MN6qqV4HCJr
-	4iNLtgGQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=TQVpu4SjuLS771oRygta/h7fUMMlW9Je3t45nvDHyX8=; b=Z2X9nMn1rl9aF387RDiYPqhEjz
+	I2h9bWhU8k1yF7M0OFhJn468cNDmTimy54e1tjEg+oOD2/NTwY6laJMYrTEvJTR9pVyguJz5oUoOn
+	D8xUene+Z1W3QUytxupYSAXwZBUEOeERAGl2Hy2yd6Wc2X2+ZMHY3uJLSYUfY2Xk7lEoo9QnzrQc2
+	VOfmgng49wZR659N1KrRfVbEakWSAISyKzcrLoOjnzkMOLxdI2+oZBjDA8mJzlO7XowDcmw/U87ht
+	Wk+CntZhCJWjmqPpFh6BUXpfpLNteYhk3TeOX9wUgRv9SO6+D9M2FAoSk2hz7Bd3gGMGId5vUcujL
+	iUZcjBVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLJdY-00000000JQF-0uo2;
-	Tue, 18 Nov 2025 11:12:40 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vLJem-00000000Jof-0O7v;
+	Tue, 18 Nov 2025 11:13:56 +0000
+Received: from mail-norwayeastazon11013070.outbound.protection.outlook.com ([40.107.159.70] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLJdS-00000000JIe-2C2v;
-	Tue, 18 Nov 2025 11:12:36 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id BBACD434F7;
-	Tue, 18 Nov 2025 11:12:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 783FEC19421;
-	Tue, 18 Nov 2025 11:12:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763464348;
-	bh=AWi+DvRqbFpKZsx8CmHQtN5L2q3uL5tdRdCuZMs9jBk=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=rTHAS0JTJksjLzvesNaUkodKeg+21P7hwtrLKTBC3ZGS7m2GbgD+chwDCnYYCFsyP
-	 KO/2+xyluKmOs8IkYEoRMwdZrRmq6+ySKrH/hAT5Q9L5HUyiabxBwx2MWH5sA0338D
-	 7bGYIx7IBPfGefJSA7SxCJ5XStMsimi+555/tv8etxCDzQ1kzbqko0EhwrmWk2SFGW
-	 LF+3vCm1qnHP/THUjFPoQ/fLWgU990jp1WoQTip7YevmcsEY1xjlC+mSp/aZrwVx3M
-	 R7UwpX0cW6evj9LluJhwm9GcKSkWZigNxL723waCP42nUvTsomG/VliKLyUdlv+j1A
-	 HSfgJ39yJgh/w==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id EAC9BCED617;
-	Tue, 18 Nov 2025 11:12:26 +0000 (UTC)
-From: Michael Riesch via B4 Relay <devnull+michael.riesch.collabora.com@kernel.org>
-Date: Tue, 18 Nov 2025 12:12:26 +0100
-Subject: [PATCH v2 2/3] media: rockchip: add driver for the rockchip mipi
- csi-2 receiver
+	id 1vLJek-00000000JoI-1ban
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 18 Nov 2025 11:13:55 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ylbIDsHRGWHbEF4RL0USMRvJYSubZcO6JF/nnxUfKkcyqMkatkKY0ccz5J4VFevrJX+HG2QZ5gcYwMobF5pN62HbBx+EVZIsC5iOMRRQwBhcCVa9QokUxoHrsaXwlbGDuzlO8R3fqn82qjxaXUkpwLMzEWKkv5zWTDxhTlDjuSAKk3DWxG+MC9nVcqNrwy3+GNv0ElVcH46ir+LuQ4RNhYjNC3Zo2w7hFyOvx7oxAAo5kgDfzSVXFBziwhpJxkl2L4mWO4p2oD+ZRFhj9eHnu32KIatM+OnXNiVJe1z9NuEo9r6VF/VH0pofGwGqL+vP4tUj+cOqAts4b6X0mjZDWg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=TQVpu4SjuLS771oRygta/h7fUMMlW9Je3t45nvDHyX8=;
+ b=Nc8y8XUyId7nyPoNZnuHCQ+XiKm/tTqWu15gCx82EP7FrUNqEQxceZtmWAFI1l8kKKyCAYTNvGRLdIZsV8sCakBBi9wvsLmqaUPte6L+V5hscAY68VJKChqbxvy6OGXgraZcm3FWopJs/qYamhqIPX5s3niaiCW2CmhZkzEjVb5qf80EiarORh/PVPJY6kVXw1NORFbIMhWyjPssiat6cxMr3Hg0mF1bl1wFa5qlh+qPBEN77OPDthDGaD/YBAuBjm2ZSIUTLetlX7ROE4SgzRKKsjmsG+vlZQ2EHqSk3dHRbbPsVK49ZXA1Rro5yhDL35+t2ogDKYDESWBaWIkVtQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=TQVpu4SjuLS771oRygta/h7fUMMlW9Je3t45nvDHyX8=;
+ b=Psje1YrR6hY0jTxlHcIWLlSx2CxFj2bISgFK8fLFdR90iEHqGoKZHO6qqhItQlLcVFJ4hp/ftVzgwahzF4I8NVYM0aGi2n4PF38spXmJF48Xfd34Snb1cxuf4ENx2EFTlQNXh8lXBIOz8iqGXZaw3Ul29i/2pU8SWV97TIcY8hyoqLU1uPTWaR/6qQZv0YLOh2Bmt0BvcEOjuMqiEe98AfdXWKP5Fux3UrsWqzCf4Y2mqjAm1lh/IGruu7mEDdQzqjjdAKtmPikQ0yQjipMKhGVjC599zpAhPiP8xyV78eC0UQOsh//ze6qIHUs2BO0gEtzY1/sSRukYqR5KxZZmLg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from VI2PR04MB11147.eurprd04.prod.outlook.com
+ (2603:10a6:800:293::14) by GVXPR04MB10708.eurprd04.prod.outlook.com
+ (2603:10a6:150:225::19) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9320.22; Tue, 18 Nov
+ 2025 11:13:49 +0000
+Received: from VI2PR04MB11147.eurprd04.prod.outlook.com
+ ([fe80::75ad:fac7:cfe7:b687]) by VI2PR04MB11147.eurprd04.prod.outlook.com
+ ([fe80::75ad:fac7:cfe7:b687%6]) with mapi id 15.20.9320.021; Tue, 18 Nov 2025
+ 11:13:49 +0000
+From: Carlos Song <carlos.song@nxp.com>
+To: aisheng.dong@nxp.com,
+	andi.shyti@kernel.org,
+	shawnguo@kernel.org,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com,
+	pandy.gao@nxp.com,
+	wsa@kernel.org,
+	vz@mleia.com,
+	B38611@freescale.com,
+	frank.li@nxp.com
+Cc: linux-i2c@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Carlos Song <carlos.song@nxp.com>
+Subject: [PATCH] i2c: imx-lpi2c: support smbus block read feature
+Date: Tue, 18 Nov 2025 19:13:23 +0800
+Message-Id: <20251118111323.1452329-1-carlos.song@nxp.com>
+X-Mailer: git-send-email 2.34.1
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: AS4P189CA0016.EURP189.PROD.OUTLOOK.COM
+ (2603:10a6:20b:5db::8) To VI2PR04MB11147.eurprd04.prod.outlook.com
+ (2603:10a6:800:293::14)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20251114-rockchip-mipi-receiver-v2-2-eb9b43377fc4@collabora.com>
-References: <20251114-rockchip-mipi-receiver-v2-0-eb9b43377fc4@collabora.com>
-In-Reply-To: <20251114-rockchip-mipi-receiver-v2-0-eb9b43377fc4@collabora.com>
-To: Michael Riesch <michael.riesch@collabora.com>, 
- Mehdi Djait <mehdi.djait@linux.intel.com>, 
- Bryan O'Donoghue <bryan.odonoghue@linaro.org>, 
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
- Hans Verkuil <hverkuil@kernel.org>, 
- Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
- Philipp Zabel <p.zabel@pengutronix.de>, 
- Sebastian Reichel <sebastian.reichel@collabora.com>, 
- Nicolas Dufresne <nicolas.dufresne@collabora.com>, 
- Collabora Kernel Team <kernel@collabora.com>, 
- Sakari Ailus <sakari.ailus@linux.intel.com>
-Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Michael Riesch <michael.riesch@collabora.com>
-X-Mailer: b4 0.12.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1763464345; l=22767;
- i=michael.riesch@collabora.com; s=20250410; h=from:subject:message-id;
- bh=T8jrou1b8whJb5CNE1ITQbk2dSRxTk+Xb4UcarEXs08=;
- b=azS4Z3VzoYkxrKg2AJGM/VXfmE2PnPNVWEzVs305HVyvs381cIKhUVTikpgaQnqi+p0fso0Er
- 6ed4vKS4S7PDEJvto1lTZaUGukRvzv9Sno7iJ6YftCyNSDI/H24YYKf
-X-Developer-Key: i=michael.riesch@collabora.com; a=ed25519;
- pk=+MWX1fffLFZtTPG/I6XdYm/+OSvpRE8D9evQaWbiN04=
-X-Endpoint-Received: by B4 Relay for michael.riesch@collabora.com/20250410
- with auth_id=371
-X-Original-From: Michael Riesch <michael.riesch@collabora.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: VI2PR04MB11147:EE_|GVXPR04MB10708:EE_
+X-MS-Office365-Filtering-Correlation-Id: cb6372bc-ed25-4224-38d9-08de26938c54
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|1800799024|52116014|7416014|376014|38350700014|921020;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?n0ThtFX7db9dalCN9TiJVnm9/2Nu6D7EKsAHrGrRIGq/HQbeLev2YZc6Atcm?=
+ =?us-ascii?Q?Q1Kt/aiKkg+BYSJ5n3C6uetWC/g3k3hRW/lYXFpy6BupmDWHKueFSXmMY886?=
+ =?us-ascii?Q?WmZw7i7qhpYq5mcZaZ8ng5c4WSVr37iwDfXB6pihQKs0lVIz0X7h/RGTFOJ5?=
+ =?us-ascii?Q?qmu96RLFYTk2WlzT0XVV+NO0vd3RaEhoXq1ub45qbksWYvxR2aCl6aFWQNMd?=
+ =?us-ascii?Q?VDrfjn1HH9UC/K44swf5jtoajTg4CqApWf5ASFOMq1CeSWiQ6q93P19603S1?=
+ =?us-ascii?Q?r9p0AOMlfzT4od4/iUVLAVa5/r4mEPnoXaBznfF/sf7+izEifDvfMHRwSCtv?=
+ =?us-ascii?Q?RCoTBIBaQvF4+seH8seEDkyooMlPQy2BUPQY/TGwvNMjYFtKnZ1J9jtnMvfG?=
+ =?us-ascii?Q?Yk1vp26lFwXz4ATFldqx50NaMH8jVgK+IS35UguCPWVrcnlmInVEWmLo/uh3?=
+ =?us-ascii?Q?Hm8GAoLfWXg+zw70p8rOMai+wY/W8Se2CBv/AjyV/shNDiAzw9jhFO7TOyrp?=
+ =?us-ascii?Q?OexHJ+TNNpm2400KjtKAjw8STAdA/HC1lRLA/KAZFfzd7344LGWRpMXWefJi?=
+ =?us-ascii?Q?5mlDb7Gm0JBXngEdj+ashUeBQkYS/vVSbG6q02A1vi1Q48bA0dFpM0ChQ7hy?=
+ =?us-ascii?Q?4iLyehZaUf9ksqjYq2okzhtFfKe/VurDLFHOJyn6GZG9xGv3Qps5lT9wbkH8?=
+ =?us-ascii?Q?Bjs2Kxt5jJdiovf3+L0RrV+EcDiqQsme0fs41F/eIpJ9YBvUsjFt1QmBw1+C?=
+ =?us-ascii?Q?ETsBi8y946CtppzMEvoC7riwesEvxBPAH9nahAvHx9h/pWvseELcO7hGx+Pp?=
+ =?us-ascii?Q?3hux7YJ5FLD6Otj+Qp1ZJoZha8M8XqmlMCYavpu7M1jL73HjRDoTvGXSl0of?=
+ =?us-ascii?Q?pkagtpBUAswwDIwl5EPub5g/nOZzaXMvWsF+VNwhnxnbOeZwgaZGI7d9onGd?=
+ =?us-ascii?Q?pDHA2H8/l53Imj5NbYS+5TIBfd0z3xAvyZBW+nHDmCWn7RYqVdgVFJI3U9ew?=
+ =?us-ascii?Q?dLvl9DgihWZHIeuD3DswsDy+uX42ttYmvHcWJpcG/cmuNtle6w70n+3RgeNd?=
+ =?us-ascii?Q?LMHnBrpSSB7sTInarQiFct9KLpcv3hePuSzR8wYAC98WFfgF0djDO0PDU81P?=
+ =?us-ascii?Q?HtDNsHgxbs5Dha6SeirKEOR3Wm7L1ZLzrWO1/hi2oxhb9F2pULb/pxR8MQwv?=
+ =?us-ascii?Q?1413c+Uh3gQBHqkTgj3Qc6NqCN2lbK0QWNj1qKyRS9L9+ENIe1MCjHdCA45q?=
+ =?us-ascii?Q?qTRA6zVfKHcArlnLlw3wF7+h0YLpZ6T3IOvfFXYiddTIOPMJpT1fbAdO7Tbr?=
+ =?us-ascii?Q?mjSt0xyam/tzfItT0vfZv182z7jHfv7PelpaIRJBlEf76918UfvxN0dYwNph?=
+ =?us-ascii?Q?FnitJJvjZsGfdviwSwgtrFvdyKnQ/rUMNQRqMKIxi30bjAYCshEjnfyquVkE?=
+ =?us-ascii?Q?ERn2T1UaAR0kssQhVMbvdADrs16azZx47ua/h3iuUSzdQvn2nXWuBkBYue7H?=
+ =?us-ascii?Q?ktDe8ZiesYXer5sMKG9JjUU10y+JP5Mz804lCnnHpteHADSXDRMP016vGg?=
+ =?us-ascii?Q?=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI2PR04MB11147.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(1800799024)(52116014)(7416014)(376014)(38350700014)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?6GeKpXepFgv2NY2OLuo0VUvUzuIBk+zXc26VMs54YB/WH2jzbqwV2hqPDaLc?=
+ =?us-ascii?Q?7yPJvpP/RAKm28lMHVYt9T0xEb34aAVYGYULtWS5X7uUB/zUuDNcYs5ytMWs?=
+ =?us-ascii?Q?7I6/+k+WTgmfkElAp916fLFKDtd1KDU0GtRHbxuLqsEPBYqym7PNerIkktqA?=
+ =?us-ascii?Q?ZyEiw3MBCG65ZY19N6kdOW1OjEbAJ/nDuYyTcqXpRoK8avbcau5KgHYOJpj2?=
+ =?us-ascii?Q?6ySaA+X4QIkilIC10IMuyI5nlA3Qz3NOO1hTmqq5oKlhvuSXvNhH74hRMhNJ?=
+ =?us-ascii?Q?QCoZ29blJs/4xSbJLsTJgBIBjhetjSPtuQVrGi0KtIqfmZZus0BN347Jdgxb?=
+ =?us-ascii?Q?VkcLCg9Pu2LY6h+2hI6WJXwzrscpybDhRWWeA6Tpo0An8wTZ0QzW1AraoSVe?=
+ =?us-ascii?Q?+E7ZOAqeKg8OEcK2DN8ayOQcfzIeuXWtX0SrG7l6eplZKztoX+lZMZE6w6LF?=
+ =?us-ascii?Q?MFfA0TL6MmzT3B7B2XLDZLD6f7em3NVGvyrt5d7aeeQYBfSvvl3MxW2xnVeG?=
+ =?us-ascii?Q?aeckVyyreeq1Z/ZrqggPLqQ6Rgw7W9ZqKL+3c31RMADMDvmw6jWJivn3SFkM?=
+ =?us-ascii?Q?5Dw/l2nRDk/BUEI+iuJqcBY7ohWlvgUUUE7Hh4aPtJtUiIDcr2lFvQKOuWNw?=
+ =?us-ascii?Q?yrarPBbXd6Kz5AE/KwnLVtt3nyGOJp78lWrCjAzT37Xcw8UUnTTar+y8oAQL?=
+ =?us-ascii?Q?QQ3UGjWiQjKPCazawo6mQ+wk3o4pGMS3UHP8TTV8Y0oa8fhvXNaGShD24bx4?=
+ =?us-ascii?Q?inLgLs6jeNu/3EWl0Rprl7yX9kI3FdUuw0D3c5LtMD0JRoSGyhJtD0VYRT6s?=
+ =?us-ascii?Q?LyN0DkUXSeao8CJN/HTliV+SFst340FvgkgR3WppAgbZbGmIbLWiKlv2jCKM?=
+ =?us-ascii?Q?7kAJWFNyBYygxjCdHbORH2FkD6JvIsSQeZVdRaYxfrgxxX51AmpUYYE2+m9F?=
+ =?us-ascii?Q?hBdaUv6rwk5CaxpamgQHH1uV1RXncpN9kaRtYCJoFOPnzKHAc4RQf4IEGWCS?=
+ =?us-ascii?Q?2rJl7ytXLCboVOL++NQIynepG8trUzy5kpPJnZGKgqvoB70XOy2o73GDnZJ3?=
+ =?us-ascii?Q?lg1aj8CBteW/bEEeu2pJOR2DIqGdVn2hdds7XF4jSMJbRDXIZBztQ7hNmZ/m?=
+ =?us-ascii?Q?ocivwj9fzM/V1vR9YbzuPi0Zsg+8tQNkA3yGYgeLx+DdsAFWdvKD1ZdIfhGc?=
+ =?us-ascii?Q?zHrKlKuj0kIVq3kT5oYLw4j5emT3tVWAOKKj9wjbu+RWGti58gj918MN96U0?=
+ =?us-ascii?Q?q1RtArumUXhsrNiapkWmifR2znD1BZSpjNwUHaW4KEdahW2svLDzBhbahTPq?=
+ =?us-ascii?Q?GPnwVjDzysEA6ltbK9ePviUE/ffVqJ/V7tuzQ79mYJRNRd1IlgNyBumr3NtY?=
+ =?us-ascii?Q?IjZ5FTcwDm+3HCmKddCQ5eyX6uMUR7cyVk/4dJ1b0Yd5n48+Nco6aRuw25KX?=
+ =?us-ascii?Q?zQJ4uvHuB9fOA1KL/FYdGpjtmUFrzPw8E8LlLHl+tBQnjwRLX69rpCveKk/3?=
+ =?us-ascii?Q?Vobq+iI3vqEWLoVulKd+fwc9SpQkcWEN38U5omiKuzsinzjPs4m8g7nBdqGq?=
+ =?us-ascii?Q?4ypbX/P8E0JVIQaFU649sL6lJjc5xdrQrMF0AXZ+?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: cb6372bc-ed25-4224-38d9-08de26938c54
+X-MS-Exchange-CrossTenant-AuthSource: VI2PR04MB11147.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2025 11:13:49.4743
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: jpW9aAp4y70FdnrDvvVZhgyoXWpVpmoBGV8X9TAhYXq/eWOzkN1Boc99T2GQOkocNBWpN1tZAnc1NviJ4pfIvg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB10708
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251118_031234_623599_ABDDAFF0 
-X-CRM114-Status: GOOD (  25.19  )
+X-CRM114-CacheID: sfid-20251118_031354_469514_391E7372 
+X-CRM114-Status: GOOD (  22.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,848 +166,224 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: michael.riesch@collabora.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Michael Riesch <michael.riesch@collabora.com>
+The LPI2C controller automatically transmits a NACK on the last byte
+of a receive data command. It transmits the NACK unless the next
+command in the TXFIFO is also a receive data command. If the transmit
+FIFO is empty when a receive data command completes, a NACK is also
+automatically transmitted.
 
-The Rockchip MIPI CSI-2 Receiver is a CSI-2 bridge with one input
-port and one output port. It receives the data with the help of an
-external MIPI PHY (C-PHY or D-PHY) and passes it to the Rockchip
-Video Capture (VICAP) block.
+Specially set read 2 bytes command initially. When the RXFIFO receives
+count data, controller should immediately read out this value and update
+MTDR register to keep the TXFIFO not empty. Set new receive data command
+to read other data before the 2nd byte is returned.
 
-Add a V4L2 subdevice driver for this unit.
+Fixes: a55fa9d0e42e ("i2c: imx-lpi2c: add low power i2c bus driver")
+Signed-off-by: Carlos Song <carlos.song@nxp.com>
 
-Signed-off-by: Michael Riesch <michael.riesch@wolfvision.net>
-Reviewed-by: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
-Reviewed-by: Mehdi Djait <mehdi.djait@linux.intel.com>
-Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
 ---
- MAINTAINERS                                    |   1 +
- drivers/media/platform/rockchip/Kconfig        |   1 +
- drivers/media/platform/rockchip/Makefile       |   1 +
- drivers/media/platform/rockchip/rkcsi/Kconfig  |  16 +
- drivers/media/platform/rockchip/rkcsi/Makefile |   3 +
- drivers/media/platform/rockchip/rkcsi/rkcsi.c  | 742 +++++++++++++++++++++++++
- 6 files changed, 764 insertions(+)
+I setup an env to test this feature change:
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 145473671a4a..b389f2e631ce 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -22304,6 +22304,7 @@ M:	Michael Riesch <michael.riesch@collabora.com>
- L:	linux-media@vger.kernel.org
- S:	Maintained
- F:	Documentation/devicetree/bindings/media/rockchip,rk3568-mipi-csi.yaml
-+F:	drivers/media/platform/rockchip/rkcsi/
+On I.MX93-EVK:
+LPI2C5 as slave device and use i2ctool to redesign the slave-eeprom mem:
+
+hexdump -C /sys/bus/i2c/devices/5-1064/slave-eeprom
+
+root@imx93evk:~# hexdump -C /sys/bus/i2c/devices/5-1064/slave-eeprom
+00000000  ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff  |................|
+00000010  20 00 01 02 03 04 05 06  07 08 09 0a 0b 0c 0d 0e  | ...............|
+00000020  0f 10 11 12 13 14 15 16  17 18 19 1a 1b 1c 1d 1e  |................|
+00000030  1f ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff  |................|
+00000040  08 00 01 02 03 04 05 06  07 ff ff ff ff ff ff ff  |................|
+00000050  00 ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff  |................|
+00000060  40 ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff  |@...............|
+00000070  ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff  |................|
+
+case1: SMBus block read 0x10 register. SMBus len = 32 bytes.
+case2: SMBus block read 0x40 register. SMBus len = 8 bytes.
+case3: SMBus block read 0x50 register. SMBus len = 0 bytes. It break the
+SMBus spec(len = 0).
+case4: SMBus block read 0x60 register. SMBus len = 64 bytes. It break
+the SMBus spec(len >= 32bytes).
+
+LPI2C3 as master controller to smbus block tead the slave device at 0x64.
+Not apply this fix:
+root@imx93evk:~# i2cget -f -y 3 0x64 0x10 s
+Error: Read failed
+root@imx93evk:~# i2cget -f -y 3 0x64 0x40 s
+Error: Read failed
+root@imx93evk:~# i2cget -f -y 3 0x64 0x50 s
+Error: Read failed
+root@imx93evk:~# i2cget -f -y 3 0x64 0x60 s
+0x00
+
+After apply this fix:
+root@imx93evk:~# i2cget -f -y 3 0x64 0x10 s
+0x00 0x01 0x02 0x03 0x04 0x05 0x06 0x07 0x08 0x09 0x0a 0x0b 0x0c 0x0d 0x0e 0x0f
+0x10 0x11 0x12 0x13 0x14 0x15 0x16 0x17 0x18 0x19 0x1a 0x1b 0x1c 0x1d 0x1e 0x1f
+root@imx93evk:~# i2cget -f -y 3 0x64 0x40 s
+0x00 0x01 0x02 0x03 0x04 0x05 0x06 0x07
+root@imx93evk:~# i2cget -f -y 3 0x64 0x50 s
+[  184.098094] i2c i2c-3: Invalid SMBus block read length
+Error: Read failed
+root@imx93evk:~# i2cget -f -y 3 0x64 0x60 s
+[  179.722105] i2c i2c-3: Invalid SMBus block read length
+Error: Read failed
+
+---
+ drivers/i2c/busses/i2c-imx-lpi2c.c | 93 +++++++++++++++++++++++-------
+ 1 file changed, 73 insertions(+), 20 deletions(-)
+
+diff --git a/drivers/i2c/busses/i2c-imx-lpi2c.c b/drivers/i2c/busses/i2c-imx-lpi2c.c
+index d882126c1778..39088567db59 100644
+--- a/drivers/i2c/busses/i2c-imx-lpi2c.c
++++ b/drivers/i2c/busses/i2c-imx-lpi2c.c
+@@ -90,6 +90,7 @@
+ #define MRDR_RXEMPTY	BIT(14)
+ #define MDER_TDDE	BIT(0)
+ #define MDER_RDDE	BIT(1)
++#define MSR_RDF_ASSERT(x) FIELD_GET(MSR_RDF, (x))
  
- ROCKCHIP RK3568 RANDOM NUMBER GENERATOR SUPPORT
- M:	Daniel Golle <daniel@makrotopia.org>
-diff --git a/drivers/media/platform/rockchip/Kconfig b/drivers/media/platform/rockchip/Kconfig
-index ba401d32f01b..54b698c4cd2c 100644
---- a/drivers/media/platform/rockchip/Kconfig
-+++ b/drivers/media/platform/rockchip/Kconfig
-@@ -4,5 +4,6 @@ comment "Rockchip media platform drivers"
+ #define SCR_SEN		BIT(0)
+ #define SCR_RST		BIT(1)
+@@ -461,7 +462,7 @@ static bool lpi2c_imx_write_txfifo(struct lpi2c_imx_struct *lpi2c_imx, bool atom
  
- source "drivers/media/platform/rockchip/rga/Kconfig"
- source "drivers/media/platform/rockchip/rkcif/Kconfig"
-+source "drivers/media/platform/rockchip/rkcsi/Kconfig"
- source "drivers/media/platform/rockchip/rkisp1/Kconfig"
- source "drivers/media/platform/rockchip/rkvdec/Kconfig"
-diff --git a/drivers/media/platform/rockchip/Makefile b/drivers/media/platform/rockchip/Makefile
-index 0e0b2cbbd4bd..522a7d3e30b0 100644
---- a/drivers/media/platform/rockchip/Makefile
-+++ b/drivers/media/platform/rockchip/Makefile
-@@ -1,5 +1,6 @@
- # SPDX-License-Identifier: GPL-2.0-only
- obj-y += rga/
- obj-y += rkcif/
-+obj-y += rkcsi/
- obj-y += rkisp1/
- obj-y += rkvdec/
-diff --git a/drivers/media/platform/rockchip/rkcsi/Kconfig b/drivers/media/platform/rockchip/rkcsi/Kconfig
-new file mode 100644
-index 000000000000..d8004198c386
---- /dev/null
-+++ b/drivers/media/platform/rockchip/rkcsi/Kconfig
-@@ -0,0 +1,16 @@
-+config VIDEO_ROCKCHIP_CSI
-+	tristate "Rockchip MIPI CSI-2 Receiver"
-+	depends on VIDEO_DEV
-+	depends on ARCH_ROCKCHIP || COMPILE_TEST
-+	depends on V4L_PLATFORM_DRIVERS
-+	depends on PM && COMMON_CLK
-+	select MEDIA_CONTROLLER
-+	select V4L2_FWNODE
-+	select VIDEO_V4L2_SUBDEV_API
-+	help
-+	  This is a driver for Rockchip MIPI CSI-2 Receiver. It is featured
-+	  in various Rockchips SoCs, usually in combination with a Video
-+	  Capture (VICAP) unit (see Rockchip Camera Interface (CIF) driver).
-+
-+	  To compile this driver as a module, choose M here: the module
-+	  will be called rockchip-mipi-csi.
-diff --git a/drivers/media/platform/rockchip/rkcsi/Makefile b/drivers/media/platform/rockchip/rkcsi/Makefile
-new file mode 100644
-index 000000000000..147712cbb68a
---- /dev/null
-+++ b/drivers/media/platform/rockchip/rkcsi/Makefile
-@@ -0,0 +1,3 @@
-+# SPDX-License-Identifier: GPL-2.0
-+obj-$(CONFIG_VIDEO_ROCKCHIP_CSI) += rockchip-mipi-csi.o
-+rockchip-mipi-csi-objs += rkcsi.o
-diff --git a/drivers/media/platform/rockchip/rkcsi/rkcsi.c b/drivers/media/platform/rockchip/rkcsi/rkcsi.c
-new file mode 100644
-index 000000000000..d4108ce5bbf9
---- /dev/null
-+++ b/drivers/media/platform/rockchip/rkcsi/rkcsi.c
-@@ -0,0 +1,742 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Rockchip MIPI CSI-2 Receiver Driver
-+ *
-+ * Copyright (C) 2019 Rockchip Electronics Co., Ltd.
-+ * Copyright (C) 2025 Michael Riesch <michael.riesch@wolfvision.net>
-+ * Copyright (C) 2025 Collabora, Ltd.
-+ */
-+
-+#include <linux/clk.h>
-+#include <linux/delay.h>
-+#include <linux/io.h>
-+#include <linux/module.h>
-+#include <linux/of.h>
-+#include <linux/of_graph.h>
-+#include <linux/of_platform.h>
-+#include <linux/phy/phy.h>
-+#include <linux/platform_device.h>
-+#include <linux/pm_runtime.h>
-+#include <linux/reset.h>
-+
-+#include <media/mipi-csi2.h>
-+#include <media/v4l2-ctrls.h>
-+#include <media/v4l2-fwnode.h>
-+#include <media/v4l2-subdev.h>
-+
-+#define CSI2HOST_N_LANES     0x04
-+#define CSI2HOST_CSI2_RESETN 0x10
-+#define CSI2HOST_PHY_STATE   0x14
-+#define CSI2HOST_ERR1	     0x20
-+#define CSI2HOST_ERR2	     0x24
-+#define CSI2HOST_MSK1	     0x28
-+#define CSI2HOST_MSK2	     0x2c
-+#define CSI2HOST_CONTROL     0x40
-+
-+#define SW_CPHY_EN(x)	     ((x) << 0)
-+#define SW_DSI_EN(x)	     ((x) << 4)
-+#define SW_DATATYPE_FS(x)    ((x) << 8)
-+#define SW_DATATYPE_FE(x)    ((x) << 14)
-+#define SW_DATATYPE_LS(x)    ((x) << 20)
-+#define SW_DATATYPE_LE(x)    ((x) << 26)
-+
-+#define RKCSI_CLKS_MAX	     1
-+
-+enum {
-+	RKCSI_PAD_SINK,
-+	RKCSI_PAD_SRC,
-+	RKCSI_PAD_MAX,
-+};
-+
-+struct rkcsi_format {
-+	u32 code;
-+	u8 depth;
-+	u8 csi_dt;
-+};
-+
-+struct rkcsi_device {
-+	struct device *dev;
-+
-+	void __iomem *base_addr;
-+	struct clk_bulk_data *clks;
-+	unsigned int clks_num;
-+	struct phy *phy;
-+	struct reset_control *reset;
-+
-+	const struct rkcsi_format *formats;
-+	unsigned int formats_num;
-+
-+	struct media_pad pads[RKCSI_PAD_MAX];
-+	struct v4l2_async_notifier notifier;
-+	struct v4l2_fwnode_endpoint vep;
-+	struct v4l2_subdev sd;
-+
-+	struct v4l2_subdev *source_sd;
-+	u32 source_pad;
-+};
-+
-+static const struct v4l2_mbus_framefmt default_format = {
-+	.width = 3840,
-+	.height = 2160,
-+	.code = MEDIA_BUS_FMT_SRGGB10_1X10,
-+	.field = V4L2_FIELD_NONE,
-+	.colorspace = V4L2_COLORSPACE_RAW,
-+	.ycbcr_enc = V4L2_YCBCR_ENC_601,
-+	.quantization = V4L2_QUANTIZATION_FULL_RANGE,
-+	.xfer_func = V4L2_XFER_FUNC_NONE,
-+};
-+
-+static const struct rkcsi_format formats[] = {
-+	/* YUV formats */
-+	{
-+		.code = MEDIA_BUS_FMT_YUYV8_1X16,
-+		.depth = 16,
-+		.csi_dt = MIPI_CSI2_DT_YUV422_8B,
-+	},
-+	{
-+		.code = MEDIA_BUS_FMT_UYVY8_1X16,
-+		.depth = 16,
-+		.csi_dt = MIPI_CSI2_DT_YUV422_8B,
-+	},
-+	{
-+		.code = MEDIA_BUS_FMT_YVYU8_1X16,
-+		.depth = 16,
-+		.csi_dt = MIPI_CSI2_DT_YUV422_8B,
-+	},
-+	{
-+		.code = MEDIA_BUS_FMT_VYUY8_1X16,
-+		.depth = 16,
-+		.csi_dt = MIPI_CSI2_DT_YUV422_8B,
-+	},
-+	/* RGB formats */
-+	{
-+		.code = MEDIA_BUS_FMT_RGB888_1X24,
-+		.depth = 24,
-+		.csi_dt = MIPI_CSI2_DT_RGB888,
-+	},
-+	{
-+		.code = MEDIA_BUS_FMT_BGR888_1X24,
-+		.depth = 24,
-+		.csi_dt = MIPI_CSI2_DT_RGB888,
-+	},
-+	/* Bayer formats */
-+	{
-+		.code = MEDIA_BUS_FMT_SBGGR8_1X8,
-+		.depth = 8,
-+		.csi_dt = MIPI_CSI2_DT_RAW8,
-+	},
-+	{
-+		.code = MEDIA_BUS_FMT_SGBRG8_1X8,
-+		.depth = 8,
-+		.csi_dt = MIPI_CSI2_DT_RAW8,
-+	},
-+	{
-+		.code = MEDIA_BUS_FMT_SGRBG8_1X8,
-+		.depth = 8,
-+		.csi_dt = MIPI_CSI2_DT_RAW8,
-+	},
-+	{
-+		.code = MEDIA_BUS_FMT_SRGGB8_1X8,
-+		.depth = 8,
-+		.csi_dt = MIPI_CSI2_DT_RAW8,
-+	},
-+	{
-+		.code = MEDIA_BUS_FMT_SBGGR10_1X10,
-+		.depth = 10,
-+		.csi_dt = MIPI_CSI2_DT_RAW10,
-+	},
-+	{
-+		.code = MEDIA_BUS_FMT_SGBRG10_1X10,
-+		.depth = 10,
-+		.csi_dt = MIPI_CSI2_DT_RAW10,
-+	},
-+	{
-+		.code = MEDIA_BUS_FMT_SGRBG10_1X10,
-+		.depth = 10,
-+		.csi_dt = MIPI_CSI2_DT_RAW10,
-+	},
-+	{
-+		.code = MEDIA_BUS_FMT_SRGGB10_1X10,
-+		.depth = 10,
-+		.csi_dt = MIPI_CSI2_DT_RAW10,
-+	},
-+	{
-+		.code = MEDIA_BUS_FMT_SBGGR12_1X12,
-+		.depth = 12,
-+		.csi_dt = MIPI_CSI2_DT_RAW12,
-+	},
-+	{
-+		.code = MEDIA_BUS_FMT_SGBRG12_1X12,
-+		.depth = 12,
-+		.csi_dt = MIPI_CSI2_DT_RAW12,
-+	},
-+	{
-+		.code = MEDIA_BUS_FMT_SGRBG12_1X12,
-+		.depth = 12,
-+		.csi_dt = MIPI_CSI2_DT_RAW12,
-+	},
-+	{
-+		.code = MEDIA_BUS_FMT_SRGGB12_1X12,
-+		.depth = 12,
-+		.csi_dt = MIPI_CSI2_DT_RAW12,
-+	},
-+};
-+
-+static inline struct rkcsi_device *to_rkcsi(struct v4l2_subdev *sd)
+ static bool lpi2c_imx_read_rxfifo(struct lpi2c_imx_struct *lpi2c_imx, bool atomic)
+ {
+-	unsigned int blocklen, remaining;
++	unsigned int remaining;
+ 	unsigned int temp, data;
+ 
+ 	do {
+@@ -472,15 +473,6 @@ static bool lpi2c_imx_read_rxfifo(struct lpi2c_imx_struct *lpi2c_imx, bool atomi
+ 		lpi2c_imx->rx_buf[lpi2c_imx->delivered++] = data & 0xff;
+ 	} while (1);
+ 
+-	/*
+-	 * First byte is the length of remaining packet in the SMBus block
+-	 * data read. Add it to msgs->len.
+-	 */
+-	if (lpi2c_imx->block_data) {
+-		blocklen = lpi2c_imx->rx_buf[0];
+-		lpi2c_imx->msglen += blocklen;
+-	}
+-
+ 	remaining = lpi2c_imx->msglen - lpi2c_imx->delivered;
+ 
+ 	if (!remaining) {
+@@ -493,12 +485,7 @@ static bool lpi2c_imx_read_rxfifo(struct lpi2c_imx_struct *lpi2c_imx, bool atomi
+ 	lpi2c_imx_set_rx_watermark(lpi2c_imx);
+ 
+ 	/* multiple receive commands */
+-	if (lpi2c_imx->block_data) {
+-		lpi2c_imx->block_data = 0;
+-		temp = remaining;
+-		temp |= (RECV_DATA << 8);
+-		writel(temp, lpi2c_imx->base + LPI2C_MTDR);
+-	} else if (!(lpi2c_imx->delivered & 0xff)) {
++	if (!(lpi2c_imx->delivered & 0xff)) {
+ 		temp = (remaining > CHUNK_DATA ? CHUNK_DATA : remaining) - 1;
+ 		temp |= (RECV_DATA << 8);
+ 		writel(temp, lpi2c_imx->base + LPI2C_MTDR);
+@@ -536,18 +523,80 @@ static int lpi2c_imx_write_atomic(struct lpi2c_imx_struct *lpi2c_imx,
+ 	return err;
+ }
+ 
++static unsigned int lpi2c_SMBus_block_read_single_byte(struct lpi2c_imx_struct *lpi2c_imx)
 +{
-+	return container_of(sd, struct rkcsi_device, sd);
-+}
-+
-+static inline __maybe_unused void rkcsi_write(struct rkcsi_device *csi_dev,
-+					      unsigned int addr, u32 val)
-+{
-+	writel(val, csi_dev->base_addr + addr);
-+}
-+
-+static inline __maybe_unused u32 rkcsi_read(struct rkcsi_device *csi_dev,
-+					    unsigned int addr)
-+{
-+	return readl(csi_dev->base_addr + addr);
-+}
-+
-+static const struct rkcsi_format *
-+rkcsi_find_format(struct rkcsi_device *csi_dev, u32 mbus_code)
-+{
-+	const struct rkcsi_format *format;
-+
-+	WARN_ON(csi_dev->formats_num == 0);
-+
-+	for (int i = 0; i < csi_dev->formats_num; i++) {
-+		format = &csi_dev->formats[i];
-+		if (format->code == mbus_code)
-+			return format;
-+	}
-+
-+	return NULL;
-+}
-+
-+static int rkcsi_start(struct rkcsi_device *csi_dev)
-+{
-+	struct media_pad *source_pad =
-+		&csi_dev->source_sd->entity.pads[csi_dev->source_pad];
-+	enum v4l2_mbus_type bus_type = csi_dev->vep.bus_type;
-+	union phy_configure_opts opts;
-+	s64 link_freq;
-+	u32 lanes = csi_dev->vep.bus.mipi_csi2.num_data_lanes;
-+	u32 control = 0;
++	unsigned int val, data;
 +	int ret;
 +
-+	if (lanes < 1 || lanes > 4)
-+		return -EINVAL;
++	ret = readl_poll_timeout(lpi2c_imx->base + LPI2C_MSR, val,
++				 MSR_RDF_ASSERT(val), 1, 1000);
++	if (ret) {
++		dev_err(&lpi2c_imx->adapter.dev, "SMBus read count timeout %d\n", ret);
++		return ret;
++	}
 +
-+	/* set mult and div to 0, thus completely rely on V4L2_CID_LINK_FREQ */
-+	link_freq = v4l2_get_link_freq(source_pad, 0, 0);
-+	if (link_freq <= 0)
-+		return -EINVAL;
++	data = readl(lpi2c_imx->base + LPI2C_MRDR);
++	lpi2c_imx->rx_buf[lpi2c_imx->delivered++] = data & 0xff;
 +
-+	if (bus_type == V4L2_MBUS_CSI2_DPHY) {
-+		struct phy_configure_opts_mipi_dphy *cfg = &opts.mipi_dphy;
++	return data;
++}
 +
-+		ret = phy_mipi_dphy_get_default_config_for_hsclk(link_freq * 2,
-+								 lanes, cfg);
-+		if (ret)
-+			return ret;
+ static void lpi2c_imx_read_init(struct lpi2c_imx_struct *lpi2c_imx,
+ 				struct i2c_msg *msgs)
+ {
+-	unsigned int temp;
++	unsigned int temp, ret, block_len;
+ 
+ 	lpi2c_imx->rx_buf = msgs->buf;
+ 	lpi2c_imx->block_data = msgs->flags & I2C_M_RECV_LEN;
+ 
+ 	lpi2c_imx_set_rx_watermark(lpi2c_imx);
+-	temp = msgs->len > CHUNK_DATA ? CHUNK_DATA - 1 : msgs->len - 1;
+-	temp |= (RECV_DATA << 8);
+-	writel(temp, lpi2c_imx->base + LPI2C_MTDR);
 +
-+		ret = phy_set_mode(csi_dev->phy, PHY_MODE_MIPI_DPHY);
-+		if (ret)
-+			return ret;
-+
-+		ret = phy_configure(csi_dev->phy, &opts);
-+		if (ret)
-+			return ret;
-+
-+		control |= SW_CPHY_EN(0);
-+
-+	} else if (bus_type == V4L2_MBUS_CSI2_CPHY) {
-+		/* TODO: implement CPHY configuration */
-+		return -EOPNOTSUPP;
++	if (!lpi2c_imx->block_data) {
++		temp = msgs->len > CHUNK_DATA ? CHUNK_DATA - 1 : msgs->len - 1;
++		temp |= (RECV_DATA << 8);
++		writel(temp, lpi2c_imx->base + LPI2C_MTDR);
 +	} else {
-+		return -EINVAL;
++		/*
++		 * The LPI2C controller automatically transmits a NACK on the last byte
++		 * of a receive data command. It transmits the NACK unless the next
++		 * command in the TXFIFO is also a receive data command. If the transmit
++		 * FIFO is empty when a receive data command completes, a NACK is also
++		 * automatically transmitted.
++		 * So specially set read 2 bytes read command initially. First byte in
++		 * RXFIFO is SMBus block data length, when the data enter the RXFIFO,
++		 * controller should immediately read out and update MTDR register to keep
++		 * the TXFIFO not empty. Second byte is the first byte of block data.
++		 * So the data length of the subsequent block data read command should be
++		 * block_len - 1, because in the first read command, the first byte of block
++		 * data has already been stored in RXFIFO.
++		 */
++		writel((RECV_DATA << 8) | 0x01, lpi2c_imx->base + LPI2C_MTDR);
++
++		/* Read the first byte as block len */
++		block_len = lpi2c_SMBus_block_read_single_byte(lpi2c_imx);
++		if (block_len < 0) {
++			dev_err(&lpi2c_imx->adapter.dev, "SMBus read data length timeout\n");
++			return;
++		}
++
++		/* Confirm SMBus transfer meets protocol */
++		if (block_len == 0 || block_len > I2C_SMBUS_BLOCK_MAX) {
++			dev_err(&lpi2c_imx->adapter.dev, "Invalid SMBus block read length\n");
++			return;
++		}
++
++		/* If just read 1 byte then read out from fifo. No need new command update */
++		if (block_len == 1) {
++			ret = lpi2c_SMBus_block_read_single_byte(lpi2c_imx);
++			if (ret < 0)
++				dev_err(&lpi2c_imx->adapter.dev, "SMBus read data timeout\n");
++			return;
++		}
++
++		/* Block read other length data need to update command again*/
++		writel((RECV_DATA << 8) | (block_len - 2), lpi2c_imx->base + LPI2C_MTDR);
++		lpi2c_imx->msglen += block_len;
 +	}
-+
-+	control |= SW_DATATYPE_FS(0x00) | SW_DATATYPE_FE(0x01) |
-+		   SW_DATATYPE_LS(0x02) | SW_DATATYPE_LE(0x03);
-+
-+	rkcsi_write(csi_dev, CSI2HOST_N_LANES, lanes - 1);
-+	rkcsi_write(csi_dev, CSI2HOST_CONTROL, control);
-+	rkcsi_write(csi_dev, CSI2HOST_CSI2_RESETN, 1);
-+
-+	ret = phy_power_on(csi_dev->phy);
-+	if (ret)
-+		return ret;
-+
-+	return 0;
-+}
-+
-+static void rkcsi_stop(struct rkcsi_device *csi_dev)
-+{
-+	phy_power_off(csi_dev->phy);
-+
-+	rkcsi_write(csi_dev, CSI2HOST_CSI2_RESETN, 0);
-+	rkcsi_write(csi_dev, CSI2HOST_MSK1, ~0);
-+	rkcsi_write(csi_dev, CSI2HOST_MSK2, ~0);
-+}
-+
-+static const struct media_entity_operations rkcsi_media_ops = {
-+	.link_validate = v4l2_subdev_link_validate,
-+};
-+
-+static int rkcsi_enum_mbus_code(struct v4l2_subdev *sd,
-+				struct v4l2_subdev_state *sd_state,
-+				struct v4l2_subdev_mbus_code_enum *code)
-+{
-+	struct rkcsi_device *csi_dev = to_rkcsi(sd);
-+
-+	if (code->pad == RKCSI_PAD_SRC) {
-+		const struct v4l2_mbus_framefmt *sink_fmt;
-+
-+		if (code->index)
-+			return -EINVAL;
-+
-+		sink_fmt = v4l2_subdev_state_get_format(sd_state,
-+							RKCSI_PAD_SINK);
-+		code->code = sink_fmt->code;
-+
-+		return 0;
-+	} else if (code->pad == RKCSI_PAD_SINK) {
-+		if (code->index > csi_dev->formats_num)
-+			return -EINVAL;
-+
-+		code->code = csi_dev->formats[code->index].code;
-+		return 0;
-+	}
-+
-+	return -EINVAL;
-+}
-+
-+static int rkcsi_set_fmt(struct v4l2_subdev *sd,
-+			 struct v4l2_subdev_state *state,
-+			 struct v4l2_subdev_format *format)
-+{
-+	struct rkcsi_device *csi_dev = to_rkcsi(sd);
-+	const struct rkcsi_format *fmt;
-+	struct v4l2_mbus_framefmt *sink, *src;
-+
-+	/* the format on the source pad always matches the sink pad */
-+	if (format->pad == RKCSI_PAD_SRC)
-+		return v4l2_subdev_get_fmt(sd, state, format);
-+
-+	sink = v4l2_subdev_state_get_format(state, format->pad, format->stream);
-+	if (!sink)
-+		return -EINVAL;
-+
-+	fmt = rkcsi_find_format(csi_dev, format->format.code);
-+	if (!fmt)
-+		format->format = default_format;
-+
-+	*sink = format->format;
-+
-+	/* propagate the format to the source pad */
-+	src = v4l2_subdev_state_get_opposite_stream_format(state, format->pad,
-+							   format->stream);
-+	if (!src)
-+		return -EINVAL;
-+
-+	*src = *sink;
-+
-+	return 0;
-+}
-+
-+static int rkcsi_set_routing(struct v4l2_subdev *sd,
-+			     struct v4l2_subdev_state *state,
-+			     enum v4l2_subdev_format_whence which,
-+			     struct v4l2_subdev_krouting *routing)
-+{
-+	int ret;
-+
-+	ret = v4l2_subdev_routing_validate(sd, routing,
-+					   V4L2_SUBDEV_ROUTING_ONLY_1_TO_1);
-+	if (ret)
-+		return ret;
-+
-+	ret = v4l2_subdev_set_routing_with_fmt(sd, state, routing,
-+					       &default_format);
-+	if (ret)
-+		return ret;
-+
-+	return 0;
-+}
-+
-+static int rkcsi_enable_streams(struct v4l2_subdev *sd,
-+				struct v4l2_subdev_state *state, u32 pad,
-+				u64 streams_mask)
-+{
-+	struct rkcsi_device *csi_dev = to_rkcsi(sd);
-+	struct v4l2_subdev *remote_sd;
-+	struct media_pad *sink_pad, *remote_pad;
-+	struct device *dev = csi_dev->dev;
-+	u64 mask;
-+	int ret;
-+
-+	sink_pad = &sd->entity.pads[RKCSI_PAD_SINK];
-+	remote_pad = media_pad_remote_pad_first(sink_pad);
-+	remote_sd = media_entity_to_v4l2_subdev(remote_pad->entity);
-+
-+	mask = v4l2_subdev_state_xlate_streams(state, RKCSI_PAD_SINK,
-+					       RKCSI_PAD_SRC, &streams_mask);
-+
-+	ret = pm_runtime_resume_and_get(dev);
-+	if (ret)
-+		goto err;
-+
-+	ret = rkcsi_start(csi_dev);
-+	if (ret) {
-+		dev_err(dev, "failed to enable CSI hardware\n");
-+		goto err_pm_runtime_put;
-+	}
-+
-+	ret = v4l2_subdev_enable_streams(remote_sd, remote_pad->index, mask);
-+	if (ret)
-+		goto err_csi_stop;
-+
-+	return 0;
-+
-+err_csi_stop:
-+	rkcsi_stop(csi_dev);
-+err_pm_runtime_put:
-+	pm_runtime_put_sync(dev);
-+err:
-+	return ret;
-+}
-+
-+static int rkcsi_disable_streams(struct v4l2_subdev *sd,
-+				 struct v4l2_subdev_state *state, u32 pad,
-+				 u64 streams_mask)
-+{
-+	struct rkcsi_device *csi_dev = to_rkcsi(sd);
-+	struct v4l2_subdev *remote_sd;
-+	struct media_pad *sink_pad, *remote_pad;
-+	struct device *dev = csi_dev->dev;
-+	u64 mask;
-+	int ret;
-+
-+	sink_pad = &sd->entity.pads[RKCSI_PAD_SINK];
-+	remote_pad = media_pad_remote_pad_first(sink_pad);
-+	remote_sd = media_entity_to_v4l2_subdev(remote_pad->entity);
-+
-+	mask = v4l2_subdev_state_xlate_streams(state, RKCSI_PAD_SINK,
-+					       RKCSI_PAD_SRC, &streams_mask);
-+
-+	ret = v4l2_subdev_disable_streams(remote_sd, remote_pad->index, mask);
-+
-+	rkcsi_stop(csi_dev);
-+
-+	pm_runtime_mark_last_busy(dev);
-+	pm_runtime_put_autosuspend(dev);
-+
-+	return ret;
-+}
-+
-+static const struct v4l2_subdev_pad_ops rkcsi_pad_ops = {
-+	.enum_mbus_code = rkcsi_enum_mbus_code,
-+	.get_fmt = v4l2_subdev_get_fmt,
-+	.set_fmt = rkcsi_set_fmt,
-+	.set_routing = rkcsi_set_routing,
-+	.enable_streams = rkcsi_enable_streams,
-+	.disable_streams = rkcsi_disable_streams,
-+};
-+
-+static const struct v4l2_subdev_ops rkcsi_ops = {
-+	.pad = &rkcsi_pad_ops,
-+};
-+
-+static int rkcsi_init_state(struct v4l2_subdev *sd,
-+			    struct v4l2_subdev_state *state)
-+{
-+	struct v4l2_subdev_route routes[] = {
-+		{
-+			.sink_pad = RKCSI_PAD_SINK,
-+			.sink_stream = 0,
-+			.source_pad = RKCSI_PAD_SRC,
-+			.source_stream = 0,
-+			.flags = V4L2_SUBDEV_ROUTE_FL_ACTIVE,
-+		},
-+	};
-+	struct v4l2_subdev_krouting routing = {
-+		.len_routes = ARRAY_SIZE(routes),
-+		.num_routes = ARRAY_SIZE(routes),
-+		.routes = routes,
-+	};
-+	int ret;
-+
-+	ret = v4l2_subdev_set_routing_with_fmt(sd, state, &routing,
-+					       &default_format);
-+
-+	return ret;
-+}
-+
-+static const struct v4l2_subdev_internal_ops rkcsi_internal_ops = {
-+	.init_state = rkcsi_init_state,
-+};
-+
-+static int rkcsi_notifier_bound(struct v4l2_async_notifier *notifier,
-+				struct v4l2_subdev *sd,
-+				struct v4l2_async_connection *asd)
-+{
-+	struct rkcsi_device *csi_dev =
-+		container_of(notifier, struct rkcsi_device, notifier);
-+	int source_pad;
-+
-+	source_pad = media_entity_get_fwnode_pad(&sd->entity, sd->fwnode,
-+						 MEDIA_PAD_FL_SOURCE);
-+	if (source_pad < 0) {
-+		dev_err(csi_dev->dev, "failed to find source pad for %s\n",
-+			sd->name);
-+		return source_pad;
-+	}
-+
-+	csi_dev->source_sd = sd;
-+	csi_dev->source_pad = source_pad;
-+
-+	return media_create_pad_link(&sd->entity, source_pad,
-+				     &csi_dev->sd.entity, RKCSI_PAD_SINK,
-+				     MEDIA_LNK_FL_ENABLED);
-+}
-+
-+static const struct v4l2_async_notifier_operations rkcsi_notifier_ops = {
-+	.bound = rkcsi_notifier_bound,
-+};
-+
-+static int rkcsi_register_notifier(struct rkcsi_device *csi_dev)
-+{
-+	struct v4l2_async_connection *asd;
-+	struct v4l2_async_notifier *ntf = &csi_dev->notifier;
-+	struct v4l2_fwnode_endpoint *vep = &csi_dev->vep;
-+	struct v4l2_subdev *sd = &csi_dev->sd;
-+	struct device *dev = csi_dev->dev;
-+	struct fwnode_handle *ep;
-+	int ret = 0;
-+
-+	ep = fwnode_graph_get_endpoint_by_id(dev_fwnode(dev), 0, 0, 0);
-+	if (!ep)
-+		return dev_err_probe(dev, -ENODEV, "failed to get endpoint\n");
-+
-+	vep->bus_type = V4L2_MBUS_UNKNOWN;
-+	ret = v4l2_fwnode_endpoint_parse(ep, vep);
-+	if (ret) {
-+		ret = dev_err_probe(dev, ret, "failed to parse endpoint\n");
-+		goto out;
-+	}
-+
-+	if (vep->bus_type != V4L2_MBUS_CSI2_DPHY &&
-+	    vep->bus_type != V4L2_MBUS_CSI2_CPHY) {
-+		ret = dev_err_probe(dev, -EINVAL,
-+				    "invalid bus type of endpoint\n");
-+		goto out;
-+	}
-+
-+	v4l2_async_subdev_nf_init(ntf, sd);
-+	ntf->ops = &rkcsi_notifier_ops;
-+
-+	asd = v4l2_async_nf_add_fwnode_remote(ntf, ep,
-+					      struct v4l2_async_connection);
-+	if (IS_ERR(asd)) {
-+		ret = PTR_ERR(asd);
-+		goto err_nf_cleanup;
-+	}
-+
-+	ret = v4l2_async_nf_register(ntf);
-+	if (ret) {
-+		ret = dev_err_probe(dev, ret, "failed to register notifier\n");
-+		goto err_nf_cleanup;
-+	}
-+
-+	goto out;
-+
-+err_nf_cleanup:
-+	v4l2_async_nf_cleanup(ntf);
-+out:
-+	fwnode_handle_put(ep);
-+	return ret;
-+}
-+
-+static int rkcsi_register(struct rkcsi_device *csi_dev)
-+{
-+	struct media_pad *pads = csi_dev->pads;
-+	struct v4l2_subdev *sd = &csi_dev->sd;
-+	int ret;
-+
-+	ret = rkcsi_register_notifier(csi_dev);
-+	if (ret)
-+		goto err;
-+
-+	v4l2_subdev_init(sd, &rkcsi_ops);
-+	sd->dev = csi_dev->dev;
-+	sd->entity.ops = &rkcsi_media_ops;
-+	sd->entity.function = MEDIA_ENT_F_VID_IF_BRIDGE;
-+	sd->flags |= V4L2_SUBDEV_FL_HAS_DEVNODE | V4L2_SUBDEV_FL_STREAMS;
-+	sd->internal_ops = &rkcsi_internal_ops;
-+	sd->owner = THIS_MODULE;
-+	snprintf(sd->name, sizeof(sd->name), "rockchip-mipi-csi %s",
-+		 dev_name(csi_dev->dev));
-+
-+	pads[RKCSI_PAD_SINK].flags = MEDIA_PAD_FL_SINK |
-+				     MEDIA_PAD_FL_MUST_CONNECT;
-+	pads[RKCSI_PAD_SRC].flags = MEDIA_PAD_FL_SOURCE;
-+	ret = media_entity_pads_init(&sd->entity, RKCSI_PAD_MAX, pads);
-+	if (ret)
-+		goto err_notifier_unregister;
-+
-+	ret = v4l2_subdev_init_finalize(sd);
-+	if (ret)
-+		goto err_entity_cleanup;
-+
-+	ret = v4l2_async_register_subdev(sd);
-+	if (ret) {
-+		dev_err(sd->dev, "failed to register CSI subdev\n");
-+		goto err_subdev_cleanup;
-+	}
-+
-+	return 0;
-+
-+err_subdev_cleanup:
-+	v4l2_subdev_cleanup(sd);
-+err_entity_cleanup:
-+	media_entity_cleanup(&sd->entity);
-+err_notifier_unregister:
-+	v4l2_async_nf_unregister(&csi_dev->notifier);
-+	v4l2_async_nf_cleanup(&csi_dev->notifier);
-+err:
-+	return ret;
-+}
-+
-+static void rkcsi_unregister(struct rkcsi_device *csi_dev)
-+{
-+	struct v4l2_subdev *sd = &csi_dev->sd;
-+
-+	v4l2_async_unregister_subdev(sd);
-+	v4l2_subdev_cleanup(sd);
-+	media_entity_cleanup(&sd->entity);
-+	v4l2_async_nf_unregister(&csi_dev->notifier);
-+	v4l2_async_nf_cleanup(&csi_dev->notifier);
-+}
-+
-+static const struct of_device_id rkcsi_of_match[] = {
-+	{
-+		.compatible = "rockchip,rk3568-mipi-csi",
-+	},
-+	{}
-+};
-+MODULE_DEVICE_TABLE(of, rkcsi_of_match);
-+
-+static int rkcsi_probe(struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct rkcsi_device *csi_dev;
-+	int ret;
-+
-+	csi_dev = devm_kzalloc(dev, sizeof(*csi_dev), GFP_KERNEL);
-+	if (!csi_dev)
-+		return -ENOMEM;
-+	csi_dev->dev = dev;
-+	dev_set_drvdata(dev, csi_dev);
-+
-+	csi_dev->base_addr = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(csi_dev->base_addr))
-+		return PTR_ERR(csi_dev->base_addr);
-+
-+	ret = devm_clk_bulk_get_all(dev, &csi_dev->clks);
-+	if (ret != RKCSI_CLKS_MAX)
-+		return dev_err_probe(dev, -ENODEV, "failed to get clocks\n");
-+	csi_dev->clks_num = ret;
-+
-+	csi_dev->phy = devm_phy_get(dev, NULL);
-+	if (IS_ERR(csi_dev->phy))
-+		return dev_err_probe(dev, PTR_ERR(csi_dev->phy),
-+				     "failed to get MIPI CSI PHY\n");
-+
-+	csi_dev->reset = devm_reset_control_get_exclusive(dev, NULL);
-+	if (IS_ERR(csi_dev->reset))
-+		return dev_err_probe(dev, PTR_ERR(csi_dev->reset),
-+				     "failed to get reset\n");
-+
-+	csi_dev->formats = formats;
-+	csi_dev->formats_num = ARRAY_SIZE(formats);
-+
-+	pm_runtime_enable(dev);
-+
-+	ret = phy_init(csi_dev->phy);
-+	if (ret) {
-+		ret = dev_err_probe(dev, ret,
-+				    "failed to initialize MIPI CSI PHY\n");
-+		goto err_pm_runtime_disable;
-+	}
-+
-+	ret = rkcsi_register(csi_dev);
-+	if (ret)
-+		goto err_phy_exit;
-+
-+	return 0;
-+
-+err_phy_exit:
-+	phy_exit(csi_dev->phy);
-+err_pm_runtime_disable:
-+	pm_runtime_disable(dev);
-+	return ret;
-+}
-+
-+static void rkcsi_remove(struct platform_device *pdev)
-+{
-+	struct rkcsi_device *csi_dev = platform_get_drvdata(pdev);
-+	struct device *dev = &pdev->dev;
-+
-+	rkcsi_unregister(csi_dev);
-+	phy_exit(csi_dev->phy);
-+	pm_runtime_disable(dev);
-+}
-+
-+static int rkcsi_runtime_suspend(struct device *dev)
-+{
-+	struct rkcsi_device *csi_dev = dev_get_drvdata(dev);
-+
-+	clk_bulk_disable_unprepare(csi_dev->clks_num, csi_dev->clks);
-+
-+	return 0;
-+}
-+
-+static int rkcsi_runtime_resume(struct device *dev)
-+{
-+	struct rkcsi_device *csi_dev = dev_get_drvdata(dev);
-+	int ret;
-+
-+	reset_control_assert(csi_dev->reset);
-+	udelay(5);
-+	reset_control_deassert(csi_dev->reset);
-+
-+	ret = clk_bulk_prepare_enable(csi_dev->clks_num, csi_dev->clks);
-+	if (ret) {
-+		dev_err(dev, "failed to enable clocks\n");
-+		return ret;
-+	}
-+
-+	return 0;
-+}
-+
-+static const struct dev_pm_ops rkcsi_pm_ops = {
-+	.runtime_suspend = rkcsi_runtime_suspend,
-+	.runtime_resume = rkcsi_runtime_resume,
-+};
-+
-+static struct platform_driver rkcsi_drv = {
-+	.driver = {
-+		   .name = "rockchip-mipi-csi",
-+		   .of_match_table = rkcsi_of_match,
-+		   .pm = &rkcsi_pm_ops,
-+	},
-+	.probe = rkcsi_probe,
-+	.remove = rkcsi_remove,
-+};
-+module_platform_driver(rkcsi_drv);
-+
-+MODULE_DESCRIPTION("Rockchip MIPI CSI-2 Receiver platform driver");
-+MODULE_LICENSE("GPL");
-
+ }
+ 
+ static bool lpi2c_imx_read_chunk_atomic(struct lpi2c_imx_struct *lpi2c_imx)
+@@ -599,6 +648,10 @@ static bool is_use_dma(struct lpi2c_imx_struct *lpi2c_imx, struct i2c_msg *msg)
+ 	if (pm_suspend_in_progress())
+ 		return false;
+ 
++	/* DMA is not suitable for SMBus block read */
++	if (msg->flags & I2C_M_RECV_LEN)
++		return false;
++
+ 	/*
+ 	 * When the length of data is less than I2C_DMA_THRESHOLD,
+ 	 * cpu mode is used directly to avoid low performance.
 -- 
-2.39.5
-
+2.34.1
 
 
