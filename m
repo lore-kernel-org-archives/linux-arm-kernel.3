@@ -4,72 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 166C6CEBF9A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 02:51:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55A36CEBF9A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 02:52:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:
 	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5nYyWY2TGtfq9g9njXBwfNvKTwM7Y4XVBx38hReH0kU=; b=LbdSsCLj8bbzIrhoujExa9NHnI
-	wvG4K2GB2SnQIDJSQH2ySN7ku7YOAL8vXjmeXHgFDl8mQup7tqfgruCftDyrTA5vhcQWR2aTedImw
-	nTGfgYV96vujdAVI5qPcfhYnyFDqAjh/3hzYZAtxoJjV9WGTwXwNTUFx2djAxiP16lCFqAu+Kjn2B
-	EGVcCZAS3oxnweQ8hmENHBeSa4ycqM5RV0NMIEyLoosIYNxfzfknEsWUifASjpWJndqzAqKPNxWiE
-	ko7b7VY7knVeqh2DdqtZOQV+eCvECm0fp4r4CNCCFqiABvxek9M9Ed5tU8A4jZTOJbAoQVyHqMznA
-	dXlN/7tg==;
+	bh=8pEsD6oo42O0RlVFVHOQlcJ30WTWABpFDF3XeUvqNQ4=; b=QdAo9odOOWxzTe7X2leuGyInwt
+	kB2zdESKVvHNkZAjwC3pIu4IpPBjNC4OjzNVvvyt53jTzNVDkW9OJ8YYBVDFdy2c/QbkieTRNcS7F
+	aXaiyvN0VzScHX+euKrkRTXlHjswuEcf2Y/5eSetOLXagSwSyejGoB2tNcsp8OxuoVApDy4Juj99o
+	UzWWh447BdQrizm4egxWgqJ3CWcdF0TTTMCrXXyl5z1ubp1GmQVoF8Qh/LyYN7HC1ZuT8UEIxJVxY
+	ll4vWX3RjPBILUbrAwmm4jZv6vic18bYObUEnIOoCT4N6B7J3ln0WKVMGoW0wz2TD1OlfFFURBE/o
+	w4sJ3R7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLBoe-0000000HFyh-1v20;
-	Tue, 18 Nov 2025 02:51:36 +0000
-Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
+	id 1vLBot-0000000HGAy-1vkK;
+	Tue, 18 Nov 2025 02:51:51 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLBoZ-0000000HFrs-1Ign
+	id 1vLBor-0000000HG7X-1ygf
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 18 Nov 2025 02:51:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-Id:Date:Subject:To:From:Sender:Reply-To:Cc:
+	Content-Type:Content-ID:Content-Description;
+	bh=8pEsD6oo42O0RlVFVHOQlcJ30WTWABpFDF3XeUvqNQ4=; b=gSq3UuR9cqG+lakB3NXRSi67zC
+	IgkKAyo0psQExr8ZFIZeSR1DaF3R+n68Nzz2NmOU4zixd993Sv1BhByE/4Knx0R9kbxlGf2t70yKD
+	/sfhzWu7cCh/5QQYwwpfQ8hzxxgrhg4FJ+EhT3fZWu0o9hPPlGAPNTgp/5NjzSGSJx5x/c6Yn0VkR
+	NLOUl+4VMj6m4AFKpVNk5jN+/cefbjtNa9L7mXjpRxcz1zFs0TdnMsBJ7a+jESG+H239EI5ifbfjn
+	IFEHPLxcby1d0zQ2DhpDEzbjJYQT1xXLOIWVZzY6rvMTMP6ErDFXyqebLDqWo8yTYin7a7iUXzID1
+	Q0Ry8r2Q==;
+Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vLAxA-00000008eBH-1sYd
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Nov 2025 02:51:33 +0000
-Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-2984dfae043so47037055ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Nov 2025 18:51:31 -0800 (PST)
+	Tue, 18 Nov 2025 01:56:22 +0000
+Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-298287a26c3so60827645ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Nov 2025 18:51:40 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1763434290; x=1764039090; darn=lists.infradead.org;
+        d=bytedance.com; s=google; t=1763434299; x=1764039099; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=5nYyWY2TGtfq9g9njXBwfNvKTwM7Y4XVBx38hReH0kU=;
-        b=UmwfSDcS2D8zgV4CWEH3Xej5Dk2B1EIDjPKaFUlbPCBBY3u583FUY/025Jw+IlbCi5
-         wrmSoa7VqZVi5nvyb73/hr/Fp2zFMiO8cd31+2M+g1lirFYcVLlEapbotcZKv5E7v6lY
-         UrY6fIBffmM/cV++r5XeuEcwlASA7KTtDKBwL2d8vTAwnqC2TdB9NyAL1JA+IZVLHJi7
-         z0+uiDBRWOoqZ/V2c9bYBH0HcLD5scqv+Z588Ziu8FMTMA/7YLLyRAtPAmd1xATnvm1m
-         py75Z0zPS6+ZBDmss4uve76XyO7qqDzV1XjkOPAL3xAzM/wF3v/1inhfpaXA/eCImFdT
-         kSvg==
+        bh=8pEsD6oo42O0RlVFVHOQlcJ30WTWABpFDF3XeUvqNQ4=;
+        b=CudhNXUveBhvV70yuOCi5gj7cLzASangLpmMMDGK1ueNNZGu3XKD686tT/yW5gWvEA
+         G0X+KSIcm2bfzPgtum1vP2T8u0Mthc410mUA5nckHk43Qj7yGzIuB+w9S2RLX1tXG1oi
+         8ZIIXRpW0MMnJvuWip/ApfCPiDNXPzPuNrenhUeNJsnl5Qc0rD7Lvuzuo8kK7+xUreli
+         nmzL9CmW4y2v1Pz0bIzO4tqY5p1XWBm6Z4ZALI2NpeR2qAHukoyczTnyG6PvgX5feKAd
+         xmUUvXzB3l1EKwsHIE8zyaNw9G3vzEnrVuVMBIO/tWPCDsz556ptGWILRzBS5IZHyEEB
+         VT1w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763434290; x=1764039090;
+        d=1e100.net; s=20230601; t=1763434299; x=1764039099;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:to:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=5nYyWY2TGtfq9g9njXBwfNvKTwM7Y4XVBx38hReH0kU=;
-        b=L1jx4xbz4u6RZVsiog80oMT+TNk6TtbjJyYiCPoj4d+rZhZ9PlBuJIEYPBKX0g2crF
-         HTjUjo/0ORP6D932oEsTw/EcLEov+L3XhltxIkaeopwtMH8oTkBFh3jJuN7r+iQZe0jB
-         AkKLVRzOIrEUGJtsr+xuurjXElVsqcBEn0Y2BrKNFbyLvFzH+t8157qY9VbrM4ZA0THq
-         d6eHSwuKMHWHPCc0uVIsTmDXQ/TFZsEZ3h3DI0clrsOMLjCODeERc2sN6/CBkByfmNVJ
-         XsTFZRYxyhoxxQepTQohzsfbKwX/vmodT5j7KOdvuBmAsOG5i/dR9RPhlRGaVKkyIBde
-         wciQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVfTWKeErbFt4g/EyHi+CiGX0Quw/hlfWsPIKklHIVrxW4pxYZ26uZdMoO1QA0LfF2/LXe3snqUFR7litf2IMvh@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz0hJWWkCAUvLW67wa8t6TXTyrbN7FrarKs7hQh3w5vg649plYZ
-	HVfjv609juuzwC7AgRFUmGrgzX84x6VI6lLyNCakgCM2cRLI39x4O3/ihsnyDgR5VNU=
-X-Gm-Gg: ASbGncsSkhIXldedwBDBytOtTQQM9g8Nk2WX3/xulqvRRXNciAGWgTueU+liNJU1EcA
-	V3wBxV1yvSrhNpH7BVpqI7gnwvrbrb5yTZOu3Ag1P4BdThg+p5v+EVuyb+gquiJ6xg2X9ZDgJUW
-	JB3eJZTSgsRZQz4ZWstyGuJhsL64F6A0Fj/z33qSyp+hRprPSHI9VbSrV7+Y7eTD1PD2tWNIg4v
-	y0/HC9jEHvfQt8TwCNj9VnsTvyKzjxyESFS/3ZiHCbwEZBgJ93elekAhOOM2PQXGO2Q8QXYRdfk
-	pUMDBDeb7gKy7ntDI6FgNidbN0yq87VVe9T1cediXakTRu714tliB60J9WKTOrjrNDP/ali08Cl
-	lG0JJAz9Slcr4pHq9ibSZwrqXtQwE/yuKipoyTpIzRYKl/7cGl60rxrzvX/2q1cVYaSqk0Jxt9p
-	v/Fn9mCsVV7TSRgTSYNz9z06Ww/Jwc2Ur4Vg==
-X-Google-Smtp-Source: AGHT+IEMHfTR95UbanA62fl6Lb5xKnkuHEFGjCY9sBUiiwSPhLsMAn/FbJIuDYjKBwm1CvRaJJMcQg==
-X-Received: by 2002:a17:902:e947:b0:295:7b8c:6622 with SMTP id d9443c01a7336-2986a6b8751mr177078655ad.11.1763434290379;
-        Mon, 17 Nov 2025 18:51:30 -0800 (PST)
+        bh=8pEsD6oo42O0RlVFVHOQlcJ30WTWABpFDF3XeUvqNQ4=;
+        b=dMl+pZmf+o7egWWcOmeDKTiFiKsIc+z28rKkAqMFdmm55i9fuBV5Ee8WdqBF3yC1Oi
+         GUscp5b6nRp0YdicvYbDQnmXbVdCK0hbphAsw8R0khOK6XCdNRK7yyXBAI3d/URLthol
+         5YhUyQA8llhachOHFPeoLDQF6QxCQOHcd/LP0JMes5d5PPLPcgfDvNTSYJAZT3U4l2tU
+         wb4ZZQYSid240E/T3TFQ+X1So58sRuf6ZshWr2uAKbU0q2MR1AMMkdMvxgjGJVgfbzee
+         WmX0Ha5/uED+mez/px0a+spUysHW4V2YwkNkQlcgVLqv5svJpAZc1yw0Ziz3zF7dARgK
+         JBGg==
+X-Forwarded-Encrypted: i=1; AJvYcCUBM9WE3D8ntgAklppgdqoz7Y2QwRx/abIXca+uGiEqV2kIEniWnwmiYxqaKvkQ6zkBEKHrtGC0VO6jQTZvzNJF@lists.infradead.org
+X-Gm-Message-State: AOJu0YxsrvS6kW82GOEm8q3u3N842W8hmFQW9FTQLbLe3vrGAalq7HtA
+	kWIdlcYE0xYpcp/nUlhGaQbAxs/cleSEKs4UQxhrAmy0t2/IxAA9dPbKhh4S7MDuCCw=
+X-Gm-Gg: ASbGnct2nJvrpqwl4GKsDHvYjqTGjaL0fAcygvEab/GsHBtWxMKudP8nBAp6n2yjrqC
+	TZo2p0WoVH+UkxXyc/HG3nEdeGLj3AHIssXD7his/UN8m2sr5Bli9qArHv29aQdLfBmj34odYy2
+	G0wrnr544cQgJEQFtijwleEeURTWJAqHWPeYMK0yVkaBJUuFxqVU6n8j58rVl8xpqOTeykM8P77
+	1g2wXTIfTd/WY1oLO8mqjp9AHBioQG9fewLCioopmMo+8IuIx4A/hIrmHK1YABMBqAgKMaZf2YU
+	PFFFUWOKqvYusDB8SOhHGYI+wdjpo2k0vIaZ6Xhl3QIIIpBqEruJa1Hfxwisv/vj8F6QD20Kz6W
+	rGmpT4eI2O0sNqqUBKwSkaiw4aIGtAqQQ1Vvrt+EsBXAIbpVEflxUKJu/+DYscshaGHsUAaVrHN
+	Vegr0ogPWeKpj/yy1ZEEY0lE6VE9s7MDymZg==
+X-Google-Smtp-Source: AGHT+IEujdRH33fbMDGe6RC7S5YBADf9LCNf5v+zfV1QKs6M5jHT8KuwmXDEm96Zsr0CQ6aCRzvaPg==
+X-Received: by 2002:a17:903:3b8e:b0:295:19e:487b with SMTP id d9443c01a7336-2986a6bd1f7mr197186615ad.5.1763434299069;
+        Mon, 17 Nov 2025 18:51:39 -0800 (PST)
 Received: from L6YN4KR4K9.bytedance.net ([139.177.225.241])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2985c234809sm156022065ad.19.2025.11.17.18.51.22
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2985c234809sm156022065ad.19.2025.11.17.18.51.30
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Mon, 17 Nov 2025 18:51:29 -0800 (PST)
+        Mon, 17 Nov 2025 18:51:38 -0800 (PST)
 From: Yunhui Cui <cuiyunhui@bytedance.com>
 To: conor@kernel.org,
 	paul.walmsley@sifive.com,
@@ -97,17 +112,17 @@ To: conor@kernel.org,
 	cleger@rivosinc.com,
 	atishp@rivosinc.com,
 	ajones@ventanamicro.com
-Subject: [PATCH v2 7/8] riscv: smp: kgdb: Use NMI for CPU roundup
-Date: Tue, 18 Nov 2025 10:50:14 +0800
-Message-Id: <20251118025015.42491-8-cuiyunhui@bytedance.com>
+Subject: [PATCH v2 8/8] drivers: firmware: riscv: add unknown nmi support
+Date: Tue, 18 Nov 2025 10:50:15 +0800
+Message-Id: <20251118025015.42491-9-cuiyunhui@bytedance.com>
 X-Mailer: git-send-email 2.39.2 (Apple Git-143)
 In-Reply-To: <20251118025015.42491-1-cuiyunhui@bytedance.com>
 References: <20251118025015.42491-1-cuiyunhui@bytedance.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251117_185132_290354_8C894C7A 
-X-CRM114-Status: GOOD (  11.39  )
+X-CRM114-CacheID: sfid-20251118_015620_766982_AB0DCDC3 
+X-CRM114-Status: GOOD (  15.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,49 +137,136 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use NMI for kgdb CPU roundup if RISC-V SSE NMI is available.
+Register unknown_nmi_handler() as the handler for the UNKNOWN_NMI
+event. When the system becomes unresponsive, unknown_nmi_handler()
+can be manually triggered, which in turn invokes nmi_panic() to
+collect vmcore for root cause analysis.
 
 Signed-off-by: Yunhui Cui <cuiyunhui@bytedance.com>
 ---
- arch/riscv/kernel/smp.c                | 5 ++++-
- drivers/firmware/riscv/riscv_sse_nmi.c | 2 ++
- 2 files changed, 6 insertions(+), 1 deletion(-)
+ arch/riscv/include/asm/sbi.h           |  1 +
+ drivers/firmware/riscv/riscv_sse_nmi.c | 68 ++++++++++++++++++++++++++
+ 2 files changed, 69 insertions(+)
 
-diff --git a/arch/riscv/kernel/smp.c b/arch/riscv/kernel/smp.c
-index 26083fe0a5df6..b1cefb2b0b8c2 100644
---- a/arch/riscv/kernel/smp.c
-+++ b/arch/riscv/kernel/smp.c
-@@ -382,7 +382,10 @@ void kgdb_roundup_cpus(void)
- 		if (cpu == this_cpu)
- 			continue;
+diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h
+index 874cc1d7603a5..52d3fdf2d4cc1 100644
+--- a/arch/riscv/include/asm/sbi.h
++++ b/arch/riscv/include/asm/sbi.h
+@@ -486,6 +486,7 @@ enum sbi_sse_attr_id {
+ #define SBI_SSE_EVENT_LOCAL_LOW_PRIO_RAS	0x00100000
+ #define SBI_SSE_EVENT_GLOBAL_LOW_PRIO_RAS	0x00108000
+ #define SBI_SSE_EVENT_LOCAL_SOFTWARE_INJECTED	0xffff0000
++#define SBI_SSE_EVENT_LOCAL_UNKNOWN_NMI		0xffff0001
+ #define SBI_SSE_EVENT_GLOBAL_SOFTWARE_INJECTED	0xffff8000
  
--		send_ipi_single(cpu, IPI_KGDB_ROUNDUP);
-+		if (!nmi_support())
-+			send_ipi_single(cpu, IPI_KGDB_ROUNDUP);
-+		else
-+			send_nmi_single(cpu, LOCAL_NMI_KGDB);
- 	}
- }
- #endif
+ #define SBI_SSE_EVENT_PLATFORM		BIT(14)
 diff --git a/drivers/firmware/riscv/riscv_sse_nmi.c b/drivers/firmware/riscv/riscv_sse_nmi.c
-index cac940b7e8773..5035d4ec485f6 100644
+index 5035d4ec485f6..e895abf583bd5 100644
 --- a/drivers/firmware/riscv/riscv_sse_nmi.c
 +++ b/drivers/firmware/riscv/riscv_sse_nmi.c
-@@ -3,6 +3,7 @@
- #define pr_fmt(fmt) "SSE NMI: " fmt
- 
- #include <linux/atomic.h>
-+#include <linux/kgdb.h>
+@@ -7,6 +7,7 @@
  #include <linux/nmi.h>
  #include <linux/riscv_sbi_sse.h>
  #include <linux/riscv_sse_nmi.h>
-@@ -58,6 +59,7 @@ static int local_nmi_handler(u32 evt, void *arg, struct pt_regs *regs)
- 	NMI_HANDLE(LOCAL_NMI_CRASH, cpu_crash_stop, cpu, regs);
- 	NMI_HANDLE(LOCAL_NMI_STOP, cpu_stop);
- 	NMI_HANDLE(LOCAL_NMI_BACKTRACE, nmi_cpu_backtrace, regs);
-+	NMI_HANDLE(LOCAL_NMI_KGDB, kgdb_nmicallback, cpu, regs);
++#include <linux/sysctl.h>
  
- 	atomic_set(&local_nmi_arg, LOCAL_NMI_NONE);
+ #include <asm/irq_regs.h>
+ #include <asm/sbi.h>
+@@ -16,7 +17,10 @@
+ 	do { if (type & (mask)) func(__VA_ARGS__); } while (0)
+ 
+ bool nmi_available;
++static int unknown_nmi_panic;
+ static struct sse_event *local_nmi_evt;
++static struct sse_event *unknown_nmi_evt;
++static struct ctl_table_header *unknown_nmi_sysctl_header;
+ static atomic_t local_nmi_arg = ATOMIC_INIT(LOCAL_NMI_NONE);
+ 
+ bool nmi_support(void)
+@@ -51,6 +55,35 @@ void send_nmi_mask(cpumask_t *mask, enum local_nmi_type type)
+ 		send_nmi_single(cpu, type);
+ }
+ 
++static int __init setup_unknown_nmi_panic(char *str)
++{
++	unknown_nmi_panic = 1;
++	return 1;
++}
++__setup("unknown_nmi_panic", setup_unknown_nmi_panic);
++
++static const struct ctl_table unknown_nmi_table[] = {
++	{
++		.procname       = "unknown_nmi_panic",
++		.data           = &unknown_nmi_panic,
++		.maxlen         = sizeof(bool),
++		.mode           = 0644,
++		.proc_handler   = proc_dobool,
++	},
++};
++
++static int unknown_nmi_handler(u32 evt, void *arg, struct pt_regs *regs)
++{
++	pr_emerg("NMI received for unknown on CPU %d.\n", smp_processor_id());
++
++	if (unknown_nmi_panic)
++		nmi_panic(regs, "NMI: Not continuing");
++
++	pr_emerg("Dazed and confused, but trying to continue\n");
++
++	return 0;
++}
++
+ static int local_nmi_handler(u32 evt, void *arg, struct pt_regs *regs)
+ {
+ 	enum local_nmi_type type = atomic_read((atomic_t *)arg);
+@@ -66,6 +99,35 @@ static int local_nmi_handler(u32 evt, void *arg, struct pt_regs *regs)
+ 	return 0;
+ }
+ 
++static int unknown_nmi_init(void)
++{
++	int ret;
++
++	unknown_nmi_evt = sse_event_register(SBI_SSE_EVENT_LOCAL_UNKNOWN_NMI, 0,
++					     unknown_nmi_handler, NULL);
++	if (IS_ERR(unknown_nmi_evt))
++		return PTR_ERR(unknown_nmi_evt);
++
++	ret = sse_event_enable(unknown_nmi_evt);
++	if (ret)
++		goto err_unregister;
++
++	unknown_nmi_sysctl_header = register_sysctl("kernel", unknown_nmi_table);
++	if (!unknown_nmi_sysctl_header) {
++		ret = -ENOMEM;
++		goto err_disable;
++	}
++
++	pr_info("Using SSE for unknown NMI event delivery\n");
++	return 0;
++
++err_disable:
++	sse_event_disable(unknown_nmi_evt);
++err_unregister:
++	sse_event_unregister(unknown_nmi_evt);
++	return ret;
++}
++
+ static int __init local_nmi_init(void)
+ {
+ 	int ret;
+@@ -98,6 +160,12 @@ static int __init sse_nmi_init(void)
+ 
+ 	WRITE_ONCE(nmi_available, true);
+ 
++	ret = unknown_nmi_init();
++	if (ret) {
++		pr_err("Unknown_nmi_init failed with error %d\n", ret);
++		return ret;
++	}
++
+ 	return 0;
+ }
  
 -- 
 2.39.5
