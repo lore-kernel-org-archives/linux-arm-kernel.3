@@ -4,75 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F4B7CED606
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 11:18:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CF25CED606
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 11:25:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
-	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Gw2RAS9z2/AKPOpj9C3KeuA6m32UimKQaTe/G+VHdaE=; b=2lHR14H5d68X5VP1Oz47+MGKKE
-	0PNsoHLk8s7atkjgTARYdze8W1PR4qr4EHf7+epSK78gRHRyDqIR7E3UA6EaN1CLPo0WaPhZuPVi0
-	N7yJKXmFZwxpJYy3+nJqNJwediLOdEyLVrFnGmvhCfwwmh/vDwRW1fv1LcSnHYV9Qh7S0Beg8RQSf
-	h8+DYnKtPILZjIJYBsU3YxCFhaEQxHIo7NrmD5t2AUKPq+pEINhImCikdj3bAbCtQk9D3Tn7/Tecn
-	IyuUFX/BH9zBhmLIlof/9j/g978Ssy5rQW0mBd8+HNu1VjJnuHzsMD7X+3JxtNIE/uvW/mZEm4EgI
-	Lwj4JJlQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SCNTacB4LKLKUeYVFqDLFa8t54gCZT2SNIOPSSqQ73g=; b=KJQwBsbVzdPtsjsiXhKS65N/Gb
+	Jx2tKK6o6VG3Wn63N2opQ6hnZEg5wRXAWazVCdQ2ZRLmMuP2ue17MGKyPxf2u83LrGNhYQZKMwA3/
+	7WnkPvGXfXNDFlXYVpWjTktM6QiBqw5BFaS8C7iSbVgPFOhFh2rEneovA12ki/sDUWSwUPgwLtxLU
+	dGZfWa9mSG/SV29211p2wrK508sAsHwTAePHkcMvm2EK/GzTA9r8H9uszLYU6+9GOpR8k54sCKxe4
+	yNpDLPsdfBJUI7UzyeUOqV6y2gUjfypXaf4wIcLRFY5oGH+VCgqR3K0Ejd1kMwk3XioTaiWAZCuvR
+	fi7scJqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLJit-00000000KHh-0C8E;
-	Tue, 18 Nov 2025 11:18:11 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLJiq-00000000KGv-047L
+	id 1vLJph-00000000Ke9-128f;
+	Tue, 18 Nov 2025 11:25:13 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vLJpe-00000000KdZ-2t4j
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Nov 2025 11:18:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:Reply-To:Content-ID
-	:Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:
-	Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:
-	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=Gw2RAS9z2/AKPOpj9C3KeuA6m32UimKQaTe/G+VHdaE=; b=jhYjBCC+RZJsFwpImZv35aSNd7
-	7DgFCeD6yzUJOdWGMUH+2zB3A1lOU7gmkGVDf0PLk/Fn5vUunP7N/SRT4cjW9yixxIc/YHxAQpqhX
-	zr1XCrRxmhT+2dQZspqPSWGGt5hC6OHdBdyJRS7swVA8zBSXT1KpMFgi4pOAjrTxumlQTcWWZTAh1
-	JJnWfV3ujDvz4SMtsmO1C2Whk9wRc6TxhmWT13xGDDn7p2Ah1h88fMTughel8iUPB+fkv8Dr2OAzX
-	CombRCgVYXTyWhvpsLVVlyw/DfKBYdxgdn3yq5dv7houpuLPfe05MUii9U2woqG34NzAwzaU7iyn1
-	Yib9ydsQ==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:57464 helo=rmk-PC.armlinux.org.uk)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <rmk@armlinux.org.uk>)
-	id 1vLJik-0000000039I-2tXE;
-	Tue, 18 Nov 2025 11:18:02 +0000
-Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1vLJij-0000000ExKZ-3C9s;
-	Tue, 18 Nov 2025 11:18:01 +0000
-From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-To: Andrew Lunn <andrew@lunn.ch>,
-	Heiner Kallweit <hkallweit1@gmail.com>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>
-Subject: [PATCH net-next] net: stmmac: dwc-qos-eth: simplify switch() in
- dwc_eth_dwmac_config_dt()
+	Tue, 18 Nov 2025 11:25:11 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D9645FEC;
+	Tue, 18 Nov 2025 03:25:01 -0800 (PST)
+Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2D9533F66E;
+	Tue, 18 Nov 2025 03:25:08 -0800 (PST)
+Date: Tue, 18 Nov 2025 11:25:05 +0000
+From: Mark Rutland <mark.rutland@arm.com>
+To: Ryan Roberts <ryan.roberts@arm.com>
+Cc: Kees Cook <kees@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Jeremy Linton <jeremy.linton@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Catalin Marinas <Catalin.Marinas@arm.com>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
+Subject: Re: [DISCUSSION] kstack offset randomization: bugs and performance
+Message-ID: <aRxXkSx3WbgAPp_Q@J2N7QTR9R3>
+References: <66c4e2a0-c7fb-46c2-acce-8a040a71cd8e@arm.com>
+ <dd8c37bc-795f-4c7a-9086-69e584d8ab24@arm.com>
+ <202511171221.517FC4F@keescook>
+ <251bcfb4-6069-40f7-be03-0a745bb8f761@arm.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1vLJij-0000000ExKZ-3C9s@rmk-PC.armlinux.org.uk>
-Date: Tue, 18 Nov 2025 11:18:01 +0000
+In-Reply-To: <251bcfb4-6069-40f7-be03-0a745bb8f761@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251118_031808_262917_ABA1B22F 
-X-CRM114-Status: GOOD (  11.94  )
+X-CRM114-CacheID: sfid-20251118_032510_867647_8AEA05D8 
+X-CRM114-Status: GOOD (  30.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,62 +70,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Simplify the the switch() statement in dwc_eth_dwmac_config_dt().
-Although this is not speed-critical, simplifying it can make it more
-readable. This also drastically improves the code emitted by the
-compiler.
+On Tue, Nov 18, 2025 at 10:28:29AM +0000, Ryan Roberts wrote:
+> On 17/11/2025 20:27, Kees Cook wrote:
+> > On Mon, Nov 17, 2025 at 11:31:22AM +0000, Ryan Roberts wrote:
+> >> On 17/11/2025 11:30, Ryan Roberts wrote:
+> The original rationale for a separate choose_random_kstack_offset() at the end
+> of the syscall is described as:
+> 
+>  * This position in the syscall flow is done to
+>  * frustrate attacks from userspace attempting to learn the next offset:
+>  * - Maximize the timing uncertainty visible from userspace: if the
+>  *   offset is chosen at syscall entry, userspace has much more control
+>  *   over the timing between choosing offsets. "How long will we be in
+>  *   kernel mode?" tends to be more difficult to predict than "how long
+>  *   will we be in user mode?"
+>  * - Reduce the lifetime of the new offset sitting in memory during
+>  *   kernel mode execution. Exposure of "thread-local" memory content
+>  *   (e.g. current, percpu, etc) tends to be easier than arbitrary
+>  *   location memory exposure.
+> 
+> I'm not totally convinced by the first argument; for arches that use the tsc,
+> sampling the tsc at syscall entry would mean that userspace can figure out the
+> random value that will be used for syscall N by sampling the tsc and adding a
+> bit just before calling syscall N. Sampling the tsc at syscall exit would mean
+> that userspace can figure out the random value that will be used for syscall N
+> by sampling the tsc and subtracting a bit just after syscall N-1 returns. I
+> don't really see any difference in protection?
+> 
+> If you're trying force the kernel-sampled tsc to be a specific value, then for
+> the sample-on-exit case, userspace can just make a syscall with an invalid id as
+> it's syscall N-1 and in that case the duration between entry and exit is tiny
+> and fixed so it's still pretty simple to force the value.
 
-On aarch64, with the original code, the compiler loads registers with
-every possible value, and then has a tree of test-and-branch statements
-to work out which register to store. With the simplified code, the
-compiler can load a register with '4' and shift it appropriately.
+FWIW, I agree. I don't think we're gaining much based on the placement
+of choose_random_kstack_offset() at the start/end of the entry/exit
+sequences.
 
-This shrinks the text size on aarch64 from 4289 bytes to 4153 bytes,
-a reduction of 3%.
+As an aside, it looks like x86 calls choose_random_kstack_offset() for
+*any* return to userspace, including non-syscall returns (e.g. from
+IRQ), in arch_exit_to_user_mode_prepare(). There's some additional
+randomness/perturbation that'll cause, but logically it's not necessary
+to do that for *all* returns to userspace.
 
-Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
----
- .../stmicro/stmmac/dwmac-dwc-qos-eth.c        | 26 +++----------------
- 1 file changed, 3 insertions(+), 23 deletions(-)
+> So what do you think of this approach? :
+> 
+> #define add_random_kstack_offset(rand) do {				\
+> 	if (static_branch_maybe(CONFIG_RANDOMIZE_KSTACK_OFFSET_DEFAULT,	\
+> 				&randomize_kstack_offset)) {		\
+> 		u32 offset = raw_cpu_read(kstack_offset);		\
+> 		u8 *ptr;						\
+> 									\
+> 		offset = ror32(offset, 5) ^ (rand);			\
+> 		raw_cpu_write(kstack_offset, offset);			\
+> 		u8 *ptr = __kstack_alloca(KSTACK_OFFSET_MAX(offset));	\
+> 		/* Keep allocation even after "ptr" loses scope. */	\
+> 		asm volatile("" :: "r"(ptr) : "memory");		\
+> 	}								\
+> } while (0)
+> 
+> This ignores "Maximize the timing uncertainty" (but that's ok because the
+> current version doesn't really do that either), but strengthens "Reduce the
+> lifetime of the new offset sitting in memory".
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-dwc-qos-eth.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-dwc-qos-eth.c
-index c7cd6497d42d..e6d5893c5905 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-dwc-qos-eth.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-dwc-qos-eth.c
-@@ -84,29 +84,9 @@ static int dwc_eth_dwmac_config_dt(struct platform_device *pdev,
- 	device_property_read_u32(dev, "snps,burst-map", &burst_map);
- 
- 	/* converts burst-map bitmask to burst array */
--	for (bit_index = 0; bit_index < 7; bit_index++) {
--		if (burst_map & (1 << bit_index)) {
--			switch (bit_index) {
--			case 0:
--			plat_dat->axi->axi_blen[a_index] = 4; break;
--			case 1:
--			plat_dat->axi->axi_blen[a_index] = 8; break;
--			case 2:
--			plat_dat->axi->axi_blen[a_index] = 16; break;
--			case 3:
--			plat_dat->axi->axi_blen[a_index] = 32; break;
--			case 4:
--			plat_dat->axi->axi_blen[a_index] = 64; break;
--			case 5:
--			plat_dat->axi->axi_blen[a_index] = 128; break;
--			case 6:
--			plat_dat->axi->axi_blen[a_index] = 256; break;
--			default:
--			break;
--			}
--			a_index++;
--		}
--	}
-+	for (bit_index = 0; bit_index < 7; bit_index++)
-+		if (burst_map & (1 << bit_index))
-+			plat_dat->axi->axi_blen[a_index++] = 4 << bit_index;
- 
- 	/* dwc-qos needs GMAC4, AAL, TSO and PMT */
- 	plat_dat->core_type = DWMAC_CORE_GMAC4;
--- 
-2.47.3
+Is this assuming that 'rand' can be generated in a non-preemptible
+context? If so (and this is non-preemptible), that's fine.
 
+I'm not sure whether that was the intent, or this was ignoring the
+rescheduling problem.
+
+If we do this per-task, then that concern disappears, and this can all
+be preemptible.
+
+Mark.
 
