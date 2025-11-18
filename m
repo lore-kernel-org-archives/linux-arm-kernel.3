@@ -4,99 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70C13CEDD86
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 13:22:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC797CED63B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 13:22:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=z7s5vmA5/2iLhUbg7qRyJfyqshig4Q/omIvZZt8dCY8=; b=2f41KJ/mvwqUz9IzAgkYiV4h5m
-	YqeJH4wBqrHh33Ted2JhueSx69qWEkVoHOeeI4NOQX3BVUv+UWcj748cldh3Ci1Lr+jHKHfw/CtAv
-	fWSWoigBIpQH2z+Fq+uzbkM2pk/FEe80D7qNv+7Tchhihd9plub4kx1GPMPIKox8sIVR9slnxKXUZ
-	TfAc5bRhZVihO6zqixrgAzjlv6APJXapE9SAdhqzIOsikUpXY5Memumo7YyHOO2xabV2jqgetx+S8
-	yBi3wzAKRsYWOwD19oAKg0YdQlyXd0nTCxLw+JAoCCl33W8c1epVF5FPx8cgyf6Gidpq9yk7LzA17
-	3sUH8R5g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BHhCA9cigoUdPwap5WRlueW/Hs8cXSQrGektg/X2Gas=; b=lOOmIx/AB9vS1BBSvr+H50UUDv
+	hbEeJ1HfB8zTBQXQ7MVYXka604LJF4RelXIxvdJoBgT2WuDXrWCzVAsagPpmDM6sTW2F89VpE9k2e
+	jY0rrLPecaFYXuNxEBxch19YHekgVoDZJIrtXVvQERrhpN4CrYNva1X8+Ze2Roybwp96e9CbYhezv
+	nYPM6v6HWN2wFPB6YwDZ8jPFv3MlxQYsYcrRMVn8pLV7vi8uKWUDQ3qY7NMwZRZ9Qg1L1MjqcdZZ8
+	97esW23VaR68YbC9rHUi5iNlobN59PAw0/0DyiRDvdqbuZLqI38lnxgIk0DWPXG+G/kaIPiRHEgn/
+	ymVQueeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLLeW-00000000Svc-1u5U;
-	Tue, 18 Nov 2025 13:21:48 +0000
-Received: from mail-lf1-x132.google.com ([2a00:1450:4864:20::132])
+	id 1vLLer-00000000Syq-16gl;
+	Tue, 18 Nov 2025 13:22:09 +0000
+Received: from mail-vk1-f173.google.com ([209.85.221.173])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLLeT-00000000Suj-2aUu
+	id 1vLLeo-00000000Sxr-48lv
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Nov 2025 13:21:47 +0000
-Received: by mail-lf1-x132.google.com with SMTP id 2adb3069b0e04-594516d941cso5096011e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Nov 2025 05:21:45 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1763472103; x=1764076903; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=z7s5vmA5/2iLhUbg7qRyJfyqshig4Q/omIvZZt8dCY8=;
-        b=bFumTCVPP9yyc4qB4nHfeLz5Yh/6yXXNWJLXgiy5aaRkAnjXc54V+2GCWIOlk6TwGU
-         8JIFFw7n7Y4yngk7rYCBbm+HzZ7VIJnZFjLIy+m6W/crzLTTlnIder/O2XC91p+9A27b
-         lHwj/vuUgTty56brr2W4tSza+jk77bBB/CJ6F9tA8iwiUyukoQ8YCYdUALpmQ9jm3xc5
-         tWnwNXLXxPt7Ritvv/ZcIopO8X5cf7OKsHfd2UB7hyvavShR/no3FYitlHocIwuF9D9M
-         mG4SAoOKQhnRv+2kdEiGGdVkjlA6k+coiUJ6BExmakXiv2HsJWo4/ZyrzjWiki/T0L1t
-         dtnA==
+	Tue, 18 Nov 2025 13:22:08 +0000
+Received: by mail-vk1-f173.google.com with SMTP id 71dfb90a1353d-559966a86caso1342556e0c.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Nov 2025 05:22:06 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763472103; x=1764076903;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=z7s5vmA5/2iLhUbg7qRyJfyqshig4Q/omIvZZt8dCY8=;
-        b=t+rFV6CCnuI01XnccuIkpU9EyqzTtmZIm9sBgE+6WUiYhQxJ2R6ZCMqrs5R0Db1lDq
-         R42Vm7s5dfuYK1YtSwW5taXkd45k1W1W/bOxQlKMq11Pn92qe8RcObF8KachayMMdy//
-         SuzhyPo/9Ke5kApwPQoui/T2n1nyZ4gOpJ+AISBMgGeQm3nG8PeYCFaeZD2wQ5Mp17+y
-         v/69aE1TvfNxL/n7JVXEMIIgcCLbu0Eu0nOYSljwEyPEpx2EhGslzVXyjcg3+b6B5l0E
-         UeHm6GzqOfZVJIjDooRhOO0ERHINkRcQuE/9geCTyAQ7okJIo23LJfx0UI+H2GvpxfJP
-         HYnA==
-X-Forwarded-Encrypted: i=1; AJvYcCVM08q7CgcAUcmi0yeOrI7G9l6cpfKW38mogQnPob6/vHL4urjmyurPBCM3jWQZ7Xv7ZrDZlri/Yx959msHaxdD@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyv+4HUuekZFVemZdaxFjAWilZpRQuCZA+wj03RYFzNN8GeSZGb
-	/CDVRM12vOPL0kdYZ+9tx39QfILN/vz3q4MgQ/1lGy+3bD65VO0i6qT133C4HEEegpYOlZa59+x
-	lAG6Sp/r347CfpbOI++oAAPc3pGvdmuKFTgJLtRq5Kw==
-X-Gm-Gg: ASbGncv9AMDEygfsb3EJCT9TI5yaCmgdCVVCiej1XnU3EVoxJzfItO+MxVemD8cp7XU
-	NwgRT0lCKqrORLdrbLcU9YAM4laWy3txy2e2fgQnkXmVROvzJB9RnmZMxako4BevQ7xOb2rscTv
-	Hc5J1TUG6sKXZbz6pTOmoFgwAK8dpve1j53FDMgsRS9H9nn91GaZ1s3lmIRnnDpEVKeg2GeXuZi
-	SRu3inRvNT6LveZZuMGePemOyGN++kraEFtabKFwB1VncmZQzxnz3RA4i8dqcBZahFIWUsMABmW
-	ziF8Y/fgLxXX+EOk8q6ZR0V4EQ==
-X-Google-Smtp-Source: AGHT+IFLx4rEab/wbUDo4EkSCUHDw6GWYiJjtIbCHDB1xl+ZlXv5nLLQYI54hMzgwVsRu8daEpH3NSYMy9pTQDZmbZ8=
-X-Received: by 2002:a05:6512:3c9e:b0:55f:4633:7b2 with SMTP id
- 2adb3069b0e04-595841f842bmr5089204e87.46.1763472103404; Tue, 18 Nov 2025
- 05:21:43 -0800 (PST)
+        d=1e100.net; s=20230601; t=1763472125; x=1764076925;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=BHhCA9cigoUdPwap5WRlueW/Hs8cXSQrGektg/X2Gas=;
+        b=CdFJCwlI3GhXpRyy2V09/fhMyW5ioK/rKLIGOmdkm1kyWuOgg1M2ZCI7vfymN/osUH
+         p6SpfSdSKn3M1LoLOSEx+uwSj0fj/GP1srcXyajx1stehDaKbYoQINt4iDGr7F+wmPE4
+         0KXQEPBUrRIyfUX/PHPoEwdNs6t1NwOgefICCik4a/6a6XYg1oY6FvqNiQUHNHasm6FQ
+         cgpCMG5xM2CXs8M2alLNK7uNcCoWjOUJwTwvqmVc0Zgey7gRSRHxfkwGAHUKNhrA2z79
+         Nn94Z1voGdcW1BpFYkNfTN5ubhMgV+yEN9KFfh7l8G2GDMtcwtKrtbWGtKJaUMy9ad+o
+         x5bA==
+X-Gm-Message-State: AOJu0Yw6xbAI4lxe2MIW14GZhy/JI0Lq+w0QrglYv8zPQsXn/wep3RcE
+	pMvFfV8G+BhnIazwtdC9RQRVgu0BtQsLlJ3ufk1m57greXEyjqH2y/YYCPl1ZaJ7
+X-Gm-Gg: ASbGncsOcOgkY/y5147KY5uQnzFNrXup+qdeHLUOh95vwvXm7Gnxe4yWaOqM023H7v7
+	DyReap0qMR7diumls2QR8WDmw77LralbpBwuzxH5JkuGojD3gn5RVj/GejtRu8h1vwkbPnfU4W+
+	qd/E/Funbviw/NGzw1yY7hRS0nwrQ21pzwCNsRGTmV+PhuayxjWW2IROOyVA+Bz05WQaX1HFN4v
+	bvktnGjyV7S1OsCcsOACJx8Fl3AT15bT4Kd8ChN+QGe7r5QyyLDEGU9+GsPuXZsULd1XoMYtUff
+	1WR/nOc78PbI83923p+jzfqV6un+dHS6pQrBFHRL7ydg0R8PN8kZkns1ffolLegB6Lo5X6jTgFN
+	5KtsPAta8EWFkaaV2XmJsLT0J48EaW/2SwXU+s1mC90sQAIeu9I+NmrZTk/wfB/ZhGc05+UdRNd
+	QJ3v3w9C0HO9320qFjIWvNDX2710zC9VTlSMhSvwJMz4xsw31sXw/8XcQQJsE=
+X-Google-Smtp-Source: AGHT+IFYRyF8zm3eJyFaT7EKwidkq2o3g6Ub6ooQFtDYjTOd35hm2o4lHC14XaotLOx13LLrlFnQ0g==
+X-Received: by 2002:a05:6122:6d13:b0:55b:305b:4e2e with SMTP id 71dfb90a1353d-55b305b72cfmr2953377e0c.21.1763472125193;
+        Tue, 18 Nov 2025 05:22:05 -0800 (PST)
+Received: from mail-vs1-f44.google.com (mail-vs1-f44.google.com. [209.85.217.44])
+        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-55b0f32f178sm5241629e0c.5.2025.11.18.05.22.04
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 18 Nov 2025 05:22:04 -0800 (PST)
+Received: by mail-vs1-f44.google.com with SMTP id ada2fe7eead31-5dfb5fcf063so1648645137.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Nov 2025 05:22:04 -0800 (PST)
+X-Received: by 2002:a05:6102:390d:b0:5db:e0e6:1b47 with SMTP id
+ ada2fe7eead31-5dfc55688c8mr4951691137.19.1763472124716; Tue, 18 Nov 2025
+ 05:22:04 -0800 (PST)
 MIME-Version: 1.0
-References: <20251112-gpio-shared-v4-0-b51f97b1abd8@linaro.org>
- <CAMuHMdVR9Z70+M-SqHYrHiC6H_yw=VRuDOOg=YnXSNKjPnx3WQ@mail.gmail.com>
- <CAMRc=Mdo__Yzigqoy4xKt0LWSvES5Jse1HeXkePfhiWyiz6tBQ@mail.gmail.com> <CAMuHMdXpySSvjgju2LXr6puVXzHMR4ckpaKEWK_S4spTWz6B-A@mail.gmail.com>
-In-Reply-To: <CAMuHMdXpySSvjgju2LXr6puVXzHMR4ckpaKEWK_S4spTWz6B-A@mail.gmail.com>
-From: Bartosz Golaszewski <brgl@bgdev.pl>
-Date: Tue, 18 Nov 2025 14:21:29 +0100
-X-Gm-Features: AWmQ_bmgN3bhvSn3FjfwQqs5x52sLWvM37dbNjtnEqn6scQIfee74Ky62f9fPdU
-Message-ID: <CAMRc=Mf_j8jNMrJrnGp_bVmYQPLheE55AN4gXCtRrCDkF5CXsw@mail.gmail.com>
-Subject: Re: [PATCH v4 00/10] gpio: improve support for shared GPIOs
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: Kees Cook <kees@kernel.org>, Mika Westerberg <westeri@kernel.org>, 
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>, Andrew Morton <akpm@linux-foundation.org>, 
-	Linus Walleij <linus.walleij@linaro.org>, Manivannan Sadhasivam <mani@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Saravana Kannan <saravanak@google.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Andy Shevchenko <andy@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Srinivas Kandagatla <srini@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
-	Alexey Klimov <alexey.klimov@linaro.org>, Bjorn Andersson <andersson@kernel.org>, 
-	Konrad Dybcio <konradybcio@kernel.org>, linux-hardening@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-sound@vger.kernel.org, 
-	linux-arm-msm@vger.kernel.org, 
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>, 
-	Linux-Renesas <linux-renesas-soc@vger.kernel.org>
+References: <CGME20251118115051eucas1p15f688883a4466dd7cabf3550a798c060@eucas1p1.samsung.com>
+ <20251118115037.1866871-1-m.szyprowski@samsung.com>
+In-Reply-To: <20251118115037.1866871-1-m.szyprowski@samsung.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Tue, 18 Nov 2025 14:21:53 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdX7vCyC7c_Y6D=axajSfCmj7JBV3eXxLwHogbrVkM-_Hg@mail.gmail.com>
+X-Gm-Features: AWmQ_bnjjds2ROTFY_LF0JjQ9CqJzRgGjh6ZD1fzHamlMqKfyof10aLGvuq8Ggo
+Message-ID: <CAMuHMdX7vCyC7c_Y6D=axajSfCmj7JBV3eXxLwHogbrVkM-_Hg@mail.gmail.com>
+Subject: Re: [PATCH] ARM: exynos: Rework system wakeup interrupts initialization
+To: Marek Szyprowski <m.szyprowski@samsung.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+	Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, Marc Zyngier <maz@kernel.org>, 
+	Rob Herring <robh@kernel.org>, 
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251118_052145_912957_8D744D9A 
-X-CRM114-Status: GOOD (  28.25  )
+X-CRM114-CacheID: sfid-20251118_052207_037935_1C0EB517 
+X-CRM114-Status: GOOD (  30.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,48 +96,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 18, 2025 at 1:56=E2=80=AFPM Geert Uytterhoeven <geert@linux-m68=
-k.org> wrote:
+Hi Marek,
+
+CC Robh
+
+On Tue, 18 Nov 2025 at 12:50, Marek Szyprowski <m.szyprowski@samsung.com> wrote:
+> Since commit 1b1f04d8271e ("of/irq: Ignore interrupt parent for nodes
+> without interrupts") it is not possible to get parent interrupt device
+> node when no 'interrupts' property is specified. Rework the hack used for
+> initializing the Exynos system wakeup interrupts (PMU controller is a
+> proxy for SoC RTC interrupts) to get the parent interrupt node by
+> manually parsing 'interrupt-parent' property.
 >
-> > >
-> > > Thanks for your series, part of which is now present linux-next.
-> > > IIUIC, this requires the direction of the GPIO to be fixed?
-> > >
-> > > We have a long-standing use-case on various Renesas R-Car Gen3 boards
-> > > (e.g. Salvator-X(S) and ULCB[1]), where GPIOs are shared by LEDs and
-> > > key switches.  Basically, the GPIO is connected to:
-> > >   1. A key switch connecting to GND when closed, with pull-up.
-> > >   2. The gate of an N-channel MOSFET, turning on an LED when driven
-> > >      high.
-> > >
-> > > Hence:
-> > >   - In output mode, the LED can be controlled freely,
-> > >   - In input mode, the LED is on, unless the key is pressed,
-> > >   - Hence the switch state can only be read when the LED is turned on=
-.
-> > > If you have any idea how to handle this, feel free to reply ;-)
-> >
-> > How is this done currently? Even without this series and using the
-> > GPIOD_FLAGS_BIT_NONEXCLUSIVE, the descriptor has a well-defined
-> > direction so it's not possible for two drivers to request it as input
-> > and output simultaneously. The second requester will override the
-> > previous settings.
+> Fixes: 8b283c025443 ("ARM: exynos4/5: convert pmu wakeup to stacked domains")
+> Signed-off-by: Marek Szyprowski <m.szyprowski@samsung.com>
+
+Thanks for your patch!
+
+> ---
+> This fixes the following boot failure of allmost all ARM 32bit Exynos
+> boards observed since next-20251118:
 >
-> We do not handle it yet:
->   - arch/arm64/boot/dts/renesas/salvator-common.dtsi describes only
->     the keys (key-[a-c]),
->   - arch/arm64/boot/dts/renesas/ulcb.dtsi describes the first key
->     (key-1), and the others as LEDs (led[56]).
+> /soc/system-controller@10020000: no parent, giving up
+> OF: of_irq_init: Failed to init /soc/system-controller@10020000 ((ptrval)), parent 00000000
+
+Oops...
+
+> ...
+> 8<--- cut here ---
+> Unable to handle kernel paging request at virtual address 00002008 when read
+> [00002008] *pgd=00000000
+> Internal error: Oops: 5 [#1] SMP ARM
+> Modules linked in:
+> CPU: 0 UID: 0 PID: 1 Comm: swapper/0 Not tainted 6.18.0-rc1-00026-g1b1f04d8271e #16162 PREEMPT
+> Hardware name: Samsung Exynos (Flattened Device Tree)
+> PC is at exynos_set_delayed_reset_assertion+0x5c/0xb0
+> LR is at exynos_set_delayed_reset_assertion+0x80/0xb0
+> pc : [<c012b9a4>]    lr : [<c012b9c8>]    psr: 80000053
+> ...
+> Process swapper/0 (pid: 1, stack limit = 0x(ptrval))
+> Stack: (0xf0825f30 to 0xf0826000)
+> ...
+> Call trace:
+>  exynos_set_delayed_reset_assertion from exynos_smp_prepare_cpus+0x10/0x34
+>  exynos_smp_prepare_cpus from kernel_init_freeable+0x94/0x234
+>  kernel_init_freeable from kernel_init+0x1c/0x12c
+>  kernel_init from ret_from_fork+0x14/0x28
+> Exception stack(0xf0825fb0 to 0xf0825ff8)
+> ...
+> ---[ end trace 0000000000000000 ]---
+> Kernel panic - not syncing: Attempted to kill init! exitcode=0x0000000b
+> ---[ end Kernel panic - not syncing: Attempted to kill init! exitcode=0x0000000b ]---
+>
+> Best regards
+> Marek Szyprowski, PhD
+> Samsung R&D Institute Poland
+> ---
+>  arch/arm/mach-exynos/suspend.c | 1 +
+>  1 file changed, 1 insertion(+)
+>
+> diff --git a/arch/arm/mach-exynos/suspend.c b/arch/arm/mach-exynos/suspend.c
+> index 44811faaa4b4..02785342e0c7 100644
+> --- a/arch/arm/mach-exynos/suspend.c
+> +++ b/arch/arm/mach-exynos/suspend.c
+> @@ -192,6 +192,7 @@ static int __init exynos_pmu_irq_init(struct device_node *node,
+>  {
+>         struct irq_domain *parent_domain, *domain;
 >
 
-I see. This series cannot possibly address this. Off the top of my
-head: I would create an auxiliary device binding to a dedicated driver
-that would be a consumer of this pin and register a LED and an input
-key. By default it would set the direction to input and if the user
-decided to configure the LED, it would change direction to output.
+Perhaps add a check:
 
-Obviously, there would be a DR quirk to handle as we already have this
-described in DT as gpio-keys on salvator.
+    if (!parent)
 
-Bartosz
+just in case any of the pmu system controllers ever gets a real
+interrupts or interrupts-extended property?
+
+> +       parent = of_parse_phandle(node, "interrupt-parent", 0);
+
+Or of_irq_find_parent(node)?
+
+>         if (!parent) {
+>                 pr_err("%pOF: no parent, giving up\n", node);
+>                 return -ENODEV;
+
+Gr{oetje,eeting}s,
+
+                        Geert
+
+-- 
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
