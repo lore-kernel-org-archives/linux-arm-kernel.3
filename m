@@ -4,59 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 441F0CED617
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 12:12:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3881BCED624
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 12:15:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=TDmsa/pzlfmaieUPYWrn6Qbx+Sof3bJ81BGiUv9KizU=; b=bcqE+I2HJxWwYpmxdpX/uX+Ch6
-	U6myeRTt687b1n02Iu+JeS24gujoHHwLCC3i2VDnQJxo2gm6CFVp01H3ni1QpeTVACD7iDhEkTuW1
-	d48yc2us3EOpmu9sgF0Td38X9n/QJJib4av6QlBmPqK+D3nS7X//xd9sIN0TTMHhwTd1UHlu+biE3
-	9/tXCVlby68ahu0aNtQ210ibhEEFTqHt54R6YqmW3KHhx1ZWD73jVVeXNf2qWOg4cJwi0E6lUXxZf
-	nnEkel2vHlyUZk523YWgofHbmRhZGNOeJC4mD1AABIYsG0wagupApTrmdneLllfxCUw14BEiorF+e
-	0lh2GEmg==;
+	bh=PdaNkm8I4niznPEUbNS/W7/TCNp+7FIal1+IGmZBKy4=; b=1zg5vxN4BWJ7Zkc46RFUbfpxqp
+	CmaWy4M5BkIki/ttB8wn4PrtgRR/I/5Nayi+vnUM7Yz5s4SMn5r3axpXxtk9X/dc5w785s2MrtLnu
+	qTc1YQO4RMYzjL3uW3RzUcTbo5Nkp9nbayfpbi/cCf2cLkRclyxIKrLZdwg+lFxJ8eBlpmcdUfN5x
+	HxRNl+S8PJO1WgKVXDEBO1QZf4KHAoVPmtcMQ0abFVL+8xbhs7qjo0quGOyEj48Q/Krzh1HjN+8PW
+	a9+yCWDjaYjLWd2zMrhn8K5nxtQdFXIYKQ9m1UmNqEeH+7k0LLb31G/JtK6adpqP6q0AiRTDLZhyH
+	kwtW/miA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLKZ4-00000000O9V-127P;
-	Tue, 18 Nov 2025 12:12:06 +0000
-Received: from mx.nabladev.com ([2a00:f820:417:0:178:251:229:89])
+	id 1vLKbp-00000000OO8-01LW;
+	Tue, 18 Nov 2025 12:14:57 +0000
+Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLKZ0-00000000O96-2H7j
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Nov 2025 12:12:05 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 963071094E2;
-	Tue, 18 Nov 2025 13:11:58 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nabladev.com;
-	s=dkim; t=1763467919; h=from:subject:date:message-id:to:cc:mime-version:
-	 content-transfer-encoding; bh=TDmsa/pzlfmaieUPYWrn6Qbx+Sof3bJ81BGiUv9KizU=;
-	b=EHuSsXBaYqbBlFshrEIX/pllIptth/KuRlPdft8TVCz0i3e4lnutZf0TJ6nvA01rGKLZjk
-	DP3wv4DILSTWsgTRvsc95U3EnmHxOW271ysKFFovnfwoXKzHzCQERM58VClqOGUgt5JE4V
-	X6Bs954/oN2qasmhPEey/DgEse/UMOD7ng10HXar9Z7Zi7dzYRdAaJbhWwzaWd+aYJwNZ+
-	lJVmY5cuXHBiwcF4PwiUcCuSNIjoP/0f2Utl+RI2IWrVwQ6eTn6qFcJm10HY+hduXu0Qkd
-	nHX2SlzUWtFoKQA1QOnyGIvkQPrgNT/NToCf6VaHn6xo/bJqLnNwmOy0avmwLQ==
-From: Marek Vasut <marex@nabladev.com>
-To: devicetree@vger.kernel.org
-Cc: Marek Vasut <marex@nabladev.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Gary Yang <gary.yang@cixtech.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Rob Herring <robh@kernel.org>,
+	id 1vLKbk-00000000ONN-2ztr;
+	Tue, 18 Nov 2025 12:14:55 +0000
+Received: from DESKTOP-L0HPE2S (unknown [124.16.141.245])
+	by APP-03 (Coremail) with SMTP id rQCowAAXpdc1YxxplUAwAQ--.30158S2;
+	Tue, 18 Nov 2025 20:14:47 +0800 (CST)
+From: Haotian Zhang <vulab@iscas.ac.cn>
+To: lee@kernel.org,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com
+Cc: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-gpio@vger.kernel.org
-Subject: [PATCH] dt-bindings: pinctrl: cix,sky1-pinctrl: Drop duplicate newline
-Date: Tue, 18 Nov 2025 13:11:24 +0100
-Message-ID: <20251118121148.88165-1-marex@nabladev.com>
-X-Mailer: git-send-email 2.51.0
+	linux-mediatek@lists.infradead.org,
+	Haotian Zhang <vulab@iscas.ac.cn>
+Subject: [PATCH] mfd: mt6358-irq: Fix missing irq_domain_remove() in error path
+Date: Tue, 18 Nov 2025 20:14:27 +0800
+Message-ID: <20251118121427.583-1-vulab@iscas.ac.cn>
+X-Mailer: git-send-email 2.50.1.windows.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
+X-CM-TRANSID: rQCowAAXpdc1YxxplUAwAQ--.30158S2
+X-Coremail-Antispam: 1UD129KBjvdXoW7GFWxtry3KrW7Cr1rXr1rtFb_yoWftwb_CF
+	yvqrnxuw1UJF1akw1Iqr43urWq9r4kWFnFkFs2y3W3GFy7Kwn2vrn0vr97Kr47C3y7CFsx
+	WFZ0qrW3Ar1fCjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUIcSsGvfJTRUUUbckFF20E14v26r4j6ryUM7CY07I20VC2zVCF04k26cxKx2IYs7xG
+	6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8w
+	A2z4x0Y4vE2Ix0cI8IcVAFwI0_JFI_Gr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr0_
+	Cr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_GcCE3s
+	1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E2Ix0
+	cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r4j6F4UMcvjeVCFs4IE7xkEbVWUJVW8Jw
+	ACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lc7CjxVAaw2AFwI0_JF0_
+	Jw1l42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxV
+	WUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r126r1DMIIYrxkI
+	7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r
+	1j6r4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI
+	42IY6I8E87Iv6xkF7I0E14v26r1j6r4UYxBIdaVFxhVjvjDU0xZFpf9x0JUf8nOUUUUU=
+X-Originating-IP: [124.16.141.245]
+X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiCREKA2kcPhU0EgABso
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251118_041202_886857_7157BE6A 
-X-CRM114-Status: UNSURE (   8.74  )
+X-CRM114-CacheID: sfid-20251118_041453_125152_29DE9653 
+X-CRM114-Status: UNSURE (   7.12  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -72,39 +79,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Fix the following DT schema check warning:
+If devm_request_threaded_irq() fails after irq_domain_add_linear()
+succeeds in mt6358_irq_init(), the function returns without removing
+the created IRQ domain, leading to a resource leak.
 
-./Documentation/devicetree/bindings/pinctrl/cix,sky1-pinctrl.yaml:68:1: [warning] too many blank lines (2 > 1) (empty-lines)
+Call irq_domain_remove() in the error path after a successful
+irq_domain_add_linear() to properly release the IRQ domain.
 
-One newline is enough. No functional change.
-
-Signed-off-by: Marek Vasut <marex@nabladev.com>
+Fixes: 2b91c28f2abd ("mfd: Add support for the MediaTek MT6358 PMIC")
+Signed-off-by: Haotian Zhang <vulab@iscas.ac.cn>
 ---
-Cc: Conor Dooley <conor+dt@kernel.org>
-Cc: Gary Yang <gary.yang@cixtech.com>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
-Cc: Linus Walleij <linus.walleij@linaro.org>
-Cc: Rob Herring <robh@kernel.org>
-Cc: devicetree@vger.kernel.org
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-gpio@vger.kernel.org
----
- Documentation/devicetree/bindings/pinctrl/cix,sky1-pinctrl.yaml | 1 -
- 1 file changed, 1 deletion(-)
+ drivers/mfd/mt6358-irq.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/Documentation/devicetree/bindings/pinctrl/cix,sky1-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/cix,sky1-pinctrl.yaml
-index 36977b0d745bd..8ed53496c386f 100644
---- a/Documentation/devicetree/bindings/pinctrl/cix,sky1-pinctrl.yaml
-+++ b/Documentation/devicetree/bindings/pinctrl/cix,sky1-pinctrl.yaml
-@@ -65,7 +65,6 @@ patternProperties:
-             enum: [ 2, 3, 5, 6, 8, 9, 11, 12, 13, 14, 17, 18, 20, 21, 23,
-                     24 ]
- 
--
-         required:
-           - pinmux
+diff --git a/drivers/mfd/mt6358-irq.c b/drivers/mfd/mt6358-irq.c
+index f467b00d2366..74cf20843044 100644
+--- a/drivers/mfd/mt6358-irq.c
++++ b/drivers/mfd/mt6358-irq.c
+@@ -285,6 +285,7 @@ int mt6358_irq_init(struct mt6397_chip *chip)
+ 	if (ret) {
+ 		dev_err(chip->dev, "Failed to register IRQ=%d, ret=%d\n",
+ 			chip->irq, ret);
++		irq_domain_remove(chip->irq_domain);
+ 		return ret;
+ 	}
  
 -- 
-2.51.0
+2.50.1.windows.1
 
 
