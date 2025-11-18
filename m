@@ -4,31 +4,31 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 868E9CEBF61
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 01:39:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46C74CEBF61
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 01:39:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=VQDe0qd4BJs1skNAK8EBE03leCXmi2MVma2kr6Rm7Lw=; b=KfA+CX0encLJEo7oN1EXFz5gOb
-	8KnicIOAA4eVzmER+BA8lYW6DB+7brvj0ey/ozG7Y9lYKj+JIAMKFRCKSpZf+7Gym2zol5ev1WvCx
-	jnswA7anOSHszJ5J1e1Ts7ANye4YBU8nV/x4p5+rahdaOOtiMfK7mEUS5KBpv1LfAcedsazxw3Xj9
-	8bg0GGlplK1qnXNTaYEh+7K7hWSmm8xQPAxQqZC/IcZdR4SpGaTCSwrb5FyZWQHdzXKgjn5fkwa9r
-	IU5esl4ZJoQRosC+72ankZqsKglHfGwZDaI0MTYLDzBJ9WIX31q7UrF0LfXIUV7DPjkqzd63o1uvl
-	xajfYIsA==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qO5gjJMOC2KoZtAZHzit9KBiOeQ/Raj5W6HVLeYvZI4=; b=xXNpVLDkyDJ5+v4CMK6s/ZOtS1
+	7eGS2MLJh1HDPcDrmKIL9CCr5VWO3z8yATwPMEs7abfZmxawDRWyCyRv1phhyR2Xlzhp0YGke22Ty
+	ZNTA37eM6JSVTex/6uqewp8XwDu1GmT4xrwsstgfsV7XGuMJAQpBLek830jPBprHsXQ2Fa/Tvx8MX
+	ULIYJkLJSbmCcZhKeeraAuL9t5wLhk87g5TbK/M+NDBidw42rnf2t84swzUztByZB6ykZ9HJ3zEU/
+	dCynDi8mNPaV5KZzi2oJINNUomshK/QbK3KqdaYG2H3O1abOhrYWs28kJj0VD3YWX6XHw9cSm8Vy3
+	fdDKxW2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLAh2-0000000H9G4-3VZU;
-	Tue, 18 Nov 2025 01:39:40 +0000
-Received: from mail-m32111.qiye.163.com ([220.197.32.111])
+	id 1vLAh6-0000000H9IO-03oR;
+	Tue, 18 Nov 2025 01:39:44 +0000
+Received: from mail-m21467.qiye.163.com ([117.135.214.67])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLAh0-0000000H9EO-0Y59;
-	Tue, 18 Nov 2025 01:39:39 +0000
+	id 1vLAh1-0000000H9Eg-2NEY;
+	Tue, 18 Nov 2025 01:39:41 +0000
 Received: from rockchip.. (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 29e9c3744;
-	Tue, 18 Nov 2025 09:39:30 +0800 (GMT+08:00)
+	by smtp.qiye.163.com (Hmail) with ESMTP id 29e9c3754;
+	Tue, 18 Nov 2025 09:39:33 +0800 (GMT+08:00)
 From: Elaine Zhang <zhangqing@rock-chips.com>
 To: zhangqing@rock-chips.com,
 	mkl@pengutronix.de,
@@ -44,25 +44,27 @@ Cc: linux-can@vger.kernel.org,
 	linux-rockchip@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	devicetree@vger.kernel.org
-Subject: [PATCH v10 0/3] rockchip: add can for RK3576 Soc
-Date: Tue, 18 Nov 2025 09:39:26 +0800
-Message-Id: <20251118013929.2697132-1-zhangqing@rock-chips.com>
+Subject: [PATCH v10 2/3] net: can: rockchip: Refactor the rkcanfd_devtype_data structure
+Date: Tue, 18 Nov 2025 09:39:28 +0800
+Message-Id: <20251118013929.2697132-3-zhangqing@rock-chips.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20251118013929.2697132-1-zhangqing@rock-chips.com>
+References: <20251118013929.2697132-1-zhangqing@rock-chips.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a9a949df36403a3kunm07a8ba9e476a7
+X-HM-Tid: 0a9a949dffbc03a3kunm07a8ba9e476cf
 X-HM-MType: 1
 X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQh1JSVZNQhkeSR8eHk8fTRpWFRQJFh
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGh8aHVZIH0xKH0tJTkNKS05WFRQJFh
 	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
 	hVSktLVUpCS0tZBg++
 DKIM-Signature: a=rsa-sha256;
-	b=d95EsqwjGLzRTOUj/OyJtYu/8aGbohZlmGLCXmgNZ3IEbb1dOlTtwFe9hiOiJenrr4Glet22Dmj1AV4fN4JS9nqNNmgt/kFem93V4ZV3r7rKz4FTuhgU/pSHihamP6xELW5wjkJI0a6u4f3+Iaadru5wVTHRIr/6aOGx8feVMCQ=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
-	bh=VQDe0qd4BJs1skNAK8EBE03leCXmi2MVma2kr6Rm7Lw=;
+	b=VspEq6O8zzDPMJ6TzgbHjrQeCcOuBGu1qW7APvQePDlTqgL0x9KhWDJDbUAB+hG8yrRa97Gj7SfxeHrbM+eLKy1EoFVU5kHEOuFjYVKN6O5vXsS337Xcu/fzmgMbTmY+bz/HYFSj7Hdg6Cueq1VCHcp1rGUmsoz3Nqn4omPKATM=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
+	bh=qO5gjJMOC2KoZtAZHzit9KBiOeQ/Raj5W6HVLeYvZI4=;
 	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251117_173938_376136_1046D5DF 
-X-CRM114-Status: GOOD (  10.14  )
+X-CRM114-CacheID: sfid-20251117_173939_880233_D6BEC08E 
+X-CRM114-Status: GOOD (  13.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,83 +79,249 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-rk3576 can is a new CAN controller:
-new register layout and Bit position definition:
-There are major differences from the previous rk3568.
-All errata on the rk3568 have been fixed and redesigned.
+Add new function pointer:
+Encapsulate some hardware operation functions into
+rkcanfd_devtype_data to provide differentiated implementations for
+different models (such as RK3568v2/v3).
 
-RK3576 TRM update: CANFD is replaced with RKCAN.
+Signed-off-by: Elaine Zhang <zhangqing@rock-chips.com>
+---
+ .../net/can/rockchip/rockchip_canfd-core.c    | 100 ++++++++++--------
+ drivers/net/can/rockchip/rockchip_canfd.h     |  10 ++
+ 2 files changed, 68 insertions(+), 42 deletions(-)
 
-Change in V10:
-[PATCH v10 1/3]: Add ACK for commit message.
-[PATCH v10 2/3]: No change.
-[PATCH v10 3/3]: Update commit message, fix get_berr_counter.
-		 Add log for errata, drop RKCANFD_QUIRK_CANFD_BROKEN.
-
-Change in V9(Drop dma):
-[PATCH v9 1/3]: Drop dma, fix "allOf:"
-[PATCH v9 2/3]: No change.
-[PATCH v9 3/3]: Drop dma for commit message.
-
-Change in V8:
-[PATCH v8 1/4]: Drop CANFD, correction format warning.
-[PATCH v8 2/4]: Drop fifo_setup of rkcanfd_devtype_data.
-[PATCH v8 3/4]: Drop CANFD.
-[PATCH v8 4/4]: Drop CANFD.
-
-Change in V7:
-[PATCH v7 1/4]: Correction format warning.
-[PATCH v7 2/4]: No change.
-[PATCH v7 3/4]: Correct the writing of some registers and
-                correct the annotations.
-[PATCH v7 4/4]: Optimize the structure parameters and
-                ensure error handling.
-
-Change in V6:
-[PATCH v6 1/4]: Fix dma is support only for rk3576.
-[PATCH v6 2/4]: Fix the compilation warning.
-[PATCH v6 3/4]: Fix the compilation warning.
-[PATCH v6 4/4]: Fix the compilation warning.
-
-Change in V5:
-[PATCH v5 1/4]: Add rk3576 canfd to rockchip,rk3568v2-canfd.yaml, remove
-                rockchip,rk3576-canfd.yaml
-[PATCH v5 2/4]: Encapsulate some hardware operation functions into
-                rkcanfd_devtype_data to provide differentiated
-                implementations for different models
-                (such as RK3568v2/v3)..
-[PATCH v5 3/4]: Add rk3576 canfd,fix the register naming rule,
-                Delete the variables used by rockchip itself.
-[PATCH v5 4/4]: Fix .h sorting.
-
-
-Change in V4:
-[PATCH v4 1/3]: Correct the format and add explanations.
-[PATCH v4 2/3]: No change.
-[PATCH v4 3/3]: No change.
-
-Change in V3:
-[PATCH v3 1/3]: Add documentation for the rk3576 CAN-FD.
-[PATCH v3 2/3]: Adjust the differentiated code section and
-                add dma function.
-[PATCH v3 3/3]: Remove dma, no use dma by default.
-
-Change in V2:
-[PATCH v2 1/2]: remove rk3576_canfd.c, use the rockchip_canfd driver
-[PATCH v2 2/2]: code style.
-
-Elaine Zhang (3):
-  dt-bindings: can: rockchip_canfd: add rk3576 CAN controller
-  net: can: rockchip: Refactor the rkcanfd_devtype_data structure
-  net: can: rockchip: add can for RK3576 Soc
-
- .../net/can/rockchip,rk3568v2-canfd.yaml      |   4 +-
- .../net/can/rockchip/rockchip_canfd-core.c    | 505 ++++++++++++++++--
- drivers/net/can/rockchip/rockchip_canfd-rx.c  | 103 ++++
- drivers/net/can/rockchip/rockchip_canfd-tx.c  |  20 +
- drivers/net/can/rockchip/rockchip_canfd.h     | 268 ++++++++++
- 5 files changed, 857 insertions(+), 43 deletions(-)
-
+diff --git a/drivers/net/can/rockchip/rockchip_canfd-core.c b/drivers/net/can/rockchip/rockchip_canfd-core.c
+index 046f0a0ae4d4..761cb36148ff 100644
+--- a/drivers/net/can/rockchip/rockchip_canfd-core.c
++++ b/drivers/net/can/rockchip/rockchip_canfd-core.c
+@@ -24,32 +24,6 @@
+ 
+ #include "rockchip_canfd.h"
+ 
+-static const struct rkcanfd_devtype_data rkcanfd_devtype_data_rk3568v2 = {
+-	.model = RKCANFD_MODEL_RK3568V2,
+-	.quirks = RKCANFD_QUIRK_RK3568_ERRATUM_1 | RKCANFD_QUIRK_RK3568_ERRATUM_2 |
+-		RKCANFD_QUIRK_RK3568_ERRATUM_3 | RKCANFD_QUIRK_RK3568_ERRATUM_4 |
+-		RKCANFD_QUIRK_RK3568_ERRATUM_5 | RKCANFD_QUIRK_RK3568_ERRATUM_6 |
+-		RKCANFD_QUIRK_RK3568_ERRATUM_7 | RKCANFD_QUIRK_RK3568_ERRATUM_8 |
+-		RKCANFD_QUIRK_RK3568_ERRATUM_9 | RKCANFD_QUIRK_RK3568_ERRATUM_10 |
+-		RKCANFD_QUIRK_RK3568_ERRATUM_11 | RKCANFD_QUIRK_RK3568_ERRATUM_12 |
+-		RKCANFD_QUIRK_CANFD_BROKEN,
+-};
+-
+-/* The rk3568 CAN-FD errata sheet as of Tue 07 Nov 2023 11:25:31 +08:00
+- * states that only the rk3568v2 is affected by erratum 5, but tests
+- * with the rk3568v2 and rk3568v3 show that the RX_FIFO_CNT is
+- * sometimes too high. In contrast to the errata sheet mark rk3568v3
+- * as effected by erratum 5, too.
+- */
+-static const struct rkcanfd_devtype_data rkcanfd_devtype_data_rk3568v3 = {
+-	.model = RKCANFD_MODEL_RK3568V3,
+-	.quirks = RKCANFD_QUIRK_RK3568_ERRATUM_1 | RKCANFD_QUIRK_RK3568_ERRATUM_2 |
+-		RKCANFD_QUIRK_RK3568_ERRATUM_5 | RKCANFD_QUIRK_RK3568_ERRATUM_7 |
+-		RKCANFD_QUIRK_RK3568_ERRATUM_8 | RKCANFD_QUIRK_RK3568_ERRATUM_10 |
+-		RKCANFD_QUIRK_RK3568_ERRATUM_11 | RKCANFD_QUIRK_RK3568_ERRATUM_12 |
+-		RKCANFD_QUIRK_CANFD_BROKEN,
+-};
+-
+ static const char *__rkcanfd_get_model_str(enum rkcanfd_model model)
+ {
+ 	switch (model) {
+@@ -212,7 +186,7 @@ static int rkcanfd_get_berr_counter(const struct net_device *ndev,
+ 	if (err)
+ 		return err;
+ 
+-	rkcanfd_get_berr_counter_corrected(priv, bec);
++	priv->devtype_data.get_berr_counter(priv, bec);
+ 
+ 	pm_runtime_put(ndev->dev.parent);
+ 
+@@ -302,7 +276,7 @@ static void rkcanfd_chip_start(struct rkcanfd_priv *priv)
+ 
+ 	rkcanfd_set_bittiming(priv);
+ 
+-	rkcanfd_chip_interrupts_disable(priv);
++	priv->devtype_data.interrupts_disable(priv);
+ 	rkcanfd_chip_set_work_mode(priv);
+ 
+ 	priv->can.state = CAN_STATE_ERROR_ACTIVE;
+@@ -316,7 +290,7 @@ static void __rkcanfd_chip_stop(struct rkcanfd_priv *priv, const enum can_state
+ 	priv->can.state = state;
+ 
+ 	rkcanfd_chip_set_reset_mode(priv);
+-	rkcanfd_chip_interrupts_disable(priv);
++	priv->devtype_data.interrupts_disable(priv);
+ }
+ 
+ static void rkcanfd_chip_stop(struct rkcanfd_priv *priv, const enum can_state state)
+@@ -342,8 +316,8 @@ static int rkcanfd_set_mode(struct net_device *ndev,
+ 
+ 	switch (mode) {
+ 	case CAN_MODE_START:
+-		rkcanfd_chip_start(priv);
+-		rkcanfd_chip_interrupts_enable(priv);
++		priv->devtype_data.chip_start(priv);
++		priv->devtype_data.interrupts_enable(priv);
+ 		netif_wake_queue(ndev);
+ 		break;
+ 
+@@ -537,7 +511,7 @@ static int rkcanfd_handle_error_int(struct rkcanfd_priv *priv)
+ 		if (cf) {
+ 			struct can_berr_counter bec;
+ 
+-			rkcanfd_get_berr_counter_corrected(priv, &bec);
++			priv->devtype_data.get_berr_counter(priv, &bec);
+ 			cf->can_id |= CAN_ERR_PROT | CAN_ERR_BUSERROR | CAN_ERR_CNT;
+ 			cf->data[6] = bec.txerr;
+ 			cf->data[7] = bec.rxerr;
+@@ -567,7 +541,7 @@ static int rkcanfd_handle_state_error_int(struct rkcanfd_priv *priv)
+ 	u32 timestamp;
+ 	int err;
+ 
+-	rkcanfd_get_berr_counter_corrected(priv, &bec);
++	priv->devtype_data.get_berr_counter(priv, &bec);
+ 	can_state_get_by_berr_counter(ndev, &bec, &tx_state, &rx_state);
+ 
+ 	new_state = max(tx_state, rx_state);
+@@ -581,7 +555,7 @@ static int rkcanfd_handle_state_error_int(struct rkcanfd_priv *priv)
+ 	can_change_state(ndev, cf, tx_state, rx_state);
+ 
+ 	if (new_state == CAN_STATE_BUS_OFF) {
+-		rkcanfd_chip_stop(priv, CAN_STATE_BUS_OFF);
++		priv->devtype_data.chip_stop(priv, CAN_STATE_BUS_OFF);
+ 		can_bus_off(ndev);
+ 	}
+ 
+@@ -620,7 +594,7 @@ rkcanfd_handle_rx_fifo_overflow_int(struct rkcanfd_priv *priv)
+ 	if (!skb)
+ 		return 0;
+ 
+-	rkcanfd_get_berr_counter_corrected(priv, &bec);
++	priv->devtype_data.get_berr_counter(priv, &bec);
+ 
+ 	cf->can_id |= CAN_ERR_CRTL | CAN_ERR_CNT;
+ 	cf->data[1] = CAN_ERR_CRTL_RX_OVERFLOW;
+@@ -719,21 +693,21 @@ static int rkcanfd_open(struct net_device *ndev)
+ 	if (err)
+ 		goto out_close_candev;
+ 
+-	rkcanfd_chip_start(priv);
++	priv->devtype_data.chip_start(priv);
+ 	can_rx_offload_enable(&priv->offload);
+ 
+-	err = request_irq(ndev->irq, rkcanfd_irq, IRQF_SHARED, ndev->name, priv);
++	err = request_irq(ndev->irq, priv->devtype_data.irq, IRQF_SHARED, ndev->name, priv);
+ 	if (err)
+ 		goto out_rkcanfd_chip_stop;
+ 
+-	rkcanfd_chip_interrupts_enable(priv);
++	priv->devtype_data.interrupts_enable(priv);
+ 
+ 	netif_start_queue(ndev);
+ 
+ 	return 0;
+ 
+ out_rkcanfd_chip_stop:
+-	rkcanfd_chip_stop_sync(priv, CAN_STATE_STOPPED);
++	priv->devtype_data.chip_stop_sync(priv, CAN_STATE_STOPPED);
+ 	pm_runtime_put(ndev->dev.parent);
+ out_close_candev:
+ 	close_candev(ndev);
+@@ -746,10 +720,10 @@ static int rkcanfd_stop(struct net_device *ndev)
+ 
+ 	netif_stop_queue(ndev);
+ 
+-	rkcanfd_chip_interrupts_disable(priv);
++	priv->devtype_data.interrupts_disable(priv);
+ 	free_irq(ndev->irq, priv);
+ 	can_rx_offload_disable(&priv->offload);
+-	rkcanfd_chip_stop_sync(priv, CAN_STATE_STOPPED);
++	priv->devtype_data.chip_stop_sync(priv, CAN_STATE_STOPPED);
+ 	close_candev(ndev);
+ 
+ 	pm_runtime_put(ndev->dev.parent);
+@@ -818,7 +792,7 @@ static int rkcanfd_register(struct rkcanfd_priv *priv)
+ 	if (err)
+ 		goto out_pm_runtime_put_sync;
+ 
+-	rkcanfd_register_done(priv);
++	priv->devtype_data.register_done(priv);
+ 
+ 	pm_runtime_put(ndev->dev.parent);
+ 
+@@ -840,6 +814,48 @@ static inline void rkcanfd_unregister(struct rkcanfd_priv *priv)
+ 	pm_runtime_disable(ndev->dev.parent);
+ }
+ 
++static const struct rkcanfd_devtype_data rkcanfd_devtype_data_rk3568v2 = {
++	.model = RKCANFD_MODEL_RK3568V2,
++	.quirks = RKCANFD_QUIRK_RK3568_ERRATUM_1 | RKCANFD_QUIRK_RK3568_ERRATUM_2 |
++		RKCANFD_QUIRK_RK3568_ERRATUM_3 | RKCANFD_QUIRK_RK3568_ERRATUM_4 |
++		RKCANFD_QUIRK_RK3568_ERRATUM_5 | RKCANFD_QUIRK_RK3568_ERRATUM_6 |
++		RKCANFD_QUIRK_RK3568_ERRATUM_7 | RKCANFD_QUIRK_RK3568_ERRATUM_8 |
++		RKCANFD_QUIRK_RK3568_ERRATUM_9 | RKCANFD_QUIRK_RK3568_ERRATUM_10 |
++		RKCANFD_QUIRK_RK3568_ERRATUM_11 | RKCANFD_QUIRK_RK3568_ERRATUM_12 |
++		RKCANFD_QUIRK_CANFD_BROKEN,
++	.get_berr_counter = rkcanfd_get_berr_counter_corrected,
++	.interrupts_enable = rkcanfd_chip_interrupts_enable,
++	.interrupts_disable = rkcanfd_chip_interrupts_disable,
++	.chip_start = rkcanfd_chip_start,
++	.chip_stop = rkcanfd_chip_stop,
++	.chip_stop_sync = rkcanfd_chip_stop_sync,
++	.irq = rkcanfd_irq,
++	.register_done = rkcanfd_register_done,
++};
++
++/* The rk3568 CAN-FD errata sheet as of Tue 07 Nov 2023 11:25:31 +08:00
++ * states that only the rk3568v2 is affected by erratum 5, but tests
++ * with the rk3568v2 and rk3568v3 show that the RX_FIFO_CNT is
++ * sometimes too high. In contrast to the errata sheet mark rk3568v3
++ * as effected by erratum 5, too.
++ */
++static const struct rkcanfd_devtype_data rkcanfd_devtype_data_rk3568v3 = {
++	.model = RKCANFD_MODEL_RK3568V3,
++	.quirks = RKCANFD_QUIRK_RK3568_ERRATUM_1 | RKCANFD_QUIRK_RK3568_ERRATUM_2 |
++		RKCANFD_QUIRK_RK3568_ERRATUM_5 | RKCANFD_QUIRK_RK3568_ERRATUM_7 |
++		RKCANFD_QUIRK_RK3568_ERRATUM_8 | RKCANFD_QUIRK_RK3568_ERRATUM_10 |
++		RKCANFD_QUIRK_RK3568_ERRATUM_11 | RKCANFD_QUIRK_RK3568_ERRATUM_12 |
++		RKCANFD_QUIRK_CANFD_BROKEN,
++	.get_berr_counter = rkcanfd_get_berr_counter_corrected,
++	.interrupts_enable = rkcanfd_chip_interrupts_enable,
++	.interrupts_disable = rkcanfd_chip_interrupts_disable,
++	.chip_start = rkcanfd_chip_start,
++	.chip_stop = rkcanfd_chip_stop,
++	.chip_stop_sync = rkcanfd_chip_stop_sync,
++	.irq = rkcanfd_irq,
++	.register_done = rkcanfd_register_done,
++};
++
+ static const struct of_device_id rkcanfd_of_match[] = {
+ 	{
+ 		.compatible = "rockchip,rk3568v2-canfd",
+diff --git a/drivers/net/can/rockchip/rockchip_canfd.h b/drivers/net/can/rockchip/rockchip_canfd.h
+index 93131c7d7f54..72f26b96add0 100644
+--- a/drivers/net/can/rockchip/rockchip_canfd.h
++++ b/drivers/net/can/rockchip/rockchip_canfd.h
+@@ -436,9 +436,19 @@ enum rkcanfd_model {
+ 	RKCANFD_MODEL_RK3568V3 = 0x35683,
+ };
+ 
++struct rkcanfd_priv;
++
+ struct rkcanfd_devtype_data {
+ 	enum rkcanfd_model model;
+ 	u32 quirks;
++	void (*get_berr_counter)(struct rkcanfd_priv *priv, struct can_berr_counter *bec);
++	void (*interrupts_enable)(const struct rkcanfd_priv *priv);
++	void (*interrupts_disable)(const struct rkcanfd_priv *priv);
++	void (*chip_start)(struct rkcanfd_priv *priv);
++	void (*chip_stop)(struct rkcanfd_priv *priv, const enum can_state state);
++	void (*chip_stop_sync)(struct rkcanfd_priv *priv, const enum can_state state);
++	irqreturn_t (*irq)(int irq, void *dev_id);
++	void (*register_done)(const struct rkcanfd_priv *priv);
+ };
+ 
+ struct rkcanfd_fifo_header {
 -- 
 2.34.1
 
