@@ -4,70 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31E2ACEBF92
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Nov 2025 23:52:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60FDACEBF92
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 00:13:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=INQi8W7Bk2C6tz7IX4kgNH+7MU6mvHpdEMcUoLb91UU=; b=l5P1ptZPe2355NgU9PKlmQ6hmZ
-	XEIQvYect62Svj1/AtueMGDtioxAwa4sYnVHjWJ7BYp90zUMDYuMHvDDI8FoNI9NSf53nmiZc2a7D
-	Z9deaZZAnVSlbv8uZR6hWKHJAKjLqExgTv0RKIFt0sHdqwsbHYl4IysYBdC2iWYia5U9g6DBDn+yp
-	BzOaBPTHthICJybnzSF+ANdynyuAehIk0FFmHo4tJnBGolyqJIKnFL/tX6BBYg4hjQrqIBYjBLQKb
-	PzCg8zguVHNugSL50ubCu5Jrn+3YrTRO3CaVp0OaboBPgB7EE98hcpC7ITZExozzQM4tOfL8gC7Uo
-	Hmi4owFw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7w+/HNozL8sgeqNf9ymrdYieoYBwVVVObtJdPZdmXlw=; b=dlAr36Sj0dU26ozk9tMSixqD/h
+	N6yaCPauiMktQUsaAX2s8JbIgp0EK58dVAVQnd6l8XzVuaS3IUDZi7AiYalJIL0POeuNbrPLaf/bn
+	JDv+obBWaurHpDjhpdWpX3BzxxGBBZSCG6gatk3J9+L7J/mgEjWY4rIxXha4hDGncW93gCM6kVnDw
+	alM/Qf3xKjtDV8bSZYbpx30gbT0yCKup+bQrvhybuCkTitwIv7udRNHzg/V+ohMSBRFBYyzPjypj9
+	tfXohFo3tji6lJO/vsXFqjA6OqBjPVEmkXa1jH/1Ebxjv2P/x0714Jys3rSrJSs9ZxxKGWUZPLR+Z
+	0gfEg1+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vL91J-0000000H0yI-2Prl;
-	Mon, 17 Nov 2025 23:52:29 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1vL9LT-0000000H2AH-3RWG;
+	Tue, 18 Nov 2025 00:13:19 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vL91G-0000000H0vz-2L9e;
-	Mon, 17 Nov 2025 23:52:28 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1763423543;
-	bh=+lxsf3OSskd50eKCDyensIyhpCWxmlJP/CpAxjesv3E=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=URzK9UyGZF6AiiIFblckM4+u31ZC9WG4xQg1l0Bh6kHlLBlS6vUAkXUzk4pCVTuVh
-	 WtMyWgujwPNcdNLvA3dkTHXtKcBW/IStI95wrI6fsVyerV+BnwFFbRv2qHteTYnaTT
-	 TDE7Bup+KICyEbdRWF9CLMPcwRzA4mfdEAYKRs7MtpARX3W6aDqnqGyeUI9J78nG+j
-	 swxw6CnAQQcRD99NsIO1aUCd2jAe8+j1XMzZZZ4WiT9QtTkBJf0vdwajPe7iErfuJJ
-	 epSrZSJHROAzVIokz8AHI9nGMHRDolTv2bV6OUb/jyq4SJsERWpifrlHDx8GN6Mu/Y
-	 /czw+VQF78qEw==
-Received: from localhost (unknown [82.79.138.145])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 0EBAC17E110D;
-	Tue, 18 Nov 2025 00:52:23 +0100 (CET)
-From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Date: Tue, 18 Nov 2025 01:51:59 +0200
-Subject: [PATCH v3 1/4] uapi: Provide DIV_ROUND_CLOSEST()
+	id 1vL9LR-0000000H29w-1fgb
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 18 Nov 2025 00:13:18 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id AA08741972;
+	Tue, 18 Nov 2025 00:13:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0A7D3C19423;
+	Tue, 18 Nov 2025 00:13:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1763424796;
+	bh=FA/B9Ov2AMGG74Hew1VbR3PJqHVMWv8DmTnLRuNyv0Q=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=NNjrX6GQ+2j8/hvb2kxvzwqGZySojwDESUweIZ6sgye6A2Zs8p2VLCSnIY9CWNEge
+	 l6jE1bXGcJlT6JVMl+clC6zD8DQcisfaVPJoALcYuLz//pHVm1DfLtH1js7bZeoH4K
+	 wpqR8wUS/9tKTnGzCLxGS/6NgI3dOU86jdcDrGFJ1DVnaPFPXgAI9vaEnGOUuOLtOu
+	 udFawlouxXWSbfDO4zfuGq9kecgERtnjuIuMMyOQDbKNSZC5mHBPOVGVCFNDbOlmyD
+	 hFXfuHFNBaZIaoM2EWytAijxyehm7iVJP7mXxnnbZEg3uvj5zENTdALE6Wond1oGjZ
+	 n7K3V+abTjNYw==
+Date: Tue, 18 Nov 2025 00:13:07 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Randy Dunlap <rdunlap@infradead.org>
+Cc: Jonathan Cameron <Jonathan.Cameron@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	linux-cxl@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-arch@vger.kernel.org, linux-mm@kvack.org,
+	Dan Williams <dan.j.williams@intel.com>,
+	"H . Peter Anvin" <hpa@zytor.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Arnd Bergmann <arnd@arndb.de>, Drew Fustini <fustini@kernel.org>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Krzysztof Kozlowski <krzk@kernel.org>, james.morse@arm.com,
+	Will Deacon <will@kernel.org>, Davidlohr Bueso <dave@stgolabs.net>,
+	linuxarm@huawei.com, Yushan Wang <wangyushan12@huawei.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	x86@kernel.org, Andy Lutomirski <luto@kernel.org>,
+	Dave Jiang <dave.jiang@intel.com>
+Subject: Re: [PATCH v6 3/7] lib: Support
+ ARCH_HAS_CPU_CACHE_INVALIDATE_MEMREGION
+Message-ID: <20251117-definite-uncounted-7cc07a377a71@spud>
+References: <20251117104800.2041329-1-Jonathan.Cameron@huawei.com>
+ <20251117104800.2041329-4-Jonathan.Cameron@huawei.com>
+ <3bf1793a-2ffd-4017-b4bf-dc63f3a2a7c8@infradead.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20251118-rk3588-bgcolor-v3-1-a2cc909428ea@collabora.com>
-References: <20251118-rk3588-bgcolor-v3-0-a2cc909428ea@collabora.com>
-In-Reply-To: <20251118-rk3588-bgcolor-v3-0-a2cc909428ea@collabora.com>
-To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Sandy Huang <hjc@rock-chips.com>, 
- =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
- Andy Yan <andy.yan@rock-chips.com>, 
- Louis Chauvet <louis.chauvet@bootlin.com>, 
- Haneen Mohammed <hamohammed.sa@gmail.com>, 
- Melissa Wen <melissa.srw@gmail.com>
-Cc: Robert Mader <robert.mader@collabora.com>, kernel@collabora.com, 
- dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org
-X-Mailer: b4 0.14.3
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="BAm6i4nhj7rGKbyg"
+Content-Disposition: inline
+In-Reply-To: <3bf1793a-2ffd-4017-b4bf-dc63f3a2a7c8@infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251117_155226_755663_B1E1A8B3 
-X-CRM114-Status: GOOD (  11.97  )
+X-CRM114-CacheID: sfid-20251117_161317_502649_EAF847A7 
+X-CRM114-Status: GOOD (  22.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,78 +94,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Currently DIV_ROUND_CLOSEST() is only available for the kernel via
-include/linux/math.h.
 
-Expose it to userland as well by adding __KERNEL_DIV_ROUND_CLOSEST() as
-a common definition in uapi.
+--BAm6i4nhj7rGKbyg
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Additionally, ensure it allows building ISO C applications by switching
-from the 'typeof' GNU extension to the ISO-friendly __typeof__.
+On Mon, Nov 17, 2025 at 10:51:11AM -0800, Randy Dunlap wrote:
+> Hi,
+>=20
+> On 11/17/25 2:47 AM, Jonathan Cameron wrote:
+> > diff --git a/lib/Kconfig b/lib/Kconfig
+> > index e629449dd2a3..e11136d188ae 100644
+> > --- a/lib/Kconfig
+> > +++ b/lib/Kconfig
+> > @@ -542,6 +542,10 @@ config MEMREGION
+> >  config ARCH_HAS_CPU_CACHE_INVALIDATE_MEMREGION
+> >  	bool
+> > =20
+> > +config GENERIC_CPU_CACHE_MAINTENANCE
+> > +	bool
+> > +	select ARCH_HAS_CPU_CACHE_INVALIDATE_MEMREGION
+> > +
+> >  config ARCH_HAS_MEMREMAP_COMPAT_ALIGN
+> >  	bool
+>=20
+> Architectures and/or platforms select ARCH_HAS_*.
+>=20
+> With this change above, it becomes the only entry in
+> lib/Kconfig that does "select ARCH_HAS_anytning".
+>=20
+> so I think this is wrong, back*wards.
 
-Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
----
- include/linux/math.h       | 18 +-----------------
- include/uapi/linux/const.h | 17 +++++++++++++++++
- 2 files changed, 18 insertions(+), 17 deletions(-)
+Maybe it is backwards, but I feel like this way is more logical. ARM64
+has memregion invalidation only because this generic approach is
+enabled, so the arch selects what it needs to get the support.
+Alternatively, something like
+| diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+| index 5f7f63d24931..75b2507f7eb2 100644
+| --- a/arch/arm64/Kconfig
+| +++ b/arch/arm64/Kconfig
+| @@ -21,6 +21,7 @@ config ARM64
+|  	select ARCH_ENABLE_THP_MIGRATION if TRANSPARENT_HUGEPAGE
+|  	select ARCH_HAS_CACHE_LINE_SIZE
+|  	select ARCH_HAS_CC_PLATFORM
+| +	select ARCH_HAS_CPU_CACHE_INVALIDATE_MEMREGION
+|  	select ARCH_HAS_CURRENT_STACK_POINTER
+|  	select ARCH_HAS_DEBUG_VIRTUAL
+|  	select ARCH_HAS_DEBUG_VM_PGTABLE
+| @@ -146,7 +147,6 @@ config ARM64
+|  	select GENERIC_ARCH_TOPOLOGY
+|  	select GENERIC_CLOCKEVENTS_BROADCAST
+|  	select GENERIC_CPU_AUTOPROBE
+| -	select GENERIC_CPU_CACHE_MAINTENANCE
+|  	select GENERIC_CPU_DEVICES
+|  	select GENERIC_CPU_VULNERABILITIES
+|  	select GENERIC_EARLY_IOREMAP
+| diff --git a/lib/Kconfig b/lib/Kconfig
+| index 09aec4a1e13f..ac223e627bc5 100644
+| --- a/lib/Kconfig
+| +++ b/lib/Kconfig
+| @@ -544,8 +544,9 @@ config ARCH_HAS_CPU_CACHE_INVALIDATE_MEMREGION
+|  	bool
+| =20
+|  config GENERIC_CPU_CACHE_MAINTENANCE
+| -	bool
+| -	select ARCH_HAS_CPU_CACHE_INVALIDATE_MEMREGION
+| +	def_bool y
+| +	depends on ARCH_HAS_CPU_CACHE_INVALIDATE_MEMREGION
+| +	depends on ARM64
+| =20
+|  config ARCH_HAS_MEMREMAP_COMPAT_ALIGN
+|  	bool
+implies (to me at least) that arm64 has memregion invalidation as an
+architectural feature and that the GENERIC_CPU_CACHE_MAINTENANCE option
+is a just common cross-arch code, like generic entry etc, rather than
+being the option gating the drivers that provide the feature in the
+first place.
 
-diff --git a/include/linux/math.h b/include/linux/math.h
-index 0198c92cbe3e..24bb868f971c 100644
---- a/include/linux/math.h
-+++ b/include/linux/math.h
-@@ -89,23 +89,7 @@
- }							\
- )
- 
--/*
-- * Divide positive or negative dividend by positive or negative divisor
-- * and round to closest integer. Result is undefined for negative
-- * divisors if the dividend variable type is unsigned and for negative
-- * dividends if the divisor variable type is unsigned.
-- */
--#define DIV_ROUND_CLOSEST(x, divisor)(			\
--{							\
--	typeof(x) __x = x;				\
--	typeof(divisor) __d = divisor;			\
--	(((typeof(x))-1) > 0 ||				\
--	 ((typeof(divisor))-1) > 0 ||			\
--	 (((__x) > 0) == ((__d) > 0))) ?		\
--		(((__x) + ((__d) / 2)) / (__d)) :	\
--		(((__x) - ((__d) / 2)) / (__d));	\
--}							\
--)
-+#define DIV_ROUND_CLOSEST __KERNEL_DIV_ROUND_CLOSEST
- /*
-  * Same as above but for u64 dividends. divisor must be a 32-bit
-  * number.
-diff --git a/include/uapi/linux/const.h b/include/uapi/linux/const.h
-index b8f629ef135f..471877322f47 100644
---- a/include/uapi/linux/const.h
-+++ b/include/uapi/linux/const.h
-@@ -50,4 +50,21 @@
- 
- #define __KERNEL_DIV_ROUND_UP(n, d) (((n) + (d) - 1) / (d))
- 
-+/*
-+ * Divide positive or negative dividend by positive or negative divisor
-+ * and round to closest integer. Result is undefined for negative
-+ * divisors if the dividend variable type is unsigned and for negative
-+ * dividends if the divisor variable type is unsigned.
-+ */
-+#define __KERNEL_DIV_ROUND_CLOSEST(x, divisor)(		\
-+{							\
-+	__typeof__(x) __x = x;				\
-+	__typeof__(divisor) __d = divisor;		\
-+	(((__typeof__(x))-1) > 0 ||			\
-+	 ((__typeof__(divisor))-1) > 0 ||		\
-+	 (((__x) > 0) == ((__d) > 0))) ?		\
-+		(((__x) + ((__d) / 2)) / (__d)) :	\
-+		(((__x) - ((__d) / 2)) / (__d));	\
-+}							\
-+)
- #endif /* _UAPI_LINUX_CONST_H */
+I didn't really care which way it went, and was gonna post something to
+squash and avoid another revision, but I found the resultant Kconfig
+setup to be make less sense to me than what came before. If the switched
+around version is less likely to be problematic etc, then sure, but I
+amn't convinced by switching it at a first glance.
 
--- 
-2.51.2
+--BAm6i4nhj7rGKbyg
+Content-Type: application/pgp-signature; name="signature.asc"
 
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaRu6EgAKCRB4tDGHoIJi
+0nZFAQDM8N23xRqxSRbXxCvV9U3SK6crnsbKb90b4UmJQ3Sp2AD+KZGuSHNYRHyF
+VDJQehUnQg16E9RkkY+PqRspoEYItwc=
+=ZlO7
+-----END PGP SIGNATURE-----
+
+--BAm6i4nhj7rGKbyg--
 
