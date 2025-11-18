@@ -4,96 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA9AECEBF97
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 14:56:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D570CEDDA1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 15:09:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=erEHQ4pvbvg9bgc6g+PKRhvaKSni7/5fNBZmCyyjnTM=; b=reyOeJd54NQfbvPGmmSbevCpVA
-	I44W5zfSiMgxs1rtsEqhFx1r1b76FIpqm6b9mtHgGn70QgQT7iAHoot9rgy4zTeFyFGGgzMcdocbN
-	n6tAlbWhu6jnCsyii1Si6K7fBHiJdJDOyaiSHJ2MgGzWQJGZL9BoIucJItvIhzrfWcET2qfcKImiX
-	ezf1rggMIu28RmCYtL83MJSQ/CEsGpInzP19l+Wp8BO2gIiHwjRiXGgrXbsXwRe4qUusobRql+lYz
-	LIeei2Z8dMAuIeE1kIsIQyHgdu+OyJtdbVPPJkFb6AYY1+I9Kb6IQ3t4xzYDDV41XgAcDx5pAet7n
-	cmNmeTHQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=6WPvFi51hSTGug9x4SN8j0sL2LdGeBDK68HLUzdBwf0=; b=4pTbPLSZNb6SmN
+	ASc8fLW7YaYlHlFroVFI/hWvR6zhUXvkovhs6E6K1hjrrm+uSQMTVZhiDIaAteGYOKrz36sWyCwRr
+	fW+QJfAZg/b2Mr0qB6AR8KI81jwhWRZbfze8A2EH2xJllfOStAQV52gnBhee3BF8h0j/9YJJOUx1z
+	OBfy6BG5dPzO0skcsoe4Nj/ylA88ZfAYJVplCARj8rGvOr28Zle0Ez1EilI45fovH9mcfvHDuJESo
+	VjwEvKpeddjVidEwQVrVyikIhO7T70tQwSrsVpyg99h/3KmOlPw2Fj6eznYEEBtIJPAExsaBy//vE
+	y+EDkZp6f+GG5sPzDHZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLN8L-00000000aYc-2WwC;
-	Tue, 18 Nov 2025 14:56:41 +0000
-Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
+	id 1vLNKH-00000000bNd-1j60;
+	Tue, 18 Nov 2025 15:09:01 +0000
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLN8H-00000000aY8-1M61
+	id 1vLNKE-00000000bMb-1TDQ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Nov 2025 14:56:39 +0000
-Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-4777771ed1aso39053675e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Nov 2025 06:56:36 -0800 (PST)
+	Tue, 18 Nov 2025 15:08:59 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-47774d3536dso46773305e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Nov 2025 07:08:57 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1763477795; x=1764082595; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=erEHQ4pvbvg9bgc6g+PKRhvaKSni7/5fNBZmCyyjnTM=;
-        b=uMKFl7oaLJeukANT9AIU1v3SAkKa71fjckB9vLNA8V7yhIOn27M/3BIYUaDInFos5o
-         6PFMIHr2qA/cr1dSvEtE34d6azfVbHscWKcp4NTyvO/0M1T5oqGvoYX5VvYfpusmsQ90
-         SDlPIiisx+FCeuSQeO1JvEN8Hrjo3wGRFuh3wGJczbcZF34TgYV+876sxCxkhMaDQzT5
-         vEehjFEEb8L3Ghwlq/1oFCfdA13RS7Pisos1lXLErhyzgkZgKxyTUoPDbSGAGh3/ElWf
-         HFbHxWe+wbN1chF9FY9lGL9CUenrwoEp/LicuMnMXD8IRwS3RIzAQRo2kTkticg0XFUc
-         j/+Q==
+        d=gmail.com; s=20230601; t=1763478536; x=1764083336; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=6WPvFi51hSTGug9x4SN8j0sL2LdGeBDK68HLUzdBwf0=;
+        b=dAjObEWZBd/f7xpxQ53zqQ1axQ0LBlI+flmdNnohQ+URBmViHvo8XlFwxl9i+1MJji
+         OIc/0I7N1ppmlzdQsssgSjcBIuh7FapDeB9z2l1vu1hYbi91cJrdGkDt2Vwp5cXEjiJF
+         iI1pXAznTrH21QLwEdujt8TxCh0jPISNEj80v2FIcCOiN5uXYnBZaHi1wPMD8qUqvjeY
+         /BdJ9pku3QrmLFiFM6dn0sABXIOgoXHi7Yz3mn7+owp1pS7vkZ5MdOsLlhgJIu0isOHd
+         LYsChUsAQtKkMeNxjSLPytEgsMK4+L8vvvnLpQEESauZ5dh+f3969ELBfUZhUWqZjw/Q
+         8Avg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763477795; x=1764082595;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=erEHQ4pvbvg9bgc6g+PKRhvaKSni7/5fNBZmCyyjnTM=;
-        b=pCw+A/nB4z+lXxRUO9mHssvfcP6AvdvgsrK64JMemqHii5Q31cJvdPLDUd/SNzZrR4
-         3Lijk8bYoI8RkHh0u7L7caUQ3xul88dwovAIB+DHV8YpEzdm2YNdu211gjAcV873X7jG
-         bC3+i+mvIneVo4qOa3sRSb8IN7SRAzdMg5Ws+ZoVjCM7GvhPRRdPGYf7RCdQBQTMAikL
-         /gODsIxos9vr5mXojDakqWap37eNR9M6XuUciq8QSmHSRhZc4SlFci7yxnaxmFVwuAAS
-         MBVnf5a7CqetRD11EaP0jmoDPN2V6/CS7nD+r+YTbaDPJo1HYOq3tS7c06lNjLZBNsoG
-         CyOw==
-X-Forwarded-Encrypted: i=1; AJvYcCXJc1SawQxwI4Fg41QssQmsNzuT2Ou1CWysbMhE9nj8snzceD2McWK8RN8k3A4bv5vj5mTeTpuwNPr1GdHKm7ln@lists.infradead.org
-X-Gm-Message-State: AOJu0YwxwnVwl/O93+PxtbgmO9Tfpg8Q2m4ShYMZkpI9Vf7m2sskKk/h
-	SvdQvMiC3FpOqkl5ApxMlNXaZVaw84/dVWcZ/BqZQ5IqQ9jw8CIwGlbkwIKWc0e1gag=
-X-Gm-Gg: ASbGncv55u6kSjC4pYsY+RFcwo5S8wPdLbSPRI/1C0WiaO8CSGjHXyHmurswrSz64Mz
-	UZlsNjMY/n/G/Pd2rkXbYIeu2W7slnnG9AOiIj/65k35sUj8NyyBQW39+hhdwoDJKu/e2wAGifp
-	YEc+59PX+NGcXZ/Rg7vfYOoI19WPr/nhR2XHHRcsY4l/FLBkYALmO2DbobUflbPtZpqgiBnDyig
-	4rLPV2MIAxHyolMK332MXqcxIOeYqVpC+zTamvvmBhGejwqw7ZPgKAfJEC7ioWm1i9r8e60efhm
-	Fum0H0BelA8R+OIZu+olYOZ7CFgMrg/pLqNesu+/iH1BW/ujFiX0aB5lIu1VL8mxGw7UySMOJwv
-	BPzsEn9xVCBZhyL/d/QdwOLPRQELb8AqPufW7/d5IeTlFsPSTcgkxYhXoGT/UWDp+aQifqV64cI
-	VR3ykmiXE7zABvRjcy
-X-Google-Smtp-Source: AGHT+IH5rPcLsF1PsanW87LKAAXsro5M9DDqlKkuIu9cobKHCgs8dMk+WcC9kiNwue3QlRTwXXWRBQ==
-X-Received: by 2002:a05:600c:1d15:b0:477:aed0:f3fd with SMTP id 5b1f17b1804b1-477aed0fad1mr12311775e9.8.1763477795371;
-        Tue, 18 Nov 2025 06:56:35 -0800 (PST)
-Received: from [192.168.1.3] ([185.48.77.170])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4779d722bc5sm192660755e9.2.2025.11.18.06.56.34
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 18 Nov 2025 06:56:34 -0800 (PST)
-Message-ID: <0334300a-ae81-4b55-a3b0-c6137e13be6a@linaro.org>
-Date: Tue, 18 Nov 2025 14:56:33 +0000
+        d=1e100.net; s=20230601; t=1763478536; x=1764083336;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=6WPvFi51hSTGug9x4SN8j0sL2LdGeBDK68HLUzdBwf0=;
+        b=GJc6lY8xabGv4YOw84gD0fNKVFmfbc9wE2JOMyK1qeCD/eSDsU4VfONQJS4mIknojQ
+         Tu5gwN5MyKNJuVHSwzvWfG7loffHlMnVveWokb6afCFLwrDw6E1zWnnGFnZBgP1eGvcc
+         l/PxpFoJpHnaoCz7bL4cxQYJFctdp2Umeqx+sgLZ847IFtArI3eLgKTTGBRS5yWUmlM5
+         hJAlBTP0+aaTuexYrpD7TG1CFE63WY7HeaSAkG6C45TV6Cjxlh3bb78Rtlwy4NNuf18/
+         w5F6gUI2koD4D9pqut6K1Gzjoy1mkhXvgYXFr3hYYp6XqNT0rv+w2TG2+q9t5uGMrstX
+         6CTg==
+X-Forwarded-Encrypted: i=1; AJvYcCWNW2ce1kbJK5kQXxbmpqQFf+/RxhNfVprqZnZP3s+VV1CFOd7vByLG6bErfe6AYcJ+2YSAQe2PTOdwRF9qDym2@lists.infradead.org
+X-Gm-Message-State: AOJu0YwqeQlFroWMEDJ0L98ORrfv/Nss6cScF1btERZHWFtjTrRa1QHM
+	Hsh3eXG+up2W5XlWmVmGwyRVlgoj2SdkAkHzKKZPL3/yeFH7bC8hy11f
+X-Gm-Gg: ASbGncsXlEvhaUgzLGpNJ6QhFgAAmICQorDQzjEjvUgvEVEldRD5RSX0W1bPcnngEv4
+	ltIZWjbF7iatP4u2hBjDVT2/wmCpY6MwcRB9LKYxDyF0igElrdvkZ0Th3ZFG1NPDeLOM6OwNfpV
+	et1jeTOd8glffP2dvFWAzRztITX1GN2hb120+id0Y76n8i3u4CkZ85UF5Y0hwYWk8K5W6LfwC4t
+	lCoadLqPubd+r9H0yIQXv+zz4a+ADPHSh6eJ/7Zvr+W6Ik+NdWIkyqyqLZ9JRpVQO0h20bJvGDv
+	6H6GhV2DQo7TYD6E6nhTTd+0q2z3fTXvk7NS3hwK5Y/OX7tOWUb+Tp0ZNlec4GWriQPcIxZAJ1u
+	fYcQN2KUm3Jm2NHCpV2iTT6DcasFtLUL2D+uaDM1L5288oAd9MLTpvTWXrBiWdWq6KXik1IPH3V
+	Ejv17OzXKLk8SEgwJ4Bv5Ij08QaElyv3l3pYrZyAQAsRLIxUO623aRGajqjc9P96z/nhs=
+X-Google-Smtp-Source: AGHT+IF/6kXbFEjAEd63GYihy5Q8u6mMF1GK/dF5UenuZ7Kz2Ra3089BukNPLHYwu6f1QH+eFEoqTg==
+X-Received: by 2002:a05:600c:4592:b0:46e:3b58:1b40 with SMTP id 5b1f17b1804b1-477a94acde4mr37754535e9.4.1763478535789;
+        Tue, 18 Nov 2025 07:08:55 -0800 (PST)
+Received: from localhost (2a02-842a-9b20-0d01-432b-0dab-f195-2b25.rev.sfr.net. [2a02:842a:9b20:d01:432b:dab:f195:2b25])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-477a97213b8sm19970405e9.1.2025.11.18.07.08.54
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 18 Nov 2025 07:08:55 -0800 (PST)
+From: =?utf-8?q?Cl=C3=A9ment_Le_Goffic?= <legoffic.clement@gmail.com>
+Subject: [PATCH v9 0/7] Add DDR4 memory-controller bindings and factorise
+ LPDDR and DDR bindings
+Date: Tue, 18 Nov 2025 16:07:56 +0100
+Message-Id: <20251118-b4-ddr-bindings-v9-0-a033ac5144da@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 04/13] coresight: Hide unused ETMv3 format attributes
-To: Leo Yan <leo.yan@arm.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
- Mike Leach <mike.leach@linaro.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Jonathan Corbet <corbet@lwn.net>, coresight@lists.linaro.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-doc@vger.kernel.org
-References: <20251112-james-cs-syncfreq-v4-0-165ba21401dc@linaro.org>
- <20251112-james-cs-syncfreq-v4-4-165ba21401dc@linaro.org>
- <20251114145521.GD3568724@e132581.arm.com>
-Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <20251114145521.GD3568724@e132581.arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIAMyLHGkC/3WNywqDMBBFf0WybsoYjY+u+h+li8QZdaDGkpTQI
+ v57oyuhdHkunHMXEcgzBXHJFuEpcuDZJWhPmehG4waSjImFAqWhVUraUiJ6adkhuyHIOq9yKgh
+ MryuRrKennt978XZPPHJ4zf6zH8R6W/+3Yi1B2gJRAekSbXUdJsOPczdPYmvF5uAX8Os3ye+px
+ KaDXBsNR39d1y8IwXSa7gAAAA==
+X-Change-ID: 20250922-b4-ddr-bindings-7161e3e0af56
+To: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Julius Werner <jwerner@chromium.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>
+Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-stm32@st-md-mailman.stormreply.com, 
+ linux-arm-kernel@lists.infradead.org, 
+ =?utf-8?q?Cl=C3=A9ment_Le_Goffic?= <legoffic.clement@gmail.com>, 
+ =?utf-8?q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+X-Mailer: b4 0.15-dev-86b30
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251118_065638_474487_79FF6846 
-X-CRM114-Status: GOOD (  24.18  )
+X-CRM114-CacheID: sfid-20251118_070858_452573_CA653A18 
+X-CRM114-Status: GOOD (  13.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,92 +111,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Introduce DDR4 bindings, which is the first DDR type to be added.
+As the DDR and LPDDR use the same properties, factorise them in a
+sdram-props bindings file and rename lpddr-channel into sdram-channel.
 
+Changes in v9:
+- In the ddr4 compatible pattern :
+    s/ddrX-YYYY,AAAA...,ZZ/ddrX-YYYY,AAAA...-ZZ/
+    The comma before the "ZZ" part has been replaced with a minus.
+- Add information about how the compatible is constructed in the patch 2:
+  "dt-bindings: memory: introduce DDR4"
+- Add Krzysztof Kozlowski's trailer on patch 1
+- Link to v8: https://lore.kernel.org/r/20250930-b4-ddr-bindings-v8-0-fe4d8c015a50@gmail.com
 
-On 14/11/2025 2:55 pm, Leo Yan wrote:
-> On Wed, Nov 12, 2025 at 03:22:10PM +0000, James Clark wrote:
->> ETMv3 only has a few attributes, and setting unused ones results in an
->> error, so hide them to begin with.
->>
->> Signed-off-by: James Clark <james.clark@linaro.org>
->> ---
->>   drivers/hwtracing/coresight/coresight-etm-perf.c | 19 +++++++++++++++++++
->>   1 file changed, 19 insertions(+)
->>
->> diff --git a/drivers/hwtracing/coresight/coresight-etm-perf.c b/drivers/hwtracing/coresight/coresight-etm-perf.c
->> index 17afa0f4cdee..91132abca244 100644
->> --- a/drivers/hwtracing/coresight/coresight-etm-perf.c
->> +++ b/drivers/hwtracing/coresight/coresight-etm-perf.c
->> @@ -106,8 +106,27 @@ static struct attribute *etm_config_formats_attr[] = {
->>   	NULL,
->>   };
->>   
->> +static umode_t etm_format_attr_is_visible(struct kobject *kobj,
->> +					  struct attribute *attr, int unused)
->> +{
->> +	/* ETM4 has all attributes */
->> +	if (IS_ENABLED(CONFIG_CORESIGHT_SOURCE_ETM4X))
->> +		return attr->mode;
->> +
->> +	/* ETM3 only has these attributes */
->> +	if (attr == &format_attr_cycacc.attr ||
->> +	    attr == &format_attr_timestamp.attr ||
->> +	    attr == &format_attr_retstack.attr ||
->> +	    attr == &format_attr_sinkid.attr ||
->> +	    attr == &format_attr_configid.attr)
-> 
-> Do we support configid for ETM3?
-> 
+Changes in v8:
+- Globally fix typo/grammar in SDRAM props bindings:
+  - DDR4 bindings compatible description:
+    - s/lpddrX,YY,ZZZZ/lpddrX-YY,ZZZZ/
+    - s/in lower case/lowercase/
+    - s/statis/static/
+    - s/~/-/
+  - Add an "s" where a plural form is used (e.g. registers) in the DDR4
+    binding revision-id description
+- Fix the number of chars that an SPD can contain in the part number
+  field.
+- Link to v7: https://lore.kernel.org/r/20250922-b4-ddr-bindings-v7-0-b3dd20e54db6@gmail.com
 
-They're "activated" in etm_setup_aux() so this would be for both ETM3 
-and 4. But they're only subsequently "enabled" for ETM4. So no, they're 
-not supported. I'll hide this attribute too.
+The v7 is a subset of the v6 and other prior versions, split to simplify
+the review and merging process.
 
-I can leave it for a later fix if we want to stop activating them, but I 
-don't think it does any harm.
+Changes in v7:
+- None
+- Link to v6: https://lore.kernel.org/all/20250909-b4-ddrperfm-upstream-v6-5-ce082cc801b5@gmail.com/
 
->> +		return attr->mode;
-> 
-> It is good to give a bit information why only these attributes
-> supported, e.g.,
-> 
->    /*
->     * ETM3 only support subset attributes (see ETM3X_SUPPORTED_OPTIONS),
->     * keep 'sinkid' attr for specifying sink ID.
->     */
-> 
-> Two side topics but not issues caused this patch:
-> 
-> - Since CTXTID/CTXTID2 is only used for ETM4x, we can remove "#if
->    IS_ENABLED(CONFIG_CORESIGHT_SOURCE_ETM4X)" from the
->    format_attr_contextid_show() function.
+Signed-off-by: Clément Le Goffic <legoffic.clement@gmail.com>
+---
+Clément Le Goffic (7):
+      dt-bindings: memory: factorise LPDDR props into SDRAM props
+      dt-bindings: memory: introduce DDR4
+      dt-bindings: memory: factorise LPDDR channel binding into SDRAM channel
+      dt-binding: memory: add DDR4 channel compatible
+      dt-bindings: memory: SDRAM channel: standardise node name
+      arm64: dts: st: add LPDDR channel to stm32mp257f-dk board
+      arm64: dts: st: add DDR channel to stm32mp257f-ev1 board
 
-Will change to CONFIG_ARM64 as mentioned on the other thread.
+ .../memory-controllers/ddr/jedec,ddr4.yaml         | 34 ++++++++
+ .../memory-controllers/ddr/jedec,lpddr-props.yaml  | 74 -----------------
+ .../memory-controllers/ddr/jedec,lpddr2.yaml       |  2 +-
+ .../memory-controllers/ddr/jedec,lpddr3.yaml       |  2 +-
+ .../memory-controllers/ddr/jedec,lpddr4.yaml       |  2 +-
+ .../memory-controllers/ddr/jedec,lpddr5.yaml       |  2 +-
+ ...lpddr-channel.yaml => jedec,sdram-channel.yaml} | 40 ++++++---
+ .../memory-controllers/ddr/jedec,sdram-props.yaml  | 94 ++++++++++++++++++++++
+ arch/arm64/boot/dts/st/stm32mp257f-dk.dts          |  7 ++
+ arch/arm64/boot/dts/st/stm32mp257f-ev1.dts         |  7 ++
+ 10 files changed, 173 insertions(+), 91 deletions(-)
+---
+base-commit: e7c375b181600caf135cfd03eadbc45eb530f2cb
+change-id: 20250922-b4-ddr-bindings-7161e3e0af56
 
-> 
-> - etm_parse_event_config() does not check attr->config3, thus user
->    sets 'cc_threshold' it will slip without any error report.
-
-Will ignore this comment as mentioned on patch 7, we're not doing any 
-errors for unsupported arguments anymore.
-
-> 
-> Thanks,
-> Leo
-> 
->> +
->> +	return 0;
->> +}
->> +
->>   static const struct attribute_group etm_pmu_format_group = {
->>   	.name   = "format",
->> +	.is_visible = etm_format_attr_is_visible,
->>   	.attrs  = etm_config_formats_attr,
->>   };
->>   
->>
->> -- 
->> 2.34.1
->>
+Best regards,
+--  
+Clément Le Goffic <legoffic.clement@gmail.com>
 
 
