@@ -4,61 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63FAECED24D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 09:25:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F938CEBF93
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 09:30:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/m7uhfNQELQI3K/llupPvt/jSbTV7qI7cE58XdEsmJI=; b=DrpB6wkDU72NgB2RkWm68fhnc3
-	iQ1O5IOF2BTBXJJsCLdesKPL4da2F052fz6xtFazPxTP6pScU9DyWcApHx3pMhpTsBE0qr5sYs1ZE
-	/Iq1Y6H7kO6cxjjsmr2x05cv135KlgrWE+K3ynRampiQhhWZ1QkaCTd5ns/K984gCAfcyn68sJ+qZ
-	mviKttMnCSZdCvbnvxuIboVu9ve5rdgV67z9RboALHtxmnOZYIqbRAq1HixOkmYaNCjJYMd6tnJpi
-	AoJ2q+wCpcn6ZTEIHUQx1j6WdFAD1NtVi3YC9Sk7LoqSbYiUxDfJnw3HZW12xV/p8B6N+XY7E3pe3
-	vaI0PEhw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=klXOwzVfCdFv6kE/oztVwPMZyi2Nita0y4UqhyV+Vs0=; b=YCqgq50LNMKwNVDk94tVJHB4ek
+	84Vx3OMWIATQ+HbWi31RLQ2mzNjCgheBZNqory/DVdZPpzQvLZfXH5GaGHqtY1WH01BOm0QemWn7v
+	gD3bsBZ2Tu8uQB19xWS18QYRMG0Lbcdj6s+GLHzxQg7aasyBDAL6SvcpcPx3qMJmawJGCmiIrx+kn
+	b/Yr0j/RB2MRvblZTIOzYFYEZelYok36pceh2XesT8GFxgNisMs8rEdEaD7o1EzW1NJwEFgtYUpL5
+	o5LZdp1tpkIVyAQHs+9+wPMXST9hQss8DqmTxNPLyg6xWQ/oqWQXyNUPly/UNaOWKL30QxyNS/ckp
+	nN0Jzf2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLHxX-000000009hK-2a87;
-	Tue, 18 Nov 2025 09:25:11 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLHxU-000000009gG-2e2T
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Nov 2025 09:25:10 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7A31AFEC;
-	Tue, 18 Nov 2025 01:24:58 -0800 (PST)
-Received: from localhost (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A396B3F66E;
-	Tue, 18 Nov 2025 01:25:05 -0800 (PST)
-Date: Tue, 18 Nov 2025 09:25:03 +0000
-From: Leo Yan <leo.yan@arm.com>
-To: James Clark <james.clark@linaro.org>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mike Leach <mike.leach@linaro.org>,
-	Yeoreum Yun <yeoreum.yun@arm.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Yabin Cui <yabinc@google.com>, Keita Morisaki <keyz@google.com>,
-	Yuanfang Zhang <quic_yuanfang@quicinc.com>
-Subject: Re: [PATCH v4 10/15] coresight: Add 'in_idle' argument to
- enable/disable path functions
-Message-ID: <20251118092503.GA8204@e132581.arm.com>
-References: <20251104-arm_coresight_path_power_management_improvement-v4-0-3d4bba674709@arm.com>
- <20251104-arm_coresight_path_power_management_improvement-v4-10-3d4bba674709@arm.com>
- <2ed517c5-b434-4a51-9843-dd7ab6229bec@linaro.org>
- <1599cba5-aa4a-4991-8865-258830ef248f@linaro.org>
+	id 1vLI2t-00000000A4x-2mdp;
+	Tue, 18 Nov 2025 09:30:43 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vLI2r-00000000A4X-4AD4;
+	Tue, 18 Nov 2025 09:30:43 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 2958D408DC;
+	Tue, 18 Nov 2025 09:30:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5D2CEC2BCB7;
+	Tue, 18 Nov 2025 09:30:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1763458238;
+	bh=tOu+3QhGuuDUjW3b2MoMTda+xPJWsWqfa+W+4ERtsYo=;
+	h=From:Date:Subject:To:Cc:From;
+	b=Dqu85j1kAi1yXDgIocm6rrIfGa/E8aUG68YauY1J+/qeqeozh+BQ+22MOVE6xIwk8
+	 lMPYTxYUNktodSqZ2RsfqQ0JMVumXgkMGCHeY8H1ZjHJWx3IlzHd+nvgT+SSyVaICr
+	 +VQSaigDUJY3sO079M7GgWzaLG1UYA3hHcno123UucUXh69la8k89ofEWmDYYNO5lf
+	 Tb/U+2qCsW5ESS6TpSZfXP9hRa/988QxBx+zh5tQgkETBQey94Z9picqO1ZDN7fI61
+	 kmQlwxvQ5RiIEXl/w/Zyh9hY/wgd2UEicpUDLJy1suko1lMw1/Dtm4ZwR0/F9Hx/io
+	 KheBrdgYJZsuA==
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+Date: Tue, 18 Nov 2025 10:30:26 +0100
+Subject: [PATCH mt76] wifi: mt76: mt7996: Add missing mutex_{lock,unlock}
+ in mt7996_mac_sta_rc_work()
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <1599cba5-aa4a-4991-8865-258830ef248f@linaro.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20251118-mt7996-rc-work-missing-mtx-v1-1-0739c493a6cb@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x3MQQqDMBBA0avIrDtgxGjSqxQXMZ3YoRjLjKgg3
+ t3Q5fuLf4KSMCk8qxOENlZecoF5VBA/IU+E/C6Gpm6sMcbhvPbedygR90W+OLMq56nkA8NI0bo
+ 22S4kKIOfUOLjP38N13UDm8pZb2wAAAA=
+X-Change-ID: 20251118-mt7996-rc-work-missing-mtx-abec584f56af
+To: Felix Fietkau <nbd@nbd.name>, Ryder Lee <ryder.lee@mediatek.com>, 
+ Shayne Chen <shayne.chen@mediatek.com>, Sean Wang <sean.wang@mediatek.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: linux-wireless@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, Lorenzo Bianconi <lorenzo@kernel.org>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251118_012508_790797_8D8C2E40 
-X-CRM114-Status: GOOD (  22.65  )
+X-CRM114-CacheID: sfid-20251118_013042_057934_5B99F56D 
+X-CRM114-Status: UNSURE (   6.98  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,89 +78,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 10, 2025 at 11:48:45AM +0000, James Clark wrote:
+Grab the mt76 mutex running mt7996_mac_sta_rc_work() since it is
+required by mt7996_mcu_add_rate_ctrl routine.
 
-[...]
+Fixes: 28d519d0d493a ("wifi: mt76: Move RCU section in mt7996_mcu_add_rate_ctrl_fixed()")
+Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+---
+ drivers/net/wireless/mediatek/mt76/mt7996/mac.c | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-> > >   static void coresight_disable_path_from(struct coresight_path *path,
-> > > -                    struct coresight_node *nd)
-> > > +                    struct coresight_node *nd,
-> > > +                    bool in_idle)
-> > >   {
-> > >       u32 type;
-> > >       struct coresight_device *csdev, *parent, *child;
-> > > @@ -498,6 +499,10 @@ static void coresight_disable_path_from(struct
-> > > coresight_path *path,
-> > >                           CORESIGHT_DEV_TYPE_SINK :
-> > >                           CORESIGHT_DEV_TYPE_LINK;
-> > > +        /* To reduce latency, CPU idle does not touch the sink */
-> > > +        if (in_idle && type == CORESIGHT_DEV_TYPE_SINK)
-> > > +            continue;
-> > > +
-> > >           switch (type) {
-> > >           case CORESIGHT_DEV_TYPE_SINK:
-> > >               coresight_disable_sink(csdev);
-> > > @@ -527,7 +532,7 @@ static void coresight_disable_path_from(struct
-> > > coresight_path *path,
-> > >   void coresight_disable_path(struct coresight_path *path)
-> > >   {
-> > > -    coresight_disable_path_from(path, NULL);
-> > > +    coresight_disable_path_from(path, NULL, false);
-> > 
-> > Something like a 'reason' enum would be more readable than a boolean. We
-> > might have more than two options in the future anyway.
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/mac.c b/drivers/net/wireless/mediatek/mt76/mt7996/mac.c
+index 8ddb6d69f0da2c49b72bd516dd380fad959eb063..2560e2f46e89a4bc46e21d796fca80b7decefa5c 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7996/mac.c
++++ b/drivers/net/wireless/mediatek/mt76/mt7996/mac.c
+@@ -2890,6 +2890,8 @@ void mt7996_mac_sta_rc_work(struct work_struct *work)
+ 	LIST_HEAD(list);
+ 	u32 changed;
+ 
++	mutex_lock(&dev->mt76.mutex);
++
+ 	spin_lock_bh(&dev->mt76.sta_poll_lock);
+ 	list_splice_init(&dev->sta_rc_list, &list);
+ 
+@@ -2922,6 +2924,8 @@ void mt7996_mac_sta_rc_work(struct work_struct *work)
+ 	}
+ 
+ 	spin_unlock_bh(&dev->mt76.sta_poll_lock);
++
++	mutex_unlock(&dev->mt76.mutex);
+ }
+ 
+ void mt7996_mac_work(struct work_struct *work)
 
-I will add a "path->in_idle" flag instead.
+---
+base-commit: 09600421ffe2acc1a00ec466b25485f11b6bb957
+change-id: 20251118-mt7996-rc-work-missing-mtx-abec584f56af
 
-> > >   }
-> > >   EXPORT_SYMBOL_GPL(coresight_disable_path);
-> > > @@ -550,8 +555,9 @@ static int coresight_enable_helpers(struct
-> > > coresight_device *csdev,
-> > >       return 0;
-> > >   }
-> > > -int coresight_enable_path(struct coresight_path *path, enum cs_mode
-> > > mode,
-> > > -              void *sink_data)
-> > > +static int coresight_enable_path_internal(struct coresight_path *path,
-> > > +                      enum cs_mode mode, void *sink_data,
-> > > +                      bool in_idle)
-> > >   {
-> > >       int ret = 0;
-> > >       u32 type;
-> > > @@ -564,10 +570,6 @@ int coresight_enable_path(struct coresight_path
-> > > *path, enum cs_mode mode,
-> > >           csdev = nd->csdev;
-> > >           type = csdev->type;
-> > > -        /* Enable all helpers adjacent to the path first */
-> > > -        ret = coresight_enable_helpers(csdev, mode, path);
-> > > -        if (ret)
-> > > -            goto err_disable_path;
-> > >           /*
-> > >            * ETF devices are tricky... They can be a link or a sink,
-> > >            * depending on how they are configured.  If an ETF has been
-> > > @@ -579,6 +581,15 @@ int coresight_enable_path(struct coresight_path
-> > > *path, enum cs_mode mode,
-> > >                           CORESIGHT_DEV_TYPE_SINK :
-> > >                           CORESIGHT_DEV_TYPE_LINK;
-> > > +        /* To reduce latency, CPU idle does not touch the sink */
-> > > +        if (in_idle && type == CORESIGHT_DEV_TYPE_SINK)
-> > > +            continue;
-> > 
-> > I can imagine that not being wanted for all sink types in the future, so
-> > we could let the sink decide this. But it's probably fine to leave in
-> > the core for now and it would be easy to change later.
-> 
-> I got to patch 12 and it adds a special condition in the core to do
-> something different for TRBE. We already have pm_is_needed() so shouldn't
-> the sinks be deciding this for themselves?
+Best regards,
+-- 
+Lorenzo Bianconi <lorenzo@kernel.org>
 
-pm_is_needed() is related to pm_save_disable()/pm_restore_enable()
-pairs. OTOH, coresight_enable_path() invokes enable()/disable()
-callbacks.  I don't want to mix up two different things.
-
-But I will check if can use pm_is_needed() for sink device in
-cpu_pm_save()/cpu_pm_restore().
-
-Thanks,
-Leo
 
