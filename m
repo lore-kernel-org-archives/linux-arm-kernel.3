@@ -4,73 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30A7ACF2560
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 22:55:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43355CF2562
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 22:57:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mpxSrIQU4Sf3/HyIJxoBUoaffMWOknIQxE4wCm6ESrk=; b=nfUvSObKhSNz4US6Kc5d2lo1pB
-	FxablXcz5GiyR2iz+DRxKLdki8st7Fp0SQApzgDEdPdIBASnQ/Z+BWWpk/NRVWsTl06PEvbBj4Adf
-	ZjlwXqKmjvpaso6iatLXIPBWtDDkau9AG5S6KGUabrkvFNHnOJpydaMatjbGIBw3hwF0ihrZvGv48
-	o5QNn3YCUFjHe+WKgM6wbPOuLqmIyYag2fOnKgooEe2zNwIdtlRCL/no0IhE6HocxQNRZRQAUfY2c
-	MTCjD6a9mBiFzdyCAo1SrBUQWIfp1ZYi8fhK4+5Q4DGrMIj2tcwENQlYtNGCdhVgnw+jbFrxdp5aw
-	M9U7CsrQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LJz8nG5sN3FDh1IyOGPvk5xFa+/J/sOHL6LWJMvknes=; b=pSI1xKnA2cDY95HH7+5ilZngYY
+	6qDAZNaiiK9gYhhgP+Vq93JFaxYk4ecEnB8tFMBeC4jRXjtSOU18LWP23WgpK1co8iHVgap9xQ/d5
+	8Ge1v52DoFiJsyTLASu3EdloelXLKDvIWUPSy0xvmyVQjJ2dCRop5gr2agQM+vM20qo5rHV350bAa
+	WTfdTy7mazkJnixlX+0fHT7IYnrx6F9frh/hgB0iVhSbFjKGfmEwYdJrP8XpoO4ipYBI1IaDEb5O3
+	VTJANgktCvhbpy9se7yxS+ht/hnQ9iXh67V640U6YpS8p9n9ExoB4iGzHzlzBZb2//AFIEUZb21xs
+	ubIi3NKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLUbV-00000001Cfa-35Jk;
-	Tue, 18 Nov 2025 22:55:17 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vLUdP-00000001CnD-0bMh;
+	Tue, 18 Nov 2025 22:57:15 +0000
+Received: from mail-lj1-x231.google.com ([2a00:1450:4864:20::231])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLUbS-00000001Cf3-34VV
+	id 1vLUdM-00000001Cmm-2vG1
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Nov 2025 22:55:16 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 63EBC4183F;
-	Tue, 18 Nov 2025 22:55:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6426EC19425;
-	Tue, 18 Nov 2025 22:55:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763506511;
-	bh=ECVRPnw3Dhpq/9Py1ARDE4+WGX1Y5233CDDNwtbgC2c=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=svZ7gpGLXJyX4ewPplNwWJkALIe4g/9+nzUE8VUkPwZdgaYr5lRvzcfe7kaUPIjBS
-	 4JZeuPH0pc1X2t9dl2nMGlWU3mI/oATcnOj0cHPwmpJX3GGiG5dD4xsMUiVDcd9Hqw
-	 312jzLTzMoU/a8k50zucWfTuCcmbrmggU1p35wFAYUHZMtjhFXStNjOzR3LFZIqve4
-	 Rdlcp5Qv4F81QWxFOtox33m80qTNMoFklv//0ag/RTuEiQKkmn6aABms8c5021usEc
-	 pBBF9MYjHfN9a8LmgCmhX6xqPnhMl/wpOQdKcZirQ5YHKDwFZfLIZBi6nek4KKsqkK
-	 hhyQ0PImEWlyA==
-Date: Tue, 18 Nov 2025 14:55:07 -0800
-From: Drew Fustini <fustini@kernel.org>
-To: Ben Horgan <ben.horgan@arm.com>
-Cc: james.morse@arm.com, amitsinght@marvell.com, baisheng.gao@unisoc.com,
-	baolin.wang@linux.alibaba.com, bobo.shaobowang@huawei.com,
-	carl@os.amperecomputing.com, catalin.marinas@arm.com,
-	dakr@kernel.org, dave.martin@arm.com, david@redhat.com,
-	dfustini@baylibre.com, fenghuay@nvidia.com,
-	gregkh@linuxfoundation.org, gshan@redhat.com, guohanjun@huawei.com,
-	jeremy.linton@arm.com, jonathan.cameron@huawei.com,
-	kobak@nvidia.com, lcherian@marvell.com, lenb@kernel.org,
-	linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, lpieralisi@kernel.org,
-	peternewman@google.com, quic_jiles@quicinc.com, rafael@kernel.org,
-	robh@kernel.org, rohit.mathew@arm.com, scott@os.amperecomputing.com,
-	sdonthineni@nvidia.com, sudeep.holla@arm.com,
-	tan.shaopeng@fujitsu.com, will@kernel.org, xhao@linux.alibaba.com
-Subject: Re: [PATCH 00/33] arm_mpam: Add basic mpam driver
-Message-ID: <aRz5S/gnT9mhqN+7@x1>
-References: <20251107123450.664001-1-ben.horgan@arm.com>
- <aRoG+UptQg9mix+7@x1>
- <753f4d26-efa9-4ffd-a820-7c2a53c0bc5f@arm.com>
+	Tue, 18 Nov 2025 22:57:13 +0000
+Received: by mail-lj1-x231.google.com with SMTP id 38308e7fff4ca-37a33f49018so50818361fa.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Nov 2025 14:57:11 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1763506630; x=1764111430; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=LJz8nG5sN3FDh1IyOGPvk5xFa+/J/sOHL6LWJMvknes=;
+        b=uuCeq8JG96Nu+egudLe3xi1BhzKbvcyDFa+uQeBxYPSPIEL8mrmVHrN68LjsO/AxXQ
+         gqmHQ9w1v9iBxnU7u2Yl5VO5pEYnmlfTPBIqc2KjK9xR9NthJARzQiM8D8BniFkz5nyd
+         0x1SBfncC5VOpGIm+DlzcioLDmtA1wKMnUVA/8Ntj7cWj1E+m+kNUER9kV1o2fYnnFfz
+         DbIr/zV+CmNPs0G/9Mge/L3q8MeE3rVb5YIB07/yS1RetXs7JEcsG/KxdZUr2kjUHYIm
+         EMmjd/bpPwpKt40rJ4JqSn3dj827tsRHZwd+7rVQCdHlIslFllmEDYDK+1M5WB8yuUk5
+         0AcQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1763506630; x=1764111430;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=LJz8nG5sN3FDh1IyOGPvk5xFa+/J/sOHL6LWJMvknes=;
+        b=UDjf7le2p/j6HfqA0pM1l4SOa5l2ZzE+KX9DunA3ixWpHR4+UZTlotOc5adL17hLe2
+         i8b+xLsDZRl3HWj0aTVAeAPOAZVTQdMTyE/cdCF3XtXG7aHSt0r6KdnVa4gfyKBR5KbD
+         XGPwPoN/Hb6Lj4PmsDD6ONSg4x7b8TXFsoHGKbrwyw1jVNpCvp9iWH8HlpHfLA2aCJyk
+         sRtXxqMOeBXddHWqjrmYRwsEJgxYG+dZyUr3F5BMTOqFR//Y9cHKS/8HMEK3ANCPDK3m
+         btDa1SlWSv15MQg6bqFOoOwQR5Nmzercznx/xGHvBbJzE+UCZSQVDusloP7fgXRqL0YX
+         Fqtw==
+X-Forwarded-Encrypted: i=1; AJvYcCXYFHPkXDzbWO8unqazh13yvmNF+Lt49POp3uNmhACtKwQnT+nteEeMFscfkpNyTzyibYm4SVy3Szdi7EJIXvob@lists.infradead.org
+X-Gm-Message-State: AOJu0YyI1xH+oG5r+8WXs/ZFdxLfaDcZZMBbKXW27tW7GVXFilTYDElj
+	mlJmj6Nkk6bc4eXvyYy8RNdl+BQqtMxtja15EErDVybW2EHh7ZM4drfGpnFiwAzxeuNlW7fBOfO
+	4fPxx+pwk8jxsmHEKeocOVaIZCV75DMKNAMw4ywyE2g==
+X-Gm-Gg: ASbGncszdYBa7j+QS8Mdwz0xruipa/fbAssoBR+0bJ4tT2UWULZfWqxdZ8tEnm0LyhS
+	J7Tss7nyaMmqZVJ1oNn4pCjMrqJ/6lKiUCei26Zn6lHkR5DdUBuJvoUlXBEYti5RfhpDBJHeS74
+	YGOgtcb0tnD0IuszCx3CaLpdpqJIXJYolw2sw37vKDFhzexcK8zbnV9FPAjN7vqaUsTGqfcsWuP
+	qTykuwt9ISjPqoU0/OHySgplIbnVDYNkT8AD+/8kcYbrd8PV/8xX2q+ja0JNGX7MrJBX7CzR9SM
+	FNjlAw==
+X-Google-Smtp-Source: AGHT+IHwZcAFMZS1bHsxU68eV9rOlrn8WFmX9PzE9NTh+PzIlvHiN2PvE8KkV7wfG/e63Wzo3GxckDVJu03pQm+3a6o=
+X-Received: by 2002:a05:6512:3a86:b0:594:74f9:3b3 with SMTP id
+ 2adb3069b0e04-595841f97abmr5327733e87.29.1763506629914; Tue, 18 Nov 2025
+ 14:57:09 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <753f4d26-efa9-4ffd-a820-7c2a53c0bc5f@arm.com>
+References: <20251111-pinctrl-s32cc-alloc-init-v1-0-071b3485b776@redhat.com>
+In-Reply-To: <20251111-pinctrl-s32cc-alloc-init-v1-0-071b3485b776@redhat.com>
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Tue, 18 Nov 2025 23:56:58 +0100
+X-Gm-Features: AWmQ_bnwhWkIocYT7e_LII6hlp7UoALS4YCTtfLZFvQ5s57acnTyw4Y1jo6l42k
+Message-ID: <CACRpkdYfNyAGdFpq=92UKBkScHq6U58N6XtwjJOJ3HAbBvFaNg@mail.gmail.com>
+Subject: Re: [PATCH 0/2] pinctrl: s32cc: fix uninitialized memory issues
+To: Jared Kangas <jkangas@redhat.com>
+Cc: Dong Aisheng <aisheng.dong@nxp.com>, Fabio Estevam <festevam@gmail.com>, 
+	Shawn Guo <shawnguo@kernel.org>, Jacky Bai <ping.bai@nxp.com>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, NXP S32 Linux Team <s32@nxp.com>, 
+	Chester Lin <chester62515@gmail.com>, Matthias Brugger <mbrugger@suse.com>, 
+	Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>, Bartosz Golaszewski <brgl@bgdev.pl>, 
+	linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251118_145514_818023_72984CF8 
-X-CRM114-Status: GOOD (  16.38  )
+X-CRM114-CacheID: sfid-20251118_145712_777673_00590B3C 
+X-CRM114-Status: GOOD (  14.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,27 +101,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 18, 2025 at 02:11:31PM +0000, Ben Horgan wrote:
-> Hi Drew,
-> 
-> On 11/16/25 17:16, Drew Fustini wrote:
-> > On Fri, Nov 07, 2025 at 12:34:17PM +0000, Ben Horgan wrote:
-> >> Hi all,
-> > [snip]
-> >> The rest of the driver can be found here: (no updated version - based on v3)
-> >> https://git.kernel.org/pub/scm/linux/kernel/git/morse/linux.git mpam/snapshot/v6.18-rc1
-> > 
-> > Does anyone know of a hosting platform that offers ARM machines that
-> > have MPAM?
-> 
-> As far as I know there aren't any.
-> 
-> There is some MPAM support in the Orion Radxa board which is likely the
-> cheapest option. The MPAM acpi table isn't in the firmware though so
-> you'd need to load a custom table. James has this working.
+On Tue, Nov 11, 2025 at 10:55=E2=80=AFPM Jared Kangas <jkangas@redhat.com> =
+wrote:
 
-Thank you, I didn't realize that there was a dev board that supports
-MPAM. I didn't want to the expense or noise of a rackable server :)
+> This is a small series that fixes some uninitialized memory issues in
+> pinctrl-s32cc. As an example of how these can affect the kernel, when
+> probing i2c-imx, a memory allocation may fail because of the
+> uninitialized memory giving a junk allocation size, which prevents chips
+> on one of the I2C buses from being detected:
+>
+>         # i2cdetect -l
+>         i2c-1   i2c             401ec000.i2c                            I=
+2C adapter
+>         i2c-2   i2c             402dc000.i2c                            I=
+2C adapter
+>         i2c-0   i2c             401e4000.i2c                            I=
+2C adapter
+>         # i2cdetect -y 0
+>              0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+>         00:          -- -- -- -- -- -- -- -- -- -- -- -- --
+>         10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+>         20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+>         30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+>         40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+>         50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+>         60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+>         70: -- -- -- -- -- -- -- --
+>
+> Compared to when no failure occurs:
+>
+>         # i2cdetect -l
+>         i2c-1   i2c             401ec000.i2c                            I=
+2C adapter
+>         i2c-2   i2c             402dc000.i2c                            I=
+2C adapter
+>         i2c-0   i2c             401e4000.i2c                            I=
+2C adapter
+>         # i2cdetect -y 0
+>              0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+>         00:          -- -- -- -- -- -- -- -- -- -- -- -- --
+>         10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+>         20: -- -- UU -- -- -- -- -- -- -- -- -- -- -- -- --
+>         30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+>         40: -- -- -- -- -- -- -- -- 48 -- -- -- -- -- -- --
+>         50: -- 51 -- -- -- -- -- -- -- -- -- -- -- -- -- --
+>         60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+>         70: -- -- -- -- -- -- -- --
+>
+> Signed-off-by: Jared Kangas <jkangas@redhat.com>
+> ---
+> Jared Kangas (2):
+>       pinctrl: s32cc: fix uninitialized memory in s32_pinctrl_desc
+>       pinctrl: s32cc: initialize gpio_pin_config::list after kmalloc()
 
-Drew
+Patches applied for fixes!
+
+Nice attention to detail here.
+
+Yours,
+Linus Walleij
 
