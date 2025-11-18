@@ -4,96 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69D35CED606
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 11:16:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58BC0CED606
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 11:17:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
 	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=prvcS1Nj5HxJbRS6Jy4uHehWZnJysfpIngTPCq04YCY=; b=rcbbBmYYzcBpiBlLgINFutNXRL
-	Zjki8vbVlRRBPisS25+wlPVT3x9HhrbdDQ2m+hnYsW5gEhLAm6BmBAHS3B5veNkDgh/tXchtYydp2
-	GLuXXghOt7SAKLKOUdFpLZ9To8Y7oCTZEAp3+Yf17AOnPbHNvr+ZGJUfDNRaOO4gyqit+3Kr4L7uX
-	TheNCcuYXcCBDRNdkYApsWkKnxO8YjjFGVYi1qqsDdvyUPoDD1uI/KOFXwSdwhbkHuKBS1sHOeTrb
-	xQ3MxBUjAn7LXn17K/mXiXL8jnpjkO/5tli8Ue4EJSOS4hKsVfaxuwOQA+232djZUe2QaC8YG72Zz
-	VuPrSWmg==;
+	bh=ICI58HqE+ly7YapWrb44Ml5uRJuKE+CUkOe4M7qjE5M=; b=ps//jLm/bJM3bVCOV22nF9PgSs
+	UIrztV1fUuyQR4AzR8a0j4eOf5QL3LwGkp4/TM5H7Q0mdDMF7fqEDQofPepSZn9hNqCJkiHzWQFSX
+	NdkmVhouw2wclGxlUYYXz7I8uG8lT9Bpb0WTL6MmRzUbmCv48sLo+LlNiSZLzVu9X8zYWTa935BDq
+	CaXC53/PW1Pg9tWldXYIbiD0df92qIRoevkflQv7WQpyZbhPBZfppL6j/HgleeJBNvOMMFqBJQZiT
+	4wTGWc3YYRxsvkNEgxN/yIV5ahgdrZj+n3tTRH5CAYNl/QhWpaHS+36OBeIQJ4oJTdEH3I/6ihqqs
+	fYHo5gZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLJgf-00000000Jy0-2COK;
-	Tue, 18 Nov 2025 11:15:53 +0000
-Received: from mail-vk1-f172.google.com ([209.85.221.172])
+	id 1vLJhc-00000000K6i-1SaZ;
+	Tue, 18 Nov 2025 11:16:52 +0000
+Received: from mail-ed1-x52c.google.com ([2a00:1450:4864:20::52c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLJgd-00000000Jxf-0GPM
+	id 1vLJhZ-00000000K5w-3L28
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Nov 2025 11:15:52 +0000
-Received: by mail-vk1-f172.google.com with SMTP id 71dfb90a1353d-5597a426807so3278455e0c.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Nov 2025 03:15:50 -0800 (PST)
+	Tue, 18 Nov 2025 11:16:51 +0000
+Received: by mail-ed1-x52c.google.com with SMTP id 4fb4d7f45d1cf-6418b55f86dso8579283a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Nov 2025 03:16:49 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1763464608; x=1764069408; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=ICI58HqE+ly7YapWrb44Ml5uRJuKE+CUkOe4M7qjE5M=;
+        b=QOq9cbPRCTQE+iCuYos8DhOy7bZuXGcf8KJdKur5vsa4CZpcELkCDHghc1/46APfJZ
+         maYCNeT255v02uM3LsvHKNoya2kVCDTXL9nahSXBS5K77o/5M7hekoWZBeCoHxw+dOWS
+         ZECinoVqmpPQQ5I2bA0+BffTNihgTmF1gPFLzVGxWml3TwYbpGki+2nFRLBANG/6H+U1
+         qp9VY7bXWicHlx/tG4d1Bd9TgbLo7guJmK1QwkqLSkkKXPoqtOlprnkMKy4QRY8+6yVD
+         6ZS4rfvgzgF5OljAyhyfDRKZRjdfzW6MgEUulP0DMac4jXSaMd+jAsnA8jXUgB1VBTog
+         5PlA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763464549; x=1764069349;
+        d=1e100.net; s=20230601; t=1763464608; x=1764069408;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=prvcS1Nj5HxJbRS6Jy4uHehWZnJysfpIngTPCq04YCY=;
-        b=xGVAyPrfGBNDN8jWIf5QOMmjPSTXdjXIIU6GdJPPQ/49T1LgLfrnDN3H4GpCyvaI92
-         olSuu1X9oOU82u6qLRmcr0dfk8Ierh8IS8bekyrnZK642tSIGzrR1U8Sew/PDBABJ3/f
-         revgUhaxMrfy8U8OBmCrK4NHxIze0jOQPFwSJXUnolFCbffULPCxUUxIfUMOz8ne9KIX
-         xqDV3/ir/NXmXDQhJbnEg6iWy1uzw/lyLIFKpNJWLTsmdPzmHFgb/444kW3pX7R+L5h4
-         hPfz0hCWpkBw2gViY7DiDTnmgctvE/HCbEnaob6u9hlvmCjVX1zbK+BDzlyj7rSolLJZ
-         ld3A==
-X-Forwarded-Encrypted: i=1; AJvYcCWZ/WnLtPhccc3BTSoCM5OtUo+bmKm/S6agtXgPPUKDBYxcm3thZdcZG5WPeLuJg0tvDbi6s8cY6pVBwkwtTEeC@lists.infradead.org
-X-Gm-Message-State: AOJu0YyR8OPtDmv9hSQSNoOHfk2mgkIUCLoUiy5g4d4z0gVoOtNpnaQo
-	rF32RSX31+FbvrckZAhRqBo7mxYJPLNIpC3HJj/18/87JahAZKNAfNYB83lmqoJEtA8=
-X-Gm-Gg: ASbGncuydqp6aKk3UKXGeIpqNPiZhVJRw/TE1lv6cdnClkWgxICKIEOQfsO7U8yNqSU
-	932cL2Kz5xvBiSz+NQ5xtM0aELsUvqIv0827NgmKRWQFhxRfROSwBvmRuUWKi/4XPRUHggRl60p
-	VMiSrLa16c2fRUqgUTeyA8DqDJwX2fckN61b630wY5r63ALGsFgPKk70UhCKEUsuxhBy3PAZ+0s
-	lrojIyGHzKlha73uuSIpVJMExcPXJip3kZILrojG4/gWWYhuqAR+7zU7gEvBjM8nNP9ZaJpHgH+
-	zkAqhr4PMw1SWkXCWPnV4yYnEsAo0FyjzVz7vIqOuYugeeZoxXH50F9gWtueDHNW+ZJ7TunM1PG
-	u0ii1197EbAW9HqoShW/Xi6h1OtnlGvxYOXkXLtFwq0nPwVnAfTcae+0R96NeeynbRvXii1DbOv
-	GvJD/2Bz2paE7bsZPk4VERSpZaZha2AMMM7KwxglIYa0v+uL7h1Cm4TykLgJc=
-X-Google-Smtp-Source: AGHT+IF20qpSdXP5T4JS5mbLE/K2juaHUr7x34FAGxxiJOXDIRX+tFdsj+abCZPWwBRZt7rG9MF6Xw==
-X-Received: by 2002:a05:6122:8c27:b0:557:98ab:8a27 with SMTP id 71dfb90a1353d-55b1bccc081mr5700983e0c.3.1763464549043;
-        Tue, 18 Nov 2025 03:15:49 -0800 (PST)
-Received: from mail-vs1-f51.google.com (mail-vs1-f51.google.com. [209.85.217.51])
-        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-55b0f32e47asm5217986e0c.1.2025.11.18.03.15.48
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 18 Nov 2025 03:15:48 -0800 (PST)
-Received: by mail-vs1-f51.google.com with SMTP id ada2fe7eead31-5dbcd54d2d8so4576007137.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Nov 2025 03:15:48 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCU7wTv5mBJG+inIlyXyBe9en3gjAQ/Rqb6WMZaDQxAWsGS6nfn5mi5jywxGrO0SaBTj34c6Kof/qJfUVe+30HVc@lists.infradead.org
-X-Received: by 2002:a05:6102:4189:b0:5dc:7fe3:1d0 with SMTP id
- ada2fe7eead31-5dfc5586babmr5642681137.19.1763464547898; Tue, 18 Nov 2025
- 03:15:47 -0800 (PST)
+        bh=ICI58HqE+ly7YapWrb44Ml5uRJuKE+CUkOe4M7qjE5M=;
+        b=ejCMRHNwc/t6FYcPfkt5mrv2yopOvAeunMb7QhxrRHSpFF4I1/0hR2tXExmhMXhjrm
+         GfOAtYiOuaGSqLr5i6t3pXNVhdbF3Negwq967+DhWEdIVVjswhDT3YNzQ1vln3ZAgFlh
+         Yn10c8gF4+j1YyT9YrUTbHMEc7xLntUoRZ5kOKWPQiMbHFksv8SwG/IdOpioZyra4Lmy
+         VYwlw4R/5var+lHrf+x4k1qt3VqwIzd1Lf1K3sUSRFPExPC+9NFw1SYVLDo4kwPKdoYB
+         tL1lrCsEjg4xv/Al27w6ihUCtzSjmEjqer3G59U2m/4cfEzYybJTX80LnzgvEQSLypxd
+         QP9A==
+X-Forwarded-Encrypted: i=1; AJvYcCWUIIUUAKApO0UUT30P9kgIteOFV0ZhlcBTb+OHoq/Vp1AmXNXN9SAwuqtiOCr/yXLeQNn5n/T9yEKvW4rG3VNF@lists.infradead.org
+X-Gm-Message-State: AOJu0YxPPrTKGqZWNfnj81x7xE8OhQLPVqyV9shNZHJSCRfNxaomp5NN
+	hCEAJwPhPqV2C8ngNgjhVh/0ExmKjtz0DLU4Pq9rneckZjzH2sQ0fOJm1Qe4IRAKLDoUOkaty/v
+	+UFzGiXy/pYfCooU+xP+H7btohfgw7vA=
+X-Gm-Gg: ASbGncsK3vK15WKkJdL7n96H8V2oP3Xcblg0xrBysX6EoTXrAr7zY81S8XGHP2V5/cz
+	NBbzYbcCrA+/fTukskXr7789qPTR8x+r9cBh94qCWbZJlkxy7RbWOqCgZw3Hh1bt/+iqb+IMI/G
+	n1CZnja05onRueQCpo83YjdIl11BGnZ3R1fmcINbcF8Vrz0jvWm5IGpkmVWZXQNyTf4+nbvUA5I
+	/hqf32ZiaBrlU1iz2SdU3iLQ+xJTTTE4ZpHPyIk/DxJo/DnFqIkjPeRPXfAHXFlL+/Nhg==
+X-Google-Smtp-Source: AGHT+IGk8eL0HoWbK04CZRhqLg9Zqyg4kUzMUvvqXtI9msvINBej1DvZVcQa01Y7VyQwGu9XDV2OL2RxowdJygXo/7w=
+X-Received: by 2002:a05:6402:26d1:b0:640:ecaa:1973 with SMTP id
+ 4fb4d7f45d1cf-64350e8ccb6mr13827406a12.24.1763464607610; Tue, 18 Nov 2025
+ 03:16:47 -0800 (PST)
 MIME-Version: 1.0
-References: <20251112-gpio-shared-v4-0-b51f97b1abd8@linaro.org>
-In-Reply-To: <20251112-gpio-shared-v4-0-b51f97b1abd8@linaro.org>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Tue, 18 Nov 2025 12:15:36 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdVR9Z70+M-SqHYrHiC6H_yw=VRuDOOg=YnXSNKjPnx3WQ@mail.gmail.com>
-X-Gm-Features: AWmQ_bnG1e_JZjF_t0LAgzvKf5wM6L4cWt2t2bx5VV8t6YS3prQ_Mx2gaFVEov0
-Message-ID: <CAMuHMdVR9Z70+M-SqHYrHiC6H_yw=VRuDOOg=YnXSNKjPnx3WQ@mail.gmail.com>
-Subject: Re: [PATCH v4 00/10] gpio: improve support for shared GPIOs
-To: Bartosz Golaszewski <brgl@bgdev.pl>
-Cc: Kees Cook <kees@kernel.org>, Mika Westerberg <westeri@kernel.org>, 
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>, Andrew Morton <akpm@linux-foundation.org>, 
-	Linus Walleij <linus.walleij@linaro.org>, Manivannan Sadhasivam <mani@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Saravana Kannan <saravanak@google.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Andy Shevchenko <andy@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Srinivas Kandagatla <srini@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
-	Alexey Klimov <alexey.klimov@linaro.org>, Bjorn Andersson <andersson@kernel.org>, 
-	Konrad Dybcio <konradybcio@kernel.org>, linux-hardening@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-sound@vger.kernel.org, 
-	linux-arm-msm@vger.kernel.org, 
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>, 
-	Linux-Renesas <linux-renesas-soc@vger.kernel.org>
+References: <20251117181023.482138-3-linux.amoon@gmail.com> <20251118005056.GA2541796@bhelgaas>
+In-Reply-To: <20251118005056.GA2541796@bhelgaas>
+From: Anand Moon <linux.amoon@gmail.com>
+Date: Tue, 18 Nov 2025 16:46:30 +0530
+X-Gm-Features: AWmQ_bksxI4TM_0iWFBAZwf_P1h7XfT3sMIf2tlbZ560ebj9GBa7XRzaoXRCoWo
+Message-ID: <CANAwSgSMiRrPp5G+guGQSsqArz7M750NAg8SQoorUQ7gJhUxHQ@mail.gmail.com>
+Subject: Re: [RFC v1 2/5] PCI: rockchip: Fix Device Control register offset
+ for Max payload size
+To: Bjorn Helgaas <helgaas@kernel.org>
+Cc: Shawn Lin <shawn.lin@rock-chips.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+	=?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
+	Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
+	Heiko Stuebner <heiko@sntech.de>, 
+	"open list:PCIE DRIVER FOR ROCKCHIP" <linux-pci@vger.kernel.org>, 
+	"open list:PCIE DRIVER FOR ROCKCHIP" <linux-rockchip@lists.infradead.org>, 
+	"moderated list:ARM/Rockchip SoC support" <linux-arm-kernel@lists.infradead.org>, 
+	open list <linux-kernel@vger.kernel.org>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251118_031551_115682_FC7879FD 
-X-CRM114-Status: GOOD (  36.07  )
+X-CRM114-CacheID: sfid-20251118_031649_873140_B5C52B61 
+X-CRM114-Status: GOOD (  33.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,68 +100,147 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Bartosz,
+Hi Bjorn
 
-On Wed, 12 Nov 2025 at 15:05, Bartosz Golaszewski <brgl@bgdev.pl> wrote:
-> Bjorn, Konrad: I should have Cc'ed you on v1 but I just went with what
-> came out of b4 --auto-to-cc. It only gave me arm-msm. :( Patch 7 from
-> this series however impacts Qualcomm platforms. It's a runtime dependency
-> of patches 8 and 9. Would you mind Acking it so that I can take it into
-> an immutable branch that I'll make available to Mark Brown for him to
-> take patches 8-10 through the ASoC and regulator trees for v6.19?
+Thanks for your review comments.
+
+On Tue, 18 Nov 2025 at 06:21, Bjorn Helgaas <helgaas@kernel.org> wrote:
 >
-> Problem statement: GPIOs are implemented as a strictly exclusive
-> resource in the kernel but there are lots of platforms on which single
-> pin is shared by multiple devices which don't communicate so need some
-> way of properly sharing access to a GPIO. What we have now is the
-> GPIOD_FLAGS_BIT_NONEXCLUSIVE flag which was introduced as a hack and
-> doesn't do any locking or arbitration of access - it literally just hand
-> the same GPIO descriptor to all interested users.
+> On Mon, Nov 17, 2025 at 11:40:10PM +0530, Anand Moon wrote:
+> > As per 17.6.6.1.29 PCI Express Device Capabilities Register
+> > (PCIE_RC_CONFIG_DC) reside at offset 0xc8 within the Root Complex (RC)
+> > configuration space, not at the offset of the PCI Express Capability
+> > List (0xc0). Following changes corrects the register offset to use
+> > PCIE_RC_CONFIG_DC (0xc8) to configure Max Payload Size.
+> >
+> > Signed-off-by: Anand Moon <linux.amoon@gmail.com>
+> > ---
+> >  drivers/pci/controller/pcie-rockchip-host.c | 4 ++--
+> >  drivers/pci/controller/pcie-rockchip.h      | 1 +
+> >  2 files changed, 3 insertions(+), 2 deletions(-)
+> >
+> > diff --git a/drivers/pci/controller/pcie-rockchip-host.c b/drivers/pci/controller/pcie-rockchip-host.c
+> > index f0de5b2590c4..d51780f4a254 100644
+> > --- a/drivers/pci/controller/pcie-rockchip-host.c
+> > +++ b/drivers/pci/controller/pcie-rockchip-host.c
+> > @@ -382,10 +382,10 @@ static int rockchip_pcie_host_init_port(struct rockchip_pcie *rockchip)
+> >               rockchip_pcie_write(rockchip, status, PCIE_RC_CONFIG_CR + PCI_EXP_LNKCAP);
+> >       }
+> >
+> > -     status = rockchip_pcie_read(rockchip, PCIE_RC_CONFIG_CR + PCI_EXP_DEVCTL);
+> > +     status = rockchip_pcie_read(rockchip, PCIE_RC_CONFIG_DC + PCI_EXP_DEVCTL);
+> >       status &= ~PCI_EXP_DEVCTL_PAYLOAD;
+> >       status |= PCI_EXP_DEVCTL_PAYLOAD_256B;
+> > -     rockchip_pcie_write(rockchip, status, PCIE_RC_CONFIG_CR + PCI_EXP_DEVCTL);
+> > +     rockchip_pcie_write(rockchip, status, PCIE_RC_CONFIG_DC + PCI_EXP_DEVCTL);
+> >
+> >       return 0;
+> >  err_power_off_phy:
+> > diff --git a/drivers/pci/controller/pcie-rockchip.h b/drivers/pci/controller/pcie-rockchip.h
+> > index 5d8a3ae38599..c0ec6c32ea16 100644
+> > --- a/drivers/pci/controller/pcie-rockchip.h
+> > +++ b/drivers/pci/controller/pcie-rockchip.h
+> > @@ -157,6 +157,7 @@
+> >  #define PCIE_EP_CONFIG_LCS           (PCIE_EP_CONFIG_BASE + 0xd0)
+> >  #define PCIE_RC_CONFIG_RID_CCR               (PCIE_RC_CONFIG_BASE + 0x08)
+> >  #define PCIE_RC_CONFIG_CR            (PCIE_RC_CONFIG_BASE + 0xc0)
+> > +#define PCIE_RC_CONFIG_DC            (PCIE_RC_CONFIG_BASE + 0xc8)
 >
-> The proposed solution is composed of three major parts: the high-level,
-> shared GPIO proxy driver that arbitrates access to the shared pin and
-> exposes a regular GPIO chip interface to consumers, a low-level shared
-> GPIOLIB module that scans firmware nodes and creates auxiliary devices
-> that attach to the proxy driver and finally a set of core GPIOLIB
-> changes that plug the former into the GPIO lookup path.
+> Per the RK3399 TRM:
 >
-> The changes are implemented in a way that allows to seamlessly compile
-> out any code related to sharing GPIOs for systems that don't need it.
+>   DEVCAP              0xc4
+>   DEVCTL and DEVSTA   0xc8
+>   LNKCAP              0xcc
+>   LNKCTL and LNKSTA   0xd0
+>   SLTCAP              0xd4
+>   SLTCTL and SLTSTA   0xd8
 >
-> The practical use-case for this are the powerdown GPIOs shared by
-> speakers on Qualcomm db845c platform, however I have also extensively
-> tested it using gpio-virtuser on arm64 qemu with various DT
-> configurations.
+> That all makes good sense and matches the relative offsets in the PCIe
+> Capability.
+>
+> I have no idea how we got from that to the mind-bendingly obtuse
+> #defines here:
+>
+>   PCIE_RC_CONFIG_CR == PCIE_RC_CONFIG_BASE + 0xc0
+>                     == 0xa00000 + 0xc0
+>                     == 0xa000c0
+>
+>   PCIE_RC_CONFIG_DC == PCIE_RC_CONFIG_BASE + 0xc8
+>                     == 0xa00000 + 0xc8
+>                     == 0xa000c8
+>
+>   PCIE_RC_CONFIG_LC == PCIE_RC_CONFIG_BASE + 0xd0
+>                     == 0xa00000 + 0xd0
+>                     == 0xa000d0
+>
+>   PCIE_RC_CONFIG_SR == PCIE_RC_CONFIG_BASE + 0xd4
+>                     == 0xa00000 + 0xd4
+>                     == 0xa000d4
+>
+> And they're used like this:
+>
+>   PCIE_RC_CONFIG_CR + PCI_EXP_LNKCAP == 0xa000c0 + 0x0c
+>                                      == 0xa000cc
+>
+>   PCIE_RC_CONFIG_CR + PCI_EXP_LNKCTL == 0xa000c0 + 0x10
+>                                      == 0xa000d0
+>
+>   PCIE_RC_CONFIG_DC + PCI_EXP_DEVCTL == 0xa000c8 + 0x08
+>                                      == 0xa000d0     <-- same as LNKCTL?
+>
+>   PCIE_RC_CONFIG_SR + PCI_EXP_DEVCAP == 0xa000d4 + 0x04
+>                                      == 0xa000d8     <--
+>
+>   PCIE_RC_CONFIG_LC + PCI_EXP_LNKCTL == 0xa000d0 + 0x10
+>                                      == 0xa000e0     <-- but LNKCTL was at 0xa000d0 above?
+>
+> And the mappings don't make any sense to me:
+You are correct, PCIE_RC_CONFIG_DC + PCI_EXP_DEVCTL  results in an
+incorrect offset.
 
-Thanks for your series, part of which is now present linux-next.
-IIUIC, this requires the direction of the GPIO to be fixed?
+As per my understanding
+#define PCI_EXP_DEVCTL 0x08 /* Device Control */
+#define  PCI_EXP_DEVCTL_PAYLOAD 0x00e0 /* Max_Payload_Size */
+#define  PCI_EXP_DEVCTL_PAYLOAD_128B 0x0000 /* 128 Bytes */
+#define  PCI_EXP_DEVCTL_PAYLOAD_256B 0x0020 /* 256 Bytes */
+#define  PCI_EXP_DEVCTL_PAYLOAD_512B 0x0040 /* 512 Bytes */
+#define  PCI_EXP_DEVCTL_PAYLOAD_1024B 0x0060 /* 1024 Bytes */
 
-We have a long-standing use-case on various Renesas R-Car Gen3 boards
-(e.g. Salvator-X(S) and ULCB[1]), where GPIOs are shared by LEDs and
-key switches.  Basically, the GPIO is connected to:
-  1. A key switch connecting to GND when closed, with pull-up.
-  2. The gate of an N-channel MOSFET, turning on an LED when driven
-     high.
+What I was thinking about was mapping it to a register to offset the
+Max_Payload_Size (7:5) at PCIE_RC_CONFIG_DC (0xa000c8).
 
-Hence:
-  - In output mode, the LED can be controlled freely,
-  - In input mode, the LED is on, unless the key is pressed,
-  - Hence the switch state can only be read when the LED is turned on.
-If you have any idea how to handle this, feel free to reply ;-)
-
-Thanks!
-
-[1] https://www.renesas.com/en/document/sch/r-car-starterkit-schematic
-    (needs a (free) account) Page 15 aka schematic 12.
-
-Gr{oetje,eeting}s,
-
-                        Geert
-
--- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+Sorry for the noise.
+>
+>   CR -> LNKCAP & LNKCTL
+>   DC -> DEVCTL (ok, this one makes a *little* sense)
+>   SR -> DEVCAP
+>   LC -> LNKCTL (would make some sense except that we have CR above)
+>
+> This is all just really hard to read.  It looks like if we defined a
+> single base address for the PCIe Capability, we shouldn't need all the
+> _CR, _DC, _LC, _SR, etc #defines.  E.g., we could have
+>
+>   #define ROCKCHIP_RP_PCIE_CAP ...
+#define ROCKCHIP_RP_PCIE_CAP (PCIE_RC_CONFIG_BASE + 0xc0)
+Is this ok? But the current code uses the same.
+>
+>   rockchip_pcie_read(rockchip, ROCKCHIP_RP_PCIE_CAP + PCI_EXP_DEVCAP)
+>   rockchip_pcie_read(rockchip, ROCKCHIP_RP_PCIE_CAP + PCI_EXP_LNKCTL)
+>   ...
+>
+> with maybe some minor adjustment for 16-bit registers since Rockchip
+> only seems to support 32-bit accesses (?)
+>
+> None of these registers are *Root Complex* registers; they're all part
+> of a PCIe Capability, which applies to a Root *Port*.
+>
+Ok, I understood
+> >  #define PCIE_RC_CONFIG_LC            (PCIE_RC_CONFIG_BASE + 0xd0)
+> >  #define PCIE_RC_CONFIG_L1_SUBSTATE_CTRL2 (PCIE_RC_CONFIG_BASE + 0x90c)
+> >  #define PCIE_RC_CONFIG_THP_CAP               (PCIE_RC_CONFIG_BASE + 0x274)
+> > --
+> > 2.50.1
+> >
+Thanks
+-Anand
 
