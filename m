@@ -4,57 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F3C7CE8D6B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 01:28:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61CB4CE8D6B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 01:30:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Cc:To:From:Subject:
-	References:In-Reply-To:Message-Id:MIME-Version:Content-Type:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0EFnRyIIewBsF1qa/LcoAdGsrqh7sImFPTSHGGtYo0w=; b=qxUw/uC8d+34dT+DZM1VXmKg1P
-	IjYuMi/v5cbFqQBiW0uX6ccH7U9qnv2qh1v2y12+Eik8unW5uaKkdNhcPipG2fJPLpLVbh4l5Y4NO
-	WAPvSWXva2hfqaWOYfmOJ1Ul9WK3rekJNpyZ+c/SshDEJbODJrPI7ePd+LY6Hq9Aq3OnwPOsAW71o
-	vKxHlPccZYTBvtJd6N84fnKRsVKNm+g3KFchEOasDtHyDLAYKw6+RFjDxv9NRNzO/deGuo2VHKnb8
-	sxcLqgXYmr3p4afAPKuZTbUY45jx1R+eYU6oEIFhQJr7kfmonCWkbi9jdXTbWQoE+EV+Lu/oZMRMl
-	XhHUt9Sg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bxEjiiQIXypnGaMm2YV0gh5gU0/Rq/qPeCgs1Qr4rXw=; b=ecHmFTR1NKVwPI7Y30kupcT2Oi
+	YbvoER7b2njw7djYlb5Q1/eWCYIFb7OxfntYVSkDXtlHXfd4TJcUNIJlguonO1jQ2r1esA6uSetCk
+	seqdRq4FedH4E3YMnl15qSBdIWkvYQUr5wVul3hqP9GhCquCozq3UFHBPZTGI4bB0CtYkL7izGRza
+	1N7RNWT2JXFjLu3SB3n4IIZZyzYAnntb22LVsQ9UL/YQ3OIoy2hZaIVDa2cqD70/vaPsqTbagFgIx
+	duAYfToSqpm61oaUem6sU2xStP8GRdW6fniT6bsSF+uI8R+vo22AarQJAk8GHt10KplfFJL44NP6D
+	e732/9tA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLAVb-0000000H86l-2GK5;
-	Tue, 18 Nov 2025 01:27:51 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vLAYO-0000000H8M5-0cH6;
+	Tue, 18 Nov 2025 01:30:44 +0000
+Received: from mail-m3270.qiye.163.com ([220.197.32.70])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLAVY-0000000H86K-0Vhp
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Nov 2025 01:27:49 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 675904168E;
-	Tue, 18 Nov 2025 01:27:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CAB32C2BC9E;
-	Tue, 18 Nov 2025 01:27:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763429267;
-	bh=0oteIb+X1fJCyo+Zxr4nkUcxMjcvmBQGKU7OiOe0rpY=;
-	h=In-Reply-To:References:Subject:From:To:Cc:Date:From;
-	b=G8n8wVUbDy9xMoxpRV8pACQkfp9whBlQYQ78z1mHVC+Tv+BDltUo0t5oda21AUDCY
-	 T5DNkpifz6tSITK5L4rpTl211NX7Bj1hexmjiJ4XK6DOHTZ4Q+KFKt+tcEofcurJwv
-	 i1LLbAZI4MmVtRlBIkWPeNo1GRfaPm60Cv8CmoDYEtU279u8RhX81DoCg4ZuTZv92n
-	 vMWp9X9lpd5LH1IKOrDg4ULRstBc2OAZ7vKF54PSE29eCRV33uUQsyGHtdO5h5GsxU
-	 Um54PFFFXeSQdvMIWVq5baqALXlJuFHx6nOngKATHyhNX2SsBXUgnlMvWYiYf8Kc84
-	 hLa4GMK9a05rA==
-Content-Type: multipart/mixed; boundary="===============1479139858118383586=="
+	id 1vLAYI-0000000H8L5-3jhZ;
+	Tue, 18 Nov 2025 01:30:41 +0000
+Received: from [172.16.12.51] (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 29e9711a9;
+	Tue, 18 Nov 2025 09:30:31 +0800 (GMT+08:00)
+Message-ID: <26019e39-d36a-4290-ac80-c8b0b09104c8@rock-chips.com>
+Date: Tue, 18 Nov 2025 09:30:29 +0800
 MIME-Version: 1.0
-Message-Id: <ad3ea8d7ccb10a7972db01b58d2596b425d60718ec09450a1ed6d7839488af51@mail.kernel.org>
-In-Reply-To: <20251118005305.27058-2-jordan@jrife.io>
-References: <20251118005305.27058-2-jordan@jrife.io>
-Subject: Re: [RFC PATCH bpf-next 1/7] bpf: Set up update_prog scaffolding for bpf_tracing_link_lops
-From: bot+bpf-ci@kernel.org
-To: jordan@jrife.io,bpf@vger.kernel.org
-Cc: jordan@jrife.io,linux-arm-kernel@lists.infradead.org,linux-s390@vger.kernel.org,x86@kernel.org,ast@kernel.org,daniel@iogearbox.net,andrii@kernel.org,martin.lau@linux.dev,puranjay@kernel.org,iii@linux.ibm.com,mingo@redhat.com,ast@kernel.org,andrii@kernel.org,daniel@iogearbox.net,martin.lau@kernel.org,eddyz87@gmail.com,yonghong.song@linux.dev,clm@meta.com,ihor.solodrai@linux.dev
-Date: Tue, 18 Nov 2025 01:27:45 +0000 (UTC)
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 3/3] iommu: Allow drivers to say if they use
+ report_iommu_fault()
+To: Jason Gunthorpe <jgg@nvidia.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Christian Benvenuti <benve@cisco.com>, Heiko Stuebner <heiko@sntech.de>,
+ iommu@lists.linux.dev, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Joerg Roedel <joro@8bytes.org>, Leon Romanovsky <leon@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+ linux-mediatek@lists.infradead.org, linux-rdma@vger.kernel.org,
+ linux-rockchip@lists.infradead.org, linux-sunxi@lists.linux.dev,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ Nelson Escobar <neescoba@cisco.com>, Rob Clark
+ <robin.clark@oss.qualcomm.com>, Robin Murphy <robin.murphy@arm.com>,
+ Samuel Holland <samuel@sholland.org>,
+ Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
+ Chen-Yu Tsai <wens@csie.org>, Will Deacon <will@kernel.org>,
+ Yong Wu <yong.wu@mediatek.com>
+Cc: Lu Baolu <baolu.lu@linux.intel.com>, patches@lists.linux.dev
+References: <3-v2-25fc75484cab+ab-iommu_set_fault_jgg@nvidia.com>
+Content-Language: en-US
+From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+In-Reply-To: <3-v2-25fc75484cab+ab-iommu_set_fault_jgg@nvidia.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-HM-Tid: 0a9a9495ba3803abkunm15b0adc69f2477
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGRkdHlYZGhhKTE4dT0kYQxhWFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
+	hVSktLVUpCS0tZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=QRo1qMrOcfJjKh6zkNQm7Q+laoUJwAHpzYU+Kfpz2Zq1FQVguylVfS3NwtS9e2eavcEEnmDelf0Cvg+rdRCX0a5Ga6KMJ9m3Z32pyEpqYVaYKezexAoecIhCuJTveZ363vARWnJIw7yOvVgaM6baUYg4KhPn0q2mZr+M2K8HeyY=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=bxEjiiQIXypnGaMm2YV0gh5gU0/Rq/qPeCgs1Qr4rXw=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251117_172748_204034_0B7C8046 
-X-CRM114-Status: GOOD (  17.12  )
+X-CRM114-CacheID: sfid-20251117_173039_808915_43E02288 
+X-CRM114-Status: GOOD (  12.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,90 +84,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---===============1479139858118383586==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
+Hello Jason,
 
-> diff --git a/include/linux/bpf.h b/include/linux/bpf.h
-> index 09d5dc541..23fcbcd26 100644
-> --- a/include/linux/bpf.h
-> +++ b/include/linux/bpf.h
-
-[ ... ]
-
-> diff --git a/kernel/bpf/syscall.c b/kernel/bpf/syscall.c
-> index a2a441185..14dd8be7b 100644
-> --- a/kernel/bpf/syscall.c
-> +++ b/kernel/bpf/syscall.c
-
-[ ... ]
-
-> diff --git a/kernel/bpf/trampoline.c b/kernel/bpf/trampoline.c
-> index 04104397c..d2fd02e10 100644
-> --- a/kernel/bpf/trampoline.c
-> +++ b/kernel/bpf/trampoline.c
-> @@ -607,6 +607,35 @@ int bpf_trampoline_link_prog(struct bpf_tramp_link *link,
->  	return err;
->  }
+On 11/7/2025 4:34 AM, Jason Gunthorpe wrote:
+> report_iommu_fault() is an older API that has been superseded by
+> iommu_report_device_fault() which is capable to support PRI.
 >
-> +static int __bpf_trampoline_update_prog(struct bpf_tramp_link *link,
-> +					struct bpf_prog *new_prog,
-> +					struct bpf_trampoline *tr)
-> +{
-> +	return -ENOTSUPP;
-> +}
-> +
-> +int bpf_trampoline_update_prog(struct bpf_tramp_link *link,
-> +			       struct bpf_prog *new_prog,
-> +			       struct bpf_trampoline *tr)
-> +{
-> +	struct bpf_prog *old_prog;
-> +	int err;
-> +
-> +	mutex_lock(&tr->mutex);
-> +	err = __bpf_trampoline_update_prog(link, new_prog, tr);
-> +	if (!err) {
-> +		/* If a program update was successful, switch the program
-> +		 * in the link before releasing tr->mutex; otherwise, another
-> +		 * operation could come along and update the trampoline with
-> +		 * the link still pointing at the old program.
-> +		 */
-> +		old_prog = xchg(&link->link.prog, new_prog);
-> +		bpf_prog_put(old_prog);
-> +	}
-> +	mutex_unlock(&tr->mutex);
-> +	return err;
-> +}
-> +
+> Only two external drivers consume this, drivers/remoteproc and
+> drivers/gpu/drm/msm. Ideally they would move over to the new APIs, but for
+> now protect against accidentally mix and matching the wrong components.
+>
+> The iommu drivers support either the old iommu_set_fault_handler() via the
+> driver calling report_iommu_fault(), or they are newer server focused
+> drivers that call iommu_report_device_fault().
+>
+> Include a flag in the iommu_ops if the driver calls report_iommu_fault()
+> and block iommu_set_fault_handler() for domain's of iommu drivers that
+> can't support it.
+>
+> Reviewed-by: Lu Baolu <baolu.lu@linux.intel.com>
+> Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
+> Reviewed-by: Vasant Hegde <vasant.hegde@amd.com>
+> Reviewed-by: Kevin Tian <kevin.tian@intel.com>
 
-Can bpf_prog_put() be called while holding tr->mutex?
-
-When bpf_prog_put()->__bpf_prog_put() drops the program's refcount to
-zero and we're not in IRQ context (which we aren't when holding a regular
-mutex), it directly calls bpf_prog_put_deferred(). This eventually calls
-bpf_trampoline_put(), which takes trampoline_mutex.
-
-The existing code in bpf_trampoline_link_cgroup_shim() carefully unlocks
-tr->mutex before calling bpf_trampoline_put() (see the comment "have to
-release tr while _not_ holding its mutex"). Additionally,
-bpf_trampoline_put() has WARN_ON_ONCE(mutex_is_locked(&tr->mutex)) to
-catch this pattern.
-
-Should bpf_prog_put() be moved after mutex_unlock(&tr->mutex)?
-
->  static int __bpf_trampoline_unlink_prog(struct bpf_tramp_link *link,
->  					struct bpf_trampoline *tr,
->  					struct bpf_prog *tgt_prog)
-
-[ ... ]
+Sorry for the noise. Sometimes non-IOMMU drivers, such as DRM devices, also want to handle IOMMU fault events, so they might use iommu_set_fault_handler() before. What API should they use as an alternative now? Thank you.
 
 
----
-AI reviewed your patch. Please fix the bug or email reply why it's not a bug.
-See: https://github.com/kernel-patches/vmtest/blob/master/ci/claude/README.md
+-- 
+Best,
+Chaoyi
 
-CI run summary: https://github.com/kernel-patches/bpf/actions/runs/19450205468
-
---===============1479139858118383586==--
 
