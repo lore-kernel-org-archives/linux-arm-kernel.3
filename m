@@ -4,82 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FA62CEE33B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 17:14:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E188FCEE33F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 17:15:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ix3qrQo4JTxUkNTnS7E6e3XShNCoCiRudEoAtypBRpU=; b=M06MxsfjfkBKxq84mQF1+0mwtz
-	MHfe1r6umuVqtisbuTZ5LvY2IT27mJCQTV6fM+re1Ej3IowiE8ygTk/Moo60fyjrrCZwtbo+XvE/v
-	hSkatX212YRBTSPHWsbrC/YbeKiX8NM5IchpiHsrQQQ/bXAzvRCbCJ5nDMt5ihIR1uXQSx5ssbyb3
-	u4eU6ciGgXSCeFX2Oexa3c9D+dRR6WbP9jrnqlm8Qqiw4Y48F550XvAKi6htIS/O9sRxW/kPKMPdr
-	CQMy2MiBOd/DDtoG0G9wicW2FltweoDChokaI4cWQiUCPjfr/EP+1UiMU8b8rcg4gQST2ehopbh9p
-	HAk7i04w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9+PHPJnIBAP86NTHc4VAm7JuLpOhECS7DudJx2LlsMs=; b=pYLQHnm2jO//19IXFmB3D0jPNp
+	JfhLKRW9ToMqLAxJJMlq02O3tVn7JGB5js8wlTZ09nCsQA/kGhqFxXFKa1XU9ABjr/VDmXOLS+0M9
+	cocKH9G7Pw05obnxa5EunghXnCjErqYkW8sV23TjIVWEU1tnvxqH/E8EYb2bysx5SnkBdVavWYghk
+	c580GJdFULaPuUUy8kSQ0W15uBnP+2ss+Od4o3qVlYp5tLoiJ42mgl46evfLD2d4tw2oARqbBiw4N
+	w5oYO4r5XQZi1CS/MxI5c6xas8WwxsxQfuulINTOAxpc4Heu/PGa/UdEgGUEL7Sor/mgL4TD2jfbz
+	bFSQPcgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLPHv-00000000psa-1Jzt;
-	Tue, 18 Nov 2025 17:14:43 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLPHs-00000000prw-2Dwc
+	id 1vLPIA-00000000pwJ-2gOM;
+	Tue, 18 Nov 2025 17:14:58 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vLPI8-00000000pvi-3wX8
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Nov 2025 17:14:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=ix3qrQo4JTxUkNTnS7E6e3XShNCoCiRudEoAtypBRpU=; b=oo3H7YWA+QMQ7erolFEZGTdwDM
-	3czWcf7ljYhymkaI7QbzlkQjYtD9nXQj/d/6sv8b0ZLU/FOGMFxgPOxAs4Uypl6K3T+1GEdQ6YuOl
-	npYlXMn2ZKTyKb8C4IAJvJgr7s6QRMrdlX7kZXFrmyd2jG7YRt1fJ8gq02FOEduEIPDgfEAgjzz4u
-	QxlxVc/KRGsIN5HGNBpzgo2iUAXqvwCu69IGzdZjC9iAUzGdq0VbRqA9ehqmDNFLwYUWpFs0oyldW
-	AlnXKjG4GNJHMX4xp9fXiZZ0zhVfcxGDVqdXXAV9mpoV8tJG0czgIcO6/UO9IYT4nZoHpzzIfbe5e
-	MEpV4xcw==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:54398)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1vLPHY-000000003Vz-1zpn;
-	Tue, 18 Nov 2025 17:14:20 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1vLPHS-000000002cb-0W9K;
-	Tue, 18 Nov 2025 17:14:14 +0000
-Date: Tue, 18 Nov 2025 17:14:13 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Paolo Abeni <pabeni@redhat.com>
-Cc: Pavel Zhigulin <Pavel.Zhigulin@kaspersky.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Inochi Amaoto <inochiama@gmail.com>,
-	Quentin Schulz <quentin.schulz@cherry.de>,
-	Joe Hattori <joe@pf.is.s.u-tokyo.ac.jp>,
-	Rayagond Kokatanur <rayagond@vayavyalabs.com>,
-	Giuseppe CAVALLARO <peppe.cavallaro@st.com>, netdev@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	lvc-project@linuxtesting.org
-Subject: Re: [PATCH net v2] net: stmmac: add clk_prepare_enable() error
- handling
-Message-ID: <aRypZZ88K8tnh9Ha@shell.armlinux.org.uk>
-References: <20251114142351.2189106-1-Pavel.Zhigulin@kaspersky.com>
- <4a3a8ba2-2535-461d-a0a5-e29873f538a4@redhat.com>
+	Tue, 18 Nov 2025 17:14:58 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8FD321692;
+	Tue, 18 Nov 2025 09:14:48 -0800 (PST)
+Received: from [10.57.39.196] (unknown [10.57.39.196])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E25563F66E;
+	Tue, 18 Nov 2025 09:14:50 -0800 (PST)
+Message-ID: <39243d7f-e72a-4d37-8cd2-fb9c9f53e751@arm.com>
+Date: Tue, 18 Nov 2025 18:14:48 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <4a3a8ba2-2535-461d-a0a5-e29873f538a4@redhat.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 10/11] arm64: entry: Convert to generic entry
+To: Jinjie Ruan <ruanjinjie@huawei.com>, catalin.marinas@arm.com,
+ will@kernel.org, oleg@redhat.com, tglx@linutronix.de, peterz@infradead.org,
+ luto@kernel.org, shuah@kernel.org, kees@kernel.org, wad@chromium.org,
+ akpm@linux-foundation.org, ldv@strace.io, macro@orcam.me.uk, deller@gmx.de,
+ mark.rutland@arm.com, song@kernel.org, mbenes@suse.cz, ryan.roberts@arm.com,
+ ada.coupriediaz@arm.com, anshuman.khandual@arm.com, broonie@kernel.org,
+ pengcan@kylinos.cn, dvyukov@google.com, kmal@cock.li, lihongbo22@huawei.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-kselftest@vger.kernel.org
+References: <20251117133048.53182-1-ruanjinjie@huawei.com>
+ <20251117133048.53182-11-ruanjinjie@huawei.com>
+From: Kevin Brodsky <kevin.brodsky@arm.com>
+Content-Language: en-GB
+In-Reply-To: <20251117133048.53182-11-ruanjinjie@huawei.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251118_091440_567072_4B888782 
-X-CRM114-Status: GOOD (  25.87  )
+X-CRM114-CacheID: sfid-20251118_091457_072212_A620698A 
+X-CRM114-Status: GOOD (  23.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,83 +71,152 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 18, 2025 at 03:30:09PM +0100, Paolo Abeni wrote:
-> On 11/14/25 3:23 PM, Pavel Zhigulin wrote:
-> > The driver previously ignored the return value of 'clk_prepare_enable()'
-> > for both the CSR clock and the PCLK in 'stmmac_probe_config_dt()' function.
-> > 
-> > Add 'clk_prepare_enable()' return value checks.
-> > 
-> > Found by Linux Verification Center (linuxtesting.org) with SVACE.
-> > 
-> > Fixes: bfab27a146ed ("stmmac: add the experimental PCI support")
-> > Signed-off-by: Pavel Zhigulin <Pavel.Zhigulin@kaspersky.com>
-> > ---
-> > v2: Fix 'ret' value initialization after build bot notification.
-> > v1: https://lore.kernel.org/all/20251113134009.79440-1-Pavel.Zhigulin@kaspersky.com/
-> > 
-> >  drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c | 11 +++++++++--
-> >  1 file changed, 9 insertions(+), 2 deletions(-)
-> > 
-> > diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
-> > index 27bcaae07a7f..8f9eb9683d2b 100644
-> > --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
-> > +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
-> > @@ -632,7 +632,9 @@ stmmac_probe_config_dt(struct platform_device *pdev, u8 *mac)
-> >  			dev_warn(&pdev->dev, "Cannot get CSR clock\n");
-> >  			plat->stmmac_clk = NULL;
-> >  		}
-> > -		clk_prepare_enable(plat->stmmac_clk);
-> > +		rc = clk_prepare_enable(plat->stmmac_clk);
-> > +		if (rc < 0)
-> > +			dev_warn(&pdev->dev, "Cannot enable CSR clock: %d\n", rc);
-> >  	}
-> > 
-> >  	plat->pclk = devm_clk_get_optional(&pdev->dev, "pclk");
-> > @@ -640,7 +642,12 @@ stmmac_probe_config_dt(struct platform_device *pdev, u8 *mac)
-> >  		ret = plat->pclk;
-> >  		goto error_pclk_get;
-> >  	}
-> > -	clk_prepare_enable(plat->pclk);
-> > +	rc = clk_prepare_enable(plat->pclk);
-> > +	if (rc < 0) {
-> > +		ret = ERR_PTR(rc);
-> > +		dev_err(&pdev->dev, "Cannot enable pclk: %d\n", rc);
-> > +		goto error_pclk_get;
-> > +	}
-> 
-> It looks like the driver is supposed to handle the
-> IS_ERR_OR_NULL(plat->pclk) condition. This check could cause regression
-> on existing setup currently failing to initialize the (optional) clock
-> and still being functional.
-> 
-> I *think* we are better off without the added checks.
+On 17/11/2025 14:30, Jinjie Ruan wrote:
+> [...]
+>
+> diff --git a/arch/arm64/include/asm/syscall.h b/arch/arm64/include/asm/syscall.h
+> index 6225981fbbdb..c91938718468 100644
+> --- a/arch/arm64/include/asm/syscall.h
+> +++ b/arch/arm64/include/asm/syscall.h
+> @@ -9,6 +9,8 @@
+>  #include <linux/compat.h>
+>  #include <linux/err.h>
+>  
+> +#include <asm/vdso.h>
+> +
+>  typedef long (*syscall_fn_t)(const struct pt_regs *regs);
+>  
+>  extern const syscall_fn_t sys_call_table[];
+> @@ -114,12 +116,30 @@ static inline int syscall_get_arch(struct task_struct *task)
+>  	return AUDIT_ARCH_AARCH64;
+>  }
+>  
+> -static inline bool has_syscall_work(unsigned long flags)
+> +static inline bool arch_syscall_is_vdso_sigreturn(struct pt_regs *regs)
+>  {
+> -	return unlikely(flags & _TIF_SYSCALL_WORK);
+> -}
+> +	unsigned long vdso = (unsigned long)current->mm->context.vdso;
+> +	unsigned long vdso_pages, vdso_text_len;
+> +	unsigned long pc = regs->pc - 4;
 
-Note that the clk API permits NULL as valid. CCF checks for this
-in clk_prepare() and avoids returning an error:
+On AArch32 (i.e. COMPAT), instructions may be 16-bit (in T32/Thumb), so
+we shouldn't blindly use PC - 4.
 
-        if (!clk)
-                return 0;
+>  
+> -int syscall_trace_enter(struct pt_regs *regs, long syscall, unsigned long flags);
+> -void syscall_exit_to_user_mode_prepare(struct pt_regs *regs);
+> +#ifdef CONFIG_COMPAT
+> +	if (is_compat_task()) {
+> +		vdso = (unsigned long)current->mm->context.sigpage;
+> +		if (pc >= vdso && pc < vdso + PAGE_SIZE)
 
-Same check in clk_enable(). So if plat->pclk is NULL, then no error
-will be returned.
+Just return that expression (instead of true/false).
 
-Places that set plat->pclk:
+I think the approach is reasonable, as we have 4 possible trampolines in
+COMPAT and they all live in a dedicated page. I don't think we need to
+worry about offsetting PC, because even if it points after the last
+trampoline, it will still fall within the page. IOW, just use the
+unmodified value of regs->pc.
 
-stmmac_probe_config_dt() - checks for error-pointers and fails. This
-will cause driver probe failure.
+> +			return true;
+> +
+> +		return false;
+> +	}
+> +#endif
+> +	if (regs->syscallno != __NR_rt_sigreturn)
+> +		return false;
+> +
+> +	vdso_pages = (vdso_end - vdso_start) >> PAGE_SHIFT;
+> +	vdso_text_len = vdso_pages << PAGE_SHIFT;
+> +	if (pc < vdso || pc >= vdso + vdso_text_len)
+> +		return false;
 
-dwc_qos_probe() - uses stmmac_pltfr_find_clk() which returns the
-clk from the bulk-get or NULL. These clocks will have been obtained
-using devm_clk_bulk_get_all_enabled(), which I think will return an
-error if any fail, which fails the driver probe.
+Why not use the same approach as x86 and simply check that regs->pc
+points after the trampoline? We already have a way to get the address of
+the vDSO's sigreturn trampoline on arm64:
+VDSO_SYMBOL(current->mm->context.vdso, sigtramp) (see signal.c). The
+trampoline consists of two instructions that cannot be changed (pretty
+much part of the ABI), so we could compare regs->pc with sigtramp + 8.
 
-So, I don't think plat->pclk can be an error-pointer here.
+> +
+> +	return true;
+> +}
+>  #endif	/* __ASM_SYSCALL_H */
+> diff --git a/arch/arm64/include/asm/thread_info.h b/arch/arm64/include/asm/thread_info.h
+> index f241b8601ebd..0c083be23018 100644
+> --- a/arch/arm64/include/asm/thread_info.h
+> +++ b/arch/arm64/include/asm/thread_info.h
+> @@ -43,6 +43,7 @@ struct thread_info {
+>  	void			*scs_sp;
+>  #endif
+>  	u32			cpu;
+> +	unsigned long		syscall_work;   /* SYSCALL_WORK_ flags */
+>  };
+>  
+>  #define thread_saved_pc(tsk)	\
+> @@ -65,11 +66,6 @@ void arch_setup_new_exec(void);
+>  #define TIF_UPROBE		5	/* uprobe breakpoint or singlestep */
+>  #define TIF_MTE_ASYNC_FAULT	6	/* MTE Asynchronous Tag Check Fault */
+>  #define TIF_NOTIFY_SIGNAL	7	/* signal notifications exist */
+> -#define TIF_SYSCALL_TRACE	8	/* syscall trace active */
+> -#define TIF_SYSCALL_AUDIT	9	/* syscall auditing */
+> -#define TIF_SYSCALL_TRACEPOINT	10	/* syscall tracepoint for ftrace */
+> -#define TIF_SECCOMP		11	/* syscall secure computing */
+> -#define TIF_SYSCALL_EMU		12	/* syscall emulation active */
+>  #define TIF_PATCH_PENDING	13	/* pending live patching update */
+>  #define TIF_MEMDIE		18	/* is terminating due to OOM killer */
+>  #define TIF_FREEZE		19
+> @@ -92,30 +88,14 @@ void arch_setup_new_exec(void);
+>  #define _TIF_NEED_RESCHED_LAZY	(1 << TIF_NEED_RESCHED_LAZY)
+>  #define _TIF_NOTIFY_RESUME	(1 << TIF_NOTIFY_RESUME)
+>  #define _TIF_FOREIGN_FPSTATE	(1 << TIF_FOREIGN_FPSTATE)
+> -#define _TIF_SYSCALL_TRACE	(1 << TIF_SYSCALL_TRACE)
+> -#define _TIF_SYSCALL_AUDIT	(1 << TIF_SYSCALL_AUDIT)
+> -#define _TIF_SYSCALL_TRACEPOINT	(1 << TIF_SYSCALL_TRACEPOINT)
+> -#define _TIF_SECCOMP		(1 << TIF_SECCOMP)
+> -#define _TIF_SYSCALL_EMU	(1 << TIF_SYSCALL_EMU)
+>  #define _TIF_PATCH_PENDING	(1 << TIF_PATCH_PENDING)
+>  #define _TIF_UPROBE		(1 << TIF_UPROBE)
+> -#define _TIF_SINGLESTEP		(1 << TIF_SINGLESTEP)
+>  #define _TIF_32BIT		(1 << TIF_32BIT)
+>  #define _TIF_SVE		(1 << TIF_SVE)
+>  #define _TIF_MTE_ASYNC_FAULT	(1 << TIF_MTE_ASYNC_FAULT)
+>  #define _TIF_NOTIFY_SIGNAL	(1 << TIF_NOTIFY_SIGNAL)
+>  #define _TIF_TSC_SIGSEGV	(1 << TIF_TSC_SIGSEGV)
+>  
+> -#define _TIF_WORK_MASK		(_TIF_NEED_RESCHED | _TIF_NEED_RESCHED_LAZY | \
+> -				 _TIF_NOTIFY_RESUME | _TIF_FOREIGN_FPSTATE | \
+> -				 _TIF_UPROBE | _TIF_MTE_ASYNC_FAULT | \
+> -				 _TIF_NOTIFY_SIGNAL | _TIF_SIGPENDING | \
+> -				 _TIF_PATCH_PENDING)
 
-Therefore, I don't think there's any concern with error pointers
-or NULL in plat->pclk.
+AFAICT this was already unused before this series, since commit
+b3cf07851b6c ("arm64: entry: Switch to generic IRQ entry"). It should be
+removed in a separate commit.
 
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+> [...]
+>
+> -void syscall_exit_to_user_mode_prepare(struct pt_regs *regs)
+> -{
+> -	unsigned long flags = read_thread_flags();
+> -
+> -	rseq_syscall(regs);
+> -
+> -	if (has_syscall_work(flags) || flags & _TIF_SINGLESTEP)
+
+I believe switching to the generic function introduces a change here:
+syscall_exit_work() is only called if a flag in SYSCALL_WORK_EXIT is
+set, and this set does not include SYSCALL_EMU and SECCOMP. Practically
+this means that audit_syscall_exit() will no longer be called if only
+SECCOMP and/or SYSCALL_EMU is set.
+
+It doesn't feel like a major behaviour change, but it should be pointed out.
+
+- Kevin
+
+> -		syscall_trace_exit(regs, flags);
+> -}
+>
+> [...]
 
