@@ -4,73 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97A10CEE343
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 18:59:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 695A8CEE343
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 18:59:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=l5bV2Z4OjyhUjLyzKUG06uKyhqe2xLFxXRvaaVkwXWk=; b=uS1Ijp489C9GB0
-	/kQtnuRQXEqfP+Bt2bLapf4b2Zlrf4WItZWokwy55ZN51jDpnceiqu9GiONsxk0EgvBYxwv3CRDJh
-	tYhp9o3hBJLKh7yg5hwL0opgvHtUaXsvfdfjzAVSirce+RZH5s4WbhvA4a9L+TcCtctywiWt4XN1b
-	JQjOy7/Ymmba8mvGUhbvZEpJTx/Nrfo9tBcxb5S/3+c9brYOBkUGQPXRKwDPVuNAhfY2GikHHftWZ
-	M1RYqCQKAe4MWVKjO0BzmaKEyeE/EH/2NJSl/NATgQVyG2VKOw+Cmy6TXhQN27AZotiFyKJ7GrxX4
-	f7qN5TZ3HF2bu/783xxA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CsjITLeTmFB4t/a/WwBEIib9Wiw7mOIaYtPmz8XMYbs=; b=UbPts7POW7CQA+FVA+6XMpjW7A
+	xUSQiBFaoRxrRde/t0M+CUjPnWMceOCW6azkQkpfMTQs0PYwgehwx0C2pOZOt77olly+hxYfXx1tc
+	1K37QJTJbJBh+EWExD8Gy9kv0ZaeVD6uL1rbWPMaai0kQV1qp550cGa3ccYTIgAjvUiPueRHOq71U
+	yfwMrj2UwxdwBNkBScUpGnQcaHxYNgRj/W2PFxqu6EmiaUSM4rPmo1Tpxg888IlDYSb7ZDoIQilJI
+	7hBFjzawpDshZQrq2kw49sKG4V6wqlTFT5jS+rZSg1mx2NgS3uU7neEiblZYPNVuDEFWTDFjzH6ML
+	JuCzXmew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLQvC-00000000zaU-1uvv;
-	Tue, 18 Nov 2025 18:59:22 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vLQvL-00000000zdh-08AU;
+	Tue, 18 Nov 2025 18:59:31 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLQvB-00000000zZq-0BAa;
-	Tue, 18 Nov 2025 18:59:21 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 264EF60129;
-	Tue, 18 Nov 2025 18:59:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3DFA5C116B1;
-	Tue, 18 Nov 2025 18:59:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763492359;
-	bh=NbYnGS0Gvtjj0O/ATTHE0hLak4XPDCCvFVuevEBXAKo=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=gRLVw75DZQRIC199NZP0+fLbXt5NziqDfA46T2DPhbBdDCtPYCBZfyyWW7UyRsEPw
-	 GVhheTS/RHFWMtANriPle8VTPUpebveAg/3fb4u/2eR7YIwxG0U6BENqJKIkLqshnI
-	 dmwF4WRPdFYFg7+thS2DyveG++gO2YeKAqNLmknGP/GdluG6MgbL7QMpK7s6eSXXys
-	 uoIUgoUiOpcFIOAGpfEWAeed4vMD1w+KY64OBxXUMmhj8wVcIuJhrVz7SqwJ+64A/z
-	 IvTrkxaPYm6ZcvxJMyP+tmwp2NOWXkblLJ2u0AzGcqDPslPXW7NukPPm1uFlTmPpR3
-	 9XKOpyQpf81Xw==
-Date: Tue, 18 Nov 2025 12:59:17 -0600
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Niklas Cassel <cassel@kernel.org>
-Cc: Shawn Lin <shawn.lin@rock-chips.com>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Rob Herring <robh@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
-	Kever Yang <kever.yang@rock-chips.com>,
-	Simon Xue <xxm@rock-chips.com>, Damien Le Moal <dlemoal@kernel.org>,
-	Dragan Simic <dsimic@manjaro.org>, FUKAUMI Naoki <naoki@radxa.com>,
-	Diederik de Haas <diederik@cknow-tech.com>,
-	Richard Zhu <hongxing.zhu@nxp.com>, Frank Li <Frank.li@nxp.com>,
-	Lucas Stach <l.stach@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Conor Dooley <conor@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Thierry Reding <thierry.reding@gmail.com>,
-	Jonathan Hunter <jonathanh@nvidia.com>,
-	Hans Zhang <hans.zhang@cixtech.com>, linux-tegra@vger.kernel.org,
-	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, kernel@pengutronix.de,
-	Bjorn Helgaas <bhelgaas@google.com>
-Subject: Re: [PATCH 2/4] PCI: tegra194: Remove unnecessary L1SS disable code
-Message-ID: <20251118185917.GA2583698@bhelgaas>
+	id 1vLQvA-00000000zZY-1DXi;
+	Tue, 18 Nov 2025 18:59:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1763492355;
+	bh=zJNUrRj587FQsGyE0czCnjJ6PtuOY81WP+YvMy5Ka1E=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=qdjIFpj9XfKyHjeibzt+NBM1a2vqzFfX4V3QdUbParRXtar/U765arJQycLvPXCVz
+	 pdknpJnXYbqYoMsnkVQw78Fdt07QKs13NmgXRe7B0pZqNI1qo1UKCAEq+EdCjBBFxW
+	 gIucdl8H02k9UBV3kFDur6ccv5FMWCvRQ0GLFEjw/tavAHeJ34EY/WbR5fdxJawwOV
+	 HKu+zspSn5oqfoWg04OxZH5FqXS/laOaFeYSLU/q/2VXk03GXG7jHmYeZuuYm+F0gq
+	 JoZEgCfwNy3D7kf2Syu61p0oczWw9FdRQNIpDT/QiFDCZAan/4xqrxUZdh+RjXOiDC
+	 es6QJjaF9ERkQ==
+Received: from [10.40.0.100] (185-67-175-126.lampert.tv [185.67.175.126])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: mriesch)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id DCD8E17E0117;
+	Tue, 18 Nov 2025 19:59:14 +0100 (CET)
+Message-ID: <554971e1-6fde-4b2c-a2de-fe178358a4e3@collabora.com>
+Date: Tue, 18 Nov 2025 19:59:14 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aRRFYEgBigYDlfQh@ryzen>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/3] media: rockchip: add driver for the rockchip mipi
+ csi-2 receiver
+To: Frank Li <Frank.li@nxp.com>
+Cc: Mehdi Djait <mehdi.djait@linux.intel.com>,
+ Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ Hans Verkuil <hverkuil@kernel.org>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Sebastian Reichel <sebastian.reichel@collabora.com>,
+ Nicolas Dufresne <nicolas.dufresne@collabora.com>,
+ Collabora Kernel Team <kernel@collabora.com>,
+ Sakari Ailus <sakari.ailus@linux.intel.com>, linux-media@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20251114-rockchip-mipi-receiver-v2-0-eb9b43377fc4@collabora.com>
+ <20251114-rockchip-mipi-receiver-v2-2-eb9b43377fc4@collabora.com>
+ <aRyplYZOrGsSxSlp@lizhi-Precision-Tower-5810>
+Content-Language: en-US
+From: Michael Riesch <michael.riesch@collabora.com>
+In-Reply-To: <aRyplYZOrGsSxSlp@lizhi-Precision-Tower-5810>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251118_105920_492705_615B291D 
+X-CRM114-Status: GOOD (  12.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,36 +89,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 12, 2025 at 09:29:20AM +0100, Niklas Cassel wrote:
-> On Tue, Nov 11, 2025 at 04:16:09PM -0600, Bjorn Helgaas wrote:
-> > From: Bjorn Helgaas <bhelgaas@google.com>
-> > 
-> > The DWC core clears the L1 Substates Supported bits unless the driver sets
-> > the "dw_pcie.l1ss_support" flag.
-> > 
-> > The tegra194 init_host_aspm() sets "dw_pcie.l1ss_support" if the platform
-> > has the "supports-clkreq" DT property.  If "supports-clkreq" is absent,
-> > "dw_pcie.l1ss_support" is not set, and the DWC core will clear the L1
-> > Substates Supported bits.
-> > 
-> > The tegra194 code to clear the L1 Substates Supported bits is unnecessary,
-> > so remove it.
-> > 
-> > Signed-off-by: Bjorn Helgaas <bhelgaas@google.com>
-> > ---
+Hi Frank,
+
+On 11/18/25 18:15, Frank Li wrote:
+> On Tue, Nov 18, 2025 at 12:12:26PM +0100, Michael Riesch via B4 Relay wrote:
+>> From: Michael Riesch <michael.riesch@collabora.com>
+>>
+>>[...]
+>> +#define CSI2HOST_N_LANES     0x04
+>> +#define CSI2HOST_CSI2_RESETN 0x10
+>> +#define CSI2HOST_PHY_STATE   0x14
+>> +#define CSI2HOST_ERR1	     0x20
+>> +#define CSI2HOST_ERR2	     0x24
+>> +#define CSI2HOST_MSK1	     0x28
+>> +#define CSI2HOST_MSK2	     0x2c
+>> +#define CSI2HOST_CONTROL     0x40
 > 
-> Since init_host_aspm() is now the only place using struct tegra_pcie_dw
-> struct member cfg_link_cap_l1sub, I think that you can remove this struct
-> member, and instead make this a local variable in init_host_aspm().
+> Look like that is designware CSI2 controller, can we build common library
+> for all dwc csi2 controller, instead of every vendor create individual one.
+> 
+> First try at
+> https://lore.kernel.org/linux-media/20250821-95_cam-v3-21-c9286fbb34b9@nxp.com/
+> 
+> Toshiba have similar patch
+> https://lore.kernel.org/linux-media/aPZd39riAxqfw3mT@lizhi-Precision-Tower-5810/
+> 
+> Frank
 
-It looks like tegra_pcie_ep_irq_thread() also uses it, although I'm
-dubious about that.
+This has been discussed already a while ago:
+https://lore.kernel.org/all/20250507083837.GA11152@pendragon.ideasonboard.com/
 
-It's odd that software would be responsible for sending LTR messages,
-but I guess this only happens for tegra194_pcie_dw_ep_of_data, and
-apparently it's fixed (".has_ltr_req_fix" for tegra234.
+Bottom line from Laurent:
 
-And odd that we would read the capability register on every interrupt
-even though this driver is the only thing that can change it, so we
-should be able to cache the value in init_host_aspm().
+"Let's keep this driver Rockchip-specific then. Thanks for checking."
+
+>  [...]
+Best regards,
+Michael
 
