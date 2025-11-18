@@ -4,187 +4,150 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24CF2CEE349
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 18:34:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5465CEE343
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 18:35:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:CC:To:Subject:From:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XqoeLXGEX3+IlWwbAZ3PUIrXrsPc6VkDNi4BisPvHis=; b=raIuOwhNgMdZTeAFcTkg+96G6K
-	5Qo18kgO3V9qHsZwK1SuRdb0FVBpWoT38gM2i7nlDkjYM9Yx64u93sNt0srNKV1nhnyYhjQDe+VJO
-	xjsM3xhp+r8NiSCCqqksWKvX4L21SJKO8B9v5i7FlNaseELhA/5qg+yETnQ6JaBXv8Po3N8Wdojxg
-	NdhIvyCQozzHzjdiAxpVyZtdTxhCmm6Lxl+N8Wjvc4ThPi9dZa/63tHT1vtGrjZkNVc824z6/OPVP
-	ovo2zjtbCuHkmGnp2lZUGaXBLHBJK1T+qqZCPG21QbN/Ux+LnYfh/2iXsln+KOSD92P68uzi81Egd
-	bGNsqtVg==;
+	bh=6escJsy+cDt/xGuVF5sLz1hYdQq4kG1CujcTZp9D/YQ=; b=r47VpTC3v+LfUQQQ8ZBHDE8p5m
+	8z75LE2Q4lVEeitW8DjVNrf/vPW6dgNesrMRwJJXpy9AEv4YtZGOdAu+EedgtM3QKkEkaZIGlqA36
+	F5Q1rdpvtuf3/4HZqm9kSvbC6/mEHlsEbOEuSxuryxJFwPyxKtEGHiCi5qL3SnnHqbwtVFxL2HlBJ
+	QDw9dvjjDl1ctGVGX5NxgfmIjaAzq2E20HoTLDGmpXGVwS70uZNH9ftijzoJmNUmlXNWyZx+C+N+r
+	cvgLraaFnjUB0ZUkeouXJyLHPwBSPsKI2Nh8MFtIjFLFAUOVkrhNo6w2hhUPRAkWBrWtbWgQk1QB2
+	XPQ/itdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLQXH-00000000wnS-3DuU;
-	Tue, 18 Nov 2025 18:34:39 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
+	id 1vLQXy-00000000wzJ-2ZIb;
+	Tue, 18 Nov 2025 18:35:22 +0000
+Received: from mail-pf1-x462.google.com ([2607:f8b0:4864:20::462])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLQXE-00000000wm0-0WbS
+	id 1vLQXu-00000000wyL-3Gus
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Nov 2025 18:34:38 +0000
-Received: from pps.filterd (m0046661.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5AIIUKcX356267;
-	Tue, 18 Nov 2025 19:34:11 +0100
-Received: from duzpr83cu001.outbound.protection.outlook.com (mail-northeuropeazon11012005.outbound.protection.outlook.com [52.101.66.5])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 4agvrb08g7-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Tue, 18 Nov 2025 19:34:11 +0100 (CET)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=F/5PB8aoOX/EJNLbWtvoTEQCg3L4P8xGZ96jP0zeciZBgeYNHYYD7TOecnYqDqXBWQYI5Qb7mYOMpYP85zY5XOkWT73yrB+Qmbmm+G8O7zSOHz8y4DTjk4g6bq3OWt2ukd6xDQPL2mji4ptuyjSZ8Gtb2drkFY1HHwKHOGkJ4IdtOnukjs3exYoGv4ntEp7jjM87jQ8nPVu9Zs5S/UWeLhLhaXwvkJEWMtDngmdFUUhiB/Yd0ha0bKbNJE7TpFn8MC1gwJIHoFq/rkvbumQUdCC+oBvEA2s9SKGfeDuD4DwC0RxDWsF7gyYFinbKa+SOKwkbSfUw9hXDur/Yrp3cTQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=XqoeLXGEX3+IlWwbAZ3PUIrXrsPc6VkDNi4BisPvHis=;
- b=eSbwhJAGnuEQ9ZeJMIRXSv0DX6csTsUIiXnIUfjjfy3ZC9FB4LPQ7jqe5ZrAMMv+yIH7rzA8Ms/pkvZObW9FwSit5PI9/LduVwgv6kL/KZhMRBSjMS2YHLz+8IS0a9918qcV720tbAHxTa5wNKQ7/+koBf2BVOZaXE924xztQ0oegIBNDwJouRR8hNNBw4tMhe1ThxrPKdVWYXxKQQFRfySEkv/XfAnq7kDYY8ep9LTWuY5l7dTQ92AJuEpKz4jepOckBGVIkVPw89GEg7YULzvjzJemmVQO0UHm9Kz8OtcDpN3dUN/l8mb6WX5GYxfa7QSsHMh9HGJEmygXv9j1ww==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.59) smtp.rcpttodomain=kernel.org smtp.mailfrom=foss.st.com;
- dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=XqoeLXGEX3+IlWwbAZ3PUIrXrsPc6VkDNi4BisPvHis=;
- b=UJ55nrRsrzJbZZPy0SEq/aun2btIVfSE+1F2uVcdxGRImZxOAKoTCXUTMjWLieWxQMHzXFvXBCERRKGAemfb8nveBtyLM4PTzf1aRwGBn4hvxrZqqBQXrV8qixOelFnqxdoAKwIYcp7ok3Wj3FwaAfpdYXdyYK4dirjawGfQYCZ9pn0BIBSORWoL1P99KJUQfOAOVLdekO/n5qrZ84D11R7YgTgdv5DNXduNwK4e6X7n/QBAtoV5wUbRZ7qkbNujxGj5FNVM9VCT8Mpvr2cVNLxxVVMwNkLdMGWGEL1BP9mu6UJA/c8pvMqkj6H2MAK4TBlqWJaxG9RsXXIL0uY+Ew==
-Received: from DB8P191CA0003.EURP191.PROD.OUTLOOK.COM (2603:10a6:10:130::13)
- by GV1PR10MB7571.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:150:3d::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9343.10; Tue, 18 Nov
- 2025 18:34:06 +0000
-Received: from DU2PEPF00028D12.eurprd03.prod.outlook.com
- (2603:10a6:10:130:cafe::fc) by DB8P191CA0003.outlook.office365.com
- (2603:10a6:10:130::13) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9320.19 via Frontend Transport; Tue,
- 18 Nov 2025 18:33:31 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.59)
- smtp.mailfrom=foss.st.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=none header.from=foss.st.com;
-Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.59 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.59; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.59) by
- DU2PEPF00028D12.mail.protection.outlook.com (10.167.242.26) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9343.9 via Frontend Transport; Tue, 18 Nov 2025 18:34:05 +0000
-Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpo365.st.com
- (10.250.44.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Tue, 18 Nov
- 2025 19:34:18 +0100
-Received: from [10.130.77.120] (10.130.77.120) by STKDAG1NODE2.st.com
- (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Tue, 18 Nov
- 2025 19:34:02 +0100
-Message-ID: <67dbd8f6-2efe-4a73-a611-9081f364d2d4@foss.st.com>
-Date: Tue, 18 Nov 2025 19:34:01 +0100
+	Tue, 18 Nov 2025 18:35:21 +0000
+Received: by mail-pf1-x462.google.com with SMTP id d2e1a72fcca58-7b9c17dd591so4724831b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Nov 2025 10:35:18 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1763490918; x=1764095718;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:dkim-signature:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=6escJsy+cDt/xGuVF5sLz1hYdQq4kG1CujcTZp9D/YQ=;
+        b=B92FwXRr+V8XPHqD5x2H6t6M+l1EMl5rhY4YoikucMt3tCzSua/hn2LEs0wpcgC6f8
+         ttyfXR54UCHrnHT3h4QF1pMeX/5fFO4e9f7TS9r4T7q4cMxS/6WtUQUwUYaPRJXOX/Y4
+         F0yNZcrj1SS3CTqLQV1fjZ1Jjw6HzfLAQlPK8MFVmp1iFSwrLc54ZO3xSWXeRFSLPacd
+         5Ar71cLEBNF3bBB+g2M69tfPD4Z6okzMtZK9X65V5hxMdJhL03FW35XJMxg+oiJm0yiO
+         6EWeIcD6OLaYWBRCDgg4D0T6wAwhf7EPrjPGUIxjd0vVLs/BVQtMZHS4QbSVcT/BMqlA
+         d5cA==
+X-Forwarded-Encrypted: i=1; AJvYcCWKkG4PClMAoj+UtnTMKLK8V5PTTqr59oXQV+b0R/DFLyw4m3npLiwYjNBoakyxNEW/rkWJ0IyvX8l5RN0I8G0p@lists.infradead.org
+X-Gm-Message-State: AOJu0YzwB5vfmomr7sA9Qjt7tfLLNYMcPPeYqWa3EEfU5qmamJ67u5AN
+	x8KRXwRN2Da1b3GiaQFhFwa+i1OFiwtmF44Og8vgez6yPTNzXewKrkVSbNKVAk6ENrUXvqpL1sG
+	4GnZJxDHPZYwfHyfQlj8PrFSKHGnoM9CoAuw9X+fEdIHO8wnGml47UQzWqUk9q+dhDdaoyJQ17F
+	DQYrCPp6/Qal22n5+h9R4ZzvMr+elilz4s4SOseAZ3AVWu2AUtcHbbIrvomSaEjxMu/sqdF0V69
+	Xwp3EgNNcU2xa/cb9A+OXmeDLK7DCsCXXA=
+X-Gm-Gg: ASbGnctolSQ9A/AiyrYj2BZfJfVMa3x840QtZpXlmTBExrC++Y9d+4/k7AE0Yosh5It
+	A63rR4O0wvsOJXZBLY9dmnbefXjSi9pNTq1ffuYSYS828R2krcyZOtSx4hGEUIJMKT5eGn94wFr
+	XrQsskY+nA9LBIgMR/TjTi/m6D5g8V0gTOKRet1GBKqkChYeUqbg1t0/JKxcMhaQH0KB42ssOeJ
+	gHg+eXRZnJTwDobHSSVCWl7j8FJTvhtScpUlubST9M56ZVdFTx4uD/oqireZaDFm+7eltOr7Y0R
+	ZayVbCil/CGUWVHU9ve4RnY7cdngCocJ7dsBAoIgAO2lm4NsPBklUIGtnfuaNNAeSUUmVjqjxfg
+	TzbIF/9Q4d8zRD8TZNf4yRfwmhHM4H6AXnWXHz7cWb5HrIa2ifrSBN4ahy8wof1u/u4qQ94Nr2m
+	ONjHwXpd928vEI/cHy7m8hIr+csbjogIHUmv1GidbV2ZzOdVioEkRb
+X-Google-Smtp-Source: AGHT+IEWYoq5AL0Xli/qWbZztPE0kBWqbbts9ZkNlp0isWNKFXEvRypQOGLLizZZkY4hST2Avsv5Zh5KyUHP
+X-Received: by 2002:a05:7022:7a6:b0:119:e56b:98b3 with SMTP id a92af1059eb24-11b411ffe86mr7012615c88.26.1763490917684;
+        Tue, 18 Nov 2025 10:35:17 -0800 (PST)
+Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-103.dlp.protect.broadcom.com. [144.49.247.103])
+        by smtp-relay.gmail.com with ESMTPS id a92af1059eb24-11b06091270sm1518634c88.0.2025.11.18.10.35.17
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 18 Nov 2025 10:35:17 -0800 (PST)
+X-Relaying-Domain: broadcom.com
+X-CFilter-Loop: Reflected
+Received: by mail-pg1-f198.google.com with SMTP id 41be03b00d2f7-bc169af24cfso4672197a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Nov 2025 10:35:16 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=broadcom.com; s=google; t=1763490916; x=1764095716; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=6escJsy+cDt/xGuVF5sLz1hYdQq4kG1CujcTZp9D/YQ=;
+        b=C4I9NqoPf+zoieSGhmup+z1ZyxVYu+H6iRdhWUirWN2TDooQTLm4tuQR5Mqmr/ysTD
+         Qb3wV5OHrS5cAd5woj7wQ6tw5oqC8HbnSr9AN6Tw23IOOzSGjxIsi3r+GqxeuWiidbO3
+         VoGlIcqXsvueinU+XtOezirrUJ3TXcMhX1x+w=
+X-Forwarded-Encrypted: i=1; AJvYcCX0yqTSFXiyZPUrVoLW4hWKffhkHS0Y8g+9AFlQzf9pfBf6ZlaE8wSUX/+9beRXh6eeFNtP6XuX1NCehcLEvGVb@lists.infradead.org
+X-Received: by 2002:a05:7023:b07:b0:119:e56b:98b9 with SMTP id a92af1059eb24-11b41306c47mr8310678c88.32.1763490915761;
+        Tue, 18 Nov 2025 10:35:15 -0800 (PST)
+X-Received: by 2002:a05:7023:b07:b0:119:e56b:98b9 with SMTP id a92af1059eb24-11b41306c47mr8310641c88.32.1763490915104;
+        Tue, 18 Nov 2025 10:35:15 -0800 (PST)
+Received: from [192.168.1.3] (ip68-4-215-93.oc.oc.cox.net. [68.4.215.93])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-11b0608860fsm52865160c88.5.2025.11.18.10.35.12
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 18 Nov 2025 10:35:14 -0800 (PST)
+Message-ID: <6466b7da-eb8d-41d3-b3d5-9845eb6067a2@broadcom.com>
+Date: Tue, 18 Nov 2025 10:35:11 -0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-From: Christian Bruel <christian.bruel@foss.st.com>
-Subject: Re: [PATCH] PCI: stm32: Fix LTSSM EP race with start link.
-To: Bjorn Helgaas <helgaas@kernel.org>
-CC: Lorenzo Pieralisi <lpieralisi@kernel.org>,
-        =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-        "Manivannan
- Sadhasivam" <mani@kernel.org>,
-        Rob Herring <robh@kernel.org>, Bjorn Helgaas
-	<bhelgaas@google.com>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        "Alexandre Torgue" <alexandre.torgue@foss.st.com>,
-        <linux-pci@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-References: <20251117200020.GA2518034@bhelgaas>
+Subject: Re: [PATCH v2 02/15] gpio: brcmstb: Use modern PM macros
+To: Jisheng Zhang <jszhang@kernel.org>, Doug Berger <opendmb@gmail.com>,
+ bcm-kernel-feedback-list@broadcom.com,
+ Linus Walleij <linus.walleij@linaro.org>, Bartosz Golaszewski
+ <brgl@bgdev.pl>, Hoan Tran <hoan@os.amperecomputing.com>,
+ Andy Shevchenko <andy@kernel.org>, Daniel Palmer <daniel@thingy.jp>,
+ Romain Perier <romain.perier@gmail.com>,
+ Grygorii Strashko <grygorii.strashko@ti.com>,
+ Santosh Shilimkar <ssantosh@kernel.org>, Kevin Hilman <khilman@kernel.org>,
+ Robert Jarzmik <robert.jarzmik@free.fr>,
+ Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
+ Masami Hiramatsu <mhiramat@kernel.org>,
+ Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>,
+ Srinivas Neeli <srinivas.neeli@amd.com>, Michal Simek <michal.simek@amd.com>
+Cc: linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-omap@vger.kernel.org
+References: <20251118003229.26636-1-jszhang@kernel.org>
+ <20251118003229.26636-3-jszhang@kernel.org>
 Content-Language: en-US
-In-Reply-To: <20251117200020.GA2518034@bhelgaas>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+From: Florian Fainelli <florian.fainelli@broadcom.com>
+Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
+ xsBNBFPAG8ABCAC3EO02urEwipgbUNJ1r6oI2Vr/+uE389lSEShN2PmL3MVnzhViSAtrYxeT
+ M0Txqn1tOWoIc4QUl6Ggqf5KP6FoRkCrgMMTnUAINsINYXK+3OLe7HjP10h2jDRX4Ajs4Ghs
+ JrZOBru6rH0YrgAhr6O5gG7NE1jhly+EsOa2MpwOiXO4DE/YKZGuVe6Bh87WqmILs9KvnNrQ
+ PcycQnYKTVpqE95d4M824M5cuRB6D1GrYovCsjA9uxo22kPdOoQRAu5gBBn3AdtALFyQj9DQ
+ KQuc39/i/Kt6XLZ/RsBc6qLs+p+JnEuPJngTSfWvzGjpx0nkwCMi4yBb+xk7Hki4kEslABEB
+ AAHNMEZsb3JpYW4gRmFpbmVsbGkgPGZsb3JpYW4uZmFpbmVsbGlAYnJvYWRjb20uY29tPsLB
+ IQQQAQgAywUCZWl41AUJI+Jo+hcKAAG/SMv+fS3xUQWa0NryPuoRGjsA3SAUAAAAAAAWAAFr
+ ZXktdXNhZ2UtbWFza0BwZ3AuY29tjDAUgAAAAAAgAAdwcmVmZXJyZWQtZW1haWwtZW5jb2Rp
+ bmdAcGdwLmNvbXBncG1pbWUICwkIBwMCAQoFF4AAAAAZGGxkYXA6Ly9rZXlzLmJyb2FkY29t
+ Lm5ldAUbAwAAAAMWAgEFHgEAAAAEFQgJChYhBNXZKpfnkVze1+R8aIExtcQpvGagAAoJEIEx
+ tcQpvGagWPEH/2l0DNr9QkTwJUxOoP9wgHfmVhqc0ZlDsBFv91I3BbhGKI5UATbipKNqG13Z
+ TsBrJHcrnCqnTRS+8n9/myOF0ng2A4YT0EJnayzHugXm+hrkO5O9UEPJ8a+0553VqyoFhHqA
+ zjxj8fUu1px5cbb4R9G4UAySqyeLLeqnYLCKb4+GklGSBGsLMYvLmIDNYlkhMdnnzsSUAS61
+ WJYW6jjnzMwuKJ0ZHv7xZvSHyhIsFRiYiEs44kiYjbUUMcXor/uLEuTIazGrE3MahuGdjpT2
+ IOjoMiTsbMc0yfhHp6G/2E769oDXMVxCCbMVpA+LUtVIQEA+8Zr6mX0Yk4nDS7OiBlvOwE0E
+ U8AbwQEIAKxr71oqe+0+MYCc7WafWEcpQHFUwvYLcdBoOnmJPxDwDRpvU5LhqSPvk/yJdh9k
+ 4xUDQu3rm1qIW2I9Puk5n/Jz/lZsqGw8T13DKyu8eMcvaA/irm9lX9El27DPHy/0qsxmxVmU
+ pu9y9S+BmaMb2CM9IuyxMWEl9ruWFS2jAWh/R8CrdnL6+zLk60R7XGzmSJqF09vYNlJ6Bdbs
+ MWDXkYWWP5Ub1ZJGNJQ4qT7g8IN0qXxzLQsmz6tbgLMEHYBGx80bBF8AkdThd6SLhreCN7Uh
+ IR/5NXGqotAZao2xlDpJLuOMQtoH9WVNuuxQQZHVd8if+yp6yRJ5DAmIUt5CCPcAEQEAAcLB
+ gQQYAQIBKwUCU8AbwgUbDAAAAMBdIAQZAQgABgUCU8AbwQAKCRCTYAaomC8PVQ0VCACWk3n+
+ obFABEp5Rg6Qvspi9kWXcwCcfZV41OIYWhXMoc57ssjCand5noZi8bKg0bxw4qsg+9cNgZ3P
+ N/DFWcNKcAT3Z2/4fTnJqdJS//YcEhlr8uGs+ZWFcqAPbteFCM4dGDRruo69IrHfyyQGx16s
+ CcFlrN8vD066RKevFepb/ml7eYEdN5SRALyEdQMKeCSf3mectdoECEqdF/MWpfWIYQ1hEfdm
+ C2Kztm+h3Nkt9ZQLqc3wsPJZmbD9T0c9Rphfypgw/SfTf2/CHoYVkKqwUIzI59itl5Lze+R5
+ wDByhWHx2Ud2R7SudmT9XK1e0x7W7a5z11Q6vrzuED5nQvkhAAoJEIExtcQpvGagugcIAJd5
+ EYe6KM6Y6RvI6TvHp+QgbU5dxvjqSiSvam0Ms3QrLidCtantcGT2Wz/2PlbZqkoJxMQc40rb
+ fXa4xQSvJYj0GWpadrDJUvUu3LEsunDCxdWrmbmwGRKqZraV2oG7YEddmDqOe0Xm/NxeSobc
+ MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
+ 7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
+ 95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
+In-Reply-To: <20251118003229.26636-3-jszhang@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.130.77.120]
-X-ClientProxiedBy: STKCAS1NODE1.st.com (10.75.128.134) To STKDAG1NODE2.st.com
- (10.75.128.133)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU2PEPF00028D12:EE_|GV1PR10MB7571:EE_
-X-MS-Office365-Filtering-Correlation-Id: ec880010-7064-425a-d80f-08de26d10db4
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|7416014|376014|36860700013|1800799024|13003099007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?ZlFkMlNDdEt1NTFRcFNkOXRMdjFULzFOUHZlQldHSXZmN2JPWmlFbnlmOVBW?=
- =?utf-8?B?VGhFbW9LbmpoWTJWVHlFY3ZHQlFreWFaZCs4TmtLZ0Erb25iMTQ2d3NNcjh5?=
- =?utf-8?B?UGFqdnYrL1VpOFpDdTFFZ2EzUCs1Y1F1amZsYXFGYWhRY01mcG9MUlp3bHE4?=
- =?utf-8?B?ZDRQdWZpK21zbTRFTkp3bkNvU0hXK09XTlpHcXRRSXJZU2E1SG5vTFdVUDVp?=
- =?utf-8?B?RFArMFJHZGNKdjF5ckVQK3ozRnE0L1JQRGpoY0hXKzVpL2I4a3FQcFJCNTdE?=
- =?utf-8?B?UHk0QnRlOUpNZkxmSDArR1lpelUyTnV4U0hSdWtnU2F6dFRqUGM0eVVEbDAy?=
- =?utf-8?B?VW9WMG5XaFpZcWx5RFZIOFFtOXByb2Z0ZFBPUEl6UFN4dUEzOFljT3BDaE1J?=
- =?utf-8?B?TkhmUWIxenV5SXFSWkozallFNTZvdWJ4THBLdk12QjBwV2p4WmlyVmVwQmtl?=
- =?utf-8?B?TGQwWTdtUGp0K1ZsdnFyNXQwNGE1Rnd5S3krQ1lQWUhOVWVlTEtpQ0x5Znhh?=
- =?utf-8?B?T3RLVUlTZCtQTTJ0OTBFRzNsTmZ0ZHBDenZYYWxJNFhYV2EwMjRDcTBNOXpT?=
- =?utf-8?B?UVdSNE5DVW5seVNObW1WRHl3eUNWWU5CYXc0eWQzSEFYRzAzVFJGbWpVaGlT?=
- =?utf-8?B?STEyUVZLdngyRTd3VUp5Vmpwc0JlaXdQMm52L1JteldaZ0dsYTkyUVRzNmRv?=
- =?utf-8?B?cEg5LytldmtYK2QzWGRHaXF0b2hGa1Y5d0dKbVFJZnNiSitXWGkvMXZFMmcz?=
- =?utf-8?B?eEpMUldsbjQvcytCb1dnRUl0K0Y0WDRZNVpFRWVBaCtpbExwclZIV1owekZB?=
- =?utf-8?B?Qk9WYW15eFdOSjRsaWhkT2Fad21mZmovSXVhUEJmaWg2WDFDU2hEVVNvWnM0?=
- =?utf-8?B?WFFhYjJ1b3NJcGR0aVhaYWdTZTFLWm9OU0pyMzZXODNjb3RMNkJva1BOQ3c3?=
- =?utf-8?B?Mnp3dXFmWmU4bFJTMDY2Q2p5U3BjanZOUUF3MmtXMDlzSS8wcHRJNG9LL1FJ?=
- =?utf-8?B?dVBXQkcyTjJuekFQVDhydHVMZS9IcEx1VUZjZ2Z5ZVZ5YVBSd0YvbmN2UjNE?=
- =?utf-8?B?TFUrVTlsWXdtZCtGYUZsdnZvTmlSSjJSemh4eDNHR2kvbWZHak56Q2dWRjND?=
- =?utf-8?B?ZG5QRFZFa1R1UjBJUXVTTWRKTE9CclRQZHFtQzFBUCtuZ3BFRUh6Vytkb1Ny?=
- =?utf-8?B?VWJlZ1UvYXZnK1B3ZEdYRE5ydDJWd01pb0x4cmJaTDVVQVJlMXhPd2QwT3RY?=
- =?utf-8?B?Q1FqVlBMR0pabGNZNzBxZXhVVjdDak5CVktoMFNJTEM4T0FBM1ZQd20rY0kx?=
- =?utf-8?B?Y2dzRXhUcE5rM2svVUg0Wk13MURlV3p4N0xsMjFsUjQ5OVlJMTJhVXM3bHpR?=
- =?utf-8?B?eG4xNFAwNFpSMnNxNnN1OHhzOXpqYzRQbVUyLzF2dTBiRWJIQ2RaM2RtZGpQ?=
- =?utf-8?B?dkp2SDExY1JVaEJNZ1dxYnovOHlZaXJKS3ZnaU1KenVvYjBrZzN0VjI5OHlV?=
- =?utf-8?B?Y3libktJWFA1cmlFN2FSWVB6a29NbFVERmpVMVE2dlhYOHFoR1hLYXpmTXAx?=
- =?utf-8?B?Mkl4YlhnTExKOGJPS1p6ZGJhcWpCcGJNbG0rQklGWk1uNEIrOWI0RFgwSTBu?=
- =?utf-8?B?M2VqbllWZ0RFdEFHeHFyZXhURXQwMGN3MkNKUEZ3OXhMUUozdEdYck1hS2di?=
- =?utf-8?B?cjhzWjNxOUhOSCtIbDlnRVJmM2s1Q0NjVVcySWE4bG1yOU96MEZpZ0FvNFJt?=
- =?utf-8?B?SW5HbWVNVndpOXY2LzAwWlNmblFLdG5RdTBZamF5eWx4bWV3L1NvMHRkVXQw?=
- =?utf-8?B?T0VzVGI2RmJyd1ZWNmFPUUU3TmgyWHEwUXl0OWRVUE9zejhSZktXK1pCRlUr?=
- =?utf-8?B?RFNqT2J0S0k1UkVoSUthQUJ6TUhhTStkZDMxYXJqQTFYVUNXaVBqbVFnVkN6?=
- =?utf-8?B?Mzh3K2t2anJVL1EyZ1ltYWl6aDNGZVczcTBlSVc0M3NFQnViODJrcnluMjU2?=
- =?utf-8?B?MGd2cG5CT09IdzJWLzV3dTBaZlk5aXdyTDNnYnc4MHJicEQzNFJnaDduSHFj?=
- =?utf-8?B?ME5ZVytQcERPK2Zzd0ZIVVlaa0RLZm1Cb0k4UzY0V1Z2K25uWWcwSEE4S2Iv?=
- =?utf-8?Q?BjWY=3D?=
-X-Forefront-Antispam-Report: CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(7416014)(376014)(36860700013)(1800799024)(13003099007);DIR:OUT;SFP:1101;
-X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2025 18:34:05.2027
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: ec880010-7064-425a-d80f-08de26d10db4
-X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.59];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource: DU2PEPF00028D12.eurprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR10MB7571
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMTE4MDE0OSBTYWx0ZWRfX/cSIXhwpS49S
- H58R9LBWczNAuMPf7EURTIFYRg+jrCQk+4znGP2nTlTmrBTRfkwAGQJvwxDFREQu64V6ppdGoLf
- 17s7hethE6xUhUOax1j8iArXxxgxCOK0abUOx/E8BZEGfno0fyGzeL2Az4dh1v/auLFJuh3s0Xy
- 2M58KRqz649fmlJqaiexNwLNv7ivN2SkdBk8PP1MWMTxgguoarKLxE/XPiMXcuoKGRnJ8GpjTNO
- f76rw8CPvyaBqOE8jK/r6L5tXnFrcxj/8c4Vtany7IqAHBzOwOlWYj1OKCu8IV9DKUHYAefOFnB
- GaTRa/r25t/qCJhFxRzrYJOJx8qEzMEKGcsQSFC2ORsGLN+JPRlUYEAOFohZdaXnf3U75lly0mO
- /R4PhFVgwvbs85yE/OriCQhMxdyvYw==
-X-Authority-Analysis: v=2.4 cv=SaL6t/Ru c=1 sm=1 tr=0 ts=691cbc23 cx=c_pps
- a=4X+iVNKrLEFvYFcl14eRNw==:117 a=d6reE3nDawwanmLcZTMRXA==:17
- a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=RA8ZoFPxCIQA:10 a=IkcTkHD0fZMA:10
- a=6UeiqGixMTsA:10 a=s63m1ICgrNkA:10 a=KrXZwBdWH7kA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=VwQbUJbxAAAA:8 a=8b9GpE9nAAAA:8
- a=KlQPxW_TAIvn8hAYAncA:9 a=QEXdDO2ut3YA:10 a=X8_hmcNjPp8A:10
- a=VmwSssl72cIA:10 a=T3LWEMljR5ZiDmsYVIUa:22 a=cPQSjfK2_nFv0Q5t_7PE:22
-X-Proofpoint-GUID: o4gfqP86EB7qQp-5ecozdyxwVyLTJFro
-X-Proofpoint-ORIG-GUID: o4gfqP86EB7qQp-5ecozdyxwVyLTJFro
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
- definitions=2025-11-18_02,2025-11-18_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 suspectscore=0
- adultscore=0 malwarescore=0 clxscore=1015 impostorscore=0 lowpriorityscore=0
- spamscore=0 priorityscore=1501 bulkscore=0 phishscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2510240001 definitions=main-2511180149
+X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251118_103436_682607_AB8768ED 
-X-CRM114-Status: GOOD (  27.96  )
+X-CRM114-CacheID: sfid-20251118_103520_584081_EF248079 
+X-CRM114-Status: GOOD (  10.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -201,176 +164,20 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-On 11/17/25 21:00, Bjorn Helgaas wrote:
-> On Mon, Nov 17, 2025 at 01:04:47PM +0100, Christian Bruel wrote:
->> On 11/14/25 19:59, Bjorn Helgaas wrote:
->>> On Fri, Nov 14, 2025 at 08:45:52AM +0100, Christian Bruel wrote:
->>>> If the host has deasserted PERST# and started link training before the link
->>>> is started on EP side, enabling LTSSM before the endpoint registers are
->>>> initialized in the perst_irq handler results in probing incorrect values.
->>>>
->>>> Thus, wait for the PERST# level-triggered interrupt to start link training
->>>> at the end of initialization and cleanup the stm32_pcie_[start stop]_link
->>>> functions.
->>>
->>> I've seen this kind of thing in other drivers, and I wondered whether
->>> it was safe because the host asserts and deasserts PERST#
->>> asynchronously, independent of anything the endpoint is doing.
->>>
->>> I assume it's possible that the host deasserts PERST# before this
->>> driver has the stm32_pcie_ep_perst_irq_thread() thread set up.  If
->>> that happens and the driver doesn't see the PERST# interrupt, does
->>> everything still work correctly?
->>
->> yes it does. the PERST# interrupt is level-triggered and, if already
->> de-asserted, fires only when enabled (it is NOAUTOEN) with start_link.
->>
->> At that point, the host can enumerate by performing a manual rescan or
->> rebind the PCIe driver, restarting the entire probe sequence.
->>
->> Tested the pcie_epf_test driver with various power-up sequences: full
->> power-up the host or device first, and stop or standby PM suspend/resume.
+On 11/17/2025 4:32 PM, Jisheng Zhang wrote:
+> Use the modern PM macros for the suspend and resume functions to be
+> automatically dropped by the compiler when CONFIG_PM or
+> CONFIG_PM_SLEEP are disabled, without having to use #ifdef guards.
 > 
-> Help me think through this.  I guess the interesting case is when the
-> host boots first and enumerates devices before the stm32 endpoint is
-> ready, right?
->
-> I suppose the endpoint LTSSM is initially disabled, so the link is
-> down, and the host enumeration didn't find anything?
-
-yes. When the device is not started (start_link) dw_pcie_wait_for_link() 
-fails and pci_host_probe() only register the root port:
-
-         /*
-          * Note: Skip the link up delay only when a Link Up IRQ is present.
-          * If there is no Link Up IRQ, we should not bypass the delay
-          * because that would require users to manually rescan for devices.
-          */
-         if (!pp->use_linkup_irq)
-                 /* Ignore errors, the link may come up later */
-                 dw_pcie_wait_for_link(pci);
-
-        ret = pci_host_probe(bridge);
-
+> This has the advantage of always compiling these functions in,
+> independently of any Kconfig option. Thanks to that, bugs and other
+> regressions are subsequently easier to catch.
 > 
-> Where does the link come up?  I see the pci_epc_start_store() that
-> eventually leads to stm32_pcie_start_link(), which enables perst_irq.
+> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+> Acked-by: Doug Berger <opendmb@gmail.com>
 
-The link appears when explicitly requested by writing '1' into the bound 
-endpoint device driver sysfs 'start' once the device is configured.
-
-see https://www.kernel.org/doc/html/latest/PCI/endpoint/pci-test-howto.html
-
-But how pci_epc_start_store() is iterated from the configfs_write_iter() 
-mechanism is beyond my knowledge...
-
-> Since you requested perst_irq with IRQF_TRIGGER_HIGH, and PERST# is
-> deasserted, does that trigger stm32_pcie_ep_perst_irq_thread() and
-> call stm32_pcie_perst_deassert() to enable the LTSSM?
-
-perst_gpio is active low. So requesting the perst_irq with 
-IRQF_TRIGGER_HIGH triggers when deasserted.
-
-This parts is quite confusing (for me) because gpiod_get_value() 
-correctly returns 0 when the gpio is de-asserted, when the irq API does 
-not know about active low so we must use TRIGGER_HIGH
-
-> 
-> When the link comes up, if the Downstream Port supports hotplug and
-> pciehp is enabled, it might notice the link-up event and treat this as
-> a hot-add?
-
-yes, I just tried with a host pc with hot-plug enabled. lspci found the 
-stm32 EP, as you anticipated
-
-> 
-> Otherwise the user would have to manually rescan to notice the
-> endpoint?
-
-indeed, this is how I proceed when the host does not support hot-plug,
-
-thank you,
-
-Christian
-
-> 
->>>> Signed-off-by: Christian Bruel <christian.bruel@foss.st.com>
->>>> ---
->>>>    drivers/pci/controller/dwc/pcie-stm32-ep.c | 38 ++++++------------------------
->>>>    1 file changed, 7 insertions(+), 31 deletions(-)
->>>>
->>>> diff --git a/drivers/pci/controller/dwc/pcie-stm32-ep.c b/drivers/pci/controller/dwc/pcie-stm32-ep.c
->>>> index 3400c7cd2d88a279c49ef36a99fc7537c381c384..d0654bb43759bb8d0f0d7badbf7bdae839241fcf 100644
->>>> --- a/drivers/pci/controller/dwc/pcie-stm32-ep.c
->>>> +++ b/drivers/pci/controller/dwc/pcie-stm32-ep.c
->>>> @@ -37,36 +37,9 @@ static void stm32_pcie_ep_init(struct dw_pcie_ep *ep)
->>>>    		dw_pcie_ep_reset_bar(pci, bar);
->>>>    }
->>>> -static int stm32_pcie_enable_link(struct dw_pcie *pci)
->>>> -{
->>>> -	struct stm32_pcie *stm32_pcie = to_stm32_pcie(pci);
->>>> -
->>>> -	regmap_update_bits(stm32_pcie->regmap, SYSCFG_PCIECR,
->>>> -			   STM32MP25_PCIECR_LTSSM_EN,
->>>> -			   STM32MP25_PCIECR_LTSSM_EN);
->>>> -
->>>> -	return dw_pcie_wait_for_link(pci);
->>>> -}
->>>> -
->>>> -static void stm32_pcie_disable_link(struct dw_pcie *pci)
->>>> -{
->>>> -	struct stm32_pcie *stm32_pcie = to_stm32_pcie(pci);
->>>> -
->>>> -	regmap_update_bits(stm32_pcie->regmap, SYSCFG_PCIECR, STM32MP25_PCIECR_LTSSM_EN, 0);
->>>> -}
->>>> -
->>>>    static int stm32_pcie_start_link(struct dw_pcie *pci)
->>>>    {
->>>>    	struct stm32_pcie *stm32_pcie = to_stm32_pcie(pci);
->>>> -	int ret;
->>>> -
->>>> -	dev_dbg(pci->dev, "Enable link\n");
->>>> -
->>>> -	ret = stm32_pcie_enable_link(pci);
->>>> -	if (ret) {
->>>> -		dev_err(pci->dev, "PCIe cannot establish link: %d\n", ret);
->>>> -		return ret;
->>>> -	}
->>>>    	enable_irq(stm32_pcie->perst_irq);
->>>> @@ -77,11 +50,7 @@ static void stm32_pcie_stop_link(struct dw_pcie *pci)
->>>>    {
->>>>    	struct stm32_pcie *stm32_pcie = to_stm32_pcie(pci);
->>>> -	dev_dbg(pci->dev, "Disable link\n");
->>>> -
->>>>    	disable_irq(stm32_pcie->perst_irq);
->>>> -
->>>> -	stm32_pcie_disable_link(pci);
->>>>    }
->>>>    static int stm32_pcie_raise_irq(struct dw_pcie_ep *ep, u8 func_no,
->>>> @@ -152,6 +121,8 @@ static void stm32_pcie_perst_assert(struct dw_pcie *pci)
->>>>    	dev_dbg(dev, "PERST asserted by host\n");
->>>> +	regmap_update_bits(stm32_pcie->regmap, SYSCFG_PCIECR, STM32MP25_PCIECR_LTSSM_EN, 0);
->>>> +
->>>>    	pci_epc_deinit_notify(ep->epc);
->>>>    	stm32_pcie_disable_resources(stm32_pcie);
->>>> @@ -192,6 +163,11 @@ static void stm32_pcie_perst_deassert(struct dw_pcie *pci)
->>>>    	pci_epc_init_notify(ep->epc);
->>>> +	/* Enable link training */
->>>> +	regmap_update_bits(stm32_pcie->regmap, SYSCFG_PCIECR,
->>>> +			   STM32MP25_PCIECR_LTSSM_EN,
->>>> +			   STM32MP25_PCIECR_LTSSM_EN);
->>>> +
->>>>    	return;
->>>>    err_disable_resources:
->>>>
->>>> ---
->>>> base-commit: 31115ecec74fe5c679a149d7037009f26b3aa8a9
->>>> change-id: 20251113-perst_ep-0b57b9679cf9
->>>>
->>>> Best regards,
->>>> -- 
->>>> Christian Bruel <christian.bruel@foss.st.com>
->>>>
->>
+Reviewed-by: Florian Fainelli <florian.fainelli@broadcom.com>
+-- 
+Florian
 
 
