@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A308DCED279
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 10:38:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07386CED27F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 10:38:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=J1KpAk/X+mJeWWI/FqOB+Io4kN5HIqeKrqVApCd567Q=; b=z+VRMco+C400qq5wbEWhXrHbdj
-	1cJkVss2LjE8QRJHItNjDK8UelPSBsf94f+p3ssu5o1wAso16cQlhU4Vp5lno4S3FCrLCweIe6Egc
-	STt8IfjOlYwyCweWGnZHx8T+FFDvm+yh4ssdXto3mzcu/UPZXpR5LJMcDROvBXp2RE1yn0ib3JbJT
-	LMCKStSo8ODm8i753dVebTu/8ogbkXaiU4XQvNik6jzZumwLOkKXz524kuOnBqX9Kb6v7u3UaNf3w
-	1ANvub5CBMHsrAJd68ZjXFiWlFJ2wFfTSYWyOvWW7G2OnU9rhPhnn6nYGR1xCwIS5m68o0JiMW2TN
-	EiAGXsxA==;
+	bh=unbOsFC7lC3Sk0k9z+89bFoeZWRx+lQUDVvLvg7/a5E=; b=0r88TteK1N+DYmTmWFTGXcVvAl
+	rDyDnCZ7R5Oe3n32SDpBOnyVFig8g5aATQKjoWDalWeUVGHYC9WBaJFplCRpC+n25/KrIyheISYdm
+	3w9MXM/fEJJXaMgD77e6xDlnu18l3ffXguFTP7YxDLLuFLEvdsm8rwmjRBVwkbCsmo7Mm11+S1daW
+	N4tmSljXMIWF6hWXfUHQZm0W8PC8wYqaWhunQCn+v+ACPBGztTWq8LoFSDxfUMi6KB/6nac16gDGF
+	PO5waqVSDghxWjMyCs1RU+EGGqvnShC75CItxeMKfa9423QNs2+3SR0YRwvCr517j6CkE9+/R0/Hp
+	O6wNT4Ww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLJ6L-00000000Fmq-2tYa;
-	Tue, 18 Nov 2025 10:38:21 +0000
-Received: from mail-wr1-x44a.google.com ([2a00:1450:4864:20::44a])
+	id 1vLJ6K-00000000FlE-2AKR;
+	Tue, 18 Nov 2025 10:38:20 +0000
+Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLJ6G-00000000Fis-2nB2
+	id 1vLJ6D-00000000Fgv-149q
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Nov 2025 10:38:17 +0000
-Received: by mail-wr1-x44a.google.com with SMTP id ffacd0b85a97d-42b352355a1so3034839f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Nov 2025 02:38:15 -0800 (PST)
+	Tue, 18 Nov 2025 10:38:14 +0000
+Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-477a027877eso24134345e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Nov 2025 02:38:12 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1763462294; x=1764067094; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1763462291; x=1764067091; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=J1KpAk/X+mJeWWI/FqOB+Io4kN5HIqeKrqVApCd567Q=;
-        b=0VGpNDAO5EOLtPkdoTwt67Y7D263jF5tRXb4Cehn9i35m7swqHPqSs6oQaGWeABuxX
-         fBs6l7NXm8a7d8kE6Kx6He5m5tKQ0tG2YkmBJSG69mU167htzZZ6o05Ofg5l8qmcEI5u
-         uzH8KG98a2mANwCrMPSo6ePrdMvbjfUydzugLJg6dkrzKJnkHhSnPZt2BMz3MSFkzX6Y
-         6PwbSQJVC/DsJkZcDijLIq0E94Hagral9GhOxuOA/GuLZAyJ/rPtS1uCQkL8rHH8sA21
-         fcDoKfkAhHykLIwLLANstGCDVDtdzKwHhnzSXJwRoqKgMQHaue2+kbqTRggRwmiuFUb2
-         62Xg==
+        bh=unbOsFC7lC3Sk0k9z+89bFoeZWRx+lQUDVvLvg7/a5E=;
+        b=V3mkeN1MaBORqCHi5rq4OCiPLzS3omfXLWxer5UEFCMNYfb/fLuPU8QhYmUZZuhchS
+         gNLGUF7GcdsGAWAqe3pa2NC2GlOV/1VzcwPedxR7uOzeV9IdN+sGE2puZKItpZhhdcnL
+         WJ468KfXlNJZjlJtcXl1GosxJx3LZRdxfuUItT+6bmjswEJJuvVET9vyJYLcuy0AXNtp
+         ku84zJmI5C/qZRkeEon6S+NYMolQ1VEIKuKwiuwax9LEbYm2Zyit7jx0X5D+RK49OUYG
+         HhBJIdbB/eqdpEZUN5xpXv1YHPFke//ke8exNXM4MdVs8NkuWexVIi8AhiuygY5e424R
+         Exbg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763462294; x=1764067094;
+        d=1e100.net; s=20230601; t=1763462291; x=1764067091;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=J1KpAk/X+mJeWWI/FqOB+Io4kN5HIqeKrqVApCd567Q=;
-        b=tl7xNFXZBj6LkQGXEKJ2V5DBeZZ0NbNansuOTOMMdz6TbmVB+iBNTicqb0MPSIeFwc
-         8YER7xCNcDRzRep6GnlPSfL9dVn/eIbmgd8B4GmuUBwxKw7LZfmc+w7YCfuaqo0Q6J89
-         5c5I/RgvldP/wedp7OSXp1BKKWo66H1YpFW8ZTVYx8W4zJwo5W7qhnbGtQZG7B/W19Pt
-         23Qed5yaHl7XDpQr4Kb/fb9TGvEcuWLnzJPzawafdfDiYmy3tlV3x/IbSLVW1EQ30fg7
-         u2vWi2AGbVCJZyh2PNjTeaXr+hAF9z8XZwnevGypSoegASezraNgHzyiU1oECJrsmTfJ
-         fLhA==
-X-Forwarded-Encrypted: i=1; AJvYcCXtLGEcKSH1YvT75egsR9MuaXM9LsWjeJK0YKNvvq0jtFgoEcr70KmUM3n7+KwdmUePnDdtXaaNGrE4scs7iAPZ@lists.infradead.org
-X-Gm-Message-State: AOJu0YxrQl2BkL+4Pdt0LKs3kl+O+B68TVJG6hS4uo+19pdt3UavM3Gs
-	7noj47sLu0LTnIm+O5BhkD3Ei3TyVDb48zt3D3yOz5+9OqrznTzEpzpa4OkaqT8Wf+QSyUU/jZS
-	YCg==
-X-Google-Smtp-Source: AGHT+IEAYj+W/utL/Dvs1aiYdmCy2z5+TKwIEDcEUnNtXsvha71Ab0BwsvmfljNEPRzfgpl8tCmySeuxRA==
-X-Received: from wrbei2.prod.google.com ([2002:a05:6000:4182:b0:42b:b28a:673a])
- (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6000:615:b0:42b:3dbe:3a37
- with SMTP id ffacd0b85a97d-42ca86971acmr2477705f8f.10.1763462294513; Tue, 18
- Nov 2025 02:38:14 -0800 (PST)
-Date: Tue, 18 Nov 2025 10:38:04 +0000
+        bh=unbOsFC7lC3Sk0k9z+89bFoeZWRx+lQUDVvLvg7/a5E=;
+        b=RARd19KP0m3vxdpvJDh1DG1Ltqr5c3Wn9pXKL2deicRDsZPNxWqVulpc4jB2ro/ZbM
+         BB+6t2StP3imwZC8lbVjpWA8CQmNNEe3VSESFtOvozYldzN01MlaQ+a2503voPdpJAdL
+         sYZYkOEmJzCH38OlrygzJ0ay8u5j6l/sLqIv6LeX+ZB2M2D4Gy3rmnqJZsjE81lkKvzR
+         KtnP+lUM08YKqeVW77xqZKQxw6a1ex7R9xGsRLGp3VVwBEjRbK/FXyDNbB68xUqqfARs
+         F3EBHniezhDX005T7FpyILRABx9eM9Upzjfs++XZe3csSAk9cBGc5eTWBamrl/YOin4K
+         jWuQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVsDz7GSu7eQeEvwvyQm6SMj6M4epCLDv21KSOt70xamlzhla9BEl9+t3qJMPPS3MRSra6vol6jYUfXtm0F6R2c@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw5+tMwJLyEw1m/MtqwZCPAtA9Q+EvA+Qsh/dQWvP6JOpDrKmkB
+	VLBCYePbmleIyar273EHWI0/amjnwJq4gP1Urvc1dSExBfrmEV99nkrm+FtcjKaUg3R76CWbmsl
+	9CQ==
+X-Google-Smtp-Source: AGHT+IE2uOWsWwOg/aSoJt/gaeh0LSFNR1KpaQMIFtZB7pbK2RWRU0iQCTfCVOINqILp4jWHmtPCHIlOyQ==
+X-Received: from wmbjt22.prod.google.com ([2002:a05:600c:5696:b0:477:98de:d8aa])
+ (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:3105:b0:477:6374:6347
+ with SMTP id 5b1f17b1804b1-4778fe96b70mr150339635e9.22.1763462290724; Tue, 18
+ Nov 2025 02:38:10 -0800 (PST)
+Date: Tue, 18 Nov 2025 10:38:00 +0000
 In-Reply-To: <20251118103807.707500-1-tabba@google.com>
 Mime-Version: 1.0
 References: <20251118103807.707500-1-tabba@google.com>
 X-Mailer: git-send-email 2.52.0.rc1.455.g30608eb744-goog
-Message-ID: <20251118103807.707500-8-tabba@google.com>
-Subject: [PATCH v5 7/9] KVM: arm64: Track KVM IOCTLs and their associated KVM caps
+Message-ID: <20251118103807.707500-4-tabba@google.com>
+Subject: [PATCH v5 3/9] KVM: arm64: Fix MTE flag initialization for protected VMs
 From: Fuad Tabba <tabba@google.com>
 To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org
 Cc: maz@kernel.org, oliver.upton@linux.dev, will@kernel.org, 
@@ -74,8 +74,8 @@ Cc: maz@kernel.org, oliver.upton@linux.dev, will@kernel.org,
 	catalin.marinas@arm.com, vladimir.murzin@arm.com, tabba@google.com
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251118_023816_721068_5D68F046 
-X-CRM114-Status: GOOD (  16.78  )
+X-CRM114-CacheID: sfid-20251118_023813_306559_5C0418C5 
+X-CRM114-Status: GOOD (  15.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,82 +90,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Track KVM IOCTLs (VM IOCTLs for now), and the associated KVM capability
-that enables that IOCTL. Add a function that performs the lookup.
+The function pkvm_init_features_from_host() initializes guest
+features, propagating them from the host. The logic to propagate
+KVM_ARCH_FLAG_MTE_ENABLED (Memory Tagging Extension)
+has a couple of issues.
 
-This will be used by CoCo VM Hypervisors (e.g., pKVM) to determine
-whether a particular KVM IOCTL is allowed for its VMs.
+First, the check was in the common path, before the divergence for
+protected and non-protected VMs. For non-protected VMs, this was
+unnecessary, as 'kvm->arch.flags' is completely overwritten by
+host_arch_flags immediately after, which already contains the MTE flag.
+For protected VMs, this was setting the flag even if the feature is not
+allowed.
 
-Suggested-by: Oliver Upton <oupton@kernel.org>
+Second, the check was reading 'host_kvm->arch.flags' instead of using
+the local 'host_arch_flags', which is read once from the host flags.
+
+Fix these by moving the MTE flag check inside the protected-VM-only
+path, checking if the feature is allowed, and changing it to use the
+correct host_arch_flags local variable. This ensures non-protected VMs
+get the flag via the bulk copy, and protected VMs get it via an explicit
+check.
+
+Fixes: b7f345fbc32a ("KVM: arm64: Fix FEAT_MTE in pKVM")
+Reviewed-by: Ben Horgan <ben.horgan@arm.com>
 Signed-off-by: Fuad Tabba <tabba@google.com>
 ---
- arch/arm64/include/asm/kvm_host.h | 42 +++++++++++++++++++++++++++++++
- include/uapi/linux/kvm.h          |  1 +
- 2 files changed, 43 insertions(+)
+ arch/arm64/kvm/hyp/nvhe/pkvm.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
-diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-index 64302c438355..3ec2d4edd3b4 100644
---- a/arch/arm64/include/asm/kvm_host.h
-+++ b/arch/arm64/include/asm/kvm_host.h
-@@ -1652,4 +1652,46 @@ static __always_inline enum fgt_group_id __fgt_reg_to_group_id(enum vcpu_sysreg
- 		p;							\
- 	})
+diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
+index f6f8996c4f97..16d7bf493c18 100644
+--- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
++++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
+@@ -337,9 +337,6 @@ static void pkvm_init_features_from_host(struct pkvm_hyp_vm *hyp_vm, const struc
+ 	/* CTR_EL0 is always under host control, even for protected VMs. */
+ 	hyp_vm->kvm.arch.ctr_el0 = host_kvm->arch.ctr_el0;
  
-+/*
-+ * Tracks KVM IOCTLs and their associated KVM capabilities.
-+ */
-+struct kvm_ioctl_cap_map {
-+	unsigned int ioctl;
-+	long ext;
-+};
+-	if (test_bit(KVM_ARCH_FLAG_MTE_ENABLED, &host_kvm->arch.flags))
+-		set_bit(KVM_ARCH_FLAG_MTE_ENABLED, &kvm->arch.flags);
+-
+ 	/* No restrictions for non-protected VMs. */
+ 	if (!kvm_vm_is_protected(kvm)) {
+ 		hyp_vm->kvm.arch.flags = host_arch_flags;
+@@ -354,6 +351,9 @@ static void pkvm_init_features_from_host(struct pkvm_hyp_vm *hyp_vm, const struc
+ 		return;
+ 	}
+ 
++	if (kvm_pvm_ext_allowed(KVM_CAP_ARM_MTE))
++		kvm->arch.flags |= host_arch_flags & BIT(KVM_ARCH_FLAG_MTE_ENABLED);
 +
-+/*
-+ * Sorted by ioctl to allow for potential binary search,
-+ * though linear scan is sufficient for this size.
-+ */
-+static const struct kvm_ioctl_cap_map vm_ioctl_caps[] = {
-+	{ KVM_CREATE_IRQCHIP, KVM_CAP_IRQCHIP },
-+	{ KVM_ARM_SET_DEVICE_ADDR, KVM_CAP_ARM_SET_DEVICE_ADDR },
-+	{ KVM_ARM_MTE_COPY_TAGS, KVM_CAP_ARM_MTE },
-+	{ KVM_SET_DEVICE_ATTR, KVM_CAP_DEVICE_CTRL },
-+	{ KVM_GET_DEVICE_ATTR, KVM_CAP_DEVICE_CTRL },
-+	{ KVM_HAS_DEVICE_ATTR, KVM_CAP_DEVICE_CTRL },
-+	{ KVM_ARM_SET_COUNTER_OFFSET, KVM_CAP_COUNTER_OFFSET },
-+	{ KVM_ARM_GET_REG_WRITABLE_MASKS, KVM_CAP_ARM_SUPPORTED_REG_MASK_RANGES },
-+	{ KVM_ARM_PREFERRED_TARGET, KVM_CAP_CORE },
-+};
-+
-+/*
-+ * Set *ext to the capability.
-+ * Return 0 if found, or -EINVAL if no IOCTL matches.
-+ */
-+static inline long kvm_get_cap_for_kvm_ioctl(unsigned int ioctl, long *ext)
-+{
-+	int i;
-+
-+	for (i = 0; i < ARRAY_SIZE(vm_ioctl_caps); i++) {
-+		if (vm_ioctl_caps[i].ioctl == ioctl) {
-+			*ext = vm_ioctl_caps[i].ext;
-+			return 0;
-+		}
-+	}
-+
-+	return -EINVAL;
-+}
-+
- #endif /* __ARM64_KVM_HOST_H__ */
-diff --git a/include/uapi/linux/kvm.h b/include/uapi/linux/kvm.h
-index 52f6000ab020..1f6e51234157 100644
---- a/include/uapi/linux/kvm.h
-+++ b/include/uapi/linux/kvm.h
-@@ -704,6 +704,7 @@ struct kvm_enable_cap {
- /*
-  * Extension capability list.
-  */
-+#define KVM_CAP_CORE -1	/* represents core KVM capabilities */
- #define KVM_CAP_IRQCHIP	  0
- #define KVM_CAP_HLT	  1
- #define KVM_CAP_MMU_SHADOW_CACHE_CONTROL 2
+ 	bitmap_zero(allowed_features, KVM_VCPU_MAX_FEATURES);
+ 
+ 	set_bit(KVM_ARM_VCPU_PSCI_0_2, allowed_features);
 -- 
 2.52.0.rc1.455.g30608eb744-goog
 
