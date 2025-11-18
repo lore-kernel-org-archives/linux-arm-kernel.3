@@ -4,112 +4,166 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41766CEE327
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 15:57:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4043CEE327
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 15:58:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gq9UixTYOGF5lJMMtrTQ7J1H2j6p2P/BMXvvWlNxBtU=; b=u4mVC5u+O2h6GqYnTQHdt7rk9e
-	8rc1gTod/bTC/XDmVULNTdAzgMigIZ2F2O3sKQwdngLd8WgehObqsBhGbNgS0RjxDLYdAC1/iU/d7
-	YNT59pJsnMnldKYFi12yo6yyDWbDcSnPN3PPD0JTFMq0IEom4fg/lw2Nkg1lAy/0t4LGip0BG/T07
-	fX/S2qi/leF16RBHt/qjG4xku0Ki5eT9pxEty1Ubcwe81CGZAph4IOJf+A11inksAooE1UKqeLlW3
-	YUX/zt7DPiZ94YC7OMXXm8oi93wx8j4M6WgXfDSWMw1cTAQifZNpqK0b6LNZhJ2o8mdyxWTsixydZ
-	LvONvQmw==;
+	bh=JBwEkffcPX3jrHmRi8vTvgbsflhFXWdFKKqshviHmjM=; b=RixUAQMc1V53TWK4nPhPfpBloy
+	JIfC1tMv54qbojxsi1Jx90zXdCWcPuGIFjPJt7QlmV77c2X2S/F+wY/fsqx03I994ZebGtTqEMRvi
+	PH+7JcowUZsweMVNnpg8pMM5sQ4MM6Pi5VhJYeDM39KlXiurFb9Y9IRmbL9DdcjQKFKOXdxkY1M5D
+	yPN0HvJTMzqQkO07FyfgzWKXOHV1eOOhLXD+mlXuQgP2+oxUYrHVJKyhYe2aRWOjQS5gt0600bd8M
+	i7MEFrkDIOzKtTc/TPvM8tlEvaEJaD2y+deuyWOZd/BwkLa9wVSK1ElEaKrir6YUw/uIPsTWi9FR0
+	itoSEzRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLO4k-00000000f2x-0KVn;
-	Tue, 18 Nov 2025 15:57:02 +0000
-Received: from cyan.elm.relay.mailchannels.net ([23.83.212.47])
+	id 1vLO60-00000000fRN-3m6T;
+	Tue, 18 Nov 2025 15:58:20 +0000
+Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLO4a-00000000ezM-2AXq;
-	Tue, 18 Nov 2025 15:56:56 +0000
-X-Sender-Id: hostingeremail|x-authuser|michael.opdenacker@rootcommit.com
-Received: from relay.mailchannels.net (localhost [127.0.0.1])
-	by relay.mailchannels.net (Postfix) with ESMTP id 831FF92306F;
-	Tue, 18 Nov 2025 15:56:51 +0000 (UTC)
-Received: from de-fra-smtpout8.hostinger.io (100-96-202-58.trex-nlb.outbound.svc.cluster.local [100.96.202.58])
-	(Authenticated sender: hostingeremail)
-	by relay.mailchannels.net (Postfix) with ESMTPA id F196D923194;
-	Tue, 18 Nov 2025 15:56:44 +0000 (UTC)
-ARC-Seal: i=1; a=rsa-sha256; d=mailchannels.net; s=arc-2022; cv=none;
-	t=1763481411;
-	b=WxQcU7pVGZT1/VhTgNg9S6PMtt+g2FvGp9/KY/As/4kWFBlKNfo3ZUYK1VBr5mYxErYhtr
-	uKlcxIMC0c4/f+kl9qyiB/OJ1rmgy382ECvymlxIcxHYX77r6zjIc/Ak9IgpQf9nXK6MrS
-	8z31Lvds1mWpV158cyw7Nth/yZUUJJ13fkugimAw1X5anGwsEVSv4MRo/xWCTAejLrXsZ9
-	tQEIWx+1Joyjvd3Bsq4g/TXEX8rkbWCWkTtxM0B/MHQsBFXJA4YAH93Aus2DHeUnd6MZWm
-	768/YOlOrhMHgnJ3QNFqIhP7kgNqdNbnD5FsgxfbDJfM4fCI96qeHUIp7cuiVw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed;
- d=mailchannels.net;
-	s=arc-2022; t=1763481411;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:dkim-signature;
-	bh=gq9UixTYOGF5lJMMtrTQ7J1H2j6p2P/BMXvvWlNxBtU=;
-	b=fELg2NyAIHOblqT/ynx81L6Fa0K6pgfjBHSgwtxYfsgEXxEcF7pL9Zqg8Wy1e+bIiC/wyD
-	SSLgC0WMcN/E6g+Jm+s/UNoakPBSqd5UiSxbBGBQ0MXRWLtoZdwWNCCWdzQpoY+WEGyp6i
-	UwuOF9H7sHomHQmsgaKjpcMLF4st8LG7IvMdYnsWb8m+r+VVo89BDW22w8H8wVsNZ4G/1s
-	7eA+iwLDQ3c3lqER/GH6ZgjuPc2iby3HeXZZL/og06Ufa7SuB0aN9z4RYqt+bakMzQWJVM
-	3hyPpnYyIyUelpWML1b4Ca7/4Qk8tJuvpJyDBteb68FF3QM7fXhDJcJuqUNo1A==
-ARC-Authentication-Results: i=1;
-	rspamd-55b59744f-dbrd8;
-	auth=pass smtp.auth=hostingeremail
- smtp.mailfrom=michael.opdenacker@rootcommit.com
-X-Sender-Id: hostingeremail|x-authuser|michael.opdenacker@rootcommit.com
-X-MC-Relay: Neutral
-X-MailChannels-SenderId: hostingeremail|x-authuser|michael.opdenacker@rootcommit.com
-X-MailChannels-Auth-Id: hostingeremail
-X-Trouble-Absorbed: 35d4bb854b23fe28_1763481411403_921510503
-X-MC-Loop-Signature: 1763481411403:1783158274
-X-MC-Ingress-Time: 1763481411403
-Received: from de-fra-smtpout8.hostinger.io (de-fra-smtpout8.hostinger.io
- [148.222.55.13])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384)
-	by 100.96.202.58 (trex/7.1.3);
-	Tue, 18 Nov 2025 15:56:51 +0000
-Received: from [127.0.1.1] (unknown [IPv6:2001:861:4450:d360:70a8:5f6b:5afe:c6b5])
-	(Authenticated sender: michael.opdenacker@rootcommit.com)
-	by smtp.hostinger.com (smtp.hostinger.com) with ESMTPSA id 4d9q3t6bHxz3wl4;
-	Tue, 18 Nov 2025 15:56:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rootcommit.com;
-	s=hostingermail-a; t=1763481403;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=gq9UixTYOGF5lJMMtrTQ7J1H2j6p2P/BMXvvWlNxBtU=;
-	b=ANCwTTzEm+C4AARXO5+gHn+BG8kbd96cJEqfCl43J06Q9tyFAeesoMvsDmv9JdjB4beGbE
-	DwSWTJdoxI6NGri3MzEDg+6LJPhdigW/YzkucYXfJ3O/iLJeBOiqUDxIVjTWs2KJpRHWCT
-	T8/2nRV3Y61vrHDbaG8RSrBAtVJbD/wDTkIqm/N2dmwzDsUYR2yboOOEpFuieOuxraRM8J
-	5VgQTx1PUk2EbKJfVYpZIxV7JE9QulQPxy533Z9raAKKTokzkM9R6xTHvXoyWt8uaA0ysB
-	UcMlScc5WDZzMy3nkBC1xlyXyAp6P4txd25MyH+ffr3kMDPzC+x7yafPkw/T5g==
-From: Michael Opdenacker <michael.opdenacker@rootcommit.com>
-Subject: [PATCH v3 1/2] dt-bindings: arm: rockchip: Add Asus Tinker Board
- 3/3S
+	id 1vLO5z-00000000fR0-0FJo
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 18 Nov 2025 15:58:20 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ojF9Gx+RqEj1/8GyWW5QMF2McGDkIr2+xK4qQDAL4HxkYVBUxWWttidlGCBdaDdRZg1iUHOrAVoRTeC6GCjbk+vxH6gxveEarAd2MvX320f239rQOFWLvOqjagzXgkRAwWKZGb6ZQrN279v/q+C8K4Ry09oOVqegL8r5xDGYCto3cxnWW4gwo9GDGZXEBeDhJsa/OtShCy0AkHbSXhBsPJEonPwpOcFzkXoWNI+W+YucFDFAYdqx28OfcyFZJ1duETvO2fso03gQyXdxfaocb/16B89BDYPgRvGF8pRyrGF0cB1zKvQjRFS6MuRnqasf/y7lDHLVcYpa1v/zn6vepw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=JBwEkffcPX3jrHmRi8vTvgbsflhFXWdFKKqshviHmjM=;
+ b=Bf89F0pABZAMII3CZ/pdMRAwBEGjPvUFeP91dAXB9zLB/S+8IlKX8VqVZKyzcuUD0R+svkhQZzD3sVNaWIg71XYYeFTUhxX1pUWRnMwN5ITcgkkEJ5D6QEPJH3PcOjX50dhhooE5TU6HwkAR2I+C4LdRQo2or70zP6E3XQkAw/8PXk+foueXejjCqcK1Ew1pXndcufD7CmmK50yNjE8hDOI56pIOhBKELEb1LG/zkh8gI4pAlIIhdbSHI/yVS+4/qX70+D9p8iHbg9Y4a7RCnB9Orgmz6dXf/oqvQN8Ssia9PJ6P9Szps+wVLf4he8sEpZVGo3kfKTfSbzPpEhhIrQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=JBwEkffcPX3jrHmRi8vTvgbsflhFXWdFKKqshviHmjM=;
+ b=ET3H+IAwwKDS6+XbOgl+cdlZXTH0KFoD05UZREL1XntxluCxAe7nn5+VCN1CpK8OmpQtyNz46+stHhVyABSgfQ5mTXIGJUseC9nYMKFYC+NAEL/of6scrpMPxJgYwtdanBir87BH7cNpkfkwFoFLcXS1NbJInLOZGCj1/lusbAnSF6bQZ3CFT0UZFx449xVwigJ6xRf0ITTl741h2mHqmC9S4tKsG9RpyHMGxTmGswopTGlQDCTqD+j/IRG7BmLTbdH/le2P+kFe9EW9+yS7oYBg2bzpOpT9yj3Us54KyQBoiVGd+/Uo3W6czKW7BjD/guIzv+dmciKHrkLdP8GPtQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from DB9PR04MB9626.eurprd04.prod.outlook.com (2603:10a6:10:309::18)
+ by PR3PR04MB7322.eurprd04.prod.outlook.com (2603:10a6:102:8e::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9320.22; Tue, 18 Nov
+ 2025 15:58:13 +0000
+Received: from DB9PR04MB9626.eurprd04.prod.outlook.com
+ ([fe80::55ef:fa41:b021:b5dd]) by DB9PR04MB9626.eurprd04.prod.outlook.com
+ ([fe80::55ef:fa41:b021:b5dd%4]) with mapi id 15.20.9320.021; Tue, 18 Nov 2025
+ 15:58:13 +0000
+Date: Tue, 18 Nov 2025 10:58:05 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: Carlos Song <carlos.song@nxp.com>
+Cc: aisheng.dong@nxp.com, andi.shyti@kernel.org, shawnguo@kernel.org,
+	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
+	linux-i2c@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] i2c: imx-lpi2c: change to PIO mode in system-wide
+ suspend/resume progress
+Message-ID: <aRyXjUF+x5BdK+uS@lizhi-Precision-Tower-5810>
+References: <20251118071837.1419558-1-carlos.song@nxp.com>
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20251118071837.1419558-1-carlos.song@nxp.com>
+X-ClientProxiedBy: BYAPR05CA0106.namprd05.prod.outlook.com
+ (2603:10b6:a03:e0::47) To DB9PR04MB9626.eurprd04.prod.outlook.com
+ (2603:10a6:10:309::18)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20251118-tinker3-v3-1-2903693f2ebb@rootcommit.com>
-References: <20251118-tinker3-v3-0-2903693f2ebb@rootcommit.com>
-In-Reply-To: <20251118-tinker3-v3-0-2903693f2ebb@rootcommit.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
- Michael Opdenacker <michael.opdenacker@rootcommit.com>
-X-Mailer: b4 0.13.0
-Date: Tue, 18 Nov 2025 15:56:42 +0000 (UTC)
-X-CM-Envelope: MS4xfMFw51Stt3Un0K0zM4Z95zpqyol8woZIB9KlstAIWgIOX8YE2t4fZhchdppWT+ohAD8IPdS1SDL4/mjP7izHxmfuBTZHmUYRsgaJtDU7819imWnKzUqr 50UllCkp+x2/RJoeGotvEn9flb/Ispvg/rrQV5LIyIsmH2aNkOwOGmrtpf3TkrCKVWCS/7Y+xI6sp1qzdw1+ISeYQipWqDE+YXDylmFmUhj+MWDnMMODjJgn QftAYHRqw73rGGMdXzyluqVPYr5cO1MoQrQTG671u/InL+GUcPIHFVfJ5k7RECFRApgH/zr+oMV14kjtcaWh6iO1M7ohYtoylmTBTmz8njxmAvj69lkcW7NN y4fUy14AuOFJE4BNovcfokelgizJ92Fc5FVKT23g0jAp4sKNJ7FGlVDuMHbomtCxEl9U5TJj2/2EPeqDLxm6q9SPe4Xym4kbJzGhPMUGNxkSUsbw7yw6L/CL FYjpMND9xWxCLf2gRG81hBh9W9oXJKzQhdN2lBrOCWD1TXwbaAlJZosb9j102MUBW99NCY/cyZuLj6v1KOhLOWuDaabvFd8HXHm4nsNrw3y3e11Qgr6p2NC6 f1ifvAJ7Q22uWFEb/5dhBpv/mF3Gylm2bAakdt6BwTaN/A==
-X-CM-Analysis: v=2.4 cv=Ceda56rl c=1 sm=1 tr=0 ts=691c973b a=Ph0lQeLb5o4XXq6kAtNexw==:617 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10 a=-Yt9tNsTAAAA:8 a=d70CFdQeAAAA:8 a=KKAkSRfTAAAA:8 a=3JIPYtb0mk-80_rjy1QA:9 a=QEXdDO2ut3YA:10 a=qPQde0g9OtMA:10 a=HTceBwxjnJgA:10 a=NcxpMcIZDGm-g932nG_k:22 a=cvBusfyB2V15izCimMoJ:22
-X-AuthUser: michael.opdenacker@rootcommit.com
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DB9PR04MB9626:EE_|PR3PR04MB7322:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1692fb37-a5b9-488c-7e18-08de26bb47b4
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|376014|19092799006|1800799024|366016|38350700014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?Qm1uUWlDTVVxVW1pbVVCeG5sM0UvM2VvZU9aRDFidjBORVJ0OStEQzNFQ1Ni?=
+ =?utf-8?B?QkFpMWxJWWNyMCtwYU1nS2hoZ0o1MVRTZ01EYnpjY01QR2NUQ1c3VjJMUzFK?=
+ =?utf-8?B?VEFXakJuZnVicHFJejkwbU8rYXZZMllFa0dEdFlSeDJleWlTWE8wb1gwZFYy?=
+ =?utf-8?B?bDZPSENOajJ2NVVjZUNLeDMvdWpnOU54clFuWDE4enBaaXpTd3R6WFNaRXMz?=
+ =?utf-8?B?NGpMNmFkeFdNS1IzdUF4c2IzNkxYUThzNmFVS01qcldnK2RQeCtWZkFhUVRL?=
+ =?utf-8?B?bVRYcVlPeTZLM2MxRUFxS1BNUHN1b3NYZ1B0cllTQ0JKSTJXQU5pVC9nQWxI?=
+ =?utf-8?B?M3ZYMXdQZFZ0cHpqcFhEOEtrelV6MFd3b0J6Z1o0dHU0YTJmSnV1UGlwODNu?=
+ =?utf-8?B?Q0pvTVgzWFVPUnZ4bkJuVlNqcVc0S2dkOEpLM1RuZENsa1RtZGM1Zm9XUGQ4?=
+ =?utf-8?B?eHMvb2o1WVhYMFVWTHhBMlJEU1hoL05FYUlqVTRpaXc2c2tVM1Rwa0I2TG8v?=
+ =?utf-8?B?c0dhVFMxOUVBcURZRzF0ODhqc2xGcGR1R2ljM2lqNE1SanpnRlh0K1ZEOUFR?=
+ =?utf-8?B?Z2FHeWJvZytoSU0rOXVaSkFpcmphb2wyK2FWQm9KdWdwOGtyanZ6S2hqRHV3?=
+ =?utf-8?B?L2lnamtWRndYdEM0UFRsaHpGK0Zzd1JvS3lBSzZ0S1JlNG11SWZMVGZDdkR4?=
+ =?utf-8?B?OU1sWjNMWFhGczZZM2xTc01oc3BIQ2pqeFJJV0F2QlJQWXlxTll2TFBHMGxp?=
+ =?utf-8?B?blhCd1JRQmNQalZ6QWZoN2tVd2szQ1V3UGtoenV5WVZjdTdwV3dwbW91ODNl?=
+ =?utf-8?B?dTduVlpiKzA2Ry9tRUsvYWVhRGZudDc4S0dXT2puSkZZdnEyYi9qRmwzcG5y?=
+ =?utf-8?B?Ri91VzUrdkdEUFBBdUZ3dDFheTdqZXhneC82VEh5Ylh1d2ZjYUI5WTc0M3Q3?=
+ =?utf-8?B?T2s2dlpHbnNTOGVZeXdpbktveGpmcmFmMzUyTW5QZHJiK0pmdFR1aXExK0JK?=
+ =?utf-8?B?NUFrRzQ2LzhLYUo2S3k3S1NUNVRRUURZVGhMeWRrT1hiOWo0MitQeGJ0aWc5?=
+ =?utf-8?B?Wkc4aVY3aDRKNUYxZ1NKQXdmRnJ6RThWTkd5RUdPR2FKQ1VLS2FrWTRFUjd1?=
+ =?utf-8?B?SVFkcTNaSjI1SXVrZWJwOHRHVC9TWXV4QnIwUkNOa0xjcEZJNkJMMlhSb1BW?=
+ =?utf-8?B?eUVSVHl4QmRQL3loYnY3a252aE5jMW5EZnoyakMxL0R4bStVcFVFZDVRQU1n?=
+ =?utf-8?B?TWRpS3RkaDNJNmtRcElFR1daWDRTZzlMNmVFWTNvdmJHTWZrQi82Q3lLMEp6?=
+ =?utf-8?B?eGZQMlFXWUgwcGZhV1JDdE5BUGxSdDJKRldyU1ZvZ253MWI4dmo0TmhORFV5?=
+ =?utf-8?B?bzYzNDkwRmlyVVladjU4MGFCcW5ub0tvU1NsRVBvZkFIRTlua1c2dEN0Umdq?=
+ =?utf-8?B?VXlvWnBCb3BKTEhCV05uYmtkMWVjRDM0UGpSbDhHN2JQOVkrWjBwaG1vM1p0?=
+ =?utf-8?B?eUhPYTNOSmNWZjJ4S3ZPTEZWUHRCVXo5eTBBZnpFWmp0WWF0WkFjM3gyckNO?=
+ =?utf-8?B?dEw3YWNDTkd1aC9YWmRPM1BtOG14aENtaUpvZGRxLy8rckxLZmg0aDRKdUR5?=
+ =?utf-8?B?ZzBCU0todTl5Z3NoNFllbEVabUNPSmtDMnpFTE5pSk1Ud3dXK3RhNklyZXpy?=
+ =?utf-8?B?a2JJQkZWZ3cycDRMU0dJcjJGU1FLQ2F5cEQ3QVB2eEVNQXEveVkzMEhTSHRE?=
+ =?utf-8?B?N0xRd2hRS3JlYUdkUnM4TjdUV0UxdmUyaFl4aVVCd0NaQUhwbzBiRk54STUz?=
+ =?utf-8?B?NkxZNUVCM095Y2k5ampqSUp1RW55TWRkRGIvTVB0RGN5QkttYVEwNkt2QnNj?=
+ =?utf-8?B?MnVjYzNWQlZrY2xzTElnbko1MWxKZm1uclhOUk54NUhIMG5OaTdSallRWlFs?=
+ =?utf-8?B?a1RxWlh0ZldTV2l0NVpONDE3ZG5uYWF1TnZWMVpjb2ZIbm8zYmwvZDRkL2tG?=
+ =?utf-8?B?WHlTN2FDWWJPdDZ3V0JaUlZiR25nUEN1V0hhMmNBNER4bUROVjZ5WjRyL1JR?=
+ =?utf-8?Q?fxnPV5?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR04MB9626.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(376014)(19092799006)(1800799024)(366016)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?MEJSR1kvbDVWVWlhK2pPd3l6SmNiOTFONWU2c211TVJLTjN5MHg4VDlpQTJq?=
+ =?utf-8?B?R0dwNUlzemxHQ3kwWEhHMlhCSkRVTlpOaFpRUGtvUzlpVm9lV3labzg2UTgr?=
+ =?utf-8?B?SS9JMEQ1eU9NNy8zaDl1MytqTEJlWXRIRzZsb0dUcGN4MkFqdi85QlVUanZ4?=
+ =?utf-8?B?d3dMRHIyOW5WZmo0VVJ3eVR6SktmNnluUlBnNkM2c3BxZDMwaHRVWW54QTVE?=
+ =?utf-8?B?RjlkVEtERW03eURXc2lnY3ZGQ01OREdmT0d3bWhtR0lDZlZaZGZuM0RJaXJl?=
+ =?utf-8?B?c2hxMFM2STZvNzc5M01uSEhYOWIxeE56Ui9nRjRTTEoxbGpjZnRKVlRlL3pL?=
+ =?utf-8?B?NDZoa2tKNUFDVmFGUzdobGhzNGtLL1pOU21nTGhBdkRuaGdkVldxMEhDYkM2?=
+ =?utf-8?B?bkZWQjZrb0pTUzBEVUpIaDlSbjA5djQ4cGRwQ2E5alZwT1Axb0dDNVhBQjJh?=
+ =?utf-8?B?ZGFOT1JORE1PRzVnSjVMNWdSRnJYWm1CajBXRUk3NXRjMVRiZERlRFdUZUNC?=
+ =?utf-8?B?YXRTYmMzeUlDTUJKVHUxdFRtZ2EwZGNHbkZ2ZVB4bHFmeTk2bnRocm5NK0hq?=
+ =?utf-8?B?NytEOG9xeitmSDF6a1lqWUM0TU5rSEdQc3oyWVhZT25XbVNaWGFsVER5QVNT?=
+ =?utf-8?B?Qll6WWZReEMvUjNXckptbURQTXQ1MnIzYm5GMlpXKzd1dXZuT3BZekVFOXE1?=
+ =?utf-8?B?YnpWQm1IWC9OcE9CeThlb1AwUHN6K1hEMnI0MzRvanp2bUNQMkdyaGc4ci9t?=
+ =?utf-8?B?Lzd4NUliZm9OQzRVemYyQ1BjcndWRml4ekNIeTM0RlkybTNBdUZRNk5iTE9M?=
+ =?utf-8?B?OGl4YklrTmY1RU9mZUJERzhHd1ZOR0x6Q3FWZkNzQXVXc3BDTE10bEFsQ2pW?=
+ =?utf-8?B?UThKdTZBZUxjNjhmVUtabUtwb0I5cXE3VjV5YnhtMEsrdmdOQ1R4NmZINk16?=
+ =?utf-8?B?bXhIUUZ2RWpVOUlTUzF4QjY4dnFGSExTZWpVRUVqZGp5bjl6VXE3VXgxd0dL?=
+ =?utf-8?B?dG9UbzhIYjdTQVJFZ2tKSE9hQ09RYWljcVBQRHhpRWVMNE5jUjlOajk2QkZj?=
+ =?utf-8?B?TWx2c2VGaTZHb3RhVWg2WGMzcnA3ZDM4NHp1cVJBNzZpbXE4bmdrL3F6c2hK?=
+ =?utf-8?B?cmUrMGlWcjRzd05CNW53V3U2UG9IY0hBSXFJaHRsQXJVeHQrY2dRK0dpcXBw?=
+ =?utf-8?B?LzVhNm5pc3pSN0RNdFo0UnNjL3ZLRmdLVWpTalQrcElLVzVTZmNwcWdHR1Fw?=
+ =?utf-8?B?NGtVbmIwRVhxcnlDNVh5L1hldzNRZ2grY3JYNXloVENaL0N1ZHFBUW1VWVI5?=
+ =?utf-8?B?bFZZMUFaZjZZQSs3U2IyMW0xWFQwOC9ET3k3eS9ZcnZ0enpBY25IRTBNZFpn?=
+ =?utf-8?B?bm9VSGVoTHpiWTNqUVE1TkRLbnNFemJYZUMvSkowbFFZYnI1T3doVHBIQytj?=
+ =?utf-8?B?NUlIN1F1U2NIbnpKMDVXZzlUNUZuc3ROTVFQMG4xQ1lPTW5ZVFM3SFMzUGJC?=
+ =?utf-8?B?UkhYN3p6L3JucVcxUHFOWStpNnZPMURSYVYyclhxUlFCRks5UXQ0bjVVbUZ5?=
+ =?utf-8?B?SlZwakhFTWY0UUdxUUN3REVqZnkvUWVUSHJYRWV3RU82YzYzQkRMWkFXWXAx?=
+ =?utf-8?B?eGNZTUNFUks5aVJDelhCVHd5emx5b2w1WjN3UEswdGtVSTdZQ0Uybmx1dVhS?=
+ =?utf-8?B?ZzVyS2dhdjVKVnpDTWZNUm1LcFZlblhlbllQblk2OEg3U1pzWjhmVzJTZ25z?=
+ =?utf-8?B?NDdXVVpIcmlVMExwakZuUmJ2a0djNE04d0tSUk5ERUZIb0N6ZXJhMjBkSFA1?=
+ =?utf-8?B?ejdIdkdnZnNnZU8xR3RwZitSQmhZNkpwUHkrK1ZQYjM3NWR5M2N2V2psanlo?=
+ =?utf-8?B?YnRWNFhVYjMwRDNNMEVXb0licDJMSjZIeWtVMWR6bHk5RDhPN3VvbDBUMTlw?=
+ =?utf-8?B?dlgwNlVIdW5sMXYrS01wemJyZ2U5c3JlYXNhWEtERVhDUXhFL3pqcmZFM2da?=
+ =?utf-8?B?a0JaZFpoRDhmZmJQc3czU0tTWWFqK3djaW54czlPU2Vpa2JaOFN4b3NWbkdT?=
+ =?utf-8?B?SlRlUDdkUko1ejRQUFJPNGo2NVJIRFVJMUpETXQyUldGSnpaNys0aDMzZWlG?=
+ =?utf-8?Q?Dyt2SB9Og/x0+mx47KEpz7I/n?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1692fb37-a5b9-488c-7e18-08de26bb47b4
+X-MS-Exchange-CrossTenant-AuthSource: DB9PR04MB9626.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2025 15:58:13.8286
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: vXEjDhMVe/kR+H0GGbuPQ5AnXGES6nhDMOyrsJxz0bjP7Wlqy69+dTp9a91QtjKz19bUwAhXszzQ+ZKruFqczA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PR3PR04MB7322
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251118_075652_676241_C1B976D7 
-X-CRM114-Status: UNSURE (   7.66  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251118_075819_124270_4562663A 
+X-CRM114-Status: GOOD (  20.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,47 +178,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Document the compatible strings for Asus Tinker Board 3 [1] and 3S [2],
-which are SBCs based on the Rockchip 3566 SoC.
+On Tue, Nov 18, 2025 at 03:18:37PM +0800, Carlos Song wrote:
+> If a system-wide suspend or resume transition is in progress. LPI2C should
+> use PIO to transfer data not DMA to avoid issue caused by not ready DMA HW
+> resource.
 
-The "3S" version ("S" for "storage") just adds a 16 GB eMMC
-and a "mask ROM" DIP switch to the "3" version.
+Currently there is no device link between the DMA engine and its DMA
+consumer, which allows the DMA engine to suspend before the consumer.
 
-[1] https://tinker-board.asus.com/series/tinker-board-3.html
-[2] https://tinker-board.asus.com/series/tinker-board-3s.html
+To avoid this, switch to PIO mode instead of DMA during suspend/resume so
+the transfer does not rely on the DMA engine’s state.
 
-Signed-off-by: Michael Opdenacker <michael.opdenacker@rootcommit.com>
+Notes: I suppose DMA engine suspend before LPI2C. Do you meet this or
+other reason cause DMA HW resource ready.
 
----
+Not sure if below
+https://lore.kernel.org/dmaengine/20250912-v6-16-topic-dma-devlink-v1-0-4debc2fbf901@pengutronix.de/
+can fix your problem.
 
-Changes in V3:
+Anyway, I think it is fine to use PIO at suspend to reduce dependence. But
+we need know why DMA HW is not ready.
 
-- Remove this Acked-by as the binding code changed substantially:
-  Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
----
- Documentation/devicetree/bindings/arm/rockchip.yaml | 7 +++++++
- 1 file changed, 7 insertions(+)
+Frank
 
-diff --git a/Documentation/devicetree/bindings/arm/rockchip.yaml b/Documentation/devicetree/bindings/arm/rockchip.yaml
-index 6aceaa8acbb2..800c11323a4f 100644
---- a/Documentation/devicetree/bindings/arm/rockchip.yaml
-+++ b/Documentation/devicetree/bindings/arm/rockchip.yaml
-@@ -86,6 +86,13 @@ properties:
-           - const: asus,rk3288-tinker-s
-           - const: rockchip,rk3288
- 
-+      - description: Asus Tinker Board 3/3S
-+        items:
-+          - enum:
-+              - asus,rk3566-tinker-board-3
-+              - asus,rk3566-tinker-board-3s
-+          - const: rockchip,rk3566
-+
-       - description: Beelink A1
-         items:
-           - const: azw,beelink-a1
-
--- 
-2.43.0
-
+>
+> Fixes: a09c8b3f9047 ("i2c: imx-lpi2c: add eDMA mode support for LPI2C")
+> Signed-off-by: Carlos Song <carlos.song@nxp.com>
+> ---
+>  drivers/i2c/busses/i2c-imx-lpi2c.c | 7 +++++++
+>  1 file changed, 7 insertions(+)
+>
+> diff --git a/drivers/i2c/busses/i2c-imx-lpi2c.c b/drivers/i2c/busses/i2c-imx-lpi2c.c
+> index 2a0962a0b441..5050e14a9919 100644
+> --- a/drivers/i2c/busses/i2c-imx-lpi2c.c
+> +++ b/drivers/i2c/busses/i2c-imx-lpi2c.c
+> @@ -592,6 +592,13 @@ static bool is_use_dma(struct lpi2c_imx_struct *lpi2c_imx, struct i2c_msg *msg)
+>  	if (!lpi2c_imx->can_use_dma)
+>  		return false;
+>
+> +	/*
+> +	 * When system is in suspend process. LPI2C should use PIO to transfer data to
+> +	 * avoid issue caused by not ready DMA HW resource.
+> +	 */
+> +	if (pm_suspend_in_progress())
+> +		return false;
+> +
+>  	/*
+>  	 * When the length of data is less than I2C_DMA_THRESHOLD,
+>  	 * cpu mode is used directly to avoid low performance.
+> --
+> 2.34.1
+>
 
