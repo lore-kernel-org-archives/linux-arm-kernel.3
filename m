@@ -4,175 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A816CCEBF92
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 08:30:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14319CEBF92
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 08:37:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=khMFE1730E4hg/f5rmtQAiD723vZpWkUji+0v5NQsGU=; b=HDWHMF1BcFtHx7swZL8e8g2w61
-	0Jv4d+EP7w5rgTZ8yZsnTXUVG0HMeDkmVpfwoJYyCjy6fpX+iHthOJMGhHJ4pL3csI1EXN4rfrtbS
-	S21sy2MEuHHuKksdvbiLPYWZ5x9ow4k+ziWE5Zil88RM9gAdvm5rbKP5gnEwNsMyzggM6KFB/VBKF
-	g+ST32tfMLcG40FMd8biKj8JQYGAp0ATOQcWZ0dmusHXTnrn2RNT6Q3wQuz46p56wmpBKhQ+OSTox
-	4OO+iR7hRK99gkSEYiO0JsRGqwKtwOUtByCXKpEB48S8q5e4CX9WZSO6b+yE+kd11RMY2MPB9WMip
-	zikgTC1A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:CC:To:
+	Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Yy9C49ZejqAJm2FW7rRPiyoMCvDACR9tlwxs5ZnUUPw=; b=pILKoDbEr9zvurSjKYzvQ1dEVB
+	lTHSlXSCSfDT5ve0btslSJS2JmgiMYVIHp6Zny+Cywq6p400d9y25uFRtUhDGpZbSDCjNhAKaN0vv
+	Zr1XV53Yau6MBy49EJvAW/fDnE2ww9I6Ue8pfeewav9pyd07vxD7aFXYDssQ5tJhu8zIBoeP1FFO/
+	zXoADotOgKGsSqJJoaY4HX31Xnzc1WbabphcjUrx2yCmyfhb1QRCtaZTpPa96nRPdG/szIrYvSDgK
+	eBe8xnUCbOK8pwU1TDKeLC4I03muOrmnsr+KwjTrJ/vrr51eJ7gSbfCZu/bJ+mQLA8WMU7xx4LNw+
+	rQwNvLmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLH62-000000003RR-0fqb;
-	Tue, 18 Nov 2025 08:29:54 +0000
-Received: from mail-northeuropeazon11012036.outbound.protection.outlook.com ([52.101.66.36] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1vLHDH-000000003yQ-2GrS;
+	Tue, 18 Nov 2025 08:37:23 +0000
+Received: from canpmsgout07.his.huawei.com ([113.46.200.222])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLH5z-000000003Qk-3H04
+	id 1vLHDE-000000003xk-42Ap
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Nov 2025 08:29:53 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=CGbfxZC9fUEAwGJivtFRQQKClgDWK18EwXStXqtd7O856KZRBuKLH/EutgeHbxCeyr1OWTb9G3GJYU5WACPyG/c51eIoX05vJdhHdRVCAF13dezRv+k2OwEN6Q3b5Eif2NUoU9UW+38lHYmxf+imEXTgBk+OO7F/8k1XwV+ZkYThVRbZ3UKYbBrXuLDKsEw9X66cGV79aCnfZiTioIG8qSGp/lLlrJ9MUtNYHM5i0n42CQw1OJFyVSdBuXYCLqKvwRjeyX8+4f8K9jLNdGVv5GMYRvrMCoydYsQS7REvyXaIgB5DknReHs5B+1Ew0R7ks36h+5t522dAr18p8tWoqw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=khMFE1730E4hg/f5rmtQAiD723vZpWkUji+0v5NQsGU=;
- b=DRdwqv0xQsue2ufTPOsg/MkVn7skstjB8txfYvns+m4rWJW+45Z7yrO/DA5RarGGmWAS9MtZ04mEMj1apveiATzbfYKjuLLAOTz2Rai7NPy/bWXcXhtyzBX2djaSYAtK3F0FIN0Sp5XJXjGMTwTrxS8ouS5vMGGujTPwh2TJ5fZggZwtyPfl06Pyzzw5ZM+jmAclU3MUs0Ibt4FPPe3LuGGIu7bK8jKKyKE5vkErQYXzApPxWT8QB8H3mmz40QEbwNQ90RrmnylqdJWNrL9QP3/I/JiKj9t5D3yhSqCE1stPQKYgO8mDmPisi8wee6/dGhZjJAa0m2lTw/IGJrBwuQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=khMFE1730E4hg/f5rmtQAiD723vZpWkUji+0v5NQsGU=;
- b=W0TvOSMR6rknsrvTbk8lF1Dx6YR1sb5PYjqdfKZOFxx6u+6xK/bSY+CCyP8h3vGnqDJAokWPiw+jz/xiNnW+tqkPWWiMRiz+GeXpvZTbvbsKq/Trnu1NOH3A24LZHRo6oq7nyz/UOimy9ZFN+HtsF4tCnasAxeo4pEUPXFePpQ6kpm3HJkjyOeerVwF1BaPRw/ML2gttKU2I/e0o66QRZuNkgQmn7U7fxQa7akYmb55ZwTPLCGHbvGXduzflJ0NEHclYsSft0qGXKMCAJOzi3Rs0MR0iplWn7E6Yc12t5kBWZPTCJsii6gbKyksc/yaZYN4EWr9gSbE7iI+Vc2GqPQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from DU0PR04MB9496.eurprd04.prod.outlook.com (2603:10a6:10:32d::19)
- by AS5PR04MB11468.eurprd04.prod.outlook.com (2603:10a6:20b:6ca::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9320.22; Tue, 18 Nov
- 2025 08:29:46 +0000
-Received: from DU0PR04MB9496.eurprd04.prod.outlook.com
- ([fe80::868b:3935:5e0f:6a33]) by DU0PR04MB9496.eurprd04.prod.outlook.com
- ([fe80::868b:3935:5e0f:6a33%6]) with mapi id 15.20.9320.021; Tue, 18 Nov 2025
- 08:29:46 +0000
-From: Haibo Chen <haibo.chen@nxp.com>
-Date: Tue, 18 Nov 2025 16:30:18 +0800
-Subject: [PATCH 2/2] arm64: dts: add off-on-delay-us for usdhc2 regulator
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20251118-dts-imx8qm-v1-2-63e226ffe512@nxp.com>
-References: <20251118-dts-imx8qm-v1-0-63e226ffe512@nxp.com>
-In-Reply-To: <20251118-dts-imx8qm-v1-0-63e226ffe512@nxp.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Dong Aisheng <aisheng.dong@nxp.com>
-Cc: devicetree@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Haibo Chen <haibo.chen@nxp.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1763454631; l=1132;
- i=haibo.chen@nxp.com; s=20250421; h=from:subject:message-id;
- bh=LPIFGXZbRwmtTYRyZD49EzLuau7szDu3OhX61yiyDeQ=;
- b=UC25JaRIn/g2dwl3hphIZMkVsh6siq+QZnhzt7xWzic+cIlmq9TdgZPozYBqAD8UWuQT2Jxl2
- hlhBrTrmoJaBUkFMHeaT4SuVee2VnoDK8MaSX8eHxpvZ34adYdFfHKZ
-X-Developer-Key: i=haibo.chen@nxp.com; a=ed25519;
- pk=HR9LLTuVOg3BUNeAf4/FNOIkMaZvuwVJdNrGpvKDKaI=
-X-ClientProxiedBy: MAXPR01CA0096.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a00:5d::14) To DU0PR04MB9496.eurprd04.prod.outlook.com
- (2603:10a6:10:32d::19)
+	Tue, 18 Nov 2025 08:37:22 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=Yy9C49ZejqAJm2FW7rRPiyoMCvDACR9tlwxs5ZnUUPw=;
+	b=TQ2O7g5X9Qqe57sMVprvNFjQVcax8mdcseO0N46rhfiT1i5bi0JrSD86RDPO4WuHJQsUrmc+T
+	8CWteinUhIFbuQbC1ImfhIQU5kqYCSmDyc43ou40NT2je/wr2MaVsLuM+boXWyaIrXjRihuYdIa
+	lplaS96ofO8zCw++f5O6aYQ=
+Received: from mail.maildlp.com (unknown [172.19.88.163])
+	by canpmsgout07.his.huawei.com (SkyGuard) with ESMTPS id 4d9dGh29hmzLlSt;
+	Tue, 18 Nov 2025 16:35:24 +0800 (CST)
+Received: from dggpemf500002.china.huawei.com (unknown [7.185.36.57])
+	by mail.maildlp.com (Postfix) with ESMTPS id 152DA180042;
+	Tue, 18 Nov 2025 16:37:07 +0800 (CST)
+Received: from [10.174.178.247] (10.174.178.247) by
+ dggpemf500002.china.huawei.com (7.185.36.57) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Tue, 18 Nov 2025 16:37:04 +0800
+Subject: Re: [PATCH v5 01/34] ACPI / PPTT: Add a helper to fill a cpumask from
+ a processor container
+To: Ben Horgan <ben.horgan@arm.com>, <james.morse@arm.com>
+CC: <amitsinght@marvell.com>, <baisheng.gao@unisoc.com>,
+	<baolin.wang@linux.alibaba.com>, <bobo.shaobowang@huawei.com>,
+	<carl@os.amperecomputing.com>, <catalin.marinas@arm.com>, <dakr@kernel.org>,
+	<dave.martin@arm.com>, <david@redhat.com>, <dfustini@baylibre.com>,
+	<fenghuay@nvidia.com>, <gregkh@linuxfoundation.org>, <gshan@redhat.com>,
+	<jeremy.linton@arm.com>, <jonathan.cameron@huawei.com>, <kobak@nvidia.com>,
+	<lcherian@marvell.com>, <lenb@kernel.org>, <linux-acpi@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<lpieralisi@kernel.org>, <peternewman@google.com>, <quic_jiles@quicinc.com>,
+	<rafael@kernel.org>, <robh@kernel.org>, <rohit.mathew@arm.com>,
+	<scott@os.amperecomputing.com>, <sdonthineni@nvidia.com>,
+	<sudeep.holla@arm.com>, <tan.shaopeng@fujitsu.com>, <will@kernel.org>,
+	<xhao@linux.alibaba.com>, Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>, Zeng
+ Heng <zengheng4@huawei.com>
+References: <20251117170014.4113754-1-ben.horgan@arm.com>
+ <20251117170014.4113754-2-ben.horgan@arm.com>
+From: Hanjun Guo <guohanjun@huawei.com>
+Message-ID: <3794ecac-b90e-875e-3cd0-5ebb6f9277b7@huawei.com>
+Date: Tue, 18 Nov 2025 16:37:03 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:68.0) Gecko/20100101
+ Thunderbird/68.6.0
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU0PR04MB9496:EE_|AS5PR04MB11468:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5c60d738-1b3c-4535-6b99-08de267ca16b
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|52116014|19092799006|7416014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?aVhnZFBHYzN1TzdCSHMvMlkvbk1rNFlSeG5BRUVzNlpSQnNyUTYvMkNKY2N0?=
- =?utf-8?B?eTNRVitraURRV1RydmZKOWtLWkZseVJzaW9wQnIvVWY3aGJpWWtXVjMrcTk2?=
- =?utf-8?B?cks0eVpxRUdIaGlJMFNDdHQ3dklhUzRsdjRVSW5DWkJhOXZSVzUxQ3J1M2w2?=
- =?utf-8?B?UGZrVmM5TzFhckxpMGJiK0VCOVJ3M2t6djBxMzFwazFWYW5EMytCN0ZwUVJX?=
- =?utf-8?B?eTZZSkdib2ZUNC9GYjB2VDlsVHhiSG56SEczOVo0Z2NadUVscXVmSklRV3Mw?=
- =?utf-8?B?eHIvMnovWHlEOWdyK1VWejRCRWhHR3kva1NiSzYvekNMZGJlckxXaWRINFUx?=
- =?utf-8?B?czVMOWxWTXZNNDRudm5ROGZpRzZBZmRSQkVoVjdyVkpKVVVUZ1BsYWRxYTNr?=
- =?utf-8?B?aFBvMEJnbFZuaFY0M0hYNmlXSzhDbkJiNFVYeUoyOGplbi9oTXNocm9XbnVy?=
- =?utf-8?B?MXpMVldyRDZ3ZWlFSXZJdnRJWjBtdXV6blRpYWJ2WnNLSUI5aWFnNUJldTVk?=
- =?utf-8?B?S25MV0wwZkFEaVBoOTlTZ285Y29JNHFkOFhOemlXSVVsSGduNUgraU9reklj?=
- =?utf-8?B?aHRER0JaMmROaWttb3k2ZDErNTF2OEdlOHovU0xIZE50UnNqbFpRZThKd3FY?=
- =?utf-8?B?SWpFMmhvUElpYmd5YzE0L1VMQktacUd3YjFzc1E3Y1JMQXFwTHFraSt4cWY4?=
- =?utf-8?B?enlmOEttR2YrRlh5N0NPMGsyVDNmOVZUbldTdXJSNzJhdnE0aFJtNFBuSEVm?=
- =?utf-8?B?Q1dGVEtzWlE0clZNR2U2Rnd0UExZR2p6TVEwMEZzWCtFYXFlWTlPR0FITnZG?=
- =?utf-8?B?MmdBTzdwbml5eHNaQkhOZ0dPMzdjNzFNc29jNmRadUI4eGRIemp3TU5ROVlm?=
- =?utf-8?B?aDFJRVJkWHFFVTdYZmZBc1JuMndwc25GK3lra3NZczJycHZCSzdtVTBGazN5?=
- =?utf-8?B?K2FLMmlDKzhqaDRYRGYwa3QxaTVpQTgzTVVJck42dXNhRkcrT2R1anRFeDJO?=
- =?utf-8?B?QTA3ZGtNemtMSHN0Q1JzbUhWc3RZYzl0dWF2VFRnTjBVSXY5S1M2Zk5MTmtm?=
- =?utf-8?B?UC9iTkpVb2d3Q3RlQ0U3NlpjcWFzd0dxMTROaHprcnBaRzRmeE9mZGdzR0FI?=
- =?utf-8?B?K1VXelIvbVZXeFlWOUlLMTUzRk92SUcxSW1lUHJVdVhQNmFXcUNyYVFiY1FV?=
- =?utf-8?B?N08xTWNtU1NkUFBmRUhiSUcwcXhYTUtRYnZucFpnZUtNTW5DMkkvMXNoS0cz?=
- =?utf-8?B?REo2R2N4SGh3cDJlODRiNGh5aml1TmVsQ1JQQmZZTXpWZHhyNVpheHRvOFZR?=
- =?utf-8?B?UUdYbEVxUGJQQ0dHM0Irelltb1RxeGxWZmEvQjN5YnFBdVhyNkM0MmI5UEVk?=
- =?utf-8?B?eXRZaXdxMldzMFpqYi9FUjdYSUx6S3pyUDltL2lGMHRycWh5Q3FlKzVBSkdw?=
- =?utf-8?B?T3JjYTlTNzBBZ1hYdVpxOHFvVVpBbVpldFAybFNvTUJoTk51cnpZd0ZYYUFu?=
- =?utf-8?B?Sk1rUUNwQ1Y0ejRvK0NsZFdNOG4vTzE0dyt0YUdQcnVyOWRzbE01b05RWWFM?=
- =?utf-8?B?Z1dSNmhsVDRZclV6RmJUb1Z1QzJ0MW1GcEV6aGRiTzlPNG5aeTRiU29jeTRj?=
- =?utf-8?B?YU5EVk03UWNZSXVDL1lTVTdSVDRhS2tHY29qdVV0OUF3Uys5alRvWVVXNUJo?=
- =?utf-8?B?aXd2YUhRZE5EY1p2dVJVa0x0Ni93bTYzdHVseXFVNHdXdGhiVXJkSEpuNmlO?=
- =?utf-8?B?R0lNZTZ5QXJ5ZDg2eTVJUlVDMEdTSlFZbmxNblFJZGpMNHduNTRkZmZmUWVJ?=
- =?utf-8?B?dkdIMWx6RXZ1TUZ2amYxNEhlYXpFaEJHODVVK000amRxMlVvbFhYaXdlM0hT?=
- =?utf-8?B?WU1hR21FU0NPKzMxbDV6WElKTG5DMkliZWNiSWJIK3djbU1iRXR2ZFZtKzdL?=
- =?utf-8?B?ZDZCWmZSSG5PN0xJckI3YzZiREtpZ0VGYjZwRGxQV3BEWVZzNkVVVzdncm1M?=
- =?utf-8?B?NktOR2lrVDJjSDBUWTNNVnZIZFpjUHRLTXVRZ2RxRUJzZnNMM0JTeGhTeVpy?=
- =?utf-8?Q?QIfFr7?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU0PR04MB9496.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(52116014)(19092799006)(7416014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?NDIrZUkyaWRSVVRvMlZtWGRJNEswbmdNZ09SRVU5ZWhFd1UvZm1uNTNkWC9U?=
- =?utf-8?B?aHk2TWpyU2RBM2RTVVpPUzBOMEtuVVZqZnIyQXRxZVIvU3VrVWxXb3ZUVEUz?=
- =?utf-8?B?RUlXSnQ3Tkc3SmZ2YmVFNXRBRVhaSks1NFNTL2tVaTFWc3Zxa0VkekhBNjJS?=
- =?utf-8?B?ZU1KMjdEdGF5em9SeGhxQXJ0RGpjUFJOaXV3Uk9WbWtNUGMvME8zOSs5cC9Q?=
- =?utf-8?B?ZUVFVG92V1c1TlQ4MEFNclUva3I1dFBTbHNpWDJsOEZVNEtTd3AwdXVMWmM0?=
- =?utf-8?B?QW1ROXBaQjlJZnpXZTlYTEVLWlpMTVhRU0d0TXdTTi83VlpaVUVIVHBVNEV1?=
- =?utf-8?B?a0src1lhN2JYcnRGTVliak1aUERUbFlkK1pNRUZBYVFPRDViSFRiT1Y5eHIv?=
- =?utf-8?B?WDBYVno0SzR1ZzAyQVFmSWJSK2JZZUJYUmMyZkY4TGYyaWh1WjhiSjVwalpY?=
- =?utf-8?B?aWVacE1FVXJIR1hRRVhjSVZyTThZRHhMRHJzSnVmZUdOUTd5WUdmdy8ySTgz?=
- =?utf-8?B?QS9mSE9iWE9RVmMrTjJBSEhPQWowNVkzcVVmb0luQTdQS2EzT0NOQ2EzYisw?=
- =?utf-8?B?VlFpQ0VyWHNHUHF6N2lDWWpEYW1tZU16QlQzVC9xUXBmRzFwN0dIR0w4WHdu?=
- =?utf-8?B?dHlHYmZHalB0UUsxcUE3V3NTL3Q2Z2VMNXRmMGovdTBzcFVOVG9la3luWUpV?=
- =?utf-8?B?ZExlVXgrQ2pHK1hEWmtoSzF5Z3lVeHl2bVF1RTc3dWU3OGw3SkRBUU1laXdP?=
- =?utf-8?B?TFdhMHJLd2NVM1Avcko1Vjh4aG1sRENUM3hqY01BaEFUMVl4Q0lUUWY2ajNR?=
- =?utf-8?B?bXZIMDJxaEtrU3AyMUpJY05Hdk5MT2xSTER2ajBCZEt2R29WNlI1Z0tDdmtO?=
- =?utf-8?B?TWYzZDVaN0FYVXFPdGVxN0VEN1Urd0duOFprK2dQZlNGcGhGR2duK0tmTUpM?=
- =?utf-8?B?WEZBN2tCaExsNkVFVXAwaXl2YXpLcThDMDlaRTNRbDBXa1ozY1owcWhGelNB?=
- =?utf-8?B?T1hMVW9Db1BPdE5jcGR1ZVhieGpiUVZJd0Rkb3dTV2FkQ1Q1K2R0dCs1MEVo?=
- =?utf-8?B?S3M2OWMrZkNQQnZPVGQyOGZ1N3BUTjNDWUUwYzErK1NqU1Z6OTQ0OFY2cnM4?=
- =?utf-8?B?ZTFIc1Bna0FjYTFYQ0dudUtwT0VPbUtxZUx6MFhmT3AvUDdoQ1Zna29iV1NP?=
- =?utf-8?B?UThqdDVTSjhOSjlod3h0NHRWUWJ6M010VU50ckdVYXArY2FaNlBmSkhDbEE3?=
- =?utf-8?B?ZXlvbW1tNHJSY3dObUJxTExFUXJUZ3hwMDB6WFpwQUcwUFl0VGlWOEdJWnlF?=
- =?utf-8?B?K2E2UTFJRXFVVVhpSWZHbldFcDRFNitoazFLRDFGSDdzTlBLY3Iyczh0LzVv?=
- =?utf-8?B?NThydUtjYWtoZHlkRWN3S2c1ZCtGR3ZsK2E0VlBFRUpqdDZKeUtuRDF0U2J5?=
- =?utf-8?B?bGJ4Y3YvVjBSaXkzNXB6eEFsd0FUaFVYTm5ZNnIxMDhWeTFmT1ZTVjc3RmFB?=
- =?utf-8?B?VXFES3JYc1ozTmE4dkhnR0NiZG9nTmZtWEdJMUpvWVp6VkJnZjZJWk5OUGZz?=
- =?utf-8?B?TzJ2REhqUTBRYncxZVN5MGJwRUJQN2FjLzlUYVFNZXBLNTBmV2V1YVNyMHhO?=
- =?utf-8?B?bjBvWEhpTHZ1c0lUZE9rVzdUMGhHR2F4cTh2SDVRV09BTmFGZEd5Wm4vVzl3?=
- =?utf-8?B?WXFodVlrOWNpQ3J4VitTREZ0aUdaRUdwdEdQbUlNTDZLTkQxdjdhS3loSTlh?=
- =?utf-8?B?OWlmenFCMnlsSjNwendaN1dIY1dvMEthN1JkM3daMHlyNGlMV0ZuRXdtajR0?=
- =?utf-8?B?ZGFLNUpQcHBsZmdvVEgxbVY5MDBQdVF6Yk1FZ1ZKRDVZY2lOZExIL3lrbkdY?=
- =?utf-8?B?WnFucW41bkVRZ2ZMNkkyOTg0Z1hzM3B4N3M1VnN1UEN6TzhzYWxodng3ZFVN?=
- =?utf-8?B?VUlENk1yc3hEUnZqSTVlTUhUQTk0RGpOTzdIWmhUT1YvbmEwN01jZDNERzRw?=
- =?utf-8?B?bDlUaHJvOFR6dGpjK0h1NDJjWUFkK05xOTZxbGpPVWhzTDlBN1FRUzltaWxx?=
- =?utf-8?B?TFU3NE1sTTZYSDdlbWIrQ1VDNkdscFg2aFZOb3hlQjh0RTlrY3ZsaGloWmtT?=
- =?utf-8?Q?xEFzgQcwfcoy3H0/IWN8EDZzw?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5c60d738-1b3c-4535-6b99-08de267ca16b
-X-MS-Exchange-CrossTenant-AuthSource: DU0PR04MB9496.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2025 08:29:46.5282
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: PcELIDJYfoXwVDtdvUcUTt3SWk2ZtrqLHfv/YxLDFB5gstkN87ZaDr2swnqOkjVOH7wfoatqSOglOdthZBvEDQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS5PR04MB11468
+In-Reply-To: <20251117170014.4113754-2-ben.horgan@arm.com>
+Content-Type: text/plain; charset="utf-8"; format=flowed
+Content-Language: en-GB
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.174.178.247]
+X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
+ dggpemf500002.china.huawei.com (7.185.36.57)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251118_002951_829829_E68D13F4 
-X-CRM114-Status: GOOD (  10.56  )
+X-CRM114-CacheID: sfid-20251118_003721_679816_4CE0A55A 
+X-CRM114-Status: GOOD (  26.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -187,34 +93,162 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-For SD card, according to the spec requirement, for sd card power reset
-operation, it need sd card supply voltage to be lower than 0.5v and keep
-over 1ms, otherwise, next time power back the sd card supply voltage to
-3.3v, sd card can't support SD3.0 mode again.
+On 2025/11/18 0:59, Ben Horgan wrote:
+> From: James Morse <james.morse@arm.com>
+> 
+> The ACPI MPAM table uses the UID of a processor container specified in
+> the PPTT to indicate the subset of CPUs and cache topology that can
+> access each MPAM System Component (MSC).
+> 
+> This information is not directly useful to the kernel. The equivalent
+> cpumask is needed instead.
+> 
+> Add a helper to find the processor container by its id, then walk
+> the possible CPUs to fill a cpumask with the CPUs that have this
+> processor container as a parent.
+> 
+> CC: Dave Martin <dave.martin@arm.com>
+> Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
+> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+> Reviewed-by: Fenghua Yu <fenghuay@nvidia.com>
+> Reviewed-by: Gavin Shan <gshan@redhat.com>
+> Reviewed-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
+> Tested-by: Fenghua Yu <fenghuay@nvidia.com>
+> Tested-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
+> Tested-by: Peter Newman <peternewman@google.com>
+> Tested-by: Carl Worth <carl@os.amperecomputing.com>
+> Tested-by: Gavin Shan <gshan@redhat.com>
+> Tested-by: Zeng Heng <zengheng4@huawei.com>
+> Signed-off-by: James Morse <james.morse@arm.com>
+> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
+> ---
+> Changes since v4:
+> Remove blank line
+> 
+> Changes since v3:
+> Refer to processor hierarchy in comments (Jonathan)
+> Fix indent (Jonathan)
+> ---
+>   drivers/acpi/pptt.c  | 84 ++++++++++++++++++++++++++++++++++++++++++++
+>   include/linux/acpi.h |  3 ++
+>   2 files changed, 87 insertions(+)
+> 
+> diff --git a/drivers/acpi/pptt.c b/drivers/acpi/pptt.c
+> index 54676e3d82dd..b8248c0092fe 100644
+> --- a/drivers/acpi/pptt.c
+> +++ b/drivers/acpi/pptt.c
+> @@ -817,3 +817,87 @@ int find_acpi_cpu_topology_hetero_id(unsigned int cpu)
+>   	return find_acpi_cpu_topology_tag(cpu, PPTT_ABORT_PACKAGE,
+>   					  ACPI_PPTT_ACPI_IDENTICAL);
+>   }
+> +
+> +/**
+> + * acpi_pptt_get_child_cpus() - Find all the CPUs below a PPTT
+> + * processor hierarchy node
+> + *
+> + * @table_hdr:		A reference to the PPTT table
+> + * @parent_node:	A pointer to the processor hierarchy node in the
+> + *			table_hdr
+> + * @cpus:		A cpumask to fill with the CPUs below @parent_node
+> + *
+> + * Walks up the PPTT from every possible CPU to find if the provided
+> + * @parent_node is a parent of this CPU.
+> + */
+> +static void acpi_pptt_get_child_cpus(struct acpi_table_header *table_hdr,
+> +				     struct acpi_pptt_processor *parent_node,
+> +				     cpumask_t *cpus)
+> +{
+> +	struct acpi_pptt_processor *cpu_node;
+> +	u32 acpi_id;
+> +	int cpu;
+> +
+> +	cpumask_clear(cpus);
+> +
+> +	for_each_possible_cpu(cpu) {
+> +		acpi_id = get_acpi_id_for_cpu(cpu);
+> +		cpu_node = acpi_find_processor_node(table_hdr, acpi_id);
+> +
+> +		while (cpu_node) {
+> +			if (cpu_node == parent_node) {
+> +				cpumask_set_cpu(cpu, cpus);
+> +				break;
+> +			}
+> +			cpu_node = fetch_pptt_node(table_hdr, cpu_node->parent);
+> +		}
+> +	}
+> +}
+> +
+> +/**
+> + * acpi_pptt_get_cpus_from_container() - Populate a cpumask with all CPUs in a
+> + *                                       processor container
+> + * @acpi_cpu_id:	The UID of the processor container
+> + * @cpus:		The resulting CPU mask
+> + *
+> + * Find the specified Processor Container, and fill @cpus with all the cpus
+> + * below it.
+> + *
+> + * Not all 'Processor Hierarchy' entries in the PPTT are either a CPU
+> + * or a Processor Container, they may exist purely to describe a
+> + * Private resource. CPUs have to be leaves, so a Processor Container
+> + * is a non-leaf that has the 'ACPI Processor ID valid' flag set.
+> + */
+> +void acpi_pptt_get_cpus_from_container(u32 acpi_cpu_id, cpumask_t *cpus)
+> +{
+> +	struct acpi_table_header *table_hdr;
+> +	struct acpi_subtable_header *entry;
+> +	unsigned long table_end;
+> +	u32 proc_sz;
+> +
+> +	cpumask_clear(cpus);
+> +
+> +	table_hdr = acpi_get_pptt();
+> +	if (!table_hdr)
+> +		return;
+> +
+> +	table_end = (unsigned long)table_hdr + table_hdr->length;
+> +	entry = ACPI_ADD_PTR(struct acpi_subtable_header, table_hdr,
+> +			     sizeof(struct acpi_table_pptt));
+> +	proc_sz = sizeof(struct acpi_pptt_processor);
+> +	while ((unsigned long)entry + proc_sz <= table_end) {
+> +		if (entry->type == ACPI_PPTT_TYPE_PROCESSOR) {
+> +			struct acpi_pptt_processor *cpu_node;
+> +
+> +			cpu_node = (struct acpi_pptt_processor *)entry;
+> +			if (cpu_node->flags & ACPI_PPTT_ACPI_PROCESSOR_ID_VALID &&
+> +			    !acpi_pptt_leaf_node(table_hdr, cpu_node) &&
+> +			    cpu_node->acpi_processor_id == acpi_cpu_id) {
+> +				acpi_pptt_get_child_cpus(table_hdr, cpu_node, cpus);
+> +				break;
+> +			}
+> +		}
+> +		entry = ACPI_ADD_PTR(struct acpi_subtable_header, entry,
+> +				     entry->length);
+> +	}
+> +}
+> diff --git a/include/linux/acpi.h b/include/linux/acpi.h
+> index 5ff5d99f6ead..4752ebd48132 100644
+> --- a/include/linux/acpi.h
+> +++ b/include/linux/acpi.h
+> @@ -1541,6 +1541,7 @@ int find_acpi_cpu_topology(unsigned int cpu, int level);
+>   int find_acpi_cpu_topology_cluster(unsigned int cpu);
+>   int find_acpi_cpu_topology_package(unsigned int cpu);
+>   int find_acpi_cpu_topology_hetero_id(unsigned int cpu);
+> +void acpi_pptt_get_cpus_from_container(u32 acpi_cpu_id, cpumask_t *cpus);
+>   #else
+>   static inline int acpi_pptt_cpu_is_thread(unsigned int cpu)
+>   {
+> @@ -1562,6 +1563,8 @@ static inline int find_acpi_cpu_topology_hetero_id(unsigned int cpu)
+>   {
+>   	return -EINVAL;
+>   }
+> +static inline void acpi_pptt_get_cpus_from_container(u32 acpi_cpu_id,
+> +						     cpumask_t *cpus) { }
+>   #endif
+>   
+>   void acpi_arch_init(void);
 
-To match such requirement on imx8qm-mek board, add 4.8ms delay between
-sd power off and power on.
+Reviewed-by: Hanjun Guo <guohanjun@huawei.com>
 
-Fixes: 307fd14d4b14 ("arm64: dts: imx: add imx8qm mek support")
-Signed-off-by: Haibo Chen <haibo.chen@nxp.com>
----
- arch/arm64/boot/dts/freescale/imx8qm-mek.dts | 1 +
- 1 file changed, 1 insertion(+)
-
-diff --git a/arch/arm64/boot/dts/freescale/imx8qm-mek.dts b/arch/arm64/boot/dts/freescale/imx8qm-mek.dts
-index 667ba2fea8678215c611dc0ca19e8fbc397f9273..f1b0563d3a09044dda30627a62de5707b53f021a 100644
---- a/arch/arm64/boot/dts/freescale/imx8qm-mek.dts
-+++ b/arch/arm64/boot/dts/freescale/imx8qm-mek.dts
-@@ -263,6 +263,7 @@ reg_usdhc2_vmmc: usdhc2-vmmc {
- 		regulator-max-microvolt = <3000000>;
- 		gpio = <&lsio_gpio4 7 GPIO_ACTIVE_HIGH>;
- 		enable-active-high;
-+		off-on-delay-us = <4800>;
- 	};
- 
- 	reg_audio: regulator-audio {
-
--- 
-2.34.1
-
+Thanks
+Hanjun
 
