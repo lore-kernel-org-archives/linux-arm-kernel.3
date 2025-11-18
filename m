@@ -4,174 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63866CED240
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 05:30:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4F9DCED240
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 05:43:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wyFhl1hEzPvW46Y59mJkUDzXPFkTfwnJuoQO2RfRWAI=; b=lwF43Nzs00SLZrH2k0XdJo8XIi
-	iLBthEhHjeriAWMqlmPniT2G4ylbd/Hcyq0wWw5KBwQaxGlLTitqR80WFOeBAWFdo+CtbYlxYMHlJ
-	XiQ9bqc6NWusBRvTUsQn3FxkpzTDsQEgcJGTT45E2egDPb6aARdr7FnxXly+HIxPWSjzhKuGZF8Tn
-	14tALEzJCFUwtwqFJyBcgPSW/F8oFKm2iF87WkjKIEW5ijjrujSiNtS2qE2JJdM94pbtCTRIxYSni
-	QmvTwSEaHn/EgXzAKD7xcoNjdON2JUQrJCU8ataMZ6cQJKsRQ5pM/bo2Bg7R5Nh3ZvhtuoIihs2+2
-	YhLO3Ivg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aGd4/hQmuXL/n/Pw4ubEdvbhAmPtydMV7Dhe1goYN8o=; b=yRbol93VHuvRxai8JTXSJ17xty
+	RLQvsWXaGR2NGkBSw6nNObeNpuvMZNA4FB4mqA09VnxILmdCcw/ds1pUlD81ibLmMP9Mb+E/sBW9L
+	fPBSMsaL7oZt21zY3d7Ui9WxN75HaH8VR6hJSN0ceOUXnkZrZn8k5mM7XDgya73qEvPYAYKC9Rz/9
+	h3ciEVeqrLuBSdMTaBUnaPIjEpD96f58Df0ERRHJLGUTYACz1H9GgBCOB/AounZR8oRcaLir6M//m
+	Ok+dfSswctTBZXZ7dmBjKM6CWomDzc2ZQ5FrNNQao1ec/Jhsc2Pj5MmepTtleA1NEBMHzrjsO8aSa
+	vqhYwHmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLEIH-0000000HQw5-3hVg;
-	Tue, 18 Nov 2025 05:30:21 +0000
-Received: from mail-northcentralusazon11010039.outbound.protection.outlook.com ([52.101.193.39] helo=CH1PR05CU001.outbound.protection.outlook.com)
+	id 1vLEUa-0000000HROy-0MGb;
+	Tue, 18 Nov 2025 05:43:04 +0000
+Received: from mgamail.intel.com ([192.198.163.16])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLEIB-0000000HQvf-3KfS
+	id 1vLEUY-0000000HROd-0w0R
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Nov 2025 05:30:20 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=CaO0aZsZJIUlClcddPQPysggP13ub5Wcn5fXeU0rzleDphLPBzOXqVtqdWpYRg1vYIPKVORVw6++8UeaUQYYx4xgO2Z8FMQlddckCqY71I2OrYekATPgEbBmKXla+qRCRshVxg3Ou5VRpL1BLGs3LWmvUB8stFe5ZlF27v6uw/C9PZeyLmqvAbyhSvJYGcRvwgNkI0jo5kxbW97d9CMkSx2YoV8KEuAUC03gd22p69RZOuQDtYs+FmRjEv4yhSF+EYJZrpNr1mZTphTt2EmCLXQd2R3Mjex5YFRRZ19YJfU7auxmUwkRC/K0f2DpO6YJSjuC+WKTn4x7sxmmnkjMZg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=wyFhl1hEzPvW46Y59mJkUDzXPFkTfwnJuoQO2RfRWAI=;
- b=IGVRbItSwJpMaiCAYmU+2diHNS67sPqVlVSeE7r0ZCcjCAAA6lJToJl0SCuBlgIvDOv44dXy7SfElQAghRBsGmw7B2UEKuUUlcM+7tTmqxMV7InPMG8KyK2FOT4hWZjqoYUCbomu1MrdEVzRwF54i63nmvmLOqSjKwY2SXfV/FhAf5d3Y9Pcqa3trWLjDbLgMmEcJxQtQ8s4C0E/rNkNRd9mMLYZQNz/DrzEO6gLaTAUmP1UjURnkyqqHGFBtFgopefEQqi9RQJ/iLXRkYRf/LzHzknlGLyjEgyhlNBEoEQFEbrVtlPVvV+2ns5nuNJ8c7l+Rr3G/Aijws4w0jQ61w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=wyFhl1hEzPvW46Y59mJkUDzXPFkTfwnJuoQO2RfRWAI=;
- b=J/Xu10OWnKPoMxuW2X5+Gu9QUHrXRZp6dgyUPopU1RdxtfTEAeakWMXAcL102CCYlc27hi8i48Wdq+QPOycnsb8w+3mg8MBcFfwrfggYFiF+27z/j0Qo+ihBq6KEOOgwLaVKM6fC3i73cfMru45lCQwJZT7QjxZ629iX5shcQTn8FCrYCfcFVlTQcC6bhVGd3ls51bY0P8kfCP4Or7qajydfOtrzL+G3CWPqdDmdF/hn2zOQFaNSEgtS91c6NiWJLtDpQ1UItx9+a6gjLiNDFwsz0aFbTznaTYAazNWSGTrCodkqwDmaSnvWnBMpU/5mCJ82vcuTc+kRHWNRKFRifQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from DM6PR12MB2667.namprd12.prod.outlook.com (2603:10b6:5:42::28) by
- DS7PR12MB6005.namprd12.prod.outlook.com (2603:10b6:8:7c::17) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9320.19; Tue, 18 Nov 2025 05:30:11 +0000
-Received: from DM6PR12MB2667.namprd12.prod.outlook.com
- ([fe80::bd88:b883:813d:54a2]) by DM6PR12MB2667.namprd12.prod.outlook.com
- ([fe80::bd88:b883:813d:54a2%6]) with mapi id 15.20.9275.015; Tue, 18 Nov 2025
- 05:30:11 +0000
-Message-ID: <9f1feadc-076b-49cd-9cbb-d2fec0950128@nvidia.com>
-Date: Mon, 17 Nov 2025 21:30:08 -0800
+	Tue, 18 Nov 2025 05:43:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1763444582; x=1794980582;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=VbFlU1LcdUBsBT5iUvR+tT4oc46fne2Q1MslnRGjrXM=;
+  b=QispXZ+m09PwOVXkH4EdIpxFIjsm2yTTHCXu0bDVuo8UGN9zzOhVgZYy
+   JbFR2uLttuh5ioohv14mrE/682md02/tri0I03Q85efaNVgBQOkZmua27
+   CJMDa2AtkVE3rV32y3BWfEAPiRjJUEtvCe/Wn+CaH6EKAf3pMg012UERL
+   ozjuI4husDiKygcIqF6awOyWGOU0tzoUC9kTS7wtce1p138ZRwa2iiDtC
+   5KTwfaj5ef9tapWCCt/DIc09GHSBJfSoRu96vrqzQODt77MPsoJZ68fjm
+   +pvi9SVhmbKAbla14SkT0ocICWaX4Bkx14KUf8FEFXQLptQRryxsGfBvY
+   g==;
+X-CSE-ConnectionGUID: 3j892OOuQlOYOLfdP/5oNA==
+X-CSE-MsgGUID: wCi4gz88QPKpFod2uMHDmA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11616"; a="53028422"
+X-IronPort-AV: E=Sophos;i="6.19,314,1754982000"; 
+   d="scan'208";a="53028422"
+Received: from orviesa006.jf.intel.com ([10.64.159.146])
+  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Nov 2025 21:42:59 -0800
+X-CSE-ConnectionGUID: g55xazAASY6gp1sqPcfseQ==
+X-CSE-MsgGUID: 9IDYRVS6RdmXV8k/XcCKXg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.19,314,1754982000"; 
+   d="scan'208";a="189924294"
+Received: from allen-sbox.sh.intel.com (HELO [10.239.159.30]) ([10.239.159.30])
+  by orviesa006-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Nov 2025 21:42:54 -0800
+Message-ID: <4eeda61a-c71d-4ad1-8ac7-a14942f7a864@linux.intel.com>
+Date: Tue, 18 Nov 2025 13:38:40 +0800
+MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 21/34] arm_mpam: Register and enable IRQs
-To: Ben Horgan <ben.horgan@arm.com>, james.morse@arm.com
-Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
- baolin.wang@linux.alibaba.com, bobo.shaobowang@huawei.com,
- carl@os.amperecomputing.com, catalin.marinas@arm.com, dakr@kernel.org,
- dave.martin@arm.com, david@redhat.com, dfustini@baylibre.com,
- gregkh@linuxfoundation.org, gshan@redhat.com, guohanjun@huawei.com,
- jeremy.linton@arm.com, jonathan.cameron@huawei.com, kobak@nvidia.com,
- lcherian@marvell.com, lenb@kernel.org, linux-acpi@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- lpieralisi@kernel.org, peternewman@google.com, quic_jiles@quicinc.com,
- rafael@kernel.org, robh@kernel.org, rohit.mathew@arm.com,
- scott@os.amperecomputing.com, sdonthineni@nvidia.com, sudeep.holla@arm.com,
- tan.shaopeng@fujitsu.com, will@kernel.org, xhao@linux.alibaba.com,
- Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>, Zeng Heng <zengheng4@huawei.com>
-References: <20251117170014.4113754-1-ben.horgan@arm.com>
- <20251117170014.4113754-22-ben.horgan@arm.com>
+Subject: Re: [PATCH v5 5/5] pci: Suspend iommu function prior to resetting a
+ device
+To: Nicolin Chen <nicolinc@nvidia.com>, "Tian, Kevin" <kevin.tian@intel.com>
+Cc: "joro@8bytes.org" <joro@8bytes.org>, "afael@kernel.org"
+ <afael@kernel.org>, "bhelgaas@google.com" <bhelgaas@google.com>,
+ "alex@shazbot.org" <alex@shazbot.org>, "jgg@nvidia.com" <jgg@nvidia.com>,
+ "will@kernel.org" <will@kernel.org>,
+ "robin.murphy@arm.com" <robin.murphy@arm.com>,
+ "lenb@kernel.org" <lenb@kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "iommu@lists.linux.dev" <iommu@lists.linux.dev>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-acpi@vger.kernel.org" <linux-acpi@vger.kernel.org>,
+ "linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
+ "kvm@vger.kernel.org" <kvm@vger.kernel.org>,
+ "patches@lists.linux.dev" <patches@lists.linux.dev>,
+ "Jaroszynski, Piotr" <pjaroszynski@nvidia.com>,
+ "Sethi, Vikram" <vsethi@nvidia.com>, "helgaas@kernel.org"
+ <helgaas@kernel.org>, "etzhao1900@gmail.com" <etzhao1900@gmail.com>
+References: <cover.1762835355.git.nicolinc@nvidia.com>
+ <a166b07a254d3becfcb0f86e4911af556acbe2a9.1762835355.git.nicolinc@nvidia.com>
+ <BN9PR11MB52762516D6259BBD8C3740518CCAA@BN9PR11MB5276.namprd11.prod.outlook.com>
+ <aRduRi8zBHdUe4KO@Asurada-Nvidia>
+ <BN9PR11MB52761B6B1751BF64AEAA3F948CC9A@BN9PR11MB5276.namprd11.prod.outlook.com>
+ <aRt2/0rcdjcGk1Z1@Asurada-Nvidia>
+ <BN9PR11MB527649AD7D251EAAFDFB753A8CD6A@BN9PR11MB5276.namprd11.prod.outlook.com>
+ <aRvO9KWjWC5rk/Vx@Asurada-Nvidia>
 Content-Language: en-US
-From: Fenghua Yu <fenghuay@nvidia.com>
-In-Reply-To: <20251117170014.4113754-22-ben.horgan@arm.com>
+From: Baolu Lu <baolu.lu@linux.intel.com>
+In-Reply-To: <aRvO9KWjWC5rk/Vx@Asurada-Nvidia>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: SJ0PR05CA0180.namprd05.prod.outlook.com
- (2603:10b6:a03:339::35) To DM6PR12MB2667.namprd12.prod.outlook.com
- (2603:10b6:5:42::28)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DM6PR12MB2667:EE_|DS7PR12MB6005:EE_
-X-MS-Office365-Filtering-Correlation-Id: 88c014e6-eefa-4f1d-8c78-08de26638afa
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|366016|376014|1800799024|7053199007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?eERvTkFvdWUvYVdyczVnQVFNK0ZUSG85YmNUQ1IvYWVRL3I4bWtVaWNGMEJn?=
- =?utf-8?B?NWdPQ0t2dGIxdjluUHdUbVVBL1c3aE1ha1NYdUtUV3dHT2dUTm9rY2J0eFl5?=
- =?utf-8?B?QlRVUnFKbkIrT3RQcnhlWCtiT0x6dHNtam53Zi91ODRnOEticjRocDZqdU04?=
- =?utf-8?B?Y0Z1cWVxTXRkVnF3c2d0bHhkQWxuYXJuVGI5Yjg3QmxwcXMxMzJwZ2didUlC?=
- =?utf-8?B?cEQyNENwTlFiM0hrdW9kS1dyeE13SWgwYTk2RkFzVFhkMXVtUW5pZHIrUkNE?=
- =?utf-8?B?UXdDZWxjSVpCN1hMN1RRTDJQVzB5NWkzcW1HNVdHWUZYQ3NCb3FXYmltaFNm?=
- =?utf-8?B?eGwrOEE5a0tQbkpOVU1zZGtpckE3VzFFRFphUW1Bd3R4WmhsN0YvWGlOdVNv?=
- =?utf-8?B?b3RVeDFwdEMxMjMzelhpWWNkTFoxU0dQYUd6bVlRL3VyYkY1aG1sZWZCeCtD?=
- =?utf-8?B?d1JpYnpwK1k0SWZtand4b3NVSGlVZzQzUWR1RS9iK3pJRHpPUmFXS2pUMGdZ?=
- =?utf-8?B?RmR0aytKeWpGTkYvME55R1RWUlB6ZnNQZjU5YUw1dWdjNEdxS2tzS3JFTFhu?=
- =?utf-8?B?dnNLTDJmdk1vTmxNZnpXZ3dHb2sxVURNTTJuYVRFK0grVmNJODJjWmhzZGwr?=
- =?utf-8?B?M3V1b1ZvQkxKTkxyeldEZHhPMGdDd1ltYStTWG9aRkFkQVpnOVZOSHk1SnBS?=
- =?utf-8?B?bmVadGhYeThhTWRPdDJKaG56bmd3c0QzWExJTjB6WUE3U09CdDdpOCtnbzdm?=
- =?utf-8?B?UHNFWUFOMEYvcmZVZDIzMzdXSXJrTUhOcEgrT2hxKzB0WlBycHVQT3JhYlJH?=
- =?utf-8?B?VGQrVFFNOElyZTVQNnIwWnB0QW5UZmpib3RJdUhiaHppYmEzRUNjdjUrcCt3?=
- =?utf-8?B?cDdtam1TcG0wZ1MvbFpMcDNCK25LTnRCcnd3RERUN2FzSW1pZHZzRis2WVht?=
- =?utf-8?B?b05pbWZtTkhMUEpHcmRNUnBYYUJkd09lTUZKV2lvb3Blcno3SGp4alM3dXpN?=
- =?utf-8?B?V1VxN0t1YzV2MVI4VnpLWi92bDJ3b2RsVmpEWGwxWVFPL01NQWllU2VNSWpx?=
- =?utf-8?B?QXVlWkdsTUlLbjV3Q29MT0lKZHlvcHp3WmhUay95QkhNU2JxYlN4QTJqam1V?=
- =?utf-8?B?czNuZ25UQUV4ZWdwMFNBSUJ3eEwxTTJQV0RYRDBkanJ3bVg2VkRRWExpZmt2?=
- =?utf-8?B?b05za0ludk5MQ2d4TlRLcEhrZHpTRGxiZHRTYllUdjZLTkNyc21yTkxpUWFT?=
- =?utf-8?B?UURzUUdrcXNzNjJ3TG85S0poWmxGa3hBUkJuNVpuSkxkK2dGR1RTTnBzTm0r?=
- =?utf-8?B?WDlWY1c0aDBjSkJ1VjNTWWdSM0xYNmpYYW9wOGl1cXg4eWF3UzlPUnZsZ3FC?=
- =?utf-8?B?b2dYOTFFYnJGK2hxRHlmbHhRNG5xaitGc1pvYzdZUFFBNE43d0JvZU1jOG9U?=
- =?utf-8?B?K2NhWFJPNm1mNk1Fd05hWHF0YXNYMEdjc2tORklQUDVaMnVJQ0hlZ0FpdlFk?=
- =?utf-8?B?TjVzNTNPMGUvMWNzN2F4UjMrL2k1Lzc0TXFxQ1lPRzVnSnlGcWpJTVc5bVpH?=
- =?utf-8?B?WkVlREdlZlRZT3hHcVZtL2N4b1FxZVdUMXNaSHZjVFB2S1N4VmdtbXp6QVpZ?=
- =?utf-8?B?S01oaWgxdnhEakRGSHFNRUcyLzAza2ZXWGNsRVlJalFETGkrNFdjWUF4MXo2?=
- =?utf-8?B?RUVjRFFrSzFtVCs0eU5aQXl5WlU4YUp5OHFwTXdpTGlzN0g5ZmttMDVEcm9U?=
- =?utf-8?B?Z1ZrZ2V1UUw3WU50TU1PeWxjbUd5ci83SW9VczB4NldJNVVTUW1peU1laWRz?=
- =?utf-8?B?dXVkSitWYzhBbGZ2YWdpSVNyT3ppQnJsbFlIMTZYN0ppcTZ5STFlVllUV01n?=
- =?utf-8?B?eHFQREN0WCtoTUphaEdwTitVT3UxWUlvaVdNMEZXRU5ZYlFDdHJwd3R0SCtU?=
- =?utf-8?Q?VfaW2lyQ0PNnflsnTmzR97WRQJflZHy9?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM6PR12MB2667.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(366016)(376014)(1800799024)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?b3RraUdseDE5SXQwem1lMXVOcmZxL2lKaGZ3Mm02M2E4YTJ1dmxtOXRJc2x1?=
- =?utf-8?B?TG9FWTNYNUZtZ291MVdabHE4YWdzeHRZbVRGQlF3dFY4a0h2S0lwcnBaUWhR?=
- =?utf-8?B?V0JLS0ZDYlI2TnlwTEx5UlNrZ05MVWtuM3NVekcvb1c1NXdvb3J2NldzeDZD?=
- =?utf-8?B?OTB4NkpOdWNlV0g5UitZMi9GallxVjdZM2x0d3VSNlZ0eDZZVkV5SDdpb3hP?=
- =?utf-8?B?TXFkVVNnd3BkZS9zTGhiQzlKbmsrOWplMW1mRzRDNm15L3lsRXBZbjJWaEZN?=
- =?utf-8?B?L1hwK2NWRTVLTngyVjNoMVk1K3RFWndmbTBWUnJqVzVDN3pKeTAxMGdOUlEy?=
- =?utf-8?B?YWRTSHhZTGJYTnQ0bzhwUTBtbm9wSUhjSGNJYXpIQUZFMzNTM3F2WDFwdGdM?=
- =?utf-8?B?dXN1SmtSa1NWQTRIU2Jjb2V3Q0tFMnl3ZEpzZVBmUUZQWjhvUWN0a0FjZlAx?=
- =?utf-8?B?M21FYUxKRmcwNCtyck5UQ3JuLzRXcjlUMUU3SmoyN1UzbVZ0MkVwZUVuYlJY?=
- =?utf-8?B?Si9kMFpJN3FQSk5TaWhNZEhWY1J4S1U3TGt4V1RlZ2FpQ0E1VUpNckdDRkJF?=
- =?utf-8?B?a1dsMFhXSTJyVUlHNlA5dFg3UUxmUTNuWlJEdmc1QldId3hueXBKMGtEWnZ4?=
- =?utf-8?B?cVFpTlZDa1NEa3lad1N6QmlHR2QzdXRTMXZpQWluREpmOFdRZjMwSXZDOGVk?=
- =?utf-8?B?M3pDeDVVMGI4NnBUT0xUNGlTSUZESHZWbEhUeDhVc0IwMnJMTEdDKzNud0g2?=
- =?utf-8?B?TVRST3RMeVM4b3MrQXpwOWlBQ3l4Uk5GdWF4Y2llWDloTWluUFBzTHZmdlUv?=
- =?utf-8?B?aFF4djRCT3dId3gvWWc3aWo4UUd2aHpMazlKakE0TkxUYVpjYitTanZGS2RV?=
- =?utf-8?B?bXJSV05tYW83UDRYQUtJNnk5SE5IZHQ2UC9PY3paVGJHaGtqTWR0bzdpZjVo?=
- =?utf-8?B?d0R1bDNtZ3VtNHNmMWg0WmVBS09Ga1lGeTYybFF3TDJuSzl5a0FxNTUrS1hn?=
- =?utf-8?B?ZitybEpYREhtY0owcHFOTlZLVmlsTGZDakxVT0pkRFZZSFVXb1pMWTI4dm9v?=
- =?utf-8?B?QUdmMFF1VXNrdFVFS2RMNEwvT2srUjg2RThUYW9jdlovTXZzTFNST0pMemQx?=
- =?utf-8?B?R1AvcUdnS0xtTVU4OXFncEZZb1AyL0QvU1hZUnNya3VMaUFpbWVaUW82ci82?=
- =?utf-8?B?VnhIQnpyRzQxYjJyTG5uRXpyWXozb3VRRGZERHRZQzRyM1k3QjA1M0VEeW51?=
- =?utf-8?B?YkxkelJlOTI5c2g0S09KK3hubDZKVFN3cU1sbjhuVmJOWlF4ZVU3ZjdFcHlx?=
- =?utf-8?B?cjBqVHFNRXF2ZTA1bklYSGVoUlM1ZkpwZkVSMWNQQ1NmU0pIRkRnQW5nTk45?=
- =?utf-8?B?aUF4eG1RM2QybzNpbjIwekNJdUMrL2kwQXMrTEZlbDBnczhKVEVNb0dDZ0V3?=
- =?utf-8?B?MFRaR3NkaWtlczdOYkZkcE1TbFBaNHlUOVgxbmxBRUhZcjQ3SUNVNDNvYkJW?=
- =?utf-8?B?NENaYXpxRS9nQXBhV3ovVGpVWTd0YjArQVBRV2Y2UWZPbFBhMCtnZlh3R0NL?=
- =?utf-8?B?Z0FGS3FtZktHVTFDV0g0RDh1eUl3QzhneEdLbHcwazE5TkZ0TVNoWXd2ek9B?=
- =?utf-8?B?cm1kN3QzMmlvTVBNMW9uVnkwNnZsWFFINzBzTFN6MTk5S0gweER0N1plS01B?=
- =?utf-8?B?Sk5ZcUdIdmc4OXJ5MWJ4K3B6QldJakQ2TmQzT085RUZKRkNBaEdFRmVDZDlF?=
- =?utf-8?B?OU5CbDRlTVFOUG5LWTYwdS9MWGFIc3JsbGxlSFM4Y1M1aGp6cFhLMDg2SVBk?=
- =?utf-8?B?SHVpbklVNHR4NDdFL2VadUlsYnMvSFJFc2VXTzM0aVJwTGlGRDVrZ3JyYUg3?=
- =?utf-8?B?azE1cTRlV2k5OTZ3SzdxRkpLVzhwaVFRSVdDVEVqVGNuOTIrNjRQZG80ZnZH?=
- =?utf-8?B?MDA5RDAxZ3BQWlpkNENQNlhIbnFSR2I1NGcwVmltSWxuclk5ekJVYmlwVVBV?=
- =?utf-8?B?c0JZM3lRUElZbmNqakQ1cmlXM1p4bFJEVlJ5TmlWVGxUNFJ5aWhxUTVzNjFS?=
- =?utf-8?B?c0h6OENqdDRGTVM1NjZzV2hMZUdLMWNyYjB0d0RjbHRyQ0p6M1lEUHA3dGpN?=
- =?utf-8?Q?bDbHWHkt6HBASFfpl4xXNHGHL?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 88c014e6-eefa-4f1d-8c78-08de26638afa
-X-MS-Exchange-CrossTenant-AuthSource: DM6PR12MB2667.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2025 05:30:11.0345
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: BnKIBHhDKRBkkQaFchHAJHMsiM20D9CRGNm+mmZnSIAyKeMgUKZrVAMz3h5vdN3m7tZo5+nONfs1c41cUBHgQA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS7PR12MB6005
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251117_213017_665966_88AD724D 
-X-CRM114-Status: GOOD (  12.44  )
+X-CRM114-CacheID: sfid-20251117_214302_283887_4945B612 
+X-CRM114-Status: GOOD (  14.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -186,44 +108,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 11/17/25 09:00, Ben Horgan wrote:
-> From: James Morse <james.morse@arm.com>
+On 11/18/25 09:42, Nicolin Chen wrote:
+> On Tue, Nov 18, 2025 at 12:29:43AM +0000, Tian, Kevin wrote:
+>>> From: Nicolin Chen<nicolinc@nvidia.com>
+>>> Sent: Tuesday, November 18, 2025 3:27 AM
+>>>
+>>> On Mon, Nov 17, 2025 at 04:52:05AM +0000, Tian, Kevin wrote:
+>>>>> From: Nicolin Chen<nicolinc@nvidia.com>
+>>>>> Sent: Saturday, November 15, 2025 2:01 AM
+>>>>>
+>>>>> On Fri, Nov 14, 2025 at 09:45:31AM +0000, Tian, Kevin wrote:
+>>>>>>> From: Nicolin Chen<nicolinc@nvidia.com>
+>>>>>>> Sent: Tuesday, November 11, 2025 1:13 PM
+>>>>>>>
+>>>>>>> +/*
+>>>>>>> + * Per PCIe r6.3, sec 10.3.1 IMPLEMENTATION NOTE, software
+>>> disables
+>>>>> ATS
+>>>>>>> before
+>>>>>>> + * initiating a reset. Notify the iommu driver that enabled ATS.
+>>>>>>> + */
+>>>>>>> +int pci_reset_iommu_prepare(struct pci_dev *dev)
+>>>>>>> +{
+>>>>>>> +	if (pci_ats_supported(dev))
+>>>>>>> +		return iommu_dev_reset_prepare(&dev->dev);
+>>>>>>> +	return 0;
+>>>>>>> +}
+>>>>>> the comment says "driver that enabled ATS", but the code checks
+>>>>>> whether ATS is supported.
+>>>>>>
+>>>>>> which one is desired?
+>>>>> The comments says "the iommu driver that enabled ATS". It doesn't
+>>>>> conflict with what the PCI core checks here?
+>>>> actually this is sent to all IOMMU drivers. there is no check on whether
+>>>> a specific driver has enabled ATS in this path.
+>>> But the comment doesn't say "check"..
+>>>
+>>> How about "Notify the iommu driver that enables/disables ATS"?
+>>>
+>>> The point is that pci_enable_ats() is called in iommu drivers.
+>>>
+>> but in current way even an iommu driver which doesn't call
+>> pci_enable_ats() will also be notified then I didn't see the
+>> point of adding an attribute to "the iommu driver".
+> Hmm, that's a fair point.
 > 
-> Register and enable error IRQs. All the MPAM error interrupts indicate a
-> software bug, e.g. out of range partid. If the error interrupt is ever
-> signalled, attempt to disable MPAM.
-> 
-> Only the irq handler accesses the MPAMF_ESR register, so no locking is
-> needed. The work to disable MPAM after an error needs to happen at process
-> context as it takes mutex. It also unregisters the interrupts, meaning
-> it can't be done from the threaded part of a threaded interrupt.
-> Instead, mpam_disable() gets scheduled.
-> 
-> Enabling the IRQs in the MSC may involve cross calling to a CPU that
-> can access the MSC.
-> 
-> Once the IRQ is requested, the mpam_disable() path can be called
-> asynchronously, which will walk structures sized by max_partid. Ensure
-> this size is fixed before the interrupt is requested.
-> 
-> CC: Rohit Mathew <rohit.mathew@arm.com>
-> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
-> Reviewed-by: Gavin Shan <gshan@redhat.com>
-> Tested-by: Rohit Mathew <rohit.mathew@arm.com>
-> Tested-by: Fenghua Yu <fenghuay@nvidia.com>
-> Tested-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
-> Tested-by: Peter Newman <peternewman@google.com>
-> Tested-by: Carl Worth <carl@os.amperecomputing.com>
-> Tested-by: Gavin Shan <gshan@redhat.com>
-> Tested-by: Zeng Heng <zengheng4@huawei.com>
-> Signed-off-by: James Morse <james.morse@arm.com>
-> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
+> Having looked closely, I see only AMD and ARM call that to enable
+> ATs. How others (e.g. Intel) enable it?
 
-Reviewed-by: Fenghua Yu <fenghuay@nvidia.com>
+The VT-d driver enables ATS in the iommu probe_finalize() path (for
+scalable mode).
 
-Thanks.
+static void intel_iommu_probe_finalize(struct device *dev)
+{
 
--Fenghua
+[...]
+         if (sm_supported(iommu) && !dev_is_real_dma_subdevice(dev)) {
+                 iommu_enable_pci_ats(info);
+                 /* Assign a DEVTLB cache tag to the default domain. */
+                 if (info->ats_enabled && info->domain) {
+                         u16 did = domain_id_iommu(info->domain, iommu);
+
+                         if (cache_tag_assign(info->domain, did, dev,
+                                              IOMMU_NO_PASID, 
+CACHE_TAG_DEVTLB))
+                                 iommu_disable_pci_ats(info);
+                 }
+         }
+
+[...]
+}
+
+iommu_enable_pci_ats() will eventually call pci_enable_ats() after some
+necessary checks.
+
+Thanks,
+baolu
 
