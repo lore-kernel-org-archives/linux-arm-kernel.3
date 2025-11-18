@@ -4,159 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3233BCEBF61
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 01:42:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0FAACE8D6B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 01:46:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JB8mAPyqV3cTWmWabAAn2V/tzOhGv+2AqWKcJ1GVgD0=; b=tNh2AoSf4dzmo20fpqDNvqO8I8
-	8PY/J2OGwxcyubJyCA7qymohKrGtWTLpw1ePSJG+RtV+nCA1jrYt6LaBaFkKcfXkqL2dvIsck/h+Q
-	EkyaVUeEOlE5omGO+V+GgspZnEMRvoW55O8JuW9ZWcuigJae5PJ0Wl52woQgGoDgE5oNDovwWm9nK
-	bviGuyOq6T1wuS3BAA/PNL2hZSBLfrJqMcnY6Aihe3/X/aYo99vFkhUyembfPhSgYhObOdpaRKwF/
-	nv6++S0YFETQL+22eDppBps1wtWe+ZYa92EImVQxJvHau3Tz1NbX4mYh30xNfvS3r/FdH4H8GL7dF
-	Bq18cxKg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9LVu1ftHSweMGGMS0wtdGEkaqFzhCbvStNQPyLLvshM=; b=35QWOY6GHPShczuJkHBClJjoBr
+	xzObb4YQbyBY/CIcLXsg9awM9fMF651SIjNuof8DwbpTwQbdlWGr/zHmpT8cXTczxuRkibgKRzhFa
+	r9w+WwjCyglnYt6UDnOJ7kMhMdEbRgIXJoijLW3s0CcGREGUNDwJAmrODopUsigs0pUTVoK2lbzvB
+	I4IpmqSHOcooOzyLgQ9iyZee/8o551J8pdnaHfflWJkIHm/Mp3545Xw7JWyIPJZEjBZHb2naZKpHD
+	vPO1uD5ubqY4+35Z8T41mnjzY5lgvO9Z/R0LcZAbAKJoiWE01It8B1IzKiSNyrTkN0r46JNL+W9Pl
+	a2hbA1pA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLAk0-0000000HAKq-0ZPf;
-	Tue, 18 Nov 2025 01:42:44 +0000
-Received: from mail-westus3azon11012011.outbound.protection.outlook.com ([40.107.209.11] helo=PH8PR06CU001.outbound.protection.outlook.com)
+	id 1vLAnB-0000000HAdL-1PI1;
+	Tue, 18 Nov 2025 01:46:01 +0000
+Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLAjx-0000000HAKB-1PNT
+	id 1vLAn8-0000000HAcp-3396
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Nov 2025 01:42:43 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=hL+k7joOx9Yks6EJ/+95t36xQb/RNZ3IIgbw9Nibz4h2egLtAjpHeFA9a10XXuRqlxlAhmxbuX93mtCdgsgUwCZGnR+YwwvJfeiLRBx8sHSsN12Dhb3DhF4zfJ6wZFK4L3RW5pHCXDS9JEUkAL9LgvhELuYZ25w8FwwUS0TD/mc16qsi4w1J+wFDLo9ilXW6JQyX2xNHgjUqrx+AMjDzQhsW49IqDkQl/1kVtyXKnVZXxdQnWiquSG/BT3UvzrK5e6morBFAcgG7hXOpnq3WuA4slI53dgzGlPccaK9DtZibbObpLczq80GwAUQ4C5ys9j1BRBT/4fCgr9PKOXmyzg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=JB8mAPyqV3cTWmWabAAn2V/tzOhGv+2AqWKcJ1GVgD0=;
- b=K2UZxCj8yQSKARKc2tk3xZAqUPMMjLKPK8nfYjDSnvKU5zfnaQeTmzBW6Pris0DM8v1Mr6cEB8H6cQm1oUBDHE4tpmAIO4IM97nkwKMFh1z2/5Al/YRzVUzM+RVwMFY7feHxYU6iyutBobkD+JbftF3m0XLNzUawnsX4szyixWPAsXfy/6gLDw7+QbfBu/eab83HL0K1QA5Z+xbG1BzZCVqGs/fMiJduZy4m8DzmV825Y6Of2+zCJ5rbZEJUWXTW7rM/t6j8tCkjhPxbD3nxzW0k3hWVwZlD6kGvaLXKMi5GST9OWz81MDhr10a/rQi3qMZv4I+c2klT3alpk4oX+g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.161) smtp.rcpttodomain=intel.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=JB8mAPyqV3cTWmWabAAn2V/tzOhGv+2AqWKcJ1GVgD0=;
- b=FAqaaPI6ZM9EGgn65CQhKBe4wI6k/i6AGcTlqWE4vyoXlePskibVZMlFz5Q4TpbzAfidlvicJYcDI6W7wZz1ab2MIQxx75I2uySrruODL6eWMSu/xz+u57HfCw8X2KhDrhc1fcx5DN4vtsHCxdpCDxDlgLJXm/hAMzvvt3pItHWB/yxxlp6QWzqfc3R3MmpUbkkvnNzl02sK2MSA9FnZt7Nta4ZajBC2kO1N4LKaVk2bdTruYH+NbP21+SVW4vPjX8GX14dhLmtmPteZEQvcABNvyqkaDQARu7KRYnm218vWhH8QuwO6NAPhslyg/goii0ToBGlHCd5V/Op41ZOboQ==
-Received: from BLAPR03CA0112.namprd03.prod.outlook.com (2603:10b6:208:32a::27)
- by DM6PR12MB4139.namprd12.prod.outlook.com (2603:10b6:5:214::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9320.22; Tue, 18 Nov
- 2025 01:42:31 +0000
-Received: from BL02EPF0002992A.namprd02.prod.outlook.com
- (2603:10b6:208:32a:cafe::9e) by BLAPR03CA0112.outlook.office365.com
- (2603:10b6:208:32a::27) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9320.22 via Frontend Transport; Tue,
- 18 Nov 2025 01:42:29 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.161) by
- BL02EPF0002992A.mail.protection.outlook.com (10.167.249.55) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9343.9 via Frontend Transport; Tue, 18 Nov 2025 01:42:31 +0000
-Received: from rnnvmail202.nvidia.com (10.129.68.7) by mail.nvidia.com
- (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 17 Nov
- 2025 17:42:15 -0800
-Received: from rnnvmail201.nvidia.com (10.129.68.8) by rnnvmail202.nvidia.com
- (10.129.68.7) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 17 Nov
- 2025 17:42:14 -0800
-Received: from Asurada-Nvidia (10.127.8.11) by mail.nvidia.com (10.129.68.8)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Mon, 17 Nov 2025 17:42:13 -0800
-Date: Mon, 17 Nov 2025 17:42:12 -0800
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: "Tian, Kevin" <kevin.tian@intel.com>
-CC: "joro@8bytes.org" <joro@8bytes.org>, "afael@kernel.org"
-	<afael@kernel.org>, "bhelgaas@google.com" <bhelgaas@google.com>,
-	"alex@shazbot.org" <alex@shazbot.org>, "jgg@nvidia.com" <jgg@nvidia.com>,
-	"will@kernel.org" <will@kernel.org>, "robin.murphy@arm.com"
-	<robin.murphy@arm.com>, "lenb@kernel.org" <lenb@kernel.org>,
-	"baolu.lu@linux.intel.com" <baolu.lu@linux.intel.com>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "iommu@lists.linux.dev"
-	<iommu@lists.linux.dev>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-acpi@vger.kernel.org"
-	<linux-acpi@vger.kernel.org>, "linux-pci@vger.kernel.org"
-	<linux-pci@vger.kernel.org>, "kvm@vger.kernel.org" <kvm@vger.kernel.org>,
-	"patches@lists.linux.dev" <patches@lists.linux.dev>, "Jaroszynski, Piotr"
-	<pjaroszynski@nvidia.com>, "Sethi, Vikram" <vsethi@nvidia.com>,
-	"helgaas@kernel.org" <helgaas@kernel.org>, "etzhao1900@gmail.com"
-	<etzhao1900@gmail.com>
-Subject: Re: [PATCH v5 5/5] pci: Suspend iommu function prior to resetting a
- device
-Message-ID: <aRvO9KWjWC5rk/Vx@Asurada-Nvidia>
-References: <cover.1762835355.git.nicolinc@nvidia.com>
- <a166b07a254d3becfcb0f86e4911af556acbe2a9.1762835355.git.nicolinc@nvidia.com>
- <BN9PR11MB52762516D6259BBD8C3740518CCAA@BN9PR11MB5276.namprd11.prod.outlook.com>
- <aRduRi8zBHdUe4KO@Asurada-Nvidia>
- <BN9PR11MB52761B6B1751BF64AEAA3F948CC9A@BN9PR11MB5276.namprd11.prod.outlook.com>
- <aRt2/0rcdjcGk1Z1@Asurada-Nvidia>
- <BN9PR11MB527649AD7D251EAAFDFB753A8CD6A@BN9PR11MB5276.namprd11.prod.outlook.com>
+	Tue, 18 Nov 2025 01:45:59 +0000
+Received: by mail-pf1-x431.google.com with SMTP id d2e1a72fcca58-7b6dd81e2d4so4484796b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Nov 2025 17:45:58 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1763430357; x=1764035157; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:to:subject:user-agent:mime-version:date:message-id:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=9LVu1ftHSweMGGMS0wtdGEkaqFzhCbvStNQPyLLvshM=;
+        b=boXyv1weqFj6OmObCqLwFQNUpK5JRFMP7HAgRmkPjGgmd86aMVHMswYTcDWwoJwvnM
+         ShSZCUBJKZ0P5aG1PoFPundQPP6cv+tllpWFSwJLTYiM1QxgU6uM/4YH47Rekj4J8dca
+         VC46AboUKAZff4qek7W4Bwg1zA/IJqQnAhCZHYacM/mi3EQ1IwgLWfgos3kg0Jsc6vR2
+         WfPyOqy+qjLg4SI4o4p2MNYRzr0lQsd+zZM3mXk0GcULBbjzaonXguX2uyzzFPBJIdKb
+         akSWehXuW4xN0gp04sz8w6kMEWAXw/TtK0qzR8zstIZ1r+vLUsBpRLAjWlNX7jI+kC2z
+         K+Tw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1763430357; x=1764035157;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=9LVu1ftHSweMGGMS0wtdGEkaqFzhCbvStNQPyLLvshM=;
+        b=Fdpy0X0RJQgObb0StRbkodhIwmv1/kciBw6IHRZoh4XrQsrlNa5QYuvjHB2ZHW1LgH
+         NqfXYBqCuIXL9YoAsLxMLN6e1BSyL0ZVv4QY47osrGM3pt5iNm0EeC0hpDAkYZezUslV
+         wvio3aWOaRAoNTKKFCLYL5kVZkE1cQfjqb+FNwzg0w1yK8diHxB5kgY1ZlpyoxUVz0cz
+         EbVMnVFpw20llUsmj+ot4ZSHoAv4D0FvjPYL3FpDs3jbY9Xd7e3K+kIRjs741QremYKP
+         RU2acg4FErvi5ie/T6pKw1Kz5B5Z3e187xmzeDTtGYZiEdX6ICxCOdsf0dgMUrDgUNoR
+         y5XQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUywp76dxd8jLjDvEcR9F2dhuQWRGAhBvvGoVrfJ2B009vxYxSGsMRbwt78KY9bb0oZtNsyW2L/55LlyM/5upwY@lists.infradead.org
+X-Gm-Message-State: AOJu0YxTJa6bb9/iZYZgcdF+3iGhRd+iXAV0l0LV2nfnqDTCYWrPmqVT
+	zG9GabrIHCDIYtH9wv85RkY0i8Y3VqU2+0O2wrXKJfhxf3sPvi091oPy
+X-Gm-Gg: ASbGncsODeBQwjGJ5G62CtToqrjkbO5xz12GlG/kT6Ss4I4HBVs75LDG5cU3hiC5k2t
+	XK2U8wtuloJjPfIFJ+Z5ALHEcFTifZDOcEOmbhvDKiKdU9lvg/TrLALV5+3TIafwyFh96t2JLN2
+	uxJr3J2MC56EkOwWHVrU9eT6bCilcdxiDTM+OIqIijNHV3ZjfoPqATvU9a8wBwdxb8uD5LaSzMs
+	+n7JUSgq7BIMzTfTy5y8f11QWXGtiT3ZIbUPix0eSq3CoMDVjOdWVy64y3bFvuWBo+h3qP9V24O
+	hYKxTKg3bLphkeoO+YjRlJv0RbRsah69CFTjKyH/NFQ6jMX2KOecewE2ycPUOXHhWHQ4t+c4/z1
+	kQSg14HFR+C7GG/QUM00dBEwrerThMHPx+VD4z4rgFWp03bn8tsErrZlcKpgSTF3Oa9RjcR+JXX
+	GBdaIur6OQ+hYBIDx1Ov8C
+X-Google-Smtp-Source: AGHT+IG/PNQV7yS4/dOlu2YCel/annKvAJBo90V1Nz+6LPzZU6gOPlYVZPEcln+UbOpMuRAShHAXFA==
+X-Received: by 2002:a05:6a21:3397:b0:35d:cc9a:8bbb with SMTP id adf61e73a8af0-35dcc9a8d3emr9776085637.47.1763430357500;
+        Mon, 17 Nov 2025 17:45:57 -0800 (PST)
+Received: from [192.168.1.2] ([122.177.125.110])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-bc3761d0109sm13385461a12.27.2025.11.17.17.45.52
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 17 Nov 2025 17:45:57 -0800 (PST)
+Message-ID: <0f6fe0c6-7c11-4f16-bed4-db4de675b002@gmail.com>
+Date: Tue, 18 Nov 2025 07:15:50 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <BN9PR11MB527649AD7D251EAAFDFB753A8CD6A@BN9PR11MB5276.namprd11.prod.outlook.com>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BL02EPF0002992A:EE_|DM6PR12MB4139:EE_
-X-MS-Office365-Filtering-Correlation-Id: 39a778ae-a752-434a-8c63-08de2643bd50
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|1800799024|36860700013|7416014|376014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?cAPNijP1XFqcrhTWtR3zZm0RMIlzLw3UdS6j0X+VNll8NjyfNbnWif6pAb8w?=
- =?us-ascii?Q?B790CmU2I4ZrkZ/YW7grxM34d9DeFIyvKdCPZ+vvZDuVS2MMOurWOrXIFOQ0?=
- =?us-ascii?Q?zqHlLX4Q9BzdZbFSoEneFkA4CtGHfOX6QbdmsMkKj0Azag3sNURNSzNl+MBD?=
- =?us-ascii?Q?4FO36hfIL/dNTC1RflFaBHgltTrePWRmxlF40Na3hhaRW/sVf7dNcOWtMqBs?=
- =?us-ascii?Q?9+Lq8bJXx0cZK2SMn0boHpZyf8yOb9Uq/QEKfZhCE0aGWblZUJzaPgBOxOuG?=
- =?us-ascii?Q?yQMElhlNOHuicVBnkqeXL3X73bgdjaHSwdwGOCvCrlonxS8Wy4WlKxITqWMT?=
- =?us-ascii?Q?UznKg8gbg25PWGzEUSDXndcno7spQuLnK82ARMOvp65b86m54qsE+BqyvCvW?=
- =?us-ascii?Q?gzyMwIy2ovXJSwuWAAqLFPyHbH5zkkadQ2FHluTPqBs2IBiiV0uxJal7DNhm?=
- =?us-ascii?Q?hgemPkr0jxYNoinYE9CsGDvGz7urTO4M0y30WLL4/gvwS+P81AwQm6BQwICO?=
- =?us-ascii?Q?JUkJ8j84P+V7euDFdpSiOJPnPYW0JlAxLW6c5fFvavoqpe0cEbPn+xC9q5Vd?=
- =?us-ascii?Q?Xk7aVpYogEgHfaHxP+7pjf9MtoA3uYfy5gcNtIaSOouf8O0/f3Lm2XnCh1ZI?=
- =?us-ascii?Q?n8bcfvzcl9xrbKVNY627xrKMx/rtymvKx3j4B4inYGY95az37UuLdKtWdS18?=
- =?us-ascii?Q?tllvVQMvpYhP/PXuNwUft8+ZpKOCaPfhmM7bL6xxPjFMuKwX+yeGb4bM+mnq?=
- =?us-ascii?Q?36jXRyOzyfDIIWIrer0KqU6dXXA1x0iKNgTNYP/P4TBZRQf3DwbpJk6KW/7Z?=
- =?us-ascii?Q?yw/7ctI+nhEAO2JgxGMzhsSmVifURNg2A82I9Hj5XKmRoJl0yUItjsW6M9De?=
- =?us-ascii?Q?5wACayt9uVi7rLXa3AdgfIgtb6IJkIkzQbxMSxXJbPZTXWgh2I5Nhn9xoOOC?=
- =?us-ascii?Q?TMg81qz6EECVg4siq+jrVARdby7ERkalgE1YVz4UVXQGH/JArICfnlajAY2/?=
- =?us-ascii?Q?XXzL/Ybj9gvhJmCw7nt/IdszfoR/8v56yGfw4OCsriaNcs1SJIT5qhtK/Zym?=
- =?us-ascii?Q?gtZBn0Yrv5GTFG8BSX45rqaRZOKPUZ15vbeaPS5ZfuEaiHwGa1GujLn/aM3p?=
- =?us-ascii?Q?Wz6OgA32OI4OhxZjjRnt+zZWvFbJVx5t/VO8Sxct0xYnXEVENRWZnxdhNuE5?=
- =?us-ascii?Q?C/WqT7X2h+kjlVWiCfRkud09NdCc7FV4JaHDSsmvXdyjSzg5YTN8Cx0p7Zcq?=
- =?us-ascii?Q?0qBh9rKAX2ptY5ar0OZKgIjS8Q62m/M4qpXN2Z5K4Ldeoq47isTC6oVUUve/?=
- =?us-ascii?Q?lulAoCkDqbXw4KAXmLv69qNy9BI4KL+Wv6h9do8JqhPH/UHbdCRC24Z1MH54?=
- =?us-ascii?Q?7WNbnlFtxJij4YVOzU1EPbA9oko09kmT8nW9rmQbWofmenXJ8JjlMjceDd2d?=
- =?us-ascii?Q?NpGIFAmTfz4ATbqHSQdsligQDkHnVgXjGdKN6aSXfauUT8UsD25Qluck0y6X?=
- =?us-ascii?Q?eEeksS9GSuuHlVx2yTToHzthA4IRo2T+R3UX/KCxi4dEEzPiyNeNkyHmVMdT?=
- =?us-ascii?Q?ENq39wq4QJkmNmS+mMM=3D?=
-X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(36860700013)(7416014)(376014);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2025 01:42:31.2162
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 39a778ae-a752-434a-8c63-08de2643bd50
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: BL02EPF0002992A.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR12MB4139
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4] arm64: errata: Work around AmpereOne's erratum
+ AC04_CPU_23
+To: D Scott Phillips <scott@os.amperecomputing.com>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ James Clark <james.clark@linaro.org>, James Morse <james.morse@arm.com>,
+ Joey Gouly <joey.gouly@arm.com>, Kevin Brodsky <kevin.brodsky@arm.com>,
+ Marc Zyngier <maz@kernel.org>, Mark Brown <broonie@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>, Oliver Upton <oliver.upton@linux.dev>,
+ "Rob Herring (Arm)" <robh@kernel.org>,
+ Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>,
+ Shiqi Liu <shiqiliu@hust.edu.cn>, Will Deacon <will@kernel.org>,
+ Yicong Yang <yangyicong@hisilicon.com>, kvmarm@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250513184514.2678288-1-scott@os.amperecomputing.com>
+ <456bba04-07b7-4c27-96fc-9bf226b12fd9@gmail.com>
+ <86bjl0o9yd.fsf@scott-ph-mail.amperecomputing.com>
+Content-Language: en-US
+From: Jaikiran Pai <jai.forums2013@gmail.com>
+In-Reply-To: <86bjl0o9yd.fsf@scott-ph-mail.amperecomputing.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251117_174241_375109_40D838B2 
-X-CRM114-Status: GOOD (  28.39  )
+X-CRM114-CacheID: sfid-20251117_174558_773822_6DAF5FA6 
+X-CRM114-Status: GOOD (  18.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -171,71 +113,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 18, 2025 at 12:29:43AM +0000, Tian, Kevin wrote:
-> > From: Nicolin Chen <nicolinc@nvidia.com>
-> > Sent: Tuesday, November 18, 2025 3:27 AM
-> > 
-> > On Mon, Nov 17, 2025 at 04:52:05AM +0000, Tian, Kevin wrote:
-> > > > From: Nicolin Chen <nicolinc@nvidia.com>
-> > > > Sent: Saturday, November 15, 2025 2:01 AM
-> > > >
-> > > > On Fri, Nov 14, 2025 at 09:45:31AM +0000, Tian, Kevin wrote:
-> > > > > > From: Nicolin Chen <nicolinc@nvidia.com>
-> > > > > > Sent: Tuesday, November 11, 2025 1:13 PM
-> > > > > >
-> > > > > > +/*
-> > > > > > + * Per PCIe r6.3, sec 10.3.1 IMPLEMENTATION NOTE, software
-> > disables
-> > > > ATS
-> > > > > > before
-> > > > > > + * initiating a reset. Notify the iommu driver that enabled ATS.
-> > > > > > + */
-> > > > > > +int pci_reset_iommu_prepare(struct pci_dev *dev)
-> > > > > > +{
-> > > > > > +	if (pci_ats_supported(dev))
-> > > > > > +		return iommu_dev_reset_prepare(&dev->dev);
-> > > > > > +	return 0;
-> > > > > > +}
-> > > > >
-> > > > > the comment says "driver that enabled ATS", but the code checks
-> > > > > whether ATS is supported.
-> > > > >
-> > > > > which one is desired?
-> > > >
-> > > > The comments says "the iommu driver that enabled ATS". It doesn't
-> > > > conflict with what the PCI core checks here?
-> > >
-> > > actually this is sent to all IOMMU drivers. there is no check on whether
-> > > a specific driver has enabled ATS in this path.
-> > 
-> > But the comment doesn't say "check"..
-> > 
-> > How about "Notify the iommu driver that enables/disables ATS"?
-> > 
-> > The point is that pci_enable_ats() is called in iommu drivers.
-> > 
-> 
-> but in current way even an iommu driver which doesn't call
-> pci_enable_ats() will also be notified then I didn't see the
-> point of adding an attribute to "the iommu driver".
 
-Hmm, that's a fair point.
+On 17/11/25 10:47 pm, D Scott Phillips wrote:
+> Jaikiran Pai <jai.forums2013@gmail.com> writes:
+>
+>> Hello Scott,
+>>
+>> On 14/05/25 12:15 am, D Scott Phillips wrote:
+>>> On AmpereOne AC04, updates to HCR_EL2 can rarely corrupt simultaneous
+>>> translations for data addresses initiated by load/store instructions.
+>>> Only instruction initiated translations are vulnerable, not translations
+>>> from prefetches for example. A DSB before the store to HCR_EL2 is
+>>> sufficient to prevent older instructions from hitting the window for
+>>> corruption, and an ISB after is sufficient to prevent younger
+>>> instructions from hitting the window for corruption.
+>> I see that this patch enables the workaround only for AmpereOne AC04
+>> systems. Do you happen to know if the underlying issue for which this
+>> patch was introduced, impacts (or can impact) AmpereOne AC03 systems too:
+> Hi Jaikiran, this issue impacts ac04 only, it is not present on ac03.
 
-Having looked closely, I see only AMD and ARM call that to enable
-ATs. How others (e.g. Intel) enable it?
 
-And how do you think of the followings?
+Thank you Scott for the quick confirmation.
 
-/*
- * Per PCIe r6.3, sec 10.3.1 IMPLEMENTATION NOTE, software disables ATS before
- * initiating a reset. Though not all IOMMU drivers calls pci_enable_ats(), it
- * only gets invoked in IOMMU driver. And it is racy to check dev->ats_enabled
- * here, as a concurrent IOMMU attachment can enable ATS right after this line.
- *
- * Notify the IOMMU driver to stop IOMMU translations until the reset is done,
- * to ensure that the ATS function and its related invalidations are disabled.
- */
+We have been investigating an issue on AC03 (running Oracle Linux as a 
+VM) where some memory writes (stores) are lost especially when the OS 
+appears to have accumulated high buf/cache usage (monitored through free 
+-h). That investigation, backed by a trivial C reproducer, is still 
+ongoing and we are trying to understand what could be causing it. The 
+issue description here made us curious whether it's the same issue we 
+are running into and since this patch wasn't applied on AC03, we decided 
+to check once.
 
-Thanks
-Nicolin
+While at it, if you have any inputs (tools/commands) that you typically 
+use to narrow down such issues, I would be happy to experiment with if 
+feasible. Right now we are focusing on the kernel itself and checking 
+which specific kernel versions can reproduce it. We have been able to 
+reproduce it consistently on 5.15.x and 5.16.x and we plan to try it 
+with other kernel versions all the way upto 6.12. That should tell us if 
+the issue we are encountering has already been addressed in any specific 
+kernel version.
+
+Given that you noted this patch isn't relevant for AC03, I don't plan to 
+further reply-all to this PATCH discussion, but if you would like me to 
+keep you updated with this investigation (I would love to get some 
+inputs and provide updates as we go along) then please let me know and I 
+will communicate with you over your email (or any other relevant forum 
+you suggest).
+
+Thank you again for the quick response.
+
+-Jaikiran
+
 
