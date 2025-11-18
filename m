@@ -4,81 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3006DCEDDA1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 15:09:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C54FCEDDAC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 15:09:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1aUWB5rfJH8WjlZ6mpwncNQxfl3NZrrgQFt7PCfUFlA=; b=M1wVtyzs9fjbQAHo8fnz3TRt99
-	pkYGbzCTe7qNchESMbotuMAs/Dx2ynBv3W9Zcb6ha4Gn8dciIS0ksTt4wMefKY21louZ2f5QFN96e
-	A1lcBTVETcBBteHsJgFN9GpA8pS5uUiIMEXRX5Kw2XEYoui2d3gb9gfgG6joDmapVHueN/QZsUwue
-	Pr3unVtGmRR1FLf1YETtGERzQLeI0aE28i9baVq//1UFiLNjibgBL8BlbGrBkZQ7NkTjy/bK5Hevf
-	X7OMb056N+fn7m2AbSfw7RsHPwfLEzrDEMDUtaOrWneDqyxgP8Ou1N2DXrKx3NkjZ53QjYe+Humuy
-	9pYd4e2A==;
+	bh=xn1amiUGhpNI5r8WdOtn7hNJ51WcbcveDFhQ+0agXLE=; b=3VC6iod6sQN8vFSjkYEhQgmLGs
+	IC1V/0Ogp6x11nz2QR4WDQdgmOxZ/kkpSGNuoHCE/BIgOxzUt016U8PnBiHwAUnCj5G+aiEYlhiHJ
+	3WT/EZNmC8tcdrrE2XIArg8f87M4QqL+ziPcMYODytae7eEMSZv3q/bx2FiQczVc66iF4zyJlrsry
+	sQwLipILyxlQtQjaCwEgahsmJI31yPwusacLBYHJWWTDuZeztsOUWEUIygTUMLmYhyM+c1hwJc3T3
+	uAbXJ2dIGIXFa5jAwByMof+zGKpkWhFuQum+UDIAbtjStuncjQjUV8yUCyQ2MhuLNoa/H6Vrt6cDT
+	73uk6YZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLNKW-00000000bXb-2lGg;
+	id 1vLNKW-00000000bXC-1PAb;
 	Tue, 18 Nov 2025 15:09:16 +0000
-Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLNKL-00000000bPI-1y4F
+	id 1vLNKK-00000000bOf-2GEf
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Nov 2025 15:09:06 +0000
-Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-42bb288c219so2550759f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Nov 2025 07:09:05 -0800 (PST)
+	Tue, 18 Nov 2025 15:09:05 +0000
+Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-477a1c28778so30037745e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Nov 2025 07:09:04 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1763478544; x=1764083344; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1763478543; x=1764083343; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=1aUWB5rfJH8WjlZ6mpwncNQxfl3NZrrgQFt7PCfUFlA=;
-        b=aVyyMyqUhAZSq8qOfTrRhv6OLlGowxyRezczJQfEB9yxLKwkLe4vIXWNS2Kdy9aWqL
-         DLGQMT/ahxJg/KIdK+PwVrLP/SB0fZ9TpSVWFgHrRg5zFNVo5cs1deZLlRhDb/kIWFtw
-         iFXo6jkfYiEHxg/qKpXnUEKT2AhcCL1CWCF0+rxbokTQd5hH2wAAaD8cxOD//lZ/UrER
-         JYtlWoxYDtQNK0ki0UZJv37UvrZ36Ai8PgmAvOs56e+brzsATDXK6tts2corXcuKpT9c
-         jUlh/h0+vKEWwUFCqTuOXpflWVfoSsReYdaNfiN28/5oxmVs1aO+HFmWknK2NBxsnliB
-         zmFQ==
+        bh=xn1amiUGhpNI5r8WdOtn7hNJ51WcbcveDFhQ+0agXLE=;
+        b=AwVX7904ukIKl5YXtnnFBm+6t7Pww7vMb4/RxmmOxALD3fgB7a9VnhFfiQnWHQ7RgN
+         vmpaC3FvHUiTeLKd0DvpLTVm85NeAf1DbOChQRYaDlVUzgdRiprOQRTdlKQa8MWb+avk
+         xKRwWft/auhoR5P7Ld4T+rFB/nfS0A/HXUhKaiJ8t3ZjJepme1uLd8AzufMFMTI5f4tq
+         g76nA6EMOuDJOgIYh+rzbHhRI+IfWNs8hS4pSoABJaMJCdSKdFR4eP1x10yYv9l58qsr
+         zdsvejqmPpzrZJ1vHkN5tqmW0aGY5B5J6IPVNHqvoDJOEJHrnfWgoLI5OAqlAkl6GDc0
+         KstQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763478544; x=1764083344;
+        d=1e100.net; s=20230601; t=1763478543; x=1764083343;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=1aUWB5rfJH8WjlZ6mpwncNQxfl3NZrrgQFt7PCfUFlA=;
-        b=olKthwIcH4itvXG0mqnhSVEEEIeaRt4KEDk1mcEkmlS/IBEHMhWhWTEnxAMt/USVHC
-         erxPsk+Pvi3YsuPZOLBCj2kdsq2X+2jSpgdwaF53F6cevjpVUNKAaW/JkEkpvYziIHK9
-         BEKqtZMBHD93mGu3gCBpMVlX6wEimld75Y9nEVWE5vPG4sZqq0s+lnCCiEXyLZj8mtjl
-         TRHNXnMKxsHWoGecdd95Ekb1d6sxbcGmkyXlXzfliy7waPlRkkwFAk+PaT7UUSSg79ui
-         JQt6pxrpTY4+vFmw7FqT5meRG4IY636hydRosfaUYOfGe/lgAu8ioGs1s/f0+2Kz2FRe
-         ryag==
-X-Forwarded-Encrypted: i=1; AJvYcCUIz/NWf5O1wFi3sTn6RpGS2eDppL/8IIKF0bWp4a+jhNc6xjnkJ7gFEsdPLkQI5vXxeeK5K8EAauDrz275PYsy@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxx5Uav0Guh5GiX99bk0cjiDGav5wv+snNg7sBKO26i7tqfPbQC
-	mFw+ZAQHcGJidj4O6dkNe7WaqWRnOve4LoPS0mrw2drHYTt8G3WgvFuq
-X-Gm-Gg: ASbGncuo9bfEnCqG/gPeba25dQUm6EHrEIrztU8t95bLmS8QG0mDoKao8zZMV9vX238
-	oFOqoV02b/W7G9/+t2LKr8CB6FUbNKkic1vs8Wrfo94wh9JjNuMI2Wjg9s28valHfcPeDt767pP
-	g/HrDanMMG048zNsFXBc6GjrIKaWp0j5A91Zbzo4h2DHGFgpZrFTuRkRodFhCFDeXEt3EGX7A2j
-	fy9m1sEt89sbWiFKd65XjLqkLBVuiDf2LlwWRu5zeM7piRQsANNGee/7eqWy/4qAiiq6V/4gWBb
-	EGDxgOJmcAt85uz1s7kGAxbJnVdCig5BC4EjzkVX1WdDNUmKT3DsVNjfkCYS738uF/HDrYqiyoa
-	NZCMPvcs7ZxpDF6vHm46jw2JA9X9EFD+bWcJ8l9xjYUW94+8Cr0Q9RVU4iKf7nPlbV2VTf1uKRj
-	x0ACU9gYaacd2sU3W5WfRHOOrE43OyiB2+NyRZxDxy5Bo9gwDIN69Tu5kiLK9knHLtBZvfmd10T
-	NTxP0PucNyQvvzg
-X-Google-Smtp-Source: AGHT+IGSEH+nZH3uDYlPARqsVIhZYpdp0LW2A5ByNrQdTilynl5MJD0kTuaNse/eSWnTTSY+SA+8rw==
-X-Received: by 2002:a05:6000:2c0f:b0:42b:3592:1b82 with SMTP id ffacd0b85a97d-42b5933e152mr14529598f8f.1.1763478543680;
-        Tue, 18 Nov 2025 07:09:03 -0800 (PST)
+        bh=xn1amiUGhpNI5r8WdOtn7hNJ51WcbcveDFhQ+0agXLE=;
+        b=QLv4bKjijWx21ZnzUlERyuAhNuL6lETBGyLPCUyeFJmZyFwC3rqrJEyScJ6O3dUyjz
+         Cd6qHrd63sywT2RB8PV7tyqDX2+8GYqjJj++DflZpT9d5m3S6KGHX5V/TlxJCZxOy3mZ
+         dQhbR048/1gSIwnNVxv6TZekV6MbIYooNtMFSZMrIEclrpK3bgoQlXj7ABdQrmI6kUm7
+         QS41RmyfyB366qVXqnNNJI8I56yWYcTltaTIIM3CgyBGzZkqMeWR2MdZ+PR/KB6OEVVF
+         bgIlADd0Gt3M05iLlYKoSbwqVyi27/bPYm1fb+nvW8GGNUAvNQ8vA4DHsi21Wtq5bsUl
+         a8pQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXz6+aynoaPHvtVKiJ/KnuuAcfXmEr4fK5wQUaZcuZKqiabQW/M+odrRRNibKjnOuIbhdNU+8I3P6MGypMus89S@lists.infradead.org
+X-Gm-Message-State: AOJu0YzU0NC/5vdb5cAkcDZCjosZ424Z/Luzne18xaPhBScp8SIGAsdo
+	UUirQAoZjMf8emQ9lr7qvYZP0QKIBN0hMp+w3bACb3qjoH4KNLncjgdS
+X-Gm-Gg: ASbGncvvJyrEvYDceaoWq4XzpeRF76MdKQ4D5oh0IU1FIYJqusYuOE+SwOmDO14Xwyw
+	n5liO5868tbg2drsVs16YKIiHC/3Ge7aKr9qtzS1K7vkaJkCeCCJxEQ8SKfiQSle7TqZLRK5JO/
+	X05F8iEq77Wkwjxk26kKEZJV2ReWIkpDTYOGIdFB8GgE7vaI8eJd52LqEJe1LGub9EQQV/hcsEK
+	haniIF3EMdrugrIyHOMDoC4RVY895zfd51QN02SwKFMEn5UZGAYBYcIO6/6+hfFNvT/8KaxU1HX
+	MMISzvJkrtWkR+LCJg/jeQkoFKgoRO61WEzqS7KDUavAYAf46BcwjfnxE8wFTJS/+5AB0S2lzUu
+	e+T3YeM26Xdj9Qvf2tfi3SEW1DKJ3rdd8oXw5SQT9N5n8DQgqWX/m4SHmmLk4+aZO2+ijdSdEpB
+	xXyhBx9Y5qmCKzOldOWk9EQ2kbU4epZii/GB74xNmWLQfu3rf+Sq0gb0AJh9wousZdtNd361aY8
+	L3Ad7GFCWeDb9qZ
+X-Google-Smtp-Source: AGHT+IGHfWRtYZTGPPYbxiOYmTOURyjIxMB6TDIV7lM+NaODJHSbF+ffu7r1vpKDpGdS19OrhVSrbg==
+X-Received: by 2002:a05:600c:a47:b0:477:79c7:8994 with SMTP id 5b1f17b1804b1-4778fea195emr185980455e9.30.1763478542674;
+        Tue, 18 Nov 2025 07:09:02 -0800 (PST)
 Received: from localhost (2a02-842a-9b20-0d01-432b-0dab-f195-2b25.rev.sfr.net. [2a02:842a:9b20:d01:432b:dab:f195:2b25])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42b53f206e2sm33027151f8f.41.2025.11.18.07.09.03
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-47799768409sm199879815e9.3.2025.11.18.07.09.02
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 18 Nov 2025 07:09:03 -0800 (PST)
+        Tue, 18 Nov 2025 07:09:02 -0800 (PST)
 From: =?utf-8?q?Cl=C3=A9ment_Le_Goffic?= <legoffic.clement@gmail.com>
-Date: Tue, 18 Nov 2025 16:08:03 +0100
-Subject: [PATCH v9 7/7] arm64: dts: st: add DDR channel to stm32mp257f-ev1
+Date: Tue, 18 Nov 2025 16:08:02 +0100
+Subject: [PATCH v9 6/7] arm64: dts: st: add LPDDR channel to stm32mp257f-dk
  board
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20251118-b4-ddr-bindings-v9-7-a033ac5144da@gmail.com>
+Message-Id: <20251118-b4-ddr-bindings-v9-6-a033ac5144da@gmail.com>
 References: <20251118-b4-ddr-bindings-v9-0-a033ac5144da@gmail.com>
 In-Reply-To: <20251118-b4-ddr-bindings-v9-0-a033ac5144da@gmail.com>
 To: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>, 
@@ -93,7 +93,7 @@ Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
  =?utf-8?q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>
 X-Mailer: b4 0.15-dev-86b30
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251118_070905_529439_461919AF 
+X-CRM114-CacheID: sfid-20251118_070904_594025_4FA3029F 
 X-CRM114-Status: UNSURE (   9.57  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -112,32 +112,32 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Clément Le Goffic <clement.legoffic@foss.st.com>
 
-Add 32bits DDR4 channel to the stm32mp257f-dk board.
+Add 32bits LPDDR4 channel to the stm32mp257f-dk board.
 
 Signed-off-by: Clément Le Goffic <clement.legoffic@foss.st.com>
 Signed-off-by: Clément Le Goffic <legoffic.clement@gmail.com>
 ---
- arch/arm64/boot/dts/st/stm32mp257f-ev1.dts | 7 +++++++
+ arch/arm64/boot/dts/st/stm32mp257f-dk.dts | 7 +++++++
  1 file changed, 7 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/st/stm32mp257f-ev1.dts b/arch/arm64/boot/dts/st/stm32mp257f-ev1.dts
-index 6e165073f732..84eb09f8b878 100644
---- a/arch/arm64/boot/dts/st/stm32mp257f-ev1.dts
-+++ b/arch/arm64/boot/dts/st/stm32mp257f-ev1.dts
-@@ -42,6 +42,13 @@ pad_clk: pad-clk {
+diff --git a/arch/arm64/boot/dts/st/stm32mp257f-dk.dts b/arch/arm64/boot/dts/st/stm32mp257f-dk.dts
+index e718d888ce21..5956d77f5fda 100644
+--- a/arch/arm64/boot/dts/st/stm32mp257f-dk.dts
++++ b/arch/arm64/boot/dts/st/stm32mp257f-dk.dts
+@@ -55,6 +55,13 @@ led-blue {
  		};
  	};
  
-+	ddr_channel: sdram-channel-0 {
++	lpddr_channel: sdram-channel-0 {
 +		#address-cells = <1>;
 +		#size-cells = <0>;
-+		compatible = "jedec,ddr4-channel";
++		compatible = "jedec,lpddr4-channel";
 +		io-width = <32>;
 +	};
 +
- 	imx335_2v9: regulator-2v9 {
- 		compatible = "regulator-fixed";
- 		regulator-name = "imx335-avdd";
+ 	memory@80000000 {
+ 		device_type = "memory";
+ 		reg = <0x0 0x80000000 0x1 0x0>;
 
 -- 
 2.43.0
