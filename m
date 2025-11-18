@@ -4,81 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F3D0CED260
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 09:42:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8BD7CED24E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 09:47:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
-	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=L/ZuUtKm2/sE7cdwEXicDQSkRQeYVOM81nL04//AKHk=; b=Px/CKZ7OFX0Ga/IOfGtT+NXGFE
-	oHDJ9IImRK4oUoVOFVhUSS7Ln5OVYgF8KwctcPG94KSyQyuo3CxTiHPJzkbIfrVjY0HQrpEuWVrf6
-	DYQsJbOue6KgcsVs9SThrXjQcuAlJFyTOSHi2zDDu8vbEeagusj8mJ2zcXUL6u1AoPrUUj05iB/5t
-	NuiZ+7wu1HvfwzgfBsVHd16fLGYpB7dt07q90PgFmDVOLbTbfT8dEHHVCMSEd+58xQVnDnr78a+mq
-	AjYVNkj+8M19uYrVsD1ixRnIG1CpHA1h94+7v3AqKcZy2n8fzY+V/wF1NJMWHNFbGmu2QIJEep8DH
-	zsRhHr0w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VMVWh4fXZBKxZ6isW9HD5sLU8SwmoT7bOn5vyBPfKmg=; b=mVJCrq+D4qPGiW6cRDqbeRUbn4
+	spvpZZN4hJhh+PUA1mCEOS2mD7LsHBCiCdThaWIM0R5texSz95ZDGAReNVOeaz8dH+BGIHjiKWDKf
+	uzrAboHs9qdGld7ziH2WTbNJ7FTMNb1sqUflQGA3ZNatVO0jgXUntnsBN7rghsZCaGrNIipbYWsdF
+	3opyOHystt/WSvIudCU3bNo3NaueA+ffTtq3dJaO8A8+2OinvlvESmiITz9Ot0V11fuuLY+69nBGT
+	ka2MCMFXRxwDVbHX628P0FjkJYMS9o8PvVfy8hbptVWXaMZUV0ehjMFsLw960cVrvJUOottba6Lzd
+	3fG+RuSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLIDp-00000000B8b-2Wtg;
-	Tue, 18 Nov 2025 09:42:01 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1vLIJ6-00000000BUF-1MA2;
+	Tue, 18 Nov 2025 09:47:28 +0000
+Received: from mail-lf1-x131.google.com ([2a00:1450:4864:20::131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLIDm-00000000B7y-0ppL
+	id 1vLIJ3-00000000BTJ-0if9
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Nov 2025 09:42:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:Reply-To:Content-ID
-	:Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:
-	Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:
-	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=L/ZuUtKm2/sE7cdwEXicDQSkRQeYVOM81nL04//AKHk=; b=q5RkO1pIO7C1OVj6+a49cmpyYO
-	iVx2KoZZ4jKybKEtiooSFVLVxvLTkIx4nXvT5ajVqjWxLz3ahG6tO1KR+0P+wRQ45CL+1Oz8G71ig
-	n31ZdPzfl9ykipOXAbtielIuUjwamg5cpIRG0UcOLyvd0V1ifmi7bawhA2iH+CFc1OAmWCjjlx3Ho
-	hX/vdT6NHy2foLpU0WtD3V9FdCmtGIYt25TKhI35YkKn6vHwCBSCeFS/urqy9Ptl+6+e4/DMbG+p+
-	O/SMUbFQUfbJ5OnGVKT6een5YWCvy7A97FlbJFyMCpp4hiuspiVESXUY9oYqsjJ9zzJnrzrKKjZkZ
-	kj/Q3KKA==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:57002 helo=rmk-PC.armlinux.org.uk)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <rmk@armlinux.org.uk>)
-	id 1vLIDO-0000000030R-1bJs;
-	Tue, 18 Nov 2025 09:41:34 +0000
-Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1vLIDN-0000000Evur-2NLU;
-	Tue, 18 Nov 2025 09:41:33 +0000
-From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-To: Andrew Lunn <andrew@lunn.ch>,
-	Heiner Kallweit <hkallweit1@gmail.com>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	bpf@vger.kernel.org,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Jesper Dangaard Brouer <hawk@kernel.org>,
-	John Fastabend <john.fastabend@gmail.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>,
-	Stanislav Fomichev <sdf@fomichev.me>
-Subject: [PATCH net-next] net: stmmac: convert priv->sph* to boolean and
- rename
+	Tue, 18 Nov 2025 09:47:26 +0000
+Received: by mail-lf1-x131.google.com with SMTP id 2adb3069b0e04-594285c6509so5434950e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Nov 2025 01:47:24 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1763459242; x=1764064042; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=VMVWh4fXZBKxZ6isW9HD5sLU8SwmoT7bOn5vyBPfKmg=;
+        b=Ftqslwj3IZcf+0UaSJ/ZEqld4zsLN3M2hEjgYU7VquhAiUIki6x/eaerhhRZBlcgq7
+         Fr9duXSRyYj35FiXaJ763UQlFbKAuAT6628+GFzYe+6GCrO5uig47HuMIDMcxx7oo6h4
+         eFlC156VjoIcdxj8Lwa2n+ITv7cCX4GDNWWy8EarROPvf3kt7iqYk5APpZtlAKEtPpJl
+         yXB6QAT0pbdpBoaosSGAmzETBkVAelCh1uLJJHETN33s0k3qew4hho5bSGwTdjJO0IrV
+         ZB+5+UBmiCGzJwx0v8NRa3jPv6Mf+WcbSBInU3J/AJKkA3c+Z3xqksUelcAwV7aeJIDl
+         YcmQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1763459243; x=1764064043;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=VMVWh4fXZBKxZ6isW9HD5sLU8SwmoT7bOn5vyBPfKmg=;
+        b=nvcc7ziiRdNi3xAl6AUEmuChTWahT2ah2oqmou+YBUtRkGpZt0XqNGRsgeWe49FeT3
+         M0uIGrCiGyCp29/lZkrl7oHv+ROAuPVEeRgcgnbo2DlI9qDAKFo0GGVPiA96IH5AV5FX
+         6eh6SlT4o0g3v/UU+uQJ+TI/WqbBwAuRiHmdiqthG0BDYoC7jD7oCTrvbEsze6auozGi
+         85wTf7VMkhtLIIQZ+gFsmXN50uaY2OlgkzLfOMey1DE5H6qJczdwPbxp2InZcK8I7Yi4
+         8WkER4C2Lc20DVfgXcT7JkG2Vm8+R3DsZATOj3L7crzWMIv8+LViMe4ag1dWXyujXteC
+         8i7A==
+X-Forwarded-Encrypted: i=1; AJvYcCU8YV3JqZ7n6vkNINbbHUhOnlT14vwXa9qthAan2Oe3YdOYZrM9OzqVFZ2CHff7FN2KklF0Ffz50Dv1yxF0c4KK@lists.infradead.org
+X-Gm-Message-State: AOJu0YyuACMY+BhEtnLER/Vqi+1VNL920KpITbeFHC3sb2yYaI5yoP/2
+	MsCxoA0wjGLl62Y3tqO/DFEO6ifsgJCQhkMgDQp05niLomH37QBim7PCBHBVb+eWAwJeYSZVH4k
+	twniBJq/ArRSYDiVHp6QIDnYo0NOzXO/+GeHoMvlXnA==
+X-Gm-Gg: ASbGnct58u0tRI0xBUtvJex2eFkpoR3KAZcN8f1t2LHUrAMGP/sBeLvYTQj6+YqRhnr
+	x5kHB/4oV0nkIzAGL/elpwjDEXWeK7wBc0ZHqnCK9A82TEbKi3vvNo1LG0dU+fj9wgy/GLdlyNS
+	3xSgUsFLySWRNZXrKz4kJQPTMlh626VZkk3rViZHbXVrlYcCi+/JJS1HfAJvHJNP6v1QZAA2gsz
+	qzxXMV6m18m9zt5vE0lAMB1og2CPVZSDIj2YA/EIhSkcG0adCT9udpEeXx9ve5qIcC9la2Lk8pV
+	iR/ZKUckSl/v0mH/2fXdjbr3bwLnB9IDg/a2
+X-Google-Smtp-Source: AGHT+IEKSj2qpQvKe0IfkTOGZF1jV6/WKVJLO2A/Txv4rPC3yDvwMdMydDTZhNC5mLXfB6q+qgnbPN4NmYCtJAA3Qgk=
+X-Received: by 2002:a05:6512:39cd:b0:594:4b55:d2dc with SMTP id
+ 2adb3069b0e04-59584217be0mr5314684e87.47.1763459241858; Tue, 18 Nov 2025
+ 01:47:21 -0800 (PST)
 MIME-Version: 1.0
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1vLIDN-0000000Evur-2NLU@rmk-PC.armlinux.org.uk>
-Date: Tue, 18 Nov 2025 09:41:33 +0000
+References: <20251112-gpio-shared-v4-0-b51f97b1abd8@linaro.org>
+ <20251112-gpio-shared-v4-1-b51f97b1abd8@linaro.org> <202511171230.F83EE85D0@keescook>
+In-Reply-To: <202511171230.F83EE85D0@keescook>
+From: Bartosz Golaszewski <brgl@bgdev.pl>
+Date: Tue, 18 Nov 2025 10:47:09 +0100
+X-Gm-Features: AWmQ_bkhi1H3-46xEmuP3pqCgeKjE8VDjqsBb0GhCZL7ntExaLQpYRSDFU-8VEY
+Message-ID: <CAMRc=Mekr=xcGbSBD583nUqR43aLYO9iGakbOSSFEWYdbXW73Q@mail.gmail.com>
+Subject: Re: [PATCH v4 01/10] string: provide strends()
+To: Kees Cook <kees@kernel.org>
+Cc: Mika Westerberg <westeri@kernel.org>, Dmitry Torokhov <dmitry.torokhov@gmail.com>, 
+	Andrew Morton <akpm@linux-foundation.org>, Linus Walleij <linus.walleij@linaro.org>, 
+	Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Saravana Kannan <saravanak@google.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Andy Shevchenko <andy@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Srinivas Kandagatla <srini@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
+	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
+	Alexey Klimov <alexey.klimov@linaro.org>, Bjorn Andersson <andersson@kernel.org>, 
+	Konrad Dybcio <konradybcio@kernel.org>, linux-hardening@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-sound@vger.kernel.org, 
+	linux-arm-msm@vger.kernel.org, 
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251118_014158_898853_0D0946BF 
-X-CRM114-Status: GOOD (  17.18  )
+X-CRM114-CacheID: sfid-20251118_014725_419985_B21332A7 
+X-CRM114-Status: GOOD (  27.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,164 +109,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-priv->sph* only have 'true' and 'false' used with them, yet they are an
-int. Change their type to a bool, and rename to make their usage more
-clear.
+On Mon, Nov 17, 2025 at 9:33=E2=80=AFPM Kees Cook <kees@kernel.org> wrote:
+>
+> On Wed, Nov 12, 2025 at 02:55:30PM +0100, Bartosz Golaszewski wrote:
+> > From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+> >
+> > Implement a function for checking if a string ends with a different
+> > string and add its kunit test cases.
+> >
+> > Acked-by: Linus Walleij <linus.walleij@linaro.org>
+> > Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+> > ---
 
-Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
----
- drivers/net/ethernet/stmicro/stmmac/stmmac.h  |  4 +--
- .../net/ethernet/stmicro/stmmac/stmmac_main.c | 26 +++++++++----------
- .../stmicro/stmmac/stmmac_selftests.c         |  2 +-
- .../net/ethernet/stmicro/stmmac/stmmac_xdp.c  |  2 +-
- 4 files changed, 17 insertions(+), 17 deletions(-)
+Hi Kees!
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac.h b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
-index e9ed5086c049..012b0a477255 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac.h
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
-@@ -254,8 +254,8 @@ struct stmmac_priv {
- 	int hwts_tx_en;
- 	bool tx_path_in_lpi_mode;
- 	bool tso;
--	int sph;
--	int sph_cap;
-+	bool sph_active;
-+	bool sph_capable;
- 	u32 sarc_type;
- 	u32 rx_riwt[MTL_MAX_RX_QUEUES];
- 	int hwts_rx_en;
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index d08ff8f5ff15..db68c89316ec 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -1523,7 +1523,7 @@ static int stmmac_init_rx_buffers(struct stmmac_priv *priv,
- 		buf->page_offset = stmmac_rx_offset(priv);
- 	}
- 
--	if (priv->sph && !buf->sec_page) {
-+	if (priv->sph_active && !buf->sec_page) {
- 		buf->sec_page = page_pool_alloc_pages(rx_q->page_pool, gfp);
- 		if (!buf->sec_page)
- 			return -ENOMEM;
-@@ -2109,7 +2109,7 @@ static int __alloc_dma_rx_desc_resources(struct stmmac_priv *priv,
- 	pp_params.offset = stmmac_rx_offset(priv);
- 	pp_params.max_len = dma_conf->dma_buf_sz;
- 
--	if (priv->sph) {
-+	if (priv->sph_active) {
- 		pp_params.offset = 0;
- 		pp_params.max_len += stmmac_rx_offset(priv);
- 	}
-@@ -3603,7 +3603,7 @@ static int stmmac_hw_setup(struct net_device *dev)
- 	}
- 
- 	/* Enable Split Header */
--	sph_en = (priv->hw->rx_csum > 0) && priv->sph;
-+	sph_en = (priv->hw->rx_csum > 0) && priv->sph_active;
- 	for (chan = 0; chan < rx_cnt; chan++)
- 		stmmac_enable_sph(priv, priv->ioaddr, sph_en, chan);
- 
-@@ -4895,7 +4895,7 @@ static inline void stmmac_rx_refill(struct stmmac_priv *priv, u32 queue)
- 				break;
- 		}
- 
--		if (priv->sph && !buf->sec_page) {
-+		if (priv->sph_active && !buf->sec_page) {
- 			buf->sec_page = page_pool_alloc_pages(rx_q->page_pool, gfp);
- 			if (!buf->sec_page)
- 				break;
-@@ -4906,7 +4906,7 @@ static inline void stmmac_rx_refill(struct stmmac_priv *priv, u32 queue)
- 		buf->addr = page_pool_get_dma_addr(buf->page) + buf->page_offset;
- 
- 		stmmac_set_desc_addr(priv, p, buf->addr);
--		if (priv->sph)
-+		if (priv->sph_active)
- 			stmmac_set_desc_sec_addr(priv, p, buf->sec_addr, true);
- 		else
- 			stmmac_set_desc_sec_addr(priv, p, buf->sec_addr, false);
-@@ -4941,12 +4941,12 @@ static unsigned int stmmac_rx_buf1_len(struct stmmac_priv *priv,
- 	int coe = priv->hw->rx_csum;
- 
- 	/* Not first descriptor, buffer is always zero */
--	if (priv->sph && len)
-+	if (priv->sph_active && len)
- 		return 0;
- 
- 	/* First descriptor, get split header length */
- 	stmmac_get_rx_header_len(priv, p, &hlen);
--	if (priv->sph && hlen) {
-+	if (priv->sph_active && hlen) {
- 		priv->xstats.rx_split_hdr_pkt_n++;
- 		return hlen;
- 	}
-@@ -4969,7 +4969,7 @@ static unsigned int stmmac_rx_buf2_len(struct stmmac_priv *priv,
- 	unsigned int plen = 0;
- 
- 	/* Not split header, buffer is not available */
--	if (!priv->sph)
-+	if (!priv->sph_active)
- 		return 0;
- 
- 	/* Not last descriptor */
-@@ -6037,8 +6037,8 @@ static int stmmac_set_features(struct net_device *netdev,
- 	 */
- 	stmmac_rx_ipc(priv, priv->hw);
- 
--	if (priv->sph_cap) {
--		bool sph_en = (priv->hw->rx_csum > 0) && priv->sph;
-+	if (priv->sph_capable) {
-+		bool sph_en = (priv->hw->rx_csum > 0) && priv->sph_active;
- 		u32 chan;
- 
- 		for (chan = 0; chan < priv->plat->rx_queues_to_use; chan++)
-@@ -6987,7 +6987,7 @@ int stmmac_xdp_open(struct net_device *dev)
- 	}
- 
- 	/* Adjust Split header */
--	sph_en = (priv->hw->rx_csum > 0) && priv->sph;
-+	sph_en = (priv->hw->rx_csum > 0) && priv->sph_active;
- 
- 	/* DMA RX Channel Configuration */
- 	for (chan = 0; chan < rx_cnt; chan++) {
-@@ -7736,8 +7736,8 @@ int stmmac_dvr_probe(struct device *device,
- 	if (priv->dma_cap.sphen &&
- 	    !(priv->plat->flags & STMMAC_FLAG_SPH_DISABLE)) {
- 		ndev->hw_features |= NETIF_F_GRO;
--		priv->sph_cap = true;
--		priv->sph = priv->sph_cap;
-+		priv->sph_capable = true;
-+		priv->sph_active = priv->sph_capable;
- 		dev_info(priv->device, "SPH feature enabled\n");
- 	}
- 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c
-index a01bc394d1ac..e90a2c469b9a 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c
-@@ -1721,7 +1721,7 @@ static int stmmac_test_sph(struct stmmac_priv *priv)
- 	struct stmmac_packet_attrs attr = { };
- 	int ret;
- 
--	if (!priv->sph)
-+	if (!priv->sph_active)
- 		return -EOPNOTSUPP;
- 
- 	/* Check for UDP first */
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_xdp.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_xdp.c
-index aa6f16d3df64..d7e4db7224b0 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_xdp.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_xdp.c
-@@ -129,7 +129,7 @@ int stmmac_xdp_set_prog(struct stmmac_priv *priv, struct bpf_prog *prog,
- 		bpf_prog_put(old_prog);
- 
- 	/* Disable RX SPH for XDP operation */
--	priv->sph = priv->sph_cap && !stmmac_xdp_is_enabled(priv);
-+	priv->sph_active = priv->sph_capable && !stmmac_xdp_is_enabled(priv);
- 
- 	if (if_running && need_update)
- 		stmmac_xdp_open(dev);
--- 
-2.47.3
+Thanks for the review. I already queued this for v6.19, so let me
+address the issues in a follow-up.
 
+> >  include/linux/string.h   | 18 ++++++++++++++++++
+> >  lib/tests/string_kunit.c | 13 +++++++++++++
+> >  2 files changed, 31 insertions(+)
+> >
+> > diff --git a/include/linux/string.h b/include/linux/string.h
+> > index fdd3442c6bcbd786e177b6e87358e1065a0ffafc..929d05d1247c76eb9011fe3=
+4250b487834b2d3c9 100644
+> > --- a/include/linux/string.h
+> > +++ b/include/linux/string.h
+> > @@ -562,4 +562,22 @@ static inline bool strstarts(const char *str, cons=
+t char *prefix)
+> >       return strncmp(str, prefix, strlen(prefix)) =3D=3D 0;
+> >  }
+> >
+> > +/**
+> > + * strends - Check if a string ends with another string.
+> > + * @str - NULL-terminated string to check against @suffix
+> > + * @suffix - NULL-terminated string defining the suffix to look for in=
+ @str
+> > + *
+> > + * Returns:
+> > + * True if @str ends with @suffix. False in all other cases.
+>
+> Maybe added "empty strings never match"?
+>
+
+But they do, please see the test.
+
+> > + */
+> > +static inline bool strends(const char *str, const char *suffix)
+>
+> These are required to be non-NULL, so we might want to consider marking
+> them as such with the "nonnull" attribute. We don't use it much in Linux
+> yet, but I do see a few places.
+>
+> e.g.:
+>
+> static inline bool __attribute__((nonnull(1,2)))
+> strends(const char *str, const char *suffix)
+>
+
+Ok.
+
+> > +{
+> > +     unsigned int str_len =3D strlen(str), suffix_len =3D strlen(suffi=
+x);
+> > +
+> > +     if (str_len < suffix_len)
+> > +             return false;
+> > +
+> > +     return !(strcmp(str + str_len - suffix_len, suffix));
+> > +}
+>
+> We should probably add it to strlen and strcmp as well. :)
+>
+
+Sure but that's outside of the scope of this.
+
+Bart
 
