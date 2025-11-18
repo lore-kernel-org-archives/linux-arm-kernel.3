@@ -4,204 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBA2ACED240
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 05:22:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9742CCED240
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 05:27:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=glLArCmpxbVxqkP4lNjLiQqJzWiW1o/+bOweTa5PUPg=; b=LEvyR+cPUob8gRThcDm+vAQw4e
-	YFl1ctUekTjWVMSYi29FoVJgO0GV1Dp/e/+OcvAgMCBQbpxmzSrUwxKo1Qw5+MLiy6vdPgvIdlgMn
-	+J2NEWWJQF2t94B+p8PfzicH0j+BrU2Sj/52yjrS5c76gTgYF6Cv6GH3u4vmBiHrtZYiLpGGEBqeO
-	pq7jSJRGQDXfOdFyf9sA7EI9HgYiEDgw0tecxWuuVZrRAHHeUvK6EPoQnheq4ziaKdKpormJDtvXs
-	ECu+PNGc3+dQpl+R5+ilcfyxBlR2lVLX/8L3iEKdRgji/2niFV6s0GvD/+PLg4Ea54X5ldvgohWIb
-	1MIOO6Yg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
+	:Cc:MIME-Version:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=79QY2zbPjct8a5PYToQ8bQ7v7KXz4YmkpWIvFX2JDyw=; b=fqtKl2v2t0iebz
+	l/G3HTP0bhetIRGMuUNaVI05uUxS33l6H29jOSGIzS97IL59Jn0HrHB9kHhGsOCGUptKPIhavGA+F
+	f2dyQcwElEw1XAH0oYbgi+vJlrHSB1Z8MwiRFBxs1hPbvPvWG1SW2kM7lEPujWE+lqO+slcbKV0Ux
+	YIh3Ur7PaGgf/+lABG8Om6YNE70Ja+wX/xmZo7hfL/pBu+kUWUkQ1rKG5NSlhjfGwRmXJctUbu9bd
+	S1bnFtrwD3V/YJioTWJYAiYGWk+SjY9yN0fACyapVEugug5YkrcNxju/0TveVT/dDSM4sPeaZSph+
+	icF9i4l1ORHD7BXtCidg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLEAA-0000000HQKB-3OaM;
-	Tue, 18 Nov 2025 05:22:00 +0000
-Received: from mail-japanwestazon11010057.outbound.protection.outlook.com ([52.101.228.57] helo=OS0P286CU011.outbound.protection.outlook.com)
+	id 1vLEFU-0000000HQk6-0VQG;
+	Tue, 18 Nov 2025 05:27:28 +0000
+Received: from bumble.maple.relay.mailchannels.net ([23.83.214.25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLEA8-0000000HQJO-2Ymu
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Nov 2025 05:21:57 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=x32pr2+6P+/SI2j3UkeLb9pWDVYVmMYWb77s0WFymrEJhzuqyL3VfXrWmWfGrZTuwio0A5gPqx+YXnRqwZdSaat3DJOZgO1gn3FyYRmN/0Z9VmzEUjnUIUbphcBUxtR4GLBVY3wcdcDx6bl3aKG+hb85UPC291AzNnwxZ8YnfPUl8otCMb/3wVxtOIGcueduV8/v2kyADvYjKObeifxEaU/uoyjddZjUYVV0t9hyzs6O2By4e/JqzEdjJ2/fRQEQPRbzpsjSlxRs4INkcGbJCNc2jCle3The5D3aAA8WPNk+c8j53XW5NjT9CEruTVPk7rhfesiabPaW2Ov7QWN6XQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=glLArCmpxbVxqkP4lNjLiQqJzWiW1o/+bOweTa5PUPg=;
- b=rH8G32sRm3F2LyJzqqNO7sfZFKk0M4BQR+w7EH9llPaAR0RIHog5qcJWEmXxZN/3t+/nQNmH/KtzGsqh7Ndu4SVgDti0LXRQX76jtTIRDW71Q88vAYqh+Q7uhdposTalJprG5Z7aRzeiX40yH/HI4+P3ht5kWZ7oD9gBr04yrsUn6Cqi6GBLlRV20HQuSR3znBIAlWxo2VkqvlngG6slETlDRvIT+IOUnX2Ad+ly2F240Yg4+i5ZVzPLlxIwWRDkMZlGqBgWji2ixjtTiSvx58qY4HwhENeHTSQgX68h6d6IxrVxxFoEcfRecokDhq+5dEP59u6kRSyHllPEYm+v5g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=fujitsu.com; dmarc=pass action=none header.from=fujitsu.com;
- dkim=pass header.d=fujitsu.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fujitsu.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=glLArCmpxbVxqkP4lNjLiQqJzWiW1o/+bOweTa5PUPg=;
- b=NLhiNR8aUr0Dg0Y2nX0DAJPaTiVGwvDJLauOqsgiGp16RndS2MO7WVMVhxHtme+AKtrpnSqi87rx0CDACHxuwiC0xZfWBm0GLOI+z4xHc+p55FZ+XHeEu3cUu7DvCAe/TfB/uS0oXLQBJUra8BzdFgnXGfGcaIZd+9zeMk1AA5GME8CQhfySSZQ/Utbt8mSRTlsI2Y5RR3uo98dBQt110L3yfnSqohKLO9ihEDFnPP16Dyeg9d2Tr75Lp/Zb11c80hvTBrsz/sodzlvo65B7Enw48EVGKpDKZ+oUZQT2PTWFee4FhJiFcAPYipPEXDWMAvdkqBOVEO0iyVldq7HIIQ==
-Received: from OSZPR01MB8798.jpnprd01.prod.outlook.com (2603:1096:604:15f::6)
- by TY3PR01MB10237.jpnprd01.prod.outlook.com (2603:1096:400:1d9::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9343.10; Tue, 18 Nov
- 2025 05:21:47 +0000
-Received: from OSZPR01MB8798.jpnprd01.prod.outlook.com
- ([fe80::e366:d390:4474:8cfa]) by OSZPR01MB8798.jpnprd01.prod.outlook.com
- ([fe80::e366:d390:4474:8cfa%6]) with mapi id 15.20.9343.009; Tue, 18 Nov 2025
- 05:21:46 +0000
-From: "Shaopeng Tan (Fujitsu)" <tan.shaopeng@fujitsu.com>
-To: 'Ben Horgan' <ben.horgan@arm.com>, "james.morse@arm.com"
-	<james.morse@arm.com>
-CC: "amitsinght@marvell.com" <amitsinght@marvell.com>,
-	"baisheng.gao@unisoc.com" <baisheng.gao@unisoc.com>,
-	"baolin.wang@linux.alibaba.com" <baolin.wang@linux.alibaba.com>,
-	"bobo.shaobowang@huawei.com" <bobo.shaobowang@huawei.com>,
-	"carl@os.amperecomputing.com" <carl@os.amperecomputing.com>,
-	"catalin.marinas@arm.com" <catalin.marinas@arm.com>, "dakr@kernel.org"
-	<dakr@kernel.org>, "dave.martin@arm.com" <dave.martin@arm.com>,
-	"david@redhat.com" <david@redhat.com>, "dfustini@baylibre.com"
-	<dfustini@baylibre.com>, "fenghuay@nvidia.com" <fenghuay@nvidia.com>,
-	"gregkh@linuxfoundation.org" <gregkh@linuxfoundation.org>, "gshan@redhat.com"
-	<gshan@redhat.com>, "guohanjun@huawei.com" <guohanjun@huawei.com>,
-	"jeremy.linton@arm.com" <jeremy.linton@arm.com>,
-	"jonathan.cameron@huawei.com" <jonathan.cameron@huawei.com>,
-	"kobak@nvidia.com" <kobak@nvidia.com>, "lcherian@marvell.com"
-	<lcherian@marvell.com>, "lenb@kernel.org" <lenb@kernel.org>,
-	"linux-acpi@vger.kernel.org" <linux-acpi@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "lpieralisi@kernel.org"
-	<lpieralisi@kernel.org>, "peternewman@google.com" <peternewman@google.com>,
-	"quic_jiles@quicinc.com" <quic_jiles@quicinc.com>, "rafael@kernel.org"
-	<rafael@kernel.org>, "robh@kernel.org" <robh@kernel.org>,
-	"rohit.mathew@arm.com" <rohit.mathew@arm.com>, "scott@os.amperecomputing.com"
-	<scott@os.amperecomputing.com>, "sdonthineni@nvidia.com"
-	<sdonthineni@nvidia.com>, "sudeep.holla@arm.com" <sudeep.holla@arm.com>,
-	"will@kernel.org" <will@kernel.org>, "xhao@linux.alibaba.com"
-	<xhao@linux.alibaba.com>, Dave Martin <Dave.Martin@arm.com>, Zeng Heng
-	<zengheng4@huawei.com>
-Subject: RE: [PATCH v5 23/34] arm_mpam: Allow configuration to be applied and
- restored during cpu online
-Thread-Topic: [PATCH v5 23/34] arm_mpam: Allow configuration to be applied and
- restored during cpu online
-Thread-Index: AQHcV+P7MCrDq1Ig1kmxsuURvMKf37T35gAQ
-Date: Tue, 18 Nov 2025 05:21:46 +0000
-Message-ID: <OSZPR01MB879875DEF61C8C410A0448EC8BD6A@OSZPR01MB8798.jpnprd01.prod.outlook.com>
-References: <20251117170014.4113754-1-ben.horgan@arm.com>
- <20251117170014.4113754-24-ben.horgan@arm.com>
-In-Reply-To: <20251117170014.4113754-24-ben.horgan@arm.com>
-Accept-Language: ja-JP, en-US
-Content-Language: ja-JP
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-msip_labels: MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_ActionId=7a2a79f4-f195-415a-8f32-35bffee8ebf7;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_ContentBits=0;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_Enabled=true;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_Method=Standard;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_Name=FUJITSU-RESTRICTED?;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_SetDate=2025-11-18T05:19:19Z;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_SiteId=a19f121d-81e1-4858-a9d8-736e267fd4c7;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_Tag=10,
- 3, 0, 1;
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=fujitsu.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: OSZPR01MB8798:EE_|TY3PR01MB10237:EE_
-x-ms-office365-filtering-correlation-id: 6a955dd1-5f86-4a51-100d-08de26625e9f
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016|38070700021|1580799027;
-x-microsoft-antispam-message-info: =?iso-2022-jp?B?U1FBbE9LenlXRzBRTVJUU25UK0VmenpBY3Jsa3BiK3huWXdEUFZrZk9J?=
- =?iso-2022-jp?B?KzB0dzROSnFaV3QxNWVDVW9FYVI1Mjg0ZnRRTk5DUFY3U0YyRDM5c3Y4?=
- =?iso-2022-jp?B?dE5vTlJXUm1oUjRxaHZ4MWlXNkRsMGlpVVRhUlNYajd3ZUI0cjJvajJh?=
- =?iso-2022-jp?B?K1dEa0dISkNnaUFvUkpYSXVEUnlpZDEzMlhlM0U1S2N5amUzNytmcyt2?=
- =?iso-2022-jp?B?aE9oNit6Z3ZXSGxMeWgzMWxBQzd3bU5hRGp4Qm4waTVadG4xSUpoTEdT?=
- =?iso-2022-jp?B?dGpKUWpnR3BJSkk1Q2o1RXkyYWVJM2toUmJlZmhGQkNuRWR1OUhaMWNQ?=
- =?iso-2022-jp?B?RDMxcExGSkFFVUd2OGt4Y1lXR2RJVXk4QWloWHdudVNHQTQ0UGZ3TmU1?=
- =?iso-2022-jp?B?RXF1ZWVYdzJUNW1vcXhNSmw4bnFmOEw1OElTOUFZQWJBQ2t1NEUvM2RK?=
- =?iso-2022-jp?B?aVJDemxaMVVFSlZaenBWMWE2NjBEZHMxL3d0VS9XdkxQZExWMFZCdzlL?=
- =?iso-2022-jp?B?V2kwU0NmRmcrSVdPdkVCR1JaSTRkZVBIYmpIUUU1bWVDZ3QvZk9jSk9a?=
- =?iso-2022-jp?B?c2ZvUlR3Mm5UZFV3Z3dTbUN0UEZEbWsxbnM4WXlzL3RkTnNmd3dvdnR5?=
- =?iso-2022-jp?B?aGFSOVVaWkdvdmFWR2EwTExENnRHV3cyR2R0cG1qMHJXZzNaRzdzbzFK?=
- =?iso-2022-jp?B?aGFZZVpwVEhPVVp6ZEN4RjU1TzRxeTlzZmx1VmsrNDJxNVJLRzFCQktW?=
- =?iso-2022-jp?B?T01mNzMwWjRvZ0JnN0g4TGpYVGFBMGcrTjNrejRXUjVlU3JKeEtvVFll?=
- =?iso-2022-jp?B?T09vNCszdkdLeDFRd3V3M2puM2F6SXNrM1Jkby9sMnFXNzZZNmd3di9l?=
- =?iso-2022-jp?B?RmxhZUgxVXh2MkJ2cE1mZlB6RkhOQjVHTmtDVTlnS0szRzlEeXNpTVZo?=
- =?iso-2022-jp?B?SEw2U3dXYTRzTUw2UkZPKzNuZEJKeVpNK1p6c2FGanBzWk9LTnJJVkVY?=
- =?iso-2022-jp?B?ZXlRdGJUMjdiT1gzeERJc3Nocjh6WFVSWWM2eVdjajlyZXlBcnNJQXRI?=
- =?iso-2022-jp?B?dkFITEZIMWdqSTNHS3NmVjhvQmRzSGwwSXdPY05aUEJrRG5BNU9iQW1w?=
- =?iso-2022-jp?B?VktuV0tKZk1Hbi85Rkl5eDlmK2pzMklvdTlqKzRNYkRRbUhscU5zY3Rn?=
- =?iso-2022-jp?B?MythVTBYMGdpMTA3WUlVUENUbDd5V0hEdk03QkJDQXBjZFdLYndVWjdh?=
- =?iso-2022-jp?B?V0JTQlgrdlMyRDBMRUJFaFNLVnhDQjlZQjNtWTQrWG1yQXljNTFrcmUx?=
- =?iso-2022-jp?B?N0ZWWjh1Yjd5ckpzL2tQMlV2bEovR3FtTnZKeHNqTkx3ek5yR1grNzVY?=
- =?iso-2022-jp?B?M3p1elVEdm1DcWxtVVBhNkFva0F0Z3FiWnhrSVc1Y1MxR24rTEp3MTdT?=
- =?iso-2022-jp?B?RGpscmtqRnB3eTRvQ2RseWErajg3STBZUHBoK0grV2wyay9CaDAreEdt?=
- =?iso-2022-jp?B?TDkrb1RRTFFFazJkc2RVMElOWUFKSDRyVDBrUjlXc0RYaW5SUXdVb1Zv?=
- =?iso-2022-jp?B?TWEwTDE3djh5dkpmN0tRMVEzbmw2VHpwRFg0UTdxZmprTWZyRGZQUG0y?=
- =?iso-2022-jp?B?UTlESW9TV2J4RU1LQis2RHR1OERubFZlbEJaNzdaeWZiUkJKUitqbEhG?=
- =?iso-2022-jp?B?UXBJZE5FcWtDb1NzS3ZMcVFXTEJFOUhSV1o1MnJkZ3hWQ0dUSktZbStS?=
- =?iso-2022-jp?B?R0VHeWZhTko2aW0yKytlZllSeXdpVyt6dmxtZG1kcnh3MFRRZHRvbGQ4?=
- =?iso-2022-jp?B?T0x0TVJ6Q0tndGNGWFNvc01CSFE4UFlJdDdmRUtKZTMrNTgrdTBFOG9M?=
- =?iso-2022-jp?B?UGlCRWxTN2hFVG9CL3JLdUpVT3lid2d6MURxeVNzNHlCbDRMVEd2d3pa?=
- =?iso-2022-jp?B?dE8vYWRMdVQ4dUdWVy91UXplalNiNFJ3N1g2d0tKQW1hSHptZHRYb0tQ?=
- =?iso-2022-jp?B?VDI1RGc0Q2lJeDFMVTZWRW5XRlFNMHlualFzZ1J3ZTlMNDhYTy9xNFla?=
- =?iso-2022-jp?B?NjhwRExtVkkxNkhpRWFpTEswck9zV3RoeXNwQnYwblQ4QnZtQVhJQ1BD?=
- =?iso-2022-jp?B?cXdzeFlSUGpKMS9icXNSWkcyeHRJc0FtTjB5OVBPMXZ0SmR6ZEhyWWVr?=
- =?iso-2022-jp?B?UVR4YldFVExKNXpyejYrQ0ZJMmhzNlJaSUpqMjFwaXBpSlhvUnZic01V?=
- =?iso-2022-jp?B?bXFXdz09?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:ja;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:OSZPR01MB8798.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016)(38070700021)(1580799027);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?iso-2022-jp?B?aTVGZ2VhSnlNNTJxQ3Y1Nm0xQkhicCt0bWc4Y1lWQjNRbGJuVEd5RGpL?=
- =?iso-2022-jp?B?VFZvaFhXckFzR0JWM1laeHdkV1VkVXM4OFEvaXBYdjVyRzFNQkk4U3Vh?=
- =?iso-2022-jp?B?WFM2SmR1cm5DdVZQSE5aN05pMnI5NHBCRE1uSVFmVkRKRE80dzlndkxl?=
- =?iso-2022-jp?B?R2ZRM1BtZ2d0QTlOOEdyVXIrbFJmNFFIS1J4RE9YK0ExUXQ0RzNwWDdu?=
- =?iso-2022-jp?B?bklFWmowWWRISnJ0OEIzdGJITGcxWDNNSEdUVVQ0aWtzUGwxMkdZUGw0?=
- =?iso-2022-jp?B?SXZWYjY4SFRwc3AxRStyOXdGb1ZBSjRYNklMRHFKcmlxM0FoWkpyM1J3?=
- =?iso-2022-jp?B?dmIrKytWLzI5Q3hkTm14cHUrdXdOVWhsT1Vadm9YU3NnU1E2NXdjMUxt?=
- =?iso-2022-jp?B?Z0dRT3hqd29Wd3VFVlc2TjlNZmk5dlRpU0Q3L1ZZaGdXUGdoT0tFS0Qx?=
- =?iso-2022-jp?B?NXBabHVQM1VQc2Yyem5XckVzalZSS0JqMlh1RjBIY0J0WXMwVU9TUzNS?=
- =?iso-2022-jp?B?OXlmR3RFTTU4NmIxN2xiWW5LUkFQOTVhUUR3VzF2N0VQSjBPSHBuU290?=
- =?iso-2022-jp?B?OHhxd25PTU1CTmlEOFdXOVlYckFxbi9PUTZyVm1YenZvRDA5Y3RWNk9S?=
- =?iso-2022-jp?B?UWt2emkxRkQ0dlM4OGk2Tno4dEM2bjdiZ2FCbGFBWkM2a1J0VVBTUUZO?=
- =?iso-2022-jp?B?YUplTk80OWhhaW9xTTBjaFlpQlM3ckdYVjJhYU5NZERKN1NDT29YMytN?=
- =?iso-2022-jp?B?LzFiK1JQTFJVUVJvM3k2Yk5MQUpsMUVJWkN6NUZBYXBwMUlZQnFPY1hD?=
- =?iso-2022-jp?B?OUVON21HWDdnSzhGcHdmODNyMWJ5TWZDSVAwaEJrTnNQVWpYV3BDMkJF?=
- =?iso-2022-jp?B?bGtqV01NeEtjc0owekRLVHVQVmhyS29NWEx2dFFYRGJ6ZUQyeHlzZndZ?=
- =?iso-2022-jp?B?OVhPMGRyUUowMTFlMjdmT3dFdVNaVzl4V3cyR3VIbkM1QzJtQzlzTXFX?=
- =?iso-2022-jp?B?VTExQzFnZ0RIUkE2UjVIQkl5ejkyalZnUWxxWWE5ZnNmeHZjVnJoY2Ix?=
- =?iso-2022-jp?B?MnAyZGYwaFlCS0JTemxlcEM5cEJnaWU5cUhNUE4yTnRHZ2xINjl1OG53?=
- =?iso-2022-jp?B?KzVmZldMTUJ5ZWgrdVZ3TnM3a1VzcDlWb01FWktaUkpJc2grTVlzTzVm?=
- =?iso-2022-jp?B?eDlxOWwvcDJoak5SUmw2eElXZEs0UGdOcDFRMmdBZVYvZ0kvM1FCUXlW?=
- =?iso-2022-jp?B?U1loVzJ1aktRRm42RDA4SFJhOSt1cmt6NERabXhpeThPUTVwRFIrSm00?=
- =?iso-2022-jp?B?UHVXWklkS3RPTll6VytNcklIOEVOdEZMWUNLWUEzZUZKV2dyMmJLMnIw?=
- =?iso-2022-jp?B?ODhiVGcrZVQ1aFd6QzBIejFIQ3RUU1NYSEd5Y1Z5SVBpcHYzRWl6ZUJJ?=
- =?iso-2022-jp?B?aDBPbElMZ2t4UElGb2drcXhZeEIycVQ1QWRIQm4xSWVCS2pnNUFRbDFr?=
- =?iso-2022-jp?B?T2pMbzFBUk9IZlJ3aUV2WHk1Ri83azZNd1p2ZmgrOVl6aHZaaDFFR1BC?=
- =?iso-2022-jp?B?MU1RbWZUZUZOTEZSU1QrbGNOZlVqRVF6NWJVZE5vaHAyVUJNVkhvaGFz?=
- =?iso-2022-jp?B?WHZEM3RQWVRKaEgwTCtCdllhdVlMT2NqYVF3UHZWdG80MUI2WHJiR0Qx?=
- =?iso-2022-jp?B?dVUzZ3JBMlRwY3JmczA1b0kwOXpnT3hZeUZPV2cyejV2RVI2S1pHQ2FJ?=
- =?iso-2022-jp?B?V2NVTThEc1ZmN0FPdkdoRnpGaEpCeG4wZksyMml1b2hPKzNWYmRwL3Mz?=
- =?iso-2022-jp?B?Rm9FdW5ib1FJbjExcGJIUUloL0hYVC9IcndHWXZ0aHNFbHhpaUM1V1hE?=
- =?iso-2022-jp?B?YWhhaGpYT2xBV0Q4YlFFeTJKZzRFdlJvKzd2Q3M2REUrOFBualRLOTVC?=
- =?iso-2022-jp?B?ZkY2T1g1bkpxcVg5VkM4SDFNUk83RWdqNGxIR2lDR0R3d0h0QUlUQTVY?=
- =?iso-2022-jp?B?YXJ4bzdFaXlMNkxFeTRUOXF6V3hlU3Z6RE90alRNc3M0VXB2T3R6aXoy?=
- =?iso-2022-jp?B?cStjZWZyRGs0NXlBNWJNSDljaFZzdEIzNHBWWituM1hwV1ZFRzAycVNt?=
- =?iso-2022-jp?B?MWNsL1hQbTkveE0wZSt1RnI3Q1BEZjRXOVZPbk9JOGxsalN3NDFFc1h3?=
- =?iso-2022-jp?B?VHZRK3NMS0ZkM1dUT0JVTlJ6N2dhUENHWXJYelZISXVNdEhUZE01eG1n?=
- =?iso-2022-jp?B?Tk95dVBUYkZ6VHZiUjFwN1lSdnRxSkpiNEN4ZUNrUzc0cWdDTm51aHZN?=
- =?iso-2022-jp?B?bFYzdERlS0Rack9GWFo2Mkx5RHBPdGJSOVE9PQ==?=
-Content-Type: text/plain; charset="iso-2022-jp"
-Content-Transfer-Encoding: quoted-printable
+	id 1vLEFQ-0000000HQjd-0rHA;
+	Tue, 18 Nov 2025 05:27:27 +0000
+X-Sender-Id: hostingeremail|x-authuser|michael.opdenacker@rootcommit.com
+Received: from relay.mailchannels.net (localhost [127.0.0.1])
+	by relay.mailchannels.net (Postfix) with ESMTP id 549CC161D2D;
+	Tue, 18 Nov 2025 05:27:23 +0000 (UTC)
+Received: from de-fra-smtpout10.hostinger.io (trex-green-0.trex.outbound.svc.cluster.local [100.98.178.132])
+	(Authenticated sender: hostingeremail)
+	by relay.mailchannels.net (Postfix) with ESMTPA id 0DAC316270B;
+	Tue, 18 Nov 2025 05:27:20 +0000 (UTC)
+ARC-Seal: i=1; a=rsa-sha256; d=mailchannels.net; s=arc-2022; cv=none;
+	t=1763443642;
+	b=d8NiZckuUTmtENzUS9A7/G97h6snHeV9d0r5N6QE3uII6cabCnRR5A1SpE5hqSeOG/2jH4
+	oPU8yA5fq9QusXNHZ3Mc+SL6TmtEGqjXnep/e1naRcsSnUtMotJ1AvJGJuqJirXAw6L0TW
+	+s/FUDBfzTniu+5wmFcPjyjrC1E7mW9RmYqAhASlDhCm666zj0gabk/mj6LjN+MdiRtDOQ
+	b4g0a52todUYiSKlKJtxqhBcjms90WQOAUU69/0+6sdYOt0ZguYWOWcl7zHKsRs7S9K9B0
+	kOFNQUc5MZ/ZHkeT3osPiN+pLLyHZiL5kfp4yl0ah0wluRJl9yfBsnNmnTGPNw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=mailchannels.net;
+	s=arc-2022; t=1763443642;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:dkim-signature;
+	bh=79QY2zbPjct8a5PYToQ8bQ7v7KXz4YmkpWIvFX2JDyw=;
+	b=PXzcnj90+OZ0C4nz04bqKplEPDe2JhtZOLQ92mY5WMSUfbMeE6DUUUUw0ra/gSCRSWN+Od
+	SJPQOLqfllPpM1awadzeweZqebsYnisu13TFmgzdyyCpaUj+8VbTO5WCZ9NA9QvmWBxfxW
+	CcuapYRcbYCOakp4aJjzACXxVG/RoKUvDFeRsMgpYkLdfWAv3F+dSRE6r5trHDMPnWGHxy
+	MMop6RYViNqNQOlUNrk8pjas5n+4pl8HchwMqld6H242qnEsY8CuzO9XX9zdqTBkv9uUAL
+	ULt/QBIccUAbiUi2h5gdAJUJEyqZSuG2rW1vRHdN5YTSKdzViq9znLsiVGRnog==
+ARC-Authentication-Results: i=1;
+	rspamd-5ffd6989c9-rtptl;
+	auth=pass smtp.auth=hostingeremail
+ smtp.mailfrom=michael.opdenacker@rootcommit.com
+X-Sender-Id: hostingeremail|x-authuser|michael.opdenacker@rootcommit.com
+X-MC-Relay: Neutral
+X-MailChannels-SenderId: hostingeremail|x-authuser|michael.opdenacker@rootcommit.com
+X-MailChannels-Auth-Id: hostingeremail
+X-Attack-White: 2d7b2b2964c91d28_1763443643081_3621785217
+X-MC-Loop-Signature: 1763443643081:4046718970
+X-MC-Ingress-Time: 1763443643081
+Received: from de-fra-smtpout10.hostinger.io (de-fra-smtpout10.hostinger.io
+ [148.222.55.9])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384)
+	by 100.98.178.132 (trex/7.1.3);
+	Tue, 18 Nov 2025 05:27:23 +0000
+Received: from [IPV6:2001:861:4450:d360:58d4:4bb6:ecd1:1918] (unknown [IPv6:2001:861:4450:d360:58d4:4bb6:ecd1:1918])
+	(Authenticated sender: michael.opdenacker@rootcommit.com)
+	by smtp.hostinger.com (smtp.hostinger.com) with ESMTPSA id 4d9Y5b6Rc0z418m;
+	Tue, 18 Nov 2025 05:27:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rootcommit.com;
+	s=hostingermail-a; t=1763443636;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=79QY2zbPjct8a5PYToQ8bQ7v7KXz4YmkpWIvFX2JDyw=;
+	b=gILU6ZmT+LlDjvY6kAog4t0qNPWKuzZ+NdqRvWHtPOF0m0AzJOMw1gYv4dD7L4Fcw5knum
+	19mlN1XfMjCKfIlixM+gM3P0OBgvLUytkDbPTritxuIEulCo13cZHlRWsDh7UBuFNYlE1V
+	dh5nL1XcA5cyxP4mcv+gE4W7OXP+8I1TentKuWCcaE+Zvj4tMdZ6ODdllpFWme7LlQ5Hc3
+	/hHfqQ2RHo9aMBGzYQ6xMlWGdi6c9Oc5/MEd+MKFcGitMpYLgzufPUFDPUwekCZ7juY0/E
+	1gx/QyNhvsfjuMJtN899j0QdPZr66+NcxSfO4UEIA2PeWhjIESsod2ZmzRvcfA==
+Message-ID: <0c224662-b3c2-4075-8b68-c0ae27421ba8@rootcommit.com>
 MIME-Version: 1.0
-X-OriginatorOrg: fujitsu.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: OSZPR01MB8798.jpnprd01.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6a955dd1-5f86-4a51-100d-08de26625e9f
-X-MS-Exchange-CrossTenant-originalarrivaltime: 18 Nov 2025 05:21:46.8773
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: a19f121d-81e1-4858-a9d8-736e267fd4c7
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: 0YmVFkh7a4D4znwOfDvd6HDgDuAlmqG/RxfOECBihKxgSA/JS1UMPET4khyyV0/yUgeAvR0KpgMh3bcw9jBmRLgK2cTne9cqxVE8G0w2giU=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TY3PR01MB10237
+User-Agent: Mozilla Thunderbird
+Cc: michael.opdenacker@rootcommit.com, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, heiko@sntech.de, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 1/2] dt-bindings: arm: rockchip: Add Asus Tinker Board
+ 3 and 3S
+To: Dragan Simic <dsimic@manjaro.org>
+References: <e4cd11d0-463c-e707-5110-6b92899b1ba3@manjaro.org>
+Content-Language: en-US, fr
+From: Michael Opdenacker <michael.opdenacker@rootcommit.com>
+Organization: Root Commit
+In-Reply-To: <e4cd11d0-463c-e707-5110-6b92899b1ba3@manjaro.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+Date: Tue, 18 Nov 2025 05:27:15 +0000 (UTC)
+X-CM-Envelope: MS4xfJLqo7/gRzsBM5gglqfBElMacoghunKCV7PiG5Q9KaWvdsmLLHWorQ2d9kWzZGsbDOU9m1P9AFVxV9VEIUi1iqL9dCaeyrAUZGAhTrTctD1GtA67LiRd jxpaDXYYYBiJvyPWDmwScz5KeIigzW1FBNT8q3VnRbqjuQ6KS8iCVTfTfgkneZLUXaV+GQ2FMJd/QD7Zs9cjO810THpJpK5t3KQJCy8sfYQfo1BRitTYjxJO msA8awJ16SzOZ+T/9YaznJtC9p5fWtEprqYBDFwLzAoCeCAPkMwEOx85WPCLonQx1s3/mIqcXjD5P+62YO31fo15cW821alZ5N1MQBtfMn2p1xQJN5E3yOCz n3DAJSzg27Ob/yZ+DiZmzMkLY+z45e6aboGSRZWrZdMjFsqPyheQrScEOWTR57xVon9FVOcRw3S9zGw1SnWAy/qzKBgxAqQ/Fm5nwWnt1PS6xe0sZvZMVPj/ 8krMIKj9jjvI7Gp+JmJlnr4lY9Oqy5mgmKyEdxA1rPYvxBp+JP33LTPkxdp1PWy9OLNnO6uPP1lSh/M6qspDnpNngDAOKki/eUGS7YNUmQkz1a76S7S1oq7/ EGubvqZvUWMZIlMSQ7zntiYvTPW1X7AD0oeyJm9iT9iRfhA5F4/H0WfXNko75EM30U4=
+X-CM-Analysis: v=2.4 cv=Ceda56rl c=1 sm=1 tr=0 ts=691c03b4 a=RES+y31bSy/BcHStaSTKQg==:617 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10 a=d70CFdQeAAAA:8 a=lefHfciQTmdIgl6NApMA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10 a=NcxpMcIZDGm-g932nG_k:22
+X-AuthUser: michael.opdenacker@rootcommit.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251117_212156_658411_03A597B5 
-X-CRM114-Status: UNSURE (   9.85  )
+X-CRM114-CacheID: sfid-20251117_212725_722819_E5ADE1C6 
+X-CRM114-Status: UNSURE (   8.94  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -217,33 +125,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> From: James Morse <james.morse@arm.com>
->=20
-> When CPUs come online the MSC's original configuration should be restored=
-.
->=20
-> Add struct mpam_config to hold the configuration. For each component, thi=
-s
-> has a bitmap of features that have been changed from the reset values. Th=
-e
-> mpam_config is also used on RIS reset where all bits are set to ensure al=
-l
-> features are reset.
->=20
-> Once the maximum partid is known, allocate a configuration array for each
-> component, and reprogram each RIS configuration from this.
->=20
-> CC: Dave Martin <Dave.Martin@arm.com>
-> Signed-off-by: James Morse <james.morse@arm.com>
-> Cc: Shaopeng Tan (Fujitsu) tan.shaopeng@fujitsu.com
-> Cc: Peter Newman peternewman@google.com
-> Reviewed-by: Gavin Shan <gshan@redhat.com>
-> Tested-by: Carl Worth <carl@os.amperecomputing.com>
-> Tested-by: Gavin Shan <gshan@redhat.com>
-> Tested-by: Zeng Heng <zengheng4@huawei.com>
-> Tested-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
-> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
-> ---
+Hi Dragan
 
-Reviewed-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
+On 11/15/25 01:52, Dragan Simic wrote:
+> I'm sorry again for not mentioning it in my earlier responses,
+> but shouldn't this addition be specified like below:
+>
+>       - description: Asus Tinker Board 3/3S
+>         items:
+>           - enum:
+> 	   - asus,rk3566-tinker-board-3
+>             - asus,rk3566-tinker-board-3s
+>           - const: rockchip,rk3566
+>
+> ... because the introduced .dts files define the actual board DTs,
+> by descending from the common .dtsi file, while they're compatible
+> in the sense of the 3S board variant extending the 3 variant.
+
+Actually, "make dtbs_check" fails if rk3566-tinker-board-3s.dts has:
+compatible = "asus,rk3566-tinker-board-3s", 
+"asus,rk3566-tinker-board-3", "rockchip,rk3566";
+
+The failure is:
+arch/arm64/boot/dts/rockchip/rk3566-tinker-board-3s.dtb: / 
+(asus,rk3566-tinker-board-3s): compatible: 'oneOf' conditional failed, 
+one must be fixed:
+     ['asus,rk3566-tinker-board-3s', 'asus,rk3566-tinker-board-3', 
+'rockchip,rk3566'] is too long
+     ['asus,rk3566-tinker-board-3s', 'asus,rk3566-tinker-board-3', 
+'rockchip,rk3566'] is too short
+
+If I understand correctly, to keep the rk3566-tinker-board-3s.dts file 
+as it is, you need Asus Tinker Board 3 and 3S to have two different 
+descriptions as in V2:
+
+- description: Asus Tinker Board 3 items: - const: 
+asus,rk3566-tinker-board-3 - const: rockchip,rk3566 - description: Asus 
+Tinker Board 3S items: - const: asus,rk3566-tinker-board-3s - const: 
+asus,rk3566-tinker-board-3 - const: rockchip,rk3566
+
+The other solution is to remove the "asus,rk3566-tinker-board-3" 
+compatible from rk3566-tinker-board-3s.dts, which is not a big deal in 
+my opinion. In addition, if some code turns out to work only on 3 but 
+not on 3S, though that's not expected if 3S is indeed a superset of 3, 
+we won't be stuck.
+
+I can submit a V3 along these lines.
+Cheers
+Michael.
+
+-- 
+Michael Opdenacker
+Root Commit
+Yocto Project and OpenEmbedded Training course - Learn by doing:
+https://rootcommit.com/training/yocto/
+
 
