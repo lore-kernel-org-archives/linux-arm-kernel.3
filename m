@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32EAACEBF61
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 00:51:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DEA4CEBF61
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 00:51:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JqWChnsimrEYwb3KNCaYwTeZ+0nq8avPJVyqHs5K9CI=; b=O8LIYg0M46YtLQOdFTSRGrnX2E
-	MgCkK1MDrHQP1+nGWPTIAkKHSqV9KQRpSJCruF+5ShSp9zJOZYKEVIgUenVSkR2xFMjuOGav8Jc5L
-	ghq45b+qt7fApKSXvFzwyUZU2u45JptvNtJ1iGVCNn8CArVYHPHPUELLprgU6IqqxRfRtYFhKNPjs
-	gGk6sxY7zPDpMIyCgBlj0WhKcx8gwpmUr9/EgBcodQjPu/TzOSdzQi40rhy93LKKKdwWfnfhIggVB
-	UoGqYN54NeeIQdabGfr/QjD93YfdPJCm0P058KsMPswwWsk78/JTYO+X92kjhmPsHk2fARlK8d/dp
-	zgmT79Rw==;
+	bh=S/2VOjYQIjdDGsO4qnWrH1AZLUu4w8FqllCplYe7FEk=; b=spPbFKF0e2BmtZJBrrLfwc5Wrp
+	La1tV2g8odBSTamZUaULLW2hRQk0tY8t+6VExxcYvI3RsHy5JAX2cxOcgapI22DenX1Jh5eC5LDCb
+	khE7ZE72qTdnhpAimuttTdiMcLvUlywmr8vMh817MsTw3quNyrWNiepvh4bGSWx4CvqvqfPsGjL4L
+	fIsbP8Cq42JieNCdTL3WYzoowXfAmuuBc7OoOvWbd+bxNKXCLHXeW3ZIOIolmnAxUeLY4tR+gB4xS
+	jLmZiXDcS1zka4Efm6Tp3ewiKfPSTLKCkCED4U4GeQ5nWYUWzsJCP5RjtDBCgikZIhZkJRnCYuevs
+	4AZU+gaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vL9wC-0000000H4Km-0P0H;
-	Tue, 18 Nov 2025 00:51:16 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vL9wK-0000000H4Sy-3554;
+	Tue, 18 Nov 2025 00:51:24 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vL9wA-0000000H4Hn-0a3D
+	id 1vL9wE-0000000H4NU-42p2
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Nov 2025 00:51:14 +0000
+	Tue, 18 Nov 2025 00:51:22 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5489A602DA;
+	by sea.source.kernel.org (Postfix) with ESMTP id 811CC42A40;
+	Tue, 18 Nov 2025 00:51:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 657FBC19425;
 	Tue, 18 Nov 2025 00:51:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 09E31C19421;
-	Tue, 18 Nov 2025 00:51:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763427072;
-	bh=uBYzXnNEL/J0rcqGNMQx7tTaHWYqsTP86ap/m0VE1lU=;
+	s=k20201202; t=1763427078;
+	bh=P97Bc+5RHWfAXBOfJCvb7Bdf9SK6HWDJUVbNNGzAwjA=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=iVNmI0IpY2egn1YXzFocw0Bhlr6eNxhOjrYPQ7WesAekIoWGhmCIiF2Ej5UdMa1je
-	 JoOzZuu7t/jHIyvCApCDIihRJTGNtrO7B9sP0eZv/CKMh4m4aufVWm2mKUxW1dBv2K
-	 vT3H0NXuKBD6lNywEcRumVCHRmJMjCRrp8lLELmQXtXKKs3pLlOlOsNFaSwhK9TNVN
-	 5G2u8c0hxUQz+Lenz4HpNltlT+GV17Q0rd97mHZ8nW3EnpqjUoR5/9MlqDn8/iJSjO
-	 H9ZA9xyWWyRjCoJnlIiKyF/WiqcxAz0gID5Jr+3mguGj6UU+8+fElYrTsnLdY17wj4
-	 KeEaV76HcJ6mw==
+	b=qnDjfK3VJgSksrVPwA3G60tXWU7vRHNLrPuIz6+ab+8OuDBDfJ6nmwV6c9cjMVdLD
+	 LZCw/N888rLqP8G1mavAtBcqLxldk+9jXWFFN8IzXf1ripj1rx3ciNvWh8bVaPpM6F
+	 OJV6iV4crVEK3lItw9ugkMEVLiIbcj0pS4KFjcVJwYKSljvM+0ooQd0sqHIzJ5I7OR
+	 ELMicc+f+d9wnSLUl/FCUm/cORCeousRgJ0tH1vg+IOylls+Arw0KX0s92ow/wob/T
+	 Gz6iG1y44yugepSVldMI1OLWM1CE0jttz8GLpe0sfyJ3SwkRMnCdUWQlKouapuU4bk
+	 RX4JzBqSY1tHQ==
 From: Jisheng Zhang <jszhang@kernel.org>
 To: Doug Berger <opendmb@gmail.com>,
 	Florian Fainelli <florian.fainelli@broadcom.com>,
@@ -65,14 +65,17 @@ Cc: linux-gpio@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	linux-omap@vger.kernel.org
-Subject: [PATCH v2 09/15] gpio: omap: Use modern PM macros
-Date: Tue, 18 Nov 2025 08:32:23 +0800
-Message-ID: <20251118003229.26636-10-jszhang@kernel.org>
+Subject: [PATCH v2 10/15] gpio: pch: Use modern PM macros
+Date: Tue, 18 Nov 2025 08:32:24 +0800
+Message-ID: <20251118003229.26636-11-jszhang@kernel.org>
 X-Mailer: git-send-email 2.51.0
 In-Reply-To: <20251118003229.26636-1-jszhang@kernel.org>
 References: <20251118003229.26636-1-jszhang@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251117_165119_088410_1117DE2C 
+X-CRM114-Status: GOOD (  13.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,71 +95,69 @@ automatically dropped by the compiler when CONFIG_PM or
 CONFIG_PM_SLEEP are disabled, without having to use __maybe_unused
 
 Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+Acked-by: Andy Shevchenko <andy@kernel.org>
 ---
- drivers/gpio/gpio-omap.c | 15 +++++++--------
- 1 file changed, 7 insertions(+), 8 deletions(-)
+ drivers/gpio/gpio-pch.c | 12 ++++++------
+ 1 file changed, 6 insertions(+), 6 deletions(-)
 
-diff --git a/drivers/gpio/gpio-omap.c b/drivers/gpio/gpio-omap.c
-index a268c76bdca6..e136e81794df 100644
---- a/drivers/gpio/gpio-omap.c
-+++ b/drivers/gpio/gpio-omap.c
-@@ -1503,7 +1503,7 @@ static void omap_gpio_remove(struct platform_device *pdev)
- 		clk_unprepare(bank->dbck);
+diff --git a/drivers/gpio/gpio-pch.c b/drivers/gpio/gpio-pch.c
+index 9925687e05fb..4ffa0955a9e3 100644
+--- a/drivers/gpio/gpio-pch.c
++++ b/drivers/gpio/gpio-pch.c
+@@ -171,7 +171,7 @@ static int pch_gpio_direction_input(struct gpio_chip *gpio, unsigned int nr)
+ /*
+  * Save register configuration and disable interrupts.
+  */
+-static void __maybe_unused pch_gpio_save_reg_conf(struct pch_gpio *chip)
++static void pch_gpio_save_reg_conf(struct pch_gpio *chip)
+ {
+ 	chip->pch_gpio_reg.ien_reg = ioread32(&chip->reg->ien);
+ 	chip->pch_gpio_reg.imask_reg = ioread32(&chip->reg->imask);
+@@ -187,7 +187,7 @@ static void __maybe_unused pch_gpio_save_reg_conf(struct pch_gpio *chip)
+ /*
+  * This function restores the register configuration of the GPIO device.
+  */
+-static void __maybe_unused pch_gpio_restore_reg_conf(struct pch_gpio *chip)
++static void pch_gpio_restore_reg_conf(struct pch_gpio *chip)
+ {
+ 	iowrite32(chip->pch_gpio_reg.ien_reg, &chip->reg->ien);
+ 	iowrite32(chip->pch_gpio_reg.imask_reg, &chip->reg->imask);
+@@ -402,7 +402,7 @@ static int pch_gpio_probe(struct pci_dev *pdev,
+ 	return pch_gpio_alloc_generic_chip(chip, irq_base, gpio_pins[chip->ioh]);
  }
  
--static int __maybe_unused omap_gpio_runtime_suspend(struct device *dev)
-+static int omap_gpio_runtime_suspend(struct device *dev)
+-static int __maybe_unused pch_gpio_suspend(struct device *dev)
++static int pch_gpio_suspend(struct device *dev)
  {
- 	struct gpio_bank *bank = dev_get_drvdata(dev);
+ 	struct pch_gpio *chip = dev_get_drvdata(dev);
  	unsigned long flags;
-@@ -1516,7 +1516,7 @@ static int __maybe_unused omap_gpio_runtime_suspend(struct device *dev)
+@@ -414,7 +414,7 @@ static int __maybe_unused pch_gpio_suspend(struct device *dev)
  	return 0;
  }
  
--static int __maybe_unused omap_gpio_runtime_resume(struct device *dev)
-+static int omap_gpio_runtime_resume(struct device *dev)
+-static int __maybe_unused pch_gpio_resume(struct device *dev)
++static int pch_gpio_resume(struct device *dev)
  {
- 	struct gpio_bank *bank = dev_get_drvdata(dev);
+ 	struct pch_gpio *chip = dev_get_drvdata(dev);
  	unsigned long flags;
-@@ -1529,7 +1529,7 @@ static int __maybe_unused omap_gpio_runtime_resume(struct device *dev)
+@@ -428,7 +428,7 @@ static int __maybe_unused pch_gpio_resume(struct device *dev)
  	return 0;
  }
  
--static int __maybe_unused omap_gpio_suspend(struct device *dev)
-+static int omap_gpio_suspend(struct device *dev)
- {
- 	struct gpio_bank *bank = dev_get_drvdata(dev);
+-static SIMPLE_DEV_PM_OPS(pch_gpio_pm_ops, pch_gpio_suspend, pch_gpio_resume);
++static DEFINE_SIMPLE_DEV_PM_OPS(pch_gpio_pm_ops, pch_gpio_suspend, pch_gpio_resume);
  
-@@ -1541,7 +1541,7 @@ static int __maybe_unused omap_gpio_suspend(struct device *dev)
- 	return omap_gpio_runtime_suspend(dev);
- }
- 
--static int __maybe_unused omap_gpio_resume(struct device *dev)
-+static int omap_gpio_resume(struct device *dev)
- {
- 	struct gpio_bank *bank = dev_get_drvdata(dev);
- 
-@@ -1554,9 +1554,8 @@ static int __maybe_unused omap_gpio_resume(struct device *dev)
- }
- 
- static const struct dev_pm_ops gpio_pm_ops = {
--	SET_RUNTIME_PM_OPS(omap_gpio_runtime_suspend, omap_gpio_runtime_resume,
--									NULL)
--	SET_LATE_SYSTEM_SLEEP_PM_OPS(omap_gpio_suspend, omap_gpio_resume)
-+	RUNTIME_PM_OPS(omap_gpio_runtime_suspend, omap_gpio_runtime_resume, NULL)
-+	LATE_SYSTEM_SLEEP_PM_OPS(omap_gpio_suspend, omap_gpio_resume)
- };
- 
- static struct platform_driver omap_gpio_driver = {
-@@ -1564,7 +1563,7 @@ static struct platform_driver omap_gpio_driver = {
- 	.remove		= omap_gpio_remove,
- 	.driver		= {
- 		.name	= "omap_gpio",
--		.pm	= &gpio_pm_ops,
-+		.pm	= pm_ptr(&gpio_pm_ops),
- 		.of_match_table = omap_gpio_match,
+ static const struct pci_device_id pch_gpio_pcidev_id[] = {
+ 	{ PCI_DEVICE_DATA(INTEL, EG20T_PCH, INTEL_EG20T_PCH) },
+@@ -444,7 +444,7 @@ static struct pci_driver pch_gpio_driver = {
+ 	.id_table = pch_gpio_pcidev_id,
+ 	.probe = pch_gpio_probe,
+ 	.driver = {
+-		.pm = &pch_gpio_pm_ops,
++		.pm = pm_sleep_ptr(&pch_gpio_pm_ops),
  	},
  };
+ 
 -- 
 2.51.0
 
