@@ -4,82 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B748CEDDA1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 15:32:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59486CEE328
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 15:32:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
 	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Sa6na3P/P/GNM8Iujs64ZSVR7QHzowjsSYVDRpzcN3E=; b=Bnur4iPuI3hcgyuR6tp2x/Mf3/
-	RH9o++UhZRhgBY7+1WaN1jy5M4BfEdMOcTco0Ci16TIyu6W+mlGoLnnQWL3bzFo9ETgK1tC3akmbm
-	PF12S90T1jEzi1Q2KC160WVagB1A6UxdQ9d3vUQOQSTm01FJwRrmbwdk8YzqJtwAP7cI4p60MCeRO
-	fadNWThL7m2ZRRG4fDUd7UWNfYxo650oIsqwlUzJEK/JLQ++dMK50DMqVDb6j+FSEXtVtHs7svKvb
-	YylnmO6x4FZZpsnDS0o6m/8m5JyT9nIrJlyM3bWQ3IlBtdRfsAV3Pdi0Dm97TyDf9DGj+KNAG4TLu
-	GAc+wcGA==;
+	bh=IxHLXotX/VR/smtmuGtjLAN5l6lgr5iFZlYRIN9JEyQ=; b=mdXwsGcV1NCvHG7kYOzOdNyAxX
+	Y8CkovqFAvAQr8KqevchVm7UbwBMoLoRpnFi451CrX6LknV+pbqOoJ/DVaVefYcDxN4O41zNGZbfj
+	TqNr9ZXB9AMElXvOztJxs/q/nKGs0lN8HSfzEv/C/woVxC335vqywqGh2tOfEulO3UCSLw+LQAP6O
+	M8w5WSoFwvpqgCT+g/Qa9L4drsrrGVtxVp2hGO+sutzsONT6kvxLIOvOPw0bUFXxVhBmnfetzbh2U
+	JBhMwA05Y4aRwoNlgRaALlLOpcLm1l7BDuNuc7wZ8dyLLAQ0jMi4wM+jiIhfkjcKer86gzE7C0rZh
+	NAxKx/gA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLNgd-00000000dAG-1vsB;
-	Tue, 18 Nov 2025 15:32:07 +0000
-Received: from mail-yw1-x1133.google.com ([2607:f8b0:4864:20::1133])
+	id 1vLNgk-00000000dBs-0Gv0;
+	Tue, 18 Nov 2025 15:32:14 +0000
+Received: from mail-yw1-x1134.google.com ([2607:f8b0:4864:20::1134])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLNga-00000000d9U-31zG
+	id 1vLNgf-00000000dAP-22Kl
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Nov 2025 15:32:05 +0000
-Received: by mail-yw1-x1133.google.com with SMTP id 00721157ae682-7895017c722so23338967b3.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Nov 2025 07:32:04 -0800 (PST)
+	Tue, 18 Nov 2025 15:32:10 +0000
+Received: by mail-yw1-x1134.google.com with SMTP id 00721157ae682-787ff3f462bso64849077b3.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Nov 2025 07:32:09 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1763479923; x=1764084723; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1763479928; x=1764084728; darn=lists.infradead.org;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=Sa6na3P/P/GNM8Iujs64ZSVR7QHzowjsSYVDRpzcN3E=;
-        b=SILUHtTs6VAaYhTEzWMMK8Sz7gNoNUfz3rVpjEllga4N+c2x9sPkkuUMTGk6ycpDiQ
-         au0GLCwe2uizcJetftcw1ICNoo072qxn6VU3+br4eznrgEu3E4+rkENQJes1rX3bL8z2
-         UfZi7GYz5ejbZRosMv44f2M08De1ZLbqO9UenGFkQJYFNTb2xrglsOBjnW/0TuYKkQUA
-         6QeO5815EPLItuYrqsnoIn9tTF0vcqZEt1yCnwXvClohjnQYL0abx1VQ3BVVnZuxwa3O
-         1zksuUIV0VF2vF6agqJgG/pN0js6zTFMnaeEGFvWr8q0yx+k5z59EbbjghrgOnEx5gVj
-         MQFQ==
+        bh=IxHLXotX/VR/smtmuGtjLAN5l6lgr5iFZlYRIN9JEyQ=;
+        b=tiahZMXecCmny9sSi0ZOa9THL174yrscR8Z0Qdf4H72NorSzn52mUDmBA14iSD5MZs
+         ykwf1gmNubMHDIpbCFNzm8a2r3KheBqmJyUjB4tSEfXdD0lbL39i99MKWW/VS1ZIhWJp
+         Rt2TFu2jmjek+p3AtXetRTY5lKK7ybM+VJyCsQDP6Ame6wn3fcuQ5a0bzm+WCoVf2kbq
+         2akie1trAPslovqNCkYLwlbDVm3tVHASexgI6gPhQ9cVttcA7ZC1OL6QNA3d39z7CDHc
+         zhpUBwW2Jm5qvaUt7AFiHOX/KVL73ttUZykkCFTi6YDHlaxNNMmqhZObQ36fmcNwm0bE
+         B3jA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763479923; x=1764084723;
+        d=1e100.net; s=20230601; t=1763479928; x=1764084728;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=Sa6na3P/P/GNM8Iujs64ZSVR7QHzowjsSYVDRpzcN3E=;
-        b=nZfuHw+9t0eEsBJniT9jmHEnAqdqTsAzOVtsKjq80d4NILzz14BNdOB13jvxXOmwcm
-         mjZWzeXjwxr5E0sFL8qBEw+BEg58kUtzhb5grwgU1jvmnI4hkr3DNgkw99872wGTiLTb
-         Dj6OlttU251eHiGXcPjKKBep/xberLNA8W8xzk3P9bdczd9B/H8AcWzNNd6++EZEfCe+
-         QJ/04wFBS/S9ZIYwYmCKvJLoNF22uGunrIxhyRdLT8m8/7RaNObu7xAJ4DWc8b4BEUuw
-         44rTyq8hKywG4O7QBsnsq+UTTSKZEpIbNMp17RRS5DBkvJAvBVltIlsxAqYNRqRHgcaU
-         0ucg==
-X-Forwarded-Encrypted: i=1; AJvYcCX79ztb55LoLrC2G4tcVwXDlfv4FAMmMG6G/gJ1ZM1Q98yCehda1G+zTPyPQ2KJI/Kt05WECyFkaSjREgXwukrV@lists.infradead.org
-X-Gm-Message-State: AOJu0YzBKg7MVtPUzZsDMdm23rQzvguINEH+rDKUzq32kPAU9aAzc03r
-	9KA8J6GtD+BoZN0Y0IolrEi//ophQJ6DqdYm62hndmxFQAbeXFFl4Q/cYAbb86wAin/j4btmpSt
-	x6+UCxz4tJ1tMWjMIV9ot3fjQ+2cGiji/0/rQbni84g==
-X-Gm-Gg: ASbGncvQcWaMhZ7qUN7p+9uGD4N9uZRezjPQPhnCoFg+bWj5sOf761A9+O6c6Hq+56d
-	Hpd59Hbcz5DOcm8x3kLmsFUfUpBmeDtu/L584pTNj7F1rav7x011D298De9wbIUcJ8bL3PJAJS+
-	A3DGBEra4pUozWuczU2gkD5qtVIKzcSGDbxp0SLDJfr/hieDPsa2wt6QvAMjoDpvR4+KTPFT40Q
-	Zh9MCfE6Na03oiEPaxVDlRZkBLTp+OlAQtO+EzINJRO7evj+NqF5H3CV5Wl3GgPkT0zNL7rFv79
-	btPR9V8=
-X-Google-Smtp-Source: AGHT+IEfuIFqkRCXfZDQ1m2D7snzbjj18Mf6UeMcI+k5jw5cpI8JySnnaOmrmzg5DmorahHQyDmg0Mg7N8R6Vf/3bcQ=
-X-Received: by 2002:a05:690c:4b09:b0:786:56ec:e3cf with SMTP id
- 00721157ae682-78929f13f18mr148209687b3.61.1763479923209; Tue, 18 Nov 2025
- 07:32:03 -0800 (PST)
+        bh=IxHLXotX/VR/smtmuGtjLAN5l6lgr5iFZlYRIN9JEyQ=;
+        b=lncXvKsuwvZhlkAzq8mM9vhcHGH4KCWw9SFnRQUre3sSLnEwsiOLx0xlWx/ZYpur7T
+         RDNLNktdzBGzV7+MhTYp5RGZe/TiH9tt2A/7lTaFDZ6i2IGAEuSUln3fOO2k0pvqRtzM
+         CkHPzO3GLipSsf94yQMs79oGkrQnguZabPrIUMNNTcbXblyRN4/LDTBhqhrN9KXO2PAl
+         TdL58YPwJguhscKwK/QncSJnIkCDfbw4UbiOW5FzychlRutor4yRsZxus2uTULM21E07
+         CvFz5P4RtSxIzs0HXcTOWmcVyCVI7vCIltoBZuaHPGl5IM3m3VFVnV67b60jW5x1WVgW
+         3D5w==
+X-Forwarded-Encrypted: i=1; AJvYcCV1P4bjJhqK/coq9DuP84Gy6imP2VTYy8NMjUFdC5qXGx/ACM3hiec8AFYfnbCeMXjTcjROc9DL3jPMm2PqwnVD@lists.infradead.org
+X-Gm-Message-State: AOJu0YzsCiS+caf4czdnWfUJQL8krW29eMLJ/RspBvGI80hOPz2/wEQW
+	rObswskeSnie792DLd8dBr0pPGfEYVn5iA89ke/0ob3IwSgF+SLlZ8iD9mAXH70WUzSuGp7Afti
+	oHTFW9H+5n64Yod9vQkCW6VU3i/bjoC6ZrQqKh6shIA==
+X-Gm-Gg: ASbGncsimtF9tV1sehan/5SLKARtZcjOXzPobvH9Gtz9XkwFt2bnh6GB+7IKYBguvW9
+	iX/Epv0bHS6IDWyBOzK2pF2BXHENab+HOXCftbDuAxELts8DRrLrHaOohU48f8YnlWGsK579659
+	0xc7TwuiO5skQbv4YjYeYe97BfNeHPlBbO1l/ws7KDwuukSaB7q6k+T76XX92lB21MkjXYnTuUI
+	Y6Wby4JTnT0gRyXI1drG1pOWlAE7seVZIOv/tEdq2uR98IBK6BAF0mqYFcR2pC1cWDvFhnkpC2u
+	3lnmJ/4ypFjOGszQMQ==
+X-Google-Smtp-Source: AGHT+IEc8GglvCIsD6cGrALsj9LLh6N+Jx7VKw+16XtXMLh8fZV72joZEMGSMeUR4bEuhwbV7IWYBeRgua2rFcuL8iQ=
+X-Received: by 2002:a05:690e:d86:b0:640:d597:4170 with SMTP id
+ 956f58d0204a3-642132db3f6mr2565633d50.0.1763479928233; Tue, 18 Nov 2025
+ 07:32:08 -0800 (PST)
 MIME-Version: 1.0
-References: <20251108231253.1641927-1-martin.blumenstingl@googlemail.com>
-In-Reply-To: <20251108231253.1641927-1-martin.blumenstingl@googlemail.com>
+References: <20251115122120.35315-4-krzk@kernel.org> <20251115122120.35315-6-krzk@kernel.org>
+In-Reply-To: <20251115122120.35315-6-krzk@kernel.org>
 From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Tue, 18 Nov 2025 16:31:27 +0100
-X-Gm-Features: AWmQ_bnsDQPC1FPCE55p78otrm27YbzfdllVOUQUin0JOvD-o9IddmtmqNNalEc
-Message-ID: <CAPDyKFqF+yh0X6f5YZ0yePGqCpPWQOauQTZaeE88Fgv2HAxv-g@mail.gmail.com>
-Subject: Re: [PATCH v1 0/7] mmc: meson-mx-sdio: Various driver improvements
-To: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Cc: linux-amlogic@lists.infradead.org, linux-mmc@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Date: Tue, 18 Nov 2025 16:31:32 +0100
+X-Gm-Features: AWmQ_bmXlb23IcHWwlaA2kdC6A8acUsbATP4k59c9PPxA0jX-7QbyyZj3x6u5n8
+Message-ID: <CAPDyKFpquaBo64eKvMPiCPdKrPkYc8fhpaOmFL9KN0UzFs0xkw@mail.gmail.com>
+Subject: Re: [PATCH 3/3] dt-bindings: mmc: am654: Simplify dma-coherent property
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Jyri Sarha <jyri.sarha@iki.fi>, Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>, 
+	Michal Simek <michal.simek@amd.com>, Michael Tretter <m.tretter@pengutronix.de>, 
+	Harini Katakam <harini.katakam@amd.com>, Shyam Pandey <radhey.shyam.pandey@amd.com>, 
+	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, dmaengine@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mmc@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251118_073204_797266_674757CF 
-X-CRM114-Status: GOOD (  15.15  )
+X-CRM114-CacheID: sfid-20251118_073209_527402_7FB6CACB 
+X-CRM114-Status: GOOD (  14.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,44 +102,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 9 Nov 2025 at 00:13, Martin Blumenstingl
-<martin.blumenstingl@googlemail.com> wrote:
+On Sat, 15 Nov 2025 at 13:21, Krzysztof Kozlowski <krzk@kernel.org> wrote:
 >
-> This series contains patches to improve / simplify the code of the
-> meson-mx-sdio driver by:
-> - using regmap for simplifying register access (patch 1)
-> - switching to modern clock functions/helpers (patches 2, 3) and
->   make the clock code not interfere when switching to
->   devm_mmc_alloc_host() (patch 3)
-> - making use of the devm_mmc_alloc_host (patch 4)
-> - using modern dev_err_probe() for better error handling (patch 5)
-> - indentation fix (patch 6)
-> - ignoring disabled mmc-slot device-tree nodes to allow describing
->   all slots in device-tree, even though the driver only uses the
->   first enabled slot (patch 7)
+> Common boolean properties need to be only allowed in the binding
+> (":true"), because their type is already defined by core DT schema.
+> Simplify dma-coherent property to match common syntax.
 >
->
-> Binbin Zhou (1):
->   mmc: meson-mx-sdio: Use devm_mmc_alloc_host() helper
->
-> Martin Blumenstingl (6):
->   mmc: meson-mx-sdio: Switch to regmap for register access
->   mmc: meson-mx-sdio: Use devm_clk_get_enabled()
->   mmc: meson-mx-sdio: Refactor internal clock initialization
->   mmc: meson-mx-sdio: Use dev_err_probe() where appropriate
->   mmc: meson-mx-sdio: Fix indentation in meson_mx_mmc_irq_thread()
->   mmc: meson-mx-sdio: Ignore disabled "mmc-slot" child-nodes
->
->  drivers/mmc/host/Kconfig         |   1 +
->  drivers/mmc/host/meson-mx-sdio.c | 339 +++++++++++++++----------------
->  2 files changed, 170 insertions(+), 170 deletions(-)
->
-> --
-> 2.51.2
->
+> Signed-off-by: Krzysztof Kozlowski <krzk@kernel.org>
 
-The series applied for next, thanks!
+Applied for next, thanks!
 
 Kind regards
 Uffe
+
+
+> ---
+>  Documentation/devicetree/bindings/mmc/sdhci-am654.yaml | 3 +--
+>  1 file changed, 1 insertion(+), 2 deletions(-)
+>
+> diff --git a/Documentation/devicetree/bindings/mmc/sdhci-am654.yaml b/Documentation/devicetree/bindings/mmc/sdhci-am654.yaml
+> index 676a74695389..242a3c6b925c 100644
+> --- a/Documentation/devicetree/bindings/mmc/sdhci-am654.yaml
+> +++ b/Documentation/devicetree/bindings/mmc/sdhci-am654.yaml
+> @@ -50,8 +50,7 @@ properties:
+>        - const: clk_ahb
+>        - const: clk_xin
+>
+> -  dma-coherent:
+> -    type: boolean
+> +  dma-coherent: true
+>
+>    # PHY output tap delays:
+>    # Used to delay the data valid window and align it to the sampling clock.
+> --
+> 2.48.1
+>
 
