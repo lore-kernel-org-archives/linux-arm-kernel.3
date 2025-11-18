@@ -4,59 +4,162 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E188FCEE33F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 17:15:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3472CEE33F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 17:15:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9+PHPJnIBAP86NTHc4VAm7JuLpOhECS7DudJx2LlsMs=; b=pYLQHnm2jO//19IXFmB3D0jPNp
-	JfhLKRW9ToMqLAxJJMlq02O3tVn7JGB5js8wlTZ09nCsQA/kGhqFxXFKa1XU9ABjr/VDmXOLS+0M9
-	cocKH9G7Pw05obnxa5EunghXnCjErqYkW8sV23TjIVWEU1tnvxqH/E8EYb2bysx5SnkBdVavWYghk
-	c580GJdFULaPuUUy8kSQ0W15uBnP+2ss+Od4o3qVlYp5tLoiJ42mgl46evfLD2d4tw2oARqbBiw4N
-	w5oYO4r5XQZi1CS/MxI5c6xas8WwxsxQfuulINTOAxpc4Heu/PGa/UdEgGUEL7Sor/mgL4TD2jfbz
-	bFSQPcgA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=E2RXYUj/81NkNwSEDNfEL9S2GtsxTJggPDsne+5Chzw=; b=wmBhDdn6jObfAkhhpjmJRtf+s6
+	yuafEO88sRAJQTyUKT/tmhm9BMKrxKDiHQWU6OWouxbcsJcdEOzmsILpHNtYMqS9YJ97T9QRr1xHB
+	+51RWiQf1jOGXsjESzl8SQaaliwFtjK2iIa1NjDQN4XYA2tpWSQfx9ioal+iHo+DZu8guiCe5xB/3
+	c1Sqn+NJWgrmZpimGRX4UYm305K3/cNxlzYY8KkksJcCN43cNtiC/1XSeODwLj9X7VuEVNYL02OC9
+	nuCpvpKEHM5zJQRkNGqRXHbmhWl6rr3Ebc1fDLM17dJHP64Xbmpc3k6QOoqG5cBPWescajUojTChF
+	bHknlEYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLPIA-00000000pwJ-2gOM;
-	Tue, 18 Nov 2025 17:14:58 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLPI8-00000000pvi-3wX8
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Nov 2025 17:14:58 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8FD321692;
-	Tue, 18 Nov 2025 09:14:48 -0800 (PST)
-Received: from [10.57.39.196] (unknown [10.57.39.196])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E25563F66E;
-	Tue, 18 Nov 2025 09:14:50 -0800 (PST)
-Message-ID: <39243d7f-e72a-4d37-8cd2-fb9c9f53e751@arm.com>
-Date: Tue, 18 Nov 2025 18:14:48 +0100
+	id 1vLPIY-00000000q2C-43bA;
+	Tue, 18 Nov 2025 17:15:22 +0000
+Received: from mail-northeuropeazon11010012.outbound.protection.outlook.com ([52.101.84.12] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vLPIT-00000000q0W-45zn;
+	Tue, 18 Nov 2025 17:15:19 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ggk2nj9GRBP10PN0fzb1aOs/6V7VnkEJQ9yvEwiJ3mtuNGDBk7SOEcZ+blSCO52PmhCjB0cpnDc8aUFhMJrQiEzECua9ZZVGkEg5WE5XReqNjWDcigxYQAoHtZ9S1WUxIiGyvQIAx0HbF5B2qN+CNMtY0bCXxAwtYgacTdOCVJ+0lW6zCzNUnuXsy5nWTEQRUtR9ASRB+S/On7XODGnDyqvaGiRpxyyu1cMmOfUcLIonZ/x25A4VsdO6Hda7TJbNV7QqKcwYZvM69/1nbCdR6QZJFxJhQkN3dhEGNuO85VApVKIhEli2FDiDzHwvZ8xfQxWz8m3QiBiINZdUwlpqig==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=E2RXYUj/81NkNwSEDNfEL9S2GtsxTJggPDsne+5Chzw=;
+ b=hVzV8YD7+sZDNYR9ESzyQdoNJb7BpOx/V4Vh8LqvWn+MA+kmyXXDzefkFQW5nJ/IR/AFUhdNoyEAdnqrBDs3VARiDa+iRbiwjDmu5fxPJ6RmqPUlWWE2x+5x3s//ii4JnwiMtMLdF9TFdytZB5sZXwGm43ZMKg+ReFrKUHwzTwSs2v60VSlbTyYunKwfQeg+2PsTZYhBedXxiDWJ7pci11gRkVS4KhcpnSY3DlVpluFAznS7LSY6r9XRFH9z3U1m7eU4yWcnBTaCh+yatpsAKCkcIimxeXohIWX9UvnNvJLH9Gk+RilqTWc5pufn2DROMmfhF3DEZAxbPdUpWuutOw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=E2RXYUj/81NkNwSEDNfEL9S2GtsxTJggPDsne+5Chzw=;
+ b=bmT66TYcLZE3CBH3YHn7zPx7eWO5WR4DZ9cCxAK+6cR2QItnvuR7wina9rBOjPXRspq5Xf8zLMHu0mW3AKbO5UMlb2Vf5tC0juwTVXDQpj3LQEKTs1rhGfbRVT0eb59mRpE2EQEfx4t7jauivBcBEX1bPXwp+EXCbeoPQA/D6dEz0bWIhDK2a6tLl7C4nLf5iFWhUylWqZI/4gV3DLIPOUAvAqMa0XwXzqBnvMnS532PX71saV7bz6cUTMNNs+QUpg8gQqON63g4LmtnP644qLB8x1n3lPAxyCp5CweK/KsisP6UxVVvCUg1Eu7oMIGq+FUEijiSHDZwAdmtHWWb7A==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from DB9PR04MB9626.eurprd04.prod.outlook.com (2603:10a6:10:309::18)
+ by DB8PR04MB7180.eurprd04.prod.outlook.com (2603:10a6:10:12c::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9320.22; Tue, 18 Nov
+ 2025 17:15:10 +0000
+Received: from DB9PR04MB9626.eurprd04.prod.outlook.com
+ ([fe80::55ef:fa41:b021:b5dd]) by DB9PR04MB9626.eurprd04.prod.outlook.com
+ ([fe80::55ef:fa41:b021:b5dd%4]) with mapi id 15.20.9320.021; Tue, 18 Nov 2025
+ 17:15:10 +0000
+Date: Tue, 18 Nov 2025 12:15:01 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: michael.riesch@collabora.com
+Cc: Mehdi Djait <mehdi.djait@linux.intel.com>,
+	Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Hans Verkuil <hverkuil@kernel.org>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Sebastian Reichel <sebastian.reichel@collabora.com>,
+	Nicolas Dufresne <nicolas.dufresne@collabora.com>,
+	Collabora Kernel Team <kernel@collabora.com>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
+	linux-media@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 2/3] media: rockchip: add driver for the rockchip mipi
+ csi-2 receiver
+Message-ID: <aRyplYZOrGsSxSlp@lizhi-Precision-Tower-5810>
+References: <20251114-rockchip-mipi-receiver-v2-0-eb9b43377fc4@collabora.com>
+ <20251114-rockchip-mipi-receiver-v2-2-eb9b43377fc4@collabora.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251114-rockchip-mipi-receiver-v2-2-eb9b43377fc4@collabora.com>
+X-ClientProxiedBy: PH0PR07CA0105.namprd07.prod.outlook.com
+ (2603:10b6:510:4::20) To DB9PR04MB9626.eurprd04.prod.outlook.com
+ (2603:10a6:10:309::18)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 10/11] arm64: entry: Convert to generic entry
-To: Jinjie Ruan <ruanjinjie@huawei.com>, catalin.marinas@arm.com,
- will@kernel.org, oleg@redhat.com, tglx@linutronix.de, peterz@infradead.org,
- luto@kernel.org, shuah@kernel.org, kees@kernel.org, wad@chromium.org,
- akpm@linux-foundation.org, ldv@strace.io, macro@orcam.me.uk, deller@gmx.de,
- mark.rutland@arm.com, song@kernel.org, mbenes@suse.cz, ryan.roberts@arm.com,
- ada.coupriediaz@arm.com, anshuman.khandual@arm.com, broonie@kernel.org,
- pengcan@kylinos.cn, dvyukov@google.com, kmal@cock.li, lihongbo22@huawei.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-kselftest@vger.kernel.org
-References: <20251117133048.53182-1-ruanjinjie@huawei.com>
- <20251117133048.53182-11-ruanjinjie@huawei.com>
-From: Kevin Brodsky <kevin.brodsky@arm.com>
-Content-Language: en-GB
-In-Reply-To: <20251117133048.53182-11-ruanjinjie@huawei.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DB9PR04MB9626:EE_|DB8PR04MB7180:EE_
+X-MS-Office365-Filtering-Correlation-Id: 16a723d9-db50-4100-4962-08de26c60731
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|52116014|7416014|19092799006|1800799024|366016|7053199007|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?skRpVcouZ0HZzEoVF5/6xPeNUnnfALSp7e/F5mArjb4t2OPt4V66VoK8JP1O?=
+ =?us-ascii?Q?q27ZsMC/twn666YcwhwnTF5/JmKI5VmINLqR1Smje+t7LzBwqhtX+ZcAptvI?=
+ =?us-ascii?Q?8rCb5tvVkGJVYGDqnKPZrhH5ds5YGlA9EwsprAFfMQBwCW0L56AfjwHpQsXE?=
+ =?us-ascii?Q?3WCIfhVUFe3qAWKC/M2rQ2k7WNf6LDBt6XmDFp+hCwHElYrOy9zxfrYkLwA5?=
+ =?us-ascii?Q?bBHNvqpg8S3dmFNm+MPo0ABjlz5f3VUUrQLzpdS663I4Xp1GhvWb7wBSW4gz?=
+ =?us-ascii?Q?5h6iGvJGgJkHRzX2ABcCGe2WB2cV6S3LKJ79XUBVgc6NOGNYZm8IdOp5LMhh?=
+ =?us-ascii?Q?B6mUPJSLiGtwOr34GbxzstldejCrnPS2VptVTm7UF9wPNgpuqBDb85Omhaum?=
+ =?us-ascii?Q?EBLXOql7jVqil7H7QpXqUKmCoI35/+FVNqJTxIJ7Qwu9EQuEYD+jdaDNwwUn?=
+ =?us-ascii?Q?XKYUXZLVhibwiSh6NUuyGQgc7qfKlamLmECNUlbA00NjvN2KH8E1e1Be1Mdh?=
+ =?us-ascii?Q?JenjqAyVAltvarx8NjA6kHkX57PCCL6D7rW0Lr8ln8eYJDHsDzfCnU7VfkFX?=
+ =?us-ascii?Q?aewtHlKSDJos9mIyLzfV3AYw1PRoz90mhUwQi0b6HCaPPyhpqrg4K5sWJ2Rg?=
+ =?us-ascii?Q?FDc/WXxK2goO4AH8G3FG9P19fWZLlaTbGSBE0a97Kp2dygbGpGg45/L9+807?=
+ =?us-ascii?Q?8fOlHyQ4wxI9UhO0AS9GmlvGvBlL6q2jBCaoQgSIRzji1Zg6/WxetIuLURMh?=
+ =?us-ascii?Q?JEIg4nR7k89EmnWU7HPri/o8/exVd3oo3ocbuILEdIbOU56OW6J50zDJPDO4?=
+ =?us-ascii?Q?aCfMOnY2ce1F/k4D8Sb+HGU8i5tHfpCu8pVi7qzkhI9gaTBJIUCJJBg8LSyb?=
+ =?us-ascii?Q?wRNLFkd9ttGpWHfBwKgF0Z2Fm3HtxNFlIEQZ127LRpxh/+uvaWPak9of11ut?=
+ =?us-ascii?Q?LaNk3TzSjynRwTvqzGMPpoqQis2NP7/slL0mOJWrUMC1Eup6c3WlHRj0ac6K?=
+ =?us-ascii?Q?X06T1C9J9QJ3QUV7mAWP3ylk0i098vUy/Kjqqp/adPdxdm+ar5RgAWa7nZkh?=
+ =?us-ascii?Q?vpmmSsGTr1nxNEzzgTh2mSdygKGxgGzpflhqt+EdL/C/SmOSWuqS0MvqMbSq?=
+ =?us-ascii?Q?GuxJhtrbwK/0PP9zzFatC9e+yI2bAkxPvb2EhVxVoajWKR/GC6bCEXI7gQYu?=
+ =?us-ascii?Q?ycXK7Wj+qgFDPf+czah6Sq4v5eqLBCj37FW8egVcd2DReg+vpt5A22Bl1nFQ?=
+ =?us-ascii?Q?dbB1RDrck0G6D77wVLZvZwCiFyOY7PK2KmMOLRutMOK8k8Fv2KTZrDh0sBno?=
+ =?us-ascii?Q?1XzqfOjQmwPMQhtEFUbHNCOwsXNbW793Slz7UtbikUm7ig/odluPHxSOOzjz?=
+ =?us-ascii?Q?gFMflxOOIhcKl7YMuk9jlFFt78kEkbtWR1StKNGKpkCyc7gtWd0/y4CRQgQe?=
+ =?us-ascii?Q?zUtJUPojMjk2Pcd2mESs/zTlgm3VQ5LKjyhHbwTY5Mkz+4oEJAhJXZ3EvrDt?=
+ =?us-ascii?Q?kJDofedf+QcJyHpNColgwENjKLH2lU2plf5tbjZIqnNwF4quZYfRu7Y98w?=
+ =?us-ascii?Q?=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR04MB9626.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(52116014)(7416014)(19092799006)(1800799024)(366016)(7053199007)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?FnQx/q7P6jcLHI4eL/KjIys24oqK248Oo+1J5ra7autPDjjaqdqOCZXeV5HT?=
+ =?us-ascii?Q?7dIBXIYVwTNbkxLsro8gj+9X5vE6XDRuKU1ozVVWx2hqizQuOpf/If8FKNHH?=
+ =?us-ascii?Q?/fwCJ5Ek86ZtwWFN/9K8l42GoVS7b/B+6pSKM4v+HWvV3GNMlGLG8M7tDh65?=
+ =?us-ascii?Q?gTH2coiZaHuS8ZGF8DSWsWSrYWX7fLVQnwoZmHkQtbFXWH/aHXuwWwlCcExo?=
+ =?us-ascii?Q?HyCkDh2cE+YQDyuLD+zYpElnd+WYVCinXVRhz/vzulHbZdOmDErCTlx++G5s?=
+ =?us-ascii?Q?TDFtLk9S9gfSf/y8swQxxfjXlS+1WHIJFsYucld0LKwR/BQCt2iFVy0Avw7I?=
+ =?us-ascii?Q?6UCNczwuQsBTe1i9G/ys12IFtQkENESgEsK6HATHxTEDHU6kJpfBjyjVubMr?=
+ =?us-ascii?Q?mbbGFzHQ5FpytKILi5LhyUgoEkIXTMUTZ0mIN73MdmLqQ7INz2fzTIx7WYF8?=
+ =?us-ascii?Q?DZUTZEszqOWU2erffugTW4wDEe8YMOg0Z/ftDcUwDZTCXdlcDSQGghC4JmGO?=
+ =?us-ascii?Q?henjunMlSIalFtQhCrqaBbE3XCRsutaJ8ugNEXkIgHuw+LPaiENQQBsJoM5p?=
+ =?us-ascii?Q?EOS7ov5yiyh4iPNdUQ+KfDt2f8z4Ld/XPXA41MNIca0NSwo04oHU+K7p2F7s?=
+ =?us-ascii?Q?Khs6DlF3SJwNrdXpKdLIh+TZ0sbaM9nzdLbf8aVxqsrUf6Ku6LWVZVuQERY/?=
+ =?us-ascii?Q?cztRzm7YprkVpSL40DJRUVnBH+uev3001CwPt6nHeyw15mUzW5Rz3rWv1BVJ?=
+ =?us-ascii?Q?SwCv4WcWVnLZnGs/ZKhoQUgOSKzXfAn3sjN9Ygo3LGRA311L4gojpiTwz6/0?=
+ =?us-ascii?Q?k6qNJVx6CIbX1BCM2qX0eyXx2UJhroOSGvo08NyJeOhJT/9chcrVnArsSDjO?=
+ =?us-ascii?Q?JbbU8apRd8wDgxeURqqrw7f1DeQno6m4dt4d52WrhX+P1XXvUzbkRXkJXGtK?=
+ =?us-ascii?Q?pt6L2CKbEfagj1obEBB5K8eom6pDlhvVq/zHJwVFZ7HXgRwNubVzrCob2o1h?=
+ =?us-ascii?Q?lNvWmoD+B4viVgX/OYOohEUL9oaWRxD9+PjGk80cE5aA2rubPLKXk91yPZwb?=
+ =?us-ascii?Q?Rv9UkzHPn7EVSdwlcKdAKjztEE2v1GFbb1GKJsXxTbbv7lLAF04mbrA9/JTr?=
+ =?us-ascii?Q?DzaoMEDX5ygCbt8ky37FcDPBuZwK/6DRkzK1xWaQ27XfMZXNg9cF2wtRZmLX?=
+ =?us-ascii?Q?0QSkWPlP+qp7UxYo1xlLs/T1ZK8Z+qLmhfLfsg5G8XLx9y3kVXJrlDjBDQ6Z?=
+ =?us-ascii?Q?4VJCFoCJEIlsGp9PW0zBuKM55ja4hFgftebx+nZO6sOS+3VSbSj+wfW5ut4H?=
+ =?us-ascii?Q?wKzFVAuMAgw2ULlQPZ9SHK0bEjmdzQxtyR0T8lS2+tp+GB6BVkg2QwtrYY8l?=
+ =?us-ascii?Q?lzJOobvZ6MouApZokDCqCMj+0tIJFlOind3UN13vplltJo8L+xyfjfVcABnu?=
+ =?us-ascii?Q?MNpzFla/mTjCFAU0mtvg0Ga4m0AdKxQGqkaOKGd0IlHqlda41O4+lT6zq2wh?=
+ =?us-ascii?Q?kJYnwR/LXdPLRNvEz3FZlIVM0vS8+i0+GcQ7LI7EYI7QT2fPHCLptxOeEYFD?=
+ =?us-ascii?Q?6ePykfYpwb/pjZ5CTZ2MdNO+DS6FkEn8m3BWHlEg?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 16a723d9-db50-4100-4962-08de26c60731
+X-MS-Exchange-CrossTenant-AuthSource: DB9PR04MB9626.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2025 17:15:10.3409
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: gow3Ran90rCQMnMa49c2gbcCxyVS8UWXhRNlTTUQjqdHlF2Q8DZDNfPuWy68GhsT3LeWxeW/1x2QXQxJ8Z8PuA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB8PR04MB7180
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251118_091457_072212_A620698A 
-X-CRM114-Status: GOOD (  23.02  )
+X-CRM114-CacheID: sfid-20251118_091518_240048_A71E187A 
+X-CRM114-Status: GOOD (  27.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,152 +174,857 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 17/11/2025 14:30, Jinjie Ruan wrote:
-> [...]
+On Tue, Nov 18, 2025 at 12:12:26PM +0100, Michael Riesch via B4 Relay wrote:
+> From: Michael Riesch <michael.riesch@collabora.com>
 >
-> diff --git a/arch/arm64/include/asm/syscall.h b/arch/arm64/include/asm/syscall.h
-> index 6225981fbbdb..c91938718468 100644
-> --- a/arch/arm64/include/asm/syscall.h
-> +++ b/arch/arm64/include/asm/syscall.h
-> @@ -9,6 +9,8 @@
->  #include <linux/compat.h>
->  #include <linux/err.h>
->  
-> +#include <asm/vdso.h>
+> The Rockchip MIPI CSI-2 Receiver is a CSI-2 bridge with one input
+> port and one output port. It receives the data with the help of an
+> external MIPI PHY (C-PHY or D-PHY) and passes it to the Rockchip
+> Video Capture (VICAP) block.
+>
+> Add a V4L2 subdevice driver for this unit.
+>
+> Signed-off-by: Michael Riesch <michael.riesch@wolfvision.net>
+> Reviewed-by: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
+> Reviewed-by: Mehdi Djait <mehdi.djait@linux.intel.com>
+> Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
+> ---
+>  MAINTAINERS                                    |   1 +
+>  drivers/media/platform/rockchip/Kconfig        |   1 +
+>  drivers/media/platform/rockchip/Makefile       |   1 +
+>  drivers/media/platform/rockchip/rkcsi/Kconfig  |  16 +
+>  drivers/media/platform/rockchip/rkcsi/Makefile |   3 +
+>  drivers/media/platform/rockchip/rkcsi/rkcsi.c  | 742 +++++++++++++++++++++++++
+>  6 files changed, 764 insertions(+)
+>
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index 145473671a4a..b389f2e631ce 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -22304,6 +22304,7 @@ M:	Michael Riesch <michael.riesch@collabora.com>
+>  L:	linux-media@vger.kernel.org
+>  S:	Maintained
+>  F:	Documentation/devicetree/bindings/media/rockchip,rk3568-mipi-csi.yaml
+> +F:	drivers/media/platform/rockchip/rkcsi/
+>
+>  ROCKCHIP RK3568 RANDOM NUMBER GENERATOR SUPPORT
+>  M:	Daniel Golle <daniel@makrotopia.org>
+> diff --git a/drivers/media/platform/rockchip/Kconfig b/drivers/media/platform/rockchip/Kconfig
+> index ba401d32f01b..54b698c4cd2c 100644
+> --- a/drivers/media/platform/rockchip/Kconfig
+> +++ b/drivers/media/platform/rockchip/Kconfig
+> @@ -4,5 +4,6 @@ comment "Rockchip media platform drivers"
+>
+>  source "drivers/media/platform/rockchip/rga/Kconfig"
+>  source "drivers/media/platform/rockchip/rkcif/Kconfig"
+> +source "drivers/media/platform/rockchip/rkcsi/Kconfig"
+>  source "drivers/media/platform/rockchip/rkisp1/Kconfig"
+>  source "drivers/media/platform/rockchip/rkvdec/Kconfig"
+> diff --git a/drivers/media/platform/rockchip/Makefile b/drivers/media/platform/rockchip/Makefile
+> index 0e0b2cbbd4bd..522a7d3e30b0 100644
+> --- a/drivers/media/platform/rockchip/Makefile
+> +++ b/drivers/media/platform/rockchip/Makefile
+> @@ -1,5 +1,6 @@
+>  # SPDX-License-Identifier: GPL-2.0-only
+>  obj-y += rga/
+>  obj-y += rkcif/
+> +obj-y += rkcsi/
+>  obj-y += rkisp1/
+>  obj-y += rkvdec/
+> diff --git a/drivers/media/platform/rockchip/rkcsi/Kconfig b/drivers/media/platform/rockchip/rkcsi/Kconfig
+> new file mode 100644
+> index 000000000000..d8004198c386
+> --- /dev/null
+> +++ b/drivers/media/platform/rockchip/rkcsi/Kconfig
+> @@ -0,0 +1,16 @@
+> +config VIDEO_ROCKCHIP_CSI
+> +	tristate "Rockchip MIPI CSI-2 Receiver"
+> +	depends on VIDEO_DEV
+> +	depends on ARCH_ROCKCHIP || COMPILE_TEST
+> +	depends on V4L_PLATFORM_DRIVERS
+> +	depends on PM && COMMON_CLK
+> +	select MEDIA_CONTROLLER
+> +	select V4L2_FWNODE
+> +	select VIDEO_V4L2_SUBDEV_API
+> +	help
+> +	  This is a driver for Rockchip MIPI CSI-2 Receiver. It is featured
+> +	  in various Rockchips SoCs, usually in combination with a Video
+> +	  Capture (VICAP) unit (see Rockchip Camera Interface (CIF) driver).
 > +
->  typedef long (*syscall_fn_t)(const struct pt_regs *regs);
->  
->  extern const syscall_fn_t sys_call_table[];
-> @@ -114,12 +116,30 @@ static inline int syscall_get_arch(struct task_struct *task)
->  	return AUDIT_ARCH_AARCH64;
->  }
->  
-> -static inline bool has_syscall_work(unsigned long flags)
-> +static inline bool arch_syscall_is_vdso_sigreturn(struct pt_regs *regs)
->  {
-> -	return unlikely(flags & _TIF_SYSCALL_WORK);
-> -}
-> +	unsigned long vdso = (unsigned long)current->mm->context.vdso;
-> +	unsigned long vdso_pages, vdso_text_len;
-> +	unsigned long pc = regs->pc - 4;
-
-On AArch32 (i.e. COMPAT), instructions may be 16-bit (in T32/Thumb), so
-we shouldn't blindly use PC - 4.
-
->  
-> -int syscall_trace_enter(struct pt_regs *regs, long syscall, unsigned long flags);
-> -void syscall_exit_to_user_mode_prepare(struct pt_regs *regs);
-> +#ifdef CONFIG_COMPAT
-> +	if (is_compat_task()) {
-> +		vdso = (unsigned long)current->mm->context.sigpage;
-> +		if (pc >= vdso && pc < vdso + PAGE_SIZE)
-
-Just return that expression (instead of true/false).
-
-I think the approach is reasonable, as we have 4 possible trampolines in
-COMPAT and they all live in a dedicated page. I don't think we need to
-worry about offsetting PC, because even if it points after the last
-trampoline, it will still fall within the page. IOW, just use the
-unmodified value of regs->pc.
-
-> +			return true;
+> +	  To compile this driver as a module, choose M here: the module
+> +	  will be called rockchip-mipi-csi.
+> diff --git a/drivers/media/platform/rockchip/rkcsi/Makefile b/drivers/media/platform/rockchip/rkcsi/Makefile
+> new file mode 100644
+> index 000000000000..147712cbb68a
+> --- /dev/null
+> +++ b/drivers/media/platform/rockchip/rkcsi/Makefile
+> @@ -0,0 +1,3 @@
+> +# SPDX-License-Identifier: GPL-2.0
+> +obj-$(CONFIG_VIDEO_ROCKCHIP_CSI) += rockchip-mipi-csi.o
+> +rockchip-mipi-csi-objs += rkcsi.o
+> diff --git a/drivers/media/platform/rockchip/rkcsi/rkcsi.c b/drivers/media/platform/rockchip/rkcsi/rkcsi.c
+> new file mode 100644
+> index 000000000000..d4108ce5bbf9
+> --- /dev/null
+> +++ b/drivers/media/platform/rockchip/rkcsi/rkcsi.c
+> @@ -0,0 +1,742 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * Rockchip MIPI CSI-2 Receiver Driver
+> + *
+> + * Copyright (C) 2019 Rockchip Electronics Co., Ltd.
+> + * Copyright (C) 2025 Michael Riesch <michael.riesch@wolfvision.net>
+> + * Copyright (C) 2025 Collabora, Ltd.
+> + */
 > +
-> +		return false;
-> +	}
-> +#endif
-> +	if (regs->syscallno != __NR_rt_sigreturn)
-> +		return false;
+> +#include <linux/clk.h>
+> +#include <linux/delay.h>
+> +#include <linux/io.h>
+> +#include <linux/module.h>
+> +#include <linux/of.h>
+> +#include <linux/of_graph.h>
+> +#include <linux/of_platform.h>
+> +#include <linux/phy/phy.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/pm_runtime.h>
+> +#include <linux/reset.h>
 > +
-> +	vdso_pages = (vdso_end - vdso_start) >> PAGE_SHIFT;
-> +	vdso_text_len = vdso_pages << PAGE_SHIFT;
-> +	if (pc < vdso || pc >= vdso + vdso_text_len)
-> +		return false;
+> +#include <media/mipi-csi2.h>
+> +#include <media/v4l2-ctrls.h>
+> +#include <media/v4l2-fwnode.h>
+> +#include <media/v4l2-subdev.h>
+> +
+> +#define CSI2HOST_N_LANES     0x04
+> +#define CSI2HOST_CSI2_RESETN 0x10
+> +#define CSI2HOST_PHY_STATE   0x14
+> +#define CSI2HOST_ERR1	     0x20
+> +#define CSI2HOST_ERR2	     0x24
+> +#define CSI2HOST_MSK1	     0x28
+> +#define CSI2HOST_MSK2	     0x2c
+> +#define CSI2HOST_CONTROL     0x40
 
-Why not use the same approach as x86 and simply check that regs->pc
-points after the trampoline? We already have a way to get the address of
-the vDSO's sigreturn trampoline on arm64:
-VDSO_SYMBOL(current->mm->context.vdso, sigtramp) (see signal.c). The
-trampoline consists of two instructions that cannot be changed (pretty
-much part of the ABI), so we could compare regs->pc with sigtramp + 8.
+Look like that is designware CSI2 controller, can we build common library
+for all dwc csi2 controller, instead of every vendor create individual one.
+
+First try at
+https://lore.kernel.org/linux-media/20250821-95_cam-v3-21-c9286fbb34b9@nxp.com/
+
+Toshiba have similar patch
+https://lore.kernel.org/linux-media/aPZd39riAxqfw3mT@lizhi-Precision-Tower-5810/
+
+Frank
 
 > +
-> +	return true;
+> +#define SW_CPHY_EN(x)	     ((x) << 0)
+> +#define SW_DSI_EN(x)	     ((x) << 4)
+> +#define SW_DATATYPE_FS(x)    ((x) << 8)
+> +#define SW_DATATYPE_FE(x)    ((x) << 14)
+> +#define SW_DATATYPE_LS(x)    ((x) << 20)
+> +#define SW_DATATYPE_LE(x)    ((x) << 26)
+> +
+> +#define RKCSI_CLKS_MAX	     1
+> +
+> +enum {
+> +	RKCSI_PAD_SINK,
+> +	RKCSI_PAD_SRC,
+> +	RKCSI_PAD_MAX,
+> +};
+> +
+> +struct rkcsi_format {
+> +	u32 code;
+> +	u8 depth;
+> +	u8 csi_dt;
+> +};
+> +
+> +struct rkcsi_device {
+> +	struct device *dev;
+> +
+> +	void __iomem *base_addr;
+> +	struct clk_bulk_data *clks;
+> +	unsigned int clks_num;
+> +	struct phy *phy;
+> +	struct reset_control *reset;
+> +
+> +	const struct rkcsi_format *formats;
+> +	unsigned int formats_num;
+> +
+> +	struct media_pad pads[RKCSI_PAD_MAX];
+> +	struct v4l2_async_notifier notifier;
+> +	struct v4l2_fwnode_endpoint vep;
+> +	struct v4l2_subdev sd;
+> +
+> +	struct v4l2_subdev *source_sd;
+> +	u32 source_pad;
+> +};
+> +
+> +static const struct v4l2_mbus_framefmt default_format = {
+> +	.width = 3840,
+> +	.height = 2160,
+> +	.code = MEDIA_BUS_FMT_SRGGB10_1X10,
+> +	.field = V4L2_FIELD_NONE,
+> +	.colorspace = V4L2_COLORSPACE_RAW,
+> +	.ycbcr_enc = V4L2_YCBCR_ENC_601,
+> +	.quantization = V4L2_QUANTIZATION_FULL_RANGE,
+> +	.xfer_func = V4L2_XFER_FUNC_NONE,
+> +};
+> +
+> +static const struct rkcsi_format formats[] = {
+> +	/* YUV formats */
+> +	{
+> +		.code = MEDIA_BUS_FMT_YUYV8_1X16,
+> +		.depth = 16,
+> +		.csi_dt = MIPI_CSI2_DT_YUV422_8B,
+> +	},
+> +	{
+> +		.code = MEDIA_BUS_FMT_UYVY8_1X16,
+> +		.depth = 16,
+> +		.csi_dt = MIPI_CSI2_DT_YUV422_8B,
+> +	},
+> +	{
+> +		.code = MEDIA_BUS_FMT_YVYU8_1X16,
+> +		.depth = 16,
+> +		.csi_dt = MIPI_CSI2_DT_YUV422_8B,
+> +	},
+> +	{
+> +		.code = MEDIA_BUS_FMT_VYUY8_1X16,
+> +		.depth = 16,
+> +		.csi_dt = MIPI_CSI2_DT_YUV422_8B,
+> +	},
+> +	/* RGB formats */
+> +	{
+> +		.code = MEDIA_BUS_FMT_RGB888_1X24,
+> +		.depth = 24,
+> +		.csi_dt = MIPI_CSI2_DT_RGB888,
+> +	},
+> +	{
+> +		.code = MEDIA_BUS_FMT_BGR888_1X24,
+> +		.depth = 24,
+> +		.csi_dt = MIPI_CSI2_DT_RGB888,
+> +	},
+> +	/* Bayer formats */
+> +	{
+> +		.code = MEDIA_BUS_FMT_SBGGR8_1X8,
+> +		.depth = 8,
+> +		.csi_dt = MIPI_CSI2_DT_RAW8,
+> +	},
+> +	{
+> +		.code = MEDIA_BUS_FMT_SGBRG8_1X8,
+> +		.depth = 8,
+> +		.csi_dt = MIPI_CSI2_DT_RAW8,
+> +	},
+> +	{
+> +		.code = MEDIA_BUS_FMT_SGRBG8_1X8,
+> +		.depth = 8,
+> +		.csi_dt = MIPI_CSI2_DT_RAW8,
+> +	},
+> +	{
+> +		.code = MEDIA_BUS_FMT_SRGGB8_1X8,
+> +		.depth = 8,
+> +		.csi_dt = MIPI_CSI2_DT_RAW8,
+> +	},
+> +	{
+> +		.code = MEDIA_BUS_FMT_SBGGR10_1X10,
+> +		.depth = 10,
+> +		.csi_dt = MIPI_CSI2_DT_RAW10,
+> +	},
+> +	{
+> +		.code = MEDIA_BUS_FMT_SGBRG10_1X10,
+> +		.depth = 10,
+> +		.csi_dt = MIPI_CSI2_DT_RAW10,
+> +	},
+> +	{
+> +		.code = MEDIA_BUS_FMT_SGRBG10_1X10,
+> +		.depth = 10,
+> +		.csi_dt = MIPI_CSI2_DT_RAW10,
+> +	},
+> +	{
+> +		.code = MEDIA_BUS_FMT_SRGGB10_1X10,
+> +		.depth = 10,
+> +		.csi_dt = MIPI_CSI2_DT_RAW10,
+> +	},
+> +	{
+> +		.code = MEDIA_BUS_FMT_SBGGR12_1X12,
+> +		.depth = 12,
+> +		.csi_dt = MIPI_CSI2_DT_RAW12,
+> +	},
+> +	{
+> +		.code = MEDIA_BUS_FMT_SGBRG12_1X12,
+> +		.depth = 12,
+> +		.csi_dt = MIPI_CSI2_DT_RAW12,
+> +	},
+> +	{
+> +		.code = MEDIA_BUS_FMT_SGRBG12_1X12,
+> +		.depth = 12,
+> +		.csi_dt = MIPI_CSI2_DT_RAW12,
+> +	},
+> +	{
+> +		.code = MEDIA_BUS_FMT_SRGGB12_1X12,
+> +		.depth = 12,
+> +		.csi_dt = MIPI_CSI2_DT_RAW12,
+> +	},
+> +};
+> +
+> +static inline struct rkcsi_device *to_rkcsi(struct v4l2_subdev *sd)
+> +{
+> +	return container_of(sd, struct rkcsi_device, sd);
 > +}
->  #endif	/* __ASM_SYSCALL_H */
-> diff --git a/arch/arm64/include/asm/thread_info.h b/arch/arm64/include/asm/thread_info.h
-> index f241b8601ebd..0c083be23018 100644
-> --- a/arch/arm64/include/asm/thread_info.h
-> +++ b/arch/arm64/include/asm/thread_info.h
-> @@ -43,6 +43,7 @@ struct thread_info {
->  	void			*scs_sp;
->  #endif
->  	u32			cpu;
-> +	unsigned long		syscall_work;   /* SYSCALL_WORK_ flags */
->  };
->  
->  #define thread_saved_pc(tsk)	\
-> @@ -65,11 +66,6 @@ void arch_setup_new_exec(void);
->  #define TIF_UPROBE		5	/* uprobe breakpoint or singlestep */
->  #define TIF_MTE_ASYNC_FAULT	6	/* MTE Asynchronous Tag Check Fault */
->  #define TIF_NOTIFY_SIGNAL	7	/* signal notifications exist */
-> -#define TIF_SYSCALL_TRACE	8	/* syscall trace active */
-> -#define TIF_SYSCALL_AUDIT	9	/* syscall auditing */
-> -#define TIF_SYSCALL_TRACEPOINT	10	/* syscall tracepoint for ftrace */
-> -#define TIF_SECCOMP		11	/* syscall secure computing */
-> -#define TIF_SYSCALL_EMU		12	/* syscall emulation active */
->  #define TIF_PATCH_PENDING	13	/* pending live patching update */
->  #define TIF_MEMDIE		18	/* is terminating due to OOM killer */
->  #define TIF_FREEZE		19
-> @@ -92,30 +88,14 @@ void arch_setup_new_exec(void);
->  #define _TIF_NEED_RESCHED_LAZY	(1 << TIF_NEED_RESCHED_LAZY)
->  #define _TIF_NOTIFY_RESUME	(1 << TIF_NOTIFY_RESUME)
->  #define _TIF_FOREIGN_FPSTATE	(1 << TIF_FOREIGN_FPSTATE)
-> -#define _TIF_SYSCALL_TRACE	(1 << TIF_SYSCALL_TRACE)
-> -#define _TIF_SYSCALL_AUDIT	(1 << TIF_SYSCALL_AUDIT)
-> -#define _TIF_SYSCALL_TRACEPOINT	(1 << TIF_SYSCALL_TRACEPOINT)
-> -#define _TIF_SECCOMP		(1 << TIF_SECCOMP)
-> -#define _TIF_SYSCALL_EMU	(1 << TIF_SYSCALL_EMU)
->  #define _TIF_PATCH_PENDING	(1 << TIF_PATCH_PENDING)
->  #define _TIF_UPROBE		(1 << TIF_UPROBE)
-> -#define _TIF_SINGLESTEP		(1 << TIF_SINGLESTEP)
->  #define _TIF_32BIT		(1 << TIF_32BIT)
->  #define _TIF_SVE		(1 << TIF_SVE)
->  #define _TIF_MTE_ASYNC_FAULT	(1 << TIF_MTE_ASYNC_FAULT)
->  #define _TIF_NOTIFY_SIGNAL	(1 << TIF_NOTIFY_SIGNAL)
->  #define _TIF_TSC_SIGSEGV	(1 << TIF_TSC_SIGSEGV)
->  
-> -#define _TIF_WORK_MASK		(_TIF_NEED_RESCHED | _TIF_NEED_RESCHED_LAZY | \
-> -				 _TIF_NOTIFY_RESUME | _TIF_FOREIGN_FPSTATE | \
-> -				 _TIF_UPROBE | _TIF_MTE_ASYNC_FAULT | \
-> -				 _TIF_NOTIFY_SIGNAL | _TIF_SIGPENDING | \
-> -				 _TIF_PATCH_PENDING)
-
-AFAICT this was already unused before this series, since commit
-b3cf07851b6c ("arm64: entry: Switch to generic IRQ entry"). It should be
-removed in a separate commit.
-
-> [...]
+> +
+> +static inline __maybe_unused void rkcsi_write(struct rkcsi_device *csi_dev,
+> +					      unsigned int addr, u32 val)
+> +{
+> +	writel(val, csi_dev->base_addr + addr);
+> +}
+> +
+> +static inline __maybe_unused u32 rkcsi_read(struct rkcsi_device *csi_dev,
+> +					    unsigned int addr)
+> +{
+> +	return readl(csi_dev->base_addr + addr);
+> +}
+> +
+> +static const struct rkcsi_format *
+> +rkcsi_find_format(struct rkcsi_device *csi_dev, u32 mbus_code)
+> +{
+> +	const struct rkcsi_format *format;
+> +
+> +	WARN_ON(csi_dev->formats_num == 0);
+> +
+> +	for (int i = 0; i < csi_dev->formats_num; i++) {
+> +		format = &csi_dev->formats[i];
+> +		if (format->code == mbus_code)
+> +			return format;
+> +	}
+> +
+> +	return NULL;
+> +}
+> +
+> +static int rkcsi_start(struct rkcsi_device *csi_dev)
+> +{
+> +	struct media_pad *source_pad =
+> +		&csi_dev->source_sd->entity.pads[csi_dev->source_pad];
+> +	enum v4l2_mbus_type bus_type = csi_dev->vep.bus_type;
+> +	union phy_configure_opts opts;
+> +	s64 link_freq;
+> +	u32 lanes = csi_dev->vep.bus.mipi_csi2.num_data_lanes;
+> +	u32 control = 0;
+> +	int ret;
+> +
+> +	if (lanes < 1 || lanes > 4)
+> +		return -EINVAL;
+> +
+> +	/* set mult and div to 0, thus completely rely on V4L2_CID_LINK_FREQ */
+> +	link_freq = v4l2_get_link_freq(source_pad, 0, 0);
+> +	if (link_freq <= 0)
+> +		return -EINVAL;
+> +
+> +	if (bus_type == V4L2_MBUS_CSI2_DPHY) {
+> +		struct phy_configure_opts_mipi_dphy *cfg = &opts.mipi_dphy;
+> +
+> +		ret = phy_mipi_dphy_get_default_config_for_hsclk(link_freq * 2,
+> +								 lanes, cfg);
+> +		if (ret)
+> +			return ret;
+> +
+> +		ret = phy_set_mode(csi_dev->phy, PHY_MODE_MIPI_DPHY);
+> +		if (ret)
+> +			return ret;
+> +
+> +		ret = phy_configure(csi_dev->phy, &opts);
+> +		if (ret)
+> +			return ret;
+> +
+> +		control |= SW_CPHY_EN(0);
+> +
+> +	} else if (bus_type == V4L2_MBUS_CSI2_CPHY) {
+> +		/* TODO: implement CPHY configuration */
+> +		return -EOPNOTSUPP;
+> +	} else {
+> +		return -EINVAL;
+> +	}
+> +
+> +	control |= SW_DATATYPE_FS(0x00) | SW_DATATYPE_FE(0x01) |
+> +		   SW_DATATYPE_LS(0x02) | SW_DATATYPE_LE(0x03);
+> +
+> +	rkcsi_write(csi_dev, CSI2HOST_N_LANES, lanes - 1);
+> +	rkcsi_write(csi_dev, CSI2HOST_CONTROL, control);
+> +	rkcsi_write(csi_dev, CSI2HOST_CSI2_RESETN, 1);
+> +
+> +	ret = phy_power_on(csi_dev->phy);
+> +	if (ret)
+> +		return ret;
+> +
+> +	return 0;
+> +}
+> +
+> +static void rkcsi_stop(struct rkcsi_device *csi_dev)
+> +{
+> +	phy_power_off(csi_dev->phy);
+> +
+> +	rkcsi_write(csi_dev, CSI2HOST_CSI2_RESETN, 0);
+> +	rkcsi_write(csi_dev, CSI2HOST_MSK1, ~0);
+> +	rkcsi_write(csi_dev, CSI2HOST_MSK2, ~0);
+> +}
+> +
+> +static const struct media_entity_operations rkcsi_media_ops = {
+> +	.link_validate = v4l2_subdev_link_validate,
+> +};
+> +
+> +static int rkcsi_enum_mbus_code(struct v4l2_subdev *sd,
+> +				struct v4l2_subdev_state *sd_state,
+> +				struct v4l2_subdev_mbus_code_enum *code)
+> +{
+> +	struct rkcsi_device *csi_dev = to_rkcsi(sd);
+> +
+> +	if (code->pad == RKCSI_PAD_SRC) {
+> +		const struct v4l2_mbus_framefmt *sink_fmt;
+> +
+> +		if (code->index)
+> +			return -EINVAL;
+> +
+> +		sink_fmt = v4l2_subdev_state_get_format(sd_state,
+> +							RKCSI_PAD_SINK);
+> +		code->code = sink_fmt->code;
+> +
+> +		return 0;
+> +	} else if (code->pad == RKCSI_PAD_SINK) {
+> +		if (code->index > csi_dev->formats_num)
+> +			return -EINVAL;
+> +
+> +		code->code = csi_dev->formats[code->index].code;
+> +		return 0;
+> +	}
+> +
+> +	return -EINVAL;
+> +}
+> +
+> +static int rkcsi_set_fmt(struct v4l2_subdev *sd,
+> +			 struct v4l2_subdev_state *state,
+> +			 struct v4l2_subdev_format *format)
+> +{
+> +	struct rkcsi_device *csi_dev = to_rkcsi(sd);
+> +	const struct rkcsi_format *fmt;
+> +	struct v4l2_mbus_framefmt *sink, *src;
+> +
+> +	/* the format on the source pad always matches the sink pad */
+> +	if (format->pad == RKCSI_PAD_SRC)
+> +		return v4l2_subdev_get_fmt(sd, state, format);
+> +
+> +	sink = v4l2_subdev_state_get_format(state, format->pad, format->stream);
+> +	if (!sink)
+> +		return -EINVAL;
+> +
+> +	fmt = rkcsi_find_format(csi_dev, format->format.code);
+> +	if (!fmt)
+> +		format->format = default_format;
+> +
+> +	*sink = format->format;
+> +
+> +	/* propagate the format to the source pad */
+> +	src = v4l2_subdev_state_get_opposite_stream_format(state, format->pad,
+> +							   format->stream);
+> +	if (!src)
+> +		return -EINVAL;
+> +
+> +	*src = *sink;
+> +
+> +	return 0;
+> +}
+> +
+> +static int rkcsi_set_routing(struct v4l2_subdev *sd,
+> +			     struct v4l2_subdev_state *state,
+> +			     enum v4l2_subdev_format_whence which,
+> +			     struct v4l2_subdev_krouting *routing)
+> +{
+> +	int ret;
+> +
+> +	ret = v4l2_subdev_routing_validate(sd, routing,
+> +					   V4L2_SUBDEV_ROUTING_ONLY_1_TO_1);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret = v4l2_subdev_set_routing_with_fmt(sd, state, routing,
+> +					       &default_format);
+> +	if (ret)
+> +		return ret;
+> +
+> +	return 0;
+> +}
+> +
+> +static int rkcsi_enable_streams(struct v4l2_subdev *sd,
+> +				struct v4l2_subdev_state *state, u32 pad,
+> +				u64 streams_mask)
+> +{
+> +	struct rkcsi_device *csi_dev = to_rkcsi(sd);
+> +	struct v4l2_subdev *remote_sd;
+> +	struct media_pad *sink_pad, *remote_pad;
+> +	struct device *dev = csi_dev->dev;
+> +	u64 mask;
+> +	int ret;
+> +
+> +	sink_pad = &sd->entity.pads[RKCSI_PAD_SINK];
+> +	remote_pad = media_pad_remote_pad_first(sink_pad);
+> +	remote_sd = media_entity_to_v4l2_subdev(remote_pad->entity);
+> +
+> +	mask = v4l2_subdev_state_xlate_streams(state, RKCSI_PAD_SINK,
+> +					       RKCSI_PAD_SRC, &streams_mask);
+> +
+> +	ret = pm_runtime_resume_and_get(dev);
+> +	if (ret)
+> +		goto err;
+> +
+> +	ret = rkcsi_start(csi_dev);
+> +	if (ret) {
+> +		dev_err(dev, "failed to enable CSI hardware\n");
+> +		goto err_pm_runtime_put;
+> +	}
+> +
+> +	ret = v4l2_subdev_enable_streams(remote_sd, remote_pad->index, mask);
+> +	if (ret)
+> +		goto err_csi_stop;
+> +
+> +	return 0;
+> +
+> +err_csi_stop:
+> +	rkcsi_stop(csi_dev);
+> +err_pm_runtime_put:
+> +	pm_runtime_put_sync(dev);
+> +err:
+> +	return ret;
+> +}
+> +
+> +static int rkcsi_disable_streams(struct v4l2_subdev *sd,
+> +				 struct v4l2_subdev_state *state, u32 pad,
+> +				 u64 streams_mask)
+> +{
+> +	struct rkcsi_device *csi_dev = to_rkcsi(sd);
+> +	struct v4l2_subdev *remote_sd;
+> +	struct media_pad *sink_pad, *remote_pad;
+> +	struct device *dev = csi_dev->dev;
+> +	u64 mask;
+> +	int ret;
+> +
+> +	sink_pad = &sd->entity.pads[RKCSI_PAD_SINK];
+> +	remote_pad = media_pad_remote_pad_first(sink_pad);
+> +	remote_sd = media_entity_to_v4l2_subdev(remote_pad->entity);
+> +
+> +	mask = v4l2_subdev_state_xlate_streams(state, RKCSI_PAD_SINK,
+> +					       RKCSI_PAD_SRC, &streams_mask);
+> +
+> +	ret = v4l2_subdev_disable_streams(remote_sd, remote_pad->index, mask);
+> +
+> +	rkcsi_stop(csi_dev);
+> +
+> +	pm_runtime_mark_last_busy(dev);
+> +	pm_runtime_put_autosuspend(dev);
+> +
+> +	return ret;
+> +}
+> +
+> +static const struct v4l2_subdev_pad_ops rkcsi_pad_ops = {
+> +	.enum_mbus_code = rkcsi_enum_mbus_code,
+> +	.get_fmt = v4l2_subdev_get_fmt,
+> +	.set_fmt = rkcsi_set_fmt,
+> +	.set_routing = rkcsi_set_routing,
+> +	.enable_streams = rkcsi_enable_streams,
+> +	.disable_streams = rkcsi_disable_streams,
+> +};
+> +
+> +static const struct v4l2_subdev_ops rkcsi_ops = {
+> +	.pad = &rkcsi_pad_ops,
+> +};
+> +
+> +static int rkcsi_init_state(struct v4l2_subdev *sd,
+> +			    struct v4l2_subdev_state *state)
+> +{
+> +	struct v4l2_subdev_route routes[] = {
+> +		{
+> +			.sink_pad = RKCSI_PAD_SINK,
+> +			.sink_stream = 0,
+> +			.source_pad = RKCSI_PAD_SRC,
+> +			.source_stream = 0,
+> +			.flags = V4L2_SUBDEV_ROUTE_FL_ACTIVE,
+> +		},
+> +	};
+> +	struct v4l2_subdev_krouting routing = {
+> +		.len_routes = ARRAY_SIZE(routes),
+> +		.num_routes = ARRAY_SIZE(routes),
+> +		.routes = routes,
+> +	};
+> +	int ret;
+> +
+> +	ret = v4l2_subdev_set_routing_with_fmt(sd, state, &routing,
+> +					       &default_format);
+> +
+> +	return ret;
+> +}
+> +
+> +static const struct v4l2_subdev_internal_ops rkcsi_internal_ops = {
+> +	.init_state = rkcsi_init_state,
+> +};
+> +
+> +static int rkcsi_notifier_bound(struct v4l2_async_notifier *notifier,
+> +				struct v4l2_subdev *sd,
+> +				struct v4l2_async_connection *asd)
+> +{
+> +	struct rkcsi_device *csi_dev =
+> +		container_of(notifier, struct rkcsi_device, notifier);
+> +	int source_pad;
+> +
+> +	source_pad = media_entity_get_fwnode_pad(&sd->entity, sd->fwnode,
+> +						 MEDIA_PAD_FL_SOURCE);
+> +	if (source_pad < 0) {
+> +		dev_err(csi_dev->dev, "failed to find source pad for %s\n",
+> +			sd->name);
+> +		return source_pad;
+> +	}
+> +
+> +	csi_dev->source_sd = sd;
+> +	csi_dev->source_pad = source_pad;
+> +
+> +	return media_create_pad_link(&sd->entity, source_pad,
+> +				     &csi_dev->sd.entity, RKCSI_PAD_SINK,
+> +				     MEDIA_LNK_FL_ENABLED);
+> +}
+> +
+> +static const struct v4l2_async_notifier_operations rkcsi_notifier_ops = {
+> +	.bound = rkcsi_notifier_bound,
+> +};
+> +
+> +static int rkcsi_register_notifier(struct rkcsi_device *csi_dev)
+> +{
+> +	struct v4l2_async_connection *asd;
+> +	struct v4l2_async_notifier *ntf = &csi_dev->notifier;
+> +	struct v4l2_fwnode_endpoint *vep = &csi_dev->vep;
+> +	struct v4l2_subdev *sd = &csi_dev->sd;
+> +	struct device *dev = csi_dev->dev;
+> +	struct fwnode_handle *ep;
+> +	int ret = 0;
+> +
+> +	ep = fwnode_graph_get_endpoint_by_id(dev_fwnode(dev), 0, 0, 0);
+> +	if (!ep)
+> +		return dev_err_probe(dev, -ENODEV, "failed to get endpoint\n");
+> +
+> +	vep->bus_type = V4L2_MBUS_UNKNOWN;
+> +	ret = v4l2_fwnode_endpoint_parse(ep, vep);
+> +	if (ret) {
+> +		ret = dev_err_probe(dev, ret, "failed to parse endpoint\n");
+> +		goto out;
+> +	}
+> +
+> +	if (vep->bus_type != V4L2_MBUS_CSI2_DPHY &&
+> +	    vep->bus_type != V4L2_MBUS_CSI2_CPHY) {
+> +		ret = dev_err_probe(dev, -EINVAL,
+> +				    "invalid bus type of endpoint\n");
+> +		goto out;
+> +	}
+> +
+> +	v4l2_async_subdev_nf_init(ntf, sd);
+> +	ntf->ops = &rkcsi_notifier_ops;
+> +
+> +	asd = v4l2_async_nf_add_fwnode_remote(ntf, ep,
+> +					      struct v4l2_async_connection);
+> +	if (IS_ERR(asd)) {
+> +		ret = PTR_ERR(asd);
+> +		goto err_nf_cleanup;
+> +	}
+> +
+> +	ret = v4l2_async_nf_register(ntf);
+> +	if (ret) {
+> +		ret = dev_err_probe(dev, ret, "failed to register notifier\n");
+> +		goto err_nf_cleanup;
+> +	}
+> +
+> +	goto out;
+> +
+> +err_nf_cleanup:
+> +	v4l2_async_nf_cleanup(ntf);
+> +out:
+> +	fwnode_handle_put(ep);
+> +	return ret;
+> +}
+> +
+> +static int rkcsi_register(struct rkcsi_device *csi_dev)
+> +{
+> +	struct media_pad *pads = csi_dev->pads;
+> +	struct v4l2_subdev *sd = &csi_dev->sd;
+> +	int ret;
+> +
+> +	ret = rkcsi_register_notifier(csi_dev);
+> +	if (ret)
+> +		goto err;
+> +
+> +	v4l2_subdev_init(sd, &rkcsi_ops);
+> +	sd->dev = csi_dev->dev;
+> +	sd->entity.ops = &rkcsi_media_ops;
+> +	sd->entity.function = MEDIA_ENT_F_VID_IF_BRIDGE;
+> +	sd->flags |= V4L2_SUBDEV_FL_HAS_DEVNODE | V4L2_SUBDEV_FL_STREAMS;
+> +	sd->internal_ops = &rkcsi_internal_ops;
+> +	sd->owner = THIS_MODULE;
+> +	snprintf(sd->name, sizeof(sd->name), "rockchip-mipi-csi %s",
+> +		 dev_name(csi_dev->dev));
+> +
+> +	pads[RKCSI_PAD_SINK].flags = MEDIA_PAD_FL_SINK |
+> +				     MEDIA_PAD_FL_MUST_CONNECT;
+> +	pads[RKCSI_PAD_SRC].flags = MEDIA_PAD_FL_SOURCE;
+> +	ret = media_entity_pads_init(&sd->entity, RKCSI_PAD_MAX, pads);
+> +	if (ret)
+> +		goto err_notifier_unregister;
+> +
+> +	ret = v4l2_subdev_init_finalize(sd);
+> +	if (ret)
+> +		goto err_entity_cleanup;
+> +
+> +	ret = v4l2_async_register_subdev(sd);
+> +	if (ret) {
+> +		dev_err(sd->dev, "failed to register CSI subdev\n");
+> +		goto err_subdev_cleanup;
+> +	}
+> +
+> +	return 0;
+> +
+> +err_subdev_cleanup:
+> +	v4l2_subdev_cleanup(sd);
+> +err_entity_cleanup:
+> +	media_entity_cleanup(&sd->entity);
+> +err_notifier_unregister:
+> +	v4l2_async_nf_unregister(&csi_dev->notifier);
+> +	v4l2_async_nf_cleanup(&csi_dev->notifier);
+> +err:
+> +	return ret;
+> +}
+> +
+> +static void rkcsi_unregister(struct rkcsi_device *csi_dev)
+> +{
+> +	struct v4l2_subdev *sd = &csi_dev->sd;
+> +
+> +	v4l2_async_unregister_subdev(sd);
+> +	v4l2_subdev_cleanup(sd);
+> +	media_entity_cleanup(&sd->entity);
+> +	v4l2_async_nf_unregister(&csi_dev->notifier);
+> +	v4l2_async_nf_cleanup(&csi_dev->notifier);
+> +}
+> +
+> +static const struct of_device_id rkcsi_of_match[] = {
+> +	{
+> +		.compatible = "rockchip,rk3568-mipi-csi",
+> +	},
+> +	{}
+> +};
+> +MODULE_DEVICE_TABLE(of, rkcsi_of_match);
+> +
+> +static int rkcsi_probe(struct platform_device *pdev)
+> +{
+> +	struct device *dev = &pdev->dev;
+> +	struct rkcsi_device *csi_dev;
+> +	int ret;
+> +
+> +	csi_dev = devm_kzalloc(dev, sizeof(*csi_dev), GFP_KERNEL);
+> +	if (!csi_dev)
+> +		return -ENOMEM;
+> +	csi_dev->dev = dev;
+> +	dev_set_drvdata(dev, csi_dev);
+> +
+> +	csi_dev->base_addr = devm_platform_ioremap_resource(pdev, 0);
+> +	if (IS_ERR(csi_dev->base_addr))
+> +		return PTR_ERR(csi_dev->base_addr);
+> +
+> +	ret = devm_clk_bulk_get_all(dev, &csi_dev->clks);
+> +	if (ret != RKCSI_CLKS_MAX)
+> +		return dev_err_probe(dev, -ENODEV, "failed to get clocks\n");
+> +	csi_dev->clks_num = ret;
+> +
+> +	csi_dev->phy = devm_phy_get(dev, NULL);
+> +	if (IS_ERR(csi_dev->phy))
+> +		return dev_err_probe(dev, PTR_ERR(csi_dev->phy),
+> +				     "failed to get MIPI CSI PHY\n");
+> +
+> +	csi_dev->reset = devm_reset_control_get_exclusive(dev, NULL);
+> +	if (IS_ERR(csi_dev->reset))
+> +		return dev_err_probe(dev, PTR_ERR(csi_dev->reset),
+> +				     "failed to get reset\n");
+> +
+> +	csi_dev->formats = formats;
+> +	csi_dev->formats_num = ARRAY_SIZE(formats);
+> +
+> +	pm_runtime_enable(dev);
+> +
+> +	ret = phy_init(csi_dev->phy);
+> +	if (ret) {
+> +		ret = dev_err_probe(dev, ret,
+> +				    "failed to initialize MIPI CSI PHY\n");
+> +		goto err_pm_runtime_disable;
+> +	}
+> +
+> +	ret = rkcsi_register(csi_dev);
+> +	if (ret)
+> +		goto err_phy_exit;
+> +
+> +	return 0;
+> +
+> +err_phy_exit:
+> +	phy_exit(csi_dev->phy);
+> +err_pm_runtime_disable:
+> +	pm_runtime_disable(dev);
+> +	return ret;
+> +}
+> +
+> +static void rkcsi_remove(struct platform_device *pdev)
+> +{
+> +	struct rkcsi_device *csi_dev = platform_get_drvdata(pdev);
+> +	struct device *dev = &pdev->dev;
+> +
+> +	rkcsi_unregister(csi_dev);
+> +	phy_exit(csi_dev->phy);
+> +	pm_runtime_disable(dev);
+> +}
+> +
+> +static int rkcsi_runtime_suspend(struct device *dev)
+> +{
+> +	struct rkcsi_device *csi_dev = dev_get_drvdata(dev);
+> +
+> +	clk_bulk_disable_unprepare(csi_dev->clks_num, csi_dev->clks);
+> +
+> +	return 0;
+> +}
+> +
+> +static int rkcsi_runtime_resume(struct device *dev)
+> +{
+> +	struct rkcsi_device *csi_dev = dev_get_drvdata(dev);
+> +	int ret;
+> +
+> +	reset_control_assert(csi_dev->reset);
+> +	udelay(5);
+> +	reset_control_deassert(csi_dev->reset);
+> +
+> +	ret = clk_bulk_prepare_enable(csi_dev->clks_num, csi_dev->clks);
+> +	if (ret) {
+> +		dev_err(dev, "failed to enable clocks\n");
+> +		return ret;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static const struct dev_pm_ops rkcsi_pm_ops = {
+> +	.runtime_suspend = rkcsi_runtime_suspend,
+> +	.runtime_resume = rkcsi_runtime_resume,
+> +};
+> +
+> +static struct platform_driver rkcsi_drv = {
+> +	.driver = {
+> +		   .name = "rockchip-mipi-csi",
+> +		   .of_match_table = rkcsi_of_match,
+> +		   .pm = &rkcsi_pm_ops,
+> +	},
+> +	.probe = rkcsi_probe,
+> +	.remove = rkcsi_remove,
+> +};
+> +module_platform_driver(rkcsi_drv);
+> +
+> +MODULE_DESCRIPTION("Rockchip MIPI CSI-2 Receiver platform driver");
+> +MODULE_LICENSE("GPL");
 >
-> -void syscall_exit_to_user_mode_prepare(struct pt_regs *regs)
-> -{
-> -	unsigned long flags = read_thread_flags();
-> -
-> -	rseq_syscall(regs);
-> -
-> -	if (has_syscall_work(flags) || flags & _TIF_SINGLESTEP)
-
-I believe switching to the generic function introduces a change here:
-syscall_exit_work() is only called if a flag in SYSCALL_WORK_EXIT is
-set, and this set does not include SYSCALL_EMU and SECCOMP. Practically
-this means that audit_syscall_exit() will no longer be called if only
-SECCOMP and/or SYSCALL_EMU is set.
-
-It doesn't feel like a major behaviour change, but it should be pointed out.
-
-- Kevin
-
-> -		syscall_trace_exit(regs, flags);
-> -}
+> --
+> 2.39.5
 >
-> [...]
+>
 
