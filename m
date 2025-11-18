@@ -4,73 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4510DCCD19A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 07:29:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64D62CCD19A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 07:37:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:CC:To:
-	Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5gIGnGRcLf8t2W8efWudyJsLJCWbakw7lPbWiXe7B4s=; b=lU6kUtqjD+W5ujW0q8kFaGveNK
-	tj5q5x+lD4m0aKhrKdFp+keVo6A3DAljWY23U4zjqqfzRX4zfbElyPU4O32RyN710HZf/RaI0pu69
-	56mVTINB3/O9XXtIakyCdtidCpycDNDrhWT6vEcsURSVOAp8o4Xm0jhO3qutqqd1j7liPhdy0CB00
-	yCGT5QOOREOF82m/W8M7XW/yd871ogIzdmyJLd23lGRcksPyGuzLLzblpyUMGv47shQg+0Rtyiq44
-	ia1A2hubsIoFX0bhKi1bRejzVVYjXrAMBTNyM+frjcUbC6/kv/X+3lKaJo0RLdADJ/+vZGhXQgMb2
-	vVdrsm5A==;
+	bh=4QiRiDhSqT4fLCQcU+UjOzbWSkk4b4aDS7SspI0AxSc=; b=nW6t1jy/KM9qRKDA6x49gDNFkS
+	LfmYNnz6hKRbMC4Z+DTuz7PdU7EmZH6az4kirewEnV8gafQrOe+GyXniQKsX5Oe4v+rlwA5azDNHc
+	S91H0FiuVjdGCJKV81u+2bXlfYfnDX+esBEavW/fzl5hqQtUD7i7uOjEStVClheYzFHq6t8f02roO
+	DRu1C2ycmwMJ8pnD6PPU9hX/ls1GGLshHEGa4z5SG5kj4v7v+lnEjCxYHncExrybNthW+3jiiAQoB
+	NGzEXqxkGk7zCUsIQQyH3kYnr28N/Ewy82GB7jqk0tG2ZhQFJ9uekODrgWLiWrR/zctgwcllZLh86
+	tRoWZmwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLG9h-0000000HZEh-1OjR;
-	Tue, 18 Nov 2025 07:29:37 +0000
-Received: from canpmsgout10.his.huawei.com ([113.46.200.225])
+	id 1vLGHN-0000000HZuW-2dRg;
+	Tue, 18 Nov 2025 07:37:33 +0000
+Received: from fhigh-b5-smtp.messagingengine.com ([202.12.124.156])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLG9d-0000000HZE2-3ZIy
+	id 1vLGHK-0000000HZu3-0LCY
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Nov 2025 07:29:35 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=5gIGnGRcLf8t2W8efWudyJsLJCWbakw7lPbWiXe7B4s=;
-	b=5hcM+WWE3m/Diy8jP98F4LRZXomcwK6Rwve/19aNLAwOJtPnBiwf7JqAEragFLju796XVGh5U
-	J5GbyxNPT8QN2DT6zjRY5oMBa/zUZ+eHVVRvzVxzQyIESlMUGGwix955YEmtcivjkvdSHm48BSl
-	FDxm5v4gPZiYn5vM+wDHp/w=
-Received: from mail.maildlp.com (unknown [172.19.163.17])
-	by canpmsgout10.his.huawei.com (SkyGuard) with ESMTPS id 4d9bmW0wRpz1K96c;
-	Tue, 18 Nov 2025 15:27:39 +0800 (CST)
-Received: from dggpemf500002.china.huawei.com (unknown [7.185.36.57])
-	by mail.maildlp.com (Postfix) with ESMTPS id 92B7C1A0188;
-	Tue, 18 Nov 2025 15:29:20 +0800 (CST)
-Received: from [10.174.178.247] (10.174.178.247) by
- dggpemf500002.china.huawei.com (7.185.36.57) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Tue, 18 Nov 2025 15:29:19 +0800
-Subject: Re: [PATCH v4] ACPI: AGDI: Add interrupt signaling mode support
-To: Will Deacon <will@kernel.org>, Kazuhiro Abe <fj1078ii@aa.jp.fujitsu.com>
-CC: Lorenzo Pieralisi <lpieralisi@kernel.org>, Sudeep Holla
-	<sudeep.holla@arm.com>, "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown
-	<lenb@kernel.org>, <linux-acpi@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>, Ilkka
- Koskinen <ilkka@os.amperecomputing.com>, Catalin Marinas
-	<catalin.marinas@arm.com>
-References: <20251017073935.1746365-1-fj1078ii@aa.jp.fujitsu.com>
- <a93e845a-b084-a680-7158-68363c492b75@huawei.com>
- <aQokdBkjFqw9ZGRt@willie-the-truck>
-From: Hanjun Guo <guohanjun@huawei.com>
-Message-ID: <6b14156b-9734-f0e0-5954-57cc76576a37@huawei.com>
-Date: Tue, 18 Nov 2025 15:29:18 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:68.0) Gecko/20100101
- Thunderbird/68.6.0
+	Tue, 18 Nov 2025 07:37:31 +0000
+Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
+	by mailfhigh.stl.internal (Postfix) with ESMTP id 0E00F7A014E;
+	Tue, 18 Nov 2025 02:37:28 -0500 (EST)
+Received: from phl-imap-02 ([10.202.2.81])
+  by phl-compute-04.internal (MEProxy); Tue, 18 Nov 2025 02:37:28 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm3; t=1763451447;
+	 x=1763537847; bh=4QiRiDhSqT4fLCQcU+UjOzbWSkk4b4aDS7SspI0AxSc=; b=
+	XSg4GWDYB9Qc+u3oG85yZVloU4ekvHAIszyIEGREWA9NJLV543yh51rMlIN4eeYr
+	ODZP0w80+qPQqtXv1dJdictPjMMXsLpmtD7Hy013qaY5xK/k0Xb/ZBC7okEBGiy3
+	IwQrltZZ5picL5oe6HmlLTYcMpXJ0VmxEmRkStkqiyxO4EM87KVKoWKmnp/Q/RGI
+	JQTVa23WxrALPM7XcYxG+4f7ANtzULfG/Ps2O6Uz316F54reXtrUgUrt2InHdmV7
+	yZg4x6QzXmrWT2xg3KE5+Hc1ZkdnejkoRnrls2dpV03iPkrpOwJujkH/ZGela2Q0
+	sKL3xFxVy4U1r4xF05w1fw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1763451447; x=
+	1763537847; bh=4QiRiDhSqT4fLCQcU+UjOzbWSkk4b4aDS7SspI0AxSc=; b=w
+	AOhs6fXp32kzvOJeVWTEwCUEZiDWRgq89k6AX6VszCxGkoAbunAAPK3Gx13K6Y9a
+	oCvUBIS/0m8EApXiPVi4A+YhJLivudy7dKl2LYR9DMUIUjGY93KwRCjE8TxUzCOW
+	7gL2VaTEmNLKU8pOdpjHUqT+dwcj3QUd2oT8S5tGSwlFR88MC9sVyvvuKcRn/dh1
+	+ucX1OExpS0sJyay4r1G2emxGRuMR5pAM5UFEyFLP6b2Lzy8pxhaY9kU0Tcfl8na
+	sxoAgthuSsij6jkOUU6fYUZg5TtSQh7O8pUstQwAWr/5PvdinoDOBmPcm36c17ED
+	BzsadMqFNjxZDK7yt8zhw==
+X-ME-Sender: <xms:NyIcafPkiVxBWIcFP8mNGDVcSmwiKdY3gZVUC0i1Nm1XaSxJOWVRKA>
+    <xme:NyIcaUyh---jACwC8JUwEE3Z0E5RW-4aCSOl0XUhZEzSH_1rVZ49ZzUk-LYUeiduW
+    2xDb5rNk8PVP60re3uEsnn03l8CJoZKFyqwEdXUyR0E9lx03KHs9A>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdeggddvvddtjeeiucetufdoteggodetrf
+    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
+    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
+    gurhepofggfffhvfevkfgjfhfutgfgsehtjeertdertddtnecuhfhrohhmpedftehrnhgu
+    uceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrthhtvg
+    hrnhephfdthfdvtdefhedukeetgefggffhjeeggeetfefggfevudegudevledvkefhvdei
+    necuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprghrnh
+    gusegrrhhnuggsrdguvgdpnhgspghrtghpthhtohepudefpdhmohguvgepshhmthhpohhu
+    thdprhgtphhtthhopegtrghtrghlihhnrdhmrghrihhnrghssegrrhhmrdgtohhmpdhrtg
+    hpthhtohepjhhovgihrdhgohhulhihsegrrhhmrdgtohhmpdhrtghpthhtohepshhuiihu
+    khhirdhpohhulhhoshgvsegrrhhmrdgtohhmpdhrtghpthhtohephigrnhhghigttggttg
+    gtsehgmhgrihhlrdgtohhmpdhrtghpthhtohepphhrihhmvgdriigvnhhgsehhihhsihhl
+    ihgtohhnrdgtohhmpdhrtghpthhtohepfigrnhhgiihhohhuudeshhhishhilhhitghonh
+    drtghomhdprhgtphhtthhopeiguhifvghiheeshhhurgifvghirdgtohhmpdhrtghpthht
+    ohephihuiigvnhhghhhuiheshhhurgifvghirdgtohhmpdhrtghpthhtohepmhgriieskh
+    gvrhhnvghlrdhorhhg
+X-ME-Proxy: <xmx:NyIcafAE5K7piy_7UkKxsRmEjUfhifMC-QFmcZRL6tgiwTqew32kAA>
+    <xmx:NyIcaSMGcA57DGzU4LL7i4SwQPEL7IqsTR6yaz4sTIYDBknLL2oCSg>
+    <xmx:NyIcaefxZ0f0R3TYY_SP5CKdrtrOpjoLx7_7WJDQIWZxPFgDVk3fDw>
+    <xmx:NyIcab58UbuA_BO8MqQFM9tEdVFDyLGqf_EuKblPqofMFrlM7_Fr-Q>
+    <xmx:NyIcaVhjDqK7MTDlEnhSrpcM3onA7hiYDDY1g48yS6oDOIA3ZghxIPJH>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 09734700054; Tue, 18 Nov 2025 02:37:27 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-In-Reply-To: <aQokdBkjFqw9ZGRt@willie-the-truck>
-Content-Type: text/plain; charset="utf-8"; format=flowed
-Content-Language: en-GB
+X-ThreadId: ALjut8WcExBk
+Date: Tue, 18 Nov 2025 08:36:56 +0100
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Zhou Wang" <wangzhou1@hisilicon.com>, "Marc Zyngier" <maz@kernel.org>
+Cc: "Catalin Marinas" <catalin.marinas@arm.com>,
+ "Will Deacon" <will@kernel.org>, "Oliver Upton" <oliver.upton@linux.dev>,
+ "Joey Gouly" <joey.gouly@arm.com>,
+ "Suzuki K Poulose" <suzuki.poulose@arm.com>,
+ "Zenghui Yu" <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
+ kvmarm@lists.linux.dev, "Yicong Yang" <yangyccccc@gmail.com>,
+ prime.zeng@hisilicon.com, xuwei5@huawei.com
+Message-Id: <f641d3f2-dac9-4a9e-92a4-0805e6561418@app.fastmail.com>
+In-Reply-To: <6d6fad8d-e4e4-b973-6431-34a37003d363@hisilicon.com>
+References: <20251107072127.448953-1-wangzhou1@hisilicon.com>
+ <20251107072127.448953-6-wangzhou1@hisilicon.com>
+ <861pm4vn02.wl-maz@kernel.org>
+ <b1407660-9b69-7e21-328a-0f969fffa554@hisilicon.com>
+ <c72411f9-a77e-4a72-a401-5110b919a2df@app.fastmail.com>
+ <1ed610f5-3f0b-614d-5e7f-2c643238bec3@hisilicon.com>
+ <113db0fb-d879-49d7-a5f2-7755558f29dd@app.fastmail.com>
+ <6d6fad8d-e4e4-b973-6431-34a37003d363@hisilicon.com>
+Subject: Re: [PATCH v7 5/7] arm64: Add support for FEAT_{LS64, LS64_V}
+Content-Type: text/plain
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.174.178.247]
-X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
- dggpemf500002.china.huawei.com (7.185.36.57)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251117_232934_435862_BF1D11AD 
-X-CRM114-Status: GOOD (  17.63  )
+X-CRM114-CacheID: sfid-20251117_233730_588518_8486CF14 
+X-CRM114-Status: GOOD (  25.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,60 +126,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025/11/5 0:06, Will Deacon wrote:
-> On Mon, Oct 20, 2025 at 09:23:05PM +0800, Hanjun Guo wrote:
->> On 2025/10/17 15:39, Kazuhiro Abe wrote:
->>> AGDI has two types of signaling modes: SDEI and interrupt.
->>> Currently, the AGDI driver only supports SDEI.
->>> Therefore, add support for interrupt signaling mode
->>> The interrupt vector is retrieved from the AGDI table, and call panic
->>> function when an interrupt occurs.
+On Tue, Nov 18, 2025, at 03:31, Zhou Wang wrote:
+> On 2025/11/14 17:37, Arnd Bergmann wrote:
+>> On Fri, Nov 14, 2025, at 10:25, Zhou Wang wrote:
+>>> On 2025/11/14 0:26, Arnd Bergmann wrote:
+>>>>
+>>>> Are you using a particular device, or are you trying to enable
+>>>> the support in general? If you have a specific device you are
+>>>> working on, does it use the PASID data or not?
 >>>
->>> Reviewed-by: Ilkka Koskinen <ilkka@os.amperecomputing.com>
->>> Signed-off-by: Kazuhiro Abe <fj1078ii@aa.jp.fujitsu.com>
->>> ---
->>> Hanjun, I have addressed all your comments.
->>> Please review them.
+>>> Many thanks for your careful explanation! I got the pointer here.
 >>>
->>> v3->v4
->>>    - Add a comment to the flags member.
->>>    - Fix agdi_interrupt_probe.
->>>    - Fix agdi_interrupt_remove.
->>>    - Add space in struct initializsation.
->>>    - Delete curly braces.
->>
->> Looks good to me,
->>
->> Acked-by: Hanjun Guo <guohanjun@huawei.com>
-> 
-> I wasn't cc'd on the original patch but I couldn't figure out why it
-> uses IRQF_NO_AUTOEN when requesting the irq given that the first thing
-> it does is enable it.
+>>> We have a real device in our SoC, which supports LS64B/ST64B/ST64BV.
+>>> For ST64BV, Our device just receives 64B data atomically, not interpret
+>>> it with PASID data.
+>> 
+>> Ok, I see. So I assume this is either a kind of dedicated work queue
+>> where the IOMMU PASID is set up in advance for the user MMIO area,
+>
+> Yeah, it is something like you mentioned above. MMIO area is binded with
+> a work queue, a PASID is set up in advance for this work queue.
 
-Sorry for the late reply, seems this comment was addressed.
+Ok, thanks for confirming.
 
-But when I go back to read the latest AGDI spec [0], I see
-the signaling mode can be SDEI *and* interrupt:
+>> or it is a device that does not do any DMA at all, correct?
+>> 
+>> In this case, would the device also work correctly with ST64BV0 if
+>> the ACCDATA register is fixed to a value of zero and you can only
+>> use the upper 480 bits? Would it also work if there is an
+>> unpredictable value in ACCDATA that may match the PASID of another
+>> device used by the same process?
+>
+> We do not support ST64BV0, so above case will not happen. I think ST64BV0
+> will trigger a illegal instruction exception in our system.
 
-Flags node structures 1 36 Bits [1:0]: Signaling mode:
+At least this does make it easier because on your system you would
+never run into a situation where you want to support both your
+internal device with st64bv and another device with st64bv0.
 
-2: Both SDEI and Interrupt-based signaling is
-supported. While an SDEI event handler is
-registered, the platform is allowed to not
-generate the wired interrupt
+The easiest setup I can think of that still supports your machine
+would look something like:
 
-So which means we need to support both SDEI and interrupt when the
-signaling mode is 2, but for now, the code is
+- have the kernel choose between st64bv and st64bv0 at early boot,
+  based on platform configuration, use st64bv0 by default if
+  available in hardware and not disabled in EL3, EL2 or kernel
+  command line.
+- Change pasid handling in iommu_sva_bind_device() so drivers
+  have to explicitly request one of the modes before establishing
+  a pasid, refuse this on incompatible systems, update the
+  three existing callers (idxd, amdxdna, uacce) accordingly.
+- on systems with st64bv but no st64bv0, enable st64bv for
+  all CPUs at boot time to avoid context switch overhead, but
+  forbid mapping shared hardware workqueues into userspace.
+- postpone full support for st64bv0 until we have a device that
+  actually uses this and can be tested. I think most of it is
+  already there in the iommu code, but the ACCDATA setup needs
+  to be integrated into the switch_mm()/__switch_to() code
+  and possibly a trap handler like on x86.
 
-+	if (agdi_table->flags & ACPI_AGDI_SIGNALING_MODE)
-+		pdata.gsiv = agdi_table->gsiv;
-+	else
-+		pdata.sdei_event = agdi_table->sdei_event;
+In the current architecture, both FEAT_LS64_V and
+FEAT_LS64_ACCDATA are optional, so you can continue to
+produce CPUs that have the former but not the latter, and
+the logic above will keep that working. However this breaks
+if you ever want to support FEAT_LS64_ACCDATA in a later
+CPU but keep the existing driver working with st64bv.
 
-Kazuhiro, could you take a look again?
-
-Thanks
-Hanjun
-
-[0]: https://developer.arm.com/documentation/den0093/latest/
+       Arnd
 
