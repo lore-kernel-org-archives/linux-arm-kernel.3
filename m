@@ -4,70 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 614A7CED27F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 10:38:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19969CED602
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 10:38:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Mj956uUwRdou8vOWljZAEBe5NlAWrhR02NPjOj/d+6Q=; b=gVpPiGne3ov46A29BDnMvykk9v
-	EmlFIMrBJO2M1/v0IMf1grbS7GUK2MH9vVGypc8QxP7ziEvseBdiB/ACer/dDZuaxKQmfNxsMKlFT
-	asN17z7JL9eY92zzjUMBo5Yw6TXNPu1mYihLWTphRGtBp9Mq+A2gzICReYbI7pFa8N7Cr91ow6cKI
-	0cg3cIIbZ6bBZG6WX9uKji/Ktf6oJgC4fqTO7tOVBXGWC4CK2eP9GfuQIMI5IW044DBymMBc04rXO
-	EDA8iDfzHii6lVYXpDOBLD3WluR8aCfUeGkvMJDQDxlwlQDjv6maAS/1WGH5ZWudz3d4TG33PnIis
-	NJkCKujQ==;
+	bh=f7Ix1gvDoedoa2VySziNtSICAiph6cR2zcFJA1VxEgw=; b=OdmWCA2CmX2UMD+rxWjFdq292b
+	+UjGAemOqdQMmtuHM6pZO6MB0smbxFGgS09ylPlA20XX4WO+iW7yBWW11ammo/euoyd4HX0TvWA0W
+	CwN8StiHzJhfQDcuK/SMnmiFEF5CqgYHX9Cwno7eR1YUmOeU3HxNICnJMlX+Ilt1NPHxylxtbvTOg
+	SgzSvOMhZ3f9Jw7mYu9qQNWKlOoJeFDarqaRE/WhkTtoe6QVt0GlOseackYz2qcBWCFYayybxk/F9
+	QOgvoe2ociaaOWgtGNGgNNiWs6t1Jw7MrUhq99eBwE7kJlS1cLfNTkL7IGva5/Y8ekZi9+CWwNN7q
+	kk/8N9mA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLJ6L-00000000FmR-1fFg;
+	id 1vLJ6L-00000000FnO-49LH;
 	Tue, 18 Nov 2025 10:38:21 +0000
 Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLJ6F-00000000Fi6-3dUM
+	id 1vLJ6G-00000000Fj0-48VU
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Nov 2025 10:38:17 +0000
-Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-47754e6bddbso37327605e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Nov 2025 02:38:14 -0800 (PST)
+	Tue, 18 Nov 2025 10:38:18 +0000
+Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-4779393221aso6682335e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Nov 2025 02:38:16 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1763462294; x=1764067094; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1763462295; x=1764067095; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=Mj956uUwRdou8vOWljZAEBe5NlAWrhR02NPjOj/d+6Q=;
-        b=hxWn6IJj+LXO2n5M52rhafpwd9RBfnx5g4hqvOI6CvmOlHpRaks/kQyCgcaJguVdAt
-         LvLtg/xVztpo1GBYTEbWzaeK1FVQT79JxHBXrYhkEyMQTY3C44uYntKwMrRVCfAJ0wLs
-         1XvlnfCvQ6+QrBz1P1vwmOT8xptzKpdqU9Wo10zUKbdvA++QJAObDBTacSgTgp3NU3zK
-         FJE8E3k+L19tLkkYHUDLleryecAw1NAJSbjt3474VM1p5AUj8dXqXmsiQnnxspxjijKV
-         RydTTQxOthd0EaVhIJPqSVoUe2QiIHr4EO16FwMQj0VCpQodvUIHF2hvnbDvA9sxJ85I
-         WdFA==
+        bh=f7Ix1gvDoedoa2VySziNtSICAiph6cR2zcFJA1VxEgw=;
+        b=cMKHYxmE5s/D8HCY8U1u5D0ENfPwTcpPjvn62qPwbEEG68IK0Yo7T+3y4X61owPXwj
+         cykN5c7tz36Bos6uZwdcVz1LqoaQ7b/eqoAQS8obqBSxbvb2+wxqE4qJqlNyW6DxnQcM
+         s7w+QyT1rhkFxu5V5o5TWmLfjsisLU65vVqKvkdxaxW90y7km1LihV8DN1Tw+BgG5tkA
+         I8k2yxBaAZQFgSrpBz5pBU3se6ccLVjgOHAz3dkZL0enfXSOrdZPDJM7BXXouEI8Cyxi
+         +cK8Gt5mh0EnBmhc+D3dg5BcnVwsxkrfKeldr8Ryvt7dgg/9ayJ/dbQWPyqu9HuNZDwY
+         XOZA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763462294; x=1764067094;
+        d=1e100.net; s=20230601; t=1763462295; x=1764067095;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Mj956uUwRdou8vOWljZAEBe5NlAWrhR02NPjOj/d+6Q=;
-        b=FfeW3lNWkcG1N5bS/7HUJHRVvoG3yeBvOpzGfKV9OaNotJxg5b9c7Rna9BaC8ncnDd
-         /aJSBSyLJYKzWFJJFcOFZKfuG1TPt1tE4kFXLm096D/EcFZnlwBw9e4MDMqaMX+OjjzD
-         BTdJXMI80wWSHurOloN4BIcw5YfqlxZo7LjnXZ5CJhFrxfX5fv7o4iP93muwOGjpgfgR
-         pGiFnVeYk5YuySx6+TPoe4F5Zf9zlmi4Bn0RM492bpnFbsHg+TKg32ILuyU+uqBYb2iv
-         7hcmm6VEZpJ0SDhB0Ue3GtdiWj2xRO6NuPPBSkPa7JWkqsExRizRaWoJC/C0IMLJnbko
-         hSvQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVoDOkr0Vd8lv9a1WyNcWtJU0g81dQhuJ8chBu+ayVTcgSI2Fld3dJh6NXOilsZJWaGU6B1S1q4SqNS9rwA6FMn@lists.infradead.org
-X-Gm-Message-State: AOJu0YyvNQkaxbq2GJ5w/7FFBIwf7dZP4nmEc9l6u+u2a6wkk3vnTVCO
-	RLBTNpzdvNycgPBNex524EzB2AQPTj3GSMySwwNUVPUKe/cAaecjxgBCK53sgtgK4BNK2fvghUX
-	/uw==
-X-Google-Smtp-Source: AGHT+IFG1XaKywSAsO/PSI1vfE4j6/GJZ3MI2DEP6+YN51mOznt/CdrZZYQeVn3xIm60XagshhrHQklSQw==
-X-Received: from wrqm12.prod.google.com ([2002:a5d:4a0c:0:b0:429:de3f:828a])
- (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6000:2901:b0:42b:2ac7:7942
- with SMTP id ffacd0b85a97d-42b593459ccmr14897179f8f.5.1763462293703; Tue, 18
- Nov 2025 02:38:13 -0800 (PST)
-Date: Tue, 18 Nov 2025 10:38:03 +0000
+        bh=f7Ix1gvDoedoa2VySziNtSICAiph6cR2zcFJA1VxEgw=;
+        b=KjYd5bt2wBzXEs0XwKlbLl22k854aNa5qi57rCkdtoSfPNymd/03HlNA+GWPG8ZVeR
+         z7EKIzJt5mFi+3+H5wz5ybtIVgp7NmvhStS6RiXVGsLBeaTKkaqCgC/jtGulU6w8BFII
+         I2zQQjN2vMCWlVxdwLlOstedv+VUwdfiCRpeSkDim7B5b/XGUO9rcRLLvrG+wj/fizfU
+         uBTi2+wpTpwMrUgsOEzpMmVSZPQes7WecPm1uG9tut4p1E7UrkkVOisGa1vj6oMV0l5i
+         6eODjc7OhwLW5JNvszhw+iUsMUI3DcDM+GmnJ/SOPl7R1Uv4HePXbIcgVLC6ImWwt1db
+         X3Eg==
+X-Forwarded-Encrypted: i=1; AJvYcCX83SiZPCyk9NsxKwpoQeyP6Mzeo8LemxzBvg9f0bF59UY/3eIhv9N6LS3mKiG7NWcNFmjqfoaFTQnZB3W5pNFU@lists.infradead.org
+X-Gm-Message-State: AOJu0YxUNII3tjo40YeqDDXzpkHyj4LQcQGwSEpXcso/S8746X6fQArF
+	UoIwET1Uh9Sc85nobcOEtbBCPfjI0nkWlR1nmQUSSuE7WDLxzt2RjIVOZ+ATZolmMiQH9ezWaLC
+	5YA==
+X-Google-Smtp-Source: AGHT+IHHaFRT48dnQv9XnnqkCXxSMygY1YzNHot8cTmVJYtqnUnJm6Bhep5tmphH8wELHWrZN7tKJjb/Cg==
+X-Received: from wmla8.prod.google.com ([2002:a05:600d:2388:b0:477:9945:466d])
+ (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:8b23:b0:477:7bd2:693f
+ with SMTP id 5b1f17b1804b1-4778fe60615mr147591815e9.6.1763462295255; Tue, 18
+ Nov 2025 02:38:15 -0800 (PST)
+Date: Tue, 18 Nov 2025 10:38:05 +0000
 In-Reply-To: <20251118103807.707500-1-tabba@google.com>
 Mime-Version: 1.0
 References: <20251118103807.707500-1-tabba@google.com>
 X-Mailer: git-send-email 2.52.0.rc1.455.g30608eb744-goog
-Message-ID: <20251118103807.707500-7-tabba@google.com>
-Subject: [PATCH v5 6/9] KVM: arm64: Do not allow KVM_CAP_ARM_MTE for any guest
- in pKVM
+Message-ID: <20251118103807.707500-9-tabba@google.com>
+Subject: [PATCH v5 8/9] KVM: arm64: Check whether a VM IOCTL is allowed in pKVM
 From: Fuad Tabba <tabba@google.com>
 To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org
 Cc: maz@kernel.org, oliver.upton@linux.dev, will@kernel.org, 
@@ -75,9 +74,8 @@ Cc: maz@kernel.org, oliver.upton@linux.dev, will@kernel.org,
 	catalin.marinas@arm.com, vladimir.murzin@arm.com, tabba@google.com
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251118_023815_906897_0EE7D9BE 
-X-CRM114-Status: UNSURE (   9.53  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251118_023817_079662_C863B607 
+X-CRM114-Status: GOOD (  15.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,31 +90,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Supporting MTE in pKVM introduces significant complexity to the
-hypervisor at EL2, even for non-protected VMs, since it would require
-EL2 to handle tag management.
+Certain VM IOCTLs are tied to specific VM features. Since pKVM does not
+support all features, restrict which IOCTLs are allowed depending on
+whether the associated feature is supported.
 
-For now, do not allow KVM_CAP_ARM_MTE for all VM types in protected
-mode.
+Use the existing VM capability check as the source of truth to whether
+an IOCTL is allowed for a particular VM by mapping the IOCTLs with their
+associated capabilities.
 
+Suggested-by: Oliver Upton <oupton@kernel.org>
 Signed-off-by: Fuad Tabba <tabba@google.com>
 ---
- arch/arm64/include/asm/kvm_pkvm.h | 2 ++
- 1 file changed, 2 insertions(+)
+ arch/arm64/include/asm/kvm_pkvm.h | 21 +++++++++++++++++++++
+ arch/arm64/kvm/arm.c              |  3 +++
+ 2 files changed, 24 insertions(+)
 
 diff --git a/arch/arm64/include/asm/kvm_pkvm.h b/arch/arm64/include/asm/kvm_pkvm.h
-index 7195be508d99..5b564576160d 100644
+index 5b564576160d..dcba7f99b88c 100644
 --- a/arch/arm64/include/asm/kvm_pkvm.h
 +++ b/arch/arm64/include/asm/kvm_pkvm.h
-@@ -44,6 +44,8 @@ static inline bool kvm_pkvm_ext_allowed(struct kvm *kvm, long ext)
- 	case KVM_CAP_ARM_PTRAUTH_ADDRESS:
- 	case KVM_CAP_ARM_PTRAUTH_GENERIC:
- 		return true;
-+	case KVM_CAP_ARM_MTE:
-+		return false;
- 	default:
- 		return !kvm || !kvm_vm_is_protected(kvm);
+@@ -9,6 +9,7 @@
+ #include <linux/arm_ffa.h>
+ #include <linux/memblock.h>
+ #include <linux/scatterlist.h>
++#include <asm/kvm_host.h>
+ #include <asm/kvm_pgtable.h>
+ 
+ /* Maximum number of VMs that can co-exist under pKVM. */
+@@ -31,6 +32,7 @@ int pkvm_create_hyp_vcpu(struct kvm_vcpu *vcpu);
+ static inline bool kvm_pkvm_ext_allowed(struct kvm *kvm, long ext)
+ {
+ 	switch (ext) {
++	case KVM_CAP_CORE:
+ 	case KVM_CAP_IRQCHIP:
+ 	case KVM_CAP_ARM_PSCI:
+ 	case KVM_CAP_ARM_PSCI_0_2:
+@@ -51,6 +53,25 @@ static inline bool kvm_pkvm_ext_allowed(struct kvm *kvm, long ext)
  	}
+ }
+ 
++/*
++ * Check whether the KVM VM IOCTL is allowed in pKVM.
++ *
++ * Certain features are allowed only for non-protected VMs in pKVM, which is why
++ * this takes the VM (kvm) as a parameter.
++ */
++static inline bool kvm_pkvm_ioctl_allowed(struct kvm *kvm, unsigned int ioctl)
++{
++	long ext;
++	int r;
++
++	r = kvm_get_cap_for_kvm_ioctl(ioctl, &ext);
++
++	if (WARN_ON_ONCE(r < 0))
++		return false;
++
++	return kvm_pkvm_ext_allowed(kvm, ext);
++}
++
+ extern struct memblock_region kvm_nvhe_sym(hyp_memory)[];
+ extern unsigned int kvm_nvhe_sym(hyp_memblock_nr);
+ 
+diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+index 10d853f2722e..020cadd811a3 100644
+--- a/arch/arm64/kvm/arm.c
++++ b/arch/arm64/kvm/arm.c
+@@ -1879,6 +1879,9 @@ int kvm_arch_vm_ioctl(struct file *filp, unsigned int ioctl, unsigned long arg)
+ 	void __user *argp = (void __user *)arg;
+ 	struct kvm_device_attr attr;
+ 
++	if (is_protected_kvm_enabled() && !kvm_pkvm_ioctl_allowed(kvm, ioctl))
++		return -EINVAL;
++
+ 	switch (ioctl) {
+ 	case KVM_CREATE_IRQCHIP: {
+ 		int ret;
 -- 
 2.52.0.rc1.455.g30608eb744-goog
 
