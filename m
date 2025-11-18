@@ -4,164 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFBE4CEE343
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 18:58:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97A10CEE343
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 18:59:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gnvTyipbFZjB/FYngVeYVBdkf+aFBS21OLD9RDVUhyg=; b=zArlmRDqal+8THbGpgAjppKjti
-	ytI61d8wAruryY++nAgb2k2ecEe94OrPnthJz6NHZz0IBl/YVAMQaRVav9DHnZ+JEFL0B9nbyawzE
-	9ViBHK/JLSmQ4vd/kABlO9o5EnEtaFOwH/VzXBbnzi+CahfclMAnSR1qZu5KTOZ4t8HgGx7b/uEpS
-	fj/CvzwXZdkwKIEsgbR/DIiZnHFQmGxO3nV9CkPxFJppzcaiX8WX+p6P8K/u54v1b4AvrsOW7Qk+h
-	LEiczU8IZqN5S6CTLStF3zPSzshQk1zQqt9Qe65hNn+RAYGCEvk5M1yCl6LDUpn+lXrGQhvjx9K6i
-	cHaVkhrw==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=l5bV2Z4OjyhUjLyzKUG06uKyhqe2xLFxXRvaaVkwXWk=; b=uS1Ijp489C9GB0
+	/kQtnuRQXEqfP+Bt2bLapf4b2Zlrf4WItZWokwy55ZN51jDpnceiqu9GiONsxk0EgvBYxwv3CRDJh
+	tYhp9o3hBJLKh7yg5hwL0opgvHtUaXsvfdfjzAVSirce+RZH5s4WbhvA4a9L+TcCtctywiWt4XN1b
+	JQjOy7/Ymmba8mvGUhbvZEpJTx/Nrfo9tBcxb5S/3+c9brYOBkUGQPXRKwDPVuNAhfY2GikHHftWZ
+	M1RYqCQKAe4MWVKjO0BzmaKEyeE/EH/2NJSl/NATgQVyG2VKOw+Cmy6TXhQN27AZotiFyKJ7GrxX4
+	f7qN5TZ3HF2bu/783xxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLQuZ-00000000zPY-0N3G;
-	Tue, 18 Nov 2025 18:58:43 +0000
-Received: from mail-westus3azlp170100009.outbound.protection.outlook.com ([2a01:111:f403:c107::9] helo=PH7PR06CU001.outbound.protection.outlook.com)
+	id 1vLQvC-00000000zaU-1uvv;
+	Tue, 18 Nov 2025 18:59:22 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLQuU-00000000zOV-3qXz;
-	Tue, 18 Nov 2025 18:58:41 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=YV2grb4p/a2LMbJkOBiOKS4tVhp+dpcLPCxWj/g5Dq9sKuwPY/nT8ux7Ww7KL0AD9eWHxNNoiwFFZ0JxgDgTwaHvmOYbh+iHksYHrC+O1BqOf4C93vwAcLAxclqCete1eQ2gsav7vwGv1TdOWmBZ7BaJ+wVAvcyWbFjTmOIAiGiv5ZDL51aiFnw+Y6AhnHgVzExGfTkln2LlCHYNT9P8+9p3M/3lFx+uNBIMp70ko9JJy+RedyK/z4TjHPQiG4yHkgEB4m4yUknuF9k+12S53Yf5tCaSdUQiZ82KTsiLQgfOjRyvT4roinQTqWlpRVJjIs9NJ9fFY7K9oezwT89Zzg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=gnvTyipbFZjB/FYngVeYVBdkf+aFBS21OLD9RDVUhyg=;
- b=mgacMGWf5Jt0iB2bcGm2/BiPla/5vDFkUIDEj7SH1zxE07aVVi5hATcdgdNJ/6USmF4xfmx+6jbkxSE1/PG8g8ZX4CdMM8fkJzAsjWWdqTZVhyx4qYxQutlOX8Ywy7nMo7srsA6YPOTCvI/Q7PZ/On5z3SI6OzPJInjUOa3d0ww+EliMQ/1eegaIVQXPgTxG11r8zYqEkjezAGP9pE/J2rof3zff36dSVZciRNMEpV8fz9ynIgWe7trQvsxuE6LNOLobGqnoIoYoOOqD0XLtjA0GlUQLGvTiS1WfM5ENA0LaTovRwX2m12SN4dSWG3lU0LoJFhPYBH95YB40a/uZHQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=gnvTyipbFZjB/FYngVeYVBdkf+aFBS21OLD9RDVUhyg=;
- b=mKQStHqtvnR1i32k564PZQXLuHK3EupPJcmF67AK/8ScNVzZlAoyQhDn6MmEkcmzgvRCdnuvlFMz23WA8P2XF1JrBcaFx/rWtCqrhHjL2WlBKx7mjikFcYo5x4e6/+H/3mxF6ZGKL4jZc9zg4rYxUUATb2nAXQVv0B+7n9EvcXtzWE6vFXIoeUL3UVCxxoM/R/FyZKMvkMSY8cNSWyHj98aMub8FftQw49HI1Hq7ifur4jrKGAuqZ/IQGYFNFN/T3EB/pK1FwQmiAEe62HN0Fxu6ZROB4AeX8sJzcOHVXIxd3qhW9t3oHoCDFKV/c3ke8HCJur4VZXS++Pr1gmjA6g==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from MN2PR12MB3613.namprd12.prod.outlook.com (2603:10b6:208:c1::17)
- by MN0PR12MB5931.namprd12.prod.outlook.com (2603:10b6:208:37e::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9320.22; Tue, 18 Nov
- 2025 18:58:33 +0000
-Received: from MN2PR12MB3613.namprd12.prod.outlook.com
- ([fe80::1b3b:64f5:9211:608b]) by MN2PR12MB3613.namprd12.prod.outlook.com
- ([fe80::1b3b:64f5:9211:608b%4]) with mapi id 15.20.9343.009; Tue, 18 Nov 2025
- 18:58:33 +0000
-Date: Tue, 18 Nov 2025 14:58:31 -0400
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: "Tian, Kevin" <kevin.tian@intel.com>
-Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Christian Benvenuti <benve@cisco.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	"iommu@lists.linux.dev" <iommu@lists.linux.dev>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Joerg Roedel <joro@8bytes.org>, Leon Romanovsky <leon@kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-arm-msm@vger.kernel.org" <linux-arm-msm@vger.kernel.org>,
-	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
-	"linux-rdma@vger.kernel.org" <linux-rdma@vger.kernel.org>,
-	"linux-rockchip@lists.infradead.org" <linux-rockchip@lists.infradead.org>,
-	"linux-sunxi@lists.linux.dev" <linux-sunxi@lists.linux.dev>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	Nelson Escobar <neescoba@cisco.com>,
-	Rob Clark <robin.clark@oss.qualcomm.com>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
-	Chen-Yu Tsai <wens@csie.org>, Will Deacon <will@kernel.org>,
-	Yong Wu <yong.wu@mediatek.com>, Lu Baolu <baolu.lu@linux.intel.com>,
-	"patches@lists.linux.dev" <patches@lists.linux.dev>
-Subject: Re: [PATCH v2 2/3] iommu/amd: Don't call report_iommu_fault()
-Message-ID: <20251118185831.GQ10864@nvidia.com>
-References: <0-v2-25fc75484cab+ab-iommu_set_fault_jgg@nvidia.com>
- <2-v2-25fc75484cab+ab-iommu_set_fault_jgg@nvidia.com>
- <BN9PR11MB5276EFE7D236FF918A79263C8CC9A@BN9PR11MB5276.namprd11.prod.outlook.com>
+	id 1vLQvB-00000000zZq-0BAa;
+	Tue, 18 Nov 2025 18:59:21 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 264EF60129;
+	Tue, 18 Nov 2025 18:59:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3DFA5C116B1;
+	Tue, 18 Nov 2025 18:59:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1763492359;
+	bh=NbYnGS0Gvtjj0O/ATTHE0hLak4XPDCCvFVuevEBXAKo=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=gRLVw75DZQRIC199NZP0+fLbXt5NziqDfA46T2DPhbBdDCtPYCBZfyyWW7UyRsEPw
+	 GVhheTS/RHFWMtANriPle8VTPUpebveAg/3fb4u/2eR7YIwxG0U6BENqJKIkLqshnI
+	 dmwF4WRPdFYFg7+thS2DyveG++gO2YeKAqNLmknGP/GdluG6MgbL7QMpK7s6eSXXys
+	 uoIUgoUiOpcFIOAGpfEWAeed4vMD1w+KY64OBxXUMmhj8wVcIuJhrVz7SqwJ+64A/z
+	 IvTrkxaPYm6ZcvxJMyP+tmwp2NOWXkblLJ2u0AzGcqDPslPXW7NukPPm1uFlTmPpR3
+	 9XKOpyQpf81Xw==
+Date: Tue, 18 Nov 2025 12:59:17 -0600
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Niklas Cassel <cassel@kernel.org>
+Cc: Shawn Lin <shawn.lin@rock-chips.com>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Rob Herring <robh@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+	Kever Yang <kever.yang@rock-chips.com>,
+	Simon Xue <xxm@rock-chips.com>, Damien Le Moal <dlemoal@kernel.org>,
+	Dragan Simic <dsimic@manjaro.org>, FUKAUMI Naoki <naoki@radxa.com>,
+	Diederik de Haas <diederik@cknow-tech.com>,
+	Richard Zhu <hongxing.zhu@nxp.com>, Frank Li <Frank.li@nxp.com>,
+	Lucas Stach <l.stach@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Conor Dooley <conor@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Jonathan Hunter <jonathanh@nvidia.com>,
+	Hans Zhang <hans.zhang@cixtech.com>, linux-tegra@vger.kernel.org,
+	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, kernel@pengutronix.de,
+	Bjorn Helgaas <bhelgaas@google.com>
+Subject: Re: [PATCH 2/4] PCI: tegra194: Remove unnecessary L1SS disable code
+Message-ID: <20251118185917.GA2583698@bhelgaas>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <BN9PR11MB5276EFE7D236FF918A79263C8CC9A@BN9PR11MB5276.namprd11.prod.outlook.com>
-X-ClientProxiedBy: BN9PR03CA0724.namprd03.prod.outlook.com
- (2603:10b6:408:110::9) To MN2PR12MB3613.namprd12.prod.outlook.com
- (2603:10b6:208:c1::17)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MN2PR12MB3613:EE_|MN0PR12MB5931:EE_
-X-MS-Office365-Filtering-Correlation-Id: 432b2126-8a58-42ad-f2e7-08de26d4785a
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?7BjuVriZopgjCyOPesFuhwAFrHBYjfCZBpx4NSYqAcd/Vqbtpqk95BHsQU9L?=
- =?us-ascii?Q?2wsSYaPnZq10GOcXkC7PRKre+86ZFFKc1gIV+cNwfe6o5I1jp4log4qnDN0R?=
- =?us-ascii?Q?3Q+HsFjNgwLsDiJjxElAC8bMYRX4C4SYezFWPddyovP58DzRGcr56B80EUtR?=
- =?us-ascii?Q?hbTIL/snMl5Y8Xgesd0cTyI64EBUWurAEWj8HGozMUQpJ7zCEWnIpokN/Q/L?=
- =?us-ascii?Q?NDw6nU8d3TgxWfs/rCCIn1GSohYmDWSCOvKHnlzbSaumdoWD/iXbiZlwQDsJ?=
- =?us-ascii?Q?0vjdTspbzMRwm6Ti6oe1G1mBBcBhbf9pajgJC6QLMVFNUN2KPPSML1OrZ5M6?=
- =?us-ascii?Q?f9aemq1wVIZR2DRZrAMc10OuRxyUSC7RjLrbXFNpmQzOeUIqLqQF0BPyQ0Qo?=
- =?us-ascii?Q?yXt9OBm32b8SEPrl5/ODh+NUFGVgk++9eMbeRTqMEvAykX6pdWCi8MUhaFVR?=
- =?us-ascii?Q?4ca73t/ZLTxlw2YoC2K66+r+mr1t3fnzK9/YAel8VO8bTFmDuzXI96WDaY6Q?=
- =?us-ascii?Q?9NDdayCFNM38LM1EYhjdsvWONa0o1eBwQKFv4Ae6ouBpyKwdfts+C9n6hxW9?=
- =?us-ascii?Q?y8kDMFXXmANViEWxaVXdIz1qtbOB4+K0mp3TWrxpF429RH7GuKHlI1xUvGpb?=
- =?us-ascii?Q?Dsmpny0EMmiYez+uHi8SWxoAGekv9JGhYMUuySw4hdEwD3KzCOeklmkZq8wg?=
- =?us-ascii?Q?aBfhI84BKzunotXXYq2YH+sJ2wzT/zAbj0BGkzHMu6SUXSBlibcmNDIHWvB7?=
- =?us-ascii?Q?C6hIUpa1khXMezDg8AFP/UOGtPGeesTYaVH6Tpdkdx5K9mJu4kKZSnsPm8XJ?=
- =?us-ascii?Q?svfQtvFydKraRSMh0cPtC//jJoiQMSTf0FU3WFwhzHK18WKdTbI8PSSas+wO?=
- =?us-ascii?Q?HHH1cQfqzJsMIGG5tij4iwGC9AAVkP5BMMus66Ul/oNK08q0Fg2URK1bbFPY?=
- =?us-ascii?Q?bO8/9PgBxuyn0JhK2TxNOs0o4UQsSgtvk40e9YtP7wAL5UZX1UjttwnsZzDD?=
- =?us-ascii?Q?SHvkZofTmYgAlCaef12svgGTZ4DnSYMlQkZ3kMYf09Ipwy4k1K44yTgyIKMP?=
- =?us-ascii?Q?LKGbK1uWWVWCfPAX41e9QydSB9fwydskCQxlBxTWGBmZPwO4rQF0vjP8HOfT?=
- =?us-ascii?Q?A0WXh1CTRXaWZ9ghwcLUmGaa3YVmBdU93FG1QtrnM6dePiRCPDAv/KA58+Cg?=
- =?us-ascii?Q?tAsX+kVgznfXnBrfVvq6y33o3bf7S20UO8W2/tmpNIJPtknFBGxreZn4ZDfS?=
- =?us-ascii?Q?EdIDC72J9m36ivjn0kT7sfoP75uNLmPZXw/kitBrTdjKZa3ZUfQS3N56+App?=
- =?us-ascii?Q?cFRyLam8X7QYJfi0fxoHuXf6D36EBjwEmh1W6tRNp5EYkea2xcWQnuIicrY3?=
- =?us-ascii?Q?ih7aOBzCEIpCes16/b6UCqQl32yXa9jqsUT1tJyUb+K4hYsFAS9XZmcYAb5T?=
- =?us-ascii?Q?AjFvY/SJyjeCveUlRkTP385mdYFr0pjj?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MN2PR12MB3613.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?vuaRDbV2nKb9yVwCFSYjPMsi6ixeF2f5itZzyQgIIueETvaXWawIXv7qyFa7?=
- =?us-ascii?Q?fAX/FHUnoAN5/CUkj+W9eZHkVeMrrkoorV55JM8QuOE4jUzn3RWEdCtfiigt?=
- =?us-ascii?Q?eMjnmPYCHqFNR5PhV7YbCiwgY1nA6veQ8paBqvHJ+rxc1OAVZ7GmgpKHcVbL?=
- =?us-ascii?Q?yhknzLDdP3IWtm2LWaDbB0kwiEsNRGR993mbENYSwWli2443kh8mY9SQYd8L?=
- =?us-ascii?Q?iE9fhYNkBCjhcW/nRZZ13S0SRpGwSEwm6l/xUh1/MBQRqL0XLT2FB0AUdw5Y?=
- =?us-ascii?Q?065rYUlta2pQwehSy9eV+fGUCHFMGDXZs8WBATNPQYbmt90N3+yANMyOxK6d?=
- =?us-ascii?Q?SR1DTjpaG8QlmWkPXZ/TeVtkj5oy2QFuwrb6NONS1WmzLP8AzHWQfcVsQaIv?=
- =?us-ascii?Q?jW1Pwok/d0DPJHCn9WFR+f68oNs66RDzh46r9043BU40dasOJ9UasIh9Fy0Q?=
- =?us-ascii?Q?p2cemob6/J4Oqsd99SYAWcaZS24BnVEuDFKgGlhfWdyPfgaRztzJpPNSK1S8?=
- =?us-ascii?Q?XPp5EnQjoTJW0quQEsw9vSA8ikd3jHyPlMceMifGO10YdE5gvJdgD23aeeHv?=
- =?us-ascii?Q?RNXHnRIPf0wBxX3tuXR7ukDU7Cbk/TYLG8hb6rKTV39of+6bwPNTvVmlLPXU?=
- =?us-ascii?Q?DWulrmB2oWF5wNPm5T3G7PcGa5WiyEasw2D669wFpfUt2ZfD+oFIrj8MvgSB?=
- =?us-ascii?Q?ktGqyBX1lPDybGYA/mcbER0vAGF+FClwfhw8Ktzp8uwDRM3G21e59xYApZnk?=
- =?us-ascii?Q?jqJVf9ZuVYeih5Z5tUFuQHGV9+TfM4Jxn0i9w0uzMCmrNOdjNx6Hu0N5l32/?=
- =?us-ascii?Q?hViTTiOTHv0/v6pQRq7s2SvpOj5raAZHO1UhBmLIej0pHEjVHpG791bQ3EyG?=
- =?us-ascii?Q?RxpGQsEeWEJW9FE2dJl9uDJLpV5kLpXgiPfBlH38k/oZicwBzA3ZcnjGF27O?=
- =?us-ascii?Q?08z1kGllm9ozccOFHC4BIVndEkpl6G+CPsOddOT9O8v6dCbUu4SboXFtTsSd?=
- =?us-ascii?Q?xW+8YSUSlL76mbgaJ0Y0VbAI63+yTFgGJltF3cigsejoYYqKqa/JuzCZIFql?=
- =?us-ascii?Q?bEnuInuNO/D926/CWklbCdjxD78VcCI/pBAxKM+5cOhqzTVM4fUc3OhYGbe0?=
- =?us-ascii?Q?t0ZH2y0nqgvBkg3ZuaiIX/CBfBss6psvB4LtByh8AQrZJMdLGDEZXXpXexOC?=
- =?us-ascii?Q?fU+/COYhT1w8tG1nESA8HHbj/L/B7lLYcitDTcYLwCxC019kHeAgmiIqW3Bx?=
- =?us-ascii?Q?hQcIycesuLt72RO+UxKIjjqHd04adIfJhLSg5oTaMhB3mHtyYA4ocZ1e2zGf?=
- =?us-ascii?Q?olPCmU1GCfT0+YL0s/ah7sXBqW9IFAkOOCcZbzWbaT94JaJ5H+hH9Zb+05wH?=
- =?us-ascii?Q?VXvllOqft6M+ABpYAP7DdawUV/4aWhgiIdqJ+rWo3GNT30GhkfumM2he5Und?=
- =?us-ascii?Q?UQVh/lrEP6e+QwfkaQcs4NYzQfJxz0TMyCVisaCKhbaaO8ukMhXTiABKcEF/?=
- =?us-ascii?Q?dHp6Dhk2xnuiBL6nkOTqtPW48efMmtLFUQI/d4lF7wAskJ8mFFeNr/AeCSq5?=
- =?us-ascii?Q?ozz9rzM6uW+PKp8BjoM=3D?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 432b2126-8a58-42ad-f2e7-08de26d4785a
-X-MS-Exchange-CrossTenant-AuthSource: MN2PR12MB3613.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2025 18:58:32.8566
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: ZhR4SwgX72Y18hvJTwkgMQZSEKO4rPrqJcCF/+yysxfPumzJ86Mr4d9RDO2YDFRF
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN0PR12MB5931
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251118_105839_962950_FECA21B4 
-X-CRM114-Status: GOOD (  17.72  )
+In-Reply-To: <aRRFYEgBigYDlfQh@ryzen>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -176,51 +85,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 17, 2025 at 06:38:51AM +0000, Tian, Kevin wrote:
-> > From: Jason Gunthorpe <jgg@nvidia.com>
-> > Sent: Friday, November 7, 2025 4:35 AM
+On Wed, Nov 12, 2025 at 09:29:20AM +0100, Niklas Cassel wrote:
+> On Tue, Nov 11, 2025 at 04:16:09PM -0600, Bjorn Helgaas wrote:
+> > From: Bjorn Helgaas <bhelgaas@google.com>
 > > 
-> > This old style API is only used by drivers/gpu/drm/msm,
-> > drivers/remoteproc/omap_remoteproc.c, and
-> > drivers/remoteproc/qcom_q6v5_adsp.c none are used on x86 HW.
+> > The DWC core clears the L1 Substates Supported bits unless the driver sets
+> > the "dw_pcie.l1ss_support" flag.
 > > 
-> > Remove the dead code to discourage new users.
+> > The tegra194 init_host_aspm() sets "dw_pcie.l1ss_support" if the platform
+> > has the "supports-clkreq" DT property.  If "supports-clkreq" is absent,
+> > "dw_pcie.l1ss_support" is not set, and the DWC core will clear the L1
+> > Substates Supported bits.
 > > 
-> > Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
+> > The tegra194 code to clear the L1 Substates Supported bits is unnecessary,
+> > so remove it.
+> > 
+> > Signed-off-by: Bjorn Helgaas <bhelgaas@google.com>
 > > ---
-> >  drivers/iommu/amd/iommu.c | 7 -------
-> >  1 file changed, 7 deletions(-)
-> > 
-> > diff --git a/drivers/iommu/amd/iommu.c b/drivers/iommu/amd/iommu.c
-> > index 2e1865daa1cee8..d4d9a5dbfa6333 100644
-> > --- a/drivers/iommu/amd/iommu.c
-> > +++ b/drivers/iommu/amd/iommu.c
-> > @@ -854,13 +854,6 @@ static void amd_iommu_report_page_fault(struct
-> > amd_iommu *iommu,
-> >  						   PCI_FUNC(devid),
-> > domain_id);
-> >  				goto out;
-> >  			}
-> > -
-> > -			if (!report_iommu_fault(&dev_data->domain-
-> > >domain,
-> > -						&pdev->dev, address,
-> > -						IS_WRITE_REQUEST(flags) ?
-> > -
-> > 	IOMMU_FAULT_WRITE :
-> > -
-> > 	IOMMU_FAULT_READ))
-> > -				goto out;
-> >  		}
-> > 
-> >  		if (__ratelimit(&dev_data->rs)) {
 > 
-> Remove amd_iommu_report_page_fault() too?
+> Since init_host_aspm() is now the only place using struct tegra_pcie_dw
+> struct member cfg_link_cap_l1sub, I think that you can remove this struct
+> member, and instead make this a local variable in init_host_aspm().
 
-I don't understand this remark?
+It looks like tegra_pcie_ep_irq_thread() also uses it, although I'm
+dubious about that.
 
-amd_iommu_report_page_fault() generates the dmesg logging on iommu
-faults?
+It's odd that software would be responsible for sending LTR messages,
+but I guess this only happens for tegra194_pcie_dw_ep_of_data, and
+apparently it's fixed (".has_ltr_req_fix" for tegra234.
 
-Jason
+And odd that we would read the capability register on every interrupt
+even though this driver is the only thing that can change it, so we
+should be able to cache the value in init_host_aspm().
 
