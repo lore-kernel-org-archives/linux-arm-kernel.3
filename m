@@ -4,70 +4,152 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2163DCEE33C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 16:46:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E739FCEDDA4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 16:53:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bZoRqBKBvDLqf9D9TX1b0psMmM5R6ahmWiNt9SX3H4Q=; b=mU8XjntfbnSYPqGq5awBwDn3tc
-	KN+JjRdhoT8yVRmn8CQTNle6gSZzrfVYtsFigOIRqIezpBusIeL6IPUSzLQwvZPVywUs3hLezBZLl
-	irtudPHACBW+UrVCBxpmkElFZz0reTzFu13Endipy6EqsysflG2yLnjEQHG9Q/ePRLtW4g1qhI3DW
-	pGHBnBwc+Y8MQNciUtOVnB3k3PCNyydmDThr9cooyosiiiyZ2jcbYwQYXL07Lowt/epbhgCGAnu4T
-	aVqAIwdnc43rrxhk94ybHD4fXN2EHYoqZ7DU/yz3q+maRqI4IDsg6yA2YTPlyhjWK0qFGbundsO6/
-	G3JnKvRA==;
+	bh=LPscyGwehav659F0fdr1MMnl9mc1+28Xyb95Sk2161E=; b=eTvhSnff2O17QS6iAlEDATSD/P
+	Fd1DEZimgKV6XgvOWhC2+TmNPoaEo6OzUQ3F4fjecAZIrlkaJGswtTsTVZhuUfuUEewm4I3DUwb7Z
+	kGh+AoRivxzqOsBGwHT5xxroRjEFKwBSMLIQjsOnG/l9pe3FmvwnZW/eJVtiGSoYbAMFIfYnoE3Zb
+	xgd5YuAtsmzjCdu+C8kQiCVSJKHN6VZ+W9gzx3BtAbFLjB1ZyarBZZQ0DSZWVq/TQXOfXr9+oLdSs
+	4US6eFKNEVxy2jWiNeWM1F04PrsIg9Ak8duWPXo8aAnuz/4uDqaqYePTn2SzPCTh8Oa7BoggXuonX
+	4rNGknpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLOq4-00000000mE6-2SDb;
-	Tue, 18 Nov 2025 16:45:56 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLOq1-00000000mCv-3MzM
+	id 1vLOx3-00000000mmM-3RXP;
+	Tue, 18 Nov 2025 16:53:09 +0000
+Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vLOx1-00000000mlx-3vLU
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Nov 2025 16:45:54 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 02446497;
-	Tue, 18 Nov 2025 08:45:44 -0800 (PST)
-Received: from arm.com (arrakis.cambridge.arm.com [10.1.197.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 392483F740;
-	Tue, 18 Nov 2025 08:45:46 -0800 (PST)
-Date: Tue, 18 Nov 2025 16:45:43 +0000
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: "Rafael J. Wysocki" <rafael@kernel.org>
-Cc: Ben Horgan <ben.horgan@arm.com>, james.morse@arm.com,
-	amitsinght@marvell.com, baisheng.gao@unisoc.com,
-	baolin.wang@linux.alibaba.com, bobo.shaobowang@huawei.com,
-	carl@os.amperecomputing.com, dakr@kernel.org, dave.martin@arm.com,
-	david@redhat.com, dfustini@baylibre.com, fenghuay@nvidia.com,
-	gregkh@linuxfoundation.org, gshan@redhat.com, guohanjun@huawei.com,
-	jeremy.linton@arm.com, jonathan.cameron@huawei.com,
-	kobak@nvidia.com, lcherian@marvell.com, lenb@kernel.org,
-	linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, lpieralisi@kernel.org,
-	peternewman@google.com, quic_jiles@quicinc.com, robh@kernel.org,
-	rohit.mathew@arm.com, scott@os.amperecomputing.com,
-	sdonthineni@nvidia.com, sudeep.holla@arm.com,
-	tan.shaopeng@fujitsu.com, will@kernel.org, xhao@linux.alibaba.com,
-	Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>,
-	Zeng Heng <zengheng4@huawei.com>
-Subject: Re: [PATCH v5 08/34] ACPI: Define acpi_put_table cleanup handler and
- acpi_get_table_ret() helper
-Message-ID: <aRyit16Mrth-jjjg@arm.com>
-References: <20251117170014.4113754-1-ben.horgan@arm.com>
- <20251117170014.4113754-9-ben.horgan@arm.com>
- <CAJZ5v0hAPoE96C7=ynR=Ex4huPP3b896sBRNdBiLe=3Q9vKwHQ@mail.gmail.com>
- <aRybF5PV_N2ODeiZ@arm.com>
- <CAJZ5v0jA5vWi3JFRcCMFmvpWSu8jFT-jOWvSNLt59FeqKEk3iA@mail.gmail.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+	Tue, 18 Nov 2025 16:53:09 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=MxlUCGz7gNJSprcOPUo2w3Mv+vuCiiB8fOfADEHWR9VLHhNLrOvK+HrJHSCTQVuSQNmeKML5LBIWx+17ygM3liFSkrNHXINmiLu4F5av9OQz/31LVwJdE3x+jN+RGS9I1SPezIgIUCxjYCdwNFNyQPtIHJr9od8IZXl85tOzU6W1vUsCZ82cwaGnImsoUTt8PqloLS6vPzNwLEAlsvuP7JDOaDOUkv33QikD0UQkueHLNZPFkf4te6urPb0Tdrmjz00GX0LgIDCaXG15vcOrZ8ZqtzdaQgjz1SerRgrDLQeUa1EDj2NxFp4m8ewgTL4N+JWzLXbKg8uyZalTx2yarA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=LPscyGwehav659F0fdr1MMnl9mc1+28Xyb95Sk2161E=;
+ b=JasMwMC5Ke46tC6hQsNkB/g5vGiIWuQPHOz9HELrofCqZc3Sx1ix8dXBh6llqFOpf+b3aEnr42VP3s36DqoB/AgNvZa/bfs6kRkLo1x4m6Ph8jggTOlM9eHvXxad/NmwxrUQpC39b/YFiH4ZaBTg+d4c8xAA5wu98nJTMVBOKo9dIH7R9A2Wqt8LpuFxCfGrPjg1cPbBg5gPO4nE8jcwg4QWD3KC72HBmBoztF4QQA2TW80M2x8bEXPja0NcviF8VCJWMN0k+/jZxPfjQqw/lEDiiozh//gMgVfiI6X5HCfQ53dJ1VqRaKbzpDCzD3Xgv8PGD3XFaIl31QgOiLjugA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=LPscyGwehav659F0fdr1MMnl9mc1+28Xyb95Sk2161E=;
+ b=K3OnPfroY6QIORcdFEqsH4gWbtcIGBy1adIBnmzbxIW6zKwFU0ga8nJRJz9b5u9K4SA13ZAVMrKmuqr5PUmEKmtdqPXa0UsNRezg7/PD+R8YKrgaHGWrgb5JFMJmEhVlVHgcPiowvU3JAsuW+cQOtvWjztm70EvU6BNphAn5ms3caLEovP2UkFB+aw9iMzUN5nv9BEilAhuZNDfhC2VoS9x+R4XZcheXjD35WkrpUDdnNcLVGLG/X4KtXUTf0tg5W1xPEzAp0qcNlYju3PSKoLaM3RY4mJv/BKnEp223N0U2hMcKFcezBPgG0zkadrABBiC/ov6gPHH2YdsQDRWuaA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from DB9PR04MB9626.eurprd04.prod.outlook.com (2603:10a6:10:309::18)
+ by AM0PR04MB7121.eurprd04.prod.outlook.com (2603:10a6:208:19a::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9320.19; Tue, 18 Nov
+ 2025 16:53:01 +0000
+Received: from DB9PR04MB9626.eurprd04.prod.outlook.com
+ ([fe80::55ef:fa41:b021:b5dd]) by DB9PR04MB9626.eurprd04.prod.outlook.com
+ ([fe80::55ef:fa41:b021:b5dd%4]) with mapi id 15.20.9320.021; Tue, 18 Nov 2025
+ 16:53:01 +0000
+Date: Tue, 18 Nov 2025 11:52:51 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: Vincent Guittot <vincent.guittot@linaro.org>
+Cc: chester62515@gmail.com, mbrugger@suse.com,
+	ghennadi.procopciuc@oss.nxp.com, s32@nxp.com, bhelgaas@google.com,
+	jingoohan1@gmail.com, lpieralisi@kernel.org, kwilczynski@kernel.org,
+	mani@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, Ionut.Vicovan@nxp.com, larisa.grigore@nxp.com,
+	Ghennadi.Procopciuc@nxp.com, ciprianmarian.costea@nxp.com,
+	bogdan.hamciuc@nxp.com, linux-arm-kernel@lists.infradead.org,
+	linux-pci@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+	cassel@kernel.org
+Subject: Re: [PATCH 1/4 v5] dt-bindings: PCI: s32g: Add NXP PCIe controller
+Message-ID: <aRykY0F9IVmU8f3r@lizhi-Precision-Tower-5810>
+References: <20251118160238.26265-1-vincent.guittot@linaro.org>
+ <20251118160238.26265-2-vincent.guittot@linaro.org>
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAJZ5v0jA5vWi3JFRcCMFmvpWSu8jFT-jOWvSNLt59FeqKEk3iA@mail.gmail.com>
+In-Reply-To: <20251118160238.26265-2-vincent.guittot@linaro.org>
+X-ClientProxiedBy: SJ0PR05CA0191.namprd05.prod.outlook.com
+ (2603:10b6:a03:330::16) To DB9PR04MB9626.eurprd04.prod.outlook.com
+ (2603:10a6:10:309::18)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DB9PR04MB9626:EE_|AM0PR04MB7121:EE_
+X-MS-Office365-Filtering-Correlation-Id: 750a88cd-67bb-4997-6219-08de26c2ef5c
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|376014|7416014|1800799024|366016|19092799006|38350700014|7053199007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?ZuzdAHMKj8VE0eOrh0xLOrXlZRRNxQQ+XvPKj1tqNa22PF4ogSXN6DjVZknK?=
+ =?us-ascii?Q?+mhDhxqCru9krmH2v+vJhkjl/EmuLWkYU8zxDAGXXomONdvbIxNuHAqvX5Gh?=
+ =?us-ascii?Q?drQxJ3gmeAkVddIWwVr6UZxksIVnA26hnOU0srqVHTSAr1ft4JyjgeU7G8n7?=
+ =?us-ascii?Q?m9DuA0/ZpOqvJvTHSZ2o7UtnxDh912+4dcGt8EznkUGqoDI4TuijFiVdWFvL?=
+ =?us-ascii?Q?VYSRIOImuRLdK9hhIwXyBBbAfDFSHS9LwvqwcRPiUpDgI/tyeJeEp9W0bywf?=
+ =?us-ascii?Q?ETHOnGzbBPHsCtDnlsJcyXcO5mq4t6HA3YJsX5QyS9QsRZOqVGrwgBfLzDZB?=
+ =?us-ascii?Q?Le38RD53Z8iTRuOlF+QH90wSamU4MH4gLRZNRoyr51m5Iip8UBvxMIO2R3A5?=
+ =?us-ascii?Q?c4E55uR2+QAc0l9tiVXC/PRMPFGXQF+vmNi08ep8zpc34QvLhKuKQR/C3n36?=
+ =?us-ascii?Q?t5pRbDTeEXY9fXOJn6rMD5dG8xdqhf2h828GmIwae1WVj63uMjWgBkfwophd?=
+ =?us-ascii?Q?6Ib8EO9FK7+MD8jD2nEo+foFZ/Jt1rPYnZbmzbkgb0013bZChKe4MQHfFBGk?=
+ =?us-ascii?Q?zXdeg00zMziQY493b0SEd3kOTDdKPEGAJENabtyGd93y/4WpfuS2nJC4I5ex?=
+ =?us-ascii?Q?+UQSlyQarXa7RHvMGqDhsnpWSzPecbVvMaZZBZNAkpcB8IkDDrVSA51eHA0c?=
+ =?us-ascii?Q?xjpLBHNgNTdLE3MCGp+kHa2ArQP1jqQpPGt2Yyob+EQJDjRgz25B3019gzRA?=
+ =?us-ascii?Q?zEpTqLuZc5+KjuW0284ZAgxYabU+ncsSI9kYRJXYbNNVEF9MPjuoUjOQQC/x?=
+ =?us-ascii?Q?80heLX/EZ/Fn9PWXP5CwLRlZwESBkbLqTVujpzwzm9ICsQ0F7sFCxt45dBNX?=
+ =?us-ascii?Q?X2nEA4Fs1xD3d5JknfKo/TjfyLXuosFzRijqsBojtkf1AHL04NSKQz9rg096?=
+ =?us-ascii?Q?ehrlHNkfVU8RR+n/RG0SGfnyI+jOq65VIHqRvloyfcLENR+nR4kOrvEitnce?=
+ =?us-ascii?Q?vjSbpszqWwW4MMUneKGSEOmD3EP/fy/rkkfjTtjMa78nwqhs2jPVO9bAH2DT?=
+ =?us-ascii?Q?edI7jnCOoC+Htr8LlSIel5HkNNfUt8OF7fDWEcM+jPXZVVZXMCFP92PQ5Y7d?=
+ =?us-ascii?Q?O1L9Sk1GC/p89EyQScbv+e+DUz8bbIK/70GlhzROE4wsrajdnHduQ/xKyMMa?=
+ =?us-ascii?Q?gqyjWRmwG/peCn30q9NaBUthPIHoQgTee4rOZtlArfrq9oXzrY+Dj2PGvBTz?=
+ =?us-ascii?Q?ZQY4F9CUPQuAxhDimaEgNG1skuNOt6vUQNJwQB9jBfKGYMbDuDQjdHTefuX0?=
+ =?us-ascii?Q?bO8QtpX0DStAQYKzQOIU7VHphgpkpIwbKJVxtAKoNXc4j6bkDUK2njBQHeCj?=
+ =?us-ascii?Q?KhhqYRkFcm4pAJref+/54iVn1/LSclY3dXmKlXWTE8wM1f2lxzEtnZSjDvUa?=
+ =?us-ascii?Q?hUe5aGEvZkmbit9pAx7DMWJBFh7MhFQ9kluJI2GKQ7NyBizgTuM/Rg=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR04MB9626.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(376014)(7416014)(1800799024)(366016)(19092799006)(38350700014)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?g3ZAT3A7QS77zOzKFyRDVALAABDhB/Fv+EhVhLE3DFqNxJMj8i7LCeF8Us+8?=
+ =?us-ascii?Q?IhqHytA28UdmhtD9yOEY3voeasihxpSHzFmIQkA8fgYdSrtFmLKg5eTktk0+?=
+ =?us-ascii?Q?+XE3+bTOGSABVeV8lRpMu2TlCBSt1kYh6mx6gEJJhE+aMK1eLWqwGMWwIQXR?=
+ =?us-ascii?Q?Xj/FWGDkmqw81jQR8ED720yWAHENPJg0OV7BAiLwKdxjVDQUj3AERbnNfuCc?=
+ =?us-ascii?Q?f+B0RaKhZge8kzni5UpGwKCu/17q3M7/TL3wvCERE2qgb/Cv5ERqtfH9FHxx?=
+ =?us-ascii?Q?2EtPlajQhKkBlFEN+ACfAhX/mX4S17pCQCLewSoLBoLPIZDvUiBvIJH6lTJ9?=
+ =?us-ascii?Q?Vkd0OBFyQzeqYCjD+A12s3RqO4Ut5RBTKKkXAjvYeFYSDQoeJwfzFqc5DZAf?=
+ =?us-ascii?Q?u0MsySCRqiKmNOutinpGGpV43qdgVfLHNPlK4cBk/Ut8meTBTwInBQ/EHOhL?=
+ =?us-ascii?Q?3AjHZyaj2rIz5VYkmMARuhr8lw7M5TsdlY4GDUckqfkyVbQ7QsaVCziHFutH?=
+ =?us-ascii?Q?EOU3mgOmlpS+bKypkjl2HLv6Qs4Bg2kFFnLLQNwuM4PVfaZYbXMkrqUhFaqc?=
+ =?us-ascii?Q?idewHVUgDV2d0WTmE7za+XjfUROC6/z9JMVaZzn96V1ULDt3G64rOUGXL5wE?=
+ =?us-ascii?Q?/mTnzG6eszHdigXNglbMz4TDgTUrB1Gem3ZJos0PUorc+ekdYCy+W0UeTOJp?=
+ =?us-ascii?Q?cR+Ta2nCcTTTlHcOZZJZlAUX03zKFb5LFvJD1lbl7u3labWFKw65xw0S8KsJ?=
+ =?us-ascii?Q?4WXeLfiZJfGCEClBtuEOKLQ23bOa/cop2TMOR1b4laFmijp8Sa8L0bT9rHnb?=
+ =?us-ascii?Q?Mz+yw06LJb2LeRBIwbH7nm5N2JV+5LfqI9YzYaWYCuDJCWPX/38cs8dUay4T?=
+ =?us-ascii?Q?PGcBxF79bZ/+1xSZPq2S7yJn/sykr3v8ZHl2aJEwHc6+XBqaBJ5xs3fTMpiY?=
+ =?us-ascii?Q?UH97s0ljDcx6PsVJSUvabs4jPXz4PizplukIiGIw+N87fuAuKqA55anHO7WU?=
+ =?us-ascii?Q?ypDSSuY2WYFFnN0/g1z8Aqc2uDpCIlOzTureO98PphbspkGUiiHliWuFXxnl?=
+ =?us-ascii?Q?EgVvVyKifg7RpK/XwowkecLso9ZuCdhFS3APwoDjcUHGKRpE7Gmooo8hRuUK?=
+ =?us-ascii?Q?sH1KwZUs/O91DcDZS6GZPEnr9Bet2ZfB+Ks8A8iDEY2mAypl8xF+Dqw45shs?=
+ =?us-ascii?Q?byEswR4K3qZScngrFoOLKL7eesuKPxIwdV1LfpkHgQueTG5wTqBIQaFmgbEY?=
+ =?us-ascii?Q?KDJVIR31Xbpom7V2cbdqiVKthTVFUDLhl4EoxRaZPLUlZ6qEReGMzMY5gB2Y?=
+ =?us-ascii?Q?0XOOrmyXAKdYZtsbuznQR/OSa1i4A3HXN2QOMkpe3mL0f56lrHyNHKkihFyo?=
+ =?us-ascii?Q?Sppcpab/akzaQB8DeiWlRMY7Fz16EdXSItR6f+Yjsun6dw7dkYX8wXnLdLaA?=
+ =?us-ascii?Q?c6/djVua47oMvzUf2wl2Y/HK/oke4LuF6DdwS+XW2Fm5ZXmtzm9faxQy7eki?=
+ =?us-ascii?Q?SZKRC6UCIw/5BsfUk5ApTs72+/iOEIXTGhrZymWjDRNxpzG6GluhLbAKiWvS?=
+ =?us-ascii?Q?cbWaXujX+x8plgAU1Fhcsxsc4Kcff2r/hkw3JWNr?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 750a88cd-67bb-4997-6219-08de26c2ef5c
+X-MS-Exchange-CrossTenant-AuthSource: DB9PR04MB9626.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2025 16:53:01.5983
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: AkPXUsB0xObSQqXUGU9sLRCIXQkEgHgOCwoWJSrmFEpWGKS7t4M2pUZ4qIZW2oKiCbDoAbDB0KZLK8cW1jypFQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM0PR04MB7121
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251118_084553_882673_BFBCF81B 
-X-CRM114-Status: GOOD (  15.05  )
+X-CRM114-CacheID: sfid-20251118_085308_127773_13249BDD 
+X-CRM114-Status: GOOD (  18.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,31 +164,167 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 18, 2025 at 05:21:07PM +0100, Rafael J. Wysocki wrote:
-> Hi Catalin,
-> 
-> On Tue, Nov 18, 2025 at 5:13 PM Catalin Marinas <catalin.marinas@arm.com> wrote:
-> >
-> > Hi Rafael,
-> >
-> > On Mon, Nov 17, 2025 at 08:46:52PM +0100, Rafael J. Wysocki wrote:
-> > > On Mon, Nov 17, 2025 at 6:01 PM Ben Horgan <ben.horgan@arm.com> wrote:
-> > > > +static inline struct acpi_table_header *acpi_get_table_ret(char *signature, u32 instance)
-> > >
-> > > Maybe call this acpi_get_table_pointer() ?
-> >
-> > Would you have time to look at the other ACPI patches in the series? If
-> > you are ok with them, happy to go in via the arm64 tree? Or we can put
-> > them on a common branch if there are conflicts with your tree.
-> 
-> I think that this is the only one touching ACPI code outside the MPAM
-> and PPTT parsers, and the other patches in the series are fine with
-> me.
-> 
-> Please feel free to take the entire lot.
+On Tue, Nov 18, 2025 at 05:02:35PM +0100, Vincent Guittot wrote:
+> Describe the PCIe host controller available on the S32G platforms.
+>
+> Co-developed-by: Ionut Vicovan <Ionut.Vicovan@nxp.com>
+> Signed-off-by: Ionut Vicovan <Ionut.Vicovan@nxp.com>
+> Co-developed-by: Bogdan-Gabriel Roman <bogdan-gabriel.roman@nxp.com>
+> Signed-off-by: Bogdan-Gabriel Roman <bogdan-gabriel.roman@nxp.com>
+> Co-developed-by: Larisa Grigore <larisa.grigore@nxp.com>
+> Signed-off-by: Larisa Grigore <larisa.grigore@nxp.com>
+> Co-developed-by: Ghennadi Procopciuc <Ghennadi.Procopciuc@nxp.com>
+> Signed-off-by: Ghennadi Procopciuc <Ghennadi.Procopciuc@nxp.com>
+> Co-developed-by: Ciprian Marian Costea <ciprianmarian.costea@nxp.com>
+> Signed-off-by: Ciprian Marian Costea <ciprianmarian.costea@nxp.com>
+> Co-developed-by: Bogdan Hamciuc <bogdan.hamciuc@nxp.com>
+> Signed-off-by: Bogdan Hamciuc <bogdan.hamciuc@nxp.com>
+> Signed-off-by: Vincent Guittot <vincent.guittot@linaro.org>
+> ---
 
-Thanks!
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
--- 
-Catalin
+>  .../bindings/pci/nxp,s32g-pcie.yaml           | 130 ++++++++++++++++++
+>  1 file changed, 130 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/pci/nxp,s32g-pcie.yaml
+>
+> diff --git a/Documentation/devicetree/bindings/pci/nxp,s32g-pcie.yaml b/Documentation/devicetree/bindings/pci/nxp,s32g-pcie.yaml
+> new file mode 100644
+> index 000000000000..da3106dfcf58
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/pci/nxp,s32g-pcie.yaml
+> @@ -0,0 +1,130 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/pci/nxp,s32g-pcie.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: NXP S32G2xxx/S32G3xxx PCIe Root Complex controller
+> +
+> +maintainers:
+> +  - Bogdan Hamciuc <bogdan.hamciuc@nxp.com>
+> +  - Ionut Vicovan <ionut.vicovan@nxp.com>
+> +
+> +description:
+> +  This PCIe controller is based on the Synopsys DesignWare PCIe IP.
+> +  The S32G SoC family has two PCIe controllers, which can be configured as
+> +  either Root Complex or Endpoint.
+> +
+> +properties:
+> +  compatible:
+> +    oneOf:
+> +      - enum:
+> +          - nxp,s32g2-pcie
+> +      - items:
+> +          - const: nxp,s32g3-pcie
+> +          - const: nxp,s32g2-pcie
+> +
+> +  reg:
+> +    maxItems: 6
+> +
+> +  reg-names:
+> +    items:
+> +      - const: dbi
+> +      - const: dbi2
+> +      - const: atu
+> +      - const: dma
+> +      - const: ctrl
+> +      - const: config
+> +
+> +  interrupts:
+> +    minItems: 1
+> +    maxItems: 2
+> +
+> +  interrupt-names:
+> +    items:
+> +      - const: msi
+> +      - const: dma
+> +    minItems: 1
+> +
+> +  pcie@0:
+> +    description:
+> +      Describe the S32G Root Port.
+> +    type: object
+> +    $ref: /schemas/pci/pci-pci-bridge.yaml#
+> +
+> +    properties:
+> +      reg:
+> +        maxItems: 1
+> +
+> +      phys:
+> +        maxItems: 1
+> +
+> +    required:
+> +      - reg
+> +      - phys
+> +
+> +    unevaluatedProperties: false
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - reg-names
+> +  - interrupts
+> +  - interrupt-names
+> +  - ranges
+> +  - pcie@0
+> +
+> +allOf:
+> +  - $ref: /schemas/pci/snps,dw-pcie.yaml#
+> +
+> +unevaluatedProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+> +    #include <dt-bindings/phy/phy.h>
+> +
+> +    bus {
+> +        #address-cells = <2>;
+> +        #size-cells = <2>;
+> +
+> +        pcie@40400000 {
+> +            compatible = "nxp,s32g3-pcie", "nxp,s32g2-pcie";
+> +            reg = <0x00 0x40400000 0x0 0x00001000>,   /* dbi registers */
+> +                  <0x00 0x40420000 0x0 0x00001000>,   /* dbi2 registers */
+> +                  <0x00 0x40460000 0x0 0x00001000>,   /* atu registers */
+> +                  <0x00 0x40470000 0x0 0x00001000>,   /* dma registers */
+> +                  <0x00 0x40481000 0x0 0x000000f8>,   /* ctrl registers */
+> +                  <0x5f 0xffffe000 0x0 0x00002000>;   /* config space */
+> +            reg-names = "dbi", "dbi2", "atu", "dma", "ctrl", "config";
+> +            dma-coherent;
+> +            #address-cells = <3>;
+> +            #size-cells = <2>;
+> +            device_type = "pci";
+> +            ranges =
+> +                     <0x81000000 0x0 0x00000000 0x5f 0xfffe0000 0x0 0x00010000>,
+> +                     <0x82000000 0x0 0x00000000 0x58 0x00000000 0x0 0x80000000>,
+> +                     <0x82000000 0x1 0x00000000 0x59 0x00000000 0x6 0xfffe0000>;
+> +
+> +            bus-range = <0x0 0xff>;
+> +            interrupts = <GIC_SPI 125 IRQ_TYPE_LEVEL_HIGH>,
+> +                         <GIC_SPI 123 IRQ_TYPE_LEVEL_HIGH>;
+> +            interrupt-names = "msi", "dma";
+> +            #interrupt-cells = <1>;
+> +            interrupt-map-mask = <0 0 0 0x7>;
+> +            interrupt-map = <0 0 0 1 &gic 0 0 GIC_SPI 128 IRQ_TYPE_LEVEL_HIGH>,
+> +                            <0 0 0 2 &gic 0 0 GIC_SPI 129 IRQ_TYPE_LEVEL_HIGH>,
+> +                            <0 0 0 3 &gic 0 0 GIC_SPI 130 IRQ_TYPE_LEVEL_HIGH>,
+> +                            <0 0 0 4 &gic 0 0 GIC_SPI 131 IRQ_TYPE_LEVEL_HIGH>;
+> +
+> +            pcie@0 {
+> +                reg = <0x0 0x0 0x0 0x0 0x0>;
+> +                #address-cells = <3>;
+> +                #size-cells = <2>;
+> +                ranges;
+> +
+> +                device_type = "pci";
+> +                phys = <&serdes0 PHY_TYPE_PCIE 0 0>;
+> +            };
+> +        };
+> +    };
+> --
+> 2.43.0
+>
 
