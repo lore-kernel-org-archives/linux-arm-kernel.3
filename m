@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB84CCEE328
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 15:33:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E34A5CEE328
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 15:33:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
 	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wUbQbJmoPDgATkm3s9T21n5Kw15kiWowwCBPCcmMAHg=; b=XtNAMdQmk72vLbCCel70vDKkGC
-	sQiCi5IXf9QFRb+bPYORc5UKAJTHtpdzJiN0zVLh9/8Jen2A+1r/hVpogGN179soNEguGsBaUGjMz
-	WyKDPeRjG/PSyAo39Aw9Gn9uY/w4QUux4BOG2grqbt2BqkwzS+Pnd+i6FPHdvwte417XWQDqs4eYi
-	K/wRYP+fWBemP8OZU0RP3Ez45kkdOyJq9eguLckCVIgu3U20ixhTl0j803bGWdQk4x2QWV5PbfytX
-	EJAG6wyCaJUESJK+hXCKzG/Nn5sFEIqlk2hnZPcYV9M7me2akWrOe5aTGN8ajt2RD4ZL5Frxj9rqg
-	hrTJlqaw==;
+	bh=DPjEaZE9fZ6eQJstZXelCH/jWhUDKf2/sgu7vjMYLBU=; b=QVSmaSOsIf5Yi/SqhEtqW0fol1
+	2zXJ4ttD0gF/9hXauLipbRym0UvAPOcZPtu+XWgTy3ISxFiNql7CLlHubr8xj5PUWRQx4CGcORmKJ
+	nP+5Wvu7dgcDk4pevdRUGwDoT7FLYBJDW931zV3x2KviPx83vXSvpN7LGLpiepwR2CYt00IRM3FVD
+	xjPpb0n0sGhAEbIJ4CVoVC7VYxW0oIklgaHf2p+bIao/z/rLE8595os32YeES8B731w7wX3Q6BsK+
+	vAMRnGaFKsM/ARWQTFj+agCahXnXmlUiPPcrxOH9uHxLxSNSt/j1ncQliqGQRjHiRcTssoMpxUP9G
+	w563+4Gg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLNhV-00000000dMi-32px;
-	Tue, 18 Nov 2025 15:33:01 +0000
+	id 1vLNiD-00000000daW-2cth;
+	Tue, 18 Nov 2025 15:33:45 +0000
 Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLNhS-00000000dKm-2Lwi
+	id 1vLNiB-00000000dZV-1joR
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Nov 2025 15:33:00 +0000
+	Tue, 18 Nov 2025 15:33:44 +0000
 Received: from mail.maildlp.com (unknown [172.18.186.31])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4d9pWm28jfzHnGd0;
-	Tue, 18 Nov 2025 23:32:20 +0800 (CST)
+	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4d9pXS0cRwzJ4674;
+	Tue, 18 Nov 2025 23:32:56 +0800 (CST)
 Received: from dubpeml100005.china.huawei.com (unknown [7.214.146.113])
-	by mail.maildlp.com (Postfix) with ESMTPS id 552F01400DC;
-	Tue, 18 Nov 2025 23:32:51 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id 7B598140277;
+	Tue, 18 Nov 2025 23:33:38 +0800 (CST)
 Received: from localhost (10.126.168.5) by dubpeml100005.china.huawei.com
  (7.214.146.113) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Tue, 18 Nov
- 2025 15:32:49 +0000
-Date: Tue, 18 Nov 2025 15:32:48 +0000
+ 2025 15:33:36 +0000
+Date: Tue, 18 Nov 2025 15:33:35 +0000
 From: Jonathan Cameron <jonathan.cameron@huawei.com>
 To: Ben Horgan <ben.horgan@arm.com>
 CC: <james.morse@arm.com>, <amitsinght@marvell.com>,
@@ -53,13 +53,14 @@ CC: <james.morse@arm.com>, <amitsinght@marvell.com>,
 	<rafael@kernel.org>, <robh@kernel.org>, <rohit.mathew@arm.com>,
 	<scott@os.amperecomputing.com>, <sdonthineni@nvidia.com>,
 	<sudeep.holla@arm.com>, <tan.shaopeng@fujitsu.com>, <will@kernel.org>,
-	<xhao@linux.alibaba.com>, Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>, Zeng
- Heng <zengheng4@huawei.com>
-Subject: Re: [PATCH v5 04/34] ACPI / PPTT: Find cache level by cache-id
-Message-ID: <20251118153248.0000558a@huawei.com>
-In-Reply-To: <20251117170014.4113754-5-ben.horgan@arm.com>
+	<xhao@linux.alibaba.com>, "Zeng Heng" <zengheng4@huawei.com>, Shaopeng Tan
+	<tan.shaopeng@jp.fujitsu.com>
+Subject: Re: [PATCH v5 05/34] ACPI / PPTT: Add a helper to fill a cpumask
+ from a cache_id
+Message-ID: <20251118153335.000067ed@huawei.com>
+In-Reply-To: <20251117170014.4113754-6-ben.horgan@arm.com>
 References: <20251117170014.4113754-1-ben.horgan@arm.com>
-	<20251117170014.4113754-5-ben.horgan@arm.com>
+	<20251117170014.4113754-6-ben.horgan@arm.com>
 X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
 Content-Type: text/plain; charset="US-ASCII"
@@ -68,8 +69,8 @@ X-Originating-IP: [10.126.168.5]
 X-ClientProxiedBy: lhrpeml500010.china.huawei.com (7.191.174.240) To
  dubpeml100005.china.huawei.com (7.214.146.113)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251118_073259_154868_68FF4003 
-X-CRM114-Status: UNSURE (   9.84  )
+X-CRM114-CacheID: sfid-20251118_073343_615464_DF751787 
+X-CRM114-Status: UNSURE (   8.77  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -85,31 +86,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 17 Nov 2025 16:59:43 +0000
+On Mon, 17 Nov 2025 16:59:44 +0000
 Ben Horgan <ben.horgan@arm.com> wrote:
 
 > From: James Morse <james.morse@arm.com>
 > 
-> The MPAM table identifies caches by id. The MPAM driver also wants to know
-> the cache level to determine if the platform is of the shape that can be
-> managed via resctrl. Cacheinfo has this information, but only for CPUs that
-> are online.
+> MPAM identifies CPUs by the cache_id in the PPTT cache structure.
 > 
-> Waiting for all CPUs to come online is a problem for platforms where
-> CPUs are brought online late by user-space.
+> The driver needs to know which CPUs are associated with the cache.
+> The CPUs may not all be online, so cacheinfo does not have the
+> information.
 > 
-> Add a helper that walks every possible cache, until it finds the one
-> identified by cache-id, then return the level.
+> Add a helper to pull this information out of the PPTT.
 > 
-> Signed-off-by: James Morse <james.morse@arm.com>
-> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
+> CC: Rohit Mathew <Rohit.Mathew@arm.com>
 > Reviewed-by: Gavin Shan <gshan@redhat.com>
 > Reviewed-by: Fenghua Yu <fenghuay@nvidia.com>
 > Tested-by: Fenghua Yu <fenghuay@nvidia.com>
-> Tested-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
 > Tested-by: Carl Worth <carl@os.amperecomputing.com>
 > Tested-by: Gavin Shan <gshan@redhat.com>
 > Tested-by: Zeng Heng <zengheng4@huawei.com>
+> Tested-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
+> Signed-off-by: James Morse <james.morse@arm.com>
+> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
+
 Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
 
 
