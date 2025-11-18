@@ -4,64 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35E84CEE334
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 21:36:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67399CEE334
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 21:43:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=V33LgHMaA19L7AQTTxwDc0wvf2Ziqc56wvPPwij4a3Y=; b=rtetmcUovai4em/36WD9Qekaop
-	Wz+iC6WXj7nE9RYIan7KCOyqIG4qRGyHupXl6XY4CKxXIspKTpK0qRBpltLQwV2zBHD/Bhm8Utxip
-	HVUPhge39It/IKuVoj7QXuEuMVpT4EePAdRgVfyBs1iTer5z4CWt0qOTZCAjfI1xBioSxM5QM57O1
-	It+5GJBaj4jGGDPbN8H2p7zUhw1NTkkxSpnQN5ObAV8y9c82h0/TgVluOMYiURdQ5B5v7x2mtmm4q
-	ul4Cy1SwenbZl7awxwTF4NpamSVlM3wuDS4RxEKFWaCpGwWItJP9Tu4SdtsmmAMKECBT/yNl0/SI/
-	WBIEdPIA==;
+	bh=EhjRyNTNJpNllwOFOhQ/KyLGzZt8ij8evTMD8p7jUd8=; b=BRVkZT8lFrhW0xGjWE2gS/sA3b
+	lZxSLLsb6QgNiwRH8/UgZmv5qytKhZt3hHafcAr0CPaT0wTy2ujtOWhjYv1n+SgWjORxDqhh+XuCd
+	7Qwi3H1CjuvxBebBZ3kMf0ZM5qgUFNA2fO9Zq68FGQQHx5Gqmfadz05A+8txTwThU2G6KxZ+6h73c
+	jfQeaYbpF1cAgaUPNBynltTLDnlCDdlBnPWa/AFmNzS4gG0qabVQoV2WCZewfPUk+B8ao2qC4POBn
+	rltawIcX1fG9n14vzNuS/cjzerjOMjLY8umJhEjQoUZsk94qXXahiW4RzzABCT1s+dmKA6wIpTGVN
+	C7b0xTRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLTMw-0000000187Z-29d6;
-	Tue, 18 Nov 2025 21:36:10 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vLTTs-000000018N2-1lsa;
+	Tue, 18 Nov 2025 21:43:20 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLTMs-00000001878-0kID
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Nov 2025 21:36:08 +0000
+	id 1vLTTr-000000018Mt-1tsJ;
+	Tue, 18 Nov 2025 21:43:19 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 61D7443813;
-	Tue, 18 Nov 2025 21:36:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E351EC116D0;
-	Tue, 18 Nov 2025 21:36:04 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 611756012B;
+	Tue, 18 Nov 2025 21:43:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7BA5EC116D0;
+	Tue, 18 Nov 2025 21:43:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763501765;
-	bh=b1uwEjQ88F7sIXoukh2YUwPZjQK4En6hofzj3LhP+ow=;
+	s=k20201202; t=1763502197;
+	bh=/DccbKxo0GnChl0C4CIrCj7Yv1sCs/9h37/YbO1FOhc=;
 	h=From:To:Cc:Subject:Date:From;
-	b=c2drhGzLUR+9NsY2j7pn0GQGI77lVDcgKBxtWrumeqahNIORPuLPKnbS4Oty5Hl2O
-	 s5QwLPsZclcWfvEbcKJy3C7mEArxiUg6cVxxj1B8z9RNchZ5M6rYdqtu66Grs0XYye
-	 hduYwBGA6li2Q9+W0brAsN6RceLoH3ETv58ihqePvf/rVNNcs/d8u4jQhHuuGWzgZi
-	 ew/3sjC/M+XxNuqPCR7jLoc3EFI2qyCCmeC7VrCVBRos12bxZH0+EXm9OAVA/vtJNP
-	 C+mHiN3KGpjg1lcNUdLTUFAe0nioWDoOvrbArKmnhUrV4CpmrnsQd/x3uo68clr5Bp
-	 eCc9cBY8CD0Ew==
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
+	b=Fyr+5b1ioHIeLhruTgMZkGBFVJxUB2oLgyjAaqAPof7E+l81wsBvvAgQXLALgur/G
+	 sdW6SzakuazlI7jfz2o5EuyliPlZI6jtYVOvzZeN5HKcGvTugn36M5q/fV5ryci2w6
+	 5MEx/1IFXpP79/mxWJmTYfsdqdQIvXT1GeqblkeXq0nC0x5jWRCUEfasZX8esesa1A
+	 V1BuZOGMemWf22F8MxLOrtf6WmBJzO2gnKNuCo8MoGgXZFYI2y5erH5z64T1PsSOl/
+	 QFA6uRjpV66DA7FnPvvxl3m4wRVtlU0o4aLqM/Kmra9OYsqFThkLSmuqfzTVaTNXLF
+	 VGTfqqAvccj4Q==
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Niklas Cassel <cassel@kernel.org>,
+	Shawn Lin <shawn.lin@rock-chips.com>
+Cc: Manivannan Sadhasivam <mani@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Kever Yang <kever.yang@rock-chips.com>,
+	Simon Xue <xxm@rock-chips.com>,
+	Damien Le Moal <dlemoal@kernel.org>,
+	Dragan Simic <dsimic@manjaro.org>,
+	FUKAUMI Naoki <naoki@radxa.com>,
+	Diederik de Haas <diederik@cknow-tech.com>,
+	Richard Zhu <hongxing.zhu@nxp.com>,
+	Frank Li <Frank.li@nxp.com>,
+	Lucas Stach <l.stach@pengutronix.de>,
 	Shawn Guo <shawnguo@kernel.org>,
 	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>
-Cc: devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
+	Fabio Estevam <festevam@gmail.com>,
+	Conor Dooley <conor@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Jonathan Hunter <jonathanh@nvidia.com>,
+	Hans Zhang <hans.zhang@cixtech.com>,
+	linux-tegra@vger.kernel.org,
+	linux-pci@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] ARM: dts: nxp: imx: Fix mc13xxx LED node names
-Date: Tue, 18 Nov 2025 15:35:50 -0600
-Message-ID: <20251118213551.44116-1-robh@kernel.org>
-X-Mailer: git-send-email 2.51.0
+	linux-rockchip@lists.infradead.org,
+	kernel@pengutronix.de,
+	Bjorn Helgaas <bhelgaas@google.com>
+Subject: [PATCH v2 0/4] PCI: dwc: Advertise L1 PM Substates only if driver requests it
+Date: Tue, 18 Nov 2025 15:42:14 -0600
+Message-ID: <20251118214312.2598220-1-helgaas@kernel.org>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251118_133606_890536_C4B73FD5 
-X-CRM114-Status: GOOD (  10.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,100 +92,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Node names are supposed to be generic and use hexadecimal unit-addresses.
+From: Bjorn Helgaas <bhelgaas@google.com>
 
-Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
----
- arch/arm/boot/dts/nxp/imx/imx27-phytec-phycore-rdk.dts | 8 ++++----
- arch/arm/boot/dts/nxp/imx/imx51-zii-rdu1.dts           | 4 ++--
- arch/arm/boot/dts/nxp/imx/imx51-zii-scu2-mezz.dts      | 4 ++--
- arch/arm/boot/dts/nxp/imx/imx51-zii-scu3-esb.dts       | 4 ++--
- 4 files changed, 10 insertions(+), 10 deletions(-)
+This is a follow-up to Niklas's patch at
+https://lore.kernel.org/r/20251017163252.598812-2-cassel@kernel.org.  That
+patch clears the L1 PM Substate Supported bits for the dw-rockchip driver,
+which doesn't yet do the device configuration to support the L1 Substates.
 
-diff --git a/arch/arm/boot/dts/nxp/imx/imx27-phytec-phycore-rdk.dts b/arch/arm/boot/dts/nxp/imx/imx27-phytec-phycore-rdk.dts
-index b8048e12e3d9..5398e9067e60 100644
---- a/arch/arm/boot/dts/nxp/imx/imx27-phytec-phycore-rdk.dts
-+++ b/arch/arm/boot/dts/nxp/imx/imx27-phytec-phycore-rdk.dts
-@@ -248,14 +248,14 @@ ledr3: led@9 {
- 		linux,default-trigger = "nand-disk";
- 	};
- 
--	ledg3: led@10 {
--		reg = <10>;
-+	ledg3: led@a {
-+		reg = <0xa>;
- 		label = "system:green3:live";
- 		linux,default-trigger = "heartbeat";
- 	};
- 
--	ledb3: led@11 {
--		reg = <11>;
-+	ledb3: led@b {
-+		reg = <0xb>;
- 		label = "system:blue3:cpu";
- 		linux,default-trigger = "cpu0";
- 	};
-diff --git a/arch/arm/boot/dts/nxp/imx/imx51-zii-rdu1.dts b/arch/arm/boot/dts/nxp/imx/imx51-zii-rdu1.dts
-index 06545a6052f7..238138c4ee72 100644
---- a/arch/arm/boot/dts/nxp/imx/imx51-zii-rdu1.dts
-+++ b/arch/arm/boot/dts/nxp/imx/imx51-zii-rdu1.dts
-@@ -398,13 +398,13 @@ leds {
- 			#size-cells = <0>;
- 			led-control = <0x0 0x0 0x3f83f8 0x0>;
- 
--			sysled0@3 {
-+			led@3 {
- 				reg = <3>;
- 				label = "system:green:status";
- 				linux,default-trigger = "default-on";
- 			};
- 
--			sysled1@4 {
-+			led@4 {
- 				reg = <4>;
- 				label = "system:green:act";
- 				linux,default-trigger = "heartbeat";
-diff --git a/arch/arm/boot/dts/nxp/imx/imx51-zii-scu2-mezz.dts b/arch/arm/boot/dts/nxp/imx/imx51-zii-scu2-mezz.dts
-index 26eb7a9506e4..1598bf4f4991 100644
---- a/arch/arm/boot/dts/nxp/imx/imx51-zii-scu2-mezz.dts
-+++ b/arch/arm/boot/dts/nxp/imx/imx51-zii-scu2-mezz.dts
-@@ -225,13 +225,13 @@ leds {
- 			#size-cells = <0>;
- 			led-control = <0x0 0x0 0x3f83f8 0x0>;
- 
--			sysled3: led3@3 {
-+			sysled3: led@3 {
- 				reg = <3>;
- 				label = "system:red:power";
- 				linux,default-trigger = "default-on";
- 			};
- 
--			sysled4: led4@4 {
-+			sysled4: led@4 {
- 				reg = <4>;
- 				label = "system:green:act";
- 				linux,default-trigger = "heartbeat";
-diff --git a/arch/arm/boot/dts/nxp/imx/imx51-zii-scu3-esb.dts b/arch/arm/boot/dts/nxp/imx/imx51-zii-scu3-esb.dts
-index 19a3b142c964..c2dcfd44c445 100644
---- a/arch/arm/boot/dts/nxp/imx/imx51-zii-scu3-esb.dts
-+++ b/arch/arm/boot/dts/nxp/imx/imx51-zii-scu3-esb.dts
-@@ -153,13 +153,13 @@ leds {
- 			#size-cells = <0>;
- 			led-control = <0x0 0x0 0x3f83f8 0x0>;
- 
--			sysled3: led3@3 {
-+			sysled3: led@3 {
- 				reg = <3>;
- 				label = "system:red:power";
- 				linux,default-trigger = "default-on";
- 			};
- 
--			sysled4: led4@4 {
-+			sysled4: led@4 {
- 				reg = <4>;
- 				label = "system:green:act";
- 				linux,default-trigger = "heartbeat";
+This series does the same thing, but in the DWC core so it applies to all
+DWC-based drivers.  Drivers that do support L1 Substates (currently
+tegra194 and qcom) indicate that by setting "dw_pcie.l1ss_support", and the
+DWC core will leave the L1 PM Substate Supported bits alone.
+
+This also includes Shawn's patches to add the dw-rockchip support for L1
+Substates.
+
+The problem this fixes is that users are currently able to enable L1
+Substates, e.g., by
+
+  - building with with CONFIG_PCIEASPM_POWER_SUPERSAVE=y
+  - booting with "pcie_aspm.policy=powersupersave"
+  - echo powersupersave > /sys/module/pcie_aspm/parameters/policy
+  - echo 1 > /sys/bus/pci/devices/.../link/l1_1_aspm
+
+but this breaks devices if the platform doesn't support CLKREQ# or lacks
+Root Port configuration.  This series avoids that problem by preventing the
+kernel from enabling L1.x in the first place.
+
+
+Bjorn Helgaas (2):
+  PCI: dwc: Advertise L1 PM Substates only if driver requests it
+  PCI: tegra194: Remove unnecessary L1SS disable code
+
+Shawn Lin (2):
+  PCI: dw-rockchip: Configure L1SS support
+  arm64: dts: rockchip: Add PCIe clkreq stuff for RK3588 EVB1
+
+ .../boot/dts/rockchip/rk3588-evb1-v10.dts     |  7 ++-
+ .../pci/controller/dwc/pcie-designware-ep.c   |  2 +
+ .../pci/controller/dwc/pcie-designware-host.c |  2 +
+ drivers/pci/controller/dwc/pcie-designware.c  | 24 ++++++++++
+ drivers/pci/controller/dwc/pcie-designware.h  |  2 +
+ drivers/pci/controller/dwc/pcie-dw-rockchip.c | 40 ++++++++++++++++
+ drivers/pci/controller/dwc/pcie-qcom.c        |  2 +
+ drivers/pci/controller/dwc/pcie-tegra194.c    | 48 ++++---------------
+ 8 files changed, 85 insertions(+), 42 deletions(-)
+
 -- 
-2.51.0
+2.43.0
 
 
