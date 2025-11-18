@@ -4,83 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 636D9CED265
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 10:17:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEE29CED265
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 10:24:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bMz2ZE23L8pkKEvAtibV91PPmqodgqp/GEg4FP1KnLM=; b=2QopbovpyePf5+qHvDEkFU9rS6
-	SIHD5e0Jqm9IAjLoERZ2s0aFnetCXUEsE4YbdjF8edjbg6uQpe/RhMBj/w5Oy9uKeAkPtNWgqh/rZ
-	ebEQ9TteTmfM7F6wLlcXQmvlUSm1CHJ6Jl+8KZRw1OJ90Qrp55SHv6ahPun23gRDiaBUfRAmkNH2M
-	pbgRDM0m9CzpRVzZEedgTQCGNB+K3UTNDCfPXkuC9IAG5zKdUYbuMfwg0vMUQj49/CZjvb3uNHe55
-	xjBDXHVAF93Mm7K325Fqm9HqGL4ztv06wuY/iZCLcRK9GbrrhU7QdqBu47JHaRgQLFEJT3ehjibq2
-	qeM44JuA==;
+	bh=IRe7Y8ocCSJA6puSivlnRO41KrL1icg2QDSVsxKnu1E=; b=1iXYhMKvh40oxxAVOkUokPFTsL
+	YDSb/HJSPEMRIg332LArkhiISVF3RrJuOaIlZFn43fkgkSzwGuEeNVjGw+RT9SQgqvZ4MGt1ptr/K
+	tIxuSjcYhG/fCAZ60k+2MiKfyRttOiLCZAOV25S0SFyKrbJURJEEj7DaSU+JYpzmbO8hb0ziwcNBm
+	jvQozC2jlSIcevprU2iIhEpx7t5SvH6RfWWnpsUqQphtsO6ioAGhwKTU+RyOpjhNMUFvYzBz7dDDC
+	TQ5jKBNCK9/cA89O9ATF7MveGuWvm31OcRDDdt6rdYO0o9JOtiB7wzlZuxQHhEI8fQaYAkeI2STCs
+	RP0JDDtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLImM-00000000EJE-2IVs;
-	Tue, 18 Nov 2025 10:17:42 +0000
-Received: from mail-lf1-x12e.google.com ([2a00:1450:4864:20::12e])
+	id 1vLIsW-00000000Elx-2WA9;
+	Tue, 18 Nov 2025 10:24:04 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLImJ-00000000EIW-1OHv
+	id 1vLIsT-00000000ElG-2ye3
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Nov 2025 10:17:41 +0000
-Received: by mail-lf1-x12e.google.com with SMTP id 2adb3069b0e04-5959b2f3fc9so228337e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Nov 2025 02:17:38 -0800 (PST)
+	Tue, 18 Nov 2025 10:24:02 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-477a2ab455fso20582255e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Nov 2025 02:24:00 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1763461057; x=1764065857; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=bMz2ZE23L8pkKEvAtibV91PPmqodgqp/GEg4FP1KnLM=;
-        b=OJeEHNT5B6/+3joWd/8gbUDTP/VxfQgw2utqwhoHC5qzAnLSxzOjfsDaTP8rjoRAvE
-         hVypbhW4FI1IWSP8qXSqxDgKEuFCrAgGNSLMzC3KHWk0tUvGf1fTcQf4OFIOQVCrO1/F
-         On+Zy54eIAYpqLWl4NF7NFjFwU2wqCINjedE4=
+        d=linaro.org; s=google; t=1763461439; x=1764066239; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=IRe7Y8ocCSJA6puSivlnRO41KrL1icg2QDSVsxKnu1E=;
+        b=zvROjZV4XbaJ9D3BQwr5rQ87Z5FazVpoSmS0Kyp3yc1VFTFrnPMVDdA8JZMnUviAbm
+         Q9jVrlzglK20yuUtBIPtdcoiKEwt08lGqQ6MVC6fqLDaaT8dtE9CMCfrsalPhRxw5lYW
+         JDtDWxjJnRtcSuMOT5f45Nq7HvEGSCb6QOLikTYC3V71uZB/7LsAjYezj7ysU2z7Rt3v
+         /JzLdM2Zu3C1i9TmMH+/+sncp3fdUU5zWI0LUUfqWJ+8f2QTQO5PRytYk9opqmXV60BO
+         kYFQ93pLBs/4cOCjgBdNbxNwx6BzSYwOr5E2LUkMEWbq27sAjpY0BywzJo9YYEcVTFjQ
+         71tw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763461057; x=1764065857;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=bMz2ZE23L8pkKEvAtibV91PPmqodgqp/GEg4FP1KnLM=;
-        b=YIrkgAoFVwQokis3lyPsrXy+hl21vOAM5A4gVTHIigmIx/LxcGcOAXUFJvUxAhfqBl
-         GhhHP3ZXVeOPfBN+J1lZtLWaeEUAtK3aHII3BMMubhxqnWukejGxL3GWv1RWzqhNOeEu
-         Z8Qhlz8doFRFzaeso85Eacs8eQAkvJ5kzq+ZJZjDNdV3JrHpFKLWDq2/Fzlc9OQtTrKv
-         UMQjXq/MTDuXrNUUAgM1OefK46KYuVQTTwwqOB6XwQHhIs3fU3jczNs4vHPMFG1E6iLa
-         qNcPQPU+Fti8NxtcKDywyYvsYyA2muIRfA7Rx2i6YxeWN5z9stELvM3a5Ox7Zg7wKMod
-         DL+w==
-X-Forwarded-Encrypted: i=1; AJvYcCV6qJGZ0g2ixdUYD+W38/3dRxD5Bw8Y+2ZL0sb/vL+vJ2ajZIx5ZgRt2Ytz7JfX8i2tCO9+QLQhEjewSfYicrzo@lists.infradead.org
-X-Gm-Message-State: AOJu0YzN9WRQyrz5xS8Fw4zaGZYYcMApDYty339COVK+AZHKXROOwQuE
-	pNrcAbVH12SQve8rxLRAfLypQOCGfRWFX8QYGa23axNsipGO2RHU3t+B2ZYjR3PLR48OFHQxtN9
-	8lPuWJ+kB4z7afNmmNuHZZyVH3R/w/D6Az/7VdKLO
-X-Gm-Gg: ASbGncvAtIIH2WRK9Kx5Ymc4Gm8B65C6JvbMMqg8ZSgvUW1jzrIvI2nnV5I5yNGdW7u
-	/2tArQ92szAxmwgNx+BDPZWnptGjlPVcIstm6A3AxwiTXozhGaLkeMho0cVjd5Xc+VQ9HYntT94
-	AjSo+CeM2uM2TZNCBJhoA1AtL32/FMI9y5vzQxtNu1mm0Z6731SMBLdiTvWUYo42K8qHbP2o94h
-	Q5n3QNR2YXuN3YTKiWS9WYMVXbDs84JYCFmNRPXL5o2Naubggmd/XVuuOWfHK1mIFyfUoXzFMY5
-	Za+p9zHiIs7iLMo=
-X-Google-Smtp-Source: AGHT+IEDIyDccAsQNaQoiJeQUTT4vBLg4RzkD7VakIIbkSB2sGZK1r6Tx5nUDzSggQyhw/8/mBQdIa7MJoa+YejWBHs=
-X-Received: by 2002:a05:6512:3b0d:b0:594:2f72:2f7b with SMTP id
- 2adb3069b0e04-595841a2ce6mr4735606e87.6.1763461056862; Tue, 18 Nov 2025
- 02:17:36 -0800 (PST)
+        d=1e100.net; s=20230601; t=1763461439; x=1764066239;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=IRe7Y8ocCSJA6puSivlnRO41KrL1icg2QDSVsxKnu1E=;
+        b=FYUJfO+M+eJfaDSP8XVPDKNR4gwbN3M2eibd+QyLJwlSZ9oK3ke7L43Enxdyv8yd4r
+         s/7jT7BQVhcFJMhPdCqQuT9TYf6J5THxHUnjenaA2NbGLCGx8LUBGnKUvbzQxUNpmzZL
+         vk9t0oiDJuTDoAvWky91vT8mIYfjYM08pdJU8hsapHi7qB1wfgDevh/7suPzJdwIW2Rg
+         2r3Kgw9gCP+JcDYSGRF1O590SAN+aXOy+Ie6zqGbiu0tWflfRJgq28KP90QOdcwvN+5q
+         DDK4+p+2g8pgq7Z6mKpboR1N8O9kpCvyq8Ux1MUByO0m0F9m0yCs64CBUJ8EApbzG69k
+         9PQg==
+X-Forwarded-Encrypted: i=1; AJvYcCUugYZJp9EwqhzSJk3rQh/a9MDaWOalZy5zitg2HKd0nlprNDMTIP4hdXXQVdhwPaBXvPp1UU9jehQeGa59epDb@lists.infradead.org
+X-Gm-Message-State: AOJu0YzOKcQDx9mfEABGtkYzsrZw49ItgeXhdsFfHJZY2h13il0mfHrb
+	2HILnYzohpchGt0nxFkWPESgiLCOMWao5LPt+7ZKf90N7YME9vsngVWt/d6nw50u+yo=
+X-Gm-Gg: ASbGncuH8dlsVcOCPSGLkLZyTBWPqJrLlTzgWc9pxv84YYvDJ+SWw9XNC5H9sPXTp8q
+	eQ1PKSm2qIMejWGcWknEHy/1tizFGoMt2ysxJtMyAhlGibLkC/pB1hfK3214ChvYVp+V2++uqEo
+	a/eo+rBuvSnVRCrbfxfDbtrmhezjhsCEKeTGwsUzalys2e2L/XazBGWy6Ab60lnIP2gZY68EmGE
+	dYszym550XgoilP927WMTwHGbmx6D+aa52c4FXM1CO7YyHa0Pc726T3u4afo2mqpScP3c5Yfm9u
+	oXXNcueWDvdcgHcqEhwiVFbZa+D7wkpQqwWf1Vm3W26meNmzRx4f83xxGKg1wUKFtq9whl8C7AS
+	ATMXtsRGZ7PYWeQTKQ6wuJUlDXoxPbJqPPp6T3DoEnQ4c3Yix7UnraF0l4h0Ypa/AAGTjOjwNYo
+	f4HyCBPH8FMjLlbwGG4TrGEb0G/46bUIwql5hOww==
+X-Google-Smtp-Source: AGHT+IHByaXCWxWKXsSKTnDrpBen1+oA5DT4UG+T31+rRD84A47jeCA8TubUZjv9qKUynHDVgn28Yg==
+X-Received: by 2002:a05:600c:4695:b0:477:7b9a:bb1b with SMTP id 5b1f17b1804b1-4778fea681fmr136415065e9.32.1763461439369;
+        Tue, 18 Nov 2025 02:23:59 -0800 (PST)
+Received: from [192.168.1.3] ([185.48.77.170])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42b53f206e2sm31548043f8f.41.2025.11.18.02.23.58
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 18 Nov 2025 02:23:58 -0800 (PST)
+Message-ID: <ed4a5e23-f2f0-4f02-8b0a-e97329cb313f@linaro.org>
+Date: Tue, 18 Nov 2025 10:23:57 +0000
 MIME-Version: 1.0
-References: <20251117211306.725678-1-robh@kernel.org> <679c1f30-7c62-484e-b4e5-7351a23f15e5@collabora.com>
-In-Reply-To: <679c1f30-7c62-484e-b4e5-7351a23f15e5@collabora.com>
-From: Chen-Yu Tsai <wenst@chromium.org>
-Date: Tue, 18 Nov 2025 18:17:25 +0800
-X-Gm-Features: AWmQ_bm304gtjUmEwlNuwAwUF0aqnogWCU3ugaXK9WBY_7txsNFFaEsy0o7zYa0
-Message-ID: <CAGXv+5H23oc_Zj3tR4uCwKpXi074ujmF7WB9g_NV-OmXnAWmmQ@mail.gmail.com>
-Subject: Re: [PATCH] arm64: dts: mediatek: Apply all DT overlays at build time
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: "Rob Herring (Arm)" <robh@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
-	devicetree@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 00/25] perf arm_spe: Extend operations
+To: Namhyung Kim <namhyung@kernel.org>, Leo Yan <leo.yan@arm.com>
+Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
+ Arnaldo Carvalho de Melo <acme@kernel.org>, Ian Rogers <irogers@google.com>,
+ Jiri Olsa <jolsa@kernel.org>, Adrian Hunter <adrian.hunter@intel.com>,
+ Mark Rutland <mark.rutland@arm.com>,
+ Arnaldo Carvalho de Melo <acme@redhat.com>,
+ linux-perf-users@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20251112-perf_support_arm_spev1-3-v3-0-e63c9829f9d9@arm.com>
+ <CAP-5=fXiiWRDPzONNNZQZc4QOBQoz=kRnJq77on5r4w9aDx-XA@mail.gmail.com>
+ <aRrM2y4O_3aaa2Ee@google.com>
+Content-Language: en-US
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <aRrM2y4O_3aaa2Ee@google.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251118_021740_597972_C96CED2A 
-X-CRM114-Status: GOOD (  25.91  )
+X-CRM114-CacheID: sfid-20251118_022401_784301_07E58432 
+X-CRM114-Status: GOOD (  15.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,120 +109,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 18, 2025 at 5:36=E2=80=AFPM AngeloGioacchino Del Regno
-<angelogioacchino.delregno@collabora.com> wrote:
->
-> Il 17/11/25 22:13, Rob Herring (Arm) ha scritto:
-> > It's a requirement that DT overlays be applied at build time in order t=
-o
-> > validate them as overlays are not validated on their own.
-> >
-> > Add targets for all the Mediatek overlays.
-> >
-> > Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
-> > ---
-> > This will soon be a warning[1].
-> >
-> > Note that if it is desired that the combined .dtb is not installed, the=
-n
-> > the combined .dtb should be added to 'dtb-' variable instead.
-> >
->
-> Uhm, sorry, can't we do something such that we don't generate a DTB with =
-a
-> preapplied overlay?
->
-> Even something like generating those and deleting before build finalizati=
-on
-> could work, I guess, though that'd be hacky maybe.
->
-> I don't know if this is the case, but I'm worried that various people hav=
-e
-> scripts to copy DTBs somewhere (in some partition) or embed those in imag=
-es,
-> and if they get the preapplied overlay dtbs in the same place, havoc coul=
-d
-> happen as the bootloaders might be selecting wrong dtbs (as a plus, there=
- is
-> no dtbo that varies machine compatible strings, rightfully).
-
-The in-tree scripts/make_fit.py can take a list of DTBs to pack, so
-it's conceivable that someone would just use a wildcard path.
-
-We do something similar downstream in ChromeOS, but we probably won't
-get this change anytime soon.
-
-OOTH the "make fit" target uses arch/arm64/boot/dts/dtbs-list , which
-it seems is also used for DTB install?
 
 
-ChenYu
+On 17/11/2025 7:20 am, Namhyung Kim wrote:
+> Hello,
+> 
+> On Thu, Nov 13, 2025 at 09:01:47AM -0800, Ian Rogers wrote:
+>> On Wed, Nov 12, 2025 at 10:24 AM Leo Yan <leo.yan@arm.com> wrote:
+>>>
+>>> This series enhances tooling to support new operations:
+>>>
+>>>    - Support for MTE tag since Arm SPE v1.3;
+>>>    - Support for Advanced SIMD extension and SVE operations;
+>>>    - Support memcpy, memset and GCS operations;
+>>>    - Support extended operations for atomic, Acquire/Release and
+>>>      Exclusive instructions.
+>>>    - Enhance the data source for associated info, like floating-point,
+>>>      conditional, data processing, etc.
+>>>
+>>> This series is divided into three parts:
+>>>
+>>>    Patches 01 ~ 06: Support raw dump for new operations;
+>>>    Patches 07 ~ 17: Export the operation info into records, so that the
+>>>                     information can be later consumed by samples.
+>>>    Patches 18 ~ 25: Set the operation info into sample's data source and
+>>>                     SIMD flag, and updated the document.
+>>>
+>>> This patch series is tested on FVP for native parsing and x86_64 for
+>>> cross parsing.
+>>>
+>>> Signed-off-by: Leo Yan <leo.yan@arm.com>
+>>
+>> Reviewed-by: Ian Rogers <irogers@google.com>
+> 
+> Can I get some comments from ARM folks?  I think I can merge part 1 and
+> 2 before changing the kernel interface.
+> 
+> Thanks,
+> Namhyung
+> 
 
-> Cheers,
-> Angelo
->
-> > [1] https://lore.kernel.org/all/20251114222759.4181152-1-robh@kernel.or=
-g/
-> > ---
-> >   arch/arm64/boot/dts/mediatek/Makefile | 16 ++++++++++++++++
-> >   1 file changed, 16 insertions(+)
-> >
-> > diff --git a/arch/arm64/boot/dts/mediatek/Makefile b/arch/arm64/boot/dt=
-s/mediatek/Makefile
-> > index a4df4c21399e..4e92bd9f0e53 100644
-> > --- a/arch/arm64/boot/dts/mediatek/Makefile
-> > +++ b/arch/arm64/boot/dts/mediatek/Makefile
-> > @@ -15,16 +15,30 @@ dtb-$(CONFIG_ARCH_MEDIATEK) +=3D mt7986a-acelink-ew=
--7886cax.dtb
-> >   dtb-$(CONFIG_ARCH_MEDIATEK) +=3D mt7986a-bananapi-bpi-r3.dtb
-> >   dtb-$(CONFIG_ARCH_MEDIATEK) +=3D mt7986a-bananapi-bpi-r3-mini.dtb
-> >   dtb-$(CONFIG_ARCH_MEDIATEK) +=3D mt7986a-bananapi-bpi-r3-emmc.dtbo
-> > +mt7986a-bananapi-bpi-r3-emmc-dtbs :=3D mt7986a-bananapi-bpi-r3.dtb mt7=
-986a-bananapi-bpi-r3-emmc.dtbo
-> > +dtb-$(CONFIG_ARCH_MEDIATEK) +=3D mt7986a-bananapi-bpi-r3-emmc.dtb
-> >   dtb-$(CONFIG_ARCH_MEDIATEK) +=3D mt7986a-bananapi-bpi-r3-nand.dtbo
-> > +mt7986a-bananapi-bpi-r3-nand-dtbs :=3D mt7986a-bananapi-bpi-r3.dtb mt7=
-986a-bananapi-bpi-r3-nand.dtbo
-> > +dtb-$(CONFIG_ARCH_MEDIATEK) +=3D mt7986a-bananapi-bpi-r3-nand.dtb
-> >   dtb-$(CONFIG_ARCH_MEDIATEK) +=3D mt7986a-bananapi-bpi-r3-nor.dtbo
-> > +mt7986a-bananapi-bpi-r3-nor-dtbs :=3D mt7986a-bananapi-bpi-r3.dtb mt79=
-86a-bananapi-bpi-r3-nor.dtbo
-> > +dtb-$(CONFIG_ARCH_MEDIATEK) +=3D mt7986a-bananapi-bpi-r3-nor.dtb
-> >   dtb-$(CONFIG_ARCH_MEDIATEK) +=3D mt7986a-bananapi-bpi-r3-sata.dtbo
-> > +mt7986a-bananapi-bpi-r3-sata-dtbs :=3D mt7986a-bananapi-bpi-r3.dtb mt7=
-986a-bananapi-bpi-r3-sata.dtbo
-> > +dtb-$(CONFIG_ARCH_MEDIATEK) +=3D mt7986a-bananapi-bpi-r3-sata.dtb
-> >   dtb-$(CONFIG_ARCH_MEDIATEK) +=3D mt7986a-bananapi-bpi-r3-sd.dtbo
-> > +mt7986a-bananapi-bpi-r3-sd-dtbs :=3D mt7986a-bananapi-bpi-r3.dtb mt798=
-6a-bananapi-bpi-r3-sd.dtbo
-> > +dtb-$(CONFIG_ARCH_MEDIATEK) +=3D mt7986a-bananapi-bpi-r3-sd.dtb
-> >   dtb-$(CONFIG_ARCH_MEDIATEK) +=3D mt7986a-rfb.dtb
-> >   dtb-$(CONFIG_ARCH_MEDIATEK) +=3D mt7986b-rfb.dtb
-> >   dtb-$(CONFIG_ARCH_MEDIATEK) +=3D mt7988a-bananapi-bpi-r4.dtb
-> >   dtb-$(CONFIG_ARCH_MEDIATEK) +=3D mt7988a-bananapi-bpi-r4-2g5.dtb
-> >   dtb-$(CONFIG_ARCH_MEDIATEK) +=3D mt7988a-bananapi-bpi-r4-emmc.dtbo
-> > +mt7988a-bananapi-bpi-r4-emmc-dtbs :=3D mt7988a-bananapi-bpi-r4.dtb mt7=
-988a-bananapi-bpi-r4-emmc.dtbo
-> > +dtb-$(CONFIG_ARCH_MEDIATEK) +=3D mt7988a-bananapi-bpi-r4-emmc.dtb
-> >   dtb-$(CONFIG_ARCH_MEDIATEK) +=3D mt7988a-bananapi-bpi-r4-sd.dtbo
-> > +mt7988a-bananapi-bpi-r4-sd-dtbs :=3D mt7988a-bananapi-bpi-r4.dtb mt798=
-8a-bananapi-bpi-r4-sd.dtbo
-> > +dtb-$(CONFIG_ARCH_MEDIATEK) +=3D mt7988a-bananapi-bpi-r4-sd.dtb
-> >   dtb-$(CONFIG_ARCH_MEDIATEK) +=3D mt8167-pumpkin.dtb
-> >   dtb-$(CONFIG_ARCH_MEDIATEK) +=3D mt8173-elm.dtb
-> >   dtb-$(CONFIG_ARCH_MEDIATEK) +=3D mt8173-elm-hana.dtb
-> > @@ -104,6 +118,8 @@ dtb-$(CONFIG_ARCH_MEDIATEK) +=3D mt8390-genio-700-e=
-vk.dtb
-> >   dtb-$(CONFIG_ARCH_MEDIATEK) +=3D mt8395-kontron-3-5-sbc-i1200.dtb
-> >   dtb-$(CONFIG_ARCH_MEDIATEK) +=3D mt8395-radxa-nio-12l.dtb
-> >   dtb-$(CONFIG_ARCH_MEDIATEK) +=3D mt8395-radxa-nio-12l-8-hd-panel.dtbo
-> > +mt8395-radxa-nio-12l-8-hd-panel-dtbs :=3D mt8395-radxa-nio-12l.dtb mt8=
-395-radxa-nio-12l-8-hd-panel.dtbo
-> > +dtb-$(CONFIG_ARCH_MEDIATEK) +=3D mt8395-radxa-nio-12l-8-hd-panel.dtb
-> >   dtb-$(CONFIG_ARCH_MEDIATEK) +=3D mt8516-pumpkin.dtb
-> >
-> >   # Device tree overlays support
->
->
->
+Reviewed-by: James Clark <james.clark@linaro.org>
+
+
 
