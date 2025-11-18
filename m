@@ -4,158 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5711CCD19A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 08:52:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E750CCD19A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 08:52:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9ZwXB4RhWASSlUxI/fZ15AWl1OAJD3U3jm7GNFqQCE8=; b=F1/RZXgTXeaX+s0ReBilusNNgu
-	PE/AwT3xWIqJwAZH9qvQG00oPDV7CL02/fgdZqqFBtIKBtA6AC0NPNlt8XcLfNln87ZCcn4qv3qy3
-	NnV546yW4c0D8s1MB/HTrnMhLHKNQ5nefjDjBs/ihSdbpx0hAqhLjncXfwiji00Mc0KepN9lcN3im
-	8BQ2H9REzPYehd+woaE7vD2owha8kk/sSkg/MY0SydP4jYbEXE9nttcHYLSEhrparKe3c2Z1u8Ft1
-	pbcmMlGWmO00iicAJd+b33SWmnlATQBpiOFoenkwDijuSM0x/769grpqh1rIcNh9lLrDrfosFOjLM
-	+EBax7ig==;
+	bh=FG5jhL1tmnvgpxVM1AJkqsgjjuSRURlgF7jX76NTtrw=; b=XxL+COM6Q04CQG0L6Kr2c8Kn8z
+	vzX6B4ZHPRKIGmZN+JG2p0GPu40h8IzBPZOOVdfqm9wdzD+EhH+qmLECXV0x2zOty7+uq8hpu858H
+	rhL671JfPTlSxqOe9ePz1HEePhyC8ZlGDlzJrswweEUeh0TLyd0kbYrKpYxB7TPEwd8VtM1YHMIB8
+	n7h7heEbWDSnFhD2qmyXbQwGbjJqsWqUNoyGayIvOLaSM5vInwryfxQ0ym/qvZTQHp7DRzgZTkn6q
+	UpLZ7P6baQmLSRr/xMJNE7+Fy4gc9TBXqW9YN+POvIZqNG8cMfiF0I9BRgX/OFj8az1Pgk+mCP0vh
+	VXeZ+kqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLHRJ-000000005Hb-1J6M;
-	Tue, 18 Nov 2025 08:51:53 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1vLHRT-000000005Mn-2hfz;
+	Tue, 18 Nov 2025 08:52:03 +0000
+Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLHRG-000000005Fq-2dzF
+	id 1vLHRQ-000000005JQ-2L0u
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Nov 2025 08:51:52 +0000
-Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5AI6fRme2343406
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Nov 2025 08:51:49 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	9ZwXB4RhWASSlUxI/fZ15AWl1OAJD3U3jm7GNFqQCE8=; b=VD5WjbSlg10PR/Zz
-	pPHjDzjg5RAlNjJdXNcCt6EyVw1dWV4LFvu2W8mh0ykFKrqWuXTocWOi9yKp1+85
-	nDxGFvum+YIeTDyDfQvwMgiB1bUmFsHpAtzcZEB9PB8zC7dclNmKyW3n583iU5m6
-	ptG+8Ij9EpKJcwubisfQ5WJ2OQIVSE0C8L36wzYO4RHQuoxfDPrPOVU/2hlHhq7q
-	lvEDunjlQN5X9WIjfap/UgCyipt559vM0fGTzyXtUJGYFvvtLnN5eu7bzft+Q3kE
-	CQ9/VR24JHsBtFu7xV2FrGn6TAMFeJP/tDYVg7nULVNcsmlzNIarK3/po60Y//zv
-	HslQvQ==
-Received: from mail-pl1-f197.google.com (mail-pl1-f197.google.com [209.85.214.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4agkrn0c18-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Nov 2025 08:51:49 +0000 (GMT)
-Received: by mail-pl1-f197.google.com with SMTP id d9443c01a7336-29848363458so142975345ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Nov 2025 00:51:49 -0800 (PST)
+	Tue, 18 Nov 2025 08:52:02 +0000
+Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-42b427cda88so3669196f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Nov 2025 00:51:57 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1763455908; x=1764060708; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=9ZwXB4RhWASSlUxI/fZ15AWl1OAJD3U3jm7GNFqQCE8=;
-        b=fAgkbytwxLvDQg0tVnxI34UWBXXoMxkxjJ3jA/FOVFOcOAtZTWfRxhEV549i/VmRv/
-         9pw2ISzAphQeKBn5OgbV8nQhS4vYSX9eFRGcaiqx91DIIWiYNbfnJfJ6nI0Ux6UYWHLN
-         ZPOmuznR3moBR2rS9kA2igYkGa9dpx1ud8dEyvEVGd+SYJj9ScceAYHFSaNLU8L1bAGB
-         8q1foj75tPvfa1WOV6Ek5BSpCadXVSs3KgPNFKemilorkLvOLpM31e+/pve+IhWYPhIR
-         v+pLPoGi4oOWoOauqIukR2QLwfhdZdUjBkj+9HpTGXqJS4SbvZsEDxhOUPb4gKeY3efK
-         7FBw==
+        d=rivosinc.com; s=google; t=1763455916; x=1764060716; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=FG5jhL1tmnvgpxVM1AJkqsgjjuSRURlgF7jX76NTtrw=;
+        b=NFPtbWaM/T9c5d+Ld0mUb/xyfbJx14L97eXx2lQn4tgSkUHVyKCoa6wX0kkOstHTk+
+         X2/EhZ2girtH/1rZw9RipL3bacJcs6001cUlkJGdhvhv+kDs58/QLZHvIXb9HSNGRU83
+         pXvxvGGyWKjbSmAW/B6gYKuwD+eI8pY4Y5b60DCgomM+zBKeDtlIp1gW4bn9YWcAvBZc
+         p/Hgm3Of1reXUhv87Vb0lLGMx+7BIs4p+PjGaIS3rqbk+8pWpdNQXxdKHBn1kkzndhqP
+         QbGCaouI+TCLMoGax1VAQanSuH17MrMLunF+uRvOaGR8bWUN3l1yP5w66k3pWfQ1At7U
+         WtfA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763455908; x=1764060708;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=9ZwXB4RhWASSlUxI/fZ15AWl1OAJD3U3jm7GNFqQCE8=;
-        b=JThOMTpXoqatVOE5U3ogAXhwVmT1fRAttk/UNRLRBQsRfAL6NvA7XY85qhQmtkGhEc
-         7757wrerhDMNdfL4vfRZcryTFjBgKQuIXpfBifDRmbOQbHjNZVyktkRnSPhXdaV++qel
-         d50tdgDJ6WYJN4YPrKywktXGiT/Eyt2B0Bvew84gYbBVX/ynBZjkD04NjRaJPPugjH/2
-         Rn9x3BsnJ47WG/4GuGJGW7IY9CFUrt0Z9strBrZeBL/ZAPEgmcevw2gBUQxxMLpc/kau
-         qxtDNi8Fkbd453+WlDhAPUCPNvOu8Bb2OnvFPwzVkLtBUZXW2GNqZgs+klCt+tL5rnTr
-         xyxA==
-X-Forwarded-Encrypted: i=1; AJvYcCUd7R744ei8g00k8iHrBjBsBhweqoRnl3eirgWWuF+A5LDjQmJI7m3wR1iajprBvMhSq3LdWwa0GFUq9r6ttf/9@lists.infradead.org
-X-Gm-Message-State: AOJu0YwtBP5BPDx4m0D2fOfFWfevvFYSl8pyXE9cXBYi0RIiOLYpAdxg
-	9+cDutJlxdjW5xXSi4VGWiO9Bp61gqKCk7qMkPiQRz4whtTI/EoOHVikLI9FLtr5u0tiz9xAxl8
-	LQVfVLVOcAH/icq5poOyLEmgiIinJKxyOYL5cxF3EIyA2c7SbN5JDM+KczwTmnCr8bG4NIoquM0
-	FNEQ==
-X-Gm-Gg: ASbGncuxRsCBMl0cuCOE2DtE2tY5dlBJOs3TyKLzhtdDpZgqxvzDVuAg5i84hXld39t
-	6+J0NLw0BKwHSf9tSlWBLQW+jZ8K3ApgWyeSrLq5cD6l2af2y5vrpYdouL7YoyOeSCXVpipDzhV
-	HDOoHYyFC/7L9k1Lf4trlPspq5fUpYr2cp+k0BoQBol6HExN85uDeOaAZ2eukYu3/w7G3YU0QAk
-	FLwjQsDVEVdaepIqTXgRTA3no2RiVyOqWPT0Rk78ErkZt2WqIng/HfIQ2nSvIhj2X56AURwfhiu
-	8tvyqea17cIO9SzbVdV3tvE4qFvvK3RWIIbHphpBlCAKkE+vzoK79ds5kvhQvZbMUKpzpap714/
-	fuJOfxk/FE+nr0mfsSAlacJs=
-X-Received: by 2002:a17:902:d58f:b0:297:dad8:f265 with SMTP id d9443c01a7336-2986a6bd2a9mr208182455ad.3.1763455908402;
-        Tue, 18 Nov 2025 00:51:48 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IEtBwZUTiYtLygrybb58YIF/amuW50qQQNcGd/n0p3+CKZ3EeqPoD0tAmXoPQD31iO91XcZYg==
-X-Received: by 2002:a17:902:d58f:b0:297:dad8:f265 with SMTP id d9443c01a7336-2986a6bd2a9mr208181955ad.3.1763455907923;
-        Tue, 18 Nov 2025 00:51:47 -0800 (PST)
-Received: from hu-akhilpo-hyd.qualcomm.com ([202.46.23.25])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2985c2568c1sm162910695ad.47.2025.11.18.00.51.40
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 18 Nov 2025 00:51:47 -0800 (PST)
-From: Akhil P Oommen <akhilpo@oss.qualcomm.com>
-Date: Tue, 18 Nov 2025 14:20:31 +0530
-Subject: [PATCH v4 04/22] drm/msm/a6xx: Skip dumping SCRATCH registers
+        d=1e100.net; s=20230601; t=1763455916; x=1764060716;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=FG5jhL1tmnvgpxVM1AJkqsgjjuSRURlgF7jX76NTtrw=;
+        b=GPq3sYikiJr8iSNjlL130rDdTdJjpluIgu5PRGDERI34JA51TU3h3/uy7fnw+iKmm3
+         XvuGa2bAiqw+zpf7a54/ObGOHbOVar4ueS7t8EGVMRt1uM5J7aIcYWUaBRno2d2XVME+
+         /mzhkAglWkLMDZI0D9rr5BEw7L0vGWePCfvL1/ud6ce7/O5yaoCeP2d+BnKQfAScnHw5
+         Y2l4BV/ru0nCsGAHjZB23SIr2HOaEUwvBLmYe9QhfNil8vRUOyhmacSaJ8mSdqXEyqWW
+         mNJ7LS8HFMKaj8uMyArZ7vAb7GsbdQxfSxRvnEsdP9GfTMTbZGco5MBsN/sgLv9+srog
+         W55g==
+X-Forwarded-Encrypted: i=1; AJvYcCWX0dzKra0Qo9j999nxWAKajkmIEMXmYL6e6MxHdOJy1xEJ+HNGbAT+5/P8/peov066KQWOCbjv867tJu82R0SN@lists.infradead.org
+X-Gm-Message-State: AOJu0YwUHwdB3LE+6xVTGy1hzlobfzLszYoqhN5bD+t5Bvf797Rc7iyA
+	7CAEuO8v6MMOO+KoYchZKl/r4lBdMZcLSK23DeCQ7KbYV7UzFQsYWVS/KftnlXbzTLs=
+X-Gm-Gg: ASbGncu2uwt7QUzn5jUl4qKUdGjd7eUadO9n1tS5kF70/MasYAzAOY89Mz/SU8jtn3W
+	SyThgFr7ntKkUlKJmeDojYNmZVmGTkeg9TPO/QgXjIBmzScKUYn+njHpWvf1oAo32+ldUamtWe9
+	88UfuZvExZM1RExQlaaS8rsDKnNUea/VAq6W4Bcbc/hLkeWaaZ+bZzNuX/AcNLHOqbbbnLeL5iV
+	pJD+7FWNJccpwJfSYGQLKTYVDFqK8nV0j7jopGN+z7PhmAiWU2pUhKkfAmgL9AKWLApJI6M2dmE
+	oxITkuY6FYP41CpbQcpJWoAIS6mAbNcYe72emwy3Hg9DXdaqhPQWUm3ZqbKOLvcRtifghDAWxhO
+	HVJpZpOpDG8qOxpH1woJ4EpQ6Y0Lcxy9Oy8IzpXDBZglqBZZc2d04mX+kKcgvk002gA/JpMI/3B
+	/pmcqgHKzgXjt4+By8rm1g2mdyE6ZMSXwFvCc4sDX321nCPRz76shdALIdx9uvXMSYZLM=
+X-Google-Smtp-Source: AGHT+IFbQY3roU4LxVOv1sSrsfdnu+sjLRsCWOocTRontDGE/iUMAmfdyMaz6yG1qYX4S6kpb2xvfg==
+X-Received: by 2002:a05:6000:2509:b0:42b:4803:75e8 with SMTP id ffacd0b85a97d-42b5937335fmr15262616f8f.43.1763455916429;
+        Tue, 18 Nov 2025 00:51:56 -0800 (PST)
+Received: from ?IPV6:2a01:e0a:e17:9700:16d2:7456:6634:9626? ([2a01:e0a:e17:9700:16d2:7456:6634:9626])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42b53e91f2dsm31560396f8f.19.2025.11.18.00.51.55
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 18 Nov 2025 00:51:55 -0800 (PST)
+Message-ID: <515d639f-7814-4104-b757-63c16429d325@rivosinc.com>
+Date: Tue, 18 Nov 2025 09:51:55 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20251118-kaana-gpu-support-v4-4-86eeb8e93fb6@oss.qualcomm.com>
-References: <20251118-kaana-gpu-support-v4-0-86eeb8e93fb6@oss.qualcomm.com>
-In-Reply-To: <20251118-kaana-gpu-support-v4-0-86eeb8e93fb6@oss.qualcomm.com>
-To: Rob Clark <robin.clark@oss.qualcomm.com>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>, Sean Paul <sean@poorly.run>,
-        Dmitry Baryshkov <lumag@kernel.org>,
-        Abhinav Kumar <abhinav.kumar@linux.dev>,
-        Jessica Zhang <jesszhan0024@gmail.com>,
-        Marijn Suijten <marijn.suijten@somainline.org>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Jonathan Marek <jonathan@marek.ca>,
-        Jordan Crouse <jordan@cosmicpenguin.net>,
-        Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
-        Joerg Roedel <joro@8bytes.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>,
-        Connor Abbott <cwabbott0@gmail.com>
-Cc: linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org,
-        dri-devel@lists.freedesktop.org, freedreno@lists.freedesktop.org,
-        linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-        devicetree@vger.kernel.org, Akhil P Oommen <akhilpo@oss.qualcomm.com>,
-        Rob Clark <rob.clark@oss.qualcomm.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1763455868; l=1280;
- i=akhilpo@oss.qualcomm.com; s=20240726; h=from:subject:message-id;
- bh=/bkGsdPodJ4SkKP3xxQOVAelGLT5UoB+go22DhK77KQ=;
- b=Cu8W/7U4vntfUypSIoT+e6ZMqwHXL7dXJoM/TB2ZZ5v2hzpBwXrk0KoTeeYPef/fxMeMm2NbR
- A2soFU6jNtJDglw1G9wBMZQVrVwgL6mvZP4CKOGIPlVdXK+L2shNBIy
-X-Developer-Key: i=akhilpo@oss.qualcomm.com; a=ed25519;
- pk=lmVtttSHmAUYFnJsQHX80IIRmYmXA4+CzpGcWOOsfKA=
-X-Proofpoint-GUID: G-IMFIFc5tFSDeB1JSJL-c3lJQsl8B27
-X-Proofpoint-ORIG-GUID: G-IMFIFc5tFSDeB1JSJL-c3lJQsl8B27
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMTE4MDA2OSBTYWx0ZWRfX62QAN2dln+8Q
- oGhk1dIUeqeeReZyCZaxnUj38tlh0B6CkvK3tgOtLsMk1do33XO3/PQTP/9XpudZb2oK47IQmLa
- +UxpnvoGf8IEBHZUZ2shArXKZLu+7wVYJFYPEw+GZOjiNmzFUGmUeFQ6opOQRClWUak0N4MZV03
- jcQTQ9izGKlVy/TkaTqvS76y4pRVFwaF7XzEO0eB0GJ4SXwMkjQcO2Kp18FRBSxqiKmK0CFBy81
- 7Gzu/s+Tlp6Q2RqsAQdYj5YTcsa6b6+UjM86plTsQJodYZw+dI6id6ag+S5Ltk4DZbDT1PEKvLf
- klVCVIIZBdRN5am4JpZ6PqLDxDtiKyf7nd7T9cwGN1yXaSN16YEf2raRWWWS1zRYPqDX6n29Pnz
- JkO8TC3fAp5O1E9oMcpe770EwIkVaw==
-X-Authority-Analysis: v=2.4 cv=L+kQguT8 c=1 sm=1 tr=0 ts=691c33a5 cx=c_pps
- a=cmESyDAEBpBGqyK7t0alAg==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
- a=IkcTkHD0fZMA:10 a=6UeiqGixMTsA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=EUspDBNiAAAA:8 a=rH6QHmREy2P50qlKy74A:9
- a=QEXdDO2ut3YA:10 a=1OuFwYUASf3TG4hYMiVC:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
- definitions=2025-11-17_04,2025-11-13_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 suspectscore=0 malwarescore=0 lowpriorityscore=0
- clxscore=1015 bulkscore=0 adultscore=0 spamscore=0 phishscore=0
- priorityscore=1501 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2510240001
- definitions=main-2511180069
+User-Agent: Mozilla Thunderbird
+Subject: Re: [External] Re: How to Avoid Starving the Kernel When Using SSE
+To: Zhanpeng Zhang <zhangzhanpeng.jasper@bytedance.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ Himanshu Chauhan <hchauhan@ventanamicro.com>,
+ Anup Patel <apatel@ventanamicro.com>, =?UTF-8?B?6Lev5pet?=
+ <luxu.kernel@bytedance.com>, Atish Patra <atishp@atishpatra.org>,
+ =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>,
+ =?UTF-8?B?5bSU6L+Q6L6J?= <cuiyunhui@bytedance.com>,
+ =?UTF-8?B?5YWD56u5?= <yuanzhu@bytedance.com>
+References: <CACnXVncnu6Rnx64GemdBvxu+mTqYEMGePoR5OvaJh3gC4uG-NA@mail.gmail.com>
+ <bec1e1f4-e188-415d-bbb2-1854b7e8cf1d@rivosinc.com>
+ <4a24df59-a209-4f2f-9465-f98482e83952@rivosinc.com>
+ <00786ddb6d626442879072851d455bbd8ef1181d.d460d6ec.7656.4a45.8288.5b0b88825811@bytedance.com>
+Content-Language: en-US
+From: =?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>
+In-Reply-To: <00786ddb6d626442879072851d455bbd8ef1181d.d460d6ec.7656.4a45.8288.5b0b88825811@bytedance.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251118_005150_825467_81768DDB 
-X-CRM114-Status: GOOD (  14.68  )
+X-CRM114-CacheID: sfid-20251118_005200_828142_C7098468 
+X-CRM114-Status: GOOD (  49.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -170,41 +115,319 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Crashdec doesn't require SCRATCH registers anymore for a6xx and newer
-architectures. So skip dumping them during recovery.
 
-Suggested-by: Rob Clark <rob.clark@oss.qualcomm.com>
-Signed-off-by: Akhil P Oommen <akhilpo@oss.qualcomm.com>
----
- drivers/gpu/drm/msm/adreno/a6xx_gpu.c | 6 +-----
- 1 file changed, 1 insertion(+), 5 deletions(-)
 
-diff --git a/drivers/gpu/drm/msm/adreno/a6xx_gpu.c b/drivers/gpu/drm/msm/adreno/a6xx_gpu.c
-index e6393ef0fd78..c6b2fdb86c17 100644
---- a/drivers/gpu/drm/msm/adreno/a6xx_gpu.c
-+++ b/drivers/gpu/drm/msm/adreno/a6xx_gpu.c
-@@ -1561,7 +1561,7 @@ static void a6xx_recover(struct msm_gpu *gpu)
- 	struct adreno_gpu *adreno_gpu = to_adreno_gpu(gpu);
- 	struct a6xx_gpu *a6xx_gpu = to_a6xx_gpu(adreno_gpu);
- 	struct a6xx_gmu *gmu = &a6xx_gpu->gmu;
--	int i, active_submits;
-+	int active_submits;
- 
- 	adreno_dump_info(gpu);
- 
-@@ -1569,10 +1569,6 @@ static void a6xx_recover(struct msm_gpu *gpu)
- 		/* Sometimes crashstate capture is skipped, so SQE should be halted here again */
- 		gpu_write(gpu, REG_A6XX_CP_SQE_CNTL, 3);
- 
--		for (i = 0; i < 8; i++)
--			DRM_DEV_INFO(&gpu->pdev->dev, "CP_SCRATCH_REG%d: %u\n", i,
--				gpu_read(gpu, REG_A6XX_CP_SCRATCH_REG(i)));
--
- 		if (hang_debug)
- 			a6xx_dump(gpu);
- 
+On 11/18/25 09:46, Zhanpeng Zhang wrote:
+> Hi Clément,
+> 
+> It seems that your patch is based on the PMU-ctr-delegation version. However, I'm using PMU-SBI and the SSE extension of v8. 
+> So, I made corresponding modifications in `pmu_sbi_ovf_handler` as yours in `rvpmu_ovf_handler`.
 
--- 
-2.51.0
+Hi Zhanpeng,
+
+Indeed my modifications were based on Atish rvpmu series.
+
+> This indeed prevents the kernel from hanging during perf sampling, and the sampling results look good. But according to the debug results, I think the problem with this approach is quite obvious. After this modification, most `pmu_start` operations are triggered by `event_sched_in` rather than do_sse. That is to say, `pmu_start` is delayed until `event_sched_in`.
+
+That's the expected result, point being that the IRQ rate should be
+throttled. Depending on how slow is your platform, overflow might kick
+in faster leading to more throttling and thus delayed start of counter.
+I do think this solution is the one that should be implemented since the
+overflow return value from perf_event_overflow() is exactly meant for
+that (ie throttling IRQs).
+
+Clément
+
+> Actually, I'm also planning to try Atish's PMU-ctr-delegation extension, such delegation optimization seems to be helpful to alleviate the hanging problem. But I think this is no longer the same issue, as it requires comprehensive modifications to the hardware/qemu, kernel, SBI, and Perf itself.
+> 
+> Regards,
+> Zhanpeng
+>> From: "Clément Léger"<cleger@rivosinc.com>
+>> Date:  Fri, Nov 14, 2025, 23:41
+>> Subject:  [External] Re: How to Avoid Starving the Kernel When Using SSE
+>> To: "张展鹏"<zhangzhanpeng.jasper@bytedance.com>
+>> Cc: "Paul Walmsley"<paul.walmsley@sifive.com>, "Palmer Dabbelt"<palmer@dabbelt.com>, "linux-riscv@lists.infradead.org"<linux-riscv@lists.infradead.org>, "linux-kernel@vger.kernel.org"<linux-kernel@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"<linux-arm-kernel@lists.infradead.org>, "Himanshu Chauhan"<hchauhan@ventanamicro.com>, "Anup Patel"<apatel@ventanamicro.com>, "路旭"<luxu.kernel@bytedance.com>, "Atish Patra"<atishp@atishpatra.org>, "Björn Töpel"<bjorn@rivosinc.com>, "崔运辉"<cuiyunhui@bytedance.com>, "元竹"<yuanzhu@bytedance.com>
+>> On 11/14/25 14:36, Clément Léger wrote:
+> 
+>>>
+> 
+>>>
+> 
+>>> Hi Zhanpeng,
+> 
+>>>
+> 
+>>> On 11/14/25 11:24, 张展鹏 wrote:
+> 
+>>>> Hi Clément,
+> 
+>>>>
+> 
+>>>> Lately, I've been thinking about how to avoid starving the kernel when
+> 
+>>>> using SSE:
+> 
+>>>> SSE is powered by M-mode irqs such as M-mode PMU irq for perf sampling and
+> 
+>>>> M-mode IPI for inter-hart injection. Meanwhile, kernel is powered by S-mode
+> 
+>>>> irqs, so the kernel may experience starvation when there is a flood of
+> 
+>>>> M-mode irqs, and kernel may cause such flooding of M-mode irqs when using
+> 
+>>>> SSE, either deliberately or inadvertently:
+> 
+>>>>
+> 
+>>>>    1.  Malicious SSE handler: Kernel may deliberately register a bad SSE
+> 
+>>>>    handler, which triggers a new inter-hart SSE request via ecall. This will
+> 
+>>>>    cause an endless loop of SSE, rendering the kernel unresponsive. In this
+> 
+>>>>    case, the only thing SBI can do is to prevent the nesting of SSE in
+> 
+>>>>    `sbi_trap_handler` and ensure that SSE events are executed in priority
+> 
+>>>>    order.
+> 
+>>>
+> 
+>>> That seems quite convoluted. Anyone that can load a module can do worse
+> 
+>>> than crashing the kernel :)
+> 
+>>>
+> 
+>>>>    2.  Perf sampling: Kernel may inadvertently choose a bad parameter for
+> 
+>>>>    Perf, which causes PMU irqs to occur too frequently. Continuous PMU irqs
+> 
+>>>>    will leave the system with no time to respond to S-mode irqs.
+> 
+>>>
+> 
+>>> But this one concern however is valid !
+> 
+>>>
+> 
+>>>>
+> 
+>>>>  Hence, I think we are supposed to improve the SSE framework to avoid
+> 
+>>>> starving the kernel so easily.
+> 
+>>>>
+> 
+>>>> Here is a case study of perf sampling:
+> 
+>>>> When using PMU-SSE for Perf sampling, the kernel may hang and become
+> 
+>>>> unresponsive due to the PMU-SSE loop. Once we start to process a Perf
+> 
+>>>> sampling using PMU-SSE, the kernel may fail to respond to `Ctrl+C` or fail
+> 
+>>>> to exit after the timing of `sleep 1` completes (these are the two most
+> 
+>>>> commonly used time-based sampling methods in perf).
+> 
+>>>>
+> 
+>>>> By default, perf uses a relatively high sampling frequency, namely
+> 
+>>>> `perf_event_max_sample_rate`, and will adjust it on demand if sampling
+> 
+>>>> takes too much time. If this frequency/period goes beyond what system can
+> 
+>>>> handle, it will make SSE events connect end-to-end, and the system will get
+> 
+>>>> stuck in an endless loop of "SSE → PMU interrupt → SSE". The kernel is then
+> 
+>>>> starved (at this point, if you print the `sepc` of SSE completion, you will
+> 
+>>>> find that the `sepc` remains unchanged each time, indicating that the
+> 
+>>>> kernel is stuck), and the kernel can never escape from this loop of
+> 
+>>>> PMU-SSE, because it can neither respond to Ctrl+C interrupts nor adjust the
+> 
+>>>> sampling frequency.
+> 
+>>>>
+> 
+>>>> Current solution: The key to this problem is that every time we finish
+> 
+>>>> sse_complete, there is already a new PMU irq pending. Then we resume the
+> 
+>>>> kernel execution via mret, and the system will immediately trap back into
+> 
+>>>> SSE.
+> 
+>>>>
+> 
+>>>> The PMU-SSE-Perf processing flow includes the following steps: `sse_inject`
+> 
+>>>> (mret to SSE handler), `pmu_stop` (clear PMU pending bit), `pmu_start` (set
+> 
+>>>> a new value for PMU counter), and `sse_complete` (resume execution to the
+> 
+>>>> point where the kernel was interrupted). The reason why kernel traps right
+> 
+>>>> after `sse_complete` is that there is a new PMU irq generated between
+> 
+>>>> `pmu_start` and `sse_complete`.
+> 
+>>>>
+> 
+>>>> In order to address this issue, we propose to delay the procedure of
+> 
+>>>> re-starting the overflowed PMU counter during PMU-SSE. When kernel triggers
+> 
+>>>> an ecall to restart the overflowed PMU counters, SBI can check whether it
+> 
+>>>> is SSE-powered PMU handling. If so, we temporarily modify mhpmevent CSR to
+> 
+>>>> stop counting kernel events. In this process, M-mode events are always
+> 
+>>>> inhibited, and U-mode code will not be executed during the
+> 
+>>>> `pmu_sbi_ovf_handler`, so we only need to inhibit the counting of kernel
+> 
+>>>> events.
+> 
+>>>
+> 
+>>> I'd rather let the kernel control the PMU SSE event delivery by masking
+> 
+>>> it at the end of the SSE handler and reenabling it later. Additionally,
+> 
+>>> that solution being in the SBI itself, it does not guarantee that all
+> 
+>>> SBI implementation will actually do that correctly.
+> 
+>>>
+> 
+>>> What seems odd is that the perf_event_sample_took() call at each end of
+> 
+>>> PMU event handler should actually allow perf subsystem to throttle the
+> 
+>>> rate. I'll take another look at that part to make sure it works as
+> 
+>>> expected and that we aren't missing any bits.
+> 
+>>
+>> Hey Zhanpeng,
+> 
+>>
+>> Could you try to apply this quick'n'dirty patch on top of the SSE series
+> 
+>> and check if it still hang ?
+> 
+>>
+>> diff --git a/drivers/perf/riscv_pmu_dev.c b/drivers/perf/riscv_pmu_dev.c
+> 
+>> index 7dec9c2afa9b..0fb8749c476f 100644
+> 
+>> --- a/drivers/perf/riscv_pmu_dev.c
+> 
+>> +++ b/drivers/perf/riscv_pmu_dev.c
+> 
+>> @@ -1326,6 +1326,7 @@ static irqreturn_t rvpmu_ovf_handler(struct
+> 
+>> cpu_hw_events *cpu_hw_evt,
+> 
+>>         int lidx, hidx, fidx;
+> 
+>>         struct riscv_pmu *pmu;
+> 
+>>         struct perf_event *event;
+> 
+>> +       int ev_overflow = 0;
+> 
+>>         u64 overflow;
+> 
+>>         u64 overflowed_ctrs = 0;
+> 
+>>         u64 start_clock = sched_clock();
+> 
+>> @@ -1423,13 +1424,15 @@ static irqreturn_t rvpmu_ovf_handler(struct
+> 
+>> cpu_hw_events *cpu_hw_evt,
+> 
+>>                          * TODO: We will need to stop the guest counters
+> 
+>> once
+> 
+>>                          * virtualization support is added.
+> 
+>>                          */
+> 
+>> -                       perf_event_overflow(event, &data, regs);
+> 
+>> +                       ev_overflow |= perf_event_overflow(event, &data,
+> 
+>> regs);
+> 
+>>                 }
+> 
+>>                 /* Reset the state as we are going to start the counter
+> 
+>> after the loop */
+> 
+>>                 hw_evt->state = 0;
+> 
+>>         }
+> 
+>>
+>> -       rvpmu_start_overflow_mask(pmu, overflowed_ctrs);
+> 
+>> +       if (!ev_overflow || !from_sse)
+> 
+>> +               rvpmu_start_overflow_mask(pmu, overflowed_ctrs);
+> 
+>> +
+> 
+>>         perf_sample_event_took(sched_clock() - start_clock);
+> 
+>>
+>>         return IRQ_HANDLED;
+> 
+>>
+>>>
+> 
+>>> Thanks,
+> 
+>>>
+> 
+>>> Clément
+> 
+>>>
+> 
+>>>>
+> 
+>>>> In this way, we can ensure that `pmu_sbi_ovf_handler` will not be
+> 
+>>>> re-entered by the new PMU-SSE, and minimize the modification of perf logic.
+> 
+>>>> The price is that we gave up sampling a small portion of kernel code(from
+> 
+>>>> `pmu_ctr_start` to the end of `pmu_sbi_ovf_handler`), and we probably need
+> 
+>>>> a new parameter in `pmu_ctr_start`.
+> 
+>>>>
+> 
+>>>> Looking forward to your suggestions. Thanks!
+> 
+>>>>
+> 
+>>>> Best regards,
+> 
+>>>> Zhanpeng Zhang
+> 
+>>>>
+> 
+>>>
+>>
 
 
