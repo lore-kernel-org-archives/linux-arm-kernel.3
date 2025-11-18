@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 407F9CEBF61
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 00:51:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EF71CE8D6B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 00:51:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xIwlobU5qaQosfPCeEzKdUoDXDclRRcMzd/1Ell80Rs=; b=0Q2k024U4K2ZIY5yawNz9IYFV1
-	+ulQfg2rlI+shumm092zLAZedhbTrK659XdiGDjEBvdev4+j91gznFogK72Z3zqxR/UdGv9X6Onzs
-	mNkRz3memPCc8ipkd17ln7kJqH/jyl9Kl9qRnnLaDo+wZjhqaUItzC5GcOkmI+YPxcE26+s5BG6T5
-	gWoITtayZVn2AjI2euDbPZBLPdagRSrQrFWTnVa745wrd0DZpxPdUa1s1L+cYluGAUTXvuCWeVDDm
-	ZXqnmmQ44qamuj49ZmC1h9LtBGF9+anfydSdotYGZL7HYKm/f/Qw6DDrhoe4i/VKxWZNZFtD7M79p
-	1pDv7H9g==;
+	bh=juzV2ngrRtpEKOEa4Z997t/QBNUvxtt2q0NNabvquiM=; b=zVYEUFeK+/yWsjsCyoeY51Y1o5
+	DNS1sCnvpov008SWT0nPLTECLXGBRl5NEr79Zt+9hWvLQJNujq9Rt0WBzT8LgWrxu/glIW7XHQQUf
+	w4/tNccPFE3FbfkAOTr4Z60RIF7MPg/Xwyov5MiQ0sOV943Bp50DfvieGFr8S4PPIyhEsblHwzDGf
+	WxFVOxTB7c3gQww0Y+3uI+emYdZD+CDm+/xn+7nQ3ugM4qWwZZfgmY6Zuu023JOfWTkyuASPGR2nr
+	zbB2ZVzqA6vcqcy3STiCtMgLvu5sXVlD+e72eW6gv6A2YxiIFp8gBjNu2PGw41GHU+SMbS62R41w4
+	XkJurj+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vL9w3-0000000H4C9-1VKM;
-	Tue, 18 Nov 2025 00:51:07 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vL9w6-0000000H4FP-2qRR;
+	Tue, 18 Nov 2025 00:51:10 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vL9vz-0000000H47R-1Fsc
+	id 1vL9w4-0000000H4DE-1vEh
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Nov 2025 00:51:03 +0000
+	Tue, 18 Nov 2025 00:51:09 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id ADD3E605D4;
+	by sea.source.kernel.org (Postfix) with ESMTP id B17B043CA1;
+	Tue, 18 Nov 2025 00:51:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BD437C2BCB6;
 	Tue, 18 Nov 2025 00:51:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 649D3C2BC9E;
-	Tue, 18 Nov 2025 00:50:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763427062;
-	bh=b0QGRj1zJhMlxhEi1e8gZ427wDLzbANpOOdNU7pTMXI=;
+	s=k20201202; t=1763427067;
+	bh=pVjWUEvvssaN7iGS7PtE44X/CcQ/Woo7dEU2W/P2eu0=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=LSDvLOqLC6Su6v05duZuemZY4oFxhzfCkSUp18lFu+pkS3nzWACmUmuG61vVm46E+
-	 Oxj7dL4O7TY1TNB1HOAll1vshHZMlKEyGcuZ4zAdyFJsvpWVzztxrMGJEMA0Xro+8C
-	 amStortbZve34SZt3k8gOMWsh7B2VrqpEkr6MdW/nlmlfVMP9Ktp3lAM+lYYvCLD0a
-	 URhwg6Aeo0oeKaOEomqfNT+AUu8qWeocdfovofDVX1naySGvI6y0F6H6b2hHHcX/SA
-	 c7xKz4N0flAjDYyKPz6Zsip1ugXyBwx2ZcR6XwCxjISEnrnW7PwXSXSQJsisAGRQkS
-	 sKgCnk+NkFkAg==
+	b=pcG+cM2mL8IYP8AErR86W9AMuyDr3JY5OUC1x2iS5nyQHwJVc/A4oEzMrqmnjvMtJ
+	 qicp2jUVOaQqgmE8jlaXVUHCKudTRRRMyXhw3kJnLTtGj2EBB23IBl43Kjf9Xa5wRh
+	 m/bPEFAUkQT31/SuhwF8F8BZy0viXA9eo/+2sBwVKNDNmUQVB8em5ltgcVAe9gcCNo
+	 R6V8/Nv2yaxFldhKQMnRzGdheD3h0k5PStLDycloTlnEzGOemzuCMvBuQ8VhrGlx47
+	 Dcec+DoxCxix5JMi9yUAG3C0zIsDW/oC+DHlvK4qEAXkYIZCXJI9nD+YHILTa3gTcF
+	 zSLKFoibHWshw==
 From: Jisheng Zhang <jszhang@kernel.org>
 To: Doug Berger <opendmb@gmail.com>,
 	Florian Fainelli <florian.fainelli@broadcom.com>,
@@ -65,14 +65,17 @@ Cc: linux-gpio@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	linux-omap@vger.kernel.org
-Subject: [PATCH v2 07/15] gpio: mlxbf2: Use modern PM macros
-Date: Tue, 18 Nov 2025 08:32:21 +0800
-Message-ID: <20251118003229.26636-8-jszhang@kernel.org>
+Subject: [PATCH v2 08/15] gpio: msc313: Use modern PM macros
+Date: Tue, 18 Nov 2025 08:32:22 +0800
+Message-ID: <20251118003229.26636-9-jszhang@kernel.org>
 X-Mailer: git-send-email 2.51.0
 In-Reply-To: <20251118003229.26636-1-jszhang@kernel.org>
 References: <20251118003229.26636-1-jszhang@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251117_165108_529072_D0A17A93 
+X-CRM114-Status: GOOD (  14.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,48 +96,46 @@ CONFIG_PM_SLEEP are disabled, without having to use __maybe_unused
 
 Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
 ---
- drivers/gpio/gpio-mlxbf2.c | 8 ++++----
+ drivers/gpio/gpio-msc313.c | 8 ++++----
  1 file changed, 4 insertions(+), 4 deletions(-)
 
-diff --git a/drivers/gpio/gpio-mlxbf2.c b/drivers/gpio/gpio-mlxbf2.c
-index abffce3894fc..6668686a28ff 100644
---- a/drivers/gpio/gpio-mlxbf2.c
-+++ b/drivers/gpio/gpio-mlxbf2.c
-@@ -424,7 +424,7 @@ mlxbf2_gpio_probe(struct platform_device *pdev)
- 	return 0;
- }
- 
--static int __maybe_unused mlxbf2_gpio_suspend(struct device *dev)
-+static int mlxbf2_gpio_suspend(struct device *dev)
+diff --git a/drivers/gpio/gpio-msc313.c b/drivers/gpio/gpio-msc313.c
+index b0cccd856840..7345afdc78de 100644
+--- a/drivers/gpio/gpio-msc313.c
++++ b/drivers/gpio/gpio-msc313.c
+@@ -694,7 +694,7 @@ static const struct of_device_id msc313_gpio_of_match[] = {
+  * SoC goes into suspend to memory mode so we need to save some
+  * of the register bits before suspending and put it back when resuming
+  */
+-static int __maybe_unused msc313_gpio_suspend(struct device *dev)
++static int msc313_gpio_suspend(struct device *dev)
  {
- 	struct mlxbf2_gpio_context *gs = dev_get_drvdata(dev);
- 
-@@ -436,7 +436,7 @@ static int __maybe_unused mlxbf2_gpio_suspend(struct device *dev)
+ 	struct msc313_gpio *gpio = dev_get_drvdata(dev);
+ 	int i;
+@@ -705,7 +705,7 @@ static int __maybe_unused msc313_gpio_suspend(struct device *dev)
  	return 0;
  }
  
--static int __maybe_unused mlxbf2_gpio_resume(struct device *dev)
-+static int mlxbf2_gpio_resume(struct device *dev)
+-static int __maybe_unused msc313_gpio_resume(struct device *dev)
++static int msc313_gpio_resume(struct device *dev)
  {
- 	struct mlxbf2_gpio_context *gs = dev_get_drvdata(dev);
- 
-@@ -447,7 +447,7 @@ static int __maybe_unused mlxbf2_gpio_resume(struct device *dev)
- 
+ 	struct msc313_gpio *gpio = dev_get_drvdata(dev);
+ 	int i;
+@@ -716,13 +716,13 @@ static int __maybe_unused msc313_gpio_resume(struct device *dev)
  	return 0;
  }
--static SIMPLE_DEV_PM_OPS(mlxbf2_pm_ops, mlxbf2_gpio_suspend, mlxbf2_gpio_resume);
-+static DEFINE_SIMPLE_DEV_PM_OPS(mlxbf2_pm_ops, mlxbf2_gpio_suspend, mlxbf2_gpio_resume);
  
- static const struct acpi_device_id __maybe_unused mlxbf2_gpio_acpi_match[] = {
- 	{ "MLNXBF22", 0 },
-@@ -459,7 +459,7 @@ static struct platform_driver mlxbf2_gpio_driver = {
+-static SIMPLE_DEV_PM_OPS(msc313_gpio_ops, msc313_gpio_suspend, msc313_gpio_resume);
++static DEFINE_SIMPLE_DEV_PM_OPS(msc313_gpio_ops, msc313_gpio_suspend, msc313_gpio_resume);
+ 
+ static struct platform_driver msc313_gpio_driver = {
  	.driver = {
- 		.name = "mlxbf2_gpio",
- 		.acpi_match_table = mlxbf2_gpio_acpi_match,
--		.pm = &mlxbf2_pm_ops,
-+		.pm = pm_sleep_ptr(&mlxbf2_pm_ops),
+ 		.name = DRIVER_NAME,
+ 		.of_match_table = msc313_gpio_of_match,
+-		.pm = &msc313_gpio_ops,
++		.pm = pm_sleep_ptr(&msc313_gpio_ops),
  	},
- 	.probe    = mlxbf2_gpio_probe,
+ 	.probe = msc313_gpio_probe,
  };
 -- 
 2.51.0
