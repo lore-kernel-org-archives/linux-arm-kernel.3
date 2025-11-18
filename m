@@ -4,113 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EF65CEDD97
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 14:30:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7CECCEDDA1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 14:40:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3eRIY/NbZeEoJzxpOIjcuTXUY4zJKOGkqyWddqMp990=; b=ds154BbmJXRL5mt827IUkNL6h7
-	hwcZWp1z104Zor5HO6lMrsio/K4sOR86H9DW63Be0VoOUMvZso/1kAolBtUssTvlxzVgFTo1oQJwD
-	z68Zh5XcqQ6KljjLGnDkTmvnA/hZ3cy8EWOVDZSfmZKAqqtI3y/2Lia1a/Em6B6iFIxaGfEd1YAh1
-	3U/yoaCDMwpIb/xGd2j6QxMm+Wo1LH/tJ/QmKs6mExzdQVAe0AssyeD6ZgrP9idsHLbvDes58wAwB
-	qghdYViX0x94mGuCe2Weafy1xUzveRA4LHymXCqJOd7t1Hh/aW3LRtgQnnl1gbEEqXo7M5cEjUv4u
-	OYMBTjEg==;
+	bh=78j2IfyUVAr0687vbITrbmkgvDL4uhWG+fQHXNvIC8o=; b=ZcZ/e4q1e01v7OcU0aPDA0joiY
+	TU5X5LYIJzxzREpFbbTR2AJDkJbdSqc106Bpo8AzcdviyMSR0XrIW+4nbef9vj+N1U56YS1YsM6rC
+	x0AyzpNY6Ok5llt/xAWZS1KNpOtF+lDYDUcad15uetGGkj+kznt8mItbd8Ki2lBvhdGfwWu5uUe3s
+	V6Dx6GENqULFhR52EtCIXXrMeg9iSjktwBKVLM/F6kKp/ak3LUDBFa9hGynZ6KZE9m+j2B319Y0rv
+	j4FTp9Qpu6YV8lMfsVr0J+pdpuuw+6GVPcSinNGAm/ouLCnrleDwp+u5cHsOLmo8Rf+o7OPNssfKH
+	1w2RlBaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLMiu-00000000Ysc-0DSX;
-	Tue, 18 Nov 2025 14:30:24 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1vLMso-00000000ZMN-0HSB;
+	Tue, 18 Nov 2025 14:40:38 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLMip-00000000YsC-45pL
+	id 1vLMsk-00000000ZLc-2fng
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Nov 2025 14:30:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1763476215;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=3eRIY/NbZeEoJzxpOIjcuTXUY4zJKOGkqyWddqMp990=;
-	b=V7rvHirgW/l8Z/Kx8+iHWf5tC+woZIiV+MfHaQNpExUtKdLHbI1TXIl5MIIIrFAdpHtB1e
-	E4P8ySy33r9NSt/t3VW5YHI2VxWBAqccCqOdkXLmIxaljaLwBxQEpTLTyiiepZt2Ig9Bm/
-	Ubrpev3jwD01pI3jPdmLcY1f9uMa93E=
-Received: from mail-wr1-f71.google.com (mail-wr1-f71.google.com
- [209.85.221.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-110-ry13HO7qNyO0JunmSoxBJQ-1; Tue, 18 Nov 2025 09:30:13 -0500
-X-MC-Unique: ry13HO7qNyO0JunmSoxBJQ-1
-X-Mimecast-MFC-AGG-ID: ry13HO7qNyO0JunmSoxBJQ_1763476213
-Received: by mail-wr1-f71.google.com with SMTP id ffacd0b85a97d-42b2e448bd9so3549987f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Nov 2025 06:30:13 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763476213; x=1764081013;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=3eRIY/NbZeEoJzxpOIjcuTXUY4zJKOGkqyWddqMp990=;
-        b=r++P3UKQ4ciIUeN6SvSienrFc989YU5O0bvgo+6+wFHOySRpdetbS4PYPCz1ImjcV9
-         4Le63jyaPeUCFXT9B1PGEbBHHZL8IkHLY17+B2bhgLoz+YpsJv/l0p8x3rqbLCVDl2LA
-         CMiR82uzpWscbNeMJor3nRLzQ6lu9rTL/hbmldJsSook0hJrNqgx2ecPYGq4KWN9jAg4
-         vyHbS+P8aKnHxfv2OvU752j5P+Fx0lviBBlfZbLk/uZD2Fu3Xrb/scbjDyHUw3WJ1L32
-         mAHEHKb6Skv7szeqpFK7cXU8am4Z5rejzvufIbMx8zU8XmJy/3QlhaBfn+IvhYUq/Iyh
-         SduQ==
-X-Forwarded-Encrypted: i=1; AJvYcCV3Vy+uH/oHjlEFJnrLMO1UowLbFlZ6pkdy0O4ABp3jwzye62me2A6TfFZ4H6J/ioXFandhdD0vbQxfuPqTI0Kc@lists.infradead.org
-X-Gm-Message-State: AOJu0YzkX3QN7hfvpHvAWB4GsogL6CI9KPHlfaOWvqUWGaXfxIXHI4dW
-	s/tjMDdyClLLq0UnJmrMYRoliPpZQv9I39KhBc+uD+GmcC6amAjl9E3tydVJrN7iPxrLN73lBJt
-	BRa3EyCd5E2kyyvdwI+O+iLEJT8Gs1nreLTje6RIwgEbM6aKxAi2clpsBNBks4g57Ho2sJxBN2t
-	o6
-X-Gm-Gg: ASbGncvEU5iqzs7407HKCrQlaukHJoVNLMWWF78zr0ZQVexOURbst7GYF+FbAJGbpyu
-	pt1Ic7kjtJK/stmZ9WSG4EthkGdwbT4cqxUrVgFCOdxeclnqtqQiHfEFl/fy1a8I8uKTPkrZ0x7
-	PvOxAenEGmDa2rPEXJS2Lez1h+fm28L4MQ0iVljMVmMnq5dDV3gFl5yipHimoFlt51KuEqeE+nq
-	Lc6UCUxUUxL8oktCZRW78UW2V6X7hb2pWwsg8rsNv0ZxnLrSrRtCk8HlOpKefVlWB1ldpyQeRhS
-	P6hiWCaFWlMzITLGMhnn1UxE3eS/E5l+i7izmVsdeqnaJVJOV9A4W2mF1bxWAg2Z3dj2qEJc7KC
-	IEW7yeWQwRX4M
-X-Received: by 2002:a05:6000:4186:b0:429:92d8:3371 with SMTP id ffacd0b85a97d-42b59342b99mr14525635f8f.11.1763476212634;
-        Tue, 18 Nov 2025 06:30:12 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IFwm2ThNaD3qGGBsOApPqujAYKRByi04FEJdieN5aJJjweY+ug15q24nDRRxPxeQEH6CYkCcw==
-X-Received: by 2002:a05:6000:4186:b0:429:92d8:3371 with SMTP id ffacd0b85a97d-42b59342b99mr14525592f8f.11.1763476212191;
-        Tue, 18 Nov 2025 06:30:12 -0800 (PST)
-Received: from [192.168.88.32] ([212.105.155.41])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42b53e85e6fsm32541019f8f.18.2025.11.18.06.30.10
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 18 Nov 2025 06:30:11 -0800 (PST)
-Message-ID: <4a3a8ba2-2535-461d-a0a5-e29873f538a4@redhat.com>
-Date: Tue, 18 Nov 2025 15:30:09 +0100
+	Tue, 18 Nov 2025 14:40:36 +0000
+Received: from mail.maildlp.com (unknown [172.18.186.216])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4d9nM734sVzHnH53;
+	Tue, 18 Nov 2025 22:39:47 +0800 (CST)
+Received: from dubpeml100005.china.huawei.com (unknown [7.214.146.113])
+	by mail.maildlp.com (Postfix) with ESMTPS id 64D701402F3;
+	Tue, 18 Nov 2025 22:40:18 +0800 (CST)
+Received: from localhost (10.48.149.77) by dubpeml100005.china.huawei.com
+ (7.214.146.113) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Tue, 18 Nov
+ 2025 14:40:16 +0000
+Date: Tue, 18 Nov 2025 14:40:13 +0000
+From: Jonathan Cameron <jonathan.cameron@huawei.com>
+To: Ben Horgan <ben.horgan@arm.com>
+CC: <james.morse@arm.com>, <amitsinght@marvell.com>,
+	<baisheng.gao@unisoc.com>, <baolin.wang@linux.alibaba.com>,
+	<bobo.shaobowang@huawei.com>, <carl@os.amperecomputing.com>,
+	<catalin.marinas@arm.com>, <dakr@kernel.org>, <dave.martin@arm.com>,
+	<david@redhat.com>, <dfustini@baylibre.com>, <fenghuay@nvidia.com>,
+	<gregkh@linuxfoundation.org>, <gshan@redhat.com>, <guohanjun@huawei.com>,
+	<jeremy.linton@arm.com>, <kobak@nvidia.com>, <lcherian@marvell.com>,
+	<lenb@kernel.org>, <linux-acpi@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<lpieralisi@kernel.org>, <peternewman@google.com>, <quic_jiles@quicinc.com>,
+	<rafael@kernel.org>, <robh@kernel.org>, <rohit.mathew@arm.com>,
+	<scott@os.amperecomputing.com>, <sdonthineni@nvidia.com>,
+	<sudeep.holla@arm.com>, <tan.shaopeng@fujitsu.com>, <will@kernel.org>,
+	<xhao@linux.alibaba.com>
+Subject: Re: [PATCH v5 03/34] ACPI / PPTT: Add acpi_pptt_cache_v1_full to
+ use pptt cache as one structure
+Message-ID: <20251118144013.000050c2@huawei.com>
+In-Reply-To: <20251117170014.4113754-4-ben.horgan@arm.com>
+References: <20251117170014.4113754-1-ben.horgan@arm.com>
+	<20251117170014.4113754-4-ben.horgan@arm.com>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net v2] net: stmmac: add clk_prepare_enable() error
- handling
-To: Pavel Zhigulin <Pavel.Zhigulin@kaspersky.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>
-Cc: "David S. Miller" <davem@davemloft.net>,
- Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Maxime Chevallier <maxime.chevallier@bootlin.com>,
- Inochi Amaoto <inochiama@gmail.com>,
- Quentin Schulz <quentin.schulz@cherry.de>,
- Joe Hattori <joe@pf.is.s.u-tokyo.ac.jp>,
- Rayagond Kokatanur <rayagond@vayavyalabs.com>,
- Giuseppe CAVALLARO <peppe.cavallaro@st.com>, netdev@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- lvc-project@linuxtesting.org
-References: <20251114142351.2189106-1-Pavel.Zhigulin@kaspersky.com>
-From: Paolo Abeni <pabeni@redhat.com>
-In-Reply-To: <20251114142351.2189106-1-Pavel.Zhigulin@kaspersky.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: 9y6cTL6DUXJ-RQ7gGwBJoD3deeMkTHIyMM8jLpFWm2w_1763476213
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="US-ASCII"
 Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.48.149.77]
+X-ClientProxiedBy: lhrpeml100012.china.huawei.com (7.191.174.184) To
+ dubpeml100005.china.huawei.com (7.214.146.113)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251118_063020_090931_55655C4A 
-X-CRM114-Status: GOOD (  18.77  )
+X-CRM114-CacheID: sfid-20251118_064035_218922_569DCEB3 
+X-CRM114-Status: GOOD (  29.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,57 +84,148 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/14/25 3:23 PM, Pavel Zhigulin wrote:
-> The driver previously ignored the return value of 'clk_prepare_enable()'
-> for both the CSR clock and the PCLK in 'stmmac_probe_config_dt()' function.
+On Mon, 17 Nov 2025 16:59:42 +0000
+Ben Horgan <ben.horgan@arm.com> wrote:
+
+> In actbl2.h, acpi_pptt_cache describes the fields in the original
+> Cache Type Structure. In PPTT table version 3 a new field was added at the
+> end, cache_id. This is described in acpi_pptt_cache_v1 but rather than
+> including all v1 fields it just includes this one.
 > 
-> Add 'clk_prepare_enable()' return value checks.
+> In lieu of this being fixed in acpica, introduce acpi_pptt_cache_v1_full to
+> contain all the fields of the Cache Type Structure . Update the existing
+> code to use this new struct. This simplifies the code and removes a
+> non-standard use of ACPI_ADD_PTR.
 > 
-> Found by Linux Verification Center (linuxtesting.org) with SVACE.
-> 
-> Fixes: bfab27a146ed ("stmmac: add the experimental PCI support")
-> Signed-off-by: Pavel Zhigulin <Pavel.Zhigulin@kaspersky.com>
+> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
+Hi Ben,
+
+I'd like the change to land in ACPICA but if it doesn't this might need
+a future rework to avoid long term duplication.  For now with the __packed
+marking and a few formatting niggles (see inline) tidied up.
+
+Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+
 > ---
-> v2: Fix 'ret' value initialization after build bot notification.
-> v1: https://lore.kernel.org/all/20251113134009.79440-1-Pavel.Zhigulin@kaspersky.com/
+> I have opened a pull request to acpica to update acpi_pptt_cache_v1 to
+> include all fields. https://github.com/acpica/acpica/pull/1059
 > 
->  drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c | 11 +++++++++--
->  1 file changed, 9 insertions(+), 2 deletions(-)
+> Change since v4:
+> Use fields directly in acpi_pptt_cache_v1_full
+> Delay the casting
 > 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
-> index 27bcaae07a7f..8f9eb9683d2b 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
-> @@ -632,7 +632,9 @@ stmmac_probe_config_dt(struct platform_device *pdev, u8 *mac)
->  			dev_warn(&pdev->dev, "Cannot get CSR clock\n");
->  			plat->stmmac_clk = NULL;
->  		}
-> -		clk_prepare_enable(plat->stmmac_clk);
-> +		rc = clk_prepare_enable(plat->stmmac_clk);
-> +		if (rc < 0)
-> +			dev_warn(&pdev->dev, "Cannot enable CSR clock: %d\n", rc);
+> Changes since v3:
+> New patch
+> ---
+>  drivers/acpi/pptt.c | 47 +++++++++++++++++++++++++++++++++++----------
+>  1 file changed, 37 insertions(+), 10 deletions(-)
+> 
+> diff --git a/drivers/acpi/pptt.c b/drivers/acpi/pptt.c
+> index 2856254e29d7..53fde9bd8140 100644
+> --- a/drivers/acpi/pptt.c
+> +++ b/drivers/acpi/pptt.c
+> @@ -21,6 +21,25 @@
+>  #include <linux/cacheinfo.h>
+>  #include <acpi/processor.h>
+>  
+> +/*
+> + * The acpi_pptt_cache_v1 in actbl2.h, which is imported from acpica,
+> + * only contains the cache_id field rather than all the fields of the
+> + * Cache Type Structure. Use this alternative structure until it is
+> + * resolved in acpica.
+> + */
+> +struct acpi_pptt_cache_v1_full {
+> +	struct acpi_subtable_header header;
+> +	u16 reserved;
+> +	u32 flags;
+> +	u32 next_level_of_cache;
+> +	u32 size;
+> +	u32 number_of_sets;
+> +	u8 associativity;
+> +	u8 attributes;
+> +	u16 line_size;
+> +	u32 cache_id;
+> +};
+> +
+>  static struct acpi_subtable_header *fetch_pptt_subtable(struct acpi_table_header *table_hdr,
+>  							u32 pptt_ref)
+>  {
+> @@ -56,6 +75,18 @@ static struct acpi_pptt_cache *fetch_pptt_cache(struct acpi_table_header *table_
+>  	return (struct acpi_pptt_cache *)fetch_pptt_subtable(table_hdr, pptt_ref);
+>  }
+>  
+> +static struct acpi_pptt_cache_v1_full *upgrade_pptt_cache(struct acpi_pptt_cache *cache)
+> +{
+> +	if (cache->header.length < sizeof(struct acpi_pptt_cache_v1_full))
+> +		return NULL;
+> +
+> +	/* No use for v1 if the only additional field is invalid */
+> +	if (!(cache->flags & ACPI_PPTT_CACHE_ID_VALID))
+> +		return NULL;
+> +
+> +	return (struct acpi_pptt_cache_v1_full *)cache;
+> +}
+> +
+>  static struct acpi_subtable_header *acpi_get_pptt_resource(struct acpi_table_header *table_hdr,
+>  							   struct acpi_pptt_processor *node,
+>  							   int resource)
+> @@ -111,7 +142,7 @@ static unsigned int acpi_pptt_walk_cache(struct acpi_table_header *table_hdr,
+>  	if (res->type != ACPI_PPTT_TYPE_CACHE)
+>  		return 0;
+>  
+> -	cache = (struct acpi_pptt_cache *) res;
+> +	cache = (struct acpi_pptt_cache *)res;
+
+Unrelated change..
+
+>  	while (cache) {
+>  		local_level++;
+>  
+> @@ -355,7 +386,6 @@ static struct acpi_pptt_cache *acpi_find_cache_node(struct acpi_table_header *ta
+>   * @this_leaf: Kernel cache info structure being updated
+>   * @found_cache: The PPTT node describing this cache instance
+>   * @cpu_node: A unique reference to describe this cache instance
+> - * @revision: The revision of the PPTT table
+>   *
+>   * The ACPI spec implies that the fields in the cache structures are used to
+>   * extend and correct the information probed from the hardware. Lets only
+> @@ -365,10 +395,9 @@ static struct acpi_pptt_cache *acpi_find_cache_node(struct acpi_table_header *ta
+>   */
+>  static void update_cache_properties(struct cacheinfo *this_leaf,
+>  				    struct acpi_pptt_cache *found_cache,
+> -				    struct acpi_pptt_processor *cpu_node,
+> -				    u8 revision)
+> +				    struct acpi_pptt_processor *cpu_node)
+>  {
+> -	struct acpi_pptt_cache_v1* found_cache_v1;
+> +	struct acpi_pptt_cache_v1_full *found_cache_v1;
+>  
+>  	this_leaf->fw_token = cpu_node;
+>  	if (found_cache->flags & ACPI_PPTT_SIZE_PROPERTY_VALID)
+> @@ -418,9 +447,8 @@ static void update_cache_properties(struct cacheinfo *this_leaf,
+>  	    found_cache->flags & ACPI_PPTT_CACHE_TYPE_VALID)
+>  		this_leaf->type = CACHE_TYPE_UNIFIED;
+>  
+> -	if (revision >= 3 && (found_cache->flags & ACPI_PPTT_CACHE_ID_VALID)) {
+> -		found_cache_v1 = ACPI_ADD_PTR(struct acpi_pptt_cache_v1,
+> -	                                      found_cache, sizeof(struct acpi_pptt_cache));
+> +	found_cache_v1 =  upgrade_pptt_cache(found_cache);
+
+extra space after =
+
+> +	if (found_cache_v1) {
+>  		this_leaf->id = found_cache_v1->cache_id;
+>  		this_leaf->attributes |= CACHE_ID;
 >  	}
-> 
->  	plat->pclk = devm_clk_get_optional(&pdev->dev, "pclk");
-> @@ -640,7 +642,12 @@ stmmac_probe_config_dt(struct platform_device *pdev, u8 *mac)
->  		ret = plat->pclk;
->  		goto error_pclk_get;
+> @@ -445,8 +473,7 @@ static void cache_setup_acpi_cpu(struct acpi_table_header *table,
+>  		pr_debug("found = %p %p\n", found_cache, cpu_node);
+>  		if (found_cache)
+>  			update_cache_properties(this_leaf, found_cache,
+> -						ACPI_TO_POINTER(ACPI_PTR_DIFF(cpu_node, table)),
+> -						table->revision);
+> +						ACPI_TO_POINTER(ACPI_PTR_DIFF(cpu_node, table)));
+>  
+>  		index++;
 >  	}
-> -	clk_prepare_enable(plat->pclk);
-> +	rc = clk_prepare_enable(plat->pclk);
-> +	if (rc < 0) {
-> +		ret = ERR_PTR(rc);
-> +		dev_err(&pdev->dev, "Cannot enable pclk: %d\n", rc);
-> +		goto error_pclk_get;
-> +	}
-
-It looks like the driver is supposed to handle the
-IS_ERR_OR_NULL(plat->pclk) condition. This check could cause regression
-on existing setup currently failing to initialize the (optional) clock
-and still being functional.
-
-I *think* we are better off without the added checks.
-
-/P
 
 
