@@ -4,153 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11F2FCEE340
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 17:01:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8BF9CEE340
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 17:03:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uzN6FpLHyGbpRSrAMIcY7ywwzNsyVcCzZm5nZM6lvwI=; b=zGiM3dbK0TZyCo8YSX+vwkAJLx
-	F8YF19DQbKvV2aZNOfDJqsBFouBt42V57tuqBF8ECBCzQABD8Is34796YsjQKYDRtOTp7H1tz/mXl
-	yEha8lWfqPsT8OOF2lbW7jVXYXHeurJsk3Db2lPFf4QvTFnajL+OpM2aCWLPlssrF8bc3zVFMKsgo
-	4lYuYlBrYdpE/f6oQwOTmsdkwQglGEy9KZlsK5tDYz8ODi4pCAGOeoIdL4FW3oH8zfQgo34E3wh/S
-	OYLXdVbMt96mMSU6BR5tnUqn1FrvN0Ue1XQdlo6Fc6Hiiwbesb9bcz3pvHLLZOGBsOkSNMV/zeWia
-	ioTVdEPg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
+	Content-Transfer-Encoding:Date:Content-Type:Subject:Cc:To:From:Message-ID:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Ikbxpjo8LZrHbmpy/V6/tjg+g8DY5QC0BL15d4mFkik=; b=Nek9KMNmvvROVeSW6NJWumAILq
+	lg+l9a+9aG4oiKedxd6T8U0OQS8vq/W987pcddK00uHbjxDeDv908E/VrzAJff2hNR9S2LzQWP8io
+	F/50JyoP8qg15TA91dxAH5D0uijWKqBBVVunhQ6BMRbVrkcE0h5LvBzX0X6DQUu35TxEKpe8w7K9A
+	236zdiZSRtUrgZZVQWAzgadTcytUd83f/R2jXrPZM7B2PFEwUTvXJQqC+MR5xdRak7c8FGf4pDUVl
+	psilS3qPYZqzFDFkwHhhKB0GFnQCgB0dcACuSoJ/uqmuMJYcUVXJQCGGOCMRXeH5FVK+x7xWVHmjQ
+	dIVoW26Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLP56-00000000nS2-0alt;
-	Tue, 18 Nov 2025 17:01:28 +0000
-Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1vLP6Q-00000000naV-3N06;
+	Tue, 18 Nov 2025 17:02:50 +0000
+Received: from mout.gmx.net ([212.227.17.20])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLP53-00000000nRd-0JkM
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Nov 2025 17:01:26 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=C809uic5iIScrQqFxUyY7aJebvXPc+KuXVZ4MUFiMnR4daN8BXOJ4w66PbcdAAZbD2A0A7QrYwbHbDqHgP9SLfKT68PRN5eD1TMUfkHFWaNin4hb6jA5sQV+vH8fKzte4LoGDUuSBC+4K7cysjfN3J6aj0BW2t4gt+FAnnE7OgJLXverkQb0fSxTflA0du/GIOF24L6ESpWs83nMuKflCCFSZ6Li151f5HhHsr0Wb63CsGgJWXt3MemJrr6XlnP5spfufXLZ1Rgin9TpZCkoh7RINhAjhDKe9QDvF+GYRcoOZMOGYKniGXdn1tMU7djM+n5W3mSfB39Vj62ftk28hw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=uzN6FpLHyGbpRSrAMIcY7ywwzNsyVcCzZm5nZM6lvwI=;
- b=VyCrFPnX2uXWhImX5LpAKs5M0Cyv2arSNuakIV5BjV0VXNycubncmSJ0ClDZg2Td99Mvk41pFLymuIq6e/2ZpkU/YBeTGoU1T0mm1eMf8RMM/e9oRnJuvQGQwNbFu5wD8/RSeN0ci8qQ8/uu/Z6WdT9DxZ7A7R2Ou4H82LFthdVmxLBR4cSKzeeb1D2juwdfgP1JvyQHx4ZbWSLhIlGX7TikSHi2qty2NClSWPPDXBF4mxsYmbpwV+Tk795H1BV2rhA1yzqpyhemmBPL+pt+eSMG+166g2VHmr8M1YNV7YJ9LnPXnFC5jtUB/phpy64FveI5IvEqhXW/4eS3pS6Izg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=uzN6FpLHyGbpRSrAMIcY7ywwzNsyVcCzZm5nZM6lvwI=;
- b=XE/Adj9wBuH97TNq4oEhhRd+wwZDzmZ4FXTiw9wb0GrSz53MD7bfFAFWyXd1RAcP5z6jCEJkzAKtLYl5OhPXYcJu10hjCu4bqjTjmk8SYVPw4wzc6eySC5lUF+DAnI7I2JyIvaVrcEJwOzhalk14uRIYusQ2rl9Rt60l3ikvtmd9BsV+mnMhYBWTrczUYQEklQLnWVeLTMjGYNmqMGF5LSfq99s2C+Bn0oEIvWZ0CYIwAYqleZvHRsUpPqybtozg9wUimL7piTxCe1/frCe6f+q7Knth9sds0531B6PisVFo0xqSZWCPJI85bqI6pqWYS//f2mSujHOSnn3uvjl3UQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from DB9PR04MB9626.eurprd04.prod.outlook.com (2603:10a6:10:309::18)
- by PA1PR04MB10673.eurprd04.prod.outlook.com (2603:10a6:102:480::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9320.21; Tue, 18 Nov
- 2025 17:01:20 +0000
-Received: from DB9PR04MB9626.eurprd04.prod.outlook.com
- ([fe80::55ef:fa41:b021:b5dd]) by DB9PR04MB9626.eurprd04.prod.outlook.com
- ([fe80::55ef:fa41:b021:b5dd%4]) with mapi id 15.20.9320.021; Tue, 18 Nov 2025
- 17:01:20 +0000
-Date: Tue, 18 Nov 2025 12:01:10 -0500
-From: Frank Li <Frank.li@nxp.com>
-To: Vincent Guittot <vincent.guittot@linaro.org>
-Cc: chester62515@gmail.com, mbrugger@suse.com,
-	ghennadi.procopciuc@oss.nxp.com, s32@nxp.com, bhelgaas@google.com,
-	jingoohan1@gmail.com, lpieralisi@kernel.org, kwilczynski@kernel.org,
-	mani@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, Ionut.Vicovan@nxp.com, larisa.grigore@nxp.com,
-	Ghennadi.Procopciuc@nxp.com, ciprianmarian.costea@nxp.com,
-	bogdan.hamciuc@nxp.com, linux-arm-kernel@lists.infradead.org,
-	linux-pci@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
-	cassel@kernel.org
-Subject: Re: [PATCH 3/4 v5] PCI: s32g: Add initial PCIe support (RC)
-Message-ID: <aRymVtJKtcydh3g5@lizhi-Precision-Tower-5810>
-References: <20251118160238.26265-1-vincent.guittot@linaro.org>
- <20251118160238.26265-4-vincent.guittot@linaro.org>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251118160238.26265-4-vincent.guittot@linaro.org>
-X-ClientProxiedBy: SJ0PR05CA0107.namprd05.prod.outlook.com
- (2603:10b6:a03:334::22) To DB9PR04MB9626.eurprd04.prod.outlook.com
- (2603:10a6:10:309::18)
+	id 1vLP6N-00000000nZD-2XK2;
+	Tue, 18 Nov 2025 17:02:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=public-files.de;
+	s=s31663417; t=1763485361; x=1764090161; i=frank-w@public-files.de;
+	bh=Ikbxpjo8LZrHbmpy/V6/tjg+g8DY5QC0BL15d4mFkik=;
+	h=X-UI-Sender-Class:MIME-Version:Message-ID:From:To:Cc:Subject:
+	 Content-Type:Date:Content-Transfer-Encoding:In-Reply-To:
+	 References:cc:content-transfer-encoding:content-type:date:from:
+	 message-id:mime-version:reply-to:subject:to;
+	b=dsWkv5A9CxaTOv7R9y0hIEIvFze/tYuelAcl6Y4yJIc+Pb9VY2etBnCwnG/+2nlG
+	 cZEMAVbn2VK5EZsNbsd7QgFVB0naEt/14dpeQlmu30FVQQZ79BhrP5aZ+cE/eilBc
+	 49sAHyQo+CsOc3pSCGCCBMAN/RHphO8OhIEqRow7VL1QtQpGBUrxmRjObAKMxaomP
+	 tytBEvaMQm2puem4yuCMU1ueTCAKajLIyQnb/vUa360+7EIVNvZMZQeZE+KPxDQXt
+	 ae9HZGTvDXfIPApNBEe2POI0Lsu557SI1+iMVqsSDqeXEEF3tWYrge5I9ZlJBmM2V
+	 SUehdnu2r263l/+cKA==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from [194.15.86.107] ([194.15.86.107]) by
+ trinity-msg-rest-gmx-gmx-live-56d984c6fb-85gcg (via HTTP); Tue, 18 Nov 2025
+ 17:02:41 +0000
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DB9PR04MB9626:EE_|PA1PR04MB10673:EE_
-X-MS-Office365-Filtering-Correlation-Id: 1e9087ac-5b07-4ad8-ded8-08de26c41863
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|52116014|376014|7416014|19092799006|7053199007|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?mE5wyScceJD5efhRR2sY8IcHXbXpCXXU3jjP27/64TZ0MyMPtMT+DGCRYx95?=
- =?us-ascii?Q?ZIFkpk7JsulHtf3/xEtrBe6XqZT+ZoB0qNZRXFugA5boEev87KM/ziq8h+3y?=
- =?us-ascii?Q?Rz+/AULZi8gUzVoOoOeOhQFGsBhjJhYSMrscDP2FK7jk9uMVfIaPFhcMsBLm?=
- =?us-ascii?Q?6mGI1ytauEnZOHTdHQ+rhm4tL3FQns2m4/rZhyjhXNfaCJWxl3Dvv1YMShuv?=
- =?us-ascii?Q?2TZ8tmaJgqB/IXX8Y3lt2WlgHXOY02QuOfwMVNw3Eor89GB2shRgsSqr882A?=
- =?us-ascii?Q?/FfP/LaPrUdVCF//IWAZnqb9ANyRFqmbrlc/XI1tJDv3ciHd0KKltQNsIHA1?=
- =?us-ascii?Q?447tZlg3P3N5EFd7/iA+4VbnQrcBWEw24uIiw4qUsugsoTet+3x6rOraIOb7?=
- =?us-ascii?Q?MLfBCooz4n4q0DLefXJ65DisD6McefwNA5Iu1vuGDaiLfmd/KfH5cD2HTo87?=
- =?us-ascii?Q?+dxmzLz3kygrmArmKmGf0VE40h7rX66ID4KIgaz0iP8HwtgDM/gBYw2N9rtD?=
- =?us-ascii?Q?+XO+R8CNS9eTEgCO4SZN2BgNf1aWK35EbmxAx8nmDUiH5eISFQVSfOqUl5vS?=
- =?us-ascii?Q?vLZZEsR9srQvKrBe6RMIchHKoP+4ln+QcTxVwgLKO1WhmkUGNPfK2n0+l01t?=
- =?us-ascii?Q?CjMm+sXgIbVLBSh3SKUDtzZQrkYCpfFr4u148KVbehRng2vvba2bLzYV5kwl?=
- =?us-ascii?Q?qF4qdSYun3ie/mn9JHePjbRg19rTWsrWdeKAysv/sHPW54LQwGGP4EjkcZTm?=
- =?us-ascii?Q?td2bYcJ/5+VmGC+txRPmiIWwreMCGq2/hjEN3mfxpgDC4ucqPnglzv3Ov4fQ?=
- =?us-ascii?Q?9JimC4FE+EooTrGIHN3kMQ2eqgYs+tluQicHzkjdCcKNnFMu7RnaIWoEyWnZ?=
- =?us-ascii?Q?dK6762rodUNH7NpAS6rCTUjyW4q6/fcYJ9TezHzMi2qMlavRA+uMf4jGz4Jj?=
- =?us-ascii?Q?sNVjJszH1ATOnuYSkDhoeOepmBCpcs7Zk4HX0o469KyQOOx/YERsLWWqkrDW?=
- =?us-ascii?Q?dqpquTJyItgwdz4PMqkQKYkjkPA5fuS/zBuDrh6xvl1+sB0NnV9VBmyzYYee?=
- =?us-ascii?Q?9H4zZK9mUfK1LwS3WLCZJMvXyPvXon8yL8x8rWWSt/Fn4VC752nYFqknplbY?=
- =?us-ascii?Q?MP06Jru1/hv5BgSUP94BAlKuUnIxrU1/vXu+tNEdmsMt+Em8j5yG7+sMTeWZ?=
- =?us-ascii?Q?Dw+QRBK7PG0qBneP8BYK0iFovpCX0yiTtznDoQrG4PU/NPetByEoDrm42E3l?=
- =?us-ascii?Q?agcN9Bfs7o2tLtrqw5jnAXgUYMwx5lUS0pdpwBnFUyGwlxenUfw7ZFuzOzDF?=
- =?us-ascii?Q?K3oOxz2JCh77Ib75l3as30XjMeNj3uOlMUMIoIX0zfbEmf4jcO2gXKYGVwPO?=
- =?us-ascii?Q?9OjR3B8uw7UiDzAUT5DTzH9Cj4UjSVaWllF9mmPqwx1q0IxeZxuYHQjw9J9h?=
- =?us-ascii?Q?wOXnM6g1oeBY3nYSOHVj+y5528TuBvBY0k8HFjTVk5rQm6yNTWhdzEbCOCj6?=
- =?us-ascii?Q?YcVOoSgGJB+Nv/8Yhb1gtX/lvRPrnMxT6JDE?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR04MB9626.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(52116014)(376014)(7416014)(19092799006)(7053199007)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?8lqsHaurFyvQMpiF+owCiWRUPea4YwF3RsxUn9oq5N5MhCu8XTy26fG3p+Si?=
- =?us-ascii?Q?dyttpgLz/NajchB1YSAS0lQzmbcF6/gLQX9HUU5d7DUwpa2+XByDf831BlMA?=
- =?us-ascii?Q?ZfiKVC+l4sWNPTc1dd2mROpRY6FA5hdXxzcmMqOwhj3BJB3OjW0BPF0jVzkX?=
- =?us-ascii?Q?gOv076jyY7nwh2qOZ1sbjyE8fhmQ/QUtNfy+AJ4VHrxZx6QIjiebkBy7mM33?=
- =?us-ascii?Q?uXEHvq3K/4mleLV92k40sCD4o5GTC1JCnzh3EYaWlZIOOgn1xxPdOmg4yruv?=
- =?us-ascii?Q?tElTncFbgsXOFX3uVDsX4sYDWa/53SC39hhx5DBoxvdUkCZuXzsKBgOQhWGJ?=
- =?us-ascii?Q?vnt/AMofBsWKCx/Fb9rYxnpoi8mIrN6UJVKWR+x1LgoXddo4NuaFYLkdchno?=
- =?us-ascii?Q?CE6m4B9SRLsYzNKocUKy+cdMK4kUekMXScDuoaLjeCb4IWaTOxweILxvvc/j?=
- =?us-ascii?Q?QEyFL1mhHv5k7ozuLWBWyP2m0BnPdOGqlmBrp44up6iYtJSdvp49IqlTeHjA?=
- =?us-ascii?Q?k3gXv9zJwCIlthNLM9R5CSdjf2oJ7/QxV827aqNOAlYpnfGCIUUGS4uNhtR+?=
- =?us-ascii?Q?X4LN6SIbsJl//DvEsZldNCLuBHvSuDjfkB6vQEfq96NTYGI2VxNkK8P8WBYH?=
- =?us-ascii?Q?3Zl1P6dcD8LgpkEgtFre2XMsvZLIhBAZ5aFjUFg+SAKPOOhKprdgzxyG+Ac0?=
- =?us-ascii?Q?Gt1YC8rmr99fcSJRFZv+3gzIxy03sgAgdxSFqI6WkXyad/l2rkS1c87utRiK?=
- =?us-ascii?Q?W9kR8ZcO2W/E7Iw+3dsqS+M3ANRukcOCmBl74UZAOJqiKTD08pTFO772H9EW?=
- =?us-ascii?Q?gROBtxmkZfUrMugN98BM5T3bWW61+GOC88NKiHTA1GsobLWbHpUTIXf84Vhb?=
- =?us-ascii?Q?H58GgflDC72HbxvCyOvfoyDG/xXgDrTQS74dN9rv3KFluFli0NXq6OzW7Yoz?=
- =?us-ascii?Q?u+Kc8A2kI0VGFTzCRICKvG4zHmikXQcR+HM1bkuHk/cb745h3/cP0Myollex?=
- =?us-ascii?Q?qgzaW7sSjOCv+af13yrSDSlqM1oz0Os49SXRoSDio6ndLuS1GJHQ8s/6lCet?=
- =?us-ascii?Q?xDxdVirS6JTOW3SMhjmFaeVyn9NpvIDjcEDZLCeAcbetQPIgieZGdkcCnw9z?=
- =?us-ascii?Q?3tB7YAUACl8FEXsaR4IYBU7tAEoKv7dq64+3pAscPPGqgRmNASe34yc53ATj?=
- =?us-ascii?Q?mqNrpBxAMKyrRXNSR5/dTm3W1aL4Q6EG8svvz1fRUZmiohGpvsoDn65MjUPg?=
- =?us-ascii?Q?neRKkGxvnmAOsPjcP0OMquTiYgdyG/ZdhLwrM8+bPKOMlwerfnJM3lZlUoc+?=
- =?us-ascii?Q?8rCapA7+MtYuf1MUEvdcdyCMfsBiWbC8YpSgENBq8ku7VX2x15mLetOvHeT2?=
- =?us-ascii?Q?bbXGDtKzU2Z2r69ePaMtyQ+mspeSn86RoGQ7gH1IdVWQjTDeJbdxbhKYcu+b?=
- =?us-ascii?Q?rEc+jxpuKUdzBDQaZpvQomIwDqV0tghOkqPMWHIXCEeG/GYGibU4VipcOkxz?=
- =?us-ascii?Q?XXEKxCoyfPoVsywMy3iVGvfmNn3zwDH1nepZJb87N3o85iuI8VHL++JGB5Bm?=
- =?us-ascii?Q?6INwUwayJzQglUi+lc7zSQ/CvgU/42J6okHZLvLu?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1e9087ac-5b07-4ad8-ded8-08de26c41863
-X-MS-Exchange-CrossTenant-AuthSource: DB9PR04MB9626.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2025 17:01:19.9460
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Dt6JRsLPREB7o4+ftR8CJfGij6bK3dzpmU6gYcdbHaAjcVm+H4zZVn1tzho88uHVHlOBVUO9aOY0Sv1qxXuB9g==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB10673
+Message-ID: <trinity-dfca2931-a7e8-4b33-b722-c22105569d82-1763485361461@trinity-msg-rest-gmx-gmx-live-56d984c6fb-85gcg>
+From: Frank Wunderlich <frank-w@public-files.de>
+To: robh@kernel.org, angelogioacchino.delregno@collabora.com
+Cc: matthias.bgg@gmail.com, krzk+dt@kernel.org, conor+dt@kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org
+Subject: Aw: Re: [PATCH] arm64: dts: mediatek: Apply all DT overlays at
+ build time
+Content-Type: text/plain; charset=UTF-8
+Date: Tue, 18 Nov 2025 17:02:41 +0000
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <CAL_JsqK4jvZQTQAXCjPgxBCUiENGKgkgaDgZ680QqL1XpS6bbw@mail.gmail.com>
+References: <20251117211306.725678-1-robh@kernel.org>
+ <679c1f30-7c62-484e-b4e5-7351a23f15e5@collabora.com>
+ <CAL_JsqK4jvZQTQAXCjPgxBCUiENGKgkgaDgZ680QqL1XpS6bbw@mail.gmail.com>
+X-UI-CLIENT-META-MAIL-DROP: W10=
+X-Provags-ID: V03:K1:+NZVXvxPM7sHFnKfKMqInMumSSaXpCyIpkrfgPSpZJDAq6/hfd0ipTLFhIOBzIQSUYnUL
+ NR7WDPb/NlOcAcXT/Lw5vmFwTdD07ljrc2TD0WWlNVilbTgVd8hg79IafV7iuLRKG6yv7H49KqRL
+ U6WxfzvZiejuJtFsDKfXyzseFgdPahmDc2pHlW9IpSdPKOFaUx+aY5smlnC4YMvsuM8Gjn82ShQT
+ 6vOUVNJn12KClhocoxezWQaM8gYGKtR2eGr1RNUhzw6zfCwy6pu3dxi5lrLZf0QMgcX/bxaOcy4S
+ seEucBHcm9Gv/Q+jSrWKKdQUsvDiQRfo2np5HwfhHnUSq1H0/Nd8qs90tU3AlpnM7s=
+UI-OutboundReport: notjunk:1;M01:P0:O+byDxN+m3E=;FPg10a5UBLeIHxc671s5gwpvCNP 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
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251118_090125_120939_D670EC88 
-X-CRM114-Status: GOOD (  17.94  )
+X-CRM114-CacheID: sfid-20251118_090248_002350_50D32259 
+X-CRM114-Status: GOOD (  22.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -165,72 +84,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 18, 2025 at 05:02:37PM +0100, Vincent Guittot wrote:
-> Add initial support of the PCIe controller for S32G Soc family. Only
-> host mode is supported.
->
-> Co-developed-by: Ionut Vicovan <Ionut.Vicovan@nxp.com>
-> Signed-off-by: Ionut Vicovan <Ionut.Vicovan@nxp.com>
-> Co-developed-by: Ciprian Marian Costea <ciprianmarian.costea@nxp.com>
-> Signed-off-by: Ciprian Marian Costea <ciprianmarian.costea@nxp.com>
-> Co-developed-by: Ghennadi Procopciuc <Ghennadi.Procopciuc@nxp.com>
-> Signed-off-by: Ghennadi Procopciuc <Ghennadi.Procopciuc@nxp.com>
-> Co-developed-by: Larisa Grigore <larisa.grigore@nxp.com>
-> Signed-off-by: Larisa Grigore <larisa.grigore@nxp.com>
-> Signed-off-by: Vincent Guittot <vincent.guittot@linaro.org>
-> ---
->  drivers/pci/controller/dwc/Kconfig            |  10 +
->  drivers/pci/controller/dwc/Makefile           |   1 +
->  .../pci/controller/dwc/pcie-nxp-s32g-regs.h   |  21 +
->  drivers/pci/controller/dwc/pcie-nxp-s32g.c    | 391 ++++++++++++++++++
->  4 files changed, 423 insertions(+)
->  create mode 100644 drivers/pci/controller/dwc/pcie-nxp-s32g-regs.h
->  create mode 100644 drivers/pci/controller/dwc/pcie-nxp-s32g.c
->
-> diff --git a/drivers/pci/controller/dwc/Kconfig b/drivers/pci/controller/dwc/Kconfig
-> index 349d4657393c..e276956c3fca 100644
-> --- a/drivers/pci/controller/dwc/Kconfig
-> +++ b/drivers/pci/controller/dwc/Kconfig
-> @@ -256,6 +256,16 @@ config PCIE_TEGRA194_EP
->  	  in order to enable device-specific features PCIE_TEGRA194_EP must be
->  	  selected. This uses the DesignWare core.
->
-...
-> +
-> +static int s32g_pcie_init(struct device *dev, struct s32g_pcie *s32g_pp)
-> +{
-> +	int ret;
-> +
-> +	s32g_pcie_disable_ltssm(s32g_pp);
-> +
-> +	ret = s32g_init_pcie_phy(s32g_pp);
-> +	if (ret)
-> +		return ret;
+Hi,
 
-Small nit:
+this looks similar to my attempt i did here
 
-return s32g_init_pcie_phy(s32g_pp);
+https://patchwork=2Ekernel=2Eorg/project/linux-mediatek/patch/202406080805=
+30=2E9436-2-linux@fw-web=2Ede/
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
-> +
-> +	return 0;
-> +}
-> +
-> +static void s32g_pcie_deinit(struct s32g_pcie *s32g_pp)
-> +{
-> +	s32g_pcie_disable_ltssm(s32g_pp);
-> +
-> +	s32g_deinit_pcie_phy(s32g_pp);
-> +}
-> +
-...
-> +
-> +module_platform_driver(s32g_pcie_driver);
-> +
-> +MODULE_AUTHOR("Ionut Vicovan <Ionut.Vicovan@nxp.com>");
-> +MODULE_DESCRIPTION("NXP S32G PCIe Host controller driver");
-> +MODULE_LICENSE("GPL");
-> --
-> 2.43.0
+But in my case i added full dtb with 2 overlays as there can be 2 devices =
+(1 mmc + 1 spi) at one time=2E
+So usable as dtb for bootloader config without overlays, not only for vali=
+dation=2E=2E=2E
+
+regards Frank
+
+
+> Gesendet: Dienstag, 18=2E November 2025 um 13:31
+> Von: "Rob Herring" <robh@kernel=2Eorg>
+> An: "AngeloGioacchino Del Regno" <angelogioacchino=2Edelregno@collabora=
+=2Ecom>
+> CC: "Matthias Brugger" <matthias=2Ebgg@gmail=2Ecom>, "Krzysztof Kozlowsk=
+i" <krzk+dt@kernel=2Eorg>, "Conor Dooley" <conor+dt@kernel=2Eorg>, linux-ke=
+rnel@vger=2Ekernel=2Eorg, linux-arm-kernel@lists=2Einfradead=2Eorg, linux-m=
+ediatek@lists=2Einfradead=2Eorg, devicetree@vger=2Ekernel=2Eorg
+> Betreff: Re: [PATCH] arm64: dts: mediatek: Apply all DT overlays at buil=
+d time
+>
+> On Tue, Nov 18, 2025 at 3:36=E2=80=AFAM AngeloGioacchino Del Regno
+> <angelogioacchino=2Edelregno@collabora=2Ecom> wrote:
+> >
+> > Il 17/11/25 22:13, Rob Herring (Arm) ha scritto:
+> > > It's a requirement that DT overlays be applied at build time in orde=
+r to
+> > > validate them as overlays are not validated on their own=2E
+> > >
+> > > Add targets for all the Mediatek overlays=2E
+> > >
+> > > Signed-off-by: Rob Herring (Arm) <robh@kernel=2Eorg>
+> > > ---
+> > > This will soon be a warning[1]=2E
+> > >
+> > > Note that if it is desired that the combined =2Edtb is not installed=
+, then
+> > > the combined =2Edtb should be added to 'dtb-' variable instead=2E
+> > >
+> >
+> > Uhm, sorry, can't we do something such that we don't generate a DTB wi=
+th a
+> > preapplied overlay?
+> >
+> > Even something like generating those and deleting before build finaliz=
+ation
+> > could work, I guess, though that'd be hacky maybe=2E
+> >
+> > I don't know if this is the case, but I'm worried that various people =
+have
+> > scripts to copy DTBs somewhere (in some partition) or embed those in i=
+mages,
+> > and if they get the preapplied overlay dtbs in the same place, havoc c=
+ould
+> > happen as the bootloaders might be selecting wrong dtbs (as a plus, th=
+ere is
+> > no dtbo that varies machine compatible strings, rightfully)=2E
+>=20
+> If they aren't using dtbs_install for that, then that is their
+> problem=2E When we moved all the arm32 DTs to vendor directories,
+> dtbs_install maintained the old structure which seemed sufficient to
+> not break folks=2E The same should apply here=2E
+>=20
+> Rob
+>=20
 >
 
