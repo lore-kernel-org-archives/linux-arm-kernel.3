@@ -4,152 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF076CED63B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 13:56:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9010CEDD8A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 13:56:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ov5fg9RnDjFSJF7U/AlkuHO0K2Jh/ytcbujJzad2jgk=; b=NrD5nSj/5va4aqdqh3fVybHBCM
-	u7mN5HaTo2UDle3OHdy9T8BFDBu7Ln2Csu4x8N4V0LGZQ8xxAIq994jcEBYxoUI9fDJkTP1ynUAy/
-	z6qEqoB0Wr/Duzzg+4AzgEmIPiA+4YGdDU1Ai4tnNgDOD3ofM8wuB01ZnyvKNPu0OFzjCLvLjGdYt
-	2ZwQz4AOJNOSxvBVhyqm7DDR3/qXOsJFU1mEGQe2JlPix9ZPQIOQ7KPCxx86F7wdkJu0LB1GhOwYX
-	0XyH5SGDDhCnQxjd4soilOUg7WQY8hftAw7vtgRr8xIzC279rM5j41IezOiyLu3jmpELMPEuCHsNw
-	xSVd+rsw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mT9D4mxJaHrktugW+TtOKGoZWS1UVqUBb8i2CtMbCwk=; b=SbhOlDfnCI/pesZyjMnYCQf/Kd
+	xSvfEQOPuwex/QPqsE8xKMJwO2IFOxq5OIRKmS+z4ldY4LW51zv8z5QEX82qWsO/Sd1p25UxVBegZ
+	Bp/NFGlOCTzqIfOgGj4tGogyL1IrPoYQLHnx1stv1zgTEK/Xq6sJBQpphcUK34t1lOdpb1yZtW5+p
+	Dbcm6mOEA8aC6TRlyjlT5L91GtZTtgXVNxmYLPGdw5j0CVOlgXe5CF6OSncljNTVYCC8QUyC9X/DY
+	kQF3ZbDCLErWfj02dOe1r7u+EUyucGx2A92S1eahCvGG1zGw4JSFNxbow/Kb9cJHAkbu8bXJeEboW
+	fUIFsQHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLMC2-00000000V7s-3T7V;
-	Tue, 18 Nov 2025 13:56:26 +0000
-Received: from mail-westus3azon11011017.outbound.protection.outlook.com ([40.107.208.17] helo=PH0PR06CU001.outbound.protection.outlook.com)
+	id 1vLMC6-00000000VCG-0khJ;
+	Tue, 18 Nov 2025 13:56:30 +0000
+Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLMBp-00000000UwE-2y51
+	id 1vLMBw-00000000V0d-3IIU
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Nov 2025 13:56:16 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=rYfyh85Bg9NSmI+8SDqbdy24u4xtGrWAb3yPeppGJQkm3ma/+f1bklG2l/wJsjmSGcI7NfMlrpBEBwWJoDMO/++07e4r4YXXOCwRL0UKmEQf/sefyUzKi9x6nFA2STcDMphn9Wj45mHpW02f73hvGSQv7pLNuwxVtFq96C8ZM+Ouqqfj4yXalDj224UkGl25QYs6jryH1/j0vgvlBknNTpElwfIPFCwxVnzJoBXmklxDj5SXQMq2xJQeD7HuRtNbQfcLGq2PIofiBFZ98ThWejKjPNgEnswqZZmCowyNZKe4hrrFyc0dC3faQgUC3xFZ00TStOeOpWL5xWWy/tu6Qg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Ov5fg9RnDjFSJF7U/AlkuHO0K2Jh/ytcbujJzad2jgk=;
- b=YGueSEMbEsp1FM6oPsvuLyoQG9DVFUacyae9o6W/2CNtQsPcrId++ynNXBhSxFktaH1/KgsKsFp5n7eCoA2wsNdrO6Y49yktzoumlKW8oH1aSRanawx2vqZF1NbLDcMf6aSlcVLRNgvFcMIaExT19O0SvnRD57/fqquDHYXkNdAGnOd8lA4819szSjLI5QqVoPJ7FKodLqEGBXebHV5sJFB/djxjuUPlVx5M8KpQ3b9kFX8WLebZHK6qowGzmiGqPnWRpIfYhuIC/tXeqVXgU1n9MUTycMNuY1kXsYNURiVdL2dShhhc9y00F58eDNByW2VxKMUD82oMFq+5OVyF9g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.23.194) smtp.rcpttodomain=kernel.org smtp.mailfrom=ti.com; dmarc=pass
- (p=quarantine sp=none pct=100) action=none header.from=ti.com; dkim=none
- (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Ov5fg9RnDjFSJF7U/AlkuHO0K2Jh/ytcbujJzad2jgk=;
- b=mmVO8/htmxmsR3OpYQsrtknDq48EiOmM1IrEX4jSM21jPhmkbN9tVDncSTrU7I5T/bjPrg5rY0JDPxCOSs/skH8GaZn40f5pikOhbqtZpluya82CbldCltK5Paom3Rif563x/lHhN2AFiu3AmvGAT4ZVgaVH8Xa3wpK9VGg0UkE=
-Received: from SA0PR11CA0184.namprd11.prod.outlook.com (2603:10b6:806:1bc::9)
- by BL3PR10MB6137.namprd10.prod.outlook.com (2603:10b6:208:3b8::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9320.21; Tue, 18 Nov
- 2025 13:56:09 +0000
-Received: from SA2PEPF00003AE6.namprd02.prod.outlook.com
- (2603:10b6:806:1bc:cafe::f6) by SA0PR11CA0184.outlook.office365.com
- (2603:10b6:806:1bc::9) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9320.22 via Frontend Transport; Tue,
- 18 Nov 2025 13:56:09 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.194)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.23.194 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.23.194; helo=lewvzet200.ext.ti.com; pr=C
-Received: from lewvzet200.ext.ti.com (198.47.23.194) by
- SA2PEPF00003AE6.mail.protection.outlook.com (10.167.248.6) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9343.9 via Frontend Transport; Tue, 18 Nov 2025 13:56:08 +0000
-Received: from DLEE208.ent.ti.com (157.170.170.97) by lewvzet200.ext.ti.com
- (10.4.14.103) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 18 Nov
- 2025 07:56:03 -0600
-Received: from DLEE202.ent.ti.com (157.170.170.77) by DLEE208.ent.ti.com
- (157.170.170.97) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 18 Nov
- 2025 07:56:03 -0600
-Received: from fllvem-mr07.itg.ti.com (10.64.41.89) by DLEE202.ent.ti.com
- (157.170.170.77) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Tue, 18 Nov 2025 07:56:03 -0600
-Received: from lelv0854.itg.ti.com (lelv0854.itg.ti.com [10.181.64.140])
-	by fllvem-mr07.itg.ti.com (8.18.1/8.18.1) with ESMTP id 5AIDu3rB606002;
-	Tue, 18 Nov 2025 07:56:03 -0600
-Received: from localhost (meghana-pc.dhcp.ti.com [10.24.69.13] (may be forged))
-	by lelv0854.itg.ti.com (8.14.7/8.14.7) with ESMTP id 5AIDu1li004199;
-	Tue, 18 Nov 2025 07:56:02 -0600
-From: Meghana Malladi <m-malladi@ti.com>
-To: <horms@kernel.org>, <namcao@linutronix.de>, <vadim.fedorenko@linux.dev>,
-	<jacob.e.keller@intel.com>, <m-malladi@ti.com>, <christian.koenig@amd.com>,
-	<sumit.semwal@linaro.org>, <sdf@fomichev.me>, <john.fastabend@gmail.com>,
-	<hawk@kernel.org>, <daniel@iogearbox.net>, <ast@kernel.org>,
-	<pabeni@redhat.com>, <kuba@kernel.org>, <edumazet@google.com>,
-	<davem@davemloft.net>, <andrew+netdev@lunn.ch>
-CC: <linaro-mm-sig@lists.linaro.org>, <dri-devel@lists.freedesktop.org>,
-	<linux-media@vger.kernel.org>, <bpf@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <netdev@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <srk@ti.com>, Vignesh Raghavendra
-	<vigneshr@ti.com>, Roger Quadros <rogerq@kernel.org>, <danishanwar@ti.com>
-Subject: [PATCH net-next v6 5/6] net: ti: icssg-prueth: Add AF_XDP zero copy for RX
-Date: Tue, 18 Nov 2025 19:25:41 +0530
-Message-ID: <20251118135542.380574-6-m-malladi@ti.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20251118135542.380574-1-m-malladi@ti.com>
-References: <20251118135542.380574-1-m-malladi@ti.com>
+	Tue, 18 Nov 2025 13:56:23 +0000
+Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-42b3b29153fso3037064f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Nov 2025 05:56:20 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1763474179; x=1764078979; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=mT9D4mxJaHrktugW+TtOKGoZWS1UVqUBb8i2CtMbCwk=;
+        b=Bqlx9QHu2mP9m9nQgInWGkmriEWaAgO5o2cEuBRnKwJtqAdLPnNer7DBnSMka7rRZ5
+         L1xQIoplDf1TFfoGgRaybYtq7NvdGwCXFNR3oxE6JNkBoGT9atDs8V5omZdgQvvNVtXr
+         9h5BwLDoiE3lw1/zNRl8JF0LyO1EIS44/obbWGEGNOBdqFNbAcp+XcYJR9aYliOP2NPr
+         rW1dSLaGOnVEoFeQY6YmjrK7pGV3OvzScsihcQmh4RC7fYMeuSv0tGHy7YulVVfOV2UR
+         7JREMyz4SE/A8tWUNl27b+ubsXKltoI3rMp0cVXjqgD7UIlRucuaYmiL4wZQXuU6CEh7
+         8QTw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1763474179; x=1764078979;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=mT9D4mxJaHrktugW+TtOKGoZWS1UVqUBb8i2CtMbCwk=;
+        b=fLKA4obQ2+PKEQGBttw/isYvPMqyKCtLZbChw7+rqRfp6B4tmTtPlJmuSeTBt1jzuH
+         am+GFfR20lKoh7mpvb1mK2322HXLObY+nwX4DBDHXJiR1lQZAu9St5G8hMHEWZTb9LMe
+         dwwfF1iyFVTCq8exsYnOuGNd0Q1bVHuULCGGylnCaoHPIkJjKClEVTOoildcG0BK1NjM
+         tbl2h4ZFfdjth//xsgi2xRdK97NiZht8CA3EggUZDwl3LcJpDSzOaLXMWIrjpLMs9H7n
+         EBQYN+AyPw7qgvWEpLojx1/TzoiToGut3hXtw1fDLp6dIxwcTuOGJE2ZOvRXzaTJvtnU
+         kboQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWCIYlzH+6zZU18EAfsF77EeisO41w3TntrPrlqnH++jryUocnX6+HyCpCSEFGpmengAoDGluYfoMGNPfde05rJ@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz2uI65M5/oF7PYQ7QTsl/xUul2mYGWDZEYqqqZ0J04hRSBhuAE
+	LUjcxUjiwokLKa20pAZqng28lp+bFb/H35VFd4O2eOlhoWyGkNInBr9GEqH6NT75O8U=
+X-Gm-Gg: ASbGncsl81WX1jpsV6bowkr1E4Dp8Nwr/Q+97d7E+DKrPzK7dV1qdlXk3+5yj+SVcM5
+	nvZ3xAfjbCFyyHDLmuXpe2deVFG/Lc4IsNJfqiUdYCTbjHHy3WeqdJ86ZXZS97pq5zP4ErDFj9B
+	kmPj3Onl6X9ZpgszD10hoCbkRAyNhLq9o7yd3K41/tf33RHIHc8uwJZH7BIsD6refcA4cH+onaT
+	e9aQCSCVSn+O8hSJ4pSOo2SK+/kLvYmiXsWjCnGoDMgbYWUxtpEoZ7M0FQrJw3d0fcCsG3g9ti+
+	93oCAvmE4423ljVHQNi5KywWWpKEC28vy+QdASuMlQJ+ghAQCll9Oy1I3z8VU0cukFETe3iAKLG
+	z39WIctGiguvdvioR2BNWr5Biz7Esb8/HjcTXT9rCeFGymlPcTRV9406o1eDLVLTtn/tRuUGVLu
+	eWUZqxtSekP44aaGc9P8nbF71ZP8myMIbg3NbCX04fyTIdOxFtn+Kv6CXqaidFBOgCbxzZWqOin
+	dCm5Q==
+X-Google-Smtp-Source: AGHT+IFSeYnPbCw3tis4yQRZI08iOt4XrwHVQj4yd7amd2aPdf7DLT9bDe6bDLKPiGXs0lIp0USpvw==
+X-Received: by 2002:a05:6000:430e:b0:429:c4bb:fbd6 with SMTP id ffacd0b85a97d-42b5936c4a2mr14623335f8f.31.1763474178959;
+        Tue, 18 Nov 2025 05:56:18 -0800 (PST)
+Received: from ta2.c.googlers.com (17.83.155.104.bc.googleusercontent.com. [104.155.83.17])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42b53e7ae16sm32728666f8f.3.2025.11.18.05.56.18
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 18 Nov 2025 05:56:18 -0800 (PST)
+From: Tudor Ambarus <tudor.ambarus@linaro.org>
+Date: Tue, 18 Nov 2025 13:56:08 +0000
+Subject: [PATCH v2 1/7] dt-bindings: nvmem: add google,gs101-otp
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SA2PEPF00003AE6:EE_|BL3PR10MB6137:EE_
-X-MS-Office365-Filtering-Correlation-Id: a9fe9af8-85cf-4b6a-418f-08de26aa39c6
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|1800799024|82310400026|7416014|376014|7053199007|921020;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?z2KIuz5bXp4bLGnqHyFD2hyrH/F7KVkKXyM/ub9Xaa+UvKuKddKCRv3hK7u3?=
- =?us-ascii?Q?cbr2ANN5+Q3JZEyoCQEy8AwA7z3nUJnxNQ0JzhNiD7YgiUsV2ALbpmu2UQYw?=
- =?us-ascii?Q?xTWhI8azz8K0bq0YBNxn6qwElbui8neGD1o7GIJFxk9U2O3Fz170rIe0VFYq?=
- =?us-ascii?Q?PJCVhPNry/nm3IBLR8T3aayv4EsUqpn4wGHDZqs8Ls0hPHSHOZRm5GoLG7jA?=
- =?us-ascii?Q?cFekzAdg9uO7hidH9Ftc77b7uzIYsjm3TxiLKJCtvyZpJYLI6F/LWu5ahUn2?=
- =?us-ascii?Q?7Oy1cEE8MYV0OGs81uLIhQmCApwL6oxfey95lYwKWQjCGwgNL/PQ40JHWckd?=
- =?us-ascii?Q?E6xHq6JFbtXF17byIrOKh6UcEdylNkii/wfJ4YnUy+uCfYbVpcR7hJC+wwbt?=
- =?us-ascii?Q?3OJ70A5YPXYWrptqpudPzDihFcaGxasXDY/6nydJqhEdULJwkhZGhMVqOtVh?=
- =?us-ascii?Q?8iHSGOAtbXrc8duDVeFThqX2Fqh6/c1hwCCVXjOLTTVjhH7EqSUcXgD/O8Bj?=
- =?us-ascii?Q?3lZgqYjVB2/aFHMyHmg+c/zvSrN7W8XJtPy/kZtsCGJkHaVs4IRay8KEpRAp?=
- =?us-ascii?Q?xy1ELlj+XquRQLny5m+8CFf7IeS09yWLgL9tNhNRrmcDo230gFJ5X4++4L1Q?=
- =?us-ascii?Q?wd98wyhN/eb9teftYsFiEP3S02xGGjT3pL9wFiM6hOSjMjSl3lVRdwh6Cz2r?=
- =?us-ascii?Q?rKeruzJo8ZKeFoTDd00ZKCTsJUVxeAzb01ahD9jOjI2MfgliKD1538uHXJky?=
- =?us-ascii?Q?IXrLJAGzQ6Ea8bojSvoEUIPSUcXpGGhrFhVmIHJqZg5zI+JVtfGyc1mnshhP?=
- =?us-ascii?Q?bj2HIM7FSATXUk7EqP/fm7uY0KbsGsRvQIIegsqVC98TC6nORxTw77o3dsqY?=
- =?us-ascii?Q?cLSY3rHWjJ8VQecm+GKg4j9CAY9cmS29Thqehkl3ZGozyi8FoGjUoxXWu3bG?=
- =?us-ascii?Q?/6A8ZnPssSHm9L5ywrNeul6BZ3J0c95NSEuvtawzziT3muYhR8IxCid72rZ/?=
- =?us-ascii?Q?PR/SxItU9VWHafhzl5qLDEpSiHRkEphBzfZB/iuNlm3WUmZ74YdbuqeI5IOV?=
- =?us-ascii?Q?92V7429TQ/z/0e3FWn+Wcu/vwV/EBi2s9X0OOkHy8U8EfVeTTIlS9HLQmV7U?=
- =?us-ascii?Q?+MpgJDyGBuOPm+TX0YzWICWb0EKUyL9hGfW6Oam5biUGR97+TvY3D5MDnjyd?=
- =?us-ascii?Q?6IlSbKwydzdS+Urp63aejzQQdcNGLMQWZLjXZwsIAml2Rch+vlUzI36tyh5K?=
- =?us-ascii?Q?a3AjG73tLDNNy2fiV+tLteVI4C15WdsL+mfGNqwQT5CGpKmyjy0LOrzpY2Wc?=
- =?us-ascii?Q?CxTc8GNoNUeSW74H3751ehd2egsnkzyX/mE3vKU58faSJYbYVspUt49LjbpW?=
- =?us-ascii?Q?o+F6X06NpXmNKa+tOtOGAWTXSl2tfGevxy6r+gonwpdB/aLJaLHY81+XLMZG?=
- =?us-ascii?Q?Smxxybb9b0qjiXo+Zyn+isvFhJuBuqlEM8F8kUTn73Wqiy7bSsNHn19Znl6u?=
- =?us-ascii?Q?fD/MKoetXZo66r3YRvcsVomTUHwWsEfx7lh9L3u51kbwdy0rQzJJPd3MvpNX?=
- =?us-ascii?Q?u1CpGDHZguDooTeQhwlorkovszau/BhhH3FpXXiV?=
-X-Forefront-Antispam-Report: CIP:198.47.23.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet200.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700013)(1800799024)(82310400026)(7416014)(376014)(7053199007)(921020);DIR:OUT;SFP:1101;
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2025 13:56:08.8494
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: a9fe9af8-85cf-4b6a-418f-08de26aa39c6
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.194];Helo=[lewvzet200.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: SA2PEPF00003AE6.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BL3PR10MB6137
+Message-Id: <20251118-gs101-chipid-v2-1-e9f1e7460e35@linaro.org>
+References: <20251118-gs101-chipid-v2-0-e9f1e7460e35@linaro.org>
+In-Reply-To: <20251118-gs101-chipid-v2-0-e9f1e7460e35@linaro.org>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
+ Peter Griffin <peter.griffin@linaro.org>, 
+ =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
+ Srinivas Kandagatla <srini@kernel.org>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, semen.protsenko@linaro.org, 
+ willmcvicker@google.com, kernel-team@android.com, 
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Tudor Ambarus <tudor.ambarus@linaro.org>, 
+ Krzysztof Kozlowski <krzk@kernel.org>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1763474177; l=2105;
+ i=tudor.ambarus@linaro.org; s=20241212; h=from:subject:message-id;
+ bh=hE9pu4zL09R2VnRw1hPAh8QPybkRzkJsjvziTMQK6lI=;
+ b=rOjp9fByKIiYv2zyDGDmfAh5uHoPJlkPj+pJH/Wo7/4XVrDXytSpx2NxMD3/6YvsMTnrew6jU
+ MLbn/+h0vuFCoeJHn589V0xkn5CgCijQecUkHEOp3AFcz3Urq6cHgrN
+X-Developer-Key: i=tudor.ambarus@linaro.org; a=ed25519;
+ pk=uQzE0NXo3dIjeowMTOPCpIiPHEz12IA/MbyzrZVh9WI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251118_055615_349387_43544F4E 
-X-CRM114-Status: GOOD (  20.44  )
+X-CRM114-CacheID: sfid-20251118_055620_861198_8D986E88 
+X-CRM114-Status: GOOD (  12.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -164,595 +116,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use xsk_pool inside rx_chn to check if a given Rx queue id
-is registered for xsk zero copy, which gets populated during
-xsk enable.
+Add binding for the OTP controller found on Google GS101.
 
-Update prueth_create_xdp_rxqs to register and support two different
-memory models (xsk and page) for a given Rx queue, if registered for
-zero copy.
-
-If xsk_pool is registered, allocate buffers from UMEM and map them
-to the hardware Rx descriptors. In NAPI context, run the XDP program
-for each packet and process the xsk buffer according to the XDP
-result codes. Also allocate new set of buffers from UMEM for the
-next batch of NAPI Rx processing. Add XDK_WAKEUP_RX support to support
-xsk wakeup for Rx.
-
-Move prueth_create_page_pool to prueth_init_rx_chns to avoid freeing
-and re-allocating the system memory every time there is a transition
-from zero copy to copy and prevents any type of memory fragmentation
-or leak.
-
-Reviewed-by: Jacob Keller <jacob.e.keller@intel.com>
-Signed-off-by: Meghana Malladi <m-malladi@ti.com>
+Reviewed-by: André Draszik <andre.draszik@linaro.org>
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
 ---
+ .../bindings/nvmem/google,gs101-otp.yaml           | 56 ++++++++++++++++++++++
+ 1 file changed, 56 insertions(+)
 
-v6-v5:
-- Removed the dead code inside prueth_dma_rx_push_mapped_zc() function
-  as reported by Simon Horman <horms@kernel.org>
+diff --git a/Documentation/devicetree/bindings/nvmem/google,gs101-otp.yaml b/Documentation/devicetree/bindings/nvmem/google,gs101-otp.yaml
+new file mode 100644
+index 0000000000000000000000000000000000000000..8ed65e906a2a1b0c216a09c9444f87af61090b81
+--- /dev/null
++++ b/Documentation/devicetree/bindings/nvmem/google,gs101-otp.yaml
+@@ -0,0 +1,56 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/nvmem/google,gs101-otp.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Google GS101 OTP Controller
++
++maintainers:
++  - Tudor Ambarus <tudor.ambarus@linaro.org>
++
++description: |
++  OTP controller drives a NVMEM memory where system or user specific data
++  can be stored. The OTP controller register space is of interest as well
++  because it contains dedicated registers where it stores the Product ID
++  and the Chip ID (apart other things like TMU or ASV info).
++
++allOf:
++  - $ref: nvmem.yaml#
++
++properties:
++  compatible:
++    items:
++      - const: google,gs101-otp
++
++  clocks:
++    maxItems: 1
++
++  interrupts:
++    maxItems: 1
++
++  reg:
++    maxItems: 1
++
++  power-domains:
++    maxItems: 1
++
++required:
++  - compatible
++  - reg
++  - clocks
++  - interrupts
++
++unevaluatedProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/clock/google,gs101.h>
++    #include <dt-bindings/interrupt-controller/arm-gic.h>
++
++    efuse@10000000 {
++        compatible = "google,gs101-otp";
++        reg = <0x10000000 0xf084>;
++        clocks = <&cmu_misc CLK_GOUT_MISC_OTP_CON_TOP_PCLK>;
++        interrupts = <GIC_SPI 752 IRQ_TYPE_LEVEL_HIGH>;
++    };
 
- drivers/net/ethernet/ti/icssg/icssg_common.c | 323 +++++++++++++++----
- drivers/net/ethernet/ti/icssg/icssg_prueth.c |  60 +++-
- drivers/net/ethernet/ti/icssg/icssg_prueth.h |   2 +
- 3 files changed, 313 insertions(+), 72 deletions(-)
-
-diff --git a/drivers/net/ethernet/ti/icssg/icssg_common.c b/drivers/net/ethernet/ti/icssg/icssg_common.c
-index b88cfe99e8b7..090aa74d3ce7 100644
---- a/drivers/net/ethernet/ti/icssg/icssg_common.c
-+++ b/drivers/net/ethernet/ti/icssg/icssg_common.c
-@@ -465,6 +465,29 @@ int prueth_init_tx_chns(struct prueth_emac *emac)
- }
- EXPORT_SYMBOL_GPL(prueth_init_tx_chns);
- 
-+static struct page_pool *prueth_create_page_pool(struct prueth_emac *emac,
-+						 struct device *dma_dev,
-+						 int size)
-+{
-+	struct page_pool_params pp_params = { 0 };
-+	struct page_pool *pool;
-+
-+	pp_params.order = 0;
-+	pp_params.flags = PP_FLAG_DMA_MAP | PP_FLAG_DMA_SYNC_DEV;
-+	pp_params.pool_size = size;
-+	pp_params.nid = dev_to_node(emac->prueth->dev);
-+	pp_params.dma_dir = DMA_BIDIRECTIONAL;
-+	pp_params.dev = dma_dev;
-+	pp_params.napi = &emac->napi_rx;
-+	pp_params.max_len = PAGE_SIZE;
-+
-+	pool = page_pool_create(&pp_params);
-+	if (IS_ERR(pool))
-+		netdev_err(emac->ndev, "cannot create rx page pool\n");
-+
-+	return pool;
-+}
-+
- int prueth_init_rx_chns(struct prueth_emac *emac,
- 			struct prueth_rx_chn *rx_chn,
- 			char *name, u32 max_rflows,
-@@ -474,6 +497,7 @@ int prueth_init_rx_chns(struct prueth_emac *emac,
- 	struct device *dev = emac->prueth->dev;
- 	struct net_device *ndev = emac->ndev;
- 	u32 fdqring_id, hdesc_size;
-+	struct page_pool *pool;
- 	int i, ret = 0, slice;
- 	int flow_id_base;
- 
-@@ -516,6 +540,14 @@ int prueth_init_rx_chns(struct prueth_emac *emac,
- 		goto fail;
- 	}
- 
-+	pool = prueth_create_page_pool(emac, rx_chn->dma_dev, rx_chn->descs_num);
-+	if (IS_ERR(pool)) {
-+		ret = PTR_ERR(pool);
-+		goto fail;
-+	}
-+
-+	rx_chn->pg_pool = pool;
-+
- 	flow_id_base = k3_udma_glue_rx_get_flow_id_base(rx_chn->rx_chn);
- 	if (emac->is_sr1 && !strcmp(name, "rxmgm")) {
- 		emac->rx_mgm_flow_id_base = flow_id_base;
-@@ -797,12 +829,188 @@ static u32 emac_run_xdp(struct prueth_emac *emac, struct xdp_buff *xdp, u32 *len
- 		fallthrough; /* handle aborts by dropping packet */
- 	case XDP_DROP:
- 		ndev->stats.rx_dropped++;
--		page_pool_recycle_direct(emac->rx_chns.pg_pool,
--					 virt_to_head_page(xdp->data));
- 		return ICSSG_XDP_CONSUMED;
- 	}
- }
- 
-+static int prueth_dma_rx_push_mapped_zc(struct prueth_emac *emac,
-+					struct prueth_rx_chn *rx_chn,
-+					struct xdp_buff *xdp)
-+{
-+	struct net_device *ndev = emac->ndev;
-+	struct cppi5_host_desc_t *desc_rx;
-+	struct prueth_swdata *swdata;
-+	dma_addr_t desc_dma;
-+	dma_addr_t buf_dma;
-+	int buf_len;
-+
-+	buf_dma = xsk_buff_xdp_get_dma(xdp);
-+	desc_rx = k3_cppi_desc_pool_alloc(rx_chn->desc_pool);
-+	if (!desc_rx) {
-+		netdev_err(ndev, "rx push: failed to allocate descriptor\n");
-+		return -ENOMEM;
-+	}
-+	desc_dma = k3_cppi_desc_pool_virt2dma(rx_chn->desc_pool, desc_rx);
-+
-+	cppi5_hdesc_init(desc_rx, CPPI5_INFO0_HDESC_EPIB_PRESENT,
-+			 PRUETH_NAV_PS_DATA_SIZE);
-+	k3_udma_glue_rx_dma_to_cppi5_addr(rx_chn->rx_chn, &buf_dma);
-+	buf_len = xsk_pool_get_rx_frame_size(rx_chn->xsk_pool);
-+	cppi5_hdesc_attach_buf(desc_rx, buf_dma, buf_len, buf_dma, buf_len);
-+	swdata = cppi5_hdesc_get_swdata(desc_rx);
-+	swdata->type = PRUETH_SWDATA_XSK;
-+	swdata->data.xdp = xdp;
-+
-+	return k3_udma_glue_push_rx_chn(rx_chn->rx_chn, PRUETH_RX_FLOW_DATA,
-+					desc_rx, desc_dma);
-+}
-+
-+static int prueth_rx_alloc_zc(struct prueth_emac *emac, int budget)
-+{
-+	struct prueth_rx_chn *rx_chn = &emac->rx_chns;
-+	struct xdp_buff *xdp;
-+	int i, ret;
-+
-+	for (i = 0; i < budget; i++) {
-+		xdp = xsk_buff_alloc(rx_chn->xsk_pool);
-+		if (!xdp)
-+			break;
-+
-+		ret = prueth_dma_rx_push_mapped_zc(emac, rx_chn, xdp);
-+		if (ret) {
-+			netdev_err(emac->ndev, "rx alloc: failed to map descriptors to xdp buff\n");
-+			xsk_buff_free(xdp);
-+			break;
-+		}
-+	}
-+
-+	return i;
-+}
-+
-+static void emac_dispatch_skb_zc(struct prueth_emac *emac, struct xdp_buff *xdp, u32 *psdata)
-+{
-+	unsigned int headroom = xdp->data - xdp->data_hard_start;
-+	unsigned int pkt_len = xdp->data_end - xdp->data;
-+	struct net_device *ndev = emac->ndev;
-+	struct sk_buff *skb;
-+
-+	skb = napi_alloc_skb(&emac->napi_rx, xdp->data_end - xdp->data_hard_start);
-+	if (unlikely(!skb)) {
-+		ndev->stats.rx_dropped++;
-+		return;
-+	}
-+
-+	skb_reserve(skb, headroom);
-+	skb_put(skb, pkt_len);
-+	skb->dev = ndev;
-+
-+	/* RX HW timestamp */
-+	if (emac->rx_ts_enabled)
-+		emac_rx_timestamp(emac, skb, psdata);
-+
-+	if (emac->prueth->is_switch_mode)
-+		skb->offload_fwd_mark = emac->offload_fwd_mark;
-+	skb->protocol = eth_type_trans(skb, ndev);
-+
-+	skb_mark_for_recycle(skb);
-+	napi_gro_receive(&emac->napi_rx, skb);
-+	ndev->stats.rx_bytes += pkt_len;
-+	ndev->stats.rx_packets++;
-+}
-+
-+static int emac_rx_packet_zc(struct prueth_emac *emac, u32 flow_id,
-+			     int budget)
-+{
-+	struct prueth_rx_chn *rx_chn = &emac->rx_chns;
-+	u32 buf_dma_len, pkt_len, port_id = 0;
-+	struct net_device *ndev = emac->ndev;
-+	struct cppi5_host_desc_t *desc_rx;
-+	struct prueth_swdata *swdata;
-+	dma_addr_t desc_dma, buf_dma;
-+	struct xdp_buff *xdp;
-+	int xdp_status = 0;
-+	int count = 0;
-+	u32 *psdata;
-+	int ret;
-+
-+	while (count < budget) {
-+		ret = k3_udma_glue_pop_rx_chn(rx_chn->rx_chn, flow_id, &desc_dma);
-+		if (ret) {
-+			if (ret != -ENODATA)
-+				netdev_err(ndev, "rx pop: failed: %d\n", ret);
-+			break;
-+		}
-+
-+		if (cppi5_desc_is_tdcm(desc_dma)) {
-+			complete(&emac->tdown_complete);
-+			break;
-+		}
-+
-+		desc_rx = k3_cppi_desc_pool_dma2virt(rx_chn->desc_pool, desc_dma);
-+		swdata = cppi5_hdesc_get_swdata(desc_rx);
-+		if (swdata->type != PRUETH_SWDATA_XSK) {
-+			netdev_err(ndev, "rx_pkt: invalid swdata->type %d\n", swdata->type);
-+			k3_cppi_desc_pool_free(rx_chn->desc_pool, desc_rx);
-+			break;
-+		}
-+
-+		xdp = swdata->data.xdp;
-+		cppi5_hdesc_get_obuf(desc_rx, &buf_dma, &buf_dma_len);
-+		k3_udma_glue_rx_cppi5_to_dma_addr(rx_chn->rx_chn, &buf_dma);
-+		pkt_len = cppi5_hdesc_get_pktlen(desc_rx);
-+		/* firmware adds 4 CRC bytes, strip them */
-+		pkt_len -= 4;
-+		cppi5_desc_get_tags_ids(&desc_rx->hdr, &port_id, NULL);
-+		psdata = cppi5_hdesc_get_psdata(desc_rx);
-+		k3_cppi_desc_pool_free(rx_chn->desc_pool, desc_rx);
-+		count++;
-+		xsk_buff_set_size(xdp, pkt_len);
-+		xsk_buff_dma_sync_for_cpu(xdp);
-+
-+		if (prueth_xdp_is_enabled(emac)) {
-+			ret = emac_run_xdp(emac, xdp, &pkt_len);
-+			switch (ret) {
-+			case ICSSG_XDP_PASS:
-+				/* prepare skb and send to n/w stack */
-+				emac_dispatch_skb_zc(emac, xdp, psdata);
-+				xsk_buff_free(xdp);
-+				break;
-+			case ICSSG_XDP_CONSUMED:
-+				xsk_buff_free(xdp);
-+				break;
-+			case ICSSG_XDP_TX:
-+			case ICSSG_XDP_REDIR:
-+				xdp_status |= ret;
-+				break;
-+			}
-+		} else {
-+			/* prepare skb and send to n/w stack */
-+			emac_dispatch_skb_zc(emac, xdp, psdata);
-+			xsk_buff_free(xdp);
-+		}
-+	}
-+
-+	if (xdp_status & ICSSG_XDP_REDIR)
-+		xdp_do_flush();
-+
-+	/* Allocate xsk buffers from the pool for the "count" number of
-+	 * packets processed in order to be able to receive more packets.
-+	 */
-+	ret = prueth_rx_alloc_zc(emac, count);
-+
-+	if (xsk_uses_need_wakeup(rx_chn->xsk_pool)) {
-+		/* If the user space doesn't provide enough buffers then it must
-+		 * explicitly wake up the kernel when new buffers are available
-+		 */
-+		if (ret < count)
-+			xsk_set_rx_need_wakeup(rx_chn->xsk_pool);
-+		else
-+			xsk_clear_rx_need_wakeup(rx_chn->xsk_pool);
-+	}
-+
-+	return count;
-+}
-+
- static int emac_rx_packet(struct prueth_emac *emac, u32 flow_id, u32 *xdp_state)
- {
- 	struct prueth_rx_chn *rx_chn = &emac->rx_chns;
-@@ -849,7 +1057,6 @@ static int emac_rx_packet(struct prueth_emac *emac, u32 flow_id, u32 *xdp_state)
- 	/* firmware adds 4 CRC bytes, strip them */
- 	pkt_len -= 4;
- 	cppi5_desc_get_tags_ids(&desc_rx->hdr, &port_id, NULL);
--
- 	k3_cppi_desc_pool_free(rx_chn->desc_pool, desc_rx);
- 
- 	/* if allocation fails we drop the packet but push the
-@@ -921,12 +1128,16 @@ void prueth_rx_cleanup(void *data, dma_addr_t desc_dma)
- 	struct cppi5_host_desc_t *desc_rx;
- 	struct prueth_swdata *swdata;
- 	struct page_pool *pool;
-+	struct xdp_buff *xdp;
- 	struct page *page;
- 
- 	pool = rx_chn->pg_pool;
- 	desc_rx = k3_cppi_desc_pool_dma2virt(rx_chn->desc_pool, desc_dma);
- 	swdata = cppi5_hdesc_get_swdata(desc_rx);
--	if (swdata->type == PRUETH_SWDATA_PAGE) {
-+	if (rx_chn->xsk_pool) {
-+		xdp = swdata->data.xdp;
-+		xsk_buff_free(xdp);
-+	} else {
- 		page = swdata->data.page;
- 		page_pool_recycle_direct(pool, page);
- 	}
-@@ -1174,6 +1385,7 @@ irqreturn_t prueth_rx_irq(int irq, void *dev_id)
- {
- 	struct prueth_emac *emac = dev_id;
- 
-+	emac->rx_chns.irq_disabled = true;
- 	disable_irq_nosync(irq);
- 	napi_schedule(&emac->napi_rx);
- 
-@@ -1201,6 +1413,7 @@ int icssg_napi_rx_poll(struct napi_struct *napi_rx, int budget)
- 		PRUETH_RX_FLOW_DATA_SR1 : PRUETH_RX_FLOW_DATA;
- 	int flow = emac->is_sr1 ?
- 		PRUETH_MAX_RX_FLOWS_SR1 : PRUETH_MAX_RX_FLOWS;
-+	struct prueth_rx_chn *rx_chn = &emac->rx_chns;
- 	int xdp_state_or = 0;
- 	int num_rx = 0;
- 	int cur_budget;
-@@ -1208,14 +1421,18 @@ int icssg_napi_rx_poll(struct napi_struct *napi_rx, int budget)
- 	int ret;
- 
- 	while (flow--) {
--		cur_budget = budget - num_rx;
--
--		while (cur_budget--) {
--			ret = emac_rx_packet(emac, flow, &xdp_state);
--			xdp_state_or |= xdp_state;
--			if (ret)
--				break;
--			num_rx++;
-+		if (rx_chn->xsk_pool) {
-+			num_rx = emac_rx_packet_zc(emac, flow, budget);
-+		} else {
-+			cur_budget = budget - num_rx;
-+
-+			while (cur_budget--) {
-+				ret = emac_rx_packet(emac, flow, &xdp_state);
-+				xdp_state_or |= xdp_state;
-+				if (ret)
-+					break;
-+				num_rx++;
-+			}
- 		}
- 
- 		if (num_rx >= budget)
-@@ -1231,7 +1448,11 @@ int icssg_napi_rx_poll(struct napi_struct *napi_rx, int budget)
- 				      ns_to_ktime(emac->rx_pace_timeout_ns),
- 				      HRTIMER_MODE_REL_PINNED);
- 		} else {
--			enable_irq(emac->rx_chns.irq[rx_flow]);
-+			if (emac->rx_chns.irq_disabled) {
-+				/* re-enable the RX IRQ */
-+				emac->rx_chns.irq_disabled = false;
-+				enable_irq(emac->rx_chns.irq[rx_flow]);
-+			}
- 		}
- 	}
- 
-@@ -1239,62 +1460,48 @@ int icssg_napi_rx_poll(struct napi_struct *napi_rx, int budget)
- }
- EXPORT_SYMBOL_GPL(icssg_napi_rx_poll);
- 
--static struct page_pool *prueth_create_page_pool(struct prueth_emac *emac,
--						 struct device *dma_dev,
--						 int size)
--{
--	struct page_pool_params pp_params = { 0 };
--	struct page_pool *pool;
--
--	pp_params.order = 0;
--	pp_params.flags = PP_FLAG_DMA_MAP | PP_FLAG_DMA_SYNC_DEV;
--	pp_params.pool_size = size;
--	pp_params.nid = dev_to_node(emac->prueth->dev);
--	pp_params.dma_dir = DMA_BIDIRECTIONAL;
--	pp_params.dev = dma_dev;
--	pp_params.napi = &emac->napi_rx;
--	pp_params.max_len = PAGE_SIZE;
--
--	pool = page_pool_create(&pp_params);
--	if (IS_ERR(pool))
--		netdev_err(emac->ndev, "cannot create rx page pool\n");
--
--	return pool;
--}
--
- int prueth_prepare_rx_chan(struct prueth_emac *emac,
- 			   struct prueth_rx_chn *chn,
- 			   int buf_size)
- {
--	struct page_pool *pool;
- 	struct page *page;
-+	int desc_avail;
- 	int i, ret;
- 
--	pool = prueth_create_page_pool(emac, chn->dma_dev, chn->descs_num);
--	if (IS_ERR(pool))
--		return PTR_ERR(pool);
--
--	chn->pg_pool = pool;
-+	desc_avail = k3_cppi_desc_pool_avail(chn->desc_pool);
-+	if (desc_avail < chn->descs_num)
-+		netdev_warn(emac->ndev,
-+			    "not enough RX descriptors available %d < %d\n",
-+			    desc_avail, chn->descs_num);
- 
--	for (i = 0; i < chn->descs_num; i++) {
--		/* NOTE: we're not using memory efficiently here.
--		 * 1 full page (4KB?) used here instead of
--		 * PRUETH_MAX_PKT_SIZE (~1.5KB?)
-+	if (chn->xsk_pool) {
-+		/* get pages from xsk_pool and push to RX ring
-+		 * queue as much as possible
- 		 */
--		page = page_pool_dev_alloc_pages(pool);
--		if (!page) {
--			netdev_err(emac->ndev, "couldn't allocate rx page\n");
--			ret = -ENOMEM;
-+		ret = prueth_rx_alloc_zc(emac, desc_avail);
-+		if (!ret)
- 			goto recycle_alloc_pg;
--		}
-+	} else {
-+		for (i = 0; i < desc_avail; i++) {
-+			/* NOTE: we're not using memory efficiently here.
-+			 * 1 full page (4KB?) used here instead of
-+			 * PRUETH_MAX_PKT_SIZE (~1.5KB?)
-+			 */
-+			page = page_pool_dev_alloc_pages(chn->pg_pool);
-+			if (!page) {
-+				netdev_err(emac->ndev, "couldn't allocate rx page\n");
-+				ret = -ENOMEM;
-+				goto recycle_alloc_pg;
-+			}
- 
--		ret = prueth_dma_rx_push_mapped(emac, chn, page, buf_size);
--		if (ret < 0) {
--			netdev_err(emac->ndev,
--				   "cannot submit page for rx chan %s ret %d\n",
--				   chn->name, ret);
--			page_pool_recycle_direct(pool, page);
--			goto recycle_alloc_pg;
-+			ret = prueth_dma_rx_push_mapped(emac, chn, page, buf_size);
-+			if (ret < 0) {
-+				netdev_err(emac->ndev,
-+					   "cannot submit page for rx chan %s ret %d\n",
-+					   chn->name, ret);
-+				page_pool_recycle_direct(chn->pg_pool, page);
-+				goto recycle_alloc_pg;
-+			}
- 		}
- 	}
- 
-diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.c b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
-index bb8d42ba0102..22de04ac18cb 100644
---- a/drivers/net/ethernet/ti/icssg/icssg_prueth.c
-+++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
-@@ -395,7 +395,11 @@ static enum hrtimer_restart emac_rx_timer_callback(struct hrtimer *timer)
- 			container_of(timer, struct prueth_emac, rx_hrtimer);
- 	int rx_flow = PRUETH_RX_FLOW_DATA;
- 
--	enable_irq(emac->rx_chns.irq[rx_flow]);
-+	if (emac->rx_chns.irq_disabled) {
-+		/* re-enable the RX IRQ */
-+		emac->rx_chns.irq_disabled = false;
-+		enable_irq(emac->rx_chns.irq[rx_flow]);
-+	}
- 	return HRTIMER_NORESTART;
- }
- 
-@@ -569,31 +573,41 @@ const struct icss_iep_clockops prueth_iep_clockops = {
- 	.perout_enable = prueth_perout_enable,
- };
- 
-+static void prueth_destroy_xdp_rxqs(struct prueth_emac *emac)
-+{
-+	struct xdp_rxq_info *rxq = &emac->rx_chns.xdp_rxq;
-+
-+	if (xdp_rxq_info_is_reg(rxq))
-+		xdp_rxq_info_unreg(rxq);
-+}
-+
- static int prueth_create_xdp_rxqs(struct prueth_emac *emac)
- {
- 	struct xdp_rxq_info *rxq = &emac->rx_chns.xdp_rxq;
- 	struct page_pool *pool = emac->rx_chns.pg_pool;
-+	struct prueth_rx_chn *rx_chn = &emac->rx_chns;
- 	int ret;
- 
- 	ret = xdp_rxq_info_reg(rxq, emac->ndev, 0, emac->napi_rx.napi_id);
- 	if (ret)
- 		return ret;
- 
--	ret = xdp_rxq_info_reg_mem_model(rxq, MEM_TYPE_PAGE_POOL, pool);
--	if (ret)
--		xdp_rxq_info_unreg(rxq);
--
--	return ret;
--}
--
--static void prueth_destroy_xdp_rxqs(struct prueth_emac *emac)
--{
--	struct xdp_rxq_info *rxq = &emac->rx_chns.xdp_rxq;
-+	if (rx_chn->xsk_pool) {
-+		ret = xdp_rxq_info_reg_mem_model(rxq, MEM_TYPE_XSK_BUFF_POOL, NULL);
-+		if (ret)
-+			goto xdp_unreg;
-+		xsk_pool_set_rxq_info(rx_chn->xsk_pool, rxq);
-+	} else {
-+		ret = xdp_rxq_info_reg_mem_model(rxq, MEM_TYPE_PAGE_POOL, pool);
-+		if (ret)
-+			goto xdp_unreg;
-+	}
- 
--	if (!xdp_rxq_info_is_reg(rxq))
--		return;
-+	return 0;
- 
--	xdp_rxq_info_unreg(rxq);
-+xdp_unreg:
-+	prueth_destroy_xdp_rxqs(emac);
-+	return ret;
- }
- 
- static int icssg_prueth_add_mcast(struct net_device *ndev, const u8 *addr)
-@@ -1349,6 +1363,12 @@ int prueth_xsk_wakeup(struct net_device *ndev, u32 qid, u32 flags)
- {
- 	struct prueth_emac *emac = netdev_priv(ndev);
- 	struct prueth_tx_chn *tx_chn = &emac->tx_chns[qid];
-+	struct prueth_rx_chn *rx_chn = &emac->rx_chns;
-+
-+	if (emac->xsk_qid != qid) {
-+		netdev_err(ndev, "XSK queue %d not registered\n", qid);
-+		return -EINVAL;
-+	}
- 
- 	if (qid >= PRUETH_MAX_RX_FLOWS || qid >= emac->tx_ch_num) {
- 		netdev_err(ndev, "Invalid XSK queue ID %d\n", qid);
-@@ -1360,6 +1380,11 @@ int prueth_xsk_wakeup(struct net_device *ndev, u32 qid, u32 flags)
- 		return -EINVAL;
- 	}
- 
-+	if (!rx_chn->xsk_pool) {
-+		netdev_err(ndev, "XSK pool not registered for RX queue %d\n", qid);
-+		return -EINVAL;
-+	}
-+
- 	if (flags & XDP_WAKEUP_TX) {
- 		if (!napi_if_scheduled_mark_missed(&tx_chn->napi_tx)) {
- 			if (likely(napi_schedule_prep(&tx_chn->napi_tx)))
-@@ -1367,6 +1392,13 @@ int prueth_xsk_wakeup(struct net_device *ndev, u32 qid, u32 flags)
- 		}
- 	}
- 
-+	if (flags & XDP_WAKEUP_RX) {
-+		if (!napi_if_scheduled_mark_missed(&emac->napi_rx)) {
-+			if (likely(napi_schedule_prep(&emac->napi_rx)))
-+				__napi_schedule(&emac->napi_rx);
-+		}
-+	}
-+
- 	return 0;
- }
- 
-diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.h b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
-index 3147a1d8f59a..10eadd356650 100644
---- a/drivers/net/ethernet/ti/icssg/icssg_prueth.h
-+++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
-@@ -143,6 +143,7 @@ struct prueth_rx_chn {
- 	struct page_pool *pg_pool;
- 	struct xdp_rxq_info xdp_rxq;
- 	struct xsk_buff_pool *xsk_pool;
-+	bool irq_disabled;
- };
- 
- enum prueth_swdata_type {
-@@ -166,6 +167,7 @@ struct prueth_swdata {
- 		struct page *page;
- 		u32 cmd;
- 		struct xdp_frame *xdpf;
-+		struct xdp_buff *xdp;
- 	} data;
- };
- 
 -- 
-2.43.0
+2.52.0.rc1.455.g30608eb744-goog
 
 
