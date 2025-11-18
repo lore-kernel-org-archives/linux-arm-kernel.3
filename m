@@ -4,168 +4,170 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AA76CEE342
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 17:35:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 421A3CEE342
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 17:42:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qkqhC7sljj8IfAo5xmYhjBdfyg7/dNxJk27Fn0CCpHM=; b=RGMHFIoOyAjrpD/itD9k67tQU4
-	z4h+dsEHmmEn6VNsPALUGOWm7ge3IScmtQ2Z+KyBfmTB2o7PhRk4PTeijpI6XLP950ayeAnetxDmq
-	sVaWYD8orRnQ7GcCj+IafDjOJK/PYXTq0qlCjT6d/AForjkjoALJqZtVNLfMOgvHHEnDda8RmBVBM
-	hvgaBL0rSat6U5zQyFn2+F+GF4QPg0LijR3rHHlDxBDTrWyBBc2ZN4b3Lz0Ye1/JpbUHCcClGD4LX
-	9L3Ak1h+Y402ulUxbUBuBK/DqA8avKKBBp7bmi6Lm9iRKOYo+mPg3zUUfFXycaFXlhnPzPRJ5C99v
-	LfRBY97Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AUj57zYEcFEZpI0Zq0dX35LVWJ3m0jhrfC9zNduSnmU=; b=r38y1JcK4c03R1abXR6C3l0cgh
+	DbWFjEKIWDMjfFMaI1xt7KFXjPJLd9GTG+nSprhBPAOA7ev7Wad2NzPPJNoVGPHbylAM7B0kKe9g7
+	j7JULhUK2V6izcW6jvUbacA/Y/r/OPrTT2F/L/9saLKKchaNi+g89j91nS3+6HiagOHTAXVnUIScr
+	LqYa8+wpLS072uefOL/+dbzK9pLdGYJCBlea/2e8ixnVWYfhBzhRczHPfnZmmX/VGxzbEJsnx1jWt
+	wOc0ZKoaPDBLoulKBk9s1dNCZ9q02ZXLdkaaPnt/3JP7/7qmdFjueERgMLQFQUfEjb12Y4TmKxsZ3
+	gXCcBX5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLPbs-00000000sGA-1hfs;
-	Tue, 18 Nov 2025 17:35:20 +0000
-Received: from mail-southcentralusazon11022111.outbound.protection.outlook.com ([40.93.195.111] helo=SN4PR2101CU001.outbound.protection.outlook.com)
+	id 1vLPiA-00000000siR-3Vcn;
+	Tue, 18 Nov 2025 17:41:50 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLPbp-00000000sFj-3lQf
+	id 1vLPi8-00000000shX-0c7V
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Nov 2025 17:35:19 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=iUjNFhEhG3iiigAAJGMlqTcV+7kGXxj5pNz0bwaXoDCPwMk/adPZykGCliW8AHULSbtWM7bXcNhG0Pr/oLFoW+GTCTkU8lYtywXBcegxtvbdYoRZwwYksfND0t29mdEJudyo8ieGlYjsMi3QB1cE51oKLTPKbCg5j7sMbACR2S0R0xA39ZKgp2qaKrhWmg3S1j1c/fYK7c3bo82eb38v0V9a21tT6c5G+qQ82ZSqEdp24wv4V8p6nVEtaCaabWy6sM/YcDjSek/MDp5IDCKDAAveCbTTlnFCjVjf2DTmORcDPCYLPNDlbkDaps71PBp+NxzTCJJF++ck0l/8NJaBvA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=qkqhC7sljj8IfAo5xmYhjBdfyg7/dNxJk27Fn0CCpHM=;
- b=exZ8mdfB6CbNnCXSv9axdQesmvEATQ+brkK11hIf+4kXa0t+I38nS5oad/EYCBv1M0x8JKKIGZAhPnombd8VMAVqKtvWyHUkuVbWNbYOVv1FCKBSWAsetr302+EXi8ERjBGicaCQ110j9Z4r5aFhZ5mHx2O6xVV8aIR3FUZJTaP7RHADvAgtOizwDxkjF7nr8CbFKXHGmjDVAvPj6X10ALhEQUruTq7XRY+v4NC6BuQS3vkpZkwzsVXv1iUT3y39u5ZoR46Ukffp6/O4AJQNo1b6QUgatcwRZxSkuF/bXC9+jb4VYVSv75G0Swv72D7N+FjdmeApgzAEG6GhEvwuxQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
- header.from=os.amperecomputing.com; dkim=pass
- header.d=os.amperecomputing.com; arc=none
+	Tue, 18 Nov 2025 17:41:49 +0000
+Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5AIG3mTl3177673
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Nov 2025 17:41:47 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	AUj57zYEcFEZpI0Zq0dX35LVWJ3m0jhrfC9zNduSnmU=; b=l4sbzGXclEZAqM9l
+	Xd5Hry1dthRkQA+er5NH8EJ8BiAI2mlOtQgjRffvaI9Iha4MhCldUv3EUqxH+pAQ
+	CClJ4nbNu8X3B464MjJWP1Gk3wYXbu5UVeOtrhZtl9rWJfx+VfT5/nT9Dn8tuSaY
+	sv8/u1Sawf+rohXe0BrmHBbRcJ7L4F5Int/FqjD4Qjf7K5dJcBuaomsXgymcZR1g
+	7Xko+RhNzs9kl1KkYIm3VdsEuQ89PvSWkadmhHvSX6G7XWXgyPVqgaliLJpW679l
+	Gkk/lHZiPaciKvrfmlhgkNjSszwJ11ycVfaONHQ/KmIceKdTSHX844XL6JxNWlx+
+	C7aY2w==
+Received: from mail-pl1-f200.google.com (mail-pl1-f200.google.com [209.85.214.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4agv020bse-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Nov 2025 17:41:47 +0000 (GMT)
+Received: by mail-pl1-f200.google.com with SMTP id d9443c01a7336-29846a9efa5so155302915ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Nov 2025 09:41:47 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=os.amperecomputing.com; s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=qkqhC7sljj8IfAo5xmYhjBdfyg7/dNxJk27Fn0CCpHM=;
- b=cCu2mV1M4D3XiJODQ82950FdH1zs/yKgOrOkIPqGfUDjnzL5mxlR7PqlIBFTALtdYmpdcp8HZ5Nb54P6BQ0LlbrxFR/PAleSxuU0zgljQiKJ3T7Eaqv0QLbStDi59SMfKrhRBpS7MutqcVuvcUD7VM+D3S5dzKvAWNhflJwyl2A=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
-Received: from CH0PR01MB6873.prod.exchangelabs.com (2603:10b6:610:112::22) by
- CH3PR01MB8742.prod.exchangelabs.com (2603:10b6:610:207::5) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9320.20; Tue, 18 Nov 2025 17:35:11 +0000
-Received: from CH0PR01MB6873.prod.exchangelabs.com
- ([fe80::3850:9112:f3bf:6460]) by CH0PR01MB6873.prod.exchangelabs.com
- ([fe80::3850:9112:f3bf:6460%3]) with mapi id 15.20.9320.021; Tue, 18 Nov 2025
- 17:35:11 +0000
-Message-ID: <7147bd7c-f4b2-4757-96f5-d9b61405ec91@os.amperecomputing.com>
-Date: Tue, 18 Nov 2025 09:35:08 -0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [v2 PATCH] arm64: mm: make linear mapping permission update more
- robust for patial range
-To: Nathan Chancellor <nathan@kernel.org>
-Cc: ryan.roberts@arm.com, dev.jain@arm.com, cl@gentwo.org,
- catalin.marinas@arm.com, will@kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20251023204428.477531-1-yang@os.amperecomputing.com>
- <20251118164115.GA3977565@ax162>
-Content-Language: en-US
-From: Yang Shi <yang@os.amperecomputing.com>
-In-Reply-To: <20251118164115.GA3977565@ax162>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: BYAPR07CA0049.namprd07.prod.outlook.com
- (2603:10b6:a03:60::26) To CH0PR01MB6873.prod.exchangelabs.com
- (2603:10b6:610:112::22)
+        d=oss.qualcomm.com; s=google; t=1763487707; x=1764092507; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=AUj57zYEcFEZpI0Zq0dX35LVWJ3m0jhrfC9zNduSnmU=;
+        b=F69hkAJ7/JktYwMI+D2TrkQRNvhIPiaNseG55SFLnYssPqnbgOKjgsbLiCOATXIAPU
+         vz7S5HklDveqnevLCzwIGCrbD4Q84Js+WcXCwTSze1wViVQwU/QjtNLq0xpA93Wi1QaI
+         bi+tQsEhg+YmJIdveryZTYwV0qfeQ9Ij0YkDSikuvl4B1YJ871MLHrof2GnefLt082xn
+         OlXTuwZ6ZIz5XRbu4zBVtRqBojUECXTFNenNSOrPI/ngbqQarhqT8/h+dA5xtk4Npt7x
+         CTBuzWxeiehlRypLkjFokHYldj5q25BAy/+xgJmOTV1LlYBFgVh1+UjaKqk6JAUyfXy6
+         FM7Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1763487707; x=1764092507;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=AUj57zYEcFEZpI0Zq0dX35LVWJ3m0jhrfC9zNduSnmU=;
+        b=WiRmxZaWafBDnBCnyHkO6G5DtlFy6N6vN7vJcHD2lEmMTtsik7hfiT0rXqODY3LUSs
+         0PW5KB6AaPqsOltcuDlsbGErbVtQSgYarZRoYNK+g5tj9v2w7l7yX15xfVAm8uyPM11T
+         K2tGzLjhKv4G+HD5PA3Vn/m1azyzzGsq2ung4eW1TZ1hfFeOF1lLsjwH/dHXnbRE0oj3
+         DjHje2oRCeGYHWSv2foTbixHfyD1O5CH+v9vmPfkFI723p2JwxRTZF8LQ6xdyp9NtLvn
+         MswSZ5UFhdNxHH/oFzOP033jNWHKCpYd6fkm4dGIbHCgb5Z/8rMH40S2P8Jq+jX0f+0u
+         QB9Q==
+X-Forwarded-Encrypted: i=1; AJvYcCVvTO1gDy8D6nJi9uVvg7v4VUU5v5BYNRZaa9YCgYuH5ZGN05hO5bxWyTkLniKk95FRGjMBa0ZtBJczApB9FRtO@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx784huu02DTFqWhyFd+J4ouh32F5k1TYaRYLH6CX08M60+cspk
+	724Y4mGskHabv5rJkzhEkBTqDiGGoTTnBWUFq1ISKqLTFfr+1m85mHsghcsMdeWNW4dgPb/hog/
+	knOr3KjtzZc9oI0upsoNhQ/3VeVgi/3hZ1hogRjiIm6VH+pFhjj4zEI97zDZjTZe5UIXz8wXTxV
+	j6nQ==
+X-Gm-Gg: ASbGncta76c6BVowBXVe00yl9Ebe6QWMK49+ygEdlEBL8t0UQtdBRgPOJ2a7Q4i9Dnb
+	4LTi75IkaeeXSB67Ux7MgidjgC5eTOwuRyi5GF+Hw0Q+bQtqF8q2EGlYrOVDmYESNhB/J2C8HnE
+	1iqu+E5ejZ3wlh09hzX1eeDBp6euOCDx/Nu1xl0saqKQchWNmVGIBDRja+49s7FGQLMCDpjxtMh
+	PMVSBSto6ra0BxYNp9xzC1b5MGogdKpq+4li09Hru7TkeDKZ9QsqzMG4di7vpKWcYB9ZOL3r6jk
+	cYQl7OqqKDwhPckvRu5m09vXGadxI1H6kjOuLj9362HPDacXbjMkRGerKuvYHpqnyIRpXDV3U7g
+	B5Sko086ZNmTuX0ozN53raCW3wTUB4ern
+X-Received: by 2002:a17:903:3d05:b0:297:f7fb:7b66 with SMTP id d9443c01a7336-2986a758fbamr191603905ad.57.1763487706667;
+        Tue, 18 Nov 2025 09:41:46 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IGzqZj+I7Y3HdGaluSFQOp5N1DCarh1c7GonVm96vROqcjJXe2nOCPrRlpd7cetvGi+V4mVYg==
+X-Received: by 2002:a17:903:3d05:b0:297:f7fb:7b66 with SMTP id d9443c01a7336-2986a758fbamr191603555ad.57.1763487706100;
+        Tue, 18 Nov 2025 09:41:46 -0800 (PST)
+Received: from [10.216.27.76] ([202.46.23.19])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2985ce19a20sm176895315ad.84.2025.11.18.09.41.35
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 18 Nov 2025 09:41:45 -0800 (PST)
+Message-ID: <1da024e7-efb1-3a1c-cc13-0ae5212ed8bd@oss.qualcomm.com>
+Date: Tue, 18 Nov 2025 23:11:33 +0530
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH0PR01MB6873:EE_|CH3PR01MB8742:EE_
-X-MS-Office365-Filtering-Correlation-Id: 29ed9a3f-5ce8-4ef0-aab9-08de26c8d331
-X-MS-Exchange-AtpMessageProperties: SA
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|366016;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?SytJNFBMYlQrRHRrUVJaR3pMd1VnekM4VHBad0RxSk9ONFVPaTl2YjJxZGp0?=
- =?utf-8?B?cTJCWURoeWJEdWUwRVdXUjJaSncwQzN1SGZoajF4dDlIZm5tcHRoWFVEZ3p0?=
- =?utf-8?B?NndadDJzektBZmVIblNiN2xDc0laZGhQZThFZFdacVpoK3cvRVl5NEpwUkxR?=
- =?utf-8?B?cnh2K25KMjR1Y0ZuVG8vYXFJRjROeXhHTVhHNzdOSSsxdyt6dEVTYmhWRDZh?=
- =?utf-8?B?Ym5ZMVBwUjBMaVgzOU93MVRjTE9ET1QzNjVDTlBEOCtSTmlZUTh3NHhkWTBk?=
- =?utf-8?B?Z2JKSWZ4Uis4OTA0N1A1a3BKY1BVRi9IcnlrUnV1N3hLSTFLRlpjaW40YjFZ?=
- =?utf-8?B?ZWQzVUovRS80eC9MVnZqcllSU1ZCelo1eGlCZlRQajBMQlM3cGo2Q1dZZjR4?=
- =?utf-8?B?ZXcwV04yd0xqZ0IrRUNxditKSG9meVkxNmtNKzJoNHRuWUxNMjZqWjhUOHAz?=
- =?utf-8?B?Ry9FMVBSVlZyQWtiWUE0ZmkwSHZ0SjlCTEJrbEhTSkVxY3hPOWRJa3Y0N2kx?=
- =?utf-8?B?WTBDQWpJRXpCNDVVbG9Tb2hFTDNpdWZxTkJVOWhoS0xmR002M1IvOEhPanZx?=
- =?utf-8?B?S0VITlU1M0xVaFNWa0FrR1pFQTZGNm1hZ3BZdlZDYnBtUlZJVFVteVpjMmRI?=
- =?utf-8?B?aEw2QytTNkczRkE5eVF2K2J4eFNBQ0w3QlRIMzN1eEhTLzgxS1paK3RtUUYz?=
- =?utf-8?B?Sk5EUXQ0c2F3S3VhUFpvT1pzYlFXOTdHcjBrZFUxUVEzTzhPc2dPbkJPT0Z3?=
- =?utf-8?B?R2VPNnVpWVloTDd0dTJoRGM2bnNUVlA5MW1vRXJaeVZrZXJ6MGxXdzZKWStT?=
- =?utf-8?B?b1lQOGxUOWJnRkpzY0RlVm5jOWc5Tm01TEtBbjZkYkRiUkdRaitGNC83Mjlv?=
- =?utf-8?B?WWlNcEZwSkt0Uk1LdGlCaHhXbVIwVFNvK0xGS2VUQW1FdGorL21EODRlSkdx?=
- =?utf-8?B?MlBaSUlGN0JLL2Z1UytYY0d2QXZVMlh4Q2lDc0VmeFBmcitWWmR0SnozR0F1?=
- =?utf-8?B?RG5JTUlkaGZvdnU1NHJibXM3UmN2YklNeHdGa09xRld4encwemZpRjB3aE04?=
- =?utf-8?B?RlYrVk1FcXhOT3h0TXFHdDlyR1RLRU0yMk1tcWdvK0M1MWRNZTYraXNNVmEr?=
- =?utf-8?B?eSt5M280U3oza3FTQ3lMV1BwRmROdEZ1SEU1cXpoUlVPbUhrZ0VWQm9FRzBm?=
- =?utf-8?B?MWtoWnJXay9ZbmJFcU9KSzFhbWQwMnVZdVhrd3d4WG45SmtLMkRUQzVBK3Z4?=
- =?utf-8?B?c3FOVkswT3pTSzdPdFl3SXVpMHpoQ1kzWlZEcUQzZkc1U2R2YS9UUXMvQ3NP?=
- =?utf-8?B?RVZ1Ykpkbm5icVV3L05QYmRlNXNyaGlRY09vNEtjcHFNWkhwRy8xcVZkbEQx?=
- =?utf-8?B?dnlaWHg4dXZOMjdoenhyU2w1OURzMytDTHZiUk9sNCtaUTNNc2pLUkI1SHVm?=
- =?utf-8?B?dVppWEllcXNvd1JoSlNNL1JrQnE4SnJyTEI1RzJzeGV6V3RCcnE1OFZDTWxE?=
- =?utf-8?B?aTFPZmEyWHVJeGxYcXVpZ1lUM3FtaCtLa1kvYjZJWTA5Smx2RnJ4d285dW95?=
- =?utf-8?B?enNjakhsY2NRR1hjaGx3YmUwcmlxbmxXWXBMK3BMZGRiazFvWHloKzlXa1RP?=
- =?utf-8?B?cVBYeHZ0VmRzZjBCdDE0c2tXQ0ZRc2QyVjJnMHB6TnhXWWU5Ulorc2lzakRZ?=
- =?utf-8?B?aUZXd1l5MWVjNlQwRzRVOHJrWnR0ck9CaGlqR3ZKRk9nUXk1SUdaTU9vbUg5?=
- =?utf-8?B?N2lTS1hWWjdYSS9VdmMzTi95ZUQvV096d3hVVTNhNUt2TGVYbkVIRTVNNDMz?=
- =?utf-8?B?TDB6ZHZ1OU5zdFBnR1lEVFlrK290N3RPbTJWWXNVak9qdE05R3M4ZHVGeENs?=
- =?utf-8?B?N1Z1WHo1L2phTkREK1VxN3JsQzRsRTFma0l1S1JjanBscktaMTlFeCtXVE9T?=
- =?utf-8?Q?gJTCKa4C2BSUfTc1UUDyPkstBjdycnpm?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH0PR01MB6873.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?OHNmeE02NW9FU3R5TmQ4bmdtZVdqT0IwUGF5WFNrRzhzeW90U2E5S0I0VGlE?=
- =?utf-8?B?b0lOYyszYlQzcVR0L2R6WjhTZm1rZytiTTlKV2hpN1pnUXRTV0RlU2ZLb09l?=
- =?utf-8?B?RzRQeXFWT0RnemROdlNobGZOb3ZhaWlOUkFxZ0YweE1CVjVtODI1MVBHQlFl?=
- =?utf-8?B?V2JoVXpMSHVwVURCbUpqWFZoWUVQQk1UWFNWd3U0WDNYdi9BNXJ4cU1wZWN2?=
- =?utf-8?B?bFE1TG5YTExFdkpjTHo5L0VIcHZkNmdZaWpwNFBvaSs1NDQrTjZ0L05sR3lY?=
- =?utf-8?B?Yjl4KysxNUY5VUxTVjdwbHF6cVBSSXZOWFNVZUJ5TmpTYUE0WWpQTDZQa1cv?=
- =?utf-8?B?N3JKcENKK1hpZ3dBRklETXBISmlRU2JVTExCQnkwdU5mbTdpamhjR2xDVVhr?=
- =?utf-8?B?WjlNSmxNOVNCazJXT3poeWw0cUVHMWZlekNDeEhJZDJXeEg1RXJhQURmeWxJ?=
- =?utf-8?B?YTNXbm1BKzI2Y0pDRXJTTnVYeXBqRGVnVjNwYndRb2pIcU5nNkhuU05KUWY3?=
- =?utf-8?B?NU91VHEwOWV0ZE8xV2xleE1FL2E3WEtLMElSMGJjTDlnUm9vTUlPSm04dEJs?=
- =?utf-8?B?bjJnNVdIRmM2NmkvNG0xL0tWQkRiYy9pRDNNMWxNWXc4b29FRU9FL3NoUHpY?=
- =?utf-8?B?ZkpWU3dFTlRnREhMQ2tLSVpBd0twQVk2NmJMenlaL3RwWEFBd0c5djZjZ0lz?=
- =?utf-8?B?RDFKcklkMkJwdDZ2cWhrMTlMOHIrOFlCMldKN3hVQXZEVVF0TE9sUWFwOXU2?=
- =?utf-8?B?OFJVVmJUMnN5aXRLSFJvb3ZvQWRZUjBRZGUwNE9OcXRmckthTGRRU2lDdDdS?=
- =?utf-8?B?YnBKN3BOUUk0dXFKcDlVNndxR1hsMktOQlhGKzd6TDhtQjJwWTFIZEx6eVhD?=
- =?utf-8?B?dnFQOXRpNnZDVHRoVEpjU2xtQUh3eUpTcmt4VXMxSjhSMkMwN0tmS3BncEdi?=
- =?utf-8?B?bXMvUTZGc3JVVlJnbTVtY0h2VitSamZqeVJENGZaUTF5VWR6ZzNWVVRrRkdY?=
- =?utf-8?B?ZVNWencrNlErNTVhLzNQbWQrMWhPdit6VDVDbWVQM2ZqV0R0T2JzUkhZWU1p?=
- =?utf-8?B?cVRGakwwb1RCcW5DdWF2SEVsNnkrZUFBRXFHYTRxYW0xZ2JzZkJVVmNack5p?=
- =?utf-8?B?TmhXcjNlQVkwL1h5c3Zoajk5K3Z3TGM3eC9LR2trZUxQYkNmSllUeXJlMmdm?=
- =?utf-8?B?MWJ0MUkyYnphdzU5V3ZHRUxRVjIvZ1locWcybmNxWlU3WFYxdnBYZm9zMVJS?=
- =?utf-8?B?NUpJMFVKUzl2bUNJdDhaOXA5S2VPTmIvR0tsWXYzM3RCS2R1K3N0dld4M01G?=
- =?utf-8?B?d2psNFR6RFczZFBGZWxYVWpkbi9hREhqb2xZSjRFcjhwUEVWRVgrOHpSTnky?=
- =?utf-8?B?cHJYalBVNTlWY3pqUjVKMUh0ZUVEU1JUdDVKbUp0d0Q5eFZrYjZnamhXb0ZD?=
- =?utf-8?B?alg2Z2tkcndEMThpclZmODlmSFd3ZXI4WjdYSGRBQk56WnlobW1uQTBucXNS?=
- =?utf-8?B?djc5SW1Rc3M3RUNJSzM2WElkNnNrdXpvazJZcnhtYzZWNUZNOUNsU25xNTRQ?=
- =?utf-8?B?NVpzTVZzRTBWakZyMEtoV3Y0YlRWVWVIMFBlb1Y2ekVMRHp0TXcxMmFFWEN5?=
- =?utf-8?B?WG9iSHMzMGpReVBybG5oNEZ2aTNUdTJCWXdUeFJpTGhYNElMSE9MVkp1K0g0?=
- =?utf-8?B?STdyRWIwS3pZNDVYSnFUbFlnQ2tMWnJPak1GOWZhcmRaMlNRNlozeEpjMUlq?=
- =?utf-8?B?dEdWWHk1VkVjV0xIU3NUZmNHendnK2plSmxpSWQxUkM4aDBWZi9qRFg2WC9H?=
- =?utf-8?B?YnJ1bW1tV0hWM1VlM0xtRmt4anNBNHF4S01jbXd6aElLMnN6SzlKaURnbS9X?=
- =?utf-8?B?MzE2L0gyaEFvKzg4QXRKREtTcGlrUHZQRkFGR0NQcG93REFGR2JqSG5kSmF4?=
- =?utf-8?B?OE8vMjJmdHdvYm04SHRvWHRWYTlVdjNqMm1JeFJDRHA4RlBMY0dzSCttVFdy?=
- =?utf-8?B?dFNpMzlUSldRYUJZTC9xYjdvNFRvWGMrSmVDdVljeDl6TEFIVzBKRjFtSkdh?=
- =?utf-8?B?QXNaem15STVNWTcvME5Md1JWUGMxdTlCeStxOHNQaHplM3dDUEI1di8wcDkx?=
- =?utf-8?B?Y2poZk4vVThUekIwUUZEck5JbnVmdmNaMkk1SUM5R0kzUFlOc2JvUjFCVm9U?=
- =?utf-8?Q?PbVpJF5S6XcuzRQMHmcy7e8=3D?=
-X-OriginatorOrg: os.amperecomputing.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 29ed9a3f-5ce8-4ef0-aab9-08de26c8d331
-X-MS-Exchange-CrossTenant-AuthSource: CH0PR01MB6873.prod.exchangelabs.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2025 17:35:11.3231
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: sjkoPoWtN47VFKRml/YMtU3RQagvVxxtVVE75loteg6NqdHOqgs7PacAtC4uaXrW2otjv7W02WXPZ9JcLu2blX9bIYlcf2bMoCFMfJV0vwk=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR01MB8742
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.5.1
+Subject: Re: [PATCH v17 07/12] firmware: psci: Implement vendor-specific
+ resets as reboot-mode
+Content-Language: en-US
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>
+Cc: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>,
+        Sudeep Holla <sudeep.holla@arm.com>,
+        Souvik Chakravarty <Souvik.Chakravarty@arm.com>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+ <conor+dt@kernel.org>,
+        Andy Yan <andy.yan@rock-chips.com>,
+        Mark Rutland <mark.rutland@arm.com>, Arnd Bergmann <arnd@arndb.de>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        cros-qcom-dts-watchers@chromium.org, Vinod Koul <vkoul@kernel.org>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>,
+        Florian Fainelli <florian.fainelli@broadcom.com>,
+        Moritz Fischer <moritz.fischer@ettus.com>,
+        John Stultz <john.stultz@linaro.org>,
+        Matthias Brugger <matthias.bgg@gmail.com>,
+        Krzysztof Kozlowski <krzk@kernel.org>,
+        Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+        Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>,
+        Stephen Boyd <swboyd@chromium.org>,
+        Andre Draszik
+ <andre.draszik@linaro.org>,
+        Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>,
+        linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
+        devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-arm-msm@vger.kernel.org,
+        Elliot Berman <quic_eberman@quicinc.com>,
+        Xin Liu <xin.liu@oss.qualcomm.com>,
+        Srinivas Kandagatla <srini@kernel.org>,
+        Umang Chheda <umang.chheda@oss.qualcomm.com>,
+        Nirmesh Kumar Singh <nirmesh.singh@oss.qualcomm.com>
+References: <20251109-arm-psci-system_reset2-vendor-reboots-v17-0-46e085bca4cc@oss.qualcomm.com>
+ <20251109-arm-psci-system_reset2-vendor-reboots-v17-7-46e085bca4cc@oss.qualcomm.com>
+ <aRIfc9iuC2b9DqI+@lpieralisi>
+ <80e68e44-a8e0-464a-056e-9f087ad40d51@oss.qualcomm.com>
+ <aRxmWrAkD0Vu4pF+@lpieralisi>
+From: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
+In-Reply-To: <aRxmWrAkD0Vu4pF+@lpieralisi>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-Proofpoint-ORIG-GUID: wCcIS2FiheZNqWyUEbBDiRlhelxX-Tyr
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMTE4MDE0MyBTYWx0ZWRfX1obEY5f7HZ1B
+ +r51BAL2EHH6606AA/iEDSRn029WpaMsOWJTXADRl5rkOUngoCsyE3heLCaqqWbo2MbBwwSXDFK
+ F+cKLJ5A06krf7nPsGZNdZ7hRrAwoU4UlOTVGk63hFO58AnbUzXiMQ7liPdPaDdb94UwPyNKXXK
+ HXE7AVLRKkTUZN8EoaBz6bfPDyVWuykOK9ta7fs4ehOR9XZl1SKsVwqHtl4imZT8I+Sxn8go4AS
+ NaCZJy5OazycFEBh7b5yb7MwOHD8snmqcVABgJDW7L5C3L1fO11axQ1PK6t7glfZmjDDUsAyKpM
+ hZ2zJl7iJk8YfwThzQWuAFlxjMhE+ftEYSXTpb+vgJ2T6ZBVGJ6VxlHIk/ly1uDMweSUpPRanHL
+ riXnHymHDBmOeEJfMX3WAW8FP9TOTA==
+X-Authority-Analysis: v=2.4 cv=ad9sXBot c=1 sm=1 tr=0 ts=691cafdb cx=c_pps
+ a=IZJwPbhc+fLeJZngyXXI0A==:117 a=j4ogTh8yFefVWWEFDRgCtg==:17
+ a=IkcTkHD0fZMA:10 a=6UeiqGixMTsA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=xv1uSN6w8Po24_-fgokA:9 a=3ZKOabzyN94A:10
+ a=QEXdDO2ut3YA:10 a=uG9DUKGECoFWVXl0Dc02:22
+X-Proofpoint-GUID: wCcIS2FiheZNqWyUEbBDiRlhelxX-Tyr
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
+ definitions=2025-11-18_02,2025-11-18_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ suspectscore=0 clxscore=1015 bulkscore=0 adultscore=0 malwarescore=0
+ impostorscore=0 spamscore=0 priorityscore=1501 lowpriorityscore=0
+ phishscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2510240001
+ definitions=main-2511180143
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251118_093518_001798_F2596519 
-X-CRM114-Status: GOOD (  21.84  )
+X-CRM114-CacheID: sfid-20251118_094148_204535_66FD10B5 
+X-CRM114-Status: GOOD (  38.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -182,231 +184,331 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-On 11/18/25 8:41 AM, Nathan Chancellor wrote:
-> Hi Yang,
->
-> On Thu, Oct 23, 2025 at 01:44:28PM -0700, Yang Shi wrote:
->> The commit fcf8dda8cc48 ("arm64: pageattr: Explicitly bail out when changing
->> permissions for vmalloc_huge mappings") made permission update for
->> partial range more robust. But the linear mapping permission update
->> still assumes update the whole range by iterating from the first page
->> all the way to the last page of the area.
+On 11/18/2025 5:58 PM, Lorenzo Pieralisi wrote:
+> On Mon, Nov 17, 2025 at 11:14:48PM +0530, Shivendra Pratap wrote:
 >>
->> Make it more robust by updating the linear mapping permission from the
->> page mapped by start address, and update the number of numpages.
 >>
->> Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
->> Reviewed-by: Dev Jain <dev.jain@arm.com>
->> Signed-off-by: Yang Shi <yang@os.amperecomputing.com>
->> ---
->> v2: * Dropped the fixes tag per Ryan and Dev
->>      * Simplified the loop per Dev
->>      * Collected R-bs
+>> On 11/10/2025 10:52 PM, Lorenzo Pieralisi wrote:
+>>> On Sun, Nov 09, 2025 at 08:07:20PM +0530, Shivendra Pratap wrote:
+>>>> SoC vendors have different types of resets which are controlled
+>>>> through various hardware registers. For instance, Qualcomm SoC
+>>>> may have a requirement that reboot with “bootloader” command
+>>>> should reboot the device to bootloader flashing mode and reboot
+>>>> with “edl” should reboot the device into Emergency flashing mode.
+>>>> Setting up such reboots on Qualcomm devices can be inconsistent
+>>>> across SoC platforms and may require setting different HW
+>>>> registers, where some of these registers may not be accessible to
+>>>> HLOS. These knobs evolve over product generations and require
+>>>> more drivers. PSCI spec defines, SYSTEM_RESET2, vendor-specific
+>>>> reset which can help align this requirement. Add support for PSCI
+>>>> SYSTEM_RESET2, vendor-specific resets and align the implementation
+>>>> to allow user-space initiated reboots to trigger these resets.
+>>>>
+>>>> Implement the PSCI vendor-specific resets by registering to the
+>>>> reboot-mode framework.
+>>>
+>>> I think that we should expose to user space _all_ PSCI reset types,
+>>> cold, warm + vendor specific - as a departure from using the reboot_mode
+>>> variable (and possibly deprecate it - or at least stop using it).
 >>
->>   arch/arm64/mm/pageattr.c | 6 +++---
->>   1 file changed, 3 insertions(+), 3 deletions(-)
+>> sure. We can try that. Have tried to compile it all at the end of this thread.
 >>
->> diff --git a/arch/arm64/mm/pageattr.c b/arch/arm64/mm/pageattr.c
->> index 5135f2d66958..08ac96b9f846 100644
->> --- a/arch/arm64/mm/pageattr.c
->> +++ b/arch/arm64/mm/pageattr.c
->> @@ -148,7 +148,6 @@ static int change_memory_common(unsigned long addr, int numpages,
->>   	unsigned long size = PAGE_SIZE * numpages;
->>   	unsigned long end = start + size;
->>   	struct vm_struct *area;
->> -	int i;
->>   
->>   	if (!PAGE_ALIGNED(addr)) {
->>   		start &= PAGE_MASK;
->> @@ -184,8 +183,9 @@ static int change_memory_common(unsigned long addr, int numpages,
->>   	 */
->>   	if (rodata_full && (pgprot_val(set_mask) == PTE_RDONLY ||
->>   			    pgprot_val(clear_mask) == PTE_RDONLY)) {
->> -		for (i = 0; i < area->nr_pages; i++) {
->> -			__change_memory_common((u64)page_address(area->pages[i]),
->> +		unsigned long idx = (start - (unsigned long)area->addr) >> PAGE_SHIFT;
->> +		for (; numpages; idx++, numpages--) {
->> +			__change_memory_common((u64)page_address(area->pages[idx]),
->>   					       PAGE_SIZE, set_mask, clear_mask);
->>   		}
->>   	}
->> -- 
->> 2.47.0
+>>>
+>>>> As psci init is done at early kernel init, reboot-mode registration cannot
+>>>> be done at the time of psci init.  This is because reboot-mode creates a
+>>>> “reboot-mode” class for exposing sysfs, which can fail at early kernel init.
+>>>> To overcome this, introduce a late_initcall to register PSCI vendor-specific
+>>>> resets as reboot modes. Implement a reboot-mode write function that sets
+>>>> reset_type and cookie values during the reboot notifier callback.  Introduce
+>>>> a firmware-based call for SYSTEM_RESET2 vendor-specific reset in the
+>>>> psci_sys_reset path, using reset_type and cookie if supported by secure
+>>>> firmware. Register a panic notifier and clear vendor_reset valid status
+>>>> during panic.  This is needed for any kernel panic that occurs post
+>>>> reboot_notifiers.
+>>>
+>>> Is it because panic uses reboot_mode to determine the reset to issue ?
 >>
+>> Yes. As we know, currently psci supports only two resets,
+>> psci_sys_reset2 (ARCH warm reset) and psci_sys_reset(COLD RESET). And kernel
+>> panic path should take the path set by reboot_mode to maintain backward
+>> compatibility. 
+>>
+>>>
+>>>> By using the above implementation, userspace will be able to issue
+>>>> such resets using the reboot() system call with the "*arg"
+>>>> parameter as a string based command. The commands can be defined
+>>>> in PSCI device tree node under “reboot-mode” and are based on the
+>>>> reboot-mode based commands.
+>>>
+>>> IMHO - it would be nice if could add mode-cold (or mode-normal in reboot mode
+>>> speak) and mode-warm by default (if PSCI supports them) so that userspace
+>>
+>> Default mode in current kernel is cold, until explicitly set to warm.
+>> So should it be defaulted to cold?
+> 
+> I managed to confuse you sorry. What I wanted to say is that user space
+> should be able to issue _all_ PSCI resets (inclusive of cold and warm if
+> supported - ie if SYSTEM_RESET2 is supported) not just vendor resets.
+> 
+> I misused "by default" - I meant cold and warm PSCI resets should be part
+> of the reboot-mode list.
+> 
+> [...]
+> 
+>>>>  
+>>>> +struct psci_vendor_sysreset2 {
+>>>> +	u32 reset_type;
+>>>> +	u32 cookie;
+>>>> +	bool valid;
+>>>> +};
+>>>> +
+>>>> +static struct psci_vendor_sysreset2 vendor_reset;
+>>>
+>>> I think this should represent all possible PSCI reset types, not vendor only
+>>> and its value is set by the reboot mode framework.
+>>>
+>>>> +
+>>>> +static int psci_panic_event(struct notifier_block *nb, unsigned long v, void *p)
+>>>> +{
+>>>> +	vendor_reset.valid = false;
+>>>
+>>> I don't like this. Basically all you want this for is to make sure that
+>>> we don't override the reboot_mode variable.
+>>
+>> Yes, it does not look good but as we planned to use reboot-mode framework earlier, which
+>> sets the modes at the at reboot_notifiers. This needs to be taken care for any panic
+>> that occurs between reboot_notifier and restart_notifier.
+> 
+> Isn't there a simpler way to detect whether we are in panic mode and
+> consequently we just issue a reset based on reboot_mode ?
+> 
+> panic_in_progress() ?
 
-Hi Nathan,
+Yes. panic_in_progress is added in 6.18.rc1. We can use that. Thanks. Seems i was
+outdated.
 
-> I am seeing a KASAN failure when booting in QEMU after this change in
-> -next as commit 37cb0aab9068 ("arm64: mm: make linear mapping permission
-> update more robust for patial range"):
+> 
+>>> One (hack) would consist in checking the reboot_mode variable here and
+>>> set the struct I mentioned above to the value represented in reboot_mode.
+>>>
+>>> Good luck if reboot_mode == REBOOT_GPIO :-)
+>>
+>> psci supports only two modes, ARCH_WARM and cold, so anything else except WARM/SOFT
+>> should default to cold? So even if REBOOT_GPIO is set in reboot_mode, we should default
+>> it to cold reset.
+>>
+>>>
+>>>> +	return NOTIFY_DONE;
+>>>> +}
+>>>> +
+>>>> +static struct notifier_block psci_panic_block = {
+>>>> +	.notifier_call = psci_panic_event
+>>>> +};
+>>>> +
+>>>>  bool psci_tos_resident_on(int cpu)
+>>>>  {
+>>>>  	return cpu == resident_cpu;
+>>>> @@ -309,7 +330,10 @@ static int get_set_conduit_method(const struct device_node *np)
+>>>>  static int psci_sys_reset(struct notifier_block *nb, unsigned long action,
+>>>>  			  void *data)
+>>>>  {
+>>>> -	if ((reboot_mode == REBOOT_WARM || reboot_mode == REBOOT_SOFT) &&
+>>>> +	if (vendor_reset.valid && psci_system_reset2_supported) {
+>>>> +		invoke_psci_fn(PSCI_FN_NATIVE(1_1, SYSTEM_RESET2), vendor_reset.reset_type,
+>>>> +			       vendor_reset.cookie, 0);
+>>>
+>>> See above. Two calls here: one for resets issued using the new userspace
+>>> interface you are adding and legacy below - no vendor vs reboot_mode, this
+>>> is a mess.
+>>
+>> Are we suggesting to completely remove the reboot_mode check from here in the new
+>> design and base it on reboot <CMD> param?
+> 
+> I am suggesting that there must be two reset options:
+> 
+> - based on reboot mode set by user space
+> - based on reboot_mode variable (as a fallback and while panic is in progress)
+> 
+>>>
+>>>> +	} else if ((reboot_mode == REBOOT_WARM || reboot_mode == REBOOT_SOFT) &&
+>>>>  	    psci_system_reset2_supported) {
+>>>>  		/*
+>>>>  		 * reset_type[31] = 0 (architectural)
+>>>> @@ -547,6 +571,72 @@ static const struct platform_suspend_ops psci_suspend_ops = {
+>>>>  	.enter          = psci_system_suspend_enter,
+>>>>  };
+>>>>  
+>>>> +static int psci_set_vendor_sys_reset2(struct reboot_mode_driver *reboot, u64 magic)
+>>>> +{
+>>>> +	u32 magic_32;
+>>>> +
+>>>> +	if (psci_system_reset2_supported) {
+>>>> +		magic_32 = magic & GENMASK(31, 0);
+>>>> +		vendor_reset.reset_type = PSCI_1_1_RESET_TYPE_VENDOR_START | magic_32;
+>>>> +		vendor_reset.cookie = (magic >> 32) & GENMASK(31, 0);
+>>>
+>>> Use FIELD_PREP/GET() please (but as mentioned above the vendor reset type
+>>> bit[31] should be part of the reboot mode magic value, see above).
+>>
+>> sure. Will align this. thanks.
+>>
+>>>
+>>>> +		vendor_reset.valid = true;
+>>>> +	}
+>>>> +
+>>>> +	return NOTIFY_DONE;
+>>>> +}
+>>>> +
+>>>> +static int __init psci_init_vendor_reset(void)
+>>>> +{
+>>>> +	struct reboot_mode_driver *reboot;
+>>>> +	struct device_node *psci_np;
+>>>> +	struct device_node *np;
+>>>> +	int ret;
+>>>> +
+>>>> +	if (!psci_system_reset2_supported)
+>>>> +		return -EINVAL;
+>>>> +
+>>>> +	psci_np = of_find_compatible_node(NULL, NULL, "arm,psci-1.0");
+>>>> +	if (!psci_np)
+>>>> +		return -ENODEV;
+>>>> +
+>>>> +	np = of_find_node_by_name(psci_np, "reboot-mode");
+>>>> +	if (!np) {
+>>>> +		of_node_put(psci_np);
+>>>> +		return -ENODEV;
+>>>> +	}
+>>>> +
+>>>> +	ret = atomic_notifier_chain_register(&panic_notifier_list, &psci_panic_block);
+>>>> +	if (ret)
+>>>> +		goto err_notifier;
+>>>> +
+>>>> +	reboot = kzalloc(sizeof(*reboot), GFP_KERNEL);
+>>>> +	if (!reboot) {
+>>>> +		ret = -ENOMEM;
+>>>> +		goto err_kzalloc;
+>>>> +	}
+>>>> +
+>>>> +	reboot->write = psci_set_vendor_sys_reset2;
+>>>> +	reboot->driver_name = "psci";
+>>>> +
+>>>> +	ret = reboot_mode_register(reboot, of_fwnode_handle(np));
+>>>> +	if (ret)
+>>>> +		goto err_register;
+>>>> +
+>>>> +	of_node_put(psci_np);
+>>>> +	of_node_put(np);
+>>>> +	return 0;
+>>>> +
+>>>> +err_register:
+>>>> +	kfree(reboot);
+>>>> +err_kzalloc:
+>>>> +	atomic_notifier_chain_unregister(&panic_notifier_list, &psci_panic_block);
+>>>> +err_notifier:
+>>>> +	of_node_put(psci_np);
+>>>> +	of_node_put(np);
+>>>> +	return ret;
+>>>> +}
+>>>> +late_initcall(psci_init_vendor_reset)
+>>>
+>>> I don't like adding another initcall here.
+>>>
+>>> I wonder whether this code belongs in a PSCI reboot mode driver, possibly a
+>>> faux device in a way similar to what we did for cpuidle-psci (that after all
+>>> is a consumer of PSCI_CPU_SUSPEND in a similar way as this code is a
+>>> PSCI_SYSTEM_RESET{2} consumer), that communicates with
+>>> drivers/firmware/psci/psci.c with the struct mentioned above.
+>>
+>> sure. we can create a new driver and try it as in cpuidle: cpuidle-psci.
+>> Can you suggest a bit more on the overall approach we want to take here?
+>> Have tried to summarize the potential changes and few questions below.
+>>
+>> - new driver registers a faux device - say - power: reset: psci_reset.
+> 
+> Yes this could be a potential way forward but that's decoupled from the
+> options below. If we take this route PSCI maintainers should be added
+> as maintainers for this reboot mode driver.
 
-Thanks for reporting this problem. It looks like I forgot to use 
-untagged address when calculating idx.
+you mean the new psci_reset driver? yes. Maintainer would be PSCI maintainer,
+if we create a new  psci_reset reboot mode driver.
 
-Can you please try the below patch?
+> 
+>> - struct with pre-built psci reset_types - (warm, soft, cold). Currently
+>>   only two modes supported, anything other than warm/soft defaults to cold.
+>> - vendor resets to be added as per vendor choice, inside psci device tree(SOC specific).
+>> - psci_reset registers with reboot-mode for registering  vendor resets. Here, we
+>>   have a problem, the pre-built psci reset_types - (warm, soft, cold) cannot be added via
+>>   reboot-mode framework.
+> 
+> Why ?
 
-diff --git a/arch/arm64/mm/pageattr.c b/arch/arm64/mm/pageattr.c
-index 08ac96b9f846..0f6417e3f9f1 100644
---- a/arch/arm64/mm/pageattr.c
-+++ b/arch/arm64/mm/pageattr.c
-@@ -183,7 +183,7 @@ static int change_memory_common(unsigned long addr, 
-int numpages,
-          */
-         if (rodata_full && (pgprot_val(set_mask) == PTE_RDONLY ||
-                             pgprot_val(clear_mask) == PTE_RDONLY)) {
--               unsigned long idx = (start - (unsigned long)area->addr) 
- >> PAGE_SHIFT;
-+               unsigned long idx = (start - (unsigned 
-long)kasan_reset_tag(area->addr)) >> PAGE_SHIFT;
-                 for (; numpages; idx++, numpages--) {
-__change_memory_common((u64)page_address(area->pages[idx]),
-                                                PAGE_SIZE, set_mask, 
-clear_mask);
+If we want the new psci_reset to take the reboot-mode framework route, is it ok to
+add default modes (warm, cold) in the device tree?
+If not, then the design of reboot-mode framework(power:reset:reboot-mode.c) needs to be
+further changed to equip this new feature. 
 
-Yang
+If new psci_reset driver move away from reboot-mode framework(power:reset:reboot-mode.c), the driver
+can have its own design, its own sysfs interface and maintained under psci Maintainer.
 
->
->    $ make -skj"$(nproc)" ARCH=arm64 CROSS_COMPILE=aarch64-linux- mrproper virtconfig
->
->    $ scripts/config -e KASAN -e KASAN_SW_TAGS
->
->    $ make -skj"$(nproc)" ARCH=arm64 CROSS_COMPILE=aarch64-linux- olddefconfig Image.gz
->
->    $ curl -LSs https://github.com/ClangBuiltLinux/boot-utils/releases/download/20241120-044434/arm64-rootfs.cpio.zst | zstd -d >rootfs.cpio
->
->    $ qemu-system-aarch64 \
->        -display none \
->        -nodefaults \
->        -machine virt,gic-version=max \
->        -append 'console=ttyAMA0 earlycon' \
->        -kernel arch/arm64/boot/Image.gz \
->        -initrd rootfs.cpio \
->        -cpu host \
->        -enable-kvm \
->        -m 1G \
->        -smp 8 \
->        -serial mon:stdio
-> [    0.000000] Booting Linux on physical CPU 0x0000000000 [0x413fd0c1]
-> [    0.000000] Linux version 6.18.0-rc1-00012-g37cb0aab9068 (nathan@aadp) (aarch64-linux-gcc (GCC) 15.2.0, GNU ld (GNU Binutils) 2.45) #1 SMP PREEMPT Tue Nov 18 09:31:02 MST 2025
-> ...
-> [    0.148789] ==================================================================
-> [    0.149929] BUG: KASAN: invalid-access in change_memory_common+0x258/0x2d0
-> [    0.151006] Read of size 8 at addr f96680000268a000 by task swapper/0/1
-> [    0.152031]
-> [    0.152274] CPU: 0 UID: 0 PID: 1 Comm: swapper/0 Not tainted 6.18.0-rc1-00012-g37cb0aab9068 #1 PREEMPT
-> [    0.152288] Hardware name: linux,dummy-virt (DT)
-> [    0.152292] Call trace:
-> [    0.152295]  show_stack+0x18/0x30 (C)
-> [    0.152309]  dump_stack_lvl+0x60/0x80
-> [    0.152320]  print_report+0x480/0x498
-> [    0.152331]  kasan_report+0xac/0xf0
-> [    0.152343]  kasan_check_range+0x90/0xb0
-> [    0.152353]  __hwasan_load8_noabort+0x20/0x34
-> [    0.152364]  change_memory_common+0x258/0x2d0
-> [    0.152375]  set_memory_ro+0x18/0x24
-> [    0.152386]  bpf_prog_pack_alloc+0x200/0x2e8
-> [    0.152397]  bpf_jit_binary_pack_alloc+0x78/0x188
-> [    0.152409]  bpf_int_jit_compile+0xa4c/0xc74
-> [    0.152420]  bpf_prog_select_runtime+0x1c0/0x2bc
-> [    0.152430]  bpf_prepare_filter+0x5a4/0x7c0
-> [    0.152443]  bpf_prog_create+0xa4/0x100
-> [    0.152454]  ptp_classifier_init+0x80/0xd0
-> [    0.152465]  sock_init+0x12c/0x178
-> [    0.152474]  do_one_initcall+0xa0/0x260
-> [    0.152484]  kernel_init_freeable+0x2d8/0x358
-> [    0.152495]  kernel_init+0x20/0x140
-> [    0.152510]  ret_from_fork+0x10/0x20
-> [    0.152519] ==================================================================
-> [    0.170107] Disabling lock debugging due to kernel taint
-> [    0.170917] Unable to handle kernel paging request at virtual address 006680000268a000
-> [    0.172112] Mem abort info:
-> [    0.172555]   ESR = 0x0000000096000004
-> [    0.173131]   EC = 0x25: DABT (current EL), IL = 32 bits
-> [    0.173954]   SET = 0, FnV = 0
-> [    0.174481]   EA = 0, S1PTW = 0
-> [    0.174957]   FSC = 0x04: level 0 translation fault
-> [    0.175714] Data abort info:
-> [    0.176160]   ISV = 0, ISS = 0x00000004, ISS2 = 0x00000000
-> [    0.177014]   CM = 0, WnR = 0, TnD = 0, TagAccess = 0
-> [    0.177797]   GCS = 0, Overlay = 0, DirtyBit = 0, Xs = 0
-> [    0.178648] [006680000268a000] address between user and kernel address ranges
-> [    0.179735] Internal error: Oops: 0000000096000004 [#1]  SMP
-> [    0.180603] Modules linked in:
-> [    0.181075] CPU: 0 UID: 0 PID: 1 Comm: swapper/0 Tainted: G    B               6.18.0-rc1-00012-g37cb0aab9068 #1 PREEMPT
-> [    0.182793] Tainted: [B]=BAD_PAGE
-> [    0.183369] Hardware name: linux,dummy-virt (DT)
-> [    0.184159] pstate: 40400005 (nZcv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
-> [    0.185366] pc : change_memory_common+0x258/0x2d0
-> [    0.186179] lr : change_memory_common+0x258/0x2d0
-> [    0.187004] sp : ffff8000800e7900
-> [    0.187581] x29: ffff8000800e7940 x28: f8ff00000268a000 x27: 00003e0040000000
-> [    0.188818] x26: ffffff0000000000 x25: 0000000000200000 x24: ffff8000804e9000
-> [    0.190046] x23: 0008000000000000 x22: 0000000000000080 x21: 0067800000001000
-> [    0.191283] x20: 0067800000000000 x19: 66ff000002ff9d20 x18: 00000000781044e3
-> [    0.192519] x17: 0000000000000000 x16: 0000000000000000 x15: 0000000000000000
-> [    0.193758] x14: 0000000000000000 x13: 746e696174206c65 x12: 6e72656b206f7420
-> [    0.195001] x11: 65756420676e6967 x10: 6775626564206b63 x9 : 0000000000000007
-> [    0.196218] x8 : ffff78000800e776 x7 : 00000000000000ff x6 : ffff700000277000
-> [    0.197429] x5 : 0000000000000000 x4 : efff800000000000 x3 : ffffd8c39bb09964
-> [    0.198647] x2 : 0000000000000001 x1 : 55ff000002770000 x0 : 0000000000000000
-> [    0.199869] Call trace:
-> [    0.200298]  change_memory_common+0x258/0x2d0 (P)
-> [    0.201117]  set_memory_ro+0x18/0x24
-> [    0.201747]  bpf_prog_pack_alloc+0x200/0x2e8
-> [    0.202499]  bpf_jit_binary_pack_alloc+0x78/0x188
-> [    0.203325]  bpf_int_jit_compile+0xa4c/0xc74
-> [    0.204070]  bpf_prog_select_runtime+0x1c0/0x2bc
-> [    0.204886]  bpf_prepare_filter+0x5a4/0x7c0
-> [    0.205621]  bpf_prog_create+0xa4/0x100
-> [    0.206305]  ptp_classifier_init+0x80/0xd0
-> [    0.207019]  sock_init+0x12c/0x178
-> [    0.207615]  do_one_initcall+0xa0/0x260
-> [    0.208293]  kernel_init_freeable+0x2d8/0x358
-> [    0.209049]  kernel_init+0x20/0x140
-> [    0.209660]  ret_from_fork+0x10/0x20
-> [    0.210293] Code: 9410db81 f940127c 8b140380 9410db7e (f8746b9c)
-> [    0.211341] ---[ end trace 0000000000000000 ]---
-> [    0.212148] Kernel panic - not syncing: Attempted to kill init! exitcode=0x0000000b
-> [    0.213317] SMP: stopping secondary CPUs
-> [    0.213963] ---[ end Kernel panic - not syncing: Attempted to kill init! exitcode=0x0000000b ]---
->
-> # bad: [0c1c7a6a83feaf2cf182c52983ffe330ffb50280] Add linux-next specific files for 20251117
-> # good: [6a23ae0a96a600d1d12557add110e0bb6e32730c] Linux 6.18-rc6
-> git bisect start '0c1c7a6a83feaf2cf182c52983ffe330ffb50280' '6a23ae0a96a600d1d12557add110e0bb6e32730c'
-> # bad: [821f0a31ee487bfc74b13faa30aa0f75d997f4de] Merge branch 'master' of https://git.kernel.org/pub/scm/linux/kernel/git/herbert/cryptodev-2.6.git
-> git bisect bad 821f0a31ee487bfc74b13faa30aa0f75d997f4de
-> # bad: [21cf360c8ba83adf9484d5dee36b803b3aec484f] Merge branch 'next' of https://git.kernel.org/pub/scm/linux/kernel/git/uml/linux.git
-> git bisect bad 21cf360c8ba83adf9484d5dee36b803b3aec484f
-> # bad: [fa87311c638d397ba4d20b57f1e643e0c7f43bc6] Merge branch 'for-next' of https://git.kernel.org/pub/scm/linux/kernel/git/shawnguo/linux.git
-> git bisect bad fa87311c638d397ba4d20b57f1e643e0c7f43bc6
-> # good: [880e7ed723955d5ed056394b6420c0438e601630] Merge branch 'mm-unstable' of https://git.kernel.org/pub/scm/linux/kernel/git/akpm/mm
-> git bisect good 880e7ed723955d5ed056394b6420c0438e601630
-> # bad: [e9d0f4c5024eb6a75396140378f3149b6d7e597f] Merge branch 'for-next/perf' of https://git.kernel.org/pub/scm/linux/kernel/git/will/linux.git
-> git bisect bad e9d0f4c5024eb6a75396140378f3149b6d7e597f
-> # good: [40e8a782180dde6542d6e17222fb71604254a6f2] Merge branch 'kbuild-next' of https://git.kernel.org/pub/scm/linux/kernel/git/kbuild/linux.git
-> git bisect good 40e8a782180dde6542d6e17222fb71604254a6f2
-> # good: [3622990efaab066897a2c570b6e90f4b9f30b200] perf script: Change metric format to use json metrics
-> git bisect good 3622990efaab066897a2c570b6e90f4b9f30b200
-> # good: [4eed2baf8f1622f503396eda30d360ecc46fc1a5] Merge branch 'for-next' of https://git.kernel.org/pub/scm/linux/kernel/git/rmk/linux.git
-> git bisect good 4eed2baf8f1622f503396eda30d360ecc46fc1a5
-> # good: [cdcfd8a60eb28122cb7e4863a29bc9f24206ccba] Merge branch 'for-next/typos' into for-next/core
-> git bisect good cdcfd8a60eb28122cb7e4863a29bc9f24206ccba
-> # bad: [f27acb65b4696bf1a251b077b9d6e8ec73516ba6] Merge branch 'for-next/core' of https://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux
-> git bisect bad f27acb65b4696bf1a251b077b9d6e8ec73516ba6
-> # good: [a04fbfb8a175d4904727048b97fcdef12e392ed1] arm64/sysreg: Add ICH_VMCR_EL2
-> git bisect good a04fbfb8a175d4904727048b97fcdef12e392ed1
-> # good: [c320dbb7c80d93a762c01b4a652d9292629869e7] arm64/mm: Elide TLB flush in certain pte protection transitions
-> git bisect good c320dbb7c80d93a762c01b4a652d9292629869e7
-> # bad: [c464aa07b92ecd1c31f87132f271ac5916724818] Merge branches 'for-next/misc' and 'for-next/sysreg' into for-next/core
-> git bisect bad c464aa07b92ecd1c31f87132f271ac5916724818
-> # bad: [37cb0aab9068e8d7907822405fe5545a2cd7af0b] arm64: mm: make linear mapping permission update more robust for patial range
-> git bisect bad 37cb0aab9068e8d7907822405fe5545a2cd7af0b
-> # first bad commit: [37cb0aab9068e8d7907822405fe5545a2cd7af0b] arm64: mm: make linear mapping permission update more robust for patial range
->
-> If there is any information I can provide or patches I can test, I am
-> more than happy to do so.
->
-> Cheers,
-> Nathan
+> 
+>>   Should the new psci_reset driver, move away from reboot-mode
+>>   framework as-well? And define its own parsing logic for psci_reset_types,
+>>   and have its own restart_notifier instead of reboot_notifier?
+> 
+> No. As I said earlier, I think it makes sense to allow user space to
+> select _all_ PSCI reset types - architected and vendor specific in
+> a single reboot mode driver.
+> 
+> I believe that we must be able to have two well defined ways for
+> issuing resets:
+> 
+> - one based on reboot mode driver
+> - one based on reboot_mode variable interface
 
+So may be in more details-
+user space issues - reboot cold
+   -> go for psci_reset (as psci_sysrest2 does not has cold reset?)
+user space issues - reboot warm or a vendor_reset
+   -> if psci_sysreset2 is supported - call psci_sysreset2 with required params.
+   ->   else
+   ->  go for psci_reset COLD
+
+user space issues - reboot (no commands) or a panic_in_progress
+   -> fallback to reboot_mode 
+   ->  if (reboot_mode == WARM and psci_sysreset2 is supported )
+   ->     call psci_sysreset2 (ARCH WARM RESET)
+   ->  else
+   ->     go for psci_reset COLD
+
+
+And we want to do this in two conditional statements in firmware:psci: psci_sys_reset
+function?
+Or am i not getting the point here?
+
+thanks,
+Shivendra
+
+> 
+> Does this make sense everyone ? I don't know the history behind
+> reboot_mode and the reboot mode driver framework I am just stating
+> what I think makes sense to do for PSCI.
+> 
+> Thanks,
+> Lorenzo
+> 
+>> - If new psci_reset driver move away from reboot-mode, we can get rid of the panic_notifier
+>>   added in the psci code. Else, we may still need the panic_notifier for any kernel panic
+>>   that occurs between reboot_notifier and restart_notifier?
+>> - psci driver will export a function which will be called externally to set the current
+>>   psci reset_type.
+>> - psci_sys_reset in psci driver should remove the check on reboot_mode. It will default to
+>>   cold reset (for the reason the current kernel defaults to cold reset in psci.)
+>>   example change in psci_sys_reset:
+>>     if(psci_system_reset2_supported && <psci_reset_new_struct_var> != cold)
+>>        psci_sys_reset2(AS PER PARAMS FROM new psci_reset driver)
+>>     else
+>>        psci_sys_reset(COLD RESET)
+>>
+>> thanks,
+>> Shivendra
 
