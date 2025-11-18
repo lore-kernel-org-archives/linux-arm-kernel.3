@@ -4,98 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C54FCEDDAC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 15:09:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B748CEDDA1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 15:32:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xn1amiUGhpNI5r8WdOtn7hNJ51WcbcveDFhQ+0agXLE=; b=3VC6iod6sQN8vFSjkYEhQgmLGs
-	IC1V/0Ogp6x11nz2QR4WDQdgmOxZ/kkpSGNuoHCE/BIgOxzUt016U8PnBiHwAUnCj5G+aiEYlhiHJ
-	3WT/EZNmC8tcdrrE2XIArg8f87M4QqL+ziPcMYODytae7eEMSZv3q/bx2FiQczVc66iF4zyJlrsry
-	sQwLipILyxlQtQjaCwEgahsmJI31yPwusacLBYHJWWTDuZeztsOUWEUIygTUMLmYhyM+c1hwJc3T3
-	uAbXJ2dIGIXFa5jAwByMof+zGKpkWhFuQum+UDIAbtjStuncjQjUV8yUCyQ2MhuLNoa/H6Vrt6cDT
-	73uk6YZg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Sa6na3P/P/GNM8Iujs64ZSVR7QHzowjsSYVDRpzcN3E=; b=Bnur4iPuI3hcgyuR6tp2x/Mf3/
+	RH9o++UhZRhgBY7+1WaN1jy5M4BfEdMOcTco0Ci16TIyu6W+mlGoLnnQWL3bzFo9ETgK1tC3akmbm
+	PF12S90T1jEzi1Q2KC160WVagB1A6UxdQ9d3vUQOQSTm01FJwRrmbwdk8YzqJtwAP7cI4p60MCeRO
+	fadNWThL7m2ZRRG4fDUd7UWNfYxo650oIsqwlUzJEK/JLQ++dMK50DMqVDb6j+FSEXtVtHs7svKvb
+	YylnmO6x4FZZpsnDS0o6m/8m5JyT9nIrJlyM3bWQ3IlBtdRfsAV3Pdi0Dm97TyDf9DGj+KNAG4TLu
+	GAc+wcGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLNKW-00000000bXC-1PAb;
-	Tue, 18 Nov 2025 15:09:16 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1vLNgd-00000000dAG-1vsB;
+	Tue, 18 Nov 2025 15:32:07 +0000
+Received: from mail-yw1-x1133.google.com ([2607:f8b0:4864:20::1133])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLNKK-00000000bOf-2GEf
+	id 1vLNga-00000000d9U-31zG
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Nov 2025 15:09:05 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-477a1c28778so30037745e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Nov 2025 07:09:04 -0800 (PST)
+	Tue, 18 Nov 2025 15:32:05 +0000
+Received: by mail-yw1-x1133.google.com with SMTP id 00721157ae682-7895017c722so23338967b3.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Nov 2025 07:32:04 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1763478543; x=1764083343; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=xn1amiUGhpNI5r8WdOtn7hNJ51WcbcveDFhQ+0agXLE=;
-        b=AwVX7904ukIKl5YXtnnFBm+6t7Pww7vMb4/RxmmOxALD3fgB7a9VnhFfiQnWHQ7RgN
-         vmpaC3FvHUiTeLKd0DvpLTVm85NeAf1DbOChQRYaDlVUzgdRiprOQRTdlKQa8MWb+avk
-         xKRwWft/auhoR5P7Ld4T+rFB/nfS0A/HXUhKaiJ8t3ZjJepme1uLd8AzufMFMTI5f4tq
-         g76nA6EMOuDJOgIYh+rzbHhRI+IfWNs8hS4pSoABJaMJCdSKdFR4eP1x10yYv9l58qsr
-         zdsvejqmPpzrZJ1vHkN5tqmW0aGY5B5J6IPVNHqvoDJOEJHrnfWgoLI5OAqlAkl6GDc0
-         KstQ==
+        d=linaro.org; s=google; t=1763479923; x=1764084723; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=Sa6na3P/P/GNM8Iujs64ZSVR7QHzowjsSYVDRpzcN3E=;
+        b=SILUHtTs6VAaYhTEzWMMK8Sz7gNoNUfz3rVpjEllga4N+c2x9sPkkuUMTGk6ycpDiQ
+         au0GLCwe2uizcJetftcw1ICNoo072qxn6VU3+br4eznrgEu3E4+rkENQJes1rX3bL8z2
+         UfZi7GYz5ejbZRosMv44f2M08De1ZLbqO9UenGFkQJYFNTb2xrglsOBjnW/0TuYKkQUA
+         6QeO5815EPLItuYrqsnoIn9tTF0vcqZEt1yCnwXvClohjnQYL0abx1VQ3BVVnZuxwa3O
+         1zksuUIV0VF2vF6agqJgG/pN0js6zTFMnaeEGFvWr8q0yx+k5z59EbbjghrgOnEx5gVj
+         MQFQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763478543; x=1764083343;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=xn1amiUGhpNI5r8WdOtn7hNJ51WcbcveDFhQ+0agXLE=;
-        b=QLv4bKjijWx21ZnzUlERyuAhNuL6lETBGyLPCUyeFJmZyFwC3rqrJEyScJ6O3dUyjz
-         Cd6qHrd63sywT2RB8PV7tyqDX2+8GYqjJj++DflZpT9d5m3S6KGHX5V/TlxJCZxOy3mZ
-         dQhbR048/1gSIwnNVxv6TZekV6MbIYooNtMFSZMrIEclrpK3bgoQlXj7ABdQrmI6kUm7
-         QS41RmyfyB366qVXqnNNJI8I56yWYcTltaTIIM3CgyBGzZkqMeWR2MdZ+PR/KB6OEVVF
-         bgIlADd0Gt3M05iLlYKoSbwqVyi27/bPYm1fb+nvW8GGNUAvNQ8vA4DHsi21Wtq5bsUl
-         a8pQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXz6+aynoaPHvtVKiJ/KnuuAcfXmEr4fK5wQUaZcuZKqiabQW/M+odrRRNibKjnOuIbhdNU+8I3P6MGypMus89S@lists.infradead.org
-X-Gm-Message-State: AOJu0YzU0NC/5vdb5cAkcDZCjosZ424Z/Luzne18xaPhBScp8SIGAsdo
-	UUirQAoZjMf8emQ9lr7qvYZP0QKIBN0hMp+w3bACb3qjoH4KNLncjgdS
-X-Gm-Gg: ASbGncvvJyrEvYDceaoWq4XzpeRF76MdKQ4D5oh0IU1FIYJqusYuOE+SwOmDO14Xwyw
-	n5liO5868tbg2drsVs16YKIiHC/3Ge7aKr9qtzS1K7vkaJkCeCCJxEQ8SKfiQSle7TqZLRK5JO/
-	X05F8iEq77Wkwjxk26kKEZJV2ReWIkpDTYOGIdFB8GgE7vaI8eJd52LqEJe1LGub9EQQV/hcsEK
-	haniIF3EMdrugrIyHOMDoC4RVY895zfd51QN02SwKFMEn5UZGAYBYcIO6/6+hfFNvT/8KaxU1HX
-	MMISzvJkrtWkR+LCJg/jeQkoFKgoRO61WEzqS7KDUavAYAf46BcwjfnxE8wFTJS/+5AB0S2lzUu
-	e+T3YeM26Xdj9Qvf2tfi3SEW1DKJ3rdd8oXw5SQT9N5n8DQgqWX/m4SHmmLk4+aZO2+ijdSdEpB
-	xXyhBx9Y5qmCKzOldOWk9EQ2kbU4epZii/GB74xNmWLQfu3rf+Sq0gb0AJh9wousZdtNd361aY8
-	L3Ad7GFCWeDb9qZ
-X-Google-Smtp-Source: AGHT+IGHfWRtYZTGPPYbxiOYmTOURyjIxMB6TDIV7lM+NaODJHSbF+ffu7r1vpKDpGdS19OrhVSrbg==
-X-Received: by 2002:a05:600c:a47:b0:477:79c7:8994 with SMTP id 5b1f17b1804b1-4778fea195emr185980455e9.30.1763478542674;
-        Tue, 18 Nov 2025 07:09:02 -0800 (PST)
-Received: from localhost (2a02-842a-9b20-0d01-432b-0dab-f195-2b25.rev.sfr.net. [2a02:842a:9b20:d01:432b:dab:f195:2b25])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-47799768409sm199879815e9.3.2025.11.18.07.09.02
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 18 Nov 2025 07:09:02 -0800 (PST)
-From: =?utf-8?q?Cl=C3=A9ment_Le_Goffic?= <legoffic.clement@gmail.com>
-Date: Tue, 18 Nov 2025 16:08:02 +0100
-Subject: [PATCH v9 6/7] arm64: dts: st: add LPDDR channel to stm32mp257f-dk
- board
+        d=1e100.net; s=20230601; t=1763479923; x=1764084723;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Sa6na3P/P/GNM8Iujs64ZSVR7QHzowjsSYVDRpzcN3E=;
+        b=nZfuHw+9t0eEsBJniT9jmHEnAqdqTsAzOVtsKjq80d4NILzz14BNdOB13jvxXOmwcm
+         mjZWzeXjwxr5E0sFL8qBEw+BEg58kUtzhb5grwgU1jvmnI4hkr3DNgkw99872wGTiLTb
+         Dj6OlttU251eHiGXcPjKKBep/xberLNA8W8xzk3P9bdczd9B/H8AcWzNNd6++EZEfCe+
+         QJ/04wFBS/S9ZIYwYmCKvJLoNF22uGunrIxhyRdLT8m8/7RaNObu7xAJ4DWc8b4BEUuw
+         44rTyq8hKywG4O7QBsnsq+UTTSKZEpIbNMp17RRS5DBkvJAvBVltIlsxAqYNRqRHgcaU
+         0ucg==
+X-Forwarded-Encrypted: i=1; AJvYcCX79ztb55LoLrC2G4tcVwXDlfv4FAMmMG6G/gJ1ZM1Q98yCehda1G+zTPyPQ2KJI/Kt05WECyFkaSjREgXwukrV@lists.infradead.org
+X-Gm-Message-State: AOJu0YzBKg7MVtPUzZsDMdm23rQzvguINEH+rDKUzq32kPAU9aAzc03r
+	9KA8J6GtD+BoZN0Y0IolrEi//ophQJ6DqdYm62hndmxFQAbeXFFl4Q/cYAbb86wAin/j4btmpSt
+	x6+UCxz4tJ1tMWjMIV9ot3fjQ+2cGiji/0/rQbni84g==
+X-Gm-Gg: ASbGncvQcWaMhZ7qUN7p+9uGD4N9uZRezjPQPhnCoFg+bWj5sOf761A9+O6c6Hq+56d
+	Hpd59Hbcz5DOcm8x3kLmsFUfUpBmeDtu/L584pTNj7F1rav7x011D298De9wbIUcJ8bL3PJAJS+
+	A3DGBEra4pUozWuczU2gkD5qtVIKzcSGDbxp0SLDJfr/hieDPsa2wt6QvAMjoDpvR4+KTPFT40Q
+	Zh9MCfE6Na03oiEPaxVDlRZkBLTp+OlAQtO+EzINJRO7evj+NqF5H3CV5Wl3GgPkT0zNL7rFv79
+	btPR9V8=
+X-Google-Smtp-Source: AGHT+IEfuIFqkRCXfZDQ1m2D7snzbjj18Mf6UeMcI+k5jw5cpI8JySnnaOmrmzg5DmorahHQyDmg0Mg7N8R6Vf/3bcQ=
+X-Received: by 2002:a05:690c:4b09:b0:786:56ec:e3cf with SMTP id
+ 00721157ae682-78929f13f18mr148209687b3.61.1763479923209; Tue, 18 Nov 2025
+ 07:32:03 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20251118-b4-ddr-bindings-v9-6-a033ac5144da@gmail.com>
-References: <20251118-b4-ddr-bindings-v9-0-a033ac5144da@gmail.com>
-In-Reply-To: <20251118-b4-ddr-bindings-v9-0-a033ac5144da@gmail.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Julius Werner <jwerner@chromium.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>
-Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-stm32@st-md-mailman.stormreply.com, 
- linux-arm-kernel@lists.infradead.org, 
- =?utf-8?q?Cl=C3=A9ment_Le_Goffic?= <legoffic.clement@gmail.com>, 
- =?utf-8?q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>
-X-Mailer: b4 0.15-dev-86b30
+References: <20251108231253.1641927-1-martin.blumenstingl@googlemail.com>
+In-Reply-To: <20251108231253.1641927-1-martin.blumenstingl@googlemail.com>
+From: Ulf Hansson <ulf.hansson@linaro.org>
+Date: Tue, 18 Nov 2025 16:31:27 +0100
+X-Gm-Features: AWmQ_bnsDQPC1FPCE55p78otrm27YbzfdllVOUQUin0JOvD-o9IddmtmqNNalEc
+Message-ID: <CAPDyKFqF+yh0X6f5YZ0yePGqCpPWQOauQTZaeE88Fgv2HAxv-g@mail.gmail.com>
+Subject: Re: [PATCH v1 0/7] mmc: meson-mx-sdio: Various driver improvements
+To: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Cc: linux-amlogic@lists.infradead.org, linux-mmc@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251118_070904_594025_4FA3029F 
-X-CRM114-Status: UNSURE (   9.57  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251118_073204_797266_674757CF 
+X-CRM114-Status: GOOD (  15.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,36 +94,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Clément Le Goffic <clement.legoffic@foss.st.com>
+On Sun, 9 Nov 2025 at 00:13, Martin Blumenstingl
+<martin.blumenstingl@googlemail.com> wrote:
+>
+> This series contains patches to improve / simplify the code of the
+> meson-mx-sdio driver by:
+> - using regmap for simplifying register access (patch 1)
+> - switching to modern clock functions/helpers (patches 2, 3) and
+>   make the clock code not interfere when switching to
+>   devm_mmc_alloc_host() (patch 3)
+> - making use of the devm_mmc_alloc_host (patch 4)
+> - using modern dev_err_probe() for better error handling (patch 5)
+> - indentation fix (patch 6)
+> - ignoring disabled mmc-slot device-tree nodes to allow describing
+>   all slots in device-tree, even though the driver only uses the
+>   first enabled slot (patch 7)
+>
+>
+> Binbin Zhou (1):
+>   mmc: meson-mx-sdio: Use devm_mmc_alloc_host() helper
+>
+> Martin Blumenstingl (6):
+>   mmc: meson-mx-sdio: Switch to regmap for register access
+>   mmc: meson-mx-sdio: Use devm_clk_get_enabled()
+>   mmc: meson-mx-sdio: Refactor internal clock initialization
+>   mmc: meson-mx-sdio: Use dev_err_probe() where appropriate
+>   mmc: meson-mx-sdio: Fix indentation in meson_mx_mmc_irq_thread()
+>   mmc: meson-mx-sdio: Ignore disabled "mmc-slot" child-nodes
+>
+>  drivers/mmc/host/Kconfig         |   1 +
+>  drivers/mmc/host/meson-mx-sdio.c | 339 +++++++++++++++----------------
+>  2 files changed, 170 insertions(+), 170 deletions(-)
+>
+> --
+> 2.51.2
+>
 
-Add 32bits LPDDR4 channel to the stm32mp257f-dk board.
+The series applied for next, thanks!
 
-Signed-off-by: Clément Le Goffic <clement.legoffic@foss.st.com>
-Signed-off-by: Clément Le Goffic <legoffic.clement@gmail.com>
----
- arch/arm64/boot/dts/st/stm32mp257f-dk.dts | 7 +++++++
- 1 file changed, 7 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/st/stm32mp257f-dk.dts b/arch/arm64/boot/dts/st/stm32mp257f-dk.dts
-index e718d888ce21..5956d77f5fda 100644
---- a/arch/arm64/boot/dts/st/stm32mp257f-dk.dts
-+++ b/arch/arm64/boot/dts/st/stm32mp257f-dk.dts
-@@ -55,6 +55,13 @@ led-blue {
- 		};
- 	};
- 
-+	lpddr_channel: sdram-channel-0 {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+		compatible = "jedec,lpddr4-channel";
-+		io-width = <32>;
-+	};
-+
- 	memory@80000000 {
- 		device_type = "memory";
- 		reg = <0x0 0x80000000 0x1 0x0>;
-
--- 
-2.43.0
-
+Kind regards
+Uffe
 
