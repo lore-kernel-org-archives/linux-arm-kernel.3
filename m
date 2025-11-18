@@ -4,191 +4,175 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE05CCEE338
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 16:21:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69933CEE339
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 16:24:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Hk/VwA+m2c178ThVMbEz+BRa3Dmb8sN7t2YPFFVrRaI=; b=m7yo8rM9jtyK29z/GWseK3aXwz
-	lmqTNbS7kZGOVjsdSJ7rUlPk9lp9SOGyxVVr8l7ktio0gAV1Iyx0Bbn1hgb1Gr6mKm9I98IUm4s0u
-	MD0iRiyAML9jlFOl5rZVEeFHKwqSp9hwwCnE9xlvutcNTthhDVFlGwrcHKzCr4YVLlaK5UllD9s2I
-	jOpWKg1pFR3MG29xT66UQWtLlsUY337Ch9et1zSxZpZBPFISCAmkaGn58j+XcAbrNeAs30d4pkzsr
-	effwsz5pikjGITMSD58N9eFt0L3Bo0jr0rdTbtdgwP6AALfsItmJMlIsRqTbXtJOzRQ6pOivruIZh
-	0ioiSIAQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=T7RpjBwBbLA1zDoAp3NuEowZM8miZTR+5hPBN0IyOz4=; b=rsl8/uo/TSmBm0aKfroERIlf6/
+	NjjqJO0sffIMW+K13jB6FhprOCJ8QWw7XmJwOV49Z0Gmu8Bw1saG/0YDGVgteNCEkjjeBumQivQIB
+	owg39N+3aMrE1RhT/xvfEhmBjQbYNt71yW7OTFjx4KjeOBXpJF+x2E60kqRH+mSiuNTvi5i0SNKQU
+	PzsxzRwzkAwVuuAPZtVGw5zOXhls+90B9k4ZrypfLuFK3LWngZaPHENgLpuLNLVMhyneIiqoBRGpp
+	aq66SqFM6VKfDx8uqOs9cv7SkqU535RGqiLf5htg+N3M+SnSJtLPF4xJNhhyiNE0tmi1q0nrAKIlR
+	CylPe57g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLOSc-00000000iUa-3Pyz;
-	Tue, 18 Nov 2025 16:21:42 +0000
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
+	id 1vLOV3-00000000inx-12ma;
+	Tue, 18 Nov 2025 16:24:13 +0000
+Received: from mail-southcentralusazlp170130001.outbound.protection.outlook.com ([2a01:111:f403:c10c::1] helo=SA9PR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLOSZ-00000000iSl-2rTM
+	id 1vLOV0-00000000inW-0IYb
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Nov 2025 16:21:42 +0000
-Received: from pps.filterd (m0241204.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5AIGFaRZ099945;
-	Tue, 18 Nov 2025 17:20:06 +0100
-Received: from du2pr03cu002.outbound.protection.outlook.com (mail-northeuropeazon11011065.outbound.protection.outlook.com [52.101.65.65])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 4agrub8vg3-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Tue, 18 Nov 2025 17:20:06 +0100 (CET)
+	Tue, 18 Nov 2025 16:24:12 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=UNgyK2nBIchns1K3y1kqRg8+M70CnRYpPrpKzpmsbkCPNa+ihsQyc1s+38B4frDtFEMs0p/65ZTe6rsc9M5WY8gjrkD4v33yb281iRBlg+KQ+U1x1Om1+a3jMAbOHn4al9/tR7I4OJ8U87kjj1l9amEtg06qMMI+skmba3i3GCdQ2wvugqBLlirzfZezjL2OeGqRezX2XmVXG2xzpjNvqxmkodEEMhEigTQhLIsj+JdP8dpPLY/Uv+CivgdGe0C7MoGRjLhV7vt3I9zumWOhvm5pJW1vTGtOOVNr7AWxcIno/RyMYsJNHDXurbC8Pea5bwYWXh0cO+vLGYu+09Udsg==
+ b=pxe7lmuk75e19K2d4KA+Nh399KavYgw3ymiPOevLiBj6JKZCwfs3EQpRnX7cXHs4ucgm2d84YSn0Q4QiuVEQJ7vq6lgjLg8jNsI1+YUHVeGlhbQTmPz0AmGD3c4ThU8mdaAa4tOGrzkS2k/AOPWLcNYRUqX8FG4A57KlR+7RJsPiFN8hxoIwZY8T963s/BwYfjY6UCndMzvUmKEC5k6lQQtQWA45w09aU3ulqUBPPsBJkqhaPwhmxW3HtLkBccYSEryTyPNSu6nElwLg5D+t3YOTc0UCO8MK9LRBvDrJB4moExhsI7nlmAx5WdzABReXTQzXpmIkaA97Rkydu5/A0w==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Hk/VwA+m2c178ThVMbEz+BRa3Dmb8sN7t2YPFFVrRaI=;
- b=mG+tuYj5WY1DQrvk/Cc7axnHwGYOCwSabufVFBmT5xrKsuk03QBdjZE6+uzC/CJwQ8yUCVSjnrXI1N1Z/JVRQNY2kEDe7VGSvdFIoma7bZftxWE9kd/OUgmxWIjh7QNsZl3/IRAWoS9iBtpkdUQ61OqZw4zV3Y+aqxWNJDg7BvisaK1nfTYdR+wRcU6MB4ImvUdQThputvg8Vd5ClK59MrSVg7zvczqKK6paoLzIBl5JDnRFTTjDrZRRMvVnc5WdxONMFnaUtT6z2nr8CZe4SPO4sBz4PD3eu1mQckCPj0ql/Ro8FqNaK3u3qOmxIQQ5ZF6fdMmKmtzG8mgrjweY9g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.59) smtp.rcpttodomain=linaro.org smtp.mailfrom=foss.st.com;
- dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
+ bh=T7RpjBwBbLA1zDoAp3NuEowZM8miZTR+5hPBN0IyOz4=;
+ b=S4sQsqSh9NVNUjAi0dp2w7XtLlAD36JwEb/8y3UYhuRPR9PGQtgmQMbe3DYDnwnnoVah+vYahol9qUTJiCrYf3rZHkl4aP8AJoyMazDsUbkm641hn3TnAT7LorANScddxbloAl2bzctZEZeq2gSLXcQfnNZsBk/3jRkhYKRX6ztpAgp+TJNeZosD5TIDUuWPf/35tNScUzkrqKeuvlHOCJVDl5wuXx89HhAOUKy0BMmJbUDSinatK7MZQQJsDwqs9R74L91lgm7warGaOfqVbVrK3a9+/0Cq4dqzk6UbCBTfmR5uDPp/BPqOZxO4h6FROwNrgANRROL8JaZdHe2bVQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
  s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Hk/VwA+m2c178ThVMbEz+BRa3Dmb8sN7t2YPFFVrRaI=;
- b=EWR7al+va1Y1uCWIrh/tkspnaPqc1yIeYKNOtwbuBsUnU/fU8OBxxMVSYQNa7lONAyDce8T3Kt5cqGXqlOAUydhKZlHEwMuA4r9Fng8kDjv/UJn/SyoRO1IED5JLpfzp+7Hn7ZtnNz0YH5B+Rr63Il2qH1TvpoRqGpY2dI4S78G0n8brUq987tdTJ8y2+lTmaIwunlteAUaiNhtlzuviQbvrneNt9kmEdf8z+6LhbqomMY1RgVhmpGknhEcFrfoqIImLlodztBWgW/iC9UpHJDuBnfY0bhysP6Z7BADRH3Em/mi9qM3Kexq4Oap6sA3nnXIvr/tR7SgyFZu3CDkDsA==
-Received: from DU2PR04CA0076.eurprd04.prod.outlook.com (2603:10a6:10:232::21)
- by DB8PR10MB3751.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:10:161::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9320.22; Tue, 18 Nov
- 2025 16:19:58 +0000
-Received: from DB1PEPF0003922E.eurprd03.prod.outlook.com
- (2603:10a6:10:232:cafe::c3) by DU2PR04CA0076.outlook.office365.com
- (2603:10a6:10:232::21) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9320.22 via Frontend Transport; Tue,
- 18 Nov 2025 16:19:58 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.59)
- smtp.mailfrom=foss.st.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=none header.from=foss.st.com;
-Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.59 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.59; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.59) by
- DB1PEPF0003922E.mail.protection.outlook.com (10.167.8.101) with Microsoft
+ bh=T7RpjBwBbLA1zDoAp3NuEowZM8miZTR+5hPBN0IyOz4=;
+ b=e9fA6fp535lxtr6pzhzosljMAbp3rrPmIoPgAD1XIM3veadOtdkRVR1hUbWhMnTvC8rq+9ZrPvfudQEpTmspFB6dioeisitvAprbHOwHrOTHwZpV+R4cZlnscIde18AWE7OJk+WcSIlICwmSWkMAOckvBXK4iW2da+dYTTN3m6IY/xG5kqU9H/mCHNrCfVjkulrN+yYxaHXZa8X0Be6Enm+E8Mn4caXhcJCk3CKS+EO0V9/rNrCeBpfuyk6VPNmWwLX9HBWlvSorfouMzBLcbj0E3sWTpm4ntKMw6bFWkCeZdnfo44Mdb/tqpGshSB+OC/WS1bJwXAKeIOawNaSUdQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from DM6PR12MB2667.namprd12.prod.outlook.com (2603:10b6:5:42::28) by
+ DS0PR12MB7780.namprd12.prod.outlook.com (2603:10b6:8:152::6) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9343.9 via Frontend Transport; Tue, 18 Nov 2025 16:19:58 +0000
-Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpo365.st.com
- (10.250.44.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Tue, 18 Nov
- 2025 17:20:01 +0100
-Received: from localhost (10.48.86.11) by STKDAG1NODE2.st.com (10.75.128.133)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.2.2562.17; Tue, 18 Nov
- 2025 17:19:46 +0100
-From: Antonio Borneo <antonio.borneo@foss.st.com>
-To: Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue
-	<alexandre.torgue@foss.st.com>,
-        <linux-gpio@vger.kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-CC: Antonio Borneo <antonio.borneo@foss.st.com>,
-        =?UTF-8?q?Cl=C3=A9ment=20Le=20Goffic?= <legoffic.clement@gmail.com>,
-        "Amelie
- Delaunay" <amelie.delaunay@foss.st.com>,
-        Pascal Paillet
-	<p.paillet@foss.st.com>,
-        =?UTF-8?q?Cl=C3=A9ment=20Le=20Goffic?=
-	<clement.legoffic@foss.st.com>
-Subject: [PATCH v2 05/15] pinctrl: stm32: add new package to stm32mp257 pinctrl support
-Date: Tue, 18 Nov 2025 17:19:26 +0100
-Message-ID: <20251118161936.1085477-6-antonio.borneo@foss.st.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20251118161936.1085477-1-antonio.borneo@foss.st.com>
-References: <20251118161936.1085477-1-antonio.borneo@foss.st.com>
+ 15.20.9320.19; Tue, 18 Nov 2025 16:24:03 +0000
+Received: from DM6PR12MB2667.namprd12.prod.outlook.com
+ ([fe80::bd88:b883:813d:54a2]) by DM6PR12MB2667.namprd12.prod.outlook.com
+ ([fe80::bd88:b883:813d:54a2%6]) with mapi id 15.20.9275.015; Tue, 18 Nov 2025
+ 16:24:03 +0000
+Message-ID: <d555d2e8-2bc8-4be8-af13-3dc3ffe9b8ca@nvidia.com>
+Date: Tue, 18 Nov 2025 08:23:59 -0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 14/34] arm_mpam: Probe hardware to find the supported
+ partid/pmg values
+To: Ben Horgan <ben.horgan@arm.com>, james.morse@arm.com
+Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
+ baolin.wang@linux.alibaba.com, bobo.shaobowang@huawei.com,
+ carl@os.amperecomputing.com, catalin.marinas@arm.com, dakr@kernel.org,
+ dave.martin@arm.com, david@redhat.com, dfustini@baylibre.com,
+ gregkh@linuxfoundation.org, gshan@redhat.com, guohanjun@huawei.com,
+ jeremy.linton@arm.com, jonathan.cameron@huawei.com, kobak@nvidia.com,
+ lcherian@marvell.com, lenb@kernel.org, linux-acpi@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ lpieralisi@kernel.org, peternewman@google.com, quic_jiles@quicinc.com,
+ rafael@kernel.org, robh@kernel.org, rohit.mathew@arm.com,
+ scott@os.amperecomputing.com, sdonthineni@nvidia.com, sudeep.holla@arm.com,
+ tan.shaopeng@fujitsu.com, will@kernel.org, xhao@linux.alibaba.com,
+ Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>, Zeng Heng <zengheng4@huawei.com>
+References: <20251117170014.4113754-1-ben.horgan@arm.com>
+ <20251117170014.4113754-15-ben.horgan@arm.com>
+Content-Language: en-US
+From: Fenghua Yu <fenghuay@nvidia.com>
+In-Reply-To: <20251117170014.4113754-15-ben.horgan@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: PH0PR07CA0109.namprd07.prod.outlook.com
+ (2603:10b6:510:4::24) To DM6PR12MB2667.namprd12.prod.outlook.com
+ (2603:10b6:5:42::28)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.48.86.11]
-X-ClientProxiedBy: SAFCAS1NODE2.st.com (10.75.90.13) To STKDAG1NODE2.st.com
- (10.75.128.133)
-X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DB1PEPF0003922E:EE_|DB8PR10MB3751:EE_
-X-MS-Office365-Filtering-Correlation-Id: ec34a7a4-cb90-4e4f-9403-08de26be5142
+X-MS-TrafficTypeDiagnostic: DM6PR12MB2667:EE_|DS0PR12MB7780:EE_
+X-MS-Office365-Filtering-Correlation-Id: 5f17691f-9eb7-400d-59e4-08de26bee33c
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|1800799024|82310400026|376014|7416014|921020;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?T2Exd0Erai9qZFZOUUNDQkFadDhLYnQ4VjNWeHgxUUwwZUhzaW5XeFQ4QzZr?=
- =?utf-8?B?SmNpcTgzTEk2ZG80cnZWUkR4WDh5Wk9DREoxeDExVnVHRi9tWTJuMHpva2p5?=
- =?utf-8?B?Nk5sNmNyRlNmUkhRM3dMY1pZQUcyMEVhaVZ2elBFcEorMzJxZG9YUGhlR0wx?=
- =?utf-8?B?aHo5a3dKWE85VnV6ZjVnOFQ1aHYvTUo2YnBvaFR6a3NlRFVhVElWZFV4WWhy?=
- =?utf-8?B?ODVxOE1SOThHdXAzekw2V2Mwa3kybldWQnYyYXRSWGY1c01ocVVQcjVpdWxj?=
- =?utf-8?B?cVZ5SGhmWDF5Z3RvcThwOWx3bkcxWVpwcDlZMjh0SWsrK252WjAxTmtaN2Fq?=
- =?utf-8?B?SzB1RE9ITG5MMFVGTklQdHdJVlB2d0ZPcTJtdEprRmd6TzlRWUEzcno0UXZ4?=
- =?utf-8?B?T21zQmFLUmxyRmlobHZLSFh3c3dDdTYvdk9IMzY4QUJjVENiZWw2cU1QN0sr?=
- =?utf-8?B?dHcyTVN4SXRkUk8wOGcwaVdHaUI4VTNjTWtyWjBpUy9oMmUvN2RqbVJxWkxY?=
- =?utf-8?B?bFpIaG5kTFgyeTdLUkhGVGprOCtTRVR0TndkMlZhNUo3ckNldTFPSkVwY2V6?=
- =?utf-8?B?bFYrQzAyRXhOV0Y0ZVZuRWJKMWphVjkzOVRDT1Blc09TMUZaaGpSOTVScm9y?=
- =?utf-8?B?L21MZ0h5Z1E0a3Joc3QxNE5Ec1RsNzZnTG95Z1F6Q2duejFlQmZha0ZBSlJQ?=
- =?utf-8?B?akpzYm10N2RzQXFyRVcwNnpKdTk3Rit6VmhDZHNaUzJpaXY5Q29RZVFJNUdi?=
- =?utf-8?B?dER0QjRLaFNvdXdkeVRJOUNIOFFwNHVXVGQ3b01ueS9WaExMUXJzdGd2d0Ni?=
- =?utf-8?B?UnhaWDh4QllVSyt6Q1VpemhhN1NNcEVVaDFFY250ZU51bDc2QUxneVlIZXMr?=
- =?utf-8?B?Sm85Q2lwVHplVmxmMEpQU3VQR1BTQVd2Qjd1OXg2MnJhTjB1M1pFeXRKWGFB?=
- =?utf-8?B?bTdGUXZBODA4ak5UdERHVG9rcEVvbk9uYU5QcUZNbTNyT3Mycnp3VTRIR2Jv?=
- =?utf-8?B?bGwwNG1scnhGZ2lxRCszSElMblVlZkdFSyttZHlKRmVOM2QwUlIrRE0zYVov?=
- =?utf-8?B?eSs4ckJ4UDdJSEc4VDZIRnBiSVNtZ21CZHA2NUNDa1Z6WlNMTUpFNjVTQkFF?=
- =?utf-8?B?c0RvS0xuUENWNmg5OWplVXQ0V2VvMjI4WHMwSG9nQWlJVnhjejViVjUzekds?=
- =?utf-8?B?OFJFVVNRSW92WXlRdFEvVGhmNWZrdzMwYzd0OHRtRlEyN0hPNnd1ZDZMSEty?=
- =?utf-8?B?bnVvUFEwWlBXb1kxNDJzZEhrbUU5U29pVitVWkpSbTdVMDMwRUQxNFFrMDFO?=
- =?utf-8?B?UnpYMmZOWThqQTN2Mkp2WkNIRURMN2R1NVBPQ2QxL3A3QXd3RjFheVpaUzYr?=
- =?utf-8?B?bVRaeE00b0o4WS9RcVNicjNLamZQRGRpZ3ZEYUhnRnUzTHZWN1ROT0pFUUhY?=
- =?utf-8?B?dmc1Vk9qZmtsVlJ1U2JpWkhubndJNW5NNTQ1YUZER2VHTllsVWs2SjdCYUVw?=
- =?utf-8?B?VWpRU0NJNVpFSzhRYWFubzhsUW8rVzZxRG5lRVBtcWIxNkRaYkREOWpXcEtL?=
- =?utf-8?B?QTNZbEJWODZJMmlmcURKYVBsaW5hbVlKVjdmWUl3clBla01TdWdrM3R5VHhM?=
- =?utf-8?B?UEhvTVZ5Nk5JdzNYdXVVTDJTaWdIV3pIRldFamFxa2lGbUFEU1k3VW9oaHh6?=
- =?utf-8?B?L1FKb29WbjQ4ZkhlSlhFeTJEY2ZGdWQzejRuT3BzUTBLM3YyMFE4SVRvdG1l?=
- =?utf-8?B?anc0OTg0RktzcC9yUUEzOHBPY1VSTllodjViejhXN2laelh6NjBnMGR3NFk5?=
- =?utf-8?B?WmRvaDRRc2Qzb3ZhRFl3Nkk5Yk5KVmdocUtuQzhjcG1La2kxRTVhZGVmUFJo?=
- =?utf-8?B?OUIzemRhM0FzOHJzd1NXeHkyMkJKNklpcDFFZFdnQnoxQ2cxSWxseXpkTStm?=
- =?utf-8?B?UjFuMEhzOGR6ZWo3RE9EeDMwOENtdllaL2dleE52R1EyMlZmaFFXTndSZis1?=
- =?utf-8?B?SGJ6QlEyZjZrbjFhUFFWNWJtZUwyQXZocU5SbnNFTTVWOFpyd052eUlPWWRX?=
- =?utf-8?B?cG52ZElEWnBGOG8yL3dQR1o4RlE5d0U5cEVDRlpmaFNaZjhsVm5FaFhxa042?=
- =?utf-8?Q?D87QOiJ08NMBmpezBdx8iosPg?=
-X-Forefront-Antispam-Report: CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700013)(1800799024)(82310400026)(376014)(7416014)(921020);DIR:OUT;SFP:1101;
-X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2025 16:19:58.1006
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|366016|1800799024|7053199007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?dFJMdUw2clRiQkg1TnM1RHo0LytOUEdESGw4SmRtNnJUTUFvT2hDZjliclJp?=
+ =?utf-8?B?eEZMMTI2Nk95cUJtOUtoSWNBSVM1M3lOKzF0aWRQRGxvUDQ2UW9LazRCOERv?=
+ =?utf-8?B?K1NwalV5ejNZKzNJUTNxRExveDVFcVl2ZUZDV1psdzJ2K2I1ZjlFcEFvQ0Q5?=
+ =?utf-8?B?Q3pnQ0E0Mm1sM2tFMnpBeVllMHdDN1RUMmtPbk9HYmNITnR6STljVW5xZ1BP?=
+ =?utf-8?B?VVBuTWNUYlVVZklBeFBlVFRxb3d3dUhPTE5CZ3BoYi9wRklNdG9NdW10ZlBi?=
+ =?utf-8?B?bTA3c1JXM2lCSWtWUGcrU1Q2eHYxRnRIb1dDdWE0QU5oVUZaMExnekpVVnIx?=
+ =?utf-8?B?c2NrcEdTd09jenNMSFRRcDR0SlZLc2grenRCYWNRbGZldytTWFljZ2FEUzd1?=
+ =?utf-8?B?cDB2MXVUZDlwMGYycjlPdGkvRm01NThhbHB4UnBEVlBWd1dDRjBKY1BTK2JZ?=
+ =?utf-8?B?NUYxOTFmZm1uMWl2MTBScU9XK0EzWnVxWkdyZlppZ2duU2FSL1EwdmRIZ2I2?=
+ =?utf-8?B?NzFHRHJNK203WTN3eXhJWUlvSkZpMXRjamZKU241U0dBQXVKUFNUNXZOU0pp?=
+ =?utf-8?B?emZoNStETlBHQytKM1I5R0tEWHZWUnhEMEF6aXV0ZWU3akxnMVV0amNrRjdn?=
+ =?utf-8?B?MHRQcUlrMjRPRkpoNXpOcVFFYVlrOWRxWG1DZWZ3ZjI5WlJZVTh6V0FzUHJw?=
+ =?utf-8?B?S1dGdmdwcFVoZ00rSVBnbzQ4YVNRM2VoZ0pvK0xpbGlSdE1uSFdHK0JsTGRN?=
+ =?utf-8?B?UTFTNHJHSlVZNmtnSGx2MWJTOVJSZTFHZWpjdHd0S2tOcXRaOEdTaGhFNUJL?=
+ =?utf-8?B?Q1NrQ2drV0NUR25hd0hac0ZsWXJsbVJWVHkwelVwMlV1M0R1dlpzdk9xQTh1?=
+ =?utf-8?B?Y0R1TXRqUFg5MmQzVDh1RzFCeGVUUHFiRkVmNVU3VXBtRGxhWGV0REliZmxz?=
+ =?utf-8?B?Wi9yQ2plb0NZQkpNZ3g4UzZZNFk4bmErOU1nNGdKYVNmLzZldlYrcVA1OFpQ?=
+ =?utf-8?B?dXpvWTJqdjQ3cjNnbHFzbXNJVEloT09Zbm9MdnlNd0E1dWFrbVNlTkM1MXRp?=
+ =?utf-8?B?NWhEYTNTVGE4TFVWVHNzL2ZKZmhsaUtHOTRsMjNOekk0cUlVSHlsY29SaWp5?=
+ =?utf-8?B?d093bFF3SURab0FOZHRleDkwR2xFK0U3ZElpanc5RWRvWS8zaGhFazJVcHpy?=
+ =?utf-8?B?RzNvc3ZXWTI0MXY1dGxnOURFQ1ZQUk1LaFhIeEpicHhidkNHbU9Jc2I3Vksv?=
+ =?utf-8?B?UjZ6N0hSOW5pSnBjNGFIdzY2aE5lSmZlN0N4bHZMVDY3akNZOEpZT0FyenMr?=
+ =?utf-8?B?dHlYUTR0K0gxUUFPLzdBa2dsWWRwdzRWL3NLUFQ1cUVMalZURDRTYnAxM2E4?=
+ =?utf-8?B?UGU1Nk9tM3J1VmJHM3ViR1I0bEpUamZhMXFjUXh4OWptanZPOTNvWTJWS3ZV?=
+ =?utf-8?B?VmRzSm42amwrZHRIUVhNbUFNdkthTXZrK0VudEM0VmFmQ09jbTNxdVRndFlO?=
+ =?utf-8?B?VWpheVZ1NW9XV2dXMWlWQ3RTTTRyZzhyZGVGZW9HbEN2aE5kd0pYSUZMOHB0?=
+ =?utf-8?B?S3Q5ZUZOckF5MVpjai9rMHpDVzhSY3JGMXJrNis0WDIzNCtyUC9tY0szVEIx?=
+ =?utf-8?B?TXNuRG5obHdPVlg4U2djb3F1VkMvdmNNODZ5RHNtZElQdEFsaFBsbjVDc0dz?=
+ =?utf-8?B?L0NqQUJLbElTZUxrNDcvTnhLMlpsUjVXTFA1OFc2eFU5NnNrRHU5K24yMVpj?=
+ =?utf-8?B?amlmb2tIOW5SZ1c4b2JsczE2L3g0aU5hS2FpYWs0NmFEY0tUSHVVZ0hEY0ZG?=
+ =?utf-8?B?NUpydUtCMjBQc1ZFRHA0MWZCL1JtS2VBbExNSlhmdjJrcTBuRGFZMWlhZFNX?=
+ =?utf-8?B?Uk12UGIvQzhVRFZzT1Z2YVVSME94N2VCTytlVmdyZFp5UUpJVUZHTGhpS2du?=
+ =?utf-8?Q?819GHT566JvoC7nENUZpUwRY4fQWq6Gr?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM6PR12MB2667.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?UDBFUXFJd2NvNEFhOHMySjRmajBEUkhFVkU0MWs2UU10NkJheFVIOWRHWDdr?=
+ =?utf-8?B?eDFCWDZuUlNaQW1GMFF4RWF5UEVHdmFsRHhjU3ZEblp5ZWdDd2l4TFhTYjRo?=
+ =?utf-8?B?dFM4RFFnNkxyY0lqOFJ5elFQdlNFWGNrZnQ5cFdZWWhIV1NYa3M4VWVBdlAr?=
+ =?utf-8?B?RE5YenYwWE9UM0lEcEx2SGhTNlBJY2xUWVRzeGRNcS9iR1M2ZGt6eW1lQWFn?=
+ =?utf-8?B?Y0hDbGRyUVFDSVJLd25QRVhBMzVwc1Z4c2I4d1FmeXVXMGNYOWs5MDUwOEZs?=
+ =?utf-8?B?NWtBLy9ZK1F4UGNJWng4NFZjU3FWdEowYzhhKzB4TjdzQjFEcHFqWkdobVZI?=
+ =?utf-8?B?T2tISXA4S0IybTZnUnlDcFBoNDV5MmVCQm0yRy8wZHgwM0Q5QjI0TkpHNTE1?=
+ =?utf-8?B?QTU4bmdTaFhEMTR6ZjNOY296VUhoWk1IcDVUbFN2T2RQanJ0MHdFSkJiaVho?=
+ =?utf-8?B?ZlJtb1FtTkUvMjRTNno1SUg2dUlCUVNEcWg3TXRwNVgySVlBQUQ0U0dsQThu?=
+ =?utf-8?B?dzFYZjlwTkZjRVJacFJrTHZQUTBST08yR1Q5c1VxRy9HRUp3YWRNUGNZc0F2?=
+ =?utf-8?B?Vk9nSkRUNTAwYVNrSDcwZlEyaDFjOU1UM3VIL1ZCM0FocHdISHJ4RDBsTE9v?=
+ =?utf-8?B?elpPeFRXZDVZaWZ6V04wemlhL1FnV1ZNTm02MmR0N2pjMTV2bWN5OU5yUXR2?=
+ =?utf-8?B?aStYTVFxYkNhL1gwNlR0aWlScGZsYkFwV21JVVAyVWs0NWxMMGx2eFM0RlpW?=
+ =?utf-8?B?K3hza1lPNXN4ZWlFOEN1NkR0MTU0M0Z2S1dJRVB5azlhVTdFckZUQStVS2RL?=
+ =?utf-8?B?dGU2U0JrZVg1NVIxb0h4Z01kMWxxTk9CaVlrcDg0OE0wVitPdVo2MCtyUjdN?=
+ =?utf-8?B?N1lxU3BsK3lrM25EdTFwSldvbHgzczZPMW8vMDAzYkFXcGZsNVpPelJZOXVo?=
+ =?utf-8?B?dG9aRmxCbWxGZkhqTlNZb2VFWnVXclRUNEJxTk52TnYrY21uQzFzNkVzbHE4?=
+ =?utf-8?B?Y1JDY3hxR052eExnZVlqN3RzMFFFODdxSzduNk1yUHZLWDNtZ1hjUWlQWUJp?=
+ =?utf-8?B?ZGdjTmJYTWd2RERQL3N6dFdzbGVOcWhHbk0rZDVlZUZsbzNjalJqcXdSWEpU?=
+ =?utf-8?B?azg1TmQxTmlmaktmOFp0RmlIV0tGeTZlajlTbG5mU0tGRkZqSEpFcWdDWVFX?=
+ =?utf-8?B?MERiWXJUZDRhZE0rK3IwTmFyN2xFeVp5cm84cm9BNmE1cXpheDhQeFNFdjJs?=
+ =?utf-8?B?NlVxb1hOUjBacmVMbWVOUWlQV1BaYW1GR0VpVkllaWl3QUo1ZktuemhrclhK?=
+ =?utf-8?B?Mlh3eEZqbzV4UitNdWRzU2JVcXFaRXRiSmVMVzBwam5rcVloZHEyMUFnNFls?=
+ =?utf-8?B?R0FnRVRMbXpUVDRBaE5ldFhmWjdiVnRya0cybzdBZjV5TFJZQmw5dEpxdHlk?=
+ =?utf-8?B?NThsTGNGTW9zc3VvTlMySWJkRTZ2b1VLczNqSVdjM1FqSmRpNzZzODJ4akhi?=
+ =?utf-8?B?eHN0OVFqOG1kRGM2SG15OHBlQ3UyWHdwUncvdWQ0VEdHMU0xV2pKNTZnazcy?=
+ =?utf-8?B?Ymtjb01lZURSY3hIcWJiaUoyTWZqQUk2S1RCYUl5U0RBYUJkYkowWmh6TWNJ?=
+ =?utf-8?B?UDVUM2lqNXFueE5RMW0zaGttUDRlcERYZVR4VEJ3L29rWVA2eitIanlPN2RY?=
+ =?utf-8?B?S1JGNzV3WTFPd2plVUZVM2FRd0lua21PZDNBa0htbjJKR0JzcHRrZGd3emZs?=
+ =?utf-8?B?YXZQbTRuQ2RHVEVlZFlzTUh6K0cyM216TDNVS0ZQcXFRTXZSOEtuMWRIZlFz?=
+ =?utf-8?B?S3pMaTJnUWsvMUdwdVJncGYzL2VIQU1yY2FMa1Iva1VxR0RCUVZ4aU1KMkdj?=
+ =?utf-8?B?QWp2TVVEZ05xR2ZwOFJQVFZ4VHBPU3kweGk2T1dBQ2doVHhZci9uaVRNak5s?=
+ =?utf-8?B?VEZRaGdtcytka1QrY3B0ek9IVHFVRUMycjhtZTVPUU9acmlnVzRUUFQ5dm40?=
+ =?utf-8?B?SlRlbjhwbGxXRmlzU3d5SW5GdnR4d3UzRVhZc1FYc1N5ZCtHSTVjYytQMXVv?=
+ =?utf-8?B?MUg3TlArYURPTXZrQzJTdWprVzB1eTFrY0VjMzh6MkZZY2VzbkE2c04weVov?=
+ =?utf-8?Q?4Mom1tqtyJebvJWenYEoK/zdB?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5f17691f-9eb7-400d-59e4-08de26bee33c
+X-MS-Exchange-CrossTenant-AuthSource: DM6PR12MB2667.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2025 16:24:03.2727
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: ec34a7a4-cb90-4e4f-9403-08de26be5142
-X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.59];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource: DB1PEPF0003922E.eurprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB8PR10MB3751
-X-Authority-Analysis: v=2.4 cv=LKBrgZW9 c=1 sm=1 tr=0 ts=691c9cb6 cx=c_pps
- a=KGNGHRCrBgxyWJT5PB+uzg==:117 a=d6reE3nDawwanmLcZTMRXA==:17
- a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=y9YUpebZf6kA:10 a=IkcTkHD0fZMA:10
- a=6UeiqGixMTsA:10 a=s63m1ICgrNkA:10 a=KrXZwBdWH7kA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=8b9GpE9nAAAA:8 a=mcapIeYrMYwP5J6XJbAA:9
- a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10 a=T3LWEMljR5ZiDmsYVIUa:22
- a=cPQSjfK2_nFv0Q5t_7PE:22
-X-Proofpoint-ORIG-GUID: gh-OTLrnyq-_T1tUNRcgex3M3wtg8LTN
-X-Proofpoint-GUID: gh-OTLrnyq-_T1tUNRcgex3M3wtg8LTN
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMTE4MDEzMSBTYWx0ZWRfX87g76EzCALmD
- 0qcc07TzCu2C9gyQghB0ReI6MFQpQbQ5Qq0yfLxPjhYnuQMQERl/ZAD4RneJKOY/68YGb3QW7MV
- OfA+pmPZUPZTPIV1bPAw1KnSz1PSO6qnsDEjzp/sL40IAhs6eFLr8QQ5Ru/3p6aj6L2LcxHvpSn
- hbZvacNGzwjLJfrHfwHwAyoRhx67XxG42roMlwfxbGB30++rESSpLMk6RVos/s2t3ueGhvP3Skl
- eZJVF+Bll5z+SUexs8ihtxx8oPqyR9rmthCLRtwTibuv42abaatM4N6pV2c1KM3WEQNDz4+kjSI
- tRtUgukpZsln4SgTdByY+zwhDacuerXf4U7gJj8ReIqGVkOPX7vWfu0We0BBV8JOSDowFPQme3Z
- utC15cu3s0tQ4PARRAXTbVj/y8S8Kw==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
- definitions=2025-11-18_02,2025-11-18_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 adultscore=0
- lowpriorityscore=0 suspectscore=0 malwarescore=0 impostorscore=0 bulkscore=0
- spamscore=0 clxscore=1015 priorityscore=1501 phishscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2510240001 definitions=main-2511180131
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: eGGnOg45f7XCHjG7nCmbo3XaprxVugDtIVhB7bqh5TcXfLIwICRINwkzYFPepZ7zVQYYSG522V8fvILYHRVKIQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB7780
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251118_082140_197035_90156353 
-X-CRM114-Status: GOOD (  12.32  )
+X-CRM114-CacheID: sfid-20251118_082410_141889_57F603AC 
+X-CRM114-Status: GOOD (  20.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -203,1343 +187,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Clément Le Goffic <clement.legoffic@foss.st.com>
 
-Add the package 'AJ' to the list of supported SoC packages for
-stm32mp257 pinctrl.
-It corresponds to the package type TFBGA361.
 
-Signed-off-by: Clément Le Goffic <clement.legoffic@foss.st.com>
-Signed-off-by: Antonio Borneo <antonio.borneo@foss.st.com>
----
- drivers/pinctrl/stm32/pinctrl-stm32.c      |   1 +
- drivers/pinctrl/stm32/pinctrl-stm32.h      |   1 +
- drivers/pinctrl/stm32/pinctrl-stm32mp257.c | 288 ++++++++++-----------
- 3 files changed, 146 insertions(+), 144 deletions(-)
+On 11/17/25 08:59, Ben Horgan wrote:
+> From: James Morse <james.morse@arm.com>
+> 
+> CPUs can generate traffic with a range of PARTID and PMG values,
+> but each MSC may also have its own maximum size for these fields.
+> Before MPAM can be used, the driver needs to probe each RIS on
+> each MSC, to find the system-wide smallest value that can be used.
+> The limits from requestors (e.g. CPUs) also need taking into account.
+> 
+> While doing this, RIS entries that firmware didn't describe are created
+> under MPAM_CLASS_UNKNOWN.
+> 
+> This adds the low level MSC write accessors.
+> 
+> While we're here, implement the mpam_register_requestor() call
+> for the arch code to register the CPU limits. Future callers of this
+> will tell us about the SMMU and ITS.
+> 
+> Signed-off-by: James Morse <james.morse@arm.com>
+> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+> Reviewed-by: Ben Horgan <ben.horgan@arm.com>
+> Reviewed-by: Gavin Shan <gshan@redhat.com>
+> Reviewed-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
+> Tested-by: Fenghua Yu <fenghuay@nvidia.com>
+> Tested-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
+> Tested-by: Peter Newman <peternewman@google.com>
+> Tested-by: Carl Worth <carl@os.amperecomputing.com>
+> Tested-by: Gavin Shan <gshan@redhat.com>
+> Tested-by: Zeng Heng <zengheng4@huawei.com>
+> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
+> ---
+> Changes since v3:
+>  From Jonathan:
+> Stray comma in printk
+> Unnecessary braces
+> ---
+>   drivers/resctrl/mpam_devices.c  | 148 +++++++++++++++++++++++++++++++-
+>   drivers/resctrl/mpam_internal.h |   6 ++
+>   include/linux/arm_mpam.h        |  14 +++
+>   3 files changed, 167 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
+> index 51284f55ae9b..ac1c770cea35 100644
+> --- a/drivers/resctrl/mpam_devices.c
+> +++ b/drivers/resctrl/mpam_devices.c
+> @@ -6,6 +6,7 @@
+>   #include <linux/acpi.h>
+>   #include <linux/atomic.h>
+>   #include <linux/arm_mpam.h>
+> +#include <linux/bitfield.h>
+>   #include <linux/cacheinfo.h>
+>   #include <linux/cpu.h>
+>   #include <linux/cpumask.h>
+> @@ -42,6 +43,15 @@ static atomic_t mpam_num_msc;
+>   static int mpam_cpuhp_state;
+>   static DEFINE_MUTEX(mpam_cpuhp_state_lock);
+>   
+> +/*
+> + * The smallest common values for any CPU or MSC in the system.
+> + * Generating traffic outside this range will result in screaming interrupts.
+> + */
+> +u16 mpam_partid_max;
+> +u8 mpam_pmg_max;
+> +static bool partid_max_init, partid_max_published;
+> +static DEFINE_SPINLOCK(partid_max_lock);
+> +
+>   /*
+>    * mpam is enabled once all devices have been probed from CPU online callbacks,
+>    * scheduled via this work_struct. If access to an MSC depends on a CPU that
+> @@ -143,6 +153,70 @@ static inline u32 _mpam_read_partsel_reg(struct mpam_msc *msc, u16 reg)
+>   
+>   #define mpam_read_partsel_reg(msc, reg) _mpam_read_partsel_reg(msc, MPAMF_##reg)
+>   
+> +static void __mpam_write_reg(struct mpam_msc *msc, u16 reg, u32 val)
+> +{
+> +	WARN_ON_ONCE(reg + sizeof(u32) >= msc->mapped_hwpage_sz);
 
-diff --git a/drivers/pinctrl/stm32/pinctrl-stm32.c b/drivers/pinctrl/stm32/pinctrl-stm32.c
-index 0f5ab585e4bbb..97995ac505786 100644
---- a/drivers/pinctrl/stm32/pinctrl-stm32.c
-+++ b/drivers/pinctrl/stm32/pinctrl-stm32.c
-@@ -141,6 +141,7 @@ static const char * const stm32_pkgs[] = {
- 	[STM32_PKG_AC] = "AC",
- 	[STM32_PKG_AD] = "AD",
- 	[STM32_PKG_AI] = "AI",
-+	[STM32_PKG_AI] = "AJ",
- 	[STM32_PKG_AK] = "AK",
- 	[STM32_PKG_AL] = "AL",
- };
-diff --git a/drivers/pinctrl/stm32/pinctrl-stm32.h b/drivers/pinctrl/stm32/pinctrl-stm32.h
-index 6761024ce691a..051597b00f1f5 100644
---- a/drivers/pinctrl/stm32/pinctrl-stm32.h
-+++ b/drivers/pinctrl/stm32/pinctrl-stm32.h
-@@ -31,6 +31,7 @@ enum stm32_pkg {
- 	STM32_PKG_AC = 2,  /* do not change */
- 	STM32_PKG_AD = 3,  /* do not change */
- 	STM32_PKG_AI = 8,  /* do not change */
-+	STM32_PKG_AJ,
- 	STM32_PKG_AK = 10, /* do not change */
- 	STM32_PKG_AL = 11, /* do not change */
- 
-diff --git a/drivers/pinctrl/stm32/pinctrl-stm32mp257.c b/drivers/pinctrl/stm32/pinctrl-stm32mp257.c
-index 346d5a10c6c8a..4808eea93f1bd 100644
---- a/drivers/pinctrl/stm32/pinctrl-stm32mp257.c
-+++ b/drivers/pinctrl/stm32/pinctrl-stm32mp257.c
-@@ -13,7 +13,7 @@
- static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(0, "PA0"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOA0"),
- 		STM32_FUNCTION(2, "LPTIM1_CH2"),
- 		STM32_FUNCTION(3, "SPI5_RDY"),
-@@ -31,7 +31,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(1, "PA1"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOA1"),
- 		STM32_FUNCTION(3, "SPI6_MISO"),
- 		STM32_FUNCTION(5, "SAI3_SD_A"),
-@@ -48,7 +48,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(2, "PA2"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOA2"),
- 		STM32_FUNCTION(2, "LPTIM2_IN1"),
- 		STM32_FUNCTION(3, "SPI7_MISO"),
-@@ -64,7 +64,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(3, "PA3"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOA3"),
- 		STM32_FUNCTION(2, "LPTIM2_ETR"),
- 		STM32_FUNCTION(3, "SPI7_MOSI"),
-@@ -81,7 +81,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(4, "PA4"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOA4"),
- 		STM32_FUNCTION(7, "USART2_TX"),
- 		STM32_FUNCTION(8, "FDCAN2_TX"),
-@@ -94,7 +94,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(5, "PA5"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOA5"),
- 		STM32_FUNCTION(4, "SPI4_MOSI"),
- 		STM32_FUNCTION(5, "SAI2_MCLK_B"),
-@@ -111,7 +111,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(6, "PA6"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOA6"),
- 		STM32_FUNCTION(4, "SPI4_SCK"),
- 		STM32_FUNCTION(5, "SAI2_FS_B"),
-@@ -128,7 +128,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(7, "PA7"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOA7"),
- 		STM32_FUNCTION(3, "AUDIOCLK"),
- 		STM32_FUNCTION(4, "SPI6_RDY"),
-@@ -148,7 +148,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(8, "PA8"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOA8"),
- 		STM32_FUNCTION(2, "LPTIM2_CH2"),
- 		STM32_FUNCTION(3, "SPI7_NSS"),
-@@ -163,7 +163,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(9, "PA9"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOA9"),
- 		STM32_FUNCTION(4, "SPI4_NSS"),
- 		STM32_FUNCTION(5, "SAI2_SCK_B"),
-@@ -179,7 +179,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(10, "PA10"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOA10"),
- 		STM32_FUNCTION(4, "SPI4_MISO"),
- 		STM32_FUNCTION(5, "SAI2_SD_B"),
-@@ -195,7 +195,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(11, "PA11"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOA11"),
- 		STM32_FUNCTION(2, "SPI8_SCK"),
- 		STM32_FUNCTION(3, "LPTIM2_CH1"),
-@@ -207,7 +207,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(12, "PA12"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOA12"),
- 		STM32_FUNCTION(3, "SPI6_MOSI"),
- 		STM32_FUNCTION(5, "SAI3_FS_A"),
-@@ -220,7 +220,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(13, "PA13"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOA13"),
- 		STM32_FUNCTION(2, "SPI8_RDY"),
- 		STM32_FUNCTION(3, "I2S3_MCK"),
-@@ -234,7 +234,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(14, "PA14"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOA14"),
- 		STM32_FUNCTION(2, "SPI8_NSS"),
- 		STM32_FUNCTION(3, "LPTIM2_CH2"),
-@@ -246,7 +246,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(15, "PA15"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOA15"),
- 		STM32_FUNCTION(3, "SPI3_MISO I2S3_SDI"),
- 		STM32_FUNCTION(7, "USART2_RX"),
-@@ -257,7 +257,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(16, "PB0"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOB0"),
- 		STM32_FUNCTION(3, "SPI2_SCK I2S2_CK"),
- 		STM32_FUNCTION(7, "USART1_CK"),
-@@ -269,7 +269,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(17, "PB1"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOB1"),
- 		STM32_FUNCTION(2, "SPI3_NSS I2S3_WS"),
- 		STM32_FUNCTION(8, "TIM16_CH1N"),
-@@ -281,7 +281,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(18, "PB2"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOB2"),
- 		STM32_FUNCTION(3, "SPI2_MOSI I2S2_SDO"),
- 		STM32_FUNCTION(6, "MDF1_CKI3"),
-@@ -294,7 +294,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(19, "PB3"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOB3"),
- 		STM32_FUNCTION(3, "SPI2_NSS I2S2_WS"),
- 		STM32_FUNCTION(6, "MDF1_SDI3"),
-@@ -306,7 +306,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(20, "PB4"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOB4"),
- 		STM32_FUNCTION(3, "SPI2_RDY"),
- 		STM32_FUNCTION(4, "UART4_CTS"),
-@@ -322,7 +322,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(21, "PB5"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOB5"),
- 		STM32_FUNCTION(3, "I2S2_MCK"),
- 		STM32_FUNCTION(4, "UART4_RTS"),
-@@ -339,7 +339,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(22, "PB6"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOB6"),
- 		STM32_FUNCTION(3, "SPI2_MISO I2S2_SDI"),
- 		STM32_FUNCTION(4, "UART4_RX"),
-@@ -353,7 +353,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(23, "PB7"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOB7"),
- 		STM32_FUNCTION(2, "SPI3_SCK I2S3_CK"),
- 		STM32_FUNCTION(4, "UART4_TX"),
-@@ -368,7 +368,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(24, "PB8"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOB8"),
- 		STM32_FUNCTION(2, "SPI3_MOSI I2S3_SDO"),
- 		STM32_FUNCTION(5, "PCIE_CLKREQN"),
-@@ -382,7 +382,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(25, "PB9"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOB9"),
- 		STM32_FUNCTION(2, "SPI3_RDY"),
- 		STM32_FUNCTION(7, "USART1_RTS"),
-@@ -397,7 +397,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(26, "PB10"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOB10"),
- 		STM32_FUNCTION(2, "SPI3_MISO I2S3_SDI"),
- 		STM32_FUNCTION(7, "USART1_RX"),
-@@ -409,7 +409,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(27, "PB11"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOB11"),
- 		STM32_FUNCTION(2, "I2S3_MCK"),
- 		STM32_FUNCTION(7, "USART1_CTS"),
-@@ -425,7 +425,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(28, "PB12"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOB12"),
- 		STM32_FUNCTION(6, "UART8_CTS"),
- 		STM32_FUNCTION(8, "TIM13_CH1"),
-@@ -438,7 +438,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(29, "PB13"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOB13"),
- 		STM32_FUNCTION(3, "SPI7_SCK"),
- 		STM32_FUNCTION(5, "SAI1_SD_B"),
-@@ -451,7 +451,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(30, "PB14"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOB14"),
- 		STM32_FUNCTION(3, "SPI2_SCK I2S2_CK"),
- 		STM32_FUNCTION(6, "MDF1_CKI7"),
-@@ -465,7 +465,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(31, "PB15"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOB15"),
- 		STM32_FUNCTION(2, "LPTIM1_IN2"),
- 		STM32_FUNCTION(3, "SPI5_SCK"),
-@@ -483,7 +483,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(32, "PC0"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOC0"),
- 		STM32_FUNCTION(2, "LPTIM1_CH1"),
- 		STM32_FUNCTION(4, "SPI6_SCK"),
-@@ -499,7 +499,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(33, "PC1"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOC1"),
- 		STM32_FUNCTION(3, "SPI3_MOSI I2S3_SDO"),
- 		STM32_FUNCTION(7, "USART2_TX"),
-@@ -510,7 +510,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(34, "PC2"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOC2"),
- 		STM32_FUNCTION(2, "SPI8_MOSI"),
- 		STM32_FUNCTION(3, "LPTIM2_IN1"),
-@@ -523,7 +523,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(35, "PC3"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOC3"),
- 		STM32_FUNCTION(2, "LPTIM1_IN2"),
- 		STM32_FUNCTION(3, "SPI3_NSS I2S3_WS"),
-@@ -539,7 +539,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(36, "PC4"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOC4"),
- 		STM32_FUNCTION(4, "SPI6_MISO"),
- 		STM32_FUNCTION(5, "SAI3_FS_B"),
-@@ -551,7 +551,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(37, "PC5"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOC5"),
- 		STM32_FUNCTION(3, "SPDIFRX1_IN1"),
- 		STM32_FUNCTION(6, "MDF1_SDI1"),
-@@ -567,7 +567,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(38, "PC6"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOC6"),
- 		STM32_FUNCTION(2, "RTC_REFIN"),
- 		STM32_FUNCTION(3, "SPDIFRX1_IN0"),
-@@ -584,7 +584,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(39, "PC7"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOC7"),
- 		STM32_FUNCTION(4, "SPI6_MOSI"),
- 		STM32_FUNCTION(5, "SAI3_SD_B"),
-@@ -598,7 +598,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(40, "PC8"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOC8"),
- 		STM32_FUNCTION(2, "LPTIM1_ETR"),
- 		STM32_FUNCTION(4, "SPI6_NSS"),
-@@ -614,7 +614,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(41, "PC9"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOC9"),
- 		STM32_FUNCTION(2, "MCO1"),
- 		STM32_FUNCTION(3, "SPI3_MISO I2S3_SDI"),
-@@ -632,7 +632,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(42, "PC10"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOC10"),
- 		STM32_FUNCTION(3, "SPI3_MOSI I2S3_SDO"),
- 		STM32_FUNCTION(8, "LPTIM4_ETR"),
-@@ -648,7 +648,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(43, "PC11"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOC11"),
- 		STM32_FUNCTION(2, "LPTIM1_CH1"),
- 		STM32_FUNCTION(3, "SPI5_NSS"),
-@@ -666,7 +666,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(44, "PC12"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOC12"),
- 		STM32_FUNCTION(2, "LPTIM1_CH2"),
- 		STM32_FUNCTION(4, "I3C3_SCL"),
-@@ -682,14 +682,14 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(45, "PC13"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOC13"),
- 		STM32_FUNCTION(16, "EVENTOUT"),
- 		STM32_FUNCTION(17, "ANALOG")
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(48, "PD0"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOD0"),
- 		STM32_FUNCTION(1, "TRACECLK"),
- 		STM32_FUNCTION(2, "HDP0"),
-@@ -706,7 +706,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(49, "PD1"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOD1"),
- 		STM32_FUNCTION(2, "HDP1"),
- 		STM32_FUNCTION(3, "SPI1_MISO I2S1_SDI"),
-@@ -725,7 +725,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(50, "PD2"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOD2"),
- 		STM32_FUNCTION(2, "HDP2"),
- 		STM32_FUNCTION(3, "SPI1_NSS I2S1_WS"),
-@@ -743,7 +743,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(51, "PD3"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOD3"),
- 		STM32_FUNCTION(2, "SAI1_MCLK_A"),
- 		STM32_FUNCTION(3, "SPI2_SCK I2S2_CK"),
-@@ -760,7 +760,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(52, "PD4"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOD4"),
- 		STM32_FUNCTION(1, "TRACED0"),
- 		STM32_FUNCTION(2, "SPI4_MISO"),
-@@ -776,7 +776,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(53, "PD5"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOD5"),
- 		STM32_FUNCTION(1, "TRACED1"),
- 		STM32_FUNCTION(2, "SPI4_NSS"),
-@@ -792,7 +792,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(54, "PD6"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOD6"),
- 		STM32_FUNCTION(1, "TRACED2"),
- 		STM32_FUNCTION(2, "SPI4_MOSI"),
-@@ -808,7 +808,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(55, "PD7"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOD7"),
- 		STM32_FUNCTION(1, "TRACED3"),
- 		STM32_FUNCTION(2, "SPI4_SCK"),
-@@ -824,7 +824,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(56, "PD8"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOD8"),
- 		STM32_FUNCTION(1, "TRACED4"),
- 		STM32_FUNCTION(2, "SPI4_RDY"),
-@@ -843,7 +843,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(57, "PD9"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOD9"),
- 		STM32_FUNCTION(1, "TRACED5"),
- 		STM32_FUNCTION(2, "HDP6"),
-@@ -861,7 +861,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(58, "PD10"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOD10"),
- 		STM32_FUNCTION(1, "TRACED6"),
- 		STM32_FUNCTION(2, "HDP7"),
-@@ -880,7 +880,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(59, "PD11"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOD11"),
- 		STM32_FUNCTION(1, "TRACED7"),
- 		STM32_FUNCTION(3, "SPI1_SCK I2S1_CK"),
-@@ -899,7 +899,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(60, "PD12"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOD12"),
- 		STM32_FUNCTION(2, "SPI7_MISO"),
- 		STM32_FUNCTION(3, "SPI2_MISO I2S2_SDI"),
-@@ -914,7 +914,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(61, "PD13"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOD13"),
- 		STM32_FUNCTION(3, "SPI2_NSS I2S2_WS"),
- 		STM32_FUNCTION(6, "MDF1_SDI7"),
-@@ -928,7 +928,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(62, "PD14"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOD14"),
- 		STM32_FUNCTION(3, "I2S1_MCK"),
- 		STM32_FUNCTION(8, "FDCAN1_RX"),
-@@ -942,7 +942,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(63, "PD15"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOD15"),
- 		STM32_FUNCTION(2, "SPI1_RDY"),
- 		STM32_FUNCTION(6, "DSI_TE"),
-@@ -959,7 +959,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(64, "PE0"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOE0"),
- 		STM32_FUNCTION(1, "TRACED2"),
- 		STM32_FUNCTION(2, "LPTIM2_CH1"),
-@@ -972,7 +972,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(65, "PE1"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOE1"),
- 		STM32_FUNCTION(1, "TRACED3"),
- 		STM32_FUNCTION(2, "LPTIM2_CH2"),
-@@ -985,7 +985,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(66, "PE2"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOE2"),
- 		STM32_FUNCTION(2, "LPTIM2_ETR"),
- 		STM32_FUNCTION(3, "SPI1_MISO I2S1_SDI"),
-@@ -998,7 +998,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(67, "PE3"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOE3"),
- 		STM32_FUNCTION(1, "TRACECLK"),
- 		STM32_FUNCTION(3, "SPI1_RDY"),
-@@ -1012,7 +1012,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(68, "PE4"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOE4"),
- 		STM32_FUNCTION(1, "TRACED0"),
- 		STM32_FUNCTION(2, "LPTIM2_IN1"),
-@@ -1027,7 +1027,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(69, "PE5"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOE5"),
- 		STM32_FUNCTION(1, "TRACED1"),
- 		STM32_FUNCTION(2, "LPTIM2_IN2"),
-@@ -1042,7 +1042,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(70, "PE6"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOE6"),
- 		STM32_FUNCTION(2, "SPI4_RDY"),
- 		STM32_FUNCTION(5, "SPDIFRX1_IN2"),
-@@ -1056,7 +1056,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(71, "PE7"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOE7"),
- 		STM32_FUNCTION(4, "SAI4_D4"),
- 		STM32_FUNCTION(5, "SPDIFRX1_IN3"),
-@@ -1071,7 +1071,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(72, "PE8"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOE8"),
- 		STM32_FUNCTION(2, "SPI4_MOSI"),
- 		STM32_FUNCTION(4, "SAI4_CK1"),
-@@ -1085,7 +1085,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(73, "PE9"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOE9"),
- 		STM32_FUNCTION(2, "SPI4_MISO"),
- 		STM32_FUNCTION(4, "SAI4_D2"),
-@@ -1100,7 +1100,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(74, "PE10"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOE10"),
- 		STM32_FUNCTION(2, "SPI4_SCK"),
- 		STM32_FUNCTION(4, "SAI4_D1"),
-@@ -1116,7 +1116,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(75, "PE11"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOE11"),
- 		STM32_FUNCTION(3, "SPI7_SCK"),
- 		STM32_FUNCTION(4, "SAI4_D3"),
-@@ -1130,7 +1130,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(76, "PE12"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOE12"),
- 		STM32_FUNCTION(2, "SPI4_NSS"),
- 		STM32_FUNCTION(4, "SAI4_CK2"),
-@@ -1146,7 +1146,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(77, "PE13"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOE13"),
- 		STM32_FUNCTION(3, "SPI7_MISO"),
- 		STM32_FUNCTION(5, "SAI1_SD_A"),
-@@ -1159,7 +1159,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(78, "PE14"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOE14"),
- 		STM32_FUNCTION(3, "SPI7_NSS"),
- 		STM32_FUNCTION(5, "SAI1_MCLK_A"),
-@@ -1173,7 +1173,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(79, "PE15"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOE15"),
- 		STM32_FUNCTION(3, "SPI7_MOSI"),
- 		STM32_FUNCTION(5, "SAI1_SCK_A"),
-@@ -1187,7 +1187,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(80, "PF0"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOF0"),
- 		STM32_FUNCTION(3, "SPI3_SCK I2S3_CK"),
- 		STM32_FUNCTION(8, "FDCAN2_RX"),
-@@ -1201,7 +1201,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(81, "PF1"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOF1"),
- 		STM32_FUNCTION(2, "SPI8_MISO"),
- 		STM32_FUNCTION(3, "LPTIM2_IN2"),
-@@ -1214,7 +1214,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(82, "PF2"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOF2"),
- 		STM32_FUNCTION(3, "SPI3_RDY"),
- 		STM32_FUNCTION(7, "I2C4_SMBA"),
-@@ -1229,7 +1229,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(83, "PF3"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOF3"),
- 		STM32_FUNCTION(4, "UART8_RX"),
- 		STM32_FUNCTION(5, "SAI2_SCK_B"),
-@@ -1246,7 +1246,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(84, "PF4"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOF4"),
- 		STM32_FUNCTION(2, "RTC_OUT2"),
- 		STM32_FUNCTION(3, "SPI6_NSS"),
-@@ -1263,7 +1263,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(85, "PF5"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOF5"),
- 		STM32_FUNCTION(3, "SPI6_SCK"),
- 		STM32_FUNCTION(5, "SAI3_MCLK_A"),
-@@ -1279,7 +1279,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(86, "PF6"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOF6"),
- 		STM32_FUNCTION(2, "RTC_OUT2"),
- 		STM32_FUNCTION(4, "SAI3_MCLK_B"),
-@@ -1293,7 +1293,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(87, "PF7"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOF7"),
- 		STM32_FUNCTION(3, "SPDIFRX1_IN1"),
- 		STM32_FUNCTION(4, "SPI6_SCK"),
-@@ -1307,7 +1307,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(88, "PF8"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOF8"),
- 		STM32_FUNCTION(2, "RTC_REFIN"),
- 		STM32_FUNCTION(4, "SAI3_SCK_B"),
-@@ -1323,7 +1323,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(89, "PF9"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOF9"),
- 		STM32_FUNCTION(4, "SAI3_SD_B"),
- 		STM32_FUNCTION(5, "SAI2_SD_A"),
-@@ -1337,7 +1337,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(90, "PF10"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOF10"),
- 		STM32_FUNCTION(2, "MCO2"),
- 		STM32_FUNCTION(3, "SPI3_RDY"),
-@@ -1351,7 +1351,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(91, "PF11"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOF11"),
- 		STM32_FUNCTION(2, "MCO1"),
- 		STM32_FUNCTION(3, "SPDIFRX1_IN0"),
-@@ -1366,7 +1366,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(92, "PF12"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOF12"),
- 		STM32_FUNCTION(1, "TRACECLK"),
- 		STM32_FUNCTION(3, "SPI5_MISO"),
-@@ -1380,7 +1380,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(93, "PF13"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOF13"),
- 		STM32_FUNCTION(1, "TRACED0"),
- 		STM32_FUNCTION(2, "HDP0"),
-@@ -1397,7 +1397,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(94, "PF14"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOF14"),
- 		STM32_FUNCTION(1, "TRACED1"),
- 		STM32_FUNCTION(2, "HDP1"),
-@@ -1412,7 +1412,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(95, "PF15"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOF15"),
- 		STM32_FUNCTION(1, "TRACED2"),
- 		STM32_FUNCTION(2, "HDP2"),
-@@ -1429,7 +1429,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(96, "PG0"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOG0"),
- 		STM32_FUNCTION(2, "LPTIM1_IN1"),
- 		STM32_FUNCTION(4, "I3C3_SDA"),
-@@ -1445,7 +1445,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(97, "PG1"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOG1"),
- 		STM32_FUNCTION(2, "LPTIM1_IN1"),
- 		STM32_FUNCTION(3, "I2S3_MCK"),
-@@ -1465,7 +1465,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(98, "PG2"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOG2"),
- 		STM32_FUNCTION(2, "RTC_REFIN"),
- 		STM32_FUNCTION(3, "I2S3_MCK"),
-@@ -1483,7 +1483,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(99, "PG3"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOG3"),
- 		STM32_FUNCTION(2, "LPTIM1_ETR"),
- 		STM32_FUNCTION(3, "SPI5_MOSI"),
-@@ -1501,7 +1501,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(100, "PG4"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOG4"),
- 		STM32_FUNCTION(3, "SPI5_MISO"),
- 		STM32_FUNCTION(4, "SAI3_FS_B"),
-@@ -1517,7 +1517,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(101, "PG5"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOG5"),
- 		STM32_FUNCTION(1, "TRACED3"),
- 		STM32_FUNCTION(2, "HDP3"),
-@@ -1531,7 +1531,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(102, "PG6"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOG6"),
- 		STM32_FUNCTION(1, "TRACED4"),
- 		STM32_FUNCTION(2, "HDP4"),
-@@ -1546,7 +1546,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(103, "PG7"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOG7"),
- 		STM32_FUNCTION(1, "TRACED5"),
- 		STM32_FUNCTION(2, "HDP5"),
-@@ -1561,7 +1561,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(104, "PG8"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOG8"),
- 		STM32_FUNCTION(1, "TRACED6"),
- 		STM32_FUNCTION(2, "HDP6"),
-@@ -1578,7 +1578,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(105, "PG9"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOG9"),
- 		STM32_FUNCTION(1, "TRACED7"),
- 		STM32_FUNCTION(6, "UART5_TX"),
-@@ -1590,7 +1590,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(106, "PG10"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOG10"),
- 		STM32_FUNCTION(1, "TRACED8"),
- 		STM32_FUNCTION(2, "HDP0"),
-@@ -1603,7 +1603,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(107, "PG11"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOG11"),
- 		STM32_FUNCTION(1, "TRACED9"),
- 		STM32_FUNCTION(2, "HDP1"),
-@@ -1617,7 +1617,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(108, "PG12"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOG12"),
- 		STM32_FUNCTION(1, "TRACED10"),
- 		STM32_FUNCTION(2, "HDP2"),
-@@ -1631,7 +1631,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(109, "PG13"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOG13"),
- 		STM32_FUNCTION(1, "TRACED11"),
- 		STM32_FUNCTION(2, "HDP3"),
-@@ -1647,7 +1647,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(110, "PG14"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOG14"),
- 		STM32_FUNCTION(1, "TRACED12"),
- 		STM32_FUNCTION(2, "HDP4"),
-@@ -1662,7 +1662,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(111, "PG15"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOG15"),
- 		STM32_FUNCTION(1, "TRACED13"),
- 		STM32_FUNCTION(2, "HDP5"),
-@@ -1677,7 +1677,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(114, "PH2"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOH2"),
- 		STM32_FUNCTION(2, "LPTIM2_CH1"),
- 		STM32_FUNCTION(3, "SPI7_RDY"),
-@@ -1693,7 +1693,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(115, "PH3"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOH3"),
- 		STM32_FUNCTION(3, "SPI1_NSS I2S1_WS"),
- 		STM32_FUNCTION(7, "UART7_RX"),
-@@ -1706,7 +1706,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(116, "PH4"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOH4"),
- 		STM32_FUNCTION(7, "UART7_TX"),
- 		STM32_FUNCTION(8, "TIM17_BKIN"),
-@@ -1721,7 +1721,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(117, "PH5"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOH5"),
- 		STM32_FUNCTION(5, "SAI2_FS_A"),
- 		STM32_FUNCTION(7, "UART8_CTS"),
-@@ -1736,7 +1736,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(118, "PH6"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOH6"),
- 		STM32_FUNCTION(2, "LPTIM2_IN2"),
- 		STM32_FUNCTION(5, "SAI1_MCLK_B"),
-@@ -1751,7 +1751,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(119, "PH7"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOH7"),
- 		STM32_FUNCTION(3, "SPI1_MOSI I2S1_SDO"),
- 		STM32_FUNCTION(5, "UART4_TX"),
-@@ -1765,7 +1765,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(120, "PH8"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOH8"),
- 		STM32_FUNCTION(3, "SPI1_MISO I2S1_SDI"),
- 		STM32_FUNCTION(4, "SPDIFRX1_IN3"),
-@@ -1780,7 +1780,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(121, "PH9"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOH9"),
- 		STM32_FUNCTION(4, "SPI6_NSS"),
- 		STM32_FUNCTION(5, "SAI3_MCLK_A"),
-@@ -1793,7 +1793,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(122, "PH10"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOH10"),
- 		STM32_FUNCTION(3, "SPI1_SCK I2S1_CK"),
- 		STM32_FUNCTION(4, "SPI6_MOSI"),
-@@ -1806,7 +1806,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(123, "PH11"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOH11"),
- 		STM32_FUNCTION(4, "SPI6_MISO"),
- 		STM32_FUNCTION(5, "SAI3_FS_A"),
-@@ -1818,7 +1818,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(124, "PH12"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOH12"),
- 		STM32_FUNCTION(3, "SPI3_NSS I2S3_WS"),
- 		STM32_FUNCTION(4, "SPI6_MISO"),
-@@ -1829,7 +1829,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(125, "PH13"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOH13"),
- 		STM32_FUNCTION(3, "SPI3_SCK I2S3_CK"),
- 		STM32_FUNCTION(4, "SPI6_MOSI"),
-@@ -1841,7 +1841,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(128, "PI0"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOI0"),
- 		STM32_FUNCTION(1, "TRACED14"),
- 		STM32_FUNCTION(2, "HDP6"),
-@@ -1856,7 +1856,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(129, "PI1"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOI1"),
- 		STM32_FUNCTION(1, "TRACED15"),
- 		STM32_FUNCTION(2, "HDP7"),
-@@ -1872,7 +1872,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(130, "PI2"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOI2"),
- 		STM32_FUNCTION(4, "LPTIM1_ETR"),
- 		STM32_FUNCTION(5, "SAI4_SCK_B"),
-@@ -1885,7 +1885,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(131, "PI3"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOI3"),
- 		STM32_FUNCTION(4, "LPTIM1_IN2"),
- 		STM32_FUNCTION(5, "SAI4_SD_B"),
-@@ -1898,7 +1898,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(132, "PI4"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOI4"),
- 		STM32_FUNCTION(4, "LPTIM1_CH1"),
- 		STM32_FUNCTION(5, "SAI4_FS_B"),
-@@ -1910,7 +1910,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(133, "PI5"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOI5"),
- 		STM32_FUNCTION(3, "SPI5_MOSI"),
- 		STM32_FUNCTION(4, "SPI1_MOSI I2S1_SDO"),
-@@ -1924,7 +1924,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(134, "PI6"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOI6"),
- 		STM32_FUNCTION(2, "MCO1"),
- 		STM32_FUNCTION(7, "USART3_TX"),
-@@ -1936,7 +1936,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(135, "PI7"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOI7"),
- 		STM32_FUNCTION(7, "USART3_RX"),
- 		STM32_FUNCTION(8, "TIM2_CH1"),
-@@ -1947,14 +1947,14 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(136, "PI8"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOI8"),
- 		STM32_FUNCTION(16, "EVENTOUT"),
- 		STM32_FUNCTION(17, "ANALOG")
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(137, "PI9"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOI9"),
- 		STM32_FUNCTION(2, "SPI7_MOSI"),
- 		STM32_FUNCTION(3, "SPI2_MOSI I2S2_SDO"),
-@@ -1970,7 +1970,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(138, "PI10"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOI10"),
- 		STM32_FUNCTION(2, "SAI1_SCK_A"),
- 		STM32_FUNCTION(3, "SPI1_SCK I2S1_CK"),
-@@ -1986,7 +1986,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(139, "PI11"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOI11"),
- 		STM32_FUNCTION(3, "I2S2_MCK"),
- 		STM32_FUNCTION(6, "UART8_TX"),
-@@ -2389,7 +2389,7 @@ static const struct stm32_desc_pin stm32mp257_pins[] = {
- static const struct stm32_desc_pin stm32mp257_z_pins[] = {
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(400, "PZ0"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOZ0"),
- 		STM32_FUNCTION(3, "LPTIM3_IN1"),
- 		STM32_FUNCTION(4, "SPI8_MOSI"),
-@@ -2404,7 +2404,7 @@ static const struct stm32_desc_pin stm32mp257_z_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(401, "PZ1"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOZ1"),
- 		STM32_FUNCTION(3, "LPTIM3_CH1"),
- 		STM32_FUNCTION(4, "SPI8_MISO"),
-@@ -2419,7 +2419,7 @@ static const struct stm32_desc_pin stm32mp257_z_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(402, "PZ2"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOZ2"),
- 		STM32_FUNCTION(3, "LPTIM3_CH1"),
- 		STM32_FUNCTION(4, "SPI8_SCK"),
-@@ -2433,7 +2433,7 @@ static const struct stm32_desc_pin stm32mp257_z_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(403, "PZ3"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOZ3"),
- 		STM32_FUNCTION(1, "DBTRGI"),
- 		STM32_FUNCTION(2, "DBTRGO"),
-@@ -2451,7 +2451,7 @@ static const struct stm32_desc_pin stm32mp257_z_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(404, "PZ4"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOZ4"),
- 		STM32_FUNCTION(1, "DBTRGI"),
- 		STM32_FUNCTION(2, "DBTRGO"),
-@@ -2468,7 +2468,7 @@ static const struct stm32_desc_pin stm32mp257_z_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(405, "PZ5"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOZ5"),
- 		STM32_FUNCTION(2, "MCO1"),
- 		STM32_FUNCTION(3, "LPTIM3_ETR"),
-@@ -2482,7 +2482,7 @@ static const struct stm32_desc_pin stm32mp257_z_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(406, "PZ6"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOZ6"),
- 		STM32_FUNCTION(1, "DBTRGI"),
- 		STM32_FUNCTION(2, "DBTRGO"),
-@@ -2497,7 +2497,7 @@ static const struct stm32_desc_pin stm32mp257_z_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(407, "PZ7"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOZ7"),
- 		STM32_FUNCTION(4, "SPI8_MOSI"),
- 		STM32_FUNCTION(5, "MDF1_CCK1"),
-@@ -2510,7 +2510,7 @@ static const struct stm32_desc_pin stm32mp257_z_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(408, "PZ8"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOZ8"),
- 		STM32_FUNCTION(3, "LPTIM3_IN1"),
- 		STM32_FUNCTION(4, "SPI8_MISO"),
-@@ -2525,7 +2525,7 @@ static const struct stm32_desc_pin stm32mp257_z_pins[] = {
- 	),
- 	STM32_PIN_PKG(
- 		PINCTRL_PIN(409, "PZ9"),
--		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
-+		BIT(STM32_PKG_AI) | BIT(STM32_PKG_AJ) | BIT(STM32_PKG_AK) | BIT(STM32_PKG_AL),
- 		STM32_FUNCTION(0, "GPIOZ9"),
- 		STM32_FUNCTION(2, "MCO2"),
- 		STM32_FUNCTION(4, "SPI8_RDY"),
--- 
-2.34.1
+This check may cause false warning when reg range is still valid. Need 
+to change to:
++	WARN_ON_ONCE(reg + sizeof(u32) > msc->mapped_hwpage_sz);
 
+With this minor change,
+
+Reviewed-by: Fenghua Yu <fenghuay@nvidia.com>
+
+[SNIP]
+
+Thanks.
+
+-Fenghua
 
