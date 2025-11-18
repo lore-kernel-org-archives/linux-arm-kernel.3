@@ -4,89 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 570D2CEBF9A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 02:48:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71B74CEBF9A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Nov 2025 02:50:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	MIME-Version:Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=K5Hp059A5Uei2IffQzjxZlhfXpudEyod1/uzyZ2qBEI=; b=LXnhT3IIkj0ch2TZ19VeN8aZPh
-	Qm+DTuuuS+V/8uV6uB3+vVksveOoVpExTr9V+rNHA6cm3F9FjtEz32RkWzxrstiCO/qqW+9AuoPDL
-	D64hk++G88x8Klnj7vU6yYyKxfGfP7IkUNymM34tvpret5L2yZwIai3dwz4bGbpB3orWFYD1IkwoX
-	0/CTj/VzSX5fRgSHWo2xkPkRIhkmB0nfsFYshPoijeiXY3EAVqphM4JhgAwxzZUPj+Fw0lhXbfZ1+
-	ie5TGBGrpe+XxFgImL+9CMm5HgUw4MvXdFGfWlDGYaZWEytaKUsfvPgcOAKKIMYmEI/QTs9OBWHO4
-	AGcsXjvg==;
+	bh=QM24pHmOGe73VnNxtQT+ZKbda/Zu23oD+FjlwZTAOyI=; b=I0xDoVYvN9lJjUXQcIBH3Wp22s
+	+PE13pAJBR6qzAWWf4uOyFCDu9oLKFUNpNiE+QL+EKkbJ840D7tvU4tJF8J3Ukpr3L0EvhLaEFVKZ
+	StSS0QVEFU+/fxadhMgMKcSYqwgp3V+wYr4pffOfh64FMrjgs6MRo3oInZR7vJYWZqsKYrwptoY0G
+	JLszDDsHo7nPYYgIr1/d1AZdgsL50imw9gu1nQelMX9/OHPTpF2dzLCj/tU4RrsCa0Php3pnnPCJc
+	Oz99904ZAlqwqz7QD3E4IsTL0AE8mEzzkxdQ0i9VcT1h6JOJ3zZnTayIuUc3b/EYULrwi8NaU/Iot
+	jSE/y5zw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLBlc-0000000HF8s-0QFN;
-	Tue, 18 Nov 2025 02:48:28 +0000
-Received: from mail-ot1-x32c.google.com ([2607:f8b0:4864:20::32c])
+	id 1vLBng-0000000HFJh-3er7;
+	Tue, 18 Nov 2025 02:50:36 +0000
+Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLBlZ-0000000HF8R-2FE2
+	id 1vLBne-0000000HFIy-0ea1
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Nov 2025 02:48:26 +0000
-Received: by mail-ot1-x32c.google.com with SMTP id 46e09a7af769-7c76f65feb5so768126a34.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Nov 2025 18:48:24 -0800 (PST)
+	Tue, 18 Nov 2025 02:50:35 +0000
+Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-297e264528aso50289455ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Nov 2025 18:50:30 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1763434104; x=1764038904; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=K5Hp059A5Uei2IffQzjxZlhfXpudEyod1/uzyZ2qBEI=;
-        b=m1jzL660vUi7bHNkstU5eYOPo29+llwO5dmK/X6g09qWmVR1VjM48i8JQeXuvXGEcR
-         vcf9375mz01lqiF+HoaIftNrfLZLDOQvoO5bBRssDJymDJ4vbRo8zDUwcgvgssjDqPHf
-         JmZe542EeT82UmZIbn/J0JqJI/oRzutncN/uI2q1a6JWuLOBkEY1qBnntfdmzFRpLOOt
-         v3cf/RHcirAwRKIprJh3+AHTyYC9yuStudU2kRl6TPdVcHm8ZYytQtzl/mpixSJm97Mv
-         yI15yCgAHqkrSr4aTy8BZCVsTduMUhg1kMbME/pDKAvnzxkgepBmWaS0DW4XkEuPyUtG
-         YKhA==
+        d=bytedance.com; s=google; t=1763434229; x=1764039029; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:from:to:cc:subject:date:message-id:reply-to;
+        bh=QM24pHmOGe73VnNxtQT+ZKbda/Zu23oD+FjlwZTAOyI=;
+        b=EX4noy+xIfbQbB3sOYAC4UBkAeFtRN1vIzIXoxTq9FwAFWO3TdX4XwxRRmiiBbMd8C
+         4hJhfXhny8Ee+Md6eC+4u+lBbXgIBzMxuWchgQIr0/7U88nuaRoSw4iVyc/qtFIuI91F
+         hi9e6RXf7WGN5aBXJS02lkzyTCqxEnFknVxrzDlNYjxnNh/HBpdf1PaVcg0Voy9Fnr9t
+         uFqiuC/M+htUSeMVdUFs7b8SZAoQ2uUW8g5tHuQXg2aU68oAn/x/n4475OM3HOli4KcS
+         wrlfroZ/07CSKUlO37whjVPnJXybOFnuV4BydE98q8GEVeVehqs+kqwInOCVMVCLdMEr
+         LUcw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763434104; x=1764038904;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=K5Hp059A5Uei2IffQzjxZlhfXpudEyod1/uzyZ2qBEI=;
-        b=MiSEgg0g95sRB3C25HQWI6sMxcY7qJ47INeEjH40OyEmFXqFUrCLZaYrxw47cfrZmd
-         DYkv+bqXBhNToVDg3QY3A8JHNxsJIhFzh5Z9Q995cj9uRUVTuAMpn8iIUzVRh+gwVW+9
-         a1txRkktT1Kra7yoquzf12EfJRq4zzdeREaPbTSwIG4BBu0EDdBMnEExtIiLcNap2x6J
-         asmKhMBnzltuZsLtiOXnT2KnVr3nRxVTaALLxqLfJOIIc68jcaSbrHHq6Ps3G1hnP450
-         xP2kS9aT5FmLhzQYoV49y4DWuKIFqU57vdhRFj9agGhKoEnO1FjdWOz70swIrKpzksH7
-         hfQQ==
-X-Forwarded-Encrypted: i=1; AJvYcCU59d6oGYuyw0FSsIPCgKCVaUJyZeJwIINc7Nmsvcm82KEX8oHV2/mS5mpvZr9sIDO6IWA5bLzBaMqzlckwZeDY@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxwdxp9BMRVDyA+XVe6GrllLr1faIArEVa3aDbpQVLwwt+dlG/R
-	t7BT6JTn8g87n4+ddJxrFc1WKTESKKRdvhsN/bilrYTWiFpZkwX+rDkAuQ4YMp64xTg=
-X-Gm-Gg: ASbGncuMZcmN0iTCVgNCkdNusxLSj7TXzCQf0alLPBw5ZlITkZG4XhXd27AAjv9EUnS
-	rmleXJX3+Ekje4tsg2Wg2tvCPaeeEzQTEWmVckgd45cNHQVVjVZXLvKQUyUzJzA8nKzXmCjGuEB
-	DA03Fzr45jaiBqRCl4/gTcOacrkmfpilqEtM0wyynbmo0ylKqA0TIpN22Tv/QD2iErtERPV4FlI
-	Z+tpsszUC+wU98PJxmZYn/iFzs/3MQfQU0UHPvin2It1hRrn+ji1PxAPLxstOeLmEn7D66lrVOb
-	U+U9ajmdyleKVp8w7xlZhbrLPFNGsleqhDpnMCWhr4ScUsZAojcksq8UB7TIJ2yC/Gc6Qd+O8SI
-	aZFlDL0jVn7sab0l4nQ31uVtkSVMQd7ony/aqZeegKVEBfub3Kzxv21HVzIwBwklVCsCCXVBRgM
-	un++uq95oFgQ==
-X-Google-Smtp-Source: AGHT+IFhHfyQKNAmkKCUvpiYWdk49opO+ptbcr+IJLwiDT8vc7L+R3s61PznZxMlKVdQi00cNS0QsQ==
-X-Received: by 2002:a05:6808:2183:b0:450:45d3:a50d with SMTP id 5614622812f47-4509746132bmr7150898b6e.30.1763434104168;
-        Mon, 17 Nov 2025 18:48:24 -0800 (PST)
-Received: from localhost ([2605:a601:81da:7100:264b:feff:fe59:d7f7])
-        by smtp.gmail.com with UTF8SMTPSA id 5614622812f47-450aadd23ffsm2501610b6e.0.2025.11.17.18.48.23
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 17 Nov 2025 18:48:23 -0800 (PST)
-From: Sam Protsenko <semen.protsenko@linaro.org>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
+        d=1e100.net; s=20230601; t=1763434229; x=1764039029;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=QM24pHmOGe73VnNxtQT+ZKbda/Zu23oD+FjlwZTAOyI=;
+        b=plJ0UOD63MxdS48ROLGNOifcyxN0K6E9EyTRyp83HlEXIw6as26ZnmPGG2S0xn1fTv
+         Tnaxt4U+C+AY4u78lzG6kHKa+r+4Q06DWXBeEeVGZ+Y0QJJaMYXNaDim4RkATwBxKbXy
+         MkvRdW8uyGvPVbvq+iEk5RhUZuX0yNQ2+OaW/kznoBSTeTTzICx0H0YsC1wne8EB67Zw
+         9TRfbJCYV3MFdItdzkh6qUK04dtJauOWuvv+9Dje7vVx3MMeOPTtKtZxu4UsjhBVbFDI
+         cg9HAOy7D03jMqeOWSg8v8oPy/P6joWIBjPQuYDoK3YVWFxmS3gdXp0w+QUnlTWOXYfO
+         WW+Q==
+X-Forwarded-Encrypted: i=1; AJvYcCVRwnwO8u+jYwSuMaUXxZpV7l1CLqp/XjdddZNFBnVQeW9WC77kFIsg1jmKG9n9kz17HL32Jrl8yzggv4l8xgjI@lists.infradead.org
+X-Gm-Message-State: AOJu0YwiijqzPeRsFbNXfHgPXJRusVS+926WNiw4Orwfy0de4pzLCdhM
+	VoyYiCPPDBIlEzy5tzBBJ3GFu28+ubBznliqHF7HebSTY6MdwxfYISschJVmv+8WMVI=
+X-Gm-Gg: ASbGnctrtmHLJUllCx7jyh6OOw81QrtQ4oXcwy2NhDqLqv67GapSyhGOgAjUgpg3SDT
+	DdzXCFJ0+U1ELWL4Ymkoq//chH2jb3SrO2i1SGA6QMM++kyPP/Mah66ZMLnXChpju0aGFDciVr7
+	JFhfVll5n2o+IDJKaT0qIcIg69pUD/eqGVqQ2vNiymXskqxQXgydQRENz5NxS9BAlh+w0dF85p7
+	smHnW/4MvxK4Q4laf3et2AyQd5Tv2JLOGlUSnMqp7d5BhxsMXQ+8lmAJLoz7ZIKtlJQFZWKRNBy
+	xJnvocx/K6sxYDyYPNdVbrKSBgO4ayTcrXzx6T8R4vJdumcKvg23gUndpUgK0vK0kIZAznQG2Fw
+	CdlLLVZtuabd2tcLsgL1qIRsCxZVbnmfalqJa50pfup9oZIx45jveFKvCz9t9BjM2SR+O072zCp
+	3cFWub3uNAEJXzl8NCtbP9sWZdEi2PE8lXZojROqDsDxe9
+X-Google-Smtp-Source: AGHT+IG//MmOioKgeQxyquQSV+AQABBbek9ef0Tyb8nGN6zx2RjXRR+H2j9PabPhGgsPfYEQSkY3oA==
+X-Received: by 2002:a17:903:3bcb:b0:274:3db8:e755 with SMTP id d9443c01a7336-2986a733f65mr177018075ad.30.1763434229196;
+        Mon, 17 Nov 2025 18:50:29 -0800 (PST)
+Received: from L6YN4KR4K9.bytedance.net ([139.177.225.241])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2985c234809sm156022065ad.19.2025.11.17.18.50.21
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Mon, 17 Nov 2025 18:50:28 -0800 (PST)
+From: Yunhui Cui <cuiyunhui@bytedance.com>
+To: conor@kernel.org,
+	paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	alex@ghiti.fr,
+	cuiyunhui@bytedance.com,
+	luxu.kernel@bytedance.com,
 	linux-kernel@vger.kernel.org,
-	linux-serial@vger.kernel.org
-Subject: [PATCH] tty: serial: samsung: Declare earlycon for Exynos850
-Date: Mon, 17 Nov 2025 20:48:22 -0600
-Message-ID: <20251118024822.28148-1-semen.protsenko@linaro.org>
-X-Mailer: git-send-email 2.47.3
+	linux-riscv@lists.infradead.org,
+	jassisinghbrar@gmail.com,
+	conor.dooley@microchip.com,
+	valentina.fernandezalanis@microchip.com,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	maz@kernel.org,
+	timothy.hayes@arm.com,
+	lpieralisi@kernel.org,
+	arnd@arndb.de,
+	kees@kernel.org,
+	tglx@linutronix.de,
+	viresh.kumar@linaro.org,
+	boqun.feng@gmail.com,
+	linux-arm-kernel@lists.infradead.org,
+	cleger@rivosinc.com,
+	atishp@rivosinc.com,
+	ajones@ventanamicro.com
+Subject: [PATCH v2 0/8] Add NMI Support to RISC-V via SSE
+Date: Tue, 18 Nov 2025 10:50:07 +0800
+Message-Id: <20251118025015.42491-1-cuiyunhui@bytedance.com>
+X-Mailer: git-send-email 2.39.2 (Apple Git-143)
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251117_184825_594038_0E4B5451 
-X-CRM114-Status: GOOD (  10.61  )
+X-CRM114-CacheID: sfid-20251117_185034_378752_441E2E6D 
+X-CRM114-Status: GOOD (  10.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,36 +119,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-It makes it possible to use just "earlycon" param in kernel cmdline
-on Exynos850 based boards instead of "earlycon=exynos4210,0x13820000",
-as described in [1]:
+This patchset is based on SSE[1]. It adds support for inter CPU NMI
+interfaces, enabling operations such as CPU stopping, backtrace, and
+kgdb to be performed via NMI which is a more robust approach compared
+to IPI. In addition to inter CPU NMIs, it also adds support for unknown
+NMI[2].
 
-    When used with no options, the early console is determined by
-    stdout-path property in device tree's chosen node
+v1->v2: Utilized SBI_SSE_EVENT_LOCAL_SOFTWARE_INJECTED for inter CPU NMI communication.
 
-[1] Documentation/admin-guide/kernel-parameters.txt
+[1] https://lore.kernel.org/all/20251105082639.342973-1-cleger@rivosinc.com/
+[2] https://github.com/riscv-non-isa/riscv-sbi-doc/pull/223
 
-Signed-off-by: Sam Protsenko <semen.protsenko@linaro.org>
----
- drivers/tty/serial/samsung_tty.c | 2 ++
- 1 file changed, 2 insertions(+)
 
-diff --git a/drivers/tty/serial/samsung_tty.c b/drivers/tty/serial/samsung_tty.c
-index 2fb58c626daf..c1fabad6ba1f 100644
---- a/drivers/tty/serial/samsung_tty.c
-+++ b/drivers/tty/serial/samsung_tty.c
-@@ -2830,6 +2830,8 @@ OF_EARLYCON_DECLARE(exynos4210, "samsung,exynos4210-uart",
- 			s5pv210_early_console_setup);
- OF_EARLYCON_DECLARE(artpec8, "axis,artpec8-uart",
- 			s5pv210_early_console_setup);
-+OF_EARLYCON_DECLARE(exynos850, "samsung,exynos850-uart",
-+			s5pv210_early_console_setup);
- 
- static int __init gs101_early_console_setup(struct earlycon_device *device,
- 					    const char *opt)
 
-base-commit: e7c375b181600caf135cfd03eadbc45eb530f2cb
+Yunhui Cui (8):
+  drivers: firmware: riscv: add SSE NMI support
+  riscv: smp: move ipi_cpu_crash_stop() declaration to smp.h
+  smp: move num_other_online_cpus() into smp.h
+  riscv: smp: use NMI for crash stop
+  riscv: smp: retry CPU stop with NMI if IPI fails
+  riscv: smp: use NMI for backtrace
+  riscv: smp: kgdb: Use NMI for CPU roundup
+  drivers: firmware: riscv: add unknown nmi support
+
+ MAINTAINERS                            |   8 ++
+ arch/arm64/kernel/smp.c                |  11 --
+ arch/riscv/include/asm/sbi.h           |   1 +
+ arch/riscv/include/asm/smp.h           |  11 ++
+ arch/riscv/kernel/smp.c                |  74 +++++++----
+ drivers/firmware/riscv/Kconfig         |  10 ++
+ drivers/firmware/riscv/Makefile        |   1 +
+ drivers/firmware/riscv/riscv_sse_nmi.c | 172 +++++++++++++++++++++++++
+ include/linux/riscv_sse_nmi.h          |  26 ++++
+ include/linux/smp.h                    |  11 ++
+ 10 files changed, 289 insertions(+), 36 deletions(-)
+ create mode 100644 drivers/firmware/riscv/riscv_sse_nmi.c
+ create mode 100644 include/linux/riscv_sse_nmi.h
+
 -- 
-2.47.3
+2.39.5
 
 
