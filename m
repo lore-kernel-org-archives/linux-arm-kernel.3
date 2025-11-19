@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 455F8CF34C1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 15:03:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8743BCF259F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 15:03:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KU4p1ZyvsSmYwLViZOzGqZ+hCJFQz4oPyT1SYkEf4hA=; b=nX773h83UsoMB+SWuLp0t7qjR6
-	03vn0odAPHxusNUXw0sR5nOiH1q4/e+uEREnInsZBHWo9xWbIxV1AnePjkuKFRgkVHIjdJJYaArJX
-	ztCJ57LVHaRqOZ3ojD31U0+kH4GfqPTmk4UmS09RHiTsCv3kq2AooWQtPmAnk4WOA9tIPvw3f697J
-	+RA8DasxT+43W5XcNPH+5lHONbnwt4y3dLPH1C3LEbmrF7U/7lBIUuIL4C0o/K7s4bsYldO6Kk9GU
-	rmo7QXW84W5KVI4AEo2xDsX2Zbp8rB0iUSJB6LhW0IA2RBWqKKzwvQiWkDN9A30S10USQsSJAvTn2
-	yDu+M8Ig==;
+	bh=ggrpKoOJDYW1dgaQrga1G14rp+gExMndXNkJ3hlK3Qo=; b=zMPzz7sAqzStzzMcjnpPR1wjLi
+	tnqVpK9jty/aF0Z8fx7NLPhKyuGHYvlmBYp07XBfdt3t2sOxOimiUjSSgyH7Eu906K/RlpgE+EMvL
+	rPwnFH8FjA8ZiUhkdJ6vgN+cYUJp8ClqI9bvFY5TMvMiJxHVx/4+RZECrBh+qFt6Ldnwl8p1s3qYd
+	0q5pX/P5dBfNwaepkBeRejQbL3VXj3UoR2+TzG1IN9gvr/08FxPcLDTKFJa2ZjcViZs3/nraOMr26
+	LALAqJvPfAVwNbzLLHPsUWkDBMpluywMDCTBqA8dSbOFtFbSPaMWrwr2EJQs2V25Q/R02fDJ8YAFF
+	myD/LCKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLjiD-00000003RXt-0w76;
-	Wed, 19 Nov 2025 15:03:13 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vLjiM-00000003Re6-2Rbc;
+	Wed, 19 Nov 2025 15:03:22 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLjiC-00000003RWa-0lyj
+	id 1vLjiL-00000003Rcv-09Z2
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Nov 2025 15:03:12 +0000
+	Wed, 19 Nov 2025 15:03:21 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 92CE36016B;
+	by tor.source.kernel.org (Postfix) with ESMTP id 6529960218;
+	Wed, 19 Nov 2025 15:03:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 307F3C16AAE;
 	Wed, 19 Nov 2025 15:03:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C8712C16AAE;
-	Wed, 19 Nov 2025 15:03:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763564591;
-	bh=FNQBeICxR0B/d8AdnKKxHZ3C9oJ646yuBJEylmDxAf4=;
+	s=k20201202; t=1763564600;
+	bh=V41I1DdaKjoguYvIVU3vcsbbLpnEiJ795VwgA1QsjOI=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=qBuF478QySTADHYHpuojYYKnlUai66KidfCa0kILAV/j7xfjpU6WiGj6n3Bv6xIPn
-	 ht5iEHGyyrb3H98sZfzLPos+iVUKEHso7cOCy0+B4n5lODYJpgjoygTocwvuuGHx7M
-	 OffZnwbAlRQy5KuTHFMV8Rkap7p3Ky9z9m+pqGH/Mo7JfSYrA5aMJDhE4u7F6Ia3dI
-	 sI+2FZZu9Zc279V90Dq+YzSFWcKuda98PBajRrSL3D+H5FfGCZsu6x3UPyjhS0LuXX
-	 urOIdorP/sCw7mUUAguviTjwzpw5iYUBrMr6ySac1jkMesGNKtarUMgQ2wVxVKuKRQ
-	 lCNx3uVTzrScg==
+	b=cItYrC/7Gv/oF1ZuZmijwPyTgCtpcQjJvd2KcgR5JnuDtTxgP8bA/oAj9ZoNirK3L
+	 91GW/fdqyignkGUcxE9AsI0gAoCki+qIz0QE9d2oKemH7hl8tgSy5tvyJrPY19KahZ
+	 Jivm4LCJd3A7+qHtZKNj37tVGWVjuo5VQR9IQ4Hrd1aaheQtMrhYLgPaiRepz6qkQh
+	 2DxnxKfQvZTXz3enyhyLLzcaCgJ08+6JpEwL5phWRl8IzbW/Yg5IzVTp+bOw9lbuXf
+	 IZ6h66KwznJvN6mcZbuWb2fAZxHjjAXCHQi7dynKhEBGJ2Oq4+2f9ofOUf/CWCsJlh
+	 7J0gTDaTK6NHg==
 From: Jisheng Zhang <jszhang@kernel.org>
 To: Doug Berger <opendmb@gmail.com>,
 	Florian Fainelli <florian.fainelli@broadcom.com>,
@@ -65,9 +65,9 @@ Cc: linux-gpio@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	linux-omap@vger.kernel.org
-Subject: [PATCH v3 14/15] gpio: xilinx: Use modern PM macros
-Date: Wed, 19 Nov 2025 22:43:26 +0800
-Message-ID: <20251119144327.13345-15-jszhang@kernel.org>
+Subject: [PATCH v3 15/15] gpio: zynq: Use modern PM macros
+Date: Wed, 19 Nov 2025 22:43:27 +0800
+Message-ID: <20251119144327.13345-16-jszhang@kernel.org>
 X-Mailer: git-send-email 2.51.0
 In-Reply-To: <20251119144327.13345-1-jszhang@kernel.org>
 References: <20251119144327.13345-1-jszhang@kernel.org>
@@ -94,70 +94,70 @@ CONFIG_PM_SLEEP are disabled, without having to use __maybe_unused
 Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
 Acked-by: Linus Walleij <linus.walleij@linaro.org>
 ---
- drivers/gpio/gpio-xilinx.c | 15 +++++++--------
+ drivers/gpio/gpio-zynq.c | 15 +++++++--------
  1 file changed, 7 insertions(+), 8 deletions(-)
 
-diff --git a/drivers/gpio/gpio-xilinx.c b/drivers/gpio/gpio-xilinx.c
-index 83675ac81077..be4b4d730547 100644
---- a/drivers/gpio/gpio-xilinx.c
-+++ b/drivers/gpio/gpio-xilinx.c
-@@ -286,7 +286,7 @@ static void xgpio_free(struct gpio_chip *chip, unsigned int offset)
- 	pm_runtime_put(chip->parent);
+diff --git a/drivers/gpio/gpio-zynq.c b/drivers/gpio/gpio-zynq.c
+index 0ffd76e8951f..97780c57ab56 100644
+--- a/drivers/gpio/gpio-zynq.c
++++ b/drivers/gpio/gpio-zynq.c
+@@ -735,7 +735,7 @@ static void zynq_gpio_restore_context(struct zynq_gpio *gpio)
+ 	}
  }
  
--static int __maybe_unused xgpio_suspend(struct device *dev)
-+static int xgpio_suspend(struct device *dev)
+-static int __maybe_unused zynq_gpio_suspend(struct device *dev)
++static int zynq_gpio_suspend(struct device *dev)
  {
- 	struct xgpio_instance *gpio = dev_get_drvdata(dev);
+ 	struct zynq_gpio *gpio = dev_get_drvdata(dev);
  	struct irq_data *data = irq_get_irq_data(gpio->irq);
-@@ -327,7 +327,7 @@ static void xgpio_irq_ack(struct irq_data *irq_data)
- {
- }
- 
--static int __maybe_unused xgpio_resume(struct device *dev)
-+static int xgpio_resume(struct device *dev)
- {
- 	struct xgpio_instance *gpio = dev_get_drvdata(dev);
- 	struct irq_data *data = irq_get_irq_data(gpio->irq);
-@@ -343,7 +343,7 @@ static int __maybe_unused xgpio_resume(struct device *dev)
+@@ -756,7 +756,7 @@ static int __maybe_unused zynq_gpio_suspend(struct device *dev)
  	return 0;
  }
  
--static int __maybe_unused xgpio_runtime_suspend(struct device *dev)
-+static int xgpio_runtime_suspend(struct device *dev)
+-static int __maybe_unused zynq_gpio_resume(struct device *dev)
++static int zynq_gpio_resume(struct device *dev)
  {
- 	struct xgpio_instance *gpio = dev_get_drvdata(dev);
- 
-@@ -352,7 +352,7 @@ static int __maybe_unused xgpio_runtime_suspend(struct device *dev)
+ 	struct zynq_gpio *gpio = dev_get_drvdata(dev);
+ 	struct irq_data *data = irq_get_irq_data(gpio->irq);
+@@ -779,7 +779,7 @@ static int __maybe_unused zynq_gpio_resume(struct device *dev)
  	return 0;
  }
  
--static int __maybe_unused xgpio_runtime_resume(struct device *dev)
-+static int xgpio_runtime_resume(struct device *dev)
+-static int __maybe_unused zynq_gpio_runtime_suspend(struct device *dev)
++static int zynq_gpio_runtime_suspend(struct device *dev)
  {
- 	struct xgpio_instance *gpio = dev_get_drvdata(dev);
+ 	struct zynq_gpio *gpio = dev_get_drvdata(dev);
  
-@@ -360,9 +360,8 @@ static int __maybe_unused xgpio_runtime_resume(struct device *dev)
+@@ -788,7 +788,7 @@ static int __maybe_unused zynq_gpio_runtime_suspend(struct device *dev)
+ 	return 0;
  }
  
- static const struct dev_pm_ops xgpio_dev_pm_ops = {
--	SET_SYSTEM_SLEEP_PM_OPS(xgpio_suspend, xgpio_resume)
--	SET_RUNTIME_PM_OPS(xgpio_runtime_suspend,
--			   xgpio_runtime_resume, NULL)
-+	SYSTEM_SLEEP_PM_OPS(xgpio_suspend, xgpio_resume)
-+	RUNTIME_PM_OPS(xgpio_runtime_suspend, xgpio_runtime_resume, NULL)
+-static int __maybe_unused zynq_gpio_runtime_resume(struct device *dev)
++static int zynq_gpio_runtime_resume(struct device *dev)
+ {
+ 	struct zynq_gpio *gpio = dev_get_drvdata(dev);
+ 
+@@ -814,9 +814,8 @@ static void zynq_gpio_free(struct gpio_chip *chip, unsigned int offset)
+ }
+ 
+ static const struct dev_pm_ops zynq_gpio_dev_pm_ops = {
+-	SET_SYSTEM_SLEEP_PM_OPS(zynq_gpio_suspend, zynq_gpio_resume)
+-	SET_RUNTIME_PM_OPS(zynq_gpio_runtime_suspend,
+-			   zynq_gpio_runtime_resume, NULL)
++	SYSTEM_SLEEP_PM_OPS(zynq_gpio_suspend, zynq_gpio_resume)
++	RUNTIME_PM_OPS(zynq_gpio_runtime_suspend, zynq_gpio_runtime_resume, NULL)
  };
  
- /**
-@@ -682,7 +681,7 @@ static struct platform_driver xgpio_plat_driver = {
- 	.driver		= {
- 			.name = "gpio-xilinx",
- 			.of_match_table	= xgpio_of_match,
--			.pm = &xgpio_dev_pm_ops,
-+			.pm = pm_ptr(&xgpio_dev_pm_ops),
+ static const struct zynq_platform_data versal_gpio_def = {
+@@ -1022,7 +1021,7 @@ static void zynq_gpio_remove(struct platform_device *pdev)
+ static struct platform_driver zynq_gpio_driver = {
+ 	.driver	= {
+ 		.name = DRIVER_NAME,
+-		.pm = &zynq_gpio_dev_pm_ops,
++		.pm = pm_ptr(&zynq_gpio_dev_pm_ops),
+ 		.of_match_table = zynq_gpio_of_match,
  	},
- };
- 
+ 	.probe = zynq_gpio_probe,
 -- 
 2.51.0
 
