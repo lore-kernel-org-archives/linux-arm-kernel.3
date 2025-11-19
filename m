@@ -4,98 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30CD0CF394D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 16:22:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0663CF3953
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 16:22:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SqgArqZqDLLZkxxlGxEl0Eyz/se4zZ6TXQ2QUXMksPc=; b=xflVqPRfpIToB0J5oUgMMEUScI
-	bhV9O5pcsKBUwy5xIqDwwXIcV4mJUGVQLvnj4dzdh8Bpsy+QkwVrGMWnfKV5s+3fVT0bdiRHq5qI9
-	TKYmVfr8jQIV1AlF4PG4uM83rZlNL3ejKYxrEO0V4Ocs9Gk7TKOn772tKIrdmWYSwO6yYsYtZXH8G
-	DZ4svzWbKyTHezQvEtM8dU3464sqVzUInH5u9kdazG0EyNLTbzU5AIUBmlrMvfZuLKzMrUwiJbRcf
-	137E1WTH5zYYfZ+cxyxVcRzbywDciAyE5Dmp02VJCW+oGx6jmQUMrU7bLViYkQtL8PM8uJTXKf9Jz
-	Lauhxf+A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jm4ibpBhbTCfqTkhGJ9+3IqNyDh7NcJlFBmjFtXPZ9Q=; b=pynYDM51VHub2TuxywVmfEoBF9
+	T4iOLIU+NSH5ta2gUFFvcTzo/8iL3si/POX6gOgpOCN02v3WFxt+C/mfsZrToMls6AgW/y0+XSYsT
+	w8Ln3chFhqaR6bhZ9+Ycd5nEu+FSCj68T+tFREERcf5YyXi7sA1G0TmppMj5sP2j4z6PeEt05pIo1
+	BzDr3bPLzOkmDLSRPbaAt22kFHR7NZAFvZxMrDx5R1sFJ8ND3ph75I4tyPWMYD0T+JeKeLp2AeE8Q
+	L2UH5lR3YQUYF4YWXmXpf8N7slkw9DdFMqypIRFu/qOQE/EKOVFnv4Gtr/qq4p6sNB/jPGC4Ft/MF
+	wDaTk7hg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLkxD-00000003gmu-2g8v;
-	Wed, 19 Nov 2025 16:22:47 +0000
-Received: from mail-pf1-x432.google.com ([2607:f8b0:4864:20::432])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLkxB-00000003gmU-2geY
+	id 1vLkxI-00000003goV-3u1S;
+	Wed, 19 Nov 2025 16:22:53 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vLkxG-00000003gnA-19MT
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Nov 2025 16:22:46 +0000
-Received: by mail-pf1-x432.google.com with SMTP id d2e1a72fcca58-7a435a3fc57so6685853b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Nov 2025 08:22:44 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1763569364; x=1764174164; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=SqgArqZqDLLZkxxlGxEl0Eyz/se4zZ6TXQ2QUXMksPc=;
-        b=kUp6CEwAaNKSFuWHxwCxidFDNrFdfNaAYHMJmR3tRMl+z3iwADodaxHcJqKHt7UEf1
-         qug2bp73/04yOpNPxjjBXcMomcQWLBvokVIRRz0SMkq2UlXbaI+ESSw5vVRpE3Yf9d4F
-         RJkP/EW3aTE7GXhKX2vUXBhmLFs6EQCNxz7pWg0l363ij6E7RGdn2th6mkbBr2zjlvQI
-         GeVXqDXMOzcsq9cp91GMNGWgUpIR/HCiAD33RdqB6VdbBFO2YibMBPbl/qKDJBg2g3mk
-         N1hZ8z2vYUM2gxczIfPNfPAKBK7P1nLiBrOyvUbk5JT7/X/a1TktYijTqf0huzSm5xWt
-         /gcw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763569364; x=1764174164;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=SqgArqZqDLLZkxxlGxEl0Eyz/se4zZ6TXQ2QUXMksPc=;
-        b=iVIrHrWRqs7gJ5whBdazEVK2VZZBWwLGXzVQH1E/KugHQuizvqmk+ZiTOEUs2jrbd7
-         +nirTO8dIiPhaKSpYdfq7l8dPdSJRyRAxq81/cIip4vqZJIWmrflir0XKrlv6SP1IIg7
-         o3X1LEybl5k242D2B528YOfuc3L4zKjWvUOqtDNkoPbExUyyYaxHNjIjPEBXlIyyFPqE
-         lp1E7RUPsXca8+rh4LzfbYfOdxErwH1kBARe3ysTQsx9JrGV4+XU/Uu/21d/Iz/8W3kX
-         JCENJQ6PGFl1Trg/LQxwpGzAXjn6/iwh+pOpq6jDfEvqOl96ALmDscVc3U7IwQ7EQZQ5
-         VEWg==
-X-Forwarded-Encrypted: i=1; AJvYcCUlad4LYf5qM8HtxAuGJWP1lu7X7DmHZm9hd+z8eNs58F0FFqtzNdT7fwCdNTQMjW/MFyLqOIxcFXZUVgSnMbiS@lists.infradead.org
-X-Gm-Message-State: AOJu0YylPn13wUYrKd2ZgcSpnbvlKSqiDGgS5ho/07yBnW2JlOibUgZN
-	cnwoyuqjEpkAUpiLGhCLpgrr3sw0Fp6zJmeStDRTUML0i85yJnKGdJfgBzuc5d3u0RA=
-X-Gm-Gg: ASbGncsDQylG32MaklI3BxuV68QcNoCpsfvQ0047vgfCRbvXe/pEEhh4KuthRWfjRWB
-	efFax7x3vehKQl1/VwJ488AAk8gwl/Nn1fpaOFXGf3V7tF5+fjw+wXoeIs02s/20VeVuN2b+2+e
-	qhAOdDKPS+N0kgu+dV7MNTzeqpyx2CR21a4D2m+X8AMxsSHaG12cXyaNrFczqFhGfjqSgt5zzin
-	4X17v67iDFSzfFd4b1lP6YBbkQUc4TI5ZP0ufE81iyM+M48jDvCKtzAVihp/K5U36G1r47+uM5o
-	XxBTVmstOv22o3x6wtw3BMnfADLUWWiAKPik7RZeeyysnpUiZm9hhD2Su/tC2TTb4H6rzEUAG0p
-	ApojNFeHk5GDLtrXrCrKH/oVAY4kRycXU6EdunHYntY8adyNKxhj3kD6Wl2BgQoBse67Zb0O+iH
-	h3Cft4QNA7jAf+2g==
-X-Google-Smtp-Source: AGHT+IHuSIrZBCiLgca0WU1DQj7ineP68uKwSXumgVfu9Fe9sbAmM4VWuP+tv6PTaJCg3+0A1H698w==
-X-Received: by 2002:a05:6a00:812:b0:7ad:9e8a:1f72 with SMTP id d2e1a72fcca58-7c29c492acamr4056626b3a.14.1763569364343;
-        Wed, 19 Nov 2025 08:22:44 -0800 (PST)
-Received: from p14s ([2604:3d09:148c:c800:f8d9:9ae3:90a2:d39e])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7ba611682cfsm17088879b3a.26.2025.11.19.08.22.42
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 19 Nov 2025 08:22:43 -0800 (PST)
-Date: Wed, 19 Nov 2025 09:22:40 -0700
-From: Mathieu Poirier <mathieu.poirier@linaro.org>
-To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-Cc: Bjorn Andersson <andersson@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>, Frank Li <Frank.Li@nxp.com>,
-	Daniel Baluta <daniel.baluta@nxp.com>,
-	Shengjiu Wang <shengjiu.wang@nxp.com>,
-	Iuliana Prodan <iuliana.prodan@nxp.com>,
-	linux-remoteproc@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Peng Fan <peng.fan@nxp.com>
-Subject: Re: [PATCH v4 00/12] remoteproc: imx_dsp_rproc: Refactor to use new
- ops and remove switch-case logic
-Message-ID: <aR3u0F7FTZUgxCQ6@p14s>
-References: <20251119-imx-dsp-2025-11-19-v4-0-adafd342d07b@nxp.com>
+	Wed, 19 Nov 2025 16:22:51 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B7802FEC;
+	Wed, 19 Nov 2025 08:22:39 -0800 (PST)
+Received: from [172.27.42.169] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A05953F740;
+	Wed, 19 Nov 2025 08:22:43 -0800 (PST)
+Message-ID: <dce7b961-fa81-4561-a1af-00ac83f62b24@arm.com>
+Date: Wed, 19 Nov 2025 10:22:42 -0600
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20251119-imx-dsp-2025-11-19-v4-0-adafd342d07b@nxp.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 01/34] ACPI / PPTT: Add a helper to fill a cpumask from
+ a processor container
+To: Ben Horgan <ben.horgan@arm.com>, james.morse@arm.com
+Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
+ baolin.wang@linux.alibaba.com, bobo.shaobowang@huawei.com,
+ carl@os.amperecomputing.com, catalin.marinas@arm.com, dakr@kernel.org,
+ dave.martin@arm.com, david@redhat.com, dfustini@baylibre.com,
+ fenghuay@nvidia.com, gregkh@linuxfoundation.org, gshan@redhat.com,
+ guohanjun@huawei.com, jonathan.cameron@huawei.com, kobak@nvidia.com,
+ lcherian@marvell.com, lenb@kernel.org, linux-acpi@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ lpieralisi@kernel.org, peternewman@google.com, quic_jiles@quicinc.com,
+ rafael@kernel.org, robh@kernel.org, rohit.mathew@arm.com,
+ scott@os.amperecomputing.com, sdonthineni@nvidia.com, sudeep.holla@arm.com,
+ tan.shaopeng@fujitsu.com, will@kernel.org, xhao@linux.alibaba.com,
+ Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>, Zeng Heng <zengheng4@huawei.com>
+References: <20251117170014.4113754-1-ben.horgan@arm.com>
+ <20251117170014.4113754-2-ben.horgan@arm.com>
+Content-Language: en-US
+From: Jeremy Linton <jeremy.linton@arm.com>
+In-Reply-To: <20251117170014.4113754-2-ben.horgan@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251119_082245_708249_8A0C3858 
-X-CRM114-Status: GOOD (  20.26  )
+X-CRM114-CacheID: sfid-20251119_082250_409585_6FDF3E92 
+X-CRM114-Status: GOOD (  26.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,68 +77,159 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 19, 2025 at 12:21:45PM +0800, Peng Fan (OSS) wrote:
-> This patchset aligns imx_dsp_rproc with the cleanup and modernization
-> previously applied to imx_rproc.c. The goal is to simplify the driver by
-> transitioning to the new ops-based method, eliminating the legacy
-> switch-case logic for a cleaner and more maintainable design.
+On 11/17/25 10:59 AM, Ben Horgan wrote:
+> From: James Morse <james.morse@arm.com>
 > 
-> Patches 1–5: General cleanup, including code simplification and adoption
->              of the devres API.
-> Patches 6–10: Transition to the new ops-based approach, removing the
->               switch-case structure.
-> Patch 11: Remove the obsolete enum imx_rproc_method.
-> Patch 12: Cleanup goto based logic.
+> The ACPI MPAM table uses the UID of a processor container specified in
+> the PPTT to indicate the subset of CPUs and cache topology that can
+> access each MPAM System Component (MSC).
 > 
-> Signed-off-by: Peng Fan <peng.fan@nxp.com>
-> ---
-> Changes in v4:
-> - Collected R-b and T-b
-> - Address the build warning in patch 1
-> - Add a new patch 12 to cleanup the goto based logic
-> - Link to V3: https://lore.kernel.org/imx/20251111-imx-dsp-2025-11-11-v3-0-d05dcba737fa@nxp.com/
+> This information is not directly useful to the kernel. The equivalent
+> cpumask is needed instead.
 > 
-> Changes in v3:
-> - Collected R-b
-> - Simplify commit log for patch 4 per Frank.
-> - Link to V2: https://lore.kernel.org/all/20251106-imx-dsp-2025-11-06-v1-0-46028bc3459a@nxp.com/
-> 
-> Changes in v2:
-> - Collected R-b
-> - Patch 3: Update commit per Frank/Daniel
-> - patch 8: Use priv->dsp_dcfg->dcfg to avoid adding "const struct imx_rproc_dsp_dcfg *dsp_dcfg"
-> - Link to v1: https://lore.kernel.org/linux-remoteproc/CAEnQRZAOTFw=sBppHTYQAdfDBuNqkqk6gVO4FyP0EBsva3Oi+Q@mail.gmail.com/T/#m27c93af9fb1e7fdeb0766bdbffbaae39d79eefab
-> 
-> ---
-> Peng Fan (12):
->       remoteproc: imx_dsp_rproc: simplify power domain attach and error handling
->       remoteproc: imx_dsp_rproc: Use devm_rproc_add() helper
->       remoteproc: imx_dsp_rproc: Use devm_pm_runtime_enable() helper
->       remoteproc: imx_dsp_rproc: Use dev_err_probe() for firmware and mode errors
->       remoteproc: imx_dsp_rproc: Drop extra space
->       remoteproc: imx_dsp_rproc: Use start/stop/detect_mode ops from imx_rproc_dcfg
->       remoteproc: imx_dsp_rproc: Move imx_dsp_rproc_dcfg closer to imx_dsp_rproc_of_match
->       remoteproc: imx_dsp_rproc: Simplify IMX_RPROC_MMIO switch case
->       remoteproc: imx_dsp_rproc: Simplify IMX_RPROC_SCU_API switch case
->       remoteproc: imx_dsp_rproc: Simplify IMX_RPROC_RESET_CONTROLLER switch case
->       remoteproc: imx_rproc: Remove enum imx_rproc_method
->       remoteproc: imx_dsp_rproc: simplify start/stop error handling
-> 
->  drivers/remoteproc/imx_dsp_rproc.c | 353 +++++++++++++++++++------------------
->  drivers/remoteproc/imx_rproc.h     |  14 --
+> Add a helper to find the processor container by its id, then walk
+> the possible CPUs to fill a cpumask with the CPUs that have this
+> processor container as a parent.
 
-I have applied this set.
-
-Thanks,
-Mathieu
-
->  2 files changed, 186 insertions(+), 181 deletions(-)
+Reviewed-by: Jeremy Linton <jeremy.linton@arm.com>>
+> CC: Dave Martin <dave.martin@arm.com>
+> Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
+> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+> Reviewed-by: Fenghua Yu <fenghuay@nvidia.com>
+> Reviewed-by: Gavin Shan <gshan@redhat.com>
+> Reviewed-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
+> Tested-by: Fenghua Yu <fenghuay@nvidia.com>
+> Tested-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
+> Tested-by: Peter Newman <peternewman@google.com>
+> Tested-by: Carl Worth <carl@os.amperecomputing.com>
+> Tested-by: Gavin Shan <gshan@redhat.com>
+> Tested-by: Zeng Heng <zengheng4@huawei.com>
+> Signed-off-by: James Morse <james.morse@arm.com>
+> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
 > ---
-> base-commit: 187dac290bfd0741b9d7d5490af825c33fd9baa4
-> change-id: 20251119-imx-dsp-2025-11-19-fa99d7c84c91
+> Changes since v4:
+> Remove blank line
 > 
-> Best regards,
-> -- 
-> Peng Fan <peng.fan@nxp.com>
+> Changes since v3:
+> Refer to processor hierarchy in comments (Jonathan)
+> Fix indent (Jonathan)
+> ---
+>   drivers/acpi/pptt.c  | 84 ++++++++++++++++++++++++++++++++++++++++++++
+>   include/linux/acpi.h |  3 ++
+>   2 files changed, 87 insertions(+)
 > 
+> diff --git a/drivers/acpi/pptt.c b/drivers/acpi/pptt.c
+> index 54676e3d82dd..b8248c0092fe 100644
+> --- a/drivers/acpi/pptt.c
+> +++ b/drivers/acpi/pptt.c
+> @@ -817,3 +817,87 @@ int find_acpi_cpu_topology_hetero_id(unsigned int cpu)
+>   	return find_acpi_cpu_topology_tag(cpu, PPTT_ABORT_PACKAGE,
+>   					  ACPI_PPTT_ACPI_IDENTICAL);
+>   }
+> +
+> +/**
+> + * acpi_pptt_get_child_cpus() - Find all the CPUs below a PPTT
+> + * processor hierarchy node
+> + *
+> + * @table_hdr:		A reference to the PPTT table
+> + * @parent_node:	A pointer to the processor hierarchy node in the
+> + *			table_hdr
+> + * @cpus:		A cpumask to fill with the CPUs below @parent_node
+> + *
+> + * Walks up the PPTT from every possible CPU to find if the provided
+> + * @parent_node is a parent of this CPU.
+> + */
+> +static void acpi_pptt_get_child_cpus(struct acpi_table_header *table_hdr,
+> +				     struct acpi_pptt_processor *parent_node,
+> +				     cpumask_t *cpus)
+> +{
+> +	struct acpi_pptt_processor *cpu_node;
+> +	u32 acpi_id;
+> +	int cpu;
+> +
+> +	cpumask_clear(cpus);
+> +
+> +	for_each_possible_cpu(cpu) {
+> +		acpi_id = get_acpi_id_for_cpu(cpu);
+> +		cpu_node = acpi_find_processor_node(table_hdr, acpi_id);
+> +
+> +		while (cpu_node) {
+> +			if (cpu_node == parent_node) {
+> +				cpumask_set_cpu(cpu, cpus);
+> +				break;
+> +			}
+> +			cpu_node = fetch_pptt_node(table_hdr, cpu_node->parent);
+> +		}
+> +	}
+> +}
+> +
+> +/**
+> + * acpi_pptt_get_cpus_from_container() - Populate a cpumask with all CPUs in a
+> + *                                       processor container
+> + * @acpi_cpu_id:	The UID of the processor container
+> + * @cpus:		The resulting CPU mask
+> + *
+> + * Find the specified Processor Container, and fill @cpus with all the cpus
+> + * below it.
+> + *
+> + * Not all 'Processor Hierarchy' entries in the PPTT are either a CPU
+> + * or a Processor Container, they may exist purely to describe a
+> + * Private resource. CPUs have to be leaves, so a Processor Container
+> + * is a non-leaf that has the 'ACPI Processor ID valid' flag set.
+> + */
+> +void acpi_pptt_get_cpus_from_container(u32 acpi_cpu_id, cpumask_t *cpus)
+> +{
+> +	struct acpi_table_header *table_hdr;
+> +	struct acpi_subtable_header *entry;
+> +	unsigned long table_end;
+> +	u32 proc_sz;
+> +
+> +	cpumask_clear(cpus);
+> +
+> +	table_hdr = acpi_get_pptt();
+> +	if (!table_hdr)
+> +		return;
+> +
+> +	table_end = (unsigned long)table_hdr + table_hdr->length;
+> +	entry = ACPI_ADD_PTR(struct acpi_subtable_header, table_hdr,
+> +			     sizeof(struct acpi_table_pptt));
+> +	proc_sz = sizeof(struct acpi_pptt_processor);
+> +	while ((unsigned long)entry + proc_sz <= table_end) {
+> +		if (entry->type == ACPI_PPTT_TYPE_PROCESSOR) {
+> +			struct acpi_pptt_processor *cpu_node;
+> +
+> +			cpu_node = (struct acpi_pptt_processor *)entry;
+> +			if (cpu_node->flags & ACPI_PPTT_ACPI_PROCESSOR_ID_VALID &&
+> +			    !acpi_pptt_leaf_node(table_hdr, cpu_node) &&
+> +			    cpu_node->acpi_processor_id == acpi_cpu_id) {
+> +				acpi_pptt_get_child_cpus(table_hdr, cpu_node, cpus);
+> +				break;
+> +			}
+> +		}
+> +		entry = ACPI_ADD_PTR(struct acpi_subtable_header, entry,
+> +				     entry->length);
+> +	}
+> +}
+> diff --git a/include/linux/acpi.h b/include/linux/acpi.h
+> index 5ff5d99f6ead..4752ebd48132 100644
+> --- a/include/linux/acpi.h
+> +++ b/include/linux/acpi.h
+> @@ -1541,6 +1541,7 @@ int find_acpi_cpu_topology(unsigned int cpu, int level);
+>   int find_acpi_cpu_topology_cluster(unsigned int cpu);
+>   int find_acpi_cpu_topology_package(unsigned int cpu);
+>   int find_acpi_cpu_topology_hetero_id(unsigned int cpu);
+> +void acpi_pptt_get_cpus_from_container(u32 acpi_cpu_id, cpumask_t *cpus);
+>   #else
+>   static inline int acpi_pptt_cpu_is_thread(unsigned int cpu)
+>   {
+> @@ -1562,6 +1563,8 @@ static inline int find_acpi_cpu_topology_hetero_id(unsigned int cpu)
+>   {
+>   	return -EINVAL;
+>   }
+> +static inline void acpi_pptt_get_cpus_from_container(u32 acpi_cpu_id,
+> +						     cpumask_t *cpus) { }
+>   #endif
+>   
+>   void acpi_arch_init(void);
+
 
