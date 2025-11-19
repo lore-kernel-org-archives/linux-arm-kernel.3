@@ -4,156 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C458CF3951
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 16:17:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D213CF394D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 16:18:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7qI3pk46qsrL8yI5w0a1jufnKZHyXrTwd3oGXllU9cM=; b=2u3jDnobr8D74E2wte5v+NeDvk
-	ICuHnmF+PN5i6YpOG+fxOALsLj+VtZw9ncVPqUS8o9DKeSElff/OrWvyLBhJwy6t4xGHkn5ubYk4L
-	kmIdVyAIazgHGRVxAgB+PjsuLcETKpSwYIIsoWMt8P2WCNKnbIxMz5s2tXC938+GAaflRP3JLA2/Q
-	jFgVHey87ZmYLpltiKtg9T0WYi6DYOtYToFvJfv8jcU3OkXhGBh4CMCVmfR+3U68ho/HwXfLtQnrw
-	7hT3u0e5L3Qfdt1j4DwTylIpqCNW5EzNbOX6AnB4u9b1NguT+IOcc+xRmpXA+kXfKci7NdJAzDJFn
-	QfubYbYw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=kqSmo/Laz/wqcGa5U2yqJUf0vmDAtS4/bm3ej3zoNlI=; b=1ivmD15NXZ2/1c
+	pXPhX0PIVF1UfWHpXO3NXlCWKA88CNlXmK6Z6CWINDPgLt0fVNzTuxrGFuvrZ7udwaAUT55ZA5SrU
+	RY31WEKaNNjlQPkYwbo4j5nLwcmuCS572AWBczPRAigJ5crfeWkzMTrNhqPMW6yKBGpP7i6edY9YR
+	F4r61KESjwHjYhxY5VUIUoHE/fiUnJTGYDp7iOBiLmH6lu4Y19D4D0i1OlJnZxWQ+xYABTA1Oh9pA
+	noI4YDcSQBOHM0GvNI72bAIcE4JJRZVVe8vPe8XEgQ6cbFH1NYpStYEiBla5s1avV03zj/InyhJXu
+	+WR7B83YcVs8Sz1DupjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLks6-00000003eiA-3qNL;
-	Wed, 19 Nov 2025 16:17:30 +0000
-Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1vLksy-00000003euA-2rAB;
+	Wed, 19 Nov 2025 16:18:25 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLks4-00000003ehd-38p2
+	id 1vLksv-00000003esP-05dw
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Nov 2025 16:17:29 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=u+8LFCvyZy1QlpcJRGqfRgNSTvfgr5Vm5VQWf019J6ohzl+hz9ON+UgSpgHeHj5SpHuhIzJcrtBMl4OiVwCQ9WfqL7QAQrNIm9t+SsnQtUv/qDHEy/lxHhbnUjVpecWGHo4toNIOpBt6Uq/t0ZTDZmnqDco3wfNHllyhmKMWKB1/D72osmwjd9vC0H6Cc46QPwaQJLsJVe7F57199/xeaIBgRRs+tmFYfcJtJTi32RFmwdpw5sHglPEysbQtkH8mb+b/hac2m95WbXlOScZq9BIMOXFofcNmiCxOrjMPv83gQ5srxioUKLB9QEq5sxuQLexZeYaTfhNiNnhuLzkavw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=7qI3pk46qsrL8yI5w0a1jufnKZHyXrTwd3oGXllU9cM=;
- b=JOnWEYnF/3IkN/gpgD4AFBSfKOIdrXsUyUxFkZsigtFrOTKmaZGl5WonjGRlHAFuUR4qxiO8hakeBzM9RgJyGAUpRk/wSEI3gZ+mA4aqkabmCG9MnOTXXoMmel9bf5HnzjyNzmBUiJDDCow8fI9M9EJjHtclmy/3xGRnVnadHXNIgdHvmZ2NorwWOaP92R42F88aasApzhI0VDAxuKmNzqQ57m1h1Lfwq1t7puOJzobfe2NPDJUwCf9YfnCK79tyvdbLlfuS7sCXyyNfX0iZSvPyCk+L9aY9p28Y04fQxsIZ5ypfhTW6A/P1lwjRxtxa7mHGzjytU6QKVmSYmOAyFQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=7qI3pk46qsrL8yI5w0a1jufnKZHyXrTwd3oGXllU9cM=;
- b=awvAB21mBnCSXsF6BakGBpPqZlnpdCnWbdpYC7YsRYXhZQ3e9XXX80Z4qJgoIH3DbD8Gw+cfmQqj/NnBx4yKuSExEkPIgUKnDOE0+XxLrVnVrtmBJqY4E7cKmVr0H0HeRMqRYHsAMkYVwQFnCa7DKeAkWAZ6TwlA7RETL3Y062veAod18XkTDT0bMjUwyi2qAj4cl9w+tjAm86V19B7f3FMG3rmEk5Y0/6/z4klLCILb9bJaU2fBQ9s56Yzlogym/x19Ig6Vllgv+5JLAAAxTSJWdbQjiIyH2v+SmCcWs0DFrQSwYlB0oUnY6Xa6CW0mcWv+RFRA7Kv7kAES5PtjnQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from DB9PR04MB9626.eurprd04.prod.outlook.com (2603:10a6:10:309::18)
- by PA4PR04MB7694.eurprd04.prod.outlook.com (2603:10a6:102:e7::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9343.10; Wed, 19 Nov
- 2025 16:17:23 +0000
-Received: from DB9PR04MB9626.eurprd04.prod.outlook.com
- ([fe80::55ef:fa41:b021:b5dd]) by DB9PR04MB9626.eurprd04.prod.outlook.com
- ([fe80::55ef:fa41:b021:b5dd%4]) with mapi id 15.20.9320.021; Wed, 19 Nov 2025
- 16:17:23 +0000
-Date: Wed, 19 Nov 2025 11:17:16 -0500
-From: Frank Li <Frank.li@nxp.com>
-To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-Cc: Philipp Zabel <p.zabel@pengutronix.de>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Rui Miguel Silva <rmfrfs@gmail.com>,
-	Martin Kepplinger-Novakovic <martink@posteo.de>,
-	Purism Kernel Team <kernel@puri.sm>, linux-media@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/4] media: nxp: use devm_mutex_init() simple code
-Message-ID: <aR3tjIv5Xx9VsXhS@lizhi-Precision-Tower-5810>
-References: <20251117-cam_cleanup-v1-0-6cd42872db79@nxp.com>
- <20251117-cam_cleanup-v1-1-6cd42872db79@nxp.com>
- <20251119042247.GL10711@pendragon.ideasonboard.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251119042247.GL10711@pendragon.ideasonboard.com>
-X-ClientProxiedBy: PH5P220CA0012.NAMP220.PROD.OUTLOOK.COM
- (2603:10b6:510:34a::9) To DB9PR04MB9626.eurprd04.prod.outlook.com
- (2603:10a6:10:309::18)
+	Wed, 19 Nov 2025 16:18:22 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-4779cc419b2so48805065e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Nov 2025 08:18:20 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1763569099; x=1764173899; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=kqSmo/Laz/wqcGa5U2yqJUf0vmDAtS4/bm3ej3zoNlI=;
+        b=NY9ntOeM9ZQhFzDl9lLbREZXpefxh0Gj0CyaZq2BML8nDJzQefs43WtzJfi2FqL4FA
+         aiiqIBIs5Y9HJcqIqADoxP9rGCKYrKpTQRJRNokqEyakI/Nb5wp6HdocmX+Nmb0wWGie
+         PEfAc5ySPhvATtqyjyl/QKkHLLDHCuIAIvQq6DtRns/oauHzM5sdRxaj7H012ZtLy1A/
+         Jvbj2X9h7RJK4UOPb08P2rHbJWO4uq56DrzZg1LHBH+836uWZ7X6air3poiblyp41J8M
+         z7QJKRR9KVIzf3x51qG6sEdCEsWz4W/d7hcKch++1bSI1NQe8Q/MYFw6AHDlIR6JMs3h
+         KDag==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1763569099; x=1764173899;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=kqSmo/Laz/wqcGa5U2yqJUf0vmDAtS4/bm3ej3zoNlI=;
+        b=sSQhUye2wIk/3n6tDnNjWhFj0AlrNtZJgwJiJgGOFae8xAm+RnvYgVn8dVfE3T2XW+
+         niAdfuYBRser0/YJP0EdRRBMbdd7mGp+fOQI4ZWT1BFrzT5Gcc7xMNt52fHRSL/w4eO4
+         9p0nrvolpaUtpfLeBbQOpE7nLBzZrmbj3iJZyAB1cb57hkNuGO3/0+nQb4NIwOHUd1H6
+         nLfM3JEXe1kGVwZtrqeNsknGjBQjcG4wgHhfmHSRjx3YOBXTqTY6J4htCdP0ercDS+s4
+         UKW32JpNgejZfKv6Q/H6JycfuoJ2SYItFULVGc/joyXUfa9oqO1i63HmOweNcuib6rrg
+         cnRw==
+X-Forwarded-Encrypted: i=1; AJvYcCVGTVQk09gSxf5PyuHJhSoNoCC099Pr81oVqXQCdS3BoLopgkuLwAm4pn3cfNzpu0pL/+/DJDuG8gGJxp8rnpLN@lists.infradead.org
+X-Gm-Message-State: AOJu0YzfzhAj7nA780gDarWKudY/OM8vvJUUQri/iE8vrKN5tM0SnKsq
+	coDErhtDyygpNdgAevL6G0BcPZvpHADoJOAE5zPEcQsBsryqThC0EZt1cuapxogYW2Q=
+X-Gm-Gg: ASbGnct8rQp5Cacmm6mBE8Xw/3ZgGAFBnmgwOokfr33RvAe9o6htAFLsiEmWVqGODoE
+	noR9ODvfkZt6HAn0JEuy2i3WefG9Bvfp9H4RYYV1h7hsxOYb/ddy9m914Qfz0rfXYR+euTAJpiZ
+	9Ey26RFRY84kmYcrh1BZmF6Da2Gc3RFklhYE5GLTkEd7eMuVrNnUdLtSkR2OexiJ9ftBGDae7lN
+	/dBvDcX2mITGAbp8kfoiqND6WY7CxuOQM/Sd/IQRad+zUT51e8e+EvSAmGo1ch7HOe/G7sBm7Qv
+	oQgi23nB+o9HXvAH/qo96sMnTk4cn2MpVlYMujrNgKnF8XulHKiVlK3bRNa/HXGVADeAE6inQtA
+	fcmPNdOzwvZFW+DhdDte5bSGWlgsYOIx1BM/EHaQ6DY++PDjPvHrgTTxZd9HRpBzDM+0G5JcSTh
+	SSwZfYYvqQIjT8NSOjr0BkToAnUzfTGgA=
+X-Google-Smtp-Source: AGHT+IHR+DwUC6v1Y3r57tcBgwQLVK6dWirnJF4ua41MnisnQJishs3n6VHMISKst8u5Qq9qepwLtQ==
+X-Received: by 2002:a05:600c:4513:b0:477:2f7c:314f with SMTP id 5b1f17b1804b1-4778fe5c820mr231104425e9.10.1763569099061;
+        Wed, 19 Nov 2025 08:18:19 -0800 (PST)
+Received: from ho-tower-lan.lan ([185.48.77.170])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-477b10142d3sm63205425e9.5.2025.11.19.08.18.18
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 19 Nov 2025 08:18:18 -0800 (PST)
+From: James Clark <james.clark@linaro.org>
+Subject: [PATCH v6 00/13] coresight: Update timestamp attribute to be an
+ interval instead of bool
+Date: Wed, 19 Nov 2025 16:17:56 +0000
+Message-Id: <20251119-james-cs-syncfreq-v6-0-740d24a29e51@linaro.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DB9PR04MB9626:EE_|PA4PR04MB7694:EE_
-X-MS-Office365-Filtering-Correlation-Id: 9e51c852-4bc3-45d9-4322-08de27871f74
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|52116014|7416014|376014|1800799024|19092799006|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?A4D5VKmt+ahQ8ffGk3ecMwdfJX+mK0lNT6KM4JX0yLEDRrFezaURCAGOf1pW?=
- =?us-ascii?Q?2MM/e33gmlZY/eRpfXr19hdbjfxGzpOrP8ib3MoTFh/V6tUx9ty/iBHSh8u4?=
- =?us-ascii?Q?+uboehGhci7B4fc8GLIIj5rq4CYZv/JrLX4kML9Vf7ZmrdoDJh7hVNH7MR5T?=
- =?us-ascii?Q?QJ5GAQ3IbVInvS+OuRfCkTBZlGRb9MtqOhV5OEeZU8j+dcqXeKH41iv1p4DF?=
- =?us-ascii?Q?l5GXwBKg2horTi/mOo68PZ0J0JxNo/OVgcaeN4YATldfCkD3BqLjlTynPvHA?=
- =?us-ascii?Q?UeakHj3dEr9UxQMkrtx4Xm3EwlnfDwF8ltlRqJ9nctlKZzBzWQiOPdiv8vo7?=
- =?us-ascii?Q?UoBh2SFaofmmbdTTojEFPP7kIfbDLw69hmmToiyrRLhpNqVvJzV8ZKz3lPgB?=
- =?us-ascii?Q?FFyVfU/iBC8Ptovt0L+WJrFgn1JWGUr5+LFMQLsXbUANxVJs+ww0JJ0HZ24B?=
- =?us-ascii?Q?PWBkVOIGSZNJl5WhEFY1BV7YZzdaknk+GqHBcuAlSJmo/2tWt2Pf8Bpzel2E?=
- =?us-ascii?Q?bjb15MNcq4Fr8tiZ76pYIBkSG60wb7rCN5vA/BXUo8YRgwi1nuIIlLifNAa1?=
- =?us-ascii?Q?GLorQigM4biUhSrL5JKSu6ZZT2z2XHMCurF5mFivjCJbDV+FTh+J4qgaQbHS?=
- =?us-ascii?Q?kwGsrUwiIlicJ9ZohRSjMQqdysaNXoO7wotXhnNk9MNgZExshHFDC2Gzor88?=
- =?us-ascii?Q?4ZL6nbzhJffbzzsoKWzRtC/vwgNDJnzZbtQiJTJ4gXoGtIXI3/dZFV5hs/uJ?=
- =?us-ascii?Q?5Y6jNzVUpa3S8fK9fpwnniJnGJJmUWJpOEEPxzBNDhlF80iE44ABZODIGr7D?=
- =?us-ascii?Q?olAuyg/3ZEvE1GfpuD4pJgZK76wPBoptIzuh3UvKNfR5W4UEcXAdos5UmMLC?=
- =?us-ascii?Q?se8zFZc6sj3u7tsePh3mdtFKXYEksk7wlOAnBFeB+cJQw+XCm3RUg6UwcPoN?=
- =?us-ascii?Q?v7KZeKlSTzmGtEBMAWeClJc7OyDeTtW/x/zka9bPiLSy/XQedAmjMFbQOOlR?=
- =?us-ascii?Q?JPEADVascUjvd4nsrASX0RbM7UdpANFgTcqPBG0pmpvNkBbwTHqDH8RCWS0W?=
- =?us-ascii?Q?DRKEnRvvtiOVoWEgN1isTZBGma5QRiAU/HL5h41oVQjEScdGNirRwJxUG5Pq?=
- =?us-ascii?Q?lbJyoT0+2MHuYfQqElAtw6wMyIdVKqHbCa40Oi6vIDLJT9kH6CWLdenq36mj?=
- =?us-ascii?Q?ozPfGzOA3aNwtzYXH8PrIpgm+iTYN40bQ0KfycM0DjfjRZm0OzHz41zxkY88?=
- =?us-ascii?Q?tgrre27mXmJaAGnxwtU2wOawtlbpLAh9nh2y3NFpGwVUXy/e4t4uH71hkbOY?=
- =?us-ascii?Q?uE9AHODsgOUzo/gciNp5CSNsSDUTGKW0g7kPVm2i53mGQN2tRd/Ue3kIL6qV?=
- =?us-ascii?Q?2yR/a4a0WlG7vyYKf0gkMjvGVXDWEKXdGiBRHKIq5QfcvYIDTjVfhbBquD8h?=
- =?us-ascii?Q?F/GjLHKPC8WtvMYEiPQJE34FILKDJmeazHeZ+wK9eZeNFAAA5Naz/j/7ay2V?=
- =?us-ascii?Q?kfoLLM15HWGjaDnUHK4jSmln7kI2PjbvDgQu?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR04MB9626.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(52116014)(7416014)(376014)(1800799024)(19092799006)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?AjfLCPbM09WeDOpBVbTt3ZgoRbtwayjLGLWPcQ5EQbYbk8Hc1HAAn+hGGYmj?=
- =?us-ascii?Q?+xpmoobzN2EECWtfQO8rBBEFVy8a8MpmXdEbsq4tYMsoetpnRcGn1r7aXUJw?=
- =?us-ascii?Q?SAf1EWRyKQ/BTYFkyYxRYEWy9NAsinQdT3LEpoUJPiiIkeHtSmcOUEqs26sh?=
- =?us-ascii?Q?eY/Adwyi55v1M6/KZjYSrgjvpAzmp4+qKIKu0tIs/G7Z2U5MkbOhM3Lpmag3?=
- =?us-ascii?Q?lpO6q9QFs6vTWthXzJIuP5ZR6/ipd28kn6MB3n6WV2+NkjogoG4lXnlCxKKx?=
- =?us-ascii?Q?R9fE95BUO+XkK2scnp7a+1gnqxaDp09U2KAClRwIjqzOxhL5Kyim2NgXrRsJ?=
- =?us-ascii?Q?6LFL4Qi07Sj8j+q9O2xZiyx/T+JQQyoZuMpwgUBAHTd/xzP87SlnOnNsNTQb?=
- =?us-ascii?Q?EbZnStEQ3kG6q2qWTnXshWIa7lc1ttAEZEHD1I53YxMX6y+pVetTPvKlJp6e?=
- =?us-ascii?Q?cYActpez+m2+1X621K7Kg/yJYHW3XaDqw059nIxqv97KQhH4aFEYlpLWqjcg?=
- =?us-ascii?Q?V2LGLWi00cpflXKTm86VtPY+SgfnqD4p36NZmWZhZ+6OYZxc55DS9ez1AE6C?=
- =?us-ascii?Q?2qHZsqwaK5c+Hz+LyFDSDK0il6VIbCJt24xiKfZIqpchK4DFZ/+Fgazioj72?=
- =?us-ascii?Q?k9+pew0KatbxTJpyFJJNZ76+kJOjQkrB68pYBtRvvXkAGLt4E0s6/+gTNUMP?=
- =?us-ascii?Q?ZdyuAwnwSmnTYd1e4jRbgT8N4CDH8teLaRYskw965HBNhKXXHrlmyRNDe7r7?=
- =?us-ascii?Q?tN3F/P3uAm3LesBwRImyuer2X0jUCUucdhM2zdrFB67dqu3UOJEeyGpvfO5K?=
- =?us-ascii?Q?h09p23qeUQSc+bRzjizfKbSkfoSURbLNncLaiZ9RHLSGefYS9pSaG1H6tkZs?=
- =?us-ascii?Q?+mYTxwdKO5gpw06nzfdXkv7Ic1++sRy0IiSSZiTAoAkqFwZ69pIvqAifWII+?=
- =?us-ascii?Q?IySZp720eNDPGnVD65arr587FyQ5nas5HD8Y8sPcmL5pMKp0gIqNSIVGosgR?=
- =?us-ascii?Q?KdkYcmPmmNqaavyAXGQdI8L22fX8eYSr46XKqJ645cxTWAlyjTCXANKidZQa?=
- =?us-ascii?Q?32VMg2aZCVoBB7uly8+JvD3yDRgAPXLFmE5J6FR66+0rcNIrL7GcVll9Cx6v?=
- =?us-ascii?Q?4sCchAEETRtThHiYNsdLZ4pqUDs3wGxHQN/tkDPXWtMDwtwVXL0tkHj0TTjZ?=
- =?us-ascii?Q?UUHozSEtxvobYSroAcQn5IK4N1idtG3DDMaHg53NFZ/4njCBksIG3ftsFpEi?=
- =?us-ascii?Q?zPFOoszQ8SGO85jRQvABnvgvIrhMJUv9l/dyUDDQOBpqLx92epQRdLA6acDV?=
- =?us-ascii?Q?bsb5cAFQlKSxWphC4unHO/6R1BqwNqERFIOisxJgSduYptMaiah78DiQhn1R?=
- =?us-ascii?Q?a03CUZZ4SkPD3sKKOtQ3Pb4Jjxa16O4clXRJefI5cwmxdUy2OB3P+0ZWTTVL?=
- =?us-ascii?Q?2nfYCDPGtKzZw4BrLDrF9Klviy22liQgpv7o9xJOf/G/Fuv1t0jCqZMohGrU?=
- =?us-ascii?Q?guYS9CwpnyKYcK1WiP4s4gOCHK7QL/DmaoSCUPCqLh9kT/YHze6QdJVRtX2P?=
- =?us-ascii?Q?DAYk/yhfBrxvxDqXddp7dktWpKBzkbrJ1L8M8iXc?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9e51c852-4bc3-45d9-4322-08de27871f74
-X-MS-Exchange-CrossTenant-AuthSource: DB9PR04MB9626.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Nov 2025 16:17:23.6760
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 1ZyOOfJ4vBz4s4c+j+ffpOoHeC1MxOU1ugB8YMF2Ch+XPsYlQgY0Ew6AUaVPW+IbM4hkaS7y8MRS19XfglOmxg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR04MB7694
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIALTtHWkC/23OS04DMRAE0KtEXmPkbv8mrLgHYuFPOzGCGbCRR
+ RTN3XGCBEHjZbXUr+rMKpVMlT3szqxQyzUvcw/mbsfC0c0H4jn2zFCgFhYVf3FvVHmovJ7mkAp
+ 9cBsQtXVyoihZ/3svlPLX1Xx67vmY6+dSTteKBpfrjzYBDLQGXHAvBIRoSCqhHl/z7Mpyv5QDu
+ 3ANb4nRoIadCNak4Cdr9iZuCPlLgBA4ImQnEumY0Kc9RNgQ6o8AGBKqE2C0dwhKQAwbQt8S04j
+ QnZiQUrQenNX/V6zr+g3PnH2kvwEAAA==
+To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
+ Mike Leach <mike.leach@linaro.org>, 
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+ Jonathan Corbet <corbet@lwn.net>, Leo Yan <leo.yan@arm.com>, 
+ Randy Dunlap <rdunlap@infradead.org>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org, 
+ James Clark <james.clark@linaro.org>
+X-Mailer: b4 0.14.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251119_081728_813907_0F78BFE2 
-X-CRM114-Status: GOOD (  26.11  )
+X-CRM114-CacheID: sfid-20251119_081821_440048_6A936FB6 
+X-CRM114-Status: GOOD (  21.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -168,133 +108,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 19, 2025 at 01:22:47PM +0900, Laurent Pinchart wrote:
-> Hi Frank,
->
-> Thank you for the patch.
->
-> On Mon, Nov 17, 2025 at 01:58:11PM -0500, Frank Li wrote:
-> > Use devm_mutex_init() simple code. No functional change.
-> >
-> > Signed-off-by: Frank Li <Frank.Li@nxp.com>
-> > ---
-> >  drivers/media/platform/nxp/imx-pxp.c          |  5 ++++-
-> >  drivers/media/platform/nxp/imx8mq-mipi-csi2.c | 11 +++++------
-> >  drivers/media/platform/nxp/mx2_emmaprp.c      |  7 +++----
-> >  3 files changed, 12 insertions(+), 11 deletions(-)
->
-> Given the diffstat, and the fact that devm_mutex_init() performs dynamic
-> memory allocation, I'm not convinced by this change. I won't block it
-> though, as I don't maintain the above drivers.
+Do some cleanups then expand the timestamp format attribute from 1 bit
+to 4 bits for ETMv4 in Perf mode. The current interval is too high for
+most use cases, and particularly on the FVP the number of timestamps
+generated is excessive. This change not only still allows disabling or
+enabling timestamps, but also allows the interval to be configured.
 
-The major target is that reduce goto, which cause unneccessary complex.
+The old bit is kept deprecated and undocumented for now. There are known
+broken versions of Perf that don't read the format attribute positions
+from sysfs and instead hard code the timestamp bit. We can leave the old
+bit in the driver until we need the bit for another feature or enough
+time has passed that these old Perfs are unlikely to be used.
 
-it is too easy to make mistake miss placed label
+The interval option is added as an event format attribute, rather than a
+Coresight config because it's something that the driver is already
+configuring automatically in Perf mode using any unused counter, so it's
+not possible to modify this with a config.
 
-Frank
+Applies to coresight/next
 
->
-> >
-> > diff --git a/drivers/media/platform/nxp/imx-pxp.c b/drivers/media/platform/nxp/imx-pxp.c
-> > index 3f9a67a6bd4d268841f85f9b69af03138300d188..32d39c8013c7eef1f9629f971cc74afecd463ac7 100644
-> > --- a/drivers/media/platform/nxp/imx-pxp.c
-> > +++ b/drivers/media/platform/nxp/imx-pxp.c
-> > @@ -1805,6 +1805,10 @@ static int pxp_probe(struct platform_device *pdev)
-> >
-> >  	spin_lock_init(&dev->irqlock);
-> >
-> > +	ret = devm_mutex_init(&pdev->dev, &dev->dev_mutex);
-> > +	if (ret)
-> > +		return ret;
-> > +
-> >  	ret = devm_request_irq(&pdev->dev, irq, pxp_irq_handler, 0,
-> >  			       dev_name(&pdev->dev), dev);
-> >  	if (ret < 0) {
-> > @@ -1831,7 +1835,6 @@ static int pxp_probe(struct platform_device *pdev)
-> >  		goto err_clk;
-> >
-> >  	atomic_set(&dev->num_inst, 0);
-> > -	mutex_init(&dev->dev_mutex);
-> >
-> >  	dev->vfd = pxp_videodev;
-> >  	vfd = &dev->vfd;
-> > diff --git a/drivers/media/platform/nxp/imx8mq-mipi-csi2.c b/drivers/media/platform/nxp/imx8mq-mipi-csi2.c
-> > index 371b4e81328c107269f89da23818ab0abd0179da..0851f4a9ae52d3096f454da643cfdc5017e000b1 100644
-> > --- a/drivers/media/platform/nxp/imx8mq-mipi-csi2.c
-> > +++ b/drivers/media/platform/nxp/imx8mq-mipi-csi2.c
-> > @@ -1033,15 +1033,17 @@ static int imx8mq_mipi_csi_probe(struct platform_device *pdev)
-> >
-> >  	platform_set_drvdata(pdev, &state->sd);
-> >
-> > -	mutex_init(&state->lock);
-> > +	ret = devm_mutex_init(dev, &state->lock);
-> > +	if (ret)
-> > +		return ret;
-> >
-> >  	ret = imx8mq_mipi_csi_subdev_init(state);
-> >  	if (ret < 0)
-> > -		goto mutex;
-> > +		return ret;
-> >
-> >  	ret = imx8mq_mipi_csi_init_icc(pdev);
-> >  	if (ret)
-> > -		goto mutex;
-> > +		return ret;
-> >
-> >  	/* Enable runtime PM. */
-> >  	pm_runtime_enable(dev);
-> > @@ -1068,8 +1070,6 @@ static int imx8mq_mipi_csi_probe(struct platform_device *pdev)
-> >  	v4l2_async_unregister_subdev(&state->sd);
-> >  icc:
-> >  	imx8mq_mipi_csi_release_icc(pdev);
-> > -mutex:
-> > -	mutex_destroy(&state->lock);
-> >
-> >  	return ret;
-> >  }
-> > @@ -1087,7 +1087,6 @@ static void imx8mq_mipi_csi_remove(struct platform_device *pdev)
-> >  	imx8mq_mipi_csi_runtime_suspend(&pdev->dev);
-> >  	media_entity_cleanup(&state->sd.entity);
-> >  	v4l2_subdev_cleanup(&state->sd);
-> > -	mutex_destroy(&state->lock);
-> >  	pm_runtime_set_suspended(&pdev->dev);
-> >  	imx8mq_mipi_csi_release_icc(pdev);
-> >  }
-> > diff --git a/drivers/media/platform/nxp/mx2_emmaprp.c b/drivers/media/platform/nxp/mx2_emmaprp.c
-> > index 02d57229b9b3a600303cc0429e102139385071d6..384a2672884e96d17cca542ef51fbef62328b66a 100644
-> > --- a/drivers/media/platform/nxp/mx2_emmaprp.c
-> > +++ b/drivers/media/platform/nxp/mx2_emmaprp.c
-> > @@ -824,7 +824,9 @@ static int emmaprp_probe(struct platform_device *pdev)
-> >  	if (ret)
-> >  		return ret;
-> >
-> > -	mutex_init(&pcdev->dev_mutex);
-> > +	ret = devm_mutex_init(&pdev->dev, &pcdev->dev_mutex);
-> > +	if (ret)
-> > +		return ret;
-> >
-> >  	vfd = video_device_alloc();
-> >  	if (!vfd) {
-> > @@ -878,8 +880,6 @@ static int emmaprp_probe(struct platform_device *pdev)
-> >  unreg_dev:
-> >  	v4l2_device_unregister(&pcdev->v4l2_dev);
-> >
-> > -	mutex_destroy(&pcdev->dev_mutex);
-> > -
-> >  	return ret;
-> >  }
-> >
-> > @@ -892,7 +892,6 @@ static void emmaprp_remove(struct platform_device *pdev)
-> >  	video_unregister_device(pcdev->vfd);
-> >  	v4l2_m2m_release(pcdev->m2m_dev);
-> >  	v4l2_device_unregister(&pcdev->v4l2_dev);
-> > -	mutex_destroy(&pcdev->dev_mutex);
-> >  }
-> >
-> >  static struct platform_driver emmaprp_pdrv = {
->
-> --
-> Regards,
->
-> Laurent Pinchart
+Signed-off-by: James Clark <james.clark@linaro.org>
+---
+Changes in v6:
+- #ifdef out format attributes for ETMv3 instead of using is_visible().
+  Then the same block can be used to define format_attr_contextid_show()
+  which avoids an awkward WARN_ONCE() and comments in arm32 for a
+  function that's never called.
+- Link to v5: https://lore.kernel.org/r/20251118-james-cs-syncfreq-v5-0-82efd7b1a751@linaro.org
+
+Changes in v5:
+- Add parens to interval calculation in docs (Randy)
+- Swap "minimum interval" and "maximum interval" in docs. (Leo)
+- Add TRCSYNCPR.PERIOD to docs (Leo)
+- Use CONFIG_ARM64 to avoid is_kernel_in_hyp_mode() (Leo)
+- Add a comment for hidden ETMv3 format attributes (Leo)
+- Hide configid for ETMv3 (Leo)
+- Link to v4: https://lore.kernel.org/r/20251112-james-cs-syncfreq-v4-0-165ba21401dc@linaro.org
+
+Changes in v4:
+- Add #defines for true and false resources ETM_RES_SEL_TRUE/FALSE
+- Reword comment about finding a counter to say if there are no
+  resources there are no counters.
+- Extend existing timestamp format attribute instead of adding a new one
+- Refactor all the config definitions and parsing to use
+  GEN_PMU_FORMAT_ATTR()/ATTR_CFG_GET_FLD() so we can see where the
+  unused bits are.
+- Link to v3: https://lore.kernel.org/r/20251002-james-cs-syncfreq-v3-0-fe5df2bf91d1@linaro.org
+
+Changes in v3:
+- Move the format attr definitions to coresight-etm-perf.h we can
+  compile on arm32 without #ifdefs - (Leo)
+- Convert the new #ifdefs to a single one in an is_visible() function so
+  that the code is cleaner - (Leo)
+- Drop the change to remove the holes in struct etmv4_config as they
+  were grouped by function - (Mike)
+- Link to v2: https://lore.kernel.org/r/20250814-james-cs-syncfreq-v2-0-c76fcb87696d@linaro.org
+
+Changes in v2:
+- Only show the attribute for ETMv4 to improve usability and fix the
+  arm32 build error. Wrapping everything in
+  IS_ENABLED(CONFIG_CORESIGHT_SOURCE_ETM4X) isn't ideal, but the -perf.c
+  file is shared between ETMv3 and ETMv4, and there is already precedent
+  for doing it this way.
+- Link to v1: https://lore.kernel.org/r/20250811-james-cs-syncfreq-v1-0-b001cd6e3404@linaro.org
+
+---
+James Clark (13):
+      coresight: Change syncfreq to be a u8
+      coresight: Repack struct etmv4_drvdata
+      coresight: Refactor etm4_config_timestamp_event()
+      coresight: Hide unused ETMv3 format attributes
+      coresight: Define format attributes with GEN_PMU_FORMAT_ATTR()
+      coresight: Interpret ETMv3 config with ATTR_CFG_GET_FLD()
+      coresight: Don't reject unrecognized ETMv3 format attributes
+      coresight: Interpret perf config with ATTR_CFG_GET_FLD()
+      coresight: Interpret ETMv4 config with ATTR_CFG_GET_FLD()
+      coresight: Remove misleading definitions
+      coresight: Extend width of timestamp format attribute
+      coresight: Allow setting the timestamp interval
+      coresight: docs: Document etm4x timestamp interval option
+
+ Documentation/trace/coresight/coresight.rst        |  16 +-
+ drivers/hwtracing/coresight/coresight-etm-perf.c   |  68 ++++-----
+ drivers/hwtracing/coresight/coresight-etm-perf.h   |  39 +++++
+ drivers/hwtracing/coresight/coresight-etm3x-core.c |  36 ++---
+ drivers/hwtracing/coresight/coresight-etm4x-core.c | 164 +++++++++++++--------
+ drivers/hwtracing/coresight/coresight-etm4x.h      |  61 +++++---
+ include/linux/coresight-pmu.h                      |  24 ---
+ 7 files changed, 244 insertions(+), 164 deletions(-)
+---
+base-commit: 9e9182cab5ebc3ee7544e60ef08ba19fdf216920
+change-id: 20250724-james-cs-syncfreq-7c2257a38ed3
+
+Best regards,
+-- 
+James Clark <james.clark@linaro.org>
+
 
