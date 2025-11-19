@@ -4,101 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A23B7CF394B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 15:50:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCF0CCF34D9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 15:50:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nYPZ2TAv2fl/D9t0qmZ6idVIls0qfp4iF8sGuYso3OI=; b=QTA7d6L3O7E2zIFWrs0/OhXypV
-	Xmd4rZmaKxOF+P4vKpZwW9zAtK4WJSDE4xvyMir0E2sRsyK41JjBubLpVSBurCQaqf17efMH0RITH
-	jl0koVPgoiRP8tX6rqNi26fwf9V1MM7hgR2HzwEBTEneoxq83QOs6wfja49pv20FShUIzfxT2Te+b
-	BQVRszqMTslb34Hq0n7+e8NZQ0j8Ulw6HCf4cjpenI6CZkQgWg6GQKmMGg6ekB2/2HuFkVJlDPGpC
-	uF3ZR5n8scwQXt78vOhBE/ZFHYKKCRNmLhJgRS9ZsB3dVhG10CFC9g+1c+KAdbE+YSnICvy8DIk5D
-	TvUq5xqQ==;
+	bh=Lmwc7dh8bulZPjtbjBKopqmenRh7KpHhq2AAQXHl5+8=; b=PSgWYISPdTYj1JzDLpRwF5Tj4+
+	vsO92QExRlI09q8OvfpQjIawVPHEQpy0nUjw6X0JBf8DjTgnexg8mlxWqcxXhc5gRYZyAtWWVlXTG
+	uTzlp1+gZEN+cekhbSD2WZz90BvHfNZvE/zCtqgr4dlqEBLI8nJ3jx29DMl8ZYQT6jh/31vOJ5HIB
+	icDSm4JABBux1mQTOzUpr+zVgyZ/HtyalYCL/e8e0ZYcei93lDu/5NaCEjwig+jiREXQLFKKctNIN
+	BrpvIvno/UozgMPhTUM1TRoTSCzcP+Xf1gWAqxQL7QDh4iAjThMu8Eg7k0T3UXer+hbn13LjUPxz6
+	b0hEWKEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLkRP-00000003Z5c-2lYT;
-	Wed, 19 Nov 2025 15:49:55 +0000
-Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLkR6-00000003Yms-0FUQ
+	id 1vLkRQ-00000003Z7V-2w8F;
+	Wed, 19 Nov 2025 15:49:56 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vLkR9-00000003Yjy-3bRx
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Nov 2025 15:49:37 +0000
-Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-42b3ad51fecso5109134f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Nov 2025 07:49:35 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1763567374; x=1764172174; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=nYPZ2TAv2fl/D9t0qmZ6idVIls0qfp4iF8sGuYso3OI=;
-        b=WL+YS9uFIDGTfCnuwNtQ6286C2h4pbBS1LNst7zWlU9kEsqS7lNiVPsf4kiczdd1kI
-         cB4znzNbFsDuTUsJx/KcrfHk6dC+cDFlpyLj9D8HP+ewlciV5xUNUCScermyufVa+z2j
-         kZW3nF+TQQ6G2Pz5xwXvrEgSp8kDz4XyqbIaTeqXl2e/Baqc4qlC2HuQUVE4Z9cTAQHP
-         j9nydRn658dVAmcLCqmR0JoyYvFQGYeA0EqWNyMQPxeN+y+Cus6AV2kcz3d+34cM0nze
-         uha/o8eYaDKig0NyXHWk3YtSCodtPpzmDHFrHj04zTdGzgyjs1cC87zxtGZDl84lnvnk
-         HS6g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763567374; x=1764172174;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=nYPZ2TAv2fl/D9t0qmZ6idVIls0qfp4iF8sGuYso3OI=;
-        b=Rrw4kQTArMBpLnTWXUnOyrELan1Tg6JDh5krpN/29XCImbH5RRrEWX6lC3lymUYCJV
-         H8+lR/6XeYMf6eUGFJvuphkuES2o8fiPRpkhjpFlC290rdj72106PJ2bYOPevnKnkamY
-         pB/y8Ao6yJXDO4wxJUzN3F/xvU0McqBaVPBfQiuz/kFlo/8+sdy+GcIC7AcF3ELb+MQQ
-         hdPSjTkiyx8mO2rGYSTbztKf0gZFySNckgpBFpI+Eoi8nCMaC7IuslW2Jkgvvh5On+za
-         wEwxIa8MTE5wiAM3mLHoYDNiwBAeuUS8Q8PZbAPFA3n6yFdcBnlqtz8cjIB8ZrvWuD8v
-         cdcw==
-X-Forwarded-Encrypted: i=1; AJvYcCWev6F1UvkFlRaBSfL3f1dd1+LSfGAyI8O+SrDu+GbtYM9KOlD+6bc6TfNxa52iIOjJLUvddeIxJSDvWP34Qc1L@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy15snofCqUCDubB4WYK3v7aympy3VsAFwhRmTFNfb32E4CK6Xs
-	llKp2ncPIVgtApngMI9RLw5D95Z2uY/ZY3hct85GQ+BjvzsFpLnDeEfI
-X-Gm-Gg: ASbGncvfWkYYziyXEaf920TGgu6OrpsNQHbEACjtgB6pejeQTUBIOaFj7R6tru8ywJg
-	P5H3qbgmdyUmpmlaBYpq3+MEwrNEixBlwuJ3KaUJYUrOjTaEc6rY6ByzX2v/miO5GE6WclAUfnU
-	8I+lncHhcawnrYlHDviPQdefTTVtSe4jADdrmwEfuj1UXQy1+fmXksWIIjW37X7eXDu0YT5bvZD
-	rgY/A9DHKc/NzCEvX5cY3zK1T653YQqLQJE79kDngLGR0Z33SlXBGeJHfPte8DKhIuvYf1JFwgi
-	xck5htaMvmtY//07WnyiSaj/o/a5WXa29JUDPUz8OdBrDeABFTC2JFj6W+oUm6waAfxE4LqMxaE
-	VAeZeJNJo51UV5VPQoEoTzhkqYmsEWuJqwSFgJjpQYkwI/RJtOyBz0Yl5cgjoiCg7e/x5oaDiU1
-	j5ly3Zd0WW8g7PoeYIBh/uBt7PDwVBtjK/bhNv9oF2BUovLLKbIqzmveY=
-X-Google-Smtp-Source: AGHT+IGnRWO/EQarXoiPW6xopu6JnhvTujLJMDnIONEFIwE5R1LQ002Uig+rL8Cjp6spjmieTrZ1vg==
-X-Received: by 2002:a05:6000:1788:b0:42b:4139:577b with SMTP id ffacd0b85a97d-42b5938fe6dmr19867296f8f.45.1763567373753;
-        Wed, 19 Nov 2025 07:49:33 -0800 (PST)
-Received: from f4d4888f22f2.ant.amazon.com.com ([15.248.3.91])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42c9628ebacsm25969755f8f.30.2025.11.19.07.49.32
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Wed, 19 Nov 2025 07:49:33 -0800 (PST)
-From: Jack Thomson <jackabt.amazon@gmail.com>
-To: maz@kernel.org,
-	oliver.upton@linux.dev,
-	pbonzini@redhat.com
-Cc: joey.gouly@arm.com,
-	suzuki.poulose@arm.com,
-	yuzenghui@huawei.com,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	shuah@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	isaku.yamahata@intel.com,
-	xmarcalx@amazon.co.uk,
-	kalyazin@amazon.co.uk,
-	jackabt@amazon.com
-Subject: [PATCH v3 2/3] KVM: selftests: Enable pre_fault_memory_test for arm64
-Date: Wed, 19 Nov 2025 15:49:09 +0000
-Message-ID: <20251119154910.97716-3-jackabt.amazon@gmail.com>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <20251119154910.97716-1-jackabt.amazon@gmail.com>
-References: <20251119154910.97716-1-jackabt.amazon@gmail.com>
+	Wed, 19 Nov 2025 15:49:42 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 22D6712FC;
+	Wed, 19 Nov 2025 07:49:31 -0800 (PST)
+Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1B64C3F66E;
+	Wed, 19 Nov 2025 07:49:36 -0800 (PST)
+From: Leo Yan <leo.yan@arm.com>
+Date: Wed, 19 Nov 2025 15:49:05 +0000
+Subject: [PATCH v5 07/19] coresight: syscfg: Use spinlock to protect active
+ variables
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20251119-arm_coresight_path_power_management_improvement-v5-7-f615a301ad0b@arm.com>
+References: <20251119-arm_coresight_path_power_management_improvement-v5-0-f615a301ad0b@arm.com>
+In-Reply-To: <20251119-arm_coresight_path_power_management_improvement-v5-0-f615a301ad0b@arm.com>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
+ Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>, 
+ Yeoreum Yun <yeoreum.yun@arm.com>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+ Yabin Cui <yabinc@google.com>, Keita Morisaki <keyz@google.com>, 
+ Yuanfang Zhang <quic_yuanfang@quicinc.com>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
+ Leo Yan <leo.yan@arm.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1763567363; l=4063;
+ i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
+ bh=AtsiniX55RTPmMmIRkEadUAQldZ0MxYJLU6VCFHmdgs=;
+ b=x0SFOJwJ5fBQF3zpXfRlDZBaeXkDz2IuRMVXeh7px8y2rwG/JEUeJqOinZmEX8YNi5zy325X3
+ 7xRImHgFtTbCv1SiyvtpRgNhzg43+2V2FCgNUBBQS6Bh9q057WSvtOt
+X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
+ pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251119_074936_364936_F3863031 
-X-CRM114-Status: GOOD (  17.21  )
+X-CRM114-CacheID: sfid-20251119_074940_039605_8A1E869F 
+X-CRM114-Status: GOOD (  16.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,170 +77,115 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Jack Thomson <jackabt@amazon.com>
+To support dynamically enabling and disabling the CoreSight path during
+CPU idle, cscfg_config_sysfs_get_active_cfg() may be called by the ETM
+driver in an atomic context. However, the function currently acquires a
+mutex, which is a sleepable lock, and this is not allowed in atomic
+context.
 
-Enable the pre_fault_memory_test to run on arm64 by making it work with
-different guest page sizes and testing multiple guest configurations.
+To make cscfg_config_sysfs_get_active_cfg() called in the idle flow,
+replace the mutex with a raw spinlock to protect the active
+variables.
 
-Update the test_assert to compare against the UCALL_EXIT_REASON, for
-portability, as arm64 exits with KVM_EXIT_MMIO while x86 uses
-KVM_EXIT_IO.
-
-Signed-off-by: Jack Thomson <jackabt@amazon.com>
+Reviewed-by: James Clark <james.clark@linaro.org>
+Tested-by: James Clark <james.clark@linaro.org>
+Signed-off-by: Leo Yan <leo.yan@arm.com>
 ---
- tools/testing/selftests/kvm/Makefile.kvm      |  1 +
- .../selftests/kvm/pre_fault_memory_test.c     | 78 ++++++++++++++-----
- 2 files changed, 58 insertions(+), 21 deletions(-)
+ drivers/hwtracing/coresight/coresight-syscfg.c | 22 +++++++++++++---------
+ drivers/hwtracing/coresight/coresight-syscfg.h |  2 ++
+ 2 files changed, 15 insertions(+), 9 deletions(-)
 
-diff --git a/tools/testing/selftests/kvm/Makefile.kvm b/tools/testing/selftests/kvm/Makefile.kvm
-index 148d427ff24b..0ddd8db60197 100644
---- a/tools/testing/selftests/kvm/Makefile.kvm
-+++ b/tools/testing/selftests/kvm/Makefile.kvm
-@@ -183,6 +183,7 @@ TEST_GEN_PROGS_arm64 += memslot_perf_test
- TEST_GEN_PROGS_arm64 += mmu_stress_test
- TEST_GEN_PROGS_arm64 += rseq_test
- TEST_GEN_PROGS_arm64 += steal_time
-+TEST_GEN_PROGS_arm64 += pre_fault_memory_test
+diff --git a/drivers/hwtracing/coresight/coresight-syscfg.c b/drivers/hwtracing/coresight/coresight-syscfg.c
+index 6836b05986e8091b4f8ad7d082d6a016f8cf7d74..53aa1a44f9ac8f65b4e3cce06a33255abfc17351 100644
+--- a/drivers/hwtracing/coresight/coresight-syscfg.c
++++ b/drivers/hwtracing/coresight/coresight-syscfg.c
+@@ -957,15 +957,19 @@ int cscfg_config_sysfs_activate(struct cscfg_config_desc *config_desc, bool acti
  
- TEST_GEN_PROGS_s390 = $(TEST_GEN_PROGS_COMMON)
- TEST_GEN_PROGS_s390 += s390/memop
-diff --git a/tools/testing/selftests/kvm/pre_fault_memory_test.c b/tools/testing/selftests/kvm/pre_fault_memory_test.c
-index f04768c1d2e4..674931e7bb3a 100644
---- a/tools/testing/selftests/kvm/pre_fault_memory_test.c
-+++ b/tools/testing/selftests/kvm/pre_fault_memory_test.c
-@@ -11,19 +11,29 @@
- #include <kvm_util.h>
- #include <processor.h>
- #include <pthread.h>
-+#include <guest_modes.h>
+ 	cfg_hash = (unsigned long)config_desc->event_ea->var;
  
- /* Arbitrarily chosen values */
--#define TEST_SIZE		(SZ_2M + PAGE_SIZE)
--#define TEST_NPAGES		(TEST_SIZE / PAGE_SIZE)
-+#define TEST_BASE_SIZE		SZ_2M
- #define TEST_SLOT		10
- 
-+/* Storage of test info to share with guest code */
-+struct test_config {
-+	int page_size;
-+	uint64_t test_size;
-+	uint64_t test_num_pages;
-+};
++	raw_spin_lock(&cscfg_mgr->spinlock);
 +
-+struct test_config test_config;
+ 	if (activate) {
 +
- static void guest_code(uint64_t base_gpa)
- {
- 	volatile uint64_t val __used;
-+	struct test_config *config = &test_config;
- 	int i;
- 
--	for (i = 0; i < TEST_NPAGES; i++) {
--		uint64_t *src = (uint64_t *)(base_gpa + i * PAGE_SIZE);
-+	for (i = 0; i < config->test_num_pages; i++) {
-+		uint64_t *src = (uint64_t *)(base_gpa + i * config->page_size);
- 
- 		val = *src;
- 	}
-@@ -159,11 +169,17 @@ static void pre_fault_memory(struct kvm_vcpu *vcpu, u64 base_gpa, u64 offset,
- 					  KVM_PRE_FAULT_MEMORY, ret, vcpu->vm);
- }
- 
--static void __test_pre_fault_memory(unsigned long vm_type, bool private)
-+struct test_params {
-+	unsigned long vm_type;
-+	bool private;
-+};
+ 		/* cannot be a current active value to activate this */
+ 		if (cscfg_mgr->sysfs_active_config) {
+ 			err = -EBUSY;
+-			goto exit_unlock;
++		} else {
++			err = _cscfg_activate_config(cfg_hash);
++			if (!err)
++				cscfg_mgr->sysfs_active_config = cfg_hash;
+ 		}
+-		err = _cscfg_activate_config(cfg_hash);
+-		if (!err)
+-			cscfg_mgr->sysfs_active_config = cfg_hash;
 +
-+static void __test_pre_fault_memory(enum vm_guest_mode guest_mode, void *arg)
- {
-+	struct test_params *p = arg;
- 	const struct vm_shape shape = {
--		.mode = VM_MODE_DEFAULT,
--		.type = vm_type,
-+		.mode = guest_mode,
-+		.type = p->vm_type,
- 	};
- 	struct kvm_vcpu *vcpu;
- 	struct kvm_run *run;
-@@ -174,10 +190,17 @@ static void __test_pre_fault_memory(unsigned long vm_type, bool private)
- 	uint64_t guest_test_virt_mem;
- 	uint64_t alignment, guest_page_size;
- 
-+	pr_info("Testing guest mode: %s\n", vm_guest_mode_string(guest_mode));
-+
- 	vm = vm_create_shape_with_one_vcpu(shape, &vcpu, guest_code);
- 
--	alignment = guest_page_size = vm_guest_mode_params[VM_MODE_DEFAULT].page_size;
--	guest_test_phys_mem = (vm->max_gfn - TEST_NPAGES) * guest_page_size;
-+	guest_page_size = vm_guest_mode_params[guest_mode].page_size;
-+
-+	test_config.page_size = guest_page_size;
-+	test_config.test_size = TEST_BASE_SIZE + test_config.page_size;
-+	test_config.test_num_pages = vm_calc_num_guest_pages(vm->mode, test_config.test_size);
-+
-+	guest_test_phys_mem = (vm->max_gfn - test_config.test_num_pages) * test_config.page_size;
- #ifdef __s390x__
- 	alignment = max(0x100000UL, guest_page_size);
- #else
-@@ -187,23 +210,31 @@ static void __test_pre_fault_memory(unsigned long vm_type, bool private)
- 	guest_test_virt_mem = guest_test_phys_mem & ((1ULL << (vm->va_bits - 1)) - 1);
- 
- 	vm_userspace_mem_region_add(vm, VM_MEM_SRC_ANONYMOUS,
--				    guest_test_phys_mem, TEST_SLOT, TEST_NPAGES,
--				    private ? KVM_MEM_GUEST_MEMFD : 0);
--	virt_map(vm, guest_test_virt_mem, guest_test_phys_mem, TEST_NPAGES);
-+				    guest_test_phys_mem, TEST_SLOT, test_config.test_num_pages,
-+				    p->private ? KVM_MEM_GUEST_MEMFD : 0);
-+	virt_map(vm, guest_test_virt_mem, guest_test_phys_mem, test_config.test_num_pages);
-+
-+	if (p->private)
-+		vm_mem_set_private(vm, guest_test_phys_mem, test_config.test_size);
-+	pre_fault_memory(vcpu, guest_test_phys_mem, TEST_BASE_SIZE, 0, p->private);
-+	/* Test pre-faulting over an already faulted range */
-+	pre_fault_memory(vcpu, guest_test_phys_mem, TEST_BASE_SIZE, 0, p->private);
-+	pre_fault_memory(vcpu, guest_test_phys_mem + TEST_BASE_SIZE,
-+			 test_config.page_size * 2, test_config.page_size, p->private);
-+	pre_fault_memory(vcpu, guest_test_phys_mem + test_config.test_size,
-+			 test_config.page_size, test_config.page_size, p->private);
- 
--	if (private)
--		vm_mem_set_private(vm, guest_test_phys_mem, TEST_SIZE);
-+	vcpu_args_set(vcpu, 1, guest_test_virt_mem);
- 
--	pre_fault_memory(vcpu, guest_test_phys_mem, 0, SZ_2M, 0, private);
--	pre_fault_memory(vcpu, guest_test_phys_mem, SZ_2M, PAGE_SIZE * 2, PAGE_SIZE, private);
--	pre_fault_memory(vcpu, guest_test_phys_mem, TEST_SIZE, PAGE_SIZE, PAGE_SIZE, private);
-+	/* Export the shared variables to the guest. */
-+	sync_global_to_guest(vm, test_config);
- 
--	vcpu_args_set(vcpu, 1, guest_test_virt_mem);
- 	vcpu_run(vcpu);
- 
- 	run = vcpu->run;
--	TEST_ASSERT(run->exit_reason == KVM_EXIT_IO,
--		    "Wanted KVM_EXIT_IO, got exit reason: %u (%s)",
-+	TEST_ASSERT(run->exit_reason == UCALL_EXIT_REASON,
-+		    "Wanted %s, got exit reason: %u (%s)",
-+		    exit_reason_str(UCALL_EXIT_REASON),
- 		    run->exit_reason, exit_reason_str(run->exit_reason));
- 
- 	switch (get_ucall(vcpu, &uc)) {
-@@ -227,7 +258,12 @@ static void test_pre_fault_memory(unsigned long vm_type, bool private)
- 		return;
+ 	} else {
+ 		/* disable if matching current value */
+ 		if (cscfg_mgr->sysfs_active_config == cfg_hash) {
+@@ -975,7 +979,8 @@ int cscfg_config_sysfs_activate(struct cscfg_config_desc *config_desc, bool acti
+ 			err = -EINVAL;
  	}
  
--	__test_pre_fault_memory(vm_type, private);
-+	struct test_params p = {
-+		.vm_type = vm_type,
-+		.private = private,
-+	};
+-exit_unlock:
++	raw_spin_unlock(&cscfg_mgr->spinlock);
 +
-+	for_each_guest_mode(__test_pre_fault_memory, &p);
+ 	mutex_unlock(&cscfg_mutex);
+ 	return err;
+ }
+@@ -983,9 +988,8 @@ int cscfg_config_sysfs_activate(struct cscfg_config_desc *config_desc, bool acti
+ /* set the sysfs preset value */
+ void cscfg_config_sysfs_set_preset(int preset)
+ {
+-	mutex_lock(&cscfg_mutex);
++	guard(raw_spinlock)(&cscfg_mgr->spinlock);
+ 	cscfg_mgr->sysfs_active_preset = preset;
+-	mutex_unlock(&cscfg_mutex);
  }
  
- int main(int argc, char *argv[])
+ /*
+@@ -994,10 +998,9 @@ void cscfg_config_sysfs_set_preset(int preset)
+  */
+ void cscfg_config_sysfs_get_active_cfg(unsigned long *cfg_hash, int *preset)
+ {
+-	mutex_lock(&cscfg_mutex);
++	guard(raw_spinlock)(&cscfg_mgr->spinlock);
+ 	*preset = cscfg_mgr->sysfs_active_preset;
+ 	*cfg_hash = cscfg_mgr->sysfs_active_config;
+-	mutex_unlock(&cscfg_mutex);
+ }
+ EXPORT_SYMBOL_GPL(cscfg_config_sysfs_get_active_cfg);
+ 
+@@ -1201,6 +1204,7 @@ static int cscfg_create_device(void)
+ 	INIT_LIST_HEAD(&cscfg_mgr->load_order_list);
+ 	atomic_set(&cscfg_mgr->sys_active_cnt, 0);
+ 	cscfg_mgr->load_state = CSCFG_NONE;
++	raw_spin_lock_init(&cscfg_mgr->spinlock);
+ 
+ 	/* setup the device */
+ 	dev = cscfg_device();
+diff --git a/drivers/hwtracing/coresight/coresight-syscfg.h b/drivers/hwtracing/coresight/coresight-syscfg.h
+index 66e2db890d8203853a0c3c907b48aa66dd8014e6..f52aba4608dadc1c7666e0e28c9b43dc1c33d1eb 100644
+--- a/drivers/hwtracing/coresight/coresight-syscfg.h
++++ b/drivers/hwtracing/coresight/coresight-syscfg.h
+@@ -42,6 +42,7 @@ enum cscfg_load_ops {
+  * @sysfs_active_config:Active config hash used if CoreSight controlled from sysfs.
+  * @sysfs_active_preset:Active preset index used if CoreSight controlled from sysfs.
+  * @load_state:		A multi-stage load/unload operation is in progress.
++ * @spinlock:		Exclusive access sysfs_active_* variables.
+  */
+ struct cscfg_manager {
+ 	struct device dev;
+@@ -54,6 +55,7 @@ struct cscfg_manager {
+ 	u32 sysfs_active_config;
+ 	int sysfs_active_preset;
+ 	enum cscfg_load_ops load_state;
++	raw_spinlock_t spinlock;
+ };
+ 
+ /* get reference to dev in cscfg_manager */
+
 -- 
-2.43.0
+2.34.1
 
 
