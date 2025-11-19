@@ -4,39 +4,39 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4832CF257C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 04:17:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C9C5CF257C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 04:18:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QyGaMKdQ16v7FsqxzMPOhepkjaBF+qxTwaihhWBqoCc=; b=1Qtj7nqsoW9MPgP4oZG07ZGsRk
-	ELMBsd1APj3noBCLBD+M2N+1bnmZb5os0g753wJLiKsKLkhJz6ZMcHIjiUsBkUGRj1LydniVkjsBk
-	9OqVY0OlYFllDUQ9mg8q4fPyj9K996e+ZFZlsAIjEbRpjCG01fNSq+irjwjoBFy3JAODtPdsdhnhd
-	I3JPPKmhkNd/LlN3mfj6TnBs0GUY87+hlFBe7uUKco6SUV46SldHuCb2onwRvSGW0Oy83bjkF8C1+
-	PNZcv2YGu7O0MsipMa2QZRyGWylz4/5pKiNX1psiE3aGhs6frRaKMeP++WlX/c4iLK8LUofnJ/dcY
-	BZEEQlGQ==;
+	bh=WSBEJqan3s0yKTSBo+2Da9OzI6hVXevsvKZmW9hixX8=; b=VdUgdpy4WgIEJvUL0cEJFE21/G
+	ts16LZaLoSSsUiNtiSNkPyOghoRKObPmruGgUD7GRaaZ2Fha8fxGnOSDyuO8vM8LYOaOYYhwtKElA
+	R7mA4dvB+UExtrFD8Rt2BbWBv44RsdZY+wWkuuO0QCkLmAQZovJ91uon+xHrG+dDRFjSY+XH/7qLW
+	0nKSnVbF+ppv7fXocDUUcJmxHU4T7Amf27f+rHwiuK3i6xZ82Lbx7Kj88dyG0EjB+jVEBbYa6M34x
+	YSbWXhWTlIXeTBw/EWc7QEoQa93k5D/jBfSll5pWKn0iJ/vyqaWjav1CbRxOoGC7SJ4eY0QiD7bre
+	oOjbmMTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLZdG-00000001doL-3LNB;
-	Wed, 19 Nov 2025 04:17:26 +0000
+	id 1vLZdm-00000001eCw-1Zr3;
+	Wed, 19 Nov 2025 04:17:58 +0000
 Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLZdE-00000001dlN-1CH3;
-	Wed, 19 Nov 2025 04:17:25 +0000
+	id 1vLZdj-00000001eAr-3dDO;
+	Wed, 19 Nov 2025 04:17:57 +0000
 Received: from pendragon.ideasonboard.com (unknown [205.220.129.225])
-	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 41432195E;
-	Wed, 19 Nov 2025 05:15:15 +0100 (CET)
+	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id CD2D7DD9;
+	Wed, 19 Nov 2025 05:15:47 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1763525718;
-	bh=+XBafT8tgTo/WbpW+oGia40uv+dDUQUOTr/OLoWFMQU=;
+	s=mail; t=1763525749;
+	bh=k9XgYvXg+wjYK9oGaaaJfHYNam3rcMc0Uh8RTTWVT5s=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=baGp/sXCYN72pf9xw4rgyvUhSXjziHl0zQK/lvbPBAB3zG1S/f9KW80inB3O1kSuH
-	 XsV38UgYru8gG2OqmoPaDNCNavWZsW+Tc4oywrySLutBxNeJE4iG1IEYv5jvjVh/eG
-	 mHQt4W0LKJJjEawmucbCIIv/Q6RFBlOS5rck9SrM=
-Date: Wed, 19 Nov 2025 13:16:48 +0900
+	b=wMOj4w0tcYckHL1uLbD4I68O4YFcO2oAUfrEyfyPHXv95KApnfu3oTyZkA9doTCeo
+	 erWWZqXi/ufzaUkv8FS2j3TTK85DVPRy1o9QOlpvvYkyxzlT4kIWWL643fEVn/wEwR
+	 8h4B0+K0SviyCdj7VEhSntQn2abmkr3QgVEjIQsY=
+Date: Wed, 19 Nov 2025 13:17:26 +0900
 From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
 To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 Cc: Harry Wentland <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>,
@@ -61,20 +61,19 @@ Cc: Harry Wentland <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>,
 	amd-gfx@lists.freedesktop.org, dri-devel@lists.freedesktop.org,
 	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	linux-rockchip@lists.infradead.org, intel-gfx@lists.freedesktop.org,
-	intel-xe@lists.freedesktop.org,
-	Marius Vlad <marius.vlad@collabora.com>
-Subject: Re: [PATCH v4 03/10] drm: Add enum conversion from/to
- HDMI_COLORSPACE to DRM_COLOR_FORMAT
-Message-ID: <20251119041648.GD10711@pendragon.ideasonboard.com>
+	intel-xe@lists.freedesktop.org
+Subject: Re: [PATCH v4 05/10] drm/bridge: dw-hdmi-qp: Set bridge
+ supported_formats
+Message-ID: <20251119041726.GE10711@pendragon.ideasonboard.com>
 References: <20251117-color-format-v4-0-0ded72bd1b00@collabora.com>
- <20251117-color-format-v4-3-0ded72bd1b00@collabora.com>
+ <20251117-color-format-v4-5-0ded72bd1b00@collabora.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20251117-color-format-v4-3-0ded72bd1b00@collabora.com>
+In-Reply-To: <20251117-color-format-v4-5-0ded72bd1b00@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251118_201724_461673_2552C36D 
-X-CRM114-Status: GOOD (  20.60  )
+X-CRM114-CacheID: sfid-20251118_201756_049139_5B2B7E15 
+X-CRM114-Status: GOOD (  18.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,93 +88,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 17, 2025 at 08:11:47PM +0100, Nicolas Frattaroli wrote:
-> From: Marius Vlad <marius.vlad@collabora.com>
+On Mon, Nov 17, 2025 at 08:11:49PM +0100, Nicolas Frattaroli wrote:
+> The drm_bridge "supported_formats" member stores a bitmask of supported
+> HDMI output formats if the bridge is in fact an HDMI bridge.
+
+It would be nice to convert the supported_formats field to a bitmask of
+DRM_MODE_COLOR_FORMAT_* values.
+
 > 
-> This would please the compiler to have a enum transformation from one to
-> another even though the values are the same. It should also make things
-
-The hdmi_colorspace enumerators are defined as (with comments added to
-make the values explicit)
-
-enum hdmi_colorspace {
-	HDMI_COLORSPACE_RGB,			/* 0 */
-	HDMI_COLORSPACE_YUV422,			/* 1 */
-	HDMI_COLORSPACE_YUV444,			/* 2 */
-	HDMI_COLORSPACE_YUV420,			/* 3 */
-	HDMI_COLORSPACE_RESERVED4,		/* 4 */
-	HDMI_COLORSPACE_RESERVED5,		/* 5 */
-	HDMI_COLORSPACE_RESERVED6,		/* 6 */
-	HDMI_COLORSPACE_IDO_DEFINED,		/* 7 */
-};
-
-and the DRM color formats as (after patch 02/10)
-
-enum drm_color_format {
-	DRM_COLOR_FORMAT_NONE			= 0,		/* 0 */
-	DRM_COLOR_FORMAT_RGB444			= (1 << 0),	/* 1 */
-	DRM_COLOR_FORMAT_YCBCR422		= (1 << 1),	/* 2 */
-	DRM_COLOR_FORMAT_YCBCR444		= (1 << 2),	/* 4 */
-	DRM_COLOR_FORMAT_YCBCR420		= (1 << 3),	/* 8 */
-	/* auto case, driver will set the color_format */
-	DRM_COLOR_FORMAT_AUTO			= (1 << 4),	/* 16 */
-};
-
-Contrary to what is stated in the commit message, the values are not the
-same. Maybe you confused DRM_COLOR_FORMAT_* with DRM_MODE_COLOR_FORMAT_*
-?
-
-> obvious that we use different enums.
+> However, until now, the synopsys dw-hdmi-qp driver did not set this
+> member in the bridge it creates.
 > 
-> Signed-off-by: Marius Vlad <marius.vlad@collabora.com>
+> Set it based on the platform data's supported_formats member, and
+> default to BIT(HDMI_COLORSPACE_RGB) if it's absent, which preserves the
+> previous behaviour.
+> 
+> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 > ---
->  drivers/gpu/drm/drm_connector.c | 18 ++++++++++++++++++
->  include/drm/drm_connector.h     |  3 +++
->  2 files changed, 21 insertions(+)
+>  drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c | 5 +++++
+>  1 file changed, 5 insertions(+)
 > 
-> diff --git a/drivers/gpu/drm/drm_connector.c b/drivers/gpu/drm/drm_connector.c
-> index 0ad7be0a2d09..61c077b67ac3 100644
-> --- a/drivers/gpu/drm/drm_connector.c
-> +++ b/drivers/gpu/drm/drm_connector.c
-> @@ -1384,6 +1384,24 @@ drm_color_format_enum_to_color_format(enum drm_color_format_enum fmt_enum)
+> diff --git a/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c b/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
+> index fe4c026280f0..cf888236bd65 100644
+> --- a/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
+> +++ b/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
+> @@ -1269,6 +1269,11 @@ struct dw_hdmi_qp *dw_hdmi_qp_bind(struct platform_device *pdev,
+>  		dev_warn(dev, "Set ref_clk_rate to vendor default\n");
 >  	}
->  }
 >  
-> +enum hdmi_colorspace
-> +color_format_to_hdmi_colorspace(enum drm_color_format fmt)
-> +{
-> +	switch (fmt) {
-> +	default:
-> +	case DRM_COLOR_FORMAT_AUTO:
-> +	case DRM_COLOR_FORMAT_RGB444:
-> +		return HDMI_COLORSPACE_RGB;
-> +	case DRM_COLOR_FORMAT_YCBCR444:
-> +		return HDMI_COLORSPACE_YUV444;
-> +	case DRM_COLOR_FORMAT_YCBCR422:
-> +		return HDMI_COLORSPACE_YUV422;
-> +	case DRM_COLOR_FORMAT_YCBCR420:
-> +		return HDMI_COLORSPACE_YUV420;
-> +	}
-> +}
-> +EXPORT_SYMBOL(color_format_to_hdmi_colorspace);
+> +	if (plat_data->supported_formats)
+> +		hdmi->bridge.supported_formats = plat_data->supported_formats;
+> +	else
+> +		hdmi->bridge.supported_formats = BIT(HDMI_COLORSPACE_RGB);
 > +
->  /**
->   * drm_get_color_format_name - return a string for color format
->   * @colorspace: color format to compute name of
-> diff --git a/include/drm/drm_connector.h b/include/drm/drm_connector.h
-> index a071079fd3ad..e044976c8d76 100644
-> --- a/include/drm/drm_connector.h
-> +++ b/include/drm/drm_connector.h
-> @@ -2586,6 +2586,9 @@ drm_color_format_to_color_format_enum(enum drm_color_format fmt);
->  u32
->  drm_color_format_enum_to_color_format(enum drm_color_format_enum fmt_enum);
+>  	dw_hdmi_qp_init_hw(hdmi);
 >  
-> +enum hdmi_colorspace
-> +color_format_to_hdmi_colorspace(enum drm_color_format fmt);
-> +
->  /**
->   * drm_for_each_connector_iter - connector_list iterator macro
->   * @connector: &struct drm_connector pointer used as cursor
+>  	ret = devm_request_threaded_irq(dev, plat_data->main_irq,
 
 -- 
 Regards,
