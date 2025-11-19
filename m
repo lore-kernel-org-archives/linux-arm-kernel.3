@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C306CF31B7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 12:24:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89A2CCF31B7
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 12:24:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tkfO4AMxaxcikGCKgYyADgx+CoQ8wt9pNkLSq8RKqdg=; b=URoS6bXBOlKGnppnp9hdGi5d3R
-	206lzzN8FKQ1wpmv1LM+o9ocDxM/WA12k0Wtdocl/JSLKRw4mkiA/ZR1n3gZkUUetgrcOuYCkEDpN
-	ZPNUCEOcmFJs43H/Ck2cLFJHpZMF8wovvC2l55ocz4QZ6NRGJoHWVAU6kXHl6fuC2uCiu6VmB9RAf
-	PS/ifb4Xx5UmEzxhMDN4f0Nh8oq2F7ZT3G17GwOxBsDxcHbDmfZ78G8c6lr+JP41iKA2QyTq98ci3
-	xujKZO5X4v690mRij/Z3pCABfualpORmOc9mwFAUC3XsqxB2t5y0wBywC4mcWUZqy45dtAnAHByCY
-	kb8IO+vQ==;
+	bh=e8CZtcZtfK9YxmHo2+k/ytt0Ypsfw0BLqGZmorBNhqg=; b=J3DUBOhSWdQRwjYk4WXr53dNKu
+	2Nin69h4QNpl89e1qO3lfDunriy7NGoRBToZjZTI2tuYIWbs/X1e5OfNM9FLj2vjOFL4ltdlhCz4G
+	V4mBFDnPrrGxJaeq3yAznNxli0aSUInj66cD4sn3HZ0XRaIib8X1qWc7aHS238MmJ54tPKZFcTuSI
+	+ejJipzoDnDj13RpCrSG4H7abERfLrCzuNzRTZSoDRQLH8gHTX2QVf5ZX/xsQJQ8BorpPaxrMecoz
+	vniqwih0tAYHg9EJ1Eo5tr5Q5qaGQSC8aQJQjcGY55h3CzQHnrJChUbIJkbmke1VSWRLsxpUPMz3D
+	VMUTvmMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLhEC-000000036vg-3spE;
-	Wed, 19 Nov 2025 12:24:04 +0000
+	id 1vLhEI-0000000370N-36xe;
+	Wed, 19 Nov 2025 12:24:10 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLhE9-000000036tY-3l0q
+	id 1vLhEF-000000036yB-2kqE
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Nov 2025 12:24:03 +0000
+	Wed, 19 Nov 2025 12:24:08 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D4E191762;
-	Wed, 19 Nov 2025 04:23:53 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 530C6176C;
+	Wed, 19 Nov 2025 04:23:59 -0800 (PST)
 Received: from e134344.cambridge.arm.com (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 3CD663F740;
-	Wed, 19 Nov 2025 04:23:56 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id AEBAD3F740;
+	Wed, 19 Nov 2025 04:24:01 -0800 (PST)
 From: Ben Horgan <ben.horgan@arm.com>
 To: james.morse@arm.com
 Cc: amitsinght@marvell.com,
@@ -73,17 +73,18 @@ Cc: amitsinght@marvell.com,
 	Ben Horgan <ben.horgan@arm.com>,
 	Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>,
 	Zeng Heng <zengheng4@huawei.com>
-Subject: [PATCH v6 06/34] arm64: kconfig: Add Kconfig entry for MPAM
-Date: Wed, 19 Nov 2025 12:22:36 +0000
-Message-ID: <20251119122305.302149-7-ben.horgan@arm.com>
+Subject: [PATCH v6 07/34] platform: Define platform_device_put cleanup handler
+Date: Wed, 19 Nov 2025 12:22:37 +0000
+Message-ID: <20251119122305.302149-8-ben.horgan@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20251119122305.302149-1-ben.horgan@arm.com>
 References: <20251119122305.302149-1-ben.horgan@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251119_042402_066662_C09885B7 
-X-CRM114-Status: GOOD (  14.76  )
+X-CRM114-CacheID: sfid-20251119_042407_757309_235B738C 
+X-CRM114-Status: UNSURE (   9.64  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,71 +99,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: James Morse <james.morse@arm.com>
+Define a cleanup helper for use with __free to destroy platform devices
+automatically when the pointer goes out of scope. This is only intended to
+be used in error cases and so should be used with return_ptr() or
+no_free_ptr() directly to avoid the automatic destruction on success.
 
-The bulk of the MPAM driver lives outside the arch code because it
-largely manages MMIO devices that generate interrupts. The driver
-needs a Kconfig symbol to enable it. As MPAM is only found on arm64
-platforms, the arm64 tree is the most natural home for the Kconfig
-option.
+A first use of this is introduced in a subsequent commit.
 
-This Kconfig option will later be used by the arch code to enable
-or disable the MPAM context-switch code, and to register properties
-of CPUs with the MPAM driver.
-
-Signed-off-by: James Morse <james.morse@arm.com>
-Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
-Reviewed-by: Ben Horgan <ben.horgan@arm.com>
-Reviewed-by: Fenghua Yu <fenghuay@nvidia.com>
 Reviewed-by: Gavin Shan <gshan@redhat.com>
+Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+Reviewed-by: Fenghua Yu <fenghuay@nvidia.com>
 Reviewed-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
 Tested-by: Fenghua Yu <fenghuay@nvidia.com>
-Tested-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
-Tested-by: Peter Newman <peternewman@google.com>
 Tested-by: Carl Worth <carl@os.amperecomputing.com>
 Tested-by: Gavin Shan <gshan@redhat.com>
 Tested-by: Zeng Heng <zengheng4@huawei.com>
+Tested-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
 Tested-by: Hanjun Guo <guohanjun@huawei.com>
-CC: Dave Martin <dave.martin@arm.com>
 Signed-off-by: Ben Horgan <ben.horgan@arm.com>
 ---
- arch/arm64/Kconfig | 23 +++++++++++++++++++++++
- 1 file changed, 23 insertions(+)
+ include/linux/platform_device.h | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index 6663ffd23f25..67015d51f7b5 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -2023,6 +2023,29 @@ config ARM64_TLB_RANGE
- 	  ARMv8.4-TLBI provides TLBI invalidation instruction that apply to a
- 	  range of input addresses.
+diff --git a/include/linux/platform_device.h b/include/linux/platform_device.h
+index 074754c23d33..23a30ada2d4c 100644
+--- a/include/linux/platform_device.h
++++ b/include/linux/platform_device.h
+@@ -232,6 +232,7 @@ extern int platform_device_add_data(struct platform_device *pdev,
+ extern int platform_device_add(struct platform_device *pdev);
+ extern void platform_device_del(struct platform_device *pdev);
+ extern void platform_device_put(struct platform_device *pdev);
++DEFINE_FREE(platform_device_put, struct platform_device *, if (_T) platform_device_put(_T))
  
-+config ARM64_MPAM
-+	bool "Enable support for MPAM"
-+	help
-+	  Memory System Resource Partitioning and Monitoring (MPAM) is an
-+	  optional extension to the Arm architecture that allows each
-+	  transaction issued to the memory system to be labelled with a
-+	  Partition identifier (PARTID) and Performance Monitoring Group
-+	  identifier (PMG).
-+
-+	  Memory system components, such as the caches, can be configured with
-+	  policies to control how much of various physical resources (such as
-+	  memory bandwidth or cache memory) the transactions labelled with each
-+	  PARTID can consume.  Depending on the capabilities of the hardware,
-+	  the PARTID and PMG can also be used as filtering criteria to measure
-+	  the memory system resource consumption of different parts of a
-+	  workload.
-+
-+	  Use of this extension requires CPU support, support in the
-+	  Memory System Components (MSC), and a description from firmware
-+	  of where the MSCs are in the address space.
-+
-+	  MPAM is exposed to user-space via the resctrl pseudo filesystem.
-+
- endmenu # "ARMv8.4 architectural features"
- 
- menu "ARMv8.5 architectural features"
+ struct platform_driver {
+ 	int (*probe)(struct platform_device *);
 -- 
 2.43.0
 
