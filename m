@@ -4,174 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD2F3CF394D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 16:06:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89B14CF394D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 16:09:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d3zQ13wGj4PwRD+lyTjkT7UXgljB8QkyzV2vUDygpUQ=; b=wxAmOI5l0WFwkoGVVs6610Hicr
-	jJ8gXvLFWMWeRurbUm0kHkO+gp0pb2k3RDIzKwWt45hJf83G3WLn056yBf8ka/LVu44BJA9dI+2T4
-	YwY9PUn+axjFi4b1b/0Dm+Gjt0CBul46al6ZHeycacPEKXyjq1lmS1aZOo+Y6MXIC+PXuoz/EhS3M
-	A1JbbB8tnixeoeudPzyvb8xa659qN6BNxXGZOMoCcE3dJmIQVJWOJRarCcywmGHjbk8V+6UwEDm7g
-	LK7GFqdMggB2H5r1B6eOKPcMmcKSDcOztG8GIb6qV8FVgsRgbwoGhoPJfa1jc3o6VYOjZnntRpbnn
-	Gqo0ynJg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WsZqEAB4PzK73w92Usb8GJ4TprEsrCxLoL+h/dVP4zw=; b=gNvBL3gkK2oVxG0Q/YVZzKJI2x
+	/YIgSS9DmgmqVTIGtOPbNZ0pulsH/qqTkknSnPq09RoMzQ2CRZ4uwcZvtwthRz0oHqw11ehdOaCVZ
+	VrK5d5osw4UXQiLTFQyCyKB4Jyp/OI0Cq8VOuplid4OU/kSOA9DqFUrdCOzSnEinnO2LpM0F5qqJk
+	D5R9r+oVGGgpl5sC3M+70NlQcZ4slzoIY3Pz7/OWoqIIW7lsx4RFKiYWnfgxmrQgX/LWiwBTdMO5R
+	KXFJfMeb73oD402g8itAutp8w7cb7efi05/hyIrrM/uAj6JbZ5T0ZJyaXoOwIPBGjlwOuxcgvQRrM
+	8vas4lDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLkh7-00000003dYb-1HLa;
-	Wed, 19 Nov 2025 16:06:09 +0000
-Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1vLkkR-00000003dp2-3XEz;
+	Wed, 19 Nov 2025 16:09:35 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLkh4-00000003dY9-1vzG
+	id 1vLkkQ-00000003dot-06vL
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Nov 2025 16:06:07 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=UwJEXC3/nGaxMsUlpIA3fYPOW2IQ1mVkn4hPc2A2Tt3cFoSnkdiTpR1geNlqc1AwAAZubOCyHPcZohDKeZvAAaMxmOShGqlIzKYaobj1KwP+ssD2T93PuYiK8OtexSrSZKYCjVJSIfPLzZSDjUkUsKaupEWcV5j1ml+xV0jL/UdtrXPNimMfAGKCMvFq+5d5SRdFWL0h9q407FciZH7uak3LBFXhy9PdP4EYUbPUtHwkX5OBlHiq10hMaXiupKd69Nh9JIyM0yYmBaCYftM1/UpH6Ag7P84zjKt41mbzotZX9M9NrKNgaGUX2AxU+YdMJVJdmzV61sr8fefbO0tVUg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=d3zQ13wGj4PwRD+lyTjkT7UXgljB8QkyzV2vUDygpUQ=;
- b=TvPdDmpMkOMnTtZALl2UdCz5lH1Jxw/fYNfFTlPPjzLF84bykosgcnnavlzkWx0D07WHwDza4DUQhMUg+e7EuOwpCj+ea+j6zhpzsZ8upvhDjD6/kmWcPVnYOXb0+gyVdn09j519o56FR87csnwpaVJ/A4/2989cbEFJao0uZA+q6TEmXT1NPomIIadTlni/pock4b7uXtFDtwndSsa7XZn6s+w46h/ih+3HtUB9t94LlMedNrm2qsPefec5AI0u9CiDyYbTYrsnmdx2ZvC1gL2TZCpwX6A1KQoKF10vlM3I/1uTF6A8gCHlfVxEI9fpVQB2Z5wYq9/lIdW9KlBkTQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=d3zQ13wGj4PwRD+lyTjkT7UXgljB8QkyzV2vUDygpUQ=;
- b=iJ6D7pF2NWhHanCTYSGLqp5rOGh2rwDOIuWBzGcRe+yKqDib9sG+lAHWLW89qt779pBa8aLAXu04k0BZAdy6mbQaILNkrnZQNAh3C6mQslSEkYkZETRHI6uDCNNNxXPIpezAnM/shHka+JcY3ylsIps9Iv1/v1o9Y3jvNWC+4FtEKVAB9WijmTucbKSqn0QWF5eDKvpZkTnjnJJyoGv/XKPurU8siOsUlNq65pwrmM1ZR0mXAjDdLIpsec/IT5XB3Li4e4qahFHaPuBdZBBDkuQLoL4y0bqtDcTD34o4ZweEeEHd5rwCGA99fSyzN6nOookT+r2Tn+bahKHV8dmVVg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from DB9PR04MB9626.eurprd04.prod.outlook.com (2603:10a6:10:309::18)
- by DB8PR04MB7020.eurprd04.prod.outlook.com (2603:10a6:10:126::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9320.22; Wed, 19 Nov
- 2025 16:05:58 +0000
-Received: from DB9PR04MB9626.eurprd04.prod.outlook.com
- ([fe80::55ef:fa41:b021:b5dd]) by DB9PR04MB9626.eurprd04.prod.outlook.com
- ([fe80::55ef:fa41:b021:b5dd%4]) with mapi id 15.20.9320.021; Wed, 19 Nov 2025
- 16:05:58 +0000
-Date: Wed, 19 Nov 2025 11:05:48 -0500
-From: Frank Li <Frank.li@nxp.com>
-To: Carlos Song <carlos.song@nxp.com>
-Cc: Aisheng Dong <aisheng.dong@nxp.com>,
-	"andi.shyti@kernel.org" <andi.shyti@kernel.org>,
-	"shawnguo@kernel.org" <shawnguo@kernel.org>,
-	"s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
-	"kernel@pengutronix.de" <kernel@pengutronix.de>,
-	"festevam@gmail.com" <festevam@gmail.com>,
-	"linux-i2c@vger.kernel.org" <linux-i2c@vger.kernel.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH] i2c: imx-lpi2c: change to PIO mode in system-wide
- suspend/resume progress
-Message-ID: <aR3q3KA0j2Qn+bCU@lizhi-Precision-Tower-5810>
-References: <20251118071837.1419558-1-carlos.song@nxp.com>
- <aRyXjUF+x5BdK+uS@lizhi-Precision-Tower-5810>
- <VI2PR04MB11147CEB59F804078F2136107E8D7A@VI2PR04MB11147.eurprd04.prod.outlook.com>
+	Wed, 19 Nov 2025 16:09:34 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 2A00260172;
+	Wed, 19 Nov 2025 16:09:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E6AA9C4CEF5;
+	Wed, 19 Nov 2025 16:09:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1763568572;
+	bh=yecPozP/mhu1K7P05yYjbd9mozStHCFHTnKHlNBGXiE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=IjUvSkcDGUJEE+Av8jzmS5XLVnwXLssfrykP50/4nIIPVnLIqfVBaCgRURGi0IVE+
+	 Obfwm1uTdpEzQchELcnOaP80OZeMzF48vT/d5YNIsH4mXRVk7yf90r5vBR+joKGjbS
+	 X4b6moTHOqY8Z6iLyPosaqBKxpkyJzr/dqXpLJesk1Q+wp8hg0aUDV9gCEyy6KZSkO
+	 kFMtTMCzkCiC4z1Lzz2hZmq6RwRNq/TJg5foUaUr5SNt6T1305GA43CiozGTv+UJLd
+	 3l81FBCi1jXqOah7G3KyoUQznS0jegPKjyR3KwJHxS7JvdLhTHcnY9QcqYl8qLmWcE
+	 wOQrTicaq9wDw==
+Date: Wed, 19 Nov 2025 23:51:39 +0800
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Andy Shevchenko <andriy.shevchenko@intel.com>
+Cc: Doug Berger <opendmb@gmail.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	bcm-kernel-feedback-list@broadcom.com,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Bartosz Golaszewski <brgl@bgdev.pl>,
+	Hoan Tran <hoan@os.amperecomputing.com>,
+	Andy Shevchenko <andy@kernel.org>, Daniel Palmer <daniel@thingy.jp>,
+	Romain Perier <romain.perier@gmail.com>,
+	Grygorii Strashko <grygorii.strashko@ti.com>,
+	Santosh Shilimkar <ssantosh@kernel.org>,
+	Kevin Hilman <khilman@kernel.org>,
+	Robert Jarzmik <robert.jarzmik@free.fr>,
+	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>,
+	Srinivas Neeli <srinivas.neeli@amd.com>,
+	Michal Simek <michal.simek@amd.com>, linux-gpio@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-omap@vger.kernel.org
+Subject: Re: [PATCH v3 01/15] gpio: dwapb: Use modern PM macros
+Message-ID: <aR3niy7_jwzQSJ33@xhacker>
+References: <20251119144327.13345-1-jszhang@kernel.org>
+ <20251119144327.13345-2-jszhang@kernel.org>
+ <aR3lg0aNaoT-_7SM@smile.fi.intel.com>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <VI2PR04MB11147CEB59F804078F2136107E8D7A@VI2PR04MB11147.eurprd04.prod.outlook.com>
-X-ClientProxiedBy: PH0P220CA0006.NAMP220.PROD.OUTLOOK.COM
- (2603:10b6:510:d3::15) To DB9PR04MB9626.eurprd04.prod.outlook.com
- (2603:10a6:10:309::18)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DB9PR04MB9626:EE_|DB8PR04MB7020:EE_
-X-MS-Office365-Filtering-Correlation-Id: 3e37ca75-7597-4d0b-85f6-08de278586fb
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|52116014|19092799006|38350700014|7053199007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?TUJEaTBFUE1XcGUwanVCbXBSMDhvTnArWWVEekVQNXBIZ2s1a2ZaL3NsM1pS?=
- =?utf-8?B?ZGJjMERNNDE0VytKZ3o2dU96ZXVZOG5uaG9FL3VDZm1wRThtVUtmZUw5eDlz?=
- =?utf-8?B?b0hqVXB5R1dFOVQ4R3lsMEtLNTJudVBoWHJTZURaZXZLaWZDQ2M1V2EzNG1K?=
- =?utf-8?B?a3ZmV2NOa3hDVldaKzVjT1FqRUg0YWxJY2ZFWW9wNkxXdEY0WHNXRUVkZGR1?=
- =?utf-8?B?WTB3Z0thOW1KaFJPZFRzTzQwVmVXQkl0cVN0dUIzenJDYjcrMFpBeUkrbzVy?=
- =?utf-8?B?QXNaQWhDUEtDdzE1NU9aZG9RSlpVR2wxTjhqVzZoR2pHc0tUWXZoMjA3NU9u?=
- =?utf-8?B?NXhHYlFjMGp1MjJ5K3pjRmxLKzEzaEg3aE5OMHN5OEN2V1paRGpxLzQwbjNh?=
- =?utf-8?B?OTY3WURoN1FPRUg1MXJZbUMyTUh6MVZaQVplYi9lRVBxUDB0UVlzYjRiNjlY?=
- =?utf-8?B?eCtiTzdXVjFFay9EeXlRUmE3UUQyU3R0YXFrWGFZUWpnTG9kRzlEWFZqNE9u?=
- =?utf-8?B?bDFUdWdaZVE4d2xOVTNlbzkxYXE1NktyQlVWUUZ0RHRyRWRYNEhLTlR1Unla?=
- =?utf-8?B?QkM4WnRvcUMzdVZPNG1LMERyUE5jbXRiajl1QjdubE1NRlQ3U20rTVFJNDgw?=
- =?utf-8?B?bVVqZkxqbWZ2blFkdURIcGdscWFxVkNXZzdKZHJKOGsySjc5M2Mwdi9nSGor?=
- =?utf-8?B?SlVLbm95UWpSaEllc01CbFBtdzFla1FrUHFrNmF5czcwYytTbDBrSEZqN1Ru?=
- =?utf-8?B?TnFxRTIvbXJSRmV5YjZ3TFd0anhzQ2w4aXpoUXkzL0RSSEJUNmlLcVFjOVNI?=
- =?utf-8?B?djdxWVkxZExPSXhVUDNIN3JVYlJubVdSalpyTVZyR3orb2lWa3pNMWQxdXY1?=
- =?utf-8?B?OGJ6YkdORytEZVRxeElvakVzWWoxNXcxTVFlZCt2MWVBQyt1K2ZvNE9QNnFQ?=
- =?utf-8?B?VGovQ0dhSkhadHgxalJ0UkhlZTNaZ1B3MDJrQ2Z1SjhlaS82ZmZlRTllV1F6?=
- =?utf-8?B?WFVXN0JlTytFNVRGeUljYm5ySjFwZnY0Mi85TUozTm04RHplR0tXaHgwVENj?=
- =?utf-8?B?SWRuM1B3OGR3Z2RiNXIzRGlQS2RpN3M2alVMeVp2Vk43eXY0VmtBU0lnT0py?=
- =?utf-8?B?QUJ3MktQaXltNUpLYm4vczJCTmVvUUxzcmN6TC91VXBieVR2cnpWakxqcS9j?=
- =?utf-8?B?TzVkaWRtdmNkSlE4WVRkdWVMK0RLM3VKY21jOFJ2Z3FyTkpSbXRGODlpbXhC?=
- =?utf-8?B?UEFoNUtGcElBcHJnUTNHWldpem15RXZuNW9DM3F2Ty9RakNERFNadHdjQURG?=
- =?utf-8?B?a2ZaeEE5RUlWUUhzekp0U2xXblhmUHBVcUgvMWFjVjFVTC9IUm8xRlRhdDdI?=
- =?utf-8?B?Qy9SbWhoclR5MDRxMURnL0dXa0tGR0ZLMWJJWTZiWTlnRENsY2NJV0dOb1V1?=
- =?utf-8?B?bSs3S1oyeEROZmdzZnhkcm5zdE9PbU10N1dwa3FPb20wbnVzSHRKY0pqenZ2?=
- =?utf-8?B?VW1XVjY4M1ZwTFEybE1xZGUxTHV6Uk1leHpKeGF6TTgzWFRYd3B6UFRvU2lN?=
- =?utf-8?B?WWx6ZVl4ZDlzeVhuN2lWQWU0MG9GeWloS1VMOGEyTGN6NDcxY0xNS2Jnc2JZ?=
- =?utf-8?B?K2JvTUVuSmM2UXBqb3hsSmlXT2NVclZiSXhnWWlxR1BKLzJyRjNIcUMzNm1P?=
- =?utf-8?B?THkyZnEvelIwV0Fld1JWcHRBS2U4bDI2L0QzRlA3OEdjbkZYaUVQNDRKaHdq?=
- =?utf-8?B?VjRWUXh2SldSekxaZkNXU0J1SW51cnIvc2ErZnhxYjlidGFSWFR3SzlQQWpC?=
- =?utf-8?B?M1Y4V0g4UFBBdTVTR2NIUlRqVCsxRzB3bDFTdmpVd2FpbmkrcHNIY3NUbVdX?=
- =?utf-8?B?dWpqR0JqYVdhYkc0dlVPdnc0S1FWRER0WExtWXNwa2dxS3dhcE1qV0plRTBn?=
- =?utf-8?B?S05vZ1lzdXpYbzhFUWVUWExJbUVQNVZrNXdPK3k5SDhBNWM4eUYwUHdTSFJv?=
- =?utf-8?B?V3pEN1pjVGlZWm5LSXhQTWVBalJDZ0VicjI1YVpaOE9CS1E0QkZxU01NdHVi?=
- =?utf-8?Q?srD/3S?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR04MB9626.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(52116014)(19092799006)(38350700014)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?djF2Mm9oOHNlSFFmemFraUdQU0RGRU1aN0lNcXZpQWJmaEhWYnlqbW1UajND?=
- =?utf-8?B?bUp2UEhCVm5ZTnZCVWhLd3A4SUtiM0FSaUJHR3FRZmNrUk9lbmRGWVNvWWY1?=
- =?utf-8?B?cXQrVHBJMDlDZmZHYStyOEc4cHBZeWh5NVdtNUhBVitIbDlnK2xQUDd6YXpq?=
- =?utf-8?B?TUFUWHRDb2U3QWczaG4vdE1JbDlTUFByM0tSUzZ4dWpZbmFBK3RaYTZqRHBu?=
- =?utf-8?B?ekI1WFd6L092TzN6WHYzZlR4aDhqcGcxeW1TY21HbjFnalJuOW1BR2ovVmwy?=
- =?utf-8?B?QS9oME8xQUlIcGo0NitWeE1pWmxJby9Ieis3alQvMXhyaDE1MjdJeG53R29T?=
- =?utf-8?B?cHlyVFIwa0ZIdHIySWtkVitndHdoVHZETVV1S2c2SUxGbXdiYkVnOStnMnJz?=
- =?utf-8?B?MTNhSDJVYWZ3b2E3QzRrVVVzSDVyZ3E5Uk94aVREMUlPUDZyS25TYTQzNWJ1?=
- =?utf-8?B?eEsxKzFEUU03RWRHSVNuaHZYRE1vdHJlMVIrZ0l6NkJJL0hvWm03VnRFUkFr?=
- =?utf-8?B?ckhUNmZZNFprMHBOUHc1eGExM2xQNHYzRTNvUnJpNFBRcit1OXNmaWxweUxI?=
- =?utf-8?B?MHJ3Tkt6WFQ3TFlkTjM3ZWhNTEx5dlMrd0dPVG0wSWx5Wkl4MmxsL3ZROEtE?=
- =?utf-8?B?MlFpSzlDRVc1WDg4dFYxekhSSWZQR21oRmZveFkwN2FRUkV1a2ppNWZ6b2ZL?=
- =?utf-8?B?ekI1QndCR3VyT0R5bk9SV0FEeENjTzVtZGlncnF4NVU3ek4yKzBDd2J4Y0FG?=
- =?utf-8?B?anRIalpHUDhON1dxSG1FUUoxWS9URTd4MmpVYmFWalJieDNLbU5EUU1DL21Q?=
- =?utf-8?B?WmQ2UzY3OFpPYW45b1o0eTF4Q1duOGVwMndheHdhNzQxQVYxenJzUHFuQTlt?=
- =?utf-8?B?N3JUUThFTkZ0d1VSYnpiODBRKzNzWDcrb2tEaGhmOGNKODZtVDI0cU9TNFRy?=
- =?utf-8?B?ZWZSdFk2alJ1MUZialdNVGJFWjZsa05rS2pyazJIZ3FFZkdJWEpTcm9pWHlX?=
- =?utf-8?B?U0pXSUpPM2RoMDgvd1hZNzBjeHNvcjNabUlpZitqQ2VBcTd3OE5rc3lvQVhC?=
- =?utf-8?B?cDB1Z3lvaHAwTytpWHlKVVFFcS82QnFGTGg1ME5yUFZtaG5PWUwvNllvVXlH?=
- =?utf-8?B?ZjNtQ3pzL3Byc3E5SmdRcmlTanNRZE1GMlZNcXlXSExxb2dFeUgrNlZKb1Qy?=
- =?utf-8?B?UzE1UXFqWDB6QkxWY2F1RmU4UlZKMm9MRFJaMWNlRVZrYUxXS0lUWEdHckRY?=
- =?utf-8?B?ZFgxRHFBWUlXdjc3SzhPZk1hMGJJMHhNN2NqUnFNZm0wRjBzN01DSTFjcTBp?=
- =?utf-8?B?M1FwYTAyS1lnMEV1S0FMb05peXU0TG9pYlNJaENJMGswdWtuZHFOUktmcTFI?=
- =?utf-8?B?eUVRMTE5WEQ3Q3FUbStPTk1xK3A2Sk1WTDZKUGs3clVNZGVFN0lYUUVVbjli?=
- =?utf-8?B?RUpwbzBPK3dQcVpkd3JVU3g3U3pZTUt5V3h5dnhsZGdVNmxBcmRKV0UzQUla?=
- =?utf-8?B?bnZMM2tzdXFVbnBGU29HME52VExxeFIrWEZoeWdCQVhRMCtQb0RNN2xaQ0J1?=
- =?utf-8?B?NkwyL1ZPN2dLeWhpSldNRmpVK2ovN1lPSVRIZmVlSkIvRzFWdzBTbm9YbVE3?=
- =?utf-8?B?OWdMYWNSRlRvbi84YiszY0ZteWFLL045dWRicSswU0kyRVF1K1ZDZ2pIMmFW?=
- =?utf-8?B?WkErdVpSZjNMQ3NIeHMzcStqL2VyL3ZFMUJjazR4a3ZQbGl3Y21xb0NLeW0x?=
- =?utf-8?B?MUNqVU01d1pNUG02ZWNpRXZvMUhlOVU0QnVZMFNwdFRUc2lCU2I1QUxFOEZm?=
- =?utf-8?B?TGRZSHpEWWY4YWpDUjZUYnhZV3ZRUUdSbHk5Z3lQNlBlVkdXTUJydE5iUmRW?=
- =?utf-8?B?Qkx5Nm5yaFdSTnBMQVhIOHpjR2VCOW02SEtvZE0xdnVIN1RrRW5ibCtYK2Vx?=
- =?utf-8?B?TXl2dXRkYmNwZUhmOVk3ZEE2Z2ZRVVpEODZLK2UvdmVXQysxVXJoWE4xSVVV?=
- =?utf-8?B?MmJPMTVMa1htRUtvNkllRzMxQ0VPVHlKRlpWNkEzV1Z0SVNFSDZoVlJwTTkx?=
- =?utf-8?B?YmlTcTZBQW85ckprZ0pEeFNZQk9iQnNxTFdNVHV1M3R0bmRjRFNjSFhkNG9F?=
- =?utf-8?Q?ZbCOw2WtEQfSEp4TjgAqz24Ie?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3e37ca75-7597-4d0b-85f6-08de278586fb
-X-MS-Exchange-CrossTenant-AuthSource: DB9PR04MB9626.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Nov 2025 16:05:58.6187
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: CJc15CX6HOyfSjfXljb1WlKkJe9MwUKFqw2wvX5golu9eJEivemlEb3Eac9GZFL+wKL5f0G8CrbtQ96on/4BpQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB8PR04MB7020
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251119_080606_507537_285AA924 
-X-CRM114-Status: GOOD (  36.97  )
+In-Reply-To: <aR3lg0aNaoT-_7SM@smile.fi.intel.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -186,95 +87,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 19, 2025 at 06:02:45AM +0000, Carlos Song wrote:
->
->
-> > -----Original Message-----
-> > From: Frank Li <frank.li@nxp.com>
-> > Sent: Tuesday, November 18, 2025 11:58 PM
-> > To: Carlos Song <carlos.song@nxp.com>
-> > Cc: Aisheng Dong <aisheng.dong@nxp.com>; andi.shyti@kernel.org;
-> > shawnguo@kernel.org; s.hauer@pengutronix.de; kernel@pengutronix.de;
-> > festevam@gmail.com; linux-i2c@vger.kernel.org; imx@lists.linux.dev;
-> > linux-arm-kernel@lists.infradead.org; linux-kernel@vger.kernel.org
-> > Subject: Re: [PATCH] i2c: imx-lpi2c: change to PIO mode in system-wide
-> > suspend/resume progress
-> >
-> > On Tue, Nov 18, 2025 at 03:18:37PM +0800, Carlos Song wrote:
-> > > If a system-wide suspend or resume transition is in progress. LPI2C
-> > > should use PIO to transfer data not DMA to avoid issue caused by not
-> > > ready DMA HW resource.
-> >
-> > Currently there is no device link between the DMA engine and its DMA
-> > consumer, which allows the DMA engine to suspend before the consumer.
-> >
-> > To avoid this, switch to PIO mode instead of DMA during suspend/resume so the
-> > transfer does not rely on the DMA engine’s state.
-> >
-> > Notes: I suppose DMA engine suspend before LPI2C. Do you meet this or other
-> > reason cause DMA HW resource ready.
-> >
-> > Not sure if below
-> > https://lore.kernel.org/dmaengine/20250912-v6-16-topic-dma-devlink-v1-0-4de
-> > bc2fbf901@pengutronix.de/
-> > can fix your problem.
-> >
-> > Anyway, I think it is fine to use PIO at suspend to reduce dependence. But we
-> > need know why DMA HW is not ready.
-> >
-> > Frank
-> >
-> Hi, Frank
->
-> EDMA resume is in early stage and suspend is in late stage, but LPI2C resume and suspend are in NOIRQ stage.
-> So LPI2C resource become ready earlier than EDMA. When IRQ enabled, immediately slave will trigger I2C to read data and
-> the length meets the requirements for DMA usage, the DMA will be needed at this time. Within a very small time window,
-> EDMA is still not resumed. The root cause is from here.
+On Wed, Nov 19, 2025 at 05:42:59PM +0200, Andy Shevchenko wrote:
+> On Wed, Nov 19, 2025 at 10:43:13PM +0800, Jisheng Zhang wrote:
+> > Use the modern PM macros for the suspend and resume functions to be
+> > automatically dropped by the compiler when CONFIG_PM or
+> > CONFIG_PM_SLEEP are disabled, without having to use #ifdef guards.
+> > 
+> > This has the advantage of always compiling these functions in,
+> > independently of any Kconfig option. Thanks to that, bugs and other
+> > regressions are subsequently easier to catch.
+> 
+> ...
+> 
+> > -#ifdef CONFIG_PM_SLEEP
+> >  /* Store GPIO context across system-wide suspend/resume transitions */
+> >  struct dwapb_context {
+> >  	u32 data;
+> 
+> >  	u32 int_deb;
+> >  	u32 wake_en;
+> >  };
+> > -#endif
+> 
+> This ifdeffery is to protect the type definition? It may be removed for sure.
+> 
+> ...
+> 
+> >  struct dwapb_gpio_port_irqchip {
+> >  	unsigned int		nr_irqs;
+> 
+> >  	struct gpio_generic_chip chip;
+> >  	struct dwapb_gpio_port_irqchip *pirq;
+> >  	struct dwapb_gpio	*gpio;
+> > -#ifdef CONFIG_PM_SLEEP
+> >  	struct dwapb_context	*ctx;
+> > -#endif
+> 
+> But why this? For the PM_SLEEP=n cases it will give an unrequested overhead.
 
-Put these information to commit message.
+the pm_ptr() and pm_sleep_ptr() can optimize out the PM related
+functions, but those functions are still compiled, so if we keep the
+#ifdef, there will be build errors.
 
-Frank
-
->
-> dev link maybe useful in the same PM stage. But in different stage, I don’t know if it can help some.
-> Maybe it is better that DMA move PM stage to NOIRQ, but now there is no dev link for EDMA, the resume/suspend sequence between LPI2C and EDMA in NOIRQ
-> still cannot be completely guaranteed.
->
-> I totally agree your point: use PIO to reduce dependence.
->
-> If someday EDMA support dev link and move PM callback to NOIRQ stage both, this patch can be reverted I think.
->
-> Carlos
-> > >
-> > > Fixes: a09c8b3f9047 ("i2c: imx-lpi2c: add eDMA mode support for
-> > > LPI2C")
-> > > Signed-off-by: Carlos Song <carlos.song@nxp.com>
-> > > ---
-> > >  drivers/i2c/busses/i2c-imx-lpi2c.c | 7 +++++++
-> > >  1 file changed, 7 insertions(+)
-> > >
-> > > diff --git a/drivers/i2c/busses/i2c-imx-lpi2c.c
-> > > b/drivers/i2c/busses/i2c-imx-lpi2c.c
-> > > index 2a0962a0b441..5050e14a9919 100644
-> > > --- a/drivers/i2c/busses/i2c-imx-lpi2c.c
-> > > +++ b/drivers/i2c/busses/i2c-imx-lpi2c.c
-> > > @@ -592,6 +592,13 @@ static bool is_use_dma(struct lpi2c_imx_struct
-> > *lpi2c_imx, struct i2c_msg *msg)
-> > >  	if (!lpi2c_imx->can_use_dma)
-> > >  		return false;
-> > >
-> > > +	/*
-> > > +	 * When system is in suspend process. LPI2C should use PIO to transfer
-> > data to
-> > > +	 * avoid issue caused by not ready DMA HW resource.
-> > > +	 */
-> > > +	if (pm_suspend_in_progress())
-> > > +		return false;
-> > > +
-> > >  	/*
-> > >  	 * When the length of data is less than I2C_DMA_THRESHOLD,
-> > >  	 * cpu mode is used directly to avoid low performance.
-> > > --
-> > > 2.34.1
-> > >
+> 
+> >  	unsigned int		idx;
+> >  };
+> 
+> Otherwise LGTM.
+> 
+> -- 
+> With Best Regards,
+> Andy Shevchenko
+> 
+> 
 
