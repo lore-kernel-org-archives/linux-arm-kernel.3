@@ -4,87 +4,181 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C47EACF3185
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 10:38:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C6A4CF318A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 10:42:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ajPJXKSb6EvakAv/OuhuRvH8YRFIbHznazB/0gEJ+2M=; b=tktU3Ti0mhWSZvWnNFd+3X7n2P
-	Z5UNlyJMOYBF+HrT4Jt8gq0EwweHXek3tsEzDRSnj71Rvl63zEugu5i/bpvdU3KwPVzG/PI8OUxi9
-	LRX+FL9EjorY1d34wT1B9ZYztIMQy+9mRfoURNrqtcgwcA0o/TO4cjSAICRAUtU0VEJehOVV9Xmha
-	liArxrcM/NP/QwXO19/qNj+aHWB4T1tF+pOv9ALoa0BfArNsaXJ7AGIZyt6WjCUAMSTxAbh2gL3U5
-	D/O2+Wqltm9jpzjxi/g14ilpJjLPQeh6KWdh2j6pVx7nHA3+82gx2II5Q9vXk3Q5KUb4+QBJGQ9nP
-	4+94CCbA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=V3UkxLAllDVHLrCkLXIwF4M32edflEmaw7EAF9d9fNk=; b=hzLrONSkuF4X/KJm50GOwgFusW
+	mbkXitsHx3mz+B/e6LOBIHZBs+dEAaXJ5mHaN0nqXgIQs4OouK15asMnn7JYLZC1rKo/lcsy8CFGu
+	xgw7+pmpy/9JkUpK2JrpOOBIWWnYsCR/ppZxXLu8qdvw1kIjeG52mZRPSsbP8hXG5tAw3xrz9Bjbh
+	xOXNhZGuf9oSFkTeMqMIPglo967m85WTrn9l39rXMmzW6INImjUEhNvegP1zPCh/pu8gxwE9datgc
+	5Y6o27BLp5lGW2X3Kx9hYFFJ8HJ9ZLnvMhYLfU4QlJoOkc1wexJuX3rEpZiyEva/ypD37XLSP/8GE
+	fjO5xJFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLfZs-00000002ydd-3Cj0;
-	Wed, 19 Nov 2025 10:38:20 +0000
-Received: from mail-qt1-x82c.google.com ([2607:f8b0:4864:20::82c])
+	id 1vLfdU-00000002ypS-1PDT;
+	Wed, 19 Nov 2025 10:42:04 +0000
+Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLfZq-00000002yct-0Ngn
+	id 1vLfdR-00000002yoq-0Vot
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Nov 2025 10:38:19 +0000
-Received: by mail-qt1-x82c.google.com with SMTP id d75a77b69052e-4edb8d6e98aso318761cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Nov 2025 02:38:17 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1763548697; x=1764153497; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=ajPJXKSb6EvakAv/OuhuRvH8YRFIbHznazB/0gEJ+2M=;
-        b=yr7SqFYWZ1X4dVXA/tpjGKr4DdqDoPDljihb6BeYwK2hY4dKyqo5bmy82OA8m2zcGS
-         hinzwABRHPHxkk1+xZje/tRZ7bFoxpSV0pjEprpVEaLwHJtwzPIHatn77ZZH8kIlFbFb
-         TsBSWIHW2PF5d8pU6q7znuEh5sa5ii/gCd6POOhfQv3m5DbhwuIbgm88bnqD37KxxT3Y
-         P6oGKKe1MvXZa/x+US1HiOdz5p+n7uTjXMQCFGL3xaJKo2dn9NEWOcxHbfRCMqE3dAr1
-         BMxoJoOfqcsgn3+qk45CQom+ovdI+m3jdi8ojrnPEvBcMYoNK9kJRLiB05d53goZNcop
-         ZvLQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763548697; x=1764153497;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ajPJXKSb6EvakAv/OuhuRvH8YRFIbHznazB/0gEJ+2M=;
-        b=LYPTf7I4Kwu1SadFrG9yDg8L34uoc5ui8m/pbNM0cpGkPF8SWRjPgzFsGmsFwVbMAl
-         JnE2VlQp3qZfTYk/I54BPdDYUJovzfYIIRhExxf8RIBpjM+EtezNyLvOLRTRTivrzjSM
-         o7NwqvArYXZBZ1nf4kV/WG5Ht+MASfVOLUl1uhbfbO/OHpE06aEEmfVoFQhkFIUV4vcx
-         qGkTrH/aqIYv78i7q9EZF0fGJ/qToAU9Rcw0iqj9yn23skRW4k3DZneaauBu/qbHBuzL
-         t7D2BbPFAFWR5FEmj/ptyy4OVPMeWV/0AOT/aDc9/MYeZXfl838r+YtGmB2/SSwMTGW6
-         3vQg==
-X-Forwarded-Encrypted: i=1; AJvYcCUBvH8eRdP015icYI1tc9Qx6Whd7isY5F5bS9imX9RSIh3XgO2KHPdrF8rdDnS6gnSIqF/Q9XicxkoeCRlYlBCx@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxl4kQ5FIDQHBDXXpgYFB76/MJEquUadjSeaJLtVPtLG1edCgDS
-	3M3LAvRM7zoEKUF8rGT3dWwLY5UKDcOVW6uGx41aK5ma2dKiQgP4k+AzV89AqvzgKZsxQQpUDlE
-	k6laOCE7m+op7HWwOMNzM5j5b9Su6lHkJGF0O40Gi
-X-Gm-Gg: ASbGnctmW5YGYWybiMEgwGyPODzuBt62vXSN0ZXuKmVXDvsrAq6OFoSoK5DO8E4r6xy
-	x+mYXQCeU8+6VTKDn142qLDDj1hD9GVPC0DprjJsBcXyo9Grn6RCbnHtPoEHrX51kCxWYBxXbov
-	vfcLOhsq1yz/AFkW0KHDfjcsXogJLOcVos9hBkSvr1tBgoalvstVESYlCL35pMZNuBk32b/MFPR
-	Kx7ymT+ZaIvqixaOLk8rk9YCGsK7lxlfpWi8ktx9manjM4bGpk7luI2Nrj69aSLE9/5hV6GlZD0
-	k4XOSyC8O3eoiezETAHb+w9JqvsZqAVIuF8=
-X-Google-Smtp-Source: AGHT+IHyZj1mHlRoqcMVEK+Ke9v+QKN/GTCdvCboTV8ytrHFav/L7x1i8RWg43NziKnKMj+gWGYsCAB6fcyxt7vblr4=
-X-Received: by 2002:a05:622a:1b88:b0:4ed:18ef:4060 with SMTP id
- d75a77b69052e-4ee3ec3080cmr5005131cf.8.1763548696534; Wed, 19 Nov 2025
- 02:38:16 -0800 (PST)
+	Wed, 19 Nov 2025 10:42:02 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=p3bLEyDWmFe5I0a7nJdYhplhLST7Q+wSr4iO0CAdTqaB3NMN77CaYJ45lMRJYXUtaRjbxta6mJTQee5ym+E4YO8K0NW1tE5lYhgHWdV+XjaiyZnRc94Luy9kVG/ahLGqNmosULhbN3tDFO59G+Exup25gEuGPzjNikhfyj6YIM7sk1Ctvkjbjws/KA3akeRHe5FX1GAPn8np6bVDpvkKgVN1mb2+XxjleP5V9xiWjGiiWWju6wmSE+kI0bLguocZwMWay8uwuaGI1pE9VHIUW3/NbO9POnAcdMggaz96WgPmK9aN1Y6cRQvfDVy7BxwUfSXsQ0fe4w8M2zGK2cAQ0w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=V3UkxLAllDVHLrCkLXIwF4M32edflEmaw7EAF9d9fNk=;
+ b=YgLe4W49ccXFUlpF6+s42zhCyihd8JS5eBmLqGjeittm0x4jOgnCCMfKCpRkQp9ee7ZSo8flbQalErywJagAZUglXix0tMiBg/o4omAnsH17T2JxYsopf6spBlaIOOUkyAEh1QhKxXuU8kjnDDdeUgDmllU8X/+J89x50veyKcctP7XBn43rEqIFbCwi6Rnq6V0Q49VaOTdn1Nk9VdjjL+ghOeXACKU8/eCeM8MICSpuZdDEyURC/7Ls+e6Cxn8jpqSoE8JwkIlhOHzoxz+4RZ7c5V4E9FXvJttEGjcSjTuHS3HU42VNusg8NoRX61GFA9MivUVMrvHSKbffS18CBg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=V3UkxLAllDVHLrCkLXIwF4M32edflEmaw7EAF9d9fNk=;
+ b=kdYNhtSSrQDfCu+Ee4wF0hzQzy6KciqLLQXPyhhV/BA7LZxUggs264PP8EY6h0NPee5oETL4hjmWgOZuGl2C9FFIm0To3HTS0N9gR66fLyr7Wq894yD9FljB6/rfFjJqt45bjcBR3rxsmqX0SPZyskLLGmdh8Ae4OvIZL9GQHZ0USoIPssZ9Y1w8LwjJ7QIRRvdXySkcpHq7wajwyFb7+5bn2eCklQfRI0iCgNDaq5w9ZNLk/4nTL+sEDw5MCDdNqBZs7o57PWMXPJYtxTkw1b9CvKT4P7Csjm2ssWswmsoBsJSHrrl4nR8OedfVBmu9dy3x63HWizQnn//nDrLuvA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from DU0PR04MB9496.eurprd04.prod.outlook.com (2603:10a6:10:32d::19)
+ by VI1PR04MB7070.eurprd04.prod.outlook.com (2603:10a6:800:123::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9343.10; Wed, 19 Nov
+ 2025 10:41:55 +0000
+Received: from DU0PR04MB9496.eurprd04.prod.outlook.com
+ ([fe80::868b:3935:5e0f:6a33]) by DU0PR04MB9496.eurprd04.prod.outlook.com
+ ([fe80::868b:3935:5e0f:6a33%6]) with mapi id 15.20.9343.009; Wed, 19 Nov 2025
+ 10:41:55 +0000
+From: Haibo Chen <haibo.chen@nxp.com>
+Subject: [PATCH v4 0/2] Add support for NXP XSPI
+Date: Wed, 19 Nov 2025 18:42:27 +0800
+Message-Id: <20251119-xspi-v4-0-a451afbccf33@nxp.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIABOfHWkC/1XOTQ7CIBCG4asY1mIYoKW48h7GBdKpZWHbgCE1T
+ e/u9GdRl9+E5w0TSxgDJnY9TSxiDin0HQ19PjHfuu6FPNS0mRSyACErPqYhcNd44cCgNaJi9HS
+ I2IRxzdwftNuQPn38rtUMy3ULgNBbIAMXHAoKauNq1OLWjcPF92+28CwPBMxOJBEsC1BSWasa/
+ CfqSPZvZkWkrJWz8Cwrbw5knucfNsp4E/wAAAA=
+X-Change-ID: 20251028-xspi-afc0a17e9708
+To: Han Xu <han.xu@nxp.com>, Mark Brown <broonie@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, frank.li@nxp.com
+Cc: linux-spi@vger.kernel.org, imx@lists.linux.dev, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, Haibo Chen <haibo.chen@nxp.com>, 
+ Krzysztof Kozlowski <krzk@kernel.org>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1763548973; l=3265;
+ i=haibo.chen@nxp.com; s=20250421; h=from:subject:message-id;
+ bh=axeCHIhhffTirzc+h5Mmk7mKtPBc48wotNZoDDrtivA=;
+ b=9yheXfqTHSyOWtYAiiYdEyCE7derZx6NqPieAlIqpRZ1kIoz+K1hG6b1OHLwma7NN1BgbL+++
+ mm47Q3bz9fJB40tkyR6ghFqVzITm130IyuuTmKjKOsj9XxqaztyduHf
+X-Developer-Key: i=haibo.chen@nxp.com; a=ed25519;
+ pk=HR9LLTuVOg3BUNeAf4/FNOIkMaZvuwVJdNrGpvKDKaI=
+X-ClientProxiedBy: SI1PR02CA0028.apcprd02.prod.outlook.com
+ (2603:1096:4:1f4::6) To DU0PR04MB9496.eurprd04.prod.outlook.com
+ (2603:10a6:10:32d::19)
 MIME-Version: 1.0
-References: <20251117091527.1119213-1-maz@kernel.org> <aRweUM4O71ecPvVr@kernel.org>
- <CA+EHjTzJQOTTSUoXVKpGdWO8vz9Vc-2AL3zRyzG4DkUPz+wBBQ@mail.gmail.com> <86ms4jrwhr.wl-maz@kernel.org>
-In-Reply-To: <86ms4jrwhr.wl-maz@kernel.org>
-From: Fuad Tabba <tabba@google.com>
-Date: Wed, 19 Nov 2025 10:37:39 +0000
-X-Gm-Features: AWmQ_bnZDu_VkCPXAw-nz27IkT05jj1DSam5-p8uzswdO8xX2NqMq69pMVBt_H4
-Message-ID: <CA+EHjTyiM+BNP+iRTYP7968np=y0+Vn38GtAfiTtg=JcUzjPpQ@mail.gmail.com>
-Subject: Re: [PATCH v3 0/5] KVM: arm64: Add LR overflow infrastructure (the
- dregs, the bad and the ugly)
-To: Marc Zyngier <maz@kernel.org>
-Cc: Oliver Upton <oupton@kernel.org>, kvmarm@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, 
-	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Christoffer Dall <christoffer.dall@arm.com>, 
-	Mark Brown <broonie@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU0PR04MB9496:EE_|VI1PR04MB7070:EE_
+X-MS-Office365-Filtering-Correlation-Id: 6bb3a64b-3800-4abc-eadb-08de275841dc
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|19092799006|52116014|7416014|376014|38350700014|921020;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?ZXhBVWVLbTNJcmNwTGw3d0p3MzBZdzBWbjRwZDJ4MllleU5QdmlnK0lPcDRt?=
+ =?utf-8?B?U01PYTdwSkI5M2RDdGpEYm9TaGVPa0duLzJFZnp1dXZsbjZjeVVIb0hLWjFL?=
+ =?utf-8?B?NWp5TklqNDNuVXVKSEswVmZVNVNILzBRSnZPQlBSQW8rYVNXY1M2dGV6bW9O?=
+ =?utf-8?B?Z0ZGZ2JMMlZXTGk2NmIzcy9FWXhPVUlZTHhuY01OUUVhUFR0VkpyLzIzdlM5?=
+ =?utf-8?B?dkJlL2xkSWl6cGdhVTNNVDFNRExTaGJYSmhRbk84ZEoxM1BaR2UxRTNRS2pk?=
+ =?utf-8?B?QmdGU1ZPNUhhR0g2WkVoNzhFQ29FNlJSS1ZMWWZEQk5OWkRWTXZTQTUrZzRn?=
+ =?utf-8?B?SFpPRm5NK2llRkxTSjNwSHQzQk8xNTRCSTNCYjMrYTVibmxscVNRUElSM3Uz?=
+ =?utf-8?B?N1hvY3JiTnhxenlRaGU0NnViMjdQRHpyeml6aWtvTXVNZnVTbXoyNkVYUkxF?=
+ =?utf-8?B?UUNlNTNpdGptcDhmVlFjUXF2M01mKzBUallMdEZZaWlmU1lJR29wWnJzTTly?=
+ =?utf-8?B?cVpFelJYUEdHZWp5RzhvN0NuV2dRVDl1d1d6aTNWYXVKTndzNlF5MnE2MGNq?=
+ =?utf-8?B?V29FaDRxdWhuVXR4QjlPd3FiTFlFLzNLUGZ6SGlJSG1yQ0dBWStpTGEybzFy?=
+ =?utf-8?B?cDVGS3B0VzQ5NjUvZnNJK1lncTlCVUNOWDFwTXl0citBQ1RTNkljcFcwZ3Ay?=
+ =?utf-8?B?TlZFQmo2T2NGUXBndWZQTEI2NFE3dkczSWVpRlhXY0hKbm5FbTNCeDdiaXhv?=
+ =?utf-8?B?eVl2TkdmMVRDQWJteDlOSzFNdkhMVTJjRCtKV2pxbmtFTVkyLytDTEN2MThw?=
+ =?utf-8?B?UndxZ1NWUE41aTM1T2FDbzJvalY0WURWbElxRWJvaFk0d1RWMHpQY2tWb0k5?=
+ =?utf-8?B?b0o3RnFsd3p0UWlTLzZNYUZFTHhpWnpWVDBZV2lsVjYyOW9SRE5GaHRtZEE4?=
+ =?utf-8?B?c1ZZMkZQOWx5TUQ2bkN2bXVlU1Ard2VPVk9kd0VWKzlXOGZoeVdHUkpYQnZK?=
+ =?utf-8?B?VkM3ankxcWhFcHpUMmdTZ0JDeWoyeGF3am16c1N6d1IrMGZqV2hLNEpXVHk3?=
+ =?utf-8?B?UFdNbjRFMitNaUZTU0dxNVUrUW9OeisvYllaakJuM0FTZHJSV1d0ZkhzdVVn?=
+ =?utf-8?B?TXM5WUlMWks2U0k5WTJUYzYvc3VMcGxzcHdJRCtCNW5WNGIrVmdWUHBWMW9u?=
+ =?utf-8?B?YmZ4dE1ZMFR1akpUSFFVaFpBcXgvNkpUMGJWYVRGdUYyVTZpVXdXWGJhNHNH?=
+ =?utf-8?B?d0F5Z2RkaXQxOG5kbGNEMXA2ZUNnQmM0TGozOWNSOC9OWnRSNkpTUTFXV05C?=
+ =?utf-8?B?ZlYzUzN0OHNJRUN2WnYrWXZFcE5hYnJhL3B0STFKeWhYYmU1WDF1bWRhcFZw?=
+ =?utf-8?B?b29QUUVIRjFlbHZodDdrVzk0ZzZFNkhyNVhHbmVMRWZtRVBGQ3JldTcxd2pO?=
+ =?utf-8?B?ZC96R1hjMjNTelcxMWVESmN6Y2hFaVpDZHVqYTBCWXA3M0NNK3Z0RzFsQXBw?=
+ =?utf-8?B?QlIwTzZpbzVCN2Q1b29WNklOcVFERFRSZy9oRVRBMHlZRmpyT2NMdlEwalR2?=
+ =?utf-8?B?OXluVVFyb2pCNEQ0VGZjRXVaY0FSTXBLY3hsVjNMelRSN0NrOFIxajc3aG41?=
+ =?utf-8?B?SHB1bitzNmdkMHVVbjZXdEQrZ08yU2V1SThDeSsxVGJBUWJ2NXdZVjY0L1VZ?=
+ =?utf-8?B?akVraXROK2JmYUlYeUdsdG5tREgwaTF4T1ZZc1BKUGdxeU9VUGlmTndqTXhr?=
+ =?utf-8?B?ek8xN25iT2VuenN2K2hjNXF1SkR5VCsxSi9hMFNyQXY5cTJ1T2RXTmNOVmNl?=
+ =?utf-8?B?amhPQ3hvT3VGWTE0aGJxNTdxR2hPcTZIbHBLcS9JNW9QV01IaUE3TmVOOFl3?=
+ =?utf-8?B?VlJrZWJaUThDQWdxOUdOemxrQVFwZVJ4RVdCRlRESDlMMlNsd3FMQmVEMDBa?=
+ =?utf-8?B?YUFVYmxrd2lUNHdWZkk0cFZsZnhyU0RrTjlEZ296OEVqaE02RnF0Zktyb0RX?=
+ =?utf-8?B?WXBwVTVtVm82d3djU1JZbWhsaUZGMiszUkdzbUR2R2Z3eHlWMCtCR1VIdFVu?=
+ =?utf-8?B?aE1Jb0VSY0RiOHF6dVpEbmFXODVFSEl2Ukd2LzU5Y21wb3lJREJ3d3IzWTll?=
+ =?utf-8?Q?SzdI=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU0PR04MB9496.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(19092799006)(52116014)(7416014)(376014)(38350700014)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?MXR1UWRsemtIWU9EYSsram9hVStUSVVYY0l0WkZEODhDVWc1ZGZmaXdKcExl?=
+ =?utf-8?B?WWorS3Z1VFJoWGl1dE05WmpTRHI3T096SzhTclA3SDREZFZDV1l5ZEoyaGlt?=
+ =?utf-8?B?aHlMTFowRmxMMGE0VUVUSWhrVTA0enZSU3BUSmUrOXhPMytYc0ZxZ0hqMWs3?=
+ =?utf-8?B?MXhKNDBCUUdRcTNKdnR4alBzZTVHVjNqWVFFRVQ3ZzVudVdsb1UzcmJyZThJ?=
+ =?utf-8?B?c2tQTW5oOTFsL1F5SWhsajFaWVk5VUN6MllQUUhKOEMyNys1bmhPUTRGOTJ1?=
+ =?utf-8?B?aGFsMTJvRnUzeE5FUFNDRVg4TEZiTm90eVA5Nnp1UUZIMTJLMXk0UnFHemRU?=
+ =?utf-8?B?NnRubU5MbnU3VS9tZm9IZHhxT05QeHBESGhPK2tqMm5XOENLay95NE9PZXFV?=
+ =?utf-8?B?c0dQOVZJUFNsVm5kY214Vzl1YitCRUsrbWJYN1RWODFNMTRWMXIwOFZLcG03?=
+ =?utf-8?B?eXZBSStycGxyWkQ5TlN5UDR2cWEzZEdWdm9iQ2pUUUhaVVR0OTlMWFhBdkR5?=
+ =?utf-8?B?ZWwvZ3EzV3Y1cEcycHJqZElKNklLb0t3cUFLREVnS1BhaXRDVnVTMWNrVkpT?=
+ =?utf-8?B?S3pZRHd4TWRWS2ZONmVKWXYzcUd6UnR1NURIblhCbVo3RS9ZOHZmNU9iejNR?=
+ =?utf-8?B?Q1o0RHA2L1l1citwVSs4VEI3bHlWaUkwRHBjYVZlcURuWHdhM1drck0yU1N4?=
+ =?utf-8?B?dzV1Z2ovTVA3dDNvZzdPRTJaNjdSM3pXY0l3SDZDbVljNGRVMjA1c3JNN25u?=
+ =?utf-8?B?eTBhNHdvcGhpNFJiZklvZnczT2dkc3lTMldWVTV1UWZYUUxQWXlXOVJ3R3ZY?=
+ =?utf-8?B?Wk5XN09NZ2lyTTlzeU5GcGIxL0V0MHN5Mm5OejNUWGpRcFR2QTF6VzVuSkgx?=
+ =?utf-8?B?UEszelY0UTRQUEMyVC9vRDNQTDllRHRFOGZMR0FjRkRjbzBVR3VDQndGYys4?=
+ =?utf-8?B?WDNTcEVMaW9FN1l1U2NXOU93VmllS1V0L2ovTU5FbHgrcURCS2praUVTY2VD?=
+ =?utf-8?B?TGRiOGFYVWZPd0xzbkVJZlJRNU04NFByS2NrVDVGa3VMb1B1V2Q1dHVlWW1t?=
+ =?utf-8?B?bWpmM2hJVnV5VzVPNWIxQUxnZ3A2MDFPZjllRklGZml3dDhMVlU1eTVEckFJ?=
+ =?utf-8?B?YWd6cjdrdmswWVFVeWVodjlpcmh3VkQrMXpyUXkwZHdmbDhVczlncG0wdTdw?=
+ =?utf-8?B?dEZoVm96MTRSbWN0OGdZQWlQUnNUeWt5M3E3TElhRDJJbDBIdkxibDlRR1V0?=
+ =?utf-8?B?bHhFS055NVRDaGlDVTlBaWVMUjBRTVpCTk81RkpscTJSOW9ONHQ1NzQxNmkw?=
+ =?utf-8?B?OGtUMU1rVkxhZUI0Y3lMWGJFYTJJM1A5ZXJrMHdab3BqWHZhN29yVUk4aS9k?=
+ =?utf-8?B?Y0xSY3JiNTVWZlBJYjY4RVdnRjMzOXlGeUxGZmpWV01uRlVQaU5JRWpYbndW?=
+ =?utf-8?B?NzhHcVNPRjRTdTA3NEJkck91REc1UUZIdDRRV29LZE5KWmZZUk9ULzloSUJW?=
+ =?utf-8?B?NUk3NUFPTnRGWjJaUDJHc0dkR2tRdGlqWUpLOFk0a08zR1RVdlVrR0pHSjY1?=
+ =?utf-8?B?aHRkS2dISE02NiswZmlsWXFUMEpEWE9IaElzUFRUSGNwSVNLdlNNOXRWcFJF?=
+ =?utf-8?B?T0h5Q2xlTHlQbXlyUHF6b094UytHYUZqdytMNzhKQXhkbGVGWVU2OWd2a3VH?=
+ =?utf-8?B?M2pvVHVXYW9jZStobTVjb3I1SkVNcHdwcE03aFFOZGFoR08xa2dRQUg3SXk2?=
+ =?utf-8?B?QkVMVE1wdkhXL1pYbWQwRXhJQ1Y1YjY1T1FVUklsMEdZRDVMRTRXRTRnUCtt?=
+ =?utf-8?B?eWpPYTE5WjVSMEFkWDI0Z013a0x3TmVrVzFKYXREYndDWnFhVGJoOGQ5ZlBI?=
+ =?utf-8?B?YTlxTmZ5bUw3QnJNZ2I3ZXJLcndPZmJYa25XTW1zZ1pSNlNjKzRjMXpKUDV6?=
+ =?utf-8?B?dGpPSkMrZDZ4ZXlUemo2ck42Z3BDZmJrRnZlOHV0QWkyT1hNREtiS0tEVlRn?=
+ =?utf-8?B?SmhHTjVFZFN1WExFeFdnM2tWcHloaEF5ODRMQlRIc09WRHRMejhqZEt3Smxy?=
+ =?utf-8?B?bmhpcW5lNDdyK1Erd2RKR3gzMnJjMTNCNGhybmVuZkdJZU5Gd0lFOUNUa1lj?=
+ =?utf-8?Q?xVGD1Qsst+GiWXJY28iARiJ1F?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6bb3a64b-3800-4abc-eadb-08de275841dc
+X-MS-Exchange-CrossTenant-AuthSource: DU0PR04MB9496.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Nov 2025 10:41:55.1533
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: xMF5lHvNFCbNN5YRHFLwrZ546pPX5fqOyJs650nCAnQrrGLzHnKuclVrYLo78ypv5y6q1UZGfULjS2oaX/COiw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB7070
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251119_023818_179297_77C402BB 
-X-CRM114-Status: GOOD (  42.66  )
+X-CRM114-CacheID: sfid-20251119_024201_191488_3790651A 
+X-CRM114-Status: GOOD (  16.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,90 +193,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marc,
+XSPI is a flexible SPI host controller which supports up to
+2 external devices (2 CS). It support Single/Dual/Quad/Octal
+mode data transfer.
 
-On Tue, 18 Nov 2025 at 19:06, Marc Zyngier <maz@kernel.org> wrote:
->
-> Hi Fuad,
->
-> On Tue, 18 Nov 2025 13:59:14 +0000,
-> Fuad Tabba <tabba@google.com> wrote:
-> >
-> > On Tue, 18 Nov 2025 at 07:20, Oliver Upton <oupton@kernel.org> wrote:
-> > >
-> > > On Mon, Nov 17, 2025 at 09:15:22AM +0000, Marc Zyngier wrote:
-> > > > This is a follow-up to the original series [1] (and fixes [2][3])
-> > > > with a bunch of bug-fixes and improvements. At least one patch has
-> > > > already been posted, but I thought I might repost it as part of a
-> > > > series, since I accumulated more stuff:
-> > > >
-> > > > - The first patch addresses Mark's observation that the no-vgic-v3
-> > > >   test has been broken once more. At some point, we'll have to retire
-> > > >   that functionality, because even if we keep fixing the SR handling,
-> > > >   nobody tests the actual interrupt state exposure to userspace, which
-> > > >   I'm pretty sure has badly been broken for at least 5 years.
-> > > >
-> > > > - The second one addresses a report from Fuad that on QEMU,
-> > > >   ICH_HCR_EL2.TDIR traps ICC_DIR_EL1 on top of ICV_DIR_EL1, leading to
-> > > >   the host exploding on deactivating an interrupt. This behaviour is
-> > > >   allowed by the spec, so make sure we clear all trap bits
-> > > >
-> > > > - Running vgic_irq in an L1 guest (the test being an L2) results in a
-> > > >   MI storm on the host, as the state synchronisation is done at the
-> > > >   wrong place, much like it was on the non-NV path before it was
-> > > >   reworked. Apply the same methods to the NV code, and enjoy much
-> > > >   better MI emulation, now tested all the way into an L3.
-> > > >
-> > > > - Nuke a small leftover from previous rework.
-> > > >
-> > > > - Force a read-back of ICH_MISR_EL2 when disabling the vgic, so that
-> > > >   the trap prevents too many spurious MIs in an L1 guest, as the write
-> > > >   to ICH_HCR_EL2 does exactly nothing on its own when running under
-> > > >   FEAT_NV2.
-> > > >
-> > > > Oliver: this is starting to be a large series of fixes on top of the
-> > > > existing series, plus the two patches you have already added. I'd be
-> > > > happy to respin a full v4 with the fixes squashed into their original
-> > > > patches. On the other hand, if you want to see the history in its full
-> > > > glory, that also works for me.
-> > >
-> > > I'll pick up these patches in a moment but at this point I'd prefer a
-> > > clean history. Plan is to send out the 6.19 pull sometime next week so
-> > > any time before then would be great for v4.
-> >
-> > I'm happy to take that for another spin Marc before you send it, if
-> > it's different from the ToT I tested. In that case, just send me a
-> > pointer to the branch.
->
-> I've just pushed out a full branch at [1]. Please make sure to merge
-> kvmarm-fixes-6.18-3 in, as it fixes a couple of nasties (small
-> conflict expected, but the resolution should be obvious).
+The difference between XSPI and Flexspi is XSPI support
+multiple independent execution environments (EENVs) for HW
+virtualization with some limitations. Each EENV has its own
+interrupt and its own set of programming registers that exists
+in a specific offset range in the XSPI memory map.
+The main environment (EENV0) address space contains all of the
+registers for controlling EENV0 plus all of the general XSPI
+control and programming registers. The register mnemonics for
+the user environments (EENV1 to EENV4) have "_SUB_n" appended
+to the mnemonic for the corresponding main-environment register.
 
-For this branch [1]:
-Tested-by: Fuad Tabba <tabba@google.com>
+Current driver based on EENV0, which means system already give
+EENV0 right to linux.
 
-On QEMU, nVHE, hVHE protected mode (non-protected VMs with and without
-the Android pKVM patches), and protected VMs (with the Android pKVM
-patches).
+This driver use SPI memory interface of the SPI framework to issue
+flash memory operations. Tested this driver with mtd_debug and
+UBIFS on NXP i.MX943 EVK board which has one MT35XU512ABA spi nor
+flash. NOw this driver has the following key features:
+- Support up to OCT DDR mode
+- Support AHB read
+- Support IP read and IP write
+- Support two CS
 
-Cheers,
-/fuad
+Signed-off-by: Haibo Chen <haibo.chen@nxp.com>
+---
+Changes in v4:
+- PATCH 2: add changes according to Frank's comments:
+           - rename XSPI_RPM_TIMEOUT to XSPI_RPM_TIMEOUT_MS
+	   - rename POLL_TOUT to POLL_TOUT_US
+	   - return IRQ_NONE directlly
+	   - use min_t() to replace min()
+	   - use the new macros PM_RUNTIME_ACQUIRE_AUTOSUSPEND and
+	     PM_RUNTIME_ACQUIRE_ERR in nxp_xspi_exec_op() and nxp_xspi_probe()
+	   - refine nxp_xspi_cleanup()
+	   - use devm_pm_runtime_enable()
+- Link to v3: https://lore.kernel.org/r/20251118-xspi-v3-0-6d3a91b68c7e@nxp.com
 
+Changes in v3:
+- PATCH 1: fix the messed ordering in MAINTAINERS, add Krzysztof's ack
+- PATCH 2: fix some typo, and add IRQ_NONE in nxp_xspi_irq_handler()
+	   also add {} for else when the if has {}
+- Link to v2: https://lore.kernel.org/r/20251117-xspi-v2-0-e651323993fe@nxp.com
 
+Changes in v2:
+- PATCH 1: re-name the yaml file, and correct the compatible string and reg in the example to pass binding check.
+- PATCH 2: involve changes according to Frank's comments 
+           - use GENMASK and FIELD_PREP
+           - remove little endian, use readl/writel/read_poll_timeout directly
+	   - use fsleep instead of udelay
+	   - remove pm_runtime_mark_last_busy()
+	   - keep one style to use up case
+	   - use SYSTEM_SLEEP_PM_OPS/RUNTIME_PM_OPS
+- Link to v1: https://lore.kernel.org/r/20251104-xspi-v1-0-1502847ade40@nxp.com
 
-> For my own testing, I added -rc6 on top.
->
-> Note that I didn't take your Tested-by: tags, as you are about to
-> retest the whole thing anyway. If all goes well (fingers crossed),
-> Oliver will be able to apply any further tag once I post these
-> patches.
->
-> Thanks,
->
->         M.
->
-> [1] https://git.kernel.org/pub/scm/linux/kernel/git/maz/arm-platforms.git/log/?h=kvm-arm64/vgic-lr-overflow
->
-> --
-> Without deviation from the norm, progress is not possible.
+---
+Haibo Chen (2):
+      dt-bindings: spi: Document imx94 xspi
+      spi: add driver for NXP XSPI controller
+
+ .../devicetree/bindings/spi/nxp,imx94-xspi.yaml    |   88 ++
+ MAINTAINERS                                        |    9 +
+ drivers/spi/Kconfig                                |   10 +
+ drivers/spi/Makefile                               |    1 +
+ drivers/spi/spi-nxp-xspi.c                         | 1357 ++++++++++++++++++++
+ 5 files changed, 1465 insertions(+)
+---
+base-commit: fe4d0dea039f2befb93f27569593ec209843b0f5
+change-id: 20251028-xspi-afc0a17e9708
+
+Best regards,
+-- 
+Haibo Chen <haibo.chen@nxp.com>
+
 
