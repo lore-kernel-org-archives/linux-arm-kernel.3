@@ -4,66 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F33A7CF3185
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 10:12:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9185FCF3187
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 10:22:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mfndK+hCfMsdWh7JHa38ulm58SLTP8RHDiOwm+GFEUk=; b=OJvA5TsScwi2IC/oVEM2AX7USZ
-	xfCk4chPG3fgMR02Kckr+yrXHFCZKVL0/rgrZdHGdjEyywY56SbfNW3/cO1lMu5FsJ75bR1yWAunG
-	ux4oT0M0MxQD2mbq//GZISmLQ6eijet9DL/riMFQcA/h9Ma87Sr7XW6cYOqY6MzvjOSdsGXn8TcUh
-	5LxvsiQ36G0a0T46AXKBVmB02LMyymM7EXpIDWcjE6eFkx2JmmT4rQTWDN5OQ7Pp075JPaKvOJY5f
-	y3yl7691EkbaMlx/uCkbB5xZ0C7WZdg1fa8Wi/5liuRHYzmPhrNolFYKz42gK3lFNIRRQLrWs72GB
-	OqZfAU4g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=LMZKxwd8PgRgdlMYw+yU7jfS7/uNgOpqzYUC5NJ6D7g=; b=LLsSXNIg4ITgjkjV090uLK4g0j
+	BaiiL1ydMSznrLrSNU3vz9GV3IaStXfWdE0fcDuX2vLdwuiJfxsCBc1yhyHt6kMUoD5aY2Yz14I2S
+	h0NikSinv1gwy/2+lI5C5j1vvjPdngJh2JxHGx1TShQOdw0Hyz2g7vn9iP/CMg4Zp8/uCHD7uxzqk
+	R1hazTSeY2zfk2OjQXg0CygNaxTzbIZbloFoLI4P1mifEx8asy3iRJG8osaODJ4RKrLhs6spn38Ot
+	9+Z9IKC7QPMbnbfUvBH5ARNJaXC/AuOrunCZuOwpHl4M/OFm4sNKg41Kb1gyp/tq0c7mTAII7VMoK
+	kBTTUVWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLfAx-00000002wZS-2ImP;
-	Wed, 19 Nov 2025 10:12:35 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLfAu-00000002wYq-47bg
+	id 1vLfKl-00000002xCs-2W2r;
+	Wed, 19 Nov 2025 10:22:43 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vLfKi-00000002xC5-3TU3
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Nov 2025 10:12:34 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 89F5EFEC;
-	Wed, 19 Nov 2025 02:12:24 -0800 (PST)
-Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4AF733F740;
-	Wed, 19 Nov 2025 02:12:27 -0800 (PST)
-Message-ID: <d13bb673-a033-4020-a984-19b4ab560be9@arm.com>
-Date: Wed, 19 Nov 2025 10:12:25 +0000
+	Wed, 19 Nov 2025 10:22:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=LMZKxwd8PgRgdlMYw+yU7jfS7/uNgOpqzYUC5NJ6D7g=; b=HXCIUPUXfM62CSAW1aJvwbDwB3
+	aSoqI0m9DNDhLlwWq6Uwm7uDSuRdNxrSBIcoe3vWvSBHe9xxpwQpq+oDFoXRInYo/DWmxHLyWLmld
+	krl2JNELKSeeXVzjxKevQKJ8y8J4iTqYo4ipj6/P8e8zu/zJNa+U8Yjj+47k62uIz958c6uVgQ/DH
+	MVpRIaHjeaE5RItgyiCG68e7gGa+IMiWtmDhGA35ZpZLxGMwpVbxRTNj8n2oXbSb2FXBH+PVH5Uk8
+	aM553oIH7JGa9rJUGPy8+QBA4c98zKVlcl5lPqj8ZarJiS908x4Vefkp9i6GauOiFAft0SFcCDJSE
+	HsQ5Nqqg==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:38790)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1vLfKc-000000004UL-48D8;
+	Wed, 19 Nov 2025 10:22:35 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1vLfKa-000000003L2-1t19;
+	Wed, 19 Nov 2025 10:22:32 +0000
+Date: Wed, 19 Nov 2025 10:22:32 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>
+Subject: [PATCH net-next 0/6] net: stmmac: simplify axi_blen handling
+Message-ID: <aR2aaDs6rqfu32B-@shell.armlinux.org.uk>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 15/34] arm_mpam: Add helpers for managing the locking
- around the mon_sel registers
-To: Fenghua Yu <fenghuay@nvidia.com>, james.morse@arm.com
-Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
- baolin.wang@linux.alibaba.com, bobo.shaobowang@huawei.com,
- carl@os.amperecomputing.com, catalin.marinas@arm.com, dakr@kernel.org,
- dave.martin@arm.com, david@redhat.com, dfustini@baylibre.com,
- gregkh@linuxfoundation.org, gshan@redhat.com, guohanjun@huawei.com,
- jeremy.linton@arm.com, jonathan.cameron@huawei.com, kobak@nvidia.com,
- lcherian@marvell.com, lenb@kernel.org, linux-acpi@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- lpieralisi@kernel.org, peternewman@google.com, quic_jiles@quicinc.com,
- rafael@kernel.org, robh@kernel.org, rohit.mathew@arm.com,
- scott@os.amperecomputing.com, sdonthineni@nvidia.com, sudeep.holla@arm.com,
- tan.shaopeng@fujitsu.com, will@kernel.org, xhao@linux.alibaba.com,
- Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>, Zeng Heng <zengheng4@huawei.com>
-References: <20251117170014.4113754-1-ben.horgan@arm.com>
- <20251117170014.4113754-16-ben.horgan@arm.com>
- <bb238bdc-1870-4888-874e-b3fa466d264b@nvidia.com>
-From: Ben Horgan <ben.horgan@arm.com>
-Content-Language: en-US
-In-Reply-To: <bb238bdc-1870-4888-874e-b3fa466d264b@nvidia.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251119_021233_149974_FE89B5CE 
-X-CRM114-Status: GOOD (  22.35  )
+X-CRM114-CacheID: sfid-20251119_022240_869682_64B7F792 
+X-CRM114-Status: UNSURE (   9.92  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,96 +84,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Fenghua,
+stmmac's axi_blen (burst length) handling is very verbose and
+unnecessary.
 
-On 11/19/25 04:13, Fenghua Yu wrote:
-> Hi, Ben,
-> 
-> On 11/17/25 08:59, Ben Horgan wrote:
->> From: James Morse <james.morse@arm.com>
->>
->> The MSC MON_SEL register needs to be accessed from hardirq for the
->> overflow
->> interrupt, and when taking an IPI to access these registers on platforms
->> where MSC are not accessible from every CPU. This makes an irqsave
->> spinlock the obvious lock to protect these registers. On systems with
->> SCMI
->> or PCC mailboxes it must be able to sleep, meaning a mutex must be used.
->> The SCMI or PCC platforms can't support an overflow interrupt, and
->> can't access the registers from hardirq context.
->>
->> Clearly these two can't exist for one MSC at the same time.
->>
->> Add helpers for the MON_SEL locking. For now, use a irqsave spinlock and
->> only support 'real' MMIO platforms.
->>
->> In the future this lock will be split in two allowing SCMI/PCC platforms
->> to take a mutex. Because there are contexts where the SCMI/PCC platforms
->> can't make an access, mpam_mon_sel_lock() needs to be able to fail. Do
->> this now, so that all the error handling on these paths is present. This
->> allows the relevant paths to fail if they are needed on a platform where
->> this isn't possible, instead of having to make explicit checks of the
->> interface type.
->>
->> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
->> Reviewed-by: Gavin Shan <gshan@redhat.com>
->> Reviewed-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
->> Reviewed-by: Fenghua Yu <fenghuay@nvidia.com>
->> Tested-by: Fenghua Yu <fenghuay@nvidia.com>
->> Tested-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
->> Tested-by: Peter Newman <peternewman@google.com>
->> Tested-by: Carl Worth <carl@os.amperecomputing.com>
->> Tested-by: Gavin Shan <gshan@redhat.com>
->> Tested-by: Zeng Heng <zengheng4@huawei.com>
->> Signed-off-by: James Morse <james.morse@arm.com>
->> Signed-off-by: Ben Horgan <ben.horgan@arm.com
-> 
-> [SNIP]
-> 
->> diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/
->> mpam_internal.h
->> index 768a58a3ab27..b62ee55e1ed5 100644
->> --- a/drivers/resctrl/mpam_internal.h
->> +++ b/drivers/resctrl/mpam_internal.h
-> 
-> [SNIP]
-> 
->> +/* Returning false here means accesses to mon_sel must fail and
->> report an error. */
->> +static inline bool __must_check mpam_mon_sel_lock(struct mpam_msc *msc)
->> +{
->> +    WARN_ON_ONCE(msc->iface != MPAM_IFACE_MMIO);
->> +
->> +    raw_spin_lock_irqsave(&msc->_mon_sel_lock, msc->_mon_sel_flags);
->> +    return true;
->> +}
-> 
-> This helper always returns true, never false. And this may cause issue
-> later.
-> 
-> On the bottom line, this causes confusion in the comment and when later
-> its return value is always checked by callers.
-> 
-> It's better to improve this helper?
-> 
-> Option 1: warn and return false when ris->iface is not MMIO. No changes
-> in other patches which call the helper. Seems this is a better fix.
+Firstly, the burst length register bitfield is the same across all
+dwmac cores, so we can use common definitions for these bits which
+platform glue can use.
 
-Ok. The return value checking is intentional so that the locking for the
-firmware backed interface can be easily re-instated to the driver later.
-I'll return false when ris->iface is not MMIO but we won't get there as
-the probe will have already failed.
+We end up with platform glue:
+- filling in the axi_blen[] array with the decimal burst lengths, e.g.
+  dwmac-intel.c, etc
+- decoding a bitmap into burst lengths for this array, e.g.
+  dwmac-dwc-qos-eth.c
 
-> Option 2: warn on non MMIO iface but no return value. Other patches need
-> to be changed when calling the helper.
-> 
-> Thanks.
-> 
-> -Fenghua
+Other cases read the array from DT, placing it into the axi_blen
+array, and converting later to the register bitfield.
 
+This series removes all this complexity, ultimately ending up with
+platform glue providing the register value containing the burst
+length bitfield directly. Where necessary, platform glue calls
+stmmac_axi_blen_to_mask() to convert a decimal array (e.g. from
+DT) to the register value.
+
+This also means that stmmac_axi_blen_to_mask() can issue a
+diagnostic message at probe time if the burst length is incorrect.
+
+ drivers/net/ethernet/stmicro/stmmac/common.h       | 13 ++++++++
+ .../ethernet/stmicro/stmmac/dwmac-dwc-qos-eth.c    | 28 ++--------------
+ drivers/net/ethernet/stmicro/stmmac/dwmac-intel.c  |  5 ++-
+ .../net/ethernet/stmicro/stmmac/dwmac1000_dma.c    | 30 ++---------------
+ drivers/net/ethernet/stmicro/stmmac/dwmac4_dma.c   | 30 ++---------------
+ drivers/net/ethernet/stmicro/stmmac/dwmac4_dma.h   | 11 +------
+ drivers/net/ethernet/stmicro/stmmac/dwmac_dma.h    | 13 ++------
+ drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h     | 11 ++-----
+ drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c | 33 ++++---------------
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c  | 38 ++++++++++++++++++++++
+ drivers/net/ethernet/stmicro/stmmac/stmmac_pci.c   |  6 ++--
+ .../net/ethernet/stmicro/stmmac/stmmac_platform.c  |  4 ++-
+ include/linux/stmmac.h                             |  2 +-
+ 13 files changed, 78 insertions(+), 146 deletions(-)
+
+- 
 -- 
-Thanks,
-
-Ben
-
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
