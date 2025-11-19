@@ -4,68 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 332FDCF3941
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 15:49:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F302FCF3941
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 15:49:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=oh/JPScsRWgtlxzW5g3pR1KgdaU4jqTvrLESkIvUkpk=; b=pjwbUf2Ci6Ghvs
-	GOOamfSpb/9K5VJ9xClUA+6rC36ulP3qTIBzPFDGV/aPMSt6Z63y/v5HvdZCmJSxZNVieUb71xdXC
-	Eqre1lp+3BEAXNZOBAHy0vZ+n/IVozqgo1yJdxSb/hfvwW3sTeHcZbQIVefoM+Vyxgdq6lJyn3RV7
-	spPCwqKjFhBCNBX19JexQ+DyfeD0hIQx8ekOJbpY6AKV4H3C4/C3DEbJEBwjc5b0uVf5AVMsIFMis
-	wm6poPbFP2lgjG6Y8z+j4x+yCyP1kYrvenub1/yqtJEDGmChSBB3DmxYNgOddC51dvrijTJHvDvmt
-	cqy6WPAgsbbaJntFBZAg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=zsMgANA5eM7ZKAX6n6+aWoRlKM8M0oaGArWvq51zEek=; b=z1kOC2e76hqR0J0dGcwKr/knmo
+	bK6wq37xuNvi0n109cWdHBh3YBrQR47mPCbU5PGGFbI/WJXJTWVXdHhbujk14mPAPCVBl/jKSsq4d
+	1exwENoIMTP7PlLw0P9GNJ61xWjtPk5mFrV1An/2MtWlhLGhhDbTt8NeuMQ+OjNthhgexk8eFnda5
+	trDq2x/adKTyzC9aqkATkB77bcLlhn7O4Gb+995t6t3OvVTCiWSZv15+Ir5YzWwElmP3AS4HGEbOg
+	jQuCOLL0zx1uQWIifQpVlrdQ/+0JZKRSBbhocQmNH5VJvAPZ0vMRoaoWFQLKnIwrI1TFoykv+muCl
+	tlXNxO+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLkR0-00000003Yje-02kx;
-	Wed, 19 Nov 2025 15:49:30 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLkQw-00000003YiR-3bUq
+	id 1vLkQz-00000003YjN-32WL;
+	Wed, 19 Nov 2025 15:49:29 +0000
+Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vLkQw-00000003YiQ-4AWM
 	for linux-arm-kernel@lists.infradead.org;
 	Wed, 19 Nov 2025 15:49:28 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A60F0FEC;
-	Wed, 19 Nov 2025 07:49:17 -0800 (PST)
-Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9D8853F66E;
-	Wed, 19 Nov 2025 07:49:23 -0800 (PST)
-From: Leo Yan <leo.yan@arm.com>
-Subject: [PATCH v5 00/19] CoreSight: Refactor power management for
- CoreSight path
-Date: Wed, 19 Nov 2025 15:48:58 +0000
-Message-Id: <20251119-arm_coresight_path_power_management_improvement-v5-0-f615a301ad0b@arm.com>
+Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-429c8632fcbso4854094f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Nov 2025 07:49:25 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1763567364; x=1764172164; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=zsMgANA5eM7ZKAX6n6+aWoRlKM8M0oaGArWvq51zEek=;
+        b=HpEQ6Xd50Io+7YzcYQ0bW/AQvOjjwmYU8GHp91WsV9vTt6FMQPFQTjKrn54b2g4wj6
+         BZxIiruWZzG6PbfidjsSgAMN9JLGKejhg372F6/JgI0G0Ukn9sKXKOOtQjIsPMh6QvNt
+         AXdXz9aHCLi3N32jHghcKaMq3gHr28mQLEFjBbLlPW91SPKbWfqHv29S7WZ+rhm/qBcY
+         ZuabTDycC5Ei2iyYVH7mwM7yBImIadFszmfe3sH6XgRtGzW0Ex+dcARHsKRG+J4wUNT0
+         iPn414c9gSb6Q6nkPWSxlc8QRu1LmMITbEyR61Mbi7YaVGsvhXwMadPwE5HTpjL2kpQY
+         oQ1g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1763567364; x=1764172164;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=zsMgANA5eM7ZKAX6n6+aWoRlKM8M0oaGArWvq51zEek=;
+        b=Siwp8csxdXoyYDz44ihvgsIAXfVn53uzH70Te7viRM2lZrOzNUyewM2Iq4vPwRXI32
+         4g02tKU16XAoDx+PH+b6c2dAOpZbc5mySIb3kb1FG14rNadnoERouyaCzIqF6LyyLZ9b
+         BEqVAXRZxP0p+LkYpHiH2UtRBul2GXshqsf/Qi0sT6PtZfs1zx75VugrMLR9L1TJgoVA
+         okLkh3YjT7JgZRVaIm03P2kreWGrH2oo6/MjEDVVoiogBmkDMFAIijGBxEEjcZ2cZ6RQ
+         T3Kkm+hJRI8F+lEdlen6R7GQuIRQgcC5a9yWs6SgN/0aA90VzYEvqn2zs15w/vO7+NSw
+         mGDA==
+X-Forwarded-Encrypted: i=1; AJvYcCXL8nuxKvnWhlW4RzVN6jphsFVITAmLct9zkUor+07sXnqTnf58npXXEHFx2sTrKkOb8l9Y6hOgLhHCwSnv05qb@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy9gd4oBgYVCUGqsdtx0XSV56Q1nnLjkLdr1C7hQCbG/XFK5uGz
+	NmEMxPrzhqlbSeIJ8y6ZwtV0j209VnO2T9n+opg1Cn4BUndNNyixJG0o
+X-Gm-Gg: ASbGncuO5iXq0+SmCTAx/aab5uiMBOnXSTtXxXEMn5gRhyJKuVNPn4dAogTtu4dmt7x
+	fPZ7Rj/v3iPZTNt95pemut9KmG2yEDRzjRi6S13Q590nMnm5VGUXDSg2q9Lyxzv65h35ZOGTXBO
+	E8KGo8tVY58liPb+8cEhg7bpxW8iYbFRzwCT4M8T3whdEeFoJ0m3TX5Kaf8xwBsegJy6qK87ObI
+	j3uUkhYOLcerra+qozWfOcXkD0/4uQlUKKJ1/AZqtyx4XCgPDwDoG28jeaelprRutrrCSHv7GM7
+	2MgL1vGjx9djtRGN0XXgPVYziG5HrgVclebP1911zzLUK77B3BjfnVfF+hojjbHkw5VRALpYIVW
+	CUrwm1q/SY9rH6VEpqct62dzo1khckEBn9TQi4k4DagHQQndA57DCeOFtNdNeOA8QQosBeFnbGZ
+	YgwtBTFBv83eVnNYWnwtDWFUXulNr0TH35qzr/RBupbnpSqJZ2Up/YzchR32nMEH71Ug==
+X-Google-Smtp-Source: AGHT+IHKBCKSyXwqmqDibyNSehgzgh3KJ1v3HqV1svmFXRruujCX1mFQdmNmlH2lr9fy9Bcfr5S55w==
+X-Received: by 2002:a05:6000:4024:b0:42b:2dd5:42be with SMTP id ffacd0b85a97d-42b593234e0mr18915716f8f.8.1763567364171;
+        Wed, 19 Nov 2025 07:49:24 -0800 (PST)
+Received: from f4d4888f22f2.ant.amazon.com.com ([15.248.3.91])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42c9628ebacsm25969755f8f.30.2025.11.19.07.49.23
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Wed, 19 Nov 2025 07:49:23 -0800 (PST)
+From: Jack Thomson <jackabt.amazon@gmail.com>
+To: maz@kernel.org,
+	oliver.upton@linux.dev,
+	pbonzini@redhat.com
+Cc: joey.gouly@arm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	shuah@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	isaku.yamahata@intel.com,
+	xmarcalx@amazon.co.uk,
+	kalyazin@amazon.co.uk,
+	jackabt@amazon.com
+Subject: [PATCH v3 0/3] KVM ARM64 pre_fault_memory
+Date: Wed, 19 Nov 2025 15:49:07 +0000
+Message-ID: <20251119154910.97716-1-jackabt.amazon@gmail.com>
+X-Mailer: git-send-email 2.50.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAOrmHWkC/52OTQ6DIBSEr2JYlwYt/nXVezSGoD7lLRDyILSN8
- e6lHqG7+WbxzewsACEEdi92RpAwoNsy1JeCTUZvK3CcM7NKVHVZCsk1WTU5goCricrraJR3LyB
- l9aZXsLBFhdaTS2fmsx5l3zRLV3WCZasnWPB9Lj6HzAZDdPQ5DyT5a//fSpILfpvlOOqmla3oH
- 9lwnZxlw3EcXyiQLTPsAAAA
-X-Change-ID: 20251104-arm_coresight_path_power_management_improvement-dab4966f8280
-To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
- Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>, 
- Yeoreum Yun <yeoreum.yun@arm.com>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
- Yabin Cui <yabinc@google.com>, Keita Morisaki <keyz@google.com>, 
- Yuanfang Zhang <quic_yuanfang@quicinc.com>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
- Leo Yan <leo.yan@arm.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1763567363; l=4513;
- i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=muFzuakzQYEInWSEc4moA3tLt8KWe8C1TyUN2XkCjSc=;
- b=kdaLg9EhiTnncqN1pJ2pWYATHbuDsY5TC/ZG5Il50ssL9+g8e+ExELbIxtsOKfAfrpbidT8nL
- qw0BRRW9RS6CcJwPSOtXOGOe7ypr2NfX+lZY8RQUMBw631xZk3pSUkW
-X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
- pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251119_074927_019443_BF0E92F5 
-X-CRM114-Status: GOOD (  13.61  )
+X-CRM114-CacheID: sfid-20251119_074927_053206_EC3C62F2 
+X-CRM114-Status: GOOD (  12.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,96 +110,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series focuses on CoreSight path power management.  The changes can
-be divided into four parts for review:
+From: Jack Thomson <jackabt@amazon.com>
 
-  Patches 01~06: Refactor the CPU idle flow with moving common code into
-                 the CoreSight core layer.
-  Patches 07~14: Add link control during CPU idle.
-  Patches 15~16: Support the sink (TRBE) control during CPU idle.
-  Patches 17~19: Move the CPU hotplug flow into the coresight core layer
-                 and simplify the code.
+This patch series adds ARM64 support for the KVM_PRE_FAULT_MEMORY
+feature, which was previously only available on x86 [1]. This allows us
+to reduce the number of stage-2 faults during execution. This is of
+benefit in post-copy migration scenarios, particularly in memory
+intensive applications, where we are experiencing high latencies due to
+the stage-2 faults.
 
-This series is rebased on the coresight-next branch and has been verified
-on Juno-r2 and FVP RevC.
+Patch Overview:
 
----
-Changes in v5:
-- Set the per-CPU source pointer on target CPU (Suzuki).
-- Reused existed enable/disable buffer functions in TRBE callbacks
-  (James).
-- Refactored refcount for source devices in SysFS mode.
-- Released path in cpu-hotplug off flow to avoid memory leak.
-- Updated ETMv3 driver when move common code into core layer.
-- Rebased on the latest coresight-next branch.
-- Link to v4: https://lore.kernel.org/r/20251104-arm_coresight_path_power_management_improvement-v4-0-3d4bba674709@arm.com
+ - The first patch adds support for the KVM_PRE_FAULT_MEMORY ioctl
+   on arm64.
 
-Changes in v4:
-- Changed to store path pointer in coresight_device, this is easier for
-  fetching path pointer based on source device (Mike).
-- Dropped changes in CTI driver.
-- Only disabled path for CPU hot-plugged off but not enable path for
-  hot-plugged in.
-- Removed James' test tags for modified patches.
-- Link to v3: https://lore.kernel.org/r/20250915-arm_coresight_power_management_fix-v3-0-ea49e91124ec@arm.com
+ - The second patch updates the pre_fault_memory_test to support
+   arm64.
 
-Signed-off-by: Leo Yan <leo.yan@arm.com>
+ - The last patch extends the pre_fault_memory_test to cover
+   different vm memory backings.
 
----
-Leo Yan (18):
-      coresight: sysfs: Validate CPU online status for per-CPU sources
-      coresight: Set per-CPU source pointer
-      coresight: Register CPU PM notifier in core layer
-      coresight: etm4x: Hook CPU PM callbacks
-      coresight: Add callback to determine if PM is needed
-      coresight: etm4x: Remove redundant condition checks in save and restore
-      coresight: syscfg: Use spinlock to protect active variables
-      coresight: Introduce coresight_enable_source() helper
-      coresight: Save active path for system tracers
-      coresight: etm4x: Set active path on target CPU
-      coresight: etm3x: Set active path on target CPU
-      coresight: sysfs: Use source's path pointer for path control
-      coresight: Add 'in_idle' argument to path
-      coresight: Control path during CPU idle
-      coresight: Add PM callbacks for sink device
-      coresight: sysfs: Increment refcount only for system tracers
-      coresight: Take hotplug lock in enable_source_store() for Sysfs mode
-      coresight: Move CPU hotplug callbacks to core layer
+=== Changes Since v2 [2] ===
 
-Yabin Cui (1):
-      coresight: trbe: Save and restore state across CPU low power state
+ - Update fault info synthesize value. Thanks Suzuki
+ - Remove change to selftests for unaligned mmap allocations. Thanks
+   Sean
 
- drivers/hwtracing/coresight/coresight-catu.c       |   1 +
- drivers/hwtracing/coresight/coresight-core.c       | 242 ++++++++++++++++++++-
- drivers/hwtracing/coresight/coresight-ctcu-core.c  |   1 +
- drivers/hwtracing/coresight/coresight-cti-core.c   |   1 +
- drivers/hwtracing/coresight/coresight-dummy.c      |   1 +
- drivers/hwtracing/coresight/coresight-etb10.c      |   1 +
- drivers/hwtracing/coresight/coresight-etm-perf.c   |   2 +-
- drivers/hwtracing/coresight/coresight-etm3x-core.c |  65 ++----
- drivers/hwtracing/coresight/coresight-etm4x-core.c | 153 +++----------
- drivers/hwtracing/coresight/coresight-funnel.c     |   1 +
- drivers/hwtracing/coresight/coresight-priv.h       |   3 +
- drivers/hwtracing/coresight/coresight-replicator.c |   1 +
- drivers/hwtracing/coresight/coresight-stm.c        |   1 +
- drivers/hwtracing/coresight/coresight-syscfg.c     |  22 +-
- drivers/hwtracing/coresight/coresight-syscfg.h     |   2 +
- drivers/hwtracing/coresight/coresight-sysfs.c      | 126 ++++-------
- drivers/hwtracing/coresight/coresight-tmc-core.c   |   1 +
- drivers/hwtracing/coresight/coresight-tnoc.c       |   2 +
- drivers/hwtracing/coresight/coresight-tpda.c       |   1 +
- drivers/hwtracing/coresight/coresight-tpdm.c       |   1 +
- drivers/hwtracing/coresight/coresight-tpiu.c       |   1 +
- drivers/hwtracing/coresight/coresight-trbe.c       |  62 +++++-
- drivers/hwtracing/coresight/ultrasoc-smb.c         |   1 +
- include/linux/coresight.h                          |  11 +
- 24 files changed, 429 insertions(+), 274 deletions(-)
----
-base-commit: 9e9182cab5ebc3ee7544e60ef08ba19fdf216920
-change-id: 20251104-arm_coresight_path_power_management_improvement-dab4966f8280
+[1]: https://lore.kernel.org/kvm/20240710174031.312055-1-pbonzini@redhat.com
+[2]: https://lore.kernel.org/linux-arm-kernel/20251013151502.6679-1-jackabt.amazon@gmail.com
 
-Best regards,
+Jack Thomson (3):
+  KVM: arm64: Add pre_fault_memory implementation
+  KVM: selftests: Enable pre_fault_memory_test for arm64
+  KVM: selftests: Add option for different backing in pre-fault tests
+
+ Documentation/virt/kvm/api.rst                |   3 +-
+ arch/arm64/kvm/Kconfig                        |   1 +
+ arch/arm64/kvm/arm.c                          |   1 +
+ arch/arm64/kvm/mmu.c                          |  73 +++++++++++-
+ tools/testing/selftests/kvm/Makefile.kvm      |   1 +
+ .../selftests/kvm/pre_fault_memory_test.c     | 110 ++++++++++++++----
+ 6 files changed, 159 insertions(+), 30 deletions(-)
+
+
+base-commit: 8a4821412cf2c1429fffa07c012dd150f2edf78c
 -- 
-Leo Yan <leo.yan@arm.com>
+2.43.0
 
 
