@@ -4,61 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAE82CF34D3
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 15:37:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E351CF34D3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 15:38:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kyea9MzJ5lkfjX6xalD1L+8Qeu4HSvBFtywoa4hR6tA=; b=MHN7u0lhGq2Y+hWngnwplCrXJ4
-	IhZEBLnauWGS+Qg+aRh0lRheOC/Hhpt6s6qMQKGWpoXIiVRJ/prO8GLUeyei07YpHL47bA0EOZtM1
-	PdTraBd1ESlNZdna0Z7QEzurLqXJ2qyaS38t6gBZSSrYs+1DwH2occK2w87n48mUrsYAyhh6K7+FO
-	JrNVB093klSBS7O3ua9I/I28jjyjcqIQ4szsEvVkG+80qTf0Oz6RFJh2H2BhrHVhXmYrx02HQzws+
-	zUtjzZVbB2T5nkkBYBG2S+9QZ7+xZpcgDMOK0UERDMmOzgaY1LreMICvf+PS07y+3rerm4/RnVXhA
-	wTz32vfg==;
+	bh=sX0i53duLbK7UiaHVJRsjUnmMzMzihRNSejLGg6LI8g=; b=fX+EeT8RMNnALmfsGAHLSJf/lc
+	kvSheS4WdMa9csOINZB438dPSf0vF8Ivqw3yMVcU0kJWDUZUsVLavnAIQL3RgWuwNjTwcPfDIaklF
+	Zkawqb7N+1TfLmel6SEe02wJrqHRYL/idi3j3GK5KS3NqXZe/Ecz8C0zywW3E862g1rvXxMZaqSyM
+	sX/nclndZyadkuOiGia9PoivapSEyjqJfN5CJwH3oJCyVO3C3nAqv6OtzMEv7NClDKweMKQV1BAkW
+	g8yhsvw0XgTNQkZ31pJ0feVHdHT8GkREE1yfX8IC+6BEh+YiynBrQZ78WcY6wFdoagCrsRVv1RHpu
+	fqfEFVmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLkEz-00000003V0i-3H4L;
-	Wed, 19 Nov 2025 15:37:05 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLkEx-00000003V0G-00eG
+	id 1vLkGV-00000003VBF-2qnr;
+	Wed, 19 Nov 2025 15:38:39 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vLkGT-00000003VAq-0N09
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Nov 2025 15:37:04 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 998DAFEC;
-	Wed, 19 Nov 2025 07:36:50 -0800 (PST)
-Received: from localhost (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CB54A3F66E;
-	Wed, 19 Nov 2025 07:36:57 -0800 (PST)
-Date: Wed, 19 Nov 2025 15:36:56 +0000
-From: Leo Yan <leo.yan@arm.com>
-To: James Clark <james.clark@linaro.org>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mike Leach <mike.leach@linaro.org>,
-	Yeoreum Yun <yeoreum.yun@arm.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Yabin Cui <yabinc@google.com>,
-	Yuanfang Zhang <quic_yuanfang@quicinc.com>
-Subject: Re: [PATCH v4 15/15] coresight: Move CPU hotplug callbacks to core
- layer
-Message-ID: <20251119153656.GF8204@e132581.arm.com>
-References: <20251104-arm_coresight_path_power_management_improvement-v4-0-3d4bba674709@arm.com>
- <20251104-arm_coresight_path_power_management_improvement-v4-15-3d4bba674709@arm.com>
- <f01585fc-919d-4059-81e2-7131dd54553a@linaro.org>
- <20251119144813.GE8204@e132581.arm.com>
- <3ab75fd3-b739-4348-9a89-e67224e23488@linaro.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <3ab75fd3-b739-4348-9a89-e67224e23488@linaro.org>
+	Wed, 19 Nov 2025 15:38:38 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 5ECBA43BF5;
+	Wed, 19 Nov 2025 15:38:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8E2B7C4CEF5;
+	Wed, 19 Nov 2025 15:38:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1763566716;
+	bh=tDvM/osjxXgqZcn8Pbd6iKpnBr1NSfDmq5IFWml4eu8=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=nxa1MaKh4sUUB9UX5NANcxpHz6HSRQqS7RrVdzU+feZF/oC1h03b+p/RyzYsTo+V5
+	 EnoDPlb13ySEJ/5+kl0ldw+VG/5ok+J/Pzze7M44TiZXMhdNJPAe1lBvIIDhf/ZpDS
+	 v7UZ4bvTH3xuG3FIm4E6EQg7ORh3U6rZKZE1sCOZypFNrWQDxVilbGXANXKNjmtNDM
+	 8CkLY2eFzzotijauxl+aFgr14BZKO0N7zva43QxLeCssZSX+5NAfOWMPTte+O8BBRD
+	 odbdzEoRGADd2BTwTYQLJYo/y4IkxewQAu6QBxMM2y5pctxzGfJPw8uz+vdtDJ/PiU
+	 dvyXeOa8SAgbQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vLkGO-00000006b9m-3Xsy;
+	Wed, 19 Nov 2025 15:38:32 +0000
+Date: Wed, 19 Nov 2025 15:38:32 +0000
+Message-ID: <86ecpurq13.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Vincent Donnefort <vdonnefort@google.com>
+Cc: rostedt@goodmis.org,
+	mhiramat@kernel.org,
+	mathieu.desnoyers@efficios.com,
+	linux-trace-kernel@vger.kernel.org,
+	oliver.upton@linux.dev,
+	joey.gouly@arm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	jstultz@google.com,
+	qperret@google.com,
+	will@kernel.org,
+	aneesh.kumar@kernel.org,
+	kernel-team@android.com,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v8 19/28] KVM: arm64: Support unaligned fixmap in the pKVM hyp
+In-Reply-To: <20251107093840.3779150-20-vdonnefort@google.com>
+References: <20251107093840.3779150-1-vdonnefort@google.com>
+	<20251107093840.3779150-20-vdonnefort@google.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: vdonnefort@google.com, rostedt@goodmis.org, mhiramat@kernel.org, mathieu.desnoyers@efficios.com, linux-trace-kernel@vger.kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, jstultz@google.com, qperret@google.com, will@kernel.org, aneesh.kumar@kernel.org, kernel-team@android.com, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251119_073703_174464_0922D097 
-X-CRM114-Status: GOOD (  26.38  )
+X-CRM114-CacheID: sfid-20251119_073837_165686_2A40046B 
+X-CRM114-Status: GOOD (  16.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,86 +98,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 19, 2025 at 03:19:55PM +0000, James Clark wrote:
-
-[...]
-
-> > > > +static int coresight_dying_cpu(unsigned int cpu)
-> > > > +{
-> > > > +	struct coresight_device *source = per_cpu(csdev_source, cpu);
-> > > > +	struct coresight_path *path;
-> > > > +
-> > > > +	if (!source || !source->path)
-> > > > +		return 0;
-> > > > +
-> > > > +	/*
-> > > > +	 * The perf event layer will disable PMU events in the CPU hotplug.
-> > > > +	 * CoreSight driver should never handle the CS_MODE_PERF case.
-> > > > +	 */
-> > > > +	if (coresight_get_mode(source) != CS_MODE_SYSFS)
-> > > > +		return 0;
-> > > > +
-> > > > +	/*
-> > > > +	 * Save 'source->path' here, as it will be cleared in
-> > > > +	 * coresight_disable_source().
-> > > > +	 */
-> > > > +	path = source->path;
-> > > > +
-> > > > +	coresight_disable_source(source, NULL);
-> > > > +	coresight_disable_path(path);
-> > > > +	return 0;
-> > > 
-> > > If the user is expected to re-enable and this new state is visible, don't
-> > > you need to use the regular coresight_disable_sysfs() function? It calls
-> > > coresight_disable_source_sysfs() which updates a refcount.
-> > 
-> > Good point!  We only need to maintain refcnt for system tracers (e.g.,
-> > STM).  The per-CPU tracer is only binary states (on or off), we can
-> > simply use "mode" to track state and no need refcnt.
-> > 
-> > I will use a separate patch to refactor refcnt.
+On Fri, 07 Nov 2025 09:38:31 +0000,
+Vincent Donnefort <vdonnefort@google.com> wrote:
 > 
-> If you remove the refcount then wouldn't it break scripts that make multiple
-> enable calls? I thought the same logic for the system sources applies to CPU
-> sources.
+> Return the fixmap VA with the page offset, instead of the page base
+> address. This allows to use hyp_fixmap_map() seamlessly regardless of
+> the address alignment.
+> 
+> Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
+> 
+> diff --git a/arch/arm64/kvm/hyp/nvhe/mm.c b/arch/arm64/kvm/hyp/nvhe/mm.c
+> index ae8391baebc3..75014dc7d82e 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/mm.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/mm.c
+> @@ -239,7 +239,7 @@ static void *fixmap_map_slot(struct hyp_fixmap_slot *slot, phys_addr_t phys)
+>  	WRITE_ONCE(*ptep, pte);
+>  	dsb(ishst);
+>  
+> -	return (void *)slot->addr;
+> +	return (void *)slot->addr + offset_in_page(phys);
+>  }
+>  
+>  void *hyp_fixmap_map(phys_addr_t phys)
 
-I am not removing the refcount. Since we have csdev->mode to track the
-device state, I just keep refcount == 0 for the CPU source instead of
-refcount == 1.  This is transparnt for user space (no any change).
-
-Before my change:
-
-  echo 1 > /sys/bus/coresight/devices/tmc_etr0/enable_sink
-  echo 1 > /sys/bus/coresight/devices/etm2/enable_source
-  refcount = 1
-  echo 1 > /sys/bus/coresight/devices/etm2/enable_source
-  refcount = 1
-  echo 1 > /sys/bus/coresight/devices/etm2/enable_source
-  refcount = 1
-
-  echo 0 > /sys/bus/coresight/devices/etm2/enable_source
-  refcount = 0
-
-After my change:
-
-  echo 1 > /sys/bus/coresight/devices/tmc_etr0/enable_sink
-  echo 1 > /sys/bus/coresight/devices/etm2/enable_source
-  refcount = 0
-  echo 1 > /sys/bus/coresight/devices/etm2/enable_source
-  refcount = 0
-  echo 1 > /sys/bus/coresight/devices/etm2/enable_source
-  refcount = 0
-
-  echo 0 > /sys/bus/coresight/devices/etm2/enable_source
-  refcount = 0
-
-As a result, the CPU PM flow doesn't need to bother refcount when to
-disable the path.
+This looks slightly odd. fixmap_map_slot() should return *a slot*, not
+something in it. Can't hyp_fixmap_map() do that instead?
 
 Thanks,
-Leo
 
-> TBH I don't really know what problem the refcount and multiple balanced
-> enable/disable calls solves. But even if we decide it's not needed, it's too
-> late to change now.
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
