@@ -4,67 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9B8CCF58C9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 18:41:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACBE4CF58C8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 18:42:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rkVTBEWqVaZ94WPO1n0cpMljTE5QytXBtSx70+iCgmI=; b=MW3wFk5H2WPTpyn4+NZ6+FUYQq
-	tF3QDMXrTSZHSHB0DpDlVhWgzmIUBfGcEgMqy+TXyP5pp9/HEKVyETStWgNxKm7SgSHTk0XMRn2vJ
-	c3JosvF12fjtrkVPaBzBE4QDeDyE/3swvhm/b3z6t5Vf6dChsKxA3zb9eYlXdlZIR1stTv1YcnL+y
-	rESTrfmQzscFjaedxy6CjgOjQe7noHBwdO4FZnsy36isFgtUMgTxhKWXhM96AX9QxSeqGNyODXHEu
-	DKSrbGAYj9X2qbMntwR+RCAKpVexv8nn5c1NO2FLdaCqSJUTa7ZtW6lfrHEaR0aQRqTO9WzCM7kCD
-	28y9P5GA==;
+	bh=d+20Uj7V/wB53t3E3ACYXIU/QyzVL9+KYCOlwfL2P6s=; b=n4CCu39Ch+sw6SCDhFKyWWJ3EI
+	fgdx2f9Ep5kKsUse5c2CQzvEneCMdxTVBPXhgz9oljB8E6Sad8vFAMHCRYEdleZxcN+jaozPy5Rlu
+	w9xf4yrOKUjBdj0MRjaIUZqH6RG2mDBUg1p/oBxE6IBdnxCDnNsbzkloZxa/uysjRpr0Uv3ZOY09c
+	+FAUN4VOzhtyrs6bj4EdABL6weqV9JxE5vLuADfclRuLbiTG8UvOK7ecaGGbaxXU4+QEQVH7l5yz4
+	dVIkP8jRP53+ch7Bqlt/EIZ7nhniI5kqix4RPTH3RV+pGak3WiqFsBf1VSAQY4wL7NCIXfp1yJF6s
+	EQJAQUfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLn7B-00000004gcN-1j9b;
-	Wed, 19 Nov 2025 18:41:13 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vLn8i-00000004hPF-06gy;
+	Wed, 19 Nov 2025 18:42:48 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLn7A-00000004gcG-0Dqv
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Nov 2025 18:41:12 +0000
+	id 1vLn8f-00000004hNu-2oHU;
+	Wed, 19 Nov 2025 18:42:46 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 383B160134;
-	Wed, 19 Nov 2025 18:41:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B83CDC4CEF5;
-	Wed, 19 Nov 2025 18:41:07 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 0D0254360A;
+	Wed, 19 Nov 2025 18:42:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 23360C4CEF5;
+	Wed, 19 Nov 2025 18:42:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763577670;
-	bh=jPiEf9D0enUbIPbwxeeiH63YOLo0c0B5JvI5bNTryrk=;
+	s=k20201202; t=1763577764;
+	bh=d+20Uj7V/wB53t3E3ACYXIU/QyzVL9+KYCOlwfL2P6s=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=KOgLihFq4e/zbXry3OmMxJlk6/wjfu+Jr63VKL/cUMy8nfY0GxXWpBkKYZ1QGc0pk
-	 Um07NKpisn+tyRjh2S/CXmXsUP+rEuir7t5OsaER3oyjiogna/0vI5rFEoiE1KF0yt
-	 qdfubygGYscPwGZWQX58N7otP6RQ8wxvOwoHBFY7pE8B7jbUxwJl0WIfleN6HIOruG
-	 UrN0npsdRbxaD41STo+S2rD1KA8Pv7d+0JAutXnz/HUO7YYgSoyP84CD07pW8NFWW3
-	 FYAR3znkbbNwNFk7Etp1O1A4Ekbi2Uj3RWiWDvGyHx8tfdkad/o2xcSnTRDZ9akjzu
-	 pVDIKc8TNSA5g==
-Date: Wed, 19 Nov 2025 18:41:05 +0000
+	b=EdRjYlhhDT9zjqscZl9dlk/VT2v65GFWB3iqHMzaQ4z8NdllYI0b1kSjnUUz5X5As
+	 UgF/WhAJt0vsYmMaV6bLjCxpKGQwamYcp2JNPSeQSbN2UxLWnLS6JJqLX2faMrUGzf
+	 oYwOaEAMmod6faMCkejLzbEJ2C75HCLHat1HLOPlRK3zKoxUEfNwB/rTVIEkgKBF/c
+	 +4Jyd7+usTtI1J7mKfFdwJu9l8vG3vosYdvG2btZbhB3rL5twxTFCkDnirM71iUsP4
+	 NOFrrtdQbgWHEnu3hJpo/LU7j1I+c0+3ylyPLfB3tF1pNfrH5xcRU4RgwtxWMHVVPt
+	 BRNWVIKBrXAvQ==
+Date: Wed, 19 Nov 2025 18:42:37 +0000
 From: Conor Dooley <conor@kernel.org>
-To: Jacky Chou <jacky_chou@aspeedtech.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+To: Sjoerd Simons <sjoerd@collabora.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Ryder Lee <ryder.lee@mediatek.com>,
+	Jianjun Wang <jianjun.wang@mediatek.com>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Chunfeng Yun <chunfeng.yun@mediatek.com>,
+	Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Lee Jones <lee@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
 	"David S. Miller" <davem@davemloft.net>,
 	Eric Dumazet <edumazet@google.com>,
 	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>,
-	Andrew Jeffery <andrew@aj.id.au>, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net-next] dt-bindings: net: aspeed: add AST2700 MDIO
- compatible
-Message-ID: <20251119-gooey-wifi-413598a8a1d7@spud>
-References: <20251117-aspeed_mdio_ast2700-v1-1-8ecb0032f554@aspeedtech.com>
+	Lorenzo Bianconi <lorenzo@kernel.org>, Felix Fietkau <nbd@nbd.name>,
+	kernel@collabora.com, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, linux-pci@vger.kernel.org,
+	linux-phy@lists.infradead.org, netdev@vger.kernel.org,
+	Daniel Golle <daniel@makrotopia.org>,
+	Bryan Hinton <bryan@bryanhinton.com>
+Subject: Re: [PATCH v4 06/11] dt-bindings: net: mediatek,net: Correct
+ bindings for MT7981
+Message-ID: <20251119-snowless-thrower-0c4743a2820c@spud>
+References: <20251115-openwrt-one-network-v4-0-48cbda2969ac@collabora.com>
+ <20251115-openwrt-one-network-v4-6-48cbda2969ac@collabora.com>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="2bWqpCW/1YghVWvY"
+	protocol="application/pgp-signature"; boundary="OWZxw9N+U4ItickZ"
 Content-Disposition: inline
-In-Reply-To: <20251117-aspeed_mdio_ast2700-v1-1-8ecb0032f554@aspeedtech.com>
+In-Reply-To: <20251115-openwrt-one-network-v4-6-48cbda2969ac@collabora.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251119_104245_731111_A6FB264C 
+X-CRM114-Status: GOOD (  10.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,86 +96,35 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---2bWqpCW/1YghVWvY
+--OWZxw9N+U4ItickZ
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Mon, Nov 17, 2025 at 03:30:18PM +0800, Jacky Chou wrote:
-> Add "aspeed,ast2700-mdio" compatible to the binding schema with a fallback
-> to "aspeed,ast2600-mdio".
+On Sat, Nov 15, 2025 at 09:58:09PM +0100, Sjoerd Simons wrote:
+> Different SoCs have different numbers of Wireless Ethernet
+> Dispatch (WED) units:
+> - MT7981: Has 1 WED unit
+> - MT7986: Has 2 WED units
+> - MT7988: Has 2 WED units
 >=20
-> Although the MDIO controller on AST2700 is functionally the same as the
-> one on AST2600, it's good practice to add a SoC-specific compatible for
-> new silicon. This allows future driver updates to handle any 2700-specific
-> integration issues without requiring devicetree changes or complex
-> runtime detection logic.
+> Update the binding to reflect these hardware differences. The MT7981
+> also uses infracfg for PHY switching, so allow that property.
 >=20
-> For now, the driver continues to bind via the existing
-> "aspeed,ast2600-mdio" compatible, so no driver changes are needed.
->=20
-> Signed-off-by: Jacky Chou <jacky_chou@aspeedtech.com>
-> ---
->  Documentation/devicetree/bindings/net/aspeed,ast2600-mdio.yaml | 8 +++++=
-++-
->  1 file changed, 7 insertions(+), 1 deletion(-)
->=20
-> diff --git a/Documentation/devicetree/bindings/net/aspeed,ast2600-mdio.ya=
-ml b/Documentation/devicetree/bindings/net/aspeed,ast2600-mdio.yaml
-> index d6ef468495c5..1c90e7c15a44 100644
-> --- a/Documentation/devicetree/bindings/net/aspeed,ast2600-mdio.yaml
-> +++ b/Documentation/devicetree/bindings/net/aspeed,ast2600-mdio.yaml
-> @@ -13,13 +13,19 @@ description: |+
->    The ASPEED AST2600 MDIO controller is the third iteration of ASPEED's =
-MDIO
->    bus register interface, this time also separating out the controller f=
-rom the
->    MAC.
-> +  The ASPEED AST2700 MDIO controller is similar to the AST2600's.
+> Signed-off-by: Sjoerd Simons <sjoerd@collabora.com>
 
-This statement disagrees with your commit message that claims
-functionally identical, and implies that the 2700 supports some extra
-features or whatever.
-I think I'd drop this entirely from the patch, rather than try to reword
-it. Remove it and then:
 Acked-by: Conor Dooley <conor.dooley@microchip.com>
-pw-bot: changes-requested
 
->  allOf:
->    - $ref: mdio.yaml#
-> =20
->  properties:
->    compatible:
-> -    const: aspeed,ast2600-mdio
-> +    oneOf:
-> +      - const: aspeed,ast2600-mdio
-> +      - items:
-> +          - enum:
-> +              - aspeed,ast2700-mdio
-> +          - const: aspeed,ast2600-mdio
-> =20
->    reg:
->      maxItems: 1
->=20
-> ---
-> base-commit: c9dfb92de0738eb7fe6a591ad1642333793e8b6e
-> change-id: 20251117-aspeed_mdio_ast2700-aa089c4f0474
->=20
-> Best regards,
-> --=20
-> Jacky Chou <jacky_chou@aspeedtech.com>
->=20
-
---2bWqpCW/1YghVWvY
+--OWZxw9N+U4ItickZ
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaR4PQQAKCRB4tDGHoIJi
-0sqUAP9r+wKYrCdpXMLj+cK8mnW1jeDSeXieLhR1kXkxcYrCUgEAvz3f7zkatpMU
-AoB7sxn/YdlOC4WEHCby7J2J47TRzAo=
-=rJkd
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaR4PnAAKCRB4tDGHoIJi
+0qysAP4slbkJvvcDz+LiScI3HC4oFNoFUawshCKoNhDhEg0RZQD+JPTtXG5xiV2r
+lqSBXMrX7H73koX9k2vleiv2AUW+EAI=
+=X2CE
 -----END PGP SIGNATURE-----
 
---2bWqpCW/1YghVWvY--
+--OWZxw9N+U4ItickZ--
 
