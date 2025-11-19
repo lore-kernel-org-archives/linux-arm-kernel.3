@@ -4,62 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38AF3CF58C1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 17:39:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89B46CF58C2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 17:42:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Date:Message-Id:
-	References:In-Reply-To:From:Subject:Reply-To:MIME-Version:Content-Type:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oyQpyTCqOlHNdfL5NAO51jE4kidfnQiEMiwXGnTCeXU=; b=0SgY004WiM0yuklhPd2u33f3/A
-	LlMHRvzu8kdB8WYqJgcifbYlyjWRuRvPYdfH284RqoTbbdZqHVi/eGQdAgmyBD+yQ0SrBQeK7hkIt
-	iWHVf3lGmtzn2LUallZvndchg3jGyVFBQroYwNIcekm3SLjhUDrwBFBsnW9ViUVSdzx717ZVwMiAB
-	fWvWYR1qaXUxXjVhdlvlMBEvV/vZCwmIBs90FYD+0giZ2lYyvftgG29HD++x3/IzK7jMWT62+zdm/
-	YjAIiaP8GZDSwa4ysXv8jcwGiyjxfpfsQqZzCeGb2l7lGGA/q7W+7OaTiuuBngSpA1AkLyolJCyax
-	TmYDmPCw==;
+	bh=7cfTisswQ6sIAgWdgfBibmTyK7jFDrPc7CTycsulMr0=; b=cSwfCHw5Kf0cxTgrGuMe2g07gX
+	ENCrlBPiYvVP6aWVytC7s77lKdqU9l9kDSsGrJ4gTL03MH81K1zU60SSi2YZJgyjRCkgq97WEkS24
+	wfcbKzMEdRIBjJ2CN7qsyOxRqca0jOK0oZL5gxA697t9cawL+ULUUoXjv424qQxnLbbapspu3VQVZ
+	yuJ/orwq0SGqYLuZy6I9TlmfJ/uSBfyeClVzJHFWdmtxD/8hT1DNzenzpC2VT3wdymVew/38uz9jS
+	8PkaDUaw0YZDiqa0HwZP/cNXBzdV/bzmPozi+3GxsnzdpAtdbO+hejEkaBA+XH3OHqQ4IRZTkbiJT
+	BKsS/hEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLm9F-00000004CEr-2SSI;
-	Wed, 19 Nov 2025 17:39:17 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vLmBn-00000004DZf-0pYL;
+	Wed, 19 Nov 2025 17:41:55 +0000
+Received: from mgamail.intel.com ([192.198.163.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLm9E-00000004CEQ-0maW
+	id 1vLmBk-00000004DZH-392L
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Nov 2025 17:39:16 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 41DD660171;
-	Wed, 19 Nov 2025 17:39:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E9D79C4CEF5;
-	Wed, 19 Nov 2025 17:39:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763573955;
-	bh=Jqs07eP6UB9i87JiQEg3vKSrqXNfka2QBSOHxYmkT3U=;
-	h=Subject:From:In-Reply-To:References:Date:To:Cc:From;
-	b=mIMgDiB6mjFVfNNi3ix3SenJ4xZdU1S/WtuScWhlIRbh97fb04+UhGmxhrHFaElmS
-	 zf37sXcE0sIJ73YRG9v+KBis98CqkUHpkZUnDKH1ZMY/FZjHfd7SDB1zcDz0OUZNMj
-	 gUT02nYNqOhKGULrHX2qep5UXh45DlAT6xFzdAFFXUuVFLMuIzRho4fYM6Ql6hY1rQ
-	 eo9NPLYQs8f6fkwcVBWr59t0T3QQ0tD/2xNhX1yjYnwt/32GWfBCmNY+09pPKonUzA
-	 COxx79INjuutN38sKSIayadbZpBoYywEK7Bh2I4ccJK31wumc5kiVnzG09uFgdHtPS
-	 FvfGLMnV5WQlQ==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id EB0E439D0C22;
-	Wed, 19 Nov 2025 17:38:41 +0000 (UTC)
-Subject: Re: [GIT PULL] soc: fixes for 6.18, part 3
-From: pr-tracker-bot@kernel.org
-In-Reply-To: <fd25cb51-ae6b-4c03-9215-c3285f7533e0@app.fastmail.com>
-References: <fd25cb51-ae6b-4c03-9215-c3285f7533e0@app.fastmail.com>
-X-PR-Tracked-List-Id: <linux-kernel.vger.kernel.org>
-X-PR-Tracked-Message-Id: <fd25cb51-ae6b-4c03-9215-c3285f7533e0@app.fastmail.com>
-X-PR-Tracked-Remote: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git tags/soc-fixes-6.18-3
-X-PR-Tracked-Commit-Id: 7a601324ac9828468291151d220edb47a6a82449
-X-PR-Merge-Tree: torvalds/linux.git
-X-PR-Merge-Refname: refs/heads/master
-X-PR-Merge-Commit-Id: 23cb64fb76257309e396ea4cec8396d4a1dbae68
-Message-Id: <176357392060.896813.3808811333357737123.pr-tracker-bot@kernel.org>
-Date: Wed, 19 Nov 2025 17:38:40 +0000
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: Linus Torvalds <torvalds@linux-foundation.org>, soc@lists.linux.dev, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+	Wed, 19 Nov 2025 17:41:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1763574113; x=1795110113;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=q4ogyePfvPPVC198borYC1IEQLnRNOOxPn543dof334=;
+  b=IFYK14Aj8wYDemfwlRvM/PaeU4byJVfQF9JNt3JA13qD07AQRt87ZMaS
+   C80oTN/4gBCnAOf+kYT2iuDA9eEnCoK7Pk1qbckWFn9ptDCyRbQHmMyYv
+   EwEukpIoK3Y4j19zAV/qyCyJJRQClx/Rk/ZTciHlPdeiGVPS2NgHLtYlz
+   nFQqW+gHjq5LfgGR3gjHCsC9Pp00HS5obnVqooWeFgXW7XZHcth5qFn6H
+   BsFcSfNOI1GlMkdj+L5CJHS0dMHuvmCmoCRC0k1HMf5HCCfe4RL3zkM/N
+   WjnGXNo8zuRH0VsFyga1Qlr3aQ1ESx8eHqM1DaObSSvVZTtnJqpvx3D8j
+   w==;
+X-CSE-ConnectionGUID: PzmjpnrVSmO+t0BPghTgsw==
+X-CSE-MsgGUID: jwuGs1TLQ1yTXV3zgd2hiA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11618"; a="69492252"
+X-IronPort-AV: E=Sophos;i="6.19,316,1754982000"; 
+   d="scan'208";a="69492252"
+Received: from fmviesa010.fm.intel.com ([10.60.135.150])
+  by fmvoesa106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2025 09:41:52 -0800
+X-CSE-ConnectionGUID: QA3EiLidSZC7kxroBm3LWw==
+X-CSE-MsgGUID: ZGup7eNSRe+q+/IkGlUXng==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.19,316,1754982000"; 
+   d="scan'208";a="191918464"
+Received: from rvuia-mobl.ger.corp.intel.com (HELO localhost) ([10.245.245.245])
+  by fmviesa010-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2025 09:41:47 -0800
+Date: Wed, 19 Nov 2025 19:41:44 +0200
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Jisheng Zhang <jszhang@kernel.org>
+Cc: Doug Berger <opendmb@gmail.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	bcm-kernel-feedback-list@broadcom.com,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Bartosz Golaszewski <brgl@bgdev.pl>,
+	Hoan Tran <hoan@os.amperecomputing.com>,
+	Andy Shevchenko <andy@kernel.org>, Daniel Palmer <daniel@thingy.jp>,
+	Romain Perier <romain.perier@gmail.com>,
+	Grygorii Strashko <grygorii.strashko@ti.com>,
+	Santosh Shilimkar <ssantosh@kernel.org>,
+	Kevin Hilman <khilman@kernel.org>,
+	Robert Jarzmik <robert.jarzmik@free.fr>,
+	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>,
+	Srinivas Neeli <srinivas.neeli@amd.com>,
+	Michal Simek <michal.simek@amd.com>, linux-gpio@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-omap@vger.kernel.org
+Subject: Re: [PATCH v4 05/15] gpio: pxa: Use modern PM macros
+Message-ID: <aR4BWLo4BdyKhnlI@smile.fi.intel.com>
+References: <20251119163327.16306-1-jszhang@kernel.org>
+ <20251119163327.16306-6-jszhang@kernel.org>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251119163327.16306-6-jszhang@kernel.org>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251119_094152_847032_720AAEAB 
+X-CRM114-Status: GOOD (  13.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,16 +103,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The pull request you sent on Wed, 19 Nov 2025 16:52:21 +0100:
+On Thu, Nov 20, 2025 at 12:33:17AM +0800, Jisheng Zhang wrote:
+> Use the modern PM macros for the suspend and resume functions to be
+> automatically dropped by the compiler when CONFIG_PM or
+> CONFIG_PM_SLEEP are disabled, without having to use #ifdef guards.
+> 
+> This has the advantage of always compiling these functions in,
+> independently of any Kconfig option. Thanks to that, bugs and other
+> regressions are subsequently easier to catch.
 
-> https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git tags/soc-fixes-6.18-3
+...
 
-has been merged into torvalds/linux.git:
-https://git.kernel.org/torvalds/c/23cb64fb76257309e396ea4cec8396d4a1dbae68
+>  static struct syscore_ops pxa_gpio_syscore_ops = {
+> -	.suspend	= pxa_gpio_suspend,
+> -	.resume		= pxa_gpio_resume,
+> +	.suspend	= pm_ptr(pxa_gpio_suspend),
+> +	.resume		= pm_ptr(pxa_gpio_resume),
+>  };
 
-Thank you!
+I believe this needs to be thoroughly checked and thought through as
+this is *not* a dev_pm_ops.
 
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/prtracker.html
+With Best Regards,
+Andy Shevchenko
+
+
 
