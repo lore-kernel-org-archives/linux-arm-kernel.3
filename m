@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32E81CF2599
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 08:14:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BBF6CF2597
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 08:14:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gFRntSnV/K0Zf4DIc0jm2RPgoY38SvcsIuMyab0Umgk=; b=dzeY5yIwxkXDVXY5V+ggUFDhhA
-	H2xHbpR6v1jxF7CsMHQl72FwMkq9UAszQDHVpGCLac26fIcDrNo2qVzsz/ZS11FpdMAxlngvjEAuR
-	qYT6ZwkqaDhC4Eav+cSPG6/lXi7UpMYVaQ9YQXWxbB+j/LAyj6DT2SsqX3MRDf13LLSsrt5kvCHAP
-	ZLE4vEQdeo13Bw1JHNIJGG0FzGXXejxkL/iMJElk89qeenx8vy/6sIgI1lVENy2onSaOQ23gnGdzw
-	nyg4oDaWMsK2YJS8/N2osdRhJyW+V30ZVPTTCLoZJVI8NM2Twm/o3ZyW7ZT+vBqyOG3T4toXKrz07
-	Q7SKR9Lg==;
+	bh=G2Tew672xzwmHmfuBDCTrLoPGEDsWVGzCnadqS/wQeM=; b=YbcwCFedpmc2PjZXWkpbAGxMLR
+	mOSzeoWnC/jFAUVZYcsf9KCkj4kdUjhZ5RjQsE6eyu6cvEgoZt9zhJwTwSGPLO8+wFu1EcICFfFqN
+	12KuSW3UqCG2RKQuvunTCjL/Hi6T5j9Of4OR6CM+QSant3J7D0Nsa9Z+vcm+US7y+4YTt01MZcCaf
+	TvWdZfxsTlhKm5cbUINCoko7gpWrDTghHFIexooaxz8SZl73sTG+zQi/L4RLjCZzjl3FL8AkcwmJv
+	qH8haQM0GFpsYNyb3y/3VSI86M5PuR44S7hVwqIEl84/u5aTQEHFUWkMPBGxm2JP30N0H4N0G1jCN
+	WTJM+HQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLdKU-00000002m4J-05pN;
-	Wed, 19 Nov 2025 08:14:18 +0000
-Received: from canpmsgout05.his.huawei.com ([113.46.200.220])
+	id 1vLdKY-00000002m5g-3g6W;
+	Wed, 19 Nov 2025 08:14:22 +0000
+Received: from canpmsgout06.his.huawei.com ([113.46.200.221])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLdKR-00000002m2U-1RU8
+	id 1vLdKQ-00000002m2T-405A
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Nov 2025 08:14:16 +0000
+	Wed, 19 Nov 2025 08:14:17 +0000
 dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
 	c=relaxed/relaxed; q=dns/txt;
 	h=From;
-	bh=gFRntSnV/K0Zf4DIc0jm2RPgoY38SvcsIuMyab0Umgk=;
-	b=gPU3nY6H56tggE13zBgfpTPTYO32TCgVYNyBFWuEfbYiJ9QUdXSmBjm756cf/7/2ozA15y/iG
-	4UkF5r+Cbd1l0/c3JSMpOIHS/AKsZviskAomNCiX++Kd/bjJ+wiztevYkksRXm6bn5gnzOcl+3t
-	hrakd2EVMtWB4Nyk+0lWSc8=
-Received: from mail.maildlp.com (unknown [172.19.163.252])
-	by canpmsgout05.his.huawei.com (SkyGuard) with ESMTPS id 4dBDjz3sPmz12LcJ;
-	Wed, 19 Nov 2025 16:12:39 +0800 (CST)
+	bh=G2Tew672xzwmHmfuBDCTrLoPGEDsWVGzCnadqS/wQeM=;
+	b=GRliNU/U/UYogEXhJthx6dgNE4xwNCKqgkvK8p6/CN2ygN/mMV2FxOuYmQ6bjLFf96voDiqqS
+	GH935jo/GYezWwKFadaRziFizOlYKXDHmhI0csviBNR0cEaPmMRiJvnl8X6XCyPT3cB+GFZ4Z6K
+	MmMtw4a5KwT7VJhe0oalaSg=
+Received: from mail.maildlp.com (unknown [172.19.88.194])
+	by canpmsgout06.his.huawei.com (SkyGuard) with ESMTPS id 4dBDjh2WXHzRhSq;
+	Wed, 19 Nov 2025 16:12:24 +0800 (CST)
 Received: from kwepemf200001.china.huawei.com (unknown [7.202.181.227])
-	by mail.maildlp.com (Postfix) with ESMTPS id 1E0B8180B56;
+	by mail.maildlp.com (Postfix) with ESMTPS id B20471402CD;
 	Wed, 19 Nov 2025 16:14:07 +0800 (CST)
 Received: from localhost.localdomain (10.50.163.32) by
  kwepemf200001.china.huawei.com (7.202.181.227) with Microsoft SMTP Server
@@ -54,9 +54,9 @@ CC: <linux-arm-kernel@lists.infradead.org>, <linux-pm@vger.kernel.org>,
 	<vincent.guittot@linaro.org>, <zhanjie9@hisilicon.com>,
 	<lihuisong@huawei.com>, <yubowen8@huawei.com>, <zhangpengjie2@huawei.com>,
 	<wangzhi12@huawei.com>, <linhongye@h-partners.com>, <zhenglifeng1@huawei.com>
-Subject: [PATCH v6 1/3] arm64: topology: Skip already covered CPUs when setting freq source
-Date: Wed, 19 Nov 2025 16:13:54 +0800
-Message-ID: <20251119081356.2495290-2-zhenglifeng1@huawei.com>
+Subject: [PATCH v6 2/3] cpufreq: Add new helper function returning cpufreq policy
+Date: Wed, 19 Nov 2025 16:13:55 +0800
+Message-ID: <20251119081356.2495290-3-zhenglifeng1@huawei.com>
 X-Mailer: git-send-email 2.33.0
 In-Reply-To: <20251119081356.2495290-1-zhenglifeng1@huawei.com>
 References: <20251119081356.2495290-1-zhenglifeng1@huawei.com>
@@ -67,8 +67,8 @@ X-Originating-IP: [10.50.163.32]
 X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
  kwepemf200001.china.huawei.com (7.202.181.227)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251119_001415_531157_E051ED9C 
-X-CRM114-Status: GOOD (  12.15  )
+X-CRM114-CacheID: sfid-20251119_001415_505623_DDCB3CCD 
+X-CRM114-Status: GOOD (  12.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,30 +83,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The scale freq source of the CPUs in 'amu_fie_cpus' mask are already set to
-AMU tick before, so in amu_fie_setup(), only the CPUs in the 'cpus' mask
-should be set.
+cpufreq_cpu_get_raw() gets cpufreq policy only if the CPU is in
+policy->cpus mask, which means the CPU is already online. But in some
+cases, the policy is needed before the CPU is added to cpus mask. Add a
+function to get the policy in these cases.
 
 Signed-off-by: Lifeng Zheng <zhenglifeng1@huawei.com>
-Reviewed-by: Beata Michalska <beata.michalska@arm.com>
+Reviewed-by: Rafael J. Wysocki (Intel) <rafael@kernel.org>
 Reviewed-by: Jie Zhan <zhanjie9@hisilicon.com>
 ---
- arch/arm64/kernel/topology.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/cpufreq/cpufreq.c | 6 ++++++
+ include/linux/cpufreq.h   | 5 +++++
+ 2 files changed, 11 insertions(+)
 
-diff --git a/arch/arm64/kernel/topology.c b/arch/arm64/kernel/topology.c
-index 5d07ee85bdae..9317a618bb87 100644
---- a/arch/arm64/kernel/topology.c
-+++ b/arch/arm64/kernel/topology.c
-@@ -373,7 +373,7 @@ static void amu_fie_setup(const struct cpumask *cpus)
+diff --git a/drivers/cpufreq/cpufreq.c b/drivers/cpufreq/cpufreq.c
+index 852e024facc3..e8d7544b77b8 100644
+--- a/drivers/cpufreq/cpufreq.c
++++ b/drivers/cpufreq/cpufreq.c
+@@ -198,6 +198,12 @@ struct cpufreq_policy *cpufreq_cpu_get_raw(unsigned int cpu)
+ }
+ EXPORT_SYMBOL_GPL(cpufreq_cpu_get_raw);
  
- 	cpumask_or(amu_fie_cpus, amu_fie_cpus, cpus);
++struct cpufreq_policy *cpufreq_cpu_policy(unsigned int cpu)
++{
++	return per_cpu(cpufreq_cpu_data, cpu);
++}
++EXPORT_SYMBOL_GPL(cpufreq_cpu_policy);
++
+ unsigned int cpufreq_generic_get(unsigned int cpu)
+ {
+ 	struct cpufreq_policy *policy = cpufreq_cpu_get_raw(cpu);
+diff --git a/include/linux/cpufreq.h b/include/linux/cpufreq.h
+index 0465d1e6f72a..cc894fc38971 100644
+--- a/include/linux/cpufreq.h
++++ b/include/linux/cpufreq.h
+@@ -203,6 +203,7 @@ struct cpufreq_freqs {
  
--	topology_set_scale_freq_source(&amu_sfd, amu_fie_cpus);
-+	topology_set_scale_freq_source(&amu_sfd, cpus);
- 
- 	pr_debug("CPUs[%*pbl]: counters will be used for FIE.",
- 		 cpumask_pr_args(cpus));
+ #ifdef CONFIG_CPU_FREQ
+ struct cpufreq_policy *cpufreq_cpu_get_raw(unsigned int cpu);
++struct cpufreq_policy *cpufreq_cpu_policy(unsigned int cpu);
+ struct cpufreq_policy *cpufreq_cpu_get(unsigned int cpu);
+ void cpufreq_cpu_put(struct cpufreq_policy *policy);
+ #else
+@@ -210,6 +211,10 @@ static inline struct cpufreq_policy *cpufreq_cpu_get_raw(unsigned int cpu)
+ {
+ 	return NULL;
+ }
++static inline struct cpufreq_policy *cpufreq_cpu_policy(unsigned int cpu)
++{
++	return NULL;
++}
+ static inline struct cpufreq_policy *cpufreq_cpu_get(unsigned int cpu)
+ {
+ 	return NULL;
 -- 
 2.33.0
 
