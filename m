@@ -4,35 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B4D1CF31B0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 12:25:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE97DCF31B0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 12:25:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RDn90KlqvUxG+mcYSXhlX6shuyxiHiZpIa35XFCSbY4=; b=Uoq66wZMzGcPH3edCGuIPXNlfg
-	Lr8e8RunQyNJV7g6tV1Si244gHfseds2MRGS/FdxGIZfQFfno9QQO32pCYKRbAF1b/49XlxQIE+0f
-	8+ahDBl2Cx+jp9HEl7nmjaZjROUcvdynKjlbPOrcGpMdxpfbG6nG16i7bL2r2nokq/rFIvJQ6yPWv
-	QHVdi3p3jEkQTB/9HBs/ja2oebOg1OTadlJwf7f9/LCpdfX/CIz57FbmtAJ6/sJtrX354PYkVnHDr
-	ZNipIkyylPD8mAp2f1E7CmyufFBHQo7kHu0z9iyAFFnK0DZYTOviRQ+xWe6Lbg3acAh6c+781BKaC
-	B5PbBTKQ==;
+	bh=ACoAFQdkLPsS1USd9IUaHhYisHpglXZ/wQ7vvnS7Noo=; b=MVIE6n+NPvaGf+0l+fhTAWQMNP
+	aoW4aZ2T1LrTnkW7ySUn/hX6foZoK9eFl2ApkgEz4khRqiR3g4ZoBRVfYx4+C5505aYdsBDhC76WS
+	Jfpl+8vcPqLpAOywqnKNLMdv6Qim6PlyS3eF2GyRFPzzFKartbhwccwuYRH0W5cG+cQ+X00qSSSix
+	dCuw+N7kJY12PSzvJLRB3nwm6Unh6OeyxoGQ3Y52wLjLYDVLmTMnF10hEzTqoCUH+C2ujX4BbpwYA
+	HIqSMy1AAYqlP+nctwANEtHNBdJrj4vssx7ql9g3AUf51hdXCjvGlCpHP19P+ESqSu47LQemTYKF+
+	wV3mzxAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLhFc-000000038DM-3oii;
-	Wed, 19 Nov 2025 12:25:32 +0000
+	id 1vLhFi-000000038Ii-1hKi;
+	Wed, 19 Nov 2025 12:25:38 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vLhFf-000000038Em-09k8
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 19 Nov 2025 12:25:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=ACoAFQdkLPsS1USd9IUaHhYisHpglXZ/wQ7vvnS7Noo=; b=oha6ypawu+1WAUqGIpIH9COsFA
+	fd6WmQ0Xfvv0BpEnddzfMxtVvMZihsEf6MR9XRDd0okQn88KN0QLQ51y1zHOLKsoUykXUdNWkXMEF
+	2y6hAphewDU8+ujE4ISq+8n+cMJ1oeRav2aV/Fu0wc9YjmtsTiBIEWQ1Kp88Ca5y2VLHy0zfVnVmA
+	7cYmbt0fDbXnrUhG3GzxPxqIgBbxi2KeBjU3SEZSufGLHD9EohY5pOcvUp+NwyYgXS4RIe8QedEwg
+	A00G58uynpvlikAr4dmEcz7iMaAzC7Qo+Hw8Gf19VAysRq4tWyExD04emNFEAnf+MbE94vNyBCr3k
+	6Xv9RD+Q==;
 Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLhFU-0000000384s-1Vhd
+	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vLgNy-0000000C2oz-0niP
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Nov 2025 12:25:28 +0000
+	Wed, 19 Nov 2025 11:30:08 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5A4A71756;
-	Wed, 19 Nov 2025 04:25:16 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CC2081480;
+	Wed, 19 Nov 2025 04:25:21 -0800 (PST)
 Received: from e134344.cambridge.arm.com (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id B6C643F740;
-	Wed, 19 Nov 2025 04:25:18 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 350983F740;
+	Wed, 19 Nov 2025 04:25:24 -0800 (PST)
 From: Ben Horgan <ben.horgan@arm.com>
 To: james.morse@arm.com
 Cc: amitsinght@marvell.com,
@@ -70,20 +85,20 @@ Cc: amitsinght@marvell.com,
 	will@kernel.org,
 	xhao@linux.alibaba.com,
 	reinette.chatre@intel.com,
+	Ben Horgan <ben.horgan@arm.com>,
 	Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>,
-	Zeng Heng <zengheng4@huawei.com>,
-	Ben Horgan <ben.horgan@arm.com>
-Subject: [PATCH v6 21/34] arm_mpam: Register and enable IRQs
-Date: Wed, 19 Nov 2025 12:22:51 +0000
-Message-ID: <20251119122305.302149-22-ben.horgan@arm.com>
+	Zeng Heng <zengheng4@huawei.com>
+Subject: [PATCH v6 22/34] arm_mpam: Use a static key to indicate when mpam is enabled
+Date: Wed, 19 Nov 2025 12:22:52 +0000
+Message-ID: <20251119122305.302149-23-ben.horgan@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20251119122305.302149-1-ben.horgan@arm.com>
 References: <20251119122305.302149-1-ben.horgan@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251119_042525_454968_BCA77CA2 
-X-CRM114-Status: GOOD (  27.64  )
+X-CRM114-CacheID: sfid-20251119_113006_724035_1AB9E722 
+X-CRM114-Status: GOOD (  17.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,29 +115,23 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: James Morse <james.morse@arm.com>
 
-Register and enable error IRQs. All the MPAM error interrupts indicate a
-software bug, e.g. out of range partid. If the error interrupt is ever
-signalled, attempt to disable MPAM.
+Once all the MSC have been probed, the system wide usable number of
+PARTID is known and the configuration arrays can be allocated.
 
-Only the irq handler accesses the MPAMF_ESR register, so no locking is
-needed. The work to disable MPAM after an error needs to happen at process
-context as it takes mutex. It also unregisters the interrupts, meaning
-it can't be done from the threaded part of a threaded interrupt.
-Instead, mpam_disable() gets scheduled.
+After this point, checking all the MSC have been probed is pointless,
+and the cpuhp callbacks should restore the configuration, instead of
+just resetting the MSC.
 
-Enabling the IRQs in the MSC may involve cross calling to a CPU that
-can access the MSC.
+Add a static key to enable this behaviour. This will also allow MPAM
+to be disabled in response to an error, and the architecture code to
+enable/disable the context switch of the MPAM system registers.
 
-Once the IRQ is requested, the mpam_disable() path can be called
-asynchronously, which will walk structures sized by max_partid. Ensure
-this size is fixed before the interrupt is requested.
-
-CC: Rohit Mathew <rohit.mathew@arm.com>
+Signed-off-by: James Morse <james.morse@arm.com>
 Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+Reviewed-by: Ben Horgan <ben.horgan@arm.com>
+Reviewed-by: Fenghua Yu <fenghuay@nvidia.com>
 Reviewed-by: Gavin Shan <gshan@redhat.com>
 Reviewed-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
-Reviewed-by: Fenghua Yu <fenghuay@nvidia.com>
-Tested-by: Rohit Mathew <rohit.mathew@arm.com>
 Tested-by: Fenghua Yu <fenghuay@nvidia.com>
 Tested-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
 Tested-by: Peter Newman <peternewman@google.com>
@@ -130,429 +139,89 @@ Tested-by: Carl Worth <carl@os.amperecomputing.com>
 Tested-by: Gavin Shan <gshan@redhat.com>
 Tested-by: Zeng Heng <zengheng4@huawei.com>
 Tested-by: Hanjun Guo <guohanjun@huawei.com>
-Signed-off-by: James Morse <james.morse@arm.com>
 Signed-off-by: Ben Horgan <ben.horgan@arm.com>
 ---
-Changes since v3:
-Add tag, thanks!
-Whitespace changes
-Use devm_mutex_init()
----
- drivers/resctrl/mpam_devices.c  | 280 ++++++++++++++++++++++++++++++++
- drivers/resctrl/mpam_internal.h |  13 ++
- 2 files changed, 293 insertions(+)
+ drivers/resctrl/mpam_devices.c  | 12 ++++++++++++
+ drivers/resctrl/mpam_internal.h |  8 ++++++++
+ 2 files changed, 20 insertions(+)
 
 diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
-index 7943d174b3f4..21fccc3ff002 100644
+index 21fccc3ff002..c126a95490f1 100644
 --- a/drivers/resctrl/mpam_devices.c
 +++ b/drivers/resctrl/mpam_devices.c
-@@ -14,6 +14,9 @@
- #include <linux/device.h>
- #include <linux/errno.h>
- #include <linux/gfp.h>
-+#include <linux/interrupt.h>
-+#include <linux/irq.h>
-+#include <linux/irqdesc.h>
- #include <linux/list.h>
- #include <linux/lockdep.h>
- #include <linux/mutex.h>
-@@ -200,6 +203,35 @@ static u64 mpam_msc_read_idr(struct mpam_msc *msc)
- 	return (idr_high << 32) | idr_low;
- }
+@@ -29,6 +29,8 @@
  
-+static void mpam_msc_clear_esr(struct mpam_msc *msc)
-+{
-+	u64 esr_low = __mpam_read_reg(msc, MPAMF_ESR);
-+
-+	if (!esr_low)
-+		return;
-+
-+	/*
-+	 * Clearing the high/low bits of MPAMF_ESR can not be atomic.
-+	 * Clear the top half first, so that the pending error bits in the
-+	 * lower half prevent hardware from updating either half of the
-+	 * register.
-+	 */
-+	if (msc->has_extd_esr)
-+		__mpam_write_reg(msc, MPAMF_ESR + 4, 0);
-+	__mpam_write_reg(msc, MPAMF_ESR, 0);
-+}
-+
-+static u64 mpam_msc_read_esr(struct mpam_msc *msc)
-+{
-+	u64 esr_high = 0, esr_low;
-+
-+	esr_low = __mpam_read_reg(msc, MPAMF_ESR);
-+	if (msc->has_extd_esr)
-+		esr_high = __mpam_read_reg(msc, MPAMF_ESR + 4);
-+
-+	return (esr_high << 32) | esr_low;
-+}
-+
- static void __mpam_part_sel_raw(u32 partsel, struct mpam_msc *msc)
- {
- 	lockdep_assert_held(&msc->part_sel_lock);
-@@ -729,6 +761,7 @@ static int mpam_msc_hw_probe(struct mpam_msc *msc)
- 		pmg_max = FIELD_GET(MPAMF_IDR_PMG_MAX, idr);
- 		msc->partid_max = min(msc->partid_max, partid_max);
- 		msc->pmg_max = min(msc->pmg_max, pmg_max);
-+		msc->has_extd_esr = FIELD_GET(MPAMF_IDR_HAS_EXTD_ESR, idr);
+ #include "mpam_internal.h"
  
- 		mutex_lock(&mpam_list_lock);
- 		ris = mpam_get_or_create_ris(msc, ris_idx);
-@@ -743,6 +776,9 @@ static int mpam_msc_hw_probe(struct mpam_msc *msc)
- 		mutex_unlock(&msc->part_sel_lock);
- 	}
- 
-+	/* Clear any stale errors */
-+	mpam_msc_clear_esr(msc);
++DEFINE_STATIC_KEY_FALSE(mpam_enabled); /* This moves to arch code */
 +
- 	spin_lock(&partid_max_lock);
- 	mpam_partid_max = min(mpam_partid_max, msc->partid_max);
- 	mpam_pmg_max = min(mpam_pmg_max, msc->pmg_max);
-@@ -866,6 +902,13 @@ static void mpam_reset_msc(struct mpam_msc *msc, bool online)
- 	}
- }
- 
-+static void _enable_percpu_irq(void *_irq)
-+{
-+	int *irq = _irq;
-+
-+	enable_percpu_irq(*irq, IRQ_TYPE_NONE);
-+}
-+
- static int mpam_cpu_online(unsigned int cpu)
- {
+ /*
+  * mpam_list_lock protects the SRCU lists when writing. Once the
+  * mpam_enabled key is enabled these lists are read-only,
+@@ -936,6 +938,9 @@ static int mpam_discovery_cpu_online(unsigned int cpu)
  	struct mpam_msc *msc;
-@@ -876,6 +919,9 @@ static int mpam_cpu_online(unsigned int cpu)
- 		if (!cpumask_test_cpu(cpu, &msc->accessibility))
- 			continue;
+ 	bool new_device_probed = false;
  
-+		if (msc->reenable_error_ppi)
-+			_enable_percpu_irq(&msc->reenable_error_ppi);
-+
- 		if (atomic_fetch_inc(&msc->online_refs) == 0)
- 			mpam_reset_msc(msc, true);
- 	}
-@@ -926,6 +972,9 @@ static int mpam_cpu_offline(unsigned int cpu)
- 		if (!cpumask_test_cpu(cpu, &msc->accessibility))
- 			continue;
- 
-+		if (msc->reenable_error_ppi)
-+			disable_percpu_irq(msc->reenable_error_ppi);
-+
- 		if (atomic_dec_and_test(&msc->online_refs))
- 			mpam_reset_msc(msc, false);
- 	}
-@@ -952,6 +1001,42 @@ static void mpam_register_cpuhp_callbacks(int (*online)(unsigned int online),
- 	mutex_unlock(&mpam_cpuhp_state_lock);
- }
- 
-+static int __setup_ppi(struct mpam_msc *msc)
-+{
-+	int cpu;
-+
-+	msc->error_dev_id = alloc_percpu(struct mpam_msc *);
-+	if (!msc->error_dev_id)
-+		return -ENOMEM;
-+
-+	for_each_cpu(cpu, &msc->accessibility)
-+		*per_cpu_ptr(msc->error_dev_id, cpu) = msc;
-+
-+	return 0;
-+}
-+
-+static int mpam_msc_setup_error_irq(struct mpam_msc *msc)
-+{
-+	int irq;
-+
-+	irq = platform_get_irq_byname_optional(msc->pdev, "error");
-+	if (irq <= 0)
++	if (mpam_is_enabled())
 +		return 0;
 +
-+	/* Allocate and initialise the percpu device pointer for PPI */
-+	if (irq_is_percpu(irq))
-+		return __setup_ppi(msc);
+ 	guard(srcu)(&mpam_srcu);
+ 	list_for_each_entry_srcu(msc, &mpam_all_msc, all_msc_list,
+ 				 srcu_read_lock_held(&mpam_srcu)) {
+@@ -1471,6 +1476,10 @@ static irqreturn_t __mpam_irq_handler(int irq, struct mpam_msc *msc)
+ 	/* Disable this interrupt. */
+ 	mpam_disable_msc_ecr(msc);
+ 
++	/* Are we racing with the thread disabling MPAM? */
++	if (!mpam_is_enabled())
++		return IRQ_HANDLED;
 +
-+	/* sanity check: shared interrupts can be routed anywhere? */
-+	if (!cpumask_equal(&msc->accessibility, cpu_possible_mask)) {
-+		pr_err_once("msc:%u is a private resource with a shared error interrupt",
-+			    msc->id);
-+		return -EINVAL;
-+	}
+ 	/*
+ 	 * Schedule the teardown work. Don't use a threaded IRQ as we can't
+ 	 * unregister the interrupt from the threaded part of the handler.
+@@ -1605,6 +1614,7 @@ static void mpam_enable_once(void)
+ 		return;
+ 	}
+ 
++	static_branch_enable(&mpam_enabled);
+ 	mpam_register_cpuhp_callbacks(mpam_cpu_online, mpam_cpu_offline,
+ 				      "mpam:online");
+ 
+@@ -1671,6 +1681,8 @@ void mpam_disable(struct work_struct *ignored)
+ 	}
+ 	mutex_unlock(&mpam_cpuhp_state_lock);
+ 
++	static_branch_disable(&mpam_enabled);
 +
-+	return 0;
+ 	mpam_unregister_irqs();
+ 
+ 	idx = srcu_read_lock(&mpam_srcu);
+diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
+index fa9d9a176a54..93a629f6e15a 100644
+--- a/drivers/resctrl/mpam_internal.h
++++ b/drivers/resctrl/mpam_internal.h
+@@ -9,6 +9,7 @@
+ #include <linux/bitmap.h>
+ #include <linux/cpumask.h>
+ #include <linux/io.h>
++#include <linux/jump_label.h>
+ #include <linux/llist.h>
+ #include <linux/mutex.h>
+ #include <linux/srcu.h>
+@@ -20,6 +21,13 @@
+ 
+ struct platform_device;
+ 
++DECLARE_STATIC_KEY_FALSE(mpam_enabled);
++
++static inline bool mpam_is_enabled(void)
++{
++	return static_branch_likely(&mpam_enabled);
 +}
 +
  /*
-  * An MSC can control traffic from a set of CPUs, but may only be accessible
-  * from a (hopefully wider) set of CPUs. The common reason for this is power
-@@ -1028,6 +1113,9 @@ static struct mpam_msc *do_mpam_msc_drv_probe(struct platform_device *pdev)
- 	if (err)
- 		return ERR_PTR(err);
- 
-+	err = devm_mutex_init(dev, &msc->error_irq_lock);
-+	if (err)
-+		return ERR_PTR(err);
- 	mpam_mon_sel_lock_init(msc);
- 	msc->id = pdev->id;
- 	msc->pdev = pdev;
-@@ -1040,6 +1128,10 @@ static struct mpam_msc *do_mpam_msc_drv_probe(struct platform_device *pdev)
- 		return ERR_PTR(-EINVAL);
- 	}
- 
-+	err = mpam_msc_setup_error_irq(msc);
-+	if (err)
-+		return ERR_PTR(err);
-+
- 	if (device_property_read_u32(&pdev->dev, "pcc-channel", &tmp))
- 		msc->iface = MPAM_IFACE_MMIO;
- 	else
-@@ -1313,8 +1405,177 @@ static void mpam_enable_merge_features(struct list_head *all_classes_list)
- 	}
- }
- 
-+static char *mpam_errcode_names[16] = {
-+	[MPAM_ERRCODE_NONE]			= "No error",
-+	[MPAM_ERRCODE_PARTID_SEL_RANGE]		= "PARTID_SEL_Range",
-+	[MPAM_ERRCODE_REQ_PARTID_RANGE]		= "Req_PARTID_Range",
-+	[MPAM_ERRCODE_MSMONCFG_ID_RANGE]	= "MSMONCFG_ID_RANGE",
-+	[MPAM_ERRCODE_REQ_PMG_RANGE]		= "Req_PMG_Range",
-+	[MPAM_ERRCODE_MONITOR_RANGE]		= "Monitor_Range",
-+	[MPAM_ERRCODE_INTPARTID_RANGE]		= "intPARTID_Range",
-+	[MPAM_ERRCODE_UNEXPECTED_INTERNAL]	= "Unexpected_INTERNAL",
-+	[MPAM_ERRCODE_UNDEFINED_RIS_PART_SEL]	= "Undefined_RIS_PART_SEL",
-+	[MPAM_ERRCODE_RIS_NO_CONTROL]		= "RIS_No_Control",
-+	[MPAM_ERRCODE_UNDEFINED_RIS_MON_SEL]	= "Undefined_RIS_MON_SEL",
-+	[MPAM_ERRCODE_RIS_NO_MONITOR]		= "RIS_No_Monitor",
-+	[12 ... 15] = "Reserved"
-+};
-+
-+static int mpam_enable_msc_ecr(void *_msc)
-+{
-+	struct mpam_msc *msc = _msc;
-+
-+	__mpam_write_reg(msc, MPAMF_ECR, MPAMF_ECR_INTEN);
-+
-+	return 0;
-+}
-+
-+/* This can run in mpam_disable(), and the interrupt handler on the same CPU */
-+static int mpam_disable_msc_ecr(void *_msc)
-+{
-+	struct mpam_msc *msc = _msc;
-+
-+	__mpam_write_reg(msc, MPAMF_ECR, 0);
-+
-+	return 0;
-+}
-+
-+static irqreturn_t __mpam_irq_handler(int irq, struct mpam_msc *msc)
-+{
-+	u64 reg;
-+	u16 partid;
-+	u8 errcode, pmg, ris;
-+
-+	if (WARN_ON_ONCE(!msc) ||
-+	    WARN_ON_ONCE(!cpumask_test_cpu(smp_processor_id(),
-+					   &msc->accessibility)))
-+		return IRQ_NONE;
-+
-+	reg = mpam_msc_read_esr(msc);
-+
-+	errcode = FIELD_GET(MPAMF_ESR_ERRCODE, reg);
-+	if (!errcode)
-+		return IRQ_NONE;
-+
-+	/* Clear level triggered irq */
-+	mpam_msc_clear_esr(msc);
-+
-+	partid = FIELD_GET(MPAMF_ESR_PARTID_MON, reg);
-+	pmg = FIELD_GET(MPAMF_ESR_PMG, reg);
-+	ris = FIELD_GET(MPAMF_ESR_RIS, reg);
-+
-+	pr_err_ratelimited("error irq from msc:%u '%s', partid:%u, pmg: %u, ris: %u\n",
-+			   msc->id, mpam_errcode_names[errcode], partid, pmg,
-+			   ris);
-+
-+	/* Disable this interrupt. */
-+	mpam_disable_msc_ecr(msc);
-+
-+	/*
-+	 * Schedule the teardown work. Don't use a threaded IRQ as we can't
-+	 * unregister the interrupt from the threaded part of the handler.
-+	 */
-+	mpam_disable_reason = "hardware error interrupt";
-+	schedule_work(&mpam_broken_work);
-+
-+	return IRQ_HANDLED;
-+}
-+
-+static irqreturn_t mpam_ppi_handler(int irq, void *dev_id)
-+{
-+	struct mpam_msc *msc = *(struct mpam_msc **)dev_id;
-+
-+	return __mpam_irq_handler(irq, msc);
-+}
-+
-+static irqreturn_t mpam_spi_handler(int irq, void *dev_id)
-+{
-+	struct mpam_msc *msc = dev_id;
-+
-+	return __mpam_irq_handler(irq, msc);
-+}
-+
-+static int mpam_register_irqs(void)
-+{
-+	int err, irq;
-+	struct mpam_msc *msc;
-+
-+	lockdep_assert_cpus_held();
-+
-+	guard(srcu)(&mpam_srcu);
-+	list_for_each_entry_srcu(msc, &mpam_all_msc, all_msc_list,
-+				 srcu_read_lock_held(&mpam_srcu)) {
-+		irq = platform_get_irq_byname_optional(msc->pdev, "error");
-+		if (irq <= 0)
-+			continue;
-+
-+		/* The MPAM spec says the interrupt can be SPI, PPI or LPI */
-+		/* We anticipate sharing the interrupt with other MSCs */
-+		if (irq_is_percpu(irq)) {
-+			err = request_percpu_irq(irq, &mpam_ppi_handler,
-+						 "mpam:msc:error",
-+						 msc->error_dev_id);
-+			if (err)
-+				return err;
-+
-+			msc->reenable_error_ppi = irq;
-+			smp_call_function_many(&msc->accessibility,
-+					       &_enable_percpu_irq, &irq,
-+					       true);
-+		} else {
-+			err = devm_request_irq(&msc->pdev->dev, irq,
-+					       &mpam_spi_handler, IRQF_SHARED,
-+					       "mpam:msc:error", msc);
-+			if (err)
-+				return err;
-+		}
-+
-+		mutex_lock(&msc->error_irq_lock);
-+		msc->error_irq_req = true;
-+		mpam_touch_msc(msc, mpam_enable_msc_ecr, msc);
-+		msc->error_irq_hw_enabled = true;
-+		mutex_unlock(&msc->error_irq_lock);
-+	}
-+
-+	return 0;
-+}
-+
-+static void mpam_unregister_irqs(void)
-+{
-+	int irq;
-+	struct mpam_msc *msc;
-+
-+	guard(cpus_read_lock)();
-+	guard(srcu)(&mpam_srcu);
-+	list_for_each_entry_srcu(msc, &mpam_all_msc, all_msc_list,
-+				 srcu_read_lock_held(&mpam_srcu)) {
-+		irq = platform_get_irq_byname_optional(msc->pdev, "error");
-+		if (irq <= 0)
-+			continue;
-+
-+		mutex_lock(&msc->error_irq_lock);
-+		if (msc->error_irq_hw_enabled) {
-+			mpam_touch_msc(msc, mpam_disable_msc_ecr, msc);
-+			msc->error_irq_hw_enabled = false;
-+		}
-+
-+		if (msc->error_irq_req) {
-+			if (irq_is_percpu(irq)) {
-+				msc->reenable_error_ppi = 0;
-+				free_percpu_irq(irq, msc->error_dev_id);
-+			} else {
-+				devm_free_irq(&msc->pdev->dev, irq, msc);
-+			}
-+			msc->error_irq_req = false;
-+		}
-+		mutex_unlock(&msc->error_irq_lock);
-+	}
-+}
-+
- static void mpam_enable_once(void)
- {
-+	int err;
-+
- 	/*
- 	 * Once the cpuhp callbacks have been changed, mpam_partid_max can no
- 	 * longer change.
-@@ -1323,9 +1584,26 @@ static void mpam_enable_once(void)
- 	partid_max_published = true;
- 	spin_unlock(&partid_max_lock);
- 
-+	/*
-+	 * If all the MSC have been probed, enabling the IRQs happens next.
-+	 * That involves cross-calling to a CPU that can reach the MSC, and
-+	 * the locks must be taken in this order:
-+	 */
-+	cpus_read_lock();
- 	mutex_lock(&mpam_list_lock);
- 	mpam_enable_merge_features(&mpam_classes);
-+
-+	err = mpam_register_irqs();
-+
- 	mutex_unlock(&mpam_list_lock);
-+	cpus_read_unlock();
-+
-+	if (err) {
-+		pr_warn("Failed to register irqs: %d\n", err);
-+		mpam_disable_reason = "Failed to enable.";
-+		schedule_work(&mpam_broken_work);
-+		return;
-+	}
- 
- 	mpam_register_cpuhp_callbacks(mpam_cpu_online, mpam_cpu_offline,
- 				      "mpam:online");
-@@ -1393,6 +1671,8 @@ void mpam_disable(struct work_struct *ignored)
- 	}
- 	mutex_unlock(&mpam_cpuhp_state_lock);
- 
-+	mpam_unregister_irqs();
-+
- 	idx = srcu_read_lock(&mpam_srcu);
- 	list_for_each_entry_srcu(class, &mpam_classes, classes_list,
- 				 srcu_read_lock_held(&mpam_srcu))
-diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
-index dec485cd8a91..fa9d9a176a54 100644
---- a/drivers/resctrl/mpam_internal.h
-+++ b/drivers/resctrl/mpam_internal.h
-@@ -46,6 +46,11 @@ struct mpam_msc {
- 	enum mpam_msc_iface	iface;
- 	u32			nrdy_usec;
- 	cpumask_t		accessibility;
-+	bool			has_extd_esr;
-+
-+	int				reenable_error_ppi;
-+	struct mpam_msc * __percpu	*error_dev_id;
-+
- 	atomic_t		online_refs;
- 
- 	/*
-@@ -59,6 +64,14 @@ struct mpam_msc {
- 	unsigned long		ris_idxs;
- 	u32			ris_max;
- 
-+	/*
-+	 * error_irq_lock is taken when registering/unregistering the error
-+	 * interrupt and maniupulating the below flags.
-+	 */
-+	struct mutex		error_irq_lock;
-+	bool			error_irq_req;
-+	bool			error_irq_hw_enabled;
-+
- 	/* mpam_msc_ris of this component */
- 	struct list_head	ris;
- 
+  * Structures protected by SRCU may not be freed for a surprising amount of
+  * time (especially if perf is running). To ensure the MPAM error interrupt can
 -- 
 2.43.0
 
