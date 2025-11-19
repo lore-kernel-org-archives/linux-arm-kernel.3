@@ -4,81 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EC3DCEE35E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 02:08:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B600DCEE35E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 02:10:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TWG6sKR79WigF0X2cWx20zqNyol2sqAyXF0mmyyo3mg=; b=EtsEt/AuRj01Zsvgm41Doz8ccI
-	kbcOH9o1IRVKFSiVdgyJTyQoLgv1KbbJOsHJ4IdKBW+FhYU9hzLxw9tSVPAjKxNEBp53KXZaJIxo5
-	9hsyo1wTlIt/l/BNdxZ5rsFzhj1dw+oiBYXWOeXsNvtSgwP8FHCCWmEH7GEKGAzQxSKkCkkcUS+tr
-	SikYqMu7GBDpQSNaUy8T13aZeprUGCrLS73HWthLqvbfE3HnpDc2c/rDvHa9A0JmLg6vQbZrqj7Aw
-	V/FcKE+3pdyBxRWqPJZO8SRUAb56soh6ndgddPU2MsYTbCYcSn3eeNq+oeZToGbqVMRJBl5aD89K6
-	e5BkRhvA==;
+	bh=JTV/2kNVYpSifzm/XevXq6Q14OymW+ikXq35P7JdfKw=; b=SfX7C/ILlJbsejr+Q5YhIRGAaQ
+	GcOoH+DgTC/mEEkKKKexifkBDeqsnkwyb7ZXve/15SuPpCzRG9l+FTrZefF+E/DCv+Y3Ry56XMKP3
+	/FCG1MObretImk7iwYXrpWXnxAQnkFXmvvoBSD5mWTj+8XSzutii2LJcUks2Zg3D3VrkHJzNZXKry
+	vJKrglmv1zdClkufBaCl2HUokoiMv+CwZLRwKGrUhWb+QEymEXkNNS1TyjCc4J1/9ENGOFd7dfOg9
+	9JeuJuLXFZ6hTdpAsYrAiDNoljrksRNJyu3nFt4tWOFllBsSG8uImGZ/XFMXukG6IkKMdUF+EuGRc
+	8ZM8uhSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLXcI-00000001N2t-41OP;
-	Wed, 19 Nov 2025 02:08:18 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vLXdw-00000001NK8-2yZQ;
+	Wed, 19 Nov 2025 02:10:00 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLXcG-00000001N1s-1eLZ
+	id 1vLXdv-00000001NJm-2wr4
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Nov 2025 02:08:17 +0000
+	Wed, 19 Nov 2025 02:09:59 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0ED1944467;
-	Wed, 19 Nov 2025 02:08:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 6310AC19424;
-	Wed, 19 Nov 2025 02:08:13 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id D66A160132;
+	Wed, 19 Nov 2025 02:09:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D62DCC4AF0F;
+	Wed, 19 Nov 2025 02:09:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763518093;
-	bh=H+kRv/J7t1po25GngUG56ddLxp2HEOwjoVtlZSWF844=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=LpAJrk13nPP2SlPaWB6AU7g0NfGgRn1tDlaiP385ouiDdULevDzu2orHT5ohlXkuf
-	 4ZzODc9cLLetih33z78f1weW7v/NL7QEDLptLRHPf+yrQZsrczqFS0F/z5ssiecGJR
-	 SKpqivlHvFIr0z+r2bhsdpjMSaySgMy5xWJjBSJx8Em6ugj83kvqqfjfY3LSvX3Yld
-	 S/BwQamrck1b2hSG9ybWlyWCriG60nH3cvtZ5Q00+Gxf2NaLWYUIHPHBClOqYwPB18
-	 VjdHyzCYM+8CmYz41qpfB6f4L9EnMmka5FLtNFlPwRMZ5dunvnvlVf3aslI088tu0U
-	 b8rcW6ihefxow==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 28904CF256A;
-	Wed, 19 Nov 2025 02:08:13 +0000 (UTC)
-From: Per Larsen via B4 Relay <devnull+perlarsen.google.com@kernel.org>
-Date: Wed, 19 Nov 2025 02:07:53 +0000
-Subject: [PATCH v3 1/2] KVM: arm64: Support FFA_MSG_SEND_DIRECT_REQ in host
- handler
+	s=k20201202; t=1763518198;
+	bh=SpJRUPvyLTnvYIlkiszgR69FatzMOSlq2j/XN40yrTw=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=asPh4N3JW0VsvhHqsQhnyVr0qYwk4SFBTsivpRtYS81Tefwt7mv7dbQhKS/vD0vtj
+	 Qsfkq87hCf1vDwTAtSVD3QinuxKtW9MHrR6O7rvxzo8qHAXYdggwsfdhT7ErVhxkDT
+	 V6pIVyInCreKSKjAePq0ZyC0tyQ4DQsBRu1YV8Hwv65Nus8yqzNBKfM4i3SD6zfjUA
+	 QRGXsULcMk9Oh4tjX//j0WQOgEYOaIgYEBUZ/amGxkcFVi3bXwg6Vgs/cqepGDtYw/
+	 2tdpG/0FK6/CauBlp6xGQYQZcGCP6S90VJyj4yUlYrgIkNeQHbCivsGWYvuP1wjl2+
+	 hZz0n/6pqeYTg==
+From: Mark Brown <broonie@kernel.org>
+To: Liam Girdwood <lgirdwood@gmail.com>, 
+ Peter Ujfalusi <peter.ujfalusi@linux.intel.com>, 
+ Bard Liao <yung-chuan.liao@linux.intel.com>, 
+ Ranjani Sridharan <ranjani.sridharan@linux.intel.com>, 
+ Daniel Baluta <daniel.baluta@nxp.com>, 
+ Kai Vehmanen <kai.vehmanen@linux.intel.com>, 
+ Iuliana Prodan <iuliana.prodan@nxp.com>, 
+ Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
+Cc: linux-sound@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+In-Reply-To: <20251114143503.2139-1-laurentiumihalcea111@gmail.com>
+References: <20251114143503.2139-1-laurentiumihalcea111@gmail.com>
+Subject: Re: [PATCH v2] ASoC: SOF: imx9: use SCMI API for LM management
+Message-Id: <176351819549.1795122.4050144756909085738.b4-ty@kernel.org>
+Date: Wed, 19 Nov 2025 02:09:55 +0000
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251119-host-direct-messages-v3-1-c74d04944b26@google.com>
-References: <20251119-host-direct-messages-v3-0-c74d04944b26@google.com>
-In-Reply-To: <20251119-host-direct-messages-v3-0-c74d04944b26@google.com>
-To: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
- Suzuki K Poulose <suzuki.poulose@arm.com>, 
- Zenghui Yu <yuzenghui@huawei.com>, 
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
- Yeoreum Yun <yeoreum.yun@arm.com>, Ben Horgan <ben.horgan@arm.com>, 
- Oliver Upton <oupton@kernel.org>
-Cc: Armelle Laine <armellel@google.com>, 
- Sebastien Ene <sebastianene@google.com>, 
- linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
- linux-kernel@vger.kernel.org, Per Larsen <perlarsen@google.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1763518092; l=2269;
- i=perlarsen@google.com; s=20250508; h=from:subject:message-id;
- bh=q3WBYqBe9S24LJHsUs3M7p45BHiGyAz2s8dd2txWDcY=;
- b=ldeAB4/+ahQM8FZv/p6Cw6O/R+OolwSADHkdW5wYWA2I4+XWTN0Dx0AjQbjZjgwIiwdhSjLA2
- FPtfg9zUQyRDLkqqXhpQeQyQ4g5UoUXvQ9lj9nQysps/4e18BHaNe0t
-X-Developer-Key: i=perlarsen@google.com; a=ed25519;
- pk=jjc/Ta4VmrLRmMoahP6d1mBcKzvWU+nsmdtYe2oS2kQ=
-X-Endpoint-Received: by B4 Relay for perlarsen@google.com/20250508 with
- auth_id=402
-X-Original-From: Per Larsen <perlarsen@google.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251118_180816_505302_6C95C13A 
-X-CRM114-Status: GOOD (  13.18  )
+X-Mailer: b4 0.15-dev-88d78
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,80 +73,48 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: perlarsen@google.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Sebastian Ene <sebastianene@google.com>
+On Fri, 14 Nov 2025 06:35:03 -0800, Laurentiu Mihalcea wrote:
+> Linux supports NXP's LMM SCMI protocol so switch to using the appropriate
+> API. The SIPs were intended to act as placeholders until the support for
+> said protocol was upstreamed.
+> 
+> The underlying CPU protocol command from IMX_SIP_SRC_M_RESET_ADDR_SET is
+> replaced by a LMM protocol command with the same effect (i.e. setting the
+> boot address) since using the CPU protocol would require additional
+> permissions (which TF-A already had). Apart from this, the SIPs are
+> replaced by their equivalent Linux LMM commands.
+> 
+> [...]
 
-Allow direct messages to be forwarded from the host. The host should
-not be sending framework messages so they are filtered out.
+Applied to
 
-Signed-off-by: Sebastian Ene <sebastianene@google.com>
-Reviewed-by: Yeoreum Yun <yeoreum.yun@arm.com>
-Signed-off-by: Per Larsen <perlarsen@google.com>
----
- arch/arm64/kvm/hyp/nvhe/ffa.c | 22 ++++++++++++++++++++++
- include/linux/arm_ffa.h       |  3 +++
- 2 files changed, 25 insertions(+)
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-next
 
-diff --git a/arch/arm64/kvm/hyp/nvhe/ffa.c b/arch/arm64/kvm/hyp/nvhe/ffa.c
-index 58b7d0c477d7fce235fc70d089d175c7879861b5..a38a3ab497e5eac11777109684a33f02d88d09a1 100644
---- a/arch/arm64/kvm/hyp/nvhe/ffa.c
-+++ b/arch/arm64/kvm/hyp/nvhe/ffa.c
-@@ -862,6 +862,23 @@ static void do_ffa_part_get(struct arm_smccc_1_2_regs *res,
- 	hyp_spin_unlock(&host_buffers.lock);
- }
- 
-+static void do_ffa_direct_msg(struct arm_smccc_1_2_regs *res,
-+			      struct kvm_cpu_context *ctxt,
-+			      u64 vm_handle)
-+{
-+	DECLARE_REG(u32, flags, ctxt, 2);
-+
-+	struct arm_smccc_1_2_regs *args = (void *)&ctxt->regs.regs[0];
-+
-+	/* filter out framework messages */
-+	if (FIELD_GET(FFA_MSG_FLAGS_MSG_TYPE, flags)) {
-+		ffa_to_smccc_error(res, FFA_RET_INVALID_PARAMETERS);
-+		return;
-+	}
-+
-+	arm_smccc_1_2_smc(args, res);
-+}
-+
- bool kvm_host_ffa_handler(struct kvm_cpu_context *host_ctxt, u32 func_id)
- {
- 	struct arm_smccc_1_2_regs res;
-@@ -920,6 +937,11 @@ bool kvm_host_ffa_handler(struct kvm_cpu_context *host_ctxt, u32 func_id)
- 	case FFA_PARTITION_INFO_GET:
- 		do_ffa_part_get(&res, host_ctxt);
- 		goto out_handled;
-+	case FFA_MSG_SEND_DIRECT_REQ:
-+	case FFA_FN64_MSG_SEND_DIRECT_REQ:
-+
-+		do_ffa_direct_msg(&res, host_ctxt, HOST_FFA_ID);
-+		goto out_handled;
- 	}
- 
- 	if (ffa_call_supported(func_id))
-diff --git a/include/linux/arm_ffa.h b/include/linux/arm_ffa.h
-index 81e603839c4a51873090b7e22edbe7b33a7e94df..d209d0cdac1eb804be01e4607acac8f76cc99e40 100644
---- a/include/linux/arm_ffa.h
-+++ b/include/linux/arm_ffa.h
-@@ -130,6 +130,9 @@
- #define FFA_FEAT_RXTX_MIN_SZ_16K	2
- #define FFA_FEAT_RXTX_MIN_SZ_MASK	GENMASK(1, 0)
- 
-+/* FFA message flags */
-+#define FFA_MSG_FLAGS_MSG_TYPE		BIT(31)
-+
- /* FFA Bus/Device/Driver related */
- struct ffa_device {
- 	u32 id;
+Thanks!
 
--- 
-2.52.0.rc1.455.g30608eb744-goog
+[1/1] ASoC: SOF: imx9: use SCMI API for LM management
+      commit: 94000534e0883b4f4ba9882e4630cfcdf2af539d
 
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
 
 
