@@ -4,75 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BB32CF34C1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 14:56:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD868CF34C1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 15:01:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bTNOqgaZlRM7M6ydZWtUNZLt3QeCgjYKGj5gs/tpHsA=; b=YOpt4sTsac0lkXUS29Zp0Qh+py
-	wOw9PW0vK5WCmz7CeLfUvfNYTuSgYlwBLwgbLc07d/+nHeua5+sgNmQws7dFtLxQrN9QqgCKIt+u/
-	l273QQcO6ESuMBY847zERNqbJPJntQmQac0Tyok7ngT3JARv/IUOlYbCtIf5NmCz8K4cg9JcpJr1G
-	56WJzsm9FMRP/7di3uPoVC488wwVgUzX4aMnKFEYY7IbdSgyawU6M+u9vV0+qaGGyHE5zv0+ZemqN
-	sEt48c9vH/wc7KxDl8sv7K2FUtEBIbl7lGXqHdY/QIwbmHE9ICdi+uTKIPNNkqrfpUAhTeEr4oytS
-	TUVNMGRQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=2Pa5KtrJqHeegvzgSkxWbieDeUyvh9u/a4T+h7Dufjc=; b=IGYVS3gxmjOII8O1cai+5L+6S6
+	J17CCgMdRGATlJtUrVAbOHSRIPKytFPksrVKAc/So+5m/tyTotdb3otR1r7efiR9SoTTr/l+oSrXC
+	YHF7nEQT0RZxdhYRz3O7/kfZ4QGFgme1nUjBw40LX+l6lol4b7eoKqWcukYZWBi3Wdogx1seT0JrZ
+	tmdkxr0nX1XuQMTt1tDMvyu0f+5qHxKJjFGuQ6Asqq7NvASc9IDym2ic+9Dixa6OsD5IDlRpNtJbh
+	8Upw0d47Gdlr5P92XqPhO25oYLk/U9Yp1IV0/kDSPtRmKFN8hP9ApIR0sO3q4vI2dQny3xZPWBX5g
+	4Cw+nfKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLjbY-00000003QFZ-0DLI;
-	Wed, 19 Nov 2025 14:56:20 +0000
-Received: from mailout1.w1.samsung.com ([210.118.77.11])
+	id 1vLjgU-00000003QY7-3EXq;
+	Wed, 19 Nov 2025 15:01:26 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLjbS-00000003QER-43Tl
+	id 1vLjgS-00000003QXk-0jay
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Nov 2025 14:56:18 +0000
-Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
-	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20251119145608euoutp01bddc6cafed9f5b90ef8427453d6548f0~5cESLcNCL2989829898euoutp01_
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Nov 2025 14:56:08 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20251119145608euoutp01bddc6cafed9f5b90ef8427453d6548f0~5cESLcNCL2989829898euoutp01_
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1763564168;
-	bh=bTNOqgaZlRM7M6ydZWtUNZLt3QeCgjYKGj5gs/tpHsA=;
-	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
-	b=pvf8N5GNJzdWKkKbxIxfhxtvIqvVRjK2vXIEPuwGUxCXklo4bzKPbxvu4LPhrsmyM
-	 9e97DCqbG1y/p+Xn/eQvA3D/oBvxIWxtqpI6JIljahRcgph41sV4ABzIZlEF1dsDLD
-	 ntxVCWv27H6J0KDd9svUG0xMeVPatpHwd5BwGxEc=
-Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
-	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
-	20251119145608eucas1p2bafd557fd8e8730f7482117f024d6e29~5cER5zeD30435804358eucas1p2H;
-	Wed, 19 Nov 2025 14:56:08 +0000 (GMT)
-Received: from [106.210.134.192] (unknown [106.210.134.192]) by
-	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20251119145607eusmtip22c2420a597a9ce378c48929f165f131a~5cERKU-j22216322163eusmtip2x;
-	Wed, 19 Nov 2025 14:56:07 +0000 (GMT)
-Message-ID: <94216440-dea1-4346-9086-fc20a3e6fe7b@samsung.com>
-Date: Wed, 19 Nov 2025 15:56:07 +0100
+	Wed, 19 Nov 2025 15:01:25 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 79A6B40E0A;
+	Wed, 19 Nov 2025 15:01:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 17C06C2BCB0;
+	Wed, 19 Nov 2025 15:01:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1763564483;
+	bh=I25En5LD+Rgn1la9GosNeUD7eVzXVOvwTMaO+VOfWt0=;
+	h=From:To:Cc:Subject:Date:From;
+	b=icaJvE12VlQBkp2vo9qf/g4pQgLCAW3i44Lh+QiZTzKgc+y2eScqAaZ+r6qpJ6Oli
+	 bBeniY+RmYnAV4p2v+BT22ll55kJCTZWydGbnZPjsKiRpGWm25KBJn/RJnYHZga9jN
+	 rbBe5CTwdlLBYcgjnlKOY6gtrppkovbWTgPTUMsLr0SJ8z81kDk1apLTpm1pL19MMZ
+	 bN4fGnWNf3o904ulUzgBGHPi7+i2xdw4OA41lB5nfTEI3F+5q+NsyiOmkCRbNjwf4Z
+	 mckPWQaGCQH/e+9wiq8wS8C2NsqFxqRsz+PSHUxxZOKzu5xVhs7vwNMmuaiHm07qoH
+	 7fa4lv1PU183Q==
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Doug Berger <opendmb@gmail.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	bcm-kernel-feedback-list@broadcom.com,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Bartosz Golaszewski <brgl@bgdev.pl>,
+	Hoan Tran <hoan@os.amperecomputing.com>,
+	Andy Shevchenko <andy@kernel.org>,
+	Daniel Palmer <daniel@thingy.jp>,
+	Romain Perier <romain.perier@gmail.com>,
+	Grygorii Strashko <grygorii.strashko@ti.com>,
+	Santosh Shilimkar <ssantosh@kernel.org>,
+	Kevin Hilman <khilman@kernel.org>,
+	Robert Jarzmik <robert.jarzmik@free.fr>,
+	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>,
+	Srinivas Neeli <srinivas.neeli@amd.com>,
+	Michal Simek <michal.simek@amd.com>
+Cc: linux-gpio@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-omap@vger.kernel.org
+Subject: [PATCH v3 00/15] gpio: Use modern PM macros
+Date: Wed, 19 Nov 2025 22:43:12 +0800
+Message-ID: <20251119144327.13345-1-jszhang@kernel.org>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
-User-Agent: Betterbird (Windows)
-Subject: Re: [PATCH] of/irq: Handle explicit interrupt parent
-To: Geert Uytterhoeven <geert+renesas@glider.be>, Rob Herring
-	<robh@kernel.org>, Mark Brown <broonie@kernel.org>, Krzysztof Kozlowski
-	<krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Marc Zyngier
-	<maz@kernel.org>
-Cc: devicetree@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Content-Language: en-US
-From: Marek Szyprowski <m.szyprowski@samsung.com>
-In-Reply-To: <e89669c9b3a4fbac4a972ffadcbe00fddb365472.1763557994.git.geert+renesas@glider.be>
-Content-Transfer-Encoding: 7bit
-X-CMS-MailID: 20251119145608eucas1p2bafd557fd8e8730f7482117f024d6e29
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-RootMTR: 20251119131924eucas1p1667eb6127eeb0f19671bc02b0e67fb02
-X-EPHeader: CA
-X-CMS-RootMailID: 20251119131924eucas1p1667eb6127eeb0f19671bc02b0e67fb02
-References: <CGME20251119131924eucas1p1667eb6127eeb0f19671bc02b0e67fb02@eucas1p1.samsung.com>
-	<e89669c9b3a4fbac4a972ffadcbe00fddb365472.1763557994.git.geert+renesas@glider.be>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251119_065616_434265_12FDF23F 
-X-CRM114-Status: GOOD (  20.19  )
+X-CRM114-CacheID: sfid-20251119_070124_255027_50B54A81 
+X-CRM114-Status: GOOD (  13.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,49 +88,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 19.11.2025 14:19, Geert Uytterhoeven wrote:
-> If an interrupt controller is used as a proxy, it may have an
-> "interrupt-parent" property, but lack "interrupts" and
-> "interrupts-extended" properties.  In that case, the "interrupt-parent"
-> property in the interrupt controller node is ignored, causing the
-> interrupt controller to fail to probe, and leading to system boot
-> failures or crashes.
->
-> Fix this by also considering an explicit "interrupt-parent" property in
-> the interrupt controller node itself.
->
-> Fixes: 1b1f04d8271e7ba7 ("of/irq: Ignore interrupt parent for nodes without interrupts")
-> Reported-by: Marek Szyprowski <m.szyprowski@samsung.com>
-> Closes: https://lore.kernel.org/20251118115037.1866871-1-m.szyprowski@samsung.com
-> Reported-by: Mark Brown <broonie@kernel.org>
-> Closes: https://lore.kernel.org/b037f67a-b241-4689-9914-57ff578c1454@sirena.org.uk
-> Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
+Use the modern PM macros for the suspend and resume functions to be
+automatically dropped by the compiler when CONFIG_PM or
+CONFIG_PM_SLEEP are disabled, without having to use #ifdef guards or
+__maybe_unused.
 
-This fixes the issue observed on 32bit Samsung Exynos based boards.
+This has the advantage of always compiling these functions in,
+independently of any Kconfig option. Thanks to that, bugs and other
+regressions are subsequently easier to catch.
 
-Tested-by: Marek Szyprowski <m.szyprowski@samsung.com>
+Almost all drivers are converted, only gpio-tegra and gpio-mlxbf are
+left as is, because the memory for saving HW context is not trivial,
+if we convert them, then the two drivers' users may complain for
+!CONFIG_PM && !CONFIG_PM_SLEEP case. So I didn't touch them.
 
-> ---
->   drivers/of/irq.c | 2 ++
->   1 file changed, 2 insertions(+)
->
-> diff --git a/drivers/of/irq.c b/drivers/of/irq.c
-> index a68272db9879bedf..f374d8b212b8669c 100644
-> --- a/drivers/of/irq.c
-> +++ b/drivers/of/irq.c
-> @@ -685,6 +685,8 @@ void __init of_irq_init(const struct of_device_id *matches)
->   		desc->interrupt_parent = of_parse_phandle(np, "interrupts-extended", 0);
->   		if (!desc->interrupt_parent && of_property_present(np, "interrupts"))
->   			desc->interrupt_parent = of_irq_find_parent(np);
-> +		else if (!desc->interrupt_parent)
-> +			desc->interrupt_parent = of_parse_phandle(np, "interrupt-parent", 0);
->   		if (desc->interrupt_parent == np) {
->   			of_node_put(desc->interrupt_parent);
->   			desc->interrupt_parent = NULL;
+patch to gpio-dwapb.c is tested on real HW, others are compile-tested only.
 
-Best regards
+since v2:
+  - collect Acked-by, Reviewed-by tags.
+  - move the embeddng the structure for pm in gpio-dwapb out, will send
+    it as a separate patch.
+
+since v1:
+  - rebase on the latest gpio/for-next branch.
+  - collect Acked-by, Reviewed-by tags.
+  - clarify the trival memory wasted numbers with CONFIG_PM=n in the
+    dwapb's patch commit message as suggested by Andy.
+  - drop patch to bt8xxx since the clean up is acchieved when switching
+    to generic PCI pm framework.
+
+Jisheng Zhang (15):
+  gpio: dwapb: Use modern PM macros
+  gpio: brcmstb: Use modern PM macros
+  gpio: htc-egpio: Use modern PM macros
+  gpio: pl061: Use modern PM macros
+  gpio: pxa: Use modern PM macros
+  gpio: ml-ioh: Use modern PM macros
+  gpio: mlxbf2: Use modern PM macros
+  gpio: msc313: Use modern PM macros
+  gpio: omap: Use modern PM macros
+  gpio: pch: Use modern PM macros
+  gpio: tqmx86: Use modern PM macros
+  gpio: uniphier: Use modern PM macros
+  gpio: xgene: Use modern PM macros
+  gpio: xilinx: Use modern PM macros
+  gpio: zynq: Use modern PM macros
+
+ drivers/gpio/gpio-brcmstb.c   | 12 +++---------
+ drivers/gpio/gpio-dwapb.c     | 18 ++++--------------
+ drivers/gpio/gpio-htc-egpio.c | 21 ++++++++-------------
+ drivers/gpio/gpio-ml-ioh.c    | 12 ++++++------
+ drivers/gpio/gpio-mlxbf2.c    |  8 ++++----
+ drivers/gpio/gpio-msc313.c    |  8 ++++----
+ drivers/gpio/gpio-omap.c      | 15 +++++++--------
+ drivers/gpio/gpio-pch.c       | 12 ++++++------
+ drivers/gpio/gpio-pl061.c     | 17 ++---------------
+ drivers/gpio/gpio-pxa.c       | 12 ++----------
+ drivers/gpio/gpio-tqmx86.c    |  9 ++++-----
+ drivers/gpio/gpio-uniphier.c  |  9 ++++-----
+ drivers/gpio/gpio-xgene.c     |  8 ++++----
+ drivers/gpio/gpio-xilinx.c    | 15 +++++++--------
+ drivers/gpio/gpio-zynq.c      | 15 +++++++--------
+ 15 files changed, 72 insertions(+), 119 deletions(-)
+
 -- 
-Marek Szyprowski, PhD
-Samsung R&D Institute Poland
+2.51.0
 
 
