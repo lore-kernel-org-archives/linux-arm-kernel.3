@@ -4,83 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FE18CF3959
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 17:06:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 783E3CF3959
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 17:08:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LvsQHIQwUXdnhaPd/HVv5JoV/uru8SABKTDbQ8DlGCg=; b=onnxHnSfiul1zSQRVkUt7T4Eqj
-	NBoKHk82tLyvokdvTuI6pNGtmJoqofFM+neHFF06lUvIbOUVSUpTlDaSYMoAzXtdfqQQvwrbomlkm
-	jRrtHGl7qQyJzRNDSr87RRhM0qNbBS4QYHhhl9qR0P4IrnhjIEbcvXhXzlyPL8ajnbtn4JT14SPqJ
-	Hug5tW/iuJXBusrD0tHoIPhgwUQ1/hLT8clbKD6NpdZHVswiOph7KTh2ruHYg5QH8/Pz3RxHZw6CB
-	5mW97gYVUe6dHPKdxDtj9Jvp8ayokCFKhccYtAD1KCEXw9tKoRATY+P0uTEy5wKyPZnJj8eO64Mgc
-	7FgqSSMA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2MLlXPlEYy3I8y5IQMxujfJzmG2wu9AwbUteURMTwsE=; b=NlH+JkJC2yJG1zE8D8wERisMti
+	Eik/+/ItPbkRueupabQiTs+PWEr1A1sXlWtW+vxoqNpzamBq49v2U27MmWH7p4lgdZ1sXbdHmPPht
+	+JhOBDSZI3jyI8PuO9KmY48OENSz5af1/NeX+3gBYKUSpambYuMp3/X7nU/bvKanlhl2ft/6rfnN3
+	1fChRI/xPkv5dGvCeTxs78eFYMetlv6cYFwqw2NDrgPk6h/DiFjzCradquBQpLP5ddjh4ASbvC3GU
+	tCxEt5Sw3eprRX87PgFTc+9SLi3Yj7MPN22jxdjP6poPUkAnQA5OXkiCNwz2tmQgU8YWWefbl+Fe4
+	JZOnLTWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLldk-00000003t6u-3ATH;
-	Wed, 19 Nov 2025 17:06:44 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLldi-00000003t5C-3xte
+	id 1vLlfC-00000003ty8-0Zi3;
+	Wed, 19 Nov 2025 17:08:14 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vLlf9-00000003tx9-18EE
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Nov 2025 17:06:43 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E2FF460171;
-	Wed, 19 Nov 2025 17:06:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3FE7FC113D0;
-	Wed, 19 Nov 2025 17:06:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763572001;
-	bh=woNh5JEEMkAdN+vfrrrsu6WoTN/klukjySz4Ay7pPwA=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=WSQ1gRVtxv6UXCd31HIq6Eh1eEv1fYJrOHMjVCdVGZImTqa4M0QWku4WgOHaI6t9J
-	 bemN7fXO9y3W7EQh5ZDxi7qJa3D+s0w+OaOsiUCpGQoXUVfk5KlPAxFQg+bJ4l31u5
-	 AylhoizcT7sOvO0q4FufbMqCFvYievKVGrstRab7wo81UqefvhlNPM4Jljp9CEBjgU
-	 FNlVrq1O+vo7vxhL1PgD+WQ6rrqk+HTQDrDKeWA47I3yulXrhUQMVgvGKYl6znGr92
-	 DD9LygtLLeS36eZzBmVbSDfR14VTj8b7he52RnqUU+wM7Qs1kiwnbdAi3plDuP1Uvs
-	 x9vrDJdLLnpKw==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1vLlde-00000006dSZ-3ZPO;
-	Wed, 19 Nov 2025 17:06:38 +0000
-Date: Wed, 19 Nov 2025 17:06:38 +0000
-Message-ID: <86bjkyrly9.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Vincent Donnefort <vdonnefort@google.com>
-Cc: rostedt@goodmis.org,
-	mhiramat@kernel.org,
-	mathieu.desnoyers@efficios.com,
-	linux-trace-kernel@vger.kernel.org,
-	oliver.upton@linux.dev,
-	joey.gouly@arm.com,
-	suzuki.poulose@arm.com,
-	yuzenghui@huawei.com,
-	kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	jstultz@google.com,
-	qperret@google.com,
-	will@kernel.org,
-	aneesh.kumar@kernel.org,
-	kernel-team@android.com,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v8 21/28] KVM: arm64: Add tracing capability for the pKVM hyp
-In-Reply-To: <20251107093840.3779150-22-vdonnefort@google.com>
-References: <20251107093840.3779150-1-vdonnefort@google.com>
-	<20251107093840.3779150-22-vdonnefort@google.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: vdonnefort@google.com, rostedt@goodmis.org, mhiramat@kernel.org, mathieu.desnoyers@efficios.com, linux-trace-kernel@vger.kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, jstultz@google.com, qperret@google.com, will@kernel.org, aneesh.kumar@kernel.org, kernel-team@android.com, linux-kernel@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Wed, 19 Nov 2025 17:08:12 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 64A1FFEC;
+	Wed, 19 Nov 2025 09:08:02 -0800 (PST)
+Received: from [172.27.42.169] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 119903F66E;
+	Wed, 19 Nov 2025 09:08:05 -0800 (PST)
+Message-ID: <33c08739-b149-48dd-b15a-742968aa0e53@arm.com>
+Date: Wed, 19 Nov 2025 11:08:04 -0600
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 01/34] ACPI / PPTT: Add a helper to fill a cpumask from
+ a processor container
+To: Ben Horgan <ben.horgan@arm.com>, james.morse@arm.com
+Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
+ baolin.wang@linux.alibaba.com, bobo.shaobowang@huawei.com,
+ carl@os.amperecomputing.com, catalin.marinas@arm.com, dakr@kernel.org,
+ dave.martin@arm.com, david@redhat.com, dfustini@baylibre.com,
+ fenghuay@nvidia.com, gregkh@linuxfoundation.org, gshan@redhat.com,
+ guohanjun@huawei.com, jonathan.cameron@huawei.com, kobak@nvidia.com,
+ lcherian@marvell.com, lenb@kernel.org, linux-acpi@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ lpieralisi@kernel.org, peternewman@google.com, quic_jiles@quicinc.com,
+ rafael@kernel.org, robh@kernel.org, rohit.mathew@arm.com,
+ scott@os.amperecomputing.com, sdonthineni@nvidia.com, sudeep.holla@arm.com,
+ tan.shaopeng@fujitsu.com, will@kernel.org, xhao@linux.alibaba.com,
+ reinette.chatre@intel.com, Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>,
+ Zeng Heng <zengheng4@huawei.com>
+References: <20251119122305.302149-1-ben.horgan@arm.com>
+ <20251119122305.302149-2-ben.horgan@arm.com>
+Content-Language: en-US
+From: Jeremy Linton <jeremy.linton@arm.com>
+In-Reply-To: <20251119122305.302149-2-ben.horgan@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251119_090811_406889_1D669FD6 
+X-CRM114-Status: GOOD (  26.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,466 +78,163 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 07 Nov 2025 09:38:33 +0000,
-Vincent Donnefort <vdonnefort@google.com> wrote:
+On 11/19/25 6:22 AM, Ben Horgan wrote:
+> From: James Morse <james.morse@arm.com>
 > 
-> When running with protected mode, the host has very little knowledge
-> about what is happening in the hypervisor. Of course this is an
-> essential feature for security but nonetheless, that piece of code
-> growing with more responsibilities, we need now a way to debug and
-> profile it. Tracefs by its reliability, versatility and support for
-> user-space is the perfect tool.
+> The ACPI MPAM table uses the UID of a processor container specified in
+> the PPTT to indicate the subset of CPUs and cache topology that can
+> access each MPAM System Component (MSC).
 > 
-> There's no way the hypervisor could log events directly into the host
-> tracefs ring-buffers. So instead let's use our own, where the hypervisor
-> is the writer and the host the reader.
+> This information is not directly useful to the kernel. The equivalent
+> cpumask is needed instead.
 > 
-> Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
+> Add a helper to find the processor container by its id, then walk
+> the possible CPUs to fill a cpumask with the CPUs that have this
+> processor container as a parent.
+
+Per V5:
+
+Reviewed-by: Jeremy Linton <jeremy.linton@arm.com>>
+> CC: Dave Martin <dave.martin@arm.com>
+> Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
+> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+> Reviewed-by: Fenghua Yu <fenghuay@nvidia.com>
+> Reviewed-by: Gavin Shan <gshan@redhat.com>
+> Reviewed-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
+> Reviewed-by: Hanjun Guo <guohanjun@huawei.com>
+> Tested-by: Fenghua Yu <fenghuay@nvidia.com>
+> Tested-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
+> Tested-by: Peter Newman <peternewman@google.com>
+> Tested-by: Carl Worth <carl@os.amperecomputing.com>
+> Tested-by: Gavin Shan <gshan@redhat.com>
+> Tested-by: Zeng Heng <zengheng4@huawei.com>
+> Tested-by: Hanjun Guo <guohanjun@huawei.com>
+> Signed-off-by: James Morse <james.morse@arm.com>
+> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
+> ---
+> Changes since v4:
+> Remove blank line
 > 
-> diff --git a/arch/arm64/include/asm/kvm_asm.h b/arch/arm64/include/asm/kvm_asm.h
-> index 9da54d4ee49e..ad02dee140d3 100644
-> --- a/arch/arm64/include/asm/kvm_asm.h
-> +++ b/arch/arm64/include/asm/kvm_asm.h
-> @@ -89,6 +89,10 @@ enum __kvm_host_smccc_func {
->  	__KVM_HOST_SMCCC_FUNC___pkvm_vcpu_load,
->  	__KVM_HOST_SMCCC_FUNC___pkvm_vcpu_put,
->  	__KVM_HOST_SMCCC_FUNC___pkvm_tlb_flush_vmid,
-> +	__KVM_HOST_SMCCC_FUNC___pkvm_load_tracing,
-> +	__KVM_HOST_SMCCC_FUNC___pkvm_unload_tracing,
-> +	__KVM_HOST_SMCCC_FUNC___pkvm_enable_tracing,
-> +	__KVM_HOST_SMCCC_FUNC___pkvm_swap_reader_tracing,
->  };
->  
->  #define DECLARE_KVM_VHE_SYM(sym)	extern char sym[]
-> diff --git a/arch/arm64/include/asm/kvm_hyptrace.h b/arch/arm64/include/asm/kvm_hyptrace.h
-> new file mode 100644
-> index 000000000000..9c30a479bc36
-> --- /dev/null
-> +++ b/arch/arm64/include/asm/kvm_hyptrace.h
-> @@ -0,0 +1,13 @@
-> +/* SPDX-License-Identifier: GPL-2.0-only */
-> +#ifndef __ARM64_KVM_HYPTRACE_H_
-> +#define __ARM64_KVM_HYPTRACE_H_
+> Changes since v3:
+> Refer to processor hierarchy in comments (Jonathan)
+> Fix indent (Jonathan)
+> ---
+>   drivers/acpi/pptt.c  | 84 ++++++++++++++++++++++++++++++++++++++++++++
+>   include/linux/acpi.h |  3 ++
+>   2 files changed, 87 insertions(+)
+> 
+> diff --git a/drivers/acpi/pptt.c b/drivers/acpi/pptt.c
+> index 54676e3d82dd..b8248c0092fe 100644
+> --- a/drivers/acpi/pptt.c
+> +++ b/drivers/acpi/pptt.c
+> @@ -817,3 +817,87 @@ int find_acpi_cpu_topology_hetero_id(unsigned int cpu)
+>   	return find_acpi_cpu_topology_tag(cpu, PPTT_ABORT_PACKAGE,
+>   					  ACPI_PPTT_ACPI_IDENTICAL);
+>   }
 > +
-> +#include <linux/ring_buffer.h>
-> +
-> +struct hyp_trace_desc {
-> +	unsigned long			bpages_backing_start;
-
-Why is this an integer type? You keep casting it all over the place,
-which tells me that's not the ideal type.
-
-> +	size_t				bpages_backing_size;
-> +	struct trace_buffer_desc	trace_buffer_desc;
-> +
-> +};
-> +#endif
-> diff --git a/arch/arm64/kvm/Kconfig b/arch/arm64/kvm/Kconfig
-> index 4f803fd1c99a..580426cdbe77 100644
-> --- a/arch/arm64/kvm/Kconfig
-> +++ b/arch/arm64/kvm/Kconfig
-> @@ -83,4 +83,11 @@ config PTDUMP_STAGE2_DEBUGFS
->  
->  	  If in doubt, say N.
->  
-> +config PKVM_TRACING
-> +	bool
-> +	depends on KVM
-> +	depends on TRACING
-> +	select SIMPLE_RING_BUFFER
-> +	default y
-
-I'd rather this is made to depend on NVHE_EL2_DEBUG, just like the
-other debug options.
-
-> +
->  endif # VIRTUALIZATION
-> diff --git a/arch/arm64/kvm/hyp/include/nvhe/trace.h b/arch/arm64/kvm/hyp/include/nvhe/trace.h
-> new file mode 100644
-> index 000000000000..996e90c0974f
-> --- /dev/null
-> +++ b/arch/arm64/kvm/hyp/include/nvhe/trace.h
-> @@ -0,0 +1,23 @@
-> +/* SPDX-License-Identifier: GPL-2.0-only */
-> +#ifndef __ARM64_KVM_HYP_NVHE_TRACE_H
-> +#define __ARM64_KVM_HYP_NVHE_TRACE_H
-> +#include <asm/kvm_hyptrace.h>
-> +
-> +#ifdef CONFIG_PKVM_TRACING
-> +void *tracing_reserve_entry(unsigned long length);
-> +void tracing_commit_entry(void);
-> +
-> +int __pkvm_load_tracing(unsigned long desc_va, size_t desc_size);
-> +void __pkvm_unload_tracing(void);
-> +int __pkvm_enable_tracing(bool enable);
-> +int __pkvm_swap_reader_tracing(unsigned int cpu);
-> +#else
-> +static inline void *tracing_reserve_entry(unsigned long length) { return NULL; }
-> +static inline void tracing_commit_entry(void) { }
-> +
-> +static inline int __pkvm_load_tracing(unsigned long desc_va, size_t desc_size) { return -ENODEV; }
-> +static inline void __pkvm_unload_tracing(void) { }
-> +static inline int __pkvm_enable_tracing(bool enable) { return -ENODEV; }
-> +static inline int __pkvm_swap_reader_tracing(unsigned int cpu) { return -ENODEV; }
-> +#endif
-> +#endif
-> diff --git a/arch/arm64/kvm/hyp/nvhe/Makefile b/arch/arm64/kvm/hyp/nvhe/Makefile
-> index f55a9a17d38f..504c3b9caef8 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/Makefile
-> +++ b/arch/arm64/kvm/hyp/nvhe/Makefile
-> @@ -29,7 +29,7 @@ hyp-obj-y += ../vgic-v3-sr.o ../aarch32.o ../vgic-v2-cpuif-proxy.o ../entry.o \
->  	 ../fpsimd.o ../hyp-entry.o ../exception.o ../pgtable.o
->  hyp-obj-y += ../../../kernel/smccc-call.o
->  hyp-obj-$(CONFIG_LIST_HARDENED) += list_debug.o
-> -hyp-obj-$(CONFIG_PKVM_TRACING) += clock.o
-> +hyp-obj-$(CONFIG_PKVM_TRACING) += clock.o trace.o ../../../../../kernel/trace/simple_ring_buffer.o
-
-Can we get something less awful here? Surely there is a way to get an
-absolute path from the kbuild infrastructure? $(objtree) springs to
-mind...
-
->  hyp-obj-y += $(lib-objs)
->  
->  ##
-> diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-> index 29430c031095..6381e50ff531 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-> +++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-> @@ -18,6 +18,7 @@
->  #include <nvhe/mem_protect.h>
->  #include <nvhe/mm.h>
->  #include <nvhe/pkvm.h>
-> +#include <nvhe/trace.h>
->  #include <nvhe/trap_handler.h>
->  
->  DEFINE_PER_CPU(struct kvm_nvhe_init_params, kvm_init_params);
-> @@ -585,6 +586,35 @@ static void handle___pkvm_teardown_vm(struct kvm_cpu_context *host_ctxt)
->  	cpu_reg(host_ctxt, 1) = __pkvm_teardown_vm(handle);
->  }
->  
-> +static void handle___pkvm_load_tracing(struct kvm_cpu_context *host_ctxt)
-> +{
-> +	 DECLARE_REG(unsigned long, desc_hva, host_ctxt, 1);
-> +	 DECLARE_REG(size_t, desc_size, host_ctxt, 2);
-> +
-> +	 cpu_reg(host_ctxt, 1) = __pkvm_load_tracing(desc_hva, desc_size);
-> +}
-> +
-> +static void handle___pkvm_unload_tracing(struct kvm_cpu_context *host_ctxt)
-> +{
-> +	__pkvm_unload_tracing();
-> +
-> +	cpu_reg(host_ctxt, 1) = 0;
-> +}
-> +
-> +static void handle___pkvm_enable_tracing(struct kvm_cpu_context *host_ctxt)
-> +{
-> +	DECLARE_REG(bool, enable, host_ctxt, 1);
-> +
-> +	cpu_reg(host_ctxt, 1) = __pkvm_enable_tracing(enable);
-> +}
-> +
-> +static void handle___pkvm_swap_reader_tracing(struct kvm_cpu_context *host_ctxt)
-> +{
-> +	DECLARE_REG(unsigned int, cpu, host_ctxt, 1);
-> +
-> +	cpu_reg(host_ctxt, 1) = __pkvm_swap_reader_tracing(cpu);
-> +}
-> +
->  typedef void (*hcall_t)(struct kvm_cpu_context *);
->  
->  #define HANDLE_FUNC(x)	[__KVM_HOST_SMCCC_FUNC_##x] = (hcall_t)handle_##x
-> @@ -626,6 +656,10 @@ static const hcall_t host_hcall[] = {
->  	HANDLE_FUNC(__pkvm_vcpu_load),
->  	HANDLE_FUNC(__pkvm_vcpu_put),
->  	HANDLE_FUNC(__pkvm_tlb_flush_vmid),
-> +	HANDLE_FUNC(__pkvm_load_tracing),
-> +	HANDLE_FUNC(__pkvm_unload_tracing),
-> +	HANDLE_FUNC(__pkvm_enable_tracing),
-> +	HANDLE_FUNC(__pkvm_swap_reader_tracing),
->  };
->  
->  static void handle_host_hcall(struct kvm_cpu_context *host_ctxt)
-> diff --git a/arch/arm64/kvm/hyp/nvhe/trace.c b/arch/arm64/kvm/hyp/nvhe/trace.c
-> new file mode 100644
-> index 000000000000..def5cbc75722
-> --- /dev/null
-> +++ b/arch/arm64/kvm/hyp/nvhe/trace.c
-> @@ -0,0 +1,257 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +/*
-> + * Copyright (C) 2025 Google LLC
-> + * Author: Vincent Donnefort <vdonnefort@google.com>
+> +/**
+> + * acpi_pptt_get_child_cpus() - Find all the CPUs below a PPTT
+> + * processor hierarchy node
+> + *
+> + * @table_hdr:		A reference to the PPTT table
+> + * @parent_node:	A pointer to the processor hierarchy node in the
+> + *			table_hdr
+> + * @cpus:		A cpumask to fill with the CPUs below @parent_node
+> + *
+> + * Walks up the PPTT from every possible CPU to find if the provided
+> + * @parent_node is a parent of this CPU.
 > + */
-> +
-> +#include <nvhe/clock.h>
-> +#include <nvhe/mem_protect.h>
-> +#include <nvhe/mm.h>
-> +#include <nvhe/trace.h>
-> +
-> +#include <asm/percpu.h>
-> +#include <asm/kvm_mmu.h>
-> +#include <asm/local.h>
-> +
-> +#include <linux/simple_ring_buffer.h>
-> +
-> +static DEFINE_PER_CPU(struct simple_rb_per_cpu, __simple_rbs);
-> +
-> +static struct hyp_trace_buffer {
-> +	struct simple_rb_per_cpu __percpu	*simple_rbs;
-> +	unsigned long				bpages_backing_start;
-> +	size_t					bpages_backing_size;
-> +	hyp_spinlock_t				lock;
-> +} trace_buffer = {
-> +	.simple_rbs = &__simple_rbs,
-> +	.lock = __HYP_SPIN_LOCK_UNLOCKED,
-> +};
-> +
-> +static bool hyp_trace_buffer_loaded(struct hyp_trace_buffer *trace_buffer)
+> +static void acpi_pptt_get_child_cpus(struct acpi_table_header *table_hdr,
+> +				     struct acpi_pptt_processor *parent_node,
+> +				     cpumask_t *cpus)
 > +{
-> +	return trace_buffer->bpages_backing_size > 0;
-> +}
-> +
-> +void *tracing_reserve_entry(unsigned long length)
-> +{
-> +	return simple_ring_buffer_reserve(this_cpu_ptr(trace_buffer.simple_rbs), length,
-> +					  trace_clock());
-> +}
-> +
-> +void tracing_commit_entry(void)
-> +{
-> +	simple_ring_buffer_commit(this_cpu_ptr(trace_buffer.simple_rbs));
-> +}
-> +
-> +static int hyp_trace_buffer_load_bpage_backing(struct hyp_trace_buffer *trace_buffer,
-> +					       struct hyp_trace_desc *desc)
-> +{
-> +	unsigned long start = kern_hyp_va(desc->bpages_backing_start);
-> +	size_t size = desc->bpages_backing_size;
-> +	int ret;
-> +
-> +	if (!PAGE_ALIGNED(start) || !PAGE_ALIGNED(size))
-> +		return -EINVAL;
-> +
-> +	ret = __pkvm_host_donate_hyp(hyp_virt_to_pfn((void *)start), size >> PAGE_SHIFT);
-> +	if (ret)
-> +		return ret;
-> +
-> +	memset((void *)start, 0, size);
-> +
-> +	trace_buffer->bpages_backing_start = start;
-> +	trace_buffer->bpages_backing_size = size;
-> +
-> +	return 0;
-> +}
-> +
-> +static void hyp_trace_buffer_unload_bpage_backing(struct hyp_trace_buffer *trace_buffer)
-> +{
-> +	unsigned long start = trace_buffer->bpages_backing_start;
-> +	size_t size = trace_buffer->bpages_backing_size;
-> +
-> +	if (!size)
-> +		return;
-> +
-> +	memset((void *)start, 0, size);
-> +
-> +	WARN_ON(__pkvm_hyp_donate_host(hyp_virt_to_pfn(start), size >> PAGE_SHIFT));
-> +
-> +	trace_buffer->bpages_backing_start = 0;
-> +	trace_buffer->bpages_backing_size = 0;
-> +}
-> +
-> +static void *__pin_shared_page(unsigned long kern_va)
-> +{
-> +	void *va = kern_hyp_va((void *)kern_va);
-> +
-> +	return hyp_pin_shared_mem(va, va + PAGE_SIZE) ? NULL : va;
-> +}
-> +
-> +static void __unpin_shared_page(void *va)
-> +{
-> +	hyp_unpin_shared_mem(va, va + PAGE_SIZE);
-> +}
-> +
-> +static void hyp_trace_buffer_unload(struct hyp_trace_buffer *trace_buffer)
-> +{
+> +	struct acpi_pptt_processor *cpu_node;
+> +	u32 acpi_id;
 > +	int cpu;
 > +
-> +	hyp_assert_lock_held(&trace_buffer->lock);
+> +	cpumask_clear(cpus);
 > +
-> +	if (!hyp_trace_buffer_loaded(trace_buffer))
+> +	for_each_possible_cpu(cpu) {
+> +		acpi_id = get_acpi_id_for_cpu(cpu);
+> +		cpu_node = acpi_find_processor_node(table_hdr, acpi_id);
+> +
+> +		while (cpu_node) {
+> +			if (cpu_node == parent_node) {
+> +				cpumask_set_cpu(cpu, cpus);
+> +				break;
+> +			}
+> +			cpu_node = fetch_pptt_node(table_hdr, cpu_node->parent);
+> +		}
+> +	}
+> +}
+> +
+> +/**
+> + * acpi_pptt_get_cpus_from_container() - Populate a cpumask with all CPUs in a
+> + *                                       processor container
+> + * @acpi_cpu_id:	The UID of the processor container
+> + * @cpus:		The resulting CPU mask
+> + *
+> + * Find the specified Processor Container, and fill @cpus with all the cpus
+> + * below it.
+> + *
+> + * Not all 'Processor Hierarchy' entries in the PPTT are either a CPU
+> + * or a Processor Container, they may exist purely to describe a
+> + * Private resource. CPUs have to be leaves, so a Processor Container
+> + * is a non-leaf that has the 'ACPI Processor ID valid' flag set.
+> + */
+> +void acpi_pptt_get_cpus_from_container(u32 acpi_cpu_id, cpumask_t *cpus)
+> +{
+> +	struct acpi_table_header *table_hdr;
+> +	struct acpi_subtable_header *entry;
+> +	unsigned long table_end;
+> +	u32 proc_sz;
+> +
+> +	cpumask_clear(cpus);
+> +
+> +	table_hdr = acpi_get_pptt();
+> +	if (!table_hdr)
 > +		return;
 > +
-> +	for (cpu = 0; cpu < hyp_nr_cpus; cpu++)
-> +		__simple_ring_buffer_unload(per_cpu_ptr(trace_buffer->simple_rbs, cpu),
-> +					    __unpin_shared_page);
+> +	table_end = (unsigned long)table_hdr + table_hdr->length;
+> +	entry = ACPI_ADD_PTR(struct acpi_subtable_header, table_hdr,
+> +			     sizeof(struct acpi_table_pptt));
+> +	proc_sz = sizeof(struct acpi_pptt_processor);
+> +	while ((unsigned long)entry + proc_sz <= table_end) {
+> +		if (entry->type == ACPI_PPTT_TYPE_PROCESSOR) {
+> +			struct acpi_pptt_processor *cpu_node;
 > +
-> +	hyp_trace_buffer_unload_bpage_backing(trace_buffer);
-> +}
-> +
-> +static int hyp_trace_buffer_load(struct hyp_trace_buffer *trace_buffer,
-> +				 struct hyp_trace_desc *desc)
-> +{
-> +	struct simple_buffer_page *bpages;
-> +	struct ring_buffer_desc *rb_desc;
-> +	int ret, cpu;
-> +
-> +	hyp_assert_lock_held(&trace_buffer->lock);
-> +
-> +	if (hyp_trace_buffer_loaded(trace_buffer))
-> +		return -EINVAL;
-> +
-> +	ret = hyp_trace_buffer_load_bpage_backing(trace_buffer, desc);
-> +	if (ret)
-> +		return ret;
-> +
-> +	bpages = (struct simple_buffer_page *)trace_buffer->bpages_backing_start;
-> +	for_each_ring_buffer_desc(rb_desc, cpu, &desc->trace_buffer_desc) {
-> +		ret = __simple_ring_buffer_init(per_cpu_ptr(trace_buffer->simple_rbs, cpu),
-> +						bpages, rb_desc, __pin_shared_page,
-> +						__unpin_shared_page);
-> +		if (ret)
-> +			break;
-> +
-> +		bpages += rb_desc->nr_page_va;
+> +			cpu_node = (struct acpi_pptt_processor *)entry;
+> +			if (cpu_node->flags & ACPI_PPTT_ACPI_PROCESSOR_ID_VALID &&
+> +			    !acpi_pptt_leaf_node(table_hdr, cpu_node) &&
+> +			    cpu_node->acpi_processor_id == acpi_cpu_id) {
+> +				acpi_pptt_get_child_cpus(table_hdr, cpu_node, cpus);
+> +				break;
+> +			}
+> +		}
+> +		entry = ACPI_ADD_PTR(struct acpi_subtable_header, entry,
+> +				     entry->length);
 > +	}
-> +
-> +	if (ret)
-> +		hyp_trace_buffer_unload(trace_buffer);
-> +
-> +	return ret;
 > +}
-> +
-> +static bool hyp_trace_desc_validate(struct hyp_trace_desc *desc, size_t desc_size)
-> +{
-> +	struct simple_buffer_page *bpages = (struct simple_buffer_page *)desc->bpages_backing_start;
-> +	struct ring_buffer_desc *rb_desc;
-> +	void *bpages_end, *desc_end;
-> +	unsigned int cpu;
-> +
-> +	desc_end = (void *)desc + desc_size; /* __pkvm_host_donate_hyp validates desc_size */
-> +
-> +	bpages_end = (void *)desc->bpages_backing_start + desc->bpages_backing_size;
-> +	if (bpages_end < (void *)desc->bpages_backing_start)
-> +		return false;
-> +
-> +	for_each_ring_buffer_desc(rb_desc, cpu, &desc->trace_buffer_desc) {
-> +		/* Can we read nr_page_va? */
-> +		if ((void *)rb_desc + struct_size(rb_desc, page_va, 0) > desc_end)
-> +			return false;
-> +
-> +		/* Overflow desc? */
-> +		if ((void *)rb_desc + struct_size(rb_desc, page_va, rb_desc->nr_page_va) > desc_end)
-> +			return false;
-> +
-> +		/* Overflow bpages backing memory? */
-> +		if ((void *)(bpages + rb_desc->nr_page_va) > bpages_end)
-> +			return false;
-> +
-> +		if (cpu >= hyp_nr_cpus)
-> +			return false;
-> +
-> +		if (cpu != rb_desc->cpu)
-> +			return false;
-> +
-> +		bpages += rb_desc->nr_page_va;
-> +	}
-> +
-> +	return true;
-> +}
-> +
-> +int __pkvm_load_tracing(unsigned long desc_hva, size_t desc_size)
-> +{
-> +	struct hyp_trace_desc *desc = (struct hyp_trace_desc *)kern_hyp_va(desc_hva);
-> +	int ret;
-> +
-> +	if (!desc_size || !PAGE_ALIGNED(desc_hva) || !PAGE_ALIGNED(desc_size))
-> +		return -EINVAL;
-> +
-> +	ret = __pkvm_host_donate_hyp(hyp_virt_to_pfn((void *)desc),
-> +				     desc_size >> PAGE_SHIFT);
-> +	if (ret)
-> +		return ret;
-> +
-> +	if (!hyp_trace_desc_validate(desc, desc_size))
-> +		goto err_donate_desc;
-> +
-> +	hyp_spin_lock(&trace_buffer.lock);
-> +
-> +	ret = hyp_trace_buffer_load(&trace_buffer, desc);
-> +
-> +	hyp_spin_unlock(&trace_buffer.lock);
-> +
-> +err_donate_desc:
-> +	WARN_ON(__pkvm_hyp_donate_host(hyp_virt_to_pfn((void *)desc),
-> +				       desc_size >> PAGE_SHIFT));
+> diff --git a/include/linux/acpi.h b/include/linux/acpi.h
+> index 5ff5d99f6ead..4752ebd48132 100644
+> --- a/include/linux/acpi.h
+> +++ b/include/linux/acpi.h
+> @@ -1541,6 +1541,7 @@ int find_acpi_cpu_topology(unsigned int cpu, int level);
+>   int find_acpi_cpu_topology_cluster(unsigned int cpu);
+>   int find_acpi_cpu_topology_package(unsigned int cpu);
+>   int find_acpi_cpu_topology_hetero_id(unsigned int cpu);
+> +void acpi_pptt_get_cpus_from_container(u32 acpi_cpu_id, cpumask_t *cpus);
+>   #else
+>   static inline int acpi_pptt_cpu_is_thread(unsigned int cpu)
+>   {
+> @@ -1562,6 +1563,8 @@ static inline int find_acpi_cpu_topology_hetero_id(unsigned int cpu)
+>   {
+>   	return -EINVAL;
+>   }
+> +static inline void acpi_pptt_get_cpus_from_container(u32 acpi_cpu_id,
+> +						     cpumask_t *cpus) { }
+>   #endif
+>   
+>   void acpi_arch_init(void);
 
-That's basically a guaranteed panic if anything goes wrong. Are you
-sure you want to do that?
-
-> +	return ret;
-> +}
-> +
-> +void __pkvm_unload_tracing(void)
-> +{
-> +	hyp_spin_lock(&trace_buffer.lock);
-> +	hyp_trace_buffer_unload(&trace_buffer);
-> +	hyp_spin_unlock(&trace_buffer.lock);
-> +}
-> +
-> +int __pkvm_enable_tracing(bool enable)
-> +{
-> +	int cpu, ret = enable ? -EINVAL : 0;
-> +
-> +	hyp_spin_lock(&trace_buffer.lock);
-> +
-> +	if (!hyp_trace_buffer_loaded(&trace_buffer))
-> +		goto unlock;
-> +
-> +	for (cpu = 0; cpu < hyp_nr_cpus; cpu++)
-> +		simple_ring_buffer_enable_tracing(per_cpu_ptr(trace_buffer.simple_rbs, cpu),
-> +						  enable);
-> +
-> +	ret = 0;
-> +
-> +unlock:
-> +	hyp_spin_unlock(&trace_buffer.lock);
-> +
-> +	return ret;
-> +}
-> +
-> +int __pkvm_swap_reader_tracing(unsigned int cpu)
-> +{
-> +	int ret;
-> +
-> +	if (cpu >= hyp_nr_cpus)
-> +		return -EINVAL;
-> +
-> +	hyp_spin_lock(&trace_buffer.lock);
-> +
-> +	if (hyp_trace_buffer_loaded(&trace_buffer))
-> +		ret = simple_ring_buffer_swap_reader_page(
-> +				per_cpu_ptr(trace_buffer.simple_rbs, cpu));
-
-Please keep these things on a single line. I don't care what people
-(of checkpatch) say.
-
-> +	else
-> +		ret = -ENODEV;
-> +
-> +	hyp_spin_unlock(&trace_buffer.lock);
-> +
-> +	return ret;
-> +}
-> -- 
-> 2.51.2.1041.gc1ab5b90ca-goog
-> 
-> 
-
-Thanks,
-
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
 
