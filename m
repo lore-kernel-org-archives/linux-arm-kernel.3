@@ -4,94 +4,137 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A71ACCF58C9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 19:18:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D9FDCF34AC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 19:31:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=G1UZvPPdbLe4P3hUEz9EiujTQt9HWJyDm/U3LZSIElA=; b=Hg/qbxQy+qRPFfQPb/QauqSQRI
-	/PkdeSPp6u0MZI5zq59GWCpsqOa/CeYCiXn8aikRDkvIV+7v7x1ClO4TxlNsZBR2C9mR8BnEeUiKA
-	bted8hnr++3ZPQsphNVWMuLWT3lW7PkmrNzQn3LSwMkr7G7q1x0rQw1cdE2LCkDVS1ZJqDKwcPbO+
-	gLRdFX+GvAZ7sxZ05r/cnzBCQ3Xn2vjwcLsW9bFseqW4Opbu3s1HDngeeFLqzUPpz1LHy5pOcsoQg
-	rz/ssVwG1TQyrcyZTxUorh0x/8IkFnV5c8XdpyzYva9CD+Itp2RO5X1UdMYyKGE7QZcrHkdSbPxte
-	BRpJFAFQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=VqfPUhBUuqScaSHMUq8QpF25Wph306SRwNzMegwm44w=; b=xhdI7oJ4KEcF61zuzhhAPGqWq/
+	YveWSU6uBrmlNO4tWv1EfLJYD7bbbgLb+ZJ+fXDepd/CBC85dVkpqXlBVnKbUrnlksEBhBWAqTR1v
+	MM15atrWDaq2vy3Fb5REHnCg/Rxh1Cl1thziIkrYwT0G1cqB0WpH8U62istD8WLnz5UcP53/4m1Zr
+	1WrqmDhosMzOec+CWGygSn0bN5zKiNhJJRIz6D+GicK03TTBDMejcERdMJHKydLB+MV73Q4esaDqu
+	6OQf4wj8uuwxV8tQncZsSsW2bks54d1ucy+iXFeZq3gI5cW4h90jXJZ+6MsR6sE14/JYmiXUYzYcg
+	+2cV29YQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLngm-00000004xLN-0eP1;
-	Wed, 19 Nov 2025 19:18:00 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vLntQ-0000000533S-3o9c;
+	Wed, 19 Nov 2025 19:31:04 +0000
+Received: from mail-centralusazlp170110009.outbound.protection.outlook.com ([2a01:111:f403:c111::9] helo=DM5PR21CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLngh-00000004xIq-3dLz
+	id 1vLntN-000000052zt-0INR
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Nov 2025 19:17:58 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 37B39401FF;
-	Wed, 19 Nov 2025 19:17:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0543BC4CEF5;
-	Wed, 19 Nov 2025 19:17:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763579875;
-	bh=JQi84GrjRxDal74Vn3H2ScBlsWz6XMmDJZX90zdNxjA=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=RBAss/d1aX9jIqZ4mGzPS2rYQglhv84BKwKHTuQkOgX+0T3huSIkFimS5mZjCQbHV
-	 aWZWYvEnJ6P7tauFGFkU9a3StwzbH063dzVu/D6yEHmOVWcm849oCDwVgXvzVgkxP5
-	 WRUyOkb77m43TAdKvkIW5Yuh4jW0pVk5sOJwiH7SKeAYS7eblseFHqRdENyjR7jp/a
-	 eDSUAT4kxf2kLH4w/yPGuk2fsLYone4iUgfKnrsuDlwmcZ0Z5/VnVkvBpUHdwlmvmc
-	 PTBWbBIkdSK6pCrBTR0FoOBdVOG6bWCOq2AEVJQ1J/ZDq8dqSL+QJ5jLWAn69zeEhm
-	 HimCnimqKcTKQ==
-From: Catalin Marinas <cmarinas@kernel.org>
-To: james.morse@arm.com,
-	Ben Horgan <ben.horgan@arm.com>
-Cc: Will Deacon <will@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	amitsinght@marvell.com,
-	baisheng.gao@unisoc.com,
-	baolin.wang@linux.alibaba.com,
-	bobo.shaobowang@huawei.com,
-	carl@os.amperecomputing.com,
-	dakr@kernel.org,
-	dave.martin@arm.com,
-	dfustini@baylibre.com,
-	fenghuay@nvidia.com,
-	gregkh@linuxfoundation.org,
-	gshan@redhat.com,
-	guohanjun@huawei.com,
-	jeremy.linton@arm.com,
-	jonathan.cameron@huawei.com,
-	kobak@nvidia.com,
-	lcherian@marvell.com,
-	lenb@kernel.org,
-	linux-acpi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	lpieralisi@kernel.org,
-	peternewman@google.com,
-	quic_jiles@quicinc.com,
-	rafael@kernel.org,
-	robh@kernel.org,
-	rohit.mathew@arm.com,
-	scott@os.amperecomputing.com,
-	sdonthineni@nvidia.com,
-	sudeep.holla@arm.com,
-	tan.shaopeng@fujitsu.com,
-	xhao@linux.alibaba.com,
-	reinette.chatre@intel.com,
-	David Hildenbrand <david@kernel.org>
-Subject: Re: [PATCH v6 00/34] arm_mpam: Add basic mpam driver
-Date: Wed, 19 Nov 2025 19:14:52 +0000
-Message-ID: <176357969271.2096121.17612291613784127358.b4-ty@arm.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20251119122305.302149-1-ben.horgan@arm.com>
-References: <20251119122305.302149-1-ben.horgan@arm.com>
+	Wed, 19 Nov 2025 19:31:03 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=d82tN2wKjGCF6np6m0x/Et4qPyn1GxFCHDJstdA5xeJN5KcLpDqxeeJhFNM7mESmxI91kea/h8Q2qq7cE9uIUL1zRpGOxxSQiIWRMJky7f1n8Ayj0+zRsDwClOYf8cxzJTnYqqV89EvbGkgb8FMa8U98+49EZ0znRetVOOvLB7oeQzy9VGmNdFosBzsCRMr6vsWhNH36hwzKH+GGt5vl6AqvZrfmMyviaTz98HyoiI9J2CA9ILLNBDkaOBKcW55MbP0+BHU/a9o+2ricpX6n+GEhGVIjKutKhAnCZXqEFXYfdwCgX4LI8TkEoIfwrxd8Y/v0SmXLEHNLzZyjKy2L7Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=VqfPUhBUuqScaSHMUq8QpF25Wph306SRwNzMegwm44w=;
+ b=wr2baVab5UC0P1cnJunfD6Li1FkMXwUSSWqz+wsPFTgZUuJexnYMbVcfQ2vdQUAgR3nkdp2zG2bimhdr7xU3llat06v6mIN838SGR/h9oHOZWOdJZyYF9GMjMOWkhAJOCjQa1NwHEYlgqOYohNHBRurIiMJpmlbWuszVQFk5ihWKJTftrRN+x4UmTs/9cKZMgt/2VYLimoG2Hw/Zid9jU8Ykapsy7Tn7aNjgcdWh56K20yVrkOH5vB1S+e7tenp+FeroLl5Tub1IzC+Y6Id8OmDIu5N0tT5Q3QAkux6NAXk35cpM2JkGS4CajLLdWpgy0ePENDAYalwR4FQZNu/Bdw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=linuxfoundation.org smtp.mailfrom=amd.com;
+ dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
+ header.from=amd.com; dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=VqfPUhBUuqScaSHMUq8QpF25Wph306SRwNzMegwm44w=;
+ b=5Kt+7rTk7sMyUX0zDW4TtvAmpTACaZPfofijzJ2D3uo6sKuJvdFfHuaxWpuk0suTg3SA3NRSnmiW1R2MeM2ke8qHXqWjK7AR+DAvxbI120P3MVcZDErcX3ha6fIljjxLho0JpqSfDhcIVT7W1ubZxVoh36/CYbVzJTo//MdvUeQ=
+Received: from SA1P222CA0010.NAMP222.PROD.OUTLOOK.COM (2603:10b6:806:22c::12)
+ by MW6PR12MB8735.namprd12.prod.outlook.com (2603:10b6:303:245::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9320.22; Wed, 19 Nov
+ 2025 19:30:51 +0000
+Received: from SA2PEPF000015C6.namprd03.prod.outlook.com
+ (2603:10b6:806:22c:cafe::97) by SA1P222CA0010.outlook.office365.com
+ (2603:10b6:806:22c::12) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9343.10 via Frontend Transport; Wed,
+ 19 Nov 2025 19:30:48 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
+ smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
+Received: from satlexmb08.amd.com (165.204.84.17) by
+ SA2PEPF000015C6.mail.protection.outlook.com (10.167.241.196) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9343.9 via Frontend Transport; Wed, 19 Nov 2025 19:30:48 +0000
+Received: from SATLEXMB06.amd.com (10.181.40.147) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.2.2562.17; Wed, 19 Nov
+ 2025 11:30:46 -0800
+Received: from satlexmb07.amd.com (10.181.42.216) by SATLEXMB06.amd.com
+ (10.181.40.147) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Wed, 19 Nov
+ 2025 13:30:45 -0600
+Received: from xhdradheys41.xilinx.com (10.180.168.240) by satlexmb07.amd.com
+ (10.181.42.216) with Microsoft SMTP Server id 15.2.2562.17 via Frontend
+ Transport; Wed, 19 Nov 2025 11:30:42 -0800
+From: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
+To: <gregkh@linuxfoundation.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+	<conor+dt@kernel.org>, <michal.simek@amd.com>, <Thinh.Nguyen@synopsys.com>,
+	<p.zabel@pengutronix.de>
+CC: <linux-usb@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<git@amd.com>, Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
+Subject: [PATCH 0/3] usb: dwc3: xilinx: Add Versal2 MMI USB 3.2 controller support
+Date: Thu, 20 Nov 2025 01:00:33 +0530
+Message-ID: <20251119193036.2666877-1-radhey.shyam.pandey@amd.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SA2PEPF000015C6:EE_|MW6PR12MB8735:EE_
+X-MS-Office365-Filtering-Correlation-Id: 761ccdb9-4ffb-4497-62b6-08de27a2245f
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|36860700013|1800799024|82310400026;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?SZMcJUgF3KcDVA8pKyaq8xb95/EqqV/1rx1sucdnUbTt/4iJcpcIRZI+6TqC?=
+ =?us-ascii?Q?U+JDUyKTx4sW/jx4Hx70BLSUX3tyNGxOKWBXZztl0rHkVT9N2Whq0B6XiJ41?=
+ =?us-ascii?Q?DjQIJjFFHCapDik6vwKOZa4rkK8MO6FQ/uW2om5mrF5HbptLbMjXXUtW0pFf?=
+ =?us-ascii?Q?WHCbUzCJFXXCeCUokO4+MaJqn1hnaaBJsqppvSXCP4sK+J8bU4ijiVzJK+3R?=
+ =?us-ascii?Q?6xWY4upOFIUJViUhGMH70uhE97hBBC+1xNBJFxk81P8RZ/TqFfw939Vxe+HE?=
+ =?us-ascii?Q?UUs/FyAB31p8QsOaX860dFPc45I4KgYNpyQ5kp8GmGZQkRgR7kcwLUsQ4LtC?=
+ =?us-ascii?Q?TiUJuO6e8SyVoCG6bUcfsTrJGToXOCylRKHYWyjDuQq7WTGA16a53WgzZW/v?=
+ =?us-ascii?Q?Ac7yKuCClNkYPGPjgFVALzgbZDixu3qnaxuL/7SfYyerNoMc0vim8TnLcqui?=
+ =?us-ascii?Q?8a0FItxDL0DE/B6l5umtSUPHaF25fLJ4+daqICQBNUuNXpcddFwgSQBVl8/p?=
+ =?us-ascii?Q?PXrq1V0EyFBRPgwzZ3/Q+SY6vWx4s+n35hjwg87+q1WaHreleSt3CCV2pfq0?=
+ =?us-ascii?Q?WPXgcy0ZtxSuSu4Hq6R+/Jmgvv0jvufcXYK4wPFDARgNfhiZCYuwBM/y2ubC?=
+ =?us-ascii?Q?DVwStcVUqvJrjYbf4rrOuij8Tm0jZ/FCKaDAuzJDYLud5nv+JKSeqJSErGLn?=
+ =?us-ascii?Q?CQ9U4LkfqERov9lwgg8ZMxSxJLhD3n+JZp7XK2i7LRLT2bVj2hRU6cSSH4v3?=
+ =?us-ascii?Q?DZ5Yp/rt1xku7L0vTU5kVlVtvCN8MAVEypT/0FbdVjHuWnI7niHZjCAr+Aaz?=
+ =?us-ascii?Q?cdYTs8Go6F489Xdz9wNGWFiFK6rQtufe27I+gkOgX0ej1EUXZ1HKTQMv4hm8?=
+ =?us-ascii?Q?cgNIK3Kpyd5/IlLPsIKrXPlT6W8cOgnoEqnnVU2o9vHC8jsjIJMOBHf1ZSma?=
+ =?us-ascii?Q?mwFPbf3MeDjAGS9dyMU0FOmy9D/BoFRnf6Mu8qxKxE/k1Dr20C/iegdePIYy?=
+ =?us-ascii?Q?bqbDTdODijxlUoDz77ru2myB5FrSIEWJCxJRX6X1UpbU9WKicAK4kPxNdW/3?=
+ =?us-ascii?Q?tRWag1ENcEBoQyU/sW3pFAi7paYINGrYRwcGtJuxqZucDUsWfhZG8u0ZZ7Kg?=
+ =?us-ascii?Q?fugRPhdR07xEDHnneStHgVstibA3vDZ2U9Ul+h77zOh9rj6E7xEtfb0C2ooK?=
+ =?us-ascii?Q?ntVrwJkeipJNtblATX2+K2La7V8Ac6qEUbmM2DrJz+GlaaypmKvDo289KN1V?=
+ =?us-ascii?Q?HNN1nFULoesdQvA1T64I2Iwq/2UqbdV8KXYkgk2Tgx1jybtyOmtStVBDop+I?=
+ =?us-ascii?Q?h0O4zoL43WlaW787ssc5ygVWplHZJ6nKxyFv5TpIxcPzti6SZTsIJRNhSuha?=
+ =?us-ascii?Q?GS/rPZPy+sPVmsfzhkUqqmCMQRNm92+PxxbJXO9+GNNCqWGN1qR4ZlWaIuoF?=
+ =?us-ascii?Q?iqZsE+/YpwWsZDkzBARenDle0ytaegY0u4si2Mli3y3mWQq0N1rm0TrQTO9T?=
+ =?us-ascii?Q?FQAG93u5R3Cwx8ha196BhZXuxS7aB1scuu55TQZ0i2xDDCimtmjxwQPM9qqs?=
+ =?us-ascii?Q?/lDY5E08+3KEIiDiIlk=3D?=
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(7416014)(36860700013)(1800799024)(82310400026);DIR:OUT;SFP:1101;
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Nov 2025 19:30:48.0952
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 761ccdb9-4ffb-4497-62b6-08de27a2245f
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: SA2PEPF000015C6.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW6PR12MB8735
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251119_111757_038456_591213C7 
-X-CRM114-Status: GOOD (  17.11  )
+X-CRM114-CacheID: sfid-20251119_113101_119424_DAD1B2DE 
+X-CRM114-Status: GOOD (  10.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,99 +149,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Catalin Marinas <catalin.marinas@arm.com>
+usb: dwc3: xilinx: Add Versal2 MMI USB 3.2 controller support
 
-On Wed, 19 Nov 2025 12:22:30 +0000, Ben Horgan wrote:
-> Just a handful of minor changes based on v5 review comments. See individual
-> patches for change lgos. I haven't asked James to host any branches for this
-> revision but please let me know if this would be helpful to anyone. Thanks for
-> all the help with reviews and testing.
-> 
-> Previous cover letter from James:
-> 
-> [...]
+This series introduces support for the Multi-Media Integrated (MMI) USB
+3.2 Dual-Role Device (DRD) controller on Xilinx Versal2 platforms.
 
-I queued the series on a branch to give it a bit of exposure in -next
-for the next 10 days or so. If nothing falls apart, it should go
-upstream but there's always a risk of the series being dropped at short
-notice. I aim to keep the branch stable and only apply fixups on top if
-needed.
+The controller supports SSP(10-Gbps), SuperSpeed, high-speed, full-speed
+and low-speed operation modes.
 
-Greg, I haven't got any acks from you, I assume you don't have any
-objections (please let me know otherwise).
+USB2 and USB3 PHY support Physical connectivity via the Type-C
+connectivity. DWC3 wrapper IP IO space is in SLCR so reg is made
+optional.
 
-Applied to arm64 (for-next/mpam), thanks!
+The driver is required for the clock, reset and platform specific
+initialization (coherency/TX_DEEMPH etc).  In this initial version
+typec reversibility is not implemented and it is assumed that USB3
+PHY TCA mux programming is done by MMI configuration data object
+(CDOs) and TI PD controller is configured using external tiva
+programmer on VEK385 evaluation board.
 
-[01/34] ACPI / PPTT: Add a helper to fill a cpumask from a processor container
-        https://git.kernel.org/arm64/c/796e29b857ae
-[02/34] ACPI / PPTT: Stop acpi_count_levels() expecting callers to clear levels
-        https://git.kernel.org/arm64/c/eeec7845e966
-[03/34] ACPI / PPTT: Add acpi_pptt_cache_v1_full to use pptt cache as one structure
-        https://git.kernel.org/arm64/c/cfc085af8398
-[04/34] ACPI / PPTT: Find cache level by cache-id
-        https://git.kernel.org/arm64/c/41a7bb39fede
-[05/34] ACPI / PPTT: Add a helper to fill a cpumask from a cache_id
-        https://git.kernel.org/arm64/c/a39a723a6f1e
-[06/34] arm64: kconfig: Add Kconfig entry for MPAM
-        https://git.kernel.org/arm64/c/d8bf01d80919
-[07/34] platform: Define platform_device_put cleanup handler
-        https://git.kernel.org/arm64/c/f5915600cc4c
-[08/34] ACPI: Define acpi_put_table cleanup handler and acpi_get_table_pointer() helper
-        https://git.kernel.org/arm64/c/96f4a4d53e66
-[09/34] ACPI / MPAM: Parse the MPAM table
-        https://git.kernel.org/arm64/c/115c5325beae
-[10/34] arm_mpam: Add probe/remove for mpam msc driver and kbuild boiler plate
-        https://git.kernel.org/arm64/c/f04046f2577a
-[11/34] arm_mpam: Add the class and component structures for firmware described ris
-        https://git.kernel.org/arm64/c/01fb4b822472
-[12/34] arm_mpam: Add MPAM MSC register layout definitions
-        https://git.kernel.org/arm64/c/aa64b9e11051
-[13/34] arm_mpam: Add cpuhp callbacks to probe MSC hardware
-        https://git.kernel.org/arm64/c/8f8d0ac1da78
-[14/34] arm_mpam: Probe hardware to find the supported partid/pmg values
-        https://git.kernel.org/arm64/c/bd221f9f82af
-[15/34] arm_mpam: Add helpers for managing the locking around the mon_sel registers
-        https://git.kernel.org/arm64/c/d02beb06ca2a
-[16/34] arm_mpam: Probe the hardware features resctrl supports
-        https://git.kernel.org/arm64/c/8c90dc68a5de
-[17/34] arm_mpam: Merge supported features during mpam_enable() into mpam_class
-        https://git.kernel.org/arm64/c/c10ca83a7783
-[18/34] arm_mpam: Reset MSC controls from cpuhp callbacks
-        https://git.kernel.org/arm64/c/f188a36ca241
-[19/34] arm_mpam: Add a helper to touch an MSC from any CPU
-        https://git.kernel.org/arm64/c/475228d15dd6
-[20/34] arm_mpam: Extend reset logic to allow devices to be reset any time
-        https://git.kernel.org/arm64/c/3bd04fe7d807
-[21/34] arm_mpam: Register and enable IRQs
-        https://git.kernel.org/arm64/c/49aa621c4dca
-[22/34] arm_mpam: Use a static key to indicate when mpam is enabled
-        https://git.kernel.org/arm64/c/3796f75aa795
-[23/34] arm_mpam: Allow configuration to be applied and restored during cpu online
-        https://git.kernel.org/arm64/c/09b89d2a72f3
-[24/34] arm_mpam: Probe and reset the rest of the features
-        https://git.kernel.org/arm64/c/880df85d8673
-[25/34] arm_mpam: Add helpers to allocate monitors
-        https://git.kernel.org/arm64/c/c891bae66423
-[26/34] arm_mpam: Add mpam_msmon_read() to read monitor value
-        https://git.kernel.org/arm64/c/823e7c3712c5
-[27/34] arm_mpam: Track bandwidth counter state for power management
-        https://git.kernel.org/arm64/c/41e8a14950e1
-[28/34] arm_mpam: Consider overflow in bandwidth counter state
-        https://git.kernel.org/arm64/c/b35363793291
-[29/34] arm_mpam: Probe for long/lwd mbwu counters
-        https://git.kernel.org/arm64/c/fdc29a141d63
-[30/34] arm_mpam: Use long MBWU counters if supported
-        https://git.kernel.org/arm64/c/9e5afb7c3283
-[31/34] arm_mpam: Add helper to reset saved mbwu state
-        https://git.kernel.org/arm64/c/201d96ca4c86
-[32/34] arm_mpam: Add kunit test for bitmap reset
-        https://git.kernel.org/arm64/c/e3565d1fd4dc
-[33/34] arm_mpam: Add kunit tests for props_mismatch()
-        https://git.kernel.org/arm64/c/2557e0eafec1
-[34/34] MAINTAINERS: new entry for MPAM Driver
-        https://git.kernel.org/arm64/c/ce1e1421f8d8
+This patch series depend upon[1]
+[1]: https://lore.kernel.org/all/20251114123239.1929255-1-radhey.shyam.pandey@amd.com
+
+Radhey Shyam Pandey (3):
+  dt-bindings: usb: dwc3-xilinx: Add MMI USB support on Versal Gen2
+    platform
+  usb: dwc3: xilinx: Add Versal2 MMI USB 3.2 controller support
+  usb: dwc3: xilinx: Add support to program MMI USB TX deemphasis
+
+ .../devicetree/bindings/usb/dwc3-xilinx.yaml  | 19 ++++-
+ drivers/usb/dwc3/core.c                       | 17 ++++
+ drivers/usb/dwc3/core.h                       |  7 ++
+ drivers/usb/dwc3/dwc3-xilinx.c                | 77 ++++++++++++++++---
+ 4 files changed, 106 insertions(+), 14 deletions(-)
 
 -- 
-Catalin
+2.34.1
 
 
