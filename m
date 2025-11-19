@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BADE2CF2564
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 03:15:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D306FCEBF9A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 03:18:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
 	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XUmWN2q9CznqHhZr93nYeUTrbX/gJRytbRQOjNs241w=; b=dQguKoliQyqfTpfDC3fVhD43BA
-	+3JXix/Fp7GFvtvsgu4bJxYvi/LajQzdKihpqXQCa4+xS3zER1FRjC82Xi6C3O/kQP73IIw2fumc8
-	JkG7dWIr1uHI/k8JGa91Xuq2mtNPoFbmRts6ybWQcfPtuaVacgkPlob8RGeuQMTWOSUUrG6Zj6K0N
-	WpEKQLRZangY3Mp+GxdF3aLJYsHeEYcMtRZ8vKdfsBQqiQE9CNltRpsB09gl5cSxb5XymO1l5KApx
-	xhBgOjYzrHvvX1JGtWJBfJlgtUa7z+N2mYI8ae9kwIWRIWLfesz/8Q2br1nLk2bt+4UNS4L5u2PEg
-	B9pFNq/g==;
+	bh=zaGAWSHfr3ksqPWjaHUuPDmEpIitMsTy0P1Y+UXB3fM=; b=K8iu77izFMSgnXfpTfnCo3AM78
+	POar98le8QatoohZCe996e50hy3esjoiE9iDUtYq25lnnyFSAPS+0ehrrXfHmetilTwL35Jt4vrhn
+	ElhpgFlyZcbxuDBa1RpFhXm/25LMo+sEtirayynqE0d/LGYvCstBRyKN+4r7dhMq+a4NPemwnDZzw
+	qcUE4HVeMG/xcttRcacx7RmKaV1O/19onP6WhyWmahklB9kuDIUSYTuRVK1OdkmIqnGMpGrQIVk2a
+	rq2HwN0rAQ/u5VIyvGD6up+bmBBDB1GOE+sr0cSsyBBZcFV2CdZ6FPz8d2dMTiWO2obmmUhLW7/te
+	7cNrCbuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLYfK-00000001RuR-2Ios;
-	Wed, 19 Nov 2025 03:15:30 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vLYhu-00000001S8a-0nIr;
+	Wed, 19 Nov 2025 03:18:10 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLYfJ-00000001RuJ-3dyv
+	id 1vLYhr-00000001S7z-3GXj
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Nov 2025 03:15:29 +0000
+	Wed, 19 Nov 2025 03:18:08 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id BFEDD60204;
-	Wed, 19 Nov 2025 03:15:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 88573C113D0;
-	Wed, 19 Nov 2025 03:15:25 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id D9D56435A3;
+	Wed, 19 Nov 2025 03:18:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E4C28C4AF17;
+	Wed, 19 Nov 2025 03:18:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763522128;
-	bh=YOmZc5YkShaSn+TX5Z50l4bn0lVGLCCXoWsdflxq00k=;
+	s=k20201202; t=1763522283;
+	bh=gxvdTPLxCEGTom2KcOW4d2OIxzZkBK8tZnnpHG/Yqoo=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=hxUFiRqOKzZpf/5IGRwwjsZIvduHM2jeGVy6jyUOF2zF+sIjEPzNZBq9nPr5v/rr9
-	 hdMyHjar+KKvRSgBOoJYX7eKl5kFirM5ZHsKhotXziMKk+N6cwDxUDGrtTwUGX1rJ7
-	 5wttXB+JMF5nkhpkRyIBb9Kut33ZIjai8XO6cAKbjd/9osutzKKq3nIh5emqaQr/M+
-	 DIFbuex/If6iNDPbTW3fXCPexl9FoNjHgozgwhkT3QKGAiJrsnGrWGV0wq+7yqPi/j
-	 JfMz5g85oU++rcfheWS5gzv4Q7idLIOEHDAqQKNRFExRAymryZmbGjKKO5KAK7O9Op
-	 po7iPszoyo+ig==
-Date: Tue, 18 Nov 2025 19:15:23 -0800
+	b=tz3RVSUy64qcOSIcwGieM3noZcd3gVKOBEsnFaJrFLXtpbA/sXEgOIkMFERtQTbrb
+	 QTKvesIgOdtS5i3FRmBXs7ketsUPEin/mSp8UmqjIWq4OFdocC67Awp06GItVRjDgy
+	 tTrNzx6NEEZNcpeMgtk3TkwS4JZxK5fhT2cR881LhEsLu3rHB62Huwxh5Wv6Vq4B16
+	 97EH5U6In+fmrPnMMJd9CX3/fwL3GuVMQXnaWt+ph17MMrpUKRorloA8YTQAq3CNnb
+	 L8JvbyckRFfPAgOBSC4kpAgwVkaGZsdH8pa6sSjp5O7JDr03peT2fZJ7Aw86EJzc5X
+	 4v8jmCJGZS3Mg==
+Date: Tue, 18 Nov 2025 19:17:59 -0800
 From: Jakub Kicinski <kuba@kernel.org>
 To: Maxime Chevallier <maxime.chevallier@bootlin.com>
 Cc: davem@davemloft.net, netdev@vger.kernel.org,
@@ -62,15 +62,19 @@ Cc: davem@davemloft.net, netdev@vger.kernel.org,
  Kozlowski <krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>, Romain
  Gantois <romain.gantois@bootlin.com>, Daniel Golle <daniel@makrotopia.org>,
  Dimitri Fedrau <dimitri.fedrau@liebherr.com>
-Subject: Re: [PATCH net-next v16 03/15] net: phy: Introduce PHY ports
- representation
-Message-ID: <20251118191523.4719ca2c@kernel.org>
-In-Reply-To: <20251113081418.180557-4-maxime.chevallier@bootlin.com>
+Subject: Re: [PATCH net-next v16 15/15] Documentation: networking: Document
+ the phy_port infrastructure
+Message-ID: <20251118191759.28d14e32@kernel.org>
+In-Reply-To: <20251113081418.180557-16-maxime.chevallier@bootlin.com>
 References: <20251113081418.180557-1-maxime.chevallier@bootlin.com>
-	<20251113081418.180557-4-maxime.chevallier@bootlin.com>
+	<20251113081418.180557-16-maxime.chevallier@bootlin.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251118_191807_840306_6ED66E10 
+X-CRM114-Status: UNSURE (   9.63  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,41 +89,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 13 Nov 2025 09:14:05 +0100 Maxime Chevallier wrote:
-> --- a/include/linux/ethtool.h
-> +++ b/include/linux/ethtool.h
-> @@ -228,6 +228,10 @@ extern const struct link_mode_info link_mode_params[];
->  
->  extern const char ethtool_link_medium_names[][ETH_GSTRING_LEN];
->  
-> +#define ETHTOOL_MEDIUM_FIBER_BITS (BIT(ETHTOOL_LINK_MEDIUM_BASES) | \
-> +				   BIT(ETHTOOL_LINK_MEDIUM_BASEL) | \
-> +				   BIT(ETHTOOL_LINK_MEDIUM_BASEF))
+On Thu, 13 Nov 2025 09:14:17 +0100 Maxime Chevallier wrote:
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -9281,6 +9281,7 @@ F:	Documentation/devicetree/bindings/net/ethernet-connector.yaml
+>  F:	Documentation/devicetree/bindings/net/ethernet-phy.yaml
+>  F:	Documentation/devicetree/bindings/net/mdio*
+>  F:	Documentation/devicetree/bindings/net/qca,ar803x.yaml
+> +F:	Documentation/networking/phy-port.rst
 
-Hm, I think this is defined in uAPI as well?
-
->  static inline const char *phy_mediums(enum ethtool_link_medium medium)
->  {
->  	if (medium >= __ETHTOOL_LINK_MEDIUM_LAST)
-> @@ -236,6 +240,22 @@ static inline const char *phy_mediums(enum ethtool_link_medium medium)
->  	return ethtool_link_medium_names[medium];
->  }
->  
-> +static inline enum ethtool_link_medium ethtool_str_to_medium(const char *str)
-> +{
-> +	int i;
-> +
-> +	for (i = 0; i < __ETHTOOL_LINK_MEDIUM_LAST; i++)
-> +		if (!strcmp(phy_mediums(i), str))
-> +			return i;
-> +
-> +	return ETHTOOL_LINK_MEDIUM_NONE;
-> +}
-
-Same comment about possibly moving this elsewhere as on phy_mediums()
-
-> +static inline int ethtool_linkmode_n_pairs(unsigned int mode)
-> +{
-> +	return link_mode_params[mode].pairs;
-> +}
+I think you should add a MAINTAINERS entry like the one we have for
+NETWORKING [ETHTOOL PHY TOPOLOGY] no? Please include some keyword matches
+on the relevant driver-facing APIs if you can:)
 
