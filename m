@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47851CF3963
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 16:52:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1AE71CF3961
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 16:52:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n4dFT58MH7LYTjP/OR6IzhJHCQ4Ltj0sqe4eNZdg/oA=; b=aB6g5R+f3kPFC+lRBlEuE257AL
-	yTMcl4Tudnef6KRV+a7ujuvrwuc3gPFWv+W0OFozyLJqZdfCmYu5JQMsQMPKx1oTGgHn76vIjJOYH
-	El6wcGgXTcDHLfoKBC03pqbmRm9g8tJTs231QGUxCuvLbRimnSdIqhaevBHK0l8PhFHsbBIkZpsxE
-	A86dQnOvewA/Y/nZstq2xJ6V6+JG8xhm8Htfm46Tpr3Nx85Iusqi2n94s32REl8k7bs3QhZKj0OqP
-	Sykd83ZkkV8UWTy0MmZeBd21SSk0sxYTxmsqVu4tyVNrI0uRMffTxrg1IuH5gTvpKLSSOcvoYocrt
-	RSxk40QA==;
+	bh=ggrpKoOJDYW1dgaQrga1G14rp+gExMndXNkJ3hlK3Qo=; b=Q+X1Me9YG+COPYsY6i2FpkaFTN
+	kRAdP/qi3oIEHT014pVjRDK+X8vt/9QrfJaAQ+6wfmaS6o8XhHG011Q0YYnNqnlUScBzdMCyVe9oc
+	IYzcMkti4m40rBI32j0I5yhW5VRsYBhK/30flLDDwGXzMqIUeROPoOrsZtKi/ZPJHE3moGHk3hCQI
+	0W5MiCQ+3qH5sNN80fpFcbiGRHHqbv9KKJnB0Kp6mJCml+HvnRifJXiC15edu/1jkI58mOoekg9zC
+	8gfB1GrhvO6P9EI58/XVQWJjdb87RVJpuFMFYDp9SoBAG79YaoYmpuvt1vcnhaKtkJY32Z1milHWe
+	Lf1lBH/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLlPm-00000003kxE-3ow9;
-	Wed, 19 Nov 2025 16:52:18 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vLlPw-00000003lDI-3NBU;
+	Wed, 19 Nov 2025 16:52:28 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLlPh-00000003kqr-0MDf
+	id 1vLlPu-00000003l73-0vlP
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Nov 2025 16:52:16 +0000
+	Wed, 19 Nov 2025 16:52:26 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id AEB9D41981;
-	Wed, 19 Nov 2025 16:52:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BC04AC4CEF5;
-	Wed, 19 Nov 2025 16:52:08 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 94EDF6016B;
+	Wed, 19 Nov 2025 16:52:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 79C07C113D0;
+	Wed, 19 Nov 2025 16:52:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763571132;
-	bh=Os+tBdcRNnMldaZHL0II0bLpAzonGthp4S2yNOuQoUg=;
+	s=k20201202; t=1763571145;
+	bh=V41I1DdaKjoguYvIVU3vcsbbLpnEiJ795VwgA1QsjOI=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=cojMEqRSIAU7w+tNy6D9xFUwiPS1yYVrugtviu2Y5JDhLjMJnVkQWkdPKugNajVc+
-	 Jxw9rgOmpNNVL5ZsgbffP/RxHcQ1KY3DO+i57VImTyQixLk7Jz7QKarlKh6/+L/X2f
-	 6ek1N1gzIbbjgQ/7Q9kJXz6a1zpVuYsHG74m5VJkgow7FYnDe9ijlmJOq3M3mlBj7l
-	 nRkdSFDHMFfrHg8aMTAD/hX5OBlbNSC8AOpQeHErDhtLm2OAazIL1ynEybb2ciKZJ8
-	 iaZZmCPN86bGKsrmLxDE+791/Ulew30huDkqOvnXnbYq+33+gs5fpZYHrJMPsp1SUW
-	 WYE+HrUEKDiZQ==
+	b=X1x+spoCseQ8luypkccc2zgAdaDOvwmHEdakpVL0NfKN5uROO380pWkKo6zaw/rPH
+	 PywBLurv1m5oo41XMhUteOkFUJ9KDrd3cARd8llM+dQqwrYgEgFl686JKf8ge/NX2n
+	 qCF/loPK1nvmo3MZkmbCUER1D+k9mV8POEeNbFzdyYo81/FWkVp3MlOCWqWGquI8PH
+	 nIaBN4tc7K/F1eWPjk/UDyDISuZjJXieQhEejli8KCPOodwqP3HU0PeAKHwmoYptQ2
+	 1n5BM32Tzfzz/KE14vXkCvUJh2icNHn2FxHLcaWXlYOXMk5FNfrFgQPrWbayvcGs8s
+	 o1Dsmkosl66Eg==
 From: Jisheng Zhang <jszhang@kernel.org>
 To: Doug Berger <opendmb@gmail.com>,
 	Florian Fainelli <florian.fainelli@broadcom.com>,
@@ -65,17 +65,14 @@ Cc: linux-gpio@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	linux-omap@vger.kernel.org
-Subject: [PATCH v4 12/15] gpio: uniphier: Use modern PM macros
-Date: Thu, 20 Nov 2025 00:33:24 +0800
-Message-ID: <20251119163327.16306-13-jszhang@kernel.org>
+Subject: [PATCH v4 15/15] gpio: zynq: Use modern PM macros
+Date: Thu, 20 Nov 2025 00:33:27 +0800
+Message-ID: <20251119163327.16306-16-jszhang@kernel.org>
 X-Mailer: git-send-email 2.51.0
 In-Reply-To: <20251119163327.16306-1-jszhang@kernel.org>
 References: <20251119163327.16306-1-jszhang@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251119_085213_238157_5859469E 
-X-CRM114-Status: GOOD (  15.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,50 +94,70 @@ CONFIG_PM_SLEEP are disabled, without having to use __maybe_unused
 Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
 Acked-by: Linus Walleij <linus.walleij@linaro.org>
 ---
- drivers/gpio/gpio-uniphier.c | 9 ++++-----
- 1 file changed, 4 insertions(+), 5 deletions(-)
+ drivers/gpio/gpio-zynq.c | 15 +++++++--------
+ 1 file changed, 7 insertions(+), 8 deletions(-)
 
-diff --git a/drivers/gpio/gpio-uniphier.c b/drivers/gpio/gpio-uniphier.c
-index 197bb1d22b3c..0574dde5b5bb 100644
---- a/drivers/gpio/gpio-uniphier.c
-+++ b/drivers/gpio/gpio-uniphier.c
-@@ -426,7 +426,7 @@ static void uniphier_gpio_remove(struct platform_device *pdev)
- 	irq_domain_remove(priv->domain);
+diff --git a/drivers/gpio/gpio-zynq.c b/drivers/gpio/gpio-zynq.c
+index 0ffd76e8951f..97780c57ab56 100644
+--- a/drivers/gpio/gpio-zynq.c
++++ b/drivers/gpio/gpio-zynq.c
+@@ -735,7 +735,7 @@ static void zynq_gpio_restore_context(struct zynq_gpio *gpio)
+ 	}
  }
  
--static int __maybe_unused uniphier_gpio_suspend(struct device *dev)
-+static int uniphier_gpio_suspend(struct device *dev)
+-static int __maybe_unused zynq_gpio_suspend(struct device *dev)
++static int zynq_gpio_suspend(struct device *dev)
  {
- 	struct uniphier_gpio_priv *priv = dev_get_drvdata(dev);
- 	unsigned int nbanks = uniphier_gpio_get_nbanks(priv->chip.ngpio);
-@@ -448,7 +448,7 @@ static int __maybe_unused uniphier_gpio_suspend(struct device *dev)
+ 	struct zynq_gpio *gpio = dev_get_drvdata(dev);
+ 	struct irq_data *data = irq_get_irq_data(gpio->irq);
+@@ -756,7 +756,7 @@ static int __maybe_unused zynq_gpio_suspend(struct device *dev)
  	return 0;
  }
  
--static int __maybe_unused uniphier_gpio_resume(struct device *dev)
-+static int uniphier_gpio_resume(struct device *dev)
+-static int __maybe_unused zynq_gpio_resume(struct device *dev)
++static int zynq_gpio_resume(struct device *dev)
  {
- 	struct uniphier_gpio_priv *priv = dev_get_drvdata(dev);
- 	unsigned int nbanks = uniphier_gpio_get_nbanks(priv->chip.ngpio);
-@@ -473,8 +473,7 @@ static int __maybe_unused uniphier_gpio_resume(struct device *dev)
+ 	struct zynq_gpio *gpio = dev_get_drvdata(dev);
+ 	struct irq_data *data = irq_get_irq_data(gpio->irq);
+@@ -779,7 +779,7 @@ static int __maybe_unused zynq_gpio_resume(struct device *dev)
+ 	return 0;
  }
  
- static const struct dev_pm_ops uniphier_gpio_pm_ops = {
--	SET_LATE_SYSTEM_SLEEP_PM_OPS(uniphier_gpio_suspend,
--				     uniphier_gpio_resume)
-+	LATE_SYSTEM_SLEEP_PM_OPS(uniphier_gpio_suspend, uniphier_gpio_resume)
+-static int __maybe_unused zynq_gpio_runtime_suspend(struct device *dev)
++static int zynq_gpio_runtime_suspend(struct device *dev)
+ {
+ 	struct zynq_gpio *gpio = dev_get_drvdata(dev);
+ 
+@@ -788,7 +788,7 @@ static int __maybe_unused zynq_gpio_runtime_suspend(struct device *dev)
+ 	return 0;
+ }
+ 
+-static int __maybe_unused zynq_gpio_runtime_resume(struct device *dev)
++static int zynq_gpio_runtime_resume(struct device *dev)
+ {
+ 	struct zynq_gpio *gpio = dev_get_drvdata(dev);
+ 
+@@ -814,9 +814,8 @@ static void zynq_gpio_free(struct gpio_chip *chip, unsigned int offset)
+ }
+ 
+ static const struct dev_pm_ops zynq_gpio_dev_pm_ops = {
+-	SET_SYSTEM_SLEEP_PM_OPS(zynq_gpio_suspend, zynq_gpio_resume)
+-	SET_RUNTIME_PM_OPS(zynq_gpio_runtime_suspend,
+-			   zynq_gpio_runtime_resume, NULL)
++	SYSTEM_SLEEP_PM_OPS(zynq_gpio_suspend, zynq_gpio_resume)
++	RUNTIME_PM_OPS(zynq_gpio_runtime_suspend, zynq_gpio_runtime_resume, NULL)
  };
  
- static const struct of_device_id uniphier_gpio_match[] = {
-@@ -489,7 +488,7 @@ static struct platform_driver uniphier_gpio_driver = {
- 	.driver = {
- 		.name = "uniphier-gpio",
- 		.of_match_table = uniphier_gpio_match,
--		.pm = &uniphier_gpio_pm_ops,
-+		.pm = pm_sleep_ptr(&uniphier_gpio_pm_ops),
+ static const struct zynq_platform_data versal_gpio_def = {
+@@ -1022,7 +1021,7 @@ static void zynq_gpio_remove(struct platform_device *pdev)
+ static struct platform_driver zynq_gpio_driver = {
+ 	.driver	= {
+ 		.name = DRIVER_NAME,
+-		.pm = &zynq_gpio_dev_pm_ops,
++		.pm = pm_ptr(&zynq_gpio_dev_pm_ops),
+ 		.of_match_table = zynq_gpio_of_match,
  	},
- };
- module_platform_driver(uniphier_gpio_driver);
+ 	.probe = zynq_gpio_probe,
 -- 
 2.51.0
 
