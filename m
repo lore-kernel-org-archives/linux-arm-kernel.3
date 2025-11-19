@@ -4,64 +4,176 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CCF9CF2579
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 04:35:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 235E1CF256C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 04:43:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Wn8xaDCsAATBL10km/g3TiBjGhEDjpxy/9SGKzuLoiY=; b=SsMkl8ePXERWutAWdWVzQblQF3
-	Gam8vakmFz4tCXzA1VpUNqrF0YUKArBvfFq8ms0qBs9Yo1VjRkKh78sHLVfVRT1ncJ/9U8cVkot7Q
-	YMwrcMMT2wH0sa55BYYZ1I8C/1iCse687WBaTH6o+v7WnD7nnC73oPjiiDIRd+nV5LTuY7AqopDDi
-	xVJ72mL0D4MHTvfPnOZn5Bjn2GUOUmQS3x56fYaaj3SuLlx5B9IrN8j0+8XlBhb7TIaIgolsW0II2
-	fGwjAwbJFy82+q1wL8vvn+mJrvxMM/yW07OL9Laxj/ZNJG/YmFlUttoR4JGD/0lS/xaMyBfTTWCQJ
-	ZgUQomww==;
+	bh=XuloGZAySrQajfJtFknr8OdjmauC9Z6UZLTomQH299M=; b=vhBLG5lI1vZCwBiOd+AYm4Oe8q
+	IYGe614Vr0UBn2ZQR50wxhU9/VTf54JkEHyWMbHl0GL3wHS33ssYR4lcwB+k0JzObMvDLuRvN9FXm
+	liiBzD3nDpxz9d3JbFwqcKllYrL8AjliQ9V1SowBwyip7f9KjgWQ68mGj/YUF1LosmNg1nnrBQ43h
+	g8m8Df/z5xryq6frMfSqEjcBNhZ/7yXcDp4QWBTvNgf76+tVC7N4FAT6+q21nKPFK30K2OAEoRidB
+	FwB23YRk1jmXzbd1s+r72mhWoAzhfheXRHXhsZkDp7V7jFN7mQnK25I0pp4XoLksOvk23DvaAbMNC
+	EbFue7Ag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLZuc-00000001osy-1jSD;
-	Wed, 19 Nov 2025 04:35:22 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1vLa2T-00000001sZJ-1PSD;
+	Wed, 19 Nov 2025 04:43:29 +0000
+Received: from mail-eastusazon11012044.outbound.protection.outlook.com ([52.101.53.44] helo=BL0PR03CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLZua-00000001ory-1jSV
+	id 1vLa2Q-00000001sYo-2qfn
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Nov 2025 04:35:21 +0000
-Received: from pendragon.ideasonboard.com (unknown [205.220.129.225])
-	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 14E9EB5;
-	Wed, 19 Nov 2025 05:33:12 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1763526795;
-	bh=J5moTwiTxXOfuPBOlB1FvexbUDCLvBsjPBhAeKd7XO4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=pW8dqBlCRTLwl4+7oKJAJYj+vbmdRGOjWy04Ez/Slz/refbqx64HU/eMXuPicXxXG
-	 ctz5wvrwy7IhkY5n7hLu6xd17HzAVkF9CcR0+y8U5SdGcbzC3COkAHuKjyt9uEzEK9
-	 FzPc69GC9LL8IY+mXbldtyPu9oD2tcnhnHh8+sEQ=
-Date: Wed, 19 Nov 2025 13:34:51 +0900
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Frank Li <Frank.Li@nxp.com>
-Cc: Steve Longerbeam <slongerbeam@gmail.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, imx@lists.linux.dev,
-	linux-media@vger.kernel.org, linux-staging@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 1/5] media: staging: media: imx6-mipi-csi2: replace
- spaces with tabs for alignment
-Message-ID: <20251119043451.GA11519@pendragon.ideasonboard.com>
-References: <20251111-stage-csi2-cleanup-v2-0-371bb951776f@nxp.com>
- <20251111-stage-csi2-cleanup-v2-1-371bb951776f@nxp.com>
+	Wed, 19 Nov 2025 04:43:27 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=sU2sYg4ofrO3sHyfNStfyvE/eSSiGFzD7s+SLkKBVw0AKtKECO3SKNt2fFVYhAjzkHyEe+59m4h8YF/kRE8DnGD+naNw5NYbC3QWGQYY/eMz9WZPLK442a0z6zndeYkiyiyWj6VbT9T4MBNbMER8FUAtCImNIhsip73BGeZkjQjWQd2jzIdUgTMqM75axX3xWMADXQTbwa4WDH2Np2F0jWSg3Q6s7pn1TuHoSM1JTMbUD5YTJD/mZB7DlbmRR01LlhyO5gN10RjCK0M93UYFPssWiDafHGslxT08I0nArv3JuEqc69gu2pb+Fn1IKAV2qt84d/Dz9oSLTKE8+Oh9Bg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=XuloGZAySrQajfJtFknr8OdjmauC9Z6UZLTomQH299M=;
+ b=vwssY9SjrdT0M+BeFA2j/vbShZMECkJyftQ/YZr6ybDgOeK+lbEdCHv3Z5YGVood7LbRyrb3wlDYWV9wEDIk+EjglVJTif/68wqeCH9BdYc4Um6r+iSfxuKJG3Ry3oSDfmKBuYPFZF9iTe9cRKBASvb7zoXVN5aVpAwQ8eVmXregE1WiNyJWwI6BgcZ17ZKX0yrd1GA5hy2C6vzVxut/bpk8rgfqNoS0SjjK+a+2gRxgVd9NMotnF+HJuFkDbdmPr29q5XNXbIdDquGUsOazm9aWM76Z3mV4QGp/NEqfOAbg8TRMA8CHswMocvpcTcC6bpEFuKRlQ+5iAG7y7wA0Aw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=XuloGZAySrQajfJtFknr8OdjmauC9Z6UZLTomQH299M=;
+ b=KOFVuKZJLdDBnnlXqEzpPky4xMTtEwl0MqDDAQKvPkW/AmsLpcTFckZ8k9aGrqU/yT1STugmvlNqcDSjkIk+eIYEhuFc/WUYZgLGigoFy5y3CCPKiLIWPy1311ytz2fuTjcgO6wKcGDQ+TZ8VlE07ScFlbiYulb1vVpy8BcgL+XPVM6fF3sQO8LgyDFz0AFx+5MEdr/b6upyCl5RDlixDcmaiPphEHxaYiuOuwTxOJFZeMQpHkMkTKBsekwbJMBMZn0w3cYsdaYjBn4Il2fOhtD8XwZnGEowdd37yrK+ji8FKjsvBMcDCMR/r7No2Var+w2zv01L4iP+ypEM2Whhvw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from DM6PR12MB2667.namprd12.prod.outlook.com (2603:10b6:5:42::28) by
+ SA0PR12MB4399.namprd12.prod.outlook.com (2603:10b6:806:98::17) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9343.10; Wed, 19 Nov 2025 04:43:21 +0000
+Received: from DM6PR12MB2667.namprd12.prod.outlook.com
+ ([fe80::bd88:b883:813d:54a2]) by DM6PR12MB2667.namprd12.prod.outlook.com
+ ([fe80::bd88:b883:813d:54a2%6]) with mapi id 15.20.9275.015; Wed, 19 Nov 2025
+ 04:43:21 +0000
+Message-ID: <374ff89c-046e-4c23-a087-05b20ff758f5@nvidia.com>
+Date: Tue, 18 Nov 2025 20:43:18 -0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 27/34] arm_mpam: Track bandwidth counter state for
+ power management
+To: Ben Horgan <ben.horgan@arm.com>, james.morse@arm.com
+Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
+ baolin.wang@linux.alibaba.com, bobo.shaobowang@huawei.com,
+ carl@os.amperecomputing.com, catalin.marinas@arm.com, dakr@kernel.org,
+ dave.martin@arm.com, david@redhat.com, dfustini@baylibre.com,
+ gregkh@linuxfoundation.org, gshan@redhat.com, guohanjun@huawei.com,
+ jeremy.linton@arm.com, jonathan.cameron@huawei.com, kobak@nvidia.com,
+ lcherian@marvell.com, lenb@kernel.org, linux-acpi@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ lpieralisi@kernel.org, peternewman@google.com, quic_jiles@quicinc.com,
+ rafael@kernel.org, robh@kernel.org, rohit.mathew@arm.com,
+ scott@os.amperecomputing.com, sdonthineni@nvidia.com, sudeep.holla@arm.com,
+ tan.shaopeng@fujitsu.com, will@kernel.org, xhao@linux.alibaba.com,
+ Zeng Heng <zengheng4@huawei.com>, Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
+References: <20251117170014.4113754-1-ben.horgan@arm.com>
+ <20251117170014.4113754-28-ben.horgan@arm.com>
+Content-Language: en-US
+From: Fenghua Yu <fenghuay@nvidia.com>
+In-Reply-To: <20251117170014.4113754-28-ben.horgan@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: BYAPR02CA0033.namprd02.prod.outlook.com
+ (2603:10b6:a02:ee::46) To DM6PR12MB2667.namprd12.prod.outlook.com
+ (2603:10b6:5:42::28)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20251111-stage-csi2-cleanup-v2-1-371bb951776f@nxp.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DM6PR12MB2667:EE_|SA0PR12MB4399:EE_
+X-MS-Office365-Filtering-Correlation-Id: 487fa6d1-9185-47ab-478b-08de27262ab8
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014|7053199007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?YnBJU0tBVTF1Rm5Ca21XUWVKWVVXT0NUb2lISDREN1VXM0N4WlA0c21zWUF4?=
+ =?utf-8?B?UVZBdVZTeUtzZjg3aFNtUjRjSUp3WnZScDgraDdiQVhwRnlFYTA0VFhra1pR?=
+ =?utf-8?B?ZGRxUHVFa1EwSW5CblRrbTBGZlZlQUdVVGFFRWlTcVRCWmk1dFJEcko4SjFz?=
+ =?utf-8?B?Vk13SnlJVUdxQ2JjcVZodytpWG0zOURGWjlLc3ovWGxnY0lvbnAzeUErMU14?=
+ =?utf-8?B?VXk5VDhhTlV2dENOSnFtemZWRkZvTnJqSk8wTis5SG52d0JaY1NUMW1ueUJq?=
+ =?utf-8?B?eEpnMkdmd25hTHdHZlc1TWNJc25sUW5KdHQ5Tzl3a0g1a3B5ODUrYUZTTThB?=
+ =?utf-8?B?aEEzdnJqdHB2SEsvT2pNMDVIdkwyd2REOWM5empaY1dsalBkTW5CN0FabVhH?=
+ =?utf-8?B?YTVZUFBoeUVtUkF2QjJwdm9pTU55QmM4U09KT3RmMUJVODYyb29mT0s4Nm9u?=
+ =?utf-8?B?YVlRVVRtaWt0OVpBcnpBSkE5NkwvWm9TOEdFbzgvQWtxRzcwQ3E2bVd3dHVW?=
+ =?utf-8?B?dytJRFRrd2pYSk1VTWcxTzE4aU9iOWlRUDBZYStZSkxGTTdvSDRocHpCYnB1?=
+ =?utf-8?B?VzltMFRjMXRNOVR1NG1xeEx4QkZ2dFFncUJscTlFT0x5Qi9nUnRqaml0OUJN?=
+ =?utf-8?B?eFhkVTZpTUswUmxmcnF5V0lHOW5XZWtFQ09IMWxXY1JUOWQ3Z1ZEam04RFlN?=
+ =?utf-8?B?NTQ3ZzhyOHRVaEZoNTFPRkVLMExyV3ZXdlpCd3dFV0ZRM0hDU3RYS1dYQVMr?=
+ =?utf-8?B?WWE1OXBnSUlKdk0yaG9DM3lWcWtudTZDeGV4cTlQQ1VTZ1ZOOXQ0VWw3VS9v?=
+ =?utf-8?B?ak9SZ1Vld3IvN0N4eUxxcStraURIbHFseUMxWkpmS0RIWk9IYTBydHV3cFJQ?=
+ =?utf-8?B?R0NvTkpBRTA3WElMcjQxZE9ld3dibGswT1drd2l6ODZnQVBDR0c0SXFhSDhp?=
+ =?utf-8?B?SUR4UGFOQW1neUJFaWRQK0REdytpbi9oQ2NMbkttdzZVYnBDUGx1YlQvd0lr?=
+ =?utf-8?B?VDRsRU1iM091S0tPbDlwQW9tYi94S3A4c1pVTEtsTThlQ2ltYzBnY1ZIbDQ5?=
+ =?utf-8?B?eTFvWm9GS3FZZWYvV0pTWDd4NlYwVWVJalBYL093c1hKczh2NjlCOW9tK0Fw?=
+ =?utf-8?B?VzA2Z1AzekJ4b3R4d0RYRmZjOWozREp3MDM5T1pPS3RMZzE2bzRnRCs1dzNV?=
+ =?utf-8?B?UTcwZGRESlhuTDRZT0NLbnltQnJHMHBsQzRkZ3I5VHc1UHBsVXd1VVQ1RUtD?=
+ =?utf-8?B?THN6UFdiL0JMSmExRnNFcDljeXZEUURzZGx0L3BjMHlaU09tVHk5bERDYmNj?=
+ =?utf-8?B?ZHNjZnREU05pbkVWTlZkUzVkR0N0L1l5RzFMOFozbStBWTltNEYrZFdFRXB1?=
+ =?utf-8?B?QmxKY2N2V1o2UkMxa0lLV0dkWkgwUEJhakR6TS9WSVVOektad1B1RitJUHdE?=
+ =?utf-8?B?UGxFZWZ0cjhTdXdaSUsvenA0dUMvV3l0dW9yN1FxRzJrTmhMaVQ4RFlmaUg0?=
+ =?utf-8?B?ZTR1UHpyaFFmTGtkcmFySFRIc3J5NEg0clRwQ3pWd0hFcUhGeGkvb0VaOG9U?=
+ =?utf-8?B?TEtQNW9FN2xhdjlqd2tYamZ3eGFXTlVrangxZ0NveTdGSEhBRXhvY21mdFZu?=
+ =?utf-8?B?QitNeWhiYlo4Y250cEwzUHZCL3o1R0ppSk5FS0lFM3JlU3hPcEg4elcrMzZs?=
+ =?utf-8?B?RHl1MEV2L1htR3VYa3l3SHFldjd4bzUzOFcva1VBWTdid0RaS25IRGpGcUJG?=
+ =?utf-8?B?SkFCSXlod2xuR2MzTjEySUJuVjVpL2RwMzZQS0I4bU40TmN1MTBFSm9UcENn?=
+ =?utf-8?B?YWd6Q3lXL0pxZUplanRwVllKclJyWlB3TkxJN1Bjc1NVQTQxcVZOSlpJSmND?=
+ =?utf-8?B?TlU2c1dDcHA0bFpSY0NXSWo5L3F4MnN0RFg4ZVJ4U0NxVWdrSXNOK1RaYWlp?=
+ =?utf-8?Q?8tHRupm6PCAx8wOJpINxLmLXNaeY/x6E?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM6PR12MB2667.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?MHk4MEkwNVZEOXlsK0hQaFpPOU1sbWMzdmRTeXBDdVNSSWZSeGpuVDliOHdW?=
+ =?utf-8?B?eERrbXJYZWFpNHk2azRFTk8wdG5ZWjRxM0FVMlVCVlFic2xySFRGcUxkeDlt?=
+ =?utf-8?B?WkpGaDJ3cGJkekVvSWhZZjllS0J2YW1VV1QrQ3VUeERGQUlicXhjZytQMGlm?=
+ =?utf-8?B?QU9hYXdmVjcwRFpyTEhVcGVNMHRqMERkVzdaQVB4OUdOczhXR3BEb1lsaGNh?=
+ =?utf-8?B?K0xsWEVvaEJJUVJsbnBvU3NLZ1YzZWRldFJvVG5xaVdtZ1lNbm5zbWVjMmhy?=
+ =?utf-8?B?T2h6RTFpZW5EVXlwWTVVSGkyblJWRW1DZ0ZsQXpJVDNySXpzNW0reW1oM0lM?=
+ =?utf-8?B?NTh1SE0vRU8zQi9TTnd4Tk5UZW5TbmhWYXdVUDl5TWZYMWJQMDV3ZUh0dlRF?=
+ =?utf-8?B?Q1Y0SlV0RTNPRnYxMnNCd25jajhvZVEreEI2TjFoc0JiUXVENTl0M1l5K0dQ?=
+ =?utf-8?B?R0NubHA3V20vM2ZXdHN3Y2hhdGVOOXlqekIwTEZGaEZzekV2WmY1VnlyVUdp?=
+ =?utf-8?B?L25rekU3dXVOYi9WMHFMN0xrN3haQXdJbE9yWmVSY1B0M05SRWdlSEtlWkpH?=
+ =?utf-8?B?UURvbnVhZExkeURhVjR5ODhEVGxEUFY2WHIzR3VwTlFzcTJsYUw2alB1WGJa?=
+ =?utf-8?B?REMzTGQ0U0ZQZXhvN096VXdnUkU3VlFMM3VBVVpzeDNTMEJrQWNkS2ltTWRu?=
+ =?utf-8?B?NDhNc25COEplT1ZJRG1aRnk1Zko3T1hucmZZK1pzazVVcHVTWmNTaVdIVWxZ?=
+ =?utf-8?B?NWlVZ25MZGdxeEpjenBLdFVDRVRNcUdVQy84RnRnc2RTUU5rSFJNamhWVTFu?=
+ =?utf-8?B?RmNtWG5SYnRpcUxGR09aOWdxZW1hMWRmMTh6V2s1cFFHNlhSMWpKT1Mwdk00?=
+ =?utf-8?B?TWorTkZETXliWm5KYktkSUVqZHh2RW00bmtBaHRUNDFKeUdyNGhLQXBiaXJR?=
+ =?utf-8?B?VDRkUFpncVorVjNFWjhnV1NTaGZzQzg1KzBuRXZYV0pmVGE0S1JDL3RDZDl2?=
+ =?utf-8?B?VlBtYVJINUZuODJOSWJXa2FDZjE4b2hnWmZEQVBaQVNaenFlZFFHQkFnU2g5?=
+ =?utf-8?B?Sko5SktTV0hvWkVMMTNVOUMwOFhBU1FVQWMrdW5adlhYVjRjZWJEdEFUR3d1?=
+ =?utf-8?B?cU9ZTTZ5VjhqK2FjdzdiSEh2cHRHTEsvNng3MTkzU1VSNENwNWFRRnUvdDR6?=
+ =?utf-8?B?dUVORVh0OXVlTGJHbWZyMk5yRWtXejdOczJZMVdGeVoydWl2UDhsV1VMMnZY?=
+ =?utf-8?B?ZDlZTytBSDVtaFBxZlROUDhFZUd0cVVXdnBid0wvM3d5Zis3TUR5VGtpMEJD?=
+ =?utf-8?B?QnRPR0ZxSFJuYXdWRktPcVZXM0tsN2Z3bStDa3Y0R0R1N0ZyRkdLdWZQL3kr?=
+ =?utf-8?B?K1pxbWpjdURCUGt6c0JMcWlZOGM3aWJRQ3JSZlR5ZkZnbDVzRXlsTXlITGxI?=
+ =?utf-8?B?R2I2Wjg1K1B2cXVMK3VETW5ldDdMTkpLbHVjc3EwMEs5eHBQN1p3RmdRZmNz?=
+ =?utf-8?B?R2dYN1pDNTBWREVBQWpOT1lkM0t3aHVWVmtKWkZUWWtMcjhEWlFEaHRFWDk4?=
+ =?utf-8?B?STRjV3plU2pidXk1d3VDamptcDA0cmVBaTNzbkJtNFBkOWp3eThnMFY2eVBI?=
+ =?utf-8?B?Qm9tRHRZU0pXaWpVMFhDSXM2ZHJCYXhTTEEwSEVIaWZlMDVtUzlLTDZqNkJz?=
+ =?utf-8?B?RHdUck8rc2RtZGswYXdKYlk1OVdKelFXd0ZCOVlJbG9WTDU3eFoyMkJvaUt3?=
+ =?utf-8?B?WnMxaWFuOUl1alE4ekRYTXRwYWNhSThURVpOQ2U0b2NHVXFhNGtWNGk2Si95?=
+ =?utf-8?B?bThGdkRzZ1o1OVJNeUZJVm5ZQ1JBMzAvSSt6MEhjVnpmOVF3ZDNZR2lTQXVR?=
+ =?utf-8?B?cWh0WEtxUGNOOW9jWDF2NjlVVmdXSGFFR3V3M2VKMGM5NTBMaUIzYlp2OUNu?=
+ =?utf-8?B?Y1NXQ2ZlWWVoY0I4dGU5SVZZbmJZb1dEaWJUNWY3TVBGMjBuS01WVUp2cUh6?=
+ =?utf-8?B?Nk12a3RwVW5Vdm1LcmhtcTZ5ek5ld0N6MTdvRzVxU2ZSbHhhNC8rcWJaR3Vp?=
+ =?utf-8?B?Q1V2eE4vYU1kOWJycmM3ekc1YnFTV0p6ekY2S1ZpRm5yVG9KWElaalhsWFdl?=
+ =?utf-8?Q?TH4+BwcyXdHFh1SY+qvy/8gBv?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 487fa6d1-9185-47ab-478b-08de27262ab8
+X-MS-Exchange-CrossTenant-AuthSource: DM6PR12MB2667.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Nov 2025 04:43:21.3983
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: VPrT0ZUWLlXQCxQ7LNmHOmULQpeROP9VktUR/jII0GW+D1RTSwDqdPCHwC6khSEzJu7hVVn+ShxfzMBLj8t95A==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA0PR12MB4399
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251118_203520_596206_A1D3E306 
-X-CRM114-Status: GOOD (  24.96  )
+X-CRM114-CacheID: sfid-20251118_204326_729846_9529FBF4 
+X-CRM114-Status: UNSURE (   8.81  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,154 +188,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 11, 2025 at 04:42:13PM -0500, Frank Li wrote:
-> Replace spaces with tabs to align register value definitions, making it
-> easier to add new entries and maintain consistent formatting.
-> 
-> Also use a space between the type and field in struct csi2_dev.
-> 
-> No functional change.
-> 
-> Signed-off-by: Frank Li <Frank.Li@nxp.com>
 
-Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
 
-> ---
-> changes in v2
-> - struct use one space between type and field name.
-> ---
->  drivers/staging/media/imx/imx6-mipi-csi2.c | 84 +++++++++++++++---------------
->  1 file changed, 42 insertions(+), 42 deletions(-)
+On 11/17/25 09:00, Ben Horgan wrote:
+> From: James Morse <james.morse@arm.com>
 > 
-> diff --git a/drivers/staging/media/imx/imx6-mipi-csi2.c b/drivers/staging/media/imx/imx6-mipi-csi2.c
-> index dd8c7b3233bccfc34b59e0f0ff813b36752e1526..1113ea2a37f03753423164069b95c049968cc0af 100644
-> --- a/drivers/staging/media/imx/imx6-mipi-csi2.c
-> +++ b/drivers/staging/media/imx/imx6-mipi-csi2.c
-> @@ -23,65 +23,65 @@
->   * there must be 5 pads: 1 input pad from sensor, and
->   * the 4 virtual channel output pads
->   */
-> -#define CSI2_SINK_PAD       0
-> -#define CSI2_NUM_SINK_PADS  1
-> -#define CSI2_NUM_SRC_PADS   4
-> -#define CSI2_NUM_PADS       5
-> +#define CSI2_SINK_PAD		0
-> +#define CSI2_NUM_SINK_PADS	1
-> +#define CSI2_NUM_SRC_PADS	4
-> +#define CSI2_NUM_PADS		5
->  
->  /*
->   * The default maximum bit-rate per lane in Mbps, if the
->   * source subdev does not provide V4L2_CID_LINK_FREQ.
->   */
-> -#define CSI2_DEFAULT_MAX_MBPS 849
-> +#define CSI2_DEFAULT_MAX_MBPS	849
->  
->  struct csi2_dev {
-> -	struct device          *dev;
-> -	struct v4l2_subdev      sd;
-> +	struct device *dev;
-> +	struct v4l2_subdev sd;
->  	struct v4l2_async_notifier notifier;
-> -	struct media_pad       pad[CSI2_NUM_PADS];
-> -	struct clk             *dphy_clk;
-> -	struct clk             *pllref_clk;
-> -	struct clk             *pix_clk; /* what is this? */
-> -	void __iomem           *base;
-> +	struct media_pad pad[CSI2_NUM_PADS];
-> +	struct clk *dphy_clk;
-> +	struct clk *pllref_clk;
-> +	struct clk *pix_clk; /* what is this? */
-> +	void __iomem *base;
->  
-> -	struct v4l2_subdev	*remote;
-> -	unsigned int		remote_pad;
-> -	unsigned short		data_lanes;
-> +	struct v4l2_subdev *remote;
-> +	unsigned int remote_pad;
-> +	unsigned short data_lanes;
->  
->  	/* lock to protect all members below */
->  	struct mutex lock;
->  
->  	struct v4l2_mbus_framefmt format_mbus;
->  
-> -	int                     stream_count;
-> -	struct v4l2_subdev      *src_sd;
-> -	bool                    sink_linked[CSI2_NUM_SRC_PADS];
-> +	int stream_count;
-> +	struct v4l2_subdev *src_sd;
-> +	bool sink_linked[CSI2_NUM_SRC_PADS];
->  };
->  
->  #define DEVICE_NAME "imx6-mipi-csi2"
->  
->  /* Register offsets */
-> -#define CSI2_VERSION            0x000
-> -#define CSI2_N_LANES            0x004
-> -#define CSI2_PHY_SHUTDOWNZ      0x008
-> -#define CSI2_DPHY_RSTZ          0x00c
-> -#define CSI2_RESETN             0x010
-> -#define CSI2_PHY_STATE          0x014
-> -#define PHY_STOPSTATEDATA_BIT   4
-> -#define PHY_STOPSTATEDATA(n)    BIT(PHY_STOPSTATEDATA_BIT + (n))
-> -#define PHY_RXCLKACTIVEHS       BIT(8)
-> -#define PHY_RXULPSCLKNOT        BIT(9)
-> -#define PHY_STOPSTATECLK        BIT(10)
-> -#define CSI2_DATA_IDS_1         0x018
-> -#define CSI2_DATA_IDS_2         0x01c
-> -#define CSI2_ERR1               0x020
-> -#define CSI2_ERR2               0x024
-> -#define CSI2_MSK1               0x028
-> -#define CSI2_MSK2               0x02c
-> -#define CSI2_PHY_TST_CTRL0      0x030
-> +#define CSI2_VERSION		0x000
-> +#define CSI2_N_LANES		0x004
-> +#define CSI2_PHY_SHUTDOWNZ	0x008
-> +#define CSI2_DPHY_RSTZ		0x00c
-> +#define CSI2_RESETN		0x010
-> +#define CSI2_PHY_STATE		0x014
-> +#define PHY_STOPSTATEDATA_BIT	4
-> +#define PHY_STOPSTATEDATA(n)	BIT(PHY_STOPSTATEDATA_BIT + (n))
-> +#define PHY_RXCLKACTIVEHS	BIT(8)
-> +#define PHY_RXULPSCLKNOT	BIT(9)
-> +#define PHY_STOPSTATECLK	BIT(10)
-> +#define CSI2_DATA_IDS_1		0x018
-> +#define CSI2_DATA_IDS_2		0x01c
-> +#define CSI2_ERR1		0x020
-> +#define CSI2_ERR2		0x024
-> +#define CSI2_MSK1		0x028
-> +#define CSI2_MSK2		0x02c
-> +#define CSI2_PHY_TST_CTRL0	0x030
->  #define PHY_TESTCLR		BIT(0)
->  #define PHY_TESTCLK		BIT(1)
-> -#define CSI2_PHY_TST_CTRL1      0x034
-> +#define CSI2_PHY_TST_CTRL1	0x034
->  #define PHY_TESTEN		BIT(16)
->  /*
->   * i.MX CSI2IPU Gasket registers follow. The CSI2IPU gasket is
-> @@ -106,13 +106,13 @@ static inline struct csi2_dev *notifier_to_dev(struct v4l2_async_notifier *n)
->   * reference manual is as follows:
->   *
->   * 1. Deassert presetn signal (global reset).
-> - *        It's not clear what this "global reset" signal is (maybe APB
-> - *        global reset), but in any case this step would be probably
-> - *        be carried out during driver load in csi2_probe().
-> + *	It's not clear what this "global reset" signal is (maybe APB
-> + *	global reset), but in any case this step would be probably
-> + *	be carried out during driver load in csi2_probe().
->   *
->   * 2. Configure MIPI Camera Sensor to put all Tx lanes in LP-11 state.
-> - *        This must be carried out by the MIPI sensor's s_power(ON) subdev
-> - *        op.
-> + *	This must be carried out by the MIPI sensor's s_power(ON) subdev
-> + *	op.
->   *
->   * 3. D-PHY initialization.
->   * 4. CSI2 Controller programming (Set N_LANES, deassert PHY_SHUTDOWNZ,
+> Bandwidth counters need to run continuously to correctly reflect the
+> bandwidth.
+> 
+> Save the counter state when the hardware is reset due to CPU hotplug.
+> Add struct mbwu_state to track the bandwidth counter. Support for
+> tracking overflow with the same structure will be added in a
+> subsequent commit.
+> 
+> Cc: Zeng Heng <zengheng4@huawei.com>
+> Reviewed-by: Gavin Shan <gshan@redhat.com>
+> Reviewed-by: Zeng Heng <zengheng4@huawei.com>
+> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+> Tested-by: Carl Worth <carl@os.amperecomputing.com>
+> Tested-by: Gavin Shan <gshan@redhat.com>
+> Tested-by: Zeng Heng <zengheng4@huawei.com>
+> Tested-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
+> Signed-off-by: James Morse <james.morse@arm.com>
+> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
 
--- 
-Regards,
+Reviewed-by: Fenghua Yu <fenghuay@nvidia.com>
 
-Laurent Pinchart
+Thanks.
+
+-Fenghua
 
