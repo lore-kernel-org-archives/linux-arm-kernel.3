@@ -4,91 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E125FCF34DA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 15:43:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F347CF34DE
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 15:44:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qKdLqYFKcR0Ssvd81vhbWTn7XyXVhMB6X/CIK4YAmJ8=; b=J0ahn0DE68HvexJLlQPgqVDWTj
-	KfVHXSPKCgIobHY0h+xWxiKiy+lCHypUG5CZwV5NJnEVqvSMjDNNnwgcZLbCYRWMgPj9m7KW9CP12
-	bb9CU/D7wCenJbfy2pP3Vq/tK6V9PrqFFb5mbsSyCazvmeOVjDtRC2aXwpbYZulAtLxsXl7dsxFev
-	Z94R6m+sI6Qja9w4+Onxwaj28eG8AvEEDzOsbtPxQQ0FbqOV0A8h7rdBs1z1OeFefOvWOHjI9XBj7
-	JwgJHQVWq+gVstOPcVEM2sm/pdu/VUZp7u00hZeggIJyeWbO/ApRbRvR5kK+MRr3zLauYyX7Xy+vJ
-	SG6ZNDWw==;
+	bh=oYiXKB+wKqmGXsKtjzbX0EyyUPk2NXeeSORpp70fJhg=; b=3VsME8BleNqhmZvg8Pb+jq9lhf
+	C/4syhHhfmlHZItu3Fr9h778gP+/cXdmTbq6tvl93Pv4KYA9efpKOTqTvpKT1qB6Ys4XM8XOKOqJm
+	vCYVei61+SzIpcoXPvE1soTu/9b1jzqNtP03tkxWxWF5MPWXZoV8t+evAn0XTc/seW7emerHokgWb
+	tAPMCKz8hPqf1h3Od0lXTtAx3hchhnHADUVxfMAr8X77RuthN1JXKt9wakjKaMlNHM0EkOJguZ0hE
+	YO9YT6cxtLegSAekhVP2a8RBmgk4/Ecc7dhVEE8e+vSKqD/EVfEqYcx/7umuXADhzWGis/qBhkvn6
+	ot1BqJLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLkKt-00000003VaT-1Chu;
-	Wed, 19 Nov 2025 15:43:11 +0000
-Received: from mgamail.intel.com ([198.175.65.21])
+	id 1vLkMB-00000003VlV-3G5c;
+	Wed, 19 Nov 2025 15:44:31 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLkKr-00000003VZn-03Oh
+	id 1vLkMA-00000003Vky-02hw
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Nov 2025 15:43:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1763566989; x=1795102989;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=0RZPFAONQ4eeFMXT+CMJvWTBqEYsuVS8uhy75HjL4yU=;
-  b=CGIybMezIFbauPcT8PdFssHXyfH5HiLc1KxgQlX1Ct60ZbybyIMywKpA
-   TrNNvtSWZz8T3iwT9cGCRBZxsoaYGnU7wXIFDE/swqKeNalQMSx/11Y5D
-   uAKJwW9p0uSrR4dSEoLo46d0p7bWdkTmCPuPOuFpomzNaRXDsmfdHd2j9
-   5O9MQDgQUg+TtoG4J/1NtkA7O5Cd9D8nGH3DBzVtHamDEkHof0v2c2Ey3
-   ++/C85d/05UDVSlSzTcuSHERt6b0nIupMFvX4XnZs6zb7PCGnmh7K0zGg
-   iXmGVfYsKtim/+h+UHb1zcmYMv+A+xkmq7uwDFCno47n+wtvSV4yGPl3V
-   Q==;
-X-CSE-ConnectionGUID: QJQMbM1PSMeuaN92qxcp8g==
-X-CSE-MsgGUID: b57D4BdzRWy+GkdkDoro4Q==
-X-IronPort-AV: E=McAfee;i="6800,10657,11618"; a="65546335"
-X-IronPort-AV: E=Sophos;i="6.19,315,1754982000"; 
-   d="scan'208";a="65546335"
-Received: from orviesa007.jf.intel.com ([10.64.159.147])
-  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2025 07:43:06 -0800
-X-CSE-ConnectionGUID: r4NEVHUqRaW1JBPgUKX4DQ==
-X-CSE-MsgGUID: lkuTqTpcSSuluJvpOUgoPw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.19,315,1754982000"; 
-   d="scan'208";a="191126714"
-Received: from rvuia-mobl.ger.corp.intel.com (HELO localhost) ([10.245.245.245])
-  by orviesa007-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2025 07:43:01 -0800
-Date: Wed, 19 Nov 2025 17:42:59 +0200
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Jisheng Zhang <jszhang@kernel.org>
-Cc: Doug Berger <opendmb@gmail.com>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	bcm-kernel-feedback-list@broadcom.com,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>,
-	Hoan Tran <hoan@os.amperecomputing.com>,
-	Andy Shevchenko <andy@kernel.org>, Daniel Palmer <daniel@thingy.jp>,
-	Romain Perier <romain.perier@gmail.com>,
-	Grygorii Strashko <grygorii.strashko@ti.com>,
-	Santosh Shilimkar <ssantosh@kernel.org>,
-	Kevin Hilman <khilman@kernel.org>,
-	Robert Jarzmik <robert.jarzmik@free.fr>,
-	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>,
-	Srinivas Neeli <srinivas.neeli@amd.com>,
-	Michal Simek <michal.simek@amd.com>, linux-gpio@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-omap@vger.kernel.org
-Subject: Re: [PATCH v3 01/15] gpio: dwapb: Use modern PM macros
-Message-ID: <aR3lg0aNaoT-_7SM@smile.fi.intel.com>
-References: <20251119144327.13345-1-jszhang@kernel.org>
- <20251119144327.13345-2-jszhang@kernel.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251119144327.13345-2-jszhang@kernel.org>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251119_074309_123956_0F0F8ADF 
-X-CRM114-Status: GOOD (  13.96  )
+	Wed, 19 Nov 2025 15:44:30 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id F3AD760172;
+	Wed, 19 Nov 2025 15:44:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 146BBC4AF0B;
+	Wed, 19 Nov 2025 15:44:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1763567067;
+	bh=QGmtI/N5Qrm3baU32/IWSmS0i0iTNplBH0bTCMUaMN8=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=ilfjC4nTMZAZmo+Dgc4Sa/r7hErsQvNOBLUE25mtapxZK3kk3VCMPcstd6/ULn9qF
+	 Wzlz3eybCTjqbBLT4SZqqDY0XQpQ+jfJF4Poe94d7HaG/ftsuJKgrupYiO15O0SU2k
+	 NrHeCsJJKSMq1YdFlGuiFiWZ5qLTdZUcQEXtnl2AKFUbgcovbdq6xm7BMljBaLPlj0
+	 ZIISPpG9TFdvmdsh24+W4vL1k9MQgQM5li3Rf3vjtP+/4L7NmoKUuZEoHQ4Ah8VKnu
+	 pHvAD42wFhDNbOeydXe+W9yn9J0Qrd3TfInV5sjjYaRvZix3A6jAgwn2Y/CYLkemPf
+	 9Eu5kT1iHjsDA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vLkM3-00000006bKb-36CG;
+	Wed, 19 Nov 2025 15:44:23 +0000
+Date: Wed, 19 Nov 2025 15:44:23 +0000
+Message-ID: <86cy5erprc.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Vincent Donnefort <vdonnefort@google.com>
+Cc: rostedt@goodmis.org,
+	mhiramat@kernel.org,
+	mathieu.desnoyers@efficios.com,
+	linux-trace-kernel@vger.kernel.org,
+	oliver.upton@linux.dev,
+	joey.gouly@arm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	jstultz@google.com,
+	qperret@google.com,
+	will@kernel.org,
+	aneesh.kumar@kernel.org,
+	kernel-team@android.com,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v8 20/28] KVM: arm64: Add clock support for the pKVM hyp
+In-Reply-To: <20251107093840.3779150-21-vdonnefort@google.com>
+References: <20251107093840.3779150-1-vdonnefort@google.com>
+	<20251107093840.3779150-21-vdonnefort@google.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: vdonnefort@google.com, rostedt@goodmis.org, mhiramat@kernel.org, mathieu.desnoyers@efficios.com, linux-trace-kernel@vger.kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, jstultz@google.com, qperret@google.com, will@kernel.org, aneesh.kumar@kernel.org, kernel-team@android.com, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,51 +95,146 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 19, 2025 at 10:43:13PM +0800, Jisheng Zhang wrote:
-> Use the modern PM macros for the suspend and resume functions to be
-> automatically dropped by the compiler when CONFIG_PM or
-> CONFIG_PM_SLEEP are disabled, without having to use #ifdef guards.
+On Fri, 07 Nov 2025 09:38:32 +0000,
+Vincent Donnefort <vdonnefort@google.com> wrote:
 > 
-> This has the advantage of always compiling these functions in,
-> independently of any Kconfig option. Thanks to that, bugs and other
-> regressions are subsequently easier to catch.
+> By default, the arm64 host kernel is using the arch timer as a source
+> for sched_clock. Conveniently, EL2 has access to that same counter,
+> allowing to generate clock values that are synchronized.
+> 
+> The clock needs nonetheless to be setup with the same slope values as
+> the kernel. Introducing at the same time trace_clock() which is expected
+> to be later configured by the hypervisor tracing.
+> 
+> Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
+> 
+> diff --git a/arch/arm64/include/asm/kvm_hyp.h b/arch/arm64/include/asm/kvm_hyp.h
+> index e6be1f5d0967..d46621d936e3 100644
+> --- a/arch/arm64/include/asm/kvm_hyp.h
+> +++ b/arch/arm64/include/asm/kvm_hyp.h
+> @@ -146,5 +146,4 @@ extern u64 kvm_nvhe_sym(id_aa64smfr0_el1_sys_val);
+>  extern unsigned long kvm_nvhe_sym(__icache_flags);
+>  extern unsigned int kvm_nvhe_sym(kvm_arm_vmid_bits);
+>  extern unsigned int kvm_nvhe_sym(kvm_host_sve_max_vl);
+> -
+>  #endif /* __ARM64_KVM_HYP_H__ */
+> diff --git a/arch/arm64/kvm/hyp/include/nvhe/clock.h b/arch/arm64/kvm/hyp/include/nvhe/clock.h
+> new file mode 100644
+> index 000000000000..9e152521f345
+> --- /dev/null
+> +++ b/arch/arm64/kvm/hyp/include/nvhe/clock.h
+> @@ -0,0 +1,16 @@
+> +/* SPDX-License-Identifier: GPL-2.0 */
+> +#ifndef __ARM64_KVM_HYP_NVHE_CLOCK_H
+> +#define __ARM64_KVM_HYP_NVHE_CLOCK_H
+> +#include <linux/types.h>
+> +
+> +#include <asm/kvm_hyp.h>
+> +
+> +#ifdef CONFIG_PKVM_TRACING
+> +void trace_clock_update(u32 mult, u32 shift, u64 epoch_ns, u64 epoch_cyc);
+> +u64 trace_clock(void);
+> +#else
+> +static inline void
+> +trace_clock_update(u32 mult, u32 shift, u64 epoch_ns, u64 epoch_cyc) { }
+> +static inline u64 trace_clock(void) { return 0; }
+> +#endif
+> +#endif
+> diff --git a/arch/arm64/kvm/hyp/nvhe/Makefile b/arch/arm64/kvm/hyp/nvhe/Makefile
+> index a244ec25f8c5..f55a9a17d38f 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/Makefile
+> +++ b/arch/arm64/kvm/hyp/nvhe/Makefile
+> @@ -17,7 +17,7 @@ ccflags-y += -fno-stack-protector	\
+>  hostprogs := gen-hyprel
+>  HOST_EXTRACFLAGS += -I$(objtree)/include
+>  
+> -lib-objs := clear_page.o copy_page.o memcpy.o memset.o
+> +lib-objs := clear_page.o copy_page.o memcpy.o memset.o tishift.o
+>  lib-objs := $(addprefix ../../../lib/, $(lib-objs))
+>  
+>  CFLAGS_switch.nvhe.o += -Wno-override-init
+> @@ -29,6 +29,7 @@ hyp-obj-y += ../vgic-v3-sr.o ../aarch32.o ../vgic-v2-cpuif-proxy.o ../entry.o \
+>  	 ../fpsimd.o ../hyp-entry.o ../exception.o ../pgtable.o
+>  hyp-obj-y += ../../../kernel/smccc-call.o
+>  hyp-obj-$(CONFIG_LIST_HARDENED) += list_debug.o
+> +hyp-obj-$(CONFIG_PKVM_TRACING) += clock.o
+>  hyp-obj-y += $(lib-objs)
+>  
+>  ##
+> diff --git a/arch/arm64/kvm/hyp/nvhe/clock.c b/arch/arm64/kvm/hyp/nvhe/clock.c
+> new file mode 100644
+> index 000000000000..600a300bece7
+> --- /dev/null
+> +++ b/arch/arm64/kvm/hyp/nvhe/clock.c
+> @@ -0,0 +1,65 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * Copyright (C) 2025 Google LLC
+> + * Author: Vincent Donnefort <vdonnefort@google.com>
+> + */
+> +
+> +#include <nvhe/clock.h>
+> +
+> +#include <asm/arch_timer.h>
+> +#include <asm/div64.h>
+> +
+> +static struct clock_data {
+> +	struct {
+> +		u32 mult;
+> +		u32 shift;
+> +		u64 epoch_ns;
+> +		u64 epoch_cyc;
+> +		u64 cyc_overflow64;
+> +	} data[2];
+> +	u64 cur;
+> +} trace_clock_data;
+> +
+> +static u64 __clock_mult_uint128(u64 cyc, u32 mult, u32 shift)
+> +{
+> +	__uint128_t ns = (__uint128_t)cyc * mult;
+> +
+> +	ns >>= shift;
+> +
+> +	return (u64)ns;
+> +}
+> +
+> +/* Does not guarantee no reader on the modified bank. */
+> +void trace_clock_update(u32 mult, u32 shift, u64 epoch_ns, u64 epoch_cyc)
+> +{
+> +	struct clock_data *clock = &trace_clock_data;
+> +	u64 bank = clock->cur ^ 1;
+> +
+> +	clock->data[bank].mult			= mult;
+> +	clock->data[bank].shift			= shift;
+> +	clock->data[bank].epoch_ns		= epoch_ns;
+> +	clock->data[bank].epoch_cyc		= epoch_cyc;
+> +	clock->data[bank].cyc_overflow64	= ULONG_MAX / mult;
+> +
+> +	smp_store_release(&clock->cur, bank);
+> +}
+> +
+> +/* Using host provided data. Do not use for anything else than debugging. */
+> +u64 trace_clock(void)
+> +{
+> +	struct clock_data *clock = &trace_clock_data;
+> +	u64 bank = smp_load_acquire(&clock->cur);
+> +	u64 cyc, ns;
+> +
+> +	cyc = __arch_counter_get_cntpct() - clock->data[bank].epoch_cyc;
 
-...
+I can only imagine that you don't care about the broken systems that
+do not have a monotonic counter, and that will happily have their
+counter swing back and forth?
 
-> -#ifdef CONFIG_PM_SLEEP
->  /* Store GPIO context across system-wide suspend/resume transitions */
->  struct dwapb_context {
->  	u32 data;
+Also, you may want to document why you are using the physical counter
+instead of the virtual one. I guess that you don't want CNTVOFF_EL2 to
+apply when HCR_EL2.E2H==0, but given that you never allow anything
+else for pKVM, this is slightly odd.
 
->  	u32 int_deb;
->  	u32 wake_en;
->  };
-> -#endif
+Thanks,
 
-This ifdeffery is to protect the type definition? It may be removed for sure.
-
-...
-
->  struct dwapb_gpio_port_irqchip {
->  	unsigned int		nr_irqs;
-
->  	struct gpio_generic_chip chip;
->  	struct dwapb_gpio_port_irqchip *pirq;
->  	struct dwapb_gpio	*gpio;
-> -#ifdef CONFIG_PM_SLEEP
->  	struct dwapb_context	*ctx;
-> -#endif
-
-But why this? For the PM_SLEEP=n cases it will give an unrequested overhead.
-
->  	unsigned int		idx;
->  };
-
-Otherwise LGTM.
+	M.
 
 -- 
-With Best Regards,
-Andy Shevchenko
-
-
+Without deviation from the norm, progress is not possible.
 
