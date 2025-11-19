@@ -4,61 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DA21CF58C9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 19:09:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B859CF58C9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 19:12:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=f04PodMEzpJEwINLmjO/HFgtVYr9kSJcraZDsnWnz/8=; b=JYVsTDTRb1D5uXR/ID2kYKaCa6
-	6pKqCGTDxY44qwgCKZPcfjG4Thshy6H0Epme35Ug4DwXtU6stbSiEJzFJGJL2rm8TT0clGuISRFJF
-	RmanRR2UKpXrRJW7KS2CPWkEuW9W3gVbE7BfCHikQBWh7fjwHCojJWhKH0jvAHV/diZMYwFxZQxLf
-	bjvxY9kx0/QvMbyVuKY0Ec32BBy3EOlh+rvj9Cl/UzHfMt3xWd0M/c60096ViRRHBe9uLnkIG2Nz/
-	5g+CBGoKUtps5Otm6aLtNfO31GoM2wP2yGhiW1SzYiY/Db1gvI9lgiUczyNr17hoxfp0SFIUFvjlS
-	OllQo0YA==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wPQA4Dr3vBorL1dzId/dpD2cuvLcZ6linW6uYCaO6Lo=; b=V2W7MXduWRCe7hI6Re5IKUNT+0
+	R4tkbcSfeceuXxyZd8a9MUgH5FXDQmczAe77zK5gKoXjArTZFTECtgExpPIcAzcRXqCwQKjGphzfB
+	UGtTdrGsWgClWKVaNaVx7jXMp6C1J1a/sWEDqadwSLllQPNIR1sxWAQ8r3FNeW8QnGxss+5Qzp31x
+	dyHedctQJuMhG4TdCl5yXcRx2ZWIiBcb/RPATvIJdkzk8ExY9QDXyA76LfU5UKMKNFpR2bPOADabN
+	+LqouZaX5cFoLvkTIDK7ITfsHDx/e+XJs1AQOdxvulej4lbgz1bhC2dwMgR65u3TkAtWCPndKrsp5
+	2jmBhvdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLnYa-00000004tFM-1b1P;
-	Wed, 19 Nov 2025 19:09:32 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vLnbM-00000004ua9-1b5f;
+	Wed, 19 Nov 2025 19:12:24 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLnYZ-00000004tDg-1YoW
+	id 1vLnbK-00000004uYJ-03TE
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Nov 2025 19:09:31 +0000
+	Wed, 19 Nov 2025 19:12:23 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8C8DF60017;
-	Wed, 19 Nov 2025 19:09:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 97564C4CEF5;
-	Wed, 19 Nov 2025 19:09:27 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 0B0BB42ABC;
+	Wed, 19 Nov 2025 19:12:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6DB98C4CEF5;
+	Wed, 19 Nov 2025 19:12:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763579369;
-	bh=m/iEeMo6XQiw9/Dx9eONf5PKKCUoFowTGyoe2SjIzd4=;
-	h=From:To:Cc:Subject:Date:From;
-	b=P5am+x7g9L2pCMnLeMn5JjMvCZrQReRu6Y6E4L3Tx1hurLH9I7mKdNuQSRHr9peBE
-	 mjlM2TX2rm5pGraV8ocafSLZwFHsUv/yYAHNhr6hmTJk7ukpmU9KAX4bXWGhkm13oB
-	 DWVBPuiH9ydL7bKkp+/y9E+riJgOPAjHXLuB8exofl2cCkwTZLEO72BEP9DpH2Ew/l
-	 okqzcJ+KbYy9QHlYbg4foP1b1W5ur53q/uS63gvkqglgRa1QrKOo43DXssf96/5fo0
-	 BkDBgdU6sZq8HiVUyspWEfg06YPa0lPEwGuO09vPi3FVQnnu/CHvrVRSLnPdmqvvFt
-	 MzT0zthjNxmHA==
-From: Conor Dooley <conor@kernel.org>
-To: linux-arm-kernel@lists.infradead.org
-Cc: conor@kernel.org,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Jonathan Cameron <jonathan.cameron@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v1] arm64, lib: make ARM64 select ARCH_HAS_CPU_CACHE_INVALIDATE_MEMREGION not GENERIC_CPU_CACHE_MAINTENANCE
-Date: Wed, 19 Nov 2025 19:08:27 +0000
-Message-ID: <20251119-zippy-distinct-1e2a7da7b69b@spud>
-X-Mailer: git-send-email 2.51.0
+	s=k20201202; t=1763579539;
+	bh=IKAlcYGTKdJXVFZdjwTp/BjIGSIhrX8hMQqbZOGJqM0=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=Tg/soZymer9O+wnKEmzv77mKDYj6GwA+JijOhY9gG+zR00pB2MgkkDM897KFbquM3
+	 prPdtyogNJ/tnCoRh7gsWNvmPeRVDnURUN9OgUdrImcDWcvm/WHwui5dhI26hAFoKS
+	 qsdeLUU4A8rES/F1aSkIn72nsLga/VUCRqF28ni+4Shxa3MuE1RQ/kma2JO+t3MFb/
+	 kWqDnyzIOtHjkqRkn4pETqB8iji6nuHDniZ043tf/h9Upo+cuv8Bzl9Nx1PA2ZeexO
+	 WqXLMyzLZpnrKswkVSkNSUjkOowwgIVLx5U/irTothpvYjw4+fSN1P7NsYnlXhDls+
+	 rdj7pvDGzEb5w==
+From: Catalin Marinas <cmarinas@kernel.org>
+To: will@kernel.org,
+	Huang Shijie <shijie@os.amperecomputing.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	patches@amperecomputing.com,
+	cl@linux.com,
+	Shubhang@os.amperecomputing.com,
+	linux-arm-kernel@lists.infradead.org,
+	krzysztof.kozlowski@linaro.org,
+	geert+renesas@glider.be,
+	arnd@arndb.de,
+	linux-kernel@vger.kernel.org,
+	peterz@infradead.org,
+	soc@lists.linux.dev,
+	Zenghui Yu <yuzenghui@huawei.com>
+Subject: Re: [PATCH v2] arm64: defconfig: Remove the redundant SCHED_MC/SCHED_SMT
+Date: Wed, 19 Nov 2025 19:10:55 +0000
+Message-ID: <176357945539.2095097.9737276524353571173.b4-ty@arm.com>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20251021075704.527626-1-shijie@os.amperecomputing.com>
+References: <20251021075704.527626-1-shijie@os.amperecomputing.com>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3012; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=YAGnfvTEuxQMcQ2392J834Z3DvqWo8GwePPM6woMlH0=; b=owGbwMvMwCVWscWwfUFT0iXG02pJDJlyoqsmuZ9KDPNhq83Pnxff9XHJr5wtql++hWZ9vKjWE daoNFG4o5SFQYyLQVZMkSXxdl+L1Po/Ljuce97CzGFlAhnCwMUpABPZUMjIMNNAtmiDeWbZzSeN Gw5eEgm6zFs+5+4KL6u/18W884/tDGdkuM4mdC377u2CNpElnNVF2bHnLx07cXPOqQMCfKc3+6z qYwQA
-X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251119_111222_093990_5B4108C7 
+X-CRM114-Status: UNSURE (   7.64  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,83 +84,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Conor Dooley <conor.dooley@microchip.com>
+From: Catalin Marinas <catalin.marinas@arm.com>
 
-Randy pointed out that the newly added GENERIC_CPU_CACHE_MAINTENANCE
-was unusual, in that it selected an ARCH_HAS_... option, unlikely
-anything else in lib/Kconfig. Switch things around, so that arm64
-selects ARCH_HAS_CPU_CACHE_INVALIDATE_MEMREGION and then
-GENERIC_CPU_CACHE_MAINENANCE will in turn be automatically enabled.
+On Tue, 21 Oct 2025 15:57:04 +0800, Huang Shijie wrote:
+> The patch "7bd291abe2d sched: Unify the SCHED_{SMT,CLUSTER,MC} Kconfig"
+> has enabled the SCHED_MC/SCHED_SMT by default for arm64.
+> 
+> So remove the redundant code in defconfig.
 
-Suggested-by: Randy Dunlap <rdunlap@infradead.org>
-Acked-by: Jonathan Cameron <jonathan.cameron@huawei.com>
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
----
-Catalin, you voiced a take on this already apparently that lead to the
-current implementation so I'd like an ack from you or Will here.
-My comment on the original thread, in response to Randy saying it was
-backwards, that accompanied the diff was:
- Maybe it is backwards, but I feel like this way is more logical. ARM64
- has memregion invalidation only because this generic approach is
- enabled, so the arch selects what it needs to get the support.
- Alternatively, something like (diff was here) implies (to me at least)
- that arm64 has memregion invalidation as an architectural feature and
- that the GENERIC_CPU_CACHE_MAINTENANCE option is a just common
- cross-arch code, like generic entry etc, rather than being the option
- gating the drivers that provide the feature in the first place.
-Ultimately, the .config produced is the same either way, just depends on
-what impression you want to give in the arch Kconfig, which might not
-really be a big deal, just semantics. Either way, I'd like an ack :)
+It's usually Arnd picking up defconfig changes but since it's more about
+core features, I queued it.
 
-Cheers,
-Conor.
+Applied to arm64 (for-next/defconfig), thanks!
 
-CC: Catalin Marinas <catalin.marinas@arm.com>
-CC: Will Deacon <will@kernel.org>
-CC: linux-arm-kernel@lists.infradead.org
-CC: linux-kernel@vger.kernel.org
----
- arch/arm64/Kconfig | 2 +-
- lib/Kconfig        | 5 +++--
- 2 files changed, 4 insertions(+), 3 deletions(-)
+[1/1] arm64: defconfig: Remove the redundant SCHED_MC/SCHED_SMT
+      https://git.kernel.org/arm64/c/a086f211a3b1
 
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index 5f7f63d24931..75b2507f7eb2 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -21,6 +21,7 @@ config ARM64
- 	select ARCH_ENABLE_THP_MIGRATION if TRANSPARENT_HUGEPAGE
- 	select ARCH_HAS_CACHE_LINE_SIZE
- 	select ARCH_HAS_CC_PLATFORM
-+	select ARCH_HAS_CPU_CACHE_INVALIDATE_MEMREGION
- 	select ARCH_HAS_CURRENT_STACK_POINTER
- 	select ARCH_HAS_DEBUG_VIRTUAL
- 	select ARCH_HAS_DEBUG_VM_PGTABLE
-@@ -146,7 +147,6 @@ config ARM64
- 	select GENERIC_ARCH_TOPOLOGY
- 	select GENERIC_CLOCKEVENTS_BROADCAST
- 	select GENERIC_CPU_AUTOPROBE
--	select GENERIC_CPU_CACHE_MAINTENANCE
- 	select GENERIC_CPU_DEVICES
- 	select GENERIC_CPU_VULNERABILITIES
- 	select GENERIC_EARLY_IOREMAP
-diff --git a/lib/Kconfig b/lib/Kconfig
-index 09aec4a1e13f..ac223e627bc5 100644
---- a/lib/Kconfig
-+++ b/lib/Kconfig
-@@ -544,8 +544,9 @@ config ARCH_HAS_CPU_CACHE_INVALIDATE_MEMREGION
- 	bool
- 
- config GENERIC_CPU_CACHE_MAINTENANCE
--	bool
--	select ARCH_HAS_CPU_CACHE_INVALIDATE_MEMREGION
-+	def_bool y
-+	depends on ARCH_HAS_CPU_CACHE_INVALIDATE_MEMREGION
-+	depends on ARM64
- 
- config ARCH_HAS_MEMREMAP_COMPAT_ALIGN
- 	bool
 -- 
-2.51.0
+Catalin
 
 
