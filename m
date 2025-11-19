@@ -4,79 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05E4FCF58CC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 19:12:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF4AECF58C9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 19:15:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5HTJMZU5A6kXrmWytCxaO95cgtDo5F6WqG5vGLqokbQ=; b=JCI5yhuVJSoPRdm9/FoiUKomNp
-	RVdlyRp1H7jEB1QFAAlMkIzaX5S2HRxNLG2bPf+9FNNRt7DHbjXBs7d4TzLBfMSP4MimNKiMhIXbI
-	g0zxxDmM3GDvysYJLjK7a5A4STBuvk//TALYSVKFea8MKUilsBELD2LtFuw97ZfpaIaH9ZdI2MizP
-	/5RSZtXDnmuMdkFTKrdGDBJvayym76m1OOR1RCcO91nyjcWJKC7I8riIDZgpEM566U/DBL9n7XwN3
-	FMt9mOW+TQFJ8pvuRnRWSli7NlBmbS+jbL19ejYAiFZQ5Ku/8/A5itkrsxfJKKKObOFgcUaDO31Ew
-	zMGVTIjQ==;
+	bh=JjmFxQLJqRfhpu5QepR4gD8c5Av7B2fY/fpjXUkiBNo=; b=leg/h82BMiTqF539DnehydlsdX
+	mfsh7kliytvHgAO61hCeW67eiSpimCCiu32WO6OLCSfouRdE4TfK/yTvwgVnASBW7LR3wEG4D6W/h
+	4UsKDHD6Po5ZDRffOyKIDBaBG6+NBIahglnuJA+J5YKvihXnia9MBN+ysdPF4DLuGcHr2PqOVVOrX
+	tXQ7eVbvmLNYU3R8JpR5X8KvTIe4f5snn0fIj+aS9Njnaf3UnsX7y/Cfh5nFw5rCPY1R5kCoYblqB
+	6WA/LYn48mM2btUYfkBYPkVipkS6EIYHbq3YvFLcASMqWgizfDSwX+nKvSlQjYu5EATBeAlXDoB12
+	gNWFZ+6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLnbo-00000004uq2-0Hku;
-	Wed, 19 Nov 2025 19:12:52 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vLneB-00000004w8J-2iqv;
+	Wed, 19 Nov 2025 19:15:19 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLnbk-00000004uni-3T0o
+	id 1vLneA-00000004w8C-3dSF
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Nov 2025 19:12:50 +0000
+	Wed, 19 Nov 2025 19:15:18 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3D6D743356;
-	Wed, 19 Nov 2025 19:12:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 27586C116B1;
-	Wed, 19 Nov 2025 19:12:43 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id EA3E060017;
+	Wed, 19 Nov 2025 19:14:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1A919C4CEF5;
+	Wed, 19 Nov 2025 19:14:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763579568;
-	bh=bjbS5c6QBCQhMSLNZyiSFoGDxCB/KqDWFIBeYfD831g=;
+	s=k20201202; t=1763579687;
+	bh=HxX0mOWR8tN7HqLIH0w3UEAqiyuJDZdK+LJi5L9t7go=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=iRrAZF5fWDGw5ziNk1qW0owFpHkrvRp09md5FyvbC9ox85pQvNPzEpS1JoNkyfS9g
-	 UpqNjgL7+gPADjk8FP4QthEcYqrVgR6RPhOlLn6C3ThKqemnbn7qAZmXgHV0E1AF3s
-	 jfy83EEkqQNN/XS41AsMPRCgl4Ef3JWTiKbze9LCLMtMTcQUitKnbxZaijlo0a/fcn
-	 FWLsZJpb4ruXbXlEf9udvSwGkCcVSsxY2e25Zd2wxHF5wWk4Wqiue1hc7xZMMY/06d
-	 RDTey05/00NQPqBR6CAoe64pxxXgyTMJEirB18lU5HSucVfYScd9Fmg9cpd/D2dW+R
-	 /bVpmIK8poWtg==
+	b=M/Da9KHixPetG/m4oWhtpw/fhh8e/EjAap/WA+euvMaptL9owX6EpJYCY76bAdmCB
+	 P7HM4t6xl/goE+D5bpcM0IEUAPcupxrkSIYQJP90HK6Dxb6OWWvH7q7soeRi+B+Xd2
+	 9D3y4d70SJS/wVk150zETqekVmcOlZg4UjN1UeHDXEoKThCfFSsNDwGWO8qqUNWiU6
+	 tz0EOuIEj2BUuPiILOl5OWsn0RQ+VDyWAsoZt61HgMtIGCV8SdqqV+G+/dC4hjH9kN
+	 YasRJ48fHtz2ibtLBS2j0xh8+mhIyJYMHVXfSW0VoG563DkA85QUlaK/Lkx7XTBXQ2
+	 AvvdMOpOyrkeQ==
 From: Catalin Marinas <cmarinas@kernel.org>
-To: Will Deacon <will@kernel.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	David Hildenbrand <david@kernel.org>,
-	Huang Ying <ying.huang@linux.alibaba.com>
+To: ryan.roberts@arm.com,
+	cl@gentwo.org,
+	will@kernel.org,
+	Yang Shi <yang@os.amperecomputing.com>
 Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
-	Vlastimil Babka <vbabka@suse.cz>,
-	Zi Yan <ziy@nvidia.com>,
-	Baolin Wang <baolin.wang@linux.alibaba.com>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Yang Shi <yang@os.amperecomputing.com>,
-	"Christoph Lameter (Ampere)" <cl@gentwo.org>,
-	Dev Jain <dev.jain@arm.com>,
-	Barry Song <baohua@kernel.org>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Kefeng Wang <wangkefeng.wang@huawei.com>,
-	Kevin Brodsky <kevin.brodsky@arm.com>,
-	Yin Fengwei <fengwei_yin@linux.alibaba.com>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-mm@kvack.org
-Subject: Re: [PATCH -v6 0/2] arm, tlbflush: avoid TLBI broadcast if page reused in write fault
-Date: Wed, 19 Nov 2025 19:12:30 +0000
-Message-ID: <176357954996.2095484.7552035917547182661.b4-ty@arm.com>
+	linux-kernel@vger.kernel.org
+Subject: Re: [v2 PATCH] arm64: mm: show direct mapping use in /proc/meminfo
+Date: Wed, 19 Nov 2025 19:12:51 +0000
+Message-ID: <176357957114.2095636.13353317001365823131.b4-ty@arm.com>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20251114085403.101552-1-ying.huang@linux.alibaba.com>
-References: <20251114085403.101552-1-ying.huang@linux.alibaba.com>
+In-Reply-To: <20251023215210.501168-1-yang@os.amperecomputing.com>
+References: <20251023215210.501168-1-yang@os.amperecomputing.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251119_111248_885269_0C6EDFAF 
-X-CRM114-Status: UNSURE (   8.76  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,23 +75,28 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Catalin Marinas <catalin.marinas@arm.com>
 
-On Fri, 14 Nov 2025 16:54:01 +0800, Huang Ying wrote:
-> This series is to optimize the system performance via avoiding TLBI
-> broadcast if page is reused in the write protect fault handler.  More
-> details of the background and the test results can be found in [2/2].
-> 
-> Changelog:
-> 
-> v6:
+On Thu, 23 Oct 2025 14:52:10 -0700, Yang Shi wrote:
+> Since commit a166563e7ec3 ("arm64: mm: support large block mapping when
+> rodata=full"), the direct mapping may be split on some machines instead
+> keeping static since boot. It makes more sense to show the direct mapping
+> use in /proc/meminfo than before.
+> This patch will make /proc/meminfo show the direct mapping use like the
+> below (4K base page size):
+> DirectMap4K:	   94792 kB
+> DirectMap64K:	  134208 kB
+> DirectMap2M:	 1173504 kB
+> DirectMap32M:	 5636096 kB
+> DirectMap1G:	529530880 kB
 > 
 > [...]
 
-Applied to arm64 (for-next/local-tlbi-page-reused), thanks!
+It matches Documentation/filesystems/proc.rst, so I'm fine to align
+arm64 with it.
 
-[1/2] mm: add spurious fault fixing support for huge pmd
-      https://git.kernel.org/arm64/c/79301c7d605a
-[2/2] arm64, tlbflush: don't TLBI broadcast if page reused in write fault
-      https://git.kernel.org/arm64/c/cb1fa2e99955
+Applied to arm64 (for-next/misc), thanks!
+
+[1/1] arm64: mm: show direct mapping use in /proc/meminfo
+      https://git.kernel.org/arm64/c/1102778cb023
 
 -- 
 Catalin
