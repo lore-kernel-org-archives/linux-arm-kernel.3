@@ -4,167 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78162CF2566
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 00:45:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD540CF2564
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 00:46:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CdqHJZnuwrDUFxF1NksfCwLGDLF/9XYuEKg34H3ExVk=; b=dpKxJ1CppgBGGT7kAf5kbo37qi
-	GCoDA8TAewx0K9BnyMKxPqA3B6IVNaP9Uo4RNRW5OEErt0SeuJoZAnDroyw/RgRemR8iLbGy4DqFP
-	7CO6dAYQgVNlC7c7bia8L1Hhv+Uie9g1JJQLOXgHjdaXb3/knlONmqn5tkc2Q+Wzi5SjuIehxa/WA
-	0aHGPXTWKrXKnp4rLxkAJ0zEQ/oGrYcgUORnKd0A1JfVqPz9KdBlJ6fYtTquf1XvSRuURNenPgImb
-	vC/mND9OZpx6IEfUi4xqVetDm2tNoInEFU7L/TQxd5zhANcyyR/KDVKryvTgBbjyRkRr8mRxfiAsR
-	ZeRsny/g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BAWJfMyV7DpF7HKG9h+AUHw17u4/yHqs9en8PSsCyqg=; b=OL/I9LNeNAPT1/Hd+DT6GqnfPE
+	k98KlrDzFSJ2iZ8RHalxjzOkymRnsK6caGYesmt4MjFlN7I69bwSvRGjhEu9G7Z1Nuf3Il0S/vz7r
+	55AzfWxEaF4Wbm3VQRL69J1OjKfa72asMIh9fNwhSP5rkIYi0affZQQcYcisNsZmlLooHrxlCtLnL
+	Aj7ulZ40o3B+8ODZ4msJeYXE2KzKLt0meyJiktdJaveF9W33nynCt0fI6wTkmwF29WkoW9CbObFKq
+	uVJpVzFWT6veq5/xiKjxrN/RuLvJ2LdVVeclZGuo083zHoMSd4i9KokH5nSh2KmaRYc8PCV53Ibyl
+	/K5PsaTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLWKL-00000001J41-1h20;
-	Wed, 19 Nov 2025 00:45:41 +0000
-Received: from mail-westeuropeazon11010005.outbound.protection.outlook.com ([52.101.69.5] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1vLWKv-00000001JCI-3KgE;
+	Wed, 19 Nov 2025 00:46:17 +0000
+Received: from mail-ed1-x535.google.com ([2a00:1450:4864:20::535])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLWKI-00000001J3T-1GcT;
-	Wed, 19 Nov 2025 00:45:39 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=hD0huE4KqCVgwvFnrmn6ZDGguTGQpUmvbuQ0Ze1QAQMeY4l64MxaVyjCefylqEeLjFtcVB5tb2KkuJxIrj3ybp+iRK7Ek/CvDi47Osgtqr1WBVFRUl6dhqNUCAjvf0GTeGtb8M9WdFwtOBdY8ckUfgQCeHuCCOOOKkS0ra46khB5zv3Ft3Phdh7IiNGw3CGsezeZlMp3Z1wii8N798foGYpUyM/EVkgewtSFaGokelKR3dCUGcSxWMaFNa90nnHgwsIHNPKkdby93daUs/WIMP67MpQ28047Sa+4EtEKda9r2ZyB8yqQtOyNerXT8g3KNGH8wGKiyjBxZiZmEDJMRw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=CdqHJZnuwrDUFxF1NksfCwLGDLF/9XYuEKg34H3ExVk=;
- b=j36ix0GT9n2YhzPuubC+5L0SMO+hbUeO8pizojuYa4nNXG8SvGxDp3SFJcwQMRy4JU77XJ57cTPb5cfppbpyuWXNua3dwy1qGe9RFdHbad2QcLajIW6yoTLpIvEbBVsAKX/Bdxb/xJo4Pa+fEZKTySDjGs55uR4LLC533WGlnY/rgXoHFEjyZZ353zh5Kup9Ub/5pphfzuH5KgjqQv1hP9lmzb/7kLZU5jHwq6VNPvl4L6AKc3xb5b/5xAX4Gq8jwtNEmxRuLfjTdULw84veKofcQONPaPGjgcQ9vCVBWkwIXirLUyqe6Cj7DgTkDGN6Czp5rPeAZPAi4bmD+X7jPw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=CdqHJZnuwrDUFxF1NksfCwLGDLF/9XYuEKg34H3ExVk=;
- b=fEPJbirU67257BRLqvf9W9hadHwxsdAp1Fk5jlIlYpX5m0kZt5YzC9Sln6SSTUxOPTXAkvKNdncWnt6X9nG/GPbtvaCnV4JYhqefReqbbJ7aaRpDlGS0djqv2/buLck5o3ZPoW6rJWWwX2U/roACPLG06tn8XaMx+yuHXpDRRyhqh+MN5Fu2WzRWjCq7jI5ZQlinOkK2vpi2/BqSYaKQOUc4eWcY3+eMw3bzV5JHGYecQQ8CZV9zsS7kIu6rw8bVtTb2Mp/i4zkCKE7HxaATkrGe0+PVpEjjcjm8VIi6WMEHfxK1LWvE7GaPyg+h5LTLhvb/6bSqbzsmAHfaJ7eU4g==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from DB9PR04MB9626.eurprd04.prod.outlook.com (2603:10a6:10:309::18)
- by AMDPR04MB11620.eurprd04.prod.outlook.com (2603:10a6:20b:717::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9343.10; Wed, 19 Nov
- 2025 00:45:33 +0000
-Received: from DB9PR04MB9626.eurprd04.prod.outlook.com
- ([fe80::55ef:fa41:b021:b5dd]) by DB9PR04MB9626.eurprd04.prod.outlook.com
- ([fe80::55ef:fa41:b021:b5dd%4]) with mapi id 15.20.9320.021; Wed, 19 Nov 2025
- 00:45:32 +0000
-Date: Tue, 18 Nov 2025 19:45:21 -0500
-From: Frank Li <Frank.li@nxp.com>
-To: Niklas Cassel <cassel@kernel.org>
-Cc: Bjorn Helgaas <helgaas@kernel.org>,
-	Shawn Lin <shawn.lin@rock-chips.com>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Rob Herring <robh@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
-	Kever Yang <kever.yang@rock-chips.com>,
-	Simon Xue <xxm@rock-chips.com>, Damien Le Moal <dlemoal@kernel.org>,
-	Dragan Simic <dsimic@manjaro.org>, FUKAUMI Naoki <naoki@radxa.com>,
-	Diederik de Haas <diederik@cknow-tech.com>,
-	Richard Zhu <hongxing.zhu@nxp.com>,
-	Lucas Stach <l.stach@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Conor Dooley <conor@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Thierry Reding <thierry.reding@gmail.com>,
-	Jonathan Hunter <jonathanh@nvidia.com>,
-	Hans Zhang <hans.zhang@cixtech.com>, linux-tegra@vger.kernel.org,
-	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, kernel@pengutronix.de,
-	Bjorn Helgaas <bhelgaas@google.com>
-Subject: Re: [PATCH v2 1/4] PCI: dwc: Advertise L1 PM Substates only if
- driver requests it
-Message-ID: <aR0TIeJ6CWeB4YmT@lizhi-Precision-Tower-5810>
-References: <20251118214312.2598220-1-helgaas@kernel.org>
- <20251118214312.2598220-2-helgaas@kernel.org>
- <aRzxNMJ+byxZiF3i@lizhi-Precision-Tower-5810>
- <aRz3Gnw-0IRtUj9f@ryzen>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aRz3Gnw-0IRtUj9f@ryzen>
-X-ClientProxiedBy: SJ0PR13CA0147.namprd13.prod.outlook.com
- (2603:10b6:a03:2c6::32) To DB9PR04MB9626.eurprd04.prod.outlook.com
- (2603:10a6:10:309::18)
+	id 1vLWKt-00000001JB4-3J4r
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 19 Nov 2025 00:46:16 +0000
+Received: by mail-ed1-x535.google.com with SMTP id 4fb4d7f45d1cf-6418b55f86dso9883187a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Nov 2025 16:46:15 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1763513174; x=1764117974; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=BAWJfMyV7DpF7HKG9h+AUHw17u4/yHqs9en8PSsCyqg=;
+        b=PadYLusf5flKeHg1utv5TftKzuVi5fWB7unTgD1wc0VPA2RnOc8M2kg+Piqqd1YYyl
+         Tvp+b+2lxLe4DZNz29U0rRCjvJGyZzUVgWNeofYulh+JGZ5myQK2mowgfslVVUX9OIia
+         umkdw3XubvYIF22Wny47rLxHJOTicP4sKMlyI=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1763513174; x=1764117974;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=BAWJfMyV7DpF7HKG9h+AUHw17u4/yHqs9en8PSsCyqg=;
+        b=Pcx0yAC9H4M0VvXLQwk4TiqYHeJTH9D0qXEUErcd5qhZQhCHwcPJYNk2SOtBqUoWAZ
+         wW6TVbdQNM8EAUQQ5gmVBG54C2+Vd15DUY9yxJo5I66eMBKTVFt7u6y++Shnam77Qmxr
+         S1Pc3/1FW6ijyQGHd10tkCTFxQANk4FLokG5YyHmWAQXkJwy2fCNA3r0gQt/1KzomSqQ
+         w5gddYKnGXWWwtWu5Pm/pCTXV9eTj/3pkdp2WtEI2StjdO0wYvF6Ouza+amMvgyCw54s
+         z7zZr69rV4W2nzXJj72cX3fxNkzKeASvgSCWpIpzYfZw+dWBqusF+bPqExWxM5gSnB3a
+         fAmA==
+X-Forwarded-Encrypted: i=1; AJvYcCXx6hGW0kUnxCMs0lPvm6NDjrAa1P7PiUha9h0GR870e/gwW+U2l5cI4OgLL5emKa1w1DQJd3Hi6H3gkfW2N5jU@lists.infradead.org
+X-Gm-Message-State: AOJu0YzAcsHbZdK67HqsqbnQJ6bdSWImHbsZROF/g+4gsb+kS2G7On97
+	4HBup57Bowgyw4u2rxh+JKJvU9QGguwHpd/fww8x5J8XKz75f1ZJ4e/PY80iR9jhQWtFbHfNldy
+	yniR4aDt9
+X-Gm-Gg: ASbGncvyyOkTwNYdN+effr6wqaP/aMZAgoeQe1/R8Uezs8Mb8RFXZJFIjtOGuuH2++q
+	9gH8hTKL33mD/LOWtRD/ARP8HwXbtJgeA0Hd3xEgD/q4dajTYxQ2dVkmCzYue1oCcKRCRuvDje+
+	hokNn3TDNUSp3hjPVVH0AlEPQ/LL3F4glpxHmMfDE9oQYg4VE9HUxE406TdFKFmXL2coFJBGVHx
+	w5I48NkXrPBXek3Juqz8HweMVZWJVPKbhy86NGHmlNAO//e4L00vy9VRFwSReUBRjMJcfojMgxb
+	hbdoOlvF4SXDXj5O81c6aKqOBwsnUVQZt2sDqNk5Rivf3QJC6RKna8J2Yj/v1D+NeFI8647nbBe
+	HioYlyTT1vpu/XnsSIqpi0aUmfTVI3KtHrnKTiktxQcbASrXH9fNxW/qez59zWdVWy1V/AQTNU6
+	1xHjwhywxcYXfoJ+0f1YOzASJWxE/tyYFDsWWPhoWTjclpHNhYUIOROG1HJwNH
+X-Google-Smtp-Source: AGHT+IGbAruVnXfKPuthCcfgGato/q//QgKdYnzUsd0B9Lx1q1eVdzl+L/sEbx5lgdFF/+x5h6iyow==
+X-Received: by 2002:a05:6402:52d5:b0:643:c8b:8d30 with SMTP id 4fb4d7f45d1cf-64350eac57bmr14704873a12.30.1763513173804;
+        Tue, 18 Nov 2025 16:46:13 -0800 (PST)
+Received: from mail-wr1-f47.google.com (mail-wr1-f47.google.com. [209.85.221.47])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6433a4b1db6sm13895259a12.26.2025.11.18.16.46.13
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 18 Nov 2025 16:46:13 -0800 (PST)
+Received: by mail-wr1-f47.google.com with SMTP id ffacd0b85a97d-42bb288c219so2921123f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Nov 2025 16:46:13 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCWSjyCOzVCV1kkjOeXp5cuaQL1QsvhsHyLS/3T0gSZCH1CnDC3GX0AumvtNezDdRvjLEznnvDSRj2CGe42fbtwj@lists.infradead.org
+X-Received: by 2002:a05:6000:26c2:b0:427:526:16aa with SMTP id
+ ffacd0b85a97d-42b5939cd70mr18021926f8f.58.1763513172970; Tue, 18 Nov 2025
+ 16:46:12 -0800 (PST)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DB9PR04MB9626:EE_|AMDPR04MB11620:EE_
-X-MS-Office365-Filtering-Correlation-Id: 075bf470-b960-46f6-f646-08de2704f19e
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|52116014|19092799006|366016|1800799024|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?yYirQvx4hupJb9YfMnWWs0KKqz+nk+iNp14I2UMeNNBN04+o9c9o5lqss2i+?=
- =?us-ascii?Q?sJWHykQzf98sO7vrk0cuIxdPIiQltC8VeMXlG9QJsd6frlT0f8z7P+eFRhiT?=
- =?us-ascii?Q?c3NCmwHlsdR82GtedOQuvvbw0hpm/OOQnisD0cf7Woptbk+5hLvEIEdO1sl3?=
- =?us-ascii?Q?mga1Ivhgixl1JK7KnDUdwCZpfOUccPtI67+80/sMN06PsJm5zKJaJ1LEs1bY?=
- =?us-ascii?Q?e2OvWTIbHpaSZ70KSgRntqkq9Sv1LQiJYM/aDWUzzvls+L4Bun4nXxPniJh2?=
- =?us-ascii?Q?Vvmy4Z0xN5IKaTN8jwoM5e97q6s2R2w4qrx9wHCHCxXB25xamco1MBDHcKS+?=
- =?us-ascii?Q?EZ8gfMxg8m7XnIKP0Hx8qIo8m4JGiFVbv95OUz0m6fWIVuXh1tLKA+RXCeM2?=
- =?us-ascii?Q?kzygXjvCeNEU4HgfcDjpSBXDkceOPQJiQsBf3V05KIDP2b3AR7CzTnPEr+X5?=
- =?us-ascii?Q?pETqIwPzv2DvY0wrmOGuhizCCIYkVtuP5tqnGNynESKwhnkmwgw7WXhR0hgc?=
- =?us-ascii?Q?/5SVwb4tWBj3fejKv+sJU4v1+0I7TKkUUDa3dDscwgrW6wBkkjnSLTRWrNNB?=
- =?us-ascii?Q?xRj0g+K8Xmw2OsHpHUAPGqErD2ifzRXy5WB9RMFiURlA2mfANqoVQvmokLqL?=
- =?us-ascii?Q?ppxG3XOWI900S3ikh/kaGwRWOUlHsf9YUsoG1Ts3M6+/YkFpglHaAlbnmMXT?=
- =?us-ascii?Q?NklZI2D7XnYu0KK89EHwW6AA5LNeir+JGuY8ODYdmIZe68i5yeRZptiIOeEy?=
- =?us-ascii?Q?BX4oAasr27SiHq8BHEaAdw5xG4QwgYR/LOZcDtIsbVYT916nVdDLtG1cEYj6?=
- =?us-ascii?Q?ycE2S9F/Jzopdmdz2PeCO52j2EgYMXMlnRFNzSYejanMgMznEsAPiqkxRutc?=
- =?us-ascii?Q?BdG1scmONq1IZfeR0UZR2Uy2vXsKjdeeDdA6moji3h/DjkUq8aHU9DXV7pq1?=
- =?us-ascii?Q?7YTb2ZE4h6gyb8pRQxI2N7z06pm6cB49C6CrwFH/XnuIl5rdCYPEF7ZVyRbG?=
- =?us-ascii?Q?BuZa+84L0z4oR3YOLym40d/v4QV73q50UmXIC8D8gZNBjnUqiWwPo9Oa/LX+?=
- =?us-ascii?Q?Q8wXg4PRhe6S9hPTVLup1wzozCQKCAjEop2Bu0WDA2g9vsFVvEg+HKKom1N+?=
- =?us-ascii?Q?+tb/Y5JJLxzWw9VqRNz/PuEGBoNudSKLDrycTnejer90mCkwZUdxxIBstnLy?=
- =?us-ascii?Q?3QZSf5VNsYgUg4uIMYTGU0b1vfr4tUm6t49dsdcM9wcU4eL8mywK/dStC9pW?=
- =?us-ascii?Q?6Fc/L4R0yXXKwknHcj6/4KQVRwb9jBNCVc8vVLqed8oP8zbNW/7ZVD8+dbas?=
- =?us-ascii?Q?ji1RdDV37RRbekOY5n+6Ftcj02gpkqLPwVHBRtQnzKiQWDGR5A4pC+aVZ/6p?=
- =?us-ascii?Q?P8t1BT50UYB/AYB8v24DocmTcgdHNZ+8rpYMnfu6GTqYHcrz7OMfjZw7I/77?=
- =?us-ascii?Q?ID7dcsLw97/7MJloJnZasTGbKRGUSXoDZQV3XPh7DqaPOOQdlpev5g1bBm5V?=
- =?us-ascii?Q?8oxjyEJUOnPT4+dxxFuHceEETOeydREv5qaX?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR04MB9626.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(52116014)(19092799006)(366016)(1800799024)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?6H/eQT4kL+2fBg4Cvq8dL+VYIKnCT4l8C64PN3Ns+FvRS1VC05XD8Lwvf6Uo?=
- =?us-ascii?Q?Y4c2RiAHbLxlMf2l6FoRUay1poCxhDTPXBH8ZuY+G2pmf+2b95TmHeZWKyEd?=
- =?us-ascii?Q?w5mj4kEvsNiLKqtueT6/SjYaxCsd0eu3fK09Xo+BgCiQGgFUg7TR6+trHkaf?=
- =?us-ascii?Q?4RmmyBUG1/xhq+93iIsy5isCaQgjGRx4n1V9/O9vy468RnT8kPizcMDTlNTn?=
- =?us-ascii?Q?MkvrbkQLv77TCRRLX1L3UG4rxNnMVG/0A/dvB+3dQ5EaJ8P+o08HPKT0+AP2?=
- =?us-ascii?Q?7PL16lKAH5JNr/rP4ARAZkLRoXcSW1EzszBXa8LTXW0fKBinqCxKmnsoPNt0?=
- =?us-ascii?Q?TsTh3mn9i0uY+lVLBwS2QLzGTwgK/EcANJeKYNEpzqOtrAgezjFRvo0ByItK?=
- =?us-ascii?Q?3onUr6c5Aq2cX12mPGfY9l5D79AM75qI8YfqB5hBnjjiEW/SKyaQFgUvR2hk?=
- =?us-ascii?Q?lTi3J+4fgCZ136+r/0haLqeLPfjjKGdpUu81eGR+Wq29cevuwEL/g1Emz5Jj?=
- =?us-ascii?Q?sctk+hP555E5i1+33JXWcT6miZRq2zz6VUACS7xm0uSpKSlGFtQg6eKDZ5qo?=
- =?us-ascii?Q?Zd9iStBvKRy7c1LsCU5O5MYxHBQGn8Fi6MxXGqGcR1RiJ1HFNmrHKkTyoH+U?=
- =?us-ascii?Q?QVxs1ALnP6HG5+aYDSvssWSW1b1Xnuj2rnt2QnhJvKplA9RKpkecI3CtN0aM?=
- =?us-ascii?Q?UuYtNpUFutspDs615zwXJ7zh5bO9n/QI6EXgXMK3ZTeEWvRU4Vf/ZY3/WyWm?=
- =?us-ascii?Q?mIVTw/jRpDp/lFjuFKaTIlvjSTlEOAtNiefjpTRxIXy0qWuS4pC16vwOK98p?=
- =?us-ascii?Q?bmIOmivBzad5QDme4e0WK7jtZ+YQi9hk430Te27IuQBYfhdBZJ8k7xPySo/s?=
- =?us-ascii?Q?3EjH/O0SWohCQbJn6q6fvb1uEERNfvVafIOI2cgLMBhhj6ePHS+1H/oVJWaj?=
- =?us-ascii?Q?oy5JosP36j8dFT9x7JjJIF1nRmqoJz/K+vj++26PFUD3aMmAk2fRy8ywvBiY?=
- =?us-ascii?Q?C+cPxDXTvOhcLBGPXQrPHnPw38Ee/fMOoWH7coeHx6m7ZK1lHfJLmxT798ei?=
- =?us-ascii?Q?DWjB5K/zLDGF9FeCfdonGStPK5Z5IYbXTMLVHGJ3SWCUX4Ei/A+8jBjxcme7?=
- =?us-ascii?Q?NdeBIbiqw0T1GWkGSWE2uM9CxU3SMPMtH6t/K+8otcKfLnS1xl9LV2YCWAHW?=
- =?us-ascii?Q?K2w1/oaDsZJ2RoLurBuY5xbBc12pL+pLAW0VowCSu+wwut050kL92HU5B7RT?=
- =?us-ascii?Q?gey7RZmGaom8XtRdfvKjaGFyydXhVfp5kl1rhiDdE1LF8MUEFUOZZ+q8juqc?=
- =?us-ascii?Q?vCB3RcO+feeP7mgutzH5ey95GCIP60S/jongwPtDcTV5WxvXT0yADqDR9B5t?=
- =?us-ascii?Q?lFtknnrByWK7ZvAtwOcwY83gRniCK3Mt3TH8RfP2bXUTEczXOBAEHb35oYx2?=
- =?us-ascii?Q?japgLBlQjZdOg8yp4moQsO+jKFInZsqvYlBp/HEib7ufsRxPG87O0sjkiAaX?=
- =?us-ascii?Q?HDM9x9q1k8gQ8dyZBVnig7OnbAk1F7YBXU9+Myf+8o3RcHYK4CmBFVnZmiuU?=
- =?us-ascii?Q?kWFWSMM5UMIrmNkkbWfbEYmGOMD36HdwRRPCKSWC?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 075bf470-b960-46f6-f646-08de2704f19e
-X-MS-Exchange-CrossTenant-AuthSource: DB9PR04MB9626.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Nov 2025 00:45:32.1873
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Sr2tbWXai7pflyzmv84WvcwL3ttlymCzXccXN7yFj6tm8kByKpdkHcwlU1GjvIsda8riMTOBLd8xm26PCtZU8Q==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AMDPR04MB11620
+References: <CAD=FV=Ux7nGFnYEyX0cUL-9__BKnTYc+kAJjkF458ZnFS7zoJA@mail.gmail.com>
+ <CAODwPW_51fKOfDQbTUFCum13M621Uxi2Zw2YHng0DrrwwvZhRQ@mail.gmail.com>
+In-Reply-To: <CAODwPW_51fKOfDQbTUFCum13M621Uxi2Zw2YHng0DrrwwvZhRQ@mail.gmail.com>
+From: Doug Anderson <dianders@chromium.org>
+Date: Tue, 18 Nov 2025 16:46:00 -0800
+X-Gmail-Original-Message-ID: <CAD=FV=Vb88hTz0kDxxKbU0G2yCqTgF9HwJAh6h68hf-cEtAurA@mail.gmail.com>
+X-Gm-Features: AWmQ_bmE6F8y8blYKtFOlYYUsAOoXZxGgtId0c4_uNvCgfNxCdU3S4jDpKFXYPs
+Message-ID: <CAD=FV=Vb88hTz0kDxxKbU0G2yCqTgF9HwJAh6h68hf-cEtAurA@mail.gmail.com>
+Subject: Re: Proposal: Officially allow "incomplete" trees as a base
+To: Julius Werner <jwerner@chromium.org>
+Cc: devicetree-spec@vger.kernel.org, boot-architecture@lists.linaro.org, 
+	Chen-Yu Tsai <wenst@chromium.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk@kernel.org>, 
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>, LKML <linux-kernel@vger.kernel.org>, 
+	Linux ARM <linux-arm-kernel@lists.infradead.org>, 
+	William McVicker <willmcvicker@google.com>, Conor Dooley <conor+dt@kernel.org>, 
+	Peter Griffin <peter.griffin@linaro.org>, Tudor Ambarus <tudor.ambarus@linaro.org>, 
+	=?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
+	yupingso@chromium.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251118_164538_384497_8A465705 
-X-CRM114-Status: GOOD (  20.21  )
+X-CRM114-CacheID: sfid-20251118_164615_896213_08965A22 
+X-CRM114-Status: GOOD (  41.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -179,48 +114,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 18, 2025 at 11:45:46PM +0100, Niklas Cassel wrote:
-> Hello Frank,
+Hi,
+
+On Tue, Nov 18, 2025 at 3:48=E2=80=AFPM Julius Werner <jwerner@chromium.org=
+> wrote:
 >
-> On Tue, Nov 18, 2025 at 05:20:36PM -0500, Frank Li wrote:
-> > >
-> > > +	dw_pcie_hide_unsupported_l1ss(pci);
-> > > +
+> > 4. When applying an overlay to a device tree that's "incomplete", the
+> > top level overlay will be merged instead of replaced.
 > >
-> > Need call dw_pcie_dbi_ro_wr_en(pci) to access PCI_L1SS_CAP.
+> > Example for 2 levels:
+> >
+> > base (incomplete) compatible: "socvendor,mysoc-rev1", "socvendor,mysoc"=
+;
+> > overlay compatible: "boardvendor,myboard-rev1", "boardvendor,myboard";
+> > merged compatible: "boardvendor,myboard-rev1", "boardvendor,myboard",
+> >                    "socvendor,mysoc-rev1", "socvendor,mysoc";
+> >
+> > Possible example if we support 3 levels:
+> >
+> > SoC (incomplete) compatible: "socvendor,mysoc-rev1", "socvendor,mysoc"
+> > overlay1 (incomplete) compatible: "referencevendor,referencecodename";
+> > overlay2 compatible: "boardvendor,myboard-rev1", "boardvendor,myboard"
+> > merged compatible: "boardvendor,myboard-rev1", "boardvendor,myboard",
+> >                    "referencevendor,reference-codename",
+> >                     , "socvendor,mysoc";
 >
-> I disagree.
+> Sorry, I only cursorily followed the previous discussion so I may have
+> missed the exact need for this part. But I would caution against any
+> proposal that changes the basic rules of how an overlay is applied.
+> The definition of how overlays work has (I think?) been stable for
+> over a decade now, and is implemented in bootloaders that often cannot
+> easily be updated. I absolutely support your effort to get more
+> upstream standardization for managing base device trees and overlays
+> (which I think need to be flexible for arbitrary layers, not just SoC
+> and board), but let's not break the overlay code in old bootloaders
+> while doing it.
 >
-> At least when checking two different versions of the databook
-> (one very old and one more recent), the register fields that we
-> are touching are all marked as:
->
-> Dbi: R/W (sticky)
->
+> Is there really a need to merge the compatible strings in your case? I
+> think in the vast majority of platform identification cases, code only
+> cares about matching the most precise string (i.e.
+> "boardvendor,myboard-rev1"). If we do feel like having the whole chain
+> of identification is necessary, it could be achieved by just
+> copy&pasting the extra strings into the overlay file. If we have
+> cross-validation between base and overlay source files we could also
+> have the validation check that the overlays correctly contain all
+> compatible strings from their base tree. If we know that the base
+> trees aren't standalone anyway, we could also just invent other
+> property names that identify them (e.g. `soc-compatible =3D
+> "socvendor,mysoc";`). Anything other than breaking the overlay format
+> would be preferable in my opinion.
 
-Yes, you are right. Sorry for noise.
+I'm certainly not dead-set on it and I definitely realize it would be
+a pain. ...though it wouldn't necessarily "break" the format--you just
+wouldn't be able to use any "incomplete" DTBs unless you implemented
+this new feature.
 
-Frank
+From my point of view, the main issue the merging solves is handling
+"socketed" boards that could have any of a small number of SoCs
+plugged into them (usually minor revs of the same SoC). It's not the
+absolutely most critical use case in the world, but I know that we
+will need it in-house and I'm trying to come up with a solution that
+will work everywhere. Once we decide to go with a downstream solution
+just for that one use case then there's no reason not to do everything
+else in a downstream manner.
 
->
-> There are some other register fields in PCI_L1SS_CAP, e.g.
-> NEXT_OFFSET, CAP_VERSION, and EXTENDED_CAP_ID that are marked as:
->
-> Dbi: if (DBI_RO_WR_EN == 1) then R/W(sticky) else R(sticky)
-> Note: This register field is sticky.
->
->
-> But since we are not touching any of those register fields,
-> the current code should be good as is.
->
->
-> Perhaps your version of the databook says differently than the
-> two versions I have, but considering that they seem to have
-> intentionally made these R/W without the need for DBI_RO_WR_EN,
-> I don't see a reason why they would want to change it even in
-> the absolute newest IP version.
->
->
-> Kind regards,
-> Niklas
+Personally, I've never really loved that the SoC compatible strings
+are conventionally just jammed onto the end of the top-level
+compatible and I'm totally happy with it being elsewhere (a different
+property, a different node, etc). Mostly I ended up with this merging
+scheme because I thought that was what DT folks were pushing for. If
+I'm wrong then I'm more than happy with a different scheme.
+
+
+> I also feel like we need a better standardized way to tie base device
+> trees to overlays, like your `/loaders` node proposal in an earlier
+> email, although maybe that's an orthogonal discussion (but related,
+> especially if there's supposed to be cross-validation between base
+> trees and overlays). The compatible string is just not a scalable way
+> for bootloaders to make this determination, there may be a lot more
+> differentiation than just "SoC" and "board", and the scheme almost
+> certainly needs to be platform/bootloader-specific because every
+> hardware vendor has their own ideas about how to group and reuse parts
+> of a platform. This information doesn't necessarily need to be *in*
+> the device tree, it could also just be in a separate YAML file in the
+> same repo (since bootloaders will almost certainly want to have it
+> transformed into their own out-of-band descriptor at build-time
+> anyway, so that they can compress the device tree itself and don't
+> have to decompress each one for matching), but it needs to be
+> somewhere.
+
+Yes, I totally agree and this is an important conversation to have
+too. I still like the "/loaders" proposal but I'm not dead-set on it.
+
+That being said, the two problems are separate even if they're related
+to each other. I was attempting to focus on allowing the base DTBs to
+land first and once we get agreement then move onto the second. I'll
+also note that Chen-Yu is talking about the problem at Linux Plumbers.
+I won't be there, but I'm going to try to attend that session
+remotely.
+
+-Doug
 
