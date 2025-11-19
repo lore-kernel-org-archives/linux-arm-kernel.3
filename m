@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97D3CCF58C6
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 18:14:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F4A0CF58C8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 18:14:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RPirOi0w0Cb/s6FnCbMEuNgCnH0qPfOw0gyvUWbzUDU=; b=jWfb0OLAalo4ySD9Uc/Z0eKKvD
-	zVUFmIpP0xfZa5+DslBiu+4pry2hWELPOzKjXWuXuqaFpx358qgUHOTd+/qpNqbY6IXIYXazrFLnc
-	W7d2Bp2AVVujBisviFwlWrYycxgrP1GhvWfDG9Vn1TgD+VkQItLZNVpYm9kKf1yP8x1LwImPgHoT1
-	tInM7/8SpAAsn0+V4YBwH55X3U2vysOjBUSqdEeKI9aQfcesPu4FBvJe9nDpDbbmxkfkFQnsViU8c
-	/LJVhOiWYYjqt7dih1D5KIFnvBxXkQJEbfDxFxEg+Zg+4o89B9PfR3uFpjWnI6HX+A54mbBLka02d
-	pJXbCCew==;
+	bh=/Kb7vK4VelnueHMlrM8ApAVfsFwcfEWfXn4uz9Oo23Y=; b=pjrLYzr1IchnzwPWdrberpcNQU
+	NaBERYRxNMBBvTm+slp4hVpI8XMa29q+rKU/jep8U/53vtQVHrWWJ9eUijiszs6DaSk0U9pGzeOky
+	DFM1pEQfkAEDW21Bbq8cV5TPxKAJ4cDg/vk9uo/17foh+n2rWimFBgkyJQKyCG3kbzoAC35f2hI3J
+	t/x+ziOj9sGd2Myn1h+5324jNESDA9boxBT09PqojL4Dt3lGv33ocoYO/zEFJe4XAIRkR2J2bsUoy
+	OWla/6u/FuWScAtdxRSrd3ZHjLjC6DtmZW/0lPm7++OrdMHqpiX1BtHY8VwFV09SuKZKQEaEcRzTz
+	9Pv2xCfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLmhF-00000004Tqp-2R2h;
-	Wed, 19 Nov 2025 18:14:25 +0000
-Received: from mail-il1-x135.google.com ([2607:f8b0:4864:20::135])
+	id 1vLmhG-00000004Tro-11BL;
+	Wed, 19 Nov 2025 18:14:26 +0000
+Received: from mail-io1-xd35.google.com ([2607:f8b0:4864:20::d35])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLmh6-00000004ThY-3mOm
+	id 1vLmhC-00000004TlW-1sUD
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Nov 2025 18:14:17 +0000
-Received: by mail-il1-x135.google.com with SMTP id e9e14a558f8ab-43380a6fe8cso476455ab.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Nov 2025 10:14:16 -0800 (PST)
+	Wed, 19 Nov 2025 18:14:23 +0000
+Received: by mail-io1-xd35.google.com with SMTP id ca18e2360f4ac-9491604d00fso118167739f.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Nov 2025 10:14:22 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1763576055; x=1764180855; darn=lists.infradead.org;
+        d=chromium.org; s=google; t=1763576060; x=1764180860; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=RPirOi0w0Cb/s6FnCbMEuNgCnH0qPfOw0gyvUWbzUDU=;
-        b=DEHjzIMkhcZ92obvOpFjeW0Dfg4cMr7ZVmJ1nJVjKJ6RFZu9uojEnUb/gjDRAzBub3
-         Fh9KRYjcvoq0tRR/FbiMbw/uCkdd+jDtqh5JthK74+4r+3HmkQjFrAAouhgdjq/bl7SS
-         w2mLRqPm7uvTU1YCLOwvYWHK71semD8UTb7YQ=
+        bh=/Kb7vK4VelnueHMlrM8ApAVfsFwcfEWfXn4uz9Oo23Y=;
+        b=QvrRFTbehALP41g1Ezh0Igs6YGF3c51RTjJsVUL6zziKhV1F9WWM4WG+x4lbkdlCzH
+         LcPDsvKsdJcIoES/L9J/93RdS9d/It1BLQs006zhcZpr9dPFTu0kY5wMPlNxcY0MyUfE
+         coEHX5kCKhVJCOW8Rf8K59FbWFO5mfH8Y5bx4=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763576055; x=1764180855;
+        d=1e100.net; s=20230601; t=1763576060; x=1764180860;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=RPirOi0w0Cb/s6FnCbMEuNgCnH0qPfOw0gyvUWbzUDU=;
-        b=s5rCPrhuq7w/Auj6Rc2jlg3p/HT4ic49xhjujrIm2QiZo5R9OaweQ+mjjiS7E2jri3
-         9ooZqd+pVMtFwWC3ICMiqftRDyrHYuZ/2KGNXfbiTbQnMRqijsvgIt0OrOZuoWBUy+58
-         p4/j0y77OY7iTpD5/W2xX3vGUi+TnB7sY4jtC1HNutN/vMIFRdnl1ZTDfLbosMxMf5j7
-         Ln8jijkjP6B0xTfm7+rg3rOzH0+7qx5gEDYuu3VmC7W7NYS7aVC60ZwZDzuDZG6MQ9LH
-         MLMcSNBr7PqiRHPX2qQE3Sk7M2BNAv6o6qpFQp0gJTNSQcbGXZofOlm+OjAI3snIqa4G
-         h9DQ==
-X-Gm-Message-State: AOJu0Yz4RAfiiO1E/DOSx+O/28CpRHpplgMayxcpriJpzNGf1cFeLa/C
-	i1LWwmeHBH7TvF0tPoI9AAdc5yVFHnuGKJ17o3YEZXBdUK2lDNsfba4QOmYJlq4y0G/kaA4xPHP
-	WpIk=
-X-Gm-Gg: ASbGncsoiFKeF8ujz8JeBkw5LJR+MxIKi9guaA3VP3JD7WWumR9FiDtLNpxpcaYxgTf
-	eTP7cGnIfSfe6KUlEI87sI95/y9FcCXM0Rzvt3DeJWzcfWRY4RHpxHtzi7hnojpUsdeRiHhmV7Y
-	i62YVtSeJLx8KxwttsJqI0OhtfVteLmXTUbArjonk/wILckTraHsQQwTsPO35nnRltOxK9sxN2b
-	2oS8+RL/w6QdT1WbVFlHVYvBirKT3JjEBNsBkaO++t2e6/KKlz5cRa34SP11/dHmMKA0ImzbxyB
-	9sSBtTrUFAqVNKDCA4sJnMivOrtVokPXP0D4JPfF4KiG0QaGk5oHuT5kfp//gu4VjEgmMT2Ivqf
-	reS/v3dS5YAHa7YntK6wkudp7RvEfE4kAl/IYVcQVC2TuPtebHHgDbgDSggj8ZOxg3DXRhsQMsh
-	reJDAW
-X-Google-Smtp-Source: AGHT+IEqawcvOIPqsXpALDErL/1Go+TjtEXbiX8/+Jw/9VSxcMjIN9Ju3r68ajG6bVKTrOJBVHHikA==
-X-Received: by 2002:a05:6e02:3398:b0:433:7f13:3a8c with SMTP id e9e14a558f8ab-435a902d081mr4341845ab.16.1763576054629;
-        Wed, 19 Nov 2025 10:14:14 -0800 (PST)
+        bh=/Kb7vK4VelnueHMlrM8ApAVfsFwcfEWfXn4uz9Oo23Y=;
+        b=PhJxQjGbN0wL0LUQ28/diJirGW+XsFZyZbPvWORqz12EWZ2c9AjnyRoigpn8Ntl28I
+         zNDXYLbpHoGHmqqcQnykJY1VTXUXTTecN7bzhYyPSpr6oP0vDFwmGQpbNoYX5eeNU2FT
+         VBR9ulYJgMKKoNFnLdKQYnJuk/xauZLHDoaWltD5zLVbfk9ymKb8Ss7koMdtRgRyPBTf
+         eSGxKPO0eHU/lsdy8oNxuH6S46v9bH8hMkd2+wRe2NLUAKyp/n+0nZE164P3Y6RTk87+
+         ddYGI6mSBrRRcOALxoHAc0/It5JHvfB4Ccm+YSDJ3cveTE4JRbhyGq66ttY9Md8piHXy
+         w9nQ==
+X-Gm-Message-State: AOJu0YxgHuuUE8VlA7YNEGKQzq6ONgsEsqU7hqxWIq7YBeon+EjmTjzJ
+	wmE8hMdWzeyL+bLl5MDkpi/FcCKzSz4tXzUOwMmI8d+U7VuFWPtMQiAkfqLIy2N/h3EWK6IDYn9
+	OmMk=
+X-Gm-Gg: ASbGncu7zgKYEEyTODeCuq9tRwFQ4JDzs7O4p6Wxar158rO6oQlZ1Y9smO2dzrt36x4
+	8iK8JGZDckLHD5sfcFzCt1DIjMooKOPJtuJHH0kQx6hYwj9IgPbpVI2lOYtT9aJZYWTPXS0v8I8
+	e0YxvZdsnV+9ilol8uWdbSqSp8WwIXvBQuZ94QE9WNFlt+933xmvnNLHYTfwrJ9nx5X9J8At3Lh
+	EgGvjv3kQMGibI0CEn7UQSJXCul9YHQUP6ysCsHDwohBQQ+2J+pORyhzNJgWvRNqxdyU9mZRALO
+	IosNw6zsnSClD418eG/94Jb3LHFPI9p7VzrLmGv4aegWrz217QVc58Lw0TXX7g45x7TVC6SYAvP
+	juO1ThTeNUjJd08VwzJdxMUz5Av+Tg9clTGldWjttyzpQEk0kVjrm9OyTHkqEu3htq6xC1L/jn0
+	8NMR2T
+X-Google-Smtp-Source: AGHT+IEW7AT1anDDeb5eUBJlU592g0AeT8YdBL/KDYsyZnupxjh5lyG6UUoFw9lH3XXKvCmP33BRyg==
+X-Received: by 2002:a05:6602:2b0b:b0:949:1123:13b1 with SMTP id ca18e2360f4ac-94911231590mr1034792539f.19.1763576060105;
+        Wed, 19 Nov 2025 10:14:20 -0800 (PST)
 Received: from chromium.org ([73.34.74.121])
-        by smtp.gmail.com with ESMTPSA id ca18e2360f4ac-949385ae254sm4838639f.1.2025.11.19.10.14.11
+        by smtp.gmail.com with ESMTPSA id ca18e2360f4ac-949385ae254sm4838639f.1.2025.11.19.10.14.17
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 19 Nov 2025 10:14:12 -0800 (PST)
+        Wed, 19 Nov 2025 10:14:18 -0800 (PST)
 From: Simon Glass <sjg@chromium.org>
 To: linux-arm-kernel@lists.infradead.org
 Cc: =?UTF-8?q?Thomas=20Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>,
@@ -77,27 +77,20 @@ Cc: =?UTF-8?q?Thomas=20Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>,
 	Nicolas Schier <nicolas@fjasle.eu>,
 	Chen-Yu Tsai <wenst@chromium.org>,
 	Simon Glass <sjg@chromium.org>,
-	Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>,
-	Miguel Ojeda <ojeda@kernel.org>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
-	Nicolas Schier <nicolas.schier@linux.dev>,
-	Tamir Duberstein <tamird@gmail.com>,
-	linux-kbuild@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	llvm@lists.linux.dev
-Subject: [PATCH v6 5/8] kbuild: Split out module targets into a variable
-Date: Wed, 19 Nov 2025 11:13:26 -0700
-Message-ID: <20251119181333.991099-6-sjg@chromium.org>
+	David Sterba <dsterba@suse.com>,
+	Nick Terrell <terrelln@fb.com>,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v6 7/8] scripts/make_fit: Support a few more parallel compressors
+Date: Wed, 19 Nov 2025 11:13:28 -0700
+Message-ID: <20251119181333.991099-8-sjg@chromium.org>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20251119181333.991099-1-sjg@chromium.org>
 References: <20251119181333.991099-1-sjg@chromium.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251119_101416_937255_D24AFEB0 
-X-CRM114-Status: GOOD (  12.00  )
+X-CRM114-CacheID: sfid-20251119_101422_531041_39D88431 
+X-CRM114-Status: GOOD (  11.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,38 +105,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a modules-targets variable to list the targets which cause modules
-to be built, since we want to add a conditional target.
+Add support for pbzip2 and plzip which can compress in parallel. This
+speeds up the ramdisk compression.
 
 Signed-off-by: Simon Glass <sjg@chromium.org>
 ---
 
-(no changes since v5)
+(no changes since v1)
 
-Changes in v5:
-- Add a new patch to split out module targets into a variable
+ scripts/make_fit.py | 11 ++++++++---
+ 1 file changed, 8 insertions(+), 3 deletions(-)
 
- Makefile | 7 ++++++-
- 1 file changed, 6 insertions(+), 1 deletion(-)
-
-diff --git a/Makefile b/Makefile
-index 638bc09a546a..8cd46222fc48 100644
---- a/Makefile
-+++ b/Makefile
-@@ -772,7 +772,12 @@ endif
- # in addition to whatever we do anyway.
- # Just "make" or "make all" shall build modules as well
+diff --git a/scripts/make_fit.py b/scripts/make_fit.py
+index 9dfef11fc4b3..64038f17a51e 100755
+--- a/scripts/make_fit.py
++++ b/scripts/make_fit.py
+@@ -57,10 +57,10 @@ import libfdt
+ CompTool = collections.namedtuple('CompTool', 'ext,tools')
  
--ifneq ($(filter all modules nsdeps compile_commands.json clang-%,$(MAKECMDGOALS)),)
-+modules-targets := all
-+modules-targets += modules
-+modules-targets += nsdeps
-+modules-targets += compile_commands.json
-+modules-targets += clang-%
-+ifneq ($(filter $(modules-targets),$(MAKECMDGOALS)),)
-   KBUILD_MODULES := y
- endif
- 
+ COMP_TOOLS = {
+-    'bzip2': CompTool('.bz2', 'bzip2'),
++    'bzip2': CompTool('.bz2', 'pbzip2,bzip2'),
+     'gzip': CompTool('.gz', 'pigz,gzip'),
+     'lz4': CompTool('.lz4', 'lz4'),
+-    'lzma': CompTool('.lzma', 'lzma'),
++    'lzma': CompTool('.lzma', 'plzip,lzma'),
+     'lzo': CompTool('.lzo', 'lzop'),
+     'zstd': CompTool('.zstd', 'zstd'),
+ }
+@@ -220,7 +220,12 @@ def compress_data(inf, compress):
+             done = False
+             for tool in comp.tools.split(','):
+                 try:
+-                    subprocess.call([tool, '-c'], stdin=inf, stdout=outf)
++                    # Add parallel flags for tools that support them
++                    cmd = [tool]
++                    if tool in ('zstd', 'xz'):
++                        cmd.extend(['-T0'])  # Use all available cores
++                    cmd.append('-c')
++                    subprocess.call(cmd, stdin=inf, stdout=outf)
+                     done = True
+                     break
+                 except FileNotFoundError:
 -- 
 2.43.0
 
