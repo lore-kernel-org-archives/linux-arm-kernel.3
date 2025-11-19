@@ -4,97 +4,143 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 866FACF58C6
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 18:24:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5766FCF58C8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 18:31:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wXp2uUfyAn7qQSV84bcf4nMWFAwyWFqJON+TttJbAcU=; b=Xra/qBaSUCw/URBGfPiLYo1Mmp
-	KOGmHTVBMnAY6GUG5Ml44WKI3Lft1lGendcfkLeSJ3+PA+NFeqnJkSPyDUy1FRFsKKPfUOTtB6xBW
-	ydEKxuYyLTDyvujRAwrKiaFY/VM//CdW1mr8oUE8O61eJWuuXLJx2lWVNNk0Q5wxRIsOTkncbpHzL
-	jWs+WuZkR31w34udgWaL8rW9OqUgcWP93gGWNivkPjgsz1JuM5UosV29tKyFF8dK93DgnmUDS5+ql
-	nxNZe9bBUpEgZG2oajpaYC07RH6AHdT6ApyP8l91iTh8mlsEzGF1ARm+tVPlouLemmD5b2PjuZor1
-	hzpzx+kw==;
+	bh=weGVutQ2LTuyRrIexKGakHWLwRw2dTGcy6nHgc/mlhw=; b=wjU8VefE62pa0L+2qMIXknlNFQ
+	JklV7DC83Gur3RD5Jpu7fPrYeMXumlOx6zBEIDzdt3C82HLngw73wWgZivPH1J+as6xj/DpbBErWL
+	gDayynDHH3B2asfdcfKaVPkfnCTk7AqZBmMwuHnGlqHEwRJ2npbn7HzwiYdme0oEleR31P8/E/6pX
+	Uo2JyynIM2YYaocLD2AB3qZULkob0fS63jZZBfLgAHSPGAVQbXE3Oqj56/4ywtvbbceHZtufLf23B
+	n3Xl8BrLj8W9yPiFr98t76HMjUsNsIERNyyyOICGeYhFEBkQvW2L7I8asGNi5WRPtA28Sog3Mqfdo
+	hWfA19Mw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLmr1-00000004YrV-0Bx9;
-	Wed, 19 Nov 2025 18:24:31 +0000
-Received: from mail-ed1-x52e.google.com ([2a00:1450:4864:20::52e])
+	id 1vLmxl-00000004byl-2lWO;
+	Wed, 19 Nov 2025 18:31:29 +0000
+Received: from mgamail.intel.com ([192.198.163.10])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLmqx-00000004Yp9-44oP
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Nov 2025 18:24:29 +0000
-Received: by mail-ed1-x52e.google.com with SMTP id 4fb4d7f45d1cf-64088c6b309so2414385a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Nov 2025 10:24:27 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1763576666; x=1764181466; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=wXp2uUfyAn7qQSV84bcf4nMWFAwyWFqJON+TttJbAcU=;
-        b=lIrv0qJKMGFMJ5/lPiwxItupTd2SREj27gyaQYUaOIZbYiiT+bOKl+dUd9EBBDuTuC
-         1mYZqqzdDvRFwVhAR2vQvLJ6r8y/lyG1vOA6X4zDJY1nO8GacdvJ512o9n4QcKb9u9yU
-         o0DFftk3Dr35NYdu6BsTl5ZwoQXD1sL5QcPDu+Wq41WCZfPlrXDQ9ke/IVx0+Ow7J5PH
-         lp0elPj42XUXZaaLRPgrCuBXYNuZbZkdfWXCq8ear42ZgvfRT84Pt71hdZl4S9OEHHFC
-         d8zTU0ttNkFji/JWDKGHGNjcpOzju5NPNr1EM3JNLRZiidVWDHNBxVqEieo4SWiR0Biy
-         OluQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763576666; x=1764181466;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=wXp2uUfyAn7qQSV84bcf4nMWFAwyWFqJON+TttJbAcU=;
-        b=kYdBG5RrAGP3QUNT3RC7bnrazdTb1VYRDz0m2aK5khfQ9qklzeUpkc8QwptQH4UeGY
-         LuysswrabjQQQ1u8LQ8uUAUQTutLMdbe6s0QVg9jI+fGQyD0qIryhZj4GYe4pPAdkyTk
-         JbIGjoUDjaQkRJMEV5dQtaoN8jgIm3KTkgBkGeO4kthbLad/iQ+b8v48sbhxf8JZsVzE
-         ZBVCAuOeUEDaMQhKHMbBBlJJP1MKzoVX+0gr5Ke27i943ftYRhcTkLsvFS1BcwLSSh1J
-         nhGSq5yyVWljRShofyDeJx9sceGuNdioX1/Xd3nuXtdBnQyiVJv+ls2qLNuc2Ja5dDW6
-         A1mg==
-X-Forwarded-Encrypted: i=1; AJvYcCWcTTmQ5+mwvD9kRFO3OsyCxgru5cmFV7ujf4wA4ESyAoPrpmRn1QpyxTi6o7tP6OY/YCY37qC5qx88A8bMD+Gh@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyt0qDO8YOyl+DYPGTCzYCMXKKUgorrLojhYOJBCZQJRJbjfwng
-	HMh3V9vhtozDFMXBTTY1RdJ5Y/ZyFFGrmw6/Auk6owzs7mpVe9JO0V4OepcfOQ7yRhM=
-X-Gm-Gg: ASbGnct9H5RTi7+IzQqZ/TdIBPvpPuLKPi4NWvFxlpnTO8/2IS7Dr7AmlnCT6VRc0or
-	vFBYFhjOT7Gb7JokEWPmlCl9q6oXYBA4hOs30reWmE8HQZOM5D/tz5uj0UK/3aPTe0icjFe3qKa
-	g9ivRhQwx1nHSsX0tNEC+QlKTdxJgNswC4BHspN3gInPgro6aG8ILeSNm3WIqJP0sjFekdDDPP2
-	3YhWOjMt1cpXDvDGUkZu6oH/57TsDXjZPKtEWlzyyR7H/g8kPJofw0pdSSgO4OavlDeF6Lv0ab4
-	H2sbgkY/MPhYrbiVFDiFwVbUpceSInEG0kYSO2Q9M4H2TzRQ3rKEMMZ0QQ/mMMvpEOV9Z6xQjBz
-	xLTNjlCvAmC5+TGiCu0/ARzrGfQmZwywFLUFDBc4g/nGxyToCdkv7OcYJKuc9Gtx9qXM7SP6BtW
-	/quW6oD1NUdjNquTuxx9BJ3SBdScDmE3o=
-X-Google-Smtp-Source: AGHT+IHFWcpqhe+aEp30Ksls0LghzQFo1sGYaD1WHh6eJAE08Lx/+/aqM6jp4/gMRRi4U1LtQQLFuQ==
-X-Received: by 2002:a05:6402:5247:b0:643:129f:9d8e with SMTP id 4fb4d7f45d1cf-645363e41d7mr312140a12.8.1763576665944;
-        Wed, 19 Nov 2025 10:24:25 -0800 (PST)
-Received: from [10.101.2.140] ([93.122.165.106])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-645363b66e5sm169342a12.14.2025.11.19.10.24.24
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 19 Nov 2025 10:24:25 -0800 (PST)
-Message-ID: <b0102b82-9ae8-4e01-ba27-44b78b710fca@linaro.org>
-Date: Wed, 19 Nov 2025 20:24:23 +0200
+	id 1vLmxj-00000004bw4-0A2t;
+	Wed, 19 Nov 2025 18:31:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1763577087; x=1795113087;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=pBP4WxWi6I4i104La5ws6mRE/2XC7eeQYC/wQJDGoBY=;
+  b=WtuEfTMBLDOBkTSzKoDlVslMnueS3h7e2QZd3J89K/wf1H2Jxo9QaR+J
+   c9Y6Mw7SXQ5r3bX2JsvlaVPK2MV7nsCmmTQgwNmt3bCyQ8wFTFNxq+Q76
+   uVWU7ANNJX7GtNr4bBQkrxcF1QaFvwrS9eDlT2Q5zEHYn8HABC9zoUGO4
+   I2q6iuVJre39y9unufFd88G+BbFPDgEmSBXmKWSxf42PSecqUQsCSk5CX
+   oeZYR6yRfCgmKGEHtw64kACCQbACt0iQlQsSD2W9dZzIebOSwmDxkv8l4
+   xVsaZzgOToRg8+HHXInnh5s1O65BddCTF/O+wWe7kaDM1XcR9GWRh1NCJ
+   Q==;
+X-CSE-ConnectionGUID: O6UblHXtSEaqfH20hTjJaQ==
+X-CSE-MsgGUID: kFYowZRzQIOHkiDb4Upgnw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11618"; a="76989265"
+X-IronPort-AV: E=Sophos;i="6.19,316,1754982000"; 
+   d="scan'208";a="76989265"
+Received: from orviesa007.jf.intel.com ([10.64.159.147])
+  by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2025 10:31:23 -0800
+X-CSE-ConnectionGUID: ETFqZbkiSxuEEInIP9he7A==
+X-CSE-MsgGUID: 575tS8qWQsWLw7+HkqlsHA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.19,316,1754982000"; 
+   d="scan'208";a="191160594"
+Received: from puneetse-mobl.amr.corp.intel.com (HELO [10.125.109.180]) ([10.125.109.180])
+  by orviesa007-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2025 10:31:22 -0800
+Message-ID: <bad9eaaa-561a-498a-90d1-fe3a3ab8ba37@intel.com>
+Date: Wed, 19 Nov 2025 10:31:21 -0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 00/26] Introduce meminspect
-To: Steven Rostedt <rostedt@goodmis.org>
-Cc: linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-mm@kvack.org, tglx@linutronix.de, andersson@kernel.org,
- pmladek@suse.com, rdunlap@infradead.org, corbet@lwn.net, david@redhat.com,
- mhocko@suse.com, tudor.ambarus@linaro.org, mukesh.ojha@oss.qualcomm.com,
- linux-arm-kernel@lists.infradead.org, linux-hardening@vger.kernel.org,
- jonechou@google.com, linux-doc@vger.kernel.org, devicetree@vger.kernel.org,
- linux-remoteproc@vger.kernel.org, linux-arch@vger.kernel.org,
- tony.luck@intel.com, kees@kernel.org
-References: <20251119154427.1033475-1-eugen.hristev@linaro.org>
- <20251119131534.392277e3@gandalf.local.home>
-From: Eugen Hristev <eugen.hristev@linaro.org>
+Subject: Re: [RFC PATCH v7 30/31] x86/mm, mm/vmalloc: Defer kernel TLB flush
+ IPIs under CONFIG_COALESCE_TLBI=y
+To: Valentin Schneider <vschneid@redhat.com>, linux-kernel@vger.kernel.org,
+ linux-mm@kvack.org, rcu@vger.kernel.org, x86@kernel.org,
+ linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
+ linux-riscv@lists.infradead.org, linux-arch@vger.kernel.org,
+ linux-trace-kernel@vger.kernel.org
+Cc: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+ "H. Peter Anvin" <hpa@zytor.com>, Andy Lutomirski <luto@kernel.org>,
+ Peter Zijlstra <peterz@infradead.org>,
+ Arnaldo Carvalho de Melo <acme@kernel.org>,
+ Josh Poimboeuf <jpoimboe@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
+ Arnd Bergmann <arnd@arndb.de>, Frederic Weisbecker <frederic@kernel.org>,
+ "Paul E. McKenney" <paulmck@kernel.org>, Jason Baron <jbaron@akamai.com>,
+ Steven Rostedt <rostedt@goodmis.org>, Ard Biesheuvel <ardb@kernel.org>,
+ Sami Tolvanen <samitolvanen@google.com>,
+ "David S. Miller" <davem@davemloft.net>,
+ Neeraj Upadhyay <neeraj.upadhyay@kernel.org>,
+ Joel Fernandes <joelagnelf@nvidia.com>, Josh Triplett
+ <josh@joshtriplett.org>, Boqun Feng <boqun.feng@gmail.com>,
+ Uladzislau Rezki <urezki@gmail.com>,
+ Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+ Mel Gorman <mgorman@suse.de>, Andrew Morton <akpm@linux-foundation.org>,
+ Masahiro Yamada <masahiroy@kernel.org>, Han Shen <shenhan@google.com>,
+ Rik van Riel <riel@surriel.com>, Jann Horn <jannh@google.com>,
+ Dan Carpenter <dan.carpenter@linaro.org>, Oleg Nesterov <oleg@redhat.com>,
+ Juri Lelli <juri.lelli@redhat.com>, Clark Williams <williams@redhat.com>,
+ Yair Podemsky <ypodemsk@redhat.com>, Marcelo Tosatti <mtosatti@redhat.com>,
+ Daniel Wagner <dwagner@suse.de>, Petr Tesarik <ptesarik@suse.com>,
+ Shrikanth Hegde <sshegde@linux.ibm.com>
+References: <20251114150133.1056710-1-vschneid@redhat.com>
+ <20251114151428.1064524-10-vschneid@redhat.com>
+From: Dave Hansen <dave.hansen@intel.com>
 Content-Language: en-US
-In-Reply-To: <20251119131534.392277e3@gandalf.local.home>
+Autocrypt: addr=dave.hansen@intel.com; keydata=
+ xsFNBE6HMP0BEADIMA3XYkQfF3dwHlj58Yjsc4E5y5G67cfbt8dvaUq2fx1lR0K9h1bOI6fC
+ oAiUXvGAOxPDsB/P6UEOISPpLl5IuYsSwAeZGkdQ5g6m1xq7AlDJQZddhr/1DC/nMVa/2BoY
+ 2UnKuZuSBu7lgOE193+7Uks3416N2hTkyKUSNkduyoZ9F5twiBhxPJwPtn/wnch6n5RsoXsb
+ ygOEDxLEsSk/7eyFycjE+btUtAWZtx+HseyaGfqkZK0Z9bT1lsaHecmB203xShwCPT49Blxz
+ VOab8668QpaEOdLGhtvrVYVK7x4skyT3nGWcgDCl5/Vp3TWA4K+IofwvXzX2ON/Mj7aQwf5W
+ iC+3nWC7q0uxKwwsddJ0Nu+dpA/UORQWa1NiAftEoSpk5+nUUi0WE+5DRm0H+TXKBWMGNCFn
+ c6+EKg5zQaa8KqymHcOrSXNPmzJuXvDQ8uj2J8XuzCZfK4uy1+YdIr0yyEMI7mdh4KX50LO1
+ pmowEqDh7dLShTOif/7UtQYrzYq9cPnjU2ZW4qd5Qz2joSGTG9eCXLz5PRe5SqHxv6ljk8mb
+ ApNuY7bOXO/A7T2j5RwXIlcmssqIjBcxsRRoIbpCwWWGjkYjzYCjgsNFL6rt4OL11OUF37wL
+ QcTl7fbCGv53KfKPdYD5hcbguLKi/aCccJK18ZwNjFhqr4MliQARAQABzUVEYXZpZCBDaHJp
+ c3RvcGhlciBIYW5zZW4gKEludGVsIFdvcmsgQWRkcmVzcykgPGRhdmUuaGFuc2VuQGludGVs
+ LmNvbT7CwXgEEwECACIFAlQ+9J0CGwMGCwkIBwMCBhUIAgkKCwQWAgMBAh4BAheAAAoJEGg1
+ lTBwyZKwLZUP/0dnbhDc229u2u6WtK1s1cSd9WsflGXGagkR6liJ4um3XCfYWDHvIdkHYC1t
+ MNcVHFBwmQkawxsYvgO8kXT3SaFZe4ISfB4K4CL2qp4JO+nJdlFUbZI7cz/Td9z8nHjMcWYF
+ IQuTsWOLs/LBMTs+ANumibtw6UkiGVD3dfHJAOPNApjVr+M0P/lVmTeP8w0uVcd2syiaU5jB
+ aht9CYATn+ytFGWZnBEEQFnqcibIaOrmoBLu2b3fKJEd8Jp7NHDSIdrvrMjYynmc6sZKUqH2
+ I1qOevaa8jUg7wlLJAWGfIqnu85kkqrVOkbNbk4TPub7VOqA6qG5GCNEIv6ZY7HLYd/vAkVY
+ E8Plzq/NwLAuOWxvGrOl7OPuwVeR4hBDfcrNb990MFPpjGgACzAZyjdmYoMu8j3/MAEW4P0z
+ F5+EYJAOZ+z212y1pchNNauehORXgjrNKsZwxwKpPY9qb84E3O9KYpwfATsqOoQ6tTgr+1BR
+ CCwP712H+E9U5HJ0iibN/CDZFVPL1bRerHziuwuQuvE0qWg0+0SChFe9oq0KAwEkVs6ZDMB2
+ P16MieEEQ6StQRlvy2YBv80L1TMl3T90Bo1UUn6ARXEpcbFE0/aORH/jEXcRteb+vuik5UGY
+ 5TsyLYdPur3TXm7XDBdmmyQVJjnJKYK9AQxj95KlXLVO38lczsFNBFRjzmoBEACyAxbvUEhd
+ GDGNg0JhDdezyTdN8C9BFsdxyTLnSH31NRiyp1QtuxvcqGZjb2trDVuCbIzRrgMZLVgo3upr
+ MIOx1CXEgmn23Zhh0EpdVHM8IKx9Z7V0r+rrpRWFE8/wQZngKYVi49PGoZj50ZEifEJ5qn/H
+ Nsp2+Y+bTUjDdgWMATg9DiFMyv8fvoqgNsNyrrZTnSgoLzdxr89FGHZCoSoAK8gfgFHuO54B
+ lI8QOfPDG9WDPJ66HCodjTlBEr/Cwq6GruxS5i2Y33YVqxvFvDa1tUtl+iJ2SWKS9kCai2DR
+ 3BwVONJEYSDQaven/EHMlY1q8Vln3lGPsS11vSUK3QcNJjmrgYxH5KsVsf6PNRj9mp8Z1kIG
+ qjRx08+nnyStWC0gZH6NrYyS9rpqH3j+hA2WcI7De51L4Rv9pFwzp161mvtc6eC/GxaiUGuH
+ BNAVP0PY0fqvIC68p3rLIAW3f97uv4ce2RSQ7LbsPsimOeCo/5vgS6YQsj83E+AipPr09Caj
+ 0hloj+hFoqiticNpmsxdWKoOsV0PftcQvBCCYuhKbZV9s5hjt9qn8CE86A5g5KqDf83Fxqm/
+ vXKgHNFHE5zgXGZnrmaf6resQzbvJHO0Fb0CcIohzrpPaL3YepcLDoCCgElGMGQjdCcSQ+Ci
+ FCRl0Bvyj1YZUql+ZkptgGjikQARAQABwsFfBBgBAgAJBQJUY85qAhsMAAoJEGg1lTBwyZKw
+ l4IQAIKHs/9po4spZDFyfDjunimEhVHqlUt7ggR1Hsl/tkvTSze8pI1P6dGp2XW6AnH1iayn
+ yRcoyT0ZJ+Zmm4xAH1zqKjWplzqdb/dO28qk0bPso8+1oPO8oDhLm1+tY+cOvufXkBTm+whm
+ +AyNTjaCRt6aSMnA/QHVGSJ8grrTJCoACVNhnXg/R0g90g8iV8Q+IBZyDkG0tBThaDdw1B2l
+ asInUTeb9EiVfL/Zjdg5VWiF9LL7iS+9hTeVdR09vThQ/DhVbCNxVk+DtyBHsjOKifrVsYep
+ WpRGBIAu3bK8eXtyvrw1igWTNs2wazJ71+0z2jMzbclKAyRHKU9JdN6Hkkgr2nPb561yjcB8
+ sIq1pFXKyO+nKy6SZYxOvHxCcjk2fkw6UmPU6/j/nQlj2lfOAgNVKuDLothIxzi8pndB8Jju
+ KktE5HJqUUMXePkAYIxEQ0mMc8Po7tuXdejgPMwgP7x65xtfEqI0RuzbUioFltsp1jUaRwQZ
+ MTsCeQDdjpgHsj+P2ZDeEKCbma4m6Ez/YWs4+zDm1X8uZDkZcfQlD9NldbKDJEXLIjYWo1PH
+ hYepSffIWPyvBMBTW2W5FRjJ4vLRrJSUoEfJuPQ3vW9Y73foyo/qFoURHO48AinGPZ7PC7TF
+ vUaNOTjKedrqHkaOcqB185ahG2had0xnFsDPlx5y
+In-Reply-To: <20251114151428.1064524-10-vschneid@redhat.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251119_102428_070329_C8E563F5 
-X-CRM114-Status: GOOD (  38.07  )
+X-CRM114-CacheID: sfid-20251119_103127_137619_FDD8BB00 
+X-CRM114-Status: GOOD (  11.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,76 +155,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Steven,
+On 11/14/25 07:14, Valentin Schneider wrote:
+> +static bool flush_tlb_kernel_cond(int cpu, void *info)
+> +{
+> +	return housekeeping_cpu(cpu, HK_TYPE_KERNEL_NOISE) ||
+> +	       per_cpu(kernel_cr3_loaded, cpu);
+> +}
 
-On 11/19/25 20:15, Steven Rostedt wrote:
-> On Wed, 19 Nov 2025 17:44:01 +0200
-> Eugen Hristev <eugen.hristev@linaro.org> wrote:
-> 
->> Once you have all the files simply use `cat` to put them all together,
->> in the order of the indexes.
->> For my kernel config and setup, here is my cat command : (you can use a script
->> or something, I haven't done that so far):
-> 
-> Interesting.  Hmm, it seems this could be used with the persistent ring
-> buffer code as well. But if the firmware does not keep the memory around on
-> reboot (where the buffer would be reloaded), you could mark the persistent
-> ring buffer's memory to be inspected.
+Is it OK that 'kernel_cr3_loaded' can be be stale? Since it's not part
+of the instruction that actually sets CR3, there's a window between when
+'kernel_cr3_loaded' is set (or cleared) and CR3 is actually written.
 
-I was kinda hoping I could get a chance to talk to you about this.
+Is that OK?
 
-I managed to mark the trace buffer for inspection. By using the cmd line
-argument to have it preallocated, it was very easy to just mark it for
-inspection and dump it on a crash, as a dedicated meminspect region.
+It seems like it could lead to both unnecessary IPIs being sent and for
+IPIs to be missed.
 
-> 
-> The persistent ring buffer creates a single allocation to hold all per-cpu
-> memory in a single region. That is, because on a crash and reboot, it
-> expects that memory to be at the same location and does a verification
-> check to see if it contains a valid buffer. If it does, it will recreate it
-> for view in the instance directory of choice.
-> 
-> Now if this same range is marked for inspection, you could then download
-> the entire contents of the persistent ring buffer after a crash. It would
-> be trivial to update trace-cmd's restore functionality to rebuild a
-> trace.dat file from it. It would require saving the event formats of the
-> running kernel before the crash, but that's not hard to do.
-
-The problem is that all the meta-data is not allocated inside the
-preallocated buffer. The meta-data is kmalloced all around the code. I
-mean the structs that hold the information on what's in the buffer. You
-know what I mean.
-And all these kmalloced things, turn out to be in order of hundreds just
-on a kernel boot, which I tested. This is not feasible for the
-meminspect table, as it would get overcrowded very easily.
-I thought of perhaps trying to kmalloc all of them in a dedicated cache,
-but I haven't progressed on that. Another idea would be to try to
-recreate the meta, but I have not found a way to do it yet.>
-> That is, by using the persistent ring buffer code with the meminspect, if
-> the firmware doesn't save the memory across reboots but allows you to dump
-> it to disk, you can enable tracing within the persistent ring buffer, on
-> crash, extract the buffer, and then use trace-cmd to rebuild a trace.dat
-> file that you can now inspect, and see the trace that lead up to the crash.
-I used 'crash' tool with trace plugin and I am able to see all the trace
-contents, but, with the limitation above. (To achieve this, I dumped a
-huge area to include it, so , not feasible for my goal )
-
-> 
-> Now I don't have any hardware that uses this feature (not that I know of),
-> but if others find this useful, I would most definitely help them implement
-> it.
-
-We could have some drivers pass the inspection table and then store it
-in ramoops e.g., tapping into pstore. This idea has been going around,
-but I have not had the chance to write a pstore thing yet.
-
-So , I was stuck, and I was hoping to talk to you, either by email or
-maybe at Plumbers in Tokyo where I have a talk about meminspect.
-
-Thanks for looking into it,
-Eugen
-
-> 
-> -- Steve
-
+I still _really_ wish folks would be willing to get newer CPUs to get
+this behavior rather than going through all this complexity. RAR in
+particular was *specifically* designed to keep TLB flushing IPIs from
+blipping userspace for too long.
 
