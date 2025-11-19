@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79641CF34C1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 15:02:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 911F4CF259F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 15:02:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y7LUCdO1BgaeMVP+xZp6KDn3mHqbh1ictcHBDADr/L0=; b=pvVENc3qNUQ2a/YKuSHquUxDcY
-	9fr0/rWTbUKV9T9up4Fc13dQEiBM+w059vFt14yYsvq+QaJwUQtnwpSJbrMuVg5lXxkX9Kf0Tiju3
-	nW/f6SN/RoxhcXfXsrsJiuyJe6FfPchno1zSC1TtAn+grEVPzbKjxeRll10OYn4AgJfwWqgNG+yEG
-	LssRO3UhtBwhmdj7SmDE9uEQJEtf8lfDIIg2VZaj+jogftrRtzxpbxeKtKzsHMZXzAfwymwcYfQ4H
-	nL9cbhYSCnuOnLdCsmZ/Wrdj7PuTpAaRG/Fy/MD4PihUeSr0fdFXMIMyDlF2MW9ZwEIzy/wwFHkzW
-	1nUUtxjA==;
+	bh=tXhSydO9Dpqr+6NZaUNuuyN3IeO313U2dXc01vHb3sQ=; b=YCmcRfDLoSXKWbDDOgX/1EGvMW
+	XBA0j1jZEPGsiKF23bpzhfS4T/C/pxULDNDLFCaD/m+C6DNCEHyF/tN6UE2whVQUXZ9+a5wPGrPDx
+	2WD/PpwDi46lc/oZUynoLYPKWgC171FVPKtXXZblqBfD3dIIPLu7K1i2czlWKLBCJJWoS9//tpVr3
+	fxfFFzxHJbYUXIcZZituaDHyaVOaO8kTAp29surABML++QdaeNkxf7LA0CtvgBOBt3AF9GPUg/EyO
+	D+RX9VVZY2qyXvldg5qFUlFn63vMd0vDkJ7k7Rh4YPq+CeVlgqyUToebDt9WhBFe7JK/qU1fll+2R
+	7HawWcFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLjgz-00000003Qhn-0tqH;
-	Wed, 19 Nov 2025 15:01:57 +0000
+	id 1vLjh7-00000003Qkr-2BKr;
+	Wed, 19 Nov 2025 15:02:05 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLjgx-00000003Qh7-2pLL
+	id 1vLjh4-00000003Qjt-2OjZ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Nov 2025 15:01:55 +0000
+	Wed, 19 Nov 2025 15:02:03 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D95D960172;
+	by tor.source.kernel.org (Postfix) with ESMTP id 007E26020B;
+	Wed, 19 Nov 2025 15:02:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 04777C4CEF5;
 	Wed, 19 Nov 2025 15:01:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A5479C2BCF4;
-	Wed, 19 Nov 2025 15:01:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763564514;
-	bh=ayYd92BzXLAvZa6PV9kCTiwUJsvbLOFJ9xxXZLTfmYE=;
+	s=k20201202; t=1763564521;
+	bh=zfENW2Hv0WrBl9fFj1kQqCsjjNw7oPS6NBN0i4rAqIQ=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=HVoSsvhYV2SgT6ZAcvZjUiBtzE0eAMr9Nv0usDcUAuTJR3+1mnFDyehdVnVRd7rfK
-	 +fETEwL5UZaDYwrdEs1bpiVlQZUMTnCoNAx3D7lXwogJ2gDfi3QCD3aPYpjs1gEe//
-	 OPpnhOsEy7J2VCKdULWzb3oc9uXES1dzC6soESUiixjZhTAa6/KGpZNKo2LW0u7Pbg
-	 LxTgn/fDwleAu0tSKqgBrI5st1xw28Vpw77mssYjGLr29596xSioLRGC84n7hykCmI
-	 N2BCyuhivoJyh9zBbvPd4cD78edSFor88QlzR5XS0+W+fZZVt38p/rA+lAXBvLt73A
-	 IEjQs7FrM5+gg==
+	b=sPBGonWAUoey2l2Bq16Rpp0VQELITJ7w829ucjDacFOc973E0xqfFFvo949H4WqZz
+	 9zCy60ApFWc4VYyR6BPqOPs3gHvgLGUEZ+pH5x99alY75XdPJZlvnMTRPsx5P9nh3E
+	 9iOr3pY/9GgIB+HKq6Kei65YxH1BdH8WBJOOb3TPEu1DqrNuvcYe9mM2MSO0yObGJr
+	 EC46kvX6Ikn8FbWK+Hq6rKgsxyaKdsXzJ2GaUE8YQzF3Fw1MItk0ZAHg/5LbhB1yB2
+	 OghZnht9JIswxJ4gFDR5g6TSYvmrtoena2XDF1EhM21/yCfQwFAFFcHf8eM2+dsxTT
+	 EP7+EEDJaFARA==
 From: Jisheng Zhang <jszhang@kernel.org>
 To: Doug Berger <opendmb@gmail.com>,
 	Florian Fainelli <florian.fainelli@broadcom.com>,
@@ -65,9 +65,9 @@ Cc: linux-gpio@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	linux-omap@vger.kernel.org
-Subject: [PATCH v3 04/15] gpio: pl061: Use modern PM macros
-Date: Wed, 19 Nov 2025 22:43:16 +0800
-Message-ID: <20251119144327.13345-5-jszhang@kernel.org>
+Subject: [PATCH v3 05/15] gpio: pxa: Use modern PM macros
+Date: Wed, 19 Nov 2025 22:43:17 +0800
+Message-ID: <20251119144327.13345-6-jszhang@kernel.org>
 X-Mailer: git-send-email 2.51.0
 In-Reply-To: <20251119144327.13345-1-jszhang@kernel.org>
 References: <20251119144327.13345-1-jszhang@kernel.org>
@@ -95,81 +95,55 @@ This has the advantage of always compiling these functions in,
 independently of any Kconfig option. Thanks to that, bugs and other
 regressions are subsequently easier to catch.
 
-The pl061_context_save_regs structure is always embedded into struct
-pl061 to simplify code, so this brings a tiny 8 bytes memory overhead
-for !CONFIG_PM_SLEP.
-
 Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-Reviewed-by: Linus Walleij <linus.walleij@linaro.org>
 Acked-by: Linus Walleij <linus.walleij@linaro.org>
 ---
- drivers/gpio/gpio-pl061.c | 17 ++---------------
- 1 file changed, 2 insertions(+), 15 deletions(-)
+ drivers/gpio/gpio-pxa.c | 12 ++----------
+ 1 file changed, 2 insertions(+), 10 deletions(-)
 
-diff --git a/drivers/gpio/gpio-pl061.c b/drivers/gpio/gpio-pl061.c
-index 02e4ffcf5a6f..919cf86fd590 100644
---- a/drivers/gpio/gpio-pl061.c
-+++ b/drivers/gpio/gpio-pl061.c
-@@ -37,7 +37,6 @@
- 
- #define PL061_GPIO_NR	8
- 
+diff --git a/drivers/gpio/gpio-pxa.c b/drivers/gpio/gpio-pxa.c
+index fa22f3faa163..288c72f9c015 100644
+--- a/drivers/gpio/gpio-pxa.c
++++ b/drivers/gpio/gpio-pxa.c
+@@ -66,13 +66,10 @@ struct pxa_gpio_bank {
+ 	unsigned long	irq_mask;
+ 	unsigned long	irq_edge_rise;
+ 	unsigned long	irq_edge_fall;
+-
 -#ifdef CONFIG_PM
- struct pl061_context_save_regs {
- 	u8 gpio_data;
- 	u8 gpio_dir;
-@@ -46,7 +45,6 @@ struct pl061_context_save_regs {
- 	u8 gpio_iev;
- 	u8 gpio_ie;
- };
--#endif
- 
- struct pl061 {
- 	raw_spinlock_t		lock;
-@@ -55,9 +53,7 @@ struct pl061 {
- 	struct gpio_chip	gc;
- 	int			parent_irq;
- 
--#ifdef CONFIG_PM
- 	struct pl061_context_save_regs csave_regs;
+ 	unsigned long	saved_gplr;
+ 	unsigned long	saved_gpdr;
+ 	unsigned long	saved_grer;
+ 	unsigned long	saved_gfer;
 -#endif
  };
  
- static int pl061_get_direction(struct gpio_chip *gc, unsigned offset)
-@@ -367,7 +363,6 @@ static int pl061_probe(struct amba_device *adev, const struct amba_id *id)
- 	return 0;
+ struct pxa_gpio_chip {
+@@ -746,7 +743,6 @@ static int __init pxa_gpio_dt_init(void)
  }
+ device_initcall(pxa_gpio_dt_init);
  
 -#ifdef CONFIG_PM
- static int pl061_suspend(struct device *dev)
+ static int pxa_gpio_suspend(void)
  {
- 	struct pl061 *pl061 = dev_get_drvdata(dev);
-@@ -411,13 +406,7 @@ static int pl061_resume(struct device *dev)
- 	return 0;
+ 	struct pxa_gpio_chip *pchip = pxa_gpio_chip;
+@@ -787,14 +783,10 @@ static void pxa_gpio_resume(void)
+ 		writel_relaxed(c->saved_gpdr, c->regbase + GPDR_OFFSET);
+ 	}
  }
- 
--static const struct dev_pm_ops pl061_dev_pm_ops = {
--	.suspend = pl061_suspend,
--	.resume = pl061_resume,
--	.freeze = pl061_suspend,
--	.restore = pl061_resume,
--};
+-#else
+-#define pxa_gpio_suspend	NULL
+-#define pxa_gpio_resume		NULL
 -#endif
-+static DEFINE_SIMPLE_DEV_PM_OPS(pl061_dev_pm_ops, pl061_suspend, pl061_resume);
  
- static const struct amba_id pl061_ids[] = {
- 	{
-@@ -431,9 +420,7 @@ MODULE_DEVICE_TABLE(amba, pl061_ids);
- static struct amba_driver pl061_gpio_driver = {
- 	.drv = {
- 		.name	= "pl061_gpio",
--#ifdef CONFIG_PM
--		.pm	= &pl061_dev_pm_ops,
--#endif
-+		.pm	= pm_sleep_ptr(&pl061_dev_pm_ops),
- 	},
- 	.id_table	= pl061_ids,
- 	.probe		= pl061_probe,
+ static struct syscore_ops pxa_gpio_syscore_ops = {
+-	.suspend	= pxa_gpio_suspend,
+-	.resume		= pxa_gpio_resume,
++	.suspend	= pm_ptr(pxa_gpio_suspend),
++	.resume		= pm_ptr(pxa_gpio_resume),
+ };
+ 
+ static int __init pxa_gpio_sysinit(void)
 -- 
 2.51.0
 
