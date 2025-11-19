@@ -4,66 +4,177 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32EFCCF2582
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 05:03:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 424DBCF2582
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 05:03:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zJZBQJPzH9tvp+p6BfNbmxCYQjyOiKvAtq5q92gsz0E=; b=llctA9/f5N+rsWWjh901xP8jLG
-	l8qOgbsRg8SkvUbc7RkKtOr4ZPzuRkcIUG7JygUGJz+GeR1b2UD5mjxlZyqc5MrpSImE8nizibM+s
-	lKSvAaCx5NvslSBxP0Z7LgeQt8DfC7AvFucKLI3ANLJ4izpDia7bNSuXpZK9Inc9aG0OvISOWk/sp
-	EGFxFVJKYUcDyl391camGHy11YwebAonkgrgHRxs39oeEGM9aJ/jMu+G95ML41A5NJv8yekWtQowD
-	Mfgw4pLYLzIpjUfXywDqx6wknEyOSWRJiq85XzOyxnhH/HNHKgIR96z3LxJ+YgljyAToRxR13evBD
-	ON8OTY+g==;
+	bh=ErrbjQxo/iY97RmnfAjyNW0S+bWbdxpqKeinb5pWCbU=; b=MzcV4n1auBKyBV8eaVVrONnJzq
+	nAWJUOSaNaGcLTMus+Epmmrq7nyn+jCMzGnhRR0cU6VzQRkwv4T6875c2h5sekRFhYXPirtcmIkWo
+	H6ZYmJOH8FcQUy6Q29fi4B7oTi2TACJbLramhGR8bom6R0/Xc6ZQYwyvKxN2QD5x5U8T+vMfrJZfl
+	t0BVEBrZWRqwHZ/4YfFPwNx0pECifQfA5wb8SCmFHm96hF0YKmDXkemcRbBLAH1JYIlcByhwkPWD4
+	1MbrgXA61HGjE+2grdskPau8ICjq4BS3+1rSc4yB+4h8Ws5GhSWo8yhsRYMRh6mM1io5g4ciLFeuA
+	zPo9MTRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLaLg-000000020rR-1CSm;
-	Wed, 19 Nov 2025 05:03:20 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1vLaLr-000000020vK-2Z80;
+	Wed, 19 Nov 2025 05:03:31 +0000
+Received: from mail-westusazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c000::1] helo=BYAPR05CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLaLa-000000020mA-3LJM
+	id 1vLaLn-000000020uf-04AU
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Nov 2025 05:03:18 +0000
-Received: from pendragon.ideasonboard.com (unknown [205.220.129.225])
-	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 53739195E;
-	Wed, 19 Nov 2025 06:01:05 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1763528468;
-	bh=6f04bYijyMFsZjVjgltBRwZEr1RHbFar8/wn5NeBitM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=fUFcaMcA4k5pMNwr3yRgoRddLq9BLebhEBuD47UPiZg1bPfq9Hb69MKVNFtE+5/be
-	 v5nT1KiTI04S8GGb9elvBgOOgb5AyShKEstDfnB+0f5AtvlsG0wLpvaw7LGP7iKnlA
-	 oTyQ5jAKw/+U4TnzntuqvjuC2l5qxsB1LwfuYigw=
-Date: Wed, 19 Nov 2025 14:02:39 +0900
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Frank Li <Frank.Li@nxp.com>
-Cc: Philipp Zabel <p.zabel@pengutronix.de>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Rui Miguel Silva <rmfrfs@gmail.com>,
-	Martin Kepplinger-Novakovic <martink@posteo.de>,
-	Purism Kernel Team <kernel@puri.sm>, linux-media@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 4/4] media: nxp: use cleanup __free(fwnode_handle)
- simplify code
-Message-ID: <20251119050239.GA16725@pendragon.ideasonboard.com>
-References: <20251117-cam_cleanup-v1-0-6cd42872db79@nxp.com>
- <20251117-cam_cleanup-v1-4-6cd42872db79@nxp.com>
- <20251119042505.GO10711@pendragon.ideasonboard.com>
+	Wed, 19 Nov 2025 05:03:29 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=e6nrGpYxRHIey9Lt55NBSIZ6hdGHq0JXzHIZ0mndLUEjh+ascWR+5e2213gQ9Io852xHv6g26s7KPqavzF+8ANQpwiJ5b00wkQsXM83vS9X/1yTiMh3eIlCWTkPwmfR6bfe9NqQ5R0/+4Wwqlbgu1UEHJj5mTpA0ukFIpwGq5GVKatSEcbFaC4gMnmOwj0NgSH5SuicJcSMaVN9VhvE4wduIqlB/Eiomq2Jpr6GkbjqW6nM+tYiB1NdNiDiJiwS6FHOQ7dXXE1nFFVBjp/AjIPAuIu5Orok0AJgrKr7lm3LnukInhuqqScN21TZqG4u1me/akVe9D53aLKIMY1D7fQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ErrbjQxo/iY97RmnfAjyNW0S+bWbdxpqKeinb5pWCbU=;
+ b=j5vAPMrB8Ax+LEXrcjjAweCjp3B0MTGy9K77czZzqXyiuy1zuOEr7rb/lUGZ35qsueVVdt9IWBrd5qLxy2Zz9SQLY/jAwLFTZyObkve7KA1auONgQeVXfcKdxqggQDxWO4kF2Pbb63uwtgFlZcZKwPEsRroNrUCDRnGSmgkRZ2VqHR/MLnDX9Q9OfYDNI11ZEh3c+02O9dylIn1uyRraV9PN6nUYdYHi5ZjwrqRCTLnQUvd1MzbV7sNYVxHJ7kt4Lro/vZw/U0+/8q3RASsPgwPOgEoRKPWalBqugxXjFweI9LNbwqgzvVI2BhUbUiKNsrq83Z+PMhMiwexTE/L9yw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ErrbjQxo/iY97RmnfAjyNW0S+bWbdxpqKeinb5pWCbU=;
+ b=YDF7AOXhPGn/JTCkrkzKlHt5gLGMvFVMvpkFdOC3437BkUv9yDKJp6NUg3W8U/nkq8L0/4AddbMJU9sWqV3k7gyRImxsprpYKrbUmxGwvTIrS6ZD1fUoFhI5WuyxwneDZ+NS8Yb7+XpcdGs30HTqJBehLd0bFwX5CqeEcVmF21p1c0aJ6AfPTTvnz5AfZuUUSrdhYe8RiChstEzIcJdTE2x71lnkCdmMCku8SwwIEMiWYcCUpDzy8nH9v/PIFGdfTfjLOH2l83D65Qu9ZPrDu80Uy2z02A5RVTUQTP2T21P8/L13rQqioaFTkvKv90A46i+s4afafT7wXcy1FEa9+Q==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from DM6PR12MB2667.namprd12.prod.outlook.com (2603:10b6:5:42::28) by
+ SJ0PR12MB5673.namprd12.prod.outlook.com (2603:10b6:a03:42b::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9343.10; Wed, 19 Nov
+ 2025 05:03:21 +0000
+Received: from DM6PR12MB2667.namprd12.prod.outlook.com
+ ([fe80::bd88:b883:813d:54a2]) by DM6PR12MB2667.namprd12.prod.outlook.com
+ ([fe80::bd88:b883:813d:54a2%6]) with mapi id 15.20.9275.015; Wed, 19 Nov 2025
+ 05:03:21 +0000
+Message-ID: <1a7473d6-50f5-43bb-b082-99120d127a1a@nvidia.com>
+Date: Tue, 18 Nov 2025 21:03:18 -0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 26/34] arm_mpam: Add mpam_msmon_read() to read monitor
+ value
+To: Ben Horgan <ben.horgan@arm.com>, james.morse@arm.com
+Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
+ baolin.wang@linux.alibaba.com, bobo.shaobowang@huawei.com,
+ carl@os.amperecomputing.com, catalin.marinas@arm.com, dakr@kernel.org,
+ dave.martin@arm.com, david@redhat.com, dfustini@baylibre.com,
+ gregkh@linuxfoundation.org, gshan@redhat.com, guohanjun@huawei.com,
+ jeremy.linton@arm.com, jonathan.cameron@huawei.com, kobak@nvidia.com,
+ lcherian@marvell.com, lenb@kernel.org, linux-acpi@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ lpieralisi@kernel.org, peternewman@google.com, quic_jiles@quicinc.com,
+ rafael@kernel.org, robh@kernel.org, rohit.mathew@arm.com,
+ scott@os.amperecomputing.com, sdonthineni@nvidia.com, sudeep.holla@arm.com,
+ tan.shaopeng@fujitsu.com, will@kernel.org, xhao@linux.alibaba.com,
+ Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>, Zeng Heng <zengheng4@huawei.com>
+References: <20251117170014.4113754-1-ben.horgan@arm.com>
+ <20251117170014.4113754-27-ben.horgan@arm.com>
+Content-Language: en-US
+From: Fenghua Yu <fenghuay@nvidia.com>
+In-Reply-To: <20251117170014.4113754-27-ben.horgan@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: BYAPR11CA0065.namprd11.prod.outlook.com
+ (2603:10b6:a03:80::42) To DM6PR12MB2667.namprd12.prod.outlook.com
+ (2603:10b6:5:42::28)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20251119042505.GO10711@pendragon.ideasonboard.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DM6PR12MB2667:EE_|SJ0PR12MB5673:EE_
+X-MS-Office365-Filtering-Correlation-Id: 671e6b1c-4d9d-4053-66ec-08de2728f5ba
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014|7053199007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?cDdMTkY2M01USnZ2WXFKQ0s0SVZXK0Zhc05UZWZxb0kyN1dvVkdxUFAyeDlr?=
+ =?utf-8?B?M3g4RnRQRDVZb01oTzNEMFc2Tnp5bmlKbDBaUWY0a0ptQXdJU1BqNFdsQUUw?=
+ =?utf-8?B?WjRsOGorNjd4RjhYYmFCRUJKbmZNTlNkUWY1aUNiN0dEQWJrd0VmbjFNdmxB?=
+ =?utf-8?B?RlhDd2RycDN2T3RVSDBBV3ZzNy9neXN4cUdSMUlTWW1uS3BwY3p1b1Q1Vko0?=
+ =?utf-8?B?Q2RSUk16OWhsRTgzOVNtU21sMUdFQktqRkQ5bXNZVVVzczNtaEFXQ3JuVlgx?=
+ =?utf-8?B?SGl0d2diRGsrZ2UxSmpsWjhaUWpXaXl1YVU5TldGK0F4Z3NINHYvZXIyM1l3?=
+ =?utf-8?B?S29reFNTbDNERjlMU0RhMTVRRDR2M0l4VEZ0REgwRm5SOUxZbitWTm9PeXho?=
+ =?utf-8?B?NXJoTm5XS0NwdlBCRE1sRGtJdUl0MHU5cVdZUDNxMldtbTZOY2kzTGNQNEtk?=
+ =?utf-8?B?TWJMYnA5WnUvNWc2Z2ZpUmJ2VUU2RmRGRlVlNXoySU9SYWhhMm8vcDR5dERi?=
+ =?utf-8?B?NE4yL25GV3dHMXl4WStyVldRV2Iya0lzUmpOS2ZkTWJFRWp1YzlTY05Ka1RJ?=
+ =?utf-8?B?YjNWTVZIbXBmdkRuOGpyb2lJMUtjQ3VVcGg2MG9XaGhocXVMakpHdnJiWG1B?=
+ =?utf-8?B?MU9VbXgrZVc0WkxxS012cE1uYlBMZ3NsMWFaeEdvZkhwZlQ2YWJ3VXNTVnA5?=
+ =?utf-8?B?bFRDcGszaWNYcjA5bEtDSmQyWTdDamZJWWx3U3VJWUdHRGlqTzMxdkxlMGhu?=
+ =?utf-8?B?dVE2N05uOW1uTTB3TTdEM1ByamxvZ3hkUDVWaWx1UlQ4ZWdKem9odFU1RS9j?=
+ =?utf-8?B?ZHg0ZmRWTHRwOGw2cU5VRHdPYzJ3SExTeXBGVXhtdHJKZEkzS1RVNlYra3BZ?=
+ =?utf-8?B?TWNIOUtWVjN6LzZJSnFNUkp5TlJDYXhrS0hmQUk1bGFzY2ZJa0Z0QTRFOGVO?=
+ =?utf-8?B?bXhhU3JXeXIwTHYvSFFIaUVmWUxIWkhYUUpyK3FoRVVZQ25iOVNIN1pNS0Ev?=
+ =?utf-8?B?eEdWZExRb0t1dHg1Mnp5eXg3ZndOL0dmYVRFWmF3MVdHMDZmVTRKZlp1dVBV?=
+ =?utf-8?B?ejBXeXZUKzZUTGI0Z3c0Vm9pamV0ek5QcDBNSEo4V2g0QmRsbmkyWnM1N1ZR?=
+ =?utf-8?B?cWpidGVWNUZSQ1RSZ0tlbkdVdEI3R0V6YW1OQkMvMUdsV1RnMWZmbUlVWHgx?=
+ =?utf-8?B?UVpwalRLbys2elkrYkY4bHhJTjFNMGwwMnh6WnF1Vm9RS2NSditOUG5scjNw?=
+ =?utf-8?B?a1Z6amJKVkJndXRjL2xLQTJLSTJJcUxZdWU0czdPK3dlL0xTWmJkNWt2WGd3?=
+ =?utf-8?B?Mm8vczFXeldqK3Z5Mk1XaVZzMXJnTDl6MEkzMm1WNHJEQ01GQWJ0cWZZWjB0?=
+ =?utf-8?B?bTJsdFdoL2w2YlRka3ZHUTVOaVVkZ1FqY3NKQ29ZN3EvaGhYdmptZ1kvUDVY?=
+ =?utf-8?B?NUprbmxUMVVxSmZYV2xJVnYzYnRSVUNlUmtLaG00VmM0OGxUL0Qrcnl2WnEy?=
+ =?utf-8?B?amdYOTRjZXFZeEF3RFM0cXdyb0JVMDV3M3VUdlRHbjkzdVF0MWJxYXJndFhy?=
+ =?utf-8?B?ZFBwcnVPLzJUM0Jjc0Jic09hK3J4bWFSMCtyczlMMGRsZWxoN2tlbEZnUzJh?=
+ =?utf-8?B?TEl6OE9XSnQ3aGR4Q2tSZmJucVlwd1JOWWJrc2RFYVkzeno2QUg2MGtrbkhI?=
+ =?utf-8?B?MjZCendpaG4yRDBVTEt0WEF6RmVBVHlmMnpLU3FKQUlQOTJmSFZNODJnMlRL?=
+ =?utf-8?B?WkZnTlNFNCtoYnRra1pMcjhnbTdaWVk1a1lNNnVQa3JEODRUbnpxQUhBcS9k?=
+ =?utf-8?B?dDB6a0cwUS9GRC9uQ0NwWWtoY0FhQXNWSWhXMFVXNUsrYkx1ekd1V3ZXeDFy?=
+ =?utf-8?B?azlXU1JxSkF3bXp2dmJJcVRoeDU0eU90T0Z5YWlFM3FlRVdLTEhhQ01hRnlS?=
+ =?utf-8?Q?ARScGsgs7YVApfJR8m3Q7fB+cJdt069z?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM6PR12MB2667.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?WktTZitjMVZzanhkeEIyS2hOdWJiYzgzb09ibUI0ZkpTZDlFdnBWWUZ5aEtW?=
+ =?utf-8?B?eUFmMXhuY094aHJlblRVeWRTUE8yQUtxZG9IdHdpY3lxQXZGYmpucG9aY0Z6?=
+ =?utf-8?B?Witna0czdXVGeDZjelZlaWxxaWxwNTRVV3BmMENmRVNSUHB6U3Z1NU45c0pq?=
+ =?utf-8?B?OHc2NUZPY0VNNGJNcFh5VU5jODFhaVd4L2M3dWU3SU9QY3RxMTB2Ymx4QVk0?=
+ =?utf-8?B?UmFCdFc0RURVMmxXOVdOc2UvL2tZYzlCYVl1eUhTUUFUeSs1V0ZwZnFvWjdl?=
+ =?utf-8?B?Yy9VWDB1d3BNL3hnazAvekhDUGd0RWw2SmFNVjUwaE9SNTNBc2hmZE5ERHRm?=
+ =?utf-8?B?QzFDSzA0MkFUZlFneW5mRFFUZU5JNnVJek9WUkk4cGhiZ3Y0emNiaXI2aWRI?=
+ =?utf-8?B?MVFobW5kVmlGb1c3djRuNTIwRHEydUJMRXlHSDhGWlJMVGpJWlBRS1VvNlJa?=
+ =?utf-8?B?SW5UVzVGc3JQTXVWU1RYUnhIMC9jeitnU085Wm05Y3U0SUlNT1FDYVhZWDNa?=
+ =?utf-8?B?L3VsNVBPZTZISWpvV3RHaDhCamlXVW9qTkF3SHQ2Nnk1Qk1FOVdNaXBYMy9D?=
+ =?utf-8?B?YXl4RXkrSTc1VldxSnNJSUNIcDVLVXhYR3F1NTl3RHhlVDNQU0l4SENscU9X?=
+ =?utf-8?B?bGkrNmdoejRJQ2sxbGhDcGE5bzNnRHFRSmQ3V0x0dzhkVkh2V3daLzFlVTJw?=
+ =?utf-8?B?b3ZhWWtEd1dZbXhFQ0htRFp0Y2krN1lsejRuQ2pKUm11elM3aExvd3puc1Zu?=
+ =?utf-8?B?dzR1Sy9lNU54bUJPTWNESFZFdU13RWg5aUIwcGEvVkYwWktnN255KzREdC80?=
+ =?utf-8?B?bUxwdzJuT1A0ZWFTd0N0VWU4M1VCSmZmUUU1KytFYk41SXVNdTV4dXJITllY?=
+ =?utf-8?B?S1E3amk1aWNrMXFRdTJnOFJISW9xSjZvSGZGcUxESHZnVktjYVI5QVJrcW5l?=
+ =?utf-8?B?RFd1ZGduMWJFc0huOXlVWG9uc2V6U3dlN0E0YStPd1l2QjZPUUZBcTRHOHpz?=
+ =?utf-8?B?ZHBEZ2ErQmVHS3N3b1BNT2Y3TFUxREVxQ3VxaUFEMWFhQzFpVVkwZnpVUnRJ?=
+ =?utf-8?B?eStlaG5UOU9odkFWZnF1MHZnQjJNUXVBMVY2NHBlMkNpV1dDZVVvcmIxVFlH?=
+ =?utf-8?B?NHNta0ZGaWVwMmlOc3g0ZEcvUXhWYUNnMnFRWThNRFVxcW5OQ3FwU1dlWEpY?=
+ =?utf-8?B?M0MrUlQ5dGNUeDI3NklxemczNnJCakhqTDNlNHFPc2dKd1FncEY5dDZNdG5L?=
+ =?utf-8?B?VEVMd1pSR3o5RDRLRWlxTzFXR2NUU0gxZCtkR0Zjd0ZQZW9tMnU0bTJWb2pZ?=
+ =?utf-8?B?V1lreXFlOHdWTUNuS212YURuT2dxWGZtZlhjc1g0b1ZhNVFvb2ROWXNnMk94?=
+ =?utf-8?B?V3YxbDRCSHQxK0hOMCtpZVdZMUZFWUcvdElOSGtaelZqQmZYK1JrQzY2K3dl?=
+ =?utf-8?B?SDVaMTVxdVlzZlVHVVdScHR2QVY1bHp1Lys4dlFVNHRsTytwWThvSTNCcnZm?=
+ =?utf-8?B?RVBWVnBaTWh4Ylg2YnNKWm5TbmJqOHE3L1FERkhVRWwyTlRVV2EyaURGYm5C?=
+ =?utf-8?B?Ni9pcUNQZXFXM2laeHVMc1lxYStSSnlCWFRuaVA5azhNSEhoWFNRYTFGbG1Z?=
+ =?utf-8?B?dTZRQWFYNWFYdnNsM3ZBOEFHbXN5OFhSUStiNnUraWlLMTAwSXIybmhOOW1L?=
+ =?utf-8?B?cVNRam5hN2tOUWc0NVpkUXcwWTlmYzBlV2NEUnRHUFRrM2xXUTlrcHQ2WTE2?=
+ =?utf-8?B?M3RsVzF3bEE1d3JEWUZMeWRuaFRMS1RCdEhpMi9nUjA5d3lyZ25wMEV2VUVx?=
+ =?utf-8?B?Yk4wbDRZd2xpSThGcEVKbHJ4NUxvMWY3dURuREU3SS9xMFlvcFk4Z29WT0xy?=
+ =?utf-8?B?MXdteExxaEN6a2RCTlhjRlJoeDhXcjhWbjlLT0xhRGFLejkwUUxqemd3bUJY?=
+ =?utf-8?B?aWVvbkNGMjM2MmtqcGt3WmFLQ01JdVk3dnJWaFpQWWp3OVNVM0pLTWp6TUF5?=
+ =?utf-8?B?ZE9QTEUraEJyeGM5amxNUytQZ1UzKzdBZlRaWWdTL25sekNWS3VRcnZ3cnZV?=
+ =?utf-8?B?b2VSV1lEMXBOMi9NZ2pQS3hDZWt3TWU4eGhhZjJkS0JTT2VPb01vL2tFMUJr?=
+ =?utf-8?Q?SMG4LYmYyHWeqtcui8+7ydxxf?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 671e6b1c-4d9d-4053-66ec-08de2728f5ba
+X-MS-Exchange-CrossTenant-AuthSource: DM6PR12MB2667.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Nov 2025 05:03:20.9745
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: fWAF+vpXcwE6VVmFfZlFhMLqQO/wiSiYvkpKPJRF64TTFKRBLkuCvvka/gak4cAsiplyTfISoucAjDjMFYPqzQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR12MB5673
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251118_210316_867880_E6D5B53E 
-X-CRM114-Status: GOOD (  28.14  )
+X-CRM114-CacheID: sfid-20251118_210328_510242_7AD74FFF 
+X-CRM114-Status: UNSURE (   8.70  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,208 +189,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 19, 2025 at 01:25:29PM +0900, Laurent Pinchart wrote:
-> On Mon, Nov 17, 2025 at 01:58:14PM -0500, Frank Li wrote:
-> > Use cleanup __free(fwnode_handle) simplify code. Change to dev_err_probe()
-> > because replace goto with return.
-> > 
-> > Add missed "\n" at error message.
-> > 
-> > No functional change.
-> > 
-> > Signed-off-by: Frank Li <Frank.Li@nxp.com>
-> > ---
-> >  drivers/media/platform/nxp/imx-mipi-csis.c    | 31 +++++++++------------------
-> >  drivers/media/platform/nxp/imx8mq-mipi-csi2.c | 31 +++++++++------------------
-> >  2 files changed, 20 insertions(+), 42 deletions(-)
-> > 
-> > diff --git a/drivers/media/platform/nxp/imx-mipi-csis.c b/drivers/media/platform/nxp/imx-mipi-csis.c
-> > index ce93d868746f002c22e2f86b1e0aa84ec1a76061..d924adb406a30797b66f0094ab17e98ad44fefac 100644
-> > --- a/drivers/media/platform/nxp/imx-mipi-csis.c
-> > +++ b/drivers/media/platform/nxp/imx-mipi-csis.c
-> > @@ -12,6 +12,7 @@
-> >   *
-> >   */
-> >  
-> > +#include <linux/cleanup.h>
-> >  #include <linux/clk.h>
-> >  #include <linux/debugfs.h>
-> >  #include <linux/delay.h>
-> > @@ -1349,28 +1350,25 @@ static int mipi_csis_async_register(struct mipi_csis_device *csis)
-> >  		.bus_type = V4L2_MBUS_CSI2_DPHY,
-> >  	};
-> >  	struct v4l2_async_connection *asd;
-> uuu> -	struct fwnode_handle *ep;
-> >  	unsigned int i;
-> >  	int ret;
-> >  
-> >  	v4l2_async_subdev_nf_init(&csis->notifier, &csis->sd);
-> >  
-> > -	ep = fwnode_graph_get_endpoint_by_id(dev_fwnode(csis->dev), 0, 0,
-> > -					     FWNODE_GRAPH_ENDPOINT_NEXT);
-> > +	struct fwnode_handle *ep __free(fwnode_handle) =
-> > +		fwnode_graph_get_endpoint_by_id(dev_fwnode(csis->dev), 0, 0,
-> > +						FWNODE_GRAPH_ENDPOINT_NEXT);
-> 
-> Let's avoid mixing variable declarations and code, this is a style
-> change that is not widely accepted (yet). You can write
-> 
-> 	struct fwnode_handle *ep __free(fwnode_handle) = NULL;
->  	struct v4l2_async_connection *asd;
-> 	unsigned int i;
-> 	int ret;
-> 
->   	v4l2_async_subdev_nf_init(&csis->notifier, &csis->sd);
-> 
-> 	ep = fwnode_graph_get_endpoint_by_id(dev_fwnode(csis->dev), 0, 0,
-> 					     FWNODE_GRAPH_ENDPOINT_NEXT);
 
-Quite a coincidence, there's an ongoing mail thread on LKML about this
-topic:
 
-http://lore.kernel.org/r/CAHk-=whPZoi03ZwphxiW6cuWPtC3nyKYS8_BThgztCdgPWP1WA@mail.gmail.com
+On 11/17/25 09:00, Ben Horgan wrote:
+> From: James Morse <james.morse@arm.com>
+> 
+> Reading a monitor involves configuring what you want to monitor, and
+> reading the value. Components made up of multiple MSC may need values
+> from each MSC. MSCs may take time to configure, returning 'not ready'.
+> The maximum 'not ready' time should have been provided by firmware.
+> 
+> Add mpam_msmon_read() to hide all this. If (one of) the MSC returns
+> not ready, then wait the full timeout value before trying again.
+> 
+> CC: Shanker Donthineni <sdonthineni@nvidia.com>
+> Cc: Shaopeng Tan (Fujitsu) <tan.shaopeng@fujitsu.com>
+> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+> Reviewed-by: Gavin Shan <gshan@redhat.com>
+> Reviewed-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
+> Tested-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
+> Tested-by: Peter Newman <peternewman@google.com>
+> Tested-by: Carl Worth <carl@os.amperecomputing.com>
+> Tested-by: Gavin Shan <gshan@redhat.com>
+> Tested-by: Zeng Heng <zengheng4@huawei.com>
+> Signed-off-by: James Morse <james.morse@arm.com>
+> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
 
-> >  	if (!ep)
-> >  		return -ENOTCONN;
-> >  
-> >  	ret = v4l2_fwnode_endpoint_parse(ep, &vep);
-> >  	if (ret)
-> > -		goto err_parse;
-> > +		return ret;
-> >  
-> >  	for (i = 0; i < vep.bus.mipi_csi2.num_data_lanes; ++i) {
-> > -		if (vep.bus.mipi_csi2.data_lanes[i] != i + 1) {
-> > -			dev_err(csis->dev,
-> > -				"data lanes reordering is not supported");
-> > -			ret = -EINVAL;
-> > -			goto err_parse;
-> > -		}
-> > +		if (vep.bus.mipi_csi2.data_lanes[i] != i + 1)
-> > +			return dev_err_probe(csis->dev, -EINVAL,
-> > +					     "data lanes reordering is not supported\n");
-> 
-> To switch to dev_err_probe(), we should drop the error message in the
-> probe() function when mipi_csis_async_register() fails, and make sure
-> every error path in this function prints a message. I'd prefer splitting
-> that to a separate patch.
-> 
-> >  	}
-> >  
-> >  	csis->bus = vep.bus.mipi_csi2;
-> > @@ -1381,12 +1379,8 @@ static int mipi_csis_async_register(struct mipi_csis_device *csis)
-> >  
-> >  	asd = v4l2_async_nf_add_fwnode_remote(&csis->notifier, ep,
-> >  					      struct v4l2_async_connection);
-> > -	if (IS_ERR(asd)) {
-> > -		ret = PTR_ERR(asd);
-> > -		goto err_parse;
-> > -	}
-> > -
-> > -	fwnode_handle_put(ep);
-> > +	if (IS_ERR(asd))
-> > +		return PTR_ERR(asd);
-> >  
-> >  	csis->notifier.ops = &mipi_csis_notify_ops;
-> >  
-> > @@ -1395,11 +1389,6 @@ static int mipi_csis_async_register(struct mipi_csis_device *csis)
-> >  		return ret;
-> >  
-> >  	return v4l2_async_register_subdev(&csis->sd);
-> > -
-> > -err_parse:
-> > -	fwnode_handle_put(ep);
-> > -
-> > -	return ret;
-> >  }
-> >  
-> >  /* -----------------------------------------------------------------------------
-> > diff --git a/drivers/media/platform/nxp/imx8mq-mipi-csi2.c b/drivers/media/platform/nxp/imx8mq-mipi-csi2.c
-> > index 75709161fb26a61239b94430365849e022fdc14f..94882568405db55593c5c51722db2233a64d53e4 100644
-> > --- a/drivers/media/platform/nxp/imx8mq-mipi-csi2.c
-> > +++ b/drivers/media/platform/nxp/imx8mq-mipi-csi2.c
-> > @@ -6,6 +6,7 @@
-> >   */
-> >  
-> >  #include <linux/bitfield.h>
-> > +#include <linux/cleanup.h>
-> >  #include <linux/clk.h>
-> >  #include <linux/clk-provider.h>
-> >  #include <linux/delay.h>
-> > @@ -717,28 +718,25 @@ static int imx8mq_mipi_csi_async_register(struct csi_state *state)
-> >  		.bus_type = V4L2_MBUS_CSI2_DPHY,
-> >  	};
-> >  	struct v4l2_async_connection *asd;
-> > -	struct fwnode_handle *ep;
-> >  	unsigned int i;
-> >  	int ret;
-> >  
-> >  	v4l2_async_subdev_nf_init(&state->notifier, &state->sd);
-> >  
-> > -	ep = fwnode_graph_get_endpoint_by_id(dev_fwnode(state->dev), 0, 0,
-> > -					     FWNODE_GRAPH_ENDPOINT_NEXT);
-> > +	struct fwnode_handle *ep __free(fwnode_handle) =
-> > +		fwnode_graph_get_endpoint_by_id(dev_fwnode(state->dev), 0, 0,
-> > +						FWNODE_GRAPH_ENDPOINT_NEXT);
-> 
-> Same comment as above.
-> 
-> >  	if (!ep)
-> >  		return -ENOTCONN;
-> >  
-> >  	ret = v4l2_fwnode_endpoint_parse(ep, &vep);
-> >  	if (ret)
-> > -		goto err_parse;
-> > +		return ret;
-> >  
-> >  	for (i = 0; i < vep.bus.mipi_csi2.num_data_lanes; ++i) {
-> > -		if (vep.bus.mipi_csi2.data_lanes[i] != i + 1) {
-> > -			dev_err(state->dev,
-> > -				"data lanes reordering is not supported");
-> > -			ret = -EINVAL;
-> > -			goto err_parse;
-> > -		}
-> > +		if (vep.bus.mipi_csi2.data_lanes[i] != i + 1)
-> > +			return dev_err_probe(state->dev, -EINVAL,
-> > +					     "data lanes reordering is not supported\n");
-> 
-> And here too.
-> 
-> Usage of __free(fwnode_handle) looks good, it just needs to be split to
-> a patch of its own.
-> 
-> >  	}
-> >  
-> >  	state->bus = vep.bus.mipi_csi2;
-> > @@ -749,12 +747,8 @@ static int imx8mq_mipi_csi_async_register(struct csi_state *state)
-> >  
-> >  	asd = v4l2_async_nf_add_fwnode_remote(&state->notifier, ep,
-> >  					      struct v4l2_async_connection);
-> > -	if (IS_ERR(asd)) {
-> > -		ret = PTR_ERR(asd);
-> > -		goto err_parse;
-> > -	}
-> > -
-> > -	fwnode_handle_put(ep);
-> > +	if (IS_ERR(asd))
-> > +		return PTR_ERR(asd);
-> >  
-> >  	state->notifier.ops = &imx8mq_mipi_csi_notify_ops;
-> >  
-> > @@ -763,11 +757,6 @@ static int imx8mq_mipi_csi_async_register(struct csi_state *state)
-> >  		return ret;
-> >  
-> >  	return v4l2_async_register_subdev(&state->sd);
-> > -
-> > -err_parse:
-> > -	fwnode_handle_put(ep);
-> > -
-> > -	return ret;
-> >  }
-> >  
-> >  /* -----------------------------------------------------------------------------
+Reviewed-by: Fenghua Yu <fenghuay@nvidia.com>
 
--- 
-Regards,
+Thanks.
 
-Laurent Pinchart
+-Fenghua
 
