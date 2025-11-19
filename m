@@ -4,103 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A926CF3188
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 10:12:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F33A7CF3185
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 10:12:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tyx/WoeZ/Gens6zKEuL6dx71PPmz6tiPlqrc74S7O1g=; b=3UoMDPojVOrjnSKSmkVxRt6yJF
-	J7wpFtpoMsD4Wi/vGQkc0Cfw0tHy5nvZVPXkTurYPrCDosoOy6MTPRkYbHvGJiBmA3VVWMEHDDSvm
-	Md8ur+xibmsNiSPWWJaBGc/hGs7y8QoCTSrR+AcDlMega1E0iJ3IuAug8T3uQkHvwIh0vAiZkKXLA
-	VhZ/4GYylF8kAlVac4TWiHRsXpdEgl/1dkW0QfSmiwKZeAgFO98nfICWwecBwdSQvnmzzfpsqrhRQ
-	vDNR61OzTG59P4YFCrrqBdRuHHNNfR90L3oh9Tl3cu0/bopSpxDZVPiJfwxsq3Q7mhbeoC6OI0RLV
-	SqyJjD9A==;
+	bh=mfndK+hCfMsdWh7JHa38ulm58SLTP8RHDiOwm+GFEUk=; b=OJvA5TsScwi2IC/oVEM2AX7USZ
+	xfCk4chPG3fgMR02Kckr+yrXHFCZKVL0/rgrZdHGdjEyywY56SbfNW3/cO1lMu5FsJ75bR1yWAunG
+	ux4oT0M0MxQD2mbq//GZISmLQ6eijet9DL/riMFQcA/h9Ma87Sr7XW6cYOqY6MzvjOSdsGXn8TcUh
+	5LxvsiQ36G0a0T46AXKBVmB02LMyymM7EXpIDWcjE6eFkx2JmmT4rQTWDN5OQ7Pp075JPaKvOJY5f
+	y3yl7691EkbaMlx/uCkbB5xZ0C7WZdg1fa8Wi/5liuRHYzmPhrNolFYKz42gK3lFNIRRQLrWs72GB
+	OqZfAU4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLfAN-00000002wOf-3nuL;
-	Wed, 19 Nov 2025 10:11:59 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLfAL-00000002wO5-3y1S;
-	Wed, 19 Nov 2025 10:11:58 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 56BE4601F1;
-	Wed, 19 Nov 2025 10:11:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 35DFBC2BCB0;
-	Wed, 19 Nov 2025 10:11:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763547116;
-	bh=5IJcif5aQjGM+nqy25GZprs/eWri+Wf116zYCKPr8+A=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=oMptCL+9ndyRm4+m0V8+fQZW1CX45cPdxsIuIPkrxiMwCFPR7q3FIS8nNAvYFQoj1
-	 Gy6r7j94w1ku+/40MW1gH24wRdUUDF53Zm4JwdI/W8H31U55x4aGQSxHX3D9dcfyp5
-	 68roHmkaU6d/8h9zAMPeZxsEsqMrk44WARd6IUoRrmFBJcaPpRG7euklvz0LKJ4Tpe
-	 bXVWixiMuHd80JnV4UHv6wyrGo5qaneyDB/KNu0ckPVN10c9urkXRzT5+QX/uBZjv+
-	 xV61Cg9qZUaVNiZkiZ0ybRucPuVCuQ34n9FYws6nVm61EAd0oUKDTegFbB5VgeIcO/
-	 FT7A6QUPTutZQ==
-Message-ID: <ae967667-26db-41fd-8aec-bdb1f2cdffc8@kernel.org>
-Date: Wed, 19 Nov 2025 11:11:51 +0100
+	id 1vLfAx-00000002wZS-2ImP;
+	Wed, 19 Nov 2025 10:12:35 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vLfAu-00000002wYq-47bg
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 19 Nov 2025 10:12:34 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 89F5EFEC;
+	Wed, 19 Nov 2025 02:12:24 -0800 (PST)
+Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4AF733F740;
+	Wed, 19 Nov 2025 02:12:27 -0800 (PST)
+Message-ID: <d13bb673-a033-4020-a984-19b4ab560be9@arm.com>
+Date: Wed, 19 Nov 2025 10:12:25 +0000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] dt-bindings: arm: rockchip: merge Asus Tinker and Tinker
- S
-To: Michael Opdenacker <michael.opdenacker@rootcommit.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20251119-merge-tinker-bindings-v1-1-4072b55750c1@rootcommit.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [PATCH v5 15/34] arm_mpam: Add helpers for managing the locking
+ around the mon_sel registers
+To: Fenghua Yu <fenghuay@nvidia.com>, james.morse@arm.com
+Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
+ baolin.wang@linux.alibaba.com, bobo.shaobowang@huawei.com,
+ carl@os.amperecomputing.com, catalin.marinas@arm.com, dakr@kernel.org,
+ dave.martin@arm.com, david@redhat.com, dfustini@baylibre.com,
+ gregkh@linuxfoundation.org, gshan@redhat.com, guohanjun@huawei.com,
+ jeremy.linton@arm.com, jonathan.cameron@huawei.com, kobak@nvidia.com,
+ lcherian@marvell.com, lenb@kernel.org, linux-acpi@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ lpieralisi@kernel.org, peternewman@google.com, quic_jiles@quicinc.com,
+ rafael@kernel.org, robh@kernel.org, rohit.mathew@arm.com,
+ scott@os.amperecomputing.com, sdonthineni@nvidia.com, sudeep.holla@arm.com,
+ tan.shaopeng@fujitsu.com, will@kernel.org, xhao@linux.alibaba.com,
+ Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>, Zeng Heng <zengheng4@huawei.com>
+References: <20251117170014.4113754-1-ben.horgan@arm.com>
+ <20251117170014.4113754-16-ben.horgan@arm.com>
+ <bb238bdc-1870-4888-874e-b3fa466d264b@nvidia.com>
+From: Ben Horgan <ben.horgan@arm.com>
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20251119-merge-tinker-bindings-v1-1-4072b55750c1@rootcommit.com>
+In-Reply-To: <bb238bdc-1870-4888-874e-b3fa466d264b@nvidia.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251119_021233_149974_FE89B5CE 
+X-CRM114-Status: GOOD (  22.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,18 +78,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 19/11/2025 10:22, Michael Opdenacker wrote:
-> Merge sections for Asus Tinker Board and Asus Tinker Board S.
+Hi Fenghua,
+
+On 11/19/25 04:13, Fenghua Yu wrote:
+> Hi, Ben,
 > 
-> Asus Tinker Board S (Storage) is just a variant of Tinker Board
-> with an added eMMC chip.
+> On 11/17/25 08:59, Ben Horgan wrote:
+>> From: James Morse <james.morse@arm.com>
+>>
+>> The MSC MON_SEL register needs to be accessed from hardirq for the
+>> overflow
+>> interrupt, and when taking an IPI to access these registers on platforms
+>> where MSC are not accessible from every CPU. This makes an irqsave
+>> spinlock the obvious lock to protect these registers. On systems with
+>> SCMI
+>> or PCC mailboxes it must be able to sleep, meaning a mutex must be used.
+>> The SCMI or PCC platforms can't support an overflow interrupt, and
+>> can't access the registers from hardirq context.
+>>
+>> Clearly these two can't exist for one MSC at the same time.
+>>
+>> Add helpers for the MON_SEL locking. For now, use a irqsave spinlock and
+>> only support 'real' MMIO platforms.
+>>
+>> In the future this lock will be split in two allowing SCMI/PCC platforms
+>> to take a mutex. Because there are contexts where the SCMI/PCC platforms
+>> can't make an access, mpam_mon_sel_lock() needs to be able to fail. Do
+>> this now, so that all the error handling on these paths is present. This
+>> allows the relevant paths to fail if they are needed on a platform where
+>> this isn't possible, instead of having to make explicit checks of the
+>> interface type.
+>>
+>> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+>> Reviewed-by: Gavin Shan <gshan@redhat.com>
+>> Reviewed-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
+>> Reviewed-by: Fenghua Yu <fenghuay@nvidia.com>
+>> Tested-by: Fenghua Yu <fenghuay@nvidia.com>
+>> Tested-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
+>> Tested-by: Peter Newman <peternewman@google.com>
+>> Tested-by: Carl Worth <carl@os.amperecomputing.com>
+>> Tested-by: Gavin Shan <gshan@redhat.com>
+>> Tested-by: Zeng Heng <zengheng4@huawei.com>
+>> Signed-off-by: James Morse <james.morse@arm.com>
+>> Signed-off-by: Ben Horgan <ben.horgan@arm.com
 > 
-> Signed-off-by: Michael Opdenacker <michael.opdenacker@rootcommit.com>
-> ---
+> [SNIP]
+> 
+>> diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/
+>> mpam_internal.h
+>> index 768a58a3ab27..b62ee55e1ed5 100644
+>> --- a/drivers/resctrl/mpam_internal.h
+>> +++ b/drivers/resctrl/mpam_internal.h
+> 
+> [SNIP]
+> 
+>> +/* Returning false here means accesses to mon_sel must fail and
+>> report an error. */
+>> +static inline bool __must_check mpam_mon_sel_lock(struct mpam_msc *msc)
+>> +{
+>> +    WARN_ON_ONCE(msc->iface != MPAM_IFACE_MMIO);
+>> +
+>> +    raw_spin_lock_irqsave(&msc->_mon_sel_lock, msc->_mon_sel_flags);
+>> +    return true;
+>> +}
+> 
+> This helper always returns true, never false. And this may cause issue
+> later.
+> 
+> On the bottom line, this causes confusion in the comment and when later
+> its return value is always checked by callers.
+> 
+> It's better to improve this helper?
+> 
+> Option 1: warn and return false when ris->iface is not MMIO. No changes
+> in other patches which call the helper. Seems this is a better fix.
 
+Ok. The return value checking is intentional so that the locking for the
+firmware backed interface can be easily re-instated to the driver later.
+I'll return false when ris->iface is not MMIO but we won't get there as
+the probe will have already failed.
 
-Acked-by: Krzysztof Kozlowski <krzk@kernel.org>
+> Option 2: warn on non MMIO iface but no return value. Other patches need
+> to be changed when calling the helper.
+> 
+> Thanks.
+> 
+> -Fenghua
 
-Best regards,
-Krzysztof
+-- 
+Thanks,
+
+Ben
+
 
