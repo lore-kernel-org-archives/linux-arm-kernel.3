@@ -4,102 +4,142 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD540CF2564
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 00:46:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0E23CF2564
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 00:53:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BAWJfMyV7DpF7HKG9h+AUHw17u4/yHqs9en8PSsCyqg=; b=OL/I9LNeNAPT1/Hd+DT6GqnfPE
-	k98KlrDzFSJ2iZ8RHalxjzOkymRnsK6caGYesmt4MjFlN7I69bwSvRGjhEu9G7Z1Nuf3Il0S/vz7r
-	55AzfWxEaF4Wbm3VQRL69J1OjKfa72asMIh9fNwhSP5rkIYi0affZQQcYcisNsZmlLooHrxlCtLnL
-	Aj7ulZ40o3B+8ODZ4msJeYXE2KzKLt0meyJiktdJaveF9W33nynCt0fI6wTkmwF29WkoW9CbObFKq
-	uVJpVzFWT6veq5/xiKjxrN/RuLvJ2LdVVeclZGuo083zHoMSd4i9KokH5nSh2KmaRYc8PCV53Ibyl
-	/K5PsaTA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=bmqxKt06O9ia8hBgJK9BTztsNumdOBbuz1eTI+u1+C4=; b=YsfA2DNVzLYuChBzG6oE21TraO
+	HI4O2ZDNl4djQi5g0Wfh+E09y0zUCcwTKHNImQDV/l7F0d+X/KQslpO+CawYbsL8WdEMYxGbmWiWJ
+	DGafBkE3oPRn19OAxtTaJC+Ojj6POynD0srWHb3F4Y92jc6iPVYbGt+ja3RA6y/VqnjS83Krpa3Rv
+	B/L1BrXGAOpeKTg0FpZ6TUrwaCCrwZ787bvps08oKDonoRBcZXqDx7Qt7zHZTLDBTHjtCLiEXQn8U
+	bKRvuJcOoF0NIey8mZakxvOZc+QQmbVbxprPt1w0M4sPzem88B7nhFttpDq4XtfiJmIiahX699QGI
+	seHkrLIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLWKv-00000001JCI-3KgE;
-	Wed, 19 Nov 2025 00:46:17 +0000
-Received: from mail-ed1-x535.google.com ([2a00:1450:4864:20::535])
+	id 1vLWRI-00000001Jak-2VcE;
+	Wed, 19 Nov 2025 00:52:52 +0000
+Received: from mail-southcentralusazon11011001.outbound.protection.outlook.com ([40.93.194.1] helo=SN4PR0501CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLWKt-00000001JB4-3J4r
+	id 1vLWRG-00000001JaJ-10yk
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Nov 2025 00:46:16 +0000
-Received: by mail-ed1-x535.google.com with SMTP id 4fb4d7f45d1cf-6418b55f86dso9883187a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Nov 2025 16:46:15 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1763513174; x=1764117974; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=BAWJfMyV7DpF7HKG9h+AUHw17u4/yHqs9en8PSsCyqg=;
-        b=PadYLusf5flKeHg1utv5TftKzuVi5fWB7unTgD1wc0VPA2RnOc8M2kg+Piqqd1YYyl
-         Tvp+b+2lxLe4DZNz29U0rRCjvJGyZzUVgWNeofYulh+JGZ5myQK2mowgfslVVUX9OIia
-         umkdw3XubvYIF22Wny47rLxHJOTicP4sKMlyI=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763513174; x=1764117974;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=BAWJfMyV7DpF7HKG9h+AUHw17u4/yHqs9en8PSsCyqg=;
-        b=Pcx0yAC9H4M0VvXLQwk4TiqYHeJTH9D0qXEUErcd5qhZQhCHwcPJYNk2SOtBqUoWAZ
-         wW6TVbdQNM8EAUQQ5gmVBG54C2+Vd15DUY9yxJo5I66eMBKTVFt7u6y++Shnam77Qmxr
-         S1Pc3/1FW6ijyQGHd10tkCTFxQANk4FLokG5YyHmWAQXkJwy2fCNA3r0gQt/1KzomSqQ
-         w5gddYKnGXWWwtWu5Pm/pCTXV9eTj/3pkdp2WtEI2StjdO0wYvF6Ouza+amMvgyCw54s
-         z7zZr69rV4W2nzXJj72cX3fxNkzKeASvgSCWpIpzYfZw+dWBqusF+bPqExWxM5gSnB3a
-         fAmA==
-X-Forwarded-Encrypted: i=1; AJvYcCXx6hGW0kUnxCMs0lPvm6NDjrAa1P7PiUha9h0GR870e/gwW+U2l5cI4OgLL5emKa1w1DQJd3Hi6H3gkfW2N5jU@lists.infradead.org
-X-Gm-Message-State: AOJu0YzAcsHbZdK67HqsqbnQJ6bdSWImHbsZROF/g+4gsb+kS2G7On97
-	4HBup57Bowgyw4u2rxh+JKJvU9QGguwHpd/fww8x5J8XKz75f1ZJ4e/PY80iR9jhQWtFbHfNldy
-	yniR4aDt9
-X-Gm-Gg: ASbGncvyyOkTwNYdN+effr6wqaP/aMZAgoeQe1/R8Uezs8Mb8RFXZJFIjtOGuuH2++q
-	9gH8hTKL33mD/LOWtRD/ARP8HwXbtJgeA0Hd3xEgD/q4dajTYxQ2dVkmCzYue1oCcKRCRuvDje+
-	hokNn3TDNUSp3hjPVVH0AlEPQ/LL3F4glpxHmMfDE9oQYg4VE9HUxE406TdFKFmXL2coFJBGVHx
-	w5I48NkXrPBXek3Juqz8HweMVZWJVPKbhy86NGHmlNAO//e4L00vy9VRFwSReUBRjMJcfojMgxb
-	hbdoOlvF4SXDXj5O81c6aKqOBwsnUVQZt2sDqNk5Rivf3QJC6RKna8J2Yj/v1D+NeFI8647nbBe
-	HioYlyTT1vpu/XnsSIqpi0aUmfTVI3KtHrnKTiktxQcbASrXH9fNxW/qez59zWdVWy1V/AQTNU6
-	1xHjwhywxcYXfoJ+0f1YOzASJWxE/tyYFDsWWPhoWTjclpHNhYUIOROG1HJwNH
-X-Google-Smtp-Source: AGHT+IGbAruVnXfKPuthCcfgGato/q//QgKdYnzUsd0B9Lx1q1eVdzl+L/sEbx5lgdFF/+x5h6iyow==
-X-Received: by 2002:a05:6402:52d5:b0:643:c8b:8d30 with SMTP id 4fb4d7f45d1cf-64350eac57bmr14704873a12.30.1763513173804;
-        Tue, 18 Nov 2025 16:46:13 -0800 (PST)
-Received: from mail-wr1-f47.google.com (mail-wr1-f47.google.com. [209.85.221.47])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6433a4b1db6sm13895259a12.26.2025.11.18.16.46.13
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 18 Nov 2025 16:46:13 -0800 (PST)
-Received: by mail-wr1-f47.google.com with SMTP id ffacd0b85a97d-42bb288c219so2921123f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Nov 2025 16:46:13 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCWSjyCOzVCV1kkjOeXp5cuaQL1QsvhsHyLS/3T0gSZCH1CnDC3GX0AumvtNezDdRvjLEznnvDSRj2CGe42fbtwj@lists.infradead.org
-X-Received: by 2002:a05:6000:26c2:b0:427:526:16aa with SMTP id
- ffacd0b85a97d-42b5939cd70mr18021926f8f.58.1763513172970; Tue, 18 Nov 2025
- 16:46:12 -0800 (PST)
+	Wed, 19 Nov 2025 00:52:51 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=NJrwM96sg8XvCAlkMFMygIcL/37T8cK+gpA6v/Bsz0kOQZ+KfDfyo+ml9r4rckRLg0uS2vDqAh8ymYYbrUn5l+eLr7JHHoGZ8TWuAVxU25xObLa2CkphsLp0+2CQb3oAl9WMQl8iUN4+n/OyHnzzbeNGbCAOO9YaTHFnDurt7XySEcJmL2rFcfrl+5Y67sOaCdAzvnT+FD5yJ3BimHfFrrDv0nwnMjtWbeHE8+Y9g3O5HqRreqajvp5D2DBiMifT5XwPtUWi6kTbEHEdKSBHhh3l5/kpJebAjh67DySy7+8HoYfV0M1NKvNYNUpC1603CsZsHO76z6+zshsqHYBDrA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=bmqxKt06O9ia8hBgJK9BTztsNumdOBbuz1eTI+u1+C4=;
+ b=VtOgGp8y2XYRhwQ9jfZ9Md8HTuKWhyv++7JdN9vZ6XCaxL+liFVfpMeoi2iJffEbSCc5ETBgzk4ulnxF9eIWCzjKq/alKJc/mduZ9EyBcphi/khhf/k6wUEVv0ZWV2D4AaUGWPp5DxCOvmmM2OzY4LjowlVk41rIUiVehJraM6SOyA1tvApBKHTZ0B2bDr7ZWHZ7slGBuRyARIlQYkCjGFlJzFDSV2Zmhd12vV1+kTKeumEMRciB964w2mP1+HC4rhhalDpoxCudQJXhMsxWiTSqfp7nQuZk6aMoxzrJTYsNTsaMMNnm9Vq0rTK7PMuy59kAkD379W+WwreHNWHZdQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.160) smtp.rcpttodomain=arm.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=bmqxKt06O9ia8hBgJK9BTztsNumdOBbuz1eTI+u1+C4=;
+ b=fNXI6iD3ZFgGnYxrcYyQ9AnxCHvhTSLRU7F4JvUPCy+eYg9ANmxpEa2sEdiGh6bjiRS2LFiWPrnAYY9KZfuc5ymM5GprMUcwAVL/6lBEBBgpSteOmAUvitE8TL9VjofydS4C7QacWHyledJWW6mSqN3aYFJIUk+4/93ohWpaU31fQb8QIg55k/+ZUSYmqp6MORqH3DsP/BJTps/BsvhNCLB3NmGtrutruW+gXEyT7wlPmWANUvaEm8VwsdPvUGSNXXaSyaoF8Jb8Tx5HhojppnvnqvYUGOPUVZvE/C+xiRSJbGb1492TRCPHkOs//QJ3MXYTZLxDgklNp1x7EolWuQ==
+Received: from BL1P223CA0037.NAMP223.PROD.OUTLOOK.COM (2603:10b6:208:5b6::14)
+ by MN6PR12MB8470.namprd12.prod.outlook.com (2603:10b6:208:46d::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9320.19; Wed, 19 Nov
+ 2025 00:52:41 +0000
+Received: from BL02EPF0001A107.namprd05.prod.outlook.com
+ (2603:10b6:208:5b6:cafe::56) by BL1P223CA0037.outlook.office365.com
+ (2603:10b6:208:5b6::14) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9343.10 via Frontend Transport; Wed,
+ 19 Nov 2025 00:52:41 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.160) by
+ BL02EPF0001A107.mail.protection.outlook.com (10.167.241.136) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9343.9 via Frontend Transport; Wed, 19 Nov 2025 00:52:41 +0000
+Received: from rnnvmail202.nvidia.com (10.129.68.7) by mail.nvidia.com
+ (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 18 Nov
+ 2025 16:52:24 -0800
+Received: from rnnvmail205.nvidia.com (10.129.68.10) by rnnvmail202.nvidia.com
+ (10.129.68.7) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 18 Nov
+ 2025 16:52:24 -0800
+Received: from Asurada-Nvidia.nvidia.com (10.127.8.11) by mail.nvidia.com
+ (10.129.68.10) with Microsoft SMTP Server id 15.2.2562.20 via Frontend
+ Transport; Tue, 18 Nov 2025 16:52:22 -0800
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: <robin.murphy@arm.com>, <joro@8bytes.org>, <afael@kernel.org>,
+	<bhelgaas@google.com>, <alex@shazbot.org>, <jgg@nvidia.com>,
+	<kevin.tian@intel.com>
+CC: <will@kernel.org>, <lenb@kernel.org>, <baolu.lu@linux.intel.com>,
+	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
+	<linux-kernel@vger.kernel.org>, <linux-acpi@vger.kernel.org>,
+	<linux-pci@vger.kernel.org>, <kvm@vger.kernel.org>,
+	<patches@lists.linux.dev>, <pjaroszynski@nvidia.com>, <vsethi@nvidia.com>,
+	<helgaas@kernel.org>, <etzhao1900@gmail.com>
+Subject: [PATCH v6 0/5] Disable ATS via iommu during PCI resets
+Date: Tue, 18 Nov 2025 16:52:06 -0800
+Message-ID: <cover.1763512374.git.nicolinc@nvidia.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-References: <CAD=FV=Ux7nGFnYEyX0cUL-9__BKnTYc+kAJjkF458ZnFS7zoJA@mail.gmail.com>
- <CAODwPW_51fKOfDQbTUFCum13M621Uxi2Zw2YHng0DrrwwvZhRQ@mail.gmail.com>
-In-Reply-To: <CAODwPW_51fKOfDQbTUFCum13M621Uxi2Zw2YHng0DrrwwvZhRQ@mail.gmail.com>
-From: Doug Anderson <dianders@chromium.org>
-Date: Tue, 18 Nov 2025 16:46:00 -0800
-X-Gmail-Original-Message-ID: <CAD=FV=Vb88hTz0kDxxKbU0G2yCqTgF9HwJAh6h68hf-cEtAurA@mail.gmail.com>
-X-Gm-Features: AWmQ_bmE6F8y8blYKtFOlYYUsAOoXZxGgtId0c4_uNvCgfNxCdU3S4jDpKFXYPs
-Message-ID: <CAD=FV=Vb88hTz0kDxxKbU0G2yCqTgF9HwJAh6h68hf-cEtAurA@mail.gmail.com>
-Subject: Re: Proposal: Officially allow "incomplete" trees as a base
-To: Julius Werner <jwerner@chromium.org>
-Cc: devicetree-spec@vger.kernel.org, boot-architecture@lists.linaro.org, 
-	Chen-Yu Tsai <wenst@chromium.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk@kernel.org>, 
-	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>, LKML <linux-kernel@vger.kernel.org>, 
-	Linux ARM <linux-arm-kernel@lists.infradead.org>, 
-	William McVicker <willmcvicker@google.com>, Conor Dooley <conor+dt@kernel.org>, 
-	Peter Griffin <peter.griffin@linaro.org>, Tudor Ambarus <tudor.ambarus@linaro.org>, 
-	=?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
-	yupingso@chromium.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BL02EPF0001A107:EE_|MN6PR12MB8470:EE_
+X-MS-Office365-Filtering-Correlation-Id: 33dd3948-9742-495d-0426-08de2705f187
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|82310400026|36860700013|13003099007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?cUxzC8WFjZsTs1eySwxPri1/+2k5tFvDnFLV5t8z1zHFFpiw4xHEJ1F8iCVM?=
+ =?us-ascii?Q?DzmgAbsxtnEJt64NcoFiOOMHDuJEGx7rR0xljelr1gy7wrkW0BDj7iSBrWRB?=
+ =?us-ascii?Q?4RGg8WdKV7k7ZJdHMXCPox0IrYRvxpwMpKeW9iunw8XQYkekYLOApQM2NkoX?=
+ =?us-ascii?Q?Wv6K7sDy3KkRnym1TPdtaeeqPqjH8eFZB1JZ6qq0mvefM+SEfm0226kpEKMl?=
+ =?us-ascii?Q?tqX+PVT8hcQkl21x8RrbklI2LEE70oLJUTYKwxkWYkqosluCCZxQXF9xStg7?=
+ =?us-ascii?Q?wtdm3IxQ2PUO5nVyXhDh9+9pn00WmIkxjoQnqUFb/ZdaEiUMazSwLB5vM1D2?=
+ =?us-ascii?Q?zensLoRzvAabXaCZD1JreSZf1vtDQsnIV212xdO7/HSpxmCnOibNYNKkN+f2?=
+ =?us-ascii?Q?VkTnaXOaj11C4BE/kc9THoisDl3epjFvqN1FuOnGg1lnOvPt8kaJyfrnN5uL?=
+ =?us-ascii?Q?/1I6CBzIWvGDQ7kYKRZYhPiKrHVWnhTPXpzeNqAsVrXMV+Mc1itGc2kVev6p?=
+ =?us-ascii?Q?qvSVURvvSB6nSEwsfbyQhqnBIPfWRMcNGuz9FC3pvZfZETt89g5sQEMu5BcR?=
+ =?us-ascii?Q?e0a0BDaMyiXUsZzu9q0o+O+nuzVnXVKWkLx2EOTRCmKPgtO/VLqkEuwNP+qK?=
+ =?us-ascii?Q?fyYuvbHu9iuksSuHPyCUfBYp6NlQeLPo9LQX6X+59GAa/Md2SL9rZFBeDv2P?=
+ =?us-ascii?Q?iaZYFAEgnfJnSQXcOADba/OjpNyj7+mcyjAJeKH3aP2E42jFQc2i/PuULOZ+?=
+ =?us-ascii?Q?9Sa80wChyB2hYlKA+7uxtSaFRVLBaQDp1PUqOEGKGktYjrlA2xrGClb8FGS6?=
+ =?us-ascii?Q?7qi/q8DcgGafbhGoQOsR7ZJnLA7VOu0jEKHMxaGv/V+qgltZjXw5aGEC90kG?=
+ =?us-ascii?Q?q2uAzunfP4IJHYghY9ms1u3p0IjNIs8fq9Xw2DXKUMAR/5ojw8WLrBJxRunU?=
+ =?us-ascii?Q?oBzfWlbkopd5b3Lx9Ujej3ZUhAy39VGNP7xNSM68yjPansOZmvCho1ch/xg9?=
+ =?us-ascii?Q?9SY1p8PUh+XPaZCPDS2xw0f+x0SRvfoeKvUhn0zuXehx9fGMBddm0yrlBp8M?=
+ =?us-ascii?Q?R7AMrut9IJaLShIbNRyKQ5kh9AB8Rgi8UabdzYMdzyMCNsUfwIx02xDxbhO9?=
+ =?us-ascii?Q?QM5IWaCdft3ygNMcU9K0sCihD1AbrKo86PQ2Odjy+oNZb4+qSy4Q0bCuPswx?=
+ =?us-ascii?Q?nuuITX9jGShXgC82zumpAa7KZTT4fxQQdyblw9oPxhlt4Q7lQm71DdSTLSr/?=
+ =?us-ascii?Q?Fmst/aHYc3DHouSBFLX2+YSKQ1b0GNUFIRHCkfq3FU6X5lTZoe/6KWRS9p8V?=
+ =?us-ascii?Q?K+NYwiLjzAkL0CIid5uAISs7WmJcLEsoGZ7aSgLPueabHF/GhDlrDcZC5KAs?=
+ =?us-ascii?Q?BmI3f3BvkdC1WuE7WioWz7y7QRFkKY8X5KG1qritHoN8ohl+uyCUwPNL3gzb?=
+ =?us-ascii?Q?C2piMHEWCfILwqyiximh73AEU/S/jtE+pkt8ESciDjh0JZdK84wyfkF6zBue?=
+ =?us-ascii?Q?Je5YbFsIqWmLm2sZ4q+CA38ury4M9O50uBxXZg1gMt3NC2mLZ/5NauE9lx9B?=
+ =?us-ascii?Q?G1o1EXiwXBzyK+58ERWqZBFssDjT7xqUCSsiaET0?=
+X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(82310400026)(36860700013)(13003099007);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Nov 2025 00:52:41.1560
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 33dd3948-9742-495d-0426-08de2705f187
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: BL02EPF0001A107.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN6PR12MB8470
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251118_164615_896213_08965A22 
-X-CRM114-Status: GOOD (  41.66  )
+X-CRM114-CacheID: sfid-20251118_165250_307762_2578044F 
+X-CRM114-Status: GOOD (  14.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,104 +154,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Hi all,
 
-On Tue, Nov 18, 2025 at 3:48=E2=80=AFPM Julius Werner <jwerner@chromium.org=
-> wrote:
->
-> > 4. When applying an overlay to a device tree that's "incomplete", the
-> > top level overlay will be merged instead of replaced.
-> >
-> > Example for 2 levels:
-> >
-> > base (incomplete) compatible: "socvendor,mysoc-rev1", "socvendor,mysoc"=
-;
-> > overlay compatible: "boardvendor,myboard-rev1", "boardvendor,myboard";
-> > merged compatible: "boardvendor,myboard-rev1", "boardvendor,myboard",
-> >                    "socvendor,mysoc-rev1", "socvendor,mysoc";
-> >
-> > Possible example if we support 3 levels:
-> >
-> > SoC (incomplete) compatible: "socvendor,mysoc-rev1", "socvendor,mysoc"
-> > overlay1 (incomplete) compatible: "referencevendor,referencecodename";
-> > overlay2 compatible: "boardvendor,myboard-rev1", "boardvendor,myboard"
-> > merged compatible: "boardvendor,myboard-rev1", "boardvendor,myboard",
-> >                    "referencevendor,reference-codename",
-> >                     , "socvendor,mysoc";
->
-> Sorry, I only cursorily followed the previous discussion so I may have
-> missed the exact need for this part. But I would caution against any
-> proposal that changes the basic rules of how an overlay is applied.
-> The definition of how overlays work has (I think?) been stable for
-> over a decade now, and is implemented in bootloaders that often cannot
-> easily be updated. I absolutely support your effort to get more
-> upstream standardization for managing base device trees and overlays
-> (which I think need to be flexible for arbitrary layers, not just SoC
-> and board), but let's not break the overlay code in old bootloaders
-> while doing it.
->
-> Is there really a need to merge the compatible strings in your case? I
-> think in the vast majority of platform identification cases, code only
-> cares about matching the most precise string (i.e.
-> "boardvendor,myboard-rev1"). If we do feel like having the whole chain
-> of identification is necessary, it could be achieved by just
-> copy&pasting the extra strings into the overlay file. If we have
-> cross-validation between base and overlay source files we could also
-> have the validation check that the overlays correctly contain all
-> compatible strings from their base tree. If we know that the base
-> trees aren't standalone anyway, we could also just invent other
-> property names that identify them (e.g. `soc-compatible =3D
-> "socvendor,mysoc";`). Anything other than breaking the overlay format
-> would be preferable in my opinion.
+PCIe permits a device to ignore ATS invalidation TLPs while processing a
+reset. This creates a problem visible to the OS where an ATS invalidation
+command will time out: e.g. an SVA domain will have no coordination with a
+reset event and can racily issue ATS invalidations to a resetting device.
 
-I'm certainly not dead-set on it and I definitely realize it would be
-a pain. ...though it wouldn't necessarily "break" the format--you just
-wouldn't be able to use any "incomplete" DTBs unless you implemented
-this new feature.
+The OS should do something to mitigate this as we do not want production
+systems to be reporting critical ATS failures, especially in a hypervisor
+environment. Broadly, OS could arrange to ignore the timeouts, block page
+table mutations to prevent invalidations, or disable and block ATS.
 
-From my point of view, the main issue the merging solves is handling
-"socketed" boards that could have any of a small number of SoCs
-plugged into them (usually minor revs of the same SoC). It's not the
-absolutely most critical use case in the world, but I know that we
-will need it in-house and I'm trying to come up with a solution that
-will work everywhere. Once we decide to go with a downstream solution
-just for that one use case then there's no reason not to do everything
-else in a downstream manner.
+The PCIe spec in sec 10.3.1 IMPLEMENTATION NOTE recommends to disable and
+block ATS before initiating a Function Level Reset. It also mentions that
+other reset methods could have the same vulnerability as well.
 
-Personally, I've never really loved that the SoC compatible strings
-are conventionally just jammed onto the end of the top-level
-compatible and I'm totally happy with it being elsewhere (a different
-property, a different node, etc). Mostly I ended up with this merging
-scheme because I thought that was what DT folks were pushing for. If
-I'm wrong then I'm more than happy with a different scheme.
+Provide a callback from the PCI subsystem that will enclose the reset and
+have the iommu core temporarily change domains to group->blocking_domain,
+so IOMMU drivers would fence any incoming ATS queries, synchronously stop
+issuing new ATS invalidations, and wait for existing ATS invalidations to
+complete. Doing this can avoid any ATS invaliation timeouts.
 
+When a device is resetting, any new domain attachment has to be rejected,
+until the reset is finished, to prevent ATS activity from being activated
+between the two callback functions. Introduce a new resetting_domain, and
+reject a concurrent __iommu_attach_device/set_group_pasid().
 
-> I also feel like we need a better standardized way to tie base device
-> trees to overlays, like your `/loaders` node proposal in an earlier
-> email, although maybe that's an orthogonal discussion (but related,
-> especially if there's supposed to be cross-validation between base
-> trees and overlays). The compatible string is just not a scalable way
-> for bootloaders to make this determination, there may be a lot more
-> differentiation than just "SoC" and "board", and the scheme almost
-> certainly needs to be platform/bootloader-specific because every
-> hardware vendor has their own ideas about how to group and reuse parts
-> of a platform. This information doesn't necessarily need to be *in*
-> the device tree, it could also just be in a separate YAML file in the
-> same repo (since bootloaders will almost certainly want to have it
-> transformed into their own out-of-band descriptor at build-time
-> anyway, so that they can compress the device tree itself and don't
-> have to decompress each one for matching), but it needs to be
-> somewhere.
+Finally, call these pci_dev_reset_iommu/done() functions in the PCI reset
+functions.
 
-Yes, I totally agree and this is an important conversation to have
-too. I still like the "/loaders" proposal but I'm not dead-set on it.
+This is on Github:
+https://github.com/nicolinc/iommufd/commits/iommu_dev_reset-v6
 
-That being said, the two problems are separate even if they're related
-to each other. I was attempting to focus on allowing the base DTBs to
-land first and once we get agreement then move onto the second. I'll
-also note that Chen-Yu is talking about the problem at Linux Plumbers.
-I won't be there, but I'm going to try to attend that session
-remotely.
+Changelog
+v6
+ * Add Reviewed-by from Baolu and Kevin
+ * Revise inline comments, kdocs, commit messages, uAPI
+ * [iommu] s/iommu_dev_reset/pci_dev_reset_iommu/g for PCI exclusively
+ * [iommu] Disallow iommu group sibling devices to attach concurrently
+ * [pci] Drop unnecessary initializations to "ret" and "rc"
+ * [pci] Improve pci_err message unpon a prepare() failure
+ * [pci] Move pci_ats_supported() check inside the IOMMU callbacks
+ * [pci] Apply callbacks to pci_reset_bus_function() that was missed
+v5
+ https://lore.kernel.org/all/cover.1762835355.git.nicolinc@nvidia.com/
+ * Rebase on Joerg's next tree
+ * [iommu] Skip in shared iommu_group cases
+ * [iommu] Pass in default_domain to iommu_setup_dma_ops
+ * [iommu] Add kdocs to iommu_get_domain_for_dev_locked()
+ * [iommu] s/get_domain_for_dev_locked/driver_get_domain_for_dev
+ * [iommu] Replace per-gdev pending_reset with per-group resetting_domain
+v4
+ https://lore.kernel.org/all/cover.1756682135.git.nicolinc@nvidia.com/
+ * Add Reviewed-by from Baolu
+ * [iommu] Use guard(mutex)
+ * [iommu] Update kdocs for typos and revisings
+ * [iommu] Skip two corner cases (alias and SRIOV)
+ * [iommu] Rework attach_dev to pass in old domain pointer
+ * [iommu] Reject concurrent attach_dev/set_dev_pasid for compatibility
+           concern
+ * [smmuv3] Drop the old_domain depedency in its release_dev callback
+ * [pci] Add pci_reset_iommu_prepare/_done() wrappers checking ATS cap
+v3
+ https://lore.kernel.org/all/cover.1754952762.git.nicolinc@nvidia.com/
+ * Add Reviewed-by from Jason
+ * [iommu] Add a fast return in iommu_deferred_attach()
+ * [iommu] Update kdocs, inline comments, and commit logs
+ * [iommu] Use group->blocking_domain v.s. ops->blocked_domain
+ * [iommu] Drop require_direct, iommu_group_get(), and xa_lock()
+ * [iommu] Set the pending_reset flag after RID/PASID domain setups
+ * [iommu] Do not bypass PASID domains when RID domain is already the
+           blocking_domain
+ * [iommu] Add iommu_get_domain_for_dev_locked to correctly return the
+           blocking_domain
+v2
+ https://lore.kernel.org/all/cover.1751096303.git.nicolinc@nvidia.com/
+ * [iommu] Update kdocs, inline comments, and commit logs
+ * [iommu] Replace long-holding group->mutex with a pending_reset flag
+ * [pci] Abort reset routines if iommu_dev_reset_prepare() fails
+ * [pci] Apply the same vulnerability fix to other reset functions
+v1
+ https://lore.kernel.org/all/cover.1749494161.git.nicolinc@nvidia.com/
 
--Doug
+Thanks
+Nicolin
+
+Nicolin Chen (5):
+  iommu: Lock group->mutex in iommu_deferred_attach()
+  iommu: Tidy domain for iommu_setup_dma_ops()
+  iommu: Add iommu_driver_get_domain_for_dev() helper
+  iommu: Introduce pci_dev_reset_iommu_prepare/done()
+  PCI: Suspend iommu function prior to resetting a device
+
+ drivers/iommu/dma-iommu.h                   |   5 +-
+ include/linux/iommu.h                       |  14 ++
+ include/uapi/linux/vfio.h                   |   4 +
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c |   5 +-
+ drivers/iommu/dma-iommu.c                   |   4 +-
+ drivers/iommu/iommu.c                       | 220 +++++++++++++++++++-
+ drivers/pci/pci-acpi.c                      |  13 +-
+ drivers/pci/pci.c                           |  65 +++++-
+ drivers/pci/quirks.c                        |  19 +-
+ 9 files changed, 326 insertions(+), 23 deletions(-)
+
+-- 
+2.43.0
+
 
