@@ -4,74 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69C8FCF34A1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 13:01:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D9C4CF34A1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 13:05:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eH934FPkcFZsDsZ+8WMIiblkJpGaRFveAvHRwpG5vZE=; b=D6RoNCHepsFySepwvAS5W/JJpc
-	SjV1ybGzXEt3KofPdl6dCHn8IE/97cKONk4ZZWC4SH3C4c3XgKEZI3EwKy8ZQh82M5f0Wohc9Sr3W
-	OQCXBKv+Px8XKR+T7G3Vz6HF9M67k4a6JxiPI+DCxrj3iNAku3t3Fiy74PH+M+fpLTnrigU1sd+Fx
-	3nwX46J+hs6SAe4ppkH/0NUmZh0z+CB4HUK/l53f3zxX7McCgkGdrCkCn2B5bKD+jtNdbx5nnoDtV
-	NRMB2DfFvImx44WE7T8mromOi3NDeq/0T/r2ZcbicmqA0eZc6eyojrS5idaPz/6GG/9CJN6PmsN2Z
-	PVZn6NJA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mLwV10lq5XkwvG5if7bPTvaB98hOjyJOgn9Or1ejhfQ=; b=JuzdJ09bfEgTwtNlOV7hoEdD3h
+	zeXbX3hKSofOIlRAA5p4XQ/zhOAFNA1PytTK7TsaG9hAwrSaqgFA0U+ixrI+li1D8O+S5jffY2x3j
+	zpFWsSi99gy6bq4cSO2bgdc+UMBC1y0GDBrMX2gTRDZ830eIwDfhu2oE64S32j47wecAZLa4QqHKf
+	2gi1VRtsGOd9b3hxB5NDd/vEz8FgDvko4myQZGSRgaQQkd7yyt5ZfLFThgwXWGWYleQnSckWlYR8y
+	RyKZNkAkQlLiC/ib+ltEZS1DYyoNOQe6JWDWQLFhf6wohWRa96YkTCjCsN8fSBOjb6eFxZAOfRw1q
+	hE7Dm7cA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLhoH-00000003DLB-1Y83;
-	Wed, 19 Nov 2025 13:01:21 +0000
+	id 1vLhsO-00000003Dfu-42oI;
+	Wed, 19 Nov 2025 13:05:36 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLhoF-00000003DKe-12FU
+	id 1vLhsN-00000003Dfc-2dcd
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Nov 2025 13:01:19 +0000
+	Wed, 19 Nov 2025 13:05:35 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A3FA360123
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Nov 2025 13:01:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3DED2C4AF0B
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Nov 2025 13:01:17 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 0756260166;
+	Wed, 19 Nov 2025 13:05:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7481BC116B1;
+	Wed, 19 Nov 2025 13:05:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763557277;
-	bh=eH934FPkcFZsDsZ+8WMIiblkJpGaRFveAvHRwpG5vZE=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=kJhuBq90hbnrfjiLIEnrjlGYvgfFVzKoxLuJc0sHUzU3vc2lkabxmi9+JI3QbNyxq
-	 TlBoSy+epAskTx06hyCGZO3B7HI/xn1JL4Aeg6q9J0Th02CbQENDBYYJ5859w4UmS3
-	 dQqIzF1Ne7DoIp/n8iYSZlcsYsQIKVBKbqjKXos2xI8kBGISw+F7/XrEpuiyw5OQQX
-	 A6D1STew66Dl2Bm2EDabPrbwfcCx69NyLuOg2Flxjl1ImGl3IaHJEwLRFXCMXc+mFJ
-	 z/kbv0wSthpCY9fkUXoiHU4ALQmstFiTfveoCoi30LU4TXU4JXzxsyGFk9vsSXEVZm
-	 HxlcsW6MmWFzw==
-Received: by mail-ed1-f43.google.com with SMTP id 4fb4d7f45d1cf-640a3317b89so10042930a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Nov 2025 05:01:17 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCWvoRw4gvdo2ZbcN1iD3KVlG3P8XaWJLvDRcje0xfWrpcx+9lTaYw0sHrnTZPWz3Goc7MqQMIISDHmB6bWSxJAR@lists.infradead.org
-X-Gm-Message-State: AOJu0YzMDeCYf6/f2mbDackJaNHuw7kb1k2mhxq0wd1ARG4MmMk99RMs
-	nSGjSvOjaUO5QEgo5dJsb0CwwiCfVNDXZpYxvSo4FPRjb2prTLS4qfzL3njNj8G77pvo4Jy5amz
-	w9r5clb6kfmUsS637Or2rPEOyYMhxRg==
-X-Google-Smtp-Source: AGHT+IEGTDYC90AsYi97BZnIB9BW3G+p/VlGw5hEVN7/6LImP73EZAq1WJ9UEaSQR4uzxHPiWCGEsrS4Y4GhSjMkTdk=
-X-Received: by 2002:a05:6402:2355:b0:643:4e9c:d164 with SMTP id
- 4fb4d7f45d1cf-64350e050eamr18399479a12.2.1763557274937; Wed, 19 Nov 2025
- 05:01:14 -0800 (PST)
+	s=k20201202; t=1763557534;
+	bh=bOxV0akRmRQphkd8T9wn2CINlAiaytOn/UCtqXjyjjc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=uBISDiEaSrr5rLUSgmDBtymBsazyAm2s34IBEQ45cPMpZyTiLWiUmqS7bprWzoifX
+	 KvJYXxk5aU+3aNgEJr+ZWwIEB+zidOLsZBCEhM0CDlFBfO29CA5otJVNYfGXI78LoC
+	 GnFNCuGuFvbuz+22lCpk4Df74S/T0SLwOHnqrdrwrCuXdCBgGCbMQwxRSe02WKBVea
+	 1+Iz8LITHTVZpKx3EWnWfwYIjcca0mkfQ+f76myXNO8iRGtTmC1msF8iJE6gp9I9kx
+	 dv6NGhIdImfj13lNt41gsr86BXS2xKYB+PP8PlwmcGY9pTq4mxVWyRPGgkVeqt5uFI
+	 8bq/sGnMKTdCQ==
+Date: Wed, 19 Nov 2025 20:47:38 +0800
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Andy Shevchenko <andy.shevchenko@gmail.com>
+Cc: Robert Jarzmik <robert.jarzmik@free.fr>,
+	Doug Berger <opendmb@gmail.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	bcm-kernel-feedback-list@broadcom.com,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Bartosz Golaszewski <brgl@bgdev.pl>,
+	Hoan Tran <hoan@os.amperecomputing.com>,
+	Andy Shevchenko <andy@kernel.org>, Daniel Palmer <daniel@thingy.jp>,
+	Romain Perier <romain.perier@gmail.com>,
+	Grygorii Strashko <grygorii.strashko@ti.com>,
+	Santosh Shilimkar <ssantosh@kernel.org>,
+	Kevin Hilman <khilman@kernel.org>,
+	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>,
+	Srinivas Neeli <srinivas.neeli@amd.com>,
+	Michal Simek <michal.simek@amd.com>, linux-gpio@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-omap@vger.kernel.org
+Subject: Re: [PATCH v2 05/15] gpio: pxa: Use modern PM macros
+Message-ID: <aR28aq0xHQOOISYq@xhacker>
+References: <20251118003229.26636-1-jszhang@kernel.org>
+ <20251118003229.26636-6-jszhang@kernel.org>
+ <CAHp75VevWmB4X_Mh+st_NLChAYZw5V-b3pM9Yrcd-ofa9xYvDQ@mail.gmail.com>
+ <m2ecpvm20y.fsf@free.fr>
+ <CAHp75Vf=HYugUGDOPdXGaMo9tDLcji0H9ZX7NehN0NoBGYjO+w@mail.gmail.com>
 MIME-Version: 1.0
-References: <20251117211306.725678-1-robh@kernel.org> <679c1f30-7c62-484e-b4e5-7351a23f15e5@collabora.com>
- <CAL_JsqK4jvZQTQAXCjPgxBCUiENGKgkgaDgZ680QqL1XpS6bbw@mail.gmail.com>
- <trinity-dfca2931-a7e8-4b33-b722-c22105569d82-1763485361461@trinity-msg-rest-gmx-gmx-live-56d984c6fb-85gcg>
- <bd64ace0-b4c5-46e0-870b-e62f950f4199@collabora.com> <81BC8F8F-91A2-4414-9847-292D974042B6@public-files.de>
-In-Reply-To: <81BC8F8F-91A2-4414-9847-292D974042B6@public-files.de>
-From: Rob Herring <robh@kernel.org>
-Date: Wed, 19 Nov 2025 07:01:03 -0600
-X-Gmail-Original-Message-ID: <CAL_Jsq+2ZoYYUiZF=ZXdM86Mh=zofnr8-v6hMc6mVwW0G7aTqg@mail.gmail.com>
-X-Gm-Features: AWmQ_bnPhPA-Qi7HZmObYeKlsTJrM8CGadg676OBl4gMqQ4WRjkk7EtLhmc-KQ4
-Message-ID: <CAL_Jsq+2ZoYYUiZF=ZXdM86Mh=zofnr8-v6hMc6mVwW0G7aTqg@mail.gmail.com>
-Subject: Re: Aw: Re: [PATCH] arm64: dts: mediatek: Apply all DT overlays at
- build time
-To: frank-w@public-files.de
-Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, matthias.bgg@gmail.com, 
-	krzk+dt@kernel.org, conor+dt@kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
-	devicetree@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAHp75Vf=HYugUGDOPdXGaMo9tDLcji0H9ZX7NehN0NoBGYjO+w@mail.gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,49 +90,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 19, 2025 at 3:26=E2=80=AFAM Frank Wunderlich
-<frank-w@public-files.de> wrote:
->
-> Am 19. November 2025 09:39:07 MEZ schrieb AngeloGioacchino Del Regno <ang=
-elogioacchino.delregno@collabora.com>:
-> >Il 18/11/25 18:02, Frank Wunderlich ha scritto:
-> >> Hi,
-> >>
-> >> this looks similar to my attempt i did here
-> >>
-> >> https://patchwork.kernel.org/project/linux-mediatek/patch/202406080805=
-30.9436-2-linux@fw-web.de/
-> >>
-> >> But in my case i added full dtb with 2 overlays as there can be 2 devi=
-ces (1 mmc + 1 spi) at one time.
-> >> So usable as dtb for bootloader config without overlays, not only for =
-validation...
-> >>
+On Wed, Nov 19, 2025 at 09:56:12AM +0200, Andy Shevchenko wrote:
+> On Wed, Nov 19, 2025 at 12:04 AM Robert Jarzmik <robert.jarzmik@free.fr> wrote:
+> > Andy Shevchenko <andy.shevchenko@gmail.com> writes:
+> > > On Tue, Nov 18, 2025 at 2:50 AM Jisheng Zhang
+> > > <jszhang@kernel.org> wrote:
+> 
+> ...
+> 
+> > >> -#ifdef CONFIG_PM
+> > >>         unsigned long   saved_gplr;
+> > >>         unsigned long   saved_gpdr;
+> > >>         unsigned long   saved_grer;
+> > >>         unsigned long   saved_gfer;
+> > >> -#endif
 > >
-> >Please don't top post :-)
->
-> Sorry for that :(
->
-> >That said, for the target of what is done here, I think yours is nicer t=
-o the eye
-> >compared to Rob's (not his fault at all, most of the times overlays cann=
-ot be
-> >applied together, he can't possibly know if that is possible in this cas=
-e).
+> > Actually this is not equivalent to what was there before.
 > >
-> >If there is really no other solution to that... well, at this point I pr=
-efer to
-> >have something nicer to the eye, with all of the necessary "evil" that c=
-omes with
-> >it.
+> > With Jisheng's patch, with CONFIG_PM disabled, he adds 16 bytes to
+> > the
+> > structure. You might thing today, 16 bytes is nothing. True, but
+> > on a
+> > 64MB RAM devices, it's something.
+> >
+> > That might not be a reason to reject the patch, but it's not only
+> > a
+> > "modernisation patch".
+> 
+> Actually a good point! On the same grounds I semi-nacked the gpio-dwapb change.
 
-Use 'dtb-' if you don't want to keep the targets (or can't agree if
-you want to keep them or not).
+Hi Andy and Robert,
 
-> If my version is ok for rob (afair he did not replied on that yet),i woul=
-d resend it again with similar for R4 and R4Pro.
+I have explained the reason of embedding within the cleanup/modernize
+patch. Could you plz check?
 
-Yes, please do.
-
-Rob
+Thanks
 
