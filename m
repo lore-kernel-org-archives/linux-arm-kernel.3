@@ -4,109 +4,176 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78C6DCF34DE
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 16:02:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CCCCCF34DE
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 16:03:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=151gyubu2o8MzWYp3PTTQKW5Qbqj1WX/Go72qpQ9Z9Y=; b=HVzSHUtsDEFh+CHCVyNt2KAyxz
-	r2lxzftznpOD9WFTRSxeNGDVxWuCcRDf0mmd8z+fz5sOSsL7bO0P1FQpcCRyCvAFT9+u9YLTHEjhw
-	bRifpM+UA7QBx5+53wQcVIsTeKxmgsG2ektprKmbSIVgOBJX0a6R+mkw9vMOOjZXqTeLTp9iznfaq
-	Ajt8CTMxEp3TcO8S7j3kU4tjqk0ap2KiYBCAu5enUf6sOj1snN4yOO43p87whvbfmdzdpRLHI884k
-	ue0+qP1psxZVJv0vwQxjbp978PDFyRjnODrRPRwnxYWmNGFm+iSKlHHqrxXvZP81LOk+2/GI95zkO
-	rGP0N6bA==;
+	bh=MFWTbYDfK6iX8AuRFl/hhMn/eC4oCL+RR8++edymnpE=; b=Xu9qrYVBRZ9w11icijAFcRFvRU
+	fVR595DBnFjwmtOybfRowK6/dztmYwxoNptDET6pHVaY5dhcT1L5g6Hmmcm26CR+Sba73lslMsAOq
+	JoLoWt61tkalo0sbUlAP/aSy1Rydl48Y9cDF3HJsfWD9fJPs4kvRvfFU/JmQF/8gacptDto9ZkjYq
+	ipDJuGaIE3zLCZZFq+H5HNVcXoSRJ20nDICq4AH76irwgbu9M0vRN9u0bvcpBTTQr5wWZQ3ycNiss
+	rNyIoPC+W4MtDTfD3Jmvj5KbVvM7P5hjHKCQcwuTFtzS8zXny/54d6Whj6K2iAaxO5JT4nf+P9L2I
+	eR687LDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLkdY-00000003d37-1CTs;
-	Wed, 19 Nov 2025 16:02:28 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vLkeD-00000003dEb-0ZjJ;
+	Wed, 19 Nov 2025 16:03:09 +0000
+Received: from mail-francesouthazon11011058.outbound.protection.outlook.com ([40.107.130.58] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLkdW-00000003d2p-4ANA
+	id 1vLke9-00000003dCK-2q1g
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Nov 2025 16:02:27 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1A5F06016B;
-	Wed, 19 Nov 2025 16:02:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A9922C113D0;
-	Wed, 19 Nov 2025 16:02:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763568145;
-	bh=K6PMG4xSz7AcDJUWlqk2vPo0vVj8q+VRUlhpYysoEc4=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=hH4DrJg0JrMfS6V4azkeToN8uUfmwBchOsNW9Lp6DH2PGW0FPmjqSsUQ7r0MkJUjD
-	 ZG95HzgnVqb/2yT6O/UMFuAdgVdOSwIQgM/BNMpAIo+YsyJiW2VRMKuj2+QZDpjehZ
-	 1MzIVhY18a1VHigFeOk9Ev0DM0fGuEgoynUXFUw1qCg8UDKYwnNxyTcAeMu6+EAl9g
-	 QAHgzyYoO7Ra1732ERS6soiwCGFd63RA/3PHsUmBXpWKh6Q9pU6RSktzMCavUQ3yNo
-	 tPyn6xRSnpgsTs204hx01ut8a8VPFTFXViMcJh3/T1MGXHwYGvQNl5pfxTC1fy0fBZ
-	 VhPhfSbuGiNBw==
-Message-ID: <e73bdb23-c27b-4a18-b7e3-942f2d40b726@kernel.org>
-Date: Wed, 19 Nov 2025 17:02:18 +0100
+	Wed, 19 Nov 2025 16:03:07 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=XuPeBn3YP8zYJ2/6wptel3GDbcOrCIqEq17VdrXvrNGdej9zdJzdYYe1V4mVCSmxhbgjcwEu8xEV3ge953rEQ2L62VN8Kbfm/RTGPYjbFzo/k8pv9JKC8pIAS6QQqTkWWfELaHdRHvi/vyLzXNLw/Dklg3tXwp/FHzbiwVYDnXW3aRyT9FXTd93Wa8rHIjYUGwy/Z7L/Cg1YsQBc8CUNuqg2+AaGsbg1Nh0lLJ6dyVQKU6J9lsf2c+ygGwd6CtZ2Yo8NZXy2ToU17cZIBDrPCGhnRv/TFLCBtBzuV9fyRaRbMr+SIMY44WufhT264FovHs/OXWqcbspVQTDC++XRZg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=MFWTbYDfK6iX8AuRFl/hhMn/eC4oCL+RR8++edymnpE=;
+ b=bDkYP2TVNN53FPl+tdhcK4JNsmE8BKgoBMe3myHD03qi5vd4OphDmDZQu43xOXMWTK8pGhnajGEx4vocr71IUdEJNKnHzezLx/QLb3rr026Y1iRD6wZgBVvCpkmzhTvR7rhWaNMd+IEX/Ko/lOQNx7pxRdCgrxKoBSkTq1M6zlMz03PiYMcG8d/Y8PT/OItUuk5LuFP7TJz1uEgH3j2NiAwDkxsWvfmxbkNkjhhhEcqK2jljA61149HCJ+j5ZOsYkHlzrVQk9vYrwxZS90+myD6Ez9szGkggrSp9xSjCWUHbj77e5JxtZVDipz8SLLBjh3C/Ilkss5G73rt1iVyy2Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=MFWTbYDfK6iX8AuRFl/hhMn/eC4oCL+RR8++edymnpE=;
+ b=YN7tj8c4stqvTFoOaS/NxBH20wll/4LAJaoWKdumU5emIOgPQ3v2QHnIPvI7MHp8rdkAOowLY8WPLmAmUu2NGMR4w8kRm7Bzwff4qa7wm8edsh3/xl3yEKLYWxFsSuS9ZMDM3kFP63rsXrel6e/V0oJeYWDgOfQsUw3aHUnhpJwcr75hW0MxW22KXfOX63+JfMR6FCFUA0KWZ4j4JK7wwHnmMdfyc86fPMgBk2lrg5thm8zfYZ+brxxKWqjU9YRU0pwCXUef7eJExqb5A+l2CUmtDsjcDmuPswgnweoYL+NuNSQa744PPtebHNARHTOTZsRPJXM1w0AHWGIdSq9urQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from DB9PR04MB9626.eurprd04.prod.outlook.com (2603:10a6:10:309::18)
+ by GV4PR04MB11971.eurprd04.prod.outlook.com (2603:10a6:150:2ec::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9343.10; Wed, 19 Nov
+ 2025 16:03:00 +0000
+Received: from DB9PR04MB9626.eurprd04.prod.outlook.com
+ ([fe80::55ef:fa41:b021:b5dd]) by DB9PR04MB9626.eurprd04.prod.outlook.com
+ ([fe80::55ef:fa41:b021:b5dd%4]) with mapi id 15.20.9320.021; Wed, 19 Nov 2025
+ 16:03:00 +0000
+Date: Wed, 19 Nov 2025 11:02:51 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: Bough Chen <haibo.chen@nxp.com>
+Cc: Han Xu <han.xu@nxp.com>, Mark Brown <broonie@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	"linux-spi@vger.kernel.org" <linux-spi@vger.kernel.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH v3 2/2] spi: add driver for NXP XSPI controller
+Message-ID: <aR3qK18c4/XJY8JW@lizhi-Precision-Tower-5810>
+References: <20251118-xspi-v3-0-6d3a91b68c7e@nxp.com>
+ <20251118-xspi-v3-2-6d3a91b68c7e@nxp.com>
+ <aRyfoXaTdL1gvPOY@lizhi-Precision-Tower-5810>
+ <DU0PR04MB94965531DB74151BFE651BD690D7A@DU0PR04MB9496.eurprd04.prod.outlook.com>
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <DU0PR04MB94965531DB74151BFE651BD690D7A@DU0PR04MB9496.eurprd04.prod.outlook.com>
+X-ClientProxiedBy: SJ0PR03CA0368.namprd03.prod.outlook.com
+ (2603:10b6:a03:3a1::13) To DB9PR04MB9626.eurprd04.prod.outlook.com
+ (2603:10a6:10:309::18)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 25/26] dt-bindings: reserved-memory: Add Google Kinfo
- Pixel reserved memory
-To: Eugen Hristev <eugen.hristev@linaro.org>, linux-arm-msm@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-mm@kvack.org, tglx@linutronix.de,
- andersson@kernel.org, pmladek@suse.com, rdunlap@infradead.org,
- corbet@lwn.net, david@redhat.com, mhocko@suse.com
-Cc: tudor.ambarus@linaro.org, mukesh.ojha@oss.qualcomm.com,
- linux-arm-kernel@lists.infradead.org, linux-hardening@vger.kernel.org,
- jonechou@google.com, rostedt@goodmis.org, linux-doc@vger.kernel.org,
- devicetree@vger.kernel.org, linux-remoteproc@vger.kernel.org,
- linux-arch@vger.kernel.org, tony.luck@intel.com, kees@kernel.org
-References: <20251119154427.1033475-1-eugen.hristev@linaro.org>
- <20251119154427.1033475-26-eugen.hristev@linaro.org>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20251119154427.1033475-26-eugen.hristev@linaro.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DB9PR04MB9626:EE_|GV4PR04MB11971:EE_
+X-MS-Office365-Filtering-Correlation-Id: a93daf87-f2ca-4b82-81bc-08de27851cd8
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|52116014|376014|19092799006|366016|7053199007|38350700014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?a2QzeU1pdG5SNWNNemR4UkpmSGZjYmo3UkIxUFlvK1lLN2k3S2RnZkl4cUdU?=
+ =?utf-8?B?Mkk4UEhCUHN2RnpENU5TYTJQK1doUERMY2crNU9pTkdEaktoWGxRclJxT3hS?=
+ =?utf-8?B?UitqTTd3RWxwSGdCOE8yWDFvQmZvakV2b1RNQUpOMWJ0Vy8wRlMwblkyK0Q5?=
+ =?utf-8?B?Q1FaRGZVYXZRSVZYN0RYODhWemRIOEtiWmtGQzlBbEFiNVpGRFdiN1p1ZGNM?=
+ =?utf-8?B?cFk1bTVUSWZOMExBbU0rTGp0N1o5WDdmL0dFRGYwNFNZZi8zaVFjVWx3UlM1?=
+ =?utf-8?B?WVZWK05ZSVNZMDVHcmVkQUFMU3VmaXNveWZGUkVjS29VZTB3RUpzN3I4K1Yr?=
+ =?utf-8?B?bzJLMGdnNnd4RVM0SmxQMGQreVgyVzBrRlAwU2tsOXZhWjBSejR0cXdWbGcv?=
+ =?utf-8?B?ME5hamZsMlRzWVlPT2VvZVRUd2w5NXNwNGtubHFBSGZUMDBsVkJSNWJkSkVZ?=
+ =?utf-8?B?OU5XL1VHSXZQNHlBbmxCMHJ6NWIzZlphc1ovdUU4cUcrRHlRSmtURGtoZUVY?=
+ =?utf-8?B?aXJwMVpQY1NoOGp1Y1ozZndOeHJycHpjT0c4MDkvYlBVeU1wS09vUDZCZlZV?=
+ =?utf-8?B?SVZybThtYUNmUlltTXVvUjI3WHZ4Y3lGaHpHa1hQVm12M213ZnI5M25MZENa?=
+ =?utf-8?B?N3E5dFpQckxDM3hwNHg4WEtsNlZESG5YWFc4WU9acW1qSjBkYUVIVHQwVzVB?=
+ =?utf-8?B?eCtOeFYxcEcvS3M0Nm9HUFFLSGZtNWd0YXhzUzVXUVRhS1NrSW1tTENCSEdD?=
+ =?utf-8?B?aWw0bkpYRkl2QUFidTZsL04wSHlaeStGdXJ5SmU4QlRnNVAxdkZrdzQrZWxl?=
+ =?utf-8?B?NWQ2MFlVS2c0cHA3cTI1QnIzSDZRK0NJWEdsVDAvQU5NUFRTbUR1Zkc0UG1D?=
+ =?utf-8?B?U1RZUnk4U25OVXNGeDJhaDRJVm5PMzdOeGRXQzBqK2dDVUcwOGp3MFJ2bjB1?=
+ =?utf-8?B?aGVCaWVDWjZvRW1nUzg5bHZLWWNzZDkyNENOR0t0RU9WSW91WFNOeCsrTlVN?=
+ =?utf-8?B?aW44b1lyeWJXQ2U0dThUa3lQS0VRU3lBc1dYUHFWRWQ5K1RxcjdlWjVONyt4?=
+ =?utf-8?B?RGNubXNMSVNzRmN3d1BFQlpIQ2VKdFJsb291VzN0Qk1PSklsMDEzRDFTdEpk?=
+ =?utf-8?B?bWNxODhEWkM3MFc0Z1VTcTdmSGgvZlVoQy91QWQ4Yk4yVHlhMzdFb0pENUN1?=
+ =?utf-8?B?WEhITU1DNis2TkRWN2FYZXc5Vkt6aHlrQ28wWlVFbVlHQjBMdTNPaXk4U2Va?=
+ =?utf-8?B?SHJnRmxOK2VKRUFEQitZempUdnVXMmlEVTZycWd2THRGRkpVNHJ6akYwSnMw?=
+ =?utf-8?B?VEg1Qlgxc3Jtc1EvZWE5aXkzalM2ckhYd1V6VytYNisreW9rZWRYd0ttT0NF?=
+ =?utf-8?B?MEUwVzVDcXhyd1BJT3U3WUp2RWk5MzdIbGo2bXVWQ0Y1TllTbCtlZ2FCN2hz?=
+ =?utf-8?B?aDlKTUc0UStkV3YweEhSWm9PM0VDNm1BMlhYc1p0RjE4NldWWjBXZmkwVng0?=
+ =?utf-8?B?M1FJQlRRZDh0YUtqWi9wZTB6a05BRWJlajR5bUZsa21Kd1J0dTJTSCtyRmI3?=
+ =?utf-8?B?aUVPaXptMHhDSUFRcnlXaTRiZzhQZlZvS252K3JTb0oxU3lvV3pqZVk2cXlm?=
+ =?utf-8?B?eG9GaDArNjZHVytvV3RDRjhVZDQwL0pmUVZBY0J4S3V5NXhQYkhWVWJidTV5?=
+ =?utf-8?B?Y1JoQVY4LzM5ZDQrWW9NNWpyTjJ4bmg1d0RyWHU1ZWZFa08vL1RwT0ZQNFhy?=
+ =?utf-8?B?T0crMlJYdEVWV3V4S2xZRlExamdaM3BhUy9PT2U0cUtMU2E2UFNhLzlKNHVK?=
+ =?utf-8?B?VkRiZXpBcWkwbkN5WldiTzBkVVphWXIyeCt5RUF3NWNmLy8xcUpneXVBbzN6?=
+ =?utf-8?B?NHA5RDN1SWhMMVU5a3Y2NWZEWk16Vk8wb2RCWFliWnFvMXdjaE90Zzk5Ly94?=
+ =?utf-8?B?VGFZUEZTMm5TcDNaNTM3VVZ4WCtVZUswcUtMTGkxeXJSMWNHUTVzY1IzRjh6?=
+ =?utf-8?B?MkpuN1VOTjF2S1JQRmVhRU1wQlBHSFk0ZmlqNGdlNTZXWXVxN05wN3ZyVVVh?=
+ =?utf-8?Q?nHxEHa?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR04MB9626.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(52116014)(376014)(19092799006)(366016)(7053199007)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?ZHN3RndyQ2VpSkFNY2lPOE1KTEwyZUZNMDU5NEhJRWE2WFEzamxqYzNnaVFY?=
+ =?utf-8?B?TkxvdW1icmM2dHMvOXdIeXlmZ1NrR2JlTmZBN0s1MDliUHVXb0JUMjE4RXJE?=
+ =?utf-8?B?Q0t2THZOcld1N1lTVzZNVWMrajNBK3VTeTc3N2xmdFVIUlR6aWRpdC9jaGNx?=
+ =?utf-8?B?RkNrVENZREVIODg3N04rV2VzVGtVYzAyeW5JWTI4TWg3dURpWEpFSVV3b2ZY?=
+ =?utf-8?B?QlpHUnhTRVZteXVLNkZ1eXdjKzU2NE8wcTJNOEhoRzlwTGtqaDVQZjJQUVR5?=
+ =?utf-8?B?S0thRTh2a0FvNm96L3NUbXQwdlQ4SDFXM3FIb2IvV3BjTG1aSTAxT2pTa1BM?=
+ =?utf-8?B?SEsrdDVhcGNtR3IzQXJ2YjdzMDQyVVdocXJtSEVOaWhjSFhrOEdKVVkxQ1RX?=
+ =?utf-8?B?azcwU3ZmUTAreEQ5QXFwRVRrOThPa1JiNytmY253Vmd0ZklaWHN0SjUzTzRH?=
+ =?utf-8?B?N1hBazEvS3J2RkNmc1cyS3piSGI1dXBScnN5MGJab3NGelFoUVpMc1k2T0hY?=
+ =?utf-8?B?YVJwVlVVL0o3VzVaRmUrWEJqd1ZxMGw3cUNvQ25vUkEzS2JIc2dIWVl4c3lY?=
+ =?utf-8?B?K3ZyNlUvb0lMSkk4ZkZvVjZ5SjNBblM5bXhneHlpNnVPelloS2VtNExXYXM2?=
+ =?utf-8?B?SDhpMjNZTVh0MFlXY1gvWE1mbXNkczVEYjRFS1RiZWdQWGE5MFh1NWMwdUpM?=
+ =?utf-8?B?T1lMbjl0clFDdndURmhGZlBGQzV1NDg0Rmh4SE1FRmVxci9UcnJxbkoxY1c0?=
+ =?utf-8?B?UWhmQVZnNEFSMDNoUVl3ZXJKelN0NkxlcmlWeDRGb3VPTFVMek1nTUJKWXZU?=
+ =?utf-8?B?ZUk1eEp5WVIwd0wyVjFJRkdWTVptU1FLM0FuTjFURGRVMTRQK2N4SXM0UUlV?=
+ =?utf-8?B?dlZBeU82U0M5Q2Flb3JUcXJLdjViaWxkSjhwZWIrUXFvL25UZGtDSlBaNldm?=
+ =?utf-8?B?OXZkTWxSWEdjYWZkRWJGZjBFYTBIc3M0U3dWS3I3eUJxUktMcTRiTmV6NE5Z?=
+ =?utf-8?B?blNHN1ZxZDBzQ1NlSks5OW1aK2FLbHR2UStKNGpaTk5VdlJ5dUozaFoxbkd2?=
+ =?utf-8?B?dEI5ZEJsQnJSTVM4S0J1bHU5OVFkVStpZFRqQjV2d2FNTk1tWjBwQW9SS2xP?=
+ =?utf-8?B?MEV6amhublhMWmhZZFdYc0wxUjU3UG9waHRpQ2JtMUxMdGVFN2ZCWm0rQ2or?=
+ =?utf-8?B?cUNDK0hoZ0dsSjFvU3dKK3ZVTTJtN1F3cGxRVHRQVyttV0R5QjRxRmNUQk50?=
+ =?utf-8?B?LzFMOFVHSjZwOGMySkdlRzJGWFhnVDZIbjJFeWFydGxmcFF0VWxQbGNhYnlB?=
+ =?utf-8?B?NllZdjRGU1pjSGM3SzN5eFhTQ0ZWYzB3dlFuMG1nRFNxaEVOQUpzSWxFOE80?=
+ =?utf-8?B?TVBVZnVxblNpQzBjc21SWm9QNE9uZ3BWeHFtSEdHZW1SSHVmQWRDMkgrUlYx?=
+ =?utf-8?B?R3pXaWkzd0V6VzlmODF6S0lYZ1ZrOVh5UWNXMzRLcFNXT1VvcW9DMWRMREl0?=
+ =?utf-8?B?bzJJU1N1WVY0Y2tNTERpNXpldlFIUXU3UTRReVJKaENPYVk1RTF6VitIMTRj?=
+ =?utf-8?B?NzhRZW5lVG5iWVBYVXYzd3ZKK3NLWC94ZVRYUVB3VE5GTm5nRDJnMHNCVUx0?=
+ =?utf-8?B?NStvTjNsdy9aN1IwRUFaSk9lc2MzanRxY3VKd3dlcWE1Ykt6VEZUdFA5MlVP?=
+ =?utf-8?B?dGdoRktodGxDNGcyVWdtTDlGRXdRWXBRbjF0T0lEdHZpbWNQbytyck5jSXcx?=
+ =?utf-8?B?Tld0Q01oaVNKYUVCV2tTd2ZySVFMbGxRcklLNUpRUkdDOHY4cnpENGE0YjRs?=
+ =?utf-8?B?WmppMzBUZkYxSFIxaUY1MlhRYmsrcFRrQmJFWWJJczFLZ3BzYlJiVTRjdmxn?=
+ =?utf-8?B?RU5ONFczY1pOb29tOW9heEpBQ3ozWTd4RzVNbFo4YzFXcDB4a21UVkcvU29F?=
+ =?utf-8?B?bHBBUmtWWUViQk9XRTliVmpBVWIwNnM5aTdxekZOKzBSRTluYktPRmNDYUZo?=
+ =?utf-8?B?MzNMWTdTdTNIVXJQcTRpUXRjZ0RabUNuNURTMkUwelAyUDAyWDRqSTVYTGpX?=
+ =?utf-8?B?N2sxaUZHTmJwdU5sOFJtandTSUF4cjVrQWhKcWRwS2lmZFJrMklRVXZYcFNk?=
+ =?utf-8?Q?3apwQqnZQT5+sDAr8yHmHM03z?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: a93daf87-f2ca-4b82-81bc-08de27851cd8
+X-MS-Exchange-CrossTenant-AuthSource: DB9PR04MB9626.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Nov 2025 16:03:00.3824
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: c2+6N0IGbRGC/PhdbGM46ipEbodppTYr6QawUV6T0JNkoGNIrPXq2PJhF6TUCuSNpHXQHs4o0byh2+P/nNpRlQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV4PR04MB11971
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251119_080305_892102_3B270D17 
+X-CRM114-Status: GOOD (  36.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,118 +188,468 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 19/11/2025 16:44, Eugen Hristev wrote:
-> Add documentation for Google Kinfo Pixel reserved memory area.
+On Wed, Nov 19, 2025 at 07:02:21AM +0000, Bough Chen wrote:
+>
+>
+> > -----Original Message-----
+> > From: Frank Li <frank.li@nxp.com>
+> > Sent: 2025年11月19日 0:33
+> > To: Bough Chen <haibo.chen@nxp.com>
+> > Cc: Han Xu <han.xu@nxp.com>; Mark Brown <broonie@kernel.org>; Rob
+> > Herring <robh@kernel.org>; Krzysztof Kozlowski <krzk+dt@kernel.org>; Conor
+> > Dooley <conor+dt@kernel.org>; Shawn Guo <shawnguo@kernel.org>; Sascha
+> > Hauer <s.hauer@pengutronix.de>; Pengutronix Kernel Team
+> > <kernel@pengutronix.de>; Fabio Estevam <festevam@gmail.com>;
+> > linux-spi@vger.kernel.org; imx@lists.linux.dev; devicetree@vger.kernel.org;
+> > linux-kernel@vger.kernel.org; linux-arm-kernel@lists.infradead.org
+> > Subject: Re: [PATCH v3 2/2] spi: add driver for NXP XSPI controller
+> >
+> > On Tue, Nov 18, 2025 at 11:34:17AM +0800, Haibo Chen wrote:
+> > > Add driver support for NXP XSPI controller.
+> > >
+> > > XSPI is a flexible SPI host controller which supports up to
+> > > 2 external devices (2 CS). It support Single/Dual/Quad/Octal mode data
+> > > transfer.
+> > >
+> > > The difference between XSPI and Flexspi:
+> > > 1.the register layout is total different.
+> > > 2.XSPI support multiple independent execution environments
+> > > (EENVs) for HW virtualization with some limitations. Each EENV has its
+> > > own interrupt and its own set of programming registers that exists in
+> > > a specific offset range in the XSPI memory map.
+> > > The main environment (EENV0) address space contains all of the
+> > > registers for controlling EENV0 plus all of the general XSPI control
+> > > and programming registers. The register mnemonics for the user
+> > > environments (EENV1 to EENV4) have "_SUB_n" appended to the mnemonic
+> > > for the corresponding main-environment register.
+> > >
+> > > Current driver based on EENV0, which means system already give
+> > > EENV0 right to linux.
+> > >
+> > > This driver use SPI memory interface of the SPI framework to issue
+> > > flash memory operations. Tested this driver with mtd_debug and UBIFS
+> > > on NXP i.MX943 EVK board which has one MT35XU512ABA spi nor flash. NOw
+> > > this driver has the following key features:
+> > > - Support up to OCT DDR mode
+> > > - Support AHB read
+> > > - Support IP read and IP write
+> > > - Support two CS
+> > >
+> > > Signed-off-by: Haibo Chen <haibo.chen@nxp.com>
+> > > ---
+> > >  MAINTAINERS                |    1 +
+> > >  drivers/spi/Kconfig        |   10 +
+> > >  drivers/spi/Makefile       |    1 +
+> > >  drivers/spi/spi-nxp-xspi.c | 1367
+> > > ++++++++++++++++++++++++++++++++++++++++++++
+> > >  4 files changed, 1379 insertions(+)
+> > >
+> > > diff --git a/MAINTAINERS b/MAINTAINERS index
+> > >
+> > 2f17f925ee23dd90acc1b4bf25f158070cd2b65e..527b4f284c3207fb9760ece5cc
+> > 1d
+> > > 350e7ad8fe50 100644
+> > > --- a/MAINTAINERS
+> > > +++ b/MAINTAINERS
+> > > @@ -18853,6 +18853,7 @@ L:	linux-spi@vger.kernel.org
+> > >  L:	imx@lists.linux.dev
+> > >  S:	Maintained
+> > >  F:	Documentation/devicetree/bindings/spi/nxp,imx94-xspi.yaml
+> > > +F:	drivers/spi/spi-nxp-xspi.c
+> > >
+> > > +#include <linux/clk.h>
+> > > +#include <linux/completion.h>
+> > > +#include <linux/delay.h>
+> > > +#include <linux/err.h>
+> > > +#include <linux/errno.h>
+> > > +#include <linux/interrupt.h>
+> > > +#include <linux/io.h>
+> > > +#include <linux/iopoll.h>
+> > > +#include <linux/jiffies.h>
+> > > +#include <linux/kernel.h>
+> > > +#include <linux/log2.h>
+> > > +#include <linux/module.h>
+> > > +#include <linux/mutex.h>
+> > > +#include <linux/of.h>
+> > > +#include <linux/platform_device.h>
+> > > +#include <linux/pinctrl/consumer.h>
+> > > +#include <linux/pm_runtime.h>
+> > > +#include <linux/spi/spi.h>
+> > > +#include <linux/spi/spi-mem.h>
+> > > +
+> > > +/* Runtime pm timeout */
+> > > +#define XSPI_RPM_TIMEOUT 50	/* 50ms */
+> >
+> > Need unit XSPI_RPM_TIMEOUT_MS
+> >
+> > > +/*
+> > > + * The driver only uses one single LUT entry, that is updated on
+> > > + * each call of exec_op(). Index 0 is preset at boot with a basic
+> > > + * read operation, so let's use the last entry (15).
+> > > + */
+> > ...
+> > > + *  ---------------------------------------------------
+> > > + *  | INSTR1 | PAD1 | OPRND1 | INSTR0 | PAD0 | OPRND0 |
+> > > + *  ---------------------------------------------------
+> > > + */
+> > > +#define PAD_SHIFT		8
+> > > +#define INSTR_SHIFT		10
+> > > +#define OPRND_SHIFT		16
+> > > +
+> > > +/* Macros for constructing the LUT register. */
+> > > +#define LUT_DEF(idx, ins, pad, opr)			  \
+> > > +	((((ins) << INSTR_SHIFT) | ((pad) << PAD_SHIFT) | \
+> > > +	(opr)) << (((idx) % 2) * OPRND_SHIFT))
+> > > +
+> > > +#define NXP_XSPI_MIN_IOMAP	SZ_4M
+> > > +#define NXP_XSPI_MAX_CHIPSELECT		2
+> > > +#define POLL_TOUT		5000
+> >
+> > Need unit, POLL_TOUT_US
+> >
+> > > +
+> > > +/* Access flash memory using IP bus only */
+> > > +#define XSPI_QUIRK_USE_IP_ONLY	BIT(0)
+> > > +
+> > > +struct nxp_xspi_devtype_data {
+> > > +	unsigned int rxfifo;
+> > > +	unsigned int txfifo;
+> > > +	unsigned int ahb_buf_size;
+> > > +	unsigned int quirks;
+> > > +};
+> > > +
+> > > +static struct nxp_xspi_devtype_data imx94_data = {
+> > > +	.rxfifo = SZ_512,       /* (128 * 4 bytes)  */
+> > > +	.txfifo = SZ_1K,        /* (256 * 4 bytes)  */
+> > > +	.ahb_buf_size = SZ_4K,  /* (1024 * 4 bytes)  */ };
+> > > +
+> > > +struct nxp_xspi {
+> > > +	void __iomem *iobase;
+> > > +	void __iomem *ahb_addr;
+> > > +	u32 memmap_phy;
+> > > +	u32 memmap_phy_size;
+> > > +	u32 memmap_start;
+> > > +	u32 memmap_len;
+> > > +	struct clk *clk;
+> > > +	struct device *dev;
+> > > +	struct completion c;
+> > > +	const struct nxp_xspi_devtype_data *devtype_data;
+> > > +	/* mutex lock for each operation */
+> > > +	struct mutex lock;
+> > > +	int selected;
+> > > +#define XSPI_DTR_PROTO		BIT(0)
+> > > +	int flags;
+> > > +	/* Save the previous operation clock rate */
+> > > +	unsigned long pre_op_rate;
+> > > +	/* The max clock rate xspi supported output to device */
+> > > +	unsigned long support_max_rate;
+> > > +};
+> > > +
+> > > +static inline int needs_ip_only(struct nxp_xspi *xspi) {
+> > > +	return xspi->devtype_data->quirks & XSPI_QUIRK_USE_IP_ONLY; }
+> > > +
+> > > +static irqreturn_t nxp_xspi_irq_handler(int irq, void *dev_id) {
+> > > +	struct nxp_xspi *xspi = dev_id;
+> > > +	u32 reg;
+> > > +
+> > > +	reg = readl(xspi->iobase + XSPI_FR);
+> > > +	if (reg & XSPI_FR_TFF) {
+> > > +		/* Clear interrupt */
+> > > +		writel(XSPI_FR_TFF, xspi->iobase + XSPI_FR);
+> > > +		complete(&xspi->c);
+> > > +		return IRQ_HANDLED;
+> > > +	} else {
+> > > +		return IRQ_NONE;
+> > > +	}
+> >
+> > else branch is not neccesary,
+> > you can directly
+> >
+> > 	return IRQ_NONE;
+> >
+> > I remember there should be a warning for it.
+> >
+> > > +}
+> > > +
+> > > +static int nxp_xspi_check_buswidth(struct nxp_xspi *xspi, u8 width) {
+> > > +	return (is_power_of_2(width) && width <= 8) ? 0 : -EOPNOTSUPP; }
+> > > +
+> > ...
+> > > +	} else {
+> > > +		nxp_xspi_disable_ddr(xspi);
+> > > +		xspi->flags &= ~XSPI_DTR_PROTO;
+> > > +	}
+> > > +	rate = min(xspi->support_max_rate, op->max_freq);
+> >
+> > use min_t
+> >
+> > ...
+> > > +
+> > ...
+> > > +
+> > > +static int nxp_xspi_exec_op(struct spi_mem *mem, const struct
+> > > +spi_mem_op *op) {
+> > > +	struct nxp_xspi *xspi = spi_controller_get_devdata(mem->spi->controller);
+> > > +	void __iomem *base = xspi->iobase;
+> > > +	u32 reg;
+> > > +	int err;
+> > > +
+> > > +	guard(mutex)(&xspi->lock);
+> > > +
+> > > +	err = pm_runtime_get_sync(xspi->dev);
+> > > +	if (err < 0) {
+> > > +		dev_err(xspi->dev, "Failed to enable clock %d\n", __LINE__);
+> > > +		return err;
+> > > +	}
+> >
+> > Now you can use
+> >
+> > 	ACQUIRE(pm_runtime_active_auto, pm)(xspi->dev;
+> >         if ((ret = ACQUIRE_ERR(pm_runtime_active_auto, &pm)))
+> >                 return ret;
+> >
+> > So below pm_runtime_put_autosuspend() can be removed, actually you missed
+> > pm_runtime_put_autosuspend() at below return err after readl_poll_timeout().
+> >
+>
+> Thanks for point that out, now kernel already contain this patch:
+> ef8057b07c72 ("PM: runtime: Wrapper macros for ACQUIRE()/ACQUIRE_ERR()") from Rafael J. Wysocki.
+>
+> So here seems need to change like this:
+>     PM_RUNTIME_ACQUIRE_ AUTOSUSPEND (dev, pm);
+>     if ((ret = PM_RUNTIME_ACQUIRE_ERR(&pm)))
+>              return ret;
+>
+> I will add this change in next version.
 
-Above and commit msg describe something completely else than binding. In
-the binding you described kinfo Linux driver, above you suggest this is
-some sort of reserved memory.
+Not sure if Mark brown take this change in his spi tree. It should be
+safe for next merge windows, but I am not sure if it is okay to use it
+at this merge windows, you should double check mark's tree.
 
-> 
-> Signed-off-by: Eugen Hristev <eugen.hristev@linaro.org>
-> ---
->  .../reserved-memory/google,kinfo.yaml         | 49 +++++++++++++++++++
->  MAINTAINERS                                   |  5 ++
->  2 files changed, 54 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/reserved-memory/google,kinfo.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/reserved-memory/google,kinfo.yaml b/Documentation/devicetree/bindings/reserved-memory/google,kinfo.yaml
-> new file mode 100644
-> index 000000000000..12d0b2815c02
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/reserved-memory/google,kinfo.yaml
-> @@ -0,0 +1,49 @@
-> +# SPDX-License-Identifier: GPL-2.0 OR BSD-2-Clause
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/reserved-memory/google,kinfo.yaml#
+Frank
 
-Filename based on the compatible.
-
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Google Pixel Kinfo reserved memory
-> +
-> +maintainers:
-> +  - Eugen Hristev <eugen.hristev@linaro.org>
-> +
-> +description:
-> +  This binding describes the Google Pixel Kinfo reserved memory, a region
-
-Don't use "This binding", but please describe here hardware.
-
-> +  of reserved-memory used to store data for firmware/bootloader on the Pixel
-> +  platform. The data stored is debugging information on the running kernel.
-> +
-> +properties:
-> +  compatible:
-> +    items:
-> +      - const: google,kinfo
-> +
-> +  memory-region:
-> +    maxItems: 1
-> +    description: Reference to the reserved-memory for the data
-
-This does not match description. Unfortunately it looks like you added a
-node just to instantiate Linux driver and this is not allowed.
-
-If this was some special reserved memory region, then it would be part
-of reserved memory bindings - see reserved-memory directory.
-
-Compatible suggests that it is purely Linux driver, so another hint.
-
-Looks like this is a SoC specific thing, so maybe this should be folded
-in some of the soc drivers.
-
-
-
-> +
-> +required:
-> +  - compatible
-> +  - memory-region
-> +
-> +additionalProperties: true
-> +
-> +examples:
-> +  - |
-> +    reserved-memory {
-> +      #address-cells = <1>;
-> +      #size-cells = <1>;
-> +      ranges;
-> +
-> +      kinfo_region: smem@fa00000 {
-> +          reg = <0xfa00000 0x1000>;
-> +          no-map;
-> +      };
-> +    };
-
-Anyway, drop, not relevant.
-
-
-> +
-> +    debug-kinfo {
-> +        compatible = "google,debug-kinfo";
-
-Device node with only one phandle to reserved memory region is a proof
-it is not a real device.
-
-Also,
-Please use scripts/get_maintainers.pl to get a list of necessary people
-and lists to CC (and consider --no-git-fallback argument, so you will
-not CC people just because they made one commit years ago). It might
-happen, that command when run on an older kernel, gives you outdated
-entries. Therefore please be sure you base your patches on recent Linux
-kernel.
-
-Tools like b4 or scripts/get_maintainer.pl provide you proper list of
-people, so fix your workflow. Tools might also fail if you work on some
-ancient tree (don't, instead use mainline) or work on fork of kernel
-(don't, instead use mainline). Just use b4 and everything should be
-fine, although remember about `b4 prep --auto-to-cc` if you added new
-patches to the patchset.
-
-
-Best regards,
-Krzysztof
-
+>
+> >
+> > > +
+> > > +	/* Wait for controller being ready. */
+> > > +	err = readl_poll_timeout(base + XSPI_SR, reg,
+> > > +			      !(reg & XSPI_SR_BUSY), 1, POLL_TOUT);
+> > > +	if (err) {
+> > > +		dev_err(xspi->dev, "SR keeps in BUSY!");
+> > > +		return err;
+> > > +	}
+> > > +
+> > ...
+> > > +
+> > > +	.swap16 = true,
+> > > +};
+> > > +
+> > > +static void nxp_xspi_cleanup(void *data) {
+> > > +	struct nxp_xspi *xspi = data;
+> > > +
+> > > +	pm_runtime_get_sync(xspi->dev);
+> > > +
+> > > +	/* Disable interrupt */
+> > > +	writel(0, xspi->iobase + XSPI_RSER);
+> > > +	/* Clear all the internal logic flags */
+> > > +	writel(0xFFFFFFFF, xspi->iobase + XSPI_FR);
+> > > +	/* Disable the hardware */
+> > > +	writel(XSPI_MCR_MDIS, xspi->iobase + XSPI_MCR);
+> > > +
+> > > +	clk_disable_unprepare(xspi->clk);
+> > > +
+> > > +	if (xspi->ahb_addr)
+> > > +		iounmap(xspi->ahb_addr);
+> > > +
+> > > +	pm_runtime_disable(xspi->dev);
+> > > +	pm_runtime_put_noidle(xspi->dev);
+> >
+> > if use pm_runtime_put() here, needn't call clk_disable_unprepare() here.
+> > after use runtime pm to manage clocks, it'd better use it all place.
+>
+> Okay
+>
+> Regards
+> Haibo Chen
+> >
+> > > +}
+> > > +
+> > > +static int nxp_xspi_probe(struct platform_device *pdev) {
+> > > +	struct device *dev = &pdev->dev;
+> > > +	struct spi_controller *ctlr;
+> > > +	struct nxp_xspi *xspi;
+> > > +	struct resource *res;
+> > > +	int ret, irq;
+> > > +
+> > > +	ctlr = devm_spi_alloc_host(dev, sizeof(*xspi));
+> > > +	if (!ctlr)
+> > > +		return -ENOMEM;
+> > > +
+> > > +	ctlr->mode_bits = SPI_RX_DUAL | SPI_RX_QUAD | SPI_RX_OCTAL |
+> > > +			  SPI_TX_DUAL | SPI_TX_QUAD | SPI_TX_OCTAL;
+> > > +
+> > > +	xspi = spi_controller_get_devdata(ctlr);
+> > > +	xspi->dev = dev;
+> > > +	xspi->devtype_data = device_get_match_data(dev);
+> > > +	if (!xspi->devtype_data)
+> > > +		return -ENODEV;
+> > > +
+> > > +	platform_set_drvdata(pdev, xspi);
+> > > +
+> > > +	/* Find the resources - configuration register address space */
+> > > +	xspi->iobase = devm_platform_ioremap_resource_byname(pdev, "base");
+> > > +	if (IS_ERR(xspi->iobase))
+> > > +		return PTR_ERR(xspi->iobase);
+> > > +
+> > > +	/* Find the resources - controller memory mapped space */
+> > > +	res = platform_get_resource_byname(pdev, IORESOURCE_MEM, "mmap");
+> > > +	if (!res)
+> > > +		return -ENODEV;
+> > > +
+> > > +	/* Assign memory mapped starting address and mapped size. */
+> > > +	xspi->memmap_phy = res->start;
+> > > +	xspi->memmap_phy_size = resource_size(res);
+> > > +
+> > > +	/* Find the clocks */
+> > > +	xspi->clk = devm_clk_get(dev, "per");
+> > > +	if (IS_ERR(xspi->clk))
+> > > +		return PTR_ERR(xspi->clk);
+> > > +
+> > > +	/* Find the irq */
+> > > +	irq = platform_get_irq(pdev, 0);
+> > > +	if (irq < 0)
+> > > +		return dev_err_probe(dev, irq,  "Failed to get irq source");
+> > > +
+> > > +	pm_runtime_set_autosuspend_delay(dev, XSPI_RPM_TIMEOUT);
+> > > +	pm_runtime_use_autosuspend(dev);
+> > > +	pm_runtime_enable(dev);
+> >
+> > devm_pm_runtime_enable(dev)
+> >
+> > Frank
+> > > +
+> > > +	/* Enable clock */
+> > > +	ret = pm_runtime_get_sync(dev);
+> > > +	if (ret < 0)
+> > > +		return dev_err_probe(dev, ret, "Failed to enable clock");
+> > > +
+> > > +	/* Clear potential interrupt by write xspi errstat */
+> > > +	writel(0xFFFFFFFF, xspi->iobase + XSPI_ERRSTAT);
+> > > +	writel(0xFFFFFFFF, xspi->iobase + XSPI_FR);
+> > > +
+> > > +	nxp_xspi_default_setup(xspi);
+> > > +
+> > > +	ret = pm_runtime_put_sync(dev);
+> > > +	if (ret < 0)
+> > > +		return dev_err_probe(dev, ret, "Failed to disable clock");
+> > > +
+> > > +	ret = devm_request_irq(dev, irq,
+> > > +			nxp_xspi_irq_handler, 0, pdev->name, xspi);
+> > > +	if (ret)
+> > > +		return dev_err_probe(dev, ret, "failed to request irq");
+> > > +
+> > > +	ret = devm_mutex_init(dev, &xspi->lock);
+> > > +	if (ret)
+> > > +		return ret;
+> > > +
+> > > +	ret = devm_add_action_or_reset(dev, nxp_xspi_cleanup, xspi);
+> > > +	if (ret)
+> > > +		return ret;
+> > > +
+> > > +	ctlr->bus_num = -1;
+> > > +	ctlr->num_chipselect = NXP_XSPI_MAX_CHIPSELECT;
+> > > +	ctlr->mem_ops = &nxp_xspi_mem_ops;
+> > > +	ctlr->mem_caps = &nxp_xspi_mem_caps;
+> > > +	ctlr->dev.of_node = dev->of_node;
+> > > +
+> > > +	return devm_spi_register_controller(dev, ctlr); }
+> > > +
+> > > +static int nxp_xspi_runtime_suspend(struct device *dev) {
+> > > +	struct nxp_xspi *xspi = dev_get_drvdata(dev);
+> > > +	u32 reg;
+> > > +
+> > > +	reg = readl(xspi->iobase + XSPI_MCR);
+> > > +	reg |= XSPI_MCR_MDIS;
+> > > +	writel(reg, xspi->iobase + XSPI_MCR);
+> > > +
+> > > +	clk_disable_unprepare(xspi->clk);
+> > > +
+> > > +	return 0;
+> > > +}
+> > > +
+> > > +static int nxp_xspi_runtime_resume(struct device *dev) {
+> > > +	struct nxp_xspi *xspi = dev_get_drvdata(dev);
+> > > +	u32 reg;
+> > > +	int ret;
+> > > +
+> > > +	ret = clk_prepare_enable(xspi->clk);
+> > > +	if (ret)
+> > > +		return ret;
+> > > +
+> > > +	reg = readl(xspi->iobase + XSPI_MCR);
+> > > +	reg &= ~XSPI_MCR_MDIS;
+> > > +	writel(reg, xspi->iobase + XSPI_MCR);
+> > > +
+> > > +	return 0;
+> > > +}
+> > > +
+> > > +static int nxp_xspi_suspend(struct device *dev) {
+> > > +	int ret;
+> > > +
+> > > +	ret = pinctrl_pm_select_sleep_state(dev);
+> > > +	if (ret) {
+> > > +		dev_err(dev, "select flexspi sleep pinctrl failed!\n");
+> > > +		return ret;
+> > > +	}
+> > > +
+> > > +	return pm_runtime_force_suspend(dev); }
+> > > +
+> > > +static int nxp_xspi_resume(struct device *dev) {
+> > > +	struct nxp_xspi *xspi = dev_get_drvdata(dev);
+> > > +	int ret;
+> > > +
+> > > +	ret = pm_runtime_force_resume(dev);
+> > > +	if (ret)
+> > > +		return ret;
+> > > +
+> > > +	nxp_xspi_default_setup(xspi);
+> > > +
+> > > +	ret = pinctrl_pm_select_default_state(dev);
+> > > +	if (ret)
+> > > +		dev_err(dev, "select flexspi default pinctrl failed!\n");
+> > > +
+> > > +	return ret;
+> > > +}
+> > > +
+> > > +
+> > > +static const struct dev_pm_ops nxp_xspi_pm_ops = {
+> > > +	RUNTIME_PM_OPS(nxp_xspi_runtime_suspend,
+> > nxp_xspi_runtime_resume, NULL)
+> > > +	SYSTEM_SLEEP_PM_OPS(nxp_xspi_suspend, nxp_xspi_resume) };
+> > > +
+> > > +static const struct of_device_id nxp_xspi_dt_ids[] = {
+> > > +	{ .compatible = "nxp,imx94-xspi", .data = (void *)&imx94_data, },
+> > > +	{ /* sentinel */ }
+> > > +};
+> > > +MODULE_DEVICE_TABLE(of, nxp_xspi_dt_ids);
+> > > +
+> > > +static struct platform_driver nxp_xspi_driver = {
+> > > +	.driver = {
+> > > +		.name	= "nxp-xspi",
+> > > +		.of_match_table = nxp_xspi_dt_ids,
+> > > +		.pm =   pm_ptr(&nxp_xspi_pm_ops),
+> > > +	},
+> > > +	.probe          = nxp_xspi_probe,
+> > > +};
+> > > +module_platform_driver(nxp_xspi_driver);
+> > > +
+> > > +MODULE_DESCRIPTION("NXP xSPI Controller Driver");
+> > MODULE_AUTHOR("NXP
+> > > +Semiconductor"); MODULE_AUTHOR("Haibo Chen
+> > <haibo.chen@nxp.com>");
+> > > +MODULE_LICENSE("GPL");
+> > >
+> > > --
+> > > 2.34.1
+> > >
 
