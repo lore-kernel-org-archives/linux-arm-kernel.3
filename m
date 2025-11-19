@@ -4,107 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DC86CF2588
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 07:09:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 893C4CF2588
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 07:12:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WOGwn8PP3k6r892UMo8qy73relBW5UTUQLyc1NM4lls=; b=DnGPqgIdyi/L6iKo3I4UGxi1rM
-	PSMiZXaZ4n1d3OwWo97h+caVmGzPmm+vKxI/r/3r2NFRZwHcF0qppbDKt9Uttsywc1hVh8txU9Aaq
-	fBsTiG4c4D2ZCGK412b3UWTWSefHU294JAa53aCGo6UQUrnXdxLMVvUV4U6UunfIZdSfy/98Q0ATu
-	ajXWNgLSDa/CEZRHOufMfhNlQsUcl6qhT7qzm0Jj5up21xKyTZj9l/FbRFe6tL9HMn47Uc4u9vpO5
-	9xHOYn9c6uxNNev9CiuI0JAzcnKarZ4hWgmv8JLAoEa1e6pjOhjrrpnKfvjIIJOodGInKqAEWZUDo
-	i/0xvbEA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=kYHfBeSzfHHxVu3uMn0kynACtSYKaWfSTnHHUJabxhI=; b=b991tQChuXLdqFemVvA2I/FP/3
+	D+NQer58sI3Kktzg4xCxwPEcFxkXA4dvijwTZKwCy2s7AuIEl3ugE+TMerlCu4FlUKcETgFSZPjVh
+	PFK2RQhvBEcJNZ7lZ4NgwLMLH4SFqRqR3ZPB1aW+tjVQxeRbgmnDyxg71f5pNez88yL9a37cB7sLw
+	58rdfWRGvnfSxho07zi1jZ//kbCcXaPks97xZorjJQJdRR3xEQ4NgklwWCAyFwc3N94q3/r8l1udB
+	8u11VMUewD7IlKHsh9Iw0/QFKHy0VaY4wt9BfiBOMktBtmOER+VuNDfBcWXrvGxBe5SvdzGXy7yiG
+	yGYYWXaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLcJq-00000002fsp-0BwA;
-	Wed, 19 Nov 2025 07:09:34 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vLcM3-00000002g4w-33V6;
+	Wed, 19 Nov 2025 07:11:51 +0000
+Received: from mail-pl1-x641.google.com ([2607:f8b0:4864:20::641])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLcJo-00000002fse-2ACb;
-	Wed, 19 Nov 2025 07:09:32 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9226060123;
-	Wed, 19 Nov 2025 07:09:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EBCB4C116B1;
-	Wed, 19 Nov 2025 07:09:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763536171;
-	bh=O/4WfGtcG0/mNMxamiEKbindOcuVypVEQdCPFbGQcBQ=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=slUwqxzqE3w2SMUy1ovPpJ2lp0nmLMR1a+4QCn9nTqNzZ4DaN08X3QaD6dE/u7bfg
-	 YeXiCSVgPNBRusjPYlG03X5dtFQ1CuguJvzEx8JrLfCPX7jCdJNfwI8esPcwXT/Cx8
-	 iz5rZv1CC+L9q+pmwnUVJBEj5NO+Z3nfj06R3PXywt9UZiaCpCu0W4zi6t94QhCb2F
-	 sEVV5ARlgh0TuaxMYW2zDGGdo7+vceOuRno0+HKuPszXAHfl1BUC0XZyEBvxomf8QK
-	 RiW+noBX9DPtFt8asP+N2YjJ35TzoJ5dN4Pa2WZTDVwQexrV+QGEip2HYccvKdD5M9
-	 zc9yDazu2QNcg==
-Message-ID: <e7417a6e-3824-48f7-af56-eaf4bf097cb9@kernel.org>
-Date: Wed, 19 Nov 2025 08:09:25 +0100
+	id 1vLcM2-00000002g4b-1199
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 19 Nov 2025 07:11:51 +0000
+Received: by mail-pl1-x641.google.com with SMTP id d9443c01a7336-29845b06dd2so73409195ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Nov 2025 23:11:50 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1763536309; x=1764141109; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=kYHfBeSzfHHxVu3uMn0kynACtSYKaWfSTnHHUJabxhI=;
+        b=ebybf8IaQopwrRknsam7mz5d0uDKlIY3mPdkwS8eb8hUXggk2xBrWkSHM8VnqGW9r1
+         mXbVXvXajqjW2zcq5gPLXaZ60aODf8cQfn4kUVLYvDk90zmDKHnnswj6lRRhQu9VjLOs
+         nfewhFV66SEN1YC3j2BEXw9+B70zRPtBKdUws=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1763536309; x=1764141109;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=kYHfBeSzfHHxVu3uMn0kynACtSYKaWfSTnHHUJabxhI=;
+        b=rRDTLGfNgLUAV7jHNVf1rAjOBxxMl4FDBTB8kH5eicCJxSX8WI3ZlBWpcoYESiSabt
+         2+HTIPJIP2Tnr2c8DOT7D5QemPZxybGSZhhcilIOKzU0ZLYcyvIlGT70LwcjkCi04zdi
+         H95IXxD7DemVYER+ctc5j/MI2WC+VuaUS61K1LeSAVBVf9zvg4zL9Mtan8MM5PUreAbD
+         jMhhK6XsjPNFoStKc+TGLsSzRKE6M5qmbsyX4yue8p0FabjmLFexCbfTDm0WF/zAdTIb
+         YJ2UQpWXGqxCQLPaEGtvNT5R4hUcROZieacVrHzLx76ZDkp4K+x3k6sWSmxSO+ty8njC
+         Tvpw==
+X-Forwarded-Encrypted: i=1; AJvYcCVrRCpsrp2pe3isYeIbr1Bmfpv8DNEOonh+XfbGr5KaKmFM5w2jeoXmG8XaY8NWLKhH0oVBATPb2pqcHD4H9ES8@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxase+/p32wd47om+k0XsotIK663jV9AlQszqkV8utuVIs4btQW
+	JPmG+KzlFoVOsMInh0ws4SOPVlThWWxewZ48+O/S/lbx+uJIaD5gpzOoUeZlXmeEMQ==
+X-Gm-Gg: ASbGncvRIjvb1g532VhHpSStLSkW3CoXsgLzKMY4VQq/YZ2TZQi/PEBxdDZ3JziYc3P
+	7Bnq7eMTHS5OYqqiRuhG5Q9E7ZPe+pKLFND69Qd5UPaFkTHXSU264XhJ5zpiftsedh4sUx0MOXx
+	wed1bjTpOC0g2IkD9JVBZ4uyToeUI+DffR0fR1mxDaUVuy2l53gxUilFLCszKOvj/YWGYc6d0iT
+	iG/Bk6zyaigM/QeVoQYYW9c6xpKjcAtHPrbUMuTjQvlRYgEKCrvuaiKBisnStjgUbT/+mmCoPuT
+	q6ap0wCByuhPRMleS5/y+B8piA2mvLGPAz5C0uCdn2e5lEfZ4cdU4/kidfUcDK7jqgu4s0WE2X9
+	r6f22NZ/RoUZbMHn5keoECiCVxHT12DoCinRxGktRLqv/12LuFLDQqLTfl11CzgtDdIIwdHlQO6
+	ykjY4mz3JafHiBtbF45swP3Qj02wcYGxdheY3+CzLZsltxqeQ/Mb5ip1x4AIh7yvZRpsBK
+X-Google-Smtp-Source: AGHT+IGNuUZZklbSnAwcwjH0fvBJN9XmBWel6ilOI6vt+JGrwzQllOqIu2jGWlXL11D1C3baD1ynRg==
+X-Received: by 2002:a17:903:247:b0:294:ccc6:ccfd with SMTP id d9443c01a7336-2986a6bf3b3mr209119565ad.24.1763536309538;
+        Tue, 18 Nov 2025 23:11:49 -0800 (PST)
+Received: from wenstp920.tpe.corp.google.com ([2a00:79e0:201d:8:d42c:6a2b:5251:a121])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2985c2bf1ddsm197554725ad.92.2025.11.18.23.11.47
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 18 Nov 2025 23:11:48 -0800 (PST)
+From: Chen-Yu Tsai <wenst@chromium.org>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Cc: Chen-Yu Tsai <wenst@chromium.org>,
+	devicetree@vger.kernel.org,
+	chrome-platform@lists.linux.dev,
+	Julius Werner <jwerner@chromium.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] dt-bindings: firmware: coreboot: Document optional device specific properties
+Date: Wed, 19 Nov 2025 15:11:25 +0800
+Message-ID: <20251119071126.1719405-1-wenst@chromium.org>
+X-Mailer: git-send-email 2.52.0.rc1.455.g30608eb744-goog
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/2] dt-bindings: arm: rockchip: Add Asus Tinker Board
- 3/3S
-To: Dragan Simic <dsimic@manjaro.org>,
- Michael Opdenacker <michael.opdenacker@rootcommit.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-References: <20251118-tinker3-v3-0-2903693f2ebb@rootcommit.com>
- <20251118-tinker3-v3-1-2903693f2ebb@rootcommit.com>
- <155d3d05-49f8-a000-6939-1411917745bb@manjaro.org>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <155d3d05-49f8-a000-6939-1411917745bb@manjaro.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251118_231150_321278_02AF77B8 
+X-CRM114-Status: GOOD (  10.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,72 +99,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 19/11/2025 08:00, Dragan Simic wrote:
-> Hello Michael,
-> 
-> On Tuesday, November 18, 2025 16:56 CET, Michael Opdenacker <michael.opdenacker@rootcommit.com> wrote:
->> Document the compatible strings for Asus Tinker Board 3 [1] and 3S [2],
->> which are SBCs based on the Rockchip 3566 SoC.
->>
->> The "3S" version ("S" for "storage") just adds a 16 GB eMMC
->> and a "mask ROM" DIP switch to the "3" version.
->>
->> [1] https://tinker-board.asus.com/series/tinker-board-3.html
->> [2] https://tinker-board.asus.com/series/tinker-board-3s.html
->>
->> Signed-off-by: Michael Opdenacker <michael.opdenacker@rootcommit.com>
->>
->> ---
->>
->> Changes in V3:
->>
->> - Remove this Acked-by as the binding code changed substantially:
->>   Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
->> ---
->>  Documentation/devicetree/bindings/arm/rockchip.yaml | 7 +++++++
->>  1 file changed, 7 insertions(+)
->>
->> diff --git a/Documentation/devicetree/bindings/arm/rockchip.yaml b/Documentation/devicetree/bindings/arm/rockchip.yaml
->> index 6aceaa8acbb2..800c11323a4f 100644
->> --- a/Documentation/devicetree/bindings/arm/rockchip.yaml
->> +++ b/Documentation/devicetree/bindings/arm/rockchip.yaml
->> @@ -86,6 +86,13 @@ properties:
->>            - const: asus,rk3288-tinker-s
->>            - const: rockchip,rk3288
->>  
->> +      - description: Asus Tinker Board 3/3S
->> +        items:
->> +          - enum:
->> +              - asus,rk3566-tinker-board-3
->> +              - asus,rk3566-tinker-board-3s
->> +          - const: rockchip,rk3566
->> +
->>        - description: Beelink A1
->>          items:
->>            - const: azw,beelink-a1
-> 
-> Please see my delayed response in the v2. [1]  I think that would be
-> a better approach.
-> 
-> [1] https://lore.kernel.org/linux-rockchip/3c96ee6b-dca7-1a0a-792b-f8c165ec997d@manjaro.org/
-> 
+Coreboot, or the ChromeOS second stage bootloader, depthcharge, will
+insert device specific properties into the coreboot firmware node when
+there are valid values.
 
-Your reviews are not helpful. You nitpick irrelevant things and propose
-solutions which later reverse leading to wasted effort on contributors side.
+Document these properties in the binding.
 
-Michael implemented what you asked here:
+Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
+---
+ Documentation/devicetree/bindings/firmware/coreboot.txt | 9 +++++++++
+ 1 file changed, 9 insertions(+)
 
-https://lore.kernel.org/linux-rockchip/e4cd11d0-463c-e707-5110-6b92899b1ba3@manjaro.org/
+diff --git a/Documentation/devicetree/bindings/firmware/coreboot.txt b/Documentation/devicetree/bindings/firmware/coreboot.txt
+index 4c955703cea8..0d04ea482aa9 100644
+--- a/Documentation/devicetree/bindings/firmware/coreboot.txt
++++ b/Documentation/devicetree/bindings/firmware/coreboot.txt
+@@ -21,6 +21,15 @@ Required properties:
+ 	0xc0389481 that resides in the topmost 8 bytes of the area.
+ 	See coreboot's src/include/imd.h for details.
+ 
++Optional properties:
++- board-id: Contains the board revision number.
++- ram-code: Contains the board's DRAM configuration type.
++- sku-id: Contains the device variant SKU ID.
++- fw-config: Contains the device variant FW config value.
++
++The optional properties are only populated if the values parsed by coreboot
++are valid.
++
+ Example:
+ 	firmware {
+ 		ranges;
+-- 
+2.52.0.rc1.455.g30608eb744-goog
 
-This patch implements exactly what you wanted. On v4 you will ask to
-reverse back to v1?
-
-Now you claim that you want back v2. Really, you are NOT HELPING. It is
-clear you do not understand what you are proposing and this is not
-helping ion the process. Please refrain from such confusing reviews.
-
-
-
-Best regards,
-Krzysztof
 
