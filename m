@@ -4,85 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41588CF2591
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 13:34:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74F0BCF34A1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 13:36:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/VWCsLA/mkk3WiZovd+xaAf7ziw484tjuSfyKDbpymE=; b=jLuTKK7EIg72N0a+sHmbdK2WFV
-	dPvAEiYblZgUPis8ev1tRg45c0Va2W7ZAOa8y+oC0tN5aMADN2V7m7i7uD+5+1FeuDGl8NUqaZMTA
-	Hri9MMpetBRnh5PEWvk90KrPE3GHbtqO/xRS03qoSd+E2wv8oz4tGiUojlhgvhoeODjLMTl1SKXe7
-	702R1KJpOqCioyG3NuPR3XQnwpIJC1MvZztQhPv71pASDeqXpcZyokfFsf0doH2jt2c+LOaSBbpBP
-	ez+UHbdQ0P8o8dTdHBfRFgtg2yj1jwKgr2wHshubq3Hbb1SHS9Fbpl4vWEItOiIlT0ys+Tz9xy40m
-	mvLkynSw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3eZv6pwAgzbHaWlvjmp3lRwUwQ3A06qkQhglf9S5aAU=; b=leEtlQljXlRq2f1CQhrKfUCpCX
+	Y2XsX9dj+OoKgNyLT3H/S2ugzS2+/O/sxGgEoLBfcm64y2poZTuizvJoI2PzGjjpUoYCS7JTItTaf
+	X08MdMgSqMoPxH5jLQ0W/xUNix66xWCyKZBK+VTtJ0LyIa9ySklf5p+BCLPHNDzsaGvNcx7IZEJPS
+	cNpVvL0zL1nHbN8WqXEmE/d7MCawDUpklucihkA7dgt4kBstpo0R/5ZEQPZAoMMPX3JPq5Kem3wDS
+	MBE0uN3FPEgsoweWJ++rP8C3vzGo+/a6+KErjgnbIRCo4XWOf6ItrSUTfGKfLaSBy72zGAa0sCWRE
+	P46uaCjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLiKK-00000003IBv-0LkK;
-	Wed, 19 Nov 2025 13:34:28 +0000
-Received: from sender3-pp-f112.zoho.com ([136.143.184.112])
+	id 1vLiLf-00000003IMH-35Fq;
+	Wed, 19 Nov 2025 13:35:51 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLiKH-00000003IBS-0qjr;
-	Wed, 19 Nov 2025 13:34:26 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1763559176; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=Ye0zlYSjY8a276BMMfjI/83jZrSxRWD1xIyYfPOLAE8Ua6GuF3F55j4fxRxvdR6eFQ6XQbuT5ZwnoTbip+BFc6pDsK84vpGuLQO3H90VxuNX4O9Y2+iB/Nqysm4TBIVuK2ZPxneJr88SYRHFJFMxdg0JWhqvMEFV01n0P2PzB3w=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1763559176; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=/VWCsLA/mkk3WiZovd+xaAf7ziw484tjuSfyKDbpymE=; 
-	b=Zwz62fMimGc/fpX3l5h0s0w3tkHs6sHM8bKfocUKBIAAv1HObYvDf355d2v88LpAkINnFicTKL612+Qspy+dMcgAr5h4wLbRXzurF49Wi++Tfm4UKCG1yoRLjUXKG6NTHLeWQ7Qjbujm6/acFQR9wTl6v3tAjTWoRjKno9nD6+4=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
-	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1763559176;
-	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
-	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
-	bh=/VWCsLA/mkk3WiZovd+xaAf7ziw484tjuSfyKDbpymE=;
-	b=RiyidxtdEZDgiubH8FxAC7DZ1KqEL+Xe6vMfemsGAtERjQOhQoGAXNPX3lDioFq1
-	vnKFEoOzG6JL8toQ9GAtUF59aQGWNrmjJRrhQ9uyLpWZFFOYjcM7vR+DZXyLjWDa4eY
-	7QzTcPfHfGITtRMbBLBp0bfoYRMbZFnwQx/9Un3E=
-Received: by mx.zohomail.com with SMTPS id 1763559173874830.1787013290812;
-	Wed, 19 Nov 2025 05:32:53 -0800 (PST)
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-To: Harry Wentland <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>,
- Rodrigo Siqueira <siqueira@igalia.com>,
- Alex Deucher <alexander.deucher@amd.com>,
- Christian =?UTF-8?B?S8O2bmln?= <christian.koenig@amd.com>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- Andrzej Hajda <andrzej.hajda@intel.com>,
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Sandy Huang <hjc@rock-chips.com>,
- Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>,
- Andy Yan <andy.yan@rock-chips.com>,
- Jani Nikula <jani.nikula@linux.intel.com>,
- Rodrigo Vivi <rodrigo.vivi@intel.com>,
- Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
- Tvrtko Ursulin <tursulin@ursulin.net>,
- Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Cc: kernel@collabora.com, amd-gfx@lists.freedesktop.org,
- dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org
-Subject: Re: [PATCH v4 05/10] drm/bridge: dw-hdmi-qp: Set bridge supported_formats
-Date: Wed, 19 Nov 2025 14:32:45 +0100
-Message-ID: <4348284.aeNJFYEL58@workhorse>
-In-Reply-To: <3863e0e5-677b-4225-9854-3ee420828275@collabora.com>
-References: <20251117-color-format-v4-0-0ded72bd1b00@collabora.com>
- <20251117-color-format-v4-5-0ded72bd1b00@collabora.com>
- <3863e0e5-677b-4225-9854-3ee420828275@collabora.com>
+	id 1vLiLd-00000003ILi-3tCk
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 19 Nov 2025 13:35:51 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 1675143A97;
+	Wed, 19 Nov 2025 13:35:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 28D8EC19421;
+	Wed, 19 Nov 2025 13:35:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1763559348;
+	bh=55dKkVQcDgvigMLllfrUIyeHQVWDj55zxRTwnpDam3c=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=fv4V/sZMDmPG+IdboqL5kPBicUZW5/PTxgKknX5iMyA27rrKAKQwVrnEIXQBDlQ+P
+	 4G2lYmVxa8eX3e4Uh6qkPOqPX4Aylx8ClQ8Eed7U1xP3gfws+cJYsNdXV1iiWQXQDu
+	 kzREx/Lu6V0MTB594yChrUaPb0oyeHqwqLWm5siH33OHVH0H0BBPy2m04JwJScfRgt
+	 jLdI6HInjL3Fm8lNiG/SwqbdwC5FUH6y/OZJxfgfz84SZC0to/uWaf75BxrFUbl4Qq
+	 4c3tMPN0IVumE50Iy/qNas08cI5f+eRUNwVMadThPDzW6dKwzthQk8GJRqX8VjC+Bw
+	 soqs+5h6VUXAA==
+Message-ID: <a82a9955-e365-42f9-8491-3f02af7f7080@kernel.org>
+Date: Wed, 19 Nov 2025 14:35:38 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7Bit
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: (subset) [PATCH v3 1/4] dt-bindings: clock: Add ARTPEC-9 clock
+ controller
+To: Ravi Patel <ravi.patel@samsung.com>, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, jesper.nilsson@axis.com, lars.persson@axis.com,
+ mturquette@baylibre.com, sboyd@kernel.org, alim.akhtar@samsung.com,
+ s.nawrocki@samsung.com, cw00.choi@samsung.com
+Cc: ksk4725@coasia.com, smn1196@coasia.com, linux-arm-kernel@axis.com,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+ linux-clk@vger.kernel.org, pjsin865@coasia.com, gwk1013@coasia.com,
+ bread@coasia.com, jspark@coasia.com, limjh0823@coasia.com,
+ lightwise@coasia.com, hgkim05@coasia.com, mingyoungbo@coasia.com,
+ shradha.t@samsung.com, swathi.ks@samsung.com, kenkim@coasia.com
+References: <20251029130731.51305-1-ravi.patel@samsung.com>
+ <CGME20251029130826epcas5p180506ff38fb57ecca0e33b2f5c57ed6c@epcas5p1.samsung.com>
+ <20251029130731.51305-2-ravi.patel@samsung.com>
+ <176355242978.116968.261312419155141714.b4-ty@kernel.org>
+ <de2f6c52-e9d6-48ae-8620-7c518b686ffd@kernel.org>
+ <03e701dc5950$824d44f0$86e7ced0$@samsung.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <03e701dc5950$824d44f0$86e7ced0$@samsung.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251119_053425_296186_F4871904 
-X-CRM114-Status: GOOD (  26.00  )
+X-CRM114-CacheID: sfid-20251119_053550_014849_884F8442 
+X-CRM114-Status: GOOD (  10.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,68 +130,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tuesday, 18 November 2025 21:00:08 Central European Standard Time Cristian Ciocaltea wrote:
-> Hi Nicolas,
+On 19/11/2025 13:31, Ravi Patel wrote:
+> Thanks Krzysztof!
 > 
-> On 11/17/25 9:11 PM, Nicolas Frattaroli wrote:
-> > The drm_bridge "supported_formats" member stores a bitmask of supported
-> > HDMI output formats if the bridge is in fact an HDMI bridge.
-> > 
-> > However, until now, the synopsys dw-hdmi-qp driver did not set this
-> > member in the bridge it creates.
-> > 
-> > Set it based on the platform data's supported_formats member, and
-> > default to BIT(HDMI_COLORSPACE_RGB) if it's absent, which preserves the
-> > previous behaviour.
-> > 
-> > Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-> > ---
-> >  drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c | 5 +++++
-> >  1 file changed, 5 insertions(+)
-> > 
-> > diff --git a/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c b/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
-> > index fe4c026280f0..cf888236bd65 100644
-> > --- a/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
-> > +++ b/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
-> > @@ -1269,6 +1269,11 @@ struct dw_hdmi_qp *dw_hdmi_qp_bind(struct platform_device *pdev,
-> >  		dev_warn(dev, "Set ref_clk_rate to vendor default\n");
-> >  	}
-> >  
-> > +	if (plat_data->supported_formats)
-> > +		hdmi->bridge.supported_formats = plat_data->supported_formats;
-> 
-> This duplicates a change already introduced via commit 1ff27c5929ab
-> ("drm/bridge: dw-hdmi-qp: Handle platform supported formats and color depth").
-
-Hmm, looks like I didn't notice that when rebasing onto next-20251117.
-
-(Aside note, that commit is once again lacking from next-20251119,
-did it get dropped for some reason or did DRM as a whole not get
-pulled into that next version due to a conflict?)
-
-> 
-> > +	else
-> > +		hdmi->bridge.supported_formats = BIT(HDMI_COLORSPACE_RGB);
-> 
-> And this one looks redundant as well, since RGB is supposed to be mandatory:
-> supported_formats defaults to RGB in drm_bridge_connector_init() if there's no
-> HDMI bridge in the pipeline overriding it, while drmm_connector_hdmi_init()
-> errors out if supported_formats is unset or doesn't advertise RGB.
-
-Oops, yeah you're right
-
-> 
-> Hence I think this patch can be dropped.
-
-Will do! Thanks for the quick review
-
-> 
-> Regards,
-> Cristian
-> 
-> 
+> I will send the ARTPEC-9 device tree related patches soon.
 
 
+So you were waiting with them for this patchset? If so, please don't
+ever do this. There is no dependency here, but even if there was, you
+waiting for the previous patchset did not solve that dependency. It
+still could not be merged, because DTS cannot depend on drivers.
 
+The actual problem is that because you did not show me anyhow that there
+is DTS depending on binding headers (there was no this patchset), the
+binding headers are ONLY on driver branch and as I said DTS cannot
+depend on driver, cannot merge driver branch. Thus this cannot be
+applied until clk driver get merged. You unnecessarily block your own
+work for at least one release.
 
+I already asked to read maintainer soc profile and ways how SoC trees work.
+
+Best regards,
+Krzysztof
 
