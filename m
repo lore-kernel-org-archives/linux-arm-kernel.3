@@ -4,62 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0653CF34D9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 15:47:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B4C0CF34D9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 15:47:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RAOtWn7ptuSPVcNdXCigpxlXPzR1goQ9GTAMc0V4tvw=; b=OstzbksXVUvp9nCmRTP2sEwEgr
-	GAMzUHH2NEOP+5QiQh6JW7NUO1XcIwcxPu2xiTKq+zbaFNA84mEwxd99KpW5KR3ZtQ9zo8HMQ+13B
-	CBj2GbtiBAfPtjOAuE+SaqbNftGAesM3B5wXIYTdMpu5V+UudcO4OwEIQ0l+nthzOXy0vFChMxnF3
-	4Ctc+GBRDHnO6MqN05ZD094L3h5zBZfeVTJkCTP+CUhxtYjp5dQg6qBNC/GQajZwjy3Psw7W16VzK
-	WBlCQwN7ebN6Ma+gIqrlBJoTZq5RsKnLEz5IWqp9tpmJE2aUoogqUHAa8twf98wbR1v80LMzs2mIF
-	qBARPTsA==;
+	bh=kGb/Pn04mYvEzJ9n5vaAWyRTpgOnzLvPPmBKuHXfeJU=; b=KV04wg9EKMBNyEnWJnrWgdLbYG
+	0gYtHY5pcf1/8FrBt72rRBbLcQpf3FDCJogNyqb9T1JmPR8LdiE1jFyxzQFKBy37MyzxrFJEf5N6E
+	yNnPDPuJ8QAyfccmbE5yk6zndL0SCSHINtuCrleC+n3wWiIzcjge25UaS5ITOzHFbgTJOY17Cz6bG
+	SCOBxVJq25kHlybp6wg20HrHgA/CkQUBGxNcqADTqLAmLF+xEKItrMFfokBJcJZaKE5xwkA44svB6
+	mw2jrlQi31Y/VUizlR3GzbFL+Wa3HKGe9ROqRLDflHf7zsInjMgYe6oz1Q6Wh6mFg9iWTxbVd5Zy4
+	n/Ript0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLkP9-00000003YLe-3t2b;
-	Wed, 19 Nov 2025 15:47:35 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vLkPS-00000003YVf-1O5P;
+	Wed, 19 Nov 2025 15:47:54 +0000
+Received: from mgamail.intel.com ([198.175.65.21])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLkP7-00000003YKJ-3YZ7
+	id 1vLkPO-00000003YUJ-08c8
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Nov 2025 15:47:33 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D376360172;
-	Wed, 19 Nov 2025 15:47:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B901DC4AF4D;
-	Wed, 19 Nov 2025 15:47:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763567252;
-	bh=vicgZe2Av/U4KqK6bau+u9mHI2W4ZvV0ci7Vd1xAaJg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=m/iaFsAPw27Vo7KL+xOhpzChl9HwgPS91l9ZE9SkAkJCY2UaBQjQUzZhvNSIU0aTR
-	 mjUaPeN+1DpNB9Eu/vA1eUJYgT/Pfoz+V8332karyPbvh9E4dsexBeWKPFw55pyc5w
-	 HOGrzUy9f5ifz0axsOzC6LhDxNWcDYaObz3ObyauHXxPC+VgMvQ70Q1eU9tbDf32hH
-	 WGrz9JsHF69HhZs+dekb6hrSb9slrHLfcIHBv4S1HO+h5iw9cAoF4bPD8b5OP2vbtO
-	 SRL79BsrKKpcZJXfElkS5n7zaxeL8O3UTaUS7UCPqvj9+IRbu++GiYLfOBTOWVIqKP
-	 yj4TrAxEVZH9Q==
-Date: Wed, 19 Nov 2025 21:17:18 +0530
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Christian Bruel <christian.bruel@foss.st.com>
-Cc: Bjorn Helgaas <helgaas@kernel.org>, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	linux-pci@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, Lukas Wunner <lukas@wunner.de>
-Subject: Re: [PATCH] PCI: stm32: Fix LTSSM EP race with start link.
-Message-ID: <k72rxq2j5hbpotgmshwau6tvvem3jnldahxxgg54qoxjs7jaxb@bgh4cgs5j25h>
-References: <20251118212818.GA2591668@bhelgaas>
- <7053f336-59c9-47cc-ac97-eb2f0916ac4f@foss.st.com>
+	Wed, 19 Nov 2025 15:47:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1763567270; x=1795103270;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=MjS6qANrG66ZEpC560m0ZY+4OoXsFOnALao2kMmuR28=;
+  b=gnGDiBw8b55Iaj1ndjM6G7sq/O9EuiInZBOD4nCS4Cj6Umf/Ok0sf39G
+   2kz0twvo2mttJlhXcW0O0CXkeXwDxWdcWZ/ZAB09HjshXVQQzy3FuQYxp
+   HatVoYdDZRLG6Idcft/Dk8/1jnFyxXS/u74SNqMm3qHEcBGd8Q3RlZOxF
+   8yso/4TJy4keEYmvrlfAezPKHoXro4rLx+vx3GbqrHN7B3nKLFATIvCE+
+   qn85vQpaKnadU2SBOU+h6TYg4AxrNpAJjsrbAtKQsjkLQOsmCzbfu4AaQ
+   VsssciqM32yDm8S6lcF+puzXYGr1CgtZMlXbUqkBt8G3zu+/f607mlAcd
+   g==;
+X-CSE-ConnectionGUID: g/ahM9+oR9WBtr6HCLoWZw==
+X-CSE-MsgGUID: zky5v9A8SVOUeNj7DSPVrA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11618"; a="65546804"
+X-IronPort-AV: E=Sophos;i="6.19,315,1754982000"; 
+   d="scan'208";a="65546804"
+Received: from orviesa002.jf.intel.com ([10.64.159.142])
+  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2025 07:47:49 -0800
+X-CSE-ConnectionGUID: qARCDVdDSRq4Jvica6pVbw==
+X-CSE-MsgGUID: 9q3MyH01SZm07qrscShvYg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.19,315,1754982000"; 
+   d="scan'208";a="221740025"
+Received: from rvuia-mobl.ger.corp.intel.com (HELO localhost) ([10.245.245.245])
+  by orviesa002-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2025 07:47:44 -0800
+Date: Wed, 19 Nov 2025 17:47:41 +0200
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Jisheng Zhang <jszhang@kernel.org>
+Cc: Doug Berger <opendmb@gmail.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	bcm-kernel-feedback-list@broadcom.com,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Bartosz Golaszewski <brgl@bgdev.pl>,
+	Hoan Tran <hoan@os.amperecomputing.com>,
+	Andy Shevchenko <andy@kernel.org>, Daniel Palmer <daniel@thingy.jp>,
+	Romain Perier <romain.perier@gmail.com>,
+	Grygorii Strashko <grygorii.strashko@ti.com>,
+	Santosh Shilimkar <ssantosh@kernel.org>,
+	Kevin Hilman <khilman@kernel.org>,
+	Robert Jarzmik <robert.jarzmik@free.fr>,
+	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>,
+	Srinivas Neeli <srinivas.neeli@amd.com>,
+	Michal Simek <michal.simek@amd.com>, linux-gpio@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-omap@vger.kernel.org
+Subject: Re: [PATCH v3 05/15] gpio: pxa: Use modern PM macros
+Message-ID: <aR3mnWQedt7SMRP0@smile.fi.intel.com>
+References: <20251119144327.13345-1-jszhang@kernel.org>
+ <20251119144327.13345-6-jszhang@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <7053f336-59c9-47cc-ac97-eb2f0916ac4f@foss.st.com>
+In-Reply-To: <20251119144327.13345-6-jszhang@kernel.org>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251119_074750_128252_BDEE535F 
+X-CRM114-Status: GOOD (  18.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,74 +103,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 19, 2025 at 04:13:47PM +0100, Christian Bruel wrote:
+On Wed, Nov 19, 2025 at 10:43:17PM +0800, Jisheng Zhang wrote:
+> Use the modern PM macros for the suspend and resume functions to be
+> automatically dropped by the compiler when CONFIG_PM or
+> CONFIG_PM_SLEEP are disabled, without having to use #ifdef guards.
 > 
-> 
-> On 11/18/25 22:28, Bjorn Helgaas wrote:
-> > [+cc Lukas in case I got the pciehp part wrong]
-> > 
-> 
-> > 
-> > To back up here, I'm trying to understand the race.
-> > 
-> > IIUC the relevant events are link training and register init.  In the
-> > current stm32 EP driver, link training can start when the EP userspace
-> > writes to the 'start' configfs file.  And the register init happens
-> > when stm32_pcie_ep_perst_irq_thread() calls
-> > dw_pcie_ep_init_registers().
-> > 
-> > So I guess the problem is when the EP userspace enables the LTSSM
-> > before the host deasserts PERST#?  And the link train may complete
-> > before stm32_pcie_ep_perst_irq_thread() runs?
-> 
-> The sequence also violated the spec (4.0, Section 6.6.1 "Conventional
-> Reset"), because it allowed the endpoint to enter the Detect state before
-> PERST# is deasserted
-> 
-> > 
-> > And the fix here is to delay enabling the EP LTSSM until after
-> > stm32_pcie_perst_deassert() calls dw_pcie_ep_init_registers()?
-> > 
-> 
-> > 
-> > I think we would prefer if the host would enumerate the endpoint
-> > whenever the endpoint becomes ready, even if that is after the host's
-> > initial enumeration, but I guess that's only possible if the host is
-> > notified when the link comes up.
-> > 
-> > The main mechanism for that is hotplug, i.e., pciehp handles presence
-> > detect and link layer state changed events, both of which are managed
-> > by the PCIe Slot register set.  Those registers are optional and may
-> > not be implemented, e.g., if a Root Port is connected to a
-> > system-integrated device.
-> > 
-> > But if they *are* implemented, I hope that pciehp makes it so no user
-> > intervention on the host side is required.
-> > 
-> 
-> 
-> I suppose that hotplug cannot be implemented without some kind of presence
-> detection signal from the EP (PRSNT#, ...) ? For now we have no
-> implementation to support this (from gpio or other).
-> 
+> This has the advantage of always compiling these functions in,
+> independently of any Kconfig option. Thanks to that, bugs and other
+> regressions are subsequently easier to catch.
 
-Most of the non-PC/Server platforms do not have hot pluggable connectors. So the
-lack of PRSNT# signal is very common.
+...
 
-> However, using a PC host, I observe that when I resume the host from PCIe
-> autosuspend, for example, with 'lspci', PERST# is deasserted, and the stm32
-> PCIe EP device is correctly enumerated without a manual rescan. So thanks to
-> power management, a device can be enumerated asynchronously but when
-> requested, not when ready.
-> 
+> struct pxa_gpio_bank {
 
-I would assume that any host will deassert PERST# during boot itself, and keep
-the LTSSM in Link.Detect. But if the link is not detected, a host *may* assert
-PERST#. And during resume, it will try the same sequence and if your device is
-connected, it will get enumerated.
+...
 
-- Mani
+>  	unsigned long	irq_mask;
+>  	unsigned long	irq_edge_rise;
+>  	unsigned long	irq_edge_fall;
+
+> -
+
+As I already pointed out this is stray change. Why you ignored my comment?
+
+> -#ifdef CONFIG_PM
+>  	unsigned long	saved_gplr;
+>  	unsigned long	saved_gpdr;
+>  	unsigned long	saved_grer;
+>  	unsigned long	saved_gfer;
+> -#endif
+
+Same Q as per dwapb driver. The CONFIG_PM=n doesn't need these.
+
+>  };
+
+...
+
+>  static struct syscore_ops pxa_gpio_syscore_ops = {
+> -	.suspend	= pxa_gpio_suspend,
+> -	.resume		= pxa_gpio_resume,
+> +	.suspend	= pm_ptr(pxa_gpio_suspend),
+> +	.resume		= pm_ptr(pxa_gpio_resume),
+>  };
+
+This is not a device PM ops actually. Is there any guarantees on the
+relationship with CONFIG_PM and these callbacks? If so, I think we
+need to have special macros somewhere in include/linux/syscore_ops.h.
+
+Otherwise I'm not sure this will be a good patch at all.
 
 -- 
-மணிவண்ணன் சதாசிவம்
+With Best Regards,
+Andy Shevchenko
+
+
 
