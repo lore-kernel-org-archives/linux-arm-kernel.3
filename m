@@ -4,58 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15EEBCF258E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 07:23:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 460D4CF258E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 07:25:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Subject:Message-ID:MIME-Version:To:Cc:Date:References:Content-Type:
-	In-Reply-To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zaTLec8G/tdq48a4ePD3y5fymHb9xAhxUjH/LW9f5a4=; b=oZ8pvAtEjsoXvdwZtlLwneX3db
-	5UM2fvf4R1qqpOSClE8mn5pfMfvsc6GkzGu4GrGG6Fw9ntvnKKd+oF8XbhWJInnE4KhsDTyWXgVnG
-	sNP27boa4TnpTHhuPgeSaN80lzYfKKT+IfTTtTI04X/MpV6jCDiC10QSXBH8v52YMsTv7g+x2iQXL
-	9lnslbGL49DqvoR5iNPKNEKWudhWcDzHbMX8wZU9ONsZkh+89Tz8oEg4OCiYP4ninFIIQa+jewNn8
-	zZzRveHn1IzpHkKf3LoCP3CEBHLWKZsGoXCgLDTTXwXSm9UTXFUdKTNmKE0avzNwZQBobytQEO+Tm
-	DffL5cUA==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=M7XLp2eIjfByT8SPnlgh7fwfD6c69I13Q5MqiJNl2mA=; b=nfDDerMIi38vahBVYi+pVTbBVC
+	D4V/yTUlYtONzHSFpA31/6DAfl4NM2tdkgEFjNtWK9xSUNuuZ2TkoNrRCVmqZv7Dq1TO1/K7LT5Va
+	Gx4+DWcoa/cMTaxsSBE0dX8W4gUzOlqwsBd/1FaTSTxWKz0siUwQQLcrNDQLCNMecFa+lKX+48R3z
+	5kj0DGzwnFUsxSE6s+GgXLqJzfLSgIJTp3WBBRpcLZcXFbN+8R1NcyIEMViom8KXMa/EEiK/VNEE9
+	m16wYEZib1pJQLzRIPwjJpm5ILhvic7/tMqIj1MSxdtBc+E4J4O6ZalwX+vr5wVkFD4dTjXVgo3rz
+	cWONeqmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLcWz-00000002grw-47Br;
-	Wed, 19 Nov 2025 07:23:09 +0000
-Received: from mail1.manjaro.org ([142.132.176.110])
+	id 1vLcYh-00000002h3n-1tQK;
+	Wed, 19 Nov 2025 07:24:55 +0000
+Received: from m16.mail.163.com ([117.135.210.4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLcWw-00000002grQ-3MQV;
-	Wed, 19 Nov 2025 07:23:08 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPA id AAD5741286;
-	Wed, 19 Nov 2025 08:23:02 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=manjaro.org; s=dkim;
-	t=1763536983; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=zaTLec8G/tdq48a4ePD3y5fymHb9xAhxUjH/LW9f5a4=;
-	b=LNvejL1ViQufqD4meHwkjC+JFnLLQD53Icu8sSsa+mBLtchgTM2QEAfky1JU9OAIssxhAR
-	gmJpZKIw5SaMBmBKGDX/sVECrkh/wYQTtKoICTBIubE7uddeMISxPqM/jKXIn+Bsh+q5iM
-	J//3SEtT6M68kx7IkgVT08kJgtGcj8+CWeTzz3C1IWbt/VaGSdLYRTIjI5hjriDZi11aC6
-	J1/Yow+3Thk8xJrIjEkpBxi+J62ktXCCz2W2qhPet5FrXxUF0w5harmSf0GiRWGsqQlTbw
-	yz3v6Q2xUG4/jNF1M0vBgcJGAt8/91KwKO8jDqEYb41LvgDInWLMAaByu5fO8Q==
-From: "Dragan Simic" <dsimic@manjaro.org>
-In-Reply-To: <e7417a6e-3824-48f7-af56-eaf4bf097cb9@kernel.org>
-Content-Type: text/plain; charset="utf-8"
-References: <20251118-tinker3-v3-0-2903693f2ebb@rootcommit.com>
- <20251118-tinker3-v3-1-2903693f2ebb@rootcommit.com>
- <155d3d05-49f8-a000-6939-1411917745bb@manjaro.org> <e7417a6e-3824-48f7-af56-eaf4bf097cb9@kernel.org>
-Date: Wed, 19 Nov 2025 08:23:02 +0100
-Cc: "Michael Opdenacker" <michael.opdenacker@rootcommit.com>, "Rob Herring" <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>, "Heiko Stuebner" <heiko@sntech.de>, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, "Krzysztof Kozlowski" <krzysztof.kozlowski@linaro.org>
-To: "Krzysztof Kozlowski" <krzk@kernel.org>
+	id 1vLcYe-00000002h2H-0qeJ
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 19 Nov 2025 07:24:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=M7
+	XLp2eIjfByT8SPnlgh7fwfD6c69I13Q5MqiJNl2mA=; b=YvAwswcmkavbPVtdB/
+	lXcIVth1EClDlBMowqpWFrqnAOdTArSmN5Ze62v9G1AW2aX+DRQcp9sIdHiULhX6
+	tWIm2Wm49dGjiJljt6yFFb0IyVTSNDHQnXk+fgoACSaGd5pljIBn1V/WSjczP8yj
+	TTOzd52sJ7e9aeQhBpEw7Oyw0=
+Received: from localhost.localdomain (unknown [])
+	by gzga-smtp-mtada-g0-3 (Coremail) with SMTP id _____wBHl66icB1pGZ3VBA--.257S2;
+	Wed, 19 Nov 2025 15:24:20 +0800 (CST)
+From: wangdich9700@163.com
+To: lgirdwood@gmail.com,
+	broonie@kernel.org,
+	perex@perex.cz,
+	tiwai@suse.com,
+	cezary.rojewski@intel.com
+Cc: linux-kernel@vger.kernel.org,
+	linux-sound@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	wangdicheng <wangdicheng@kylinos.cn>
+Subject: [PATCH] ALSA: hda/conexant: Implement resume function
+Date: Wed, 19 Nov 2025 15:24:16 +0800
+Message-Id: <20251119072416.120937-1-wangdich9700@163.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-Message-ID: <b8e91b59-afb1-6d0d-4709-c7f76ded0e18@manjaro.org>
-Subject: =?utf-8?q?Re=3A?= [PATCH v3 1/2] =?utf-8?q?dt-bindings=3A?=
- =?utf-8?q?_arm=3A?==?utf-8?q?_rockchip=3A?= Add Asus Tinker Board 3/3S
-User-Agent: SOGoMail 5.12.3
-Content-Transfer-Encoding: quoted-printable
-X-Last-TLS-Session-Version: None
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: _____wBHl66icB1pGZ3VBA--.257S2
+X-Coremail-Antispam: 1Uf129KBjvdXoW7Gr47Gr4kGF4DWF1rurWruFg_yoWkJFg_Gw
+	n29rW0yFyDGFsrCr4DJw1Fy34I9rW8uFyjgryktFy2k3s5Gw4Fyr4YvF1Y9rWDWr97AFy5
+	ZFnIq347CryUujkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7IUbSksJUUUUU==
+X-Originating-IP: [116.128.244.169]
+X-CM-SenderInfo: pzdqwv5lfkmliqq6il2tof0z/xtbCvwTmNmkdcKQCuQAA3w
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251118_232307_056967_F6ABA69C 
-X-CRM114-Status: GOOD (  22.48  )
+X-CRM114-CacheID: sfid-20251118_232452_622970_555A2945 
+X-CRM114-Status: UNSURE (   9.32  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,93 +77,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Krzysztof,
+From: wangdicheng <wangdicheng@kylinos.cn>
 
-On Wednesday, November 19, 2025 08:09 CET, Krzysztof Kozlowski <krzk@ke=
-rnel.org> wrote:
-> On 19/11/2025 08:00, Dragan Simic wrote:
-> > On Tuesday, November 18, 2025 16:56 CET, Michael Opdenacker <michae=
-l.opdenacker@rootcommit.com> wrote:
-> >> Document the compatible strings for Asus Tinker Board 3 [1] and 3S=
- [2],
-> >> which are SBCs based on the Rockchip 3566 SoC.
-> >>
-> >> The "3S" version ("S" for "storage") just adds a 16 GB eMMC
-> >> and a "mask ROM" DIP switch to the "3" version.
-> >>
-> >> [1] https://tinker-board.asus.com/series/tinker-board-3.html
-> >> [2] https://tinker-board.asus.com/series/tinker-board-3s.html
-> >>
-> >> Signed-off-by: Michael Opdenacker <michael.opdenacker@rootcommit.c=
-om>
-> >>
-> >> ---
-> >>
-> >> Changes in V3:
-> >>
-> >> - Remove this Acked-by as the binding code changed substantially:
-> >>   Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-> >> ---
-> >>  Documentation/devicetree/bindings/arm/rockchip.yaml | 7 +++++++
-> >>  1 file changed, 7 insertions(+)
-> >>
-> >> diff --git a/Documentation/devicetree/bindings/arm/rockchip.yaml b=
-/Documentation/devicetree/bindings/arm/rockchip.yaml
-> >> index 6aceaa8acbb2..800c11323a4f 100644
-> >> --- a/Documentation/devicetree/bindings/arm/rockchip.yaml
-> >> +++ b/Documentation/devicetree/bindings/arm/rockchip.yaml
-> >> @@ -86,6 +86,13 @@ properties:
-> >>            - const: asus,rk3288-tinker-s
-> >>            - const: rockchip,rk3288
-> >> =20
-> >> +      - description: Asus Tinker Board 3/3S
-> >> +        items:
-> >> +          - enum:
-> >> +              - asus,rk3566-tinker-board-3
-> >> +              - asus,rk3566-tinker-board-3s
-> >> +          - const: rockchip,rk3566
-> >> +
-> >>        - description: Beelink A1
-> >>          items:
-> >>            - const: azw,beelink-a1
-> >=20
-> > Please see my delayed response in the v2. [1]  I think that would b=
-e
-> > a better approach.
-> >=20
-> > [1] https://lore.kernel.org/linux-rockchip/3c96ee6b-dca7-1a0a-792b-=
-f8c165ec997d@manjaro.org/
->=20
-> Your reviews are not helpful. You nitpick irrelevant things and propo=
-se
-> solutions which later reverse leading to wasted effort on contributor=
-s side.
->=20
-> Michael implemented what you asked here:
->=20
-> https://lore.kernel.org/linux-rockchip/e4cd11d0-463c-e707-5110-6b9289=
-9b1ba3@manjaro.org/
+During S3 sleep state, if headphones are unplugged, we need to re-report
+their status during the wake phase to ensure proper headphone presence
+detection after system resume.
 
-Not exactly, because I didn't ask for any compatibles to be removed
-from the new board dts files.
+Signed-off-by: wangdicheng <wangdicheng@kylinos.cn>
+---
+ sound/hda/codecs/conexant.c | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
-In this case, we could also say that it was Michael's fault not to
-give enough time for the reviewers to respond.
-
-> This patch implements exactly what you wanted. On v4 you will ask to
-> reverse back to v1?
-
-No, I will not, and please note this version doesn't exactly implement
-what I suggested, as already explained above.
-
-> Now you claim that you want back v2. Really, you are NOT HELPING. It =
-is
-> clear you do not understand what you are proposing and this is not
-> helping ion the process. Please refrain from such confusing reviews.
-
-No, I'm not suggesting that the series goes back to v2, but Michael
-failed to give me enough time to respond.  If that were the case,
-the v3 would've been in nicer shape, with, from my point of view, no
-need for further adjustments.
+diff --git a/sound/hda/codecs/conexant.c b/sound/hda/codecs/conexant.c
+index 5fcbc1312c69..146ff65ccc30 100644
+--- a/sound/hda/codecs/conexant.c
++++ b/sound/hda/codecs/conexant.c
+@@ -264,6 +264,13 @@ static int cx_suspend(struct hda_codec *codec)
+ 	return 0;
+ }
+ 
++static int cx_resume(struct hda_codec *codec)
++{
++	cx_init(codec);
++	snd_hda_jack_report_sync(codec);
++	return 0;
++}
++
+ /*
+  * pin fix-up
+  */
+@@ -1277,6 +1284,7 @@ static const struct hda_codec_ops cx_codec_ops = {
+ 	.init = cx_init,
+ 	.unsol_event = snd_hda_jack_unsol_event,
+ 	.suspend = cx_suspend,
++	.resume = cx_resume,
+ 	.check_power_status = snd_hda_gen_check_power_status,
+ 	.stream_pm = snd_hda_gen_stream_pm,
+ };
+-- 
+2.25.1
 
 
