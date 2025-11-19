@@ -4,59 +4,153 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9584ECF34B7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 14:46:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2477CF34C0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 14:47:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/Kv16EiRpPt/014C5NNQPb285u2GctpePz/vPRWF0XE=; b=BqOdYbIcI0beKveu1BcR9k72ge
-	KtmM1VUOFDkJE81ENk6ZcYgEEXl/RLlfpWwGZfBmV+Z4Tro+XnbpZgK6JyAbdSkns12xaUdQOINse
-	SC/89R0vgD4AjDn6CWRLgWUjDdkMvIXs1mKvc+DB7BeGZ7IZt7r81Ehyg0MGW6KPpO5XoL0dzUKi4
-	tI6xiiT+nda96zamvNOhc0ChGTRICOnUfBsmDhZuPukmHkxMNn2iBcstAtZdNKZ02JtwGBHEwRMlg
-	2Qr0c4BsZB8dv9dTkGMs8+rmmFbl77NsoXtIVCBRDtjjkk960CLDuqUVPBD7o5SlDkUjY6KfVwLVW
-	kWTMxgMQ==;
+	bh=JhUEAo5rQfJbLlsbXat4WcAJ0vqDg2PEckaSW0bIwf8=; b=0MLM9YmNHZSoyYbQYEs0gM57J8
+	mxvxzXMRnNxeVQA09aMVi0btrhtWluxrVMfdnDPe/p1LUzueeybrrvaEsA+STIZvRhbLc5EqjJ8eR
+	7Hdzx3wRR11ZX3ahwUXIGDpn1ugh0n7ox/GrS3nSmH2SYSpDEtWR7MAqdarLGq3qq7eQNSjjusgJK
+	7gCAnjUsRnyrnqXESIuXE/a7jm9shEtAVTdErvQ+fGPV3WdX/02I+6tHC9ofYHGL0g4OQS9Scfrzi
+	46rB9GjUulZMnDHX9zCXuN+W2zZBz2McLcH/XqQ8M80dM9t1PyhVBHc9q4Nsl/r38UnSYzqzT828M
+	N4HB8uXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLjRw-00000003P6i-2SRx;
-	Wed, 19 Nov 2025 14:46:24 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLjRt-00000003P5j-2Vh2
+	id 1vLjSL-00000003PCk-1lU1;
+	Wed, 19 Nov 2025 14:46:49 +0000
+Received: from mail-centralusazlp170110009.outbound.protection.outlook.com ([2a01:111:f403:c111::9] helo=DM5PR21CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vLjSI-00000003PBY-1COh
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Nov 2025 14:46:23 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A8590FEC;
-	Wed, 19 Nov 2025 06:46:09 -0800 (PST)
-Received: from [10.1.37.75] (unknown [10.1.37.75])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4889C3F740;
-	Wed, 19 Nov 2025 06:46:15 -0800 (PST)
-Message-ID: <a0ff9d15-c0e8-4ba2-9187-2abbe5676b01@arm.com>
-Date: Wed, 19 Nov 2025 14:46:13 +0000
+	Wed, 19 Nov 2025 14:46:47 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=wzN9tHYWZ16lgOkP++OH3s6LGSEnN+TaBc8FP6cbnizYQkO3uvE9fCqyls/LM5UK9QxX2CeHTJZEXQaYx6hKCIFjJ/tw0Yo+ot8HlnwLhBFCWD4W46CWikeIcGDRjUnZzNdq+bOTdJ+Ug0vJNLIpHLCEmTl9uWTekQyEN06BldmrF1y/kEeQ26IBSZu9Ez+qQ/NfpCK2ntCErxYxuKT+ycHyXg9OI0/Zk6eJMhAe6MG0loQO7JqPg5tmgJ1w9OhHNjaqIf29ZtrJM/zyAq+0aHv6xdSD4ZZVTN8uc8jVtNH0XB8YFiGY0sbVMyEEpQ8IEsMEVkouqL0SeLnJfPo3hw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=JhUEAo5rQfJbLlsbXat4WcAJ0vqDg2PEckaSW0bIwf8=;
+ b=KeBTZsofN8Q3LAasV+TYa39ic2/QwCgdjIKpQ7uxLrRyAUU0es9poz8eN01bMZHV0gR8PTiU/sRWIzo0BxvC7rnpOKHF5ofwgkNZh25c27EfEIJFvERqy/YyxMgPinlaNJFNfbJH920VazX3sl927XRPeQKf0lb8NJp9/xPbHGmbRSeA/n6RuvAb8MDMdrN+xtNbhcf/WcDOeA9HD2sdxKbayjzWzm02sH8fn383CITG1OV2bPrVHUh7Y1SJHdyOSYG0VNGiUXa1MolTdRV8D18tjSEM0ODwrivjKKYaExyeQid7hOrEO848lnX75EyWW2fN3GcdCzPmsAtO7aRx+g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.21.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=JhUEAo5rQfJbLlsbXat4WcAJ0vqDg2PEckaSW0bIwf8=;
+ b=BpMDkjUoNldbdg/Ffjz17/nLXp21y8xMlVviEW6p1tIN38QriS72n9jmkFYoPVtp2XunnLnF478yr0A09haCCXK2IK24ZastxPi+LPt0DRsHxH0YxgxPtNbijPiHE+Gdj7hL6lU9aL4sW1ye9rxTYm7x4GZ84++ryJ4jrqfEegs=
+Received: from BN9PR03CA0569.namprd03.prod.outlook.com (2603:10b6:408:138::34)
+ by DM4PR10MB5992.namprd10.prod.outlook.com (2603:10b6:8:af::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9343.10; Wed, 19 Nov
+ 2025 14:46:40 +0000
+Received: from BN3PEPF0000B076.namprd04.prod.outlook.com
+ (2603:10b6:408:138:cafe::fb) by BN9PR03CA0569.outlook.office365.com
+ (2603:10b6:408:138::34) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9343.10 via Frontend Transport; Wed,
+ 19 Nov 2025 14:46:40 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.194)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
+Received: from flwvzet200.ext.ti.com (198.47.21.194) by
+ BN3PEPF0000B076.mail.protection.outlook.com (10.167.243.121) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9343.9 via Frontend Transport; Wed, 19 Nov 2025 14:46:38 +0000
+Received: from DFLE215.ent.ti.com (10.64.6.73) by flwvzet200.ext.ti.com
+ (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 19 Nov
+ 2025 08:46:34 -0600
+Received: from DFLE205.ent.ti.com (10.64.6.63) by DFLE215.ent.ti.com
+ (10.64.6.73) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 19 Nov
+ 2025 08:46:34 -0600
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE205.ent.ti.com
+ (10.64.6.63) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Wed, 19 Nov 2025 08:46:34 -0600
+Received: from [172.24.233.103] (uda0132425.dhcp.ti.com [172.24.233.103])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 5AJEkVua2042638;
+	Wed, 19 Nov 2025 08:46:32 -0600
+Message-ID: <002fad46-adb5-402e-8eb0-e4c71b862674@ti.com>
+Date: Wed, 19 Nov 2025 20:16:31 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 2/3] coresight: tmc: refactor the tmc-etr mode setting
- to avoid race conditions
-Content-Language: en-GB
-To: hejunhao <hejunhao3@h-partners.com>, james.clark@linaro.org,
- mike.leach@linaro.org, leo.yan@arm.com
-Cc: anshuman.khandual@arm.com, yeoreum.yun@arm.com,
- coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, jonathan.cameron@huawei.com,
- Linuxarm <linuxarm@huawei.com>
-References: <20251111122149.1981162-1-hejunhao3@h-partners.com>
- <20251111122149.1981162-3-hejunhao3@h-partners.com>
- <15868ecb-c1e7-4273-a2e2-5c10f2701c0b@arm.com>
- <14a564bf-f9a2-c49c-9cd6-a5b68bc43500@h-partners.com>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <14a564bf-f9a2-c49c-9cd6-a5b68bc43500@h-partners.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH] arm64: dts: ti: Add missing applied DT overlay targets
+To: "Rob Herring (Arm)" <robh@kernel.org>, Nishanth Menon <nm@ti.com>, "Tero
+ Kristo" <kristo@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, "Conor
+ Dooley" <conor+dt@kernel.org>, Wadim Egorov <w.egorov@phytec.de>
+CC: <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>
+References: <20251117211316.725960-1-robh@kernel.org>
+From: Vignesh Raghavendra <vigneshr@ti.com>
+Content-Language: en-US
+In-Reply-To: <20251117211316.725960-1-robh@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN3PEPF0000B076:EE_|DM4PR10MB5992:EE_
+X-MS-Office365-Filtering-Correlation-Id: 48be1bc7-0c28-4fae-f0bd-08de277a7231
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|82310400026|376014|36860700013;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?RW5oRkY4ZjJuNks3anFiUk1EVU44c0ZNSlRWK2FpZW5SbzdpRHBiOVdyK0lv?=
+ =?utf-8?B?WEp3V1VyRlFBeVMzckh2ajJlWUJRaWtqRzc2cjZWb1RrNXlnRDlxOU5sTzlu?=
+ =?utf-8?B?SnB3ak9QeEF1Qnkrb2JHRlRGYzdRYk1GR3VHb1dxSWlnQUF3SEcxVEtLUGQ0?=
+ =?utf-8?B?STBMdUVSZUc5SDlydnR1UTZOZTFxamdkN0VWcXpDdmxXbFRWVXZjTm04Rmwz?=
+ =?utf-8?B?bjZDWmQ3NGFkUTNiT0EyMXhVRUhjdExWRFF5KzhaUXVaLzlmcHpEejJ6MytR?=
+ =?utf-8?B?MEZJL0ZJZE9YRFY5TW9lRUJsUnpZQUppOENGU3JZZVZJOGdvZWExQmorZDV3?=
+ =?utf-8?B?Sm9abzZlNCsyMnllSk1veU41dGlxdDRDZDliZ3NpNyt4Rk5XcHNPREhVK09C?=
+ =?utf-8?B?R0RJbXZmMkJMYUt5RnFmQTVGMy9IN3hFQTd5cnR0STVqUEtQa3Q3NlFKVDRS?=
+ =?utf-8?B?U1dmRDh1V0RaRTdxL3hycFNacjVseDNMRkZ0ak8yV3I0Wnpma1ZEOHlqaEtG?=
+ =?utf-8?B?UnNodm5WNVF0eHFrZ1BIRGQ5Q1pBOWtTRjJ1VzhLN2FJOUV6RDQ2bkRLZkpB?=
+ =?utf-8?B?bmtVK3ZVd3gydXk0cUJKRkZEUjZkQzh1c3dQYXRPdXBiaGZDTUhiLzFCc2kx?=
+ =?utf-8?B?VDFKSFNaWHFFLzllNGo1NHVxSHg2VE4vRjhGZElremdFUlJra2lsN1M4dFRK?=
+ =?utf-8?B?cUxtM1NzSnAxcll3aTlSSkE5YjdXZHhWMW83aURwWVNzRUhnU3JBUlJ0T2xX?=
+ =?utf-8?B?cTB1cDk0OVRMZzVSWUUrdjZBemgrbytsSjFMaE4xbWZIR2RNbUJmMWtqbTZM?=
+ =?utf-8?B?MEdtQWlDN2pTcXNvemY1aVVuZkRYR0UyVVMycHk3NVJCaGV2Y3B0QVNZMjVM?=
+ =?utf-8?B?YkdvU3ZwVEdlKzdhWS83YjdzL3Ezek05UWQrNnNEZC9iRUE0UjFKU2EwSTJx?=
+ =?utf-8?B?QXFyY0RHVmhXbld4Z2VxT2szZDZFYWJ1MkJFTlI3Zy9NTkR6YXhML0Zvb2Rq?=
+ =?utf-8?B?UjU1NmxQdWh3ZnkrUzBXbVQwYWMrYlRreGFwMTIzcmc1TEx0T2NrMkI1Uy9U?=
+ =?utf-8?B?dE85emcwb3F1aTByQUk4dkNyQ0ltSXIzeXhaSE5vTDVCSmlGd2VkRHROblor?=
+ =?utf-8?B?UXpaRFZnTzBQS3ozV3AwYzJvRFJWMkFIUEFMMTVpN2s2eHk2UUtlSWVyS0gy?=
+ =?utf-8?B?T3BoWTV3MTY3WE9URVF0ZndWN3pPTUZuMUhsYjdCVnVRRGhyVnV6RWtYSHVP?=
+ =?utf-8?B?cy9jOFhxOGdESCtrU1EzQzROMm9JTWpmTnBsRVhadXJRS0psanhxOEVUNzUx?=
+ =?utf-8?B?MUhuU05EQkVQQ3Q1d3M2dzBDaGdVelRlUzV4aTBEdHdML2w0TDNsZFMzUmtR?=
+ =?utf-8?B?TTRzR2lZUnJWZ0MyQlI3ZWJmd0pPRVVqNUEyeXZpSnpUWjlMK1ByMTFibk8y?=
+ =?utf-8?B?cE1zREJISWE1bTVseGpKZklZTkpqSnFwSkVsZDRoRkpKdnNDTFBnSEg5bFl2?=
+ =?utf-8?B?R1ZaSHkwaVFNWHdxOXNBUlpiZW1CQm5oRUMwZkplVy9tQXNlYkUzRm5UOG01?=
+ =?utf-8?B?QURFcjRKSWFBa3F2eHpMcE93ZnBIUGtBZ3FoUW15NWNScVBHY3gySEMvb1Fr?=
+ =?utf-8?B?TldxV09BQ1ZOaUtsUnlJMTZlbmwrRjdUWlkrNDBwMjZzcE9hdG5oNTBwZjVo?=
+ =?utf-8?B?VjRhU2VoQjlCWjdoZk9zMDFacUd6NVFsZHBJR2VFZ3lGTVQ4WWwrR014OEZx?=
+ =?utf-8?B?bTB1cTRsRzUyODlsY1ZJOE5IT0VsbG5YMnJVV3pUSGVmZXJpeXp1SWgyTEhs?=
+ =?utf-8?B?SmpyUUZqUE8yVXBLbDN3N1dtR3VrSlFhYmwrYlE5bkdIK1I5b0Q2d2wxZDFm?=
+ =?utf-8?B?a25QalY1enFBOU05dDdzM3Q5aEkrTEEra2RMbGkxWjNwMVh0dUh4bHd2dGZ2?=
+ =?utf-8?B?aG9nL0E0ODcyejkxNnlLMkJTT1dheXppaUh1MGtVYTBsVnhtK2gzNFlvYk95?=
+ =?utf-8?B?THNYTC9taElVcDhWWVBqZHZOd29GbDFCTFlMSHZMc29takNmd3duT054bjBM?=
+ =?utf-8?B?VXk5UU1EdUl6RysvS1dyWXZyV3NSSURqZ1JSNm5SQU5IdXVtSHY0bk1jNHJ6?=
+ =?utf-8?Q?/+c8=3D?=
+X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(376014)(36860700013);DIR:OUT;SFP:1101;
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Nov 2025 14:46:38.7852
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 48be1bc7-0c28-4fae-f0bd-08de277a7231
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: BN3PEPF0000B076.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR10MB5992
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251119_064621_721558_2C9C1635 
-X-CRM114-Status: GOOD (  43.10  )
+X-CRM114-CacheID: sfid-20251119_064646_484356_8B7501C9 
+X-CRM114-Status: GOOD (  18.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,375 +165,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 15/11/2025 02:09, hejunhao wrote:
-> 
-> 
-> On 2025/11/13 23:02, Suzuki K Poulose wrote:
->> Hi Junhao,
->>
->> While your patch fixes the problem it introduces imbalance in the
->> way perf vs sysfs modes are handled.
->>
-> 
-> Hi Suzuki,
-> 
-> Thank you for your comments.
-> 
-> What you mean is that, as long as tmc_etr_enable_hw() has not yet been
-> called (i.e., ETR hasn't been fully enabled), both the perf and sysfs 
-> sessions
-> have the opportunity to take ownership of ETR device?
-> 
-> Based on the following sysfs-based ETR enablement sequence, the spinlock is
-> released at two points (denoted as points a and b).
-> At either of these points, perf may acquire the lock and invoke
-> tmc_etr_enable_hw() to complete the ETR initialization, resulting in
-> ETR_mode == PERF. This would interrupt the ongoing sysfs enablement
-> flow and effectively give precedence to perf over sysfs.
-> 
-> mode:
->    [sysfs mode]
->    tmc_enable_etr_sink_sysfs()
->      tmc_etr_get_sysfs_buffer()
->        spin_lock(&drvdata->spinlock)
->        sysfs_buf = READ_ONCE(drvdata->sysfs_buf);
->        if (!sysfs_buf || (sysfs_buf->size != drvdata->size))
->          spin_unlock(&drvdata->spinlock)  <-- point a
->          [sysfs buffer allocation]
->          spin_lock(&drvdata->spinlock)
->        drvdata->sysfs_buf = new_buf;
->        spin_unlock(&drvdata->spinlock)  <-- point b
->      spin_lock(&drvdata->spinlock)
->      tmc_etr_enable_hw()
->      spin_unlock(&drvdata->spinlock)
-> 
->    [perf mode]
->    tmc_enable_etr_sink_perf()
->      spin_lock(&drvdata->spinlock)
->      tmc_etr_enable_hw()
->      spin_unlock(&drvdata->spinlock)
-> 
-> After the patch, both the perf and sysfs sessions contend fairly for the 
-> lock at
-> the entry point of tmc_enable_etr_sink(). The first to acquire the lock 
-> gains
-> exclusive control over the ETR sink for the remainder of the session.
++ wadim who posted something similar:
 
-TBH, we don't care about fairness of the different modes of operation.
+Hi Rob,
 
-1. Perf must be given the priority - Because that provides a full easy
-framework for making any meaningful sense of the trace.
+On 18/11/25 02:43, Rob Herring (Arm) wrote:
+> It's a requirement that DT overlays be applied at build time in order to
+> validate them as overlays are not validated on their own.
+> 
+> Add the missing TI overlays. Some of the TI overlays have the first part
+> needed (a "*-dtbs" variable), but not the second part adding the target to
+> dtb-y/dtb- variable.
+> 
+> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
 
-2. Sysfs mode should be only used for custom use cases, where you have
-full control of the system. (e.g., System bringup, Validation or event
-crash capture).
+Look like there is more needed change needed.
 
-In other words, if someone wants to use sysfs mode they must know what
-they are doing and not run any perf session in parallel.
+https://lore.kernel.org/all/20251119123216.1481420-1-w.egorov@phytec.de/
 
-Thanks
-Suzuki
+Could one of you post the superset patch?
 
 
+I have already sent out the PR for v6.19rc1 for TI tree? Is [1] plan to
+be merged for v6.19 cycle, if so I will plan for a follow up PR with
+newer version of this patch.
+
+> ---
+> This will soon be a warning[1].
 > 
->> On 11/11/2025 12:21, Junhao He wrote:
->>> From: Junhao He <hejunhao3@huawei.com>
->>>
->>> When trying to run perf and sysfs mode simultaneously, the WARN_ON()
->>> in tmc_etr_enable_hw() is triggered sometimes:
->>>
->>>   WARNING: CPU: 42 PID: 3911571 at drivers/hwtracing/coresight/ 
->>> coresight-tmc-etr.c:1060 tmc_etr_enable_hw+0xc0/0xd8 [coresight_tmc]
->>>   [..snip..]
->>>   Call trace:
->>>    tmc_etr_enable_hw+0xc0/0xd8 [coresight_tmc] (P)
->>>    tmc_enable_etr_sink+0x11c/0x250 [coresight_tmc] (L)
->>>    tmc_enable_etr_sink+0x11c/0x250 [coresight_tmc]
->>>    coresight_enable_path+0x1c8/0x218 [coresight]
->>>    coresight_enable_sysfs+0xa4/0x228 [coresight]
->>>    enable_source_store+0x58/0xa8 [coresight]
->>>    dev_attr_store+0x20/0x40
->>>    sysfs_kf_write+0x4c/0x68
->>>    kernfs_fop_write_iter+0x120/0x1b8
->>>    vfs_write+0x2c8/0x388
->>>    ksys_write+0x74/0x108
->>>    __arm64_sys_write+0x24/0x38
->>>    el0_svc_common.constprop.0+0x64/0x148
->>>    do_el0_svc+0x24/0x38
->>>    el0_svc+0x3c/0x130
->>>    el0t_64_sync_handler+0xc8/0xd0
->>>    el0t_64_sync+0x1ac/0x1b0
->>>   ---[ end trace 0000000000000000 ]---
->>>
->>> Since the sysfs buffer allocation and the hardware enablement is not
->>> in the same critical region, it's possible to race with the perf
->>>
->>> mode:
->>>    [sysfs mode]                   [perf mode]
->>>    tmc_etr_get_sysfs_buffer()
->>>      spin_lock(&drvdata->spinlock)
->>>      [sysfs buffer allocation]
->>>      spin_unlock(&drvdata->spinlock)
->>> spin_lock(&drvdata->spinlock)
->>>                                   tmc_etr_enable_hw()
->>>                                     drvdata->etr_buf = etr_perf->etr_buf
->>> spin_unlock(&drvdata->spinlock)
->>>   spin_lock(&drvdata->spinlock)
->>
->> ^^ Could we not double check the mode here and break out ?
->>
->> Something like this :
->>
->>
->> diff --git a/drivers/hwtracing/coresight/coresight-tmc-etr.c b/ 
->> drivers/hwtracing/coresight/coresight-tmc-etr.c
->> index e0d83ee01b77..2097c57d19d0 100644
->> --- a/drivers/hwtracing/coresight/coresight-tmc-etr.c
->> +++ b/drivers/hwtracing/coresight/coresight-tmc-etr.c
->> @@ -1314,6 +1314,9 @@ static int tmc_enable_etr_sink_sysfs(struct 
->> coresight_device *csdev)
->>         if (coresight_get_mode(csdev) == CS_MODE_SYSFS) {
->>                 csdev->refcnt++;
->>                 goto out;
->> +       } else if (coresight_get_mode(csdev) != CS_MODE_DISABLED) {
->> +               ret = -EBUSY;
->> +               goto out;
->>         }
->>
->>         ret = tmc_etr_enable_hw(drvdata, sysfs_buf);
->>
->>
->> Suzuki
+> [1] https://lore.kernel.org/all/20251114222759.4181152-1-robh@kernel.org/
+
+BTW, with above patch, make dtbs seems to fail w/o CONFIG_OF_ALL_DTBS=y.
+Is that expected?
+
+> ---
+>  arch/arm64/boot/dts/ti/Makefile | 18 +++++++++++++++++-
+>  1 file changed, 17 insertions(+), 1 deletion(-)
 > 
-> Indeed, this approach addresses only the race condition between the perf 
-> and sysfs
-> components. It represents the simplest viable solution.
-> 
-> This patch also resolves the potential null pointer dereference of 
-> drvdata->sysfs_buf,
-> which could occur when the buffer size is modified after ETR has already 
-> been
-> enabled, followed by enabling a second source device [1].
-> 
-> If the refactored patch introduces additional issues, the implementation 
-> may be
-> reworked based on Yicong's original patches [2] ?
-> 
-> [1]https://lore.kernel.org/linux-arm-kernel/20241202092419.11777-2- 
-> yangyicong@huawei.com/
-> [2]https://lore.kernel.org/linux-arm-kernel/20241202092419.11777-4- 
-> yangyicong@huawei.com/
-> 
-> Best regards,
-> Junhao.
-> 
->>
->>
->>>   tmc_etr_enable_hw()
->>>     WARN_ON(drvdata->etr_buf) // WARN sicne etr_buf initialized at
->>>                                  the perf side
->>>    spin_unlock(&drvdata->spinlock)
->>>
->>> A race condition is introduced here, perf always prioritizes 
->>> execution, and
->>> warnings can lead to concerns about potential hidden bugs, such as 
->>> getting
->>> out of sync.
->>>
->>> To fix this, configure the tmc-etr mode before invoking 
->>> enable_etr_perf()
->>> or enable_etr_sysfs(), explicitly check if the tmc-etr sink is already
->>> enabled in a different mode, and simplily the setup and checks for 
->>> "mode".
->>> To prevent race conditions between mode transitions.
->>>
->>> Fixes: 296b01fd106e ("coresight: Refactor out buffer allocation 
->>> function for ETR")
->>> Reported-by: Yicong Yang <yangyicong@hisilicon.com>
->>> Closes: https://lore.kernel.org/linux-arm- 
->>> kernel/20241202092419.11777-2-yangyicong@huawei.com/
->>> Signed-off-by: Junhao He <hejunhao3@huawei.com>
->>> Tested-by: Yicong Yang <yangyicong@hisilicon.com>
->>> Signed-off-by: Junhao He <hejunhao3@h-partners.com>
->>> ---
->>>   .../hwtracing/coresight/coresight-tmc-etr.c   | 106 +++++++++---------
->>>   1 file changed, 55 insertions(+), 51 deletions(-)
->>>
->>> diff --git a/drivers/hwtracing/coresight/coresight-tmc-etr.c b/ 
->>> drivers/hwtracing/coresight/coresight-tmc-etr.c
->>> index b07fcdb3fe1a..fe1d5e8a0d2b 100644
->>> --- a/drivers/hwtracing/coresight/coresight-tmc-etr.c
->>> +++ b/drivers/hwtracing/coresight/coresight-tmc-etr.c
->>> @@ -1263,11 +1263,6 @@ static struct etr_buf 
->>> *tmc_etr_get_sysfs_buffer(struct coresight_device *csdev)
->>>           raw_spin_lock_irqsave(&drvdata->spinlock, flags);
->>>       }
->>>   -    if (drvdata->reading || coresight_get_mode(csdev) == 
->>> CS_MODE_PERF) {
->>> -        ret = -EBUSY;
->>> -        goto out;
->>> -    }
->>> -
->>>       /*
->>>        * If we don't have a buffer or it doesn't match the requested 
->>> size,
->>>        * use the buffer allocated above. Otherwise reuse the existing 
->>> buffer.
->>> @@ -1278,7 +1273,6 @@ static struct etr_buf 
->>> *tmc_etr_get_sysfs_buffer(struct coresight_device *csdev)
->>>           drvdata->sysfs_buf = new_buf;
->>>       }
->>>   -out:
->>>       raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
->>>         /* Free memory outside the spinlock if need be */
->>> @@ -1289,7 +1283,7 @@ static struct etr_buf 
->>> *tmc_etr_get_sysfs_buffer(struct coresight_device *csdev)
->>>     static int tmc_enable_etr_sink_sysfs(struct coresight_device *csdev)
->>>   {
->>> -    int ret = 0;
->>> +    int ret;
->>>       unsigned long flags;
->>>       struct tmc_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
->>>       struct etr_buf *sysfs_buf = tmc_etr_get_sysfs_buffer(csdev);
->>> @@ -1299,23 +1293,10 @@ static int tmc_enable_etr_sink_sysfs(struct 
->>> coresight_device *csdev)
->>>         raw_spin_lock_irqsave(&drvdata->spinlock, flags);
->>>   -    /*
->>> -     * In sysFS mode we can have multiple writers per sink. Since this
->>> -     * sink is already enabled no memory is needed and the HW need 
->>> not be
->>> -     * touched, even if the buffer size has changed.
->>> -     */
->>> -    if (coresight_get_mode(csdev) == CS_MODE_SYSFS) {
->>> -        csdev->refcnt++;
->>> -        goto out;
->>> -    }
->>> -
->>>       ret = tmc_etr_enable_hw(drvdata, sysfs_buf);
->>> -    if (!ret) {
->>> -        coresight_set_mode(csdev, CS_MODE_SYSFS);
->>> +    if (!ret)
->>>           csdev->refcnt++;
->>> -    }
->>>   -out:
->>>       raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
->>>         if (!ret)
->>> @@ -1729,39 +1710,24 @@ static int tmc_enable_etr_sink_perf(struct 
->>> coresight_device *csdev, void *data)
->>>   {
->>>       int rc = 0;
->>>       pid_t pid;
->>> -    unsigned long flags;
->>>       struct tmc_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
->>>       struct perf_output_handle *handle = data;
->>>       struct etr_perf_buffer *etr_perf = etm_perf_sink_config(handle);
->>>   -    raw_spin_lock_irqsave(&drvdata->spinlock, flags);
->>> -     /* Don't use this sink if it is already claimed by sysFS */
->>> -    if (coresight_get_mode(csdev) == CS_MODE_SYSFS) {
->>> -        rc = -EBUSY;
->>> -        goto unlock_out;
->>> -    }
->>> -
->>> -    if (WARN_ON(!etr_perf || !etr_perf->etr_buf)) {
->>> -        rc = -EINVAL;
->>> -        goto unlock_out;
->>> -    }
->>> +    if (WARN_ON(!etr_perf || !etr_perf->etr_buf))
->>> +        return -EINVAL;
->>>         /* Get a handle on the pid of the session owner */
->>>       pid = etr_perf->pid;
->>>         /* Do not proceed if this device is associated with another 
->>> session */
->>> -    if (drvdata->pid != -1 && drvdata->pid != pid) {
->>> -        rc = -EBUSY;
->>> -        goto unlock_out;
->>> -    }
->>> +    if (drvdata->pid != -1 && drvdata->pid != pid)
->>> +        return -EBUSY;
->>>   -    /*
->>> -     * No HW configuration is needed if the sink is already in
->>> -     * use for this session.
->>> -     */
->>> +    /* The sink is already in use for this session */
->>>       if (drvdata->pid == pid) {
->>>           csdev->refcnt++;
->>> -        goto unlock_out;
->>> +        return rc;
->>>       }
->>>         rc = tmc_etr_enable_hw(drvdata, etr_perf->etr_buf);
->>> @@ -1773,22 +1739,60 @@ static int tmc_enable_etr_sink_perf(struct 
->>> coresight_device *csdev, void *data)
->>>           csdev->refcnt++;
->>>       }
->>>   -unlock_out:
->>> -    raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
->>>       return rc;
->>>   }
->>>     static int tmc_enable_etr_sink(struct coresight_device *csdev,
->>>                      enum cs_mode mode, void *data)
->>>   {
->>> -    switch (mode) {
->>> -    case CS_MODE_SYSFS:
->>> -        return tmc_enable_etr_sink_sysfs(csdev);
->>> -    case CS_MODE_PERF:
->>> -        return tmc_enable_etr_sink_perf(csdev, data);
->>> -    default:
->>> -        return -EINVAL;
->>> +    struct tmc_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
->>> +    int rc;
->>> +
->>> +retry:
->>> +    scoped_guard(raw_spinlock_irqsave, &drvdata->spinlock) {
->>> +        if (coresight_get_mode(csdev) != CS_MODE_DISABLED &&
->>> +            coresight_get_mode(csdev) != mode)
->>> +            return -EBUSY;
->>> +
->>> +        switch (mode) {
->>> +        case CS_MODE_SYSFS:
->>> +            if (drvdata->reading)
->>> +                return -EBUSY;
->>> +
->>> +            if (csdev->refcnt) {
->>> +                /* The sink is already enabled via sysfs */
->>> +                csdev->refcnt++;
->>> +                return 0;
->>> +            }
->>> +
->>> +            /*
->>> +             * A sysfs session is currently enabling ETR, preventing
->>> +             * a second sysfs process from repeatedly triggering the
->>> +             * enable procedure.
->>> +             */
->>> +            if (coresight_get_mode(csdev) == CS_MODE_SYSFS && ! 
->>> csdev->refcnt)
->>> +                goto retry;
->>> +
->>> +            /*
->>> +             * Set ETR to sysfs mode before it is fully enabled, to
->>> +             * prevent race conditions during mode transitions.
->>> +             */
->>> +            coresight_set_mode(csdev, mode);
->>> +            break;
->>> +        case CS_MODE_PERF:
->>> +            return tmc_enable_etr_sink_perf(csdev, data);
->>> +        default:
->>> +            return -EINVAL;
->>> +        }
->>> +    }
->>> +
->>> +    rc = tmc_enable_etr_sink_sysfs(csdev);
->>> +    if (rc) {
->>> +        guard(raw_spinlock_irqsave)(&drvdata->spinlock);
->>> +        coresight_set_mode(csdev, CS_MODE_DISABLED);
->>>       }
->>> +
->>> +    return rc;
->>>   }
->>>     static int tmc_disable_etr_sink(struct coresight_device *csdev)
->>
->>
->> .
->>
-> 
+> diff --git a/arch/arm64/boot/dts/ti/Makefile b/arch/arm64/boot/dts/ti/Makefile
+> index 743115b849a7..54c4a6ba23c7 100644
+> --- a/arch/arm64/boot/dts/ti/Makefile
+> +++ b/arch/arm64/boot/dts/ti/Makefile
+> @@ -115,7 +115,8 @@ dtb-$(CONFIG_ARCH_K3) += k3-j7200-evm.dtb
+>  dtb-$(CONFIG_ARCH_K3) += k3-j7200-evm-pcie1-ep.dtbo
+>  
+>  # Boards with J721e SoC
+> -k3-j721e-evm-dtbs := k3-j721e-common-proc-board.dtb k3-j721e-evm-quad-port-eth-exp.dtbo
+> +k3-j721e-evm-dtbs := k3-j721e-common-proc-board.dtb \
+> +	k3-j721e-evm-quad-port-eth-exp.dtbo k3-j721e-evm-gesi-exp-board.dtbo
+>  dtb-$(CONFIG_ARCH_K3) += k3-j721e-beagleboneai64.dtb
+>  dtb-$(CONFIG_ARCH_K3) += k3-j721e-common-proc-board-infotainment.dtbo
+>  dtb-$(CONFIG_ARCH_K3) += k3-j721e-evm.dtb
+> @@ -177,6 +178,7 @@ k3-am625-sk-csi2-tevi-ov5640-dtbs := k3-am625-sk.dtb \
+>  	k3-am62x-sk-csi2-tevi-ov5640.dtbo
+>  k3-am625-sk-hdmi-audio-dtbs := k3-am625-sk.dtb k3-am62x-sk-hdmi-audio.dtbo
+>  k3-am62-lp-sk-hdmi-audio-dtbs := k3-am62-lp-sk.dtb k3-am62x-sk-hdmi-audio.dtbo
+> +k3-am62-lp-sk-nand-dtbs := k3-am62-lp-sk.dtb k3-am62-lp-sk-nand.dtbo
+>  k3-am62a7-sk-csi2-imx219-dtbs := k3-am62a7-sk.dtb \
+>  	k3-am62x-sk-csi2-imx219.dtbo
+>  k3-am62a7-sk-csi2-ov5640-dtbs := k3-am62a7-sk.dtb \
+> @@ -254,11 +256,17 @@ k3-j784s4-evm-usxgmii-exp1-exp2-dtbs := k3-j784s4-evm.dtb \
+>  	k3-j784s4-evm-usxgmii-exp1-exp2.dtbo
+>  dtb- += k3-am625-beagleplay-csi2-ov5640.dtb \
+>  	k3-am625-beagleplay-csi2-tevi-ov5640.dtb \
+> +	k3-am625-phyboard-lyra-disable-eth-phy.dtb \
+> +	k3-am625-phyboard-lyra-disable-rtc.dtb \
+> +	k3-am625-phyboard-lyra-disable-spi-nor.dtb \
+> +	k3-am625-phyboard-lyra-gpio-fan.dtb \
+> +	k3-am625-phyboard-lyra-qspi-nor.dtb \
+>  	k3-am625-sk-csi2-imx219.dtb \
+>  	k3-am625-sk-csi2-ov5640.dtb \
+>  	k3-am625-sk-csi2-tevi-ov5640.dtb \
+>  	k3-am625-sk-hdmi-audio.dtb \
+>  	k3-am62-lp-sk-hdmi-audio.dtb \
+> +	k3-am62-lp-sk-nand.dtb \
+>  	k3-am62a7-sk-csi2-imx219.dtb \
+>  	k3-am62a7-sk-csi2-ov5640.dtb \
+>  	k3-am62a7-sk-hdmi-audio.dtb \
+> @@ -268,6 +276,14 @@ dtb- += k3-am625-beagleplay-csi2-ov5640.dtb \
+>  	k3-am642-evm-icssg1-dualemac.dtb \
+>  	k3-am642-evm-icssg1-dualemac-mii.dtb \
+>  	k3-am642-evm-pcie0-ep.dtb \
+> +	k3-am642-phyboard-electra-disable-eth-phy.dtb \
+> +	k3-am642-phyboard-electra-disable-rtc.dtb \
+> +	k3-am642-phyboard-electra-disable-spi-nor.dtb \
+> +	k3-am642-phyboard-electra-qspi-nor.dtb \
+> +	k3-am642-phyboard-electra-gpio-fan.dtb \
+> +	k3-am642-phyboard-electra-pcie-usb2.dtb \
+> +	k3-am642-phyboard-electra-x27-gpio1-spi1-uart3.dtb \
+> +	k3-am642-phyboard-electra-peb-c-010.dtb \
+>  	k3-am642-tqma64xxl-mbax4xxl-sdcard.dtb \
+>  	k3-am642-tqma64xxl-mbax4xxl-wlan.dtb \
+>  	k3-am68-sk-base-board-csi2-dual-imx219.dtb \
+
+-- 
+Regards
+Vignesh
+https://ti.com/opensource
 
 
