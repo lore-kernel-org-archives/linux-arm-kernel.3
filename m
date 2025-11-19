@@ -4,175 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C4C9CF257C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 04:58:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32EFCCF2582
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 05:03:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gWgojWfKf6EtUAHA/xL2ngSvYFcqBlxUEFvgiFqdRSA=; b=tH2VIYehdOVL/d8da6+a83WQXo
-	3dSFYR+wa0rBBfQ8mO6QzWtMqZEH6PLEEocehQ3ZMPQ9G2TiOUKcpE5CwSgtY7n0WaHuiMy+aAUwf
-	8glJgsuR86g44XIgIh+a/mnIg/V3huFNEByflLp3WvJ6KcfmxzyByf09JpJ4DJe64ukaUUsbMZUey
-	Ps4HG7dNfOyipWOSpQR38EnPflb7PJ73SQYKFVAMZAjJchleos9/Ii7YIPu7VONvD2+/3meAOOCGZ
-	Ds1HBeSgVfTG196i+SWRYinzIO9saYjDyfbOyFFZBAQ1w5ZJk0NfEXdDOqSpmHrJS3+EzVXXOfK/n
-	dmhtHqqA==;
+	bh=zJZBQJPzH9tvp+p6BfNbmxCYQjyOiKvAtq5q92gsz0E=; b=llctA9/f5N+rsWWjh901xP8jLG
+	l8qOgbsRg8SkvUbc7RkKtOr4ZPzuRkcIUG7JygUGJz+GeR1b2UD5mjxlZyqc5MrpSImE8nizibM+s
+	lKSvAaCx5NvslSBxP0Z7LgeQt8DfC7AvFucKLI3ANLJ4izpDia7bNSuXpZK9Inc9aG0OvISOWk/sp
+	EGFxFVJKYUcDyl391camGHy11YwebAonkgrgHRxs39oeEGM9aJ/jMu+G95ML41A5NJv8yekWtQowD
+	Mfgw4pLYLzIpjUfXywDqx6wknEyOSWRJiq85XzOyxnhH/HNHKgIR96z3LxJ+YgljyAToRxR13evBD
+	ON8OTY+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLaGU-00000001zJy-3zB2;
-	Wed, 19 Nov 2025 04:57:58 +0000
-Received: from mail-westcentralusazon11013038.outbound.protection.outlook.com ([40.93.201.38] helo=CY3PR05CU001.outbound.protection.outlook.com)
+	id 1vLaLg-000000020rR-1CSm;
+	Wed, 19 Nov 2025 05:03:20 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLaGR-00000001zDY-2IBA
+	id 1vLaLa-000000020mA-3LJM
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Nov 2025 04:57:58 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=HsELmOGUAoNzvKppH7WrR6K/T+rIhf5PfD3vMD53xwIeiMSrHBlrgpZnJZUR44Mc6WTpgPRnROGmIgZKK/KWsdMM1PCwqF7T2oVF988Z9l8FWKLg6kcShdjEGpXuxs9iqMhUfUdWLeSx/FxBA6z3aN3QVyD9+0RZFtZuviM7TT5WBRj7R3Lyl6WV/bGA6VAZ5Hi8IswOkBhWZvmvAEOQzBLCnhJXddU22i3epGOP+n6Jkme5DzChfnczC+lImPMkjwvy7fnoNikihIHf6FZRSSta37Mv5AmpB21qQI/jzrnAV7e2VJylcrjvG1kvJbGk/SH0ceifWLZlf3yxmUulpA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=gWgojWfKf6EtUAHA/xL2ngSvYFcqBlxUEFvgiFqdRSA=;
- b=WejLRhxKwiqGGimzVXSr6/ddi392cGgiUUZ4Oqbn6bNOOFO6PfSGp5UZ/o7nelbfHlGLNadOaJdH5+hdY/tFIz1z9hXwnPsuKdMqw97LJko2qJb1kHxuTEapahqgQf4QcTdc7MHd7cS41JiEnAe8OpA1hgIgllIVuGDzu7uoRBHWUgMNhoc/q04cW0ALzmdu1mSySCB0Nt07NziOgKUVXmPAUIbcp2mKvNL4D8evyKO//FK0Qjtn8rOFZgi0TogX3AprXqxzK8D3TDaYaBdjE+q1XysiFoPMpCiXykWy0cMVLnWbQfM+WyizUbbl5V6zfglia+W98USQnvzZEw2beg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=gWgojWfKf6EtUAHA/xL2ngSvYFcqBlxUEFvgiFqdRSA=;
- b=D11aueJlSZMyDlg/ta8U3J7a2evld1zSVHxcvDBeIonbMY6alow/6TGC1vM7NEjEFAH6Qag5uVi95iH0nXGB4jmkouPpBXwCk1TKW86jWhJFj33geYjU79FZup03Exhfk9HLSZ63uGz5rk2TboCFIcl7AAv31+DAkxiUyxi9ZqZYQob/Gh0wqoeZ1bO0PL2oojsgqwdEK2TZw902FdbpG8bfsxVUWGedvkKZR3fbR9NmdTjsudUKUySurEyOs5V3ED5ncnYJ88IVRRbqB5sxDfbaEuEzKA5svvKjch2fVLFhlQgoKnq2wOHthCqqr5g0HhxO2whBKoLsDsZ1sOxzMQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from DM6PR12MB2667.namprd12.prod.outlook.com (2603:10b6:5:42::28) by
- DM4PR12MB5961.namprd12.prod.outlook.com (2603:10b6:8:68::21) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9320.22; Wed, 19 Nov 2025 04:57:50 +0000
-Received: from DM6PR12MB2667.namprd12.prod.outlook.com
- ([fe80::bd88:b883:813d:54a2]) by DM6PR12MB2667.namprd12.prod.outlook.com
- ([fe80::bd88:b883:813d:54a2%6]) with mapi id 15.20.9275.015; Wed, 19 Nov 2025
- 04:57:49 +0000
-Message-ID: <6b8ada8c-7793-4d12-ae78-027be63874dc@nvidia.com>
-Date: Tue, 18 Nov 2025 20:57:47 -0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 29/34] arm_mpam: Probe for long/lwd mbwu counters
-To: Ben Horgan <ben.horgan@arm.com>, james.morse@arm.com
-Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
- baolin.wang@linux.alibaba.com, bobo.shaobowang@huawei.com,
- carl@os.amperecomputing.com, catalin.marinas@arm.com, dakr@kernel.org,
- dave.martin@arm.com, david@redhat.com, dfustini@baylibre.com,
- gregkh@linuxfoundation.org, gshan@redhat.com, guohanjun@huawei.com,
- jeremy.linton@arm.com, jonathan.cameron@huawei.com, kobak@nvidia.com,
- lcherian@marvell.com, lenb@kernel.org, linux-acpi@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- lpieralisi@kernel.org, peternewman@google.com, quic_jiles@quicinc.com,
- rafael@kernel.org, robh@kernel.org, rohit.mathew@arm.com,
- scott@os.amperecomputing.com, sdonthineni@nvidia.com, sudeep.holla@arm.com,
- tan.shaopeng@fujitsu.com, will@kernel.org, xhao@linux.alibaba.com,
- Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>, Zeng Heng <zengheng4@huawei.com>
-References: <20251117170014.4113754-1-ben.horgan@arm.com>
- <20251117170014.4113754-30-ben.horgan@arm.com>
-Content-Language: en-US
-From: Fenghua Yu <fenghuay@nvidia.com>
-In-Reply-To: <20251117170014.4113754-30-ben.horgan@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: BY1P220CA0010.NAMP220.PROD.OUTLOOK.COM
- (2603:10b6:a03:59d::12) To DM6PR12MB2667.namprd12.prod.outlook.com
- (2603:10b6:5:42::28)
+	Wed, 19 Nov 2025 05:03:18 +0000
+Received: from pendragon.ideasonboard.com (unknown [205.220.129.225])
+	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 53739195E;
+	Wed, 19 Nov 2025 06:01:05 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1763528468;
+	bh=6f04bYijyMFsZjVjgltBRwZEr1RHbFar8/wn5NeBitM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=fUFcaMcA4k5pMNwr3yRgoRddLq9BLebhEBuD47UPiZg1bPfq9Hb69MKVNFtE+5/be
+	 v5nT1KiTI04S8GGb9elvBgOOgb5AyShKEstDfnB+0f5AtvlsG0wLpvaw7LGP7iKnlA
+	 oTyQ5jAKw/+U4TnzntuqvjuC2l5qxsB1LwfuYigw=
+Date: Wed, 19 Nov 2025 14:02:39 +0900
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Frank Li <Frank.Li@nxp.com>
+Cc: Philipp Zabel <p.zabel@pengutronix.de>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Rui Miguel Silva <rmfrfs@gmail.com>,
+	Martin Kepplinger-Novakovic <martink@posteo.de>,
+	Purism Kernel Team <kernel@puri.sm>, linux-media@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 4/4] media: nxp: use cleanup __free(fwnode_handle)
+ simplify code
+Message-ID: <20251119050239.GA16725@pendragon.ideasonboard.com>
+References: <20251117-cam_cleanup-v1-0-6cd42872db79@nxp.com>
+ <20251117-cam_cleanup-v1-4-6cd42872db79@nxp.com>
+ <20251119042505.GO10711@pendragon.ideasonboard.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DM6PR12MB2667:EE_|DM4PR12MB5961:EE_
-X-MS-Office365-Filtering-Correlation-Id: dc4d9981-338f-4f56-29a7-08de2728305a
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016|7053199007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?aHpiMTVNM3hYL1U0ZXdGMDdEemtSTzV6Z09QaWhMdi9iRXVEY3drMVQ5T3Nu?=
- =?utf-8?B?cHdhMWJhd0U1YTFCMVAxMFFaMm4vNVVrRTRXbk84NjRoTjRnUTdyTUlrbHlT?=
- =?utf-8?B?MFF0NDZSR2JlRlNDQjBqUHdmdzN6dmNqTXZaZGg2T29rT3hRZWh4Z0lkTXZ2?=
- =?utf-8?B?UFQ5OFZUT1hacmxxU2VzSitwVGkzU043MCs4Qm1WTDN4cW1pajdJbGNKandV?=
- =?utf-8?B?cjdNSDZwS2c5Si91aXVBVXJIMUpUd1NweFFSSkNoUHZmZ0hTbDV6UHNZWnNB?=
- =?utf-8?B?dUFxR082MHU0aFQ0cENGbXVLUlY2aTI1MXpIRnBkTHU3WjZONDN2c1dHL0Nh?=
- =?utf-8?B?dUlXWHV5SEpZY0QrQVN5M0wrRWZ2Q29BZU4zaS9PY1pRUFBLMW9wWDhHRVhs?=
- =?utf-8?B?cFhjNmhHN3pyMUZKc0o1M0JsOHdOOTI3UVhvVms5ZThyZW5ZeU41azV1NUdB?=
- =?utf-8?B?QStock45QXlRcVI2Sjd2bTFUQ04zYWhpODdsUGFvUFlhbUk2dnc4bXlCQlow?=
- =?utf-8?B?a2lUNTJOUHJIdGJxNjlnVVBEUFJMNW9sRnNKaHNhUnlkc3RwVlFDelNlM0JG?=
- =?utf-8?B?UWRXRXZOOGRlRDh6NnZJaW1oVG82ZERiNzhhZTdsV250TzhaM3RPaThWRC9o?=
- =?utf-8?B?SlhsN0RTU2ExTWVPNXlESUZzOEZXSm5tQWtiVEZuMFRrdWZEWVVUdnRKSk9q?=
- =?utf-8?B?ejg5Q2FNQVM0TllGZjlHSVJsT2JrVDhRZ1NBcjR6bzFpdVAraUJ3d3VDZUIr?=
- =?utf-8?B?TUgwcHBHdEw4NzlQbmtUc2U3WWtIQ1RweHhJQnlXWEI2cTEwVzNzd2hVUDVr?=
- =?utf-8?B?WnZmYlRQRXpUd3p5T2FYaVNaa2hiWTl1TjFMOEpEWTJNYnRVQUU2b2tJOTU1?=
- =?utf-8?B?RWVtQTFMbytZdHlDS1FJam5Wa3pPTmxHT2ozdXNzRDNRMzNocFM1RTFYNXJQ?=
- =?utf-8?B?eWhWckx1ZG8vbFdZQ0dLTS83dXd1S2FyeWViV2o2cDhHZ21OWHl5TzUzMm5D?=
- =?utf-8?B?bURUN2UwOUFPVGcyTkdMOE4wQXlsMGMrMTdrTlowY3F6b0hRSTd4YXRFVXUr?=
- =?utf-8?B?ODlMKzhPYzVaMnlQQTVCUUlTVVVyVDRBVVliU1hROS9XVmRnYzNFOGtzUk1u?=
- =?utf-8?B?aEJyUkZ5UXk5SWI2QXp5aXhvSHYveUQ1ak5LRVRUZDBCdXhNNFJPK0xyVEhJ?=
- =?utf-8?B?WkpMUVZFRWZrVWMyL1pYS2lyQzhZUnduTDZTcmVrZGtIUlJ1aERqZ0VDYWo5?=
- =?utf-8?B?L3gwUW5HSHdwSi9lM2J1ZU1JdjlqZmFwNWo1YmtIYm5sVWRVTzZkUk9ScDNm?=
- =?utf-8?B?VUsvQnhPRmpRQnVxQmxvbFA1RlQvdWlZTnpYM1BLTmhEVDRYMWhaeWxXcGI3?=
- =?utf-8?B?eFUxY1hVSVVTTk1yNGxNbGt5NkpEVTFna0RFMHYrZ0x6NUF1RTBRSkY1WEVI?=
- =?utf-8?B?ODBxTW42VW9maTRHQlRpazczdFpPSVlnVTRoNjlNUFZFelczaGtqekJJcTlq?=
- =?utf-8?B?TC96dzEwS0NLZ2FZRHZRK3BUTi9uTkI3cHg4a3hValRMRHlLNi83WHVkU1o2?=
- =?utf-8?B?MnJ4eHFhRit3QWNWVXppdGNjU3hwTncyanQ4bXh2K1RvQURyOHJZbzlmMmdS?=
- =?utf-8?B?d2l6RkwvT08vUTFCNklCZ2xVQXNlL1VoNE0wcUs5aG5lR1kxMVBlNFo2KzRz?=
- =?utf-8?B?bVE2eVRSWjF4cjlSclp4Wm5FUWNHRENtYU8ybmR1OVFTMVpsQ3F2eXRPbVBI?=
- =?utf-8?B?dFpaV3k5eEZCdlh5UkVrd2VWMGpsR09LU2JXWkRTYzEyRUtJVC9pUFNieXdS?=
- =?utf-8?B?cmpMM3dxU1M0RmJyWmltZ3ErZldwb0JvVDRobXpUVTBQeG15aEQyR0RiYXFT?=
- =?utf-8?B?NStqZVlZR3dVVDNxSHdrdnBXaGY2V0ZpczNUc2MzS25EMGtDK01ZN0V0V25Y?=
- =?utf-8?Q?HsUGOQdQS6UuGW/X6Gb9GimPRBsTMPKL?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM6PR12MB2667.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?eUM0cVJoZENYTXF6NkU1OW4rZ2JRdXFHaExEb1Jrc0hzbmc2TldJWWtXWlNp?=
- =?utf-8?B?RGNCcUNIS2wrMm5QOC9icUsrOXFNL3poOWZyUWg0YVNxblVEMDdPN3hQM1F6?=
- =?utf-8?B?KzRZVzhrRU42Ukx3ZUNBSUxXM0NKRllSYmw2K3E1eTFJdGNBWk9KSG9Pb2Ew?=
- =?utf-8?B?UnQ2ai9teEZ3U1dTZFhEVXpRVW95bDdUQW9Nc3RNYkxyRWNCUG5kN0N1TlJq?=
- =?utf-8?B?ZXRjenByZEJyMUdaOTBFMklCOEx4UnFrRUFacXkvNzRMT01IblIxaldTK1Fz?=
- =?utf-8?B?dDVTc1ZqOHdUY1NCVHZydzBpYzJDNkk0eGE5VmVRYk1rbVBYbi9uYTk0clQz?=
- =?utf-8?B?K0NJRWZ2bys0OUVRcFphMGRZSnYxbkFmSVMyNWZTSXpkY3hoUWM2YllYNkQ1?=
- =?utf-8?B?K2JzOEZrL2xNZ0FvMnVieElRY0NEZndvZXg0bVVXWE5zVnIwWHhUWHE1Sllk?=
- =?utf-8?B?cUF2eXVTdGgxL2RMTGROMGVYTkVEa3FBakUxNlJvYjJualE0c2wzRERITkRv?=
- =?utf-8?B?cFRvSkUzK1pWK2VHOXRnSWNFWkI1R0F5bXR1ZnZ2NmlINFZTdjdTYStzUEFi?=
- =?utf-8?B?VUZTcytxbnhqaVhNMHdaVStBbDg4VW1uK3RNQ3F5UGpXWFl2VTBUT01EeUJV?=
- =?utf-8?B?bm40dGpuWTdjeUNhM3plNjRrMFN5K1MzOGtuOGhuUEZVYllyRk5iRzVQRWJy?=
- =?utf-8?B?MmlHTmRZb290czdORG8rdzNRYlloOVFIUWdOK1FyMDA2c0Zuak1XMFFVZWg5?=
- =?utf-8?B?d0M2VTRnRzJta0Z1Rm5LaGNUaFUxN2hRaERIUHNjMDJuRk5aRnlpTklNZGJG?=
- =?utf-8?B?U2J6NkkvaFp1MHN4QlFzMnBRQ0lwNCtja0pzckdaK00rQ001cVFKMy9aTFA5?=
- =?utf-8?B?cWNpTDBiZVJSWHFwYW9qN2QrYkY0Rk5wb1JtcEQySXZlRW12cUdkQzY0ZURw?=
- =?utf-8?B?MFNscjdpRVpmL0piSFBwT2w1SXI4V0pneWtYbjk1T1BMekRwekVtQXViUmNZ?=
- =?utf-8?B?bXAyK1IyUHhoUGE0V21pY2JLNW5HMjNEODhpMlBEWWRxc2Z2TFBhVGhOaHRU?=
- =?utf-8?B?SVdTQ1ZoVUdoWThBMFFzUFRLaDlnSlNsUmorend5MnQzZnI1djdnN0lKYjJC?=
- =?utf-8?B?VmNxVFlrUmcvV1VlYnd1M2gxeTVheXdaanE0aVlwRk1tMjVjaVVPTDlFMDg5?=
- =?utf-8?B?Mzh6dExHejdxRHBEUXpML2dnemVkZnJBWGxPM2MvVjBmTUxSNWw1K3loQWEv?=
- =?utf-8?B?M0tFeVVVOEUyWGwzcHRNUTBseDlhY1JMWENoMktrMFNWcWRsYzBCekp1M3o2?=
- =?utf-8?B?ZnhWb2VzVm01R28yTVpndXFmb3FORDFlRHFhU3FrTndSWkZpQW1MZXdhdjFh?=
- =?utf-8?B?T3RObjJaYXMrbG95UHNrQTNIWGRjeHR1Q05rbGdKSHhrMTNNQUNoTUdicWFa?=
- =?utf-8?B?cW5FMzc5akkxdXBUL0JuakZRNnJ1SnNQR09lSE5VaC9oMXBldUhBdHFvdTE0?=
- =?utf-8?B?OU95WVU0Q2tSVkk5VDd1QkQ2NExCdmdnb1pWaWJGQlZUeEhhSHl5cTNzWjF1?=
- =?utf-8?B?UWhvQ3JETlZ3ZWVGc2Q3RUVLUFlkRHQ0Qm5kNTJWRlBDRk1PZ3M1NnoySXdT?=
- =?utf-8?B?ci9YSEFrR3JEWnRRQlorWjlRTkMxRVY1ZnRtNVhEOU1PMTZUcDJoTHVyWDJs?=
- =?utf-8?B?a3BhK1FwaTVTZTJJZnh5QmttMXQyUHhiNERHb3FuY1RncHdmMTI2S2JCck41?=
- =?utf-8?B?b1YwR1MrK1FSd293M2pIeGFBeW9pNXVUQUFiV3BUcTkvRVZWUHdPcnhHcWdF?=
- =?utf-8?B?UnZlSjFVMTIvMVBNMUcrcG14c1d6QjZXejF2Q3R5L3g1SUJheGdEUVVlVTN4?=
- =?utf-8?B?L1BTVUw0aERyS3A4ZFo2UG9zZlduWUI4b09MRE5oYmJZWFNaMnRYdHlsY0pa?=
- =?utf-8?B?S25xbk1WQWRFaUE0ejBxQWVYVnorOFh3NmdwR3E4K1hCK2s5bjc1WlA2VVll?=
- =?utf-8?B?anpSdjVwTTc3N0VDNmJvU1luVlJsVUVzWDlVaXZLcHAyVTVPLzhNZDl6eHF5?=
- =?utf-8?B?YU4wNFBCeUZGWFNVcDlTUmxabHpSbThNSGVYSWFGWmY1YTdqb3dqWkZKSVg2?=
- =?utf-8?Q?oCT/Ia+O9r/vY1iwdYhFvwgcE?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: dc4d9981-338f-4f56-29a7-08de2728305a
-X-MS-Exchange-CrossTenant-AuthSource: DM6PR12MB2667.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Nov 2025 04:57:49.8408
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: uXp46gi0JfIO9ibvOTpoJ3VP6yQ9AQOWBjguuOfzYqS3bf1NDuCABfYdd3sZyVVcF7osjpoHlMp/1c1tmkt4vA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR12MB5961
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20251119042505.GO10711@pendragon.ideasonboard.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251118_205755_615551_227B4839 
-X-CRM114-Status: UNSURE (   8.36  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251118_210316_867880_E6D5B53E 
+X-CRM114-Status: GOOD (  28.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -187,38 +78,208 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 11/17/25 09:00, Ben Horgan wrote:
-> From: Rohit Mathew <rohit.mathew@arm.com>
+On Wed, Nov 19, 2025 at 01:25:29PM +0900, Laurent Pinchart wrote:
+> On Mon, Nov 17, 2025 at 01:58:14PM -0500, Frank Li wrote:
+> > Use cleanup __free(fwnode_handle) simplify code. Change to dev_err_probe()
+> > because replace goto with return.
+> > 
+> > Add missed "\n" at error message.
+> > 
+> > No functional change.
+> > 
+> > Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> > ---
+> >  drivers/media/platform/nxp/imx-mipi-csis.c    | 31 +++++++++------------------
+> >  drivers/media/platform/nxp/imx8mq-mipi-csi2.c | 31 +++++++++------------------
+> >  2 files changed, 20 insertions(+), 42 deletions(-)
+> > 
+> > diff --git a/drivers/media/platform/nxp/imx-mipi-csis.c b/drivers/media/platform/nxp/imx-mipi-csis.c
+> > index ce93d868746f002c22e2f86b1e0aa84ec1a76061..d924adb406a30797b66f0094ab17e98ad44fefac 100644
+> > --- a/drivers/media/platform/nxp/imx-mipi-csis.c
+> > +++ b/drivers/media/platform/nxp/imx-mipi-csis.c
+> > @@ -12,6 +12,7 @@
+> >   *
+> >   */
+> >  
+> > +#include <linux/cleanup.h>
+> >  #include <linux/clk.h>
+> >  #include <linux/debugfs.h>
+> >  #include <linux/delay.h>
+> > @@ -1349,28 +1350,25 @@ static int mipi_csis_async_register(struct mipi_csis_device *csis)
+> >  		.bus_type = V4L2_MBUS_CSI2_DPHY,
+> >  	};
+> >  	struct v4l2_async_connection *asd;
+> uuu> -	struct fwnode_handle *ep;
+> >  	unsigned int i;
+> >  	int ret;
+> >  
+> >  	v4l2_async_subdev_nf_init(&csis->notifier, &csis->sd);
+> >  
+> > -	ep = fwnode_graph_get_endpoint_by_id(dev_fwnode(csis->dev), 0, 0,
+> > -					     FWNODE_GRAPH_ENDPOINT_NEXT);
+> > +	struct fwnode_handle *ep __free(fwnode_handle) =
+> > +		fwnode_graph_get_endpoint_by_id(dev_fwnode(csis->dev), 0, 0,
+> > +						FWNODE_GRAPH_ENDPOINT_NEXT);
 > 
-> mpam v0.1 and versions above v1.0 support optional long counter for
-> memory bandwidth monitoring. The MPAMF_MBWUMON_IDR register has fields
-> indicating support for long counters.
+> Let's avoid mixing variable declarations and code, this is a style
+> change that is not widely accepted (yet). You can write
 > 
-> Probe these feature bits.
+> 	struct fwnode_handle *ep __free(fwnode_handle) = NULL;
+>  	struct v4l2_async_connection *asd;
+> 	unsigned int i;
+> 	int ret;
 > 
-> The mpam_feat_msmon_mbwu feature is used to indicate that bandwidth
-> monitors are supported, instead of muddling this with which size of
-> bandwidth monitors, add an explicit 31 bit counter feature.
+>   	v4l2_async_subdev_nf_init(&csis->notifier, &csis->sd);
 > 
-> Signed-off-by: Rohit Mathew <rohit.mathew@arm.com>
-> [ morse: Added 31bit counter feature to simplify later logic ]
-> Signed-off-by: James Morse <james.morse@arm.com>
-> Reviewed-by: Ben Horgan <ben.horgan@arm.com>
-> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
-> Reviewed-by: Gavin Shan <gshan@redhat.com>
-> Tested-by: Fenghua Yu <fenghuay@nvidia.com>
-> Tested-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
-> Tested-by: Peter Newman <peternewman@google.com>
-> Tested-by: Carl Worth <carl@os.amperecomputing.com>
-> Tested-by: Gavin Shan <gshan@redhat.com>
-> Tested-by: Zeng Heng <zengheng4@huawei.com>
-> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
+> 	ep = fwnode_graph_get_endpoint_by_id(dev_fwnode(csis->dev), 0, 0,
+> 					     FWNODE_GRAPH_ENDPOINT_NEXT);
 
-Reviewed-by: Fenghua Yu <fenghuay@nvidia.com>
+Quite a coincidence, there's an ongoing mail thread on LKML about this
+topic:
 
-Thanks.
+http://lore.kernel.org/r/CAHk-=whPZoi03ZwphxiW6cuWPtC3nyKYS8_BThgztCdgPWP1WA@mail.gmail.com
 
--Fenghua
+> >  	if (!ep)
+> >  		return -ENOTCONN;
+> >  
+> >  	ret = v4l2_fwnode_endpoint_parse(ep, &vep);
+> >  	if (ret)
+> > -		goto err_parse;
+> > +		return ret;
+> >  
+> >  	for (i = 0; i < vep.bus.mipi_csi2.num_data_lanes; ++i) {
+> > -		if (vep.bus.mipi_csi2.data_lanes[i] != i + 1) {
+> > -			dev_err(csis->dev,
+> > -				"data lanes reordering is not supported");
+> > -			ret = -EINVAL;
+> > -			goto err_parse;
+> > -		}
+> > +		if (vep.bus.mipi_csi2.data_lanes[i] != i + 1)
+> > +			return dev_err_probe(csis->dev, -EINVAL,
+> > +					     "data lanes reordering is not supported\n");
+> 
+> To switch to dev_err_probe(), we should drop the error message in the
+> probe() function when mipi_csis_async_register() fails, and make sure
+> every error path in this function prints a message. I'd prefer splitting
+> that to a separate patch.
+> 
+> >  	}
+> >  
+> >  	csis->bus = vep.bus.mipi_csi2;
+> > @@ -1381,12 +1379,8 @@ static int mipi_csis_async_register(struct mipi_csis_device *csis)
+> >  
+> >  	asd = v4l2_async_nf_add_fwnode_remote(&csis->notifier, ep,
+> >  					      struct v4l2_async_connection);
+> > -	if (IS_ERR(asd)) {
+> > -		ret = PTR_ERR(asd);
+> > -		goto err_parse;
+> > -	}
+> > -
+> > -	fwnode_handle_put(ep);
+> > +	if (IS_ERR(asd))
+> > +		return PTR_ERR(asd);
+> >  
+> >  	csis->notifier.ops = &mipi_csis_notify_ops;
+> >  
+> > @@ -1395,11 +1389,6 @@ static int mipi_csis_async_register(struct mipi_csis_device *csis)
+> >  		return ret;
+> >  
+> >  	return v4l2_async_register_subdev(&csis->sd);
+> > -
+> > -err_parse:
+> > -	fwnode_handle_put(ep);
+> > -
+> > -	return ret;
+> >  }
+> >  
+> >  /* -----------------------------------------------------------------------------
+> > diff --git a/drivers/media/platform/nxp/imx8mq-mipi-csi2.c b/drivers/media/platform/nxp/imx8mq-mipi-csi2.c
+> > index 75709161fb26a61239b94430365849e022fdc14f..94882568405db55593c5c51722db2233a64d53e4 100644
+> > --- a/drivers/media/platform/nxp/imx8mq-mipi-csi2.c
+> > +++ b/drivers/media/platform/nxp/imx8mq-mipi-csi2.c
+> > @@ -6,6 +6,7 @@
+> >   */
+> >  
+> >  #include <linux/bitfield.h>
+> > +#include <linux/cleanup.h>
+> >  #include <linux/clk.h>
+> >  #include <linux/clk-provider.h>
+> >  #include <linux/delay.h>
+> > @@ -717,28 +718,25 @@ static int imx8mq_mipi_csi_async_register(struct csi_state *state)
+> >  		.bus_type = V4L2_MBUS_CSI2_DPHY,
+> >  	};
+> >  	struct v4l2_async_connection *asd;
+> > -	struct fwnode_handle *ep;
+> >  	unsigned int i;
+> >  	int ret;
+> >  
+> >  	v4l2_async_subdev_nf_init(&state->notifier, &state->sd);
+> >  
+> > -	ep = fwnode_graph_get_endpoint_by_id(dev_fwnode(state->dev), 0, 0,
+> > -					     FWNODE_GRAPH_ENDPOINT_NEXT);
+> > +	struct fwnode_handle *ep __free(fwnode_handle) =
+> > +		fwnode_graph_get_endpoint_by_id(dev_fwnode(state->dev), 0, 0,
+> > +						FWNODE_GRAPH_ENDPOINT_NEXT);
+> 
+> Same comment as above.
+> 
+> >  	if (!ep)
+> >  		return -ENOTCONN;
+> >  
+> >  	ret = v4l2_fwnode_endpoint_parse(ep, &vep);
+> >  	if (ret)
+> > -		goto err_parse;
+> > +		return ret;
+> >  
+> >  	for (i = 0; i < vep.bus.mipi_csi2.num_data_lanes; ++i) {
+> > -		if (vep.bus.mipi_csi2.data_lanes[i] != i + 1) {
+> > -			dev_err(state->dev,
+> > -				"data lanes reordering is not supported");
+> > -			ret = -EINVAL;
+> > -			goto err_parse;
+> > -		}
+> > +		if (vep.bus.mipi_csi2.data_lanes[i] != i + 1)
+> > +			return dev_err_probe(state->dev, -EINVAL,
+> > +					     "data lanes reordering is not supported\n");
+> 
+> And here too.
+> 
+> Usage of __free(fwnode_handle) looks good, it just needs to be split to
+> a patch of its own.
+> 
+> >  	}
+> >  
+> >  	state->bus = vep.bus.mipi_csi2;
+> > @@ -749,12 +747,8 @@ static int imx8mq_mipi_csi_async_register(struct csi_state *state)
+> >  
+> >  	asd = v4l2_async_nf_add_fwnode_remote(&state->notifier, ep,
+> >  					      struct v4l2_async_connection);
+> > -	if (IS_ERR(asd)) {
+> > -		ret = PTR_ERR(asd);
+> > -		goto err_parse;
+> > -	}
+> > -
+> > -	fwnode_handle_put(ep);
+> > +	if (IS_ERR(asd))
+> > +		return PTR_ERR(asd);
+> >  
+> >  	state->notifier.ops = &imx8mq_mipi_csi_notify_ops;
+> >  
+> > @@ -763,11 +757,6 @@ static int imx8mq_mipi_csi_async_register(struct csi_state *state)
+> >  		return ret;
+> >  
+> >  	return v4l2_async_register_subdev(&state->sd);
+> > -
+> > -err_parse:
+> > -	fwnode_handle_put(ep);
+> > -
+> > -	return ret;
+> >  }
+> >  
+> >  /* -----------------------------------------------------------------------------
+
+-- 
+Regards,
+
+Laurent Pinchart
 
