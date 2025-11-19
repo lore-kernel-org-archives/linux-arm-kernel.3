@@ -4,65 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 314B6CF3953
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 16:25:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 253EACF3953
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 16:26:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DQ51CgQpN6Hc12+GBsB9pILpazBm+Ze7/F736tiSDzU=; b=1AQqnhS3Wv5yR186V9nmtuHgdD
-	6mkj6G2+gqlyL6WyL5pjBIRXYCOSzFVq0aATRpbknUwu3giy3ba31eCB/R1y+4mEoUaAVGgPEDJ2Z
-	0d/PI+ADQEMasVlB1RfxikByehA6fRJftFIhdCjMjL2w5eSMaTRN9qR5b7cN7Fw25fnT6tpI5WG7e
-	pGpI2EJRq9ZZi4DKWxgWlHJc37tVoz6jwmdG4uuL5qAHpe0GEXG1+av1VF899HwMB+l0VXcRwSvyB
-	ZELNcrFUPxTFT0MZ/NMCo+J2MwMcIzCBjgrcMhG8oic7RoQOWJO4f71nYA3swtatyecQUT8v1F3xO
-	PLiGDjIw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cuAfspbGZ4sy29S+/sDz2RKUTR11Cjrmyz2ihEZJwtA=; b=Ap0jQ7cXNZuMyX3ZW751Le9rRK
+	TKyrrS3t7JfJvx7MRIsMgBGzKLQFkUKeMw1flCJuUCUae3876FSMdGu/Fb/5l2/k0EU99/wIT1UjT
+	1TNYHwCU/m5QlZP5RYUT0yUAW8inQwFGAd+BENo84aijrHzCthSkwE6tzxj9KfajYmMT7LLVQg/jg
+	46RJsZhr/I9BGBwq2ly8Db7PJt7gsiVN+DpzG7oiqHnUtH4VF61tqsQPhVa1HYY/jfClHbwn6OgKQ
+	Oko5ntTj2dxgLNR/+Jqj6zfiIvSE80n1PsKDY10a9w9d4xR36pZHjLwrd8JKkG651m+9QnFC6CF4I
+	cvwxSAZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLl06-00000003hHf-1iVT;
-	Wed, 19 Nov 2025 16:25:46 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLl03-00000003hGv-2noL
+	id 1vLl0T-00000003hP9-10U5;
+	Wed, 19 Nov 2025 16:26:09 +0000
+Received: from mgamail.intel.com ([198.175.65.12])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vLl0Q-00000003hNf-3ysr
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Nov 2025 16:25:44 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 58B4BFEC;
-	Wed, 19 Nov 2025 08:25:34 -0800 (PST)
-Received: from [172.27.42.169] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3BFC43F740;
-	Wed, 19 Nov 2025 08:25:38 -0800 (PST)
-Message-ID: <e08b021c-5db9-49a8-b95d-0b3f957fedca@arm.com>
-Date: Wed, 19 Nov 2025 10:25:37 -0600
+	Wed, 19 Nov 2025 16:26:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1763569567; x=1795105567;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=rcYiTW4WgTYzSq1h46XlhyDQby8fcyyNoQwZ4LlKIJk=;
+  b=HaSTDyTjvOkK6IoDzHGezULvoB2/XZrTfvTfRAjqPyTqkfpRZRRXC8QK
+   spK7qDEdOOjzd7tekvY317QvFiqc/07lx6guhG/kq+GpHSW5tYnKpamg9
+   s7N23ZUcvCXcwjL1G7D/GTJ80xiirEcFSPK10YbtSYYEwjiDxZW24Bn2c
+   yd20WHOIFQW/IM7BpOnNsWrrDer7Vpc89c9i/eGB1gs5DtBPPuWy7zNjb
+   Ii20xgffWUn/qdAmcrZMF+cx+GncykBmt4SkylvdMuGcSXCUQq9AlSWhk
+   tEOuMyGGERPJAsV80Yf/mD2qg8UvoKZd/4QXvJ02PZaZV0VQxiVf7RoHr
+   Q==;
+X-CSE-ConnectionGUID: mhaDd0UFS5i3bLlKh/sIaA==
+X-CSE-MsgGUID: kIrY5oeRTDCT8plNlpgpIQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11618"; a="77083286"
+X-IronPort-AV: E=Sophos;i="6.19,315,1754982000"; 
+   d="scan'208";a="77083286"
+Received: from orviesa001.jf.intel.com ([10.64.159.141])
+  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2025 08:26:06 -0800
+X-CSE-ConnectionGUID: C6AjU3XJRhCz5LxNOI/G7g==
+X-CSE-MsgGUID: IupJoa/+SbSMxo/3outhag==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.19,315,1754982000"; 
+   d="scan'208";a="228432613"
+Received: from rvuia-mobl.ger.corp.intel.com (HELO localhost) ([10.245.245.245])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2025 08:26:01 -0800
+Date: Wed, 19 Nov 2025 18:25:58 +0200
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Jisheng Zhang <jszhang@kernel.org>
+Cc: Doug Berger <opendmb@gmail.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	bcm-kernel-feedback-list@broadcom.com,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Bartosz Golaszewski <brgl@bgdev.pl>,
+	Hoan Tran <hoan@os.amperecomputing.com>,
+	Andy Shevchenko <andy@kernel.org>, Daniel Palmer <daniel@thingy.jp>,
+	Romain Perier <romain.perier@gmail.com>,
+	Grygorii Strashko <grygorii.strashko@ti.com>,
+	Santosh Shilimkar <ssantosh@kernel.org>,
+	Kevin Hilman <khilman@kernel.org>,
+	Robert Jarzmik <robert.jarzmik@free.fr>,
+	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>,
+	Srinivas Neeli <srinivas.neeli@amd.com>,
+	Michal Simek <michal.simek@amd.com>, linux-gpio@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-omap@vger.kernel.org
+Subject: Re: [PATCH v3 05/15] gpio: pxa: Use modern PM macros
+Message-ID: <aR3vllR_9-aVxCAG@smile.fi.intel.com>
+References: <20251119144327.13345-1-jszhang@kernel.org>
+ <20251119144327.13345-6-jszhang@kernel.org>
+ <aR3mnWQedt7SMRP0@smile.fi.intel.com>
+ <aR3pG7Em5RcRqAKT@xhacker>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 02/34] ACPI / PPTT: Stop acpi_count_levels() expecting
- callers to clear levels
-To: Ben Horgan <ben.horgan@arm.com>, james.morse@arm.com
-Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
- baolin.wang@linux.alibaba.com, bobo.shaobowang@huawei.com,
- carl@os.amperecomputing.com, catalin.marinas@arm.com, dakr@kernel.org,
- dave.martin@arm.com, david@redhat.com, dfustini@baylibre.com,
- fenghuay@nvidia.com, gregkh@linuxfoundation.org, gshan@redhat.com,
- guohanjun@huawei.com, jonathan.cameron@huawei.com, kobak@nvidia.com,
- lcherian@marvell.com, lenb@kernel.org, linux-acpi@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- lpieralisi@kernel.org, peternewman@google.com, quic_jiles@quicinc.com,
- rafael@kernel.org, robh@kernel.org, rohit.mathew@arm.com,
- scott@os.amperecomputing.com, sdonthineni@nvidia.com, sudeep.holla@arm.com,
- tan.shaopeng@fujitsu.com, will@kernel.org, xhao@linux.alibaba.com,
- Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>, Zeng Heng <zengheng4@huawei.com>
-References: <20251117170014.4113754-1-ben.horgan@arm.com>
- <20251117170014.4113754-3-ben.horgan@arm.com>
-Content-Language: en-US
-From: Jeremy Linton <jeremy.linton@arm.com>
-In-Reply-To: <20251117170014.4113754-3-ben.horgan@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aR3pG7Em5RcRqAKT@xhacker>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251119_082543_790975_B2654A0C 
-X-CRM114-Status: GOOD (  23.95  )
+X-CRM114-CacheID: sfid-20251119_082607_047031_9DAC8058 
+X-CRM114-Status: GOOD (  14.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,98 +105,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/17/25 10:59 AM, Ben Horgan wrote:
-> From: James Morse <james.morse@arm.com>
-> 
-> In acpi_count_levels(), the initial value of *levels passed by the
-> caller is really an implementation detail of acpi_count_levels(), so it
-> is unreasonable to expect the callers of this function to know what to
-> pass in for this parameter.  The only sensible initial value is 0,
-> which is what the only upstream caller (acpi_get_cache_info()) passes.
-> 
-> Use a local variable for the starting cache level in acpi_count_levels(),
-> and pass the result back to the caller via the function return value.
-> 
-> Get rid of the levels parameter, which has no remaining purpose.
-> 
-> Fix acpi_get_cache_info() to match.
+On Wed, Nov 19, 2025 at 11:58:19PM +0800, Jisheng Zhang wrote:
+> On Wed, Nov 19, 2025 at 05:47:41PM +0200, Andy Shevchenko wrote:
+> > On Wed, Nov 19, 2025 at 10:43:17PM +0800, Jisheng Zhang wrote:
 
-Sure,
+...
 
-Reviewed-by: Jeremy Linton <jeremy.linton@arm.com>>
-> Suggested-by: Jonathan Cameron <jonathan.cameron@huawei.com>
-> Signed-off-by: James Morse <james.morse@arm.com>
-> Reviewed-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
-> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
-> Reviewed-by: Fenghua Yu <fenghuay@nvidia.com>
-> Reviewed-by: Gavin Shan <gshan@redhat.com>
-> Tested-by: Fenghua Yu <fenghuay@nvidia.com>
-> Tested-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
-> Tested-by: Peter Newman <peternewman@google.com>
-> Tested-by: Carl Worth <carl@os.amperecomputing.com>
-> Tested-by: Gavin Shan <gshan@redhat.com>
-> Tested-by: Zeng Heng <zengheng4@huawei.com>
-> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
-> ---
-> Changes since v3:
-> s/starting_level/current_level/ (Jonathan)
-> ---
->   drivers/acpi/pptt.c | 20 ++++++++++++--------
->   1 file changed, 12 insertions(+), 8 deletions(-)
+> > > -#ifdef CONFIG_PM
+> > >  	unsigned long	saved_gplr;
+> > >  	unsigned long	saved_gpdr;
+> > >  	unsigned long	saved_grer;
+> > >  	unsigned long	saved_gfer;
+> > > -#endif
+> > 
+> > Same Q as per dwapb driver. The CONFIG_PM=n doesn't need these.
 > 
-> diff --git a/drivers/acpi/pptt.c b/drivers/acpi/pptt.c
-> index b8248c0092fe..2856254e29d7 100644
-> --- a/drivers/acpi/pptt.c
-> +++ b/drivers/acpi/pptt.c
-> @@ -177,14 +177,14 @@ acpi_find_cache_level(struct acpi_table_header *table_hdr,
->   }
->   
->   /**
-> - * acpi_count_levels() - Given a PPTT table, and a CPU node, count the cache
-> - * levels and split cache levels (data/instruction).
-> + * acpi_count_levels() - Given a PPTT table, and a CPU node, count the
-> + * total number of levels and split cache levels (data/instruction).
->    * @table_hdr: Pointer to the head of the PPTT table
->    * @cpu_node: processor node we wish to count caches for
-> - * @levels: Number of levels if success.
->    * @split_levels:	Number of split cache levels (data/instruction) if
->    *			success. Can by NULL.
->    *
-> + * Return: number of levels.
->    * Given a processor node containing a processing unit, walk into it and count
->    * how many levels exist solely for it, and then walk up each level until we hit
->    * the root node (ignore the package level because it may be possible to have
-> @@ -192,14 +192,18 @@ acpi_find_cache_level(struct acpi_table_header *table_hdr,
->    * split cache levels (data/instruction) that exist at each level on the way
->    * up.
->    */
-> -static void acpi_count_levels(struct acpi_table_header *table_hdr,
-> -			      struct acpi_pptt_processor *cpu_node,
-> -			      unsigned int *levels, unsigned int *split_levels)
-> +static int acpi_count_levels(struct acpi_table_header *table_hdr,
-> +			     struct acpi_pptt_processor *cpu_node,
-> +			     unsigned int *split_levels)
->   {
-> +	int current_level = 0;
-> +
->   	do {
-> -		acpi_find_cache_level(table_hdr, cpu_node, levels, split_levels, 0, 0);
-> +		acpi_find_cache_level(table_hdr, cpu_node, &current_level, split_levels, 0, 0);
->   		cpu_node = fetch_pptt_node(table_hdr, cpu_node->parent);
->   	} while (cpu_node);
-> +
-> +	return current_level;
->   }
->   
->   /**
-> @@ -645,7 +649,7 @@ int acpi_get_cache_info(unsigned int cpu, unsigned int *levels,
->   	if (!cpu_node)
->   		return -ENOENT;
->   
-> -	acpi_count_levels(table, cpu_node, levels, split_levels);
-> +	*levels = acpi_count_levels(table, cpu_node, split_levels);
->   
->   	pr_debug("Cache Setup: last_level=%d split_levels=%d\n",
->   		 *levels, split_levels ? *split_levels : -1);
+> Now, I know why you commented like these... 
+> the pm_ptr() and pm_sleep_ptr() can optimize out the PM
+> functions, but those functions still need to be compiled. So if
+> we keep these #ifdef, there will be build errors in case of !PM
+
+My bad. I haven't realised that it's not just being discarded...
+
+Thanks for your patience. Then please, fix the typos and we will go
+with the v4.
+
+-- 
+With Best Regards,
+Andy Shevchenko
+
 
 
