@@ -4,68 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80B85CF6488
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 22:41:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6C90CF648C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 23:13:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sNNyzAvT37GxfbD66hG6BtD4VOfte8+FRmctAE5cf0A=; b=H1ir8ynZU+IpWtxaHgqHzMjkqF
-	zxxjyWwzpjCfkcnU/E9a+df32AhE8rQNDNQ/lTQt1Dx6Q2op73AUAlqIAIomUfV9r7owcxxwKYV5G
-	JmkKktyHMsUDafZ0smfM29JgVvSty0WlUquNUE4Tah5ki/q96Pbaq7HMqY4ifamU8vrfEGMJjm5f5
-	a9wBRytIn0A+EgcG68Mu7NA/NYN3mVpUJqArfNgZM7brXq4XQpkJ7BAh4HyWMQe2s46IiYIwqhpvc
-	XtCLEzsnzfmtZ+oO0El81Qb69groDWQD4eiLMNF5CJuddiREOSy2IPhRTaQ/VavdCyaiHRxrKNCnR
-	SRywx31w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Message-Id:MIME-Version:To:Date:Subject:From:Reply-To:Cc:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=fIlagoHlw8yrHqMv/O7Li/dX9UOEt3q7H5J0UIbTvqw=; b=vZ8KoAgQPMH22kyABXNDUKL9iD
+	G+gq7tCC19S3OLCYun0iD5oQ6Jlbk9VPIrqkKCxESMaVYVq+GEjcdmCAmlUaVxoNB0S7lB7ePIXFh
+	f+DVft2VpI/CM2YPYiaZ4iMCHRjNyt/MuhfA8xiFi+N9Boy9rXmDmM2rQvdeKtjuB1XCsVw6BoonZ
+	BpPkYziVrT8dfsY27auQoLn3KLBkAMTM9tYjWGKl1xwBaDX4V2WHSIoyelSZ4oK8Z1vRzVmj9YKXc
+	CD68lFh+V9trpGil67tqnJNiyoP8wHPqsfSGHg4rgVcsGxiqXjhc3bJZYx7kjpmckOw9GsjGdusVT
+	GCWs+6/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLqrM-00000005o6L-3u4v;
-	Wed, 19 Nov 2025 22:41:08 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vLrMR-00000005pcQ-0aOc;
+	Wed, 19 Nov 2025 23:13:15 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLqrK-00000005o5w-2oMX
+	id 1vLrMN-00000005pby-0ZFE
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Nov 2025 22:41:08 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 184E54171A;
-	Wed, 19 Nov 2025 22:41:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B0ABCC4CEF5;
-	Wed, 19 Nov 2025 22:41:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763592065;
-	bh=621P0U/ZMt9tfYhYpJzFH9MENbuLn8U74VwfdbaCPcM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=J6nhLkGsqbguAOhXecSgsGeAmS5FWmPuncCmtlhyfugKFhj4ajks8EEEfm6I2n12s
-	 85/HMv7UNfckOzrYLWFGN/4fh4McgSbveXPT+BX03o5hwYrHo0CYjzXgVlHoizRmGs
-	 LGEksWxWWBPskpE2YaglnX9OvbYv+b/szfG0L2Rn6QZLkdBClnHgBLwmj0AV0h9kpF
-	 GnF2Iz17WrlWEXzyOJ/+EYr0lHQ+YjV05Tv0b8MgPMAMGAruWq//Vua0vm5rzYpZ94
-	 we/VjSi2R1VClnL6MFdBCDa5FeDqPAzHpO007LFlJm0v43VqS+K5TWrpVO4vV/gCVO
-	 I0T2b/JvorY+Q==
-Date: Wed, 19 Nov 2025 16:41:04 -0600
-From: Rob Herring <robh@kernel.org>
-To: Eugen Hristev <eugen.hristev@linaro.org>
-Cc: linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-mm@kvack.org, tglx@linutronix.de, andersson@kernel.org,
-	pmladek@suse.com, rdunlap@infradead.org, corbet@lwn.net,
-	david@redhat.com, mhocko@suse.com, tudor.ambarus@linaro.org,
-	mukesh.ojha@oss.qualcomm.com, linux-arm-kernel@lists.infradead.org,
-	linux-hardening@vger.kernel.org, jonechou@google.com,
-	rostedt@goodmis.org, linux-doc@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-remoteproc@vger.kernel.org,
-	linux-arch@vger.kernel.org, tony.luck@intel.com, kees@kernel.org
-Subject: Re: [PATCH 25/26] dt-bindings: reserved-memory: Add Google Kinfo
- Pixel reserved memory
-Message-ID: <20251119224104.GA3371358-robh@kernel.org>
-References: <20251119154427.1033475-1-eugen.hristev@linaro.org>
- <20251119154427.1033475-26-eugen.hristev@linaro.org>
+	Wed, 19 Nov 2025 23:13:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1763593987;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=fIlagoHlw8yrHqMv/O7Li/dX9UOEt3q7H5J0UIbTvqw=;
+	b=CtoVgY/iSRm0nXAN7003coS6cRLiHalpysGak9Cfw7vReICT72g336jFYh2ZKLGKyyHiB6
+	pxxlTppzRnvRSExEtyLQqm4ruuTlhPU7Gs5g8NsoKjeSwFbdCDS/QdzhiXtrKlFL+h8vI3
+	4XWehhC4dfodjfRnqqFiKGgjep9KCQo=
+Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-632-cf14ceJBO_2qXyhDxx-hDg-1; Wed,
+ 19 Nov 2025 18:13:05 -0500
+X-MC-Unique: cf14ceJBO_2qXyhDxx-hDg-1
+X-Mimecast-MFC-AGG-ID: cf14ceJBO_2qXyhDxx-hDg_1763593984
+Received: from mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.4])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 3F44518001FE;
+	Wed, 19 Nov 2025 23:13:04 +0000 (UTC)
+Received: from [172.20.50.79] (unknown [10.30.44.138])
+	by mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 79B9430001B9;
+	Wed, 19 Nov 2025 23:13:02 +0000 (UTC)
+From: cki-project@redhat.com
+Subject: =?utf-8?b?4pyF?= PASS: Test report for for-kernelci (6.18.0-rc6,
+ upstream-arm-next, ef10811e)
+Date: Wed, 19 Nov 2025 23:13:02 -0000
+To: linux-arm-kernel@lists.infradead.org, catalin.marinas@arm.com,
+ will@kernel.org
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251119154427.1033475-26-eugen.hristev@linaro.org>
+X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.4
+Message-Id: <57499.125111918130501155@us-mta-632.us.mimecast.lan>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: EiFumgupHprQizAVaycU_ni598HkAilur5hICOsaKoM_1763593984
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251119_144106_753600_97DBDBE2 
-X-CRM114-Status: GOOD (  18.51  )
+X-CRM114-CacheID: sfid-20251119_151311_322055_7E34B1DF 
+X-CRM114-Status: UNSURE (   7.04  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,76 +84,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 19, 2025 at 05:44:26PM +0200, Eugen Hristev wrote:
-> Add documentation for Google Kinfo Pixel reserved memory area.
-> 
-> Signed-off-by: Eugen Hristev <eugen.hristev@linaro.org>
-> ---
->  .../reserved-memory/google,kinfo.yaml         | 49 +++++++++++++++++++
->  MAINTAINERS                                   |  5 ++
->  2 files changed, 54 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/reserved-memory/google,kinfo.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/reserved-memory/google,kinfo.yaml b/Documentation/devicetree/bindings/reserved-memory/google,kinfo.yaml
-> new file mode 100644
-> index 000000000000..12d0b2815c02
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/reserved-memory/google,kinfo.yaml
-> @@ -0,0 +1,49 @@
-> +# SPDX-License-Identifier: GPL-2.0 OR BSD-2-Clause
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/reserved-memory/google,kinfo.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Google Pixel Kinfo reserved memory
-> +
-> +maintainers:
-> +  - Eugen Hristev <eugen.hristev@linaro.org>
-> +
-> +description:
-> +  This binding describes the Google Pixel Kinfo reserved memory, a region
-> +  of reserved-memory used to store data for firmware/bootloader on the Pixel
-> +  platform. The data stored is debugging information on the running kernel.
-> +
-> +properties:
-> +  compatible:
-> +    items:
-> +      - const: google,kinfo
-> +
-> +  memory-region:
-> +    maxItems: 1
-> +    description: Reference to the reserved-memory for the data
-> +
-> +required:
-> +  - compatible
-> +  - memory-region
-> +
-> +additionalProperties: true
-> +
-> +examples:
-> +  - |
-> +    reserved-memory {
-> +      #address-cells = <1>;
-> +      #size-cells = <1>;
-> +      ranges;
-> +
-> +      kinfo_region: smem@fa00000 {
+Hi, we tested your kernel and here are the results:
 
-Just put the google,kinfo (or google,debug-kinfo??) compatible here and 
-that's it.
+    Overall result: PASSED
+             Merge: OK
+           Compile: OK
+              Test: OK
 
-> +          reg = <0xfa00000 0x1000>;
-> +          no-map;
+Tested-by: CKI Project <cki-project@redhat.com>
 
-You don't need to access the memory?
+Kernel information:
+    Commit message: Merge remote-tracking branch 'will/for-next/perf' into =
+for-kernelci
 
-> +      };
-> +    };
-> +
-> +    debug-kinfo {
-> +        compatible = "google,debug-kinfo";
-> +
-> +        memory-region = <&kinfo_region>;
-> +    };
+You can find all the details about the test run at
+    https://datawarehouse.cki-project.org/kcidb/checkouts/redhat:2168365708
+
+
+If you find a failure unrelated to your changes, please ask the test mainta=
+iner to review it.
+This will prevent the failures from being incorrectly reported in the futur=
+e.
+
+Please reply to this email if you have any questions about the tests that w=
+e
+ran or if you have any suggestions on how to make future tests more effecti=
+ve.
+
+        ,-.   ,-.
+       ( C ) ( K )  Continuous
+        `-',-.`-'   Kernel
+          ( I )     Integration
+           `-'
+___________________________________________________________________________=
+___
+
 
