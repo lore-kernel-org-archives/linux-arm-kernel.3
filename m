@@ -4,130 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 196B4CF34AD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 14:32:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CF36CF34AD
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 14:38:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=R6D6QeZI1FMy5FBGvryMzW9jVA/82yWzAxvTxR3x6wk=; b=MjFYTuUOCDlvbxW7jbgdKoWWLR
-	CpLIJpSxoH1/DA0Rd8d7Fkwkb7gnKbf5Z1Js/VJY6MP3ZRqYQ/pE2ISqkZYull4thWhcVcWIKTgUH
-	6xEGxD/bJukGNPqssNeVfryZ7MtOHYmkfKO2+EgKlH7FqdaMrzlgMVR/kQHbT8fjP2f5+mlReIggc
-	YC3PMd2T70tathf9sBV4HJZiqPEyXRGl2PuA8b0XcOJ3RNXQdg88pJ+OTtLUp+TLQcnRh31rCIQV3
-	DXzwEzomT8oaQ26MtY4OrrpmXOU7rUKBGa1DHGgBtOxmN+suHGDoZhqyc9d3SSGu/JPbarME21eLI
-	7hEXu2dQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+40zY0SZ/L+wRNX8sobXlUqFrzMunArQIRxjLDVpUKk=; b=CkgvLhq/Fh3o6xm5tDZQ3o5CDj
+	XM+lekXrdBKCWK+zqeUrDuwnmqC1OQ+HZ3nTeken6pUxpR+EDo8Ps6SVfHJICaXVE/djPwygHSonr
+	vg7/7bq0+OIMHtaLriHi/FcosQMR3Ey7eTeXSMEUIGY4jLjIhKqOR5L88tisJfBiQRCFLaW+vev6a
+	9e4bMEr8FKkQI3D93M4isTM9jVheAOYk+qoixluc/CMqw5WrrojFq2ptA62fb/JARcxZH+hzr1Eu9
+	LUqMnvYbju7kKRzgC0Dk1GmtQPDznKwuO9/MsMyGa1YMi8F23Mt2Sv013H1kzKcqyUIj++FWL4CqJ
+	zPAMx1lw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLjDx-00000003NfX-2AGm;
-	Wed, 19 Nov 2025 14:31:57 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLjDw-00000003NfB-0KD2
+	id 1vLjJl-00000003OJL-28oQ;
+	Wed, 19 Nov 2025 14:37:57 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vLjJj-00000003OIu-1HJ2
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Nov 2025 14:31:56 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9A05960169;
-	Wed, 19 Nov 2025 14:31:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E319EC2BCB0;
-	Wed, 19 Nov 2025 14:31:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763562714;
-	bh=t7JHEvub1bQJal+g6fm+oWNxS6WRDvkPwGmxdErav44=;
-	h=Date:From:To:Cc:In-Reply-To:References:Subject:From;
-	b=Ea4bojU3b4uuNYkYVwnmXHYKrqlrEyIaRN7/uuLqQ0tjPkP+0CBl8L7OWP74jMhkR
-	 6BEZWebMdOXDsVMaFdTA/3c4Ol/FfmWfZJ7I77nIstjY/8MxmX60jwnojnAv9c5OB6
-	 yiaxqYjeyx5Rbc+bcCTpfw9nnAVkEBGMQ7n8TQ68Sdv8V0/fXWca/2aZJ+PdDOCe1Z
-	 fgqUw43kE8xbSlEr9OaiWF6IUiQPM10iJQo0m7vG74uwaC7eKHKSOTyPWFK+IxX8Cr
-	 NCsa459K8S2l9VNSLvncI+/+4fDDtvhtPnwSSP5VIBtd53subUnkzEeGp3uNl9yo2f
-	 QaAOeHd7myqGw==
-Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
-	by mailfauth.phl.internal (Postfix) with ESMTP id 560CFF4008D;
-	Wed, 19 Nov 2025 09:31:51 -0500 (EST)
-Received: from phl-imap-02 ([10.202.2.81])
-  by phl-compute-01.internal (MEProxy); Wed, 19 Nov 2025 09:31:51 -0500
-X-ME-Sender: <xms:19Qdaap8BjsJbFtssqDUjnsMU_LQS_YP23cqGo1hqasAALMZnLH2Jw>
-    <xme:19QdaTekCirxoT8xxcC2RnapN71lsrezhBKHk9cWFJTrytiWHrCnoOSQ_WG25jLgz
-    VLVYir4VtevPFlszmb_dX0zPBndPMUq9wQrH4t08wLIbtcqw1mEIP0>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdeggddvvdeggeehucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
-    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
-    gurhepofggfffhvfevkfgjfhfutgfgsehtqhertdertdejnecuhfhrohhmpedftehnugih
-    ucfnuhhtohhmihhrshhkihdfuceolhhuthhosehkvghrnhgvlhdrohhrgheqnecuggftrf
-    grthhtvghrnhepjeejvddvtdehffdtgfejjeefgefgjeeggfeuteeiuedvtefgfffhvdej
-    iefguedtnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomh
-    eprghnugihodhmvghsmhhtphgruhhthhhpvghrshhonhgrlhhithihqdduudeiudekheei
-    fedvqddvieefudeiiedtkedqlhhuthhopeepkhgvrhhnvghlrdhorhhgsehlihhnuhigrd
-    hluhhtohdruhhspdhnsggprhgtphhtthhopeegkedpmhhouggvpehsmhhtphhouhhtpdhr
-    tghpthhtohepjhgsrghrohhnsegrkhgrmhgrihdrtghomhdprhgtphhtthhopegsphesrg
-    hlihgvnhekrdguvgdprhgtphhtthhopegrrhhnugesrghrnhgusgdruggvpdhrtghpthht
-    ohepuggrvhgvmhesuggrvhgvmhhlohhfthdrnhgvthdprhgtphhtthhopehmrghthhhivg
-    hurdguvghsnhhohigvrhhssegvfhhfihgtihhoshdrtghomhdprhgtphhtthhopegsohhq
-    uhhnrdhfvghnghesghhmrghilhdrtghomhdprhgtphhtthhopehurhgviihkihesghhmrg
-    hilhdrtghomhdprhgtphhtthhopehrohhsthgvughtsehgohhoughmihhsrdhorhhgpdhr
-    tghpthhtohepjhgrnhhnhhesghhoohhglhgvrdgtohhm
-X-ME-Proxy: <xmx:19QdaSQxr3HQaS5D5svYtdioLzJ9DrcJWaaCXygndJcKZTp8DQA1XQ>
-    <xmx:19QdaRuKJfSzLCcUvQaFs6zUjI1C5yzQpwXIrnbakBUBZf6Go7P5Dw>
-    <xmx:19QdaRsZ04AgZVVF3BYyQvlnngCHXui5cx1xuooIBwrJs48FrjqOhQ>
-    <xmx:19QdaZdxW-cnpAjF52S13LU5nKqG8Kl70x0BiZJ1Wz-zYL2XACcj4g>
-    <xmx:19QdaU7njPzMtRawVt5wHwKl1sfmi7DCVtIMkE__tcglxZK-V1ApZbUe>
-Feedback-ID: ieff94742:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 1FAFE700054; Wed, 19 Nov 2025 09:31:51 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Wed, 19 Nov 2025 14:37:56 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8A0BEFEC;
+	Wed, 19 Nov 2025 06:37:46 -0800 (PST)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C0A403F740;
+	Wed, 19 Nov 2025 06:37:53 -0800 (PST)
+Date: Wed, 19 Nov 2025 14:37:51 +0000
+From: Leo Yan <leo.yan@arm.com>
+To: James Clark <james.clark@linaro.org>
+Cc: Mike Leach <mike.leach@linaro.org>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Randy Dunlap <rdunlap@infradead.org>, coresight@lists.linaro.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-doc@vger.kernel.org
+Subject: Re: [PATCH v5 08/13] coresight: Interpret perf config with
+ ATTR_CFG_GET_FLD()
+Message-ID: <20251119143751.GD8204@e132581.arm.com>
+References: <20251118-james-cs-syncfreq-v5-0-82efd7b1a751@linaro.org>
+ <20251118-james-cs-syncfreq-v5-8-82efd7b1a751@linaro.org>
+ <CAJ9a7VgQH4yc8490CQSv1S6k+=Uc6dEjyEpgRp1EwUQdwdxOHQ@mail.gmail.com>
+ <416cf32d-d647-46dd-bcef-acc019490561@linaro.org>
+ <CAJ9a7Vg9HsMsTP-zroTgaaKWTPkSXE1u5WMORuqMLKSDDz2HSw@mail.gmail.com>
+ <43a60afe-5170-4801-ae70-9243cf7b45b8@linaro.org>
+ <20251119123647.GC8204@e132581.arm.com>
+ <a199db90-a344-40e0-8628-b4c3b56fc92c@linaro.org>
 MIME-Version: 1.0
-X-ThreadId: A2ZwPDH9FoLc
-Date: Wed, 19 Nov 2025 06:31:30 -0800
-From: "Andy Lutomirski" <luto@kernel.org>
-To: "Valentin Schneider" <vschneid@redhat.com>,
- "Linux Kernel Mailing List" <linux-kernel@vger.kernel.org>,
- linux-mm@kvack.org, rcu@vger.kernel.org,
- "the arch/x86 maintainers" <x86@kernel.org>,
- linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
- linux-riscv@lists.infradead.org, linux-arch@vger.kernel.org,
- linux-trace-kernel@vger.kernel.org
-Cc: "Thomas Gleixner" <tglx@linutronix.de>, "Ingo Molnar" <mingo@redhat.com>,
- "Borislav Petkov" <bp@alien8.de>,
- "Dave Hansen" <dave.hansen@linux.intel.com>,
- "H. Peter Anvin" <hpa@zytor.com>,
- "Peter Zijlstra (Intel)" <peterz@infradead.org>,
- "Arnaldo Carvalho de Melo" <acme@kernel.org>,
- "Josh Poimboeuf" <jpoimboe@kernel.org>,
- "Paolo Bonzini" <pbonzini@redhat.com>, "Arnd Bergmann" <arnd@arndb.de>,
- "Frederic Weisbecker" <frederic@kernel.org>,
- "Paul E. McKenney" <paulmck@kernel.org>,
- "Jason Baron" <jbaron@akamai.com>,
- "Steven Rostedt" <rostedt@goodmis.org>,
- "Ard Biesheuvel" <ardb@kernel.org>,
- "Sami Tolvanen" <samitolvanen@google.com>,
- "David S. Miller" <davem@davemloft.net>,
- "Neeraj Upadhyay" <neeraj.upadhyay@kernel.org>,
- "Joel Fernandes" <joelagnelf@nvidia.com>,
- "Josh Triplett" <josh@joshtriplett.org>,
- "Boqun Feng" <boqun.feng@gmail.com>,
- "Uladzislau Rezki" <urezki@gmail.com>,
- "Mathieu Desnoyers" <mathieu.desnoyers@efficios.com>,
- "Mel Gorman" <mgorman@suse.de>,
- "Andrew Morton" <akpm@linux-foundation.org>,
- "Masahiro Yamada" <masahiroy@kernel.org>,
- "Han Shen" <shenhan@google.com>, "Rik van Riel" <riel@surriel.com>,
- "Jann Horn" <jannh@google.com>,
- "Dan Carpenter" <dan.carpenter@linaro.org>,
- "Oleg Nesterov" <oleg@redhat.com>, "Juri Lelli" <juri.lelli@redhat.com>,
- "Clark Williams" <williams@redhat.com>,
- "Yair Podemsky" <ypodemsk@redhat.com>,
- "Marcelo Tosatti" <mtosatti@redhat.com>,
- "Daniel Wagner" <dwagner@suse.de>, "Petr Tesarik" <ptesarik@suse.com>,
- "Shrikanth Hegde" <sshegde@linux.ibm.com>
-Message-Id: <65ae9404-5d7d-42a3-969e-7e2ceb56c433@app.fastmail.com>
-In-Reply-To: <20251114151428.1064524-9-vschneid@redhat.com>
-References: <20251114150133.1056710-1-vschneid@redhat.com>
- <20251114151428.1064524-9-vschneid@redhat.com>
-Subject: Re: [RFC PATCH v7 29/31] x86/mm/pti: Implement a TLB flush immediately after a
- switch to kernel CR3
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <a199db90-a344-40e0-8628-b4c3b56fc92c@linaro.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251119_063755_388988_7CCE616F 
+X-CRM114-Status: GOOD (  12.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,32 +75,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, Nov 19, 2025 at 01:55:15PM +0000, James Clark wrote:
 
+[...]
 
-On Fri, Nov 14, 2025, at 7:14 AM, Valentin Schneider wrote:
-> Deferring kernel range TLB flushes requires the guarantee that upon
-> entering the kernel, no stale entry may be accessed. The simplest way =
-to
-> provide such a guarantee is to issue an unconditional flush upon switc=
-hing
-> to the kernel CR3, as this is the pivoting point where such stale entr=
-ies
-> may be accessed.
->
+> >    static ssize_t format_attr_contextid_show(struct device *dev,
+> >                                              struct device_attribute *attr,
+> >                                              char *page)
+> >    {
+> >    #if IS_ENABLED(CONFIG_ARM64)
+> >         if (is_kernel_in_hyp_mode())
+> >                 return contextid2_show(dev, attr, page);
+> >    #endif
+> > 
+> >         return contextid1_show(dev, attr, page);
+> 
+> Not having an #else implies that the contextid1_show() part is valid when
+> !CONFIG_ARM64, but that isn't right. That's why I had the WARN_ON because
+> it's dead code.
 
-Doing this together with the PTI CR3 switch has no actual benefit: MOV C=
-R3 doesn=E2=80=99t flush global pages. And doing this in asm is pretty g=
-ross.  We don=E2=80=99t even get a free sync_core() out of it because IN=
-VPCID is not documented as being serializing.
+Based on ETMv3/v4 spec, would contextid1 always be valid ?  (Though we do
+not support context ID for ETMv3 yet).
 
-Why can=E2=80=99t we do it in C?  What=E2=80=99s the actual risk?  In or=
-der to trip over a stale TLB entry, we would need to deference a pointer=
- to newly allocated kernel virtual memory that was not valid prior to ou=
-r entry into user mode. I can imagine BPF doing this, but plain noinstr =
-C in the entry path?  Especially noinstr C *that has RCU disabled*?  We =
-already can=E2=80=99t follow an RCU pointer, and ISTM the only style of =
-kernel code that might do this would use RCU to protect the pointer, and=
- we are already doomed if we follow an RCU pointer to any sort of memory.
+> Personally I would drop the is_visible(). It makes sense for dynamically
+> hidden things, but these are all compile time. IMO it's cleaner to just not
+> include them to begin with, rather than include and then hide them. Then the
+> extra condition in format_attr_contextid_show() isn't needed because the
+> function doesn't exist:
 
-We do need to watch out for NMI/MCE hitting before we flush.
+This is fine for me, though in general I think the dynamic approach is
+readable and extendable than the compile-time approach.
+
+Thanks,
+Leo
 
