@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57225CF3942
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 15:46:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6854DCF3943
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 15:46:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y7Ucs3kp0oXjJAHNPlew8LSoAGCaHnYy/9pb2BVOQfw=; b=dBnDMcW5c559rmmg/XBHyJrvb7
-	IL8PD+FpB2GfI9ZgaYDCLMX31FdGLm4OCW8AUp+a5gEtkILviWN03gVXQxt5pBiemqZCPkYwzRMvb
-	RWQyWvZgU8OlBg5/p3QWAl8n6p8rIsZgr0bmnGtliKKV/BpAHywUkoIVs4qkK38u9SwO42Aql1Wak
-	qfO/ImgGj3/Yb/GOGHLkKPnlK5yTWvm8crCChs+KDD14zWGpehmNIQfu0uf2GqlzSjYSsuXMkdvwN
-	P/EBevObxMrZ/AByuMaVL7D07nyztXHhD8c6l2bpFxgc40SMxBvrwwCicS4hHNrm/K743dm18JyX3
-	CqnsahGw==;
+	bh=uk1lFWru0IGdhKwRKbnhtV9p6FImm0O6RRZYNI9uc9w=; b=EWDkx3C3x42Nx7icBgH6ElcOEg
+	C8j7g5+WFOxBMKS5ab4/Xzw4LDtmhnyvLBz/4NrSA8TszePIstIRiB28Ikvv1aH0CD38oatIXrzR4
+	hcWz03oIfrUWFor4M085IisBNOPBlIqAHE2eDvPKEHXyk6w5TSKaBByRKnCa86IYwu1ZIWDOv3OBn
+	+5Z1B67AnhsQ56y28XTmyo1MJLc1RQtH655+ajgt5BmEsbJ3cKpu2BALKnkbdayqPt8eEV5q2p+em
+	XP37flN1La7r9uAhV7qG//+8d8qBtzxL/i+ulHjykeRruu8gWRCOl4FWbR6Bf/Lz51fxRwvqnM7f2
+	K3G4an9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLkOD-00000003XO8-3ykj;
+	id 1vLkOD-00000003XMl-1CfS;
 	Wed, 19 Nov 2025 15:46:37 +0000
-Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
+Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLkNY-00000003WWG-0EB4
+	id 1vLkNV-00000003WTa-1xN2
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Nov 2025 15:45:57 +0000
-Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-42b3b29153fso3747902f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Nov 2025 07:45:55 -0800 (PST)
+	Wed, 19 Nov 2025 15:45:54 +0000
+Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-42b566859ecso5397284f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Nov 2025 07:45:53 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1763567154; x=1764171954; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1763567152; x=1764171952; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=Y7Ucs3kp0oXjJAHNPlew8LSoAGCaHnYy/9pb2BVOQfw=;
-        b=MUFKQThFqkAYrc8jbPmZbZF4bn9Ge4f/CcAnHAdKCYHs78wwN1mFV5VmB9ZXpZaxkw
-         NokzIUcoOVP2xXpX0ONsszH4pZEO+fpE4VVU04v5Q2z5f5I40Evo1kAjd3PtlLLoMwdM
-         wHKj87ZIZouEqd4+jXOS3DU/Pn4TbJI+yUeSk/liaXTd6Ax8m13eRSqzZOmgexr3lgCC
-         eJgvNUUCarbZoX89W+4q4LzRCScPdNKvSI5USSC4PxRkTbncPW9UJ3wkCH3rjC348ve9
-         lC99NWbhrZ/WmhtpwW0x7HgjyQMGskkeh2GN+Dbzqk6U+ZLMDVQ4wA4x8yI4E+EJKCAq
-         HDSA==
+        bh=uk1lFWru0IGdhKwRKbnhtV9p6FImm0O6RRZYNI9uc9w=;
+        b=VCa6+oFhNVUdhJbWLswJLumavZjX4BzbSybBjTnPld6lDqpFmINu6KGXfvDtmbZ0k7
+         81EG29a2gglQQMN28RYs5NOY6ccCRqH6AbelOkKMFlTG8sJd5P+VjdWAXiWDaSy2H9q1
+         HvHDz66I1xMgjt4EkjHtKktfVacWANaDAnuJhN5PBHQectK24O9fgxOHOd/rKAwYGYVf
+         nKJHDNJ11iLT0PZGsqwZnWTOcmQE3dlqpCZ23xY1+rgZ0jFBxhMG5uHdzigpkA8uNpxC
+         Ns9dWArs6KBZKenHO62utYKMRW4xjqgodAM7I2iIKmXAQxCQuSRnCtj74T89fFiRx8SL
+         N6jw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763567154; x=1764171954;
+        d=1e100.net; s=20230601; t=1763567152; x=1764171952;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=Y7Ucs3kp0oXjJAHNPlew8LSoAGCaHnYy/9pb2BVOQfw=;
-        b=RVHU2aBVOLmeJ1pCeO9DTQt9K+x5Pgfx2XkNKVU2r8XPH50THp+kf3fAYQmq9B5ILN
-         i7u4PPZTYQU1u8Cru30FiDuOi7iQr202upfgrYPNiXVqCU8akbCXTYJoCkw6t3yMq4kK
-         5JhUWSDJfO/qP9ItgDCEerRS7hfE83E7ne9UdZga8ZwFw/HhdgSl777KWUP6/gQKtgUe
-         Y3D02vIGnyA1FFztbDR2DXTxtCN0iDacS+R42Ub4h8IXmOgnZwhQEh5ASpmf14z01NDO
-         w6FD8CSn0ScOwwz3GnQ+MrH16upa1z33EXEUBb1R2awLslOcJo4QdoZyawpwE+zOhZxI
-         0zXQ==
-X-Forwarded-Encrypted: i=1; AJvYcCW+vP/nxOBttvIWrEJAhs+5x+/RLLzB89JyuL3YwG3XhVdKACZfTIXq6jhB+GTXOjIfnOrIO/QcERql6aYPdAYd@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx2jLcdwSRFiXpLvGLg5JhOsWfv70dATVcVn3uqSVM4wshWWyF6
-	t19TKdGEi0Uw1QMbe7rNOEDG+qhVqEtKRVvS27iSODfZkm2ertyZUFTEbP6iaTD2qJ4=
-X-Gm-Gg: ASbGnctlz15A7gz1C/4akOw7mx4Q9qZzYKPL7Jd2WHy1d4WR7TrFIf3YV++e6PtY+qk
-	UZi8J70fodgz0VFyb8cfjAdK9fItH3/aNun+bLUXeLQZlnb3/IngS4RzeEimHB/cxMRgFrrmikj
-	il+BusqVkjaPn6JUrUnnBk/Z5rxMgBRUZuNSlASjwsndZYzoGbF9xcTsWgb0hvu2W1YQh/IihzQ
-	QvmTe/uHO86chI0YciBz0s7Qetwyb+sHu9s6MazNFuXhbJ0Ldv+pcbGCnQ9yb9WT74PtZm8U1zK
-	1xvZQZQuI6Sc3/DsbGnyyqQ4dTCCmQc9Tp05dJMq+4DB/c9975QF750bPPVsU3IQ0Ulkqnu8EEY
-	tjkQutkHI6dul8u585jv0loP+qI5/Iqhks6lWdV8vcpbRqXp2eowpqs18jrCKU6nZGqDNEsAS1B
-	N0vgqA3qud5nplQpc39oxofzeSsr6z3A==
-X-Google-Smtp-Source: AGHT+IFMxVwxw3DtlUhFwveVzixkh9p9iHWd+faYE31GhqiINsGSMiGzAK7z2FWSCj0eS8F6/aaKoQ==
-X-Received: by 2002:a05:6000:2510:b0:42b:3e20:f1b4 with SMTP id ffacd0b85a97d-42cb1f1de66mr3206403f8f.5.1763567153508;
-        Wed, 19 Nov 2025 07:45:53 -0800 (PST)
+        bh=uk1lFWru0IGdhKwRKbnhtV9p6FImm0O6RRZYNI9uc9w=;
+        b=RrYpu4CZ6vPUkx3APLwjiS6CD60nw2ze0rtoqHq6e/gsZIjnnG5CGFQ5sjS43ji9Ty
+         hIKx/BQaFnxxDv+477s1JmhOjSb/tDTnr3VsWGY73QcP0mopRbbYRX41pMpBlNIPKt+l
+         xFIfxbuj7W0cAmfKApQ1qe9AxMyeN+DXutYUZY2oYRS+cPskJWeO5DtrGSeVC9vIZg93
+         awnew6US1jp7xwtLgA+Ig5r0ZUg8Klc0LVL3LGd7P9LsLQ9En9eUVcM5ZCseeYk4y9D7
+         9dFXDkTVf3PpW8IrO4+5oJiCIzUO01JeE6SM2gwPdDMh6eqqFXoS5PG71agcd0OVh6zE
+         7xzw==
+X-Forwarded-Encrypted: i=1; AJvYcCWKe0e9yyOLWhXYGMsOeuTZAsLZw0K3EZ7sHiH57g9x04+bnuFwDjkA+jgC5cWoWoC7jkN3ZIxKA5hY3zrXQqDJ@lists.infradead.org
+X-Gm-Message-State: AOJu0YwAmY+wmRi2jTSvVULn5zWI/vUgG5V2yO1xoZFFh75YIsMisGm0
+	7TIkvswjseTQxZT8CPiigxpaJ5NJZ2phTppy0vzXBCO1TmoufSb3KKmCwCdwDtRkPyQ=
+X-Gm-Gg: ASbGncuB3HWf7CKHuqMGgk+9WqrUST9lsY8Jfi9qlP9niFGduAFtiT9vziUszBDtS0v
+	+5FR+48mtnS4EakDoQ1lBruTzZ2LO5XGbBnCw0YQ2bbLleC8F+T2qLJHNXDWkvfzzd4HUgq99Jd
+	7bh1repNL4HwoIF20C2ZqJKfeI4GI9sA/NZrumgPDVNH3pIQ5zOZ1CmrL5FA3snJJ3oV7ZWEDDa
+	WUclBrUOULBbbeZFmrIjtTNGAGYnGjgg7SV63qk74sRxzZPsgqjlfiIteUddhoWWxoMRGEyxIv8
+	7bzPNwmoFjR/GAES0NlRKGfKEWfGnAuhg/vpdkn1pCRZDsqZmxq4+ud5wqSJygDg4CbbLVsdBip
+	h4Ulibl53Jxm8lkd92FBWzX5Kukr49hvav/PEzIf6kuqP2SuPGnQCCHDqjxkfkj8CitAlLfLxUr
+	fFjw0Z4EhSlM25lFMnERoWHcCT/eebFQ==
+X-Google-Smtp-Source: AGHT+IGiIxmeqrKKXMpyNCEgyddWcck0X4KYjA7E97PFt6A4ulW3WkSU04Vt6omGLvNuAQXzgiycDA==
+X-Received: by 2002:a05:6000:2888:b0:42b:3ab7:b8b9 with SMTP id ffacd0b85a97d-42b5934db2cmr19180692f8f.20.1763567151698;
+        Wed, 19 Nov 2025 07:45:51 -0800 (PST)
 Received: from eugen-station.. ([82.76.24.202])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42b53dea1c9sm38765632f8f.0.2025.11.19.07.45.51
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42b53dea1c9sm38765632f8f.0.2025.11.19.07.45.50
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 19 Nov 2025 07:45:53 -0800 (PST)
+        Wed, 19 Nov 2025 07:45:51 -0800 (PST)
 From: Eugen Hristev <eugen.hristev@linaro.org>
 To: linux-arm-msm@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
@@ -94,17 +94,17 @@ Cc: tudor.ambarus@linaro.org,
 	tony.luck@intel.com,
 	kees@kernel.org,
 	Eugen Hristev <eugen.hristev@linaro.org>
-Subject: [PATCH 21/26] printk: Register information into meminspect
-Date: Wed, 19 Nov 2025 17:44:22 +0200
-Message-ID: <20251119154427.1033475-22-eugen.hristev@linaro.org>
+Subject: [PATCH 20/26] mm/sparse: Register information into meminspect
+Date: Wed, 19 Nov 2025 17:44:21 +0200
+Message-ID: <20251119154427.1033475-21-eugen.hristev@linaro.org>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20251119154427.1033475-1-eugen.hristev@linaro.org>
 References: <20251119154427.1033475-1-eugen.hristev@linaro.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251119_074556_179846_2B3DF956 
-X-CRM114-Status: GOOD (  10.79  )
+X-CRM114-CacheID: sfid-20251119_074553_527572_1515EAC2 
+X-CRM114-Status: GOOD (  11.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,91 +120,58 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 Annotate vital static information into meminspect:
- - prb_descs
- - prb_infos
- - prb
- - prb_data
- - printk_rb_static
- - printk_rb_dynamic
+ - mem_section
 
 Information on these variables is stored into inspection table.
 
 Register dynamic information into meminspect:
- - new_descs
- - new_infos
- - new_log_buf
-This information is being allocated as a memblock, so call
+ - section
+ - mem_section_usage
+
+This information is being allocated for each node, so call
 memblock_mark_inspect to mark the block accordingly.
 
 Signed-off-by: Eugen Hristev <eugen.hristev@linaro.org>
 ---
- kernel/printk/printk.c | 12 ++++++++++++
- 1 file changed, 12 insertions(+)
+ mm/sparse.c | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-diff --git a/kernel/printk/printk.c b/kernel/printk/printk.c
-index 5aee9ffb16b9..8b5aba2527ac 100644
---- a/kernel/printk/printk.c
-+++ b/kernel/printk/printk.c
-@@ -49,6 +49,7 @@
- #include <linux/sched/debug.h>
- #include <linux/sched/task_stack.h>
- #include <linux/panic.h>
+diff --git a/mm/sparse.c b/mm/sparse.c
+index 17c50a6415c2..80530e39c8b2 100644
+--- a/mm/sparse.c
++++ b/mm/sparse.c
+@@ -15,6 +15,7 @@
+ #include <linux/swapops.h>
+ #include <linux/bootmem_info.h>
+ #include <linux/vmstat.h>
 +#include <linux/meminspect.h>
+ #include "internal.h"
+ #include <asm/dma.h>
  
- #include <linux/uaccess.h>
- #include <asm/sections.h>
-@@ -513,10 +514,16 @@ static u32 log_buf_len = __LOG_BUF_LEN;
+@@ -30,6 +31,7 @@ struct mem_section mem_section[NR_SECTION_ROOTS][SECTIONS_PER_ROOT]
+ 	____cacheline_internodealigned_in_smp;
  #endif
- _DEFINE_PRINTKRB(printk_rb_static, CONFIG_LOG_BUF_SHIFT - PRB_AVGBITS,
- 		 PRB_AVGBITS, &__log_buf[0]);
-+MEMINSPECT_NAMED_ENTRY(prb_descs, _printk_rb_static_descs);
-+MEMINSPECT_NAMED_ENTRY(prb_infos, _printk_rb_static_infos);
-+MEMINSPECT_NAMED_ENTRY(prb_data, __log_buf);
-+MEMINSPECT_SIMPLE_ENTRY(printk_rb_static);
+ EXPORT_SYMBOL(mem_section);
++MEMINSPECT_SIMPLE_ENTRY(mem_section);
  
- static struct printk_ringbuffer printk_rb_dynamic;
-+MEMINSPECT_SIMPLE_ENTRY(printk_rb_dynamic);
- 
- struct printk_ringbuffer *prb = &printk_rb_static;
-+MEMINSPECT_SIMPLE_ENTRY(prb);
- 
+ #ifdef NODE_NOT_IN_PAGE_FLAGS
  /*
-  * We cannot access per-CPU data (e.g. per-CPU flush irq_work) before
-@@ -1190,6 +1197,7 @@ void __init setup_log_buf(int early)
- 		       new_log_buf_len);
- 		goto out;
+@@ -253,6 +255,7 @@ static void __init memblocks_present(void)
+ 		size = sizeof(struct mem_section *) * NR_SECTION_ROOTS;
+ 		align = 1 << (INTERNODE_CACHE_SHIFT);
+ 		mem_section = memblock_alloc_or_panic(size, align);
++		memblock_mark_inspect(virt_to_phys(mem_section), size);
  	}
-+	memblock_mark_inspect(virt_to_phys(new_log_buf), new_log_buf_len);
+ #endif
  
- 	new_descs_size = new_descs_count * sizeof(struct prb_desc);
- 	new_descs = memblock_alloc(new_descs_size, LOG_ALIGN);
-@@ -1198,6 +1206,7 @@ void __init setup_log_buf(int early)
- 		       new_descs_size);
- 		goto err_free_log_buf;
+@@ -343,6 +346,7 @@ sparse_early_usemaps_alloc_pgdat_section(struct pglist_data *pgdat,
+ 		limit = MEMBLOCK_ALLOC_ACCESSIBLE;
+ 		goto again;
  	}
-+	memblock_mark_inspect(virt_to_phys(new_descs), new_descs_size);
- 
- 	new_infos_size = new_descs_count * sizeof(struct printk_info);
- 	new_infos = memblock_alloc(new_infos_size, LOG_ALIGN);
-@@ -1206,6 +1215,7 @@ void __init setup_log_buf(int early)
- 		       new_infos_size);
- 		goto err_free_descs;
- 	}
-+	memblock_mark_inspect(virt_to_phys(new_infos), new_infos_size);
- 
- 	prb_rec_init_rd(&r, &info, &setup_text_buf[0], sizeof(setup_text_buf));
- 
-@@ -1258,8 +1268,10 @@ void __init setup_log_buf(int early)
- 
- err_free_descs:
- 	memblock_free(new_descs, new_descs_size);
-+	memblock_clear_inspect(virt_to_phys(new_descs), new_descs_size);
- err_free_log_buf:
- 	memblock_free(new_log_buf, new_log_buf_len);
-+	memblock_clear_inspect(virt_to_phys(new_log_buf), new_log_buf_len);
- out:
- 	print_log_buf_usage_stats();
++	memblock_mark_inspect(virt_to_phys(usage), size);
+ 	return usage;
  }
+ 
 -- 
 2.43.0
 
