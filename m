@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DED07CF31B7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 12:25:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13D6CCF31B8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 12:25:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EaFQWVJPjf6OsdNfnTY4m2bkgtMocz1+bmr9uuSjha8=; b=YDl3FK0pBDbqtWI1JaMwlf8f9f
-	SKBlhkoULCWL8tfBq4DpruVkpZwnKsbVI3dvACYCrP12HOwCokqjJ/ocxBQtgIyY63KCIK14IFHbH
-	gxRcXuth6h4sSn1DdIkwcd4wr/HHge9bFSvAqXh+5yUP4EVxgIUk8OUQQDZlNoa7J1iHowj5BTxuS
-	rRiignp+fdGftvQgt5+YFdibeBCF2D7BbNPUe5cRMHlh5v6AC0DO0pRvwIF9SN7pmFDKqHrXpzHSU
-	jH9PwB7x+GYxNXedNiyJ+WlBClBiAkfJMX7gQkj573Cd9262YN2JRnxj8H4eYo67+Chmc+B0wFx/f
-	Wji1YZ8w==;
+	bh=9HP/x5yKdgTq2OIHQZMUyjuOmf9Wkcwv7zPzMVbykPM=; b=u0S+cLHpufrTK8nEd7ws0iSPWH
+	BPFDkPY4+ydK4mHXszK5uNE9WrrnCOwE/sB6Tudwqwl3SSb3jscQ1zlXtdw8anlMPpTiG/yuzhK86
+	G/fc35gRH4Iiu9mu1PlEmZwthx8SN78qnrS4tWrgt3aJDMK9qQL7H1XYiDaFYtIchbRd9ViAxXThK
+	4nyfb1Rn4UN4mV1qNuON2TPF9kQa0KYJpK49fuT9oce1ckTFQXCU0iMwrUvWS2b+1GtodOR4Tc+4O
+	glv2P0Pwc0cxTzGXa3JlNYFXLZeZMp2eDouI1sdN8J+J1RK3SWzpsLDDHgnekBlTpqh7hR+G5T33c
+	mL/qLQvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLhEx-000000037aK-3u0l;
+	id 1vLhEx-000000037ZL-21Ej;
 	Wed, 19 Nov 2025 12:24:51 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLhEr-000000037Uf-3FWC
+	id 1vLhEl-000000037Ob-34EQ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Nov 2025 12:24:49 +0000
+	Wed, 19 Nov 2025 12:24:46 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BEB11175D;
-	Wed, 19 Nov 2025 04:24:37 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B29861480;
+	Wed, 19 Nov 2025 04:24:26 -0800 (PST)
 Received: from e134344.cambridge.arm.com (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 2AD5D3F740;
-	Wed, 19 Nov 2025 04:24:40 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 1AE0C3F740;
+	Wed, 19 Nov 2025 04:24:28 -0800 (PST)
 From: Ben Horgan <ben.horgan@arm.com>
 To: james.morse@arm.com
 Cc: amitsinght@marvell.com,
@@ -73,17 +73,17 @@ Cc: amitsinght@marvell.com,
 	Ben Horgan <ben.horgan@arm.com>,
 	Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>,
 	Zeng Heng <zengheng4@huawei.com>
-Subject: [PATCH v6 14/34] arm_mpam: Probe hardware to find the supported partid/pmg values
-Date: Wed, 19 Nov 2025 12:22:44 +0000
-Message-ID: <20251119122305.302149-15-ben.horgan@arm.com>
+Subject: [PATCH v6 12/34] arm_mpam: Add MPAM MSC register layout definitions
+Date: Wed, 19 Nov 2025 12:22:42 +0000
+Message-ID: <20251119122305.302149-13-ben.horgan@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20251119122305.302149-1-ben.horgan@arm.com>
 References: <20251119122305.302149-1-ben.horgan@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251119_042445_941443_328B4EEF 
-X-CRM114-Status: GOOD (  26.51  )
+X-CRM114-CacheID: sfid-20251119_042440_441540_3E4D0585 
+X-CRM114-Status: GOOD (  11.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,27 +100,18 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: James Morse <james.morse@arm.com>
 
-CPUs can generate traffic with a range of PARTID and PMG values,
-but each MSC may also have its own maximum size for these fields.
-Before MPAM can be used, the driver needs to probe each RIS on
-each MSC, to find the system-wide smallest value that can be used.
-The limits from requestors (e.g. CPUs) also need taking into account.
+Memory Partitioning and Monitoring (MPAM) has memory mapped devices
+(MSCs) with an identity/configuration page.
 
-While doing this, RIS entries that firmware didn't describe are created
-under MPAM_CLASS_UNKNOWN.
+Add the definitions for these registers as offset within the page(s).
 
-This adds the low level MSC write accessors.
-
-While we're here, implement the mpam_register_requestor() call
-for the arch code to register the CPU limits. Future callers of this
-will tell us about the SMMU and ITS.
-
+Link: https://developer.arm.com/documentation/ihi0099/aa/
 Signed-off-by: James Morse <james.morse@arm.com>
-Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
 Reviewed-by: Ben Horgan <ben.horgan@arm.com>
-Reviewed-by: Gavin Shan <gshan@redhat.com>
-Reviewed-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
 Reviewed-by: Fenghua Yu <fenghuay@nvidia.com>
+Reviewed-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
+Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+Reviewed-by: Gavin Shan <gshan@redhat.com>
 Tested-by: Fenghua Yu <fenghuay@nvidia.com>
 Tested-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
 Tested-by: Peter Newman <peternewman@google.com>
@@ -130,271 +121,289 @@ Tested-by: Zeng Heng <zengheng4@huawei.com>
 Tested-by: Hanjun Guo <guohanjun@huawei.com>
 Signed-off-by: Ben Horgan <ben.horgan@arm.com>
 ---
-Changes since v5:
-Correct a warning
-
 Changes since v3:
-From Jonathan:
-Stray comma in printk
-Unnecessary braces
+Add tags - thanks!
+Consistent naming of long counter variants (Jonathan)
 ---
- drivers/resctrl/mpam_devices.c  | 148 +++++++++++++++++++++++++++++++-
- drivers/resctrl/mpam_internal.h |   6 ++
- include/linux/arm_mpam.h        |  14 +++
- 3 files changed, 167 insertions(+), 1 deletion(-)
+ drivers/resctrl/mpam_internal.h | 267 ++++++++++++++++++++++++++++++++
+ 1 file changed, 267 insertions(+)
 
-diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
-index 51284f55ae9b..3d9b87a9727a 100644
---- a/drivers/resctrl/mpam_devices.c
-+++ b/drivers/resctrl/mpam_devices.c
-@@ -6,6 +6,7 @@
- #include <linux/acpi.h>
- #include <linux/atomic.h>
- #include <linux/arm_mpam.h>
-+#include <linux/bitfield.h>
- #include <linux/cacheinfo.h>
- #include <linux/cpu.h>
- #include <linux/cpumask.h>
-@@ -42,6 +43,15 @@ static atomic_t mpam_num_msc;
- static int mpam_cpuhp_state;
- static DEFINE_MUTEX(mpam_cpuhp_state_lock);
- 
-+/*
-+ * The smallest common values for any CPU or MSC in the system.
-+ * Generating traffic outside this range will result in screaming interrupts.
-+ */
-+u16 mpam_partid_max;
-+u8 mpam_pmg_max;
-+static bool partid_max_init, partid_max_published;
-+static DEFINE_SPINLOCK(partid_max_lock);
-+
- /*
-  * mpam is enabled once all devices have been probed from CPU online callbacks,
-  * scheduled via this work_struct. If access to an MSC depends on a CPU that
-@@ -143,6 +153,70 @@ static inline u32 _mpam_read_partsel_reg(struct mpam_msc *msc, u16 reg)
- 
- #define mpam_read_partsel_reg(msc, reg) _mpam_read_partsel_reg(msc, MPAMF_##reg)
- 
-+static void __mpam_write_reg(struct mpam_msc *msc, u16 reg, u32 val)
-+{
-+	WARN_ON_ONCE(reg + sizeof(u32) > msc->mapped_hwpage_sz);
-+	WARN_ON_ONCE(!cpumask_test_cpu(smp_processor_id(), &msc->accessibility));
-+
-+	writel_relaxed(val, msc->mapped_hwpage + reg);
-+}
-+
-+static inline void _mpam_write_partsel_reg(struct mpam_msc *msc, u16 reg, u32 val)
-+{
-+	lockdep_assert_held_once(&msc->part_sel_lock);
-+	__mpam_write_reg(msc, reg, val);
-+}
-+
-+#define mpam_write_partsel_reg(msc, reg, val)  _mpam_write_partsel_reg(msc, MPAMCFG_##reg, val)
-+
-+static u64 mpam_msc_read_idr(struct mpam_msc *msc)
-+{
-+	u64 idr_high = 0, idr_low;
-+
-+	lockdep_assert_held(&msc->part_sel_lock);
-+
-+	idr_low = mpam_read_partsel_reg(msc, IDR);
-+	if (FIELD_GET(MPAMF_IDR_EXT, idr_low))
-+		idr_high = mpam_read_partsel_reg(msc, IDR + 4);
-+
-+	return (idr_high << 32) | idr_low;
-+}
-+
-+static void __mpam_part_sel_raw(u32 partsel, struct mpam_msc *msc)
-+{
-+	lockdep_assert_held(&msc->part_sel_lock);
-+
-+	mpam_write_partsel_reg(msc, PART_SEL, partsel);
-+}
-+
-+static void __mpam_part_sel(u8 ris_idx, u16 partid, struct mpam_msc *msc)
-+{
-+	u32 partsel = FIELD_PREP(MPAMCFG_PART_SEL_RIS, ris_idx) |
-+		      FIELD_PREP(MPAMCFG_PART_SEL_PARTID_SEL, partid);
-+
-+	__mpam_part_sel_raw(partsel, msc);
-+}
-+
-+int mpam_register_requestor(u16 partid_max, u8 pmg_max)
-+{
-+	guard(spinlock)(&partid_max_lock);
-+	if (!partid_max_init) {
-+		mpam_partid_max = partid_max;
-+		mpam_pmg_max = pmg_max;
-+		partid_max_init = true;
-+	} else if (!partid_max_published) {
-+		mpam_partid_max = min(mpam_partid_max, partid_max);
-+		mpam_pmg_max = min(mpam_pmg_max, pmg_max);
-+	} else {
-+		/* New requestors can't lower the values */
-+		if (partid_max < mpam_partid_max || pmg_max < mpam_pmg_max)
-+			return -EBUSY;
-+	}
-+
-+	return 0;
-+}
-+EXPORT_SYMBOL(mpam_register_requestor);
-+
- static struct mpam_class *
- mpam_class_alloc(u8 level_idx, enum mpam_class_types type)
- {
-@@ -450,9 +524,35 @@ int mpam_ris_create(struct mpam_msc *msc, u8 ris_idx,
- 	return err;
- }
- 
-+static struct mpam_msc_ris *mpam_get_or_create_ris(struct mpam_msc *msc,
-+						   u8 ris_idx)
-+{
-+	int err;
-+	struct mpam_msc_ris *ris;
-+
-+	lockdep_assert_held(&mpam_list_lock);
-+
-+	if (!test_bit(ris_idx, &msc->ris_idxs)) {
-+		err = mpam_ris_create_locked(msc, ris_idx, MPAM_CLASS_UNKNOWN,
-+					     0, 0);
-+		if (err)
-+			return ERR_PTR(err);
-+	}
-+
-+	list_for_each_entry(ris, &msc->ris, msc_list) {
-+		if (ris->ris_idx == ris_idx)
-+			return ris;
-+	}
-+
-+	return ERR_PTR(-ENOENT);
-+}
-+
- static int mpam_msc_hw_probe(struct mpam_msc *msc)
- {
- 	u64 idr;
-+	u16 partid_max;
-+	u8 ris_idx, pmg_max;
-+	struct mpam_msc_ris *ris;
- 	struct device *dev = &msc->pdev->dev;
- 
- 	lockdep_assert_held(&msc->probe_lock);
-@@ -463,6 +563,40 @@ static int mpam_msc_hw_probe(struct mpam_msc *msc)
- 		return -EIO;
- 	}
- 
-+	/* Grab an IDR value to find out how many RIS there are */
-+	mutex_lock(&msc->part_sel_lock);
-+	idr = mpam_msc_read_idr(msc);
-+	mutex_unlock(&msc->part_sel_lock);
-+
-+	msc->ris_max = FIELD_GET(MPAMF_IDR_RIS_MAX, idr);
-+
-+	/* Use these values so partid/pmg always starts with a valid value */
-+	msc->partid_max = FIELD_GET(MPAMF_IDR_PARTID_MAX, idr);
-+	msc->pmg_max = FIELD_GET(MPAMF_IDR_PMG_MAX, idr);
-+
-+	for (ris_idx = 0; ris_idx <= msc->ris_max; ris_idx++) {
-+		mutex_lock(&msc->part_sel_lock);
-+		__mpam_part_sel(ris_idx, 0, msc);
-+		idr = mpam_msc_read_idr(msc);
-+		mutex_unlock(&msc->part_sel_lock);
-+
-+		partid_max = FIELD_GET(MPAMF_IDR_PARTID_MAX, idr);
-+		pmg_max = FIELD_GET(MPAMF_IDR_PMG_MAX, idr);
-+		msc->partid_max = min(msc->partid_max, partid_max);
-+		msc->pmg_max = min(msc->pmg_max, pmg_max);
-+
-+		mutex_lock(&mpam_list_lock);
-+		ris = mpam_get_or_create_ris(msc, ris_idx);
-+		mutex_unlock(&mpam_list_lock);
-+		if (IS_ERR(ris))
-+			return PTR_ERR(ris);
-+	}
-+
-+	spin_lock(&partid_max_lock);
-+	mpam_partid_max = min(mpam_partid_max, msc->partid_max);
-+	mpam_pmg_max = min(mpam_pmg_max, msc->pmg_max);
-+	spin_unlock(&partid_max_lock);
-+
- 	msc->probed = true;
- 
- 	return 0;
-@@ -682,10 +816,20 @@ static struct platform_driver mpam_msc_driver = {
- 
- static void mpam_enable_once(void)
- {
-+	/*
-+	 * Once the cpuhp callbacks have been changed, mpam_partid_max can no
-+	 * longer change.
-+	 */
-+	spin_lock(&partid_max_lock);
-+	partid_max_published = true;
-+	spin_unlock(&partid_max_lock);
-+
- 	mpam_register_cpuhp_callbacks(mpam_cpu_online, mpam_cpu_offline,
- 				      "mpam:online");
- 
--	pr_info("MPAM enabled\n");
-+	/* Use printk() to avoid the pr_fmt adding the function name. */
-+	printk(KERN_INFO "MPAM enabled with %u PARTIDs and %u PMGs\n",
-+	       mpam_partid_max + 1, mpam_pmg_max + 1);
- }
- 
- void mpam_disable(struct work_struct *ignored)
-@@ -751,4 +895,6 @@ static int __init mpam_msc_driver_init(void)
- 
- 	return platform_driver_register(&mpam_msc_driver);
- }
-+
-+/* Must occur after arm64_mpam_register_cpus() from arch_initcall() */
- subsys_initcall(mpam_msc_driver_init);
 diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
-index 4e1538d29783..768a58a3ab27 100644
+index 8f7a28d2c021..51f791cc207b 100644
 --- a/drivers/resctrl/mpam_internal.h
 +++ b/drivers/resctrl/mpam_internal.h
-@@ -49,6 +49,8 @@ struct mpam_msc {
- 	 */
- 	struct mutex		probe_lock;
- 	bool			probed;
-+	u16			partid_max;
-+	u8			pmg_max;
- 	unsigned long		ris_idxs;
- 	u32			ris_max;
+@@ -140,4 +140,271 @@ extern struct list_head mpam_classes;
+ int mpam_get_cpumask_from_cache_id(unsigned long cache_id, u32 cache_level,
+ 				   cpumask_t *affinity);
  
-@@ -138,6 +140,10 @@ struct mpam_msc_ris {
- extern struct srcu_struct mpam_srcu;
- extern struct list_head mpam_classes;
- 
-+/* System wide partid/pmg values */
-+extern u16 mpam_partid_max;
-+extern u8 mpam_pmg_max;
-+
- /* Scheduled work callback to enable mpam once all MSC have been probed */
- void mpam_enable(struct work_struct *work);
- void mpam_disable(struct work_struct *work);
-diff --git a/include/linux/arm_mpam.h b/include/linux/arm_mpam.h
-index 13a8ac5c2cbd..7f00c5285a32 100644
---- a/include/linux/arm_mpam.h
-+++ b/include/linux/arm_mpam.h
-@@ -49,4 +49,18 @@ static inline int mpam_ris_create(struct mpam_msc *msc, u8 ris_idx,
- }
- #endif
- 
-+/**
-+ * mpam_register_requestor() - Register a requestor with the MPAM driver
-+ * @partid_max:		The maximum PARTID value the requestor can generate.
-+ * @pmg_max:		The maximum PMG value the requestor can generate.
-+ *
-+ * Registers a requestor with the MPAM driver to ensure the chosen system-wide
-+ * minimum PARTID and PMG values will allow the requestors features to be used.
-+ *
-+ * Returns an error if the registration is too late, and a larger PARTID/PMG
-+ * value has been advertised to user-space. In this case the requestor should
-+ * not use its MPAM features. Returns 0 on success.
++/*
++ * MPAM MSCs have the following register layout. See:
++ * Arm Memory System Resource Partitioning and Monitoring (MPAM) System
++ * Component Specification.
++ * https://developer.arm.com/documentation/ihi0099/aa/
 + */
-+int mpam_register_requestor(u16 partid_max, u8 pmg_max);
++#define MPAM_ARCHITECTURE_V1    0x10
 +
- #endif /* __LINUX_ARM_MPAM_H */
++/* Memory mapped control pages */
++/* ID Register offsets in the memory mapped page */
++#define MPAMF_IDR		0x0000  /* features id register */
++#define MPAMF_IIDR		0x0018  /* implementer id register */
++#define MPAMF_AIDR		0x0020  /* architectural id register */
++#define MPAMF_IMPL_IDR		0x0028  /* imp-def partitioning */
++#define MPAMF_CPOR_IDR		0x0030  /* cache-portion partitioning */
++#define MPAMF_CCAP_IDR		0x0038  /* cache-capacity partitioning */
++#define MPAMF_MBW_IDR		0x0040  /* mem-bw partitioning */
++#define MPAMF_PRI_IDR		0x0048  /* priority partitioning */
++#define MPAMF_MSMON_IDR		0x0080  /* performance monitoring features */
++#define MPAMF_CSUMON_IDR	0x0088  /* cache-usage monitor */
++#define MPAMF_MBWUMON_IDR	0x0090  /* mem-bw usage monitor */
++#define MPAMF_PARTID_NRW_IDR	0x0050  /* partid-narrowing */
++
++/* Configuration and Status Register offsets in the memory mapped page */
++#define MPAMCFG_PART_SEL	0x0100  /* partid to configure */
++#define MPAMCFG_CPBM		0x1000  /* cache-portion config */
++#define MPAMCFG_CMAX		0x0108  /* cache-capacity config */
++#define MPAMCFG_CMIN		0x0110  /* cache-capacity config */
++#define MPAMCFG_CASSOC		0x0118  /* cache-associativity config */
++#define MPAMCFG_MBW_MIN		0x0200  /* min mem-bw config */
++#define MPAMCFG_MBW_MAX		0x0208  /* max mem-bw config */
++#define MPAMCFG_MBW_WINWD	0x0220  /* mem-bw accounting window config */
++#define MPAMCFG_MBW_PBM		0x2000  /* mem-bw portion bitmap config */
++#define MPAMCFG_PRI		0x0400  /* priority partitioning config */
++#define MPAMCFG_MBW_PROP	0x0500  /* mem-bw stride config */
++#define MPAMCFG_INTPARTID	0x0600  /* partid-narrowing config */
++
++#define MSMON_CFG_MON_SEL	0x0800  /* monitor selector */
++#define MSMON_CFG_CSU_FLT	0x0810  /* cache-usage monitor filter */
++#define MSMON_CFG_CSU_CTL	0x0818  /* cache-usage monitor config */
++#define MSMON_CFG_MBWU_FLT	0x0820  /* mem-bw monitor filter */
++#define MSMON_CFG_MBWU_CTL	0x0828  /* mem-bw monitor config */
++#define MSMON_CSU		0x0840  /* current cache-usage */
++#define MSMON_CSU_CAPTURE	0x0848  /* last cache-usage value captured */
++#define MSMON_MBWU		0x0860  /* current mem-bw usage value */
++#define MSMON_MBWU_CAPTURE	0x0868  /* last mem-bw value captured */
++#define MSMON_MBWU_L		0x0880  /* current long mem-bw usage value */
++#define MSMON_MBWU_L_CAPTURE	0x0890  /* last long mem-bw value captured */
++#define MSMON_CAPT_EVNT		0x0808  /* signal a capture event */
++#define MPAMF_ESR		0x00F8  /* error status register */
++#define MPAMF_ECR		0x00F0  /* error control register */
++
++/* MPAMF_IDR - MPAM features ID register */
++#define MPAMF_IDR_PARTID_MAX		GENMASK(15, 0)
++#define MPAMF_IDR_PMG_MAX		GENMASK(23, 16)
++#define MPAMF_IDR_HAS_CCAP_PART		BIT(24)
++#define MPAMF_IDR_HAS_CPOR_PART		BIT(25)
++#define MPAMF_IDR_HAS_MBW_PART		BIT(26)
++#define MPAMF_IDR_HAS_PRI_PART		BIT(27)
++#define MPAMF_IDR_EXT			BIT(28)
++#define MPAMF_IDR_HAS_IMPL_IDR		BIT(29)
++#define MPAMF_IDR_HAS_MSMON		BIT(30)
++#define MPAMF_IDR_HAS_PARTID_NRW	BIT(31)
++#define MPAMF_IDR_HAS_RIS		BIT(32)
++#define MPAMF_IDR_HAS_EXTD_ESR		BIT(38)
++#define MPAMF_IDR_HAS_ESR		BIT(39)
++#define MPAMF_IDR_RIS_MAX		GENMASK(59, 56)
++
++/* MPAMF_MSMON_IDR - MPAM performance monitoring ID register */
++#define MPAMF_MSMON_IDR_MSMON_CSU		BIT(16)
++#define MPAMF_MSMON_IDR_MSMON_MBWU		BIT(17)
++#define MPAMF_MSMON_IDR_HAS_LOCAL_CAPT_EVNT	BIT(31)
++
++/* MPAMF_CPOR_IDR - MPAM features cache portion partitioning ID register */
++#define MPAMF_CPOR_IDR_CPBM_WD			GENMASK(15, 0)
++
++/* MPAMF_CCAP_IDR - MPAM features cache capacity partitioning ID register */
++#define MPAMF_CCAP_IDR_CMAX_WD			GENMASK(5, 0)
++#define MPAMF_CCAP_IDR_CASSOC_WD		GENMASK(12, 8)
++#define MPAMF_CCAP_IDR_HAS_CASSOC		BIT(28)
++#define MPAMF_CCAP_IDR_HAS_CMIN			BIT(29)
++#define MPAMF_CCAP_IDR_NO_CMAX			BIT(30)
++#define MPAMF_CCAP_IDR_HAS_CMAX_SOFTLIM		BIT(31)
++
++/* MPAMF_MBW_IDR - MPAM features memory bandwidth partitioning ID register */
++#define MPAMF_MBW_IDR_BWA_WD		GENMASK(5, 0)
++#define MPAMF_MBW_IDR_HAS_MIN		BIT(10)
++#define MPAMF_MBW_IDR_HAS_MAX		BIT(11)
++#define MPAMF_MBW_IDR_HAS_PBM		BIT(12)
++#define MPAMF_MBW_IDR_HAS_PROP		BIT(13)
++#define MPAMF_MBW_IDR_WINDWR		BIT(14)
++#define MPAMF_MBW_IDR_BWPBM_WD		GENMASK(28, 16)
++
++/* MPAMF_PRI_IDR - MPAM features priority partitioning ID register */
++#define MPAMF_PRI_IDR_HAS_INTPRI	BIT(0)
++#define MPAMF_PRI_IDR_INTPRI_0_IS_LOW	BIT(1)
++#define MPAMF_PRI_IDR_INTPRI_WD		GENMASK(9, 4)
++#define MPAMF_PRI_IDR_HAS_DSPRI		BIT(16)
++#define MPAMF_PRI_IDR_DSPRI_0_IS_LOW	BIT(17)
++#define MPAMF_PRI_IDR_DSPRI_WD		GENMASK(25, 20)
++
++/* MPAMF_CSUMON_IDR - MPAM cache storage usage monitor ID register */
++#define MPAMF_CSUMON_IDR_NUM_MON	GENMASK(15, 0)
++#define MPAMF_CSUMON_IDR_HAS_OFLOW_CAPT	BIT(24)
++#define MPAMF_CSUMON_IDR_HAS_CEVNT_OFLW	BIT(25)
++#define MPAMF_CSUMON_IDR_HAS_OFSR	BIT(26)
++#define MPAMF_CSUMON_IDR_HAS_OFLOW_LNKG	BIT(27)
++#define MPAMF_CSUMON_IDR_HAS_XCL	BIT(29)
++#define MPAMF_CSUMON_IDR_CSU_RO		BIT(30)
++#define MPAMF_CSUMON_IDR_HAS_CAPTURE	BIT(31)
++
++/* MPAMF_MBWUMON_IDR - MPAM memory bandwidth usage monitor ID register */
++#define MPAMF_MBWUMON_IDR_NUM_MON	GENMASK(15, 0)
++#define MPAMF_MBWUMON_IDR_HAS_RWBW	BIT(28)
++#define MPAMF_MBWUMON_IDR_LWD		BIT(29)
++#define MPAMF_MBWUMON_IDR_HAS_LONG	BIT(30)
++#define MPAMF_MBWUMON_IDR_HAS_CAPTURE	BIT(31)
++
++/* MPAMF_PARTID_NRW_IDR - MPAM PARTID narrowing ID register */
++#define MPAMF_PARTID_NRW_IDR_INTPARTID_MAX	GENMASK(15, 0)
++
++/* MPAMF_IIDR - MPAM implementation ID register */
++#define MPAMF_IIDR_IMPLEMENTER	GENMASK(11, 0)
++#define MPAMF_IIDR_REVISION	GENMASK(15, 12)
++#define MPAMF_IIDR_VARIANT	GENMASK(19, 16)
++#define MPAMF_IIDR_PRODUCTID	GENMASK(31, 20)
++
++/* MPAMF_AIDR - MPAM architecture ID register */
++#define MPAMF_AIDR_ARCH_MINOR_REV	GENMASK(3, 0)
++#define MPAMF_AIDR_ARCH_MAJOR_REV	GENMASK(7, 4)
++
++/* MPAMCFG_PART_SEL - MPAM partition configuration selection register */
++#define MPAMCFG_PART_SEL_PARTID_SEL	GENMASK(15, 0)
++#define MPAMCFG_PART_SEL_INTERNAL	BIT(16)
++#define MPAMCFG_PART_SEL_RIS		GENMASK(27, 24)
++
++/* MPAMCFG_CASSOC - MPAM cache maximum associativity partition configuration register */
++#define MPAMCFG_CASSOC_CASSOC		GENMASK(15, 0)
++
++/* MPAMCFG_CMAX - MPAM cache capacity configuration register */
++#define MPAMCFG_CMAX_SOFTLIM		BIT(31)
++#define MPAMCFG_CMAX_CMAX		GENMASK(15, 0)
++
++/* MPAMCFG_CMIN - MPAM cache capacity configuration register */
++#define MPAMCFG_CMIN_CMIN		GENMASK(15, 0)
++
++/*
++ * MPAMCFG_MBW_MIN - MPAM memory minimum bandwidth partitioning configuration
++ *                   register
++ */
++#define MPAMCFG_MBW_MIN_MIN		GENMASK(15, 0)
++
++/*
++ * MPAMCFG_MBW_MAX - MPAM memory maximum bandwidth partitioning configuration
++ *                   register
++ */
++#define MPAMCFG_MBW_MAX_MAX		GENMASK(15, 0)
++#define MPAMCFG_MBW_MAX_HARDLIM		BIT(31)
++
++/*
++ * MPAMCFG_MBW_WINWD - MPAM memory bandwidth partitioning window width
++ *                     register
++ */
++#define MPAMCFG_MBW_WINWD_US_FRAC	GENMASK(7, 0)
++#define MPAMCFG_MBW_WINWD_US_INT	GENMASK(23, 8)
++
++/* MPAMCFG_PRI - MPAM priority partitioning configuration register */
++#define MPAMCFG_PRI_INTPRI		GENMASK(15, 0)
++#define MPAMCFG_PRI_DSPRI		GENMASK(31, 16)
++
++/*
++ * MPAMCFG_MBW_PROP - Memory bandwidth proportional stride partitioning
++ *                    configuration register
++ */
++#define MPAMCFG_MBW_PROP_STRIDEM1	GENMASK(15, 0)
++#define MPAMCFG_MBW_PROP_EN		BIT(31)
++
++/*
++ * MPAMCFG_INTPARTID - MPAM internal partition narrowing configuration register
++ */
++#define MPAMCFG_INTPARTID_INTPARTID	GENMASK(15, 0)
++#define MPAMCFG_INTPARTID_INTERNAL	BIT(16)
++
++/* MSMON_CFG_MON_SEL - Memory system performance monitor selection register */
++#define MSMON_CFG_MON_SEL_MON_SEL	GENMASK(15, 0)
++#define MSMON_CFG_MON_SEL_RIS		GENMASK(27, 24)
++
++/* MPAMF_ESR - MPAM Error Status Register */
++#define MPAMF_ESR_PARTID_MON	GENMASK(15, 0)
++#define MPAMF_ESR_PMG		GENMASK(23, 16)
++#define MPAMF_ESR_ERRCODE	GENMASK(27, 24)
++#define MPAMF_ESR_OVRWR		BIT(31)
++#define MPAMF_ESR_RIS		GENMASK(35, 32)
++
++/* MPAMF_ECR - MPAM Error Control Register */
++#define MPAMF_ECR_INTEN		BIT(0)
++
++/* Error conditions in accessing memory mapped registers */
++#define MPAM_ERRCODE_NONE			0
++#define MPAM_ERRCODE_PARTID_SEL_RANGE		1
++#define MPAM_ERRCODE_REQ_PARTID_RANGE		2
++#define MPAM_ERRCODE_MSMONCFG_ID_RANGE		3
++#define MPAM_ERRCODE_REQ_PMG_RANGE		4
++#define MPAM_ERRCODE_MONITOR_RANGE		5
++#define MPAM_ERRCODE_INTPARTID_RANGE		6
++#define MPAM_ERRCODE_UNEXPECTED_INTERNAL	7
++#define MPAM_ERRCODE_UNDEFINED_RIS_PART_SEL	8
++#define MPAM_ERRCODE_RIS_NO_CONTROL		9
++#define MPAM_ERRCODE_UNDEFINED_RIS_MON_SEL	10
++#define MPAM_ERRCODE_RIS_NO_MONITOR		11
++
++/*
++ * MSMON_CFG_CSU_CTL - Memory system performance monitor configure cache storage
++ *                    usage monitor control register
++ * MSMON_CFG_MBWU_CTL - Memory system performance monitor configure memory
++ *                     bandwidth usage monitor control register
++ */
++#define MSMON_CFG_x_CTL_TYPE			GENMASK(7, 0)
++#define MSMON_CFG_MBWU_CTL_OFLOW_STATUS_L	BIT(15)
++#define MSMON_CFG_x_CTL_MATCH_PARTID		BIT(16)
++#define MSMON_CFG_x_CTL_MATCH_PMG		BIT(17)
++#define MSMON_CFG_MBWU_CTL_SCLEN		BIT(19)
++#define MSMON_CFG_x_CTL_SUBTYPE			GENMASK(22, 20)
++#define MSMON_CFG_x_CTL_OFLOW_FRZ		BIT(24)
++#define MSMON_CFG_x_CTL_OFLOW_INTR		BIT(25)
++#define MSMON_CFG_x_CTL_OFLOW_STATUS		BIT(26)
++#define MSMON_CFG_x_CTL_CAPT_RESET		BIT(27)
++#define MSMON_CFG_x_CTL_CAPT_EVNT		GENMASK(30, 28)
++#define MSMON_CFG_x_CTL_EN			BIT(31)
++
++#define MSMON_CFG_MBWU_CTL_TYPE_MBWU		0x42
++#define MSMON_CFG_CSU_CTL_TYPE_CSU		0x43
++
++/*
++ * MSMON_CFG_CSU_FLT -  Memory system performance monitor configure cache storage
++ *                      usage monitor filter register
++ * MSMON_CFG_MBWU_FLT - Memory system performance monitor configure memory
++ *                      bandwidth usage monitor filter register
++ */
++#define MSMON_CFG_x_FLT_PARTID			GENMASK(15, 0)
++#define MSMON_CFG_x_FLT_PMG			GENMASK(23, 16)
++
++#define MSMON_CFG_MBWU_FLT_RWBW			GENMASK(31, 30)
++#define MSMON_CFG_CSU_FLT_XCL			BIT(31)
++
++/*
++ * MSMON_CSU - Memory system performance monitor cache storage usage monitor
++ *            register
++ * MSMON_CSU_CAPTURE -  Memory system performance monitor cache storage usage
++ *                     capture register
++ * MSMON_MBWU  - Memory system performance monitor memory bandwidth usage
++ *               monitor register
++ * MSMON_MBWU_CAPTURE - Memory system performance monitor memory bandwidth usage
++ *                     capture register
++ */
++#define MSMON___VALUE		GENMASK(30, 0)
++#define MSMON___NRDY		BIT(31)
++#define MSMON___L_NRDY		BIT(63)
++#define MSMON___L_VALUE		GENMASK(43, 0)
++#define MSMON___LWD_VALUE	GENMASK(62, 0)
++
++/*
++ * MSMON_CAPT_EVNT - Memory system performance monitoring capture event
++ *                  generation register
++ */
++#define MSMON_CAPT_EVNT_NOW	BIT(0)
++
+ #endif /* MPAM_INTERNAL_H */
 -- 
 2.43.0
 
