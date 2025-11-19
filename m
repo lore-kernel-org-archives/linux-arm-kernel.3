@@ -4,65 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96B89CF58C9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 18:38:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9B8CCF58C9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 18:41:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pv0XlKeHKZGqLBZRpSk45yrLMGSlkYdrCdlOGgiMXMk=; b=aMkpteXYAIS2dS5MO88s2CQBI/
-	bB01dOD1WPg5qqK8Fw0+W4sEvjDmpUUblgG+VO+GNarRO08cy8PB9ANEwBrUrbumbM04JRomLSpfk
-	UPg0KVvT88el1OdK+eTM+R5KvTEbVesNm6uxOlsRta/CNuxoDbwimJyRZbglp8UnrCcsOoWPKG18S
-	by0+FvExaJiG11m9aLAwNeIoNzG0s36vAP3Mr6e/Ha6Aw6I5NbrrSxHd1sR9Fh+XpcQ8XrbSl1xW4
-	s3xbaUpDERun7IKX+KKd74U0EATUAX7lAppvEwUnwXltpE+mPLkyuFDPV3hiVqrxzjoQxNfUYJqBY
-	FqsbuKfw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rkVTBEWqVaZ94WPO1n0cpMljTE5QytXBtSx70+iCgmI=; b=MW3wFk5H2WPTpyn4+NZ6+FUYQq
+	tF3QDMXrTSZHSHB0DpDlVhWgzmIUBfGcEgMqy+TXyP5pp9/HEKVyETStWgNxKm7SgSHTk0XMRn2vJ
+	c3JosvF12fjtrkVPaBzBE4QDeDyE/3swvhm/b3z6t5Vf6dChsKxA3zb9eYlXdlZIR1stTv1YcnL+y
+	rESTrfmQzscFjaedxy6CjgOjQe7noHBwdO4FZnsy36isFgtUMgTxhKWXhM96AX9QxSeqGNyODXHEu
+	DKSrbGAYj9X2qbMntwR+RCAKpVexv8nn5c1NO2FLdaCqSJUTa7ZtW6lfrHEaR0aQRqTO9WzCM7kCD
+	28y9P5GA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLn4L-00000004fIU-3s8T;
-	Wed, 19 Nov 2025 18:38:17 +0000
-Received: from smtprelay0015.hostedemail.com ([216.40.44.15] helo=relay.hostedemail.com)
+	id 1vLn7B-00000004gcN-1j9b;
+	Wed, 19 Nov 2025 18:41:13 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLn4J-00000004fHJ-0U1k
+	id 1vLn7A-00000004gcG-0Dqv
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Nov 2025 18:38:16 +0000
-Received: from omf10.hostedemail.com (a10.router.float.18 [10.200.18.1])
-	by unirelay07.hostedemail.com (Postfix) with ESMTP id C8AB716060D;
-	Wed, 19 Nov 2025 18:38:10 +0000 (UTC)
-Received: from [HIDDEN] (Authenticated sender: rostedt@goodmis.org) by omf10.hostedemail.com (Postfix) with ESMTPA id 81EA330;
-	Wed, 19 Nov 2025 18:38:06 +0000 (UTC)
-Date: Wed, 19 Nov 2025 13:38:36 -0500
-From: Steven Rostedt <rostedt@goodmis.org>
-To: Eugen Hristev <eugen.hristev@linaro.org>
-Cc: linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-mm@kvack.org, tglx@linutronix.de, andersson@kernel.org,
- pmladek@suse.com, rdunlap@infradead.org, corbet@lwn.net, david@redhat.com,
- mhocko@suse.com, tudor.ambarus@linaro.org, mukesh.ojha@oss.qualcomm.com,
- linux-arm-kernel@lists.infradead.org, linux-hardening@vger.kernel.org,
- jonechou@google.com, linux-doc@vger.kernel.org, devicetree@vger.kernel.org,
- linux-remoteproc@vger.kernel.org, linux-arch@vger.kernel.org,
- tony.luck@intel.com, kees@kernel.org
-Subject: Re: [PATCH 00/26] Introduce meminspect
-Message-ID: <20251119133836.47d9ae73@gandalf.local.home>
-In-Reply-To: <b0102b82-9ae8-4e01-ba27-44b78b710fca@linaro.org>
-References: <20251119154427.1033475-1-eugen.hristev@linaro.org>
-	<20251119131534.392277e3@gandalf.local.home>
-	<b0102b82-9ae8-4e01-ba27-44b78b710fca@linaro.org>
-X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+	Wed, 19 Nov 2025 18:41:12 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 383B160134;
+	Wed, 19 Nov 2025 18:41:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B83CDC4CEF5;
+	Wed, 19 Nov 2025 18:41:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1763577670;
+	bh=jPiEf9D0enUbIPbwxeeiH63YOLo0c0B5JvI5bNTryrk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=KOgLihFq4e/zbXry3OmMxJlk6/wjfu+Jr63VKL/cUMy8nfY0GxXWpBkKYZ1QGc0pk
+	 Um07NKpisn+tyRjh2S/CXmXsUP+rEuir7t5OsaER3oyjiogna/0vI5rFEoiE1KF0yt
+	 qdfubygGYscPwGZWQX58N7otP6RQ8wxvOwoHBFY7pE8B7jbUxwJl0WIfleN6HIOruG
+	 UrN0npsdRbxaD41STo+S2rD1KA8Pv7d+0JAutXnz/HUO7YYgSoyP84CD07pW8NFWW3
+	 FYAR3znkbbNwNFk7Etp1O1A4Ekbi2Uj3RWiWDvGyHx8tfdkad/o2xcSnTRDZ9akjzu
+	 pVDIKc8TNSA5g==
+Date: Wed, 19 Nov 2025 18:41:05 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Jacky Chou <jacky_chou@aspeedtech.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>,
+	Andrew Jeffery <andrew@aj.id.au>, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net-next] dt-bindings: net: aspeed: add AST2700 MDIO
+ compatible
+Message-ID: <20251119-gooey-wifi-413598a8a1d7@spud>
+References: <20251117-aspeed_mdio_ast2700-v1-1-8ecb0032f554@aspeedtech.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-Stat-Signature: cc1o33w6u6owrkxkfh83ifny9egjgrsa
-X-Rspamd-Server: rspamout01
-X-Rspamd-Queue-Id: 81EA330
-X-Session-Marker: 726F737465647440676F6F646D69732E6F7267
-X-Session-ID: U2FsdGVkX18eQxzjFElSFMQBkWmqdnIUBJkOF0f6iiE=
-X-HE-Tag: 1763577486-542771
-X-HE-Meta: U2FsdGVkX18hYyFLn4NceFAtmtr2U9i2vMLdUUZa/XY9sbc18Qd8d0XqWxwjkyLUW391A4PmfVST6fTOPo9/v/GlV/882/v3PjE3Q5zfS5DD1vsLm+4ecyYB6S0zd8UbhIjnn5oMxPSN9iXqq6UxrC6D2V+tXEx8ZTe18jJnlx5L3nYf++HdtV6ezZc8QQOsd5Sji+bCYcQ6BWUI2yZNs93T38KE14+xuHs3A5shJ2l0kZqx610Kyw6apiwgHfwv9/5JD181MK+WYyNpUzWoatcjkFOIYbmW/eiebkRWkR1PTFbDxKfNL2AREBIQ9kzXso7tg4Agi6AvAp3c/q8HXYwDktY4Ul7c6O7qpQnkvKOsmFMGedUEWwFLRTKDlkmz
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251119_103815_239790_85B8A79C 
-X-CRM114-Status: GOOD (  22.58  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="2bWqpCW/1YghVWvY"
+Content-Disposition: inline
+In-Reply-To: <20251117-aspeed_mdio_ast2700-v1-1-8ecb0032f554@aspeedtech.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,46 +79,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 19 Nov 2025 20:24:23 +0200
-Eugen Hristev <eugen.hristev@linaro.org> wrote:
 
+--2bWqpCW/1YghVWvY
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-> The problem is that all the meta-data is not allocated inside the
-> preallocated buffer. The meta-data is kmalloced all around the code. I
-> mean the structs that hold the information on what's in the buffer. You
-> know what I mean.
-> And all these kmalloced things, turn out to be in order of hundreds just
-> on a kernel boot, which I tested. This is not feasible for the
-> meminspect table, as it would get overcrowded very easily.
-> I thought of perhaps trying to kmalloc all of them in a dedicated cache,
-> but I haven't progressed on that. Another idea would be to try to
-> recreate the meta, but I have not found a way to do it yet.>
-> > That is, by using the persistent ring buffer code with the meminspect, if
-> > the firmware doesn't save the memory across reboots but allows you to dump
-> > it to disk, you can enable tracing within the persistent ring buffer, on
-> > crash, extract the buffer, and then use trace-cmd to rebuild a trace.dat
-> > file that you can now inspect, and see the trace that lead up to the crash.  
-> I used 'crash' tool with trace plugin and I am able to see all the trace
-> contents, but, with the limitation above. (To achieve this, I dumped a
-> huge area to include it, so , not feasible for my goal )
+On Mon, Nov 17, 2025 at 03:30:18PM +0800, Jacky Chou wrote:
+> Add "aspeed,ast2700-mdio" compatible to the binding schema with a fallback
+> to "aspeed,ast2600-mdio".
+>=20
+> Although the MDIO controller on AST2700 is functionally the same as the
+> one on AST2600, it's good practice to add a SoC-specific compatible for
+> new silicon. This allows future driver updates to handle any 2700-specific
+> integration issues without requiring devicetree changes or complex
+> runtime detection logic.
+>=20
+> For now, the driver continues to bind via the existing
+> "aspeed,ast2600-mdio" compatible, so no driver changes are needed.
+>=20
+> Signed-off-by: Jacky Chou <jacky_chou@aspeedtech.com>
+> ---
+>  Documentation/devicetree/bindings/net/aspeed,ast2600-mdio.yaml | 8 +++++=
+++-
+>  1 file changed, 7 insertions(+), 1 deletion(-)
+>=20
+> diff --git a/Documentation/devicetree/bindings/net/aspeed,ast2600-mdio.ya=
+ml b/Documentation/devicetree/bindings/net/aspeed,ast2600-mdio.yaml
+> index d6ef468495c5..1c90e7c15a44 100644
+> --- a/Documentation/devicetree/bindings/net/aspeed,ast2600-mdio.yaml
+> +++ b/Documentation/devicetree/bindings/net/aspeed,ast2600-mdio.yaml
+> @@ -13,13 +13,19 @@ description: |+
+>    The ASPEED AST2600 MDIO controller is the third iteration of ASPEED's =
+MDIO
+>    bus register interface, this time also separating out the controller f=
+rom the
+>    MAC.
+> +  The ASPEED AST2700 MDIO controller is similar to the AST2600's.
 
-Can't you at boot up just run:
+This statement disagrees with your commit message that claims
+functionally identical, and implies that the 2700 supports some extra
+features or whatever.
+I think I'd drop this entirely from the patch, rather than try to reword
+it. Remove it and then:
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+pw-bot: changes-requested
 
-   trace-cmd restore -c -o trace-head.dat
+>  allOf:
+>    - $ref: mdio.yaml#
+> =20
+>  properties:
+>    compatible:
+> -    const: aspeed,ast2600-mdio
+> +    oneOf:
+> +      - const: aspeed,ast2600-mdio
+> +      - items:
+> +          - enum:
+> +              - aspeed,ast2700-mdio
+> +          - const: aspeed,ast2600-mdio
+> =20
+>    reg:
+>      maxItems: 1
+>=20
+> ---
+> base-commit: c9dfb92de0738eb7fe6a591ad1642333793e8b6e
+> change-id: 20251117-aspeed_mdio_ast2700-aa089c4f0474
+>=20
+> Best regards,
+> --=20
+> Jacky Chou <jacky_chou@aspeedtech.com>
+>=20
 
-?
+--2bWqpCW/1YghVWvY
+Content-Type: application/pgp-signature; name="signature.asc"
 
-That records all the meta data of the running machine, and places it into a
-trace-head.dat file. You can save that off anywhere.
+-----BEGIN PGP SIGNATURE-----
 
-Then after a crash, if you split the buffers up into individual cpu raw data
-files, you can then run:
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaR4PQQAKCRB4tDGHoIJi
+0sqUAP9r+wKYrCdpXMLj+cK8mnW1jeDSeXieLhR1kXkxcYrCUgEAvz3f7zkatpMU
+AoB7sxn/YdlOC4WEHCby7J2J47TRzAo=
+=rJkd
+-----END PGP SIGNATURE-----
 
-  trace-cmd restore -o trace.dat -i trace-head.dat trace-cpu0.raw trace-cpu1.raw ...
-
-And it will create a trace.dat file for you that you can read with:
-
-  trace-cmd report trace.dat
-
--- Steve
+--2bWqpCW/1YghVWvY--
 
