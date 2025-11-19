@@ -4,93 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7D87CF34A1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 13:41:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A9C7CF34B0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 13:48:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=p1VeUzD38gPmtyIu7qtbXNax1D8JulnLI68nD5CrDU0=; b=xA8m18hgdZzg5LRbtO12YcUkFr
-	5KSN/O3F6fSuapI6Z7GujqMKnjogZ+gI3TwHazCFYeewZZQj7oz1GJCeTEk1KoXyFerZVgBEqIYH9
-	xVdZBpCRYg+qYX+29bgVBxjJoeevO8VPjbgfBT8NmAJMZJx1e/aLAtUm8v7p0eMhs6fKGvjvy/hEN
-	80oLet4GkHHMAzYCzmKZlXJRLSFGMNMuvUnHBJQKeA3FRGkkBDPOEKaRa8mHjvgLSp4F6+S3Z/5IL
-	xpLw0SUI2iZrxVLG07nLWnRix/X2bqVZSzG1Jhnax5KtJ+KVljyuwaB9u/S9ajggC6FimRJD+hkdo
-	W/p0/WGA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=uk14deWlzB7yeJYaci3XzPAR7LA+rdXzoiD7JVL+UlI=; b=IEXqrUSQRdBntDxLftJlDdAxFE
+	7A4l4m3BjdNRrY5uOn+uvHDIpb/xIn9sghbKzVypwox38vtzcWQQSWWp8OYZcfTqJXZJDcYeQCtxu
+	LLdBk5rTE8qClS3nFW+hFHmDl0ioNj1qLADIxzsvbwFbzbGmud16y3c4lXJPyEsUf6UHLUHy6u39E
+	INGz8HfNb73XO9G+qy87mTCqvOLyGLu3ZGAstRiUrw+r2elgzqMh9ahUCUjI2GhEQWqzM4NXRRLu/
+	3bZF0KoVsmNRvLA0/R8QREjTNPKQMtxiMq9yTFssAD1JPAFZdj0wlVShicPncKhIxnOtupgjOrBfY
+	/hzmohGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLiQd-00000003J2b-2n1M;
-	Wed, 19 Nov 2025 13:40:59 +0000
-Received: from mail-lf1-x133.google.com ([2a00:1450:4864:20::133])
+	id 1vLiY4-00000003JYW-1dYj;
+	Wed, 19 Nov 2025 13:48:40 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLiQa-00000003J1k-4Av2
+	id 1vLiY0-00000003JY0-3tJU
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Nov 2025 13:40:58 +0000
-Received: by mail-lf1-x133.google.com with SMTP id 2adb3069b0e04-5958931c9c7so5435819e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Nov 2025 05:40:56 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1763559655; x=1764164455; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=p1VeUzD38gPmtyIu7qtbXNax1D8JulnLI68nD5CrDU0=;
-        b=Ps6EmTl66ncL1TCJrE4lcpxKhxZlSnp/e++l2MihD9G5O/2l/eCNbwYSH2R8IfwgzJ
-         Goz9lIWD1MR272yuWsbfwL9vz09ZvmZFlJF1KNy2ZOVDfYDYRQtT0p6xkJNQqrj3Kc+d
-         eHRoOkax519q/+kfWRUgBgcXV5u7bl59GzNK1pTP++e9ZimjZmN8C7zKSXnztViFWGIi
-         VY/IwUIMlbcD6k4TO1K0ZWmEea4O2jjf/+Vq2GaMGRBJuCbY+qlABH+MMqE0hzNa/UML
-         d/ZG0Trjy2Q8U6e4FrL4X3X+nEatphAMAVeVqA+21WhaqXEN+SGA4hgJASLWAvhR5aC1
-         vmlQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763559655; x=1764164455;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=p1VeUzD38gPmtyIu7qtbXNax1D8JulnLI68nD5CrDU0=;
-        b=r1ajG55iTH6z71Poo0c8qHFyPGHjgYYXgP0cY81MdmZFBLRsipBMlsIkY06sn2AfrK
-         AsZ47LYeNauGrJZqScIJkjyaQ3kQQiqWRa9FCSvAifaIRYmyr6QzYv291VEBmIWm+w3m
-         E9miz6nYFHvVhEj8zQ85lvMSgs7eHVT9SAQezSNLTe49/N5F8ZgxqVPcympaWA5kKuRw
-         5OsvQQr/focz/qBvszDoixlm+6Xey+lOlADQ/ApuzK83wPxzlQZeyxiWBHPL28D5XeAF
-         lUxj7WbJ5NmhxrD4HWz4/AZOA/n0T+sMF3rpC5uqzpUU0F91gMES8I14CR0qrjJzSz+v
-         KezA==
-X-Forwarded-Encrypted: i=1; AJvYcCXbbha85u/lJfQKX8tt99xLaA7NO7EA7J640jp1Kpw1SUEqC5xKQjp/uKE1rQ4IO1GHhZGnpLM1szgeuL3zXwoC@lists.infradead.org
-X-Gm-Message-State: AOJu0YyJVMDuZjlYiFodtKr+X7aeNfKbHVeVX7huV+o4Afmz4qsLnoaM
-	Ax8+C6SG8yAVfIbFsrTJytDo4PABNpq3JFo/wa8qyHOAK02kqPxyEpwALiKHdoyc8uzRfU2uCOq
-	YTIR2dBX0VH9rF0tBsy3e1GK0t0ET0URd3NeWVjXP0A==
-X-Gm-Gg: ASbGncsTHXMdYNCJ3hvkX9uQWaoXw/ebJg+x9lHf9Qmh341Wvpdjkyy6bOx640cs2jU
-	glQu+wfxeKPJMu5jHLMzR11Rnawwihho5w+NO0BFNi7N1HHf9WRnAs3OIkvasnbp44PlKfrRPEG
-	srlKoPJouVCJGqgqPMJ4xrUbpORpQ/mCSCeoy6JlXgx7Stf5ncxH2w6EZIBjRlOg1vKduCbXzCV
-	4gYdNUeyWxrYk/g3T2aHy+LV11ogMf1emu68knwWGN0xCCjdQb/g9VxzKPDO/OTFhDtfOSdC1sW
-	ODGOUw==
-X-Google-Smtp-Source: AGHT+IHJqn3Q9sPhFEgzMw/vukdNcUT/GVv4BESPUPflJb4Mu3DDqG55U/y6YAHksU0FJOcXRT5fsp/raa2CukOp/os=
-X-Received: by 2002:a05:6512:689:b0:594:341a:ab1e with SMTP id
- 2adb3069b0e04-595841fbd7emr8740927e87.31.1763559654402; Wed, 19 Nov 2025
- 05:40:54 -0800 (PST)
+	Wed, 19 Nov 2025 13:48:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1763560117; x=1795096117;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=xZVbLtQtCTrrDEgWar98Jt+Zmc5VQCpCV/VIbnHZMZY=;
+  b=JGfLIDRjK5L3EokQutKN4q1FilkgDyRToXWuL+sVk0VW722VPancjqNJ
+   sQb7RfQnDMJDpqeSTlw8epFbi8dnkw5cyl+vN6UX4CUKkNaenuzI6g4Fg
+   pstApBLCfplvZWGm0NoQqUt4k58uwiojD0LW6CtGFAWvlVyuNsfPXNDc1
+   8nMFtdg2uCSJ8Yo/9eSpAJfNknkslvvKehpfHUxKGpeG6IHs4qmRy4YYe
+   /sKJQi9rztkiEw0XPPUOIWUshUiprGqRDEXxgc/nFGipWcihbHUhklST9
+   7oS93IVu+jDBwCZLBxzVMqocB05gqZg9t8zeDH0Z9sEgZt05L6p6CQsB0
+   w==;
+X-CSE-ConnectionGUID: 71KvCTRZRcWm48O19CYCXg==
+X-CSE-MsgGUID: SRxyaEjXS92SKLxPNJQCnA==
+X-IronPort-AV: E=Sophos;i="6.19,315,1754982000"; 
+   d="scan'208";a="49381641"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa3.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 19 Nov 2025 06:48:34 -0700
+Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.58; Wed, 19 Nov 2025 06:48:20 -0700
+Received: from DEN-DL-M31836.microchip.com (10.10.85.11) by
+ chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server id
+ 15.1.2507.58 via Frontend Transport; Wed, 19 Nov 2025 06:48:18 -0700
+From: Horatiu Vultur <horatiu.vultur@microchip.com>
+To: <nicolas.ferre@microchip.com>, <alexandre.belloni@bootlin.com>,
+	<claudiu.beznea@tuxon.dev>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+	<conor+dt@kernel.org>
+CC: <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, Horatiu Vultur <horatiu.vultur@microchip.com>
+Subject: [PATCH] ARM: dts: lan966x: Fix the access to the PHYs for pcb8290
+Date: Wed, 19 Nov 2025 14:47:50 +0100
+Message-ID: <20251119134750.394655-1-horatiu.vultur@microchip.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-References: <20251118003229.26636-1-jszhang@kernel.org>
-In-Reply-To: <20251118003229.26636-1-jszhang@kernel.org>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Wed, 19 Nov 2025 14:40:29 +0100
-X-Gm-Features: AWmQ_bme-apOhLTLN0FLgYrYqF5_wu51DsT5ZOn-gWqBj2C9VIwE3ootHtgkuJw
-Message-ID: <CACRpkda8GmEbFeSmGexcs-5aaFHiUigPhQfF_ynJRN1ix2f6nA@mail.gmail.com>
-Subject: Re: [PATCH v2 00/15] gpio: Use modern PM macros
-To: Jisheng Zhang <jszhang@kernel.org>
-Cc: Doug Berger <opendmb@gmail.com>, Florian Fainelli <florian.fainelli@broadcom.com>, 
-	bcm-kernel-feedback-list@broadcom.com, Bartosz Golaszewski <brgl@bgdev.pl>, 
-	Hoan Tran <hoan@os.amperecomputing.com>, Andy Shevchenko <andy@kernel.org>, 
-	Daniel Palmer <daniel@thingy.jp>, Romain Perier <romain.perier@gmail.com>, 
-	Grygorii Strashko <grygorii.strashko@ti.com>, Santosh Shilimkar <ssantosh@kernel.org>, 
-	Kevin Hilman <khilman@kernel.org>, Robert Jarzmik <robert.jarzmik@free.fr>, 
-	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>, Masami Hiramatsu <mhiramat@kernel.org>, 
-	Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>, Srinivas Neeli <srinivas.neeli@amd.com>, 
-	Michal Simek <michal.simek@amd.com>, linux-gpio@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-omap@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251119_054057_059734_C4FF403C 
-X-CRM114-Status: GOOD (  15.53  )
+X-CRM114-CacheID: sfid-20251119_054837_202115_622B7A54 
+X-CRM114-Status: GOOD (  11.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,29 +84,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 18, 2025 at 1:50=E2=80=AFAM Jisheng Zhang <jszhang@kernel.org> =
-wrote:
+The problem is that the MDIO controller can't detect any of the PHYs.
+The reason is that the lan966x is not pulling high the GPIO 53 that is
+connected to the PHYs reset GPIO. Without doing this the PHYs are kept
+in reset. The mdio controller framework has the possiblity to control a
+GPIO to release the reset of the PHYs. So take advantage of this and set
+line to be high before accessing the PHYs.
 
-> Use the modern PM macros for the suspend and resume functions to be
-> automatically dropped by the compiler when CONFIG_PM or
-> CONFIG_PM_SLEEP are disabled, without having to use #ifdef guards or
-> __maybe_unused.
->
-> This has the advantage of always compiling these functions in,
-> independently of any Kconfig option. Thanks to that, bugs and other
-> regressions are subsequently easier to catch.
->
-> Almost all drivers are converted, only gpio-tegra and gpio-mlxbf are
-> left as is, because the memory for saving HW context is not trivial,
-> if we convert them, then the two drivers' users may complain for
-> !CONFIG_PM && !CONFIG_PM_SLEEP case. So I didn't touch them.
->
-> patch to gpio-dwapb.c is tested on real HW, others are compile-tested onl=
-y.
+Signed-off-by: Horatiu Vultur <horatiu.vultur@microchip.com>
+---
+ arch/arm/boot/dts/microchip/lan966x-pcb8290.dts | 1 +
+ 1 file changed, 1 insertion(+)
 
-The series:
-Acked-by: Linus Walleij <linus.walleij@linaro.org>
+diff --git a/arch/arm/boot/dts/microchip/lan966x-pcb8290.dts b/arch/arm/boot/dts/microchip/lan966x-pcb8290.dts
+index 3b7577e48b467..50bd29572f3ed 100644
+--- a/arch/arm/boot/dts/microchip/lan966x-pcb8290.dts
++++ b/arch/arm/boot/dts/microchip/lan966x-pcb8290.dts
+@@ -54,6 +54,7 @@ udc_pins: ucd-pins {
+ &mdio0 {
+ 	pinctrl-0 = <&miim_a_pins>;
+ 	pinctrl-names = "default";
++	reset-gpios = <&gpio 53 GPIO_ACTIVE_LOW>;
+ 	status = "okay";
+ 
+ 	ext_phy0: ethernet-phy@7 {
+-- 
+2.34.1
 
-Yours,
-Linus Walleij
 
