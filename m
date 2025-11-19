@@ -4,98 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F302FCF3941
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 15:49:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D76E3CF3941
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 15:49:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=zsMgANA5eM7ZKAX6n6+aWoRlKM8M0oaGArWvq51zEek=; b=z1kOC2e76hqR0J0dGcwKr/knmo
-	bK6wq37xuNvi0n109cWdHBh3YBrQR47mPCbU5PGGFbI/WJXJTWVXdHhbujk14mPAPCVBl/jKSsq4d
-	1exwENoIMTP7PlLw0P9GNJ61xWjtPk5mFrV1An/2MtWlhLGhhDbTt8NeuMQ+OjNthhgexk8eFnda5
-	trDq2x/adKTyzC9aqkATkB77bcLlhn7O4Gb+995t6t3OvVTCiWSZv15+Ir5YzWwElmP3AS4HGEbOg
-	jQuCOLL0zx1uQWIifQpVlrdQ/+0JZKRSBbhocQmNH5VJvAPZ0vMRoaoWFQLKnIwrI1TFoykv+muCl
-	tlXNxO+Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Ui9hVtBOnZvHpg1WzjTFn8zOeqtN+NyGsaSIzrj5D7M=; b=CEsDYNLhqIbWSfmQfFmZam9p7o
+	hWEa0bzLvUSNPpWFms2soWLID4bVZnGYY96oSpJkOFd/BAG4/soX9cCqF96Ku0ObM7g+V7+2kca5u
+	5l84RIQNGuBprPBw2PX+pFR5BIyiep1eWPJd/Ex6aGJF8cpRUj+FwPj/HTNYnABZTuABvfa6mvJXe
+	qg8LI0xgfRLh2ko4m0LMeknMTEnlpmzCHv3EPR1RFNdpKe0CRNVpEwsViQDmJdU4UHAVNHFqwoXcc
+	X/9HFNWDxrBbQAOdkhMK9aZuCMImkqXC9vfnzzlOYOsNqPs9Xxz0ooGXrStfI7edtXrslqsMkQ+nq
+	0BP2xQfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLkQz-00000003YjN-32WL;
-	Wed, 19 Nov 2025 15:49:29 +0000
-Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLkQw-00000003YiQ-4AWM
+	id 1vLkR8-00000003Yp8-0wXx;
+	Wed, 19 Nov 2025 15:49:38 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vLkR0-00000003Yjy-1WzV
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Nov 2025 15:49:28 +0000
-Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-429c8632fcbso4854094f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Nov 2025 07:49:25 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1763567364; x=1764172164; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=zsMgANA5eM7ZKAX6n6+aWoRlKM8M0oaGArWvq51zEek=;
-        b=HpEQ6Xd50Io+7YzcYQ0bW/AQvOjjwmYU8GHp91WsV9vTt6FMQPFQTjKrn54b2g4wj6
-         BZxIiruWZzG6PbfidjsSgAMN9JLGKejhg372F6/JgI0G0Ukn9sKXKOOtQjIsPMh6QvNt
-         AXdXz9aHCLi3N32jHghcKaMq3gHr28mQLEFjBbLlPW91SPKbWfqHv29S7WZ+rhm/qBcY
-         ZuabTDycC5Ei2iyYVH7mwM7yBImIadFszmfe3sH6XgRtGzW0Ex+dcARHsKRG+J4wUNT0
-         iPn414c9gSb6Q6nkPWSxlc8QRu1LmMITbEyR61Mbi7YaVGsvhXwMadPwE5HTpjL2kpQY
-         oQ1g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763567364; x=1764172164;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=zsMgANA5eM7ZKAX6n6+aWoRlKM8M0oaGArWvq51zEek=;
-        b=Siwp8csxdXoyYDz44ihvgsIAXfVn53uzH70Te7viRM2lZrOzNUyewM2Iq4vPwRXI32
-         4g02tKU16XAoDx+PH+b6c2dAOpZbc5mySIb3kb1FG14rNadnoERouyaCzIqF6LyyLZ9b
-         BEqVAXRZxP0p+LkYpHiH2UtRBul2GXshqsf/Qi0sT6PtZfs1zx75VugrMLR9L1TJgoVA
-         okLkh3YjT7JgZRVaIm03P2kreWGrH2oo6/MjEDVVoiogBmkDMFAIijGBxEEjcZ2cZ6RQ
-         T3Kkm+hJRI8F+lEdlen6R7GQuIRQgcC5a9yWs6SgN/0aA90VzYEvqn2zs15w/vO7+NSw
-         mGDA==
-X-Forwarded-Encrypted: i=1; AJvYcCXL8nuxKvnWhlW4RzVN6jphsFVITAmLct9zkUor+07sXnqTnf58npXXEHFx2sTrKkOb8l9Y6hOgLhHCwSnv05qb@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy9gd4oBgYVCUGqsdtx0XSV56Q1nnLjkLdr1C7hQCbG/XFK5uGz
-	NmEMxPrzhqlbSeIJ8y6ZwtV0j209VnO2T9n+opg1Cn4BUndNNyixJG0o
-X-Gm-Gg: ASbGncuO5iXq0+SmCTAx/aab5uiMBOnXSTtXxXEMn5gRhyJKuVNPn4dAogTtu4dmt7x
-	fPZ7Rj/v3iPZTNt95pemut9KmG2yEDRzjRi6S13Q590nMnm5VGUXDSg2q9Lyxzv65h35ZOGTXBO
-	E8KGo8tVY58liPb+8cEhg7bpxW8iYbFRzwCT4M8T3whdEeFoJ0m3TX5Kaf8xwBsegJy6qK87ObI
-	j3uUkhYOLcerra+qozWfOcXkD0/4uQlUKKJ1/AZqtyx4XCgPDwDoG28jeaelprRutrrCSHv7GM7
-	2MgL1vGjx9djtRGN0XXgPVYziG5HrgVclebP1911zzLUK77B3BjfnVfF+hojjbHkw5VRALpYIVW
-	CUrwm1q/SY9rH6VEpqct62dzo1khckEBn9TQi4k4DagHQQndA57DCeOFtNdNeOA8QQosBeFnbGZ
-	YgwtBTFBv83eVnNYWnwtDWFUXulNr0TH35qzr/RBupbnpSqJZ2Up/YzchR32nMEH71Ug==
-X-Google-Smtp-Source: AGHT+IHKBCKSyXwqmqDibyNSehgzgh3KJ1v3HqV1svmFXRruujCX1mFQdmNmlH2lr9fy9Bcfr5S55w==
-X-Received: by 2002:a05:6000:4024:b0:42b:2dd5:42be with SMTP id ffacd0b85a97d-42b593234e0mr18915716f8f.8.1763567364171;
-        Wed, 19 Nov 2025 07:49:24 -0800 (PST)
-Received: from f4d4888f22f2.ant.amazon.com.com ([15.248.3.91])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42c9628ebacsm25969755f8f.30.2025.11.19.07.49.23
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Wed, 19 Nov 2025 07:49:23 -0800 (PST)
-From: Jack Thomson <jackabt.amazon@gmail.com>
-To: maz@kernel.org,
-	oliver.upton@linux.dev,
-	pbonzini@redhat.com
-Cc: joey.gouly@arm.com,
-	suzuki.poulose@arm.com,
-	yuzenghui@huawei.com,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	shuah@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	isaku.yamahata@intel.com,
-	xmarcalx@amazon.co.uk,
-	kalyazin@amazon.co.uk,
-	jackabt@amazon.com
-Subject: [PATCH v3 0/3] KVM ARM64 pre_fault_memory
-Date: Wed, 19 Nov 2025 15:49:07 +0000
-Message-ID: <20251119154910.97716-1-jackabt.amazon@gmail.com>
-X-Mailer: git-send-email 2.50.1
+	Wed, 19 Nov 2025 15:49:31 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 93C9CFEC;
+	Wed, 19 Nov 2025 07:49:21 -0800 (PST)
+Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8FFD23F66E;
+	Wed, 19 Nov 2025 07:49:27 -0800 (PST)
+From: Leo Yan <leo.yan@arm.com>
+Date: Wed, 19 Nov 2025 15:49:00 +0000
+Subject: [PATCH v5 02/19] coresight: Set per-CPU source pointer
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20251119-arm_coresight_path_power_management_improvement-v5-2-f615a301ad0b@arm.com>
+References: <20251119-arm_coresight_path_power_management_improvement-v5-0-f615a301ad0b@arm.com>
+In-Reply-To: <20251119-arm_coresight_path_power_management_improvement-v5-0-f615a301ad0b@arm.com>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
+ Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>, 
+ Yeoreum Yun <yeoreum.yun@arm.com>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+ Yabin Cui <yabinc@google.com>, Keita Morisaki <keyz@google.com>, 
+ Yuanfang Zhang <quic_yuanfang@quicinc.com>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
+ Leo Yan <leo.yan@arm.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1763567363; l=2442;
+ i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
+ bh=EiqI/dIcPZzoKbNDR1qIufBw8ujI7PvLxfvi/Qy5UXs=;
+ b=PXmMnyGjPiM63aD1vARAv5CdbDL7oW+UNEmPE7Ypd4Hkl1pgFzpYK1a4lE6duahVLDEJXSTwz
+ lJgeDGoxSWTBPkK/KRcCHpdZAfhs5fFTNJt6bDZDAedK3DuF3Eq6bMG
+X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
+ pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251119_074927_053206_EC3C62F2 
-X-CRM114-Status: GOOD (  12.14  )
+X-CRM114-CacheID: sfid-20251119_074930_545665_40BB2B5C 
+X-CRM114-Status: GOOD (  12.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,51 +76,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Jack Thomson <jackabt@amazon.com>
+Add coresight_set_percpu_source() to set the CPU source device.  Source
+devices are stored in the per-CPU structure csdev_source.
 
-This patch series adds ARM64 support for the KVM_PRE_FAULT_MEMORY
-feature, which was previously only available on x86 [1]. This allows us
-to reduce the number of stage-2 faults during execution. This is of
-benefit in post-copy migration scenarios, particularly in memory
-intensive applications, where we are experiencing high latencies due to
-the stage-2 faults.
+When the CPU is online, set the per-CPU pointer on the local CPU to
+avoid race conditions between setting and fetching the same pointer.
 
-Patch Overview:
+Reviewed-by: Mike Leach <mike.leach@linaro.org>
+Tested-by: James Clark <james.clark@linaro.org>
+Signed-off-by: Leo Yan <leo.yan@arm.com>
+---
+ drivers/hwtracing/coresight/coresight-core.c | 23 +++++++++++++++++++++++
+ 1 file changed, 23 insertions(+)
 
- - The first patch adds support for the KVM_PRE_FAULT_MEMORY ioctl
-   on arm64.
+diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
+index 0c48f5c85db6a7ec0377335eaa734527959d57c4..f22fd89f29b97ffe7004a2c988b09d5fd412af8d 100644
+--- a/drivers/hwtracing/coresight/coresight-core.c
++++ b/drivers/hwtracing/coresight/coresight-core.c
+@@ -34,6 +34,7 @@
+  */
+ DEFINE_MUTEX(coresight_mutex);
+ static DEFINE_PER_CPU(struct coresight_device *, csdev_sink);
++static DEFINE_PER_CPU(struct coresight_device *, csdev_source);
+ 
+ /**
+  * struct coresight_node - elements of a path, from source to sink
+@@ -79,6 +80,22 @@ struct coresight_device *coresight_get_percpu_sink(int cpu)
+ }
+ EXPORT_SYMBOL_GPL(coresight_get_percpu_sink);
+ 
++static void coresight_set_percpu_source_local(void *csdev)
++{
++	this_cpu_write(csdev_source, csdev);
++}
++
++static void coresight_set_percpu_source(int cpu, struct coresight_device *csdev)
++{
++	cpus_read_lock();
++	if (cpu_online(cpu))
++		smp_call_function_single(cpu, coresight_set_percpu_source_local,
++					 csdev, 1);
++	else
++		per_cpu(csdev_source, cpu) = csdev;
++	cpus_read_unlock();
++}
++
+ static struct coresight_device *coresight_get_source(struct coresight_path *path)
+ {
+ 	struct coresight_device *csdev;
+@@ -1397,6 +1414,10 @@ struct coresight_device *coresight_register(struct coresight_desc *desc)
+ 			goto out_unlock;
+ 		}
+ 	}
++
++	if (coresight_is_percpu_source(csdev))
++		coresight_set_percpu_source(csdev->cpu, csdev);
++
+ 	/* Device is now registered */
+ 	registered = true;
+ 
+@@ -1428,6 +1449,8 @@ EXPORT_SYMBOL_GPL(coresight_register);
+ 
+ void coresight_unregister(struct coresight_device *csdev)
+ {
++	if (coresight_is_percpu_source(csdev))
++		coresight_set_percpu_source(csdev->cpu, NULL);
+ 	etm_perf_del_symlink_sink(csdev);
+ 	/* Remove references of that device in the topology */
+ 	if (cti_assoc_ops && cti_assoc_ops->remove)
 
- - The second patch updates the pre_fault_memory_test to support
-   arm64.
-
- - The last patch extends the pre_fault_memory_test to cover
-   different vm memory backings.
-
-=== Changes Since v2 [2] ===
-
- - Update fault info synthesize value. Thanks Suzuki
- - Remove change to selftests for unaligned mmap allocations. Thanks
-   Sean
-
-[1]: https://lore.kernel.org/kvm/20240710174031.312055-1-pbonzini@redhat.com
-[2]: https://lore.kernel.org/linux-arm-kernel/20251013151502.6679-1-jackabt.amazon@gmail.com
-
-Jack Thomson (3):
-  KVM: arm64: Add pre_fault_memory implementation
-  KVM: selftests: Enable pre_fault_memory_test for arm64
-  KVM: selftests: Add option for different backing in pre-fault tests
-
- Documentation/virt/kvm/api.rst                |   3 +-
- arch/arm64/kvm/Kconfig                        |   1 +
- arch/arm64/kvm/arm.c                          |   1 +
- arch/arm64/kvm/mmu.c                          |  73 +++++++++++-
- tools/testing/selftests/kvm/Makefile.kvm      |   1 +
- .../selftests/kvm/pre_fault_memory_test.c     | 110 ++++++++++++++----
- 6 files changed, 159 insertions(+), 30 deletions(-)
-
-
-base-commit: 8a4821412cf2c1429fffa07c012dd150f2edf78c
 -- 
-2.43.0
+2.34.1
 
 
