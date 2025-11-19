@@ -4,66 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F2C6CF31B4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 12:03:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 632D0CF31B5
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 12:12:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RgtXuOPj/BVj1ru98zMsaSx+e90yF9PatCQeLOQd/Ek=; b=jMXCRyEEK3x1Q7hkto2UnBI0Yk
-	mcjA18xNiwFFpoeL52rZC3Jkw6DWmceFIAX/HSk+9zYpfoybVfdwNzDQBmSdeEKwjdaswcVYbwJMi
-	ZY22awWG4BIgAZw8XnqJGWE+khvJ/Z7sAEVTV30fcM/mSeOJHlwngj+UXJgKqgDOh1ZDrVAOJi/sw
-	auJdLhZUKTGOE6bkU1sYCU0Ip/kTv60P+xDzvM6XnO9aIZYb9OoLkkFsF4UlidiwMqNitFKqRifge
-	SXE93CRMEuvOqGVLQKw99+4ud1yTsheipDmAaCKuBR43VAKLj+MKs7WHdWfFjCkr3ty/ph8dOJPTa
-	QloZsYyg==;
+	bh=eFbJ6vyvkw4tkDHVEpGHEuiAqreuGcPjRGwewuMLwJA=; b=lMPlDHw/iSBlFIR6agxy7BsqD2
+	T7PtFJgbrqM6z6rMNCtbi8J8V9YGTSlf7su/FV6FC3ArgyFLVvl9myf+1c+kaRZvET7f3hqTGRQUx
+	otDMBfucUKv3U+x/IuoAI7JjIJrHhUCCS9JyTH/1y0j5hIJiEo1Y5vCI6uaRm6siuNpAJqmvtTZOQ
+	UuCOIfmkSYbazWLaHINkZ08Z1dzRFF0v6Ic9CLmhHg3DkXmGO4Ts1FK6h2AjvxHxoh9Omkpkhhe+0
+	ZM6D41FbSBX3SMlqO4z0Plfjlp20cr2BgB/uLYJOehQm7sipqDhsROEv6teeci1W84mEBQ4BHV7gV
+	6QggHxGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLgub-000000035FS-10fL;
-	Wed, 19 Nov 2025 12:03:49 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1vLh2u-000000035vt-2IbS;
+	Wed, 19 Nov 2025 12:12:24 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLguY-000000035Ef-10N6;
-	Wed, 19 Nov 2025 12:03:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1763553823;
-	bh=LFe/fV53hF/U0wwrA49nbbcT+o1Lp7szCrj1+cFtCzw=;
+	id 1vLh2t-000000035vb-2EhX
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 19 Nov 2025 12:12:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=eFbJ6vyvkw4tkDHVEpGHEuiAqreuGcPjRGwewuMLwJA=; b=b1IPsguf/Kl3s5qWi6XKnkdFVz
+	ZPXxqU6fcbIF69c0uMBHw7shHZCBQFZUGkrSv23xbBXtqQ9DPrUbzGb9MyF1WAOeUeQdjYK49MaWf
+	uUoICHgoTAzY+DWJdatIeDNGw8JSdrT976YdT9iBrW40smf+NU9uraPLBB+YGF8g//fo68rovA+YQ
+	iU8xvmB7V2+vwmIcsVoZkMp0NBww6JYYs3d8FCX7qj+P7kOPd88gdEU3HjJUiee0vUcKAijflFqNK
+	A6kihrs3N8FMOnRy0n6gdLg2fJm5GXg4DB7nRGb/gmOw8TNdVB3OAv8SRiQQgL3XVl7XGvquHU/52
+	GfHIc/GA==;
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vLgBD-0000000C1VM-02Td
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 19 Nov 2025 11:16:57 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 7F61144291;
+	Wed, 19 Nov 2025 12:12:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A0EC9C16AAE;
+	Wed, 19 Nov 2025 12:12:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1763554338;
+	bh=M0pWsknYQ4B/+y5p7fi+jo79BRzh/3AOxSQ5/8qdynk=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=pFG+n4zBhHtmUZsqQr4988oxlkbkSmakBJIhdyfLkO2x7gSSqu9Wm9pJsRb24gJtI
-	 r+YyJlg0YDnETGnGy6e78L7NHJwzyGOou/t6EsM5zitkZi1+26jbq/1vfcPiakbEgp
-	 YVPFemCQPgld5J4tOqGB6+HOnWuU+SzNWkzgcJ05XAGZk1xrOzvgMkwe1SFPxykJsQ
-	 PwInoOUVwq2eyxATd3ykCQvKiCj1mGPiwB6dF2JuXY4eFc0Qy+xPhahxBiiHn+5COI
-	 m20WIBoq5iRSDPQSqPrNzUYgnXLohBJW5Jv+Q5zRj+Re8Rhsfm5AVE/fXADhPEVQ3z
-	 yNnKNnwDYmZig==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id BE75017E12E5;
-	Wed, 19 Nov 2025 13:03:42 +0100 (CET)
-Message-ID: <03e32a92-ba1b-4a9e-b0a9-0e0cc0edc441@collabora.com>
-Date: Wed, 19 Nov 2025 13:03:42 +0100
+	b=KPljgb/aiYqjR/2eO0Uy6pBuETB1adM9Bcj08tbRXQxk2ffYmCeuLed3r92eX2ZCO
+	 cVVHIdapeW6a0OeNEU4Yf7FRb6xryQ/PYi7c9cjjkTG0I3fUoqpX0N3xLblnwibcxp
+	 A1QA41wKrGfoV/BxLxEUcPBZzeHunjBQgttLrBjOpapUD193x4qmDbnWL5xWymxwqu
+	 jTEpaIp7atDAbQ4RxJBo0gD3oiqvggjRz6rLncdf2t/PShZANOSeKPC7n3dRJzSi8v
+	 6Xu8nCzKxYM4Ei0kYN6VjlWAxeubVLaQE3BWHvLl8LPiyhZDRoUHalBUB6S8ELzc20
+	 hSwbDqXrlTAvQ==
+Message-ID: <782da69d-d118-4d7c-baf7-a8164fc550b8@kernel.org>
+Date: Wed, 19 Nov 2025 13:12:13 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: dts: mediatek: mt8188-geralt: drop firmware-name
- from first SCP core
-To: Chen-Yu Tsai <wenst@chromium.org>
-Cc: Matthias Brugger <matthias.bgg@gmail.com>,
- linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- devicetree@vger.kernel.org
-References: <20251119070230.1716418-1-wenst@chromium.org>
- <66693e69-7ad8-4067-9bd3-ef1454e3ec18@collabora.com>
- <CAGXv+5HOrP=hj8qxZmjq+ozeppXrzFKh=kq2Cb+QqWEx9n83Bw@mail.gmail.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Subject: Re: [PATCH 0/4] soc: samsung: exynos-chipid: trivial updates to
+ simplify code
+To: Tudor Ambarus <tudor.ambarus@linaro.org>,
+ Alim Akhtar <alim.akhtar@samsung.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, peter.griffin@linaro.org,
+ andre.draszik@linaro.org, willmcvicker@google.com, kernel-team@android.com
+References: <20251112-chipid-trivial-v1-0-ec2dea03bd83@linaro.org>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
-In-Reply-To: <CAGXv+5HOrP=hj8qxZmjq+ozeppXrzFKh=kq2Cb+QqWEx9n83Bw@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20251112-chipid-trivial-v1-0-ec2dea03bd83@linaro.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251119_040346_436842_B1781CF1 
-X-CRM114-Status: GOOD (  35.49  )
+X-CRM114-CacheID: sfid-20251119_111655_508516_98AFE8DF 
+X-CRM114-Status: UNSURE (   8.36  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,116 +135,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 19/11/25 09:41, Chen-Yu Tsai ha scritto:
-> On Wed, Nov 19, 2025 at 4:31 PM AngeloGioacchino Del Regno
-> <angelogioacchino.delregno@collabora.com> wrote:
->>
->> Il 19/11/25 08:02, Chen-Yu Tsai ha scritto:
->>> Arnd pointed out that having firmware-name in the device tree is wrong.
->>> Drop it.
->>>
->>> Fixes: e36be19823f0 ("arm64: dts: mediatek: mt8188-geralt: Enable first SCP core")
->>
->> Fixes here is .. well, right, but wrong - as if you "fix" that in previous kernel
->> releases, you will create regressions :-)
+On 12/11/2025 09:48, Tudor Ambarus wrote:
+> Trivial patches to simplify code done while handling the GS101 chipid
+> support. Compile tested only.
 > 
-> This is a fix because the commit in question was merged in v6.18-rc1
-> and v6.18 hasn't been released yet. So you should pick it now for
-> v6.18.
-> 
->> For all of the currently supported boards, I was planning to temporarily leave the
->> firmware-name properties in place for one kernel version (v6.19) and remove it from
->> all of them at once, for kernel v6.20.
-> 
-> OK. So I guess the plan is to have MT8188 SCP working in v6.18 based
-> on the current name then?
+> Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
+> ---
+> Tudor Ambarus (4):
+>       soc: samsung: exynos-chipid: prepend exynos_ to a method's name
+>       soc: samsung: exynos-chipid: downgrade dev_info to dev_dbg for soc info
+>       soc: samsung: exynos-chipid: simplify with dev_err_probe
+>       soc: samsung: exynos-chipid: use devm action to unregister soc device
 > 
 
-Any firmware in linux-firmware that needs a rename will still need to retain
-compatibility with old kernel versions: it doesn't matter if scp.img will be
-renamed because we will anyway need a symlink.
+AFAIU, this patchset is superseded with v2 using OTP bindings, so I am
+dropping it.
 
-This does effectively mean that, for MT8188, the current "scp.img" will be
-"reachable" as both "scp.img" and as "scp_c0.img" - so timing for removal of
-the firmware-name property in here doesn't matter at all.
-
-There's no rush.
-
->> I'd be okay if you send a commit or a series removing firmware-name from all of
->> them, without any Fixes tag and without any "fix" word (so that we avoid autosel
->> backports at all costs!), but keep in mind that I'd pick that in the next merge
->> window, and not right now.
-> 
-> We can avoid autosel with:
-> 
->       Cc: <stable+noautosel@kernel.org> # reason goes here, and must be present
-> 
-> (See stable-kernel-rules for the whole paragraph.)
-> 
-> After the blobs in the firmware repo have been renamed, we then explicitly
-> backport the change to stable. I think that works out better? And the only
-> one that needs to be timed is the MT8188 change anyway.
-> 
-> How does that sound?
-> 
-
-We can avoid autosel with that, sure - but I still don't really judge it as being
-a fix, as not specifying firmware-name is something new, even if it was technically
-wrong from the beginning.
-(Someone may or may not agree with me, but that's another story.)
-
-In the past, it wasn't a problem - it's a problem now, and a resolved one - but
-this doesn't mean that having this property was a "broken" behavior in the past.
-
-It worked. And it was fine.
-
-Even if I don't see the actual benefit, I don't mind having this backported to
-v6.18 when it'll be time to pick this commit along with the others, but again
-I don't understand why you're feeling like this is urgent.
-
-For how I see it: -> it's not urgent! <-
-
-There has to be no regression on the supported boards - with or without - this
-property being present.
-
-The only one that can be just renamed without *caring* about symlinks is MT8189,
-as it "never worked" upstream (as in, there, a rename without a symlink will not
-create any regression) simply because MT8189 never got any firmware-name property
-(actually, never got any devicetree at all, even).
-
-Again, timing is not important; the sooner the better, yes, but at the same level
-of importance as any other *functionality improvement* (not fixes), nothing more
-and nothing less.
-
-Does that clarify the course of action for you?
-
-Cheers,
-Angelo
-
-> 
-> ChenYu
-> 
->> Thanks!
->> Angelo
->>
->>> Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
->>> ---
->>>    arch/arm64/boot/dts/mediatek/mt8188-geralt.dtsi | 1 -
->>>    1 file changed, 1 deletion(-)
->>>
->>> diff --git a/arch/arm64/boot/dts/mediatek/mt8188-geralt.dtsi b/arch/arm64/boot/dts/mediatek/mt8188-geralt.dtsi
->>> index 7fedbacdac44..8e423504ec05 100644
->>> --- a/arch/arm64/boot/dts/mediatek/mt8188-geralt.dtsi
->>> +++ b/arch/arm64/boot/dts/mediatek/mt8188-geralt.dtsi
->>> @@ -1166,7 +1166,6 @@ &scp_cluster {
->>>    &scp_c0 {
->>>        pinctrl-names = "default";
->>>        pinctrl-0 = <&scp_pins>;
->>> -     firmware-name = "mediatek/mt8188/scp.img";
->>>        memory-region = <&scp_mem_reserved>;
->>>        status = "okay";
->>>    };
->>
->>
-
+Best regards,
+Krzysztof
 
