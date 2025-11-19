@@ -4,102 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56F6DCF34C3
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 15:15:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61873CF34C3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 15:20:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=40FUCiNe37Fnq+88hPBjHQqzpAUST38gJZwEDLQ1fMw=; b=dW/RcPeQbwz/R/LOgNy8LyI8PF
-	yO1J5q0AkWwZzYQih28oPtnir0DokN3Q0lplYGclgadK2sZ/ijYGqIafZW26Mb53Fkq9PBDb7hk97
-	RsvPF3zfTJj4/NG77MDUo5/ckVu25kURlErzvD+bTGzk2/9/3DctRMdm79OCuG8QPztzXeadaD5Ux
-	jINyKIoej8vxglxn2EKUSj0M/tdFH9dq0tLH2pJKSoyP+HYTjmffHHnBbwOunsvG+7uKzo2RCnbrD
-	ezkbQg/0UOA0sCMRPvdkW2n3IQymKwfD+V+XaO95BWdUee33WbuQLtDtnACwrfal2LeOoKu4tl4EG
-	Rk+mKZuw==;
+	bh=vyic0whl3s/66BOGI/o5R356Dz7ZHOlIPUtAkuTp3tE=; b=JHZtbfvygQyMaqMNxTeMa6LQBq
+	5Lxn5hWTs7LWnSembmeFncegLIDiYbYGCDdREnyVnRxAW4no4YiFOf3J2tJOrSouIdjEargj7J3pX
+	VFKIxp+fXgdcvu9qIMVXen5I6BZLp82sETIPuEndOetaJ3PzVAMeKoMZOILa6z3Kx9xGop4EgzrB5
+	0pEFy+6X5gQPNa6zCwsSmZ519xSMwX8on/UFeRIGvj4WpweJRrjyjE2PARJvPQ7iDGcY9Stw88GL7
+	EfuU67sYS0hTboJtZm73YkOaFChSv+uTDslPPn4SgjHUuYs08QC9FaBdOH5lYFA10K0+oa/hG6zv2
+	0N4hlZag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLjuK-00000003TTz-388m;
-	Wed, 19 Nov 2025 15:15:44 +0000
-Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
+	id 1vLjyS-00000003Tqe-467y;
+	Wed, 19 Nov 2025 15:20:00 +0000
+Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLjuI-00000003TTD-2d2o
+	id 1vLjyR-00000003Tpy-1M5q
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Nov 2025 15:15:43 +0000
-Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-42b3ac40ae4so4167347f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Nov 2025 07:15:42 -0800 (PST)
+	Wed, 19 Nov 2025 15:20:00 +0000
+Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-42b2a0c18caso3686021f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Nov 2025 07:19:58 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1763565341; x=1764170141; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1763565597; x=1764170397; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=40FUCiNe37Fnq+88hPBjHQqzpAUST38gJZwEDLQ1fMw=;
-        b=jIzJVgphm/M8WbuCfyuOJGucXV/XAL4VQWWLfXNywhUchqa6ur5MIHn8ocFgMzpkiS
-         K+6Kb9IFgQJbRvwLQVsXY/s+Ahsl8LtqMw0GKGQFKOOhd8TDIrY+scKpWIn4sqWzYGJS
-         nyZWOFIRLBM4ezREmBMW3QTiKwiXrRCZkeCjzFmk6J2p6kQjpe04qdyZqDFIKtOKetH/
-         Taxwb6sSAU62ALnC73FMEVZyVwQ40j+1jGT4mRcIEp4Hvix6vfGwB4kpFHl/ivwcB6MS
-         RNR5umJN2lLSME2lEtJLZHmbKhFBCh9x4TeFzG+qpFdceDNAM9T/Wl4x3ytrRozHG680
-         Xh1A==
+        bh=vyic0whl3s/66BOGI/o5R356Dz7ZHOlIPUtAkuTp3tE=;
+        b=JhcZMi9VBtKuJ8Z/obU23VUQ9OVBudm8xTQ95gxNnB4EJJCCDrzkQ2bTMX7rPE3sw2
+         5MXR+KefC7kVJmIt1PkAe/m2rF0nBqwKXbmo6JirK6eYs0apjfbIjvuivYJtoA5EGykI
+         7ABz7rPcq0cmtKdo3l4HhRXyTLcPnrXfrAm1b525SwiQrFTiv6M5AYmIyKuwLKdU7XwU
+         O+tDx68fgIujH2NvcVKLm5LAuDRzSB3DmIXxwBhGuObXEmwEPaUK0dGBaKQffmG1WgGE
+         E6Nz1sPcbp0ADcuAhVfjKOaAzRsRer/dFoiNi9Q9E0zrdsA1NyldTwG38WVGDsYkpOj+
+         RSow==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763565341; x=1764170141;
+        d=1e100.net; s=20230601; t=1763565597; x=1764170397;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=40FUCiNe37Fnq+88hPBjHQqzpAUST38gJZwEDLQ1fMw=;
-        b=ZrmW4C42X82FA60unbjtnz+WG+e3LTGHkYEvWETJ/kljdeJhmMHVBT5+vguVOPsvRH
-         6AoLpM8oIBOtZqat34YOyXpauJxhng9ab11rTbgwHBXUKZVauoq0HiXyuINOkmZDhPws
-         RwdiwY2bWIGFib/Pcs0wS1eSgKoWW0hIVTorjU5p1kfoCWJXZmGABRbMBGG+Dvtz1jN+
-         QJ5x1PPIMhfBGGU3lCpZ+ZFJvuFal+hyTYyqlC9cbRfVABZwfk0PasFSeJik9CVOkPDW
-         fvTnITPO9DF6Oh94RA2gm4q9FbYdafiM7TsKJK7NWBMRl8f2hnBadykrITt2NZqcjSnF
-         fYbA==
-X-Forwarded-Encrypted: i=1; AJvYcCU3l6+1RQAkjkaMz5uRBNC1lo94U5KsodqqaIgk+PBAEPfKKST6kNIEtfX8qerYZctRHC5xOt13UdXQd3n4TsxM@lists.infradead.org
-X-Gm-Message-State: AOJu0YwhNxwge3psoLU4Ii+mDH+v2fxisM4wURwdj29Hr/Vc9Qa5Kj+L
-	8xJiaj2j+CQk1u0Jtes5jcx7RI0r48SDCzhY1W4snNhO/9aZ0MXGnYaEzl29CT1nny8=
-X-Gm-Gg: ASbGncv+pb5d+seGFB2WUNfNxPVnC0/3tesgKzbHR/c6rxV9z0ETibhy6gyP8E2Cdyt
-	cd7cYdUNvwV5kn5NkW/6UpzjfmoSx3y69w+NduljzK/QLglWN0awGz8Ho+dfMvTbbxqyGcY56P3
-	OVcRwZmxTgCWMdmuuHSXci5S1QfXbsb7fZpKu9k2b160JeDmQg0HTYzPmselgd/Hp9FatRVhtxq
-	qEPi00qcNZtrBWA2yt1FVpU3IZEkrShjmB1CygEO8wTw1ifwUdgSX4Ndz5qB9N1KJodJulXEVu0
-	PrBsjZbRlPH7M5oI1cIPdfMSra9PrA3CPcd9qk2ERCADbsENIrT5vZosN38mrd/LmeTrHnNdilk
-	7BL5pACDBKUv5RKAaLFCgwXFXnmPWUhFFfGW+8mhuDCeZxqnREpYiPP3UehiPwx7gqTR10X1xo3
-	4n3uq+vn0EbGXdSB8T+Xbb5KZ5p+w=
-X-Google-Smtp-Source: AGHT+IEdJcHPoiyWTs3kHkkIy8jDxEKTn292cUpANiNFB7Utp4jeLkleNQmmD+5zgCoeUg929Agzig==
-X-Received: by 2002:a5d:5f49:0:b0:42b:36f4:cd21 with SMTP id ffacd0b85a97d-42b593742e7mr20124823f8f.40.1763565340777;
-        Wed, 19 Nov 2025 07:15:40 -0800 (PST)
+        bh=vyic0whl3s/66BOGI/o5R356Dz7ZHOlIPUtAkuTp3tE=;
+        b=Nh5k2Xi3ous3hdLIw/ckBB7Q5Bpnoz5dBIeTfbrtUnyfVLWH1EBU4gWoWr+xrzWaBv
+         W/9E9FqbIJUh/SqiSwbO19BSAla2w5zHgu1cgeVFb1uOhtF3DFxerX9uiQEqoOJtNwXp
+         VAQyemUYC7aMEDit8gTo9qie67iZTpOJR+uxoWSad4aTf6iLip1VGlttSwGCRhg1Rqtv
+         yizywa9CsJyvvkx6Jb+H1LGwX4bTRKHCfwdAa2/RzClQHGX7/XbuX4FdwQLy5BhTQAWX
+         Ykjp3/dY5mFZI+mcCNwkhTGQHjlqMiqzR4NT9eQwrZeAlXjXTbmfSSa8WFPVBAZkMnZq
+         5Rpw==
+X-Forwarded-Encrypted: i=1; AJvYcCU3wEWKByZHdK8Ol/+7eQODsIV3LvBa9vR9fjtBgUwas4u+XNSGjGHcKzc94JUDmEwMM+hWE1yZ0nTCm2neAucC@lists.infradead.org
+X-Gm-Message-State: AOJu0YxtE1pYchCj+4FezXA1G/iTrZxOLeu3ZBtwfWb8rUvxAn9QdNjg
+	4Laad+yaU4POKE4CuGt5hrcxdkZJDG00niYyJFppNFVJpbYkwqv24jHoF3OqWJ0ahNw=
+X-Gm-Gg: ASbGnct9ToajPUdal/eVpsxgpeWbBGpWoGGFbqHv1Q5X8orj6t67XFRomT6YrOjL4Rx
+	Mg1eZoMFqIJ2x40JoQOgSL5ohOtVo2Io/YolWJoSdiaQNjeVAMyDxFfps1a8q8YFGlsL5OULz0j
+	NqnLXpO/nnQ+SfPH1n+zvwJcQU1W9IF+sb1mSqPeSuyF/TKsEnwISKe2ypHDJZ0c/nkbaqcpRjG
+	jn39oi3xEsRby9zrmEy9a2oaHo7TFpWW31Ab3HgP9PV3E342snIA1oy5e3US96DCzOO4atlsxs5
+	8c1JAiidXQptvh6Gw8ZIqPQ0oKZMWD2N1cPSvFoaJvUsopyW2/HcETrzDTElgxrBWbSQkSsEo7f
+	9tgywXNngFAX6y30JJzA1DsnpG/1Mpy0s4ZBR4mS6fl6FIX3ObHpvzq0/Mp+Hmvv4kiC/aTP3A7
+	gS/4smQVBhOExtODw0S/480yiWUWw=
+X-Google-Smtp-Source: AGHT+IHhum7ci1FG32u2L11uYc3xrbLPRx/1PwbQogH3nhs3kuJ41GL17yFl3Y1Yn/zqa/7qzDJaIA==
+X-Received: by 2002:a05:6000:1a87:b0:429:d66b:508f with SMTP id ffacd0b85a97d-42b595a498bmr19217954f8f.30.1763565597155;
+        Wed, 19 Nov 2025 07:19:57 -0800 (PST)
 Received: from [192.168.1.3] ([185.48.77.170])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42b53f0b62dsm38526469f8f.24.2025.11.19.07.15.39
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42c9628ebacsm25830649f8f.30.2025.11.19.07.19.56
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 19 Nov 2025 07:15:40 -0800 (PST)
-Message-ID: <b503a2aa-2f63-49f1-a7c5-c8c19cb5922f@linaro.org>
-Date: Wed, 19 Nov 2025 15:15:39 +0000
+        Wed, 19 Nov 2025 07:19:56 -0800 (PST)
+Message-ID: <3ab75fd3-b739-4348-9a89-e67224e23488@linaro.org>
+Date: Wed, 19 Nov 2025 15:19:55 +0000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 08/13] coresight: Interpret perf config with
- ATTR_CFG_GET_FLD()
-To: Leo Yan <leo.yan@arm.com>, Mike Leach <mike.leach@linaro.org>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+Subject: Re: [PATCH v4 15/15] coresight: Move CPU hotplug callbacks to core
+ layer
+To: Leo Yan <leo.yan@arm.com>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach
+ <mike.leach@linaro.org>, Yeoreum Yun <yeoreum.yun@arm.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
  Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Jonathan Corbet <corbet@lwn.net>, Randy Dunlap <rdunlap@infradead.org>,
- coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org
-References: <20251118-james-cs-syncfreq-v5-0-82efd7b1a751@linaro.org>
- <20251118-james-cs-syncfreq-v5-8-82efd7b1a751@linaro.org>
- <CAJ9a7VgQH4yc8490CQSv1S6k+=Uc6dEjyEpgRp1EwUQdwdxOHQ@mail.gmail.com>
- <416cf32d-d647-46dd-bcef-acc019490561@linaro.org>
- <CAJ9a7Vg9HsMsTP-zroTgaaKWTPkSXE1u5WMORuqMLKSDDz2HSw@mail.gmail.com>
- <43a60afe-5170-4801-ae70-9243cf7b45b8@linaro.org>
- <20251119123647.GC8204@e132581.arm.com>
- <a199db90-a344-40e0-8628-b4c3b56fc92c@linaro.org>
- <20251119143751.GD8204@e132581.arm.com>
+ Yabin Cui <yabinc@google.com>, Yuanfang Zhang <quic_yuanfang@quicinc.com>
+References: <20251104-arm_coresight_path_power_management_improvement-v4-0-3d4bba674709@arm.com>
+ <20251104-arm_coresight_path_power_management_improvement-v4-15-3d4bba674709@arm.com>
+ <f01585fc-919d-4059-81e2-7131dd54553a@linaro.org>
+ <20251119144813.GE8204@e132581.arm.com>
 Content-Language: en-US
 From: James Clark <james.clark@linaro.org>
-In-Reply-To: <20251119143751.GD8204@e132581.arm.com>
+In-Reply-To: <20251119144813.GE8204@e132581.arm.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251119_071542_691061_FE88EB13 
-X-CRM114-Status: GOOD (  16.32  )
+X-CRM114-CacheID: sfid-20251119_071959_391830_82F0549B 
+X-CRM114-Status: GOOD (  23.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,52 +112,64 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-On 19/11/2025 2:37 pm, Leo Yan wrote:
-> On Wed, Nov 19, 2025 at 01:55:15PM +0000, James Clark wrote:
+On 19/11/2025 2:48 pm, Leo Yan wrote:
+> On Mon, Nov 10, 2025 at 12:20:06PM +0000, James Clark wrote:
 > 
 > [...]
 > 
->>>     static ssize_t format_attr_contextid_show(struct device *dev,
->>>                                               struct device_attribute *attr,
->>>                                               char *page)
->>>     {
->>>     #if IS_ENABLED(CONFIG_ARM64)
->>>          if (is_kernel_in_hyp_mode())
->>>                  return contextid2_show(dev, attr, page);
->>>     #endif
->>>
->>>          return contextid1_show(dev, attr, page);
+>>> +static int coresight_dying_cpu(unsigned int cpu)
+>>> +{
+>>> +	struct coresight_device *source = per_cpu(csdev_source, cpu);
+>>> +	struct coresight_path *path;
+>>> +
+>>> +	if (!source || !source->path)
+>>> +		return 0;
+>>> +
+>>> +	/*
+>>> +	 * The perf event layer will disable PMU events in the CPU hotplug.
+>>> +	 * CoreSight driver should never handle the CS_MODE_PERF case.
+>>> +	 */
+>>> +	if (coresight_get_mode(source) != CS_MODE_SYSFS)
+>>> +		return 0;
+>>> +
+>>> +	/*
+>>> +	 * Save 'source->path' here, as it will be cleared in
+>>> +	 * coresight_disable_source().
+>>> +	 */
+>>> +	path = source->path;
+>>> +
+>>> +	coresight_disable_source(source, NULL);
+>>> +	coresight_disable_path(path);
+>>> +	return 0;
 >>
->> Not having an #else implies that the contextid1_show() part is valid when
->> !CONFIG_ARM64, but that isn't right. That's why I had the WARN_ON because
->> it's dead code.
+>> If the user is expected to re-enable and this new state is visible, don't
+>> you need to use the regular coresight_disable_sysfs() function? It calls
+>> coresight_disable_source_sysfs() which updates a refcount.
 > 
-> Based on ETMv3/v4 spec, would contextid1 always be valid ?  (Though we do
-> not support context ID for ETMv3 yet).
+> Good point!  We only need to maintain refcnt for system tracers (e.g.,
+> STM).  The per-CPU tracer is only binary states (on or off), we can
+> simply use "mode" to track state and no need refcnt.
+> 
+> I will use a separate patch to refactor refcnt.
 > 
 
-It's not currently supported for ETMv3 in perf mode, which is the 
-relevant thing here. So format_attr_contextid_show() never gets called 
-for ETMv3 (equivalent to !CONFIG_ARM64).
+If you remove the refcount then wouldn't it break scripts that make 
+multiple enable calls? I thought the same logic for the system sources 
+applies to CPU sources.
 
-Based on the spec it may be supported, but that's a different discussion 
-and I doubt anyone wants it so it's unlikely to be added.
+TBH I don't really know what problem the refcount and multiple balanced 
+enable/disable calls solves. But even if we decide it's not needed, it's 
+too late to change now.
 
->> Personally I would drop the is_visible(). It makes sense for dynamically
->> hidden things, but these are all compile time. IMO it's cleaner to just not
->> include them to begin with, rather than include and then hide them. Then the
->> extra condition in format_attr_contextid_show() isn't needed because the
->> function doesn't exist:
+>> Maybe you didn't do it because it has a mutex in it? It would be easier to
+>> change that to a spinlock or take the mutex in a wrapper function and share
+>> the core disabling code with the hotplug path.
 > 
-> This is fine for me, though in general I think the dynamic approach is
-> readable and extendable than the compile-time approach.
+> We have used cpus_read_lock() to avoid race between sysfs knobs and CPU
+> hotplug callbacks, we should not acquire mutex or spinlock in this
+> case.  For this reason, I would keep to call low level functions.
 > 
 > Thanks,
 > Leo
-
-I agree in a perfect world, but it seems to have caused confusion and 
-wasn't that clean because is_kernel_in_hyp_mode() only exists for arm64.
-
-I'll send a new version without it.
 
 
