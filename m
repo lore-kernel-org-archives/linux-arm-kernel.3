@@ -4,85 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC0DECF259E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 08:54:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3A9DCF258C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 09:02:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C8vU/bXiUiSX+XlUElJe1ZIOtLsB+Q8+itOmUp+Ohro=; b=ysQfEeAvOmJU021eFWkhmWuf11
-	3PvVOh9iNkdPDXxQvcdNCWYIOVvfytag6stepQAE5lzJR93D9L8FSjKLpQChFZPTwupVIWqxdbCtF
-	SfuNCZPXw2pgXyoyjMupXggQxoaB7QvJrC3u0lrnJj7DIFFXJHtcmfQb5mcaIPcXcDNWgo7JdsTwq
-	9EW2XG4oPhnocM28pTWMshD4W+n2nmzaCpYUhTh1PACHuOHioa1l4RN8e60cQ9HgLvpGYPo9Ib9SY
-	RTzxx/Dl6sccMFl5iuvbFaWplXNa6bFHjI1MzXcWxbh/Yq0FGs4bpsS4WiRnvaVbycnae8ECS4fEy
-	lL/ozraQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ToDdAdg9C2SVcxT2uDfdI7BQPgK+8uFH1OMxwx07Dx4=; b=YQD49du0fjHOEdDIN7cwYNmDF2
+	D+dynk9GheyfdDrXVMB9UgYQcZk19velua9jPTnMEsuUr08BByHKV/mCGvjiJ/arnOa9RfvuUap7X
+	78hiEZGb2t/GR3bgNGUiVZaYzvvAR0EdxhH20q4YBjOXdMQH/vBg9DI8nWA2/SiN0/gX2PFhINLwa
+	Ka5SU6uHMmB0k7dV0S1XDufgTnGG1m9kjs6C0RV3Z/7NucolF2/g3vneVU5EOM2pgo8a6CYp/CLTW
+	SWIE4t3Zdt4J4CsH4JiW7rVAaribKYAX26GgmVMYlZZBEgAGL3OzagJFWWKrqo+tAi93jCihIrGJd
+	KnRzzruA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLdxc-00000002pC4-0lor;
-	Wed, 19 Nov 2025 08:54:44 +0000
-Received: from mail-lj1-x22a.google.com ([2a00:1450:4864:20::22a])
+	id 1vLe4p-00000002pbf-2a6e;
+	Wed, 19 Nov 2025 09:02:11 +0000
+Received: from smtp-out2.suse.de ([2a07:de40:b251:101:10:150:64:2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLdxZ-00000002pBK-1wOP
+	id 1vLe4n-00000002pak-2pXK
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Nov 2025 08:54:43 +0000
-Received: by mail-lj1-x22a.google.com with SMTP id 38308e7fff4ca-37bac34346dso38507151fa.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Nov 2025 00:54:40 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1763542479; x=1764147279; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=C8vU/bXiUiSX+XlUElJe1ZIOtLsB+Q8+itOmUp+Ohro=;
-        b=aywkRloun2Sm05P6HbnVvsNHoVjxUAMZq6ahiuy+0elgXnauRDvn+evCb6wDF7gCCA
-         KdOKvH9uSAIbkDepCzW6Risiom2ZT6jSKD6ScV8L+PBp2RFFQHQkANsuuy7p8u+TD7Us
-         8EOgLUsp0LiRlMA8nOlcdEDrHO8yBWaPSqcAM=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763542479; x=1764147279;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=C8vU/bXiUiSX+XlUElJe1ZIOtLsB+Q8+itOmUp+Ohro=;
-        b=AKBImmZeWRBV9mF/XBQjFTXRVchtCOp5w1UmYKXJnqbYgBvgDz65saF/cN5dkF0zHE
-         gwBppl1Ymq66IKlpNH2lNC4m/O4jqDKc7e6DmcxAblYrhjfAggSLGAk2XGf0d4mz/YN7
-         V6XtRMHx7rQ4jJVO2wAZ2e7A6qXebxXE8g3jBumfcne7iD48gi9PrqDfj0vn/13Mj1ON
-         u2CA7pVdn71rohnCCmEJwDMVKsDCyS3QTL8ZJrWP4QAnr3Mi1etnMoi/k5HEwDCbYvnK
-         zN36WoQUxlf3G2OCa3E2wIwEhCh4AzxZhgN47GqCfICJzwtqozN1a0knaKTLgjokqygB
-         XrvQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWGkQqAxTEUL1NqU2Y6n2V7S7QjPwaNy1J4OuaiyNwyivWAyknaBaYDiDOHpC/t3P18op+VVpE3m73YhctvzIHD@lists.infradead.org
-X-Gm-Message-State: AOJu0YyfbkS8/uT6ybyh7OwBm4NwBHQftZnZd1uoLXEKNoY8ONWyRBtA
-	23IzmlFaCFQLnPVR9yaJ34kpXjSF0rPucDO8wNqnQmu1lXCFU0Nt1tbRhCzEh1XPptMRrV5FLXZ
-	F+uHj80yHgZBonqrlMAiTYwdTrourX7z4VFXO32Jg1U6u7Rxe90Y=
-X-Gm-Gg: ASbGncub+JnO1HOmkwYXVlBVXPAp5a6cpe/z6sR0cCocnty5cgbmfc6bf+wn8ZdeIB0
-	GRz1LOhCiRGN9O0v2708Uqx+LTYFPvb7UHyoMg14P7rpzzVX+UXqozNS2dGYMvr1bq/RCHbZF81
-	7adJZHWbVKieozY9fxr1fycZ4Gq8sKL6u8bfY9G/RSMHfgNL0dQevDaBX1c8ZSmnVKvdsKzEX5J
-	4hQzA+lEIIW3Xk4TWGiwGAVA2r2nDXDns+1nv9xGjryrUweeLzgfi6Ti+KvFItmckbYWvkNpdPu
-	VBrPsi3zq8B1xpigqbS8c4ynaA==
-X-Google-Smtp-Source: AGHT+IFhlPMrRvpqdsL1dRrt5/hvTvDt2HQaw6mOPpwq4Z8rWgeUCX2QlUWOEDMbkLtDd/Z5qXCyPQTzgWFahIEpLfs=
-X-Received: by 2002:a2e:a00a:0:b0:37a:4085:c83d with SMTP id
- 38308e7fff4ca-37babd5c8d9mr55521611fa.29.1763542479298; Wed, 19 Nov 2025
- 00:54:39 -0800 (PST)
-MIME-Version: 1.0
-References: <20251119071126.1719405-1-wenst@chromium.org> <18342493-54f9-4e5c-be05-568a3026663e@kernel.org>
- <CAGXv+5EnfwRA1SMvt=3n7gj1gS3BndXKNVfmfkC=y6n2A3VsdA@mail.gmail.com> <d8f3eb00-c7a6-425a-9e69-a01bc3532f0c@kernel.org>
-In-Reply-To: <d8f3eb00-c7a6-425a-9e69-a01bc3532f0c@kernel.org>
-From: Chen-Yu Tsai <wenst@chromium.org>
-Date: Wed, 19 Nov 2025 16:54:28 +0800
-X-Gm-Features: AWmQ_bnHnfSc8wAlhe_rBr-TemtbkaVyA6tPaH5I_09BBzsfr8kvP5fgv6NpHVk
-Message-ID: <CAGXv+5HePVim+-fx0bG-geBHp3kLQbNGLyknGRx=LgLZ7H+DUQ@mail.gmail.com>
-Subject: Re: [PATCH] dt-bindings: firmware: coreboot: Document optional device
- specific properties
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org, 
-	chrome-platform@lists.linux.dev, Julius Werner <jwerner@chromium.org>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+	Wed, 19 Nov 2025 09:02:10 +0000
+Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out2.suse.de (Postfix) with ESMTPS id 9910A20350;
+	Wed, 19 Nov 2025 09:02:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1763542927; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=ToDdAdg9C2SVcxT2uDfdI7BQPgK+8uFH1OMxwx07Dx4=;
+	b=J9PXH68TqQoEV113rZqnL4s0d+nXAzfxebxGJNVyB+/5QrtFt/sFrt85ZShe2GRmBXdRxO
+	TsjcwvJMI5VnqzCO1qvo0yno1/WndUI3Ig6+9w86qSKxvbgGv6thgXF446bBOKQStUp8qf
+	TZEk26Z4N5eu9zj96isn0WuN8jzk0zE=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1763542927;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=ToDdAdg9C2SVcxT2uDfdI7BQPgK+8uFH1OMxwx07Dx4=;
+	b=sPWZXHQPcGLcn/108jQi8kZzI8YuddKihnmixbxocGGuUR0CoW0vWQCmjR2ft7MY9/QWt+
+	5M5Mf7axurH9BdBg==
+Authentication-Results: smtp-out2.suse.de;
+	none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1763542922; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=ToDdAdg9C2SVcxT2uDfdI7BQPgK+8uFH1OMxwx07Dx4=;
+	b=k7E9GM5feH2x/ar8CrCIQzFcYXLf6VzNikamhQcDahHrIMDuiVsBtrZy3VAZRuGm5QeJ03
+	y7SCg+ttaUdePqCi8a/Z2qA/3Sds41ZrFIRfumHU5uPr/qLOHVL+JiVlnNTgxky71zDXj/
+	33HMmvwlWiBCwzeJ9+4xsu7hAhRzFY0=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1763542922;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=ToDdAdg9C2SVcxT2uDfdI7BQPgK+8uFH1OMxwx07Dx4=;
+	b=kq6SICtrft07bBeJYKcTPJQbFO/B5hGGn9fNcOuOhvnWSAppBNPEiLnRtDrXL8J2CeEzUu
+	+5wkOVq5xX2fyzAQ==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 54DFD3EA61;
+	Wed, 19 Nov 2025 09:02:02 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id XCZ7E4qHHWk+NgAAD6G6ig
+	(envelope-from <tiwai@suse.de>); Wed, 19 Nov 2025 09:02:02 +0000
+Date: Wed, 19 Nov 2025 10:02:01 +0100
+Message-ID: <87o6oycs52.wl-tiwai@suse.de>
+From: Takashi Iwai <tiwai@suse.de>
+To: wangdich9700@163.com
+Cc: lgirdwood@gmail.com,
+	broonie@kernel.org,
+	perex@perex.cz,
+	tiwai@suse.com,
+	cezary.rojewski@intel.com,
+	linux-kernel@vger.kernel.org,
+	linux-sound@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	wangdicheng <wangdicheng@kylinos.cn>
+Subject: Re: [PATCH V2] ALSA: hda/conexant: Implement resume function
+In-Reply-To: <20251119085345.141850-1-wangdich9700@163.com>
+References: <20251119085345.141850-1-wangdich9700@163.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) Emacs/30.1 Mule/6.0
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-Spamd-Result: default: False [-3.30 / 50.00];
+	BAYES_HAM(-3.00)[100.00%];
+	MID_CONTAINS_FROM(1.00)[];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	FUZZY_RATELIMITED(0.00)[rspamd.com];
+	ARC_NA(0.00)[];
+	TO_DN_SOME(0.00)[];
+	RCVD_TLS_ALL(0.00)[];
+	MIME_TRACE(0.00)[0:+];
+	FREEMAIL_TO(0.00)[163.com];
+	FREEMAIL_ENVRCPT(0.00)[163.com,gmail.com];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	FROM_HAS_DN(0.00)[];
+	FREEMAIL_CC(0.00)[gmail.com,kernel.org,perex.cz,suse.com,intel.com,vger.kernel.org,lists.infradead.org,kylinos.cn];
+	RCPT_COUNT_SEVEN(0.00)[10];
+	FROM_EQ_ENVFROM(0.00)[];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	RCVD_COUNT_TWO(0.00)[2];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo,suse.de:mid,kylinos.cn:email]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251119_005442_055348_7EF47CC4 
-X-CRM114-Status: GOOD (  22.39  )
+X-CRM114-CacheID: sfid-20251119_010209_859336_52501E25 
+X-CRM114-Status: GOOD (  21.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,62 +135,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 19, 2025 at 4:13=E2=80=AFPM Krzysztof Kozlowski <krzk@kernel.or=
-g> wrote:
->
-> On 19/11/2025 08:32, Chen-Yu Tsai wrote:
-> > On Wed, Nov 19, 2025 at 3:13=E2=80=AFPM Krzysztof Kozlowski <krzk@kerne=
-l.org> wrote:
-> >>
-> >> On 19/11/2025 08:11, Chen-Yu Tsai wrote:
-> >>> Coreboot, or the ChromeOS second stage bootloader, depthcharge, will
-> >>> insert device specific properties into the coreboot firmware node whe=
-n
-> >>> there are valid values.
-> >>>
-> >>> Document these properties in the binding.
-> >>>
-> >>> Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
-> >>> ---
-> >>>  Documentation/devicetree/bindings/firmware/coreboot.txt | 9 ++++++++=
-+
-> >>>  1 file changed, 9 insertions(+)
-> >>>
-> >>
-> >> TXT files cannot receive new properties. You need to first convert to =
-DT
-> >> schema.
-> >
-> > OK. Let me look into this.
->
-> After the conversion you will hit another problem - you need vendor
-> prefixes for these, because only generic properties can come without
-> them. Otherwise (without vendor prefix) these would define the type for
-> all other bindings, which probably is not what we want.
+On Wed, 19 Nov 2025 09:53:45 +0100,
+wangdich9700@163.com wrote:
+> 
+> From: wangdicheng <wangdicheng@kylinos.cn>
+> 
+> During S3 sleep state, if headphones are unplugged, we need to re-report
+> their status during the wake phase to ensure proper headphone presence
+> detection after system resume.
+> 
+> Signed-off-by: wangdicheng <wangdicheng@kylinos.cn>
+> ---
+> 
+> v1->v2:
+> Problem: No audio output device after S3.
+> Cause: The audio driver misses re-initialization upon resume,
+> resulting in stale jack status (remaining in the pre-sleep state),
+> which prevents the system from finding the correct output device.
 
-I understand the concern. But given it's specifically under the
-/firmware/coreboot node, which is inserted by coreboot, doesn't that
-already serve as a namespace or vendor prefix?
+Again, please double-check what is the really cause.
 
-FWIW the ship has already sailed for naming. The first three properties
-were added to depthcharge [1] and coreboot [2] in 2018. The last property
-was added to depthcharge in 2023 [3]. That is what has shipped in immutable
-firmware on ARM-based Chromebooks since the RK3399 days. The coreboot
-change was presumably added for other devices.
+snd_hda_jack_report_sync() *is* called already in
+hda_call_codec_resume().  So snd_hda_jack_report_sync() is just called
+twice with your patch, which must be superfluous.
 
-This change only serves to document what the firmware already provides.
-Whether they should be grandfathered in or not doesn't change what the
-firmware already does; it just makes it more well known. It's not going
-to have any effect on validation either, as the properties are supposed
-to be inserted by the bootloader, not added statically to dts files.
-
-Presumably we can update the code to use a new name, but we still have
-to live with the old names for up to 10 years.
+The other significant difference with your patch is that you dropped
+snd_hda_regmap_sync().  So it must break something else.
 
 
-ChenYu
+Takashi
 
-[1] https://crrev.com/c/1028728
-[2] https://review.coreboot.org/c/coreboot/+/28104
-[3] https://crrev.com/c/4975217
+> 
+>  sound/hda/codecs/conexant.c | 8 ++++++++
+>  1 file changed, 8 insertions(+)
+> 
+> diff --git a/sound/hda/codecs/conexant.c b/sound/hda/codecs/conexant.c
+> index 5fcbc1312c69..146ff65ccc30 100644
+> --- a/sound/hda/codecs/conexant.c
+> +++ b/sound/hda/codecs/conexant.c
+> @@ -264,6 +264,13 @@ static int cx_suspend(struct hda_codec *codec)
+>  	return 0;
+>  }
+>  
+> +static int cx_resume(struct hda_codec *codec)
+> +{
+> +	cx_init(codec);
+> +	snd_hda_jack_report_sync(codec);
+> +	return 0;
+> +}
+> +
+>  /*
+>   * pin fix-up
+>   */
+> @@ -1277,6 +1284,7 @@ static const struct hda_codec_ops cx_codec_ops = {
+>  	.init = cx_init,
+>  	.unsol_event = snd_hda_jack_unsol_event,
+>  	.suspend = cx_suspend,
+> +	.resume = cx_resume,
+>  	.check_power_status = snd_hda_gen_check_power_status,
+>  	.stream_pm = snd_hda_gen_stream_pm,
+>  };
+> -- 
+> 2.25.1
+> 
 
