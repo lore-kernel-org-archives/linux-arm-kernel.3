@@ -4,151 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91667CF394D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 16:19:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2686CF394D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 16:19:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sBIF+2jCSJ7zB7a4oP0CfhSYlvAFPnaVgBxM7h2X2Yg=; b=EexOkEb/AuotzQmzfoxHxZsSlE
-	F18K80+aF6E0LWDk4MSGhyproa4n7lmuSXnH97Ld51j4zMSB4Ip2y8B8GrP7XY8zDzVvU5kNeqGky
-	qet29pUkEFaeZzGCW/kRe8FoXnN3QToF0eDsPeh804L+1cRL5DCNSVlm99HemJBlPyuFhgBWKfcIc
-	Nv0PhrfrarrvdzgmZRapiDjTxq11hR6SDqqVUJqeIY2OSAYlhYOV+LltqVKZKNqHQVWFeH03Uwq5Y
-	N92942hHYaJTJZj7smP91dn7vMizji0GKLsWHmgbhwrU33bW3afYNaCCJE+n9CqdQjFmgE4jho61F
-	snp5pg1Q==;
+	bh=cma2rSHaFDXNjxg/v70ZfhJruTka6+8gbpMAfDrbxaE=; b=LjfYxLRB9NneGBmqzYUJ9LQyKg
+	fwdUAgyfznM1mF4Cl4JF5sDeK7Ity083TrgXbw5H91Hhhv7GQ4VtBDm206JKDXgnnkUU7X/zAH1BR
+	7q0oWtC/ShR8JYiOTJ/YY7wZ4TeMFF+LP61X4sP5mHG4Z6xT7Yl/y3mQ5VtYllkYuUD8UTbRvZ5F+
+	bioWF1B4tIIvB/VLckSMqh4lS1nTltz9F09QVy5n0nlJ6w8YmIgA+TmV3Xd1PSt1BWyAMSlgHUJGH
+	aZu+8UrX43PL5rHpo3wOnkU433Awp1XJWJ/XF1ieM00XswhdVxvxt19UGRAv++N7H62mvAXJKIjfL
+	CcB1nriQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLktr-00000003frm-29v6;
-	Wed, 19 Nov 2025 16:19:19 +0000
-Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1vLkuB-00000003g9r-3t5E;
+	Wed, 19 Nov 2025 16:19:39 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLktZ-00000003fXE-0GYP
+	id 1vLkuA-00000003g8d-2crj
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 19 Nov 2025 16:19:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=cma2rSHaFDXNjxg/v70ZfhJruTka6+8gbpMAfDrbxaE=; b=oTApByNyNwRHb4p5NIMgafpLpD
+	Sw/O0Utsu20PVcoGwzfPUucV7kj1q9x91+/1xJ3t7eXL5eEjQCZRr5W3jR55M52phfV/ToLIVL1W3
+	JU7Mha+tgDPixNLjTj5hLS5G5fVe/dHHLPTDeQ54KOPCt7GQ1N01iwiI/sVJxF30BRTeKqFOOzIl3
+	WnHySbqhxiViaA4aj3nlgClTbRmud+rtrB++xWihp3EPz6UCYZoyIUiL//ff8zmwV3ems44zSguOD
+	cVU32hRBjESwgleV1vxuHRKlEl+KCdlT3wpcymcKCxL1UNWJ9KOg7VSc2fcrJu/rdCtCqYxPh1PAz
+	WGEPW38w==;
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vLk2R-0000000CerP-06Ge
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Nov 2025 16:19:02 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Ati4RtJ5b1d3fq3r/U4r3jzrKyIL+DwW4iNzZ2l56Qgc1gOCPFbakUSbptpsclhrnZ3zHXjlBHn1X6o4p4+MQNELrxB3ZO7TnqQvAGYlaMfHx84MMOyFqhq1JPXEDMWztDLolFGuw28bT+qFNf9NHW/nIko/RZw1Fxh42BLR/o8yvLapQn+gvaHO4iZxApRUirqURTCxLcooAO7uCIb26Ups5Xlr4FM1iQWTpEhTElC2+oNXJVSFJ7UZEfS5xxuAmEqXfwVGdjBJEk5e00k7ao1jIARVnmiGaETYCfeIH6GSYjtPUmYAEtjdigCzuCsqKOXACsgnAncJPgVJLWdElg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=sBIF+2jCSJ7zB7a4oP0CfhSYlvAFPnaVgBxM7h2X2Yg=;
- b=sZkhONj9l6GiQVZWm+8NoCr/7vrgF8lOTCs5gG0t/MhkN5EIQmPOb6ZG30Bs4cZw2gKV4iFWtBiYwU3POz0kupdvggr2wrOlAtw0W5bQ/ueJU1oqXta7UtaQuHFDZc9tezPRH+Tuqx/oEgCOFYwtT1QBUjmTATgmGLzQ38GqZ7bl4FRsqgLf2x6l0v3IeiLQB0DBNPk+TvwbUL9YMHIkB0GtZj5OLL4EyVg9N64AinGLTkXiwvYvhuwoJkGDtdbA1WTBAcMVYsgn7cpsu6u/pNEAlzvnsOejxEdE/WM2OdIzvtkt+VRRgSNWuRuoxCE6Ii7nCt0KzfBoCbGz7sXEYA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=sBIF+2jCSJ7zB7a4oP0CfhSYlvAFPnaVgBxM7h2X2Yg=;
- b=kEyZrXv4ArOLghcR8wblSTv4sv/vEMnR4nKe8J8tPLgeXC4f+7aa4+EiwrgJLPwIr8b02nGXa1MY9zaDKRaNm6defv4ZmxhcnIvLPFzMxCj0Gxum6AqfDjqatJ1Gn1UjTGaz+VhjNA3j4jm5rRhxPophXza1tOVHX2zlixVc6GtYUZThjA8E8I7tnbLPcpW3tiAZCi7+B5waMRJ21yTRQqMlul81IHnIfeud4tz2pqK01yQid2Qu1b5bqkgCgLLu1zwvxAUlCHneAurtGCRedDaqG8KixWkhTbQIwzyk51teEG/Iax8oqCBkWgs8EOnXnjN20US3IYS+by5nnRw4pg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from DB9PR04MB9626.eurprd04.prod.outlook.com (2603:10a6:10:309::18)
- by PA4PR04MB7694.eurprd04.prod.outlook.com (2603:10a6:102:e7::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9343.10; Wed, 19 Nov
- 2025 16:18:57 +0000
-Received: from DB9PR04MB9626.eurprd04.prod.outlook.com
- ([fe80::55ef:fa41:b021:b5dd]) by DB9PR04MB9626.eurprd04.prod.outlook.com
- ([fe80::55ef:fa41:b021:b5dd%4]) with mapi id 15.20.9320.021; Wed, 19 Nov 2025
- 16:18:57 +0000
-Date: Wed, 19 Nov 2025 11:18:50 -0500
-From: Frank Li <Frank.li@nxp.com>
-To: Haibo Chen <haibo.chen@nxp.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Dong Aisheng <aisheng.dong@nxp.com>, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 1/2] arm64: dts: imx8qm-mek: correct the light sensor
- interrupt type to low level
-Message-ID: <aR3t6huxr3wQT547@lizhi-Precision-Tower-5810>
-References: <20251119-dts-imx8qm-v2-0-2579434f95cb@nxp.com>
- <20251119-dts-imx8qm-v2-1-2579434f95cb@nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251119-dts-imx8qm-v2-1-2579434f95cb@nxp.com>
-X-ClientProxiedBy: PH3PEPF0000409E.namprd05.prod.outlook.com
- (2603:10b6:518:1::4e) To DB9PR04MB9626.eurprd04.prod.outlook.com
- (2603:10a6:10:309::18)
+	Wed, 19 Nov 2025 15:24:12 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 5B63B40243;
+	Wed, 19 Nov 2025 16:19:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E806EC116B1;
+	Wed, 19 Nov 2025 16:19:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1763569168;
+	bh=BPzTK2gEFsViZFmyOno1UxdtkaYyPLFM9cgU3Gme0aY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=qT0M/WXX2B9Kv1nVbIu43kmraVe20viEsQAOxsj+uCaOZTXTFtX5KOnOvI5cfNmZm
+	 1fSlTx54W2q3AxaOoKrmQ5pzDOPg+pJvj3VKLpbGobNGSgppaNPXtlUIWhPBR50WJh
+	 Sybx5lTWfm5yXaL76r02PUgOwjW90/L9Zjl0USXTbFCERWWrMzx+17YRsqTwijis8Q
+	 u0JdTIiPOpqWZjC3uWRDxBEVjq+u+lKKpHddPkhK8sBHV0LoczsBu6274ZzhzcU0FC
+	 Sm151mMoH8kI9mCj1Er9C34XhLeKg+50DT2lamDVDt3hO8+WOpEkC5xAdI5oU845dQ
+	 ooQgLNOwT7Uaw==
+Date: Thu, 20 Nov 2025 00:01:36 +0800
+From: Jisheng Zhang <jszhang@kernel.org>
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 resend] net: stmmac: add support for dwmac 5.20
+Message-ID: <aR3p4NBK-AnCGK6a@xhacker>
+References: <20251119153526.13780-1-jszhang@kernel.org>
+ <aR3snSb1YUFh9Dwp@shell.armlinux.org.uk>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DB9PR04MB9626:EE_|PA4PR04MB7694:EE_
-X-MS-Office365-Filtering-Correlation-Id: 8a6201d8-133e-4be2-b31d-08de27875739
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|52116014|7416014|376014|1800799024|19092799006|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?Iv+nCXqzSj60jsavYti2t7Hr1Mh3Nozhucr949Nw91wnP4PdwifODF/LLiaP?=
- =?us-ascii?Q?fZ6Uxryc/VdFNGkJxLQnH0S5VC1Uf3wj5+1U9cZH68lol4ndjC4Xrp8qeoyB?=
- =?us-ascii?Q?FnUwrUM6uk3bIrpNAk8J7OSac9AbvVTftAI1+mgp0NAndD6tpmzDidL8S1kJ?=
- =?us-ascii?Q?LsnAA7xGmnjEQjpSCEKth3G0tgBdVBvzo2GsWsJyT7c13j7mqqXMUcZJPBn1?=
- =?us-ascii?Q?19oCeSmppUG6/Y49ltsRjpc5xmI22Zl1DJavbM0syaDi+qaJvEFqXVIEAbG1?=
- =?us-ascii?Q?M+Os8HkvCshRuus40hxPacxnls86qZrEtsVvQG6p3FUmyPthQhvUS/ONxxTz?=
- =?us-ascii?Q?Z4QHP0AijXix8j/3P+oS562mfiIlTS4Rb7C7V+ZYdHMVd8Wxefp7kAfq9g09?=
- =?us-ascii?Q?lgBcgJSEtdWYbSx8LKaoUCKNZI8LyJq1M187OKizOR24j0ymaVVYZzaVMbkk?=
- =?us-ascii?Q?P2biclBInhlH0NFxcvRTZ4o3ox50xGXqybL9cTUyWbvjeXWtT6QLv+Fe6KoQ?=
- =?us-ascii?Q?Fh0Ld+RA9E734KsrCwtu5g/bzUbZ9QIyEpJ4dt8Jk7uoEBmGYn0IkETHO3lx?=
- =?us-ascii?Q?sysaQ0qUJVK3nX2y6fx7mR2nqpoTG3hisDDfnXf2aIinzkNtoa4yzaiUOQzx?=
- =?us-ascii?Q?WGdEdTrlP9YG5GXlM+eGVx3ZlCqudTA3D40TceiqFMOv1IgPK7/Llhq8+Dnn?=
- =?us-ascii?Q?2f0fDb8BJ6euOgAlWEOuFuWXw4xIbgSCbH5aicEE2V/Bh72/L7g8fqXJC5Zb?=
- =?us-ascii?Q?0fgVfl8gEWT4gwyic2/c2no/+CTfb64dVzfEv8AwXkr+EF9vzkpcXSOeCaeN?=
- =?us-ascii?Q?nEGqvN3UxP+uWzIkaOhQ3Xci2JzTdUa+0hu6azaRKEZ+A908A7izgZCb4dZt?=
- =?us-ascii?Q?PuRpZfJGi+SxeqAjfzKd8KMjcBKcLpKVZIpQ3S82elGks6uXMNYa7RK7HXa2?=
- =?us-ascii?Q?SCGNaiilpqjEs7YHomZIk9+nSBvnI6TjA1cTQjqG3m/7CTEddHoUsUOMGaxz?=
- =?us-ascii?Q?b9wEKWktePa6xT+rTEjveCs8szg3h6FDOgCUnSCyQJ2TALamR9awo+76O+ww?=
- =?us-ascii?Q?Pf6RzYMpea+j07G1+CgodpFh00JXSTLLshrr4tHWqlZUqztxuSIABXQaTkfv?=
- =?us-ascii?Q?FA36swekADClgKtJRVb1EZh2978pPgqOHhmxp6Rk54Qy7YOCXB9T0Qo04WL2?=
- =?us-ascii?Q?xPWp61151S/+tk3EPNM2UlgKeRGyJk0rrdLHXUg2g0rnxHb/RqaEemUmZYH3?=
- =?us-ascii?Q?dHsow2sfUDVWNcKjQ5ExjVfgGLHyBFxH+LnQ8V7SH6frdzji8fCsabcx9NV/?=
- =?us-ascii?Q?E8r1RrpyFTGilGZqECWXAlYbftaJtWZEwDhrgLhYGlSfF+x71igsfHRTYj/m?=
- =?us-ascii?Q?0TR04iYYfst0dimDxhEhcGko9p7mj7gwdugkh3zskOlEhKTrF6nyOkjEHKgP?=
- =?us-ascii?Q?GMvsbC2v8IJWe/b+fg//tt2TISzM41qw1CEicGPRCO5qbgMAZuxL/u1IIJ52?=
- =?us-ascii?Q?VzDpWKWt1KmInrs9IjcERQeiib+SK/Oc1ckN?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR04MB9626.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(52116014)(7416014)(376014)(1800799024)(19092799006)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?C6hIFUm2Ee5aiHDjHop8JgPkDUqfIfh6+96wELQCrEYCQlm1rK9Kz0M9bGzH?=
- =?us-ascii?Q?PflqqdL92SB8GeNGsmUYyx7xpwKITK15RMAYkgRUJJrPiizviO5O8C9EyGwi?=
- =?us-ascii?Q?XlDJ9d7yzYop+aAhvGNMvzHszNTIT5oFhxnWCmlrAk6JTP7lRVMHS94ZC17k?=
- =?us-ascii?Q?ECJMuCMzNMAFKNRb20Cd1RtJcgteI+eMPjlT0FefUySGhWqthx0ChAJkwsv+?=
- =?us-ascii?Q?/Yc16IHDIJs27GEjqSDwi0lp51Uk22AWPJnP+CYSEA9UeIfcz5T9rDOs2JpS?=
- =?us-ascii?Q?CdvEdG8pOdAExFrQSH5qfboJJJZ0fYAa+oB5N+8DEluaHRdD67L6qvflKRb5?=
- =?us-ascii?Q?ueJPKvb5ZPCZ8wpMrBy/tvYs3ez0na1UnncCIMTaPP/fJxMiOfz6ZFHa8Beo?=
- =?us-ascii?Q?WCh94rTPBeDsEubu9MhDMdYB8mkO8+/2KQ3aZXj67kHQ+pOcvmNnsV+I6fQU?=
- =?us-ascii?Q?snyQx6cbDo8SXzeKSo4n5jrw9SZbwu4OeIBP2pnlcal8ftG/OQg5Wk/nkyW/?=
- =?us-ascii?Q?VhOyMSZWk8e3TS9rS1SqU8fAF0RCZnk+VLVgjHZnjRd/xKZCXUa4yrznSbtP?=
- =?us-ascii?Q?O2HC69SYbAiq4NAdmAdtbE0YLAU8h5KgHAX4xBuOxzDR62APSAA6OJ8Ea7FW?=
- =?us-ascii?Q?jNJIbeQlUlt3nM9K/+KTe6fly8Rv0P0U5a+BZcHdMD8+l1Je6AwMmWjhVCQd?=
- =?us-ascii?Q?s9SRAfz6VovQ6BUKU+7sBeyHeY3TlGQcN55s1B8eXR4sxMUVRS4T+cf7Bmsu?=
- =?us-ascii?Q?CPI8l8YVSzNWTO6h+sySrDYQeNESsV56VnvJHfEj9RDYQCgB6vOQJZ5X7co1?=
- =?us-ascii?Q?x+aLtte7rHSV8wDl/UGKAbWqTMTAzjxw5oxx6CbwI757eKGNE3qDukefwr7B?=
- =?us-ascii?Q?vS5+3w3vb6ZM89NjieIluS/gu122Tlt37V21Uo4S0AC7Hdn/yAgbywyFBC71?=
- =?us-ascii?Q?aX9HY/jzv9QJrcFhWyxBlCT+qEIXJjv+mgBuyVWudGfFWxsfi+f8Qo2wQJJC?=
- =?us-ascii?Q?OxPFPZAzk01pARCRhSuPxMbyyRrzdfY5YLTCZ7qiKYa16pypNwz13E0LxWIK?=
- =?us-ascii?Q?4dpk1glEBLpyyZ7wIk7rbDD2aWLA9ZZTQajaVm4TpQdGkbJNt0TkNAb1qxPM?=
- =?us-ascii?Q?0yfuEVX1jIsQv4l8jv9vUSMStu3It1mOTLioJKS4pSuavvmsSnJP8Tt46Nqj?=
- =?us-ascii?Q?58du5dz3qB6VqIk6ROJwdcK9cVg+O5fe0vY4LE8H9jF+q7fHsj4dmTPJsZOG?=
- =?us-ascii?Q?l2p7FFL73AnEuK4mqarQLN2+mTVSeVal4qHeIsFO3AGGUeuM2MAEOFeknuT8?=
- =?us-ascii?Q?7+pJYdSgifwbTFa8sqi5TewgEWYFw09CXsRhPEt7Jf4+BY8vjhhuvQe20JfZ?=
- =?us-ascii?Q?1r08Erew+kbAPF4363fe1XMbXY9RT3rANiHTO1M/Hzlt8uvu27wMz+GZVu+e?=
- =?us-ascii?Q?jFJQtrffD0jGe3zjA/fiD51FmTH9rq2lsNwg9twBXeHLBFUY19WXLMcJMWhc?=
- =?us-ascii?Q?LOcQK6+Ff1b118X4Kof94UjCvbBVDaEko6LS9uSzDDxb7lnoDBeulRjfJ+1y?=
- =?us-ascii?Q?rRulqcUIUaAxUxYBwc4keAb1jS8/sXv52dsk80mf?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8a6201d8-133e-4be2-b31d-08de27875739
-X-MS-Exchange-CrossTenant-AuthSource: DB9PR04MB9626.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Nov 2025 16:18:57.1937
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 53hUC8AZmb10PfiyUzeT3JNNSOcpat5Z3ebKfm5yKpengKLFTIuU6wuVlI9bWTeTGib9xh0At6T369zK8mg6eQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR04MB7694
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <aR3snSb1YUFh9Dwp@shell.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251119_081901_118744_665BA169 
+X-CRM114-CacheID: sfid-20251119_152407_326813_ED057A12 
 X-CRM114-Status: GOOD (  19.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -164,39 +93,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 19, 2025 at 11:22:39AM +0800, Haibo Chen wrote:
-> light sensor isl29023 share the interrupt with lsm303arg, but these
-> two devices use different interrupt type. According to the datasheet
-> of these two devides, both support low level trigger type, so correct
-> the interrupt type here to avoid the following error log:
->
->   irq: type mismatch, failed to map hwirq-11 for gpio@5d0c0000!
->
-> Fixes: 9918092cbb0e ("arm64: dts: imx8qm-mek: add i2c0 and children devices")
-> Fixes: 1d8a9f043a77 ("arm64: dts: imx8: use defines for interrupts")
-> Signed-off-by: Haibo Chen <haibo.chen@nxp.com>
+On Wed, Nov 19, 2025 at 04:13:17PM +0000, Russell King (Oracle) wrote:
+> On Wed, Nov 19, 2025 at 11:35:26PM +0800, Jisheng Zhang wrote:
+> > The dwmac 5.20 IP can be found on some synaptics SoCs. 
+> > 
+> > The binding doc has been already upstreamed by
+> > commit 13f9351180aa ("dt-bindings: net: snps,dwmac: Add dwmac-5.20
+> > version")
+> > 
+> > So we just need to add a compatibility flag in dwmac generic driver.
+> 
+> Do we _need_ to add it to the generic driver? Do the platforms that are
+> using this really not need any additional code to support them?
+> 
+> Looking at all the DT that mention dwmac-5.20 in their compatible
+> strings, that is always after other compatibles that point to other
+> platform specific drivers.
+> 
+> So, can you point to a platform that doesn't have its own platform
+> glue, and would be functional when using the dwmac-generic driver?
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
-
-> ---
->  arch/arm64/boot/dts/freescale/imx8qm-mek.dts | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->
-> diff --git a/arch/arm64/boot/dts/freescale/imx8qm-mek.dts b/arch/arm64/boot/dts/freescale/imx8qm-mek.dts
-> index 779d9f78fb8196b04c41516963f16ece082360e3..667ba2fea8678215c611dc0ca19e8fbc397f9273 100644
-> --- a/arch/arm64/boot/dts/freescale/imx8qm-mek.dts
-> +++ b/arch/arm64/boot/dts/freescale/imx8qm-mek.dts
-> @@ -576,7 +576,7 @@ light-sensor@44 {
->  		compatible = "isil,isl29023";
->  		reg = <0x44>;
->  		interrupt-parent = <&lsio_gpio4>;
-> -		interrupts = <11 IRQ_TYPE_EDGE_FALLING>;
-> +		interrupts = <11 IRQ_TYPE_LEVEL_LOW>;
->  	};
->
->  	pressure-sensor@60 {
->
-> --
-> 2.34.1
->
+Synatpics platforms use the dwmac-generic driver, it's enough now.
+But we haven't upstreamed related platforms, but will do soon.
+> 
+> For reference, the dts that refer to dwmac-5.20 are:
+> 
+> arch/arm64/boot/dts/renesas/r9a09g047.dtsi
+> arch/arm64/boot/dts/renesas/r9a09g056.dtsi
+> arch/arm64/boot/dts/renesas/r9a09g057.dtsi
+> arch/arm64/boot/dts/st/stm32mp251.dtsi
+> arch/arm64/boot/dts/st/stm32mp253.dtsi
+> arch/arm64/boot/dts/st/stm32mp233.dtsi
+> arch/arm64/boot/dts/st/stm32mp231.dtsi
+> arch/riscv/boot/dts/starfive/jh7110.dtsi
+> 
+> Thanks.
+> 
+> -- 
+> RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+> FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
