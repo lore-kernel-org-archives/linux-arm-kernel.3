@@ -4,75 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8743BCF259F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 15:03:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECF76CF34C7
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 15:04:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ggrpKoOJDYW1dgaQrga1G14rp+gExMndXNkJ3hlK3Qo=; b=zMPzz7sAqzStzzMcjnpPR1wjLi
-	tnqVpK9jty/aF0Z8fx7NLPhKyuGHYvlmBYp07XBfdt3t2sOxOimiUjSSgyH7Eu906K/RlpgE+EMvL
-	rPwnFH8FjA8ZiUhkdJ6vgN+cYUJp8ClqI9bvFY5TMvMiJxHVx/4+RZECrBh+qFt6Ldnwl8p1s3qYd
-	0q5pX/P5dBfNwaepkBeRejQbL3VXj3UoR2+TzG1IN9gvr/08FxPcLDTKFJa2ZjcViZs3/nraOMr26
-	LALAqJvPfAVwNbzLLHPsUWkDBMpluywMDCTBqA8dSbOFtFbSPaMWrwr2EJQs2V25Q/R02fDJ8YAFF
-	myD/LCKA==;
+	bh=3aEgWDsDGuopuAgW/OBEgYDsivtxg9pkCbCyJ6lVjT4=; b=NrrrH8Nj4vPpAkylPzFkLDDY5y
+	HkDQGsu7j0W7pbDbqdtLsOiWNITv1xoIuVUZjHhLA3pHvBvHTGvxe5Pa7bgWTg8jm+Cnmgs1jzPI0
+	yJu62M6/Vt2VevWUllWhLfGuVsIwR2mRMLsLIArX4m15K9T7EMi2MUxY3ZubBtU3iXezXHZlEdwiG
+	7WNtT+ZlpbrFHN+8FunPF01i15zfXjhY62nVjetdejvOnol0oQ9/CPZp1M6ZXinACKDhx/B9Jg2Eh
+	78urk4xDrhqIo/bj/BO4+rynVpq/tmLxzBSmBUfmDSEVuQWNBNZ3LoyJsHL33bToXaKv4d5ghAO70
+	EIipETmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLjiM-00000003Re6-2Rbc;
-	Wed, 19 Nov 2025 15:03:22 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vLjjE-00000003S53-3VLY;
+	Wed, 19 Nov 2025 15:04:16 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLjiL-00000003Rcv-09Z2
+	id 1vLjjB-00000003S2N-0Oqv
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Nov 2025 15:03:21 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6529960218;
-	Wed, 19 Nov 2025 15:03:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 307F3C16AAE;
-	Wed, 19 Nov 2025 15:03:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763564600;
-	bh=V41I1DdaKjoguYvIVU3vcsbbLpnEiJ795VwgA1QsjOI=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=cItYrC/7Gv/oF1ZuZmijwPyTgCtpcQjJvd2KcgR5JnuDtTxgP8bA/oAj9ZoNirK3L
-	 91GW/fdqyignkGUcxE9AsI0gAoCki+qIz0QE9d2oKemH7hl8tgSy5tvyJrPY19KahZ
-	 Jivm4LCJd3A7+qHtZKNj37tVGWVjuo5VQR9IQ4Hrd1aaheQtMrhYLgPaiRepz6qkQh
-	 2DxnxKfQvZTXz3enyhyLLzcaCgJ08+6JpEwL5phWRl8IzbW/Yg5IzVTp+bOw9lbuXf
-	 IZ6h66KwznJvN6mcZbuWb2fAZxHjjAXCHQi7dynKhEBGJ2Oq4+2f9ofOUf/CWCsJlh
-	 7J0gTDaTK6NHg==
-From: Jisheng Zhang <jszhang@kernel.org>
-To: Doug Berger <opendmb@gmail.com>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	bcm-kernel-feedback-list@broadcom.com,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>,
-	Hoan Tran <hoan@os.amperecomputing.com>,
-	Andy Shevchenko <andy@kernel.org>,
-	Daniel Palmer <daniel@thingy.jp>,
-	Romain Perier <romain.perier@gmail.com>,
-	Grygorii Strashko <grygorii.strashko@ti.com>,
-	Santosh Shilimkar <ssantosh@kernel.org>,
-	Kevin Hilman <khilman@kernel.org>,
-	Robert Jarzmik <robert.jarzmik@free.fr>,
-	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>,
-	Srinivas Neeli <srinivas.neeli@amd.com>,
-	Michal Simek <michal.simek@amd.com>
-Cc: linux-gpio@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-omap@vger.kernel.org
-Subject: [PATCH v3 15/15] gpio: zynq: Use modern PM macros
-Date: Wed, 19 Nov 2025 22:43:27 +0800
-Message-ID: <20251119144327.13345-16-jszhang@kernel.org>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20251119144327.13345-1-jszhang@kernel.org>
-References: <20251119144327.13345-1-jszhang@kernel.org>
+	Wed, 19 Nov 2025 15:04:15 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 0FEAEC1118A;
+	Wed, 19 Nov 2025 15:03:47 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 44D3260699;
+	Wed, 19 Nov 2025 15:04:09 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 58FED10371A6A;
+	Wed, 19 Nov 2025 16:03:57 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1763564647; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=3aEgWDsDGuopuAgW/OBEgYDsivtxg9pkCbCyJ6lVjT4=;
+	b=FSX73f4mQogt4yz3xsyuJ20u8IbFWpHpSPDu0V9cFBqTlzIBBjWOUx5FMDbWa9JpkfG3su
+	KGA6xnT127rbFZuzkAQXSA1vj834FxYsbfyjsCuI4ocj6xioctgcQgx0sY9/EuofoJCERw
+	SV1vJ14jveniWXRYD8r1fByrmpxwPTz84CdA63Ut5uBKXNR0/OaKRqu1xJWzZpN7dNbE8V
+	/B4py2mkZKq9GGl7wMpNrmXfo/VUzQfDpani+TD2DNVk4vzRIFqHxie7dcPAFet9XElszE
+	4YKhqKoVO0EUBp0bm68KYupOH7zOBjJJS42dphQy9uot6fPmg5Z/7WKgyFI9ww==
+Message-ID: <62213fae-1141-4361-90f9-b03b48c8abfc@bootlin.com>
+Date: Wed, 19 Nov 2025 16:03:56 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next 1/3] net: stmmac: pass struct device to
+ init()/exit() methods
+To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
+ Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, Chen-Yu Tsai <wens@csie.org>,
+ "David S. Miller" <davem@davemloft.net>, Drew Fustini <fustini@kernel.org>,
+ Eric Dumazet <edumazet@google.com>, Fu Wei <wefu@redhat.com>,
+ Guo Ren <guoren@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ Jakub Kicinski <kuba@kernel.org>, Jan Petrous <jan.petrous@oss.nxp.com>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Keguang Zhang <keguang.zhang@gmail.com>,
+ Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+ linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
+ linux-renesas-soc@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-rockchip@lists.infradead.org,
+ linux-stm32@st-md-mailman.stormreply.com, linux-sunxi@lists.linux.dev,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+ Paolo Abeni <pabeni@redhat.com>, s32@nxp.com,
+ Samuel Holland <samuel@sholland.org>
+References: <aR2V0Kib7j0L4FNN@shell.armlinux.org.uk>
+ <E1vLf2U-0000000FMN2-0SLg@rmk-PC.armlinux.org.uk>
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Content-Language: en-US
+In-Reply-To: <E1vLf2U-0000000FMN2-0SLg@rmk-PC.armlinux.org.uk>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251119_070413_450138_A7D51F17 
+X-CRM114-Status: GOOD (  22.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,78 +93,440 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use the modern PM macros for the suspend and resume functions to be
-automatically dropped by the compiler when CONFIG_PM or
-CONFIG_PM_SLEEP are disabled, without having to use __maybe_unused
 
-Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-Acked-by: Linus Walleij <linus.walleij@linaro.org>
----
- drivers/gpio/gpio-zynq.c | 15 +++++++--------
- 1 file changed, 7 insertions(+), 8 deletions(-)
 
-diff --git a/drivers/gpio/gpio-zynq.c b/drivers/gpio/gpio-zynq.c
-index 0ffd76e8951f..97780c57ab56 100644
---- a/drivers/gpio/gpio-zynq.c
-+++ b/drivers/gpio/gpio-zynq.c
-@@ -735,7 +735,7 @@ static void zynq_gpio_restore_context(struct zynq_gpio *gpio)
- 	}
- }
- 
--static int __maybe_unused zynq_gpio_suspend(struct device *dev)
-+static int zynq_gpio_suspend(struct device *dev)
- {
- 	struct zynq_gpio *gpio = dev_get_drvdata(dev);
- 	struct irq_data *data = irq_get_irq_data(gpio->irq);
-@@ -756,7 +756,7 @@ static int __maybe_unused zynq_gpio_suspend(struct device *dev)
- 	return 0;
- }
- 
--static int __maybe_unused zynq_gpio_resume(struct device *dev)
-+static int zynq_gpio_resume(struct device *dev)
- {
- 	struct zynq_gpio *gpio = dev_get_drvdata(dev);
- 	struct irq_data *data = irq_get_irq_data(gpio->irq);
-@@ -779,7 +779,7 @@ static int __maybe_unused zynq_gpio_resume(struct device *dev)
- 	return 0;
- }
- 
--static int __maybe_unused zynq_gpio_runtime_suspend(struct device *dev)
-+static int zynq_gpio_runtime_suspend(struct device *dev)
- {
- 	struct zynq_gpio *gpio = dev_get_drvdata(dev);
- 
-@@ -788,7 +788,7 @@ static int __maybe_unused zynq_gpio_runtime_suspend(struct device *dev)
- 	return 0;
- }
- 
--static int __maybe_unused zynq_gpio_runtime_resume(struct device *dev)
-+static int zynq_gpio_runtime_resume(struct device *dev)
- {
- 	struct zynq_gpio *gpio = dev_get_drvdata(dev);
- 
-@@ -814,9 +814,8 @@ static void zynq_gpio_free(struct gpio_chip *chip, unsigned int offset)
- }
- 
- static const struct dev_pm_ops zynq_gpio_dev_pm_ops = {
--	SET_SYSTEM_SLEEP_PM_OPS(zynq_gpio_suspend, zynq_gpio_resume)
--	SET_RUNTIME_PM_OPS(zynq_gpio_runtime_suspend,
--			   zynq_gpio_runtime_resume, NULL)
-+	SYSTEM_SLEEP_PM_OPS(zynq_gpio_suspend, zynq_gpio_resume)
-+	RUNTIME_PM_OPS(zynq_gpio_runtime_suspend, zynq_gpio_runtime_resume, NULL)
- };
- 
- static const struct zynq_platform_data versal_gpio_def = {
-@@ -1022,7 +1021,7 @@ static void zynq_gpio_remove(struct platform_device *pdev)
- static struct platform_driver zynq_gpio_driver = {
- 	.driver	= {
- 		.name = DRIVER_NAME,
--		.pm = &zynq_gpio_dev_pm_ops,
-+		.pm = pm_ptr(&zynq_gpio_dev_pm_ops),
- 		.of_match_table = zynq_gpio_of_match,
- 	},
- 	.probe = zynq_gpio_probe,
--- 
-2.51.0
+On 19/11/2025 11:03, Russell King (Oracle) wrote:
+> As struct plat_stmmacenet_data is not platform_device specific, pass
+> a struct device into the init() and exit() methods to allow them to
+> become independent of the underlying device.
+> 
+> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+
+Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+
+Maxime
+
+> ---
+>  .../ethernet/stmicro/stmmac/dwmac-anarion.c   |  4 +--
+>  .../ethernet/stmicro/stmmac/dwmac-eic7700.c   |  4 +--
+>  .../ethernet/stmicro/stmmac/dwmac-loongson1.c | 12 ++++----
+>  .../stmicro/stmmac/dwmac-renesas-gbeth.c      |  4 +--
+>  .../net/ethernet/stmicro/stmmac/dwmac-s32.c   | 14 +++++-----
+>  .../ethernet/stmicro/stmmac/dwmac-socfpga.c   |  2 +-
+>  .../net/ethernet/stmicro/stmmac/dwmac-sti.c   |  4 +--
+>  .../net/ethernet/stmicro/stmmac/dwmac-sun8i.c | 10 +++----
+>  .../net/ethernet/stmicro/stmmac/dwmac-sunxi.c |  4 +--
+>  .../net/ethernet/stmicro/stmmac/dwmac-thead.c |  2 +-
+>  .../ethernet/stmicro/stmmac/stmmac_platform.c | 28 ++++++++++---------
+>  include/linux/stmmac.h                        |  4 +--
+>  12 files changed, 47 insertions(+), 45 deletions(-)
+> 
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-anarion.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-anarion.c
+> index 84072c8ed741..5e0fc31762d9 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-anarion.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-anarion.c
+> @@ -34,7 +34,7 @@ static void gmac_write_reg(struct anarion_gmac *gmac, uint8_t reg, uint32_t val)
+>  	writel(val, gmac->ctl_block + reg);
+>  }
+>  
+> -static int anarion_gmac_init(struct platform_device *pdev, void *priv)
+> +static int anarion_gmac_init(struct device *dev, void *priv)
+>  {
+>  	uint32_t sw_config;
+>  	struct anarion_gmac *gmac = priv;
+> @@ -52,7 +52,7 @@ static int anarion_gmac_init(struct platform_device *pdev, void *priv)
+>  	return 0;
+>  }
+>  
+> -static void anarion_gmac_exit(struct platform_device *pdev, void *priv)
+> +static void anarion_gmac_exit(struct device *dev, void *priv)
+>  {
+>  	struct anarion_gmac *gmac = priv;
+>  
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-eic7700.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-eic7700.c
+> index 1dcf2037001e..bcb8e000e720 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-eic7700.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-eic7700.c
+> @@ -58,14 +58,14 @@ static int eic7700_clks_config(void *priv, bool enabled)
+>  	return ret;
+>  }
+>  
+> -static int eic7700_dwmac_init(struct platform_device *pdev, void *priv)
+> +static int eic7700_dwmac_init(struct device *dev, void *priv)
+>  {
+>  	struct eic7700_qos_priv *dwc = priv;
+>  
+>  	return eic7700_clks_config(dwc, true);
+>  }
+>  
+> -static void eic7700_dwmac_exit(struct platform_device *pdev, void *priv)
+> +static void eic7700_dwmac_exit(struct device *dev, void *priv)
+>  {
+>  	struct eic7700_qos_priv *dwc = priv;
+>  
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-loongson1.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-loongson1.c
+> index 894ee66f5c9b..de9aba756aac 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-loongson1.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-loongson1.c
+> @@ -48,7 +48,7 @@ struct ls1x_dwmac {
+>  struct ls1x_data {
+>  	int (*setup)(struct platform_device *pdev,
+>  		     struct plat_stmmacenet_data *plat_dat);
+> -	int (*init)(struct platform_device *pdev, void *bsp_priv);
+> +	int (*init)(struct device *dev, void *bsp_priv);
+>  };
+>  
+>  static int ls1b_dwmac_setup(struct platform_device *pdev,
+> @@ -79,7 +79,7 @@ static int ls1b_dwmac_setup(struct platform_device *pdev,
+>  	return 0;
+>  }
+>  
+> -static int ls1b_dwmac_syscon_init(struct platform_device *pdev, void *priv)
+> +static int ls1b_dwmac_syscon_init(struct device *dev, void *priv)
+>  {
+>  	struct ls1x_dwmac *dwmac = priv;
+>  	struct plat_stmmacenet_data *plat = dwmac->plat_dat;
+> @@ -98,7 +98,7 @@ static int ls1b_dwmac_syscon_init(struct platform_device *pdev, void *priv)
+>  					   GMAC0_USE_TXCLK | GMAC0_USE_PWM01);
+>  			break;
+>  		default:
+> -			dev_err(&pdev->dev, "Unsupported PHY mode %u\n",
+> +			dev_err(dev, "Unsupported PHY mode %u\n",
+>  				plat->phy_interface);
+>  			return -EOPNOTSUPP;
+>  		}
+> @@ -122,7 +122,7 @@ static int ls1b_dwmac_syscon_init(struct platform_device *pdev, void *priv)
+>  					   GMAC1_USE_TXCLK | GMAC1_USE_PWM23);
+>  			break;
+>  		default:
+> -			dev_err(&pdev->dev, "Unsupported PHY mode %u\n",
+> +			dev_err(dev, "Unsupported PHY mode %u\n",
+>  				plat->phy_interface);
+>  			return -EOPNOTSUPP;
+>  		}
+> @@ -133,7 +133,7 @@ static int ls1b_dwmac_syscon_init(struct platform_device *pdev, void *priv)
+>  	return 0;
+>  }
+>  
+> -static int ls1c_dwmac_syscon_init(struct platform_device *pdev, void *priv)
+> +static int ls1c_dwmac_syscon_init(struct device *dev, void *priv)
+>  {
+>  	struct ls1x_dwmac *dwmac = priv;
+>  	struct plat_stmmacenet_data *plat = dwmac->plat_dat;
+> @@ -143,7 +143,7 @@ static int ls1c_dwmac_syscon_init(struct platform_device *pdev, void *priv)
+>  	phy_intf_sel = stmmac_get_phy_intf_sel(plat->phy_interface);
+>  	if (phy_intf_sel != PHY_INTF_SEL_GMII_MII &&
+>  	    phy_intf_sel != PHY_INTF_SEL_RMII) {
+> -		dev_err(&pdev->dev, "Unsupported PHY-mode %u\n",
+> +		dev_err(dev, "Unsupported PHY-mode %u\n",
+>  			plat->phy_interface);
+>  		return -EOPNOTSUPP;
+>  	}
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-renesas-gbeth.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-renesas-gbeth.c
+> index bc7bb975803c..be7f5eb2cdcf 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-renesas-gbeth.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-renesas-gbeth.c
+> @@ -91,7 +91,7 @@ static struct phylink_pcs *renesas_gmac_select_pcs(struct stmmac_priv *priv,
+>  	return priv->hw->phylink_pcs;
+>  }
+>  
+> -static int renesas_gbeth_init(struct platform_device *pdev, void *priv)
+> +static int renesas_gbeth_init(struct device *dev, void *priv)
+>  {
+>  	struct plat_stmmacenet_data *plat_dat;
+>  	struct renesas_gbeth *gbeth = priv;
+> @@ -113,7 +113,7 @@ static int renesas_gbeth_init(struct platform_device *pdev, void *priv)
+>  	return ret;
+>  }
+>  
+> -static void renesas_gbeth_exit(struct platform_device *pdev, void *priv)
+> +static void renesas_gbeth_exit(struct device *dev, void *priv)
+>  {
+>  	struct plat_stmmacenet_data *plat_dat;
+>  	struct renesas_gbeth *gbeth = priv;
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-s32.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-s32.c
+> index 2b7ad64bfdf7..5a485ee98fa7 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-s32.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-s32.c
+> @@ -47,7 +47,7 @@ static int s32_gmac_write_phy_intf_select(struct s32_priv_data *gmac)
+>  	return 0;
+>  }
+>  
+> -static int s32_gmac_init(struct platform_device *pdev, void *priv)
+> +static int s32_gmac_init(struct device *dev, void *priv)
+>  {
+>  	struct s32_priv_data *gmac = priv;
+>  	int ret;
+> @@ -55,31 +55,31 @@ static int s32_gmac_init(struct platform_device *pdev, void *priv)
+>  	/* Set initial TX interface clock */
+>  	ret = clk_prepare_enable(gmac->tx_clk);
+>  	if (ret) {
+> -		dev_err(&pdev->dev, "Can't enable tx clock\n");
+> +		dev_err(dev, "Can't enable tx clock\n");
+>  		return ret;
+>  	}
+>  	ret = clk_set_rate(gmac->tx_clk, GMAC_INTF_RATE_125M);
+>  	if (ret) {
+> -		dev_err(&pdev->dev, "Can't set tx clock\n");
+> +		dev_err(dev, "Can't set tx clock\n");
+>  		goto err_tx_disable;
+>  	}
+>  
+>  	/* Set initial RX interface clock */
+>  	ret = clk_prepare_enable(gmac->rx_clk);
+>  	if (ret) {
+> -		dev_err(&pdev->dev, "Can't enable rx clock\n");
+> +		dev_err(dev, "Can't enable rx clock\n");
+>  		goto err_tx_disable;
+>  	}
+>  	ret = clk_set_rate(gmac->rx_clk, GMAC_INTF_RATE_125M);
+>  	if (ret) {
+> -		dev_err(&pdev->dev, "Can't set rx clock\n");
+> +		dev_err(dev, "Can't set rx clock\n");
+>  		goto err_txrx_disable;
+>  	}
+>  
+>  	/* Set interface mode */
+>  	ret = s32_gmac_write_phy_intf_select(gmac);
+>  	if (ret) {
+> -		dev_err(&pdev->dev, "Can't set PHY interface mode\n");
+> +		dev_err(dev, "Can't set PHY interface mode\n");
+>  		goto err_txrx_disable;
+>  	}
+>  
+> @@ -92,7 +92,7 @@ static int s32_gmac_init(struct platform_device *pdev, void *priv)
+>  	return ret;
+>  }
+>  
+> -static void s32_gmac_exit(struct platform_device *pdev, void *priv)
+> +static void s32_gmac_exit(struct device *dev, void *priv)
+>  {
+>  	struct s32_priv_data *gmac = priv;
+>  
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c
+> index 49d651948e2b..a2b52d2c4eb6 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c
+> @@ -551,7 +551,7 @@ static struct phylink_pcs *socfpga_dwmac_select_pcs(struct stmmac_priv *priv,
+>  	return priv->hw->phylink_pcs;
+>  }
+>  
+> -static int socfpga_dwmac_init(struct platform_device *pdev, void *bsp_priv)
+> +static int socfpga_dwmac_init(struct device *dev, void *bsp_priv)
+>  {
+>  	struct socfpga_dwmac *dwmac = bsp_priv;
+>  
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-sti.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-sti.c
+> index b0509ab6b31c..f50547b67fbc 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-sti.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-sti.c
+> @@ -229,14 +229,14 @@ static int sti_dwmac_parse_data(struct sti_dwmac *dwmac,
+>  	return 0;
+>  }
+>  
+> -static int sti_dwmac_init(struct platform_device *pdev, void *bsp_priv)
+> +static int sti_dwmac_init(struct device *dev, void *bsp_priv)
+>  {
+>  	struct sti_dwmac *dwmac = bsp_priv;
+>  
+>  	return clk_prepare_enable(dwmac->clk);
+>  }
+>  
+> -static void sti_dwmac_exit(struct platform_device *pdev, void *bsp_priv)
+> +static void sti_dwmac_exit(struct device *dev, void *bsp_priv)
+>  {
+>  	struct sti_dwmac *dwmac = bsp_priv;
+>  
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
+> index 7434d4bbb526..8aa496ac85cc 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
+> @@ -571,16 +571,16 @@ static const struct stmmac_dma_ops sun8i_dwmac_dma_ops = {
+>  
+>  static int sun8i_dwmac_power_internal_phy(struct stmmac_priv *priv);
+>  
+> -static int sun8i_dwmac_init(struct platform_device *pdev, void *priv)
+> +static int sun8i_dwmac_init(struct device *dev, void *priv)
+>  {
+> -	struct net_device *ndev = platform_get_drvdata(pdev);
+> +	struct net_device *ndev = dev_get_drvdata(dev);
+>  	struct sunxi_priv_data *gmac = priv;
+>  	int ret;
+>  
+>  	if (gmac->regulator) {
+>  		ret = regulator_enable(gmac->regulator);
+>  		if (ret) {
+> -			dev_err(&pdev->dev, "Fail to enable regulator\n");
+> +			dev_err(dev, "Fail to enable regulator\n");
+>  			return ret;
+>  		}
+>  	}
+> @@ -1005,7 +1005,7 @@ static void sun8i_dwmac_unset_syscon(struct sunxi_priv_data *gmac)
+>  				   (H3_EPHY_SHUTDOWN | H3_EPHY_SELECT));
+>  }
+>  
+> -static void sun8i_dwmac_exit(struct platform_device *pdev, void *priv)
+> +static void sun8i_dwmac_exit(struct device *dev, void *priv)
+>  {
+>  	struct sunxi_priv_data *gmac = priv;
+>  
+> @@ -1265,7 +1265,7 @@ static void sun8i_dwmac_shutdown(struct platform_device *pdev)
+>  	struct stmmac_priv *priv = netdev_priv(ndev);
+>  	struct sunxi_priv_data *gmac = priv->plat->bsp_priv;
+>  
+> -	sun8i_dwmac_exit(pdev, gmac);
+> +	sun8i_dwmac_exit(&pdev->dev, gmac);
+>  }
+>  
+>  static const struct of_device_id sun8i_dwmac_match[] = {
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-sunxi.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-sunxi.c
+> index 7f560d78209d..52593ba3a3a3 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-sunxi.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-sunxi.c
+> @@ -27,7 +27,7 @@ struct sunxi_priv_data {
+>  #define SUN7I_GMAC_GMII_RGMII_RATE	125000000
+>  #define SUN7I_GMAC_MII_RATE		25000000
+>  
+> -static int sun7i_gmac_init(struct platform_device *pdev, void *priv)
+> +static int sun7i_gmac_init(struct device *dev, void *priv)
+>  {
+>  	struct sunxi_priv_data *gmac = priv;
+>  	int ret = 0;
+> @@ -58,7 +58,7 @@ static int sun7i_gmac_init(struct platform_device *pdev, void *priv)
+>  	return ret;
+>  }
+>  
+> -static void sun7i_gmac_exit(struct platform_device *pdev, void *priv)
+> +static void sun7i_gmac_exit(struct device *dev, void *priv)
+>  {
+>  	struct sunxi_priv_data *gmac = priv;
+>  
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-thead.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-thead.c
+> index a3378046b061..e291028ba56e 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-thead.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-thead.c
+> @@ -186,7 +186,7 @@ static int thead_dwmac_enable_clk(struct plat_stmmacenet_data *plat)
+>  	return 0;
+>  }
+>  
+> -static int thead_dwmac_init(struct platform_device *pdev, void *priv)
+> +static int thead_dwmac_init(struct device *dev, void *priv)
+>  {
+>  	struct thead_dwmac *dwmac = priv;
+>  	unsigned int reg;
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
+> index 1fefa6c55db1..feccb8a3e7e8 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
+> @@ -747,40 +747,40 @@ EXPORT_SYMBOL_GPL(stmmac_get_platform_resources);
+>  
+>  /**
+>   * stmmac_pltfr_init
+> - * @pdev: pointer to the platform device
+> + * @dev: pointer to the device structure
+>   * @plat: driver data platform structure
+>   * Description: Call the platform's init callback (if any) and propagate
+>   * the return value.
+>   */
+> -static int stmmac_pltfr_init(struct platform_device *pdev,
+> +static int stmmac_pltfr_init(struct device *dev,
+>  			     struct plat_stmmacenet_data *plat)
+>  {
+>  	int ret = 0;
+>  
+>  	if (plat->init)
+> -		ret = plat->init(pdev, plat->bsp_priv);
+> +		ret = plat->init(dev, plat->bsp_priv);
+>  
+>  	return ret;
+>  }
+>  
+>  /**
+>   * stmmac_pltfr_exit
+> - * @pdev: pointer to the platform device
+> + * @dev: pointer to the device structure
+>   * @plat: driver data platform structure
+>   * Description: Call the platform's exit callback (if any).
+>   */
+> -static void stmmac_pltfr_exit(struct platform_device *pdev,
+> +static void stmmac_pltfr_exit(struct device *dev,
+>  			      struct plat_stmmacenet_data *plat)
+>  {
+>  	if (plat->exit)
+> -		plat->exit(pdev, plat->bsp_priv);
+> +		plat->exit(dev, plat->bsp_priv);
+>  }
+>  
+>  static int stmmac_plat_suspend(struct device *dev, void *bsp_priv)
+>  {
+>  	struct stmmac_priv *priv = netdev_priv(dev_get_drvdata(dev));
+>  
+> -	stmmac_pltfr_exit(to_platform_device(dev), priv->plat);
+> +	stmmac_pltfr_exit(dev, priv->plat);
+>  
+>  	return 0;
+>  }
+> @@ -789,7 +789,7 @@ static int stmmac_plat_resume(struct device *dev, void *bsp_priv)
+>  {
+>  	struct stmmac_priv *priv = netdev_priv(dev_get_drvdata(dev));
+>  
+> -	return stmmac_pltfr_init(to_platform_device(dev), priv->plat);
+> +	return stmmac_pltfr_init(dev, priv->plat);
+>  }
+>  
+>  /**
+> @@ -804,6 +804,7 @@ int stmmac_pltfr_probe(struct platform_device *pdev,
+>  		       struct plat_stmmacenet_data *plat,
+>  		       struct stmmac_resources *res)
+>  {
+> +	struct device *dev = &pdev->dev;
+>  	int ret;
+>  
+>  	if (!plat->suspend && plat->exit)
+> @@ -811,13 +812,13 @@ int stmmac_pltfr_probe(struct platform_device *pdev,
+>  	if (!plat->resume && plat->init)
+>  		plat->resume = stmmac_plat_resume;
+>  
+> -	ret = stmmac_pltfr_init(pdev, plat);
+> +	ret = stmmac_pltfr_init(dev, plat);
+>  	if (ret)
+>  		return ret;
+>  
+> -	ret = stmmac_dvr_probe(&pdev->dev, plat, res);
+> +	ret = stmmac_dvr_probe(dev, plat, res);
+>  	if (ret) {
+> -		stmmac_pltfr_exit(pdev, plat);
+> +		stmmac_pltfr_exit(dev, plat);
+>  		return ret;
+>  	}
+>  
+> @@ -866,9 +867,10 @@ void stmmac_pltfr_remove(struct platform_device *pdev)
+>  	struct net_device *ndev = platform_get_drvdata(pdev);
+>  	struct stmmac_priv *priv = netdev_priv(ndev);
+>  	struct plat_stmmacenet_data *plat = priv->plat;
+> +	struct device *dev = &pdev->dev;
+>  
+> -	stmmac_dvr_remove(&pdev->dev);
+> -	stmmac_pltfr_exit(pdev, plat);
+> +	stmmac_dvr_remove(dev);
+> +	stmmac_pltfr_exit(dev, plat);
+>  }
+>  EXPORT_SYMBOL_GPL(stmmac_pltfr_remove);
+>  
+> diff --git a/include/linux/stmmac.h b/include/linux/stmmac.h
+> index 4f70a6551e68..673b068fdadf 100644
+> --- a/include/linux/stmmac.h
+> +++ b/include/linux/stmmac.h
+> @@ -264,8 +264,8 @@ struct plat_stmmacenet_data {
+>  			  unsigned int mode,
+>  			  phy_interface_t interface);
+>  	void (*ptp_clk_freq_config)(struct stmmac_priv *priv);
+> -	int (*init)(struct platform_device *pdev, void *priv);
+> -	void (*exit)(struct platform_device *pdev, void *priv);
+> +	int (*init)(struct device *dev, void *priv);
+> +	void (*exit)(struct device *dev, void *priv);
+>  	int (*suspend)(struct device *dev, void *priv);
+>  	int (*resume)(struct device *dev, void *priv);
+>  	int (*mac_setup)(void *priv, struct mac_device_info *mac);
 
 
