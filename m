@@ -4,63 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45B1DCF6486
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 22:27:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DC8DCF6487
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 22:35:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zxiZ256yC1KWBY4rW2iAW+zPotMWvRus/oGs+S2yL8k=; b=GQsHeE8Mg9F+h3qZb8QB9QPhTm
-	MtBlO8Wh6SQl3ZGn6E/XqWXeV+Z6q8+aZCWKFZxm3bUJWtlasL7eyXp1/Hb2FGatTA79fjwYa//8a
-	l2EmlsdKYBIqP3AtyhV8w6s8iZ3ZKHPRCozARFDkJBH2kVnmcbBoUAuIZirIAlI08MA55cjA2gsKa
-	qqQZ3IdDQTKGESxAdHzggbDZJdLBHBQEet38GWVt61lveNg77u+gQUW2zCJusb6a9ZJM0/yTeoRUW
-	AfBUWoogXD1dffSh4GZ0uDqdtfNpDKJYGnMXl0GJZBvMmMzpKIejeFydgsVRztVDoQpnqyl2Lvec5
-	ZsXGCFdw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WyzWaSlpMiVrZgiyFFfLvJW1JY0DT5P1xLKf5/g8DMQ=; b=i1nCfu/DMNiqyDBDmotQR5sD0s
+	Fqeffu6E9wCTyUtP0jMDuoLnOOjY77sbCJidYHk4tFXLvPpIKQnjWjlgUBuQA97yWWVOykUAAjoXK
+	rq1rmy6+BzQ4Y5dDvj+8pgd0a1bAeUqQBbpQAv3ZyaBKe4CucyttLhlcf1CA07f6IKuh7KcnKFwyK
+	/sYuw5XPiXKSqXAvp7mlCv5/BsGR5Q4fr2HESAQltDobk/nB+zLYjL3lNHRHbd2NXYx3VuWJZGkMU
+	uMwVBwpe1G9DaMkyPwEI1hhu9rjaBsuJDbJEWqr0c6eXQaOvI6PvLEL7ZVkPbR3okYZE9K70AFLfv
+	9i9cgeVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLqeT-00000005nJM-0c8v;
-	Wed, 19 Nov 2025 22:27:49 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vLqlx-00000005nkM-3pH1;
+	Wed, 19 Nov 2025 22:35:33 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLqeP-00000005nHT-0X3F;
-	Wed, 19 Nov 2025 22:27:46 +0000
+	id 1vLqlw-00000005njy-2cha
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 19 Nov 2025 22:35:32 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7333B439EE;
-	Wed, 19 Nov 2025 22:27:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2F339C116B1;
-	Wed, 19 Nov 2025 22:27:44 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id A300760010;
+	Wed, 19 Nov 2025 22:35:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 37B44C4CEF5;
+	Wed, 19 Nov 2025 22:35:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763591264;
-	bh=/8R3jAWH+04a5Vi5dU1uhypE32MurQD61AqM5GlfyvE=;
-	h=From:Date:Cc:To:In-Reply-To:References:Subject:From;
-	b=imgY6TDyVrEfccxsqc/JbFsbLsaXzoHtyOOV8BlZzxLiO+SL76sJwg9Zh+ELx2/J5
-	 OgiA92KZgdudADz9TaTi1aTtC7vtO6iteU49A97EOyJaxPB25BjGev/FWSmPEPKzVV
-	 pykdbZKYcDMu6XBqFPl68iypkMuz7ufGCe91P+hSSVsjPh98sQHRwEC1MEUb1jQnJq
-	 uB8qS+0igzH1+kRpLKnpX7s9+1LG8+M6+lHnA2WM3D+l2+e8jTMtmZZDhAzlhreHyY
-	 l++gSrpKYrb06UMcMGC6iJzzLZ1FgZfHrk8QR9Pbkq+AOLQyaQ8WCHS7VxhqnjFG07
-	 cH6by7OtQwJKA==
-From: Rob Herring <robh@kernel.org>
-Date: Wed, 19 Nov 2025 16:27:42 -0600
+	s=k20201202; t=1763591731;
+	bh=gtkw5I6XWLCtMEVkd6b/QRRhgxON/maxlA2T6Gp457E=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=FAR4JFIl4a1/kGUdxiL57yHPZIlzEkEW8XgXreuOVre+Bs/lhVWxAHSBMjdK/yA6y
+	 gnOLQ7W+OQ+/gDOLooBlbD7Ms9P0L4GBSrPLeDt9MgAIIYnleNa/UcWbY8daNMXw4R
+	 dCwJLdjN7mpKmGRNQJTzI8rEM2sHtZ6mr2T4XciJCCJR9L0Jo01gVBnKqlMp+QW1YP
+	 uFZK6cYd5kkWjLc6gdKbZD86YAbXVwH3yE32bPpXZp2gnlyIMNUry/o6K3bKbRBgsK
+	 XyhoZDI/n1NU971WytVE1rbKaDuXkKIXinT0SlmO0g+eYS/1mUQxrJBc08e0EKoP03
+	 lsdNz8uIFNiIg==
+From: Oliver Upton <oupton@kernel.org>
+To: maz@kernel.org,
+	oliver.upton@linux.dev,
+	Maximilian Dittgen <mdittgen@amazon.de>
+Cc: Oliver Upton <oupton@kernel.org>,
+	pbonzini@redhat.com,
+	shuah@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kselftest@vger.kernel.org,
+	kvm@vger.kernel.org,
+	lilitj@amazon.de,
+	nh-open-source@amazon.com
+Subject: Re: [PATCH v2 1/2] KVM: selftests: Assert GICR_TYPER.Processor_Number matches selftest CPU number
+Date: Wed, 19 Nov 2025 14:35:26 -0800
+Message-ID: <176359161122.183996.2358688818272311431.b4-ty@kernel.org>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20251119135744.68552-1-mdittgen@amazon.de>
+References: <20251114143902.30435-1-mdittgen@amazon.de> <20251119135744.68552-1-mdittgen@amazon.de>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-MIME-Version: 1.0
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Frank Wunderlich <frank-w@public-files.de>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- linux-mediatek@lists.infradead.org
-To: Frank Wunderlich <linux@fw-web.de>
-In-Reply-To: <20251119175124.48947-1-linux@fw-web.de>
-References: <20251119175124.48947-1-linux@fw-web.de>
-Message-Id: <176359122549.3467832.13147318038488444877.robh@kernel.org>
-Subject: Re: [PATCH v1 0/2] build full dtbs for BananaPi R3/R4(Pro)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251119_142745_183344_818815D2 
-X-CRM114-Status: GOOD (  16.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,63 +78,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Wed, 19 Nov 2025 18:51:21 +0100, Frank Wunderlich wrote:
-> From: Frank Wunderlich <frank-w@public-files.de>
+On Wed, 19 Nov 2025 14:57:43 +0100, Maximilian Dittgen wrote:
+> The selftests GIC library and tests assume that the
+> GICR_TYPER.Processor_number associated with a given CPU is the same as
+> the CPU's selftest index.
 > 
-> Build devicetree binaries for testing overlays and providing users
-> full dtb without using overlays for Bananapi R4 (pro) variants.
+> Since this assumption is not guaranteed by specification, add an assert
+> in gicv3_cpu_init() that validates this is true.
 > 
-> It is not required to build all possible combinations, only for
-> common usecases and to test if all overlays can be applied.
-> 
-> This series is based on
-> https://git.kernel.org/pub/scm/linux/kernel/git/mediatek/linux.git/log/?h=v6.18-next/dts64
-> 
-> Frank Wunderlich (2):
->   arm64: dts: mediatek: mt7986: add dtbs with applied overlays for
->     bpi-r3
->   arm64: dts: mediatek: mt7988: add dtbs with applied overlays for
->     bpi-r4 (pro)
-> 
->  arch/arm64/boot/dts/mediatek/Makefile | 53 +++++++++++++++++++++++++++
->  1 file changed, 53 insertions(+)
-> 
-> --
-> 2.43.0
-> 
-> 
-> 
+> [...]
 
+I did a small cleanup to patch #1 to get rid of open-coded shifts / masks.
 
-My bot found new DTB warnings on the .dts files added or changed in this
-series.
+Please new versions of a series as a separate thread, using a cover letter
+for anything more than a single patch. This is helpful for tracking patches
+on my end.
 
-Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
-are fixed by another series. Ultimately, it is up to the platform
-maintainer whether these warnings are acceptable or not. No need to reply
-unless the platform maintainer has comments.
+Applied to next, thanks!
 
-If you already ran DT checks and didn't see these error(s), then
-make sure dt-schema is up to date:
+[1/2] KVM: selftests: Assert GICR_TYPER.Processor_Number matches selftest CPU number
+      https://git.kernel.org/kvmarm/kvmarm/c/31df012da496
+[2/2] KVM: selftests: SYNC after guest ITS setup in vgic_lpi_stress
+      https://git.kernel.org/kvmarm/kvmarm/c/85f329df2931
 
-  pip3 install dtschema --upgrade
-
-
-This patch series was applied (using b4) to base:
- Base: attempting to guess base-commit...
- Base: tags/next-20251119 (exact match)
- Base: tags/next-20251119 (use --merge-base to override)
-
-If this is not the correct base, please add 'base-commit' tag
-(or use b4 which does this automatically)
-
-New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/mediatek/' for 20251119175124.48947-1-linux@fw-web.de:
-
-scripts/Makefile.dtbs:20: .dtbo is not applied to any base: mt8395-radxa-nio-12l-8-hd-panel.dtbo
-
-
-
-
-
+--
+Best,
+Oliver
 
