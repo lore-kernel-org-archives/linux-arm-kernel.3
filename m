@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 666D7CF34AC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 19:31:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B39FCF58C9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 19:31:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HcqWhB5mlUPsE4isDdF1Ln89Vh0nVVE5rRtY3ptpglk=; b=hdz6ca1e8SYmWl3EdmZgQbVicb
-	uNx72gXE4EMNwaR9iPx/Xnaltk0e5a6K7laRFx1wx2ncKhL8Mv30b564VPjk4U2iS0yu6x/mSs78G
-	v+3auBiqeH3cOvYkt5z4AbLp7zKl7GH1Ou0fhSygq78AtuS5jU5Mq5erNKKTRg3ssLApkhFVo01dZ
-	zw730Gnvs+MvlWI5mGMCy4dMRHoL8L8hlWG2Df8rlnxY18m4duspZXOr+iCs+ejZwltV69GHnbkrZ
-	coW1OLmho/rTLKBFdkS6/V2woxoifY3gwcrqBz4AUbuaXWfqCE4ktCtb5StZZ60nlzE/cAsYBTJzS
-	oIgUc6cw==;
+	bh=tK4vOSHT1taizrVyi6fOyJ9omOZO/BrywkL2GZIm+Aw=; b=IwIDOUWKcggLE9S0bLJDOhtMrB
+	7Luh/DuaaUfmjikg1e069yyEUueHGK6ivDquzh67UscaJZrf0u5eeMFHaquUfULniLFYFi6xXDZGm
+	PpfKxhSYf/I1t49G3JP6e+LaqpNzoSHLB6G7DjDKmlNmUCr4IzSzJM29W6wYACFxGrKfS2FhNHgdc
+	3Buyid6wjIzCFBNYHDpODsch+L6q4zVUYq0H22Gzd8QxOeyOEhO2q9RaVCuuRVSlpqOQ/uYtklV7a
+	p36qy7AzJKAPYLaP2g0FZDAf/EFeaL1gZh/YKPo6xJJz/CyJ7aO6UmFMskMF2IrHU2ifwh/F2HDnh
+	gGEMhkQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLntc-000000053Bq-15pj;
-	Wed, 19 Nov 2025 19:31:16 +0000
-Received: from mail-eastusazlp170120007.outbound.protection.outlook.com ([2a01:111:f403:c101::7] helo=BL0PR03CU003.outbound.protection.outlook.com)
+	id 1vLnth-000000053FY-3e3O;
+	Wed, 19 Nov 2025 19:31:21 +0000
+Received: from mail-westcentralusazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c112::7] helo=CY3PR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLntY-0000000538p-3ZGC
+	id 1vLntf-000000053Cd-1efC
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Nov 2025 19:31:14 +0000
+	Wed, 19 Nov 2025 19:31:20 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=jXMz9VQHMW9RqKb6Np5G0HxX10/4zPj/KVuMP5Qg/07N4fAG7VYbuVcAVZggavJg+cdedil8RvS3jloMb7gEdzIleniw0oO6TwLIkWaNdbkTSSjUSTN7EBFXQRLLoNUzCHFdgDROzBx+LiNESjxSLSloxuZUeUFhqLPs+eFY2q8WbgYoUnxB7n1q9ROHekv5F/rQdRFaN0ElfkG//v4jgqJ474um1rn6Ajbfst5Yf3T324jr/KTvK4NXnCa1QS7Ya9+KoF1kDT9Njx9jgrJewtS0FCj0TX6PE7n0yqmtVX3UMTkbRtqQPR5rfMp2mqYuf5Awp6IAuAtlvAVv2DKMMA==
+ b=toul89NR8bufZbZiVROdAZWAkrYEGBn/Ycy3jiuLt7Bukp0FECRCIZoqxJn0YByknu6dP4Yf7xfRyUHxxj2YcQKYm4G+FCD9KdfXrNcVFvQheC+HfAwFwkALpwHBgUIivQLFifp4UoZE/RfOohlRRDYHVPJyzHrAG7Cm0Vd24tBhz9KFSlhMGNo3qtf2lZ5zRdJDXMOX1tBSNiSxyE3k5fLdrYqa0RQ+YiE0aXmaU+uwxZ0QLPsewLiTwke5h/Y4BzOTRh2CwN7CNq/LchkqdCuVLxHF4ywSiLmhY7DSsTvoFj8gBjLM/y6VkzWrdzzmnpwCY6DgimEavItR5kyC6Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=HcqWhB5mlUPsE4isDdF1Ln89Vh0nVVE5rRtY3ptpglk=;
- b=fkbgh6V1FoWbqNBTLAcE+uJ4lTSK26MbkbQMP8mG1c1HI5oABCS26WYQD2ULeWphxFmsH63afMJQZ0bZNPnWY/u3U/fJ5mN3OomEg9OPJt/+NzjsbBMoYYzdM0S+QO4IxslCzyKmHVsdJSHWfdBMDc2H3TxgsnvTUh9cwUDXZ9Pi3TBFkW/tVKksywiBYTtb2VAUDrKzWEdr2MPSNDRGcRsgo0VkmI6M49rr9J9BCLjElrJVcWZ9tNEPZMfBO59Bg0/FU+iy9Gcv+SPYqyIyg4J42tvGmK7DAStoQ9Z4u95XFl9xJvFQWd5w3h5wYRD/3csKzfotacSPtaVHOLdZjQ==
+ bh=tK4vOSHT1taizrVyi6fOyJ9omOZO/BrywkL2GZIm+Aw=;
+ b=NMJwpNEzmeI6Vj6fpfcvZ/mUi+50llFK0nDrv1+GUXufpTkbwFAjsprcjbVKiRgylxhxG4Hs+D6T0OZfjIsjCICVJcGdg5SRArvdHHyjUCRU0ZCllqkC/Ep58LqXuT4Cp39DYlGspeeSrfRNvqrMcwrllj+lhkE6SMQpN0/RIpWfYJiYEIHhQ3p6W5Br8VfeAIm86kfhK+LsQgpEwZbdO6T6myG5iAU4lxsJuyFAVxK/bUieqVfkfkfqJQx2ZU1QARv84lcKyAkLGwQ1B92C+sHJl08yYa4yO0Fou64kW3Bzh52K7spV9xRUO/h0RQLwH14FnfdYIKAwn3SCDGAnjw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  165.204.84.17) smtp.rcpttodomain=linuxfoundation.org smtp.mailfrom=amd.com;
  dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
  header.from=amd.com; dkim=none (message not signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=HcqWhB5mlUPsE4isDdF1Ln89Vh0nVVE5rRtY3ptpglk=;
- b=BQ53SPsNSSpO8T9ySfA2cFWOTuevvA4kWeahRAo+QP1FkJzZCofOyi/SiSI6eRoVIOQpZ4kQGbt60mrTun69M/DY8tC4m49BjkDbZrSCx31+/pCKY/7dxFNhnXMESS/cfRYQTNOSNggFfXyqllw18ZOs9PtK6XGWtnfPoJhm1/k=
-Received: from SA1PR02CA0012.namprd02.prod.outlook.com (2603:10b6:806:2cf::17)
- by DM4PR12MB6011.namprd12.prod.outlook.com (2603:10b6:8:6b::14) with
+ bh=tK4vOSHT1taizrVyi6fOyJ9omOZO/BrywkL2GZIm+Aw=;
+ b=ryFIayJR8Du6eyHbh26bbCZVZI9DWeOyBcCGTUdzf7QROufE7bCAd/DOX48bwKg8yvi01QLJ84kWf+Kzy71/bfWVh0fBXWBmFVUt1G0XUr0hmaVw4j/KH1KubpbX0Y+x9c7Maa+WnEj7KhPaOHHXQxC6G1o0VgzFP4D9HhDaOmo=
+Received: from SJ0PR03CA0159.namprd03.prod.outlook.com (2603:10b6:a03:338::14)
+ by SJ5PPF75EAF8F39.namprd12.prod.outlook.com (2603:10b6:a0f:fc02::999) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9343.10; Wed, 19 Nov
- 2025 19:30:50 +0000
-Received: from SN1PEPF0002BA52.namprd03.prod.outlook.com
- (2603:10b6:806:2cf:cafe::52) by SA1PR02CA0012.outlook.office365.com
- (2603:10b6:806:2cf::17) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9320.21; Wed, 19 Nov
+ 2025 19:31:12 +0000
+Received: from SJ1PEPF000023CB.namprd02.prod.outlook.com
+ (2603:10b6:a03:338::4) by SJ0PR03CA0159.outlook.office365.com
+ (2603:10b6:a03:338::14) with Microsoft SMTP Server (version=TLS1_3,
  cipher=TLS_AES_256_GCM_SHA384) id 15.20.9343.10 via Frontend Transport; Wed,
- 19 Nov 2025 19:30:49 +0000
+ 19 Nov 2025 19:31:12 +0000
 X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
  smtp.mailfrom=amd.com; dkim=none (message not signed)
  header.d=none;dmarc=pass action=none header.from=amd.com;
@@ -59,16 +59,16 @@ Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
  165.204.84.17 as permitted sender) receiver=protection.outlook.com;
  client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
 Received: from satlexmb07.amd.com (165.204.84.17) by
- SN1PEPF0002BA52.mail.protection.outlook.com (10.167.242.75) with Microsoft
+ SJ1PEPF000023CB.mail.protection.outlook.com (10.167.244.5) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9343.9 via Frontend Transport; Wed, 19 Nov 2025 19:30:50 +0000
+ 15.20.9343.9 via Frontend Transport; Wed, 19 Nov 2025 19:31:11 +0000
 Received: from satlexmb07.amd.com (10.181.42.216) by satlexmb07.amd.com
  (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Wed, 19 Nov
- 2025 11:30:48 -0800
+ 2025 11:30:55 -0800
 Received: from xhdradheys41.xilinx.com (10.180.168.240) by satlexmb07.amd.com
  (10.181.42.216) with Microsoft SMTP Server id 15.2.2562.17 via Frontend
- Transport; Wed, 19 Nov 2025 11:30:45 -0800
+ Transport; Wed, 19 Nov 2025 11:30:52 -0800
 From: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
 To: <gregkh@linuxfoundation.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
 	<conor+dt@kernel.org>, <michal.simek@amd.com>, <Thinh.Nguyen@synopsys.com>,
@@ -76,9 +76,9 @@ To: <gregkh@linuxfoundation.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
 CC: <linux-usb@vger.kernel.org>, <devicetree@vger.kernel.org>,
 	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
 	<git@amd.com>, Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
-Subject: [PATCH 1/3] dt-bindings: usb: dwc3-xilinx: Add MMI USB support on Versal Gen2 platform
-Date: Thu, 20 Nov 2025 01:00:34 +0530
-Message-ID: <20251119193036.2666877-2-radhey.shyam.pandey@amd.com>
+Subject: [PATCH 3/3] usb: dwc3: xilinx: Add support to program MMI USB TX deemphasis
+Date: Thu, 20 Nov 2025 01:00:36 +0530
+Message-ID: <20251119193036.2666877-4-radhey.shyam.pandey@amd.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20251119193036.2666877-1-radhey.shyam.pandey@amd.com>
 References: <20251119193036.2666877-1-radhey.shyam.pandey@amd.com>
@@ -87,52 +87,52 @@ Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SN1PEPF0002BA52:EE_|DM4PR12MB6011:EE_
-X-MS-Office365-Filtering-Correlation-Id: 23bb7430-f788-4b24-8608-08de27a2258a
+X-MS-TrafficTypeDiagnostic: SJ1PEPF000023CB:EE_|SJ5PPF75EAF8F39:EE_
+X-MS-Office365-Filtering-Correlation-Id: 959ca540-4572-425e-3022-08de27a2329f
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|376014|7416014|1800799024|82310400026;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?VNLKLa79fgHDsW6lJtDdaDyaUm3JtPsC62ZMoYFx4uNRPbtyJ00Wz5DNWXsW?=
- =?us-ascii?Q?Qu+Yvk7SfjceNaIgGuKn+Fh9RnWcEbgoe2NsJLaPQv/9KyN82hODedXjEfkt?=
- =?us-ascii?Q?odif5KYbSN0VkumjsuLpbj7RGiOfgt/O0ZGlSyxOKNQp1fiI9Qdv3bCHrSpw?=
- =?us-ascii?Q?21NeoxlkmWdaV9Eq+/v5bgEmOF8U64zM1qaZ1XQ6xuXuDXueKaw2toqzJ5ZA?=
- =?us-ascii?Q?WBXdOqmDoJplwDZO9aWZ79cWCyblvlSzLeAtDk4jADY21/U1C7jwGfqbt1up?=
- =?us-ascii?Q?v3mbe3MllUmZRVUHkSdtUDztQkd9cUNtgJ0W/dKcJDMF6AjGgfaMrjvZzx1P?=
- =?us-ascii?Q?+w7rXbRuBvTyrESap5lQOlDbK51CRvTNgh2SN3DYD0A8N5J33xah5Kj4OD+2?=
- =?us-ascii?Q?PCwfPkMRuKmfZoU1Ysl+dn23Nvzmy4t9fNGq8jO8R3OMqeV1C3M+R+wfLM/N?=
- =?us-ascii?Q?q/it1hr/jhua/ZFBIGqvirT7M7pyUcUy2YFqqcTtM60U+0+HOLx6GlEQBfcI?=
- =?us-ascii?Q?Uy7euKM4YK+Lu1MtUOoitf8mtM98gpVDmRetLcYv1xZBSLFqXYcEyiKzzOjv?=
- =?us-ascii?Q?fL3npQGFMUD3Txhdd0nMrAFOyJ9FYMucStTZWOzUcoxPfhTJqFpVykOJ+Nc1?=
- =?us-ascii?Q?m5uQd4hpd1HHOyUKJJZPbgP0bQtZuyaPwFHHTBOJm8hYqcM9kEFnpoYk8EPD?=
- =?us-ascii?Q?PY4/XiFn17IWdvM6n7NWd1Dik0XFbk/HmX2Hn3oZtvQCPuYxujpVXEx/+25y?=
- =?us-ascii?Q?3+Ju/K4pSUaBMnTq06uVa0X0L/g45KEgvyKxVvqIA0IwYexCkJJVKgOqbFz7?=
- =?us-ascii?Q?cr2Kv8E2KgJGGNuDTgrh1pKKP5+ukKSuUqEGeZ5S4hiKNfngvJziquq9niTl?=
- =?us-ascii?Q?yXoT76OozU+6NxCMI0lOJ6MFtGtUhBGEOESr0maPoIWwjMwT1S8MBD70cgHY?=
- =?us-ascii?Q?HpIDFjXawomWB29M6zXpzcHw2SqrfsBG6kPLMssFBUomafhqEZRc0Igz4t0T?=
- =?us-ascii?Q?w5ygVKH8uKjV6uPW1GaO3qS/3nxwEX2OdMzdh20j03aZFtkf+X2nVdrK7l1N?=
- =?us-ascii?Q?dpJlr71lKcLkGSkfWCqHcBmscHGAaN2aslI0Pmrke0HLWO/06zk09GgihEzZ?=
- =?us-ascii?Q?MLEXCH3jGIrmKG6KQJAZvAXB19ONuoPNTJ3sW4ngek2qlcU5U2AzsI4hkW34?=
- =?us-ascii?Q?WZm7pOBCTK9KNkfDDPwNxCDzu3p6mcrzJmrfEl9xye7hFC+pa85bY2Ah7jW7?=
- =?us-ascii?Q?eirivMtgO9DUrN8+jlnC1Xrxyj/JR3FfrHHFrC/gpY7TipFdbH+DBhM27CbB?=
- =?us-ascii?Q?W12ydFKVVVvX8zjlw3lrAJsDiuezpP/u81oZpYe3lzm4x3zymNx1q9ErBT1Y?=
- =?us-ascii?Q?vKMyJSM9sQj07SuP4fP/OL+ch+oJk+QWKif5nPhoeKygNezgvtI13UD03uLy?=
- =?us-ascii?Q?LPlYC68XKQegOFDBxonnVZQrKPw19qh5lni+uM4g4ukY57MJIhm02fMTyDN9?=
- =?us-ascii?Q?RDSW1cBWSeszTmcDUsdv/f8DNPO7eJxhdwGlZw9l7tQmjgoNIW8TQklBBA+x?=
- =?us-ascii?Q?wp4alx7liJnPIfwU4oo=3D?=
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700013)(376014)(7416014)(1800799024)(82310400026);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|7416014|376014|36860700013|1800799024;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?iI5eXOdXU4iiZow3gnNjD+r8zGtZh7NtzYKsXZmdWT7xMITOn4DQ8u5lJwfk?=
+ =?us-ascii?Q?Nv3hS+Mhvzi0auj7Ey0gH0+EzdoMlvIJ1YNTcYgXeDw687Ua1QrhznT8C37U?=
+ =?us-ascii?Q?fCpodPBtiDqpEbWiQznnPijJlZH02qhFOApt7Npwd6yptCGpS94WMWLhAin1?=
+ =?us-ascii?Q?OXyM25Zs9jwryyZJRN++wfJqTQc9ZOm3M9IY6S2J8L4uFc0HBAu2UrnFqzv8?=
+ =?us-ascii?Q?kiP4MKuIPEHVgOU9nvR459BPzfhkBwArnUU4QNnk0wbAi0EScJfxbmzVruJJ?=
+ =?us-ascii?Q?522WOYBbZ+WWrkqirI+WNKAPd4FWJ2cEo7xOtGEFk0aI7BM9AgmIk5PpbU4P?=
+ =?us-ascii?Q?8eQZWsfFeAUdo7Or4PFaSuaWzTCfDM4o/orvCYJzRhe24d6gNwYoJv4+SC2U?=
+ =?us-ascii?Q?cVbV85yBbCibwYZfTpMeavje/ffP2Pkkx09WqcA2rM2FOI5FfgOIEVSGOlML?=
+ =?us-ascii?Q?hRnjHZ4BALG6AxS3Sxv6mO6QQEzm4Jww032FU8i5IdnOeYja6khv1Cvz6K+P?=
+ =?us-ascii?Q?afgBAlaynGHQ4owhQvn2U370/GGaNDkzINEdXGSAocuWeW0QuJrZf7wtLRjF?=
+ =?us-ascii?Q?GF7JGyt59aZACnFgMfWiUPn7iTCcTwWqa9n3wj5DDfSliqIhnfCpmb283qY+?=
+ =?us-ascii?Q?J9G1gmv9XP6v4D0kZCNqC30FCGiP9Xs/pRw9iIslVD8KRAIz95g+u8Ii0C5q?=
+ =?us-ascii?Q?MS9GY1eJPtIR65CWe/KnNhGE6CAqD99U/66FUvTzZlefl0bVAuxe5r+gS9b1?=
+ =?us-ascii?Q?Z6fenWmQwazTnetdmaOp4f1BYuniC9G1wHAP6azp8ExySWqowOaLxnkDQAPz?=
+ =?us-ascii?Q?ysgQgVWEULrU8qc994CrUbVG2rST0olrJFA+2Fy45oYf27gyI9CppUvc23Im?=
+ =?us-ascii?Q?i33m+ofjke2egsuMksZvYUqYxdalhmJNx1LNJcAvR8MdIr5jQIFnE/IbGbDl?=
+ =?us-ascii?Q?zyspWXmv0U+ngxdse1pBEE6GonPUfudsLMlBVBbHIDBKg9ylIRr+IaunWuNR?=
+ =?us-ascii?Q?x4hg1tvm/YTZWWwv7/MNcNo//PtTlC2VSLT/th2PLJv81y1rzPuOM6lduH9U?=
+ =?us-ascii?Q?c26TsN/TY+DcKBHFthUXg1R/9GgjMqHfQOQQa2XKXrUXAD6xvmmdI1UntOMD?=
+ =?us-ascii?Q?3Qdr9h2XPh+hE4xBIEMK/1d8IM57HdlR9BjtSqbWOEk+DVPPsaLNIifrDO6c?=
+ =?us-ascii?Q?QCnhosNT7PCKCdQnVFaaMm04deDTnQIud52I5bHnFb53B3D3rOI/s5RAyBlq?=
+ =?us-ascii?Q?P/DLPWjJ9XkwTRAvFwB1ExxRyckqeOLYtJsK3yA1qTnR5AJEIrQBNiEhzmbL?=
+ =?us-ascii?Q?73NF2XTS1oXobXJ6MtBd25c75ggUeOSP8CVemgrvfEIgaZPSbhfrsJvE8arU?=
+ =?us-ascii?Q?XbdXYmVzTGhHXq5JvWvsYeCYXy7enfAHb+2yxv6thG7vIcSYwF8m5ti6TAjW?=
+ =?us-ascii?Q?OakF3707j9wH35pdLSD/M5goUdQAyph91ctLcm0Tks2j+djE9ThuB2jWEmQg?=
+ =?us-ascii?Q?rqAr3RMfGNgD0z7c6Xlu92ZCunBMSEyJHLytuRDBIJkohRptP4hgTqGwB2pM?=
+ =?us-ascii?Q?KzzCaFCpTUcgaSeUQ+o=3D?=
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(7416014)(376014)(36860700013)(1800799024);DIR:OUT;SFP:1101;
 X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Nov 2025 19:30:50.0606
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Nov 2025 19:31:11.9334
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 23bb7430-f788-4b24-8608-08de27a2258a
+X-MS-Exchange-CrossTenant-Network-Message-Id: 959ca540-4572-425e-3022-08de27a2329f
 X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: SN1PEPF0002BA52.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF000023CB.namprd02.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR12MB6011
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ5PPF75EAF8F39
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251119_113113_469155_5E989E7C 
-X-CRM114-Status: GOOD (  11.87  )
+X-CRM114-CacheID: sfid-20251119_113119_435559_5152F109 
+X-CRM114-Status: GOOD (  17.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,74 +147,141 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Versal Gen2 platform multimedia integrated (MMI) module has a USB3.2 Gen
-2x1 Dual Role Device IP. Introduce a new compatibility string to support
-it and make reg optional as the register space for USB wrapper IP is moved
-to MMI System-Level Control registers.
+Introduces support for programming the 18-bit TX Deemphasis value that
+drives the pipe_TxDeemph signal, as defined in the PIPE4 specification.
+
+The configured value is recommended by Synopsys and is intended for
+standard (non-compliance) operation. These Gen2 equalization settings
+have been validated through both internal and external compliance
+testing. By applying this setting, the stability of USB 3.2 enumeration
+is improved and now SuperSpeedPlus devices are consistently recognized as
+USB 3.2 Gen 2 by the MMI USB Host controller.
 
 Signed-off-by: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
 ---
- .../devicetree/bindings/usb/dwc3-xilinx.yaml  | 19 ++++++++++++++++---
- 1 file changed, 16 insertions(+), 3 deletions(-)
+ drivers/usb/dwc3/core.c        | 17 +++++++++++++++++
+ drivers/usb/dwc3/core.h        |  7 +++++++
+ drivers/usb/dwc3/dwc3-xilinx.c |  7 ++++++-
+ 3 files changed, 30 insertions(+), 1 deletion(-)
 
-diff --git a/Documentation/devicetree/bindings/usb/dwc3-xilinx.yaml b/Documentation/devicetree/bindings/usb/dwc3-xilinx.yaml
-index d6823ef5f9a7..502294649a6b 100644
---- a/Documentation/devicetree/bindings/usb/dwc3-xilinx.yaml
-+++ b/Documentation/devicetree/bindings/usb/dwc3-xilinx.yaml
-@@ -15,6 +15,7 @@ properties:
-       - enum:
-           - xlnx,zynqmp-dwc3
-           - xlnx,versal-dwc3
-+          - xlnx,versal2-mmi-dwc3
-   reg:
-     maxItems: 1
- 
-@@ -37,8 +38,9 @@ properties:
-       A list of phandle and clock-specifier pairs for the clocks
-       listed in clock-names.
-     items:
--      - description: Master/Core clock, has to be >= 125 MHz
--          for SS operation and >= 60MHz for HS operation.
-+      - description: Master/Core clock, has to be >= 156.25MHz in SSP
-+          mode, >= 125 MHz for SS operation and >= 60MHz for HS
-+          operation.
-       - description: Clock source to core during PHY power down.
- 
-   clock-names:
-@@ -87,7 +89,6 @@ patternProperties:
- 
- required:
-   - compatible
--  - reg
-   - "#address-cells"
-   - "#size-cells"
-   - ranges
-@@ -104,6 +105,7 @@ allOf:
-           contains:
-             enum:
-               - xlnx,versal-dwc3
-+              - xlnx,versal2-mmi-dwc3
-     then:
-       properties:
-         resets:
-@@ -117,6 +119,17 @@ allOf:
-         reset-names:
-           minItems: 3
- 
-+if:
-+  properties:
-+    compatible:
-+      contains:
-+        enum:
-+          - xlnx,zynqmp-dwc3
-+          - xlnx,versal-dwc3
-+then:
-+  required:
-+    - reg
+diff --git a/drivers/usb/dwc3/core.c b/drivers/usb/dwc3/core.c
+index 7b84512b13a2..cb737aee316e 100644
+--- a/drivers/usb/dwc3/core.c
++++ b/drivers/usb/dwc3/core.c
+@@ -647,6 +647,15 @@ static void dwc3_config_soc_bus(struct dwc3 *dwc)
+ 		reg |= DWC3_GSBUSCFG0_REQINFO(dwc->gsbuscfg0_reqinfo);
+ 		dwc3_writel(dwc->regs, DWC3_GSBUSCFG0, reg);
+ 	}
 +
- additionalProperties: false
++	if (dwc->csr_tx_deemph_field_1 != DWC3_LCSR_TX_DEEMPH_UNSPECIFIED) {
++		u32 reg;
++
++		reg = dwc3_readl(dwc->regs, DWC3_LCSR_TX_DEEMPH);
++		reg &= ~DWC3_LCSR_TX_DEEMPH_MASK(~0);
++		reg |= DWC3_LCSR_TX_DEEMPH_MASK(dwc->csr_tx_deemph_field_1);
++		dwc3_writel(dwc->regs, DWC3_LCSR_TX_DEEMPH, reg);
++	}
+ }
  
- examples:
+ static int dwc3_core_ulpi_init(struct dwc3 *dwc)
+@@ -1674,11 +1683,13 @@ static void dwc3_core_exit_mode(struct dwc3 *dwc)
+ static void dwc3_get_software_properties(struct dwc3 *dwc,
+ 					 const struct dwc3_properties *properties)
+ {
++	u32 csr_tx_deemph_field_1;
+ 	struct device *tmpdev;
+ 	u16 gsbuscfg0_reqinfo;
+ 	int ret;
+ 
+ 	dwc->gsbuscfg0_reqinfo = DWC3_GSBUSCFG0_REQINFO_UNSPECIFIED;
++	dwc->csr_tx_deemph_field_1 = DWC3_LCSR_TX_DEEMPH_UNSPECIFIED;
+ 
+ 	if (properties->gsbuscfg0_reqinfo !=
+ 	    DWC3_GSBUSCFG0_REQINFO_UNSPECIFIED) {
+@@ -1696,6 +1707,12 @@ static void dwc3_get_software_properties(struct dwc3 *dwc,
+ 					       &gsbuscfg0_reqinfo);
+ 		if (!ret)
+ 			dwc->gsbuscfg0_reqinfo = gsbuscfg0_reqinfo;
++
++		ret = device_property_read_u32(tmpdev,
++					       "snps,lcsr_tx_deemph",
++					       &csr_tx_deemph_field_1);
++		if (!ret)
++			dwc->csr_tx_deemph_field_1 = csr_tx_deemph_field_1;
+ 	}
+ }
+ 
+diff --git a/drivers/usb/dwc3/core.h b/drivers/usb/dwc3/core.h
+index a5fc92c4ffa3..32205f435b5b 100644
+--- a/drivers/usb/dwc3/core.h
++++ b/drivers/usb/dwc3/core.h
+@@ -181,6 +181,7 @@
+ 
+ #define DWC3_LLUCTL(n)		(0xd024 + ((n) * 0x80))
+ 
++#define DWC3_LCSR_TX_DEEMPH	0xd060
+ /* Bit fields */
+ 
+ /* Global SoC Bus Configuration INCRx Register 0 */
+@@ -198,6 +199,10 @@
+ #define DWC3_GSBUSCFG0_REQINFO(n)	(((n) & 0xffff) << 16)
+ #define DWC3_GSBUSCFG0_REQINFO_UNSPECIFIED	0xffffffff
+ 
++/* LCSR_TX_DEEMPH Register:  setting TX deemphasis used in normal operation in gen2 */
++#define DWC3_LCSR_TX_DEEMPH_MASK(n)		((n) & 0x3ffff)
++#define DWC3_LCSR_TX_DEEMPH_UNSPECIFIED		0xffffffff
++
+ /* Global Debug LSP MUX Select */
+ #define DWC3_GDBGLSPMUX_ENDBC		BIT(15)	/* Host only */
+ #define DWC3_GDBGLSPMUX_HOSTSELECT(n)	((n) & 0x3fff)
+@@ -1180,6 +1185,7 @@ struct dwc3_glue_ops {
+  * @wakeup_pending_funcs: Indicates whether any interface has requested for
+  *			 function wakeup in bitmap format where bit position
+  *			 represents interface_id.
++ * @csr_tx_deemph_field_1: stores TX deemphasis used in Gen2 operation.
+  */
+ struct dwc3 {
+ 	struct work_struct	drd_work;
+@@ -1414,6 +1420,7 @@ struct dwc3 {
+ 	struct dentry		*debug_root;
+ 	u32			gsbuscfg0_reqinfo;
+ 	u32			wakeup_pending_funcs;
++	u32			csr_tx_deemph_field_1;
+ };
+ 
+ #define INCRX_BURST_MODE 0
+diff --git a/drivers/usb/dwc3/dwc3-xilinx.c b/drivers/usb/dwc3/dwc3-xilinx.c
+index 32f87a238d0e..85bc4ab461fd 100644
+--- a/drivers/usb/dwc3/dwc3-xilinx.c
++++ b/drivers/usb/dwc3/dwc3-xilinx.c
+@@ -40,6 +40,7 @@
+ #define PIPE_CLK_SELECT				0
+ #define XLNX_USB_FPD_POWER_PRSNT		0x80
+ #define FPD_POWER_PRSNT_OPTION			BIT(0)
++#define XLNX_MMI_USB_TX_DEEMPH_DEF		0x8c45
+ 
+ struct dwc3_xlnx {
+ 	int				num_clocks;
+@@ -306,7 +307,7 @@ MODULE_DEVICE_TABLE(of, dwc3_xlnx_of_match);
+ static int dwc3_set_swnode(struct device *dev)
+ {
+ 	struct device_node *np = dev->of_node, *dwc3_np;
+-	struct property_entry props[2];
++	struct property_entry props[3];
+ 	int prop_idx = 0, ret = 0;
+ 
+ 	dwc3_np = of_get_compatible_child(np, "snps,dwc3");
+@@ -320,6 +321,10 @@ static int dwc3_set_swnode(struct device *dev)
+ 	if (of_dma_is_coherent(dwc3_np))
+ 		props[prop_idx++] = PROPERTY_ENTRY_U16("snps,gsbuscfg0-reqinfo",
+ 						       0xffff);
++	if (of_device_is_compatible(np, "xlnx,versal2-mmi-dwc3"))
++		props[prop_idx++] = PROPERTY_ENTRY_U32("snps,lcsr_tx_deemph",
++						       XLNX_MMI_USB_TX_DEEMPH_DEF);
++
+ 	of_node_put(dwc3_np);
+ 
+ 	if (prop_idx)
 -- 
 2.34.1
 
