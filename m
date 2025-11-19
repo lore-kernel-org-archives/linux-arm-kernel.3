@@ -4,75 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D806DCF256C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 04:33:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98167CF256C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 04:33:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7/Pwwdu2oM4HR7P2Za/eVgYq3iEyObfL03PwxBvhfL4=; b=d3h7IboO1z+qSxXSjbS6gNVYik
-	a8u+1XhAhxcUiHHo1C2+6hEX+JC+3qrKQ6slb8vx5h0N4pSNAETOtQNKcCDtqYGt6jFyx4SJwHCQL
-	kprXpk/GsW1cFB+jIuVkP723AF3sXQA7ZLlkOyU+vuEUhmDDbkwEgZfRQgSldj3XAmO1w41RaId83
-	eAOcTQUGekJ25noa8TujxyLIgokHLXUDJMFbL9A2BgtB8FDPgGGeb2bbI0tj1d14dExzjQEFA9owy
-	hHeoUHn3/n2y5hM/ih38n6noiQG1FbFB62+fNR4k80ZoH+79AcDt00GTMxZsNzjSKISmdGF25AovS
-	abqsygKA==;
+	bh=mtG1xIeqI3wrSQ1scbpaL0o6gAVG3ELNr84PAjxpSEU=; b=eoy4BTg8Vlaca+Bw8Bs75cE4nP
+	+Qn3NrhNu+W1l6uGjQ/sLbZMhA2r8PWU0s9El0vFheFnnqpYO9H0qnFtpdBadGX/vYF61fH9pZx7Z
+	YhPc3U/jy2hBsMvR5x97y9K3ZKTRANNsj9JuYimXhRwR2vz4R6uvMbef8jiGnibLJ6wCNn/eUF09/
+	w9vxejk22l7AGEBuy31cZ7MuS34Rb5E31Gy+YPKLXss/gZ0LytGiDQRzEm4k+xy0F7KmHFx1F74wy
+	jUry3PxuPhBwnxodR1haEJfo3O2/cR8zeQfpJmvBu5dkkCxIzTF1RamHqJtIF/5iKlCGe8CpT6Dlw
+	hhNO+ZSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLZsm-00000001neI-2FQh;
-	Wed, 19 Nov 2025 04:33:28 +0000
+	id 1vLZt7-00000001nw8-04pf;
+	Wed, 19 Nov 2025 04:33:49 +0000
 Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLZsk-00000001ncC-0aTd;
-	Wed, 19 Nov 2025 04:33:27 +0000
+	id 1vLZt4-00000001nsV-0XSo
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 19 Nov 2025 04:33:47 +0000
 Received: from pendragon.ideasonboard.com (unknown [205.220.129.225])
-	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 25D80B5;
-	Wed, 19 Nov 2025 05:31:14 +0100 (CET)
+	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 8C398B5;
+	Wed, 19 Nov 2025 05:31:35 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1763526679;
-	bh=pOisxB3tPa0K5/tNqcYR/OeTkmkwk8Z8S0wlo+6AupQ=;
+	s=mail; t=1763526700;
+	bh=4fPDjJVL7dFOo7C+XLuMfEt3zJtEYIYH9XWQsl5NyhA=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=kxF0S5kZUsvvw0wJKW8N6wnNELjuWBHspI4m8nki/bfePMBcyASbRxjpLA36Q8y7B
-	 WPZPyAqzNkNASh/wBGP3/9d5XnWO/tqy1iwqU2wdW+BbyCT4CXGzwWmtoiuLCnH6cK
-	 4BS5eEyiMbS+ndMBlf+npVIth7IEJeyw1pUmM67s=
-Date: Wed, 19 Nov 2025 13:32:46 +0900
+	b=oslRwvT21wy6hF/i4PJZupRViRTl6v/3BpnMs2LzlQmv6i0lvDlKJh7FL5Uv+JPcU
+	 JDH5sO1OMryPAYFJ6OJSGUu0W6UflXVrNQMcSspF084Pcys5IF21Vb5rIBpxvXOVL9
+	 dPnqOIThaA4QAaC0MfKkS+DR7oW20cUA9PyoCR9I=
+Date: Wed, 19 Nov 2025 13:33:07 +0900
 From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Cc: Harry Wentland <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>,
-	Rodrigo Siqueira <siqueira@igalia.com>,
-	Alex Deucher <alexander.deucher@amd.com>,
-	Christian =?utf-8?B?S8O2bmln?= <christian.koenig@amd.com>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	Andrzej Hajda <andrzej.hajda@intel.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Robert Foss <rfoss@kernel.org>, Jonas Karlman <jonas@kwiboo.se>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Sandy Huang <hjc@rock-chips.com>,
-	Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>,
-	Andy Yan <andy.yan@rock-chips.com>,
-	Jani Nikula <jani.nikula@linux.intel.com>,
-	Rodrigo Vivi <rodrigo.vivi@intel.com>,
-	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
-	Tvrtko Ursulin <tursulin@ursulin.net>, kernel@collabora.com,
-	amd-gfx@lists.freedesktop.org, dri-devel@lists.freedesktop.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, intel-gfx@lists.freedesktop.org,
-	intel-xe@lists.freedesktop.org
-Subject: Re: [PATCH v4 04/10] drm/bridge: Act on the DRM color format property
-Message-ID: <20251119043246.GY10711@pendragon.ideasonboard.com>
-References: <20251117-color-format-v4-0-0ded72bd1b00@collabora.com>
- <20251117-color-format-v4-4-0ded72bd1b00@collabora.com>
+To: Frank Li <Frank.Li@nxp.com>
+Cc: Philipp Zabel <p.zabel@pengutronix.de>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Rui Miguel Silva <rmfrfs@gmail.com>,
+	Martin Kepplinger-Novakovic <martink@posteo.de>,
+	Purism Kernel Team <kernel@puri.sm>, linux-media@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/4] media: nxp: use dev_err_probe() to simplify code
+Message-ID: <20251119043307.GH17526@pendragon.ideasonboard.com>
+References: <20251117-cam_cleanup-v1-0-6cd42872db79@nxp.com>
+ <20251117-cam_cleanup-v1-2-6cd42872db79@nxp.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20251117-color-format-v4-4-0ded72bd1b00@collabora.com>
+In-Reply-To: <20251117-cam_cleanup-v1-2-6cd42872db79@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251118_203326_317668_7F95E80E 
-X-CRM114-Status: GOOD (  26.30  )
+X-CRM114-CacheID: sfid-20251118_203346_573028_0F95FD31 
+X-CRM114-Status: GOOD (  22.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,138 +76,155 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 17, 2025 at 08:11:48PM +0100, Nicolas Frattaroli wrote:
-> The new DRM color format property allows userspace to request a specific
-> color format on a connector. In turn, this fills the connector state's
-> color_format member to switch color formats.
+Hi Frank,
+
+Thank you for the patch.
+
+On Mon, Nov 17, 2025 at 01:58:12PM -0500, Frank Li wrote:
+> Use dev_err_probe() to simplify code. No functional change.
 > 
-> Make drm_bridges consider the color_format set in the connector state
-> during the atomic bridge check. Specifically, reject any output bus
-> formats that do not correspond to the requested color format.
-> 
-> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
 > ---
->  drivers/gpu/drm/drm_bridge.c | 57 ++++++++++++++++++++++++++++++++++++++++++++
->  1 file changed, 57 insertions(+)
+>  drivers/media/platform/nxp/imx-mipi-csis.c    |  6 ++----
+>  drivers/media/platform/nxp/imx7-media-csi.c   | 13 ++++---------
+>  drivers/media/platform/nxp/imx8mq-mipi-csi2.c | 28 ++++++++++++---------------
+>  3 files changed, 18 insertions(+), 29 deletions(-)
 > 
-> diff --git a/drivers/gpu/drm/drm_bridge.c b/drivers/gpu/drm/drm_bridge.c
-> index 8f355df883d8..b7df5cbad832 100644
-> --- a/drivers/gpu/drm/drm_bridge.c
-> +++ b/drivers/gpu/drm/drm_bridge.c
-> @@ -1052,6 +1052,59 @@ static int select_bus_fmt_recursive(struct drm_bridge *first_bridge,
->  	return ret;
->  }
+> diff --git a/drivers/media/platform/nxp/imx-mipi-csis.c b/drivers/media/platform/nxp/imx-mipi-csis.c
+> index 088b2945aee33731c565f049dd17721356300b84..ce93d868746f002c22e2f86b1e0aa84ec1a76061 100644
+> --- a/drivers/media/platform/nxp/imx-mipi-csis.c
+> +++ b/drivers/media/platform/nxp/imx-mipi-csis.c
+> @@ -1547,10 +1547,8 @@ static int mipi_csis_probe(struct platform_device *pdev)
+>  	/* Now that the hardware is initialized, request the interrupt. */
+>  	ret = devm_request_irq(dev, irq, mipi_csis_irq_handler, 0,
+>  			       dev_name(dev), csis);
+> -	if (ret) {
+> -		dev_err(dev, "Interrupt request failed\n");
+> -		return ret;
+> -	}
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "Interrupt request failed\n");
 >  
-> +static bool __pure bus_format_is_color_fmt(u32 bus_fmt, enum drm_color_format fmt)
-> +{
-> +	if (bus_fmt == MEDIA_BUS_FMT_FIXED)
-> +		return true;
-> +
-> +	switch (fmt) {
-> +	case DRM_COLOR_FORMAT_NONE:
-> +	case DRM_COLOR_FORMAT_AUTO:
-> +		return true;
-> +	case DRM_COLOR_FORMAT_RGB444:
-> +		switch (bus_fmt) {
-> +		case MEDIA_BUS_FMT_RGB888_1X24:
-> +		case MEDIA_BUS_FMT_RGB101010_1X30:
-> +		case MEDIA_BUS_FMT_RGB121212_1X36:
-> +		case MEDIA_BUS_FMT_RGB161616_1X48:
-> +			return true;
-> +		default:
-> +			return false;
-> +		}
-> +	case DRM_COLOR_FORMAT_YCBCR444:
-> +		switch (bus_fmt) {
-> +		case MEDIA_BUS_FMT_YUV8_1X24:
-> +		case MEDIA_BUS_FMT_YUV10_1X30:
-> +		case MEDIA_BUS_FMT_YUV12_1X36:
-> +		case MEDIA_BUS_FMT_YUV16_1X48:
-> +			return true;
-> +		default:
-> +			return false;
-> +		}
-> +	case DRM_COLOR_FORMAT_YCBCR422:
-> +		switch (bus_fmt) {
-> +		case MEDIA_BUS_FMT_UYVY8_1X16:
-> +		case MEDIA_BUS_FMT_UYVY10_1X20:
-> +		case MEDIA_BUS_FMT_UYVY12_1X24:
-> +			return true;
-> +		default:
-> +			return false;
-> +		}
-> +	case DRM_COLOR_FORMAT_YCBCR420:
-> +		switch (bus_fmt) {
-> +		case MEDIA_BUS_FMT_UYYVYY8_0_5X24:
-> +		case MEDIA_BUS_FMT_UYYVYY10_0_5X30:
-> +		case MEDIA_BUS_FMT_UYYVYY12_0_5X36:
-> +		case MEDIA_BUS_FMT_UYYVYY16_0_5X48:
-> +			return true;
-> +		default:
-> +			return false;
-> +		}
-> +	}
-
-I'd find this more readable:
-
-	if (fmt == DRM_COLOR_FORMAT_NONE || fmt == DRM_COLOR_FORMAT_AUTO)
-		return true;
-
-	switch (bus_fmt) {
-	case MEDIA_BUS_FMT_RGB888_1X24:
-	case MEDIA_BUS_FMT_RGB101010_1X30:
-	case MEDIA_BUS_FMT_RGB121212_1X36:
-	case MEDIA_BUS_FMT_RGB161616_1X48:
-		return fmt == DRM_COLOR_FORMAT_RGB444:
-
-	case MEDIA_BUS_FMT_YUV8_1X24:
-	case MEDIA_BUS_FMT_YUV10_1X30:
-	case MEDIA_BUS_FMT_YUV12_1X36:
-	case MEDIA_BUS_FMT_YUV16_1X48:
-		return fmt == DRM_COLOR_FORMAT_YCBCR444;
-
-	case MEDIA_BUS_FMT_UYVY8_1X16:
-	case MEDIA_BUS_FMT_UYVY10_1X20:
-	case MEDIA_BUS_FMT_UYVY12_1X24:
-		return fmt == DRM_COLOR_FORMAT_YCBCR422;
-
-	case MEDIA_BUS_FMT_UYYVYY8_0_5X24:
-	case MEDIA_BUS_FMT_UYYVYY10_0_5X30:
-	case MEDIA_BUS_FMT_UYYVYY12_0_5X36:
-	case MEDIA_BUS_FMT_UYYVYY16_0_5X48:
-		return fmt == DRM_COLOR_FORMAT_YCBCR420;
-
-	default:
-		return false;
-	}
-
-but it could be a matter for personal preference ?
-
-I'm also a bit concerned about the 
-
-	if (fmt == DRM_COLOR_FORMAT_NONE || fmt == DRM_COLOR_FORMAT_AUTO)
-
-test. What's the difference between NONE and AUTO ? Is it meaningful, or
-should the two enumerators be merged into a single one ?
-
-> +
-> +	return false;
-> +}
-> +
->  /*
->   * This function is called by &drm_atomic_bridge_chain_check() just before
->   * calling &drm_bridge_funcs.atomic_check() on all elements of the chain.
-> @@ -1137,6 +1190,10 @@ drm_atomic_bridge_chain_select_bus_fmts(struct drm_bridge *bridge,
->  	}
+>  	/* Initialize and register the subdev. */
+>  	ret = mipi_csis_subdev_init(csis);
+> diff --git a/drivers/media/platform/nxp/imx7-media-csi.c b/drivers/media/platform/nxp/imx7-media-csi.c
+> index 933a5f39f9f4c9b43ca8d2a1819d0145981266e6..82109e6884a4d931a84ef02e2bde41d0d7248511 100644
+> --- a/drivers/media/platform/nxp/imx7-media-csi.c
+> +++ b/drivers/media/platform/nxp/imx7-media-csi.c
+> @@ -2218,11 +2218,8 @@ static int imx7_csi_probe(struct platform_device *pdev)
 >  
->  	for (i = 0; i < num_out_bus_fmts; i++) {
-> +		if (!bus_format_is_color_fmt(out_bus_fmts[i], conn_state->color_format)) {
-> +			ret = -ENOTSUPP;
-> +			continue;
-> +		}
->  		ret = select_bus_fmt_recursive(bridge, last_bridge, crtc_state,
->  					       conn_state, out_bus_fmts[i]);
->  		if (ret != -ENOTSUPP)
+>  	/* Acquire resources and install interrupt handler. */
+>  	csi->mclk = devm_clk_get(&pdev->dev, "mclk");
+> -	if (IS_ERR(csi->mclk)) {
+> -		ret = PTR_ERR(csi->mclk);
+> -		dev_err(dev, "Failed to get mclk: %d", ret);
+> -		return ret;
+> -	}
+> +	if (IS_ERR(csi->mclk))
+> +		return dev_err_probe(dev, PTR_ERR(csi->mclk), "Failed to get mclk\n");
+
+		return dev_err_probe(dev, PTR_ERR(csi->mclk),
+				     "Failed to get mclk\n");
+
+>  
+>  	csi->irq = platform_get_irq(pdev, 0);
+>  	if (csi->irq < 0)
+> @@ -2236,10 +2233,8 @@ static int imx7_csi_probe(struct platform_device *pdev)
+>  
+>  	ret = devm_request_irq(dev, csi->irq, imx7_csi_irq_handler, 0, "csi",
+>  			       (void *)csi);
+> -	if (ret < 0) {
+> -		dev_err(dev, "Request CSI IRQ failed.\n");
+> -		return ret;
+> -	}
+> +	if (ret < 0)
+> +		return dev_err_probe(dev, ret, "Request CSI IRQ failed.\n");
+>  
+>  	/* Initialize all the media device infrastructure. */
+>  	ret = imx7_csi_media_init(csi);
+> diff --git a/drivers/media/platform/nxp/imx8mq-mipi-csi2.c b/drivers/media/platform/nxp/imx8mq-mipi-csi2.c
+> index 0851f4a9ae52d3096f454da643cfdc5017e000b1..75709161fb26a61239b94430365849e022fdc14f 100644
+> --- a/drivers/media/platform/nxp/imx8mq-mipi-csi2.c
+> +++ b/drivers/media/platform/nxp/imx8mq-mipi-csi2.c
+> @@ -951,10 +951,9 @@ static int imx8mq_mipi_csi_parse_dt(struct csi_state *state)
+>  	int ret = 0;
+>  
+>  	state->rst = devm_reset_control_array_get_exclusive(dev);
+> -	if (IS_ERR(state->rst)) {
+> -		dev_err(dev, "Failed to get reset: %pe\n", state->rst);
+> -		return PTR_ERR(state->rst);
+> -	}
+> +	if (IS_ERR(state->rst))
+> +		return dev_err_probe(dev, PTR_ERR(state->rst),
+> +				     "Failed to get reset: %pe\n", state->rst);
+
+		return dev_err_probe(dev, PTR_ERR(state->rst),
+				     "Failed to get reset\n");
+
+as dev_err_probe() prints the error already.
+
+>  
+>  	if (state->pdata->use_reg_csr) {
+>  		const struct regmap_config regmap_config = {
+> @@ -977,24 +976,21 @@ static int imx8mq_mipi_csi_parse_dt(struct csi_state *state)
+>  
+>  	ret = of_property_read_u32_array(np, "fsl,mipi-phy-gpr", out_val,
+>  					 ARRAY_SIZE(out_val));
+> -	if (ret) {
+> -		dev_err(dev, "no fsl,mipi-phy-gpr property found: %d\n", ret);
+> -		return ret;
+> -	}
+> +	if (ret)
+> +		return dev_err_probe(dev, ret,
+> +				     "no fsl,mipi-phy-gpr property found: %d\n", ret);
+
+		return dev_err_probe(dev, ret,
+				     "no fsl,mipi-phy-gpr property found\n");
+
+or possibly
+
+		return dev_err_probe(dev, ret, "no %s property found\n",
+				     "fsl,mipi-phy-gpr");
+
+to enable string de-duplication (assuming it's worth it).
+
+>  
+>  	ph = *out_val;
+>  
+>  	node = of_find_node_by_phandle(ph);
+> -	if (!node) {
+> -		dev_err(dev, "Error finding node by phandle\n");
+> -		return -ENODEV;
+> -	}
+> +	if (!node)
+> +		return dev_err_probe(dev, -ENODEV, "Error finding node by phandle\n");
+
+Line wrap here too.
+
+> +
+>  	state->phy_gpr = syscon_node_to_regmap(node);
+>  	of_node_put(node);
+> -	if (IS_ERR(state->phy_gpr)) {
+> -		dev_err(dev, "failed to get gpr regmap: %pe\n", state->phy_gpr);
+> -		return PTR_ERR(state->phy_gpr);
+> -	}
+> +	if (IS_ERR(state->phy_gpr))
+> +		return dev_err_probe(dev, PTR_ERR(state->phy_gpr),
+> +				     "failed to get gpr regmap: %pe\n", state->phy_gpr);
+
+		return dev_err_probe(dev, PTR_ERR(state->phy_gpr),
+				     "failed to get gpr regmap\n");
+
+I think you can also drop the error message upon
+imx8mq_mipi_csi_parse_dt() failure in imx8mq_mipi_csi_probe().
+
+With those changes,
+
+Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+
+>  
+>  	state->phy_gpr_reg = out_val[1];
+>  	dev_dbg(dev, "phy gpr register set to 0x%x\n", state->phy_gpr_reg);
 
 -- 
 Regards,
