@@ -4,53 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38B7FCF58C4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 18:04:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D19A2CF58C4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 18:05:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MuNRby7NdcWxMmZeXODk0ld0bu0i8Jt1vMdjgXvRLKA=; b=uuzhgSpg/HhnEsUZwNqxd6iyw1
-	R6xmr/2vzK3AyVF0BI4OcsU7yZUmFoLKJhZVh1sGzzntkqVFJFHpylsqgXI3DqpyTx/xu3ny8ra5S
-	dT5qBPAv5foEwI9D+VQuT2n7KHaf8ag3ScmDoPFGhJRBpRsU7VSrMpGgtu+HnPwq6/VpuSeHmIDaf
-	tNY14GjAuDxeJCOfU3ewey1+p6iLRymHOTywQyiOwgfEeZvFiMjaOrpLDdmGPH1j+ORY3RI8F/OcB
-	9AfeR+9OQQzLfIJd/w9vvkaRhcnlSCH4eLpmX+zGOS2SnAP9Dub/3tfD1yQyhQLj3bKAVq+WSGRC7
-	5dOc5+vw==;
+	bh=TPA2p8LBIvI0WkSWp2K806V4AIWkw5EVBGhtjxzAj7I=; b=k5mn3iM5o4ZKHGj2nnIICYacUq
+	jKoz0TeGCeIQzAplgffEwav2Wry840MubsgCzy2+dj/s1lua2W1JgGxhTITlhoNHe311mVXTQ0tcT
+	/PpkL1LQvrQz8tB7B1iA5fgkuAByik2JDjYJi3ihBSVIbumsXwm19vy8iV2AF713mtzMRVvK11EWY
+	OV28TO5l5cpJ17OEDH5LJ0WVirygn4opKdFjV2SCSyhPLcbBp2w/hfkdkqztMqQv9p1d01V4W5cVP
+	Vdt+inV+U9HYRUkHda6PLPPg5FlKYxfdhVaV0JFRm4H0BonrP1Ps4NjkcRIL7jWl02KCqgWTtxulm
+	CPFVduaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLmX8-00000004OSL-2ZDQ;
-	Wed, 19 Nov 2025 18:03:58 +0000
+	id 1vLmY2-00000004Ouf-3yss;
+	Wed, 19 Nov 2025 18:04:54 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLmX6-00000004OOm-03OS
+	id 1vLmY1-00000004Ote-07fN
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Nov 2025 18:03:57 +0000
+	Wed, 19 Nov 2025 18:04:54 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E17FAFEC;
-	Wed, 19 Nov 2025 10:03:46 -0800 (PST)
-Received: from arm.com (arrakis.cambridge.arm.com [10.1.197.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 067983F740;
-	Wed, 19 Nov 2025 10:03:52 -0800 (PST)
-Date: Wed, 19 Nov 2025 18:03:50 +0000
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Dev Jain <dev.jain@arm.com>
-Cc: will@kernel.org, ryan.roberts@arm.com, rppt@kernel.org,
-	shijie@os.amperecomputing.com, yang@os.amperecomputing.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/2] arm64/pageattr: Propagate return value from
- __change_memory_common
-Message-ID: <aR4GhuhEISNSSbUf@arm.com>
-References: <20251112062716.64801-1-dev.jain@arm.com>
- <20251112062716.64801-2-dev.jain@arm.com>
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BECDBFEC;
+	Wed, 19 Nov 2025 10:04:42 -0800 (PST)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CBD283F740;
+	Wed, 19 Nov 2025 10:04:49 -0800 (PST)
+Date: Wed, 19 Nov 2025 18:04:47 +0000
+From: Leo Yan <leo.yan@arm.com>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>
+Cc: Junhao He <hejunhao3@h-partners.com>, james.clark@linaro.org,
+	anshuman.khandual@arm.com, yeoreum.yun@arm.com,
+	mike.leach@linaro.org, coresight@lists.linaro.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linuxarm@huawei.com, jonathan.cameron@huawei.com
+Subject: Re: [PATCH v4 2/3] coresight: tmc: refactor the tmc-etr mode setting
+ to avoid race conditions
+Message-ID: <20251119180447.GG8204@e132581.arm.com>
+References: <20251111122149.1981162-1-hejunhao3@h-partners.com>
+ <20251111122149.1981162-3-hejunhao3@h-partners.com>
+ <15868ecb-c1e7-4273-a2e2-5c10f2701c0b@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251112062716.64801-2-dev.jain@arm.com>
+In-Reply-To: <15868ecb-c1e7-4273-a2e2-5c10f2701c0b@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251119_100356_095203_91DEBCD6 
-X-CRM114-Status: GOOD (  12.31  )
+X-CRM114-CacheID: sfid-20251119_100453_103417_FD38083C 
+X-CRM114-Status: GOOD (  11.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,30 +68,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 12, 2025 at 11:57:15AM +0530, Dev Jain wrote:
-> The rodata=on security measure requires that any code path which does
-> vmalloc -> set_memory_ro/set_memory_rox must protect the linear map alias
-> too. Therefore, if such a call fails, we must abort set_memory_* and caller
-> must take appropriate action; currently we are suppressing the error, and
-> there is a real chance of such an error arising post commit a166563e7ec3
-> ("arm64: mm: support large block mapping when rodata=full"). Therefore,
-> propagate any error to the caller.
+On Thu, Nov 13, 2025 at 03:02:45PM +0000, Suzuki Kuruppassery Poulose wrote:
+> Hi Junhao,
 > 
-> Fixes: a166563e7ec3 ("arm64: mm: support large block mapping when rodata=full")
-> Signed-off-by: Dev Jain <dev.jain@arm.com>
-> ---
-> v1 of this patch: https://lore.kernel.org/all/20251103061306.82034-1-dev.jain@arm.com/
-> I have dropped stable since no real chance of failure was there.
+> While your patch fixes the problem it introduces imbalance in the
+> way perf vs sysfs modes are handled.
 
-I couldn't figure out from the comments on v1 whether Will's concern was
-addressed:
+Previously, I suggested setting the mode in a unified way in
+tmc_enable_etr_sink() [1]. After looking into the code again, it seems
+that both my suggestion and this patch set the perf mode is too late.
 
-https://lore.kernel.org/all/aQn4EwKar66UZ7rz@willie-the-truck/
+Maybe we need to set the sink's device mode once a session starts to use
+it.  So we should set the perf mode when allocating sink's buffer
+(tmc_alloc_etr_buffer()), as this is the first callback invoked for a
+perf session.
 
-IOW, is the patch necessary? What are the failure scenarios and what
-does the caller do? It's good to propagate an error to the caller but
-patch also changes the current behaviour by bailing out earlier.
+As a result, we can keep to set the sysfs mode in
+tmc_enable_etr_sink_sysfs().
 
--- 
-Catalin
+A side topic is we need to refactor the tmc_etr_get_sysfs_buffer()
+function, ideally this function is purely for allocating buffer without
+any locking. We can defer to assign "drvdata->sysfs_buf" until
+acquired spin lock in tmc_enable_etr_sink_sysfs().  Essetionally, we
+can enable sink in one go rather than acquire-release lock for several
+times.
+
+Thanks,
+Leo
+
+[1] https://lore.kernel.org/linux-arm-kernel/20251020143718.GH281971@e132581.arm.com/
 
