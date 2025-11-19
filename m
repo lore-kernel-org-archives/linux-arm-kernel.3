@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84C0BCFC29F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 19:47:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13B96CFC29F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 19:47:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VAdmCjEjS1k8cydxZMlTSn3oPaSnO8zwhoE0yDXmfkc=; b=aK4NaC/mnIpy/w45d8gZdD7dyM
-	MNoCUuokBDMwdMU/MjzvwSevL5O7UfDDHqBsU3cFVJwT93Yo1U7rKKPAewZUIVB2VZjD+soKX6sGs
-	JWKQTtetQQ51U4rJ0uM9MmhUO2s+J6QIWNyj4206V10C7C71r3uundMG91VkN2F7BWdKOjyDyaEOd
-	nqKkvK4gC6w/3YDMCBv+pIFbdB4xD5lP8mJQErGOjwNjhEaPdOi7wtMuSlChbAyLY3OB6+s7ggoQm
-	jWdyfkRS5gN2hKBgzzllQCUiGJkS728mIKMqaIwvSc5q2S72tz+9BwJ8qc28fxs9leO9pCLn4dzFi
-	3GagNTXA==;
+	bh=92iVE10WiemZ+GCAzFl91DCHSq6uCyv1eXwANPP1SKE=; b=DX1btuAldlxLc8Bf9PiYeN9+nu
+	jt6hnJFBbWw8DVFxvyYB6MaDgGIkWvEd+lcDZ6A8foD2gW/Qdgjvtm2vjMkkZFNMTPpDKZQlMxe7G
+	MhpwV8KI/gleMxWLL2x0vSXqbIzQh5KbbIGJKwfcnvRXL3pNSw5OCMAmdQpqphKlVGmRdWNwg6ELI
+	LBA8F5+NXhKFfO43s2o+QKERr6h7tepSFgL6Q8HH7Y8Pgpxdd1WGiurkF8dfNb38WKSvV4L/CEIYW
+	BnmOGG1O4eEkobwfHWQzexC2RUF/qD7BDegXWlJpWBWVM1AIXm2dQ4dbkr1sZV+p4cCWGz7OKpQnV
+	SYH/E7sw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMX5z-00000008vFj-24LI;
-	Fri, 21 Nov 2025 19:47:03 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vMX64-00000008vHD-3QXd;
+	Fri, 21 Nov 2025 19:47:08 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMX5x-00000008vFa-3PG5
+	id 1vMX62-00000008vGB-2pQc
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Nov 2025 19:47:01 +0000
+	Fri, 21 Nov 2025 19:47:07 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A8B4360145;
-	Fri, 21 Nov 2025 19:47:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AB1C9C4CEF1;
-	Fri, 21 Nov 2025 19:46:59 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id EEBB943A70;
+	Fri, 21 Nov 2025 19:47:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 28A08C4CEF1;
+	Fri, 21 Nov 2025 19:47:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763754420;
-	bh=cEdRCa2NBNmESBxc72utfubK3/50PKg3AObY9g7OMis=;
+	s=k20201202; t=1763754423;
+	bh=G12g/v72rpg6oHwIsKwW7r2AWt7vFH3TU2TWjKKMmTI=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=kSFFKfMeMTUHsC8yj3jqUJ/m8QBV+GwQ/2LqO9m8lU6FGqr+MDNB9s41UgbZsY0tq
-	 PL6+i4/ySPvKoZyv0vYYrhIvHv1Np1oZXvA3RRYdt5YBGKcX0HwqEINffE7tatFMvF
-	 dGIgaxbXK7QEqTiOKMcR7eHx53Cn7tVkeAYhA+XTyTzDbxw967a5phtYgtwu6uxHTB
-	 Gx+mhXtJgUzU6IF84T7VLB7J+/eL0T4M5XMWb3/E0IWYU+UWWMrz6DfTs0aH00zJ5B
-	 txWs4Nmj3znlJOhLorrmIxXQufrgiPy0ZMLyu4JmUOpJwoYsFZq6caXJzpMPUY0qQh
-	 Qb3GiKPtwPb1g==
-Date: Wed, 19 Nov 2025 21:20:04 +0100
+	b=vA0nnPi2O04n7Q5BW039HbXJtxLU0zsf+WGFpaPBzSwMaFdCStHsyGV0r4EQ5NcmW
+	 4AljIb7Mm8w1Q+0QbxTmLUGLDFa5TD8/PckwsAoc8Qvqkho6HvGFTwQV+7Do4HJfiK
+	 x6deAs6N7fhGNP9OQAnilEPoP5YuXB63Kzv/W8lEG0z5ExpFFFG02OQLB6QctjxKhn
+	 XV3tRvRC85odnCZjI6kHSTii8AHOMQbn2wsPmvUjoez117IMuoEobrkNkMMlycU9/M
+	 Lx6YmzfEgfrlezTqXCmHQBSRwR8tibr8smfoshaPW8yOJt0kJIAR1+pFJkYe7oXByZ
+	 37JqUibbW9QOg==
+Date: Wed, 19 Nov 2025 21:20:32 +0100
 From: Nicolas Schier <nsc@kernel.org>
 To: Simon Glass <sjg@chromium.org>
 Cc: linux-arm-kernel@lists.infradead.org,
@@ -51,21 +51,25 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	Tom Rini <trini@konsulko.com>,
 	Ahmad Fatoum <a.fatoum@pengutronix.de>,
 	J =?iso-8859-1?Q?=2E_Neusch=E4fer?= <j.ne@posteo.net>,
-	Chen-Yu Tsai <wenst@chromium.org>, Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>,
-	Miguel Ojeda <ojeda@kernel.org>,
+	Chen-Yu Tsai <wenst@chromium.org>,
 	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
-	Tamir Duberstein <tamird@gmail.com>, linux-kbuild@vger.kernel.org,
-	linux-kernel@vger.kernel.org, llvm@lists.linux.dev
-Subject: Re: [PATCH v6 5/8] kbuild: Split out module targets into a variable
-Message-ID: <aR4mdI3u51z4qhoN@derry.ads.avm.de>
+	Ard Biesheuvel <ardb@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Josh Poimboeuf <jpoimboe@kernel.org>, Kees Cook <kees@kernel.org>,
+	Miguel Ojeda <ojeda@kernel.org>, Rong Xu <xur@google.com>,
+	Tamir Duberstein <tamird@gmail.com>, Will Deacon <will@kernel.org>,
+	linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v6 6/8] kbuild: Allow adding modules into the FIT ramdisk
+Message-ID: <aR4mkHDgVOj3715A@derry.ads.avm.de>
 References: <20251119181333.991099-1-sjg@chromium.org>
- <20251119181333.991099-6-sjg@chromium.org>
+ <20251119181333.991099-7-sjg@chromium.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251119181333.991099-6-sjg@chromium.org>
+In-Reply-To: <20251119181333.991099-7-sjg@chromium.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251121_114706_792278_ED449F61 
+X-CRM114-Status: GOOD (  24.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,43 +84,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 19, 2025 at 11:13:26AM -0700, Simon Glass wrote:
-> Add a modules-targets variable to list the targets which cause modules
-> to be built, since we want to add a conditional target.
+On Wed, Nov 19, 2025 at 11:13:27AM -0700, Simon Glass wrote:
+> Support 'make image.fit FIT_MODULES=1' to put all the modules into a
+> ramdisk image within the FIT.
+> 
+> Add image.fit as a target which requires modules, so that modules will
+> built automatically when using FIT_MODULES is not empty.
 > 
 > Signed-off-by: Simon Glass <sjg@chromium.org>
+> Suggested-by: Ahmad Fatoum <a.fatoum@pengutronix.de>
+> Suggested-by: Reviewed-by: Nicolas Schier <nsc@kernel.org>
+
+I think the
+
+Reviewed-by: Nicolas Schier <nsc@kernel.org>
+
+is enough :)
+
+Thanks.
+
+
+> Acked-by: Nathan Chancellor <nathan@kernel.org>
 > ---
 > 
-> (no changes since v5)
+> Changes in v6:
+> - Mention that FIT_MODULES just needs to be non-empty
+> - Make use of modules.order instead of using 'find'
 > 
 > Changes in v5:
-> - Add a new patch to split out module targets into a variable
+> - Build modules automatically if needed (fix from Nicolas Schier)
 > 
->  Makefile | 7 ++++++-
->  1 file changed, 6 insertions(+), 1 deletion(-)
+> Changes in v4:
+> - Rename the Makefile variable from 'EXTRA' to 'MAKE_FIT_FLAGS'
+> - Use an empty FIT_MODULES to disable the feature, instead of '0'
+> - Make use of the 'modules' dependency to ensure modules are built
+> - Pass the list of modules to the script
+> 
+>  Makefile             | 1 +
+>  arch/arm64/Makefile  | 1 +
+>  scripts/Makefile.lib | 6 +++++-
+>  3 files changed, 7 insertions(+), 1 deletion(-)
 > 
 > diff --git a/Makefile b/Makefile
-> index 638bc09a546a..8cd46222fc48 100644
+> index 8cd46222fc48..4eccaef95826 100644
 > --- a/Makefile
 > +++ b/Makefile
-> @@ -772,7 +772,12 @@ endif
->  # in addition to whatever we do anyway.
+> @@ -773,6 +773,7 @@ endif
 >  # Just "make" or "make all" shall build modules as well
 >  
-> -ifneq ($(filter all modules nsdeps compile_commands.json clang-%,$(MAKECMDGOALS)),)
-> +modules-targets := all
-> +modules-targets += modules
-> +modules-targets += nsdeps
-> +modules-targets += compile_commands.json
-> +modules-targets += clang-%
-> +ifneq ($(filter $(modules-targets),$(MAKECMDGOALS)),)
->    KBUILD_MODULES := y
->  endif
+>  modules-targets := all
+> +modules-targets += $(if $(FIT_MODULES),image.fit)
+>  modules-targets += modules
+>  modules-targets += nsdeps
+>  modules-targets += compile_commands.json
+> diff --git a/arch/arm64/Makefile b/arch/arm64/Makefile
+> index 73a10f65ce8b..7036f251ab40 100644
+> --- a/arch/arm64/Makefile
+> +++ b/arch/arm64/Makefile
+> @@ -174,6 +174,7 @@ endif
+>  all:	$(notdir $(KBUILD_IMAGE))
 >  
+>  image.fit: dtbs
+> +image.fit: $(if $(FIT_MODULES),modules)
+>  
+>  vmlinuz.efi image.fit: Image
+>  $(BOOT_TARGETS): vmlinux
+> diff --git a/scripts/Makefile.lib b/scripts/Makefile.lib
+> index 1d581ba5df66..28e0cc0865b1 100644
+> --- a/scripts/Makefile.lib
+> +++ b/scripts/Makefile.lib
+> @@ -398,11 +398,15 @@ MAKE_FIT := $(srctree)/scripts/make_fit.py
+>  # Use this to override the compression algorithm
+>  FIT_COMPRESSION ?= gzip
+>  
+> +# Set this to non-empty to include an initrd with all the kernel modules
+> +FIT_MODULES ?=
+> +
+>  quiet_cmd_fit = FIT     $@
+>        cmd_fit = $(MAKE_FIT) -o $@ --arch $(UIMAGE_ARCH) --os linux \
+> -		--name '$(UIMAGE_NAME)' \
+> +		--name '$(UIMAGE_NAME)' $(MAKE_FIT_FLAGS) \
+>  		$(if $(findstring 1,$(KBUILD_VERBOSE)),-v) \
+>  		$(if $(FIT_DECOMPOSE_DTBS),--decompose-dtbs) \
+> +		$(if $(FIT_MODULES),--modules @$(objtree)/modules.order) \
+>  		--compress $(FIT_COMPRESSION) -k $< @$(word 2,$^)
+>  
+>  # XZ
 > -- 
 > 2.43.0
 > 
 
-Reviewed-by: Nicolas Schier <nsc@kernel.org>
-
+-- 
+Nicolas
 
