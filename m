@@ -4,117 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 134E5CF31AD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 11:43:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42591CF31AF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 11:45:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zLz0frgGmLST4iYEOYLdiF2h1jTqQJUNTF9SwyfUG7I=; b=GjsMZvyg+kknjIgWzNcVhE/y8o
-	SgJ3+ngQsbjU9B7te996l9w95E7vt0XOPkBiksqHShZbCN57uFOaaP+LrTIhrwVqjsFK4jk4yxHQp
-	PDiOA/65HDIUw/kqaAldXay/6cCKdbL9YxOv7grWFlnKfmyYDyVGbAQXu12dlUcAu+0EsfJEbtqwM
-	B3P5iEFUM6GgvKw282k9P2AM6oGlvhAzCTGQmcHvrBNJE9Y515CIZfY7IsFMUwckoV7mP8JSQ4MMY
-	SvGOEILJ7T/XxFmSeMHJvnTGxWvQkWwBccdou23oym9ogmLyZHId/vjaV+ejBTw/ozbYtAlz8XDj7
-	0+eDBL5g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Ed4Dydxg4iY705zW5b/jYW5HOtHMKCF/y5HtYetJu1Q=; b=qyrBuupJHQQCsw8/eNgUjHdHXj
+	M5mEBqdwe13KiHCtTQWgmvFvniKtJJUi0U/qTBtcGfX/ovftiFlJq5KuwTrxuPeuwI4ICKS5Ip/IQ
+	hOKjwxT2tOnILcDNSxGg7U3Zazow7ZbqRm7Tq0FZ3ZLZ4aPoBeiD3jCK6t2g2q2c2653Pr19itnqG
+	2gDetqMq2gnhprs5zflu3RbAerB1RnDsN/Qr0qoFmQMylqMokE4kzM9o8FenT81oGX5l3t9nM+6pZ
+	RS12b+lwaimonKpK2anMee3mIWBuuK+4FCMfrHaxySTWpIFX1Tks1JQ806yTzEdFxjCBPz0GUlge4
+	JT1DWKGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLgax-000000033oK-1Ohu;
-	Wed, 19 Nov 2025 11:43:31 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vLgcp-000000033wp-3cfm;
+	Wed, 19 Nov 2025 11:45:27 +0000
+Received: from mail-qk1-x72f.google.com ([2607:f8b0:4864:20::72f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLgav-000000033nz-1JNT
+	id 1vLgcn-000000033wQ-1AD9
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Nov 2025 11:43:30 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E2F9C434BC;
-	Wed, 19 Nov 2025 11:43:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 13CF1C2BCB0;
-	Wed, 19 Nov 2025 11:43:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763552608;
-	bh=d6KwsYhHbPVt4kfOy79+X9Arnp2t89fn5b7QI+PWzCw=;
-	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
-	b=dM1250PNGbcwhV8Gr3h6Z6OgVj6Ao1fmKsclt6bo2czfNh08/KX7e6nCVjRpvCqgP
-	 FjIxikjVrg3F3dNfP6/lYTEV/o79llk4D0NshKjnqR4u234TbnxdIxxhdatGOOfZ9e
-	 CZ09mq8N6Wsp/u63OyTdE8JDOit+Ju70RiMEsHA/4s7/PZTuYPWurrU+NfFnQi+QqD
-	 DtHlHeioCi6Anrgdz/eRQKkaN3FNNjRnqMHd/VydoZ31aHOwWnB9mZGm4+XYlbHiFq
-	 DRZvb9NUn5HMEaXTwje9MNAdqJipKJjiHfFPdi3bWWbnFyKcN0ZjShqKzfRjIe1s5r
-	 RzWU83ieQ/MkQ==
-Message-ID: <de2f6c52-e9d6-48ae-8620-7c518b686ffd@kernel.org>
-Date: Wed, 19 Nov 2025 12:43:18 +0100
+	Wed, 19 Nov 2025 11:45:26 +0000
+Received: by mail-qk1-x72f.google.com with SMTP id af79cd13be357-8b25ed53fcbso866720785a.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Nov 2025 03:45:24 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1763552724; x=1764157524; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=Ed4Dydxg4iY705zW5b/jYW5HOtHMKCF/y5HtYetJu1Q=;
+        b=kPiIsSRVmUdQkOT4xLDEU/Z2WD99UmHQAcLj5O3YKFoPKr05jApqMjjyYCaYxS4FKJ
+         YTEhdgWhwYWFMTz9hvS1aIFwCMvuXL267MP4/zdUzfGazw2KKiP3pFT7EOMImnxs0HNe
+         hZ1JKaRJqzDbhTUefKeu5M0YFPJu675BEdi1KM6zID+in+w2RvsI7sBxiwX6kiupKJTh
+         C1vzXsJeqMD71b4GcIhQlixbnzxe2XNvfInjNQZZFjbTTM0/GqHJcjZH40BSUDhHjw7G
+         p/CBEOtoA+iLyPJ7ycaLBUOaC83NXhuDlwKOHBrdvA6KTcEfzeCzoGJp6stYEgDHiqsa
+         Y/oQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1763552724; x=1764157524;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Ed4Dydxg4iY705zW5b/jYW5HOtHMKCF/y5HtYetJu1Q=;
+        b=cNxjaEbgaUiAR79GoPtCtNRdAqBOQXVqtJkydcik9Pdov1HNiBJQged2nKXrePMgKH
+         5Aj2nIwDBwD88tAQfuOoOx77zBUl+okxY7OHQG1he8Skuw/Te51s4DfCIKYqEH8dmB+0
+         76VmUQHL3RZ3LLbd0aipauT87zCv+3UcIWtFiP2ClOTcetYltmq06sUGMH31LFc4w8Hn
+         esrQxP3sg2i13i+nEJb8MEBjH2qryEbL3LN3nCBmHF0V4aV6UTOLx+CnEHpYQ/frnweQ
+         mGSJJDjJrGBtT2UocbTWZ++dAOTMO7cceurE5O6ERIDe2pLQ1cq83frD2LD619JX+eld
+         m3BQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUEUHs/AbMIe+tu+ZdGEgFu6tMaXsvj+VZ6uHra3ED1gJqNpumEWM3FlK4B/zHmGBtw0p9+9DUbvEo1Fp/0aPp9@lists.infradead.org
+X-Gm-Message-State: AOJu0YyJ9NR3dDBXM47s92DNoV88WpWaLl8ebjRslJKqIInTSxWv564Q
+	zNhm6Rpe5ZUQfce/zWRxEg5UG/J2TuIGIfR2k7ihnr9OLipYWzUESPaEet6zW0aFmHyTva8SEYB
+	1RjAT+0EKuHmx6/bfzXPonFm+Oj0RaCRVIC5AEDtEgw==
+X-Gm-Gg: ASbGncsKIuZe1YN7BwyTmaMG+FJaQ6YOj4IX+Ah1J8VLAkaVLRiRQb57u+o4k+e6/Y2
+	gyl2Hc/bET9pVu5Lrn2Rf/fPkkq96xrIWPq6h1gEWtWMwHQZooiLo/DkjK9fGWFz2tQovwVTOLJ
+	ksSbG2zNqoPep71CRcimkuzs8S3iGQzgZzlXgaDbrsJYfZU99x8t1ZKaettnKsguH7TJfaGHB5I
+	niyXfxTCIfssoBFCCnJ28pMD2fEE4NRaJbtfj/W0VvwEQN2nl8ncCsw2uMY08LEa3+B/OIjoAOU
+	rSNqh0g5RuEBXdmCZ2d25bprPClINjM/2CbaZIyyU4SydXn5lA==
+X-Google-Smtp-Source: AGHT+IEDXViXTZ73FVo6/KsQ3F595W6URZvEq6U8EMaBp6NQP2CAzPlJ77FmXdspCIEOO9KZ/cgPukGFikDQSyW8kSc=
+X-Received: by 2002:a05:622a:7e49:b0:4ee:5fc:43d8 with SMTP id
+ d75a77b69052e-4ee05fc4b20mr149384621cf.21.1763552723829; Wed, 19 Nov 2025
+ 03:45:23 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: (subset) [PATCH v3 1/4] dt-bindings: clock: Add ARTPEC-9 clock
- controller
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- jesper.nilsson@axis.com, lars.persson@axis.com, mturquette@baylibre.com,
- sboyd@kernel.org, alim.akhtar@samsung.com, s.nawrocki@samsung.com,
- cw00.choi@samsung.com, Ravi Patel <ravi.patel@samsung.com>
-Cc: ksk4725@coasia.com, smn1196@coasia.com, linux-arm-kernel@axis.com,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- linux-clk@vger.kernel.org, pjsin865@coasia.com, gwk1013@coasia.com,
- bread@coasia.com, jspark@coasia.com, limjh0823@coasia.com,
- lightwise@coasia.com, hgkim05@coasia.com, mingyoungbo@coasia.com,
- shradha.t@samsung.com, swathi.ks@samsung.com, kenkim@coasia.com
-References: <20251029130731.51305-1-ravi.patel@samsung.com>
- <CGME20251029130826epcas5p180506ff38fb57ecca0e33b2f5c57ed6c@epcas5p1.samsung.com>
- <20251029130731.51305-2-ravi.patel@samsung.com>
- <176355242978.116968.261312419155141714.b4-ty@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <176355242978.116968.261312419155141714.b4-ty@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20251118-james-cs-syncfreq-v5-0-82efd7b1a751@linaro.org>
+ <20251118-james-cs-syncfreq-v5-8-82efd7b1a751@linaro.org> <CAJ9a7VgQH4yc8490CQSv1S6k+=Uc6dEjyEpgRp1EwUQdwdxOHQ@mail.gmail.com>
+ <416cf32d-d647-46dd-bcef-acc019490561@linaro.org>
+In-Reply-To: <416cf32d-d647-46dd-bcef-acc019490561@linaro.org>
+From: Mike Leach <mike.leach@linaro.org>
+Date: Wed, 19 Nov 2025 11:45:12 +0000
+X-Gm-Features: AWmQ_bnzSRG4iB6fbtTwoZEOZ8nJyrsroAOJ3GpmuRTr0m-QQvY3mph-2fZSpwo
+Message-ID: <CAJ9a7Vg9HsMsTP-zroTgaaKWTPkSXE1u5WMORuqMLKSDDz2HSw@mail.gmail.com>
+Subject: Re: [PATCH v5 08/13] coresight: Interpret perf config with ATTR_CFG_GET_FLD()
+To: James Clark <james.clark@linaro.org>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jonathan Corbet <corbet@lwn.net>, 
+	Leo Yan <leo.yan@arm.com>, Randy Dunlap <rdunlap@infradead.org>, coresight@lists.linaro.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-doc@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251119_034329_423632_DB21D281 
-X-CRM114-Status: UNSURE (   8.89  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251119_034525_358070_E2F15622 
+X-CRM114-Status: GOOD (  30.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,34 +99,124 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 19/11/2025 12:40, Krzysztof Kozlowski wrote:
-> 
-> On Wed, 29 Oct 2025 18:37:28 +0530, Ravi Patel wrote:
->> Add dt-schema for Axis ARTPEC-9 SoC clock controller.
->>
->> The Clock Management Unit (CMU) has a top-level block CMU_CMU
->> which generates clocks for other blocks.
->>
->> Add device-tree binding definitions for following CMU blocks:
->> - CMU_CMU
->> - CMU_BUS
->> - CMU_CORE
->> - CMU_CPUCL
->> - CMU_FSYS0
->> - CMU_FSYS1
->> - CMU_IMEM
->> - CMU_PERI
->>
->> [...]
-> 
-> Applied, thanks!
-> 
-> [1/4] dt-bindings: clock: Add ARTPEC-9 clock controller
->       (no commit info)
+Hi James
+
+On Wed, 19 Nov 2025 at 11:26, James Clark <james.clark@linaro.org> wrote:
+>
+>
+>
+> On 19/11/2025 9:32 am, Mike Leach wrote:
+> > Hi James
+> >
+> > On Tue, 18 Nov 2025 at 16:28, James Clark <james.clark@linaro.org> wrote:
+> >>
+> >> The "config:" string construction in format_attr_contextid_show() can be
+> >> removed because it either showed the existing context1 or context2
+> >> formats which have already been generated, so can be called themselves.
+> >>
+> >> The other conversions are straightforward replacements.
+> >>
+> >> Signed-off-by: James Clark <james.clark@linaro.org>
+> >> ---
+> >>   drivers/hwtracing/coresight/coresight-etm-perf.c | 26 +++++++++++++++---------
+> >>   1 file changed, 16 insertions(+), 10 deletions(-)
+> >>
+> >> diff --git a/drivers/hwtracing/coresight/coresight-etm-perf.c b/drivers/hwtracing/coresight/coresight-etm-perf.c
+> >> index 28f1bfc4579f..1b9ae832a576 100644
+> >> --- a/drivers/hwtracing/coresight/coresight-etm-perf.c
+> >> +++ b/drivers/hwtracing/coresight/coresight-etm-perf.c
+> >> @@ -80,12 +80,19 @@ static ssize_t format_attr_contextid_show(struct device *dev,
+> >>                                            struct device_attribute *attr,
+> >>                                            char *page)
+> >>   {
+> >> -       int pid_fmt = ETM_OPT_CTXTID;
+> >> +       /*
+> >> +        * is_kernel_in_hyp_mode() isn't defined in arm32 so avoid calling it
+> >> +        * even though is_visible() prevents this function from being called.
+> >> +        */
+> >> +#if IS_ENABLED(CONFIG_ARM64)
+> >> +       if (is_kernel_in_hyp_mode())
+> >> +               return contextid2_show(dev, attr, page);
+> >>
+> >> -#if IS_ENABLED(CONFIG_CORESIGHT_SOURCE_ETM4X)
+> >> -       pid_fmt = is_kernel_in_hyp_mode() ? ETM_OPT_CTXTID2 : ETM_OPT_CTXTID;
+> >> +       return contextid1_show(dev, attr, page);
+> >> +#else
+> >> +       WARN_ONCE(1, "ETM contextid not supported on arm32\n");
+> >> +       return 0;
+> >
+> > Context ID is supported in aarch32 - and traced in etmv3 / ptm and etmv4.
+> >
+> > Mike
+> >
+>
+> Not in Perf mode unless I'm missing something:
+>
+> #define ETM3X_SUPPORTED_OPTIONS (ETMCR_CYC_ACC | \
+>                                  ETMCR_TIMESTAMP_EN | \
+>                                  ETMCR_RETURN_STACK)
+>
+> Only these options are currently accepted. I suppose the comment is
+> describing what the current behavior is, whether that is what we want is
+> another thing.
+>
+> But if we do start supporting context ID in ETMv3 we can update that
+> comment.
+>
+
+Unlikely - but the comment seems to conflate core architecture and etm
+architecture.
+A core with aarch32 can be traced in etm4 - i.e etm4 supports A64, A32
+and T32 instruction sets.
+If this set gets another version it might be worth saying "not
+ETMv3/PTM" rather than not A32.
+
+Mike
 
 
-All applied regardless of above missing commit info.
+> >>   #endif
+> >> -       return sprintf(page, "config:%d\n", pid_fmt);
+> >>   }
+> >>
+> >>   static struct device_attribute format_attr_contextid =
+> >> @@ -337,7 +344,7 @@ static bool sinks_compatible(struct coresight_device *a,
+> >>   static void *etm_setup_aux(struct perf_event *event, void **pages,
+> >>                             int nr_pages, bool overwrite)
+> >>   {
+> >> -       u32 id, cfg_hash;
+> >> +       u32 sink_hash, cfg_hash;
+> >>          int cpu = event->cpu;
+> >>          cpumask_t *mask;
+> >>          struct coresight_device *sink = NULL;
+> >> @@ -350,13 +357,12 @@ static void *etm_setup_aux(struct perf_event *event, void **pages,
+> >>          INIT_WORK(&event_data->work, free_event_data);
+> >>
+> >>          /* First get the selected sink from user space. */
+> >> -       if (event->attr.config2 & GENMASK_ULL(31, 0)) {
+> >> -               id = (u32)event->attr.config2;
+> >> -               sink = user_sink = coresight_get_sink_by_id(id);
+> >> -       }
+> >> +       sink_hash = ATTR_CFG_GET_FLD(&event->attr, sinkid);
+> >> +       if (sink_hash)
+> >> +               sink = user_sink = coresight_get_sink_by_id(sink_hash);
+> >>
+> >>          /* check if user wants a coresight configuration selected */
+> >> -       cfg_hash = (u32)((event->attr.config2 & GENMASK_ULL(63, 32)) >> 32);
+> >> +       cfg_hash = ATTR_CFG_GET_FLD(&event->attr, configid);
+> >>          if (cfg_hash) {
+> >>                  if (cscfg_activate_config(cfg_hash))
+> >>                          goto err;
+> >>
+> >> --
+> >> 2.34.1
+> >>
+> >
+> >
+>
 
-Best regards,
-Krzysztof
+
+-- 
+Mike Leach
+Principal Engineer, ARM Ltd.
+Manchester Design Centre. UK
 
