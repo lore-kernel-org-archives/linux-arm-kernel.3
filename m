@@ -4,114 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FC99CF258E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 07:25:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCCF8CF2567
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 07:27:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
-	:Cc:MIME-Version:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=49vW6mKGN2/Z4O8Jgy0czTepb6Rq/WdAgbHJY2d7Qmw=; b=3P4kHiTgJr3v38
-	W15bO5BkmqX7moxd4Gf1AfLYmAZJ+/x3JCFckMxO0TUfZLwcTk3Ek/LKdifhc2eg9lAXmo3fzwC01
-	lNUVMBwy0OGpXI11t3oMY7dk2Qpn5uGdc1gBMYPSz2wIBLkS9ATlGoClR8vwdY5eXoLGdL++CzAGf
-	/IRKL4zIw8VndTeGpbDTADe0oMD1eumm2x210Goz8S0McQuwjWqpKBuuloixBg7VKMURPJnQlLrao
-	zOlwHTw5QzQeWYqHPSLS5Ynf21s/wljjFTiYl+gvLcziR521Dlh4ofyTsoeIZqe6RAIu07w2Zoay7
-	cv0SrTwzFfNCQlJ+RXaw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kJDWerBWiN+yVAGOLUEvb9SRDA96atabibByy1k5Piw=; b=SM2lk3U5NlNCZ5ftAaFkAtTFcV
+	097IMjUxeKrxJOX5SU2O1wkJrxGMIaGSdGL3EKKe8RLfLPKi5foZhC1uxQavEnRJyPLhmurQm02Fk
+	XOLzSNEb71RKWK2U4pXaN2Xlz+e1QyRtLaGnW6dNZmy3GJAn8W/b97oJ7gfV3g8V2uDCT6UofCWq7
+	yF6gER3ssN0Qq24L9EqjF4YwnNo0d61OG8vy7T77ZNZc7BSL/9IihLp/0zXtoqiVOrdeLfsR6HWK1
+	f3uQTY+oDNf/syXJD/DR/3OjbiiJUodGQTJ0+i5ULUmkXiQ7/Vz45oD7oBp7EmRSxAOo+7V1nYTjQ
+	tESWxW/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLcZW-00000002hHa-0R6D;
-	Wed, 19 Nov 2025 07:25:46 +0000
-Received: from dragonfly.birch.relay.mailchannels.net ([23.83.209.51])
+	id 1vLcau-00000002hWz-19uk;
+	Wed, 19 Nov 2025 07:27:12 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLcZS-00000002hG9-3T4W;
-	Wed, 19 Nov 2025 07:25:44 +0000
-X-Sender-Id: hostingeremail|x-authuser|michael.opdenacker@rootcommit.com
-Received: from relay.mailchannels.net (localhost [127.0.0.1])
-	by relay.mailchannels.net (Postfix) with ESMTP id BBC99561A1A;
-	Wed, 19 Nov 2025 07:25:41 +0000 (UTC)
-Received: from de-fra-smtpout2.hostinger.io (100-99-165-60.trex-nlb.outbound.svc.cluster.local [100.99.165.60])
-	(Authenticated sender: hostingeremail)
-	by relay.mailchannels.net (Postfix) with ESMTPA id 505CF561D5C;
-	Wed, 19 Nov 2025 07:25:39 +0000 (UTC)
-ARC-Seal: i=1; a=rsa-sha256; d=mailchannels.net; s=arc-2022; cv=none;
-	t=1763537141;
-	b=SXZOMk+mLUWVr9hiGJDiD5WPGgaLnW2Korsd+tFcb4IodW4xwQAplgaRrEGjT+frbzFgV5
-	eEXrpkrjoA/ggggVfMxotbmHhT8Ds5xT2plkORDQRXdrzueCT8TjPcvaoAkl/k4cbiVRsy
-	X0qqGV0kzKiPSDOqjFKnmTfJvSoR0wtESjat93YZds/PKosoRxFuKs3RdYSodNgzVNtRSz
-	AWO1bUytSZoz0HeG9MlhHCYmXRBnI+kxmPF/34ZAkYV3qw3G+lp7561BlT6AbUL08ZVYp0
-	6Ywn5FOQzwggp2jkD994lV2v3twFE9kMun7OjxCA1nx2j/KjqZ0zYdgQR8/2eg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed;
- d=mailchannels.net;
-	s=arc-2022; t=1763537141;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:dkim-signature;
-	bh=49vW6mKGN2/Z4O8Jgy0czTepb6Rq/WdAgbHJY2d7Qmw=;
-	b=ChnunEDyH1e6JnKFkJstIGNayHR9ranHtJxPpB8xUSX1MG3eihu1U3U2qcL7BsFzChghDi
-	GZo80jblETorS3Tks5y1D1mbriTh+YAk9lYoqNVJCh4bPC/XaMiENX+8JEes8D0Bd1DT81
-	a/ZIbXlwEw2el2vUIg+qkkKspqPLT36xuiklre+etciDhU0tCcBHyogEaiTwSAO+1UPjL4
-	PN90L3qHjn8xMD359TmGhc5yIy9n2uMUlJSc4EwYwQdGhaOv/L83uGD/DHLH+xTBdrahV8
-	ON9KaDNK35zNKxML2EwThPWK9buFrZuigbCRDwFK6Y7a5K0TPtEiQ1mstwuq6g==
-ARC-Authentication-Results: i=1;
-	rspamd-5ffd6989c9-nm4jb;
-	auth=pass smtp.auth=hostingeremail
- smtp.mailfrom=michael.opdenacker@rootcommit.com
-X-Sender-Id: hostingeremail|x-authuser|michael.opdenacker@rootcommit.com
-X-MC-Relay: Neutral
-X-MailChannels-SenderId: hostingeremail|x-authuser|michael.opdenacker@rootcommit.com
-X-MailChannels-Auth-Id: hostingeremail
-X-Language-Wiry: 07163cef468b89d4_1763537141244_1147105000
-X-MC-Loop-Signature: 1763537141244:3022879499
-X-MC-Ingress-Time: 1763537141243
-Received: from de-fra-smtpout2.hostinger.io (de-fra-smtpout2.hostinger.io
- [148.222.55.5])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384)
-	by 100.99.165.60 (trex/7.1.3);
-	Wed, 19 Nov 2025 07:25:41 +0000
-Received: from [IPV6:2001:861:4450:d360:c546:29e2:335f:d5df] (unknown [IPv6:2001:861:4450:d360:c546:29e2:335f:d5df])
-	(Authenticated sender: michael.opdenacker@rootcommit.com)
-	by smtp.hostinger.com (smtp.hostinger.com) with ESMTPSA id 4dBCgj1Z8wz3wgc;
-	Wed, 19 Nov 2025 07:25:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rootcommit.com;
-	s=hostingermail-a; t=1763537137;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=49vW6mKGN2/Z4O8Jgy0czTepb6Rq/WdAgbHJY2d7Qmw=;
-	b=Mi5f0AimXbv/QvHajYw+l7A1RJRkGQqGcd2/DiC8aShJi8qiJNe4TefBAOGRw3ih6vztuf
-	tEGFR7JTWLtA3A7WhQMxb730rIKNBElsqvWHd6GyvR7B9cS8eDNJ254+f3Fe0H4jYwD6/Q
-	dFaEC7tg3PbeuBuwrbw4FOlrIBxxLVhXf38zZhlMUrww8Yv3ByQWkqNEhx/CXK5CNDVQqK
-	svcu/IKEAOCwE+mISeTOOnX8vH9dJX3sUfgVRYK9Xezw8zdpIY+fR4uQv7gA2BCrpdZFSf
-	odaxs8y1PoaSczSOQjZn2sH7Bm29+jVGVR7oGEftK8/3tL25K0M76rjf7XYz+g==
-Message-ID: <8fce39e0-62f7-4a79-83b8-e3a63af10e2f@rootcommit.com>
+	id 1vLcar-00000002hVf-1yne
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 19 Nov 2025 07:27:10 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 8467C405B4;
+	Wed, 19 Nov 2025 07:27:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 89BEDC4CEF5;
+	Wed, 19 Nov 2025 07:27:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1763537226;
+	bh=VkvhOm7Im9NgLtpOPK9Ghu9qT2h9mz/GyVCt//vfA7c=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=WhO9mwHDxV98gAchLiwpCG+KlIE2c1uS/9x3vAEoRyZPn32WURzsAUQgF/vAAv5xu
+	 KhSA1PATm9Oe1JjpqrFNIWIk3NYvGS6/+Rc07+w8xphZUVdSrq879yAlTfl46ex9dl
+	 AHhbmAvvMASzQPgZRa/e5kE8ccwirjMzxst/kzoglsm/siP1DLuoU5ABQGvH4gUKM1
+	 aK0LhtRX48pvKCN3gRGtB/aHTcyKaXSjIFKzS5EW9MaE9FsZk2GXtj0+tixwZ2S51S
+	 GcM7goKQVm/v+E4yD5Gw7tDGgatsA6SQ2DuZllJ8Xpy9CoVpGDhpiv7QNqWJ7vEM6+
+	 0xgw1gJByipUw==
+Date: Wed, 19 Nov 2025 08:27:02 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Antonio Borneo <antonio.borneo@foss.st.com>
+Cc: Linus Walleij <linus.walleij@linaro.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+	Alexandre Torgue <alexandre.torgue@foss.st.com>, linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, =?utf-8?Q?Cl=C3=A9ment?= Le Goffic <legoffic.clement@gmail.com>, 
+	Amelie Delaunay <amelie.delaunay@foss.st.com>, Pascal Paillet <p.paillet@foss.st.com>
+Subject: Re: [PATCH v2 02/15] dt-bindings: pinctrl: stm32: use strings for
+ enum property 'st,package'
+Message-ID: <20251119-ambitious-tuscan-scallop-ecc1b5@kuoka>
+References: <20251118161936.1085477-1-antonio.borneo@foss.st.com>
+ <20251118161936.1085477-3-antonio.borneo@foss.st.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Cc: michael.opdenacker@rootcommit.com, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, heiko@sntech.de, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 1/2] dt-bindings: arm: rockchip: Add Asus Tinker Board
- 3 and 3S
-To: Dragan Simic <dsimic@manjaro.org>
-References: <e4cd11d0-463c-e707-5110-6b92899b1ba3@manjaro.org>
- <0c224662-b3c2-4075-8b68-c0ae27421ba8@rootcommit.com>
- <3c96ee6b-dca7-1a0a-792b-f8c165ec997d@manjaro.org>
-Content-Language: en-US, fr
-From: Michael Opdenacker <michael.opdenacker@rootcommit.com>
-Organization: Root Commit
-In-Reply-To: <3c96ee6b-dca7-1a0a-792b-f8c165ec997d@manjaro.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-Date: Wed, 19 Nov 2025 07:25:37 +0000 (UTC)
-X-CM-Envelope: MS4xfERUWHQWiMV8pLBkWbvvGhDn9+Rj1a59Ys05xPrmL3MRHIdl0Keb354f8g0b9NFTSE98al/Vgkvrj5gtwff0Wo0Xy2IGWmnFICHumSLoUoPvQtLRxbCP 8CY5VmGNNwUvGhNwgsQV94nuqa5wka+DoGhQ7orXw/R1YAj+R8kZkkGmDgVpnjm0GFOC/XhKuoqZgMIGUArZqt4Td2JMX507m6+jGTJu/hOY6woCduzSl0iY jvd9pbqBSSV6iMOapzyt+InGpHlcQkPdX/R30HifuJqNSLC6Pd8UJUygpOF+MgJAd/3kRwwcs63ICRlsac+wUCtIMIHPoGQ69R3KqoT/iMDPXIVLuotbFOJP woT/3zmVwaEwrOQCUA57FFHaTgxotMRGkkIIFZSqclvJ+SVIsi0dTMdL30VU/F6tS3lCWjpq1bNMpzVgI66/lNW8RhfhU6BdFP2W3eFX9z3Hu9HKfqt7ODlW t4e6s67oxkhoV/ruvR8K8y28qB01isWAkaxRiMvudHEZZiAkqxjQ8/6Os0yeFRogmKyoziCEeLBk5rXLvmHH+aleyFywkWfaUfdvZVuaAfEYbVUSLHn+etbV 3l6FOqI3eJ9iTdLkp4E635cvpKcn+v0awT/iXFMGiynv0c/85H6hvpOh7iVjWoJTH8k=
-X-CM-Analysis: v=2.4 cv=Ceda56rl c=1 sm=1 tr=0 ts=691d70f1 a=ZT5r2a33aVEFtXz168a3Sg==:617 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10 a=d70CFdQeAAAA:8 a=ZwQsaBEdSMyVPtTqx_cA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10 a=NcxpMcIZDGm-g932nG_k:22
-X-AuthUser: michael.opdenacker@rootcommit.com
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20251118161936.1085477-3-antonio.borneo@foss.st.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251118_232543_162533_11B6043F 
-X-CRM114-Status: GOOD (  12.66  )
+X-CRM114-CacheID: sfid-20251118_232709_545885_F5209AE7 
+X-CRM114-Status: GOOD (  13.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,45 +78,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Dragan
+On Tue, Nov 18, 2025 at 05:19:23PM +0100, Antonio Borneo wrote:
+> The property 'st,package' reports the SoC package used in the
+> board DT and is used to inform the driver about which pins are
+> available for use by the pinctrl driver.
+> It has historically been declared as an uint32 enum, where each
+> value is a power of 2.
+> 
+> Deprecate the use of the numeric value and replace it with more
+> readable string values.
 
-Thanks for your reviews in busy times!
+The "SoC package" is defined by top-level compatible or by soc info
+driver. It is not the property of pinctrl, therefore if ever touching
+this, you should deprecate entire property instead of growing it.
 
-> This should let us keep the "asus,rk3566-tinker-board-3" compatible
-> in the new rk3566-tinker-board-3s.dts board dts while satisfying the
-> validation properly:
->
->    - description: Asus Tinker Board 3/3S
->      items:
->      - enum:
->          - asus,rk3566-tinker-board-3s
->      - const: asus,rk3566-tinker-board-3
->      - const: rockchip,rk3566
->
-> I'm quite busy at the moment, hence my delayed response, and I also
-> apologize for not running the checks on the above-proposed solution,
-> but I think it should work as expected.
-
-I actually already tried this, but it doesn't pass "make dtbs_check":
-
-arch/arm64/boot/dts/rockchip/rk3566-tinker-board-3.dtb: / 
-(asus,rk3566-tinker-board-3): compatible: 'oneOf' conditional failed, 
-one must be fixed:
-     ['asus,rk3566-tinker-board-3', 'rockchip,rk3566'] is too short
-
-The "enum" statement seems to mean that there is at least one of the 
-items, which is not the case for rk3566-tinker-board-3.dts that doesn't 
-have it.
-
-So, my V3 seems like the way to go if we don't want to duplicate entries 
-in rockchip.yaml.
-Cheers
-Michael.
-
--- 
-Michael Opdenacker
-Root Commit
-Yocto Project and OpenEmbedded Training course - Learn by doing:
-https://rootcommit.com/training/yocto/
+Best regards,
+Krzysztof
 
 
