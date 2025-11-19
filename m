@@ -4,91 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A35DCF258C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 09:38:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 715B8CF258C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 09:38:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZvKrScE2GNqmyt6rZOCcy2O8IhZG2sDdN09BsCaXkH0=; b=Sfv8UCKKMNdQIzxbC0L7ALnBSE
-	9EnZk0vd/bwnTa8DdxBR53olnTEKSFOojkcvs691yc0rd6AuoPUgw7G1iupBepzp10KcAdmJDLCZe
-	Bp7rKrSMsCpZj17fy5kX+uysREk8wE3YMOLpICyEx22EzoA7oWkyraQfU2zzsvaK+EYlpjCG6JW1Q
-	mWUFi9ZFrWTLSgfybLQNsWAmtQ+fRXkqh7kiPuWsnUwVX/ro8lyjb9qBcIcGNN2hAEkDsBphKd2HT
-	2/fdcHzc95HvW2K9sGTsiahRAI+on2fwEycu1ldmZnRBAx6dcIFSgKZr5fz62LAfei4id3xO+BFvY
-	5eEKbGTA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=mAVQG061YW725q/wmjUYBgy0COgl5nGBRM+6s0kYZuo=; b=buGnz2B/9bi7iRwfk8gSadUn7I
+	lhF7wTIjKWe+M2eEl/aKJzluGA1vwAQlDqmndDtpX6S2od2yYPhasBkKWAxAS4ZSgqJDRxsUVZ+7r
+	27JY/4OPVSzu3oRU2eDBATt0EiZkdxKsBX7+P4TUJ3LJ6NXOPIW3Ell21kBXGBV8qJ5JUBgyDzmUL
+	TPtwLTzZ5BMSAVheILTK7aHcF1SxcOYiJufQuei2hFegx4k9r31hyt0QNVSpWLxmX+BwRoALLIHzF
+	vkzY1bGKm75hJ7TB/Bypm56HQyweWlpcp71CSNrYJaQiRpI+a56JcPho9zZK8WZMAk/Sxx/PIzxfI
+	CLMnGNZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLedO-00000002sev-2byF;
-	Wed, 19 Nov 2025 09:37:54 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vLedW-00000002shI-3sqD;
+	Wed, 19 Nov 2025 09:38:02 +0000
+Received: from mail-dl1-x124a.google.com ([2607:f8b0:4864:20::124a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLedN-00000002sem-3A9b
+	id 1vLedS-00000002sfb-20w2
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Nov 2025 09:37:53 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D4ACF60126;
-	Wed, 19 Nov 2025 09:37:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8534EC16AAE;
-	Wed, 19 Nov 2025 09:37:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763545072;
-	bh=qJ27QqSqy2aQ8bR94H58fVNVBbRRWZpfIXXPaaaXVeg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=iPuKtQH6MddyMbxPVrr/nNCjUtZ7AXlEuqE0BlTxpgBNQw8YwN9ybmv46PRLnTfr1
-	 63jqWbn0bdP1csm8sgAysRQ6xur+JDVkUvvRgzF+C14HhGSwykRolb1e9h9imoKZ3C
-	 SApGLIm4eAzF44BbTxByeQFaiQriGYaIOsIqDsWNca94h1/d0BOoVXNmM049AEuNB6
-	 UHoXRIP+cGxGvQBCOvZTOCfXvbFC/24I7Sz+0LrzyjMxPAjnSVc/Ul0Ar8009lG1ug
-	 TSqpPcxgWV4qlDUKGjPTBwnk/IpS302LYiliwZRnpRi6P+Y1nl89qaC89OgFnHk5g1
-	 kzbIeumuGYXAA==
-Date: Wed, 19 Nov 2025 10:37:36 +0100
-From: Lorenzo Pieralisi <lpieralisi@kernel.org>
-To: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
-Cc: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Souvik Chakravarty <Souvik.Chakravarty@arm.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Andy Yan <andy.yan@rock-chips.com>,
-	Mark Rutland <mark.rutland@arm.com>, Arnd Bergmann <arnd@arndb.de>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	cros-qcom-dts-watchers@chromium.org, Vinod Koul <vkoul@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Moritz Fischer <moritz.fischer@ettus.com>,
-	John Stultz <john.stultz@linaro.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-	Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>,
-	Stephen Boyd <swboyd@chromium.org>,
-	Andre Draszik <andre.draszik@linaro.org>,
-	Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>,
-	linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-arm-msm@vger.kernel.org,
-	Elliot Berman <quic_eberman@quicinc.com>,
-	Xin Liu <xin.liu@oss.qualcomm.com>,
-	Srinivas Kandagatla <srini@kernel.org>,
-	Umang Chheda <umang.chheda@oss.qualcomm.com>,
-	Nirmesh Kumar Singh <nirmesh.singh@oss.qualcomm.com>
-Subject: Re: [PATCH v17 07/12] firmware: psci: Implement vendor-specific
- resets as reboot-mode
-Message-ID: <aR2P4CxQNebac6oU@lpieralisi>
-References: <20251109-arm-psci-system_reset2-vendor-reboots-v17-0-46e085bca4cc@oss.qualcomm.com>
- <20251109-arm-psci-system_reset2-vendor-reboots-v17-7-46e085bca4cc@oss.qualcomm.com>
- <aRIfc9iuC2b9DqI+@lpieralisi>
- <80e68e44-a8e0-464a-056e-9f087ad40d51@oss.qualcomm.com>
- <aRxmWrAkD0Vu4pF+@lpieralisi>
- <1da024e7-efb1-3a1c-cc13-0ae5212ed8bd@oss.qualcomm.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <1da024e7-efb1-3a1c-cc13-0ae5212ed8bd@oss.qualcomm.com>
+	Wed, 19 Nov 2025 09:37:59 +0000
+Received: by mail-dl1-x124a.google.com with SMTP id a92af1059eb24-11bd7a827fdso827c88.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Nov 2025 01:37:57 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1763545077; x=1764149877; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=mAVQG061YW725q/wmjUYBgy0COgl5nGBRM+6s0kYZuo=;
+        b=k+5++TcGbl0p2VCiBF5HTEdL7fck+r6wTl9f0I4/KuJMMAqTvnyiNcj0oGn0Mu0OsP
+         jyKRKGk2JIcRsK6FF0GdImXe4Fy9I9SVG2exK9sZQoq4MnNGBh0oP4jwFDYF9Xuveo3k
+         O3qHXV2QkwB5YR9aZmNykxRdISl/BnMsdAPT2cCDLjZIhTDDEeWJ3TS0yWumNMnM4sil
+         efF+wySl7v5M5A28ZQ+vnZ91/x/L9Sf8GCpRcUOMYdKtIpGaDUG0dqzwzk8lgTxJJxvV
+         QnnxxQMCg4vY+JTf08l/tMrOg7KGNCpuVS0PXklsU8Y23Msbg7OjuczZT3AA4k63Losw
+         gB3Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1763545077; x=1764149877;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=mAVQG061YW725q/wmjUYBgy0COgl5nGBRM+6s0kYZuo=;
+        b=AdA2Oxv8jyJ0lk+IUs7V4+7t8FCdnDi3MLkjnViVkpMlS0nVOQXh7oeOn0GuWaE7bo
+         k0EvtJtk2VXvxtw0x7czrn++3Ph6eb+D9XZGUkRftBQugZynSBxnluRLuJJW52fcUXcy
+         AkVTrxk+FUJ2RXy5i9fsy/yBiP0/fR2jajgkTQdsYtOua/MA29N0iWN/vKioX1HchQxk
+         fBSqU7DwpYarhpUPesfiVzfJ8tkuJLQ4r3gRbjtaI3fUpVv3j7z6UJJbrYjjsoxPVBH1
+         zYFOc4Yn59fz+iIGvpeJPfYnow0l/Y17TOhYQD1jDPQrFz1qKOLI6iunD+U/8oaZYckv
+         HQHQ==
+X-Forwarded-Encrypted: i=1; AJvYcCX0ak80xokNsDJayGqEIKOs7KG3xCgzKrZbrIqwwn300XyIrUJLLqCYDQE02Mq0HpWMGZDjU3eyHtNGwKsJmhI3@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyx4RW3CcXpnSEYo2w0liSdFCPmYEB/BwdphXvLtcPh/8OEmgum
+	9J+gVt+mgr0SmGFOw+++aEZAPdlNjkay4ktdcbcMpAcTPKXyJ1q59lXEZdaEe4vVzVFI86zZjg5
+	9dZJY3Q==
+X-Google-Smtp-Source: AGHT+IEjF6sLuOZO6K6uO5uOpAxqm66tBkwkp0GiH/cYEmkoiS90zBFbVK08yLSxq9hgLXgfWB6Zs/rO4SQ=
+X-Received: from dlbdm33.prod.google.com ([2002:a05:7022:6ba1:b0:119:49ca:6ba1])
+ (user=royluo job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:ff42:b0:11b:b6f7:563b
+ with SMTP id a92af1059eb24-11c8dd1e72cmr683912c88.1.1763545076721; Wed, 19
+ Nov 2025 01:37:56 -0800 (PST)
+Date: Wed, 19 Nov 2025 09:37:46 +0000
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.52.0.rc1.455.g30608eb744-goog
+Message-ID: <20251119093749.292926-1-royluo@google.com>
+Subject: [PATCH v7 0/2] Add Google Tensor SoC USB controller support
+From: Roy Luo <royluo@google.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Thinh Nguyen <Thinh.Nguyen@synopsys.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	Peter Griffin <peter.griffin@linaro.org>, 
+	"=?UTF-8?q?Andr=C3=A9=20Draszik?=" <andre.draszik@linaro.org>, Tudor Ambarus <tudor.ambarus@linaro.org>
+Cc: Joy Chakraborty <joychakr@google.com>, Naveen Kumar <mnkumar@google.com>, Roy Luo <royluo@google.com>, 
+	Badhri Jagan Sridharan <badhri@google.com>, Doug Anderson <dianders@google.com>, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-usb@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251119_013758_550073_0783BC66 
+X-CRM114-Status: GOOD (  16.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,106 +93,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 18, 2025 at 11:11:33PM +0530, Shivendra Pratap wrote:
+This series introduces USB controller support for the Google Tensor G5
+SoC (codename: Laguna), a new generation of Google silicon first
+launched with Pixel 10 devices.
 
-[...]
+The Tensor G5 represents a significant architectural overhaul compared
+to previous Tensor generations (e.g., gs101), which were based on Samsung
+Exynos IP. Although the G5 still utilizes Synopsys IP for the USB
+components, the custom top-level integration introduces a completely new
+design for clock, reset scheme, register interfaces and programming
+sequence, necessitating new drivers and device tree bindings.
 
-> > Yes this could be a potential way forward but that's decoupled from the
-> > options below. If we take this route PSCI maintainers should be added
-> > as maintainers for this reboot mode driver.
-> 
-> you mean the new psci_reset driver? yes. Maintainer would be PSCI maintainer,
-> if we create a new  psci_reset reboot mode driver.
+The USB subsystem on Tensor G5 integrates a Synopsys DWC3 USB 3.1
+DRD-Single Port controller with hibernation support, and a custom PHY
+block comprising Synopsys eUSB2 and USB 3.2/DP combo PHYs. The PHY
+support is sent as a separate patch series.
 
-Yes.
+Co-developed-by: Joy Chakraborty <joychakr@google.com>
+Signed-off-by: Joy Chakraborty <joychakr@google.com>
+Co-developed-by: Naveen Kumar <mnkumar@google.com>
+Signed-off-by: Naveen Kumar <mnkumar@google.com>
+Signed-off-by: Roy Luo <royluo@google.com>
+---
+Changes in v7:
+- Follow driver naming convention and rename the driver as "dwc3-google".
+Link to v6: https://lore.kernel.org/linux-usb/20251112123257.3755489-1-royluo@google.com 
 
-> >> - struct with pre-built psci reset_types - (warm, soft, cold). Currently
-> >>   only two modes supported, anything other than warm/soft defaults to cold.
-> >> - vendor resets to be added as per vendor choice, inside psci device tree(SOC specific).
-> >> - psci_reset registers with reboot-mode for registering  vendor resets. Here, we
-> >>   have a problem, the pre-built psci reset_types - (warm, soft, cold) cannot be added via
-> >>   reboot-mode framework.
-> > 
-> > Why ?
-> 
-> If we want the new psci_reset to take the reboot-mode framework route, is it ok to
-> add default modes (warm, cold) in the device tree?
-> If not, then the design of reboot-mode framework(power:reset:reboot-mode.c) needs to be
-> further changed to equip this new feature. 
+Changes in v6:
+- Use "lga" as SoC name instead of "gs5" to align with Tensor G5 device
+  tree https://lore.kernel.org/lkml/20251111192422.4180216-1-dianders@chromium.org
+Link to v5: https://lore.kernel.org/linux-usb/20251111130624.3069704-1-royluo@google.com
 
-Well, yes, all it needs to do is allowing prepopulated reboot modes on top
-of which DT based ones are added.
+Changes in v5:
+- Use syscon to access host_cfg and usbint_cfg MMIO space per
+  discussion in https://lore.kernel.org/linux-phy/89733ddf-8af3-42d0-b6e5-20b7a4ef588c@kernel.org
+- Make warn logs in dwc3_google_resume_irq() dev_dbg.
+Link to v4: https://lore.kernel.org/linux-usb/20251017233459.2409975-1-royluo@google.com
 
-I don't see any point in adding properties to the DT node to provide
-information we can already probe.
+Changes in v4:
+- Separate controller and phy changes into two distinct patch series.
+- Rename dwc3 core interrupt as "core".
+- Remove u2phy_apb clk/reset (moved to PHY)
+- Configure usb2only mode when usb3 phy is not present.
+- Adopt pm_ptr PM macros to fix build warnings.
+Link to v3: https://lore.kernel.org/linux-usb/20251010201607.1190967-1-royluo@google.com
 
-> If new psci_reset driver move away from reboot-mode framework(power:reset:reboot-mode.c), the driver
-> can have its own design, its own sysfs interface and maintained under psci Maintainer.
-> 
-> > 
-> >>   Should the new psci_reset driver, move away from reboot-mode
-> >>   framework as-well? And define its own parsing logic for psci_reset_types,
-> >>   and have its own restart_notifier instead of reboot_notifier?
-> > 
-> > No. As I said earlier, I think it makes sense to allow user space to
-> > select _all_ PSCI reset types - architected and vendor specific in
-> > a single reboot mode driver.
-> > 
-> > I believe that we must be able to have two well defined ways for
-> > issuing resets:
-> > 
-> > - one based on reboot mode driver
-> > - one based on reboot_mode variable interface
-> 
-> So may be in more details-
-> user space issues - reboot cold
->    -> go for psci_reset (as psci_sysrest2 does not has cold reset?)
-> user space issues - reboot warm or a vendor_reset
->    -> if psci_sysreset2 is supported - call psci_sysreset2 with required params.
->    ->   else
->    ->  go for psci_reset COLD
-> 
-> user space issues - reboot (no commands) or a panic_in_progress
->    -> fallback to reboot_mode 
->    ->  if (reboot_mode == WARM and psci_sysreset2 is supported )
->    ->     call psci_sysreset2 (ARCH WARM RESET)
->    ->  else
->    ->     go for psci_reset COLD
-> 
-> 
-> And we want to do this in two conditional statements in firmware:psci: psci_sys_reset
-> function?
-> Or am i not getting the point here?
+Changes in v3:
+- Align binding file name with the compatible string
+- Simplify the compatible property in binding to a single const value.
+- Add descriptive comments and use item list in binding.
+- Rename binding entries for clarity and brevity.
+Link to v2: https://lore.kernel.org/linux-usb/20251008060000.3136021-1-royluo@google.com
 
-You are getting the point.
+Changes in v2:
+- Reorder patches to present bindings first.
+- Update dt binding compatible strings to be SoC-specific (google,gs5-*).
+- Better describe the hardware in dt binding commit messages and
+  descriptions.
+- Adjust PHY driver commit subjects to use correct prefixes ("phy:").
+- Move PHY driver from a subdirectory to drivers/phy/.
+Link to v1: https://lore.kernel.org/linux-usb/20251006232125.1833979-1-royluo@google.com/
+---
+Roy Luo (2):
+  dt-bindings: usb: dwc3: Add Google Tensor G5 DWC3
+  usb: dwc3: Add Google Tensor SoC DWC3 glue driver
 
-Thanks,
-Lorenzo
+ .../bindings/usb/google,lga-dwc3.yaml         | 140 ++++
+ drivers/usb/dwc3/Kconfig                      |  10 +
+ drivers/usb/dwc3/Makefile                     |   1 +
+ drivers/usb/dwc3/dwc3-google.c                | 628 ++++++++++++++++++
+ 4 files changed, 779 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/usb/google,lga-dwc3.yaml
+ create mode 100644 drivers/usb/dwc3/dwc3-google.c
 
-> thanks,
-> Shivendra
-> 
-> > 
-> > Does this make sense everyone ? I don't know the history behind
-> > reboot_mode and the reboot mode driver framework I am just stating
-> > what I think makes sense to do for PSCI.
-> > 
-> > Thanks,
-> > Lorenzo
-> > 
-> >> - If new psci_reset driver move away from reboot-mode, we can get rid of the panic_notifier
-> >>   added in the psci code. Else, we may still need the panic_notifier for any kernel panic
-> >>   that occurs between reboot_notifier and restart_notifier?
-> >> - psci driver will export a function which will be called externally to set the current
-> >>   psci reset_type.
-> >> - psci_sys_reset in psci driver should remove the check on reboot_mode. It will default to
-> >>   cold reset (for the reason the current kernel defaults to cold reset in psci.)
-> >>   example change in psci_sys_reset:
-> >>     if(psci_system_reset2_supported && <psci_reset_new_struct_var> != cold)
-> >>        psci_sys_reset2(AS PER PARAMS FROM new psci_reset driver)
-> >>     else
-> >>        psci_sys_reset(COLD RESET)
-> >>
-> >> thanks,
-> >> Shivendra
+
+base-commit: 24172e0d79900908cf5ebf366600616d29c9b417
+-- 
+2.52.0.rc1.455.g30608eb744-goog
+
 
