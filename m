@@ -4,96 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 586BBCF394D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 16:12:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C236CF394D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 16:13:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ns4j4RIwbKPHEpeqvUPwTPGh7I+0wclJE3dPKxiT3aU=; b=TArrOxfg4hXo5IY6LvVAQvPV2Y
-	PHH5ISEQEn9H9U4xeW8RSDLj4xFzdseGhOMBMQcBHkXpaNsbsqvFzf3g46ec9EOFVYBlV3AHpBJ5G
-	2FtslZIulepdVZA25E9FC6BGNLnnxUCJTQ5j1wiO6SyrJjXA+AYy+PT7cAacDZ1LO+AwcdIwUarg7
-	X3i7wx67EdddZR12Q79dQTVcVGIEurXRj7UDmY5+2pN4lLIIYNpSGv2nEQtuXTaL8TjL9K68uGHhM
-	kwmScbfgrRZa096VBKPmgLze5v9wAgYseJAh+3mBR54KoUDSr8M5URO3Bu5T+P/NtTeqqPyvl+kss
-	auc7DAVA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=I2Z8/xcjTHwwelfJUI+eSlYaVGFYtTXFWiaz6vN1dqc=; b=SJgTDKuoFVzg27BM0wNwiM35LR
+	ydzmjFONjY1FpymNqz2YA5xYvuCqYVEj1i5tXz8wHjPyPVL7sygRybV1c5oOdPJYLaOWKm+CnsdMD
+	CErqkGiuXw8pJKdH9IYn1clMqEuCGFKeg2ixIScETCsKqCBt8qIA1CXiOMSzvbPJ3bXigvSPLQPiA
+	arRuueJGYB9PaxEfTl2j76zxf4Lqpgjqxcw9PmBSPnHVL57uuhlt0pcZd2Q05a9OzK0C5ky43cHGM
+	+QNa8+z0rXkH/J0ZKU35gQv9oCaULoySF9mVUO57khtaIPw/Qvl0KxIJ0Ur7YrQjCank6Gv2hrTKB
+	LZwQr0vg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLknK-00000003e94-1lVa;
-	Wed, 19 Nov 2025 16:12:34 +0000
-Received: from mail-ej1-x62e.google.com ([2a00:1450:4864:20::62e])
+	id 1vLkoF-00000003eGx-3KIh;
+	Wed, 19 Nov 2025 16:13:31 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLknI-00000003e8T-22JC
+	id 1vLkoC-00000003eGF-2CQl
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Nov 2025 16:12:33 +0000
-Received: by mail-ej1-x62e.google.com with SMTP id a640c23a62f3a-b734fcbf1e3so1040011866b.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Nov 2025 08:12:31 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1763568750; x=1764173550; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ns4j4RIwbKPHEpeqvUPwTPGh7I+0wclJE3dPKxiT3aU=;
-        b=YEZLYSHQS0MjyVLsU+MtOAWQ+ASDk/ZlA/K3T/u+pcOycxouth1sBV2U2KHBP1AzwL
-         +36InvKad7vV1l3E17Foqu+GwLnW+nNsizIMo5LgHFwuTR18DoB5kg2e5pgSPDrbk/C4
-         APS+QPyiIf3aF5t6ZVX9oqBuaq+d4w6tKwG25x3xa8AtwlsuyzofLfgPaykZpUYeUxpY
-         2EFh1dOWgw33g4CqCi+V4TIPuLQNeMAx0aoLt1ksTAayVbIQ/IwfvKc5TbaJ4/Amrbsc
-         T/MzOvVvlN4Wy8kz8X6FU2k8ok+C3WXi6dAAeIDPC7+EWBuVmWdxX2/JHWUYVQgEpcOe
-         MbJQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763568750; x=1764173550;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=ns4j4RIwbKPHEpeqvUPwTPGh7I+0wclJE3dPKxiT3aU=;
-        b=bcuE94Qila5b+UK/T901BW2aXQZd5TQxMveIU9Tw3QA2YTMlXWJlXltVkWZBIetFzI
-         Q08PBXVc3srWQIz+9fjCVowIEkaWaVd9WXWDIyQzdq8uTVtqNVnT2AocezFdzGmvw4P+
-         am91UbxogHL9qQdjLv8EtUw78gzI4Fz9Fcc6RVEq/Uix9wICnEIVaw4RAnGEwjw1uK59
-         wXmiP5mpDGk+/V1tzFwstjrv08wLaXlRYmKNIyQPCuGhaTUh02CqaJHs3rUpLUITXww8
-         rOXJYqYSJEnWcY07Vk+urGn06vEe08P4FvxHTGwzjfrTkuyLd/knN6YBADdR7MIAuuSC
-         zAdQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXXEVeVkTJlz2AjvwzW/jH8BYMVHT1w/FQZ02WeSKRPDUPD4zJ2bzmHYxISm++T7d3ep90eFTtQ6/2VwJVqcYiR@lists.infradead.org
-X-Gm-Message-State: AOJu0YwzdAvoAZPc3qVLuIaqWgYBkSZdjAiU3vM2B/+ZM6FpOa5o4HKY
-	+0zNYuSFgTDAnas1kkAnGGti6t3gP/annm4blktsghqMSH+5MSjYt6wKKDMlBINPE7r3/Y3wusQ
-	6wvsqixxMMXNn+x3XvX6LserQlqq7veE=
-X-Gm-Gg: ASbGncu4WekTPvjZD3lQ7e9v+yNVFRtF65wN2PXZjLb93pZQkD48vZMXIaQ1J9WlRT+
-	uK4SUHEP9tqpykhC5FOAqzKx6H839wlWvOdANC5jsvsNf34putmqjMdmE6PkxYjatiUL+1TT/0B
-	qkIEeX9qDErLbRyRQ1gCeVYeZv10js0RgxQQN5eln8ZFo6z4bPPMp8XR/vfoF/0c7/GdWow3frF
-	Sa1wuKjEGNHloj6UvlnFr0wTdVyrRNl3N/jQxerDcDMFBZvqTjJPcLZ7XtHcb0rZ6gqBwICP+2t
-	t5zlb+IKBa5+oapwSQtN0r8+jEL51tX5MrSuQx+gouniEpBO01RY/QXzXwSxpHS2NfTBx+RMxEt
-	5FOlQEw==
-X-Google-Smtp-Source: AGHT+IEXnOnIcDL+WQPyI15HzjNbUj9gMlbunsDk2m6BU1IUUvprig6gWCBeiXxf00hfMEvBu2U3Puz8te32xqRBXh4=
-X-Received: by 2002:a17:907:97d5:b0:b73:b05b:1f9c with SMTP id
- a640c23a62f3a-b73b05b204dmr1059457366b.14.1763568750356; Wed, 19 Nov 2025
- 08:12:30 -0800 (PST)
-MIME-Version: 1.0
-References: <20251119144327.13345-1-jszhang@kernel.org> <20251119144327.13345-2-jszhang@kernel.org>
- <aR3lg0aNaoT-_7SM@smile.fi.intel.com> <aR3niy7_jwzQSJ33@xhacker>
-In-Reply-To: <aR3niy7_jwzQSJ33@xhacker>
-From: Andy Shevchenko <andy.shevchenko@gmail.com>
-Date: Wed, 19 Nov 2025 18:11:53 +0200
-X-Gm-Features: AWmQ_bnLpUh6jMo81CBBtcjYva5xbsqWCBG913Ja6bqzpLYkudT9viHeiSVVbZs
-Message-ID: <CAHp75VcLjknMLZ60b7mUPqL2miT_x8EexQPhCFueua5vDg6uxg@mail.gmail.com>
-Subject: Re: [PATCH v3 01/15] gpio: dwapb: Use modern PM macros
+	Wed, 19 Nov 2025 16:13:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=I2Z8/xcjTHwwelfJUI+eSlYaVGFYtTXFWiaz6vN1dqc=; b=BRLKTIepSCsk2GgXJg5XJJxzcW
+	Q01F6+TnlEaz2bHGlKhI12kgEN1NM7BDaQppp5zAAEQgLiaRYg1O8m3hrzul7eWn3PeUTAEyNQOpa
+	Rgx0+25rJnZ+ulN9XZymfV0agn8derlOjokbo4zNIdphtx5TCR/mRxSrDnlp8i+i0nKmehDwFPUh5
+	wCiOZr9B+8svl8RWRnQAv4a7S5L+t4Ywut5foMAGHWsPDrty6gcPagQvHCDtrhcOxfMou91DOitEY
+	et5g38666G9rqA8DRHBDFSgfKlGwdg5LklhRdBbShOvASvSTou/TSBZ6hhPE1dz82M9F44q8Kr8CQ
+	VvsZowzA==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:33292)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1vLko3-0000000058C-3sRn;
+	Wed, 19 Nov 2025 16:13:19 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1vLko1-000000003Yg-3fGV;
+	Wed, 19 Nov 2025 16:13:17 +0000
+Date: Wed, 19 Nov 2025 16:13:17 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
 To: Jisheng Zhang <jszhang@kernel.org>
-Cc: Andy Shevchenko <andriy.shevchenko@intel.com>, Doug Berger <opendmb@gmail.com>, 
-	Florian Fainelli <florian.fainelli@broadcom.com>, bcm-kernel-feedback-list@broadcom.com, 
-	Linus Walleij <linus.walleij@linaro.org>, Bartosz Golaszewski <brgl@bgdev.pl>, 
-	Hoan Tran <hoan@os.amperecomputing.com>, Andy Shevchenko <andy@kernel.org>, 
-	Daniel Palmer <daniel@thingy.jp>, Romain Perier <romain.perier@gmail.com>, 
-	Grygorii Strashko <grygorii.strashko@ti.com>, Santosh Shilimkar <ssantosh@kernel.org>, 
-	Kevin Hilman <khilman@kernel.org>, Robert Jarzmik <robert.jarzmik@free.fr>, 
-	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>, Masami Hiramatsu <mhiramat@kernel.org>, 
-	Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>, Srinivas Neeli <srinivas.neeli@amd.com>, 
-	Michal Simek <michal.simek@amd.com>, linux-gpio@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-omap@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 resend] net: stmmac: add support for dwmac 5.20
+Message-ID: <aR3snSb1YUFh9Dwp@shell.armlinux.org.uk>
+References: <20251119153526.13780-1-jszhang@kernel.org>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251119153526.13780-1-jszhang@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251119_081232_533105_D523F5A4 
-X-CRM114-Status: GOOD (  13.15  )
+X-CRM114-CacheID: sfid-20251119_081328_567828_610069F7 
+X-CRM114-Status: GOOD (  13.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,28 +84,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 19, 2025 at 6:09=E2=80=AFPM Jisheng Zhang <jszhang@kernel.org> =
-wrote:
-> On Wed, Nov 19, 2025 at 05:42:59PM +0200, Andy Shevchenko wrote:
-> > On Wed, Nov 19, 2025 at 10:43:13PM +0800, Jisheng Zhang wrote:
+On Wed, Nov 19, 2025 at 11:35:26PM +0800, Jisheng Zhang wrote:
+> The dwmac 5.20 IP can be found on some synaptics SoCs. 
+> 
+> The binding doc has been already upstreamed by
+> commit 13f9351180aa ("dt-bindings: net: snps,dwmac: Add dwmac-5.20
+> version")
+> 
+> So we just need to add a compatibility flag in dwmac generic driver.
 
-...
+Do we _need_ to add it to the generic driver? Do the platforms that are
+using this really not need any additional code to support them?
 
-> > > -#ifdef CONFIG_PM_SLEEP
-> > >     struct dwapb_context    *ctx;
-> > > -#endif
-> >
-> > But why this? For the PM_SLEEP=3Dn cases it will give an unrequested ov=
-erhead.
->
-> the pm_ptr() and pm_sleep_ptr() can optimize out the PM related
-> functions, but those functions are still compiled, so if we keep the
-> #ifdef, there will be build errors.
+Looking at all the DT that mention dwmac-5.20 in their compatible
+strings, that is always after other compatibles that point to other
+platform specific drivers.
 
-Is this an expectation or you can share the error, please?
+So, can you point to a platform that doesn't have its own platform
+glue, and would be functional when using the dwmac-generic driver?
 
+For reference, the dts that refer to dwmac-5.20 are:
 
---=20
-With Best Regards,
-Andy Shevchenko
+arch/arm64/boot/dts/renesas/r9a09g047.dtsi
+arch/arm64/boot/dts/renesas/r9a09g056.dtsi
+arch/arm64/boot/dts/renesas/r9a09g057.dtsi
+arch/arm64/boot/dts/st/stm32mp251.dtsi
+arch/arm64/boot/dts/st/stm32mp253.dtsi
+arch/arm64/boot/dts/st/stm32mp233.dtsi
+arch/arm64/boot/dts/st/stm32mp231.dtsi
+arch/riscv/boot/dts/starfive/jh7110.dtsi
+
+Thanks.
+
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
