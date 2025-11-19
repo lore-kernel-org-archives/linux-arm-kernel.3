@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADE65CF259F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 15:01:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79641CF34C1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 15:02:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6kamw7Qr103EakFTak1A3yBf0p0k1SfrdhoyvN0scO8=; b=ejcQoiGBAEJ+jkfbwv8Vl7n5mn
-	GKnOcDpDtOODaUDnlWfxWJLwl/lnG0XzdB7f9er06I8cl98k+mYzaZA2eOUnYwornlqlHy+DDo32R
-	DS/hDWasx3X4FIl0Kdkre8ZpoqUycgNecOPiXbvG/zM1BCz4XMvbe2DwDgyhPy0GmRArGb2sATP5s
-	+CnfQDXrgE43tsFwqNz8+87X9abU/lRGMCIxS0NE89+eMxdEA50RQJwurRnduT6NciRRHZv/aFQlv
-	Yc2G7pSyi2ZXpt2iSsTW8mPh/LY8kO1Lm7rQeXV8McuI6SM6NbsZek99G/70bIVvo9QzhCurCdI4Z
-	MitpBEcw==;
+	bh=Y7LUCdO1BgaeMVP+xZp6KDn3mHqbh1ictcHBDADr/L0=; b=pvVENc3qNUQ2a/YKuSHquUxDcY
+	9fr0/rWTbUKV9T9up4Fc13dQEiBM+w059vFt14yYsvq+QaJwUQtnwpSJbrMuVg5lXxkX9Kf0Tiju3
+	nW/f6SN/RoxhcXfXsrsJiuyJe6FfPchno1zSC1TtAn+grEVPzbKjxeRll10OYn4AgJfwWqgNG+yEG
+	LssRO3UhtBwhmdj7SmDE9uEQJEtf8lfDIIg2VZaj+jogftrRtzxpbxeKtKzsHMZXzAfwymwcYfQ4H
+	nL9cbhYSCnuOnLdCsmZ/Wrdj7PuTpAaRG/Fy/MD4PihUeSr0fdFXMIMyDlF2MW9ZwEIzy/wwFHkzW
+	1nUUtxjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLjgr-00000003Qep-1jlC;
-	Wed, 19 Nov 2025 15:01:49 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vLjgz-00000003Qhn-0tqH;
+	Wed, 19 Nov 2025 15:01:57 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLjgp-00000003QdN-02am
+	id 1vLjgx-00000003Qh7-2pLL
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Nov 2025 15:01:48 +0000
+	Wed, 19 Nov 2025 15:01:55 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5DB91401E6;
+	by tor.source.kernel.org (Postfix) with ESMTP id D95D960172;
+	Wed, 19 Nov 2025 15:01:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A5479C2BCF4;
 	Wed, 19 Nov 2025 15:01:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3A102C2BCB1;
-	Wed, 19 Nov 2025 15:01:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763564506;
-	bh=DI/09/CPRQP8uNpe7E8yAQK0B+90Wi0+Sy091DCDiog=;
+	s=k20201202; t=1763564514;
+	bh=ayYd92BzXLAvZa6PV9kCTiwUJsvbLOFJ9xxXZLTfmYE=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=KgkIqwiyXSW16mLtBlHhk1qG1iZADqoFq6vuMHGdfV47AKp3EKGgmTpvW/j9SI3PO
-	 eyZWOM6NGrRsaHtHjo3mvp7oX8u0XqvJiSYmlqJ7V0WxpLVuI9/OYdyLn6sTioC2bA
-	 EqBYU2KDTtcBpbFkSloadk22H2SSRmChuzmMGsJ2iisbXQ+msrkQOO5ORZk4xo4yNy
-	 ke/Z/biJBlr87rfRPOg8Ywjma7/F7S9zRFwc0l07OnlL9OqzEAvCamHsUFPfxXUdhi
-	 LeB6a7bTI8qra2xMWQ7bkCK9cB+ReJ94goCGGs9hl1gEbGdOOoUsyTz2yfUhmjwxLy
-	 n+QllIMNiarRw==
+	b=HVoSsvhYV2SgT6ZAcvZjUiBtzE0eAMr9Nv0usDcUAuTJR3+1mnFDyehdVnVRd7rfK
+	 +fETEwL5UZaDYwrdEs1bpiVlQZUMTnCoNAx3D7lXwogJ2gDfi3QCD3aPYpjs1gEe//
+	 OPpnhOsEy7J2VCKdULWzb3oc9uXES1dzC6soESUiixjZhTAa6/KGpZNKo2LW0u7Pbg
+	 LxTgn/fDwleAu0tSKqgBrI5st1xw28Vpw77mssYjGLr29596xSioLRGC84n7hykCmI
+	 N2BCyuhivoJyh9zBbvPd4cD78edSFor88QlzR5XS0+W+fZZVt38p/rA+lAXBvLt73A
+	 IEjQs7FrM5+gg==
 From: Jisheng Zhang <jszhang@kernel.org>
 To: Doug Berger <opendmb@gmail.com>,
 	Florian Fainelli <florian.fainelli@broadcom.com>,
@@ -65,17 +65,14 @@ Cc: linux-gpio@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	linux-omap@vger.kernel.org
-Subject: [PATCH v3 03/15] gpio: htc-egpio: Use modern PM macros
-Date: Wed, 19 Nov 2025 22:43:15 +0800
-Message-ID: <20251119144327.13345-4-jszhang@kernel.org>
+Subject: [PATCH v3 04/15] gpio: pl061: Use modern PM macros
+Date: Wed, 19 Nov 2025 22:43:16 +0800
+Message-ID: <20251119144327.13345-5-jszhang@kernel.org>
 X-Mailer: git-send-email 2.51.0
 In-Reply-To: <20251119144327.13345-1-jszhang@kernel.org>
 References: <20251119144327.13345-1-jszhang@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251119_070147_091109_717C7A45 
-X-CRM114-Status: GOOD (  15.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,66 +95,81 @@ This has the advantage of always compiling these functions in,
 independently of any Kconfig option. Thanks to that, bugs and other
 regressions are subsequently easier to catch.
 
-Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-Reviewed-by: Florian Fainelli <florian.fainelli@broadcom.com>
----
- drivers/gpio/gpio-htc-egpio.c | 21 ++++++++-------------
- 1 file changed, 8 insertions(+), 13 deletions(-)
+The pl061_context_save_regs structure is always embedded into struct
+pl061 to simplify code, so this brings a tiny 8 bytes memory overhead
+for !CONFIG_PM_SLEP.
 
-diff --git a/drivers/gpio/gpio-htc-egpio.c b/drivers/gpio/gpio-htc-egpio.c
-index 2eaed83214d8..72935d6dbebf 100644
---- a/drivers/gpio/gpio-htc-egpio.c
-+++ b/drivers/gpio/gpio-htc-egpio.c
-@@ -364,21 +364,20 @@ static int __init egpio_probe(struct platform_device *pdev)
+Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+Reviewed-by: Linus Walleij <linus.walleij@linaro.org>
+Acked-by: Linus Walleij <linus.walleij@linaro.org>
+---
+ drivers/gpio/gpio-pl061.c | 17 ++---------------
+ 1 file changed, 2 insertions(+), 15 deletions(-)
+
+diff --git a/drivers/gpio/gpio-pl061.c b/drivers/gpio/gpio-pl061.c
+index 02e4ffcf5a6f..919cf86fd590 100644
+--- a/drivers/gpio/gpio-pl061.c
++++ b/drivers/gpio/gpio-pl061.c
+@@ -37,7 +37,6 @@
+ 
+ #define PL061_GPIO_NR	8
+ 
+-#ifdef CONFIG_PM
+ struct pl061_context_save_regs {
+ 	u8 gpio_data;
+ 	u8 gpio_dir;
+@@ -46,7 +45,6 @@ struct pl061_context_save_regs {
+ 	u8 gpio_iev;
+ 	u8 gpio_ie;
+ };
+-#endif
+ 
+ struct pl061 {
+ 	raw_spinlock_t		lock;
+@@ -55,9 +53,7 @@ struct pl061 {
+ 	struct gpio_chip	gc;
+ 	int			parent_irq;
+ 
+-#ifdef CONFIG_PM
+ 	struct pl061_context_save_regs csave_regs;
+-#endif
+ };
+ 
+ static int pl061_get_direction(struct gpio_chip *gc, unsigned offset)
+@@ -367,7 +363,6 @@ static int pl061_probe(struct amba_device *adev, const struct amba_id *id)
  	return 0;
  }
  
 -#ifdef CONFIG_PM
--static int egpio_suspend(struct platform_device *pdev, pm_message_t state)
-+static int egpio_suspend(struct device *dev)
+ static int pl061_suspend(struct device *dev)
  {
--	struct egpio_info *ei = platform_get_drvdata(pdev);
-+	struct egpio_info *ei = dev_get_drvdata(dev);
- 
--	if (ei->chained_irq && device_may_wakeup(&pdev->dev))
-+	if (ei->chained_irq && device_may_wakeup(dev))
- 		enable_irq_wake(ei->chained_irq);
+ 	struct pl061 *pl061 = dev_get_drvdata(dev);
+@@ -411,13 +406,7 @@ static int pl061_resume(struct device *dev)
  	return 0;
  }
  
--static int egpio_resume(struct platform_device *pdev)
-+static int egpio_resume(struct device *dev)
- {
--	struct egpio_info *ei = platform_get_drvdata(pdev);
-+	struct egpio_info *ei = dev_get_drvdata(dev);
- 
--	if (ei->chained_irq && device_may_wakeup(&pdev->dev))
-+	if (ei->chained_irq && device_may_wakeup(dev))
- 		disable_irq_wake(ei->chained_irq);
- 
- 	/* Update registers from the cache, in case
-@@ -386,19 +385,15 @@ static int egpio_resume(struct platform_device *pdev)
- 	egpio_write_cache(ei);
- 	return 0;
- }
--#else
--#define egpio_suspend NULL
--#define egpio_resume NULL
+-static const struct dev_pm_ops pl061_dev_pm_ops = {
+-	.suspend = pl061_suspend,
+-	.resume = pl061_resume,
+-	.freeze = pl061_suspend,
+-	.restore = pl061_resume,
+-};
 -#endif
++static DEFINE_SIMPLE_DEV_PM_OPS(pl061_dev_pm_ops, pl061_suspend, pl061_resume);
  
-+static DEFINE_SIMPLE_DEV_PM_OPS(egpio_pm_ops, egpio_suspend, egpio_resume);
- 
- static struct platform_driver egpio_driver = {
- 	.driver = {
- 		.name = "htc-egpio",
- 		.suppress_bind_attrs = true,
-+		.pm = pm_sleep_ptr(&egpio_pm_ops),
+ static const struct amba_id pl061_ids[] = {
+ 	{
+@@ -431,9 +420,7 @@ MODULE_DEVICE_TABLE(amba, pl061_ids);
+ static struct amba_driver pl061_gpio_driver = {
+ 	.drv = {
+ 		.name	= "pl061_gpio",
+-#ifdef CONFIG_PM
+-		.pm	= &pl061_dev_pm_ops,
+-#endif
++		.pm	= pm_sleep_ptr(&pl061_dev_pm_ops),
  	},
--	.suspend      = egpio_suspend,
--	.resume       = egpio_resume,
- };
- 
- static int __init egpio_init(void)
+ 	.id_table	= pl061_ids,
+ 	.probe		= pl061_probe,
 -- 
 2.51.0
 
