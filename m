@@ -4,97 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16B1BCF34B7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 14:43:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9584ECF34B7
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 14:46:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=U4rPsaXkkkPPqP8F89aStRjGcZr5tE7ulQ3b9FN2Uak=; b=CCmoVIeXKeBmpm
-	8Z5kmuwWDIdgkFFUEjAhcksErDK+9Od4JZQR711zz2HLSmvBEEo/J/UzZjD+i4sZDBow2duHEEgOL
-	YpEch4/KcUKsjLeDmEdB5xQINDDem/d5FDEDHbaYKONSBzxC+M/hLb7nD/Uw20YAMqb0buc2TKt5B
-	79bHW4mhlZuVgHY7LLbwIwtZ7EOQ9R4Fzi3bKVVWKj/Hg9We+wa3uFqCKszddN/6jYTnBfTTc0dDs
-	i7CItmwj9zOy7oh5KWcFV8b86UPPwptQHL8CeDQhB5SVEGjOEgNK9qyFSRsACa7oQcQphIikBUhQz
-	0jfLiekolyGIuJvfrRGQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/Kv16EiRpPt/014C5NNQPb285u2GctpePz/vPRWF0XE=; b=BqOdYbIcI0beKveu1BcR9k72ge
+	KtmM1VUOFDkJE81ENk6ZcYgEEXl/RLlfpWwGZfBmV+Z4Tro+XnbpZgK6JyAbdSkns12xaUdQOINse
+	SC/89R0vgD4AjDn6CWRLgWUjDdkMvIXs1mKvc+DB7BeGZ7IZt7r81Ehyg0MGW6KPpO5XoL0dzUKi4
+	tI6xiiT+nda96zamvNOhc0ChGTRICOnUfBsmDhZuPukmHkxMNn2iBcstAtZdNKZ02JtwGBHEwRMlg
+	2Qr0c4BsZB8dv9dTkGMs8+rmmFbl77NsoXtIVCBRDtjjkk960CLDuqUVPBD7o5SlDkUjY6KfVwLVW
+	kWTMxgMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLjPI-00000003OhF-2CBp;
-	Wed, 19 Nov 2025 14:43:40 +0000
-Received: from mail-lf1-f53.google.com ([209.85.167.53])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLjPF-00000003OgE-1km6
+	id 1vLjRw-00000003P6i-2SRx;
+	Wed, 19 Nov 2025 14:46:24 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vLjRt-00000003P5j-2Vh2
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Nov 2025 14:43:38 +0000
-Received: by mail-lf1-f53.google.com with SMTP id 2adb3069b0e04-5969c5af23bso469134e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Nov 2025 06:43:36 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763563415; x=1764168215;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :reply-to:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=U4rPsaXkkkPPqP8F89aStRjGcZr5tE7ulQ3b9FN2Uak=;
-        b=WcOWJ7Sg24iY6cr8JjEwZO2Tdm3vW6IHtAKXIgJZ3lzqgN0JhyGWVK3NeF65UfCr0i
-         hF1WbMbVr2+FhlN9ObrRIRUNDeLd3AbFAk62DS4+yLGgfOJ5gwKio8NImgnQlR3hLDBI
-         obQSPbU/1qE8zIXhFnfEQE9hLrmZ9qtr1MZ18S5mGOLE/oSo8UwoUh7aP0NGZ2bHF+uc
-         NyTM13xH2CFxDlN9UUYA6wOHCr/VsPBJ8Ct64yUT3vd8h5mY2A4Phc/uef54AehGsDJe
-         /30uCw5qjZRdpUIZ9HAmPpOf9ebbnGX99ns9ZeAi/bEfZ0IsP3SbN7ckmEao5r3PNLwN
-         SSBg==
-X-Forwarded-Encrypted: i=1; AJvYcCU3iwpxj91xQFMdOHhthHelM6oUQoYhDpSnSWh3cJxALF4lFLhMhfsojh2oQhq3+9TOGy+DOhsTxL32h1YumUZ7@lists.infradead.org
-X-Gm-Message-State: AOJu0YzTB2XauOGMjbNJ0JRh3CIC4wbcMhSED29RT3/4Gy4Uhe6ujgcH
-	6+TlLa0P5wWF7ryBU73P7umjlsabdQiCcJYwE1OoXRXDdcyaaoGhjTJbiYYJT0Di
-X-Gm-Gg: ASbGnctcbk3KwcEjJW7qzytg7B7OX0nfl2pjEArYWFH/xW9uANBLyrdj4/XTW5bW5pl
-	lG0H9aoGpz4HI0/39+Zxkzv0I7tBK3S/5guXRM6v+Wl+uKfFIex6OTuZJOGnGiZIEi2VwkfKY7z
-	d1BhiTroNjIoM46xzakuZstfn5sOOScaakbIWsmwhnHF8yPflg1MkFkj3HtdNJwTFqZp6jV7wYp
-	+gqi2H8lQb/hAcG1cV8AJNwtxFr/o7gFC/nX639IjXWDxKi2lALI2mfTkzyap6yei3qf32+xsbm
-	8nCBJyQwVFexWFHlryW5JNAWWEXHdR/8LeFHENfQES9V19a4r+sIGIQ3O04yt7ZABzHi7dwSg9h
-	ecSfNleT5cK1grVqzmd5Xig4mlS8gYCKkflt6cGwaSBY8QhLdz9eBySOt84BZbth63PJxUcVdE0
-	x6SrCZhMIOphcMHDCD3VvQhpa1X15budDinVsYzns/vJ0=
-X-Google-Smtp-Source: AGHT+IHbsJWQHsAVP5b5Q+auorJzpkLyjP2x1rMXr4k5lObQKM/B3mifvljHxtka0y2Gzlw4Kw65ZQ==
-X-Received: by 2002:a05:6512:3b9f:b0:594:4b7f:f946 with SMTP id 2adb3069b0e04-595841f981emr8362482e87.33.1763563414856;
-        Wed, 19 Nov 2025 06:43:34 -0800 (PST)
-Received: from mail-lj1-f174.google.com (mail-lj1-f174.google.com. [209.85.208.174])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-595803b30cfsm4760488e87.32.2025.11.19.06.43.33
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 19 Nov 2025 06:43:34 -0800 (PST)
-Received: by mail-lj1-f174.google.com with SMTP id 38308e7fff4ca-37a5bc6b491so53346851fa.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Nov 2025 06:43:33 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCWDQC02d0IZHhSpmlKIdRogpEz0nOAPGrdbcBH+PFIpjHBiJgXZ5hjBMGhK0KSx8JMXwH127i2+FsMaln0d4I61@lists.infradead.org
-X-Received: by 2002:a2e:9ace:0:b0:372:904d:add4 with SMTP id
- 38308e7fff4ca-37babd35f8amr45635351fa.28.1763563413779; Wed, 19 Nov 2025
- 06:43:33 -0800 (PST)
+	Wed, 19 Nov 2025 14:46:23 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A8590FEC;
+	Wed, 19 Nov 2025 06:46:09 -0800 (PST)
+Received: from [10.1.37.75] (unknown [10.1.37.75])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4889C3F740;
+	Wed, 19 Nov 2025 06:46:15 -0800 (PST)
+Message-ID: <a0ff9d15-c0e8-4ba2-9187-2abbe5676b01@arm.com>
+Date: Wed, 19 Nov 2025 14:46:13 +0000
 MIME-Version: 1.0
-References: <aR2V0Kib7j0L4FNN@shell.armlinux.org.uk> <E1vLf2U-0000000FMN2-0SLg@rmk-PC.armlinux.org.uk>
-In-Reply-To: <E1vLf2U-0000000FMN2-0SLg@rmk-PC.armlinux.org.uk>
-From: Chen-Yu Tsai <wens@csie.org>
-Date: Wed, 19 Nov 2025 22:43:18 +0800
-X-Gmail-Original-Message-ID: <CAGb2v65syu47YAy8-24LDXt1MC2K7r+weOyCWn5fZzRgSFhnDA@mail.gmail.com>
-X-Gm-Features: AWmQ_bnEwqpydG-ZRtqWc8I4l30DitJuwNrACYzTdhyRCjLGsAnpeFb-cKD8BLA
-Message-ID: <CAGb2v65syu47YAy8-24LDXt1MC2K7r+weOyCWn5fZzRgSFhnDA@mail.gmail.com>
-Subject: Re: [PATCH net-next 1/3] net: stmmac: pass struct device to
- init()/exit() methods
-To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>, 
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, Andrew Lunn <andrew+netdev@lunn.ch>, 
-	"David S. Miller" <davem@davemloft.net>, Drew Fustini <fustini@kernel.org>, 
-	Eric Dumazet <edumazet@google.com>, Fu Wei <wefu@redhat.com>, Guo Ren <guoren@kernel.org>, 
-	Heiko Stuebner <heiko@sntech.de>, Jakub Kicinski <kuba@kernel.org>, Jan Petrous <jan.petrous@oss.nxp.com>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Keguang Zhang <keguang.zhang@gmail.com>, 
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org, 
-	linux-renesas-soc@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, linux-stm32@st-md-mailman.stormreply.com, 
-	linux-sunxi@lists.linux.dev, 
-	Maxime Chevallier <maxime.chevallier@bootlin.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
-	netdev@vger.kernel.org, Paolo Abeni <pabeni@redhat.com>, s32@nxp.com, 
-	Samuel Holland <samuel@sholland.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 2/3] coresight: tmc: refactor the tmc-etr mode setting
+ to avoid race conditions
+Content-Language: en-GB
+To: hejunhao <hejunhao3@h-partners.com>, james.clark@linaro.org,
+ mike.leach@linaro.org, leo.yan@arm.com
+Cc: anshuman.khandual@arm.com, yeoreum.yun@arm.com,
+ coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, jonathan.cameron@huawei.com,
+ Linuxarm <linuxarm@huawei.com>
+References: <20251111122149.1981162-1-hejunhao3@h-partners.com>
+ <20251111122149.1981162-3-hejunhao3@h-partners.com>
+ <15868ecb-c1e7-4273-a2e2-5c10f2701c0b@arm.com>
+ <14a564bf-f9a2-c49c-9cd6-a5b68bc43500@h-partners.com>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <14a564bf-f9a2-c49c-9cd6-a5b68bc43500@h-partners.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251119_064337_467759_FED19736 
-X-CRM114-Status: GOOD (  13.47  )
+X-CRM114-CacheID: sfid-20251119_064621_721558_2C9C1635 
+X-CRM114-Status: GOOD (  43.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,37 +68,378 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: wens@csie.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 19, 2025 at 6:04=E2=80=AFPM Russell King (Oracle)
-<rmk+kernel@armlinux.org.uk> wrote:
->
-> As struct plat_stmmacenet_data is not platform_device specific, pass
-> a struct device into the init() and exit() methods to allow them to
-> become independent of the underlying device.
->
-> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
-> ---
->  .../ethernet/stmicro/stmmac/dwmac-anarion.c   |  4 +--
->  .../ethernet/stmicro/stmmac/dwmac-eic7700.c   |  4 +--
->  .../ethernet/stmicro/stmmac/dwmac-loongson1.c | 12 ++++----
->  .../stmicro/stmmac/dwmac-renesas-gbeth.c      |  4 +--
->  .../net/ethernet/stmicro/stmmac/dwmac-s32.c   | 14 +++++-----
->  .../ethernet/stmicro/stmmac/dwmac-socfpga.c   |  2 +-
->  .../net/ethernet/stmicro/stmmac/dwmac-sti.c   |  4 +--
+On 15/11/2025 02:09, hejunhao wrote:
+> 
+> 
+> On 2025/11/13 23:02, Suzuki K Poulose wrote:
+>> Hi Junhao,
+>>
+>> While your patch fixes the problem it introduces imbalance in the
+>> way perf vs sysfs modes are handled.
+>>
+> 
+> Hi Suzuki,
+> 
+> Thank you for your comments.
+> 
+> What you mean is that, as long as tmc_etr_enable_hw() has not yet been
+> called (i.e., ETR hasn't been fully enabled), both the perf and sysfs 
+> sessions
+> have the opportunity to take ownership of ETR device?
+> 
+> Based on the following sysfs-based ETR enablement sequence, the spinlock is
+> released at two points (denoted as points a and b).
+> At either of these points, perf may acquire the lock and invoke
+> tmc_etr_enable_hw() to complete the ETR initialization, resulting in
+> ETR_mode == PERF. This would interrupt the ongoing sysfs enablement
+> flow and effectively give precedence to perf over sysfs.
+> 
+> mode:
+>    [sysfs mode]
+>    tmc_enable_etr_sink_sysfs()
+>      tmc_etr_get_sysfs_buffer()
+>        spin_lock(&drvdata->spinlock)
+>        sysfs_buf = READ_ONCE(drvdata->sysfs_buf);
+>        if (!sysfs_buf || (sysfs_buf->size != drvdata->size))
+>          spin_unlock(&drvdata->spinlock)  <-- point a
+>          [sysfs buffer allocation]
+>          spin_lock(&drvdata->spinlock)
+>        drvdata->sysfs_buf = new_buf;
+>        spin_unlock(&drvdata->spinlock)  <-- point b
+>      spin_lock(&drvdata->spinlock)
+>      tmc_etr_enable_hw()
+>      spin_unlock(&drvdata->spinlock)
+> 
+>    [perf mode]
+>    tmc_enable_etr_sink_perf()
+>      spin_lock(&drvdata->spinlock)
+>      tmc_etr_enable_hw()
+>      spin_unlock(&drvdata->spinlock)
+> 
+> After the patch, both the perf and sysfs sessions contend fairly for the 
+> lock at
+> the entry point of tmc_enable_etr_sink(). The first to acquire the lock 
+> gains
+> exclusive control over the ETR sink for the remainder of the session.
+
+TBH, we don't care about fairness of the different modes of operation.
+
+1. Perf must be given the priority - Because that provides a full easy
+framework for making any meaningful sense of the trace.
+
+2. Sysfs mode should be only used for custom use cases, where you have
+full control of the system. (e.g., System bringup, Validation or event
+crash capture).
+
+In other words, if someone wants to use sysfs mode they must know what
+they are doing and not run any perf session in parallel.
+
+Thanks
+Suzuki
 
 
->  .../net/ethernet/stmicro/stmmac/dwmac-sun8i.c | 10 +++----
->  .../net/ethernet/stmicro/stmmac/dwmac-sunxi.c |  4 +--
+> 
+>> On 11/11/2025 12:21, Junhao He wrote:
+>>> From: Junhao He <hejunhao3@huawei.com>
+>>>
+>>> When trying to run perf and sysfs mode simultaneously, the WARN_ON()
+>>> in tmc_etr_enable_hw() is triggered sometimes:
+>>>
+>>>   WARNING: CPU: 42 PID: 3911571 at drivers/hwtracing/coresight/ 
+>>> coresight-tmc-etr.c:1060 tmc_etr_enable_hw+0xc0/0xd8 [coresight_tmc]
+>>>   [..snip..]
+>>>   Call trace:
+>>>    tmc_etr_enable_hw+0xc0/0xd8 [coresight_tmc] (P)
+>>>    tmc_enable_etr_sink+0x11c/0x250 [coresight_tmc] (L)
+>>>    tmc_enable_etr_sink+0x11c/0x250 [coresight_tmc]
+>>>    coresight_enable_path+0x1c8/0x218 [coresight]
+>>>    coresight_enable_sysfs+0xa4/0x228 [coresight]
+>>>    enable_source_store+0x58/0xa8 [coresight]
+>>>    dev_attr_store+0x20/0x40
+>>>    sysfs_kf_write+0x4c/0x68
+>>>    kernfs_fop_write_iter+0x120/0x1b8
+>>>    vfs_write+0x2c8/0x388
+>>>    ksys_write+0x74/0x108
+>>>    __arm64_sys_write+0x24/0x38
+>>>    el0_svc_common.constprop.0+0x64/0x148
+>>>    do_el0_svc+0x24/0x38
+>>>    el0_svc+0x3c/0x130
+>>>    el0t_64_sync_handler+0xc8/0xd0
+>>>    el0t_64_sync+0x1ac/0x1b0
+>>>   ---[ end trace 0000000000000000 ]---
+>>>
+>>> Since the sysfs buffer allocation and the hardware enablement is not
+>>> in the same critical region, it's possible to race with the perf
+>>>
+>>> mode:
+>>>    [sysfs mode]                   [perf mode]
+>>>    tmc_etr_get_sysfs_buffer()
+>>>      spin_lock(&drvdata->spinlock)
+>>>      [sysfs buffer allocation]
+>>>      spin_unlock(&drvdata->spinlock)
+>>> spin_lock(&drvdata->spinlock)
+>>>                                   tmc_etr_enable_hw()
+>>>                                     drvdata->etr_buf = etr_perf->etr_buf
+>>> spin_unlock(&drvdata->spinlock)
+>>>   spin_lock(&drvdata->spinlock)
+>>
+>> ^^ Could we not double check the mode here and break out ?
+>>
+>> Something like this :
+>>
+>>
+>> diff --git a/drivers/hwtracing/coresight/coresight-tmc-etr.c b/ 
+>> drivers/hwtracing/coresight/coresight-tmc-etr.c
+>> index e0d83ee01b77..2097c57d19d0 100644
+>> --- a/drivers/hwtracing/coresight/coresight-tmc-etr.c
+>> +++ b/drivers/hwtracing/coresight/coresight-tmc-etr.c
+>> @@ -1314,6 +1314,9 @@ static int tmc_enable_etr_sink_sysfs(struct 
+>> coresight_device *csdev)
+>>         if (coresight_get_mode(csdev) == CS_MODE_SYSFS) {
+>>                 csdev->refcnt++;
+>>                 goto out;
+>> +       } else if (coresight_get_mode(csdev) != CS_MODE_DISABLED) {
+>> +               ret = -EBUSY;
+>> +               goto out;
+>>         }
+>>
+>>         ret = tmc_etr_enable_hw(drvdata, sysfs_buf);
+>>
+>>
+>> Suzuki
+> 
+> Indeed, this approach addresses only the race condition between the perf 
+> and sysfs
+> components. It represents the simplest viable solution.
+> 
+> This patch also resolves the potential null pointer dereference of 
+> drvdata->sysfs_buf,
+> which could occur when the buffer size is modified after ETR has already 
+> been
+> enabled, followed by enabling a second source device [1].
+> 
+> If the refactored patch introduces additional issues, the implementation 
+> may be
+> reworked based on Yicong's original patches [2] ?
+> 
+> [1]https://lore.kernel.org/linux-arm-kernel/20241202092419.11777-2- 
+> yangyicong@huawei.com/
+> [2]https://lore.kernel.org/linux-arm-kernel/20241202092419.11777-4- 
+> yangyicong@huawei.com/
+> 
+> Best regards,
+> Junhao.
+> 
+>>
+>>
+>>>   tmc_etr_enable_hw()
+>>>     WARN_ON(drvdata->etr_buf) // WARN sicne etr_buf initialized at
+>>>                                  the perf side
+>>>    spin_unlock(&drvdata->spinlock)
+>>>
+>>> A race condition is introduced here, perf always prioritizes 
+>>> execution, and
+>>> warnings can lead to concerns about potential hidden bugs, such as 
+>>> getting
+>>> out of sync.
+>>>
+>>> To fix this, configure the tmc-etr mode before invoking 
+>>> enable_etr_perf()
+>>> or enable_etr_sysfs(), explicitly check if the tmc-etr sink is already
+>>> enabled in a different mode, and simplily the setup and checks for 
+>>> "mode".
+>>> To prevent race conditions between mode transitions.
+>>>
+>>> Fixes: 296b01fd106e ("coresight: Refactor out buffer allocation 
+>>> function for ETR")
+>>> Reported-by: Yicong Yang <yangyicong@hisilicon.com>
+>>> Closes: https://lore.kernel.org/linux-arm- 
+>>> kernel/20241202092419.11777-2-yangyicong@huawei.com/
+>>> Signed-off-by: Junhao He <hejunhao3@huawei.com>
+>>> Tested-by: Yicong Yang <yangyicong@hisilicon.com>
+>>> Signed-off-by: Junhao He <hejunhao3@h-partners.com>
+>>> ---
+>>>   .../hwtracing/coresight/coresight-tmc-etr.c   | 106 +++++++++---------
+>>>   1 file changed, 55 insertions(+), 51 deletions(-)
+>>>
+>>> diff --git a/drivers/hwtracing/coresight/coresight-tmc-etr.c b/ 
+>>> drivers/hwtracing/coresight/coresight-tmc-etr.c
+>>> index b07fcdb3fe1a..fe1d5e8a0d2b 100644
+>>> --- a/drivers/hwtracing/coresight/coresight-tmc-etr.c
+>>> +++ b/drivers/hwtracing/coresight/coresight-tmc-etr.c
+>>> @@ -1263,11 +1263,6 @@ static struct etr_buf 
+>>> *tmc_etr_get_sysfs_buffer(struct coresight_device *csdev)
+>>>           raw_spin_lock_irqsave(&drvdata->spinlock, flags);
+>>>       }
+>>>   -    if (drvdata->reading || coresight_get_mode(csdev) == 
+>>> CS_MODE_PERF) {
+>>> -        ret = -EBUSY;
+>>> -        goto out;
+>>> -    }
+>>> -
+>>>       /*
+>>>        * If we don't have a buffer or it doesn't match the requested 
+>>> size,
+>>>        * use the buffer allocated above. Otherwise reuse the existing 
+>>> buffer.
+>>> @@ -1278,7 +1273,6 @@ static struct etr_buf 
+>>> *tmc_etr_get_sysfs_buffer(struct coresight_device *csdev)
+>>>           drvdata->sysfs_buf = new_buf;
+>>>       }
+>>>   -out:
+>>>       raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
+>>>         /* Free memory outside the spinlock if need be */
+>>> @@ -1289,7 +1283,7 @@ static struct etr_buf 
+>>> *tmc_etr_get_sysfs_buffer(struct coresight_device *csdev)
+>>>     static int tmc_enable_etr_sink_sysfs(struct coresight_device *csdev)
+>>>   {
+>>> -    int ret = 0;
+>>> +    int ret;
+>>>       unsigned long flags;
+>>>       struct tmc_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
+>>>       struct etr_buf *sysfs_buf = tmc_etr_get_sysfs_buffer(csdev);
+>>> @@ -1299,23 +1293,10 @@ static int tmc_enable_etr_sink_sysfs(struct 
+>>> coresight_device *csdev)
+>>>         raw_spin_lock_irqsave(&drvdata->spinlock, flags);
+>>>   -    /*
+>>> -     * In sysFS mode we can have multiple writers per sink. Since this
+>>> -     * sink is already enabled no memory is needed and the HW need 
+>>> not be
+>>> -     * touched, even if the buffer size has changed.
+>>> -     */
+>>> -    if (coresight_get_mode(csdev) == CS_MODE_SYSFS) {
+>>> -        csdev->refcnt++;
+>>> -        goto out;
+>>> -    }
+>>> -
+>>>       ret = tmc_etr_enable_hw(drvdata, sysfs_buf);
+>>> -    if (!ret) {
+>>> -        coresight_set_mode(csdev, CS_MODE_SYSFS);
+>>> +    if (!ret)
+>>>           csdev->refcnt++;
+>>> -    }
+>>>   -out:
+>>>       raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
+>>>         if (!ret)
+>>> @@ -1729,39 +1710,24 @@ static int tmc_enable_etr_sink_perf(struct 
+>>> coresight_device *csdev, void *data)
+>>>   {
+>>>       int rc = 0;
+>>>       pid_t pid;
+>>> -    unsigned long flags;
+>>>       struct tmc_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
+>>>       struct perf_output_handle *handle = data;
+>>>       struct etr_perf_buffer *etr_perf = etm_perf_sink_config(handle);
+>>>   -    raw_spin_lock_irqsave(&drvdata->spinlock, flags);
+>>> -     /* Don't use this sink if it is already claimed by sysFS */
+>>> -    if (coresight_get_mode(csdev) == CS_MODE_SYSFS) {
+>>> -        rc = -EBUSY;
+>>> -        goto unlock_out;
+>>> -    }
+>>> -
+>>> -    if (WARN_ON(!etr_perf || !etr_perf->etr_buf)) {
+>>> -        rc = -EINVAL;
+>>> -        goto unlock_out;
+>>> -    }
+>>> +    if (WARN_ON(!etr_perf || !etr_perf->etr_buf))
+>>> +        return -EINVAL;
+>>>         /* Get a handle on the pid of the session owner */
+>>>       pid = etr_perf->pid;
+>>>         /* Do not proceed if this device is associated with another 
+>>> session */
+>>> -    if (drvdata->pid != -1 && drvdata->pid != pid) {
+>>> -        rc = -EBUSY;
+>>> -        goto unlock_out;
+>>> -    }
+>>> +    if (drvdata->pid != -1 && drvdata->pid != pid)
+>>> +        return -EBUSY;
+>>>   -    /*
+>>> -     * No HW configuration is needed if the sink is already in
+>>> -     * use for this session.
+>>> -     */
+>>> +    /* The sink is already in use for this session */
+>>>       if (drvdata->pid == pid) {
+>>>           csdev->refcnt++;
+>>> -        goto unlock_out;
+>>> +        return rc;
+>>>       }
+>>>         rc = tmc_etr_enable_hw(drvdata, etr_perf->etr_buf);
+>>> @@ -1773,22 +1739,60 @@ static int tmc_enable_etr_sink_perf(struct 
+>>> coresight_device *csdev, void *data)
+>>>           csdev->refcnt++;
+>>>       }
+>>>   -unlock_out:
+>>> -    raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
+>>>       return rc;
+>>>   }
+>>>     static int tmc_enable_etr_sink(struct coresight_device *csdev,
+>>>                      enum cs_mode mode, void *data)
+>>>   {
+>>> -    switch (mode) {
+>>> -    case CS_MODE_SYSFS:
+>>> -        return tmc_enable_etr_sink_sysfs(csdev);
+>>> -    case CS_MODE_PERF:
+>>> -        return tmc_enable_etr_sink_perf(csdev, data);
+>>> -    default:
+>>> -        return -EINVAL;
+>>> +    struct tmc_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
+>>> +    int rc;
+>>> +
+>>> +retry:
+>>> +    scoped_guard(raw_spinlock_irqsave, &drvdata->spinlock) {
+>>> +        if (coresight_get_mode(csdev) != CS_MODE_DISABLED &&
+>>> +            coresight_get_mode(csdev) != mode)
+>>> +            return -EBUSY;
+>>> +
+>>> +        switch (mode) {
+>>> +        case CS_MODE_SYSFS:
+>>> +            if (drvdata->reading)
+>>> +                return -EBUSY;
+>>> +
+>>> +            if (csdev->refcnt) {
+>>> +                /* The sink is already enabled via sysfs */
+>>> +                csdev->refcnt++;
+>>> +                return 0;
+>>> +            }
+>>> +
+>>> +            /*
+>>> +             * A sysfs session is currently enabling ETR, preventing
+>>> +             * a second sysfs process from repeatedly triggering the
+>>> +             * enable procedure.
+>>> +             */
+>>> +            if (coresight_get_mode(csdev) == CS_MODE_SYSFS && ! 
+>>> csdev->refcnt)
+>>> +                goto retry;
+>>> +
+>>> +            /*
+>>> +             * Set ETR to sysfs mode before it is fully enabled, to
+>>> +             * prevent race conditions during mode transitions.
+>>> +             */
+>>> +            coresight_set_mode(csdev, mode);
+>>> +            break;
+>>> +        case CS_MODE_PERF:
+>>> +            return tmc_enable_etr_sink_perf(csdev, data);
+>>> +        default:
+>>> +            return -EINVAL;
+>>> +        }
+>>> +    }
+>>> +
+>>> +    rc = tmc_enable_etr_sink_sysfs(csdev);
+>>> +    if (rc) {
+>>> +        guard(raw_spinlock_irqsave)(&drvdata->spinlock);
+>>> +        coresight_set_mode(csdev, CS_MODE_DISABLED);
+>>>       }
+>>> +
+>>> +    return rc;
+>>>   }
+>>>     static int tmc_disable_etr_sink(struct coresight_device *csdev)
+>>
+>>
+>> .
+>>
+> 
 
-For sun8i / sunxi,
-
-Acked-by: Chen-Yu Tsai <wens@kernel.org>
-
->  .../net/ethernet/stmicro/stmmac/dwmac-thead.c |  2 +-
->  .../ethernet/stmicro/stmmac/stmmac_platform.c | 28 ++++++++++---------
->  include/linux/stmmac.h                        |  4 +--
->  12 files changed, 47 insertions(+), 45 deletions(-)
 
