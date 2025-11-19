@@ -4,118 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC3A4CF258C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 08:40:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F7FECF258C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 08:41:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nBbixjBnBbPva8e3qQDLXuoT9sUiTXbil/L9/fukswI=; b=P2spSaD2SlO5uq
-	IofvcwqsaboGDsH7oh1gnU0qFKzykP44ocZlevFjGjtXfHOPtMJpFIuFV9Cphd4qc5nVVO1MRFwqH
-	F225cou6Eez0un5svQsdyEufYuxNl4+vH8ARRUVp3x1Ijjd/A9f+PqmEZcPd8L7vFm7grRQc8GuWg
-	FCNTe34CdMvjd/4pUllstjZ+AWUHZMDR7E8LVn1TULA6BgyGyXxnCQYIwboT60RjPz/OTuLd+ELHf
-	g7vj7SRZM5D1ijnDNkjY+eCj2etd/GXi/sn/3pqV9dMAvCie3VBoLk5qya3/0NYWBmCzTpB1tWv4G
-	3KC5eGCoKdq1otjSchAw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5j+PVmz1ThbmMU8zEKanJG/8MyZ6W6XB53wlJvy8v2E=; b=vtWO341bbr9tUhmL2eqGJtXcqR
+	nhh3L/HCWJRVDc2FhnCf5Oc19ob6dpqn1PNLTRxVZnFXA75IbSToiZW7s8Fb6DyEyScMxUhlVtESD
+	giKgelyI9P51vHNkRm+zRfH5zhY0lw5LFsedd1Qdz6vgypf9frOA8wkxQDMtyvSJt9mzbqgFXQDik
+	4vyvZ6lxOsOdB8HDCpwuav1FNXJLO3q63zcGLDDnDbFco8gSoAfKQpKsQA2j5ukZp60tToCs4MBd5
+	eKmoJk2Uf3KAqF8LchOkUmo/s0xr1WfP7cwcnRBYfs/9N7NbHZgdccU3IU1KBQJNf0PztOAkQvaXq
+	fagg3iCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLdk3-00000002o9j-1QHO;
-	Wed, 19 Nov 2025 08:40:43 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	id 1vLdkx-00000002oIO-2s7P;
+	Wed, 19 Nov 2025 08:41:39 +0000
+Received: from mail-lf1-x12b.google.com ([2a00:1450:4864:20::12b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLdk1-00000002o93-0GXm
+	id 1vLdku-00000002oHL-2Yqd
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Nov 2025 08:40:42 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-477a219dbcaso28529085e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Nov 2025 00:40:40 -0800 (PST)
+	Wed, 19 Nov 2025 08:41:38 +0000
+Received: by mail-lf1-x12b.google.com with SMTP id 2adb3069b0e04-594516d941cso6064869e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Nov 2025 00:41:36 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1763541639; x=1764146439; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:from:references:cc:to:subject:reply-to:user-agent
-         :mime-version:date:message-id:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=nBbixjBnBbPva8e3qQDLXuoT9sUiTXbil/L9/fukswI=;
-        b=eO0KlOTNSB2bWjykraRgKi+0y0UP1nADJEhFYO0OUtdD3AyYAJlzxgIo27VQpSf0IU
-         5J12c41cx/wYPDidK0IC2nrKpofiFo1n6J1CQ4zgqbx41XRxuP+Q2mXO3NKtT/ip9VtG
-         ttva2t9lQ1mVpeA5UkXOc5Qs1I0m1LGdA4XRUhGD61D171rot4p5HNmp33FVKqq/yY+h
-         A7EWDPXPAyKS72L4lflhr0qjStXDLEzTakgKleU4XNksQWNMad9Fs8uCt32mSdLirEsB
-         pmLGGWUEbAZ/DYDUGF6f1nAqqcriVxjiWxJVC6RRJMqbpn/qv5UPVBdcZxkHI7kdd8Kf
-         gpXg==
+        d=chromium.org; s=google; t=1763541694; x=1764146494; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=5j+PVmz1ThbmMU8zEKanJG/8MyZ6W6XB53wlJvy8v2E=;
+        b=FL8pUhkx97Yy7FUeFe7xJ7U72eJRV+UXaQ5odoHIr3KXhgnpT/QH+x93gwf9Havvy2
+         P0NE9NXMf0CIHzhwNeVRdBi6EB8f9fRNNTU7JyqcqrfZngnVtZsVddbS/o+VJv3XejQS
+         HtgwUzSmyZhloKLrEG10BfkJblaw4xzlAWzCE=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763541639; x=1764146439;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:from:references:cc:to:subject:reply-to:user-agent
-         :mime-version:date:message-id:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=nBbixjBnBbPva8e3qQDLXuoT9sUiTXbil/L9/fukswI=;
-        b=H9h44U3JEFqcOPx0EwkKopEIETmyX0gy0FzByqXgGn1rVNxIxQPDFpt/Lwb+x1JbPK
-         X+DxbmIQOEnK4sxFZR/qMZTAvm2WrqrqojrNk1R86Q5IhHWmX1gW3rlSyncx1nyzIh4A
-         J+xUwEzmLLSAD3dEiLmK8PkVCXnN89WhxI7DJuw5ZJdJLEPOB4jKGzMdWxZQg5hz/YGi
-         O7rl5pgBUNlI7lYI4a3AX8RQtSNb+m3rLhp3LiYwiNFt7zYPITwZp+dIbGo+oBSHYful
-         NhRl732e1UJTjKiv3+h3UTxjikPODCXv+Pxq4tTkny+qUA2phZfTbxMpGBD1bJXU18fj
-         hasA==
-X-Forwarded-Encrypted: i=1; AJvYcCVvLQVgZCvNlDt8zzcLm5SqyuvCrDlEMFXtJtST32ONRbbyXAaCbEHA5MxICio1IGY/FbVZeow7i/M26er/bren@lists.infradead.org
-X-Gm-Message-State: AOJu0YxUeGW4vfrgNmJN+fPQRmVekuMIS4/T53AlTEVL9nfONrzc+ePr
-	T5VZN3h3vDpnmo2lVPUTF3LRnMpKrBB1NBFn9rRL5MG/3rSAsbkq1ToVA6Ng/0c4ZSE=
-X-Gm-Gg: ASbGncveurDgZAvUseqeGbRyvlRHjl98GY3lBni8AUuPaV2fNExZ4KqRioLmf+uU48J
-	6lV5dmT3KrLDUvI8Lzy8M5BH7RmAsMveebhFTVb51C0b35b36/+QbuIroqax63337ySN+i9YgrW
-	KcElcWwawfMls26MsnQhvKtM7yrqBt6+9Rwb+QdXx6Le7UeAlm4/EAeP45++aOyt6TPMD7aJmTv
-	LR2qZbrSfAE4ota/K8glh8jPw3+MweHtoLQP6YO+XhRf9d1IkvBVjfYTPJUyYi4DxBx/PwLDIe0
-	B2x5QrJUKRRfiXYOOMli6yl1vAlGhkn1rcrMwRNFr1f4LwLxvxU+6iAsOq+Nmh62Lr8IGqnEsH8
-	FqGdOfj5p4Xr9kwxqE10KveXHmgX80wvJJqPj3uVwjL3rvj2f+vyjz44rTbnIP5fNhfh+JldBrg
-	CcigAxirJHyiBbDarHxAeRhHhaUiVfnvNsyZesli3Yct3iD2VqFcVL9fwJlzA7Mdg=
-X-Google-Smtp-Source: AGHT+IGKiZiYBXjHj/z9lV7e7rsBSdkQWY5bFdVCTdvJUrbHHgREFhMcJGGNNV9FKXHCj3CnZDcH/g==
-X-Received: by 2002:a05:600c:1986:b0:46e:35a0:3587 with SMTP id 5b1f17b1804b1-4778fea7037mr172201975e9.27.1763541639176;
-        Wed, 19 Nov 2025 00:40:39 -0800 (PST)
-Received: from ?IPV6:2a01:e0a:3d9:2080:94e4:fa88:414d:e1ad? ([2a01:e0a:3d9:2080:94e4:fa88:414d:e1ad])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-477b1012a92sm34648755e9.4.2025.11.19.00.40.38
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 19 Nov 2025 00:40:38 -0800 (PST)
-Message-ID: <50bdc65e-b052-4f81-b501-016b36e86574@linaro.org>
-Date: Wed, 19 Nov 2025 09:40:38 +0100
+        d=1e100.net; s=20230601; t=1763541694; x=1764146494;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=5j+PVmz1ThbmMU8zEKanJG/8MyZ6W6XB53wlJvy8v2E=;
+        b=ag+nzChy0S+eZ5hAdvtuNozInhXFnq9HTDtgFSX+a1LRpycdgETvAUZPr8FAjU4PiX
+         7R65USANv2iZI1Mz2Fs+t75XbUf1gwY45VqttCgPIC4JIolsXRWQdBq9o8H9j9ILed+b
+         eoZIqeRN6jt3jzqs+o/Ddj/nLH47QyC4ClaclGSqVbb7xcnHiny7u76hpwq5zJM8NyTM
+         JlmkYo5B7go44jgTpkWJ/9C8BmfaRnLZl9Q9fVXpkkzzHZACmypxXGD3TnrPZnNZ8Mcc
+         q0KKsd1weDHVDtETKczy+MAkPkEjyIUmQqIygC88JBFx3qZZzQD7jphkehcTfZfTvLi/
+         lgAA==
+X-Forwarded-Encrypted: i=1; AJvYcCXZ9b3KCLn6TUB2Euy+JBfAKK7QcMt+zBR+bAeFV6qkT4t2g2tTjZA2o6yywA7+2mVROADztviHG/AfyncGyck9@lists.infradead.org
+X-Gm-Message-State: AOJu0YyDlcM0E3HQUmCjmoh4JJ2QgDDhbT1t7bW/ijzqrHplTlQFLFOL
+	U10k4ggIPW6uiscvrSU8Y/TAB14Dfstq3Ya20FQrqP7s9MOaJEDoBw7UJFvQgH3eFHV0z/Yey9d
+	T4tJLNudhPzymCIkGH+NBgw5gRJMuHPgFNensipqE
+X-Gm-Gg: ASbGncvDLIlcOC52/K3HzzD+4B5RFK0M3od6CcKrS60oKJBy3/ObCIMbR6CMhe5+98b
+	L/6ethb1t8OV/tLWTAuSphFIYxp+sAF8KKMpVJTYW7j9xQPzKBECEFNh88dNPWF3jQkhVmxPXFN
+	GSFpicQQl2oI6CE+BVwTp8+FHYifyTtvSqG7uqPjrKqtoP7b8Ukq4m2Ng2JqYVLOfN+qvBlF5+q
+	lWZNalkIWKK8gCguETQyqvk/2FRZ48oK2WsO4Dw+1QpmVYsLIq6hCBUnleYAud/b9QyS0jNpjtW
+	JLojalkJJhfJbfNcpiX74VLX3ews94C9Hk6RCFkfig5hyUU=
+X-Google-Smtp-Source: AGHT+IFQrP/i43BRhijnwjgkcRa7OAPKQ47ycdJ6Y9winLF07YK7XNLrMlityx7sOAiSK2CbDbRJMbbPsGbnrHHqS5w=
+X-Received: by 2002:a05:6512:3b22:b0:595:76aa:8e with SMTP id
+ 2adb3069b0e04-595841f7d84mr6219364e87.38.1763541693273; Wed, 19 Nov 2025
+ 00:41:33 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] phy: freescale: Initialize priv->lock
-To: Xiaolei Wang <xiaolei.wang@windriver.com>, Frank.li@nxp.com,
- vkoul@kernel.org, kishon@kernel.org, shawnguo@kernel.org,
- s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com
-Cc: linux-phy@lists.infradead.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250925013806.569658-1-xiaolei.wang@windriver.com>
-From: Neil Armstrong <neil.armstrong@linaro.org>
-Content-Language: en-US, fr
-Autocrypt: addr=neil.armstrong@linaro.org; keydata=
- xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
- GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
- BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
- qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
- 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
- AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
- OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
- Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
- YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
- GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
- UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
- GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
- yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
- QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
- SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
- 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
- Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
- oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
- M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
- 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
- KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
- 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
- QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
-Organization: Linaro
-In-Reply-To: <20250925013806.569658-1-xiaolei.wang@windriver.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+References: <20251119070230.1716418-1-wenst@chromium.org> <66693e69-7ad8-4067-9bd3-ef1454e3ec18@collabora.com>
+In-Reply-To: <66693e69-7ad8-4067-9bd3-ef1454e3ec18@collabora.com>
+From: Chen-Yu Tsai <wenst@chromium.org>
+Date: Wed, 19 Nov 2025 16:41:21 +0800
+X-Gm-Features: AWmQ_bkZdxwhlKh-aCeAiAApl_fYKJMVFMF18ypbY25Gza-xyZhDFbzK5dIIIps
+Message-ID: <CAGXv+5HOrP=hj8qxZmjq+ozeppXrzFKh=kq2Cb+QqWEx9n83Bw@mail.gmail.com>
+Subject: Re: [PATCH] arm64: dts: mediatek: mt8188-geralt: drop firmware-name
+ from first SCP core
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: Matthias Brugger <matthias.bgg@gmail.com>, linux-mediatek@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251119_004041_143186_FBCA6B1C 
-X-CRM114-Status: GOOD (  18.82  )
+X-CRM114-CacheID: sfid-20251119_004136_954311_E146B17D 
+X-CRM114-Status: GOOD (  26.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,69 +91,81 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: Neil Armstrong <neil.armstrong@linaro.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/25/25 03:38, Xiaolei Wang wrote:
-> Initialize priv->lock to fix the following warning.
-> 
-> WARNING: CPU: 0 PID: 12 at kernel/locking/mutex.c:577 __mutex_lock+0x70c/0x8b8
->   Modules linked in:
->   Hardware name: Freescale i.MX8QM MEK (DT)
->   Call trace:
->    __mutex_lock+0x70c/0x8b8 (P)
->    mutex_lock_nested+0x24/0x30
->    imx_hsio_power_on+0x4c/0x764
->    phy_power_on+0x7c/0x12c
->    imx_pcie_host_init+0x1d0/0x4d4
->    dw_pcie_host_init+0x188/0x4b0
->    imx_pcie_probe+0x324/0x6f4
->    platform_probe+0x5c/0x98
->    really_probe+0xbc/0x29c
->    __driver_probe_device+0x78/0x12c
->    driver_probe_device+0xd8/0x160
->    __device_attach_driver+0xb8/0x138
->    bus_for_each_drv+0x84/0xe4
->    __device_attach_async_helper+0xb8/0xdc
->    async_run_entry_fn+0x34/0xe0
->    process_one_work+0x220/0x694
->    worker_thread+0x1c0/0x36c
->    kthread+0x14c/0x224
-> 
-> Fixes: 82c56b6dd24f ("phy: freescale: imx8qm-hsio: Add i.MX8QM HSIO PHY driver support")
-> Signed-off-by: Xiaolei Wang <xiaolei.wang@windriver.com>
-> ---
-> v1: https://patchwork.kernel.org/project/imx/patch/20250923141611.1295395-1-xiaolei.wang@windriver.com/
-> 
-> v2: Use devm_mutex_init() instead of mutex_init()
-> 
->   drivers/phy/freescale/phy-fsl-imx8qm-hsio.c | 5 ++++-
->   1 file changed, 4 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/phy/freescale/phy-fsl-imx8qm-hsio.c b/drivers/phy/freescale/phy-fsl-imx8qm-hsio.c
-> index 5dca93cd325c..977d21d753a5 100644
-> --- a/drivers/phy/freescale/phy-fsl-imx8qm-hsio.c
-> +++ b/drivers/phy/freescale/phy-fsl-imx8qm-hsio.c
-> @@ -533,7 +533,7 @@ static struct phy *imx_hsio_xlate(struct device *dev,
->   
->   static int imx_hsio_probe(struct platform_device *pdev)
->   {
-> -	int i;
-> +	int i, ret;
->   	void __iomem *off;
->   	struct device *dev = &pdev->dev;
->   	struct device_node *np = dev->of_node;
-> @@ -545,6 +545,9 @@ static int imx_hsio_probe(struct platform_device *pdev)
->   		return -ENOMEM;
->   	priv->dev = &pdev->dev;
->   	priv->drvdata = of_device_get_match_data(dev);
-> +	ret = devm_mutex_init(dev, &priv->lock);
-> +	if (ret)
-> +		return ret;
->   
->   	/* Get HSIO configuration mode */
->   	if (of_property_read_string(np, "fsl,hsio-cfg", &priv->hsio_cfg))
+On Wed, Nov 19, 2025 at 4:31=E2=80=AFPM AngeloGioacchino Del Regno
+<angelogioacchino.delregno@collabora.com> wrote:
+>
+> Il 19/11/25 08:02, Chen-Yu Tsai ha scritto:
+> > Arnd pointed out that having firmware-name in the device tree is wrong.
+> > Drop it.
+> >
+> > Fixes: e36be19823f0 ("arm64: dts: mediatek: mt8188-geralt: Enable first=
+ SCP core")
+>
+> Fixes here is .. well, right, but wrong - as if you "fix" that in previou=
+s kernel
+> releases, you will create regressions :-)
 
-Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
+This is a fix because the commit in question was merged in v6.18-rc1
+and v6.18 hasn't been released yet. So you should pick it now for
+v6.18.
+
+> For all of the currently supported boards, I was planning to temporarily =
+leave the
+> firmware-name properties in place for one kernel version (v6.19) and remo=
+ve it from
+> all of them at once, for kernel v6.20.
+
+OK. So I guess the plan is to have MT8188 SCP working in v6.18 based
+on the current name then?
+
+> I'd be okay if you send a commit or a series removing firmware-name from =
+all of
+> them, without any Fixes tag and without any "fix" word (so that we avoid =
+autosel
+> backports at all costs!), but keep in mind that I'd pick that in the next=
+ merge
+> window, and not right now.
+
+We can avoid autosel with:
+
+     Cc: <stable+noautosel@kernel.org> # reason goes here, and must be pres=
+ent
+
+(See stable-kernel-rules for the whole paragraph.)
+
+After the blobs in the firmware repo have been renamed, we then explicitly
+backport the change to stable. I think that works out better? And the only
+one that needs to be timed is the MT8188 change anyway.
+
+How does that sound?
+
+
+ChenYu
+
+> Thanks!
+> Angelo
+>
+> > Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
+> > ---
+> >   arch/arm64/boot/dts/mediatek/mt8188-geralt.dtsi | 1 -
+> >   1 file changed, 1 deletion(-)
+> >
+> > diff --git a/arch/arm64/boot/dts/mediatek/mt8188-geralt.dtsi b/arch/arm=
+64/boot/dts/mediatek/mt8188-geralt.dtsi
+> > index 7fedbacdac44..8e423504ec05 100644
+> > --- a/arch/arm64/boot/dts/mediatek/mt8188-geralt.dtsi
+> > +++ b/arch/arm64/boot/dts/mediatek/mt8188-geralt.dtsi
+> > @@ -1166,7 +1166,6 @@ &scp_cluster {
+> >   &scp_c0 {
+> >       pinctrl-names =3D "default";
+> >       pinctrl-0 =3D <&scp_pins>;
+> > -     firmware-name =3D "mediatek/mt8188/scp.img";
+> >       memory-region =3D <&scp_mem_reserved>;
+> >       status =3D "okay";
+> >   };
+>
+>
 
