@@ -4,105 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E66F1CF394D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 16:21:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30CD0CF394D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 16:22:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Date:Cc:To:From:Subject:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=p6XnmoS9y/QjExQSUhzgtUPy4+P7HWebJCxAjmxqDoI=; b=WJmVpT9XW6vKmA8AkeFbLYrChl
-	uw0AslzXPwM1foRxjrDDs1cPxXG6L9bo4LxhAdehF/bK1KhcTrzMjvgZubKCQq7MPmiDUtgx01/nA
-	bwEg+syGcNbuXykO9PHgKOLTBz1uQzGV7Rumfd0uhRvG1nywZE55wLkxqlOQyvsoC9WJ+xpRApttA
-	P8j6nFi6D/ea2eq/pptUz5w+rzHJK0/icbr6OQbfTGWpytyftNApGZf1uTToSyMSgGvMkXBJmnQiG
-	iKZkSHg/xN16QNwIb9egRLrcRVbNojofWWV9wJYQjPb151UJPE+C7dK7YVje3vookl8Vl11kXjjMs
-	8vzulsmQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SqgArqZqDLLZkxxlGxEl0Eyz/se4zZ6TXQ2QUXMksPc=; b=xflVqPRfpIToB0J5oUgMMEUScI
+	bhV9O5pcsKBUwy5xIqDwwXIcV4mJUGVQLvnj4dzdh8Bpsy+QkwVrGMWnfKV5s+3fVT0bdiRHq5qI9
+	TKYmVfr8jQIV1AlF4PG4uM83rZlNL3ejKYxrEO0V4Ocs9Gk7TKOn772tKIrdmWYSwO6yYsYtZXH8G
+	DZ4svzWbKyTHezQvEtM8dU3464sqVzUInH5u9kdazG0EyNLTbzU5AIUBmlrMvfZuLKzMrUwiJbRcf
+	137E1WTH5zYYfZ+cxyxVcRzbywDciAyE5Dmp02VJCW+oGx6jmQUMrU7bLViYkQtL8PM8uJTXKf9Jz
+	Lauhxf+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLkvQ-00000003gXV-2tTl;
-	Wed, 19 Nov 2025 16:20:56 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1vLkxD-00000003gmu-2g8v;
+	Wed, 19 Nov 2025 16:22:47 +0000
+Received: from mail-pf1-x432.google.com ([2607:f8b0:4864:20::432])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLkvK-00000003gWZ-45Iq
+	id 1vLkxB-00000003gmU-2geY
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Nov 2025 16:20:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1763569249;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=p6XnmoS9y/QjExQSUhzgtUPy4+P7HWebJCxAjmxqDoI=;
-	b=ZdTnngds5WHPXonCpDbfiQnwnIgSSt1hH8rsLFB3l+ae6TnBlpZwk9MTrV9WS1pXhEdDak
-	4cjVueWwdGbX4rfx84u5PfPW4UE+KQagA2mmkOsqtGohLEe+SeoN2esAjOIEfFQyL1FoDk
-	/uFooaDfQJtZBK3K3qjRrJ6lbplCoho=
-Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com
- [209.85.222.199]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-516-BeyZvB6_PjCEAHcVYM2CsA-1; Wed, 19 Nov 2025 11:19:17 -0500
-X-MC-Unique: BeyZvB6_PjCEAHcVYM2CsA-1
-X-Mimecast-MFC-AGG-ID: BeyZvB6_PjCEAHcVYM2CsA_1763569157
-Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-8b233e206ddso1853014185a.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Nov 2025 08:19:17 -0800 (PST)
+	Wed, 19 Nov 2025 16:22:46 +0000
+Received: by mail-pf1-x432.google.com with SMTP id d2e1a72fcca58-7a435a3fc57so6685853b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Nov 2025 08:22:44 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1763569364; x=1764174164; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=SqgArqZqDLLZkxxlGxEl0Eyz/se4zZ6TXQ2QUXMksPc=;
+        b=kUp6CEwAaNKSFuWHxwCxidFDNrFdfNaAYHMJmR3tRMl+z3iwADodaxHcJqKHt7UEf1
+         qug2bp73/04yOpNPxjjBXcMomcQWLBvokVIRRz0SMkq2UlXbaI+ESSw5vVRpE3Yf9d4F
+         RJkP/EW3aTE7GXhKX2vUXBhmLFs6EQCNxz7pWg0l363ij6E7RGdn2th6mkbBr2zjlvQI
+         GeVXqDXMOzcsq9cp91GMNGWgUpIR/HCiAD33RdqB6VdbBFO2YibMBPbl/qKDJBg2g3mk
+         N1hZ8z2vYUM2gxczIfPNfPAKBK7P1nLiBrOyvUbk5JT7/X/a1TktYijTqf0huzSm5xWt
+         /gcw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763569157; x=1764173957;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
+        d=1e100.net; s=20230601; t=1763569364; x=1764174164;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=p6XnmoS9y/QjExQSUhzgtUPy4+P7HWebJCxAjmxqDoI=;
-        b=PBg38ruN4NeIowDUatPwGNOUv7uK7qXHc+N8PLsMpDG+oRN4H02W3nu2gc2ak2+h0g
-         KhlW7qz0QMRTltQdnnRiQgWdQajs4HAR6/5zumh1jqZ56peHLR7AFpJOJQKhvhPINjGl
-         fuwV4nVZq97xdAf9iGmd4hX0RhAMLNCBD+SYFzSFyDl39g4DPnezEJAXHRH7tRyIuB8o
-         J7dUKeFrxLLDyR1ER+8Pe+Jh8Oq6imysaKPBr3cBTzErIeb1rAr/RMefjUOFa5T7hAEc
-         fhtg8qt/8Emju0xRAm6nFXwaSjepbxJ2IoQ7hWD1ujHoLz8cneaPXpytNNiZlHrN5RNE
-         maPg==
-X-Forwarded-Encrypted: i=1; AJvYcCVuL8NWuVF9ZNrcLT8V+mqIvgKFxnwk5E0WFYKoxzcL05wW9DXdtUyJoecSC7q8dpMRuWe346BPSaQTweLb5qh7@lists.infradead.org
-X-Gm-Message-State: AOJu0YyXxBq5KeJNcwsg4bAdFeYgkINKFvm1/3QZ+q6IBybiFC5ZYr+E
-	DVFdegbhZpUN57rWJpyH7VAkkpXnf5+RpUuMjkgGJvi9jVzPlq9Y1dkkT2dIEI2KI0gT4Yh3MKO
-	EbJ3btIweOv4tbjGnOkopo1FsqgKPnH8CpM7pF2FVKvk/zRuZ0EFEOS4PzCLKlG1giOLlxe5rNA
-	1c
-X-Gm-Gg: ASbGncuwhIlsFgr+ML/AvIvP/pC252E2qmJCsyMIGcURL8tq5JncpWYrWhyIdQbCKqo
-	Nkmlws9IIXzDOrmgsOKJx8NjfuyP305nf00pxVWcEBlth+seTr/Js1iQ+Iwno97AZ2P2MjDFhg/
-	anLC6EHdAFdqbvxhpkXqJ80INaxUvdbqQPgrZs4JOsvhhx75jtD6JaxyuUb67fYcdDaQIFyfDmM
-	KN3LCG2XTNKl3IKkyy86L/Fek7DWwAcG5OymhubzjdIuNXg6v1Y0LEf7+PMl/tLpzSOjAWvAXkV
-	QadewMXgTpe3zlAeF6/Euov6mibb4dJRhy28kGfTrbH89gUBSgwP9/02xg3p8wWxyRwTCXFD4gY
-	9zQJKvh1SIdXfbVxj63x+SJh8pZjO85lelxm+7yE7VGCtLuUb10L/TneDyDXidciH8dpcxSGgPK
-	Dj
-X-Received: by 2002:a05:622a:54:b0:4ed:ee58:215 with SMTP id d75a77b69052e-4edf20a914amr267335051cf.35.1763569156910;
-        Wed, 19 Nov 2025 08:19:16 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IELqiwovxwlqJiYgFVyaJyQQOyrVralmsihXdBDVIMZmS6bJi/KAR2C8mhzRxFKA1o8g2zcpA==
-X-Received: by 2002:a05:622a:54:b0:4ed:ee58:215 with SMTP id d75a77b69052e-4edf20a914amr267334511cf.35.1763569156436;
-        Wed, 19 Nov 2025 08:19:16 -0800 (PST)
-Received: from thinkpad-p1.localdomain (pool-174-112-193-187.cpe.net.cable.rogers.com. [174.112.193.187])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-4ee4513af31sm7265511cf.24.2025.11.19.08.19.15
+        bh=SqgArqZqDLLZkxxlGxEl0Eyz/se4zZ6TXQ2QUXMksPc=;
+        b=iVIrHrWRqs7gJ5whBdazEVK2VZZBWwLGXzVQH1E/KugHQuizvqmk+ZiTOEUs2jrbd7
+         +nirTO8dIiPhaKSpYdfq7l8dPdSJRyRAxq81/cIip4vqZJIWmrflir0XKrlv6SP1IIg7
+         o3X1LEybl5k242D2B528YOfuc3L4zKjWvUOqtDNkoPbExUyyYaxHNjIjPEBXlIyyFPqE
+         lp1E7RUPsXca8+rh4LzfbYfOdxErwH1kBARe3ysTQsx9JrGV4+XU/Uu/21d/Iz/8W3kX
+         JCENJQ6PGFl1Trg/LQxwpGzAXjn6/iwh+pOpq6jDfEvqOl96ALmDscVc3U7IwQ7EQZQ5
+         VEWg==
+X-Forwarded-Encrypted: i=1; AJvYcCUlad4LYf5qM8HtxAuGJWP1lu7X7DmHZm9hd+z8eNs58F0FFqtzNdT7fwCdNTQMjW/MFyLqOIxcFXZUVgSnMbiS@lists.infradead.org
+X-Gm-Message-State: AOJu0YylPn13wUYrKd2ZgcSpnbvlKSqiDGgS5ho/07yBnW2JlOibUgZN
+	cnwoyuqjEpkAUpiLGhCLpgrr3sw0Fp6zJmeStDRTUML0i85yJnKGdJfgBzuc5d3u0RA=
+X-Gm-Gg: ASbGncsDQylG32MaklI3BxuV68QcNoCpsfvQ0047vgfCRbvXe/pEEhh4KuthRWfjRWB
+	efFax7x3vehKQl1/VwJ488AAk8gwl/Nn1fpaOFXGf3V7tF5+fjw+wXoeIs02s/20VeVuN2b+2+e
+	qhAOdDKPS+N0kgu+dV7MNTzeqpyx2CR21a4D2m+X8AMxsSHaG12cXyaNrFczqFhGfjqSgt5zzin
+	4X17v67iDFSzfFd4b1lP6YBbkQUc4TI5ZP0ufE81iyM+M48jDvCKtzAVihp/K5U36G1r47+uM5o
+	XxBTVmstOv22o3x6wtw3BMnfADLUWWiAKPik7RZeeyysnpUiZm9hhD2Su/tC2TTb4H6rzEUAG0p
+	ApojNFeHk5GDLtrXrCrKH/oVAY4kRycXU6EdunHYntY8adyNKxhj3kD6Wl2BgQoBse67Zb0O+iH
+	h3Cft4QNA7jAf+2g==
+X-Google-Smtp-Source: AGHT+IHuSIrZBCiLgca0WU1DQj7ineP68uKwSXumgVfu9Fe9sbAmM4VWuP+tv6PTaJCg3+0A1H698w==
+X-Received: by 2002:a05:6a00:812:b0:7ad:9e8a:1f72 with SMTP id d2e1a72fcca58-7c29c492acamr4056626b3a.14.1763569364343;
+        Wed, 19 Nov 2025 08:22:44 -0800 (PST)
+Received: from p14s ([2604:3d09:148c:c800:f8d9:9ae3:90a2:d39e])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7ba611682cfsm17088879b3a.26.2025.11.19.08.22.42
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 19 Nov 2025 08:19:15 -0800 (PST)
-Message-ID: <d7b6b7de88a374a79c7ed707c74f12797b50cc58.camel@redhat.com>
-Subject: Re: [PATCH 1/2] PCI: host-common: Do not set drvdata in
- pci_host_common_init()
-From: Radu Rendec <rrendec@redhat.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: Bjorn Helgaas <bhelgaas@google.com>, Manivannan Sadhasivam
- <mani@kernel.org>,  Will Deacon <will@kernel.org>, Rob Herring
- <robh@kernel.org>, Krzysztof =?UTF-8?Q?Wilczy=C5=84ski?=	
- <kwilczynski@kernel.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Date: Wed, 19 Nov 2025 11:19:14 -0500
-In-Reply-To: <86jyzms036.wl-maz@kernel.org>
-References: <20251118221244.372423-1-rrendec@redhat.com>
-		<20251118221244.372423-2-rrendec@redhat.com> <86jyzms036.wl-maz@kernel.org>
-User-Agent: Evolution 3.54.3 (3.54.3-2.fc41)
+        Wed, 19 Nov 2025 08:22:43 -0800 (PST)
+Date: Wed, 19 Nov 2025 09:22:40 -0700
+From: Mathieu Poirier <mathieu.poirier@linaro.org>
+To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Cc: Bjorn Andersson <andersson@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>, Frank Li <Frank.Li@nxp.com>,
+	Daniel Baluta <daniel.baluta@nxp.com>,
+	Shengjiu Wang <shengjiu.wang@nxp.com>,
+	Iuliana Prodan <iuliana.prodan@nxp.com>,
+	linux-remoteproc@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Peng Fan <peng.fan@nxp.com>
+Subject: Re: [PATCH v4 00/12] remoteproc: imx_dsp_rproc: Refactor to use new
+ ops and remove switch-case logic
+Message-ID: <aR3u0F7FTZUgxCQ6@p14s>
+References: <20251119-imx-dsp-2025-11-19-v4-0-adafd342d07b@nxp.com>
 MIME-Version: 1.0
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: KCZKFLK-juHKtt2FJiB-NsQ07CecoGMzkseOmRswkCM_1763569157
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20251119-imx-dsp-2025-11-19-v4-0-adafd342d07b@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251119_082051_265083_B5755C9F 
-X-CRM114-Status: GOOD (  44.33  )
+X-CRM114-CacheID: sfid-20251119_082245_708249_8A0C3858 
+X-CRM114-Status: GOOD (  20.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,234 +110,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 2025-11-19 at 12:01 +0000, Marc Zyngier wrote:
-> On Tue, 18 Nov 2025 22:12:43 +0000,
-> Radu Rendec <rrendec@redhat.com> wrote:
-> >=20
-> > Currently pci_host_common_init() uses the platform device's drvdata to
-> > store the pointer to the allocated struct pci_host_bridge. This makes
-> > sense for drivers that use pci_host_common_{probe,remove}() directly as
-> > the platform probe/remove functions, but leaves no option for more
-> > complex drivers to store a pointer to their own private data.
-> >=20
-> > Change pci_host_common_init() to return the pointer to the allocated
-> > struct pci_host_bridge, and move the platform_set_drvdata() call to
-> > pci_host_common_probe(). This way, drivers that implement their own
-> > probe function can still use pci_host_common_init() but store their own
-> > pointer in the platform device's drvdata.
-> >=20
-> > For symmetry, move the release code to a new function that takes a
-> > pointer to struct pci_host_bridge, and make pci_host_common_release() a
-> > wrapper to it that extracts the pointer from the platform device's
-> > drvdata. This way, drivers that store their own private pointer in the
-> > platform device's drvdata can still use the library release code.
-> >=20
-> > No functional change to the existing users of pci-host-common is
-> > intended, with the exception of the pcie-apple driver, which is modifie=
-d
-> > in a subsequent patch.
->=20
-> This paragraph doesn't belong here. Maybe as a note, but not in the
-> commit message.
+On Wed, Nov 19, 2025 at 12:21:45PM +0800, Peng Fan (OSS) wrote:
+> This patchset aligns imx_dsp_rproc with the cleanup and modernization
+> previously applied to imx_rproc.c. The goal is to simplify the driver by
+> transitioning to the new ops-based method, eliminating the legacy
+> switch-case logic for a cleaner and more maintainable design.
+> 
+> Patches 1–5: General cleanup, including code simplification and adoption
+>              of the devres API.
+> Patches 6–10: Transition to the new ops-based approach, removing the
+>               switch-case structure.
+> Patch 11: Remove the obsolete enum imx_rproc_method.
+> Patch 12: Cleanup goto based logic.
+> 
+> Signed-off-by: Peng Fan <peng.fan@nxp.com>
+> ---
+> Changes in v4:
+> - Collected R-b and T-b
+> - Address the build warning in patch 1
+> - Add a new patch 12 to cleanup the goto based logic
+> - Link to V3: https://lore.kernel.org/imx/20251111-imx-dsp-2025-11-11-v3-0-d05dcba737fa@nxp.com/
+> 
+> Changes in v3:
+> - Collected R-b
+> - Simplify commit log for patch 4 per Frank.
+> - Link to V2: https://lore.kernel.org/all/20251106-imx-dsp-2025-11-06-v1-0-46028bc3459a@nxp.com/
+> 
+> Changes in v2:
+> - Collected R-b
+> - Patch 3: Update commit per Frank/Daniel
+> - patch 8: Use priv->dsp_dcfg->dcfg to avoid adding "const struct imx_rproc_dsp_dcfg *dsp_dcfg"
+> - Link to v1: https://lore.kernel.org/linux-remoteproc/CAEnQRZAOTFw=sBppHTYQAdfDBuNqkqk6gVO4FyP0EBsva3Oi+Q@mail.gmail.com/T/#m27c93af9fb1e7fdeb0766bdbffbaae39d79eefab
+> 
+> ---
+> Peng Fan (12):
+>       remoteproc: imx_dsp_rproc: simplify power domain attach and error handling
+>       remoteproc: imx_dsp_rproc: Use devm_rproc_add() helper
+>       remoteproc: imx_dsp_rproc: Use devm_pm_runtime_enable() helper
+>       remoteproc: imx_dsp_rproc: Use dev_err_probe() for firmware and mode errors
+>       remoteproc: imx_dsp_rproc: Drop extra space
+>       remoteproc: imx_dsp_rproc: Use start/stop/detect_mode ops from imx_rproc_dcfg
+>       remoteproc: imx_dsp_rproc: Move imx_dsp_rproc_dcfg closer to imx_dsp_rproc_of_match
+>       remoteproc: imx_dsp_rproc: Simplify IMX_RPROC_MMIO switch case
+>       remoteproc: imx_dsp_rproc: Simplify IMX_RPROC_SCU_API switch case
+>       remoteproc: imx_dsp_rproc: Simplify IMX_RPROC_RESET_CONTROLLER switch case
+>       remoteproc: imx_rproc: Remove enum imx_rproc_method
+>       remoteproc: imx_dsp_rproc: simplify start/stop error handling
+> 
+>  drivers/remoteproc/imx_dsp_rproc.c | 353 +++++++++++++++++++------------------
+>  drivers/remoteproc/imx_rproc.h     |  14 --
 
-Ack. And thanks for reviewing! More comments below.
+I have applied this set.
 
-> >=20
-> > Signed-off-by: Radu Rendec <rrendec@redhat.com>
-> > ---
-> > =C2=A0drivers/pci/controller/pci-host-common.c | 36 ++++++++++++++++---=
------
-> > =C2=A0drivers/pci/controller/pci-host-common.h |=C2=A0 6 ++--
-> > =C2=A02 files changed, 29 insertions(+), 13 deletions(-)
-> >=20
-> > diff --git a/drivers/pci/controller/pci-host-common.c b/drivers/pci/con=
-troller/pci-host-common.c
-> > index 810d1c8de24e9..86002195c93ac 100644
-> > --- a/drivers/pci/controller/pci-host-common.c
-> > +++ b/drivers/pci/controller/pci-host-common.c
-> > @@ -52,25 +52,24 @@ struct pci_config_window *pci_host_common_ecam_crea=
-te(struct device *dev,
-> > =C2=A0}
-> > =C2=A0EXPORT_SYMBOL_GPL(pci_host_common_ecam_create);
-> > =C2=A0
-> > -int pci_host_common_init(struct platform_device *pdev,
-> > - const struct pci_ecam_ops *ops)
-> > +struct pci_host_bridge *pci_host_common_init(struct platform_device *p=
-dev,
-> > + =C2=A0=C2=A0=C2=A0=C2=A0 const struct pci_ecam_ops *ops)
-> > =C2=A0{
-> > =C2=A0 struct device *dev =3D &pdev->dev;
-> > =C2=A0 struct pci_host_bridge *bridge;
-> > =C2=A0 struct pci_config_window *cfg;
-> > + int rc;
-> > =C2=A0
-> > =C2=A0 bridge =3D devm_pci_alloc_host_bridge(dev, 0);
-> > =C2=A0 if (!bridge)
-> > - return -ENOMEM;
-> > + return ERR_PTR(-ENOMEM);
-> > =C2=A0
-> > =C2=A0 of_pci_check_probe_only();
-> > =C2=A0
-> > - platform_set_drvdata(pdev, bridge);
-> > -
-> > =C2=A0 /* Parse and map our Configuration Space windows */
-> > =C2=A0 cfg =3D pci_host_common_ecam_create(dev, bridge, ops);
-> > =C2=A0 if (IS_ERR(cfg))
-> > - return PTR_ERR(cfg);
-> > + return (struct pci_host_bridge *)cfg;
-> > =C2=A0
-> > =C2=A0 bridge->sysdata =3D cfg;
-> > =C2=A0 bridge->ops =3D (struct pci_ops *)&ops->pci_ops;
-> > @@ -78,31 +77,46 @@ int pci_host_common_init(struct platform_device *pd=
-ev,
-> > =C2=A0 bridge->disable_device =3D ops->disable_device;
-> > =C2=A0 bridge->msi_domain =3D true;
-> > =C2=A0
-> > - return pci_host_probe(bridge);
-> > + rc =3D pci_host_probe(bridge);
-> > + if (rc)
-> > + return ERR_PTR(rc);
-> > +
-> > + return bridge;
-> > =C2=A0}
-> > =C2=A0EXPORT_SYMBOL_GPL(pci_host_common_init);
-> > =C2=A0
-> > =C2=A0int pci_host_common_probe(struct platform_device *pdev)
-> > =C2=A0{
-> > =C2=A0 const struct pci_ecam_ops *ops;
-> > + struct pci_host_bridge *bridge;
-> > =C2=A0
-> > =C2=A0 ops =3D of_device_get_match_data(&pdev->dev);
-> > =C2=A0 if (!ops)
-> > =C2=A0 return -ENODEV;
-> > =C2=A0
-> > - return pci_host_common_init(pdev, ops);
-> > + bridge =3D pci_host_common_init(pdev, ops);
-> > + if (IS_ERR(bridge))
-> > + return PTR_ERR(bridge);
-> > +
-> > + platform_set_drvdata(pdev, bridge);
->=20
-> Congratulations, you just broke pcie-microchip-host.c again.
->=20
-> Yes, I did that myself in afc0a570bb613871 ("PCI: host-generic:
-> Extract an ECAM bridge creation helper from pci_host_common_probe()"),
-> and it was fixed by Geert in bdb32a0f67806 ("PCI: host-generic: Set
-> driver_data before calling gen_pci_init()").
-
-Right. Which means there is an assumption (outside of
-pci_host_common_probe() and pci_host_common_remove()) that the device's
-drvdata is a pointer to the bridge. This is what I had feared but it
-wasn't obvious and I failed to check thoroughly. Sorry!
-
-> > +
-> > + return 0;
-> > =C2=A0}
-> > =C2=A0EXPORT_SYMBOL_GPL(pci_host_common_probe);
-> > =C2=A0
-> > -void pci_host_common_remove(struct platform_device *pdev)
-> > +void pci_host_common_release(struct pci_host_bridge *bridge)
-> > =C2=A0{
-> > - struct pci_host_bridge *bridge =3D platform_get_drvdata(pdev);
-> > -
-> > =C2=A0 pci_lock_rescan_remove();
-> > =C2=A0 pci_stop_root_bus(bridge->bus);
-> > =C2=A0 pci_remove_root_bus(bridge->bus);
-> > =C2=A0 pci_unlock_rescan_remove();
-> > =C2=A0}
-> > +EXPORT_SYMBOL_GPL(pci_host_common_release);
->=20
-> Even with the pcie-apple.c driver change, this is never called. I'd
-> refrain from adding an export until we actually have an identified
-> user.
-
-That's fair. I just wanted to provide it for symmetry. But it's not
-even needed if we change the approach (see below).
-
-> > +
-> > +void pci_host_common_remove(struct platform_device *pdev)
-> > +{
-> > + pci_host_common_release(platform_get_drvdata(pdev));
-> > +}
-> > =C2=A0EXPORT_SYMBOL_GPL(pci_host_common_remove);
-> > =C2=A0
-> > =C2=A0MODULE_DESCRIPTION("Common library for PCI host controller driver=
-s");
-> > diff --git a/drivers/pci/controller/pci-host-common.h b/drivers/pci/con=
-troller/pci-host-common.h
-> > index 51c35ec0cf37d..018e593bafe47 100644
-> > --- a/drivers/pci/controller/pci-host-common.h
-> > +++ b/drivers/pci/controller/pci-host-common.h
-> > @@ -11,11 +11,13 @@
-> > =C2=A0#define _PCI_HOST_COMMON_H
-> > =C2=A0
-> > =C2=A0struct pci_ecam_ops;
-> > +struct pci_host_bridge;
-> > =C2=A0
-> > =C2=A0int pci_host_common_probe(struct platform_device *pdev);
-> > -int pci_host_common_init(struct platform_device *pdev,
-> > - const struct pci_ecam_ops *ops);
-> > +struct pci_host_bridge *pci_host_common_init(struct platform_device *p=
-dev,
-> > + =C2=A0=C2=A0=C2=A0=C2=A0 const struct pci_ecam_ops *ops);
-> > =C2=A0void pci_host_common_remove(struct platform_device *pdev);
-> > +void pci_host_common_release(struct pci_host_bridge *bridge);
-> > =C2=A0
-> > =C2=A0struct pci_config_window *pci_host_common_ecam_create(struct devi=
-ce *dev,
-> > =C2=A0 struct pci_host_bridge *bridge, const struct pci_ecam_ops *ops);
->=20
-> My concern with this is two-fold:
->=20
-> - it is yet another obscure API change with odd side effects,
-> =C2=A0 requiring to track and understand the per-driver flow of informati=
-on
-> =C2=A0 (and the apple pcie driver is a prime example of how hard this is)
->=20
-> - we can't directly associate the PCIe port data with the bridge like
-> =C2=A0 must drivers do, because the bridge allocation is done outside of
-> =C2=A0 the calling driver, and there is no link back to the bridge from
-> =C2=A0 pci_config_window.
->=20
-> I'd rather that last point was addressed so that we could make the
-> Apple driver behave similarly to other drivers, and let it use the
-> bridge private data for its PCIe port information.
-
-Using the bridge private data to store the driver's private data was my
-first thought too. In fact, in the first version of my (local) changes
-I added a "size" parameter to pci_host_common_init(), to pass it down
-to devm_pci_alloc_host_bridge() as the priv size.
-
-But there's another problem with this approach: pci_host_common_init()
-also calls pci_host_common_ecam_create() -> pci_ecam_create() ->
-ops->init(), so init() would be called with the bridge private area
-allocated but not populated.
-
-I don't see an elegant solution to this. The two options that crossed
-my mind are these:
- * Add yet another parameter to pci_host_common_init(), a void *, so it
-   takes a void *priv and a size_t size. The size would be passed down
-   to devm_pci_alloc_host_bridge(), then `size` bytes would be copied
-   from `priv` to the bridge private data area. What I don't like about
-   this is the extra memcpy() and the fact that the calling driver
-   would have to prepare an "offline" copy of its private data (likely
-   as a local variable) and pass it to pci_host_common_init().
- * Pass just the void *priv to pci_host_common_init(). By convention,
-   the bridge private data would be used to store that void *priv
-   itself, which is a pointer to the driver's private data. So, the 2nd
-   parameter to devm_pci_alloc_host_bridge() would be sizeof(void *).
-   The downside is that there's an extra pointer indirection.
-
-In any case, your other concern about linking back to the bridge from
-pci_config_window would be addressed because pci_config_window has a
-pointer to the device (the `parent` field), which (in this scenario, by
-convention) has the bridge pointer stored as drvdata.
-
-If any of the options above looks appealing, or if you have a better
-idea, please let me know, and I can prepare a v2.
-
---=20
 Thanks,
-Radu
+Mathieu
 
+>  2 files changed, 186 insertions(+), 181 deletions(-)
+> ---
+> base-commit: 187dac290bfd0741b9d7d5490af825c33fd9baa4
+> change-id: 20251119-imx-dsp-2025-11-19-fa99d7c84c91
+> 
+> Best regards,
+> -- 
+> Peng Fan <peng.fan@nxp.com>
+> 
 
