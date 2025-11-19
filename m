@@ -4,99 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 777A4CF397E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 17:31:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0C41CF3979
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 17:31:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=a9shqnQLik0MBvQvkSLKR825xw1M6Btpip0qF9AlI/E=; b=cL9RmFsLETBCU7inO4EXMCggS0
-	IjxgGUkrlBofpFmgcC2As6kKs+NKzfVvl1LiooYTT9HKBNEQ//iQqVhwcjP0CKH/lNE/VgRiJCI2H
-	Kpm70etXMqH+RJ0X/193VLuA8sEPknjvzWJ1K1JpSQfcoI/tTN7CjJL8x8YU1uXvQF3pYE5DdEzTo
-	eI/+krdT8wp8xqZmfhfuLmQT0Kl6RDuAzTrxkZpQFGYDFZSa5f/TFYmChoYxDRDIhhLth592UM4T0
-	INhFmWDQvjNV+h+8ub+zk/VKvPCyJyQ/7jzP2fbHsyGNBL5+3F/LO1XXnBYRBwGYpCAAyVM8voR1l
-	lhgXEP4A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GWl41UbZTDHbMWOiEge7cr6oH9C5mazoJqfrtNxMcKY=; b=Md3tTilX5kr1YOwv1vNMdyrpBE
+	fdAqcfaU1lZ85tLNl9JnV83Jq41lNQzGxwKSieAOTJeeWHDBs/y/j5vNsbNfyKxldZHmyL3VKtgpP
+	eKJIsdVI0R3YvqDJVZyIpFI5wMrO3P6PYMgW+yn2nkcoGpH51amt+dcpmpv5RDGtQWRp2f4z0E+Ok
+	SwkDzZ0VKwi11X3AquSU7c4Ngt45TZ1J42hHUTMRVNCqnDdDclcE988pEP6jQHJc7sbtGCqhxYPTd
+	7bxFBkbo3dSj7dUqyP12UYgga2919L8r8S5E4oJPa+w385Pga5XZK6YmTs75sjtPy0d5k3nsjjnIJ
+	aLL5OUHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLm1J-000000047JP-3m6u;
-	Wed, 19 Nov 2025 17:31:05 +0000
-Received: from mail-ed1-x52c.google.com ([2a00:1450:4864:20::52c])
+	id 1vLm1o-000000047eS-1Orl;
+	Wed, 19 Nov 2025 17:31:36 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLm1H-000000047IM-36xC
+	id 1vLm1l-000000047cx-3th6
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Nov 2025 17:31:04 +0000
-Received: by mail-ed1-x52c.google.com with SMTP id 4fb4d7f45d1cf-64162c04f90so11057118a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Nov 2025 09:31:03 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1763573459; x=1764178259; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=a9shqnQLik0MBvQvkSLKR825xw1M6Btpip0qF9AlI/E=;
-        b=e0zMuD5VQ10d4+6QsNpry7SFdtVUqhPSG228doPcjxDDZUT6SjmAMaz+/hMAwXT6K6
-         MEeDqP3I3bJXjqTjWwMJBMFKPD0uRBq073WqMrwL0EDCNllw9JGrE8YpFn/0Ce+I9v5t
-         86Empah+k/Cfe6/XIG6Et8C0PIhuU2ldRFY1A=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763573459; x=1764178259;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=a9shqnQLik0MBvQvkSLKR825xw1M6Btpip0qF9AlI/E=;
-        b=MY7O1b+3lXXtc1XRl2XD98mqoqf5Nt/JArd4cxtXNztPa/sJNKM3/GE7orGDUF/LiL
-         LODaHqP0Yawf6ChXNSGYICWyNzJ4SsAFXIz6VT5vSU6DZAPtt7mZe3vaTr4crDQUnTZO
-         zKERIdFf7cjSo2CY4qgOP1XC3/WL2PbjVhIX6CZQ1OxX6LqLGpXmt++aODs9x4o8kvhd
-         O9DeO+Ucb/hOO46cXzSKZ8HM0aA7EO3urzRZ2nKLGFUxVJMmUOBbL9CP4tYYEz2KJWGb
-         srT8RqZVyGZ2TTC1denrtgvEYFPC9pCBV5J4zYdzuLngO8qoTb8Kx8VJh9fjjpzmVx6T
-         OSSA==
-X-Forwarded-Encrypted: i=1; AJvYcCWwhtUfcFakINH9++godO6xlZkvxiYhgf8dnvmm+cGghKxmf9OPzzQsr2RXXh1zUcGiXC28I6jELQB2BA6kYFcy@lists.infradead.org
-X-Gm-Message-State: AOJu0YyhoIOluImaqxJwNgdEKMMuber77uS9SG79UF3t879Lf7RWAzJU
-	k8xnugtDCVcbKxKEvyTBiJ3YcPjsCqzH5wsFeDPsTIg01MfCVOAHBWP2kTlkT0fy83s5YVnzWng
-	v/gJoKbi7
-X-Gm-Gg: ASbGnctKxu/10OgACgicX5tfXsI3L9T3RIdOh8kCEFqFQ81It/B7W22gXZ25HEcMurS
-	i1jqcPvUo4kFzjBBfzZxg30Szj7l+JennQoeisf9dUjaUqs26WTpdjRb+iNOJM80NR1PdCFlSYk
-	tdJ7GxAg+6O7zhstyV33xULfHEenFMxsVcPjDSalRfLbXQg3p5HkhgIVrowqJwBCz18+4P7O3kn
-	4+iuGR2xwPcXXffOB+LFiz5WhkHiZmPsm15XLVuVEdAUy21FUcQs9Zup+xtZHSlKTTxMTx05Ber
-	rOzdsTAqJLdq4Mh7ouKuevQKk5Dc8Rq4vE+DH3cjL8Uhe6BXmRAytt7Xo6PakwHmE/0k6XbGMcY
-	iIWa0pKiGV875Kad1drWydq1cOPy0BEQbLe7Tazyp8EVz3/vypEo/HGTN8COV7kTH91uqyS152v
-	VFs+QAfSkLecWnMJHNsBSvVicdSfWlgNCMHgVQfZkc+VI05iYQtQ==
-X-Google-Smtp-Source: AGHT+IG0KAVX5cBR4WYkRk7Jl0JsobsmKfroQUMeLyQkE5bRKd1iQNsD5ItQv6ydaei9bIpibsdnEA==
-X-Received: by 2002:a05:6402:2790:b0:640:c460:8a90 with SMTP id 4fb4d7f45d1cf-64536407322mr146030a12.12.1763573459306;
-        Wed, 19 Nov 2025 09:30:59 -0800 (PST)
-Received: from mail-wm1-f42.google.com (mail-wm1-f42.google.com. [209.85.128.42])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-645363aca03sm89890a12.3.2025.11.19.09.30.58
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 19 Nov 2025 09:30:58 -0800 (PST)
-Received: by mail-wm1-f42.google.com with SMTP id 5b1f17b1804b1-47775fb6cb4so223955e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Nov 2025 09:30:58 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCXl2hRaSxNLflg89XIyPesRXXYROrCgfzyBfzv5aOz3Wa8t6w2cAXmhse1jd/3BaDr7vsF+WiwJjj0mQvXehl1Z@lists.infradead.org
-X-Received: by 2002:a05:600c:4694:b0:477:952d:fc11 with SMTP id
- 5b1f17b1804b1-477b8a8eb4bmr414775e9.16.1763573457648; Wed, 19 Nov 2025
- 09:30:57 -0800 (PST)
-MIME-Version: 1.0
-References: <20251119085354.1.I1ae7aebc967e52c7c4be7aa65fbd81736649568a@changeid>
-In-Reply-To: <20251119085354.1.I1ae7aebc967e52c7c4be7aa65fbd81736649568a@changeid>
-From: Doug Anderson <dianders@chromium.org>
-Date: Wed, 19 Nov 2025 09:30:45 -0800
-X-Gmail-Original-Message-ID: <CAD=FV=X+mjEYu4WU-0nbHMtW-HAzm6EUeBnZj46g27O3iobKBQ@mail.gmail.com>
-X-Gm-Features: AWmQ_bn88skAW9xgPWrFrlEJQJC-r-nYEqb-FQnzB2AAJsIY30EVaWKYqaJSmTs
-Message-ID: <CAD=FV=X+mjEYu4WU-0nbHMtW-HAzm6EUeBnZj46g27O3iobKBQ@mail.gmail.com>
-Subject: Re: [PATCH] Bluetooth: btusb: mediatek: Avoid btusb_mtk_claim_iso_intf()
- NULL deref
-To: Marcel Holtmann <marcel@holtmann.org>, Luiz Augusto von Dentz <luiz.dentz@gmail.com>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: Thorsten Leemhuis <regressions@leemhuis.info>, incogcyberpunk@proton.me, 
-	johan.hedberg@gmail.com, regressions@lists.linux.dev, sean.wang@mediatek.com, 
-	linux-arm-kernel@lists.infradead.org, linux-bluetooth@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+	Wed, 19 Nov 2025 17:31:35 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 0DD8540191;
+	Wed, 19 Nov 2025 17:31:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DB4B7C4CEF5;
+	Wed, 19 Nov 2025 17:31:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1763573492;
+	bh=oO3Fmz7mebynD3LKHMlj/1T1aV6n0QwikQ+DyWiqIJU=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=puEEiqN93N+Hlswozk6W04RyGHmpQg0q2FzCTJ6oWDdFSS7FGIzcx1V6DAgB6ZfSf
+	 kw+SXuaa57VZkaFdecTUYE1RtonNEo+5IYHslbgZYybCpRbPJjR0RmwSvAdfixz9hS
+	 H6xfSftrVJBCwYFaJncm80cenJXa/rt/GJ4kSzGbO7+7ZsEacmhQOEich3IDFyyaGg
+	 cHhrdjzxjviTCGhkjSsybFIBu0aaKpzekKbpPgp5XR0B9Fr9NhKVb0w/Em/qU7TCjp
+	 dwur8MCjfAvlvLlS8YloszC7lWFkdBE8JZX/1GEyN668Ncu9aSbHMW/CFWmMhyuMv3
+	 EMFYqgpTv3w5Q==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vLm1i-00000006e48-2Yc2;
+	Wed, 19 Nov 2025 17:31:30 +0000
+Date: Wed, 19 Nov 2025 17:31:30 +0000
+Message-ID: <86a50irkst.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Vincent Donnefort <vdonnefort@google.com>
+Cc: rostedt@goodmis.org,
+	mhiramat@kernel.org,
+	mathieu.desnoyers@efficios.com,
+	linux-trace-kernel@vger.kernel.org,
+	oliver.upton@linux.dev,
+	joey.gouly@arm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	jstultz@google.com,
+	qperret@google.com,
+	will@kernel.org,
+	aneesh.kumar@kernel.org,
+	kernel-team@android.com,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v8 22/28] KVM: arm64: Add trace remote for the pKVM hyp
+In-Reply-To: <20251107093840.3779150-23-vdonnefort@google.com>
+References: <20251107093840.3779150-1-vdonnefort@google.com>
+	<20251107093840.3779150-23-vdonnefort@google.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: vdonnefort@google.com, rostedt@goodmis.org, mhiramat@kernel.org, mathieu.desnoyers@efficios.com, linux-trace-kernel@vger.kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, jstultz@google.com, qperret@google.com, will@kernel.org, aneesh.kumar@kernel.org, kernel-team@android.com, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251119_093103_809401_EF63B702 
-X-CRM114-Status: GOOD (  21.35  )
+X-CRM114-CacheID: sfid-20251119_093134_004340_45DD9D5C 
+X-CRM114-Status: GOOD (  28.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,46 +98,132 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Fri, 07 Nov 2025 09:38:34 +0000,
+Vincent Donnefort <vdonnefort@google.com> wrote:
+> 
+> When running with KVM protected mode, the hypervisor is able to generate
+> events into tracefs compatible ring-buffers. Create a trace remote so
+> the kernel can read those buffers.
+> 
+> This currently doesn't provide any event support which will come later.
+> 
+> Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
+> 
+> diff --git a/arch/arm64/kvm/Kconfig b/arch/arm64/kvm/Kconfig
+> index 580426cdbe77..64db254f0448 100644
+> --- a/arch/arm64/kvm/Kconfig
+> +++ b/arch/arm64/kvm/Kconfig
+> @@ -87,6 +87,7 @@ config PKVM_TRACING
+>  	bool
+>  	depends on KVM
+>  	depends on TRACING
+> +	select TRACE_REMOTE
+>  	select SIMPLE_RING_BUFFER
+>  	default y
+>  
+> diff --git a/arch/arm64/kvm/Makefile b/arch/arm64/kvm/Makefile
+> index 3ebc0570345c..2c184e3abd8e 100644
+> --- a/arch/arm64/kvm/Makefile
+> +++ b/arch/arm64/kvm/Makefile
+> @@ -30,6 +30,8 @@ kvm-$(CONFIG_HW_PERF_EVENTS)  += pmu-emul.o pmu.o
+>  kvm-$(CONFIG_ARM64_PTR_AUTH)  += pauth.o
+>  kvm-$(CONFIG_PTDUMP_STAGE2_DEBUGFS) += ptdump.o
+>  
+> +kvm-$(CONFIG_PKVM_TRACING) += hyp_trace.o
+> +
+>  always-y := hyp_constants.h hyp-constants.s
+>  
+>  define rule_gen_hyp_constants
+> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+> index 870953b4a8a7..c485e54417e2 100644
+> --- a/arch/arm64/kvm/arm.c
+> +++ b/arch/arm64/kvm/arm.c
+> @@ -24,6 +24,7 @@
+>  
+>  #define CREATE_TRACE_POINTS
+>  #include "trace_arm.h"
+> +#include "hyp_trace.h"
+>  
+>  #include <linux/uaccess.h>
+>  #include <asm/ptrace.h>
+> @@ -2345,6 +2346,9 @@ static int __init init_subsystems(void)
+>  
+>  	kvm_register_perf_callbacks(NULL);
+>  
+> +	err = hyp_trace_init();
+> +	if (err)
+> +		kvm_err("Failed to initialize Hyp tracing\n");
+>  out:
+>  	if (err)
+>  		hyp_cpu_pm_exit();
+> diff --git a/arch/arm64/kvm/hyp_trace.c b/arch/arm64/kvm/hyp_trace.c
+> new file mode 100644
+> index 000000000000..98051c3fb0c2
+> --- /dev/null
+> +++ b/arch/arm64/kvm/hyp_trace.c
+> @@ -0,0 +1,210 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/*
+> + * Copyright (C) 2025 Google LLC
+> + * Author: Vincent Donnefort <vdonnefort@google.com>
+> + */
+> +
+> +#include <linux/trace_remote.h>
+> +#include <linux/simple_ring_buffer.h>
+> +
+> +#include <asm/kvm_host.h>
+> +#include <asm/kvm_hyptrace.h>
+> +
+> +#include "hyp_trace.h"
+> +
+> +/* Access to this struct within the trace_remote_callbacks are protected by the trace_remote lock */
+> +static struct hyp_trace_buffer {
+> +	struct hyp_trace_desc	*desc;
+> +	size_t			desc_size;
+> +} trace_buffer;
+> +
+> +static int hyp_trace_buffer_alloc_bpages_backing(struct hyp_trace_buffer *trace_buffer, size_t size)
+> +{
+> +	int nr_bpages = (PAGE_ALIGN(size) / PAGE_SIZE) + 1;
+> +	size_t backing_size;
+> +	void *start;
+> +
+> +	backing_size = PAGE_ALIGN(sizeof(struct simple_buffer_page) * nr_bpages *
+> +				  num_possible_cpus());
+> +
+> +	start = alloc_pages_exact(backing_size, GFP_KERNEL_ACCOUNT);
+> +	if (!start)
+> +		return -ENOMEM;
+> +
+> +	trace_buffer->desc->bpages_backing_start = (unsigned long)start;
+> +	trace_buffer->desc->bpages_backing_size = backing_size;
+> +
+> +	return 0;
+> +}
+> +
+> +static void hyp_trace_buffer_free_bpages_backing(struct hyp_trace_buffer *trace_buffer)
+> +{
+> +	free_pages_exact((void *)trace_buffer->desc->bpages_backing_start,
+> +			 trace_buffer->desc->bpages_backing_size);
+> +}
+> +
+> +static int __load_page(unsigned long va)
+> +{
+> +	return kvm_call_hyp_nvhe(__pkvm_host_share_hyp, virt_to_pfn((void *)va), 1);
+> +}
 
-On Wed, Nov 19, 2025 at 8:54=E2=80=AFAM Douglas Anderson <dianders@chromium=
-.org> wrote:
->
-> In btusb_mtk_setup(), we set `btmtk_data->isopkt_intf` to:
->   usb_ifnum_to_if(data->udev, MTK_ISO_IFNUM)
->
-> That function can return NULL in some cases. Even when it returns
-> NULL, though, we still go on to call btusb_mtk_claim_iso_intf().
->
-> As of commit e9087e828827 ("Bluetooth: btusb: mediatek: Add locks for
-> usb_driver_claim_interface()"), calling btusb_mtk_claim_iso_intf()
-> when `btmtk_data->isopkt_intf` is NULL will cause a crash because
-> we'll end up passing a bad pointer to device_lock(). Prior to that
-> commit we'd pass the NULL pointer directly to
-> usb_driver_claim_interface() which would detect it and return an
-> error, which was handled.
->
-> Resolve the crash in btusb_mtk_claim_iso_intf() by adding a NULL check
-> at the start of the function. This makes the code handle a NULL
-> `btmtk_data->isopkt_intf` the same way it did before the problematic
-> commit (just with a slight change to the error message printed).
->
-> Reported-by: IncogCyberpunk <incogcyberpunk@proton.me>
-> Closes: http://lore.kernel.org/r/a380d061-479e-4713-bddd-1d6571ca7e86@lee=
-mhuis.info
-> Fixes: e9087e828827 ("Bluetooth: btusb: mediatek: Add locks for usb_drive=
-r_claim_interface()")
-> Signed-off-by: Douglas Anderson <dianders@chromium.org>
-> ---
-> I have no way to test this commit myself other than to compile it. It
-> looks fairly straightforward, though, so I'm hopeful it will fix the
-> problem.
->
->  drivers/bluetooth/btusb.c | 5 +++++
->  1 file changed, 5 insertions(+)
+I struggle a bit with the nomenclature here. Why is that called
+"load"? Surely this is a "map" operation, right? Is that because this
+is called at "vcpu load" time? Something else?
 
-Ugh, the bluetooth bot properly told me that my patch doesn't apply to
-bt-next. I'll send a v2 right away. Sorry for the noise.
+Also, how is this working without pKVM, in a normal nVHE environment?
+Being able to trace in nVHE is a basic requirement, and I don't see
+how this works here.
 
--Doug
+Thanks,
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
