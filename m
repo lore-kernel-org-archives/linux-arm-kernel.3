@@ -4,72 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C236CF394D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 16:13:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49007CF394D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 16:16:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I2Z8/xcjTHwwelfJUI+eSlYaVGFYtTXFWiaz6vN1dqc=; b=SJgTDKuoFVzg27BM0wNwiM35LR
-	ydzmjFONjY1FpymNqz2YA5xYvuCqYVEj1i5tXz8wHjPyPVL7sygRybV1c5oOdPJYLaOWKm+CnsdMD
-	CErqkGiuXw8pJKdH9IYn1clMqEuCGFKeg2ixIScETCsKqCBt8qIA1CXiOMSzvbPJ3bXigvSPLQPiA
-	arRuueJGYB9PaxEfTl2j76zxf4Lqpgjqxcw9PmBSPnHVL57uuhlt0pcZd2Q05a9OzK0C5ky43cHGM
-	+QNa8+z0rXkH/J0ZKU35gQv9oCaULoySF9mVUO57khtaIPw/Qvl0KxIJ0Ur7YrQjCank6Gv2hrTKB
-	LZwQr0vg==;
+	bh=wLNIhT97Bl/+ZuxGEHjNcOWI8DMJfq5FE/S6VoowUNU=; b=b5SMeDc96qmsICiBz5I6cOBERN
+	igr7I6EAh4JUxZx0B/O4hmSfBSbHDWCSxS4IwzhhVqgDyKwr5oGyXCGmDHXCjIXn2beLDAHqiyyqU
+	kFRn+m2WDo39HbS7hXaWuS6PbjjC+pRCUVtEs5riSEoI7ltKjwwIrjYZ5PeP52ql1rzB2OgyJRNh4
+	K0GqJ+b+CfCHkORM1M25vtdafyySMNn+FrNmnU17K0XmjK3CcaKYdc7hmmRcOu6uoBcoOiLmW/Vpq
+	kE6G0V72ul15nLC7ZfLpA68ItBjcUg8RqKwWgjkoLDy70r6chMnbDQe9DB4KxC0ct7idYXKc75TsU
+	5IR8/KFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLkoF-00000003eGx-3KIh;
-	Wed, 19 Nov 2025 16:13:31 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1vLkqu-00000003eaG-2Jxz;
+	Wed, 19 Nov 2025 16:16:16 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLkoC-00000003eGF-2CQl
+	id 1vLkqu-00000003ea1-0Kt0
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Nov 2025 16:13:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=I2Z8/xcjTHwwelfJUI+eSlYaVGFYtTXFWiaz6vN1dqc=; b=BRLKTIepSCsk2GgXJg5XJJxzcW
-	Q01F6+TnlEaz2bHGlKhI12kgEN1NM7BDaQppp5zAAEQgLiaRYg1O8m3hrzul7eWn3PeUTAEyNQOpa
-	Rgx0+25rJnZ+ulN9XZymfV0agn8derlOjokbo4zNIdphtx5TCR/mRxSrDnlp8i+i0nKmehDwFPUh5
-	wCiOZr9B+8svl8RWRnQAv4a7S5L+t4Ywut5foMAGHWsPDrty6gcPagQvHCDtrhcOxfMou91DOitEY
-	et5g38666G9rqA8DRHBDFSgfKlGwdg5LklhRdBbShOvASvSTou/TSBZ6hhPE1dz82M9F44q8Kr8CQ
-	VvsZowzA==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:33292)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1vLko3-0000000058C-3sRn;
-	Wed, 19 Nov 2025 16:13:19 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1vLko1-000000003Yg-3fGV;
-	Wed, 19 Nov 2025 16:13:17 +0000
-Date: Wed, 19 Nov 2025 16:13:17 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Jisheng Zhang <jszhang@kernel.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 resend] net: stmmac: add support for dwmac 5.20
-Message-ID: <aR3snSb1YUFh9Dwp@shell.armlinux.org.uk>
-References: <20251119153526.13780-1-jszhang@kernel.org>
+	Wed, 19 Nov 2025 16:16:16 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 08E4C6016B;
+	Wed, 19 Nov 2025 16:16:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DCC07C113D0;
+	Wed, 19 Nov 2025 16:16:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1763568974;
+	bh=hmoxcs1J4r1vAy4hNatH5Of3A1Db8qTiymbbgM0k4C0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=NxpId7TqNXbStVPFHPH4xEAEXkFK5ANyvwq6YrYG6USNEK2ButctKZuoqnFzviN0h
+	 tHlJELFs2HsAhqQfeIhIzf1sPz4OHFYiY/AcYEda32CCBu2u1TRjO/xtAeJkc20f/G
+	 P137wL/kx4oCSnMenYNrlp4fabk3I3NwraMAq0qTlFE1Sc8/28cj0wg19AiX/IQiB9
+	 u1NF2dCOOKRG+aLcuIf/Fua5IsYilvxya4zdfeZmRBJSZ7BMZqUvlrMaAd/sDy7W/h
+	 MKKvUUa8wRJS+uoPWlN88AfrRj5gqnemrl0HKxwi73p6M2YDOh83rj+kRH04J8lk63
+	 1/x8hkGq9GH6Q==
+Date: Wed, 19 Nov 2025 23:58:19 +0800
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Andy Shevchenko <andriy.shevchenko@intel.com>
+Cc: Doug Berger <opendmb@gmail.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	bcm-kernel-feedback-list@broadcom.com,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Bartosz Golaszewski <brgl@bgdev.pl>,
+	Hoan Tran <hoan@os.amperecomputing.com>,
+	Andy Shevchenko <andy@kernel.org>, Daniel Palmer <daniel@thingy.jp>,
+	Romain Perier <romain.perier@gmail.com>,
+	Grygorii Strashko <grygorii.strashko@ti.com>,
+	Santosh Shilimkar <ssantosh@kernel.org>,
+	Kevin Hilman <khilman@kernel.org>,
+	Robert Jarzmik <robert.jarzmik@free.fr>,
+	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>,
+	Srinivas Neeli <srinivas.neeli@amd.com>,
+	Michal Simek <michal.simek@amd.com>, linux-gpio@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-omap@vger.kernel.org
+Subject: Re: [PATCH v3 05/15] gpio: pxa: Use modern PM macros
+Message-ID: <aR3pG7Em5RcRqAKT@xhacker>
+References: <20251119144327.13345-1-jszhang@kernel.org>
+ <20251119144327.13345-6-jszhang@kernel.org>
+ <aR3mnWQedt7SMRP0@smile.fi.intel.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20251119153526.13780-1-jszhang@kernel.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251119_081328_567828_610069F7 
-X-CRM114-Status: GOOD (  13.51  )
+In-Reply-To: <aR3mnWQedt7SMRP0@smile.fi.intel.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,39 +87,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 19, 2025 at 11:35:26PM +0800, Jisheng Zhang wrote:
-> The dwmac 5.20 IP can be found on some synaptics SoCs. 
+On Wed, Nov 19, 2025 at 05:47:41PM +0200, Andy Shevchenko wrote:
+> On Wed, Nov 19, 2025 at 10:43:17PM +0800, Jisheng Zhang wrote:
+> > Use the modern PM macros for the suspend and resume functions to be
+> > automatically dropped by the compiler when CONFIG_PM or
+> > CONFIG_PM_SLEEP are disabled, without having to use #ifdef guards.
+> > 
+> > This has the advantage of always compiling these functions in,
+> > independently of any Kconfig option. Thanks to that, bugs and other
+> > regressions are subsequently easier to catch.
 > 
-> The binding doc has been already upstreamed by
-> commit 13f9351180aa ("dt-bindings: net: snps,dwmac: Add dwmac-5.20
-> version")
+> ...
 > 
-> So we just need to add a compatibility flag in dwmac generic driver.
+> > struct pxa_gpio_bank {
+> 
+> ...
+> 
+> >  	unsigned long	irq_mask;
+> >  	unsigned long	irq_edge_rise;
+> >  	unsigned long	irq_edge_fall;
+> 
+> > -
+> 
+> As I already pointed out this is stray change. Why you ignored my comment?
+> 
+> > -#ifdef CONFIG_PM
+> >  	unsigned long	saved_gplr;
+> >  	unsigned long	saved_gpdr;
+> >  	unsigned long	saved_grer;
+> >  	unsigned long	saved_gfer;
+> > -#endif
+> 
+> Same Q as per dwapb driver. The CONFIG_PM=n doesn't need these.
 
-Do we _need_ to add it to the generic driver? Do the platforms that are
-using this really not need any additional code to support them?
+Now, I know why you commented like these... 
+the pm_ptr() and pm_sleep_ptr() can optimize out the PM
+functions, but those functions still need to be compiled. So if
+we keep these #ifdef, there will be build errors in case of !PM
 
-Looking at all the DT that mention dwmac-5.20 in their compatible
-strings, that is always after other compatibles that point to other
-platform specific drivers.
-
-So, can you point to a platform that doesn't have its own platform
-glue, and would be functional when using the dwmac-generic driver?
-
-For reference, the dts that refer to dwmac-5.20 are:
-
-arch/arm64/boot/dts/renesas/r9a09g047.dtsi
-arch/arm64/boot/dts/renesas/r9a09g056.dtsi
-arch/arm64/boot/dts/renesas/r9a09g057.dtsi
-arch/arm64/boot/dts/st/stm32mp251.dtsi
-arch/arm64/boot/dts/st/stm32mp253.dtsi
-arch/arm64/boot/dts/st/stm32mp233.dtsi
-arch/arm64/boot/dts/st/stm32mp231.dtsi
-arch/riscv/boot/dts/starfive/jh7110.dtsi
-
-Thanks.
-
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+> 
+> >  };
+> 
+> ...
+> 
+> >  static struct syscore_ops pxa_gpio_syscore_ops = {
+> > -	.suspend	= pxa_gpio_suspend,
+> > -	.resume		= pxa_gpio_resume,
+> > +	.suspend	= pm_ptr(pxa_gpio_suspend),
+> > +	.resume		= pm_ptr(pxa_gpio_resume),
+> >  };
+> 
+> This is not a device PM ops actually. Is there any guarantees on the
+> relationship with CONFIG_PM and these callbacks? If so, I think we
+> need to have special macros somewhere in include/linux/syscore_ops.h.
+> 
+> Otherwise I'm not sure this will be a good patch at all.
+> 
+> -- 
+> With Best Regards,
+> Andy Shevchenko
+> 
+> 
 
