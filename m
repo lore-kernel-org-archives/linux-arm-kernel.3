@@ -4,63 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F363CCF34A9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 12:55:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C6F3CF34A1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 13:00:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:To:From:Subject
-	:Message-ID:Date:MIME-Version:Reply-To:Cc:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=B5wttcTQ2tbZAUTjfi72gzveY6La2yQSN4U3CoAM4K0=; b=UbkqrTbhRNwKZxQSwGu4LJ1hnC
-	jnIqYeVcKQlq0nyELe0lxigWvbuM0QRSVVaEV8TmI5QhaxYJG6Fnp9lt5ZpLGPY6P5EhGMpauHGGa
-	XvzAhp9Jygfr2tJKUpDZJEdzAFfqF7Bf7suH1/sOqGBFh/5ggBLi42Gw547dBmGfBDPyDyZN91h3E
-	i/QsgsC591M8APIE8Dd3gMDGxz3CyrJicvhKrqdkJhcT1a01Lc1950XH71r1cd9ctRPFZjUe0A+aP
-	BQMFDB6Fi3JoT7ivYZV7AR5rJfUE/xvy7Rn+zB6JqeZXnuJPY2ceoMF+ki/Z5wGQaNvxVg7QG3/5M
-	lPMeD+Qw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/TcFr3h+LVihu/tOI/ieqlvFNy3rp771LK1996Wp0Kc=; b=r3YkxM373hdQ78loKcSOmuUNNR
+	UegAzwooSerzKJHEwjwTnqGIhMauewG/SURLQWld5k0K7zCpF25pNpBUTg4OUxLnH94i9ZKRwLDVM
+	DuEEO7spePOwhI+GpB0G1HZXnPjaGZTJFmt4OBqbvuo67nSrwD7qGrNWienwKv1V5XVnbnajQs7Bi
+	VlzGo/H4bxD1lG92JjEJ/zIKOguGKT60DqbOVB2NeVazxbQhnjeb/0IUbkBOM3inW0feRoZPdT47A
+	rQF+ebRQF3Y1Fk8mmkh68FIK6IgdVFh3k+ZKfz8+n73ES6LZPizVwRbIrIli858jssXfsVNElC/uc
+	a+J4ZLWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLhik-00000003Cfn-34lM;
-	Wed, 19 Nov 2025 12:55:38 +0000
-Received: from mail-il1-f200.google.com ([209.85.166.200])
+	id 1vLhn1-00000003D8U-1T78;
+	Wed, 19 Nov 2025 13:00:03 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLhii-00000003Cf1-09de
+	id 1vLhmz-00000003D7f-00ql
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Nov 2025 12:55:37 +0000
-Received: by mail-il1-f200.google.com with SMTP id e9e14a558f8ab-43322b98837so80584575ab.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Nov 2025 04:55:34 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763556934; x=1764161734;
-        h=to:from:subject:message-id:date:mime-version:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=B5wttcTQ2tbZAUTjfi72gzveY6La2yQSN4U3CoAM4K0=;
-        b=iCiV0AO12sMV8uW8vlNkUPj5uMiKx2uLeiXv6p+R4P+/k0nJ79T7PJ6mwGllUTi/Da
-         DWUFDOr/CWAAv9BIFlbSGNbZ8iaZXgwHoybkRTT2Nfq7qyDzaXsbUTGL7dtA6EoJFusy
-         kcxn86A1QQKxLArODpZD6uK++5Hu1NFod4IfPEqCxU1hgL7to2GfyexjE+EGg6d2FsZs
-         ffUsjPUfRe+zKzKfPic18eHkXDvepM17GO3gx7ht0o5qiNZPJCfEfEcYx0S8L8nQ4d5e
-         VT/v3pBooETAV0Dhna27R9H8wOLLfnyWJlFKGqsySsvPU/J09LyMqiq0GOz8SjktB+CW
-         nCxw==
-X-Gm-Message-State: AOJu0YwoI9bLo3naty4hc/m36ESmCFojPKaGVc2O1AhVzKUv3fnlWnf/
-	aCajJbBxhRNtxlgrBiKd6H2ELFc/X0X3wbC4/W0tnrrfiIS3DZ1/bgfMmFLIONLOi46zXHnNHxz
-	NggLDGmraNtGgKj2hzlot0nQJEhxQceCKlQ2jdmu8M585fOIQJTbDbOl6vgI=
-X-Google-Smtp-Source: AGHT+IEiyjBwwc6cKF3WYVxWPNzBfHSqQF+3ROtWBWNC9G3x/BKbiT57MUAnz1skLImAC/iOZIFIEfJqMP5NPdW2lU69kirFkJCx
+	Wed, 19 Nov 2025 13:00:02 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 4BB9F41A37;
+	Wed, 19 Nov 2025 13:00:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5858AC19422;
+	Wed, 19 Nov 2025 12:59:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1763557200;
+	bh=G5xOyYYZxALWZkH3/Ty9TlHQ4sn9EtrWTd/CD0Bb0X0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=MWihpCfKkpIVKL5tDSd0kx+Q90HusOdDbd+2zTLAf4hf1QDNiAuRlzmr7CHwBwtiX
+	 xDa/iUgMFEsSNpB15VQbZAhQd2xpf/79xZV1+3NiqlEwyTc+DAE/J94BH3hhjUWcI6
+	 Xnta0GH41LmlPZUb+8AIReWdaB774KxkOTRpPDHY1Ec1kyQ9Ah2fbULu7X3EF7DfED
+	 bEdjtuHYPbaAlGgO2cOmP6Zc22UGpaJQmkfr1gwADbefGlZL3KpNh+HtNd4X0DhJz6
+	 x7BQ8d7mJ+RNjzYb/phsZBnyp/Jvd8RqRnpyJZp/ZjORIhJI5z2j1BbyhsCH9xiROV
+	 bCUhL9Cd59AAA==
+Date: Wed, 19 Nov 2025 20:42:05 +0800
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Andy Shevchenko <andy.shevchenko@gmail.com>
+Cc: Doug Berger <opendmb@gmail.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	bcm-kernel-feedback-list@broadcom.com,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Bartosz Golaszewski <brgl@bgdev.pl>,
+	Hoan Tran <hoan@os.amperecomputing.com>,
+	Andy Shevchenko <andy@kernel.org>, Daniel Palmer <daniel@thingy.jp>,
+	Romain Perier <romain.perier@gmail.com>,
+	Grygorii Strashko <grygorii.strashko@ti.com>,
+	Santosh Shilimkar <ssantosh@kernel.org>,
+	Kevin Hilman <khilman@kernel.org>,
+	Robert Jarzmik <robert.jarzmik@free.fr>,
+	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>,
+	Srinivas Neeli <srinivas.neeli@amd.com>,
+	Michal Simek <michal.simek@amd.com>, linux-gpio@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-omap@vger.kernel.org
+Subject: Re: [PATCH v2 01/15] gpio: dwapb: Use modern PM macros
+Message-ID: <aR27HcbvUgvCEK2Z@xhacker>
+References: <20251118003229.26636-1-jszhang@kernel.org>
+ <20251118003229.26636-2-jszhang@kernel.org>
+ <CAHp75VeB1L5ZwQx=uKqaCMsij1ghFH+Kw3jsLa4qFxnWV1vTyw@mail.gmail.com>
 MIME-Version: 1.0
-X-Received: by 2002:a92:ca48:0:b0:433:27c1:75c4 with SMTP id
- e9e14a558f8ab-4348c949db9mr278463445ab.31.1763556934287; Wed, 19 Nov 2025
- 04:55:34 -0800 (PST)
-Date: Wed, 19 Nov 2025 04:55:34 -0800
-X-Google-Appengine-App-Id: s~syzkaller
-X-Google-Appengine-App-Id-Alias: syzkaller
-Message-ID: <691dbe46.a70a0220.2ea503.0019.GAE@google.com>
-Subject: [syzbot] Monthly arm report (Nov 2025)
-From: syzbot <syzbot+listf25f891bd9ebf2a1035b@syzkaller.appspotmail.com>
-To: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	syzkaller-bugs@googlegroups.com
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAHp75VeB1L5ZwQx=uKqaCMsij1ghFH+Kw3jsLa4qFxnWV1vTyw@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251119_045536_074846_70DA10D0 
-X-CRM114-Status: UNSURE (   5.40  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251119_050001_065288_C4A9975A 
+X-CRM114-Status: GOOD (  22.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,35 +91,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello arm maintainers/developers,
+On Tue, Nov 18, 2025 at 12:15:35PM +0200, Andy Shevchenko wrote:
+> On Tue, Nov 18, 2025 at 2:50 AM Jisheng Zhang <jszhang@kernel.org> wrote:
+> >
+> > Use the modern PM macros for the suspend and resume functions to be
+> > automatically dropped by the compiler when CONFIG_PM or
+> > CONFIG_PM_SLEEP are disabled, without having to use #ifdef guards.
+> >
+> > This has the advantage of always compiling these functions in,
+> > independently of any Kconfig option. Thanks to that, bugs and other
+> > regressions are subsequently easier to catch.
+> >
+> > The dwapb_context structure is always embedded into struct
+> > dwapb_gpio_port to simplify code. Sure this brings a tiny 36 bytes
+> > data overhead for !CONFIG_PM_SLEP. After greping the arm/arm64/riscv
+> 
+> SLEEP
+> grepping
+> 
+> > dts dir, the max port number is 6, the berlin2q soc families, so this
+> > means current we have wasted 216 bytes memory which is trivial
+> 
+> currently
+> 
+> > compared to the system memory.
+> 
+> I still think the embedding is not related to this change and should
+> be justified in a separate patch. W/o that part the rest looks fine.
 
-This is a 31-day syzbot report for the arm subsystem.
-All related reports/information can be found at:
-https://syzkaller.appspot.com/upstream/s/arm
-
-During the period, 1 new issues were detected and 1 were fixed.
-In total, 4 issues are still open and 7 have already been fixed.
-
-Some of the still happening issues:
-
-Ref Crashes Repro Title
-<1> 265     Yes   WARNING in delayed_work_timer_fn
-                  https://syzkaller.appspot.com/bug?extid=e13e654d315d4da1277c
-<2> 65      Yes   INFO: task hung in truncate_inode_pages_final (2)
-                  https://syzkaller.appspot.com/bug?extid=760777ae7038cad77437
-<3> 13      Yes   WARNING in fpsimd_restore_current_state
-                  https://syzkaller.appspot.com/bug?extid=d4ab35af21e99d07ce67
-
----
-This report is generated by a bot. It may contain errors.
-See https://goo.gl/tpsmEJ for more information about syzbot.
-syzbot engineers can be reached at syzkaller@googlegroups.com.
-
-To disable reminders for individual bugs, reply with the following command:
-#syz set <Ref> no-reminders
-
-To change bug's subsystems, reply with:
-#syz set <Ref> subsystems: new-subsystem
-
-You may send multiple commands in a single email message.
+I got your mind now: it looks like you prefer a seperate patch for the
+embedding. Let me explain why I have the embedding within this patch:
+the pm_ptr() or pm_sleep_ptr() just optimizes out the PM functions, but the
+PM funtions are still compiled, so w/o the embedding, it's impossible
+to clean up the code with the modern PM macros.
 
