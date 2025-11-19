@@ -4,62 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18BF6CF2561
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 01:18:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92E52CEE35E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 02:08:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jEWakcvW1TnAMoV+h8ZFjseo1NzKkn1k3ld14oxm230=; b=1QKyfaliZ3nei7dpW83eGFCK2s
-	O2SrYA47U6eYm8SMllQAQfK13Ac/P6vE4dqMcDZpdhJnHsa1pQZxMPjeYraUVYd68DR2xM+S4Xq40
-	qP6XERSVV5Vw9sbu7YyxmKd3/wLsmbh92VcQkoP7uyErrYG+DFes0xWjErknF+C90u9QRl+P73fQe
-	+pD70oJiDVveNMHWQUBhBcKzC7nasnuV09O7m7vRQ4ioUM+oNBCb2XJSadsFtMp2iOduJ8CJTVnLy
-	EzhgUfLsdV7IuBu/rTgTt+It9BjBjn+cYfArtBRUrik5nx4ehouDWKDCSM+zzAz/GsFELVBcpjKJU
-	kpYzqLpA==;
+	bh=sN6sKK2KKB6QJ2HV2JHIrhZFF+OpAoG4U7S1aG6EWNA=; b=ppCcl7RVl9oS8LOtaPk8icsnGi
+	DfP1Ka45BoMETmbmhXQJAnJ7DuB48xPPYh3hIimRq3xzlDD5Y2gz2JHk3q9WIxkj8CeRZh5/ZZb9g
+	q3wD2fZuDV+WNhCz9eGd7I0uK3GpehLIAZPLIv253QkHS9ZShzkxxNiE17nVZBVL+yHPvpK0aMtpX
+	nLg+zqXgEg1pZRSRwMpQl0U1diI2a6So4y/ug1gfEQydQaOGOoQa8CXh/T4MQdE2s/23tXBIaKfdX
+	tdO/y6F5+kPx1kI5lWLJ1owcMuJWT48iw9AzeK9gJm3iYgTDGiiWREpdZNSyy7Y8zoeGIQxltPV66
+	Z57SLB3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLWqE-00000001L1g-3U4a;
-	Wed, 19 Nov 2025 01:18:38 +0000
-Received: from [50.53.43.113] (helo=[192.168.254.34])
-	by bombadil.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLWq8-00000001L1B-2Eo5;
-	Wed, 19 Nov 2025 01:18:32 +0000
-Message-ID: <2241d985-0e35-41e5-93b1-1e8d4e7a84bf@infradead.org>
-Date: Tue, 18 Nov 2025 17:18:31 -0800
+	id 1vLXcJ-00000001N3E-1ABL;
+	Wed, 19 Nov 2025 02:08:19 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vLXcG-00000001N1t-3gcp
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 19 Nov 2025 02:08:18 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 6C61E40598;
+	Wed, 19 Nov 2025 02:08:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id A0290C4AF11;
+	Wed, 19 Nov 2025 02:08:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1763518094;
+	bh=Zpy/b+3EHEcS+tl1YC3lHqaLKuKns3Ptr7xPNdjh5fc=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=hlzSw/bM54SWK4+JI1YT5ZtOMxCzLxyBalibIa8whLN3A4WsJyoklzN1JPPhlV71H
+	 dao9LP4xwf2BAoFjBM5KqITiBL/1mqReazB+bqwh0NR2p2N44aAjGdrnyEsw/lQjFt
+	 9bt9z9wtisO7gPZ0q20WCu9gDY2xT00tnu53xBP31f+1oczU2fMI+cHTIJa6Uencd/
+	 JAxMqu3Fj+loxJ0EezVFIxb4xeyHMvPHFWm7tHTRLGMMFUt4DaczTSmeLddhBTyGIm
+	 YKVnaPnKIT6PS0xuVHRPmqetDvShjrO6TGi/CtRFesDhojxuyA406X3ATBrOD17GeX
+	 NWid4pVLDzp/Q==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 37BF3CF256C;
+	Wed, 19 Nov 2025 02:08:13 +0000 (UTC)
+From: Per Larsen via B4 Relay <devnull+perlarsen.google.com@kernel.org>
+Date: Wed, 19 Nov 2025 02:07:54 +0000
+Subject: [PATCH v3 2/2] KVM: arm64: Support FFA_MSG_SEND_DIRECT_REQ2 in
+ host handler
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 3/7] lib: Support
- ARCH_HAS_CPU_CACHE_INVALIDATE_MEMREGION
-To: Jonathan Cameron <jonathan.cameron@huawei.com>,
- Conor Dooley <conor@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, linux-cxl@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-arch@vger.kernel.org,
- linux-mm@kvack.org, Dan Williams <dan.j.williams@intel.com>,
- "H . Peter Anvin" <hpa@zytor.com>, Peter Zijlstra <peterz@infradead.org>,
- Andrew Morton <akpm@linux-foundation.org>, Arnd Bergmann <arnd@arndb.de>,
- Drew Fustini <fustini@kernel.org>, Linus Walleij <linus.walleij@linaro.org>,
- Alexandre Belloni <alexandre.belloni@bootlin.com>,
- Krzysztof Kozlowski <krzk@kernel.org>, james.morse@arm.com,
- Will Deacon <will@kernel.org>, Davidlohr Bueso <dave@stgolabs.net>,
- linuxarm@huawei.com, Yushan Wang <wangyushan12@huawei.com>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>,
- Dave Hansen <dave.hansen@linux.intel.com>,
- Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
- Borislav Petkov <bp@alien8.de>, x86@kernel.org,
- Andy Lutomirski <luto@kernel.org>, Dave Jiang <dave.jiang@intel.com>
-References: <20251117104800.2041329-1-Jonathan.Cameron@huawei.com>
- <20251117104800.2041329-4-Jonathan.Cameron@huawei.com>
- <3bf1793a-2ffd-4017-b4bf-dc63f3a2a7c8@infradead.org>
- <20251117-definite-uncounted-7cc07a377a71@spud>
- <20251118093041.00000c9e@huawei.com>
-Content-Language: en-US
-From: Randy Dunlap <rdunlap@infradead.org>
-In-Reply-To: <20251118093041.00000c9e@huawei.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20251119-host-direct-messages-v3-2-c74d04944b26@google.com>
+References: <20251119-host-direct-messages-v3-0-c74d04944b26@google.com>
+In-Reply-To: <20251119-host-direct-messages-v3-0-c74d04944b26@google.com>
+To: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
+ Suzuki K Poulose <suzuki.poulose@arm.com>, 
+ Zenghui Yu <yuzenghui@huawei.com>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+ Yeoreum Yun <yeoreum.yun@arm.com>, Ben Horgan <ben.horgan@arm.com>, 
+ Oliver Upton <oupton@kernel.org>
+Cc: Armelle Laine <armellel@google.com>, 
+ Sebastien Ene <sebastianene@google.com>, 
+ linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+ linux-kernel@vger.kernel.org, Per Larsen <perlarsen@google.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1763518092; l=2628;
+ i=perlarsen@google.com; s=20250508; h=from:subject:message-id;
+ bh=0P7CauTG9R1nzKRFKD32UxjLLHMH6ZtNvg/BjDofeXQ=;
+ b=EZG9yPi4huWCccQXEesR1wCdc/CnJUYSPaK4VunD6mhrLHI12t9bObg45GcwkKX0FO/4oX1Mq
+ QlNJtRd1F5PC/yNtMbD3eBg1eF+aMS2tMTrUiEUIgHzI/EqYBGSppqi
+X-Developer-Key: i=perlarsen@google.com; a=ed25519;
+ pk=jjc/Ta4VmrLRmMoahP6d1mBcKzvWU+nsmdtYe2oS2kQ=
+X-Endpoint-Received: by B4 Relay for perlarsen@google.com/20250508 with
+ auth_id=402
+X-Original-From: Per Larsen <perlarsen@google.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251118_180816_962990_0A729402 
+X-CRM114-Status: GOOD (  13.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,113 +90,79 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: perlarsen@google.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Per Larsen <perlarsen@google.com>
 
+FF-A 1.2 adds the DIRECT_REQ2 messaging interface which is similar to
+the existing FFA_MSG_SEND_DIRECT_{REQ,RESP} functions and can use the
+existing handler function. Add support for FFA_MSG_SEND_DIRECT_REQ2 in
+the host ffa handler.
 
-On 11/18/25 1:30 AM, Jonathan Cameron wrote:
-> On Tue, 18 Nov 2025 00:13:07 +0000
-> Conor Dooley <conor@kernel.org> wrote:
-> 
->> On Mon, Nov 17, 2025 at 10:51:11AM -0800, Randy Dunlap wrote:
->>> Hi,
->>>
->>> On 11/17/25 2:47 AM, Jonathan Cameron wrote:  
->>>> diff --git a/lib/Kconfig b/lib/Kconfig
->>>> index e629449dd2a3..e11136d188ae 100644
->>>> --- a/lib/Kconfig
->>>> +++ b/lib/Kconfig
->>>> @@ -542,6 +542,10 @@ config MEMREGION
->>>>  config ARCH_HAS_CPU_CACHE_INVALIDATE_MEMREGION
->>>>  	bool
->>>>  
->>>> +config GENERIC_CPU_CACHE_MAINTENANCE
->>>> +	bool
->>>> +	select ARCH_HAS_CPU_CACHE_INVALIDATE_MEMREGION
->>>> +
->>>>  config ARCH_HAS_MEMREMAP_COMPAT_ALIGN
->>>>  	bool  
->>>
->>> Architectures and/or platforms select ARCH_HAS_*.
->>>
->>> With this change above, it becomes the only entry in
->>> lib/Kconfig that does "select ARCH_HAS_anytning".
->>>
->>> so I think this is wrong, back*wards.  
->>
->> Maybe it is backwards, but I feel like this way is more logical. ARM64
->> has memregion invalidation only because this generic approach is
->> enabled, so the arch selects what it needs to get the support.
-> 
-> Exactly this. Catalin requested this form in response to an earlier
-> version where arm64 Kconfig just had both selects for pretty much that
-> reason. This is expected to be used on a subset of architectures.
-> It is similar to things like GENERIC_ARCH_NUMA in this respect (though the
-> arch_numa_init() etc in there are called only from other arch code
-> so no ARCH_HAS_ symbols are associated with them).
-> 
->> Alternatively, something like
-> 
-> I'm fine with this solution if Randy prefers it.
+Reviewed-by: Yeoreum Yun <yeoreum.yun@arm.com>
+Signed-off-by: Per Larsen <perlarsen@google.com>
+---
+ arch/arm64/kvm/hyp/nvhe/ffa.c | 15 +++++++++++++--
+ 1 file changed, 13 insertions(+), 2 deletions(-)
 
-I do much prefer this alternative.
-
-> Thanks for your help with this.
-
-Thanks for listening.
-
-
->> | diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
->> | index 5f7f63d24931..75b2507f7eb2 100644
->> | --- a/arch/arm64/Kconfig
->> | +++ b/arch/arm64/Kconfig
->> | @@ -21,6 +21,7 @@ config ARM64
->> |  	select ARCH_ENABLE_THP_MIGRATION if TRANSPARENT_HUGEPAGE
->> |  	select ARCH_HAS_CACHE_LINE_SIZE
->> |  	select ARCH_HAS_CC_PLATFORM
->> | +	select ARCH_HAS_CPU_CACHE_INVALIDATE_MEMREGION
->> |  	select ARCH_HAS_CURRENT_STACK_POINTER
->> |  	select ARCH_HAS_DEBUG_VIRTUAL
->> |  	select ARCH_HAS_DEBUG_VM_PGTABLE
->> | @@ -146,7 +147,6 @@ config ARM64
->> |  	select GENERIC_ARCH_TOPOLOGY
->> |  	select GENERIC_CLOCKEVENTS_BROADCAST
->> |  	select GENERIC_CPU_AUTOPROBE
->> | -	select GENERIC_CPU_CACHE_MAINTENANCE
->> |  	select GENERIC_CPU_DEVICES
->> |  	select GENERIC_CPU_VULNERABILITIES
->> |  	select GENERIC_EARLY_IOREMAP
->> | diff --git a/lib/Kconfig b/lib/Kconfig
->> | index 09aec4a1e13f..ac223e627bc5 100644
->> | --- a/lib/Kconfig
->> | +++ b/lib/Kconfig
->> | @@ -544,8 +544,9 @@ config ARCH_HAS_CPU_CACHE_INVALIDATE_MEMREGION
->> |  	bool
->> |  
->> |  config GENERIC_CPU_CACHE_MAINTENANCE
->> | -	bool
->> | -	select ARCH_HAS_CPU_CACHE_INVALIDATE_MEMREGION
->> | +	def_bool y
->> | +	depends on ARCH_HAS_CPU_CACHE_INVALIDATE_MEMREGION
->> | +	depends on ARM64
->> |  
->> |  config ARCH_HAS_MEMREMAP_COMPAT_ALIGN
->> |  	bool
->> implies (to me at least) that arm64 has memregion invalidation as an
->> architectural feature and that the GENERIC_CPU_CACHE_MAINTENANCE option
->> is a just common cross-arch code, like generic entry etc, rather than
->> being the option gating the drivers that provide the feature in the
->> first place.
->>
->> I didn't really care which way it went, and was gonna post something to
->> squash and avoid another revision, but I found the resultant Kconfig
->> setup to be make less sense to me than what came before. If the switched
->> around version is less likely to be problematic etc, then sure, but I
->> amn't convinced by switching it at a first glance.
-
+diff --git a/arch/arm64/kvm/hyp/nvhe/ffa.c b/arch/arm64/kvm/hyp/nvhe/ffa.c
+index a38a3ab497e5eac11777109684a33f02d88d09a1..c794802bda589b315faf978086ad164a2aee510a 100644
+--- a/arch/arm64/kvm/hyp/nvhe/ffa.c
++++ b/arch/arm64/kvm/hyp/nvhe/ffa.c
+@@ -683,8 +683,10 @@ static bool ffa_call_supported(u64 func_id)
+ 	case FFA_NOTIFICATION_SET:
+ 	case FFA_NOTIFICATION_GET:
+ 	case FFA_NOTIFICATION_INFO_GET:
++		return false;
+ 	/* Optional interfaces added in FF-A 1.2 */
+ 	case FFA_MSG_SEND_DIRECT_REQ2:		/* Optional per 7.5.1 */
++		return hyp_ffa_version >= FFA_VERSION_1_2;
+ 	case FFA_MSG_SEND_DIRECT_RESP2:		/* Optional per 7.5.1 */
+ 	case FFA_CONSOLE_LOG:			/* Optional per 13.1: not in Table 13.1 */
+ 	case FFA_PARTITION_INFO_GET_REGS:	/* Optional for virtual instances per 13.1 */
+@@ -866,12 +868,16 @@ static void do_ffa_direct_msg(struct arm_smccc_1_2_regs *res,
+ 			      struct kvm_cpu_context *ctxt,
+ 			      u64 vm_handle)
+ {
++	DECLARE_REG(u64, func_id, ctxt, 0);
+ 	DECLARE_REG(u32, flags, ctxt, 2);
+ 
+ 	struct arm_smccc_1_2_regs *args = (void *)&ctxt->regs.regs[0];
+ 
+-	/* filter out framework messages */
+-	if (FIELD_GET(FFA_MSG_FLAGS_MSG_TYPE, flags)) {
++	/*
++	 * filter out framework messages.
++	 * FFA_MSG_SEND_DIRECT_REQ2 is only for partition messages.
++	 */
++	if (func_id != FFA_MSG_SEND_DIRECT_REQ2 && FIELD_GET(FFA_MSG_FLAGS_MSG_TYPE, flags)) {
+ 		ffa_to_smccc_error(res, FFA_RET_INVALID_PARAMETERS);
+ 		return;
+ 	}
+@@ -937,6 +943,10 @@ bool kvm_host_ffa_handler(struct kvm_cpu_context *host_ctxt, u32 func_id)
+ 	case FFA_PARTITION_INFO_GET:
+ 		do_ffa_part_get(&res, host_ctxt);
+ 		goto out_handled;
++	case FFA_MSG_SEND_DIRECT_REQ2:
++		if (!ffa_call_supported(func_id))
++			goto out_not_supported;
++		fallthrough;
+ 	case FFA_MSG_SEND_DIRECT_REQ:
+ 	case FFA_FN64_MSG_SEND_DIRECT_REQ:
+ 
+@@ -947,6 +957,7 @@ bool kvm_host_ffa_handler(struct kvm_cpu_context *host_ctxt, u32 func_id)
+ 	if (ffa_call_supported(func_id))
+ 		return false; /* Pass through */
+ 
++out_not_supported:
+ 	ffa_to_smccc_error(&res, FFA_RET_NOT_SUPPORTED);
+ out_handled:
+ 	ffa_set_retval(host_ctxt, &res);
 
 -- 
-~Randy
+2.52.0.rc1.455.g30608eb744-goog
+
 
 
