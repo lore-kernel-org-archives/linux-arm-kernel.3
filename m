@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A886CF34AC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 20:00:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DE3ECF34AC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 20:00:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EguoN5UoBIxCjveRFklA6CdlXXdagmARsUp7EB8KNWQ=; b=KNIagP93yFAYVRMUlDTaLC6P80
-	Ph8Jy9YCMztU69dYdxqYIkOdYeH+Rrwz9EgX65qmKJkRG0q5aZ1tLpNAhyfkREWOmVarJokAqbrW8
-	xXhXCre4sB8Eq/8Os5Efp001lQA2mF1lNSYm+Tae/jWGOGHh03oZ9Cj283OvS6UwkwwSUPE4Imp0v
-	IljWX4KhxJNjK5ymH+CtGK3YPc7NfGRE1qSH54aM53cPShDSi2rQTRY39Mrkyh4DlGAjlBUfQH+W8
-	Y1BWiRPNBP4B7j7pgJZ0L+SpHidNPMe/8nJvz+O0Slkn5IPuFlMn6du/twtMoGfq9+xhN8angSoPi
-	9dYM9dwg==;
+	bh=VCtqMiTZqbHQ/q1ZrgDpE3C+9DphXwTOYBU9gv86OWM=; b=uyy6MfgGmwijXQ5Z2WqXvqf/Wa
+	JNpmDFtSY3TXXjLlZpZxx5zMCYSti3yAsJCQ2i6V7jGR3iVxbhnP9mXPhj2XFeH5jPl1zSAt0sp3W
+	hD3a+oOiijHZCORsVAA9NPoP+u1PY2QQg8YRDHrVPM74xNU/j9PXWd40lK0H938KSbu57rXsotGdz
+	HuzzmTkc9ftfONtRZn4w4/hAV23JuvHAz4RHAU5Z1A5Tz6F9oXz+oqcnX0yYMwzcxm8q+jvRQ2lD4
+	kEN4MuRB8OJdh63sHa6IYDsU3l5pmiJJpxbsoOxLeZSleJrrZmG6G+hbrQ4ROU+xoWxPSt8k4I3pr
+	F74SrB6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLoLN-00000005Geq-0T2j;
-	Wed, 19 Nov 2025 19:59:57 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1vLoLY-00000005GuK-2kdC;
+	Wed, 19 Nov 2025 20:00:08 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLoLI-00000005GXc-21Ne
+	id 1vLoLM-00000005Gb3-3BYi
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Nov 2025 19:59:53 +0000
+	Wed, 19 Nov 2025 19:59:58 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 147FB4E417AE;
-	Wed, 19 Nov 2025 19:59:51 +0000 (UTC)
+	by smtpout-04.galae.net (Postfix) with ESMTPS id F0F7FC11195;
+	Wed, 19 Nov 2025 19:59:31 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id DCE9B60699;
-	Wed, 19 Nov 2025 19:59:50 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 3C62B10371BBE;
-	Wed, 19 Nov 2025 20:59:46 +0100 (CET)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 3AE0D60699;
+	Wed, 19 Nov 2025 19:59:54 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id AC5C910371BBF;
+	Wed, 19 Nov 2025 20:59:49 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1763582389; h=from:subject:date:message-id:to:cc:mime-version:
+	t=1763582392; h=from:subject:date:message-id:to:cc:mime-version:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=EguoN5UoBIxCjveRFklA6CdlXXdagmARsUp7EB8KNWQ=;
-	b=Yv25QA5OkXaYKlKx81LDqOvUOnGUPhKshYVb29nzhsleS20Ftq/YATUpIKKcVSYMOM6ikC
-	uQfyf8bYWHwa0E4E+14C7GMqjHCXUxBAuWgSWCtkAJaYxmPcDHIbzXdjXJrmLQ6Vn3k45D
-	yvx1vDK5fdwdzf6G9BD097b48FbCNiVIIO4Y+hlLsvs9MlNhuocH6N28gMVmp/7gOzVPhr
-	M6AA1/aenJ52svuqiFXnabIQRXePoL5Y0NfpfBp289Ahk5Xg/RaPzAsRZ6Xwsl9cmfNdRk
-	6NFbu1QKwNTFpawr4IN9dM/P+adBe2XqRpYFzP0oCg4H/P8YoIVPnnXG2JClIQ==
+	bh=VCtqMiTZqbHQ/q1ZrgDpE3C+9DphXwTOYBU9gv86OWM=;
+	b=wS45uh8E9YPP+vCYOl6DmindaVqAgj6wi0q87zldMeU8DzUI20Z/plLTbV+JtekhcJm71p
+	ZmRu0qx2yTib6guojSCBzGWiRzeIxZ1hRD1JWdM240ngtvnfEq8+LL34ufY5UfRYTpYjRQ
+	eh9Mi7y90D4x0WFeWHzNwLNLflxQRWa+671QiCunlLHz85zxvylsNhE1XZ4Ucha+E2zceW
+	EjDwHjHGr6uTB8CbRZdLLB4jwWDxUOwGPa63P+ghP0BYvTxxFH9EnuLVGlQPn0fZjFrTex
+	Mg6GAuZtGKFT7vCona0J9azqzbkVu4NA0ad9Wc8Udyx7k9ow/tQnID/BChQiyA==
 From: Maxime Chevallier <maxime.chevallier@bootlin.com>
 To: davem@davemloft.net
 Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
@@ -76,19 +76,19 @@ Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
 	Romain Gantois <romain.gantois@bootlin.com>,
 	Daniel Golle <daniel@makrotopia.org>,
 	Dimitri Fedrau <dimitri.fedrau@liebherr.com>
-Subject: [PATCH net-next v17 05/15] dt-bindings: net: dp83822: Deprecate ti,fiber-mode
-Date: Wed, 19 Nov 2025 20:59:06 +0100
-Message-ID: <20251119195920.442860-6-maxime.chevallier@bootlin.com>
+Subject: [PATCH net-next v17 06/15] net: phy: Create a phy_port for PHY-driven SFPs
+Date: Wed, 19 Nov 2025 20:59:07 +0100
+Message-ID: <20251119195920.442860-7-maxime.chevallier@bootlin.com>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20251119195920.442860-1-maxime.chevallier@bootlin.com>
 References: <20251119195920.442860-1-maxime.chevallier@bootlin.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Last-TLS-Session-Version: TLSv1.3
+X-Rspamd-Fuzzy: f0a28691f7ec4acdd6a2650b9611bd90b8db1865e04a7f31d08e08ed4978660bd74e6f9d7b79f45cf671da8c3c71ec37e6f3c48ea0acdb78a09d500b02d2c7fd
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251119_115952_665659_73CB0181 
-X-CRM114-Status: UNSURE (   9.99  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251119_115956_989442_EB7CDA22 
+X-CRM114-Status: GOOD (  18.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,45 +103,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The newly added ethernet-connector binding allows describing an Ethernet
-connector with greater precision, and in a more generic manner, than
-ti,fiber-mode. Deprecate this property.
+Some PHY devices may be used as media-converters to drive SFP ports (for
+example, to allow using SFP when the SoC can only output RGMII). This is
+already supported to some extend by allowing PHY drivers to registers
+themselves as being SFP upstream.
 
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+However, the logic to drive the SFP can actually be split to a per-port
+control logic, allowing support for multi-port PHYs, or PHYs that can
+either drive SFPs or Copper.
+
+To that extent, create a phy_port when registering an SFP bus onto a
+PHY. This port is considered a "serdes" port, in that it can feed data
+to another entity on the link. The PHY driver needs to specify the
+various PHY_INTERFACE_MODE_XXX that this port supports.
+
+Reviewed-by: Andrew Lunn <andrew@lunn.ch>
 Reviewed-by: Christophe Leroy <christophe.leroy@csgroup.eu>
 Tested-by: Christophe Leroy <christophe.leroy@csgroup.eu>
 Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
 ---
- Documentation/devicetree/bindings/net/ti,dp83822.yaml | 9 ++++++++-
- 1 file changed, 8 insertions(+), 1 deletion(-)
+ drivers/net/phy/phy_device.c | 24 ++++++++++++++++++++++++
+ drivers/net/phy/phy_port.c   | 15 +++++++++++++++
+ 2 files changed, 39 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/net/ti,dp83822.yaml b/Documentation/devicetree/bindings/net/ti,dp83822.yaml
-index 28a0bddb9af9..23c70d863c39 100644
---- a/Documentation/devicetree/bindings/net/ti,dp83822.yaml
-+++ b/Documentation/devicetree/bindings/net/ti,dp83822.yaml
-@@ -47,6 +47,9 @@ properties:
-        is disabled.
-        In fiber mode, auto-negotiation is disabled and the PHY can only work in
-        100base-fx (full and half duplex) modes.
-+       This property is deprecated, for details please refer to
-+       Documentation/devicetree/bindings/net/ethernet-connector.yaml
-+    deprecated: true
+diff --git a/drivers/net/phy/phy_device.c b/drivers/net/phy/phy_device.c
+index f48565c3a9b8..3772c68b1dbc 100644
+--- a/drivers/net/phy/phy_device.c
++++ b/drivers/net/phy/phy_device.c
+@@ -1643,6 +1643,26 @@ static void phy_del_port(struct phy_device *phydev, struct phy_port *port)
+ 	phydev->n_ports--;
+ }
  
-   rx-internal-delay-ps:
-     description: |
-@@ -141,7 +144,11 @@ examples:
-         tx-internal-delay-ps = <1>;
-         ti,gpio2-clk-out = "xi";
-         mac-termination-ohms = <43>;
-+        mdi {
-+          connector-0 {
-+            media = "BaseF";
-+          };
-+        };
-       };
-     };
--
- ...
++static int phy_setup_sfp_port(struct phy_device *phydev)
++{
++	struct phy_port *port = phy_port_alloc();
++
++	if (!port)
++		return -ENOMEM;
++
++	port->parent_type = PHY_PORT_PHY;
++	port->phy = phydev;
++
++	/* The PHY is a media converter, the port connected to the SFP cage
++	 * is a MII port.
++	 */
++	port->is_mii = true;
++
++	phy_add_port(phydev, port);
++
++	return 0;
++}
++
+ /**
+  * phy_sfp_probe - probe for a SFP cage attached to this PHY device
+  * @phydev: Pointer to phy_device
+@@ -1664,6 +1684,10 @@ int phy_sfp_probe(struct phy_device *phydev,
+ 		ret = sfp_bus_add_upstream(bus, phydev, ops);
+ 		sfp_bus_put(bus);
+ 	}
++
++	if (phydev->sfp_bus)
++		ret = phy_setup_sfp_port(phydev);
++
+ 	return ret;
+ }
+ EXPORT_SYMBOL(phy_sfp_probe);
+diff --git a/drivers/net/phy/phy_port.c b/drivers/net/phy/phy_port.c
+index 0502fe60da3e..f89f70f83593 100644
+--- a/drivers/net/phy/phy_port.c
++++ b/drivers/net/phy/phy_port.c
+@@ -131,6 +131,21 @@ void phy_port_update_supported(struct phy_port *port)
+ 				 __ETHTOOL_LINK_MODE_MASK_NBITS)
+ 			port->pairs = max_t(int, port->pairs,
+ 					    ethtool_linkmode_n_pairs(mode));
++
++	/* Serdes ports supported through SFP may not have any medium set,
++	 * as they will output PHY_INTERFACE_MODE_XXX modes. In that case, derive
++	 * the supported list based on these interfaces
++	 */
++	if (port->is_mii && linkmode_empty(supported)) {
++		unsigned long interface, link_caps = 0;
++
++		/* Get each interface's caps */
++		for_each_set_bit(interface, port->interfaces,
++				 PHY_INTERFACE_MODE_MAX)
++			link_caps |= phy_caps_from_interface(interface);
++
++		phy_caps_linkmodes(link_caps, port->supported);
++	}
+ }
+ EXPORT_SYMBOL_GPL(phy_port_update_supported);
+ 
 -- 
 2.49.0
 
