@@ -4,92 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2483CF58C6
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 18:14:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EA35CF58C6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 18:15:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dHy+9knFfat2mLLa5PVf4uFPqoXtGTRpTYZkU+z6PsU=; b=G6tPDMdsy/KKTGkbNO5aq3aqD9
-	Ze+spdYMhrO8CiBywfz+Erj199JGGkWZDaeBH4VTnTA3Oi1cPv6KmDILOLx6RDrl9B4ZvrsrGi1pn
-	jJh7OIETXbtZraAMu6wVIfiy/XVjjikYRpy2KKkc03pGrBqvXpJes2niOxBKSsUdFegtwN+hCQK1r
-	H3jExIJtYnozfrt/F2/6GPU+XMlJ9xKWt7SUcup/Eni9TmgvDppMBNwsig/rSyOJxXdGGygIqpq+m
-	Zu4vPmF5SZdETH7IbsiodQW+lJc+yE7sz/+/B4EEBMQwjThWSbvABOswTcvBgBdSG5U/RpgdacpCn
-	WzfCEUdA==;
+	bh=TIuLmBvJGEgl88ztDhola3fxMxL/AoWO5SWt6LxfA18=; b=Yw19qm8cS5Q0ZP2ucsDvLh3mb0
+	5Ase1Rdo3ZfoDgiwBcvYSdKpI6z7HDmXYFuqYtwUqNRZ4GPFkss6F9WjJBIW5HnFqlkBmHYVoHriN
+	ddvzm7OYmwet85gCzJo2Y8Ld+oJz+D8MteMAy5lOeFzTKoyRn18JumFeJqJ61vOB5oMxRYHm3lOTV
+	fE1hTJC8BVs4QMI3IjuJRyXUqdfL/zGnt3ZPPwJ9hEtrXvpYVn4A7QB2RvXbu8a6v6CnBewCsOzlK
+	roUOajJ3OOKKXOjHncv8rYJ8zLAFtXgNxSM/aZRAzuygxIUrMBZPCFRIVZxMTB8CIi+Ujoui5ckjX
+	v4uVaz2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLmhQ-00000004U53-2oxb;
-	Wed, 19 Nov 2025 18:14:36 +0000
-Received: from mail-io1-xd33.google.com ([2607:f8b0:4864:20::d33])
+	id 1vLmi6-00000004Uox-2oLy;
+	Wed, 19 Nov 2025 18:15:19 +0000
+Received: from smtprelay0015.hostedemail.com ([216.40.44.15] helo=relay.hostedemail.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLmhF-00000004Tpw-0lIb
+	id 1vLmi3-00000004Uir-3ZGD
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Nov 2025 18:14:26 +0000
-Received: by mail-io1-xd33.google.com with SMTP id ca18e2360f4ac-9486696aafeso434299939f.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Nov 2025 10:14:24 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1763576063; x=1764180863; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=dHy+9knFfat2mLLa5PVf4uFPqoXtGTRpTYZkU+z6PsU=;
-        b=VdQK3Y1CsuWcj6PdGEEOridWAgTTK/IRil60PEyTETzhcqlopfN9k0QXWAl/Sn718k
-         EeACUcDHKIr/XSfTZ7hmewmV24P31rjRqXHl5C/lbpEGEnoCPn8DC/64Pz47D8ounwOi
-         OlKS1736YcUVNI41psoDYP20ZfQ+2Nizuqw8Y=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763576063; x=1764180863;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=dHy+9knFfat2mLLa5PVf4uFPqoXtGTRpTYZkU+z6PsU=;
-        b=XpboSslfJ+fzWYrBUjs1OIyeZxokYkXPhOn5y8iVUyQuG5wnEwADVccRK8K2ohhrMS
-         /kEZL04RR29JaakpUMmSOgagnJtXl/fyhGJqGVF9wJODdAbqRDzOQbb7qA1KQYXDTgpD
-         O0ETQIubQNbBq9RzVHcpEcYtUJ2IWS8Ayw5/gPiGelZriqIJfq71N7RXbd93s7Rsvno4
-         arOTJQtMZQtfKljzFOuAB3ToNciVhPtx23cXz6vXuN9glwaTt7BWdAeTCpPbHsIYLTKE
-         tCeUjjWypwqHWFIWZa/EOIum8nlwj2qFE4lYJEVp79mu2nyphmUKX/XOBH3FvJDySwiN
-         778w==
-X-Gm-Message-State: AOJu0YwMWEQBLfn+2zG8ukCRAhFATFh8Uwjr+HGhHfJz0qXL1FqVWu39
-	Nlix3hZuVTyYIE7d/4vOpDNd79bthy9hR5CfnivmFXsARDpWwgoPhkWr/GAciUHGUzEvwyFCyda
-	zL6Y=
-X-Gm-Gg: ASbGncsZP/3KG+cJGl0kV9AItAfqXBL5PYMntbxBKCXoSZXYW+g4gU1CHeydVnRlF24
-	vxSZIWeJoiZ5J/6dY2iZeI45hpt5Ewc+yR9rAccaNiqQD4ujEWl2e0sk/kJzUhhssFBS8T7glkQ
-	CZL9PM74hIDHNuQFfNBqwVH5OSV6ODQM3dMBQhayW6KSq9ft4fVfWMjUWEp/1YAc6JRzG7+9JRB
-	GC5p24QGCOfx+z1pj6GYMi043PDXx4rBVJRyF6kSOw7qtm19I2DUEipplqbrEM/tuWJ3H/9K24k
-	cdl1E4pevSy5ZhWMITf05T2nTu3Yt3cysmwB68wgkbAOov1DfgubNpKXlNdPHC5o6H+gEpxgtq3
-	wNe16+FWCkc/wHhmo6VPUGc826qdn7duyymhwJ3/9We608mCj5aLCykObCiAgniLyKUHGacn2lC
-	XyBs75
-X-Google-Smtp-Source: AGHT+IGaRIx4ZLtKiudNzXMDULOFDlM2zIQYOJnUxhKiqXGAH6TvITMlqEdCQfP7NTjCb2mlaYsLtg==
-X-Received: by 2002:a05:6602:2b84:b0:948:a3ca:15a3 with SMTP id ca18e2360f4ac-948e0deae37mr2850382839f.18.1763576063169;
-        Wed, 19 Nov 2025 10:14:23 -0800 (PST)
-Received: from chromium.org ([73.34.74.121])
-        by smtp.gmail.com with ESMTPSA id ca18e2360f4ac-949385ae254sm4838639f.1.2025.11.19.10.14.20
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 19 Nov 2025 10:14:21 -0800 (PST)
-From: Simon Glass <sjg@chromium.org>
-To: linux-arm-kernel@lists.infradead.org
-Cc: =?UTF-8?q?Thomas=20Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Tom Rini <trini@konsulko.com>,
-	Ahmad Fatoum <a.fatoum@pengutronix.de>,
-	=?UTF-8?q?J=20=2E=20Neusch=C3=A4fer?= <j.ne@posteo.net>,
-	Nicolas Schier <nicolas@fjasle.eu>,
-	Chen-Yu Tsai <wenst@chromium.org>,
-	Simon Glass <sjg@chromium.org>,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v6 8/8] scripts/make_fit: Compress dtbs in parallel
-Date: Wed, 19 Nov 2025 11:13:29 -0700
-Message-ID: <20251119181333.991099-9-sjg@chromium.org>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20251119181333.991099-1-sjg@chromium.org>
-References: <20251119181333.991099-1-sjg@chromium.org>
+	Wed, 19 Nov 2025 18:15:17 +0000
+Received: from omf09.hostedemail.com (a10.router.float.18 [10.200.18.1])
+	by unirelay07.hostedemail.com (Postfix) with ESMTP id CFF051605CB;
+	Wed, 19 Nov 2025 18:15:08 +0000 (UTC)
+Received: from [HIDDEN] (Authenticated sender: rostedt@goodmis.org) by omf09.hostedemail.com (Postfix) with ESMTPA id 4A57120025;
+	Wed, 19 Nov 2025 18:15:04 +0000 (UTC)
+Date: Wed, 19 Nov 2025 13:15:34 -0500
+From: Steven Rostedt <rostedt@goodmis.org>
+To: Eugen Hristev <eugen.hristev@linaro.org>
+Cc: linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-mm@kvack.org, tglx@linutronix.de, andersson@kernel.org,
+ pmladek@suse.com, rdunlap@infradead.org, corbet@lwn.net, david@redhat.com,
+ mhocko@suse.com, tudor.ambarus@linaro.org, mukesh.ojha@oss.qualcomm.com,
+ linux-arm-kernel@lists.infradead.org, linux-hardening@vger.kernel.org,
+ jonechou@google.com, linux-doc@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-remoteproc@vger.kernel.org, linux-arch@vger.kernel.org,
+ tony.luck@intel.com, kees@kernel.org
+Subject: Re: [PATCH 00/26] Introduce meminspect
+Message-ID: <20251119131534.392277e3@gandalf.local.home>
+In-Reply-To: <20251119154427.1033475-1-eugen.hristev@linaro.org>
+References: <20251119154427.1033475-1-eugen.hristev@linaro.org>
+X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-Stat-Signature: 8ujf9qur1wz8byzryd9nrrsipdba6b4w
+X-Rspamd-Server: rspamout07
+X-Rspamd-Queue-Id: 4A57120025
+X-Session-Marker: 726F737465647440676F6F646D69732E6F7267
+X-Session-ID: U2FsdGVkX18O9iohKxcGmRjhPgfwSwuiJ9rXjN3k9nI=
+X-HE-Tag: 1763576104-213290
+X-HE-Meta: U2FsdGVkX19/dF/WOecvGV6lYV2teK1CUApQEXvTil5LrDYtCitVtAX5Q8BoMR6TmtJI3K/ypigEykJDoh2wWRnxnwtvEhfPbYoAjQ7CBjAeAkHTNVC2+UPbuQJ52IMkbLqNh+TL98B+sVLbcP7iY87xUXSqyp7/t07x9SzdepLahdbj0fgfKmabVHXYF55/LhPrKLsmQxRGgcdQZc+VoLmHQAiPN84RAg7rXsAjcnFkeEgslDnLord92S38kLD1z8wtjeDd41ff0CQR7dsMu0jXGRqJkaVWYDB1/V+UlnbDyZgQu6Yb6HDVSBXDw9IZsLZGyvuBTwcfN01rmgeJINsoleI4q+rVGxJsLPdqn6YSut/diszZtd5o703j4Xy2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251119_101425_230889_D7D4133A 
-X-CRM114-Status: GOOD (  16.20  )
+X-CRM114-CacheID: sfid-20251119_101515_958837_8B3DB7BE 
+X-CRM114-Status: GOOD (  22.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,124 +75,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When there are 1500 device tree files it takes quite a while to compress
-them. Do it in parallel.
+On Wed, 19 Nov 2025 17:44:01 +0200
+Eugen Hristev <eugen.hristev@linaro.org> wrote:
 
-Signed-off-by: Simon Glass <sjg@chromium.org>
----
+> Once you have all the files simply use `cat` to put them all together,
+> in the order of the indexes.
+> For my kernel config and setup, here is my cat command : (you can use a script
+> or something, I haven't done that so far):
 
-(no changes since v1)
+Interesting.  Hmm, it seems this could be used with the persistent ring
+buffer code as well. But if the firmware does not keep the memory around on
+reboot (where the buffer would be reloaded), you could mark the persistent
+ring buffer's memory to be inspected.
 
- scripts/make_fit.py | 56 ++++++++++++++++++++++++++++++++++++++++-----
- 1 file changed, 50 insertions(+), 6 deletions(-)
+The persistent ring buffer creates a single allocation to hold all per-cpu
+memory in a single region. That is, because on a crash and reboot, it
+expects that memory to be at the same location and does a verification
+check to see if it contains a valid buffer. If it does, it will recreate it
+for view in the instance directory of choice.
 
-diff --git a/scripts/make_fit.py b/scripts/make_fit.py
-index 64038f17a51e..0a58b5b378b0 100755
---- a/scripts/make_fit.py
-+++ b/scripts/make_fit.py
-@@ -43,6 +43,7 @@ as U-Boot, Linuxboot, Tianocore, etc.
- 
- import argparse
- import collections
-+import multiprocessing
- import os
- import shutil
- import subprocess
-@@ -237,15 +238,31 @@ def compress_data(inf, compress):
-     return comp_data
- 
- 
--def output_dtb(fsw, seq, fname, arch, compress):
-+def compress_dtb(fname, compress):
-+    """Compress a single DTB file
-+
-+    Args:
-+        fname (str): Filename containing the DTB
-+        compress (str): Compression algorithm, e.g. 'gzip'
-+
-+    Returns:
-+        tuple: (str: fname, bytes: compressed_data)
-+    """
-+    with open(fname, 'rb') as inf:
-+        compressed = compress_data(inf, compress)
-+    return fname, compressed
-+
-+
-+def output_dtb(fsw, seq, fname, arch, compress, data=None):
-     """Write out a single devicetree to the FIT
- 
-     Args:
-         fsw (libfdt.FdtSw): Object to use for writing
-         seq (int): Sequence number (1 for first)
-         fname (str): Filename containing the DTB
--        arch: FIT architecture, e.g. 'arm64'
-+        arch (str): FIT architecture, e.g. 'arm64'
-         compress (str): Compressed algorithm, e.g. 'gzip'
-+        data (bytes): Pre-compressed data (optional)
-     """
-     with fsw.add_node(f'fdt-{seq}'):
-         fsw.property_string('description', os.path.basename(fname))
-@@ -253,9 +270,10 @@ def output_dtb(fsw, seq, fname, arch, compress):
-         fsw.property_string('arch', arch)
-         fsw.property_string('compression', compress)
- 
--        with open(fname, 'rb') as inf:
--            compressed = compress_data(inf, compress)
--        fsw.property('data', compressed)
-+        if data is None:
-+            with open(fname, 'rb') as inf:
-+                data = compress_data(inf, compress)
-+        fsw.property('data', data)
- 
- 
- def find_gen_initramfs():
-@@ -395,6 +413,11 @@ def _process_dtbs(args, fsw, entries, fdts):
-     """
-     seq = 0
-     size = 0
-+
-+    # First figure out the unique DTB files that need compression
-+    todo = []
-+    file_info = []  # List of (fname, model, compat, files) tuples
-+
-     for fname in args.dtbs:
-         # Ignore non-DTB (*.dtb) files
-         if os.path.splitext(fname)[1] != '.dtb':
-@@ -406,11 +429,32 @@ def _process_dtbs(args, fsw, entries, fdts):
-             sys.stderr.write(f'Error processing {fname}:\n')
-             raise e
- 
-+        file_info.append((fname, model, compat, files))
-+        for fn in files:
-+            if fn not in fdts and fn not in todo:
-+                todo.append(fn)
-+
-+    # Compress all DTBs in parallel
-+    cache = {}
-+    if todo and args.compress != 'none':
-+        if args.verbose:
-+            print(f'Compressing {len(todo)} DTBs...')
-+
-+        with multiprocessing.Pool() as pool:
-+            compress_args = [(fn, args.compress) for fn in todo]
-+            # unpacks each tuple, calls compress_dtb(fn, compress) in parallel
-+            results = pool.starmap(compress_dtb, compress_args)
-+
-+        cache = dict(results)
-+
-+    # Now write all DTBs to the FIT using pre-compressed data
-+    for fname, model, compat, files in file_info:
-         for fn in files:
-             if fn not in fdts:
-                 seq += 1
-                 size += os.path.getsize(fn)
--                output_dtb(fsw, seq, fn, args.arch, args.compress)
-+                output_dtb(fsw, seq, fn, args.arch, args.compress,
-+                           cache.get(fn))
-                 fdts[fn] = seq
- 
-         files_seq = [fdts[fn] for fn in files]
--- 
-2.43.0
+Now if this same range is marked for inspection, you could then download
+the entire contents of the persistent ring buffer after a crash. It would
+be trivial to update trace-cmd's restore functionality to rebuild a
+trace.dat file from it. It would require saving the event formats of the
+running kernel before the crash, but that's not hard to do.
 
+That is, by using the persistent ring buffer code with the meminspect, if
+the firmware doesn't save the memory across reboots but allows you to dump
+it to disk, you can enable tracing within the persistent ring buffer, on
+crash, extract the buffer, and then use trace-cmd to rebuild a trace.dat
+file that you can now inspect, and see the trace that lead up to the crash.
+
+Now I don't have any hardware that uses this feature (not that I know of),
+but if others find this useful, I would most definitely help them implement
+it.
+
+-- Steve
 
