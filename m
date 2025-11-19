@@ -4,39 +4,39 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C9C5CF257C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 04:18:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C7D9CF257C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 04:18:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WSBEJqan3s0yKTSBo+2Da9OzI6hVXevsvKZmW9hixX8=; b=VdUgdpy4WgIEJvUL0cEJFE21/G
-	ts16LZaLoSSsUiNtiSNkPyOghoRKObPmruGgUD7GRaaZ2Fha8fxGnOSDyuO8vM8LYOaOYYhwtKElA
-	R7mA4dvB+UExtrFD8Rt2BbWBv44RsdZY+wWkuuO0QCkLmAQZovJ91uon+xHrG+dDRFjSY+XH/7qLW
-	0nKSnVbF+ppv7fXocDUUcJmxHU4T7Amf27f+rHwiuK3i6xZ82Lbx7Kj88dyG0EjB+jVEBbYa6M34x
-	YSbWXhWTlIXeTBw/EWc7QEoQa93k5D/jBfSll5pWKn0iJ/vyqaWjav1CbRxOoGC7SJ4eY0QiD7bre
-	oOjbmMTw==;
+	bh=bzZSfTO3fDr+v5y8qsx6snbbgoi2zSCmM+ewENUdd/c=; b=0DADAJQvIAy5qhCx193UYTg+1/
+	uw4gfOPuTHej3ft6IqePe7OPXcFw4/aJLlOFJZ4LrhZ9UGAdzPIBYOAe6n0MHb5hX4Cg2xf7gygjP
+	IrbHV5DoTr0k93AHGQmH5Qid0el6qtGerHCAjzLcZBSMlXR6LhDY03X2rEKlzWxNQAUDz3i1OZJpV
+	Tj1y2Kfj+DHLPC63lx2MhKVqGQw0Yip+VvhAXX2lir0GV00OjM6WzHllH9vscD3/BHYoKyrjDMFXo
+	b201Edz9k5FiQ8U3s0OuxKeMbV4PILa6iQNVfpOrm41yqoexJxjMrXJXMXJU82Bhydzq9i7Uq1ARt
+	P/9BXDLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLZdm-00000001eCw-1Zr3;
-	Wed, 19 Nov 2025 04:17:58 +0000
+	id 1vLZe6-00000001eS4-26Hp;
+	Wed, 19 Nov 2025 04:18:18 +0000
 Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLZdj-00000001eAr-3dDO;
-	Wed, 19 Nov 2025 04:17:57 +0000
+	id 1vLZe3-00000001eP7-2l4g;
+	Wed, 19 Nov 2025 04:18:16 +0000
 Received: from pendragon.ideasonboard.com (unknown [205.220.129.225])
-	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id CD2D7DD9;
-	Wed, 19 Nov 2025 05:15:47 +0100 (CET)
+	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 08E8FDD9;
+	Wed, 19 Nov 2025 05:16:08 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1763525749;
-	bh=k9XgYvXg+wjYK9oGaaaJfHYNam3rcMc0Uh8RTTWVT5s=;
+	s=mail; t=1763525770;
+	bh=Co0SQdTL8Op1neOiTCduNOiGp6gu3Kt8Xc6qs6rJnZw=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=wMOj4w0tcYckHL1uLbD4I68O4YFcO2oAUfrEyfyPHXv95KApnfu3oTyZkA9doTCeo
-	 erWWZqXi/ufzaUkv8FS2j3TTK85DVPRy1o9QOlpvvYkyxzlT4kIWWL643fEVn/wEwR
-	 8h4B0+K0SviyCdj7VEhSntQn2abmkr3QgVEjIQsY=
-Date: Wed, 19 Nov 2025 13:17:26 +0900
+	b=Avztu/6TS5bq2e/sK12229OUVbG1IkQ3SJlt5Fqo3xPeyTSpPD8yNyN0X5siBD4en
+	 mW9jba6o5mX6EH5BjkWy76EjvT/FJ7O1k2YlK4EJ66NWd3pc5/gguO1iuq6F8EhpQ/
+	 g24tg3xmkJxc5vkin6RTxvPBT08bdLkKnWYztSDE=
+Date: Wed, 19 Nov 2025 13:17:47 +0900
 From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
 To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 Cc: Harry Wentland <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>,
@@ -62,18 +62,18 @@ Cc: Harry Wentland <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>,
 	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	linux-rockchip@lists.infradead.org, intel-gfx@lists.freedesktop.org,
 	intel-xe@lists.freedesktop.org
-Subject: Re: [PATCH v4 05/10] drm/bridge: dw-hdmi-qp: Set bridge
- supported_formats
-Message-ID: <20251119041726.GE10711@pendragon.ideasonboard.com>
+Subject: Re: [PATCH v4 06/10] drm/rockchip: dw_hdmi_qp: Set supported_formats
+ platdata
+Message-ID: <20251119041747.GF10711@pendragon.ideasonboard.com>
 References: <20251117-color-format-v4-0-0ded72bd1b00@collabora.com>
- <20251117-color-format-v4-5-0ded72bd1b00@collabora.com>
+ <20251117-color-format-v4-6-0ded72bd1b00@collabora.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20251117-color-format-v4-5-0ded72bd1b00@collabora.com>
+In-Reply-To: <20251117-color-format-v4-6-0ded72bd1b00@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251118_201756_049139_5B2B7E15 
-X-CRM114-Status: GOOD (  18.98  )
+X-CRM114-CacheID: sfid-20251118_201815_832379_BCB835C2 
+X-CRM114-Status: GOOD (  24.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,42 +88,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 17, 2025 at 08:11:49PM +0100, Nicolas Frattaroli wrote:
-> The drm_bridge "supported_formats" member stores a bitmask of supported
-> HDMI output formats if the bridge is in fact an HDMI bridge.
-
-It would be nice to convert the supported_formats field to a bitmask of
-DRM_MODE_COLOR_FORMAT_* values.
-
+On Mon, Nov 17, 2025 at 08:11:50PM +0100, Nicolas Frattaroli wrote:
+> With the introduction of the supported_formats member in the
+> dw-hdmi-qp platform data struct, drivers that have access to this
+> information should now set it.
 > 
-> However, until now, the synopsys dw-hdmi-qp driver did not set this
-> member in the bridge it creates.
+> Set it in the rockchip dw_hdmi_qp glue driver, where such a bitmask of
+> supported color formats already exists. It just needs to be converted to
+> the appropriate HDMI_COLORSPACE_ mask.
 > 
-> Set it based on the platform data's supported_formats member, and
-> default to BIT(HDMI_COLORSPACE_RGB) if it's absent, which preserves the
-> previous behaviour.
+> This allows this information to be passed down to the dw-hdmi-qp core,
+> which sets it in the bridge it creates, and consequently will allow the
+> common HDMI bridge code to act on it.
 > 
 > Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 > ---
->  drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c | 5 +++++
->  1 file changed, 5 insertions(+)
+>  drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c | 24 ++++++++++++++++++++++++
+>  1 file changed, 24 insertions(+)
 > 
-> diff --git a/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c b/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
-> index fe4c026280f0..cf888236bd65 100644
-> --- a/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
-> +++ b/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
-> @@ -1269,6 +1269,11 @@ struct dw_hdmi_qp *dw_hdmi_qp_bind(struct platform_device *pdev,
->  		dev_warn(dev, "Set ref_clk_rate to vendor default\n");
->  	}
+> diff --git a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
+> index c9fe6aa3e3e3..7c294751de19 100644
+> --- a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
+> +++ b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
+> @@ -468,6 +468,28 @@ static const struct of_device_id dw_hdmi_qp_rockchip_dt_ids[] = {
+>  };
+>  MODULE_DEVICE_TABLE(of, dw_hdmi_qp_rockchip_dt_ids);
 >  
-> +	if (plat_data->supported_formats)
-> +		hdmi->bridge.supported_formats = plat_data->supported_formats;
-> +	else
-> +		hdmi->bridge.supported_formats = BIT(HDMI_COLORSPACE_RGB);
+> +static const u32 supported_colorformats = DRM_COLOR_FORMAT_AUTO |
+> +					  DRM_COLOR_FORMAT_RGB444 |
+> +					  DRM_COLOR_FORMAT_YCBCR444;
 > +
->  	dw_hdmi_qp_init_hw(hdmi);
+> +static unsigned int __pure drm_to_hdmi_fmts(const u32 fmt)
+> +{
+> +	unsigned int res = 0;
+> +
+> +	if (fmt & DRM_COLOR_FORMAT_AUTO)
+> +		res |= BIT(HDMI_COLORSPACE_RGB);
+> +	if (fmt & DRM_COLOR_FORMAT_RGB444)
+> +		res |= BIT(HDMI_COLORSPACE_RGB);
+> +	if (fmt & DRM_COLOR_FORMAT_YCBCR444)
+> +		res |= BIT(HDMI_COLORSPACE_YUV444);
+> +	if (fmt & DRM_COLOR_FORMAT_YCBCR422)
+> +		res |= BIT(HDMI_COLORSPACE_YUV422);
+> +	if (fmt & DRM_COLOR_FORMAT_YCBCR420)
+> +		res |= BIT(HDMI_COLORSPACE_YUV420);
+> +
+> +	return res;
+> +}
+> +
+
+This would be greatly simplified by turning supported_formats into a
+bitmask of DRM_MODE_COLOR_FORMAT_* values, as suggested in 05/10.
+
+>  static int dw_hdmi_qp_rockchip_bind(struct device *dev, struct device *master,
+>  				    void *data)
+>  {
+> @@ -521,6 +543,8 @@ static int dw_hdmi_qp_rockchip_bind(struct device *dev, struct device *master,
+>  	plat_data.phy_data = hdmi;
+>  	plat_data.max_bpc = 10;
 >  
->  	ret = devm_request_threaded_irq(dev, plat_data->main_irq,
+> +	plat_data.supported_formats = drm_to_hdmi_fmts(supported_colorformats);
+> +
+>  	encoder = &hdmi->encoder.encoder;
+>  	encoder->possible_crtcs = drm_of_find_possible_crtcs(drm, dev->of_node);
+>  
 
 -- 
 Regards,
