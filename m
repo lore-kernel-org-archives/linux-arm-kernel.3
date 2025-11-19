@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1515ACF3187
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 10:23:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2497ECF3187
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 10:23:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
 	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ue531+69m2++9UHg5j0eMS12QGgIfsxMud4bkC68LCw=; b=zx1pQQYfiJb31+pXurVDBoemgH
-	KoetmnGfh0EFoSEPICJmWoSMHZVljVu125mdnjY/8e9xq+1t7ZdT3oPMnXmMHstDojPruDTTheluc
-	RXZWipF7BKW8ITx9OFj/ox/x/gM1AxciuMDH2HNQYBxqYvFRD6VdQ2t4T20IQVrDl6MdCqy3BWPPO
-	359+kkkR55DA2dYf3FtXe8s9LOFFYhtgnm8IVPr695soVVMozpxmyeAeYqt1oW8F5zseL9ep96NAh
-	k5XLIKkajeDyPraqXIOa2WrbRz8eT+KsNldzAVkdwQKu0HtleltnT1qcRoUiN46DZQrQgDmJvgE0Y
-	KGC4A2hQ==;
+	bh=9iDncoQGiEhNI5V55KDLPdARKCA/m2+u9E1QVFZ9aCs=; b=3LcJAKc2GY4rY3sNGIZQihQKhr
+	uozIq8G/Nl4u9+zTcnfdjJsCnhMB4SaZGtwQQPlzNz0+VYUUUaYoJ+wq5JEyiIV+2b6rJwHfS22gJ
+	QXdV8FgzZWXyUjf6kk/xns5f8n9qvxrPYQTO91pkcp69kh1vRk8rVi76gN1M3DMmfMfiTGgHISB48
+	K8Zq1hK3m0CXghNysMxXI++WhzobsHdkepOJLJVb/NStJsmIZmtkI1q2H0Q/FaUTHW3/W8gdgRUka
+	2j+qHUPD3ReE6yuKnpOJZwjbVkI3lbvyyxWOFi0Dnk1kBHowRAAUWFQwTIVxAXZ1OZg4KpEhBrYdF
+	VNHuG6JA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLfLa-00000002xNj-2Fck;
-	Wed, 19 Nov 2025 10:23:34 +0000
+	id 1vLfLh-00000002xQs-1ieP;
+	Wed, 19 Nov 2025 10:23:41 +0000
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLfLX-00000002xM2-3QLT
+	id 1vLfLe-00000002xOt-47gK
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Nov 2025 10:23:33 +0000
+	Wed, 19 Nov 2025 10:23:40 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
 	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=Ue531+69m2++9UHg5j0eMS12QGgIfsxMud4bkC68LCw=; b=pyTY/U6AyrfS/AluqPy8foWN4Y
-	qdxURlFcKhXWISPsiwvPk5fzMXtmg9d89/XyHel+n9uY++wazyDMBPZzwdTY6rWFHRjwKSuV+U+ZJ
-	ux12Nw6cdnT+bA2tH5h8f4n7xmvCfpX4spmenNeAS1DlfAF7Yqyq8OVo8wTn9RvmYp88lSXeUIDoG
-	h5bEDInSfVo4zM5nvql2rFCDHsp7U9mVmmnGAWYAqZxNZU+bVjsCqEE6/VSXIq+egqRd5FSc2ex8o
-	y6OO+kR/cZN3+IA3WzgX9WSA7aHx1ALqsrf17cbkYoqBt0OQMvso0/ZcTUUgc6WULsXk6U/8WET8G
-	6b+N1c+g==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:48934 helo=rmk-PC.armlinux.org.uk)
+	bh=9iDncoQGiEhNI5V55KDLPdARKCA/m2+u9E1QVFZ9aCs=; b=U6LmayG+rUjbAk50jqbxIlpV3X
+	BScBQJyk9bHJcCT1d0qwJEJinbuxGqzfnzp4PY06wC7iqSIggexELX3IShWwaC+sLeZLOj+qIqka+
+	VtfsjcfIGK+bDk4O7RENLPcXoTKXCrZSiiZ3DqviQ7rrglDy6fsmKY0mKN43LkByDIUGC/C97a8IL
+	zsaw/M8J296sfc9jePaEFUJpTzBVBonfE2l3G5/9u7i6rUTLLEWwKO9QU1u9XmEEhwAWUkL7MKY5u
+	OPbHLX7GSeklOKNEs+jC9UEpEVwqVGAG41c5ZFDCkuSpNcfd3IFHxbMW4l/wnLBopyEzkpNtQ9I3E
+	DZCP4vNw==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:39210 helo=rmk-PC.armlinux.org.uk)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <rmk@armlinux.org.uk>)
-	id 1vLfLS-000000004V9-0HvL;
-	Wed, 19 Nov 2025 10:23:26 +0000
+	id 1vLfLX-000000004VS-0a0b;
+	Wed, 19 Nov 2025 10:23:31 +0000
 Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
 	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1vLfLR-0000000FMav-0VL6;
-	Wed, 19 Nov 2025 10:23:25 +0000
+	id 1vLfLW-0000000FMb1-0zKV;
+	Wed, 19 Nov 2025 10:23:30 +0000
 In-Reply-To: <aR2aaDs6rqfu32B-@shell.armlinux.org.uk>
 References: <aR2aaDs6rqfu32B-@shell.armlinux.org.uk>
 From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
@@ -64,17 +64,17 @@ Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
 	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
 	netdev@vger.kernel.org,
 	Paolo Abeni <pabeni@redhat.com>
-Subject: [PATCH net-next 3/6] net: stmmac: provide common
- stmmac_axi_blen_to_mask()
+Subject: [PATCH net-next 4/6] net: stmmac: move stmmac_axi_blen_to_mask() to
+ stmmac_main.c
 MIME-Version: 1.0
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1vLfLR-0000000FMav-0VL6@rmk-PC.armlinux.org.uk>
-Date: Wed, 19 Nov 2025 10:23:25 +0000
+Message-Id: <E1vLfLW-0000000FMb1-0zKV@rmk-PC.armlinux.org.uk>
+Date: Wed, 19 Nov 2025 10:23:30 +0000
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251119_022332_025837_5AFB8E9C 
-X-CRM114-Status: GOOD (  20.69  )
+X-CRM114-CacheID: sfid-20251119_022339_022505_D6B93DB0 
+X-CRM114-Status: GOOD (  15.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,287 +89,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Provide a common stmmac_axi_blen_to_mask() function to translate the
-burst length array to the value for the AXI bus mode register, and use
-it for dwmac, dwmac4 and dwxgmac2. Remove the now unnecessary
-XGMAC_BLEN* definitions.
+Move the call to stmmac_axi_blen_to_mask() out of the individual
+MAC version drivers into the main code in stmmac_init_dma_engine(),
+passing the resulting value through a new member, axi_blen_regval,
+in the struct stmmac_axi structure.
 
-Note that stmmac_axi_blen_to_dma_mask() is coded to be more efficient
-than the original three implementations, and verifies the contents of
-the burst length array.
+There is now no need for stmmac_axi_blen_to_dma_mask() to use
+u32p_replace_bits(), so use FIELD_PREP() instead.
 
 Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 ---
- drivers/net/ethernet/stmicro/stmmac/common.h  |  3 ++
- .../ethernet/stmicro/stmmac/dwmac1000_dma.c   | 31 ++--------------
- .../net/ethernet/stmicro/stmmac/dwmac4_dma.c  | 31 ++--------------
- .../net/ethernet/stmicro/stmmac/dwmac4_dma.h  |  2 -
- .../net/ethernet/stmicro/stmmac/dwmac_dma.h   |  2 -
- .../net/ethernet/stmicro/stmmac/dwxgmac2.h    |  9 +----
- .../ethernet/stmicro/stmmac/dwxgmac2_dma.c    | 34 ++++-------------
- .../net/ethernet/stmicro/stmmac/stmmac_main.c | 37 +++++++++++++++++++
- 8 files changed, 56 insertions(+), 93 deletions(-)
+ drivers/net/ethernet/stmicro/stmmac/dwmac1000_dma.c | 3 +--
+ drivers/net/ethernet/stmicro/stmmac/dwmac4_dma.c    | 3 +--
+ drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c  | 3 +--
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c   | 8 ++++++--
+ include/linux/stmmac.h                              | 1 +
+ 5 files changed, 10 insertions(+), 8 deletions(-)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/common.h b/drivers/net/ethernet/stmicro/stmmac/common.h
-index 3c6e7fe7b999..49df46be3669 100644
---- a/drivers/net/ethernet/stmicro/stmmac/common.h
-+++ b/drivers/net/ethernet/stmicro/stmmac/common.h
-@@ -557,6 +557,9 @@ struct dma_features {
- #define DMA_AXI_BLEN16		BIT(3)
- #define DMA_AXI_BLEN8		BIT(2)
- #define DMA_AXI_BLEN4		BIT(1)
-+#define DMA_AXI_BLEN_MASK	GENMASK(7, 1)
-+
-+void stmmac_axi_blen_to_mask(u32 *regval, const u32 *blen, size_t len);
- 
- #define STMMAC_CHAIN_MODE	0x1
- #define STMMAC_RING_MODE	0x2
 diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac1000_dma.c b/drivers/net/ethernet/stmicro/stmmac/dwmac1000_dma.c
-index 118a22406a2e..b6476a1bfeab 100644
+index b6476a1bfeab..6d9b8fac3c6d 100644
 --- a/drivers/net/ethernet/stmicro/stmmac/dwmac1000_dma.c
 +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac1000_dma.c
-@@ -19,7 +19,6 @@
- static void dwmac1000_dma_axi(void __iomem *ioaddr, struct stmmac_axi *axi)
- {
- 	u32 value = readl(ioaddr + DMA_AXI_BUS_MODE);
--	int i;
- 
- 	pr_info("dwmac1000: Master AXI performs %s burst length\n",
- 		!(value & DMA_AXI_UNDEF) ? "fixed" : "any");
-@@ -39,33 +38,11 @@ static void dwmac1000_dma_axi(void __iomem *ioaddr, struct stmmac_axi *axi)
- 
- 	/* Depending on the UNDEF bit the Master AXI will perform any burst
- 	 * length according to the BLEN programmed (by default all BLEN are
--	 * set).
-+	 * set). Note that the UNDEF bit is readonly, and is the inverse of
-+	 * Bus Mode bit 16.
+@@ -41,8 +41,7 @@ static void dwmac1000_dma_axi(void __iomem *ioaddr, struct stmmac_axi *axi)
+ 	 * set). Note that the UNDEF bit is readonly, and is the inverse of
+ 	 * Bus Mode bit 16.
  	 */
--	for (i = 0; i < AXI_BLEN; i++) {
--		switch (axi->axi_blen[i]) {
--		case 256:
--			value |= DMA_AXI_BLEN256;
--			break;
--		case 128:
--			value |= DMA_AXI_BLEN128;
--			break;
--		case 64:
--			value |= DMA_AXI_BLEN64;
--			break;
--		case 32:
--			value |= DMA_AXI_BLEN32;
--			break;
--		case 16:
--			value |= DMA_AXI_BLEN16;
--			break;
--		case 8:
--			value |= DMA_AXI_BLEN8;
--			break;
--		case 4:
--			value |= DMA_AXI_BLEN4;
--			break;
--		}
--	}
-+	stmmac_axi_blen_to_mask(&value, axi->axi_blen,
-+				ARRAY_SIZE(axi->axi_blen));
+-	stmmac_axi_blen_to_mask(&value, axi->axi_blen,
+-				ARRAY_SIZE(axi->axi_blen));
++	value = (value & ~DMA_AXI_BLEN_MASK) | axi->axi_blen_regval;
  
  	writel(value, ioaddr + DMA_AXI_BUS_MODE);
  }
 diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac4_dma.c b/drivers/net/ethernet/stmicro/stmmac/dwmac4_dma.c
-index d87a8b595e6a..90d03c7b29f4 100644
+index 90d03c7b29f4..7b513324cfb0 100644
 --- a/drivers/net/ethernet/stmicro/stmmac/dwmac4_dma.c
 +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac4_dma.c
-@@ -18,7 +18,6 @@
- static void dwmac4_dma_axi(void __iomem *ioaddr, struct stmmac_axi *axi)
- {
- 	u32 value = readl(ioaddr + DMA_SYS_BUS_MODE);
--	int i;
- 
- 	pr_info("dwmac4: Master AXI performs %s burst length\n",
- 		(value & DMA_SYS_BUS_FB) ? "fixed" : "any");
-@@ -38,33 +37,11 @@ static void dwmac4_dma_axi(void __iomem *ioaddr, struct stmmac_axi *axi)
- 
- 	/* Depending on the UNDEF bit the Master AXI will perform any burst
- 	 * length according to the BLEN programmed (by default all BLEN are
--	 * set).
-+	 * set). Note that the UNDEF bit is readonly, and is the inverse of
-+	 * Bus Mode bit 16.
+@@ -40,8 +40,7 @@ static void dwmac4_dma_axi(void __iomem *ioaddr, struct stmmac_axi *axi)
+ 	 * set). Note that the UNDEF bit is readonly, and is the inverse of
+ 	 * Bus Mode bit 16.
  	 */
--	for (i = 0; i < AXI_BLEN; i++) {
--		switch (axi->axi_blen[i]) {
--		case 256:
--			value |= DMA_AXI_BLEN256;
--			break;
--		case 128:
--			value |= DMA_AXI_BLEN128;
--			break;
--		case 64:
--			value |= DMA_AXI_BLEN64;
--			break;
--		case 32:
--			value |= DMA_AXI_BLEN32;
--			break;
--		case 16:
--			value |= DMA_AXI_BLEN16;
--			break;
--		case 8:
--			value |= DMA_AXI_BLEN8;
--			break;
--		case 4:
--			value |= DMA_AXI_BLEN4;
--			break;
--		}
--	}
-+	stmmac_axi_blen_to_mask(&value, axi->axi_blen,
-+				ARRAY_SIZE(axi->axi_blen));
+-	stmmac_axi_blen_to_mask(&value, axi->axi_blen,
+-				ARRAY_SIZE(axi->axi_blen));
++	value = (value & ~DMA_AXI_BLEN_MASK) | axi->axi_blen_regval;
  
  	writel(value, ioaddr + DMA_SYS_BUS_MODE);
  }
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac4_dma.h b/drivers/net/ethernet/stmicro/stmmac/dwmac4_dma.h
-index dfcb7ce79e76..f27126f05551 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac4_dma.h
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac4_dma.h
-@@ -78,8 +78,6 @@
- 					DMA_AXI_BLEN16 | DMA_AXI_BLEN8 | \
- 					DMA_AXI_BLEN4)
- 
--#define DMA_AXI_BURST_LEN_MASK		0x000000FE
--
- /* DMA TBS Control */
- #define DMA_TBS_FTOS			GENMASK(31, 8)
- #define DMA_TBS_FTOV			BIT(0)
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac_dma.h b/drivers/net/ethernet/stmicro/stmmac/dwmac_dma.h
-index 967a735e9a0b..d1c149f7a3dd 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac_dma.h
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac_dma.h
-@@ -77,8 +77,6 @@ static inline u32 dma_chan_base_addr(u32 base, u32 chan)
- 
- #define DMA_AXI_UNDEF		BIT(0)
- 
--#define DMA_AXI_BURST_LEN_MASK	0x000000FE
--
- #define DMA_CUR_TX_BUF_ADDR	0x00001050	/* Current Host Tx Buffer */
- #define DMA_CUR_RX_BUF_ADDR	0x00001054	/* Current Host Rx Buffer */
- #define DMA_HW_FEATURE		0x00001058	/* HW Feature Register */
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h
-index 16c6d03fc929..fecda3034d36 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h
-@@ -340,14 +340,7 @@
- #define XGMAC_LPI_XIT_PKT		BIT(14)
- #define XGMAC_AAL			DMA_AXI_AAL
- #define XGMAC_EAME			BIT(11)
--#define XGMAC_BLEN			GENMASK(7, 1)
--#define XGMAC_BLEN256			DMA_AXI_BLEN256
--#define XGMAC_BLEN128			DMA_AXI_BLEN128
--#define XGMAC_BLEN64			DMA_AXI_BLEN64
--#define XGMAC_BLEN32			DMA_AXI_BLEN32
--#define XGMAC_BLEN16			DMA_AXI_BLEN16
--#define XGMAC_BLEN8			DMA_AXI_BLEN8
--#define XGMAC_BLEN4			DMA_AXI_BLEN4
-+/* XGMAC_BLEN* are now defined as DMA_AXI_BLEN* in common.h */
- #define XGMAC_UNDEF			BIT(0)
- #define XGMAC_TX_EDMA_CTRL		0x00003040
- #define XGMAC_TDPS			GENMASK(29, 0)
 diff --git a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c
-index 4d6bb995d8d8..8a2cb6ca9588 100644
+index 8a2cb6ca9588..cc1bdc0975d5 100644
 --- a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c
 +++ b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c
-@@ -84,7 +84,6 @@ static void dwxgmac2_dma_init_tx_chan(struct stmmac_priv *priv,
- static void dwxgmac2_dma_axi(void __iomem *ioaddr, struct stmmac_axi *axi)
- {
- 	u32 value = readl(ioaddr + XGMAC_DMA_SYSBUS_MODE);
--	int i;
- 
- 	if (axi->axi_lpi_en)
- 		value |= XGMAC_EN_LPI;
-@@ -102,32 +101,13 @@ static void dwxgmac2_dma_axi(void __iomem *ioaddr, struct stmmac_axi *axi)
- 	if (!axi->axi_fb)
- 		value |= XGMAC_UNDEF;
- 
--	value &= ~XGMAC_BLEN;
--	for (i = 0; i < AXI_BLEN; i++) {
--		switch (axi->axi_blen[i]) {
--		case 256:
--			value |= XGMAC_BLEN256;
--			break;
--		case 128:
--			value |= XGMAC_BLEN128;
--			break;
--		case 64:
--			value |= XGMAC_BLEN64;
--			break;
--		case 32:
--			value |= XGMAC_BLEN32;
--			break;
--		case 16:
--			value |= XGMAC_BLEN16;
--			break;
--		case 8:
--			value |= XGMAC_BLEN8;
--			break;
--		case 4:
--			value |= XGMAC_BLEN4;
--			break;
--		}
--	}
-+	/* Depending on the UNDEF bit the Master AXI will perform any burst
-+	 * length according to the BLEN programmed (by default all BLEN are
-+	 * set). Note that the UNDEF bit is readonly, and is the inverse of
-+	 * Bus Mode bit 16.
-+	 */
-+	stmmac_axi_blen_to_mask(&value, axi->axi_blen,
-+				ARRAY_SIZE(axi->axi_blen));
+@@ -106,8 +106,7 @@ static void dwxgmac2_dma_axi(void __iomem *ioaddr, struct stmmac_axi *axi)
+ 	 * set). Note that the UNDEF bit is readonly, and is the inverse of
+ 	 * Bus Mode bit 16.
+ 	 */
+-	stmmac_axi_blen_to_mask(&value, axi->axi_blen,
+-				ARRAY_SIZE(axi->axi_blen));
++	value = (value & ~DMA_AXI_BLEN_MASK) | axi->axi_blen_regval;
  
  	writel(value, ioaddr + XGMAC_DMA_SYSBUS_MODE);
  	writel(XGMAC_TDPS, ioaddr + XGMAC_TX_EDMA_CTRL);
 diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index aac8188248ff..e5ed61154557 100644
+index e5ed61154557..99a7d4c463d9 100644
 --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
 +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -189,6 +189,43 @@ int stmmac_set_clk_tx_rate(void *bsp_priv, struct clk *clk_tx_i,
- }
- EXPORT_SYMBOL_GPL(stmmac_set_clk_tx_rate);
+@@ -223,7 +223,7 @@ void stmmac_axi_blen_to_mask(u32 *regval, const u32 *blen, size_t len)
+ 		val |= burst >> 2;
+ 	}
  
-+/**
-+ * stmmac_axi_blen_to_mask() - convert a burst length array to reg value
-+ * @regval: pointer to a u32 for the resulting register value
-+ * @blen: pointer to an array of u32 containing the burst length values in bytes
-+ * @len: the number of entries in the @blen array
-+ */
-+void stmmac_axi_blen_to_mask(u32 *regval, const u32 *blen, size_t len)
-+{
-+	size_t i;
-+	u32 val;
-+
-+	for (val = i = 0; i < len; i++) {
-+		u32 burst = blen[i];
-+
-+		/* Burst values of zero must be skipped. */
-+		if (!burst)
-+			continue;
-+
-+		/* The valid range for the burst length is 4 to 256 inclusive,
-+		 * and it must be a power of two.
-+		 */
-+		if (burst < 4 || burst > 256 || !is_power_of_2(burst)) {
-+			pr_err("stmmac: invalid burst length %u at index %zu\n",
-+			       burst, i);
-+			continue;
-+		}
-+
-+		/* Since burst is a power of two, and the register field starts
-+		 * with burst = 4, shift right by two bits so bit 0 of the field
-+		 * corresponds with the minimum value.
-+		 */
-+		val |= burst >> 2;
-+	}
-+
-+	u32p_replace_bits(regval, val, DMA_AXI_BLEN_MASK);
-+}
-+
+-	u32p_replace_bits(regval, val, DMA_AXI_BLEN_MASK);
++	*regval = FIELD_PREP(DMA_AXI_BLEN_MASK, val);
+ }
+ 
  /**
-  * stmmac_verify_args - verify the driver parameters.
-  * Description: it checks the driver parameters and set a default in case of
+@@ -3212,8 +3212,12 @@ static int stmmac_init_dma_engine(struct stmmac_priv *priv)
+ 	/* DMA Configuration */
+ 	stmmac_dma_init(priv, priv->ioaddr, priv->plat->dma_cfg);
+ 
+-	if (priv->plat->axi)
++	if (priv->plat->axi) {
++		/* Encode the AXI burst length to a register value */
++		stmmac_axi_blen_to_mask(&priv->plat->axi->axi_blen_regval,
++					priv->plat->axi->axi_blen, AXI_BLEN);
+ 		stmmac_axi(priv, priv->ioaddr, priv->plat->axi);
++	}
+ 
+ 	/* DMA CSR Channel configuration */
+ 	for (chan = 0; chan < dma_csr_ch; chan++) {
+diff --git a/include/linux/stmmac.h b/include/linux/stmmac.h
+index 673b068fdadf..d1a41fe0825f 100644
+--- a/include/linux/stmmac.h
++++ b/include/linux/stmmac.h
+@@ -113,6 +113,7 @@ struct stmmac_axi {
+ 	u32 axi_wr_osr_lmt;
+ 	u32 axi_rd_osr_lmt;
+ 	bool axi_kbbe;
++	u32 axi_blen_regval;
+ 	u32 axi_blen[AXI_BLEN];
+ 	bool axi_fb;
+ 	bool axi_mb;
 -- 
 2.47.3
 
