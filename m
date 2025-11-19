@@ -4,177 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 424DBCF2582
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 05:03:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EA26CF2582
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 05:13:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ErrbjQxo/iY97RmnfAjyNW0S+bWbdxpqKeinb5pWCbU=; b=MzcV4n1auBKyBV8eaVVrONnJzq
-	nAWJUOSaNaGcLTMus+Epmmrq7nyn+jCMzGnhRR0cU6VzQRkwv4T6875c2h5sekRFhYXPirtcmIkWo
-	H6ZYmJOH8FcQUy6Q29fi4B7oTi2TACJbLramhGR8bom6R0/Xc6ZQYwyvKxN2QD5x5U8T+vMfrJZfl
-	t0BVEBrZWRqwHZ/4YfFPwNx0pECifQfA5wb8SCmFHm96hF0YKmDXkemcRbBLAH1JYIlcByhwkPWD4
-	1MbrgXA61HGjE+2grdskPau8ICjq4BS3+1rSc4yB+4h8Ws5GhSWo8yhsRYMRh6mM1io5g4ciLFeuA
-	zPo9MTRw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:CC:To:
+	Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QCKYYk/nJB19P+gNWH8tuQy1gyvupyswist/AiEgNgQ=; b=U/zTYUoLsFlZash1ciYONdZzBu
+	asqqNEcJNdBHn0Kk224H2cE7ZiH6tvm6Ptt5t89OekQL8/8x50yLQcRgOkSPXVOxvXflDhRWWcay8
+	ZSiz0AhffNSqEn1ooe9PIsbudH4Y/g5rRH2MOoHQoRuvsKEKP42VIh7AbPwr5oikT/ELN/H636m7S
+	lpFWVwY6lBvE1g91MspLR2YIOfdj4mpsWvKL++XM9aVArAy3qazSeV4qqtytC4SOGZMUkj5HcIKRp
+	n3RITijqjqFZfuWt6sXkEYI+FSrcicwiyhuExekXjHhjaKQ6JZM7W/e7fQwA4Rv2dqhWV6VhN7OzQ
+	V+Y1Qfhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLaLr-000000020vK-2Z80;
-	Wed, 19 Nov 2025 05:03:31 +0000
-Received: from mail-westusazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c000::1] helo=BYAPR05CU005.outbound.protection.outlook.com)
+	id 1vLaVW-000000025pz-2rIP;
+	Wed, 19 Nov 2025 05:13:30 +0000
+Received: from canpmsgout02.his.huawei.com ([113.46.200.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLaLn-000000020uf-04AU
+	id 1vLaVT-000000025lS-1GBc
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Nov 2025 05:03:29 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=e6nrGpYxRHIey9Lt55NBSIZ6hdGHq0JXzHIZ0mndLUEjh+ascWR+5e2213gQ9Io852xHv6g26s7KPqavzF+8ANQpwiJ5b00wkQsXM83vS9X/1yTiMh3eIlCWTkPwmfR6bfe9NqQ5R0/+4Wwqlbgu1UEHJj5mTpA0ukFIpwGq5GVKatSEcbFaC4gMnmOwj0NgSH5SuicJcSMaVN9VhvE4wduIqlB/Eiomq2Jpr6GkbjqW6nM+tYiB1NdNiDiJiwS6FHOQ7dXXE1nFFVBjp/AjIPAuIu5Orok0AJgrKr7lm3LnukInhuqqScN21TZqG4u1me/akVe9D53aLKIMY1D7fQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ErrbjQxo/iY97RmnfAjyNW0S+bWbdxpqKeinb5pWCbU=;
- b=j5vAPMrB8Ax+LEXrcjjAweCjp3B0MTGy9K77czZzqXyiuy1zuOEr7rb/lUGZ35qsueVVdt9IWBrd5qLxy2Zz9SQLY/jAwLFTZyObkve7KA1auONgQeVXfcKdxqggQDxWO4kF2Pbb63uwtgFlZcZKwPEsRroNrUCDRnGSmgkRZ2VqHR/MLnDX9Q9OfYDNI11ZEh3c+02O9dylIn1uyRraV9PN6nUYdYHi5ZjwrqRCTLnQUvd1MzbV7sNYVxHJ7kt4Lro/vZw/U0+/8q3RASsPgwPOgEoRKPWalBqugxXjFweI9LNbwqgzvVI2BhUbUiKNsrq83Z+PMhMiwexTE/L9yw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ErrbjQxo/iY97RmnfAjyNW0S+bWbdxpqKeinb5pWCbU=;
- b=YDF7AOXhPGn/JTCkrkzKlHt5gLGMvFVMvpkFdOC3437BkUv9yDKJp6NUg3W8U/nkq8L0/4AddbMJU9sWqV3k7gyRImxsprpYKrbUmxGwvTIrS6ZD1fUoFhI5WuyxwneDZ+NS8Yb7+XpcdGs30HTqJBehLd0bFwX5CqeEcVmF21p1c0aJ6AfPTTvnz5AfZuUUSrdhYe8RiChstEzIcJdTE2x71lnkCdmMCku8SwwIEMiWYcCUpDzy8nH9v/PIFGdfTfjLOH2l83D65Qu9ZPrDu80Uy2z02A5RVTUQTP2T21P8/L13rQqioaFTkvKv90A46i+s4afafT7wXcy1FEa9+Q==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from DM6PR12MB2667.namprd12.prod.outlook.com (2603:10b6:5:42::28) by
- SJ0PR12MB5673.namprd12.prod.outlook.com (2603:10b6:a03:42b::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9343.10; Wed, 19 Nov
- 2025 05:03:21 +0000
-Received: from DM6PR12MB2667.namprd12.prod.outlook.com
- ([fe80::bd88:b883:813d:54a2]) by DM6PR12MB2667.namprd12.prod.outlook.com
- ([fe80::bd88:b883:813d:54a2%6]) with mapi id 15.20.9275.015; Wed, 19 Nov 2025
- 05:03:21 +0000
-Message-ID: <1a7473d6-50f5-43bb-b082-99120d127a1a@nvidia.com>
-Date: Tue, 18 Nov 2025 21:03:18 -0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 26/34] arm_mpam: Add mpam_msmon_read() to read monitor
- value
-To: Ben Horgan <ben.horgan@arm.com>, james.morse@arm.com
-Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
- baolin.wang@linux.alibaba.com, bobo.shaobowang@huawei.com,
- carl@os.amperecomputing.com, catalin.marinas@arm.com, dakr@kernel.org,
- dave.martin@arm.com, david@redhat.com, dfustini@baylibre.com,
- gregkh@linuxfoundation.org, gshan@redhat.com, guohanjun@huawei.com,
- jeremy.linton@arm.com, jonathan.cameron@huawei.com, kobak@nvidia.com,
- lcherian@marvell.com, lenb@kernel.org, linux-acpi@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- lpieralisi@kernel.org, peternewman@google.com, quic_jiles@quicinc.com,
- rafael@kernel.org, robh@kernel.org, rohit.mathew@arm.com,
- scott@os.amperecomputing.com, sdonthineni@nvidia.com, sudeep.holla@arm.com,
- tan.shaopeng@fujitsu.com, will@kernel.org, xhao@linux.alibaba.com,
- Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>, Zeng Heng <zengheng4@huawei.com>
+	Wed, 19 Nov 2025 05:13:29 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=QCKYYk/nJB19P+gNWH8tuQy1gyvupyswist/AiEgNgQ=;
+	b=kcHYALnVFMqTqvDB0wrOTz6XWMyevtGJc9y8Y7K6eDWC8uEBd+zOktjuW532AFAGpl3iOQEDN
+	5gHgabDCIpGeqsk8W3b1xI76aspLJfeFuoCEa7L9VA57i070mDw8TgPT4EMCAaQ3STrU+rA+qIQ
+	PYMGpKDhupqE+joNPZMqnwI=
+Received: from mail.maildlp.com (unknown [172.19.163.252])
+	by canpmsgout02.his.huawei.com (SkyGuard) with ESMTPS id 4dB8hd1y4SzcZy1;
+	Wed, 19 Nov 2025 13:11:13 +0800 (CST)
+Received: from dggpemf500002.china.huawei.com (unknown [7.185.36.57])
+	by mail.maildlp.com (Postfix) with ESMTPS id 370E6180BD0;
+	Wed, 19 Nov 2025 13:13:15 +0800 (CST)
+Received: from [10.174.178.247] (10.174.178.247) by
+ dggpemf500002.china.huawei.com (7.185.36.57) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Wed, 19 Nov 2025 13:13:12 +0800
+Subject: Re: [PATCH v5 03/34] ACPI / PPTT: Add acpi_pptt_cache_v1_full to use
+ pptt cache as one structure
+To: Ben Horgan <ben.horgan@arm.com>, <james.morse@arm.com>
+CC: <amitsinght@marvell.com>, <baisheng.gao@unisoc.com>,
+	<baolin.wang@linux.alibaba.com>, <bobo.shaobowang@huawei.com>,
+	<carl@os.amperecomputing.com>, <catalin.marinas@arm.com>, <dakr@kernel.org>,
+	<dave.martin@arm.com>, <david@redhat.com>, <dfustini@baylibre.com>,
+	<fenghuay@nvidia.com>, <gregkh@linuxfoundation.org>, <gshan@redhat.com>,
+	<jeremy.linton@arm.com>, <jonathan.cameron@huawei.com>, <kobak@nvidia.com>,
+	<lcherian@marvell.com>, <lenb@kernel.org>, <linux-acpi@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<lpieralisi@kernel.org>, <peternewman@google.com>, <quic_jiles@quicinc.com>,
+	<rafael@kernel.org>, <robh@kernel.org>, <rohit.mathew@arm.com>,
+	<scott@os.amperecomputing.com>, <sdonthineni@nvidia.com>,
+	<sudeep.holla@arm.com>, <tan.shaopeng@fujitsu.com>, <will@kernel.org>,
+	<xhao@linux.alibaba.com>
 References: <20251117170014.4113754-1-ben.horgan@arm.com>
- <20251117170014.4113754-27-ben.horgan@arm.com>
-Content-Language: en-US
-From: Fenghua Yu <fenghuay@nvidia.com>
-In-Reply-To: <20251117170014.4113754-27-ben.horgan@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: BYAPR11CA0065.namprd11.prod.outlook.com
- (2603:10b6:a03:80::42) To DM6PR12MB2667.namprd12.prod.outlook.com
- (2603:10b6:5:42::28)
+ <20251117170014.4113754-4-ben.horgan@arm.com>
+From: Hanjun Guo <guohanjun@huawei.com>
+Message-ID: <73c55f0e-6c0c-63ec-d2d0-d60b28f8aff7@huawei.com>
+Date: Wed, 19 Nov 2025 13:13:12 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:68.0) Gecko/20100101
+ Thunderbird/68.6.0
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DM6PR12MB2667:EE_|SJ0PR12MB5673:EE_
-X-MS-Office365-Filtering-Correlation-Id: 671e6b1c-4d9d-4053-66ec-08de2728f5ba
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014|7053199007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?cDdMTkY2M01USnZ2WXFKQ0s0SVZXK0Zhc05UZWZxb0kyN1dvVkdxUFAyeDlr?=
- =?utf-8?B?M3g4RnRQRDVZb01oTzNEMFc2Tnp5bmlKbDBaUWY0a0ptQXdJU1BqNFdsQUUw?=
- =?utf-8?B?WjRsOGorNjd4RjhYYmFCRUJKbmZNTlNkUWY1aUNiN0dEQWJrd0VmbjFNdmxB?=
- =?utf-8?B?RlhDd2RycDN2T3RVSDBBV3ZzNy9neXN4cUdSMUlTWW1uS3BwY3p1b1Q1Vko0?=
- =?utf-8?B?Q2RSUk16OWhsRTgzOVNtU21sMUdFQktqRkQ5bXNZVVVzczNtaEFXQ3JuVlgx?=
- =?utf-8?B?SGl0d2diRGsrZ2UxSmpsWjhaUWpXaXl1YVU5TldGK0F4Z3NINHYvZXIyM1l3?=
- =?utf-8?B?S29reFNTbDNERjlMU0RhMTVRRDR2M0l4VEZ0REgwRm5SOUxZbitWTm9PeXho?=
- =?utf-8?B?NXJoTm5XS0NwdlBCRE1sRGtJdUl0MHU5cVdZUDNxMldtbTZOY2kzTGNQNEtk?=
- =?utf-8?B?TWJMYnA5WnUvNWc2Z2ZpUmJ2VUU2RmRGRlVlNXoySU9SYWhhMm8vcDR5dERi?=
- =?utf-8?B?NE4yL25GV3dHMXl4WStyVldRV2Iya0lzUmpOS2ZkTWJFRWp1YzlTY05Ka1RJ?=
- =?utf-8?B?YjNWTVZIbXBmdkRuOGpyb2lJMUtjQ3VVcGg2MG9XaGhocXVMakpHdnJiWG1B?=
- =?utf-8?B?MU9VbXgrZVc0WkxxS012cE1uYlBMZ3NsMWFaeEdvZkhwZlQ2YWJ3VXNTVnA5?=
- =?utf-8?B?bFRDcGszaWNYcjA5bEtDSmQyWTdDamZJWWx3U3VJWUdHRGlqTzMxdkxlMGhu?=
- =?utf-8?B?dVE2N05uOW1uTTB3TTdEM1ByamxvZ3hkUDVWaWx1UlQ4ZWdKem9odFU1RS9j?=
- =?utf-8?B?ZHg0ZmRWTHRwOGw2cU5VRHdPYzJ3SExTeXBGVXhtdHJKZEkzS1RVNlYra3BZ?=
- =?utf-8?B?TWNIOUtWVjN6LzZJSnFNUkp5TlJDYXhrS0hmQUk1bGFzY2ZJa0Z0QTRFOGVO?=
- =?utf-8?B?bXhhU3JXeXIwTHYvSFFIaUVmWUxIWkhYUUpyK3FoRVVZQ25iOVNIN1pNS0Ev?=
- =?utf-8?B?eEdWZExRb0t1dHg1Mnp5eXg3ZndOL0dmYVRFWmF3MVdHMDZmVTRKZlp1dVBV?=
- =?utf-8?B?ejBXeXZUKzZUTGI0Z3c0Vm9pamV0ek5QcDBNSEo4V2g0QmRsbmkyWnM1N1ZR?=
- =?utf-8?B?cWpidGVWNUZSQ1RSZ0tlbkdVdEI3R0V6YW1OQkMvMUdsV1RnMWZmbUlVWHgx?=
- =?utf-8?B?UVpwalRLbys2elkrYkY4bHhJTjFNMGwwMnh6WnF1Vm9RS2NSditOUG5scjNw?=
- =?utf-8?B?a1Z6amJKVkJndXRjL2xLQTJLSTJJcUxZdWU0czdPK3dlL0xTWmJkNWt2WGd3?=
- =?utf-8?B?Mm8vczFXeldqK3Z5Mk1XaVZzMXJnTDl6MEkzMm1WNHJEQ01GQWJ0cWZZWjB0?=
- =?utf-8?B?bTJsdFdoL2w2YlRka3ZHUTVOaVVkZ1FqY3NKQ29ZN3EvaGhYdmptZ1kvUDVY?=
- =?utf-8?B?NUprbmxUMVVxSmZYV2xJVnYzYnRSVUNlUmtLaG00VmM0OGxUL0Qrcnl2WnEy?=
- =?utf-8?B?amdYOTRjZXFZeEF3RFM0cXdyb0JVMDV3M3VUdlRHbjkzdVF0MWJxYXJndFhy?=
- =?utf-8?B?ZFBwcnVPLzJUM0Jjc0Jic09hK3J4bWFSMCtyczlMMGRsZWxoN2tlbEZnUzJh?=
- =?utf-8?B?TEl6OE9XSnQ3aGR4Q2tSZmJucVlwd1JOWWJrc2RFYVkzeno2QUg2MGtrbkhI?=
- =?utf-8?B?MjZCendpaG4yRDBVTEt0WEF6RmVBVHlmMnpLU3FKQUlQOTJmSFZNODJnMlRL?=
- =?utf-8?B?WkZnTlNFNCtoYnRra1pMcjhnbTdaWVk1a1lNNnVQa3JEODRUbnpxQUhBcS9k?=
- =?utf-8?B?dDB6a0cwUS9GRC9uQ0NwWWtoY0FhQXNWSWhXMFVXNUsrYkx1ekd1V3ZXeDFy?=
- =?utf-8?B?azlXU1JxSkF3bXp2dmJJcVRoeDU0eU90T0Z5YWlFM3FlRVdLTEhhQ01hRnlS?=
- =?utf-8?Q?ARScGsgs7YVApfJR8m3Q7fB+cJdt069z?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM6PR12MB2667.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?WktTZitjMVZzanhkeEIyS2hOdWJiYzgzb09ibUI0ZkpTZDlFdnBWWUZ5aEtW?=
- =?utf-8?B?eUFmMXhuY094aHJlblRVeWRTUE8yQUtxZG9IdHdpY3lxQXZGYmpucG9aY0Z6?=
- =?utf-8?B?Witna0czdXVGeDZjelZlaWxxaWxwNTRVV3BmMENmRVNSUHB6U3Z1NU45c0pq?=
- =?utf-8?B?OHc2NUZPY0VNNGJNcFh5VU5jODFhaVd4L2M3dWU3SU9QY3RxMTB2Ymx4QVk0?=
- =?utf-8?B?UmFCdFc0RURVMmxXOVdOc2UvL2tZYzlCYVl1eUhTUUFUeSs1V0ZwZnFvWjdl?=
- =?utf-8?B?Yy9VWDB1d3BNL3hnazAvekhDUGd0RWw2SmFNVjUwaE9SNTNBc2hmZE5ERHRm?=
- =?utf-8?B?QzFDSzA0MkFUZlFneW5mRFFUZU5JNnVJek9WUkk4cGhiZ3Y0emNiaXI2aWRI?=
- =?utf-8?B?MVFobW5kVmlGb1c3djRuNTIwRHEydUJMRXlHSDhGWlJMVGpJWlBRS1VvNlJa?=
- =?utf-8?B?SW5UVzVGc3JQTXVWU1RYUnhIMC9jeitnU085Wm05Y3U0SUlNT1FDYVhZWDNa?=
- =?utf-8?B?L3VsNVBPZTZISWpvV3RHaDhCamlXVW9qTkF3SHQ2Nnk1Qk1FOVdNaXBYMy9D?=
- =?utf-8?B?YXl4RXkrSTc1VldxSnNJSUNIcDVLVXhYR3F1NTl3RHhlVDNQU0l4SENscU9X?=
- =?utf-8?B?bGkrNmdoejRJQ2sxbGhDcGE5bzNnRHFRSmQ3V0x0dzhkVkh2V3daLzFlVTJw?=
- =?utf-8?B?b3ZhWWtEd1dZbXhFQ0htRFp0Y2krN1lsejRuQ2pKUm11elM3aExvd3puc1Zu?=
- =?utf-8?B?dzR1Sy9lNU54bUJPTWNESFZFdU13RWg5aUIwcGEvVkYwWktnN255KzREdC80?=
- =?utf-8?B?bUxwdzJuT1A0ZWFTd0N0VWU4M1VCSmZmUUU1KytFYk41SXVNdTV4dXJITllY?=
- =?utf-8?B?S1E3amk1aWNrMXFRdTJnOFJISW9xSjZvSGZGcUxESHZnVktjYVI5QVJrcW5l?=
- =?utf-8?B?RFd1ZGduMWJFc0huOXlVWG9uc2V6U3dlN0E0YStPd1l2QjZPUUZBcTRHOHpz?=
- =?utf-8?B?ZHBEZ2ErQmVHS3N3b1BNT2Y3TFUxREVxQ3VxaUFEMWFhQzFpVVkwZnpVUnRJ?=
- =?utf-8?B?eStlaG5UOU9odkFWZnF1MHZnQjJNUXVBMVY2NHBlMkNpV1dDZVVvcmIxVFlH?=
- =?utf-8?B?NHNta0ZGaWVwMmlOc3g0ZEcvUXhWYUNnMnFRWThNRFVxcW5OQ3FwU1dlWEpY?=
- =?utf-8?B?M0MrUlQ5dGNUeDI3NklxemczNnJCakhqTDNlNHFPc2dKd1FncEY5dDZNdG5L?=
- =?utf-8?B?VEVMd1pSR3o5RDRLRWlxTzFXR2NUU0gxZCtkR0Zjd0ZQZW9tMnU0bTJWb2pZ?=
- =?utf-8?B?V1lreXFlOHdWTUNuS212YURuT2dxWGZtZlhjc1g0b1ZhNVFvb2ROWXNnMk94?=
- =?utf-8?B?V3YxbDRCSHQxK0hOMCtpZVdZMUZFWUcvdElOSGtaelZqQmZYK1JrQzY2K3dl?=
- =?utf-8?B?SDVaMTVxdVlzZlVHVVdScHR2QVY1bHp1Lys4dlFVNHRsTytwWThvSTNCcnZm?=
- =?utf-8?B?RVBWVnBaTWh4Ylg2YnNKWm5TbmJqOHE3L1FERkhVRWwyTlRVV2EyaURGYm5C?=
- =?utf-8?B?Ni9pcUNQZXFXM2laeHVMc1lxYStSSnlCWFRuaVA5azhNSEhoWFNRYTFGbG1Z?=
- =?utf-8?B?dTZRQWFYNWFYdnNsM3ZBOEFHbXN5OFhSUStiNnUraWlLMTAwSXIybmhOOW1L?=
- =?utf-8?B?cVNRam5hN2tOUWc0NVpkUXcwWTlmYzBlV2NEUnRHUFRrM2xXUTlrcHQ2WTE2?=
- =?utf-8?B?M3RsVzF3bEE1d3JEWUZMeWRuaFRMS1RCdEhpMi9nUjA5d3lyZ25wMEV2VUVx?=
- =?utf-8?B?Yk4wbDRZd2xpSThGcEVKbHJ4NUxvMWY3dURuREU3SS9xMFlvcFk4Z29WT0xy?=
- =?utf-8?B?MXdteExxaEN6a2RCTlhjRlJoeDhXcjhWbjlLT0xhRGFLejkwUUxqemd3bUJY?=
- =?utf-8?B?aWVvbkNGMjM2MmtqcGt3WmFLQ01JdVk3dnJWaFpQWWp3OVNVM0pLTWp6TUF5?=
- =?utf-8?B?ZE9QTEUraEJyeGM5amxNUytQZ1UzKzdBZlRaWWdTL25sekNWS3VRcnZ3cnZV?=
- =?utf-8?B?b2VSV1lEMXBOMi9NZ2pQS3hDZWt3TWU4eGhhZjJkS0JTT2VPb01vL2tFMUJr?=
- =?utf-8?Q?SMG4LYmYyHWeqtcui8+7ydxxf?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 671e6b1c-4d9d-4053-66ec-08de2728f5ba
-X-MS-Exchange-CrossTenant-AuthSource: DM6PR12MB2667.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Nov 2025 05:03:20.9745
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: fWAF+vpXcwE6VVmFfZlFhMLqQO/wiSiYvkpKPJRF64TTFKRBLkuCvvka/gak4cAsiplyTfISoucAjDjMFYPqzQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR12MB5673
+In-Reply-To: <20251117170014.4113754-4-ben.horgan@arm.com>
+Content-Type: text/plain; charset="utf-8"; format=flowed
+Content-Language: en-GB
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.174.178.247]
+X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
+ dggpemf500002.china.huawei.com (7.185.36.57)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251118_210328_510242_7AD74FFF 
-X-CRM114-Status: UNSURE (   8.70  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251118_211327_998738_F06E34CE 
+X-CRM114-Status: GOOD (  21.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -189,35 +92,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 11/17/25 09:00, Ben Horgan wrote:
-> From: James Morse <james.morse@arm.com>
+On 2025/11/18 0:59, Ben Horgan wrote:
+> In actbl2.h, acpi_pptt_cache describes the fields in the original
+> Cache Type Structure. In PPTT table version 3 a new field was added at the
+> end, cache_id. This is described in acpi_pptt_cache_v1 but rather than
+> including all v1 fields it just includes this one.
 > 
-> Reading a monitor involves configuring what you want to monitor, and
-> reading the value. Components made up of multiple MSC may need values
-> from each MSC. MSCs may take time to configure, returning 'not ready'.
-> The maximum 'not ready' time should have been provided by firmware.
+> In lieu of this being fixed in acpica, introduce acpi_pptt_cache_v1_full to
+> contain all the fields of the Cache Type Structure . Update the existing
+> code to use this new struct. This simplifies the code and removes a
+> non-standard use of ACPI_ADD_PTR.
 > 
-> Add mpam_msmon_read() to hide all this. If (one of) the MSC returns
-> not ready, then wait the full timeout value before trying again.
-> 
-> CC: Shanker Donthineni <sdonthineni@nvidia.com>
-> Cc: Shaopeng Tan (Fujitsu) <tan.shaopeng@fujitsu.com>
-> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
-> Reviewed-by: Gavin Shan <gshan@redhat.com>
-> Reviewed-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
-> Tested-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
-> Tested-by: Peter Newman <peternewman@google.com>
-> Tested-by: Carl Worth <carl@os.amperecomputing.com>
-> Tested-by: Gavin Shan <gshan@redhat.com>
-> Tested-by: Zeng Heng <zengheng4@huawei.com>
-> Signed-off-by: James Morse <james.morse@arm.com>
 > Signed-off-by: Ben Horgan <ben.horgan@arm.com>
+> ---
+> I have opened a pull request to acpica to update acpi_pptt_cache_v1 to
+> include all fields. https://github.com/acpica/acpica/pull/1059
+> 
+> Change since v4:
+> Use fields directly in acpi_pptt_cache_v1_full
+> Delay the casting
+> 
+> Changes since v3:
+> New patch
+> ---
+>   drivers/acpi/pptt.c | 47 +++++++++++++++++++++++++++++++++++----------
+>   1 file changed, 37 insertions(+), 10 deletions(-)
+> 
+> diff --git a/drivers/acpi/pptt.c b/drivers/acpi/pptt.c
+> index 2856254e29d7..53fde9bd8140 100644
+> --- a/drivers/acpi/pptt.c
+> +++ b/drivers/acpi/pptt.c
+> @@ -21,6 +21,25 @@
+>   #include <linux/cacheinfo.h>
+>   #include <acpi/processor.h>
+>   
+> +/*
+> + * The acpi_pptt_cache_v1 in actbl2.h, which is imported from acpica,
+> + * only contains the cache_id field rather than all the fields of the
+> + * Cache Type Structure. Use this alternative structure until it is
+> + * resolved in acpica.
+> + */
+> +struct acpi_pptt_cache_v1_full {
+> +	struct acpi_subtable_header header;
+> +	u16 reserved;
+> +	u32 flags;
+> +	u32 next_level_of_cache;
+> +	u32 size;
+> +	u32 number_of_sets;
+> +	u8 associativity;
+> +	u8 attributes;
+> +	u16 line_size;
+> +	u32 cache_id;
+> +};
 
-Reviewed-by: Fenghua Yu <fenghuay@nvidia.com>
+I'm fine with removing this after acpica changes being accepted.
 
-Thanks.
+Reviewed-by: Hanjun Guo <guohanjun@huawei.com>
 
--Fenghua
+Thanks
+Hanjun
 
