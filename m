@@ -4,56 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDA81CF34AB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 13:19:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CF82CF34AB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 13:29:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Hp0UfG7QOKCvZuMIBFq30GFWWtwB3VYwKuKxJdo7x0s=; b=awvdHQZYuVhXBp7NoGawCEfIYQ
-	6zTZl3VmujQXw9OkjYNPAr+xcY6xbfulmhznpEBxHr2u/5OAzOsNUSmRJVkeETcm5ip2MHloF9zWo
-	TsEr9gL7XiZZyrMiAX55gjPW0LQngLm6YlZ5vsBoieh2C4FMCZRCfO2s2mirQQ+DXwMVnvY8eiH+e
-	zNMrr1nU70vQGTd/cIQy37VHxKCyiIiRLuwr4YA88VuWTezR+JIF4MBmL7Z621al4LXvo2Mer1Pyy
-	BDuBu5QzpGY8jfYEZadJA2x+sEGn08ElUd78n14wpssZGs/wPAntIvqmJMBSDyK6ThMnMNW9r0rPC
-	oIRJRrwQ==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QCeVgdlyRn3to5o8svSAQCYCIaAyOrCinIsywtbsnqc=; b=eEw10fvtKdpW8DehaQX7t19Pbe
+	NXjjeMsvPklG1rKqib0KKVxF/Zl+A/AarFhfBcGiPaXfF+eD9Ujx/S4wgujrbCQdhbXpkjHJK8afZ
+	Mlgh7WslG0OpuUk0SaLYP0OhXRrZmblokiP34V3DIJ/+/a+QcpfRdARKaeVVrlRe0zmYccF6SrqmG
+	Td0VOnQKPya0JVBuSWO9rLkE0MYmilDfI09VIDk+yeTb0jP2JwBBE1G+rnrNfzLJyfw46wI+vsdjp
+	FbYhbVMDu4JhcIIufuzZzJA0ehXLf4gZ+tuHMn81PNnAgFYV76+6JbxNy935VJXv7Chicb8SUo+MQ
+	PEqRP9vw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLi5m-00000003GqT-2xah;
-	Wed, 19 Nov 2025 13:19:26 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vLiFV-00000003Ha4-03s3;
+	Wed, 19 Nov 2025 13:29:29 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLi5j-00000003Gpm-1oDm
+	id 1vLiFQ-00000003HZC-0TfN
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Nov 2025 13:19:25 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5E679419D4;
-	Wed, 19 Nov 2025 13:19:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 62D46C2BCB3;
-	Wed, 19 Nov 2025 13:19:17 +0000 (UTC)
-From: Geert Uytterhoeven <geert+renesas@glider.be>
-To: Rob Herring <robh@kernel.org>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Mark Brown <broonie@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Marc Zyngier <maz@kernel.org>
-Cc: devicetree@vger.kernel.org,
-	linux-samsung-soc@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Geert Uytterhoeven <geert+renesas@glider.be>
-Subject: [PATCH] of/irq: Handle explicit interrupt parent
-Date: Wed, 19 Nov 2025 14:19:11 +0100
-Message-ID: <e89669c9b3a4fbac4a972ffadcbe00fddb365472.1763557994.git.geert+renesas@glider.be>
-X-Mailer: git-send-email 2.43.0
+	Wed, 19 Nov 2025 13:29:28 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id C0CFC4E4179C;
+	Wed, 19 Nov 2025 13:29:21 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 9307F60699;
+	Wed, 19 Nov 2025 13:29:21 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 239FB10371A57;
+	Wed, 19 Nov 2025 14:29:09 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1763558960; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=QCeVgdlyRn3to5o8svSAQCYCIaAyOrCinIsywtbsnqc=;
+	b=Pe1FcnasPMVjycj+4K0o7Bt+G5cxX2nnbT/fjuTU12uOoD4C3dTkyrWYHDi4XbjOerISVJ
+	GiBRvYSi1g+DJiRpzTmUx46bAYXMDyGPbCQO2SLSqf0G1FD5Ot/to08c5dMt4qwhoVjffU
+	37zIfMQw1phSkaC1c/UNsBu4sEVa6I96q563Ij2ZArqeBPQaaRxRQn/qFGDgK9b1CakKZw
+	+QkZhMbpKEb0PxoTkvEClXSlBk4+/4wVOW+TfgWXpgzfxptQVhNs/R9RCcqX2Xcr/leEzs
+	eAupQQBmU4B84dRKUW9STIjPPYVKbLbTmcmWdRne8rlSpmzA3wUjDBd4WnJktw==
+Message-ID: <57aa6516-ae7d-4d8d-9ae4-70bd6557547f@bootlin.com>
+Date: Wed, 19 Nov 2025 14:29:09 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v16 02/15] net: ethtool: Introduce
+ ETHTOOL_LINK_MEDIUM_* values
+To: Jakub Kicinski <kuba@kernel.org>
+Cc: davem@davemloft.net, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+ thomas.petazzoni@bootlin.com, Andrew Lunn <andrew@lunn.ch>,
+ Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
+ Russell King <linux@armlinux.org.uk>, linux-arm-kernel@lists.infradead.org,
+ Christophe Leroy <christophe.leroy@csgroup.eu>,
+ Herve Codina <herve.codina@bootlin.com>,
+ Florian Fainelli <f.fainelli@gmail.com>,
+ Heiner Kallweit <hkallweit1@gmail.com>,
+ Vladimir Oltean <vladimir.oltean@nxp.com>,
+ =?UTF-8?Q?K=C3=B6ry_Maincent?= <kory.maincent@bootlin.com>,
+ =?UTF-8?Q?Marek_Beh=C3=BAn?= <kabel@kernel.org>,
+ Oleksij Rempel <o.rempel@pengutronix.de>,
+ =?UTF-8?Q?Nicol=C3=B2_Veronese?= <nicveronese@gmail.com>,
+ Simon Horman <horms@kernel.org>, mwojtas@chromium.org,
+ Antoine Tenart <atenart@kernel.org>, devicetree@vger.kernel.org,
+ Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski
+ <krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>,
+ Romain Gantois <romain.gantois@bootlin.com>,
+ Daniel Golle <daniel@makrotopia.org>,
+ Dimitri Fedrau <dimitri.fedrau@liebherr.com>
+References: <20251113081418.180557-1-maxime.chevallier@bootlin.com>
+ <20251113081418.180557-3-maxime.chevallier@bootlin.com>
+ <20251118191517.1a369dad@kernel.org>
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Content-Language: en-US
+In-Reply-To: <20251118191517.1a369dad@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251119_051923_492900_A4FF20B0 
-X-CRM114-Status: GOOD (  12.38  )
+X-CRM114-CacheID: sfid-20251119_052924_316851_EB6DC7DA 
+X-CRM114-Status: GOOD (  16.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,40 +98,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-If an interrupt controller is used as a proxy, it may have an
-"interrupt-parent" property, but lack "interrupts" and
-"interrupts-extended" properties.  In that case, the "interrupt-parent"
-property in the interrupt controller node is ignored, causing the
-interrupt controller to fail to probe, and leading to system boot
-failures or crashes.
+Hi Jakub,
 
-Fix this by also considering an explicit "interrupt-parent" property in
-the interrupt controller node itself.
+On 19/11/2025 04:15, Jakub Kicinski wrote:
+> On Thu, 13 Nov 2025 09:14:04 +0100 Maxime Chevallier wrote:
+>> diff --git a/include/linux/ethtool.h b/include/linux/ethtool.h
+>> index c2d8b4ec62eb..ad2b5ed9522b 100644
+>> --- a/include/linux/ethtool.h
+>> +++ b/include/linux/ethtool.h
+>> @@ -216,13 +216,26 @@ static inline u8 *ethtool_rxfh_context_key(struct ethtool_rxfh_context *ctx)
+>>  void ethtool_rxfh_context_lost(struct net_device *dev, u32 context_id);
+>>  
+>>  struct link_mode_info {
+>> -	int                             speed;
+>> -	u8                              lanes;
+>> -	u8                              duplex;
+>> +	int	speed;
+>> +	u8	lanes;
+>> +	u8	min_pairs;
+>> +	u8	pairs;
+>> +	u8	duplex;
+>> +	u16	mediums;
+>>  };
+>>  
+>>  extern const struct link_mode_info link_mode_params[];
+>>  
+>> +extern const char ethtool_link_medium_names[][ETH_GSTRING_LEN];
+>> +
+>> +static inline const char *phy_mediums(enum ethtool_link_medium medium)
+>> +{
+>> +	if (medium >= __ETHTOOL_LINK_MEDIUM_LAST)
+>> +		return "unknown";
+>> +
+>> +	return ethtool_link_medium_names[medium];
+>> +}
+> 
+> Will this function be called by a lot of drivers? Would be great to
+> find a more suitable place for it, ethtool.h is included by thousands
+> of objects :(
 
-Fixes: 1b1f04d8271e7ba7 ("of/irq: Ignore interrupt parent for nodes without interrupts")
-Reported-by: Marek Szyprowski <m.szyprowski@samsung.com>
-Closes: https://lore.kernel.org/20251118115037.1866871-1-m.szyprowski@samsung.com
-Reported-by: Mark Brown <broonie@kernel.org>
-Closes: https://lore.kernel.org/b037f67a-b241-4689-9914-57ff578c1454@sirena.org.uk
-Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
----
- drivers/of/irq.c | 2 ++
- 1 file changed, 2 insertions(+)
+I expect this to be mostly used by the current DT parsing code, as well
+as a few print statements in the core. So indeed let's move this
+somewhere more specific.
 
-diff --git a/drivers/of/irq.c b/drivers/of/irq.c
-index a68272db9879bedf..f374d8b212b8669c 100644
---- a/drivers/of/irq.c
-+++ b/drivers/of/irq.c
-@@ -685,6 +685,8 @@ void __init of_irq_init(const struct of_device_id *matches)
- 		desc->interrupt_parent = of_parse_phandle(np, "interrupts-extended", 0);
- 		if (!desc->interrupt_parent && of_property_present(np, "interrupts"))
- 			desc->interrupt_parent = of_irq_find_parent(np);
-+		else if (!desc->interrupt_parent)
-+			desc->interrupt_parent = of_parse_phandle(np, "interrupt-parent", 0);
- 		if (desc->interrupt_parent == np) {
- 			of_node_put(desc->interrupt_parent);
- 			desc->interrupt_parent = NULL;
--- 
-2.43.0
+> 
+>>  /* declare a link mode bitmap */
+>>  #define __ETHTOOL_DECLARE_LINK_MODE_MASK(name)		\
+>>  	DECLARE_BITMAP(name, __ETHTOOL_LINK_MODE_MASK_NBITS)
+>> diff --git a/include/uapi/linux/ethtool.h b/include/uapi/linux/ethtool.h
+>> index 8bd5ea5469d9..6ed235053aed 100644
+>> --- a/include/uapi/linux/ethtool.h
+>> +++ b/include/uapi/linux/ethtool.h
+>> @@ -2587,4 +2587,24 @@ enum phy_upstream {
+>>  	PHY_UPSTREAM_PHY,
+>>  };
+>>  
+>> +enum ethtool_link_medium {
+>> +	ETHTOOL_LINK_MEDIUM_BASET = 0,
+>> +	ETHTOOL_LINK_MEDIUM_BASEK,
+>> +	ETHTOOL_LINK_MEDIUM_BASES,
+>> +	ETHTOOL_LINK_MEDIUM_BASEC,
+>> +	ETHTOOL_LINK_MEDIUM_BASEL,
+>> +	ETHTOOL_LINK_MEDIUM_BASED,
+>> +	ETHTOOL_LINK_MEDIUM_BASEE,
+>> +	ETHTOOL_LINK_MEDIUM_BASEF,
+>> +	ETHTOOL_LINK_MEDIUM_BASEV,
+>> +	ETHTOOL_LINK_MEDIUM_BASEMLD,
+>> +	ETHTOOL_LINK_MEDIUM_NONE,
+>> +
+>> +	__ETHTOOL_LINK_MEDIUM_LAST,
+>> +};
+> 
+> Why is this in uAPI? I'd have expected it to either exist in the YAML
+> spec if there's a new uAPI that needs it, or in kernel headers.
+> Let's move it out for now to be safe, we can always move it in.
 
+I originally planned to report that in linkmodes et.al. but changed my
+mind, let me move that out as well.
+
+> 
+>> +#define ETHTOOL_MEDIUM_FIBER_BITS (BIT(ETHTOOL_LINK_MEDIUM_BASES) | \
+>> +				   BIT(ETHTOOL_LINK_MEDIUM_BASEL) | \
+>> +				   BIT(ETHTOOL_LINK_MEDIUM_BASEF))
+> 
+> Ditto.
+
+Thanks for taking a look,
+
+Maxime
 
