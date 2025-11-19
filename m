@@ -4,92 +4,182 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AF56CF58FE
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 21:31:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A462DCF58F5
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 21:34:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tRlBn8hNsoLzEGGI6zV1NxPFQ/eFHCg8PaMSNSKYawI=; b=oQ322cchkjxxHJdKuqTrmBz2ws
-	ub2w4LzynChiNnyN8VZUvUMZyVfZ7qpYixQdLjpG6NflzXdEa3GND57Ky6CpaF+Bmg23RnPE1K76Q
-	RwRZFvugTMDaPWdJzNAHsMuPwHpW53I8CoXk4oMaztcbHfu+lNCocqc8hTuX8Ta3wQnoWAvqcm9Y8
-	IsXI3Y0xa6nE5MMQv1qEtezxfdsNPJ7L6TW9iO5FxqJbWWVXd9yRWiz56FaZzOmorYtzx8lNWsEXC
-	bTYyjtKQRe2++f4WwGFq8Me4XUmkphRHTN55UmsY5JECsGx0uczyHNEsm8h8SALMzBySwIjGoaul3
-	2r08iuYQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ejKDWecxH74vD0Gi6BdFZYEqphX+3qJp9GqAf4+4kng=; b=JpNeLqE/yNoWjaKbYqowL9/D3D
+	/q2dZnugtS6+a7UPviDu0zCZidm7JBSk6S4GbtnyWF7Wn4X0TqXliKx2WpKxrGFZYL4F3CuzjpUSv
+	g3OTizAXVrBs26e3xZXFKPwo9831ZFupqixF5wCaoumbh4CVOXB1i1oe5YTJLQ57dhJy7EoP9LMc6
+	f63v8N3anR2AB67bK7EFIrUJFEUmEW46Jhx8VRABQj5npsDlOA4zZRNqkqZ90IHJfYLVk9tTXd3SG
+	ZzJTfxFZjPUjd8tlmGGKjwV+bEb8m7Dl6zHY3r0GDUOK0RRxzZyWR/qCoTOryhrnZEI5NZcXda0zs
+	FBpAxoDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLplz-00000005kdE-0bt1;
-	Wed, 19 Nov 2025 21:31:31 +0000
-Received: from mail-pl1-x64a.google.com ([2607:f8b0:4864:20::64a])
+	id 1vLppC-00000005kuz-43GO;
+	Wed, 19 Nov 2025 21:34:50 +0000
+Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLplw-00000005kc5-39Zm
+	id 1vLppA-00000005kuL-3Ans
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Nov 2025 21:31:30 +0000
-Received: by mail-pl1-x64a.google.com with SMTP id d9443c01a7336-295592eb5dbso5062155ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Nov 2025 13:31:27 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1763587887; x=1764192687; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=tRlBn8hNsoLzEGGI6zV1NxPFQ/eFHCg8PaMSNSKYawI=;
-        b=n5KlQWvdK34aKIolHSQc6DmRdgLr6+25j66jW1qX8/yAS+D2Qb+hqDA1B37WgxdCBQ
-         ztrydwoKMOex3juwUdM9+ibgh0sESNOBcDFhxr54/nBAQsK4xxmxZjWc/oKgJX0hu9BS
-         fEC/gSX0op1iXoZXN55q0pyPI+ee9ODgMnD16g0CMGdEt7YbK1YXmzQXpIZhAB5RLewF
-         pzdrq5nZFQXXEYeQqOgIwimOdQOvm3eCsBCr6fFd7sba3ok1aIy4HNM68f4E4loAnDm+
-         ea+uas2y/fNKEh2YdAlzpskABPmJm82OjHXZ88XF+AJPsHPT/Ca3aUjBhvaU1zod5zi4
-         RMrA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763587887; x=1764192687;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=tRlBn8hNsoLzEGGI6zV1NxPFQ/eFHCg8PaMSNSKYawI=;
-        b=ayU8DcA/fPmZQ8Wpc2nzRp2dOd3lNceCojg0Pd4wxZePc5kY6R1ZzC5/nqLJFd4pTp
-         kNAe/0MiRBPuLqxqMClmSM/kwALDnYJI7D1p70w7OlvyNxUXAA5XWB2Z57wzvwec8lPr
-         PXMOorQNwuZTau7jOS7xXKTbnS5jjHXzEYM/PMBskXp+WSErVUTFROgWyFoVUXKIEBrg
-         mjqnHdmEnBmq8lpNShzJJlax9FgpCqFD2VqamM4VlmrGG+n9J8upmnwef+14f8jsUe9D
-         S812zJNsJcztBKUDHBsLjnPZJgk1iV1Fulx0FqUbfpR1+TU5JzEmep9WKX6DQeyUp2LN
-         vfeg==
-X-Forwarded-Encrypted: i=1; AJvYcCWB4Xz5+VD+zngEi1rcng5I1a0A6Lbf0eQAGcyyaECh0v6e+wwECFn8Ea0/WPKBYSw8IaJrB8PWGq7gDLnMLAQ6@lists.infradead.org
-X-Gm-Message-State: AOJu0YyUMwp89Ak0T4bA9L47ixV2aPs5H3OCwwV+yQ6JZy/uJJn5MY1I
-	/L7hN3K4Cbq1lH78Apzh2Ixhk5lT7/H9Rn5IHeUEQLQjtfQvPp3Hxdn1AjwS1NTryCHF8siRumz
-	+mzUCtw==
-X-Google-Smtp-Source: AGHT+IEd+gfd++T3e2i6Z4dBj2glGk6LJnNjNrz24WgF1sqa+HmClxx9J2N7UBfKQW53wCFECS0cLQGpQb0=
-X-Received: from plot18.prod.google.com ([2002:a17:902:8c92:b0:298:9ac:cfe9])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:902:ccc7:b0:298:49db:a9c5
- with SMTP id d9443c01a7336-29b5b136462mr7336255ad.43.1763587887332; Wed, 19
- Nov 2025 13:31:27 -0800 (PST)
-Date: Wed, 19 Nov 2025 13:31:26 -0800
-In-Reply-To: <aKNF7jc4qr9ab-Es@google.com>
-Mime-Version: 1.0
-References: <20250806195706.1650976-1-seanjc@google.com> <20250806195706.1650976-10-seanjc@google.com>
- <20250815113951.GC4067720@noisy.programming.kicks-ass.net>
- <aJ9VQH87ytkWf1dH@google.com> <aJ9YbZTJAg66IiVh@google.com>
- <20250818143204.GH3289052@noisy.programming.kicks-ass.net> <aKNF7jc4qr9ab-Es@google.com>
-Message-ID: <aR43LoV1ti5-2WRD@google.com>
-Subject: Re: [PATCH v5 09/44] perf/x86: Switch LVTPC to/from mediated PMI
- vector on guest load/put context
-From: Sean Christopherson <seanjc@google.com>
-To: Peter Zijlstra <peterz@infradead.org>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
-	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, 
-	Huacai Chen <chenhuacai@kernel.org>, Anup Patel <anup@brainfault.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Xin Li <xin@zytor.com>, "H. Peter Anvin" <hpa@zytor.com>, 
-	Andy Lutomirski <luto@kernel.org>, Ingo Molnar <mingo@redhat.com>, 
-	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
-	Paolo Bonzini <pbonzini@redhat.com>, linux-arm-kernel@lists.infradead.org, 
-	kvmarm@lists.linux.dev, kvm@vger.kernel.org, loongarch@lists.linux.dev, 
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org, 
-	Kan Liang <kan.liang@linux.intel.com>, Yongwei Ma <yongwei.ma@intel.com>, 
-	Mingwei Zhang <mizhang@google.com>, Xiong Zhang <xiong.y.zhang@linux.intel.com>, 
-	Sandipan Das <sandipan.das@amd.com>, Dapeng Mi <dapeng1.mi@linux.intel.com>
-Content-Type: text/plain; charset="us-ascii"
+	Wed, 19 Nov 2025 21:34:50 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=fgScJ9yZcXOHnG3IIgTTpyBvPna7naDdsDZs5IhqF5Q5AaKhoOJGHiaFyvEJBpJ0uaBOKMrTIR6h5+i7NDrMOIz2B0PXA+j5l7ggNuZ7kP1JFj6U/SQx13rxo4+36Fg/ZCFAPyhTmEVQXxNE6iHnughkfyIGafZ0d5xTnFghnb1SPtQjYNut27FsH/VVAtR4OvgaYOrwDpxdpQr3bAlGs5svNdWOKVbqCYT4vq64V/sIEwgvbqIGa9XmbxZ2afWpYyk7GD+PvJlt1KMVwStL/mYU5M99J/xiNw6rgZTf2YYJv9HByhaFgBJ2bCrO2jz7V5Jo6x840VK1+ATtCQAGUQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ejKDWecxH74vD0Gi6BdFZYEqphX+3qJp9GqAf4+4kng=;
+ b=esWQMiT8Fdhhj6U8cCShsVzPFBX5BjgFsFQT1ULjEcJHXq9JhU/hyRmrKCY144R0ykLWWBrWhC7caXwC+FnuM9P15cUEoO+ZplB1wmd5k9aXBOiWIcg8eNpiEibhzoONTDgPNJCBJdImjo62dU0EqAgGBM+SE2mKYJI2eYSD65qGh57fwsyhqSGGKiWhFJ9UzBjGENf+S8zApsD8SwWNF9g/XykVO+n5XskR18cm3tfilOqFoIfPFU9m9gDKsB5MMHA2WMBCuKxIgeESKNMyATJuwfpYPi0dN5+W3m2+9R/GfbX5E6wmO3zYgwBNTApVINoCkHIyvqlaMwVVQ9rkzA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ejKDWecxH74vD0Gi6BdFZYEqphX+3qJp9GqAf4+4kng=;
+ b=ZtBY8tv9pTclClwjV47Mk2dNLzpNKQb8n6/kjNegb/mrnVV7Duc3AKNwPnXb56+BHFiZmPw9fv9JRgD8oAeO8/fP1VdwkMBgc306aeKPE2FkwN0x7z4b6+m4PpSYS9yZZG6bcaV3ZONpNL47sveXzvGscc9XJ8hD4ZSIvFAp5ainYhpX68af4vdhEBdzAlhNfKWuIdPLAmK+XLi68YWQc1BkDs5bbRGPuIuDV4WRiRX696o9s3QjXXkPhp/Xsz/w5Wa7zqnhpx0Kg5P0ML3KR1PYnmY7G60lZP9bARH5ghqsQlro8aCSC5phfmTceI2DVQKrZSkWCxh/yRE9o1nmPA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AS4PR04MB9621.eurprd04.prod.outlook.com (2603:10a6:20b:4ff::22)
+ by AS8PR04MB8433.eurprd04.prod.outlook.com (2603:10a6:20b:407::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9320.21; Wed, 19 Nov
+ 2025 21:34:38 +0000
+Received: from AS4PR04MB9621.eurprd04.prod.outlook.com
+ ([fe80::a84d:82bf:a9ff:171e]) by AS4PR04MB9621.eurprd04.prod.outlook.com
+ ([fe80::a84d:82bf:a9ff:171e%4]) with mapi id 15.20.9343.009; Wed, 19 Nov 2025
+ 21:34:38 +0000
+From: Frank Li <Frank.Li@nxp.com>
+Subject: [PATCH v2 0/5] media: platform: nxp: Trivial cleanup pathces
+Date: Wed, 19 Nov 2025 16:34:23 -0500
+Message-Id: <20251119-cam_cleanup-v2-0-df732cc83ff1@nxp.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAN83HmkC/1XMSw7CIBSF4a00dywGUEvryH2YxvDS3sQCASU1D
+ XsXmTn8T3K+DZKNaBOcuw2izZjQuxp814GepXtYgqY2cMpPdKCCaLnc9NNK9w5E9WakSo5G6gP
+ UR4j2jmvTrlPtGdPLx0/DM/utzWGM/TuZEUp6bY58ENwoMV7cGvbaLzCVUr6SjwwxpAAAAA==
+X-Change-ID: 20250807-cam_cleanup-b6d90ba9dac3
+To: Philipp Zabel <p.zabel@pengutronix.de>, 
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Rui Miguel Silva <rmfrfs@gmail.com>, 
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+ Martin Kepplinger-Novakovic <martink@posteo.de>, 
+ Purism Kernel Team <kernel@puri.sm>
+Cc: linux-media@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Frank Li <Frank.Li@nxp.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1763588074; l=1327;
+ i=Frank.Li@nxp.com; s=20240130; h=from:subject:message-id;
+ bh=9ScWw3wPx0c/tMuuamDJQxBF5V7mUob/YLZDUKM3HDM=;
+ b=6mNFXaoooZ3WdxQWVt3H8YiyI09qbLx/o/wOQpmQhL7UrDsRLQWkEqJgb8w0nPOVYetYUvhcO
+ TnVTaShrNO5CMzIuQAfEkQS16lf5MJhyOjhyREB8LxOUekA8L50SMz9
+X-Developer-Key: i=Frank.Li@nxp.com; a=ed25519;
+ pk=I0L1sDUfPxpAkRvPKy7MdauTuSENRq+DnA+G4qcS94Q=
+X-ClientProxiedBy: PH7P220CA0043.NAMP220.PROD.OUTLOOK.COM
+ (2603:10b6:510:32b::12) To AS4PR04MB9621.eurprd04.prod.outlook.com
+ (2603:10a6:20b:4ff::22)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AS4PR04MB9621:EE_|AS8PR04MB8433:EE_
+X-MS-Office365-Filtering-Correlation-Id: b55fb4ca-72e1-4fe3-1a37-08de27b370cc
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|52116014|376014|7416014|366016|19092799006|38350700014|921020;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?OEIvdlI2V2o0VlJEVXFvSVUwanAyTHVNckU5c3FTbnNFOG9vdVAzYnVkTWZB?=
+ =?utf-8?B?VG5maDJPU1ZMK1ZVNHNqSnhGVERsZEV4aUFoMVJiSi8zUzJyUUwxWDdUWkJi?=
+ =?utf-8?B?OGUyRGlnZnk1cjRuZUdPWGJaSCt5Q3B3bUh6OHpCdGJOWW9WeDcyQ0gxTnBD?=
+ =?utf-8?B?SkZiMGdYV0dDWUdlYXp4MTQvYTZ4YmUxZTV1TzdxRmNiRGpnRUlWMS9oYUps?=
+ =?utf-8?B?WGp1SXppcldxazhxS21Wc1I5RUxadjdoelBkdERSNThCdDlkaSt4WllmT3Aw?=
+ =?utf-8?B?Z0ZNS1gwa05Xc2pHZVN2UTBocVd1OUhHK1FYM29LNkdPYjNOakVLT2t4V00x?=
+ =?utf-8?B?SWdIb3pHcWFHbFdob3FJVDBhTkFWd0puUFpIbzU4RkE5QTVCTWFZQ1FBQ2N1?=
+ =?utf-8?B?NVFyNzMrTGNOSzBEL2pFalRxYUZxa0xCYVNncm4wdDgrcDJsVUR3WnRxWWwr?=
+ =?utf-8?B?aHBFSnNGL3czSjRXOWtnR051YnJjQUZTSXVDRHI1dWQrbmVWOU9ETnBmT2wz?=
+ =?utf-8?B?NjRPYlhNeEFibDZXckM5aDhWUnBBN0hkdnE1TlB0VkFCVTZDUUgzK2l0Zi82?=
+ =?utf-8?B?N2UxQTIvQ1I0aklMWDhsek9DMms2NTRtbzl2RHh0MlZUbFpSTyt6ZXhZS01F?=
+ =?utf-8?B?Y1ltQ055dHNtQWptVDBzVmtIN1h5T2pWcEJPU2JlUEtLdmUwbit1QjlvazFa?=
+ =?utf-8?B?bHlMUllvNDIwT3ZqaUFuVFZvUlM5ZU8vcjkxL3BZbk9PYW9yZ09uN2laSk4r?=
+ =?utf-8?B?UTZ4SmxoejVTQlloRzdod1lKYkIxTDZBTGs4czRsWWN6S1dvNVo2QzFHdWla?=
+ =?utf-8?B?R1FEMW56Wk11RjVLdWVLVS9KRjQ3L0xCTk1jWUVtZk9XbGYxbjVieElVenBT?=
+ =?utf-8?B?ZTZteHJDQlR2VzlnOGFVZitUTldoQkhQUld0SDUxMTJTTUgwc3JUM2s2SVJT?=
+ =?utf-8?B?akVPd09xSjBhM0luUmZYNG4wQjhTU3l3NG5VWm1NZ2tya0d1L0prcXltb1Bn?=
+ =?utf-8?B?WXJkTHpnSnhSZGlvQk5KaVVCU0FDc3pBc1dHa2ExdUQxUDh6RVFJSVFGZDB6?=
+ =?utf-8?B?MmJYcE5kaDdQb0Nza0wyWjdKaDlETXFNNkJoMGRQVmd5YWZKQ2xpNFNWdVl3?=
+ =?utf-8?B?cGlESm1VNFo2aWR0QnFZK2VYOURzMjg0WEkvS1BvaHVJdU1mUmxVU2ZjNGZl?=
+ =?utf-8?B?aitiL3YwQThVWFA4cmNIVldzMEZ2eU5ZbG00Q1ZwdDFxZEQwN2VVVHlxYTV2?=
+ =?utf-8?B?MTQ5cXFIdkV4MW9ON05tRXpJQ1FmakxzL045WWluYm9GS3ZtQUN2RTBhUitE?=
+ =?utf-8?B?SzBnMzc1L2xwY3hOYnpHT1M0Qk1qWFlsNUIvcmFWZ0VseE9kVVJtcFlUemFI?=
+ =?utf-8?B?ZzJZRzRzalZEUUlZWGEvZm1rVzBYY3VwYjNlZWo4Zk02ZlFjYzkvcEYwaUN3?=
+ =?utf-8?B?ajE2ZWpoWFRMSGdXdDN5NnB1OGJsbk5Mazg3ZWhHaUVobnUxa2JibnpOa2c5?=
+ =?utf-8?B?NGxaa1ZQK0VHUFFTUkd1bVBuZXFSYjYrZE9IdEs1eDBQMFRXNUFmNWpjWi9q?=
+ =?utf-8?B?UHM5ZzNwbVE4MWNieUVMRjAzUmJOc0ZZWVNFd0FTT01tbVlxMU9xMi9NdXN0?=
+ =?utf-8?B?aE9tWTM2NDNic1JiZnFiVTdxK2tGdkFKdUdRL2E2YVhBc0JvdmgxN3FxNVUv?=
+ =?utf-8?B?aDBJeGQ3MThTR1h3OXJwVCtGRHJEQmN6VUlNbVYvNDVXT1hnZWxnelE3R0gr?=
+ =?utf-8?B?YnhiaVdlRG5LV3R1SGcxRkE0QmF3b08yZ2NJeTBpbGx0dmZVdWtESUVuVjZN?=
+ =?utf-8?B?enFOcFN6aGpmTmFOeUVtdVFVOE42dTgzQWgvYlFhdzhMUnBObGtFVjRKbGxs?=
+ =?utf-8?B?akZqa2I4bVoyTVJsd3hhOW03WTYzQk5GQ3VoUGY3cUhQYkUrc09tWlBxeDVp?=
+ =?utf-8?B?QjV4UVg0cWdtWXdVUXNWT1RrcDBKV2tsQUZUTm1CaWlTMDdjd2d5ZEZxMEpq?=
+ =?utf-8?B?RGF2Z09ZSENYUWthU1d0OW1aY3lMSTN0dnNYZDNmSGhoNEcxMWJNMFRvQWJI?=
+ =?utf-8?B?ZWZpTFZXTzFneG56R0hFd3dWOTJiY0tFZXBqUT09?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS4PR04MB9621.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(52116014)(376014)(7416014)(366016)(19092799006)(38350700014)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?WCtvNzgxK0RmUUFNYUFSV2F2dUtSbUZIM2VoQnlYVmhtSGFubmRXVXkvSC9T?=
+ =?utf-8?B?TDgrS1o0UG5mT1QyOFZ3QWpoQ0VYbDkwOU5GeG9uMWJVMjBxN2VXSWFPWW1q?=
+ =?utf-8?B?SGtDT29YS1BkOCsrMVltajlibi8yN01wYllQYmRJb0lsdERFa3VRb2gxNFBW?=
+ =?utf-8?B?bkFUSmk4TW5laWIvcmVwQW5aZy9Za0pOVzNYalEzdy9qQXhwaFlnMTN4VjdS?=
+ =?utf-8?B?TmJKRmZxdVE1ZjFsQzdhREhlZGhQZ093RmZlNk1Bcjd2Y2NabnpaakdZME15?=
+ =?utf-8?B?OXZxTTdIUWF0eHI5d1BnLzFDMHlWZkhMQ3ErM0thZktSd3VtWE5kTXI3MHY2?=
+ =?utf-8?B?MUN2UkxxYkVoZ2R1bkhYTHBXWFlHdDN2N1NXZjNSVk5ybmp2QzZmUmxkRXoz?=
+ =?utf-8?B?U2ltd25GMUFHdTN0RnlHVHFrNFdML0R6SjdITEtjZ0x0ZlVXSElleWk4Vk94?=
+ =?utf-8?B?Q0xKUXZkTmprd3NwZHVRZ3dsR0xxNDNPQUN1Q0NxMzlmQU12MU9iVjRqNHJk?=
+ =?utf-8?B?MjF4N0wrWk5vQXZLczlqcmUzL3o5MmVCYXhWSEcrKzBFNGpCck9PcHBpamU0?=
+ =?utf-8?B?UDBRZnRZVjBudTE1ZUZiUWc5MG85dmpSYkx6RlZqVjcxaThsUFdGUXFKaFpr?=
+ =?utf-8?B?WENoOFczWUc2a21WVVB5ZlhWMFZzU1Fub0ZIc2RpL1RCTEZmWjMxeEdCOXBn?=
+ =?utf-8?B?aDFSc01DNFBwV1NEM2M3RG5JWmVacjkva1hDcWg5bGtvSFFhRkZUTlVvTzMz?=
+ =?utf-8?B?K0JkQjNkY3VkYUVHZGJiYzhBcmNhYStiaHlkb0xYL2k4d2ltV2hDdHRmWjZP?=
+ =?utf-8?B?Vk5SYVBCdFI2ZW9sTkhWMzA5ajZoQXcxQ0VWanFTVDlFbkF2ZXNsVkhBMnVF?=
+ =?utf-8?B?M25NZHR2c1pKNFVjVTBEVFFiL0hsTEw2YXNPZjhRVXpnRUNudXN2RG5JeVJv?=
+ =?utf-8?B?ZjMwU3BDVDJ5anFNNlJIV1hYUC9jTUh4ck1UV3BIVERLWG8xNVQxZFUwVzE0?=
+ =?utf-8?B?eXF2MnpGaVpZc0ZVTlhCSGtnaWlJRStJcDl1Y3VudE9UcUQvZDBDTUJwbTEr?=
+ =?utf-8?B?RStUZ3ovQXJFaXU0a2piWU9yaWR5V3JJQzBXNksrS2J2K1c0QjdZaC9DN1V6?=
+ =?utf-8?B?Z2RLOFFhQURNV1R3TzBhOFJkejlseUdOYkRNWWpqVG9yeU5nMldpdHYxRnBN?=
+ =?utf-8?B?Mno0bFFVU3JUSzlxdWw3bGZzSGg0M1FadnNjZXlyTnhzbm5lUEpZWlJLOEEy?=
+ =?utf-8?B?UERyYkxqWWRDdnZFQkhNc2ViM3JPaENWQUU3MFl6bVJFTDAzQWo3YlFYRlZD?=
+ =?utf-8?B?NTB0bnB6cWdEaTJJSjhhNVUyd3NMalV5aEhscjBOYTB1ZTJmcW05SHdxckhM?=
+ =?utf-8?B?eEVkVXUyOGE1NC9zTmVmM2ovbzd5N1hMM0FRVlN6Zm9HR2lzWlVYTm4remJm?=
+ =?utf-8?B?UnYrSkU0VmVTb1FnbEUrOUFaV253bHd2U2RBc25nR1FqeWZURHk5TjVGamUw?=
+ =?utf-8?B?bGFPYktBeGJqanlDNVhLQ0RPOGxONFV5L2g5RDBqYTBBdVZrMEcvSlJteHpw?=
+ =?utf-8?B?dDBOMW1SaG8xa0tENzRCWjhiSGtFNVB4eXg2NWpQRDNMdFBTeVVhVWptL01i?=
+ =?utf-8?B?bGJ5TUE4bTBjQzZLOHlvUjJXVkxjdG1MSEVZeUxpZjcvTzFLWEl6SWl2Ynhj?=
+ =?utf-8?B?QXR1WFhoUTFPTmVXRGpaT241OWtleUtVNkErQlBjcXpTWW1qYzh0U0dFaVdt?=
+ =?utf-8?B?dGNERG9Xdks5V0VCTFhndFkyd3lWT1V6aFlRL1Frbmc4VzJZbE5wMHpLTm9N?=
+ =?utf-8?B?Z24ycE00UUVvQmVGSm4rYjFsT2xMb1lranVjTlV6OEl4WFF3bnFPNGZsZGZY?=
+ =?utf-8?B?NnFmcmZuc215K2srUU5RRGRjNGhjazdRWmVhYUZETFRoSzAxbndVQU9QZzd1?=
+ =?utf-8?B?c3JJemo5NGpNWWtZWnRreWJtMXVVdjhaT3BVdlBIOElvTUFOeHFYRXptVnBO?=
+ =?utf-8?B?QVdCeWc5akMrdFVxUS9kenNYaS9DYkEyNVR2ekVKOSswbVdjYUROdHNxanFO?=
+ =?utf-8?B?cVRwZG80SXpGMW80V2FLSEkxRDhPRzRPemNUZjJtMkJTaG9WWC9kNWRadS9y?=
+ =?utf-8?Q?+s2f67HhpP7FGE2C7APqGalpk?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: b55fb4ca-72e1-4fe3-1a37-08de27b370cc
+X-MS-Exchange-CrossTenant-AuthSource: AS4PR04MB9621.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Nov 2025 21:34:38.0958
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 6nlOfn/JwmPdZRgP60VOnw5gGDBJP7nIyQLh4u8QnPhiElfU/xQ/cYjo3ogfS3SAexBWMwhVGYsNOpetDj58Qg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8433
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251119_133128_787598_0F575852 
-X-CRM114-Status: GOOD (  36.40  )
+X-CRM114-CacheID: sfid-20251119_133448_804246_43A51BA5 
+X-CRM114-Status: UNSURE (   8.62  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,94 +194,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 18, 2025, Sean Christopherson wrote:
-> On Mon, Aug 18, 2025, Peter Zijlstra wrote:
-> > On Fri, Aug 15, 2025 at 08:55:25AM -0700, Sean Christopherson wrote:
-> > > On Fri, Aug 15, 2025, Sean Christopherson wrote:
-> > > > On Fri, Aug 15, 2025, Peter Zijlstra wrote:
-> > > So if we're confident that switching the host LVTPC outside of
-> > > perf_{load,put}_guest_context() is functionally safe, I'm a-ok with it.
-> > 
-> > Let me see. So the hardware sets Masked when it raises the interrupt.
-> > 
-> > The interrupt handler clears it from software -- depending on uarch in 3
-> > different places:
-> >  1) right at the start of the PMI
-> >  2) in the middle, right before enabling the PMU (writing global control)
-> >  3) at the end of the PMI
-> > 
-> > the various changelogs adding that code mention spurious PMIs and
-> > malformed PEBS records.
-> > 
-> > So the fun all happens when the guest is doing PMI and gets a VM-exit
-> > while still Masked.
-> > 
-> > At that point, we can come in and completely rewrite the PMU state,
-> > reroute the PMI and enable things again. Then later, we 'restore' the
-> > PMU state, re-set LVTPC masked to the guest interrupt and 'resume'.
-> > 
-> > What could possibly go wrong :/ Kan, I'm assuming, but not knowing, that
-> > writing all the PMU MSRs is somehow serializing state sufficient to not
-> > cause the above mentioned fails? Specifically, clearing PEBS_ENABLE
-> > should inhibit those malformed PEBS records or something? What if the
-> > host also has PEBS and we don't actually clear the bit?
-> > 
-> > The current order ensures we rewrite LVTPC when global control is unset;
-> > I think we want to keep that.
-> 
-> Yes, for sure.
-> 
-> > While staring at this, I note that perf_load_guest_context() will clear
-> > global ctrl, clear all the counter programming, and re-enable an empty
-> > pmu. Now, an empty PMU should result in global control being zero --
-> > there is nothing run after all.
-> > 
-> > But then kvm_mediated_pmu_load() writes an explicit 0 again. Perhaps
-> > replace this with asserting it is 0 instead?
-> 
-> Yeah, I like that idea, a lot.  This?
-> 
-> 	perf_load_guest_context();
-> 
-> 	/*
-> 	 * Sanity check that "loading" guest context disabled all counters, as
-> 	 * modifying the LVTPC while host perf is active will cause explosions,
-> 	 * as will loading event selectors and PMCs with guest values.
-> 	 *
-> 	 * VMX will enable/disable counters at VM-Enter/VM-Exit by atomically
-> 	 * loading PERF_GLOBAL_CONTROL.  SVM effectively performs the switch by
-> 	 * configuring all events to be GUEST_ONLY.
-> 	 */
-> 	WARN_ON_ONCE(rdmsrq(kvm_pmu_ops.PERF_GLOBAL_CTRL));
+Some trivial patch to reduce goto at probe functions.
 
-This doesn't actually work, because perf_load_guest_context() doesn't guarantee
-PERF_GLOBAL_CTRL is '0', it only guarantees all events are disabled.  E.g. if
-there are no perf events, perf_load_guest_context() is one big nop (I think).
+Signed-off-by: Frank Li <Frank.Li@nxp.com>
+---
+Changes in v2:
+- add new patch media: nxp: Add dev_err_probe() to all error paths in *async_register() helpers
+- detail change see each patch's change log.
+- Link to v1: https://lore.kernel.org/r/20251117-cam_cleanup-v1-0-6cd42872db79@nxp.com
 
-And while it might seem reasonable to expect PERF_GLOBAL_CTRL to be '0' if
-there are no perf events, that doesn't hold true today.  E.g. amd_pmu_reload_virt()
-unconditionally sets all supported MSR_AMD64_PERF_CNTR_GLOBAL_CTL bits.
+---
+Frank Li (5):
+      media: nxp: use devm_mutex_init() simple code
+      media: nxp: use dev_err_probe() to simplify code
+      media: nxp: imx8-isi: use devm_pm_runtime_enable() to simplify code
+      media: nxp: use cleanup  __free(fwnode_handle) simplify code
+      media: nxp: Add dev_err_probe() to all error paths in *async_register() helpers
 
-I'm sure we could massage perf to really truly ensure PERF_GLOBAL_CTRL is '0',
-but I don't see any value in explicitly doing that in perf_load_guest_context()
-(versus simply doing it in KVM), and I would rather not play whack-a-mole in perf
-as part of this series.
+ drivers/media/platform/nxp/imx-mipi-csis.c         | 50 ++++++-------
+ drivers/media/platform/nxp/imx-pxp.c               |  5 +-
+ drivers/media/platform/nxp/imx7-media-csi.c        | 14 ++--
+ .../media/platform/nxp/imx8-isi/imx8-isi-core.c    | 16 ++---
+ drivers/media/platform/nxp/imx8mq-mipi-csi2.c      | 84 ++++++++++------------
+ drivers/media/platform/nxp/mx2_emmaprp.c           |  7 +-
+ 6 files changed, 79 insertions(+), 97 deletions(-)
+---
+base-commit: 0f2995693867bfb26197b117cd55624ddc57582f
+change-id: 20250807-cam_cleanup-b6d90ba9dac3
 
-So unless someone really, really wants to lean on perf to clear PERF_GLOBAL_CTRL,
-I'll go with this:
+Best regards,
+--
+Frank Li <Frank.Li@nxp.com>
 
-	/*
-	 * Explicitly clear PERF_GLOBAL_CTRL, as "loading" the guest's context
-	 * disables all individual counters (if any were enabled), but doesn't
-	 * globally disable the entire PMU.  Loading event selectors and PMCs
-	 * with guest values while PERF_GLOBAL_CTRL is non-zero will generate
-	 * unexpected events and PMIs.
-	 *
-	 * VMX will enable/disable counters at VM-Enter/VM-Exit by atomically
-	 * loading PERF_GLOBAL_CONTROL.  SVM effectively performs the switch by
-	 * configuring all events to be GUEST_ONLY.  Clear PERF_GLOBAL_CONTROL
-	 * even for SVM to minimize the damage if a perf event is left enabled,
-	 * and to ensure a consistent starting state.
-	 */
-	wrmsrq(kvm_pmu_ops.PERF_GLOBAL_CTRL, 0);
 
