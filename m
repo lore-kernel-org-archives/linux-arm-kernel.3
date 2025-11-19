@@ -4,73 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7532BCF3186
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 10:01:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D9BECF3185
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 10:04:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=x5ueVkx8tHLEtgjtZxAYAtKoFmxhtkw5IYXTFPaf7jE=; b=Qou4rtApBEBL+PWvafiCK3DBga
-	GZ0AyOP5IF6xiBa3WlrX+8i++jFcvOjtdwYSbg+YGlpT/MR1+f7l7Ss6CV4+wbzLFBJm/WurhM8qw
-	lq2hzreNvaVpv7EK8SNVmonChsaJo0fMtAqXMfw/yrFLDJnp9dxPaooVRiV1dct856IywSgxkS7xs
-	N4UFXMfeYz1T6A88ZKciPSt9BNaCzEUFvpFhvwqkviHCgeoNkimYUXtAgpozzXAa7xZ0JeUXumhR6
-	ns32fNFSjPgwH4TKnlBE0+l+BvMNTGQORSQly18rZm8+AayHdvSgTLOdLEregvFOPSxljT/cS8avs
-	XEc4gG8Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Y+sgIiXuLSX8878BXnZdAURbfpZ/7Ejmg1bqP8JP5ck=; b=bkqcZosmTlquT/tDHVYR0cUZVN
+	o4PzDiZYnjzxE8EsyjAb+NK5U+8GY9ReHhsfFS4f8pP2rU6ez+J13Qzn2sLs0BSXXtB/2h5+85kEM
+	Jxh5wnzXteuGSCnGV+Pzw3VPAaJlg79LtttiOQMrq9WJaNnz42J0loL8gQ6Gw4Y7bJXSSpmshDiRu
+	4tu8DTldDcmNtjwWrFSsvbPTGfXG3AS7eAVz+J8wn2i9BjKR2Ee9D73NaqLOkjjoE8TnTdU9TpORT
+	k6KyHhDXVMaFn/7ftqWpj+7F+EZvFqQXDCXmvnsNGMzZs4emUDmaNB/zVds6k+P4IHaFtf85RJuc6
+	muLlifCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLezp-00000002ulL-36Kt;
-	Wed, 19 Nov 2025 10:01:05 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1vLf2S-00000002uyU-0yy9;
+	Wed, 19 Nov 2025 10:03:48 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLezm-00000002ujv-3ctn
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Nov 2025 10:01:04 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.216])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4dBH6G0VxxzHnH5T;
-	Wed, 19 Nov 2025 18:00:22 +0800 (CST)
-Received: from dubpeml100005.china.huawei.com (unknown [7.214.146.113])
-	by mail.maildlp.com (Postfix) with ESMTPS id 9B1071401DC;
-	Wed, 19 Nov 2025 18:00:54 +0800 (CST)
-Received: from localhost (10.203.177.15) by dubpeml100005.china.huawei.com
- (7.214.146.113) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Wed, 19 Nov
- 2025 10:00:53 +0000
-Date: Wed, 19 Nov 2025 10:00:51 +0000
-From: Jonathan Cameron <jonathan.cameron@huawei.com>
-To: Drew Fustini <fustini@kernel.org>
-CC: Ben Horgan <ben.horgan@arm.com>, <james.morse@arm.com>,
-	<amitsinght@marvell.com>, <baisheng.gao@unisoc.com>,
-	<baolin.wang@linux.alibaba.com>, <bobo.shaobowang@huawei.com>,
-	<carl@os.amperecomputing.com>, <catalin.marinas@arm.com>, <dakr@kernel.org>,
-	<dave.martin@arm.com>, <david@redhat.com>, <dfustini@baylibre.com>,
-	<fenghuay@nvidia.com>, <gregkh@linuxfoundation.org>, <gshan@redhat.com>,
-	<guohanjun@huawei.com>, <jeremy.linton@arm.com>, <kobak@nvidia.com>,
-	<lcherian@marvell.com>, <lenb@kernel.org>, <linux-acpi@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<lpieralisi@kernel.org>, <peternewman@google.com>, <quic_jiles@quicinc.com>,
-	<rafael@kernel.org>, <robh@kernel.org>, <rohit.mathew@arm.com>,
-	<scott@os.amperecomputing.com>, <sdonthineni@nvidia.com>,
-	<sudeep.holla@arm.com>, <tan.shaopeng@fujitsu.com>, <will@kernel.org>,
-	<xhao@linux.alibaba.com>
-Subject: Re: [PATCH 00/33] arm_mpam: Add basic mpam driver
-Message-ID: <20251119100051.000018a0@huawei.com>
-In-Reply-To: <aRz5S/gnT9mhqN+7@x1>
-References: <20251107123450.664001-1-ben.horgan@arm.com>
-	<aRoG+UptQg9mix+7@x1>
-	<753f4d26-efa9-4ffd-a820-7c2a53c0bc5f@arm.com>
-	<aRz5S/gnT9mhqN+7@x1>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	id 1vLf2P-00000002uxw-21Ho;
+	Wed, 19 Nov 2025 10:03:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=Y+sgIiXuLSX8878BXnZdAURbfpZ/7Ejmg1bqP8JP5ck=; b=kpFo9qM7iuPsdM+zYOjqS02txO
+	4M7kLehtYNmXBJfY73fpDpk3On1guAxfTdG3f4/+cB+hDWj4idMIug9TUrx8eqs7yy0IupTxLV2qG
+	D6959asz+TtdSGQiUzwGyJ4MlKUAo0S3goHu9FNs4pswpYkWgv/PECttzzMI6yzoyzHSjhKtgy2zE
+	u2QeQIJ7CmdDzj1QOIkaOS0RvSIGGF22MtkkLBSY9+bfqK+zczx8GFugnk1THmhmI88MPrFpWROJ9
+	lhZ220fN1y6GKdujBRN0FEIb8nFjbSX2LL3amzluVFeyhPXQB6rGX5QLGe0v3wHRI9GytQ6/g7Ouc
+	+KwYFJeg==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:52384)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1vLf1k-000000004QW-32gK;
+	Wed, 19 Nov 2025 10:03:04 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1vLf1d-000000003Ji-0q5P;
+	Wed, 19 Nov 2025 10:02:57 +0000
+Date: Wed, 19 Nov 2025 10:02:56 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>, Chen-Yu Tsai <wens@csie.org>,
+	"David S. Miller" <davem@davemloft.net>,
+	Drew Fustini <fustini@kernel.org>,
+	Eric Dumazet <edumazet@google.com>, Fu Wei <wefu@redhat.com>,
+	Guo Ren <guoren@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Jan Petrous <jan.petrous@oss.nxp.com>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Keguang Zhang <keguang.zhang@gmail.com>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-sunxi@lists.linux.dev,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>, s32@nxp.com,
+	Samuel Holland <samuel@sholland.org>
+Subject: [PATCH net-next 0/3] net: stmmac: pass struct device to init/exit
+Message-ID: <aR2V0Kib7j0L4FNN@shell.armlinux.org.uk>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.203.177.15]
-X-ClientProxiedBy: lhrpeml500009.china.huawei.com (7.191.174.84) To
- dubpeml100005.china.huawei.com (7.214.146.113)
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251119_020103_215695_26DDE107 
-X-CRM114-Status: GOOD (  21.93  )
+X-CRM114-CacheID: sfid-20251119_020345_805654_711CF9F3 
+X-CRM114-Status: GOOD (  10.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,54 +93,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 18 Nov 2025 14:55:07 -0800
-Drew Fustini <fustini@kernel.org> wrote:
+Rather than passing the platform device to the ->init() and ->exit()
+methods, make these methods useful for other devices by passing the
+struct device instead. Update the implementations appropriately for
+this change.
 
-> On Tue, Nov 18, 2025 at 02:11:31PM +0000, Ben Horgan wrote:
-> > Hi Drew,
-> > 
-> > On 11/16/25 17:16, Drew Fustini wrote:  
-> > > On Fri, Nov 07, 2025 at 12:34:17PM +0000, Ben Horgan wrote:  
-> > >> Hi all,  
-> > > [snip]  
-> > >> The rest of the driver can be found here: (no updated version - based on v3)
-> > >> https://git.kernel.org/pub/scm/linux/kernel/git/morse/linux.git mpam/snapshot/v6.18-rc1  
-> > > 
-> > > Does anyone know of a hosting platform that offers ARM machines that
-> > > have MPAM?  
-> > 
-> > As far as I know there aren't any.
-> > 
-> > There is some MPAM support in the Orion Radxa board which is likely the
-> > cheapest option. The MPAM acpi table isn't in the firmware though so
-> > you'd need to load a custom table. James has this working.  
-> 
-> Thank you, I didn't realize that there was a dev board that supports
-> MPAM. I didn't want to the expense or noise of a rackable server :)
-> 
-> Drew
-> 
-Hi Drew,
+Move the calls for these methods into the core driver's probe and
+remove methods from the stmmac_platform layer.
 
-Obvious not functional as such, but I did spin qemu emulation with a bunch
-of introspection so you could see what was configured.  Aim was to poke
-corner cases more easily than with real hardware. Did it's job at the time
-and shook out some bugs.
+Convert dwmac-rk to use ->init() and ->exit().
 
-I haven't rebased it recently though.
-https://lore.kernel.org/qemu-devel/20230808115713.2613-1-Jonathan.Cameron@huawei.com/
+ .../net/ethernet/stmicro/stmmac/dwmac-anarion.c    |  4 +-
+ .../net/ethernet/stmicro/stmmac/dwmac-eic7700.c    |  4 +-
+ .../net/ethernet/stmicro/stmmac/dwmac-loongson1.c  | 12 +++---
+ .../ethernet/stmicro/stmmac/dwmac-renesas-gbeth.c  |  4 +-
+ drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c     | 47 +++++++++-------------
+ drivers/net/ethernet/stmicro/stmmac/dwmac-s32.c    | 14 +++----
+ .../net/ethernet/stmicro/stmmac/dwmac-socfpga.c    |  2 +-
+ drivers/net/ethernet/stmicro/stmmac/dwmac-sti.c    |  4 +-
+ drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c  | 10 ++---
+ drivers/net/ethernet/stmicro/stmmac/dwmac-sunxi.c  |  4 +-
+ drivers/net/ethernet/stmicro/stmmac/dwmac-thead.c  |  2 +-
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c  | 47 ++++++++++++++++------
+ .../net/ethernet/stmicro/stmmac/stmmac_platform.c  | 35 +++++-----------
+ include/linux/stmmac.h                             |  4 +-
+ 14 files changed, 94 insertions(+), 99 deletions(-)
 
-https://gitlab.com/jic23/qemu/-/commits/mpam-2023-sept-01
-Has what looks to be a slightly more recent rebase.
-
-No monitor support though.
-
-I might bring this back to poke the rest of this series as it moves forwards
-(or if anyone else wants to they are welcome to do so)
-
-FWIW we could in theory hook this up to the cache plugins to get some 'plausible'
-numbers, but I never bothered as we have hardware (as seen by tested-by's on this
-series).
-
-Jonathan
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
