@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F4A0CF58C8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 18:14:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2483CF58C6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 18:14:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/Kb7vK4VelnueHMlrM8ApAVfsFwcfEWfXn4uz9Oo23Y=; b=pjrLYzr1IchnzwPWdrberpcNQU
-	NaBERYRxNMBBvTm+slp4hVpI8XMa29q+rKU/jep8U/53vtQVHrWWJ9eUijiszs6DaSk0U9pGzeOky
-	DFM1pEQfkAEDW21Bbq8cV5TPxKAJ4cDg/vk9uo/17foh+n2rWimFBgkyJQKyCG3kbzoAC35f2hI3J
-	t/x+ziOj9sGd2Myn1h+5324jNESDA9boxBT09PqojL4Dt3lGv33ocoYO/zEFJe4XAIRkR2J2bsUoy
-	OWla/6u/FuWScAtdxRSrd3ZHjLjC6DtmZW/0lPm7++OrdMHqpiX1BtHY8VwFV09SuKZKQEaEcRzTz
-	9Pv2xCfw==;
+	bh=dHy+9knFfat2mLLa5PVf4uFPqoXtGTRpTYZkU+z6PsU=; b=G6tPDMdsy/KKTGkbNO5aq3aqD9
+	Ze+spdYMhrO8CiBywfz+Erj199JGGkWZDaeBH4VTnTA3Oi1cPv6KmDILOLx6RDrl9B4ZvrsrGi1pn
+	jJh7OIETXbtZraAMu6wVIfiy/XVjjikYRpy2KKkc03pGrBqvXpJes2niOxBKSsUdFegtwN+hCQK1r
+	H3jExIJtYnozfrt/F2/6GPU+XMlJ9xKWt7SUcup/Eni9TmgvDppMBNwsig/rSyOJxXdGGygIqpq+m
+	Zu4vPmF5SZdETH7IbsiodQW+lJc+yE7sz/+/B4EEBMQwjThWSbvABOswTcvBgBdSG5U/RpgdacpCn
+	WzfCEUdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLmhG-00000004Tro-11BL;
-	Wed, 19 Nov 2025 18:14:26 +0000
-Received: from mail-io1-xd35.google.com ([2607:f8b0:4864:20::d35])
+	id 1vLmhQ-00000004U53-2oxb;
+	Wed, 19 Nov 2025 18:14:36 +0000
+Received: from mail-io1-xd33.google.com ([2607:f8b0:4864:20::d33])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLmhC-00000004TlW-1sUD
+	id 1vLmhF-00000004Tpw-0lIb
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Nov 2025 18:14:23 +0000
-Received: by mail-io1-xd35.google.com with SMTP id ca18e2360f4ac-9491604d00fso118167739f.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Nov 2025 10:14:22 -0800 (PST)
+	Wed, 19 Nov 2025 18:14:26 +0000
+Received: by mail-io1-xd33.google.com with SMTP id ca18e2360f4ac-9486696aafeso434299939f.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Nov 2025 10:14:24 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1763576060; x=1764180860; darn=lists.infradead.org;
+        d=chromium.org; s=google; t=1763576063; x=1764180863; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=/Kb7vK4VelnueHMlrM8ApAVfsFwcfEWfXn4uz9Oo23Y=;
-        b=QvrRFTbehALP41g1Ezh0Igs6YGF3c51RTjJsVUL6zziKhV1F9WWM4WG+x4lbkdlCzH
-         LcPDsvKsdJcIoES/L9J/93RdS9d/It1BLQs006zhcZpr9dPFTu0kY5wMPlNxcY0MyUfE
-         coEHX5kCKhVJCOW8Rf8K59FbWFO5mfH8Y5bx4=
+        bh=dHy+9knFfat2mLLa5PVf4uFPqoXtGTRpTYZkU+z6PsU=;
+        b=VdQK3Y1CsuWcj6PdGEEOridWAgTTK/IRil60PEyTETzhcqlopfN9k0QXWAl/Sn718k
+         EeACUcDHKIr/XSfTZ7hmewmV24P31rjRqXHl5C/lbpEGEnoCPn8DC/64Pz47D8ounwOi
+         OlKS1736YcUVNI41psoDYP20ZfQ+2Nizuqw8Y=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763576060; x=1764180860;
+        d=1e100.net; s=20230601; t=1763576063; x=1764180863;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=/Kb7vK4VelnueHMlrM8ApAVfsFwcfEWfXn4uz9Oo23Y=;
-        b=PhJxQjGbN0wL0LUQ28/diJirGW+XsFZyZbPvWORqz12EWZ2c9AjnyRoigpn8Ntl28I
-         zNDXYLbpHoGHmqqcQnykJY1VTXUXTTecN7bzhYyPSpr6oP0vDFwmGQpbNoYX5eeNU2FT
-         VBR9ulYJgMKKoNFnLdKQYnJuk/xauZLHDoaWltD5zLVbfk9ymKb8Ss7koMdtRgRyPBTf
-         eSGxKPO0eHU/lsdy8oNxuH6S46v9bH8hMkd2+wRe2NLUAKyp/n+0nZE164P3Y6RTk87+
-         ddYGI6mSBrRRcOALxoHAc0/It5JHvfB4Ccm+YSDJ3cveTE4JRbhyGq66ttY9Md8piHXy
-         w9nQ==
-X-Gm-Message-State: AOJu0YxgHuuUE8VlA7YNEGKQzq6ONgsEsqU7hqxWIq7YBeon+EjmTjzJ
-	wmE8hMdWzeyL+bLl5MDkpi/FcCKzSz4tXzUOwMmI8d+U7VuFWPtMQiAkfqLIy2N/h3EWK6IDYn9
-	OmMk=
-X-Gm-Gg: ASbGncu7zgKYEEyTODeCuq9tRwFQ4JDzs7O4p6Wxar158rO6oQlZ1Y9smO2dzrt36x4
-	8iK8JGZDckLHD5sfcFzCt1DIjMooKOPJtuJHH0kQx6hYwj9IgPbpVI2lOYtT9aJZYWTPXS0v8I8
-	e0YxvZdsnV+9ilol8uWdbSqSp8WwIXvBQuZ94QE9WNFlt+933xmvnNLHYTfwrJ9nx5X9J8At3Lh
-	EgGvjv3kQMGibI0CEn7UQSJXCul9YHQUP6ysCsHDwohBQQ+2J+pORyhzNJgWvRNqxdyU9mZRALO
-	IosNw6zsnSClD418eG/94Jb3LHFPI9p7VzrLmGv4aegWrz217QVc58Lw0TXX7g45x7TVC6SYAvP
-	juO1ThTeNUjJd08VwzJdxMUz5Av+Tg9clTGldWjttyzpQEk0kVjrm9OyTHkqEu3htq6xC1L/jn0
-	8NMR2T
-X-Google-Smtp-Source: AGHT+IEW7AT1anDDeb5eUBJlU592g0AeT8YdBL/KDYsyZnupxjh5lyG6UUoFw9lH3XXKvCmP33BRyg==
-X-Received: by 2002:a05:6602:2b0b:b0:949:1123:13b1 with SMTP id ca18e2360f4ac-94911231590mr1034792539f.19.1763576060105;
-        Wed, 19 Nov 2025 10:14:20 -0800 (PST)
+        bh=dHy+9knFfat2mLLa5PVf4uFPqoXtGTRpTYZkU+z6PsU=;
+        b=XpboSslfJ+fzWYrBUjs1OIyeZxokYkXPhOn5y8iVUyQuG5wnEwADVccRK8K2ohhrMS
+         /kEZL04RR29JaakpUMmSOgagnJtXl/fyhGJqGVF9wJODdAbqRDzOQbb7qA1KQYXDTgpD
+         O0ETQIubQNbBq9RzVHcpEcYtUJ2IWS8Ayw5/gPiGelZriqIJfq71N7RXbd93s7Rsvno4
+         arOTJQtMZQtfKljzFOuAB3ToNciVhPtx23cXz6vXuN9glwaTt7BWdAeTCpPbHsIYLTKE
+         tCeUjjWypwqHWFIWZa/EOIum8nlwj2qFE4lYJEVp79mu2nyphmUKX/XOBH3FvJDySwiN
+         778w==
+X-Gm-Message-State: AOJu0YwMWEQBLfn+2zG8ukCRAhFATFh8Uwjr+HGhHfJz0qXL1FqVWu39
+	Nlix3hZuVTyYIE7d/4vOpDNd79bthy9hR5CfnivmFXsARDpWwgoPhkWr/GAciUHGUzEvwyFCyda
+	zL6Y=
+X-Gm-Gg: ASbGncsZP/3KG+cJGl0kV9AItAfqXBL5PYMntbxBKCXoSZXYW+g4gU1CHeydVnRlF24
+	vxSZIWeJoiZ5J/6dY2iZeI45hpt5Ewc+yR9rAccaNiqQD4ujEWl2e0sk/kJzUhhssFBS8T7glkQ
+	CZL9PM74hIDHNuQFfNBqwVH5OSV6ODQM3dMBQhayW6KSq9ft4fVfWMjUWEp/1YAc6JRzG7+9JRB
+	GC5p24QGCOfx+z1pj6GYMi043PDXx4rBVJRyF6kSOw7qtm19I2DUEipplqbrEM/tuWJ3H/9K24k
+	cdl1E4pevSy5ZhWMITf05T2nTu3Yt3cysmwB68wgkbAOov1DfgubNpKXlNdPHC5o6H+gEpxgtq3
+	wNe16+FWCkc/wHhmo6VPUGc826qdn7duyymhwJ3/9We608mCj5aLCykObCiAgniLyKUHGacn2lC
+	XyBs75
+X-Google-Smtp-Source: AGHT+IGaRIx4ZLtKiudNzXMDULOFDlM2zIQYOJnUxhKiqXGAH6TvITMlqEdCQfP7NTjCb2mlaYsLtg==
+X-Received: by 2002:a05:6602:2b84:b0:948:a3ca:15a3 with SMTP id ca18e2360f4ac-948e0deae37mr2850382839f.18.1763576063169;
+        Wed, 19 Nov 2025 10:14:23 -0800 (PST)
 Received: from chromium.org ([73.34.74.121])
-        by smtp.gmail.com with ESMTPSA id ca18e2360f4ac-949385ae254sm4838639f.1.2025.11.19.10.14.17
+        by smtp.gmail.com with ESMTPSA id ca18e2360f4ac-949385ae254sm4838639f.1.2025.11.19.10.14.20
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 19 Nov 2025 10:14:18 -0800 (PST)
+        Wed, 19 Nov 2025 10:14:21 -0800 (PST)
 From: Simon Glass <sjg@chromium.org>
 To: linux-arm-kernel@lists.infradead.org
 Cc: =?UTF-8?q?Thomas=20Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>,
@@ -77,20 +77,19 @@ Cc: =?UTF-8?q?Thomas=20Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>,
 	Nicolas Schier <nicolas@fjasle.eu>,
 	Chen-Yu Tsai <wenst@chromium.org>,
 	Simon Glass <sjg@chromium.org>,
-	David Sterba <dsterba@suse.com>,
-	Nick Terrell <terrelln@fb.com>,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v6 7/8] scripts/make_fit: Support a few more parallel compressors
-Date: Wed, 19 Nov 2025 11:13:28 -0700
-Message-ID: <20251119181333.991099-8-sjg@chromium.org>
+Subject: [PATCH v6 8/8] scripts/make_fit: Compress dtbs in parallel
+Date: Wed, 19 Nov 2025 11:13:29 -0700
+Message-ID: <20251119181333.991099-9-sjg@chromium.org>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20251119181333.991099-1-sjg@chromium.org>
 References: <20251119181333.991099-1-sjg@chromium.org>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251119_101422_531041_39D88431 
-X-CRM114-Status: GOOD (  11.95  )
+X-CRM114-CacheID: sfid-20251119_101425_230889_D7D4133A 
+X-CRM114-Status: GOOD (  16.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,48 +104,123 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for pbzip2 and plzip which can compress in parallel. This
-speeds up the ramdisk compression.
+When there are 1500 device tree files it takes quite a while to compress
+them. Do it in parallel.
 
 Signed-off-by: Simon Glass <sjg@chromium.org>
 ---
 
 (no changes since v1)
 
- scripts/make_fit.py | 11 ++++++++---
- 1 file changed, 8 insertions(+), 3 deletions(-)
+ scripts/make_fit.py | 56 ++++++++++++++++++++++++++++++++++++++++-----
+ 1 file changed, 50 insertions(+), 6 deletions(-)
 
 diff --git a/scripts/make_fit.py b/scripts/make_fit.py
-index 9dfef11fc4b3..64038f17a51e 100755
+index 64038f17a51e..0a58b5b378b0 100755
 --- a/scripts/make_fit.py
 +++ b/scripts/make_fit.py
-@@ -57,10 +57,10 @@ import libfdt
- CompTool = collections.namedtuple('CompTool', 'ext,tools')
+@@ -43,6 +43,7 @@ as U-Boot, Linuxboot, Tianocore, etc.
  
- COMP_TOOLS = {
--    'bzip2': CompTool('.bz2', 'bzip2'),
-+    'bzip2': CompTool('.bz2', 'pbzip2,bzip2'),
-     'gzip': CompTool('.gz', 'pigz,gzip'),
-     'lz4': CompTool('.lz4', 'lz4'),
--    'lzma': CompTool('.lzma', 'lzma'),
-+    'lzma': CompTool('.lzma', 'plzip,lzma'),
-     'lzo': CompTool('.lzo', 'lzop'),
-     'zstd': CompTool('.zstd', 'zstd'),
- }
-@@ -220,7 +220,12 @@ def compress_data(inf, compress):
-             done = False
-             for tool in comp.tools.split(','):
-                 try:
--                    subprocess.call([tool, '-c'], stdin=inf, stdout=outf)
-+                    # Add parallel flags for tools that support them
-+                    cmd = [tool]
-+                    if tool in ('zstd', 'xz'):
-+                        cmd.extend(['-T0'])  # Use all available cores
-+                    cmd.append('-c')
-+                    subprocess.call(cmd, stdin=inf, stdout=outf)
-                     done = True
-                     break
-                 except FileNotFoundError:
+ import argparse
+ import collections
++import multiprocessing
+ import os
+ import shutil
+ import subprocess
+@@ -237,15 +238,31 @@ def compress_data(inf, compress):
+     return comp_data
+ 
+ 
+-def output_dtb(fsw, seq, fname, arch, compress):
++def compress_dtb(fname, compress):
++    """Compress a single DTB file
++
++    Args:
++        fname (str): Filename containing the DTB
++        compress (str): Compression algorithm, e.g. 'gzip'
++
++    Returns:
++        tuple: (str: fname, bytes: compressed_data)
++    """
++    with open(fname, 'rb') as inf:
++        compressed = compress_data(inf, compress)
++    return fname, compressed
++
++
++def output_dtb(fsw, seq, fname, arch, compress, data=None):
+     """Write out a single devicetree to the FIT
+ 
+     Args:
+         fsw (libfdt.FdtSw): Object to use for writing
+         seq (int): Sequence number (1 for first)
+         fname (str): Filename containing the DTB
+-        arch: FIT architecture, e.g. 'arm64'
++        arch (str): FIT architecture, e.g. 'arm64'
+         compress (str): Compressed algorithm, e.g. 'gzip'
++        data (bytes): Pre-compressed data (optional)
+     """
+     with fsw.add_node(f'fdt-{seq}'):
+         fsw.property_string('description', os.path.basename(fname))
+@@ -253,9 +270,10 @@ def output_dtb(fsw, seq, fname, arch, compress):
+         fsw.property_string('arch', arch)
+         fsw.property_string('compression', compress)
+ 
+-        with open(fname, 'rb') as inf:
+-            compressed = compress_data(inf, compress)
+-        fsw.property('data', compressed)
++        if data is None:
++            with open(fname, 'rb') as inf:
++                data = compress_data(inf, compress)
++        fsw.property('data', data)
+ 
+ 
+ def find_gen_initramfs():
+@@ -395,6 +413,11 @@ def _process_dtbs(args, fsw, entries, fdts):
+     """
+     seq = 0
+     size = 0
++
++    # First figure out the unique DTB files that need compression
++    todo = []
++    file_info = []  # List of (fname, model, compat, files) tuples
++
+     for fname in args.dtbs:
+         # Ignore non-DTB (*.dtb) files
+         if os.path.splitext(fname)[1] != '.dtb':
+@@ -406,11 +429,32 @@ def _process_dtbs(args, fsw, entries, fdts):
+             sys.stderr.write(f'Error processing {fname}:\n')
+             raise e
+ 
++        file_info.append((fname, model, compat, files))
++        for fn in files:
++            if fn not in fdts and fn not in todo:
++                todo.append(fn)
++
++    # Compress all DTBs in parallel
++    cache = {}
++    if todo and args.compress != 'none':
++        if args.verbose:
++            print(f'Compressing {len(todo)} DTBs...')
++
++        with multiprocessing.Pool() as pool:
++            compress_args = [(fn, args.compress) for fn in todo]
++            # unpacks each tuple, calls compress_dtb(fn, compress) in parallel
++            results = pool.starmap(compress_dtb, compress_args)
++
++        cache = dict(results)
++
++    # Now write all DTBs to the FIT using pre-compressed data
++    for fname, model, compat, files in file_info:
+         for fn in files:
+             if fn not in fdts:
+                 seq += 1
+                 size += os.path.getsize(fn)
+-                output_dtb(fsw, seq, fn, args.arch, args.compress)
++                output_dtb(fsw, seq, fn, args.arch, args.compress,
++                           cache.get(fn))
+                 fdts[fn] = seq
+ 
+         files_seq = [fdts[fn] for fn in files]
 -- 
 2.43.0
 
