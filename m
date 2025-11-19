@@ -4,62 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E837CCF2594
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 07:54:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3BE2CF2599
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 07:57:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Subject:Message-ID:MIME-Version:To:Cc:Date:References:Content-Type:
-	In-Reply-To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FO6i4EJtflzh+RBm1bIZwxR02OjHW1gnYtKm7qHscDY=; b=sec9mhkRjYIcYwHHuiNMvXqoYX
-	mGXscsJo/BeHH2+cDzx/aw5UFpKdNtJpw9+PmkiXCIRFUlCwhFay73iMK7MjowdCKrYtn7bwmx7G7
-	1yFxM5bIIX4QZ1c6GM0dRENZHQJRkTQhZIKaA0T00fzox5kp21/tzpwbS13AAbnehm44Y6EVpCl/u
-	LNiLVjFO2zI7r6zZB+z/wQgG1Qx97/tK3dMUylXRUQpwPdfoG9p9JprMr+43KIT0vlTTwW59/NMq3
-	ykFg0cE97IZ01yAEGfNIbshX0UxIXt7rpub3wZ0Fj1oDi0Dd3E0V4SK5DEfWQhEDUhvDbfEJUyszq
-	x8hTqTAg==;
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XT2jT53GtflpgtsSSARNMehrU8xMcefHmEbO5weE+H8=; b=YoN+CaNaAzWbTHlsbXpLoSZcfr
+	LdQsPVWRH/gGOz34cHlEcpglfs/snhDgRwwqgiVXcbY0crtKd0krVfiVtKwwN7jxzADsCoRtmcSYl
+	MjoH+DaQMAmwan2y7pd7ehEqXeDaJraldxb34cve7riI7bSUVXcZ0YN8/bXMZVuZ3ASdzS4UxNFTo
+	aV8eS61decGayzBwSt3Cg/VJOCOFTRNoYQaTjjoMbJbIV2imAnUNq6LpX3PLuNF5xCVCWCkHnPxyd
+	pCdhpDjbZww4zk52qiJAsEDSfpisyLB7NFBCtACEdFofpqTJSbCEnRJEmLaMURFDGdvxoBP02olOI
+	vJRPJZuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLd17-00000002kJd-3Cp6;
-	Wed, 19 Nov 2025 07:54:17 +0000
-Received: from mail1.manjaro.org ([142.132.176.110])
+	id 1vLd3c-00000002kWX-42dX;
+	Wed, 19 Nov 2025 07:56:52 +0000
+Received: from mail-ej1-x630.google.com ([2a00:1450:4864:20::630])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLd15-00000002kJ5-0cPN;
-	Wed, 19 Nov 2025 07:54:16 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPA id 272CA41286;
-	Wed, 19 Nov 2025 08:54:11 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=manjaro.org; s=dkim;
-	t=1763538852; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=FO6i4EJtflzh+RBm1bIZwxR02OjHW1gnYtKm7qHscDY=;
-	b=qOk6EkKfspC043mosDKndlKCCI3kXANFZl783HE31sunZP+QhGfBP8qIyFbH+hmGa/16cC
-	f7ocVn++TitoxWQeUNDhy7oqha2Wytdi0IKpN6dexNBlcecI3pCr3BTCCsNmfdlnABGbpD
-	KC7D8Cofr9MQT4me7EjdghgPKjB3NZqL2HbsrShu8tgWXOwm4pQNNaQ4C0X6Dkr+hqDUPh
-	WNNT1TeOtWKdhWJE+gzrcZ4lXadhmyJg5MAeUMfuQyaSBqKBDiDfjSAOPFD+DwZ/4Y+aW6
-	+EMFIfx+RlYP0gsTosQbF5l0V8OWkQNF2slXc1Q6k/sBIEw8a1O9EAoGj71oxA==
-From: "Dragan Simic" <dsimic@manjaro.org>
-In-Reply-To: <e1598abe-7a66-4808-82c7-2389ee2ea279@kernel.org>
-Content-Type: text/plain; charset="utf-8"
-References: <20251118-tinker3-v3-0-2903693f2ebb@rootcommit.com>
- <20251118-tinker3-v3-1-2903693f2ebb@rootcommit.com>
- <155d3d05-49f8-a000-6939-1411917745bb@manjaro.org>
- <e7417a6e-3824-48f7-af56-eaf4bf097cb9@kernel.org>
- <b8e91b59-afb1-6d0d-4709-c7f76ded0e18@manjaro.org>
- <5bc642d3-fe05-4654-88c3-11c6534c5aa4@kernel.org>
- <b98e53ce-9c8c-c505-6097-0d22d0416e8e@manjaro.org> <e1598abe-7a66-4808-82c7-2389ee2ea279@kernel.org>
-Date: Wed, 19 Nov 2025 08:54:10 +0100
-Cc: "Michael Opdenacker" <michael.opdenacker@rootcommit.com>, "Rob Herring" <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>, "Heiko Stuebner" <heiko@sntech.de>, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, "Krzysztof Kozlowski" <krzysztof.kozlowski@linaro.org>
-To: "Krzysztof Kozlowski" <krzk@kernel.org>
+	id 1vLd3a-00000002kW4-2mX5
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 19 Nov 2025 07:56:51 +0000
+Received: by mail-ej1-x630.google.com with SMTP id a640c23a62f3a-b7636c96b9aso75391566b.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Nov 2025 23:56:50 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1763539009; x=1764143809; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=XT2jT53GtflpgtsSSARNMehrU8xMcefHmEbO5weE+H8=;
+        b=Am1a4x26mg6O+M+mCnWuB/N4liYa4ZpBTGS34oQOgDbcDNAvT78VxM6ae63fTCqc9h
+         UzuEx0ozkG8ZBuK+NaoK7i7TYraLnsNopef5y7BkYDoz0VBD9ogo90s7/eVtCKWSPLIH
+         xAaVJ2IaQhf7eWcu/sdw2dZCMhLaWZdHMJ6FDBS/Um59Muo1leBStVEyfu1vbOuM5iNY
+         4nomG8//Z+mWT1Z18Wd6D7Gu3i19bBWM4JtHpJbpKPGD5ADaBnN/dgbYDuE9CWqia8uw
+         fE5fVpBvTYNzX9WJQk2FmjztMCQqN/WblSqw1oswTresWLElRJbEBoQkEHNb2jJPBYTt
+         G91A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1763539009; x=1764143809;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=XT2jT53GtflpgtsSSARNMehrU8xMcefHmEbO5weE+H8=;
+        b=dNZ0PtXmziGStrgScjVeGQa4PVsNmkO4/Z+96buEElLQese2qXizd8JiVZBdZCYCTS
+         RbCy1Fxhay1AfaicvWwWzHrwv5rUVvrnORAUnKxYxkmJlDLUmZiQVRIGMA+hNg47QkE4
+         +CePPYnnLmJXuXn6IlBW/8LqpYhFzVbJgvhIzscgEuOmNWsxDT+N+15LdwVftukS6jnp
+         XuSy06UpcX/6SQMx2NPbEHtRWF4DWv6Hdr/uAB86XPiJ8pREP975BRF6q8vYy3BffA+a
+         3v+duQ+vGndXyi1IJLTbdTAtdc4/MyzWHX8pN58xnU6vh8gKG+UuWY2+J7dvolIMT8ET
+         dZug==
+X-Forwarded-Encrypted: i=1; AJvYcCVkYXtdDl9E1aCW7dxUx6sYQv0unVCscNqMlXAuxV77VItBWaI3Q3R+unkxMKSZj0oNq9ap+HmCpc+u8P4Fxduh@lists.infradead.org
+X-Gm-Message-State: AOJu0YyLDQw81mXFFhenc2qOWvng8WDFKqHvpYNwe7aac5mX/dU0mmEj
+	KFvDK36kkeD7Banp3ARrP1xK9N9g8P76ZKGPzA5jPO62NgG2GPBievWlpM10Hrjw+HFoPavQUYx
+	zqxXBJdcRE+9O1zFY5B1aqxbbQLmgyfc=
+X-Gm-Gg: ASbGncv0SfzET2IH/t4yfrjQsfZSrjwxVXUD08JTnZVsJJEc58gPVnygjb7JfVcEnA9
+	GjvYAk536gfjYA73ZvUGR+1FOTwNeYajxlEFUsF9rBrxHgjkYa/6btJPaIfV4wS+0wv+EOZLtUN
+	pNbOHusldJtbr5x9KkumU3zYl5HrRYpGgqIIsH/e2aSw0HFJQfPxyxIi+wDTOiKIq6R+P4kjHLs
+	rWvCmGPEaVRElw9xou4szx79D3FObxbpiHeJzNezLevRXEKaS+U2Np7Xx7IVjuGltPBj0X3gxNh
+	h6Lz/rjsTFu1UekRLecNl8kMU3i6j/m8wBmkiuE1tVDtry5jKD5Jf9yElEz/GUunt2Can/ibQSx
+	+IBg9TrY=
+X-Google-Smtp-Source: AGHT+IHkr98iv8RkJCJVqsJKrbJ1+s/zkdGOwfF/rH8mGb3+ej0aXWY1sLaOq7gDCGS9Bl34YEhC4czuLVOsZWaGVgA=
+X-Received: by 2002:a17:906:7304:b0:b72:a899:168d with SMTP id
+ a640c23a62f3a-b73677edba0mr1946935566b.13.1763539008473; Tue, 18 Nov 2025
+ 23:56:48 -0800 (PST)
 MIME-Version: 1.0
-Message-ID: <69de292c-af43-d202-72da-c7d3769d1799@manjaro.org>
-Subject: =?utf-8?q?Re=3A?= [PATCH v3 1/2] =?utf-8?q?dt-bindings=3A?=
- =?utf-8?q?_arm=3A?==?utf-8?q?_rockchip=3A?= Add Asus Tinker Board 3/3S
-User-Agent: SOGoMail 5.12.3
+References: <20251118003229.26636-1-jszhang@kernel.org> <20251118003229.26636-6-jszhang@kernel.org>
+ <CAHp75VevWmB4X_Mh+st_NLChAYZw5V-b3pM9Yrcd-ofa9xYvDQ@mail.gmail.com> <m2ecpvm20y.fsf@free.fr>
+In-Reply-To: <m2ecpvm20y.fsf@free.fr>
+From: Andy Shevchenko <andy.shevchenko@gmail.com>
+Date: Wed, 19 Nov 2025 09:56:12 +0200
+X-Gm-Features: AWmQ_bmed1VXCExSbCiDJjR0DcoAiO6hz3YdSi7TR0YlyvVDegjc7dB_x9IoTzM
+Message-ID: <CAHp75Vf=HYugUGDOPdXGaMo9tDLcji0H9ZX7NehN0NoBGYjO+w@mail.gmail.com>
+Subject: Re: [PATCH v2 05/15] gpio: pxa: Use modern PM macros
+To: Robert Jarzmik <robert.jarzmik@free.fr>
+Cc: Jisheng Zhang <jszhang@kernel.org>, Doug Berger <opendmb@gmail.com>, 
+	Florian Fainelli <florian.fainelli@broadcom.com>, bcm-kernel-feedback-list@broadcom.com, 
+	Linus Walleij <linus.walleij@linaro.org>, Bartosz Golaszewski <brgl@bgdev.pl>, 
+	Hoan Tran <hoan@os.amperecomputing.com>, Andy Shevchenko <andy@kernel.org>, 
+	Daniel Palmer <daniel@thingy.jp>, Romain Perier <romain.perier@gmail.com>, 
+	Grygorii Strashko <grygorii.strashko@ti.com>, Santosh Shilimkar <ssantosh@kernel.org>, 
+	Kevin Hilman <khilman@kernel.org>, Kunihiko Hayashi <hayashi.kunihiko@socionext.com>, 
+	Masami Hiramatsu <mhiramat@kernel.org>, Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>, 
+	Srinivas Neeli <srinivas.neeli@amd.com>, Michal Simek <michal.simek@amd.com>, 
+	linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-omap@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-X-Last-TLS-Session-Version: None
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251118_235415_435354_C57F7658 
-X-CRM114-Status: GOOD (  16.16  )
+X-CRM114-CacheID: sfid-20251118_235650_745582_7FB244C6 
+X-CRM114-Status: GOOD (  14.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,68 +107,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wednesday, November 19, 2025 08:48 CET, Krzysztof Kozlowski <krzk@ke=
-rnel.org> wrote:
-> On 19/11/2025 08:40, Dragan Simic wrote:
-> > On Wednesday, November 19, 2025 08:31 CET, Krzysztof Kozlowski <krz=
-k@kernel.org> wrote:
-> >> On 19/11/2025 08:23, Dragan Simic wrote:
-> >>> On Wednesday, November 19, 2025 08:09 CET, Krzysztof Kozlowski <k=
-rzk@kernel.org> wrote:
-> >>>> Your reviews are not helpful. You nitpick irrelevant things and =
-propose
-> >>>> solutions which later reverse leading to wasted effort on contri=
-butors side.
-> >>>>
-> >>>> Michael implemented what you asked here:
-> >>>>
-> >>>> https://lore.kernel.org/linux-rockchip/e4cd11d0-463c-e707-5110-6=
-b92899b1ba3@manjaro.org/
-> >>>
-> >>> Not exactly, because I didn't ask for any compatibles to be remov=
-ed
-> >>> from the new board dts files.
-> >>
-> >> Read your answer again. You wanted ENTIRE bindings, to be like thi=
-s:
-> >>
-> >>      - description: Asus Tinker Board 3/3S
-> >>        items:
-> >>          - enum:
-> >> 	   - asus,rk3566-tinker-board-3
-> >>            - asus,rk3566-tinker-board-3s
-> >>          - const: rockchip,rk3566
-> >>
-> >> (skipping obvious indentation fixup)
-> >> There are exactly like this.
-> >>>
-> >>> In this case, we could also say that it was Michael's fault not t=
-o
-> >>> give enough time for the reviewers to respond.
-> >>
-> >> Michael implemented EXACTLY what you asked. Now, you ask to change=
- it to
-> >> what Michael did BEFORE.
-> >=20
-> > Not really, because it wasn't some kind of a request from my side,
-> > but merely a suggestion that was intended to be discussed further
-> > so the best possible solution is reached before v3 is submitted.
-> >=20
-> >> Your reviews are completely irresponsible and incorrect.
-> >=20
-> > Calling my reviews irresponsible hurts me a lot, really, but I'm
-> > unfortunately already used to hear hurtful things from your side.
->=20
-> You do not bear the cost of your reviews, so maybe that's why you thi=
-nk
-> nitpicking, poking around, pin pointing irrelevant things and adding =
-2
-> cents is okay, but that leads to additional effort on contributors an=
-d
-> reviewers. And not respecting total effort is irresponsible.
+On Wed, Nov 19, 2025 at 12:04=E2=80=AFAM Robert Jarzmik <robert.jarzmik@fre=
+e.fr> wrote:
+> Andy Shevchenko <andy.shevchenko@gmail.com> writes:
+> > On Tue, Nov 18, 2025 at 2:50=E2=80=AFAM Jisheng Zhang
+> > <jszhang@kernel.org> wrote:
 
-Thank you very much for finding additional ways to hurt my feelings.
-However, please think about how your unfriendly approach may or may
-not contribute to the overall effort.
+...
 
+> >> -#ifdef CONFIG_PM
+> >>         unsigned long   saved_gplr;
+> >>         unsigned long   saved_gpdr;
+> >>         unsigned long   saved_grer;
+> >>         unsigned long   saved_gfer;
+> >> -#endif
+>
+> Actually this is not equivalent to what was there before.
+>
+> With Jisheng's patch, with CONFIG_PM disabled, he adds 16 bytes to
+> the
+> structure. You might thing today, 16 bytes is nothing. True, but
+> on a
+> 64MB RAM devices, it's something.
+>
+> That might not be a reason to reject the patch, but it's not only
+> a
+> "modernisation patch".
+
+Actually a good point! On the same grounds I semi-nacked the gpio-dwapb cha=
+nge.
+
+--=20
+With Best Regards,
+Andy Shevchenko
 
