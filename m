@@ -4,104 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CAA9CF2567
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 07:13:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8733CCF258E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 07:20:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IINwG9OzEotesg9Jt4NlxrNWuJU4qznG6bfgINmiC1I=; b=lpx8ATGpEEMhpIfxdxCfdtwP0B
-	pBNHqdfkJ8wYts9QTyjulgpHShO7Y1ED/SZQcFEkKJR8utgh9nG65P+TQXKzjOaxFpWakX38sn6P0
-	KbWdxEpsrvSDAveokx6ZRcmSKngYHgdWuPXI0WYKcNBS+n0GKorM2MckSLNOzME7OkAqONL1ptKUT
-	QysvGHi1NDIfmxakUm/SYfq/BKE6/jXNdSd6nLWMw5UkR3I2pC/7eFiMwGI6KHmdePlklNIfv39Tp
-	rdoD4HFJuFeRzJYVfOZQSa7x7N8OkCwXRRh4I05QVoGP7QYG0l47dV285MJV2ErRzO2UCh/fjOnhH
-	pFFrsVyQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=A5s1aWI4zWUrb7+jptllveuGVEMO5Ub33WYiOXodfPg=; b=q6RpCDVJrZw/+emQIiQGE6JJjS
+	zyWgDQ17G0eges5i3sBS9OBxklN+QKbXn3DzZM0jAWMGrlVZNwtBqTI4L9rOjATbuzyQs1EIrZ6qT
+	XgWdhPIwvstmZPMLWLKUcjyHhE41accxFHnPB+q3ojdIvV7zPmYYdiWZ25dlRMMHS/rCkMffxNpYf
+	bJhBlNXc5+65RM5vj7teVx6HBKP6xWNSIyG6lGV/2zWANNl3WZDloQpNxv6UlhwXdx+TfmqOUGYvb
+	sNQQzPvqPUH8qpy4mimLMr0fLYA1+vgHcCJpk8yMriOSoiuBBrJglD0/FS8k+8FWsfLe5747XYnRQ
+	NUD6j+TQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLcNr-00000002gFt-1p93;
-	Wed, 19 Nov 2025 07:13:43 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vLcUD-00000002ggD-3n8j;
+	Wed, 19 Nov 2025 07:20:17 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLcNq-00000002gFl-1MKf
+	id 1vLcUB-00000002gfq-2SX9
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Nov 2025 07:13:42 +0000
+	Wed, 19 Nov 2025 07:20:16 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id BD1BE60123;
-	Wed, 19 Nov 2025 07:13:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 83DEDC4CEF5;
-	Wed, 19 Nov 2025 07:13:38 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 009C043D91;
+	Wed, 19 Nov 2025 07:20:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C49EEC19423;
+	Wed, 19 Nov 2025 07:20:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763536421;
-	bh=JdiuwQJaBq8BfZP5QfPN33wDD2Y0dJAO0lctZUVJ17w=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=jm4oH0FNP/XVeStbk78/YjZPUXiNpLlq8DA5EE7to8++Fqnm72Ql7PuhilPw2+8dL
-	 E2vIMR/vHYbVdCVApIZBLWq/VTrVUM8nzwPxk3adNC0LfNTwceW7SlT8V8DzNihYdz
-	 efC5KpgxOGtiOz3kKb22l15/41SJYl2ascZbFkzxYrFmeCGaXrSIVkQ9WYBIrGS1sD
-	 4skte5T2A+01yURrmywjLrAFWesPzjLEo2YsFzYiiK24RjEAtok/5769dZdMimZg+O
-	 8X+IpSOMRAovwhBdHkz03SdDfmAO7RxnPbk1jxw8oJ1LOrSTFDp9QQovMWpKrz3rva
-	 jyAgswP3yRK0Q==
-Message-ID: <18342493-54f9-4e5c-be05-568a3026663e@kernel.org>
-Date: Wed, 19 Nov 2025 08:13:36 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] dt-bindings: firmware: coreboot: Document optional device
- specific properties
-To: Chen-Yu Tsai <wenst@chromium.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
-Cc: devicetree@vger.kernel.org, chrome-platform@lists.linux.dev,
- Julius Werner <jwerner@chromium.org>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20251119071126.1719405-1-wenst@chromium.org>
+	s=k20201202; t=1763536814;
+	bh=RSm/suJ/Pepr1yB59pObwuGdY4AF0Z9ZtGNsBqUmi+4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Gm15Ny59BIhiuZbk0udrxSlQTJ4Z3Htko5cmlrG3kyhS4JMXkb3ohZfTTSszP7Op3
+	 8Y+mjg170oQM59KieR7Zp9/GcYyl9gFPkcgOM0xG/C6SqhgTLlEbSUAhFdZ+epL1iU
+	 8JIVITlUGB5ox9lkpJbCI1nKnqJ/rkL7yceFclWYtLc3cC7GKDSj63rI6sVckdULfG
+	 J7GLuhA9pyDn1673wGKFra6+VvMnn206vs4GrCDwTCoth9cYlMfJdt8OTESoSr9lmm
+	 qyyWskspgyrzzpG1ekyzKUpRbjizuHMzI4z5VGhpfJbZzOROk/27gDX53g26v+TAsG
+	 EpIxh4Eig07OQ==
+Date: Wed, 19 Nov 2025 08:20:11 +0100
 From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
- cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
- JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
- gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
- J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
- NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
- BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
- vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
- Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
- TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
- S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
- FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJoF1BKBQkWlnSaAAoJEBuTQ307
- QWKbHukP/3t4tRp/bvDnxJfmNdNVn0gv9ep3L39IntPalBFwRKytqeQkzAju0whYWg+R/rwp
- +r2I1Fzwt7+PTjsnMFlh1AZxGDmP5MFkzVsMnfX1lGiXhYSOMP97XL6R1QSXxaWOpGNCDaUl
- ajorB0lJDcC0q3xAdwzRConxYVhlgmTrRiD8oLlSCD5baEAt5Zw17UTNDnDGmZQKR0fqLpWy
- 786Lm5OScb7DjEgcA2PRm17st4UQ1kF0rQHokVaotxRM74PPDB8bCsunlghJl1DRK9s1aSuN
- hL1Pv9VD8b4dFNvCo7b4hfAANPU67W40AaaGZ3UAfmw+1MYyo4QuAZGKzaP2ukbdCD/DYnqi
- tJy88XqWtyb4UQWKNoQqGKzlYXdKsldYqrLHGoMvj1UN9XcRtXHST/IaLn72o7j7/h/Ac5EL
- 8lSUVIG4TYn59NyxxAXa07Wi6zjVL1U11fTnFmE29ALYQEXKBI3KUO1A3p4sQWzU7uRmbuxn
- naUmm8RbpMcOfa9JjlXCLmQ5IP7Rr5tYZUCkZz08LIfF8UMXwH7OOEX87Y++EkAB+pzKZNNd
- hwoXulTAgjSy+OiaLtuCys9VdXLZ3Zy314azaCU3BoWgaMV0eAW/+gprWMXQM1lrlzvwlD/k
- whyy9wGf0AEPpLssLVt9VVxNjo6BIkt6d1pMg6mHsUEVzsFNBFVDXDQBEADNkrQYSREUL4D3
- Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
- MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
- OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
- GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
- 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
- YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
- 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
- BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
- JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
- 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
- YpsFAmgXUF8FCRaWWyoACgkQG5NDfTtBYptO0w//dlXJs5/42hAXKsk+PDg3wyEFb4NpyA1v
- qmx7SfAzk9Hf6lWwU1O6AbqNMbh6PjEwadKUk1m04S7EjdQLsj/MBSgoQtCT3MDmWUUtHZd5
- RYIPnPq3WVB47GtuO6/u375tsxhtf7vt95QSYJwCB+ZUgo4T+FV4hquZ4AsRkbgavtIzQisg
- Dgv76tnEv3YHV8Jn9mi/Bu0FURF+5kpdMfgo1sq6RXNQ//TVf8yFgRtTUdXxW/qHjlYURrm2
- H4kutobVEIxiyu6m05q3e9eZB/TaMMNVORx+1kM3j7f0rwtEYUFzY1ygQfpcMDPl7pRYoJjB
- dSsm0ZuzDaCwaxg2t8hqQJBzJCezTOIkjHUsWAK+tEbU4Z4SnNpCyM3fBqsgYdJxjyC/tWVT
- AQ18NRLtPw7tK1rdcwCl0GFQHwSwk5pDpz1NH40e6lU+NcXSeiqkDDRkHlftKPV/dV+lQXiu
- jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
- zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
- XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20251119071126.1719405-1-wenst@chromium.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+To: Billy Tsai <billy_tsai@aspeedtech.com>
+Cc: Guenter Roeck <linux@roeck-us.net>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>, 
+	linux-hwmon@vger.kernel.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, BMC-SW@aspeedtech.com
+Subject: Re: [PATCH v2 1/2] dt-bindings: hwmon: Add AST2700 compatible
+Message-ID: <20251119-married-vehement-nautilus-3542a6@kuoka>
+References: <20251118-upstream_pwm_tach-v2-0-4d9bc13d34f9@aspeedtech.com>
+ <20251118-upstream_pwm_tach-v2-1-4d9bc13d34f9@aspeedtech.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20251118-upstream_pwm_tach-v2-1-4d9bc13d34f9@aspeedtech.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251118_232015_645967_F60BD66E 
+X-CRM114-Status: GOOD (  17.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,22 +75,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 19/11/2025 08:11, Chen-Yu Tsai wrote:
-> Coreboot, or the ChromeOS second stage bootloader, depthcharge, will
-> insert device specific properties into the coreboot firmware node when
-> there are valid values.
+On Tue, Nov 18, 2025 at 05:11:53PM +0800, Billy Tsai wrote:
+> Adds support for the AST2700 PWM/Tach controller by extending the
+> compatible string enumeration in the device tree binding.
 > 
-> Document these properties in the binding.
+> The AST2700 PWM/Tach hardware is compatible with the existing binding
+> schema and requires no additional properties or modifications beyond
+> the new compatible string.
 > 
-> Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
+> Signed-off-by: Billy Tsai <billy_tsai@aspeedtech.com>
 > ---
->  Documentation/devicetree/bindings/firmware/coreboot.txt | 9 +++++++++
->  1 file changed, 9 insertions(+)
+>  .../devicetree/bindings/hwmon/aspeed,g6-pwm-tach.yaml          | 10 +++++++---
+>  1 file changed, 7 insertions(+), 3 deletions(-)
 > 
+> diff --git a/Documentation/devicetree/bindings/hwmon/aspeed,g6-pwm-tach.yaml b/Documentation/devicetree/bindings/hwmon/aspeed,g6-pwm-tach.yaml
+> index 9e5ed901ae54..8b579321915f 100644
+> --- a/Documentation/devicetree/bindings/hwmon/aspeed,g6-pwm-tach.yaml
+> +++ b/Documentation/devicetree/bindings/hwmon/aspeed,g6-pwm-tach.yaml
+> @@ -18,9 +18,13 @@ description: |
+>  
+>  properties:
+>    compatible:
+> -    enum:
+> -      - aspeed,ast2600-pwm-tach
+> -
+> +    oneOf:
+> +      # AST2700 with fallback to AST2600
 
-TXT files cannot receive new properties. You need to first convert to DT
-schema.
+Drop the comments, useless and redundant. We can read the schema.
+Inflating code with obvious comments is not making it better.
+
+> +      - items:
+> +          - const: aspeed,ast2700-pwm-tach
+> +          - const: aspeed,ast2600-pwm-tach
+> +      # Only AST2600
+> +      - const: aspeed,ast2600-pwm-tach
+
+And why are you removing blank line?
+
+>    reg:
 
 Best regards,
 Krzysztof
+
 
