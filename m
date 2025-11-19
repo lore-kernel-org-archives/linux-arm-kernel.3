@@ -4,56 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69BCFCF2588
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 06:47:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9754ACF258E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 06:51:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Subject:Message-ID:MIME-Version:To:Cc:Date:References:Content-Type:
-	In-Reply-To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VPnh4647l0Ye1/fWlT5mBsuMOhFdOEN38ARA/l13Q8c=; b=Wswilrfl4llvyo504yrC7XblR2
-	q/SQg8uNmU5nfwGoxIQPPIU/LXAGbZjct14U9ar6OwNaxA4TJJVcp+lbYj+vUex77pgtlnKXfcXfH
-	oMveFzYR1beXHHfl61qw389Xoh0mRDuEw5deVSk5Hp3PjvTtUR+MhHYxHIPVxjN+f8uquqSQjaTF3
-	Z8SsxlwBsGHrN5BrFirQfz1LBwrVsd8YZTY46lREzslugbMlKkdQqwNz/c0TeD2GpNhTr1ap/cZKs
-	Dk2SdLPTCUWlKk803DbLyfBxzQ7vV4L/d1igyX/lPVXsUSQjJEIhO+onTDdlARC54VUl88qLJnArL
-	Rz/obvfA==;
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=/E2wj8U1nC9oVcIMFJW/hIrDo2ArudwTBYEUCh9D85s=; b=uZuoKJDUJ3vjU+dmO5/uSdN4qB
+	vHm8vMNtcKIw/NGzkrq2WroOEyD4QAOM6rH3FVpH7ISAkBtSaiOQkqZuNswkUVshdzBMQCR5DlwuI
+	leHa+qcoUAr84UT8OemeQWDd0pbdD+hEuiwxUgmOFu+Iln3JB8skZaMVjhXSbpIJYQIq9Ad97Yer9
+	TzEtWNjEKZkHzZKCrMuT3lwtyT0Ttej70mCgUnbrrWrfy3qXt+Cmn1ZoQDVeKyM8bsDEUlOnRG+P5
+	OoHeRBsLH9FJKDt3KTkNCVT0r0BQQnY6APB49nCeg5LIRcfpcPeWono16SiIfIYqrwUXJWQ9CKDZ8
+	R/0tz5Wg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLbyV-00000002eDZ-1C9I;
-	Wed, 19 Nov 2025 06:47:31 +0000
-Received: from mail1.manjaro.org ([2a01:4f8:c010:b6e8::1])
+	id 1vLc2I-00000002eSN-2Qsa;
+	Wed, 19 Nov 2025 06:51:26 +0000
+Received: from mout02.posteo.de ([185.67.36.66])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLbyS-00000002eCo-3tZm;
-	Wed, 19 Nov 2025 06:47:30 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPA id 85BDF41281;
-	Wed, 19 Nov 2025 07:47:20 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=manjaro.org; s=dkim;
-	t=1763534842; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=VPnh4647l0Ye1/fWlT5mBsuMOhFdOEN38ARA/l13Q8c=;
-	b=yLXwecfEvsrN+fPShQu7pUzx54NBsWvHHEU1/ZnbH64PmSCnxxv2fH/dytG/OADsSPgYMK
-	0hoG5iNr1Hb165RJJNzTHl54ImwWEEKSd1MRWrmqwEMkBdgPTRshpDj7Xpq0HduR2NHx5j
-	gYro03GRO19FOv5cUlSNC0tBRw5DWeiKckTIenGGhp3v0FXTQniVAzNOK6Fa1kyPYIHV4z
-	hosgJERLb/tD0pZNHvE734+iu7aOA2ZjQ8JeFbso/g/6JjjVKEllL7/yO6y60n9uwgOo8C
-	IHzWsNLam8jJ9fxFMXhpga9tsROqnJvVELN7Fs/KTDlKWvQTcOiTc6MRrLXzbA==
-From: "Dragan Simic" <dsimic@manjaro.org>
-In-Reply-To: <0c224662-b3c2-4075-8b68-c0ae27421ba8@rootcommit.com>
-Content-Type: text/plain; charset="utf-8"
-References: <e4cd11d0-463c-e707-5110-6b92899b1ba3@manjaro.org> <0c224662-b3c2-4075-8b68-c0ae27421ba8@rootcommit.com>
-Date: Wed, 19 Nov 2025 07:47:20 +0100
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, heiko@sntech.de, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-To: "Michael Opdenacker" <michael.opdenacker@rootcommit.com>
+	id 1vLc2G-00000002eQx-0wP9
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 19 Nov 2025 06:51:25 +0000
+Received: from submission (posteo.de [185.67.36.169]) 
+	by mout02.posteo.de (Postfix) with ESMTPS id A9E57240101
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Nov 2025 07:51:18 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=posteo.de; s=2017;
+	t=1763535078; bh=/E2wj8U1nC9oVcIMFJW/hIrDo2ArudwTBYEUCh9D85s=;
+	h=From:To:Cc:Subject:Date:Message-ID:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:From;
+	b=kb6jrvKfQwTik/7yr9pDUpatvP8wJePXBwuc0UZxx00M9T4h4LWCSYSXkqb828Wik
+	 DMq3tWT3sGqWkQpOzgUESndK9UZ02u1dia0XUuWrsEAFwpvRXIs7owS09SuazkNTT/
+	 xJwcJ94RgmADR/iofQ6M142tgQACVk49O+qeyLmsTPO/6D9AKTEXds/rnAYMjEbOMy
+	 2kjDdFch91As7HSz1BiVutnMGOuWwFYMucbYbLiI6/i9QYVVyQ/B6U2zMCLwRjAx37
+	 gvECSxnpvUs02cj2qwThaONxAfYvK8NxBbIlGmYj59rNQtrcaWtyUt8LTYiDuRk4O2
+	 EeOvZCrljuhzw==
+Received: from customer (localhost [127.0.0.1])
+	by submission (posteo.de) with ESMTPSA id 4dBBw42Wlsz6tw1;
+	Wed, 19 Nov 2025 07:51:16 +0100 (CET)
+From: Martin Kepplinger <martink@posteo.de>
+To: robh@kernel.org,
+	krzk+dt@kernel.org,
+	airlied@gmail.com,
+	gregkh@linuxfoundation.org
+Cc: kernel@pengutronix.de,
+	linux-arm-kernel@lists.infradead.org,
+	dri-devel@lists.freedesktop.org,
+	Martin Kepplinger <martink@posteo.de>
+Subject: [RFC 0/4] how to link a panel to a touchscreen controller driver
+Date: Wed, 19 Nov 2025 06:51:17 +0000
+Message-ID: <20251119065109.910251-1-martink@posteo.de>
 MIME-Version: 1.0
-Message-ID: <3c96ee6b-dca7-1a0a-792b-f8c165ec997d@manjaro.org>
-Subject: =?utf-8?q?Re=3A?= [PATCH v2 1/2] =?utf-8?q?dt-bindings=3A?=
- =?utf-8?q?_arm=3A?==?utf-8?q?_rockchip=3A?= Add Asus Tinker Board 3 and 3S
-User-Agent: SOGoMail 5.12.3
-Content-Transfer-Encoding: quoted-printable
-X-Last-TLS-Session-Version: None
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251118_224729_225904_9430DC75 
-X-CRM114-Status: GOOD (  17.51  )
+X-CRM114-CacheID: sfid-20251118_225124_427145_1EAED689 
+X-CRM114-Status: GOOD (  12.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,78 +75,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Michael,
+hi,
 
-On Tuesday, November 18, 2025 06:27 CET, Michael Opdenacker <michael.op=
-denacker@rootcommit.com> wrote:
-> On 11/15/25 01:52, Dragan Simic wrote:
-> > I'm sorry again for not mentioning it in my earlier responses,
-> > but shouldn't this addition be specified like below:
-> >
-> >       - description: Asus Tinker Board 3/3S
-> >         items:
-> >           - enum:
-> > 	          - asus,rk3566-tinker-board-3
-> >             - asus,rk3566-tinker-board-3s
-> >           - const: rockchip,rk3566
-> >
-> > ... because the introduced .dts files define the actual board DTs,
-> > by descending from the common .dtsi file, while they're compatible
-> > in the sense of the 3S board variant extending the 3 variant.
->=20
-> Actually, "make dtbs=5Fcheck" fails if rk3566-tinker-board-3s.dts has=
-:
-> compatible =3D "asus,rk3566-tinker-board-3s",=20
-> "asus,rk3566-tinker-board-3", "rockchip,rk3566";
->=20
-> The failure is:
-> arch/arm64/boot/dts/rockchip/rk3566-tinker-board-3s.dtb: /=20
-> (asus,rk3566-tinker-board-3s): compatible: 'oneOf' conditional failed=
-,=20
-> one must be fixed:
->  =C2=A0 =C2=A0 ['asus,rk3566-tinker-board-3s', 'asus,rk3566-tinker-bo=
-ard-3',=20
-> 'rockchip,rk3566'] is too long
->  =C2=A0 =C2=A0 ['asus,rk3566-tinker-board-3s', 'asus,rk3566-tinker-bo=
-ard-3',=20
-> 'rockchip,rk3566'] is too short
+When there's a panel/touchscreen combination that is sold as a combinded
+module (with the reset line shared even), how would I connect the 2
+drivers and make sure the touchscreen driver probes after the panel is ready?
 
-Oh, I missed that completely, thanks for running the checks.
+I have the feeling there is https://docs.kernel.org/driver-api/device_link.html
+for such cases. Can you show me examples of 2 "random" drivers connected
+in this case?
 
-> If I understand correctly, to keep the=C2=A0rk3566-tinker-board-3s.dt=
-s file=20
-> as it is, you need Asus Tinker Board 3 and 3S to have two different=20
-> descriptions as in V2:
->=20
-> - description: Asus Tinker Board 3 items: - const:=20
-> asus,rk3566-tinker-board-3 - const: rockchip,rk3566 - description: As=
-us=20
-> Tinker Board 3S items: - const: asus,rk3566-tinker-board-3s - const:=20
-> asus,rk3566-tinker-board-3 - const: rockchip,rk3566
->=20
-> The other solution is to remove the "asus,rk3566-tinker-board-3"=20
-> compatible from=C2=A0rk3566-tinker-board-3s.dts, which is not a big d=
-eal in=20
-> my opinion. In addition, if some code turns out to work only on 3 but=20
-> not on 3S, though that's not expected if 3S is indeed a superset of 3=
-,=20
-> we won't be stuck.
->=20
-> I can submit a V3 along these lines.
+In the past I also played with CONFIG_RESET_GPIO using the reset-controller
+logic, but I *think* this is more for 2+ of the *same* devices connected.
 
-This should let us keep the "asus,rk3566-tinker-board-3" compatible
-in the new rk3566-tinker-board-3s.dts board dts while satisfying the
-validation properly:
+Might there be yet a different way in devicetree I'm not aware of?
 
-  - description: Asus Tinker Board 3/3S
-    items:
-    - enum:
-        - asus,rk3566-tinker-board-3s
-    - const: asus,rk3566-tinker-board-3
-    - const: rockchip,rk3566
+The below patches - for completeness - are only the workaround for what I'd
+like to do, exposing the state of the panel so that the touchscreen can query
+it.
 
-I'm quite busy at the moment, hence my delayed response, and I also
-apologize for not running the checks on the above-proposed solution,
-but I think it should work as expected.
+thank you very much for any hints,
+
+                               martin
+
+
+
+Guido Günther (2):
+  hack: drm: panel: mantix: Allow to query enabled state
+  hack: Input: edt-ft5x06: hackery to probe after panel
+
+Martin Kepplinger (2):
+  hack: edt-ft5x06 / panel-mantix-mlaf057we51: declare
+    mantix_panel_prepared() in drm_panel.h
+  hack: arm64: dts: imx8mq-librem5: add purism,panel-librem5-workaround
+
+ .../boot/dts/freescale/imx8mq-librem5.dtsi    |  1 +
+ .../gpu/drm/panel/panel-mantix-mlaf057we51.c  | 12 ++++++++++
+ drivers/input/touchscreen/edt-ft5x06.c        | 22 +++++++++++++++++++
+ include/drm/drm_panel.h                       |  2 ++
+ 4 files changed, 37 insertions(+)
+
+-- 
+2.47.3
 
 
