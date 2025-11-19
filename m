@@ -4,93 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F143ECF3963
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 16:54:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FE18CF3959
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 17:06:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=BNHinq4/2cTHhTy5HKSefqHwCj7EyOMXN8DmFkxYCE0=; b=3OMxZn5Goo71XclRi2TJPhktfK
-	voX+NYSLWA+p+l1Vwk+0gUTuBAl6mSFapfxN2Pu335/XvHL/bOaS8Mjip7JcIY/rPZKPO28N6cbCC
-	W/gWgcwV2EB+QMzQAhAgcnOEa6R8xdj632uUrTY3MNE43l5xWlL8N9JayduJ8L/9+jt/Ww3dqFVse
-	YXqLM363P6CpLJA4uuS0utcBLiZLt/8T1a6TSSBpq8JXWWJig5e252CE+MrCKTRbDWYJ8s42V5NM3
-	Avuxm1c08aI68kv7+qmsCsB7ms+Ue0Zi6G9qmRY3awUizDw/BfD+rRsdEU/J2pOmEEz7Tr+EY4dFe
-	dbbYGv3A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LvsQHIQwUXdnhaPd/HVv5JoV/uru8SABKTDbQ8DlGCg=; b=onnxHnSfiul1zSQRVkUt7T4Eqj
+	NBoKHk82tLyvokdvTuI6pNGtmJoqofFM+neHFF06lUvIbOUVSUpTlDaSYMoAzXtdfqQQvwrbomlkm
+	jRrtHGl7qQyJzRNDSr87RRhM0qNbBS4QYHhhl9qR0P4IrnhjIEbcvXhXzlyPL8ajnbtn4JT14SPqJ
+	Hug5tW/iuJXBusrD0tHoIPhgwUQ1/hLT8clbKD6NpdZHVswiOph7KTh2ruHYg5QH8/Pz3RxHZw6CB
+	5mW97gYVUe6dHPKdxDtj9Jvp8ayokCFKhccYtAD1KCEXw9tKoRATY+P0uTEy5wKyPZnJj8eO64Mgc
+	7FgqSSMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLlRq-00000003mc7-3icd;
-	Wed, 19 Nov 2025 16:54:26 +0000
-Received: from mail-pf1-x42d.google.com ([2607:f8b0:4864:20::42d])
+	id 1vLldk-00000003t6u-3ATH;
+	Wed, 19 Nov 2025 17:06:44 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLlRn-00000003mY2-2hT8
+	id 1vLldi-00000003t5C-3xte
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Nov 2025 16:54:25 +0000
-Received: by mail-pf1-x42d.google.com with SMTP id d2e1a72fcca58-7a435a3fc57so6719951b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Nov 2025 08:54:23 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1763571263; x=1764176063; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=BNHinq4/2cTHhTy5HKSefqHwCj7EyOMXN8DmFkxYCE0=;
-        b=OsCKOIeTpANwEyH8tWoC127OSIerHIvfAxhJcFyuK6rJ4IfS1iMAETLpcZyXE21P5R
-         hJVhMvblwOxb/xsc3jAUrgr+w3A7n+5XV5zu/cViQsJypMydDRGIHRFozgVgrOCzKQ7+
-         I9Byb9mZBVOG7pDsYj4Iyulm5pFYaZRiaLuyI=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763571263; x=1764176063;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=BNHinq4/2cTHhTy5HKSefqHwCj7EyOMXN8DmFkxYCE0=;
-        b=olh5fbJ+8oP7G59IlypLOyN3p+j3/wsMPNaWPHk/ZfVgidwkg3YFRYAxbRDUu5Az2a
-         hT6ipsm/K2OH/BZGfx5AR7QABovhQd33IJaUIIC2f1UNzZdYNlCz0UvlrmRyjXLUcu67
-         58k4tEtNfD//GmMXaeio6IWrAMy8sWogpwpW6YxB8jFIyDyVIqTDlUsri+0aq8w7k1l8
-         IOKhI5Tz07OwPblMiL5xzRVrnZrB7qhPa3JSIl2gf7PU3aWN7DY4LNHzjI47z/rP4Kh8
-         MHGNIaXYp1aPhAZqnKZvviJj8pb8YSPzYFDJ4uzW51e2UG2duFE2uK7Omb8Wt9T+mFAy
-         XWOw==
-X-Forwarded-Encrypted: i=1; AJvYcCU9mdz8hXO2C+/BfhyjWAz2ooJOKY5+k4Qa5RK3LSc6LpEidHfOldw3qHbZXRDSW2jr76lt25OT4qAmISYHayf2@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx+Hy/sIIiiE0zHiAzKWyFm7LEw49qU7nNMoDULkKT8Q2i1Wj2V
-	DJEcPOzzFgLJpl146Uw2NDNSLimhCQOmR49eYNcVQxzgXAgkR4JxijCihaFAY/nTLg==
-X-Gm-Gg: ASbGncsZuRVYY6uSCJMYKVWwLzp+PJg0g3MXAvHfIL3H2Py51wDh7o4P/Ok3uY/esnL
-	yKejOvn6XJvNKLbBmpqX5ShB/dAG537g5ClOe6sm+V/mx5r/wAtmbfkND+1Se/4rky0YJ6h2Rnr
-	DctUDwwmC3YHwvp1QJPusb2i51GZ5eqpqhFZ5ymiJCS86PjphWVxTywRqngYwju6Rq3LIQJrT40
-	AjFHQfFZ3iiIDNDWP1qfx+VdponuleglKAYvtdCRXORakHCwRcdMX7SOQOgAdbihq8swzG8pdCP
-	vufdz0ePDpNhlF2c8DYNxGSJ7uYjs7oO4O5eBKQggjyb1a1IErBnnq4xgSUejc5IQOwYQrktezr
-	U7jjSW182KNnGfFjaW2Z0xmo5ROi5SsINs1p0o05rnzgYqx+LUbWVwgDTTdA2eIJrT3CXiIPfFC
-	SSRo5XkfqHzI8r2CaHeSjv/Imjm3R0a59HOc9ifbfnehHLY2w3Y4ac2ASbtnKsHIcytKemsEDbc
-	ozpy+EdJw==
-X-Google-Smtp-Source: AGHT+IG6Mf8qsXvOK1ixMYCQNU/FYpCBumYnKBfjBKtdbVbifmpntuvtxBUSy93dyel1BQ7M/vgfNA==
-X-Received: by 2002:a05:7022:eac7:b0:11a:a20a:4413 with SMTP id a92af1059eb24-11c93887b01mr7150c88.31.1763571262673;
-        Wed, 19 Nov 2025 08:54:22 -0800 (PST)
-Received: from dianders.sjc.corp.google.com ([2a00:79e0:2e7c:8:cf0b:c8dd:8f4c:d649])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-11b0608860fsm61967659c88.5.2025.11.19.08.54.21
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 19 Nov 2025 08:54:21 -0800 (PST)
-From: Douglas Anderson <dianders@chromium.org>
-To: Marcel Holtmann <marcel@holtmann.org>,
-	Luiz Augusto von Dentz <luiz.dentz@gmail.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: Thorsten Leemhuis <regressions@leemhuis.info>,
-	incogcyberpunk@proton.me,
-	johan.hedberg@gmail.com,
-	regressions@lists.linux.dev,
-	sean.wang@mediatek.com,
-	Douglas Anderson <dianders@chromium.org>,
+	Wed, 19 Nov 2025 17:06:43 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id E2FF460171;
+	Wed, 19 Nov 2025 17:06:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3FE7FC113D0;
+	Wed, 19 Nov 2025 17:06:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1763572001;
+	bh=woNh5JEEMkAdN+vfrrrsu6WoTN/klukjySz4Ay7pPwA=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=WSQ1gRVtxv6UXCd31HIq6Eh1eEv1fYJrOHMjVCdVGZImTqa4M0QWku4WgOHaI6t9J
+	 bemN7fXO9y3W7EQh5ZDxi7qJa3D+s0w+OaOsiUCpGQoXUVfk5KlPAxFQg+bJ4l31u5
+	 AylhoizcT7sOvO0q4FufbMqCFvYievKVGrstRab7wo81UqefvhlNPM4Jljp9CEBjgU
+	 FNlVrq1O+vo7vxhL1PgD+WQ6rrqk+HTQDrDKeWA47I3yulXrhUQMVgvGKYl6znGr92
+	 DD9LygtLLeS36eZzBmVbSDfR14VTj8b7he52RnqUU+wM7Qs1kiwnbdAi3plDuP1Uvs
+	 x9vrDJdLLnpKw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vLlde-00000006dSZ-3ZPO;
+	Wed, 19 Nov 2025 17:06:38 +0000
+Date: Wed, 19 Nov 2025 17:06:38 +0000
+Message-ID: <86bjkyrly9.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Vincent Donnefort <vdonnefort@google.com>
+Cc: rostedt@goodmis.org,
+	mhiramat@kernel.org,
+	mathieu.desnoyers@efficios.com,
+	linux-trace-kernel@vger.kernel.org,
+	oliver.upton@linux.dev,
+	joey.gouly@arm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	linux-bluetooth@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-mediatek@lists.infradead.org
-Subject: [PATCH] Bluetooth: btusb: mediatek: Avoid btusb_mtk_claim_iso_intf() NULL deref
-Date: Wed, 19 Nov 2025 08:53:55 -0800
-Message-ID: <20251119085354.1.I1ae7aebc967e52c7c4be7aa65fbd81736649568a@changeid>
-X-Mailer: git-send-email 2.52.0.rc1.455.g30608eb744-goog
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251119_085423_709029_118002CB 
-X-CRM114-Status: GOOD (  17.67  )
+	jstultz@google.com,
+	qperret@google.com,
+	will@kernel.org,
+	aneesh.kumar@kernel.org,
+	kernel-team@android.com,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v8 21/28] KVM: arm64: Add tracing capability for the pKVM hyp
+In-Reply-To: <20251107093840.3779150-22-vdonnefort@google.com>
+References: <20251107093840.3779150-1-vdonnefort@google.com>
+	<20251107093840.3779150-22-vdonnefort@google.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: vdonnefort@google.com, rostedt@goodmis.org, mhiramat@kernel.org, mathieu.desnoyers@efficios.com, linux-trace-kernel@vger.kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, jstultz@google.com, qperret@google.com, will@kernel.org, aneesh.kumar@kernel.org, kernel-team@android.com, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,54 +95,466 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In btusb_mtk_setup(), we set `btmtk_data->isopkt_intf` to:
-  usb_ifnum_to_if(data->udev, MTK_ISO_IFNUM)
+On Fri, 07 Nov 2025 09:38:33 +0000,
+Vincent Donnefort <vdonnefort@google.com> wrote:
+> 
+> When running with protected mode, the host has very little knowledge
+> about what is happening in the hypervisor. Of course this is an
+> essential feature for security but nonetheless, that piece of code
+> growing with more responsibilities, we need now a way to debug and
+> profile it. Tracefs by its reliability, versatility and support for
+> user-space is the perfect tool.
+> 
+> There's no way the hypervisor could log events directly into the host
+> tracefs ring-buffers. So instead let's use our own, where the hypervisor
+> is the writer and the host the reader.
+> 
+> Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
+> 
+> diff --git a/arch/arm64/include/asm/kvm_asm.h b/arch/arm64/include/asm/kvm_asm.h
+> index 9da54d4ee49e..ad02dee140d3 100644
+> --- a/arch/arm64/include/asm/kvm_asm.h
+> +++ b/arch/arm64/include/asm/kvm_asm.h
+> @@ -89,6 +89,10 @@ enum __kvm_host_smccc_func {
+>  	__KVM_HOST_SMCCC_FUNC___pkvm_vcpu_load,
+>  	__KVM_HOST_SMCCC_FUNC___pkvm_vcpu_put,
+>  	__KVM_HOST_SMCCC_FUNC___pkvm_tlb_flush_vmid,
+> +	__KVM_HOST_SMCCC_FUNC___pkvm_load_tracing,
+> +	__KVM_HOST_SMCCC_FUNC___pkvm_unload_tracing,
+> +	__KVM_HOST_SMCCC_FUNC___pkvm_enable_tracing,
+> +	__KVM_HOST_SMCCC_FUNC___pkvm_swap_reader_tracing,
+>  };
+>  
+>  #define DECLARE_KVM_VHE_SYM(sym)	extern char sym[]
+> diff --git a/arch/arm64/include/asm/kvm_hyptrace.h b/arch/arm64/include/asm/kvm_hyptrace.h
+> new file mode 100644
+> index 000000000000..9c30a479bc36
+> --- /dev/null
+> +++ b/arch/arm64/include/asm/kvm_hyptrace.h
+> @@ -0,0 +1,13 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only */
+> +#ifndef __ARM64_KVM_HYPTRACE_H_
+> +#define __ARM64_KVM_HYPTRACE_H_
+> +
+> +#include <linux/ring_buffer.h>
+> +
+> +struct hyp_trace_desc {
+> +	unsigned long			bpages_backing_start;
 
-That function can return NULL in some cases. Even when it returns
-NULL, though, we still go on to call btusb_mtk_claim_iso_intf().
+Why is this an integer type? You keep casting it all over the place,
+which tells me that's not the ideal type.
 
-As of commit e9087e828827 ("Bluetooth: btusb: mediatek: Add locks for
-usb_driver_claim_interface()"), calling btusb_mtk_claim_iso_intf()
-when `btmtk_data->isopkt_intf` is NULL will cause a crash because
-we'll end up passing a bad pointer to device_lock(). Prior to that
-commit we'd pass the NULL pointer directly to
-usb_driver_claim_interface() which would detect it and return an
-error, which was handled.
+> +	size_t				bpages_backing_size;
+> +	struct trace_buffer_desc	trace_buffer_desc;
+> +
+> +};
+> +#endif
+> diff --git a/arch/arm64/kvm/Kconfig b/arch/arm64/kvm/Kconfig
+> index 4f803fd1c99a..580426cdbe77 100644
+> --- a/arch/arm64/kvm/Kconfig
+> +++ b/arch/arm64/kvm/Kconfig
+> @@ -83,4 +83,11 @@ config PTDUMP_STAGE2_DEBUGFS
+>  
+>  	  If in doubt, say N.
+>  
+> +config PKVM_TRACING
+> +	bool
+> +	depends on KVM
+> +	depends on TRACING
+> +	select SIMPLE_RING_BUFFER
+> +	default y
 
-Resolve the crash in btusb_mtk_claim_iso_intf() by adding a NULL check
-at the start of the function. This makes the code handle a NULL
-`btmtk_data->isopkt_intf` the same way it did before the problematic
-commit (just with a slight change to the error message printed).
+I'd rather this is made to depend on NVHE_EL2_DEBUG, just like the
+other debug options.
 
-Reported-by: IncogCyberpunk <incogcyberpunk@proton.me>
-Closes: http://lore.kernel.org/r/a380d061-479e-4713-bddd-1d6571ca7e86@leemhuis.info
-Fixes: e9087e828827 ("Bluetooth: btusb: mediatek: Add locks for usb_driver_claim_interface()")
-Signed-off-by: Douglas Anderson <dianders@chromium.org>
----
-I have no way to test this commit myself other than to compile it. It
-looks fairly straightforward, though, so I'm hopeful it will fix the
-problem.
+> +
+>  endif # VIRTUALIZATION
+> diff --git a/arch/arm64/kvm/hyp/include/nvhe/trace.h b/arch/arm64/kvm/hyp/include/nvhe/trace.h
+> new file mode 100644
+> index 000000000000..996e90c0974f
+> --- /dev/null
+> +++ b/arch/arm64/kvm/hyp/include/nvhe/trace.h
+> @@ -0,0 +1,23 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only */
+> +#ifndef __ARM64_KVM_HYP_NVHE_TRACE_H
+> +#define __ARM64_KVM_HYP_NVHE_TRACE_H
+> +#include <asm/kvm_hyptrace.h>
+> +
+> +#ifdef CONFIG_PKVM_TRACING
+> +void *tracing_reserve_entry(unsigned long length);
+> +void tracing_commit_entry(void);
+> +
+> +int __pkvm_load_tracing(unsigned long desc_va, size_t desc_size);
+> +void __pkvm_unload_tracing(void);
+> +int __pkvm_enable_tracing(bool enable);
+> +int __pkvm_swap_reader_tracing(unsigned int cpu);
+> +#else
+> +static inline void *tracing_reserve_entry(unsigned long length) { return NULL; }
+> +static inline void tracing_commit_entry(void) { }
+> +
+> +static inline int __pkvm_load_tracing(unsigned long desc_va, size_t desc_size) { return -ENODEV; }
+> +static inline void __pkvm_unload_tracing(void) { }
+> +static inline int __pkvm_enable_tracing(bool enable) { return -ENODEV; }
+> +static inline int __pkvm_swap_reader_tracing(unsigned int cpu) { return -ENODEV; }
+> +#endif
+> +#endif
+> diff --git a/arch/arm64/kvm/hyp/nvhe/Makefile b/arch/arm64/kvm/hyp/nvhe/Makefile
+> index f55a9a17d38f..504c3b9caef8 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/Makefile
+> +++ b/arch/arm64/kvm/hyp/nvhe/Makefile
+> @@ -29,7 +29,7 @@ hyp-obj-y += ../vgic-v3-sr.o ../aarch32.o ../vgic-v2-cpuif-proxy.o ../entry.o \
+>  	 ../fpsimd.o ../hyp-entry.o ../exception.o ../pgtable.o
+>  hyp-obj-y += ../../../kernel/smccc-call.o
+>  hyp-obj-$(CONFIG_LIST_HARDENED) += list_debug.o
+> -hyp-obj-$(CONFIG_PKVM_TRACING) += clock.o
+> +hyp-obj-$(CONFIG_PKVM_TRACING) += clock.o trace.o ../../../../../kernel/trace/simple_ring_buffer.o
 
- drivers/bluetooth/btusb.c | 5 +++++
- 1 file changed, 5 insertions(+)
+Can we get something less awful here? Surely there is a way to get an
+absolute path from the kbuild infrastructure? $(objtree) springs to
+mind...
 
-diff --git a/drivers/bluetooth/btusb.c b/drivers/bluetooth/btusb.c
-index a722446ec73d..1466e0f1865d 100644
---- a/drivers/bluetooth/btusb.c
-+++ b/drivers/bluetooth/btusb.c
-@@ -2714,6 +2714,11 @@ static void btusb_mtk_claim_iso_intf(struct btusb_data *data)
- 	struct btmtk_data *btmtk_data = hci_get_priv(data->hdev);
- 	int err;
- 
-+	if (!btmtk_data->isopkt_intf) {
-+		bt_dev_err(data->hdev, "Can't claim NULL iso interface");
-+		return;
-+	}
-+
- 	/*
- 	 * The function usb_driver_claim_interface() is documented to need
- 	 * locks held if it's not called from a probe routine. The code here
+>  hyp-obj-y += $(lib-objs)
+>  
+>  ##
+> diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> index 29430c031095..6381e50ff531 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> @@ -18,6 +18,7 @@
+>  #include <nvhe/mem_protect.h>
+>  #include <nvhe/mm.h>
+>  #include <nvhe/pkvm.h>
+> +#include <nvhe/trace.h>
+>  #include <nvhe/trap_handler.h>
+>  
+>  DEFINE_PER_CPU(struct kvm_nvhe_init_params, kvm_init_params);
+> @@ -585,6 +586,35 @@ static void handle___pkvm_teardown_vm(struct kvm_cpu_context *host_ctxt)
+>  	cpu_reg(host_ctxt, 1) = __pkvm_teardown_vm(handle);
+>  }
+>  
+> +static void handle___pkvm_load_tracing(struct kvm_cpu_context *host_ctxt)
+> +{
+> +	 DECLARE_REG(unsigned long, desc_hva, host_ctxt, 1);
+> +	 DECLARE_REG(size_t, desc_size, host_ctxt, 2);
+> +
+> +	 cpu_reg(host_ctxt, 1) = __pkvm_load_tracing(desc_hva, desc_size);
+> +}
+> +
+> +static void handle___pkvm_unload_tracing(struct kvm_cpu_context *host_ctxt)
+> +{
+> +	__pkvm_unload_tracing();
+> +
+> +	cpu_reg(host_ctxt, 1) = 0;
+> +}
+> +
+> +static void handle___pkvm_enable_tracing(struct kvm_cpu_context *host_ctxt)
+> +{
+> +	DECLARE_REG(bool, enable, host_ctxt, 1);
+> +
+> +	cpu_reg(host_ctxt, 1) = __pkvm_enable_tracing(enable);
+> +}
+> +
+> +static void handle___pkvm_swap_reader_tracing(struct kvm_cpu_context *host_ctxt)
+> +{
+> +	DECLARE_REG(unsigned int, cpu, host_ctxt, 1);
+> +
+> +	cpu_reg(host_ctxt, 1) = __pkvm_swap_reader_tracing(cpu);
+> +}
+> +
+>  typedef void (*hcall_t)(struct kvm_cpu_context *);
+>  
+>  #define HANDLE_FUNC(x)	[__KVM_HOST_SMCCC_FUNC_##x] = (hcall_t)handle_##x
+> @@ -626,6 +656,10 @@ static const hcall_t host_hcall[] = {
+>  	HANDLE_FUNC(__pkvm_vcpu_load),
+>  	HANDLE_FUNC(__pkvm_vcpu_put),
+>  	HANDLE_FUNC(__pkvm_tlb_flush_vmid),
+> +	HANDLE_FUNC(__pkvm_load_tracing),
+> +	HANDLE_FUNC(__pkvm_unload_tracing),
+> +	HANDLE_FUNC(__pkvm_enable_tracing),
+> +	HANDLE_FUNC(__pkvm_swap_reader_tracing),
+>  };
+>  
+>  static void handle_host_hcall(struct kvm_cpu_context *host_ctxt)
+> diff --git a/arch/arm64/kvm/hyp/nvhe/trace.c b/arch/arm64/kvm/hyp/nvhe/trace.c
+> new file mode 100644
+> index 000000000000..def5cbc75722
+> --- /dev/null
+> +++ b/arch/arm64/kvm/hyp/nvhe/trace.c
+> @@ -0,0 +1,257 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/*
+> + * Copyright (C) 2025 Google LLC
+> + * Author: Vincent Donnefort <vdonnefort@google.com>
+> + */
+> +
+> +#include <nvhe/clock.h>
+> +#include <nvhe/mem_protect.h>
+> +#include <nvhe/mm.h>
+> +#include <nvhe/trace.h>
+> +
+> +#include <asm/percpu.h>
+> +#include <asm/kvm_mmu.h>
+> +#include <asm/local.h>
+> +
+> +#include <linux/simple_ring_buffer.h>
+> +
+> +static DEFINE_PER_CPU(struct simple_rb_per_cpu, __simple_rbs);
+> +
+> +static struct hyp_trace_buffer {
+> +	struct simple_rb_per_cpu __percpu	*simple_rbs;
+> +	unsigned long				bpages_backing_start;
+> +	size_t					bpages_backing_size;
+> +	hyp_spinlock_t				lock;
+> +} trace_buffer = {
+> +	.simple_rbs = &__simple_rbs,
+> +	.lock = __HYP_SPIN_LOCK_UNLOCKED,
+> +};
+> +
+> +static bool hyp_trace_buffer_loaded(struct hyp_trace_buffer *trace_buffer)
+> +{
+> +	return trace_buffer->bpages_backing_size > 0;
+> +}
+> +
+> +void *tracing_reserve_entry(unsigned long length)
+> +{
+> +	return simple_ring_buffer_reserve(this_cpu_ptr(trace_buffer.simple_rbs), length,
+> +					  trace_clock());
+> +}
+> +
+> +void tracing_commit_entry(void)
+> +{
+> +	simple_ring_buffer_commit(this_cpu_ptr(trace_buffer.simple_rbs));
+> +}
+> +
+> +static int hyp_trace_buffer_load_bpage_backing(struct hyp_trace_buffer *trace_buffer,
+> +					       struct hyp_trace_desc *desc)
+> +{
+> +	unsigned long start = kern_hyp_va(desc->bpages_backing_start);
+> +	size_t size = desc->bpages_backing_size;
+> +	int ret;
+> +
+> +	if (!PAGE_ALIGNED(start) || !PAGE_ALIGNED(size))
+> +		return -EINVAL;
+> +
+> +	ret = __pkvm_host_donate_hyp(hyp_virt_to_pfn((void *)start), size >> PAGE_SHIFT);
+> +	if (ret)
+> +		return ret;
+> +
+> +	memset((void *)start, 0, size);
+> +
+> +	trace_buffer->bpages_backing_start = start;
+> +	trace_buffer->bpages_backing_size = size;
+> +
+> +	return 0;
+> +}
+> +
+> +static void hyp_trace_buffer_unload_bpage_backing(struct hyp_trace_buffer *trace_buffer)
+> +{
+> +	unsigned long start = trace_buffer->bpages_backing_start;
+> +	size_t size = trace_buffer->bpages_backing_size;
+> +
+> +	if (!size)
+> +		return;
+> +
+> +	memset((void *)start, 0, size);
+> +
+> +	WARN_ON(__pkvm_hyp_donate_host(hyp_virt_to_pfn(start), size >> PAGE_SHIFT));
+> +
+> +	trace_buffer->bpages_backing_start = 0;
+> +	trace_buffer->bpages_backing_size = 0;
+> +}
+> +
+> +static void *__pin_shared_page(unsigned long kern_va)
+> +{
+> +	void *va = kern_hyp_va((void *)kern_va);
+> +
+> +	return hyp_pin_shared_mem(va, va + PAGE_SIZE) ? NULL : va;
+> +}
+> +
+> +static void __unpin_shared_page(void *va)
+> +{
+> +	hyp_unpin_shared_mem(va, va + PAGE_SIZE);
+> +}
+> +
+> +static void hyp_trace_buffer_unload(struct hyp_trace_buffer *trace_buffer)
+> +{
+> +	int cpu;
+> +
+> +	hyp_assert_lock_held(&trace_buffer->lock);
+> +
+> +	if (!hyp_trace_buffer_loaded(trace_buffer))
+> +		return;
+> +
+> +	for (cpu = 0; cpu < hyp_nr_cpus; cpu++)
+> +		__simple_ring_buffer_unload(per_cpu_ptr(trace_buffer->simple_rbs, cpu),
+> +					    __unpin_shared_page);
+> +
+> +	hyp_trace_buffer_unload_bpage_backing(trace_buffer);
+> +}
+> +
+> +static int hyp_trace_buffer_load(struct hyp_trace_buffer *trace_buffer,
+> +				 struct hyp_trace_desc *desc)
+> +{
+> +	struct simple_buffer_page *bpages;
+> +	struct ring_buffer_desc *rb_desc;
+> +	int ret, cpu;
+> +
+> +	hyp_assert_lock_held(&trace_buffer->lock);
+> +
+> +	if (hyp_trace_buffer_loaded(trace_buffer))
+> +		return -EINVAL;
+> +
+> +	ret = hyp_trace_buffer_load_bpage_backing(trace_buffer, desc);
+> +	if (ret)
+> +		return ret;
+> +
+> +	bpages = (struct simple_buffer_page *)trace_buffer->bpages_backing_start;
+> +	for_each_ring_buffer_desc(rb_desc, cpu, &desc->trace_buffer_desc) {
+> +		ret = __simple_ring_buffer_init(per_cpu_ptr(trace_buffer->simple_rbs, cpu),
+> +						bpages, rb_desc, __pin_shared_page,
+> +						__unpin_shared_page);
+> +		if (ret)
+> +			break;
+> +
+> +		bpages += rb_desc->nr_page_va;
+> +	}
+> +
+> +	if (ret)
+> +		hyp_trace_buffer_unload(trace_buffer);
+> +
+> +	return ret;
+> +}
+> +
+> +static bool hyp_trace_desc_validate(struct hyp_trace_desc *desc, size_t desc_size)
+> +{
+> +	struct simple_buffer_page *bpages = (struct simple_buffer_page *)desc->bpages_backing_start;
+> +	struct ring_buffer_desc *rb_desc;
+> +	void *bpages_end, *desc_end;
+> +	unsigned int cpu;
+> +
+> +	desc_end = (void *)desc + desc_size; /* __pkvm_host_donate_hyp validates desc_size */
+> +
+> +	bpages_end = (void *)desc->bpages_backing_start + desc->bpages_backing_size;
+> +	if (bpages_end < (void *)desc->bpages_backing_start)
+> +		return false;
+> +
+> +	for_each_ring_buffer_desc(rb_desc, cpu, &desc->trace_buffer_desc) {
+> +		/* Can we read nr_page_va? */
+> +		if ((void *)rb_desc + struct_size(rb_desc, page_va, 0) > desc_end)
+> +			return false;
+> +
+> +		/* Overflow desc? */
+> +		if ((void *)rb_desc + struct_size(rb_desc, page_va, rb_desc->nr_page_va) > desc_end)
+> +			return false;
+> +
+> +		/* Overflow bpages backing memory? */
+> +		if ((void *)(bpages + rb_desc->nr_page_va) > bpages_end)
+> +			return false;
+> +
+> +		if (cpu >= hyp_nr_cpus)
+> +			return false;
+> +
+> +		if (cpu != rb_desc->cpu)
+> +			return false;
+> +
+> +		bpages += rb_desc->nr_page_va;
+> +	}
+> +
+> +	return true;
+> +}
+> +
+> +int __pkvm_load_tracing(unsigned long desc_hva, size_t desc_size)
+> +{
+> +	struct hyp_trace_desc *desc = (struct hyp_trace_desc *)kern_hyp_va(desc_hva);
+> +	int ret;
+> +
+> +	if (!desc_size || !PAGE_ALIGNED(desc_hva) || !PAGE_ALIGNED(desc_size))
+> +		return -EINVAL;
+> +
+> +	ret = __pkvm_host_donate_hyp(hyp_virt_to_pfn((void *)desc),
+> +				     desc_size >> PAGE_SHIFT);
+> +	if (ret)
+> +		return ret;
+> +
+> +	if (!hyp_trace_desc_validate(desc, desc_size))
+> +		goto err_donate_desc;
+> +
+> +	hyp_spin_lock(&trace_buffer.lock);
+> +
+> +	ret = hyp_trace_buffer_load(&trace_buffer, desc);
+> +
+> +	hyp_spin_unlock(&trace_buffer.lock);
+> +
+> +err_donate_desc:
+> +	WARN_ON(__pkvm_hyp_donate_host(hyp_virt_to_pfn((void *)desc),
+> +				       desc_size >> PAGE_SHIFT));
+
+That's basically a guaranteed panic if anything goes wrong. Are you
+sure you want to do that?
+
+> +	return ret;
+> +}
+> +
+> +void __pkvm_unload_tracing(void)
+> +{
+> +	hyp_spin_lock(&trace_buffer.lock);
+> +	hyp_trace_buffer_unload(&trace_buffer);
+> +	hyp_spin_unlock(&trace_buffer.lock);
+> +}
+> +
+> +int __pkvm_enable_tracing(bool enable)
+> +{
+> +	int cpu, ret = enable ? -EINVAL : 0;
+> +
+> +	hyp_spin_lock(&trace_buffer.lock);
+> +
+> +	if (!hyp_trace_buffer_loaded(&trace_buffer))
+> +		goto unlock;
+> +
+> +	for (cpu = 0; cpu < hyp_nr_cpus; cpu++)
+> +		simple_ring_buffer_enable_tracing(per_cpu_ptr(trace_buffer.simple_rbs, cpu),
+> +						  enable);
+> +
+> +	ret = 0;
+> +
+> +unlock:
+> +	hyp_spin_unlock(&trace_buffer.lock);
+> +
+> +	return ret;
+> +}
+> +
+> +int __pkvm_swap_reader_tracing(unsigned int cpu)
+> +{
+> +	int ret;
+> +
+> +	if (cpu >= hyp_nr_cpus)
+> +		return -EINVAL;
+> +
+> +	hyp_spin_lock(&trace_buffer.lock);
+> +
+> +	if (hyp_trace_buffer_loaded(&trace_buffer))
+> +		ret = simple_ring_buffer_swap_reader_page(
+> +				per_cpu_ptr(trace_buffer.simple_rbs, cpu));
+
+Please keep these things on a single line. I don't care what people
+(of checkpatch) say.
+
+> +	else
+> +		ret = -ENODEV;
+> +
+> +	hyp_spin_unlock(&trace_buffer.lock);
+> +
+> +	return ret;
+> +}
+> -- 
+> 2.51.2.1041.gc1ab5b90ca-goog
+> 
+> 
+
+Thanks,
+
+	M.
+
 -- 
-2.52.0.rc1.455.g30608eb744-goog
-
+Without deviation from the norm, progress is not possible.
 
