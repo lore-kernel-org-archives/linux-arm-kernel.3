@@ -4,74 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E54DCF258C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 09:48:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89A62CF3186
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 09:50:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gK+LpoJANvwF55wwTCTYvBqZF4AfkizsKPUWssaz8k8=; b=FUTnbsgj5itJj6RlvH6C+vN3nP
-	nO0yxB3JofXDwhOYsZ1TgaE7t1pyqwOE+WOcoWWVHI1BGNKEWLEpmxzNx0PM2YXsieE/w4JDYekUM
-	okv85o6i0huMB7J9N+oiNyIpvFwL1R1qYSFn0L+xWh4oMY37gfMbN/yBRad0/bfYZvEKQxR/YIa80
-	k8OfIxGvsIItw8kieg5aXi3aYY0zdalfLpHd8zMzbL3AofXIjSR/tlXIZu4GkF7xJ4D+OiMtu24aU
-	BigLquzhqbb7Hb20GOMRLy8fYq2mvikBzwj7QVv54jidtIToCstqNr0bOgVnbsv7CsxjPLpoQv/5p
-	exYf7+PQ==;
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MPxV851xTjcWbDvstJF4MstyoLzb0xId1eTxrb2FLGI=; b=wRcuRFo47++lQsLyRuXzji5OH8
+	9r3PzaCSukE9mSBvAbh4veIOSx8eqHKNhIRpXplsAGJ7l3oItTWmT+khHiAUQM1MVAswIPygiSyvp
+	uWorlHzgMyt6GAwi47snCNox6ZLHIHg6hanvfpzGil7CqZgXDHzghfeUntB4xG8TWyRu1hxHQUWlG
+	gJGk2+G9EKkkdbX/61WzCl3NfH6ODy9qfYDblesgDFOaMk2c6PaXuzfWN2ygiRRp8FdxBZMr2a3JD
+	SyVH3haXcGFcUHBmf0HtbqA7oIZmHRihxaRizcr0lpomxh45LIBy05o3JdV4TpwIecB4k06s/bx8D
+	gFalT9Ig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLenD-00000002tf5-2xnQ;
-	Wed, 19 Nov 2025 09:48:03 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
+	id 1vLepA-00000002txp-0BTT;
+	Wed, 19 Nov 2025 09:50:04 +0000
+Received: from canpmsgout08.his.huawei.com ([113.46.200.223])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLenA-00000002tdm-3o6I
+	id 1vLep7-00000002tx2-2MtT
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Nov 2025 09:48:02 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id B03CAC11186;
-	Wed, 19 Nov 2025 09:47:34 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id E44B760720;
-	Wed, 19 Nov 2025 09:47:56 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 6C86010371A28;
-	Wed, 19 Nov 2025 10:47:53 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1763545676; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=gK+LpoJANvwF55wwTCTYvBqZF4AfkizsKPUWssaz8k8=;
-	b=PIPyyuj4oPsQg2Mgv/JY2ZedxflwsVFgnS6H/TLC+gMVKf8PUExM36+PzqFtY+liu+E+nu
-	1DOLd7gSes3S0xROeu71i8jQJ0Tf8Hv1bh+gG51GH2NZv7O72CaChG4mJNgi+ox7cjM6tP
-	ID5p+0Lc+xJKBnllhdc40aPHWPYYuaMtaWZV/BwlIMnuMC2Gwxi32fCcCFnP3T+HkPqyaU
-	jQaAkKHqUelX6mWDSRmJo4k/q2xBSnJs6GjNaYMNlmt2ZPCfN8oKakeEbaWbfF6UukqtrV
-	NsIHcvEdvGxFSIFTpPT7S22owaush4D+vZbViSLijAeUhtoKzmuWLhkj4mrrxQ==
-From: Gregory CLEMENT <gregory.clement@bootlin.com>
-To: Rob Herring <robh@kernel.org>
-Cc: Saravana Kannan <saravanak@google.com>, Linus Walleij
- <linus.walleij@linaro.org>, Miquel Raynal <miquel.raynal@bootlin.com>,
- Richard Weinberger <richard@nod.at>, Vignesh Raghavendra
- <vigneshr@ti.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
- Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>, =?utf-8?Q?Beno?=
- =?utf-8?Q?=C3=AEt?= Monin
- <benoit.monin@bootlin.com>, =?utf-8?Q?Th=C3=A9o?= Lebrun
- <theo.lebrun@bootlin.com>,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mtd@lists.infradead.org
-Subject: Re: [PATCH 2/3] dt-bindings: mtd: physmap: Allow using
- memory-region to access memory resources
-In-Reply-To: <20251117175955.GA225586-robh@kernel.org>
-References: <20251117-mtd-memregion-v1-0-7b35611c79a6@bootlin.com>
- <20251117-mtd-memregion-v1-2-7b35611c79a6@bootlin.com>
- <20251117175955.GA225586-robh@kernel.org>
-Date: Wed, 19 Nov 2025 10:47:52 +0100
-Message-ID: <87ikf6qrp3.fsf@BLaptop.bootlin.com>
+	Wed, 19 Nov 2025 09:50:03 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=MPxV851xTjcWbDvstJF4MstyoLzb0xId1eTxrb2FLGI=;
+	b=5T82+hG886f1Lt/vohA/vBqbdt+zjEXAej2Pee5+nsD/NfI5oh71S6iVGp7im2EcQvcDJPAHZ
+	mpGdHByK8YrH2fOY9WUAuovBEaTWrWouZ9VMmKKXmwPcyfSpBdOMBncBsixZGAIkvgRahC8IBLv
+	gUQTuOgg251UY0dn/GBs4yY=
+Received: from mail.maildlp.com (unknown [172.19.163.17])
+	by canpmsgout08.his.huawei.com (SkyGuard) with ESMTPS id 4dBGr82Db7zmV8D;
+	Wed, 19 Nov 2025 17:48:08 +0800 (CST)
+Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
+	by mail.maildlp.com (Postfix) with ESMTPS id 39A2F1A0188;
+	Wed, 19 Nov 2025 17:49:52 +0800 (CST)
+Received: from [10.67.109.254] (10.67.109.254) by
+ dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Wed, 19 Nov 2025 17:49:49 +0800
+Message-ID: <9adaa51a-09d1-8450-afb0-838ace0f28e9@huawei.com>
+Date: Wed, 19 Nov 2025 17:49:48 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-Last-TLS-Session-Version: TLSv1.3
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.2.0
+Subject: Re: [PATCH v7 01/11] arm64/ptrace: Split report_syscall()
+To: Kevin Brodsky <kevin.brodsky@arm.com>, <catalin.marinas@arm.com>,
+	<will@kernel.org>, <oleg@redhat.com>, <tglx@linutronix.de>,
+	<peterz@infradead.org>, <luto@kernel.org>, <shuah@kernel.org>,
+	<kees@kernel.org>, <wad@chromium.org>, <akpm@linux-foundation.org>,
+	<ldv@strace.io>, <macro@orcam.me.uk>, <deller@gmx.de>,
+	<mark.rutland@arm.com>, <song@kernel.org>, <mbenes@suse.cz>,
+	<ryan.roberts@arm.com>, <ada.coupriediaz@arm.com>,
+	<anshuman.khandual@arm.com>, <broonie@kernel.org>, <pengcan@kylinos.cn>,
+	<dvyukov@google.com>, <kmal@cock.li>, <lihongbo22@huawei.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<linux-kselftest@vger.kernel.org>
+References: <20251117133048.53182-1-ruanjinjie@huawei.com>
+ <20251117133048.53182-2-ruanjinjie@huawei.com>
+ <970d9689-4188-4c40-92e6-bdf1e589e8a2@arm.com>
+Content-Language: en-US
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <970d9689-4188-4c40-92e6-bdf1e589e8a2@arm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.67.109.254]
+X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
+ dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251119_014801_120538_6266A513 
-X-CRM114-Status: GOOD (  19.93  )
+X-CRM114-CacheID: sfid-20251119_015002_152171_1DB93183 
+X-CRM114-Status: GOOD (  18.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,150 +89,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Rob Herring <robh@kernel.org> writes:
 
-> On Mon, Nov 17, 2025 at 06:00:15PM +0100, Gregory CLEMENT wrote:
->> Enable access to memory resources not only via I/O address using reg,
->> but also through a portion of main memory using memory-region. To
->> achieve this, new compatible strings have been introduced: mtd-mem and
->> mtd-memro.
->>=20
->> Signed-off-by: Gregory CLEMENT <gregory.clement@bootlin.com>
+
+On 2025/11/19 1:09, Kevin Brodsky wrote:
+> On 17/11/2025 14:30, Jinjie Ruan wrote:
+>> The generic syscall entry code has the form:
+>>
+>> | syscall_trace_enter()
+>> | {
+>> |	ptrace_report_syscall_entry()
+>> | }
+>> |
+>> | syscall_exit_work()
+>> | {
+>> |	ptrace_report_syscall_exit()
+>> | }
+>>
+>> In preparation for moving arm64 over to the generic entry code, split
+>> report_syscall() to two separate enter and exit functions to align
+>> the structure of the arm64 code with syscall_trace_enter() and
+>> syscall_exit_work() from the generic entry code.
+>>
+>> No functional changes.
+>>
+>> Suggested-by: Mark Rutland <mark.rutland@arm.com>
+>> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
 >> ---
->>  .../devicetree/bindings/mtd/mtd-physmap.yaml       | 59 +++++++++++++++=
--------
->>  1 file changed, 40 insertions(+), 19 deletions(-)
->>=20
->> diff --git a/Documentation/devicetree/bindings/mtd/mtd-physmap.yaml b/Do=
-cumentation/devicetree/bindings/mtd/mtd-physmap.yaml
->> index 1b375dee83b0c..0f75a1204b263 100644
->> --- a/Documentation/devicetree/bindings/mtd/mtd-physmap.yaml
->> +++ b/Documentation/devicetree/bindings/mtd/mtd-physmap.yaml
->> @@ -13,10 +13,6 @@ description: |
->>    Flash chips (Memory Technology Devices) are often used for solid state
->>    file systems on embedded devices.
->>=20=20
->> -allOf:
->> -  - $ref: mtd.yaml#
->> -  - $ref: /schemas/memory-controllers/mc-peripheral-props.yaml#
->> -
->>  properties:
->>    compatible:
->>      oneOf:
->> @@ -61,6 +57,8 @@ properties:
->>            - jedec-flash
->>            - mtd-ram
->>            - mtd-rom
->> +          - mtd-mem
->> +          - mtd-memro
->
-> I thought we had a flag for read only.
+>>  arch/arm64/kernel/ptrace.c | 29 ++++++++++++++++++++---------
+>>  1 file changed, 20 insertions(+), 9 deletions(-)
+>>
+>> diff --git a/arch/arm64/kernel/ptrace.c b/arch/arm64/kernel/ptrace.c
+>> index 4b001121c72d..5534c175ceb7 100644
+>> --- a/arch/arm64/kernel/ptrace.c
+>> +++ b/arch/arm64/kernel/ptrace.c
+>> @@ -2317,7 +2317,7 @@ enum ptrace_syscall_dir {
+>>  	PTRACE_SYSCALL_EXIT,
+>>  };
+> 
+> This is now unused so it should be removed.
 
-The read-only flag is set at the partition level, not the device level.
+Sure.
 
->
->>=20=20
->>    reg:
->>      description: |
->> @@ -116,6 +114,10 @@ properties:
->>      minItems: 1
->>      maxItems: 8
->>=20=20
->> +  memory-region:
->> +    items:
->> +      - description: Memory regions to map into mtd
+> 
+>>  
+>> -static void report_syscall(struct pt_regs *regs, enum ptrace_syscall_dir dir)
+>> +static void report_syscall_enter(struct pt_regs *regs)
+> 
+> Nit: better to call it "report_syscall_entry" to match its final name.
+
+That makes sense, thanks for the review.
+
+> 
+>>  {
+>>  	int regno;
+>>  	unsigned long saved_reg;
+>> @@ -2340,13 +2340,24 @@ static void report_syscall(struct pt_regs *regs, enum ptrace_syscall_dir dir)
+>>  	 */
+>>  	regno = (is_compat_task() ? 12 : 7);
+>>  	saved_reg = regs->regs[regno];
+>> -	regs->regs[regno] = dir;
+>> +	regs->regs[regno] = PTRACE_SYSCALL_ENTER;
+>>  
+>> -	if (dir == PTRACE_SYSCALL_ENTER) {
+>> -		if (ptrace_report_syscall_entry(regs))
+>> -			forget_syscall(regs);
+>> -		regs->regs[regno] = saved_reg;
+>> -	} else if (!test_thread_flag(TIF_SINGLESTEP)) {
+>> +	if (ptrace_report_syscall_entry(regs))
+>> +		forget_syscall(regs);
+>> +	regs->regs[regno] = saved_reg;
+>> +}
 >> +
->>    '#address-cells':
->>      const: 1
->>=20=20
->> @@ -129,21 +131,25 @@ properties:
->>=20=20
->>  required:
->>    - compatible
->> -  - reg
->> -
->> -if:
->> -  properties:
->> -    compatible:
->> -      contains:
->> -        const: cortina,gemini-flash
->> -then:
->> -  properties:
->> -    syscon:
->> -      $ref: /schemas/types.yaml#/definitions/phandle
->> -      description:
->> -        Phandle to the syscon controller
->> -  required:
->> -    - syscon
+>> +static void report_syscall_exit(struct pt_regs *regs)
+>> +{
+>> +	int regno;
+>> +	unsigned long saved_reg;
 >> +
->> +allOf:
->> +  - $ref: mtd.yaml#
->> +  - if:
->> +      properties:
->> +        compatible:
->> +          contains:
->> +            enum:
->> +              - mtd-mem
->> +              - mtd-memro
->> +    then:
->> +      required:
->> +        - memory-region
->> +      properties:
->> +        addr-gpios: false
->> +    else:
->> +      $ref: /schemas/memory-controllers/mc-peripheral-props.yaml#
->> +      required:
->> +        - reg
->>=20=20
->>  unevaluatedProperties: false
->>=20=20
->> @@ -223,4 +229,19 @@ examples:
->>              reg =3D <0 0x04000000>;
->>          };
->>      };
+>> +	/* See comment for report_syscall_enter() above */
+>> +	regno = (is_compat_task() ? 12 : 7);
+> 
+> Probably best not to duplicate such magic numbers, moving this line to a
+> helper would be good.
+
+That makes sense.  A helper will remove the duplicate.
+
+> 
+> - Kevin
+> 
+>> +	saved_reg = regs->regs[regno];
+>> +	regs->regs[regno] = PTRACE_SYSCALL_EXIT;
 >> +
->> +  - |
->> +    /* An example using mtd-mem */
->> +    mem_logs: mem_logs@10000800 {
->> +        reg =3D <0x1 0x0000800 0x0 0x000f800>;
->> +        no-map;
->> +    };
->> +
->> +    sram {
->
-> It's really an abuse of /reserved-memory to define regions outside of=20
-> what's defined in /memory nodes (or whatever defines system memory). Is=20
-> that the case here with the suspicious 'sram'?
->
-> If we do keep this, I'd rather just add the properties below into the=20
-> /reserved-memory node itself. Devices are created for those nodes if=20
-> they have 'compatible'.
-
-The name is indeed misleading. I drew inspiration from the example
-above, but the actual use case was to share data between the kernel and
-bootloader, for instance. Therefore, it is truly part of the main
-memory. I will modify the name accordingly.
-
-Thanks,
-
-Gregory
-
->
->
->> +        compatible =3D "mtd-mem";
->> +        memory-region =3D <&mem_log>;
->> +        bank-width =3D <4>;
->> +        device-width =3D <1>;
->> +    };
->> +
->>  ...
->>=20
->> --=20
->> 2.51.0
->>=20
-
---=20
-Gr=C3=A9gory CLEMENT, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+>> +	if (!test_thread_flag(TIF_SINGLESTEP)) {
+>>  		ptrace_report_syscall_exit(regs, 0);
+>>  		regs->regs[regno] = saved_reg;
+>>  	} else {
+>> @@ -2366,7 +2377,7 @@ int syscall_trace_enter(struct pt_regs *regs)
+>>  	unsigned long flags = read_thread_flags();
+>>  
+>>  	if (flags & (_TIF_SYSCALL_EMU | _TIF_SYSCALL_TRACE)) {
+>> -		report_syscall(regs, PTRACE_SYSCALL_ENTER);
+>> +		report_syscall_enter(regs);
+>>  		if (flags & _TIF_SYSCALL_EMU)
+>>  			return NO_SYSCALL;
+>>  	}
+>> @@ -2394,7 +2405,7 @@ void syscall_trace_exit(struct pt_regs *regs)
+>>  		trace_sys_exit(regs, syscall_get_return_value(current, regs));
+>>  
+>>  	if (flags & (_TIF_SYSCALL_TRACE | _TIF_SINGLESTEP))
+>> -		report_syscall(regs, PTRACE_SYSCALL_EXIT);
+>> +		report_syscall_exit(regs);
+>>  
+>>  	rseq_syscall(regs);
+>>  }
+> 
 
