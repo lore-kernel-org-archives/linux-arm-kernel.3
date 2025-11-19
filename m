@@ -4,99 +4,163 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C733CF2599
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 08:02:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6BE0CF2597
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Nov 2025 08:02:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AheCr9rr/sxkXy+oeczaUi7thIoHaJwOb9+DkTPHTDg=; b=CrBKWHzAFYZjJKavhLti14qEWF
-	bVZ0siE3S6HAfOClUp1krewKa9qsyuTculNZvoJUW/0KU7+hckYQftZzJelgktB05Xj0qWCglKA+X
-	z4lZyZHhe0DA1ech60+s4qqDVZ+zvIPd26tIeLu3AYG69IvraFW93Xl54dQt8m4JMnkV4HpO+RTCp
-	pPn9w6TTEUUS8jfIbqPJbejM72VkV419dHDhGjBfzIq7ZxWyNUo6EEAN7b9/tFFOW9Ny+bsDf6PWK
-	TP3cVVUAMgwxHkCONkdtFFYG/RD//f+09V2pqRJjBQgWC05aN4asPqL1W8q1B3H2zHWGW0p9MjOL0
-	4K7Qm8AA==;
+	bh=13mY2eR7qW6Vl38zuwkOzuD9Ee+NuteGwGb10JK1zbM=; b=EURyLLo/6BGfL6bGXTcFwVXrEs
+	mLB0jCJKudFBMWdItFhNNo8BRRBNxuU+LeklN8j8weSvfIOjMGyOPUijcOMOojs+ODxXHlKeycR/2
+	DFpxRQ2XY4WIFCHX2Rwget4Sb/iYO8n7w7ZSWtkwG/kCJDVzIj1Prf2wnOtv/HIvg5TUQ/jdq6oxl
+	pn4HBqcmiMJG2C56v7it8Wh1YOGErtuBr5RuVagQoDm7rihSp0K/BYrf8p4BAYOolCJ0ZXjitWSi5
+	5sigk5Hu0RWHwexvcPTX4j0lCRWmPm/V2BKO0xQfokhSBAQRL/D9kyTFwFE7vI8NX8PgYfqw04tol
+	hlrUwLDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLd8N-00000002kmb-2yZ3;
-	Wed, 19 Nov 2025 08:01:47 +0000
-Received: from mail-ej1-x631.google.com ([2a00:1450:4864:20::631])
+	id 1vLd98-00000002ksI-2H6P;
+	Wed, 19 Nov 2025 08:02:34 +0000
+Received: from mail-southcentralusazon11013015.outbound.protection.outlook.com ([40.93.196.15] helo=SA9PR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLd8L-00000002kmE-0w4M
+	id 1vLd95-00000002krJ-0EzP
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Nov 2025 08:01:46 +0000
-Received: by mail-ej1-x631.google.com with SMTP id a640c23a62f3a-b72bf7e703fso1038883366b.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Nov 2025 00:01:44 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1763539303; x=1764144103; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=AheCr9rr/sxkXy+oeczaUi7thIoHaJwOb9+DkTPHTDg=;
-        b=JyPBqFQ9mGfXM6lKli6x1G4FY7/wZRCn4Vv/7ttNuyej7sAVFUnz86iEZyr9GIEXpa
-         S013XsBygS/An1whkDdb2PnwJJhD7gy6Z/NzLQ5XIf5eXLhCsFUBTQKNMcEjQQZ+ZLxY
-         Ovg7LOPUkXVfAD1BRbH9XOTIhw6GfeI1kpa+poHWwm+Qlojvj9+JMruj+zXaiGUJVKnm
-         YyuZEvSVOsYyFZumVCsS8qRc5CvH3uUm1ESZhHH94XJ+yrySZmX23Qr3xgcZ+3+6e3ME
-         vA2I37hUv/ONvGDztw95Ll+tZwuqLavIPrnzasapC/hqpo142OIeedxY/vukAg62FpiU
-         4cSQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763539303; x=1764144103;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=AheCr9rr/sxkXy+oeczaUi7thIoHaJwOb9+DkTPHTDg=;
-        b=HqUsy407UkmQl9CaBrbGOe0MfNLe7909hgwVBqv1AhyzuAlN/HE5vDopMtaWbvmvOE
-         /r/nCS6cfXWwa/o6M+eHppA+FXom+bONyskO1OvnsGj+hUPV28ch8fLp4C5Vun+b8pwg
-         SPvRyKXk/n5mew4rN/g8WulGdb10qZOqApB+weApAD8mDYOEyrVknxwkEyET/u7GZtul
-         7vPI0Ci1BJhQpLxgK8EWgrSeH9fAq8o9zfHG6OofBJo7z88mv3zNS5h5nAr++4fK9N9h
-         GgOglwC9DVegfllhBDBXpd1aImjuubwNi/zym47+iPGFoj6SFavyfmYbaLqQdru3gi10
-         TeyQ==
-X-Forwarded-Encrypted: i=1; AJvYcCV7pe7Z9zXAOwTGzAudnS67NsM5oxRiND07UFEQNDk34g4s0bSfO0WwU9Eq/Pgk/4xT5wz9NrJgEVM7v7FJSZ2i@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxaix/xUn4xCleKIZnwDFSXvZiDXdS3meFs3XdBpGeiTbj1crlx
-	1GZqFFUr+vXFqCNbiPXhqv5bxgB5VzUkNP0ig1Ma0F0UCN7ZroSud+yKv9iHjwzw4jauX6nuvPt
-	ZFLxdUYgCneEID510+XBukoflaHvoBBY=
-X-Gm-Gg: ASbGncvg23yvwBYxOGS6xD9hhVDq87VsjZhJJ3/hPCs3OKz+4R9tqxzNbmALMiy4Raj
-	gz9G7IAQbBTRt8GRjC7vMPZe6deu8ZDxwaxQpL3YVYaEe8LuKuFGdgAQMF8CSPfvOXdQRRkjBrn
-	EHeHgTfJms54Rssx9w6hh5xdvtIrbSYOb5GD3R6xtG7mDXMtmwI2ftx2ZYo1XIz6hRSBHWcBwr2
-	UhuLW/1xn6iLILl9QDgT4NoTjj6Z82VvAgfz0mgumAB9V+/LC44Ac6jMg15/CUeWpPwgUqQcfWZ
-	ytprJ4wfSQ5pDhZP3hQX5YaVmFOsSdoqiCLJ/Fj/H+s/mKThTIadVWgJCAYtyDNMLaohgZAqfIV
-	X/v15QvR9ChDZesyjuA==
-X-Google-Smtp-Source: AGHT+IH9RLmrudJYiFQxGBpWdalp0RNvdPE1jKRqx1L9zjBC+zs6TZNN0Aq/tWyMeDQCJfcJOrE+KpnLw+AjClRbY58=
-X-Received: by 2002:a17:907:d09:b0:b73:4816:7494 with SMTP id
- a640c23a62f3a-b7367868812mr1750251666b.8.1763539302927; Wed, 19 Nov 2025
- 00:01:42 -0800 (PST)
+	Wed, 19 Nov 2025 08:02:32 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=FPhiSLWDVpGtVJ5C8SEN3rCb92x4Afa++qHnckIZFKoEk76ZoOguKTjW0IKoy0++VYQ280JdYF9HPlhY4PmPZC474OgoiEXjs9OrmBwQWqn2yGq6lzsVNB/xDmBtFZkoHqGaEDJhOQ0l//PmArniMJABllvhUjfG/QrV1OVLa5rpx0zYG2RlGy/AFe1I81RiFo3EdjPhxyPgYqjp1ZDNuTSiD7b8dtRAh66YA0PzG16Bs0CkIgA6S5pTcSpRwR887sgIbf7pOQcntVnQEmGi7xTOQLoRh7vyCiafybpGEAlRRu50R2XEtMdLpMZ9SZ5+aP41Y7VsZZny6zDQ02anJQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=13mY2eR7qW6Vl38zuwkOzuD9Ee+NuteGwGb10JK1zbM=;
+ b=LJIg0sX9sGmukAUxwYtddwrjg+EoaGM3gwFJ96s7ue8o4VJnYFvR6FY/s/nYZ3wq4r0jZ72lyiELcrJgmG/Ntag3GUslt/0pMybJJhSVoAuNPhYOfjrcBvA+k6ybht9MeS16DfnXkNl4nGxENARq8epgAvTkskYbpf0sGT2uUvLdH73MmjKVPxLcpc/iPBZ0X8OWDVLDTGxY6RjmEPGjh64t9yex6fCH5go3/eRQPKm3iOsz9r6+8y3NqoJ2KlJPwTPPar4woItdrk2tydfjPhrcvmcz1lYNToj7LEwA5f10PMMmYHkgAbO3bUkKo9059Ip2rKpC3ROq0ZKOtNEV6g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.23.195) smtp.rcpttodomain=st-md-mailman.stormreply.com
+ smtp.mailfrom=ti.com; dmarc=pass (p=quarantine sp=none pct=100) action=none
+ header.from=ti.com; dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=13mY2eR7qW6Vl38zuwkOzuD9Ee+NuteGwGb10JK1zbM=;
+ b=P0rQ/3D2BSW9PHk2FN8fHrWgYq9mEqeeGLd/YGN+sxs3h4fJ+8aBqRe872W01bHXPy3jbmAOLhei1EaXhAA1rLYIZhqByW6U7IAbSIpr6zNNVpthXEfywYI02wRWncECEPlc3cqZFcXB6WGFva0w2tqwj8TuILD+p6uU3C8AmSc=
+Received: from DS7PR03CA0018.namprd03.prod.outlook.com (2603:10b6:5:3b8::23)
+ by BN0PR10MB5190.namprd10.prod.outlook.com (2603:10b6:408:12b::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9343.10; Wed, 19 Nov
+ 2025 08:02:26 +0000
+Received: from CY4PEPF0000EE3B.namprd03.prod.outlook.com
+ (2603:10b6:5:3b8:cafe::6d) by DS7PR03CA0018.outlook.office365.com
+ (2603:10b6:5:3b8::23) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9320.22 via Frontend Transport; Wed,
+ 19 Nov 2025 08:02:26 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.195)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
+Received: from lewvzet201.ext.ti.com (198.47.23.195) by
+ CY4PEPF0000EE3B.mail.protection.outlook.com (10.167.242.14) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9343.9 via Frontend Transport; Wed, 19 Nov 2025 08:02:26 +0000
+Received: from DLEE100.ent.ti.com (157.170.170.30) by lewvzet201.ext.ti.com
+ (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256) id 15.2.2562.20; Wed, 19 Nov
+ 2025 02:02:25 -0600
+Received: from DLEE210.ent.ti.com (157.170.170.112) by DLEE100.ent.ti.com
+ (157.170.170.30) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Wed, 19
+ Nov 2025 02:02:24 -0600
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE210.ent.ti.com
+ (157.170.170.112) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Wed, 19 Nov 2025 02:02:24 -0600
+Received: from [172.24.234.212] (uda0510294.dhcp.ti.com [172.24.234.212])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 5AJ82JXv1541040;
+	Wed, 19 Nov 2025 02:02:20 -0600
+Message-ID: <4c787312-2340-437d-9d52-9917d29e3eac@ti.com>
+Date: Wed, 19 Nov 2025 13:32:18 +0530
 MIME-Version: 1.0
-References: <20251112-gpio-shared-v4-0-b51f97b1abd8@linaro.org>
- <CAMuHMdVR9Z70+M-SqHYrHiC6H_yw=VRuDOOg=YnXSNKjPnx3WQ@mail.gmail.com> <CACRpkdZioOu9AEBdaNWX1njsVvFYR8SP8yJrY8MFMbJtL6YLJA@mail.gmail.com>
-In-Reply-To: <CACRpkdZioOu9AEBdaNWX1njsVvFYR8SP8yJrY8MFMbJtL6YLJA@mail.gmail.com>
-From: Andy Shevchenko <andy.shevchenko@gmail.com>
-Date: Wed, 19 Nov 2025 10:01:06 +0200
-X-Gm-Features: AWmQ_bnZWE45z8dq-W-vFJmONbGs-165GBHB7vG7G8yZKHS0TzpNGV8dz1PBcfU
-Message-ID: <CAHp75Vd56XYo6PgoJWeUcH328uD2svUCBX7SWT_WUZEH2AvoDw@mail.gmail.com>
-Subject: Re: [PATCH v4 00/10] gpio: improve support for shared GPIOs
-To: Linus Walleij <linus.walleij@linaro.org>
-Cc: Geert Uytterhoeven <geert@linux-m68k.org>, Bartosz Golaszewski <brgl@bgdev.pl>, Kees Cook <kees@kernel.org>, 
-	Mika Westerberg <westeri@kernel.org>, Dmitry Torokhov <dmitry.torokhov@gmail.com>, 
-	Andrew Morton <akpm@linux-foundation.org>, Manivannan Sadhasivam <mani@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Saravana Kannan <saravanak@google.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Andy Shevchenko <andy@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Srinivas Kandagatla <srini@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
-	Alexey Klimov <alexey.klimov@linaro.org>, Bjorn Andersson <andersson@kernel.org>, 
-	Konrad Dybcio <konradybcio@kernel.org>, linux-hardening@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-sound@vger.kernel.org, 
-	linux-arm-msm@vger.kernel.org, 
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>, 
-	Linux-Renesas <linux-renesas-soc@vger.kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6] remoteproc: Use of_reserved_mem_region_* functions for
+ "memory-region"
+To: "Rob Herring (Arm)" <robh@kernel.org>, Bjorn Andersson
+	<andersson@kernel.org>, Mathieu Poirier <mathieu.poirier@linaro.org>, "Shawn
+ Guo" <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
+	"Pengutronix Kernel Team" <kernel@pengutronix.de>, Fabio Estevam
+	<festevam@gmail.com>, Geert Uytterhoeven <geert+renesas@glider.be>, Magnus
+ Damm <magnus.damm@gmail.com>, Patrice Chotard <patrice.chotard@foss.st.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue
+	<alexandre.torgue@foss.st.com>
+CC: Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>, Peng Fan
+	<peng.fan@nxp.com>, <linux-remoteproc@vger.kernel.org>,
+	<imx@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>,
+	<linux-renesas-soc@vger.kernel.org>,
+	<linux-stm32@st-md-mailman.stormreply.com>
+References: <20251031175926.1465360-1-robh@kernel.org>
+Content-Language: en-US
+From: Beleswar Prasad Padhi <b-padhi@ti.com>
+In-Reply-To: <20251031175926.1465360-1-robh@kernel.org>
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CY4PEPF0000EE3B:EE_|BN0PR10MB5190:EE_
+X-MS-Office365-Filtering-Correlation-Id: fd28589b-aac0-4d78-3f7a-08de2741fab5
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|82310400026|376014|36860700013|7416014|921020;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?MW1LK2J3MVJ3RDF1cm1qNndudnJSd3BaNDNzMnl1MjgvSzBZcE5TMGRKUUVM?=
+ =?utf-8?B?V1hCMDlZT09ncHl3MDBReUdGVXlFQmdvOFhFUCs0dElhS2M4dHcyT1VSeGQy?=
+ =?utf-8?B?T2pIRk1kN3hIR1BRcVVtbkNLbXFqdG9ISURhSVJ0TXNtSHM5bjZvNld4djVP?=
+ =?utf-8?B?dXBkemdMc1p2eGRzNm5ta05hYWNwMDN6cjVwSUtwU01ZTEduODJMZ1Q5eUJJ?=
+ =?utf-8?B?ME9CQ1UrMktrT2xvV085bGpJdG5ySVNHV0IvTWZOT2hFbVJ1UllqZ2VxVzBS?=
+ =?utf-8?B?Z1ZzQytsUTdMa0VXRjNLUWR0c21CYVAyYWYyVGhUMUR0WGxCWnRNT3VmMVRE?=
+ =?utf-8?B?UEwzN2lHZWtEYnpWOWY0ZjRLSWFHWnF0aFV2ZFJjSlRoVUxjY01hMkF5Yy9C?=
+ =?utf-8?B?SGVpdlRmUVAvdmUzNHhiQUF1eWNwcndiT3B5Y3hCbFRmbHNVWGlNWTh4Zngw?=
+ =?utf-8?B?NkdGdWtJM0VodXRvSWJCWWRPYm5ITFk2dkl1dlFOMlRIWFgvR1dYTUFtNGZo?=
+ =?utf-8?B?K3c0OE9NWUw2V0VBY1FhTU5oUHB6d3VVS0RNTStjUE96MDFXMHR6OVdaT2xL?=
+ =?utf-8?B?RjN0b3MxM3BpSVpIQXJnVXhqMkM4V3M4eit5dUVOSzBKRS94RGR6NzFnUy9w?=
+ =?utf-8?B?S29hTzBkLzNXbUlwYU5ieTU5YnJOYzVKSkMrOUp5dUZyV2FLdVpqZmRKTm5X?=
+ =?utf-8?B?Tkk4K2trendJN3FnamtQSEIrSXZaZHRZMFdWM0szZVIrUVQ0VUJqYjVNdE1U?=
+ =?utf-8?B?REc5dDVaZnptd2c5YUZvY1UxYXFqUVpQZUhKOVUrTzAvVjhSbGNKcWZhK1J5?=
+ =?utf-8?B?RkFBajlWaVg1M3ZubEJGaHd5MDFFVHNEOHJCTXk5WWZaTTM0UjFmazhoL0h4?=
+ =?utf-8?B?a3orTXV6NmI3amF3amRud0E3c2drNFhvT3AxVzBMdE9rSUFTbGlzZG9Jd00r?=
+ =?utf-8?B?ZmxlTm9aTUlEUmxMVDZVa0lZODZMQTllYmpyQStFNndrUEhudEpGcmZYZzZE?=
+ =?utf-8?B?dytpcW1wd3JvbzdoZUYzaGhhZU40aFZhN2RVRmg3amxvLytwWXVoOGJjQk5G?=
+ =?utf-8?B?QVdISVRNVmFaSVErWVRaZmIvMkVxaFJwbnJscUk5a3Y2dXBIUDdQcHFKbjcw?=
+ =?utf-8?B?U0Mwb1ZxWk1rQlRNNFBLTzBzQzFmbjZXQ3VYRVpLWHVNdk41MkhhV2NjRXBO?=
+ =?utf-8?B?dlJDUlcrSEtwRmV4aUYreExjSFZ4aVRmWXVkSS9WQjRqU3hUVVhiVmtvOXZP?=
+ =?utf-8?B?dVNXMUdoTjh1bFFKUy9EbTZSVEx3MWlZVVUzMHM5aGdiMkE2bWcwZGh3cVQ5?=
+ =?utf-8?B?R2ZVY3krUG1JN0pwQldVa0lGWE1aU1M4N21lRjhFdEFiRUhWOTNiaU1ZYXE2?=
+ =?utf-8?B?ZVJySUFMdmJ3OEc0UWRWY21XNnNXZlh2ckF0Q24xNVFqa1BFRkFRZ0ZFS3BV?=
+ =?utf-8?B?NVBsL0tHakJsbEZySVcvbkdmenZYNzZSa1dUWm5GRmlEblV5OEUxOCtxc2l2?=
+ =?utf-8?B?dm9ldDg5ZnB4VnVHMVJ4MHZycVhaZjg4WGdzN3VNVFcrWFVqOUFYT2s4Zng0?=
+ =?utf-8?B?ZmZTZGVON0ZkMFN2S0FvT1RJTzFlSDRjbW5BVEg0MU1xTnFQa1VmR0RMaEhY?=
+ =?utf-8?B?VUoxWUk4RExlSUt5dXBTMXFtbzJVL3dYWTVpRFpzNnFGSGRyMEtpQnVnZVpK?=
+ =?utf-8?B?MUxsSEc5T25jRmQvRVhrZUNXSGVoY1ppUU15N1N3bGhGYktiZ3Q4Qy8rK1NT?=
+ =?utf-8?B?aTJzY0tnVHRLQytZM1hRL09WbS9wWkxqaFA1djMrNC92NnV4MUh2cm1ONy9J?=
+ =?utf-8?B?a2Zpanl1SnJEMmRTLzRGN1RBalh6R2U3U3cyMldlejQvejFtMWN5UHg0RkZJ?=
+ =?utf-8?B?aUVxdUtNQWxxckZOM2N6WFF0VEFNbTlpVjZhaHRLK215NE90VFQ3YWFzNXpT?=
+ =?utf-8?B?WFFLOXJRWG5hTm8xTWNKL2l0czVLVU9rWWphVG04VEg4T1UzOUU4TEJCR1E1?=
+ =?utf-8?B?U3ZGMG01MGRJQ3BERStBeFJZSVY5OWFrK3hpNHJMUFB3RDJXSHBUOEJRVVJs?=
+ =?utf-8?B?L2dMNzU5Y25ja0NMOXpkLzkrRlhtZjhhNDFNdWIwT2w0VFptZnlVRGsyS0ZF?=
+ =?utf-8?Q?Z3yX4Xjd9AmQRvgA79tiEGZxx?=
+X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(376014)(36860700013)(7416014)(921020);DIR:OUT;SFP:1101;
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Nov 2025 08:02:26.5173
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: fd28589b-aac0-4d78-3f7a-08de2741fab5
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: CY4PEPF0000EE3B.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BN0PR10MB5190
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251119_000145_285688_0BBB4E4C 
-X-CRM114-Status: GOOD (  32.52  )
+X-CRM114-CacheID: sfid-20251119_000231_181913_2E1FE40E 
+X-CRM114-Status: GOOD (  12.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,64 +175,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 19, 2025 at 1:24=E2=80=AFAM Linus Walleij <linus.walleij@linaro=
-.org> wrote:
-> On Tue, Nov 18, 2025 at 12:15=E2=80=AFPM Geert Uytterhoeven
-> <geert@linux-m68k.org> wrote:
 
-...
+On 31/10/25 23:29, Rob Herring (Arm) wrote:
+> Use the newly added of_reserved_mem_region_to_resource() and
+> of_reserved_mem_region_count() functions to handle "memory-region"
+> properties.
+>
+> The error handling is a bit different in some cases. Often
+> "memory-region" is optional, so failed lookup is not an error. But then
+> an error in of_reserved_mem_lookup() is treated as an error. However,
+> that distinction is not really important. Either the region is available
+> and usable or it is not. So now, it is just
+> of_reserved_mem_region_to_resource() which is checked for an error.
+>
+> Acked-by: Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>
+> Tested-by: Peng Fan <peng.fan@nxp.com> # i.MX93-11x11-EVK for imx_rproc.c
+> Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be> # rcar
+> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
 
-> > We have a long-standing use-case on various Renesas R-Car Gen3 boards
-> > (e.g. Salvator-X(S) and ULCB[1]), where GPIOs are shared by LEDs and
-> > key switches.  Basically, the GPIO is connected to:
-> >   1. A key switch connecting to GND when closed, with pull-up.
-> >   2. The gate of an N-channel MOSFET, turning on an LED when driven
-> >      high.
-> >
-> > Hence:
-> >   - In output mode, the LED can be controlled freely,
-> >   - In input mode, the LED is on, unless the key is pressed,
-> >   - Hence the switch state can only be read when the LED is turned on.
->
-> Fantastic solution to a lack of GPIO lines.
 
-I feel a poster "SARCASM" behind this line :-)
-That's what happened when old-school (in a bad term) HW engineers who
-try to enforce their experience on the modern SoC-based platforms that
-run GP OSes in multi-tasking, multi-user manner.
+All of the tests pass in our CI. Feel free to use:
 
-> This reminds me of the Amiga 500 power LED which was connected
-> to a GPIO which was cleverly also reused to control the audio filter,
-> with the effect that when you turned off the audio filter the power LED
-> went out and music toggling the filter off/on for effects would also
-> give you an incidental stroboscope.
->
-> > If you have any idea how to handle this, feel free to reply ;-)
->
-> Isn't it pretty clear from the system-level DTS how the line
-> is used?
->
-> If it is connected to a gpio key it gets assigned for that usecase
-> and handled by that driver and if it is connected to a gpio LED
-> it is handled by that driver.
->
-> For the input usecase the status of the LED is a byproduct and
-> should not reflect in software I think. It surely should not be
-> controllable and possible to set into output mode because
-> that sounds like a recipe for HW damage if you drive it
-> actively high and press the key at the same time.
->
-> gpio_keys {
->     compatible =3D "gpio-keys";
->
->     button-ok {
->         gpios =3D <&gpio 0 GPIO_OPEN_DRAIN | GPIO_PULL_UP>;
->     };
-> };
+Tested-by: Beleswar Padhi <b-padhi@ti.com> # TI
 
-This is my understanding as well.
+Thanks,
+Beleswar
 
---=20
-With Best Regards,
-Andy Shevchenko
+
+> ---
+> v6:
+>  - Rebase on v6.18-rc1
+>  - The error in v5 was fixed in v6.17 commit aea70964b5a7
+>    ("of: reserved_mem: Add missing IORESOURCE_MEM flag on resources")
+>
+> [...]
 
