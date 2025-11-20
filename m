@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FF29CF9C73
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E193BCF9C51
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 17:26:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,42 +12,42 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=D8UoIByuxhzADXO+k9OFhOe+fcXzESCOC+jX2cMh8ss=; b=m1pHOzy7UMNptWSKTBvWF/mqhx
-	BgmEvNfYGEqEhfVbTNHbutwzkbdMITeuAXZNePD8zQ97fCfskNyVaGJvdtm2Hx/WAExSoObwKxb4Z
-	UNDSBMrDHqxMjyDnuj6i7+2xlSeiaHhRvn/iXfrcCmiRfnF6Ku6lW1IJTFsFkTGqAUtM71DeTD1FZ
-	fXAhwn7X8yflwyqSpE9RMivTPnHF8mIdEUYLVeIB2Ca32pGYbJolEoYDqrQ4RSRIYEkvOjDGs+xHJ
-	iTVal9FtqH/77fpXagusJXb0UmILmqu1aiYRwkUF9ETqjMDcAguPSO7pHnnrglEu3LcDMnULuuLa5
-	x5Om1p/g==;
+	bh=Ww/YhtqDITRgrf8vrK21rCxXjV4kf1dj0dTPQacuksg=; b=a/ZhxgyEBIxcfhLqXsc0NIAP5G
+	+4PHFE+D8Rb+1bGfWWU8fSR97eW0NQ6oxcZZx63q8QDgOvFeoqBb/mtoY5zUxpQOK4P9G4nB8YAk+
+	XIPT000u2HRBa44A/zysp1MaC3tgLkEs+NQmdOZbjixgyD0bXuonxZTTetiJJzKTX2Eb5cHBX9zE9
+	k/ZQCU9bX5nZ/iZzsSUybewB7K0ulqosbed2vK7NO5ttvflTtSiISYM5lsHBMvsxU8SEdcScCUliS
+	g+RJ9fBmXpFFInQIL+bNiyZU0lli7/Lej9Mmmx7u6V/9VoJbDeY51U//s2MV8SvWd6f55C+upB9y7
+	R7crlWKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vM8QC-000000075uR-0vjr;
-	Thu, 20 Nov 2025 17:26:16 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vM8QB-000000075tR-2fyr;
+	Thu, 20 Nov 2025 17:26:15 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vM8Px-000000075ch-3ore
+	id 1vM8Pv-000000075bE-44zz
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Nov 2025 17:26:02 +0000
+	Thu, 20 Nov 2025 17:26:01 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 50B0F601F1;
-	Thu, 20 Nov 2025 17:26:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 06BFBC16AAE;
-	Thu, 20 Nov 2025 17:26:01 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 9DF8944431;
+	Thu, 20 Nov 2025 17:25:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7E3A8C116D0;
+	Thu, 20 Nov 2025 17:25:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763659561;
-	bh=Wne+A8EYEvVAkzxyqVearpf9rf8Dhb8b8xWDhsiAlHo=;
+	s=k20201202; t=1763659559;
+	bh=fEboDabzfdT1z+/aMTmm6yEOOvmNnX4iNfBHI1NhwLE=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=ib/KQUfr+I/dKWLtDhG4jMPbPOdn+OKJMfqcWAvMOXGUp/4ZXYHhXJ5OEqZSvMlR7
-	 y2qGjr6x9ZX/3qtjrYfxI5JAwIXUgroaRtCK5xAR9LVeABxSet4QBbwW551kmG06Vk
-	 N0Mif7sbmGu0g590U0bBdL2zNOdidBOmmGipM9CToDJhuiZcSFnjQh1wuBcW/O8SUO
-	 GLvUkEGuWYJhDaxActxGOlXlzzMzVEH5ad40enQ2eyNkov7+rGi+KEutqK1X5M31H+
-	 MLguqUIJcTd9pk4E0LH2Sosx0X20WPUP6n/BhedgDnPBlcbBYLpmzwmPi0DeThUYTm
-	 N0AAKhYvEzTDQ==
+	b=FckTF/7VWZ32XbP6p5wjpbKBSNwR/zOVRsK+IEGtbZ1gg+emwHMOr3MqK9p9Pz6c0
+	 p/35HB6+UgmYtaJy7v6sP9XVRZcGeIH4WBB+Jdd+tAO8RD7HdT7hebDAH3mNyFsKnA
+	 kq7H5L1wDCx2vFnIEI+q07WhjGTMLRhHZyy6hUqMxm18JEINhWS50NP4Yt+eB9h436
+	 1k30DMduabELcCDBrmFHXf3iYoBQsLn6CgD67tHxgNUJTQw3Whs45qLnzwlrMGSBst
+	 xJMOSERBHrsAFafPAJR88JIUE45VnvQ44HRuQaz66YIrYIlAPUlqshmPIlIrFpC6+r
+	 uYPGaH86orTcQ==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1vM8Pv-00000006y6g-0uU3;
-	Thu, 20 Nov 2025 17:25:59 +0000
+	id 1vM8Pt-00000006y6g-33bK;
+	Thu, 20 Nov 2025 17:25:57 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
@@ -59,9 +59,9 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Christoffer Dall <christoffer.dall@arm.com>,
 	Fuad Tabba <tabba@google.com>,
 	Mark Brown <broonie@kernel.org>
-Subject: [PATCH v4 22/49] KVM: arm64: Turn kvm_vgic_vcpu_enable() into kvm_vgic_vcpu_reset()
-Date: Thu, 20 Nov 2025 17:25:12 +0000
-Message-ID: <20251120172540.2267180-23-maz@kernel.org>
+Subject: [PATCH v4 16/49] KVM: arm64: GICv2: Decouple GICH_HCR programming from LRs being loaded
+Date: Thu, 20 Nov 2025 17:25:06 +0000
+Message-ID: <20251120172540.2267180-17-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20251120172540.2267180-1-maz@kernel.org>
 References: <20251120172540.2267180-1-maz@kernel.org>
@@ -71,6 +71,9 @@ X-SA-Exim-Connect-IP: 185.219.108.64
 X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, christoffer.dall@arm.com, tabba@google.com, broonie@kernel.org
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251120_092600_221954_9A3BC56B 
+X-CRM114-Status: GOOD (  14.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,119 +88,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Now that we always reconfigure the vgic HCR register on entry,
-the "enable" part of kvm_vgic_vcpu_enable() is pretty useless.
+Not programming GICH_HCR while no LRs are populated is a bit
+of an issue, as we otherwise don't see any maintenance interrupt
+when the guest interacts with the LRs.
 
-Removing the enable bits from these functions makes it plain that
-they are just about computing the reset state. Just rename the
-functions accordingly.
+Decouple the two and always program the control register, even when
+we don't have to touch the LRs.
+
+This is very similar to what we are already doing for GICv3.
 
 Tested-by: Fuad Tabba <tabba@google.com>
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/kvm/vgic/vgic-init.c | 8 ++++----
- arch/arm64/kvm/vgic/vgic-v2.c   | 5 +----
- arch/arm64/kvm/vgic/vgic-v3.c   | 5 +----
- arch/arm64/kvm/vgic/vgic.h      | 4 ++--
- 4 files changed, 8 insertions(+), 14 deletions(-)
+ arch/arm64/kvm/vgic/vgic-v2.c | 28 ++++++++++++++--------------
+ 1 file changed, 14 insertions(+), 14 deletions(-)
 
-diff --git a/arch/arm64/kvm/vgic/vgic-init.c b/arch/arm64/kvm/vgic/vgic-init.c
-index 1796b1a22a72a..6d5e5d708f23a 100644
---- a/arch/arm64/kvm/vgic/vgic-init.c
-+++ b/arch/arm64/kvm/vgic/vgic-init.c
-@@ -353,12 +353,12 @@ int kvm_vgic_vcpu_init(struct kvm_vcpu *vcpu)
- 	return ret;
- }
- 
--static void kvm_vgic_vcpu_enable(struct kvm_vcpu *vcpu)
-+static void kvm_vgic_vcpu_reset(struct kvm_vcpu *vcpu)
- {
- 	if (kvm_vgic_global_state.type == VGIC_V2)
--		vgic_v2_enable(vcpu);
-+		vgic_v2_reset(vcpu);
- 	else
--		vgic_v3_enable(vcpu);
-+		vgic_v3_reset(vcpu);
- }
- 
- /*
-@@ -405,7 +405,7 @@ int vgic_init(struct kvm *kvm)
- 	}
- 
- 	kvm_for_each_vcpu(idx, vcpu, kvm)
--		kvm_vgic_vcpu_enable(vcpu);
-+		kvm_vgic_vcpu_reset(vcpu);
- 
- 	ret = kvm_vgic_setup_default_irq_routing(kvm);
- 	if (ret)
 diff --git a/arch/arm64/kvm/vgic/vgic-v2.c b/arch/arm64/kvm/vgic/vgic-v2.c
-index f53bc55288978..18856186be7be 100644
+index 5cfbe58983428..a0d803c5b08ae 100644
 --- a/arch/arm64/kvm/vgic/vgic-v2.c
 +++ b/arch/arm64/kvm/vgic/vgic-v2.c
-@@ -285,7 +285,7 @@ void vgic_v2_get_vmcr(struct kvm_vcpu *vcpu, struct vgic_vmcr *vmcrp)
- 			GICH_VMCR_PRIMASK_SHIFT) << GICV_PMR_PRIORITY_SHIFT;
- }
+@@ -430,22 +430,25 @@ static void save_lrs(struct kvm_vcpu *vcpu, void __iomem *base)
  
--void vgic_v2_enable(struct kvm_vcpu *vcpu)
-+void vgic_v2_reset(struct kvm_vcpu *vcpu)
+ void vgic_v2_save_state(struct kvm_vcpu *vcpu)
  {
- 	/*
- 	 * By forcing VMCR to zero, the GIC will restore the binary
-@@ -293,9 +293,6 @@ void vgic_v2_enable(struct kvm_vcpu *vcpu)
- 	 * anyway.
- 	 */
- 	vcpu->arch.vgic_cpu.vgic_v2.vgic_vmcr = 0;
--
--	/* Get the show on the road... */
--	vcpu->arch.vgic_cpu.vgic_v2.vgic_hcr = GICH_HCR_EN;
++	struct vgic_v2_cpu_if *cpu_if = &vcpu->arch.vgic_cpu.vgic_v2;
+ 	void __iomem *base = kvm_vgic_global_state.vctrl_base;
+ 	u64 used_lrs = vcpu->arch.vgic_cpu.vgic_v2.used_lrs;
+ 
+ 	if (!base)
+ 		return;
+ 
+-	if (used_lrs) {
+-		if (vcpu->arch.vgic_cpu.vgic_v2.vgic_hcr & GICH_HCR_LRENPIE) {
+-			u32 val = readl_relaxed(base + GICH_HCR);
+ 
+-			vcpu->arch.vgic_cpu.vgic_v2.vgic_hcr &= ~GICH_HCR_EOICOUNT;
+-			vcpu->arch.vgic_cpu.vgic_v2.vgic_hcr |= val & GICH_HCR_EOICOUNT;
+-		}
++	if (used_lrs)
+ 		save_lrs(vcpu, base);
+-		writel_relaxed(0, base + GICH_HCR);
++
++	if (cpu_if->vgic_hcr & GICH_HCR_LRENPIE) {
++		u32 val = readl_relaxed(base + GICH_HCR);
++
++		cpu_if->vgic_hcr &= ~GICH_HCR_EOICOUNT;
++		cpu_if->vgic_hcr |= val & GICH_HCR_EOICOUNT;
+ 	}
++
++	writel_relaxed(0, base + GICH_HCR);
  }
  
- /* check for overlapping regions and for regions crossing the end of memory */
-diff --git a/arch/arm64/kvm/vgic/vgic-v3.c b/arch/arm64/kvm/vgic/vgic-v3.c
-index 81f1de9e3897b..780cc92c79e04 100644
---- a/arch/arm64/kvm/vgic/vgic-v3.c
-+++ b/arch/arm64/kvm/vgic/vgic-v3.c
-@@ -293,7 +293,7 @@ void vgic_v3_get_vmcr(struct kvm_vcpu *vcpu, struct vgic_vmcr *vmcrp)
- 	GIC_BASER_CACHEABILITY(GICR_PENDBASER, OUTER, SameAsInner)	| \
- 	GIC_BASER_SHAREABILITY(GICR_PENDBASER, InnerShareable))
+ void vgic_v2_restore_state(struct kvm_vcpu *vcpu)
+@@ -458,13 +461,10 @@ void vgic_v2_restore_state(struct kvm_vcpu *vcpu)
+ 	if (!base)
+ 		return;
  
--void vgic_v3_enable(struct kvm_vcpu *vcpu)
-+void vgic_v3_reset(struct kvm_vcpu *vcpu)
- {
- 	struct vgic_v3_cpu_if *vgic_v3 = &vcpu->arch.vgic_cpu.vgic_v3;
- 
-@@ -323,9 +323,6 @@ void vgic_v3_enable(struct kvm_vcpu *vcpu)
- 						    kvm_vgic_global_state.ich_vtr_el2);
- 	vcpu->arch.vgic_cpu.num_pri_bits = FIELD_GET(ICH_VTR_EL2_PRIbits,
- 						     kvm_vgic_global_state.ich_vtr_el2) + 1;
--
--	/* Get the show on the road... */
--	vgic_v3->vgic_hcr = ICH_HCR_EL2_En;
+-	if (used_lrs) {
+-		writel_relaxed(cpu_if->vgic_hcr, base + GICH_HCR);
+-		for (i = 0; i < used_lrs; i++) {
+-			writel_relaxed(cpu_if->vgic_lr[i],
+-				       base + GICH_LR0 + (i * 4));
+-		}
+-	}
++	writel_relaxed(cpu_if->vgic_hcr, base + GICH_HCR);
++
++	for (i = 0; i < used_lrs; i++)
++		writel_relaxed(cpu_if->vgic_lr[i], base + GICH_LR0 + (i * 4));
  }
  
- void vcpu_set_ich_hcr(struct kvm_vcpu *vcpu)
-diff --git a/arch/arm64/kvm/vgic/vgic.h b/arch/arm64/kvm/vgic/vgic.h
-index 4a0733869cb5f..e48294521541e 100644
---- a/arch/arm64/kvm/vgic/vgic.h
-+++ b/arch/arm64/kvm/vgic/vgic.h
-@@ -285,7 +285,7 @@ int vgic_v2_cpuif_uaccess(struct kvm_vcpu *vcpu, bool is_write,
- 			  int offset, u32 *val);
- void vgic_v2_set_vmcr(struct kvm_vcpu *vcpu, struct vgic_vmcr *vmcr);
- void vgic_v2_get_vmcr(struct kvm_vcpu *vcpu, struct vgic_vmcr *vmcr);
--void vgic_v2_enable(struct kvm_vcpu *vcpu);
-+void vgic_v2_reset(struct kvm_vcpu *vcpu);
- int vgic_v2_probe(const struct gic_kvm_info *info);
- int vgic_v2_map_resources(struct kvm *kvm);
- int vgic_register_dist_iodev(struct kvm *kvm, gpa_t dist_base_address,
-@@ -320,7 +320,7 @@ void vgic_v3_clear_lr(struct kvm_vcpu *vcpu, int lr);
- void vgic_v3_configure_hcr(struct kvm_vcpu *vcpu, struct ap_list_summary *als);
- void vgic_v3_set_vmcr(struct kvm_vcpu *vcpu, struct vgic_vmcr *vmcr);
- void vgic_v3_get_vmcr(struct kvm_vcpu *vcpu, struct vgic_vmcr *vmcr);
--void vgic_v3_enable(struct kvm_vcpu *vcpu);
-+void vgic_v3_reset(struct kvm_vcpu *vcpu);
- int vgic_v3_probe(const struct gic_kvm_info *info);
- int vgic_v3_map_resources(struct kvm *kvm);
- int vgic_v3_lpi_sync_pending_status(struct kvm *kvm, struct vgic_irq *irq);
+ void vgic_v2_load(struct kvm_vcpu *vcpu)
 -- 
 2.47.3
 
