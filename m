@@ -4,59 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FAEDCF857F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 10:45:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE024CF857B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 10:50:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=73NU6o35CcbVeqGPJQvHCAI4EckiavRaUZguzz4WRKM=; b=YVKihc15qCYrSkqBP3kWRwqDZb
-	oEGu3FRVdOl/ZxpbB2S74ZdHOJ/c0O8S/OGiKAO3y+9/gilWKOSLK00YytVOF6Nd5e+hevzpSak7A
-	VtFX7WwQTYbHCEMIGfxM8XWkt5OPwMLzSr5sFMHpeNsHHr7qI0lCjVqp4SCX5i0N5lP4/95+UxQOP
-	Bh2ml2Sr6dzJZYI8ntUAh52PTf8Vx1XKnXddkGOA7+I/Uc93VFg/P55RDjptx/Uy5HxpbLBqVU6ev
-	51Bl7U1UxI4u/myDgwLinmRx8ZRXtYXD3FoseEnlf2IEv5FK/9MaqllCL0Q62ysNrqhoNKtopGcPh
-	5+EmR8dA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DW9Tu141hYAgi7uXkPAdOBwpEa0ZYRizhqLUUtu9aUU=; b=uAsB04+0X41oSuvfMCq8PH6JT7
+	XzUcB6t16d1bjy/1JffQx0xRAZzqo3uAEmOGkyHEXVCjb++ZkFZUeSCjdXtAbtdMFuzXLspoDKcYS
+	zj/5LNHCHfl5DiSVbewTnZ6lyVO9A+nILgyBjJj02dyDPk0p7kmTQLxlm2FFtN047d3+BAkQZiNcv
+	BtsbN4UGQ3goJ7IpuP69esH/59RdbRCWJzFQ7SeB1K+UxUKnLZm/fFyZdzwy5FAKptUGWLnDp8Lsj
+	4z6l50pxYXeOeg1O/CZtnrrw42bAAAOjrnBIjYEzOwrKSjZSXu9nrcz+MWHC2H5lo7BxfhzRDFufM
+	9M5lRyRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vM2A3-00000006WqO-2BO5;
-	Thu, 20 Nov 2025 10:45:11 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vM2A0-00000006Wpn-3LZ1
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Nov 2025 10:45:10 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CEF6F339;
-	Thu, 20 Nov 2025 02:44:59 -0800 (PST)
-Received: from [10.1.197.1] (ewhatever.cambridge.arm.com [10.1.197.1])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DA9143F740;
-	Thu, 20 Nov 2025 02:45:05 -0800 (PST)
-Message-ID: <cdbd12fb-af91-4e22-ab19-4018bc88f6c7@arm.com>
-Date: Thu, 20 Nov 2025 10:45:04 +0000
+	id 1vM2FF-00000006XCn-2JdT;
+	Thu, 20 Nov 2025 10:50:33 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vM2F8-00000006XBv-2M20;
+	Thu, 20 Nov 2025 10:50:27 +0000
+From: Thomas Gleixner <tglx@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1763635821;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=DW9Tu141hYAgi7uXkPAdOBwpEa0ZYRizhqLUUtu9aUU=;
+	b=HfoVFISpAFsVjd2CCyf/9VJzquqA/McJr2754cxjvaViQDQPZ4uWw67F10UXY7wePE1lmm
+	kMHJHTvefzIPAZLE95maISfE0wnVcPYp9fnWHkyD7x7iX60taqIVQA2JZSiDCkGo8z9YWD
+	SfO2X4K3muadBUUL4mubNu+isOZNvVugOzoSlsQGV/TPh5CEVFpgDoipypitq+JUTCV757
+	uns9El+hygAD6b0SdK9M0ByLcrNwG9+38kGKyF4wu1otKZnbjcUCcRRKBlGJEjRimRFOoV
+	H5xSezRvsDKDo43nCJm8QRtlLkSJ5BY7eAVB72GC6pJJINgJDG4hoi0u+3ozJg==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1763635821;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=DW9Tu141hYAgi7uXkPAdOBwpEa0ZYRizhqLUUtu9aUU=;
+	b=Kqap7FwcH4qCtJ5Ocmu+ArgFF0diHbiF4lrIGO3Z/hgFZpoIqeDqJctcrjJxD93OOaB0Uk
+	33ZqcJoHDjzleXDA==
+To: Neil Armstrong <neil.armstrong@linaro.org>, xianwei.zhao@amlogic.com,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Kevin Hilman <khilman@baylibre.com>,
+ Jerome Brunet <jbrunet@baylibre.com>, Martin Blumenstingl
+ <martin.blumenstingl@googlemail.com>, Heiner Kallweit
+ <hkallweit1@gmail.com>
+Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org
+Subject: Re: [PATCH 0/5] Add GPIO interrupt support for Amlogic S6 S7 and S7D
+In-Reply-To: <d2b2807a-285a-40bb-8aa8-eacba97b1f14@linaro.org>
+References: <20251105-irqchip-gpio-s6-s7-s7d-v1-0-b4d1fe4781c1@amlogic.com>
+ <d2b2807a-285a-40bb-8aa8-eacba97b1f14@linaro.org>
+Date: Thu, 20 Nov 2025 11:50:20 +0100
+Message-ID: <877bvlkmfn.ffs@tglx>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 2/3] coresight: tmc: refactor the tmc-etr mode setting
- to avoid race conditions
-To: Leo Yan <leo.yan@arm.com>
-Cc: Junhao He <hejunhao3@h-partners.com>, james.clark@linaro.org,
- anshuman.khandual@arm.com, yeoreum.yun@arm.com, mike.leach@linaro.org,
- coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linuxarm@huawei.com,
- jonathan.cameron@huawei.com
-References: <20251111122149.1981162-1-hejunhao3@h-partners.com>
- <20251111122149.1981162-3-hejunhao3@h-partners.com>
- <15868ecb-c1e7-4273-a2e2-5c10f2701c0b@arm.com>
- <20251119180447.GG8204@e132581.arm.com>
-Content-Language: en-US
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <20251119180447.GG8204@e132581.arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251120_024508_880482_94BD6035 
-X-CRM114-Status: GOOD (  15.70  )
+X-CRM114-CacheID: sfid-20251120_025026_765202_F0FA7183 
+X-CRM114-Status: UNSURE (   9.48  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,45 +80,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 19/11/2025 18:04, Leo Yan wrote:
-> On Thu, Nov 13, 2025 at 03:02:45PM +0000, Suzuki Kuruppassery Poulose wrote:
->> Hi Junhao,
->>
->> While your patch fixes the problem it introduces imbalance in the
->> way perf vs sysfs modes are handled.
-> 
-> Previously, I suggested setting the mode in a unified way in
-> tmc_enable_etr_sink() [1]. After looking into the code again, it seems
-> that both my suggestion and this patch set the perf mode is too late.
-> 
-> Maybe we need to set the sink's device mode once a session starts to use
-> it.  So we should set the perf mode when allocating sink's buffer
-> (tmc_alloc_etr_buffer()), as this is the first callback invoked for a
-> perf session.
+On Thu, Nov 20 2025 at 08:54, Neil Armstrong wrote:
 
-Thats too early, in setup_aux(), when the event is not scheduled in. We 
-don't know when that would be.
+> Hi Thomas,
+>
+> On 11/5/25 10:45, Xianwei Zhao via B4 Relay wrote:
+>> This patch adds GPIO interrupt support for Amlogic S6 S7 and S7D SoCs.
+>> 
+>> Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
+>> ---
+>> Xianwei Zhao (5):
+>>        dt-bindings: interrupt-controller: Add support for Amlogic S6 S7 and S7D SoCs
+>>        irqchip: Add support for Amlogic S6 S7 and S7D SoCs
+>>        arm64: dts: Add gpio_intc node for Amlogic S6 SoCs
+>>        arm64: dts: Add gpio_intc node for Amlogic S7 SoCs
+>>        arm64: dts: Add gpio_intc node for Amlogic S7D SoCs
+>
+> Coud you drop the DT changes from the tip irq/drivers tree ?
 
-> 
-> As a result, we can keep to set the sysfs mode in
-> tmc_enable_etr_sink_sysfs().
-> 
-> A side topic is we need to refactor the tmc_etr_get_sysfs_buffer()
-> function, ideally this function is purely for allocating buffer without
-> any locking. We can defer to assign "drvdata->sysfs_buf" until
-> acquired spin lock in tmc_enable_etr_sink_sysfs().  Essetionally, we
-> can enable sink in one go rather than acquire-release lock for several
-> times.
-
-Patche welcome :-)
-
-Cheers
-Suzuki
-
-> 
-> Thanks,
-> Leo
-> 
-> [1] https://lore.kernel.org/linux-arm-kernel/20251020143718.GH281971@e132581.arm.com/
-
+Done.
 
