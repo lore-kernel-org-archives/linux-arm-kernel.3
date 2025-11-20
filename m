@@ -4,64 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96871CF857B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 09:40:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20403CF857B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 09:40:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:To:
-	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SUi5lS5rCzVuDAcHFYLYCYAitVuFZQocxlSp+9/3pB8=; b=4tid17GMNTI6csaQ/Rs5TEediG
-	GXwNMrT8ttm0YzfPZaHEdqOP6TVZed6RtzPFoWjYG303NCfDOcTcZiYsc6HJOFih36hwq8ujAjZWa
-	cHI0KFfkMrRr6H+SDAM2WUMP+c581a+mB3DeMaSctpS6DtuJvj3LC+XsxWY1BKbvoeSHLHkeXydvD
-	huEsIhIqKWz3tr3NbwRWEd8vjcK1tGxGH5zRLwqIDadFQ2+LStyqJec0WEwS5TlmQ/S/p6/GkeJiB
-	Pct0WVNHuMMDuG1x4BCTw0+kUAhpFPNghSirnDyQBuU2I84urdlPGGuGrf6W1HFfKg/sNpVef/RBb
-	e2d22iLA==;
+	bh=aVhl8Gyq4QOxkIjEmZCCvy+cRf4XiSsQXDsvaKQDhks=; b=H69tWHZP8jErkMROOUoGBt1HbY
+	LGj+H0XmD+aYbggFWKqrRBw+2hzKjwkLqKvsuxIqqJulmmf3KqQZ0h0GzYKzvUrmbA/kJftA0TDrB
+	6ShCZvqrQmkaC2DBsHz7u8sguFgRgHniLofTBMk/RZdMmqz87dUmpc2mCMLbUBZ8k76hzHq9XOH3K
+	qldCfuIIBz+SRnf5PwW99r1oyluMOAF11+BUETUbDEAgjRn5N5lTSYeepRy1/XV8ecRaX3ovdEf0j
+	hpQkuo/5ZGGYfZ7OzXTtjP9JCq3i6w97F7ToqAfBVkf/b9DA6i1d/xqOMPH22uWCSyThRzav9wYhY
+	UdVoUCew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vM19c-00000006RLq-2Oyj;
-	Thu, 20 Nov 2025 09:40:40 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vM19l-00000006RNO-3bGN;
+	Thu, 20 Nov 2025 09:40:49 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vM19Y-00000006RLQ-3J05
+	id 1vM19e-00000006RM6-06P8
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Nov 2025 09:40:38 +0000
+	Thu, 20 Nov 2025 09:40:42 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 31DE042DA0;
-	Thu, 20 Nov 2025 09:40:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B22B0C4CEF1;
-	Thu, 20 Nov 2025 09:40:32 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 3C40860149;
+	Thu, 20 Nov 2025 09:40:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9003BC116B1;
+	Thu, 20 Nov 2025 09:40:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763631636;
-	bh=d9gi6IAhGMrPheyNCbI0JonIbRfzHt0QW40OJqiT97M=;
-	h=From:To:In-Reply-To:References:Subject:Date:From;
-	b=D8x5dMDI9qJnYU21qSlLei8gHq6Zp6XE3Ht93IoCv3k7PJAFzVClSKbtAgejBTKQ9
-	 Mlfkw1A7ZzKb+RXGRyRjn44BAeRKBXZkSIw6dDMVgPLcb4V86Y6I7sMSO17zYx81q8
-	 Lb5p2niv4ymriPG4Rh4qDWJUCqR3AXLPVdGP+enV5nTKiKhcvUEMsjwNR5IxksI+iI
-	 pOuGw0lIbm+/s4GAY7s5IaveZtqiSuhHzrVxN0SfktEXbcH3diGb4+WggKOSWAetV5
-	 hJZhfgmu6eLjeVPX9gEw+PGJqSjehjYiliL4+9+a0TF+R5/jlR0BSczu8Z2OYlYOdh
-	 sQ3lludhl8vrw==
+	s=k20201202; t=1763631640;
+	bh=no0VPyTw7icF2zOkFEwABDlOo/lI3S6IIIyj6ujTktY=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=sse2LlKdtF2PIUw6SuvG0NQKkrLRzGH6K11yG5mjHxlj0oHOGvxcwPqoH1VOsJ6QB
+	 FC6b14pG0ui5Ftdubjz+mn3c+fpHjX1nqKK8y6MJUHgZSHlDnVe5gmxRzNGRo8bSyB
+	 UjOnoEEzXOjjq8wPcNqtAjouCSf00Eyoal7/6QSPttPyF7NFveo8WDEeB3jzK7OEah
+	 BGleVya59i0NvgLlKLdKxsSGy5gbe1fIQgleum44wNF79NuKj/PK+Bk+p46oX5YBbf
+	 +mGMGuzc1bVkEi6GlB5eMwc1rA1VDARCuDf0cX78jDdq2+GTQb5NAMQ1SSLPTy3k4K
+	 uY3jgGC9ns0sw==
 From: Mark Brown <broonie@kernel.org>
-To: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
- joel@jms.id.au, andrew@codeconstruct.com.au, clg@kaod.org, clg@redhat.com, 
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
- openbmc@lists.ozlabs.org, linux-spi@vger.kernel.org, BMC-SW@aspeedtech.com, 
- Chin-Ting Kuo <chin-ting_kuo@aspeedtech.com>
-In-Reply-To: <20251114101042.1520997-1-chin-ting_kuo@aspeedtech.com>
-References: <20251114101042.1520997-1-chin-ting_kuo@aspeedtech.com>
-Subject: Re: [PATCH v2 0/4] spi: aspeed: Add AST2700 SoC support and Quad
- SPI handling update
-Message-Id: <176363163164.560683.4991477364624751148.b4-ty@kernel.org>
-Date: Thu, 20 Nov 2025 09:40:31 +0000
+To: a-dutta@ti.com, Siddharth Vadapalli <s-vadapalli@ti.com>
+Cc: linux-spi@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, srk@ti.com
+In-Reply-To: <20251119152545.2591651-1-s-vadapalli@ti.com>
+References: <20251119152545.2591651-1-s-vadapalli@ti.com>
+Subject: Re: [PATCH] spi: cadence-quadspi: Fix cqspi_probe() error handling
+ for runtime pm
+Message-Id: <176363163845.560683.16994547761881991962.b4-ty@kernel.org>
+Date: Thu, 20 Nov 2025 09:40:38 +0000
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
 X-Mailer: b4 0.15-dev-a6db3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251120_014036_873459_CB8FE878 
-X-CRM114-Status: GOOD (  13.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,13 +70,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 14 Nov 2025 18:10:38 +0800, Chin-Ting Kuo wrote:
-> This series adds AST2700 support to the ASPEED FMC/SPI driver and
-> bindings, introduces 64-bit address compatibility, and improves
-> Quad SPI page programming behavior. It also implements AST2700-specific
-> segment logic, where range adjustment is not required because the
-> AST2700 SPI hardware controller already fixes decoding issues on
-> the existing platforms and adopts an updated scheme.
+On Wed, 19 Nov 2025 20:53:53 +0530, Siddharth Vadapalli wrote:
+> Commit f1eb4e792bb1 ("spi: spi-cadence-quadspi: Enable pm runtime earlier
+> to avoid imbalance") relocated code but missed updating the error handling
+> path associated with it.
+> 
+> Prior to the relocation, runtime pm was enabled after the code-block
+> associated with 'cqspi_request_mmap_dma()', due to which, the error
+> handling for the same didn't require invoking 'pm_runtime_disable()'.
 > 
 > [...]
 
@@ -92,14 +87,8 @@ Applied to
 
 Thanks!
 
-[1/4] dt-bindings: spi: aspeed,ast2600-fmc: Add AST2700 SoC support
-      commit: be6671d3908e97a2128f5327610a1dcb4d420cfa
-[2/4] spi: aspeed: Enable Quad SPI mode for page program
-      commit: 716d0a0a2ab00c601120c19bb357f4373f4722d1
-[3/4] spi: aspeed: Use phys_addr_t for bus addresses to support 64-bit platforms
-      commit: 508f3d3b688e1650ed383fe208b323aa6c164420
-[4/4] spi: aspeed: Add support for the AST2700 SPI controller
-      commit: 9e510e677090bb794b46348b10e1c8038286e00a
+[1/1] spi: cadence-quadspi: Fix cqspi_probe() error handling for runtime pm
+      commit: 295fe8406a357bc0abb901a21d1a554fd4dd1d05
 
 All being well this means that it will be integrated into the linux-next
 tree (usually sometime in the next 24 hours) and sent to Linus during
