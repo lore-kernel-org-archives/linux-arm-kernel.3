@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC702CF9C73
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 17:26:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67536CF9C72
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 17:26:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oW/BRu2cz4LoSyh0iOtyq1EALIGdNyykFh9Ck33T4tQ=; b=4iw1zJASSc5eiLbx2/TW3Zobss
-	kGJmvN97uludSHzgy7oCQFjXzSnRRxQncURmeE1n3GZaTCp/G5/3cA1RCxnptF+OHRMwTUUEPo7eA
-	bZYbrIpW7ZAN5dbzeXSWRMf1FKten+oeGmtD2VCwo9wX+iDNnWEAV0AXK3ysP45fFfXSZUle79K0X
-	LcOZEPRHZq+mZ8G8bXpMPR02KlLEF/JO2BEJq+1QXHkNkmQiOtFJWJkVt0PuBJR7qV0e1QnAEn0uo
-	o7I0vzZixyA4aK7vlCstPqsRb0qVWeDvDQ2tSRyqwgbA8ZiM5DVvUApQmTh2282GThasO0F4K/xyb
-	39TwoREQ==;
+	bh=ne90VXkAuHuAZPGFKoR5peNIgH9YHRoxbeu7r95ucy8=; b=YFWkHc6/tC8oPwmN/ugQ+GBIob
+	wEaW1MMo8aNiJRbJ012NXXs1e/NgdRIUKuojQgLgGOn531Tc2YweXKFo8oILdxpClSaWBdv7pAxTL
+	DU2PohyqkYmU66rT8BNkNed6llBcKPdB5oiTiKNQ3CR1AdaN12M8Fw10mO14U3fQc9+yYDPbsNSQq
+	+EqVEEXNQqgGH3NF2UjvszLeRgc9TD+WI3Rw3Vod7rJFj70zxbNL6RzsyrzsXz2DpAAkVNe8bm8AL
+	dSx+w6JhhPSv9eRUP8dGcw1kI2W5u/18/NujPPc9glPi0ScZFJDmFcSXh9SzGFKIr5GGuZtrq+TqB
+	QBbXPxvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vM8QW-000000076aK-0Vqa;
-	Thu, 20 Nov 2025 17:26:36 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vM8Qb-000000076go-0UCr;
+	Thu, 20 Nov 2025 17:26:41 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vM8Q2-000000075Zw-2Uwp
+	id 1vM8Q3-000000075ig-2xYW
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 20 Nov 2025 17:26:07 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7C79043BFB;
-	Thu, 20 Nov 2025 17:26:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5C336C116C6;
+	by tor.source.kernel.org (Postfix) with ESMTP id 28BC160213;
+	Thu, 20 Nov 2025 17:26:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D35DBC19422;
 	Thu, 20 Nov 2025 17:26:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1763659566;
-	bh=I9ccNvnN5tYXZEamHv0x3EQ8Z2CyyHc1QdPzU7e5cnM=;
+	bh=4r+H0thzKzjKCkutDHmNhHhIj5eL7J+n27WRZWbkIdU=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=H13RLatvl4ppCYaoGGLVZJf1mrpCf6fRJrwTemH7l7RFusqiWyANCV2Kq9ZFdvZXZ
-	 NLH4CdG4dqRfoLdSyksgsZu7nxjJgjgGjMRVMKHWtYGEun7exyKFv3pfLAfIH7JQyF
-	 /+kLo4XPPzUGY5lqQr+Tl8Izdl9m5ieOszLl/S/Z/6SLy3xceWol86YmeFzeqISp/b
-	 UZBtk3HhScbEo2A2xk4bAuLFYULAtn91Cwho/FENa5g6txDY8DJ7ejzGnE3Bkiu5e4
-	 /gdlPnM1aHKJfYU+LrXGyQvh15FNQdBSc6jn0TG0HODrG0Zo4Ql1nEOrBGybLvmEQi
-	 JCooQJCyCni5A==
+	b=Mz+TV+5LX9C/fnWx7xKLxDpg6rfVax1/Zlqqy/UqMJypZ+NZNdBvz9U8vyIyYwxdK
+	 2cabdAK9FCWALczvt/PVZWC7+vws+PoYmwPwr5KcU0Phi4Vk7EcNBUeGIGXuEo0jAU
+	 nF1/M4vObWbJPk0qzbtTYB2jhQj87PkNs8TZckW3SVE3N5V1uNtTyuLrKIkf2WpJ0b
+	 nUFx95H77O1d9BxPaMBWP36SF76DASd3i04jZ6MgUKnpejwwKDHrnXKnDdVVEVp1Rz
+	 VWAUR69Pj67UT/+WfSDo+u1vK33IwzaEfbsWPAJ9VQaWcO4OU5TL6XYEou6Xw9gmNH
+	 /whUS8bBest5A==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1vM8Q0-00000006y6g-2Iu4;
-	Thu, 20 Nov 2025 17:26:04 +0000
+	id 1vM8Q1-00000006y6g-0Rb0;
+	Thu, 20 Nov 2025 17:26:05 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
@@ -59,9 +59,9 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Christoffer Dall <christoffer.dall@arm.com>,
 	Fuad Tabba <tabba@google.com>,
 	Mark Brown <broonie@kernel.org>
-Subject: [PATCH v4 42/49] KVM: arm64: selftests: vgic_irq: Fix GUEST_ASSERT_IAR_EMPTY() helper
-Date: Thu, 20 Nov 2025 17:25:32 +0000
-Message-ID: <20251120172540.2267180-43-maz@kernel.org>
+Subject: [PATCH v4 44/49] KVM: arm64: selftests: vgic_irq: Exclude timer-controlled interrupts
+Date: Thu, 20 Nov 2025 17:25:34 +0000
+Message-ID: <20251120172540.2267180-45-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20251120172540.2267180-1-maz@kernel.org>
 References: <20251120172540.2267180-1-maz@kernel.org>
@@ -71,9 +71,6 @@ X-SA-Exim-Connect-IP: 185.219.108.64
 X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, christoffer.dall@arm.com, tabba@google.com, broonie@kernel.org
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251120_092606_668658_BA0578B9 
-X-CRM114-Status: GOOD (  10.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,27 +85,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-No, 0 is not a spurious INTID. Never been, never was.
+The PPI injection API is clear that you can't inject the timer PPIs
+from userspace, since they are controlled by the timers themselves.
+
+Add an exclusion list for this purpose.
 
 Tested-by: Fuad Tabba <tabba@google.com>
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- tools/testing/selftests/kvm/arm64/vgic_irq.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ tools/testing/selftests/kvm/arm64/vgic_irq.c | 31 ++++++++++++++++----
+ 1 file changed, 25 insertions(+), 6 deletions(-)
 
 diff --git a/tools/testing/selftests/kvm/arm64/vgic_irq.c b/tools/testing/selftests/kvm/arm64/vgic_irq.c
-index 6338f5bbdb705..a77562b2976ae 100644
+index a8919ef3cea2e..b0415bdb89524 100644
 --- a/tools/testing/selftests/kvm/arm64/vgic_irq.c
 +++ b/tools/testing/selftests/kvm/arm64/vgic_irq.c
-@@ -205,7 +205,7 @@ static void kvm_inject_call(kvm_inject_cmd cmd, uint32_t first_intid,
- do { 										\
- 	uint32_t _intid;							\
- 	_intid = gic_get_and_ack_irq();						\
--	GUEST_ASSERT(_intid == 0 || _intid == IAR_SPURIOUS);			\
-+	GUEST_ASSERT(_intid == IAR_SPURIOUS);					\
- } while (0)
+@@ -359,8 +359,9 @@ static uint32_t wait_for_and_activate_irq(void)
+  * interrupts for the whole test.
+  */
+ static void test_inject_preemption(struct test_args *args,
+-		uint32_t first_intid, int num,
+-		kvm_inject_cmd cmd)
++				   uint32_t first_intid, int num,
++				   const unsigned long *exclude,
++				   kvm_inject_cmd cmd)
+ {
+ 	uint32_t intid, prio, step = KVM_PRIO_STEPS;
+ 	int i;
+@@ -379,6 +380,10 @@ static void test_inject_preemption(struct test_args *args,
+ 	for (i = 0; i < num; i++) {
+ 		uint32_t tmp;
+ 		intid = i + first_intid;
++
++		if (exclude && test_bit(i, exclude))
++			continue;
++
+ 		KVM_INJECT(cmd, intid);
+ 		/* Each successive IRQ will preempt the previous one. */
+ 		tmp = wait_for_and_activate_irq();
+@@ -390,6 +395,10 @@ static void test_inject_preemption(struct test_args *args,
+ 	/* finish handling the IRQs starting with the highest priority one. */
+ 	for (i = 0; i < num; i++) {
+ 		intid = num - i - 1 + first_intid;
++
++		if (exclude && test_bit(intid - first_intid, exclude))
++			continue;
++
+ 		gic_set_eoi(intid);
+ 		if (args->eoi_split)
+ 			gic_set_dir(intid);
+@@ -397,8 +406,12 @@ static void test_inject_preemption(struct test_args *args,
  
- #define CAT_HELPER(a, b) a ## b
+ 	local_irq_enable();
+ 
+-	for (i = 0; i < num; i++)
++	for (i = 0; i < num; i++) {
++		if (exclude && test_bit(i, exclude))
++			continue;
++
+ 		GUEST_ASSERT(!gic_irq_get_active(i + first_intid));
++	}
+ 	GUEST_ASSERT_EQ(gic_read_ap1r0(), 0);
+ 	GUEST_ASSERT_IAR_EMPTY();
+ 
+@@ -442,14 +455,20 @@ static void test_preemption(struct test_args *args, struct kvm_inject_desc *f)
+ 	 * number of concurrently active IRQs. The number of LRs implemented is
+ 	 * IMPLEMENTATION DEFINED, however, it seems that most implement 4.
+ 	 */
++	/* Timer PPIs cannot be injected from userspace */
++	static const unsigned long ppi_exclude = (BIT(27 - MIN_PPI) |
++						  BIT(30 - MIN_PPI) |
++						  BIT(28 - MIN_PPI) |
++						  BIT(26 - MIN_PPI));
++
+ 	if (f->sgi)
+-		test_inject_preemption(args, MIN_SGI, 4, f->cmd);
++		test_inject_preemption(args, MIN_SGI, 4, NULL, f->cmd);
+ 
+ 	if (f->ppi)
+-		test_inject_preemption(args, MIN_PPI, 4, f->cmd);
++		test_inject_preemption(args, MIN_PPI, 4, &ppi_exclude, f->cmd);
+ 
+ 	if (f->spi)
+-		test_inject_preemption(args, MIN_SPI, 4, f->cmd);
++		test_inject_preemption(args, MIN_SPI, 4, NULL, f->cmd);
+ }
+ 
+ static void test_restore_active(struct test_args *args, struct kvm_inject_desc *f)
 -- 
 2.47.3
 
