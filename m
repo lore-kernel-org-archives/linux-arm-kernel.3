@@ -4,65 +4,158 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFE43CFA441
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 19:30:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B2B4CF9C7A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 19:33:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IYTQgrhW8NGBlSI9quRx/wzzU3ncq1hVmrvfbHY6q04=; b=cRT4j9Vpyu+xwc+0WLpaBKfu5y
-	4vRTtwdN8W64vEm0XBt2sX8BzOw1IlIyublJWfta7myblhZ6bLiUvB56jLjDttQWG+YQCWU8EmWit
-	v5hDNaxdgRdy6Pu3AVmCS5zvdYZDFpbkeFOwkD+UctoohWk3Z9lAJQDHbzvn/DU2uQyw3CbG8WAI0
-	7RHLz/PQ7E/0vD21p+SSTK+WUCyCBvhLo6EpHuo4KbKvwQhLgaRYvzbWo8dwNcUxBDlIEnqIGB1TP
-	ZHg1ac0ExqF2NYK1bkBeNfGh1aWGYOxROKXiTv+V+dzZCcrg0Tf5PATeKQjDvzppLCkegMxqMtm1g
-	xia8dU8g==;
+	bh=fcSHzI1JdqqcC1AaBRRLRtWp8XGhOSL5mCVVFR2CxbU=; b=PBv8e58fLIml7pD9ptAofd169z
+	U8XpWhvJsmaashwJr1S6ktrKO6N/5gT30pd4sn86nkFl1uE1bcFwWedec5NjnrBzKj6d8WJdCnkU1
+	QP86YgtMi2bY8dlheZMlKErxUQIftndI4sDzTv9HaROXW9optAlHGnKKru7les28/R/shycjWGJYt
+	Sp9GKPPBNBOaM6rhHbdh7WTV1R9yiTbBybSFwc8DFZo2TLhFjqfDlFoB2tF0V1Soh1FcbDxZlj557
+	fJwjDhnWMl+KJYYV28MoHSqb5/XCm0EnTGjv9DrRryZ/kCzi4J31O/qS3jeblGUysOJQDdyQJ2Zy2
+	vCjmcOIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMAM4-00000007HWd-0fik;
-	Thu, 20 Nov 2025 19:30:08 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vMAPf-00000007Hii-053G;
+	Thu, 20 Nov 2025 19:33:51 +0000
+Received: from mail-northcentralusazon11012030.outbound.protection.outlook.com ([40.107.200.30] helo=CH5PR02CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMAM1-00000007HWD-3YhX
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Nov 2025 19:30:06 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 343A842AEB;
-	Thu, 20 Nov 2025 19:30:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8B48DC4CEF1;
-	Thu, 20 Nov 2025 19:30:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763667005;
-	bh=Hd4/WtqVc9Aol+DR3lXzCUNvLHHImZ9L+r1mu/MYpWM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Qur+cduaDWSWk6Jndwjpnq/XHI8eZ2FIn8B3uuBN+w4xnfousqw5Gb5jCh0f/3ESk
-	 bCc9f4OPZ9two9OTmqakiPerL7dfvzdB7W6lo/tWv/sCuFh5nyuTxV5gpF2pxyjYdd
-	 tX980r8VOQv+ZW3ezX43BA/QxxmLsesbShozAdRhIz+693qkogguDJ023xhJ77koXJ
-	 CtX9wTvilxOb9v5Md+7ic0nGOGbeP0G64hZCMsdpS5HXzxnhQxTVlmNlfg1dGDdLU9
-	 7t/K7WdReWlhJ0SOL8n5L8xkDV3cuvkZZU6rZLosgXt2Pz7ltuyCipOmWVq8oKXAXM
-	 T9k8Qoa6BmHiQ==
-Date: Thu, 20 Nov 2025 19:29:59 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Jonathan Cameron <jonathan.cameron@huawei.com>,
-	Will Deacon <will@kernel.org>, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v1] arm64, lib: make ARM64 select
- ARCH_HAS_CPU_CACHE_INVALIDATE_MEMREGION not GENERIC_CPU_CACHE_MAINTENANCE
-Message-ID: <20251120-ruined-liability-9ecbf53affd1@spud>
-References: <20251119-zippy-distinct-1e2a7da7b69b@spud>
- <aR9QRuUigBsxxelm@arm.com>
-MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="GWQewNjTVJ/ff2qP"
+	id 1vMAPb-00000007Hi7-3n0W;
+	Thu, 20 Nov 2025 19:33:49 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=InI+kTvTV1FJWPaA+wipBmVLvezrRxfmx4edUzg9DGD1egdIk020qcPLRO32nSApamqOvjKd/y6wuLxnnehvUMMvrnzzshkIA1TQiyrPH0RiAq2p7OK2gWM5r7Gu7j9OG5u9ouD8RwEXtKRutxRuCbqXrIitLy0TtdqKiwMIc1NyQWfLBFYlDhy1kvcvj848gTxvkPKBE6I1vAqLmOsC419GppzjDk7RPz52rcbvhqvZ/1WLiEXWzich8koFKKk9m7G+Kgt4a/yOFT0+Thy9bAVQyijN6iBraub3ujKje8Fvoonj3CtS3CGX/SrxHQj0FoyQkKF4bTMAJ01BxXyQGw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=fcSHzI1JdqqcC1AaBRRLRtWp8XGhOSL5mCVVFR2CxbU=;
+ b=hQSI2OUhou2HW4WCPuu17aJ5fdwvfFSfizKuO1aSstOPyKFcTbnMoMEnrH6HHYh45QdL4XFC9YWA9Ef5X8T0RKjT59/V+lbcRoyP/AGxmUOJ6kTpvniM1X/cbQRQI4V59UX2dbD3fSqdyc5mL6awgqI5Z7ecHEtEdYXyS2QREKAdHFNPoHTC2nfejwua2EbADQ9nggDeXgwIEOyvbRk8XTP3Dss0ZPfhyU1rcHN1EUT8bjGAVhRLOkWGZ5CuAk3nN7AHwllgZ6lMsQrOFDih4Ruu2AfPb/lnczP5RoIW8Dh1CvxeL1dj353ocG91WFWUVg7lsfG/chQu6qnQnzhBfQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=fcSHzI1JdqqcC1AaBRRLRtWp8XGhOSL5mCVVFR2CxbU=;
+ b=UWu8QjQYMLkYDa4Y1VQnIPW/fStDEt4ZAg3KoIYNlAA1HovO5QwbwYvlIQBaU7D4yz8yeQ2AywUq6PY4vnoW6xkkw6lLYJ3C//CKHjsv7u/RIRQEyf39bwKMjqujU/mPvds8k5QTZdD4B/UYrtF8cCBtLlJJg2VRA07t2ztY+u/+GDTr1lPE6UpLH6sACMnYrzfJ5D10/fLmLAq8dUlLZOCBK3tY8AcWpjdtYIZYNu4xvZ/pwMKleRaz69Wq8B2KJpWEEBxRXiJUfQVeI6FkAj5t2udcfYxKnq9NI6VRPMVyxoq37c2sGxn3GuD+PqWe1AN6bAkSwmFaHyEUc6Bh1A==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from MN2PR12MB3613.namprd12.prod.outlook.com (2603:10b6:208:c1::17)
+ by IA1PR12MB7709.namprd12.prod.outlook.com (2603:10b6:208:423::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9343.10; Thu, 20 Nov
+ 2025 19:33:39 +0000
+Received: from MN2PR12MB3613.namprd12.prod.outlook.com
+ ([fe80::1b3b:64f5:9211:608b]) by MN2PR12MB3613.namprd12.prod.outlook.com
+ ([fe80::1b3b:64f5:9211:608b%4]) with mapi id 15.20.9343.009; Thu, 20 Nov 2025
+ 19:33:39 +0000
+Date: Thu, 20 Nov 2025 15:26:12 -0400
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Robin Murphy <robin.murphy@arm.com>
+Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Christian Benvenuti <benve@cisco.com>,
+	Heiko Stuebner <heiko@sntech.de>, iommu@lists.linux.dev,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Joerg Roedel <joro@8bytes.org>, Leon Romanovsky <leon@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	linux-mediatek@lists.infradead.org, linux-rdma@vger.kernel.org,
+	linux-rockchip@lists.infradead.org, linux-sunxi@lists.linux.dev,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	Nelson Escobar <neescoba@cisco.com>,
+	Rob Clark <robin.clark@oss.qualcomm.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
+	Chen-Yu Tsai <wens@csie.org>, Will Deacon <will@kernel.org>,
+	Yong Wu <yong.wu@mediatek.com>, patches@lists.linux.dev
+Subject: Re: [PATCH 2/3] iommu/amd: Don't call report_iommu_fault()
+Message-ID: <20251120192612.GA258497@nvidia.com>
+References: <2-v1-391058a85f30+14b-iommu_set_fault_jgg@nvidia.com>
+ <579bdc4e-ab71-4120-8991-34400d4bbf8d@arm.com>
+ <20251023142657.GH262900@nvidia.com>
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <aR9QRuUigBsxxelm@arm.com>
+In-Reply-To: <20251023142657.GH262900@nvidia.com>
+X-ClientProxiedBy: BL1PR13CA0141.namprd13.prod.outlook.com
+ (2603:10b6:208:2bb::26) To MN2PR12MB3613.namprd12.prod.outlook.com
+ (2603:10b6:208:c1::17)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MN2PR12MB3613:EE_|IA1PR12MB7709:EE_
+X-MS-Office365-Filtering-Correlation-Id: f0e6c7a9-3a70-41fb-92ca-08de286bb46e
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|376014|1800799024;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?buiClKIDtZjXmPmwO1cblyZpH4NLrzB7VZUS+Ti/ebKmfkb230NLj89SPxpc?=
+ =?us-ascii?Q?Lo2oGgxXrtSSRCmZ6+HAmDLrAZrh5ZMMezOvqEz2Ir+kU4kllH1FaA0ZOYAq?=
+ =?us-ascii?Q?SaLZWCI7JNrYivDxI2oUbXIXC+ve49YG8bZmBXDotg1C5iCyNNaBSR1fei1s?=
+ =?us-ascii?Q?+8qSjmm1qdAMgUD/wFMI/CQ2uyPcPdJ2fGFCy9bcw9mPfVwQxitNP1S6laKM?=
+ =?us-ascii?Q?5WAMbiye5cRv8lO0NhUjKK1LXiw8o/qTff0A0gGz5mBGVjl05Py3XDwPUkp2?=
+ =?us-ascii?Q?13dHshgLZYRkZAQFGPSP/m4+DA7jUp2oZQckOfuRpxmbL4gPgPIlZ8JQ3kSD?=
+ =?us-ascii?Q?56Si7Z/Fz8i+sDPoas/HTVraxl5XAPFA5K1clRUg6VHfLFWsO0nfepUvSiuh?=
+ =?us-ascii?Q?z+wHkdhdgXj/DCAA/prNZgYAUZ5oczeE6TCnWTBX3kn6brmkVP34h8ABoRsm?=
+ =?us-ascii?Q?CQmftac+a07TdozXalEZ7HdW+o0f5zxojxoN5gBqt5YT6GC7N5PYmB6GRZgY?=
+ =?us-ascii?Q?ednS47+3M/H7XVUgGNm2m3ekFpm7W/uMt/Da5p6uRCBs8Se6+iPb8THDqXdR?=
+ =?us-ascii?Q?A64mSHC0AiM59YEKFeM0oX2rm4CpVCdhkoh0PJ5/5tsFFr6sb6sLwVSAZn2L?=
+ =?us-ascii?Q?DuuxaTG+aQMs5OgXeeYjBI6AtuuYd7G+Pnl5E8w6Wc4UDL3PycFAXEC4Jjrc?=
+ =?us-ascii?Q?Wpf4arNMQ8IMmZs9PmsBsgWugHQcOkVLHKacexVv2ILRBuKHiN1Q/8ef0Ro7?=
+ =?us-ascii?Q?l0K/snlFAKyAIfGx5n2Lsq8V1BfBwPprEGY5I4m5A/t9+pLX9jWRygirvjIx?=
+ =?us-ascii?Q?sqFdnr9MpJWNFW77IymTwpksEly8RKaHKCsEWoQuP8Hfx8My25LyNIY51BsJ?=
+ =?us-ascii?Q?j1bnDBu5YOBlxgPG2rm3x3gd17coiK2DVL7hZGLFs/IECksf20+JgF3RO4dJ?=
+ =?us-ascii?Q?BMdcOtapLKxKm4WXiDJ+3a+bO1Z+8olerVGQvv4CXEatEfpoEEafeUoTsbuI?=
+ =?us-ascii?Q?dFrnUg7PCoF0VEIY3/mMOdpoPqF+GjA2IxRWNS8MI9WXJmTRbbjJaP4lu9jp?=
+ =?us-ascii?Q?7VMkrCJU3qgEwpwtWw5Z/BgRAzUCNHQuWahgHdTnA71wxqbT9LAjb58cObwk?=
+ =?us-ascii?Q?OB/0EoEGkMOSYHC7pN7uPkgR3aiJEBLBxh+GCLkzgh2PgxwhScjzOy3vSSDH?=
+ =?us-ascii?Q?RqMmfjv5ognKbLZhWzkY48cQ0mtT70237tUs8uj5806yzsim8ET5evzxv9p1?=
+ =?us-ascii?Q?sgSjPkBWDRFvFA8RSHKyaapqCtUTyjhUx0YAUqLGnb1vlFSyBgKYezvAdovW?=
+ =?us-ascii?Q?7IxSal2Bgba7JBdr1DKeWEsK4eP0jJ2/xq35ktvT1T5LNegf+8YxtkV1l00h?=
+ =?us-ascii?Q?sxh0A30K0nCiLVQ89rEdbm/1T58xMS/vZhdhcJ2DP6LSWhzSjH5WgSlVwGp/?=
+ =?us-ascii?Q?IJtDUeHucB+im31jaH8bK+f0CsaHzNud?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MN2PR12MB3613.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ySCzhZnpHxOWqPI/yflBssifJZdo+Q4GOHTvqiLmgjAL8b8ZfrHAJoMUSB7z?=
+ =?us-ascii?Q?xq/8qubLtMvbET/ufIu6o4jj3gL5cO0m4S+TMEp/eHVjPQzYkhZpl7hmMZMM?=
+ =?us-ascii?Q?bRCFk44q8sseuyxJcH9ezlmCiT7sqZa4OvX/xlHIduD+z1WLinZa6x2jVU2V?=
+ =?us-ascii?Q?qRDCWGdS/Qdv6RtBpqNtNciEbRpkah2gihPgwddXQjVY0nWoXaKtu7tG9rh9?=
+ =?us-ascii?Q?qKexBeMNUbfuyfGtS7URChx1F4pjIap/eHEMuabR6GUP+N9eRc0XOnTX0DVW?=
+ =?us-ascii?Q?G4CYS7uWT+wMcplvHIP0IEXKTQ6n1VOB7G/BWDyOBnRQp4LyyE0//nl88nlV?=
+ =?us-ascii?Q?SYyjUemajFEmk/3tUUBeCxIvWRXYMe4NI6hLyhW0gN1fwPhrE40y6FokjW/U?=
+ =?us-ascii?Q?BfllBxRUdOoH1bQr1BjWyICJN+ms4r2FgdEWloOI1JixUq3vzKj6P8wDIyhN?=
+ =?us-ascii?Q?6WMsXjowLydXLd1lnnMLYZ8HoHM1k2oVUtANhMavTmHlo3pml2JIu5YM45P4?=
+ =?us-ascii?Q?FL9I4z+ReSNgxRfPhEclEcpJsRPkZ4KK2HuR/AzY7+1Y980VpLcJZAFAl2q6?=
+ =?us-ascii?Q?3Vy0A/dj2FMtIzzwMk5KA9P8SXHg1eI33GcGOZ+04KfdfaMpOmOJgREbnZjz?=
+ =?us-ascii?Q?o0aIqxm18JKs/eRRrRek09OjpqlmygVb49ZaU3+vhbDWT2Yl3jakXhm9Kx+I?=
+ =?us-ascii?Q?dy/aWsbadrZU0z5RSEgBrvd2TYSbDeh1axww8/Cqh+sJxTbXOiUascrztriP?=
+ =?us-ascii?Q?OumHu1b5hztULJcqvW2OCVoPImRLYeJ2FqsrUBqNcA27fE7y7ymTrYSWEK08?=
+ =?us-ascii?Q?gFr1noDcGUQCYB9aLfHtoU/0zyH/aC45I456+u9veAl6XW6ELSM6YmiVJWjV?=
+ =?us-ascii?Q?q22GptSLjMxE7jpj3QKyVnP0EQar8YdOWxtofOXi3AvHybRPyqb7IPPHQaJV?=
+ =?us-ascii?Q?NN1huEPmQlMlJv7OmAU+GvAOx97MZ8MqYMCr3P+UAQG4ydNbkj73j6r7R9GK?=
+ =?us-ascii?Q?+XYJPnsBm1SYJvtSh5pZ6MN4isEXUIK8bY8FUKOgcx4FGMKsd13VNRFxmJvl?=
+ =?us-ascii?Q?tDDfMXQVL6aBKxCZBfiKfJNxVtETl8rkBS0GnNR6xBUsjrt/MLI0Eigkfwky?=
+ =?us-ascii?Q?5Z/bvfeZL0grGvMxmgPn64pezVtBfotbriDq7dO2u04umCy7Qq7jwBlG1Di4?=
+ =?us-ascii?Q?9noVFIjobLSdwkmKr8H/qpe9xGtfwABpqQhI8zrHC+AiUmmOXB9IDu8mTrTB?=
+ =?us-ascii?Q?Ly3xFJ9jnOIt5Aesv82LtttD9v3giCGWppo4+AIHijcotRymDdJ9tfQkc8NG?=
+ =?us-ascii?Q?nhjuCdWp3524BAhXZqx5xjzmm/sn2At4Dpls3TxCAo/bifDAfaOPXYzOVxOP?=
+ =?us-ascii?Q?8Xf4dn2I+WCK1nxKE+otod9U1eeB9gYAO3ibWVCh6UueNaD2oO30AMhhV+Ks?=
+ =?us-ascii?Q?9L6DhIELVC6oFpDFG/mdySdVMVy9XQDR6dLBGqmbGOniK6pNUjbAgTNsaKs9?=
+ =?us-ascii?Q?ETz7Jkaausn3CkzRziGkQeF3kUNODUCkpvvcNa5vw6Roz3+AvqiI/h29H9E3?=
+ =?us-ascii?Q?SUlkuE/JVTBhEAkyOyE=3D?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: f0e6c7a9-3a70-41fb-92ca-08de286bb46e
+X-MS-Exchange-CrossTenant-AuthSource: MN2PR12MB3613.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Nov 2025 19:33:38.9448
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 3E6T2HbLCadhRg05ogWH3sH4JtZMr/WAsgRI9TGrPFbqoQ/Ga2dOf1BMWQS+fdEX
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB7709
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251120_113005_909547_7FE4A3E8 
-X-CRM114-Status: GOOD (  19.38  )
+X-CRM114-CacheID: sfid-20251120_113347_947768_55EE992F 
+X-CRM114-Status: GOOD (  19.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,64 +170,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, Oct 23, 2025 at 11:26:57AM -0300, Jason Gunthorpe wrote:
+> > >   	if (dev_data) {
+> > > -		/*
+> > > -		 * If this is a DMA fault (for which the I(nterrupt)
+> > > -		 * bit will be unset), allow report_iommu_fault() to
+> > > -		 * prevent logging it.
+> > > -		 */
+> > > -		if (IS_IOMMU_MEM_TRANSACTION(flags)) {
+> > > -			/* Device not attached to domain properly */
+> > > -			if (dev_data->domain == NULL) {
+> > > -				pr_err_ratelimited("Event logged [Device not attached to domain properly]\n");
+> > > -				pr_err_ratelimited("  device=%04x:%02x:%02x.%x domain=0x%04x\n",
+> > > -						   iommu->pci_seg->id, PCI_BUS_NUM(devid), PCI_SLOT(devid),
+> > > -						   PCI_FUNC(devid), domain_id);
+> > > -				goto out;
+> > > -			}
+> > This part is unrelated to the report_iommu_fault() call - in fact it was
+> > specifically added even more recently.
+> 
+> Yeah, I'll fix it
 
---GWQewNjTVJ/ff2qP
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Coming back to this, it was right in the v1, it should be deleted.
 
-On Thu, Nov 20, 2025 at 05:30:46PM +0000, Catalin Marinas wrote:
-> On Wed, Nov 19, 2025 at 07:08:27PM +0000, Conor Dooley wrote:
-> > index 09aec4a1e13f..ac223e627bc5 100644
-> > --- a/lib/Kconfig
-> > +++ b/lib/Kconfig
-> > @@ -544,8 +544,9 @@ config ARCH_HAS_CPU_CACHE_INVALIDATE_MEMREGION
-> >  	bool
-> > =20
-> >  config GENERIC_CPU_CACHE_MAINTENANCE
-> > -	bool
-> > -	select ARCH_HAS_CPU_CACHE_INVALIDATE_MEMREGION
-> > +	def_bool y
-> > +	depends on ARCH_HAS_CPU_CACHE_INVALIDATE_MEMREGION
-> > +	depends on ARM64
->=20
-> That's what we do if GENERIC_CPU_CACHE_MAINTENANCE depends on some arch
-> code but that's not the case here. GENERIC_CPU_CACHE_MAINTENANCE is an
-> alternative implementation that an arch can select if it does not
-> provide its own. I find the current code without the above patch better.
+The (dev_data->domain == NULL) test was added because calling
+report_iommu_fault() will crash if the domain is NULL. This removed
+that call it so we can't crash anymore.
 
-Right, I am going to leave it as-is for now then. That's both you and I
-(and presumably Jonathan) finding the current form more natural. Sorry
-Randy!
+Instead we fall through to this:
 
->=20
-> Maybe what gets confusing here is that the core code uses
-> ARCH_HAS_CPU_CACHE_INVALIDATE_MEMREGION directly. A more involved fix
-> would be something like:
->=20
-> config CPU_CACHE_INVALIDATE_MEMREGION
-> 	def_bool y
-> 	depends on ARCH_HAS_CPU_CACHE_INVALIDATE_MEMREGION ||
-> 		GENERIC_CPU_CACHE_MAINTENANCE
->=20
-> and then go and change all the uses of
-> ARCH_HAS_CPU_CACHE_INVALIDATE_MEMREGION.
->=20
-> Up to you, the current code also works for me.
->=20
-> --=20
-> Catalin
+		if (__ratelimit(&dev_data->rs)) {
+			pci_err(pdev, "Event logged [IO_PAGE_FAULT domain=0x%04x address=0x%llx flags=0x%04x]\n",
+				domain_id, address, flags);
+		}
 
---GWQewNjTVJ/ff2qP
-Content-Type: application/pgp-signature; name="signature.asc"
+Which prints the same information, the "domain is null" is not
+especially useful. Further this only happens when dev_data is set it
+so is very unlikely to be NULL anyhow, there is only a short period
+after probe before the default domain is attached.
 
------BEGIN PGP SIGNATURE-----
+I will add some remarks to the commit message since I forgot why I did
+it when you asked :\
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaR9sNwAKCRB4tDGHoIJi
-0iwAAP4sZZunWgmdbcP4niSKJ9g4EK7V7O3kaxN4Ej7sdvGNxAD6A8/QxGwRZLSe
-nw9K+uD+keAFW9zH8cVgWCwaWpigQwA=
-=PQDt
------END PGP SIGNATURE-----
-
---GWQewNjTVJ/ff2qP--
+Jason
 
