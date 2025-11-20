@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D3AACF8859
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 13:40:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58FC0CF8859
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 13:40:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=14rWdg0/SvfLjGFAnt1LVt/Dl/2W8UKjIo38UovnDL4=; b=bTShdpMSI8+dSYhv0m5wPTtvH1
-	ekInjgfQaMay70U/h+evAFewAAg++NJU3gWKwqgsfYygyVVCaLpeykAyvSbroqUwzVsmfHc0Zp1vb
-	zGZoSWYHNbNSagotgnUM6Yf39+BiHc06PkKdLZheCDHMpm6QPoVdiMZM0n5GcFZqVXwD+D0eLiP6q
-	fxqfwr+RHgJ5dUBs378+NxR/HyhqqoSb4MYkXzUef54aBgodmwHn0IkJZBGHDEOj5am5UUHh6H/9P
-	Kdeuvsm0uDMj82MqUjn516gKLbHWSyEckMS7kVAj+RJjLSGm1dmIXD4DjYShQF6/RuO+tMVQduSJP
-	TKLxsgng==;
+	bh=UsKnN12hj/rbVpqzjPerf7BE9gG8BCj2mcAs3qdEBTg=; b=CQ0yXNTLk7QMH64+ofevp4bgvD
+	FKZHFjKzzbql4bvciipn4woyvXOyaGJXIhRc8P6y3m9cCL387AH2aT6M2CV+13S7YlUWWgi1tdxVe
+	/aoimu/di8UDIRl3lUuwco40sXrWo5InsRNz1zbjaMfwgVJNaxGOu8syTl/FPBitwijV3Bo7CCmdR
+	uyAULvrLaGmVhQP/3Ze5Z+uD3oObij1drmKu/qn4/Jo+C4sqVBT3jfk30xnM4e/qnaSrKeoGMAhwd
+	iEN2/JApZ4sR3uwtPUVruV1C33jyzOroYXxnnKyhmy2OuZRDS/3zkhoQaE+yIRCjZQPjPObf4t5VX
+	46tFHEDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vM4tC-00000006klq-0oz3;
-	Thu, 20 Nov 2025 13:39:58 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vM4tb-00000006kuG-2J1M;
+	Thu, 20 Nov 2025 13:40:23 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vM4t9-00000006kl2-3Pg4;
-	Thu, 20 Nov 2025 13:39:57 +0000
+	id 1vM4tZ-00000006kte-39Hk;
+	Thu, 20 Nov 2025 13:40:21 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 32C8044320;
-	Thu, 20 Nov 2025 13:39:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 75975C4CEF1;
-	Thu, 20 Nov 2025 13:39:51 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 27E196011F;
+	Thu, 20 Nov 2025 13:40:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 403A6C4CEF1;
+	Thu, 20 Nov 2025 13:40:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763645995;
-	bh=z2M9ohD80JDyZLtDqqyDY26IKgCioW3dBGT7QUySnc0=;
+	s=k20201202; t=1763646020;
+	bh=wtFcg+mxeMTwpc0PfeCeV5YE3FP0e1rSXIPsPzLHaiY=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=sX4DsPO9TcTbQuIzuvP43lhqJhakFwB24Rk4hGGsKDmSMwtEhDi/tPGG33fEqOAsc
-	 CgE6ocKs7ervfHtd70D1Ym9UDxpzOtDaDbY3sKOQf4o0VpBildmITsr2IoUmBPjcN9
-	 UNCMPEnnbz8b6vyFPVcDVFYK8Fug0GlDhJXdFIF4iI45Ng2hfkD3c0AJaMTSLsjM85
-	 BZ4phL4kUguILCnlTPpou2z8K7NG4r/zAOp+GMOhqGOS8l2QpxPpvEIjkxVrDUnE1c
-	 NdVRYDx6S34yfm/asKVOOA6l2oImDyFs9qTDp+jmnlKuTe1Vvs9+761w8rsukIvSQ8
-	 4kyH0pVN08GZg==
-Message-ID: <14caa2fe-e1fa-471a-8c6c-aafd4aaff4be@kernel.org>
-Date: Thu, 20 Nov 2025 14:39:49 +0100
+	b=pmgwwX+PTg5q1wQA9qq5HSSSQIQ0sB+Yrr7AUP3Ub1OaoQn5DE4gRmnSG0gy59IU9
+	 GfeU26dQV1v3BOolEyAlXUwfl/AkmYfrE7F8Ma+xiRe746zunC6JOxFAqc64QH6yqe
+	 XOyr+RPQzghYh1Bf4JddwcUJ5k5fU3BM+kyJ77bghVpw1ncTAoUgdkqGk5ML1kp3qP
+	 knO1OJKVoPZv+NHBr54T8O5JV0y4CVzVG8izEC+tEKkXcrbD58IfTFVCIbymev5SkN
+	 3V/bPMLN4FR96+3wa2J/A13/d6U8ywQ2v9t8cdyJQeiRzlcPX0Yir31GzlF+E31nA5
+	 S+aL/vWLawaIA==
+Message-ID: <44783f62-c8da-4c5c-a927-f9ce80df8e37@kernel.org>
+Date: Thu, 20 Nov 2025 14:40:15 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 5/5] arm64: dts: mediatek: mt6359: Add
- alarm-sta-supported property to RTC node
+Subject: Re: [PATCH v2 4/5] rtc: mt6397: Add BBPU alarm status reset and
+ shutdown handling
 To: ot_shunxi.zhang@mediatek.com, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
  <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
@@ -58,7 +58,7 @@ To: ot_shunxi.zhang@mediatek.com, Rob Herring <robh@kernel.org>,
 Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
 References: <20251120121805.6775-1-ot_shunxi.zhang@mediatek.com>
- <20251120121805.6775-6-ot_shunxi.zhang@mediatek.com>
+ <20251120121805.6775-5-ot_shunxi.zhang@mediatek.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -104,12 +104,9 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20251120121805.6775-6-ot_shunxi.zhang@mediatek.com>
+In-Reply-To: <20251120121805.6775-5-ot_shunxi.zhang@mediatek.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251120_053955_894400_4ED1B0C2 
-X-CRM114-Status: GOOD (  16.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,47 +122,15 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 20/11/2025 13:18, ot_shunxi.zhang@mediatek.com wrote:
-> From: Shunxi Zhang <ot_shunxi.zhang@mediatek.com>
-> 
-> This patch adds the 'mediatek,alarm-sta-supported' property to the RTC
-
-
-Please do not use "This commit/patch/change", but imperative mood. See
-longer explanation here:
-https://elixir.bootlin.com/linux/v6.16/source/Documentation/process/submitting-patches.rst#L94
-
-> node in the MediaTek MT6359 device tree source file. This property
-> indicates that the RTC supports alarm status functionality, which is
-> essential for proper power management and wake-up events.
-> 
-> Signed-off-by: Shunxi Zhang <ot_shunxi.zhang@mediatek.com>
-> ---
->  arch/arm64/boot/dts/mediatek/mt6359.dtsi | 1 +
->  1 file changed, 1 insertion(+)
-> 
-> diff --git a/arch/arm64/boot/dts/mediatek/mt6359.dtsi b/arch/arm64/boot/dts/mediatek/mt6359.dtsi
-> index 467d8a4c2aa7..62a2d745c8d2 100644
-> --- a/arch/arm64/boot/dts/mediatek/mt6359.dtsi
-> +++ b/arch/arm64/boot/dts/mediatek/mt6359.dtsi
-> @@ -302,6 +302,7 @@ mt6359_vsram_others_sshub_ldo: ldo_vsram_others_sshub {
 >  
->  		mt6359rtc: rtc {
->  			compatible = "mediatek,mt6358-rtc";
-> +			mediatek,alarm-sta-supported;
+>  	rtc = devm_kzalloc(&pdev->dev, sizeof(struct mt6397_rtc), GFP_KERNEL);
+> @@ -275,6 +294,8 @@ static int mtk_rtc_probe(struct platform_device *pdev)
+>  	if (IS_ERR(rtc->rtc_dev))
+>  		return PTR_ERR(rtc->rtc_dev);
+>  
+> +	rtc->alarm_sta_supported = of_property_read_bool(np, "mediatek,alarm-sta-supported");
 
-NAK, there is no such ABI.
-
-Test your code BEFORE you send it.
-
-It does not look like you tested the DTS against bindings. Please run
-`make dtbs_check W=1` (see
-Documentation/devicetree/bindings/writing-schema.rst or
-https://www.linaro.org/blog/tips-and-tricks-for-validating-devicetree-sources-with-the-devicetree-schema/
-for instructions).
-Maybe you need to update your dtschema and yamllint. Don't rely on
-distro packages for dtschema and be sure you are using the latest
-released dtschema.
-
+You cannot add undocumented ABI. Read carefully Linux documentation.
 
 Best regards,
 Krzysztof
