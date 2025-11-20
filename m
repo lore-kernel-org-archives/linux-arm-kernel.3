@@ -4,91 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1FF6CFA441
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 20:56:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03DB8CFA447
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 21:06:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=q5cHSdBiFQndzU4nTFiD7tW7FCwQQjMLgxuIBfRu/1k=; b=yTyeFTo+mUOri7cxlYHai6SAnH
-	SlUKsDrR+RFhZT+HB6kSp1+c0BmS/+/fI5h3YrDujP7du1xOERFe5xnJsdZsFlyyxHR1pyqxB+mfD
-	+VfRkv0PmjI1imXbK9JPwzvaG9KJiwX5him4nezK/Xy2kRqrS4qxmVM6/iYBxqEDP32WRkm2nuBwS
-	hLzkusrnyD/f2FKqIDGxuBHUAltZ+Q7n3hbu6bj3YfbX130uTNutuCz3Ezfi/h6p8ES742V3dR6UY
-	RxvgEAorll9sDAtFgBH3x0XUxIF8W7B1lixQ+7GeAEmF85pttvNJo+L09sgu7GZSZ3HzV7cpppPaE
-	ZiKiBx5Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=SnSclzJUYUD1UpejWX4wHVJELscJwkV6MRhyXGKL86M=; b=0Z+VHuvfHNXWRr
+	+tdAnKX6zX7RzZyidH9sftSEnSuF9QhurF2e3i3AvGEpl+L/MA68UMAZJBvHhgchlANeIz2QVKpxw
+	no+TNUH5IK0Oad6MrTDtzI0M64TYLlRvRTrKoX6SR3NqfObh5GrHtZuqVColCKpp1dWUv304PYH6b
+	vLcHq0TZixr5RTdlOeclmMARz6T5a3I03WpXsnXCq5DKhksfSJZ+uTigNDBGSDvKGh1AIw4TuAfMR
+	Jzg+9RM+dv0fMfRAy79+tK/1sU2O3V3sq9SP1dAaM8lcEKUnq6eLxfiSRFdBtKFKy2QT6tsdHDRAb
+	eJvFiAJjPLanSZ8GUw7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMBhZ-00000007NYc-1vCe;
-	Thu, 20 Nov 2025 20:56:25 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1vMBrH-00000007Ora-2osk;
+	Thu, 20 Nov 2025 21:06:27 +0000
+Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMBhS-00000007NPE-2dA5
+	id 1vMBrF-00000007Oqb-2KgQ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Nov 2025 20:56:20 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 33EA41A1C5E;
-	Thu, 20 Nov 2025 20:56:17 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 021AD606F6;
-	Thu, 20 Nov 2025 20:56:17 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id DAEF710371BCD;
-	Thu, 20 Nov 2025 21:56:12 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1763672175; h=from:subject:date:message-id:to:cc:mime-version:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=q5cHSdBiFQndzU4nTFiD7tW7FCwQQjMLgxuIBfRu/1k=;
-	b=PyGvrDcT7ypsyJNjzh+XF97vqWLiE8UgFZwD7LM7RTXeyL/4Df4ybgKbJIgSfHMiszYoBL
-	RfnisJjNgq3dKPJCUn7XNHa3V1ufBk7zvdiGLs4jfrCS6TfteYrpdnbZqXIldeMej/LavL
-	T7NtNIm7wrzUnuluFWffTovgBZQrO5kdnQ+W05WXlw52dR909gOg58d8+g+zu5kBwtVHEH
-	OwWlRLHVmeD40/q91gRspHwa+bDPPrQaf/OZLfPru6WG84weJYyQafqnPhtfzR1ZKsbla6
-	8cVAo7zOrWuBoUomfUFq/LGqUJyXQ/KiNqnCl5WgLjV9gJTkXCUkN4jgCFT+Yw==
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-To: davem@davemloft.net
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org,
-	thomas.petazzoni@bootlin.com,
-	Andrew Lunn <andrew@lunn.ch>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Eric Dumazet <edumazet@google.com>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Russell King <linux@armlinux.org.uk>,
-	linux-arm-kernel@lists.infradead.org,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Herve Codina <herve.codina@bootlin.com>,
-	Florian Fainelli <f.fainelli@gmail.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Vladimir Oltean <vladimir.oltean@nxp.com>,
-	=?UTF-8?q?K=C3=B6ry=20Maincent?= <kory.maincent@bootlin.com>,
-	=?UTF-8?q?Marek=20Beh=C3=BAn?= <kabel@kernel.org>,
-	Oleksij Rempel <o.rempel@pengutronix.de>,
-	=?UTF-8?q?Nicol=C3=B2=20Veronese?= <nicveronese@gmail.com>,
-	Simon Horman <horms@kernel.org>,
-	mwojtas@chromium.org,
-	Antoine Tenart <atenart@kernel.org>,
-	devicetree@vger.kernel.org,
-	Conor Dooley <conor+dt@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Romain Gantois <romain.gantois@bootlin.com>,
-	Daniel Golle <daniel@makrotopia.org>,
-	Dimitri Fedrau <dimitri.fedrau@liebherr.com>,
-	Tariq Toukan <tariqt@nvidia.com>
-Subject: [PATCH net-next v18 15/15] Documentation: networking: Document the phy_port infrastructure
-Date: Thu, 20 Nov 2025 21:55:05 +0100
-Message-ID: <20251120205508.553909-16-maxime.chevallier@bootlin.com>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20251120205508.553909-1-maxime.chevallier@bootlin.com>
-References: <20251120205508.553909-1-maxime.chevallier@bootlin.com>
+	Thu, 20 Nov 2025 21:06:26 +0000
+Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-42b3720e58eso1113696f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Nov 2025 13:06:24 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1763672783; x=1764277583; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=SnSclzJUYUD1UpejWX4wHVJELscJwkV6MRhyXGKL86M=;
+        b=eZvUQacTJEWGZDquNJMb/yhlZcE5qmdyq5ajkA8UG86ul/kRl/Uu1qIbo+tnU+cZTe
+         dD7dLC82fE4+KXeDcIAL6Qrcsj7xqkCW7rKis6TyGvNtqoaNmfiFwKdEd8MzKL6eX0bu
+         rDi5upQmWfEr+0aCZiMwAlxp9QGEJQJYUP0ourrPHg9Ewnq+xQJ5mmzYo35B0deTD4V0
+         B4uW9vhQMehTrrTK+Ex7G/2KHksrIrOBurAbVxvsAhuyjThCLX69w6Ku0xV3WMbGIl2b
+         fAPXTirKtIjVH5hZBJJ52mtEgn/1zmSfut/RroBufH5cRl1ZIbqVAhVpKs/GC37jtBp4
+         d0pw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1763672783; x=1764277583;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=SnSclzJUYUD1UpejWX4wHVJELscJwkV6MRhyXGKL86M=;
+        b=NKOdtJu1mn7/gYx/Hnfs8pjh2oH/jjgi2HcfzN7BlV4TLUAupZ0abhtWhfF0LbHi9T
+         DRrK5isJhDIRmKfky1+Di1w2yRRM2vOuCDIcyFHDNSK2e8OHK7W7wE3NOLHFrwPSlqib
+         Lvwetij+j+7DhPKG9G485BK7VOrhpKkEQw3qq1H9SI9j4q2FKAkE0bHHtR2wBR1QCgps
+         dddkhRMAmRMYmRESzc2MHsODO3jU3NYZIHzQVxxzqKzCF6LN0EberA8b59XSFrQn8t5l
+         XNBZJq5iiaoY01IO9VI53xeL/7jkhHuXoR9j1zOFGh9h/4+RqCqqvXIV9v+DMY8UL+wc
+         WthQ==
+X-Gm-Message-State: AOJu0YwecAldll4WHlgApytPtD8TsQnMoyiDBGxdsLmUdy9UeoEGErL6
+	dtWf8iDdwlzFKpQDlIyLvrGMeBhwPsu4kfWnRgMc3knlO7PXA/Uebz9PKvhGO6PaSlM=
+X-Gm-Gg: ASbGnctsX6Aq2mDl6IeN7712qYiDdqmHsURIou4YBE2148Xm5yF3qP1CIkpvI5t7gBd
+	e1pOhOz+XzinGLbjIrGpbNw+0l3VI6iUNJ6pj/p15hA+E7a+HVY0QEubsCw75m4LFfoKX0TRyve
+	+xCEGJtIVUKcAaV6NTXuY0k+gylJrfBia4P96ntELFhy9wZlb8ir3pv241UghEC1J9vqENuBZFG
+	JsRxSO+SIL4YjliV3OFSBEpzKQBF2Uf5RFfPU8KOvHNJeYnbXwvnUdX0F/d/4Vi24VH/yOUjd14
+	3wvq2RM/9nuheXPoAzsn22cCwlhk/EASTsMckMwZ4o/OzUwkFxb62hMcWzam+DZsyKt85mu7NFx
+	cjnK3AcRnV1zlbnJCgaJjMhLzaHspuqmVQR2dMNghxMUdJS6qOXuRcAgJBrXuYROPEniD6SpdTo
+	SLfN8IwRCNCzUBBL2dQBkXdEftjlG5toR8Ej3atls=
+X-Google-Smtp-Source: AGHT+IHCr7elXViwZypO3vz2gMF/QMkjwbp8BwuhgflwUBLArbYypsOsxTUGiDrcTKcrsd4O9fOqQA==
+X-Received: by 2002:a05:6000:25c2:b0:42b:3ccc:91ec with SMTP id ffacd0b85a97d-42cb99f66b9mr4773737f8f.22.1763672782827;
+        Thu, 20 Nov 2025 13:06:22 -0800 (PST)
+Received: from gpeter-l.roam.corp.google.com ([150.228.9.80])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42cb7f2e5b6sm7321287f8f.1.2025.11.20.13.06.21
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 20 Nov 2025 13:06:22 -0800 (PST)
+From: Peter Griffin <peter.griffin@linaro.org>
+Subject: [PATCH 0/4] gs101: Add support for Display Process Unit (DPU)
+ clocks
+Date: Thu, 20 Nov 2025 21:06:10 +0000
+Message-Id: <20251120-dpu-clocks-v1-0-11508054eab8@linaro.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAMKCH2kC/0XMywrCMBCF4VcJszYwCaaNeRXpIk2mGtS25lKE0
+ nc3tIjL/8D5VkgUAyUwbIVIS0hhGmuIEwN3t+ONePC1QaJUQkjkfi7cPSf3SLzttVQelcbWQj3
+ MkYbw2bFrd3Skd6lmPsY/adgOImpuS55eNgf3Y+X5YvsGh0Y6MouCbtu+qQhbh6cAAAA=
+X-Change-ID: 20251120-dpu-clocks-7b825d05807a
+To: =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
+ Tudor Ambarus <tudor.ambarus@linaro.org>, 
+ Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
+ Sylwester Nawrocki <s.nawrocki@samsung.com>, 
+ Chanwoo Choi <cw00.choi@samsung.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+ linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Krzysztof Kozlowski <krzk@kernel.org>, 
+ kernel-team@android.com, Will McVicker <willmcvicker@google.com>, 
+ Juan Yescas <jyescas@google.com>, Doug Anderson <dianders@google.com>, 
+ Peter Griffin <peter.griffin@linaro.org>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1640;
+ i=peter.griffin@linaro.org; h=from:subject:message-id;
+ bh=zMmyX4hI98rT4xIF+GHY3RVx8brKYrtm3BxZE7xSi9Q=;
+ b=owEBbQKS/ZANAwAKAc7ouNYCNHK6AcsmYgBpH4LJSo5MK/FUkk0o+R9pPfE6qXx/ssGLCKTbJ
+ odvNLZFlHKJAjMEAAEKAB0WIQQO/I5vVXh1DVa1SfzO6LjWAjRyugUCaR+CyQAKCRDO6LjWAjRy
+ um7ND/0QmnOKBDjDsGJEHzq8JoLBEeeRK+2iHo4jSPsh+LX6XSG/y5frQ2LXNKkiX0wYn4lkuPZ
+ 7oCSxcRzsW0IDoorM07gZICU/rdPiqQ9I/E+Fwny2Nx4YsG0X3UrdHXhVmz6xQn+eSeb4f2oM9S
+ Ev1yhUq2lJxsqGjvgXUDJ8q/5kjUOqsOzw+oNbUHCkXsWff3jBr2b0Y4yxA4C2desQuBs+ss352
+ PzLes/1adCC8rKf92yV9XPZAy8sYpQDcbsQya9DL8S5qiqRAexOESoHOw5neKT6bGunmSfCi5/D
+ bc/N3+VDG99bGQwlUxcj7t7/KJQWx4ezgVWKdfCjPc6jpQZl7t/nA8FahEnmNVaFvvMFHJceZxH
+ 0dLlYKVXHLFXWtB28NRzgWLWRko5182DPk7GrHlq9pJpL1XHRa/EPzd5OMJEbnkuY/bO2kRjtej
+ WeOqcXAglj41e+YEhI72ap3qfAPRP1NUmMjBpivMbG08w6SxMWP2uwvZMw0lYcBvt8A/ZX23t8D
+ Xm3ygoQMxEpBzyEPP8yFwXKopT9/8Lmglb0rqZZgGkJEiQ1FlG9vOyWFg3u7QZbQf7UIzDrJMrp
+ tsRfthtirfylRyQHmPQXvUWxubwTXoCEczsNvuVim2htorwsdoMvt0rvn+wquxSdQeaORGU0HLV
+ tYWkXgAZ+qp0nKw==
+X-Developer-Key: i=peter.griffin@linaro.org; a=openpgp;
+ fpr=0EFC8E6F5578750D56B549FCCEE8B8D6023472BA
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251120_125618_855657_C372EBE4 
-X-CRM114-Status: GOOD (  21.08  )
+X-CRM114-CacheID: sfid-20251120_130625_642565_3AA0F66D 
+X-CRM114-Status: GOOD (  10.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,170 +129,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This documentation aims at describing the main goal of the phy_port
-infrastructure.
+Hi folks,
 
-Reviewed-by: Christophe Leroy <christophe.leroy@csgroup.eu>
-Reviewed-by: Andrew Lunn <andrew@lunn.ch>
-Tested-by: Christophe Leroy <christophe.leroy@csgroup.eu>
-Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+This series adds support for the Display Process Unit Clock Management Unit
+(CMU_DPU) found on gs101. I've based this on top of the automatic clock
+series to avoid conflicts [1].
+
+As all the patches will go via Krzysztof tree it has been sent as one
+series.
+
+regards,
+
+Peter.
+
+[Link] https://lore.kernel.org/lkml/20251114-automatic-clocks-v5-0-efb9202ffcd7@linaro.org/ [1]
+
+Signed-off-by: Peter Griffin <peter.griffin@linaro.org>
 ---
- Documentation/networking/index.rst    |   1 +
- Documentation/networking/phy-port.rst | 111 ++++++++++++++++++++++++++
- MAINTAINERS                           |   2 +
- 3 files changed, 114 insertions(+)
- create mode 100644 Documentation/networking/phy-port.rst
+Peter Griffin (4):
+      dt-bindings: clock: google,gs101-clock: Add DPU clock management unit
+      dt-bindings: samsung: exynos-sysreg: add gs101 dpu compatible
+      arm64: dts: exynos: gs101: add cmu_dpu and sysreg_dpu dt nodes
+      clk: samsung: gs101: add support for Display Process Unit (DPU) clocks
 
-diff --git a/Documentation/networking/index.rst b/Documentation/networking/index.rst
-index 75db2251649b..49fcfa577711 100644
---- a/Documentation/networking/index.rst
-+++ b/Documentation/networking/index.rst
-@@ -96,6 +96,7 @@ Contents:
-    packet_mmap
-    phonet
-    phy-link-topology
-+   phy-port
-    pktgen
-    plip
-    ppp_generic
-diff --git a/Documentation/networking/phy-port.rst b/Documentation/networking/phy-port.rst
-new file mode 100644
-index 000000000000..6e28d9094bce
---- /dev/null
-+++ b/Documentation/networking/phy-port.rst
-@@ -0,0 +1,111 @@
-+.. SPDX-License-Identifier: GPL-2.0
-+.. _phy_port:
-+
-+=================
-+Ethernet ports
-+=================
-+
-+This document is a basic description of the phy_port infrastructure,
-+introduced to represent physical interfaces of Ethernet devices.
-+
-+Without phy_port, we already have quite a lot of information about what the
-+media-facing interface of a NIC can do and looks like, through the
-+:c:type:`struct ethtool_link_ksettings <ethtool_link_ksettings>` attributes,
-+which includes :
-+
-+ - What the NIC can do through the :c:member:`supported` field
-+ - What the Link Partner advertises through :c:member:`lp_advertising`
-+ - Which features we're advertising through :c:member:`advertising`
-+
-+We also have info about the number of pairs and the PORT type. These settings
-+are built by aggregating together information reported by various devices that
-+are sitting on the link :
-+
-+  - The NIC itself, through the :c:member:`get_link_ksettings` callback
-+  - Precise information from the MAC and PCS by using phylink in the MAC driver
-+  - Information reported by the PHY device
-+  - Information reported by an SFP module (which can itself include a PHY)
-+
-+This model however starts showing its limitations when we consider devices that
-+have more than one media interface. In such a case, only information about the
-+actively used interface is reported, and it's not possible to know what the
-+other interfaces can do. In fact, we have very little information about whether
-+or not there are any other media interfaces.
-+
-+The goal of the phy_port representation is to provide a way of representing a
-+physical interface of a NIC, regardless of what is driving the port (NIC through
-+a firmware, SFP module, Ethernet PHY).
-+
-+Multi-port interfaces examples
-+==============================
-+
-+Several cases of multi-interface NICs have been observed so far :
-+
-+Internal MII Mux::
-+
-+  +------------------+
-+  | SoC              |
-+  |          +-----+ |           +-----+
-+  | +-----+  |     |-------------| PHY |
-+  | | MAC |--| Mux | |   +-----+ +-----+
-+  | +-----+  |     |-----| SFP |
-+  |          +-----+ |   +-----+
-+  +------------------+
-+
-+Internal Mux with internal PHY::
-+
-+  +------------------------+
-+  | SoC                    |
-+  |          +-----+ +-----+
-+  | +-----+  |     |-| PHY |
-+  | | MAC |--| Mux | +-----+   +-----+
-+  | +-----+  |     |-----------| SFP |
-+  |          +-----+       |   +-----+
-+  +------------------------+
-+
-+External Mux::
-+
-+  +---------+
-+  | SoC     |  +-----+  +-----+
-+  |         |  |     |--| PHY |
-+  | +-----+ |  |     |  +-----+
-+  | | MAC |----| Mux |  +-----+
-+  | +-----+ |  |     |--| PHY |
-+  |         |  +-----+  +-----+
-+  |         |     |
-+  |    GPIO-------+
-+  +---------+
-+
-+Double-port PHY::
-+
-+  +---------+
-+  | SoC     | +-----+
-+  |         | |     |--- RJ45
-+  | +-----+ | |     |
-+  | | MAC |---| PHY |   +-----+
-+  | +-----+ | |     |---| SFP |
-+  +---------+ +-----+   +-----+
-+
-+phy_port aims at providing a path to support all the above topologies, by
-+representing the media interfaces in a way that's agnostic to what's driving
-+the interface. the struct phy_port object has its own set of callback ops, and
-+will eventually be able to report its own ksettings::
-+
-+             _____      +------+
-+            (     )-----| Port |
-+ +-----+   (       )    +------+
-+ | MAC |--(   ???   )
-+ +-----+   (       )    +------+
-+            (_____)-----| Port |
-+                        +------+
-+
-+Next steps
-+==========
-+
-+As of writing this documentation, only ports controlled by PHY devices are
-+supported. The next steps will be to add the Netlink API to expose these
-+to userspace and add support for raw ports (controlled by some firmware, and directly
-+managed by the NIC driver).
-+
-+Another parallel task is the introduction of a MII muxing framework to allow the
-+control of non-PHY driver multi-port setups.
-diff --git a/MAINTAINERS b/MAINTAINERS
-index e0dc230df90e..219c04aab4a6 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -9283,6 +9283,7 @@ F:	Documentation/devicetree/bindings/net/ethernet-connector.yaml
- F:	Documentation/devicetree/bindings/net/ethernet-phy.yaml
- F:	Documentation/devicetree/bindings/net/mdio*
- F:	Documentation/devicetree/bindings/net/qca,ar803x.yaml
-+F:	Documentation/networking/phy-port.rst
- F:	Documentation/networking/phy.rst
- F:	drivers/net/mdio/
- F:	drivers/net/mdio/acpi_mdio.c
-@@ -17981,6 +17982,7 @@ F:	net/ethtool/phy.c
- NETWORKING [ETHTOOL PHY PORT]
- M:	Maxime Chevallier <maxime.chevallier@bootlin.com>
- F:	Documentation/devicetree/bindings/net/ethernet-connector.yaml
-+F:	Documentation/networking/phy-port.rst
- F:	drivers/net/phy/phy_port.c
- F:	include/linux/phy_port.h
- K:	struct\s+phy_port|phy_port_
+ .../bindings/clock/google,gs101-clock.yaml         |  19 ++
+ .../soc/samsung/samsung,exynos-sysreg.yaml         |   2 +
+ arch/arm64/boot/dts/exynos/google/gs101.dtsi       |  17 ++
+ drivers/clk/samsung/clk-gs101.c                    | 283 +++++++++++++++++++++
+ include/dt-bindings/clock/google,gs101.h           |  36 +++
+ 5 files changed, 357 insertions(+)
+---
+base-commit: 7850d78b1aaae4eef59e519993bd8a8552b7c79d
+change-id: 20251120-dpu-clocks-7b825d05807a
+prerequisite-change-id: 20251008-automatic-clocks-249ab60f62ce:v5
+prerequisite-patch-id: 6fec555c9a6442c6f0c53b27d096c90dc9f6e32a
+prerequisite-patch-id: f01cfd5b3de005b646c158bb7277f417ca6b27d9
+prerequisite-patch-id: 08f5690839af740c7975caff424288043474926d
+prerequisite-patch-id: fee79bd7b5b1df942a0aedafd4d057faa354b057
+
+Best regards,
 -- 
-2.49.0
+Peter Griffin <peter.griffin@linaro.org>
 
 
