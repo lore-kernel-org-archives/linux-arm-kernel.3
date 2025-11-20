@@ -4,51 +4,192 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9F10CF857C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 09:51:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E498ECF857C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 09:51:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Nf2MKg3ETrlRe2dMSMrMdLfVe8iEcC5mFRODdYJZ2jM=; b=Zfc8+QMiabhcDIwBCX5k3XEqlN
-	3DKPDIK5+0VG5+yVnRRvUhUYsuNmpPJzFuHGt1SfF5HvP3MCVXNAZ9Az7Lery4XtrDpwnlYg6saPo
-	2+aTaJJwA8rmq8ztsOczGoQFPO6RXmAfHShHvICupznk0Zv80Ot/ws0vKwdzfJ7YPunIczBbJgtNA
-	C8VdTPVXXRCB5WoY7Q6+tKDnzgJGcsiEn9UtUbAn0blyK2uLJEEuswzdR25/x4DEYCzqsKiDsGEmc
-	jCYIayC6LLSMBW+BMDuFBC1gqq2MhY5D4SgizTvOxNeL7sZM/O7/G2RP6bQx8DJJg5uBQ29wDA/rp
-	KQvgv97w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:CC:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=p7SmfZkcjmdrpyEQ/FmWhe4bphf22SR0VFIWNMupeIg=; b=4WrAZUVR3L3HjeCZM6rLRlve3X
+	NEJ3ybT6iEqx+aVvoRe80T5YvWi6+zhFQ1D4+Ce/DV07oPRLZJHe5i7LW1zrnWXDZ+3FT+B6GVK4d
+	g3LyRiYY9BxKozYQxy0jSpqIArEG6u3KCXN7+nvE+b8AEZ2EFmhRvTr+DUqkPi684PXDuhdvmlBAN
+	myKprS/RAynUBVQvkd/VDH/LKrNJxSm5D8kgPc7ky7M+8lb7JoyYIIloJLCD0XWsGLs090reg9TgK
+	ONX4BZYaOriF2pxGykCVQJ2fmO9d2p7aaAl8nMPlJLX237oIsN829+avnnhKwsS6iQ3DkfhWSW5ba
+	i36vPGug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vM1Jm-00000006SHa-3sll;
-	Thu, 20 Nov 2025 09:51:10 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1vM1Jw-00000006SJY-0sb0;
+	Thu, 20 Nov 2025 09:51:20 +0000
+Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vM1Jk-00000006SH0-478l
+	id 1vM1Js-00000006SIB-2wLA
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Nov 2025 09:51:10 +0000
-Received: from dude05.red.stw.pengutronix.de ([2a0a:edc0:0:1101:1d::54])
-	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1vM1Jf-0002La-G0; Thu, 20 Nov 2025 10:51:03 +0100
-From: Philipp Zabel <p.zabel@pengutronix.de>
-To: soc@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org,
-	kernel@pengutronix.de,
-	Philipp Zabel <p.zabel@pengutronix.de>
-Subject: [GIT PULL] Reset controller updates for v6.19
-Date: Thu, 20 Nov 2025 10:50:59 +0100
-Message-ID: <20251120095059.2787351-1-p.zabel@pengutronix.de>
-X-Mailer: git-send-email 2.47.3
+	Thu, 20 Nov 2025 09:51:18 +0000
+Received: from pps.filterd (m0288072.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5AK9Qc9h499919;
+	Thu, 20 Nov 2025 10:50:58 +0100
+Received: from du2pr03cu002.outbound.protection.outlook.com (mail-northeuropeazon11011031.outbound.protection.outlook.com [52.101.65.31])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 4ahfcpurfy-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Thu, 20 Nov 2025 10:50:57 +0100 (CET)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=cpmsH5583NTkp02pTZLi7CemJtgA2zEW1yI/cOGRpckbHovxAMT+G+MhTQDPW82mp6H9YRP5B43dbslEh2jkWheyyp6oGFm6egX3UIfaUB0R37aAvs5i3EDE61sEcmVvGi2oOkYjr247olEFkh9npe/pN58fcObOim9vj3Alp0xwWfN/KWl34c+obXYjrw7YszrLlh9xhSaH3jjDcgoQFYf+kmzrZVNIiXkx1x5+E4wuW11XBsQYbQsq4TJpzb7H8SRwxGLLtS3plYLa9dYTcG1jNiZLiUd7Khf2X+V8HrtkBh1CNFIExeZy258inK9DaQ9765h6hPpUs/cP/e/UQQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=p7SmfZkcjmdrpyEQ/FmWhe4bphf22SR0VFIWNMupeIg=;
+ b=Xdj+2kx1YfmKzwGT6HFnrseFp/k1d2dlW6SefYsP6Hu2es5ZWJxHiRFmFWvg5gDYgj3Q8B0t6t35FW5sxC0Mi/mxsJa254dQjvQe/zkm1xQAEIFWXEfqKCZwH69mINLzlpqBOmbV90zFirdc7vAO4d+KEtPq/ceJJrlriacndLI94tpR9aNRK3YVVOMG043/7w8cm4N3DFl41+QjtGMcx+uwDn8zmQNmzZAXna30B2nuh1prJbOaFNkV5T7685wVeT+TwVDTSoukChgsaY38hki6NMnEhWQzkI5w/sdmkxnlkyOwlHC1LGgXZLYvg6wL+DO3jqZaqhDIuvow7Ocppw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 164.130.1.60) smtp.rcpttodomain=linaro.org smtp.mailfrom=foss.st.com;
+ dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=p7SmfZkcjmdrpyEQ/FmWhe4bphf22SR0VFIWNMupeIg=;
+ b=N8dZ/G7IUXTjE44YvGzSBMHRFiZAFQNncufAvZc3ZaN8yxWpUdh+SsLLtMuYEsWyjPv+UDj2myZAFEtcn+OWirZqVzI5W5zAEXLcm2DMPrEx1O4aEwuAvz6GSmoSvFK3taJUntg15oEAX9+T1qjXgiI/TGQJezdGXjI8rPZQkltPd1FnRlMiNGulKHPTwFc7yJk40vigejNseZ1rqRGCce2aRJ2I56ZVjz75KeNMqUzlFURFfrassK7MC8SySZ2NFPzRarPufSqrBU2juBe8FuZJVavO6IC9UPrTzoz1EAfzbxq7gRAP7lQT2WqcAE1vOKoDg8zwmk0W1yyVHxDITQ==
+Received: from DU7P250CA0024.EURP250.PROD.OUTLOOK.COM (2603:10a6:10:54f::17)
+ by DU0PR10MB7335.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:10:445::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9343.10; Thu, 20 Nov
+ 2025 09:50:55 +0000
+Received: from DB5PEPF00014B9D.eurprd02.prod.outlook.com
+ (2603:10a6:10:54f:cafe::fe) by DU7P250CA0024.outlook.office365.com
+ (2603:10a6:10:54f::17) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9343.10 via Frontend Transport; Thu,
+ 20 Nov 2025 09:50:55 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.60)
+ smtp.mailfrom=foss.st.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=foss.st.com;
+Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
+ designate 164.130.1.60 as permitted sender) receiver=protection.outlook.com;
+ client-ip=164.130.1.60; helo=smtpO365.st.com;
+Received: from smtpO365.st.com (164.130.1.60) by
+ DB5PEPF00014B9D.mail.protection.outlook.com (10.167.8.164) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9343.9 via Frontend Transport; Thu, 20 Nov 2025 09:50:55 +0000
+Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpO365.st.com
+ (10.250.44.72) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Thu, 20 Nov
+ 2025 10:51:20 +0100
+Received: from [192.168.8.15] (10.48.86.11) by STKDAG1NODE2.st.com
+ (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Thu, 20 Nov
+ 2025 10:50:54 +0100
+Message-ID: <c74339727ef2d9c106129cba2de58cc20645ce9a.camel@foss.st.com>
+Subject: Re: [PATCH v2 02/15] dt-bindings: pinctrl: stm32: use strings for
+ enum property 'st,package'
+From: Antonio Borneo <antonio.borneo@foss.st.com>
+To: Linus Walleij <linus.walleij@linaro.org>,
+        Krzysztof Kozlowski
+	<krzk+dt@kernel.org>
+CC: Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+        "Maxime
+ Coquelin" <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue
+	<alexandre.torgue@foss.st.com>,
+        <linux-gpio@vger.kernel.org>, <devicetree@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        =?ISO-8859-1?Q?Cl=E9ment?= Le Goffic <legoffic.clement@gmail.com>,
+        "Amelie
+ Delaunay" <amelie.delaunay@foss.st.com>,
+        Pascal Paillet
+	<p.paillet@foss.st.com>
+Date: Thu, 20 Nov 2025 10:50:49 +0100
+In-Reply-To: <CACRpkdYuRas_jgi5K9hbxtJLrxxQ+wS-dJcunT5m48qS0tKXAA@mail.gmail.com>
+References: <20251118161936.1085477-1-antonio.borneo@foss.st.com>
+	 <20251118161936.1085477-3-antonio.borneo@foss.st.com>
+	 <CACRpkdYuRas_jgi5K9hbxtJLrxxQ+wS-dJcunT5m48qS0tKXAA@mail.gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.48.4 
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:1101:1d::54
-X-SA-Exim-Mail-From: p.zabel@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+X-Originating-IP: [10.48.86.11]
+X-ClientProxiedBy: ENXCAS1NODE2.st.com (10.75.128.138) To STKDAG1NODE2.st.com
+ (10.75.128.133)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DB5PEPF00014B9D:EE_|DU0PR10MB7335:EE_
+X-MS-Office365-Filtering-Correlation-Id: 78cb3202-fdfc-47a7-0c55-08de281a4ccf
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|1800799024|82310400026|7416014|376014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?YWdoNHZQU2h0UUNpTVQ0L0VleHZOVlNHdExtQ0ZWM1c2Vy9RMmpuMHV6VExR?=
+ =?utf-8?B?TEtkSURVMDQrUUhqZ1J2NUxwMGdHQVZrUjZxVHVwRDVGbEhKWGFHZ1JsQ21Y?=
+ =?utf-8?B?QlNSNTBycCsvVW9UeVYweVhnOG9uMWZTbFVMdzhLOHFjanlWd3RLbkc0NGVG?=
+ =?utf-8?B?QXRHS2tzdVBZUXp3dGYveDhPT3IxRU91UjBMZUtZcmlzcmNzcVN0Q3k0dDlx?=
+ =?utf-8?B?MmQ3OFlmQm11VzZaSVdYbW5TS3FEYnJDcHpqWUUwZWZLanVZUEo3OXl6WFJJ?=
+ =?utf-8?B?REZRNHZjby9tdlhJenF1WnIrSER0a05oVTJMQlkxbWEzRjlmNHJFS0JlV2lk?=
+ =?utf-8?B?VkFadWZGdXQ1ZnF5cWVqSHVTUmxCQThzMVZqUERwNDVVdVZlYjZUT2pFN1RO?=
+ =?utf-8?B?ejlLc1N3cHRsbEdoSVhJbHYyQmg1WEdnUTg1Mi8wV2VSdlNDR3J2L2NKMjhG?=
+ =?utf-8?B?b0Y3UlRnZUxTSWpFc1FhUkJ4a1QwcXFYTTU5MlJZRVFXNWNmWlhrak1XV3RL?=
+ =?utf-8?B?bVV2d2FaY3pTT2JUN1dVWFE0Yll1R0RaQTl0TWMzUWJSVW9xSlpNdUg3TDBo?=
+ =?utf-8?B?RGo4R2lYbEx0b3JXUi9DSXM3aWRrR3JRcTdjTzlubzdsYnNqRUlEV2owVXJ5?=
+ =?utf-8?B?WFVIdVF6R3NwUW8rU1VPOGlYSUVNM2hOWElORG1tS1JQS2x5d216ckhFb2ZW?=
+ =?utf-8?B?MWVOWEFCMFBybUhydmFwMVhNUG9YRkRWaGJWRHlzZ2txekNyKzFqU0hDZmxn?=
+ =?utf-8?B?VGtlR216dXhWZ2NESGpuaFRWbC9LWkVrM29SL1I3M2s5MWdhUnc3OExyMUtW?=
+ =?utf-8?B?djFRWWNPeG1sdWlVMkJ2NElMSWN6L280Mk1PYU4zZHBEZHN1ekZvdSthcGlO?=
+ =?utf-8?B?V0RCTFlGT3RkdnBNeVk2SU1sd2dtY1ErNzF2UlJPYXdRYVNpSmg4K0dNYjZK?=
+ =?utf-8?B?MEZZcEpHdUV6U2hUYlMrY0tCS1Z3UnJGUFg4bVlRbC9Idi80YTRqNDgveC92?=
+ =?utf-8?B?SVkzNFJJN2ozUGtpSVlVL09nTUJ5MWlmQjdMQkV5eDVRd2FLODc4NjNRVnVO?=
+ =?utf-8?B?TlJGNGxkY1FRbmZoWTlJTlp6T0U4Slhud3QxbzZXVFFJUEpzckVuOGJkcVND?=
+ =?utf-8?B?SGdqVzRuWmowc2t4RCtLbVdoK05rRlRmTXpMZytSdDkwLzY1a0F6dVB0R3JV?=
+ =?utf-8?B?aUJaY3o4UHgveThyQjhNSElTbTY0THE4Vk9tM2pnRUNlYTQwek4vay9ZQ0Vy?=
+ =?utf-8?B?L2FzKytCZThKS01Gd0FWdWhOZ3JoNmoydDRpeHRlOSsyWEtHVXJBRFdueXN2?=
+ =?utf-8?B?UDNyWUNld2JHVjBrUDJRNkRuSWpzUWd6VEpaMHIzcWkvOWNVeW1vRXRlRmRT?=
+ =?utf-8?B?c2dWMkUzQVYvd1ZrTWhGT3RRRmZlc0c1TE5zOEtFYTk2eDQyd3MybGhaQ1ZQ?=
+ =?utf-8?B?SEN5VXR4Z290NFQrZTUyaUpudnJnbVh2TVdwTTVRNGw4OWtJaGM5b3phTVh4?=
+ =?utf-8?B?ZVVtMDBhZjNKc3ZZR2JxQnFGZUlzdGdWODNuRHNxaWl1amRIall0SG5uM2c1?=
+ =?utf-8?B?TXBVOE0wY2NnUkJJRitsQVF2QW5ObytaT1Zwd2Vkallqa1ByU3ZjR0hDMG5X?=
+ =?utf-8?B?S1NyTTJkbHFrajluZExtRXRwMHBnY0lzVjNHejNlbWVvZWUwbW9TRDNHOUxO?=
+ =?utf-8?B?YW4xR0x6aXRBdUlHVHJiaUkwY3JqNTlGenNORUtDdHZ6R24vYndtV2UxQ25D?=
+ =?utf-8?B?VCtXMk4wM3FIc1Q3U2kvRW82VG9xZEFLUHdXclRRVCtKQlJ5a1NPSDVyb3dB?=
+ =?utf-8?B?S1ZZbS9oSk0rd0pSdXoyK2VvMFJZY3BFOXRCRkZ4KytsbHVhenBodnV2c3Vi?=
+ =?utf-8?B?RkJKdVg2Q3Mvb0VielVBb0F0TDBucThnSEo4d2lVWnVub1lhM0JiUlFVdlZr?=
+ =?utf-8?B?UTJxdElqRnFzNEdqdGFZaWRXOWRNRWhoUEM1L1B5MGdSYU5udHlEOWhOamJr?=
+ =?utf-8?B?QkdJTnh0T1ZlaU4vbTJ0WDZJUkJYaDhxTGp2QkVIRk9SaVQzRDlJYWk3NHA4?=
+ =?utf-8?B?b3V5dDZJYzZtbkRUSmROME5NVnFDVlNESlFzVjVVZ3J6UDB3YjU1SVhoSHlY?=
+ =?utf-8?Q?nhqY=3D?=
+X-Forefront-Antispam-Report: CIP:164.130.1.60;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700013)(1800799024)(82310400026)(7416014)(376014);DIR:OUT;SFP:1101;
+X-OriginatorOrg: foss.st.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Nov 2025 09:50:55.4894
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 78cb3202-fdfc-47a7-0c55-08de281a4ccf
+X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.60];Helo=[smtpO365.st.com]
+X-MS-Exchange-CrossTenant-AuthSource: DB5PEPF00014B9D.eurprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0PR10MB7335
+X-Authority-Analysis: v=2.4 cv=DNSCIiNb c=1 sm=1 tr=0 ts=691ee481 cx=c_pps
+ a=t9CpubVtJ9uU5023Vq68aQ==:117 a=uCuRqK4WZKO1kjFMGfU4lQ==:17
+ a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=y9YUpebZf6kA:10 a=IkcTkHD0fZMA:10
+ a=6UeiqGixMTsA:10 a=s63m1ICgrNkA:10 a=KrXZwBdWH7kA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=8b9GpE9nAAAA:8 a=szXwMIDPImWbuXKxhPgA:9
+ a=QEXdDO2ut3YA:10 a=T3LWEMljR5ZiDmsYVIUa:22
+X-Proofpoint-GUID: rYHtgTwcp6zhNpdM-qnxLBKl1NMjJ9i3
+X-Proofpoint-ORIG-GUID: rYHtgTwcp6zhNpdM-qnxLBKl1NMjJ9i3
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMTIwMDA1OSBTYWx0ZWRfX2db6/XlOaafW
+ 5LG2AN1cTB7Jrr+ZN+m6+x0QwI/A3A+IzMGaW2AxMzVpfn6+mx+6/QawZyWD9nydChXGZtq4bgB
+ uu6QLLp9vKHsQa8VbMg2IbUTnhAgTh4kKojjom9MCLssBPtb/P9o7Si1oiZC/RiU1jyC17nq8BH
+ +6IefJdvbu6ZeNQR5hj+U9i+YZ+Huh8dHpUOtnFzqPRIC34IuAG4p8RVALuD22VuJFS29ckqSp1
+ P5ZW/XLy0sI5nwFmp0CqOv0xvcEat9Sc8RAYiUo0AOtqvRSWG6rcME3gcyJg1NQMpN/eHdLkj48
+ I2hEVXGd10tG/1hNA/xj0qMhiJlLMPv+2qVxJwbunNmXh2pP4u7+3mxHGYANU7OIAqiICibqC00
+ Lb6TTbIy88uV/bTEwJ38JWWFC5SKpg==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
+ definitions=2025-11-20_03,2025-11-18_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0
+ priorityscore=1501 bulkscore=0 suspectscore=0 impostorscore=0 malwarescore=0
+ adultscore=0 lowpriorityscore=0 phishscore=0 clxscore=1015 spamscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2510240001 definitions=main-2511200059
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251120_015109_021300_A91105DB 
-X-CRM114-Status: GOOD (  10.74  )
+X-CRM114-CacheID: sfid-20251120_015117_358920_15DD4319 
+X-CRM114-Status: GOOD (  19.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -63,80 +204,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dear arm-soc maintainers,
+On Wed, 2025-11-19 at 15:16 +0100, Linus Walleij wrote:
+> On Tue, Nov 18, 2025 at 5:20=E2=80=AFPM Antonio Borneo
+> <antonio.borneo@foss.st.com> wrote:
+>=20
+> > The property 'st,package' reports the SoC package used in the
+> > board DT and is used to inform the driver about which pins are
+> > available for use by the pinctrl driver.
+> > It has historically been declared as an uint32 enum, where each
+> > value is a power of 2.
+> >=20
+> > Deprecate the use of the numeric value and replace it with more
+> > readable string values.
+> >=20
+> > Signed-off-by: Antonio Borneo <antonio.borneo@foss.st.com>
+>=20
+> I think Krzysztof is right about this, deprecate the property and
+> (re-)introduce it on the top level in:
+> Documentation/devicetree/bindings/arm/stm32/stm32.yaml
+>=20
 
-The following changes since commit 3a8660878839faadb4f1a6dd72c3179c1df56787:
+Yes, I agree with Krzysztof comment. This is not a property that belongs to=
+ pinctrl.
+I will deprecate it in the existing bindings.
 
-  Linux 6.18-rc1 (2025-10-12 13:42:36 -0700)
 
-are available in the Git repository at:
+> It may be a bit quirky to get to this property from the pin control
+> Linux driver, but it is the right thing to do.
+>=20
+> The Vexpress has some inspirational top-level custom properties:
+> Documentation/devicetree/bindings/arm/arm,vexpress-juno.yaml
 
-  https://git.pengutronix.de/git/pza/linux.git tags/reset-for-v6.19
+I was looking for some top-level custom property, but I've missed this. Tha=
+nks for the hint.
 
-for you to fetch changes up to 1387cb78f101553c7fc14ec04ba730cab03ea3df:
-
-  Documentation: reset: Remove reset_controller_add_lookup() (2025-11-20 10:02:37 +0100)
-
-----------------------------------------------------------------
-Reset controller updates for v6.19
-
-* Add support for LAN969x, eic770 and RZ/G3S reset controllers,
-  for the RZ/G3S USB-PHY reset controller, and for the remaining
-  TH1520 reset controllers.
-* Drop legacy reset control lookup code.
-* Include linux/bits.h from linux/reset.h to make it self-contained.
-
-----------------------------------------------------------------
-Bartosz Golaszewski (2):
-      clk: davinci: psc: drop unused reset lookup
-      reset: remove legacy reset lookup code
-
-Claudiu Beznea (3):
-      dt-bindings: reset: renesas,rzg2l-usbphy-ctrl: Document RZ/G3S support
-      reset: rzg2l-usbphy-ctrl: Add support for USB PWRRDY
-      reset: rzg2l-usbphy-ctrl: Add support for RZ/G3S SoC
-
-Dan Carpenter (1):
-      reset: rzg2l-usbphy-ctrl: Fix a NULL vs IS_ERR() bug in probe
-
-Encrow Thorne (1):
-      reset: fix BIT macro reference
-
-Robert Marko (2):
-      dt-bindings: reset: microchip: Add LAN969x support
-      reset: sparx5: add LAN969x support
-
-Xuyang Dong (2):
-      dt-bindings: reset: eswin: Documentation for eic7700 SoC
-      reset: eswin: Add eic7700 reset driver
-
-Yao Zi (4):
-      dt-bindings: reset: thead,th1520-reset: Remove non-VO-subsystem resets
-      dt-bindings: reset: thead,th1520-reset: Add controllers for more subsys
-      reset: th1520: Prepare for supporting multiple controllers
-      reset: th1520: Support reset controllers in more subsystems
-
-Yue Haibing (1):
-      Documentation: reset: Remove reset_controller_add_lookup()
-
- .../bindings/reset/eswin,eic7700-reset.yaml        |  42 ++
- .../devicetree/bindings/reset/microchip,rst.yaml   |  11 +-
- .../bindings/reset/renesas,rzg2l-usbphy-ctrl.yaml  |  41 +-
- .../bindings/reset/thead,th1520-reset.yaml         |   8 +-
- Documentation/driver-api/reset.rst                 |   1 -
- drivers/clk/davinci/psc-da850.c                    |   7 -
- drivers/reset/Kconfig                              |  13 +-
- drivers/reset/Makefile                             |   1 +
- drivers/reset/core.c                               | 124 +--
- drivers/reset/reset-eic7700.c                      | 429 +++++++++++
- drivers/reset/reset-rzg2l-usbphy-ctrl.c            |  60 ++
- drivers/reset/reset-th1520.c                       | 837 ++++++++++++++++++++-
- include/dt-bindings/reset/eswin,eic7700-reset.h    | 298 ++++++++
- include/dt-bindings/reset/thead,th1520-reset.h     | 219 +++++-
- include/linux/reset-controller.h                   |  33 -
- include/linux/reset.h                              |   1 +
- 16 files changed, 1936 insertions(+), 189 deletions(-)
- create mode 100644 Documentation/devicetree/bindings/reset/eswin,eic7700-reset.yaml
- create mode 100644 drivers/reset/reset-eic7700.c
- create mode 100644 include/dt-bindings/reset/eswin,eic7700-reset.h
+Best Regards,
+Antonio
 
