@@ -4,93 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B7CCCF9C7C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 17:57:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AC23CF9C7C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 17:58:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Date:Cc:To:From:Subject:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Uqkn6zhkrlcLOP1KX4uwhO1P+OL6/CVgLQxGoDqtqAw=; b=iosBVd3Kd3adX0xZ0y08+S1IfL
-	MWzehtWKuWdkdkeuEvsEhzJ6D4zy6NK1Z7KJbZr22CUaFrlQR/zzmdS3R3G6tnufA6napaEkFGNRt
-	krhcyVbbsQMjWBBH1SNJQlvkyWybIOjAFbgx0m1Gy1paF/EW97faSSVu84jZANpB7Eji177H6VxaR
-	4wTziEthuT0clDxQjj+bgoyORFTH8CWfusxuCVMummLKEeTQ9RkbW4ReZlczXA5w7tTpFvQPbIjlt
-	wQPaiA1/rqebxWBXJ2nochhC2ccM+IEkW43jKSFKSiUVW9d7CqUlbsV6x3xn6ogJymwreT3EXyrHM
-	12MKGxHQ==;
+	bh=xddyj2kYoR4heGDWkbtFPSJ9q4h0bul8sTtvUXs9eYA=; b=PYloWRh/9Fr8k8gp5KYhlBUcvK
+	ROyxgc4vccR7nz//pS4vMEDR/nQ26Db0Bm+YleapSdZD8IG/fwDfmcfcFHQJQI/gxVhDOQsLa2t64
+	MEjsYxfdAE8HnUfGDFQ+di8mBaVAZtj85C1CS3KCNRJTP1M+jQ+4Y7qjCJbIxV/awWsOipqElMY6O
+	A/VCoeMXVa8ZRiL3weymf78iajcXPwUPNILopG1VbqJTIXRhOzZRhUA2ABOSNLWICOJN6+l4tb6bi
+	LbdvpCEJfU/LLOrCymlCZ1jTUDzOUJWQuqny4J5rH3VN/vAjI4UXP3LrIYvkC9vp77Zf0qt4N+ygj
+	UqgADwEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vM8uY-00000007Bev-3PjQ;
-	Thu, 20 Nov 2025 17:57:38 +0000
-Received: from mail-ed1-x535.google.com ([2a00:1450:4864:20::535])
+	id 1vM8vl-00000007BtR-3Ru7;
+	Thu, 20 Nov 2025 17:58:53 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vM8uW-00000007BeW-0aBc
+	id 1vM8vi-00000007Bsa-03s3
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Nov 2025 17:57:37 +0000
-Received: by mail-ed1-x535.google.com with SMTP id 4fb4d7f45d1cf-640bd9039fbso1923348a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Nov 2025 09:57:35 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1763661454; x=1764266254; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Uqkn6zhkrlcLOP1KX4uwhO1P+OL6/CVgLQxGoDqtqAw=;
-        b=jQ36XwEVBgPkbfZNvmk+9gOSF/uPcK7g1YraI/1tcVS9mRdG5xZFPtqxQG0f26H7/n
-         ly/KwPNO67d/vWMJVJWgT9qz6BcYc8d2PZ/XklVRNitVHnF3h5fspPwkMapVXwu+Bl0k
-         +y+gdxCQL5D0YuP70RcDzzFmP3AFdrVHckYj6t2b0uedDCPUN1p3wWb9wULfJwnvw0s/
-         7j4Z6vfF+YZtWJAlD/ATUPy3uy5elgeltuZsJRU/C2KKKNBMdHu2SO6jVEB8vpYYuQyM
-         BE8Yn2fxIYPFBTpqcY1KKaei2RA25kzJEJQaBJRnwDz7lC80DNJgJVZoG2WHgGZ0mlf5
-         H4Yw==
+	Thu, 20 Nov 2025 17:58:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1763661527;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=xddyj2kYoR4heGDWkbtFPSJ9q4h0bul8sTtvUXs9eYA=;
+	b=VD/lk/TSliZDY6/yxffMzwKDut0ZACKxwhX5sUeNYSi3GcX3i3X1p6K+scrnhjM51vkYKr
+	xdr4xu0rq0rBTi/4xzCuSZnN4PgfVFHHrB2lkXHndNKRXlG3VkHWfKV+bcykpf3Q2EcFuG
+	5EclaoRhP6PcurmeA1+vOGFuARWOHxw=
+Received: from mail-qk1-f197.google.com (mail-qk1-f197.google.com
+ [209.85.222.197]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-194-X6UZ4MRFMMWbIilIOAM-ZQ-1; Thu, 20 Nov 2025 12:58:45 -0500
+X-MC-Unique: X6UZ4MRFMMWbIilIOAM-ZQ-1
+X-Mimecast-MFC-AGG-ID: X6UZ4MRFMMWbIilIOAM-ZQ_1763661525
+Received: by mail-qk1-f197.google.com with SMTP id af79cd13be357-89ee646359cso350345885a.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Nov 2025 09:58:45 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763661454; x=1764266254;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=Uqkn6zhkrlcLOP1KX4uwhO1P+OL6/CVgLQxGoDqtqAw=;
-        b=jOW8NbbOJoeO3rCAVAq5R7Uewp64PhlWXek8k6XlXMAAWtvEDHgBdsrsH9vYlLqzof
-         oGgqpoiBuUDUmqeORlM+KZEWTrZSP8r1QHD81/5g1qEX8X52dpTyReG9Yrnpu02EFGjS
-         LL81fzymo1FAnwCnFvPCgk9lP0koRpiueXtBtDmnfRrzFQh/v+nTssapYrY7q7mhA6Ik
-         JQFkBuAjotzIRVqxT5ih+61Qh3SbyhCoAI4C2WFuQTmVx6rJ9oixKBX47yEwGLQkg2GL
-         BqS7b56wsH00Oh/JaiZmbQvDJ5mstQU3WWVkpabSjK2wM7PZVK/bH3PKBOp9nypgAsFE
-         G6gg==
-X-Forwarded-Encrypted: i=1; AJvYcCUebGS7rvj8rJ8X6PKSTQ+CfCyDL19tH9n7L6ofqq/+93SB2vz0kyXhMobsv0NBLs/jPx4YRY6nQztr3VL0lYW0@lists.infradead.org
-X-Gm-Message-State: AOJu0YyoZi3wG7Zl1Y7PKXpX9DDVN4/4iPtpCC6hP6R/Kys7LbhMvNW3
-	GNcZpfMAgDSs+5nCTdbZYsT/w1a827HcOxp2COaVtzS4ttN0ISQ6BBmO2B7r4rCHBZ6dbJJ0vzu
-	hsZKWl68wN7zpryBHZPZ2F+2BXpxDTweEYKXXuICsyA==
-X-Gm-Gg: ASbGncs/5g6fwEj+OyhMP/wH4y/dhVahDPCXr2sKibk7hvSysNl+kh6wGVf0YFPuzyy
-	fGthuqjP4JaPctnFFWWWpLYH0Ib6iV1P/1diHulDa5dRwjovjPU8CWw0cLd3qp+/1lwdstiiMvz
-	nGo8iJ5XyXmEW/O1HYnsuLDFyCVegPnYYOwYQ2XzwUOuFzm/85127v+fuGz4tENB/iss662UiRp
-	uus2sf0znU7/8Mo9dqdH9skjH1FZbycMeLW+KVr2DQ9oukr46vBQLFb2AWUN9hOyC1rzgvpA6E6
-	IYLrblmFeYfMfyQnrxgdmzY=
-X-Google-Smtp-Source: AGHT+IFj0Rl1KS1OB3mzQqOg+H1c3XE+cHubhYUstGEZ/xepTDIQHjG1vw6/BbGnXDgdX5i3V+VpoGd1BY2rU2bf4Bg=
-X-Received: by 2002:a05:6402:270c:b0:640:6653:65c1 with SMTP id
- 4fb4d7f45d1cf-6453d085090mr2533218a12.5.1763661453991; Thu, 20 Nov 2025
- 09:57:33 -0800 (PST)
+        d=1e100.net; s=20230601; t=1763661525; x=1764266325;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=FBAWQgLEjTxMhY3wdWptXKZF7ghZZcFHnbvHOBx3cmI=;
+        b=f3gaEfujRRejjpCytV2p51ykKcTabGSop6WeuyxPj2DwT7cUOeqdIvjCTkv9jywrj3
+         gDh6w29hTSlo7Qf0R8A1vkNprzkSQc7cucC9ReYRNicfDV12p2JcoGBfA7Ep7OlhvP50
+         Bf8/H/5xL2wo3XiKfAh3z5AVzCqp/3E5q3VauAKWDf5XC5mPS0q2vdisxUjO4l7p4M0o
+         17+APLZ/rS4hQgIjivsYTYILrx/DlH/zjROTkv2+GEKnxgtsPUugbh2j3YXrwxgFSMfd
+         XhngZBkVxGgDMnMGfG1dTcnDNB6CFgidWmTrFSok6nVvLOkpyWSC/+x+r1VSLlJNORGJ
+         2fOg==
+X-Forwarded-Encrypted: i=1; AJvYcCXWA89ABsJ2pbL3Ae/bNjLyd3Ew9ioJWS7Sevp4Fd0uK/X8Ig/VjKFox3uS2wZ9eQrSlSdpBjnywMMDbUuWgZId@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy1gg+Go5pbKpe0Ar6ElJotnbcOivtZk1ubf22JLSFK44TmWpjI
+	gKgAV6Wnwu8LGLj9V179ClqoWIvMquFeN9yHtm6gOoCw77yKIACedByIDLtghbIxWW4Noa+o4as
+	3U3e5VwmEiWkYGjMpLMy0vP/8UdGRVHng/2+aewk/l0HkimtlGIGxo+PWVtQqsgvteuXQ9mKeFK
+	8x
+X-Gm-Gg: ASbGncsDdqNdqHg+sgUprh+89czI2iSfe5xcfT1SmjopaVbMv/Q8FFb8pYWIugV1zYG
+	Pb7zwp39pvcVnZe4HGxlgZd2Z5AD9DhD70OoEhXmZKpHrZgJB3iPNHVo2U07FKa93osFnPkQDnt
+	KjXcJ3qocvH0S4pE3FijsCZ4D6upf8JptnPCfaAJNJZ8LUrk8Gvj5irtvhd/LIaIUf3nZfujPIF
+	6B0il8kOqTOpECSdF9qS1eE3CSuzvbOvjGnqAbyR9conPciJp0VPK9mnQAn2lTT47gi17ECW2vG
+	4DOPb1NViMia1NbuI8uVtYZybp/tBfehiGDKy2NAYj4CcmCE9Vv/jZqWNLmyNYoeJoICh3r83Ga
+	HvXPrLbdIGbqzCh0zi8C2d84k1BquwDQ0oUd3uJe8nuHucdWF7TKaJUg7tkPY1lPl3AHDjLZYZY
+	hj
+X-Received: by 2002:a05:620a:29d6:b0:883:b565:1acf with SMTP id af79cd13be357-8b32749c608mr633794885a.60.1763661524992;
+        Thu, 20 Nov 2025 09:58:44 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IHQjuYnyNUCtoiqgSWFXqZwfTOJ3YABSpke0OuFWsE6r3fNUq9NnSWQn2HnLmxFjKwF9Y5Cqw==
+X-Received: by 2002:a05:620a:29d6:b0:883:b565:1acf with SMTP id af79cd13be357-8b32749c608mr633791585a.60.1763661524583;
+        Thu, 20 Nov 2025 09:58:44 -0800 (PST)
+Received: from thinkpad-p1.localdomain (pool-174-112-193-187.cpe.net.cable.rogers.com. [174.112.193.187])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-8b3293299b3sm200510185a.2.2025.11.20.09.58.43
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 20 Nov 2025 09:58:44 -0800 (PST)
+Message-ID: <73a0863a70d558efaf29d6b988f3fec6312a22a9.camel@redhat.com>
+Subject: Re: [PATCH] PCI: host-generic: Move bridge allocation outside of
+ pci_host_common_init()
+From: Radu Rendec <rrendec@redhat.com>
+To: Marc Zyngier <maz@kernel.org>, linux-pci@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Cc: Bjorn Helgaas <bhelgaas@google.com>, Manivannan Sadhasivam
+ <mani@kernel.org>,  Rob Herring <robh@kernel.org>, Krzysztof
+ =?UTF-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, Lorenzo Pieralisi
+ <lpieralisi@kernel.org>
+Date: Thu, 20 Nov 2025 12:58:42 -0500
+In-Reply-To: <20251120113630.2036078-1-maz@kernel.org>
+References: <20251120113630.2036078-1-maz@kernel.org>
+User-Agent: Evolution 3.54.3 (3.54.3-2.fc41)
 MIME-Version: 1.0
-References: <20251118160238.26265-1-vincent.guittot@linaro.org>
- <20251118160238.26265-4-vincent.guittot@linaro.org> <qvpx4ys2jqqugfbcdwidwvklcatdqiwdxfjumn7ncbh7z6ef5n@sepvjsatmpbd>
- <CAKfTPtDONX3-syavhhza6t6+6U8wowqwCN2Hnv9CHBR6W9RNNQ@mail.gmail.com> <gz67pxlwddob5my62imtkiluwezixvn55gm2dse46njsolb3ct@p3wmu2j6swnc>
-In-Reply-To: <gz67pxlwddob5my62imtkiluwezixvn55gm2dse46njsolb3ct@p3wmu2j6swnc>
-From: Vincent Guittot <vincent.guittot@linaro.org>
-Date: Thu, 20 Nov 2025 18:57:21 +0100
-X-Gm-Features: AWmQ_bnT-L9dZpIzwe2wsEnejXBmyqxUslXNLMo6Yb6Ge6ARhPFqi_pzi5hlHvs
-Message-ID: <CAKfTPtDXdmB7zPqN9UcZDnCBp5o2Z1mBOvoeZYmmphy0KFH3+w@mail.gmail.com>
-Subject: Re: [PATCH 3/4 v5] PCI: s32g: Add initial PCIe support (RC)
-To: Manivannan Sadhasivam <mani@kernel.org>
-Cc: chester62515@gmail.com, mbrugger@suse.com, ghennadi.procopciuc@oss.nxp.com, 
-	s32@nxp.com, bhelgaas@google.com, jingoohan1@gmail.com, lpieralisi@kernel.org, 
-	kwilczynski@kernel.org, robh@kernel.org, krzk+dt@kernel.org, 
-	conor+dt@kernel.org, Ionut.Vicovan@nxp.com, larisa.grigore@nxp.com, 
-	Ghennadi.Procopciuc@nxp.com, ciprianmarian.costea@nxp.com, 
-	bogdan.hamciuc@nxp.com, Frank.li@nxp.com, 
-	linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
-	cassel@kernel.org
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: x49QLmqo-kJOHi7VgzcqqN92WsFdJ2IRymwY50-_YQw_1763661525
+X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251120_095736_363980_9AA999AC 
-X-CRM114-Status: GOOD (  47.27  )
+X-CRM114-CacheID: sfid-20251120_095850_124919_F344E312 
+X-CRM114-Status: GOOD (  24.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,452 +115,196 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 20 Nov 2025 at 11:26, Manivannan Sadhasivam <mani@kernel.org> wrote=
-:
->
-> On Thu, Nov 20, 2025 at 10:06:53AM +0100, Vincent Guittot wrote:
-> > On Thu, 20 Nov 2025 at 09:22, Manivannan Sadhasivam <mani@kernel.org> w=
-rote:
-> > >
-> > > On Tue, Nov 18, 2025 at 05:02:37PM +0100, Vincent Guittot wrote:
-> > > > Add initial support of the PCIe controller for S32G Soc family. Onl=
-y
-> > > > host mode is supported.
-> > > >
-> > > > Co-developed-by: Ionut Vicovan <Ionut.Vicovan@nxp.com>
-> > > > Signed-off-by: Ionut Vicovan <Ionut.Vicovan@nxp.com>
-> > > > Co-developed-by: Ciprian Marian Costea <ciprianmarian.costea@nxp.co=
-m>
-> > > > Signed-off-by: Ciprian Marian Costea <ciprianmarian.costea@nxp.com>
-> > > > Co-developed-by: Ghennadi Procopciuc <Ghennadi.Procopciuc@nxp.com>
-> > > > Signed-off-by: Ghennadi Procopciuc <Ghennadi.Procopciuc@nxp.com>
-> > > > Co-developed-by: Larisa Grigore <larisa.grigore@nxp.com>
-> > > > Signed-off-by: Larisa Grigore <larisa.grigore@nxp.com>
-> > > > Signed-off-by: Vincent Guittot <vincent.guittot@linaro.org>
-> > > > ---
-> > > >  drivers/pci/controller/dwc/Kconfig            |  10 +
-> > > >  drivers/pci/controller/dwc/Makefile           |   1 +
-> > > >  .../pci/controller/dwc/pcie-nxp-s32g-regs.h   |  21 +
-> > > >  drivers/pci/controller/dwc/pcie-nxp-s32g.c    | 391 ++++++++++++++=
-++++
-> > > >  4 files changed, 423 insertions(+)
-> > > >  create mode 100644 drivers/pci/controller/dwc/pcie-nxp-s32g-regs.h
-> > > >  create mode 100644 drivers/pci/controller/dwc/pcie-nxp-s32g.c
-> > > >
-> > > > diff --git a/drivers/pci/controller/dwc/Kconfig b/drivers/pci/contr=
-oller/dwc/Kconfig
-> > > > index 349d4657393c..e276956c3fca 100644
-> > > > --- a/drivers/pci/controller/dwc/Kconfig
-> > > > +++ b/drivers/pci/controller/dwc/Kconfig
-> > > > @@ -256,6 +256,16 @@ config PCIE_TEGRA194_EP
-> > > >         in order to enable device-specific features PCIE_TEGRA194_E=
-P must be
-> > > >         selected. This uses the DesignWare core.
-> > > >
-> > > > +config PCIE_NXP_S32G
-> > > > +     tristate "NXP S32G PCIe controller (host mode)"
-> > > > +     depends on ARCH_S32 || COMPILE_TEST
-> > > > +     select PCIE_DW_HOST
-> > > > +     help
-> > > > +       Enable support for the PCIe controller in NXP S32G based bo=
-ards to
-> > > > +       work in Host mode. The controller is based on DesignWare IP=
- and
-> > > > +       can work either as RC or EP. In order to enable host-specif=
-ic
-> > > > +       features PCIE_NXP_S32G must be selected.
-> > > > +
-> > > >  config PCIE_DW_PLAT
-> > > >       bool
-> > > >
-> > > > diff --git a/drivers/pci/controller/dwc/Makefile b/drivers/pci/cont=
-roller/dwc/Makefile
-> > > > index 7ae28f3b0fb3..3301bbbad78c 100644
-> > > > --- a/drivers/pci/controller/dwc/Makefile
-> > > > +++ b/drivers/pci/controller/dwc/Makefile
-> > > > @@ -10,6 +10,7 @@ obj-$(CONFIG_PCI_DRA7XX) +=3D pci-dra7xx.o
-> > > >  obj-$(CONFIG_PCI_EXYNOS) +=3D pci-exynos.o
-> > > >  obj-$(CONFIG_PCIE_FU740) +=3D pcie-fu740.o
-> > > >  obj-$(CONFIG_PCI_IMX6) +=3D pci-imx6.o
-> > > > +obj-$(CONFIG_PCIE_NXP_S32G) +=3D pcie-nxp-s32g.o
-> > > >  obj-$(CONFIG_PCIE_SPEAR13XX) +=3D pcie-spear13xx.o
-> > > >  obj-$(CONFIG_PCI_KEYSTONE) +=3D pci-keystone.o
-> > > >  obj-$(CONFIG_PCI_LAYERSCAPE) +=3D pci-layerscape.o
-> > > > diff --git a/drivers/pci/controller/dwc/pcie-nxp-s32g-regs.h b/driv=
-ers/pci/controller/dwc/pcie-nxp-s32g-regs.h
-> > > > new file mode 100644
-> > > > index 000000000000..81e35b6227d1
-> > > > --- /dev/null
-> > > > +++ b/drivers/pci/controller/dwc/pcie-nxp-s32g-regs.h
-> > > > @@ -0,0 +1,21 @@
-> > > > +/* SPDX-License-Identifier: GPL-2.0+ */
-> > > > +/*
-> > > > + * Copyright 2015-2016 Freescale Semiconductor, Inc.
-> > > > + * Copyright 2016-2023, 2025 NXP
-> > > > + */
-> > > > +
-> > > > +#ifndef PCIE_S32G_REGS_H
-> > > > +#define PCIE_S32G_REGS_H
-> > > > +
-> > > > +/* PCIe controller Sub-System */
-> > > > +
-> > > > +/* PCIe controller 0 General Control 1 */
-> > > > +#define PCIE_S32G_PE0_GEN_CTRL_1             0x50
-> > > > +#define DEVICE_TYPE_MASK                     GENMASK(3, 0)
-> > > > +#define SRIS_MODE                            BIT(8)
-> > > > +
-> > > > +/* PCIe controller 0 General Control 3 */
-> > > > +#define PCIE_S32G_PE0_GEN_CTRL_3             0x58
-> > > > +#define LTSSM_EN                             BIT(0)
-> > > > +
-> > >
-> > > Since this header is not used by other drivers as of now, I'd prefer =
-moving
-> > > these definitions inside the driver.
-> >
-> > I would prefer to keep it separate. It makes reg easier to parse and
-> > more registers will be added with new coming features
-> >
->
-> The convention we follow is to mostly add register definitions within the=
- driver
-> itself if they are not shared.
+On Thu, 2025-11-20 at 11:36 +0000, Marc Zyngier wrote:
+> Having the host bridge allocation inside pci_host_common_init() results
+> in a lot of complexity in the pcie-apple driver (the only direct user
+> of this function outside of code PCI code).
+                              ^^^^
+nit: s/code/core :)
 
-It will be shared with EP driver later on but I supposed it can be
-merged in the meantime
+> It forces the allocation of driver-specific tracking structures outside
+> of the bridge allocation, which in turns requires it to use inneficient
+> data structures to match the bridge and the private structre as needed.
+>=20
+> Instead, let the bridge structure be passed to pci_host_common_init(),
+> allowing the driver to allocate it together with the private data,
+> as it is usually intended. The driver can then retrieve the bridge
+> via the owning device attached to the PCI config window structure.
+> This allows the pcie-apple driver to be significantly simplified.
+>=20
+> Both core and driver code are changed in one go to avoid going via
+> a transitional interface.
+>=20
+> Link: https://lore.kernel.org/r/86jyzms036.wl-maz@kernel.org
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
+> Cc: Radu Rendec <rrendec@redhat.com>
+> Cc: Bjorn Helgaas <bhelgaas@google.com>
+> Cc: Manivannan Sadhasivam <mani@kernel.org>
+> Cc: Rob Herring <robh@kernel.org>
+> Cc: Krzysztof Wilczy=C5=84ski <kwilczynski@kernel.org>
+> Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>
+> ---
+> =C2=A0drivers/pci/controller/pci-host-common.c | 13 ++++----
+> =C2=A0drivers/pci/controller/pci-host-common.h |=C2=A0 1 +
+> =C2=A0drivers/pci/controller/pcie-apple.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=
+ 42 ++++--------------------
+> =C2=A03 files changed, 14 insertions(+), 42 deletions(-)
+>=20
+> diff --git a/drivers/pci/controller/pci-host-common.c b/drivers/pci/contr=
+oller/pci-host-common.c
+> index 810d1c8de24e9..c473e7c03baca 100644
+> --- a/drivers/pci/controller/pci-host-common.c
+> +++ b/drivers/pci/controller/pci-host-common.c
+> @@ -53,16 +53,12 @@ struct pci_config_window *pci_host_common_ecam_create=
+(struct device *dev,
+> =C2=A0EXPORT_SYMBOL_GPL(pci_host_common_ecam_create);
+> =C2=A0
+> =C2=A0int pci_host_common_init(struct platform_device *pdev,
+> +=09=09=09 struct pci_host_bridge *bridge,
+> =C2=A0=09=09=09 const struct pci_ecam_ops *ops)
+> =C2=A0{
+> =C2=A0=09struct device *dev =3D &pdev->dev;
+> -=09struct pci_host_bridge *bridge;
+> =C2=A0=09struct pci_config_window *cfg;
+> =C2=A0
+> -=09bridge =3D devm_pci_alloc_host_bridge(dev, 0);
+> -=09if (!bridge)
+> -=09=09return -ENOMEM;
+> -
+> =C2=A0=09of_pci_check_probe_only();
+> =C2=A0
+> =C2=A0=09platform_set_drvdata(pdev, bridge);
+> @@ -85,12 +81,17 @@ EXPORT_SYMBOL_GPL(pci_host_common_init);
+> =C2=A0int pci_host_common_probe(struct platform_device *pdev)
+> =C2=A0{
+> =C2=A0=09const struct pci_ecam_ops *ops;
+> +=09struct pci_host_bridge *bridge;
+> =C2=A0
+> =C2=A0=09ops =3D of_device_get_match_data(&pdev->dev);
+> =C2=A0=09if (!ops)
+> =C2=A0=09=09return -ENODEV;
+> =C2=A0
+> -=09return pci_host_common_init(pdev, ops);
+> +=09bridge =3D devm_pci_alloc_host_bridge(&pdev->dev, 0);
+> +=09if (!bridge)
+> +=09=09return -ENOMEM;
+> +
+> +=09return pci_host_common_init(pdev, bridge, ops);
+> =C2=A0}
+> =C2=A0EXPORT_SYMBOL_GPL(pci_host_common_probe);
+> =C2=A0
+> diff --git a/drivers/pci/controller/pci-host-common.h b/drivers/pci/contr=
+oller/pci-host-common.h
+> index 51c35ec0cf37d..b5075d4bd7eb3 100644
+> --- a/drivers/pci/controller/pci-host-common.h
+> +++ b/drivers/pci/controller/pci-host-common.h
+> @@ -14,6 +14,7 @@ struct pci_ecam_ops;
+> =C2=A0
+> =C2=A0int pci_host_common_probe(struct platform_device *pdev);
+> =C2=A0int pci_host_common_init(struct platform_device *pdev,
+> +=09=09=09 struct pci_host_bridge *bridge,
+> =C2=A0=09=09=09 const struct pci_ecam_ops *ops);
+> =C2=A0void pci_host_common_remove(struct platform_device *pdev);
+> =C2=A0
+> diff --git a/drivers/pci/controller/pcie-apple.c b/drivers/pci/controller=
+/pcie-apple.c
+> index 0380d300adca6..a902aa81a497e 100644
+> --- a/drivers/pci/controller/pcie-apple.c
+> +++ b/drivers/pci/controller/pcie-apple.c
+> @@ -206,9 +206,6 @@ struct apple_pcie_port {
+> =C2=A0=09int=09=09=09idx;
+> =C2=A0};
+> =C2=A0
+> -static LIST_HEAD(pcie_list);
+> -static DEFINE_MUTEX(pcie_list_lock);
+> -
+> =C2=A0static void rmw_set(u32 set, void __iomem *addr)
+> =C2=A0{
+> =C2=A0=09writel_relaxed(readl_relaxed(addr) | set, addr);
+> @@ -724,32 +721,9 @@ static int apple_msi_init(struct apple_pcie *pcie)
+> =C2=A0=09return 0;
+> =C2=A0}
+> =C2=A0
+> -static void apple_pcie_register(struct apple_pcie *pcie)
+> -{
+> -=09guard(mutex)(&pcie_list_lock);
+> -
+> -=09list_add_tail(&pcie->entry, &pcie_list);
+> -}
+> -
+> -static void apple_pcie_unregister(struct apple_pcie *pcie)
+> -{
+> -=09guard(mutex)(&pcie_list_lock);
+> -
+> -=09list_del(&pcie->entry);
+> -}
+> -
+> =C2=A0static struct apple_pcie *apple_pcie_lookup(struct device *dev)
+> =C2=A0{
+> -=09struct apple_pcie *pcie;
+> -
+> -=09guard(mutex)(&pcie_list_lock);
+> -
+> -=09list_for_each_entry(pcie, &pcie_list, entry) {
+> -=09=09if (pcie->dev =3D=3D dev)
+> -=09=09=09return pcie;
+> -=09}
+> -
+> -=09return NULL;
+> +=09return pci_host_bridge_priv(dev_get_drvdata(dev));
+> =C2=A0}
+>=20
+>=20
 
->
-> > >
-> > > > +#endif  /* PCI_S32G_REGS_H */
-> > > > diff --git a/drivers/pci/controller/dwc/pcie-nxp-s32g.c b/drivers/p=
-ci/controller/dwc/pcie-nxp-s32g.c
-> > > > new file mode 100644
-> > > > index 000000000000..eaa6b5363afe
-> > > > --- /dev/null
-> > > > +++ b/drivers/pci/controller/dwc/pcie-nxp-s32g.c
-> > > > @@ -0,0 +1,391 @@
-> > > > +// SPDX-License-Identifier: GPL-2.0
-> > > > +/*
-> > > > + * PCIe host controller driver for NXP S32G SoCs
-> > > > + *
-> > > > + * Copyright 2019-2025 NXP
-> > > > + */
-> > > > +
-> > > > +#include <linux/interrupt.h>
-> > > > +#include <linux/io.h>
-> > > > +#include <linux/memblock.h>
-> > > > +#include <linux/module.h>
-> > > > +#include <linux/of_device.h>
-> > > > +#include <linux/of_address.h>
-> > > > +#include <linux/pci.h>
-> > > > +#include <linux/phy/phy.h>
-> > > > +#include <linux/platform_device.h>
-> > > > +#include <linux/pm_runtime.h>
-> > > > +#include <linux/sizes.h>
-> > > > +#include <linux/types.h>
-> > > > +
-> > > > +#include "pcie-designware.h"
-> > > > +#include "pcie-nxp-s32g-regs.h"
-> > > > +
-> > > > +struct s32g_pcie_port {
-> > > > +     struct list_head list;
-> > > > +     struct phy *phy;
-> > > > +};
-> > > > +
-> > > > +struct s32g_pcie {
-> > > > +     struct dw_pcie  pci;
-> > > > +     void __iomem *ctrl_base;
-> > > > +     struct list_head ports;
-> > > > +};
-> > > > +
-> > > > +#define to_s32g_from_dw_pcie(x) \
-> > > > +     container_of(x, struct s32g_pcie, pci)
-> > > > +
-> > > > +static void s32g_pcie_writel_ctrl(struct s32g_pcie *s32g_pp, u32 r=
-eg, u32 val)
-> > > > +{
-> > > > +     writel(val, s32g_pp->ctrl_base + reg);
-> > > > +}
-> > > > +
-> > > > +static u32 s32g_pcie_readl_ctrl(struct s32g_pcie *s32g_pp, u32 reg=
-)
-> > > > +{
-> > > > +     return readl(s32g_pp->ctrl_base + reg);
-> > > > +}
-> > > > +
-> > > > +static void s32g_pcie_enable_ltssm(struct s32g_pcie *s32g_pp)
-> > > > +{
-> > > > +     u32 reg;
-> > > > +
-> > > > +     reg =3D s32g_pcie_readl_ctrl(s32g_pp, PCIE_S32G_PE0_GEN_CTRL_=
-3);
-> > > > +     reg |=3D LTSSM_EN;
-> > > > +     s32g_pcie_writel_ctrl(s32g_pp, PCIE_S32G_PE0_GEN_CTRL_3, reg)=
-;
-> > > > +}
-> > > > +
-> > > > +static void s32g_pcie_disable_ltssm(struct s32g_pcie *s32g_pp)
-> > > > +{
-> > > > +     u32 reg;
-> > > > +
-> > > > +     reg =3D s32g_pcie_readl_ctrl(s32g_pp, PCIE_S32G_PE0_GEN_CTRL_=
-3);
-> > > > +     reg &=3D ~LTSSM_EN;
-> > > > +     s32g_pcie_writel_ctrl(s32g_pp, PCIE_S32G_PE0_GEN_CTRL_3, reg)=
-;
-> > > > +}
-> > > > +
-> > > > +static int s32g_pcie_start_link(struct dw_pcie *pci)
-> > > > +{
-> > > > +     struct s32g_pcie *s32g_pp =3D to_s32g_from_dw_pcie(pci);
-> > > > +
-> > > > +     s32g_pcie_enable_ltssm(s32g_pp);
-> > > > +
-> > > > +     return 0;
-> > > > +}
-> > > > +
-> > > > +static void s32g_pcie_stop_link(struct dw_pcie *pci)
-> > > > +{
-> > > > +     struct s32g_pcie *s32g_pp =3D to_s32g_from_dw_pcie(pci);
-> > > > +
-> > > > +     s32g_pcie_disable_ltssm(s32g_pp);
-> > > > +}
-> > > > +
-> > > > +static struct dw_pcie_ops s32g_pcie_ops =3D {
-> > > > +     .start_link =3D s32g_pcie_start_link,
-> > > > +     .stop_link =3D s32g_pcie_stop_link,
-> > > > +};
-> > > > +
-> > > > +/* Configure the AMBA AXI Coherency Extensions (ACE) interface */
-> > > > +static void s32g_pcie_reset_mstr_ace(struct dw_pcie *pci, u64 ddr_=
-base_addr)
-> > > > +{
-> > > > +     u32 ddr_base_low =3D lower_32_bits(ddr_base_addr);
-> > > > +     u32 ddr_base_high =3D upper_32_bits(ddr_base_addr);
-> > > > +
-> > > > +     dw_pcie_dbi_ro_wr_en(pci);
-> > > > +     dw_pcie_writel_dbi(pci, COHERENCY_CONTROL_3_OFF, 0x0);
-> > > > +
-> > > > +     /*
-> > > > +      * Ncore is a cache-coherent interconnect module that enables=
- the
-> > > > +      * integration of heterogeneous coherent and non-coherent age=
-nts in
-> > > > +      * the chip. Ncore Transactions to peripheral should be non-c=
-oherent
-> > > > +      * or it might drop them.
-> > > > +      *
-> > > > +      * One example where this is needed are PCIe MSIs, which use =
-NoSnoop=3D0
-> > > > +      * and might end up routed to Ncore.
-> > >
-> > > I don't think this statement is correct. No Snoop attribute is only a=
-pplicable
-> > > to MRd/MWr operations and not applicable to MSIs. Also, you've marked=
- the
-> >
-> > The Ncore makes the bridge between the PCIe and the NoC and can decide
-> > to drop some transactions based in this boundary
-> >
-> > > controller as cache coherent in the binding, but this comment doesn't=
- relate to
-> > > it.
-> >
-> > More details of the issue:
-> > PCIe coherent traffic (e.g. MSIs) that targets peripheral space will
-> > be dropped by Ncore because peripherals on S32G are not coherent as
-> > slaves. We add a hard boundary in the PCIe controller coherency
-> > control registers to separate physical memory space from peripheral
-> > space.
-> >
->
-> Ok, this clarifies. Please add it to the comment.
->
-> > >
-> > > > +      * Define the start of DDR as seen by Linux as the boundary b=
-etween
-> > > > +      * "memory" and "peripherals", with peripherals being below.
-> > >
-> > > Please mention what this configuration does and why it is necessary. =
-This is not
-> > > clearly mentioned in the comment.
-> > >
-> > > > +      */
-> > > > +     dw_pcie_writel_dbi(pci, COHERENCY_CONTROL_1_OFF,
-> > > > +                        (ddr_base_low & CFG_MEMTYPE_BOUNDARY_LOW_A=
-DDR_MASK));
-> > > > +     dw_pcie_writel_dbi(pci, COHERENCY_CONTROL_2_OFF, ddr_base_hig=
-h);
-> > > > +     dw_pcie_dbi_ro_wr_dis(pci);
-> > > > +}
-> > > > +
-> > > > +static int s32g_init_pcie_controller(struct dw_pcie_rp *pp)
-> > > > +{
-> > > > +     struct dw_pcie *pci =3D to_dw_pcie_from_pp(pp);
-> > > > +     struct s32g_pcie *s32g_pp =3D to_s32g_from_dw_pcie(pci);
-> > > > +     u32 val;
-> > > > +
-> > > > +     /* Set RP mode */
-> > > > +     val =3D s32g_pcie_readl_ctrl(s32g_pp, PCIE_S32G_PE0_GEN_CTRL_=
-1);
-> > > > +     val &=3D ~DEVICE_TYPE_MASK;
-> > > > +     val |=3D FIELD_PREP(DEVICE_TYPE_MASK, PCI_EXP_TYPE_ROOT_PORT)=
-;
-> > > > +
-> > > > +     /* Use default CRNS */
-> > >
-> > > SRNS?
-> >
-> > it's CRNS
-> >
->
-> I'm not aware of CRNS, but only SRNS. Care to expand it?
+You forgot to remove the `entry` field from struct apple_pcie. It's no
+longer needed now that pcie_list is gone.
 
-- crns  # Common Reference Clock, No Spread Spectrum
-- crss  # Common Reference Clock, Spread Spectrum
-- srns  # Separate reference Clock, No Spread Spectrum
-- sris  # Separate Reference Clock, Independent Spread Spectrum
+> =C2=A0
+> =C2=A0static struct apple_pcie_port *apple_pcie_get_port(struct pci_dev *=
+pdev)
+> @@ -875,13 +849,15 @@ static const struct pci_ecam_ops apple_pcie_cfg_eca=
+m_ops =3D {
+> =C2=A0static int apple_pcie_probe(struct platform_device *pdev)
+> =C2=A0{
+> =C2=A0=09struct device *dev =3D &pdev->dev;
+> +=09struct pci_host_bridge *bridge;
+> =C2=A0=09struct apple_pcie *pcie;
+> =C2=A0=09int ret;
+> =C2=A0
+> -=09pcie =3D devm_kzalloc(dev, sizeof(*pcie), GFP_KERNEL);
+> -=09if (!pcie)
+> +=09bridge =3D devm_pci_alloc_host_bridge(dev, sizeof(*pcie));
+> +=09if (!bridge)
+> =C2=A0=09=09return -ENOMEM;
+> =C2=A0
+> +=09pcie =3D pci_host_bridge_priv(bridge);
+> =C2=A0=09pcie->dev =3D dev;
+> =C2=A0=09pcie->hw =3D of_device_get_match_data(dev);
+> =C2=A0=09if (!pcie->hw)
+> @@ -897,13 +873,7 @@ static int apple_pcie_probe(struct platform_device *=
+pdev)
+> =C2=A0=09if (ret)
+> =C2=A0=09=09return ret;
+> =C2=A0
+> -=09apple_pcie_register(pcie);
+> -
+> -=09ret =3D pci_host_common_init(pdev, &apple_pcie_cfg_ecam_ops);
+> -=09if (ret)
+> -=09=09apple_pcie_unregister(pcie);
+> -
+> -=09return ret;
+> +=09return pci_host_common_init(pdev, bridge, &apple_pcie_cfg_ecam_ops);
+> =C2=A0}
+> =C2=A0
+> =C2=A0static const struct of_device_id apple_pcie_of_match[] =3D {
 
-s32g  can support all modes but we only use the default crns for now
-until there is a generic way to describe this in DT for all platforms.
-This will be discussed in a separate thread
+With those two nitpicks addressed,
 
-https://lore.kernel.org/all/aMp0hNnBUwTV5cbp@ryzen/
+Reviewed-by: Radu Rendec <rrendec@redhat.com>
 
->
-> > >
-> > > > +     val &=3D ~SRIS_MODE;
-> > > > +
-> > > > +     s32g_pcie_writel_ctrl(s32g_pp, PCIE_S32G_PE0_GEN_CTRL_1, val)=
-;
-> > > > +
-> > > > +     /*
-> > > > +      * Make sure we use the coherency defaults (just in case the =
-settings
-> > > > +      * have been changed from their reset values)
-> > > > +      */
-> > > > +     s32g_pcie_reset_mstr_ace(pci, memblock_start_of_DRAM());
-> > > > +
-> > > > +     dw_pcie_dbi_ro_wr_en(pci);
-> > > > +
-> > > > +     val =3D dw_pcie_readl_dbi(pci, PCIE_PORT_FORCE);
-> > > > +     val |=3D PORT_FORCE_DO_DESKEW_FOR_SRIS;
-> > > > +     dw_pcie_writel_dbi(pci, PCIE_PORT_FORCE, val);
-> > > > +
-> > > > +     val =3D dw_pcie_readl_dbi(pci, GEN3_RELATED_OFF);
-> > > > +     val |=3D GEN3_RELATED_OFF_EQ_PHASE_2_3;
-> > > > +     dw_pcie_writel_dbi(pci, GEN3_RELATED_OFF, val);
-> > > > +
-> > > > +     dw_pcie_dbi_ro_wr_dis(pci);
-> > > > +
-> > > > +     return 0;
-> > > > +}
-> > > > +
-> > > > +static const struct dw_pcie_host_ops s32g_pcie_host_ops =3D {
-> > > > +     .init =3D s32g_init_pcie_controller,
-> > > > +};
-> > > > +
-> > > > +static int s32g_init_pcie_phy(struct s32g_pcie *s32g_pp)
-> > > > +{
-> > > > +     struct dw_pcie *pci =3D &s32g_pp->pci;
-> > > > +     struct device *dev =3D pci->dev;
-> > > > +     struct s32g_pcie_port *port, *tmp;
-> > > > +     int ret;
-> > > > +
-> > > > +     list_for_each_entry(port, &s32g_pp->ports, list) {
-> > > > +             ret =3D phy_init(port->phy);
-> > > > +             if (ret) {
-> > > > +                     dev_err(dev, "Failed to init serdes PHY\n");
-> > > > +                     goto err_phy_revert;
-> > > > +             }
-> > > > +
-> > > > +             ret =3D phy_set_mode_ext(port->phy, PHY_MODE_PCIE, 0)=
-;
-> > > > +             if (ret) {
-> > > > +                     dev_err(dev, "Failed to set mode on serdes PH=
-Y\n");
-> > > > +                     goto err_phy_exit;
-> > > > +             }
-> > > > +
-> > > > +             ret =3D phy_power_on(port->phy);
-> > > > +             if (ret) {
-> > > > +                     dev_err(dev, "Failed to power on serdes PHY\n=
-");
-> > > > +                     goto err_phy_exit;
-> > > > +             }
-> > > > +     }
-> > > > +
-> > > > +     return 0;
-> > > > +
-> > > > +err_phy_exit:
-> > > > +     phy_exit(port->phy);
-> > > > +
-> > > > +err_phy_revert:
-> > > > +     list_for_each_entry_continue_reverse(port, &s32g_pp->ports, l=
-ist) {
-> > > > +             phy_power_off(port->phy);
-> > > > +             phy_exit(port->phy);
-> > > > +     }
-> > > > +
-> > > > +     list_for_each_entry_safe(port, tmp, &s32g_pp->ports, list)
-> > > > +             list_del(&port->list);
-> > >
-> > > Can't you use list_for_each_entry_safe_reverse() to combine both oper=
-ations?
-> >
-> > No, it goes over all elements of the list whereas I only want to power
-> > off and exit only those which have been init and powered on above.
-> >
->
-> Sorry, I misread the kdoc...
->
-> > >
-> > > > +
-> > > > +     return ret;
-> > > > +}
-> > > > +
->
-> [...]
->
-> > > > +static struct platform_driver s32g_pcie_driver =3D {
-> > > > +     .driver =3D {
-> > > > +             .name   =3D "s32g-pcie",
-> > > > +             .of_match_table =3D s32g_pcie_of_match,
-> > > > +             .suppress_bind_attrs =3D true,
-> > > > +             .pm =3D pm_sleep_ptr(&s32g_pcie_pm_ops),
-> > > > +             .probe_type =3D PROBE_PREFER_ASYNCHRONOUS,
-> > > > +     },
-> > > > +     .probe =3D s32g_pcie_probe,
-> > > > +};
-> > > > +
-> > > > +module_platform_driver(s32g_pcie_driver);
-> > >
-> > > builtin_platform_driver() since this controller implements MSI contro=
-ller.
-> >
-> > Can you elaborate ?
-> >
->
-> If a PCI controller is implementing an irqchip, it is not supposed to be =
-removed
-> during runtime due to IRQ disposal concern. So we encourage the driver to=
- be
-> tristate, but use builtin_platform_driver() so that it can be loaded as a
-> module, but not removed dynamically.
->
-> This limitation comes from the irqchip framework.
+And thanks again for spending time on this and creating the patch.
 
-okay
-Anyway, I just realized that memblock_start_of_DRAM() is not exported
-so it can't be a module
+--=20
+Radu
 
-
-
->
-> - Mani
->
-> --
-> =E0=AE=AE=E0=AE=A3=E0=AE=BF=E0=AE=B5=E0=AE=A3=E0=AF=8D=E0=AE=A3=E0=AE=A9=
-=E0=AF=8D =E0=AE=9A=E0=AE=A4=E0=AE=BE=E0=AE=9A=E0=AE=BF=E0=AE=B5=E0=AE=AE=
-=E0=AF=8D
 
