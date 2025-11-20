@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D581CF885D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 20:56:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F81ECF885D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 20:56:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mXISH1m2FWOa1re4lRf2E8WpcS+3R+/gMgNN8FHfuxc=; b=an9lugScsG14RjibU5fK+iBgXo
-	QYBw7vbDMsHjsRyoDgDCeH87mN0gSpvlQQ/HilO5vJab7pFVp3J+rcOujDZtTPC55i66xTITwM1Y2
-	remi6A0t5MwK80kfPjre59ltceriFyCmxUQJGyQV+3grcGvteH4c+HYHzq+dLDLJoe29BB3HuUWcd
-	ZH1dYcv8x+JIgEG6gwkM3GLU7wbuKJt2Sa5UnRt5Txxbgf/lPHsybXhMRO3pXHFhMIY3Dip3PMuFj
-	fV+Dt/mpFuL0XYBRy5cgOGdIgfq0JV+YSVy01kFqwlQJ+l7H7/QPcKrN1wSQx5Kpy9Cg3hbaZ/3Ly
-	MH/wVGLw==;
+	bh=RwnFhKTWvcMiLm1Et/DfqdWvufrCtHepMfYsjNpJGhU=; b=LoafoCRL8MGKoNT7sTCACrBbP3
+	Ff7juwcHk86GfR83NhCwgVNerNhh7wZcCUho8zHI/Q5gwNXNLW7Py27c/pXqOE/Lzka0GPrvO5ry4
+	TqyiyKydFV34S3GIZsYHLoi+k0Kn6jGYpO3p4GMhu8f3fnzjGD/WUXuDMhNS+W5srCVIDc+dpbb4p
+	91v9jD34WTLJ2qM2MnVgS/c/F/ti9yLhVk/Q0ETBCqwIE+VsCg8TBdjbJzLIniMvJo6n46OCBulfP
+	M4AUXFGCJ/i4OZ9rGDKiC3Rn0UrlmwCAkOS4TGnPMiJhseZFsJCV0/qP3W0zWz+xyJVOOmX2zFq3u
+	a4uid7dQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMBhH-00000007NIa-3mhP;
-	Thu, 20 Nov 2025 20:56:07 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1vMBhX-00000007NWI-3hj9;
+	Thu, 20 Nov 2025 20:56:23 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMBhB-00000007NBk-35jE
+	id 1vMBhI-00000007NIQ-3o1b
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Nov 2025 20:56:04 +0000
+	Thu, 20 Nov 2025 20:56:17 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 41ADA4E41811;
-	Thu, 20 Nov 2025 20:56:00 +0000 (UTC)
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 655441A1C5C;
+	Thu, 20 Nov 2025 20:56:07 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 15AE2606F6;
-	Thu, 20 Nov 2025 20:56:00 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id CDDCF10371BCA;
-	Thu, 20 Nov 2025 21:55:54 +0100 (CET)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 3ACD2606F6;
+	Thu, 20 Nov 2025 20:56:07 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 7AF7C10371BCD;
+	Thu, 20 Nov 2025 21:56:02 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1763672158; h=from:subject:date:message-id:to:cc:mime-version:
+	t=1763672165; h=from:subject:date:message-id:to:cc:mime-version:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=mXISH1m2FWOa1re4lRf2E8WpcS+3R+/gMgNN8FHfuxc=;
-	b=Ngl3j0i2NzOphVUazxIOQsAG0K9GOFvLXlKJQ3z/Rf1IVldCKEqLSUFGv4lTlz2UsdhlDy
-	/gHu4o6txa4pRd4v6gb73J5JxsMujRgyYgT44eAoRxcUdQIaEArfux/VXYxv1kpVoNin8R
-	nnvieWCoro33ruPQd01Fba4wGDyo5NI1jwaV9HCNw5MSZPAePNkJ2yrUjsu/T3oAWlAY5Q
-	SYmeRxuryWNnLixUb2XifH0RxsNZKumMJSzLscdR2iS8fRpLgi7nMKBmmv/omIhUoh1Tsz
-	j6+jW8UcTfnl4eiPP1AMUp6B8Jhd7ZBxUkYvQhqPcjZkzljkSw3KSHMEKfDNmg==
+	bh=RwnFhKTWvcMiLm1Et/DfqdWvufrCtHepMfYsjNpJGhU=;
+	b=MfEKrfBqlHxLP4eIKUH8ftXzMuenbII82HzABiDZ93Vqm1ebqTRmo0HsQv+IxuDVKPoBtF
+	5hSA6SM1lb5loGF8cexuxUpMlw1NaHUr8iiiC8bcUH16Gih4p2R/ns13oNQyincoG/A5bx
+	xsnJXkp0BuCU/e9aK1TUhpcHfJarVIodVepWd+w4IxYwavRZ1wyRXwpXEuuEALIrb+z+hr
+	uOnBYZ07dso0porGtFmOn1UJqnKFoDmqwZ9JZCwXnJIBKPfxghL59bsfbBrjvzWE+OnACk
+	Y5ghvkLR2eWf/u3DHon6kKht/fmKV24+mjkruOwLU8xcKyXsJtd9mEi8Re79vQ==
 From: Maxime Chevallier <maxime.chevallier@bootlin.com>
 To: davem@davemloft.net
 Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
@@ -77,19 +77,18 @@ Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
 	Daniel Golle <daniel@makrotopia.org>,
 	Dimitri Fedrau <dimitri.fedrau@liebherr.com>,
 	Tariq Toukan <tariqt@nvidia.com>
-Subject: [PATCH net-next v18 10/15] net: phy: marvell10g: Support SFP through phy_port
-Date: Thu, 20 Nov 2025 21:55:00 +0100
-Message-ID: <20251120205508.553909-11-maxime.chevallier@bootlin.com>
+Subject: [PATCH net-next v18 12/15] net: phy: qca807x: Support SFP through phy_port interface
+Date: Thu, 20 Nov 2025 21:55:02 +0100
+Message-ID: <20251120205508.553909-13-maxime.chevallier@bootlin.com>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20251120205508.553909-1-maxime.chevallier@bootlin.com>
 References: <20251120205508.553909-1-maxime.chevallier@bootlin.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Last-TLS-Session-Version: TLSv1.3
-X-Rspamd-Fuzzy: 3cb21b558de28fb2da6f0bd9e82e7e0b10c8d141dc54d9d6fbfd2e91509e71453fa3284c1bc137d8881b8fab86d8e63a2159b0df6846de9d71fb1087f1828b62
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251120_125601_931349_60C88B0C 
-X-CRM114-Status: GOOD (  20.44  )
+X-CRM114-CacheID: sfid-20251120_125609_101297_BD30AFDB 
+X-CRM114-Status: GOOD (  16.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,209 +103,156 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Convert the Marvell10G driver to use the generic SFP handling, through a
-dedicated .attach_port() handler to populate the port's supported
-interfaces.
+QCA8072/8075 may be used as combo-port PHYs, with Serdes (100/1000BaseX)
+ and Copper interfaces. The PHY has the ability to read the configuration
+it's in.  If the configuration indicates the PHY is in combo mode, allow
+registering up to 2 ports.
 
-As the 88x3310 supports multiple MDI, the .attach_port() logic handles
-both SFP attach with 10GBaseR support, and support for the "regular"
-port that usually is a BaseT port.
+Register a dedicated set of port ops to handle the serdes port, and rely
+on generic phylib SFP support for the SFP handling.
 
-Reviewed-by: Andrew Lunn <andrew@lunn.ch>
 Reviewed-by: Christophe Leroy <christophe.leroy@csgroup.eu>
+Reviewed-by: Andrew Lunn <andrew@lunn.ch>
 Tested-by: Christophe Leroy <christophe.leroy@csgroup.eu>
 Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
 ---
- drivers/net/phy/marvell10g.c | 52 ++++++++++++++++++++++--------------
- drivers/net/phy/phy_port.c   | 44 ++++++++++++++++++++++++++++++
- include/linux/phy_port.h     |  1 +
- 3 files changed, 77 insertions(+), 20 deletions(-)
+ drivers/net/phy/qcom/qca807x.c | 72 ++++++++++++++--------------------
+ 1 file changed, 30 insertions(+), 42 deletions(-)
 
-diff --git a/drivers/net/phy/marvell10g.c b/drivers/net/phy/marvell10g.c
-index 8fd42131cdbf..d4cace758fe8 100644
---- a/drivers/net/phy/marvell10g.c
-+++ b/drivers/net/phy/marvell10g.c
-@@ -28,7 +28,7 @@
- #include <linux/hwmon.h>
- #include <linux/marvell_phy.h>
+diff --git a/drivers/net/phy/qcom/qca807x.c b/drivers/net/phy/qcom/qca807x.c
+index 1be8295a95cb..d8f1ce5a7128 100644
+--- a/drivers/net/phy/qcom/qca807x.c
++++ b/drivers/net/phy/qcom/qca807x.c
+@@ -13,7 +13,7 @@
  #include <linux/phy.h>
+ #include <linux/bitfield.h>
+ #include <linux/gpio/driver.h>
 -#include <linux/sfp.h>
 +#include <linux/phy_port.h>
- #include <linux/netdevice.h>
  
- #define MV_PHY_ALASKA_NBT_QUIRK_MASK	0xfffffffe
-@@ -463,35 +463,35 @@ static int mv3310_set_edpd(struct phy_device *phydev, u16 edpd)
- 	return err;
+ #include "../phylib.h"
+ #include "qcom.h"
+@@ -643,67 +643,54 @@ static int qca807x_phy_package_config_init_once(struct phy_device *phydev)
+ 	return ret;
  }
  
--static int mv3310_sfp_insert(void *upstream, const struct sfp_eeprom_id *id)
-+static int mv3310_attach_mii_port(struct phy_device *phydev,
-+				  struct phy_port *port)
+-static int qca807x_sfp_insert(void *upstream, const struct sfp_eeprom_id *id)
++static int qca807x_configure_serdes(struct phy_port *port, bool enable,
++				    phy_interface_t interface)
  {
 -	struct phy_device *phydev = upstream;
 -	const struct sfp_module_caps *caps;
 -	phy_interface_t iface;
-+	__set_bit(PHY_INTERFACE_MODE_10GBASER, port->interfaces);
-+	return 0;
-+}
++	struct phy_device *phydev = port_phydev(port);
+ 	int ret;
  
 -	caps = sfp_get_module_caps(phydev->sfp_bus);
 -	iface = sfp_select_interface(phydev->sfp_bus, caps->link_modes);
-+static int mv3310_attach_mdi_port(struct phy_device *phydev,
-+				  struct phy_port *port)
-+{
-+	/* This PHY can do combo-ports, i.e. 2 MDI outputs, usually one
-+	 * of them going to an SFP and the other one to a RJ45
-+	 * connector. If we don't have any representation for the port
-+	 * in DT, and we are dealing with a non-SFP port, then we
-+	 * mask the port's capabilities to report BaseT-only modes
-+	 */
-+	if (port->not_described)
-+		return phy_port_restrict_mediums(port,
-+						 BIT(ETHTOOL_LINK_MEDIUM_BASET));
++	if (!phydev)
++		return -ENODEV;
  
--	if (iface != PHY_INTERFACE_MODE_10GBASER) {
--		dev_err(&phydev->mdio.dev, "incompatible SFP module inserted\n");
+-	dev_info(&phydev->mdio.dev, "%s SFP module inserted\n", phy_modes(iface));
+-
+-	switch (iface) {
+-	case PHY_INTERFACE_MODE_1000BASEX:
+-	case PHY_INTERFACE_MODE_100BASEX:
++	if (enable) {
+ 		/* Set PHY mode to PSGMII combo (1/4 copper + combo ports) mode */
+ 		ret = phy_modify(phydev,
+ 				 QCA807X_CHIP_CONFIGURATION,
+ 				 QCA807X_CHIP_CONFIGURATION_MODE_CFG_MASK,
+ 				 QCA807X_CHIP_CONFIGURATION_MODE_PSGMII_FIBER);
++		if (ret)
++			return ret;
+ 		/* Enable fiber mode autodection (1000Base-X or 100Base-FX) */
+ 		ret = phy_set_bits_mmd(phydev,
+ 				       MDIO_MMD_AN,
+ 				       QCA807X_MMD7_FIBER_MODE_AUTO_DETECTION,
+ 				       QCA807X_MMD7_FIBER_MODE_AUTO_DETECTION_EN);
+-		/* Select fiber page */
+-		ret = phy_clear_bits(phydev,
+-				     QCA807X_CHIP_CONFIGURATION,
+-				     QCA807X_BT_BX_REG_SEL);
+-
+-		phydev->port = PORT_FIBRE;
+-		break;
+-	default:
+-		dev_err(&phydev->mdio.dev, "Incompatible SFP module inserted\n");
 -		return -EINVAL;
--	}
- 	return 0;
++		if (ret)
++			return ret;
+ 	}
+ 
+-	return ret;
++	phydev->port = enable ? PORT_FIBRE : PORT_TP;
++
++	return phy_modify(phydev, QCA807X_CHIP_CONFIGURATION,
++			  QCA807X_BT_BX_REG_SEL,
++			  enable ? 0 : QCA807X_BT_BX_REG_SEL);
  }
  
--static const struct sfp_upstream_ops mv3310_sfp_ops = {
+-static void qca807x_sfp_remove(void *upstream)
++static const struct phy_port_ops qca807x_serdes_port_ops = {
++	.configure_mii = qca807x_configure_serdes,
++};
++
++static int qca807x_attach_mii_port(struct phy_device *phydev,
++				   struct phy_port *port)
+ {
+-	struct phy_device *phydev = upstream;
++	__set_bit(PHY_INTERFACE_MODE_1000BASEX, port->interfaces);
++	__set_bit(PHY_INTERFACE_MODE_100BASEX, port->interfaces);
+ 
+-	/* Select copper page */
+-	phy_set_bits(phydev,
+-		     QCA807X_CHIP_CONFIGURATION,
+-		     QCA807X_BT_BX_REG_SEL);
++	port->ops = &qca807x_serdes_port_ops;
+ 
+-	phydev->port = PORT_TP;
++	return 0;
+ }
+ 
+-static const struct sfp_upstream_ops qca807x_sfp_ops = {
 -	.attach = phy_sfp_attach,
 -	.detach = phy_sfp_detach,
+-	.module_insert = qca807x_sfp_insert,
+-	.module_remove = qca807x_sfp_remove,
 -	.connect_phy = phy_sfp_connect_phy,
 -	.disconnect_phy = phy_sfp_disconnect_phy,
--	.module_insert = mv3310_sfp_insert,
 -};
 -
- static int mv3310_probe(struct phy_device *phydev)
+ static int qca807x_probe(struct phy_device *phydev)
  {
- 	const struct mv3310_chip *chip = to_mv3310_chip(phydev);
- 	struct mv3310_priv *priv;
- 	u32 mmd_mask = MDIO_DEVS_PMAPMD | MDIO_DEVS_AN;
-+	DECLARE_PHY_INTERFACE_MASK(interfaces);
- 	int ret;
+ 	struct device_node *node = phydev->mdio.dev.of_node;
+@@ -744,9 +731,8 @@ static int qca807x_probe(struct phy_device *phydev)
  
- 	if (!phydev->is_c45 ||
-@@ -542,9 +542,13 @@ static int mv3310_probe(struct phy_device *phydev)
- 	if (ret)
- 		return ret;
- 
-+	__set_bit(PHY_INTERFACE_MODE_10GBASER, interfaces);
+ 	/* Attach SFP bus on combo port*/
+ 	if (phy_read(phydev, QCA807X_CHIP_CONFIGURATION)) {
+-		ret = phy_sfp_probe(phydev, &qca807x_sfp_ops);
+-		if (ret)
+-			return ret;
++		phydev->max_n_ports = 2;
 +
- 	chip->init_supported_interfaces(priv->supported_interfaces);
- 
--	return phy_sfp_probe(phydev, &mv3310_sfp_ops);
-+	phydev->max_n_ports = 2;
-+
-+	return 0;
- }
- 
- static void mv3310_remove(struct phy_device *phydev)
-@@ -1405,6 +1409,8 @@ static struct phy_driver mv3310_drivers[] = {
- 		.set_loopback	= genphy_c45_loopback,
- 		.get_wol	= mv3110_get_wol,
- 		.set_wol	= mv3110_set_wol,
-+		.attach_mii_port = mv3310_attach_mii_port,
-+		.attach_mdi_port = mv3310_attach_mdi_port,
+ 		linkmode_set_bit(ETHTOOL_LINK_MODE_FIBRE_BIT, phydev->supported);
+ 		linkmode_set_bit(ETHTOOL_LINK_MODE_FIBRE_BIT, phydev->advertising);
+ 	}
+@@ -824,6 +810,7 @@ static struct phy_driver qca807x_drivers[] = {
+ 		.get_phy_stats		= qca807x_get_phy_stats,
+ 		.set_wol		= at8031_set_wol,
+ 		.get_wol		= at803x_get_wol,
++		.attach_mii_port	= qca807x_attach_mii_port,
  	},
  	{
- 		.phy_id		= MARVELL_PHY_ID_88X3310,
-@@ -1424,6 +1430,8 @@ static struct phy_driver mv3310_drivers[] = {
- 		.set_tunable	= mv3310_set_tunable,
- 		.remove		= mv3310_remove,
- 		.set_loopback	= genphy_c45_loopback,
-+		.attach_mii_port = mv3310_attach_mii_port,
-+		.attach_mdi_port = mv3310_attach_mdi_port,
- 	},
- 	{
- 		.phy_id		= MARVELL_PHY_ID_88E2110,
-@@ -1444,6 +1452,8 @@ static struct phy_driver mv3310_drivers[] = {
- 		.set_loopback	= genphy_c45_loopback,
- 		.get_wol	= mv3110_get_wol,
- 		.set_wol	= mv3110_set_wol,
-+		.attach_mii_port = mv3310_attach_mii_port,
-+		.attach_mdi_port = mv3310_attach_mdi_port,
- 	},
- 	{
- 		.phy_id		= MARVELL_PHY_ID_88E2110,
-@@ -1462,6 +1472,8 @@ static struct phy_driver mv3310_drivers[] = {
- 		.set_tunable	= mv3310_set_tunable,
- 		.remove		= mv3310_remove,
- 		.set_loopback	= genphy_c45_loopback,
-+		.attach_mii_port = mv3310_attach_mii_port,
-+		.attach_mdi_port = mv3310_attach_mdi_port,
+ 		PHY_ID_MATCH_EXACT(PHY_ID_QCA8075),
+@@ -851,6 +838,7 @@ static struct phy_driver qca807x_drivers[] = {
+ 		.get_phy_stats		= qca807x_get_phy_stats,
+ 		.set_wol		= at8031_set_wol,
+ 		.get_wol		= at803x_get_wol,
++		.attach_mii_port	= qca807x_attach_mii_port,
  	},
  };
- 
-diff --git a/drivers/net/phy/phy_port.c b/drivers/net/phy/phy_port.c
-index f89f70f83593..d9099196f870 100644
---- a/drivers/net/phy/phy_port.c
-+++ b/drivers/net/phy/phy_port.c
-@@ -149,6 +149,50 @@ void phy_port_update_supported(struct phy_port *port)
- }
- EXPORT_SYMBOL_GPL(phy_port_update_supported);
- 
-+/**
-+ * phy_port_filter_supported() - Make sure that port->supported match port->mediums
-+ * @port: The port to filter
-+ *
-+ * After updating a port's mediums to a more restricted subset, this helper will
-+ * make sure that port->supported only contains linkmodes that are compatible
-+ * with port->mediums.
-+ */
-+static void phy_port_filter_supported(struct phy_port *port)
-+{
-+	__ETHTOOL_DECLARE_LINK_MODE_MASK(supported) = { 0 };
-+	int i;
-+
-+	for_each_set_bit(i, &port->mediums, __ETHTOOL_LINK_MEDIUM_LAST)
-+		phy_caps_medium_get_supported(supported, i, port->pairs);
-+
-+	linkmode_and(port->supported, port->supported, supported);
-+}
-+
-+/**
-+ * phy_port_restrict_mediums - Mask away some of the port's supported mediums
-+ * @port: The port to act upon
-+ * @mediums: A mask of mediums to support on the port
-+ *
-+ * This helper allows removing some mediums from a port's list of supported
-+ * mediums, which occurs once we have enough information about the port to
-+ * know its nature.
-+ *
-+ * Returns: 0 if the change was donne correctly, a negative value otherwise.
-+ */
-+int phy_port_restrict_mediums(struct phy_port *port, unsigned long mediums)
-+{
-+	/* We forbid ending-up with a port with empty mediums */
-+	if (!(port->mediums & mediums))
-+		return -EINVAL;
-+
-+	port->mediums &= mediums;
-+
-+	phy_port_filter_supported(port);
-+
-+	return 0;
-+}
-+EXPORT_SYMBOL_GPL(phy_port_restrict_mediums);
-+
- /**
-  * phy_port_get_type() - get the PORT_* attribute for that port.
-  * @port: The port we want the information from
-diff --git a/include/linux/phy_port.h b/include/linux/phy_port.h
-index 550c3f4ab19f..0ef0f5ce4709 100644
---- a/include/linux/phy_port.h
-+++ b/include/linux/phy_port.h
-@@ -92,6 +92,7 @@ static inline bool phy_port_is_fiber(struct phy_port *port)
- }
- 
- void phy_port_update_supported(struct phy_port *port);
-+int phy_port_restrict_mediums(struct phy_port *port, unsigned long mediums);
- 
- int phy_port_get_type(struct phy_port *port);
- 
+ module_phy_driver(qca807x_drivers);
 -- 
 2.49.0
 
