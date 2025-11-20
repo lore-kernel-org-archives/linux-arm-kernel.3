@@ -4,75 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8BBACF8844
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 11:31:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2600BCF8844
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 11:36:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kiWH0/YZBx9aFxNDPIFdolJuvMUpl0yJwssz6YI10nY=; b=LUcXedGFtGIOoRaPRsdHkYmHbF
-	dpIkt8knFQhVU7baJt9L4AT4JB8OhZn5PdoTCI09yIEzjYrygxd+0dCXdgbzCE8gqE2mNhzHgPgzX
-	YlhaCnJC+cvqT1r2KIogV7bOh/q197GsRGuDMM2/+R+2JGRbvqrK56ne4I70W53F/OBQSrEwT8XLE
-	HtceoKafK3Pwu4eIbCS3CP88KkTRDctOqgLHkUwYUcLfpJiTtup47CkfYT+uI2JW+l5WpGwp9yQQR
-	Vwj3f52R6ZfGzUb+sUETYQ4EeZDdbJ9GgxkPl5dcchjsCfQi48v0VtsSrzCqquC0s+8USM81anhRh
-	C9A2AjEQ==;
+	bh=TPlzmXt4DNVBdqLVvxiBIWu8Rl4FZ4bDuiyypGx7MuQ=; b=PpfrRsC+z6dUG1Ub5p6ZuFLdIG
+	wYd41v5VHSG+jVy4tmz6V3hAJBmflYNl0MA8j73fF5wNejR60kgdYStwHMNfS3KlJhdk+efkAC4Q4
+	M/da8aSmI9rlpnTHoeamvLC36eCRcSkNATT7cKY8rfJzXRNGhYe3dH1bFLu0G1tUMznvzXOzq8po3
+	QdmuGg17it1UqbX0Pbfu30lD0qTXuTXz2nH80g99Tkk9inh9g1U3uivdC40mSEvGzGrbPV7tCMLk/
+	X7ADQtZRtoBpR1pmioTJbcHIftziWZXga5/RmHrn1E3KyXpuwYzXLNWhrmpGrHVzjECefmX+ycyWx
+	T8+B0Xjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vM2sg-00000006akE-32ge;
-	Thu, 20 Nov 2025 11:31:18 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1vM2xd-00000006b06-26NH;
+	Thu, 20 Nov 2025 11:36:25 +0000
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vM2sW-00000006agh-07ij
+	id 1vM2xa-00000006azZ-1F3I
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Nov 2025 11:31:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=kiWH0/YZBx9aFxNDPIFdolJuvMUpl0yJwssz6YI10nY=; b=VxgBKxUq2Aq7FKSBV1RbjVUfju
-	+zReZgekJzT9LDjDfe4qebH7lqQNCk7+WUnAV/ZO+7Qxnh5EBuxb8ZX6Z1jVpkGi4x/bc++LYkMVQ
-	F35otdxM3SNxdjDcBH+5J6gAgmjqlNRsV4zD9R9QS9KsoWOA/VdMggGSKQfchF0R0y6QrN61nq2vQ
-	LHH3nuW1mbDsOF9PT2srPRfQhpFUiVCvuep1RQnrQ/3Tk8vWY74m9wdgIA7/xP8CoqguR/mhEffIS
-	Is28Cbajewd52w6d9Ky14ayNlSVvKFowAjsP2q07eCDZh11rPRLA8JCNmRefn87+4LlOWXhmTPzWP
-	qqOt9epQ==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:54204)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1vM2sQ-000000006A3-0xfZ;
-	Thu, 20 Nov 2025 11:31:02 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1vM2sO-000000004LM-0FuK;
-	Thu, 20 Nov 2025 11:31:00 +0000
-Date: Thu, 20 Nov 2025 11:30:59 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>, Vinod Koul <vkoul@kernel.org>
-Subject: Re: [PATCH net-next v2 1/3] net: stmmac: qcom-ethqos: use u32 for
- rgmii read/write/update
-Message-ID: <aR778ygQp-SZO19n@shell.armlinux.org.uk>
-References: <aR76i0HjXitfl7xk@shell.armlinux.org.uk>
- <E1vM2mq-0000000FRTi-3y5F@rmk-PC.armlinux.org.uk>
+	Thu, 20 Nov 2025 11:36:23 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-4779a4fc95aso13302465e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Nov 2025 03:36:21 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1763638580; x=1764243380; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=TPlzmXt4DNVBdqLVvxiBIWu8Rl4FZ4bDuiyypGx7MuQ=;
+        b=LawHfCdEHTSquhn4Wh/PifORbsbA/9OCEztusBOMVeBhzplEwzXBs43JOqxiP4Ac8a
+         3/sBoI74xnIEeLX2fcv9euG85k1nWr2nhc/0aE2KOnnPR0p/7nEeLsFWL1I60CGuXV6H
+         6mYQZL5i4pTgF2/Y52f47GeMJxXkOHn3O6kigy0LHIr2FHfgyp+x1WaUm3VishA02J/g
+         MHlXrEsQtof1vivD9damK0U0oL3u1R1wlaUfxLH/ovOA6E8QWQzzij3Tfz3Dw2cGZHUo
+         MS6V9o1/BAIE8/5+1L0pJSAW3zCJDmkB3cYmGezvkHwJQXfyu/Jbe7FCQhpHRud7oaOB
+         5yzg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1763638580; x=1764243380;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=TPlzmXt4DNVBdqLVvxiBIWu8Rl4FZ4bDuiyypGx7MuQ=;
+        b=g9aki49nhz626ISatgLuN66SDudrcl/k0UppwEsyH00MyuR5fMr69Y4utSXnqx5q98
+         J9J8eTyw83ys5YFMgcs5MM2AEYof1Px146CkbvnSjSqrYXfQ3svvDZXJZVkTNtcj3EYc
+         EcuSU++FfF48nqWossHRaWAZrdo8tz/5jXvIktrCX/mTUTER6DofJk/122ChSPwB1uSO
+         S4n3ExyGWpJagsFf+bX0D4J7Fu9QxXG9OVnv6PO8o4y1yAqnr/llVerSSNhp4ATJnNTa
+         +jycjj7TT1hyTt+PA1RZtVMQeTsBzKIZuxbmOXdc3HKI+oRigKAwmYp/nTispAkjrr87
+         ynRg==
+X-Forwarded-Encrypted: i=1; AJvYcCVC8gv+ccZw3rd8LdZOM8VtYpVM4CQZyNyQteEA/wh+SgYeSHglqSRQWaj/tYn5j3cdBbNolancbvKqm4+F/uW/@lists.infradead.org
+X-Gm-Message-State: AOJu0YwbrsTXZXNhkbyWDSa/pqjWY8pEsOVbs1y9uIA7PopbpH0DDRsm
+	qP+M8m/JHdZYv0TBu3wBpd/1kshmuKlgGvwkYt/UaB4FMqXIhim26IT5O8Lov6GjTA==
+X-Gm-Gg: ASbGncsNGL5A8Dl5dVRXJsRmKUlQ6pRKglXLvbtVdKDfwzJ5OjghFZ/JpTcmnufpryd
+	vOTql4fi2WVy33miFUN+N5LZwd4k/lW+YpFCfjCaqRTbhVYVLawD6ZFDbtwvwoYG8fh7Hd1mq1e
+	T01C0II1HnMwGP/d9x4XJlgThFEqW7NcZnEEintCs178v6r19Oxp9BpXieIdSVQOajrN3eRsSZ6
+	epT5B6r+DC7KweQ7+a+TehwU+t2z46nt2FnugIfAqYcRql90uOwNGj+8Qh3rvV5rjP+qV0ssfHE
+	fGFpEgCmGY6wyC9sEzL1w22x90QPhMrAB9tnxptXD/Mb7QE7ap5P9habo1Kbj1myp8xYtDPxepv
+	skwfGPuzcGVECeBrRv3j1BVU30vklZSj2GIT8opuqjLcloYRrXwe9or6QdbUNNIe3o26LndaRyf
+	t3aqhDQEYMuR7PBpCuCvgikVdSnR+RlFXrPpfrWU9rOudk+Z4PmA==
+X-Google-Smtp-Source: AGHT+IGcOCRDUWPkVUZ7ncQTNFf+q64GbtuEHTlJs5oKc83ztKfhHnrQKRpzLVqerrPSrM7dBJtv3A==
+X-Received: by 2002:a05:600c:2e4c:b0:477:9890:4528 with SMTP id 5b1f17b1804b1-477b9ea31e9mr14670485e9.2.1763638580134;
+        Thu, 20 Nov 2025 03:36:20 -0800 (PST)
+Received: from google.com (120.54.38.34.bc.googleusercontent.com. [34.38.54.120])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-477a9e1b657sm60238005e9.17.2025.11.20.03.36.19
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 20 Nov 2025 03:36:19 -0800 (PST)
+Date: Thu, 20 Nov 2025 11:36:16 +0000
+From: Vincent Donnefort <vdonnefort@google.com>
+To: Marc Zyngier <maz@kernel.org>, g@google.com
+Cc: rostedt@goodmis.org, mhiramat@kernel.org,
+	mathieu.desnoyers@efficios.com, linux-trace-kernel@vger.kernel.org,
+	oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com,
+	yuzenghui@huawei.com, kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, jstultz@google.com,
+	qperret@google.com, will@kernel.org, aneesh.kumar@kernel.org,
+	kernel-team@android.com, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v8 20/28] KVM: arm64: Add clock support for the pKVM hyp
+Message-ID: <aR79MCNlAKP1H-PQ@google.com>
+References: <20251107093840.3779150-1-vdonnefort@google.com>
+ <20251107093840.3779150-21-vdonnefort@google.com>
+ <86cy5erprc.wl-maz@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <E1vM2mq-0000000FRTi-3y5F@rmk-PC.armlinux.org.uk>
+In-Reply-To: <86cy5erprc.wl-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251120_033109_878737_AF1ECC3E 
-X-CRM114-Status: GOOD (  13.02  )
+X-CRM114-CacheID: sfid-20251120_033622_353510_404FAA5C 
+X-CRM114-Status: GOOD (  17.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,30 +105,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Nov 20, 2025 at 11:25:16AM +0000, Russell King (Oracle) wrote:
-> readl() returns a u32, and writel() takes a "u32" for the value. These
-> are used in rgmii_readl()() and rgmii_writel(), but the value and
-> return are "int". As these are 32-bit register values which are not
-> signed, use "u32".
-> 
-> These changes do not cause generated code changes.
-> 
-> Update rgmii_updatel() to use u32 for mask and val. Changing "mask"
-> to "u32" also does not cause generated code changes. However, changing
-> "val" causes the generated assembly to be re-ordered for aarch64.
-> 
-> Update the temporary variables used with the rgmii functions to use
-> u32.
-> 
-> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+[...]
 
-Konrad provided his reviewed-by in
-https://lore.kernel.org/r/76d153cf-8048-4c6f-8765-51741de78298@oss.qualcomm.com
-but for some reason I forgot to add it, so:
+> > +/* Using host provided data. Do not use for anything else than debugging. */
+> > +u64 trace_clock(void)
+> > +{
+> > +	struct clock_data *clock = &trace_clock_data;
+> > +	u64 bank = smp_load_acquire(&clock->cur);
+> > +	u64 cyc, ns;
+> > +
+> > +	cyc = __arch_counter_get_cntpct() - clock->data[bank].epoch_cyc;
+> 
+> I can only imagine that you don't care about the broken systems that
+> do not have a monotonic counter, and that will happily have their
+> counter swing back and forth?
 
-Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+I haven't used the _stable() variant for the affected devices... Hum this will
+not be trivial from the hypervisor. I'll see what I can do.
 
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+> 
+> Also, you may want to document why you are using the physical counter
+> instead of the virtual one. I guess that you don't want CNTVOFF_EL2 to
+> apply when HCR_EL2.E2H==0, but given that you never allow anything
+> else for pKVM, this is slightly odd.
+
+You mean I might as well use __arch_counter_get_cntvct() as CNTVOFF_EL2 will
+always be ignored in the pKVM case?
+
+> 
+> Thanks,
+> 
+> 	M.
+> 
+> -- 
+> Without deviation from the norm, progress is not possible.
 
