@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0D9DCF9C51
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0DE1CF9C73
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 17:28:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,57 +12,57 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7ADVxKePBqLnp/F277W5iSk7JJ7AiK2uq8VPH9L2tmo=; b=CoK3HGLriUk2uoWsFpnCpnCVNM
-	63apnX6SeWh0xBoGoXQnzg31mXwtb6no+ZnzggODk+R7gttLp6If0yzrwMcf7io368iCsceToXz0y
-	OR6tCh5Te13kZtL/G9vQMWUKrIZTGt59NLmxBbwuKAx7v95115oXnRGs9uxmwpAY8nJUM9/dkXPbC
-	T3pm58f9gteEE/ccnYYLPNqcGoPLvplW7//FtKA+i/r9yum2SO40fkVgidwA8tRAjvny8bsu4adTH
-	LB2+neRKU6zNnsPQjvor9+oaDpXX7PLKiS4/Mj08cHm8zBrPKuplD5PuOHShcxB3KAMI+4qobknuY
-	HV4pOmCw==;
+	bh=ZSeaw1ue/9LRvaa7Z/xMMsqVV3Rjxox1ceER+Xn6mPc=; b=M+dJ4eJL/7YzS/JKYMCq2VN5VM
+	mZ7hvxv5Jz3vGduMGf/ku/KxYc6eMpNjOA+nWuwfZdCb/5x4jEfIVt/JpgaJTTlHiKZxy+J2MRcr4
+	yJ9ClNLLXVWxN1RentUKzJm97RG28+pMSoSZJmzP7IDdNW+/mBpMyE/SCqDeAxc2Griwdj+WGSB2I
+	9mzoBJdG9gTwkZ5P53c5u0TTsAVok7tLSkafQeA0VaCUpxV9+G6B5iJQtJU7Lu6zoUWDS1Q5rTnPS
+	Pv8b9kpNCadtx6K0KOgoLG5051uSD1GpXYPPCIjhRL4gz7CTAqYsA6R00y8eIVS92Lc/5aZxkh1kb
+	JidB3Gfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vM8SZ-000000078uv-1tiQ;
-	Thu, 20 Nov 2025 17:28:43 +0000
+	id 1vM8SY-000000078sW-0ocx;
+	Thu, 20 Nov 2025 17:28:42 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vM8Q7-000000075kD-1lOJ
+	id 1vM8Q8-000000075lS-1jMR
 	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 20 Nov 2025 17:26:11 +0000
+	Thu, 20 Nov 2025 17:26:12 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=7ADVxKePBqLnp/F277W5iSk7JJ7AiK2uq8VPH9L2tmo=; b=gbH1FHsFlymHjknHrVkPxBhM0w
-	osdDSyanP6hbH6YVrSBs0IpEJsXcPa/7VoNUOtWtzofBFg/QP6/31MaonljLKMoEo1ca0Dn7N02ra
-	G2PuKc24MEt2qj3VFdBtFD3Z6L/1CNiUJJuHBjwaN/j5xB66vCdw1wg4jtej2v3DfQRDj0IZTdhwt
-	VkiZ0hyE1fmmDHm6UktykaM3K3IwQcbe4+tOt54Q96VjuCWQMtrNls3noMYqI3yHhzDaaOenC4QhK
-	lRzV7G+XKQ2ayvE2u1c+utlC1E9ulAVoeGUHh4WSQh5S3d1OyX5rTxQAFrT6YZTXsUMI3dyPi1WwW
-	D0zLeEjw==;
+	bh=ZSeaw1ue/9LRvaa7Z/xMMsqVV3Rjxox1ceER+Xn6mPc=; b=AL/Q56uZaS+u1WPGcfG8XMnQnI
+	B5KAbrCQ/KbAc68X2ok9nAje+hRSpdJTgxkZaQcVjaXDQIfYJZetE9NFXH1lLgFxaytvHUbqotkRb
+	yfkwvx30a2SDsmDtzgXx9xrn5kuEKY8Tuo1COgvNisGtIFoy7EbG3O13B/OZn6HsT+GN50Rutfrwp
+	3xOj/A+zBShxvxV/FNS87S4I/thgIP/4BSZBGLNbv0TpHd8ca4yS7XX50vmJxvzin5ar2s4++/1GH
+	EYa4s+Z3/ttXBTmOE6VZidQx9RTmKwTf5nu98qHIgbAOq0XS3/ZqHDXHUHPOVXU2Qn58394deBGMK
+	H9Ndk6ww==;
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vM7YM-0000000F6eH-1ezJ
+	id 1vM7YP-0000000F6ek-2E3N
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Nov 2025 16:30:44 +0000
+	Thu, 20 Nov 2025 16:30:45 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 03E31442EF;
-	Thu, 20 Nov 2025 17:25:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DD0D0C16AAE;
-	Thu, 20 Nov 2025 17:25:57 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id D2F9B44278;
+	Thu, 20 Nov 2025 17:25:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B751AC19421;
+	Thu, 20 Nov 2025 17:25:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763659557;
-	bh=9zmvyJnqM1pmsDAZmL9HBzTQeKZt544wzk09PL440M8=;
+	s=k20201202; t=1763659559;
+	bh=vLlPo3Zk09/KBtF1mv1AED7DUfgLhllH0ekiQOicv9s=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=oXJuAi0Ng0UM8uATPILI+p1EcvRTKkW1WwAgtUgGL4NwGDqabcAKNx09h51Y2NlyH
-	 GjeD8M65DlydSXu+VtKf0vyt7pq6D6zTJapiFu3W5tTn2HcpWqXgniqigM3KgT9fVB
-	 wF/Qh4leL6IBz5FBgF6Kw0IgCPZEreyyORGMWCV4LaK+iZ914nQEQyPbXnOB0RtEtO
-	 kDh7WwGQhJokx69c4WwDTvoyAyAYX7kvX2XodZhH7L0JZLT1dKSdwwPIZl7f86DyjZ
-	 bnvX5qP9yTcH/nYILAst1jZohzk084rjo92Z08ywLHwvMBPMESlAorjFh5UBTjd3zG
-	 Z3nvPPSlywE/w==
+	b=aPeBfkiMnoGTd3J13ZxUYS2+z4XLkFW9wuwj5VrWA8m2iyQ16UPsU6AojttUEfJZz
+	 Ekp5JTTJbQtjU8+W1p5Ue1wzjWP+tIkL/MiTq8HFUtPt0NX8/7wVfgN65UvTQFepm1
+	 6n+n66OjcTW0on/78Jj3u1+QMJVG0fuAAH/0JwFbjzHbleR3B/HOZfIDBcS1DLTzLo
+	 RFSBT9OlSNfM10zNTjS8CFH03oZ1MZwPp8npgY4moLjzJ8A9Dln8NhE43wDnQ6+456
+	 PBGq00iD6FigT6mRAyXZq6fbAEQkAkfdOzFY7kylIkMttdeaB9st5/VRkr4FZ0pLrr
+	 zdq9DQBxWw6Nw==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1vM8Pr-00000006y6g-47kU;
-	Thu, 20 Nov 2025 17:25:56 +0000
+	id 1vM8Pt-00000006y6g-43RZ;
+	Thu, 20 Nov 2025 17:25:58 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
@@ -74,9 +74,9 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Christoffer Dall <christoffer.dall@arm.com>,
 	Fuad Tabba <tabba@google.com>,
 	Mark Brown <broonie@kernel.org>
-Subject: [PATCH v4 09/49] KVM: arm64: Add LR overflow handling documentation
-Date: Thu, 20 Nov 2025 17:24:59 +0000
-Message-ID: <20251120172540.2267180-10-maz@kernel.org>
+Subject: [PATCH v4 17/49] KVM: arm64: GICv2: Extract LR folding primitive
+Date: Thu, 20 Nov 2025 17:25:07 +0000
+Message-ID: <20251120172540.2267180-18-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20251120172540.2267180-1-maz@kernel.org>
 References: <20251120172540.2267180-1-maz@kernel.org>
@@ -87,8 +87,8 @@ X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251120_163042_312798_F6A19B2E 
-X-CRM114-Status: GOOD (  23.45  )
+X-CRM114-CacheID: sfid-20251120_163043_329363_262BAE11 
+X-CRM114-Status: GOOD (  18.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,108 +103,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a bit of documentation describing how we are dealing with LR
-overflow. This is mostly a braindump of how things are expected
-to work. For now anyway.
+As we are going to need to handle deactivation for interrupts that
+are not in the LRs, split vgic_v2_fold_lr_state() into a helper
+that deals with a single interrupt, and the function that loops
+over the used LRs.
 
 Tested-by: Fuad Tabba <tabba@google.com>
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/kvm/vgic/vgic.c | 81 +++++++++++++++++++++++++++++++++++++-
- 1 file changed, 80 insertions(+), 1 deletion(-)
+ arch/arm64/kvm/vgic/vgic-v2.c | 67 +++++++++++++++++------------------
+ 1 file changed, 32 insertions(+), 35 deletions(-)
 
-diff --git a/arch/arm64/kvm/vgic/vgic.c b/arch/arm64/kvm/vgic/vgic.c
-index 6dd5a10081e27..7ee253a9fb77e 100644
---- a/arch/arm64/kvm/vgic/vgic.c
-+++ b/arch/arm64/kvm/vgic/vgic.c
-@@ -825,7 +825,86 @@ static int compute_ap_list_depth(struct kvm_vcpu *vcpu,
- 	return count;
+diff --git a/arch/arm64/kvm/vgic/vgic-v2.c b/arch/arm64/kvm/vgic/vgic-v2.c
+index a0d803c5b08ae..fb8efdd4196b1 100644
+--- a/arch/arm64/kvm/vgic/vgic-v2.c
++++ b/arch/arm64/kvm/vgic/vgic-v2.c
+@@ -39,43 +39,23 @@ static bool lr_signals_eoi_mi(u32 lr_val)
+ 	       !(lr_val & GICH_LR_HW);
  }
  
--/* Requires the VCPU's ap_list_lock to be held. */
-+/*
-+ * Dealing with LR overflow is close to black magic -- dress accordingly.
-+ *
-+ * We have to present an almost infinite number of interrupts through a very
-+ * limited number of registers. Therefore crucial decisions must be made to
-+ * ensure we feed the most relevant interrupts into the LRs, and yet have
-+ * some facilities to let the guest interact with those that are not there.
-+ *
-+ * All considerations below are in the context of interrupts targeting a
-+ * single vcpu with non-idle state (either pending, active, or both),
-+ * colloquially called the ap_list:
-+ *
-+ * - Pending interrupts must have priority over active interrupts. This also
-+ *   excludes pending+active interrupts. This ensures that a guest can
-+ *   perform priority drops on any number of interrupts, and yet be
-+ *   presented the next pending one.
-+ *
-+ * - Deactivation of interrupts outside of the LRs must be tracked by using
-+ *   either the EOIcount-driven maintenance interrupt, and sometimes by
-+ *   trapping the DIR register.
-+ *
-+ * - For EOImode=0, a non-zero EOIcount means walking the ap_list past the
-+ *   point that made it into the LRs, and deactivate interrupts that would
-+ *   have made it onto the LRs if we had the space.
-+ *
-+ * - The MI-generation bits must be used to try and force an exit when the
-+ *   guest has done enough changes to the LRs that we want to reevaluate the
-+ *   situation:
-+ *
-+ *	- if the total number of pending interrupts exceeds the number of
-+ *	  LR, NPIE must be set in order to exit once no pending interrupts
-+ *	  are present in the LRs, allowing us to populate the next batch.
-+ *
-+ *	- if there are active interrupts outside of the LRs, then LRENPIE
-+ *	  must be set so that we exit on deactivation of one of these, and
-+ *	  work out which one is to be deactivated.  Note that this is not
-+ *	  enough to deal with EOImode=1, see below.
-+ *
-+ *	- if the overall number of interrupts exceeds the number of LRs,
-+ *	  then UIE must be set to allow refilling of the LRs once the
-+ *	  majority of them has been processed.
-+ *
-+ *	- as usual, MI triggers are only an optimisation, since we cannot
-+ *        rely on the MI being delivered in timely manner...
-+ *
-+ * - EOImode=1 creates some additional problems:
-+ *
-+ *      - deactivation can happen in any order, and we cannot rely on
-+ *	  EOImode=0's coupling of priority-drop and deactivation which
-+ *	  imposes strict reverse Ack order. This means that DIR must
-+ *	  trap if we have active interrupts outside of the LRs.
-+ *
-+ *      - deactivation of SPIs can occur on any CPU, while the SPI is only
-+ *	  present in the ap_list of the CPU that actually ack-ed it. In that
-+ *	  case, EOIcount doesn't provide enough information, and we must
-+ *	  resort to trapping DIR even if we don't overflow the LRs. Bonus
-+ *	  point for not trapping DIR when no SPIs are pending or active in
-+ *	  the whole VM.
-+ *
-+ *	- LPIs do not suffer the same problem as SPIs on deactivation, as we
-+ *	  have to essentially discard the active state, see below.
-+ *
-+ * - Virtual LPIs have an active state (surprise!), which gets removed on
-+ *   priority drop (EOI). However, EOIcount doesn't get bumped when the LPI
-+ *   is not present in the LR (surprise again!). Special care must therefore
-+ *   be taken to remove the active state from any activated LPI when exiting
-+ *   from the guest. This is in a way no different from what happens on the
-+ *   physical side. We still rely on the running priority to have been
-+ *   removed from the APRs, irrespective of the LPI being present in the LRs
-+ *   or not.
-+ *
-+ * - Virtual SGIs directly injected via GICv4.1 must not affect EOIcount, as
-+ *   they are not managed in SW and don't have a true active state. So only
-+ *   set vSGIEOICount when no SGIs are in the ap_list.
-+ *
-+ * - GICv2 SGIs with multiple sources are injected one source at a time, as
-+ *   if they were made pending sequentially. This may mean that we don't
-+ *   always present the HPPI if other interrupts with lower priority are
-+ *   pending in the LRs. Big deal.
-+ */
- static void vgic_flush_lr_state(struct kvm_vcpu *vcpu)
+-/*
+- * transfer the content of the LRs back into the corresponding ap_list:
+- * - active bit is transferred as is
+- * - pending bit is
+- *   - transferred as is in case of edge sensitive IRQs
+- *   - set to the line-level (resample time) for level sensitive IRQs
+- */
+-void vgic_v2_fold_lr_state(struct kvm_vcpu *vcpu)
++static void vgic_v2_fold_lr(struct kvm_vcpu *vcpu, u32 val)
  {
- 	struct vgic_cpu *vgic_cpu = &vcpu->arch.vgic_cpu;
+-	struct vgic_cpu *vgic_cpu = &vcpu->arch.vgic_cpu;
+-	struct vgic_v2_cpu_if *cpuif = &vgic_cpu->vgic_v2;
+-	int lr;
+-
+-	DEBUG_SPINLOCK_BUG_ON(!irqs_disabled());
+-
+-	cpuif->vgic_hcr &= ~GICH_HCR_UIE;
++	u32 cpuid, intid = val & GICH_LR_VIRTUALID;
++	struct vgic_irq *irq;
++	bool deactivated;
+ 
+-	for (lr = 0; lr < vgic_cpu->vgic_v2.used_lrs; lr++) {
+-		u32 val = cpuif->vgic_lr[lr];
+-		u32 cpuid, intid = val & GICH_LR_VIRTUALID;
+-		struct vgic_irq *irq;
+-		bool deactivated;
++	/* Extract the source vCPU id from the LR */
++	cpuid = FIELD_GET(GICH_LR_PHYSID_CPUID, val) & 7;
+ 
+-		/* Extract the source vCPU id from the LR */
+-		cpuid = val & GICH_LR_PHYSID_CPUID;
+-		cpuid >>= GICH_LR_PHYSID_CPUID_SHIFT;
+-		cpuid &= 7;
++	/* Notify fds when the guest EOI'ed a level-triggered SPI */
++	if (lr_signals_eoi_mi(val) && vgic_valid_spi(vcpu->kvm, intid))
++		kvm_notify_acked_irq(vcpu->kvm, 0,
++				     intid - VGIC_NR_PRIVATE_IRQS);
+ 
+-		/* Notify fds when the guest EOI'ed a level-triggered SPI */
+-		if (lr_signals_eoi_mi(val) && vgic_valid_spi(vcpu->kvm, intid))
+-			kvm_notify_acked_irq(vcpu->kvm, 0,
+-					     intid - VGIC_NR_PRIVATE_IRQS);
+-
+-		irq = vgic_get_vcpu_irq(vcpu, intid);
+-
+-		raw_spin_lock(&irq->irq_lock);
++	irq = vgic_get_vcpu_irq(vcpu, intid);
+ 
++	scoped_guard(raw_spinlock, &irq->irq_lock) {
+ 		/* Always preserve the active bit, note deactivation */
+ 		deactivated = irq->active && !(val & GICH_LR_ACTIVE_BIT);
+ 		irq->active = !!(val & GICH_LR_ACTIVE_BIT);
+@@ -102,11 +82,28 @@ void vgic_v2_fold_lr_state(struct kvm_vcpu *vcpu)
+ 		vgic_irq_handle_resampling(irq, deactivated, val & GICH_LR_PENDING_BIT);
+ 
+ 		irq->on_lr = false;
+-
+-		raw_spin_unlock(&irq->irq_lock);
+-		vgic_put_irq(vcpu->kvm, irq);
+ 	}
+ 
++	vgic_put_irq(vcpu->kvm, irq);
++}
++
++/*
++ * transfer the content of the LRs back into the corresponding ap_list:
++ * - active bit is transferred as is
++ * - pending bit is
++ *   - transferred as is in case of edge sensitive IRQs
++ *   - set to the line-level (resample time) for level sensitive IRQs
++ */
++void vgic_v2_fold_lr_state(struct kvm_vcpu *vcpu)
++{
++	struct vgic_cpu *vgic_cpu = &vcpu->arch.vgic_cpu;
++	struct vgic_v2_cpu_if *cpuif = &vgic_cpu->vgic_v2;
++
++	DEBUG_SPINLOCK_BUG_ON(!irqs_disabled());
++
++	for (int lr = 0; lr < vgic_cpu->vgic_v2.used_lrs; lr++)
++		vgic_v2_fold_lr(vcpu, cpuif->vgic_lr[lr]);
++
+ 	cpuif->used_lrs = 0;
+ }
+ 
 -- 
 2.47.3
 
