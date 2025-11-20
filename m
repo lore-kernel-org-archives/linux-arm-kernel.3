@@ -4,83 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B838BCF8845
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 11:29:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4276FCF8845
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 11:29:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=5jsja9fjYhb+NStCyKVmqy2iqD9br8b7PE34hFfWl3s=; b=y72Zw0Sy16I86f
-	NVllaY0d63ULzf9C1NpPGpnnzCf0fokovifyVT1jFbu/QXNOLUi/4Bd0FsIzbFu31nMamwZLn+EUB
-	BWJSUkUkP4NmoIq8pEaMqndhV8v/6Pqvyi0ZX9ns4qD44oTlLo/8hpkblfCYikTynDPg8Wrso73u3
-	3e2oFhBZmNK1d7OxwVPJpIc3cpYYhc8ogAgPsezFw27M1LKhqlKYZy9RdI/4Z3XPbbODOMn6nJveN
-	/eMkrq8p08xvRPsv2vdhYT7ZOcvcSXceGE1i2M8JP7ORKw5Mk3guMPiqXlpJ6FDw0UYG1XJdFTRWw
-	m86M4D0dfZ99H5/tv0uA==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PuKrcuoBI7d5g4q4orKG9nRm+eFjAB5tnSDzYO6y5WQ=; b=w+kAcsys2ubjA3Ox9Jn7ZOJc9d
+	1kdKb7UyKDJwvW1XHDHBJSPPvueTJfhQfBnT9pywgNTC4OIbTr2YuUGqV+gtBy8f0jWvEql6AYb+4
+	EXvIt8pMBanc/opDiwxis+WnNrXfeDa208P5oibk4dSI0XwmWKJX0tPu+ycjyU+PEdkBiWlLOJEVl
+	jLcLc+i7/FZ4studxeajXMjx8vQ1RyCcrVGkkYj5oGO+Bj+ABkNvIChwuIhhiUmwTIq/spaNAVD+v
+	0zXasO9YtaOuNwPWcA8f9wItPdFmDrFvXKc6V0+pdqG+vzynfE/kELbV4/+Q9Z6noQHdkwfzmz50U
+	CFuLYJTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vM2r7-00000006a57-44iF;
-	Thu, 20 Nov 2025 11:29:41 +0000
-Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
+	id 1vM2rD-00000006a7A-1CFS;
+	Thu, 20 Nov 2025 11:29:47 +0000
+Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vM2r5-00000006a42-2HXA
+	id 1vM2r6-00000006a46-3dxe
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Nov 2025 11:29:40 +0000
-Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-4775e891b5eso3412105e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Nov 2025 03:29:39 -0800 (PST)
+	Thu, 20 Nov 2025 11:29:42 +0000
+Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-42b32a3e78bso649581f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Nov 2025 03:29:40 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1763638178; x=1764242978; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=5jsja9fjYhb+NStCyKVmqy2iqD9br8b7PE34hFfWl3s=;
-        b=g9jjYSm7lw9r9ffnBj3aeUC9AN6BFksme/UVK6ahr8hLVgy49+oXHML3mLRBlPNwwq
-         46Sw+ThOA7Mqm/affFqB5QjCZcOyC2MT9QoKTTcxHDzwxCtBPMVktqflJKv1XI5Tw9wy
-         ZW+Ui2h4WFxt/lsQZIZB0x5vDaydMOU0v+7IYCOeBebbQzX+YdAWDgxXPjFMeByvTf8g
-         V3p3a9s2auLbKPiO+Ko2X6BmuphmRvBFTQfoVZRzTasV3bikPkBchvAfWTzcYrWJ3lLp
-         0RVwm7lMbcNqTj2LwTzUL9XCu9quH8nxSyBvPzEPlP/0QweYbs6iW/PYI0j9MqdJ8Jw/
-         Di/A==
+        d=linaro.org; s=google; t=1763638179; x=1764242979; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=PuKrcuoBI7d5g4q4orKG9nRm+eFjAB5tnSDzYO6y5WQ=;
+        b=vFQT6I4gTvnKE7qVaKQ2eoCjZ03fY/a4lqkHld6pzxK3Thawfq3bQxwZ7DGKxZ4FKV
+         vSAnKd9unldC5iwwK97UovUXfvpfSsYOgslVR6AKHCDrLfJWCo7t32pTN7EyWFTRBO2f
+         hYGGsTrK6TleFmO9ACa+9BM7AEZb6daYlszYRarePO2pDzZWRqtSNx35ddh0Fd7qPtmB
+         Yw4Nd2bGsdtv2rNh35WSyThqYuWz9PuUcwc/X2Cj7JSfKqTAeXW3iV4gW95BSd5cDp48
+         xrdQKoXufsUAdhfOmxuwnwVNKBMfxfW6h+K0I11UNqwpBTFXZqGhl9xFyPt6EGc2GdZ3
+         2y7A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763638178; x=1764242978;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=5jsja9fjYhb+NStCyKVmqy2iqD9br8b7PE34hFfWl3s=;
-        b=goU6ayNK2TwQc4V0HLnB6bLGI1oQA+utm/0/QP5alrybcR0v7m9WUM4oWjD8PO6J0I
-         gh02BphB3tXqQRP11vWbq18EHRa6VgPsTVfu/tcqFMZYswz32Ej2IBqFWANDT73Yj3ec
-         VlFyEQo5gAD86eM35V59hBleC9L9mwfJkEwDm/WCc0ybaraz7fCKBbFOdlEA7Lbd7IUk
-         4neSvEvsasTdLZEgjZDDmldjYo2FxMycJ1bPnq8Su10K+EPGnacZ+NVN/ob5s/Hd7YFi
-         OD3ny1iknVKNZ8TPogA/uo4TeWseqmaRfG2KltmIQaHNlLL9LtAOJMcWGrkMKeZVtJKU
-         U2qw==
-X-Forwarded-Encrypted: i=1; AJvYcCVTu4dGCTzKnkiT1AOFafp8ErFQ45oGU0D42ZQuK5ezh5clxufsPlYxsYDJUAmfoxkUgbAp/B4rqUi6MQ33wTRO@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz0GHfZRDdMfVEecBexG0WnbbsEQG51K/l4t7kBO16tbbr4GTIp
-	z/07zM1CG4UKqEExm+izv2BxGIUP3FYztiEJMcBW9aP4qTIwWgRxya47lFrnxc80rxI=
-X-Gm-Gg: ASbGncscxT+/jLBldWDiM3OWvpMm30PRssRYzZzbiXS4RDgT5L89eU4RuflBCkLPRK5
-	bBRKGPJm2xy+1ixpyDSRdJXllidUtL1Ui4S/yTflkocY0tYee+6DDnM1CkBmObdB+poR+VIcqtO
-	G7q5yW4O18oQAqH8WOqIO0wdcFOHfAZAiRBDSZo5tVJwalL/mQsGpZ9kPLffZkgb5fU7oi+paTe
-	00MwwK2/OK6iX4Tx2MZ0c3ecKBuGZsPN4BYoRQTWY5iiqGgpA20v7g32sLbuiRebTQDS3XBYgLL
-	yZ6Q4SUWBjBm4ySzaK5wl/aSrcADkPRMOWtVj1VWbeQjQ0c9FnC7ohg1Uw1wz8ibUDypRqlUu3c
-	oV6pHdV+4+iylw0wkQgZ/2YgrFodic5kJWEICikFqXgqPeVt487k7h71b3EhWqK7K0DUYEBHu8j
-	fmsGRZpb+jO0+rTTCOhxJf6Z3qUU3vMw7F95Hb6AI3Hk4if2G3toEinZaJzQ5HmGyz01g=
-X-Google-Smtp-Source: AGHT+IHE+l5HsIigBRRfPfTgTns2urZyrt30XqV4zwL6M7ZPA9e1/JP7tH+iQOimE4Sm0ipCDkqCZQ==
-X-Received: by 2002:a05:600c:4f53:b0:477:af07:dd17 with SMTP id 5b1f17b1804b1-477b9e377e5mr21242825e9.24.1763638177719;
-        Thu, 20 Nov 2025 03:29:37 -0800 (PST)
+        d=1e100.net; s=20230601; t=1763638179; x=1764242979;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=PuKrcuoBI7d5g4q4orKG9nRm+eFjAB5tnSDzYO6y5WQ=;
+        b=xRBsSu0jZgLDB44viggbfYLBUvgjYQ6gazCm/duHHqpcJsQokr6OMmEhuS/ytAsHLR
+         bY/tTn9CSWg+zM8IGb+/RkbpQ4WTCg4SLMwihodQPnttW5XaAQSm1QloqwTYen4D/uzR
+         AMxI6dJGEIsBTaIxBZ1UliVsx0ty0b/LPMSoujnl1j5BxaYUFR5NR8G73NUbuH2TEmEp
+         pYKh0cbAhh3OTwTwQZwD8wIqJStHCOvdlJkLdeYkG+7iHdw/fneB3y9o+11cM3qu8JXl
+         wUhMqnBbHSjlivkP+CQ9Tr/WA7Ksw+55bG5LxBA/nrAELVPlio15FgCjuTIq4ATFJD72
+         DlrA==
+X-Forwarded-Encrypted: i=1; AJvYcCXkoKGIKtMaTUZ3bPsjrkQaBPQLP/AjErd0ediKV0HhVQG58ZeeYFciHUk85uZKJXEgKrIwFSoOeV8ABDUI6M5T@lists.infradead.org
+X-Gm-Message-State: AOJu0YzDOiCIEFujhj1KS1eS/ZiCwHkq8l+guxT28+uYmdgPa+Bu5D0d
+	wFVOK3YT0jGMUaW6Zdn0ahpVUexg6MS20NVK36LFKZ+8i6tVifWAWXsRfmF0jHI31Go=
+X-Gm-Gg: ASbGncv8EmntXsdWPs5FEA/qOFIamxqGVMi1awaNXyB4V3ngNvAqOVMOwahL3mgGyK6
+	89fj8mKRzbcsvaj16+ggNkLsyPmQLgXdXy0MD2QsO8MlWq2XOZKnzi+pzz77zTu0ZFcylNZA3vf
+	TRkwCv9WRMnBFYqvjY6a/PZ+/a3abZWF9SzQ0CaDiwoIOY6py78Nl0T9CSBVR1M/YFfJ+QdXpOe
+	P7iTH4SJH+2Uh3u8dO3paOOn3gRHAWcEod8v4iounV1H2idVkoiFOV+PGXe4RRDvKvl1qf11gZC
+	9xq1aR/nbTIKrxQfBwAMRFH4sQirPBIoSOvexzxlerRa3lFZpC7e9MHe/cZAFEzOMtAhMtVSc6N
+	+S/lXNOwyv7ilGyPVYZcmuuyZQ5Sk06ICXYMsceo0wMg4UTzTLtt7cwgxdO1GrqqJJ+LAQTkhF4
+	QmrIkv9jb75Pb3QevEqmA9ciWp6GkhEWChJTKFQlYLXgDRiD/cotiTFhKaBwbwSs0FirE=
+X-Google-Smtp-Source: AGHT+IEvA1MyH031OEvH24ynuE0LyStn/WEmFOJ9u6ZU8yrQYuFsjPCmysl8RrhQB/MEu5VH/0+U8A==
+X-Received: by 2002:a05:6000:2388:b0:42b:3366:6330 with SMTP id ffacd0b85a97d-42cb9a65915mr2696231f8f.57.1763638178815;
+        Thu, 20 Nov 2025 03:29:38 -0800 (PST)
 Received: from ta2.c.googlers.com (17.83.155.104.bc.googleusercontent.com. [104.155.83.17])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42cb7f34fd1sm4961040f8f.11.2025.11.20.03.29.36
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42cb7f34fd1sm4961040f8f.11.2025.11.20.03.29.37
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 20 Nov 2025 03:29:37 -0800 (PST)
+        Thu, 20 Nov 2025 03:29:38 -0800 (PST)
 From: Tudor Ambarus <tudor.ambarus@linaro.org>
-Subject: [PATCH v3 0/6] soc: samsung: exynos-chipid: add gs101 support
-Date: Thu, 20 Nov 2025 11:29:34 +0000
-Message-Id: <20251120-gs101-chipid-v3-0-1aeaa8b7fe35@linaro.org>
+Date: Thu, 20 Nov 2025 11:29:35 +0000
+Subject: [PATCH v3 1/6] soc: samsung: exynos-chipid: use devm action to
+ unregister soc device
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAJ77HmkC/3XMywrCMBCF4VcpWRuZSW+xK99DXMRm0g5IUxIJS
- um7m3YjCi7Pge9fRKTAFEVXLCJQ4sh+yqM8FKIfzTSQZJu3UKBqhBLlEBFQ9iPPbKWzurJGG2e
- UE5nMgRw/99zlmvfI8eHDa68n3N4/oYQSpG21RWibm0I433kywR99GMRWSuqjEfWPVlnTySG1V
- QNU1l96Xdc3l/x5mucAAAA=
-X-Change-ID: 20251031-gs101-chipid-fd84da8afa2f
+Message-Id: <20251120-gs101-chipid-v3-1-1aeaa8b7fe35@linaro.org>
+References: <20251120-gs101-chipid-v3-0-1aeaa8b7fe35@linaro.org>
+In-Reply-To: <20251120-gs101-chipid-v3-0-1aeaa8b7fe35@linaro.org>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
  Peter Griffin <peter.griffin@linaro.org>, 
@@ -92,16 +91,16 @@ Cc: Krzysztof Kozlowski <krzk@kernel.org>, semen.protsenko@linaro.org,
  linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
  Tudor Ambarus <tudor.ambarus@linaro.org>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1763638176; l=3081;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1763638176; l=2398;
  i=tudor.ambarus@linaro.org; s=20241212; h=from:subject:message-id;
- bh=ivjSzEx+CxHtG09V2L9ly4PVIffolvcnC0we/k+cPGc=;
- b=ma6axIDODKlP5/fIDbimwj6oH2uwR8BQHYAE8OXcROykBzYDRDaDArsO6/veko/kQ86svfaYU
- Raxm7ROZFqeDPtkHufUH41CBp+bKkWdVzyvCcQ3e+aJ7zFZ7BVlyeeo
+ bh=q4SLhBlNs3t93tDVbeMVgBT6CvDIqD2qRVhlhlaXWaw=;
+ b=nK061O76WMFoYj9rMWr/tOtXFH2+xEeqZerjwnB7A5ZG9eGCMLEYmueI7BG1LxSjTJ8CCK8ZB
+ sgwYqPwxkbQD0CIyqIOcBPEiT2aDWcKRx3u/B8eAEUDo0B4tH3RLzZu
 X-Developer-Key: i=tudor.ambarus@linaro.org; a=ed25519;
  pk=uQzE0NXo3dIjeowMTOPCpIiPHEz12IA/MbyzrZVh9WI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251120_032939_634830_29C4063B 
-X-CRM114-Status: GOOD (  15.04  )
+X-CRM114-CacheID: sfid-20251120_032940_927935_CE178FF9 
+X-CRM114-Status: GOOD (  14.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,77 +115,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dependency
-==========
-Typical dependency of the DT patch depending on the bindings patch,
-thus the bindings patch could go via the Samsung SoC tree with
-Srinivas's ack.
-
-Description
-===========
-GS101 is different (but also e850 and autov9 I assume) from the SoCs
-that are currently handled by the exynos-chipid driver because the
-chip ID info is part of the OTP registers. GS101 OTP has a clock, an
-interrupt line, a register space (that contains product and chip ID,
-TMU data, ASV, etc) and a 32Kbit memory space that can be
-read/program/locked with specific commands. On GS101 the "ChipID block"
-is just an abstraction, it's not a physical device. When the power-on
-sequence progresses, the OTP chipid values are loaded to the OTP
-registers.
-
-Add the GS101 chip ID support. The support is intentionally added in the
-exynos-chipid driver, and not in a dedicated Exynos OTP driver, because
-we estimate that there will not be any OTP consumers in the kernel other
-than the chip ID/SoC interface. The downstream GS101 drivers confirm
-this supposition.
-
-Testing
-=======
-root@google-gs:~# cat /sys/devices/soc0/family
-Samsung Exynos
-root@google-gs:~# cat /sys/devices/soc0/machine
-Oriole
-root@google-gs:~# cat /sys/devices/soc0/revision
-11
-root@google-gs:~# cat /sys/devices/soc0/soc_id
-GS101
+Simplify the unwinding of the soc device by using a devm action.
+Add the action before the exynos_asv_init() to avoid an explicit call
+to soc_device_unregister().
 
 Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
 ---
-Changes in v3:
-- rebase so that cleanups come before the gs101 support. The inclusion
-  of linux/device/devres.h is now done in the devm action patch, as it's
-  first needed there.
-- update error message: s/failed to read sub revision/failed to read revision
-- Link to v2: https://lore.kernel.org/r/20251118-gs101-chipid-v2-0-e9f1e7460e35@linaro.org
+ drivers/soc/samsung/exynos-chipid.c | 28 ++++++++++++----------------
+ 1 file changed, 12 insertions(+), 16 deletions(-)
 
-Changes in v2:
-- complete rework, treat it as a new patch set please.
-- bindings were reviewed at:
-  - Link: https://lore.kernel.org/linux-samsung-soc/27a5521cd7ddbed0e870ac416dc829722f1b36a5.camel@linaro.org/T/#me139353334db535806ca6462ae1e86b01ff032a7
-  - addressed Andre's s/if of/is of
-- part of the cleaning patches are from this trivial series:
-  - Link: https://lore.kernel.org/linux-samsung-soc/20251112-chipid-trivial-v1-0-ec2dea03bd83@linaro.org/
-- Link to v1: https://lore.kernel.org/r/20251031-gs101-chipid-v1-0-d78d1076b210@linaro.org
+diff --git a/drivers/soc/samsung/exynos-chipid.c b/drivers/soc/samsung/exynos-chipid.c
+index d3b4b5508e0c808ee9f7b0039073ef57915d60fc..49cb113d99f314ed94730cec2b98f48a1a7b87f2 100644
+--- a/drivers/soc/samsung/exynos-chipid.c
++++ b/drivers/soc/samsung/exynos-chipid.c
+@@ -14,6 +14,7 @@
+ 
+ #include <linux/array_size.h>
+ #include <linux/device.h>
++#include <linux/device/devres.h>
+ #include <linux/errno.h>
+ #include <linux/mfd/syscon.h>
+ #include <linux/module.h>
+@@ -104,6 +105,11 @@ static int exynos_chipid_get_chipid_info(struct regmap *regmap,
+ 	return 0;
+ }
+ 
++static void exynos_chipid_unregister_soc(void *data)
++{
++	soc_device_unregister(data);
++}
++
+ static int exynos_chipid_probe(struct platform_device *pdev)
+ {
+ 	const struct exynos_chipid_variant *drv_data;
+@@ -152,28 +158,19 @@ static int exynos_chipid_probe(struct platform_device *pdev)
+ 	if (IS_ERR(soc_dev))
+ 		return PTR_ERR(soc_dev);
+ 
+-	ret = exynos_asv_init(dev, regmap);
++	ret = devm_add_action_or_reset(dev, exynos_chipid_unregister_soc,
++				       soc_dev);
+ 	if (ret)
+-		goto err;
++		return dev_err_probe(dev, ret, "failed to add devm action\n");
+ 
+-	platform_set_drvdata(pdev, soc_dev);
++	ret = exynos_asv_init(dev, regmap);
++	if (ret)
++		return ret;
+ 
+ 	dev_info(dev, "Exynos: CPU[%s] PRO_ID[0x%x] REV[0x%x] Detected\n",
+ 		 soc_dev_attr->soc_id, soc_info.product_id, soc_info.revision);
+ 
+ 	return 0;
+-
+-err:
+-	soc_device_unregister(soc_dev);
+-
+-	return ret;
+-}
+-
+-static void exynos_chipid_remove(struct platform_device *pdev)
+-{
+-	struct soc_device *soc_dev = platform_get_drvdata(pdev);
+-
+-	soc_device_unregister(soc_dev);
+ }
+ 
+ static const struct exynos_chipid_variant exynos4210_chipid_drv_data = {
+@@ -206,7 +203,6 @@ static struct platform_driver exynos_chipid_driver = {
+ 		.of_match_table = exynos_chipid_of_device_ids,
+ 	},
+ 	.probe = exynos_chipid_probe,
+-	.remove = exynos_chipid_remove,
+ };
+ module_platform_driver(exynos_chipid_driver);
+ 
 
----
-Tudor Ambarus (6):
-      soc: samsung: exynos-chipid: use devm action to unregister soc device
-      soc: samsung: exynos-chipid: use dev_err_probe where appropiate
-      soc: samsung: exynos-chipid: rename method
-      soc: samsung: exynos-chipid: downgrade dev_info to dev_dbg for soc info
-      soc: samsung: exynos-chipid: add google,gs101-otp support
-      arm64: dts: exynos: gs101: add OTP node
-
- arch/arm64/boot/dts/exynos/google/gs101.dtsi |   7 ++
- drivers/soc/samsung/exynos-chipid.c          | 148 +++++++++++++++++++--------
- 2 files changed, 112 insertions(+), 43 deletions(-)
----
-base-commit: 303dc6bfcd269f141c3de92aad7e25e2afd1dd47
-change-id: 20251031-gs101-chipid-fd84da8afa2f
-
-Best regards,
 -- 
-Tudor Ambarus <tudor.ambarus@linaro.org>
+2.52.0.rc1.455.g30608eb744-goog
 
 
