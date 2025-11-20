@@ -4,85 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40EB4CF857B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 11:22:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 785EECF8844
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 11:24:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=L5zCUgwcpkF8m5tNoKt/Ujm9UTWHftPsvcaYAaXWT8Y=; b=waf48cjrLoBzg9DxOvAfSm/5WQ
-	emwmgLfv+kWrIj4ZjLifHUTu/xPSSYB8zQ9DhB8IfcRey+W2XV61ZvsgMw7XB0EEuXMPDR8D17Kfl
-	K2SIM4ptAuH5uSZI0C3+UYVRCBiOiB10cTfSjPXtrr7+dwK//ImMOAX/vyP/avykzmz2Z9MFV7xIf
-	x2/+HWukJcjZmeGe53b5xpyhY7+Nmflg21aZvUBfbx1psY6zFZpQdDgjYQiROa2XW681dmVYycbW3
-	JnLAEjVKcHBydIcZ4ReYpDPYY2iN4J0IKUc+cZURtg0E2jvd9veW1vdAOr9r5YCqWtBAMNz4BSKqF
-	WCkjIYfw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xGKS5Qz+iDj1N5ZFatwOSuiQq3LACqP9+1LJMFe9aCQ=; b=a1ZScXsS6/Z/AzV22CGQzYtUmx
+	oO+ynXdNxVrqQnmmsW8cfPV592MN38wJck/0wzVcwHtAnaRC1Kb+dTeW7klDrv9dZxi1zupufkKEf
+	/+xPSR/rPRi1V9QMVJ7+9mRic6FnCxP/O3sAwrCticVSZdst1PRfnbaDa3xBQ7y2GSyHyDSmIK4rS
+	2MMZuhAj4cL10CiAezPZt9JXS9zlbvnbbAtyavu5olDD8dYOsIR94Rq8flakyWiBZcj63khrhV5WL
+	A6HnY35GKcmhU75Xys9dpRd11Symmh+x8UEmF6qEhaZIBOifrC34M1fNjpAvDjxNUhyxgAmRGNRQL
+	jFhf1KNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vM2jf-00000006YwP-20hj;
-	Thu, 20 Nov 2025 11:21:59 +0000
-Received: from mail-qk1-x730.google.com ([2607:f8b0:4864:20::730])
+	id 1vM2ld-00000006ZCh-1pWO;
+	Thu, 20 Nov 2025 11:24:01 +0000
+Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vM2jd-00000006Yvv-2hFr
+	id 1vM2lb-00000006ZCI-0OoN
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Nov 2025 11:21:58 +0000
-Received: by mail-qk1-x730.google.com with SMTP id af79cd13be357-8b220ddc189so90099585a.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Nov 2025 03:21:57 -0800 (PST)
+	Thu, 20 Nov 2025 11:24:00 +0000
+Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-42b2dc17965so713391f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Nov 2025 03:23:58 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1763637716; x=1764242516; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=L5zCUgwcpkF8m5tNoKt/Ujm9UTWHftPsvcaYAaXWT8Y=;
-        b=En/EHobIUFBUIGDSpZDLksNBE5p9fzyDVsnSkuPj8O7nFp8hHQcktpb9/RLPgGEA1z
-         BcLcw7CNd+WgBItBiPWYgXBK00qz580VXB+kkaP+GuH0B+mG+QyLi4raJONh1PtG30NE
-         P8x7DW9uHBZkmOLLMiCEyx85pq6tkUQDAPGyE5KPZiYgZHJTTtXb8of1tXO4qFXQ/xc0
-         6RHdhtDzY8uJBmQVgHO+dgwIDypmIJ3nbhPgDatt2M0uYWa/jgyRWm/zcoZurlRD3dN2
-         CmdbCHaQYnHYlMeMxOAxfnQNhsP28tVCeyDGA7L6e3v6tPJfaFbTVnuR+QGoAuFI8fPV
-         1tIg==
+        d=linaro.org; s=google; t=1763637837; x=1764242637; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=xGKS5Qz+iDj1N5ZFatwOSuiQq3LACqP9+1LJMFe9aCQ=;
+        b=PF9wq0SjKgGKImAWeo26gKOhAD8JJZglBh/aPI7sN3M2tWEGw0AjTSrISCRN8qQHgb
+         j0Vrg64PzPQIGeOFFkR/Iy5kTMijm1oJXApHcucRqVbS1msMtpnkgH6NRVHico43j1vL
+         q1PsqTtN/AF3zDPSRJ6faNxumvQsMP15JxnOXGoaoBoxm5kRy8SBPqPHqVlvl4G8l683
+         o0Dob8VHTfxhPrsMT3XG4rac/3TXhm1w3a0hpRVUrdF2cz+OCHaT0fyHRNsRYl2RfUpo
+         Ld4ogtzA0eQGAVF4rRu7KXi29FVOJwojyo5P7XIZWL3pBbtKG6cgjy1Y1Nddk2PKfyEo
+         ZP4Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763637716; x=1764242516;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=L5zCUgwcpkF8m5tNoKt/Ujm9UTWHftPsvcaYAaXWT8Y=;
-        b=lQwX3n2GqwIfS67adtC/15f5R3zk7eCBLqttBKUTRyk5qCSYKRCwqUouUBwx3SrBwo
-         rpI9+2BbiXBbZhk/PbKp0vFPgrJg5P7YXcvi/b3NOvvhHddNopzfMwX82YO3ays3CtmP
-         rSWsw3AfWjnfEJrKLiWvftWGpQ9JnUSU73ILE+5IlG42p6MxeGRJNZBlwZ0Uz4ikQ3iG
-         z14weRaffOMA1LlJ04vNxOMxKNbLEz1KrP6zLqGbYz4ibXdgp6HfxbB1oLcMPlDy5rUT
-         ZRIZHofwKTUgJ2uI/bOezEX8THTsgufq39YruIjPPgDmUJon9zyXwO+P+9xadphTTSUq
-         4g2Q==
-X-Forwarded-Encrypted: i=1; AJvYcCW5HIr9NYGMWYsgwae2XIiy7BVrCYTFAg/J2DCqoLWKaJ08SkrRpQabS/+tTjw1r++WfF04iJ0NvVePIvf1ZlPq@lists.infradead.org
-X-Gm-Message-State: AOJu0YywUuJZAMC9EoSPhIiHt3k6Tc7hloYrxHhBpGuTOpQs8910vIGS
-	M2LbAykWrHkoMjEDDT0Lrg4SanQW7yY5hi9JTs2Xbk9Z14BpXydOkbkz9dwc+F5zJDv8/9gEOmO
-	kNgpm3r+Dy1EjZOxNHTOK9aAzuyU7A9RWWzr65g8QlQ==
-X-Gm-Gg: ASbGncuEj9PWLQuif4e9MnhAPOYAJSroJC+6aXw24ViDBWNMjr7+nFxe/+xO7ePJp6M
-	x7qHPN/UQZOIRglgIBoprLzDxH8dH5bWEUKiUqFVRDoACacr+9GjU4qsrfEwkE69PM/0dAEN6Ku
-	12vW9K3JF20/O6O8PeJSWzslIAD9j5J1bayzFNYbS97dDYX0na+eSh3WHQK0gN2SulM6Oif7M9P
-	+oB9SIrYpI7W61BWcgdfHRzpJcYkmQVAD4cqaEiM2/GsdWzmoyhnAJkznbDXrUsTIGeDMZzVY3i
-	/qHzf6g2zHBAtolZFD22BHGhyKG8
-X-Google-Smtp-Source: AGHT+IGftcFl62uPxiax/r1jkICBY3vztlPBz2EC42A67rYaYPPn8/nxfx4/Awa4o6J8ZUqzkrMvM++FycjBXss7I9M=
-X-Received: by 2002:a05:620a:4609:b0:8b2:edc8:13d0 with SMTP id
- af79cd13be357-8b32731450emr356855285a.17.1763637716515; Thu, 20 Nov 2025
- 03:21:56 -0800 (PST)
+        d=1e100.net; s=20230601; t=1763637837; x=1764242637;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=xGKS5Qz+iDj1N5ZFatwOSuiQq3LACqP9+1LJMFe9aCQ=;
+        b=xOkITRu/W+8pXp8efxBW91mKvqRy+bW/vEDW3q29soq5QiDT29T68/RfnpKl8pDZOg
+         M0Jsa+J575qGxksqAXaplAnSCeSi4QYvLXH8zTI4Db6FMlqDvQNkw3c1MDbeUjkYWvYS
+         msoqd52nTTTjmS1yXnQTBOD5iJO8/NmGDTlf/8pyDiwKrnhlooeWkYDjsRugipehFxl0
+         eGAWvkqvszfeHL4s2ammVkPRHUpTnsv26uUnHgK4EzF5HNJS2Gwb05jq5H++78WIVVgI
+         EhPJsWBlNVbzwjVjQ0XIljfIIMGLDaLSNT1o76Vpf5pgizGBvIJSJ6RFl6kCiJIRrYRp
+         n/GQ==
+X-Forwarded-Encrypted: i=1; AJvYcCV0ChTbHPwTav2MFFrB2F1RcFNT3nUpCr7iKwt69wgwX7+e1yQQwau9CPjynJZ5qNUDavG//udooC8NmiDqOhl9@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw7jk7w60/V3/0M741jUxCGUZxlufYtnZ5Fmzly8WFaj0cQkuBG
+	F4D+kZS2Ly8sfRM56KwwAIlCEB19bLnZqQ9tWWUZALwAqEpLOtDmccdbYGW24srBSYU=
+X-Gm-Gg: ASbGnctTQns3xor9rIozFlhrXyfftl/eJo2kRWcdvPE3mniQd7xcuMTTqlhhxGhNehZ
+	3TzsjOETg7pPBuNmEa87k92vQji7m+8T2lRbTKTKmgT0q9uwgpGNimj0fo/Bb7kscbXKja0tDfD
+	GBQQBZ+9bFlKh8Muxa9vmMIIga/PhvRUfDchMU9a/0v4uwZOC1AHJVxxpaUFWtPuoZEU7yUczFf
+	4ZMP6oGaT2pUSmKx/ahW4x/B/pd4gQOK7upctTfnn8EcCU0ALlgb5QzssTrfBTm8JnykKOd48Cd
+	TBCdjCD3SabtgDvTsdxkb9rCmMvCuR1DDeTghFQtqGtxvsmlTT+0JaAtUFfkBTnPTE42/Rcz2D2
+	9xulQcJHqiVrGcZ3ODqT6fKCG/oBoo7QZVn7+KQnnYNQubHsp2YMxKUdg5HhcpqI7FPRImtbtbQ
+	FR9qLGC9fsyCu8d5/7w6td4l93XwU=
+X-Google-Smtp-Source: AGHT+IFCSjoFY3pjgeslRHfYXRA9gv/Jay36MG/cxam58OuayXjQUun787Hauf8c91OeSVdBZ+aa9Q==
+X-Received: by 2002:a05:6000:3107:b0:42b:30a6:9c10 with SMTP id ffacd0b85a97d-42cb9a6583cmr1993724f8f.56.1763637837301;
+        Thu, 20 Nov 2025 03:23:57 -0800 (PST)
+Received: from [192.168.1.3] ([185.48.77.170])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42cb7fa7affsm5144069f8f.23.2025.11.20.03.23.56
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 20 Nov 2025 03:23:56 -0800 (PST)
+Message-ID: <30c078df-82ff-4914-b5a2-58cb2d6dd073@linaro.org>
+Date: Thu, 20 Nov 2025 11:23:55 +0000
 MIME-Version: 1.0
-References: <20251118-james-cs-syncfreq-v5-0-82efd7b1a751@linaro.org> <20251118-james-cs-syncfreq-v5-4-82efd7b1a751@linaro.org>
-In-Reply-To: <20251118-james-cs-syncfreq-v5-4-82efd7b1a751@linaro.org>
-From: Mike Leach <mike.leach@linaro.org>
-Date: Thu, 20 Nov 2025 11:21:45 +0000
-X-Gm-Features: AWmQ_bkw8zvxNh6zB9690NSu381x529LRFBqHXFmLzzPZrP2-ZI1f3iaJvkZBHs
-Message-ID: <CAJ9a7Vgj2P=PM2iFwSfL=GiDWtReCFn+QHUHXpkAg9y2vkocqw@mail.gmail.com>
-Subject: Re: [PATCH v5 04/13] coresight: Hide unused ETMv3 format attributes
-To: James Clark <james.clark@linaro.org>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jonathan Corbet <corbet@lwn.net>, 
-	Leo Yan <leo.yan@arm.com>, Randy Dunlap <rdunlap@infradead.org>, coresight@lists.linaro.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-doc@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH -next] coresight: remove unneeded semicolon
+To: Jiapeng Chong <jiapeng.chong@linux.alibaba.com>, suzuki.poulose@arm.com
+Cc: mike.leach@linaro.org, alexander.shishkin@linux.intel.com,
+ coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Abaci Robot <abaci@linux.alibaba.com>
+References: <20251120094105.2766068-1-jiapeng.chong@linux.alibaba.com>
+Content-Language: en-US
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <20251120094105.2766068-1-jiapeng.chong@linux.alibaba.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251120_032157_689771_4F527DF7 
-X-CRM114-Status: GOOD (  21.41  )
+X-CRM114-CacheID: sfid-20251120_032359_158570_20554A96 
+X-CRM114-Status: GOOD (  15.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,60 +103,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 18 Nov 2025 at 16:28, James Clark <james.clark@linaro.org> wrote:
->
-> ETMv3 only has a few attributes, and setting unused ones results in an
-> error, so hide them to begin with.
->
-> Signed-off-by: James Clark <james.clark@linaro.org>
+
+
+On 20/11/2025 9:41 am, Jiapeng Chong wrote:
+> No functional modification involved.
+> 
+> ./drivers/hwtracing/coresight/coresight-priv.h:238:2-3: Unneeded semicolon.
+> 
+> Reported-by: Abaci Robot <abaci@linux.alibaba.com>
+> Closes: https://bugzilla.openanolis.cn/show_bug.cgi?id=27327
+> Signed-off-by: Jiapeng Chong <jiapeng.chong@linux.alibaba.com>
 > ---
->  drivers/hwtracing/coresight/coresight-etm-perf.c | 22 ++++++++++++++++++++++
->  1 file changed, 22 insertions(+)
->
-> diff --git a/drivers/hwtracing/coresight/coresight-etm-perf.c b/drivers/hwtracing/coresight/coresight-etm-perf.c
-> index 17afa0f4cdee..faebd7822a77 100644
-> --- a/drivers/hwtracing/coresight/coresight-etm-perf.c
-> +++ b/drivers/hwtracing/coresight/coresight-etm-perf.c
-> @@ -106,8 +106,30 @@ static struct attribute *etm_config_formats_attr[] = {
->         NULL,
->  };
->
-> +static umode_t etm_format_attr_is_visible(struct kobject *kobj,
-> +                                         struct attribute *attr, int unused)
-> +{
-> +       /* ETM4 has all attributes */
-> +       if (IS_ENABLED(CONFIG_CORESIGHT_SOURCE_ETM4X))
-> +               return attr->mode;
-> +
-> +       /*
-> +        * ETM3 only uses these attributes for programming itself (see
-> +        * ETM3X_SUPPORTED_OPTIONS). Sink ID is also supported for selecting a
-> +        * sink, but not used for configuring the ETM.
-> +        */
-> +       if (attr == &format_attr_cycacc.attr ||
-> +           attr == &format_attr_timestamp.attr ||
-> +           attr == &format_attr_retstack.attr ||
-> +           attr == &format_attr_sinkid.attr)
-> +               return attr->mode;
-> +
-> +       return 0;
-> +}
-> +
->  static const struct attribute_group etm_pmu_format_group = {
->         .name   = "format",
-> +       .is_visible = etm_format_attr_is_visible,
->         .attrs  = etm_config_formats_attr,
->  };
->
->
-> --
-> 2.34.1
->
-Reviewed-by: Mike Leach <mike.leach@linaro.org>
+>   drivers/hwtracing/coresight/coresight-priv.h | 2 +-
+>   1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/drivers/hwtracing/coresight/coresight-priv.h b/drivers/hwtracing/coresight/coresight-priv.h
+> index fd896ac07942..16f0cee8cad6 100644
+> --- a/drivers/hwtracing/coresight/coresight-priv.h
+> +++ b/drivers/hwtracing/coresight/coresight-priv.h
+> @@ -235,7 +235,7 @@ static inline void *coresight_get_uci_data_from_amba(const struct amba_id *table
+>   		if ((pid & table->mask) == table->id)
+>   			return coresight_get_uci_data(table);
+>   		table++;
+> -	};
+> +	}
+>   	return NULL;
+>   }
+>   
 
+Reviewed-by: James Clark <james.clark@linaro.org>
 
---
-Mike Leach
-Principal Engineer, ARM Ltd.
-Manchester Design Centre. UK
+I turned on -Wextra-semi-stmt for Coresight but it results in hundreds 
+warnings because of the way macros like wmb() are always used with a 
+semicolon.
+
+So I'm not really sure what the point of fixing these up is? Because 
+they can never all be fixed without a fundamental style change so why 
+not just ignore them?
+
+James
+
 
