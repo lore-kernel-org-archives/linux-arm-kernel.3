@@ -4,79 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50A13CF64A1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 01:54:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2EB5CF649C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 01:54:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=B13YSSVdzv+A9HSJEV6haxN1uEpuGwZCWegPWDkjWo0=; b=iP1z/uC/LExGZFNGhxepPYGn4S
-	3H3ZJNIPk/Cvq//zvxIhvhN12gf2ZgKHBshzfB7LYrsPnx1XwQo2nRCZ8TsaVp5g2aysiSXQPHsST
-	TyqKj+mLZ3VxlcjDJVkx/YDC02THUIHXCqqxekw37e/JoZlFAoSVz3dUQ+PAnmnsid37gzSQbi1ze
-	sFMd0AG+wrQ/KkFTnMY1GeIIq6niat1fKMkC8pe+eTsI8kQwlIXC9mTZfCARlDFOit74+TV7alQ5j
-	JsB5eY51hpDo452juv9rPyORixeHyKOrb0AjtxkfXyv6Dg55Jr7Q+MyYjF7NX8HJGYFk5ubSXSkXl
-	gfEwmbgQ==;
+	bh=1fhiBgC3wmo6EcbTrmkFhDT2xdiGtSvH1A3Oi7bw9Ek=; b=NkRUeRS493UpZSK7VGKvpGY65K
+	5E2TAMqrt30O+lkZ47XrQzANeZa6Y9jbiiiCdj+MMcbtTNuB72Y+wSovM2dzUZj55h6bH2ir2Ww9e
+	2275WjDD0Gxn/q8XM8MNa1dvmC0cTFTL8EiXwGyx2DLl54m05R6rLj7e95sAqLFycCu0+FQW5rzNn
+	udp6xt/HzbtFWlMAA18cOva55drVvi3IZ0zBKo3VY9q9heoEQheTtu+nvlfUBa/PEXnA22WDsI5Zk
+	K7NqTItFGUzF1YJUrDkjgt0Q7FD0Qqd+z805xuTTg3KDc+OVWM6cmmVY6aXGtt67tEymAENNOfCCb
+	XzXPqeCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLts8-00000005wtv-26Nh;
-	Thu, 20 Nov 2025 01:54:08 +0000
-Received: from mail-m16.yeah.net ([220.197.32.18])
+	id 1vLtsl-00000005x06-1QnD;
+	Thu, 20 Nov 2025 01:54:47 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLts4-00000005wtF-3pWs
+	id 1vLtsj-00000005wzR-1s8X
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Nov 2025 01:54:06 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yeah.net;
-	s=s110527; h=Date:From:To:Subject:Message-ID:MIME-Version:
-	Content-Type; bh=B13YSSVdzv+A9HSJEV6haxN1uEpuGwZCWegPWDkjWo0=;
-	b=FsX4dyzILs5Mz6P4OxTN0CZ6a8W+QrZGfT4i9E3mD9Dv8c2Wr9s1GER+09vuSz
-	Dpxgn8PQ5E00Q20Pwiw2acWxvlUkmrX6TRLNIYoPBDhFIob5/fYH1Bbh6yxBhp5B
-	1fnjOh6XPpG1UEzIw76l7HjPslGkMFtm4wD6UPJer8H7w=
-Received: from dragon (unknown [])
-	by gzsmtp2 (Coremail) with SMTP id Ms8vCgCnHTeLdB5pzrRhAg--.10170S3;
-	Thu, 20 Nov 2025 09:53:18 +0800 (CST)
-Date: Thu, 20 Nov 2025 09:53:15 +0800
-From: Shawn Guo <shawnguo2@yeah.net>
-To: Marek Vasut <marek.vasut@mailbox.org>,
-	Liviu Dudau <liviu.dudau@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, Frank Li <Frank.Li@nxp.com>,
-	Boris Brezillon <boris.brezillon@collabora.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	David Airlie <airlied@gmail.com>,
-	Fabio Estevam <festevam@gmail.com>,
-	"Jiyu Yang (OSS)" <jiyu.yang@oss.nxp.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Sebastian Reichel <sre@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Simona Vetter <simona@ffwll.ch>,
-	Steven Price <steven.price@arm.com>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	Xianzhong Li <xianzhong.li@nxp.com>, devicetree@vger.kernel.org,
-	dri-devel@lists.freedesktop.org, imx@lists.linux.dev
-Subject: Re: [PATCH v4 2/2] arm64: dts: imx95: Describe Mali G310 GPU
-Message-ID: <aR50iy_FWk6PqAUg@dragon>
-References: <20251102160927.45157-1-marek.vasut@mailbox.org>
- <20251102160927.45157-2-marek.vasut@mailbox.org>
- <aRnBqgzeotfrdNmy@dragon>
- <c85e39b6-4e5b-4bbc-b1b6-7f910c8f06d8@mailbox.org>
+	Thu, 20 Nov 2025 01:54:46 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 26B58441C3;
+	Thu, 20 Nov 2025 01:54:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 94ED9C4CEF5;
+	Thu, 20 Nov 2025 01:54:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1763603684;
+	bh=/bYl3PfE31ZepLHyLYI1pggKbRkiLRQgnDFKccns06Y=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=JohDXqXE59Z8ijFqQfx9apJXrtQaIpyff899jEd9yeCinqsEssuZZOSlffP3mnX1M
+	 k5cOOzyw3RMnuadAF4/LSHar0tA+MOijnrEhaguqi6CoL8E/faNQj4NgpUM6kVYe2J
+	 XHCuIQMr+zy/IkEt7NPmKohBfMtQcogn0vl3wgmwQMWq66GiyFTyDYYYQ4EGWpIO6A
+	 +XnSlk07tIOqnHSoQH87pFTjiU6pCxkH3lXtDgkSX8rSZq/m0YRnBV/8NDgEOAHSmO
+	 7nvFTaiNnS9Z2+c2pKgBTs7iayTLfyyeL+sawnlz8ZnLK5voFDbbjzZkcOoceWGW3P
+	 jr46nBMBIOZoQ==
+Date: Wed, 19 Nov 2025 17:54:39 -0800
+From: Namhyung Kim <namhyung@kernel.org>
+To: James Clark <james.clark@linaro.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>, Leo Yan <leo.yan@arm.com>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-perf-users@vger.kernel.org, linux-doc@vger.kernel.org,
+	kvmarm@lists.linux.dev
+Subject: Re: [PATCH v10 0/5] perf: arm_spe: Armv8.8 SPE features
+Message-ID: <aR503-f-ZrnWzZh2@google.com>
+References: <20251111-james-perf-feat_spe_eft-v10-0-1e1b5bf2cd05@linaro.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <c85e39b6-4e5b-4bbc-b1b6-7f910c8f06d8@mailbox.org>
-X-CM-TRANSID: Ms8vCgCnHTeLdB5pzrRhAg--.10170S3
-X-Coremail-Antispam: 1Uf129KBjDUn29KB7ZKAUJUUUU8529EdanIXcx71UUUUU7v73
-	VFW2AGmfu7bjvjm3AaLaJ3UbIYCTnIWIevJa73UjIFyTuYvjxUnzV1UUUUU
-X-Originating-IP: [117.82.150.42]
-X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiNg4ih2kedI5lUAAA3l
+In-Reply-To: <20251111-james-perf-feat_spe_eft-v10-0-1e1b5bf2cd05@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251119_175405_397412_4FDF22F6 
-X-CRM114-Status: GOOD (  11.98  )
+X-CRM114-CacheID: sfid-20251119_175445_524758_F3FC94A2 
+X-CRM114-Status: GOOD (  23.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,19 +86,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 19, 2025 at 06:00:55PM +0100, Marek Vasut wrote:
-> On 11/16/25 1:20 PM, Shawn Guo wrote:
-> > On Sun, Nov 02, 2025 at 05:09:07PM +0100, Marek Vasut wrote:
-> > > The instance of the GPU populated in i.MX95 is the G310, describe this
-> > > GPU in the DT. Include dummy GPU voltage regulator and OPP tables.
-> > 
-> > The commit log seems need an update for the regulator part?
-> The patch seems to be already in next, but if it can be somehow respun, I
-> can do that ?
+Hello,
 
-Hmm, okay, just take it as a protest that DTS shouldn't have been
-applied by GPU subsystem, @Liviu ;)
+On Tue, Nov 11, 2025 at 11:37:54AM +0000, James Clark wrote:
+> Support SPE_FEAT_FDS data source filtering.
 
-Shawn
+What's the state of this series?  I can merge the tools part (3, 4, 5)
+once the kernel part lands somewhere.
 
+Thanks,
+Namhyung
+
+> 
+> ---
+> Changes in v10:
+> - Pick up Peter's ack
+> - Slightly clarify commit message regarding the difference between the
+>   data source filter and the data source
+> - Link to v9: https://lore.kernel.org/r/20251029-james-perf-feat_spe_eft-v9-0-d22536b9cf94@linaro.org
+> 
+> Changes in v9:
+> - Fix another typo in docs: s/data_src_filter/inv_data_src_filter/g
+> - Drop already applied patches for other features. Only the data source
+>   filtering patches remain.
+> - Rebase on latest perf-tools-next
+> - Link to v8: https://lore.kernel.org/r/20250901-james-perf-feat_spe_eft-v8-0-2e2738f24559@linaro.org
+> 
+> Changes in v8:
+> - Define __spe_vers_imp before it's used
+> - "disable traps to PMSDSFR" -> "disable traps of PMSDSFR to EL2"
+> - Link to v7: https://lore.kernel.org/r/20250814-james-perf-feat_spe_eft-v7-0-6a743f7fa259@linaro.org
+> 
+> Changes in v7:
+> - Fix typo in docs: s/data_src_filter/inv_data_src_filter/g
+> - Pickup trailers
+> - Link to v6: https://lore.kernel.org/r/20250808-james-perf-feat_spe_eft-v6-0-6daf498578c8@linaro.org
+> 
+> Changes in v6:
+> - Rebase to resolve conflict with BRBE changes in el2_setup.h
+> - Link to v5: https://lore.kernel.org/r/20250721-james-perf-feat_spe_eft-v5-0-a7bc533485a1@linaro.org
+> 
+> Changes in v5:
+> - Forgot to pickup tags from v4
+> - Forgot to drop test and review tags on v4 patches that were
+>   significantly modified
+> - Update commit message for data source filtering to mention inversion
+> - Link to v4: https://lore.kernel.org/r/20250721-james-perf-feat_spe_eft-v4-0-0a527410f8fd@linaro.org
+> 
+> Changes in v4:
+> - Rewrite "const u64 feat_spe_eft_bits" inline
+> - Invert data source filter so that it's possible to exclude all data
+>   sources without adding an additional 'enable filter' flag
+> - Add a macro in el2_setup.h to check for an SPE version
+> - Probe valid filter bits instead of hardcoding them
+> - Take in Leo's commit to expose the filter bits as it depends on the
+>   new filter probing
+> - Link to v3: https://lore.kernel.org/r/20250605-james-perf-feat_spe_eft-v3-0-71b0c9f98093@linaro.org
+> 
+> Changes in v3:
+> - Use PMSIDR_EL1_FDS instead of 1 << PMSIDR_EL1_FDS_SHIFT
+> - Add VNCR offsets
+> - Link to v2: https://lore.kernel.org/r/20250529-james-perf-feat_spe_eft-v2-0-a01a9baad06a@linaro.org
+> 
+> Changes in v2:
+> - Fix detection of FEAT_SPE_FDS in el2_setup.h
+> - Pickup Marc Z's sysreg change instead which matches the json
+> - Restructure and expand docs changes
+> - Link to v1: https://lore.kernel.org/r/20250506-james-perf-feat_spe_eft-v1-0-dd480e8e4851@linaro.org
+> 
+> ---
+> James Clark (5):
+>       perf: Add perf_event_attr::config4
+>       perf: arm_spe: Add support for filtering on data source
+>       tools headers UAPI: Sync linux/perf_event.h with the kernel sources
+>       perf tools: Add support for perf_event_attr::config4
+>       perf docs: arm-spe: Document new SPE filtering features
+> 
+>  drivers/perf/arm_spe_pmu.c                |  37 +++++++++++
+>  include/uapi/linux/perf_event.h           |   2 +
+>  tools/include/uapi/linux/perf_event.h     |   2 +
+>  tools/perf/Documentation/perf-arm-spe.txt | 104 +++++++++++++++++++++++++++---
+>  tools/perf/tests/parse-events.c           |  13 +++-
+>  tools/perf/util/parse-events.c            |  11 ++++
+>  tools/perf/util/parse-events.h            |   1 +
+>  tools/perf/util/parse-events.l            |   1 +
+>  tools/perf/util/pmu.c                     |   8 +++
+>  tools/perf/util/pmu.h                     |   1 +
+>  10 files changed, 170 insertions(+), 10 deletions(-)
+> ---
+> base-commit: 081006b7c8e19406dc6674c6b6d086764d415b5c
+> change-id: 20250312-james-perf-feat_spe_eft-66cdf4d8fe99
+> 
+> Best regards,
+> -- 
+> James Clark <james.clark@linaro.org>
+> 
 
