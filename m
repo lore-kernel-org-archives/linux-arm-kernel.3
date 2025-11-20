@@ -4,77 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A83FCF64AB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 09:46:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9F10CF857C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 09:51:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7sswFl5l2p4ZT3evZ9i3gc9xarSldWVyH7umhKc38wc=; b=qf/vPcvCDsB3OWJWjCCWO4lym8
-	5qzrSegCqhWInKO7jBodx1zsaAnkq4x56EeHXGAa5N5/fLZbRFgey6nEoJenFswJRRgYt/a3dqlcI
-	UojcibC8T7zu3Xah7MFG8Jf62kapwEAeKeTuLbCHye51iyX25dnCE174grWN0F/EkT2woeKfjaHpz
-	AZwjsYgouzEqsv+R5RHwN7Jy821oOaTJAm/U0Ku82O8dW/NYWUSsl/FRkDniJd4/Lv77oDv8GV4mM
-	SGpyjEs5rSnZFfBRgHdPPPimXqLEMmpA8ID9Kx/S/itF4PKELXmgNnvGD5jixv+9Vfwd1cBECJdzR
-	jtadbhig==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Nf2MKg3ETrlRe2dMSMrMdLfVe8iEcC5mFRODdYJZ2jM=; b=Zfc8+QMiabhcDIwBCX5k3XEqlN
+	3DKPDIK5+0VG5+yVnRRvUhUYsuNmpPJzFuHGt1SfF5HvP3MCVXNAZ9Az7Lery4XtrDpwnlYg6saPo
+	2+aTaJJwA8rmq8ztsOczGoQFPO6RXmAfHShHvICupznk0Zv80Ot/ws0vKwdzfJ7YPunIczBbJgtNA
+	C8VdTPVXXRCB5WoY7Q6+tKDnzgJGcsiEn9UtUbAn0blyK2uLJEEuswzdR25/x4DEYCzqsKiDsGEmc
+	jCYIayC6LLSMBW+BMDuFBC1gqq2MhY5D4SgizTvOxNeL7sZM/O7/G2RP6bQx8DJJg5uBQ29wDA/rp
+	KQvgv97w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vM1FK-00000006S34-1IVk;
-	Thu, 20 Nov 2025 09:46:34 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1vM1Jm-00000006SHa-3sll;
+	Thu, 20 Nov 2025 09:51:10 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vM1FF-00000006S2Q-0bUX
+	id 1vM1Jk-00000006SH0-478l
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Nov 2025 09:46:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=7sswFl5l2p4ZT3evZ9i3gc9xarSldWVyH7umhKc38wc=; b=Lz0IPuPfFUD4WovXjBHEyMPMOQ
-	xm6rjezioffBkDb++RJz8WeiwEl4r86o7ZJDjO0RsJDeFRVkrXzri7xJ9lKkUCdpglWTCx85P7TfU
-	Q2zDgXQGw2xx0FkGNUJgViUOODSqxJfjnD0KkTrhmy8USf5IpRQrdFNlNSicvLZdTbymvxUL7ixrK
-	Hr447VPZFNiuvO0kNJDe/tE2t0DhwpM9UQBzugIkItt6e+n54Q77ADyiTrTMBKHMNL2q3KPQcWcCh
-	rZvn1HKkP4b+aHw0kiIsDOeaKskXW5zd1d3ETJ9GGWXyXnSy6wPuvwldhpJ+N3XDXxBb0bvQ2hnCg
-	HxyCh/Hw==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:50818)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1vM1F5-0000000062y-2Z0H;
-	Thu, 20 Nov 2025 09:46:19 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1vM1F1-000000004Hk-3fFC;
-	Thu, 20 Nov 2025 09:46:15 +0000
-Date: Thu, 20 Nov 2025 09:46:15 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>, Vinod Koul <vkoul@kernel.org>
-Subject: Re: [PATCH net-next 2/3] net: stmmac: qcom-ethqos: add rgmii
- set/clear functions
-Message-ID: <aR7jZ4KkKE9nTsMh@shell.armlinux.org.uk>
-References: <aR2rOKopeiNvOO-P@shell.armlinux.org.uk>
- <E1vLgSU-0000000FMrL-0EZT@rmk-PC.armlinux.org.uk>
- <b720570b-6576-41d7-a803-3d5524b685e4@oss.qualcomm.com>
+	Thu, 20 Nov 2025 09:51:10 +0000
+Received: from dude05.red.stw.pengutronix.de ([2a0a:edc0:0:1101:1d::54])
+	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1vM1Jf-0002La-G0; Thu, 20 Nov 2025 10:51:03 +0100
+From: Philipp Zabel <p.zabel@pengutronix.de>
+To: soc@kernel.org
+Cc: linux-arm-kernel@lists.infradead.org,
+	kernel@pengutronix.de,
+	Philipp Zabel <p.zabel@pengutronix.de>
+Subject: [GIT PULL] Reset controller updates for v6.19
+Date: Thu, 20 Nov 2025 10:50:59 +0100
+Message-ID: <20251120095059.2787351-1-p.zabel@pengutronix.de>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <b720570b-6576-41d7-a803-3d5524b685e4@oss.qualcomm.com>
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:1101:1d::54
+X-SA-Exim-Mail-From: p.zabel@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251120_014629_187527_A78D5077 
-X-CRM114-Status: GOOD (  22.09  )
+X-CRM114-CacheID: sfid-20251120_015109_021300_A91105DB 
+X-CRM114-Status: GOOD (  10.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,80 +63,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Nov 20, 2025 at 10:42:04AM +0100, Konrad Dybcio wrote:
-> On 11/19/25 12:34 PM, Russell King (Oracle) wrote:
-> > The driver has a lot of bit manipulation of the RGMII registers. Add
-> > a pair of helpers to set bits and clear bits, converting the various
-> > calls to rgmii_updatel() as appropriate.
-> > 
-> > Most of the change was done via this sed script:
-> > 
-> > /rgmii_updatel/ {
-> > 	N
-> > 	/,$/N
-> > 	/mask, / ! {
-> > 		s|rgmii_updatel\(([^,]*,\s+([^,]*),\s+)\2,\s+|rgmii_setmask(\1|
-> > 		s|rgmii_updatel\(([^,]*,\s+([^,]*),\s+)0,\s+|rgmii_clrmask(\1|
-> > 		s|^\s+$||
-> > 	}
-> > }
-> > 
-> > and then formatting tweaked where necessary.
-> > 
-> > Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
-> > ---
-> >  .../stmicro/stmmac/dwmac-qcom-ethqos.c        | 187 +++++++++---------
-> >  1 file changed, 89 insertions(+), 98 deletions(-)
-> > 
-> > diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
-> > index ae3cf163005b..cdaf02471d3a 100644
-> > --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
-> > +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
-> > @@ -137,6 +137,18 @@ static void rgmii_updatel(struct qcom_ethqos *ethqos, u32 mask, u32 val,
-> >  	rgmii_writel(ethqos, temp, offset);
-> >  }
-> >  
-> > +static void rgmii_setmask(struct qcom_ethqos *ethqos, u32 mask,
-> > +			  unsigned int offset)
-> > +{
-> > +	rgmii_updatel(ethqos, mask, mask, offset);
-> > +}
-> 
-> It's almost unbelieveable there's no set/clr/rmw generics for
-> readl and friends
+Dear arm-soc maintainers,
 
-Consider what that would mean - such operations can not be atomic, but
-users would likely not realise, which means we get a load of new
-potential bugs. Not having these means that driver authors get to
-code this up, and because they realise they have to do separate read
-and write operations, it's more obvious that there may be races.
+The following changes since commit 3a8660878839faadb4f1a6dd72c3179c1df56787:
 
-The phy_* accessors are different - these take the bus lock while they
-operate, and thus are atomic.
+  Linux 6.18-rc1 (2025-10-12 13:42:36 -0700)
 
-> 
-> [...]
-> >  	/* Set DLL_EN */
-> > -	rgmii_updatel(ethqos, SDCC_DLL_CONFIG_DLL_EN,
-> > -		      SDCC_DLL_CONFIG_DLL_EN, SDCC_HC_REG_DLL_CONFIG);
-> > +	rgmii_setmask(ethqos, SDCC_DLL_CONFIG_DLL_EN,  SDCC_HC_REG_DLL_CONFIG);
-> 
-> double space
-> 
-> [...]
-> 
-> >  	/* Select RGMII, write 0 to interface select */
-> > -	rgmii_updatel(ethqos, RGMII_CONFIG_INTF_SEL,
-> > -		      0, RGMII_IO_MACRO_CONFIG);
-> > +	rgmii_clrmask(ethqos, RGMII_CONFIG_INTF_SEL,  RGMII_IO_MACRO_CONFIG);
-> 
-> and here
-> 
-> Everything else looks in tact
+are available in the Git repository at:
 
-Thanks.
+  https://git.pengutronix.de/git/pza/linux.git tags/reset-for-v6.19
 
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+for you to fetch changes up to 1387cb78f101553c7fc14ec04ba730cab03ea3df:
+
+  Documentation: reset: Remove reset_controller_add_lookup() (2025-11-20 10:02:37 +0100)
+
+----------------------------------------------------------------
+Reset controller updates for v6.19
+
+* Add support for LAN969x, eic770 and RZ/G3S reset controllers,
+  for the RZ/G3S USB-PHY reset controller, and for the remaining
+  TH1520 reset controllers.
+* Drop legacy reset control lookup code.
+* Include linux/bits.h from linux/reset.h to make it self-contained.
+
+----------------------------------------------------------------
+Bartosz Golaszewski (2):
+      clk: davinci: psc: drop unused reset lookup
+      reset: remove legacy reset lookup code
+
+Claudiu Beznea (3):
+      dt-bindings: reset: renesas,rzg2l-usbphy-ctrl: Document RZ/G3S support
+      reset: rzg2l-usbphy-ctrl: Add support for USB PWRRDY
+      reset: rzg2l-usbphy-ctrl: Add support for RZ/G3S SoC
+
+Dan Carpenter (1):
+      reset: rzg2l-usbphy-ctrl: Fix a NULL vs IS_ERR() bug in probe
+
+Encrow Thorne (1):
+      reset: fix BIT macro reference
+
+Robert Marko (2):
+      dt-bindings: reset: microchip: Add LAN969x support
+      reset: sparx5: add LAN969x support
+
+Xuyang Dong (2):
+      dt-bindings: reset: eswin: Documentation for eic7700 SoC
+      reset: eswin: Add eic7700 reset driver
+
+Yao Zi (4):
+      dt-bindings: reset: thead,th1520-reset: Remove non-VO-subsystem resets
+      dt-bindings: reset: thead,th1520-reset: Add controllers for more subsys
+      reset: th1520: Prepare for supporting multiple controllers
+      reset: th1520: Support reset controllers in more subsystems
+
+Yue Haibing (1):
+      Documentation: reset: Remove reset_controller_add_lookup()
+
+ .../bindings/reset/eswin,eic7700-reset.yaml        |  42 ++
+ .../devicetree/bindings/reset/microchip,rst.yaml   |  11 +-
+ .../bindings/reset/renesas,rzg2l-usbphy-ctrl.yaml  |  41 +-
+ .../bindings/reset/thead,th1520-reset.yaml         |   8 +-
+ Documentation/driver-api/reset.rst                 |   1 -
+ drivers/clk/davinci/psc-da850.c                    |   7 -
+ drivers/reset/Kconfig                              |  13 +-
+ drivers/reset/Makefile                             |   1 +
+ drivers/reset/core.c                               | 124 +--
+ drivers/reset/reset-eic7700.c                      | 429 +++++++++++
+ drivers/reset/reset-rzg2l-usbphy-ctrl.c            |  60 ++
+ drivers/reset/reset-th1520.c                       | 837 ++++++++++++++++++++-
+ include/dt-bindings/reset/eswin,eic7700-reset.h    | 298 ++++++++
+ include/dt-bindings/reset/thead,th1520-reset.h     | 219 +++++-
+ include/linux/reset-controller.h                   |  33 -
+ include/linux/reset.h                              |   1 +
+ 16 files changed, 1936 insertions(+), 189 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/reset/eswin,eic7700-reset.yaml
+ create mode 100644 drivers/reset/reset-eic7700.c
+ create mode 100644 include/dt-bindings/reset/eswin,eic7700-reset.h
 
