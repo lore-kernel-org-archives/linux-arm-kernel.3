@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2498ACF9C72
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2612CF9C7C
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 17:26:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,42 +12,42 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MsLMs0Kqzi75ctr/qJvQdS2OGQirQYabyONNHDtS358=; b=Wvzk+FdMq6RupyDziwwyzlePOz
-	jsIUEtIWZtmEymQbpr601BgXHsHIeJpWg1sza3+o0zzxbLu/OThKbW3VuR2fPqr5CpwQbq1JcY7UG
-	H3pYu7SKsWkomlWY4QvK3IGFE1r7h/PnpoJpRLGP5eeRyxNyECUCZ26Ote+UoPvkNbhZs+vjNMZWS
-	IzqSnAd/POxAG8QRtzAHAfLZvzkqcFppQbq7xRdXbfxq7FnHEclTulIrgZ8+6PTHdkSwkozTDhQTL
-	AReuBIZRsRq9NJvge9b8wobCU6VHSDYZeauMrIOZvoevGN+nYWrksc9XVWhkb9UzdEGuA7ShqAYHL
-	pkkaHFgw==;
+	bh=wR4Tn6oqiCAPnmtVt1lN6fmyKZuYK6V00zzHr7SsMU8=; b=qqFVRfHvK5raJebz+keTx7N8M6
+	AOy0PILBiJdhMLYFTEtiveJID4ckYinHH79VWRQbL7aNUJ7zyGAobLExmY9XdlYaAIFJWri+EUcIl
+	7Ek8VmLipg5lOnHhnMuPE6K30JeNMh6Val0nHl8sI/cb9+I5N7seQ8uqMx3fk8KcWotqV2b+YpQOr
+	OXqy71o6dDf0a3aENoftDVw5MqWycvE0sqSqG/Rq9v76y2v1IdZZMtktkjNxp5E8uQKL4xgiDM5iM
+	rAFkJZhoHBBJUCrc++WzXui6Ic+ZAk3hbyvCBXF5w89/U1WQ2cG5oDGQZIiwg9vus+TFDEBpyTBrB
+	YyCImM9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vM8Q9-000000075nv-17Jd;
-	Thu, 20 Nov 2025 17:26:13 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vM8QA-000000075qH-0u3O;
+	Thu, 20 Nov 2025 17:26:14 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vM8Pv-000000075aX-2Xkm
+	id 1vM8Pu-000000075Zw-2hAp
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Nov 2025 17:25:59 +0000
+	Thu, 20 Nov 2025 17:26:01 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 10A9F601EE;
-	Thu, 20 Nov 2025 17:25:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BC341C116D0;
+	by sea.source.kernel.org (Postfix) with ESMTP id 1B5BD4445F;
 	Thu, 20 Nov 2025 17:25:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F3052C19421;
+	Thu, 20 Nov 2025 17:25:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1763659558;
-	bh=yExkdJn0xWinwENS6undeAKjlYasHh9CwWs4DLIcGVU=;
+	bh=Phnjr10/3FSU814EfoeZq4CTVio4OIfPI7Xamjqjd9Q=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=a1+IxqTRkVKRiKjBEhFOGnXVqPXl67imlrNWiQGHywumKL4d2aDLtBE1Lbfj0uvgY
-	 JRoTQDngR3ssGKd1iYu4M+n26aocMrGRVWZs4TEkb7xJ3iRxgLXJqyuTjpUb0jwXie
-	 oKJowNizOIy4GYkCbSXc/dWwdLGAShsJDCialMFfptSqTo7147Y+YaVBjnAIvsqaO1
-	 1MsUNlsBUP+yRGkFl3tVVlx0VkVEou3FPUXQ+mVAGLt0kbJ7dkMHQ8x9gCFMVl/z1J
-	 RSVspRoe44uf1Y081l6h3v1lG91HbKiTVEkJI6uPdzUmVQ2gWmtmLbMG43MSxwwBD0
-	 nssPmkdcT8sNQ==
+	b=m6md+j+NSq+asIjrap5hOKsHaUMm1LXwNUJk2deeiAQ9aTWLbFOD49vyusxWHU03B
+	 +jvvGtDcZKGLR0Zf8MSOoQd4jpWOiaOAM3tsGl3nX27/AkLm7l3fsto5PW28avaY1F
+	 7FxU9jN8r0CLblbxga+HNp0LMZpdbn6P2Li5AJInZAEn2Q3F4Q8WnEWrWFRqTi141A
+	 MmcKZ6ZCnragJlZIa1l+I1v3yDuAEKsZOoxGsYiJ/73vUJ1tTJ9vmmcOiHGQZLI7zV
+	 6UqhYMGbuxpCtjwCvVYJkWMxR081OQWtVwZgUmCQCVjF+8+5QsOoicjpLmx+GwD0RT
+	 U8URsKlZrL+dw==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1vM8Ps-00000006y6g-43d3;
-	Thu, 20 Nov 2025 17:25:57 +0000
+	id 1vM8Ps-00000006y6g-12j3;
+	Thu, 20 Nov 2025 17:25:56 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
@@ -59,9 +59,9 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Christoffer Dall <christoffer.dall@arm.com>,
 	Fuad Tabba <tabba@google.com>,
 	Mark Brown <broonie@kernel.org>
-Subject: [PATCH v4 13/49] KVM: arm64: GICv3: Extract LR folding primitive
-Date: Thu, 20 Nov 2025 17:25:03 +0000
-Message-ID: <20251120172540.2267180-14-maz@kernel.org>
+Subject: [PATCH v4 10/49] KVM: arm64: GICv3: Drop LPI active state when folding LRs
+Date: Thu, 20 Nov 2025 17:25:00 +0000
+Message-ID: <20251120172540.2267180-11-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20251120172540.2267180-1-maz@kernel.org>
 References: <20251120172540.2267180-1-maz@kernel.org>
@@ -71,6 +71,9 @@ X-SA-Exim-Connect-IP: 185.219.108.64
 X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, christoffer.dall@arm.com, tabba@google.com, broonie@kernel.org
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251120_092558_697592_833DE265 
+X-CRM114-Status: GOOD (  12.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,142 +88,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-As we are going to need to handle deactivation for interrupts that
-are not in the LRs, split vgic_v3_fold_lr_state() into a helper
-that deals with a single interrupt, and the function that loops
-over the used LRs.
+Despite LPIs not having an active state, *virtual* LPIs do have
+one, which gets cleared on EOI. So far, so good.
+
+However, this leads to a small problem: when an active LPI is not
+in the LRs, that EOImode==0 and that the guest EOIs it, EOIcount
+doesn't get bumped up. Which means that in these condition, the
+LPI would stay active forever.
+
+Clearly, we can't have that. So if we spot an active LPI, we drop
+that state. It's pretty pointless anyway, and only serves as a way
+to trip SW over.
 
 Tested-by: Fuad Tabba <tabba@google.com>
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/kvm/vgic/vgic-v3.c | 88 +++++++++++++++++------------------
- 1 file changed, 43 insertions(+), 45 deletions(-)
+ arch/arm64/kvm/vgic/vgic-v3.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
 diff --git a/arch/arm64/kvm/vgic/vgic-v3.c b/arch/arm64/kvm/vgic/vgic-v3.c
-index 81d22f615fa66..6b7d7b4048f03 100644
+index e3f4b27e0225f..81d22f615fa66 100644
 --- a/arch/arm64/kvm/vgic/vgic-v3.c
 +++ b/arch/arm64/kvm/vgic/vgic-v3.c
-@@ -33,78 +33,76 @@ static bool lr_signals_eoi_mi(u64 lr_val)
- 	       !(lr_val & ICH_LR_HW);
- }
+@@ -72,7 +72,9 @@ void vgic_v3_fold_lr_state(struct kvm_vcpu *vcpu)
  
--void vgic_v3_fold_lr_state(struct kvm_vcpu *vcpu)
-+static void vgic_v3_fold_lr(struct kvm_vcpu *vcpu, u64 val)
- {
--	struct vgic_cpu *vgic_cpu = &vcpu->arch.vgic_cpu;
--	struct vgic_v3_cpu_if *cpuif = &vgic_cpu->vgic_v3;
--	u32 model = vcpu->kvm->arch.vgic.vgic_model;
--	int lr;
--
--	DEBUG_SPINLOCK_BUG_ON(!irqs_disabled());
--
--	cpuif->vgic_hcr &= ~ICH_HCR_EL2_UIE;
--
--	for (lr = 0; lr < cpuif->used_lrs; lr++) {
--		u64 val = cpuif->vgic_lr[lr];
--		u32 intid, cpuid;
--		struct vgic_irq *irq;
--		bool is_v2_sgi = false;
--		bool deactivated;
--
--		cpuid = val & GICH_LR_PHYSID_CPUID;
--		cpuid >>= GICH_LR_PHYSID_CPUID_SHIFT;
--
--		if (model == KVM_DEV_TYPE_ARM_VGIC_V3) {
--			intid = val & ICH_LR_VIRTUAL_ID_MASK;
--		} else {
--			intid = val & GICH_LR_VIRTUALID;
--			is_v2_sgi = vgic_irq_is_sgi(intid);
--		}
-+	struct vgic_irq *irq;
-+	bool is_v2_sgi = false;
-+	bool deactivated;
-+	u32 intid;
+ 		raw_spin_lock(&irq->irq_lock);
  
--		/* Notify fds when the guest EOI'ed a level-triggered IRQ */
--		if (lr_signals_eoi_mi(val) && vgic_valid_spi(vcpu->kvm, intid))
--			kvm_notify_acked_irq(vcpu->kvm, 0,
--					     intid - VGIC_NR_PRIVATE_IRQS);
-+	if (vcpu->kvm->arch.vgic.vgic_model == KVM_DEV_TYPE_ARM_VGIC_V3) {
-+		intid = val & ICH_LR_VIRTUAL_ID_MASK;
-+	} else {
-+		intid = val & GICH_LR_VIRTUALID;
-+		is_v2_sgi = vgic_irq_is_sgi(intid);
-+	}
- 
--		irq = vgic_get_vcpu_irq(vcpu, intid);
--		if (!irq)	/* An LPI could have been unmapped. */
--			continue;
-+	irq = vgic_get_vcpu_irq(vcpu, intid);
-+	if (!irq)	/* An LPI could have been unmapped. */
-+		return;
- 
--		raw_spin_lock(&irq->irq_lock);
-+	/* Notify fds when the guest EOI'ed a level-triggered IRQ */
-+	if (lr_signals_eoi_mi(val) && vgic_valid_spi(vcpu->kvm, intid))
-+		kvm_notify_acked_irq(vcpu->kvm, 0,
-+				     intid - VGIC_NR_PRIVATE_IRQS);
- 
-+	scoped_guard(raw_spinlock, &irq->irq_lock) {
- 		/* Always preserve the active bit for !LPIs, note deactivation */
- 		if (irq->intid >= VGIC_MIN_LPI)
- 			val &= ~ICH_LR_ACTIVE_BIT;
+-		/* Always preserve the active bit, note deactivation */
++		/* Always preserve the active bit for !LPIs, note deactivation */
++		if (irq->intid >= VGIC_MIN_LPI)
++			val &= ~ICH_LR_ACTIVE_BIT;
  		deactivated = irq->active && !(val & ICH_LR_ACTIVE_BIT);
  		irq->active = !!(val & ICH_LR_ACTIVE_BIT);
- 
--		if (irq->active && is_v2_sgi)
--			irq->active_source = cpuid;
--
- 		/* Edge is the only case where we preserve the pending bit */
- 		if (irq->config == VGIC_CONFIG_EDGE &&
--		    (val & ICH_LR_PENDING_BIT)) {
-+		    (val & ICH_LR_PENDING_BIT))
- 			irq->pending_latch = true;
- 
--			if (is_v2_sgi)
--				irq->source |= (1 << cpuid);
--		}
--
- 		/*
- 		 * Clear soft pending state when level irqs have been acked.
- 		 */
- 		if (irq->config == VGIC_CONFIG_LEVEL && !(val & ICH_LR_STATE))
- 			irq->pending_latch = false;
- 
-+		if (is_v2_sgi) {
-+			u8 cpuid = FIELD_GET(GICH_LR_PHYSID_CPUID, val);
-+
-+			if (irq->active)
-+				irq->active_source = cpuid;
-+
-+			if (val & ICH_LR_PENDING_BIT)
-+				irq->source |= BIT(cpuid);
-+		}
-+
- 		/* Handle resampling for mapped interrupts if required */
- 		vgic_irq_handle_resampling(irq, deactivated, val & ICH_LR_PENDING_BIT);
- 
- 		irq->on_lr = false;
--
--		raw_spin_unlock(&irq->irq_lock);
--		vgic_put_irq(vcpu->kvm, irq);
- 	}
- 
-+	vgic_put_irq(vcpu->kvm, irq);
-+}
-+
-+void vgic_v3_fold_lr_state(struct kvm_vcpu *vcpu)
-+{
-+	struct vgic_cpu *vgic_cpu = &vcpu->arch.vgic_cpu;
-+	struct vgic_v3_cpu_if *cpuif = &vgic_cpu->vgic_v3;
-+
-+	DEBUG_SPINLOCK_BUG_ON(!irqs_disabled());
-+
-+	for (int lr = 0; lr < cpuif->used_lrs; lr++)
-+		vgic_v3_fold_lr(vcpu, cpuif->vgic_lr[lr]);
-+
- 	cpuif->used_lrs = 0;
- }
  
 -- 
 2.47.3
