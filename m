@@ -4,72 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED522CF856D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 09:09:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB713CF8564
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 09:19:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xgXbwGEwGVAQl9IjXxj7h2aDGeU88wjhkrE5v/FOi3I=; b=jJp/207oIsJmLnaGWSDEshI8UB
-	0lGiHjRCmBOXuE7UN7Y1OJzTXAr/3OchkO+I6MBOqw0zvkZfAUg4tBstiVQvzIdZMsLXReCU6GIG1
-	QR7m31UVbrXJ8qcEpwKw55fCVdlRqZyDcEConqHF4sAKQ0Ma5zsKsmcTNIp6ojcp+K+PNOE4oKlAb
-	zTLalpNg6cMwLmG+LzwgRRrxPvE5DMB34md8DzNYvGOMz4fiNsKDv31Wlouul8YmzEooM2t/O/vRu
-	Gct8Q5aD4lIrOA2qvUXCVIoU2CkPIH80fb9iF2+LlGFxr9XISufunvA8ATw5a3/mtPCJLhJDfiLyV
-	YJybMwTw==;
+	bh=20kuTsLD7mzN21Mbsnm6zJe9RI36sxYDFDB3fVbVRPA=; b=fIvz42MetidZws7XnobW+6pOzV
+	jemjCegaoIfFQ+1xBv5IfBS15PIiF8D82nuhtVhI+q5OQEAWi/PHeZjtLgT4qbl1cupazhFe0CzLK
+	utt5ZizUSb4UJPadt1IpJUr6XAVJ24ZcCy0NnVNctpFscwo7VziohuAer0MdoJibYuatU0fk+JT/A
+	Zrcj5WsFYmlyDzbdvG8v67fuqzbGz4zH8iyrLZZzM4c0RUdjyhbxhxi8HnWy7VDzRmlFQbquMAfOM
+	Hqp8o30UEnIjBQCm7kS69U0oG/5DGtdgMr6yuLuGup2SGnWXLerMWi5u6k2Nd8mkEX7sSxb+PbiX1
+	ciSm/BVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vM0fh-00000006Ol4-2j21;
-	Thu, 20 Nov 2025 09:09:45 +0000
-Received: from out-176.mta1.migadu.com ([2001:41d0:203:375::b0])
+	id 1vM0p9-00000006PTq-2REm;
+	Thu, 20 Nov 2025 09:19:31 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vM0fe-00000006Oib-1Dn3
+	id 1vM0p7-00000006PTR-2Hnk
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Nov 2025 09:09:43 +0000
-Message-ID: <e8510685-3ed1-4350-b6dd-c997a3c74847@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1763629767;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=xgXbwGEwGVAQl9IjXxj7h2aDGeU88wjhkrE5v/FOi3I=;
-	b=UK3rqHbD4OiaRmzhfHEuC1RStGbAVosy0xKnIvoREnNbC8IB/eNrg8Vv7rbGTtpy9aoaFP
-	YvYi9lVbAJY77X2FRICQ6m5MtU3yJIswKPt2s/KtCwDakPU4RygPykFYKiElmmyImXeG6Y
-	4PTBfu0iFj4QnIx0wbCBj8+ZZqWqAuk=
-Date: Thu, 20 Nov 2025 01:09:16 -0800
+	Thu, 20 Nov 2025 09:19:31 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-4779cc419b2so6869205e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Nov 2025 01:19:28 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1763630368; x=1764235168; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=20kuTsLD7mzN21Mbsnm6zJe9RI36sxYDFDB3fVbVRPA=;
+        b=boioGQvVPIEdmD56KLmM5nMlHOxczX6TOinD3VkBaYlj9hApAznUtMRJIbEu/LG6Mi
+         9OQtDYWMT2P/qA4cXxBPGcAWwvMisOPHIMGMiMaXdXPXKTNqUO8ufjuoU71fkQENEk3A
+         tvRUtiLhC2CSrTeokoqfyaSEhAMMtyJIS7gDDco0HqI9Pb2Z9y//+4Q/YXJzlVeZLLy4
+         yguliy3H+6w8UX8/356znewgfU8T2Wp2kRBRxY/IbX1vt6cVz+qstv/wb3IfxxOMvb/I
+         x23EC0yFeJjIyXKAgJ1HnFZrFjtiQqldCStm4+Eh3pEJnl/a0WKUcHTClNVGct3H8sqf
+         s0Lw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1763630368; x=1764235168;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=20kuTsLD7mzN21Mbsnm6zJe9RI36sxYDFDB3fVbVRPA=;
+        b=QAOuFPLs+M2IC+4VAcqBhMYLGL76guKpXvsM2i3Z/lcILsguNzeqalyAxN7bFVF6yg
+         UfIolyMZyj5gDti9zB/hqWGNlAGbcIq7ZmnZDQcMCp0V2Tx40gPD/uBRMLUCLcwNN9cz
+         sZ3s0k47eBRtXrO1lkw3GZ6uEFIN0qwzNJJjyO9TvQQtlmUBZUe7RVmWSkXPSYZsh7Mw
+         KSBtzNp5wqyyEJTkXEIM0mR4zCjO2ZEaMTYEHH0Knn+GzGuZmmEDdLFvo+R+jRHW+Xym
+         UnmMpXT3e5jA7kWwE9WPaGK5eN09wJ6IUkrfcQZnT8ZngZS6MrFtKyx0EpftXhPYshMg
+         3hNw==
+X-Forwarded-Encrypted: i=1; AJvYcCVg9aK1kfQ6YP2v55sfOLxriuE3wqD39yFhAelrE0912Bpq9pw/2pQLUAaChwT5sMUCCku4QfHfn/VwOzhqDIFj@lists.infradead.org
+X-Gm-Message-State: AOJu0YzB5YgwkkLk3xEhKtuUQmjdkx7V62faYkJovfrzh6ZhZsNyao4H
+	hAY6Pen/KTT9FvYc68CJ7Ru+Vp5jlQTj16Cz23HcM/jDTCzwe8Q6FApHKx5Efn+gsnk=
+X-Gm-Gg: ASbGnctPbJN3stQA+0Wlz4An3/9t6wePmRTnukxKGpU53SXLp6WCSZStixVR8GL/aLH
+	GRae0w2WbPUYC3QmFrJcKinaShZzy6Wx0LQcPSIRLqHa1VcaYaY5wV1AZrUYBreOkqNgQF6JV47
+	M48dNNPA4v9hbkJzduB7gF6K7YlkIzFBDzGXroXnL84IGKkDUZn1Nh9krmtE5Y1Lqn+6Z2BYDk0
+	4qc5DZMy5zRl07Nw1mvwKG5qez6zyVXEAsWYGwM+NjeKKWC7wW5BjpkLLMLsic5tRxD3U/CwAK1
+	OX2XQxb0dbAT2hmaZtWcnowSl0LJi6q2reECgXh80fzlpjDWfRQ9zXoePqcBQNLrKvooFv8bRxA
+	I7K8imoJpwvP3bHowU+34YlYPKmi/GvDleqYJlyOTSV3oX8BEmiA/8qgWuzu4XYe5oqs1HYZHq4
+	4iy2eN5E+ibf3E+4bR
+X-Google-Smtp-Source: AGHT+IG5tl/whbs/s+74YcG+m53Ghp9OLB4xBZ6tsdMgU8rY+wexmvaqdkIZY2ULXyjStCQ5oVkWfQ==
+X-Received: by 2002:a05:600c:358f:b0:477:9650:3175 with SMTP id 5b1f17b1804b1-477b835c667mr30933245e9.0.1763630367552;
+        Thu, 20 Nov 2025 01:19:27 -0800 (PST)
+Received: from [192.168.1.3] ([185.48.77.170])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-477b831ad3fsm36561245e9.12.2025.11.20.01.19.26
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 20 Nov 2025 01:19:27 -0800 (PST)
+Message-ID: <d3dca311-5f2b-406f-a91b-0c5bf4dcb7ce@linaro.org>
+Date: Thu, 20 Nov 2025 09:19:25 +0000
 MIME-Version: 1.0
-Subject: Re: [External] Re: How to Avoid Starving the Kernel When Using SSE
-To: =?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>,
- Zhanpeng Zhang <zhangzhanpeng.jasper@bytedance.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- Himanshu Chauhan <hchauhan@ventanamicro.com>,
- Anup Patel <apatel@ventanamicro.com>, =?UTF-8?B?6Lev5pet?=
- <luxu.kernel@bytedance.com>, Atish Patra <atishp@atishpatra.org>,
- =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>,
- =?UTF-8?B?5bSU6L+Q6L6J?= <cuiyunhui@bytedance.com>,
- =?UTF-8?B?5YWD56u5?= <yuanzhu@bytedance.com>
-References: <CACnXVncnu6Rnx64GemdBvxu+mTqYEMGePoR5OvaJh3gC4uG-NA@mail.gmail.com>
- <bec1e1f4-e188-415d-bbb2-1854b7e8cf1d@rivosinc.com>
- <4a24df59-a209-4f2f-9465-f98482e83952@rivosinc.com>
- <00786ddb6d626442879072851d455bbd8ef1181d.d460d6ec.7656.4a45.8288.5b0b88825811@bytedance.com>
- <515d639f-7814-4104-b757-63c16429d325@rivosinc.com>
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Atish Patra <atish.patra@linux.dev>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v10 0/5] perf: arm_spe: Armv8.8 SPE features
+To: Namhyung Kim <namhyung@kernel.org>, Will Deacon <will@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+ Mark Rutland <mark.rutland@arm.com>, Jonathan Corbet <corbet@lwn.net>,
+ Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
+ Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Zenghui Yu <yuzenghui@huawei.com>, Peter Zijlstra <peterz@infradead.org>,
+ Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+ Adrian Hunter <adrian.hunter@intel.com>, Leo Yan <leo.yan@arm.com>,
+ Anshuman Khandual <anshuman.khandual@arm.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-perf-users@vger.kernel.org, linux-doc@vger.kernel.org,
+ kvmarm@lists.linux.dev
+References: <20251111-james-perf-feat_spe_eft-v10-0-1e1b5bf2cd05@linaro.org>
+ <aR503-f-ZrnWzZh2@google.com>
 Content-Language: en-US
-In-Reply-To: <515d639f-7814-4104-b757-63c16429d325@rivosinc.com>
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <aR503-f-ZrnWzZh2@google.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251120_010942_473713_773FB7FA 
-X-CRM114-Status: GOOD (  45.30  )
+X-CRM114-CacheID: sfid-20251120_011929_668376_A65C5F7E 
+X-CRM114-Status: GOOD (  23.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,348 +114,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/18/25 12:51 AM, ClÃ©ment LÃ©ger wrote:
-> 
-> 
-> On 11/18/25 09:46, Zhanpeng Zhang wrote:
->> Hi Clément,
->>
->> It seems that your patch is based on the PMU-ctr-delegation version. However, I'm using PMU-SBI and the SSE extension of v8.
->> So, I made corresponding modifications in `pmu_sbi_ovf_handler` as yours in `rvpmu_ovf_handler`.
-> 
-> Hi Zhanpeng,
-> 
-> Indeed my modifications were based on Atish rvpmu series.
-> 
->> This indeed prevents the kernel from hanging during perf sampling, and the sampling results look good. But according to the debug results, I think the problem with this approach is quite obvious. After this modification, most `pmu_start` operations are triggered by `event_sched_in` rather than do_sse. That is to say, `pmu_start` is delayed until `event_sched_in`.
-> 
-> That's the expected result, point being that the IRQ rate should be
-> throttled. Depending on how slow is your platform, overflow might kick
-> in faster leading to more throttling and thus delayed start of counter.
-> I do think this solution is the one that should be implemented since the
-> overflow return value from perf_event_overflow() is exactly meant for
-> that (ie throttling IRQs).
-> 
-
-While that works fine for the events that already overflowed, what 
-happens for the counter that was about to overflow but stopped because 
-the SSE event handler is called ?
-
-In that case, you may miss those events until the process is scheduled 
-again. Depending on the frequency of the event that may be okay or not.
-
-We also need to think about if we need to handle such scenarios for 
-other SSE event ? For example, a continuous trigger correctable RAS 
-errors can end up in the same situation.
-
-Should we provide a generic sysfs mechanism for users to disable this 
-SSE event ? By default, SSE event would not be throttled but an user can 
-opt in for throttling by writing to the sysfs.
 
 
-> Clément
+On 20/11/2025 1:54 am, Namhyung Kim wrote:
+> Hello,
 > 
->> Actually, I'm also planning to try Atish's PMU-ctr-delegation extension, such delegation optimization seems to be helpful to alleviate the hanging problem. But I think this is no longer the same issue, as it requires comprehensive modifications to the hardware/qemu, kernel, SBI, and Perf itself.
->>
->> Regards,
->> Zhanpeng
->>> From: "Clément Léger"<cleger@rivosinc.com>
->>> Date:  Fri, Nov 14, 2025, 23:41
->>> Subject:  [External] Re: How to Avoid Starving the Kernel When Using SSE
->>> To: "张展鹏"<zhangzhanpeng.jasper@bytedance.com>
->>> Cc: "Paul Walmsley"<paul.walmsley@sifive.com>, "Palmer Dabbelt"<palmer@dabbelt.com>, "linux-riscv@lists.infradead.org"<linux-riscv@lists.infradead.org>, "linux-kernel@vger.kernel.org"<linux-kernel@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"<linux-arm-kernel@lists.infradead.org>, "Himanshu Chauhan"<hchauhan@ventanamicro.com>, "Anup Patel"<apatel@ventanamicro.com>, "路旭"<luxu.kernel@bytedance.com>, "Atish Patra"<atishp@atishpatra.org>, "Björn Töpel"<bjorn@rivosinc.com>, "崔运辉"<cuiyunhui@bytedance.com>, "元竹"<yuanzhu@bytedance.com>
->>> On 11/14/25 14:36, Clément Léger wrote:
->>
->>>>
->>
->>>>
->>
->>>> Hi Zhanpeng,
->>
->>>>
->>
->>>> On 11/14/25 11:24, 张展鹏 wrote:
->>
->>>>> Hi Clément,
->>
->>>>>
->>
->>>>> Lately, I've been thinking about how to avoid starving the kernel when
->>
->>>>> using SSE:
->>
->>>>> SSE is powered by M-mode irqs such as M-mode PMU irq for perf sampling and
->>
->>>>> M-mode IPI for inter-hart injection. Meanwhile, kernel is powered by S-mode
->>
->>>>> irqs, so the kernel may experience starvation when there is a flood of
->>
->>>>> M-mode irqs, and kernel may cause such flooding of M-mode irqs when using
->>
->>>>> SSE, either deliberately or inadvertently:
->>
->>>>>
->>
->>>>>     1.  Malicious SSE handler: Kernel may deliberately register a bad SSE
->>
->>>>>     handler, which triggers a new inter-hart SSE request via ecall. This will
->>
->>>>>     cause an endless loop of SSE, rendering the kernel unresponsive. In this
->>
->>>>>     case, the only thing SBI can do is to prevent the nesting of SSE in
->>
->>>>>     `sbi_trap_handler` and ensure that SSE events are executed in priority
->>
->>>>>     order.
->>
->>>>
->>
->>>> That seems quite convoluted. Anyone that can load a module can do worse
->>
->>>> than crashing the kernel :)
->>
->>>>
->>
->>>>>     2.  Perf sampling: Kernel may inadvertently choose a bad parameter for
->>
->>>>>     Perf, which causes PMU irqs to occur too frequently. Continuous PMU irqs
->>
->>>>>     will leave the system with no time to respond to S-mode irqs.
->>
->>>>
->>
->>>> But this one concern however is valid !
->>
->>>>
->>
->>>>>
->>
->>>>>   Hence, I think we are supposed to improve the SSE framework to avoid
->>
->>>>> starving the kernel so easily.
->>
->>>>>
->>
->>>>> Here is a case study of perf sampling:
->>
->>>>> When using PMU-SSE for Perf sampling, the kernel may hang and become
->>
->>>>> unresponsive due to the PMU-SSE loop. Once we start to process a Perf
->>
->>>>> sampling using PMU-SSE, the kernel may fail to respond to `Ctrl+C` or fail
->>
->>>>> to exit after the timing of `sleep 1` completes (these are the two most
->>
->>>>> commonly used time-based sampling methods in perf).
->>
->>>>>
->>
->>>>> By default, perf uses a relatively high sampling frequency, namely
->>
->>>>> `perf_event_max_sample_rate`, and will adjust it on demand if sampling
->>
->>>>> takes too much time. If this frequency/period goes beyond what system can
->>
->>>>> handle, it will make SSE events connect end-to-end, and the system will get
->>
->>>>> stuck in an endless loop of "SSE → PMU interrupt → SSE". The kernel is then
->>
->>>>> starved (at this point, if you print the `sepc` of SSE completion, you will
->>
->>>>> find that the `sepc` remains unchanged each time, indicating that the
->>
->>>>> kernel is stuck), and the kernel can never escape from this loop of
->>
->>>>> PMU-SSE, because it can neither respond to Ctrl+C interrupts nor adjust the
->>
->>>>> sampling frequency.
->>
->>>>>
->>
->>>>> Current solution: The key to this problem is that every time we finish
->>
->>>>> sse_complete, there is already a new PMU irq pending. Then we resume the
->>
->>>>> kernel execution via mret, and the system will immediately trap back into
->>
->>>>> SSE.
->>
->>>>>
->>
->>>>> The PMU-SSE-Perf processing flow includes the following steps: `sse_inject`
->>
->>>>> (mret to SSE handler), `pmu_stop` (clear PMU pending bit), `pmu_start` (set
->>
->>>>> a new value for PMU counter), and `sse_complete` (resume execution to the
->>
->>>>> point where the kernel was interrupted). The reason why kernel traps right
->>
->>>>> after `sse_complete` is that there is a new PMU irq generated between
->>
->>>>> `pmu_start` and `sse_complete`.
->>
->>>>>
->>
->>>>> In order to address this issue, we propose to delay the procedure of
->>
->>>>> re-starting the overflowed PMU counter during PMU-SSE. When kernel triggers
->>
->>>>> an ecall to restart the overflowed PMU counters, SBI can check whether it
->>
->>>>> is SSE-powered PMU handling. If so, we temporarily modify mhpmevent CSR to
->>
->>>>> stop counting kernel events. In this process, M-mode events are always
->>
->>>>> inhibited, and U-mode code will not be executed during the
->>
->>>>> `pmu_sbi_ovf_handler`, so we only need to inhibit the counting of kernel
->>
->>>>> events.
->>
->>>>
->>
->>>> I'd rather let the kernel control the PMU SSE event delivery by masking
->>
->>>> it at the end of the SSE handler and reenabling it later. Additionally,
->>
->>>> that solution being in the SBI itself, it does not guarantee that all
->>
->>>> SBI implementation will actually do that correctly.
->>
+> On Tue, Nov 11, 2025 at 11:37:54AM +0000, James Clark wrote:
+>> Support SPE_FEAT_FDS data source filtering.
+> 
+> What's the state of this series?  I can merge the tools part (3, 4, 5)
+> once the kernel part lands somewhere.
+> 
+> Thanks,
+> Namhyung
+> 
 
-I agree. The solution has to be implemented within Linux kernel rather 
-than in the SBI specification as it is a problem of the SSE event 
-handler & user (in this case where incorrect sampling rate is used).
+The SPE driver part was blocked on Peter's ack for the config4 change. 
+He's given it now so Will should be able to take the driver.
 
->>>>
+Thanks
+James
+
 >>
->>>> What seems odd is that the perf_event_sample_took() call at each end of
+>> ---
+>> Changes in v10:
+>> - Pick up Peter's ack
+>> - Slightly clarify commit message regarding the difference between the
+>>    data source filter and the data source
+>> - Link to v9: https://lore.kernel.org/r/20251029-james-perf-feat_spe_eft-v9-0-d22536b9cf94@linaro.org
 >>
->>>> PMU event handler should actually allow perf subsystem to throttle the
+>> Changes in v9:
+>> - Fix another typo in docs: s/data_src_filter/inv_data_src_filter/g
+>> - Drop already applied patches for other features. Only the data source
+>>    filtering patches remain.
+>> - Rebase on latest perf-tools-next
+>> - Link to v8: https://lore.kernel.org/r/20250901-james-perf-feat_spe_eft-v8-0-2e2738f24559@linaro.org
 >>
->>>> rate. I'll take another look at that part to make sure it works as
+>> Changes in v8:
+>> - Define __spe_vers_imp before it's used
+>> - "disable traps to PMSDSFR" -> "disable traps of PMSDSFR to EL2"
+>> - Link to v7: https://lore.kernel.org/r/20250814-james-perf-feat_spe_eft-v7-0-6a743f7fa259@linaro.org
 >>
->>>> expected and that we aren't missing any bits.
+>> Changes in v7:
+>> - Fix typo in docs: s/data_src_filter/inv_data_src_filter/g
+>> - Pickup trailers
+>> - Link to v6: https://lore.kernel.org/r/20250808-james-perf-feat_spe_eft-v6-0-6daf498578c8@linaro.org
 >>
->>>
->>> Hey Zhanpeng,
+>> Changes in v6:
+>> - Rebase to resolve conflict with BRBE changes in el2_setup.h
+>> - Link to v5: https://lore.kernel.org/r/20250721-james-perf-feat_spe_eft-v5-0-a7bc533485a1@linaro.org
 >>
->>>
->>> Could you try to apply this quick'n'dirty patch on top of the SSE series
+>> Changes in v5:
+>> - Forgot to pickup tags from v4
+>> - Forgot to drop test and review tags on v4 patches that were
+>>    significantly modified
+>> - Update commit message for data source filtering to mention inversion
+>> - Link to v4: https://lore.kernel.org/r/20250721-james-perf-feat_spe_eft-v4-0-0a527410f8fd@linaro.org
 >>
->>> and check if it still hang ?
+>> Changes in v4:
+>> - Rewrite "const u64 feat_spe_eft_bits" inline
+>> - Invert data source filter so that it's possible to exclude all data
+>>    sources without adding an additional 'enable filter' flag
+>> - Add a macro in el2_setup.h to check for an SPE version
+>> - Probe valid filter bits instead of hardcoding them
+>> - Take in Leo's commit to expose the filter bits as it depends on the
+>>    new filter probing
+>> - Link to v3: https://lore.kernel.org/r/20250605-james-perf-feat_spe_eft-v3-0-71b0c9f98093@linaro.org
 >>
->>>
->>> diff --git a/drivers/perf/riscv_pmu_dev.c b/drivers/perf/riscv_pmu_dev.c
+>> Changes in v3:
+>> - Use PMSIDR_EL1_FDS instead of 1 << PMSIDR_EL1_FDS_SHIFT
+>> - Add VNCR offsets
+>> - Link to v2: https://lore.kernel.org/r/20250529-james-perf-feat_spe_eft-v2-0-a01a9baad06a@linaro.org
 >>
->>> index 7dec9c2afa9b..0fb8749c476f 100644
+>> Changes in v2:
+>> - Fix detection of FEAT_SPE_FDS in el2_setup.h
+>> - Pickup Marc Z's sysreg change instead which matches the json
+>> - Restructure and expand docs changes
+>> - Link to v1: https://lore.kernel.org/r/20250506-james-perf-feat_spe_eft-v1-0-dd480e8e4851@linaro.org
 >>
->>> --- a/drivers/perf/riscv_pmu_dev.c
+>> ---
+>> James Clark (5):
+>>        perf: Add perf_event_attr::config4
+>>        perf: arm_spe: Add support for filtering on data source
+>>        tools headers UAPI: Sync linux/perf_event.h with the kernel sources
+>>        perf tools: Add support for perf_event_attr::config4
+>>        perf docs: arm-spe: Document new SPE filtering features
 >>
->>> +++ b/drivers/perf/riscv_pmu_dev.c
+>>   drivers/perf/arm_spe_pmu.c                |  37 +++++++++++
+>>   include/uapi/linux/perf_event.h           |   2 +
+>>   tools/include/uapi/linux/perf_event.h     |   2 +
+>>   tools/perf/Documentation/perf-arm-spe.txt | 104 +++++++++++++++++++++++++++---
+>>   tools/perf/tests/parse-events.c           |  13 +++-
+>>   tools/perf/util/parse-events.c            |  11 ++++
+>>   tools/perf/util/parse-events.h            |   1 +
+>>   tools/perf/util/parse-events.l            |   1 +
+>>   tools/perf/util/pmu.c                     |   8 +++
+>>   tools/perf/util/pmu.h                     |   1 +
+>>   10 files changed, 170 insertions(+), 10 deletions(-)
+>> ---
+>> base-commit: 081006b7c8e19406dc6674c6b6d086764d415b5c
+>> change-id: 20250312-james-perf-feat_spe_eft-66cdf4d8fe99
 >>
->>> @@ -1326,6 +1326,7 @@ static irqreturn_t rvpmu_ovf_handler(struct
+>> Best regards,
+>> -- 
+>> James Clark <james.clark@linaro.org>
 >>
->>> cpu_hw_events *cpu_hw_evt,
->>
->>>          int lidx, hidx, fidx;
->>
->>>          struct riscv_pmu *pmu;
->>
->>>          struct perf_event *event;
->>
->>> +       int ev_overflow = 0;
->>
->>>          u64 overflow;
->>
->>>          u64 overflowed_ctrs = 0;
->>
->>>          u64 start_clock = sched_clock();
->>
->>> @@ -1423,13 +1424,15 @@ static irqreturn_t rvpmu_ovf_handler(struct
->>
->>> cpu_hw_events *cpu_hw_evt,
->>
->>>                           * TODO: We will need to stop the guest counters
->>
->>> once
->>
->>>                           * virtualization support is added.
->>
->>>                           */
->>
->>> -                       perf_event_overflow(event, &data, regs);
->>
->>> +                       ev_overflow |= perf_event_overflow(event, &data,
->>
->>> regs);
->>
->>>                  }
->>
->>>                  /* Reset the state as we are going to start the counter
->>
->>> after the loop */
->>
->>>                  hw_evt->state = 0;
->>
->>>          }
->>
->>>
->>> -       rvpmu_start_overflow_mask(pmu, overflowed_ctrs);
->>
->>> +       if (!ev_overflow || !from_sse)
->>
->>> +               rvpmu_start_overflow_mask(pmu, overflowed_ctrs);
->>
->>> +
->>
->>>          perf_sample_event_took(sched_clock() - start_clock);
->>
->>>
->>>          return IRQ_HANDLED;
->>
->>>
->>>>
->>
->>>> Thanks,
->>
->>>>
->>
->>>> Clément
->>
->>>>
->>
->>>>>
->>
->>>>> In this way, we can ensure that `pmu_sbi_ovf_handler` will not be
->>
->>>>> re-entered by the new PMU-SSE, and minimize the modification of perf logic.
->>
->>>>> The price is that we gave up sampling a small portion of kernel code(from
->>
->>>>> `pmu_ctr_start` to the end of `pmu_sbi_ovf_handler`), and we probably need
->>
->>>>> a new parameter in `pmu_ctr_start`.
->>
->>>>>
->>
->>>>> Looking forward to your suggestions. Thanks!
->>
->>>>>
->>
->>>>> Best regards,
->>
->>>>> Zhanpeng Zhang
->>
->>>>>
->>
->>>>
->>>
-> 
-> 
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 
