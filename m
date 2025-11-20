@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FC2FCF9C7A
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFA27CF9C72
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 17:28:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,57 +12,57 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BOy6TqEI98Qe7wBXitt9qHC/gfGdt7LQu57fGURHGOo=; b=Z0PSoU6y25rBgTswRhIBQXwL7N
-	FfMbyLKNQADtGpZCskcFMtaCOTdLnlo52hya95WbE7eVFP5vPoh2+7YxfbB+u2SU9/nM9ErflZu8h
-	RKhYH0sJ0YALvxkhu0arZAqcxkrUfQEOY5nUDjYo7l+KcvJtP/EiHrr5e8gRFaLvLZ8TZ7hLLo/cY
-	PSSt3UbhBEPQAk4riPViCCE7ddA4EocxnNS7ZzRTNXHBzfJ//z8dMBKbgdQuPsD+Q8WXllNwMwggP
-	wGk31TdLFzHZVOAnxNqe7bIBH/pldUSpBpoZalOmcKiu7t6I+UfvgSqeGUz/Iq3n40mFTNlVioZoR
-	EqcdIidQ==;
+	bh=vFZgrflRGdfVZnryfo5K8sUNm2py5aSRd9bVtScjX3U=; b=QnybUYpE3sluZdfP4bHz7hAhX1
+	VV5t+xypxLl6DYOTsDTds/e/7YDT+LLLoE/4HMd1t6oVMMq/3LUqeOGsldh4Gsqnk3f8G2EQ1gTl4
+	hTr/427+++Y8TBS4fvz/4x37QnQk5vG9fDwAEXMa29sih0gYvwRbjzmaKNbdWYnmnhS79R5kGzGjn
+	KuOwAs4yqUWfw9F5jdCMzFHicRhg5oS6wPfhgvddBE0dPHkyC08ZXsZIgdLoeptid6MOcJp1n7JKq
+	eN41AmefVEsg/Jxvx4pmcVfbylYUN9sR3LDlgOf0f52z1msR3oB7etIsIS1bHfW6PN+JgHVtjRRog
+	A7KzcBoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vM8SZ-000000078uF-0cDV;
+	id 1vM8SZ-000000078vS-3AF4;
 	Thu, 20 Nov 2025 17:28:43 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vM8Q7-000000075kF-22jS
+	id 1vM8Q7-000000075kX-3JNZ
 	for linux-arm-kernel@bombadil.infradead.org;
 	Thu, 20 Nov 2025 17:26:11 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=BOy6TqEI98Qe7wBXitt9qHC/gfGdt7LQu57fGURHGOo=; b=b5HyKgp62zUqGltu6WI+TVWntc
-	fsatweMH0v603vL2Ein+uRCNul8w0TPAuutU4oOzJjbnfHswpvhgH7EnuIlrg4NvhEo/BLv5OHR2T
-	5fbrYziPjD7Oz6vaOEkY6stol8EL9NyCcQQ3U54vz7KXvZOhr7f96ieKbYUkiCCP/PIL3ZYxqj6of
-	xxqTcg7VtG83m3xLlHoYu0K8Lyq9ovgrf6ji4M0SxtEjMXh2pZs4Eyh7cr0OG0Jgg1R9+2Q6b0BZI
-	fZKOhGrjmY/CeZDsKPZz4ZHXVLmiyMh3MdpkBe8C1z/4JgX/XMUPqbXxxs31/8g9CiFUh8kw95u5s
-	zFT8kapA==;
+	bh=vFZgrflRGdfVZnryfo5K8sUNm2py5aSRd9bVtScjX3U=; b=pq9VkQYM7pY55WtaXN2WACyWB9
+	P9bNLp4ZF7zNZIHzjsaX2tSx50M192UwXXKdbEN5C6GZhbHYnZK9YjdzOVSHINR/CZdm73NvEzDUz
+	LvfKg1KfWPnk4B6WkxCa4BzNQl57fRN3fj3nxLojxQN+iDbmK8BvTAky5KDDvZPyngasM1pspVQgM
+	GvVRiN4JDsQAS49COL9ApuvLWl38D0VjoieP6o2S+k8KPrLRvVUnqx20P7PRSAe0dBY1BeixBxd9f
+	EtNH34baHtx8QdiZpm7mAybiBeu7XNTelCmz3oYsLbXCaHA3+SMO4RSBRBkFD4/vVtIiF2xHgcck5
+	D9/eoiCA==;
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vM7YP-0000000F6ei-1QSR
+	id 1vM7YP-0000000F6ez-1QWX
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Nov 2025 16:30:44 +0000
+	Thu, 20 Nov 2025 16:30:45 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2A4E144287;
-	Thu, 20 Nov 2025 17:25:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0A776C16AAE;
-	Thu, 20 Nov 2025 17:25:59 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id B3A07443A8;
+	Thu, 20 Nov 2025 17:26:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 76A41C16AAE;
+	Thu, 20 Nov 2025 17:26:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763659559;
-	bh=GJuikNEiM9aYP/YLsdMUrKCS8u0NoKs6DKQCFgpx0+8=;
+	s=k20201202; t=1763659560;
+	bh=uN25PyZmLxLd1uaBG1a1EPGhXudkFWWjIuu0rwezTYc=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=tyDE/IIpI1etUWtXxneew0sNRZ5d+61WZbmhdnp5cecxlZiOkGqip40IaDEIghM55
-	 ccC/VtiWPqDsUJue0NWb3T8ME26Y5KY4pAXnU7xYVEDGpAWulBxZtpOng0OIenO/XV
-	 zyOiNl6SQIEiHA23b6C7DjUO9pJTrh1h7AP1v6/O50t2DIeXhmqv9TYBlYlKyLBefm
-	 0No+9cfjTrnUv4W9ecYF+rbC8I8tyiQzip/aW5Lsr6ArmQ33JqRafUfLh+qsxH3yiY
-	 r3uY65IGGPf+icUXheVKsfC66FVDd2hcF5PPxyPlQFVQLS7zOLDW1JKmyOSbZbnw+Y
-	 N3RNMJWFyOW4A==
+	b=OBazEZjn61SeD8odkKM9bE6g3SBJAIoVLSQFoba7HBoVC11CtFkk7pWx5P6pj7PCS
+	 6OXgJG8Zo+pFKkcIDJWgsfqI+G7h0T+27k/GuccXhVRvaJU2yf7ECbf2NlvtwBbgck
+	 zsLfHE6yr7dkaPAFCNictqVjr6jF7kl0Jw3MrOrkvX7DlAraffXiwKXQPTUp1xe0R/
+	 cSFwUKbhPEwgSyeBYxTbT79c6dY3nw90hcUArsE90jYnjp7IL4Dtki7BBnX87mMAZE
+	 9KUZWARMd+rgczGqrBIkLIwGZiKA6fAcqdJk8cepbiTsYVZlphjBnSQmAKZmQBT/Pd
+	 TJsi6lc5tIvnw==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1vM8Pt-00000006y6g-0zBq;
-	Thu, 20 Nov 2025 17:25:57 +0000
+	id 1vM8Pu-00000006y6g-2xlc;
+	Thu, 20 Nov 2025 17:25:58 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
@@ -74,9 +74,9 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Christoffer Dall <christoffer.dall@arm.com>,
 	Fuad Tabba <tabba@google.com>,
 	Mark Brown <broonie@kernel.org>
-Subject: [PATCH v4 14/49] KVM: arm64: GICv3: Extract LR computing primitive
-Date: Thu, 20 Nov 2025 17:25:04 +0000
-Message-ID: <20251120172540.2267180-15-maz@kernel.org>
+Subject: [PATCH v4 20/49] KVM: arm64: Eagerly save VMCR on exit
+Date: Thu, 20 Nov 2025 17:25:10 +0000
+Message-ID: <20251120172540.2267180-21-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20251120172540.2267180-1-maz@kernel.org>
 References: <20251120172540.2267180-1-maz@kernel.org>
@@ -87,8 +87,8 @@ X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251120_163043_273915_A5FB5FF6 
-X-CRM114-Status: GOOD (  12.91  )
+X-CRM114-CacheID: sfid-20251120_163043_288417_6D1A5D1C 
+X-CRM114-Status: GOOD (  16.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,98 +103,196 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Split vgic_v3_populate_lr() into two, so that we have another
-primitive that computes the LR from a vgic_irq, but doesn't
-update anything in the shadow structure.
+We currently save/restore the VMCR register in a pretty lazy way
+(on load/put, consistently with what we do with the APRs).
+
+However, we are going to need the group-enable bits that are backed
+by VMCR on each entry (so that we can avoid injecting interrupts for
+disabled groups).
+
+Move the synchronisation from put to sync, which results in some minor
+churn in the nVHE hypercalls to simplify things.
 
 Tested-by: Fuad Tabba <tabba@google.com>
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/kvm/vgic/vgic-v3.c | 49 +++++++++++++++++++++++------------
- 1 file changed, 32 insertions(+), 17 deletions(-)
+ arch/arm64/include/asm/kvm_asm.h     |  2 +-
+ arch/arm64/include/asm/kvm_hyp.h     |  2 +-
+ arch/arm64/kvm/arm.c                 |  3 +--
+ arch/arm64/kvm/hyp/nvhe/hyp-main.c   |  7 ++++---
+ arch/arm64/kvm/hyp/vgic-v3-sr.c      | 15 +++------------
+ arch/arm64/kvm/vgic/vgic-v2.c        |  2 +-
+ arch/arm64/kvm/vgic/vgic-v3-nested.c |  2 +-
+ arch/arm64/kvm/vgic/vgic-v3.c        |  2 +-
+ 8 files changed, 13 insertions(+), 22 deletions(-)
 
-diff --git a/arch/arm64/kvm/vgic/vgic-v3.c b/arch/arm64/kvm/vgic/vgic-v3.c
-index 6b7d7b4048f03..bcce7f35a6d67 100644
---- a/arch/arm64/kvm/vgic/vgic-v3.c
-+++ b/arch/arm64/kvm/vgic/vgic-v3.c
-@@ -107,7 +107,7 @@ void vgic_v3_fold_lr_state(struct kvm_vcpu *vcpu)
+diff --git a/arch/arm64/include/asm/kvm_asm.h b/arch/arm64/include/asm/kvm_asm.h
+index 9da54d4ee49ee..f8adbd535b4ae 100644
+--- a/arch/arm64/include/asm/kvm_asm.h
++++ b/arch/arm64/include/asm/kvm_asm.h
+@@ -79,7 +79,7 @@ enum __kvm_host_smccc_func {
+ 	__KVM_HOST_SMCCC_FUNC___kvm_tlb_flush_vmid_range,
+ 	__KVM_HOST_SMCCC_FUNC___kvm_flush_cpu_context,
+ 	__KVM_HOST_SMCCC_FUNC___kvm_timer_set_cntvoff,
+-	__KVM_HOST_SMCCC_FUNC___vgic_v3_save_vmcr_aprs,
++	__KVM_HOST_SMCCC_FUNC___vgic_v3_save_aprs,
+ 	__KVM_HOST_SMCCC_FUNC___vgic_v3_restore_vmcr_aprs,
+ 	__KVM_HOST_SMCCC_FUNC___pkvm_reserve_vm,
+ 	__KVM_HOST_SMCCC_FUNC___pkvm_unreserve_vm,
+diff --git a/arch/arm64/include/asm/kvm_hyp.h b/arch/arm64/include/asm/kvm_hyp.h
+index e6be1f5d0967f..dbf16a9f67728 100644
+--- a/arch/arm64/include/asm/kvm_hyp.h
++++ b/arch/arm64/include/asm/kvm_hyp.h
+@@ -82,7 +82,7 @@ void __vgic_v3_save_state(struct vgic_v3_cpu_if *cpu_if);
+ void __vgic_v3_restore_state(struct vgic_v3_cpu_if *cpu_if);
+ void __vgic_v3_activate_traps(struct vgic_v3_cpu_if *cpu_if);
+ void __vgic_v3_deactivate_traps(struct vgic_v3_cpu_if *cpu_if);
+-void __vgic_v3_save_vmcr_aprs(struct vgic_v3_cpu_if *cpu_if);
++void __vgic_v3_save_aprs(struct vgic_v3_cpu_if *cpu_if);
+ void __vgic_v3_restore_vmcr_aprs(struct vgic_v3_cpu_if *cpu_if);
+ int __vgic_v3_perform_cpuif_access(struct kvm_vcpu *vcpu);
+ 
+diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+index 870953b4a8a74..733195ef183e1 100644
+--- a/arch/arm64/kvm/arm.c
++++ b/arch/arm64/kvm/arm.c
+@@ -659,8 +659,7 @@ void kvm_arch_vcpu_load(struct kvm_vcpu *vcpu, int cpu)
+ void kvm_arch_vcpu_put(struct kvm_vcpu *vcpu)
+ {
+ 	if (is_protected_kvm_enabled()) {
+-		kvm_call_hyp(__vgic_v3_save_vmcr_aprs,
+-			     &vcpu->arch.vgic_cpu.vgic_v3);
++		kvm_call_hyp(__vgic_v3_save_aprs, &vcpu->arch.vgic_cpu.vgic_v3);
+ 		kvm_call_hyp_nvhe(__pkvm_vcpu_put);
+ 	}
+ 
+diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+index 29430c031095a..a7c689152f686 100644
+--- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
++++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+@@ -157,6 +157,7 @@ static void sync_hyp_vcpu(struct pkvm_hyp_vcpu *hyp_vcpu)
+ 	host_vcpu->arch.iflags		= hyp_vcpu->vcpu.arch.iflags;
+ 
+ 	host_cpu_if->vgic_hcr		= hyp_cpu_if->vgic_hcr;
++	host_cpu_if->vgic_vmcr		= hyp_cpu_if->vgic_vmcr;
+ 	for (i = 0; i < hyp_cpu_if->used_lrs; ++i)
+ 		host_cpu_if->vgic_lr[i] = hyp_cpu_if->vgic_lr[i];
+ }
+@@ -464,11 +465,11 @@ static void handle___vgic_v3_init_lrs(struct kvm_cpu_context *host_ctxt)
+ 	__vgic_v3_init_lrs();
  }
  
- /* Requires the irq to be locked already */
--void vgic_v3_populate_lr(struct kvm_vcpu *vcpu, struct vgic_irq *irq, int lr)
-+static u64 vgic_v3_compute_lr(struct kvm_vcpu *vcpu, struct vgic_irq *irq)
+-static void handle___vgic_v3_save_vmcr_aprs(struct kvm_cpu_context *host_ctxt)
++static void handle___vgic_v3_save_aprs(struct kvm_cpu_context *host_ctxt)
  {
- 	u32 model = vcpu->kvm->arch.vgic.vgic_model;
- 	u64 val = irq->intid;
-@@ -154,6 +154,35 @@ void vgic_v3_populate_lr(struct kvm_vcpu *vcpu, struct vgic_irq *irq, int lr)
- 	if (allow_pending && irq_is_pending(irq)) {
- 		val |= ICH_LR_PENDING_BIT;
+ 	DECLARE_REG(struct vgic_v3_cpu_if *, cpu_if, host_ctxt, 1);
  
-+		if (is_v2_sgi) {
-+			u32 src = ffs(irq->source);
-+
-+			if (WARN_RATELIMIT(!src, "No SGI source for INTID %d\n",
-+					   irq->intid))
-+				return 0;
-+
-+			val |= (src - 1) << GICH_LR_PHYSID_CPUID_SHIFT;
-+			if (irq->source & ~BIT(src - 1))
-+				val |= ICH_LR_EOI;
-+		}
-+	}
-+
-+	if (irq->group)
-+		val |= ICH_LR_GROUP;
-+
-+	val |= (u64)irq->priority << ICH_LR_PRIORITY_SHIFT;
-+
-+	return val;
-+}
-+
-+void vgic_v3_populate_lr(struct kvm_vcpu *vcpu, struct vgic_irq *irq, int lr)
-+{
-+	u32 model = vcpu->kvm->arch.vgic.vgic_model;
-+	u64 val = vgic_v3_compute_lr(vcpu, irq);
-+
-+	vcpu->arch.vgic_cpu.vgic_v3.vgic_lr[lr] = val;
-+
-+	if (val & ICH_LR_PENDING_BIT) {
- 		if (irq->config == VGIC_CONFIG_EDGE)
- 			irq->pending_latch = false;
+-	__vgic_v3_save_vmcr_aprs(kern_hyp_va(cpu_if));
++	__vgic_v3_save_aprs(kern_hyp_va(cpu_if));
+ }
  
-@@ -161,16 +190,9 @@ void vgic_v3_populate_lr(struct kvm_vcpu *vcpu, struct vgic_irq *irq, int lr)
- 		    model == KVM_DEV_TYPE_ARM_VGIC_V2) {
- 			u32 src = ffs(irq->source);
- 
--			if (WARN_RATELIMIT(!src, "No SGI source for INTID %d\n",
--					   irq->intid))
--				return;
--
--			val |= (src - 1) << GICH_LR_PHYSID_CPUID_SHIFT;
--			irq->source &= ~(1 << (src - 1));
--			if (irq->source) {
-+			irq->source &= ~BIT(src - 1);
-+			if (irq->source)
- 				irq->pending_latch = true;
--				val |= ICH_LR_EOI;
--			}
+ static void handle___vgic_v3_restore_vmcr_aprs(struct kvm_cpu_context *host_ctxt)
+@@ -616,7 +617,7 @@ static const hcall_t host_hcall[] = {
+ 	HANDLE_FUNC(__kvm_tlb_flush_vmid_range),
+ 	HANDLE_FUNC(__kvm_flush_cpu_context),
+ 	HANDLE_FUNC(__kvm_timer_set_cntvoff),
+-	HANDLE_FUNC(__vgic_v3_save_vmcr_aprs),
++	HANDLE_FUNC(__vgic_v3_save_aprs),
+ 	HANDLE_FUNC(__vgic_v3_restore_vmcr_aprs),
+ 	HANDLE_FUNC(__pkvm_reserve_vm),
+ 	HANDLE_FUNC(__pkvm_unreserve_vm),
+diff --git a/arch/arm64/kvm/hyp/vgic-v3-sr.c b/arch/arm64/kvm/hyp/vgic-v3-sr.c
+index 2509b52bbd629..cafbb41b4c334 100644
+--- a/arch/arm64/kvm/hyp/vgic-v3-sr.c
++++ b/arch/arm64/kvm/hyp/vgic-v3-sr.c
+@@ -235,6 +235,8 @@ void __vgic_v3_save_state(struct vgic_v3_cpu_if *cpu_if)
  		}
  	}
  
-@@ -183,13 +205,6 @@ void vgic_v3_populate_lr(struct kvm_vcpu *vcpu, struct vgic_irq *irq, int lr)
- 	if (vgic_irq_is_mapped_level(irq) && (val & ICH_LR_PENDING_BIT))
- 		irq->line_level = false;
++	cpu_if->vgic_vmcr = read_gicreg(ICH_VMCR_EL2);
++
+ 	if (cpu_if->vgic_hcr & ICH_HCR_EL2_LRENPIE) {
+ 		u64 val = read_gicreg(ICH_HCR_EL2);
+ 		cpu_if->vgic_hcr &= ~ICH_HCR_EL2_EOIcount;
+@@ -332,10 +334,6 @@ void __vgic_v3_deactivate_traps(struct vgic_v3_cpu_if *cpu_if)
+ {
+ 	u64 val;
  
--	if (irq->group)
--		val |= ICH_LR_GROUP;
+-	if (!cpu_if->vgic_sre) {
+-		cpu_if->vgic_vmcr = read_gicreg(ICH_VMCR_EL2);
+-	}
 -
--	val |= (u64)irq->priority << ICH_LR_PRIORITY_SHIFT;
--
--	vcpu->arch.vgic_cpu.vgic_v3.vgic_lr[lr] = val;
--
- 	irq->on_lr = true;
+ 	/* Only restore SRE if the host implements the GICv2 interface */
+ 	if (static_branch_unlikely(&vgic_v3_has_v2_compat)) {
+ 		val = read_gicreg(ICC_SRE_EL2);
+@@ -357,7 +355,7 @@ void __vgic_v3_deactivate_traps(struct vgic_v3_cpu_if *cpu_if)
+ 		write_gicreg(0, ICH_HCR_EL2);
  }
  
+-static void __vgic_v3_save_aprs(struct vgic_v3_cpu_if *cpu_if)
++void __vgic_v3_save_aprs(struct vgic_v3_cpu_if *cpu_if)
+ {
+ 	u64 val;
+ 	u32 nr_pre_bits;
+@@ -518,13 +516,6 @@ static void __vgic_v3_write_vmcr(u32 vmcr)
+ 	write_gicreg(vmcr, ICH_VMCR_EL2);
+ }
+ 
+-void __vgic_v3_save_vmcr_aprs(struct vgic_v3_cpu_if *cpu_if)
+-{
+-	__vgic_v3_save_aprs(cpu_if);
+-	if (cpu_if->vgic_sre)
+-		cpu_if->vgic_vmcr = __vgic_v3_read_vmcr();
+-}
+-
+ void __vgic_v3_restore_vmcr_aprs(struct vgic_v3_cpu_if *cpu_if)
+ {
+ 	__vgic_v3_compat_mode_enable();
+diff --git a/arch/arm64/kvm/vgic/vgic-v2.c b/arch/arm64/kvm/vgic/vgic-v2.c
+index 5a2165a8d22c0..07e93acafd04d 100644
+--- a/arch/arm64/kvm/vgic/vgic-v2.c
++++ b/arch/arm64/kvm/vgic/vgic-v2.c
+@@ -451,6 +451,7 @@ void vgic_v2_save_state(struct kvm_vcpu *vcpu)
+ 	if (!base)
+ 		return;
+ 
++	cpu_if->vgic_vmcr = readl_relaxed(kvm_vgic_global_state.vctrl_base + GICH_VMCR);
+ 
+ 	if (used_lrs)
+ 		save_lrs(vcpu, base);
+@@ -495,6 +496,5 @@ void vgic_v2_put(struct kvm_vcpu *vcpu)
+ {
+ 	struct vgic_v2_cpu_if *cpu_if = &vcpu->arch.vgic_cpu.vgic_v2;
+ 
+-	cpu_if->vgic_vmcr = readl_relaxed(kvm_vgic_global_state.vctrl_base + GICH_VMCR);
+ 	cpu_if->vgic_apr = readl_relaxed(kvm_vgic_global_state.vctrl_base + GICH_APR);
+ }
+diff --git a/arch/arm64/kvm/vgic/vgic-v3-nested.c b/arch/arm64/kvm/vgic/vgic-v3-nested.c
+index 1fc9e0780abe6..1531e4907c652 100644
+--- a/arch/arm64/kvm/vgic/vgic-v3-nested.c
++++ b/arch/arm64/kvm/vgic/vgic-v3-nested.c
+@@ -340,7 +340,7 @@ void vgic_v3_put_nested(struct kvm_vcpu *vcpu)
+ 	u64 val;
+ 	int i;
+ 
+-	__vgic_v3_save_vmcr_aprs(s_cpu_if);
++	__vgic_v3_save_aprs(s_cpu_if);
+ 	__vgic_v3_deactivate_traps(s_cpu_if);
+ 	__vgic_v3_save_state(s_cpu_if);
+ 
+diff --git a/arch/arm64/kvm/vgic/vgic-v3.c b/arch/arm64/kvm/vgic/vgic-v3.c
+index bcce7f35a6d67..5b276e303aab2 100644
+--- a/arch/arm64/kvm/vgic/vgic-v3.c
++++ b/arch/arm64/kvm/vgic/vgic-v3.c
+@@ -815,7 +815,7 @@ void vgic_v3_put(struct kvm_vcpu *vcpu)
+ 	}
+ 
+ 	if (likely(!is_protected_kvm_enabled()))
+-		kvm_call_hyp(__vgic_v3_save_vmcr_aprs, cpu_if);
++		kvm_call_hyp(__vgic_v3_save_aprs, cpu_if);
+ 	WARN_ON(vgic_v4_put(vcpu));
+ 
+ 	if (has_vhe())
 -- 
 2.47.3
 
