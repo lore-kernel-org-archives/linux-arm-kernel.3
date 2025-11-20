@@ -4,93 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2600BCF8844
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 11:36:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAD41CF8844
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 11:37:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TPlzmXt4DNVBdqLVvxiBIWu8Rl4FZ4bDuiyypGx7MuQ=; b=PpfrRsC+z6dUG1Ub5p6ZuFLdIG
-	wYd41v5VHSG+jVy4tmz6V3hAJBmflYNl0MA8j73fF5wNejR60kgdYStwHMNfS3KlJhdk+efkAC4Q4
-	M/da8aSmI9rlpnTHoeamvLC36eCRcSkNATT7cKY8rfJzXRNGhYe3dH1bFLu0G1tUMznvzXOzq8po3
-	QdmuGg17it1UqbX0Pbfu30lD0qTXuTXz2nH80g99Tkk9inh9g1U3uivdC40mSEvGzGrbPV7tCMLk/
-	X7ADQtZRtoBpR1pmioTJbcHIftziWZXga5/RmHrn1E3KyXpuwYzXLNWhrmpGrHVzjECefmX+ycyWx
-	T8+B0Xjw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ZkvAUGq0FyIS/gO1w2XfWBYjV3DPw0PAbHxjlCLMgSc=; b=a2OhCE07WuQpGIo2oBvRCx5g0y
+	iLuj8L2Gh1po9ZMp+MfuGptSTOKQFIH0qKz9ARuA0YupuSb/8wU4O0SIscme5hrKybUDTXJTU3yKM
+	mv4ITfniIPryVDsbiaL+z8D1kwnxiZ0fc1XxPSn+2fxW11VSgxTUbE+xN0sYIK2i2C6l0HRaGRszV
+	+b3KDTLv6XpQkmXYM0zZuTF5cpXD2qFjwEM5sG0snp+B2+KGSZqSeAfDA2a1VWC2WCIPkStl/IaEL
+	u8KnyxaHEwupa0kfQo4s5RhaZCcTOsHdO11BS+L2M8r4xxvgU0iHbL3+0SumzMLGGNMWl8PrJidKL
+	3qTba55Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vM2xd-00000006b06-26NH;
-	Thu, 20 Nov 2025 11:36:25 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1vM2yU-00000006b5I-3efY;
+	Thu, 20 Nov 2025 11:37:18 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vM2xa-00000006azZ-1F3I
+	id 1vM2yU-00000006b57-0qqJ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Nov 2025 11:36:23 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-4779a4fc95aso13302465e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Nov 2025 03:36:21 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1763638580; x=1764243380; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=TPlzmXt4DNVBdqLVvxiBIWu8Rl4FZ4bDuiyypGx7MuQ=;
-        b=LawHfCdEHTSquhn4Wh/PifORbsbA/9OCEztusBOMVeBhzplEwzXBs43JOqxiP4Ac8a
-         3/sBoI74xnIEeLX2fcv9euG85k1nWr2nhc/0aE2KOnnPR0p/7nEeLsFWL1I60CGuXV6H
-         6mYQZL5i4pTgF2/Y52f47GeMJxXkOHn3O6kigy0LHIr2FHfgyp+x1WaUm3VishA02J/g
-         MHlXrEsQtof1vivD9damK0U0oL3u1R1wlaUfxLH/ovOA6E8QWQzzij3Tfz3Dw2cGZHUo
-         MS6V9o1/BAIE8/5+1L0pJSAW3zCJDmkB3cYmGezvkHwJQXfyu/Jbe7FCQhpHRud7oaOB
-         5yzg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763638580; x=1764243380;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=TPlzmXt4DNVBdqLVvxiBIWu8Rl4FZ4bDuiyypGx7MuQ=;
-        b=g9aki49nhz626ISatgLuN66SDudrcl/k0UppwEsyH00MyuR5fMr69Y4utSXnqx5q98
-         J9J8eTyw83ys5YFMgcs5MM2AEYof1Px146CkbvnSjSqrYXfQ3svvDZXJZVkTNtcj3EYc
-         EcuSU++FfF48nqWossHRaWAZrdo8tz/5jXvIktrCX/mTUTER6DofJk/122ChSPwB1uSO
-         S4n3ExyGWpJagsFf+bX0D4J7Fu9QxXG9OVnv6PO8o4y1yAqnr/llVerSSNhp4ATJnNTa
-         +jycjj7TT1hyTt+PA1RZtVMQeTsBzKIZuxbmOXdc3HKI+oRigKAwmYp/nTispAkjrr87
-         ynRg==
-X-Forwarded-Encrypted: i=1; AJvYcCVC8gv+ccZw3rd8LdZOM8VtYpVM4CQZyNyQteEA/wh+SgYeSHglqSRQWaj/tYn5j3cdBbNolancbvKqm4+F/uW/@lists.infradead.org
-X-Gm-Message-State: AOJu0YwbrsTXZXNhkbyWDSa/pqjWY8pEsOVbs1y9uIA7PopbpH0DDRsm
-	qP+M8m/JHdZYv0TBu3wBpd/1kshmuKlgGvwkYt/UaB4FMqXIhim26IT5O8Lov6GjTA==
-X-Gm-Gg: ASbGncsNGL5A8Dl5dVRXJsRmKUlQ6pRKglXLvbtVdKDfwzJ5OjghFZ/JpTcmnufpryd
-	vOTql4fi2WVy33miFUN+N5LZwd4k/lW+YpFCfjCaqRTbhVYVLawD6ZFDbtwvwoYG8fh7Hd1mq1e
-	T01C0II1HnMwGP/d9x4XJlgThFEqW7NcZnEEintCs178v6r19Oxp9BpXieIdSVQOajrN3eRsSZ6
-	epT5B6r+DC7KweQ7+a+TehwU+t2z46nt2FnugIfAqYcRql90uOwNGj+8Qh3rvV5rjP+qV0ssfHE
-	fGFpEgCmGY6wyC9sEzL1w22x90QPhMrAB9tnxptXD/Mb7QE7ap5P9habo1Kbj1myp8xYtDPxepv
-	skwfGPuzcGVECeBrRv3j1BVU30vklZSj2GIT8opuqjLcloYRrXwe9or6QdbUNNIe3o26LndaRyf
-	t3aqhDQEYMuR7PBpCuCvgikVdSnR+RlFXrPpfrWU9rOudk+Z4PmA==
-X-Google-Smtp-Source: AGHT+IGcOCRDUWPkVUZ7ncQTNFf+q64GbtuEHTlJs5oKc83ztKfhHnrQKRpzLVqerrPSrM7dBJtv3A==
-X-Received: by 2002:a05:600c:2e4c:b0:477:9890:4528 with SMTP id 5b1f17b1804b1-477b9ea31e9mr14670485e9.2.1763638580134;
-        Thu, 20 Nov 2025 03:36:20 -0800 (PST)
-Received: from google.com (120.54.38.34.bc.googleusercontent.com. [34.38.54.120])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-477a9e1b657sm60238005e9.17.2025.11.20.03.36.19
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 20 Nov 2025 03:36:19 -0800 (PST)
-Date: Thu, 20 Nov 2025 11:36:16 +0000
-From: Vincent Donnefort <vdonnefort@google.com>
-To: Marc Zyngier <maz@kernel.org>, g@google.com
-Cc: rostedt@goodmis.org, mhiramat@kernel.org,
-	mathieu.desnoyers@efficios.com, linux-trace-kernel@vger.kernel.org,
-	oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com,
-	yuzenghui@huawei.com, kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, jstultz@google.com,
-	qperret@google.com, will@kernel.org, aneesh.kumar@kernel.org,
-	kernel-team@android.com, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v8 20/28] KVM: arm64: Add clock support for the pKVM hyp
-Message-ID: <aR79MCNlAKP1H-PQ@google.com>
-References: <20251107093840.3779150-1-vdonnefort@google.com>
- <20251107093840.3779150-21-vdonnefort@google.com>
- <86cy5erprc.wl-maz@kernel.org>
+	Thu, 20 Nov 2025 11:37:18 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 5298B60149;
+	Thu, 20 Nov 2025 11:37:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F19D4C4CEF1;
+	Thu, 20 Nov 2025 11:37:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1763638637;
+	bh=RrpUxwlBxKhJ94bRnqangTKZ1qMlkCMgwAyjW/+afBM=;
+	h=From:To:Cc:Subject:Date:From;
+	b=WZXRD80aP88NiIaZ79MOFF2VCZePCpW+tdSqFzcVIWdpzUH6lTMI50kHoomCs5PG+
+	 a0rvejtM4w3iIfB00Cakw52U7Po8fO9j8KxXn3YWBOU/8CeafQQEy6fd3iAFs4mbXZ
+	 VAkX05CMtQuUPLXUXfsmDuCw9Ga73Lim4j+ghC0q2o36N9JHXRA5WbHxEwqVp3yDpF
+	 fTyzh/SZdJEVTHCiTQNHPh4bI4RQ23KQxo05iCjla3bqJo0WGAddcQT4RoTR0cMAWW
+	 8TylQ7rlvi2BjgpV42WPBN8blvu9G+Z4lKefiNnGFyPBMllk99dxLEvzTd+lTEcVaq
+	 t24EPhRww7G3w==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vM2yQ-00000006rX7-35N8;
+	Thu, 20 Nov 2025 11:37:14 +0000
+From: Marc Zyngier <maz@kernel.org>
+To: linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: Radu Rendec <rrendec@redhat.com>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>
+Subject: [PATCH] PCI: host-generic: Move bridge allocation outside of pci_host_common_init()
+Date: Thu, 20 Nov 2025 11:36:30 +0000
+Message-ID: <20251120113630.2036078-1-maz@kernel.org>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <86cy5erprc.wl-maz@kernel.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251120_033622_353510_404FAA5C 
-X-CRM114-Status: GOOD (  17.43  )
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, rrendec@redhat.com, bhelgaas@google.com, mani@kernel.org, robh@kernel.org, kwilczynski@kernel.org, lpieralisi@kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,38 +83,172 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-[...]
+Having the host bridge allocation inside pci_host_common_init() results
+in a lot of complexity in the pcie-apple driver (the only direct user
+of this function outside of code PCI code).
 
-> > +/* Using host provided data. Do not use for anything else than debugging. */
-> > +u64 trace_clock(void)
-> > +{
-> > +	struct clock_data *clock = &trace_clock_data;
-> > +	u64 bank = smp_load_acquire(&clock->cur);
-> > +	u64 cyc, ns;
-> > +
-> > +	cyc = __arch_counter_get_cntpct() - clock->data[bank].epoch_cyc;
-> 
-> I can only imagine that you don't care about the broken systems that
-> do not have a monotonic counter, and that will happily have their
-> counter swing back and forth?
+It forces the allocation of driver-specific tracking structures outside
+of the bridge allocation, which in turns requires it to use inneficient
+data structures to match the bridge and the private structre as needed.
 
-I haven't used the _stable() variant for the affected devices... Hum this will
-not be trivial from the hypervisor. I'll see what I can do.
+Instead, let the bridge structure be passed to pci_host_common_init(),
+allowing the driver to allocate it together with the private data,
+as it is usually intended. The driver can then retrieve the bridge
+via the owning device attached to the PCI config window structure.
+This allows the pcie-apple driver to be significantly simplified.
 
-> 
-> Also, you may want to document why you are using the physical counter
-> instead of the virtual one. I guess that you don't want CNTVOFF_EL2 to
-> apply when HCR_EL2.E2H==0, but given that you never allow anything
-> else for pKVM, this is slightly odd.
+Both core and driver code are changed in one go to avoid going via
+a transitional interface.
 
-You mean I might as well use __arch_counter_get_cntvct() as CNTVOFF_EL2 will
-always be ignored in the pKVM case?
+Link: https://lore.kernel.org/r/86jyzms036.wl-maz@kernel.org
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+Cc: Radu Rendec <rrendec@redhat.com>
+Cc: Bjorn Helgaas <bhelgaas@google.com>
+Cc: Manivannan Sadhasivam <mani@kernel.org>
+Cc: Rob Herring <robh@kernel.org>
+Cc: Krzysztof Wilczyński <kwilczynski@kernel.org>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>
+---
+ drivers/pci/controller/pci-host-common.c | 13 ++++----
+ drivers/pci/controller/pci-host-common.h |  1 +
+ drivers/pci/controller/pcie-apple.c      | 42 ++++--------------------
+ 3 files changed, 14 insertions(+), 42 deletions(-)
 
-> 
-> Thanks,
-> 
-> 	M.
-> 
-> -- 
-> Without deviation from the norm, progress is not possible.
+diff --git a/drivers/pci/controller/pci-host-common.c b/drivers/pci/controller/pci-host-common.c
+index 810d1c8de24e9..c473e7c03baca 100644
+--- a/drivers/pci/controller/pci-host-common.c
++++ b/drivers/pci/controller/pci-host-common.c
+@@ -53,16 +53,12 @@ struct pci_config_window *pci_host_common_ecam_create(struct device *dev,
+ EXPORT_SYMBOL_GPL(pci_host_common_ecam_create);
+ 
+ int pci_host_common_init(struct platform_device *pdev,
++			 struct pci_host_bridge *bridge,
+ 			 const struct pci_ecam_ops *ops)
+ {
+ 	struct device *dev = &pdev->dev;
+-	struct pci_host_bridge *bridge;
+ 	struct pci_config_window *cfg;
+ 
+-	bridge = devm_pci_alloc_host_bridge(dev, 0);
+-	if (!bridge)
+-		return -ENOMEM;
+-
+ 	of_pci_check_probe_only();
+ 
+ 	platform_set_drvdata(pdev, bridge);
+@@ -85,12 +81,17 @@ EXPORT_SYMBOL_GPL(pci_host_common_init);
+ int pci_host_common_probe(struct platform_device *pdev)
+ {
+ 	const struct pci_ecam_ops *ops;
++	struct pci_host_bridge *bridge;
+ 
+ 	ops = of_device_get_match_data(&pdev->dev);
+ 	if (!ops)
+ 		return -ENODEV;
+ 
+-	return pci_host_common_init(pdev, ops);
++	bridge = devm_pci_alloc_host_bridge(&pdev->dev, 0);
++	if (!bridge)
++		return -ENOMEM;
++
++	return pci_host_common_init(pdev, bridge, ops);
+ }
+ EXPORT_SYMBOL_GPL(pci_host_common_probe);
+ 
+diff --git a/drivers/pci/controller/pci-host-common.h b/drivers/pci/controller/pci-host-common.h
+index 51c35ec0cf37d..b5075d4bd7eb3 100644
+--- a/drivers/pci/controller/pci-host-common.h
++++ b/drivers/pci/controller/pci-host-common.h
+@@ -14,6 +14,7 @@ struct pci_ecam_ops;
+ 
+ int pci_host_common_probe(struct platform_device *pdev);
+ int pci_host_common_init(struct platform_device *pdev,
++			 struct pci_host_bridge *bridge,
+ 			 const struct pci_ecam_ops *ops);
+ void pci_host_common_remove(struct platform_device *pdev);
+ 
+diff --git a/drivers/pci/controller/pcie-apple.c b/drivers/pci/controller/pcie-apple.c
+index 0380d300adca6..a902aa81a497e 100644
+--- a/drivers/pci/controller/pcie-apple.c
++++ b/drivers/pci/controller/pcie-apple.c
+@@ -206,9 +206,6 @@ struct apple_pcie_port {
+ 	int			idx;
+ };
+ 
+-static LIST_HEAD(pcie_list);
+-static DEFINE_MUTEX(pcie_list_lock);
+-
+ static void rmw_set(u32 set, void __iomem *addr)
+ {
+ 	writel_relaxed(readl_relaxed(addr) | set, addr);
+@@ -724,32 +721,9 @@ static int apple_msi_init(struct apple_pcie *pcie)
+ 	return 0;
+ }
+ 
+-static void apple_pcie_register(struct apple_pcie *pcie)
+-{
+-	guard(mutex)(&pcie_list_lock);
+-
+-	list_add_tail(&pcie->entry, &pcie_list);
+-}
+-
+-static void apple_pcie_unregister(struct apple_pcie *pcie)
+-{
+-	guard(mutex)(&pcie_list_lock);
+-
+-	list_del(&pcie->entry);
+-}
+-
+ static struct apple_pcie *apple_pcie_lookup(struct device *dev)
+ {
+-	struct apple_pcie *pcie;
+-
+-	guard(mutex)(&pcie_list_lock);
+-
+-	list_for_each_entry(pcie, &pcie_list, entry) {
+-		if (pcie->dev == dev)
+-			return pcie;
+-	}
+-
+-	return NULL;
++	return pci_host_bridge_priv(dev_get_drvdata(dev));
+ }
+ 
+ static struct apple_pcie_port *apple_pcie_get_port(struct pci_dev *pdev)
+@@ -875,13 +849,15 @@ static const struct pci_ecam_ops apple_pcie_cfg_ecam_ops = {
+ static int apple_pcie_probe(struct platform_device *pdev)
+ {
+ 	struct device *dev = &pdev->dev;
++	struct pci_host_bridge *bridge;
+ 	struct apple_pcie *pcie;
+ 	int ret;
+ 
+-	pcie = devm_kzalloc(dev, sizeof(*pcie), GFP_KERNEL);
+-	if (!pcie)
++	bridge = devm_pci_alloc_host_bridge(dev, sizeof(*pcie));
++	if (!bridge)
+ 		return -ENOMEM;
+ 
++	pcie = pci_host_bridge_priv(bridge);
+ 	pcie->dev = dev;
+ 	pcie->hw = of_device_get_match_data(dev);
+ 	if (!pcie->hw)
+@@ -897,13 +873,7 @@ static int apple_pcie_probe(struct platform_device *pdev)
+ 	if (ret)
+ 		return ret;
+ 
+-	apple_pcie_register(pcie);
+-
+-	ret = pci_host_common_init(pdev, &apple_pcie_cfg_ecam_ops);
+-	if (ret)
+-		apple_pcie_unregister(pcie);
+-
+-	return ret;
++	return pci_host_common_init(pdev, bridge, &apple_pcie_cfg_ecam_ops);
+ }
+ 
+ static const struct of_device_id apple_pcie_of_match[] = {
+-- 
+2.47.3
+
 
