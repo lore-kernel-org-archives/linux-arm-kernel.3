@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14FA6CF885C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 14:04:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D93A0CF8860
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 14:04:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nHS+ShTd2CkJzC/awfjaT1l3eKow8+x9vpRZiRWUEyg=; b=q8HS/wrJoj+oYrx+cUNlw7waOr
-	cGU/uF57EhEI7LEiYCjtiqrfCUUaU9eWT0rPgkB+aGXIyXLz/5p006AB9Ur9mz7tA1JCrkNC1m+hS
-	oz/AwP9XaRXXlXTLjy3Rj0y4YKvTzWdFCSqLBkDaCqgJ91XeqsBthUi6oB/Hp991cjXDdMfljxOy2
-	1CEbMcwTwJ5CyEYBXrodmBWUyYjjILPa2Aj4gOllmlqHFbvCtILQFuPwlKD8qBEYWueiZehx7Weg+
-	Cagbr9xaerpW+WUrOJx2HV8oYlLkVQw5vQeo+lQbJk8TfpeCxHmUp3JsR6CKfDvcA2xTU4Fmat18x
-	RX4Y7GOQ==;
+	bh=UfqKJfrocFCotJ0w2MXbh9V8T/H1xPhczpXuKuEYt1A=; b=yb614FX+TAIPYYl1dVPQZBC4L1
+	RG1Zy/EpoAT24tfolUXQ5T411AuTSQiGTL2GeYQsJk/CbSdADokjv34CW1HZxqMVTnXei82XIH4+d
+	wOR9A8iV82nW7Wa/o0bxUY10FrpGwC/EKhe27IdQ8WRlMyg5pEP3Be0kUCGzgRA+wd7BGMKdLi4SV
+	TeBeDHiacG21l72pQb5QHsyWjOy5s/9ESOvIWimZ76RoWxbWXoIr1XCjuEOk5SXR8XT1Z+TL9TcHG
+	TQl5xLE9Eyn0Fy/OX+sCBCOvhxygUSIV/PoB+DjnQawLevVji3lnfF05vcm0j7dykXI0cGAyAEGDO
+	rrSAi2cA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vM5Gc-00000006nE3-0sQE;
-	Thu, 20 Nov 2025 14:04:10 +0000
-Received: from pdx-out-008.esa.us-west-2.outbound.mail-perimeter.amazon.com ([52.42.203.116])
+	id 1vM5Gr-00000006nJ8-2L02;
+	Thu, 20 Nov 2025 14:04:25 +0000
+Received: from pdx-out-010.esa.us-west-2.outbound.mail-perimeter.amazon.com ([52.12.53.23])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vM5GZ-00000006nCi-2Ipw
+	id 1vM5Go-00000006nHg-3hmC
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Nov 2025 14:04:08 +0000
+	Thu, 20 Nov 2025 14:04:24 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
   d=amazon.de; i=@amazon.de; q=dns/txt; s=amazoncorp2;
-  t=1763647447; x=1795183447;
+  t=1763647462; x=1795183462;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=nHS+ShTd2CkJzC/awfjaT1l3eKow8+x9vpRZiRWUEyg=;
-  b=CrtrME4gFpUKIVVAAhWELtmTZktynbltkMA/G9gg182/QFPWzl7tKQTw
-   80bNrB7lvGqv9DCyyfWmAZ6mMVm58YwAZvdI07jdneV0SWFZRvNaXDjAK
-   SNum7lkBRJtfzu32LVs9goSY2T8x1XIKdIIqQwIbxPj29r1as7EPZyqAS
-   3xlCy8VStj4gVWBJ3e1xjrp1U+zAMJMZ/ikV/ou2IcDw7Yxu6OqmONVnr
-   VffZGUqf9XqAu8BcnufM3QFOvSauh87nGaQwEt6m7F7yFkPcO56j8KyAR
-   Db06HILdvZKjWj3wSgpIc7UIO7kqC5GLxUWMe7n4rt1UL6zv6vaI/Lvov
-   A==;
-X-CSE-ConnectionGUID: /3FDSui1Q3qezKZcB9vYmQ==
-X-CSE-MsgGUID: DIRt3zyiQAiq/VgE3zLiyA==
+  bh=UfqKJfrocFCotJ0w2MXbh9V8T/H1xPhczpXuKuEYt1A=;
+  b=rqutX890UozNwerOkqVnN6mZJ0JtZ3OVhHe5rnKU1BdMREVa89NHuRx5
+   Cee4azXzmbeB6a3DJilzt4H48bUPTBJ65TCxGy9h+VADnQTsaIOjaW4qP
+   wtDyFEve2tbLHW1/yq2QDaVNsYEUh62s/KfWekDeff2BwYw9ypyBUbnrW
+   7GBl6SmZSGTtDSTIl7KaXUpr93FS5I4azkAalNGi1wqpxU3Q0H9vNTwgT
+   7l3qQwm/zApxW98AWJUI0c7vyEnxAxSXIRdggJs1ejWmukRdYeXWSvRN0
+   nfdQF7GJW/dsRUxepYiuZ1xqCT7NTVBc44vbgVMupeqWxxybntbTdkHRF
+   g==;
+X-CSE-ConnectionGUID: v75K3nozTkabLQBGwgEkgQ==
+X-CSE-MsgGUID: QEh0uMF7RxGlsKxF+l6ZPg==
 X-IronPort-AV: E=Sophos;i="6.20,213,1758585600"; 
-   d="scan'208";a="7424378"
-Received: from ip-10-5-0-115.us-west-2.compute.internal (HELO smtpout.naws.us-west-2.prod.farcaster.email.amazon.dev) ([10.5.0.115])
-  by internal-pdx-out-008.esa.us-west-2.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2025 14:04:03 +0000
-Received: from EX19MTAUWB002.ant.amazon.com [205.251.233.111:10463]
- by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.61.192:2525] with esmtp (Farcaster)
- id 8b50bdef-f4c6-4df2-acb1-3b5a9a984323; Thu, 20 Nov 2025 14:04:02 +0000 (UTC)
-X-Farcaster-Flow-ID: 8b50bdef-f4c6-4df2-acb1-3b5a9a984323
+   d="scan'208";a="7310715"
+Received: from ip-10-5-12-219.us-west-2.compute.internal (HELO smtpout.naws.us-west-2.prod.farcaster.email.amazon.dev) ([10.5.12.219])
+  by internal-pdx-out-010.esa.us-west-2.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2025 14:04:18 +0000
+Received: from EX19MTAUWA002.ant.amazon.com [205.251.233.234:3019]
+ by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.20.19:2525] with esmtp (Farcaster)
+ id a18503df-0779-4b42-9ac7-24839b6decf4; Thu, 20 Nov 2025 14:04:18 +0000 (UTC)
+X-Farcaster-Flow-ID: a18503df-0779-4b42-9ac7-24839b6decf4
 Received: from EX19D001UWA001.ant.amazon.com (10.13.138.214) by
- EX19MTAUWB002.ant.amazon.com (10.250.64.231) with Microsoft SMTP Server
+ EX19MTAUWA002.ant.amazon.com (10.250.64.202) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.29;
- Thu, 20 Nov 2025 14:04:02 +0000
+ Thu, 20 Nov 2025 14:04:17 +0000
 Received: from amazon.com (10.1.213.15) by EX19D001UWA001.ant.amazon.com
  (10.13.138.214) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.29; Thu, 20 Nov 2025
- 14:03:59 +0000
+ 14:04:15 +0000
 From: Maximilian Dittgen <mdittgen@amazon.de>
 To: <maz@kernel.org>, <oliver.upton@linux.dev>
 CC: <pbonzini@redhat.com>, <shuah@kernel.org>,
@@ -65,21 +65,21 @@ CC: <pbonzini@redhat.com>, <shuah@kernel.org>,
 	<linux-kselftest@vger.kernel.org>, <kvm@vger.kernel.org>,
 	<mdittgen@amazon.de>, <lilitj@amazon.de>, <sauravsc@amazon.de>,
 	<nh-open-source@amazon.com>, Maximilian Dittgen <mdittgen@amazon.com>
-Subject: [RFC PATCH 03/13] KVM: arm64: Refactor out locked section of kvm_vgic_v4_set_forwarding()
-Date: Thu, 20 Nov 2025 15:02:52 +0100
-Message-ID: <20251120140305.63515-4-mdittgen@amazon.de>
+Subject: [RFC PATCH 04/13] KVM: arm64: Implement vLPI QUERY ioctl for per-vCPU vLPI injection API
+Date: Thu, 20 Nov 2025 15:02:53 +0100
+Message-ID: <20251120140305.63515-5-mdittgen@amazon.de>
 X-Mailer: git-send-email 2.50.1
 In-Reply-To: <20251120140305.63515-1-mdittgen@amazon.de>
 References: <20251120140305.63515-1-mdittgen@amazon.de>
 MIME-Version: 1.0
 X-Originating-IP: [10.1.213.15]
-X-ClientProxiedBy: EX19D038UWB004.ant.amazon.com (10.13.139.177) To
+X-ClientProxiedBy: EX19D046UWB004.ant.amazon.com (10.13.139.164) To
  EX19D001UWA001.ant.amazon.com (10.13.138.214)
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251120_060407_683617_85E0D5E3 
-X-CRM114-Status: GOOD (  15.20  )
+X-CRM114-CacheID: sfid-20251120_060422_974403_C27F4311 
+X-CRM114-Status: GOOD (  14.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,99 +94,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-kvm_vgic_v4_set_forwarding() acquires its_lock to safely map guest LPIs
-to host IRQs for vLPI upgrades. Future per-vCPU direct vLPI injection
-requires atomically upgrading multiple LPIs while holding its_lock, which
-would cause recursive locking when calling kvm_vgic_v4_set_forwarding().
-
-Extract the locked portion to kvm_vgic_v4_set_forwarding_locked() to allow
-callers already holding its_lock to perform vLPI upgrades without
-recursive locking.
-
-No functional change.
+Implement kvm_vgic_query_vcpu_vlpi, which handles the KVM_QUERY_VCPU_VLPI
+ioctl to query whether a vCPU is currently initialized to handle LPIs via
+direct vLPI injection. This function checks whether the vCPU's entry in
+the VM's vPE array is populated.
 
 Signed-off-by: Maximilian Dittgen <mdittgen@amazon.com>
 ---
- arch/arm64/kvm/vgic/vgic-v4.c | 38 +++++++++++++++++++++--------------
- include/kvm/arm_vgic.h        |  3 +++
- 2 files changed, 26 insertions(+), 15 deletions(-)
+ arch/arm64/kvm/arm.c          | 13 +++++++++++--
+ arch/arm64/kvm/vgic/vgic-v4.c | 15 +++++++++++++++
+ arch/arm64/kvm/vgic/vgic.h    |  1 +
+ include/linux/kvm_host.h      | 11 +++++++++++
+ 4 files changed, 38 insertions(+), 2 deletions(-)
 
+diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+index 31db3ccb3296..afb04162e0cf 100644
+--- a/arch/arm64/kvm/arm.c
++++ b/arch/arm64/kvm/arm.c
+@@ -1959,8 +1959,17 @@ int kvm_arch_vm_ioctl(struct file *filp, unsigned int ioctl, unsigned long arg)
+ 		return -ENOSYS;
+ 	}
+ 	case KVM_QUERY_VCPU_VLPI: {
+-		/* TODO: create ioctl handler function */
+-		return -ENOSYS;
++		int vcpu_id;
++		struct kvm_vcpu *vcpu;
++
++		if (copy_from_user(&vcpu_id, argp, sizeof(vcpu_id)))
++			return -EFAULT;
++
++		vcpu = kvm_get_vcpu_by_id(kvm, vcpu_id);
++		if (!vcpu)
++			return -EINVAL;
++
++		return kvm_vgic_query_vcpu_vlpi(vcpu);
+ 	}
+ 	default:
+ 		return -EINVAL;
 diff --git a/arch/arm64/kvm/vgic/vgic-v4.c b/arch/arm64/kvm/vgic/vgic-v4.c
-index fb2e6af96aa9..4a1825a1a5d7 100644
+index 4a1825a1a5d7..cebcb9175572 100644
 --- a/arch/arm64/kvm/vgic/vgic-v4.c
 +++ b/arch/arm64/kvm/vgic/vgic-v4.c
-@@ -483,27 +483,15 @@ int kvm_vgic_v4_map_irq_to_host(struct kvm *kvm, int virq,
- 	return 0;
+@@ -617,3 +617,18 @@ void kvm_vgic_v4_unset_forwarding(struct kvm *kvm, int host_irq)
+ 	raw_spin_unlock_irqrestore(&irq->irq_lock, flags);
+ 	vgic_put_irq(kvm, irq);
  }
- 
--int kvm_vgic_v4_set_forwarding(struct kvm *kvm, int virq,
--			       struct kvm_kernel_irq_routing_entry *irq_entry)
-+int kvm_vgic_v4_set_forwarding_locked(struct kvm *kvm, int virq,
-+			       struct kvm_kernel_irq_routing_entry *irq_entry, struct vgic_its *its)
- {
--	struct vgic_its *its;
- 	struct vgic_irq *irq;
- 	struct its_vlpi_map map;
- 	unsigned long flags;
- 	int ret = 0;
- 
--	if (!vgic_supports_direct_msis(kvm))
--		return 0;
--
--	/*
--	 * Get the ITS, and escape early on error (not a valid
--	 * doorbell for any of our vITSs).
--	 */
--	its = vgic_get_its(kvm, irq_entry);
--	if (IS_ERR(its))
--		return 0;
--
--	guard(mutex)(&its->its_lock);
-+	lockdep_assert_held(&its->its_lock);
- 
- 	/*
- 	 * Perform the actual DevID/EventID -> LPI translation.
-@@ -567,6 +555,26 @@ int kvm_vgic_v4_set_forwarding(struct kvm *kvm, int virq,
- 	return ret;
- }
- 
-+int kvm_vgic_v4_set_forwarding(struct kvm *kvm, int virq,
-+			       struct kvm_kernel_irq_routing_entry *irq_entry)
++
++/* query whether vLPI direct injection is enabled on a specific vCPU.
++ * return 0 if disabled, 1 if enabled, -EINVAL if vCPU non-existant or GIC
++ * uninitialized
++ */
++int kvm_vgic_query_vcpu_vlpi(struct kvm_vcpu *vcpu)
 +{
-+	struct vgic_its *its;
++	struct kvm *kvm = vcpu->kvm;
++	struct vgic_dist *dist = &kvm->arch.vgic;
++	int i = kvm_idx_from_vcpu(kvm, vcpu);
 +
-+	if (!vgic_supports_direct_msis(kvm))
-+		return 0;
++	if (i == UINT_MAX || !dist->its_vm.vpes)
++		return -EINVAL; /* vCPU non-existant or uninitialized */
++	return dist->its_vm.vpes[i] != NULL;
++}
+diff --git a/arch/arm64/kvm/vgic/vgic.h b/arch/arm64/kvm/vgic/vgic.h
+index 99894806a4e9..295088913c26 100644
+--- a/arch/arm64/kvm/vgic/vgic.h
++++ b/arch/arm64/kvm/vgic/vgic.h
+@@ -468,5 +468,6 @@ int vgic_its_debug_init(struct kvm_device *dev);
+ void vgic_its_debug_destroy(struct kvm_device *dev);
+ 
+ bool kvm_per_vcpu_vlpi_supported(void);
++int kvm_vgic_query_vcpu_vlpi(struct kvm_vcpu *vcpu);
+ 
+ #endif
+diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
+index 5bd76cf394fa..bc7001f8c5dd 100644
+--- a/include/linux/kvm_host.h
++++ b/include/linux/kvm_host.h
+@@ -1030,6 +1030,17 @@ static inline struct kvm_vcpu *kvm_get_vcpu_by_id(struct kvm *kvm, int id)
+ 	return NULL;
+ }
+ 
++static inline unsigned int kvm_idx_from_vcpu(struct kvm *kvm, struct kvm_vcpu *target_vcpu)
++{
++	struct kvm_vcpu *vcpu;
++	unsigned long i;
 +
-+	/*
-+	 * Get the ITS, and escape early on error (not a valid
-+	 * doorbell for any of our vITSs).
-+	 */
-+	its = vgic_get_its(kvm, irq_entry);
-+	if (IS_ERR(its))
-+		return 0;
-+
-+	guard(mutex)(&its->its_lock);
-+	return kvm_vgic_v4_set_forwarding_locked(kvm, virq, irq_entry, its);
++	kvm_for_each_vcpu(i, vcpu, kvm)
++		if (vcpu == target_vcpu)
++			return i;
++	return UINT_MAX;
 +}
 +
- static struct vgic_irq *__vgic_host_irq_get_vlpi(struct kvm *kvm, int host_irq)
- {
- 	struct vgic_irq *irq;
-diff --git a/include/kvm/arm_vgic.h b/include/kvm/arm_vgic.h
-index 02842754627f..18a49c4b83f8 100644
---- a/include/kvm/arm_vgic.h
-+++ b/include/kvm/arm_vgic.h
-@@ -454,6 +454,9 @@ int kvm_vgic_v4_map_irq_to_host(struct kvm *kvm, int virq,
- 					struct kvm_kernel_irq_routing_entry *irq_entry);
- int kvm_vgic_v4_set_forwarding(struct kvm *kvm, int irq,
- 			       struct kvm_kernel_irq_routing_entry *irq_entry);
-+int kvm_vgic_v4_set_forwarding_locked(struct kvm *kvm, int virq,
-+					struct kvm_kernel_irq_routing_entry *irq_entry,
-+					struct vgic_its *its);
+ void kvm_destroy_vcpus(struct kvm *kvm);
  
- void kvm_vgic_v4_unset_forwarding(struct kvm *kvm, int host_irq);
- 
+ int kvm_trylock_all_vcpus(struct kvm *kvm);
 -- 
 2.50.1 (Apple Git-155)
 
