@@ -4,75 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D08C1CF8843
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 11:21:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40EB4CF857B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 11:22:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
 	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZI9OvNHyteLma7cxTfxeTFiEdiK8jrJPjX74p/zZ2dY=; b=olXkijFdq9SSA9XY+u2+YeTkRA
-	yKK+rIlY7pkE3qxgAixBXU+E9h3P951tfbthsgf7mFmAVb8A2jYVxkOkf3KVSS+pm2veL2IsX8CSL
-	cD3qsU+pxgbyFEAUpu/uxPQ4+nMH8DUW9nUaYEbAXL23wYYdQUngjnodjgGRzbnPxtFSHUHtbiwTJ
-	gHiTg+XXk8FMbjfu2JyS2xKux+xcmdD2NubVD9v1DMKSNPL74dg3RxxynMmm2hEoeZHvzhfm5E/O8
-	5AoDXBk+nujOm/uEQOOE+1bbzBRtv5dJAE00DnRgcnal6kdFfgDWL4c74N2hL0s9qSuxsKLq1M28x
-	sva3eoow==;
+	bh=L5zCUgwcpkF8m5tNoKt/Ujm9UTWHftPsvcaYAaXWT8Y=; b=waf48cjrLoBzg9DxOvAfSm/5WQ
+	emwmgLfv+kWrIj4ZjLifHUTu/xPSSYB8zQ9DhB8IfcRey+W2XV61ZvsgMw7XB0EEuXMPDR8D17Kfl
+	K2SIM4ptAuH5uSZI0C3+UYVRCBiOiB10cTfSjPXtrr7+dwK//ImMOAX/vyP/avykzmz2Z9MFV7xIf
+	x2/+HWukJcjZmeGe53b5xpyhY7+Nmflg21aZvUBfbx1psY6zFZpQdDgjYQiROa2XW681dmVYycbW3
+	JnLAEjVKcHBydIcZ4ReYpDPYY2iN4J0IKUc+cZURtg0E2jvd9veW1vdAOr9r5YCqWtBAMNz4BSKqF
+	WCkjIYfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vM2jY-00000006YvI-0ldb;
-	Thu, 20 Nov 2025 11:21:52 +0000
-Received: from mail-qk1-x733.google.com ([2607:f8b0:4864:20::733])
+	id 1vM2jf-00000006YwP-20hj;
+	Thu, 20 Nov 2025 11:21:59 +0000
+Received: from mail-qk1-x730.google.com ([2607:f8b0:4864:20::730])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vM2jV-00000006Yus-3TDP
+	id 1vM2jd-00000006Yvv-2hFr
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Nov 2025 11:21:51 +0000
-Received: by mail-qk1-x733.google.com with SMTP id af79cd13be357-8b2da83f721so74472385a.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Nov 2025 03:21:49 -0800 (PST)
+	Thu, 20 Nov 2025 11:21:58 +0000
+Received: by mail-qk1-x730.google.com with SMTP id af79cd13be357-8b220ddc189so90099585a.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Nov 2025 03:21:57 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1763637708; x=1764242508; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1763637716; x=1764242516; darn=lists.infradead.org;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=ZI9OvNHyteLma7cxTfxeTFiEdiK8jrJPjX74p/zZ2dY=;
-        b=EQNAiWjsKVLLvTgnyontw/1xWHk/8E+9LFMPqbpC2Z9Q+GxIVnm23oLxMObDXFvMd2
-         LVEKRvitUBuveVNIaA6TFoO1izs57nyd8p+T7/cz+1sZEVbNxPcTnpKacBly8UV05cz1
-         Znta5FjiEUtkrtY3a1CrOSyppIfxudiB2Xnf70JWWjJ17l4TiLLkD5lKM4UR0MAykSyh
-         nFV/hsdbBN9LyCxizxFNfH0+oV4oACeoNyy6Q34Uhms8IfqDjCZdArxIR/rNBFdscuO1
-         fTPJuRf4Wm0hx21OTlX6LHcEN6q9yxX3gCpjcZf3ds9ln7CAJAOBJ0tEhv1DfUtqSVbm
-         2R3A==
+        bh=L5zCUgwcpkF8m5tNoKt/Ujm9UTWHftPsvcaYAaXWT8Y=;
+        b=En/EHobIUFBUIGDSpZDLksNBE5p9fzyDVsnSkuPj8O7nFp8hHQcktpb9/RLPgGEA1z
+         BcLcw7CNd+WgBItBiPWYgXBK00qz580VXB+kkaP+GuH0B+mG+QyLi4raJONh1PtG30NE
+         P8x7DW9uHBZkmOLLMiCEyx85pq6tkUQDAPGyE5KPZiYgZHJTTtXb8of1tXO4qFXQ/xc0
+         6RHdhtDzY8uJBmQVgHO+dgwIDypmIJ3nbhPgDatt2M0uYWa/jgyRWm/zcoZurlRD3dN2
+         CmdbCHaQYnHYlMeMxOAxfnQNhsP28tVCeyDGA7L6e3v6tPJfaFbTVnuR+QGoAuFI8fPV
+         1tIg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763637708; x=1764242508;
+        d=1e100.net; s=20230601; t=1763637716; x=1764242516;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=ZI9OvNHyteLma7cxTfxeTFiEdiK8jrJPjX74p/zZ2dY=;
-        b=tNgc80JGvEk3Ue1xpUN69GkdODWqYVj//7bCCmlKab5QPgctaJJo4LLK26nlWRs7dY
-         H42BCqpk5y/M6189xJzafTR0s3q6gsK0UYEkwhhlrAqLpgtbg67OyWMP9CTBVGxq4F4+
-         dsWI70OrWOFri6PtKKy4S3LAWCNKGYM90u8OqDmV/ufMwTZt4u/mTIuSXLCAAu6sojd1
-         s52T7W5NGTUzvWRFAftSvhYBL+ZxxK9w6X62d/4inNfqf/w7jtdoLEQGmSmnxyPWZJdy
-         W7x/LhhCNmkmbgoyFnFU6bu8x2w38E7iND9uqCt57ZxIzWj8lIJDDvFulwzU+y1KezGm
-         HXow==
-X-Forwarded-Encrypted: i=1; AJvYcCU0h0HEMzBEX9UiJAjmaB9QgOefDdYSqH0EmyKRD0YE/lxWCg5pLdKoegSmGmOmcZ3R2tOxcZq1PLE/1Xig5ijp@lists.infradead.org
-X-Gm-Message-State: AOJu0YzEmhLDyxKTUJ5Uj/aTe7mBxTQHxAFbhtXVHms2cRcvR2VrFzRP
-	m2/J54C+LliPye8TfGbsphsvjqMfSfha+t0BuIipzM43bbM5IP8sD4hDMhofM2i1Gfi2qakNYf1
-	UotbFkrspWGMoPSYp7dgdaPm1UUeM7EnvQ2MH0S18LQ==
-X-Gm-Gg: ASbGncvvcZJ/ZR1EHo9OvfBAcciCapPrAfaJOVXwIrzJ6KWu3H7kD2gV9NhmlvSkORd
-	yfAzeq4Qxe5H3iN0XmOKKWECv+MZp0CT7dlSJm2/T3hQiMDaZ+Foz38tD/HJwxIKb+5I/oaqjnH
-	w7fZ1W0nOLxMjzRxuMKcr85Q6u0+40ALd11VOJvBisuUQIjqWQQcCIQ5fFZdfVXWjO9OMj90j/W
-	dj0w0+MYHD8vQMG4Y4pFNNS4Acsvt1Qv570t2VoVTf8xEBqwJjO6iyKHeLZkYW6uxpHVKlOWVMY
-	yqcFMkfRccT7GNPNmf+qmo1l+LEw
-X-Google-Smtp-Source: AGHT+IHIV7zUxX7vwPq1KtOa4ec6yAwSEMzkL8MwxJxJvLc9J7RQ3VXe0x+vXH5Cd+BIqWwNLNkHjzlSJPaVZhF8NOE=
-X-Received: by 2002:a05:620a:29c9:b0:8a2:d235:8136 with SMTP id
- af79cd13be357-8b32acf12ecmr207316385a.25.1763637708007; Thu, 20 Nov 2025
- 03:21:48 -0800 (PST)
+        bh=L5zCUgwcpkF8m5tNoKt/Ujm9UTWHftPsvcaYAaXWT8Y=;
+        b=lQwX3n2GqwIfS67adtC/15f5R3zk7eCBLqttBKUTRyk5qCSYKRCwqUouUBwx3SrBwo
+         rpI9+2BbiXBbZhk/PbKp0vFPgrJg5P7YXcvi/b3NOvvhHddNopzfMwX82YO3ays3CtmP
+         rSWsw3AfWjnfEJrKLiWvftWGpQ9JnUSU73ILE+5IlG42p6MxeGRJNZBlwZ0Uz4ikQ3iG
+         z14weRaffOMA1LlJ04vNxOMxKNbLEz1KrP6zLqGbYz4ibXdgp6HfxbB1oLcMPlDy5rUT
+         ZRIZHofwKTUgJ2uI/bOezEX8THTsgufq39YruIjPPgDmUJon9zyXwO+P+9xadphTTSUq
+         4g2Q==
+X-Forwarded-Encrypted: i=1; AJvYcCW5HIr9NYGMWYsgwae2XIiy7BVrCYTFAg/J2DCqoLWKaJ08SkrRpQabS/+tTjw1r++WfF04iJ0NvVePIvf1ZlPq@lists.infradead.org
+X-Gm-Message-State: AOJu0YywUuJZAMC9EoSPhIiHt3k6Tc7hloYrxHhBpGuTOpQs8910vIGS
+	M2LbAykWrHkoMjEDDT0Lrg4SanQW7yY5hi9JTs2Xbk9Z14BpXydOkbkz9dwc+F5zJDv8/9gEOmO
+	kNgpm3r+Dy1EjZOxNHTOK9aAzuyU7A9RWWzr65g8QlQ==
+X-Gm-Gg: ASbGncuEj9PWLQuif4e9MnhAPOYAJSroJC+6aXw24ViDBWNMjr7+nFxe/+xO7ePJp6M
+	x7qHPN/UQZOIRglgIBoprLzDxH8dH5bWEUKiUqFVRDoACacr+9GjU4qsrfEwkE69PM/0dAEN6Ku
+	12vW9K3JF20/O6O8PeJSWzslIAD9j5J1bayzFNYbS97dDYX0na+eSh3WHQK0gN2SulM6Oif7M9P
+	+oB9SIrYpI7W61BWcgdfHRzpJcYkmQVAD4cqaEiM2/GsdWzmoyhnAJkznbDXrUsTIGeDMZzVY3i
+	/qHzf6g2zHBAtolZFD22BHGhyKG8
+X-Google-Smtp-Source: AGHT+IGftcFl62uPxiax/r1jkICBY3vztlPBz2EC42A67rYaYPPn8/nxfx4/Awa4o6J8ZUqzkrMvM++FycjBXss7I9M=
+X-Received: by 2002:a05:620a:4609:b0:8b2:edc8:13d0 with SMTP id
+ af79cd13be357-8b32731450emr356855285a.17.1763637716515; Thu, 20 Nov 2025
+ 03:21:56 -0800 (PST)
 MIME-Version: 1.0
-References: <20251118-james-cs-syncfreq-v5-0-82efd7b1a751@linaro.org> <20251118-james-cs-syncfreq-v5-10-82efd7b1a751@linaro.org>
-In-Reply-To: <20251118-james-cs-syncfreq-v5-10-82efd7b1a751@linaro.org>
+References: <20251118-james-cs-syncfreq-v5-0-82efd7b1a751@linaro.org> <20251118-james-cs-syncfreq-v5-4-82efd7b1a751@linaro.org>
+In-Reply-To: <20251118-james-cs-syncfreq-v5-4-82efd7b1a751@linaro.org>
 From: Mike Leach <mike.leach@linaro.org>
-Date: Thu, 20 Nov 2025 11:21:36 +0000
-X-Gm-Features: AWmQ_bknpz8FJJonzf_St5zSPFDMr0k02Qpchp7EFZ42n9c20DmPXOAgT7c9Ghk
-Message-ID: <CAJ9a7VgQO0_FuZj2CD0yAW10xefJNmqRC-0DxJTG9FJu6h-o6A@mail.gmail.com>
-Subject: Re: [PATCH v5 10/13] coresight: Remove misleading definitions
+Date: Thu, 20 Nov 2025 11:21:45 +0000
+X-Gm-Features: AWmQ_bkw8zvxNh6zB9690NSu381x529LRFBqHXFmLzzPZrP2-ZI1f3iaJvkZBHs
+Message-ID: <CAJ9a7Vgj2P=PM2iFwSfL=GiDWtReCFn+QHUHXpkAg9y2vkocqw@mail.gmail.com>
+Subject: Re: [PATCH v5 04/13] coresight: Hide unused ETMv3 format attributes
 To: James Clark <james.clark@linaro.org>
 Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, 
 	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jonathan Corbet <corbet@lwn.net>, 
@@ -81,8 +81,8 @@ Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
 	linux-doc@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251120_032149_906350_BAC68041 
-X-CRM114-Status: GOOD (  33.25  )
+X-CRM114-CacheID: sfid-20251120_032157_689771_4F527DF7 
+X-CRM114-Status: GOOD (  21.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,95 +99,54 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 On Tue, 18 Nov 2025 at 16:28, James Clark <james.clark@linaro.org> wrote:
 >
-> ETM_OPT_* definitions duplicate the PMU format attributes that have
-> always been published in sysfs. Hardcoding them here makes it misleading
-> as to what the 'real' PMU API is and prevents attributes from being
-> rearranged in the future.
+> ETMv3 only has a few attributes, and setting unused ones results in an
+> error, so hide them to begin with.
 >
-> ETM4_CFG_BIT_* definitions just define what the Arm Architecture is
-> which is not the responsibility of the kernel to do and doesn't scale to
-> other registers or versions of ETM. It's not an actual software ABI/API
-> and these definitions here mislead that it is.
->
-> Any tools using the first ones would be broken anyway as they won't work
-> when attributes are moved, so removing them is the right thing to do and
-> will prompt a fix. Tools using the second ones can trivially redefine
-> them locally.
->
-> Perf also has its own copy of the headers so both of these things can be
-> fixed up at a later date.
->
-
-The perf version is used to reconstruct the control registers for etm3
-/ etm4 to put into the trace metadata headers in the perf.data file
-for the decoder to be intitialised correctly.
-
-perf_event_attr::config uses the ETM_OPT_* values, used directly for
-etm3 since they match the bit pattern in the etm3/ptm config register,
-and remapped for etm4 from ETM_OPT_* to equivalent ETM4_CFG_BIT* for
-the etm4 config register.
-
-The reason we do this re-construction - rather than read registers as
-we do for the other metadata - is that the register value is not set
-at the point we are recording the metadata - it does not actually get
-set until the etm is enabled, later in the perf process.
-
-On this basis it would seem that any changing of the attribute bit
-ordering has potential to break perf decode. Probably safe to remove
-from this version of the file though, but overall, changing bit
-meanings in the underlying variable may possibly need a fix in perf
-and  potentially a breaking change for earlier versions of the tools.
-
-That said, for this particular version of the header, since it appears
-to no longer need the values due to earlier changes.
-
-Reviewed-by: Mike Leach <mike.leach@linaro.org>
-
-> Reviewed-by: Leo Yan <leo.yan@arm.com>
 > Signed-off-by: James Clark <james.clark@linaro.org>
 > ---
->  include/linux/coresight-pmu.h | 24 ------------------------
->  1 file changed, 24 deletions(-)
+>  drivers/hwtracing/coresight/coresight-etm-perf.c | 22 ++++++++++++++++++++++
+>  1 file changed, 22 insertions(+)
 >
-> diff --git a/include/linux/coresight-pmu.h b/include/linux/coresight-pmu.h
-> index 89b0ac0014b0..2e179abe472a 100644
-> --- a/include/linux/coresight-pmu.h
-> +++ b/include/linux/coresight-pmu.h
-> @@ -21,30 +21,6 @@
->   */
->  #define CORESIGHT_LEGACY_CPU_TRACE_ID(cpu)  (0x10 + (cpu * 2))
+> diff --git a/drivers/hwtracing/coresight/coresight-etm-perf.c b/drivers/hwtracing/coresight/coresight-etm-perf.c
+> index 17afa0f4cdee..faebd7822a77 100644
+> --- a/drivers/hwtracing/coresight/coresight-etm-perf.c
+> +++ b/drivers/hwtracing/coresight/coresight-etm-perf.c
+> @@ -106,8 +106,30 @@ static struct attribute *etm_config_formats_attr[] = {
+>         NULL,
+>  };
 >
-> -/*
-> - * Below are the definition of bit offsets for perf option, and works as
-> - * arbitrary values for all ETM versions.
-> - *
-> - * Most of them are orignally from ETMv3.5/PTM's ETMCR config, therefore,
-> - * ETMv3.5/PTM doesn't define ETMCR config bits with prefix "ETM3_" and
-> - * directly use below macros as config bits.
-> - */
-> -#define ETM_OPT_BRANCH_BROADCAST 8
-> -#define ETM_OPT_CYCACC         12
-> -#define ETM_OPT_CTXTID         14
-> -#define ETM_OPT_CTXTID2                15
-> -#define ETM_OPT_TS             28
-> -#define ETM_OPT_RETSTK         29
-> -
-> -/* ETMv4 CONFIGR programming bits for the ETM OPTs */
-> -#define ETM4_CFG_BIT_BB         3
-> -#define ETM4_CFG_BIT_CYCACC    4
-> -#define ETM4_CFG_BIT_CTXTID    6
-> -#define ETM4_CFG_BIT_VMID      7
-> -#define ETM4_CFG_BIT_TS                11
-> -#define ETM4_CFG_BIT_RETSTK    12
-> -#define ETM4_CFG_BIT_VMID_OPT  15
-> -
->  /*
->   * Interpretation of the PERF_RECORD_AUX_OUTPUT_HW_ID payload.
->   * Used to associate a CPU with the CoreSight Trace ID.
+> +static umode_t etm_format_attr_is_visible(struct kobject *kobj,
+> +                                         struct attribute *attr, int unused)
+> +{
+> +       /* ETM4 has all attributes */
+> +       if (IS_ENABLED(CONFIG_CORESIGHT_SOURCE_ETM4X))
+> +               return attr->mode;
+> +
+> +       /*
+> +        * ETM3 only uses these attributes for programming itself (see
+> +        * ETM3X_SUPPORTED_OPTIONS). Sink ID is also supported for selecting a
+> +        * sink, but not used for configuring the ETM.
+> +        */
+> +       if (attr == &format_attr_cycacc.attr ||
+> +           attr == &format_attr_timestamp.attr ||
+> +           attr == &format_attr_retstack.attr ||
+> +           attr == &format_attr_sinkid.attr)
+> +               return attr->mode;
+> +
+> +       return 0;
+> +}
+> +
+>  static const struct attribute_group etm_pmu_format_group = {
+>         .name   = "format",
+> +       .is_visible = etm_format_attr_is_visible,
+>         .attrs  = etm_config_formats_attr,
+>  };
+>
 >
 > --
 > 2.34.1
 >
+Reviewed-by: Mike Leach <mike.leach@linaro.org>
 
 
 --
