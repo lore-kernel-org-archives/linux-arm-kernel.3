@@ -4,64 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04644CF8846
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 11:12:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D08C1CF8843
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 11:21:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LSv/toN8LhY0dPYfxd/+apT8J/RWyA9BoX5PvgpGrmE=; b=lKjpGAqAaRBfjvIL4pRRDqhSfK
-	XFWkBJHO8VIn4QDInD9WwzWNEbuwGi7GfSI2xqUZjKCyv/NXYfdWiMma10W4M7T7zOuev5O1udYhL
-	qR6h5w8SoykOKFWrbrDiD5BwzfcdbTKTQwVY62WHuGq0g01brk7nhDPBuxi0uNfCBDQBIZPvNKcZU
-	Qk3pAEwwJrzXrCGtoY4L4xbLRt+GpNjmVugtiX/qgApqgvpV+Phr1V9ciZBra7OohTZ96iy1iSfuy
-	hytMamM14ZV9jVgPl7lFFHrcssNrruISomQ8UG4Iy1Qdt7rvcb+shpmcfbBvULnrda+/kiWbl4Lda
-	fXvnY2eg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZI9OvNHyteLma7cxTfxeTFiEdiK8jrJPjX74p/zZ2dY=; b=olXkijFdq9SSA9XY+u2+YeTkRA
+	yKK+rIlY7pkE3qxgAixBXU+E9h3P951tfbthsgf7mFmAVb8A2jYVxkOkf3KVSS+pm2veL2IsX8CSL
+	cD3qsU+pxgbyFEAUpu/uxPQ4+nMH8DUW9nUaYEbAXL23wYYdQUngjnodjgGRzbnPxtFSHUHtbiwTJ
+	gHiTg+XXk8FMbjfu2JyS2xKux+xcmdD2NubVD9v1DMKSNPL74dg3RxxynMmm2hEoeZHvzhfm5E/O8
+	5AoDXBk+nujOm/uEQOOE+1bbzBRtv5dJAE00DnRgcnal6kdFfgDWL4c74N2hL0s9qSuxsKLq1M28x
+	sva3eoow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vM2ao-00000006YO5-3U2x;
-	Thu, 20 Nov 2025 11:12:50 +0000
-Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
+	id 1vM2jY-00000006YvI-0ldb;
+	Thu, 20 Nov 2025 11:21:52 +0000
+Received: from mail-qk1-x733.google.com ([2607:f8b0:4864:20::733])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vM2al-00000006YMA-0GTX
+	id 1vM2jV-00000006Yus-3TDP
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Nov 2025 11:12:48 +0000
-Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Thu, 20 Nov
- 2025 19:12:34 +0800
-Received: from [127.0.1.1] (192.168.10.13) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
- Transport; Thu, 20 Nov 2025 19:12:34 +0800
-From: Billy Tsai <billy_tsai@aspeedtech.com>
-Date: Thu, 20 Nov 2025 19:12:32 +0800
-Subject: [PATCH v3 2/2] hwmon: (aspeed-g6-pwm-tach): Add AST2700 compatible
- string
+	Thu, 20 Nov 2025 11:21:51 +0000
+Received: by mail-qk1-x733.google.com with SMTP id af79cd13be357-8b2da83f721so74472385a.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Nov 2025 03:21:49 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1763637708; x=1764242508; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=ZI9OvNHyteLma7cxTfxeTFiEdiK8jrJPjX74p/zZ2dY=;
+        b=EQNAiWjsKVLLvTgnyontw/1xWHk/8E+9LFMPqbpC2Z9Q+GxIVnm23oLxMObDXFvMd2
+         LVEKRvitUBuveVNIaA6TFoO1izs57nyd8p+T7/cz+1sZEVbNxPcTnpKacBly8UV05cz1
+         Znta5FjiEUtkrtY3a1CrOSyppIfxudiB2Xnf70JWWjJ17l4TiLLkD5lKM4UR0MAykSyh
+         nFV/hsdbBN9LyCxizxFNfH0+oV4oACeoNyy6Q34Uhms8IfqDjCZdArxIR/rNBFdscuO1
+         fTPJuRf4Wm0hx21OTlX6LHcEN6q9yxX3gCpjcZf3ds9ln7CAJAOBJ0tEhv1DfUtqSVbm
+         2R3A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1763637708; x=1764242508;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ZI9OvNHyteLma7cxTfxeTFiEdiK8jrJPjX74p/zZ2dY=;
+        b=tNgc80JGvEk3Ue1xpUN69GkdODWqYVj//7bCCmlKab5QPgctaJJo4LLK26nlWRs7dY
+         H42BCqpk5y/M6189xJzafTR0s3q6gsK0UYEkwhhlrAqLpgtbg67OyWMP9CTBVGxq4F4+
+         dsWI70OrWOFri6PtKKy4S3LAWCNKGYM90u8OqDmV/ufMwTZt4u/mTIuSXLCAAu6sojd1
+         s52T7W5NGTUzvWRFAftSvhYBL+ZxxK9w6X62d/4inNfqf/w7jtdoLEQGmSmnxyPWZJdy
+         W7x/LhhCNmkmbgoyFnFU6bu8x2w38E7iND9uqCt57ZxIzWj8lIJDDvFulwzU+y1KezGm
+         HXow==
+X-Forwarded-Encrypted: i=1; AJvYcCU0h0HEMzBEX9UiJAjmaB9QgOefDdYSqH0EmyKRD0YE/lxWCg5pLdKoegSmGmOmcZ3R2tOxcZq1PLE/1Xig5ijp@lists.infradead.org
+X-Gm-Message-State: AOJu0YzEmhLDyxKTUJ5Uj/aTe7mBxTQHxAFbhtXVHms2cRcvR2VrFzRP
+	m2/J54C+LliPye8TfGbsphsvjqMfSfha+t0BuIipzM43bbM5IP8sD4hDMhofM2i1Gfi2qakNYf1
+	UotbFkrspWGMoPSYp7dgdaPm1UUeM7EnvQ2MH0S18LQ==
+X-Gm-Gg: ASbGncvvcZJ/ZR1EHo9OvfBAcciCapPrAfaJOVXwIrzJ6KWu3H7kD2gV9NhmlvSkORd
+	yfAzeq4Qxe5H3iN0XmOKKWECv+MZp0CT7dlSJm2/T3hQiMDaZ+Foz38tD/HJwxIKb+5I/oaqjnH
+	w7fZ1W0nOLxMjzRxuMKcr85Q6u0+40ALd11VOJvBisuUQIjqWQQcCIQ5fFZdfVXWjO9OMj90j/W
+	dj0w0+MYHD8vQMG4Y4pFNNS4Acsvt1Qv570t2VoVTf8xEBqwJjO6iyKHeLZkYW6uxpHVKlOWVMY
+	yqcFMkfRccT7GNPNmf+qmo1l+LEw
+X-Google-Smtp-Source: AGHT+IHIV7zUxX7vwPq1KtOa4ec6yAwSEMzkL8MwxJxJvLc9J7RQ3VXe0x+vXH5Cd+BIqWwNLNkHjzlSJPaVZhF8NOE=
+X-Received: by 2002:a05:620a:29c9:b0:8a2:d235:8136 with SMTP id
+ af79cd13be357-8b32acf12ecmr207316385a.25.1763637708007; Thu, 20 Nov 2025
+ 03:21:48 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20251120-upstream_pwm_tach-v3-2-eaa2f9b300a2@aspeedtech.com>
-References: <20251120-upstream_pwm_tach-v3-0-eaa2f9b300a2@aspeedtech.com>
-In-Reply-To: <20251120-upstream_pwm_tach-v3-0-eaa2f9b300a2@aspeedtech.com>
-To: Guenter Roeck <linux@roeck-us.net>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-	Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>,
-	Billy Tsai <billy_tsai@aspeedtech.com>
-CC: <linux-hwmon@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-aspeed@lists.ozlabs.org>,
-	<linux-kernel@vger.kernel.org>, <BMC-SW@aspeedtech.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1763637154; l=856;
- i=billy_tsai@aspeedtech.com; s=20251118; h=from:subject:message-id;
- bh=ej2x2zXWoa7QtHmm0Xcp6bZn7Ld93lchW1+uF4w0usU=;
- b=9D8NhxSOyyG7fLbywKVqdjG1j+SQgH267L/XyiiX3zrdd3nPdvt9S2B2UD+K/F7tfAiJFl7mu
- eQwMsMn8g+nDR0affVT6WVYSAiPG6plYrtnArbJqsrQPPzpQqSl5SXV
-X-Developer-Key: i=billy_tsai@aspeedtech.com; a=ed25519;
- pk=/A8qvgZ6CPfnwKgT6/+k+nvXOkN477MshEGJvVdzeeQ=
+References: <20251118-james-cs-syncfreq-v5-0-82efd7b1a751@linaro.org> <20251118-james-cs-syncfreq-v5-10-82efd7b1a751@linaro.org>
+In-Reply-To: <20251118-james-cs-syncfreq-v5-10-82efd7b1a751@linaro.org>
+From: Mike Leach <mike.leach@linaro.org>
+Date: Thu, 20 Nov 2025 11:21:36 +0000
+X-Gm-Features: AWmQ_bknpz8FJJonzf_St5zSPFDMr0k02Qpchp7EFZ42n9c20DmPXOAgT7c9Ghk
+Message-ID: <CAJ9a7VgQO0_FuZj2CD0yAW10xefJNmqRC-0DxJTG9FJu6h-o6A@mail.gmail.com>
+Subject: Re: [PATCH v5 10/13] coresight: Remove misleading definitions
+To: James Clark <james.clark@linaro.org>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jonathan Corbet <corbet@lwn.net>, 
+	Leo Yan <leo.yan@arm.com>, Randy Dunlap <rdunlap@infradead.org>, coresight@lists.linaro.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-doc@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251120_031247_097445_373025F7 
-X-CRM114-Status: GOOD (  10.59  )
+X-CRM114-CacheID: sfid-20251120_032149_906350_BAC68041 
+X-CRM114-Status: GOOD (  33.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,33 +97,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Extends device tree support to include the AST2700 chip variant by
-adding its compatible string to the device match table.
+On Tue, 18 Nov 2025 at 16:28, James Clark <james.clark@linaro.org> wrote:
+>
+> ETM_OPT_* definitions duplicate the PMU format attributes that have
+> always been published in sysfs. Hardcoding them here makes it misleading
+> as to what the 'real' PMU API is and prevents attributes from being
+> rearranged in the future.
+>
+> ETM4_CFG_BIT_* definitions just define what the Arm Architecture is
+> which is not the responsibility of the kernel to do and doesn't scale to
+> other registers or versions of ETM. It's not an actual software ABI/API
+> and these definitions here mislead that it is.
+>
+> Any tools using the first ones would be broken anyway as they won't work
+> when attributes are moved, so removing them is the right thing to do and
+> will prompt a fix. Tools using the second ones can trivially redefine
+> them locally.
+>
+> Perf also has its own copy of the headers so both of these things can be
+> fixed up at a later date.
+>
 
-The AST2700 PWM/TACH hardware is compatible with the existing driver
-implementation used for AST2600.
+The perf version is used to reconstruct the control registers for etm3
+/ etm4 to put into the trace metadata headers in the perf.data file
+for the decoder to be intitialised correctly.
 
-Signed-off-by: Billy Tsai <billy_tsai@aspeedtech.com>
----
- drivers/hwmon/aspeed-g6-pwm-tach.c | 3 +++
- 1 file changed, 3 insertions(+)
+perf_event_attr::config uses the ETM_OPT_* values, used directly for
+etm3 since they match the bit pattern in the etm3/ptm config register,
+and remapped for etm4 from ETM_OPT_* to equivalent ETM4_CFG_BIT* for
+the etm4 config register.
 
-diff --git a/drivers/hwmon/aspeed-g6-pwm-tach.c b/drivers/hwmon/aspeed-g6-pwm-tach.c
-index 4174b129d1fc..44e1ecba205d 100644
---- a/drivers/hwmon/aspeed-g6-pwm-tach.c
-+++ b/drivers/hwmon/aspeed-g6-pwm-tach.c
-@@ -528,6 +528,9 @@ static const struct of_device_id aspeed_pwm_tach_match[] = {
- 	{
- 		.compatible = "aspeed,ast2600-pwm-tach",
- 	},
-+	{
-+		.compatible = "aspeed,ast2700-pwm-tach",
-+	},
- 	{},
- };
- MODULE_DEVICE_TABLE(of, aspeed_pwm_tach_match);
+The reason we do this re-construction - rather than read registers as
+we do for the other metadata - is that the register value is not set
+at the point we are recording the metadata - it does not actually get
+set until the etm is enabled, later in the perf process.
 
--- 
-2.34.1
+On this basis it would seem that any changing of the attribute bit
+ordering has potential to break perf decode. Probably safe to remove
+from this version of the file though, but overall, changing bit
+meanings in the underlying variable may possibly need a fix in perf
+and  potentially a breaking change for earlier versions of the tools.
 
+That said, for this particular version of the header, since it appears
+to no longer need the values due to earlier changes.
+
+Reviewed-by: Mike Leach <mike.leach@linaro.org>
+
+> Reviewed-by: Leo Yan <leo.yan@arm.com>
+> Signed-off-by: James Clark <james.clark@linaro.org>
+> ---
+>  include/linux/coresight-pmu.h | 24 ------------------------
+>  1 file changed, 24 deletions(-)
+>
+> diff --git a/include/linux/coresight-pmu.h b/include/linux/coresight-pmu.h
+> index 89b0ac0014b0..2e179abe472a 100644
+> --- a/include/linux/coresight-pmu.h
+> +++ b/include/linux/coresight-pmu.h
+> @@ -21,30 +21,6 @@
+>   */
+>  #define CORESIGHT_LEGACY_CPU_TRACE_ID(cpu)  (0x10 + (cpu * 2))
+>
+> -/*
+> - * Below are the definition of bit offsets for perf option, and works as
+> - * arbitrary values for all ETM versions.
+> - *
+> - * Most of them are orignally from ETMv3.5/PTM's ETMCR config, therefore,
+> - * ETMv3.5/PTM doesn't define ETMCR config bits with prefix "ETM3_" and
+> - * directly use below macros as config bits.
+> - */
+> -#define ETM_OPT_BRANCH_BROADCAST 8
+> -#define ETM_OPT_CYCACC         12
+> -#define ETM_OPT_CTXTID         14
+> -#define ETM_OPT_CTXTID2                15
+> -#define ETM_OPT_TS             28
+> -#define ETM_OPT_RETSTK         29
+> -
+> -/* ETMv4 CONFIGR programming bits for the ETM OPTs */
+> -#define ETM4_CFG_BIT_BB         3
+> -#define ETM4_CFG_BIT_CYCACC    4
+> -#define ETM4_CFG_BIT_CTXTID    6
+> -#define ETM4_CFG_BIT_VMID      7
+> -#define ETM4_CFG_BIT_TS                11
+> -#define ETM4_CFG_BIT_RETSTK    12
+> -#define ETM4_CFG_BIT_VMID_OPT  15
+> -
+>  /*
+>   * Interpretation of the PERF_RECORD_AUX_OUTPUT_HW_ID payload.
+>   * Used to associate a CPU with the CoreSight Trace ID.
+>
+> --
+> 2.34.1
+>
+
+
+--
+Mike Leach
+Principal Engineer, ARM Ltd.
+Manchester Design Centre. UK
 
