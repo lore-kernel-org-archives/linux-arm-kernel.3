@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4E29CF885E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 13:45:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DF1ECF8856
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 13:47:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HlnT48z/A0Zow9Hm71TYjARJnafrPhAC7M18jt6NuK0=; b=Z6KSbnMzW7nybjYBS4Q4sElulz
-	Ia9rmTka/XALnQ3ITJLocbNF/zhyxc8pHzqpnNiZObWs2qFNqotVvGclEwH9kGjkvQKNtBr0kVR8L
-	I7LlD8WPeqm990kUtQ6XZq1eH/PQnAl/lkPgKzxu2QIGiCzudD7Qr9mHXBnFsf2C8c9EOwjJMvQlP
-	R029KFX8qXCMR/aNNp2u/qtlc1t8ARPKVYO9z4Vk6Rksb683M/Bq1pGkA0NT6sk8EMkkBb///WKhG
-	Dxy5rRAazGfaqgWVX4iCsemS6JQwSnfbb0rE8/PRmM9qTy5d9Tg7KYtvSXtZZbY9PQKH5xKTxa739
-	TFqUYyDw==;
+	bh=GG+h95GJxw8aLE0rxgJBewweYYYfOwxLVyFr5Tr645w=; b=gmkO1BOJl3rKFrQJACXcX+JCQh
+	qQ8v7lM1pH9B4gN77Khde+SpeLKghnNy9FFeTWLaNDYOFIaWl+w+o8fVloUIjOKfART2ZZROFOy4S
+	3GcjHJVIDW5XBYJ5lkyA9Zgt11nXcGpd/6eOvJGTKXC3aytb9vNzDy+dDjwXAtZdG9TbnjT3TkAW+
+	EFi/PDvPoq7KPT8qZh1eKjVy/l7rxkelVzTXuC1S4fu4dsKQTLQjKuA1JSvvSurHJtT+1juFdPv79
+	9KLLrb5VszmgYEpCSsqRCqW+qBj1pIHDzd40zvpAwAguAQN8hJ5HzEx5Ij6A/Skl7DKPBIxfGZk6s
+	+DDqf/Jg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vM4y0-00000006lHk-3HtU;
-	Thu, 20 Nov 2025 13:44:56 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vM50d-00000006lTH-1hrJ;
+	Thu, 20 Nov 2025 13:47:39 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vM4xx-00000006lHM-3kA4
+	id 1vM50c-00000006lT7-2MVn
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Nov 2025 13:44:55 +0000
+	Thu, 20 Nov 2025 13:47:38 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3E0E040309;
-	Thu, 20 Nov 2025 13:44:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 80FCAC4CEF1;
-	Thu, 20 Nov 2025 13:44:48 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id A96E060148;
+	Thu, 20 Nov 2025 13:47:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C5B79C4CEF1;
+	Thu, 20 Nov 2025 13:47:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763646293;
-	bh=geE8CGqh+oZM/uYkoic6MrUOnhgB0yIjv8DKrEbMBp0=;
+	s=k20201202; t=1763646457;
+	bh=CJvDRzJ6YFbRHvYRFotqckNLhW7HcjNVMeyVDaTUxIU=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=aqHNktJUoFFpvwMD5ypnB6ijVfrJSZRG0d5kxIdfF14wDssA+jJlLHn6oQqrb+7n2
-	 LfFI+vtFdHb3f3bYoizKWazZdOz8XYJW+mtFKn/F3murhyVwfdPQRMproP7wrrz0/t
-	 DAmDwyWmrb9MzCTapfML81ZvLGpTzk9Vef+qp+PMDa3iaQJLXD9dmUaitkRqwe669k
-	 SStu1IVKEMASfrsHyZ5waPYaNAr13shnRbVokCg10J8MStDSQ14lrLqyBxMWTcg1tR
-	 LAHJ04MNWggQjdV8bUBSHBEinOkXh5ZfIB859lZETdyj16rdLXSVaIvSlkRzjwIP61
-	 bqtCBn+cjVs6A==
-Date: Thu, 20 Nov 2025 13:44:45 +0000
+	b=kXUsnNhTC9c9YaZ7AYyCFxRs7XWV+0G1RxEDkF/L+x7qwqxzTpsxsvbxaVc5NWahR
+	 huMD/s+bOqTwgoExzXL5ZQfoxJoFI2FIy+zJbH/o7FY5MZjtHWGse/BnJEK1rKC6mV
+	 LIiHMkFddRichUUmbIrQtGM/hS2SXwYOPRLF2XwFCOyM+li198/4L66MC9bg1kl1w5
+	 cx+RS+vJGmtZShei7zVzbQ0EdlmKzOHS9HZKv8rDTZiUb68cuewCMbqSgSQddRWaTC
+	 IeP/jDdzMzDe5euq4kc8PzFD9uj/IQ8u8qTIjqpM1vxVh7ppoKlgZQE+BgOWXLT8Ju
+	 tS7zCQoeEbIjA==
+Date: Thu, 20 Nov 2025 13:47:29 +0000
 From: Lee Jones <lee@kernel.org>
 To: James Calligeros <jcalligeros99@gmail.com>
 Cc: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>,
@@ -58,19 +58,16 @@ Cc: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>,
 	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org, linux-rtc@vger.kernel.org,
 	linux-hwmon@vger.kernel.org, linux-input@vger.kernel.org,
-	linux-doc@vger.kernel.org
-Subject: Re: [PATCH v5 05/11] mfd: macsmc: Add new __SMC_KEY macro
-Message-ID: <20251120134445.GC661940@google.com>
+	linux-doc@vger.kernel.org, Mark Kettenis <kettenis@openbsd.org>,
+	Hector Martin <marcan@marcan.st>
+Subject: Re: [PATCH v5 00/11] mfd: macsmc: add rtc, hwmon and hid subdevices
+Message-ID: <20251120134729.GD661940@google.com>
 References: <20251112-macsmc-subdevs-v5-0-728e4b91fe81@gmail.com>
- <20251112-macsmc-subdevs-v5-5-728e4b91fe81@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20251112-macsmc-subdevs-v5-5-728e4b91fe81@gmail.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251120_054453_970408_5220B385 
-X-CRM114-Status: GOOD (  15.81  )
+In-Reply-To: <20251112-macsmc-subdevs-v5-0-728e4b91fe81@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,33 +84,41 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 On Wed, 12 Nov 2025, James Calligeros wrote:
 
-> When using the _SMC_KEY macro in switch/case statements, GCC 15.2.1 errors
-> out with 'case label does not reduce to an integer constant'. Introduce
-> a new __SMC_KEY macro that can be used instead.
+> Hi all,
 > 
-> Signed-off-by: James Calligeros <jcalligeros99@gmail.com>
-> ---
->  include/linux/mfd/macsmc.h | 1 +
->  1 file changed, 1 insertion(+)
+> This series adds support for the remaining SMC subdevices. These are the
+> RTC, hwmon, and HID devices. They are being submitted together as the RTC
+> and hwmon drivers both require changes to the SMC DT schema.
 > 
-> diff --git a/include/linux/mfd/macsmc.h b/include/linux/mfd/macsmc.h
-> index 6b13f01a8592..f6f80c33b5cf 100644
-> --- a/include/linux/mfd/macsmc.h
-> +++ b/include/linux/mfd/macsmc.h
-> @@ -41,6 +41,7 @@ typedef u32 smc_key;
->   */
->  #define SMC_KEY(s) (smc_key)(_SMC_KEY(#s))
->  #define _SMC_KEY(s) (((s)[0] << 24) | ((s)[1] << 16) | ((s)[2] << 8) | (s)[3])
-> +#define __SMC_KEY(a, b, c, d) (((u32)(a) << 24) | ((u32)(b) << 16) | ((u32)(c) << 8) | ((u32)(d)))
+> The RTC driver is responsible for getting and setting the system clock,
+> and requires an NVMEM cell. This series replaces Sven's original RTC driver
+> submission [1].
+> 
+> The hwmon function is an interesting one. While each Apple Silicon device
+> exposes pretty similar sets of sensors, these all seem to be paired to
+> different SMC keys in the firmware interface. This is true even when the
+> sensors are on the SoC. For example, an M1 MacBook Pro will use different
+> keys to access the LITTLE core temperature sensors to an M1 Mac mini. This
+> necessitates describing which keys correspond to which sensors for each
+> device individually, and populating the hwmon structs at runtime. We do
+> this with a node in the device tree. This series includes only the keys
+> for sensors which we know to be common to all devices. The SMC is also
+> responsible for monitoring and controlling fan speeds on systems with fans,
+> which we expose via the hwmon driver.
+> 
+> The SMC also handles the hardware power button and lid switch. Power
+> button presses and lid opening/closing are emitted as HID events, so we
+> add an input subdevice to handle them.
+> 
+> Since there are no real dependencies between the components of this series,
+> it should be fine for each subsystem to take the relevant patches through
+> their trees. The mfd one-liners should be taken in order to avoid trivial
+> conflicts. Per [2], the hwmon driver should be merged along with the preceding
+> mfd patch adding the __SMC_KEY macro to avoid build errors.
 
-Are we expecting users/consumers to be able to tell the difference
-between SMC_KEY and __SMC_KEY (assuming that _SMC_KEY is just an
-internal)?
-
-I have not tested this and it is just off the top of my head, but does
-this work:
-
-#define _SMC_KEY(s) __SMC_KEY((s)[0], (s)[1], (s)[2], (s)[3])
+Apart from my (perhaps naive) question on patch 5, the other MFD patches
+look okay to me.  Once my question has been answered, I can apply the
+MFD, or at least 3 of them, orthogonally.
 
 -- 
 Lee Jones [李琼斯]
