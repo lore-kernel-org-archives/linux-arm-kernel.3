@@ -4,64 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39BEECF8549
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 07:12:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09FE8CF8549
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 07:13:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fUVxtnDp0wBZw7gMGe0WzIL+BrSI1zZNHhXG5nhPpAA=; b=AARpbrLsnpLmIR2ZVWgFNYrKYU
-	Gkpxxwp7sS0Aqdij1P5KkSYqz8Fbv2WW0h1oUAwhxBwo82ZVt5bvTDtsntExcq+p8huLk5CFHiDH7
-	+IHXVelo7NXSmaWUZG525seeEcdXzM0HglXxIT78ieOxCyB+A2sWdxR3fyJn2mO87MvdM6U8+twVB
-	jiZeOXU/VTRmDgUFB7bPrI1hp8vfY36jndCKWS7QwhgUypoigHg1vV0Mi4gHjcyxuSIMbuc/L4eLv
-	Y6VfhsEZgMkKaulU5AQ6Xc7hKzQedMNH9MbuVSJug/IFpEU0tgLsohbbonK6oaLrGSdNcqP3Jr6Py
-	s3hkETBA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:References:
+	Content-Type:Content-Transfer-Encoding:Date:Message-ID:CC:To:From:Subject:
+	Mime-Version:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:List-Owner;
+	bh=ND09Nwkz2+90smiAmNdPyw59ZMB6NJrulnHGbg09uFk=; b=NNrs3Zi5NHu5BpYRaHv/kCQ540
+	00GVsPJHKdfdQO630r7mjKwQnJt7DPaw2vLSPuUfChDJp/x0nYuTYOba2z9+TivcM/OhzF2v2IRcc
+	FZRgNryEU9k4zrkvEbBy0AsxQ8rqeCDpn/9JUiYYCObX7rKWToOtVkP7rjYgJF0UURsexRznryS6l
+	BHmHFXOz4Fzr+SNW05jfobdanTGFTgjiZQuZsTUqpY7fxBjO2TUThg/XbGuQcMKOw/9+NFueagkEU
+	nc6Fx6cbydaHwrH3kRiuuxVelFA9LxLeq6aMHZ/OqIBXExNpe4zLQamOHbMqdqQgefm13jqpGsA8l
+	KDbUOOFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLyqE-00000006HLc-2jNg;
-	Thu, 20 Nov 2025 07:12:30 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vLyqw-00000006HVZ-0kjL;
+	Thu, 20 Nov 2025 07:13:14 +0000
+Received: from mailout1.samsung.com ([203.254.224.24])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLyqC-00000006HKg-11CV;
-	Thu, 20 Nov 2025 07:12:29 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id BEF8140677;
-	Thu, 20 Nov 2025 07:12:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 124A5C4CEF1;
-	Thu, 20 Nov 2025 07:12:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1763622745;
-	bh=EQAgnumsg/0/HohGZhlQ7lZ5l81gXXG25tXu/zMDTTw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=btUsB5fhDPjSTktDnq3DzzZZd54B9/cGdxkWXeQFdks6o228NwGaJUnKsLivooWZo
-	 nznEHs9HKpv1QPdi7ap+eFfheA8tsBbn/BHOFILYDEz4wUcr/K4QajByN3GAUF8EUv
-	 Z0ca5yNesER+GfsIOyEUp6DVcSTQKsPIV1ObkKmM=
-Date: Thu, 20 Nov 2025 02:12:19 -0500
-From: Greg KH <gregkh@linuxfoundation.org>
-To: Douglas Anderson <dianders@chromium.org>
-Cc: Marcel Holtmann <marcel@holtmann.org>,
-	Luiz Augusto von Dentz <luiz.dentz@gmail.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Thorsten Leemhuis <regressions@leemhuis.info>,
-	incogcyberpunk@proton.me, johan.hedberg@gmail.com,
-	regressions@lists.linux.dev, sean.wang@mediatek.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-bluetooth@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH] Bluetooth: btusb: mediatek: Avoid
- btusb_mtk_claim_iso_intf() NULL deref
-Message-ID: <2025112007-quit-enable-3fa1@gregkh>
-References: <20251119085354.1.I1ae7aebc967e52c7c4be7aa65fbd81736649568a@changeid>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251119085354.1.I1ae7aebc967e52c7c4be7aa65fbd81736649568a@changeid>
+	id 1vLyqs-00000006HUV-2Wmy
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 20 Nov 2025 07:13:12 +0000
+Received: from epcas2p4.samsung.com (unknown [182.195.41.56])
+	by mailout1.samsung.com (KnoxPortal) with ESMTP id 20251120071304epoutp01eb5138e2027ad1670854aa2c733e69fb~5pZQM12tm2680426804epoutp01q
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Nov 2025 07:13:04 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.samsung.com 20251120071304epoutp01eb5138e2027ad1670854aa2c733e69fb~5pZQM12tm2680426804epoutp01q
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1763622784;
+	bh=ND09Nwkz2+90smiAmNdPyw59ZMB6NJrulnHGbg09uFk=;
+	h=Subject:Reply-To:From:To:CC:Date:References:From;
+	b=LdR1FvUbI13QdHI/uuHQ4u12zvdMRAgLq6baMRxw9vKE+fku43QrPwfXHjoO6UmNi
+	 mEKFnQuzZiH9gdtdSXWVHM0XFrL1aQeUDlOs0Hh/NAgR41lyyRuTiw59EMS0js+qQ7
+	 4J3sZcDBaLCHfJ5zUsJPjgt1M4MnY/xG/w8fodFA=
+Received: from epsnrtp04.localdomain (unknown [182.195.42.156]) by
+	epcas2p2.samsung.com (KnoxPortal) with ESMTPS id
+	20251120071303epcas2p2fe5a8d265dfed108cd92a80479af8684~5pZPnarpH3199531995epcas2p2X;
+	Thu, 20 Nov 2025 07:13:03 +0000 (GMT)
+Received: from epcas2p3.samsung.com (unknown [182.195.38.201]) by
+	epsnrtp04.localdomain (Postfix) with ESMTP id 4dBqLl2d0cz6B9mF; Thu, 20 Nov
+	2025 07:13:03 +0000 (GMT)
+Mime-Version: 1.0
+Subject: Subject: [PATCH] nvme: Call nvme_setup_cmd before check
+ host_pathing_error.
+From: =?UTF-8?B?7KCE66+87Iud?= <hmi.jeon@samsung.com>
+To: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-nvme@lists.infradead.org" <linux-nvme@lists.infradead.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "asahi@lists.linux.dev"
+	<asahi@lists.linux.dev>
+CC: "sven@kernel.org" <sven@kernel.org>, "j@jannau.net" <j@jannau.net>,
+	"neal@gompa.dev" <neal@gompa.dev>, "kbusch@kernel.org" <kbusch@kernel.org>,
+	"axboe@kernel.dk" <axboe@kernel.dk>, "hch@lst.de" <hch@lst.de>,
+	"sagi@grimberg.me" <sagi@grimberg.me>, "justin.tee@broadcom.com"
+	<justin.tee@broadcom.com>, "nareshgottumukkala83@gmail.com"
+	<nareshgottumukkala83@gmail.com>, "paul.ely@broadcom.com"
+	<paul.ely@broadcom.com>, "kch@nvidia.com" <kch@nvidia.com>,
+	=?UTF-8?B?7J207Iq57LKg?= <sc108.lee@samsung.com>
+X-Priority: 3
+X-Content-Kind-Code: NORMAL
+X-CPGS-Detection: blocking_info_exchange
+X-Drm-Type: N,general
+X-Msg-Generator: Mail
+X-Msg-Type: PERSONAL
+X-Reply-Demand: N
+Message-ID: <20251120071302epcms2p79062e2da03d95e64d78266f5bdad3f7b@epcms2p7>
+Date: Thu, 20 Nov 2025 16:13:02 +0900
+X-CMS-MailID: 20251120071302epcms2p79062e2da03d95e64d78266f5bdad3f7b
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+X-Sendblock-Type: AUTO_CONFIDENTIAL
+CMS-TYPE: 102P
+cpgsPolicy: CPGSC10-223,Y
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20251120071302epcms2p79062e2da03d95e64d78266f5bdad3f7b
+References: <CGME20251120071302epcms2p79062e2da03d95e64d78266f5bdad3f7b@epcms2p7>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251119_231228_334070_5ED85EF2 
-X-CRM114-Status: GOOD (  25.58  )
+X-CRM114-CacheID: sfid-20251119_231311_431851_2A26931A 
+X-CRM114-Status: GOOD (  23.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,65 +94,188 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: hmi.jeon@samsung.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 19, 2025 at 08:53:55AM -0800, Douglas Anderson wrote:
-> In btusb_mtk_setup(), we set `btmtk_data->isopkt_intf` to:
->   usb_ifnum_to_if(data->udev, MTK_ISO_IFNUM)
-> 
-> That function can return NULL in some cases. Even when it returns
-> NULL, though, we still go on to call btusb_mtk_claim_iso_intf().
-> 
-> As of commit e9087e828827 ("Bluetooth: btusb: mediatek: Add locks for
-> usb_driver_claim_interface()"), calling btusb_mtk_claim_iso_intf()
-> when `btmtk_data->isopkt_intf` is NULL will cause a crash because
-> we'll end up passing a bad pointer to device_lock(). Prior to that
-> commit we'd pass the NULL pointer directly to
-> usb_driver_claim_interface() which would detect it and return an
-> error, which was handled.
-> 
-> Resolve the crash in btusb_mtk_claim_iso_intf() by adding a NULL check
-> at the start of the function. This makes the code handle a NULL
-> `btmtk_data->isopkt_intf` the same way it did before the problematic
-> commit (just with a slight change to the error message printed).
-> 
-> Reported-by: IncogCyberpunk <incogcyberpunk@proton.me>
-> Closes: http://lore.kernel.org/r/a380d061-479e-4713-bddd-1d6571ca7e86@leemhuis.info
-> Fixes: e9087e828827 ("Bluetooth: btusb: mediatek: Add locks for usb_driver_claim_interface()")
-> Signed-off-by: Douglas Anderson <dianders@chromium.org>
-> ---
-> I have no way to test this commit myself other than to compile it. It
-> looks fairly straightforward, though, so I'm hopeful it will fix the
-> problem.
+From f77ad0431e08d66be940aaf31d7d79780ac3a3da Mon Sep 17 00:00:00 2001
+From: Minsik Jeon <hmi.jeon@samsung.com>
+Date: Thu, 20 Nov 2025 14:33:11 +0900
+Subject: [PATCH] nvme: Call nvme_setup_cmd before check host_pathing_error.
 
-Hi,
+we were checking host_pathing_error before calling nvme_setup_cmd().
+This is caused the command setup to be skipped entirely when a pathing
+error occurred, making it impossible to trace the nvme command via
+trace_cmd nvme_complete_rq().
 
-This is the friendly patch-bot of Greg Kroah-Hartman.  You have sent him
-a patch that has triggered this response.  He used to manually respond
-to these common problems, but in order to save his sanity (he kept
-writing the same thing over and over, yet to different people), I was
-created.  Hopefully you will not take offence and will fix the problem
-in your patch and resubmit it so that it can be accepted into the Linux
-kernel tree.
+As a result, when nvme_complete_rq() logged a completion with cmdid=0,
+it was impossible to correlate the completion with the nvme command
+request.
 
-You are receiving this message because of the following common error(s)
-as indicated below:
+This patch reorders the logic to first call nvme_setup_cmd(), then
+perform the host_pathing_error check.
 
-- You have marked a patch with a "Fixes:" tag for a commit that is in an
-  older released kernel, yet you do not have a cc: stable line in the
-  signed-off-by area at all, which means that the patch will not be
-  applied to any older kernel releases.  To properly fix this, please
-  follow the documented rules in the
-  Documentation/process/stable-kernel-rules.rst file for how to resolve
-  this.
+trace_nvme_complete_rq()
+nvme6: qid=0, cmdid=0, res=0x0, retries=0, flags=0x2, status=0x370
 
-If you wish to discuss this problem further, or you have questions about
-how to resolve this issue, please feel free to respond to this email and
-Greg will reply once he has dug out from the pending patches received
-from other developers.
+Acked-by: Kibeom Son <kibeom.son@samsung.com>
+Co-authored-by: Beomsoo Kim <beomsooo.kim@samsung.com>
+Co-authored-by: Eunsoo Lee <euns212.lee@samsung.com>
+Co-authored-by: Steven Seungcheol Lee <sc108.lee@samsung.com>
+Signed-off-by: Minsik Jeon <hmi.jeon@samsung.com>
+---
+ drivers/nvme/host/apple.c  | 6 +++---
+ drivers/nvme/host/fc.c     | 8 ++++----
+ drivers/nvme/host/pci.c    | 8 ++++----
+ drivers/nvme/host/rdma.c   | 8 ++++----
+ drivers/nvme/host/tcp.c    | 8 ++++----
+ drivers/nvme/target/loop.c | 6 +++---
+ 6 files changed, 22 insertions(+), 22 deletions(-)
 
-thanks,
+diff --git a/drivers/nvme/host/apple.c b/drivers/nvme/host/apple.c
+index f35d3f71d..4e3b0ded9 100644
+--- a/drivers/nvme/host/apple.c
++++ b/drivers/nvme/host/apple.c
+@@ -783,13 +783,13 @@ static blk_status_t apple_nvme_queue_rq(struct blk_mq_hw_ctx *hctx,
+ 	if (unlikely(!READ_ONCE(q->enabled)))
+ 		return BLK_STS_IOERR;
+ 
+-	if (!nvme_check_ready(&anv->ctrl, req, true))
+-		return nvme_fail_nonready_command(&anv->ctrl, req);
+-
+ 	ret = nvme_setup_cmd(ns, req);
+ 	if (ret)
+ 		return ret;
+ 
++	if (!nvme_check_ready(&anv->ctrl, req, true))
++		return nvme_fail_nonready_command(&anv->ctrl, req);
++
+ 	if (blk_rq_nr_phys_segments(req)) {
+ 		ret = apple_nvme_map_data(anv, req, cmnd);
+ 		if (ret)
+diff --git a/drivers/nvme/host/fc.c b/drivers/nvme/host/fc.c
+index 03987f497..ad8402d3a 100644
+--- a/drivers/nvme/host/fc.c
++++ b/drivers/nvme/host/fc.c
+@@ -2764,14 +2764,14 @@ nvme_fc_queue_rq(struct blk_mq_hw_ctx *hctx,
+ 	u32 data_len;
+ 	blk_status_t ret;
+ 
+-	if (ctrl->rport->remoteport.port_state != FC_OBJSTATE_ONLINE ||
+-	    !nvme_check_ready(&queue->ctrl->ctrl, rq, queue_ready))
+-		return nvme_fail_nonready_command(&queue->ctrl->ctrl, rq);
+-
+ 	ret = nvme_setup_cmd(ns, rq);
+ 	if (ret)
+ 		return ret;
+ 
++	if (ctrl->rport->remoteport.port_state != FC_OBJSTATE_ONLINE ||
++	    !nvme_check_ready(&queue->ctrl->ctrl, rq, queue_ready))
++		return nvme_fail_nonready_command(&queue->ctrl->ctrl, rq);
++
+ 	/*
+ 	 * nvme core doesn't quite treat the rq opaquely. Commands such
+ 	 * as WRITE ZEROES will return a non-zero rq payload_bytes yet
+diff --git a/drivers/nvme/host/pci.c b/drivers/nvme/host/pci.c
+index 72fb675a6..d57347eb0 100644
+--- a/drivers/nvme/host/pci.c
++++ b/drivers/nvme/host/pci.c
+@@ -1149,10 +1149,6 @@ static blk_status_t nvme_prep_rq(struct request *req)
+ 	iod->total_len = 0;
+ 	iod->meta_total_len = 0;
+ 
+-	ret = nvme_setup_cmd(req->q->queuedata, req);
+-	if (ret)
+-		return ret;
+-
+ 	if (blk_rq_nr_phys_segments(req)) {
+ 		ret = nvme_map_data(req);
+ 		if (ret)
+@@ -1191,6 +1187,10 @@ static blk_status_t nvme_queue_rq(struct blk_mq_hw_ctx *hctx,
+ 	if (unlikely(!test_bit(NVMEQ_ENABLED, &nvmeq->flags)))
+ 		return BLK_STS_IOERR;
+ 
++	ret = nvme_setup_cmd(req->q->queuedata, req);
++	if (ret)
++		return ret;
++
+ 	if (unlikely(!nvme_check_ready(&dev->ctrl, req, true)))
+ 		return nvme_fail_nonready_command(&dev->ctrl, req);
+ 
+diff --git a/drivers/nvme/host/rdma.c b/drivers/nvme/host/rdma.c
+index 190a4cfa8..266531fda 100644
+--- a/drivers/nvme/host/rdma.c
++++ b/drivers/nvme/host/rdma.c
+@@ -2005,6 +2005,10 @@ static blk_status_t nvme_rdma_queue_rq(struct blk_mq_hw_ctx *hctx,
+ 
+ 	WARN_ON_ONCE(rq->tag < 0);
+ 
++	ret = nvme_setup_cmd(ns, rq);
++	if (ret)
++		return ret;
++
+ 	if (!nvme_check_ready(&queue->ctrl->ctrl, rq, queue_ready))
+ 		return nvme_fail_nonready_command(&queue->ctrl->ctrl, rq);
+ 
+@@ -2020,10 +2024,6 @@ static blk_status_t nvme_rdma_queue_rq(struct blk_mq_hw_ctx *hctx,
+ 	ib_dma_sync_single_for_cpu(dev, sqe->dma,
+ 			sizeof(struct nvme_command), DMA_TO_DEVICE);
+ 
+-	ret = nvme_setup_cmd(ns, rq);
+-	if (ret)
+-		goto unmap_qe;
+-
+ 	nvme_start_request(rq);
+ 
+ 	if (IS_ENABLED(CONFIG_BLK_DEV_INTEGRITY) &&
+diff --git a/drivers/nvme/host/tcp.c b/drivers/nvme/host/tcp.c
+index 9a96df1a5..d847ca0d6 100644
+--- a/drivers/nvme/host/tcp.c
++++ b/drivers/nvme/host/tcp.c
+@@ -2704,10 +2704,6 @@ static blk_status_t nvme_tcp_setup_cmd_pdu(struct nvme_ns *ns,
+ 	u8 hdgst = nvme_tcp_hdgst_len(queue), ddgst = 0;
+ 	blk_status_t ret;
+ 
+-	ret = nvme_setup_cmd(ns, rq);
+-	if (ret)
+-		return ret;
+-
+ 	req->state = NVME_TCP_SEND_CMD_PDU;
+ 	req->status = cpu_to_le16(NVME_SC_SUCCESS);
+ 	req->offset = 0;
+@@ -2767,6 +2763,10 @@ static blk_status_t nvme_tcp_queue_rq(struct blk_mq_hw_ctx *hctx,
+ 	bool queue_ready = test_bit(NVME_TCP_Q_LIVE, &queue->flags);
+ 	blk_status_t ret;
+ 
++	ret = nvme_setup_cmd(ns, rq);
++	if (ret)
++		return ret;
++
+ 	if (!nvme_check_ready(&queue->ctrl->ctrl, rq, queue_ready))
+ 		return nvme_fail_nonready_command(&queue->ctrl->ctrl, rq);
+ 
+diff --git a/drivers/nvme/target/loop.c b/drivers/nvme/target/loop.c
+index f85a8441b..b2dcbea2b 100644
+--- a/drivers/nvme/target/loop.c
++++ b/drivers/nvme/target/loop.c
+@@ -140,13 +140,13 @@ static blk_status_t nvme_loop_queue_rq(struct blk_mq_hw_ctx *hctx,
+ 	bool queue_ready = test_bit(NVME_LOOP_Q_LIVE, &queue->flags);
+ 	blk_status_t ret;
+ 
+-	if (!nvme_check_ready(&queue->ctrl->ctrl, req, queue_ready))
+-		return nvme_fail_nonready_command(&queue->ctrl->ctrl, req);
+-
+ 	ret = nvme_setup_cmd(ns, req);
+ 	if (ret)
+ 		return ret;
+ 
++	if (!nvme_check_ready(&queue->ctrl->ctrl, req, queue_ready))
++		return nvme_fail_nonready_command(&queue->ctrl->ctrl, req);
++
+ 	nvme_start_request(req);
+ 	iod->cmd.common.flags |= NVME_CMD_SGL_METABUF;
+ 	iod->req.port = queue->ctrl->port;
+-- 
+2.47.1
 
-greg k-h's patch email bot
 
