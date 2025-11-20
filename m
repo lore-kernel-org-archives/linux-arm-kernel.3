@@ -4,76 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A77D4CF256D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 03:54:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC945CD4F3E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 04:11:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=i/9fXz2ddaTLkXOH8ycWjaberX2W1W2CHsbRWkVwg9Y=; b=d+11duoBSiNZl+tLqjsG6TTKrR
-	2ctvtnvksaqLtn8ijuBltficZx5WhYhzkLE+1MoFpHvkqnzZwP11uK1NMb0V88NWECgGOyLslWtCK
-	8Ue8jETVgwD9EY3JBcUfYFcaQQvijxZMx8jWqSPpOvhHAag01oTGXK3D62sV+MgyV+9aoxx0Qaxdp
-	iElb11fzfbLEjZ/e3KXXrcw+Zypvb0GDVx6bJTjlgldHkphJtMzzXqYxKa5+cTA99ES0q11l7M6ah
-	4pmmr6QZGZ4vMQGu8JCt0Mg16z5VeGwhUI+u5siybwskOPBu4joKzO8cA1VoFv7pBcOy8SibQALNZ
-	IG1y+G4A==;
+	bh=2t7hmruR6MWJpSfcv7dicfOBqMxal2u0/ahXPnRgxiY=; b=tk8NJo7aHu+zyF/IRxQ7J9DW8+
+	Nl6xuD9SH52w5OMsOupZqiq+/ta47XzwZ5nS/rkmXti1rQ4Oznbi9lYRJ7M6DD/ppUw/mWju1f1nn
+	5XK20GtTIMZSynJPjLhVeeLOFVpMB7aCXy5Z7sk/KPEXBIZseceZic1nPpJoTR2wufEAK/CK59qZA
+	PNcEdP6Tc5R6MxMxDDejOy8bondKRKMpBpAQuCUUf6tifQz+FbqP85g1QVYIALhwyWntPdjNuBqXY
+	Z4/A6mzjj2at5daWOlaTBMiOQX8q3Bz3snZuFOD/sWB4UVlasnKty4b47AmuMR6JezI6gC3O6mXu7
+	teVd+v3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLvkE-000000066ay-3Gjn;
-	Thu, 20 Nov 2025 03:54:06 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLvkD-000000066ae-08RV
+	id 1vLw0S-000000067JR-2nk2;
+	Thu, 20 Nov 2025 04:10:52 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vLw0N-000000067IT-1OCc
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Nov 2025 03:54:06 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 28C3F40860;
-	Thu, 20 Nov 2025 03:54:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C0371C4CEF1;
-	Thu, 20 Nov 2025 03:54:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763610843;
-	bh=a7vnpmXnXdqNvYGCUQj1wNNIzSzZ7tEyGzfOBhzICC8=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=L5gYLiXPHSg8nT9iI/9V4WGuGCyjZPy4pOzGn61PY5F14rjSQqAY8nVbUINYCsW6x
-	 /mPpFqBKA/iTOjPtr6btfSSNYGV6o9d9KT52nGogQSVUvr7TxsSKdHuYMCEkZ+0Ohb
-	 BfQqKbAmdqb91w+iwEWMzR1xOV+WF1N8ms8BJ+VJHuOr9Z+FoqDLsckC4a2a2geGfN
-	 FeuQBJ7NM0P2lBrWz6zH0tq0OVqv1DW3ng9ibI9Wv2SuziZfoOAVHnTDZGT4+At4Zn
-	 KepKt1hnlN5Xfh7XoqXdA4LCIovpS4NE0vBJQcTQ2+j9uQi1qJaSt7/Bq9YPUo9Lhp
-	 ewMqf3JRICEGQ==
-Date: Wed, 19 Nov 2025 19:54:00 -0800
-From: Jakub Kicinski <kuba@kernel.org>
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Cc: davem@davemloft.net, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
- thomas.petazzoni@bootlin.com, Andrew Lunn <andrew@lunn.ch>, Eric Dumazet
- <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Russell King
- <linux@armlinux.org.uk>, linux-arm-kernel@lists.infradead.org, Christophe
- Leroy <christophe.leroy@csgroup.eu>, Herve Codina
- <herve.codina@bootlin.com>, Florian Fainelli <f.fainelli@gmail.com>, Heiner
- Kallweit <hkallweit1@gmail.com>, Vladimir Oltean <vladimir.oltean@nxp.com>,
- =?UTF-8?B?S8O2cnk=?= Maincent <kory.maincent@bootlin.com>, Marek
- =?UTF-8?B?QmVow7pu?= <kabel@kernel.org>, Oleksij Rempel
- <o.rempel@pengutronix.de>, =?UTF-8?B?Tmljb2zDsg==?= Veronese
- <nicveronese@gmail.com>, Simon Horman <horms@kernel.org>,
- mwojtas@chromium.org, Antoine Tenart <atenart@kernel.org>,
- devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>, Romain
- Gantois <romain.gantois@bootlin.com>, Daniel Golle <daniel@makrotopia.org>,
- Dimitri Fedrau <dimitri.fedrau@liebherr.com>
-Subject: Re: [PATCH net-next v17 03/15] net: phy: Introduce PHY ports
- representation
-Message-ID: <20251119195400.1bf0cc68@kernel.org>
-In-Reply-To: <20251119195920.442860-4-maxime.chevallier@bootlin.com>
-References: <20251119195920.442860-1-maxime.chevallier@bootlin.com>
-	<20251119195920.442860-4-maxime.chevallier@bootlin.com>
+	Thu, 20 Nov 2025 04:10:49 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 66122FEC;
+	Wed, 19 Nov 2025 20:10:36 -0800 (PST)
+Received: from [10.164.18.59] (MacBook-Pro.blr.arm.com [10.164.18.59])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6ED693F740;
+	Wed, 19 Nov 2025 20:10:41 -0800 (PST)
+Message-ID: <01c00163-ec81-41ba-ba4d-c3425e2109f7@arm.com>
+Date: Thu, 20 Nov 2025 09:40:38 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] arm64/pageattr: Propagate return value from
+ __change_memory_common
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: will@kernel.org, ryan.roberts@arm.com, rppt@kernel.org,
+ shijie@os.amperecomputing.com, yang@os.amperecomputing.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20251112062716.64801-1-dev.jain@arm.com>
+ <20251112062716.64801-2-dev.jain@arm.com> <aR4GhuhEISNSSbUf@arm.com>
+Content-Language: en-US
+From: Dev Jain <dev.jain@arm.com>
+In-Reply-To: <aR4GhuhEISNSSbUf@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251119_195405_093965_E1758196 
-X-CRM114-Status: GOOD (  10.14  )
+X-CRM114-CacheID: sfid-20251119_201047_412263_A8B240EE 
+X-CRM114-Status: GOOD (  16.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,34 +67,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 19 Nov 2025 20:59:04 +0100 Maxime Chevallier wrote:
-> diff --git a/net/ethtool/common.c b/net/ethtool/common.c
-> index 2f4b70f104e8..8216e4ada58e 100644
-> --- a/net/ethtool/common.c
-> +++ b/net/ethtool/common.c
-> @@ -460,6 +460,21 @@ const struct link_mode_info link_mode_params[] = {
->  static_assert(ARRAY_SIZE(link_mode_params) == __ETHTOOL_LINK_MODE_MASK_NBITS);
->  EXPORT_SYMBOL_GPL(link_mode_params);
->  
-> +const char ethtool_link_medium_names[][ETH_GSTRING_LEN] = {
-> +	[ETHTOOL_LINK_MEDIUM_BASET] = "BaseT",
-> +	[ETHTOOL_LINK_MEDIUM_BASEK] = "BaseK",
-> +	[ETHTOOL_LINK_MEDIUM_BASES] = "BaseS",
-> +	[ETHTOOL_LINK_MEDIUM_BASEC] = "BaseC",
-> +	[ETHTOOL_LINK_MEDIUM_BASEL] = "BaseL",
-> +	[ETHTOOL_LINK_MEDIUM_BASED] = "BaseD",
-> +	[ETHTOOL_LINK_MEDIUM_BASEE] = "BaseE",
-> +	[ETHTOOL_LINK_MEDIUM_BASEF] = "BaseF",
-> +	[ETHTOOL_LINK_MEDIUM_BASEV] = "BaseV",
-> +	[ETHTOOL_LINK_MEDIUM_BASEMLD] = "BaseMLD",
-> +	[ETHTOOL_LINK_MEDIUM_NONE] = "None",
-> +};
-> +static_assert(ARRAY_SIZE(ethtool_link_medium_names) == __ETHTOOL_LINK_MEDIUM_LAST);
 
-Thanks for reshuffling things, this one needs a static tho:
+On 19/11/25 11:33 pm, Catalin Marinas wrote:
+> On Wed, Nov 12, 2025 at 11:57:15AM +0530, Dev Jain wrote:
+>> The rodata=on security measure requires that any code path which does
+>> vmalloc -> set_memory_ro/set_memory_rox must protect the linear map alias
+>> too. Therefore, if such a call fails, we must abort set_memory_* and caller
+>> must take appropriate action; currently we are suppressing the error, and
+>> there is a real chance of such an error arising post commit a166563e7ec3
+>> ("arm64: mm: support large block mapping when rodata=full"). Therefore,
+>> propagate any error to the caller.
+>>
+>> Fixes: a166563e7ec3 ("arm64: mm: support large block mapping when rodata=full")
+>> Signed-off-by: Dev Jain <dev.jain@arm.com>
+>> ---
+>> v1 of this patch: https://lore.kernel.org/all/20251103061306.82034-1-dev.jain@arm.com/
+>> I have dropped stable since no real chance of failure was there.
+> I couldn't figure out from the comments on v1 whether Will's concern was
+> addressed:
+>
+> https://lore.kernel.org/all/aQn4EwKar66UZ7rz@willie-the-truck/
+>
+> IOW, is the patch necessary? What are the failure scenarios and what
 
-net/ethtool/common.c:463:12: warning: symbol 'ethtool_link_medium_names' was not declared. Should it be static?
--- 
-pw-bot: cr
+The patch is necessary because rodata=on requires us to proceed with
+set_memory_* *only* if the linear map alias permission change was successful.
+If we still go ahead with the set_memory_*, you now have memory in
+RO state, whereas the linear map alias is in RW state, defeating the purpose
+of rodata = on.
 
+> does the caller do? It's good to propagate an error to the caller but
+> patch also changes the current behaviour by bailing out earlier.
+
+The caller will get to know that set_memory_* failed. Since we may have
+bailed out partially in between the linear map alias permission change,
+we must also ensure that we change that memory back to RW - vm_reset_perms()
+will ensure that, and that change back to RW is *guaranteed* to succeed
+in the calls to set_area_direct_map() in vm_reset_perms(): as explained
+in the next patch, since that memory is non-RW, it is guaranteed to be
+pte-mapped.
+
+Now, it is the responsibility of the caller to pass VM_FLUSH_RESET_PERMS
+*before* it does set_memory_ro/set_memory_rox. If it doesn't, then the
+code is broken as is (Ryan noted earlier how this is a fragility in the
+vmalloc API and we should do something about it).
+
+>
 
