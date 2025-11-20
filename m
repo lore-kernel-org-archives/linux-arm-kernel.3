@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 863EECF9C51
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 17:26:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABF47CF9C73
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 17:26:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wPyGHPRna034ITPTV713t2J/PPtNcyhRa6/5XVynKOg=; b=jCfK0wRjr45dczhh4sAhAPOaKT
-	yknuXuInyysRmJWFRmGTBbvtqIqjqbI8c9UX6GCXNQENHJXjbq2h71eBhEcZzt4srPc78eC6OhDgV
-	13V9EBgD6T3to/yrdvZ8J192N1Wr24MelTFNW5YOMshTDtaO3pEt2M4FT6YSYTyaDVtyWQUCLiF9d
-	ES+jtBOSFRsD+BwR9c8DFk4htnmChd9iFPDKIS+/n366sE5mBthkxJQtGhoFEKmBkovo2kKyhMldw
-	V6x+odU5E9FsfkYlrxKyZYlFG5qThpn2Q1qUCA6x9dTpAXwhgw0bSBfImG72KKIDGGGo9+B2is0RQ
-	zDoZnaPg==;
+	bh=hTX43mCIVSwnV8LhatKvxRFjWuthfngzmKR81U6sBzs=; b=SN3ZePLdfSM6qdi/fX8PLiBqr4
+	z0l/7LcU26DPs/oAUfUZ/Uf0taorjT13gE8G3vilPfDs2yr1WwZC/RKpWHiei8zjH2s9mtfH9ZyoC
+	dcLdyx9ATcRa3r3liffXF/g+BNk6UroEiJeNsL+IfQ8eWIrfXebqya2Br9Ac6vqhqyGPj3myQmPWE
+	cno4gDDNU+l1HQ9IG81cnr6Y/yymav5LWpEtESga9LKwVAofP74jUDLNZpeOdSvXA6/5kpnFO6S7j
+	9s6bpa+g97WG3E1YB4gPFTdszE/KvAeUtWSb8ICb60NxQ46of4EdZ9y+UnYRRcjHU7Enu3ov2w9lp
+	FTGW0nuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vM8QR-000000076RP-2fSj;
-	Thu, 20 Nov 2025 17:26:31 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vM8QS-000000076Tu-43Ge;
+	Thu, 20 Nov 2025 17:26:32 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vM8Q1-000000075bE-2oaW
+	id 1vM8Q1-000000075gw-2pvo
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 20 Nov 2025 17:26:07 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8C6BA44431;
+	by sea.source.kernel.org (Postfix) with ESMTP id 5E89C44420;
 	Thu, 20 Nov 2025 17:26:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 70B1AC19423;
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 41396C4CEF1;
 	Thu, 20 Nov 2025 17:26:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1763659565;
-	bh=74pgP/bZ5hdtuI7lcrAtWgPxkfi9NnSDOfGi5xsnYtE=;
+	bh=cRS4kAA0Vgfod9v7K2vTkuWwsLyxveyvdNB8H0bRqHY=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=hjjmK8AL/kUUOVQaTVLq+uMe210mLkKEF700wRqoNfj7MRrKoB5fhI+TN1whVPxFW
-	 cFKjaPihe0J1Qo6PGYraMVOAm2U0YrfnVQRUqYQMzGzZBq3tYhw2c1nAUkDXV24Nm1
-	 isBX31Cd0T5ZDpCyyWTyDH+JKtNsTys0oZ847KfPK+Z0vMe6nOva+CJmDSXZXZAqCz
-	 L7UQ5p8U+KHyHeqnB+fiTQcvDvl+T6fxZ7zBERv+W85jnQodt/HnXIG65EoHMDURr0
-	 yJBgy/T2BYBpN8fdsCvcsMxNK2JupeKBB4Em7QndY/nml3TPka9xG5zAZTBDpxtU51
-	 UB1DzVeY5TJQg==
+	b=Zxya5X6YMY8GZqybGkaVqNlwhhOOD6oftaLqcSVIAQLhywKOrMBCJNy52kr3YQFc0
+	 OmDTBlMlCL8Twt38AwQqaG2WX/GHMGA+3vhbL0VBTWMAfSQNUcWwRFNi1Va32xdjTe
+	 3KXKSQLpzbLSTIj26yMrItyk26yL1q9lXB+P1cyFBB/JRnNrk/mV5obEPNW34gQWhz
+	 euupH/JKmBVpUb/TssemEiFy1orxqlkPwNpc8LaCwGiyTQQxQu960iNIGJlIXxyiJI
+	 Dm9MoA316KS7Kov4LrpQEHTu3KBMzFEiqnm1g9o8/uSoB5TTlsTuorTCUe9aLIqNw8
+	 qgzNYR8W/Ir3A==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1vM8Pz-00000006y6g-2sMg;
+	id 1vM8Pz-00000006y6g-1rYM;
 	Thu, 20 Nov 2025 17:26:03 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
@@ -59,9 +59,9 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Christoffer Dall <christoffer.dall@arm.com>,
 	Fuad Tabba <tabba@google.com>,
 	Mark Brown <broonie@kernel.org>
-Subject: [PATCH v4 40/49] KVM: arm64: selftests: gic_v3: Add irq group setting helper
-Date: Thu, 20 Nov 2025 17:25:30 +0000
-Message-ID: <20251120172540.2267180-41-maz@kernel.org>
+Subject: [PATCH v4 39/49] KVM: arm64: GICv2: Always trap GICV_DIR register
+Date: Thu, 20 Nov 2025 17:25:29 +0000
+Message-ID: <20251120172540.2267180-40-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20251120172540.2267180-1-maz@kernel.org>
 References: <20251120172540.2267180-1-maz@kernel.org>
@@ -72,8 +72,8 @@ X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251120_092605_776171_DD953846 
-X-CRM114-Status: GOOD (  11.44  )
+X-CRM114-CacheID: sfid-20251120_092605_766085_B8414249 
+X-CRM114-Status: GOOD (  12.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,89 +88,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Being able to set the group of an interrupt is pretty useful.
-Add such a helper.
+Since we can't decide to trap the DIR register on a per-vcpu basis,
+always trap the second page of the GIC CPU interface. Yes, this is
+costly. On the bright side, no sane SW should use EOImode==1 on
+GICv2...
 
 Tested-by: Fuad Tabba <tabba@google.com>
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- tools/testing/selftests/kvm/include/arm64/gic.h   |  1 +
- tools/testing/selftests/kvm/lib/arm64/gic.c       |  6 ++++++
- .../testing/selftests/kvm/lib/arm64/gic_private.h |  1 +
- tools/testing/selftests/kvm/lib/arm64/gic_v3.c    | 15 +++++++++++++++
- 4 files changed, 23 insertions(+)
+ arch/arm64/kvm/hyp/vgic-v2-cpuif-proxy.c | 4 ++++
+ arch/arm64/kvm/vgic/vgic-v2.c            | 2 +-
+ 2 files changed, 5 insertions(+), 1 deletion(-)
 
-diff --git a/tools/testing/selftests/kvm/include/arm64/gic.h b/tools/testing/selftests/kvm/include/arm64/gic.h
-index baeb3c859389d..cc7a7f34ed377 100644
---- a/tools/testing/selftests/kvm/include/arm64/gic.h
-+++ b/tools/testing/selftests/kvm/include/arm64/gic.h
-@@ -57,6 +57,7 @@ void gic_irq_set_pending(unsigned int intid);
- void gic_irq_clear_pending(unsigned int intid);
- bool gic_irq_get_pending(unsigned int intid);
- void gic_irq_set_config(unsigned int intid, bool is_edge);
-+void gic_irq_set_group(unsigned int intid, bool group);
- 
- void gic_rdist_enable_lpis(vm_paddr_t cfg_table, size_t cfg_table_size,
- 			   vm_paddr_t pend_table);
-diff --git a/tools/testing/selftests/kvm/lib/arm64/gic.c b/tools/testing/selftests/kvm/lib/arm64/gic.c
-index 7abbf8866512a..b023868fe0b82 100644
---- a/tools/testing/selftests/kvm/lib/arm64/gic.c
-+++ b/tools/testing/selftests/kvm/lib/arm64/gic.c
-@@ -155,3 +155,9 @@ void gic_irq_set_config(unsigned int intid, bool is_edge)
- 	GUEST_ASSERT(gic_common_ops);
- 	gic_common_ops->gic_irq_set_config(intid, is_edge);
- }
-+
-+void gic_irq_set_group(unsigned int intid, bool group)
-+{
-+	GUEST_ASSERT(gic_common_ops);
-+	gic_common_ops->gic_irq_set_group(intid, group);
-+}
-diff --git a/tools/testing/selftests/kvm/lib/arm64/gic_private.h b/tools/testing/selftests/kvm/lib/arm64/gic_private.h
-index d24e9ecc96c6d..b6a7e30c3eb1f 100644
---- a/tools/testing/selftests/kvm/lib/arm64/gic_private.h
-+++ b/tools/testing/selftests/kvm/lib/arm64/gic_private.h
-@@ -25,6 +25,7 @@ struct gic_common_ops {
- 	void (*gic_irq_clear_pending)(uint32_t intid);
- 	bool (*gic_irq_get_pending)(uint32_t intid);
- 	void (*gic_irq_set_config)(uint32_t intid, bool is_edge);
-+	void (*gic_irq_set_group)(uint32_t intid, bool group);
- };
- 
- extern const struct gic_common_ops gicv3_ops;
-diff --git a/tools/testing/selftests/kvm/lib/arm64/gic_v3.c b/tools/testing/selftests/kvm/lib/arm64/gic_v3.c
-index 66d05506f78b1..3e4e1a6a4f7c3 100644
---- a/tools/testing/selftests/kvm/lib/arm64/gic_v3.c
-+++ b/tools/testing/selftests/kvm/lib/arm64/gic_v3.c
-@@ -293,6 +293,20 @@ static void gicv3_enable_redist(volatile void *redist_base)
+diff --git a/arch/arm64/kvm/hyp/vgic-v2-cpuif-proxy.c b/arch/arm64/kvm/hyp/vgic-v2-cpuif-proxy.c
+index 78579b31a4205..5fd99763b54de 100644
+--- a/arch/arm64/kvm/hyp/vgic-v2-cpuif-proxy.c
++++ b/arch/arm64/kvm/hyp/vgic-v2-cpuif-proxy.c
+@@ -63,6 +63,10 @@ int __vgic_v2_perform_cpuif_access(struct kvm_vcpu *vcpu)
+ 		return -1;
  	}
- }
  
-+static void gicv3_set_group(uint32_t intid, bool grp)
-+{
-+	uint32_t cpu_or_dist;
-+	uint32_t val;
++	/* Handle deactivation as a normal exit */
++	if ((fault_ipa - vgic->vgic_cpu_base) >= GIC_CPU_DEACTIVATE)
++		return 0;
 +
-+	cpu_or_dist = (get_intid_range(intid) == SPI_RANGE) ? DIST_BIT : guest_get_vcpuid();
-+	val = gicv3_reg_readl(cpu_or_dist, GICD_IGROUPR + (intid / 32) * 4);
-+	if (grp)
-+		val |= BIT(intid % 32);
-+	else
-+		val &= ~BIT(intid % 32);
-+	gicv3_reg_writel(cpu_or_dist, GICD_IGROUPR + (intid / 32) * 4, val);
-+}
-+
- static void gicv3_cpu_init(unsigned int cpu)
- {
- 	volatile void *sgi_base;
-@@ -400,6 +414,7 @@ const struct gic_common_ops gicv3_ops = {
- 	.gic_irq_clear_pending = gicv3_irq_clear_pending,
- 	.gic_irq_get_pending = gicv3_irq_get_pending,
- 	.gic_irq_set_config = gicv3_irq_set_config,
-+	.gic_irq_set_group = gicv3_set_group,
- };
- 
- void gic_rdist_enable_lpis(vm_paddr_t cfg_table, size_t cfg_table_size,
+ 	rd = kvm_vcpu_dabt_get_rd(vcpu);
+ 	addr  = kvm_vgic_global_state.vcpu_hyp_va;
+ 	addr += fault_ipa - vgic->vgic_cpu_base;
+diff --git a/arch/arm64/kvm/vgic/vgic-v2.c b/arch/arm64/kvm/vgic/vgic-v2.c
+index bc52d44a573d5..585491fbda807 100644
+--- a/arch/arm64/kvm/vgic/vgic-v2.c
++++ b/arch/arm64/kvm/vgic/vgic-v2.c
+@@ -457,7 +457,7 @@ int vgic_v2_map_resources(struct kvm *kvm)
+ 	if (!static_branch_unlikely(&vgic_v2_cpuif_trap)) {
+ 		ret = kvm_phys_addr_ioremap(kvm, dist->vgic_cpu_base,
+ 					    kvm_vgic_global_state.vcpu_base,
+-					    KVM_VGIC_V2_CPU_SIZE, true);
++					    KVM_VGIC_V2_CPU_SIZE - SZ_4K, true);
+ 		if (ret) {
+ 			kvm_err("Unable to remap VGIC CPU to VCPU\n");
+ 			return ret;
 -- 
 2.47.3
 
