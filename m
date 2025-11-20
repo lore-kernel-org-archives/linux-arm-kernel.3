@@ -4,63 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE921CFA446
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 21:10:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D4B8CFA446
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 21:24:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VL+dgfFJaJObXef1+NwBUjf2BvSPGC9sMwQo64LaXKc=; b=eAEyASh3j0TcNaftsqA172HMr8
-	bUASEH5HZ1V0oWkXhUfo8elae7OFeXvcO7HaOgUdMOuhg53HvBvKlz08BSOq14ffsrBuNER8gV/Au
-	SQDcLcJ+4G2RKO8KraxffWdkLdjxJzo1EgePR7NGYFEAvrAyx+Y0oXaIxyMaI248PzOjddDTYkWne
-	EiICXaDlQIIIeU+M/tLNs+PJBlIpIdS0X9iYpV+Guo8ESerxrQEhhAJX7Obj7IglO4USMrBsSf40y
-	D3+w+2BDu1sRVEAXzK61fZozjrg/lliBXNrKSvs4Y2CxWy4FPpFshmKMAc9LsbcCJnXGMEBJiSb9v
-	UErjblgQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=wbz4ZH75eZphSjZ/3prZTvqyj3Fu1bpOcwI7IKkOrMw=; b=FNZZwB9W2O1Wo2APLw0yagM9Ls
+	cyGqy8ZZa7kuTeDRf/sIHF86cI3uekbuOoVeg3k65otlS0YsfHr6SOgNQF2GbXGujaStalMLsBBOS
+	YRla80/wsa0FhUaj1t2v1j7Wb3+Rz+9IC+R+Iz0G3GFBWlg5N2y8krR8D1hB1IgIHRReLcIJwaYPw
+	P4Fgp6cBNwkqvSodC3zG07s7xCqgzzyLw7k2Lbzdfi6i4ZDbT6qkINKMEyGhxfhHeOErRNcJwcPqH
+	OJ05TflaWcn0ev2Z2Fq3lAJ4DXg8MgKC2/NEUgZv6MoIJY+lH/sW65zwXGZMim48KCLBqjDmXwwOM
+	04GvWovA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMBub-00000007PaD-23Hp;
-	Thu, 20 Nov 2025 21:09:53 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1vMC8V-00000007RYF-0dt5;
+	Thu, 20 Nov 2025 21:24:15 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMBuY-00000007PYS-2ahv;
-	Thu, 20 Nov 2025 21:09:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=VL+dgfFJaJObXef1+NwBUjf2BvSPGC9sMwQo64LaXKc=; b=4JDKEuaY9gDbNRJ0y1i9Sc3Kmq
-	P6GJ5tqKs8OYW+92B8fDosEbT4qnXx9EV/zKO6AaXTwWp9hPuNEWIWAOWc+BJd/Sfp36W8BLiCErQ
-	4efNnXhltm1CHDBh01lmUA335Klso0Rz1uBSqHZY0Te6APQWyqPtWK3zFK4zEYDvFbjs=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1vMBuC-00Eg2Z-5n; Thu, 20 Nov 2025 22:09:28 +0100
-Date: Thu, 20 Nov 2025 22:09:28 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Chen Minqiang <ptpt52@gmail.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	"Chester A. Unal" <chester.a.unal@arinc9.com>,
-	Daniel Golle <daniel@makrotopia.org>,
-	DENG Qingfang <dqfext@gmail.com>,
-	Sean Wang <sean.wang@mediatek.com>, linux-kernel@vger.kernel.org,
+	id 1vMC8T-00000007RY7-3Uvo
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 20 Nov 2025 21:24:13 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id F3BC260171;
+	Thu, 20 Nov 2025 21:24:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A4B04C4CEF1;
+	Thu, 20 Nov 2025 21:24:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1763673852;
+	bh=4Y8r/6ty+KwQSyf1uJgttUHp2wq+e/5lt08/NAvm/u0=;
+	h=From:To:Cc:Subject:Date:From;
+	b=Ivcmt+4ZsjqlDy79/NuPdPgc6lzXqtlHNT9fAgqWiK+5KvRrFRA22XrsSGL3QfCkC
+	 YwYSQLEM48sZt+t2TgN8miH00hi8FmmulYFjoGwyXbHkpvmzowMpqlZ1LEeVuxMyVy
+	 CLnsWPcsUAcN5YrwoFy9WPUXWKkR6uLm7NYf3sm4Eau5NfUGquwkRIKpvHM7JvAKGz
+	 9cEBzzuZOqo4gFwnApCzk+/jIC/t1sAoub+McPU7/cxERjYsCf7QZSobLE6gRnD0H2
+	 l8E34fJMSltjgVz8G4Ja8LVZmISycSlQiReQSZkPCDoqfuShScskP1gMPLhFfr4MB7
+	 tFy94sW8tCQ6g==
+From: Jiri Olsa <jolsa@kernel.org>
+To: Steven Rostedt <rostedt@kernel.org>,
+	Florent Revest <revest@google.com>,
+	Mark Rutland <mark.rutland@arm.com>
+Cc: bpf@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
-Subject: Re: [PATCH] ARM64: dts: mediatek: fix MT7531 reset polarity and
- reset sequence
-Message-ID: <f8e9184a-2b29-461a-907b-9e17856b5d89@lunn.ch>
-References: <20251120162225.13993-1-ptpt52@gmail.com>
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Menglong Dong <menglong8.dong@gmail.com>,
+	Song Liu <song@kernel.org>
+Subject: [PATCHv3 bpf-next 0/8] ftrace,bpf: Use single direct ops for bpf trampolines
+Date: Thu, 20 Nov 2025 22:23:54 +0100
+Message-ID: <20251120212402.466524-1-jolsa@kernel.org>
+X-Mailer: git-send-email 2.51.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251120162225.13993-1-ptpt52@gmail.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251120_130950_660932_979E02F3 
-X-CRM114-Status: GOOD (  13.69  )
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,37 +75,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 21, 2025 at 12:22:24AM +0800, Chen Minqiang wrote:
-> The MT7531 reset pin is active-low, but multiple MediaTek boards describe
-> the reset-gpios property without GPIO_ACTIVE_LOW or incorrectly mark it
-> as active-high. With an active-low GPIO, gpiod_set_value(1) drives the
-> line low (assert reset) and gpiod_set_value(0) drives it high (deassert).
-> 
-> Update all affected DTS files to explicitly use GPIO_ACTIVE_LOW so that
-> the reset polarity matches the hardware design.
-> 
-> Additionally, adjust the mt7530 driver reset sequence to correctly assert
-> reset by driving the GPIO low first, wait for the reset interval, and
-> then deassert reset by driving the GPIO high.
-> 
-> Boards fixed:
->  - mt7622-bananapi-bpi-r64
->  - mt7622-rfb1
->  - mt7986a-bananapi-bpi-r3
->  - mt7986a-rfb
->  - mt7986b-rfb
-> 
-> This ensures the MT7531 receives a proper low-to-high active-low reset
-> pulse and initializes reliably.
+hi,
+while poking the multi-tracing interface I ended up with just one ftrace_ops
+object to attach all trampolines.
 
-Please add a comment to the commit message about backwards/forwards
-compatibility, how this is safe when booting an old DT blob on a new
-kernel. Or a new DT blob on an old kernel. We don't expect regressions
-in such cases, and it is good to indicate in the commit message you
-have thought about this and don't expect problems.
+This change allows to use less direct API calls during the attachment changes
+in the future code, so in effect speeding up the attachment.
 
-    Andrew
+In current code we get a speed up from using just a single ftrace_ops object.
 
+- with current code:
+
+  Performance counter stats for 'bpftrace -e fentry:vmlinux:ksys_* {} -c true':
+
+     6,364,157,902      cycles:k
+       828,728,902      cycles:u
+     1,064,803,824      instructions:u                   #    1.28  insn per cycle
+    23,797,500,067      instructions:k                   #    3.74  insn per cycle
+
+       4.416004987 seconds time elapsed
+
+       0.164121000 seconds user
+       1.289550000 seconds sys
+
+
+- with the fix:
+
+   Performance counter stats for 'bpftrace -e fentry:vmlinux:ksys_* {} -c true':
+
+     6,535,857,905      cycles:k
+       810,809,429      cycles:u
+     1,064,594,027      instructions:u                   #    1.31  insn per cycle
+    23,962,552,894      instructions:k                   #    3.67  insn per cycle
+
+       1.666961239 seconds time elapsed
+
+       0.157412000 seconds user
+       1.283396000 seconds sys
+
+
+
+The speedup seems to be related to the fact that with single ftrace_ops object
+we don't call ftrace_shutdown anymore (we use ftrace_update_ops instead) and
+we skip the synchronize rcu calls (each ~100ms) at the end of that function.
+
+rfc: https://lore.kernel.org/bpf/20250729102813.1531457-1-jolsa@kernel.org/
+v1:  https://lore.kernel.org/bpf/20250923215147.1571952-1-jolsa@kernel.org/
+v2:  https://lore.kernel.org/bpf/20251113123750.2507435-1-jolsa@kernel.org/
+
+
+v3 changes:
+- rebased on top of bpf-next/master
+- fixed update_ftrace_direct_del cleanup path
+- added missing inline to update_ftrace_direct_* stubs
+
+v2 changes:
+- rebased on top fo bpf-next/master plus Song's livepatch fixes [1] 
+- renamed the API functions [2] [Steven]
+- do not export the new api [Steven]
+- kept the original direct interface:
+
+  I'm not sure if we want to melt both *_ftrace_direct and the new interface
+  into single one. It's bit different in semantic (hence the name change as
+  Steven suggested [2]) and I don't think the changes are not that big so
+  we could easily keep both APIs.
+
+v1 changes:
+- make the change x86 specific, after discussing with Mark options for
+  arm64 [Mark]
+
+thanks,
+jirka
+
+
+[1] https://lore.kernel.org/bpf/20251027175023.1521602-1-song@kernel.org/
+[2] https://lore.kernel.org/bpf/20250924050415.4aefcb91@batman.local.home/
 ---
-pw-bot: cr
+Jiri Olsa (8):
+      ftrace: Make alloc_and_copy_ftrace_hash direct friendly
+      ftrace: Export some of hash related functions
+      ftrace: Add update_ftrace_direct_add function
+      ftrace: Add update_ftrace_direct_del function
+      ftrace: Add update_ftrace_direct_mod function
+      bpf: Add trampoline ip hash table
+      ftrace: Factor ftrace_ops ops_func interface
+      bpf, x86: Use single ftrace_ops for direct calls
+
+ arch/x86/Kconfig        |   1 +
+ include/linux/bpf.h     |   7 ++-
+ include/linux/ftrace.h  |  37 +++++++++++++-
+ kernel/bpf/trampoline.c | 205 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++------------
+ kernel/trace/Kconfig    |   3 ++
+ kernel/trace/ftrace.c   | 337 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++----
+ kernel/trace/trace.h    |   8 ---
+ 7 files changed, 547 insertions(+), 51 deletions(-)
 
