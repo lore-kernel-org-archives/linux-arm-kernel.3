@@ -4,71 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAD41CF8844
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 11:37:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF827CF8848
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 11:53:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ZkvAUGq0FyIS/gO1w2XfWBYjV3DPw0PAbHxjlCLMgSc=; b=a2OhCE07WuQpGIo2oBvRCx5g0y
-	iLuj8L2Gh1po9ZMp+MfuGptSTOKQFIH0qKz9ARuA0YupuSb/8wU4O0SIscme5hrKybUDTXJTU3yKM
-	mv4ITfniIPryVDsbiaL+z8D1kwnxiZ0fc1XxPSn+2fxW11VSgxTUbE+xN0sYIK2i2C6l0HRaGRszV
-	+b3KDTLv6XpQkmXYM0zZuTF5cpXD2qFjwEM5sG0snp+B2+KGSZqSeAfDA2a1VWC2WCIPkStl/IaEL
-	u8KnyxaHEwupa0kfQo4s5RhaZCcTOsHdO11BS+L2M8r4xxvgU0iHbL3+0SumzMLGGNMWl8PrJidKL
-	3qTba55Q==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FlqEVS0+MiGt+zpPjfFggE/AaavkPH2p4yD9Xw0jlrs=; b=yA+dO/SlzWeZiwYOOUD1F5Rd3X
+	zIM1chBJMvbFsmgBa1OokIRrMy4DMoHsmNXAa1pokIqJneRLmG3ZZFPagVXDTjup5dh4dbH0WxaxR
+	R2f+zfWaX5B9suJXVVQ/U/guX75OCAtwyHYIdhzzhBB7+Yy26XluPwmOlME+RDIXk8W9pWwK/aIqV
+	TkVqNn203V0Rvn0468LkCorUpFFQNeXCW/2P4UiNe3ZurOr9Mzt93bniSKjiRDIsQpqglnEPTOy4H
+	cRWKybqAi0dlNhK+QUZPsZCe9TxZDxdIVtx8wPy2qB811f+FJt1SeuMujHQBvl7/kpuT0M9OJsWXe
+	qrC9NvnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vM2yU-00000006b5I-3efY;
-	Thu, 20 Nov 2025 11:37:18 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vM3EJ-00000006bqg-3Fnn;
+	Thu, 20 Nov 2025 11:53:39 +0000
+Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vM2yU-00000006b57-0qqJ
+	id 1vM3EH-00000006bqD-3XAN
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Nov 2025 11:37:18 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5298B60149;
-	Thu, 20 Nov 2025 11:37:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F19D4C4CEF1;
-	Thu, 20 Nov 2025 11:37:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763638637;
-	bh=RrpUxwlBxKhJ94bRnqangTKZ1qMlkCMgwAyjW/+afBM=;
-	h=From:To:Cc:Subject:Date:From;
-	b=WZXRD80aP88NiIaZ79MOFF2VCZePCpW+tdSqFzcVIWdpzUH6lTMI50kHoomCs5PG+
-	 a0rvejtM4w3iIfB00Cakw52U7Po8fO9j8KxXn3YWBOU/8CeafQQEy6fd3iAFs4mbXZ
-	 VAkX05CMtQuUPLXUXfsmDuCw9Ga73Lim4j+ghC0q2o36N9JHXRA5WbHxEwqVp3yDpF
-	 fTyzh/SZdJEVTHCiTQNHPh4bI4RQ23KQxo05iCjla3bqJo0WGAddcQT4RoTR0cMAWW
-	 8TylQ7rlvi2BjgpV42WPBN8blvu9G+Z4lKefiNnGFyPBMllk99dxLEvzTd+lTEcVaq
-	 t24EPhRww7G3w==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1vM2yQ-00000006rX7-35N8;
-	Thu, 20 Nov 2025 11:37:14 +0000
-From: Marc Zyngier <maz@kernel.org>
-To: linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: Radu Rendec <rrendec@redhat.com>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>
-Subject: [PATCH] PCI: host-generic: Move bridge allocation outside of pci_host_common_init()
-Date: Thu, 20 Nov 2025 11:36:30 +0000
-Message-ID: <20251120113630.2036078-1-maz@kernel.org>
-X-Mailer: git-send-email 2.47.3
+	Thu, 20 Nov 2025 11:53:39 +0000
+Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-42b32a3e78bso671772f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Nov 2025 03:53:36 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1763639616; x=1764244416; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=FlqEVS0+MiGt+zpPjfFggE/AaavkPH2p4yD9Xw0jlrs=;
+        b=BPiE40Oci6yRp0P/bJsuOVwHuqw6lyOK/Wc74jkys6rPTcJKoAe+5QnK65tnXtqeId
+         8iFEM28Ec1Po0KhzT2evOXaNj5eDoDGcwd5W3wOo93wUQf6W6T7hj6KZfX6uJJxHFrZf
+         VtE5uuE9SKgCPvbqukKsN21/xIZkwkpIY5JHyCboQYCC51Ze1bbzEh3mlBtOpJIEZsLG
+         13pbp5OuoH1rk180nMtOuhdJGED9q8q/plch0Aah3b+pIdeCIPDfIY9dq1bosuF+t5Kw
+         cqyZPs/juhG3XddKD7XATk7qh8mma2yEGwzRNCHCZtqPhkrB/8y7qzQrabMb7WU+g+26
+         sAdA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1763639616; x=1764244416;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=FlqEVS0+MiGt+zpPjfFggE/AaavkPH2p4yD9Xw0jlrs=;
+        b=XXE4ugQfczMQQRgpL48I2Gb6yAuIExS3fyPybI3YzWqM6evF0ChzKBz7VY2ZHmRK1q
+         KsC2e8uvDu9X+NxImv0Fr8Nwd97gmXvf58z/NSnOrePAufQ0p/rPglR+y1FtgLMz9KAi
+         wIpa1keXCuGNjAvCjqzkKN+e/lKebNBbh+vRcR2S4/udRzUbvCuSCn8XzfhQmQMjU3nc
+         p4rRJIu4W0QQ8RxmzdFj6vZiE4H2bwDnn1I+bZn0ttjHBrqiFDczG4tLer+LcXcgoAWr
+         NAwLRUApsM/8/Fl6iw8Ygh8+N6Pr4Ihc1HWf9j8KhfxHVuSZkcfk7zGshfc1ZYt3jyYl
+         dwFA==
+X-Forwarded-Encrypted: i=1; AJvYcCXIMrEuyOgxSaAd+OMxOdDKlXSFWYFUvPCSfSsjOHssUgqegqjmGUqRSIAPSQce6qXuREsqPkHINT8DuLO7dU5o@lists.infradead.org
+X-Gm-Message-State: AOJu0YyxLnBTo7tMxH9KUSEQyhdu+CVuOh/GlHv572BN4WfWNXhGL8Bz
+	eIQZvdCldqco09wV3AFci17WsE1rDtU5fh9Qj6i3ZEajDUai9Fdo9E8ogFRuMweHDG4=
+X-Gm-Gg: ASbGncuJloIA+xaj8I/OEKKK/ve5JK4ROsQ3SIdeJDG5t86h6GSfgEkiMVctXkYlpTk
+	XNRxMJKdXOWIjV5t3m8ZkzMk2wvOtNDvMm9ecdEbX4LTTcrU0+deeRrK8lyGiP3DnRbIX6UOxkx
+	vY09lP2pDwvca46nQUaGlmmSHhjTZEHH8WXuIKjmkDW5Ft7EJkPV5dY6CyksZcNR45z/0T06PZ/
+	bVbShFqKtRbXS+RgAvUnc3lIB26/03023iKfRBAY/UtI5vvY2OO8MYH1Ze2l02lMSupak/QEqct
+	aMFpwygUjvCzbDFadk9ThufzyjBDA934QfXxncSF3j/5xP3RUhhqDOubssTr1Xia1abVQWEHro5
+	cb2RhTHT5yaohtBsirSaw9W4zpx6U+OKezLkTZB32AghUEE0RxcezHnBTxdqOpwhSvNa0GX7up4
+	P9uOJBBLzHVFRBjiskagkcMvPlQew=
+X-Google-Smtp-Source: AGHT+IH/clyUgV+SR1sU4PGc3WAKh6W0Xyw9krHbVPssxtnUzEeWpWW7mdUCix2QdK09ZVqc5ly6bA==
+X-Received: by 2002:a05:6000:288a:b0:42b:3746:3b85 with SMTP id ffacd0b85a97d-42cb9a5c1c9mr2098192f8f.45.1763639615574;
+        Thu, 20 Nov 2025 03:53:35 -0800 (PST)
+Received: from [192.168.1.3] ([185.48.77.170])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42cb7f34ff3sm5584315f8f.16.2025.11.20.03.53.34
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 20 Nov 2025 03:53:35 -0800 (PST)
+Message-ID: <5f4a848b-af1f-4c5f-bd82-5e3ebe1e9dd9@linaro.org>
+Date: Thu, 20 Nov 2025 11:53:34 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, rrendec@redhat.com, bhelgaas@google.com, mani@kernel.org, robh@kernel.org, kwilczynski@kernel.org, lpieralisi@kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 10/13] coresight: Remove misleading definitions
+To: Mike Leach <mike.leach@linaro.org>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Jonathan Corbet <corbet@lwn.net>, Leo Yan <leo.yan@arm.com>,
+ Randy Dunlap <rdunlap@infradead.org>, coresight@lists.linaro.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-doc@vger.kernel.org
+References: <20251118-james-cs-syncfreq-v5-0-82efd7b1a751@linaro.org>
+ <20251118-james-cs-syncfreq-v5-10-82efd7b1a751@linaro.org>
+ <CAJ9a7VgQO0_FuZj2CD0yAW10xefJNmqRC-0DxJTG9FJu6h-o6A@mail.gmail.com>
+Content-Language: en-US
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <CAJ9a7VgQO0_FuZj2CD0yAW10xefJNmqRC-0DxJTG9FJu6h-o6A@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251120_035337_949588_EF43396A 
+X-CRM114-Status: GOOD (  40.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,172 +108,172 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Having the host bridge allocation inside pci_host_common_init() results
-in a lot of complexity in the pcie-apple driver (the only direct user
-of this function outside of code PCI code).
 
-It forces the allocation of driver-specific tracking structures outside
-of the bridge allocation, which in turns requires it to use inneficient
-data structures to match the bridge and the private structre as needed.
 
-Instead, let the bridge structure be passed to pci_host_common_init(),
-allowing the driver to allocate it together with the private data,
-as it is usually intended. The driver can then retrieve the bridge
-via the owning device attached to the PCI config window structure.
-This allows the pcie-apple driver to be significantly simplified.
+On 20/11/2025 11:21 am, Mike Leach wrote:
+> On Tue, 18 Nov 2025 at 16:28, James Clark <james.clark@linaro.org> wrote:
+>>
+>> ETM_OPT_* definitions duplicate the PMU format attributes that have
+>> always been published in sysfs. Hardcoding them here makes it misleading
+>> as to what the 'real' PMU API is and prevents attributes from being
+>> rearranged in the future.
+>>
+>> ETM4_CFG_BIT_* definitions just define what the Arm Architecture is
+>> which is not the responsibility of the kernel to do and doesn't scale to
+>> other registers or versions of ETM. It's not an actual software ABI/API
+>> and these definitions here mislead that it is.
+>>
+>> Any tools using the first ones would be broken anyway as they won't work
+>> when attributes are moved, so removing them is the right thing to do and
+>> will prompt a fix. Tools using the second ones can trivially redefine
+>> them locally.
+>>
+>> Perf also has its own copy of the headers so both of these things can be
+>> fixed up at a later date.
+>>
+> 
+> The perf version is used to reconstruct the control registers for etm3
+> / etm4 to put into the trace metadata headers in the perf.data file
+> for the decoder to be intitialised correctly.
+> 
+> perf_event_attr::config uses the ETM_OPT_* values, used directly for
+> etm3 since they match the bit pattern in the etm3/ptm config register,
+> and remapped for etm4 from ETM_OPT_* to equivalent ETM4_CFG_BIT* for
+> the etm4 config register.
 
-Both core and driver code are changed in one go to avoid going via
-a transitional interface.
+That was one of the parts that confused me. Just because the format bit 
+positions happened to match the register config for ETM3, didn't mean 
+that it had to avoid reading the positions from sysfs. And it wasn't 
+consistent between ETM3 and ETM4 either.
 
-Link: https://lore.kernel.org/r/86jyzms036.wl-maz@kernel.org
-Signed-off-by: Marc Zyngier <maz@kernel.org>
-Cc: Radu Rendec <rrendec@redhat.com>
-Cc: Bjorn Helgaas <bhelgaas@google.com>
-Cc: Manivannan Sadhasivam <mani@kernel.org>
-Cc: Rob Herring <robh@kernel.org>
-Cc: Krzysztof Wilczyński <kwilczynski@kernel.org>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>
----
- drivers/pci/controller/pci-host-common.c | 13 ++++----
- drivers/pci/controller/pci-host-common.h |  1 +
- drivers/pci/controller/pcie-apple.c      | 42 ++++--------------------
- 3 files changed, 14 insertions(+), 42 deletions(-)
+That's decoupled now anyway, so although they still match there's no 
+reason it can't change in the future.
 
-diff --git a/drivers/pci/controller/pci-host-common.c b/drivers/pci/controller/pci-host-common.c
-index 810d1c8de24e9..c473e7c03baca 100644
---- a/drivers/pci/controller/pci-host-common.c
-+++ b/drivers/pci/controller/pci-host-common.c
-@@ -53,16 +53,12 @@ struct pci_config_window *pci_host_common_ecam_create(struct device *dev,
- EXPORT_SYMBOL_GPL(pci_host_common_ecam_create);
- 
- int pci_host_common_init(struct platform_device *pdev,
-+			 struct pci_host_bridge *bridge,
- 			 const struct pci_ecam_ops *ops)
- {
- 	struct device *dev = &pdev->dev;
--	struct pci_host_bridge *bridge;
- 	struct pci_config_window *cfg;
- 
--	bridge = devm_pci_alloc_host_bridge(dev, 0);
--	if (!bridge)
--		return -ENOMEM;
--
- 	of_pci_check_probe_only();
- 
- 	platform_set_drvdata(pdev, bridge);
-@@ -85,12 +81,17 @@ EXPORT_SYMBOL_GPL(pci_host_common_init);
- int pci_host_common_probe(struct platform_device *pdev)
- {
- 	const struct pci_ecam_ops *ops;
-+	struct pci_host_bridge *bridge;
- 
- 	ops = of_device_get_match_data(&pdev->dev);
- 	if (!ops)
- 		return -ENODEV;
- 
--	return pci_host_common_init(pdev, ops);
-+	bridge = devm_pci_alloc_host_bridge(&pdev->dev, 0);
-+	if (!bridge)
-+		return -ENOMEM;
+> 
+> The reason we do this re-construction - rather than read registers as
+> we do for the other metadata - is that the register value is not set
+> at the point we are recording the metadata - it does not actually get
+> set until the etm is enabled, later in the perf process.
+> 
+> On this basis it would seem that any changing of the attribute bit
+> ordering has potential to break perf decode. Probably safe to remove
+
+Yes so we should keep the positions the same until enough time has 
+passed after the Perf fixes go in. Although other than the timestamp one 
+I can't see any of the format bits needing to be moved.
+
+The timestamp bit now won't be passed correctly to OpenCSD until Perf is 
+fixed, but I saw it wasn't used for decode anyway, so that should be fine?
+
+> from this version of the file though, but overall, changing bit
+> meanings in the underlying variable may possibly need a fix in perf
+> and  potentially a breaking change for earlier versions of the tools.
+> 
+> That said, for this particular version of the header, since it appears
+> to no longer need the values due to earlier changes.
+> 
+
+The reconstruction of the registers will remain in Perf, so nothing will 
+change there apart from not hard coding the format bit positions.
+
+I plan to define the register bits in Perf in cs-etm.c in the same style 
+as we do in the kernel. ETM_OPT_* and ETM4_CFG_* weren't searchable 
+because the the bits are already defined in the kernel in a different 
+style. So I'll define them to match like this:
+
++/* ETMv4 CONFIGR register bits */
++#define TRCCONFIGR_BB		BIT(3)
++#define TRCCONFIGR_CCI		BIT(4)
++#define TRCCONFIGR_CID		BIT(6)
++#define TRCCONFIGR_VMID	BIT(7)
++#define TRCCONFIGR_TS		BIT(11)
++#define TRCCONFIGR_RS		BIT(12)
++#define TRCCONFIGR_VMIDOPT	BIT(15)
 +
-+	return pci_host_common_init(pdev, bridge, ops);
- }
- EXPORT_SYMBOL_GPL(pci_host_common_probe);
- 
-diff --git a/drivers/pci/controller/pci-host-common.h b/drivers/pci/controller/pci-host-common.h
-index 51c35ec0cf37d..b5075d4bd7eb3 100644
---- a/drivers/pci/controller/pci-host-common.h
-+++ b/drivers/pci/controller/pci-host-common.h
-@@ -14,6 +14,7 @@ struct pci_ecam_ops;
- 
- int pci_host_common_probe(struct platform_device *pdev);
- int pci_host_common_init(struct platform_device *pdev,
-+			 struct pci_host_bridge *bridge,
- 			 const struct pci_ecam_ops *ops);
- void pci_host_common_remove(struct platform_device *pdev);
- 
-diff --git a/drivers/pci/controller/pcie-apple.c b/drivers/pci/controller/pcie-apple.c
-index 0380d300adca6..a902aa81a497e 100644
---- a/drivers/pci/controller/pcie-apple.c
-+++ b/drivers/pci/controller/pcie-apple.c
-@@ -206,9 +206,6 @@ struct apple_pcie_port {
- 	int			idx;
- };
- 
--static LIST_HEAD(pcie_list);
--static DEFINE_MUTEX(pcie_list_lock);
--
- static void rmw_set(u32 set, void __iomem *addr)
- {
- 	writel_relaxed(readl_relaxed(addr) | set, addr);
-@@ -724,32 +721,9 @@ static int apple_msi_init(struct apple_pcie *pcie)
- 	return 0;
- }
- 
--static void apple_pcie_register(struct apple_pcie *pcie)
--{
--	guard(mutex)(&pcie_list_lock);
--
--	list_add_tail(&pcie->entry, &pcie_list);
--}
--
--static void apple_pcie_unregister(struct apple_pcie *pcie)
--{
--	guard(mutex)(&pcie_list_lock);
--
--	list_del(&pcie->entry);
--}
--
- static struct apple_pcie *apple_pcie_lookup(struct device *dev)
- {
--	struct apple_pcie *pcie;
--
--	guard(mutex)(&pcie_list_lock);
--
--	list_for_each_entry(pcie, &pcie_list, entry) {
--		if (pcie->dev == dev)
--			return pcie;
--	}
--
--	return NULL;
-+	return pci_host_bridge_priv(dev_get_drvdata(dev));
- }
- 
- static struct apple_pcie_port *apple_pcie_get_port(struct pci_dev *pdev)
-@@ -875,13 +849,15 @@ static const struct pci_ecam_ops apple_pcie_cfg_ecam_ops = {
- static int apple_pcie_probe(struct platform_device *pdev)
- {
- 	struct device *dev = &pdev->dev;
-+	struct pci_host_bridge *bridge;
- 	struct apple_pcie *pcie;
- 	int ret;
- 
--	pcie = devm_kzalloc(dev, sizeof(*pcie), GFP_KERNEL);
--	if (!pcie)
-+	bridge = devm_pci_alloc_host_bridge(dev, sizeof(*pcie));
-+	if (!bridge)
- 		return -ENOMEM;
- 
-+	pcie = pci_host_bridge_priv(bridge);
- 	pcie->dev = dev;
- 	pcie->hw = of_device_get_match_data(dev);
- 	if (!pcie->hw)
-@@ -897,13 +873,7 @@ static int apple_pcie_probe(struct platform_device *pdev)
- 	if (ret)
- 		return ret;
- 
--	apple_pcie_register(pcie);
--
--	ret = pci_host_common_init(pdev, &apple_pcie_cfg_ecam_ops);
--	if (ret)
--		apple_pcie_unregister(pcie);
--
--	return ret;
-+	return pci_host_common_init(pdev, bridge, &apple_pcie_cfg_ecam_ops);
- }
- 
- static const struct of_device_id apple_pcie_of_match[] = {
--- 
-2.47.3
++/* ETMv3 ETMCR register bits */
++#define ETMCR_CYC_ACC		BIT(12)
++#define ETMCR_TIMESTAMP_EN	BIT(28)
++#define ETMCR_RETURN_STACK	BIT(29)
++
+
+
+Then use the format strings to check which ones are set:
+
+if (!evsel__get_config_val(cs_etm_pmu, evsel, "cycacc", &val) && val)
+	trcconfigr |= TRCCONFIGR_CCI;
+if (!evsel__get_config_val(cs_etm_pmu, evsel, "contextid1", &val) && val)
+	trcconfigr |= TRCCONFIGR_CID;
+if (!evsel__get_config_val(cs_etm_pmu, evsel, "timestamp", &val) && val)
+	trcconfigr |= TRCCONFIGR_TS;
+if (!evsel__get_config_val(cs_etm_pmu, evsel, "retstack", &val) && val)
+	trcconfigr |= TRCCONFIGR_RS;
+if (!evsel__get_config_val(cs_etm_pmu, evsel, "contextid2", &val) && val)
+	trcconfigr |= TRCCONFIGR_VMID | TRCCONFIGR_VMIDOPT;
+if (!evsel__get_config_val(cs_etm_pmu, evsel, "branch_broadcast", &val) 
+&& val)
+	trcconfigr |= TRCCONFIGR_BB;
+
+
+This also highlighted another Perf bug that evsel__set_config_if_unset() 
+only operates on config and not config1, config2 etc. That's also used 
+for setting up the event so I'll fix that too.
+
+Seems like the API goes through a lot of effort to publish the bit 
+positions in sysfs, but we've selectively not used them which wasn't 
+quite right.
+
+> Reviewed-by: Mike Leach <mike.leach@linaro.org>
+> 
+>> Reviewed-by: Leo Yan <leo.yan@arm.com>
+>> Signed-off-by: James Clark <james.clark@linaro.org>
+>> ---
+>>   include/linux/coresight-pmu.h | 24 ------------------------
+>>   1 file changed, 24 deletions(-)
+>>
+>> diff --git a/include/linux/coresight-pmu.h b/include/linux/coresight-pmu.h
+>> index 89b0ac0014b0..2e179abe472a 100644
+>> --- a/include/linux/coresight-pmu.h
+>> +++ b/include/linux/coresight-pmu.h
+>> @@ -21,30 +21,6 @@
+>>    */
+>>   #define CORESIGHT_LEGACY_CPU_TRACE_ID(cpu)  (0x10 + (cpu * 2))
+>>
+>> -/*
+>> - * Below are the definition of bit offsets for perf option, and works as
+>> - * arbitrary values for all ETM versions.
+>> - *
+>> - * Most of them are orignally from ETMv3.5/PTM's ETMCR config, therefore,
+>> - * ETMv3.5/PTM doesn't define ETMCR config bits with prefix "ETM3_" and
+>> - * directly use below macros as config bits.
+>> - */
+>> -#define ETM_OPT_BRANCH_BROADCAST 8
+>> -#define ETM_OPT_CYCACC         12
+>> -#define ETM_OPT_CTXTID         14
+>> -#define ETM_OPT_CTXTID2                15
+>> -#define ETM_OPT_TS             28
+>> -#define ETM_OPT_RETSTK         29
+>> -
+>> -/* ETMv4 CONFIGR programming bits for the ETM OPTs */
+>> -#define ETM4_CFG_BIT_BB         3
+>> -#define ETM4_CFG_BIT_CYCACC    4
+>> -#define ETM4_CFG_BIT_CTXTID    6
+>> -#define ETM4_CFG_BIT_VMID      7
+>> -#define ETM4_CFG_BIT_TS                11
+>> -#define ETM4_CFG_BIT_RETSTK    12
+>> -#define ETM4_CFG_BIT_VMID_OPT  15
+>> -
+>>   /*
+>>    * Interpretation of the PERF_RECORD_AUX_OUTPUT_HW_ID payload.
+>>    * Used to associate a CPU with the CoreSight Trace ID.
+>>
+>> --
+>> 2.34.1
+>>
+> 
+> 
+> --
+> Mike Leach
+> Principal Engineer, ARM Ltd.
+> Manchester Design Centre. UK
 
 
