@@ -4,74 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2EB5CF649C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 01:54:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 897D2CF58D1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 02:11:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1fhiBgC3wmo6EcbTrmkFhDT2xdiGtSvH1A3Oi7bw9Ek=; b=NkRUeRS493UpZSK7VGKvpGY65K
-	5E2TAMqrt30O+lkZ47XrQzANeZa6Y9jbiiiCdj+MMcbtTNuB72Y+wSovM2dzUZj55h6bH2ir2Ww9e
-	2275WjDD0Gxn/q8XM8MNa1dvmC0cTFTL8EiXwGyx2DLl54m05R6rLj7e95sAqLFycCu0+FQW5rzNn
-	udp6xt/HzbtFWlMAA18cOva55drVvi3IZ0zBKo3VY9q9heoEQheTtu+nvlfUBa/PEXnA22WDsI5Zk
-	K7NqTItFGUzF1YJUrDkjgt0Q7FD0Qqd+z805xuTTg3KDc+OVWM6cmmVY6aXGtt67tEymAENNOfCCb
-	XzXPqeCA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pTFNVmbRzXGZbT/LGhFHixBDUze2+iDNyRytGw9mv0o=; b=G9jDyyIMZd6uHCEuHiIcUPD9lK
+	LgjYQjf914md3RmUqd+Vz6M1SKVhnILKswtzwtBORyOs6Qs5/lIkdeu/q8g1UL0q2gjW/b1sHeKcb
+	PcPjVMoqgkEgnfXVfJmr1Sp0oLI8IvLBJAQr+/yIqyNTvfF2eimw0UstafmL+LRNFK9lFMW1mDHTz
+	FbkOrmww+oCfdz3uaFkkLBSj0lZpH9LLyE5i846blEDYUqZGPHW98z8x4e/LXeAO+lbLV9x2ItNFg
+	8ugiFq/B4NduiEukMxFEFv+DINT6XPfnyw5BOA1cERqrXTAljAnIethV6KNmTfRNFuetczNQjq9VA
+	c2WX0/LA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLtsl-00000005x06-1QnD;
-	Thu, 20 Nov 2025 01:54:47 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vLu8k-00000005xjk-22eL;
+	Thu, 20 Nov 2025 02:11:18 +0000
+Received: from mail-pl1-x644.google.com ([2607:f8b0:4864:20::644])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLtsj-00000005wzR-1s8X
+	id 1vLu8h-00000005xiz-2gEs
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Nov 2025 01:54:46 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 26B58441C3;
-	Thu, 20 Nov 2025 01:54:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 94ED9C4CEF5;
-	Thu, 20 Nov 2025 01:54:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763603684;
-	bh=/bYl3PfE31ZepLHyLYI1pggKbRkiLRQgnDFKccns06Y=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=JohDXqXE59Z8ijFqQfx9apJXrtQaIpyff899jEd9yeCinqsEssuZZOSlffP3mnX1M
-	 k5cOOzyw3RMnuadAF4/LSHar0tA+MOijnrEhaguqi6CoL8E/faNQj4NgpUM6kVYe2J
-	 XHCuIQMr+zy/IkEt7NPmKohBfMtQcogn0vl3wgmwQMWq66GiyFTyDYYYQ4EGWpIO6A
-	 +XnSlk07tIOqnHSoQH87pFTjiU6pCxkH3lXtDgkSX8rSZq/m0YRnBV/8NDgEOAHSmO
-	 7nvFTaiNnS9Z2+c2pKgBTs7iayTLfyyeL+sawnlz8ZnLK5voFDbbjzZkcOoceWGW3P
-	 jr46nBMBIOZoQ==
-Date: Wed, 19 Nov 2025 17:54:39 -0800
-From: Namhyung Kim <namhyung@kernel.org>
-To: James Clark <james.clark@linaro.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>, Leo Yan <leo.yan@arm.com>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-perf-users@vger.kernel.org, linux-doc@vger.kernel.org,
-	kvmarm@lists.linux.dev
-Subject: Re: [PATCH v10 0/5] perf: arm_spe: Armv8.8 SPE features
-Message-ID: <aR503-f-ZrnWzZh2@google.com>
-References: <20251111-james-perf-feat_spe_eft-v10-0-1e1b5bf2cd05@linaro.org>
+	Thu, 20 Nov 2025 02:11:16 +0000
+Received: by mail-pl1-x644.google.com with SMTP id d9443c01a7336-29516a36affso5629115ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Nov 2025 18:11:15 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1763604674; x=1764209474; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=pTFNVmbRzXGZbT/LGhFHixBDUze2+iDNyRytGw9mv0o=;
+        b=l6vI40TeFKSIPUIgMceZ+C989GNyETc05fHuNnTKAWM9+g+awsOPDcmRpdIf+DhX1/
+         k+v1UNMzAkAYI9Y1bqRQx6nbPs6CoeMZqKEOO5s9zCxsFJ6SN1SswiOgrmzXu4qAyxqF
+         scIn1nlzqUdTBP3RqtiHwV5dOpwhNN4DBfJFMVr8NVXbg9cxpoMFIX+j0wr6B5BGatmd
+         l+rcFKtzbxioRmEmvh6cZOeBZVJbpmYq458i307Hwc4sotY26lx4moc7YorZMfNYUoQc
+         Cd2iCJHV/ON3LyTOMHunI5+PmIE/yalrlVM3N73oIq8WPjk2gRxZOo2kX5S97dCzmsdk
+         CUqA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1763604674; x=1764209474;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=pTFNVmbRzXGZbT/LGhFHixBDUze2+iDNyRytGw9mv0o=;
+        b=AY2WwKA6wQ/QOalEQ2Ku0aYQV/tiTY/uMoaNkBIVVzk8YINqP13VyIfbj/bDFAUGhL
+         /96j+vUeHekcAZznH7JkkngqJQOW7I2L/Cqo1/B1lTpmYX5epdUkcN4tNwr4Hui2sP7r
+         liNMD4tz9YQjHRETsDrMV2ewonOqgM3TA+Uxp9VcclTGwBMSBDS4urfAzQYy+hMU0CGv
+         ruWT6LS0vMNqnI9tPRMCE1mRN1JAgXkQxYyd6oBGEOYGZCP08v8wDe1UUy+DEQ1B3857
+         9S7G8J0cWuLqO9cw0RjNqR4JQbqXVz60oKWrJMp5mHLLHwGo06k82MMGX3w/p6L8wbwM
+         LG5A==
+X-Forwarded-Encrypted: i=1; AJvYcCUWj2YGezHSFYi0zBiaoGxPD/inzSDvNpCyn1XvrMUBjGK4830yLt35ABN8TPDfGr6Cu7sm3b1Iw3GKeNNPQoz4@lists.infradead.org
+X-Gm-Message-State: AOJu0YxEvraO2VL8gqsUHMSSk7fFSn7n5x581S/h1nQHaXDTL2HAiAGA
+	22DC6Q9CFOYfdiurRwzPjKk0grq56EHfab77df5dtW59K7bRyfcFek0m
+X-Gm-Gg: ASbGncuxziYx6jx4PmUfaH+h3jM3cUu9M1+vbVtKyR41raCeK9pALsyn0KfRDteI5RC
+	ftgQj5POOWbLWXGYsWV6cZgCsqgERGu1StiP7kkxc9i0RPa8VxdmABgrpnIhh20QNFU6hd2Ygkz
+	L9CZSwzJQQ/ViWRPlTOw8r+hy+cJC2NdrFmDO5y+u4XZqGWt529LLiw7lbqvmrZQ6PkRh6hafrk
+	Y05KwAyrc3iObOm4ajaN+g5mRnT7CjB9MAOxocZDV5tkkST4RGqhH5oJsSJpbPdVwAOMRn1lP43
+	p5d+TKM0x9XK2YAw/ja/rBI5PmZBPQHH5AfMtJN3QhdbUR4196BqgttQj4zb8yoa9LPNLbSZcLb
+	wYM2d2cjl9PhqLKsMRfU3G5ZVs/FWeIV9D/orhPMEHAv3sGdsSP9FJ+Xl7SYSYwSPokrLysiKyq
+	8CrKGUN7Lcut5FiqY4WNxNsQ==
+X-Google-Smtp-Source: AGHT+IGJI/oKAsUQ7D64r7YwPy+QegsmPvmtzc+SJksMMBWokoHdWjKxouE6QVbTqg1qQ+RNiAulBQ==
+X-Received: by 2002:a17:902:f650:b0:295:54cb:16ac with SMTP id d9443c01a7336-29b5b088815mr20802785ad.18.1763604674349;
+        Wed, 19 Nov 2025 18:11:14 -0800 (PST)
+Received: from Incog ([2404:7c00:42:f150:fd7c:4ceb:3809:3323])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-29b5b25defasm7635325ad.49.2025.11.19.18.11.09
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 19 Nov 2025 18:11:13 -0800 (PST)
+From: Incog <incogcyberpunk@gmail.com>
+To: dianders@chromium.org
+Cc: angelogioacchino.delregno@collabora.com,
+	incogcyberpunk@proton.me,
+	johan.hedberg@gmail.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-bluetooth@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-mediatek@lists.infradead.org,
+	luiz.dentz@gmail.com,
+	marcel@holtmann.org,
+	matthias.bgg@gmail.com,
+	regressions@leemhuis.info,
+	regressions@lists.linux.dev,
+	sean.wang@mediatek.com
+Subject: Re: [PATCH] Bluetooth: btusb: mediatek: Avoid btusb_mtk_claim_iso_intf() NULL deref
+Date: Thu, 20 Nov 2025 07:57:17 +0545
+Message-ID: <20251120021217.87602-1-incogcyberpunk@gmail.com>
+X-Mailer: git-send-email 2.52.0
+In-Reply-To: <20251119085354.1.I1ae7aebc967e52c7c4be7aa65fbd81736649568a@changeid>
+References: <20251119085354.1.I1ae7aebc967e52c7c4be7aa65fbd81736649568a@changeid>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20251111-james-perf-feat_spe_eft-v10-0-1e1b5bf2cd05@linaro.org>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251119_175445_524758_F3FC94A2 
-X-CRM114-Status: GOOD (  23.91  )
+X-CRM114-CacheID: sfid-20251119_181115_678829_73F92361 
+X-CRM114-Status: GOOD (  22.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,99 +110,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
+From: IncogCyberpunk <incogcyberpunk@proton.me>
 
-On Tue, Nov 11, 2025 at 11:37:54AM +0000, James Clark wrote:
-> Support SPE_FEAT_FDS data source filtering.
+On  Wed, 19 Nov 2025 08:53:55 -0800 , Douglas Anderson <dianders@chromium.org> wrote:
 
-What's the state of this series?  I can merge the tools part (3, 4, 5)
-once the kernel part lands somewhere.
+> In btusb_mtk_setup(), we set `btmtk_data->isopkt_intf` to:
+>   usb_ifnum_to_if(data->udev, MTK_ISO_IFNUM)
+> 
+> That function can return NULL in some cases. Even when it returns
+> NULL, though, we still go on to call btusb_mtk_claim_iso_intf().
+> 
+> As of commit e9087e828827 ("Bluetooth: btusb: mediatek: Add locks for
+> usb_driver_claim_interface()"), calling btusb_mtk_claim_iso_intf()
+> when `btmtk_data->isopkt_intf` is NULL will cause a crash because
+> we'll end up passing a bad pointer to device_lock(). Prior to that
+> commit we'd pass the NULL pointer directly to
+> usb_driver_claim_interface() which would detect it and return an
+> error, which was handled.
+> 
+> Resolve the crash in btusb_mtk_claim_iso_intf() by adding a NULL check
+> at the start of the function. This makes the code handle a NULL
+> `btmtk_data->isopkt_intf` the same way it did before the problematic
+> commit (just with a slight change to the error message printed).
 
-Thanks,
-Namhyung
 
-> 
-> ---
-> Changes in v10:
-> - Pick up Peter's ack
-> - Slightly clarify commit message regarding the difference between the
->   data source filter and the data source
-> - Link to v9: https://lore.kernel.org/r/20251029-james-perf-feat_spe_eft-v9-0-d22536b9cf94@linaro.org
-> 
-> Changes in v9:
-> - Fix another typo in docs: s/data_src_filter/inv_data_src_filter/g
-> - Drop already applied patches for other features. Only the data source
->   filtering patches remain.
-> - Rebase on latest perf-tools-next
-> - Link to v8: https://lore.kernel.org/r/20250901-james-perf-feat_spe_eft-v8-0-2e2738f24559@linaro.org
-> 
-> Changes in v8:
-> - Define __spe_vers_imp before it's used
-> - "disable traps to PMSDSFR" -> "disable traps of PMSDSFR to EL2"
-> - Link to v7: https://lore.kernel.org/r/20250814-james-perf-feat_spe_eft-v7-0-6a743f7fa259@linaro.org
-> 
-> Changes in v7:
-> - Fix typo in docs: s/data_src_filter/inv_data_src_filter/g
-> - Pickup trailers
-> - Link to v6: https://lore.kernel.org/r/20250808-james-perf-feat_spe_eft-v6-0-6daf498578c8@linaro.org
-> 
-> Changes in v6:
-> - Rebase to resolve conflict with BRBE changes in el2_setup.h
-> - Link to v5: https://lore.kernel.org/r/20250721-james-perf-feat_spe_eft-v5-0-a7bc533485a1@linaro.org
-> 
-> Changes in v5:
-> - Forgot to pickup tags from v4
-> - Forgot to drop test and review tags on v4 patches that were
->   significantly modified
-> - Update commit message for data source filtering to mention inversion
-> - Link to v4: https://lore.kernel.org/r/20250721-james-perf-feat_spe_eft-v4-0-0a527410f8fd@linaro.org
-> 
-> Changes in v4:
-> - Rewrite "const u64 feat_spe_eft_bits" inline
-> - Invert data source filter so that it's possible to exclude all data
->   sources without adding an additional 'enable filter' flag
-> - Add a macro in el2_setup.h to check for an SPE version
-> - Probe valid filter bits instead of hardcoding them
-> - Take in Leo's commit to expose the filter bits as it depends on the
->   new filter probing
-> - Link to v3: https://lore.kernel.org/r/20250605-james-perf-feat_spe_eft-v3-0-71b0c9f98093@linaro.org
-> 
-> Changes in v3:
-> - Use PMSIDR_EL1_FDS instead of 1 << PMSIDR_EL1_FDS_SHIFT
-> - Add VNCR offsets
-> - Link to v2: https://lore.kernel.org/r/20250529-james-perf-feat_spe_eft-v2-0-a01a9baad06a@linaro.org
-> 
-> Changes in v2:
-> - Fix detection of FEAT_SPE_FDS in el2_setup.h
-> - Pickup Marc Z's sysreg change instead which matches the json
-> - Restructure and expand docs changes
-> - Link to v1: https://lore.kernel.org/r/20250506-james-perf-feat_spe_eft-v1-0-dd480e8e4851@linaro.org
-> 
-> ---
-> James Clark (5):
->       perf: Add perf_event_attr::config4
->       perf: arm_spe: Add support for filtering on data source
->       tools headers UAPI: Sync linux/perf_event.h with the kernel sources
->       perf tools: Add support for perf_event_attr::config4
->       perf docs: arm-spe: Document new SPE filtering features
-> 
->  drivers/perf/arm_spe_pmu.c                |  37 +++++++++++
->  include/uapi/linux/perf_event.h           |   2 +
->  tools/include/uapi/linux/perf_event.h     |   2 +
->  tools/perf/Documentation/perf-arm-spe.txt | 104 +++++++++++++++++++++++++++---
->  tools/perf/tests/parse-events.c           |  13 +++-
->  tools/perf/util/parse-events.c            |  11 ++++
->  tools/perf/util/parse-events.h            |   1 +
->  tools/perf/util/parse-events.l            |   1 +
->  tools/perf/util/pmu.c                     |   8 +++
->  tools/perf/util/pmu.h                     |   1 +
->  10 files changed, 170 insertions(+), 10 deletions(-)
-> ---
-> base-commit: 081006b7c8e19406dc6674c6b6d086764d415b5c
-> change-id: 20250312-james-perf-feat_spe_eft-66cdf4d8fe99
-> 
-> Best regards,
-> -- 
-> James Clark <james.clark@linaro.org>
-> 
+Proposed patch:
+
+> index a722446ec73d..1466e0f1865d 100644
+> --- a/drivers/bluetooth/btusb.c
+> +++ b/drivers/bluetooth/btusb.c
+> @@ -2714,6 +2714,11 @@ static void btusb_mtk_claim_iso_intf(struct btusb_data *data)
+>  	struct btmtk_data *btmtk_data = hci_get_priv(data->hdev);
+>  	int err;
+>  
+> +	if (!btmtk_data->isopkt_intf) {
+> +		bt_dev_err(data->hdev, "Can't claim NULL iso interface");
+> +		return;
+> +	}
+> +
+>  	/*
+>  	 * The function usb_driver_claim_interface() is documented to need
+>  	 * locks held if it's not called from a probe routine. The code here
+
+
+I tested this patch by manually updating the drivers/bluetooth/btusb.c file with the proposed patches as above ; which solves a REGRESSION issue `bluetooth adapter provided by btusb not being recognized and hence bluetooth not working` since kernel version 6.13.2 .
+This REGRESSION issue has been present in both the stable and the mainline kernels since 6.13.2 release due to the below mentioned commit in v6.13.2 :
+
+Troublesome Commit Details:
+- Title: Bluetooth: btusb: mediatek: Add locks for usb_driver_claim_interface()
+- commit id: 4194766ec8756f4f654d595ae49962acbac49490
+- [ Upstream commit e9087e828827e5a5c85e124ce77503f2b81c3491 ]
+- Author: Douglas Anderson <dianders@chromium.org>
+- Date:   Wed Jan 15 19:36:36 2025 -0800
+
+Tested-by: IncogCyberpunk <incogcyberpunk@proton.me>
+
+Regards,
+IncogCyberpunk
 
