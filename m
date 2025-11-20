@@ -4,98 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0AF3CFA441
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 19:49:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 802A4CF885D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 20:11:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QzUXBmEHN/iqres10ats5Z8nJBQkiqheknthkfAaCE0=; b=VxnATwlvUarUSSBuyteTWCkQUp
-	bY13qW5p4NWXSnh6Lw6igf+s9MFMA+ZwToW/0uX6XS6cAEyTgHyic7FQqMxhVxRLXM3Gjjmm1l+v9
-	YLlSHcmkD2doDIkxChT4twRuYTUWA7xJcZ2UN3MwTdGvtX7Y3svGVqg/CNGahQRYj0EKl3w93PuIo
-	BqyVZf0fDGmrRWcSCwSR6uIcsI10hKvMg/lqUmTHhzhNCE5DBJ1vGi19wVpjL66TD/GHbZWoVBaI0
-	k9ZskiI8WIf2hSFFgw3HnoXRYbVfvMIiheV6WZHAtM7R5Qst3TbKLYkG/sImj9E3aSTx5tVKBIe4w
-	36n/ztzQ==;
+	bh=ItoiyKX6dX5XrURmJYgb2DIxO86yxDHfPhD3CX7BZdw=; b=DQU2kuU+CiusNQzeaCQKhyUTg/
+	p3+7iAZoyOI7hHg36F1/ru445yQVLI5nIBmmTncxKJDxazFM3/ThrtgZlb/LEcFfqrOfM06KAmmMg
+	KbHxsTlWoOsCFcRY6VXPHG8y096ajjtTAAuV1QB891TA+c8k/zzdsczpI9na1gq4rhBWGJ0ROz3T5
+	9ImDlWRjBpJ0YtOUxB1VjnMjkiocrOpF7DDRvMK/n90R7lUYmNrWSldmcyV6/zbHQYDKhqKdu2kqw
+	9IfyIuCJPzGEpO5LFlTYRwUb48i8omk1PVoaf0o2eAN9IrqALKogwvUgGobtqnZNEXXzST//IllC+
+	cFsUgJPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMAeg-00000007JFJ-1K0c;
-	Thu, 20 Nov 2025 19:49:22 +0000
-Received: from mgamail.intel.com ([192.198.163.15])
+	id 1vMAzR-00000007KVa-0ldg;
+	Thu, 20 Nov 2025 20:10:49 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMAed-00000007JEv-0Gru
+	id 1vMAzP-00000007KVU-2rLX
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Nov 2025 19:49:20 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1763668159; x=1795204159;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=lyeBpt+cvGIhcc68Nah0hMFJyBVsonJpHyKIen4I70k=;
-  b=OGVsvlEKbe6+6d8AkRknBgK34KUZM+9r+1gB0IIy9ZgyHSmmWd9TQw2D
-   Z60UQvyt6qpKA7uKPLlRQM2IzoN5aTDzeXHotj+EubRfrVUjMtVVzFW62
-   kjHROES6XitMobJmDE7GHHuSE1xJ7LOU838oSlX0GeBHhfeQUahxv1ZT4
-   BxzWNJ2+gtzR5J2sHZtI2IAjgEcLCtATLrOUdtuT8c6mLC5SL9GUWwP5/
-   Hpso5o4x2gnJKbK6qXwD4xP8mPwDIsqIsjON1R1jBof3wMntRAS7PNift
-   DNWSpR3DFwif87zQQ9aq/+wiyjMqVOVeMExCEwwa7AxC+0YdK2c2IaEZI
-   g==;
-X-CSE-ConnectionGUID: nBbt7+2/Qd+yVTP6AiSMYg==
-X-CSE-MsgGUID: I3/Z9JyaRe+vKWul64Bzyg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11619"; a="65841766"
-X-IronPort-AV: E=Sophos;i="6.20,213,1758610800"; 
-   d="scan'208";a="65841766"
-Received: from orviesa009.jf.intel.com ([10.64.159.149])
-  by fmvoesa109.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2025 11:49:17 -0800
-X-CSE-ConnectionGUID: +4YBvdTzTLGDfuiKK3FNpw==
-X-CSE-MsgGUID: u0BX3zHXTuSv/S92bd4IzQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.20,213,1758610800"; 
-   d="scan'208";a="191281630"
-Received: from lkp-server01.sh.intel.com (HELO adf6d29aa8d9) ([10.239.97.150])
-  by orviesa009.jf.intel.com with ESMTP; 20 Nov 2025 11:49:11 -0800
-Received: from kbuild by adf6d29aa8d9 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1vMAeS-0004Vz-0v;
-	Thu, 20 Nov 2025 19:49:08 +0000
-Date: Fri, 21 Nov 2025 03:48:59 +0800
-From: kernel test robot <lkp@intel.com>
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>, davem@davemloft.net
-Cc: oe-kbuild-all@lists.linux.dev,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org, thomas.petazzoni@bootlin.com,
-	Andrew Lunn <andrew@lunn.ch>, Jakub Kicinski <kuba@kernel.org>,
-	Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
-	Russell King <linux@armlinux.org.uk>,
-	linux-arm-kernel@lists.infradead.org,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Herve Codina <herve.codina@bootlin.com>,
-	Florian Fainelli <f.fainelli@gmail.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Vladimir Oltean <vladimir.oltean@nxp.com>,
-	=?iso-8859-1?Q?K=F6ry?= Maincent <kory.maincent@bootlin.com>,
-	Marek =?iso-8859-1?Q?Beh=FAn?= <kabel@kernel.org>,
-	Oleksij Rempel <o.rempel@pengutronix.de>,
-	=?iso-8859-1?Q?Nicol=F2?= Veronese <nicveronese@gmail.com>,
-	Simon Horman <horms@kernel.org>, mwojtas@chromium.org,
-	Antoine Tenart <atenart@kernel.org>, devicetree@vger.kernel.org,
-	Conor Dooley <conor+dt@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Romain Gantois <romain.gantois@bootlin.com>,
-	Daniel Golle <daniel@makrotopia.org>
-Subject: Re: [PATCH net-next v17 03/15] net: phy: Introduce PHY ports
- representation
-Message-ID: <202511210333.9rtKR1ph-lkp@intel.com>
-References: <20251119195920.442860-4-maxime.chevallier@bootlin.com>
+	Thu, 20 Nov 2025 20:10:47 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id B103D60017;
+	Thu, 20 Nov 2025 20:10:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D8E7DC4CEF1;
+	Thu, 20 Nov 2025 20:10:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1763669446;
+	bh=ob6T5V5jKAufVGPgdYe6GH+NUfh+v8mrwWJAY8/1TJk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=uhi3+V7lWTG0qMFFscMOZH1oDtU/WVwEdjoedjpDlL8K8nIiSoiab1XU1TWy0x18F
+	 BakfYYEbqIUW4e5tXcdPFvbX4o7S2qpDMtTNy/cEdKlacu+GzzuWGBcqCQwl6M1wDS
+	 JwASQUcKPzCX+ZLcISb5iqp972QanSQ+Gsx11dmprOVNwknx1vSycKtNKt0HHrDThg
+	 X6eOkFr2nhJ3rk//GtnkisbQMdsgcB5z4YUrXRvDVbD5lO3zaB7jpYoxPCqDr9CEgy
+	 t5WHX/IW6u8ROnUxBKsJVFhORI1Y9UOFf7OC5cgH+0BhJ1RDKx/4imr6BQ/KX915N1
+	 MktpsVZXuzVhw==
+Date: Thu, 20 Nov 2025 21:09:15 +0100
+From: Nicolas Schier <nsc@kernel.org>
+To: Thomas =?iso-8859-1?Q?Wei=DFschuh?= <thomas.weissschuh@linutronix.de>
+Cc: Simon Glass <sjg@chromium.org>, linux-arm-kernel@lists.infradead.org,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Tom Rini <trini@konsulko.com>,
+	Ahmad Fatoum <a.fatoum@pengutronix.de>,
+	J =?iso-8859-1?Q?=2E_Neusch=E4fer?= <j.ne@posteo.net>,
+	Chen-Yu Tsai <wenst@chromium.org>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Josh Poimboeuf <jpoimboe@kernel.org>, Kees Cook <kees@kernel.org>,
+	Miguel Ojeda <ojeda@kernel.org>, Rong Xu <xur@google.com>,
+	Tamir Duberstein <tamird@gmail.com>, Will Deacon <will@kernel.org>,
+	linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v6 6/8] kbuild: Allow adding modules into the FIT ramdisk
+Message-ID: <aR91a-VK_YuGd44g@levanger>
+References: <20251119181333.991099-1-sjg@chromium.org>
+ <20251119181333.991099-7-sjg@chromium.org>
+ <20251120084201-53a3c98f-6a3c-4116-8635-be67d58fd57b@linutronix.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
-In-Reply-To: <20251119195920.442860-4-maxime.chevallier@bootlin.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251120_114919_144937_DEFB0C93 
-X-CRM114-Status: GOOD (  10.30  )
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20251120084201-53a3c98f-6a3c-4116-8635-be67d58fd57b@linutronix.de>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,48 +82,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Maxime,
+On Thu, Nov 20, 2025 at 08:49:14AM +0100, Thomas Weißschuh wrote:
+> On Wed, Nov 19, 2025 at 11:13:27AM -0700, Simon Glass wrote:
+> > Support 'make image.fit FIT_MODULES=1' to put all the modules into a
+> > ramdisk image within the FIT.
+> > 
+> > Add image.fit as a target which requires modules, so that modules will
+> > built automatically when using FIT_MODULES is not empty.
+> > 
+> > Signed-off-by: Simon Glass <sjg@chromium.org>
+> > Suggested-by: Ahmad Fatoum <a.fatoum@pengutronix.de>
+> > Suggested-by: Reviewed-by: Nicolas Schier <nsc@kernel.org>
+> > Acked-by: Nathan Chancellor <nathan@kernel.org>
+> > ---
+> > 
+> > Changes in v6:
+> > - Mention that FIT_MODULES just needs to be non-empty
+> > - Make use of modules.order instead of using 'find'
+> > 
+> > Changes in v5:
+> > - Build modules automatically if needed (fix from Nicolas Schier)
+> > 
+> > Changes in v4:
+> > - Rename the Makefile variable from 'EXTRA' to 'MAKE_FIT_FLAGS'
+> > - Use an empty FIT_MODULES to disable the feature, instead of '0'
+> > - Make use of the 'modules' dependency to ensure modules are built
+> > - Pass the list of modules to the script
+> > 
+> >  Makefile             | 1 +
+> >  arch/arm64/Makefile  | 1 +
+> >  scripts/Makefile.lib | 6 +++++-
+> >  3 files changed, 7 insertions(+), 1 deletion(-)
+> > 
+> > diff --git a/Makefile b/Makefile
+> > index 8cd46222fc48..4eccaef95826 100644
+> > --- a/Makefile
+> > +++ b/Makefile
+> > @@ -773,6 +773,7 @@ endif
+> >  # Just "make" or "make all" shall build modules as well
+> >  
+> >  modules-targets := all
+> > +modules-targets += $(if $(FIT_MODULES),image.fit)
+> >  modules-targets += modules
+> >  modules-targets += nsdeps
+> >  modules-targets += compile_commands.json
+> > diff --git a/arch/arm64/Makefile b/arch/arm64/Makefile
+> > index 73a10f65ce8b..7036f251ab40 100644
+> > --- a/arch/arm64/Makefile
+> > +++ b/arch/arm64/Makefile
+> > @@ -174,6 +174,7 @@ endif
+> >  all:	$(notdir $(KBUILD_IMAGE))
+> >  
+> >  image.fit: dtbs
+> > +image.fit: $(if $(FIT_MODULES),modules)
+> >  
+> >  vmlinuz.efi image.fit: Image
+> >  $(BOOT_TARGETS): vmlinux
+> > diff --git a/scripts/Makefile.lib b/scripts/Makefile.lib
+> > index 1d581ba5df66..28e0cc0865b1 100644
+> > --- a/scripts/Makefile.lib
+> > +++ b/scripts/Makefile.lib
+> > @@ -398,11 +398,15 @@ MAKE_FIT := $(srctree)/scripts/make_fit.py
+> >  # Use this to override the compression algorithm
+> >  FIT_COMPRESSION ?= gzip
+> >  
+> > +# Set this to non-empty to include an initrd with all the kernel modules
+> > +FIT_MODULES ?=
+> > +
+> >  quiet_cmd_fit = FIT     $@
+> >        cmd_fit = $(MAKE_FIT) -o $@ --arch $(UIMAGE_ARCH) --os linux \
+> > -		--name '$(UIMAGE_NAME)' \
+> > +		--name '$(UIMAGE_NAME)' $(MAKE_FIT_FLAGS) \
+> 
+> Remnant of a previous revision?
+> 
+> >  		$(if $(findstring 1,$(KBUILD_VERBOSE)),-v) \
+> >  		$(if $(FIT_DECOMPOSE_DTBS),--decompose-dtbs) \
+> > +		$(if $(FIT_MODULES),--modules @$(objtree)/modules.order) \
+> 
+> I am wondering how module dependencies work without the depmod invocation
+> and modules.dep file.
 
-kernel test robot noticed the following build warnings:
+oh, good point.  Stripping and signing and module compression is also
+done during 'modules_install'.
 
-[auto build test WARNING on net-next/main]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Maxime-Chevallier/dt-bindings-net-Introduce-the-ethernet-connector-description/20251120-041558
-base:   net-next/main
-patch link:    https://lore.kernel.org/r/20251119195920.442860-4-maxime.chevallier%40bootlin.com
-patch subject: [PATCH net-next v17 03/15] net: phy: Introduce PHY ports representation
-config: powerpc64-randconfig-r133-20251120 (https://download.01.org/0day-ci/archive/20251121/202511210333.9rtKR1ph-lkp@intel.com/config)
-compiler: powerpc64-linux-gcc (GCC) 11.5.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20251121/202511210333.9rtKR1ph-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202511210333.9rtKR1ph-lkp@intel.com/
-
-sparse warnings: (new ones prefixed by >>)
->> net/ethtool/common.c:463:12: sparse: sparse: symbol 'ethtool_link_medium_names' was not declared. Should it be static?
-
-vim +/ethtool_link_medium_names +463 net/ethtool/common.c
-
-   462	
- > 463	const char ethtool_link_medium_names[][ETH_GSTRING_LEN] = {
-   464		[ETHTOOL_LINK_MEDIUM_BASET] = "BaseT",
-   465		[ETHTOOL_LINK_MEDIUM_BASEK] = "BaseK",
-   466		[ETHTOOL_LINK_MEDIUM_BASES] = "BaseS",
-   467		[ETHTOOL_LINK_MEDIUM_BASEC] = "BaseC",
-   468		[ETHTOOL_LINK_MEDIUM_BASEL] = "BaseL",
-   469		[ETHTOOL_LINK_MEDIUM_BASED] = "BaseD",
-   470		[ETHTOOL_LINK_MEDIUM_BASEE] = "BaseE",
-   471		[ETHTOOL_LINK_MEDIUM_BASEF] = "BaseF",
-   472		[ETHTOOL_LINK_MEDIUM_BASEV] = "BaseV",
-   473		[ETHTOOL_LINK_MEDIUM_BASEMLD] = "BaseMLD",
-   474		[ETHTOOL_LINK_MEDIUM_NONE] = "None",
-   475	};
-   476	static_assert(ARRAY_SIZE(ethtool_link_medium_names) == __ETHTOOL_LINK_MEDIUM_LAST);
-   477	
 
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Nicolas
 
