@@ -4,74 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFA41CF8856
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 13:36:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3B6DCF8859
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 13:38:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/0obOKDi9mtFrWgcMnZgvIqL64y1fdoReu5u1jVPyO8=; b=VY/TvFYLQnM0bpP2iUoyKEIjFs
-	UqXWMPaPVkG7PQiPAwYSYFk6E0KzWwPiiO41Ug60vkZ+BUgKA+d53Nvk7Pm7v2GVKrXmlWBjEIkvJ
-	2V60a5c0RjFDZ2zBn3n1N8NUy9cL0uwjCYiOI6k7fzrPT/vC8mVGDrzP4B0SHgw6pqyBb7DtsLc8h
-	S+4uCAmVW07pR3AhK3HIFZDdftu+kPsL12P8rst0+V/+a+c3Dup0G7UAKdbd6yKUmEhreeIs2J3SC
-	uMAKGm8mhCwfDJNPKuMhi3NKzb9TaE0XtDFqV313o6fsPpEko99LRUsgkpBBD0ZTPoBMbU7X6bom1
-	EpouqDbw==;
+	bh=K26Gzy/ffYxGjMqzTYz++mvHzp4mui+04wwKNizZ8OI=; b=CalFR+kN65cr7mkR5MnIrxwn+e
+	Lse8SMYfykcEdWLZgzYLaxxzJYH/lCrkMXV/+iML3avk6UNn75WF3oNu+1Sx1IX1w5c1CiPApSIkp
+	Ler4NqkhBr5GElUIu6EddvQS0ofVEOoxW3sp0gjS3PPwY9d7ecG+6WsWwJ4MMYIZMU+yeLNpHw4+7
+	D+KFN9JaaWTTY8H/J376KivcF5xzyNOayMDZ/5+6gJ73clrMGbu6mBueainIcJ8ohAm79TRrbiUus
+	YSAeeJYQ/e+lKZNQDu7psIsc1j6GJuX4PVYBM/8mGpdFxaUM+0MNG5T4Ezjoz/EOOM1T0BYmpAL62
+	nP+Nvo1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vM4q3-00000006kCs-2m2I;
-	Thu, 20 Nov 2025 13:36:43 +0000
+	id 1vM4rn-00000006kPO-3n1J;
+	Thu, 20 Nov 2025 13:38:31 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vM4q2-00000006kCl-0gbT
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Nov 2025 13:36:42 +0000
+	id 1vM4rm-00000006kOb-1MhV;
+	Thu, 20 Nov 2025 13:38:30 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8D31A6014A;
-	Thu, 20 Nov 2025 13:36:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 21794C4CEF1;
-	Thu, 20 Nov 2025 13:36:35 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 7FC6F60053;
+	Thu, 20 Nov 2025 13:38:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 78260C4CEF1;
+	Thu, 20 Nov 2025 13:38:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763645801;
-	bh=QeW3CEvdKqBT0Wu8GYf8ydAdxWMl51xnLxLsaTIhg8k=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=kcXQuW+fGb4qfDsyuPDFmOZC0Z9xPTm2xTJ1Jf4La0K7lR8FldEsLV/mGaYiyHOha
-	 jJ//TH/ycZasivIDTgclaoZbBuAQEjj5qQZcE5oJAlwq0df4aBYDvbm8XS2XipOR3i
-	 3Kj/HU9CVbdHbdOyNaJ7LiPlaoSPUrL1+H0FLQgRv+cfbXzFRztc9Emt4aKJ8GC+33
-	 JCVq4NjXkPdAKcxsPKi+s7c7dsXsA2UnKSVjNL1IS7aem813+30mF4v2RJtOuV2mVi
-	 Pp+x3uKTpf4ySJfKrzNKLzrZiZA77hJB5jkUY28IIxCJQiX3QbXIkC7YMXiwfE6j59
-	 pqLW6I39zzOJA==
-From: Mark Brown <broonie@kernel.org>
-To: Kees Cook <kees@kernel.org>, Mika Westerberg <westeri@kernel.org>, 
- Dmitry Torokhov <dmitry.torokhov@gmail.com>, 
- Andrew Morton <akpm@linux-foundation.org>, 
- Linus Walleij <linus.walleij@linaro.org>, 
- Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Saravana Kannan <saravanak@google.com>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Andy Shevchenko <andy@kernel.org>, 
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
- Srinivas Kandagatla <srini@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>, 
- Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
- Alexey Klimov <alexey.klimov@linaro.org>, 
- Bjorn Andersson <andersson@kernel.org>, 
- Konrad Dybcio <konradybcio@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>
-Cc: linux-hardening@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-sound@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
- Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-In-Reply-To: <20251112-gpio-shared-v4-0-b51f97b1abd8@linaro.org>
-References: <20251112-gpio-shared-v4-0-b51f97b1abd8@linaro.org>
-Subject: Re: (subset) [PATCH v4 00/10] gpio: improve support for shared
- GPIOs
-Message-Id: <176364579587.23444.3839651662930349117.b4-ty@kernel.org>
-Date: Thu, 20 Nov 2025 13:36:35 +0000
+	s=k20201202; t=1763645909;
+	bh=CPiSXQWLPTRw9YqUm59meRVTWCik9PWrWPizlDTGwk4=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=oQRmJe0g15jvqwnOEi6c9pGQJTgUM8OOGw5QUoO/qZgg0xllWoxVhA9vMB3gTw1/M
+	 ZrUY7w2LyzrOHYX255CQOSkI2aG3AVMc+L4GCw4wLGcB9O6x1ALvYerKh/VkIhFBJz
+	 MFISeBTd3su4Rm+vhzu09l0QVd0+X1TT114jBtlgPiCEdivjT72ih6cqB8hJICX064
+	 iSU/ZNaN5yEYNl/GCiCoF5T+BPWsuYynxtQEVxtvMNeKnBbNoD56fhIv73f0K8FFrJ
+	 t6zje+UTye9oIa9+R+/ohi9ckFcRIitx8wZmxZlhnywOwGcGS2YW61jaawp+aw8xDx
+	 7keg3nFBcxfgw==
+Message-ID: <de26ada1-0d8f-4d3c-a665-091925dd44ce@kernel.org>
+Date: Thu, 20 Nov 2025 14:38:23 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/5] mfd: mt6397: Fix formatting of RTC_BBPU_KEY
+ definition
+To: ot_shunxi.zhang@mediatek.com, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Eddie Huang <eddie.huang@mediatek.com>, Sean Wang <sean.wang@mediatek.com>,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>, Lee Jones
+ <lee@kernel.org>, Vince-WL.Liu@mediatek.com, sirius.wang@mediatek.com,
+ Jh.Hsu@mediatek.com
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+References: <20251120121805.6775-1-ot_shunxi.zhang@mediatek.com>
+ <20251120121805.6775-2-ot_shunxi.zhang@mediatek.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20251120121805.6775-2-ot_shunxi.zhang@mediatek.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.15-dev-88d78
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,44 +121,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 12 Nov 2025 14:55:29 +0100, Bartosz Golaszewski wrote:
-> Bjorn, Konrad: I should have Cc'ed you on v1 but I just went with what
-> came out of b4 --auto-to-cc. It only gave me arm-msm. :( Patch 7 from
-> this series however impacts Qualcomm platforms. It's a runtime dependency
-> of patches 8 and 9. Would you mind Acking it so that I can take it into
-> an immutable branch that I'll make available to Mark Brown for him to
-> take patches 8-10 through the ASoC and regulator trees for v6.19?
+On 20/11/2025 13:17, ot_shunxi.zhang@mediatek.com wrote:
+> From: Shunxi Zhang <ot_shunxi.zhang@mediatek.com>
 > 
-> [...]
+> Adjust the whitespace alignment for the RTC_BBPU_KEY macro definition
+> in the mt6397 RTC header file. This is a cosmetic change to improve
+> code consistency.
 
-Applied to
+Please don't send such changes line by line.. You have other patches
+here doing the same. Organize all such trivial stuff, including for
+other drivers not only this one (!!),  in one patch. This is just churn.
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-next
 
-Thanks!
 
-[08/10] ASoC: wsa881x: drop GPIOD_FLAGS_BIT_NONEXCLUSIVE flag from GPIO lookup
-        commit: d01fbee5c0d3d3061fb16235b71f5a117128e2c1
-[09/10] ASoC: wsa883x: drop GPIOD_FLAGS_BIT_NONEXCLUSIVE flag from GPIO lookup
-        commit: 7a0a87712120329c034b0aae88bdaa05bd046f10
-
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
-
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
-
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
-Thanks,
-Mark
-
+Best regards,
+Krzysztof
 
