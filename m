@@ -4,47 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1968CFA441
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 20:13:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACCDCCFA442
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 20:21:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=W1SjqVDeK/2NMBT5s/3OBPDk5kx6fZIu5b/UVlPsHdI=; b=jI/lZkYPS1y66xtlNhzad8qRh6
-	hQXM3h9ALx3GyphcZ2o90LHGCu9FwGpmBO0uraoKkfh4yTHCEqiqRcLVquGQGms4aO5CyR0EI0Exy
-	KcGyJVsQyX0/WJ4Q5PV2MRcQHf2hfe3iCCb4ABNBmHtnJvdvCiH9WcdEDtj10g5LP6HZoLql3llZM
-	vMpyeD3YGqFSlgdpDMs1hATmhblckcdW2qaqJs7axqmQyzzuhMYOysn3AOh2VjUvwN7zDECI8p8GI
-	9vwOuhILRl6GxRaS5bQ0lZSaDyUtnVCpWXw2LWK9X9TkTG4GAXIz+MBsUWq6zz4RoyzqvNXml0Pw1
-	8rV0Hydw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=MfnM0jSdEloe4HZ32VUBdjPce4zV0B1vrXjJgQPSBY0=; b=XtoxjH/tvlPBsga2DQvkniqPc/
+	MonpTBwtI84bQOiXnP5uIQPeqiT/SwJwM6aeHpGwGPoU9nhmlIH/5OrEtFhUvfPcri042bdCC1LRx
+	deoLU9kEf5VSluW9Bso6wjo+deCCrms6crhqG8zN/z92RWNn0gOZQ/DBvc2lQ/n5QbC+bkPokkbPZ
+	zFkF2oziPk0lMLh6zI+lOOn0av/QocvBkBSUN4odYo+HnF0QQX4PWq06iWrWTSkhBp+sDDUye2Olr
+	Pod/Iu2OdfcfRewcEvXvb5cI9a0rnM+9fOsM8Pve1ruHPOqcvX0EKRT4zrBGr4i5N8ByC9OZXcou6
+	xTFF9UtA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMB1k-00000007Ki1-3C7M;
-	Thu, 20 Nov 2025 20:13:12 +0000
-Received: from [50.53.43.113] (helo=[192.168.254.34])
-	by bombadil.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMB1j-00000007Khn-03y1;
-	Thu, 20 Nov 2025 20:13:11 +0000
-Message-ID: <669d4bbb-4011-493c-b056-34e682a1ac26@infradead.org>
-Date: Thu, 20 Nov 2025 12:13:10 -0800
+	id 1vMB9R-00000007L6C-2pYN;
+	Thu, 20 Nov 2025 20:21:09 +0000
+Received: from mout-p-102.mailbox.org ([80.241.56.152])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vMB9L-00000007L5l-2EK7
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 20 Nov 2025 20:21:08 +0000
+Received: from smtp2.mailbox.org (smtp2.mailbox.org [IPv6:2001:67c:2050:b231:465::2])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-102.mailbox.org (Postfix) with ESMTPS id 4dC8qt0fJhz9tkd;
+	Thu, 20 Nov 2025 21:20:58 +0100 (CET)
+Authentication-Results: outgoing_mbo_mout;
+	dkim=none;
+	spf=pass (outgoing_mbo_mout: domain of linux@timmermann.space designates 2001:67c:2050:b231:465::2 as permitted sender) smtp.mailfrom=linux@timmermann.space
+From: Lukas Timmermann <linux@timmermann.space>
+To: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	alim.akhtar@samsung.com,
+	linux@armlinux.org.uk
+Cc: devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Lukas Timmermann <linux@timmermann.space>
+Subject: [PATCH 0/3] Add support for exynos5250-samsung-nexus10-manta (Google Nexus 10)
+Date: Thu, 20 Nov 2025 21:19:58 +0100
+Message-ID: <20251120201958.1970828-1-linux@timmermann.space>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1] arm64, lib: make ARM64 select
- ARCH_HAS_CPU_CACHE_INVALIDATE_MEMREGION not GENERIC_CPU_CACHE_MAINTENANCE
-To: Conor Dooley <conor@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org,
- Conor Dooley <conor.dooley@microchip.com>,
- Jonathan Cameron <jonathan.cameron@huawei.com>, Will Deacon
- <will@kernel.org>, linux-kernel@vger.kernel.org,
- Arnd Bergmann <arnd@arndb.de>
-References: <20251119-zippy-distinct-1e2a7da7b69b@spud>
- <aR9QRuUigBsxxelm@arm.com> <20251120-ruined-liability-9ecbf53affd1@spud>
-Content-Language: en-US
-From: Randy Dunlap <rdunlap@infradead.org>
-In-Reply-To: <20251120-ruined-liability-9ecbf53affd1@spud>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-Rspamd-Queue-Id: 4dC8qt0fJhz9tkd
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251120_122103_731610_4C493138 
+X-CRM114-Status: GOOD (  14.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -59,59 +70,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+This patch series adds initial support for the samsung-manta board, known
+as Google Nexus 10 to users. The device is powered by
+the Exynos 5250 SoC. The notification led driver (as3668) is already 
+in the kernel mailing list and can be found here:
+https://lore.kernel.org/linux-leds/20251117020008.316648-1-linux@timmermann.space/
 
+The first two patches add the necessary device tree files and
+bindings, while the last patch makes a small modification to
+allow CPU1 to boot, as it requires a call to it's underlying firmware.
 
-On 11/20/25 11:29 AM, Conor Dooley wrote:
-> On Thu, Nov 20, 2025 at 05:30:46PM +0000, Catalin Marinas wrote:
->> On Wed, Nov 19, 2025 at 07:08:27PM +0000, Conor Dooley wrote:
->>> index 09aec4a1e13f..ac223e627bc5 100644
->>> --- a/lib/Kconfig
->>> +++ b/lib/Kconfig
->>> @@ -544,8 +544,9 @@ config ARCH_HAS_CPU_CACHE_INVALIDATE_MEMREGION
->>>  	bool
->>>  
->>>  config GENERIC_CPU_CACHE_MAINTENANCE
->>> -	bool
->>> -	select ARCH_HAS_CPU_CACHE_INVALIDATE_MEMREGION
->>> +	def_bool y
->>> +	depends on ARCH_HAS_CPU_CACHE_INVALIDATE_MEMREGION
->>> +	depends on ARM64
->>
->> That's what we do if GENERIC_CPU_CACHE_MAINTENANCE depends on some arch
->> code but that's not the case here. GENERIC_CPU_CACHE_MAINTENANCE is an
->> alternative implementation that an arch can select if it does not
->> provide its own. I find the current code without the above patch better.
-> 
-> Right, I am going to leave it as-is for now then. That's both you and I
-> (and presumably Jonathan) finding the current form more natural. Sorry
-> Randy!
+This first iteration only provides basic support to get the board
+up and running and usable via UART. We will upstream additional 
+features in future patches. All patches have been tested on real hardware.
 
-Thanks. I tried.
+Signed-off-by: Lukas Timmermann <linux@timmermann.space>
 
-I still say that it makes no sense for something generic
-(GENERIC_CPU_CACHE_MAINTENANCE in lib/Kconfig) to inform the
-config system that the config has something $ARCH-specific
-(ARCH_HAS_CPU_CACHE_INVALIDATE_MEMREGION).
+Alexandre Marquet (3):
+  dt-bindings: ARM: samsung: Add Samsung Manta (Google Nexus 10)
+  ARM: dts: exynos: Add Samsung Manta (Google Nexus 10)
+  ARM: samsung: exynos5250: Allow CPU1 to boot
 
->>
->> Maybe what gets confusing here is that the core code uses
->> ARCH_HAS_CPU_CACHE_INVALIDATE_MEMREGION directly. A more involved fix
->> would be something like:
->>
->> config CPU_CACHE_INVALIDATE_MEMREGION
->> 	def_bool y
->> 	depends on ARCH_HAS_CPU_CACHE_INVALIDATE_MEMREGION ||
->> 		GENERIC_CPU_CACHE_MAINTENANCE
->>
->> and then go and change all the uses of
->> ARCH_HAS_CPU_CACHE_INVALIDATE_MEMREGION.
->>
->> Up to you, the current code also works for me.
->>
->> -- 
->> Catalin
+ .../bindings/arm/samsung/samsung-boards.yaml  |   1 +
+ arch/arm/boot/dts/samsung/Makefile            |   1 +
+ .../exynos5250-samsung-nexus10-manta.dts      | 516 ++++++++++++++++++
+ arch/arm/mach-exynos/firmware.c               |   4 +-
+ 4 files changed, 520 insertions(+), 2 deletions(-)
+ create mode 100644 arch/arm/boot/dts/samsung/exynos5250-samsung-nexus10-manta.dts
 
 -- 
-~Randy
+2.52.0
 
 
