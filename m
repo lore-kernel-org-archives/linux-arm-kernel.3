@@ -4,69 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FFC3CFA440
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 18:43:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE88FCF9C7F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 18:43:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JGcCdHbDbTIl/UPp/4b9lzfyFAtmrTaBAs1wcxj1OgM=; b=0mCI7wJdcu4S2JJtQRTwuoiUFN
-	Ll/AoC8noD3QwihAX8EcqKNZVwZ12h76LYgyx/uLiL4hTG7s6bk2mSiUNDvQqwAtopM2r3uuVABSQ
-	FyrKR5d6ku+fCNtPqS4uSZRT3olTX26wL0dvLEoGDqHU1qKJHPA2IxyK4tWymDWSjlMDIvExIEmpg
-	qs+dVsB4q38B0YUjR0eQ74lVOzyqywAknam7mGyNcv4sHXBYSVplfY5n0w3sQ3XTQt6VeVRLQFvnX
-	HGdIGvGbQUcZIKz/AF04ZentDpGCq38KU1ME6DhzzfClm0aVF2qiKDFXvpBLeKU+Di0HdmSaxw6H2
-	rQizJcgQ==;
+	bh=sQI/aMjga6zLBbmFacInf1FiaB4N/DGsz2v/Apbe6jw=; b=DcbbjmtNMfWVM6Ds1TiVBrzbyI
+	MPNzfWy9zwjzSiXiLVcjpo/v3MTe8fLpDToC8V3ZmjgUWsLCKfZDp7s7FQCiFRwEl3Z0vpCSx6vGX
+	PTP3wXO40+eksv7zl6+fMalZqa/KETX8mNDp+jvzai88/1Qft3qF5TumVz35R9kLYso7+w61fmCQg
+	moaE4saHiASqd7GJB7b/DUDF40/GZc3p0yVcca2wc3dvj0OveuyHH9hO85rErmvjUqs9pQP0XONhQ
+	qSuNtcnU/0KgqPg6A58Cl+luhsZ/OvgOy/2sED7ICFJF9UiY7fk/W9CiltFQJV6bnUoz7IF/d2lx8
+	8PIaEKIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vM9cZ-00000007ElR-0cYJ;
-	Thu, 20 Nov 2025 18:43:07 +0000
-Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
+	id 1vM9cY-00000007EkT-26dx;
+	Thu, 20 Nov 2025 18:43:06 +0000
+Received: from mail-pl1-x64a.google.com ([2607:f8b0:4864:20::64a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vM9cV-00000007Ej2-1sWB
+	id 1vM9cQ-00000007EgE-3BeF
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Nov 2025 18:43:04 +0000
-Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-34377900dbcso2777708a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Nov 2025 10:43:02 -0800 (PST)
+	Thu, 20 Nov 2025 18:42:59 +0000
+Received: by mail-pl1-x64a.google.com with SMTP id d9443c01a7336-297e5a18652so14509165ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Nov 2025 10:42:58 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1763664182; x=1764268982; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1763664178; x=1764268978; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=JGcCdHbDbTIl/UPp/4b9lzfyFAtmrTaBAs1wcxj1OgM=;
-        b=fbCXM9OjSgk3oBJRCQglA0ouVds1ID/F3ooY+qJQadVvc8nguMSrwTvnEh1KVZmQ6t
-         xQ7R7WFLNDKMXlXHucWdLcsHk4qZ+C88Jb+dvC+65Okgmxz4LHBvnlaRXIxMX2IZkHtx
-         sgEYKFK7jbO0KyfwM5HX8jSQ7flh10n9QBqqrq0UnIQsvzPiDHmFuqb77D65nTc3k7Ru
-         K9LZYXbGp9R3TfLvjQRyiVpO4gdXLADH75WAP+ilacE7XpUUL4y7shiew5l/vegFHpKh
-         leja2SiiO2yuUjVoKmxeD+CmbtRJcrwg0ZVm9CLdYLQgpnkNaXO+Z6b5UrkbN+FEUwlt
-         T0AQ==
+        bh=sQI/aMjga6zLBbmFacInf1FiaB4N/DGsz2v/Apbe6jw=;
+        b=sL7AFhP8Um1MPmUfxmo6+6x2gTDfw2TswBbUPeoxow9JqGj9gN5193P0h6EW44ypn/
+         n5W4XwmCgvq2OZ72kArFQ5DeP7L0IWXw50hNr6dpgjxmzNvVJziYoS/WAf3ftf6ghfz0
+         wWPIrrg5FB9fRcmtbWBLEgz3Fm0DRn5vPDIM5qcG5GWl1Q5mW/Dq9eohY7osm6YuujD+
+         wYysTMQGvr7f7SNPCFh9y9ZCQhQtPEula1MNb8eP4rLquCyCdxW/XpbpPfakNsMKtx4s
+         40G15bz+gNdsGlpSoBUCBAHHZdIEMp6ya/ZhMQ1ciSfcjJL3Zm8MbKnxq8Sz0g/6rrJs
+         M2nQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763664182; x=1764268982;
+        d=1e100.net; s=20230601; t=1763664178; x=1764268978;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=JGcCdHbDbTIl/UPp/4b9lzfyFAtmrTaBAs1wcxj1OgM=;
-        b=etFqd/dj8POzCdGcfMCw61o2tN9baWEhhk7emRQIuYdlRjcmkn5BbFphNSNtGp120E
-         qbLwS0lBleMUyxmDhTj7oApJo8kTbcLup6TsTgEXlVU2Bjy9GR+4kq05QNK+bHwUbL+y
-         ZYeH7EyISGA4wZanc7+dYdQe9VHr529SmY4tGlDEDwtKJfKg6uUv85oz8T7MzAeic2sd
-         uh9j1cP7R65TcPXyHH5/AON8TpedNpsRmqYs8hqtJ6hM4EnsRc3IueDp3ra+YhB4sPMW
-         vgOF2q4SOvxu9LoiQS8IoKU9iNTqTgwE1/M+xXmnhxZXM7abEVGuL/9NvVhFyLVbbRIs
-         sahA==
-X-Forwarded-Encrypted: i=1; AJvYcCVVKwjAXbBeqwqG/LSKinK6CnqYz3e6tc8joG6g6bOfP6iuLXRQWYHIlcFI5PLj84PoD3oJWF2nyuMVWgKBc5pN@lists.infradead.org
-X-Gm-Message-State: AOJu0YxqzrX108f6wY3Gde1v7ceO4tYjAtiDkkNNawCPvkhaH5lJYriW
-	MugG4xZegqVeqZqFO9KErz88nH8cLHfUtOsWZSD+fCZD3320b9YLJv5hJffRyjgIhPkwgiFNafN
-	pagtthDFNJFKZ0bLWZrjdMGSR/ATesA==
-X-Google-Smtp-Source: AGHT+IFt5QfE8e5NXxmnZJ0/iQdAGNuMSvT4BtRRro1MfwvfVu6kdP0H+7ZtU7YhUZh+wKkjO47g10Q354uCZT6CnAQ=
-X-Received: from pjwx3.prod.google.com ([2002:a17:90a:c2c3:b0:343:af64:f654])
+        bh=sQI/aMjga6zLBbmFacInf1FiaB4N/DGsz2v/Apbe6jw=;
+        b=BFMcIEmd71cUZtUcGy0+oq3/v37s1+DcFExVv+B+kZmu7uLyvnjDx7oIESu8UcAnOX
+         X4hRTBOQkCQ6Sel9XRebqck22angNP32L8zbYgAv7cizM4VuvL2gr+J7BGa7MX1w5+uK
+         yhW9bQdbBWUUn+grMtJeMR8ghlaFugW2+y85mz/a0OJFIIPLManBi5pVVUtBmoUuRE6N
+         i7nTVSbB14YOr7GcTr5M7NgKAXA9ufX7iaEAloiBZaWzX1aJGrUNzSvEtPg2+RqDXOa6
+         l/Cyp1/RplH4gW8vHDviKjXOOH/J/2WGFSFrrzDS64Db7cXr1ZyxJNPljdeK/CCOjwkv
+         +cSA==
+X-Forwarded-Encrypted: i=1; AJvYcCXuZLOBwLxY4W3jzNOBRob++KOhdB9j5ESAfBOwj/PMZDzUZpNZF96ad8IZZ12Nq2MTLvglhzKykHKDAOeCdaCb@lists.infradead.org
+X-Gm-Message-State: AOJu0YxUB7lMUgWq3dLx77rLgCT42Be6khKpEkBFm0WZuFtkrcGoTDBj
+	W2e0GwM7hMgT9//WdYGQGJwql/hizah/JMuUwfblulpUaEMA5wjL2el+6z/NZRl6KgU6F4vJMw8
+	mHqkRRUGAbHoh4hpeJut38TS3QA8eoA==
+X-Google-Smtp-Source: AGHT+IHwJthRNw4pqfJjYDk4vSF8m6qYCdx11lKLy4Vbpkd9LUAmbdAJbP3S8s2Ivqdqp6aG9ef+u6sWKJHez1RSwqw=
+X-Received: from plkb6.prod.google.com ([2002:a17:903:fa6:b0:268:cfa:6a80])
  (user=willmcvicker job=prod-delivery.src-stubby-dispatcher) by
- 2002:a17:90b:4a51:b0:340:bfcd:6af3 with SMTP id 98e67ed59e1d1-34731c82829mr327779a91.33.1763664182070;
- Thu, 20 Nov 2025 10:43:02 -0800 (PST)
-Date: Thu, 20 Nov 2025 18:42:34 +0000
+ 2002:a17:903:2408:b0:295:fbc7:d282 with SMTP id d9443c01a7336-29b5b08a22dmr50358725ad.27.1763664177775;
+ Thu, 20 Nov 2025 10:42:57 -0800 (PST)
+Date: Thu, 20 Nov 2025 18:42:32 +0000
 In-Reply-To: <20251120184242.1625820-1-willmcvicker@google.com>
 Mime-Version: 1.0
 References: <20251120184242.1625820-1-willmcvicker@google.com>
 X-Mailer: git-send-email 2.52.0.rc2.455.g230fcf2819-goog
-Message-ID: <20251120184242.1625820-7-willmcvicker@google.com>
-Subject: [PATCH v6 6/6] arm64: exynos: Drop select CLKSRC_EXYNOS_MCT
+Message-ID: <20251120184242.1625820-5-willmcvicker@google.com>
+Subject: [PATCH v6 4/6] clocksource/drivers/exynos_mct: Fix uninitialized irq
+ name warning
 From: Will McVicker <willmcvicker@google.com>
 To: Russell King <linux@armlinux.org.uk>, Catalin Marinas <catalin.marinas@arm.com>, 
 	Will Deacon <will@kernel.org>, Daniel Lezcano <daniel.lezcano@linaro.org>, 
@@ -82,8 +83,8 @@ Cc: Will McVicker <willmcvicker@google.com>, Donghoon Yu <hoony.yu@samsung.com>,
 	linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251120_104303_485317_6C5FA04E 
-X-CRM114-Status: GOOD (  12.31  )
+X-CRM114-CacheID: sfid-20251120_104258_803773_FFD91CB4 
+X-CRM114-Status: GOOD (  18.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,31 +99,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Since the Exynos MCT driver can be built as a module for some Arm64 SoCs
-like gs101, drop force-selecting it as a built-in driver by ARCH_EXYNOS
-and instead depend on `default y if ARCH_EXYNOS` to select it
-automatically. This allows platforms like Android to build the driver as
-a module if desired.
+The Exynos MCT driver doesn't set the clocksource name until the CPU
+hotplug state is setup which happens after the IRQs are requested. This
+results in an empty IRQ name which leads to the below warning at
+proc_create() time. When this happens, the userdata partition fails to
+mount and the device gets stuck in an endless loop printing the error:
 
+  root '/dev/disk/by-partlabel/userdata' doesn't exist or does not contain a /dev.
+
+To fix this, we just need to initialize the name before requesting the
+IRQs.
+
+Warning from Pixel 6 kernel log:
+
+[  T430] name len 0
+[  T430] WARNING: CPU: 6 PID: 430 at fs/proc/generic.c:407 __proc_create+0x258/0x2b4
+[  T430] Modules linked in: dwc3_exynos(E+)
+[  T430]  ufs_exynos(E+) phy_exynos_ufs(E)
+[  T430]  phy_exynos5_usbdrd(E) exynos_usi(E+) exynos_mct(E+) s3c2410_wdt(E)
+[  T430]  arm_dsu_pmu(E) simplefb(E)
+[  T430] CPU: 6 UID: 0 PID: 430 Comm: (udev-worker) Tainted:
+         ... 6.14.0-next-20250331-4k-00008-g59adf909e40e #1 ...
+[  T430] Tainted: [W]=WARN, [E]=UNSIGNED_MODULE
+[  T430] Hardware name: Raven (DT)
+[...]
+[  T430] Call trace:
+[  T430]  __proc_create+0x258/0x2b4 (P)
+[  T430]  proc_mkdir+0x40/0xa0
+[  T430]  register_handler_proc+0x118/0x140
+[  T430]  __setup_irq+0x460/0x6d0
+[  T430]  request_threaded_irq+0xcc/0x1b0
+[  T430]  mct_init_dt+0x244/0x604 [exynos_mct ...]
+[  T430]  mct_init_spi+0x18/0x34 [exynos_mct ...]
+[  T430]  exynos4_mct_probe+0x30/0x4c [exynos_mct ...]
+[  T430]  platform_probe+0x6c/0xe4
+[  T430]  really_probe+0xf4/0x38c
+[...]
+[  T430]  driver_register+0x6c/0x140
+[  T430]  __platform_driver_register+0x28/0x38
+[  T430]  exynos4_mct_driver_init+0x24/0xfe8 [exynos_mct ...]
+[  T430]  do_one_initcall+0x84/0x3c0
+[  T430]  do_init_module+0x58/0x208
+[  T430]  load_module+0x1de0/0x2500
+[  T430]  init_module_from_file+0x8c/0xdc
+
+Reviewed-by: Peter Griffin <peter.griffin@linaro.org>
 Reviewed-by: Youngmin Nam <youngmin.nam@samsung.com>
 Tested-by: Youngmin Nam <youngmin.nam@samsung.com>
 Signed-off-by: Will McVicker <willmcvicker@google.com>
 ---
- arch/arm64/Kconfig.platforms | 1 -
- 1 file changed, 1 deletion(-)
+ drivers/clocksource/exynos_mct.c | 10 ++++++++--
+ 1 file changed, 8 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm64/Kconfig.platforms b/arch/arm64/Kconfig.platforms
-index 13173795c43d..fc6026c368ca 100644
---- a/arch/arm64/Kconfig.platforms
-+++ b/arch/arm64/Kconfig.platforms
-@@ -128,7 +128,6 @@ config ARCH_CIX
- config ARCH_EXYNOS
- 	bool "Samsung Exynos SoC family"
- 	select COMMON_CLK_SAMSUNG
--	select CLKSRC_EXYNOS_MCT
- 	select EXYNOS_PM_DOMAINS if PM_GENERIC_DOMAINS
- 	select EXYNOS_PMU
- 	select PINCTRL
+diff --git a/drivers/clocksource/exynos_mct.c b/drivers/clocksource/exynos_mct.c
+index 1429b9d03a58..fece6bbc190e 100644
+--- a/drivers/clocksource/exynos_mct.c
++++ b/drivers/clocksource/exynos_mct.c
+@@ -465,8 +465,6 @@ static int exynos4_mct_starting_cpu(unsigned int cpu)
+ 		per_cpu_ptr(&percpu_mct_tick, cpu);
+ 	struct clock_event_device *evt = &mevt->evt;
+ 
+-	snprintf(mevt->name, sizeof(mevt->name), "mct_tick%d", cpu);
+-
+ 	evt->name = mevt->name;
+ 	evt->cpumask = cpumask_of(cpu);
+ 	evt->set_next_event = exynos4_tick_set_next_event;
+@@ -567,6 +565,14 @@ static int __init exynos4_timer_interrupts(struct device_node *np,
+ 	for (i = MCT_L0_IRQ; i < nr_irqs; i++)
+ 		mct_irqs[i] = irq_of_parse_and_map(np, i);
+ 
++	for_each_possible_cpu(cpu) {
++		struct mct_clock_event_device *mevt =
++		    per_cpu_ptr(&percpu_mct_tick, cpu);
++
++		snprintf(mevt->name, sizeof(mevt->name), "mct_tick%d",
++			 cpu);
++	}
++
+ 	if (mct_int_type == MCT_INT_PPI) {
+ 
+ 		err = request_percpu_irq(mct_irqs[MCT_L0_IRQ],
 -- 
 2.52.0.rc2.455.g230fcf2819-goog
 
