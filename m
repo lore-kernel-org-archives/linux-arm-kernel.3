@@ -4,93 +4,137 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52857CF884C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 12:28:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9414ACF884B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 12:33:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4HhtSTqCGLLrH7sfkvwPKz4oo0QSbD9ECCA73kZYpvQ=; b=bf4Z/DoqMCL5Gy1kwJPICx8xmr
-	i3ZZQCAlWt8XVFnGEIXcADPgUcXycrGC96wICGKEal088jbMZ9VKE7hPENCyA/Vl86wztZQJIcJ4K
-	/pZ43nUlTJGim1+tSnQyic6Svdo9X6UkXjIIcBOzHYeJ73lOBiqUpGHhef092QMTvLNedgEJZWZX+
-	MQ+/3cnW42Tr/SZtSRQOsncsdbDaaCeTkDyYgp6gDAAPmHP2c/tAxLJtjcIjSfUbRUlfQhLWG+WcY
-	lA/XUEI/qmYlVB679x+OYUqQUOEz77Xbkw8Ga+xYghwtTnmTBjKHejnpAglDSRKWVoS1+r2kGQAxH
-	zdk0EiNw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7hJNYrGiiTjlqMPWTxw+6seK+qE1J1erEAaW4L/7Ijk=; b=rX9GpQ7N73B8wti/Nnnrq2D3up
+	xL/6GNVCeKIdShV+APPIUdPTBTw6/XfiC1MQUrfBa00naniyqy0g92uE1SceanqOKszAff0NfQPWt
+	e6xc1zcSGL036GO7RcgMbcSUzp+ijb5fbNYBp+dfCB4sT9JrtzH5OH95NcjnSBfPFNi/g+4OhTGBN
+	hj00BQlwwH4ZiDU61R2DkTtRAk+6HipnDEKBcJ9rlHoONmdewD628Mw6Cq+mQMvjl7A0c9zXXjxmR
+	atkgzichTcr0yU3ZKed9NQbbB1CPBu8lj7g+nZeuoaiue3Z7TMiFIEJm2L8fLUUFGFij/mqwGMEem
+	Lmt9udbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vM3lP-00000006fSl-26c6;
-	Thu, 20 Nov 2025 12:27:51 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1vM3qz-00000006flV-1UWu;
+	Thu, 20 Nov 2025 12:33:37 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vM3lN-00000006fSJ-0HWs
+	id 1vM3qw-00000006fl2-09gw
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Nov 2025 12:27:50 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-477ba2c1ca2so6383155e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Nov 2025 04:27:48 -0800 (PST)
+	Thu, 20 Nov 2025 12:33:35 +0000
+Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5AKCI1aR3407794
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Nov 2025 12:33:33 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	7hJNYrGiiTjlqMPWTxw+6seK+qE1J1erEAaW4L/7Ijk=; b=kj2q3rI2u7XF/Mwt
+	3leJFZCxjh7CA0q/0B52pC2W3yeHY5sohSl5w3kKbwX5e673UhWuJGwYzIwHkdne
+	2g/29H5cNWtbpRtPGiB2w8mwy6OUBbHw2Bt8MjFwLE65x7Mk8Uk9c2MdmymBk50t
+	bF45le5cHEZY3Bf+IlskJTl+AsQKoZRFn4HpQvnZoo8OAerrIhqMbiIBkt6xrwaB
+	iEtm5N3RKZwVr22o2I69N0DO6gdES6tUPH9v1ZhBFH3KIjogOPVqt6AvBX6Jy9W0
+	pAfGDS8FQqzgoR96XEIlzFpNS0pvKYGheO8egcO1bZekm1o+U/i/5g4ilFRcRaKN
+	k9DNlA==
+Received: from mail-qk1-f200.google.com (mail-qk1-f200.google.com [209.85.222.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4ahm812qxw-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Nov 2025 12:33:33 +0000 (GMT)
+Received: by mail-qk1-f200.google.com with SMTP id af79cd13be357-8b196719e0fso26531985a.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Nov 2025 04:33:33 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1763641667; x=1764246467; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=4HhtSTqCGLLrH7sfkvwPKz4oo0QSbD9ECCA73kZYpvQ=;
-        b=BoqL/4gUTRhcWDlS1x6YqPEnr1+2sKhNpSwH61JPP5/3uAyRvtU99kkord56mZK/Ut
-         Zi7zOfIIspmbY4q3bUydx+Yqj3Ecj6Yalk9aKw1AV3VAgMo9BT4Xq5vfzbiZZsur/P66
-         dkgvuNwVsnUZcBoaEWgtZ/373A2SnjItGn5go+Wylqqv5tGslKqetEtr423lXkxshYBT
-         RHQEYPejPcbFazbBvSLYUKhz86wWHCIoQB3J+BK7Bk4Yj+P0ZRHa7u36cRMfI5PPAQl5
-         G6ilXnDn9QGidvkc0x8NIunWlyJwUTpdJqHfEhFP0SJQwHCBoUd4nk4pLjmwdmMzEJJo
-         jYOg==
+        d=oss.qualcomm.com; s=google; t=1763642012; x=1764246812; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=7hJNYrGiiTjlqMPWTxw+6seK+qE1J1erEAaW4L/7Ijk=;
+        b=g1BuQ1pRGbh8rceTYEnApyvVmjuwUTady8pE9KI4+CFAtA+U3l0IjMcYkjGZuirKoE
+         1/5by9vsnQw65HyyxbrhOt97L+LzplpyUq91nFFkp5WjBBLQycsxrQnYv1L71ip81fSq
+         bqhq++XtzLvyx+rv02efhSezJD5wL+DQmlZuh79sUh0oiIFNbP62hZKcI5NyaljZK7bS
+         92feYMCMtwE3qXcUyHVsgwv8bpuld1Vtr4XUFV9oOKZdSy+D3K5pGt2Ii1HyCUbi9sk9
+         azOa839qSsCjBZG0WNrjLzqtv0UkdB3xOrdX4LUF4iBu9/qNOmJNUrMAS2luZFkHfDMp
+         ZrSQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763641667; x=1764246467;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=4HhtSTqCGLLrH7sfkvwPKz4oo0QSbD9ECCA73kZYpvQ=;
-        b=qJ8U+pxSvja37TwsMWlgbizi/1UcNFqmYpb3VxifKkB77lKoE8Xdwu1HRJ+nFAeIUP
-         hxC07zxB2TKjJrSbDNK2w/3g/lknqdb+zzKj0FSFDxbRf9gXoP/8CPPxuRQM0FxgTfDE
-         yGVhdk4mu6EbjZlciLqvz4s8WEVAeUMRVg05PWQ6dxqPo2zDpLAFlicssWQXlH9Ayvr9
-         kD02T+8zfGXCUtXfbNDLJUocFN0k4+KeFP1t8FgEr09hHFlhejEXEs5nGcehG7WQWWsu
-         u3OoeLn+UbkAba8t8wUMzhHn7We2JCdUITmlphh8pInmnuQgyNB2H5ce90KCS0RLt79Z
-         mMWQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXAoJdEGySvyehcjjqQeUF6i2A5HreJY7OrQC79mR+uZeL2hR6wwuOiyfxxAiCy78sCLAzqDnPtzB74HuX0BQ0u@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz+cidBek9WpPnoiNTWQla8qBVU8VoFd0RkbsyuV+sLAbahshEx
-	xE7Eiivyyyer1p8AOhdkXLmht+sfMCGsTsMkne6SSWmcqsfx1HAzPdGJ58FGq7zrCQ==
-X-Gm-Gg: ASbGnctW7+aweNdYY6PeQe9nC3YozkRB5xGzjf3nbf//rMHQwpCb0WVUhpV/kfYUYmw
-	cV4RNCLUKEjfOf0+isi1XyVX6QV4s7uulCyzDq67nzkheJBmD0UXGBVa+H73iM4D0d5X69qaKAq
-	tnipiX+kHw6vYJbx+PArPKUFDAsP6KyjHSo3iuBZEwHtr/H/4I14+u/E6J+5c5sHtvZhl4Mj/aD
-	8XXTaKIt1zRBuXaWVWLtzlRCPN3IUxbxnZwtLVZ0kXTZYJudvQScM4IVPK9M41gAlpV4e/hGU/0
-	8z0VNsxUGjqbvmTVGePpm84m1uru+g4xAXXDoG3d/CaDdiOmMxhwubdIc1f8LIeArT933FinwDz
-	rMY6dKd60r28Ak0lBk0slZf6nh6XnTyOfHTDbjA77jXO0NRF38q+5+ctzNKmZ128IEns3U2tkRN
-	eYyUNHVbJHXko9cZ5wnVUj8ecClHNLwT0pPuGSiKYdbyUroV0Lgg==
-X-Google-Smtp-Source: AGHT+IHpeFeIGGZiJTmXFsR+6beF5U9qh+UXPfFDdc/PMj/YV98aLC84HYj/PIpbhK9tkAcu44ljjQ==
-X-Received: by 2002:a05:600c:4e8f:b0:477:9eb8:97d2 with SMTP id 5b1f17b1804b1-477b8a511d8mr26758955e9.8.1763641667024;
-        Thu, 20 Nov 2025 04:27:47 -0800 (PST)
-Received: from google.com (120.54.38.34.bc.googleusercontent.com. [34.38.54.120])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-477a9dbec2bsm64229035e9.5.2025.11.20.04.27.46
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 20 Nov 2025 04:27:46 -0800 (PST)
-Date: Thu, 20 Nov 2025 12:27:43 +0000
-From: Vincent Donnefort <vdonnefort@google.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: rostedt@goodmis.org, mhiramat@kernel.org,
-	mathieu.desnoyers@efficios.com, linux-trace-kernel@vger.kernel.org,
-	oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com,
-	yuzenghui@huawei.com, kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, jstultz@google.com,
-	qperret@google.com, will@kernel.org, aneesh.kumar@kernel.org,
-	kernel-team@android.com, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v8 22/28] KVM: arm64: Add trace remote for the pKVM hyp
-Message-ID: <aR8JPxRHg7vEOME4@google.com>
-References: <20251107093840.3779150-1-vdonnefort@google.com>
- <20251107093840.3779150-23-vdonnefort@google.com>
- <86a50irkst.wl-maz@kernel.org>
+        d=1e100.net; s=20230601; t=1763642012; x=1764246812;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=7hJNYrGiiTjlqMPWTxw+6seK+qE1J1erEAaW4L/7Ijk=;
+        b=NPIYFROUBMTFr/q62SSECIT7pSABaVxiQn/H9WQL6U6fo3VxeR2pV7b3Y+HKzsIuXa
+         RvdJUr+YikMnB0xd+7Mp/4IeB5fVRG7xUmRjYVPcJa6/S+tuVMhvP1LZ49zgSY+k2QtL
+         3sufBmUKLQzNAAiansAbBJtNWJqqA3X0i/3RA8qsJpZmBhfgurWY6HJ5L2IC1XUdL4qH
+         CRkRHIqLNEzgrsXphUvKvo8oqxzEBJZU9YKi4NBhxCzrcOGRYF0rJK003iQoYI79xvoM
+         nYDRlwdu/gmOQIodCM3i8sszNpUVMgA1kGpwV1f1MZJ00ixO4wRfg5TAajXnNUfqdf3d
+         CKSA==
+X-Forwarded-Encrypted: i=1; AJvYcCXtoOgknPWHtLBN3wCvTRR5IBy/5JTNS+GMPGKjDlvRKP2ga1tlag3g8osUJfV+7AcI93GdDlGKNXAF1NzN5GKz@lists.infradead.org
+X-Gm-Message-State: AOJu0YxLEAPIGwTuWOFcjIlL505ncDRHNIM97IQ//bGiEZwvzRDoavdr
+	qU2f43dZQUDT+vUlOhV2YfeYVVN9yF7gpqBNSxJSJgpaKFvTy5my1v7azX2zrMg63wHkZ4CWfeA
+	O8V7i9TZbCKfmXaOoZhQll0EQ8/A171UggiNxwpcyBurXU7//xvSJhomQlECv6f9zEPtw8/Uz/z
+	kKzg==
+X-Gm-Gg: ASbGncvVgDL6G30uKDBOLc0nduLhiMNoy+frc73RwDe52k5uw3mZehJUPodRXoxIxzW
+	NuEAEt/gxr5G/j6wBGKQKGBA4durwTx85+Jaaffxx8/IB5DTbwIprkj+awZ9I9gFkxNOjRGXdAb
+	VxlYEQviUCRYXWOg7f9JikouLFKOiOZK6e8qopKJ9b7DR2Tla7IIBGZIYwjx2Z+riFToxg8i7OJ
+	hkCIvXJOepNkaL5u8oGqOKTqHmUIWQ0TKsCTT6mMAGS04I/8NKkqdB/4D7VxaZQ2TVw87c0vYPn
+	IYOIzl9RwqruhCF/nHIzzB75ozElemaTI7JxT1mCCiEKSTPSBUu/H+GiiyvbLfE6x++jYCIuAwT
+	HtYhKDnYL0glfLORurARK9heMALWMuz++6cIc/tkm0a2qKxmeZshvC43BXb7pjO3O+24=
+X-Received: by 2002:a05:620a:179f:b0:8b2:9aba:e884 with SMTP id af79cd13be357-8b32f384876mr126004485a.6.1763642012168;
+        Thu, 20 Nov 2025 04:33:32 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IGH8PKV1YzPz57vibeVrtCc9zDlA5YXlsyN2nZn8xrRbGWLU4MA677i03AksflHjajS1E7evw==
+X-Received: by 2002:a05:620a:179f:b0:8b2:9aba:e884 with SMTP id af79cd13be357-8b32f384876mr125998985a.6.1763642011516;
+        Thu, 20 Nov 2025 04:33:31 -0800 (PST)
+Received: from [192.168.119.202] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b765503a990sm194688166b.63.2025.11.20.04.33.29
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 20 Nov 2025 04:33:31 -0800 (PST)
+Message-ID: <09b933ab-eba4-47c2-a667-370dbeda2749@oss.qualcomm.com>
+Date: Thu, 20 Nov 2025 13:33:29 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <86a50irkst.wl-maz@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH V2] iommu/arm-smmu: add actlr settings for mdss on sa8775p
+ platform
+To: Charan Teja Kalla <charan.kalla@oss.qualcomm.com>,
+        Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+Cc: robin.clark@oss.qualcomm.com, will@kernel.org, robin.murphy@arm.com,
+        joro@8bytes.org, iommu@lists.linux.dev, linux-arm-msm@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20251118171822.3539062-1-charan.kalla@oss.qualcomm.com>
+ <himyof7napywkc44vre5ncqsatkkaxqnqbhjht6hjt53lakper@4wlwsvxkkamc>
+ <50bd3be1-63dd-4bf5-915a-02d923fb0376@oss.qualcomm.com>
+Content-Language: en-US
+From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+In-Reply-To: <50bd3be1-63dd-4bf5-915a-02d923fb0376@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-ORIG-GUID: RpuOpqs8TMuPeOIcAWirUG-LJyeOpkb8
+X-Proofpoint-GUID: RpuOpqs8TMuPeOIcAWirUG-LJyeOpkb8
+X-Authority-Analysis: v=2.4 cv=SJ5PlevH c=1 sm=1 tr=0 ts=691f0a9d cx=c_pps
+ a=hnmNkyzTK/kJ09Xio7VxxA==:117 a=FpWmc02/iXfjRdCD7H54yg==:17
+ a=IkcTkHD0fZMA:10 a=6UeiqGixMTsA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8
+ a=Cn4BvpCIsXtoq-7YWPcA:9 a=QEXdDO2ut3YA:10 a=PEH46H7Ffwr30OY-TuGO:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMTIwMDA3OSBTYWx0ZWRfX7FHVyDOtm7UD
+ MK6ZJJBqWe7GLFUdDI0b9UBnytm8Q/oniI/cmckStYzU5Zmm2rWB3K+ehSyXLG0ZlCU+m+z+pdR
+ iwdr6e4v0JsNBgHLrvj+jpRBcSAC50wdZh3hKMUM4OGUSW8EujQdTCYg1FOTy7GqHxkzYDI0SLm
+ hDcFBiDfZT1M49MaG5w8uZ3xcQgr/EENAUke+XizN5LARiJi2KgwBxln0DpCZx8vTxwz6rw6fPy
+ +RwahQi/ezBmbbMqar69w5qnvly3ckXs1BNH3+tihdjEJ9qTroIe1zBXjkCV9sKVv6906RaUugF
+ oTujqiWxRH928NuSc/VIGyLTlha20OzzKbTxAIFtllZCZqIXTTgt8SF0uTYoMwi0QCyJV9CokXZ
+ vRmIf8/DMvtb7C0d6KcFX6c9AAp05A==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
+ definitions=2025-11-20_04,2025-11-20_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 phishscore=0 bulkscore=0 suspectscore=0 priorityscore=1501
+ lowpriorityscore=0 malwarescore=0 adultscore=0 spamscore=0 clxscore=1015
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2510240001 definitions=main-2511200079
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251120_042749_120837_92991492 
-X-CRM114-Status: GOOD (  24.97  )
+X-CRM114-CacheID: sfid-20251120_043334_089986_2EAB34CA 
+X-CRM114-Status: GOOD (  22.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,64 +149,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 19, 2025 at 05:31:30PM +0000, Marc Zyngier wrote:
-> On Fri, 07 Nov 2025 09:38:34 +0000,
-> Vincent Donnefort <vdonnefort@google.com> wrote:
-> > 
-> > When running with KVM protected mode, the hypervisor is able to generate
-> > events into tracefs compatible ring-buffers. Create a trace remote so
-> > the kernel can read those buffers.
-> > 
-> > This currently doesn't provide any event support which will come later.
-> > 
-> > Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
-> > 
-> > diff --git a/arch/arm64/kvm/Kconfig b/arch/arm64/kvm/Kconfig
-> > index 580426cdbe77..64db254f0448 100644
-> > --- a/arch/arm64/kvm/Kconfig
-> > +++ b/arch/arm64/kvm/Kconfig
-> > @@ -87,6 +87,7 @@ config PKVM_TRACING
-> >  	bool
-> >  	depends on KVM
-> >  	depends on TRACING
-> > +	select TRACE_REMOTE
-> >  	select SIMPLE_RING_BUFFER
-> >  	default y
-> >
-
-[...]
-
-> > +static void hyp_trace_buffer_free_bpages_backing(struct hyp_trace_buffer *trace_buffer)
-> > +{
-> > +	free_pages_exact((void *)trace_buffer->desc->bpages_backing_start,
-> > +			 trace_buffer->desc->bpages_backing_size);
-> > +}
-> > +
-> > +static int __load_page(unsigned long va)
-> > +{
-> > +	return kvm_call_hyp_nvhe(__pkvm_host_share_hyp, virt_to_pfn((void *)va), 1);
-> > +}
+On 11/19/25 7:06 PM, Charan Teja Kalla wrote:
 > 
-> I struggle a bit with the nomenclature here. Why is that called
-> "load"? Surely this is a "map" operation, right? Is that because this
-> is called at "vcpu load" time? Something else?
-
-I called "load" the operation of getting the tracing buffer ready. But for this
-implementation specific part, I can use map/unmap here. (same for
-hyp_trace_buffer_map_pages/hyp_trace_buffer_map_pages)
-
 > 
-> Also, how is this working without pKVM, in a normal nVHE environment?
-> Being able to trace in nVHE is a basic requirement, and I don't see
-> how this works here.
+> On 11/18/2025 11:33 PM, Dmitry Baryshkov wrote:
+>>> Add ACTLR settings for the mdss device on Qualcomm SA8775P platform.
+>>> This is achieved by adding compatibility string for mdss in the actlr
+>>> client of match table.
+>>>
+>>> Signed-off-by: Charan Teja Kalla <charan.kalla@oss.qualcomm.com>
+>>> ---
+>>>
+>>> Changed from V1:
+>>>   1) Added actlr setting only for MDSS and dropped for fastrpc. -- konrad
+>>>   2) ACTLR table is updated per alphanumeric order -- konrad 
+>>>   https://lore.kernel.org/all/20251105075307.1658329-1-
+>>> charan.kalla@oss.qualcomm.com/
+>>>
+>>>  drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c | 2 ++
+>>>  1 file changed, 2 insertions(+)
+>>>
+>>> diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
+>>> index 62874b18f645..0b400e22cb00 100644
+>>> --- a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
+>>> +++ b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
+>>> @@ -41,6 +41,8 @@ static const struct of_device_id qcom_smmu_actlr_client_of_match[] = {
+>>>  			.data = (const void *) (PREFETCH_DEEP | CPRE | CMTLB) },
+>>>  	{ .compatible = "qcom,fastrpc",
+>>>  			.data = (const void *) (PREFETCH_DEEP | CPRE | CMTLB) },
+>>> +	{ .compatible = "qcom,sa8775p-mdss",
+>>> +			.data = (const void *) (PREFETCH_DEFAULT | CMTLB) },
+>> What's the difference from SC7280? Why don't we need to set CPRE?
+> 
+> Sorry, I'm really not sure If your question imply to talk about the IP
+> level difference compared to SC7280 for mdss?
 
-I can probably make it work with nVHE as well.
+"SC7280 has MDSS, SA8775P also has (a slightly different) MDSS, is there
+a reason these two have different settings"
 
-> 
-> Thanks,
-> 
-> 	M.
-> 
-> -- 
-> Without deviation from the norm, progress is not possible.
+> Regarding why don't we need CPRE -- these are QoS settings that does
+> control how well hw behaves i.e., related to performance settings not
+> the functional ones.  I guess, these settings are derived from factors
+> like how many masters are sharing a TBU, how crucial are masters using
+> that TBU(like important ones may be allowed to +7 or +15 and may be
+> others upto only +1 prefetch).
+
+And this is a good answer
+
+Perhaps you could reword it a little and put in the commit message to
+make it clear in case anyone has the same question in a year or so
+
+Konrad
 
