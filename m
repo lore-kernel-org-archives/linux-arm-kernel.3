@@ -4,78 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51A59CF8875
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 15:49:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84734CF8875
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 15:54:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+CXtIg+Vmus23x9GC68gGag4WHBbJCoIUBbZ5sITPgU=; b=3q3JtbwTT/MGPaQNzpF3pmA/lb
-	wDdq9XrHMyAfz1D36Wsfj1tsRELL/EJFPrzdGCSM/iuD9rvQBWrdnp+A89ttSLc3M8JbbphqQ6AXX
-	8ifCS+/HQux9jcSW6yZBUBPCd8bhmHCawxNtWV9r2tUBreVepLHK/F4MSzIwzoncICojT2HWjYuhl
-	3ZRaXRv5ES4zNvmFKEUUWKCbLCZ8vHKggWlsq4KZT6bWCdPWan+W8lH+az4BoqFBYjZV1Rn790sN2
-	1okI8cbJ9swGaI9qmc7rXuynH4BmJTrSCtMi7OAdFrEIX2Y0G7M5UO9mxf9Jnu4sYXrx9PVZVyDXF
-	Mwm6imsg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6ToWeVec/hcfRpRW8082jgxX7xssdF3i9qkgXOoRCjY=; b=E7C3BwoEAtIRHDOkLGnNp7mvza
+	UE4ypZ69u0FyvMKfNgsnfqusOk+qMSmkNA5ZVp0wBew/oW2LA5aW/18tC2qVHl2Iq85i97IRMowR3
+	vo1JM3DFDEhSCn66OuBI9vyCLQSA9Z9tZJdQ2F8AVQx8dZIndRZKzQXJZr3x+bpSyheYlIqLwLO6v
+	mf7xozQcHV/c7aYRK8TH7ZSsUFKlzmLHbjagAOqDu/HDm0SIJP520GtrVuhFugb/l5g/BJLXb4RHE
+	2syf3/4lfng5UAUNcsET+PEz3UO1RT6zCPoIRryf7fgF7NODJay8mo6iD7Cwr8GG17Pz9thS5pLHJ
+	VH7bwIVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vM6uH-00000006wmU-1N8R;
-	Thu, 20 Nov 2025 15:49:13 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1vM6zQ-00000006xC8-3SxE;
+	Thu, 20 Nov 2025 15:54:32 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vM6uE-00000006wly-03Rd;
-	Thu, 20 Nov 2025 15:49:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1763653746;
-	bh=OGknm9RlxOFdzEIgb0Da240Rs6WBRlFklz56cuT5Dzk=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=gV64s3dwXmsMljMFBMmBoJ42qjeQHC9N24uo4ZJBqIEkncBs9YZXB3Nd/kXGyszun
-	 cm4zlyod0+P0iSdP1dCBdCUTY42rOJion/yFnsZwmkuHNx+VYW7DBrqo5ZHquHNID6
-	 FifqKimupbrrs1I4KNwohZ+bAsUGTl7wB0XvPuyp7oduEP7EZidkBPhcvynK4Jae9R
-	 MEiMCGtTaHjUeUUYPVB82jBif+IKIBRcz983UGyNtCXwgqQ8SdswlR7WDMO4fZil6L
-	 MHzyDi/jcqAjXOA/1lPwBPBGZEZypMtTkr5UCNkwFamiPZfzU+i7kGIwM6vryl9fYq
-	 sEfCDzFUZbGUg==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id CD10C17E0117;
-	Thu, 20 Nov 2025 16:49:04 +0100 (CET)
-Message-ID: <c23d5d1e-4816-41c7-9886-41d586c84cc6@collabora.com>
-Date: Thu, 20 Nov 2025 16:49:04 +0100
+	id 1vM6zO-00000006xBh-46uT;
+	Thu, 20 Nov 2025 15:54:32 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 8C5EC442C6;
+	Thu, 20 Nov 2025 15:54:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BCA87C4CEF1;
+	Thu, 20 Nov 2025 15:54:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1763654069;
+	bh=03wWAsaF2p66SA+8tzLL46Iahcv1zn29Tz5R4bnU5cU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Jlbg60rDJnba7Ff0KTxPv2DPwljI87BGbXxW78s1405lTXn1j/RsPhWbbr3YQNPUM
+	 ne1J21WQeFM31F374+o9av6JukMFAPr4xtj2n5/T5JtJWmq8KHlzUGiiya3MzHazti
+	 iAY54xqr3CPTsEwXfAEhQrPSjppkSdk3h5LhBGb69UC2lkBlCCm0FHb2v3IZimqg2e
+	 MesnRnvc6o8sfLCXADjE94dmCljtYeTBr9VDxqt9ZYAS/9Z1EplMHopGIyDEabbIpM
+	 6uVOYGt2uBLsfIGU3jyEbmUg0ZipPBbQLIdkYkaKmdP2bvpLJZQaz38jzzF7vTYiWE
+	 x17Q1RmsQ5SKQ==
+Date: Thu, 20 Nov 2025 16:54:25 +0100
+From: Maxime Ripard <mripard@kernel.org>
+To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Cc: Harry Wentland <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>, 
+	Rodrigo Siqueira <siqueira@igalia.com>, Alex Deucher <alexander.deucher@amd.com>, 
+	Christian =?utf-8?B?S8O2bmln?= <christian.koenig@amd.com>, David Airlie <airlied@gmail.com>, 
+	Simona Vetter <simona@ffwll.ch>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, Andrzej Hajda <andrzej.hajda@intel.com>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Sandy Huang <hjc@rock-chips.com>, 
+	Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>, 
+	Jani Nikula <jani.nikula@linux.intel.com>, Rodrigo Vivi <rodrigo.vivi@intel.com>, 
+	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, Tvrtko Ursulin <tursulin@ursulin.net>, kernel@collabora.com, 
+	amd-gfx@lists.freedesktop.org, dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+	intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org
+Subject: Re: [PATCH v4 07/10] drm/display: hdmi-state-helper: Act on color
+ format DRM property
+Message-ID: <nbrdnftrsybpowsu2f6me3jumdeodg45x4quouzlzd5jo7xrux@4pny3aiverzn>
+References: <20251117-color-format-v4-0-0ded72bd1b00@collabora.com>
+ <20251117-color-format-v4-7-0ded72bd1b00@collabora.com>
+ <4wt5dbvseauo2bvi66ohtk445zsfjtpjwgvochwwlyk4uugcmy@5ubwtkxyy2ax>
+ <7179523.lOV4Wx5bFT@workhorse>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 00/11] arm64: dts: mediatek: Add Openwrt One AP
- functionality
-To: Jakub Kicinski <kuba@kernel.org>, Lee Jones <lee@kernel.org>,
- Konstantin Ryabitsev <konstantin@linuxfoundation.org>
-Cc: patchwork-bot+netdevbpf@kernel.org, Sjoerd Simons <sjoerd@collabora.com>,
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- matthias.bgg@gmail.com, ryder.lee@mediatek.com, jianjun.wang@mediatek.com,
- bhelgaas@google.com, lpieralisi@kernel.org, kwilczynski@kernel.org,
- mani@kernel.org, chunfeng.yun@mediatek.com, vkoul@kernel.org,
- kishon@kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@google.com, pabeni@redhat.com, lorenzo@kernel.org, nbd@nbd.name,
- kernel@collabora.com, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, linux-pci@vger.kernel.org,
- linux-phy@lists.infradead.org, netdev@vger.kernel.org,
- daniel@makrotopia.org, bryan@bryanhinton.com, conor.dooley@microchip.com
-References: <20251115-openwrt-one-network-v4-0-48cbda2969ac@collabora.com>
- <176360700676.1051457.11874224265724256534.git-patchwork-notify@kernel.org>
- <20251120152829.GH661940@google.com> <20251120073639.3fd7cc7c@kernel.org>
- <20251120154012.GJ661940@google.com> <20251120074457.5aa06d89@kernel.org>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <20251120074457.5aa06d89@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="4alnfwchsomlml4z"
+Content-Disposition: inline
+In-Reply-To: <7179523.lOV4Wx5bFT@workhorse>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251120_074910_243625_7C9F4605 
-X-CRM114-Status: UNSURE (   9.67  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251120_075431_079932_C7D1F342 
+X-CRM114-Status: GOOD (  27.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,41 +87,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 20/11/25 16:44, Jakub Kicinski ha scritto:
-> On Thu, 20 Nov 2025 15:40:12 +0000 Lee Jones wrote:
->>>>>    - [v4,02/11] dt-bindings: PCI: mediatek-gen3: Add MT7981 PCIe compatible
->>>>>      (no matching commit)
->>>>>    - [v4,03/11] dt-bindings: phy: mediatek,tphy: Add support for MT7981
->>>>>      (no matching commit)
->>>>>    - [v4,04/11] arm64: dts: mediatek: mt7981b: Add PCIe and USB support
->>>>>      (no matching commit)
->>>>>    - [v4,05/11] arm64: dts: mediatek: mt7981b-openwrt-one: Enable PCIe and USB
->>>>>      (no matching commit)
->>>>>    - [v4,06/11] dt-bindings: net: mediatek,net: Correct bindings for MT7981
->>>>>      https://git.kernel.org/netdev/net-next/c/bc41fbbf6faa
->>>>>    - [v4,07/11] arm64: dts: mediatek: mt7981b: Add Ethernet and WiFi offload support
->>>>>      (no matching commit)
->>>>>    - [v4,08/11] arm64: dts: mediatek: mt7981b-openwrt-one: Enable Ethernet
->>>>>      (no matching commit)
->>>>>    - [v4,09/11] arm64: dts: mediatek: mt7981b: Disable wifi by default
->>>>>      (no matching commit)
->>>>>    - [v4,10/11] arm64: dts: mediatek: mt7981b: Add wifi memory region
->>>>>      (no matching commit)
->>>>>    - [v4,11/11] arm64: dts: mediatek: mt7981b-openwrt-one: Enable wifi
->>>>>      (no matching commit)
->>
->> This is a very odd way of presenting that one patch from the set was merged.
->>
->> Not sure I've seen this before.  Is it new?
->>
->> It's very confusing.  Is it a core PW thing and / or can it be configured?
-> 
-> It's k.org infra bot. Konstantin, would it be possible to highlight
-> more that a series is partially applied?
 
-I guess that adding "(subset)" like b4 does would improve those messages quite
-a lot ;-)
+--4alnfwchsomlml4z
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v4 07/10] drm/display: hdmi-state-helper: Act on color
+ format DRM property
+MIME-Version: 1.0
 
-Cheers,
-Angelo
+On Wed, Nov 19, 2025 at 01:41:18PM +0100, Nicolas Frattaroli wrote:
+> On Wednesday, 19 November 2025 10:09:12 Central European Standard Time Ma=
+xime Ripard wrote:
+> > Hi,
+> >=20
+> > On Mon, Nov 17, 2025 at 08:11:51PM +0100, Nicolas Frattaroli wrote:
+> > > With the introduction of the "color format" DRM property, which allows
+> > > userspace to request a specific color format, the HDMI state helper
+> > > should implement this.
+> > >=20
+> > > Implement it by checking whether the property is set and set to
+> > > something other than auto. If so, pass the requested color format, and
+> > > otherwise set RGB.
+> > >=20
+> > > Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+> > > ---
+> > >  drivers/gpu/drm/display/drm_hdmi_state_helper.c | 8 +++++++-
+> > >  1 file changed, 7 insertions(+), 1 deletion(-)
+> > >=20
+> > > diff --git a/drivers/gpu/drm/display/drm_hdmi_state_helper.c b/driver=
+s/gpu/drm/display/drm_hdmi_state_helper.c
+> > > index a561f124be99..add0d51fce33 100644
+> > > --- a/drivers/gpu/drm/display/drm_hdmi_state_helper.c
+> > > +++ b/drivers/gpu/drm/display/drm_hdmi_state_helper.c
+> > > @@ -650,9 +650,15 @@ hdmi_compute_config(const struct drm_connector *=
+connector,
+> > >  				       conn_state->max_bpc,
+> > >  				       8, connector->max_bpc);
+> > >  	int ret;
+> > > +	enum hdmi_colorspace hdmi_colorspace;
+> > > +
+> > > +	if (conn_state->color_format && conn_state->color_format !=3D DRM_C=
+OLOR_FORMAT_AUTO)
+> > > +		hdmi_colorspace =3D color_format_to_hdmi_colorspace(conn_state->co=
+lor_format);
+> > > +	else
+> > > +		hdmi_colorspace =3D HDMI_COLORSPACE_RGB;
+> > > =20
+> > >  	ret =3D hdmi_compute_format_bpc(connector, conn_state, mode, max_bp=
+c,
+> > > -				      HDMI_COLORSPACE_RGB);
+> > > +				      hdmi_colorspace);
+> >=20
+> > I don't think we want the fallback to yuv420 for anything but auto, so
+>=20
+> Okay. Changing all the non-hdmi-state-helper drivers (amdgpu, i915)
+> to do this as well would require some more work however, especially
+> in the case of amdgpu where the code flow is not always obvious.
+
+Yeah, I think we want to be consistent here, the whole point of the HDMI
+state helpers was to be consistently consistent with Intel's behaviour
+anyway :)
+
+> > I'd rather have something like
+> >=20
+> > if (conn_state->color_format !=3D DRM_COLOR_FORMAT_AUTO)
+> >    return hdmi_compute_format_bpc(connector, conn_state, mode, max_bpc,
+> >                                   color_format_to_hdmi_colorspace(conn_=
+state->color_format))
+> >=20
+> > We'll also need unit tests.
+>=20
+> Sure, am I guessing correctly that they'd go in
+> drm_hdmi_state_helper_test.c?
+
+Yes
+
+Maxime
+
+--4alnfwchsomlml4z
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCaR85rAAKCRAnX84Zoj2+
+dv6UAX9b0ty0vhrPxBcqaoWJddkNvIG7owUS7e5lljmKMtX9SeDNbFLRDL44gdvr
+YZMxKF4Bf08i85DvKTyHG/luF+TnRXuESfkJdU9q1iykKJz21hcyXghzIupe9hKW
+0WFpzuh7CA==
+=NkNa
+-----END PGP SIGNATURE-----
+
+--4alnfwchsomlml4z--
 
