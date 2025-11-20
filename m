@@ -4,66 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC1BFCF9C7F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 18:50:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC5F5CFA441
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 19:00:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gwM5k5rgC0aLTOlLlaqV7CdyE7qCy37SSQ37pPp8whM=; b=ZXXbvkwR9d8fzHLE3+dYSdrLPD
-	l43+xVoXFYkTWJD/odR/Zs+dCdjmI0Q85z94YRDdTksZz3EoUKERNWrU0Ifzd6VLsfd14vRspfGiP
-	ta5V7hq2DPsZ5gCHOCqFZLBxkZYDEaP5qaVznmoHYuShnnWX9ODabuc2fZAzhMDt04yGQI9zZ1Uld
-	PmE/TXxbVkGcvaowj2VfXLZuDfuebE7/JJbuYgXRhXyN3BQPitYOQJf1/OnCzr4/9VrbGo5vzGTtm
-	A8lAIOXntk2CAkj/jBe5IL/c38g1pGJFqQd6+8y38g7CGcXJFyRiqX2EyHoDzONylZlZEIekjRhTk
-	5US5u8xA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=GMZhcN2wxaEKVyD7wZBJpczX20+L4j02F2j/QYQHmSI=; b=gDfASf4Mv9Y13bzyYsZPhrFY9h
+	ynvjamh7i7sGwxCJpyuj2uuYFvz7ILh2D6sW48PwzWzYf7sS9xrTFGA4zmNAXyW0nBh9oaz5i+rWZ
+	9E+EhhaMn6noFYoFNEWOcJvJMw8NP0FJltWL+rgqkdE8AXFofs8EKcgvWPKPv9zC28VU5teFdPZie
+	RFRrC9w/3lEwqO8eYqomlMAPfjEIj81AAnh33bGAoqiHbUSucOsTWAZUS9RJeMTNOmhuxCGm/bw4U
+	ZQGMVhoQpaea0Eg8kETFnRfdWdLD+4E2e5zLUcg9GsQoyAOki0oAqegXqvNw9BGdoDYnpK1KNCUTc
+	UyKf5NyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vM9jy-00000007FSa-2Sg9;
-	Thu, 20 Nov 2025 18:50:46 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vM9tf-00000007Ftl-03CH;
+	Thu, 20 Nov 2025 19:00:47 +0000
+Received: from hedgehog.cherry.relay.mailchannels.net ([23.83.223.81])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vM9jw-00000007FS9-34co;
-	Thu, 20 Nov 2025 18:50:46 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E241344154;
-	Thu, 20 Nov 2025 18:50:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BF406C116C6;
-	Thu, 20 Nov 2025 18:50:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763664641;
-	bh=YWC2QaLQIZnbvvKPn+rk+SMxZpvA1t+FyR0kuqU02KA=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=lLpIh82ApTKkcPa5DAFGjUR3FHxD+gzl/2/tjY9sFKwRGaXOhouiGSEOwvENQ6ddO
-	 BC6shW7HOkL81jFMqBcTkEfUEmi36F0Lwmd1kYc8hpvbPI49PtqhIkZkVTRjtL40jR
-	 VsR8eYHqfWeWZb6B5Lzhq+BtrM+gY6Z7nn+1tt2RjsKm0p6KDOK5U6mVH1wfz8J6qv
-	 69Lva35wffUJrAcoQJEkFRdKyDnJnepkJlYhYjsK4lX33lFHbK/EY3gr3KNals1s6J
-	 2f2GK06S56j108BVMotqoybEYjmoXradFsnthBCeiBWjEN0oj7uwfY7wXMT6D8IJ6V
-	 kiT3dQrEiPi3A==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 33F663A40FE6;
-	Thu, 20 Nov 2025 18:50:08 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	id 1vM9tb-00000007FtK-3zwV;
+	Thu, 20 Nov 2025 19:00:45 +0000
+X-Sender-Id: hostingeremail|x-authuser|michael.opdenacker@rootcommit.com
+Received: from relay.mailchannels.net (localhost [127.0.0.1])
+	by relay.mailchannels.net (Postfix) with ESMTP id 316AA8A16BC;
+	Thu, 20 Nov 2025 19:00:39 +0000 (UTC)
+Received: from de-fra-smtpout3.hostinger.io (100-98-121-252.trex-nlb.outbound.svc.cluster.local [100.98.121.252])
+	(Authenticated sender: hostingeremail)
+	by relay.mailchannels.net (Postfix) with ESMTPA id 390268A103B;
+	Thu, 20 Nov 2025 19:00:37 +0000 (UTC)
+ARC-Seal: i=1; a=rsa-sha256; d=mailchannels.net; s=arc-2022; cv=none;
+	t=1763665238;
+	b=Pinu1RcfNLrxVbkFsgs/fr0F6O4bVKf2NMgdl3RRqRClEevkJXGYqtBTfQ7UgQzqjozbva
+	cEpwFe3jgX7Oprg8L67MWomD4m2mo8zj7sNX5roeiNk1JRdosOkjaJ3xpkywaLVDpw+hbe
+	iP4pLpCt9tb3mHTp+ESfm7+HDRzZR3XD9LRyhQM0SoaMchrehdQ7WLpkmsaxckCQ/z3gOw
+	WqX7CScx8XbnyNSvCF2ljV7s66v9t4wwxhTGXuJfH+V6Q73NP+lwFkZEwBWlWQrF7VsbLY
+	Wng4ceayU3b3NtGCQIDdA9vHtYZBhbW7TKZD715Clb0AMkBJ1ggqxqS2MHB7ng==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=mailchannels.net;
+	s=arc-2022; t=1763665238;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:dkim-signature;
+	bh=GMZhcN2wxaEKVyD7wZBJpczX20+L4j02F2j/QYQHmSI=;
+	b=E/8+lqlf+TdlZESIRmIAWd4yeKS/CZ6iXBndssNtiDFxvKr4mstPh0PcmqkpJtaCwscqfp
+	b4MQGjT4kPcUyaEalfPWEIn0vwDRnSMLiQGhw75mf60CWjAjwvp3MkIuDF9XKhI10r4NLY
+	dI63RejyCRG9/82fYsXoYB6hpRCgcBMTxZfqL5+tV36h9wndXUOC39g1FYdxoE8x46y3yN
+	WL8z62YSSw97ChacfwcaH89MsC0gc/flQVGrS8pBrPspWDYBmQCA8/CoBLpMe8DQvC3blx
+	L0jRIGXYRUhNcpeOvrEIe4D0R6g6EEJuoKdxNljqN6l8h5msg543c3B6rlMIaQ==
+ARC-Authentication-Results: i=1;
+	rspamd-55b59744f-26rgb;
+	auth=pass smtp.auth=hostingeremail
+ smtp.mailfrom=michael.opdenacker@rootcommit.com
+X-Sender-Id: hostingeremail|x-authuser|michael.opdenacker@rootcommit.com
+X-MC-Relay: Good
+X-MailChannels-SenderId: hostingeremail|x-authuser|michael.opdenacker@rootcommit.com
+X-MailChannels-Auth-Id: hostingeremail
+X-Interest-Hysterical: 22b0686558f57138_1763665239002_1388945392
+X-MC-Loop-Signature: 1763665239002:2199312045
+X-MC-Ingress-Time: 1763665239002
+Received: from de-fra-smtpout3.hostinger.io (de-fra-smtpout3.hostinger.io
+ [148.222.55.15])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384)
+	by 100.98.121.252 (trex/7.1.3);
+	Thu, 20 Nov 2025 19:00:39 +0000
+Received: from [127.0.1.1] (unknown [IPv6:2001:861:4450:d360:c7dc:44be:8206:c29e])
+	(Authenticated sender: michael.opdenacker@rootcommit.com)
+	by smtp.hostinger.com (smtp.hostinger.com) with ESMTPSA id 4dC7365stJz3x6l;
+	Thu, 20 Nov 2025 19:00:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rootcommit.com;
+	s=hostingermail-a; t=1763665235;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=GMZhcN2wxaEKVyD7wZBJpczX20+L4j02F2j/QYQHmSI=;
+	b=HWsP0ZYQsCCSTxee4G+n5ylXSOBS5OS8dqQ+DAtIhrb3YnslYCVaAFMWYDSMxFSXLq7bij
+	GYOAmbpyOp1W1HfDfx6ZicPRrdu6fKDSsSvzQ2GrU7cttk2SsxyZLOmHHVN5IB18l2qp6X
+	O3bcqrNjEeW8pnWHiqJiVPNNZ7xn9K2uMiY+wqgHLSHW09Jp2AkD3pI2KtY9ZOcH5lDn+W
+	0ekjeFEiqMTHwSOhwjWzdCQG+a2Z5n5Eniw5DQ3GpZ2CgyVfEFhVVquZ7xhgC28QGCpgBR
+	QLMis6e8RvKckcUNhTTAQ0HE0b0ARhBCqK1sd5q3luZCrmlCaAm2NiMG0TzDPQ==
+From: Michael Opdenacker <michael.opdenacker@rootcommit.com>
+Subject: [PATCH] arm64: dts: rockchip: Enable i2c2 on Orange Pi 3B
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH v3] Bluetooth: btusb: mediatek: Avoid
- btusb_mtk_claim_iso_intf() NULL deref
-From: patchwork-bot+bluetooth@kernel.org
-Message-Id: <176366460701.1748676.511972373877694762.git-patchwork-notify@kernel.org>
-Date: Thu, 20 Nov 2025 18:50:07 +0000
-References: <20251120081227.v3.1.I1ae7aebc967e52c7c4be7aa65fbd81736649568a@changeid>
-In-Reply-To: <20251120081227.v3.1.I1ae7aebc967e52c7c4be7aa65fbd81736649568a@changeid>
-To: Doug Anderson <dianders@chromium.org>
-Cc: marcel@holtmann.org, luiz.dentz@gmail.com, matthias.bgg@gmail.com,
- angelogioacchino.delregno@collabora.com, regressions@leemhuis.info,
- regressions@lists.linux.dev, incogcyberpunk@proton.me,
- johan.hedberg@gmail.com, sean.wang@mediatek.com, stable@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-bluetooth@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20251120-orangepi3-enable-i2c2-v1-1-2e023a74012a@rootcommit.com>
+X-B4-Tracking: v=1; b=H4sIAEFlH2kC/x2MUQqAIBAFrxL7naAbSnSV6MN0rYWwUIhAvHvW5
+ 7zhTYFMiSnD1BVIdHPmMzZQfQdut3Ejwb4xoEStFEpxpm+9eBAU7Xo0jw5FIONRkzOjstC+V6L
+ Az9+dl1pfumRWW2cAAAA=
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Michael Opdenacker <michael.opdenacker@rootcommit.com>
+X-Mailer: b4 0.13.0
+Date: Thu, 20 Nov 2025 19:00:34 +0000 (UTC)
+X-CM-Envelope: MS4xfHb745rDjt/k1t+lwLX1j6r2lQ0FyP0JBNZJ9Rco4lVGhWAvkfCvrH+mu+i/HGCGMq6dKg5J231vsJISCX06IuIdpXLRN5pa6+A2ANlxOJAfp2oiXueM i4kiE8ZrScUheCyk3ivf+CCWSkF/dISuW/0DHRAjjMRZHmUch/yvM/LOki9/FSW1xXBN4WwpyufEVuTjcs0Y/DfUhmDgoW4yyYGGc1ZIO24RoVDMOJmQ8kXm 8I6E65Ms4WSGkDns114yDKPcMu61Zta1YCkWp4qdsOL8PJlhWuClrPCXZod8SNuqyg9+BCVOz+/LVDa+fzOjjfaxeMNaKwYu4FpJwAn/Ap6IBcvzTPppKJeN s5qA+v7LF/dXiBaC1dGoIVhhd6MdRez2QBIpm+n1xzs2DG4RAaEqXMCl7tZUw/p7HT2GrMTXVZnqe4/pizo4pjfI5xRRV4wuYcbuUqMiheZGpyTLkpBQAUM7 pjbQdtkl2Pn2R0j3VJOAM5G8f9h3YmJTL0mGdvrav1n71Mo06w1Ht02KjQYMqOHuAFDjGkP2IdR81lrzmwZZS6Y+eT3TAF+5w4v0B9DTuOJWp17n557WHNpI EN0=
+X-CM-Analysis: v=2.4 cv=etGNzZpX c=1 sm=1 tr=0 ts=691f6553 a=CjJ265PZljfpLgeKkM6P3g==:617 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10 a=5dAzR5NRAAAA:8 a=d70CFdQeAAAA:8 a=vGUGW7KHnbn2mzzjei8A:9 a=QEXdDO2ut3YA:10 a=ZKAZAlVgJm32z6MX8p4a:22 a=NcxpMcIZDGm-g932nG_k:22
+X-AuthUser: michael.opdenacker@rootcommit.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251120_105044_816290_D513AB65 
-X-CRM114-Status: GOOD (  11.53  )
+X-CRM114-CacheID: sfid-20251120_110044_466613_1701C5A6 
+X-CRM114-Status: UNSURE (   7.40  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,36 +121,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
+Enable the "i2c2" bus on header pins 3 (I2C_SDA_M1)
+and 5 (I2C2_SCL_M1) of the Orange Pi 3B board.
 
-This patch was applied to bluetooth/bluetooth-next.git (master)
-by Luiz Augusto von Dentz <luiz.von.dentz@intel.com>:
+As documented on http://www.orangepi.org/img/pi3b/0719-pi3b-19.png,
+such pins are the only ones offering I2C functionality
+without conflicting with other SoC blocks.
 
-On Thu, 20 Nov 2025 08:12:28 -0800 you wrote:
-> In btusb_mtk_setup(), we set `btmtk_data->isopkt_intf` to:
->   usb_ifnum_to_if(data->udev, MTK_ISO_IFNUM)
-> 
-> That function can return NULL in some cases. Even when it returns
-> NULL, though, we still go on to call btusb_mtk_claim_iso_intf().
-> 
-> As of commit e9087e828827 ("Bluetooth: btusb: mediatek: Add locks for
-> usb_driver_claim_interface()"), calling btusb_mtk_claim_iso_intf()
-> when `btmtk_data->isopkt_intf` is NULL will cause a crash because
-> we'll end up passing a bad pointer to device_lock(). Prior to that
-> commit we'd pass the NULL pointer directly to
-> usb_driver_claim_interface() which would detect it and return an
-> error, which was handled.
-> 
-> [...]
+Signed-off-by: Michael Opdenacker <michael.opdenacker@rootcommit.com>
+---
+ arch/arm64/boot/dts/rockchip/rk3566-orangepi-3b.dtsi | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-Here is the summary with links:
-  - [v3] Bluetooth: btusb: mediatek: Avoid btusb_mtk_claim_iso_intf() NULL deref
-    https://git.kernel.org/bluetooth/bluetooth-next/c/dd6dda907d09
+diff --git a/arch/arm64/boot/dts/rockchip/rk3566-orangepi-3b.dtsi b/arch/arm64/boot/dts/rockchip/rk3566-orangepi-3b.dtsi
+index d539570f531e..e2f0ccc6dbe7 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3566-orangepi-3b.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3566-orangepi-3b.dtsi
+@@ -435,6 +435,11 @@ regulator-state-mem {
+ 	};
+ };
+ 
++&i2c2 {
++	pinctrl-0 = <&i2c2m1_xfer>;
++	status = "okay";
++};
++
+ &i2s0_8ch {
+ 	status = "okay";
+ };
 
-You are awesome, thank you!
+---
+base-commit: 8e621c9a337555c914cf1664605edfaa6f839774
+change-id: 20251120-orangepi3-enable-i2c2-fe6d25ec681a
+
+Best regards,
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
+Michael Opdenacker <michael.opdenacker@rootcommit.com>
 
 
