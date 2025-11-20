@@ -4,82 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E128CF885C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 14:06:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAA8BCF8860
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 14:15:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r17NPabB3Mb9A+ei+bmQTwfaoKUDCzKk3n5O7OHsMPU=; b=l2yRo0T4esCvyVVJaf6veyhHLf
-	K+BfoGwVwTrFZu+3trchKlfhpcVK08cLcccl559konVDNxLceBL7rYu6PlQDfzZPHcKXIRmroDJSv
-	1Zx3xDr1vSmqJb53tuVr17nsNHif30mFogoy6OP1wTBidc5znzWnHra5gCPjC51cV05plLKdiSLGs
-	cHdOKjm0x2R7UZBDBcpqm1Zc7T37xg26qM9yKqpZeqG3rECarLrdcBjXBDhvcWaqDeUCCKwol73uu
-	HuukGApoZOlOrH8ILGbTbGPzjXhMVWS1pTykspChDuVLCPwOgNywXyWL6lDHgv8XYNBYc472aC5ym
-	Bt6Ok05A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HEt9a45sClyLrlTmjBzgZYE5qser2oSEsyO4ZnUSTvE=; b=k/EUofhB4/6EjUWeVlpBd2+AGC
+	Go9nIlY6c02eHYvdWrvcIfd8Z+Y88sFfkSE958+mH75RZ3br2YIFt9/I7SYVBlq2EaQJe9VV0NK5S
+	p3LoZg4pF70RT3VjB6+9F4Ws89/07CGMo41XmeaUOd8rwySKHLZAwC9zF4HsXPYrr5Q57rTk3b4Ca
+	p+CH5CvC4VUXlkSZRoIGTOCHXFQ9pfAu4Qf8vvtKiL/i6fAtbws+Gzl8exVQ8jhPvmSx8QmwHdeZu
+	7CfklsMRWa2h7dfftdXzFw7bYsSfLcjg89TGipRQWf0mht3oUIQ1xVH47inwp/cVmaguKZa5P9Wwx
+	ScsqxReg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vM5J8-00000006oFn-0kj9;
-	Thu, 20 Nov 2025 14:06:46 +0000
-Received: from iad-out-013.esa.us-east-1.outbound.mail-perimeter.amazon.com ([34.198.218.121])
+	id 1vM5R7-00000006ots-2xxD;
+	Thu, 20 Nov 2025 14:15:01 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vM5J4-00000006oEV-4BGP
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Nov 2025 14:06:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=amazon.de; i=@amazon.de; q=dns/txt; s=amazoncorp2;
-  t=1763647603; x=1795183603;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=r17NPabB3Mb9A+ei+bmQTwfaoKUDCzKk3n5O7OHsMPU=;
-  b=eZ8yuPwcBKZS+Zs0AguRWBlPvkOtW1NXcVIc85tt2ubAfXdYBbBL6g2H
-   CKESUTmLIcb96pIL8MWFKJe3pMsnq8hKiR+2BcaeCcui+MhqlyWnoqulS
-   biEOFz86j4OROZh6yc7D+m4Io/XPSqs5THJdycEravdD95eSqpnn/yEzW
-   1HUo8+DcyPdXIA/VbQ3yvEoumdVCHO3YJA3m83+nsb8rKWtMzrfoYGwgQ
-   SB65LHkSZfYaTuz+GuDqCcQc9y8OCkBMRC4zruCTtCp3l839PUKnyM6HS
-   35CYrCuajaFTZmWvOfa6uz6V+204eGb+FhTr1e+ae8nIiRKy3sVzwA4zm
-   g==;
-X-CSE-ConnectionGUID: 1DyTEg71QzS09rj7cU4tlw==
-X-CSE-MsgGUID: lZfweM6lRouJX0QvMgQYMg==
-X-IronPort-AV: E=Sophos;i="6.20,213,1758585600"; 
-   d="scan'208";a="6295532"
-Received: from ip-10-4-13-79.ec2.internal (HELO smtpout.naws.us-east-1.prod.farcaster.email.amazon.dev) ([10.4.13.79])
-  by internal-iad-out-013.esa.us-east-1.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2025 14:06:37 +0000
-Received: from EX19MTAUWA001.ant.amazon.com [205.251.233.236:13000]
- by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.61.192:2525] with esmtp (Farcaster)
- id 6fdd39a5-b79b-4fab-bbaf-cdade7fef510; Thu, 20 Nov 2025 14:06:37 +0000 (UTC)
-X-Farcaster-Flow-ID: 6fdd39a5-b79b-4fab-bbaf-cdade7fef510
-Received: from EX19D001UWA001.ant.amazon.com (10.13.138.214) by
- EX19MTAUWA001.ant.amazon.com (10.250.64.204) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.29;
- Thu, 20 Nov 2025 14:06:36 +0000
-Received: from amazon.com (10.1.213.15) by EX19D001UWA001.ant.amazon.com
- (10.13.138.214) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.29; Thu, 20 Nov 2025
- 14:06:34 +0000
-From: Maximilian Dittgen <mdittgen@amazon.de>
-To: <maz@kernel.org>, <oliver.upton@linux.dev>
-CC: <pbonzini@redhat.com>, <shuah@kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <kvmarm@lists.linux.dev>,
-	<linux-kselftest@vger.kernel.org>, <kvm@vger.kernel.org>,
-	<mdittgen@amazon.de>, <lilitj@amazon.de>, <sauravsc@amazon.de>,
-	<nh-open-source@amazon.com>
-Subject: [RFC PATCH 13/13] KVM: arm64: selftests: Add test for per-vCPU vLPI control API
-Date: Thu, 20 Nov 2025 15:03:02 +0100
-Message-ID: <20251120140305.63515-14-mdittgen@amazon.de>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <20251120140305.63515-1-mdittgen@amazon.de>
-References: <20251120140305.63515-1-mdittgen@amazon.de>
+	id 1vM5R5-00000006otR-3hea;
+	Thu, 20 Nov 2025 14:15:00 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 0594A60052;
+	Thu, 20 Nov 2025 14:14:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7AB91C4CEF1;
+	Thu, 20 Nov 2025 14:14:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1763648097;
+	bh=qU7RjS/DzcEXt2yvqfX9/EuoZ/kS5C70NOZsPJM23CM=;
+	h=From:Date:Cc:To:In-Reply-To:References:Subject:From;
+	b=aCHFlep+obOacq9TNPHc+io8b4D9ktDULkeWfb8itwnFyzTURMHh3MdMawAhdwEIK
+	 V/d1rkIa07bFO4rJAtQ68Z9qgkZJMJT4QKyqFVvbSXxH505v/b0iNxvI4lUx3LZ2e5
+	 Djk3QPDWrcsyj2zsxIIRD+Y0WXej7SUhMauXFezc6FpKlg3E+Ln1Zd82VUgAOMMyeb
+	 m5aOuglHuQh/2TMoc380/5GVrsyOJRs+D0M2OXESXIAo+dbFMLq4Ul7FRQQIvlV+Ni
+	 UWxf5uOs8oF7zwnklatk5MLJkFex93bQ207ea3b0LTVtwu4NfIEjNGZsjUbCxu1WBa
+	 FvCQYufrPzqzw==
+From: Rob Herring <robh@kernel.org>
+Date: Thu, 20 Nov 2025 08:14:55 -0600
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-X-Originating-IP: [10.1.213.15]
-X-ClientProxiedBy: EX19D041UWB002.ant.amazon.com (10.13.139.179) To
- EX19D001UWA001.ant.amazon.com (10.13.138.214)
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251120_060643_187272_403C3F91 
-X-CRM114-Status: GOOD (  23.00  )
+Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+ Sean Wang <sean.wang@mediatek.com>, linux-kernel@vger.kernel.org, 
+ Conor Dooley <conor+dt@kernel.org>, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, Eddie Huang <eddie.huang@mediatek.com>, 
+ Vince-WL.Liu@mediatek.com, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Lee Jones <lee@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
+ devicetree@vger.kernel.org, sirius.wang@mediatek.com, Jh.Hsu@mediatek.com, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+To: ot_shunxi.zhang@mediatek.com
+In-Reply-To: <20251120121805.6775-1-ot_shunxi.zhang@mediatek.com>
+References: <20251120121805.6775-1-ot_shunxi.zhang@mediatek.com>
+Message-Id: <176364782296.1171084.17820068069366614095.robh@kernel.org>
+Subject: Re: [PATCH v2 0/5] rtc: Enhance RTC driver with BBPU bit
+ definitions and shutdown handling
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,390 +74,122 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a selftest for KVM API ioctls for enabling, disabling, and
-querying direct vLPI injection capability on a per-vCPU basis.
-Ensure that ITS data structures remain correct, vPEIDs can
-be reused by different vCPUs, and ioctl behavior works as
-intended in corner cases (idempotent behavior, vGIC uninitialized).
 
-Signed-off-by: Maximilian Dittgen <mdittgen@amazon.de>
----
- arch/arm64/kvm/arm.c                          |   4 +
- drivers/irqchip/irq-gic-v3-its.c              |   6 +
- include/linux/irqchip/arm-gic-v4.h            |   1 +
- include/uapi/linux/kvm.h                      |   1 +
- tools/testing/selftests/kvm/Makefile.kvm      |   1 +
- .../selftests/kvm/arm64/per_vcpu_vlpi.c       | 274 ++++++++++++++++++
- 6 files changed, 287 insertions(+)
- create mode 100644 tools/testing/selftests/kvm/arm64/per_vcpu_vlpi.c
+On Thu, 20 Nov 2025 20:17:56 +0800, ot_shunxi.zhang@mediatek.com wrote:
+> From: Shunxi Zhang <ot_shunxi.zhang@mediatek.com>
+> 
+> (1) Add new bits definitions for RTC_BBPU register.
+> (2) Add new functions to reset the BBPU alarm status in mt6397 RTC driver
+> (3) Add mtk_rtc_shutdown function to handle RTC shutdown events.
+> (4) For the V1 version comments, the following modifications are made:
+> (4.1)the formatting changes are separated into a distinct patch.
+> (4.2)Since the rtc-mt6397.c file is a fusion of multiple RTC drivers
+> for the mt6358, mt6359, and mt6357 RTCs, the definitions of certain bits
+> in the RTC_BBPU register differ among these RTCs. The mt6359 supports
+> the alarm status bit, while both mt6358 and mt6357 do not. Therefore,
+> the alarm-sta-supported property is added in the mt6359.dtsi file to
+> differentiate between the different RTCs.
+> (4.3)Additionally, the operation to disable IRQ in the shutdown function
+> is removed.
+> 
+> Shunxi Zhang (5):
+>   mfd: mt6397: Fix formatting of RTC_BBPU_KEY definition
+>   mfd: mt6397: Add bit definitions and struct members to support alarm
+>     status
+>   rtc: mt6397: Fix formatting of platform driver structure
+>   rtc: mt6397: Add BBPU alarm status reset and shutdown handling
+>   arm64: dts: mediatek: mt6359: Add alarm-sta-supported property to RTC
+>     node
+> 
+>  arch/arm64/boot/dts/mediatek/mt6359.dtsi |  1 +
+>  drivers/rtc/rtc-mt6397.c                 | 32 +++++++++++++++++++++++-
+>  include/linux/mfd/mt6397/rtc.h           |  5 +++-
+>  3 files changed, 36 insertions(+), 2 deletions(-)
+> 
+> --
+> 2.45.2
+> 
+> 
+> 
 
-diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-index ecc3c87889db..eea0d77508a2 100644
---- a/arch/arm64/kvm/arm.c
-+++ b/arch/arm64/kvm/arm.c
-@@ -21,6 +21,7 @@
- #include <linux/sched/stat.h>
- #include <linux/psci.h>
- #include <trace/events/kvm.h>
-+#include <linux/irqchip/arm-gic-v4.h>
- 
- #define CREATE_TRACE_POINTS
- #include "trace_arm.h"
-@@ -429,6 +430,9 @@ int kvm_vm_ioctl_check_extension(struct kvm *kvm, long ext)
- 	case KVM_CAP_ARM_PER_VCPU_VLPI:
- 		r = kvm_per_vcpu_vlpi_supported();
- 		break;
-+	case KVM_CAP_ARM_MAX_VPEID:
-+		r = its_get_max_vpeid();
-+		break;
- 
- 	default:
- 		r = 0;
-diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
-index 0e0778d61df2..078a9cafaf17 100644
---- a/drivers/irqchip/irq-gic-v3-its.c
-+++ b/drivers/irqchip/irq-gic-v3-its.c
-@@ -4546,6 +4546,12 @@ static const struct irq_domain_ops its_sgi_domain_ops = {
- 	.deactivate	= its_sgi_irq_domain_deactivate,
- };
- 
-+int its_get_max_vpeid(void)
-+{
-+	return ITS_MAX_VPEID;
-+}
-+EXPORT_SYMBOL_GPL(its_get_max_vpeid);
-+
- static int its_vpe_id_alloc(void)
- {
- 	return ida_alloc_max(&its_vpeid_ida, ITS_MAX_VPEID - 1, GFP_KERNEL);
-diff --git a/include/linux/irqchip/arm-gic-v4.h b/include/linux/irqchip/arm-gic-v4.h
-index bd3e8de35147..3a42cccb72af 100644
---- a/include/linux/irqchip/arm-gic-v4.h
-+++ b/include/linux/irqchip/arm-gic-v4.h
-@@ -147,6 +147,7 @@ int its_alloc_vcpu_irqs(struct its_vm *vm);
- int its_alloc_vcpu_irq(struct kvm_vcpu *vcpu);
- void its_free_vcpu_irqs(struct its_vm *vm);
- void its_free_vcpu_irq(struct kvm_vcpu *vcpu);
-+int its_get_max_vpeid(void);
- int its_make_vpe_resident(struct its_vpe *vpe, bool g0en, bool g1en);
- int its_make_vpe_non_resident(struct its_vpe *vpe, bool db);
- int its_commit_vpe(struct its_vpe *vpe);
-diff --git a/include/uapi/linux/kvm.h b/include/uapi/linux/kvm.h
-index 057eb9e61ac8..9f0ae2096e58 100644
---- a/include/uapi/linux/kvm.h
-+++ b/include/uapi/linux/kvm.h
-@@ -974,6 +974,7 @@ struct kvm_enable_cap {
- #define KVM_CAP_GUEST_MEMFD_FLAGS 244
- #define KVM_CAP_ARM_SEA_TO_USER 245
- #define KVM_CAP_ARM_PER_VCPU_VLPI 246
-+#define KVM_CAP_ARM_MAX_VPEID 247
- 
- struct kvm_irq_routing_irqchip {
- 	__u32 irqchip;
-diff --git a/tools/testing/selftests/kvm/Makefile.kvm b/tools/testing/selftests/kvm/Makefile.kvm
-index 02a7663c097b..71a929ef7e5d 100644
---- a/tools/testing/selftests/kvm/Makefile.kvm
-+++ b/tools/testing/selftests/kvm/Makefile.kvm
-@@ -162,6 +162,7 @@ TEST_GEN_PROGS_arm64 += arm64/host_sve
- TEST_GEN_PROGS_arm64 += arm64/hypercalls
- TEST_GEN_PROGS_arm64 += arm64/external_aborts
- TEST_GEN_PROGS_arm64 += arm64/page_fault_test
-+TEST_GEN_PROGS_arm64 += arm64/per_vcpu_vlpi
- TEST_GEN_PROGS_arm64 += arm64/psci_test
- TEST_GEN_PROGS_arm64 += arm64/sea_to_user
- TEST_GEN_PROGS_arm64 += arm64/set_id_regs
-diff --git a/tools/testing/selftests/kvm/arm64/per_vcpu_vlpi.c b/tools/testing/selftests/kvm/arm64/per_vcpu_vlpi.c
-new file mode 100644
-index 000000000000..9a5b1b40ff10
---- /dev/null
-+++ b/tools/testing/selftests/kvm/arm64/per_vcpu_vlpi.c
-@@ -0,0 +1,274 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Test per-vCPU vLPI enable/disable/query correctness
-+ */
-+
-+#include <linux/kvm.h>
-+#include <pthread.h>
-+#include <sys/resource.h>
-+#include "test_util.h"
-+#include "kvm_util.h"
-+#include "processor.h"
-+#include "gic.h"
-+#include "vgic.h"
-+#include "../kselftest_harness.h"
-+
-+static int MAX_VCPUS;
-+static int ITS_MAX_VPEID;
-+
-+/* Dynamically fetch MAX_VCPUS and ITS_MAX_VPEID values */
-+__attribute__((constructor))
-+static void init_test_limits(void)
-+{
-+	int kvm_fd = open("/dev/kvm", O_RDWR);
-+	int max_vcpus, max_vpeids;
-+
-+	if (kvm_fd >= 0) {
-+		max_vcpus = ioctl(kvm_fd, KVM_CHECK_EXTENSION, KVM_CAP_MAX_VCPUS);
-+		if (max_vcpus > 0)
-+			MAX_VCPUS = max_vcpus;
-+
-+		max_vpeids = ioctl(kvm_fd, KVM_CHECK_EXTENSION, KVM_CAP_ARM_MAX_VPEID);
-+		if (max_vpeids > 0)
-+			ITS_MAX_VPEID = max_vpeids;
-+
-+		close(kvm_fd);
-+	}
-+}
-+
-+static void guest_code(void)
-+{
-+	GUEST_SYNC(0);
-+	GUEST_DONE();
-+}
-+
-+static void setup_vm_with_gic(struct kvm_vm **vm, struct kvm_vcpu **vcpu, int nr_vcpus)
-+{
-+	struct kvm_vcpu **vcpus;
-+
-+	TEST_REQUIRE(kvm_supports_vgic_v3());
-+
-+	if (nr_vcpus == 1) {
-+		*vm = vm_create_with_one_vcpu(vcpu, guest_code);
-+	} else {
-+		vcpus = calloc(nr_vcpus, sizeof(*vcpus));
-+		TEST_ASSERT(vcpus, "Failed to allocate vcpu array");
-+		*vm = vm_create_with_vcpus(nr_vcpus, guest_code, vcpus);
-+		*vcpu = vcpus[0];
-+		free(vcpus);
-+	}
-+}
-+
-+static void cleanup_vm(struct kvm_vm *vm, int its_fd)
-+{
-+	if (its_fd >= 0)
-+		close(its_fd);
-+	kvm_vm_free(vm);
-+}
-+
-+TEST(basic_vlpi_toggle)
-+{
-+	struct kvm_vm *vm;
-+	struct kvm_vcpu *vcpu;
-+	int its_fd, ret;
-+	int vcpu_id = 0;
-+
-+	setup_vm_with_gic(&vm, &vcpu, 1);
-+	its_fd = vgic_its_setup(vm);
-+
-+	ret = ioctl(vm->fd, KVM_QUERY_VCPU_VLPI, &vcpu_id);
-+	EXPECT_GE(ret, 0);
-+
-+	ret = ioctl(vm->fd, KVM_ENABLE_VCPU_VLPI, &vcpu_id);
-+	EXPECT_EQ(ret, 0);
-+
-+	ret = ioctl(vm->fd, KVM_QUERY_VCPU_VLPI, &vcpu_id);
-+	EXPECT_GT(ret, 0);
-+
-+	ret = ioctl(vm->fd, KVM_DISABLE_VCPU_VLPI, &vcpu_id);
-+	EXPECT_EQ(ret, 0);
-+
-+	ret = ioctl(vm->fd, KVM_QUERY_VCPU_VLPI, &vcpu_id);
-+	EXPECT_EQ(ret, 0);
-+
-+	cleanup_vm(vm, its_fd);
-+}
-+
-+/* recycle test */
-+struct thread_data {
-+	struct kvm_vm *vm;
-+	int vcpu_id;
-+	int ret;
-+};
-+
-+static void *vlpi_thread(void *arg)
-+{
-+	struct thread_data *data = arg;
-+
-+	data->ret = ioctl(data->vm->fd, KVM_ENABLE_VCPU_VLPI, &data->vcpu_id);
-+	if (data->ret == 0)
-+		data->ret = ioctl(data->vm->fd, KVM_DISABLE_VCPU_VLPI, &data->vcpu_id);
-+
-+	return NULL;
-+}
-+
-+TEST(vpeid_recycling)
-+{
-+	struct kvm_vm *vm;
-+	struct kvm_vcpu *vcpu;
-+	int its_fd;
-+	int vcpu_id, i;
-+	int cycles = (ITS_MAX_VPEID * 2) / MAX_VCPUS;
-+	pthread_t threads[MAX_VCPUS];
-+	struct thread_data data[MAX_VCPUS];
-+
-+	setup_vm_with_gic(&vm, &vcpu, MAX_VCPUS);
-+	its_fd = vgic_its_setup(vm);
-+
-+	for (i = 0; i < cycles; i++) {
-+		for (vcpu_id = 0; vcpu_id < MAX_VCPUS; vcpu_id++) {
-+			data[vcpu_id].vm = vm;
-+			data[vcpu_id].vcpu_id = vcpu_id;
-+			pthread_create(&threads[vcpu_id], NULL, vlpi_thread, &data[vcpu_id]);
-+		}
-+
-+		for (vcpu_id = 0; vcpu_id < MAX_VCPUS; vcpu_id++) {
-+			pthread_join(threads[vcpu_id], NULL);
-+			EXPECT_EQ(data[vcpu_id].ret, 0);
-+		}
-+	}
-+
-+	cleanup_vm(vm, its_fd);
-+}
-+
-+TEST(double_enable_disable)
-+{
-+	struct kvm_vm *vm;
-+	struct kvm_vcpu *vcpu;
-+	int its_fd, ret;
-+	int vcpu_id = 0;
-+
-+	setup_vm_with_gic(&vm, &vcpu, 1);
-+	its_fd = vgic_its_setup(vm);
-+
-+	ret = ioctl(vm->fd, KVM_ENABLE_VCPU_VLPI, &vcpu_id);
-+	EXPECT_EQ(ret, 0);
-+
-+	ret = ioctl(vm->fd, KVM_ENABLE_VCPU_VLPI, &vcpu_id);
-+	EXPECT_EQ(ret, 0);
-+
-+	ret = ioctl(vm->fd, KVM_QUERY_VCPU_VLPI, &vcpu_id);
-+	EXPECT_GT(ret, 0);
-+
-+	ret = ioctl(vm->fd, KVM_DISABLE_VCPU_VLPI, &vcpu_id);
-+	EXPECT_EQ(ret, 0);
-+
-+	ret = ioctl(vm->fd, KVM_DISABLE_VCPU_VLPI, &vcpu_id);
-+	EXPECT_EQ(ret, 0);
-+
-+	ret = ioctl(vm->fd, KVM_QUERY_VCPU_VLPI, &vcpu_id);
-+	EXPECT_EQ(ret, 0);
-+
-+	cleanup_vm(vm, its_fd);
-+}
-+
-+TEST(uninitialized_vcpu)
-+{
-+	struct kvm_vm *vm;
-+	struct kvm_vcpu *vcpu;
-+	int its_fd, ret;
-+	int invalid_vcpu_id = 999;
-+
-+	setup_vm_with_gic(&vm, &vcpu, 1);
-+	its_fd = vgic_its_setup(vm);
-+
-+	ret = ioctl(vm->fd, KVM_QUERY_VCPU_VLPI, &invalid_vcpu_id);
-+	EXPECT_LT(ret, 0);
-+
-+	ret = ioctl(vm->fd, KVM_ENABLE_VCPU_VLPI, &invalid_vcpu_id);
-+	EXPECT_LT(ret, 0);
-+
-+	ret = ioctl(vm->fd, KVM_DISABLE_VCPU_VLPI, &invalid_vcpu_id);
-+	EXPECT_LT(ret, 0);
-+
-+	cleanup_vm(vm, its_fd);
-+}
-+
-+TEST(vpeid_exhaustion)
-+{
-+	struct rlimit rlim;
-+	struct kvm_vm **vms;
-+	struct kvm_vcpu **vcpus;
-+	int *its_fds;
-+	/* Allocate enough VMs to exhaust vPEs, plus one */
-+	int num_vms = ITS_MAX_VPEID / MAX_VCPUS + 1;
-+	int remainder_vcpus = ITS_MAX_VPEID % MAX_VCPUS;
-+	int vm_idx, vcpu_id, ret;
-+	int successful_enables = 0;
-+
-+	/* Raise fd limit if below vPE limit, as we can't allocate enough vCPUs */
-+	if (getrlimit(RLIMIT_NOFILE, &rlim) == 0) {
-+		struct rlimit new_rlim = rlim;
-+		/*
-+		 * Require [num_vms * (vcpus_per_vm + VM_fd + ITS_fd) + KVM] file
-+		 * descriptors, tripled for safety.
-+		 */
-+		int required_fds = (num_vms * (MAX_VCPUS + 2) + 1) * 3;
-+
-+		if (rlim.rlim_cur < required_fds) {
-+			new_rlim.rlim_cur = min_t(rlim_t, required_fds, rlim.rlim_max);
-+			if (setrlimit(RLIMIT_NOFILE, &new_rlim) != 0) {
-+				SKIP(return, "Need %d FDs, have %ld, cannot increase limit",
-+					required_fds, rlim.rlim_cur);
-+			}
-+		}
-+	}
-+
-+	vms = calloc(num_vms, sizeof(*vms));
-+	vcpus = calloc(num_vms, sizeof(*vcpus));
-+	its_fds = calloc(num_vms, sizeof(*its_fds));
-+	TEST_ASSERT(vms && vcpus && its_fds, "Failed to allocate VM arrays");
-+
-+	/* Create all VMs */
-+	for (vm_idx = 0; vm_idx < num_vms; vm_idx++) {
-+		setup_vm_with_gic(&vms[vm_idx], &vcpus[vm_idx], MAX_VCPUS);
-+		its_fds[vm_idx] = vgic_its_setup(vms[vm_idx]);
-+	}
-+
-+	/* Exhaust all vPEs */
-+	for (vm_idx = 0; vm_idx < num_vms - 1; vm_idx++) {
-+		for (vcpu_id = 0; vcpu_id < MAX_VCPUS; vcpu_id++) {
-+			ret = ioctl(vms[vm_idx]->fd, KVM_ENABLE_VCPU_VLPI, &vcpu_id);
-+			if (ret == 0)
-+				successful_enables++;
-+		}
-+	}
-+
-+	for (vcpu_id = 0; vcpu_id < remainder_vcpus; vcpu_id++) {
-+		ret = ioctl(vms[num_vms - 1]->fd, KVM_ENABLE_VCPU_VLPI, &vcpu_id);
-+		if (ret == 0)
-+			successful_enables++;
-+	}
-+
-+	/* Should have exhausted vPEID limit */
-+	TEST_ASSERT(successful_enables == ITS_MAX_VPEID,
-+		"Failed to allocate all existing vPEIDs");
-+
-+	/* Try assigning one more vPEID past exhaustion*/
-+	vcpu_id = remainder_vcpus;
-+	ret = ioctl(vms[num_vms - 1]->fd, KVM_ENABLE_VCPU_VLPI, &vcpu_id);
-+
-+	/* Verify failure to allocate additional vPEID */
-+	TEST_ASSERT(ret < 0, "Failed to detect vPEID exhaustion");
-+
-+	/* Cleanup all VMs */
-+	for (vm_idx = 0; vm_idx < num_vms; vm_idx++)
-+		cleanup_vm(vms[vm_idx], its_fds[vm_idx]);
-+
-+	free(vms);
-+	free(vcpus);
-+	free(its_fds);
-+	setrlimit(RLIMIT_NOFILE, &rlim); /* Restore fd limit */
-+}
-+
-+TEST_HARNESS_MAIN
--- 
-2.50.1 (Apple Git-155)
+
+My bot found new DTB warnings on the .dts files added or changed in this
+series.
+
+Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
+are fixed by another series. Ultimately, it is up to the platform
+maintainer whether these warnings are acceptable or not. No need to reply
+unless the platform maintainer has comments.
+
+If you already ran DT checks and didn't see these error(s), then
+make sure dt-schema is up to date:
+
+  pip3 install dtschema --upgrade
+
+
+This patch series was applied (using b4) to base:
+ Base: attempting to guess base-commit...
+ Base: tags/next-20251119 (exact match)
+ Base: tags/next-20251119 (use --merge-base to override)
+
+If this is not the correct base, please add 'base-commit' tag
+(or use b4 which does this automatically)
+
+New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/mediatek/' for 20251120121805.6775-1-ot_shunxi.zhang@mediatek.com:
+
+arch/arm64/boot/dts/mediatek/mt8195-cherry-tomato-r2.dtb: pmic (mediatek,mt6359): rtc: Unevaluated properties are not allowed ('mediatek,alarm-sta-supported' was unexpected)
+	from schema $id: http://devicetree.org/schemas/mfd/mediatek,mt6397.yaml
+arch/arm64/boot/dts/mediatek/mt8395-genio-1200-evk.dtb: pmic (mediatek,mt6359): rtc: Unevaluated properties are not allowed ('mediatek,alarm-sta-supported' was unexpected)
+	from schema $id: http://devicetree.org/schemas/mfd/mediatek,mt6397.yaml
+arch/arm64/boot/dts/mediatek/mt8395-kontron-3-5-sbc-i1200.dtb: pmic (mediatek,mt6359): rtc: Unevaluated properties are not allowed ('mediatek,alarm-sta-supported' was unexpected)
+	from schema $id: http://devicetree.org/schemas/mfd/mediatek,mt6397.yaml
+arch/arm64/boot/dts/mediatek/mt8395-genio-1200-evk-ufs.dtb: pmic (mediatek,mt6359): rtc: Unevaluated properties are not allowed ('mediatek,alarm-sta-supported' was unexpected)
+	from schema $id: http://devicetree.org/schemas/mfd/mediatek,mt6397.yaml
+arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku4.dtb: pmic (mediatek,mt6359): rtc: Unevaluated properties are not allowed ('mediatek,alarm-sta-supported' was unexpected)
+	from schema $id: http://devicetree.org/schemas/mfd/mediatek,mt6397.yaml
+arch/arm64/boot/dts/mediatek/mt8370-genio-510-evk.dtb: pmic (mediatek,mt6359): rtc: Unevaluated properties are not allowed ('mediatek,alarm-sta-supported' was unexpected)
+	from schema $id: http://devicetree.org/schemas/mfd/mediatek,mt6397.yaml
+arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku1.dtb: pmic (mediatek,mt6359): rtc: Unevaluated properties are not allowed ('mediatek,alarm-sta-supported' was unexpected)
+	from schema $id: http://devicetree.org/schemas/mfd/mediatek,mt6397.yaml
+arch/arm64/boot/dts/mediatek/mt8390-genio-700-evk.dtb: pmic (mediatek,mt6359): rtc: Unevaluated properties are not allowed ('mediatek,alarm-sta-supported' was unexpected)
+	from schema $id: http://devicetree.org/schemas/mfd/mediatek,mt6397.yaml
+arch/arm64/boot/dts/mediatek/mt8195-demo.dtb: pmic (mediatek,mt6359): rtc: Unevaluated properties are not allowed ('mediatek,alarm-sta-supported' was unexpected)
+	from schema $id: http://devicetree.org/schemas/mfd/mediatek,mt6397.yaml
+arch/arm64/boot/dts/mediatek/mt8192-asurada-hayato-r1.dtb: pmic (mediatek,mt6359): rtc: Unevaluated properties are not allowed ('mediatek,alarm-sta-supported' was unexpected)
+	from schema $id: http://devicetree.org/schemas/mfd/mediatek,mt6397.yaml
+arch/arm64/boot/dts/mediatek/mt8192-asurada-spherion-r0.dtb: pmic (mediatek,mt6359): rtc: Unevaluated properties are not allowed ('mediatek,alarm-sta-supported' was unexpected)
+	from schema $id: http://devicetree.org/schemas/mfd/mediatek,mt6397.yaml
+arch/arm64/boot/dts/mediatek/mt8188-evb.dtb: pmic (mediatek,mt6359): rtc: Unevaluated properties are not allowed ('mediatek,alarm-sta-supported' was unexpected)
+	from schema $id: http://devicetree.org/schemas/mfd/mediatek,mt6397.yaml
+arch/arm64/boot/dts/mediatek/mt8395-radxa-nio-12l.dtb: pmic (mediatek,mt6359): rtc: Unevaluated properties are not allowed ('mediatek,alarm-sta-supported' was unexpected)
+	from schema $id: http://devicetree.org/schemas/mfd/mediatek,mt6397.yaml
+arch/arm64/boot/dts/mediatek/mt8370-grinn-genio-510-sbc.dtb: pmic (mediatek,mt6359): rtc: Unevaluated properties are not allowed ('mediatek,alarm-sta-supported' was unexpected)
+	from schema $id: http://devicetree.org/schemas/mfd/mediatek,mt6397.yaml
+arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku7.dtb: pmic (mediatek,mt6359): rtc: Unevaluated properties are not allowed ('mediatek,alarm-sta-supported' was unexpected)
+	from schema $id: http://devicetree.org/schemas/mfd/mediatek,mt6397.yaml
+arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku6.dtb: pmic (mediatek,mt6359): rtc: Unevaluated properties are not allowed ('mediatek,alarm-sta-supported' was unexpected)
+	from schema $id: http://devicetree.org/schemas/mfd/mediatek,mt6397.yaml
+arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku3.dtb: pmic (mediatek,mt6359): rtc: Unevaluated properties are not allowed ('mediatek,alarm-sta-supported' was unexpected)
+	from schema $id: http://devicetree.org/schemas/mfd/mediatek,mt6397.yaml
+arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku0.dtb: pmic (mediatek,mt6359): rtc: Unevaluated properties are not allowed ('mediatek,alarm-sta-supported' was unexpected)
+	from schema $id: http://devicetree.org/schemas/mfd/mediatek,mt6397.yaml
+arch/arm64/boot/dts/mediatek/mt8390-grinn-genio-700-sbc.dtb: pmic (mediatek,mt6359): rtc: Unevaluated properties are not allowed ('mediatek,alarm-sta-supported' was unexpected)
+	from schema $id: http://devicetree.org/schemas/mfd/mediatek,mt6397.yaml
+arch/arm64/boot/dts/mediatek/mt8195-cherry-dojo-r1.dtb: pmic (mediatek,mt6359): rtc: Unevaluated properties are not allowed ('mediatek,alarm-sta-supported' was unexpected)
+	from schema $id: http://devicetree.org/schemas/mfd/mediatek,mt6397.yaml
+arch/arm64/boot/dts/mediatek/mt8192-evb.dtb: pmic (mediatek,mt6359): rtc: Unevaluated properties are not allowed ('mediatek,alarm-sta-supported' was unexpected)
+	from schema $id: http://devicetree.org/schemas/mfd/mediatek,mt6397.yaml
+arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku2.dtb: pmic (mediatek,mt6359): rtc: Unevaluated properties are not allowed ('mediatek,alarm-sta-supported' was unexpected)
+	from schema $id: http://devicetree.org/schemas/mfd/mediatek,mt6397.yaml
+arch/arm64/boot/dts/mediatek/mt8195-cherry-tomato-r3.dtb: pmic (mediatek,mt6359): rtc: Unevaluated properties are not allowed ('mediatek,alarm-sta-supported' was unexpected)
+	from schema $id: http://devicetree.org/schemas/mfd/mediatek,mt6397.yaml
+arch/arm64/boot/dts/mediatek/mt8195-cherry-tomato-r1.dtb: pmic (mediatek,mt6359): rtc: Unevaluated properties are not allowed ('mediatek,alarm-sta-supported' was unexpected)
+	from schema $id: http://devicetree.org/schemas/mfd/mediatek,mt6397.yaml
+arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku5.dtb: pmic (mediatek,mt6359): rtc: Unevaluated properties are not allowed ('mediatek,alarm-sta-supported' was unexpected)
+	from schema $id: http://devicetree.org/schemas/mfd/mediatek,mt6397.yaml
 
 
 
 
-Amazon Web Services Development Center Germany GmbH
-Tamara-Danz-Str. 13
-10243 Berlin
-Geschaeftsfuehrung: Christian Schlaeger, Christof Hellmis
-Eingetragen am Amtsgericht Charlottenburg unter HRB 257764 B
-Sitz: Berlin
-Ust-ID: DE 365 538 597
 
 
