@@ -4,151 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92510CF857D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 10:31:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F424CF857F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 10:39:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Joq+XWqBsP+i+Z6I53ZU6efDB1L3vgEKEAxIPjmxJ7Y=; b=pD1hZ/yfxBVF3LdrgdReyvC91k
-	n4g+DKh/A9Id+h7dIfcVCff6rX2wWrSSOF40fZgVIqU2pwlKcdvJAAf0J3m86nuGdthnZYeeBSqaD
-	H2I3+5Y64myScDMAFG1w9a50DMm26mQAIVKf8PLjz9n/J1q/5Me8bF4ntQ3R5WIbcxcE6mZCeOvd3
-	Z5swMktKxHl/+8+Ew541/w/rYMLUR4lWnHbBR+2DlGyaM/BxiS0B1qXlpn3hKXkzIk/pXU3V2vhgU
-	CTWIoNQ2YugT3Bb6FSN/amHfoiwiWDP8hW7zU+g7DNy8MBxNN8vECW4uCnuJ+JQxsewNdjWRaOyHX
-	m5UwO74Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:Message-ID:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=G2B1oMH6XMC8F/TLMH3iJY9plQqwnEoLATaxUay7SA8=; b=HyT6aRs7vzkHBzXyqaAzhqSWkR
+	InOrZRvt2SwC2W1jGNBf8rGJteVjMwS/v3ka8wvwS89IJvCsM9eLlIEpE0WR+H3+segTcGdQMqEWh
+	LOBpaNKM3uPNGhyR8BV7KP0Eoyi2bTCHuvHcJPmBFZc2pb+yuTxGsPyFt3NOsfWWsMrA3hkMv6V+4
+	SSrZhNLRQ+3kosAuP9wcjvplIRhaTTh1bPgpgxlwuJXkJ7TSIRnvP2gJMogjcYDzZYJj+K45P3j8T
+	5gPXMhLuDtBD0g8LoHQLAqJrIafNBfVQ1ANYdKZ8bzKO3LpcosSt9TkLuDqXJO+WKdWsZ4PuXEMVe
+	KQu9cm0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vM1wT-00000006VzA-3Dzj;
-	Thu, 20 Nov 2025 10:31:09 +0000
-Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1vM24f-00000006WQj-42Ir;
+	Thu, 20 Nov 2025 10:39:37 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vM1wO-00000006VyM-2B7x
+	id 1vM24c-00000006WPA-3W23
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Nov 2025 10:31:09 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=r5f0UFHdYk7DdkbJ1w9w/feL9+VlFgkkVqV1rpvwHWCF+/uwBqJhN0eBbLFiicfF6RsLqGi8G2PG8iqsa43K/TFhJsnTw1Xa0owJlcDP7VZYjHTdG+mYjtoQdlILNUYoSRPiYd1xWaZhyQhqut1R4TKmpoPBZcu0UCco6EneGwEhPBnRXjA49GucUcR694q+71lo8nayowkO2RqHKNp0lETK4wGEq2qshbAcPUza7+keOkWMq/ROLHDgrNIFN2tDwnEWx7x/mMFnMeMl7sHmHur//aubUU9D6u9vNuLTEwjfzBlG6gDD7w60LE4nylhlGaBv6aAscLBVe1DnlnWfGg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Joq+XWqBsP+i+Z6I53ZU6efDB1L3vgEKEAxIPjmxJ7Y=;
- b=Gfr3p+jrPKpaPsrYNnint6L03rNpe5Riy/oGF4ewVEXHmTcjEmwcehAP5y3H7E5ioOXIiwPZkFklHW9yF/trIRxjZiaTTkVzRyjRDg4elSkBnQxcO2uo1GuzX483KZcdEeCyK9qSktiqPsD4mjlgz0E7KS5MjUWf95xnSTr2i4SvpUfGgPg7ShomaTmGmHxsaaqrj7jI377eu2KA2KUli6lgju5NGnMH1HFOqd42vYutGPmxnBtaAKVZ/QFGF/+epCspbbgPzWW7fDXWt9xgXoD4GV8G1GiHS/9ARMh0aNuu9+SxkZEBcH6n7B4GQxwAHauqBTKlWb+9jteecXgoLA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Joq+XWqBsP+i+Z6I53ZU6efDB1L3vgEKEAxIPjmxJ7Y=;
- b=SBOP8aR/srC4FQIAQCXug+humCdRv8NoW8baw4XjIdX8UtRW73Cq/nY2nkJcFyos9wrc6pKdkfGbDwM7utamhBmrD2ZGx8ep+ElSfrl+eqZT5gjlVQ+8IqBXTjPztd7e3hmGQ0fH/GLB3dFK1WFunE57/oyM74X6MhS4P3eeF/1ydyup5nUB1isSF8MRlzgAm+up2U7zu+E0hdaKdZhoZjtTAjVyPKLiQU+o5mvdui8A59PNbxNLOIcrZxNJQHKkSZRMm1VmdXRLM16w413046GBaET+84StyzIEwcafrTB47on2pUj2rr2+TMC81f55D6Cuu5AXSRovWTeI6FTuEw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from VI2PR04MB11147.eurprd04.prod.outlook.com
- (2603:10a6:800:293::14) by DU7PR04MB11089.eurprd04.prod.outlook.com
- (2603:10a6:10:5b1::10) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9320.21; Thu, 20 Nov
- 2025 10:31:00 +0000
-Received: from VI2PR04MB11147.eurprd04.prod.outlook.com
- ([fe80::75ad:fac7:cfe7:b687]) by VI2PR04MB11147.eurprd04.prod.outlook.com
- ([fe80::75ad:fac7:cfe7:b687%6]) with mapi id 15.20.9343.009; Thu, 20 Nov 2025
- 10:31:00 +0000
-From: Carlos Song <carlos.song@nxp.com>
-To: aisheng.dong@nxp.com,
-	andi.shyti@kernel.org,
-	shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	carlos.song@nxp.com,
-	frank.li@nxp.com
-Cc: linux-i2c@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2] i2c: imx-lpi2c: change to PIO mode in system-wide suspend/resume progress
-Date: Thu, 20 Nov 2025 18:30:39 +0800
-Message-Id: <20251120103039.1824209-1-carlos.song@nxp.com>
-X-Mailer: git-send-email 2.34.1
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: AS4PR10CA0011.EURPRD10.PROD.OUTLOOK.COM
- (2603:10a6:20b:5dc::14) To VI2PR04MB11147.eurprd04.prod.outlook.com
- (2603:10a6:800:293::14)
+	Thu, 20 Nov 2025 10:39:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1763635174; x=1795171174;
+  h=from:date:subject:mime-version:content-transfer-encoding:
+   message-id:to:cc;
+  bh=J8677a+liVG90mEXv9sUxatagrhtLr9kVbgkaIMED9k=;
+  b=ce1Ut9VsNy+LPvEfh2uGjF8ctTVtZIKyb+H4jSIZHjJBdZ7ZJ5jaOJO8
+   w8ZnO4fruAqDa8dBrNgQlvrswdpgc1ZfQLPS7KQdH2YFVxuHMVHYV7SN5
+   liA+U1TuUUIlh9ySEbIxVjGjSlqoGcSlYzaEhiUQ5YqYNdURHlHHO6dPS
+   fFlKw21wOqv8olQlMBEJGXGZ4/Af5Ezh+OV+WHW37nTf241zDY07lP6U6
+   P4djFcobxLG1TNJvrSrJfid+ze+Azkv7025nxkzAxIdk7gvLVpAmJnCge
+   vk1USFQZouQImQAtflNQBuLG/vAWnr+3ODodGo6mlKBi5G8YV4XbgPjwV
+   A==;
+X-CSE-ConnectionGUID: CRxBPCVgQ9SsmEJbGIfOAw==
+X-CSE-MsgGUID: QCtY8nKtR9OFt9OeKqLWkA==
+X-IronPort-AV: E=Sophos;i="6.19,317,1754982000"; 
+   d="scan'208";a="280805056"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa5.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 20 Nov 2025 03:39:25 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
+ chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.58; Thu, 20 Nov 2025 03:38:55 -0700
+Received: from [127.0.0.1] (10.10.85.11) by chn-vm-ex04.mchp-main.com
+ (10.10.85.152) with Microsoft SMTP Server id 15.1.2507.58 via Frontend
+ Transport; Thu, 20 Nov 2025 03:38:51 -0700
+From: Ludovic Desroches <ludovic.desroches@microchip.com>
+Date: Thu, 20 Nov 2025 11:38:25 +0100
+Subject: [PATCH] drm/atmel-hlcdc: don't reject the commit if the src rect
+ has fractional parts
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: VI2PR04MB11147:EE_|DU7PR04MB11089:EE_
-X-MS-Office365-Filtering-Correlation-Id: 43ca5e31-9c6b-436b-7c4c-08de281fe5a9
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|52116014|19092799006|1800799024|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?HoORF2PwrYX4Viubo6OQk8tQ/dEQ8WdKeaVJ1ngkf+MGNBRuplfbyIlSzjiG?=
- =?us-ascii?Q?htJK4y0XfIWxCxqH1U/NCQ2nIc1xa/4jRMyz/zsQffVx7a/5+crUIobpze+2?=
- =?us-ascii?Q?FP4ovG1TqJe9xxT0Kcs+ufauII82kPaQ0A5qLTocT5C2KjnOopLK8L+qfNDM?=
- =?us-ascii?Q?rdd0C5uq5fboLwv7C0e9RPZhkBaewJfg9BZitfHoI/nIH6q82S76XrjGgY0J?=
- =?us-ascii?Q?aLWG2INjySLyZ1kJYh6rmosrOdBAyUYUDRof2zjzZU1E8ReZpmvorFxmb7JD?=
- =?us-ascii?Q?2Q0FxTFecg/uyJ3w9CdT1aGEp8UsjTYfbOVvVcS+K1ST3TpBAiSuCUX0nXk2?=
- =?us-ascii?Q?SSoOgUdWDdlHQI33ppw3xfsHfHvmgF0dvcV/76H/Y+0bjsBpNgUrXUKHrEXQ?=
- =?us-ascii?Q?QBA5jcDwUbQe6OGw1SHI37EPpWqMr9hbntc9J9Znz2qECBIEE05JuUDiVAL2?=
- =?us-ascii?Q?YCsAVJUvON2KcOwzftkvV3wefHfpCITMjWzpDKn3hPbyLH0jTD0rSojUD4ny?=
- =?us-ascii?Q?S38oaFh0ECWxGwDoeqbwd/lEGs6YHbd21s9XnnMfw76SSR81z8+iNyZAavDX?=
- =?us-ascii?Q?I0Zh4duTCPBxqol2Al6707VAI2Of8efMvRiVDRcUk+stq+DLwuZZLt38Im7+?=
- =?us-ascii?Q?eXg5YgnMibdha9ruLN9Avl3XZaegCaVkTbNNK3UlPFjoyPrK5t/me4GwuYZP?=
- =?us-ascii?Q?a/DO9AAFDDwmcu+ioB1LG3HX6oUn+qh2cYje3/kvi/Phks8IB/JoD82iJWHK?=
- =?us-ascii?Q?MrIlDxyvWw1/DabrQIFC1fOKCDHjDt7UXzBKlePP3lhrDZAzC/WUuTQYoi/G?=
- =?us-ascii?Q?mTdgFADmSeNLkQz3v2O8mJ6iz64Vh5Mq18PdAOQmf7TU0nkweD6NfdSxI/W5?=
- =?us-ascii?Q?MeQCFSGYaS9UI8bVNmuKObpEII5fuGqDOvtCBONn0MN1XyCWIIYKCh8hLUad?=
- =?us-ascii?Q?cV+YMTgmNGZk58az2YAhAgXMiy7Chuas/vi3BsxVTAIOK+9BsrZ35kgCf2gM?=
- =?us-ascii?Q?PxQO4/hbpx3xeq9coFCldD1FZQ92cEoGhxpw0maIAyyTPmu6tqvkM6yMMtEU?=
- =?us-ascii?Q?S42H26RtT9/A+lqHAPiiTZ8xWO5QQemBhz/umIYmMsdvrMcah95DNQ5uFTMG?=
- =?us-ascii?Q?H6Wh2N/gzkxLE8A0/l6q8Qa4WF9a6c174aORIP4XiS6K7v1NjWoUFhSrgQX+?=
- =?us-ascii?Q?R+zilJcR69wzirA7o7nebCgcA1cRcIcd8ny5UIMBIc2LsgxCoqYGk61Xa6lo?=
- =?us-ascii?Q?B304A8Q54dzNBcHybheHiZnrkqg8PWE8a2mnDrbc24xlirCC5EmwVn0LaWyQ?=
- =?us-ascii?Q?qvdM48VP4pBxt5sNPZVzgKmR+jP59hkRZPKE0lOZFE+NGScJLp/4ksFek2YS?=
- =?us-ascii?Q?dePbrsXpdCkwYOqfi96vjcdDqp28s3BWc6DxGbztkpW0L6cpAy8IaZ2gCsL2?=
- =?us-ascii?Q?Hhg4vqZZyB3AOfNuNEAoibzlByn+75yRdTySjahTTKjHt5Zq5588xjbSCevc?=
- =?us-ascii?Q?+q7SJERUJz1lqxoYgDfPFdZLFIfBinjMWfqi?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI2PR04MB11147.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(52116014)(19092799006)(1800799024)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?mromIzrhBsPdWIEEuX9V7ybTAS4BmFh1D5doQzYInoBp0DbIp4QQHNWb4KDt?=
- =?us-ascii?Q?HvJotRH6+R92Hth7E/3jwKTWX0J3wfQRFKpIDOA7BBA7vKaJDKAFiaX3oU35?=
- =?us-ascii?Q?m/WinJvtBpIwP632hrkbzHYDGgFr52px9PsBXH8IwT6WBAD4k3LoQgHLURbk?=
- =?us-ascii?Q?fQiqb1oi9wVyMiVuivRlP0z+/vdhe35NoQ6G2jeiMY3NL99suYrVARs7pOy2?=
- =?us-ascii?Q?+fS5sP+j2gdr6a1welaDR5CxK3ce6w5KbJ72nLiwSUOlFVLYJ5SPiv/WoQys?=
- =?us-ascii?Q?gatDgOZjo+o5pJ/KYFuQfQeU5dxgVPBT9jPDnYu6KaLE36yYXMf+6TqvbBvh?=
- =?us-ascii?Q?0muVxYWExpnZvC8lNJIpy4gzei+hC4pKzL3pUaB8HcfZVHQigK0FapIXmyZ/?=
- =?us-ascii?Q?o0RMNmLTKj17Tz015xOhLa/tXfyDphYe3odqUFqE34wxHVWzLiabOBFVSxpa?=
- =?us-ascii?Q?YQp1nvLcuQCw4qIFTLcKBD0RfEM5SsObnc0G8Pp1FdEBBBzUE2PxhHjRv7IL?=
- =?us-ascii?Q?EcF85gd8BJEucyyNMWBYyy703CWkWqtJGR2f5eeWrO65UmlwaUSjOL9QK4fd?=
- =?us-ascii?Q?V9OXMqkgTdH5zN8H5REGzLPCEyYvmkUuc3a0mt121uYq9q3+8x+HPiS69aJB?=
- =?us-ascii?Q?lHcEQW0Mg4P1k7sRLEb+j5EPp8q8SvybuKVzG31UovM3cjjts0ROmijDHJYx?=
- =?us-ascii?Q?Y1/TzDYhOoniHUaLe93K0hMHXn11zGGitJa52MUTQFxmVQWzBnjEt3+nm8R6?=
- =?us-ascii?Q?nhLMH4tEhdVlk5NZ5GhIwwGtJTvl9c8Lz8cAOICCjhefwVGhpCI6FV70jLJX?=
- =?us-ascii?Q?Sa14FGiGicP7rb35qqY2wAHCdlhg+SK8fj69hQFi9opf2XB9X+LoExDrfOa/?=
- =?us-ascii?Q?1o1Zr1jY63BXcrg267lwUmET2TfGFO5EhOU0pdd8Cwa1hfyZV7b/1YXWPcjq?=
- =?us-ascii?Q?HQvg31jbmMOy3IqRJrqJMRyWL85k+dTVxgwjztPkfyASv18H2/3qqG1/yxVG?=
- =?us-ascii?Q?WLijuRx+1v8DJnsdl6eKVrercwR57zNFxFWiz6T61jist7wt0ja0nweYlBOG?=
- =?us-ascii?Q?QhavCCOx9JP9sF+b8DShGUfXpvuNYEuql/q+wHBPzIUAstVCuyOZmtBsDQL+?=
- =?us-ascii?Q?D0tTm6JsWLBH/YdvOpwjYeQXAXlMFyvGuczqVEkfJUPJLHdjIAEpihgPQpTp?=
- =?us-ascii?Q?uiiM/9aeN2yYqNhuGscpDgBZMhnlbD/603sowZxgVh0dGWWk6ukbSRAITp87?=
- =?us-ascii?Q?BKasl1MsYd/kN6XITZKuJ0Zi4updOcBFBoGfRMyAAZ35U8zceJ9I/dGaGqtC?=
- =?us-ascii?Q?1YXywP1R62AyKZeFr5nFcq98cFs03ynVaWtwDXPiMsCTMhAgBCCZPwfnrjjY?=
- =?us-ascii?Q?HCOtOyIaokP/4tehiSTAqSbIB9xKSXvaMpP3SHSKdYh9uVC16gET3W/qcmXL?=
- =?us-ascii?Q?jWvYtazvNuo3jt8h5HSLYVgbs0cj7sPpFvm6mHXWBvT9GNEfiSk1LVhWzxFQ?=
- =?us-ascii?Q?wJfs+U20+Qg5bFowrV8uyNGiQIMO0+R12CgVC1Sfj6ciPtc/X8+Kx5x7r1e3?=
- =?us-ascii?Q?U/TcPB7o12B/MYNZYyj90Yewh/c796NOF4dzFWfF?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 43ca5e31-9c6b-436b-7c4c-08de281fe5a9
-X-MS-Exchange-CrossTenant-AuthSource: VI2PR04MB11147.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Nov 2025 10:30:59.9571
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: ZATkcZ1EazQsWon7ilzmsfKFPyJisB0Pd8t/Kn1u0dK0/NchqEbhBmuX7cMzbf3F3BQoScgd8F+dK/mu8bL2EQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU7PR04MB11089
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+Message-ID: <20251120-lcd_scaling_fix-v1-1-5ffc98557923@microchip.com>
+X-B4-Tracking: v=1; b=H4sIAKDvHmkC/x2MWwqAIBAArxL7nZBmz6tEiOhWC2HhQgTi3ZM+Z
+ 2AmAWMkZJirBBEfYrpCAVlX4A4bdhTkC4NqVCelnMTpvGFnTwq72egVVo9a+bFvm8FBqe6IRf/
+ HZc35Ax/cGzZhAAAA
+X-Change-ID: 20251119-lcd_scaling_fix-a4842d86307c
+To: Manikandan Muralidharan <manikandan.m@microchip.com>, "Dharma
+ Balasubiramani" <dharma.b@microchip.com>, Maarten Lankhorst
+	<maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>, Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea
+	<claudiu.beznea@tuxon.dev>
+CC: <dri-devel@lists.freedesktop.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, Ludovic Desroches
+	<ludovic.desroches@microchip.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2288;
+ i=ludovic.desroches@microchip.com; h=from:subject:message-id;
+ bh=J8677a+liVG90mEXv9sUxatagrhtLr9kVbgkaIMED9k=;
+ b=kA0DAAoBPjnmE/d7ZC0ByyZiAGke77ujhG0mz7EN48i1rGCi4D8K2xJSiOvxcRnnxhoCbQtaw
+ YkCMwQAAQoAHRYhBAAwS8mJaaxbjW01TT455hP3e2QtBQJpHu+7AAoJED455hP3e2QtrH0QAM4W
+ lw39V1i5i43IF2lUfGx/fxjDop/Icuar7mjQHPxvS4JNNCCA26vKkZHIIACvZWr2BHy/O9N2H5n
+ ETDdVR0FGab9W3R7gZhPfJ9cqbDKFRBYt36ooF2CZCwNf1HpFuqDyfpMgw/S1V1htgKZha7Fwhn
+ p5rRbvzACyTfCbbC6rQ/ET60yqwt36/Iu4mua4b0lcd4eLRp12I2Gg/fcm8ki0UomfsAD0isYr8
+ zH9q1l9fm9gUHSwE2bkTEGnEmbW+9WQQuZKvAOl4tSyA2Zs99WMdqtvMi2R1qMpCil/mZ7ciVUo
+ PoJ2vGZ5MGtqox/yemhbgoL4g2JbltsECiuYzV0sj8io9wfeonfbt8+50/fi6TjXiw06x3vau+R
+ H+X4ZODyrGPmqE+Pqv8rOrpIDlDEp0nCsjLEkLRMaa936FaMF9w2/+oPAgQeSddbxyjPEj3utpk
+ 3LWRqKhldh/3nJXSKt07UsRRY32TiAUBS4+W3Yvelsj82FVWKvs3VZPrQVJwuYGb9o9plh4iUUf
+ MAh+bJQ++mU50rN+9J+TYW1KrxM3gNl9FfVXEsF88xEIqX95rK/4p9oU/TXI/Ri5ZaIRVHdp2tC
+ J89blAAxoQZsz6r1zWNpCtW/l5asYSCHA8Af2h+oqfzGjUbWndRCPEY0U2aIsEU6FzgVwPPJhlm
+ yaIEa
+X-Developer-Key: i=ludovic.desroches@microchip.com; a=openpgp;
+ fpr=665BAA7297BE089A28B77696E332995F09DCC11A
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251120_023104_604887_0E112272 
-X-CRM114-Status: GOOD (  12.44  )
+X-CRM114-CacheID: sfid-20251120_023935_091838_159AF66A 
+X-CRM114-Status: GOOD (  11.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -163,42 +111,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-EDMA resume is in early stage and suspend is in late stage, but LPI2C
-resume and suspend are in NOIRQ stage. So LPI2C resource become ready
-earlier than EDMA. When IRQ enabled, immediately slave will trigger LPI2C
-to read data and the length meets the requirements for DMA usage, the DMA
-will be needed at this time. Within a very small time window, EDMA is
-still not resumed.
+Don’t reject the commit when the source rectangle has fractional parts.
+This can occur due to scaling: drm_atomic_helper_check_plane_state() calls
+drm_rect_clip_scaled(), which may introduce fractional parts while
+computing the clipped source rectangle. This does not imply the commit is
+invalid, so we should accept it instead of discarding it.
 
-If a system-wide suspend or resume transition is in progress. LPI2C should
-use PIO to transfer data not DMA to avoid issue caused by not ready DMA HW
-resource.
-
-Fixes: a09c8b3f9047 ("i2c: imx-lpi2c: add eDMA mode support for LPI2C")
-Signed-off-by: Carlos Song <carlos.song@nxp.com>
+Signed-off-by: Ludovic Desroches <ludovic.desroches@microchip.com>
 ---
- drivers/i2c/busses/i2c-imx-lpi2c.c | 7 +++++++
- 1 file changed, 7 insertions(+)
+ drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_plane.c | 19 ++++---------------
+ 1 file changed, 4 insertions(+), 15 deletions(-)
 
-diff --git a/drivers/i2c/busses/i2c-imx-lpi2c.c b/drivers/i2c/busses/i2c-imx-lpi2c.c
-index 2a0962a0b441..d882126c1778 100644
---- a/drivers/i2c/busses/i2c-imx-lpi2c.c
-+++ b/drivers/i2c/busses/i2c-imx-lpi2c.c
-@@ -592,6 +592,13 @@ static bool is_use_dma(struct lpi2c_imx_struct *lpi2c_imx, struct i2c_msg *msg)
- 	if (!lpi2c_imx->can_use_dma)
- 		return false;
+diff --git a/drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_plane.c b/drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_plane.c
+index 92132be9823f1e705d266f9547702ea9530bd043..bccfe055c087e5632d60503e8e4bcb3d9e18ce50 100644
+--- a/drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_plane.c
++++ b/drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_plane.c
+@@ -79,8 +79,6 @@ drm_plane_state_to_atmel_hlcdc_plane_state(struct drm_plane_state *s)
+ 	return container_of(s, struct atmel_hlcdc_plane_state, base);
+ }
  
-+	/*
-+	 * A system-wide suspend or resume transition is in progress. LPI2C should use PIO to
-+	 * transfer data to avoid issue caused by no ready DMA HW resource.
-+	 */
-+	if (pm_suspend_in_progress())
-+		return false;
-+
- 	/*
- 	 * When the length of data is less than I2C_DMA_THRESHOLD,
- 	 * cpu mode is used directly to avoid low performance.
+-#define SUBPIXEL_MASK			0xffff
+-
+ static uint32_t rgb_formats[] = {
+ 	DRM_FORMAT_C8,
+ 	DRM_FORMAT_XRGB4444,
+@@ -745,24 +743,15 @@ static int atmel_hlcdc_plane_atomic_check(struct drm_plane *p,
+ 	if (ret || !s->visible)
+ 		return ret;
+ 
+-	hstate->src_x = s->src.x1;
+-	hstate->src_y = s->src.y1;
+-	hstate->src_w = drm_rect_width(&s->src);
+-	hstate->src_h = drm_rect_height(&s->src);
++	hstate->src_x = s->src.x1 >> 16;
++	hstate->src_y = s->src.y1 >> 16;
++	hstate->src_w = drm_rect_width(&s->src) >> 16;
++	hstate->src_h = drm_rect_height(&s->src) >> 16;
+ 	hstate->crtc_x = s->dst.x1;
+ 	hstate->crtc_y = s->dst.y1;
+ 	hstate->crtc_w = drm_rect_width(&s->dst);
+ 	hstate->crtc_h = drm_rect_height(&s->dst);
+ 
+-	if ((hstate->src_x | hstate->src_y | hstate->src_w | hstate->src_h) &
+-	    SUBPIXEL_MASK)
+-		return -EINVAL;
+-
+-	hstate->src_x >>= 16;
+-	hstate->src_y >>= 16;
+-	hstate->src_w >>= 16;
+-	hstate->src_h >>= 16;
+-
+ 	hstate->nplanes = fb->format->num_planes;
+ 	if (hstate->nplanes > ATMEL_HLCDC_LAYER_MAX_PLANES)
+ 		return -EINVAL;
+
+---
+base-commit: fe4d0dea039f2befb93f27569593ec209843b0f5
+change-id: 20251119-lcd_scaling_fix-a4842d86307c
+
+Best regards,
 -- 
-2.34.1
+Ludovic Desroches <ludovic.desroches@microchip.com>
 
 
