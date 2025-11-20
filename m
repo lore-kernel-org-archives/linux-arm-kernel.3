@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3B6DCF8859
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 13:38:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 501C8CF8859
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 13:39:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K26Gzy/ffYxGjMqzTYz++mvHzp4mui+04wwKNizZ8OI=; b=CalFR+kN65cr7mkR5MnIrxwn+e
-	Lse8SMYfykcEdWLZgzYLaxxzJYH/lCrkMXV/+iML3avk6UNn75WF3oNu+1Sx1IX1w5c1CiPApSIkp
-	Ler4NqkhBr5GElUIu6EddvQS0ofVEOoxW3sp0gjS3PPwY9d7ecG+6WsWwJ4MMYIZMU+yeLNpHw4+7
-	D+KFN9JaaWTTY8H/J376KivcF5xzyNOayMDZ/5+6gJ73clrMGbu6mBueainIcJ8ohAm79TRrbiUus
-	YSAeeJYQ/e+lKZNQDu7psIsc1j6GJuX4PVYBM/8mGpdFxaUM+0MNG5T4Ezjoz/EOOM1T0BYmpAL62
-	nP+Nvo1A==;
+	bh=rsL6ouFyR8ZlLfFtE8O+8JwhrSwyWWmJIhCpx0ThlTw=; b=a2x9/hb/R9+7Ur1YpsYSytTy4o
+	sznL1MCjDnv1XHub51GtbaHoXcKvysQB1MsfSJsDH04HpZctTL4hulXPCu4QoYRDETFy+Cn77sUsx
+	mWggPdKAKIaSqsSc0rcQvASqBTZYHlFfZqbAHeIzqQq5RFBqw+dotG4xgdrRziZEvKH+MD53UMdK+
+	vMbj/z/pkdQKlcksRC7Y9W/nkRGe98vsA8I0Ue3oo7FI9UrRQS8Yue2ik1lrIVjOozTpcVSfbYQxr
+	fM2KscYkVaIz/fdJxA+LXx3eXCh13GlBK3Oj28o3zKZVpfBSwIjQxoaZSOA7qYa8bXFPvZbAdwOiJ
+	6Fwf4lTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vM4rn-00000006kPO-3n1J;
-	Thu, 20 Nov 2025 13:38:31 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vM4sE-00000006kWp-20cf;
+	Thu, 20 Nov 2025 13:38:58 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vM4rm-00000006kOb-1MhV;
-	Thu, 20 Nov 2025 13:38:30 +0000
+	id 1vM4sB-00000006kUr-1jM5;
+	Thu, 20 Nov 2025 13:38:56 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7FC6F60053;
-	Thu, 20 Nov 2025 13:38:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 78260C4CEF1;
-	Thu, 20 Nov 2025 13:38:25 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 9D663423D6;
+	Thu, 20 Nov 2025 13:38:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DEAE5C4CEF1;
+	Thu, 20 Nov 2025 13:38:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763645909;
-	bh=CPiSXQWLPTRw9YqUm59meRVTWCik9PWrWPizlDTGwk4=;
+	s=k20201202; t=1763645933;
+	bh=Vh65xuHJA3R+p/CgeVtOwOfKpNv4dQp6CPQbxiU/u3g=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=oQRmJe0g15jvqwnOEi6c9pGQJTgUM8OOGw5QUoO/qZgg0xllWoxVhA9vMB3gTw1/M
-	 ZrUY7w2LyzrOHYX255CQOSkI2aG3AVMc+L4GCw4wLGcB9O6x1ALvYerKh/VkIhFBJz
-	 MFISeBTd3su4Rm+vhzu09l0QVd0+X1TT114jBtlgPiCEdivjT72ih6cqB8hJICX064
-	 iSU/ZNaN5yEYNl/GCiCoF5T+BPWsuYynxtQEVxtvMNeKnBbNoD56fhIv73f0K8FFrJ
-	 t6zje+UTye9oIa9+R+/ohi9ckFcRIitx8wZmxZlhnywOwGcGS2YW61jaawp+aw8xDx
-	 7keg3nFBcxfgw==
-Message-ID: <de26ada1-0d8f-4d3c-a665-091925dd44ce@kernel.org>
-Date: Thu, 20 Nov 2025 14:38:23 +0100
+	b=pbw9et1/7GeKZ3UVYcll3hptEC2OAfW9vCivCCoHY2c/l+P4kSlAUqF0xAeqzx4z+
+	 Zs73IYqgvqj1sQZZP5JDtLU1Wel9eWP8RzASbBWcx+ySjDBeABqQhyC97y5mFM4M7F
+	 ccP2Kw5Ol8mMHgPNlGmeTaqGCwo2enEOJvFR7fGIU03Cg69sn8eI44uy3OASssKkqi
+	 4+ka/qylqAhzTz0ZNyixgZcvuX/cLwLbRjXdn+Y5lleSn7/8LSv4Gq6mENUWGz0gxi
+	 CSzD0kxPfTMp5XS+wN9uWej3bbUtQ03wIHzJAlkp3EEwau4iNCNhcCzkpCgLF1sOF0
+	 WhuXwzYAryMjg==
+Message-ID: <ca1bc81b-f4cf-4f3f-acf2-daa646762842@kernel.org>
+Date: Thu, 20 Nov 2025 14:38:48 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/5] mfd: mt6397: Fix formatting of RTC_BBPU_KEY
- definition
+Subject: Re: [PATCH v2 3/5] rtc: mt6397: Fix formatting of platform driver
+ structure
 To: ot_shunxi.zhang@mediatek.com, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
  <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
@@ -58,7 +58,7 @@ To: ot_shunxi.zhang@mediatek.com, Rob Herring <robh@kernel.org>,
 Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
 References: <20251120121805.6775-1-ot_shunxi.zhang@mediatek.com>
- <20251120121805.6775-2-ot_shunxi.zhang@mediatek.com>
+ <20251120121805.6775-4-ot_shunxi.zhang@mediatek.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -104,9 +104,13 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20251120121805.6775-2-ot_shunxi.zhang@mediatek.com>
+In-Reply-To: <20251120121805.6775-4-ot_shunxi.zhang@mediatek.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251120_053855_493211_59289FF3 
+X-CRM114-Status: UNSURE (   6.71  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,15 +128,10 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 On 20/11/2025 13:17, ot_shunxi.zhang@mediatek.com wrote:
 > From: Shunxi Zhang <ot_shunxi.zhang@mediatek.com>
 > 
-> Adjust the whitespace alignment for the RTC_BBPU_KEY macro definition
-> in the mt6397 RTC header file. This is a cosmetic change to improve
-> code consistency.
+> This is a cosmetic change to improve code consistency.
+> 
 
-Please don't send such changes line by line.. You have other patches
-here doing the same. Organize all such trivial stuff, including for
-other drivers not only this one (!!),  in one patch. This is just churn.
-
-
+Churn. Don't send individual patches like this. Fix entire subsystem please.
 
 Best regards,
 Krzysztof
