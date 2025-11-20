@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDB91CF9C51
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 17:26:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD847CF9C7B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 17:26:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GcWNFrGU3q1N5tm8EQDXnEKl09qdq3zgR592dlhAZjU=; b=GGkybngB1lg4GUC9kPJfjvjkk5
-	iqIJ2sIy79mUPV4WVQORxMYnR3DMCdz6n/g42GhagLditNFJf76MBlS1MqPbRRFyDYp8i9suf3WzY
-	xSaN+7e3Oqxs6z72ulvLkpif2T5juMzyBebxo5jcZYp5HwrwfgujyUQ+ctrHUP1NwRT5VhhNF0Oyd
-	DxIj7skICx7Jf+zgBqyHixqTNRbqWX+c5F/pFpvr9NvPsonwHr16ukLHIb/ALCmKStdMiVsIMExsq
-	rVFuC+Q8p2bmq9mqnS9s1WxiX5pbsL+qtUuX4jE9/7nQPZ0sFutUQTFnim9KFD39AiUiKzhNBwuqA
-	0kS99nsQ==;
+	bh=7VTXSZ2swpCnWLyiUHhID6hPFWkFeBfqtOF7DUE1KK0=; b=FAZe+LihooVNPIO7z2To/dZL6x
+	29fQYM5gUhUk0Au8Ml6xwnGYZIFsCGTgg/tHYzNCLoPVNY7674lAZN0TwBQhmzlz28aUMAckgqLNz
+	2aDl6/ZyWLlPZ6wU6hxjsZlF6/ktPB9vPYNrYzAONIk7/lfeq5M8Inps/zGEsvv5ugEFBGhKi+fPH
+	cTYkYNtji3l0zG69P/YNmCaN77RoITeh6NJCUy726KBej34XsKUHn/QZG6zTaGzCwwD4HdkMSiyEI
+	EPChaVg0nMwMvpU2o+P0LMeBSl49t2z4H3Los0J6JSy76nlPz6aHe2NDrSKa6ZjgAih/bdqzcBeQU
+	QLlF9N2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vM8Q7-000000075kZ-0xc8;
-	Thu, 20 Nov 2025 17:26:11 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vM8Q6-000000075kG-3u01;
+	Thu, 20 Nov 2025 17:26:10 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vM8Pu-000000075Zb-3PJb
+	id 1vM8Ps-000000075YL-47GI
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 20 Nov 2025 17:25:58 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 027B8601EA;
-	Thu, 20 Nov 2025 17:25:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AA896C116C6;
-	Thu, 20 Nov 2025 17:25:57 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id AFB54443A8;
+	Thu, 20 Nov 2025 17:25:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8B0C0C116C6;
+	Thu, 20 Nov 2025 17:25:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763659557;
-	bh=HjA9YS8ovI0IGrD1rQBZDdgzzbY6iGzI3p9W+QXTKwE=;
+	s=k20201202; t=1763659556;
+	bh=37Xd3+8ZfcOqWQuQNM+hELSmr/Jv6uq4o8vA91D2Anc=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=eR/D9beeZ3OZd/Z3VuzOwRP58Rmw9NIRO/xvocAAsP56jumCuD0Qh01HYZ48I0XuJ
-	 VvFa+3TBXy1aARdINnXHc4A/3Odo4BJ0EpZ47kbFrBJK3W8yBGlMgJIuaJMjV42Ke9
-	 jYgVSwZdIR50OC0JdvHRc9c2SJgjvI2DScIQvML6uIb6t/RFFGbWRumLSTKMFNpxQC
-	 z5EQeGVTtrCfCPYVCLYgDOXbSEM47bdUsUdh5zb4nnjcI98cvt6W26KL4ymTvmYbqO
-	 0XySgWeAJ78Ab4WO5Ir1cO7o4kBJ9O8+g6gulyUMao/Ox8j2rSnZYV0UnRSf93TM04
-	 bEP9fl1eXt7aA==
+	b=Mz9J7lWA5gy2GR5AA+RU6MpWech/czmilitXTmkXKuEgvTan/PJwrtip+KyVTYBYZ
+	 A3nUS5PktEKMffTgP+ElfnSHai/mr5RrxLsPawWWwZxyTnR011UwJXmTd55ePmCzYm
+	 WE6MRQyTSK4G7pEh1m8/0pc0Xp+t4QLPtqpHUyelPQRziNkmrsY8IZALEweoux21Vy
+	 6KddcRN/U/Rj1B4Ko/3aaWWU8PNY5O7zq1MJ55gPr6fovs6BMgi30zrOF7Ih31BVyD
+	 LNt1O6Dbiqnkmmah3nxlZNtKCB0bTLpScfzBGYAWOptELoOk3GxFfLfy/DSI3Pe1ch
+	 qyiE4BF1S42eg==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1vM8Pr-00000006y6g-33Nz;
-	Thu, 20 Nov 2025 17:25:55 +0000
+	id 1vM8Pq-00000006y6g-1wrY;
+	Thu, 20 Nov 2025 17:25:54 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
@@ -59,9 +59,9 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Christoffer Dall <christoffer.dall@arm.com>,
 	Fuad Tabba <tabba@google.com>,
 	Mark Brown <broonie@kernel.org>
-Subject: [PATCH v4 08/49] KVM: arm64: Add tracking of vgic_irq being present in a LR
-Date: Thu, 20 Nov 2025 17:24:58 +0000
-Message-ID: <20251120172540.2267180-9-maz@kernel.org>
+Subject: [PATCH v4 03/49] irqchip/apple-aic: Spit out ICH_MISR_EL2 value on spurious vGIC MI
+Date: Thu, 20 Nov 2025 17:24:53 +0000
+Message-ID: <20251120172540.2267180-4-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20251120172540.2267180-1-maz@kernel.org>
 References: <20251120172540.2267180-1-maz@kernel.org>
@@ -71,6 +71,9 @@ X-SA-Exim-Connect-IP: 185.219.108.64
 X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, christoffer.dall@arm.com, tabba@google.com, broonie@kernel.org
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251120_092557_040781_FDDC0647 
+X-CRM114-Status: GOOD (  11.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,93 +88,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-We currently cannot identify whether an interrupt is queued into
-a LR. It wasn't needed until now, but that's about to change.
+It is all good and well to scream about spurious vGIC maintenance
+interrupts. It would be even better to output the reason why, which
+is already checked, but not printed out.
 
-Add yet another flag to track that state.
+The unsuspecting kernel tinkerer thanks you.
 
 Tested-by: Fuad Tabba <tabba@google.com>
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/kvm/vgic/vgic-v2.c | 6 ++++++
- arch/arm64/kvm/vgic/vgic-v3.c | 6 ++++++
- include/kvm/arm_vgic.h        | 1 +
- 3 files changed, 13 insertions(+)
+ drivers/irqchip/irq-apple-aic.c | 7 +++++--
+ 1 file changed, 5 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm64/kvm/vgic/vgic-v2.c b/arch/arm64/kvm/vgic/vgic-v2.c
-index 441efef80d609..74efacba38d42 100644
---- a/arch/arm64/kvm/vgic/vgic-v2.c
-+++ b/arch/arm64/kvm/vgic/vgic-v2.c
-@@ -101,6 +101,8 @@ void vgic_v2_fold_lr_state(struct kvm_vcpu *vcpu)
- 		/* Handle resampling for mapped interrupts if required */
- 		vgic_irq_handle_resampling(irq, deactivated, val & GICH_LR_PENDING_BIT);
- 
-+		irq->on_lr = false;
+diff --git a/drivers/irqchip/irq-apple-aic.c b/drivers/irqchip/irq-apple-aic.c
+index 032d66dceb8ec..4607f4943b19a 100644
+--- a/drivers/irqchip/irq-apple-aic.c
++++ b/drivers/irqchip/irq-apple-aic.c
+@@ -411,12 +411,15 @@ static void __exception_irq_entry aic_handle_irq(struct pt_regs *regs)
+ 	if (is_kernel_in_hyp_mode() &&
+ 	    (read_sysreg_s(SYS_ICH_HCR_EL2) & ICH_HCR_EL2_En) &&
+ 	    read_sysreg_s(SYS_ICH_MISR_EL2) != 0) {
++		u64 val;
 +
- 		raw_spin_unlock(&irq->irq_lock);
- 		vgic_put_irq(vcpu->kvm, irq);
+ 		generic_handle_domain_irq(aic_irqc->hw_domain,
+ 					  AIC_FIQ_HWIRQ(AIC_VGIC_MI));
+ 
+ 		if (unlikely((read_sysreg_s(SYS_ICH_HCR_EL2) & ICH_HCR_EL2_En) &&
+-			     read_sysreg_s(SYS_ICH_MISR_EL2))) {
+-			pr_err_ratelimited("vGIC IRQ fired and not handled by KVM, disabling.\n");
++			     (val = read_sysreg_s(SYS_ICH_MISR_EL2)))) {
++			pr_err_ratelimited("vGIC IRQ fired and not handled by KVM (MISR=%llx), disabling.\n",
++					   val);
+ 			sysreg_clear_set_s(SYS_ICH_HCR_EL2, ICH_HCR_EL2_En, 0);
+ 		}
  	}
-@@ -124,6 +126,8 @@ void vgic_v2_populate_lr(struct kvm_vcpu *vcpu, struct vgic_irq *irq, int lr)
- 	u32 val = irq->intid;
- 	bool allow_pending = true;
- 
-+	WARN_ON(irq->on_lr);
-+
- 	if (irq->active) {
- 		val |= GICH_LR_ACTIVE_BIT;
- 		if (vgic_irq_is_sgi(irq->intid))
-@@ -194,6 +198,8 @@ void vgic_v2_populate_lr(struct kvm_vcpu *vcpu, struct vgic_irq *irq, int lr)
- 	/* The GICv2 LR only holds five bits of priority. */
- 	val |= (irq->priority >> 3) << GICH_LR_PRIORITY_SHIFT;
- 
-+	irq->on_lr = true;
-+
- 	vcpu->arch.vgic_cpu.vgic_v2.vgic_lr[lr] = val;
- }
- 
-diff --git a/arch/arm64/kvm/vgic/vgic-v3.c b/arch/arm64/kvm/vgic/vgic-v3.c
-index 1b6c3071ec80f..e3f4b27e0225f 100644
---- a/arch/arm64/kvm/vgic/vgic-v3.c
-+++ b/arch/arm64/kvm/vgic/vgic-v3.c
-@@ -97,6 +97,8 @@ void vgic_v3_fold_lr_state(struct kvm_vcpu *vcpu)
- 		/* Handle resampling for mapped interrupts if required */
- 		vgic_irq_handle_resampling(irq, deactivated, val & ICH_LR_PENDING_BIT);
- 
-+		irq->on_lr = false;
-+
- 		raw_spin_unlock(&irq->irq_lock);
- 		vgic_put_irq(vcpu->kvm, irq);
- 	}
-@@ -111,6 +113,8 @@ void vgic_v3_populate_lr(struct kvm_vcpu *vcpu, struct vgic_irq *irq, int lr)
- 	u64 val = irq->intid;
- 	bool allow_pending = true, is_v2_sgi;
- 
-+	WARN_ON(irq->on_lr);
-+
- 	is_v2_sgi = (vgic_irq_is_sgi(irq->intid) &&
- 		     model == KVM_DEV_TYPE_ARM_VGIC_V2);
- 
-@@ -185,6 +189,8 @@ void vgic_v3_populate_lr(struct kvm_vcpu *vcpu, struct vgic_irq *irq, int lr)
- 	val |= (u64)irq->priority << ICH_LR_PRIORITY_SHIFT;
- 
- 	vcpu->arch.vgic_cpu.vgic_v3.vgic_lr[lr] = val;
-+
-+	irq->on_lr = true;
- }
- 
- void vgic_v3_clear_lr(struct kvm_vcpu *vcpu, int lr)
-diff --git a/include/kvm/arm_vgic.h b/include/kvm/arm_vgic.h
-index e84a1bc5cf172..ec349c5a4a8b6 100644
---- a/include/kvm/arm_vgic.h
-+++ b/include/kvm/arm_vgic.h
-@@ -149,6 +149,7 @@ struct vgic_irq {
- 	bool enabled:1;
- 	bool active:1;
- 	bool hw:1;			/* Tied to HW IRQ */
-+	bool on_lr:1;			/* Present in a CPU LR */
- 	refcount_t refcount;		/* Used for LPIs */
- 	u32 hwintid;			/* HW INTID number */
- 	unsigned int host_irq;		/* linux irq corresponding to hwintid */
 -- 
 2.47.3
 
