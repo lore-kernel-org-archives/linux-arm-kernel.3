@@ -4,73 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86B7BCF64A2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 07:52:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5BF4CF8553
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 07:54:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
+	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Zk7PYY9/GBETf/yDlcDeIYfo5g2mEFqYL0pYYToUCfU=; b=UyuP1mMaMxvfeLft+3AJauLjP/
-	IJq7R8k6os80BM9S4q3NpVPS09TnuLBwy+2S9PzyyTyDxHs2cPbQJCSaJjUESSDfput+o/ecMVWlP
-	9eEeqD1fC6nZZ7YFkrLRPIisytf4K83F8tND+OvT40Q7VaZJA1uRGa8gEXqdhiuX4Xv71Z6zRpQWK
-	HwDIKgbrbKgyD6pIag4X2GTG5AexP3KzJPygMq0tQu44xAmh8YQwcfY+0tl3D5bPeJS6xgykO3Iq7
-	ZCs5791LpoOa7Njy1hCz2DmBBB/OX56p8ZBXKhgYqUKYYZTdrcC5ElqDNZ9q2ifcOz4xDmNctbw03
-	tRrp/DcA==;
+	bh=iSz2GctBw2xvU5PntnomhhO4auUxq6yMHRLtbTex4HM=; b=RI1n3wuiRW1xjVSCRSNrFyEPRP
+	31RjPL2JM7YnCgizNOkmAxrRULKFwM+RMR7fMnqXm+3nvMd6zKcT7QibFWl3NH9UKnryG/KR5uh0v
+	7V4BVT6cCDMRUBKLljHRl2XSgm8aCHYWhfYvimIGnBJ4Tws5nlJlxH+EwXu0B6rvlJNRiatN7WbFa
+	WQP4su0uSIJ2Kyp9bC4NAsXxD3UCwXNx4fbsXFQMzW2yLZMCf6up4kxP2xtVhkXk4/PmDeiCw7zyT
+	POTpT4ECDoEVgFLnsDunGYGlZxlvfmDY2S2k3h+/JpC6XpuoGkl7iqpE/LAioTeN+Gi34nmxQ/YcR
+	htzRl7Lg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLzTJ-00000006JZz-0WAn;
-	Thu, 20 Nov 2025 07:52:53 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vLzVC-00000006JlM-3XlA;
+	Thu, 20 Nov 2025 07:54:50 +0000
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLzTG-00000006JZM-1KSC;
-	Thu, 20 Nov 2025 07:52:51 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 588A243C93;
-	Thu, 20 Nov 2025 07:52:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 43EE6C4CEF1;
-	Thu, 20 Nov 2025 07:52:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763625167;
-	bh=PCcS8iU+MQD7IjGPMGhvdSTgD9hnRAL2owebjIiNWS4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ICads1DqUmvuOZnOFex1dZonyIVaAiCKcFopkE5vgQTgNsmqyF9C4hlxGvSPvVhMJ
-	 /ZWMz8QmJxGa5zbVBxEy//i/s6NCd+43+QiDg/7m4fAjeoI8Wct6hyvws2ZIXNrSpW
-	 gxhwsUgO5UHfIEgAp7t/iCYAllfLLDgPkJE//v4IyTL5k2kXBdxrjvHqacy5bxDxGb
-	 4TRb795eNwFrkgvLGAbAz/hthBW49c9W8ZjRgMGYpN+JNd+5bMr2zmdsgCWfYGhx4I
-	 VZFH4I2GtjoQZf6EKCHf8FcyMoB8o/WrEnXoYL/5OpRjDHw7gIrDHnLcGzK+iGTQxl
-	 psiNMSKa5dOEA==
-Date: Thu, 20 Nov 2025 13:22:19 +0530
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Frank Li <Frank.li@nxp.com>
-Cc: Bjorn Helgaas <helgaas@kernel.org>, Niklas Cassel <cassel@kernel.org>, 
-	Shawn Lin <shawn.lin@rock-chips.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, Rob Herring <robh@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
-	Kever Yang <kever.yang@rock-chips.com>, Simon Xue <xxm@rock-chips.com>, 
-	Damien Le Moal <dlemoal@kernel.org>, Dragan Simic <dsimic@manjaro.org>, 
-	FUKAUMI Naoki <naoki@radxa.com>, Diederik de Haas <diederik@cknow-tech.com>, 
-	Richard Zhu <hongxing.zhu@nxp.com>, Lucas Stach <l.stach@pengutronix.de>, 
-	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Conor Dooley <conor@kernel.org>, 
-	Krzysztof Kozlowski <krzk@kernel.org>, Thierry Reding <thierry.reding@gmail.com>, 
-	Jonathan Hunter <jonathanh@nvidia.com>, Hans Zhang <hans.zhang@cixtech.com>, linux-tegra@vger.kernel.org, 
-	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, kernel@pengutronix.de, Bjorn Helgaas <bhelgaas@google.com>
-Subject: Re: [PATCH v2 1/4] PCI: dwc: Advertise L1 PM Substates only if
- driver requests it
-Message-ID: <lhunx3lpx3fgzyszf3librekhlrqtewcu664i7anj2s54j7kcr@52tt66auzpnr>
-References: <20251118214312.2598220-1-helgaas@kernel.org>
- <20251118214312.2598220-2-helgaas@kernel.org>
- <aRz0ak6onKzZs2lY@lizhi-Precision-Tower-5810>
+	id 1vLzVB-00000006Jke-0soz
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 20 Nov 2025 07:54:50 +0000
+Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-47775fb6cb4so3874975e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Nov 2025 23:54:48 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1763625287; x=1764230087; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:references:cc:to:subject:reply-to:from:user-agent
+         :mime-version:date:message-id:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=iSz2GctBw2xvU5PntnomhhO4auUxq6yMHRLtbTex4HM=;
+        b=w3O4uQtKoXn3St0xcnrlw6YT8Uo91ilu44jb4k7UJdNe632E4TOw7X2b1f815ajhPP
+         RamLXGVL2ZAjY2Frj/NqpYE7g/UCHaZ8z9p55t8jClLSUCE8tXQsIGolN80Vcl234vU/
+         K0uo9wfStzfFrEhghCTZ8yyNvr6nSybRugzigO/Pt2P6nHiXhdHEXBy+xUHc3xsiu+je
+         eXaixWPaaRP1qV9TIqhAC52Y7jxaDdCogAjFacnhz+zfsURKQoSU0KNROei7t+LpvJNT
+         oliJP6JEm7NLx+IOtzfKmoU8ENRtXchNSjbk1GyF81XxkzB626jgBQIgq3TjeUAajbYT
+         /hxA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1763625287; x=1764230087;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:references:cc:to:subject:reply-to:from:user-agent
+         :mime-version:date:message-id:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=iSz2GctBw2xvU5PntnomhhO4auUxq6yMHRLtbTex4HM=;
+        b=gZ+x/glue4CYhhKFLNTV9tJedL+iW0+oQCY04enl/fPrItgaMkqUUJ5JdsSBE6Q5Br
+         LSq0g+L5GvzKoX+I1WUpHNFrEd7NAWwGO+UhSD0p7zYyKJOI8QxLrkTme95APufJVPCa
+         Hz66y0JX7xtjqgsZ2ofcF4EGnsLj1YgrwAhDAohVmvQd0R1njpKRW9MIVrLuFXT/wGIr
+         m4yLdKTbPE5PjxQakhvgK+2EEVlKHftCiHFZWpNF8ofcKYEyB37OC2G+42o/tYsHMLJo
+         0fMlf1+tFMTsNerA//aR206gwEY/ASyj390GGxDKnyLkRei5OqhcuzoOzbN6Pn2laci9
+         OKDQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWzQ4lS9E4Rn8gTLi3K6i1x/6SAGwYBkFJi6esoEFS8JvxNX87TGJC1avGCnI9FKCzNlLJejlVu2xexECkA5kfu@lists.infradead.org
+X-Gm-Message-State: AOJu0YzbFSXTHbSvVDlQNL/PYSSoJH4DyKUsLVNfTYBeYyyDirCgPeQz
+	XOFVIbq8Rdx8bcnECU9d0y3qqw3clBoVQSN9pKp2Otuk2Dn1Vmw7fMCaRUy15iOZupw=
+X-Gm-Gg: ASbGncv4U/mu68c8nzow7sCIdZ94hJiT7TrZ9tB4OZhB+TORCSKJpFaNhfQgAU0/Xqm
+	ycEjfMCl8hUCI1Qv+Pl6CHbN2cwItF7iBifmzaePlAqQvnpQVoAsH2q2jZTIOdmT0GjG89dCZDZ
+	6/c73Rnzrpb8L79tVBgtPp+sn0XUOXid24feshMZhv7d2hSQECNJxhlfPKkhyUTXAStXqZP/AXe
+	2mWmP1HTxUp0vH5t2owZ0wvuP0Coln2o7wZBlIeO0qlNELXbRYH62boFoM06BbHjlVInUXARxYG
+	1RSGv0itHn4TJqnVv3rNNURKeS1qnxE8leD1nZbjwmD/EQtz4Vwk9H2ISPVc68PY+xGanNHxkoN
+	Zux4N/jPAXy2uMMAutj5o67bNivXldv8E9WXc+MvwnwCbJnVUBWshczrUhfXNoKWrIg8Tqu4HFz
+	SLXRdqYTSEkbSwwpj5XCLdP6Iq5ISOCflw7kuY6zSSS97HjKkcmfTxPLAkNFoAyNg=
+X-Google-Smtp-Source: AGHT+IGZkigYvVipOkjCsohA+H+g4xgNMAhJfXWPt674Fr40MBEpp5RlEgS30L/W6WyTzBeuC+Bnmg==
+X-Received: by 2002:a05:600c:35c7:b0:46e:49fb:4776 with SMTP id 5b1f17b1804b1-477b8954523mr18503715e9.11.1763625287187;
+        Wed, 19 Nov 2025 23:54:47 -0800 (PST)
+Received: from ?IPV6:2a01:e0a:3d9:2080:f6e4:d897:2b4d:1bc7? ([2a01:e0a:3d9:2080:f6e4:d897:2b4d:1bc7])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-477b83200f1sm34221015e9.15.2025.11.19.23.54.46
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 19 Nov 2025 23:54:46 -0800 (PST)
+Message-ID: <d2b2807a-285a-40bb-8aa8-eacba97b1f14@linaro.org>
+Date: Thu, 20 Nov 2025 08:54:45 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <aRz0ak6onKzZs2lY@lizhi-Precision-Tower-5810>
+User-Agent: Mozilla Thunderbird
+From: Neil Armstrong <neil.armstrong@linaro.org>
+Subject: Re: [PATCH 0/5] Add GPIO interrupt support for Amlogic S6 S7 and S7D
+To: xianwei.zhao@amlogic.com, Thomas Gleixner <tglx@linutronix.de>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Kevin Hilman <khilman@baylibre.com>,
+ Jerome Brunet <jbrunet@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ Heiner Kallweit <hkallweit1@gmail.com>
+Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org
+References: <20251105-irqchip-gpio-s6-s7-s7d-v1-0-b4d1fe4781c1@amlogic.com>
+Content-Language: en-US, fr
+Autocrypt: addr=neil.armstrong@linaro.org; keydata=
+ xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
+ GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
+ BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
+ qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
+ 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
+ AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
+ OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
+ Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
+ YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
+ GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
+ UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
+ GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
+ yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
+ QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
+ SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
+ 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
+ Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
+ oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
+ M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
+ 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
+ KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
+ 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
+ QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
+Organization: Linaro
+In-Reply-To: <20251105-irqchip-gpio-s6-s7-s7d-v1-0-b4d1fe4781c1@amlogic.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251119_235250_402201_27021394 
-X-CRM114-Status: GOOD (  30.41  )
+X-CRM114-CacheID: sfid-20251119_235449_302495_AB47B50A 
+X-CRM114-Status: GOOD (  12.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,82 +130,40 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: Neil Armstrong <neil.armstrong@linaro.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 18, 2025 at 05:34:18PM -0500, Frank Li wrote:
-> On Tue, Nov 18, 2025 at 03:42:15PM -0600, Bjorn Helgaas wrote:
-> > From: Bjorn Helgaas <bhelgaas@google.com>
-> >
-> > L1 PM Substates require the CLKREQ# signal and may also require
-> > device-specific support.  If CLKREQ# is not supported or driver support is
-> > lacking, enabling L1.1 or L1.2 may cause errors when accessing devices,
-> > e.g.,
-> >
-> >   nvme nvme0: controller is down; will reset: CSTS=0xffffffff, PCI_STATUS=0x10
-> >
-> > If the kernel is built with CONFIG_PCIEASPM_POWER_SUPERSAVE=y or users
-> > enable L1.x via sysfs, users may trip over these errors even if L1
-> > Substates haven't been enabled by firmware or the driver.
-> >
-> > To prevent such errors, disable advertising the L1 PM Substates unless the
-> > driver sets "dw_pcie.l1ss_support" to indicate that it knows CLKREQ# is
-> > present and any device-specific configuration has been done.
-> >
-> > Set "dw_pcie.l1ss_support" in tegra194 (if DT includes the
-> > "supports-clkreq' property) and qcom (for cfg_2_7_0, cfg_1_9_0, cfg_1_34_0,
-> > and cfg_sc8280xp controllers) so they can continue to use L1 Substates.
-> >
-> > Based on Niklas's patch:
-> > https://patch.msgid.link/20251017163252.598812-2-cassel@kernel.org
-> >
-> > Signed-off-by: Bjorn Helgaas <bhelgaas@google.com>
-> > ---
-> >  .../pci/controller/dwc/pcie-designware-ep.c   |  2 ++
-> >  .../pci/controller/dwc/pcie-designware-host.c |  2 ++
-> >  drivers/pci/controller/dwc/pcie-designware.c  | 24 +++++++++++++++++++
-> >  drivers/pci/controller/dwc/pcie-designware.h  |  2 ++
-> >  drivers/pci/controller/dwc/pcie-qcom.c        |  2 ++
-> >  drivers/pci/controller/dwc/pcie-tegra194.c    |  3 +++
-> >  6 files changed, 35 insertions(+)
-> >
-> > diff --git a/drivers/pci/controller/dwc/pcie-designware-ep.c b/drivers/pci/controller/dwc/pcie-designware-ep.c
-> > index 7f2112c2fb21..ad6c0fd67a65 100644
-> > --- a/drivers/pci/controller/dwc/pcie-designware-ep.c
-> > +++ b/drivers/pci/controller/dwc/pcie-designware-ep.c
-> > @@ -966,6 +966,8 @@ int dw_pcie_ep_init_registers(struct dw_pcie_ep *ep)
-> >  	if (ep->ops->init)
-> >  		ep->ops->init(ep);
-> >
-> > +	dw_pcie_hide_unsupported_l1ss(pci);
-> > +
+Hi Thomas,
+
+On 11/5/25 10:45, Xianwei Zhao via B4 Relay wrote:
+> This patch adds GPIO interrupt support for Amlogic S6 S7 and S7D SoCs.
 > 
-> And, I don't think EP need clean L1SS CAP flags. If EP don't support L1SS,
-> it should be force pull down #clkreq.
+> Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
+> ---
+> Xianwei Zhao (5):
+>        dt-bindings: interrupt-controller: Add support for Amlogic S6 S7 and S7D SoCs
+>        irqchip: Add support for Amlogic S6 S7 and S7D SoCs
+>        arm64: dts: Add gpio_intc node for Amlogic S6 SoCs
+>        arm64: dts: Add gpio_intc node for Amlogic S7 SoCs
+>        arm64: dts: Add gpio_intc node for Amlogic S7D SoCs
+
+Coud you drop the DT changes from the tip irq/drivers tree ?
+
+Thanks,
+Neil
+
 > 
-> EP don't know if #clkreq connected in host boards, assume EP with same
-> software, which can run at two difference host system, one host system
-> connect #clkreq, the other system have not connect #clkreq.
+>   .../interrupt-controller/amlogic,meson-gpio-intc.yaml         |  3 +++
+>   arch/arm64/boot/dts/amlogic/amlogic-s6.dtsi                   | 10 ++++++++++
+>   arch/arm64/boot/dts/amlogic/amlogic-s7.dtsi                   | 10 ++++++++++
+>   arch/arm64/boot/dts/amlogic/amlogic-s7d.dtsi                  | 10 ++++++++++
+>   drivers/irqchip/irq-meson-gpio.c                              | 11 +++++++++++
+>   5 files changed, 44 insertions(+)
+> ---
+> base-commit: cb718411c4c05a4a424c2b73790a1648be97a4af
+> change-id: 20251105-irqchip-gpio-s6-s7-s7d-9eb2ce7fccc6
 > 
-> otherwords, support-clkreq property should be only for RC side. not EP
-> side. EP side l1ss support should depend on specific epf function and
-> controller's capablity.
-> 
+> Best regards,
 
-'support-clkreq' DT property is only applicable to the RC as per dtschema. So
-using it in the EP driver is wrong in the first place. We could add it to the EP
-schema, but that should be done first before relying on it in the driver.
-
-Also, I do think that the device capability should accurately reflect whether
-L1ss is supported or not and not assume that the EP will pull the CLKREQ# low
-when it is not supported. If the L1ss CAP is available on both RC and EP, host
-software may enable L1ss and expect it to work.
-
-But enabling/disabling the CAP for EP should be done later based on either the
-DT property or controller specific flag.
-
-- Mani
-
--- 
-மணிவண்ணன் சதாசிவம்
 
