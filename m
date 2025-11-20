@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5890BCFA446
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 21:25:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9984BCFA446
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 21:25:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5C8F2R2Xjnq7K2JhN/g6xQ7N7CW0aoyg31A3JTRXN1s=; b=lu1drvN7GK6hdG0186ca6Q1jUX
-	YOyuNjRjqVuAwxZ2YdTwN5qtBpXiKyQKFg5irISLAI3RBmWi1jayWYFiQreGzQOSKFa1b4xztSF8r
-	pcMseXMDYaQnwfzACvLcuZ2/M3mfUPiI4ueqwDZp669h8j1WkyZxjcxMW1YGs5Vh2AXqRU6v0kv8e
-	DXKouRWWMv7woYs4x2ytlE51OziPkAe79uLXdesBA5O251sE6IkCyFHmi15KH+c/Fmyg5cbVAkWNU
-	jfEd3yUn7ycWUSyb5Xlmeed7XmlkmpBPmP+cj0O7+16fNC/qZcnmkNpI3Inhf3CPCJFgEsWsqeNq1
-	EDcGduDQ==;
+	bh=taGKB1Nop9KqvqFVJaMJkY5DJuNbMhqFbi0yDRxhBpo=; b=OB/9m6Fhb5z8HpiKtrwBlD3fEC
+	ogpiOBsNIvuw1buzut72Khp4eTe2gkafXwYgAZ8eJFhGUChTDxiDoD5CF/OePARstU7Mr9I9jYOQL
+	V4Hm1acpsNajrHgGltVCCgmIbyTA6YtuTcHlpQOAxUfkCTWqWcbmn/ptmMcfdL2B5eh1Do1E8VXja
+	2QnSdhVn8h2B4nKqE8a2ZIKOiky2yXG4RE2y3p5QNdy6abXhlrgByPsgVa6UWyDqXhB1fVa0YPygp
+	zakMK2cUlZVQB0JM/A5l4KXERnG2fn31ym+he2Z6yPPlrnnAuzAyHao0DtlLMfEk8/n/69y98GfR5
+	uW4ebYaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMC9W-00000007RtX-2WUc;
-	Thu, 20 Nov 2025 21:25:18 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vMC9f-00000007Rze-3lE2;
+	Thu, 20 Nov 2025 21:25:27 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMC9U-00000007Rs3-1F9y
+	id 1vMC9f-00000007Ryr-09b9
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Nov 2025 21:25:17 +0000
+	Thu, 20 Nov 2025 21:25:27 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8CFD344339;
-	Thu, 20 Nov 2025 21:25:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 35E85C4CEF1;
-	Thu, 20 Nov 2025 21:25:12 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 786AF6016D;
+	Thu, 20 Nov 2025 21:25:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2804AC4CEF1;
+	Thu, 20 Nov 2025 21:25:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763673915;
-	bh=iykBhG4b2o2xbV0/ykgJE+6aevyvXReLas2ZH30xEX4=;
+	s=k20201202; t=1763673926;
+	bh=Mqo7EJXWsx+FIdks6hO54RzctmDz89Zob5j/Foh8C5s=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=C/LXjUSJDXrV3FKgcr7yr/lvJ7wQMpxSVnZfG2VfhpUDczFVtjgmFIQhWaHKJlLui
-	 wqeyBeLajzWJK926gPWVX14J97ZvKfL55wNtYIZ/iAkzS4VZH3QxdGf/d/J7fo3qFT
-	 p7yjX8xo8+5alfByJ+V0ilgrCQjbAxDdg6U0DU0Y5HAKr5N/U8saYygOBkExOBzX3q
-	 nmdZNlCWvmNOs9nyZcc8V1u+iTYNf/owlWILQLzxCQ32U2wPh5IoRAJysGZb7uRY8p
-	 xlja37iv4AnQeWYbyipsy1RiudlSs0wEqUks4XmyrY4527liBqYZ2kMo/cvENntCtS
-	 xbfafu2gPrsSQ==
+	b=XRg5qdDtc1bbMIuHUS7oV7q4fVldJSAs/eOXXb7KurtnJxPv9/edGgaZ64jo9BdDF
+	 Qd9z8LAa63AqLrYxBJp+DilczhZFAtY8dQItBTOQs1fNHBF9cFXQaHJUnWGWr0v9CM
+	 izWVLofNcXUz4w5M01+Uwly/Xg6dT1RsyRb8Bx4rRhI1Za0tDaP+lMySoTKAafggbV
+	 1wssL8k2PGjPO7L4FlyPCNz5Xn1h/y5rPJDFzuntWQJJivlsOffHRQqoW/VH9KoAR4
+	 qVrd3Xn7neGlbOF8alonNIyewGVs3p+4zhB3GwTPMQ5AAzwEX2591hbqMSefZ3LeXy
+	 KXI/zGrCUKnGw==
 From: Jiri Olsa <jolsa@kernel.org>
 To: Steven Rostedt <rostedt@kernel.org>,
 	Florent Revest <revest@google.com>,
@@ -55,17 +55,14 @@ Cc: bpf@vger.kernel.org,
 	Andrii Nakryiko <andrii@kernel.org>,
 	Menglong Dong <menglong8.dong@gmail.com>,
 	Song Liu <song@kernel.org>
-Subject: [PATCHv3 bpf-next 6/8] bpf: Add trampoline ip hash table
-Date: Thu, 20 Nov 2025 22:24:00 +0100
-Message-ID: <20251120212402.466524-7-jolsa@kernel.org>
+Subject: [PATCHv3 bpf-next 7/8] ftrace: Factor ftrace_ops ops_func interface
+Date: Thu, 20 Nov 2025 22:24:01 +0100
+Message-ID: <20251120212402.466524-8-jolsa@kernel.org>
 X-Mailer: git-send-email 2.51.1
 In-Reply-To: <20251120212402.466524-1-jolsa@kernel.org>
 References: <20251120212402.466524-1-jolsa@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251120_132516_372962_9C322ABD 
-X-CRM114-Status: GOOD (  15.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,129 +77,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Following changes need to lookup trampoline based on its ip address,
-adding hash table for that.
+We are going to remove "ftrace_ops->private == bpf_trampoline" setup
+in following changes.
+
+Adding ip argument to ftrace_ops_func_t callback function, so we can
+use it to look up the trampoline.
 
 Signed-off-by: Jiri Olsa <jolsa@kernel.org>
 ---
- include/linux/bpf.h     |  7 +++++--
- kernel/bpf/trampoline.c | 30 +++++++++++++++++++-----------
- 2 files changed, 24 insertions(+), 13 deletions(-)
+ include/linux/ftrace.h  | 2 +-
+ kernel/bpf/trampoline.c | 3 ++-
+ kernel/trace/ftrace.c   | 6 +++---
+ 3 files changed, 6 insertions(+), 5 deletions(-)
 
-diff --git a/include/linux/bpf.h b/include/linux/bpf.h
-index 09d5dc541d1c..ad86857a8562 100644
---- a/include/linux/bpf.h
-+++ b/include/linux/bpf.h
-@@ -1295,14 +1295,17 @@ struct bpf_tramp_image {
- };
+diff --git a/include/linux/ftrace.h b/include/linux/ftrace.h
+index 4e2c0ed769fc..5aa37dec0081 100644
+--- a/include/linux/ftrace.h
++++ b/include/linux/ftrace.h
+@@ -402,7 +402,7 @@ enum ftrace_ops_cmd {
+  *        Negative on failure. The return value is dependent on the
+  *        callback.
+  */
+-typedef int (*ftrace_ops_func_t)(struct ftrace_ops *op, enum ftrace_ops_cmd cmd);
++typedef int (*ftrace_ops_func_t)(struct ftrace_ops *op, unsigned long ip, enum ftrace_ops_cmd cmd);
  
- struct bpf_trampoline {
--	/* hlist for trampoline_table */
--	struct hlist_node hlist;
-+	/* hlist for trampoline_key_table */
-+	struct hlist_node hlist_key;
-+	/* hlist for trampoline_ip_table */
-+	struct hlist_node hlist_ip;
- 	struct ftrace_ops *fops;
- 	/* serializes access to fields of this trampoline */
- 	struct mutex mutex;
- 	refcount_t refcnt;
- 	u32 flags;
- 	u64 key;
-+	unsigned long ip;
- 	struct {
- 		struct btf_func_model model;
- 		void *addr;
+ #ifdef CONFIG_DYNAMIC_FTRACE
+ 
 diff --git a/kernel/bpf/trampoline.c b/kernel/bpf/trampoline.c
-index 04104397c432..f33693061c2e 100644
+index f33693061c2e..d8762f7990ed 100644
 --- a/kernel/bpf/trampoline.c
 +++ b/kernel/bpf/trampoline.c
-@@ -24,9 +24,10 @@ const struct bpf_prog_ops bpf_extension_prog_ops = {
- #define TRAMPOLINE_HASH_BITS 10
- #define TRAMPOLINE_TABLE_SIZE (1 << TRAMPOLINE_HASH_BITS)
- 
--static struct hlist_head trampoline_table[TRAMPOLINE_TABLE_SIZE];
-+static struct hlist_head trampoline_key_table[TRAMPOLINE_TABLE_SIZE];
-+static struct hlist_head trampoline_ip_table[TRAMPOLINE_TABLE_SIZE];
- 
--/* serializes access to trampoline_table */
-+/* serializes access to trampoline tables */
- static DEFINE_MUTEX(trampoline_mutex);
- 
+@@ -33,7 +33,8 @@ static DEFINE_MUTEX(trampoline_mutex);
  #ifdef CONFIG_DYNAMIC_FTRACE_WITH_DIRECT_CALLS
-@@ -135,15 +136,15 @@ void bpf_image_ksym_del(struct bpf_ksym *ksym)
- 			   PAGE_SIZE, true, ksym->name);
- }
+ static int bpf_trampoline_update(struct bpf_trampoline *tr, bool lock_direct_mutex);
  
--static struct bpf_trampoline *bpf_trampoline_lookup(u64 key)
-+static struct bpf_trampoline *bpf_trampoline_lookup(u64 key, unsigned long ip)
+-static int bpf_tramp_ftrace_ops_func(struct ftrace_ops *ops, enum ftrace_ops_cmd cmd)
++static int bpf_tramp_ftrace_ops_func(struct ftrace_ops *ops, unsigned long ip,
++				     enum ftrace_ops_cmd cmd)
  {
- 	struct bpf_trampoline *tr;
- 	struct hlist_head *head;
- 	int i;
+ 	struct bpf_trampoline *tr = ops->private;
+ 	int ret = 0;
+diff --git a/kernel/trace/ftrace.c b/kernel/trace/ftrace.c
+index 5243aefb6096..b0e4d7a5d47c 100644
+--- a/kernel/trace/ftrace.c
++++ b/kernel/trace/ftrace.c
+@@ -2049,7 +2049,7 @@ static int __ftrace_hash_update_ipmodify(struct ftrace_ops *ops,
+ 				 */
+ 				if (!ops->ops_func)
+ 					return -EBUSY;
+-				ret = ops->ops_func(ops, FTRACE_OPS_CMD_ENABLE_SHARE_IPMODIFY_SELF);
++				ret = ops->ops_func(ops, rec->ip, FTRACE_OPS_CMD_ENABLE_SHARE_IPMODIFY_SELF);
+ 				if (ret)
+ 					return ret;
+ 			} else if (is_ipmodify) {
+@@ -8976,7 +8976,7 @@ static int prepare_direct_functions_for_ipmodify(struct ftrace_ops *ops)
+ 				if (!op->ops_func)
+ 					return -EBUSY;
  
- 	mutex_lock(&trampoline_mutex);
--	head = &trampoline_table[hash_64(key, TRAMPOLINE_HASH_BITS)];
--	hlist_for_each_entry(tr, head, hlist) {
-+	head = &trampoline_key_table[hash_64(key, TRAMPOLINE_HASH_BITS)];
-+	hlist_for_each_entry(tr, head, hlist_key) {
- 		if (tr->key == key) {
- 			refcount_inc(&tr->refcnt);
- 			goto out;
-@@ -164,8 +165,12 @@ static struct bpf_trampoline *bpf_trampoline_lookup(u64 key)
- #endif
+-				ret = op->ops_func(op, FTRACE_OPS_CMD_ENABLE_SHARE_IPMODIFY_PEER);
++				ret = op->ops_func(op, ip, FTRACE_OPS_CMD_ENABLE_SHARE_IPMODIFY_PEER);
+ 				if (ret)
+ 					return ret;
+ 			}
+@@ -9023,7 +9023,7 @@ static void cleanup_direct_functions_after_ipmodify(struct ftrace_ops *ops)
  
- 	tr->key = key;
--	INIT_HLIST_NODE(&tr->hlist);
--	hlist_add_head(&tr->hlist, head);
-+	tr->ip = ftrace_location(ip);
-+	INIT_HLIST_NODE(&tr->hlist_key);
-+	INIT_HLIST_NODE(&tr->hlist_ip);
-+	hlist_add_head(&tr->hlist_key, head);
-+	head = &trampoline_ip_table[hash_64(tr->ip, TRAMPOLINE_HASH_BITS)];
-+	hlist_add_head(&tr->hlist_ip, head);
- 	refcount_set(&tr->refcnt, 1);
- 	mutex_init(&tr->mutex);
- 	for (i = 0; i < BPF_TRAMP_MAX; i++)
-@@ -801,7 +806,7 @@ void bpf_trampoline_unlink_cgroup_shim(struct bpf_prog *prog)
- 					 prog->aux->attach_btf_id);
- 
- 	bpf_lsm_find_cgroup_shim(prog, &bpf_func);
--	tr = bpf_trampoline_lookup(key);
-+	tr = bpf_trampoline_lookup(key, 0);
- 	if (WARN_ON_ONCE(!tr))
- 		return;
- 
-@@ -821,7 +826,7 @@ struct bpf_trampoline *bpf_trampoline_get(u64 key,
- {
- 	struct bpf_trampoline *tr;
- 
--	tr = bpf_trampoline_lookup(key);
-+	tr = bpf_trampoline_lookup(key, tgt_info->tgt_addr);
- 	if (!tr)
- 		return NULL;
- 
-@@ -857,7 +862,8 @@ void bpf_trampoline_put(struct bpf_trampoline *tr)
- 	 * fexit progs. The fentry-only trampoline will be freed via
- 	 * multiple rcu callbacks.
- 	 */
--	hlist_del(&tr->hlist);
-+	hlist_del(&tr->hlist_key);
-+	hlist_del(&tr->hlist_ip);
- 	if (tr->fops) {
- 		ftrace_free_filter(tr->fops);
- 		kfree(tr->fops);
-@@ -1130,7 +1136,9 @@ static int __init init_trampolines(void)
- 	int i;
- 
- 	for (i = 0; i < TRAMPOLINE_TABLE_SIZE; i++)
--		INIT_HLIST_HEAD(&trampoline_table[i]);
-+		INIT_HLIST_HEAD(&trampoline_key_table[i]);
-+	for (i = 0; i < TRAMPOLINE_TABLE_SIZE; i++)
-+		INIT_HLIST_HEAD(&trampoline_ip_table[i]);
- 	return 0;
- }
- late_initcall(init_trampolines);
+ 			/* The cleanup is optional, ignore any errors */
+ 			if (found_op && op->ops_func)
+-				op->ops_func(op, FTRACE_OPS_CMD_DISABLE_SHARE_IPMODIFY_PEER);
++				op->ops_func(op, ip, FTRACE_OPS_CMD_DISABLE_SHARE_IPMODIFY_PEER);
+ 		}
+ 	}
+ 	mutex_unlock(&direct_mutex);
 -- 
 2.51.1
 
