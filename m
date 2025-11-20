@@ -4,54 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84240CF855C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 08:41:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FDAFCF8562
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 08:57:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Subject:To:From:Date:Message-ID:Reply-To:Cc:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=t9u0uALWYElGP2X9SRe6Z5tIGVEq7OYmZhNakwP9JUU=; b=CW3AE29RW5wy5ESVFxjSW10nI+
-	/18R9wiU73byapIBtrQNfCum+d8SAllAhTgDGKOgRmQyMTvznbiZ38RnVldyrWP/+4jA1S83X6D0q
-	cGGXuhQIejVgfb9yW/D6YmM84UIl+WSNtRNrecdJJNjTYd9nKrqdNdIt8RKx7PUZ6wwrQLj8vG2U5
-	f5/PVPmL7dS2/4/E5NRkyuaTP/IJqdXvPk9lHrf62op7ZyviBmxNw55tUvSaRqw7M1/zcRqT8N7k1
-	MC2c8l6H70hwvVaLbY4NIOGJ8kq/qmJ4Qs/jILE16SmBMdd+zb+jnk9HDBMNp0P4D2eISdj3E1p/X
-	sLTx/TPw==;
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Vdyhnm7V1htoyU0Wm/p71kj6fEKj48K34jJr10G3hXg=; b=Dttd/5Z+YvD5LRbEUPpbA1Xp5e
+	Pmg1uRsYmDALfStd4cmkNFseOAMqJc3Gz5ovIL+mXaxN+70wV3x5nWNHOHHyJ10nAxgdfQi1IoDEP
+	XJqGRT+iBfHFnzd8ejmntsXY1luIMlDVRP072CqEYjU3AoioVefbMMwA3ZqPojBpsMRDjZokZixoS
+	Txdt14HAmSykpu+MTEjx0+T8KGQ3chZQiZuOnccrMJy7z4qtPOsHbmYUBNiSbfiukhUq8LBMIzsIK
+	qJe69tiPQiXSFkHX520imvDyOehKOnxb4ox5d7P2PiVLCUxXUOjN7T070Ss5hP9PXgZhsc3fPA26m
+	SfdNe0aA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vM0EE-00000006N3Q-2eGe;
-	Thu, 20 Nov 2025 08:41:24 +0000
-Received: from mail.trivon.pl ([162.19.75.30])
+	id 1vM0Tz-00000006Npt-03Ny;
+	Thu, 20 Nov 2025 08:57:39 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vM0EB-00000006N2e-0QL7
+	id 1vM0Tv-00000006NpV-3DEt
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Nov 2025 08:41:21 +0000
-Received: by mail.trivon.pl (Postfix, from userid 1002)
-	id 2EF9B4BF0C; Thu, 20 Nov 2025 09:41:05 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=trivon.pl; s=mail;
-	t=1763628074; bh=t9u0uALWYElGP2X9SRe6Z5tIGVEq7OYmZhNakwP9JUU=;
-	h=Date:From:To:Subject:From;
-	b=vYgw9Kh/+J0773QMng+FA5eK39+58K8jrjppaveLJCTjwRptiAbRwxjTeLm9a+MLK
-	 a1G9oZfSLHVGoQ6FurYGN84T/eBdiNe0rUD6rhzyRY8QkwRFmZx0+MzXeyzeIdtUXu
-	 XrEtmBrONG9oB1GezW3bZtWAtKsu0SRc1ZoK8cL1UkC80dq5kU8gq54qUMHaPYI0Cd
-	 Efbo8RwkbRkKMg5hEb4wEg/k9To9gr1vpC4tyfVsbpz96jrqPx+2io4FDMmMWjboRf
-	 A906kLGKJaNzEnTyNaWm/aHaHLRw71kbhy7wLMamwWeWSz5Uceb51hpDMobY8KaZfk
-	 yNr9KzsAzOr2Q==
-Received: by mail.trivon.pl for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Nov 2025 08:41:03 GMT
-Message-ID: <20251120084500-0.1.c6.2pw99.0.6i7s0bkbjx@trivon.pl>
-Date: Thu, 20 Nov 2025 08:41:03 GMT
-From: "Damian Sumera" <damian.sumera@trivon.pl>
-To: <linux-arm-kernel@lists.infradead.org>
-Subject: =?UTF-8?Q?Zobowi=C4=85zanie?=
-X-Mailer: mail.trivon.pl
+	Thu, 20 Nov 2025 08:57:37 +0000
+Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5AK4pcKd3407842;
+	Thu, 20 Nov 2025 08:57:15 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	Vdyhnm7V1htoyU0Wm/p71kj6fEKj48K34jJr10G3hXg=; b=eJSg2uQB0TO1WfiA
+	Gp6R4adIB0vBfaUwfVKmSALvAXIBzjBNSYtxYyk2qpWEYvfyYd94gYHrdP/F0WEk
+	XC1XhRpd+dKEDck5a7uE+puNrbhc5Jwk988tFcGXNIe1O7xdgwHIZ9QL2MBB5V60
+	0DwAcvBPHwOLTxLwIqUkXVtjZgF4EznvbUU+3bFwypCeZEnPoXj+yyfo7b6qktUm
+	tc6L0qDltvDbgOEyRznLhQjvBgrw2/UPN9UDsyqu9nBzU3Qz+U08E/ysNJBaaMZq
+	718w2r4btATGz+IFvd6VEJ1DddxHozSQlZeNwm1J1Gat/b/8kPiHTUPsl0I1G3OJ
+	neUXoA==
+Received: from nasanppmta04.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4ahm8121fy-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 20 Nov 2025 08:57:15 +0000 (GMT)
+Received: from nasanex01a.na.qualcomm.com (nasanex01a.na.qualcomm.com [10.52.223.231])
+	by NASANPPMTA04.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 5AK8vFbN008715
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 20 Nov 2025 08:57:15 GMT
+Received: from [10.204.78.57] (10.80.80.8) by nasanex01a.na.qualcomm.com
+ (10.52.223.231) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Thu, 20 Nov
+ 2025 00:55:04 -0800
+Message-ID: <5f52beba-fca6-4dc1-ac6d-ec0a771a291e@quicinc.com>
+Date: Thu, 20 Nov 2025 14:25:01 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/4] arm64: dts: qcom: lemans: add mdss1 displayPort
+ device nodes
+To: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+        <dmitry.baryshkov@oss.qualcomm.com>, <marijn.suijten@somainline.org>,
+        <swboyd@chromium.org>, <mripard@kernel.org>, <abel.vesa@linaro.org>,
+        <andersson@kernel.org>, <konradybcio@kernel.org>, <robh@kernel.org>,
+        <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+        <robin.clark@oss.qualcomm.com>, <jessica.zhang@oss.qualcomm.com>,
+        <abhinav.kumar@linux.dev>, <sean@poorly.run>, <airlied@gmail.com>,
+        <simona@ffwll.ch>, <alex.vinarskis@gmail.com>
+CC: <linux-arm-msm@vger.kernel.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <freedreno@lists.freedesktop.org>, <dri-devel@lists.freedesktop.org>,
+        <quic_rajeevny@quicinc.com>, <quic_vproddut@quicinc.com>,
+        <quic_riteshk@quicinc.com>, <quic_amitsi@quicinc.com>
+References: <20250926085956.2346179-1-quic_mkuntuma@quicinc.com>
+ <20250926085956.2346179-3-quic_mkuntuma@quicinc.com>
+ <e3400ab5-c4ea-455a-b8ea-d4fba2ece85d@oss.qualcomm.com>
+Content-Language: en-US
+From: Mani Chandana Kuntumalla <quic_mkuntuma@quicinc.com>
+In-Reply-To: <e3400ab5-c4ea-455a-b8ea-d4fba2ece85d@oss.qualcomm.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nasanex01a.na.qualcomm.com (10.52.223.231)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-ORIG-GUID: qcN9EioFOCcCyE2iMFKt35Fk6xa20tlT
+X-Proofpoint-GUID: qcN9EioFOCcCyE2iMFKt35Fk6xa20tlT
+X-Authority-Analysis: v=2.4 cv=SJ5PlevH c=1 sm=1 tr=0 ts=691ed7eb cx=c_pps
+ a=JYp8KDb2vCoCEuGobkYCKw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
+ a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=6UeiqGixMTsA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=COk6AnOGAAAA:8 a=c-1eStOGazR1lmZwCp8A:9
+ a=QEXdDO2ut3YA:10 a=TjNXssC_j7lpFel5tvFf:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMTIwMDA1MiBTYWx0ZWRfX0Up9kgzvlJqZ
+ 4vQ6SWNC7gXdR9RQXwV3kMoPh5FMyVrqwgMNnPG7XOhmJnF7xOKmczjlykc1TynQUgt9b8iBjR7
+ L34xk7ReBRzdQCAKa3M4JsrZAuJ7oi2RYLmXnZdcoAMTQ6VhB1Nn8eaaBwcMY4a3vDuEbJ7of45
+ 5LftA37GnEQOCXUtBiSWQNhWklWTN/KmX4SEt8iO7O46O2rr7dG6i2vSkiY/RiTsSSZMazvnfxD
+ OEq/GA5iMIeCFsTOH5gx8ANqYZ0PSxjrJAhwfYqYaYWJdWGbDID+SBdir0NZZtbN+VKFOdR4a/q
+ 2ywClCFA5my1XWd6Ztu0KEKcz9dAf/095DBNRAPjZzhU1lF0fW0yFAgP7yzvuZSHumd4uGCVgmK
+ XUcUN6iH0PoqYwwD4ykIu3lTNs7Neg==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
+ definitions=2025-11-20_03,2025-11-18_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 phishscore=0 bulkscore=0 suspectscore=0 priorityscore=1501
+ lowpriorityscore=0 malwarescore=0 adultscore=0 spamscore=0 clxscore=1015
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2510240001 definitions=main-2511200052
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251120_004119_419124_3336B264 
-X-CRM114-Status: UNSURE (   3.06  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251120_005735_818890_FC1C8685 
+X-CRM114-Status: GOOD (  14.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,21 +123,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dzie=C5=84 dobry,
-
-czy potrzebuj=C4=85 Pa=C5=84stwo zredukowa=C4=87 do minimum swoje zobowi=C4=
-=85zania finansowe?
-
-Z powodzeniem prowadz=C4=99 takie sprawy dla podmiot=C3=B3w gospodarczych=
- z Pa=C5=84stwa regionu. Pomog=C5=82em anulowa=C4=87 zobowi=C4=85zania ba=
-nkowe i pozabankowe skutecznie przeprowadzi=C4=87 proces restrukturyzacji=
-=2E Reprezentuj=C4=99 wyspecjalizowan=C4=85 w tym zakresie kancelari=C4=99=
- prawn=C4=85.
-
-Je=C5=BCeli chcieliby Pa=C5=84stwo um=C3=B3wi=C4=87 si=C4=99 na niezobowi=
-=C4=85zuj=C4=85c=C4=85 konsultacj=C4=99, prosz=C4=99 o kontakt.
 
 
-Pozdrawiam
-Damian Sumera
+On 10/8/2025 6:10 PM, Konrad Dybcio wrote:
+> On 9/26/25 10:59 AM, Mani Chandana Ballary Kuntumalla wrote:
+>> Add device tree nodes for the mdss1 DPTX0 and DPTX1 controllers
+>> with their corresponding PHYs.
+>>
+>> Signed-off-by: Mani Chandana Ballary Kuntumalla <quic_mkuntuma@quicinc.com>
+>> ---
+> 
+> [...]
+> 
+>> +			mdss1_dp0: displayport-controller@22154000 {
+>> +				compatible = "qcom,sa8775p-dp";
+>> +
+>> +				reg = <0x0 0x22154000 0x0 0x104>,
+> 
+> sz = 0x200
+> 
+>> +				      <0x0 0x22154200 0x0 0x0c0>,
+> 
+> sz = 0x200
+> 
+>> +				      <0x0 0x22155000 0x0 0x770>,
+> 
+> sz = 0xc00> +				      <0x0 0x22156000 0x0 0x09c>,
+>> +				      <0x0 0x22157000 0x0 0x09c>,
+>> +				      <0x0 0x22158000 0x0 0x09c>,
+>> +				      <0x0 0x22159000 0x0 0x09c>,
+> 
+> sz = 0x400 for all 0x9c
+> 
+>> +				      <0x0 0x2215a000 0x0 0x23c>,
+>> +				      <0x0 0x2215b000 0x0 0x23c>;
+> 
+> 0x23c -> 0x600
+> 
+> [...]
+> 
+> 
+>> +			mdss1_dp1: displayport-controller@2215c000 {
+>> +				compatible = "qcom,sa8775p-dp";
+>> +
+>> +				reg = <0x0 0x2215c000 0x0 0x104>,
+>> +				      <0x0 0x2215c200 0x0 0x0c0>,
+>> +				      <0x0 0x2215d000 0x0 0x770>,
+>> +				      <0x0 0x2215e000 0x0 0x09c>,
+>> +				      <0x0 0x2215f000 0x0 0x09c>,
+>> +				      <0x0 0x22160000 0x0 0x09c>,
+>> +				      <0x0 0x22161000 0x0 0x09c>,
+>> +				      <0x0 0x22162000 0x0 0x23c>,
+>> +				      <0x0 0x22163000 0x0 0x23c>;
+> 
+> 0x2216_2000 and _3000 don't exist, there's no MST2/3
+> 
+> sizes should be changed similarly
+
+MST2/3 is supported for MDSS1 DPTX0.
+
+> 
+> [...]
+> 
+>>   		dispcc1: clock-controller@22100000 {
+>> @@ -6872,6 +7115,8 @@ dispcc1: clock-controller@22100000 {
+>>   				 <&rpmhcc RPMH_CXO_CLK>,
+>>   				 <&rpmhcc RPMH_CXO_CLK_A>,
+>>   				 <&sleep_clk>,
+>> +				 <&mdss1_dp0_phy 0>, <&mdss1_dp0_phy 1>,
+>> +				 <&mdss1_dp1_phy 0>, <&mdss1_dp1_phy 1>,
+>>   				 <0>, <0>, <0>, <0>,
+> 
+> You need to remove the same amount of zeroes that you added
+> 
+
+Sure, Will update this in the next version.
+
+> Konrad
+> 
+>>   				 <0>, <0>, <0>, <0>;
+>>   			power-domains = <&rpmhpd SA8775P_MMCX>;
+
 
