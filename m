@@ -4,78 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96468CF857F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 11:06:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D439FCF857F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 11:12:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Wo9AYU4ZP87/cRBaweFBQ81kmpPLnOM/YafttZhjfmw=; b=mj4bJ3dweVY2d49XXFvH5qQRHy
-	lttVptVM3v08/IodSbZoIbgd2ABVlLm/kHRWQKFGubhZFCdPIXr9dkmAxJXMrDbx3tjxyM8RGcTBP
-	E+8l4xseAvd/f73DNwCpmnHI1DDFQZhj1Pcxp5d/ZRY5qP7La18AopMo42EcyE97bK5v5lD1JC3II
-	Lf7W/t36dddBSbxXNf/1Xk/24CDTfOov2o0LUhLr4sPPFQqiKVZL6jl5f9H7RNlM/r2xJCJF1lCLK
-	JwFufgVkMXeI34xLiEeQApXIFxOEj1oc06LO5UkK6qPXl6mwcGpfrwbdeUc8h17NBscuzZdBLxois
-	VUtCggYA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=pt4+H06TM6qgswv5vwD87h0lsny4oyy5ArHsOSJGz3g=; b=d9yObeJ8bGeCMb
+	FrlmaRfqdXGJxfKfQiMHv3n01RysmqAXfLlHl1ygGl2XgwKrsVlH/Gm6ibWjFbGLKqQkNYYyCaRdH
+	l87abyLaOWN9wWxTClBnyPL2OXzntMnGrbyX8t6xii5TB8/hnvPl9A/72kKMWlOyeHke8921lTzH9
+	LVBimYJjq3OIxcNJhchFeAKZsq7swMTES4t5Q6BFlRb0MUe76sdY/X0g36aGJoa5rl8OabPijlvPE
+	kjzZt3xEX4OOFkXn/o+qpbtJSfnN+/UGFWqPjOtySCQlkwn09/SEBtdKvFjqSn1JCHKrsIestMXKB
+	AlBpBigL8iec5xRK50xw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vM2UQ-00000006Y0p-29x1;
-	Thu, 20 Nov 2025 11:06:14 +0000
-Received: from canpmsgout05.his.huawei.com ([113.46.200.220])
+	id 1vM2aj-00000006YMp-3U2y;
+	Thu, 20 Nov 2025 11:12:45 +0000
+Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vM2UM-00000006Y0E-3PmB
+	id 1vM2ah-00000006YMA-1sk9
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Nov 2025 11:06:12 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=Wo9AYU4ZP87/cRBaweFBQ81kmpPLnOM/YafttZhjfmw=;
-	b=wzxAJriXfqmkwATr2VfoB44bwdVdEKqh609g0CKJOI6NRNJY599ufGo3ZNKLJjSdgRoZxEs50
-	WHwFmKXT+BmBiyQxYZWxkvFlZnpZMReGlT7dOSggzWM+4XmAdk8ZRfniz9Hz6TZrPL0eotNl++8
-	f2TK84FQnY7aQE2ktME8pTM=
-Received: from mail.maildlp.com (unknown [172.19.88.194])
-	by canpmsgout05.his.huawei.com (SkyGuard) with ESMTPS id 4dBwTm2nTqz12LHn;
-	Thu, 20 Nov 2025 19:04:28 +0800 (CST)
-Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id 619C8140144;
-	Thu, 20 Nov 2025 19:05:55 +0800 (CST)
-Received: from [10.67.109.254] (10.67.109.254) by
- dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Thu, 20 Nov 2025 19:05:53 +0800
-Message-ID: <d1aeb83e-d380-be80-9bd7-72f95a9aa09a@huawei.com>
-Date: Thu, 20 Nov 2025 19:05:52 +0800
+	Thu, 20 Nov 2025 11:12:44 +0000
+Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Thu, 20 Nov
+ 2025 19:12:34 +0800
+Received: from [127.0.1.1] (192.168.10.13) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
+ Transport; Thu, 20 Nov 2025 19:12:34 +0800
+From: Billy Tsai <billy_tsai@aspeedtech.com>
+Subject: [PATCH v3 0/2] Add "aspeed,ast2700-pwm-tach" compatible string
+Date: Thu, 20 Nov 2025 19:12:30 +0800
+Message-ID: <20251120-upstream_pwm_tach-v3-0-eaa2f9b300a2@aspeedtech.com>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.2.0
-Subject: Re: [PATCH v7 02/11] arm64/ptrace: Refactor
- syscall_trace_enter/exit()
-Content-Language: en-US
-To: Kevin Brodsky <kevin.brodsky@arm.com>, <catalin.marinas@arm.com>,
-	<will@kernel.org>, <oleg@redhat.com>, <tglx@linutronix.de>,
-	<peterz@infradead.org>, <luto@kernel.org>, <shuah@kernel.org>,
-	<kees@kernel.org>, <wad@chromium.org>, <akpm@linux-foundation.org>,
-	<ldv@strace.io>, <macro@orcam.me.uk>, <deller@gmx.de>,
-	<mark.rutland@arm.com>, <song@kernel.org>, <mbenes@suse.cz>,
-	<ryan.roberts@arm.com>, <ada.coupriediaz@arm.com>,
-	<anshuman.khandual@arm.com>, <broonie@kernel.org>, <pengcan@kylinos.cn>,
-	<dvyukov@google.com>, <kmal@cock.li>, <lihongbo22@huawei.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<linux-kselftest@vger.kernel.org>
-References: <20251117133048.53182-1-ruanjinjie@huawei.com>
- <20251117133048.53182-3-ruanjinjie@huawei.com>
- <4984d8e6-1431-4dcc-9723-c5470b5bcd49@arm.com>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <4984d8e6-1431-4dcc-9723-c5470b5bcd49@arm.com>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.109.254]
-X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
- dggpemf500011.china.huawei.com (7.185.36.131)
+X-B4-Tracking: v=1; b=H4sIAJ73HmkC/02MSw6DIBQAr2LeuhigWrSr3qNpDOKzvESEAP3Fe
+ PeSrrqazGJmg4SRMMG52iDikxL5tcjxUIGxer0jo6k4SC5bIUTHHiHliNoN4eWGrI1lrZpHrVR
+ vsGugdCHiTO/f83orPkfvWLYl+jvxhrcFspYn1fNOMcFGWpbPkJOmi04BccpobG28g33/AtX2n
+ GioAAAA
+X-Change-ID: 20251118-upstream_pwm_tach-57fba779ce84
+To: Guenter Roeck <linux@roeck-us.net>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+	Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>,
+	Billy Tsai <billy_tsai@aspeedtech.com>
+CC: <linux-hwmon@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-aspeed@lists.ozlabs.org>,
+	<linux-kernel@vger.kernel.org>, <BMC-SW@aspeedtech.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1763637154; l=1125;
+ i=billy_tsai@aspeedtech.com; s=20251118; h=from:subject:message-id;
+ bh=7YzUe3MK3YytK0uTkt7q+giwkUEjWEmLwPZCbjl4/JI=;
+ b=Ry5JJo5yb1rgp/9y2Gm2lB+FTnU50rMEHcFxnSx6NUIjuhSdtP3/KQCXVtUgQ4XlFp6bbjYdd
+ K2HZHLO2OsGBLd0Juo3O4Up1/SkTBXOLJicdrC3q/W5x03+b5ouKuTV
+X-Developer-Key: i=billy_tsai@aspeedtech.com; a=ed25519;
+ pk=/A8qvgZ6CPfnwKgT6/+k+nvXOkN477MshEGJvVdzeeQ=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251120_030611_526457_CFC4B4EB 
-X-CRM114-Status: GOOD (  12.90  )
+X-CRM114-CacheID: sfid-20251120_031243_516679_0188175B 
+X-CRM114-Status: UNSURE (   8.49  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,82 +79,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Adds the "aspeed,ast2700-pwm-tach" compatible string, which provides
+fallback support for the previous version of the hardware design, to
+the PWM/TACH dt-binding and driver.
 
+---
+Changes in v3:
+- Drop the comments
+- Link to v2: https://lore.kernel.org/r/20251118-upstream_pwm_tach-v2-0-4d9bc13d34f9@aspeedtech.com
 
-On 2025/11/19 1:09, Kevin Brodsky wrote:
-> On 17/11/2025 14:30, Jinjie Ruan wrote:
->> [...]
->>
->> @@ -2386,19 +2384,27 @@ int syscall_trace_enter(struct pt_regs *regs)
->>  	if (secure_computing() == -1)
->>  		return NO_SYSCALL;
->>  
->> -	if (test_thread_flag(TIF_SYSCALL_TRACEPOINT))
->> -		trace_sys_enter(regs, regs->syscallno);
->> +	/* Either of the above might have changed the syscall number */
->> +	syscall = syscall_get_nr(current, regs);
->> +
->> +	if (test_thread_flag(TIF_SYSCALL_TRACEPOINT)) {
->> +		trace_sys_enter(regs, syscall);
->>  
->> -	audit_syscall_entry(regs->syscallno, regs->orig_x0, regs->regs[1],
->> +		/*
->> +		 * Probes or BPF hooks in the tracepoint may have changed the
->> +		 * system call number as well.
->> +		 */
->> +		 syscall = syscall_get_nr(current, regs);
->> +	}
->> +
->> +	audit_syscall_entry(syscall, regs->orig_x0, regs->regs[1],
->>  			    regs->regs[2], regs->regs[3]);
->>  
->>  	return regs->syscallno;
-> 
-> It would be good to align the return with the generic version as well.
+Changes in v2:
+- Reworked the binding to use a two-level compatible list with
+  "aspeed,ast2600-pwm-tach" as the fallback.
+- Link to v1: https://lore.kernel.org/r/20251104055112.2679087-1-billy_tsai@aspeedtech.com
 
-Right, could be aligned with the return with the generic version.
+---
 
-> 
->>  }
->>  
->> -void syscall_trace_exit(struct pt_regs *regs)
->> +void syscall_trace_exit(struct pt_regs *regs, unsigned long flags)
->>  {
->> -	unsigned long flags = read_thread_flags();
->> -
->>  	audit_syscall_exit(regs);
->>  
->>  	if (flags & _TIF_SYSCALL_TRACEPOINT)
->> diff --git a/arch/arm64/kernel/syscall.c b/arch/arm64/kernel/syscall.c
->> index aba7ca6bca2d..6e3fe760e0bb 100644
->> --- a/arch/arm64/kernel/syscall.c
->> +++ b/arch/arm64/kernel/syscall.c
->> @@ -124,7 +124,7 @@ static void el0_svc_common(struct pt_regs *regs, int scno, int sc_nr,
->>  		 */
->>  		if (scno == NO_SYSCALL)
->>  			syscall_set_return_value(current, regs, -ENOSYS, 0);
->> -		scno = syscall_trace_enter(regs);
->> +		scno = syscall_trace_enter(regs, regs->syscallno, flags);
-> 
-> Nit: could use scno instead of regs->syscallno.
+Signed-off-by: Billy Tsai <billy_tsai@aspeedtech.com>
 
-That is ok.
+---
+Billy Tsai (2):
+      dt-bindings: hwmon: Add AST2700 compatible
+      hwmon: (aspeed-g6-pwm-tach): Add AST2700 compatible string
 
-> 
-> - Kevin
-> 
->>  		if (scno == NO_SYSCALL)
->>  			goto trace_exit;
->>  	}
->> @@ -143,7 +143,8 @@ static void el0_svc_common(struct pt_regs *regs, int scno, int sc_nr,
->>  	}
->>  
->>  trace_exit:
->> -	syscall_trace_exit(regs);
->> +	flags = read_thread_flags();
->> +	syscall_trace_exit(regs, flags);
->>  }
->>  
->>  void do_el0_svc(struct pt_regs *regs)
-> 
+ Documentation/devicetree/bindings/hwmon/aspeed,g6-pwm-tach.yaml | 7 +++++--
+ drivers/hwmon/aspeed-g6-pwm-tach.c                              | 3 +++
+ 2 files changed, 8 insertions(+), 2 deletions(-)
+---
+base-commit: e7c375b181600caf135cfd03eadbc45eb530f2cb
+change-id: 20251118-upstream_pwm_tach-57fba779ce84
+
+Best regards,
+-- 
+Billy Tsai <billy_tsai@aspeedtech.com>
+
 
