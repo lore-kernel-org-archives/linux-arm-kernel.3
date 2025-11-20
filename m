@@ -4,89 +4,157 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5B23CF256D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 04:26:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7F0ACF64B2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 04:28:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r1t+Ndq+wb1M1nKBlD7o879uV1xKTH+o++nXBFLMNOg=; b=uZej3QodcSDhgMbwQgzEfsgKdH
-	Fx9vDf8sZBu/m8ZdB7/CMsHkdpZc9ut2pyL/cjb2AChr9MrJi5H2NzgnDVuDGfTB9NnP4DX/MzO1j
-	jAl67WlEx2Et+js3E6BZrmqBU6faJXtWO2xEUIoN6mNNJYt21cMBEKpmLZAjY6KBD2+XkegIgEdu6
-	jZwjaiD/6AMiLFEzt8EFrelMVjqka/qbgfh9r13tpSxcPYtKMo3SXJyrVqK0pfhQBvgk3kjE3kYBe
-	FBMPY+3/Z2PDbrRgxOIWaiil4APz0h99JhwpYX6wJgBRz8g+lwl9fiyjRU++vYx4dUiNX54uFl3Fx
-	zajkwiLw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=M8HdSSH8mo/9a2nlWh2NQz27y3eMBfAT++fIBn2W0NY=; b=HoQQxCwAZeybRrSEjNFG+k0KEf
+	CJCXR19l8FeRGD7VlHsqIq4zUSCmrw1giWAqa27mNoxucjPLxdhWckobFZLj+/ixgPfFb1CMOrMLg
+	q2Mwn8el1kIIcr8pQHieuyYU5rY6cMnUd4fSMimSsDbO84qofhohTPL++GIdmFvrnFxz1RUkc7tuj
+	B5tTNoqsn5brTWuh5NbF6wGP7jhy5En8wnTn0NGlu7KvN9ew2iBGwSEEyCyExCwzJVOz/0Zlpoc57
+	c44RE++AEGGEj6xzJTC7qeqKhExPKtdnlYR+NYEV6yJkNjgzKU14tMW8we/lbyPEa34E7uxguuWLg
+	q86cps/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLwFV-000000068Jh-4AHx;
-	Thu, 20 Nov 2025 04:26:26 +0000
-Received: from mgamail.intel.com ([192.198.163.15])
+	id 1vLwHF-000000068SB-1l4S;
+	Thu, 20 Nov 2025 04:28:13 +0000
+Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLwFT-000000068JM-143z
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Nov 2025 04:26:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1763612783; x=1795148783;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=AoBCatCcUTo8pQY7B3M+B7FHb9s+7p9nuNzOnOSP1Pg=;
-  b=JYwqZrIHpNULMeu1GNAwZ5GFYNFHVUL7NkNY1Obx/PuSFOJqtWea/BeN
-   motlVUpFGMz7zA4w6e0ZaUWMkw6Nrjk4OFFxRz5cRRuoRhOtPkvOmwA3x
-   gW9wQwn3Ig0GEK1nFSehXL7N9X/O+2JBgWIncCYVyq5hFXqdHjvZMxLQb
-   hBc+UbJ54TW/ut5uA5DQdM6z9IZjEp09ttqL3oN/JPqbesQ4t904hkcb6
-   HjJ3ScgFJBjAycZ6bhjQetqHn7DkebRIYoRBcMDRiyYf+I2/MpZgjiKZE
-   r6pfcnH+w2nX13RKAvj31//msGLHZebPY9Yat7EtztrHM3OGjGNgkXAXO
-   w==;
-X-CSE-ConnectionGUID: Xb7WCSofTUax5dQRWnOjmg==
-X-CSE-MsgGUID: cM8/HEA4Qha0iN+sce0a7w==
-X-IronPort-AV: E=McAfee;i="6800,10657,11618"; a="65758472"
-X-IronPort-AV: E=Sophos;i="6.19,317,1754982000"; 
-   d="scan'208";a="65758472"
-Received: from fmviesa008.fm.intel.com ([10.60.135.148])
-  by fmvoesa109.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2025 20:26:22 -0800
-X-CSE-ConnectionGUID: Af/weTQ1RIqEzViG3Qz70w==
-X-CSE-MsgGUID: 0Jb0A23gS9Gn7dgzvYydzw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.19,317,1754982000"; 
-   d="scan'208";a="191511784"
-Received: from lkp-server01.sh.intel.com (HELO adf6d29aa8d9) ([10.239.97.150])
-  by fmviesa008.fm.intel.com with ESMTP; 19 Nov 2025 20:26:19 -0800
-Received: from kbuild by adf6d29aa8d9 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1vLwFN-0003bL-0O;
-	Thu, 20 Nov 2025 04:26:17 +0000
-Date: Thu, 20 Nov 2025 12:25:24 +0800
-From: kernel test robot <lkp@intel.com>
-To: Antonio Borneo <antonio.borneo@foss.st.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
+	id 1vLwHC-000000068Ri-2UEG;
+	Thu, 20 Nov 2025 04:28:12 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=q3kXh9AeQaG+Hv1FCGQ8K068aO76pqsoe6UuZH98ds1AJ2o1wJSDkZr/+5QV4evQHja9kZhfpvdQyQbJS1SfBlAoy1UfvoNj7FeURJsgZCeWf9hnIJ5WLQ6ITOfUZcxPR5O7M/qGo/FnEf1Lhgy+vy3PdT7OSJ2Ua8oY+YJ7rT4qEwUvW1WmTCMxw5ym2AZI9ItdEox1Ol5LoJg7QG7B/pAb3aI6kF3vncJETj7Dzw8GX/anTYTkmWAYvOyuwfzyVwcH5DA1taynNUo1+UfjBegCDuCako5j5ICIZgnihjV3iTDty4MDhq5w/QTqldWho+OXZwdpoWrGvHfIl/qByw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=M8HdSSH8mo/9a2nlWh2NQz27y3eMBfAT++fIBn2W0NY=;
+ b=Aa2l4knqBKfiQiaLe0b7gOEoZmNytRwiJlYjyAWXQksm5DWSxq8Sl6RyKMiMjh4sDga2Snp29oLGwL5N8r1HpqjcY+/CLXaLVBMaT6xyF88q9/t+T0MJCojz6c6Dl/ipmk0u6RxBuSrH/h6SJ1aXK69Ie5WylxJjr8ngtuvor6wWlmKKF7wi+WEah0V0mj7xpxJrZO/8R3KfcVydh7DaDXd/t9w8BTMyDToTKUMm4k3xAubJ97tnBZcJZm4ZSgZk6eytTDkPJq6OmX2kxYPD+GF/osCIkCFWKHTmvizt5xMmNE+s6VeEgJ01iQURTu8BqpJoZCk350wjSeN6l34X8g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=genexis.eu; dmarc=pass action=none header.from=iopsys.eu;
+ dkim=pass header.d=iopsys.eu; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=iopsys.eu;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=M8HdSSH8mo/9a2nlWh2NQz27y3eMBfAT++fIBn2W0NY=;
+ b=jx2TWbzJZWc0oPtVhrXni7GPTY/xAtvsieDUg1xOnsjvhl79wo2yRHkmAioWXDCiWRuc2i9uLReXbJt4oBsDB/CFOClBwdbFd1ywN8sY1PtTrV0l7lkYc2pgBNsN4Oww/iNNbuXZkAlsnEermCbL3lEiBzhZiB0/lOI1ZAW3RtBSv54T1TDHlLxx+4c7EI8wZ97SQRmf0cgPpUXRiTiy0xN5CZU6dCGX5MR5K/j6Sf9ZJYJYYej7EgZ4lW5S0BG5tkD6wHg87ockw0pnRiudMs8KSXrcSxq34PagMtCZDDn9I7Vj+jUWh8UJjiZq99c7BmU26G0pAJKiZrtu06BfLA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=iopsys.eu;
+Received: from GV2PR08MB8121.eurprd08.prod.outlook.com (2603:10a6:150:7d::22)
+ by PAXPR08MB6541.eurprd08.prod.outlook.com (2603:10a6:102:15a::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9343.10; Thu, 20 Nov
+ 2025 04:28:02 +0000
+Received: from GV2PR08MB8121.eurprd08.prod.outlook.com
+ ([fe80::4cd3:da80:2532:daa0]) by GV2PR08MB8121.eurprd08.prod.outlook.com
+ ([fe80::4cd3:da80:2532:daa0%3]) with mapi id 15.20.9343.009; Thu, 20 Nov 2025
+ 04:28:01 +0000
+From: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>
+To: Lorenzo Bianconi <lorenzo@kernel.org>,
+	Ray Liu <ray.liu@airoha.com>,
+	Mark Brown <broonie@kernel.org>,
 	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Cc: oe-kbuild-all@lists.linux.dev,
-	Antonio Borneo <antonio.borneo@foss.st.com>,
-	=?iso-8859-1?Q?Cl=E9ment?= Le Goffic <legoffic.clement@gmail.com>,
-	Amelie Delaunay <amelie.delaunay@foss.st.com>,
-	Pascal Paillet <p.paillet@foss.st.com>
-Subject: Re: [PATCH v2 05/15] pinctrl: stm32: add new package to stm32mp257
- pinctrl support
-Message-ID: <202511200853.efuVxuoM-lkp@intel.com>
-References: <20251118161936.1085477-6-antonio.borneo@foss.st.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-spi@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-mediatek@lists.infradead.org
+Cc: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>,
+	Andreas Gnau <andreas.gnau@iopsys.eu>
+Subject: [PATCH v3 0/3] spi: airoha: add support of en7523 SoC (for 6.19)
+Date: Thu, 20 Nov 2025 07:27:50 +0300
+Message-ID: <20251120042753.640492-1-mikhail.kshevetskiy@iopsys.eu>
+X-Mailer: git-send-email 2.51.0
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20251118161936.1085477-6-antonio.borneo@foss.st.com>
+Content-Type: text/plain
+X-ClientProxiedBy: GVYP280CA0041.SWEP280.PROD.OUTLOOK.COM
+ (2603:10a6:150:f9::25) To GV2PR08MB8121.eurprd08.prod.outlook.com
+ (2603:10a6:150:7d::22)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR08MB8121:EE_|PAXPR08MB6541:EE_
+X-MS-Office365-Filtering-Correlation-Id: 151cd078-7d96-4844-d756-08de27ed30f3
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|52116014|366016|1800799024|38350700014|921020;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?3QpAnT92T9t62GdqCeeojj8WMJukqlC+Xlu3aht/WJ19onYAQsTgszNQfpuF?=
+ =?us-ascii?Q?QIvwYMb4ncUVGiJ8rog9+o/Jm8CKiesqcenaXRk1w+m9LFDNwo6zbxDZQtRx?=
+ =?us-ascii?Q?jKK70TZaPFOLJjxFC8ip/1MeQD11YoPOTsNnj6Bk455lSvZRV7saS4yjYdKM?=
+ =?us-ascii?Q?10BIpr52/Awc5Cdd6Huh6pjZo5ep3PlxcxJwakG19dFwqqCFczuxoIQQED49?=
+ =?us-ascii?Q?qgesacH0cvLojXMD3FDIiH71cWUefBMZFCd+WBMS3mDVOFEUQdwkMrbbg8Hg?=
+ =?us-ascii?Q?dUr8Mi4wzN1SkqKtyOPi86ygCveSkjRhmnN3x3v2KwJ54nvQC9N7BLjGPGCy?=
+ =?us-ascii?Q?sAdu9dQ7ZQCxlT5skBCLQnT9+TE2lIW5tehmyr+nuV61frMJpDz6nO5HDGIY?=
+ =?us-ascii?Q?Z9ryhueWMgmeRyZxdNJl8ykShU0lJwYeNJ1a6NFEB3ArW4qD9ioA0/q2L/oi?=
+ =?us-ascii?Q?jpoZfyK2B/CEfGtRLegDxA7BCjrFloW0QJQMYmgckOVUaJfpvwCs39k3j/aa?=
+ =?us-ascii?Q?hdsOr3fp9VBAv9RMMSOFDTERRoWiXKuTetFMDBnjzT4brY1Txl3x87zXrHZ5?=
+ =?us-ascii?Q?x1nE2WEjhavDIIy3noF1woQRZGyniJuy+sCr9WdhSOIeyDwhdJlo7oNjv+7g?=
+ =?us-ascii?Q?ZOcI8c2DaL4DUknf6iHKOxtLjC3M7Gx5+6kSVHQxI9GOajUoavFanAPUWs2v?=
+ =?us-ascii?Q?1jCGiXJNHwydTsmaNRoLEwH3MuEgJ78LIsBJPkpKYPLak6lBiyu4SjKDBhZj?=
+ =?us-ascii?Q?kF/f+FiwkNmIEye8iJq63A3LAoytg1EjEljq8T4lbcWo+oNj8VNMABzhC1xu?=
+ =?us-ascii?Q?tR11p8Y7tCgHWftUtz87LBupncgJHo123eDgjEXdTYhVwra7T7KO6a1rOuRS?=
+ =?us-ascii?Q?tOWLCp0t1IMsL9YHUv2wFSXrf0Pqr1rDlOfUb83WCBlM8diVxfGty9zs8EWJ?=
+ =?us-ascii?Q?Xhl7uR1VlwU7kxMB2KnELg50ydFfqnys23pfDYQaoOob5M86NdeMCbzTtsnE?=
+ =?us-ascii?Q?dHFsg+J8dg9zpJbDOZhW60wnpg/nRM56N/pUjEeEj0EqFsDE/gX0JVG1WQPV?=
+ =?us-ascii?Q?6pAP0ePxLpUnHf8gpWIGCALoWlyRE/+XJzbIySbWNcvV+aW6MaRZSP08cGM4?=
+ =?us-ascii?Q?Bj0EO42SfVVT6LFt1p4rduxx06ueWQmUPiUjOY5x3ATvAMFHx68W50idCwBA?=
+ =?us-ascii?Q?op2g2185uvQuT/IEXvrrHIJprqNfMJ6PY8dYsx3ZbWKscdX8Pg5/w1MBwr3t?=
+ =?us-ascii?Q?6izQyOBB+mCeRVp7TFV+M5vgvh3KMHNArOyCn5WkRJz6JTYhG1fFdEXBC1bm?=
+ =?us-ascii?Q?lrvcttBdH3aF6jZCxjM9PLXKNSVo2klbRPEV+qW43NgZTweGtmx2QSWv0BMI?=
+ =?us-ascii?Q?aHN/XXzZbzDGw7ijWj2dNYXKwd9ruJhAMHnLrLkm69LUAJ2nZttz4owDp/QW?=
+ =?us-ascii?Q?RpBTIA5UID6oSZCKJ4GfEB/G3z7ZoxZBgDh6rycHqJHfCGhiMgxMILxgibLB?=
+ =?us-ascii?Q?0zj/WcPFFIMzub5s29cZRxyb2AZFMBdimdAzHYBZcKQCqCxCcwBVeca3RQ?=
+ =?us-ascii?Q?=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR08MB8121.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(52116014)(366016)(1800799024)(38350700014)(921020);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?S6wDTb/E4lqk2RFJghHlqsn3bO9ZFTQlcXyxRnamLiVvhDi0C54t8tSgVLsO?=
+ =?us-ascii?Q?MpGbSb4UQPAX2v28jxz57NlH7f8bhXnTAMjYQ9dBgivR3ChOFoG9OtGyqu//?=
+ =?us-ascii?Q?KDTUDhomird+4vGfBWgJlSvjfRkRc10qUfao/Redr8YwKAqIJF6aRT0gekio?=
+ =?us-ascii?Q?5eQS9EJV4m077zYm3RTrVb26Q3bko0kKDHpvUg2AJd6iDw9P8w6YttYwGBqH?=
+ =?us-ascii?Q?95DswfkGDI0ZNDhfnufRIol3j8PbXDzwVLRwwvYMYHC8UCzM6Kmv0wjTWbSE?=
+ =?us-ascii?Q?RVlJdVarJPFoq+zidEbVL0glaotIJ+X4d7ZaPDF896vJUJufPlGIe7mjOi4S?=
+ =?us-ascii?Q?SJMbMmRRAea9/XOlC4dgUTY8PcW/Qc5IJG7wFsn3A3RJ8H3aHhnJZonnVDps?=
+ =?us-ascii?Q?NcsiJjm/0E5N+LpBCaoGngQar9RjmrLf6cvAIbC0OSHZeXUeNdBE8ISV1z3z?=
+ =?us-ascii?Q?hbo6rrxZSxrSLB3mM2pefcRfxDXdP8gYnwk063Ut9qFL9eWTLW/iTkjdY2rk?=
+ =?us-ascii?Q?It7SYqvU1QW+LZ9sWpx+WXTJjYfT7LOWjO6d0QS6A0viobr47ASHhwi82kVk?=
+ =?us-ascii?Q?BlIdr85+sLqnsUQVosHFkgQDnlKS3Wj/Y0ZNcSu1ULgGH4zC+Zkj87PbENzK?=
+ =?us-ascii?Q?osqTCoattcko7rytloa+TZOHyae35qIQGPJd1upXEwwpvWJvJ5HW+9RQ4nP/?=
+ =?us-ascii?Q?aV7d8v2OAZdbuA3bmhkWy9mVZ1U5DtqYjwdT7oKwimZJrIgtHg2RTBEu2TQf?=
+ =?us-ascii?Q?sLBMis9heZB6wB+u6b7h0uclJSJYNSZmnBeAbKiU5iatpfVLwOGziKqMZk7/?=
+ =?us-ascii?Q?eYfephIjovb++YFchqKj5VQNfgBmvEQrCFffD2H+nT11CUgdGwFqRgkF65hh?=
+ =?us-ascii?Q?dOy9NIFpMB2dZM8ntXKv2UjoKQ4APrE90DsX7IYva9pielmy9TVWhYKGx2kH?=
+ =?us-ascii?Q?TY5jyEV76Sl4A5Jfjd1uScEDlDNrBz1UYhGIMSWlPOcy0PyH6l1bTqYnzPNX?=
+ =?us-ascii?Q?+CNnQHKlqUjQqp0gQH0tDB4KdH0FyJww+0oDpgbr6s6jgH6aV0waig4XLK1R?=
+ =?us-ascii?Q?tGg703QJ1+Hr2kf83oVANQZwMQ4RJnsEzZMTZCOXSi7U93eNp6HeZz61lGXu?=
+ =?us-ascii?Q?GT88j12a3QVbFVQ/3xOSAuIPzmpYpI+Ye9HOqyPB7dzCgm+v1krPE6kaKI+M?=
+ =?us-ascii?Q?2ouMcuk3b8mbuFmjEaQ2/hobVBp/lrhnj+iA2D7Kd3tLCvuzBoCzIFDPBNNJ?=
+ =?us-ascii?Q?XuGcjj8N9JkYquQNbq3T4/cpUPzKiqbRXZ3ISzrPoyCEht4owW7Z2JBYhhal?=
+ =?us-ascii?Q?iM70NjX+cH7DEqt0rHQmPi9GgOrKZgCmNbzXYQtQnqTg0GV/6Ka7VCoLzUHO?=
+ =?us-ascii?Q?EPHHRHaf7GceiDuv8oloq9/NxPXN94za1wP2zoIDrmPdWXgpWnuSrvcl4BRN?=
+ =?us-ascii?Q?Kw/LPOlHovic3EQpBDT4bsT/gfTnD6K2vIAu09ZZeMz8MzSdRFqDXDug0lD9?=
+ =?us-ascii?Q?9AIK3vjaP1NRR9bFTM00aFGO0RtHhRq169ucinekJCXVpTVmAaIQ8EIgBQfZ?=
+ =?us-ascii?Q?MkSafmg1aWLiNk/JiwuHdFxAtMEH0NH2LhLNLHj/b0uon3EE1VXF+rkRPG2L?=
+ =?us-ascii?Q?RBP0C2l0MQa4Ba0SCRfAv48=3D?=
+X-OriginatorOrg: iopsys.eu
+X-MS-Exchange-CrossTenant-Network-Message-Id: 151cd078-7d96-4844-d756-08de27ed30f3
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR08MB8121.eurprd08.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Nov 2025 04:28:01.7748
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 8d891be1-7bce-4216-9a99-bee9de02ba58
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: pPdxNmw2oZH/Pv+OYy8ki9k485YJcWuBOTPp2D2kYTt/GvDVnbM2lWB+iiwPsjr952+R6jnzE1lRslgX8IIX4extB2BPxdxp3yQd+HNu8gM=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR08MB6541
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251119_202623_358438_3A350E01 
-X-CRM114-Status: GOOD (  10.61  )
+X-CRM114-CacheID: sfid-20251119_202811_386023_8AAD0C0F 
+X-CRM114-Status: GOOD (  11.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,52 +169,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Antonio,
+Airoha EN7523 snfi controller almost identical to AN7581 one, so the same
+driver can be used. The only known difference appears in the very specific
+boot conditions, when attached serial console force EN7523 SoC boots
+in undocumented (reserved) mode. In this mode dma reading of the flash
+works incorrectly.
 
-kernel test robot noticed the following build warnings:
+This patch series:
+ * add support of EN7523 SoC
+ * add spinand node to en7523 dts (so spinand flash finally becomes usable)
+ * updates dt-bindings to mark driver as compatible with en7523
+ * disable dma usage to prevent possible data damage if booting in
+   reserved mode was detected.
 
-[auto build test WARNING on 61cbe48d9d1ff277bc54051fbab8b733b2e64ccb]
+This patch series was a part of a bigger series:
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Antonio-Borneo/pinctrl-stm32-accept-string-value-for-property-st-package/20251119-011734
-base:   61cbe48d9d1ff277bc54051fbab8b733b2e64ccb
-patch link:    https://lore.kernel.org/r/20251118161936.1085477-6-antonio.borneo%40foss.st.com
-patch subject: [PATCH v2 05/15] pinctrl: stm32: add new package to stm32mp257 pinctrl support
-config: microblaze-randconfig-r111-20251120 (https://download.01.org/0day-ci/archive/20251120/202511200853.efuVxuoM-lkp@intel.com/config)
-compiler: microblaze-linux-gcc (GCC) 8.5.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20251120/202511200853.efuVxuoM-lkp@intel.com/reproduce)
+  https://lore.kernel.org/lkml/20251012121707.2296160-1-mikhail.kshevetskiy@iopsys.eu/
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202511200853.efuVxuoM-lkp@intel.com/
+All patches of the bigger series (except these patches) was already accepted
+to linux-next. The was no any activity around remaining patches for a long
+time, so it's time to send them again.
 
-sparse warnings: (new ones prefixed by >>)
->> drivers/pinctrl/stm32/pinctrl-stm32.c:143:10: sparse: sparse: Initializer entry defined twice
-   drivers/pinctrl/stm32/pinctrl-stm32.c:144:10: sparse:   also defined here
+Changes v2:
+ * small improvement proposed by Lorenzo Bianconi
 
-vim +143 drivers/pinctrl/stm32/pinctrl-stm32.c
+Changes v3:
+ * split multi-line print on a series of single line prints as suggested by
+   Mark Brown
 
-f263343bb793fa Antonio Borneo    2025-11-18  130  
-f263343bb793fa Antonio Borneo    2025-11-18  131  static const char * const stm32_pkgs[] = {
-f263343bb793fa Antonio Borneo    2025-11-18  132  	/*
-f263343bb793fa Antonio Borneo    2025-11-18  133  	 * Default dummy value, as match_string() doesn't accepts NULL.
-f263343bb793fa Antonio Borneo    2025-11-18  134  	 * Also not an empty string because it will match the old numeric
-f263343bb793fa Antonio Borneo    2025-11-18  135  	 * values <= 0x00ffffff.
-f263343bb793fa Antonio Borneo    2025-11-18  136  	 */
-f263343bb793fa Antonio Borneo    2025-11-18  137  	[0 ... (STM32_PKG_MAX - 1)] = "x",
-f263343bb793fa Antonio Borneo    2025-11-18  138  
-f263343bb793fa Antonio Borneo    2025-11-18  139  	[STM32_PKG_AA] = "AA",
-f263343bb793fa Antonio Borneo    2025-11-18  140  	[STM32_PKG_AB] = "AB",
-f263343bb793fa Antonio Borneo    2025-11-18  141  	[STM32_PKG_AC] = "AC",
-f263343bb793fa Antonio Borneo    2025-11-18  142  	[STM32_PKG_AD] = "AD",
-f263343bb793fa Antonio Borneo    2025-11-18 @143  	[STM32_PKG_AI] = "AI",
-66cbedfcc7caae Clément Le Goffic 2025-11-18  144  	[STM32_PKG_AI] = "AJ",
-f263343bb793fa Antonio Borneo    2025-11-18  145  	[STM32_PKG_AK] = "AK",
-f263343bb793fa Antonio Borneo    2025-11-18  146  	[STM32_PKG_AL] = "AL",
-f263343bb793fa Antonio Borneo    2025-11-18  147  };
-f263343bb793fa Antonio Borneo    2025-11-18  148  
+Mikhail Kshevetskiy (3):
+  spi: airoha-snfi: en7523: workaround flash damaging if UART_TXD was
+    short to GND
+  dt-bindings: spi: airoha: add compatible for EN7523
+  arm: dts: airoha: en7523: add SNAND node
+
+ .../bindings/spi/airoha,en7581-snand.yaml     |  7 +++-
+ arch/arm/boot/dts/airoha/en7523.dtsi          | 20 +++++++++++
+ drivers/spi/spi-airoha-snfi.c                 | 34 ++++++++++++++++---
+ 3 files changed, 56 insertions(+), 5 deletions(-)
 
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+2.51.0
+
 
