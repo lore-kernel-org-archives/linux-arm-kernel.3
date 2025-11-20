@@ -4,83 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0342DCF885D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 20:43:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 353FACF885D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 20:49:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IXUyGa0AP2kWOnX58q8usStpo2CKI3nM61Y+hbjFL38=; b=VF3xOGqheZR7kF9oepcgV9nktk
-	e/1NKSwLz8tyPnggpQwGgPoBkSNvdi1RfMyFuWoLAFEbK1TdeAlfCVCAfxgk+Kfu6pfFtVdIjTia5
-	OxrNwaY/3heotBV/sSr0KlKbloncGnIKoKHwtlsTLyorpx+13jHdEZqFCDnuKLE9qppqUz/Jatu+D
-	j94/4s2LvUjUIpcpzcQCXFMN6Gru8n6F3qwwboAEiWftLP3cfT/bd30rnMaTKGnoO0B6BCWBcN9wz
-	HaAmTChb64N9yTCkRN7duyE/3O/8I9Y0HYzNmy43JT6qTWrSbzTlEYX2bqav8GiYtiXT/AqKBVnGX
-	ESej+gvA==;
+	bh=BThhvF5ievsQl3XMb2cq/94HXhHJyFh3X1ZGRt9Ldys=; b=bfgr7pWr7+rqyd2YSsynJE0Tkh
+	Gma09kC+9OopUR0kC5T8e/nWwi8ohs1Nv/jiGHNWB7XhnMx5Bgy4tUlYGcvRCzbHnLEtcqgOjbrm7
+	sgOvcUePAcQ4vtPQgggcNKGapMc0+9VDhlLGPHS5mu9CoWqUcvVIWGYKk0AFCYeBrS5jghRAF7JhP
+	u+sJBs6IUh74HxenSqdNVt6olfDZTju+WFPppOK52SP+wFOMf/QcW1Fxd7Y3yhChfcdwGNoUnaSIy
+	5Pv9noUot1wlyHwfdkkHT2QBoD5pRKAJKXU98Cg03ZMSbJKBc9+f89ce1Gq9KcJ0CGl+Vo2D9uh7d
+	NYMxKCZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMBUy-00000007M9v-39Hv;
-	Thu, 20 Nov 2025 20:43:24 +0000
-Received: from mgamail.intel.com ([198.175.65.19])
+	id 1vMBaU-00000007MPV-2HQB;
+	Thu, 20 Nov 2025 20:49:07 +0000
+Received: from smtp1-g21.free.fr ([2a01:e0c:1:1599::10])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMBUv-00000007M98-2Zlw
+	id 1vMBaR-00000007MOT-0WPP
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Nov 2025 20:43:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1763671402; x=1795207402;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=UUn7JgKQmKikqCmbVJPQXE79ce57X7L+YEAlrs+V/qc=;
-  b=mer+ZHGVr8F9iZmoi2yssQj/sLyIYd0rbBOtTZIMaNV9AHHEu+57uQ1Y
-   DeCPl6EihNQh4Z3o6KdGdrDPLMGMkXAZKbQ53lFxvY1wFi8aR7q9+CnaF
-   c3O0IzUAwFGIuQ+wy4D7t1B+4HnFePl5pYTbffz2UiauVEIYkwxgGpLcX
-   3m7SevVUbJCY7fY+vzxP6lt4DawT1P9ZKcI2W+42sQRMwUMjz69i4x3/m
-   mhdC6rhY4VYVIkO4fbjl/LbTcRliEUj2RwN1+q9ELLwmjetl9wV4MZejn
-   w399V4fTF6cubbKrfljjaXGEHXmcF34WuP1YbUnL2wvs+7Ojcrol1Y3P0
-   Q==;
-X-CSE-ConnectionGUID: BsvN3+pxTW+zodhznvqwMg==
-X-CSE-MsgGUID: CcqmX1zrQjGKOrosJO4YwQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11619"; a="65634631"
-X-IronPort-AV: E=Sophos;i="6.20,213,1758610800"; 
-   d="scan'208";a="65634631"
-Received: from fmviesa008.fm.intel.com ([10.60.135.148])
-  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2025 12:43:20 -0800
-X-CSE-ConnectionGUID: xgYWqL62TWizbyA9t+DeRA==
-X-CSE-MsgGUID: hEQyJtLyQR+bTh6H93KnCQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.20,213,1758610800"; 
-   d="scan'208";a="191732009"
-Received: from lkp-server01.sh.intel.com (HELO adf6d29aa8d9) ([10.239.97.150])
-  by fmviesa008.fm.intel.com with ESMTP; 20 Nov 2025 12:43:15 -0800
-Received: from kbuild by adf6d29aa8d9 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1vMBUn-0004YJ-2e;
-	Thu, 20 Nov 2025 20:43:13 +0000
-Date: Fri, 21 Nov 2025 04:43:00 +0800
-From: kernel test robot <lkp@intel.com>
-To: Haibo Chen <haibo.chen@nxp.com>, Han Xu <han.xu@nxp.com>,
-	Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, frank.li@nxp.com
-Cc: oe-kbuild-all@lists.linux.dev, linux-spi@vger.kernel.org,
-	imx@lists.linux.dev, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	Haibo Chen <haibo.chen@nxp.com>
-Subject: Re: [PATCH v4 2/2] spi: add driver for NXP XSPI controller
-Message-ID: <202511210421.NAzUWBmi-lkp@intel.com>
-References: <20251119-xspi-v4-2-a451afbccf33@nxp.com>
+	Thu, 20 Nov 2025 20:49:05 +0000
+Received: from belgarion.local (unknown [IPv6:2a01:e0a:a6a:5f90:ec95:b1d9:10ea:943d])
+	(Authenticated sender: robert.jarzmik@free.fr)
+	by smtp1-g21.free.fr (Postfix) with ESMTPSA id 4C59FB00535;
+	Thu, 20 Nov 2025 21:48:31 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=free.fr;
+	s=smtp-20201208; t=1763671736;
+	bh=QKCTW//ReohcZBVlaY/hR/6GYCdQgcMLzosE3RgI0Hs=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
+	b=twhSn7yFBv9qGLTnY2s92RCC2TWLLtNaMbxhv3qLARNVnkE+G5kEHxQq6Q1dnhMRG
+	 ZIEnR9W9psvHteZIj30wYzw+HWQEz/J391fjkbEQL9Vi+8UoFeCicyQKZYK+qg+PP1
+	 a9S2PgquCN8QgovK6AOR8x0+FBZxb2GjW/mshzNdPLiFSepUW+MnPhpcT/Az8izkET
+	 EVGhukO0rHRV/txB6lz3f4aVUEgok4c1GmtIbGP/sDIbC9g34J2uasBXUCBOmaPUjR
+	 lwo7uYnbTO41wtP0+kwAMY/P3RBtMcxA6lQ2p27mPNZgdKq1VhjeItR/aqEeXLEopN
+	 cwv8LYklQcslQ==
+From: Robert Jarzmik <robert.jarzmik@free.fr>
+To: Jisheng Zhang <jszhang@kernel.org>
+Cc: Andy Shevchenko <andy.shevchenko@gmail.com>,  Doug Berger
+ <opendmb@gmail.com>,  Florian Fainelli <florian.fainelli@broadcom.com>,
+  bcm-kernel-feedback-list@broadcom.com,  Linus Walleij
+ <linus.walleij@linaro.org>,  Bartosz Golaszewski <brgl@bgdev.pl>,  Hoan
+ Tran <hoan@os.amperecomputing.com>,  Andy Shevchenko <andy@kernel.org>,
+  Daniel Palmer <daniel@thingy.jp>,  Romain Perier
+ <romain.perier@gmail.com>,  Grygorii Strashko <grygorii.strashko@ti.com>,
+  Santosh Shilimkar <ssantosh@kernel.org>,  Kevin Hilman
+ <khilman@kernel.org>,  Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
+  Masami Hiramatsu <mhiramat@kernel.org>,  Shubhrajyoti Datta
+ <shubhrajyoti.datta@amd.com>,  Srinivas Neeli <srinivas.neeli@amd.com>,
+  Michal Simek <michal.simek@amd.com>,  linux-gpio@vger.kernel.org,
+  linux-arm-kernel@lists.infradead.org,  linux-kernel@vger.kernel.org,
+  linux-omap@vger.kernel.org
+Subject: Re: [PATCH v2 05/15] gpio: pxa: Use modern PM macros
+In-Reply-To: <aR22decsE0DYDUnS@xhacker> (Jisheng Zhang's message of "Wed, 19
+	Nov 2025 20:22:13 +0800")
+References: <20251118003229.26636-1-jszhang@kernel.org>
+	<20251118003229.26636-6-jszhang@kernel.org>
+	<CAHp75VevWmB4X_Mh+st_NLChAYZw5V-b3pM9Yrcd-ofa9xYvDQ@mail.gmail.com>
+	<m2ecpvm20y.fsf@free.fr> <aR22decsE0DYDUnS@xhacker>
+User-Agent: mu4e 1.12.13; emacs 29.4
+Date: Thu, 20 Nov 2025 21:48:30 +0100
+Message-ID: <m28qg0mnvl.fsf@free.fr>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251119-xspi-v4-2-a451afbccf33@nxp.com>
+Content-Type: text/plain; format=flowed
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251120_124321_727933_20C0ADAD 
-X-CRM114-Status: GOOD (  12.92  )
+X-CRM114-CacheID: sfid-20251120_124903_609693_72A9DC02 
+X-CRM114-Status: GOOD (  14.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,292 +86,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Haibo,
+Jisheng Zhang <jszhang@kernel.org> writes:
 
-kernel test robot noticed the following build errors:
+> On Tue, Nov 18, 2025 at 11:03:41PM +0100, Robert Jarzmik wrote:
+>
+> hmm, each controller adds 16bytes, then even on 100 controller 
+> platforms
+> 1600bytes. 1600 Bytes/64MB ~= 0.238%. it's trival. And is there 
+> such platform?
+Yes, actually most of them have around 64MB, at least the pxa25x 
+and pxa27x.
+The pxa3xx might have more (thing 128MB, maybe 256MB).
+There are very old platforms, we're in 2003/2004 there ...
 
-[auto build test ERROR on fe4d0dea039f2befb93f27569593ec209843b0f5]
+> From another side, recently UP support is removed from the core 
+> sched,
+> that removing adds more .text and .data overhead, so if the 
+> users really
+> care about this kind of 16bytes, it means he(she) can't afford 
+> even the
+> 16Bytes overhead, then I bet he(she) the always SMP in core 
+> sched, so
+> why not stick with the old kernel? What do you think?
+I think I would go with Andy's proposal, decouple the changes :
+ - keep your changes in the PM callbaks
+ - remove your change (put back the ifdef) in the data structure
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Haibo-Chen/dt-bindings-spi-Document-imx94-xspi/20251119-185220
-base:   fe4d0dea039f2befb93f27569593ec209843b0f5
-patch link:    https://lore.kernel.org/r/20251119-xspi-v4-2-a451afbccf33%40nxp.com
-patch subject: [PATCH v4 2/2] spi: add driver for NXP XSPI controller
-config: sh-allmodconfig (https://download.01.org/0day-ci/archive/20251121/202511210421.NAzUWBmi-lkp@intel.com/config)
-compiler: sh4-linux-gcc (GCC) 15.1.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20251121/202511210421.NAzUWBmi-lkp@intel.com/reproduce)
+Cheers.
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202511210421.NAzUWBmi-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
-         |                                     ^~~~~~~~~~~~~~~~~~
-   include/linux/build_bug.h:50:9: note: in expansion of macro 'BUILD_BUG_ON_MSG'
-      50 |         BUILD_BUG_ON_MSG(condition, "BUILD_BUG_ON failed: " #condition)
-         |         ^~~~~~~~~~~~~~~~
-   include/linux/build_bug.h:21:9: note: in expansion of macro 'BUILD_BUG_ON'
-      21 |         BUILD_BUG_ON(((n) & ((n) - 1)) != 0)
-         |         ^~~~~~~~~~~~
-   include/linux/bitfield.h:75:17: note: in expansion of macro '__BUILD_BUG_ON_NOT_POWER_OF_2'
-      75 |                 __BUILD_BUG_ON_NOT_POWER_OF_2((_mask) +                 \
-         |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/bitfield.h:115:17: note: in expansion of macro '__BF_FIELD_CHECK'
-     115 |                 __BF_FIELD_CHECK(_mask, 0ULL, _val, "FIELD_PREP: ");    \
-         |                 ^~~~~~~~~~~~~~~~
-   drivers/spi/spi-nxp-xspi.c:661:15: note: in expansion of macro 'FIELD_PREP'
-     661 |               FIELD_PREP(XSPI_DLLCRA_DLLRES_MASK, 0x08) |
-         |               ^~~~~~~~~~
-   include/linux/bits.h:51:33: note: in expansion of macro 'GENMASK_TYPE'
-      51 | #define GENMASK(h, l)           GENMASK_TYPE(unsigned long, h, l)
-         |                                 ^~~~~~~~~~~~
-   drivers/spi/spi-nxp-xspi.c:114:41: note: in expansion of macro 'GENMASK'
-     114 | #define XSPI_DLLCRA_DLLRES_MASK         GENMASK(32, 20)
-         |                                         ^~~~~~~
-   drivers/spi/spi-nxp-xspi.c:661:26: note: in expansion of macro 'XSPI_DLLCRA_DLLRES_MASK'
-     661 |               FIELD_PREP(XSPI_DLLCRA_DLLRES_MASK, 0x08) |
-         |                          ^~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/bits.h:49:27: warning: right shift count >= width of type [-Wshift-count-overflow]
-      49 |               type_max(t) >> (BITS_PER_TYPE(t) - 1 - (h)))))
-         |                           ^~
-   include/linux/compiler_types.h:582:23: note: in definition of macro '__compiletime_assert'
-     582 |                 if (!(condition))                                       \
-         |                       ^~~~~~~~~
-   include/linux/compiler_types.h:602:9: note: in expansion of macro '_compiletime_assert'
-     602 |         _compiletime_assert(condition, msg, __compiletime_assert_, __COUNTER__)
-         |         ^~~~~~~~~~~~~~~~~~~
-   include/linux/build_bug.h:39:37: note: in expansion of macro 'compiletime_assert'
-      39 | #define BUILD_BUG_ON_MSG(cond, msg) compiletime_assert(!(cond), msg)
-         |                                     ^~~~~~~~~~~~~~~~~~
-   include/linux/build_bug.h:50:9: note: in expansion of macro 'BUILD_BUG_ON_MSG'
-      50 |         BUILD_BUG_ON_MSG(condition, "BUILD_BUG_ON failed: " #condition)
-         |         ^~~~~~~~~~~~~~~~
-   include/linux/build_bug.h:21:9: note: in expansion of macro 'BUILD_BUG_ON'
-      21 |         BUILD_BUG_ON(((n) & ((n) - 1)) != 0)
-         |         ^~~~~~~~~~~~
-   include/linux/bitfield.h:75:17: note: in expansion of macro '__BUILD_BUG_ON_NOT_POWER_OF_2'
-      75 |                 __BUILD_BUG_ON_NOT_POWER_OF_2((_mask) +                 \
-         |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/bitfield.h:76:56: note: in expansion of macro '__bf_shf'
-      76 |                                               (1ULL << __bf_shf(_mask))); \
-         |                                                        ^~~~~~~~
-   include/linux/bitfield.h:115:17: note: in expansion of macro '__BF_FIELD_CHECK'
-     115 |                 __BF_FIELD_CHECK(_mask, 0ULL, _val, "FIELD_PREP: ");    \
-         |                 ^~~~~~~~~~~~~~~~
-   drivers/spi/spi-nxp-xspi.c:661:15: note: in expansion of macro 'FIELD_PREP'
-     661 |               FIELD_PREP(XSPI_DLLCRA_DLLRES_MASK, 0x08) |
-         |               ^~~~~~~~~~
-   include/linux/bits.h:51:33: note: in expansion of macro 'GENMASK_TYPE'
-      51 | #define GENMASK(h, l)           GENMASK_TYPE(unsigned long, h, l)
-         |                                 ^~~~~~~~~~~~
-   drivers/spi/spi-nxp-xspi.c:114:41: note: in expansion of macro 'GENMASK'
-     114 | #define XSPI_DLLCRA_DLLRES_MASK         GENMASK(32, 20)
-         |                                         ^~~~~~~
-   drivers/spi/spi-nxp-xspi.c:661:26: note: in expansion of macro 'XSPI_DLLCRA_DLLRES_MASK'
-     661 |               FIELD_PREP(XSPI_DLLCRA_DLLRES_MASK, 0x08) |
-         |                          ^~~~~~~~~~~~~~~~~~~~~~~
-   In file included from drivers/spi/spi-nxp-xspi.c:34:
-   include/linux/bits.h:49:27: warning: right shift count >= width of type [-Wshift-count-overflow]
-      49 |               type_max(t) >> (BITS_PER_TYPE(t) - 1 - (h)))))
-         |                           ^~
-   include/linux/bitfield.h:45:38: note: in definition of macro '__bf_shf'
-      45 | #define __bf_shf(x) (__builtin_ffsll(x) - 1)
-         |                                      ^
-   drivers/spi/spi-nxp-xspi.c:661:15: note: in expansion of macro 'FIELD_PREP'
-     661 |               FIELD_PREP(XSPI_DLLCRA_DLLRES_MASK, 0x08) |
-         |               ^~~~~~~~~~
-   include/linux/bits.h:51:33: note: in expansion of macro 'GENMASK_TYPE'
-      51 | #define GENMASK(h, l)           GENMASK_TYPE(unsigned long, h, l)
-         |                                 ^~~~~~~~~~~~
-   drivers/spi/spi-nxp-xspi.c:114:41: note: in expansion of macro 'GENMASK'
-     114 | #define XSPI_DLLCRA_DLLRES_MASK         GENMASK(32, 20)
-         |                                         ^~~~~~~
-   drivers/spi/spi-nxp-xspi.c:661:26: note: in expansion of macro 'XSPI_DLLCRA_DLLRES_MASK'
-     661 |               FIELD_PREP(XSPI_DLLCRA_DLLRES_MASK, 0x08) |
-         |                          ^~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/bits.h:49:27: warning: right shift count >= width of type [-Wshift-count-overflow]
-      49 |               type_max(t) >> (BITS_PER_TYPE(t) - 1 - (h)))))
-         |                           ^~
-   include/linux/bitfield.h:116:63: note: in definition of macro 'FIELD_PREP'
-     116 |                 ((typeof(_mask))(_val) << __bf_shf(_mask)) & (_mask);   \
-         |                                                               ^~~~~
-   include/linux/bits.h:51:33: note: in expansion of macro 'GENMASK_TYPE'
-      51 | #define GENMASK(h, l)           GENMASK_TYPE(unsigned long, h, l)
-         |                                 ^~~~~~~~~~~~
-   drivers/spi/spi-nxp-xspi.c:114:41: note: in expansion of macro 'GENMASK'
-     114 | #define XSPI_DLLCRA_DLLRES_MASK         GENMASK(32, 20)
-         |                                         ^~~~~~~
-   drivers/spi/spi-nxp-xspi.c:661:26: note: in expansion of macro 'XSPI_DLLCRA_DLLRES_MASK'
-     661 |               FIELD_PREP(XSPI_DLLCRA_DLLRES_MASK, 0x08) |
-         |                          ^~~~~~~~~~~~~~~~~~~~~~~
-   In function 'nxp_xspi_dll_auto',
-       inlined from 'nxp_xspi_select_mem' at drivers/spi/spi-nxp-xspi.c:771:3:
->> include/linux/compiler_types.h:602:45: error: call to '__compiletime_assert_346' declared with attribute error: FIELD_PREP: mask is zero
-     602 |         _compiletime_assert(condition, msg, __compiletime_assert_, __COUNTER__)
-         |                                             ^
-   include/linux/compiler_types.h:583:25: note: in definition of macro '__compiletime_assert'
-     583 |                         prefix ## suffix();                             \
-         |                         ^~~~~~
-   include/linux/compiler_types.h:602:9: note: in expansion of macro '_compiletime_assert'
-     602 |         _compiletime_assert(condition, msg, __compiletime_assert_, __COUNTER__)
-         |         ^~~~~~~~~~~~~~~~~~~
-   include/linux/build_bug.h:39:37: note: in expansion of macro 'compiletime_assert'
-      39 | #define BUILD_BUG_ON_MSG(cond, msg) compiletime_assert(!(cond), msg)
-         |                                     ^~~~~~~~~~~~~~~~~~
-   include/linux/bitfield.h:67:17: note: in expansion of macro 'BUILD_BUG_ON_MSG'
-      67 |                 BUILD_BUG_ON_MSG((_mask) == 0, _pfx "mask is zero");    \
-         |                 ^~~~~~~~~~~~~~~~
-   include/linux/bitfield.h:115:17: note: in expansion of macro '__BF_FIELD_CHECK'
-     115 |                 __BF_FIELD_CHECK(_mask, 0ULL, _val, "FIELD_PREP: ");    \
-         |                 ^~~~~~~~~~~~~~~~
-   drivers/spi/spi-nxp-xspi.c:661:15: note: in expansion of macro 'FIELD_PREP'
-     661 |               FIELD_PREP(XSPI_DLLCRA_DLLRES_MASK, 0x08) |
-         |               ^~~~~~~~~~
 --
-         |                                     ^~~~~~~~~~~~~~~~~~
-   include/linux/build_bug.h:50:9: note: in expansion of macro 'BUILD_BUG_ON_MSG'
-      50 |         BUILD_BUG_ON_MSG(condition, "BUILD_BUG_ON failed: " #condition)
-         |         ^~~~~~~~~~~~~~~~
-   include/linux/build_bug.h:21:9: note: in expansion of macro 'BUILD_BUG_ON'
-      21 |         BUILD_BUG_ON(((n) & ((n) - 1)) != 0)
-         |         ^~~~~~~~~~~~
-   include/linux/bitfield.h:75:17: note: in expansion of macro '__BUILD_BUG_ON_NOT_POWER_OF_2'
-      75 |                 __BUILD_BUG_ON_NOT_POWER_OF_2((_mask) +                 \
-         |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/bitfield.h:115:17: note: in expansion of macro '__BF_FIELD_CHECK'
-     115 |                 __BF_FIELD_CHECK(_mask, 0ULL, _val, "FIELD_PREP: ");    \
-         |                 ^~~~~~~~~~~~~~~~
-   spi-nxp-xspi.c:661:15: note: in expansion of macro 'FIELD_PREP'
-     661 |               FIELD_PREP(XSPI_DLLCRA_DLLRES_MASK, 0x08) |
-         |               ^~~~~~~~~~
-   include/linux/bits.h:51:33: note: in expansion of macro 'GENMASK_TYPE'
-      51 | #define GENMASK(h, l)           GENMASK_TYPE(unsigned long, h, l)
-         |                                 ^~~~~~~~~~~~
-   spi-nxp-xspi.c:114:41: note: in expansion of macro 'GENMASK'
-     114 | #define XSPI_DLLCRA_DLLRES_MASK         GENMASK(32, 20)
-         |                                         ^~~~~~~
-   spi-nxp-xspi.c:661:26: note: in expansion of macro 'XSPI_DLLCRA_DLLRES_MASK'
-     661 |               FIELD_PREP(XSPI_DLLCRA_DLLRES_MASK, 0x08) |
-         |                          ^~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/bits.h:49:27: warning: right shift count >= width of type [-Wshift-count-overflow]
-      49 |               type_max(t) >> (BITS_PER_TYPE(t) - 1 - (h)))))
-         |                           ^~
-   include/linux/compiler_types.h:582:23: note: in definition of macro '__compiletime_assert'
-     582 |                 if (!(condition))                                       \
-         |                       ^~~~~~~~~
-   include/linux/compiler_types.h:602:9: note: in expansion of macro '_compiletime_assert'
-     602 |         _compiletime_assert(condition, msg, __compiletime_assert_, __COUNTER__)
-         |         ^~~~~~~~~~~~~~~~~~~
-   include/linux/build_bug.h:39:37: note: in expansion of macro 'compiletime_assert'
-      39 | #define BUILD_BUG_ON_MSG(cond, msg) compiletime_assert(!(cond), msg)
-         |                                     ^~~~~~~~~~~~~~~~~~
-   include/linux/build_bug.h:50:9: note: in expansion of macro 'BUILD_BUG_ON_MSG'
-      50 |         BUILD_BUG_ON_MSG(condition, "BUILD_BUG_ON failed: " #condition)
-         |         ^~~~~~~~~~~~~~~~
-   include/linux/build_bug.h:21:9: note: in expansion of macro 'BUILD_BUG_ON'
-      21 |         BUILD_BUG_ON(((n) & ((n) - 1)) != 0)
-         |         ^~~~~~~~~~~~
-   include/linux/bitfield.h:75:17: note: in expansion of macro '__BUILD_BUG_ON_NOT_POWER_OF_2'
-      75 |                 __BUILD_BUG_ON_NOT_POWER_OF_2((_mask) +                 \
-         |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/bitfield.h:76:56: note: in expansion of macro '__bf_shf'
-      76 |                                               (1ULL << __bf_shf(_mask))); \
-         |                                                        ^~~~~~~~
-   include/linux/bitfield.h:115:17: note: in expansion of macro '__BF_FIELD_CHECK'
-     115 |                 __BF_FIELD_CHECK(_mask, 0ULL, _val, "FIELD_PREP: ");    \
-         |                 ^~~~~~~~~~~~~~~~
-   spi-nxp-xspi.c:661:15: note: in expansion of macro 'FIELD_PREP'
-     661 |               FIELD_PREP(XSPI_DLLCRA_DLLRES_MASK, 0x08) |
-         |               ^~~~~~~~~~
-   include/linux/bits.h:51:33: note: in expansion of macro 'GENMASK_TYPE'
-      51 | #define GENMASK(h, l)           GENMASK_TYPE(unsigned long, h, l)
-         |                                 ^~~~~~~~~~~~
-   spi-nxp-xspi.c:114:41: note: in expansion of macro 'GENMASK'
-     114 | #define XSPI_DLLCRA_DLLRES_MASK         GENMASK(32, 20)
-         |                                         ^~~~~~~
-   spi-nxp-xspi.c:661:26: note: in expansion of macro 'XSPI_DLLCRA_DLLRES_MASK'
-     661 |               FIELD_PREP(XSPI_DLLCRA_DLLRES_MASK, 0x08) |
-         |                          ^~~~~~~~~~~~~~~~~~~~~~~
-   In file included from spi-nxp-xspi.c:34:
-   include/linux/bits.h:49:27: warning: right shift count >= width of type [-Wshift-count-overflow]
-      49 |               type_max(t) >> (BITS_PER_TYPE(t) - 1 - (h)))))
-         |                           ^~
-   include/linux/bitfield.h:45:38: note: in definition of macro '__bf_shf'
-      45 | #define __bf_shf(x) (__builtin_ffsll(x) - 1)
-         |                                      ^
-   spi-nxp-xspi.c:661:15: note: in expansion of macro 'FIELD_PREP'
-     661 |               FIELD_PREP(XSPI_DLLCRA_DLLRES_MASK, 0x08) |
-         |               ^~~~~~~~~~
-   include/linux/bits.h:51:33: note: in expansion of macro 'GENMASK_TYPE'
-      51 | #define GENMASK(h, l)           GENMASK_TYPE(unsigned long, h, l)
-         |                                 ^~~~~~~~~~~~
-   spi-nxp-xspi.c:114:41: note: in expansion of macro 'GENMASK'
-     114 | #define XSPI_DLLCRA_DLLRES_MASK         GENMASK(32, 20)
-         |                                         ^~~~~~~
-   spi-nxp-xspi.c:661:26: note: in expansion of macro 'XSPI_DLLCRA_DLLRES_MASK'
-     661 |               FIELD_PREP(XSPI_DLLCRA_DLLRES_MASK, 0x08) |
-         |                          ^~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/bits.h:49:27: warning: right shift count >= width of type [-Wshift-count-overflow]
-      49 |               type_max(t) >> (BITS_PER_TYPE(t) - 1 - (h)))))
-         |                           ^~
-   include/linux/bitfield.h:116:63: note: in definition of macro 'FIELD_PREP'
-     116 |                 ((typeof(_mask))(_val) << __bf_shf(_mask)) & (_mask);   \
-         |                                                               ^~~~~
-   include/linux/bits.h:51:33: note: in expansion of macro 'GENMASK_TYPE'
-      51 | #define GENMASK(h, l)           GENMASK_TYPE(unsigned long, h, l)
-         |                                 ^~~~~~~~~~~~
-   spi-nxp-xspi.c:114:41: note: in expansion of macro 'GENMASK'
-     114 | #define XSPI_DLLCRA_DLLRES_MASK         GENMASK(32, 20)
-         |                                         ^~~~~~~
-   spi-nxp-xspi.c:661:26: note: in expansion of macro 'XSPI_DLLCRA_DLLRES_MASK'
-     661 |               FIELD_PREP(XSPI_DLLCRA_DLLRES_MASK, 0x08) |
-         |                          ^~~~~~~~~~~~~~~~~~~~~~~
-   In function 'nxp_xspi_dll_auto',
-       inlined from 'nxp_xspi_select_mem' at spi-nxp-xspi.c:771:3:
->> include/linux/compiler_types.h:602:45: error: call to '__compiletime_assert_346' declared with attribute error: FIELD_PREP: mask is zero
-     602 |         _compiletime_assert(condition, msg, __compiletime_assert_, __COUNTER__)
-         |                                             ^
-   include/linux/compiler_types.h:583:25: note: in definition of macro '__compiletime_assert'
-     583 |                         prefix ## suffix();                             \
-         |                         ^~~~~~
-   include/linux/compiler_types.h:602:9: note: in expansion of macro '_compiletime_assert'
-     602 |         _compiletime_assert(condition, msg, __compiletime_assert_, __COUNTER__)
-         |         ^~~~~~~~~~~~~~~~~~~
-   include/linux/build_bug.h:39:37: note: in expansion of macro 'compiletime_assert'
-      39 | #define BUILD_BUG_ON_MSG(cond, msg) compiletime_assert(!(cond), msg)
-         |                                     ^~~~~~~~~~~~~~~~~~
-   include/linux/bitfield.h:67:17: note: in expansion of macro 'BUILD_BUG_ON_MSG'
-      67 |                 BUILD_BUG_ON_MSG((_mask) == 0, _pfx "mask is zero");    \
-         |                 ^~~~~~~~~~~~~~~~
-   include/linux/bitfield.h:115:17: note: in expansion of macro '__BF_FIELD_CHECK'
-     115 |                 __BF_FIELD_CHECK(_mask, 0ULL, _val, "FIELD_PREP: ");    \
-         |                 ^~~~~~~~~~~~~~~~
-   spi-nxp-xspi.c:661:15: note: in expansion of macro 'FIELD_PREP'
-     661 |               FIELD_PREP(XSPI_DLLCRA_DLLRES_MASK, 0x08) |
-         |               ^~~~~~~~~~
-
-
-vim +/__compiletime_assert_346 +602 include/linux/compiler_types.h
-
-eb5c2d4b45e3d2 Will Deacon 2020-07-21  588  
-eb5c2d4b45e3d2 Will Deacon 2020-07-21  589  #define _compiletime_assert(condition, msg, prefix, suffix) \
-eb5c2d4b45e3d2 Will Deacon 2020-07-21  590  	__compiletime_assert(condition, msg, prefix, suffix)
-eb5c2d4b45e3d2 Will Deacon 2020-07-21  591  
-eb5c2d4b45e3d2 Will Deacon 2020-07-21  592  /**
-eb5c2d4b45e3d2 Will Deacon 2020-07-21  593   * compiletime_assert - break build and emit msg if condition is false
-eb5c2d4b45e3d2 Will Deacon 2020-07-21  594   * @condition: a compile-time constant condition to check
-eb5c2d4b45e3d2 Will Deacon 2020-07-21  595   * @msg:       a message to emit if condition is false
-eb5c2d4b45e3d2 Will Deacon 2020-07-21  596   *
-eb5c2d4b45e3d2 Will Deacon 2020-07-21  597   * In tradition of POSIX assert, this macro will break the build if the
-eb5c2d4b45e3d2 Will Deacon 2020-07-21  598   * supplied condition is *false*, emitting the supplied error message if the
-eb5c2d4b45e3d2 Will Deacon 2020-07-21  599   * compiler has support to do so.
-eb5c2d4b45e3d2 Will Deacon 2020-07-21  600   */
-eb5c2d4b45e3d2 Will Deacon 2020-07-21  601  #define compiletime_assert(condition, msg) \
-eb5c2d4b45e3d2 Will Deacon 2020-07-21 @602  	_compiletime_assert(condition, msg, __compiletime_assert_, __COUNTER__)
-eb5c2d4b45e3d2 Will Deacon 2020-07-21  603  
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Robert
 
