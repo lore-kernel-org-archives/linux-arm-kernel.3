@@ -4,92 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9F3FCF8564
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 09:07:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED522CF856D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 09:09:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eXBJfz+nlT32zvUVTDmHspee1phygZAGEQqGMhXUGqo=; b=qCu30FwTCNotd5osBn/3/8wKwN
-	GQ19W7waKOtgRUv1fRQ6+zb28yDAHcyOdFL3wYIfc1ADr7t3tTlqqgHKUfNwl1ncC+8P0hLwvmerS
-	OeM30iYoi3bVI64EwFkzUVPWe8I/Oa3yZSnz/5m+4uo9Pf15d9O0BrN346lbZTMvr0+kjCWr3dCXv
-	AXi9xK62AgtnEg4H6262PPqTzpEcFut2oo86XTpaDgWS7MiO6GexGaKp2mr6IaEWg7ovS2rmhM2fW
-	JRtYlZ/wI4NzNcZ7OxuYIoM9tiRStqckvNSkmL2V12br4kVHtjfIR0NZLSwe3mriFwe9J7Kb3WWGV
-	UZlrMW6A==;
+	bh=xgXbwGEwGVAQl9IjXxj7h2aDGeU88wjhkrE5v/FOi3I=; b=jJp/207oIsJmLnaGWSDEshI8UB
+	0lGiHjRCmBOXuE7UN7Y1OJzTXAr/3OchkO+I6MBOqw0zvkZfAUg4tBstiVQvzIdZMsLXReCU6GIG1
+	QR7m31UVbrXJ8qcEpwKw55fCVdlRqZyDcEConqHF4sAKQ0Ma5zsKsmcTNIp6ojcp+K+PNOE4oKlAb
+	zTLalpNg6cMwLmG+LzwgRRrxPvE5DMB34md8DzNYvGOMz4fiNsKDv31Wlouul8YmzEooM2t/O/vRu
+	Gct8Q5aD4lIrOA2qvUXCVIoU2CkPIH80fb9iF2+LlGFxr9XISufunvA8ATw5a3/mtPCJLhJDfiLyV
+	YJybMwTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vM0dB-00000006OVK-1Z3H;
-	Thu, 20 Nov 2025 09:07:09 +0000
-Received: from mail-ed1-x52b.google.com ([2a00:1450:4864:20::52b])
+	id 1vM0fh-00000006Ol4-2j21;
+	Thu, 20 Nov 2025 09:09:45 +0000
+Received: from out-176.mta1.migadu.com ([2001:41d0:203:375::b0])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vM0d8-00000006OUr-26H5
+	id 1vM0fe-00000006Oib-1Dn3
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Nov 2025 09:07:07 +0000
-Received: by mail-ed1-x52b.google.com with SMTP id 4fb4d7f45d1cf-64166a57f3bso968661a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Nov 2025 01:07:05 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1763629625; x=1764234425; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=eXBJfz+nlT32zvUVTDmHspee1phygZAGEQqGMhXUGqo=;
-        b=xrpvglY/Ib8uxcSamx6sIIJY2RszPDqQcBSg+YU+QjbFscYkgND1EESZtpz50vI/7t
-         39iYUTsvntme1m2VkqEKIiu9v5HYeAI79JqHbG6TkoX9xb/VvCOYIIGfFTaAQCET6TPI
-         wISEiBz5NlVs4rDewlhuMa6CcIDt6tfW9b/QW4F1cJUvuH90ilfBPAjHqWAi5U/VSdKw
-         f1PCwBpiY6HAmtoPB8Sj37EGqk/Jkn9/9DyfVWpc5AnSWr/oVzXXl3M2aCn/S6E42x1Y
-         C4NLgZFApfuk96rwR4DCamyujqKLudCKDGjrx4qQW14Lox5rGtV/QqIDsmm5kQjYNIY+
-         vozQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763629625; x=1764234425;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=eXBJfz+nlT32zvUVTDmHspee1phygZAGEQqGMhXUGqo=;
-        b=rZ2spmzDimQJ2vjOUBa5a9lsrwdgMlH4mxQbE8FP1HoQ7v/x/Xl+g/aR8pFa73aVNP
-         J1B7wvqgivgKUnVnZmYGtPrp6lTW+yc+ty4Zt6mT38dVbWrUXPqIx8wZDW8MxLFiY/cq
-         hSgd2RpER60KTBRL5dYJdg0aF7beypM+xHFd9owAcAoftzkLGUPzBkJi+Y5UA3TxThZO
-         +vkDkZHxMq3/QA17TwljeWAWuOrhVkZM7R+sru0sIhCWm+aF/wKAht+lPhLTHCIQYzsh
-         VeqW5Q+DolePk2Zx0A2IvpOKD7SuuA5wG4SS/Y+66LzppNZ5ATzUl1KhTtNZLMKzCViu
-         MVoA==
-X-Forwarded-Encrypted: i=1; AJvYcCVocDLtDBLmw6/NJczJZo5WJXe99jzRG1nqtC4fD5eN425klHw4R8YYBHkTp7SNWF33l9e/rX4wc7obJn3AcB/m@lists.infradead.org
-X-Gm-Message-State: AOJu0YwTsX9QWnm20Or91aRKXDUcYm440x99s96pohPgF2bWNqFxOAuO
-	Ct5ybK0An8ehukugbgMiXvJwQFttJ13a4pJmau9eQMigkRWyZzabIgdarOwzPBZL74hIAruTsVI
-	M6ce00VmAIG+LGV9Z6VU22/0oebvp05IxfKvvN7bBag==
-X-Gm-Gg: ASbGncvnQW32h8K31SuhBAyQ/O3mXKqgKc1qROT3WllGwAyyP6yQyQimKtVhqkUTBP7
-	vB0EVB2A0wIyFovTtQSu9ZrqFsiDjExNnX368eLvogUC6lYbqtsRlsj52y7ddVZEC/XHfWWYW33
-	nthaI4AzR/TdNSTnnZ11GICVUa6UVEDNJV/rMQjH7876PTH26QCEkkbfXFUsbZG+uWrNrkzgYKO
-	I+FICoetdQpyySQSuyf6o5KhUiO8EMH4pFmoaObsFRYfRUdo9FnRI3fH8gq3uv4Cv4PYi2Cbvme
-	edLjYupf8ttydEBfV5pH14U=
-X-Google-Smtp-Source: AGHT+IHr/LLoSOyZaRnaG92hpxiXwEwUws8DiyqeFHyQxoqH5z1SqVajNFGpFPiD/vA6q098LJZ8VNvxzb3o3RWgfGo=
-X-Received: by 2002:a05:6402:4302:b0:640:c643:75dd with SMTP id
- 4fb4d7f45d1cf-64536409732mr2241018a12.12.1763629624483; Thu, 20 Nov 2025
- 01:07:04 -0800 (PST)
+	Thu, 20 Nov 2025 09:09:43 +0000
+Message-ID: <e8510685-3ed1-4350-b6dd-c997a3c74847@linux.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1763629767;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=xgXbwGEwGVAQl9IjXxj7h2aDGeU88wjhkrE5v/FOi3I=;
+	b=UK3rqHbD4OiaRmzhfHEuC1RStGbAVosy0xKnIvoREnNbC8IB/eNrg8Vv7rbGTtpy9aoaFP
+	YvYi9lVbAJY77X2FRICQ6m5MtU3yJIswKPt2s/KtCwDakPU4RygPykFYKiElmmyImXeG6Y
+	4PTBfu0iFj4QnIx0wbCBj8+ZZqWqAuk=
+Date: Thu, 20 Nov 2025 01:09:16 -0800
 MIME-Version: 1.0
-References: <20251118160238.26265-1-vincent.guittot@linaro.org>
- <20251118160238.26265-4-vincent.guittot@linaro.org> <qvpx4ys2jqqugfbcdwidwvklcatdqiwdxfjumn7ncbh7z6ef5n@sepvjsatmpbd>
-In-Reply-To: <qvpx4ys2jqqugfbcdwidwvklcatdqiwdxfjumn7ncbh7z6ef5n@sepvjsatmpbd>
-From: Vincent Guittot <vincent.guittot@linaro.org>
-Date: Thu, 20 Nov 2025 10:06:53 +0100
-X-Gm-Features: AWmQ_bmE9vkDDyDL2VNdrRaFqjJ3Ook37JBhnVf_WMx1pdoYrW372XueHwRvONI
-Message-ID: <CAKfTPtDONX3-syavhhza6t6+6U8wowqwCN2Hnv9CHBR6W9RNNQ@mail.gmail.com>
-Subject: Re: [PATCH 3/4 v5] PCI: s32g: Add initial PCIe support (RC)
-To: Manivannan Sadhasivam <mani@kernel.org>
-Cc: chester62515@gmail.com, mbrugger@suse.com, ghennadi.procopciuc@oss.nxp.com, 
-	s32@nxp.com, bhelgaas@google.com, jingoohan1@gmail.com, lpieralisi@kernel.org, 
-	kwilczynski@kernel.org, robh@kernel.org, krzk+dt@kernel.org, 
-	conor+dt@kernel.org, Ionut.Vicovan@nxp.com, larisa.grigore@nxp.com, 
-	Ghennadi.Procopciuc@nxp.com, ciprianmarian.costea@nxp.com, 
-	bogdan.hamciuc@nxp.com, Frank.li@nxp.com, 
-	linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
-	cassel@kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Subject: Re: [External] Re: How to Avoid Starving the Kernel When Using SSE
+To: =?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>,
+ Zhanpeng Zhang <zhangzhanpeng.jasper@bytedance.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ Himanshu Chauhan <hchauhan@ventanamicro.com>,
+ Anup Patel <apatel@ventanamicro.com>, =?UTF-8?B?6Lev5pet?=
+ <luxu.kernel@bytedance.com>, Atish Patra <atishp@atishpatra.org>,
+ =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>,
+ =?UTF-8?B?5bSU6L+Q6L6J?= <cuiyunhui@bytedance.com>,
+ =?UTF-8?B?5YWD56u5?= <yuanzhu@bytedance.com>
+References: <CACnXVncnu6Rnx64GemdBvxu+mTqYEMGePoR5OvaJh3gC4uG-NA@mail.gmail.com>
+ <bec1e1f4-e188-415d-bbb2-1854b7e8cf1d@rivosinc.com>
+ <4a24df59-a209-4f2f-9465-f98482e83952@rivosinc.com>
+ <00786ddb6d626442879072851d455bbd8ef1181d.d460d6ec.7656.4a45.8288.5b0b88825811@bytedance.com>
+ <515d639f-7814-4104-b757-63c16429d325@rivosinc.com>
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Atish Patra <atish.patra@linux.dev>
+Content-Language: en-US
+In-Reply-To: <515d639f-7814-4104-b757-63c16429d325@rivosinc.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251120_010706_717911_0F68CD35 
-X-CRM114-Status: GOOD (  42.00  )
+X-CRM114-CacheID: sfid-20251120_010942_473713_773FB7FA 
+X-CRM114-Status: GOOD (  45.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,576 +84,348 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 20 Nov 2025 at 09:22, Manivannan Sadhasivam <mani@kernel.org> wrote=
-:
->
-> On Tue, Nov 18, 2025 at 05:02:37PM +0100, Vincent Guittot wrote:
-> > Add initial support of the PCIe controller for S32G Soc family. Only
-> > host mode is supported.
-> >
-> > Co-developed-by: Ionut Vicovan <Ionut.Vicovan@nxp.com>
-> > Signed-off-by: Ionut Vicovan <Ionut.Vicovan@nxp.com>
-> > Co-developed-by: Ciprian Marian Costea <ciprianmarian.costea@nxp.com>
-> > Signed-off-by: Ciprian Marian Costea <ciprianmarian.costea@nxp.com>
-> > Co-developed-by: Ghennadi Procopciuc <Ghennadi.Procopciuc@nxp.com>
-> > Signed-off-by: Ghennadi Procopciuc <Ghennadi.Procopciuc@nxp.com>
-> > Co-developed-by: Larisa Grigore <larisa.grigore@nxp.com>
-> > Signed-off-by: Larisa Grigore <larisa.grigore@nxp.com>
-> > Signed-off-by: Vincent Guittot <vincent.guittot@linaro.org>
-> > ---
-> >  drivers/pci/controller/dwc/Kconfig            |  10 +
-> >  drivers/pci/controller/dwc/Makefile           |   1 +
-> >  .../pci/controller/dwc/pcie-nxp-s32g-regs.h   |  21 +
-> >  drivers/pci/controller/dwc/pcie-nxp-s32g.c    | 391 ++++++++++++++++++
-> >  4 files changed, 423 insertions(+)
-> >  create mode 100644 drivers/pci/controller/dwc/pcie-nxp-s32g-regs.h
-> >  create mode 100644 drivers/pci/controller/dwc/pcie-nxp-s32g.c
-> >
-> > diff --git a/drivers/pci/controller/dwc/Kconfig b/drivers/pci/controlle=
-r/dwc/Kconfig
-> > index 349d4657393c..e276956c3fca 100644
-> > --- a/drivers/pci/controller/dwc/Kconfig
-> > +++ b/drivers/pci/controller/dwc/Kconfig
-> > @@ -256,6 +256,16 @@ config PCIE_TEGRA194_EP
-> >         in order to enable device-specific features PCIE_TEGRA194_EP mu=
-st be
-> >         selected. This uses the DesignWare core.
-> >
-> > +config PCIE_NXP_S32G
-> > +     tristate "NXP S32G PCIe controller (host mode)"
-> > +     depends on ARCH_S32 || COMPILE_TEST
-> > +     select PCIE_DW_HOST
-> > +     help
-> > +       Enable support for the PCIe controller in NXP S32G based boards=
- to
-> > +       work in Host mode. The controller is based on DesignWare IP and
-> > +       can work either as RC or EP. In order to enable host-specific
-> > +       features PCIE_NXP_S32G must be selected.
-> > +
-> >  config PCIE_DW_PLAT
-> >       bool
-> >
-> > diff --git a/drivers/pci/controller/dwc/Makefile b/drivers/pci/controll=
-er/dwc/Makefile
-> > index 7ae28f3b0fb3..3301bbbad78c 100644
-> > --- a/drivers/pci/controller/dwc/Makefile
-> > +++ b/drivers/pci/controller/dwc/Makefile
-> > @@ -10,6 +10,7 @@ obj-$(CONFIG_PCI_DRA7XX) +=3D pci-dra7xx.o
-> >  obj-$(CONFIG_PCI_EXYNOS) +=3D pci-exynos.o
-> >  obj-$(CONFIG_PCIE_FU740) +=3D pcie-fu740.o
-> >  obj-$(CONFIG_PCI_IMX6) +=3D pci-imx6.o
-> > +obj-$(CONFIG_PCIE_NXP_S32G) +=3D pcie-nxp-s32g.o
-> >  obj-$(CONFIG_PCIE_SPEAR13XX) +=3D pcie-spear13xx.o
-> >  obj-$(CONFIG_PCI_KEYSTONE) +=3D pci-keystone.o
-> >  obj-$(CONFIG_PCI_LAYERSCAPE) +=3D pci-layerscape.o
-> > diff --git a/drivers/pci/controller/dwc/pcie-nxp-s32g-regs.h b/drivers/=
-pci/controller/dwc/pcie-nxp-s32g-regs.h
-> > new file mode 100644
-> > index 000000000000..81e35b6227d1
-> > --- /dev/null
-> > +++ b/drivers/pci/controller/dwc/pcie-nxp-s32g-regs.h
-> > @@ -0,0 +1,21 @@
-> > +/* SPDX-License-Identifier: GPL-2.0+ */
-> > +/*
-> > + * Copyright 2015-2016 Freescale Semiconductor, Inc.
-> > + * Copyright 2016-2023, 2025 NXP
-> > + */
-> > +
-> > +#ifndef PCIE_S32G_REGS_H
-> > +#define PCIE_S32G_REGS_H
-> > +
-> > +/* PCIe controller Sub-System */
-> > +
-> > +/* PCIe controller 0 General Control 1 */
-> > +#define PCIE_S32G_PE0_GEN_CTRL_1             0x50
-> > +#define DEVICE_TYPE_MASK                     GENMASK(3, 0)
-> > +#define SRIS_MODE                            BIT(8)
-> > +
-> > +/* PCIe controller 0 General Control 3 */
-> > +#define PCIE_S32G_PE0_GEN_CTRL_3             0x58
-> > +#define LTSSM_EN                             BIT(0)
-> > +
->
-> Since this header is not used by other drivers as of now, I'd prefer movi=
-ng
-> these definitions inside the driver.
+On 11/18/25 12:51 AM, ClÃ©ment LÃ©ger wrote:
+> 
+> 
+> On 11/18/25 09:46, Zhanpeng Zhang wrote:
+>> Hi Clément,
+>>
+>> It seems that your patch is based on the PMU-ctr-delegation version. However, I'm using PMU-SBI and the SSE extension of v8.
+>> So, I made corresponding modifications in `pmu_sbi_ovf_handler` as yours in `rvpmu_ovf_handler`.
+> 
+> Hi Zhanpeng,
+> 
+> Indeed my modifications were based on Atish rvpmu series.
+> 
+>> This indeed prevents the kernel from hanging during perf sampling, and the sampling results look good. But according to the debug results, I think the problem with this approach is quite obvious. After this modification, most `pmu_start` operations are triggered by `event_sched_in` rather than do_sse. That is to say, `pmu_start` is delayed until `event_sched_in`.
+> 
+> That's the expected result, point being that the IRQ rate should be
+> throttled. Depending on how slow is your platform, overflow might kick
+> in faster leading to more throttling and thus delayed start of counter.
+> I do think this solution is the one that should be implemented since the
+> overflow return value from perf_event_overflow() is exactly meant for
+> that (ie throttling IRQs).
+> 
 
-I would prefer to keep it separate. It makes reg easier to parse and
-more registers will be added with new coming features
+While that works fine for the events that already overflowed, what 
+happens for the counter that was about to overflow but stopped because 
+the SSE event handler is called ?
 
->
-> > +#endif  /* PCI_S32G_REGS_H */
-> > diff --git a/drivers/pci/controller/dwc/pcie-nxp-s32g.c b/drivers/pci/c=
-ontroller/dwc/pcie-nxp-s32g.c
-> > new file mode 100644
-> > index 000000000000..eaa6b5363afe
-> > --- /dev/null
-> > +++ b/drivers/pci/controller/dwc/pcie-nxp-s32g.c
-> > @@ -0,0 +1,391 @@
-> > +// SPDX-License-Identifier: GPL-2.0
-> > +/*
-> > + * PCIe host controller driver for NXP S32G SoCs
-> > + *
-> > + * Copyright 2019-2025 NXP
-> > + */
-> > +
-> > +#include <linux/interrupt.h>
-> > +#include <linux/io.h>
-> > +#include <linux/memblock.h>
-> > +#include <linux/module.h>
-> > +#include <linux/of_device.h>
-> > +#include <linux/of_address.h>
-> > +#include <linux/pci.h>
-> > +#include <linux/phy/phy.h>
-> > +#include <linux/platform_device.h>
-> > +#include <linux/pm_runtime.h>
-> > +#include <linux/sizes.h>
-> > +#include <linux/types.h>
-> > +
-> > +#include "pcie-designware.h"
-> > +#include "pcie-nxp-s32g-regs.h"
-> > +
-> > +struct s32g_pcie_port {
-> > +     struct list_head list;
-> > +     struct phy *phy;
-> > +};
-> > +
-> > +struct s32g_pcie {
-> > +     struct dw_pcie  pci;
-> > +     void __iomem *ctrl_base;
-> > +     struct list_head ports;
-> > +};
-> > +
-> > +#define to_s32g_from_dw_pcie(x) \
-> > +     container_of(x, struct s32g_pcie, pci)
-> > +
-> > +static void s32g_pcie_writel_ctrl(struct s32g_pcie *s32g_pp, u32 reg, =
-u32 val)
-> > +{
-> > +     writel(val, s32g_pp->ctrl_base + reg);
-> > +}
-> > +
-> > +static u32 s32g_pcie_readl_ctrl(struct s32g_pcie *s32g_pp, u32 reg)
-> > +{
-> > +     return readl(s32g_pp->ctrl_base + reg);
-> > +}
-> > +
-> > +static void s32g_pcie_enable_ltssm(struct s32g_pcie *s32g_pp)
-> > +{
-> > +     u32 reg;
-> > +
-> > +     reg =3D s32g_pcie_readl_ctrl(s32g_pp, PCIE_S32G_PE0_GEN_CTRL_3);
-> > +     reg |=3D LTSSM_EN;
-> > +     s32g_pcie_writel_ctrl(s32g_pp, PCIE_S32G_PE0_GEN_CTRL_3, reg);
-> > +}
-> > +
-> > +static void s32g_pcie_disable_ltssm(struct s32g_pcie *s32g_pp)
-> > +{
-> > +     u32 reg;
-> > +
-> > +     reg =3D s32g_pcie_readl_ctrl(s32g_pp, PCIE_S32G_PE0_GEN_CTRL_3);
-> > +     reg &=3D ~LTSSM_EN;
-> > +     s32g_pcie_writel_ctrl(s32g_pp, PCIE_S32G_PE0_GEN_CTRL_3, reg);
-> > +}
-> > +
-> > +static int s32g_pcie_start_link(struct dw_pcie *pci)
-> > +{
-> > +     struct s32g_pcie *s32g_pp =3D to_s32g_from_dw_pcie(pci);
-> > +
-> > +     s32g_pcie_enable_ltssm(s32g_pp);
-> > +
-> > +     return 0;
-> > +}
-> > +
-> > +static void s32g_pcie_stop_link(struct dw_pcie *pci)
-> > +{
-> > +     struct s32g_pcie *s32g_pp =3D to_s32g_from_dw_pcie(pci);
-> > +
-> > +     s32g_pcie_disable_ltssm(s32g_pp);
-> > +}
-> > +
-> > +static struct dw_pcie_ops s32g_pcie_ops =3D {
-> > +     .start_link =3D s32g_pcie_start_link,
-> > +     .stop_link =3D s32g_pcie_stop_link,
-> > +};
-> > +
-> > +/* Configure the AMBA AXI Coherency Extensions (ACE) interface */
-> > +static void s32g_pcie_reset_mstr_ace(struct dw_pcie *pci, u64 ddr_base=
-_addr)
-> > +{
-> > +     u32 ddr_base_low =3D lower_32_bits(ddr_base_addr);
-> > +     u32 ddr_base_high =3D upper_32_bits(ddr_base_addr);
-> > +
-> > +     dw_pcie_dbi_ro_wr_en(pci);
-> > +     dw_pcie_writel_dbi(pci, COHERENCY_CONTROL_3_OFF, 0x0);
-> > +
-> > +     /*
-> > +      * Ncore is a cache-coherent interconnect module that enables the
-> > +      * integration of heterogeneous coherent and non-coherent agents =
-in
-> > +      * the chip. Ncore Transactions to peripheral should be non-coher=
-ent
-> > +      * or it might drop them.
-> > +      *
-> > +      * One example where this is needed are PCIe MSIs, which use NoSn=
-oop=3D0
-> > +      * and might end up routed to Ncore.
->
-> I don't think this statement is correct. No Snoop attribute is only appli=
-cable
-> to MRd/MWr operations and not applicable to MSIs. Also, you've marked the
+In that case, you may miss those events until the process is scheduled 
+again. Depending on the frequency of the event that may be okay or not.
 
-The Ncore makes the bridge between the PCIe and the NoC and can decide
-to drop some transactions based in this boundary
+We also need to think about if we need to handle such scenarios for 
+other SSE event ? For example, a continuous trigger correctable RAS 
+errors can end up in the same situation.
 
-> controller as cache coherent in the binding, but this comment doesn't rel=
-ate to
-> it.
+Should we provide a generic sysfs mechanism for users to disable this 
+SSE event ? By default, SSE event would not be throttled but an user can 
+opt in for throttling by writing to the sysfs.
 
-More details of the issue:
-PCIe coherent traffic (e.g. MSIs) that targets peripheral space will
-be dropped by Ncore because peripherals on S32G are not coherent as
-slaves. We add a hard boundary in the PCIe controller coherency
-control registers to separate physical memory space from peripheral
-space.
 
->
-> > +      * Define the start of DDR as seen by Linux as the boundary betwe=
-en
-> > +      * "memory" and "peripherals", with peripherals being below.
->
-> Please mention what this configuration does and why it is necessary. This=
- is not
-> clearly mentioned in the comment.
->
-> > +      */
-> > +     dw_pcie_writel_dbi(pci, COHERENCY_CONTROL_1_OFF,
-> > +                        (ddr_base_low & CFG_MEMTYPE_BOUNDARY_LOW_ADDR_=
-MASK));
-> > +     dw_pcie_writel_dbi(pci, COHERENCY_CONTROL_2_OFF, ddr_base_high);
-> > +     dw_pcie_dbi_ro_wr_dis(pci);
-> > +}
-> > +
-> > +static int s32g_init_pcie_controller(struct dw_pcie_rp *pp)
-> > +{
-> > +     struct dw_pcie *pci =3D to_dw_pcie_from_pp(pp);
-> > +     struct s32g_pcie *s32g_pp =3D to_s32g_from_dw_pcie(pci);
-> > +     u32 val;
-> > +
-> > +     /* Set RP mode */
-> > +     val =3D s32g_pcie_readl_ctrl(s32g_pp, PCIE_S32G_PE0_GEN_CTRL_1);
-> > +     val &=3D ~DEVICE_TYPE_MASK;
-> > +     val |=3D FIELD_PREP(DEVICE_TYPE_MASK, PCI_EXP_TYPE_ROOT_PORT);
-> > +
-> > +     /* Use default CRNS */
->
-> SRNS?
+> Clément
+> 
+>> Actually, I'm also planning to try Atish's PMU-ctr-delegation extension, such delegation optimization seems to be helpful to alleviate the hanging problem. But I think this is no longer the same issue, as it requires comprehensive modifications to the hardware/qemu, kernel, SBI, and Perf itself.
+>>
+>> Regards,
+>> Zhanpeng
+>>> From: "Clément Léger"<cleger@rivosinc.com>
+>>> Date:  Fri, Nov 14, 2025, 23:41
+>>> Subject:  [External] Re: How to Avoid Starving the Kernel When Using SSE
+>>> To: "张展鹏"<zhangzhanpeng.jasper@bytedance.com>
+>>> Cc: "Paul Walmsley"<paul.walmsley@sifive.com>, "Palmer Dabbelt"<palmer@dabbelt.com>, "linux-riscv@lists.infradead.org"<linux-riscv@lists.infradead.org>, "linux-kernel@vger.kernel.org"<linux-kernel@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"<linux-arm-kernel@lists.infradead.org>, "Himanshu Chauhan"<hchauhan@ventanamicro.com>, "Anup Patel"<apatel@ventanamicro.com>, "路旭"<luxu.kernel@bytedance.com>, "Atish Patra"<atishp@atishpatra.org>, "Björn Töpel"<bjorn@rivosinc.com>, "崔运辉"<cuiyunhui@bytedance.com>, "元竹"<yuanzhu@bytedance.com>
+>>> On 11/14/25 14:36, Clément Léger wrote:
+>>
+>>>>
+>>
+>>>>
+>>
+>>>> Hi Zhanpeng,
+>>
+>>>>
+>>
+>>>> On 11/14/25 11:24, 张展鹏 wrote:
+>>
+>>>>> Hi Clément,
+>>
+>>>>>
+>>
+>>>>> Lately, I've been thinking about how to avoid starving the kernel when
+>>
+>>>>> using SSE:
+>>
+>>>>> SSE is powered by M-mode irqs such as M-mode PMU irq for perf sampling and
+>>
+>>>>> M-mode IPI for inter-hart injection. Meanwhile, kernel is powered by S-mode
+>>
+>>>>> irqs, so the kernel may experience starvation when there is a flood of
+>>
+>>>>> M-mode irqs, and kernel may cause such flooding of M-mode irqs when using
+>>
+>>>>> SSE, either deliberately or inadvertently:
+>>
+>>>>>
+>>
+>>>>>     1.  Malicious SSE handler: Kernel may deliberately register a bad SSE
+>>
+>>>>>     handler, which triggers a new inter-hart SSE request via ecall. This will
+>>
+>>>>>     cause an endless loop of SSE, rendering the kernel unresponsive. In this
+>>
+>>>>>     case, the only thing SBI can do is to prevent the nesting of SSE in
+>>
+>>>>>     `sbi_trap_handler` and ensure that SSE events are executed in priority
+>>
+>>>>>     order.
+>>
+>>>>
+>>
+>>>> That seems quite convoluted. Anyone that can load a module can do worse
+>>
+>>>> than crashing the kernel :)
+>>
+>>>>
+>>
+>>>>>     2.  Perf sampling: Kernel may inadvertently choose a bad parameter for
+>>
+>>>>>     Perf, which causes PMU irqs to occur too frequently. Continuous PMU irqs
+>>
+>>>>>     will leave the system with no time to respond to S-mode irqs.
+>>
+>>>>
+>>
+>>>> But this one concern however is valid !
+>>
+>>>>
+>>
+>>>>>
+>>
+>>>>>   Hence, I think we are supposed to improve the SSE framework to avoid
+>>
+>>>>> starving the kernel so easily.
+>>
+>>>>>
+>>
+>>>>> Here is a case study of perf sampling:
+>>
+>>>>> When using PMU-SSE for Perf sampling, the kernel may hang and become
+>>
+>>>>> unresponsive due to the PMU-SSE loop. Once we start to process a Perf
+>>
+>>>>> sampling using PMU-SSE, the kernel may fail to respond to `Ctrl+C` or fail
+>>
+>>>>> to exit after the timing of `sleep 1` completes (these are the two most
+>>
+>>>>> commonly used time-based sampling methods in perf).
+>>
+>>>>>
+>>
+>>>>> By default, perf uses a relatively high sampling frequency, namely
+>>
+>>>>> `perf_event_max_sample_rate`, and will adjust it on demand if sampling
+>>
+>>>>> takes too much time. If this frequency/period goes beyond what system can
+>>
+>>>>> handle, it will make SSE events connect end-to-end, and the system will get
+>>
+>>>>> stuck in an endless loop of "SSE → PMU interrupt → SSE". The kernel is then
+>>
+>>>>> starved (at this point, if you print the `sepc` of SSE completion, you will
+>>
+>>>>> find that the `sepc` remains unchanged each time, indicating that the
+>>
+>>>>> kernel is stuck), and the kernel can never escape from this loop of
+>>
+>>>>> PMU-SSE, because it can neither respond to Ctrl+C interrupts nor adjust the
+>>
+>>>>> sampling frequency.
+>>
+>>>>>
+>>
+>>>>> Current solution: The key to this problem is that every time we finish
+>>
+>>>>> sse_complete, there is already a new PMU irq pending. Then we resume the
+>>
+>>>>> kernel execution via mret, and the system will immediately trap back into
+>>
+>>>>> SSE.
+>>
+>>>>>
+>>
+>>>>> The PMU-SSE-Perf processing flow includes the following steps: `sse_inject`
+>>
+>>>>> (mret to SSE handler), `pmu_stop` (clear PMU pending bit), `pmu_start` (set
+>>
+>>>>> a new value for PMU counter), and `sse_complete` (resume execution to the
+>>
+>>>>> point where the kernel was interrupted). The reason why kernel traps right
+>>
+>>>>> after `sse_complete` is that there is a new PMU irq generated between
+>>
+>>>>> `pmu_start` and `sse_complete`.
+>>
+>>>>>
+>>
+>>>>> In order to address this issue, we propose to delay the procedure of
+>>
+>>>>> re-starting the overflowed PMU counter during PMU-SSE. When kernel triggers
+>>
+>>>>> an ecall to restart the overflowed PMU counters, SBI can check whether it
+>>
+>>>>> is SSE-powered PMU handling. If so, we temporarily modify mhpmevent CSR to
+>>
+>>>>> stop counting kernel events. In this process, M-mode events are always
+>>
+>>>>> inhibited, and U-mode code will not be executed during the
+>>
+>>>>> `pmu_sbi_ovf_handler`, so we only need to inhibit the counting of kernel
+>>
+>>>>> events.
+>>
+>>>>
+>>
+>>>> I'd rather let the kernel control the PMU SSE event delivery by masking
+>>
+>>>> it at the end of the SSE handler and reenabling it later. Additionally,
+>>
+>>>> that solution being in the SBI itself, it does not guarantee that all
+>>
+>>>> SBI implementation will actually do that correctly.
+>>
 
-it's CRNS
+I agree. The solution has to be implemented within Linux kernel rather 
+than in the SBI specification as it is a problem of the SSE event 
+handler & user (in this case where incorrect sampling rate is used).
 
->
-> > +     val &=3D ~SRIS_MODE;
-> > +
-> > +     s32g_pcie_writel_ctrl(s32g_pp, PCIE_S32G_PE0_GEN_CTRL_1, val);
-> > +
-> > +     /*
-> > +      * Make sure we use the coherency defaults (just in case the sett=
-ings
-> > +      * have been changed from their reset values)
-> > +      */
-> > +     s32g_pcie_reset_mstr_ace(pci, memblock_start_of_DRAM());
-> > +
-> > +     dw_pcie_dbi_ro_wr_en(pci);
-> > +
-> > +     val =3D dw_pcie_readl_dbi(pci, PCIE_PORT_FORCE);
-> > +     val |=3D PORT_FORCE_DO_DESKEW_FOR_SRIS;
-> > +     dw_pcie_writel_dbi(pci, PCIE_PORT_FORCE, val);
-> > +
-> > +     val =3D dw_pcie_readl_dbi(pci, GEN3_RELATED_OFF);
-> > +     val |=3D GEN3_RELATED_OFF_EQ_PHASE_2_3;
-> > +     dw_pcie_writel_dbi(pci, GEN3_RELATED_OFF, val);
-> > +
-> > +     dw_pcie_dbi_ro_wr_dis(pci);
-> > +
-> > +     return 0;
-> > +}
-> > +
-> > +static const struct dw_pcie_host_ops s32g_pcie_host_ops =3D {
-> > +     .init =3D s32g_init_pcie_controller,
-> > +};
-> > +
-> > +static int s32g_init_pcie_phy(struct s32g_pcie *s32g_pp)
-> > +{
-> > +     struct dw_pcie *pci =3D &s32g_pp->pci;
-> > +     struct device *dev =3D pci->dev;
-> > +     struct s32g_pcie_port *port, *tmp;
-> > +     int ret;
-> > +
-> > +     list_for_each_entry(port, &s32g_pp->ports, list) {
-> > +             ret =3D phy_init(port->phy);
-> > +             if (ret) {
-> > +                     dev_err(dev, "Failed to init serdes PHY\n");
-> > +                     goto err_phy_revert;
-> > +             }
-> > +
-> > +             ret =3D phy_set_mode_ext(port->phy, PHY_MODE_PCIE, 0);
-> > +             if (ret) {
-> > +                     dev_err(dev, "Failed to set mode on serdes PHY\n"=
-);
-> > +                     goto err_phy_exit;
-> > +             }
-> > +
-> > +             ret =3D phy_power_on(port->phy);
-> > +             if (ret) {
-> > +                     dev_err(dev, "Failed to power on serdes PHY\n");
-> > +                     goto err_phy_exit;
-> > +             }
-> > +     }
-> > +
-> > +     return 0;
-> > +
-> > +err_phy_exit:
-> > +     phy_exit(port->phy);
-> > +
-> > +err_phy_revert:
-> > +     list_for_each_entry_continue_reverse(port, &s32g_pp->ports, list)=
- {
-> > +             phy_power_off(port->phy);
-> > +             phy_exit(port->phy);
-> > +     }
-> > +
-> > +     list_for_each_entry_safe(port, tmp, &s32g_pp->ports, list)
-> > +             list_del(&port->list);
->
-> Can't you use list_for_each_entry_safe_reverse() to combine both operatio=
-ns?
+>>>>
+>>
+>>>> What seems odd is that the perf_event_sample_took() call at each end of
+>>
+>>>> PMU event handler should actually allow perf subsystem to throttle the
+>>
+>>>> rate. I'll take another look at that part to make sure it works as
+>>
+>>>> expected and that we aren't missing any bits.
+>>
+>>>
+>>> Hey Zhanpeng,
+>>
+>>>
+>>> Could you try to apply this quick'n'dirty patch on top of the SSE series
+>>
+>>> and check if it still hang ?
+>>
+>>>
+>>> diff --git a/drivers/perf/riscv_pmu_dev.c b/drivers/perf/riscv_pmu_dev.c
+>>
+>>> index 7dec9c2afa9b..0fb8749c476f 100644
+>>
+>>> --- a/drivers/perf/riscv_pmu_dev.c
+>>
+>>> +++ b/drivers/perf/riscv_pmu_dev.c
+>>
+>>> @@ -1326,6 +1326,7 @@ static irqreturn_t rvpmu_ovf_handler(struct
+>>
+>>> cpu_hw_events *cpu_hw_evt,
+>>
+>>>          int lidx, hidx, fidx;
+>>
+>>>          struct riscv_pmu *pmu;
+>>
+>>>          struct perf_event *event;
+>>
+>>> +       int ev_overflow = 0;
+>>
+>>>          u64 overflow;
+>>
+>>>          u64 overflowed_ctrs = 0;
+>>
+>>>          u64 start_clock = sched_clock();
+>>
+>>> @@ -1423,13 +1424,15 @@ static irqreturn_t rvpmu_ovf_handler(struct
+>>
+>>> cpu_hw_events *cpu_hw_evt,
+>>
+>>>                           * TODO: We will need to stop the guest counters
+>>
+>>> once
+>>
+>>>                           * virtualization support is added.
+>>
+>>>                           */
+>>
+>>> -                       perf_event_overflow(event, &data, regs);
+>>
+>>> +                       ev_overflow |= perf_event_overflow(event, &data,
+>>
+>>> regs);
+>>
+>>>                  }
+>>
+>>>                  /* Reset the state as we are going to start the counter
+>>
+>>> after the loop */
+>>
+>>>                  hw_evt->state = 0;
+>>
+>>>          }
+>>
+>>>
+>>> -       rvpmu_start_overflow_mask(pmu, overflowed_ctrs);
+>>
+>>> +       if (!ev_overflow || !from_sse)
+>>
+>>> +               rvpmu_start_overflow_mask(pmu, overflowed_ctrs);
+>>
+>>> +
+>>
+>>>          perf_sample_event_took(sched_clock() - start_clock);
+>>
+>>>
+>>>          return IRQ_HANDLED;
+>>
+>>>
+>>>>
+>>
+>>>> Thanks,
+>>
+>>>>
+>>
+>>>> Clément
+>>
+>>>>
+>>
+>>>>>
+>>
+>>>>> In this way, we can ensure that `pmu_sbi_ovf_handler` will not be
+>>
+>>>>> re-entered by the new PMU-SSE, and minimize the modification of perf logic.
+>>
+>>>>> The price is that we gave up sampling a small portion of kernel code(from
+>>
+>>>>> `pmu_ctr_start` to the end of `pmu_sbi_ovf_handler`), and we probably need
+>>
+>>>>> a new parameter in `pmu_ctr_start`.
+>>
+>>>>>
+>>
+>>>>> Looking forward to your suggestions. Thanks!
+>>
+>>>>>
+>>
+>>>>> Best regards,
+>>
+>>>>> Zhanpeng Zhang
+>>
+>>>>>
+>>
+>>>>
+>>>
+> 
+> 
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
-No, it goes over all elements of the list whereas I only want to power
-off and exit only those which have been init and powered on above.
-
->
-> > +
-> > +     return ret;
-> > +}
-> > +
-> > +static void s32g_deinit_pcie_phy(struct s32g_pcie *s32g_pp)
-> > +{
-> > +     struct s32g_pcie_port *port, *tmp;
-> > +
-> > +     list_for_each_entry_safe(port, tmp, &s32g_pp->ports, list) {
-> > +             phy_power_off(port->phy);
-> > +             phy_exit(port->phy);
-> > +             list_del(&port->list);
-> > +     }
-> > +}
-> > +
-> > +static int s32g_pcie_init(struct device *dev, struct s32g_pcie *s32g_p=
-p)
-> > +{
-> > +     int ret;
-> > +
-> > +     s32g_pcie_disable_ltssm(s32g_pp);
-> > +
-> > +     ret =3D s32g_init_pcie_phy(s32g_pp);
-> > +     if (ret)
-> > +             return ret;
-> > +
-> > +     return 0;
-> > +}
-> > +
-> > +static void s32g_pcie_deinit(struct s32g_pcie *s32g_pp)
-> > +{
-> > +     s32g_pcie_disable_ltssm(s32g_pp);
-> > +
-> > +     s32g_deinit_pcie_phy(s32g_pp);
-> > +}
-> > +
-> > +static int s32g_pcie_parse_port(struct s32g_pcie *s32g_pp, struct devi=
-ce_node *node)
-> > +{
-> > +     struct device *dev =3D s32g_pp->pci.dev;
-> > +     struct s32g_pcie_port *port;
-> > +     int num_lanes;
-> > +
-> > +     port =3D devm_kzalloc(dev, sizeof(*port), GFP_KERNEL);
-> > +     if (!port)
-> > +             return -ENOMEM;
-> > +
-> > +     port->phy =3D devm_of_phy_get(dev, node, NULL);
-> > +     if (IS_ERR(port->phy))
-> > +             return dev_err_probe(dev, PTR_ERR(port->phy),
-> > +                             "Failed to get serdes PHY\n");
-> > +
-> > +     INIT_LIST_HEAD(&port->list);
-> > +     list_add_tail(&port->list, &s32g_pp->ports);
-> > +
-> > +     /*
-> > +      * The DWC core initialization code cannot parse yet the num-lane=
-s
-> > +      * attribute in the Root Port node. The S32G only supports one Ro=
-ot
-> > +      * Port for now so its driver can parse the node and set the num_=
-lanes
-> > +      * field of struct dwc_pcie before calling dw_pcie_host_init().
->
-> Please add TODO prefix so that it catches the eyes looking for improvemen=
-ts.
-
-Okay
-
->
-> > +      */
-> > +     if (!of_property_read_u32(node, "num-lanes", &num_lanes))
-> > +             s32g_pp->pci.num_lanes =3D num_lanes;
-> > +
-> > +     return 0;
-> > +}
-> > +
-> > +static int s32g_pcie_parse_ports(struct device *dev, struct s32g_pcie =
-*s32g_pp)
-> > +{
-> > +     struct s32g_pcie_port *port, *tmp;
-> > +     int ret =3D -ENOENT;
-> > +
-> > +     for_each_available_child_of_node_scoped(dev->of_node, of_port) {
-> > +             if (!of_node_is_type(of_port, "pci"))
-> > +                     continue;
-> > +
-> > +             ret =3D s32g_pcie_parse_port(s32g_pp, of_port);
-> > +             if (ret)
-> > +                     goto err_port;
-> > +     }
-> > +
-> > +err_port:
-> > +     list_for_each_entry_safe(port, tmp, &s32g_pp->ports, list)
-> > +             list_del(&port->list);
-> > +
-> > +     return ret;
-> > +}
-> > +
-> > +static int s32g_pcie_get_resources(struct platform_device *pdev,
-> > +                                struct s32g_pcie *s32g_pp)
-> > +{
-> > +     struct dw_pcie *pci =3D &s32g_pp->pci;
-> > +     struct device *dev =3D &pdev->dev;
-> > +     int ret;
-> > +
-> > +     pci->dev =3D dev;
-> > +     pci->ops =3D &s32g_pcie_ops;
-> > +
-> > +     s32g_pp->ctrl_base =3D devm_platform_ioremap_resource_byname(pdev=
-, "ctrl");
-> > +     if (IS_ERR(s32g_pp->ctrl_base))
-> > +             return PTR_ERR(s32g_pp->ctrl_base);
-> > +
-> > +     INIT_LIST_HEAD(&s32g_pp->ports);
-> > +
-> > +     ret =3D s32g_pcie_parse_ports(dev, s32g_pp);
-> > +     if (ret)
-> > +             return dev_err_probe(dev, ret,
-> > +                             "Failed to parse Root Port: %d\n", ret);
-> > +
-> > +     platform_set_drvdata(pdev, s32g_pp);
->
-> nit: move this to probe()
->
-> > +
-> > +     return 0;
-> > +}
-> > +
-> > +static int s32g_pcie_probe(struct platform_device *pdev)
-> > +{
-> > +     struct device *dev =3D &pdev->dev;
-> > +     struct s32g_pcie *s32g_pp;
-> > +     struct dw_pcie_rp *pp;
-> > +     int ret;
-> > +
-> > +     s32g_pp =3D devm_kzalloc(dev, sizeof(*s32g_pp), GFP_KERNEL);
-> > +     if (!s32g_pp)
-> > +             return -ENOMEM;
-> > +
-> > +     ret =3D s32g_pcie_get_resources(pdev, s32g_pp);
-> > +     if (ret)
-> > +             return ret;
-> > +
-> > +     pm_runtime_no_callbacks(dev);
-> > +     devm_pm_runtime_enable(dev);
-> > +     ret =3D pm_runtime_get_sync(dev);
-> > +     if (ret < 0)
-> > +             goto err_pm_runtime_put;
-> > +
-> > +     ret =3D s32g_pcie_init(dev, s32g_pp);
-> > +     if (ret)
-> > +             goto err_pm_runtime_put;
-> > +
-> > +     pp =3D &s32g_pp->pci.pp;
-> > +     pp->ops =3D &s32g_pcie_host_ops;
-> > +     pp->use_atu_msg =3D true;
-> > +
-> > +     ret =3D dw_pcie_host_init(pp);
-> > +     if (ret)
-> > +             goto err_pcie_deinit;
-> > +
-> > +     return 0;
-> > +
-> > +err_pcie_deinit:
-> > +     s32g_pcie_deinit(s32g_pp);
-> > +err_pm_runtime_put:
-> > +     pm_runtime_put(dev);
-> > +
-> > +     return ret;
-> > +}
-> > +
-> > +static int s32g_pcie_suspend_noirq(struct device *dev)
-> > +{
-> > +     struct s32g_pcie *s32g_pp =3D dev_get_drvdata(dev);
-> > +     struct dw_pcie *pci =3D &s32g_pp->pci;
-> > +
-> > +     return dw_pcie_suspend_noirq(pci);
-> > +}
-> > +
-> > +static int s32g_pcie_resume_noirq(struct device *dev)
-> > +{
-> > +     struct s32g_pcie *s32g_pp =3D dev_get_drvdata(dev);
-> > +     struct dw_pcie *pci =3D &s32g_pp->pci;
-> > +
-> > +     return dw_pcie_resume_noirq(pci);
-> > +}
-> > +
-> > +static const struct dev_pm_ops s32g_pcie_pm_ops =3D {
-> > +     NOIRQ_SYSTEM_SLEEP_PM_OPS(s32g_pcie_suspend_noirq,
-> > +                               s32g_pcie_resume_noirq)
-> > +};
-> > +
-> > +static const struct of_device_id s32g_pcie_of_match[] =3D {
-> > +     { .compatible =3D "nxp,s32g2-pcie" },
-> > +     { /* sentinel */ },
-> > +};
-> > +MODULE_DEVICE_TABLE(of, s32g_pcie_of_match);
-> > +
-> > +static struct platform_driver s32g_pcie_driver =3D {
-> > +     .driver =3D {
-> > +             .name   =3D "s32g-pcie",
-> > +             .of_match_table =3D s32g_pcie_of_match,
-> > +             .suppress_bind_attrs =3D true,
-> > +             .pm =3D pm_sleep_ptr(&s32g_pcie_pm_ops),
-> > +             .probe_type =3D PROBE_PREFER_ASYNCHRONOUS,
-> > +     },
-> > +     .probe =3D s32g_pcie_probe,
-> > +};
-> > +
-> > +module_platform_driver(s32g_pcie_driver);
->
-> builtin_platform_driver() since this controller implements MSI controller=
-.
-
-Can you elaborate ?
-
->
-> - Mani
->
-> --
-> =E0=AE=AE=E0=AE=A3=E0=AE=BF=E0=AE=B5=E0=AE=A3=E0=AF=8D=E0=AE=A3=E0=AE=A9=
-=E0=AF=8D =E0=AE=9A=E0=AE=A4=E0=AE=BE=E0=AE=9A=E0=AE=BF=E0=AE=B5=E0=AE=AE=
-=E0=AF=8D
 
