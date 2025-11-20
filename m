@@ -4,157 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2947CF9C46
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 16:17:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54A0ECF8875
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 16:18:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
+	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ciIWkC2R2RLYTMDPxt+EQe+XAKuSA8h8c/qWj7cyff8=; b=NcEWqOvidowkZj4adprgqv5yCt
-	H/TMM9Es83d8XBN7cHnMtgnD6kAH86kAdhXy+ziy0phmgt2VcBo91HiPU2Y2a/GBOrJVY73cVbVXf
-	tlHImUU0HbY8/Y9smDDdqF2p4w4Y20BguwDHRqF3ZLiFIujF9wHjiAuQ7LbGK5SLGINg5oseCAp9P
-	nLvVYRhsGB2Na8MZLGR3lzXSIcId6ZJ7FnAJgb3xdese+y4PSpxkNsp6sItKLXAqtgtHUk3tfGi/c
-	losktNixiCd1gaV67/eIYWSaoBatD0pdR+sMmqu+W3oacSfarMvSFKj00J9sVFWQoOx+6uItKcYQ0
-	4WaaCiUQ==;
+	bh=0/ylRgxqtv6nFFpvQc5tMPN+5wIjd6mjqxea02uzRrc=; b=M54yqv1NS+JormJu9NqGDLpJEj
+	ez1TncbnRln+ClVRL7j8X1NMfsX6ZWuc8qKE4jHsV+/CphRUlR+3EI4gNBfh5GGBTHRbx57UMCpt5
+	5yNlHmKiiV/0ydDKUNWRPmyqgHi0tKaBlERbdZdvHwHtWfqXaOuPh2s67xcyR7jW5VWG2OOR+71GW
+	Yg5TlB5Jr2h4ZbilAPsE5SrarSyc0HMMMwcDreHHjKgoub3tKb0WaF/7Wu2UVqHP7e9eBPhk66exr
+	k/yx1fnP3ufs/62/RIRBZ+RL57USQDL90C7sUMHHwDJcVntVT0xi17T+8tZ7ROcvsU4mSRlSdM1a8
+	TXr/ozBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vM7Ly-00000006zUo-1M7x;
-	Thu, 20 Nov 2025 16:17:50 +0000
-Received: from mail-westeuropeazon11011016.outbound.protection.outlook.com ([52.101.70.16] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1vM7Mo-00000006zdX-10hY;
+	Thu, 20 Nov 2025 16:18:42 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vM7La-00000006zPu-2zFG
+	id 1vM7Mn-00000006zcw-0Cwh
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Nov 2025 16:17:48 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=NSSlW+Vrdfh/T8KzlwmTl2FEKi3INM7A+9iuJVRce5qo2wFBFdPas0hBWJloT0EyWE8H8ljLcLi11tXl7gtwiD9DXkrkJObPhj6mTW6AGQI5lMN1wIimq4a1qs3sp1oV19BpozAy2qrz4HvMcYpL6vxHTxuFNQ9+asHbdzh3MCQGNT+TcWITdHc8ODFfSwpwNFgPOnb9NRIQT/QohEzOe4YrcBK3i/93aWj36EKp4f+yU/VEQxTsP6UsYo+S6XnM5CtlGvgA9Z+0++ZL880oTDcLG+f7RZR6ShJeeV5Dc/RYiIPwlstjBAVhIxfUq8USmf4Xjjjb/tRZGMNuwsQl4A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ciIWkC2R2RLYTMDPxt+EQe+XAKuSA8h8c/qWj7cyff8=;
- b=efINmSPwnGRvk0vXSeWnqBHcwthq7Zo/h3jkntPyHS6NbYfxudzLyaay+xsS2ItFaBjLrk6OqzU2W4DcJy3eyQlIuQqH/EfoqD43rNQCHhLu0aHqlf/Dl/p6hCrtKVLvZ140hJGS2yIJUKAbENXiMrjB9hlqsIlvLUAXmCeXgzXJhuyaQVmbvrz7Xt7LpGqjDuZmPtZSvu46R8QV7aPaNjJrqX3yohGqzHGgqXchQyRyV1mJKX3rewvPTgVeeZ/NnHpuljdB8KrwtvgczdrQVhlVPZmjD31fsvRtckSX03FM0YuBzxbzuZuefOSQBxZqiCRVkpqdEAer4ztEeQVlmA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ciIWkC2R2RLYTMDPxt+EQe+XAKuSA8h8c/qWj7cyff8=;
- b=T7IPxRHIKEjk2fx00x8b1QRpZVPOd5P/yClpaSShUvBm1eFdlhCsaXcfikEVHpcOaZKT8K2QSNZuY+szsB+KYShYtERpOGBrtteGdeln93Iv9AcbntDkVBw9csWRPvvz5oxbjlrtROYE3Md4QBB1tPwJSH4sPt831PBA6EoFNiO0v3yQVVWymCBPTdc+QowCAVYuLaXjv1FP1qewbXGj96/R+TwqoVdx1WJkNfZXN/NTKBJwk5o0L7hLg4WVUGKH0+ykEM/h9lHKrw+xm8WR3zfWy9jlNbPjDBIvi27ADldT0T9zjImjxwhKow0gtW3Yp1+BbE9E/luke7mc5FQLQg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from DB9PR04MB9626.eurprd04.prod.outlook.com (2603:10a6:10:309::18)
- by GV2PR04MB11445.eurprd04.prod.outlook.com (2603:10a6:150:2af::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9343.10; Thu, 20 Nov
- 2025 16:17:18 +0000
-Received: from DB9PR04MB9626.eurprd04.prod.outlook.com
- ([fe80::55ef:fa41:b021:b5dd]) by DB9PR04MB9626.eurprd04.prod.outlook.com
- ([fe80::55ef:fa41:b021:b5dd%4]) with mapi id 15.20.9343.009; Thu, 20 Nov 2025
- 16:17:18 +0000
-Date: Thu, 20 Nov 2025 11:17:10 -0500
-From: Frank Li <Frank.li@nxp.com>
-To: Carlos Song <carlos.song@nxp.com>
-Cc: Aisheng Dong <aisheng.dong@nxp.com>,
-	"andi.shyti@kernel.org" <andi.shyti@kernel.org>,
-	"shawnguo@kernel.org" <shawnguo@kernel.org>,
-	"s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
-	"kernel@pengutronix.de" <kernel@pengutronix.de>,
-	"festevam@gmail.com" <festevam@gmail.com>,
-	"pandy.gao@nxp.com" <pandy.gao@nxp.com>,
-	"wsa@kernel.org" <wsa@kernel.org>, "vz@mleia.com" <vz@mleia.com>,
-	"B38611@freescale.com" <B38611@freescale.com>,
-	"linux-i2c@vger.kernel.org" <linux-i2c@vger.kernel.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH] i2c: imx-lpi2c: support smbus block read feature
-Message-ID: <aR8/Bt77UWb9G6oI@lizhi-Precision-Tower-5810>
-References: <20251118111323.1452329-1-carlos.song@nxp.com>
- <aR3z4PBN0+0fKqz5@lizhi-Precision-Tower-5810>
- <VI2PR04MB11147CD601B6A9EC8598E13BDE8D4A@VI2PR04MB11147.eurprd04.prod.outlook.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <VI2PR04MB11147CD601B6A9EC8598E13BDE8D4A@VI2PR04MB11147.eurprd04.prod.outlook.com>
-X-ClientProxiedBy: PH8P222CA0020.NAMP222.PROD.OUTLOOK.COM
- (2603:10b6:510:2d7::32) To DB9PR04MB9626.eurprd04.prod.outlook.com
- (2603:10a6:10:309::18)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DB9PR04MB9626:EE_|GV2PR04MB11445:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2e7250e5-ea5c-4823-bef8-08de2850467c
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|52116014|376014|19092799006|366016|38350700014|7053199007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?J0VfaVFUrmZsXcU9GdmVGJIruRGGMXIHl3zX4KqaRkPzB1jlMxUFuwOloSVF?=
- =?us-ascii?Q?BQCMprxUVueNWraExYVNUJlQIiZTbbISK/m1gA1tGSi65FyiW3lHivbmUPxS?=
- =?us-ascii?Q?6DmTBnkYgpBwMGdPpbkYqTOLD6Q+75Rx+g4m9kCD/QwQDHZpMlYQO16ShbUd?=
- =?us-ascii?Q?Yc6CZ0lAp73c3zkdZTdLKevFeBfBzK0J0cESY2xg3rgEGH/g+i3Yj0VA+dKK?=
- =?us-ascii?Q?SiFot4HIU7hp7Ayfaf72mNaeCm3/5GDQwlR8bvzOPkI7peTsjpodO2+niKuI?=
- =?us-ascii?Q?cxTvvWySNOPE/p9WYtafxcKuRmzS46B04XhzyX9i3uMjTZv8BBW3N0B34fUh?=
- =?us-ascii?Q?HUvNs6zqZKTudNOWsHMz2xysx+n7wllK4XkzTxNkPY6U2IfiLCQpzvLXQYGE?=
- =?us-ascii?Q?dsuZXpiV6T0Ke212zPTtDKwMdu4nWF+lkKglMiLx+6DEJjHXgQU/aBfeQ4we?=
- =?us-ascii?Q?y6XxBPzCmhfxetn2EazmuJxnbky/0YeB6tl9kc3LdWY4oANHExx+aLduANfC?=
- =?us-ascii?Q?b6AP1d1TMnb4D8Vk8pLcHwXWieTigod3rR1x0J2TCnz3Z+hP+R+TVuoRwOq1?=
- =?us-ascii?Q?8ZS+GUEkvNWb2u9q7PdUXLWF6rscYCD9tWdh42VWVTqYyqRlqe9ny53+Z+3d?=
- =?us-ascii?Q?LlxobX4H1G7cGYeJLmugVAHMhxpEz4+NEJnZEl0KLF2UyESI7p+C/3P5TCbb?=
- =?us-ascii?Q?tsIpCcbiZ0RHi2ccJm80L+wDa68N7uwt00dJRB30rl1itWhzktZcVMj3BCTS?=
- =?us-ascii?Q?K6OG/h1fWKxebTPzZxaIaJ5RyujUpzjzCMwAMl1kSKEa+k3G4soVKMpL3L9W?=
- =?us-ascii?Q?O3tJKBLVu3MZl8NNYc4t0+tajzZyVWxEqRSJB31qmgw01PYsKWnisS0MLAXS?=
- =?us-ascii?Q?yzdQhd88+MvHoQW0O3+7z1SkeL4yCxArgCJAfZoLSeN32XgPIxKj+1joKSUW?=
- =?us-ascii?Q?VEP7t58RDx57GxjxrFpyKFAFXCDVefpCBT5s/8F/mJiiQxiGdqLvkHE9s/sY?=
- =?us-ascii?Q?4ewmls9XqMVu42YDSBfxC6PqjC3pdOFRApzCP5c0vOWGXc/b59waKLplPYCh?=
- =?us-ascii?Q?txH1pbQsyK8ncWE7JVIk/MSwF4vdBfOPu65E1gCWdKx3lITNljmdepMlLLNW?=
- =?us-ascii?Q?0skTLtNx9w70PER0xHp890kbUs4O0PTqg8hOHrkoYT5qYtzDnPQiLFu0PRAo?=
- =?us-ascii?Q?P0Ptxjv22c3wyb6AXGy1G+4dvmgGaXXC/GKDbGOhmR1g+xyhrLqaYwVRIIsl?=
- =?us-ascii?Q?lXKO7rG7iRqfQ5UAjt+QCJtV/jaARCQi6EXaQFvPRqP2BO/frjC69mSZQLj6?=
- =?us-ascii?Q?oCPi1Ic+4ZbDnoma1S3Wu18dt8bk+rpR4K5M7bZ1JpJyAHJ7hMiQgSsXPsjM?=
- =?us-ascii?Q?LOq1h0xB0PaThZ21vsDJd1ev6oTh6yU2XUVXCEeVTWAukwLEKDJYIU79TI3v?=
- =?us-ascii?Q?ydkGMB3pP9+UHbbbiLN7yjWiyp50+hKYK5VoffMoJcNm5dhesfh6x2ZeeXBC?=
- =?us-ascii?Q?8T2awce/3pkSNcVfaxTWmAMYc4j66AeC80z5?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR04MB9626.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(52116014)(376014)(19092799006)(366016)(38350700014)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?CNgpvJtwr/wvmwes88dFhk3DFGIovfajfr69FtgFao2ReXMez5FcuLNA05Za?=
- =?us-ascii?Q?zQJK2XtkkCcJrI6BKtGjvCHDP2WcQnza3cJ+4VxtvnfNjJB05rMuHK/BdExy?=
- =?us-ascii?Q?ZA4u1trMMg6XxcZoh0wNTqVmveD6doxigOnnulz1nVv65oPEMT3sDBPHW7TG?=
- =?us-ascii?Q?LGnag1+zh1plYFJkzVHkqvL9V/odWoxO45E3FJzih5n1h+y5yzIy+0dnkeAA?=
- =?us-ascii?Q?xQ2VZrILoj0PT0Vi8sbF9xtGsPZZqCGPzTBiYExqcRjt4qu8bugml1dh0xK5?=
- =?us-ascii?Q?4uOg5qTCiJgKjbbXP6S3LninFzItlAyvevFQgyLBsCTTRWaFiWuQCT/cX/cc?=
- =?us-ascii?Q?Q2BdLbg5mCwihZnvADyKyqIz/WUuocGa214/jId8v8YiGTDAzfXEhlo1QHff?=
- =?us-ascii?Q?8BKVf2zAj+VWWbFrzdbu8aVp5KNLZqi/55z5pjo/PoeHHAVN8fONGHFjNuCe?=
- =?us-ascii?Q?qxxm/p5SfF7qliaUydCdAoqT7U1tk8GxgRGLV9YevhhUDDRChtpKKdB4+jqT?=
- =?us-ascii?Q?ZQKlei0EdOGpxyWbEJ0bPAJ2UqTE99YTKjKyVco9j8rKqaddzMPRiGL+mpLv?=
- =?us-ascii?Q?nGStrPYfPiRBhY8H6VUcS80it9716kGkySHm/wJZsqMUl3i/BTFWNRobixY7?=
- =?us-ascii?Q?MZIR/CnJ+L+J6CbmH7V2KmFHqD+FKFOwC0hiUL2dYTuM+rzVmYFiO/An5MKR?=
- =?us-ascii?Q?7+fJgE85TsqTU5nAGdAIRIX04+0X0UTt2n9CsA/iDPcxYsweQLMke3n6Abdo?=
- =?us-ascii?Q?zx0dY6Ivw+1T0gJFYs/pp2RirBg0HfSbFTnjqaXq7HGOOL3JgNb/qCSLqIi4?=
- =?us-ascii?Q?vdnInBNxo8zBRTRVI7NAdzQA7NrPgquBWV54SKDK6TOc1sV0TeJe3bhI6f4b?=
- =?us-ascii?Q?FgwBW971ZdHmbu7QgIMsOhg1GUKyd28J9Nmmtk91Y55aablO4xHEKIVwQjAN?=
- =?us-ascii?Q?+9ln6jFTcTdrDQB8FkBu/B/Op5y6cV1NrxhdQr1+PcXvONby80iZCcZOB2Xh?=
- =?us-ascii?Q?inGxTewtvbcUzW99P9pYYWO97JGkkURnN7gsqwE0Zqj/RhxwwuN+9g1X34TX?=
- =?us-ascii?Q?TCwZzkoOgGV3Lznd8sIV7qAjFCgjGpLbI97HrWbKWAZ9OdJmEFmd0/a55vOg?=
- =?us-ascii?Q?7WfqDePthqZ/6LjQsiKWGfsu3rOAPOUcCupvVRNVvtweVkw0BWDw74YqV5pT?=
- =?us-ascii?Q?ELQaM26yfC5PxrTp8AvKTGyNQIjpBLq3Ujb0DRonah36mDltvXagXdn7E/94?=
- =?us-ascii?Q?cMN1WprZPetqNBrfA7WIEylQOTO279WL0N/drbDY7VgXCmNLJ/jbATBIep+S?=
- =?us-ascii?Q?p4UzRWOkHWIqlgxb8FSUCda309pdEvjMMczUcITgVyFDrWADXRkjPPpfHTOm?=
- =?us-ascii?Q?wG+LyDVydJb4xeXeqGhVAjbw+d63JAW05lH/PkyiuXmg6slYMQt77Pxx3405?=
- =?us-ascii?Q?W4HyBa15DNPWyt7ufy148xMKPeG2k3tAcXpuxoFeaU2fabU8g3sk9xtCtV/7?=
- =?us-ascii?Q?T0mg6hXpf0jLY8UGrl/de2MClrCc31j3biHQGr9v8QphKGbmf8R1q00KU5Gh?=
- =?us-ascii?Q?VGBgI439IvNrZf+U++JxZWjioFCKvQgiPX6IZokw?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2e7250e5-ea5c-4823-bef8-08de2850467c
-X-MS-Exchange-CrossTenant-AuthSource: DB9PR04MB9626.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Nov 2025 16:17:17.9470
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: y6t3vcGhvAT2HJPqc5AwdBYHduzY1eOJexEEwjdUUCfqTXzF6AVHmTMbcwWGp2MJ7/d9Zf5zfURzP5uXHdKjzQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR04MB11445
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251120_081726_759924_AC7E0129 
-X-CRM114-Status: GOOD (  33.73  )
+	Thu, 20 Nov 2025 16:18:41 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 7DA506018B;
+	Thu, 20 Nov 2025 16:18:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3344DC4CEF1;
+	Thu, 20 Nov 2025 16:18:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1763655520;
+	bh=KwZ0JhnSDCNZyZyVN2OkoVg0lxuvRbqfuZ3B6h7NGRg=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=MCG19c7vrB14C6fJ+JhzzKXYDKpEsqcAEaaJONS7bVM706UHdAmzQmi6Cb3od5awI
+	 WRw4jQH663YReAPOCN1shTzYGWuEan0maY0zVHg6X/AOE2k2rsI+HfYDQPXjzSeRiF
+	 Fk/rAuUySTn8H38h+yJEmVTMzrTXBnsd87zsW6g9B3TH1wnn6ArRc/6IMorry3cgcE
+	 huPOZdYkq4T25oR8OUMHtrj2mYVkT4mkiajE72ylz7TjVCyaj0NIGpT8qytz4rbiVp
+	 yh/jzx84pAzuxwooUxaP6B8h3FuX8fzsJfj8SGgtCE8VkS5brlkFCuk/TjKVlsewCt
+	 X0FVYGbc88fzw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vM7Mj-00000006wt3-47F0;
+	Thu, 20 Nov 2025 16:18:38 +0000
+Date: Thu, 20 Nov 2025 16:18:37 +0000
+Message-ID: <864iqosmn6.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Maximilian Dittgen <mdittgen@amazon.de>
+Cc: <oliver.upton@linux.dev>,
+	<pbonzini@redhat.com>,
+	<shuah@kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>,
+	<kvmarm@lists.linux.dev>,
+	<linux-kselftest@vger.kernel.org>,
+	<kvm@vger.kernel.org>,
+	<lilitj@amazon.de>,
+	<sauravsc@amazon.de>,
+	<nh-open-source@amazon.com>
+Subject: Re: [RFC PATCH 01/13] KVM: Introduce config option for per-vCPU vLPI enablement
+In-Reply-To: <20251120140305.63515-2-mdittgen@amazon.de>
+References: <20251120140305.63515-1-mdittgen@amazon.de>
+	<20251120140305.63515-2-mdittgen@amazon.de>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: mdittgen@amazon.de, oliver.upton@linux.dev, pbonzini@redhat.com, shuah@kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kselftest@vger.kernel.org, kvm@vger.kernel.org, lilitj@amazon.de, sauravsc@amazon.de, nh-open-source@amazon.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -169,124 +90,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Nov 20, 2025 at 03:02:26AM +0000, Carlos Song wrote:
->
->
-> > -----Original Message-----
-> > From: Frank Li <frank.li@nxp.com>
-> > Sent: Thursday, November 20, 2025 12:44 AM
-> > To: Carlos Song <carlos.song@nxp.com>
-> > Cc: Aisheng Dong <aisheng.dong@nxp.com>; andi.shyti@kernel.org;
-> > shawnguo@kernel.org; s.hauer@pengutronix.de; kernel@pengutronix.de;
-> > festevam@gmail.com; pandy.gao@nxp.com; wsa@kernel.org; vz@mleia.com;
-> > B38611@freescale.com; linux-i2c@vger.kernel.org; imx@lists.linux.dev;
-> > linux-arm-kernel@lists.infradead.org; linux-kernel@vger.kernel.org
-> > Subject: Re: [PATCH] i2c: imx-lpi2c: support smbus block read feature
-> >
-> > On Tue, Nov 18, 2025 at 07:13:23PM +0800, Carlos Song wrote:
-> > > The LPI2C controller automatically transmits a NACK on the last byte
-> > > of a receive data command. It transmits the NACK unless the next
-> > > command in the TXFIFO is also a receive data command. If the transmit
-> > > FIFO is empty when a receive data command completes, a NACK is also
-> > > automatically transmitted.
-> > >
-> > > Specially set read 2 bytes command initially. When the RXFIFO receives
-> > > count data, controller should immediately read out this value and
-> > > update MTDR register to keep the TXFIFO not empty. Set new receive
-> > > data command to read other data before the 2nd byte is returned.
-> > >
-> > > Fixes: a55fa9d0e42e ("i2c: imx-lpi2c: add low power i2c bus driver")
-> > > Signed-off-by: Carlos Song <carlos.song@nxp.com>
-> > >
-> > > ---
-> > > I setup an env to test this feature change:
-> > >
-> > > On I.MX93-EVK:
-> > > LPI2C5 as slave device and use i2ctool to redesign the slave-eeprom mem:
-> > >
-> > > hexdump -C /sys/bus/i2c/devices/5-1064/slave-eeprom
-> > >
-...
-> > > -	temp |= (RECV_DATA << 8);
-> > > -	writel(temp, lpi2c_imx->base + LPI2C_MTDR);
-> > > +
-> > > +	if (!lpi2c_imx->block_data) {
-> > > +		temp = msgs->len > CHUNK_DATA ? CHUNK_DATA - 1 : msgs->len - 1;
-> > > +		temp |= (RECV_DATA << 8);
-> > > +		writel(temp, lpi2c_imx->base + LPI2C_MTDR);
-> > > +	} else {
-> > > +		/*
-> > > +		 * The LPI2C controller automatically transmits a NACK on the last
-> > byte
-> > > +		 * of a receive data command.
-> >
-> > looks like transfer STOP? You get data, it should be ACK when received data.
-> >
->
-> According to LPI2C RM MTDR register shows:
-> When controller need to read data, we should send command word first.
->      Bit10| bit9 | bit8 |          bit7~0
-> Receive (DATA[7:0] + 1) bytes    byte counter
->
-> DATA[7:0] is used as a byte counter. Receive that many bytes and check each for a data match (if configured) before storing the received data in the receive FIFO.
-> We can prefill the bytes count to controller, controller will auto ACK after every bytes until count is exhausted. Then controller send auto NACK.
->
+On Thu, 20 Nov 2025 14:02:50 +0000,
+Maximilian Dittgen <mdittgen@amazon.de> wrote:
+>=20
+> Add CONFIG_ARM_GIC_V3_PER_VCPU_VLPI to control whether vLPI direct
+> injection is to be enabled on a system-wide or a per-vCPU basis.
+>=20
+> When enabled, vPEs can be allocated/deallocated to vCPUs on an ad-hoc,
+> per-vCPU basis in runtime. When disabled, keep current vgic_v4_init
+> behavior of automatic vCPU vPE allocation upon VM initialization.
+>=20
+> We declare three ioctls numbers to manage per-vCPU vLPI enablement:
+> - KVM_ENABLE_VCPU_VLPI, which given a vCPU ID, allocates a vPE and
+> initializes the vCPU for receiving direct vLPI interrupts.
+> - KVM_DISABLE_VCPU_VLPI, which given a vCPU ID, disables the vCPU=E2=80=
+=99s
+> ability to receive direct vLPI interrupts and frees its underlying vPE
+> structure.
+> - KVM_QUERY_VCPU_VLPI, which given a vCPU ID, returns a boolean
+> describing whether the vCPU is configured to receive direct vLPI
+> interrupts.
+>=20
+> This commit declares the kconfig, ioctl numbers, and documentation.
+> Implementation will come throughout this patch set.
+>=20
+> Signed-off-by: Maximilian Dittgen <mdittgen@amazon.de>
+> ---
+>  Documentation/virt/kvm/api.rst | 56 ++++++++++++++++++++++++++++++++++
+>  arch/arm64/kvm/arm.c           | 15 +++++++++
+>  arch/arm64/kvm/vgic/vgic-v4.c  |  9 ++++++
+>  arch/arm64/kvm/vgic/vgic.h     |  2 ++
+>  drivers/irqchip/Kconfig        | 13 ++++++++
+>  include/uapi/linux/kvm.h       |  6 ++++
+>  6 files changed, 101 insertions(+)
+>=20
+> diff --git a/Documentation/virt/kvm/api.rst b/Documentation/virt/kvm/api.=
+rst
+> index 27f726ff8fe0..dcfb326dff10 100644
+> --- a/Documentation/virt/kvm/api.rst
+> +++ b/Documentation/virt/kvm/api.rst
+> @@ -6517,6 +6517,62 @@ the capability to be present.
+> =20
+>  `flags` must currently be zero.
+> =20
+> +4.XXX KVM_ENABLE_VCPU_VLPI
+> +--------------------------
+> +
+> +:Capability: KVM_CAP_ARM_PER_VCPU_VLPI
+> +:Architectures: arm64
+> +:Type: vm ioctl
+> +:Parameters: int vcpu_id (in)
+> +:Returns: 0 on success, negative value on error
+> +
+> +This ioctl enables GICv4 direct vLPI injection for the specified vCPU.
+> +Allocates vPE structures (doorbell IRQ, vPE table entry, virtual pending
+> +table, vPEID) and upgrades existing software-forwarded LPIs targeting
+> +this vCPU to hardware-forwarded vLPIs.
+> +
+> +If GICv4.1 is supported and vSGIs are disabled on the specified vCPU,
+> +this ioctl enables vCPU vSGI support.
+> +
+> +Requires CONFIG_ARM_GIC_V3_PER_VCPU_VLPI and GICv4 hardware support.
+> +
+> +Returns -EINVAL if vGICv4 is not initialized or if the passed vcpu_id
+> +does not map to a vCPU.
+> +
+> +4.XXX KVM_DISABLE_VCPU_VLPI
+> +---------------------------
+> +
+> +:Capability: KVM_CAP_ARM_PER_VCPU_VLPI
+> +:Architectures: arm64
+> +:Type: vm ioctl
+> +:Parameters: int vcpu_id (in)
+> +:Returns: 0 on success, negative value on error
+> +
+> +This ioctl disables GICv4 direct vLPI injection for the specified vCPU.
+> +Downgrades hardware-forwarded vLPIs to software-forwarded LPIs and frees
+> +vPE structures. Pending interrupts in the virtual pending table may be
+> +lost.
 
-Thank your for your explain. This may IC design choice or bug, look like
-I2C controller should stall SCL to wait for new command?
+I'm going to put my foot down on that immediately.
 
-Assume byte counter is 0, (1 bytes transfer)  [0x100]
+There is no conceivable case where losing interrupts in acceptable.
+Ever. If that's what you want, please write your own hypervisor. I
+wish you luck!
 
-SCL: 1,  2,  3,  4,  5,  6,  7,  8,  9,
-SDA: B0, B1, B2, B3, B4, B5, B6, B7, ACK.
-                                     ^ Do you means here is NACK when
-MTDR empty?
+> +
+> +If vSGIs are enabled on the specified vCPU, this ioctl disables them.
 
-> > > +		 * command in the TXFIFO is also a receive data command. If the
-> > > +		/* Confirm SMBus transfer meets protocol */
-> > > +		if (block_len == 0 || block_len > I2C_SMBUS_BLOCK_MAX) {
-> > > +			dev_err(&lpi2c_imx->adapter.dev, "Invalid SMBus block read
-> > length\n");
-> > > +			return;
-> > > +		}
-> > > +
-> > > +		/* If just read 1 byte then read out from fifo. No need new command
-> > update */
-> > > +		if (block_len == 1) {
-> > > +			ret = lpi2c_SMBus_block_read_single_byte(lpi2c_imx);
-> > > +			if (ret < 0)
-> > > +				dev_err(&lpi2c_imx->adapter.dev, "SMBus read data
-> > timeout\n");
-> > > +			return;
-> > > +		}
+So what? Something that didn't have an active state now has one that
+the guest doesn't know about? There is exactly *one* bit that defines
+that, and it doesn't exist in some quantum superposition.
 
-If irq/schedule happen here, you may not fill MTDR in time, so MTDR maybe
-empty,  You just have 9 SCL time to fill new data to MTDR.
+This whole thing is completely insane, has not been thought out at
+all, is ignoring the basis of the architecture, and I'm really sorry
+that you wasted your time on that.
 
-Frank
+	M.
 
-> > > +
-> > > +		/* Block read other length data need to update command again*/
-> > > +		writel((RECV_DATA << 8) | (block_len - 2), lpi2c_imx->base +
-> > LPI2C_MTDR);
-> > > +		lpi2c_imx->msglen += block_len;
-> > > +	}
-> > >  }
-> > >
-> > >  static bool lpi2c_imx_read_chunk_atomic(struct lpi2c_imx_struct
-> > > *lpi2c_imx) @@ -599,6 +648,10 @@ static bool is_use_dma(struct
-> > lpi2c_imx_struct *lpi2c_imx, struct i2c_msg *msg)
-> > >  	if (pm_suspend_in_progress())
-> > >  		return false;
-> > >
-> > > +	/* DMA is not suitable for SMBus block read */
-> > > +	if (msg->flags & I2C_M_RECV_LEN)
-> > > +		return false;
-> > > +
-> > >  	/*
-> > >  	 * When the length of data is less than I2C_DMA_THRESHOLD,
-> > >  	 * cpu mode is used directly to avoid low performance.
-> > > --
-> > > 2.34.1
-> > >
+--=20
+Without deviation from the norm, progress is not possible.
 
