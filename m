@@ -4,171 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D9DACF8540
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 06:07:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14B45CF8543
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 06:21:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:From:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jYhdMXSoNMEUfKIC3uyV/hBP3sYJwc14+w/rIgX816g=; b=lIZwMeupamTQIhpLAcoh6ZBNun
-	AdOOXsJ5LX9y+wY+d7s8RTZI2MgYtvC8dHE501Tz7eKmO/JlcJP2m1J8lGyGXqEgbMT7eVdU/uUoq
-	1/JnO0t0yisB3IzNiFhgNbvN44glCTLcPA9LRNwPHwFMtc30ZVCnqNpwGrq2NlTHJb+7cAJNcijGj
-	j/AfyQV3v52gdhurCnkhMnlnnSziXja5nIUw1AF6agX6m4hAeOnFhZ194ZoCc8Kb7amFWhd+8OeFZ
-	3ca+5dASIvv3BkPaCW1ZIx5NuJF9QNAKVg6nyafxdW0J6Q8Q89Nb91n5VUiPfI/+iQnTqYPw8fKOC
-	B3q8ftUQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Subject:References:In-Reply-To:Message-ID:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=q1t6ndjLSnIUqWAl9OLI/OmffwL/3m1l148/DKVocd0=; b=kxah9l8SYGk17AmvHofyJqVIOE
+	pC/VEDn2wa6noDBUIDL4GFdAshndaV7ndpDha2FmQIxFxS3jrapMCjILjBeHkD1Z9INP/xzk70F4+
+	EfTQvETVo50wFaNZjwqQtTC2IW9hUnNtYLVMdcXcL9bFzU2Ab5p5v6ORgW6DN+R4W5NkVZTuCHFu2
+	3G6qwNH+nlu//oHZPqCUBMefhZr/Bg3yigG+Dy6cDuR8UjX0sFfG1Da7zIdLESz5Dks35NWX5nwPP
+	ZkS6WKfM/MfMLn2OKLPftwfspFvwz7+5jt3g07dEh06swTKI0Cm/2vMmtMz/gnEgpg2kwApK6LuKA
+	5wCe6AhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLxpT-00000006Cs3-06yb;
-	Thu, 20 Nov 2025 06:07:39 +0000
-Received: from mail-southcentralusazon11011067.outbound.protection.outlook.com ([40.93.194.67] helo=SN4PR0501CU005.outbound.protection.outlook.com)
+	id 1vLy2T-00000006DMq-398V;
+	Thu, 20 Nov 2025 06:21:05 +0000
+Received: from server.couthit.com ([162.240.164.96])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLxpQ-00000006Crc-1DjX
+	id 1vLy2L-00000006DKr-2vnD
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Nov 2025 06:07:38 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=eZLEhpjGPXJ70fJi6ed6VId1iX0ycrqsWoXKd8zUcDDe096YbUEbj2TwFe6Ol6s/KYyAuyG+Eop2zbAWg0KToyw9zn9Gsl64y/XnsvjXekP3Wk3/fpZXEulerO0umAenRDXwzKqSpmAqAGbfw/pXreQmak68Ov5nGsE3Fo7EfhlHDtmZ8OAfMLp/1bMzv1UiWFORqO8XmfnHr6rOid8qY7InV5JApnywVKYdjmK8G/+SLqz3V96iXDqR2WbpmGEysBPOtBa3CL5dt0rhg+dxuTktRxpVERGMaM9O3S73QvUHZy6uv1w82hVSnjAI8k4MagoXYgvrhHlWyEpiyMwAjw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=jYhdMXSoNMEUfKIC3uyV/hBP3sYJwc14+w/rIgX816g=;
- b=DQHbDT6esJs1efgsm7pga2Qd6wr1q08jiMYogkHkLqUTfqtU9uocPqs3wb4WHpO5o6gNJCRpwk0Ws1sk1bB2eeBp8Ovv5ihixGwCare261ch+YUiT8rTs+Wc0KRurV+c/fH3lwsU+B/Tgr0I/xeSrt2e1fcKRNIv8/LpSfn/RzWH/KjPehe0NjjE/oiMLTaNi+TMG0L+lwMhYMhk9hw4lsoE0UyXe5VdcrTmwOj0hJdZ9urXKm8xksy9MW9dN3yfR5PrzB2XnypQGtUOA02vmZf5G5R3CUUbLoVjcxrAvT7vUTfPnoCPFCxPwbvx68cWf4iPbVGPDyxZaBVAEetGuw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=jYhdMXSoNMEUfKIC3uyV/hBP3sYJwc14+w/rIgX816g=;
- b=st5aoN/Ql7VYAMHFXJNdn3A8xJ2hbjQDomJ292h4GaEP4c/0CLhDoIUa9gazg1KRlKkbnhNlUW9OySnniEhWBFihEJUNFXsD+dL7Y/7IATZRjFPQoJLttjEPj+gw3yR+ZcguVS/TX2r2Nk3FtipVQYEPz1F1mGXQGCSg3+9K9SSuRt77CTDYrBsTsdxJX35BdWgJkmqketLedYhiVOANPmr61Qu1QuSy4OOsZ1JTPEXv4zG7UXcQmS1OPrfaJZFhYQnYr51ys/tdP/EfeSmER4djChH1p+z6lWwDUyWuEr9d9WdLHlDypk/eMtDyHF5Xml4nDVcXHoXo8hDyOPEy8Q==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CY5PR12MB9056.namprd12.prod.outlook.com (2603:10b6:930:34::5)
- by CH0PR12MB8508.namprd12.prod.outlook.com (2603:10b6:610:18c::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9343.10; Thu, 20 Nov
- 2025 06:07:29 +0000
-Received: from CY5PR12MB9056.namprd12.prod.outlook.com
- ([fe80::496f:71b6:c53f:8fba]) by CY5PR12MB9056.namprd12.prod.outlook.com
- ([fe80::496f:71b6:c53f:8fba%5]) with mapi id 15.20.9343.009; Thu, 20 Nov 2025
- 06:07:28 +0000
-Message-ID: <ef5bcd93-c88b-4242-be31-a3a4765fe5d8@nvidia.com>
-Date: Thu, 20 Nov 2025 11:37:19 +0530
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/3] dt-bindings: iommu: Add NVIDIA Tegra CMDQV support
-From: Ashish Mhetre <amhetre@nvidia.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>, will@kernel.org,
- robin.murphy@arm.com
-Cc: joro@8bytes.org, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, thierry.reding@gmail.com, jonathanh@nvidia.com,
- jgg@ziepe.ca, nicolinc@nvidia.com, linux-tegra@nvidia.com,
- linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-tegra@vger.kernel.org
-References: <20251031062959.1521704-1-amhetre@nvidia.com>
- <20251031062959.1521704-3-amhetre@nvidia.com>
- <20251031-witty-sociable-chachalaca-b73dbc@kuoka>
- <4f6496de-d3c8-4701-a9b4-6f695018eb5e@nvidia.com>
-Content-Language: en-US
-In-Reply-To: <4f6496de-d3c8-4701-a9b4-6f695018eb5e@nvidia.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: PN5PR01CA0046.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:c01:264::16) To CY5PR12MB9056.namprd12.prod.outlook.com
- (2603:10b6:930:34::5)
+	Thu, 20 Nov 2025 06:21:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=couthit.com
+	; s=default; h=Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:
+	References:In-Reply-To:Message-ID:Cc:To:From:Date:Sender:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	List-Post:List-Owner:List-Archive;
+	bh=q1t6ndjLSnIUqWAl9OLI/OmffwL/3m1l148/DKVocd0=; b=n0aNVM+OMuYanhO/0OG6dgpkIs
+	tr91VARActRDCwhs3WVeaMPi+gyE9D8h3edVO9QaavE4h3XBDrKjCCajbAsIrMfpl/ufsn38ZGYJr
+	Us8OWC3BaLAk1Wd3U7rrStwMsM/rXQN+bdeLFT65OPxZsSaZY1quP1QHw+C5e+Io2gEgLIiZxtedC
+	BDuOMQTHjVCQkwLCry0VFCzQ7nUSbVZutx1fo8dU1hYdRX1SxUGgTxZdLQyZsU/MxQAQdSyvb7ZGV
+	mjpF7OOFlac8tW4vF6HBDdPqxNkFXSbLh5xrXkqJXZsMDvjZpQhVf5ppejNVsujueQtvRavtw8Yba
+	P+f3pfLQ==;
+Received: from [122.175.9.182] (port=31734 helo=zimbra.couthit.local)
+	by server.couthit.com with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.98.1)
+	(envelope-from <parvathi@couthit.com>)
+	id 1vLy1e-00000004wtf-1oWE;
+	Thu, 20 Nov 2025 01:20:14 -0500
+Received: from localhost (localhost [127.0.0.1])
+	by zimbra.couthit.local (Postfix) with ESMTP id B3FBE1A6819E;
+	Thu, 20 Nov 2025 11:50:01 +0530 (IST)
+Received: from zimbra.couthit.local ([127.0.0.1])
+ by localhost (zimbra.couthit.local [127.0.0.1]) (amavis, port 10032)
+ with ESMTP id 9A7m4F5S8Z_B; Thu, 20 Nov 2025 11:50:01 +0530 (IST)
+Received: from localhost (localhost [127.0.0.1])
+	by zimbra.couthit.local (Postfix) with ESMTP id 5F4E61A6818A;
+	Thu, 20 Nov 2025 11:50:01 +0530 (IST)
+X-Virus-Scanned: amavis at couthit.local
+Received: from zimbra.couthit.local ([127.0.0.1])
+ by localhost (zimbra.couthit.local [127.0.0.1]) (amavis, port 10026)
+ with ESMTP id lEbrhx8hJEeW; Thu, 20 Nov 2025 11:50:01 +0530 (IST)
+Received: from zimbra.couthit.local (zimbra.couthit.local [10.10.10.103])
+	by zimbra.couthit.local (Postfix) with ESMTP id 3CD991A6819E;
+	Thu, 20 Nov 2025 11:50:01 +0530 (IST)
+Date: Thu, 20 Nov 2025 11:50:01 +0530 (IST)
+From: Parvathi Pudi <parvathi@couthit.com>
+To: Simon Horman <horms@kernel.org>
+Cc: Parvathi Pudi <parvathi@couthit.com>, andrew+netdev <andrew+netdev@lunn.ch>, 
+	davem <davem@davemloft.net>, edumazet <edumazet@google.com>, 
+	kuba <kuba@kernel.org>, pabeni <pabeni@redhat.com>, 
+	danishanwar <danishanwar@ti.com>, rogerq <rogerq@kernel.org>, 
+	pmohan <pmohan@couthit.com>, basharath <basharath@couthit.com>, 
+	afd <afd@ti.com>, linux-kernel <linux-kernel@vger.kernel.org>, 
+	netdev <netdev@vger.kernel.org>, 
+	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, 
+	ALOK TIWARI <alok.a.tiwari@oracle.com>, pratheesh <pratheesh@ti.com>, 
+	j-rameshbabu <j-rameshbabu@ti.com>, 
+	Vignesh Raghavendra <vigneshr@ti.com>, praneeth <praneeth@ti.com>, 
+	srk <srk@ti.com>, rogerq <rogerq@ti.com>, 
+	krishna <krishna@couthit.com>, mohan <mohan@couthit.com>
+Message-ID: <2133501064.5283.1763619601211.JavaMail.zimbra@couthit.local>
+In-Reply-To: <aRuOh-O99Xwo1nG0@horms.kernel.org>
+References: <20251113101229.675141-1-parvathi@couthit.com> <20251113101229.675141-2-parvathi@couthit.com> <aRuOh-O99Xwo1nG0@horms.kernel.org>
+Subject: Re: [PATCH net-next v5 1/3] net: ti: icssm-prueth: Adds helper
+ functions to configure and maintain FDB
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CY5PR12MB9056:EE_|CH0PR12MB8508:EE_
-X-MS-Office365-Filtering-Correlation-Id: 385feb39-2b0f-49a2-5aa3-08de27fb1564
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?eHA5dW9oeHpSNUZvWGtrbU5XVU1oMjRXMDh0M2lER3BzcHd4dlAzbXZ4YlJk?=
- =?utf-8?B?WHVxRFpwcjFzcmRSeGc0RmZuYVRCMHlmTVRUS1liN1hpczJrZ0VrUWpzU0Fq?=
- =?utf-8?B?SWZad21xK2hZcDBrRm80bVhrM1kzZmZ5MUVsK3h1Mlo0TGxVdVNqM21oU3A2?=
- =?utf-8?B?SXYwVXVYL0IwaHpIQWRoQzl4ZjFsUjZtNklFWTAvaDdYWEtnNGVFSFlleTFE?=
- =?utf-8?B?bVpaaTNOMm5rUTUrTG9xMmplZWhXRjVKYUdnMUFabnJvQUs4cjlSdTBzQXpX?=
- =?utf-8?B?TWZuYUZLb3h6VHJYWnlTL3lxdnQxMUJ6d1lRQVVGU3RhVXVOU3JiSXIrRER1?=
- =?utf-8?B?T3JEMWw0RGthVUd5aVdJVGZvaFczSmtUU1VoSkZKZmUzUy8vVldRSWpEdFB5?=
- =?utf-8?B?ODcwRExzZ3NaaEdzMElWQXdpS1RBQjVLYk1zSUVZTDZ4MjZUdldBVE81a1Rw?=
- =?utf-8?B?NExreGxYeWwzeEFGUDhRaG9wTTdpZk9uNEFlNVVRUk5XWDZsREZJWUYwSm1Z?=
- =?utf-8?B?Q3o5TXlnVmlhR1VyNCtXL0FENkZ0VzBrVDloT1lHOTJCYTU2eU13MmR4dHV3?=
- =?utf-8?B?K1plMnk1WFZET3VtQ0ozQUFYRzlKeXVmVGtpZ2dnRG5yUGlsdkc2Mm15TGxR?=
- =?utf-8?B?aEl0VkV3bkhFbzlpczZ2cDNRNFNNdUZpd3N2MFNDcndYaGdXbnZlc0VvR3pN?=
- =?utf-8?B?UmR5WjMwVVRBRzJiZkMyeEllWWNLb0FhZjh0ckRzdzFwQlRYYld0ZXJxSHpI?=
- =?utf-8?B?a081WHlHZnBIZzRGUFFtL0Z0TENlL3dVdHNxREc0akVRcnVrYzJsU1M3Uml1?=
- =?utf-8?B?d0lHMXo4QXcwLzZUQ0NjZm9oL2E2ajlyRTlOSVBneW5CSU9EYkdYR0NjdUJF?=
- =?utf-8?B?S1NVRWxJRXppMlR5c1FyTlNsaEpaQVFEcW00ZFNxcllsNUw5alREc2xEYWJk?=
- =?utf-8?B?RE52NWgvdWJaMGxvWjBkeGdiVjFYWnRWV01tY2FqUmE2UUx1VnA5ZVJOWHNP?=
- =?utf-8?B?bVJSNmhuQTRURlhzeVhIWEVwcmVucFVYU2dyNWxITzhod3VySi8rd0VuY2c5?=
- =?utf-8?B?ZFBzdE11QlFaSjlZU2xITFVEalg5MXB1L3I3RWUrcWE5OXBLWXdpNFBqV01B?=
- =?utf-8?B?QkN2Wjk0ME5nZmkyMnJaOUxSV1k2a1c5eWxzb0piMFUxd0M3RXdrdW0weEZP?=
- =?utf-8?B?Mk1qQ2p4V1d4UTVDRjVYdnlUUU10amNpbjFzNG85ZDU4ejRlRXF3ZzZsZGpo?=
- =?utf-8?B?a1pLNXdIV2ZHVVVHbVcwcDErVHM4SnZhRDJNTFovRUFPdk8xNWF5NGV3ZmNB?=
- =?utf-8?B?Y1dQaE5zcDZrRVROYjB4S0E5UFUvWnJEZ215UTYzMGE4TjhCNFVRN0F3czl5?=
- =?utf-8?B?SWtWUFhXYkMzaG1GZTgvK3lnVlV5alkyaHpyOUh0T1hCdExHV0xMbDJzb0lY?=
- =?utf-8?B?ZVdlVkFvZG9Vak5yVGc4ZE5xelRrWVdTVmg4SHpwaXVhVWhTMFBNWVFtWHMw?=
- =?utf-8?B?bWdxazdJQUtmUEhEaUZVNW9hekdLdWtESGRDTnFHWFhsTUh1bFptTTR3TUZk?=
- =?utf-8?B?Ky84OEFDd0tGcHZId2hJN3B1dmZIQmZlbUlkUExoZkZwRkE2enlBR2dnY3h2?=
- =?utf-8?B?M1lXUXl1bFEwTzc2cGJodEZEWlg4MndyYS9ENXppZ1ZLNHBlcFJGTVE0V0g5?=
- =?utf-8?B?S1lMQlN4OXdCRnlhQmE3eVpZckt1TC8xK3g0cWlQSW1nT0dCU0FPdkxyaG5q?=
- =?utf-8?B?SE9MY3k3QWhsbXBQY0JGTk5TbmcydmtnT3N6SnBSN25SV2VTMHpsZStKenZl?=
- =?utf-8?B?cFZaL2txVVFtc0VELzhrR0I1dnNqVmEwS2pmS25EMlZtYzdLd2ExMU1lWlkr?=
- =?utf-8?B?cisvRHhOMGxkdC9sT2E5a1VYaisxUHZ0QVY3Mk1kSGw4T3pWZlliU2JYemkv?=
- =?utf-8?Q?eP483IWwD6Nf2rGPzZH/HhcdGWUdeFh/?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CY5PR12MB9056.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?d1JKTU1hVGpVWFVrOHFUUGNyZ2NxbUUzSi9NeE5VUXZaalZwekhQemlaRnVy?=
- =?utf-8?B?UkNFMzFySFo0VDZFbC9EY0xTbTVOdE5TazFYL2NZUnNsL2kwTGFua2N4NnZE?=
- =?utf-8?B?UkZXUlVoVjdOK2NDYnErZ0c1WW5zSTJ3T2p0TE1hcG4xM0NMTEN2Tm8wdE1Z?=
- =?utf-8?B?blQwZm1oVUx5NmRGMjVsbW94R1B4T2FlelhqMWxEOEVRT3VOdU5neFY2ZGl2?=
- =?utf-8?B?dDQ5SytNS2J5ZUw1ZzIzNHVzRTRNVmNqdDNKSTkwUDZEN1lrQUJOY0w5WHRU?=
- =?utf-8?B?TlpJMllKdVg5aVBWZE1YdzQ2WkR5dDlaVzFZTHlHTnM2ZlhTV3FWYi90ekNt?=
- =?utf-8?B?bHZKdzgzNXJBS0x6YkVyZlA5NE4vbi84czFuN0VEczNya2NRNFVmQ1JHa0xq?=
- =?utf-8?B?Y0VQQ0V1cCtmSW9BZHVLZHBzK08zdVAwREVWbXpBM3ZwbkJUK1dsQkFIeGoz?=
- =?utf-8?B?b2JHSGU3bTBpVko0cUQ2KzAvWTc4U0pGUTA5Y2dtOU9NWWpRR21WVU4xUFNo?=
- =?utf-8?B?RHloQXdlWEVENFZFaVVvTXR0UHp3YmlOdUNtWSt3VmRDclhsZXgrRFhrYXdZ?=
- =?utf-8?B?QXRXR0d1OTdFSnlUbzUyK056OXpNZWVFNk45NlJWcEJ6eGlmdnpRd2tQQlBp?=
- =?utf-8?B?ZDFKTlVUL0FpMEtjQTBQSElUWk5QWFFIQlhsRHJOeWVtMHpnUSszNXZNM3VK?=
- =?utf-8?B?R2Q2dm5rdWxlRUpEdGFRUUdZdUszL1g1NGdTdXhOREdqMS83TWNwdzFJakNF?=
- =?utf-8?B?RnFuWXBQdXhmRTVmd29jdGoyMFdtZ1NRZ3ROQlRvNk1Kc0I2Z0l4STlXQnF5?=
- =?utf-8?B?eTVkaWRlNnY4RlplTk9GUVdySEY5QUtkVnlCZXdUcVdGcklrSGg3NGJ4L1k3?=
- =?utf-8?B?QXdJSFY2NXkrMVdydUpQKzdQQkMzVWRubENiQzFWM3dBL041VGNtNnJ5dFVR?=
- =?utf-8?B?cFpSa2dmbGYyTVhJSWJHOGZMaXo3eFF2WXRpZVBaMUxoTzY3M05RcE9kaUkv?=
- =?utf-8?B?bGF3cFVuVkJ3MHB0OUxXMXNlQkFIWmxGV01sS3AvM2t4NVlnNUxpMElmNVNS?=
- =?utf-8?B?REwvblhGYWlRWXFiUmRjMGU2ZVVtUWxFdVkrb2tuWEZvYksyU0Z0ajRNbERp?=
- =?utf-8?B?Yyt5M3lsYW5vWG1GY2R5TTIzbmVzUUdQckFxZWkzWGJsVzZ1cmg4Zi9nU0RC?=
- =?utf-8?B?K01xQU5IZHNINmJWeWsyWURJN2pWdG9NYm1YcExjK3dZQkhaY3BSWVRlODlN?=
- =?utf-8?B?eXBEU1JBY0pPRHNkLzEvS3prUG44eG0zT253b2NjV00yQnYxalBkRHcyTEF6?=
- =?utf-8?B?UjV2VC9jbHZMUWhRZkJWbk1iY3N5UzRVUUJpYXpRUlFEMWNVTmZpcTdudGE2?=
- =?utf-8?B?N21WQ2o5c3dNQkJBcDRrWFMraWZ3bGtLN3BjNHU2VHZ5amFWRFJya3dmcUxl?=
- =?utf-8?B?bG5xVTNMNGo4MllUczc1TkFwalUrUm9GYUd6N0lqdWJFM09rbmx4OENzNkJv?=
- =?utf-8?B?b0NoSTJlVjBqUjl4Yy9NZnA2bGtJd0FTRE5saXNBZWg2L3V4azY2UHdRSm4w?=
- =?utf-8?B?a2tYN281d09rdXVzVmhOWDYwQzBXUUE4Ukw3dHFmSXV2VHpZZXRZMUszT1Jk?=
- =?utf-8?B?WTNtZURldGh4OUFXK0p6NVNpeEFZYUlLUThYTXRBOURXWnh3MkVoTHFMSzVi?=
- =?utf-8?B?WFUzNlpFdTNXUnRWeW9vWlVtZWpwOVZTOW5xTFlsT3BCSkNvNFVWaGNNREEz?=
- =?utf-8?B?dWR6QmlJVUI1ZnNac0ZoK0YwOENjME1WeFVjaWM1RnRHK2hHOXg0U1J1ZDIr?=
- =?utf-8?B?Sy9NQmNKcnNIVVBYK21OSHZ6YVhsRlJPY2dJYzNOaHZ0Z214QVd0STFPTnhu?=
- =?utf-8?B?ZE5QWUF3OGhXM3RZSnlMM2dmbzBxWGdvNHVOYnhrRWU3MWM1QjdBd0RWWWJh?=
- =?utf-8?B?d2V6TXlNdnUydlVCV0d4eUl2QktXY1dBRHdnZXVLa3ltOXZXbUJka2NYTDRU?=
- =?utf-8?B?OTZhM2FaMHplWjZXbGRDeEdhVFcrV1pRU3gvY3M5L21xZnJlb09QSkRFRnVh?=
- =?utf-8?B?djg0bEl3cFNZbGVkdFd4SzdUYlBSN1piUTZsYXRjWi9hZ0dEbnJDREljWDRJ?=
- =?utf-8?Q?AhbPq/MgCNz1hP/EFnHZsvNcL?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 385feb39-2b0f-49a2-5aa3-08de27fb1564
-X-MS-Exchange-CrossTenant-AuthSource: CY5PR12MB9056.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Nov 2025 06:07:28.6577
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: O5+JnBxo/TviokmLLpYiGes2Qzr3JS8VPXcdero0UoX1v2q3fWouFPniCpvEECbxI2HlkcdymbmhM7iph5qzIg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH0PR12MB8508
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.10.10.233]
+X-Mailer: Zimbra 9.0.0_ZEXTRAS_20240927 (ZimbraWebClient - GC138 (Linux)/9.0.0_ZEXTRAS_20240927)
+Thread-Topic: icssm-prueth: Adds helper functions to configure and maintain FDB
+Thread-Index: GlMbErd+/HO1HNJ0paANEqc3gPyIGg==
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - server.couthit.com
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - couthit.com
+X-Get-Message-Sender-Via: server.couthit.com: authenticated_id: smtp@couthit.com
+X-Authenticated-Sender: server.couthit.com: smtp@couthit.com
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251119_220736_374620_FA9564DB 
-X-CRM114-Status: GOOD (  24.64  )
+X-CRM114-CacheID: sfid-20251119_222057_828349_6E383BB6 
+X-CRM114-Status: GOOD (  24.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -183,148 +116,198 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi,
 
-On 11/3/2025 7:24 PM, Ashish Mhetre wrote:
->
-> On 10/31/2025 1:44 PM, Krzysztof Kozlowski wrote:
->> External email: Use caution opening links or attachments
->>
->>
->> On Fri, Oct 31, 2025 at 06:29:58AM +0000, Ashish Mhetre wrote:
->>> The Command Queue Virtualization (CMDQV) hardware is part of the
->>> SMMUv3 implementation on NVIDIA Tegra SoCs. It assists in
->>> virtualizing the command queue for the SMMU.
->> If this is specific to Nvidia, then I think you need specific front
->> compatible and disallow it for other vendors.
->
-> Yes, CMDQV is specific to Nvidia. There isn't currently a vendor-specific
-> compatible for Nvidia's arm,smmu-v3 implementation. Would it be 
-> acceptable
-> to document this as Nvidia-specific in the description? Or can we add a
-> new Nvidia-specific compatible string like "nvidia,smmu-v3" if that's
-> preferred and use conditional schema to restrict the property?
+> On Thu, Nov 13, 2025 at 03:40:21PM +0530, Parvathi Pudi wrote:
+> 
+> ...
+> 
+>> +static u16 icssm_prueth_sw_fdb_find_open_slot(struct fdb_tbl *fdb_tbl)
+>> +{
+>> +	u8 flags;
+>> +	u16 i;
+>> +
+>> +	for (i = 0; i < FDB_MAC_TBL_MAX_ENTRIES; i++) {
+>> +		flags = readb(&fdb_tbl->mac_tbl_a->mac_tbl_entry[i].flags);
+>> +		if (!(flags & FLAG_ACTIVE))
+>> +			break;
+> 
+> Hi Parvathi, all,
+> 
+> If the condition above is never met....
+> 
+>> +	}
+>> +
+>> +	return i;
+> 
+> Then FDB_MAC_TBL_MAX_ENTRIES will be returned here.
+> Which is written to bkt_info->bucket_idx by
+> icssm_prueth_sw_insert_fdb_entry()...
+> 
+>> +}
+>> +
+>> +static int
+>> +icssm_prueth_sw_find_fdb_insert(struct fdb_tbl *fdb, struct prueth *prueth,
+>> +				struct fdb_index_tbl_entry __iomem *bkt_info,
+>> +				const u8 *mac, const u8 port)
+>> +{
+>> +	struct fdb_mac_tbl_array __iomem *mac_tbl = fdb->mac_tbl_a;
+>> +	struct fdb_mac_tbl_entry __iomem *e;
+>> +	u8 mac_from_hw[ETH_ALEN];
+>> +	u16 bucket_entries;
+>> +	u16 mac_tbl_idx;
+>> +	int i, ret;
+>> +	s8 cmp;
+>> +
+>> +	mac_tbl_idx = readw(&bkt_info->bucket_idx);
+> 
+> That value will be read here...
+> 
+>> +	bucket_entries = readw(&bkt_info->bucket_entries);
+>> +
+>> +	for (i = 0; i < bucket_entries; i++, mac_tbl_idx++) {
+>> +		e = &mac_tbl->mac_tbl_entry[mac_tbl_idx];
+> 
+> And used here, without any bounds checking.
+> 
+> But if mac_tbl_idx is FDB_MAC_TBL_MAX_ENTRIES then
+> the access to mac_tble_entry will overflow, as
+> it only has FDB_MAC_TBL_MAX_ENTRIES elements.
+> 
+> This, and most of my review points for this patch set were
+> flagged by Claude Code with https://github.com/masoncl/review-prompts/
+> 
+> ...
 
-Hi Will, Robin,
+We have verified and this case will never hit since we have a if condition
+in the very beginning of the "icssm_prueth_sw_insert_fdb_entry()" function to
+return if the table is full as highlighted below and all the entries are active.
 
-Do you have any suggestions on this? I have followed existing ACPI approach
-for implementing DT support. Will it be fine to add separate compatible 
-string
-for Nvidia Tegra264 SMMU to restrict the usage of CMDQV?
+  If (fdb->total_entries == FDB_MAC_TBL_MAX_ENTRIES)
+        return -ENOMEM;
 
->>> Add a new device tree binding document for nvidia,tegra264-cmdqv.
->>>
->>> Also update the arm,smmu-v3 binding to include an optional nvidia,cmdqv
->>> property. This property is a phandle to the CMDQV device node, allowing
->>> the SMMU driver to associate with its corresponding CMDQV instance.
->>>
->>> Signed-off-by: Ashish Mhetre <amhetre@nvidia.com>
->>> ---
->>>   .../bindings/iommu/arm,smmu-v3.yaml           | 10 ++++
->>>   .../bindings/iommu/nvidia,tegra264-cmdqv.yaml | 46 
->>> +++++++++++++++++++
->>>   2 files changed, 56 insertions(+)
->>>   create mode 100644 
->>> Documentation/devicetree/bindings/iommu/nvidia,tegra264-cmdqv.yaml
->>>
->>> diff --git 
->>> a/Documentation/devicetree/bindings/iommu/arm,smmu-v3.yaml 
->>> b/Documentation/devicetree/bindings/iommu/arm,smmu-v3.yaml
->>> index 75fcf4cb52d9..edc0c20a0c80 100644
->>> --- a/Documentation/devicetree/bindings/iommu/arm,smmu-v3.yaml
->>> +++ b/Documentation/devicetree/bindings/iommu/arm,smmu-v3.yaml
->>> @@ -58,6 +58,15 @@ properties:
->>>
->>>     msi-parent: true
->>>
->>> +  nvidia,cmdqv:
->>> +    description: |
->>> +      A phandle to its pairing CMDQV extension for an 
->>> implementation on NVIDIA
->>> +      Tegra SoC.
->>> +
->>> +      If this property is absent, CMDQ-Virtualization won't be used 
->>> and SMMU
->>> +      will only use its own CMDQ.
->>> +    $ref: /schemas/types.yaml#/definitions/phandle
->>> +
->>>     hisilicon,broken-prefetch-cmd:
->>>       type: boolean
->>>       description: Avoid sending CMD_PREFETCH_* commands to the SMMU.
->>> @@ -92,4 +101,5 @@ examples:
->>>               dma-coherent;
->>>               #iommu-cells = <1>;
->>>               msi-parent = <&its 0xff0000>;
->>> +            nvidia,cmdqv = <&cmdqv>;
->>>       };
->>> diff --git 
->>> a/Documentation/devicetree/bindings/iommu/nvidia,tegra264-cmdqv.yaml 
->>> b/Documentation/devicetree/bindings/iommu/nvidia,tegra264-cmdqv.yaml
->>> new file mode 100644
->>> index 000000000000..f22c370278a3
->>> --- /dev/null
->>> +++ 
->>> b/Documentation/devicetree/bindings/iommu/nvidia,tegra264-cmdqv.yaml
->>> @@ -0,0 +1,46 @@
->>> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
->>> +%YAML 1.2
->>> +---
->>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
->>> +
->>> +title: NVIDIA Tegra264 CMDQV
->> Missing blank line
->
-> Ack, I will correct this in V2.
->>> +description: |
->> Do not need '|' unless you need to preserve formatting.
->
-> Okay, I'll remove this in next version.
->>> +  The CMDQ-Virtualization hardware block is part of the SMMUv3 
->>> implementation
->>> +  on Tegra264 SoCs. It assists in virtualizing the command queue 
->>> for the SMMU.
->>> +
->>> +maintainers:
->>> +  - NVIDIA Corporation <linux-tegra@nvidia.com>
->> No. It should be a person. If entire Nvidia cannot find a person, I
->> don't think we are interested in having this in the kernel.
->
-> Okay, I'll add Nicolin as maintainer.
->>> +
->>> +properties:
->>> +  compatible:
->>> +    const: nvidia,tegra264-cmdqv
->>> +
->>> +  reg:
->>> +    maxItems: 1
->>> +
->>> +  interrupts:
->>> +    maxItems: 1
->>> +
->>> +  interrupt-names:
->>> +    items:
->>> +      - const: cmdqv
->> Drop interript names, obvious.
->
-> Sure, I will update in V2.
->>> +
->>> +required:
->>> +  - compatible
->>> +  - reg
->>> +  - interrupts
->>> +  - interrupt-names
->>> +
->>> +additionalProperties: false
->>> +
->>> +examples:
->>> +  - |
->>> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
->>> +    #include <dt-bindings/interrupt-controller/irq.h>
->>> +
->>> +    cmdqv: cmdqv@8105200000 {
->> Drop unused label
->
-> Okay, I will remove the label.
->> Best regards,
->> Krzysztof
->>
+> 
+>> +static int icssm_prueth_sw_insert_fdb_entry(struct prueth_emac *emac,
+>> +					    const u8 *mac, u8 is_static)
+>> +{
+>> +	struct fdb_index_tbl_entry __iomem *bucket_info;
+>> +	struct fdb_mac_tbl_entry __iomem *mac_info;
+>> +	struct prueth *prueth = emac->prueth;
+>> +	struct prueth_emac *other_emac;
+>> +	enum prueth_port other_port_id;
+>> +	u8 hash_val, mac_tbl_idx;
+>> +	struct fdb_tbl *fdb;
+>> +	u8 flags;
+>> +	u16 val;
+>> +	s16 ret;
+>> +	int err;
+>> +
+>> +	fdb = prueth->fdb_tbl;
+>> +	other_port_id = (emac->port_id == PRUETH_PORT_MII0) ?
+>> +			 PRUETH_PORT_MII1 : PRUETH_PORT_MII0;
+>> +
+>> +	other_emac = prueth->emac[other_port_id - 1];
+>> +
+>> +	if (fdb->total_entries == FDB_MAC_TBL_MAX_ENTRIES)
+>> +		return -ENOMEM;
+> 
+> Access to total_entries outside of icssm_prueth_sw_fdb_spin_lock.
+> Seems racy here. Likewise for the similar check in
+> icssm_prueth_sw_delete_fdb_entry().
+> 
+> Flagged by Claude Code with https://github.com/masoncl/review-prompts/
+
+We are using icssm_prueth_sw_fdb_spin_lock() to control access between
+PRU and CPU. We have kept in and around the sections where PRU writes it. 
+
+Sure, we will review and move the spin lock to protect even the read accesses.
+
+> 
+>> +
+>> +	if (ether_addr_equal(mac, emac->mac_addr) ||
+>> +	    ether_addr_equal(mac, other_emac->mac_addr)) {
+>> +		/* Don't insert fdb of own mac addr */
+>> +		return -EINVAL;
+>> +	}
+>> +
+>> +	/* Get the bucket that the mac belongs to */
+>> +	hash_val = icssm_prueth_sw_fdb_hash(mac);
+>> +	bucket_info = FDB_IDX_TBL_ENTRY(hash_val);
+>> +
+>> +	if (!readw(&bucket_info->bucket_entries)) {
+>> +		mac_tbl_idx = icssm_prueth_sw_fdb_find_open_slot(fdb);
+>> +		writew(mac_tbl_idx, &bucket_info->bucket_idx);
+>> +	}
+>> +
+>> +	ret = icssm_prueth_sw_find_fdb_insert(fdb, prueth, bucket_info, mac,
+>> +					      emac->port_id - 1);
+>> +	if (ret < 0)
+>> +		/* mac is already in fdb table */
+>> +		return 0;
+>> +
+>> +	mac_tbl_idx = ret;
+>> +
+>> +	err = icssm_prueth_sw_fdb_spin_lock(fdb);
+>> +	if (err) {
+>> +		dev_err(prueth->dev, "PRU lock timeout %d\n", ret);
+>> +		return err;
+>> +	}
+>> +
+>> +	mac_info = icssm_prueth_sw_find_free_mac(prueth, bucket_info,
+>> +						 mac_tbl_idx, NULL,
+>> +						 mac);
+>> +	if (!mac_info) {
+>> +		/* Should not happen */
+>> +		dev_warn(prueth->dev, "OUT of FDB MEM\n");
+> 
+> This appears to leak icssm_prueth_sw_fdb_spin_lock.
+> 
+> Also flagged by Claude Code with https://github.com/masoncl/review-prompts/
+> 
+
+We will ensure the spin lock is properly released before returning.
+This will be addressed in the next revision.
+
+
+>> +		return -ENOMEM;
+>> +	}
+>> +
+>> +	memcpy_toio(mac_info->mac, mac, ETH_ALEN);
+>> +	writew(0, &mac_info->age);
+>> +	writeb(emac->port_id - 1, &mac_info->port);
+>> +
+>> +	flags = readb(&mac_info->flags);
+>> +	if (is_static)
+>> +		flags |= FLAG_IS_STATIC;
+>> +	else
+>> +		flags &= ~FLAG_IS_STATIC;
+>> +
+>> +	/* bit 1 - active */
+>> +	flags |= FLAG_ACTIVE;
+>> +	writeb(flags, &mac_info->flags);
+>> +
+>> +	val = readw(&bucket_info->bucket_entries);
+>> +	val++;
+>> +	writew(val, &bucket_info->bucket_entries);
+>> +
+>> +	fdb->total_entries++;
+>> +
+>> +	icssm_prueth_sw_fdb_spin_unlock(fdb);
+>> +
+>> +	dev_dbg(prueth->dev, "added fdb: %pM port=%d total_entries=%u\n",
+>> +		mac, emac->port_id, fdb->total_entries);
+> 
+> Less important, but I think the value of total_entries could
+> be out of date as it's accessed outside of the lock.
+> Perhaps it would be good to stash the value into a local variable while
+> the lock is still held?
+> 
+> Likewise in icssm_prueth_sw_delete_fdb_entry().
+> 
+
+Sure, we will review and address this in the next version.
+
+
+Thanks and Regards,
+Parvathi.
 
