@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 874E1CF8553
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 08:17:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 947EECF8553
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 08:20:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dMeGw1+CVRr6jCf0oUmE3QI0ZYmp6w3a17kUwBI2g4Q=; b=P+ys1DCN8Qg4oQV2PDbMptBlnT
-	Zdbcx6pd3aqj61SOYdu3DNxUe1nK8a/iyoQLlgG5L0EIeDcgSz54q0fnho0lihb7oToqBJ4bhoKxo
-	4az0TY9fPPN9eBx5xaUfcxR0cluflfEBhRJbftNQRurwpZLAPkGHlvc8haxw7LFukspfx09W8kfLm
-	aN5PlfHZggpA5pnZ0w0CJE45xS0GcMjfmd4DUD9KezcpJmNBXQkl3ceU3s2ovyColzndUXibX30hG
-	xMAAY9/KDGLUXjnpnNA4NAaenltdeTyma9YMUZyGpySOYKZqOlV+SWASz+LpYAgMJFDq5AZnZ2MSU
-	V3sogxUQ==;
+	bh=c+mMCG61WSoAjSvym+aJjwhpfOlX712D0ign1mUzgLQ=; b=pBmmURQUiSPV7B9hhxeIqHg9xF
+	/ZenjcvQ4fRGt/qYMLLE4wYjLP/uB6ivfCJzJuk7t4q2dijA5ZngW+SHIuesc4JHDyOnW3jeD4EVt
+	dabaEqr/iME1MHj+zqOzDP2Y021yk/qLuGvLA2hlkmlkKuyT+BNEofOq5KsJKTPVNfWfZ1qkWLUrt
+	jORUL4S2jwb+KOZBKXjtEDBgjNOhL5fJcGPD0wgGb8lTFDxgNSBo0tsxbWNIkZivMjkEKVelzeAND
+	6+0Bk/mvDFAxpDqO94FDHtQSQVVCQxT0QhTciWkrkhDXxO7T8PkdFPToxFH14g6PyAPIfk3xGAynP
+	oyfUr+vg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLzrW-00000006LCD-2SJo;
-	Thu, 20 Nov 2025 08:17:54 +0000
+	id 1vLztc-00000006LLk-0OWA;
+	Thu, 20 Nov 2025 08:20:04 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLzrU-00000006LC6-2fIv
+	id 1vLztb-00000006LLd-0ngT
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Nov 2025 08:17:52 +0000
+	Thu, 20 Nov 2025 08:20:03 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id EE2A26014E;
-	Thu, 20 Nov 2025 08:17:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3D1C1C4CEF1;
-	Thu, 20 Nov 2025 08:17:51 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 4F5206014E;
+	Thu, 20 Nov 2025 08:20:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7375BC19421;
+	Thu, 20 Nov 2025 08:20:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763626671;
-	bh=vCh0Nf9ol/SJ8LORneyZFWOq+kGqweHI+LiY7Sod7EY=;
+	s=k20201202; t=1763626802;
+	bh=RxDPhffDV0KuCg3hXM9CfYPba4pq906fwuxIATPJd8U=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=kpW7Ue26N0TujXycX/gjDfNHp8Uup9OzwpT01gMm2Ae9M94LKOK393piRsqZVieED
-	 Ai2yZe2evN3jXQG4g5R9DD3dFp3Tk95SdGBB8zpau3tLuvsZF86ieQwxfWrpCvuHnl
-	 Hy/vvTpE6d7VLJ5oyQ0AEieg148Qb69/T2/T3GfnF9yK+Mam8qEADjAxHQHuALTUw+
-	 AYA8os2aXRWfVaQZJ/Obg45FEndp+3bgiyaty3W91Hm2xAKE/QklRqoM9YYeLtdwqi
-	 bRWF8O1X3V39DLllsfceQ5sdmHTI16jae3zzF+1VRnLOFU40krHrTT7kgSWLB7vi0l
-	 sK4WQOi/kxAmw==
-Date: Thu, 20 Nov 2025 09:17:49 +0100
+	b=umYwHn6CRlilYb8aMdKWhMEJQa306xmvRmsWa79Q9xX7ZwhQMTNJkUwJ6hKM15zUA
+	 f8AfdljMxB/G20HFoeb4FcyjYbANQCj7fp5tdgsakizQDvwBUy3H1G6OizZHqVRoed
+	 l/xRPXwgMxqjLM4te8Uiua5HJajKGT2b50J0vEYVTrR9yxDIOsBWb5nRl0qfRYg/1x
+	 ii2jxHRk7XZd+Qb9vekFe94pfIanHDecO7kUv5jIOMUNjwtVGIbGa5V0QWYn5CPheD
+	 vJzUGa+vO39NojfxiSjrzX9jMGCL2KHHEe07H4eGWqZdLsEhISlB6fy816X3m5ueFc
+	 OUg8bTXpQNqZw==
+Date: Thu, 20 Nov 2025 09:19:59 +0100
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
 Cc: gregkh@linuxfoundation.org, robh@kernel.org, krzk+dt@kernel.org, 
 	conor+dt@kernel.org, michal.simek@amd.com, Thinh.Nguyen@synopsys.com, 
 	p.zabel@pengutronix.de, linux-usb@vger.kernel.org, devicetree@vger.kernel.org, 
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, git@amd.com
-Subject: Re: [PATCH 1/3] dt-bindings: usb: dwc3-xilinx: Add MMI USB support
- on Versal Gen2 platform
-Message-ID: <20251120-affable-markhor-of-authority-a9e63c@kuoka>
+Subject: Re: [PATCH 3/3] usb: dwc3: xilinx: Add support to program MMI USB TX
+ deemphasis
+Message-ID: <20251120-polite-ginger-tarantula-08c98c@kuoka>
 References: <20251119193036.2666877-1-radhey.shyam.pandey@amd.com>
- <20251119193036.2666877-2-radhey.shyam.pandey@amd.com>
+ <20251119193036.2666877-4-radhey.shyam.pandey@amd.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20251119193036.2666877-2-radhey.shyam.pandey@amd.com>
+In-Reply-To: <20251119193036.2666877-4-radhey.shyam.pandey@amd.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,60 +72,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Nov 20, 2025 at 01:00:34AM +0530, Radhey Shyam Pandey wrote:
-> Versal Gen2 platform multimedia integrated (MMI) module has a USB3.2 Gen
-> 2x1 Dual Role Device IP. Introduce a new compatibility string to support
-> it and make reg optional as the register space for USB wrapper IP is moved
-> to MMI System-Level Control registers.
-> 
-> Signed-off-by: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
-> ---
->  .../devicetree/bindings/usb/dwc3-xilinx.yaml  | 19 ++++++++++++++++---
->  1 file changed, 16 insertions(+), 3 deletions(-)
-> 
-> diff --git a/Documentation/devicetree/bindings/usb/dwc3-xilinx.yaml b/Documentation/devicetree/bindings/usb/dwc3-xilinx.yaml
-> index d6823ef5f9a7..502294649a6b 100644
-> --- a/Documentation/devicetree/bindings/usb/dwc3-xilinx.yaml
-> +++ b/Documentation/devicetree/bindings/usb/dwc3-xilinx.yaml
-> @@ -15,6 +15,7 @@ properties:
->        - enum:
->            - xlnx,zynqmp-dwc3
->            - xlnx,versal-dwc3
-> +          - xlnx,versal2-mmi-dwc3
-
-All other cases were calling your SoC "versal2", not "versal2-mmi".
-
-Add here missing blank line.
-
->    reg:
->      maxItems: 1
+On Thu, Nov 20, 2025 at 01:00:36AM +0530, Radhey Shyam Pandey wrote:
+>  struct dwc3_xlnx {
+>  	int				num_clocks;
+> @@ -306,7 +307,7 @@ MODULE_DEVICE_TABLE(of, dwc3_xlnx_of_match);
+>  static int dwc3_set_swnode(struct device *dev)
+>  {
+>  	struct device_node *np = dev->of_node, *dwc3_np;
+> -	struct property_entry props[2];
+> +	struct property_entry props[3];
+>  	int prop_idx = 0, ret = 0;
 >  
-> @@ -37,8 +38,9 @@ properties:
->        A list of phandle and clock-specifier pairs for the clocks
->        listed in clock-names.
->      items:
-> -      - description: Master/Core clock, has to be >= 125 MHz
-> -          for SS operation and >= 60MHz for HS operation.
-> +      - description: Master/Core clock, has to be >= 156.25MHz in SSP
-> +          mode, >= 125 MHz for SS operation and >= 60MHz for HS
-> +          operation.
->        - description: Clock source to core during PHY power down.
->  
->    clock-names:
-> @@ -87,7 +89,6 @@ patternProperties:
->  
->  required:
->    - compatible
-> -  - reg
+>  	dwc3_np = of_get_compatible_child(np, "snps,dwc3");
+> @@ -320,6 +321,10 @@ static int dwc3_set_swnode(struct device *dev)
+>  	if (of_dma_is_coherent(dwc3_np))
+>  		props[prop_idx++] = PROPERTY_ENTRY_U16("snps,gsbuscfg0-reqinfo",
+>  						       0xffff);
+> +	if (of_device_is_compatible(np, "xlnx,versal2-mmi-dwc3"))
 
-Hm? No. Block without address space makes little sense and is completely
-different device.
-
-Look at this binding - there is no way this device can be programmed
-anywhow, because mentionned MMI sys registers are not there.
-
-This is a messy, incomplete and confusing change. We ask always to post
-complete bindings, for complete hardware, so put attention to this.
+Don't sprinkle compatibles all over the code - it does not scale. You
+have driver match data for that.
 
 Best regards,
 Krzysztof
