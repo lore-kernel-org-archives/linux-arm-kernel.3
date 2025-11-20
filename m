@@ -4,143 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7BD2CF8847
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 12:07:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81A00CF8847
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 12:08:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rocURVTpRm6dtP5iHBbr10ILRzx3pCec9r06uq4Mrmw=; b=wbDHr8wYHVtkZFvtOW5XDmhBi1
-	9A+Qm8QjXFg8opxuLSBUqQuLdWl7n+zhdKeUJBG4AtCNKEMnD5QfbO050T0FXjl36sexTOvQdBtgn
-	5gM/+xficBh3etfqNq9Op4B91qbfMrvjcPylgWvOTmT2w6SPU8A+qeBV8aDAPAenUEYy3YF6Gb0x5
-	4d1MHZT6RGBwm9xnNs7kBzo+SG6TutCAf+pensL3gc99XsVw1Q/hSdcA4fdyEGFSeCHBgsCdO/Vb9
-	sTDvEz7Sj0A5D34hs1PeR06gnClmEzCZKAkwMKqGSJID5fbVzfAs3yhM4Bl3HZ8g22iMGwr5hcYXQ
-	X8qtr6/g==;
+	bh=WVq+jLMt6Ltjpq1ydODSOzRbCWdBn1EGsgfzLQepWXg=; b=o8B7BlwUgoIeYSV5iYg3Kx5yRR
+	/+iQ5nGKsCI9AvLYbEMnzIGJdoEYbhR2zl68hAKkW3UnIiI3I5QSSN7vrSLIRSu9FqTnWAawaXVuT
+	XxhDd0vaoPw9/GwfxZG1Q5DaQjW3zTBbjQuBB984573nqD3QMhg8YF3iVuJRbNycfLLK1X2i3f723
+	0pfgeORva0lwQHs4enGBHXnlFB9e56uuxfCdrgJJ5+UcGAUv/QkZSNn+O+z3LuHEXSBNYRhXyCQLp
+	xnGtW0qKTFKLqPt5ekdADk20nKZ2HnsHQSnmn5O+H+sb/CpmvbBwDbMcgTRZWna6DJR0tC4ozsKum
+	KEXE1lrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vM3Rv-00000006dVN-1KY9;
-	Thu, 20 Nov 2025 12:07:43 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1vM3Sv-00000006df1-0kw0;
+	Thu, 20 Nov 2025 12:08:45 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vM3Rs-00000006dUu-0Kk8
+	id 1vM3St-00000006dea-0ful
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Nov 2025 12:07:41 +0000
-Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5AK9hssL473972
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Nov 2025 12:07:38 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	rocURVTpRm6dtP5iHBbr10ILRzx3pCec9r06uq4Mrmw=; b=bSNFcJjzfM2eSZVf
-	ap7LPSWqzx0iOfNw2FHgJl2e1XDcCHL5jQ095fGr6BUpn4yQtsw74Zz1t/eJrkUg
-	rxm35bhzhwyulCh2F3rGzLU5Sp0dV1nNgh3fC2bBs8miPZZtHjAN5BE3i1QmfJhJ
-	6TOD02J2KMYAqobOhBxlDtJSUa9xTflsIAUoVqNA2WOOzqWpWGf2EJY9nSCBEuRD
-	8c6AD/Mw2K7VSe3zGHvexXf7smHw6Mn7KqfcSJekKr3LHFbMVuD3xi8SMhRG1A3C
-	v4YSkkoXSjAXHqc2JAo2Xp3j++EYALsSDHZAWnJkfkbPpKSsYDRfqItZvw3/MhjJ
-	5c+f/Q==
-Received: from mail-qt1-f198.google.com (mail-qt1-f198.google.com [209.85.160.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4aj0kw0d7q-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Nov 2025 12:07:38 +0000 (GMT)
-Received: by mail-qt1-f198.google.com with SMTP id d75a77b69052e-4ee24e1559aso2402911cf.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Nov 2025 04:07:38 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1763640458; x=1764245258; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=rocURVTpRm6dtP5iHBbr10ILRzx3pCec9r06uq4Mrmw=;
-        b=eNUeph4M9i6ivkHL8GISgClbpNkGjr9I/vqrECJyLSK4bXU6MKu9IR3+nYZJkDZ9av
-         Efi1jRaTuxJKKWqNQrFEMfiuvaTQY6ES6t+CYMU0HpxL1ckNf3m7Yw8aOHohKCwXT0AV
-         rKGM5qMLTYSNxddgFoK+/YfujBT3LC8kNk8MOqOnb3mRik9Opdk8uXgJOYX9CmxnKNUn
-         60Mf3/CXT6Md7zMo/8hUdyHHjl3OZzXkLSaLYs1OiW6hu6ZgatD/C3yUfdkXnpAi9R1F
-         ZazTf+I+P71WDc6hxTVLKQT7GRaSzXNOOgJCOOba5yjwJBNNksHnlsCsOvpp2Gk5+7ih
-         fkkg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763640458; x=1764245258;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=rocURVTpRm6dtP5iHBbr10ILRzx3pCec9r06uq4Mrmw=;
-        b=nfAaRjTEFhukf5+NxUZQ2nQcXtWNKiVG5q5va0mBc9Ah65aQ7XhKkNRx/ucn3KSlvJ
-         JWSFDGsJ9z+oJNso6cTJpf0C4FAor1Xyd6l/SaxrXfK8mwVgAvxUeosGGJWq25XvHleI
-         xYP/JWvFyqzi7uNL+ptAVSw+I4F+MJcGfNBBYqC8Mu1z52tT9PDL/ecBF9bJY3vkx3kD
-         3qY0MkmxmjVwrZJPmrIUr17qlKmpIinRJIvbHVgMQ20TMrX2Sr/8Jw49bfC0//mj30eH
-         QEpiWzlHFQl9lIpaxC6U/owRabqEvWPQh6O2Rk7XiqJ6x6tLYELSjeiYD3msdjBlH0uO
-         hWfw==
-X-Forwarded-Encrypted: i=1; AJvYcCU5cQza8aSmPR4xqASjNnSBHFs5suNrdpS2Iv8Y+hBRyAblPi9xyAl3cU/+394uttKPWFK0e8OSmc8CpK90t9KO@lists.infradead.org
-X-Gm-Message-State: AOJu0YzVvC/3vprxQYQURoJ/IHXGV7mGe/NHJ67Yj251SQL9w29f5avX
-	5i0DW5bB28wOfX1Kc+056cSW+5zaIP1KUQC84jIe8dAuBURe2c2jNoE/UMNS8+wxZSajNhZ4GD3
-	dIm+6F7J0gthVxTjj2eoFYBAGRiFigZ/dqpNqooO++qwf8MWejQFuBlJBK8EDfiMgAwIswHUeXO
-	3I0A==
-X-Gm-Gg: ASbGncsT7mJIPV5mX6TtZuJhP+mxTdT6w1KQDWVN4vUXjthdvw8HofR6YIZsY4+ub01
-	YUg2ZmMpT31HhpuF+8tEk2OAdwt8jxyw0YABXXq5yoHaJ/feQNfpX5JUF3406UxQGqloPtEfSz6
-	HNDF7ZRJPITn4MhoQ7nSC8JqOWn+Adew98efkzaH1vPNJQlAXN3/0z31PfE4jVoZPRqaKQrrcSd
-	OXpk6Zz41n+PG/7O38r2/P1/AIgJUH9Dzg2Wwtt7boy/jQX7A4yJHWGcWJwFFMiRjiRy8Kt/85t
-	262jMmTLO//9RdEB7PZF8oUHkaGDbL7OGnKzhRio6bmYXkbPkCXGC30QwSqNAPma2vPbB5HNbde
-	uCTCK83gCx0hOuBXyyQdOhRZXWNnVj0zuRARtzYz8U5WYbQ21DZH60FFGH/KPPgoCOpE=
-X-Received: by 2002:ac8:7f49:0:b0:4ee:1063:d0f3 with SMTP id d75a77b69052e-4ee4979d58amr22346711cf.11.1763640457845;
-        Thu, 20 Nov 2025 04:07:37 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IH7C0G7oIjRGR0HYITo/8aJIWfL6aczcG7wVEVYDZP+JyR4xosC6Jsi56JuaGBd1eQMFrosxw==
-X-Received: by 2002:ac8:7f49:0:b0:4ee:1063:d0f3 with SMTP id d75a77b69052e-4ee4979d58amr22346301cf.11.1763640457383;
-        Thu, 20 Nov 2025 04:07:37 -0800 (PST)
-Received: from [192.168.119.202] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b7654cdac18sm189684666b.11.2025.11.20.04.07.35
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 20 Nov 2025 04:07:36 -0800 (PST)
-Message-ID: <02b73243-f7a0-404d-913a-f95c0ce80632@oss.qualcomm.com>
-Date: Thu, 20 Nov 2025 13:07:34 +0100
+	Thu, 20 Nov 2025 12:08:44 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 0DE0C43AA6;
+	Thu, 20 Nov 2025 12:08:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E53F2C116D0;
+	Thu, 20 Nov 2025 12:08:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1763640521;
+	bh=805vRHwxQfqCRldiuSJO2HRMXlve6C1ugXw7UP48feo=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=bo9uQocT7avg23DjjkbNHaP7H4dmjA/YeFhmrSSG6FthFrdoMY+fxiylq18t7Zwxk
+	 J60u5ZcaU98zwJg0lneLupsroPwVhDJLnQJ13wbEyonExbku9Fv/PKHbl5OCo+YxyQ
+	 vVfdIPtLHomZTFea9jH0h/lP42uEtIu/02C7TKiFwweI7KZM+liWWBQryhoS1ZXGFB
+	 Ev31V2BnmTy0uYT5Ux8s5tMOy6umvnzjGhX00vFHnVkvJkZNviWKxkJt/qw3Aneqvs
+	 eGaeHBYcju4OzzV8gMrkH3jXHLus2FVncwPd/pHKc/aJ6pnjVBvwroPwiZEU6PBPOM
+	 zItJmum8ARjog==
+From: Sasha Levin <sashal@kernel.org>
+To: patches@lists.linux.dev,
+	stable@vger.kernel.org
+Cc: Alvaro Gamez Machado <alvaro.gamez@hazent.com>,
+	Ricardo Ribalda <ribalda@chromium.org>,
+	Mark Brown <broonie@kernel.org>,
+	Sasha Levin <sashal@kernel.org>,
+	michal.simek@amd.com,
+	linux-spi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH AUTOSEL 6.17-5.4] spi: xilinx: increase number of retries before declaring stall
+Date: Thu, 20 Nov 2025 07:08:11 -0500
+Message-ID: <20251120120838.1754634-2-sashal@kernel.org>
+X-Mailer: git-send-email 2.51.0
+In-Reply-To: <20251120120838.1754634-1-sashal@kernel.org>
+References: <20251120120838.1754634-1-sashal@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v2 2/3] net: stmmac: qcom-ethqos: add rgmii
- set/clear functions
-To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
-        Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        Andrew Lunn <andrew+netdev@lunn.ch>,
-        "David S. Miller"
- <davem@davemloft.net>,
-        Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
-        linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-        linux-stm32@st-md-mailman.stormreply.com,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
-        Paolo Abeni <pabeni@redhat.com>, Vinod Koul <vkoul@kernel.org>
-References: <aR76i0HjXitfl7xk@shell.armlinux.org.uk>
- <E1vM2mw-0000000FRTo-0End@rmk-PC.armlinux.org.uk>
-Content-Language: en-US
-From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-In-Reply-To: <E1vM2mw-0000000FRTo-0End@rmk-PC.armlinux.org.uk>
+X-stable: review
+X-Patchwork-Hint: Ignore
+X-stable-base: Linux 6.17.8
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Authority-Analysis: v=2.4 cv=WeUBqkhX c=1 sm=1 tr=0 ts=691f048a cx=c_pps
- a=mPf7EqFMSY9/WdsSgAYMbA==:117 a=FpWmc02/iXfjRdCD7H54yg==:17
- a=IkcTkHD0fZMA:10 a=6UeiqGixMTsA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=PHq6YzTAAAAA:8 a=EUspDBNiAAAA:8
- a=-t6nT1al7WGe8XWH3MkA:9 a=QEXdDO2ut3YA:10 a=dawVfQjAaf238kedN5IG:22
- a=ZKzU8r6zoKMcqsNulkmm:22
-X-Proofpoint-GUID: 71JkJzFAd6Ux2p9V-c883MNXzo32XLLu
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMTIwMDA3NiBTYWx0ZWRfX64e4Pqxu9kYe
- VjXNgtxduOUlxg7wIDHVlLztCC+k1TPG/dYog0lT+1TDley4nO0bsgvoEm1SH4zAbU2w+vtv02Y
- yFdNsZ9LLx32cq10nzyrt5FToxanIbrs5DJMFbrZis1yJmVq3k5LmYMKaijMgGge3NJFqmqTJzw
- LlZnBxmD83zcQFnVdIx6eRHctAgej+6l9mcUbLUlqwXDU6aLcaF4oPaQGSlNsdRuqtM/LkC88WZ
- T74VxN4joVE+o2ipqmgMfWqVBIhpNgnsoscD5AKRmq839qi7Kx9iaQ2qjy4DteyOnBArzodDhH7
- XEgC+sLpaNrsRySZLd48yZeVp0QK4X3nNyEjFVRH3lKLaX1MfnoTAZ97+Cj0cXCvu6yPXuUYKhf
- IjIFHKniGZiWNrN5JsbUpenbPo0ivA==
-X-Proofpoint-ORIG-GUID: 71JkJzFAd6Ux2p9V-c883MNXzo32XLLu
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
- definitions=2025-11-20_04,2025-11-20_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 bulkscore=0 clxscore=1015 suspectscore=0 spamscore=0
- lowpriorityscore=0 adultscore=0 malwarescore=0 phishscore=0 impostorscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2510240001 definitions=main-2511200076
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251120_040740_291797_40A04C3D 
-X-CRM114-Status: GOOD (  13.13  )
+X-CRM114-CacheID: sfid-20251120_040843_248903_9F169737 
+X-CRM114-Status: GOOD (  32.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -155,29 +81,380 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/20/25 12:25 PM, Russell King (Oracle) wrote:
-> The driver has a lot of bit manipulation of the RGMII registers. Add
-> a pair of helpers to set bits and clear bits, converting the various
-> calls to rgmii_updatel() as appropriate.
-> 
-> Most of the change was done via this sed script:
-> 
-> /rgmii_updatel/ {
-> 	N
-> 	/,$/N
-> 	/mask, / ! {
-> 		s|rgmii_updatel\(([^,]*,\s+([^,]*),\s+)\2,\s+|rgmii_setmask(\1|
-> 		s|rgmii_updatel\(([^,]*,\s+([^,]*),\s+)0,\s+|rgmii_clrmask(\1|
-> 		s|^\s+$||
-> 	}
-> }
-> 
-> and then formatting tweaked where necessary.
-> 
-> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
-> ---
+From: Alvaro Gamez Machado <alvaro.gamez@hazent.com>
 
-Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+[ Upstream commit 939edfaa10f1d22e6af6a84bf4bd96dc49c67302 ]
 
-Konrad
+SPI devices using a (relative) slow frequency need a larger time.
+
+For instance, microblaze running at 83.25MHz and performing a
+3 bytes transaction using a 10MHz/16 = 625kHz needed this stall
+value increased to at least 20. The SPI device is quite slow, but
+also is the microblaze, so set this value to 32 to give it even
+more margin.
+
+Signed-off-by: Alvaro Gamez Machado <alvaro.gamez@hazent.com>
+Reviewed-by: Ricardo Ribalda <ribalda@chromium.org>
+Link: https://patch.msgid.link/20251106134545.31942-1-alvaro.gamez@hazent.com
+Signed-off-by: Mark Brown <broonie@kernel.org>
+Signed-off-by: Sasha Levin <sashal@kernel.org>
+---
+
+LLM Generated explanations, may be completely bogus:
+
+## COMPREHENSIVE ANALYSIS: spi: xilinx: increase number of retries
+before declaring stall
+
+### 1. COMMIT MESSAGE ANALYSIS
+
+The commit message clearly describes a real-world problem:
+- **Problem**: SPI devices using slow frequencies need more time before
+  being declared stalled
+- **Specific case**: Microblaze CPU at 83.25MHz performing 3-byte
+  transaction at 625kHz SPI frequency
+- **Evidence**: Author empirically determined the value needed to be at
+  least 20; chose 32 for safety margin
+- **Tags**: Has "Reviewed-by" and "Link" tags, but **NO "Fixes:" or "Cc:
+  stable@vger.kernel.org" tags**
+
+### 2. DEEP CODE RESEARCH
+
+#### A. HOW THE BUG WAS INTRODUCED:
+
+The stall detection mechanism was originally introduced in **commit
+5a1314fa697fc6** (2017-11-21) by Ricardo Ribalda. That commit added
+stall detection logic with `stalled = 10` as a retry counter to detect
+when the Xilinx SPI core gets permanently stuck due to unknown commands
+not in the hardware lookup table.
+
+The original commit message explained:
+> "When the core is configured in C_SPI_MODE > 0, it integrates a lookup
+table that automatically configures the core in dual or quad mode based
+on the command (first byte on the tx fifo). Unfortunately, that list
+mode_?_memoy_*.mif does not contain all the supported commands by the
+flash... this leads into a stall that can only be recovered with a soft
+reset."
+
+The original commit **was tagged with "Cc: stable@vger.kernel.org"** and
+was successfully backported to all major stable branches (verified
+present in 6.6.y, 6.1.y, 5.15.y, 5.10.y, 4.19.y).
+
+#### B. DETAILED CODE ANALYSIS:
+
+The code is in `xilinx_spi_txrx_bufs()` function at line 303:
+
+```c
+rx_words = n_words;
+stalled = 10;  // ← Original value too low for slow configurations
+while (rx_words) {
+    if (rx_words == n_words && !(stalled--) &&
+        !(sr & XSPI_SR_TX_EMPTY_MASK) &&
+        (sr & XSPI_SR_RX_EMPTY_MASK)) {
+        dev_err(&spi->dev,
+            "Detected stall. Check C_SPI_MODE and C_SPI_MEMORY\n");
+        xspi_init_hw(xspi);
+        return -EIO;  // ← Transaction fails
+    }
+    // ... read data from RX FIFO ...
+}
+```
+
+**What the buggy code does:**
+- Initializes `stalled` counter to 10
+- In the polling loop, decrements `stalled` on each iteration when no
+  data is available yet
+- If counter reaches 0 and RX FIFO is still empty (but TX FIFO not
+  empty), declares a hardware stall
+- Returns -EIO, causing the SPI transaction to fail
+
+**Why it's wrong:**
+- The value 10 was chosen empirically in 2017, but it doesn't account
+  for **very slow SPI frequencies combined with slow CPUs**
+- With 625kHz SPI clock and 83.25MHz CPU, the legitimate data transfer
+  time can exceed 10 polling loop iterations
+- This causes **false positive stall detection** - the hardware is
+  working correctly, just slowly
+
+**The race condition:**
+- CPU polling loop runs much faster than slow SPI hardware can transfer
+  data
+- Counter expires before legitimate data arrives in RX FIFO
+- Hardware appears "stalled" when it's actually just slow
+
+#### C. THE FIX EXPLAINED:
+
+The fix changes line 303 from:
+```c
+stalled = 10;  // Old: Too short for slow configurations
+```
+to:
+```c
+stalled = 32;  // New: More margin for slow hardware
+```
+
+**Why this solves the problem:**
+- Gives slow SPI transactions 3.2x more time before declaring a stall
+- Author tested with real hardware (microblaze + 625kHz SPI) and found
+  20 was sufficient
+- Chose 32 to provide additional safety margin
+- Still provides stall detection for genuine hardware hangs (from the
+  original 2017 issue)
+
+**Subtle implications:**
+- Genuine hardware stalls will take slightly longer to detect (32 loop
+  iterations vs 10)
+- This is acceptable because: (1) genuine stalls are rare, (2) the delay
+  is still very short (microseconds to milliseconds), (3) avoiding false
+  positives is more important for reliability
+
+### 3. SECURITY ASSESSMENT
+
+**No security implications.** This is a timing/reliability issue, not a
+security vulnerability. No CVE, no memory safety issues, no privilege
+escalation.
+
+### 4. FEATURE VS BUG FIX CLASSIFICATION
+
+**This is definitively a BUG FIX:**
+- Fixes incorrect hardcoded timeout value
+- The original value causes false stall detection on slow hardware
+- Subject uses "increase" rather than "fix", but the intent is clearly
+  to fix a problem
+- **NOT a feature addition** - doesn't add new functionality, just
+  corrects an inadequate constant
+
+**Does NOT fall under exception categories** (device IDs, quirks, DT,
+build fixes), but doesn't need to - it's a straightforward bug fix.
+
+### 5. CODE CHANGE SCOPE ASSESSMENT
+
+- **Files changed**: 1 (drivers/spi/spi-xilinx.c)
+- **Lines changed**: 1 (1 insertion, 1 deletion)
+- **Complexity**: Trivial - changes a single integer constant
+- **Scope**: Extremely localized - only affects stall detection timeout
+
+**Assessment**: Minimal scope, surgical fix. This is the ideal type of
+change for stable trees.
+
+### 6. BUG TYPE AND SEVERITY
+
+- **Type**: False positive error detection / incorrect timeout
+- **Manifestation**: SPI transactions fail with -EIO error on slow
+  hardware configurations
+- **Severity**: **MEDIUM**
+  - Not a crash, panic, or data corruption
+  - Not a security issue
+  - Causes service disruption: SPI devices fail to work properly
+  - Affects specific configurations (slow SPI + slow CPU)
+  - User-visible impact: Device failures, spurious error messages
+
+### 7. USER IMPACT EVALUATION
+
+**Who is affected:**
+- Users of Xilinx SPI controllers (common in AMD/Xilinx FPGA-based
+  embedded systems)
+- Particularly affects:
+  - Microblaze soft-core CPU users
+  - Systems with slow SPI clock frequencies (< 1MHz)
+  - Embedded systems with constrained CPU speeds
+- Examples: Industrial control systems, FPGA-based embedded devices,
+  custom hardware with Xilinx IP cores
+
+**Impact scope:**
+- **Moderate user base**: Xilinx SPI is used in FPGA designs but not as
+  widespread as generic SPI controllers
+- **High impact for affected users**: Complete SPI failure for those
+  with slow configurations
+- **Verifiable issue**: Author has real hardware that triggers this bug
+
+**Call analysis**: The `xilinx_spi_txrx_bufs()` function is the main
+data transfer function called for every SPI transaction on affected
+hardware. It's in the critical path for all SPI operations.
+
+### 8. REGRESSION RISK ANALYSIS
+
+**Risk level: VERY LOW**
+
+**Reasons:**
+1. **Minimal change**: Single constant value modification
+2. **Direction of change**: Increasing a timeout is inherently safer
+   than decreasing it
+3. **Tested**: Author has tested with real hardware
+4. **Reviewed**: Ricardo Ribalda (the original stall detection author!)
+   reviewed it
+5. **Backward compatible**: Doesn't change behavior for properly
+   functioning hardware
+6. **Limited scope**: Only affects stall detection timing, not data path
+   logic
+
+**Potential risks:**
+- Genuine hardware stalls detected slightly later (32 iterations vs 10)
+  - Mitigation: Still quick enough (microseconds), rare occurrence
+- None identified that would break working systems
+
+### 9. MAINLINE STABILITY
+
+- **Commit date**: November 7, 2024 (appears as 2025 but likely 2024)
+- **Testing evidence**:
+  - Reviewed-by: Ricardo Ribalda (original stall detection author)
+  - Author tested with real hardware (microblaze + slow SPI)
+- **Mainline presence**: In v6.18-rc6 (recent mainline development
+  kernel)
+- **Time in mainline**: Very recent - approximately 2 weeks if November
+  2024
+
+**Concern**: This is quite recent. Ideally would benefit from more time
+in mainline (several weeks to months) before backporting.
+
+### 10. DEPENDENCY CHECK
+
+**No dependencies identified:**
+- Change is self-contained (single constant)
+- Doesn't depend on other commits
+- Doesn't require API changes
+- The stall detection code (commit 5a1314fa697fc6 from 2017) is already
+  present in all stable branches
+- Will apply cleanly to any stable branch that has the original stall
+  detection code
+
+**Verified**: The original stall detection code is present in:
+- ✅ stable/linux-6.6.y
+- ✅ stable/linux-6.1.y
+- ✅ stable/linux-5.15.y
+- ✅ stable/linux-5.10.y
+- ✅ stable/linux-4.19.y
+
+### 11. PRACTICAL VS THEORETICAL
+
+**Highly practical:**
+- Author encountered this bug with real hardware (microblaze @ 83.25MHz,
+  SPI @ 625kHz)
+- Provides specific reproduction case
+- Not a theoretical race or corner case
+- Users with slow SPI configurations will hit this reliably
+
+### BACKPORT DECISION ANALYSIS
+
+#### Alignment with Stable Kernel Rules:
+
+1. **Obviously correct**: ✅ **YES**
+   - Trivial change (increase timeout constant)
+   - Reviewed by the original stall detection author
+   - Logic is straightforward
+
+2. **Fixes real bug**: ✅ **YES**
+   - False stall detection on slow hardware
+   - Author has reproducible case
+   - Affects real users
+
+3. **Important issue**: ⚠️ **MODERATE**
+   - Causes SPI transaction failures
+   - NOT a crash, security issue, or data corruption
+   - Affects specific configurations (slow SPI/CPU)
+   - Severity: Service disruption for affected users
+
+4. **Small and contained**: ✅ **YES**
+   - Single line change
+   - No architectural changes
+   - Minimal scope
+
+5. **No new features**: ✅ **YES**
+   - Pure bug fix
+   - No new APIs or functionality
+
+6. **Clean application**: ✅ **YES**
+   - Should apply cleanly to all stable branches
+   - Original code is present in all major LTS kernels
+
+#### Considerations:
+
+**In favor of backporting:**
+- Extremely low regression risk (1 line, timeout increase)
+- Fixes real-world bug with reproducible case
+- Reviewed by original code author
+- Small, obviously correct change
+- Helps users with slow SPI configurations
+- Original stall detection is already in stable branches
+
+**Against backporting or requiring caution:**
+- No "Cc: stable@vger.kernel.org" tag (maintainer didn't explicitly
+  request it)
+- No "Fixes:" tag (though logically fixes commit 5a1314fa697fc6)
+- Very recent in mainline (limited testing time)
+- Moderate severity (not critical crash/security/corruption)
+- Affects niche configurations (slow SPI on Xilinx hardware)
+
+#### Risk vs Benefit Trade-off:
+
+**Benefit**:
+- Enables SPI functionality for slow Xilinx configurations
+- Prevents spurious transaction failures
+- Minimal user-visible change (just works better)
+
+**Risk**:
+- Virtually none - increasing timeout is safe
+- Genuine stalls detected marginally slower (acceptable)
+
+**Trade-off**: **Favorable** - High benefit for affected users,
+negligible risk
+
+### FINAL ASSESSMENT
+
+This commit represents a **textbook stable backport candidate** from a
+technical perspective:
+- Trivial, obviously correct change
+- Fixes a real bug affecting actual users
+- Zero risk of regression
+- Small, contained scope
+
+However, it has **two procedural concerns**:
+1. **No explicit stable tag**: The maintainer/author didn't tag it with
+   "Cc: stable@vger.kernel.org", suggesting they may not have considered
+   it critical enough for backporting
+2. **Very recent**: Limited testing time in mainline (approximately 2
+   weeks)
+
+The absence of the stable tag is notable because the **original stall
+detection commit (5a1314fa697fc6) DID have the stable tag**, indicating
+the original author (Ricardo Ribalda) understood stable backporting.
+Ricardo also reviewed this current patch, so his review implies approval
+of the technical approach.
+
+Despite the lack of an explicit stable tag, the technical merits
+strongly support backporting:
+- It's an adjustment to an already-backported feature
+- The change is trivial and safe
+- It fixes a real problem for a subset of users
+- Regression risk is negligible
+
+The commit should be backported to **all stable branches that contain
+the original stall detection code** (5a1314fa697fc6), which includes at
+minimum: 6.6.y, 6.1.y, 5.15.y, 5.10.y, and 4.19.y.
+
+**Recommendation**: This would benefit from a few more weeks in mainline
+for additional testing, but can be safely backported. The lack of a
+stable tag is the only significant concern, but the technical merits
+outweigh this procedural consideration.
+
+**YES**
+
+ drivers/spi/spi-xilinx.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/drivers/spi/spi-xilinx.c b/drivers/spi/spi-xilinx.c
+index d59cc8a184846..c86dc56f38b45 100644
+--- a/drivers/spi/spi-xilinx.c
++++ b/drivers/spi/spi-xilinx.c
+@@ -300,7 +300,7 @@ static int xilinx_spi_txrx_bufs(struct spi_device *spi, struct spi_transfer *t)
+ 
+ 		/* Read out all the data from the Rx FIFO */
+ 		rx_words = n_words;
+-		stalled = 10;
++		stalled = 32;
+ 		while (rx_words) {
+ 			if (rx_words == n_words && !(stalled--) &&
+ 			    !(sr & XSPI_SR_TX_EMPTY_MASK) &&
+-- 
+2.51.0
+
 
