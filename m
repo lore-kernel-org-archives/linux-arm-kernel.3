@@ -4,61 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58FC0CF8859
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 13:40:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 586D7CF8859
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 13:42:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UsKnN12hj/rbVpqzjPerf7BE9gG8BCj2mcAs3qdEBTg=; b=CQ0yXNTLk7QMH64+ofevp4bgvD
-	FKZHFjKzzbql4bvciipn4woyvXOyaGJXIhRc8P6y3m9cCL387AH2aT6M2CV+13S7YlUWWgi1tdxVe
-	/aoimu/di8UDIRl3lUuwco40sXrWo5InsRNz1zbjaMfwgVJNaxGOu8syTl/FPBitwijV3Bo7CCmdR
-	uyAULvrLaGmVhQP/3Ze5Z+uD3oObij1drmKu/qn4/Jo+C4sqVBT3jfk30xnM4e/qnaSrKeoGMAhwd
-	iEN2/JApZ4sR3uwtPUVruV1C33jyzOroYXxnnKyhmy2OuZRDS/3zkhoQaE+yIRCjZQPjPObf4t5VX
-	46tFHEDA==;
+	bh=IFyfL4PluTAtFIQPFu4IUXq8d0sAnZdXd1qymHmhXWA=; b=bM7qjO58y8inB/NfwRGdKUHNCo
+	wdwjDZUST7h7hIpir9tiTHZjp/1/l+WoAYNHyYHStK+VNTevaypsaz5rwYMGSCXQu+9rHBNqjzIFE
+	/NOLD9IcOOpxLStAHTCiKjUIk0zwzRA2EGTIgK3qlhjX9hDi8U/5L4RxNYIVvQsHzG0r9MTfAuMNw
+	vVNhK9YE2eBnNJtrzflHysFjOy/mnW2/lNlF9rMDHYn3X8LbnqVBVa826n5P0yot4p1Xg6eKyzpTM
+	ihJUIKgJMAt359T/OBRzayqOtkQxjjkE/diZUgmOGRjTNZraY16MAkwNPKDecLxcm0cevc2LkshBc
+	aaCJEXSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vM4tb-00000006kuG-2J1M;
-	Thu, 20 Nov 2025 13:40:23 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vM4vZ-00000006l7w-1JEb;
+	Thu, 20 Nov 2025 13:42:25 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vM4tZ-00000006kte-39Hk;
-	Thu, 20 Nov 2025 13:40:21 +0000
+	id 1vM4vW-00000006l7b-16W6
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 20 Nov 2025 13:42:23 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 27E196011F;
-	Thu, 20 Nov 2025 13:40:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 403A6C4CEF1;
-	Thu, 20 Nov 2025 13:40:17 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id D803F4392E;
+	Thu, 20 Nov 2025 13:42:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C6289C4CEF1;
+	Thu, 20 Nov 2025 13:42:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763646020;
-	bh=wtFcg+mxeMTwpc0PfeCeV5YE3FP0e1rSXIPsPzLHaiY=;
+	s=k20201202; t=1763646141;
+	bh=hUzu+Trhjnsp+FULtr19JerU6ZKXP49iM//LwZT+PlM=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=pmgwwX+PTg5q1wQA9qq5HSSSQIQ0sB+Yrr7AUP3Ub1OaoQn5DE4gRmnSG0gy59IU9
-	 GfeU26dQV1v3BOolEyAlXUwfl/AkmYfrE7F8Ma+xiRe746zunC6JOxFAqc64QH6yqe
-	 XOyr+RPQzghYh1Bf4JddwcUJ5k5fU3BM+kyJ77bghVpw1ncTAoUgdkqGk5ML1kp3qP
-	 knO1OJKVoPZv+NHBr54T8O5JV0y4CVzVG8izEC+tEKkXcrbD58IfTFVCIbymev5SkN
-	 3V/bPMLN4FR96+3wa2J/A13/d6U8ywQ2v9t8cdyJQeiRzlcPX0Yir31GzlF+E31nA5
-	 S+aL/vWLawaIA==
-Message-ID: <44783f62-c8da-4c5c-a927-f9ce80df8e37@kernel.org>
-Date: Thu, 20 Nov 2025 14:40:15 +0100
+	b=QvLX1T7lFpvFCZXM6CBM69ZMUpeBK2ISfqJ/ffdGcO9ELEQ4S3M58xfH/w+16DD6F
+	 jtzQVmE8K2deE99sj0/C1i0L5SgwQ6C4OXP4nm/2sn5zLG5PQwpo7V+/DmL36Dckvl
+	 LAVodJCOjMxscG09n2T+3Eykf4iOw4JaVgQkcebHr5xOmU1/qPt5YrdSomtH3bomj1
+	 3Qo349XL36N6FdfsH6ol+c6DGS8YAdhZYmOee7ZRGY8aBY3DV6+BnVdiN0ZO13ACSR
+	 h+obnPeen5jeIXoY63Lne2QMo+H/4LsDAbhPp2P58xFB9oM/+0/ydpj6XynD76zGvZ
+	 uWJANtWPA1RoQ==
+Message-ID: <0983a90d-acf8-4f78-938b-34c53cdbe524@kernel.org>
+Date: Thu, 20 Nov 2025 14:42:16 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 4/5] rtc: mt6397: Add BBPU alarm status reset and
- shutdown handling
-To: ot_shunxi.zhang@mediatek.com, Rob Herring <robh@kernel.org>,
+Subject: Re: [PATCH v3 1/2] dt-bindings: hwmon: Add AST2700 compatible
+To: Billy Tsai <billy_tsai@aspeedtech.com>, Guenter Roeck
+ <linux@roeck-us.net>, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Eddie Huang <eddie.huang@mediatek.com>, Sean Wang <sean.wang@mediatek.com>,
- Alexandre Belloni <alexandre.belloni@bootlin.com>, Lee Jones
- <lee@kernel.org>, Vince-WL.Liu@mediatek.com, sirius.wang@mediatek.com,
- Jh.Hsu@mediatek.com
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-References: <20251120121805.6775-1-ot_shunxi.zhang@mediatek.com>
- <20251120121805.6775-5-ot_shunxi.zhang@mediatek.com>
+ <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
+ Andrew Jeffery <andrew@codeconstruct.com.au>
+Cc: linux-hwmon@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
+ linux-kernel@vger.kernel.org, BMC-SW@aspeedtech.com
+References: <20251120-upstream_pwm_tach-v3-0-eaa2f9b300a2@aspeedtech.com>
+ <20251120-upstream_pwm_tach-v3-1-eaa2f9b300a2@aspeedtech.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -104,9 +102,13 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20251120121805.6775-5-ot_shunxi.zhang@mediatek.com>
+In-Reply-To: <20251120-upstream_pwm_tach-v3-1-eaa2f9b300a2@aspeedtech.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251120_054222_345842_05A5662C 
+X-CRM114-Status: UNSURE (   8.46  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,16 +123,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 20/11/2025 13:18, ot_shunxi.zhang@mediatek.com wrote:
->  
->  	rtc = devm_kzalloc(&pdev->dev, sizeof(struct mt6397_rtc), GFP_KERNEL);
-> @@ -275,6 +294,8 @@ static int mtk_rtc_probe(struct platform_device *pdev)
->  	if (IS_ERR(rtc->rtc_dev))
->  		return PTR_ERR(rtc->rtc_dev);
->  
-> +	rtc->alarm_sta_supported = of_property_read_bool(np, "mediatek,alarm-sta-supported");
+On 20/11/2025 12:12, Billy Tsai wrote:
+> Adds support for the AST2700 PWM/Tach controller by extending the
+> compatible string enumeration in the device tree binding.
+> 
+> The AST2700 PWM/Tach hardware is compatible with the existing binding
+> schema and requires no additional properties or modifications beyond
+> the new compatible string.
+> 
+> Signed-off-by: Billy Tsai <billy_tsai@aspeedtech.com>
 
-You cannot add undocumented ABI. Read carefully Linux documentation.
+
+Reviewed-by: Krzysztof Kozlowski <krzk@kernel.org>
 
 Best regards,
 Krzysztof
