@@ -4,71 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8138DCF8553
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 07:49:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86B7BCF64A2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 07:52:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pN66/aziM8FLBGXMDRc1fqp3c53JCtA+Qj3cip4GEus=; b=xvhiv4l/9pHYCUFNZpnHApPMen
-	6RslNk48wUjIJ9As3wgM/81TJAC4rBoHSujhuKznR6CP5+0143wrsG222W8O88LlRQLPRUCVSkbZ1
-	QItc/RAdi+0N+oLNkX4tCgdSkCZoDVDK4Y3KPMTIrBUydnRnthHD6wWW6bOu76JftUBsT7njeNioT
-	mOQU5gKrjpHSxxaOXxum5e1Xfo2I+Uo/e1jBo8U/ZCE1c5wSvI3ntuCB6xLfb7/QJiRv2Q41Sz6V/
-	SaPBcWY4TselGc5MNmqe9KbLOy4HhYLvuWIhMBxv+ctylm5rEf1qg15eNM9sYsTtm8RbaE3au3mpO
-	+aspBZ8w==;
+	bh=Zk7PYY9/GBETf/yDlcDeIYfo5g2mEFqYL0pYYToUCfU=; b=UyuP1mMaMxvfeLft+3AJauLjP/
+	IJq7R8k6os80BM9S4q3NpVPS09TnuLBwy+2S9PzyyTyDxHs2cPbQJCSaJjUESSDfput+o/ecMVWlP
+	9eEeqD1fC6nZZ7YFkrLRPIisytf4K83F8tND+OvT40Q7VaZJA1uRGa8gEXqdhiuX4Xv71Z6zRpQWK
+	HwDIKgbrbKgyD6pIag4X2GTG5AexP3KzJPygMq0tQu44xAmh8YQwcfY+0tl3D5bPeJS6xgykO3Iq7
+	ZCs5791LpoOa7Njy1hCz2DmBBB/OX56p8ZBXKhgYqUKYYZTdrcC5ElqDNZ9q2ifcOz4xDmNctbw03
+	tRrp/DcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLzPv-00000006JPA-2RbV;
-	Thu, 20 Nov 2025 07:49:23 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1vLzTJ-00000006JZz-0WAn;
+	Thu, 20 Nov 2025 07:52:53 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLzPr-00000006JOf-2QyI
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Nov 2025 07:49:22 +0000
-Date: Thu, 20 Nov 2025 08:49:14 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1763624955;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=pN66/aziM8FLBGXMDRc1fqp3c53JCtA+Qj3cip4GEus=;
-	b=36gIT7nE+F2U/HaP/Jhq3JbpOhAw4ZuqDQVvZFQtIw3D8UAsv252FfYz4j4Z+J6tVJvfuY
-	PqN2VIFAkDgQeKBTQ6BU+k+hoaUyQ1D3VmqyhvUmS/xz6Fk5yoYSh/rHEd8ziRaFh6NoMt
-	1a7FcmxXSv4/LIBKPzvoDFxgok0dKHzxLLUukxYXT5eEZ8k0cypAFvR5DiXGpX8G9eC1lG
-	+6Uqf7NfwtFxxANxhakvRl9kpLyaL6/5DDODyBMpI4vceYn6vWLMULYxvLGqhczfSrusNn
-	LA9fplqBf48XcjTXQKbQEs7Iel2qJWIsLWXriF7sVFsh++huHEwGcYOBVbk9YA==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1763624955;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=pN66/aziM8FLBGXMDRc1fqp3c53JCtA+Qj3cip4GEus=;
-	b=+im0up9G77Lr415VNwNxEueuVq7kWcvxeyn3rWfiWgn1DP998nkfcdF5RPWdFy/OHHsBan
-	TBRA6O3UyutwcADA==
-From: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-To: Simon Glass <sjg@chromium.org>
-Cc: linux-arm-kernel@lists.infradead.org, 
-	Masahiro Yamada <masahiroy@kernel.org>, Tom Rini <trini@konsulko.com>, 
-	Ahmad Fatoum <a.fatoum@pengutronix.de>, J =?utf-8?Q?=2E_Neusch=C3=A4fer?= <j.ne@posteo.net>, 
-	Nicolas Schier <nicolas@fjasle.eu>, Chen-Yu Tsai <wenst@chromium.org>, 
-	"Reviewed-by : Nicolas Schier" <nsc@kernel.org>, Nathan Chancellor <nathan@kernel.org>, 
-	Ard Biesheuvel <ardb@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Josh Poimboeuf <jpoimboe@kernel.org>, Kees Cook <kees@kernel.org>, Miguel Ojeda <ojeda@kernel.org>, 
-	Nicolas Schier <nicolas.schier@linux.dev>, Rong Xu <xur@google.com>, Tamir Duberstein <tamird@gmail.com>, 
-	Will Deacon <will@kernel.org>, linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v6 6/8] kbuild: Allow adding modules into the FIT ramdisk
-Message-ID: <20251120084201-53a3c98f-6a3c-4116-8635-be67d58fd57b@linutronix.de>
-References: <20251119181333.991099-1-sjg@chromium.org>
- <20251119181333.991099-7-sjg@chromium.org>
+	id 1vLzTG-00000006JZM-1KSC;
+	Thu, 20 Nov 2025 07:52:51 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 588A243C93;
+	Thu, 20 Nov 2025 07:52:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 43EE6C4CEF1;
+	Thu, 20 Nov 2025 07:52:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1763625167;
+	bh=PCcS8iU+MQD7IjGPMGhvdSTgD9hnRAL2owebjIiNWS4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ICads1DqUmvuOZnOFex1dZonyIVaAiCKcFopkE5vgQTgNsmqyF9C4hlxGvSPvVhMJ
+	 /ZWMz8QmJxGa5zbVBxEy//i/s6NCd+43+QiDg/7m4fAjeoI8Wct6hyvws2ZIXNrSpW
+	 gxhwsUgO5UHfIEgAp7t/iCYAllfLLDgPkJE//v4IyTL5k2kXBdxrjvHqacy5bxDxGb
+	 4TRb795eNwFrkgvLGAbAz/hthBW49c9W8ZjRgMGYpN+JNd+5bMr2zmdsgCWfYGhx4I
+	 VZFH4I2GtjoQZf6EKCHf8FcyMoB8o/WrEnXoYL/5OpRjDHw7gIrDHnLcGzK+iGTQxl
+	 psiNMSKa5dOEA==
+Date: Thu, 20 Nov 2025 13:22:19 +0530
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Frank Li <Frank.li@nxp.com>
+Cc: Bjorn Helgaas <helgaas@kernel.org>, Niklas Cassel <cassel@kernel.org>, 
+	Shawn Lin <shawn.lin@rock-chips.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, Rob Herring <robh@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+	Kever Yang <kever.yang@rock-chips.com>, Simon Xue <xxm@rock-chips.com>, 
+	Damien Le Moal <dlemoal@kernel.org>, Dragan Simic <dsimic@manjaro.org>, 
+	FUKAUMI Naoki <naoki@radxa.com>, Diederik de Haas <diederik@cknow-tech.com>, 
+	Richard Zhu <hongxing.zhu@nxp.com>, Lucas Stach <l.stach@pengutronix.de>, 
+	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, Conor Dooley <conor@kernel.org>, 
+	Krzysztof Kozlowski <krzk@kernel.org>, Thierry Reding <thierry.reding@gmail.com>, 
+	Jonathan Hunter <jonathanh@nvidia.com>, Hans Zhang <hans.zhang@cixtech.com>, linux-tegra@vger.kernel.org, 
+	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, kernel@pengutronix.de, Bjorn Helgaas <bhelgaas@google.com>
+Subject: Re: [PATCH v2 1/4] PCI: dwc: Advertise L1 PM Substates only if
+ driver requests it
+Message-ID: <lhunx3lpx3fgzyszf3librekhlrqtewcu664i7anj2s54j7kcr@52tt66auzpnr>
+References: <20251118214312.2598220-1-helgaas@kernel.org>
+ <20251118214312.2598220-2-helgaas@kernel.org>
+ <aRz0ak6onKzZs2lY@lizhi-Precision-Tower-5810>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20251119181333.991099-7-sjg@chromium.org>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <aRz0ak6onKzZs2lY@lizhi-Precision-Tower-5810>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251119_234921_301634_6DB1F116 
-X-CRM114-Status: GOOD (  23.47  )
+X-CRM114-CacheID: sfid-20251119_235250_402201_27021394 
+X-CRM114-Status: GOOD (  30.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,90 +85,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 19, 2025 at 11:13:27AM -0700, Simon Glass wrote:
-> Support 'make image.fit FIT_MODULES=1' to put all the modules into a
-> ramdisk image within the FIT.
+On Tue, Nov 18, 2025 at 05:34:18PM -0500, Frank Li wrote:
+> On Tue, Nov 18, 2025 at 03:42:15PM -0600, Bjorn Helgaas wrote:
+> > From: Bjorn Helgaas <bhelgaas@google.com>
+> >
+> > L1 PM Substates require the CLKREQ# signal and may also require
+> > device-specific support.  If CLKREQ# is not supported or driver support is
+> > lacking, enabling L1.1 or L1.2 may cause errors when accessing devices,
+> > e.g.,
+> >
+> >   nvme nvme0: controller is down; will reset: CSTS=0xffffffff, PCI_STATUS=0x10
+> >
+> > If the kernel is built with CONFIG_PCIEASPM_POWER_SUPERSAVE=y or users
+> > enable L1.x via sysfs, users may trip over these errors even if L1
+> > Substates haven't been enabled by firmware or the driver.
+> >
+> > To prevent such errors, disable advertising the L1 PM Substates unless the
+> > driver sets "dw_pcie.l1ss_support" to indicate that it knows CLKREQ# is
+> > present and any device-specific configuration has been done.
+> >
+> > Set "dw_pcie.l1ss_support" in tegra194 (if DT includes the
+> > "supports-clkreq' property) and qcom (for cfg_2_7_0, cfg_1_9_0, cfg_1_34_0,
+> > and cfg_sc8280xp controllers) so they can continue to use L1 Substates.
+> >
+> > Based on Niklas's patch:
+> > https://patch.msgid.link/20251017163252.598812-2-cassel@kernel.org
+> >
+> > Signed-off-by: Bjorn Helgaas <bhelgaas@google.com>
+> > ---
+> >  .../pci/controller/dwc/pcie-designware-ep.c   |  2 ++
+> >  .../pci/controller/dwc/pcie-designware-host.c |  2 ++
+> >  drivers/pci/controller/dwc/pcie-designware.c  | 24 +++++++++++++++++++
+> >  drivers/pci/controller/dwc/pcie-designware.h  |  2 ++
+> >  drivers/pci/controller/dwc/pcie-qcom.c        |  2 ++
+> >  drivers/pci/controller/dwc/pcie-tegra194.c    |  3 +++
+> >  6 files changed, 35 insertions(+)
+> >
+> > diff --git a/drivers/pci/controller/dwc/pcie-designware-ep.c b/drivers/pci/controller/dwc/pcie-designware-ep.c
+> > index 7f2112c2fb21..ad6c0fd67a65 100644
+> > --- a/drivers/pci/controller/dwc/pcie-designware-ep.c
+> > +++ b/drivers/pci/controller/dwc/pcie-designware-ep.c
+> > @@ -966,6 +966,8 @@ int dw_pcie_ep_init_registers(struct dw_pcie_ep *ep)
+> >  	if (ep->ops->init)
+> >  		ep->ops->init(ep);
+> >
+> > +	dw_pcie_hide_unsupported_l1ss(pci);
+> > +
 > 
-> Add image.fit as a target which requires modules, so that modules will
-> built automatically when using FIT_MODULES is not empty.
+> And, I don't think EP need clean L1SS CAP flags. If EP don't support L1SS,
+> it should be force pull down #clkreq.
 > 
-> Signed-off-by: Simon Glass <sjg@chromium.org>
-> Suggested-by: Ahmad Fatoum <a.fatoum@pengutronix.de>
-> Suggested-by: Reviewed-by: Nicolas Schier <nsc@kernel.org>
-> Acked-by: Nathan Chancellor <nathan@kernel.org>
-> ---
+> EP don't know if #clkreq connected in host boards, assume EP with same
+> software, which can run at two difference host system, one host system
+> connect #clkreq, the other system have not connect #clkreq.
 > 
-> Changes in v6:
-> - Mention that FIT_MODULES just needs to be non-empty
-> - Make use of modules.order instead of using 'find'
+> otherwords, support-clkreq property should be only for RC side. not EP
+> side. EP side l1ss support should depend on specific epf function and
+> controller's capablity.
 > 
-> Changes in v5:
-> - Build modules automatically if needed (fix from Nicolas Schier)
-> 
-> Changes in v4:
-> - Rename the Makefile variable from 'EXTRA' to 'MAKE_FIT_FLAGS'
-> - Use an empty FIT_MODULES to disable the feature, instead of '0'
-> - Make use of the 'modules' dependency to ensure modules are built
-> - Pass the list of modules to the script
-> 
->  Makefile             | 1 +
->  arch/arm64/Makefile  | 1 +
->  scripts/Makefile.lib | 6 +++++-
->  3 files changed, 7 insertions(+), 1 deletion(-)
-> 
-> diff --git a/Makefile b/Makefile
-> index 8cd46222fc48..4eccaef95826 100644
-> --- a/Makefile
-> +++ b/Makefile
-> @@ -773,6 +773,7 @@ endif
->  # Just "make" or "make all" shall build modules as well
->  
->  modules-targets := all
-> +modules-targets += $(if $(FIT_MODULES),image.fit)
->  modules-targets += modules
->  modules-targets += nsdeps
->  modules-targets += compile_commands.json
-> diff --git a/arch/arm64/Makefile b/arch/arm64/Makefile
-> index 73a10f65ce8b..7036f251ab40 100644
-> --- a/arch/arm64/Makefile
-> +++ b/arch/arm64/Makefile
-> @@ -174,6 +174,7 @@ endif
->  all:	$(notdir $(KBUILD_IMAGE))
->  
->  image.fit: dtbs
-> +image.fit: $(if $(FIT_MODULES),modules)
->  
->  vmlinuz.efi image.fit: Image
->  $(BOOT_TARGETS): vmlinux
-> diff --git a/scripts/Makefile.lib b/scripts/Makefile.lib
-> index 1d581ba5df66..28e0cc0865b1 100644
-> --- a/scripts/Makefile.lib
-> +++ b/scripts/Makefile.lib
-> @@ -398,11 +398,15 @@ MAKE_FIT := $(srctree)/scripts/make_fit.py
->  # Use this to override the compression algorithm
->  FIT_COMPRESSION ?= gzip
->  
-> +# Set this to non-empty to include an initrd with all the kernel modules
-> +FIT_MODULES ?=
-> +
->  quiet_cmd_fit = FIT     $@
->        cmd_fit = $(MAKE_FIT) -o $@ --arch $(UIMAGE_ARCH) --os linux \
-> -		--name '$(UIMAGE_NAME)' \
-> +		--name '$(UIMAGE_NAME)' $(MAKE_FIT_FLAGS) \
 
-Remnant of a previous revision?
+'support-clkreq' DT property is only applicable to the RC as per dtschema. So
+using it in the EP driver is wrong in the first place. We could add it to the EP
+schema, but that should be done first before relying on it in the driver.
 
->  		$(if $(findstring 1,$(KBUILD_VERBOSE)),-v) \
->  		$(if $(FIT_DECOMPOSE_DTBS),--decompose-dtbs) \
-> +		$(if $(FIT_MODULES),--modules @$(objtree)/modules.order) \
+Also, I do think that the device capability should accurately reflect whether
+L1ss is supported or not and not assume that the EP will pull the CLKREQ# low
+when it is not supported. If the L1ss CAP is available on both RC and EP, host
+software may enable L1ss and expect it to work.
 
-I am wondering how module dependencies work without the depmod invocation
-and modules.dep file.
+But enabling/disabling the CAP for EP should be done later based on either the
+DT property or controller specific flag.
 
->  		--compress $(FIT_COMPRESSION) -k $< @$(word 2,$^)
->  
->  # XZ
-> -- 
-> 2.43.0
-> 
+- Mani
+
+-- 
+மணிவண்ணன் சதாசிவம்
 
