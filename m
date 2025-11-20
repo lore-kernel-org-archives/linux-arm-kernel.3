@@ -4,82 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1D65CF8860
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 14:05:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 914BECF8860
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 14:05:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=i/S1pK5YZapKMjpMg4WdXuScaXdAILx18F1c2HTlfcU=; b=FlkFvYOS8rRAQy1I6ullmQaoc9
-	ths/NnsQMb86ZcnwmJxMjCP1IJIInYXEBO/U6dSvGMbo1KbEQh/7HrRChzTH2SuTf7IqHjrsSIcxd
-	mJzPUri9pYxOV4Um1lgKzmrjp3Dd1vND8AOns6TaVyBWLqUBFCxiyrahFW9YaseGkvZdxKGtfPaFm
-	CmMpJ5XAaQWfmjNZ16oX6Aj8kJHkKGvmAecmiSSZ75xLxUUzAaaWc2gpWWrXlQC06OeVwDjF0wfmF
-	bKTeWVL6s+2MFK6iqwPjTWRD3oXM+1mzCsINioUm2cMNVi4mP+6I9HNeVUfjaxTXw1pL2Y1WEkW/r
-	3YHgmfNQ==;
+	bh=aFAQ5G6SeRazRA6pE/mTpK/FWyyGCqzO+A2GJFIOtY4=; b=srKa2KRR89vmxeC6qa3M1yGYAP
+	G4DfHRdh83OrChYZcmclbLjSQVVqblkvOKIlzWAva/+VkI1D5dDRnoWzFlBWBfzKySficE+mSL9NP
+	eDbc6ADRfJwyGByZIha/pwsyoZcZinEFXrEE/i8K4xy6TbfcEARor9kK0alC9KjMypWziyTkYKQRp
+	Wwy9nVHWdgy1VDoL+qvFWeRxD76CUJ8Zz+RhZXdQlptwV6o+nwe9vsTZrAf1kQRLERsGHdd/Y/Eli
+	/TxARTcB5ejS/D+04JaZqqLSQ8XLuzfqs7RCHCKs7/6L5BAD0fSlc0nib0l9i8S18WXOxoFqTnPkt
+	LsAqdDdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vM5Ho-00000006nix-1NYk;
-	Thu, 20 Nov 2025 14:05:24 +0000
-Received: from pdx-out-015.esa.us-west-2.outbound.mail-perimeter.amazon.com ([50.112.246.219])
+	id 1vM5I9-00000006nr3-0suG;
+	Thu, 20 Nov 2025 14:05:45 +0000
+Received: from pdx-out-012.esa.us-west-2.outbound.mail-perimeter.amazon.com ([35.162.73.231])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vM5Hl-00000006nhw-1aEb
+	id 1vM5I5-00000006np7-1W2O
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Nov 2025 14:05:22 +0000
+	Thu, 20 Nov 2025 14:05:43 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
   d=amazon.de; i=@amazon.de; q=dns/txt; s=amazoncorp2;
-  t=1763647521; x=1795183521;
+  t=1763647541; x=1795183541;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=i/S1pK5YZapKMjpMg4WdXuScaXdAILx18F1c2HTlfcU=;
-  b=rwcb1vsOvKnmw6kuE3aZnJqKtjxbUQO56mo0hiPh8+xshRIUlIkvsDbJ
-   l63OERKt/ZPPLtbdzHDFlKtcnFI7R5zWbTQ9s1P85UouEioBNyvsTKUGE
-   I4EHbF1zcAbVXVG9Uu9oKlqISgeVuBPcDRV91CiSJ0PFxX6x6zmubR1BH
-   QJ/TvRT5UU5wkUSrBTeJmteoUzoHiUVgi6UABPqep20yh9Y+1yNNBEpsU
-   Uwh6a/E0iPDNH9WAzYDlJdKQ4ByA+n+LbnWaFycjYi4dLgVrt0zR3jbnG
-   TElEGPGPNRYuyvL3okTR2Dca7fKbQzmWUuOAOkfnW7C1PzOwzA+Wq+kt9
-   w==;
-X-CSE-ConnectionGUID: EzYWF5H3RQ6W/QgoqzmDXA==
-X-CSE-MsgGUID: n6TGPi8fQ0e2gPO0YLinmg==
+  bh=aFAQ5G6SeRazRA6pE/mTpK/FWyyGCqzO+A2GJFIOtY4=;
+  b=MP3CIYH5OhDOYBnl7F2+LcIdxW5bAIcDqN9qPStC9tvH5iwqQcMqfdOa
+   RqWR1zmZxOxfXoRSxW7qLfnq4f5Q2/ucNiGXFuZ2WNoIGfmiOewiSO16S
+   IQNzr0ZmMEvoPMhsgHayr8R/WGgdfn1BXxmCpTFyb/a0O6RxTzKSzevIY
+   RBGSQjC2+AjVRnLZgzpKeUZNk6NhgVAqs4ktHu5Sb4w4E3WV7rDLNVGUO
+   vHVUozwWMPHUdH7Ek05S2dupQ4oipHWlcM91b3tnrlVWidUJr6ZszEEDA
+   IsoKytaHtaAFl4ln27WCU0jj4H+55CjAVjRQrQ7zDfiHaQ0t6VOPAI1Do
+   Q==;
+X-CSE-ConnectionGUID: J/mEdwrhQXSmlG+bry7r6Q==
+X-CSE-MsgGUID: +jVNHvYwTUK+fdgeYuajuQ==
 X-IronPort-AV: E=Sophos;i="6.20,213,1758585600"; 
-   d="scan'208";a="7249870"
-Received: from ip-10-5-9-48.us-west-2.compute.internal (HELO smtpout.naws.us-west-2.prod.farcaster.email.amazon.dev) ([10.5.9.48])
-  by internal-pdx-out-015.esa.us-west-2.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2025 14:05:21 +0000
-Received: from EX19MTAUWC001.ant.amazon.com [205.251.233.105:19313]
- by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.53.70:2525] with esmtp (Farcaster)
- id bc3e93a5-8836-4ec4-b25f-7350314ba75e; Thu, 20 Nov 2025 14:05:20 +0000 (UTC)
-X-Farcaster-Flow-ID: bc3e93a5-8836-4ec4-b25f-7350314ba75e
+   d="scan'208";a="7244749"
+Received: from ip-10-5-6-203.us-west-2.compute.internal (HELO smtpout.naws.us-west-2.prod.farcaster.email.amazon.dev) ([10.5.6.203])
+  by internal-pdx-out-012.esa.us-west-2.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2025 14:05:36 +0000
+Received: from EX19MTAUWB002.ant.amazon.com [205.251.233.111:20739]
+ by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.46.156:2525] with esmtp (Farcaster)
+ id 7a28a8a5-e14f-4fbe-bfe7-92e87adf30d6; Thu, 20 Nov 2025 14:05:35 +0000 (UTC)
+X-Farcaster-Flow-ID: 7a28a8a5-e14f-4fbe-bfe7-92e87adf30d6
 Received: from EX19D001UWA001.ant.amazon.com (10.13.138.214) by
- EX19MTAUWC001.ant.amazon.com (10.250.64.174) with Microsoft SMTP Server
+ EX19MTAUWB002.ant.amazon.com (10.250.64.231) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.29;
- Thu, 20 Nov 2025 14:05:20 +0000
+ Thu, 20 Nov 2025 14:05:35 +0000
 Received: from amazon.com (10.1.213.15) by EX19D001UWA001.ant.amazon.com
  (10.13.138.214) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.29; Thu, 20 Nov 2025
- 14:05:17 +0000
+ 14:05:33 +0000
 From: Maximilian Dittgen <mdittgen@amazon.de>
 To: <maz@kernel.org>, <oliver.upton@linux.dev>
 CC: <pbonzini@redhat.com>, <shuah@kernel.org>,
 	<linux-arm-kernel@lists.infradead.org>, <kvmarm@lists.linux.dev>,
 	<linux-kselftest@vger.kernel.org>, <kvm@vger.kernel.org>,
 	<mdittgen@amazon.de>, <lilitj@amazon.de>, <sauravsc@amazon.de>,
-	<nh-open-source@amazon.com>, Maximilian Dittgen <mdittgen@amazon.com>
-Subject: [RFC PATCH 08/13] KVM: arm64: Make per-vCPU vLPI control ioctls atomic
-Date: Thu, 20 Nov 2025 15:02:57 +0100
-Message-ID: <20251120140305.63515-9-mdittgen@amazon.de>
+	<nh-open-source@amazon.com>
+Subject: [RFC PATCH 09/13] KVM: arm64: Couple vSGI enablement with per-vCPU vPE allocation
+Date: Thu, 20 Nov 2025 15:02:58 +0100
+Message-ID: <20251120140305.63515-10-mdittgen@amazon.de>
 X-Mailer: git-send-email 2.50.1
 In-Reply-To: <20251120140305.63515-1-mdittgen@amazon.de>
 References: <20251120140305.63515-1-mdittgen@amazon.de>
 MIME-Version: 1.0
 X-Originating-IP: [10.1.213.15]
-X-ClientProxiedBy: EX19D043UWA004.ant.amazon.com (10.13.139.41) To
+X-ClientProxiedBy: EX19D037UWC003.ant.amazon.com (10.13.139.231) To
  EX19D001UWA001.ant.amazon.com (10.13.138.214)
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251120_060521_462289_CB18A966 
-X-CRM114-Status: GOOD (  12.56  )
+X-CRM114-CacheID: sfid-20251120_060541_464814_9C03AE97 
+X-CRM114-Status: GOOD (  11.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,79 +94,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Per-vCPU vLPI enable, disable, and query ioctls should finish
-reading or writing the state of their target vCPU before
-another operation does the same.
+When KVM_ENABLE_VCPU_VLPI is enabled, vCPU vPEs are
+dynamically allocated and dislocated ad-hoc. vSGI
+direct injection requires receiving vCPUs to have
+vPEs, meaning we must couple vSGI enablement with
+vPE allocation to avoid injecting vSGIs to nonexistent
+vPEs.
 
-Implement a vlpi_toggle_mutex to be acquired whenever
-KVM_ENABLE_VCPU_VLPI, KVM_DISABLE_VCPU_VLPI, or
-KVM_QUERY_VCPU_VLPI ioctls are handled.
+Modify vgic_v4_configure_sgis() to validate whether
+a target vCPU has an assigned vPE before calling
+vgic_v4_enable_vsgis() on boot. Call vgic_v4_enable_vsgis()
+and vgic_v4_disable_vsgis() during vCPU vPE alloc and free
+within vLPI enablement and disablement functions.
 
-Signed-off-by: Maximilian Dittgen <mdittgen@amazon.com>
+Signed-off-by: Maximilian Dittgen <mdittgen@amazon.de>
 ---
- arch/arm64/kvm/arm.c          | 3 +++
- arch/arm64/kvm/vgic/vgic-v4.c | 5 +++++
- include/kvm/arm_vgic.h        | 3 +++
- 3 files changed, 11 insertions(+)
+ arch/arm64/kvm/vgic/vgic-v4.c | 11 ++++++++++-
+ 1 file changed, 10 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-index 180eaa4165e9..c2224664f05e 100644
---- a/arch/arm64/kvm/arm.c
-+++ b/arch/arm64/kvm/arm.c
-@@ -1961,6 +1961,7 @@ int kvm_arch_vm_ioctl(struct file *filp, unsigned int ioctl, unsigned long arg)
- 		if (!vcpu)
- 			return -EINVAL;
- 
-+		guard(mutex)(&vcpu->arch.vgic_cpu.vlpi_toggle_mutex);
- 		return kvm_vgic_enable_vcpu_vlpi(vcpu);
- 	}
- 	case KVM_DISABLE_VCPU_VLPI: {
-@@ -1974,6 +1975,7 @@ int kvm_arch_vm_ioctl(struct file *filp, unsigned int ioctl, unsigned long arg)
- 		if (!vcpu)
- 			return -EINVAL;
- 
-+		guard(mutex)(&vcpu->arch.vgic_cpu.vlpi_toggle_mutex);
- 		return kvm_vgic_disable_vcpu_vlpi(vcpu);
- 	}
- 	case KVM_QUERY_VCPU_VLPI: {
-@@ -1987,6 +1989,7 @@ int kvm_arch_vm_ioctl(struct file *filp, unsigned int ioctl, unsigned long arg)
- 		if (!vcpu)
- 			return -EINVAL;
- 
-+		guard(mutex)(&vcpu->arch.vgic_cpu.vlpi_toggle_mutex);
- 		return kvm_vgic_query_vcpu_vlpi(vcpu);
- 	}
- 	default:
 diff --git a/arch/arm64/kvm/vgic/vgic-v4.c b/arch/arm64/kvm/vgic/vgic-v4.c
-index 39fababf2861..b7dbc1789c90 100644
+index b7dbc1789c90..5d6694d366b5 100644
 --- a/arch/arm64/kvm/vgic/vgic-v4.c
 +++ b/arch/arm64/kvm/vgic/vgic-v4.c
-@@ -325,6 +325,11 @@ int vgic_v4_init(struct kvm *kvm)
- 		if (!dist->its_vm.vprop_page)
- 			ret = -ENOMEM;
- 	}
-+
-+	/* vLPI toggle mutex */
-+	kvm_for_each_vcpu(i, vcpu, kvm)
-+		mutex_init(&vcpu->arch.vgic_cpu.vlpi_toggle_mutex);
-+
- #endif
- 	if (ret)
- 		vgic_v4_teardown(kvm);
-diff --git a/include/kvm/arm_vgic.h b/include/kvm/arm_vgic.h
-index 18a49c4b83f8..c9dad0e84c77 100644
---- a/include/kvm/arm_vgic.h
-+++ b/include/kvm/arm_vgic.h
-@@ -372,6 +372,9 @@ struct vgic_cpu {
- 	u32 rdreg_index;
- 	atomic_t syncr_busy;
+@@ -198,7 +198,7 @@ void vgic_v4_configure_vsgis(struct kvm *kvm)
+ 	kvm_arm_halt_guest(kvm);
  
-+	/* Ensure atomicity of per-vCPU vLPI enable/disable/query operations */
-+	struct mutex vlpi_toggle_mutex;
+ 	kvm_for_each_vcpu(i, vcpu, kvm) {
+-		if (dist->nassgireq)
++		if (dist->nassgireq && kvm_vgic_query_vcpu_vlpi(vcpu) > 0)
+ 			vgic_v4_enable_vsgis(vcpu);
+ 		else
+ 			vgic_v4_disable_vsgis(vcpu);
+@@ -838,6 +838,13 @@ int kvm_vgic_enable_vcpu_vlpi(struct kvm_vcpu *vcpu)
+ 	if (ret)
+ 		return ret;
+ 
++	/* Enable direct vSGIs */
++	if (kvm_vgic_global_state.has_gicv4_1 && vcpu->kvm->arch.vgic.nassgireq) {
++		mutex_lock(&vcpu->kvm->arch.config_lock);
++		vgic_v4_enable_vsgis(vcpu);
++		mutex_unlock(&vcpu->kvm->arch.config_lock);
++	}
 +
- 	/* Contains the attributes and gpa of the LPI pending tables. */
- 	u64 pendbaser;
- 	/* GICR_CTLR.{ENABLE_LPIS,RWP} */
+ 	/*
+ 	 * Upgrade existing LPIs to vLPIs. We
+ 	 * do not need to error check since
+@@ -859,6 +866,8 @@ int kvm_vgic_disable_vcpu_vlpi(struct kvm_vcpu *vcpu)
+ 
+ 	downgrade_existing_vlpis_to_lpis(vcpu);
+ 
++	vgic_v4_disable_vsgis(vcpu);
++
+ 	return vgic_v4_vcpu_teardown(vcpu);
+ }
+ 
 -- 
 2.50.1 (Apple Git-155)
 
