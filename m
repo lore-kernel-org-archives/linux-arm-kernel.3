@@ -4,55 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC945CD4F3E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 04:11:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5B23CF256D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 04:26:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2t7hmruR6MWJpSfcv7dicfOBqMxal2u0/ahXPnRgxiY=; b=tk8NJo7aHu+zyF/IRxQ7J9DW8+
-	Nl6xuD9SH52w5OMsOupZqiq+/ta47XzwZ5nS/rkmXti1rQ4Oznbi9lYRJ7M6DD/ppUw/mWju1f1nn
-	5XK20GtTIMZSynJPjLhVeeLOFVpMB7aCXy5Z7sk/KPEXBIZseceZic1nPpJoTR2wufEAK/CK59qZA
-	PNcEdP6Tc5R6MxMxDDejOy8bondKRKMpBpAQuCUUf6tifQz+FbqP85g1QVYIALhwyWntPdjNuBqXY
-	Z4/A6mzjj2at5daWOlaTBMiOQX8q3Bz3snZuFOD/sWB4UVlasnKty4b47AmuMR6JezI6gC3O6mXu7
-	teVd+v3A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=r1t+Ndq+wb1M1nKBlD7o879uV1xKTH+o++nXBFLMNOg=; b=uZej3QodcSDhgMbwQgzEfsgKdH
+	Fx9vDf8sZBu/m8ZdB7/CMsHkdpZc9ut2pyL/cjb2AChr9MrJi5H2NzgnDVuDGfTB9NnP4DX/MzO1j
+	jAl67WlEx2Et+js3E6BZrmqBU6faJXtWO2xEUIoN6mNNJYt21cMBEKpmLZAjY6KBD2+XkegIgEdu6
+	jZwjaiD/6AMiLFEzt8EFrelMVjqka/qbgfh9r13tpSxcPYtKMo3SXJyrVqK0pfhQBvgk3kjE3kYBe
+	FBMPY+3/Z2PDbrRgxOIWaiil4APz0h99JhwpYX6wJgBRz8g+lwl9fiyjRU++vYx4dUiNX54uFl3Fx
+	zajkwiLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLw0S-000000067JR-2nk2;
-	Thu, 20 Nov 2025 04:10:52 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLw0N-000000067IT-1OCc
+	id 1vLwFV-000000068Jh-4AHx;
+	Thu, 20 Nov 2025 04:26:26 +0000
+Received: from mgamail.intel.com ([192.198.163.15])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vLwFT-000000068JM-143z
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Nov 2025 04:10:49 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 66122FEC;
-	Wed, 19 Nov 2025 20:10:36 -0800 (PST)
-Received: from [10.164.18.59] (MacBook-Pro.blr.arm.com [10.164.18.59])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6ED693F740;
-	Wed, 19 Nov 2025 20:10:41 -0800 (PST)
-Message-ID: <01c00163-ec81-41ba-ba4d-c3425e2109f7@arm.com>
-Date: Thu, 20 Nov 2025 09:40:38 +0530
+	Thu, 20 Nov 2025 04:26:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1763612783; x=1795148783;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:content-transfer-encoding:in-reply-to;
+  bh=AoBCatCcUTo8pQY7B3M+B7FHb9s+7p9nuNzOnOSP1Pg=;
+  b=JYwqZrIHpNULMeu1GNAwZ5GFYNFHVUL7NkNY1Obx/PuSFOJqtWea/BeN
+   motlVUpFGMz7zA4w6e0ZaUWMkw6Nrjk4OFFxRz5cRRuoRhOtPkvOmwA3x
+   gW9wQwn3Ig0GEK1nFSehXL7N9X/O+2JBgWIncCYVyq5hFXqdHjvZMxLQb
+   hBc+UbJ54TW/ut5uA5DQdM6z9IZjEp09ttqL3oN/JPqbesQ4t904hkcb6
+   HjJ3ScgFJBjAycZ6bhjQetqHn7DkebRIYoRBcMDRiyYf+I2/MpZgjiKZE
+   r6pfcnH+w2nX13RKAvj31//msGLHZebPY9Yat7EtztrHM3OGjGNgkXAXO
+   w==;
+X-CSE-ConnectionGUID: Xb7WCSofTUax5dQRWnOjmg==
+X-CSE-MsgGUID: cM8/HEA4Qha0iN+sce0a7w==
+X-IronPort-AV: E=McAfee;i="6800,10657,11618"; a="65758472"
+X-IronPort-AV: E=Sophos;i="6.19,317,1754982000"; 
+   d="scan'208";a="65758472"
+Received: from fmviesa008.fm.intel.com ([10.60.135.148])
+  by fmvoesa109.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2025 20:26:22 -0800
+X-CSE-ConnectionGUID: Af/weTQ1RIqEzViG3Qz70w==
+X-CSE-MsgGUID: 0Jb0A23gS9Gn7dgzvYydzw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.19,317,1754982000"; 
+   d="scan'208";a="191511784"
+Received: from lkp-server01.sh.intel.com (HELO adf6d29aa8d9) ([10.239.97.150])
+  by fmviesa008.fm.intel.com with ESMTP; 19 Nov 2025 20:26:19 -0800
+Received: from kbuild by adf6d29aa8d9 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1vLwFN-0003bL-0O;
+	Thu, 20 Nov 2025 04:26:17 +0000
+Date: Thu, 20 Nov 2025 12:25:24 +0800
+From: kernel test robot <lkp@intel.com>
+To: Antonio Borneo <antonio.borneo@foss.st.com>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Cc: oe-kbuild-all@lists.linux.dev,
+	Antonio Borneo <antonio.borneo@foss.st.com>,
+	=?iso-8859-1?Q?Cl=E9ment?= Le Goffic <legoffic.clement@gmail.com>,
+	Amelie Delaunay <amelie.delaunay@foss.st.com>,
+	Pascal Paillet <p.paillet@foss.st.com>
+Subject: Re: [PATCH v2 05/15] pinctrl: stm32: add new package to stm32mp257
+ pinctrl support
+Message-ID: <202511200853.efuVxuoM-lkp@intel.com>
+References: <20251118161936.1085477-6-antonio.borneo@foss.st.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] arm64/pageattr: Propagate return value from
- __change_memory_common
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: will@kernel.org, ryan.roberts@arm.com, rppt@kernel.org,
- shijie@os.amperecomputing.com, yang@os.amperecomputing.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20251112062716.64801-1-dev.jain@arm.com>
- <20251112062716.64801-2-dev.jain@arm.com> <aR4GhuhEISNSSbUf@arm.com>
-Content-Language: en-US
-From: Dev Jain <dev.jain@arm.com>
-In-Reply-To: <aR4GhuhEISNSSbUf@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20251118161936.1085477-6-antonio.borneo@foss.st.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251119_201047_412263_A8B240EE 
-X-CRM114-Status: GOOD (  16.25  )
+X-CRM114-CacheID: sfid-20251119_202623_358438_3A350E01 
+X-CRM114-Status: GOOD (  10.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,50 +101,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Antonio,
 
-On 19/11/25 11:33 pm, Catalin Marinas wrote:
-> On Wed, Nov 12, 2025 at 11:57:15AM +0530, Dev Jain wrote:
->> The rodata=on security measure requires that any code path which does
->> vmalloc -> set_memory_ro/set_memory_rox must protect the linear map alias
->> too. Therefore, if such a call fails, we must abort set_memory_* and caller
->> must take appropriate action; currently we are suppressing the error, and
->> there is a real chance of such an error arising post commit a166563e7ec3
->> ("arm64: mm: support large block mapping when rodata=full"). Therefore,
->> propagate any error to the caller.
->>
->> Fixes: a166563e7ec3 ("arm64: mm: support large block mapping when rodata=full")
->> Signed-off-by: Dev Jain <dev.jain@arm.com>
->> ---
->> v1 of this patch: https://lore.kernel.org/all/20251103061306.82034-1-dev.jain@arm.com/
->> I have dropped stable since no real chance of failure was there.
-> I couldn't figure out from the comments on v1 whether Will's concern was
-> addressed:
->
-> https://lore.kernel.org/all/aQn4EwKar66UZ7rz@willie-the-truck/
->
-> IOW, is the patch necessary? What are the failure scenarios and what
+kernel test robot noticed the following build warnings:
 
-The patch is necessary because rodata=on requires us to proceed with
-set_memory_* *only* if the linear map alias permission change was successful.
-If we still go ahead with the set_memory_*, you now have memory in
-RO state, whereas the linear map alias is in RW state, defeating the purpose
-of rodata = on.
+[auto build test WARNING on 61cbe48d9d1ff277bc54051fbab8b733b2e64ccb]
 
-> does the caller do? It's good to propagate an error to the caller but
-> patch also changes the current behaviour by bailing out earlier.
+url:    https://github.com/intel-lab-lkp/linux/commits/Antonio-Borneo/pinctrl-stm32-accept-string-value-for-property-st-package/20251119-011734
+base:   61cbe48d9d1ff277bc54051fbab8b733b2e64ccb
+patch link:    https://lore.kernel.org/r/20251118161936.1085477-6-antonio.borneo%40foss.st.com
+patch subject: [PATCH v2 05/15] pinctrl: stm32: add new package to stm32mp257 pinctrl support
+config: microblaze-randconfig-r111-20251120 (https://download.01.org/0day-ci/archive/20251120/202511200853.efuVxuoM-lkp@intel.com/config)
+compiler: microblaze-linux-gcc (GCC) 8.5.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20251120/202511200853.efuVxuoM-lkp@intel.com/reproduce)
 
-The caller will get to know that set_memory_* failed. Since we may have
-bailed out partially in between the linear map alias permission change,
-we must also ensure that we change that memory back to RW - vm_reset_perms()
-will ensure that, and that change back to RW is *guaranteed* to succeed
-in the calls to set_area_direct_map() in vm_reset_perms(): as explained
-in the next patch, since that memory is non-RW, it is guaranteed to be
-pte-mapped.
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202511200853.efuVxuoM-lkp@intel.com/
 
-Now, it is the responsibility of the caller to pass VM_FLUSH_RESET_PERMS
-*before* it does set_memory_ro/set_memory_rox. If it doesn't, then the
-code is broken as is (Ryan noted earlier how this is a fragility in the
-vmalloc API and we should do something about it).
+sparse warnings: (new ones prefixed by >>)
+>> drivers/pinctrl/stm32/pinctrl-stm32.c:143:10: sparse: sparse: Initializer entry defined twice
+   drivers/pinctrl/stm32/pinctrl-stm32.c:144:10: sparse:   also defined here
 
->
+vim +143 drivers/pinctrl/stm32/pinctrl-stm32.c
+
+f263343bb793fa Antonio Borneo    2025-11-18  130  
+f263343bb793fa Antonio Borneo    2025-11-18  131  static const char * const stm32_pkgs[] = {
+f263343bb793fa Antonio Borneo    2025-11-18  132  	/*
+f263343bb793fa Antonio Borneo    2025-11-18  133  	 * Default dummy value, as match_string() doesn't accepts NULL.
+f263343bb793fa Antonio Borneo    2025-11-18  134  	 * Also not an empty string because it will match the old numeric
+f263343bb793fa Antonio Borneo    2025-11-18  135  	 * values <= 0x00ffffff.
+f263343bb793fa Antonio Borneo    2025-11-18  136  	 */
+f263343bb793fa Antonio Borneo    2025-11-18  137  	[0 ... (STM32_PKG_MAX - 1)] = "x",
+f263343bb793fa Antonio Borneo    2025-11-18  138  
+f263343bb793fa Antonio Borneo    2025-11-18  139  	[STM32_PKG_AA] = "AA",
+f263343bb793fa Antonio Borneo    2025-11-18  140  	[STM32_PKG_AB] = "AB",
+f263343bb793fa Antonio Borneo    2025-11-18  141  	[STM32_PKG_AC] = "AC",
+f263343bb793fa Antonio Borneo    2025-11-18  142  	[STM32_PKG_AD] = "AD",
+f263343bb793fa Antonio Borneo    2025-11-18 @143  	[STM32_PKG_AI] = "AI",
+66cbedfcc7caae Clément Le Goffic 2025-11-18  144  	[STM32_PKG_AI] = "AJ",
+f263343bb793fa Antonio Borneo    2025-11-18  145  	[STM32_PKG_AK] = "AK",
+f263343bb793fa Antonio Borneo    2025-11-18  146  	[STM32_PKG_AL] = "AL",
+f263343bb793fa Antonio Borneo    2025-11-18  147  };
+f263343bb793fa Antonio Borneo    2025-11-18  148  
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
