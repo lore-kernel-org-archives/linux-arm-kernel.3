@@ -4,64 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E039CF6497
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 00:09:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37368CF6497
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 00:10:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fxsxdD7YuT1egFvvLn0e2G1Af8bpOHKGSorczfneMUM=; b=eQ6/HiGbwG9cb84kJg6RRXLk2t
-	oq/T6bIEGpq2XvvliwRE8nivJWNYwD5l5L459w0JXyRO003EqichSqr+jEtzq3jR5tqkD/h8pWtCO
-	ZelgN830031yFDIpE2Fpm8c6R5C3JIKlbxueijj8nRdUXu04GYo2dpZXXtXy1760OTfJMYQNw2JGW
-	NfeWnQjGVhTEJuv+SzXVKGIi+bmBWvVvCnHh5JLXc6hzk0BZuB4DK0rs69g5QGe2REB5ujn87feSz
-	OMht7/5DqutLmsS6dQpqmgi5DleF6yy7Oc1f7bBPaYKIPbkPPhTqiNnVguEAVjCZLKwdAZxcEOyiN
-	ykndZrhw==;
+	bh=ZkqaKHKvjWpeQ8D4fmkNv2eo4/4sK4YbRn9WjXlECuE=; b=Y8GmmUnv6f3eCB2qYt+HnchsgR
+	Y1+7MNhGzBdXgOqEYPQgPVEAyeSirnJMGOt/Ap0CsV+ElOUsjGQqPRdSy32rygb+lrSLkUVWginri
+	YAxlRedSbagem93VbSVHqq5AAOW/VKXBZSGuDdKQQDAP0HQCXOy4Rgl0CaiuSD00xjyJzTijRj2nF
+	2dkj0+usKhXgAXslI7CZOtilvGXY/aUUwcdsYUEu6oPYBTo2xupUG0tP49BBKneYNNOHJ6NSEvw5C
+	j1AKo13HyjENgZbOUH4CxNiEZSZuvehOEFN98aobXwjXQdlgjx+Kgy23VhXHpPOGfSWU6NxV3bc6S
+	nFnNycdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLsF2-00000005rgZ-392x;
-	Thu, 20 Nov 2025 00:09:40 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vLsFg-00000005rlQ-0KnC;
+	Thu, 20 Nov 2025 00:10:20 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLsF1-00000005rfh-1pgw
+	id 1vLsFc-00000005rks-3AwM
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Nov 2025 00:09:39 +0000
+	Thu, 20 Nov 2025 00:10:18 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9717360010;
-	Thu, 20 Nov 2025 00:09:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DEA58C4CEF5;
-	Thu, 20 Nov 2025 00:09:07 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 51DAC41A91;
+	Thu, 20 Nov 2025 00:10:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F12B7C4CEF5;
+	Thu, 20 Nov 2025 00:10:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763597348;
-	bh=bI1hJPeepEDCllDijUB6qbqgSNpihc1cIDuIMmez/q8=;
+	s=k20201202; t=1763597416;
+	bh=ea5U/JJufh5pYNga2ZzeflJrlaYuHhKo5b+7WwgCRf0=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Oimvl6kVMjefJr0p46lkwTVZpA1S/VXpJrh6kB2QI8hrej31IgA76bY8dvOECDUHE
-	 Z31pJgXwNwlq8lTDNg9kX+TBDofM6AC9WjYDiN7MIDbHD4BCzRmz17CVTlXOu0sruV
-	 WOz2R+DI2cUSEsOj+f5wk3Z7Oc/9QEz9ga2gkjCeniXrL6fxyQoaiYGtpkSQ01M7pC
-	 ElbSmiID/k9kMu4MtulpkGRJ1Yh5m943XuQw8gb5OAgMJksp9uEz4s9uv2md7w9wc3
-	 YMQ/LhEIMA7TE212GbIwR/WLwcVoK/bOvR9efJGdsEPNnW+pRivvcg8XKr5Se356Br
-	 ming3fpVmNuVg==
-Date: Wed, 19 Nov 2025 18:09:06 -0600
+	b=KiZU5FlvGhByHmnQ2qXdxblVfg4iblqeL0BCCeWosof+z30V8kacoOcobZ722KyC5
+	 kkJ5dYhBO96hdyYeG/zuT4izsyzFiA21hIwV1E33n4hLQlcLJGWQ/wWrvvA9Jzk5dX
+	 zv2BGtnNKlUMaSVyOgbM4heQD3oGPMEQY1Pac6mJYBjlg+itLiMmJJxwvZeI920TWW
+	 UG67mS9CDdV5UkEu1oCJaoycfUouWocn7lEYWHsT+b4QcjFDRuAwfRM749k+v9ibA4
+	 FcAl6+ML8krCT7ORBKK6Kg8Y9dJNhX0lcOkFgzT/6RcwME43ooa3I5QIMaBPCla1mE
+	 JH22UPQhGpH6A==
+Date: Wed, 19 Nov 2025 18:10:14 -0600
 From: "Rob Herring (Arm)" <robh@kernel.org>
 To: Peter Griffin <peter.griffin@linaro.org>
-Cc: Tudor Ambarus <tudor.ambarus@linaro.org>, dan.carpenter@linaro.org,
-	Conor Dooley <conor+dt@kernel.org>,
-	linux-samsung-soc@vger.kernel.org, willmcvicker@google.com,
-	devicetree@vger.kernel.org, Alim Akhtar <alim.akhtar@samsung.com>,
-	kernel-team@android.com, arnd@arndb.de,
+Cc: Chanwoo Choi <cw00.choi@samsung.com>, linux-samsung-soc@vger.kernel.org,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-clk@vger.kernel.org,
+	Will McVicker <willmcvicker@google.com>,
+	Sylwester Nawrocki <s.nawrocki@samsung.com>,
+	Stephen Boyd <sboyd@kernel.org>, kernel-team@android.com,
+	Sam Protsenko <semen.protsenko@linaro.org>,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Michael Turquette <mturquette@baylibre.com>,
+	Tudor Ambarus <tudor.ambarus@linaro.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	linux-arm-kernel@lists.infradead.org,
+	Krzysztof Kozlowski <krzk@kernel.org>,
 	=?iso-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>
-Subject: Re: [PATCH v2 1/2] dt-bindings: soc: samsung: exynos-pmu: remove
- syscon for google,gs101-pmu
-Message-ID: <176359734563.3602720.3498297116767646950.robh@kernel.org>
-References: <20251114-remove-pmu-syscon-compat-v2-0-9496e8c496c7@linaro.org>
- <20251114-remove-pmu-syscon-compat-v2-1-9496e8c496c7@linaro.org>
+	Conor Dooley <conor+dt@kernel.org>
+Subject: Re: [PATCH v5 1/4] dt-bindings: clock: google,gs101-clock: add
+ samsung,sysreg property as required
+Message-ID: <176359741364.3604013.10884169748220916434.robh@kernel.org>
+References: <20251114-automatic-clocks-v5-0-efb9202ffcd7@linaro.org>
+ <20251114-automatic-clocks-v5-1-efb9202ffcd7@linaro.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251114-remove-pmu-syscon-compat-v2-1-9496e8c496c7@linaro.org>
+In-Reply-To: <20251114-automatic-clocks-v5-1-efb9202ffcd7@linaro.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251119_161017_310075_AD77E03B 
+X-CRM114-Status: GOOD (  17.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,29 +86,44 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Fri, 14 Nov 2025 12:00:16 +0000, Peter Griffin wrote:
-> Since commit ba5095ebbc7a ("mfd: syscon: Allow syscon nodes without a
-> "syscon" compatible") it is possible to register a regmap without the
-> syscon compatible in the node.
+On Fri, 14 Nov 2025 14:16:48 +0000, Peter Griffin wrote:
+> Each CMU (with the exception of cmu_top) has a corresponding sysreg bank
+> that contains the BUSCOMPONENT_DRCG_EN and optional MEMCLK registers.
+> The BUSCOMPONENT_DRCG_EN register enables dynamic root clock gating of
+> bus components and MEMCLK gates the sram clock.
 > 
-> Update the bindings for google,gs101-pmu so that the syscon compatible is
-> no longer required. As it isn't really correct to claim we are compatible
-> with syscon (as a mmio regmap created by syscon will not work on gs101).
+> Now the clock driver supports automatic clock mode, to fully enable dynamic
+> root clock gating it is required to configure these registers. Update the
+> bindings documentation so that all CMUs (with the exception of
+> gs101-cmu-top) have samsung,sysreg as a required property.
 > 
-> Additionally (with the benefit of hindsight) PMU register writes were never
-> working with a MMIO syscon on gs101, so the ABI break is justified.
+> Note this is NOT an ABI break, as if the property isn't specified the
+> clock driver will fallback to the current behaviour of not initializing
+> the registers. The system still boots, but bus components won't benefit
+> from dynamic root clock gating and dynamic power will be higher (which has
+> been the case until now anyway).
+> 
+> Additionally update the DT example to included the correct CMU size as
+> registers in that region are used for automatic clock mode.
 > 
 > Signed-off-by: Peter Griffin <peter.griffin@linaro.org>
 > ---
+> Changes in v5:
+> - Invert the test for google,gs101-cmu-top (Andre)
+> 
+> Changes in v4
+> - Update commit description with additional requested details (Krzysztof)
+> 
+> Changes in v3:
+> - Update commit description as to why the sysreg is required (Krzysztof)
+> 
 > Changes in v2:
->  - Update commit description (Krzysztof)
->  - Change Items to enum, remove const (Krzysztof)
->  - Checkpatch warning commit msg length (Krzysztof)
+> - Update commit description regarding updated example (Andre)
 > ---
->  Documentation/devicetree/bindings/soc/samsung/exynos-pmu.yaml | 3 ++-
->  1 file changed, 2 insertions(+), 1 deletion(-)
+>  .../devicetree/bindings/clock/google,gs101-clock.yaml | 19 ++++++++++++++++++-
+>  1 file changed, 18 insertions(+), 1 deletion(-)
 > 
 
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 
 
