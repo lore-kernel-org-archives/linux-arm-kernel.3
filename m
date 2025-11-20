@@ -4,77 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4405CF8855
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 13:27:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A139CF8856
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 13:32:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:CC:To:
-	Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jNEzn90qst9+tzt5npqkID2YagZTvAG48V9awJpqiDQ=; b=qfsChcQEA2Soq4GUgBIRCgWWXD
-	MG5ZFzy9+z6Aaxjg80pGYSQ7G50zZ58rdTMZxWnfveFAMPkZ1e00NgktCf4pUSXclCCAHm9srLQ5a
-	RLoNdJgP4x1jet4YVsxHKI4xbIs/i5IEFSSBBE9X9+AnEZJJOvYJg6/N3GlHgUP9RV1p9qUkj6dcS
-	FI+KZWo/DQ3HLEslj9UzaqSFv84ANK3/GRsZqXIngkAKchXQf5m5HdGU4wyKuo6PLOTgptCFX8mMe
-	DEuvEr78Zsw67znwWxD9+H7hXZppSrGUHkQpRYWGlgpQeF3Pxqr+tsa157lya4lOUXliJWGVTR9t8
-	8jX9Q/+A==;
+	bh=RrFqRWymodKrCzUcOd1tuaSU9EWP4JmJKlR/UO6L0/0=; b=mEBdTA7TPqoJEQ0r3BsX4QhfvF
+	IjmK50zUMPBcN5WgzQ4QzkaiXMweGuMYccewkFtGwi2jcQ92JogDV6lyRuRVtc7LRWWmE2I6x7Y0+
+	oKtoVjMJsqVwbLMjLg5VK1iwGIWfFm7YCnjJyVmr+e3ouVlRRvGovUXzS1jfdHNYUcHm7im10RSBy
+	KpTsJ+a44E+wVffdTqMeRNQc6PV4M5d7SDW1+9TsbAENWMNiNaIK/vzQVIjZc45lde/40zg7Cn/1d
+	L0vTRrOEoC5KjWhlfN2Yx03Ixmx+ciYQQECSPSzUtZ5U3TwUvsKe2RHIgh5zdLissqUJytnoNCGF5
+	4VN//KEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vM4hO-00000006jER-2Lgx;
-	Thu, 20 Nov 2025 13:27:46 +0000
-Received: from canpmsgout08.his.huawei.com ([113.46.200.223])
+	id 1vM4lr-00000006jVq-0nVb;
+	Thu, 20 Nov 2025 13:32:23 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vM4hL-00000006jDY-2ggw
+	id 1vM4lp-00000006jUM-3hgM
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Nov 2025 13:27:45 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=jNEzn90qst9+tzt5npqkID2YagZTvAG48V9awJpqiDQ=;
-	b=r2nzrc/DCcKTo0+mULrDN7m5oQt/7yw0GrmV0gWWv9Hj3X4PNOFy8ilip2a9QK87MU6M3hG3Z
-	rEziwRHrdZVFnMWgNLkbyEDALrt5ZOZxVrp9w8eD/8+yPC7MStt519nD7EZaqVP2vWLmfC7CRxy
-	pEMj9wBhQiQl4XggeHhRVqY=
-Received: from mail.maildlp.com (unknown [172.19.88.214])
-	by canpmsgout08.his.huawei.com (SkyGuard) with ESMTPS id 4dBzcl1CjPzmV7k;
-	Thu, 20 Nov 2025 21:25:43 +0800 (CST)
-Received: from dggpemf500002.china.huawei.com (unknown [7.185.36.57])
-	by mail.maildlp.com (Postfix) with ESMTPS id C246A1A016C;
-	Thu, 20 Nov 2025 21:27:27 +0800 (CST)
-Received: from [10.174.178.247] (10.174.178.247) by
- dggpemf500002.china.huawei.com (7.185.36.57) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Thu, 20 Nov 2025 21:27:26 +0800
-Subject: Re: [PATCH v4] ACPI: AGDI: Add interrupt signaling mode support
-To: "Kazuhiro Abe (Fujitsu)" <fj1078ii@fujitsu.com>, Will Deacon
-	<will@kernel.org>
-CC: Lorenzo Pieralisi <lpieralisi@kernel.org>, Sudeep Holla
-	<sudeep.holla@arm.com>, "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown
-	<lenb@kernel.org>, "linux-acpi@vger.kernel.org" <linux-acpi@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, Ilkka Koskinen
-	<ilkka@os.amperecomputing.com>, Catalin Marinas <catalin.marinas@arm.com>
-References: <20251017073935.1746365-1-fj1078ii@aa.jp.fujitsu.com>
- <a93e845a-b084-a680-7158-68363c492b75@huawei.com>
- <aQokdBkjFqw9ZGRt@willie-the-truck>
- <6b14156b-9734-f0e0-5954-57cc76576a37@huawei.com>
- <OSCPR01MB163100DEFA746D8A44FA0A1E3D5D6A@OSCPR01MB16310.jpnprd01.prod.outlook.com>
-From: Hanjun Guo <guohanjun@huawei.com>
-Message-ID: <6d110b4f-a1e6-2092-f529-bd527fc00f6d@huawei.com>
-Date: Thu, 20 Nov 2025 21:27:26 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:68.0) Gecko/20100101
- Thunderbird/68.6.0
+	Thu, 20 Nov 2025 13:32:21 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 0235860155;
+	Thu, 20 Nov 2025 13:32:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A6FD0C113D0;
+	Thu, 20 Nov 2025 13:32:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1763645540;
+	bh=0HAJBmXE+rJLYXs5hMQhZFeGzkrf7YieZyrcWFUBa8g=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=JF7T2KNi64/aHzrz4AdAnXLNaGkxBY5A6u7uI0j8+EDlXqnlP9zZakx48hRSgwA8c
+	 dn6ovejSmz6+9v4AcbsRbcBCfuqisTyVvthv9DFzmnImAVhebcG0zCamuphkBH3ttv
+	 ITq4uVP+VAy1XVmGq0b/0s4LSTHjokXGB4VOx2SlabiBw1bF6xkjpZWowexGY2MmYI
+	 ziy+Y7k3+bQH6SwQod3qUg2OxoV5QN/IiSeBXYDbYNLpYio9p5RSIDXN4Njl7Bc0EZ
+	 ymUa3q2a785WfBQJDmNiudoi00sxIOfxfaJb1Glx+ONgwQhcjw2iP4nfA5In9+ZNOO
+	 P53y3S5m0vmtQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vM4lm-00000006tUG-3Rl0;
+	Thu, 20 Nov 2025 13:32:18 +0000
+From: Marc Zyngier <maz@kernel.org>
+To: kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Cc: Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>
+Subject: [PATCH 5/5] KVM: arm64: selftests: Add a test for FEAT_IDST
+Date: Thu, 20 Nov 2025 13:32:02 +0000
+Message-ID: <20251120133202.2037803-6-maz@kernel.org>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20251120133202.2037803-1-maz@kernel.org>
+References: <20251120133202.2037803-1-maz@kernel.org>
 MIME-Version: 1.0
-In-Reply-To: <OSCPR01MB163100DEFA746D8A44FA0A1E3D5D6A@OSCPR01MB16310.jpnprd01.prod.outlook.com>
-Content-Type: text/plain; charset="utf-8"; format=flowed
-Content-Language: en-GB
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.174.178.247]
-X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
- dggpemf500002.china.huawei.com (7.185.36.57)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251120_052744_376658_7AACB081 
-X-CRM114-Status: GOOD (  25.59  )
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,76 +82,152 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025/11/18 18:09, Kazuhiro Abe (Fujitsu) wrote:
-> Hi Hanjun,
-> 
-> Thanks for your comments.
-> 
->>>>> AGDI has two types of signaling modes: SDEI and interrupt.
->>>>> Currently, the AGDI driver only supports SDEI.
->>>>> Therefore, add support for interrupt signaling mode The interrupt
->>>>> vector is retrieved from the AGDI table, and call panic function
->>>>> when an interrupt occurs.
->>>>>
->>>>> Reviewed-by: Ilkka Koskinen<ilkka@os.amperecomputing.com>
->>>>> Signed-off-by: Kazuhiro Abe<fj1078ii@aa.jp.fujitsu.com>
->>>>> ---
->>>>> Hanjun, I have addressed all your comments.
->>>>> Please review them.
->>>>>
->>>>> v3->v4
->>>>>     - Add a comment to the flags member.
->>>>>     - Fix agdi_interrupt_probe.
->>>>>     - Fix agdi_interrupt_remove.
->>>>>     - Add space in struct initializsation.
->>>>>     - Delete curly braces.
->>>> Looks good to me,
->>>>
->>>> Acked-by: Hanjun Guo<guohanjun@huawei.com>
->>> I wasn't cc'd on the original patch but I couldn't figure out why it
->>> uses IRQF_NO_AUTOEN when requesting the irq given that the first thing
->>> it does is enable it.
->> Sorry for the late reply, seems this comment was addressed.
->>
->> But when I go back to read the latest AGDI spec [0], I see the signaling mode
->> can be SDEI*and*  interrupt:
->>
->> Flags node structures 1 36 Bits [1:0]: Signaling mode:
->>
->> 2: Both SDEI and Interrupt-based signaling is supported. While an SDEI event
->> handler is registered, the platform is allowed to not generate the wired interrupt
->>
->> So which means we need to support both SDEI and interrupt when the
->> signaling mode is 2, but for now, the code is
->>
->> +	if (agdi_table->flags & ACPI_AGDI_SIGNALING_MODE)
->> +		pdata.gsiv = agdi_table->gsiv;
->> +	else
->> +		pdata.sdei_event = agdi_table->sdei_event;
->>
->> Kazuhiro, could you take a look again?
-> I don't think enabling both interrupt and SDEI makes sense.
-> Therefore, we need to choose one but we can't know which one is preferred for each platform.
-> On the other hand, before this patch the code is:
-> 
->         if (agdi_table->flags & ACPI_AGDI_SIGNALING_MODE) {
->                 pr_warn("Interrupt signaling is not supported");
->                 goto err_put_table;
->         }
-> 
-> ...and SDEI is used when mode is 2. This behavior will not be changed by this patch.
-> Therefore, It seems for me this patch is reasonable for now.
-> I would appreciate your thoughts on this.
+Add a very basic test checking that FEAT_IDST actually works for
+the {GMID,SMIDR,CSSIDR2}_EL1 registers.
 
-I had a talk to firmware guy about this, they say even with both
-supported, the platform will use the same interrupt number to
-trigger, and the spec says:
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+---
+ tools/testing/selftests/kvm/Makefile.kvm      |   1 +
+ .../testing/selftests/kvm/arm64/idreg-idst.c  | 117 ++++++++++++++++++
+ 2 files changed, 118 insertions(+)
+ create mode 100644 tools/testing/selftests/kvm/arm64/idreg-idst.c
 
-While an SDEI event handler is registered, the platform is allowed to
-not generate the wired interrupt
+diff --git a/tools/testing/selftests/kvm/Makefile.kvm b/tools/testing/selftests/kvm/Makefile.kvm
+index 148d427ff24be..fa44e6d9afc35 100644
+--- a/tools/testing/selftests/kvm/Makefile.kvm
++++ b/tools/testing/selftests/kvm/Makefile.kvm
+@@ -171,6 +171,7 @@ TEST_GEN_PROGS_arm64 += arm64/vgic_irq
+ TEST_GEN_PROGS_arm64 += arm64/vgic_lpi_stress
+ TEST_GEN_PROGS_arm64 += arm64/vpmu_counter_access
+ TEST_GEN_PROGS_arm64 += arm64/no-vgic-v3
++TEST_GEN_PROGS_arm64 += arm64/idreg-idst
+ TEST_GEN_PROGS_arm64 += arm64/kvm-uuid
+ TEST_GEN_PROGS_arm64 += access_tracking_perf_test
+ TEST_GEN_PROGS_arm64 += arch_timer
+diff --git a/tools/testing/selftests/kvm/arm64/idreg-idst.c b/tools/testing/selftests/kvm/arm64/idreg-idst.c
+new file mode 100644
+index 0000000000000..9ca9f125abdb7
+--- /dev/null
++++ b/tools/testing/selftests/kvm/arm64/idreg-idst.c
+@@ -0,0 +1,117 @@
++// SPDX-License-Identifier: GPL-2.0
++
++/*
++ * Access all FEAT_IDST-handled registers that depend on more than
++ * just FEAT_AA64, and fail if we don't get an a trap with an 0x18 EC.
++ */
++
++#include <test_util.h>
++#include <kvm_util.h>
++#include <processor.h>
++
++static volatile bool sys64, undef;
++
++#define __check_sr_read(r)					\
++	({							\
++		uint64_t val;					\
++								\
++		sys64 = false;					\
++		undef = false;					\
++		dsb(sy);					\
++		val = read_sysreg_s(SYS_ ## r);			\
++		val;						\
++	})
++
++/* Fatal checks */
++#define check_sr_read(r)					\
++	do {							\
++		__check_sr_read(r);				\
++		__GUEST_ASSERT(!undef, #r " unexpected UNDEF");	\
++		__GUEST_ASSERT(sys64, #r " didn't trap");	\
++	} while(0)
++
++
++static void guest_code(void)
++{
++	check_sr_read(CCSIDR2_EL1);
++	check_sr_read(SMIDR_EL1);
++	check_sr_read(GMID_EL1);
++
++	GUEST_DONE();
++}
++
++static void guest_sys64_handler(struct ex_regs *regs)
++{
++	sys64 = true;
++	undef = false;
++	regs->pc += 4;
++}
++
++static void guest_undef_handler(struct ex_regs *regs)
++{
++	sys64 = false;
++	undef = true;
++	regs->pc += 4;
++}
++
++static void test_run_vcpu(struct kvm_vcpu *vcpu)
++{
++	struct ucall uc;
++
++	do {
++		vcpu_run(vcpu);
++
++		switch (get_ucall(vcpu, &uc)) {
++		case UCALL_ABORT:
++			REPORT_GUEST_ASSERT(uc);
++			break;
++		case UCALL_PRINTF:
++			printf("%s", uc.buffer);
++			break;
++		case UCALL_DONE:
++			break;
++		default:
++			TEST_FAIL("Unknown ucall %lu", uc.cmd);
++		}
++	} while (uc.cmd != UCALL_DONE);
++}
++
++static void test_guest_feat_idst(void)
++{
++	struct kvm_vcpu *vcpu;
++	struct kvm_vm *vm;
++
++	/* This VM has no MTE, no SME, no CCIDX */
++	vm = vm_create_with_one_vcpu(&vcpu, guest_code);
++
++	vm_init_descriptor_tables(vm);
++	vcpu_init_descriptor_tables(vcpu);
++
++	vm_install_sync_handler(vm, VECTOR_SYNC_CURRENT,
++				ESR_ELx_EC_SYS64, guest_sys64_handler);
++	vm_install_sync_handler(vm, VECTOR_SYNC_CURRENT,
++				ESR_ELx_EC_UNKNOWN, guest_undef_handler);
++
++	test_run_vcpu(vcpu);
++
++	kvm_vm_free(vm);
++}
++
++int main(int argc, char *argv[])
++{
++	struct kvm_vcpu *vcpu;
++	struct kvm_vm *vm;
++	uint64_t mmfr2;
++
++	test_disable_default_vgic();
++
++	vm = vm_create_with_one_vcpu(&vcpu, NULL);
++	mmfr2 = vcpu_get_reg(vcpu, KVM_ARM64_SYS_REG(SYS_ID_AA64MMFR2_EL1));
++	__TEST_REQUIRE(FIELD_GET(ID_AA64MMFR2_EL1_IDS, mmfr2) > 0,
++		       "FEAT_IDST not supported");
++	kvm_vm_free(vm);
++
++	test_guest_feat_idst();
++
++	return 0;
++}
+-- 
+2.47.3
 
-I think this patch is ready to go.
-
-Thanks
-Hanjun
 
