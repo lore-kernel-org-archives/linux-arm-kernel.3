@@ -4,71 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AAA9CF64B0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 03:52:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A77D4CF256D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 03:54:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:Message-ID:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=uAJYPrM4K5gSwb8aiZs+R+QjqSI51/lCfO33+UlXeXM=; b=I6i1J1g+V9N0NC9aPkBm44dTig
-	b2kJquf6sL32gHQTLKg1ifrCkGdV3JeYmvdrtwN8mPzr4lIf4jhHvmXv0lWVNw6nvyLZp7GqXBBy0
-	H0CaThI0Kp4EFkXOYzO9syeQqImKEpMTyoMuhXFn7oHN3loR4dal0UHo+bZdgvIch+IxoKjzBiVye
-	xOsSsAB5tphtyGuiqVt6AsKWIPwKC+xlMoByXEpKpAQgX949uNu6s+/xQ2RMGjM/cPDW4buvsWf6Z
-	Uh6+rCiPPhxoxgjPQITKaAagfLxn2q8IDjstESBxnHS90SeubjgNbhrEQ+aoQYMOFAh+YPW+nguzJ
-	OCh0Gg4g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=i/9fXz2ddaTLkXOH8ycWjaberX2W1W2CHsbRWkVwg9Y=; b=d+11duoBSiNZl+tLqjsG6TTKrR
+	2ctvtnvksaqLtn8ijuBltficZx5WhYhzkLE+1MoFpHvkqnzZwP11uK1NMb0V88NWECgGOyLslWtCK
+	8Ue8jETVgwD9EY3JBcUfYFcaQQvijxZMx8jWqSPpOvhHAag01oTGXK3D62sV+MgyV+9aoxx0Qaxdp
+	iElb11fzfbLEjZ/e3KXXrcw+Zypvb0GDVx6bJTjlgldHkphJtMzzXqYxKa5+cTA99ES0q11l7M6ah
+	4pmmr6QZGZ4vMQGu8JCt0Mg16z5VeGwhUI+u5siybwskOPBu4joKzO8cA1VoFv7pBcOy8SibQALNZ
+	IG1y+G4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLvin-000000066Tp-07DF;
-	Thu, 20 Nov 2025 03:52:37 +0000
-Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
+	id 1vLvkE-000000066ay-3Gjn;
+	Thu, 20 Nov 2025 03:54:06 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLvik-000000066TS-2UiE
+	id 1vLvkD-000000066ae-08RV
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Nov 2025 03:52:36 +0000
-Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Thu, 20 Nov
- 2025 11:52:26 +0800
-Received: from [127.0.1.1] (192.168.10.13) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
- Transport; Thu, 20 Nov 2025 11:52:26 +0800
-From: Jacky Chou <jacky_chou@aspeedtech.com>
-Date: Thu, 20 Nov 2025 11:52:03 +0800
-Subject: [PATCH net-next v2] dt-bindings: net: aspeed: add AST2700 MDIO
- compatible
+	Thu, 20 Nov 2025 03:54:06 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 28C3F40860;
+	Thu, 20 Nov 2025 03:54:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C0371C4CEF1;
+	Thu, 20 Nov 2025 03:54:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1763610843;
+	bh=a7vnpmXnXdqNvYGCUQj1wNNIzSzZ7tEyGzfOBhzICC8=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=L5gYLiXPHSg8nT9iI/9V4WGuGCyjZPy4pOzGn61PY5F14rjSQqAY8nVbUINYCsW6x
+	 /mPpFqBKA/iTOjPtr6btfSSNYGV6o9d9KT52nGogQSVUvr7TxsSKdHuYMCEkZ+0Ohb
+	 BfQqKbAmdqb91w+iwEWMzR1xOV+WF1N8ms8BJ+VJHuOr9Z+FoqDLsckC4a2a2geGfN
+	 FeuQBJ7NM0P2lBrWz6zH0tq0OVqv1DW3ng9ibI9Wv2SuziZfoOAVHnTDZGT4+At4Zn
+	 KepKt1hnlN5Xfh7XoqXdA4LCIovpS4NE0vBJQcTQ2+j9uQi1qJaSt7/Bq9YPUo9Lhp
+	 ewMqf3JRICEGQ==
+Date: Wed, 19 Nov 2025 19:54:00 -0800
+From: Jakub Kicinski <kuba@kernel.org>
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Cc: davem@davemloft.net, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+ thomas.petazzoni@bootlin.com, Andrew Lunn <andrew@lunn.ch>, Eric Dumazet
+ <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Russell King
+ <linux@armlinux.org.uk>, linux-arm-kernel@lists.infradead.org, Christophe
+ Leroy <christophe.leroy@csgroup.eu>, Herve Codina
+ <herve.codina@bootlin.com>, Florian Fainelli <f.fainelli@gmail.com>, Heiner
+ Kallweit <hkallweit1@gmail.com>, Vladimir Oltean <vladimir.oltean@nxp.com>,
+ =?UTF-8?B?S8O2cnk=?= Maincent <kory.maincent@bootlin.com>, Marek
+ =?UTF-8?B?QmVow7pu?= <kabel@kernel.org>, Oleksij Rempel
+ <o.rempel@pengutronix.de>, =?UTF-8?B?Tmljb2zDsg==?= Veronese
+ <nicveronese@gmail.com>, Simon Horman <horms@kernel.org>,
+ mwojtas@chromium.org, Antoine Tenart <atenart@kernel.org>,
+ devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Krzysztof
+ Kozlowski <krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>, Romain
+ Gantois <romain.gantois@bootlin.com>, Daniel Golle <daniel@makrotopia.org>,
+ Dimitri Fedrau <dimitri.fedrau@liebherr.com>
+Subject: Re: [PATCH net-next v17 03/15] net: phy: Introduce PHY ports
+ representation
+Message-ID: <20251119195400.1bf0cc68@kernel.org>
+In-Reply-To: <20251119195920.442860-4-maxime.chevallier@bootlin.com>
+References: <20251119195920.442860-1-maxime.chevallier@bootlin.com>
+	<20251119195920.442860-4-maxime.chevallier@bootlin.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
-Message-ID: <20251120-aspeed_mdio_ast2700-v2-1-0d722bfb2c54@aspeedtech.com>
-X-B4-Tracking: v=1; b=H4sIAGKQHmkC/32NwQqDMBBEf0X23JRNGtH25H8UkTSudQ8mkoRgE
- f+9wd57HN7Mmx0iBaYIj2qHQJkje1eCulRgZ+PeJHgsGRSqWkrZCBNXonFYRvaDiUk1iMIYbO9
- WT6gbDWW5Bpp4O61PcJSEoy1BX8jMMfnwOe+yPPlfc5ZCipbsC/GmprrW3a+VyM5X6xfoj+P4A
- pggdPvFAAAA
-X-Change-ID: 20251117-aspeed_mdio_ast2700-aa089c4f0474
-To: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
-	<davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
-	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring
-	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
-	<conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, Andrew Jeffery
-	<andrew@codeconstruct.com.au>
-CC: Andrew Jeffery <andrew@aj.id.au>, <netdev@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-aspeed@lists.ozlabs.org>, <linux-kernel@vger.kernel.org>, Conor Dooley
-	<conor.dooley@microchip.com>, Jacky Chou <jacky_chou@aspeedtech.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1763610746; l=1764;
- i=jacky_chou@aspeedtech.com; s=20251031; h=from:subject:message-id;
- bh=wmlwbzLwa1koSK2nuP5aUDcsxGgFbO+ySPwBTpaVBGE=;
- b=EQwlHKt16UBrHnbKrYwuae5GVZPaRI0ZvrdLxxtPSwzgIl19qVZQn7nEwAvXm0CflvUE215b4
- ZoofOto8IIyD90g3yw629h1lKDYScsXryAa6gTti/xdU6fbiNeZHY7F
-X-Developer-Key: i=jacky_chou@aspeedtech.com; a=ed25519;
- pk=8XBx7KFM1drEsfCXTH9QC2lbMlGU4XwJTA6Jt9Mabdo=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251119_195234_661344_479C8680 
-X-CRM114-Status: UNSURE (   9.34  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251119_195405_093965_E1758196 
+X-CRM114-Status: GOOD (  10.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,53 +88,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add "aspeed,ast2700-mdio" compatible to the binding schema with a fallback
-to "aspeed,ast2600-mdio".
+On Wed, 19 Nov 2025 20:59:04 +0100 Maxime Chevallier wrote:
+> diff --git a/net/ethtool/common.c b/net/ethtool/common.c
+> index 2f4b70f104e8..8216e4ada58e 100644
+> --- a/net/ethtool/common.c
+> +++ b/net/ethtool/common.c
+> @@ -460,6 +460,21 @@ const struct link_mode_info link_mode_params[] = {
+>  static_assert(ARRAY_SIZE(link_mode_params) == __ETHTOOL_LINK_MODE_MASK_NBITS);
+>  EXPORT_SYMBOL_GPL(link_mode_params);
+>  
+> +const char ethtool_link_medium_names[][ETH_GSTRING_LEN] = {
+> +	[ETHTOOL_LINK_MEDIUM_BASET] = "BaseT",
+> +	[ETHTOOL_LINK_MEDIUM_BASEK] = "BaseK",
+> +	[ETHTOOL_LINK_MEDIUM_BASES] = "BaseS",
+> +	[ETHTOOL_LINK_MEDIUM_BASEC] = "BaseC",
+> +	[ETHTOOL_LINK_MEDIUM_BASEL] = "BaseL",
+> +	[ETHTOOL_LINK_MEDIUM_BASED] = "BaseD",
+> +	[ETHTOOL_LINK_MEDIUM_BASEE] = "BaseE",
+> +	[ETHTOOL_LINK_MEDIUM_BASEF] = "BaseF",
+> +	[ETHTOOL_LINK_MEDIUM_BASEV] = "BaseV",
+> +	[ETHTOOL_LINK_MEDIUM_BASEMLD] = "BaseMLD",
+> +	[ETHTOOL_LINK_MEDIUM_NONE] = "None",
+> +};
+> +static_assert(ARRAY_SIZE(ethtool_link_medium_names) == __ETHTOOL_LINK_MEDIUM_LAST);
 
-Although the MDIO controller on AST2700 is functionally the same as the
-one on AST2600, it's good practice to add a SoC-specific compatible for
-new silicon. This allows future driver updates to handle any 2700-specific
-integration issues without requiring devicetree changes or complex
-runtime detection logic.
+Thanks for reshuffling things, this one needs a static tho:
 
-For now, the driver continues to bind via the existing
-"aspeed,ast2600-mdio" compatible, so no driver changes are needed.
-
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
-Signed-off-by: Jacky Chou <jacky_chou@aspeedtech.com>
----
-Changes in v2:
-- Remove AST2700 description from aspeed,ast2600-mdio.yaml
-- Link to v1: https://lore.kernel.org/r/20251117-aspeed_mdio_ast2700-v1-1-8ecb0032f554@aspeedtech.com
----
- Documentation/devicetree/bindings/net/aspeed,ast2600-mdio.yaml | 7 ++++++-
- 1 file changed, 6 insertions(+), 1 deletion(-)
-
-diff --git a/Documentation/devicetree/bindings/net/aspeed,ast2600-mdio.yaml b/Documentation/devicetree/bindings/net/aspeed,ast2600-mdio.yaml
-index d6ef468495c5..a105dc07ed12 100644
---- a/Documentation/devicetree/bindings/net/aspeed,ast2600-mdio.yaml
-+++ b/Documentation/devicetree/bindings/net/aspeed,ast2600-mdio.yaml
-@@ -19,7 +19,12 @@ allOf:
- 
- properties:
-   compatible:
--    const: aspeed,ast2600-mdio
-+    oneOf:
-+      - const: aspeed,ast2600-mdio
-+      - items:
-+          - enum:
-+              - aspeed,ast2700-mdio
-+          - const: aspeed,ast2600-mdio
- 
-   reg:
-     maxItems: 1
-
----
-base-commit: c9dfb92de0738eb7fe6a591ad1642333793e8b6e
-change-id: 20251117-aspeed_mdio_ast2700-aa089c4f0474
-
-Best regards,
+net/ethtool/common.c:463:12: warning: symbol 'ethtool_link_medium_names' was not declared. Should it be static?
 -- 
-Jacky Chou <jacky_chou@aspeedtech.com>
+pw-bot: cr
 
 
