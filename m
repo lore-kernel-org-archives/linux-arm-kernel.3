@@ -4,99 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F424CF857F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 10:39:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B079CF857F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 10:40:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:Message-ID:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=G2B1oMH6XMC8F/TLMH3iJY9plQqwnEoLATaxUay7SA8=; b=HyT6aRs7vzkHBzXyqaAzhqSWkR
-	InOrZRvt2SwC2W1jGNBf8rGJteVjMwS/v3ka8wvwS89IJvCsM9eLlIEpE0WR+H3+segTcGdQMqEWh
-	LOBpaNKM3uPNGhyR8BV7KP0Eoyi2bTCHuvHcJPmBFZc2pb+yuTxGsPyFt3NOsfWWsMrA3hkMv6V+4
-	SSrZhNLRQ+3kosAuP9wcjvplIRhaTTh1bPgpgxlwuJXkJ7TSIRnvP2gJMogjcYDzZYJj+K45P3j8T
-	5gPXMhLuDtBD0g8LoHQLAqJrIafNBfVQ1ANYdKZ8bzKO3LpcosSt9TkLuDqXJO+WKdWsZ4PuXEMVe
-	KQu9cm0A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/3dvUvWVrBnAleSPdlexWv7BS752YfmaiWiXdOLBEtw=; b=vIuAJsDcslOBNyeVyy8VJcKC68
+	Y1FarHPsnZWasAaaaSb7TJUPpIm5pwQNQdsT3a9xbLmfMx8ybGrYNCpZIzm4h/wCrerhkq410/2ZZ
+	kQ5cNJFib0cM/mmoLFXrIli/ZK8OUhCbqajiKPLGao8LrTroyRINd7gyf99z41wwl3mcgQ9SjGw6c
+	+ETUU6bLFFGl71o0vZRf6tsN4E2GcgBABH3ZvqL2/YGYfJzKIRYsqaDJXAOgGIypnFuGuwBuaT3SK
+	SCrFGt4TpKDggUlK/8hmUtXMcHrMdt/sr652PN2jFgF4sB+C+IL3OLYWscR7wz0aQE3LbekzMpeU5
+	U11TIt8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vM24f-00000006WQj-42Ir;
-	Thu, 20 Nov 2025 10:39:37 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1vM25Y-00000006Wa6-3QOv;
+	Thu, 20 Nov 2025 10:40:32 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vM24c-00000006WPA-3W23
+	id 1vM25W-00000006WZa-0yZm
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Nov 2025 10:39:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1763635174; x=1795171174;
-  h=from:date:subject:mime-version:content-transfer-encoding:
-   message-id:to:cc;
-  bh=J8677a+liVG90mEXv9sUxatagrhtLr9kVbgkaIMED9k=;
-  b=ce1Ut9VsNy+LPvEfh2uGjF8ctTVtZIKyb+H4jSIZHjJBdZ7ZJ5jaOJO8
-   w8ZnO4fruAqDa8dBrNgQlvrswdpgc1ZfQLPS7KQdH2YFVxuHMVHYV7SN5
-   liA+U1TuUUIlh9ySEbIxVjGjSlqoGcSlYzaEhiUQ5YqYNdURHlHHO6dPS
-   fFlKw21wOqv8olQlMBEJGXGZ4/Af5Ezh+OV+WHW37nTf241zDY07lP6U6
-   P4djFcobxLG1TNJvrSrJfid+ze+Azkv7025nxkzAxIdk7gvLVpAmJnCge
-   vk1USFQZouQImQAtflNQBuLG/vAWnr+3ODodGo6mlKBi5G8YV4XbgPjwV
-   A==;
-X-CSE-ConnectionGUID: CRxBPCVgQ9SsmEJbGIfOAw==
-X-CSE-MsgGUID: QCtY8nKtR9OFt9OeKqLWkA==
-X-IronPort-AV: E=Sophos;i="6.19,317,1754982000"; 
-   d="scan'208";a="280805056"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa5.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 20 Nov 2025 03:39:25 -0700
-Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
- chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.58; Thu, 20 Nov 2025 03:38:55 -0700
-Received: from [127.0.0.1] (10.10.85.11) by chn-vm-ex04.mchp-main.com
- (10.10.85.152) with Microsoft SMTP Server id 15.1.2507.58 via Frontend
- Transport; Thu, 20 Nov 2025 03:38:51 -0700
-From: Ludovic Desroches <ludovic.desroches@microchip.com>
-Date: Thu, 20 Nov 2025 11:38:25 +0100
-Subject: [PATCH] drm/atmel-hlcdc: don't reject the commit if the src rect
- has fractional parts
+	Thu, 20 Nov 2025 10:40:31 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id E616A4382B;
+	Thu, 20 Nov 2025 10:40:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7EEB1C116D0;
+	Thu, 20 Nov 2025 10:39:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1763635229;
+	bh=yg3PEBAK0vXSHiYm6Rwl7vMN6RwX4AdDjEWGlDFXv3o=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=Byxt52qNfc+rni6YhmiS1E0PWNeqKXddN+uHkoToywxnuRWMrfF05sSOi87AWE2c6
+	 QaO82JC//B0IF/DPoI64FQUhoXp6gO0h4tnp4tWsAM0vI0CcWEC5vlFWejwbCPmF7s
+	 6bIRyAtpqpAWnpgUYTQ3f9R7olHksYYp/5QZmFTutWvxlnkPT2dBjNJcnEw0LzcAm4
+	 Wgwk3MuBBsZecV2FUPzKmGw5Lzj9cvE06e4V2Jgeu4Nmyl6fB/u4ZFgJHMkqV/ov9P
+	 C5Ow4Rbzy0ajYBNu+/m17T8QlYmzPE7+A1rQXq7WRtML8B+zoKWN2tHPTJqdoTBOLc
+	 VnWHvMV2rK3gA==
+From: Mark Brown <broonie@kernel.org>
+To: Kees Cook <kees@kernel.org>, Mika Westerberg <westeri@kernel.org>, 
+ Dmitry Torokhov <dmitry.torokhov@gmail.com>, 
+ Andrew Morton <akpm@linux-foundation.org>, 
+ Linus Walleij <linus.walleij@linaro.org>, 
+ Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Saravana Kannan <saravanak@google.com>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Andy Shevchenko <andy@kernel.org>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+ Srinivas Kandagatla <srini@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>, 
+ Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
+ Alexey Klimov <alexey.klimov@linaro.org>, 
+ Bjorn Andersson <andersson@kernel.org>, 
+ Konrad Dybcio <konradybcio@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>
+Cc: linux-hardening@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-sound@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
+ Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+In-Reply-To: <20251112-gpio-shared-v4-0-b51f97b1abd8@linaro.org>
+References: <20251112-gpio-shared-v4-0-b51f97b1abd8@linaro.org>
+Subject: Re: (subset) [PATCH v4 00/10] gpio: improve support for shared
+ GPIOs
+Message-Id: <176363516985.564017.16048857931060018581.b4-ty@kernel.org>
+Date: Thu, 20 Nov 2025 10:39:29 +0000
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-ID: <20251120-lcd_scaling_fix-v1-1-5ffc98557923@microchip.com>
-X-B4-Tracking: v=1; b=H4sIAKDvHmkC/x2MWwqAIBAArxL7nZBmz6tEiOhWC2HhQgTi3ZM+Z
- 2AmAWMkZJirBBEfYrpCAVlX4A4bdhTkC4NqVCelnMTpvGFnTwq72egVVo9a+bFvm8FBqe6IRf/
- HZc35Ax/cGzZhAAAA
-X-Change-ID: 20251119-lcd_scaling_fix-a4842d86307c
-To: Manikandan Muralidharan <manikandan.m@microchip.com>, "Dharma
- Balasubiramani" <dharma.b@microchip.com>, Maarten Lankhorst
-	<maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>, Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea
-	<claudiu.beznea@tuxon.dev>
-CC: <dri-devel@lists.freedesktop.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, Ludovic Desroches
-	<ludovic.desroches@microchip.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2288;
- i=ludovic.desroches@microchip.com; h=from:subject:message-id;
- bh=J8677a+liVG90mEXv9sUxatagrhtLr9kVbgkaIMED9k=;
- b=kA0DAAoBPjnmE/d7ZC0ByyZiAGke77ujhG0mz7EN48i1rGCi4D8K2xJSiOvxcRnnxhoCbQtaw
- YkCMwQAAQoAHRYhBAAwS8mJaaxbjW01TT455hP3e2QtBQJpHu+7AAoJED455hP3e2QtrH0QAM4W
- lw39V1i5i43IF2lUfGx/fxjDop/Icuar7mjQHPxvS4JNNCCA26vKkZHIIACvZWr2BHy/O9N2H5n
- ETDdVR0FGab9W3R7gZhPfJ9cqbDKFRBYt36ooF2CZCwNf1HpFuqDyfpMgw/S1V1htgKZha7Fwhn
- p5rRbvzACyTfCbbC6rQ/ET60yqwt36/Iu4mua4b0lcd4eLRp12I2Gg/fcm8ki0UomfsAD0isYr8
- zH9q1l9fm9gUHSwE2bkTEGnEmbW+9WQQuZKvAOl4tSyA2Zs99WMdqtvMi2R1qMpCil/mZ7ciVUo
- PoJ2vGZ5MGtqox/yemhbgoL4g2JbltsECiuYzV0sj8io9wfeonfbt8+50/fi6TjXiw06x3vau+R
- H+X4ZODyrGPmqE+Pqv8rOrpIDlDEp0nCsjLEkLRMaa936FaMF9w2/+oPAgQeSddbxyjPEj3utpk
- 3LWRqKhldh/3nJXSKt07UsRRY32TiAUBS4+W3Yvelsj82FVWKvs3VZPrQVJwuYGb9o9plh4iUUf
- MAh+bJQ++mU50rN+9J+TYW1KrxM3gNl9FfVXEsF88xEIqX95rK/4p9oU/TXI/Ri5ZaIRVHdp2tC
- J89blAAxoQZsz6r1zWNpCtW/l5asYSCHA8Af2h+oqfzGjUbWndRCPEY0U2aIsEU6FzgVwPPJhlm
- yaIEa
-X-Developer-Key: i=ludovic.desroches@microchip.com; a=openpgp;
- fpr=665BAA7297BE089A28B77696E332995F09DCC11A
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.15-dev-a6db3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251120_023935_091838_159AF66A 
-X-CRM114-Status: GOOD (  11.15  )
+X-CRM114-CacheID: sfid-20251120_024030_293454_4089F64E 
+X-CRM114-Status: GOOD (  15.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,66 +89,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Don’t reject the commit when the source rectangle has fractional parts.
-This can occur due to scaling: drm_atomic_helper_check_plane_state() calls
-drm_rect_clip_scaled(), which may introduce fractional parts while
-computing the clipped source rectangle. This does not imply the commit is
-invalid, so we should accept it instead of discarding it.
+On Wed, 12 Nov 2025 14:55:29 +0100, Bartosz Golaszewski wrote:
+> Bjorn, Konrad: I should have Cc'ed you on v1 but I just went with what
+> came out of b4 --auto-to-cc. It only gave me arm-msm. :( Patch 7 from
+> this series however impacts Qualcomm platforms. It's a runtime dependency
+> of patches 8 and 9. Would you mind Acking it so that I can take it into
+> an immutable branch that I'll make available to Mark Brown for him to
+> take patches 8-10 through the ASoC and regulator trees for v6.19?
+> 
+> [...]
 
-Signed-off-by: Ludovic Desroches <ludovic.desroches@microchip.com>
----
- drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_plane.c | 19 ++++---------------
- 1 file changed, 4 insertions(+), 15 deletions(-)
+Applied to
 
-diff --git a/drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_plane.c b/drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_plane.c
-index 92132be9823f1e705d266f9547702ea9530bd043..bccfe055c087e5632d60503e8e4bcb3d9e18ce50 100644
---- a/drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_plane.c
-+++ b/drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_plane.c
-@@ -79,8 +79,6 @@ drm_plane_state_to_atmel_hlcdc_plane_state(struct drm_plane_state *s)
- 	return container_of(s, struct atmel_hlcdc_plane_state, base);
- }
- 
--#define SUBPIXEL_MASK			0xffff
--
- static uint32_t rgb_formats[] = {
- 	DRM_FORMAT_C8,
- 	DRM_FORMAT_XRGB4444,
-@@ -745,24 +743,15 @@ static int atmel_hlcdc_plane_atomic_check(struct drm_plane *p,
- 	if (ret || !s->visible)
- 		return ret;
- 
--	hstate->src_x = s->src.x1;
--	hstate->src_y = s->src.y1;
--	hstate->src_w = drm_rect_width(&s->src);
--	hstate->src_h = drm_rect_height(&s->src);
-+	hstate->src_x = s->src.x1 >> 16;
-+	hstate->src_y = s->src.y1 >> 16;
-+	hstate->src_w = drm_rect_width(&s->src) >> 16;
-+	hstate->src_h = drm_rect_height(&s->src) >> 16;
- 	hstate->crtc_x = s->dst.x1;
- 	hstate->crtc_y = s->dst.y1;
- 	hstate->crtc_w = drm_rect_width(&s->dst);
- 	hstate->crtc_h = drm_rect_height(&s->dst);
- 
--	if ((hstate->src_x | hstate->src_y | hstate->src_w | hstate->src_h) &
--	    SUBPIXEL_MASK)
--		return -EINVAL;
--
--	hstate->src_x >>= 16;
--	hstate->src_y >>= 16;
--	hstate->src_w >>= 16;
--	hstate->src_h >>= 16;
--
- 	hstate->nplanes = fb->format->num_planes;
- 	if (hstate->nplanes > ATMEL_HLCDC_LAYER_MAX_PLANES)
- 		return -EINVAL;
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/regulator.git for-next
 
----
-base-commit: fe4d0dea039f2befb93f27569593ec209843b0f5
-change-id: 20251119-lcd_scaling_fix-a4842d86307c
+Thanks!
 
-Best regards,
--- 
-Ludovic Desroches <ludovic.desroches@microchip.com>
+[10/10] regulator: make the subsystem aware of shared GPIOs
+        commit: b871d9adffe5a64a1fd9edcb1aebbcc995b17901
+
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
 
 
