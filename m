@@ -4,71 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB050CF8556
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 08:23:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49F05CF855C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 08:38:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A6AbgjQDs8iL/uEQlwqd9j3YUIRfhMYbDKfgQ6JoH0g=; b=kDICeTjv+a0cYGtrxi0CyVRxAs
-	lQ21wY0+BN3qIcafpaPvJJfYKe7+M3D9svXIC+xEtzrn6q3Y59PojrW0nrKZgPHFi+TJxkum5GzzO
-	KB9g1x9ZPctcyIcpMsqls8g7S1x0ney9VreUrE30IFTw3u/mtpz/eUoIr0odmxvwBVkFUX3w4wMs8
-	qYA2Ogzn9Se47J+nT9cGMKc35p1azMziDlH+J8kczTOEXWHaYxEf5QFnO2su13LRQoEK1hShGJSXj
-	YoRGi/VKa9onjqxA3r4SCohWIRJgRjJwRvylHai4f7+YWtZTK6eJO3+2JeEoAgHPRC/GD5RhgXEzT
-	qsTaDWXQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=R/b+pXcONzaAwpHK65sNK2GPY9yFBtCf/yLAAMNn59M=; b=m1BszN2dBT77tNpvLEtwLVd+jK
+	JS4dNpvVmpDFcMpzjBzFhFBgnKm9Hbvxa8gnQpeArthSX1UnM1hIKAkpS2GYYxrLpZ6TbqpFwo3P6
+	Xeul4o0pcZQa8z0hs7tyw0DQKc3cSSefTvReIdghw7lynE/DlMziQdLx5Q8iqr/u0bSwkoO5GlJQG
+	cwDJpJXNYxTayJ9J0KKhgwObD/gLPPxLOQw4fatUk7mW5Q0DU7Y5hWs2uHR1tWz7BW+juoIkxIFzp
+	7mgu1PiFcyKrgZi+dJhpLqKw0nTlVQEnBXJH8EnTbbmKF51ljtZSN9UyQ4XqX0w11AUdRxnMMTkvZ
+	5GIs4o+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLzwv-00000006Les-28K7;
-	Thu, 20 Nov 2025 08:23:29 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLzws-00000006LdU-3dYP
+	id 1vM0BK-00000006Mrs-0Kvq;
+	Thu, 20 Nov 2025 08:38:22 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vM0BH-00000006MrV-2EbA
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Nov 2025 08:23:28 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1763626998;
-	bh=J4+6h3UskvD1xY8ha/PXYhJqowKDNYktCAEVEyV01sw=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=hVsZM3g3SAXiIH0/AzEZnL0b/7o/gVkfooqQc8KhC748OH/FmaAp2rsesWe5oK1H7
-	 sP2w52R49CZ0qvqPovcgnhUNHttwM9Dc9SaNUy43EpTXby9cVu2ngsf9IA3zuwfhet
-	 93IzJOgxI0Q+oghLIJhxiUEStiCJDyp+aESlRFAvA8Mc05HaY1jwqqEK+mm1zROO1c
-	 2husMJ/sapu9vuy82LU5WKaxI9jvlg5EcR9HhWHj+7IIpEV27CxOo84zqAGfLeXk8W
-	 lrdMea8AY2wp3MmRrUQ8Ze9sWsJItOOaaxMkaySTpxSELgZyVg4bzqoRKb39mLA3aR
-	 nZA09M9RmAqSw==
-Received: from eldfell (unknown [194.136.85.206])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: pq)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 430E117E0117;
-	Thu, 20 Nov 2025 09:23:18 +0100 (CET)
-Date: Thu, 20 Nov 2025 10:22:58 +0200
-From: Pekka Paalanen <pekka.paalanen@collabora.com>
-To: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-Cc: Vishal Sagar <vishal.sagar@amd.com>, Anatoliy Klymenko
- <anatoliy.klymenko@amd.com>, Maarten Lankhorst
- <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
- Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>, Laurent Pinchart
- <laurent.pinchart@ideasonboard.com>, Michal Simek <michal.simek@amd.com>,
- dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, Geert Uytterhoeven
- <geert@linux-m68k.org>, Dmitry Baryshkov
- <dmitry.baryshkov@oss.qualcomm.com>
-Subject: Re: [PATCH v6 04/11] drm/fourcc: Add DRM_FORMAT_Y10_P32
-Message-ID: <20251120102258.0c7103da@eldfell>
-In-Reply-To: <20251001-xilinx-formats-v6-4-014b076b542a@ideasonboard.com>
-References: <20251001-xilinx-formats-v6-0-014b076b542a@ideasonboard.com>
-	<20251001-xilinx-formats-v6-4-014b076b542a@ideasonboard.com>
-X-Mailer: Claws Mail 4.3.1 (GTK 3.24.49; x86_64-pc-linux-gnu)
+	Thu, 20 Nov 2025 08:38:21 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3C8882B;
+	Thu, 20 Nov 2025 00:38:10 -0800 (PST)
+Received: from [10.57.87.93] (unknown [10.57.87.93])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C6FAC3F740;
+	Thu, 20 Nov 2025 00:38:16 -0800 (PST)
+Message-ID: <33623c93-2d65-4f6f-acf0-7ceb15f36006@arm.com>
+Date: Thu, 20 Nov 2025 08:38:15 +0000
 MIME-Version: 1.0
-Content-Type: multipart/signed; boundary="Sig_/qZnLldddO.m=+W4r=X_Y_v4";
- protocol="application/pgp-signature"; micalg=pgp-sha256
+User-Agent: Mozilla Thunderbird
+Subject: Re: [v2 PATCH] arm64: mm: show direct mapping use in /proc/meminfo
+Content-Language: en-GB
+To: Yang Shi <yang@os.amperecomputing.com>, cl@gentwo.org,
+ catalin.marinas@arm.com, will@kernel.org
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20251023215210.501168-1-yang@os.amperecomputing.com>
+ <3af5d651-5363-47f7-b828-702d9a0c881c@arm.com>
+ <0bb112c7-1ed0-4ee1-a1df-6a7d4b224fb6@os.amperecomputing.com>
+ <6a3c7a5a-fcb4-4a46-b385-74153f78337a@arm.com>
+ <0fb97638-a678-4afc-9d96-cb1b95fc2194@os.amperecomputing.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <0fb97638-a678-4afc-9d96-cb1b95fc2194@os.amperecomputing.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251120_002327_068637_E28B59BB 
-X-CRM114-Status: GOOD (  16.64  )
+X-CRM114-CacheID: sfid-20251120_003819_709400_F952E248 
+X-CRM114-Status: GOOD (  19.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,87 +68,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---Sig_/qZnLldddO.m=+W4r=X_Y_v4
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: quoted-printable
 
-On Wed, 01 Oct 2025 16:22:16 +0300
-Tomi Valkeinen <tomi.valkeinen@ideasonboard.com> wrote:
+>>>> I have a long-term aspiration to enable "per-process page size", where each
+>>>> user
+>>>> space process can use a different page size. The first step is to be able to
+>>>> emulate a page size to the process which is larger than the kernel's. For that
+>>>> reason, I really dislike introducing new ABI that exposes the geometry of the
+>>>> kernel page tables to user space. I'd really like to be clear on what use case
+>>>> benefits from this sort of information before we add it.
+>>> Thanks for the information. I'm not sure what "per-process page size" exactly
+>>> is. But isn't it just user space thing? I have hard time to understand how
+>>> exposing kernel page table geometry will have impact on it.
+>> It's a feature I'm working on/thinking about that, if I'm honest, has a fairly
+>> low probability of making it upstream. arm64 supports multiple base page sizes;
+>> 4K, 16K, 64K. The idea is to allow different processes to use a different base
+>> page size and then actually use the native page table for that size in TTBR0.
+>> The idea is to have the kernel use 4K internally and most processes would use 4K
+>> to save memory. But performance critical processes could use 64K.
+> 
+> Aha, I see. I thought you were talking about mTHP. IIUC, userspace may have 4K,
+> 16K or 64K base page size, but kernel still uses 4K base page size? Can arm64
+> support have different base page sizes for userspace and kernel? It seems
+> surprising to me if it does. 
 
-> Add Y10_P32, a 10 bit greyscale format, with 3 pixels packed into
-> 32-bit container.
->=20
-> The fourcc for the format is 'YPA4', which comes from Y - Y only, P -
-> packed, A - 10 (as in 0xA), 4 - 4 bytes.
->=20
-> Reviewed-by: Vishal Sagar <vishal.sagar@amd.com>
-> Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-> ---
->  drivers/gpu/drm/drm_fourcc.c  | 3 +++
->  include/uapi/drm/drm_fourcc.h | 1 +
->  2 files changed, 4 insertions(+)
->=20
-> diff --git a/drivers/gpu/drm/drm_fourcc.c b/drivers/gpu/drm/drm_fourcc.c
-> index a39b9d7a5b62..0d222f6c1a30 100644
-> --- a/drivers/gpu/drm/drm_fourcc.c
-> +++ b/drivers/gpu/drm/drm_fourcc.c
-> @@ -388,6 +388,9 @@ const struct drm_format_info *__drm_format_info(u32 f=
-ormat)
->  		{ .format =3D DRM_FORMAT_XV20,		.depth =3D 0,  .num_planes =3D 2,
->  		  .char_per_block =3D { 4, 8, 0 }, .block_w =3D { 3, 3, 0 }, .block_h =
-=3D { 1, 1, 0 },
->  		  .hsub =3D 2, .vsub =3D 1, .is_yuv =3D true },
-> +		{ .format =3D DRM_FORMAT_Y10_P32,		.depth =3D 0,  .num_planes =3D 1,
-> +		  .char_per_block =3D { 4, 0, 0 }, .block_w =3D { 3, 0, 0 }, .block_h =
-=3D { 1, 0, 0 },
-> +		  .hsub =3D 1, .vsub =3D 1, .is_yuv =3D true },
->  	};
-> =20
->  	unsigned int i;
-> diff --git a/include/uapi/drm/drm_fourcc.h b/include/uapi/drm/drm_fourcc.h
-> index a08f900ea2c3..4754bb48e4c3 100644
-> --- a/include/uapi/drm/drm_fourcc.h
-> +++ b/include/uapi/drm/drm_fourcc.h
-> @@ -469,6 +469,7 @@ extern "C" {
->   */
-> =20
->  #define DRM_FORMAT_Y8		fourcc_code('G', 'R', 'E', 'Y')  /* 8-bit Y-only =
-*/
-> +#define DRM_FORMAT_Y10_P32	fourcc_code('Y', 'P', 'A', '4')  /* [31:0] x:=
-Y2:Y1:Y0 2:10:10:10 little endian */
-> =20
->  /*
->   * Format Modifiers:
->=20
+Yes arm64 supports exactly this; User page tables are mapped via TTBR0 and
+kernel page tables are mapped via TTBR1. They are both independent structures
+and base page size can be set independently.
 
-Hi,
+> If it doesn't, it sounds you need at least 3 kernel
+> page tables for 4K, 16K and 64K respectively, right?
 
-Reviewed-by: Pekka Paalanen <pekka.paalanen@collabora.com>
+No; for my design, the kernel always uses a 4K page table. Only user space page
+tables have different sizes.
 
+> 
+> I'm wondering what kind usecase really needs this. Isn't mTHP good enough for
+> the most usecases? We can have auto mTHP size support on per VMA basis. If I
+> remember correctly, this has been raised a couple of times when we discussed
+> about mTHP. Anyway this may be a little bit off the topic.
+
+There is still a performance gap between 4K+CONT vs 64K. There are basically 4
+aspects that affect HW performance as the base page size gets bigger:
+
+ - TLB reach (how much memory a single TLB entry can describe)
+ - Walk cache reach (how much memory a single walk cache entry can describe)
+ - number of levels of look up (how many loads are required for full table walk)
+ - data cache efficiency (how efficiently the mappings are described in memory)
+
+4K+CONT (i.e. 64K-sized mTHP) only solves the first item.
+
+But as I said, I think there is a high risk of this not actually going anywhere...
 
 Thanks,
-pq
+Ryan
 
---Sig_/qZnLldddO.m=+W4r=X_Y_v4
-Content-Type: application/pgp-signature
-Content-Description: OpenPGP digital signature
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAEBCAAdFiEEJQjwWQChkWOYOIONI1/ltBGqqqcFAmkez+IACgkQI1/ltBGq
-qqeJMQ/+MJxuBnhoV1r1k4w31593kPdJG4Ha9INxg9yaQuYnT+HFZ98eYSyPgQLi
-93RhCuQepdqIqaSENdD9WOfvGlum9CrufbvPyC5aSxz4m7JNgNdvbhIO1F2O0keZ
-v3UiHlOAqsOqRKKX+FDwc4pLvN5eIp9AHLLw7AyluhqmwhEHTnGu5re/e+4iHUBP
-IeyOFRTozdlZhy7qc7JxJkRC+78eE1QTWy5QV2tC4GrwUaXDrmhOUvpEUneKCPRp
-4RcTWKvHdpeZ9RvSf4mDhq/FSGQsL7X/abLHY7f5AY3RoMk9Eg/h8WnmeVt3u8C4
-1vR96pA+2nCXlFuVdS6YZjivCF5ZsUsM0X2Ez4+B1JBjJzzM7eHaKNNd0mVVplk/
-JEsOUX9ZquAydqdfq0sK7KzwnM5CMAuOzcCWqv4mT6AHLgthfab8KEUzTb2Dkk5z
-1MVYXlcNRUB+fJzNIYrrJnS7TNd95m6PnD0IcEJiZRJRU5pHr6FZNi4j0k+RQycf
-w3Kedoh2eFhegXEnjfzFo9Tg34EIWQNWBoejfkCNds4PDnE2VcAH1ylktBuqGgsL
-FCr7a6POW8mCYrfrVJKzeFiuBUlqIr0FVvZz35Ga72FUAaffVH50dpO7UP0ELx9e
-1zWAepdCUNrcIB4+oesjvJx0nF4NxnGkgjH03mRhOIVEzCOJrTg=
-=UJZ2
------END PGP SIGNATURE-----
-
---Sig_/qZnLldddO.m=+W4r=X_Y_v4--
 
