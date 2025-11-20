@@ -4,70 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 802A4CF885D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 20:11:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1968CFA441
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 20:13:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ItoiyKX6dX5XrURmJYgb2DIxO86yxDHfPhD3CX7BZdw=; b=DQU2kuU+CiusNQzeaCQKhyUTg/
-	p3+7iAZoyOI7hHg36F1/ru445yQVLI5nIBmmTncxKJDxazFM3/ThrtgZlb/LEcFfqrOfM06KAmmMg
-	KbHxsTlWoOsCFcRY6VXPHG8y096ajjtTAAuV1QB891TA+c8k/zzdsczpI9na1gq4rhBWGJ0ROz3T5
-	9ImDlWRjBpJ0YtOUxB1VjnMjkiocrOpF7DDRvMK/n90R7lUYmNrWSldmcyV6/zbHQYDKhqKdu2kqw
-	9IfyIuCJPzGEpO5LFlTYRwUb48i8omk1PVoaf0o2eAN9IrqALKogwvUgGobtqnZNEXXzST//IllC+
-	cFsUgJPA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=W1SjqVDeK/2NMBT5s/3OBPDk5kx6fZIu5b/UVlPsHdI=; b=jI/lZkYPS1y66xtlNhzad8qRh6
+	hQXM3h9ALx3GyphcZ2o90LHGCu9FwGpmBO0uraoKkfh4yTHCEqiqRcLVquGQGms4aO5CyR0EI0Exy
+	KcGyJVsQyX0/WJ4Q5PV2MRcQHf2hfe3iCCb4ABNBmHtnJvdvCiH9WcdEDtj10g5LP6HZoLql3llZM
+	vMpyeD3YGqFSlgdpDMs1hATmhblckcdW2qaqJs7axqmQyzzuhMYOysn3AOh2VjUvwN7zDECI8p8GI
+	9vwOuhILRl6GxRaS5bQ0lZSaDyUtnVCpWXw2LWK9X9TkTG4GAXIz+MBsUWq6zz4RoyzqvNXml0Pw1
+	8rV0Hydw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMAzR-00000007KVa-0ldg;
-	Thu, 20 Nov 2025 20:10:49 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMAzP-00000007KVU-2rLX
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Nov 2025 20:10:47 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id B103D60017;
-	Thu, 20 Nov 2025 20:10:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D8E7DC4CEF1;
-	Thu, 20 Nov 2025 20:10:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763669446;
-	bh=ob6T5V5jKAufVGPgdYe6GH+NUfh+v8mrwWJAY8/1TJk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=uhi3+V7lWTG0qMFFscMOZH1oDtU/WVwEdjoedjpDlL8K8nIiSoiab1XU1TWy0x18F
-	 BakfYYEbqIUW4e5tXcdPFvbX4o7S2qpDMtTNy/cEdKlacu+GzzuWGBcqCQwl6M1wDS
-	 JwASQUcKPzCX+ZLcISb5iqp972QanSQ+Gsx11dmprOVNwknx1vSycKtNKt0HHrDThg
-	 X6eOkFr2nhJ3rk//GtnkisbQMdsgcB5z4YUrXRvDVbD5lO3zaB7jpYoxPCqDr9CEgy
-	 t5WHX/IW6u8ROnUxBKsJVFhORI1Y9UOFf7OC5cgH+0BhJ1RDKx/4imr6BQ/KX915N1
-	 MktpsVZXuzVhw==
-Date: Thu, 20 Nov 2025 21:09:15 +0100
-From: Nicolas Schier <nsc@kernel.org>
-To: Thomas =?iso-8859-1?Q?Wei=DFschuh?= <thomas.weissschuh@linutronix.de>
-Cc: Simon Glass <sjg@chromium.org>, linux-arm-kernel@lists.infradead.org,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Tom Rini <trini@konsulko.com>,
-	Ahmad Fatoum <a.fatoum@pengutronix.de>,
-	J =?iso-8859-1?Q?=2E_Neusch=E4fer?= <j.ne@posteo.net>,
-	Chen-Yu Tsai <wenst@chromium.org>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Josh Poimboeuf <jpoimboe@kernel.org>, Kees Cook <kees@kernel.org>,
-	Miguel Ojeda <ojeda@kernel.org>, Rong Xu <xur@google.com>,
-	Tamir Duberstein <tamird@gmail.com>, Will Deacon <will@kernel.org>,
-	linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v6 6/8] kbuild: Allow adding modules into the FIT ramdisk
-Message-ID: <aR91a-VK_YuGd44g@levanger>
-References: <20251119181333.991099-1-sjg@chromium.org>
- <20251119181333.991099-7-sjg@chromium.org>
- <20251120084201-53a3c98f-6a3c-4116-8635-be67d58fd57b@linutronix.de>
+	id 1vMB1k-00000007Ki1-3C7M;
+	Thu, 20 Nov 2025 20:13:12 +0000
+Received: from [50.53.43.113] (helo=[192.168.254.34])
+	by bombadil.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vMB1j-00000007Khn-03y1;
+	Thu, 20 Nov 2025 20:13:11 +0000
+Message-ID: <669d4bbb-4011-493c-b056-34e682a1ac26@infradead.org>
+Date: Thu, 20 Nov 2025 12:13:10 -0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20251120084201-53a3c98f-6a3c-4116-8635-be67d58fd57b@linutronix.de>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1] arm64, lib: make ARM64 select
+ ARCH_HAS_CPU_CACHE_INVALIDATE_MEMREGION not GENERIC_CPU_CACHE_MAINTENANCE
+To: Conor Dooley <conor@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+ Conor Dooley <conor.dooley@microchip.com>,
+ Jonathan Cameron <jonathan.cameron@huawei.com>, Will Deacon
+ <will@kernel.org>, linux-kernel@vger.kernel.org,
+ Arnd Bergmann <arnd@arndb.de>
+References: <20251119-zippy-distinct-1e2a7da7b69b@spud>
+ <aR9QRuUigBsxxelm@arm.com> <20251120-ruined-liability-9ecbf53affd1@spud>
+Content-Language: en-US
+From: Randy Dunlap <rdunlap@infradead.org>
+In-Reply-To: <20251120-ruined-liability-9ecbf53affd1@spud>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,91 +59,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Nov 20, 2025 at 08:49:14AM +0100, Thomas Weißschuh wrote:
-> On Wed, Nov 19, 2025 at 11:13:27AM -0700, Simon Glass wrote:
-> > Support 'make image.fit FIT_MODULES=1' to put all the modules into a
-> > ramdisk image within the FIT.
-> > 
-> > Add image.fit as a target which requires modules, so that modules will
-> > built automatically when using FIT_MODULES is not empty.
-> > 
-> > Signed-off-by: Simon Glass <sjg@chromium.org>
-> > Suggested-by: Ahmad Fatoum <a.fatoum@pengutronix.de>
-> > Suggested-by: Reviewed-by: Nicolas Schier <nsc@kernel.org>
-> > Acked-by: Nathan Chancellor <nathan@kernel.org>
-> > ---
-> > 
-> > Changes in v6:
-> > - Mention that FIT_MODULES just needs to be non-empty
-> > - Make use of modules.order instead of using 'find'
-> > 
-> > Changes in v5:
-> > - Build modules automatically if needed (fix from Nicolas Schier)
-> > 
-> > Changes in v4:
-> > - Rename the Makefile variable from 'EXTRA' to 'MAKE_FIT_FLAGS'
-> > - Use an empty FIT_MODULES to disable the feature, instead of '0'
-> > - Make use of the 'modules' dependency to ensure modules are built
-> > - Pass the list of modules to the script
-> > 
-> >  Makefile             | 1 +
-> >  arch/arm64/Makefile  | 1 +
-> >  scripts/Makefile.lib | 6 +++++-
-> >  3 files changed, 7 insertions(+), 1 deletion(-)
-> > 
-> > diff --git a/Makefile b/Makefile
-> > index 8cd46222fc48..4eccaef95826 100644
-> > --- a/Makefile
-> > +++ b/Makefile
-> > @@ -773,6 +773,7 @@ endif
-> >  # Just "make" or "make all" shall build modules as well
-> >  
-> >  modules-targets := all
-> > +modules-targets += $(if $(FIT_MODULES),image.fit)
-> >  modules-targets += modules
-> >  modules-targets += nsdeps
-> >  modules-targets += compile_commands.json
-> > diff --git a/arch/arm64/Makefile b/arch/arm64/Makefile
-> > index 73a10f65ce8b..7036f251ab40 100644
-> > --- a/arch/arm64/Makefile
-> > +++ b/arch/arm64/Makefile
-> > @@ -174,6 +174,7 @@ endif
-> >  all:	$(notdir $(KBUILD_IMAGE))
-> >  
-> >  image.fit: dtbs
-> > +image.fit: $(if $(FIT_MODULES),modules)
-> >  
-> >  vmlinuz.efi image.fit: Image
-> >  $(BOOT_TARGETS): vmlinux
-> > diff --git a/scripts/Makefile.lib b/scripts/Makefile.lib
-> > index 1d581ba5df66..28e0cc0865b1 100644
-> > --- a/scripts/Makefile.lib
-> > +++ b/scripts/Makefile.lib
-> > @@ -398,11 +398,15 @@ MAKE_FIT := $(srctree)/scripts/make_fit.py
-> >  # Use this to override the compression algorithm
-> >  FIT_COMPRESSION ?= gzip
-> >  
-> > +# Set this to non-empty to include an initrd with all the kernel modules
-> > +FIT_MODULES ?=
-> > +
-> >  quiet_cmd_fit = FIT     $@
-> >        cmd_fit = $(MAKE_FIT) -o $@ --arch $(UIMAGE_ARCH) --os linux \
-> > -		--name '$(UIMAGE_NAME)' \
-> > +		--name '$(UIMAGE_NAME)' $(MAKE_FIT_FLAGS) \
-> 
-> Remnant of a previous revision?
-> 
-> >  		$(if $(findstring 1,$(KBUILD_VERBOSE)),-v) \
-> >  		$(if $(FIT_DECOMPOSE_DTBS),--decompose-dtbs) \
-> > +		$(if $(FIT_MODULES),--modules @$(objtree)/modules.order) \
-> 
-> I am wondering how module dependencies work without the depmod invocation
-> and modules.dep file.
 
-oh, good point.  Stripping and signing and module compression is also
-done during 'modules_install'.
 
+On 11/20/25 11:29 AM, Conor Dooley wrote:
+> On Thu, Nov 20, 2025 at 05:30:46PM +0000, Catalin Marinas wrote:
+>> On Wed, Nov 19, 2025 at 07:08:27PM +0000, Conor Dooley wrote:
+>>> index 09aec4a1e13f..ac223e627bc5 100644
+>>> --- a/lib/Kconfig
+>>> +++ b/lib/Kconfig
+>>> @@ -544,8 +544,9 @@ config ARCH_HAS_CPU_CACHE_INVALIDATE_MEMREGION
+>>>  	bool
+>>>  
+>>>  config GENERIC_CPU_CACHE_MAINTENANCE
+>>> -	bool
+>>> -	select ARCH_HAS_CPU_CACHE_INVALIDATE_MEMREGION
+>>> +	def_bool y
+>>> +	depends on ARCH_HAS_CPU_CACHE_INVALIDATE_MEMREGION
+>>> +	depends on ARM64
+>>
+>> That's what we do if GENERIC_CPU_CACHE_MAINTENANCE depends on some arch
+>> code but that's not the case here. GENERIC_CPU_CACHE_MAINTENANCE is an
+>> alternative implementation that an arch can select if it does not
+>> provide its own. I find the current code without the above patch better.
+> 
+> Right, I am going to leave it as-is for now then. That's both you and I
+> (and presumably Jonathan) finding the current form more natural. Sorry
+> Randy!
+
+Thanks. I tried.
+
+I still say that it makes no sense for something generic
+(GENERIC_CPU_CACHE_MAINTENANCE in lib/Kconfig) to inform the
+config system that the config has something $ARCH-specific
+(ARCH_HAS_CPU_CACHE_INVALIDATE_MEMREGION).
+
+>>
+>> Maybe what gets confusing here is that the core code uses
+>> ARCH_HAS_CPU_CACHE_INVALIDATE_MEMREGION directly. A more involved fix
+>> would be something like:
+>>
+>> config CPU_CACHE_INVALIDATE_MEMREGION
+>> 	def_bool y
+>> 	depends on ARCH_HAS_CPU_CACHE_INVALIDATE_MEMREGION ||
+>> 		GENERIC_CPU_CACHE_MAINTENANCE
+>>
+>> and then go and change all the uses of
+>> ARCH_HAS_CPU_CACHE_INVALIDATE_MEMREGION.
+>>
+>> Up to you, the current code also works for me.
+>>
+>> -- 
+>> Catalin
 
 -- 
-Nicolas
+~Randy
+
 
