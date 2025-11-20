@@ -4,68 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DBACCFA441
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 21:25:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7EA4CFA447
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 21:38:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Pk3sYj4Vzr/Cj6+lYsqjDDXoCljQqc04IL8G1nhA0BY=; b=WorYLafWbSDw32KYDFwIx3EbiO
-	Ka0FgRLv7ClbSGyQaljNrNF0Hrav0yvdzlpULghP2gbphl3kJK/WPWSNM/opb/XqLjZLEhvSnt0EL
-	TRe4G84gj1Tfx4SRvE2v4x1nKry/BOMGcnNv5as3ljmZgIFneVHelkH4CxwtXCrRiph8d9LVU1VnE
-	Cj12eOIfbFwB9S+lVP/hcm0Hq46fij+8Zau0Lg9b46ajiklaXfok4sox6dxADfJ5Qpd+wZ3kZB1Uj
-	k4HvQO3/RBPOGaP76EzxGnVuG2/5rMOHOQfW8cHFxqvrY8a1nlQLqVoAkYAlE3QDLvP/Ur/L6nR/R
-	zkVsfGEQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=unGCkgZmf/HqvwCuFgjzx70sB0VBpzAGijF87J/9a9c=; b=BBm1Iw3ETjmkF2
+	wXbJwvfOlaty0btpLGkq8OgpShAtHUC2ZSQcRNRqOU13jE1x7oOecdKG0b5T4cRdrgrc2NY17HrZH
+	rqpyoPRZ7kv79A2HTY8NTYZnKp3PanJbPRuHUr5rW4Z1tZv8b2yZaCAhjPjQE43dgD+tvTWcRYTnT
+	QrA7pPdxXUq4QyLDiP2iSCMgUq2mngoa138ApZ7irrshPXb7xOUgHveJxv80BS2oWkSGuFNTsSi2y
+	ir84JjGvW1JDnDuLOVOlLpNICm79Zaq2QfkGv5fWq2EgoUToC+mOuDYkE+6G+uVpXHct6UhtGRsiD
+	u6PSbXhFsANpsd7FlX0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMC9t-00000007S9i-10fB;
-	Thu, 20 Nov 2025 21:25:41 +0000
+	id 1vMCM0-00000007THa-0Hc1;
+	Thu, 20 Nov 2025 21:38:12 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMC9p-00000007S6V-0Ejt
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Nov 2025 21:25:40 +0000
+	id 1vMCLw-00000007TGB-2PFC;
+	Thu, 20 Nov 2025 21:38:10 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B660644339;
-	Thu, 20 Nov 2025 21:25:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 940F6C4CEF1;
-	Thu, 20 Nov 2025 21:25:33 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id DDF9741777;
+	Thu, 20 Nov 2025 21:38:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9663FC4CEF1;
+	Thu, 20 Nov 2025 21:38:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763673936;
-	bh=tWsIX28eUU09Y+4XW8T9/1bbDivP+CjAgctxdhSf0nM=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=G5bdWYXbUX7EtiNCcmeVlhB9VsPW+pdJ9kuu2dZxAM15q+VCh9jqvzzI3YvzYjLV7
-	 WyY5d3z1KexwMY14vA19/UaPPX15FsSDX6FpNXEsDEYCyG/sQDY3zicRRnWS1pLzhO
-	 aa2Prrs92VBCtpZ5ZYadyKGTB1kn2Kdq5FDNueFlsU3swjzCOtWaAMhcorraHx1kUa
-	 xqZnOLkg3uejk5h7l1ZbwWY7UqtphvcIemA1lUQRCHV7vCxoLeBbJpI5ROaqleSApi
-	 fr0/L4gigkYqmCUnAguD0B8uXObigT8WS7R/VGoIxChs3B0sKAU+g4gqY0YVpIl8y1
-	 DJ9a8t03RKUGA==
-From: Jiri Olsa <jolsa@kernel.org>
-To: Steven Rostedt <rostedt@kernel.org>,
-	Florent Revest <revest@google.com>,
-	Mark Rutland <mark.rutland@arm.com>
-Cc: bpf@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-trace-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Menglong Dong <menglong8.dong@gmail.com>,
-	Song Liu <song@kernel.org>
-Subject: [PATCHv3 bpf-next 8/8] bpf, x86: Use single ftrace_ops for direct calls
-Date: Thu, 20 Nov 2025 22:24:02 +0100
-Message-ID: <20251120212402.466524-9-jolsa@kernel.org>
-X-Mailer: git-send-email 2.51.1
-In-Reply-To: <20251120212402.466524-1-jolsa@kernel.org>
-References: <20251120212402.466524-1-jolsa@kernel.org>
+	s=k20201202; t=1763674687;
+	bh=1BDDDcVfQtzBnr9L2D6gF5aeR5iOya1diUp8Au6Msz8=;
+	h=From:Subject:Date:To:Cc:From;
+	b=TEKNWEBve0Af7iv+D+r2cjg8t39cHgEp/e4h8iGuhn6PEXxAxKOAqVOLUeQuFgs/R
+	 AABGkFDCupa5inaB0D3LjwtLEL6FCqq0d9dCL3RoqHyy/yyZATGDY/r6EK74QqnuPs
+	 W16eY18FLTHtVgnxk+4cjBydylYhlgJ8SkbuC413ejZqKlWyimMiJ1Wy7szLd+l1wi
+	 +we/M9dEHvAwn8lOY7SMajQHtCtR2774deExwCvLx+mpdl/dbsuCv5YsZg1v+p7GaE
+	 goah48ru70strcOzI3F1GL48XLUarBBWWLjz5h62cs6XOVS7+PnFJj0SiYTtOE+VFJ
+	 Wa7P/jSsVYrWQ==
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Subject: [PATCH v2 0/3] at91: Remove of_platform_default_populate() calls
+Date: Thu, 20 Nov 2025 15:37:49 -0600
+Message-Id: <20251120-at91-probe-v2-0-8c8592f02e8e@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAC2KH2kC/x3MQQqAIBBA0avIrBN0oMCuEi00x5qNikYE4t2Tl
+ m/xf4NKhanCKhoUerhyigM4CTguG0+S7IcBFc5ao5L2NlrmkhxJVMEdZOzitYMR5EKB33+27b1
+ /PW8rqFwAAAA=
+X-Change-ID: 20251120-at91-probe-20fbce9a6d1b
+To: Miquel Raynal <miquel.raynal@bootlin.com>, 
+ Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>, 
+ Nicolas Ferre <nicolas.ferre@microchip.com>, 
+ Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+ Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
+ Russell King <linux@armlinux.org.uk>
+Cc: linux-mtd@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org
+X-Mailer: b4 0.15-dev
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251120_132538_929004_36B3F21E 
-X-CRM114-Status: GOOD (  20.87  )
+X-CRM114-CacheID: sfid-20251120_133809_391728_A6E208B8 
+X-CRM114-Status: UNSURE (   8.70  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,308 +79,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Using single ftrace_ops for direct calls update instead of allocating
-ftrace_ops object for each trampoline.
+This is another attempt at removing of_platform_default_populate() calls 
+on at91 platforms. The last attempts were in 2018[1] and 2023[2]. The 
+problems reported are PM and NAND failures. Both of these depend on SRAM 
+pool which doesn't have any fw_devlink tracking. Also, the PM code is 
+not a driver, so fw_devlink wouldn't help. For the NAND driver, we can 
+simply defer probe. For the PM init, we can move it to the .late_init 
+hook.
 
-With single ftrace_ops object we can use update_ftrace_direct_* api
-that allows multiple ip sites updates on single ftrace_ops object.
+Rob
 
-Adding HAVE_SINGLE_FTRACE_DIRECT_OPS config option to be enabled on
-each arch that supports this.
+[1] https://lore.kernel.org/all/20180712192222.32481-1-robh@kernel.org/
+[2] https://lore.kernel.org/all/3908fa6f-dc33-4aac-c21f-4a676a3a6b23@microchip.com/
 
-At the moment we can enable this only on x86 arch, because arm relies
-on ftrace_ops object representing just single trampoline image (stored
-in ftrace_ops::direct_call). Ach that do not support this will continue
-to use *_ftrace_direct api.
-
-Signed-off-by: Jiri Olsa <jolsa@kernel.org>
+Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
 ---
- arch/x86/Kconfig        |   1 +
- kernel/bpf/trampoline.c | 172 +++++++++++++++++++++++++++++++++++-----
- kernel/trace/Kconfig    |   3 +
- kernel/trace/ftrace.c   |   7 +-
- 4 files changed, 164 insertions(+), 19 deletions(-)
+Rob Herring (1):
+      ARM: at91: Move PM init functions to .init_late hook
 
-diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
-index fa3b616af03a..65a2fc279b46 100644
---- a/arch/x86/Kconfig
-+++ b/arch/x86/Kconfig
-@@ -332,6 +332,7 @@ config X86
- 	select SCHED_SMT			if SMP
- 	select ARCH_SUPPORTS_SCHED_CLUSTER	if SMP
- 	select ARCH_SUPPORTS_SCHED_MC		if SMP
-+	select HAVE_SINGLE_FTRACE_DIRECT_OPS	if X86_64 && DYNAMIC_FTRACE_WITH_DIRECT_CALLS
- 
- config INSTRUCTION_DECODER
- 	def_bool y
-diff --git a/kernel/bpf/trampoline.c b/kernel/bpf/trampoline.c
-index d8762f7990ed..9cc4de215df7 100644
---- a/kernel/bpf/trampoline.c
-+++ b/kernel/bpf/trampoline.c
-@@ -33,12 +33,40 @@ static DEFINE_MUTEX(trampoline_mutex);
- #ifdef CONFIG_DYNAMIC_FTRACE_WITH_DIRECT_CALLS
- static int bpf_trampoline_update(struct bpf_trampoline *tr, bool lock_direct_mutex);
- 
-+#ifdef CONFIG_HAVE_SINGLE_FTRACE_DIRECT_OPS
-+static struct bpf_trampoline *direct_ops_ip_lookup(struct ftrace_ops *ops, unsigned long ip)
-+{
-+	struct hlist_head *head_ip;
-+	struct bpf_trampoline *tr;
-+
-+	mutex_lock(&trampoline_mutex);
-+	head_ip = &trampoline_ip_table[hash_64(ip, TRAMPOLINE_HASH_BITS)];
-+	hlist_for_each_entry(tr, head_ip, hlist_ip) {
-+		if (tr->ip == ip)
-+			goto out;
-+	}
-+	tr = NULL;
-+out:
-+	mutex_unlock(&trampoline_mutex);
-+	return tr;
-+}
-+#else
-+static struct bpf_trampoline *direct_ops_ip_lookup(struct ftrace_ops *ops, unsigned long ip)
-+{
-+	return ops->private;
-+}
-+#endif /* CONFIG_HAVE_SINGLE_FTRACE_DIRECT_OPS */
-+
- static int bpf_tramp_ftrace_ops_func(struct ftrace_ops *ops, unsigned long ip,
- 				     enum ftrace_ops_cmd cmd)
- {
--	struct bpf_trampoline *tr = ops->private;
-+	struct bpf_trampoline *tr;
- 	int ret = 0;
- 
-+	tr = direct_ops_ip_lookup(ops, ip);
-+	if (!tr)
-+		return -EINVAL;
-+
- 	if (cmd == FTRACE_OPS_CMD_ENABLE_SHARE_IPMODIFY_SELF) {
- 		/* This is called inside register_ftrace_direct_multi(), so
- 		 * tr->mutex is already locked.
-@@ -137,6 +165,126 @@ void bpf_image_ksym_del(struct bpf_ksym *ksym)
- 			   PAGE_SIZE, true, ksym->name);
- }
- 
-+#ifdef CONFIG_DYNAMIC_FTRACE_WITH_DIRECT_CALLS
-+#ifdef CONFIG_HAVE_SINGLE_FTRACE_DIRECT_OPS
-+/*
-+ * We have only single direct_ops which contains all the direct call
-+ * sites and is the only global ftrace_ops for all trampolines.
-+ *
-+ * We use 'update_ftrace_direct_*' api for attachment.
-+ */
-+struct ftrace_ops direct_ops = {
-+	.ops_func = bpf_tramp_ftrace_ops_func,
-+};
-+
-+static int direct_ops_alloc(struct bpf_trampoline *tr)
-+{
-+	tr->fops = &direct_ops;
-+	return 0;
-+}
-+
-+static void direct_ops_free(struct bpf_trampoline *tr) { }
-+
-+static struct ftrace_hash *hash_from(unsigned long ip, void *addr)
-+{
-+	struct ftrace_hash *hash;
-+
-+	ip = ftrace_location(ip);
-+	if (!ip)
-+		return NULL;
-+	hash = alloc_ftrace_hash(FTRACE_HASH_DEFAULT_BITS);
-+	if (!hash)
-+		return NULL;
-+	if (!add_hash_entry_direct(hash, ip, (unsigned long) addr)) {
-+		free_ftrace_hash(hash);
-+		return NULL;
-+	}
-+	return hash;
-+}
-+
-+static int direct_ops_add(struct ftrace_ops *ops, unsigned long ip, void *addr)
-+{
-+	struct ftrace_hash *hash = hash_from(ip, addr);
-+	int err = -ENOMEM;
-+
-+	if (hash)
-+		err = update_ftrace_direct_add(ops, hash);
-+	free_ftrace_hash(hash);
-+	return err;
-+}
-+
-+static int direct_ops_del(struct ftrace_ops *ops, unsigned long ip, void *addr)
-+{
-+	struct ftrace_hash *hash = hash_from(ip, addr);
-+	int err = -ENOMEM;
-+
-+	if (hash)
-+		err = update_ftrace_direct_del(ops, hash);
-+	free_ftrace_hash(hash);
-+	return err;
-+}
-+
-+static int direct_ops_mod(struct ftrace_ops *ops, unsigned long ip, void *addr, bool lock_direct_mutex)
-+{
-+	struct ftrace_hash *hash = hash_from(ip, addr);
-+	int err = -ENOMEM;
-+
-+	if (hash)
-+		err = update_ftrace_direct_mod(ops, hash, lock_direct_mutex);
-+	free_ftrace_hash(hash);
-+	return err;
-+}
-+#else
-+/*
-+ * We allocate ftrace_ops object for each trampoline and it contains
-+ * call site specific for that trampoline.
-+ *
-+ * We use *_ftrace_direct api for attachment.
-+ */
-+static int direct_ops_alloc(struct bpf_trampoline *tr)
-+{
-+	tr->fops = kzalloc(sizeof(struct ftrace_ops), GFP_KERNEL);
-+	if (!tr->fops)
-+		return -ENOMEM;
-+	tr->fops->private = tr;
-+	tr->fops->ops_func = bpf_tramp_ftrace_ops_func;
-+	return 0;
-+}
-+
-+static void direct_ops_free(struct bpf_trampoline *tr)
-+{
-+	if (tr->fops) {
-+		ftrace_free_filter(tr->fops);
-+		kfree(tr->fops);
-+	}
-+}
-+
-+static int direct_ops_add(struct ftrace_ops *ops, unsigned long ip, void *addr)
-+{
-+	int ret;
-+
-+	ret = ftrace_set_filter_ip(ops, (unsigned long)ip, 0, 1);
-+	if (ret)
-+		return ret;
-+	return register_ftrace_direct(ops, (long)addr);
-+}
-+
-+static int direct_ops_del(struct ftrace_ops *ops, unsigned long ip, void *addr)
-+{
-+	return unregister_ftrace_direct(ops, (long)addr, false);
-+}
-+
-+static int direct_ops_mod(struct ftrace_ops *ops, unsigned long ip, void *addr, bool lock_direct_mutex)
-+{
-+	if (lock_direct_mutex)
-+		return modify_ftrace_direct(ops, (long)addr);
-+	return modify_ftrace_direct_nolock(ops, (long)addr);
-+}
-+#endif /* CONFIG_HAVE_SINGLE_FTRACE_DIRECT_OPS */
-+#else
-+static void direct_ops_free(struct bpf_trampoline *tr) { }
-+#endif /* CONFIG_DYNAMIC_FTRACE_WITH_DIRECT_CALLS */
-+
- static struct bpf_trampoline *bpf_trampoline_lookup(u64 key, unsigned long ip)
- {
- 	struct bpf_trampoline *tr;
-@@ -155,14 +303,11 @@ static struct bpf_trampoline *bpf_trampoline_lookup(u64 key, unsigned long ip)
- 	if (!tr)
- 		goto out;
- #ifdef CONFIG_DYNAMIC_FTRACE_WITH_DIRECT_CALLS
--	tr->fops = kzalloc(sizeof(struct ftrace_ops), GFP_KERNEL);
--	if (!tr->fops) {
-+	if (direct_ops_alloc(tr)) {
- 		kfree(tr);
- 		tr = NULL;
- 		goto out;
- 	}
--	tr->fops->private = tr;
--	tr->fops->ops_func = bpf_tramp_ftrace_ops_func;
- #endif
- 
- 	tr->key = key;
-@@ -187,7 +332,7 @@ static int unregister_fentry(struct bpf_trampoline *tr, void *old_addr)
- 	int ret;
- 
- 	if (tr->func.ftrace_managed)
--		ret = unregister_ftrace_direct(tr->fops, (long)old_addr, false);
-+		ret = direct_ops_del(tr->fops, tr->ip, old_addr);
- 	else
- 		ret = bpf_arch_text_poke(ip, BPF_MOD_CALL, old_addr, NULL);
- 
-@@ -201,10 +346,7 @@ static int modify_fentry(struct bpf_trampoline *tr, void *old_addr, void *new_ad
- 	int ret;
- 
- 	if (tr->func.ftrace_managed) {
--		if (lock_direct_mutex)
--			ret = modify_ftrace_direct(tr->fops, (long)new_addr);
--		else
--			ret = modify_ftrace_direct_nolock(tr->fops, (long)new_addr);
-+		ret = direct_ops_mod(tr->fops, tr->ip, new_addr, lock_direct_mutex);
- 	} else {
- 		ret = bpf_arch_text_poke(ip, BPF_MOD_CALL, old_addr, new_addr);
- 	}
-@@ -226,10 +368,7 @@ static int register_fentry(struct bpf_trampoline *tr, void *new_addr)
- 	}
- 
- 	if (tr->func.ftrace_managed) {
--		ret = ftrace_set_filter_ip(tr->fops, (unsigned long)ip, 0, 1);
--		if (ret)
--			return ret;
--		ret = register_ftrace_direct(tr->fops, (long)new_addr);
-+		ret = direct_ops_add(tr->fops, tr->ip, new_addr);
- 	} else {
- 		ret = bpf_arch_text_poke(ip, BPF_MOD_CALL, NULL, new_addr);
- 	}
-@@ -865,10 +1004,7 @@ void bpf_trampoline_put(struct bpf_trampoline *tr)
- 	 */
- 	hlist_del(&tr->hlist_key);
- 	hlist_del(&tr->hlist_ip);
--	if (tr->fops) {
--		ftrace_free_filter(tr->fops);
--		kfree(tr->fops);
--	}
-+	direct_ops_free(tr);
- 	kfree(tr);
- out:
- 	mutex_unlock(&trampoline_mutex);
-diff --git a/kernel/trace/Kconfig b/kernel/trace/Kconfig
-index d2c79da81e4f..4bf5beb04a5b 100644
---- a/kernel/trace/Kconfig
-+++ b/kernel/trace/Kconfig
-@@ -50,6 +50,9 @@ config HAVE_DYNAMIC_FTRACE_WITH_REGS
- config HAVE_DYNAMIC_FTRACE_WITH_DIRECT_CALLS
- 	bool
- 
-+config HAVE_SINGLE_FTRACE_DIRECT_OPS
-+	bool
-+
- config HAVE_DYNAMIC_FTRACE_WITH_CALL_OPS
- 	bool
- 
-diff --git a/kernel/trace/ftrace.c b/kernel/trace/ftrace.c
-index b0e4d7a5d47c..4380839d2422 100644
---- a/kernel/trace/ftrace.c
-+++ b/kernel/trace/ftrace.c
-@@ -2605,8 +2605,13 @@ unsigned long ftrace_find_rec_direct(unsigned long ip)
- static void call_direct_funcs(unsigned long ip, unsigned long pip,
- 			      struct ftrace_ops *ops, struct ftrace_regs *fregs)
- {
--	unsigned long addr = READ_ONCE(ops->direct_call);
-+	unsigned long addr;
- 
-+#ifdef CONFIG_HAVE_SINGLE_FTRACE_DIRECT_OPS
-+	addr = ftrace_find_rec_direct(ip);
-+#else
-+	addr = READ_ONCE(ops->direct_call);
-+#endif
- 	if (!addr)
- 		return;
- 
--- 
-2.51.1
+Rob Herring (Arm) (2):
+      mtd: nand: atmel: Defer probe if SRAM is missing
+      ARM: at91: remove unnecessary of_platform_default_populate calls
+
+ arch/arm/mach-at91/at91rm9200.c              | 12 +-----------
+ arch/arm/mach-at91/at91sam9.c                | 12 +-----------
+ arch/arm/mach-at91/sam9x60.c                 | 12 +-----------
+ arch/arm/mach-at91/sam9x7.c                  | 12 +-----------
+ arch/arm/mach-at91/sama5.c                   | 21 +++------------------
+ arch/arm/mach-at91/sama7.c                   | 11 +----------
+ drivers/mtd/nand/raw/atmel/nand-controller.c |  2 +-
+ 7 files changed, 9 insertions(+), 73 deletions(-)
+---
+base-commit: 3a8660878839faadb4f1a6dd72c3179c1df56787
+change-id: 20251120-at91-probe-20fbce9a6d1b
+
+Best regards,
+--  
+Rob Herring (Arm) <robh@kernel.org>
 
 
