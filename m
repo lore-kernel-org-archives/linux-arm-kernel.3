@@ -4,102 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB713CF8564
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 09:19:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD1EECF8575
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 09:23:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=20kuTsLD7mzN21Mbsnm6zJe9RI36sxYDFDB3fVbVRPA=; b=fIvz42MetidZws7XnobW+6pOzV
-	jemjCegaoIfFQ+1xBv5IfBS15PIiF8D82nuhtVhI+q5OQEAWi/PHeZjtLgT4qbl1cupazhFe0CzLK
-	utt5ZizUSb4UJPadt1IpJUr6XAVJ24ZcCy0NnVNctpFscwo7VziohuAer0MdoJibYuatU0fk+JT/A
-	Zrcj5WsFYmlyDzbdvG8v67fuqzbGz4zH8iyrLZZzM4c0RUdjyhbxhxi8HnWy7VDzRmlFQbquMAfOM
-	Hqp8o30UEnIjBQCm7kS69U0oG/5DGtdgMr6yuLuGup2SGnWXLerMWi5u6k2Nd8mkEX7sSxb+PbiX1
-	ciSm/BVQ==;
+	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
+	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=378HkossjSs9aZPrVI1qFSPlZG30eRn9V7+I6jhXhEw=; b=sKvlBeYTztb4vdJEChXaVXoaKT
+	v7CQA2P0Qw6014AVrXx35l00X5kwDM6p1Q2HYgDgCArZn5kBe842KEP0+k4Cp6mkJJQzqxL9YUkaj
+	G4CVRrjH15syo1nSwnOXhHZukzX4RJvaDB21NxFoDC4uqrDWsYzOX/YRk5g1DfSNufxkSGucQujS3
+	bwPlCIj+4YWeX4+uPBOCxAY/oMi6p2zwjMQd2wnCkb7QBshtI35VlZvLTmMB1znRBt6F4rkjSGPwz
+	lpN6EtofYfl1bmrSek/PXsAEGcaVRtpjEV8DB2F6uSHAEW41+tKndKTS8VZ722M/rjLx2n+5iNsvk
+	cWfc7nRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vM0p9-00000006PTq-2REm;
-	Thu, 20 Nov 2025 09:19:31 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	id 1vM0sj-00000006Pix-1Xu9;
+	Thu, 20 Nov 2025 09:23:13 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vM0p7-00000006PTR-2Hnk
+	id 1vM0sh-00000006Pik-3CWe
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Nov 2025 09:19:31 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-4779cc419b2so6869205e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Nov 2025 01:19:28 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1763630368; x=1764235168; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=20kuTsLD7mzN21Mbsnm6zJe9RI36sxYDFDB3fVbVRPA=;
-        b=boioGQvVPIEdmD56KLmM5nMlHOxczX6TOinD3VkBaYlj9hApAznUtMRJIbEu/LG6Mi
-         9OQtDYWMT2P/qA4cXxBPGcAWwvMisOPHIMGMiMaXdXPXKTNqUO8ufjuoU71fkQENEk3A
-         tvRUtiLhC2CSrTeokoqfyaSEhAMMtyJIS7gDDco0HqI9Pb2Z9y//+4Q/YXJzlVeZLLy4
-         yguliy3H+6w8UX8/356znewgfU8T2Wp2kRBRxY/IbX1vt6cVz+qstv/wb3IfxxOMvb/I
-         x23EC0yFeJjIyXKAgJ1HnFZrFjtiQqldCStm4+Eh3pEJnl/a0WKUcHTClNVGct3H8sqf
-         s0Lw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763630368; x=1764235168;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=20kuTsLD7mzN21Mbsnm6zJe9RI36sxYDFDB3fVbVRPA=;
-        b=QAOuFPLs+M2IC+4VAcqBhMYLGL76guKpXvsM2i3Z/lcILsguNzeqalyAxN7bFVF6yg
-         UfIolyMZyj5gDti9zB/hqWGNlAGbcIq7ZmnZDQcMCp0V2Tx40gPD/uBRMLUCLcwNN9cz
-         sZ3s0k47eBRtXrO1lkw3GZ6uEFIN0qwzNJJjyO9TvQQtlmUBZUe7RVmWSkXPSYZsh7Mw
-         KSBtzNp5wqyyEJTkXEIM0mR4zCjO2ZEaMTYEHH0Knn+GzGuZmmEDdLFvo+R+jRHW+Xym
-         UnmMpXT3e5jA7kWwE9WPaGK5eN09wJ6IUkrfcQZnT8ZngZS6MrFtKyx0EpftXhPYshMg
-         3hNw==
-X-Forwarded-Encrypted: i=1; AJvYcCVg9aK1kfQ6YP2v55sfOLxriuE3wqD39yFhAelrE0912Bpq9pw/2pQLUAaChwT5sMUCCku4QfHfn/VwOzhqDIFj@lists.infradead.org
-X-Gm-Message-State: AOJu0YzB5YgwkkLk3xEhKtuUQmjdkx7V62faYkJovfrzh6ZhZsNyao4H
-	hAY6Pen/KTT9FvYc68CJ7Ru+Vp5jlQTj16Cz23HcM/jDTCzwe8Q6FApHKx5Efn+gsnk=
-X-Gm-Gg: ASbGnctPbJN3stQA+0Wlz4An3/9t6wePmRTnukxKGpU53SXLp6WCSZStixVR8GL/aLH
-	GRae0w2WbPUYC3QmFrJcKinaShZzy6Wx0LQcPSIRLqHa1VcaYaY5wV1AZrUYBreOkqNgQF6JV47
-	M48dNNPA4v9hbkJzduB7gF6K7YlkIzFBDzGXroXnL84IGKkDUZn1Nh9krmtE5Y1Lqn+6Z2BYDk0
-	4qc5DZMy5zRl07Nw1mvwKG5qez6zyVXEAsWYGwM+NjeKKWC7wW5BjpkLLMLsic5tRxD3U/CwAK1
-	OX2XQxb0dbAT2hmaZtWcnowSl0LJi6q2reECgXh80fzlpjDWfRQ9zXoePqcBQNLrKvooFv8bRxA
-	I7K8imoJpwvP3bHowU+34YlYPKmi/GvDleqYJlyOTSV3oX8BEmiA/8qgWuzu4XYe5oqs1HYZHq4
-	4iy2eN5E+ibf3E+4bR
-X-Google-Smtp-Source: AGHT+IG5tl/whbs/s+74YcG+m53Ghp9OLB4xBZ6tsdMgU8rY+wexmvaqdkIZY2ULXyjStCQ5oVkWfQ==
-X-Received: by 2002:a05:600c:358f:b0:477:9650:3175 with SMTP id 5b1f17b1804b1-477b835c667mr30933245e9.0.1763630367552;
-        Thu, 20 Nov 2025 01:19:27 -0800 (PST)
-Received: from [192.168.1.3] ([185.48.77.170])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-477b831ad3fsm36561245e9.12.2025.11.20.01.19.26
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 20 Nov 2025 01:19:27 -0800 (PST)
-Message-ID: <d3dca311-5f2b-406f-a91b-0c5bf4dcb7ce@linaro.org>
-Date: Thu, 20 Nov 2025 09:19:25 +0000
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v10 0/5] perf: arm_spe: Armv8.8 SPE features
-To: Namhyung Kim <namhyung@kernel.org>, Will Deacon <will@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
- Mark Rutland <mark.rutland@arm.com>, Jonathan Corbet <corbet@lwn.net>,
- Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
- Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
- Zenghui Yu <yuzenghui@huawei.com>, Peter Zijlstra <peterz@infradead.org>,
- Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
- Adrian Hunter <adrian.hunter@intel.com>, Leo Yan <leo.yan@arm.com>,
- Anshuman Khandual <anshuman.khandual@arm.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-perf-users@vger.kernel.org, linux-doc@vger.kernel.org,
- kvmarm@lists.linux.dev
-References: <20251111-james-perf-feat_spe_eft-v10-0-1e1b5bf2cd05@linaro.org>
- <aR503-f-ZrnWzZh2@google.com>
-Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <aR503-f-ZrnWzZh2@google.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251120_011929_668376_A65C5F7E 
-X-CRM114-Status: GOOD (  23.17  )
+	Thu, 20 Nov 2025 09:23:11 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 224C46014A;
+	Thu, 20 Nov 2025 09:23:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8F70EC4CEF1;
+	Thu, 20 Nov 2025 09:23:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1763630590;
+	bh=6YLG0MvmJWlaFPyCww/YsMdQWP5HEihl/TAyJznr6aQ=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=Czwx2cNcq31Yz9RL+XetgpLq25vzp6DtVj5cTGYfrGk+GGUbwhXC7ZC32pCCo/iI3
+	 vCDdYVrgWd1KNwyeARWMIenIgzNfQzr1rMCqr428mQrk5J7dyyokwBhIbNMs4UKjQ+
+	 dh9qHB2WR+/qcNtAIdZzLqFn3xFqWDVqiIl/4y3SLGMnFgrevZSvnCRiVuGVoIJmTL
+	 m2eWEfh5JvEfOo+L0ARTglgAp4Hgjp8gZM5hbgwJJVMaOZFwMw3wKiFZXrV9ZPRJo1
+	 2I8bdH0YSkKGDDnsKhml0P7Far7K8Ss6ojx9nRCmDHHCiJUpyTB7ZcEwShEC92v0++
+	 6c1agB0O73rZA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vM0se-00000006pJ7-0mds;
+	Thu, 20 Nov 2025 09:23:08 +0000
+Date: Thu, 20 Nov 2025 09:23:07 +0000
+Message-ID: <868qg1rrb8.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Radu Rendec <rrendec@redhat.com>
+Cc: Bjorn Helgaas <bhelgaas@google.com>,	Manivannan Sadhasivam
+ <mani@kernel.org>,	Will Deacon <will@kernel.org>,	Rob Herring
+ <robh@kernel.org>,	Krzysztof =?UTF-8?B?V2lsY3p5xYRza2k=?=
+ <kwilczynski@kernel.org>,	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	linux-pci@vger.kernel.org,	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/2] PCI: host-common: Do not set drvdata in pci_host_common_init()
+In-Reply-To: <d7b6b7de88a374a79c7ed707c74f12797b50cc58.camel@redhat.com>
+References: <20251118221244.372423-1-rrendec@redhat.com>
+	<20251118221244.372423-2-rrendec@redhat.com>
+	<86jyzms036.wl-maz@kernel.org>
+	<d7b6b7de88a374a79c7ed707c74f12797b50cc58.camel@redhat.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: rrendec@redhat.com, bhelgaas@google.com, mani@kernel.org, will@kernel.org, robh@kernel.org, kwilczynski@kernel.org, lpieralisi@kernel.org, linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,110 +88,218 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, 19 Nov 2025 16:19:14 +0000,
+Radu Rendec <rrendec@redhat.com> wrote:
+>=20
+> On Wed, 2025-11-19 at 12:01 +0000, Marc Zyngier wrote:
+> > On Tue, 18 Nov 2025 22:12:43 +0000,
+> > Radu Rendec <rrendec@redhat.com> wrote:
 
+[...]
 
-On 20/11/2025 1:54 am, Namhyung Kim wrote:
-> Hello,
-> 
-> On Tue, Nov 11, 2025 at 11:37:54AM +0000, James Clark wrote:
->> Support SPE_FEAT_FDS data source filtering.
-> 
-> What's the state of this series?  I can merge the tools part (3, 4, 5)
-> once the kernel part lands somewhere.
-> 
-> Thanks,
-> Namhyung
-> 
+> > My concern with this is two-fold:
+> >=20
+> > - it is yet another obscure API change with odd side effects,
+> > =C2=A0 requiring to track and understand the per-driver flow of informa=
+tion
+> > =C2=A0 (and the apple pcie driver is a prime example of how hard this i=
+s)
+> >=20
+> > - we can't directly associate the PCIe port data with the bridge like
+> > =C2=A0 must drivers do, because the bridge allocation is done outside of
+> > =C2=A0 the calling driver, and there is no link back to the bridge from
+> > =C2=A0 pci_config_window.
+> >=20
+> > I'd rather that last point was addressed so that we could make the
+> > Apple driver behave similarly to other drivers, and let it use the
+> > bridge private data for its PCIe port information.
+>=20
+> Using the bridge private data to store the driver's private data was my
+> first thought too. In fact, in the first version of my (local) changes
+> I added a "size" parameter to pci_host_common_init(), to pass it down
+> to devm_pci_alloc_host_bridge() as the priv size.
+>=20
+> But there's another problem with this approach: pci_host_common_init()
+> also calls pci_host_common_ecam_create() -> pci_ecam_create() ->
+> ops->init(), so init() would be called with the bridge private area
+> allocated but not populated.
+>=20
+> I don't see an elegant solution to this. The two options that crossed
+> my mind are these:
+>  * Add yet another parameter to pci_host_common_init(), a void *, so it
+>    takes a void *priv and a size_t size. The size would be passed down
+>    to devm_pci_alloc_host_bridge(), then `size` bytes would be copied
+>    from `priv` to the bridge private data area. What I don't like about
+>    this is the extra memcpy() and the fact that the calling driver
+>    would have to prepare an "offline" copy of its private data (likely
+>    as a local variable) and pass it to pci_host_common_init().
+>  * Pass just the void *priv to pci_host_common_init(). By convention,
+>    the bridge private data would be used to store that void *priv
+>    itself, which is a pointer to the driver's private data. So, the 2nd
+>    parameter to devm_pci_alloc_host_bridge() would be sizeof(void *).
+>    The downside is that there's an extra pointer indirection.
 
-The SPE driver part was blocked on Peter's ack for the config4 change. 
-He's given it now so Will should be able to take the driver.
+I don't think either method is appealing. I expect the correct way
+would be to let individual drivers allocate the bridge (something that
+is already pretty common), initialise it as required, and pass that to
+pci_host_common_init().
 
-Thanks
-James
+> In any case, your other concern about linking back to the bridge from
+> pci_config_window would be addressed because pci_config_window has a
+> pointer to the device (the `parent` field), which (in this scenario, by
+> convention) has the bridge pointer stored as drvdata.
 
->>
->> ---
->> Changes in v10:
->> - Pick up Peter's ack
->> - Slightly clarify commit message regarding the difference between the
->>    data source filter and the data source
->> - Link to v9: https://lore.kernel.org/r/20251029-james-perf-feat_spe_eft-v9-0-d22536b9cf94@linaro.org
->>
->> Changes in v9:
->> - Fix another typo in docs: s/data_src_filter/inv_data_src_filter/g
->> - Drop already applied patches for other features. Only the data source
->>    filtering patches remain.
->> - Rebase on latest perf-tools-next
->> - Link to v8: https://lore.kernel.org/r/20250901-james-perf-feat_spe_eft-v8-0-2e2738f24559@linaro.org
->>
->> Changes in v8:
->> - Define __spe_vers_imp before it's used
->> - "disable traps to PMSDSFR" -> "disable traps of PMSDSFR to EL2"
->> - Link to v7: https://lore.kernel.org/r/20250814-james-perf-feat_spe_eft-v7-0-6a743f7fa259@linaro.org
->>
->> Changes in v7:
->> - Fix typo in docs: s/data_src_filter/inv_data_src_filter/g
->> - Pickup trailers
->> - Link to v6: https://lore.kernel.org/r/20250808-james-perf-feat_spe_eft-v6-0-6daf498578c8@linaro.org
->>
->> Changes in v6:
->> - Rebase to resolve conflict with BRBE changes in el2_setup.h
->> - Link to v5: https://lore.kernel.org/r/20250721-james-perf-feat_spe_eft-v5-0-a7bc533485a1@linaro.org
->>
->> Changes in v5:
->> - Forgot to pickup tags from v4
->> - Forgot to drop test and review tags on v4 patches that were
->>    significantly modified
->> - Update commit message for data source filtering to mention inversion
->> - Link to v4: https://lore.kernel.org/r/20250721-james-perf-feat_spe_eft-v4-0-0a527410f8fd@linaro.org
->>
->> Changes in v4:
->> - Rewrite "const u64 feat_spe_eft_bits" inline
->> - Invert data source filter so that it's possible to exclude all data
->>    sources without adding an additional 'enable filter' flag
->> - Add a macro in el2_setup.h to check for an SPE version
->> - Probe valid filter bits instead of hardcoding them
->> - Take in Leo's commit to expose the filter bits as it depends on the
->>    new filter probing
->> - Link to v3: https://lore.kernel.org/r/20250605-james-perf-feat_spe_eft-v3-0-71b0c9f98093@linaro.org
->>
->> Changes in v3:
->> - Use PMSIDR_EL1_FDS instead of 1 << PMSIDR_EL1_FDS_SHIFT
->> - Add VNCR offsets
->> - Link to v2: https://lore.kernel.org/r/20250529-james-perf-feat_spe_eft-v2-0-a01a9baad06a@linaro.org
->>
->> Changes in v2:
->> - Fix detection of FEAT_SPE_FDS in el2_setup.h
->> - Pickup Marc Z's sysreg change instead which matches the json
->> - Restructure and expand docs changes
->> - Link to v1: https://lore.kernel.org/r/20250506-james-perf-feat_spe_eft-v1-0-dd480e8e4851@linaro.org
->>
->> ---
->> James Clark (5):
->>        perf: Add perf_event_attr::config4
->>        perf: arm_spe: Add support for filtering on data source
->>        tools headers UAPI: Sync linux/perf_event.h with the kernel sources
->>        perf tools: Add support for perf_event_attr::config4
->>        perf docs: arm-spe: Document new SPE filtering features
->>
->>   drivers/perf/arm_spe_pmu.c                |  37 +++++++++++
->>   include/uapi/linux/perf_event.h           |   2 +
->>   tools/include/uapi/linux/perf_event.h     |   2 +
->>   tools/perf/Documentation/perf-arm-spe.txt | 104 +++++++++++++++++++++++++++---
->>   tools/perf/tests/parse-events.c           |  13 +++-
->>   tools/perf/util/parse-events.c            |  11 ++++
->>   tools/perf/util/parse-events.h            |   1 +
->>   tools/perf/util/parse-events.l            |   1 +
->>   tools/perf/util/pmu.c                     |   8 +++
->>   tools/perf/util/pmu.h                     |   1 +
->>   10 files changed, 170 insertions(+), 10 deletions(-)
->> ---
->> base-commit: 081006b7c8e19406dc6674c6b6d086764d415b5c
->> change-id: 20250312-james-perf-feat_spe_eft-66cdf4d8fe99
->>
->> Best regards,
->> -- 
->> James Clark <james.clark@linaro.org>
->>
+Ah, of course, thanks for pointing that out.
 
+> If any of the options above looks appealing, or if you have a better
+> idea, please let me know, and I can prepare a v2.
+
+See the patch below, which I have actually tested on an M2-pro box.
+
+	M.
+
+diff --git a/drivers/pci/controller/pci-host-common.c b/drivers/pci/control=
+ler/pci-host-common.c
+index 810d1c8de24e9..c473e7c03baca 100644
+--- a/drivers/pci/controller/pci-host-common.c
++++ b/drivers/pci/controller/pci-host-common.c
+@@ -53,16 +53,12 @@ struct pci_config_window *pci_host_common_ecam_create(s=
+truct device *dev,
+ EXPORT_SYMBOL_GPL(pci_host_common_ecam_create);
+=20
+ int pci_host_common_init(struct platform_device *pdev,
++			 struct pci_host_bridge *bridge,
+ 			 const struct pci_ecam_ops *ops)
+ {
+ 	struct device *dev =3D &pdev->dev;
+-	struct pci_host_bridge *bridge;
+ 	struct pci_config_window *cfg;
+=20
+-	bridge =3D devm_pci_alloc_host_bridge(dev, 0);
+-	if (!bridge)
+-		return -ENOMEM;
+-
+ 	of_pci_check_probe_only();
+=20
+ 	platform_set_drvdata(pdev, bridge);
+@@ -85,12 +81,17 @@ EXPORT_SYMBOL_GPL(pci_host_common_init);
+ int pci_host_common_probe(struct platform_device *pdev)
+ {
+ 	const struct pci_ecam_ops *ops;
++	struct pci_host_bridge *bridge;
+=20
+ 	ops =3D of_device_get_match_data(&pdev->dev);
+ 	if (!ops)
+ 		return -ENODEV;
+=20
+-	return pci_host_common_init(pdev, ops);
++	bridge =3D devm_pci_alloc_host_bridge(&pdev->dev, 0);
++	if (!bridge)
++		return -ENOMEM;
++
++	return pci_host_common_init(pdev, bridge, ops);
+ }
+ EXPORT_SYMBOL_GPL(pci_host_common_probe);
+=20
+diff --git a/drivers/pci/controller/pci-host-common.h b/drivers/pci/control=
+ler/pci-host-common.h
+index 51c35ec0cf37d..b5075d4bd7eb3 100644
+--- a/drivers/pci/controller/pci-host-common.h
++++ b/drivers/pci/controller/pci-host-common.h
+@@ -14,6 +14,7 @@ struct pci_ecam_ops;
+=20
+ int pci_host_common_probe(struct platform_device *pdev);
+ int pci_host_common_init(struct platform_device *pdev,
++			 struct pci_host_bridge *bridge,
+ 			 const struct pci_ecam_ops *ops);
+ void pci_host_common_remove(struct platform_device *pdev);
+=20
+diff --git a/drivers/pci/controller/pcie-apple.c b/drivers/pci/controller/p=
+cie-apple.c
+index 0380d300adca6..701fba1e45db9 100644
+--- a/drivers/pci/controller/pcie-apple.c
++++ b/drivers/pci/controller/pcie-apple.c
+@@ -206,9 +206,6 @@ struct apple_pcie_port {
+ 	int			idx;
+ };
+=20
+-static LIST_HEAD(pcie_list);
+-static DEFINE_MUTEX(pcie_list_lock);
+-
+ static void rmw_set(u32 set, void __iomem *addr)
+ {
+ 	writel_relaxed(readl_relaxed(addr) | set, addr);
+@@ -724,32 +721,12 @@ static int apple_msi_init(struct apple_pcie *pcie)
+ 	return 0;
+ }
+=20
+-static void apple_pcie_register(struct apple_pcie *pcie)
+-{
+-	guard(mutex)(&pcie_list_lock);
+-
+-	list_add_tail(&pcie->entry, &pcie_list);
+-}
+-
+-static void apple_pcie_unregister(struct apple_pcie *pcie)
+-{
+-	guard(mutex)(&pcie_list_lock);
+-
+-	list_del(&pcie->entry);
+-}
+-
+ static struct apple_pcie *apple_pcie_lookup(struct device *dev)
+ {
+-	struct apple_pcie *pcie;
+-
+-	guard(mutex)(&pcie_list_lock);
+-
+-	list_for_each_entry(pcie, &pcie_list, entry) {
+-		if (pcie->dev =3D=3D dev)
+-			return pcie;
+-	}
++	struct pci_host_bridge *bridge;
+=20
+-	return NULL;
++	bridge =3D dev_get_drvdata(dev);
++	return pci_host_bridge_priv(bridge);
+ }
+=20
+ static struct apple_pcie_port *apple_pcie_get_port(struct pci_dev *pdev)
+@@ -875,13 +852,15 @@ static const struct pci_ecam_ops apple_pcie_cfg_ecam_=
+ops =3D {
+ static int apple_pcie_probe(struct platform_device *pdev)
+ {
+ 	struct device *dev =3D &pdev->dev;
++	struct pci_host_bridge *bridge;
+ 	struct apple_pcie *pcie;
+ 	int ret;
+=20
+-	pcie =3D devm_kzalloc(dev, sizeof(*pcie), GFP_KERNEL);
+-	if (!pcie)
++	bridge =3D devm_pci_alloc_host_bridge(dev, sizeof(*pcie));
++	if (!bridge)
+ 		return -ENOMEM;
+=20
++	pcie =3D pci_host_bridge_priv(bridge);
+ 	pcie->dev =3D dev;
+ 	pcie->hw =3D of_device_get_match_data(dev);
+ 	if (!pcie->hw)
+@@ -897,12 +876,7 @@ static int apple_pcie_probe(struct platform_device *pd=
+ev)
+ 	if (ret)
+ 		return ret;
+=20
+-	apple_pcie_register(pcie);
+-
+-	ret =3D pci_host_common_init(pdev, &apple_pcie_cfg_ecam_ops);
+-	if (ret)
+-		apple_pcie_unregister(pcie);
+-
++	ret =3D pci_host_common_init(pdev, bridge, &apple_pcie_cfg_ecam_ops);
+ 	return ret;
+ }
+=20
+
+--=20
+Without deviation from the norm, progress is not possible.
 
