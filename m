@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBA2FCF9C77
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBA80CF9C7E
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 17:26:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,42 +12,42 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f7gbfuX1XkhpznJXH0c0OBHBNc4aw34pChe6K2ftgSA=; b=fRV8Nv+DowwFtZVD94DymsIEn1
-	KjBpIWTbVrL0RoooyhOj5RtZlHmFgX3nPoSgAoBHTCDoiqdqgRsSJWjxVqdw61Y8msBGOQ4+T8ikb
-	YGEsN+YiKfsKKA948ITIDyRNixrubMxha3uukQ4MtGmyF6ebyJSxtiIZaXTD3cJfgul3LcHx5b0GV
-	8k2hqGsQ8SunofHxEirmndoc4I2DVw9k9De8lTAnHC8qoAfcLzsfwRxRmYluhz9fp9sLfpjuVJyHN
-	tc+7MGIwPqV6r4ruCHrxy+qJajcZQHFkZQaGtvof+T6p/SW5Dwn+BO65J7b68VpdPWQHeDt2NNIyP
-	XX0Pr6Fw==;
+	bh=lnzpF/a+UkpyvBPc+t17WfPpxELAOrv3Fn3QXVT6fhA=; b=EqCDpTgQNhVV2ZQCpSPARUZCI1
+	mIEz9dh9Ems8wFGAR/NoGl0YXuboKXxQiYOvN/BzXRzmzNm76X9dtw38KP/4kfx1WDdi503tnoL+b
+	VNhLZrohLORhyivD6OQp1t0To0377A1uGxYt0ERay1+nh4DulWEBFBZbDG26yqgYiQok2otF+Nfp8
+	+9tBs1oBul9r/fOLIkisRL4UWHFGET9kgEfLMRw+Xk5pj1vO5JU1oz+5rAYzjCGzfo3OlREVJubcZ
+	qa8bopJSXJuJHGAHq+QOB74X7559Xrv4BtkpiR+1NOS1GYljAjn7cYbj8jCXUXl2mHnHG+CurPyoq
+	oKg/fZhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vM8QD-000000075xj-2tQ8;
+	id 1vM8QD-000000075wZ-0rig;
 	Thu, 20 Nov 2025 17:26:17 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vM8Py-000000075e2-3Rtw
+	id 1vM8Px-000000075Zw-0qTJ
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 20 Nov 2025 17:26:02 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 36C436020D;
-	Thu, 20 Nov 2025 17:26:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E1889C19421;
+	by sea.source.kernel.org (Postfix) with ESMTP id 139DB44420;
 	Thu, 20 Nov 2025 17:26:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B4B26C19424;
+	Thu, 20 Nov 2025 17:26:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763659561;
-	bh=Mq07eAWTjNFWwCWLXG/M5L6neRDcPrbJTdf7eK+vuY4=;
+	s=k20201202; t=1763659560;
+	bh=Aat4ZIOGu7UzHTpYsSvAYkE4/MeUGQPoxa07EmKz7QI=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=tZUzvQss5zCfc6s51p9gSmYwujtIwZc3uR+LoCN6WiCrCw4y8qjwf2kRtyRvI5Ufi
-	 44cN4f8rju+bUzXelr/oiR9rA+ka092B6HR+WTqDk58be/WjzIEF0R1BNUO4btm6ZM
-	 z3avuyYqL0F/ZLG2cfyaFZSBSEOGWGQnk3SJ4GmtmMQSA8ktnvACCG/GgE1H4yrkvu
-	 7vemJotSqIZns/tprYrG/LI7rIWANlTQrP6x1qAns15FuhM2clDuhJEuQwJaipp57d
-	 yPc2IaqJSFU9C8wm4Yj37CaqB/TkEwlQHazchvVa/k9+NnWwWlhxTkCTz5QoMAuCkz
-	 6tsEnGl7zRL7A==
+	b=YrsESGxQzkvqcHrdSJ0zMZfM+UkN7pgqOMWEqewnF9XuDskgoxSbaC1gqgeBf6OE+
+	 XvLoDsTK3oOp10Y9ieGgdeuoZO7kp3ojotP2H3TYMXiDQ3845VRGVZ0JtK824BItP7
+	 vnIvxUwP04Vl4aj6AjgUJtOr8+CDBH9LCz2JWtdYiE7Ex+JRFcmjwwyFwq6rsMf88z
+	 r+DO3cQwyL5taqV7pq9nA4XFENP/4JtfZZty8g1Q+jDbnS9ggvtn39kIGXZLYYyDjz
+	 S8Xcwy2Alhw+R+df4V3QE/tQXvUBe/6h6PPIKWuBPztczUqy1gOgYp/obWkTzPzODs
+	 AkmVLaNy/Njjg==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1vM8Pw-00000006y6g-0naW;
-	Thu, 20 Nov 2025 17:26:00 +0000
+	id 1vM8Pu-00000006y6g-427I;
+	Thu, 20 Nov 2025 17:25:59 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
@@ -59,9 +59,9 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Christoffer Dall <christoffer.dall@arm.com>,
 	Fuad Tabba <tabba@google.com>,
 	Mark Brown <broonie@kernel.org>
-Subject: [PATCH v4 26/49] KVM: arm64: Use MI to detect groups being enabled/disabled
-Date: Thu, 20 Nov 2025 17:25:16 +0000
-Message-ID: <20251120172540.2267180-27-maz@kernel.org>
+Subject: [PATCH v4 21/49] KVM: arm64: Revamp vgic maintenance interrupt configuration
+Date: Thu, 20 Nov 2025 17:25:11 +0000
+Message-ID: <20251120172540.2267180-22-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20251120172540.2267180-1-maz@kernel.org>
 References: <20251120172540.2267180-1-maz@kernel.org>
@@ -71,6 +71,9 @@ X-SA-Exim-Connect-IP: 185.219.108.64
 X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, christoffer.dall@arm.com, tabba@google.com, broonie@kernel.org
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251120_092601_293055_D8329E90 
+X-CRM114-Status: GOOD (  23.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,49 +88,264 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the maintenance interrupt to force an exit when the guest
-enables/disables individual groups, so that we can resort the
-ap_list accordingly.
+We currently don't use the maintenance interrupt very much, apart
+from EOI on level interrupts, and for LR underflow in limited cases.
+
+However, as we are moving toward a setup where active interrupts
+can live outside of the LRs, we need to use the MIs in a more
+diverse set of cases.
+
+Add a new helper that produces a digest of the ap_list, and use
+that summary to set the various control bits as required.
+
+This slightly changes the way v2 SGIs are handled, as they used to
+count for more than one interrupt, but not anymore.
 
 Tested-by: Fuad Tabba <tabba@google.com>
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/kvm/vgic/vgic-v2.c | 5 +++++
- arch/arm64/kvm/vgic/vgic-v3.c | 5 +++++
- 2 files changed, 10 insertions(+)
+ arch/arm64/kvm/vgic/vgic-v2.c | 12 ++++-
+ arch/arm64/kvm/vgic/vgic-v3.c | 18 ++++++-
+ arch/arm64/kvm/vgic/vgic.c    | 89 ++++++++++++-----------------------
+ arch/arm64/kvm/vgic/vgic.h    | 19 +++++++-
+ 4 files changed, 73 insertions(+), 65 deletions(-)
 
 diff --git a/arch/arm64/kvm/vgic/vgic-v2.c b/arch/arm64/kvm/vgic/vgic-v2.c
-index 18856186be7be..9a2de03f74c30 100644
+index 07e93acafd04d..f53bc55288978 100644
 --- a/arch/arm64/kvm/vgic/vgic-v2.c
 +++ b/arch/arm64/kvm/vgic/vgic-v2.c
-@@ -39,6 +39,11 @@ void vgic_v2_configure_hcr(struct kvm_vcpu *vcpu,
- 		cpuif->vgic_hcr |= GICH_HCR_LRENPIE;
- 	if (irqs_outside_lrs(als))
- 		cpuif->vgic_hcr |= GICH_HCR_UIE;
+@@ -26,11 +26,19 @@ void vgic_v2_init_lrs(void)
+ 		vgic_v2_write_lr(i, 0);
+ }
+ 
+-void vgic_v2_set_underflow(struct kvm_vcpu *vcpu)
++void vgic_v2_configure_hcr(struct kvm_vcpu *vcpu,
++			   struct ap_list_summary *als)
+ {
+ 	struct vgic_v2_cpu_if *cpuif = &vcpu->arch.vgic_cpu.vgic_v2;
+ 
+-	cpuif->vgic_hcr |= GICH_HCR_UIE;
++	cpuif->vgic_hcr = GICH_HCR_EN;
 +
-+	cpuif->vgic_hcr |= (cpuif->vgic_vmcr & GICH_VMCR_ENABLE_GRP0_MASK) ?
-+		GICH_HCR_VGrp0DIE : GICH_HCR_VGrp0EIE;
-+	cpuif->vgic_hcr |= (cpuif->vgic_vmcr & GICH_VMCR_ENABLE_GRP1_MASK) ?
-+		GICH_HCR_VGrp1DIE : GICH_HCR_VGrp1EIE;
++	if (irqs_pending_outside_lrs(als))
++		cpuif->vgic_hcr |= GICH_HCR_NPIE;
++	if (irqs_active_outside_lrs(als))
++		cpuif->vgic_hcr |= GICH_HCR_LRENPIE;
++	if (irqs_outside_lrs(als))
++		cpuif->vgic_hcr |= GICH_HCR_UIE;
  }
  
  static bool lr_signals_eoi_mi(u32 lr_val)
 diff --git a/arch/arm64/kvm/vgic/vgic-v3.c b/arch/arm64/kvm/vgic/vgic-v3.c
-index 780cc92c79e04..312226cc2565d 100644
+index 5b276e303aab2..81f1de9e3897b 100644
 --- a/arch/arm64/kvm/vgic/vgic-v3.c
 +++ b/arch/arm64/kvm/vgic/vgic-v3.c
-@@ -39,6 +39,11 @@ void vgic_v3_configure_hcr(struct kvm_vcpu *vcpu,
+@@ -20,11 +20,25 @@ static bool common_trap;
+ static bool dir_trap;
+ static bool gicv4_enable;
  
- 	if (!als->nr_sgi)
- 		cpuif->vgic_hcr |= ICH_HCR_EL2_vSGIEOICount;
+-void vgic_v3_set_underflow(struct kvm_vcpu *vcpu)
++void vgic_v3_configure_hcr(struct kvm_vcpu *vcpu,
++			   struct ap_list_summary *als)
+ {
+ 	struct vgic_v3_cpu_if *cpuif = &vcpu->arch.vgic_cpu.vgic_v3;
+ 
+-	cpuif->vgic_hcr |= ICH_HCR_EL2_UIE;
++	if (!irqchip_in_kernel(vcpu->kvm))
++		return;
 +
-+	cpuif->vgic_hcr |= (cpuif->vgic_vmcr & ICH_VMCR_ENG0_MASK) ?
-+		ICH_HCR_EL2_VGrp0DIE : ICH_HCR_EL2_VGrp0EIE;
-+	cpuif->vgic_hcr |= (cpuif->vgic_vmcr & ICH_VMCR_ENG1_MASK) ?
-+		ICH_HCR_EL2_VGrp1DIE : ICH_HCR_EL2_VGrp1EIE;
++	cpuif->vgic_hcr = ICH_HCR_EL2_En;
++
++	if (irqs_pending_outside_lrs(als))
++		cpuif->vgic_hcr |= ICH_HCR_EL2_NPIE;
++	if (irqs_active_outside_lrs(als))
++		cpuif->vgic_hcr |= ICH_HCR_EL2_LRENPIE;
++	if (irqs_outside_lrs(als))
++		cpuif->vgic_hcr |= ICH_HCR_EL2_UIE;
++
++	if (!als->nr_sgi)
++		cpuif->vgic_hcr |= ICH_HCR_EL2_vSGIEOICount;
  }
  
  static bool lr_signals_eoi_mi(u64 lr_val)
+diff --git a/arch/arm64/kvm/vgic/vgic.c b/arch/arm64/kvm/vgic/vgic.c
+index 39346baa2677c..7e6f02d48fff1 100644
+--- a/arch/arm64/kvm/vgic/vgic.c
++++ b/arch/arm64/kvm/vgic/vgic.c
+@@ -791,38 +791,30 @@ static inline void vgic_clear_lr(struct kvm_vcpu *vcpu, int lr)
+ 		vgic_v3_clear_lr(vcpu, lr);
+ }
+ 
+-static inline void vgic_set_underflow(struct kvm_vcpu *vcpu)
+-{
+-	if (kvm_vgic_global_state.type == VGIC_V2)
+-		vgic_v2_set_underflow(vcpu);
+-	else
+-		vgic_v3_set_underflow(vcpu);
+-}
+-
+-/* Requires the ap_list_lock to be held. */
+-static int compute_ap_list_depth(struct kvm_vcpu *vcpu,
+-				 bool *multi_sgi)
++static void summarize_ap_list(struct kvm_vcpu *vcpu,
++			      struct ap_list_summary *als)
+ {
+ 	struct vgic_cpu *vgic_cpu = &vcpu->arch.vgic_cpu;
+ 	struct vgic_irq *irq;
+-	int count = 0;
+-
+-	*multi_sgi = false;
+ 
+ 	lockdep_assert_held(&vgic_cpu->ap_list_lock);
+ 
++	*als = (typeof(*als)){};
++
+ 	list_for_each_entry(irq, &vgic_cpu->ap_list_head, ap_list) {
+-		int w;
++		guard(raw_spinlock)(&irq->irq_lock);
+ 
+-		raw_spin_lock(&irq->irq_lock);
+-		/* GICv2 SGIs can count for more than one... */
+-		w = vgic_irq_get_lr_count(irq);
+-		raw_spin_unlock(&irq->irq_lock);
++		if (unlikely(vgic_target_oracle(irq) != vcpu))
++			continue;
++
++		if (!irq->active)
++			als->nr_pend++;
++		else
++			als->nr_act++;
+ 
+-		count += w;
+-		*multi_sgi |= (w > 1);
++		if (irq->intid < VGIC_NR_SGIS)
++			als->nr_sgi++;
+ 	}
+-	return count;
+ }
+ 
+ /*
+@@ -908,60 +900,39 @@ static int compute_ap_list_depth(struct kvm_vcpu *vcpu,
+ static void vgic_flush_lr_state(struct kvm_vcpu *vcpu)
+ {
+ 	struct vgic_cpu *vgic_cpu = &vcpu->arch.vgic_cpu;
++	struct ap_list_summary als;
+ 	struct vgic_irq *irq;
+-	int count;
+-	bool multi_sgi;
+-	u8 prio = 0xff;
+-	int i = 0;
++	int count = 0;
+ 
+ 	lockdep_assert_held(&vgic_cpu->ap_list_lock);
+ 
+-	count = compute_ap_list_depth(vcpu, &multi_sgi);
+-	if (count > kvm_vgic_global_state.nr_lr || multi_sgi)
+-		vgic_sort_ap_list(vcpu);
++	summarize_ap_list(vcpu, &als);
+ 
+-	count = 0;
++	if (irqs_outside_lrs(&als))
++		vgic_sort_ap_list(vcpu);
+ 
+ 	list_for_each_entry(irq, &vgic_cpu->ap_list_head, ap_list) {
+-		raw_spin_lock(&irq->irq_lock);
+-
+-		/*
+-		 * If we have multi-SGIs in the pipeline, we need to
+-		 * guarantee that they are all seen before any IRQ of
+-		 * lower priority. In that case, we need to filter out
+-		 * these interrupts by exiting early. This is easy as
+-		 * the AP list has been sorted already.
+-		 */
+-		if (multi_sgi && irq->priority > prio) {
+-			raw_spin_unlock(&irq->irq_lock);
+-			break;
++		scoped_guard(raw_spinlock,  &irq->irq_lock) {
++			if (likely(vgic_target_oracle(irq) == vcpu)) {
++				vgic_populate_lr(vcpu, irq, count++);
++			}
+ 		}
+ 
+-		if (likely(vgic_target_oracle(irq) == vcpu)) {
+-			vgic_populate_lr(vcpu, irq, count++);
+-
+-			if (irq->source)
+-				prio = irq->priority;
+-		}
+-
+-		raw_spin_unlock(&irq->irq_lock);
+-
+-		if (count == kvm_vgic_global_state.nr_lr) {
+-			if (!list_is_last(&irq->ap_list,
+-					  &vgic_cpu->ap_list_head))
+-				vgic_set_underflow(vcpu);
++		if (count == kvm_vgic_global_state.nr_lr)
+ 			break;
+-		}
+ 	}
+ 
+ 	/* Nuke remaining LRs */
+-	for (i = count ; i < kvm_vgic_global_state.nr_lr; i++)
++	for (int i = count ; i < kvm_vgic_global_state.nr_lr; i++)
+ 		vgic_clear_lr(vcpu, i);
+ 
+-	if (!static_branch_unlikely(&kvm_vgic_global_state.gicv3_cpuif))
++	if (!static_branch_unlikely(&kvm_vgic_global_state.gicv3_cpuif)) {
+ 		vcpu->arch.vgic_cpu.vgic_v2.used_lrs = count;
+-	else
++		vgic_v2_configure_hcr(vcpu, &als);
++	} else {
+ 		vcpu->arch.vgic_cpu.vgic_v3.used_lrs = count;
++		vgic_v3_configure_hcr(vcpu, &als);
++	}
+ }
+ 
+ static inline bool can_access_vgic_from_kernel(void)
+diff --git a/arch/arm64/kvm/vgic/vgic.h b/arch/arm64/kvm/vgic/vgic.h
+index 0ecadfa00397d..4a0733869cb5f 100644
+--- a/arch/arm64/kvm/vgic/vgic.h
++++ b/arch/arm64/kvm/vgic/vgic.h
+@@ -236,6 +236,21 @@ struct its_ite {
+ 	u32 event_id;
+ };
+ 
++struct ap_list_summary {
++	unsigned int	nr_pend;	/* purely pending, not active */
++	unsigned int	nr_act;		/* active, or active+pending */
++	unsigned int	nr_sgi;		/* any SGI */
++};
++
++#define irqs_outside_lrs(s)						\
++	 (((s)->nr_pend + (s)->nr_act) > kvm_vgic_global_state.nr_lr)
++
++#define irqs_pending_outside_lrs(s)			\
++	((s)->nr_pend > kvm_vgic_global_state.nr_lr)
++
++#define irqs_active_outside_lrs(s)		\
++	((s)->nr_act &&	irqs_outside_lrs(s))
++
+ int vgic_v3_parse_attr(struct kvm_device *dev, struct kvm_device_attr *attr,
+ 		       struct vgic_reg_attr *reg_attr);
+ int vgic_v2_parse_attr(struct kvm_device *dev, struct kvm_device_attr *attr,
+@@ -262,7 +277,7 @@ int vgic_check_iorange(struct kvm *kvm, phys_addr_t ioaddr,
+ void vgic_v2_fold_lr_state(struct kvm_vcpu *vcpu);
+ void vgic_v2_populate_lr(struct kvm_vcpu *vcpu, struct vgic_irq *irq, int lr);
+ void vgic_v2_clear_lr(struct kvm_vcpu *vcpu, int lr);
+-void vgic_v2_set_underflow(struct kvm_vcpu *vcpu);
++void vgic_v2_configure_hcr(struct kvm_vcpu *vcpu, struct ap_list_summary *als);
+ int vgic_v2_has_attr_regs(struct kvm_device *dev, struct kvm_device_attr *attr);
+ int vgic_v2_dist_uaccess(struct kvm_vcpu *vcpu, bool is_write,
+ 			 int offset, u32 *val);
+@@ -302,7 +317,7 @@ static inline void vgic_get_irq_ref(struct vgic_irq *irq)
+ void vgic_v3_fold_lr_state(struct kvm_vcpu *vcpu);
+ void vgic_v3_populate_lr(struct kvm_vcpu *vcpu, struct vgic_irq *irq, int lr);
+ void vgic_v3_clear_lr(struct kvm_vcpu *vcpu, int lr);
+-void vgic_v3_set_underflow(struct kvm_vcpu *vcpu);
++void vgic_v3_configure_hcr(struct kvm_vcpu *vcpu, struct ap_list_summary *als);
+ void vgic_v3_set_vmcr(struct kvm_vcpu *vcpu, struct vgic_vmcr *vmcr);
+ void vgic_v3_get_vmcr(struct kvm_vcpu *vcpu, struct vgic_vmcr *vmcr);
+ void vgic_v3_enable(struct kvm_vcpu *vcpu);
 -- 
 2.47.3
 
