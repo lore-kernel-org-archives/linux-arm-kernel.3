@@ -4,63 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15D75CF256D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 03:44:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3785ECF256D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 03:47:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=5dfib/LBWTivyaWbqxMuq7w4wYlCU3lMwonCOlQGff8=; b=u0exDda0RHyejF
-	V7pWjvV83EM5jw4NNMF2hhbJ9w1leTC1VB71Y6Fosh0UqWMpVKSMFNWc63lVE2XGRqifo/V5b9+X+
-	DwxhTh9NU4RQbf2Gg/qlUw8laknGAvhGP+xSCF+bJf3iZgYMYyebQZyWytl0H9VLBV6hw5VP7Pv7I
-	Zw4wrsjaluNKY+LABXkwcIs7gGCvbWtuSWErTkzUqteMSMj9p6j0F0ZXbeDJLhXtLOJ4u+YSKZv7y
-	6ZfVwt6kr6q2VUObHtkQztfOMq2hKr30nfF2DHH1XKzqZ6S11eyp7DCtx2RCKWoNEIZoS4PsDuAyz
-	AN3nvaBWUZ/N9FE++SrA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pFfE5rqjVgwE8wDghOzJXBN7RtoFvEZyfhpDnHJr1d0=; b=QjGD58KcWCuGrz1vBNIuxEqes5
+	JZynEuOtfnq9G3eLy2QBo42D1MEH9vov/D5tpnaI3BsWVPUhBlT+zs7joEcg29gw4As29u4aqFoAk
+	HiDg7pqJLjZE4YrI6v4aI5dr5OuQOLa6L8Hb7E9C/1MSufduqsHGpRSw7C1VfKy11zs2c6q5OeUbk
+	JX7YNU6OS3ZiMorPuvSXBxsHvmZhE/gWEnboHBtoRigxoBLNa/5NL5Sx+Z9b2r3m9MVKZ9ncTBYBl
+	i7aizfl/EHzf74ic/d1k7lvSALGRKO1xycMDTuYxO3t8OfX8wltQtENavWEhffZdpiw7W0bhLGqAl
+	/gbEqnAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLvb7-000000065nw-2y3m;
-	Thu, 20 Nov 2025 03:44:41 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vLvdr-0000000662Q-3IY8;
+	Thu, 20 Nov 2025 03:47:31 +0000
+Received: from mout.gmx.net ([212.227.17.22])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLvb5-000000065nc-3w0o;
-	Thu, 20 Nov 2025 03:44:40 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 06A456018B;
-	Thu, 20 Nov 2025 03:44:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 79F80C4CEF5;
-	Thu, 20 Nov 2025 03:44:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763610278;
-	bh=AjdxR6TUqq3Wcw+p33wfaWFBJDTgg/OZKKZdG+hrWVU=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=PxNKms2yk1pVNaHxO1/75tbCaZ2Y+w7UQgCVbLiXP1frzW8HEzJWotYTj4sNgdysV
-	 5loVSEyeMx6OFe5LajWbF7OKXRhpDhr/1WPHG96YhEWrXrDRc5T6Df66T88h5SY5Ta
-	 d/AxjzQoAMnsc0mRBjpl9V5q4C6gGgZBkbKfPOORE1cARNO86cHsb/mnttbXtXmwng
-	 ZU7tjdYER9j3hciyCBMrB2FiQzCJ5jYc/avhTfFm0hgtrcKKK6dCRLTzCvGLfbVJVh
-	 Rqy+BIPuomcsUnvDb+EOgkUcD2GYDl/urauwbudkNGLLQqDTc0jE56rYk+KCLAB3+u
-	 +7cYNUP/G8Dww==
-Date: Wed, 19 Nov 2025 21:44:37 -0600
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Anand Moon <linux.amoon@gmail.com>
-Cc: Shawn Lin <shawn.lin@rock-chips.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	"open list:PCIE DRIVER FOR ROCKCHIP" <linux-pci@vger.kernel.org>,
-	"open list:PCIE DRIVER FOR ROCKCHIP" <linux-rockchip@lists.infradead.org>,
-	"moderated list:ARM/Rockchip SoC support" <linux-arm-kernel@lists.infradead.org>,
-	open list <linux-kernel@vger.kernel.org>
-Subject: Re: [RFC v1 1/5] PCI: rockchip: Fix Link Control register offset and
- enable ASPM/CLKREQ
-Message-ID: <20251120034437.GA2625966@bhelgaas>
+	id 1vLvdp-0000000661o-2NUh;
+	Thu, 20 Nov 2025 03:47:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.de;
+	s=s31663417; t=1763610445; x=1764215245; i=w_armin@gmx.de;
+	bh=pFfE5rqjVgwE8wDghOzJXBN7RtoFvEZyfhpDnHJr1d0=;
+	h=X-UI-Sender-Class:From:Date:Subject:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
+	 cc:content-transfer-encoding:content-type:date:from:message-id:
+	 mime-version:reply-to:subject:to;
+	b=X8OEtuGtMGM2I9N9p7uIB1mtTMLPcS0W7gchkLAfq5SSgj6o0cxXM/RxczvbvY7v
+	 l2uzYFDAtBSCb/LzMW0gwFYuXsmG/wtzBWg45iIkb9O1U+pW3qb7CUUqn1lxDB6Cv
+	 YqwyzcyHvAIA5231+f7vsEhJHvTMGLulO1Gaojq9EUxt0yK+BS62f3P8vzFq7gfap
+	 EhQP2uBmPBHpbkTCNGjh1WSQWo+5EUoVGG7Xm80s93FZAcQbpG6W4h2IjybaKF+It
+	 qNCM21aJ9/lcVqnJv86YHd+Iv9o1tzw442YZZgKQ71vIzbfK9mHosntaIK/5N5Y1P
+	 fOsJwnNAnlUgyTkFUA==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from [127.0.0.1] ([93.202.247.91]) by mail.gmx.net (mrgmx104
+ [212.227.17.168]) with ESMTPSA (Nemesis) id 1MzQgC-1w8GuJ49qq-00xsos; Thu, 20
+ Nov 2025 04:41:40 +0100
+From: Armin Wolf <W_Armin@gmx.de>
+Date: Thu, 20 Nov 2025 04:41:17 +0100
+Subject: [PATCH RFC RESEND 7/8] ACPI: thermal: Stop creating "device" sysfs
+ link
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CANAwSgRHuwoQjr95sXp-X97=L-X3vqUPxjR5=2jNtFZA+4gnwQ@mail.gmail.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+Message-Id: <20251120-thermal-device-v1-7-bbdad594d57a@gmx.de>
+References: <20251120-thermal-device-v1-0-bbdad594d57a@gmx.de>
+In-Reply-To: <20251120-thermal-device-v1-0-bbdad594d57a@gmx.de>
+To: "Rafael J. Wysocki" <rafael@kernel.org>, 
+ Daniel Lezcano <daniel.lezcano@linaro.org>, Zhang Rui <rui.zhang@intel.com>, 
+ Lukasz Luba <lukasz.luba@arm.com>, Len Brown <lenb@kernel.org>, 
+ Jonathan Corbet <corbet@lwn.net>, Ido Schimmel <idosch@nvidia.com>, 
+ Petr Machata <petrm@nvidia.com>
+Cc: linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ etnaviv@lists.freedesktop.org, dri-devel@lists.freedesktop.org, 
+ linux-tegra@vger.kernel.org, linux-acpi@vger.kernel.org, 
+ linux-doc@vger.kernel.org, netdev@vger.kernel.org, 
+ linux-wireless@vger.kernel.org, ath10k@lists.infradead.org, 
+ ath11k@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, platform-driver-x86@vger.kernel.org, 
+ linux-pci@vger.kernel.org, imx@lists.linux.dev, 
+ linux-renesas-soc@vger.kernel.org
+X-Mailer: b4 0.14.3
+X-Provags-ID: V03:K1:bKjOl416ZBvt0J4Z1ff2/VOM4YUuBr4pjrnuYziG/rC6UM9Bjrb
+ iCAyo+RKmQkcq6atgUTHWnC+hoUqvDNqaFpc2OPzy5pIPPW4oHJPk1sK76vauvunauWsJI/
+ rZWHUfcw+kkV+yp+4FePUCajckmPJ0U3pwygCJBQNPEV/qhghQjiEQylyxzO3A0H4gakZ/Q
+ lbLGd8IWeIkZr7osImDhg==
+UI-OutboundReport: notjunk:1;M01:P0:AZimEQ/l6Pg=;9tHsSJi+XOL8Wj5l5GIdtreT3ts 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 UFsQIcf0=
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251119_194729_888172_57B240A5 
+X-CRM114-Status: GOOD (  10.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,52 +91,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 19, 2025 at 07:49:06PM +0530, Anand Moon wrote:
-> On Tue, 18 Nov 2025 at 23:20, Bjorn Helgaas <helgaas@kernel.org> wrote:
-> > On Mon, Nov 17, 2025 at 11:40:09PM +0530, Anand Moon wrote:
-> > > As per the RK3399 TRM (Part 2, 17.6.6.1.31), the Link Control register
-> > > (RC_CONFIG_LC) resides at an offset of 0xd0 within the Root Complex (RC)
-> > > configuration space, not at the offset of the PCI Express Capability List
-> > > (0xc0). Following changes correct the register offset to use
-> > > PCIE_RC_CONFIG_LC (0xd0) to configure link control.
-> ...
+The thermal core will soon automatically create sysfs links between
+the thermal zone device and its parent device. Stop manually creating
+the "device" sysfs link between the thermal zone device and the parent
+device to avoid a name collision. The "thermal_zone" sysfs link
+however stays for backwards compatibility, as it does not suffer
+from a name collision.
 
-> > Don't do two things at once in the same patch.  Fix the register
-> > offset in one patch.  Actually, as I mentioned at [1], there's a lot
-> > of fixing to do there, and I'm not even going to consider other
-> > changes until the #define mess is cleaned up.
+Signed-off-by: Armin Wolf <W_Armin@gmx.de>
+=2D--
+ drivers/acpi/thermal.c | 17 ++---------------
+ 1 file changed, 2 insertions(+), 15 deletions(-)
 
-> > [1] https://lore.kernel.org/r/20251118005056.GA2541796@bhelgaas
-> 
-> According to the RK3399 Technical Reference Manual (TRM), and pci_regs.h
-> already includes the correct, pre-defined offsets for all PCI Express
-> device types
-> and their capabilities registers. To avoid overlapping register mappings,
-> we should explicitly remove the addition of manual offsets within the code.
+diff --git a/drivers/acpi/thermal.c b/drivers/acpi/thermal.c
+index a511f9ea0267..99ad67bbd764 100644
+=2D-- a/drivers/acpi/thermal.c
++++ b/drivers/acpi/thermal.c
+@@ -592,27 +592,14 @@ static const struct thermal_zone_device_ops acpi_the=
+rmal_zone_ops =3D {
+ static int acpi_thermal_zone_sysfs_add(struct acpi_thermal *tz)
+ {
+ 	struct device *tzdev =3D thermal_zone_device(tz->thermal_zone);
+-	int ret;
+=20
+-	ret =3D sysfs_create_link(&tz->device->dev.kobj,
+-				&tzdev->kobj, "thermal_zone");
+-	if (ret)
+-		return ret;
+-
+-	ret =3D sysfs_create_link(&tzdev->kobj,
+-				   &tz->device->dev.kobj, "device");
+-	if (ret)
+-		sysfs_remove_link(&tz->device->dev.kobj, "thermal_zone");
+-
+-	return ret;
++	/* For backwards compatibility */
++	return sysfs_create_link(&tz->device->dev.kobj, &tzdev->kobj, "thermal_z=
+one");
+ }
+=20
+ static void acpi_thermal_zone_sysfs_remove(struct acpi_thermal *tz)
+ {
+-	struct device *tzdev =3D thermal_zone_device(tz->thermal_zone);
+-
+ 	sysfs_remove_link(&tz->device->dev.kobj, "thermal_zone");
+-	sysfs_remove_link(&tzdev->kobj, "device");
+ }
+=20
+ static int acpi_thermal_register_thermal_zone(struct acpi_thermal *tz,
 
-> Here is the example. Is this the correct approach?
+=2D-=20
+2.39.5
 
-> -       status = rockchip_pcie_read(rockchip, PCIE_RC_CONFIG_CR +
-> PCI_EXP_LNKCTL);
-> +       status = rockchip_pcie_read(rockchip, PCIE_RC_CONFIG_LC);
->         status |= (PCI_EXP_LNKCTL_LBMIE | PCI_EXP_LNKCTL_LABIE);
-> -       rockchip_pcie_write(rockchip, status, PCIE_RC_CONFIG_CR +
-> PCI_EXP_LNKCTL);
-> +       rockchip_pcie_write(rockchip, status, PCIE_RC_CONFIG_LC);
-
-No.  The call should include PCI_EXP_LNKCTL because that's what we
-grep for when we want to see where Link Control is updated.
-
-See my example from [1] above:
-
-  rockchip_pcie_read(rockchip, ROCKCHIP_RP_PCIE_CAP + PCI_EXP_DEVCAP)
-  rockchip_pcie_read(rockchip, ROCKCHIP_RP_PCIE_CAP + PCI_EXP_LNKCTL)
-
-You should have a single #define for the offset of the PCIe
-Capability, e.g., ROCKCHIP_RP_PCIE_CAP.  Every access to registers in
-that capability would use ROCKCHIP_RP_PCIE_CAP and the relevant
-PCI_EXP_* offset, e.g., PCI_EXP_DEVCAP, PCI_EXP_DEVCTL,
-PCI_EXP_DEVSTA, PCI_EXP_LNKCAP, PCI_EXP_LNKCTL, PCI_EXP_LNKSTA, etc.
-
-Bjorn
 
