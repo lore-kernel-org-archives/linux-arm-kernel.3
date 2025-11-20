@@ -4,79 +4,144 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCB23CF64AB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 09:56:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 675F5CF64AB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 09:56:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ppSNMX2sYVnmPCHIo78O7cdSshr72jFmHEsPFp2TSzQ=; b=0lX8DZho8p8EI9W/tne8X9oGDt
-	mfTX1DWUDvkTSYMIt41rKkBl1KTKFTA8nmQah+e6zcYbf4b4wF1mT66JpbxfH2f0JWuvUVigKmlWw
-	EcmsjI2/t1xywJtSU9ZoefaV1qsExETjR7xhXVhQ5+Es8Ld7wnS9bdKFI3KU/qJXHdjCIrlZNgJTD
-	8Y+Mlmiqhid7GByH7V2Hdndd6hWabg5o2ci0XAKoVEw3vm0YJJSGPdYtKdoXLNcodfdxgFKfMlSW5
-	FKdXdwfk1IoXpllZ7P7+vQdazk27zR+LYXOG6JwIxmSl7ljVuh7v3HNT0TG7gjporXvJZWBWjGnVf
-	KVrWL+Tw==;
+	bh=GRPZWHGBPBxyuY6zaAiDYNG5oa18ExuZZpnv9szRLLQ=; b=vCilAXU6FUQtRxxyvlxjH0xIfu
+	IzsYWGTcdbpdl/4Kn5E1tQglNzw4Cawb0stc0BgPUckQJ5A/RgOPlTy/xzEDf6UPq067lztvNBF8J
+	5RTnsx5GKw/UZOTV/i3FJ5EwWqYyLbWKo/dxYXPCHAzOizb3g13/80YMz/SwIj6+df9HahBgscSxA
+	x6b56FfKeL/bFqLZjQkFP5h36zwMiBUzkHeOpjB9HyoGpQFNbvDZAluAgPWI/nKpeWoZP+uCKOzGy
+	2fDi1FeM9Rte1E33f7sUzi1FZj4Un43TgfI0O7W+Bu+PsAidmgFYwdhJqDYsWXsuNeu/uEJaroTOX
+	njDQk99A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vM1OM-00000006SjY-49jK;
-	Thu, 20 Nov 2025 09:55:54 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1vM1PF-00000006Ss1-1McJ;
+	Thu, 20 Nov 2025 09:56:49 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vM1OI-00000006Shg-25o5
+	id 1vM1PD-00000006Sra-1qYp
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Nov 2025 09:55:52 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.231])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4dBtxf2YMCzHnGhN;
-	Thu, 20 Nov 2025 17:55:02 +0800 (CST)
-Received: from dubpeml100005.china.huawei.com (unknown [7.214.146.113])
-	by mail.maildlp.com (Postfix) with ESMTPS id D570214037D;
-	Thu, 20 Nov 2025 17:55:36 +0800 (CST)
-Received: from localhost (10.203.177.15) by dubpeml100005.china.huawei.com
- (7.214.146.113) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Thu, 20 Nov
- 2025 09:55:35 +0000
-Date: Thu, 20 Nov 2025 09:55:33 +0000
-From: Jonathan Cameron <jonathan.cameron@huawei.com>
-To: Conor Dooley <conor@kernel.org>
-CC: Randy Dunlap <rdunlap@infradead.org>, Catalin Marinas
-	<catalin.marinas@arm.com>, <linux-cxl@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-arch@vger.kernel.org>,
-	<linux-mm@kvack.org>, Dan Williams <dan.j.williams@intel.com>, "H . Peter
- Anvin" <hpa@zytor.com>, Peter Zijlstra <peterz@infradead.org>, "Andrew
- Morton" <akpm@linux-foundation.org>, Arnd Bergmann <arnd@arndb.de>, "Drew
- Fustini" <fustini@kernel.org>, Linus Walleij <linus.walleij@linaro.org>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>, Krzysztof Kozlowski
-	<krzk@kernel.org>, <james.morse@arm.com>, Will Deacon <will@kernel.org>,
-	Davidlohr Bueso <dave@stgolabs.net>, <linuxarm@huawei.com>, Yushan Wang
-	<wangyushan12@huawei.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, "Mark
- Rutland" <mark.rutland@arm.com>, Dave Hansen <dave.hansen@linux.intel.com>,
-	Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>, <x86@kernel.org>, Andy Lutomirski
-	<luto@kernel.org>, Dave Jiang <dave.jiang@intel.com>
-Subject: Re: [PATCH v6 3/7] lib: Support
- ARCH_HAS_CPU_CACHE_INVALIDATE_MEMREGION
-Message-ID: <20251120095533.00004b0e@huawei.com>
-In-Reply-To: <20251119-charging-gallon-bea196c3a547@spud>
-References: <20251117104800.2041329-1-Jonathan.Cameron@huawei.com>
-	<20251117104800.2041329-4-Jonathan.Cameron@huawei.com>
-	<3bf1793a-2ffd-4017-b4bf-dc63f3a2a7c8@infradead.org>
-	<20251117-definite-uncounted-7cc07a377a71@spud>
-	<20251118093041.00000c9e@huawei.com>
-	<2241d985-0e35-41e5-93b1-1e8d4e7a84bf@infradead.org>
-	<20251119094255.00000020@huawei.com>
-	<20251119-charging-gallon-bea196c3a547@spud>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	Thu, 20 Nov 2025 09:56:48 +0000
+Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5AK4qKxP3409497
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Nov 2025 09:56:47 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	GRPZWHGBPBxyuY6zaAiDYNG5oa18ExuZZpnv9szRLLQ=; b=Cw+UqZJCNsnBt1Zl
+	QNbfmckNYUbx4cRRpsq4ISA6Jt092B1RDHSSgAt8QFsjfV4l3tczXECPsvC/5WPx
+	I5xMA3lDThsXBtE3/Wuv6/iIr4DMg7MeVpimQA6/4Iyw7EN5E6AUg7jcIgSa2NvU
+	800gpZTPMm6q1jbBCgBXS/y6QJ0H/eZqR9np+teeUY/2K6TG5jJM4Nk2MPZXcG7+
+	9xFmPhaovdTH/SBq5K0XGXU1rK2F2Ws8pYfLQRCh4NN2a3/wShfIPTTkRU9WPO7r
+	QVt9CuQPvtqcChlcLMW588nrggNNDtqZxnCjsVvaIfd6mFKpTSyGqRe9Rerw7bEO
+	hbSsTg==
+Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com [209.85.160.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4ahm812976-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Nov 2025 09:56:46 +0000 (GMT)
+Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-4ee23b6b6fdso2136381cf.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Nov 2025 01:56:46 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1763632606; x=1764237406; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=GRPZWHGBPBxyuY6zaAiDYNG5oa18ExuZZpnv9szRLLQ=;
+        b=cSuQ7QYgONUymrTeOmpXutC5ddZHA+qtnLnnupHZZ6xeo4U/xVwDbk5P1RcOi0D+MA
+         sl1M8y7AJ6hzgumizPClrJOkfPGBedRYUWIt9+nwPjjFjpyonmaQowD2yfhcRDWVsEFu
+         rSPj9Yl6kDHa6dKYNL0Hy/o1AaftQyOE5PzNuVKwwzy8dmxH6ShIFiML8gWcvJLKZNY0
+         yNnPrr/1B75GsfuRq3k6m9BH9Ja85BhfwkWG9zjqYp2J8phQ8Iq8/fS1XwqDu58mfT/s
+         aL2t0VmtLeOE0DuTK2AQoee/HeJeZDN9sDRLddaTf9eW9Hz315HY2KyNSHEzA3XVisFi
+         NX0g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1763632606; x=1764237406;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=GRPZWHGBPBxyuY6zaAiDYNG5oa18ExuZZpnv9szRLLQ=;
+        b=k6Aypv1nBz5wDe6TgbFhrD/fNq8KFiON51JSG0Y3nAfn+5rzxIEnon9vV7ZkG2TVqM
+         NQ7zs+CQth4DpmmF0B0Yu6DnC3sZu9wDs9zIJ0uPMmFB1EFUeK6b80YH4z773QV+FoQR
+         MUSmQE1Y4Bn8Cbj5R9fhWzx6ktB2xdAqac/dObspw82hewA+mdNhr8ZC3Cec+5ctZt8x
+         mWB5dDAD0P3XW2KF1/90/7YaFC/L9hT5+XDFETewhLOzl/5A4ako23PXWZbQI8PFKrxP
+         Z6DhbNeIl7gBuI6xUD3KqjIH+dskCbaSFmjGZ/JfF22zNCLvzfRPReAh2S9F1w+rO8tm
+         ISZg==
+X-Forwarded-Encrypted: i=1; AJvYcCWN+AYZzpzVVR6lCN56DWrRCEClZUYs3W6frHkFkJyZsdkLjo+0BvmtvcwWr7971WN5kKOQTlAXze5935TQfISO@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw7aZFECHlsXVCV01ZJAiAd2WGqyjRy3mpCThdfwUcJaR1Rme8L
+	K98Tz6PtbNsVlTaj24bHGPaU1bu0ISK7ze4zQN4IpPEcdaYvM6Gf6rdDSEXTYe7Z+ka7pH8BAgI
+	29Ks4EnOVPmHuOTrTyl+8r8C33Pa3ubVN6vHTUTH4aPgEjCBUR6JI3Jq/ZN1GbN8pD5XEibacbX
+	bnHA==
+X-Gm-Gg: ASbGncs2U89kPmdzP+eqGwteA69uOY+xoKAMEamQHE/6ju4MoaWJgQwArEOldwVmkrJ
+	iMWZNRi7MRVJIwF4PIaxNQIiRs3QnbabA3znbkQ8bXleEjwUj0BsG/hj0UzIFsWsfUg1GdtxgC8
+	UDDYm3X2CrBYdGfe3bqI4LCRTeM3AfcXNBCBYg2D9sE6gdzfJzf0H6KzzKhy8GlSbRHc1pxrO+x
+	UWIJFl+0I8P+1b5LddRj+lhRABRtzIdQQW95s1C/QPq3ThLG9Sv3EsXGz762TSGmxBQqp1io/iq
+	dwOP5cIXmd0/dpvapn2eZ+ZQRdpmGfIgCbhuypctH/fVboefZJluwId3X9r8w94vQLyWE7DVuD3
+	KKAJV8yTQpLJWSyswfvO9YrIxUoBd7uWKGRvsi0cTccxsTQ7YXxqyweDjUoBUEU7rxog=
+X-Received: by 2002:a05:622a:606:b0:4ee:2bff:2d5b with SMTP id d75a77b69052e-4ee4d3d9577mr9046091cf.5.1763632605809;
+        Thu, 20 Nov 2025 01:56:45 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IFvX5tt7Qoa7/1Nd3zshKb3HAhHIfws6mxUCD1woH2NH2kWlspMcanmSVKJFvTHbTJGYjt4Sg==
+X-Received: by 2002:a05:622a:606:b0:4ee:2bff:2d5b with SMTP id d75a77b69052e-4ee4d3d9577mr9045891cf.5.1763632605320;
+        Thu, 20 Nov 2025 01:56:45 -0800 (PST)
+Received: from [192.168.119.202] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b7654d50328sm174027666b.20.2025.11.20.01.56.43
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 20 Nov 2025 01:56:44 -0800 (PST)
+Message-ID: <e099d1d4-7e8e-4212-a324-5e790ba7559a@oss.qualcomm.com>
+Date: Thu, 20 Nov 2025 10:56:42 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next 2/3] net: stmmac: qcom-ethqos: add rgmii
+ set/clear functions
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
+Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Andrew Lunn <andrew+netdev@lunn.ch>,
+        "David S. Miller"
+ <davem@davemloft.net>,
+        Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+        linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+        linux-stm32@st-md-mailman.stormreply.com,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+        Paolo Abeni <pabeni@redhat.com>, Vinod Koul <vkoul@kernel.org>
+References: <aR2rOKopeiNvOO-P@shell.armlinux.org.uk>
+ <E1vLgSU-0000000FMrL-0EZT@rmk-PC.armlinux.org.uk>
+ <b720570b-6576-41d7-a803-3d5524b685e4@oss.qualcomm.com>
+ <aR7jZ4KkKE9nTsMh@shell.armlinux.org.uk>
+Content-Language: en-US
+From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+In-Reply-To: <aR7jZ4KkKE9nTsMh@shell.armlinux.org.uk>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.203.177.15]
-X-ClientProxiedBy: lhrpeml500012.china.huawei.com (7.191.174.4) To
- dubpeml100005.china.huawei.com (7.214.146.113)
+X-Proofpoint-ORIG-GUID: 7EZXpnUJxS70-7dA7RJ0d8Gk1lr37OKk
+X-Proofpoint-GUID: 7EZXpnUJxS70-7dA7RJ0d8Gk1lr37OKk
+X-Authority-Analysis: v=2.4 cv=SJ5PlevH c=1 sm=1 tr=0 ts=691ee5de cx=c_pps
+ a=EVbN6Ke/fEF3bsl7X48z0g==:117 a=FpWmc02/iXfjRdCD7H54yg==:17
+ a=IkcTkHD0fZMA:10 a=6UeiqGixMTsA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=PHq6YzTAAAAA:8 a=ZmNGhu4S8FOEUr0570YA:9
+ a=QEXdDO2ut3YA:10 a=a_PwQJl-kcHnX1M80qC6:22 a=ZKzU8r6zoKMcqsNulkmm:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMTIwMDA2MCBTYWx0ZWRfX4dgiDACXh5FG
+ rcEO55XrjBvqqC41C0xTsBcdhMmyhfla+Qspk2X3dKQ/2KsyMtdex97/TrownBUHZWoMgAFMgmJ
+ nR6859TVEY3GjIb8eg0tVkVYE5zyNK3qHS67XYlW6VHZPrxIfNr3cfGw6nG1LpOVHTnhuogbmi9
+ oPOeGPUfQ2LeaaJonUFBV/8yakSLoWeoZ74wmHXZ+QWTQUxMgpRa25tGt7dVw1P+5xaP7rg4QpG
+ kduA0Pk2UPJ+NHifCgOFcKMQDJqdRdb6C1sKa3XXHu9uEBGRUr9sDDagjEu52Fcl6b0TnErsQOP
+ hRKTtT3wG8xNcSQSly5/EdyAwrtI56BCNVR/AstDKMKLIPx6oHIixd1M9CRVWbWtiAws5p33403
+ hbmwuMDC9zDIHmD5ocg6DJfiq4078w==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
+ definitions=2025-11-20_03,2025-11-18_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 phishscore=0 bulkscore=0 suspectscore=0 priorityscore=1501
+ lowpriorityscore=0 malwarescore=0 adultscore=0 spamscore=0 clxscore=1015
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2510240001 definitions=main-2511200060
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251120_015550_827741_B9362F96 
-X-CRM114-Status: GOOD (  39.54  )
+X-CRM114-CacheID: sfid-20251120_015647_496264_7B82D8DA 
+X-CRM114-Status: GOOD (  19.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,138 +156,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 19 Nov 2025 18:44:43 +0000
-Conor Dooley <conor@kernel.org> wrote:
-
-> On Wed, Nov 19, 2025 at 09:42:55AM +0000, Jonathan Cameron wrote:
-> > On Tue, 18 Nov 2025 17:18:31 -0800
-> > Randy Dunlap <rdunlap@infradead.org> wrote:
-> >   
-> > > On 11/18/25 1:30 AM, Jonathan Cameron wrote:  
-> > > > On Tue, 18 Nov 2025 00:13:07 +0000
-> > > > Conor Dooley <conor@kernel.org> wrote:
-> > > >     
-> > > >> On Mon, Nov 17, 2025 at 10:51:11AM -0800, Randy Dunlap wrote:    
-> > > >>> Hi,
-> > > >>>
-> > > >>> On 11/17/25 2:47 AM, Jonathan Cameron wrote:      
-> > > >>>> diff --git a/lib/Kconfig b/lib/Kconfig
-> > > >>>> index e629449dd2a3..e11136d188ae 100644
-> > > >>>> --- a/lib/Kconfig
-> > > >>>> +++ b/lib/Kconfig
-> > > >>>> @@ -542,6 +542,10 @@ config MEMREGION
-> > > >>>>  config ARCH_HAS_CPU_CACHE_INVALIDATE_MEMREGION
-> > > >>>>  	bool
-> > > >>>>  
-> > > >>>> +config GENERIC_CPU_CACHE_MAINTENANCE
-> > > >>>> +	bool
-> > > >>>> +	select ARCH_HAS_CPU_CACHE_INVALIDATE_MEMREGION
-> > > >>>> +
-> > > >>>>  config ARCH_HAS_MEMREMAP_COMPAT_ALIGN
-> > > >>>>  	bool      
-> > > >>>
-> > > >>> Architectures and/or platforms select ARCH_HAS_*.
-> > > >>>
-> > > >>> With this change above, it becomes the only entry in
-> > > >>> lib/Kconfig that does "select ARCH_HAS_anytning".
-> > > >>>
-> > > >>> so I think this is wrong, back*wards.      
-> > > >>
-> > > >> Maybe it is backwards, but I feel like this way is more logical. ARM64
-> > > >> has memregion invalidation only because this generic approach is
-> > > >> enabled, so the arch selects what it needs to get the support.    
-> > > > 
-> > > > Exactly this. Catalin requested this form in response to an earlier
-> > > > version where arm64 Kconfig just had both selects for pretty much that
-> > > > reason. This is expected to be used on a subset of architectures.
-> > > > It is similar to things like GENERIC_ARCH_NUMA in this respect (though the
-> > > > arch_numa_init() etc in there are called only from other arch code
-> > > > so no ARCH_HAS_ symbols are associated with them).
-> > > >     
-> > > >> Alternatively, something like    
-> > > > 
-> > > > I'm fine with this solution if Randy prefers it.    
-> > > 
-> > > I do much prefer this alternative.
-> > >   
-> > > > Thanks for your help with this.    
-> > > 
-> > > Thanks for listening.  
-> > 
-> > Conor,
-> > 
-> > Given it is your proposed solution, I'm guessing you'll either spin a patch
-> > on top or squash it into original.  If you spin a patch for this.
-> > 
-> > Acked-by: Jonathan Cameron <jonathan.cameron@huawei.com>  
+On 11/20/25 10:46 AM, Russell King (Oracle) wrote:
+> On Thu, Nov 20, 2025 at 10:42:04AM +0100, Konrad Dybcio wrote:
+>> On 11/19/25 12:34 PM, Russell King (Oracle) wrote:
+>>> The driver has a lot of bit manipulation of the RGMII registers. Add
+>>> a pair of helpers to set bits and clear bits, converting the various
+>>> calls to rgmii_updatel() as appropriate.
+>>>
+>>> Most of the change was done via this sed script:
+>>>
+>>> /rgmii_updatel/ {
+>>> 	N
+>>> 	/,$/N
+>>> 	/mask, / ! {
+>>> 		s|rgmii_updatel\(([^,]*,\s+([^,]*),\s+)\2,\s+|rgmii_setmask(\1|
+>>> 		s|rgmii_updatel\(([^,]*,\s+([^,]*),\s+)0,\s+|rgmii_clrmask(\1|
+>>> 		s|^\s+$||
+>>> 	}
+>>> }
+>>>
+>>> and then formatting tweaked where necessary.
+>>>
+>>> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+>>> ---
+>>>  .../stmicro/stmmac/dwmac-qcom-ethqos.c        | 187 +++++++++---------
+>>>  1 file changed, 89 insertions(+), 98 deletions(-)
+>>>
+>>> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
+>>> index ae3cf163005b..cdaf02471d3a 100644
+>>> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
+>>> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
+>>> @@ -137,6 +137,18 @@ static void rgmii_updatel(struct qcom_ethqos *ethqos, u32 mask, u32 val,
+>>>  	rgmii_writel(ethqos, temp, offset);
+>>>  }
+>>>  
+>>> +static void rgmii_setmask(struct qcom_ethqos *ethqos, u32 mask,
+>>> +			  unsigned int offset)
+>>> +{
+>>> +	rgmii_updatel(ethqos, mask, mask, offset);
+>>> +}
+>>
+>> It's almost unbelieveable there's no set/clr/rmw generics for
+>> readl and friends
 > 
-> New patch I think, since you say Catalin specifically asked for the
-> current setup.
+> Consider what that would mean - such operations can not be atomic, but
+> users would likely not realise, which means we get a load of new
+> potential bugs. Not having these means that driver authors get to
+> code this up, and because they realise they have to do separate read
+> and write operations, it's more obvious that there may be races.
 
-Whilst Catalin proposed the form used, the basis was about having two
-entrees for effectively the same thing in arm64/Kconfig and this
-still has the single entry property so should be fine.
+Right, I don't think that would show up a lot in practice, but the 1
+case it did would be exhaustively painful to debug
 
-Jonathan
-
-> 
-> > 
-> > Thanks again!
-> > 
-> > Jonathan
-> >   
-> > > 
-> > >   
-> > > >> | diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-> > > >> | index 5f7f63d24931..75b2507f7eb2 100644
-> > > >> | --- a/arch/arm64/Kconfig
-> > > >> | +++ b/arch/arm64/Kconfig
-> > > >> | @@ -21,6 +21,7 @@ config ARM64
-> > > >> |  	select ARCH_ENABLE_THP_MIGRATION if TRANSPARENT_HUGEPAGE
-> > > >> |  	select ARCH_HAS_CACHE_LINE_SIZE
-> > > >> |  	select ARCH_HAS_CC_PLATFORM
-> > > >> | +	select ARCH_HAS_CPU_CACHE_INVALIDATE_MEMREGION
-> > > >> |  	select ARCH_HAS_CURRENT_STACK_POINTER
-> > > >> |  	select ARCH_HAS_DEBUG_VIRTUAL
-> > > >> |  	select ARCH_HAS_DEBUG_VM_PGTABLE
-> > > >> | @@ -146,7 +147,6 @@ config ARM64
-> > > >> |  	select GENERIC_ARCH_TOPOLOGY
-> > > >> |  	select GENERIC_CLOCKEVENTS_BROADCAST
-> > > >> |  	select GENERIC_CPU_AUTOPROBE
-> > > >> | -	select GENERIC_CPU_CACHE_MAINTENANCE
-> > > >> |  	select GENERIC_CPU_DEVICES
-> > > >> |  	select GENERIC_CPU_VULNERABILITIES
-> > > >> |  	select GENERIC_EARLY_IOREMAP
-> > > >> | diff --git a/lib/Kconfig b/lib/Kconfig
-> > > >> | index 09aec4a1e13f..ac223e627bc5 100644
-> > > >> | --- a/lib/Kconfig
-> > > >> | +++ b/lib/Kconfig
-> > > >> | @@ -544,8 +544,9 @@ config ARCH_HAS_CPU_CACHE_INVALIDATE_MEMREGION
-> > > >> |  	bool
-> > > >> |  
-> > > >> |  config GENERIC_CPU_CACHE_MAINTENANCE
-> > > >> | -	bool
-> > > >> | -	select ARCH_HAS_CPU_CACHE_INVALIDATE_MEMREGION
-> > > >> | +	def_bool y
-> > > >> | +	depends on ARCH_HAS_CPU_CACHE_INVALIDATE_MEMREGION
-> > > >> | +	depends on ARM64
-> > > >> |  
-> > > >> |  config ARCH_HAS_MEMREMAP_COMPAT_ALIGN
-> > > >> |  	bool
-> > > >> implies (to me at least) that arm64 has memregion invalidation as an
-> > > >> architectural feature and that the GENERIC_CPU_CACHE_MAINTENANCE option
-> > > >> is a just common cross-arch code, like generic entry etc, rather than
-> > > >> being the option gating the drivers that provide the feature in the
-> > > >> first place.
-> > > >>
-> > > >> I didn't really care which way it went, and was gonna post something to
-> > > >> squash and avoid another revision, but I found the resultant Kconfig
-> > > >> setup to be make less sense to me than what came before. If the switched
-> > > >> around version is less likely to be problematic etc, then sure, but I
-> > > >> amn't convinced by switching it at a first glance.    
-> > > 
-> > >   
-> >   
-> 
-
+Konrad
 
