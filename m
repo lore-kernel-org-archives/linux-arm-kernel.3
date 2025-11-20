@@ -4,79 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00C79CF8844
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 11:25:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 713C4CF8845
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 11:27:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
-	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CUQy2hOqXXIR84E1BC+cMB3jx+mhZuD2NvtfYPa21vM=; b=D921OvDKiVNuclez2T34wgWBOJ
-	A3CVjCVbgVeswXsHlba0MHx0QRFK7/GaapHFz7ST8uPoeD+XhVli62ElNu+uQQPXrsfN587x7OAcy
-	ArX1+88DxX+6gpO1sXp/bySnuf7YH7NOhhaYvtjL7Ty3kKOGWAFfwT2reS7UG+x4xLtlojH62hfUj
-	441bdlLYyaDGMFPnttdS8LOw5gbLCfLw7Kde/xZ+UArViIk2d24OedMIhiebV3GSRqJztxseMSapO
-	33N0srVqpxISpNb/7mtd2WY4rd9ds42v+Ob/2AOGOidV/H+tPnNikFI7Hg4HAZ5xmrHfyYyCjkufg
-	hMpuWHSQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HjRuUxDq31WbTnkm9qelBwNNiF0NJ+GZ6XQuNfbD2BE=; b=gPQHKkrmufkZ9+6Jaufvj9yxgH
+	mvIHkOeut13O0MQkPuWk7QpnxXPHYzKHoYuZ2PxDDIOlYEyCPLbKIBSSTvxIPv/50VI7Dg8jhJWAy
+	SR135J7auJ+vxSnqQhBHcCrq++V11SNA2NzyZtq30Fz5N0bPSZ4O+3YwfinqjSFDMKT1wBsUoY07d
+	S1Ua7tvOC6/mbrJ0LH2pILGmpRoVf3ijpdT7dd6Z/eDYG5SPDJ8AAKy6M5fbmGdJS+FSMyj8+P4uj
+	oqEPRANNQ2cHTMF8Tz2T2Efz5a7f3mU4f+45OeYCaE3wA6OttN9wldAjAoKGjGowGE0V7GjSslAfu
+	V742hugA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vM2nA-00000006ZUz-0XyY;
-	Thu, 20 Nov 2025 11:25:38 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1vM2pM-00000006Zuo-2QU1;
+	Thu, 20 Nov 2025 11:27:52 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vM2n7-00000006ZT0-3333
+	id 1vM2pK-00000006ZuH-1Kje
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Nov 2025 11:25:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
-	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=CUQy2hOqXXIR84E1BC+cMB3jx+mhZuD2NvtfYPa21vM=; b=V1Qg33MXF+j1p6vBTjqK/gquwP
-	5DSdqAkUbrrWdSH83Z2akdEDXH203/eVsorJiziJCnnxmJshfTViBrvxjDQhoBtyCnCcPfq5Sl9Ei
-	WmiGUIi8k/gtbTmb8LZzVsmO9nn5NU3OjwwIFLTnDXm/OvdHsgHYZNqFLgxl8qhgl6C9bk95TTst6
-	LwfL750B6cudq/zCqmZ1smaSmcYJ+6hL1kP8j96NKYx3FL+7Pa17tBiNZtnCApX7igIhiGEw+f1GY
-	h+budSTOQkbKoLHWv4tNBwEex9yzH7XyYOLP9XDzeATkFgoYsywQV0uI5z/V/eU87AAFoXa922qid
-	ien1Pdig==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:46748 helo=rmk-PC.armlinux.org.uk)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <rmk@armlinux.org.uk>)
-	id 1vM2n2-0000000068e-0Ro8;
-	Thu, 20 Nov 2025 11:25:28 +0000
-Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1vM2n1-0000000FRTu-0js9;
-	Thu, 20 Nov 2025 11:25:27 +0000
-In-Reply-To: <aR76i0HjXitfl7xk@shell.armlinux.org.uk>
-References: <aR76i0HjXitfl7xk@shell.armlinux.org.uk>
-From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-To: Andrew Lunn <andrew@lunn.ch>,
-	Heiner Kallweit <hkallweit1@gmail.com>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-arm-msm@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>,
-	Vinod Koul <vkoul@kernel.org>
-Subject: [PATCH net-next v2 3/3] net: stmmac: qcom-ethqos: use
- read_poll_timeout_atomic()
+	Thu, 20 Nov 2025 11:27:51 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 92EEF41B37;
+	Thu, 20 Nov 2025 11:27:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3AC9BC4CEF1;
+	Thu, 20 Nov 2025 11:27:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1763638069;
+	bh=Hcer97dP75o+T5ehV5+nCdf+Z1PlLJkSc7iXUrcY7QM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=pJ/RcFCSf/9oyLwA92DEMR3vVQhNGdAx64A7q2NbsQv+RyiM/XK06NJbe1FCniiRN
+	 nZxuk+nWhio4q2FaZS6jlMRjIO7W93lCwAFgp6nioD5n1X0rC6WohaRRSCjhXCjQ9t
+	 vzFuJ9j8tKImtv+rw+ksexSmxnMzO3e19orbPJCgmOOfd17MDVa3HGUgcSIi9sMlPo
+	 Y+1mdVf7u3iTcQDHnH0YqC9IL+aEGdTwUInn+oI2jLhrpvQvapLbizZQPn0lM4DvKM
+	 +QIItI7Po9QnGTYnyKhCe9sjGont9ApZognpTaMgirh3IjK7fHOwHnFVyBak6mB4pW
+	 lrt3Y7LYp4SzA==
+Date: Thu, 20 Nov 2025 16:57:24 +0530
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Vincent Guittot <vincent.guittot@linaro.org>
+Cc: chester62515@gmail.com, mbrugger@suse.com, 
+	ghennadi.procopciuc@oss.nxp.com, s32@nxp.com, bhelgaas@google.com, jingoohan1@gmail.com, 
+	lpieralisi@kernel.org, kwilczynski@kernel.org, robh@kernel.org, krzk+dt@kernel.org, 
+	conor+dt@kernel.org, Ionut.Vicovan@nxp.com, larisa.grigore@nxp.com, 
+	Ghennadi.Procopciuc@nxp.com, ciprianmarian.costea@nxp.com, bogdan.hamciuc@nxp.com, 
+	Frank.li@nxp.com, linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
+	cassel@kernel.org
+Subject: Re: [PATCH 1/4 v5] dt-bindings: PCI: s32g: Add NXP PCIe controller
+Message-ID: <gnfp6pmdfk7n2kask3qmp7qtjcwdze2ltheibqctsl3ap4fxjj@kxgegsjroooh>
+References: <20251118160238.26265-1-vincent.guittot@linaro.org>
+ <20251118160238.26265-2-vincent.guittot@linaro.org>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1vM2n1-0000000FRTu-0js9@rmk-PC.armlinux.org.uk>
-Date: Thu, 20 Nov 2025 11:25:27 +0000
+In-Reply-To: <20251118160238.26265-2-vincent.guittot@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251120_032533_765996_F493809C 
-X-CRM114-Status: GOOD (  12.31  )
+X-CRM114-CacheID: sfid-20251120_032750_396865_5DF773FF 
+X-CRM114-Status: GOOD (  16.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,99 +79,149 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use read_poll_timeout_atomic() to poll the rgmii registers rather than
-open-coding the polling.
+On Tue, Nov 18, 2025 at 05:02:35PM +0100, Vincent Guittot wrote:
+> Describe the PCIe host controller available on the S32G platforms.
+> 
+> Co-developed-by: Ionut Vicovan <Ionut.Vicovan@nxp.com>
+> Signed-off-by: Ionut Vicovan <Ionut.Vicovan@nxp.com>
+> Co-developed-by: Bogdan-Gabriel Roman <bogdan-gabriel.roman@nxp.com>
+> Signed-off-by: Bogdan-Gabriel Roman <bogdan-gabriel.roman@nxp.com>
+> Co-developed-by: Larisa Grigore <larisa.grigore@nxp.com>
+> Signed-off-by: Larisa Grigore <larisa.grigore@nxp.com>
+> Co-developed-by: Ghennadi Procopciuc <Ghennadi.Procopciuc@nxp.com>
+> Signed-off-by: Ghennadi Procopciuc <Ghennadi.Procopciuc@nxp.com>
+> Co-developed-by: Ciprian Marian Costea <ciprianmarian.costea@nxp.com>
+> Signed-off-by: Ciprian Marian Costea <ciprianmarian.costea@nxp.com>
+> Co-developed-by: Bogdan Hamciuc <bogdan.hamciuc@nxp.com>
+> Signed-off-by: Bogdan Hamciuc <bogdan.hamciuc@nxp.com>
+> Signed-off-by: Vincent Guittot <vincent.guittot@linaro.org>
+> ---
+>  .../bindings/pci/nxp,s32g-pcie.yaml           | 130 ++++++++++++++++++
+>  1 file changed, 130 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/pci/nxp,s32g-pcie.yaml
+> 
+> diff --git a/Documentation/devicetree/bindings/pci/nxp,s32g-pcie.yaml b/Documentation/devicetree/bindings/pci/nxp,s32g-pcie.yaml
+> new file mode 100644
+> index 000000000000..da3106dfcf58
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/pci/nxp,s32g-pcie.yaml
+> @@ -0,0 +1,130 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/pci/nxp,s32g-pcie.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: NXP S32G2xxx/S32G3xxx PCIe Root Complex controller
+> +
+> +maintainers:
+> +  - Bogdan Hamciuc <bogdan.hamciuc@nxp.com>
+> +  - Ionut Vicovan <ionut.vicovan@nxp.com>
+> +
+> +description:
+> +  This PCIe controller is based on the Synopsys DesignWare PCIe IP.
+> +  The S32G SoC family has two PCIe controllers, which can be configured as
+> +  either Root Complex or Endpoint.
+> +
+> +properties:
+> +  compatible:
+> +    oneOf:
+> +      - enum:
+> +          - nxp,s32g2-pcie
+> +      - items:
+> +          - const: nxp,s32g3-pcie
+> +          - const: nxp,s32g2-pcie
+> +
+> +  reg:
+> +    maxItems: 6
+> +
+> +  reg-names:
+> +    items:
+> +      - const: dbi
+> +      - const: dbi2
+> +      - const: atu
+> +      - const: dma
+> +      - const: ctrl
+> +      - const: config
+> +
+> +  interrupts:
+> +    minItems: 1
+> +    maxItems: 2
+> +
+> +  interrupt-names:
+> +    items:
+> +      - const: msi
+> +      - const: dma
+> +    minItems: 1
+> +
+> +  pcie@0:
+> +    description:
+> +      Describe the S32G Root Port.
+> +    type: object
+> +    $ref: /schemas/pci/pci-pci-bridge.yaml#
+> +
+> +    properties:
+> +      reg:
+> +        maxItems: 1
+> +
+> +      phys:
+> +        maxItems: 1
+> +
+> +    required:
+> +      - reg
+> +      - phys
+> +
+> +    unevaluatedProperties: false
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - reg-names
+> +  - interrupts
+> +  - interrupt-names
+> +  - ranges
+> +  - pcie@0
+> +
+> +allOf:
+> +  - $ref: /schemas/pci/snps,dw-pcie.yaml#
+> +
+> +unevaluatedProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+> +    #include <dt-bindings/phy/phy.h>
+> +
+> +    bus {
+> +        #address-cells = <2>;
+> +        #size-cells = <2>;
+> +
+> +        pcie@40400000 {
+> +            compatible = "nxp,s32g3-pcie", "nxp,s32g2-pcie";
+> +            reg = <0x00 0x40400000 0x0 0x00001000>,   /* dbi registers */
+> +                  <0x00 0x40420000 0x0 0x00001000>,   /* dbi2 registers */
+> +                  <0x00 0x40460000 0x0 0x00001000>,   /* atu registers */
+> +                  <0x00 0x40470000 0x0 0x00001000>,   /* dma registers */
+> +                  <0x00 0x40481000 0x0 0x000000f8>,   /* ctrl registers */
+> +                  <0x5f 0xffffe000 0x0 0x00002000>;   /* config space */
+> +            reg-names = "dbi", "dbi2", "atu", "dma", "ctrl", "config";
+> +            dma-coherent;
+> +            #address-cells = <3>;
+> +            #size-cells = <2>;
+> +            device_type = "pci";
+> +            ranges =
+> +                     <0x81000000 0x0 0x00000000 0x5f 0xfffe0000 0x0 0x00010000>,
+> +                     <0x82000000 0x0 0x00000000 0x58 0x00000000 0x0 0x80000000>,
+> +                     <0x82000000 0x1 0x00000000 0x59 0x00000000 0x6 0xfffe0000>;
 
-Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
----
- .../stmicro/stmmac/dwmac-qcom-ethqos.c        | 44 ++++++-------------
- 1 file changed, 14 insertions(+), 30 deletions(-)
+Please drop the 'relocatable' flag (bit 31) from all the entries.
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
-index 1f84bd821c4e..0826a7bd32ff 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
-@@ -311,7 +311,6 @@ static const struct ethqos_emac_driver_data emac_v4_0_0_data = {
- static int ethqos_dll_configure(struct qcom_ethqos *ethqos)
- {
- 	struct device *dev = &ethqos->pdev->dev;
--	int retry = 1000;
- 	u32 val;
- 
- 	/* Set CDR_EN */
-@@ -337,15 +336,10 @@ static int ethqos_dll_configure(struct qcom_ethqos *ethqos)
- 	}
- 
- 	/* Wait for CK_OUT_EN clear */
--	do {
--		val = rgmii_readl(ethqos, SDCC_HC_REG_DLL_CONFIG);
--		val &= SDCC_DLL_CONFIG_CK_OUT_EN;
--		if (!val)
--			break;
--		mdelay(1);
--		retry--;
--	} while (retry > 0);
--	if (!retry)
-+	if (read_poll_timeout_atomic(rgmii_readl, val,
-+				     !(val & SDCC_DLL_CONFIG_CK_OUT_EN),
-+				     1000, 1000000, false,
-+				     ethqos, SDCC_HC_REG_DLL_CONFIG))
- 		dev_err(dev, "Clear CK_OUT_EN timedout\n");
- 
- 	/* Set CK_OUT_EN */
-@@ -353,16 +347,10 @@ static int ethqos_dll_configure(struct qcom_ethqos *ethqos)
- 		      SDCC_HC_REG_DLL_CONFIG);
- 
- 	/* Wait for CK_OUT_EN set */
--	retry = 1000;
--	do {
--		val = rgmii_readl(ethqos, SDCC_HC_REG_DLL_CONFIG);
--		val &= SDCC_DLL_CONFIG_CK_OUT_EN;
--		if (val)
--			break;
--		mdelay(1);
--		retry--;
--	} while (retry > 0);
--	if (!retry)
-+	if (read_poll_timeout_atomic(rgmii_readl, val,
-+				     val & SDCC_DLL_CONFIG_CK_OUT_EN,
-+				     1000, 1000000, false,
-+				     ethqos, SDCC_HC_REG_DLL_CONFIG))
- 		dev_err(dev, "Set CK_OUT_EN timedout\n");
- 
- 	/* Set DDR_CAL_EN */
-@@ -531,8 +519,8 @@ static int ethqos_rgmii_macro_init(struct qcom_ethqos *ethqos, int speed)
- static int ethqos_configure_rgmii(struct qcom_ethqos *ethqos, int speed)
- {
- 	struct device *dev = &ethqos->pdev->dev;
--	volatile u32 dll_lock;
--	unsigned int i, retry = 1000;
-+	unsigned int i;
-+	u32 val;
- 
- 	/* Reset to POR values and enable clk */
- 	for (i = 0; i < ethqos->num_por; i++)
-@@ -582,14 +570,10 @@ static int ethqos_configure_rgmii(struct qcom_ethqos *ethqos, int speed)
- 				      SDCC_USR_CTL);
- 
- 		/* wait for DLL LOCK */
--		do {
--			mdelay(1);
--			dll_lock = rgmii_readl(ethqos, SDC4_STATUS);
--			if (dll_lock & SDC4_STATUS_DLL_LOCK)
--				break;
--			retry--;
--		} while (retry > 0);
--		if (!retry)
-+		if (read_poll_timeout_atomic(rgmii_readl, val,
-+					     val & SDC4_STATUS_DLL_LOCK,
-+					     1000, 1000000, true,
-+					     ethqos, SDC4_STATUS))
- 			dev_err(dev, "Timeout while waiting for DLL lock\n");
- 	}
- 
+With that,
+
+Reviewed-by: Manivannan Sadhasivam <mani@kernel.org>
+
+- Mani
+
 -- 
-2.47.3
-
+மணிவண்ணன் சதாசிவம்
 
