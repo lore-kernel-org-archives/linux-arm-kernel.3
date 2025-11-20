@@ -4,88 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3156CF8861
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 14:39:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E9E6CF8863
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 14:40:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1YYwr6/m+b0XJm7ZWyrVETMWpVegAdWdXxk9Fmto5Bg=; b=CjJfvxbX7aWxAw7QPja82f+tdS
-	QxnTOgvpHAwleNEp2VtQdOs+QP5nU5/MxgLlpWL6YoP60XW4hfZCXWSTZUOOBRtMlf9Bz9MTnYaCh
-	qVnD4flxYppdOCGtTQF0OTKqAE/gCJdftSvHhr+5smXuRfibC5kXYZNwR4VCxGHs8G1I8BrbjUluf
-	gwgNkMbRFWeJgatbE5cO7isIRtRgA3hqwM5HtEYaK1j012EMbPOpgGJAwZT9XwqFpb2TmB3fTbxD/
-	OZOrmCqp4xNPnkE7lNFyx7BWOdB6QIkFllPvwZX+5xmnupwNtkDiubD1CeevKmy773x4f2RoaOiYs
-	akhsNuQw==;
+	bh=mrtNmk+1m3wDXRzmVTPMb+M7w8XOFuX96BETyc2YejE=; b=N9V12ASTm+00XsIM5oC8+CFGAY
+	NySn3l1e0Qp8a40OFdRec2T9cKKRbkknfnFc9icIP4BOdcSpTYi5cgFEHYOosyhpS1TmqWfnnMpHx
+	3lzoTzXuAcP94VK3JmW1pRkh581wLYDc4pD5lG9j3V68KvvwxZt6CtE0iGE6IjUbhEuPrlq4lrrdx
+	Ni2vdBHUpwldq8V0S0yhUNkjkYiaBHP+SHgapnt5Glf19ZxS9ianuxL5InY5yc7wEOQgcXkMlPcTJ
+	DfJ9cPBv3+6D8LGhPu2OrTa5NGgYHkLkPrWQLl02cvRKZnQgFSlQuZBrpm/jHFt8IjyNOMHJ9QaQt
+	bvwxnjLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vM5of-00000006r95-2Yyt;
-	Thu, 20 Nov 2025 14:39:21 +0000
-Received: from mail-qk1-x729.google.com ([2607:f8b0:4864:20::729])
+	id 1vM5pq-00000006rHM-47Td;
+	Thu, 20 Nov 2025 14:40:34 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vM5oc-00000006r8c-4B7B
+	id 1vM5po-00000006rGj-1XkA
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Nov 2025 14:39:20 +0000
-Received: by mail-qk1-x729.google.com with SMTP id af79cd13be357-8a3eac7ca30so52682185a.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Nov 2025 06:39:18 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1763649557; x=1764254357; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=1YYwr6/m+b0XJm7ZWyrVETMWpVegAdWdXxk9Fmto5Bg=;
-        b=wo3fvAkJpaeKKCwfJqo2JkxbhqCfCeyA+seNkMggy2xRsiqvK5Qd0Vs/8H5TeloTx0
-         oERoWBhKUzmhez5JHS9OKdSjL7hvqfotNYD3F8b/kWNEkXjsHOdvKJsmn5MIwwJQnhqB
-         0r0aTApfIkVBoFgaxkOvn6nGtQB/R9slLud7wXCBJut3xzlw/fPwM1WcWbQFq3jRkpey
-         aGPBj1urvWgWe07ya6CTpf6IiEPM8Q+5i8ALIeL1y7s2W9KvbBw9FdEpGMrXKORfuKhQ
-         dI1fU710mY+7B0yahIhLopBRaFTElLxFzs1OW+MXdp1jkwtknxeKxcMuCDql9/Fpexw0
-         ZZ9A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763649557; x=1764254357;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=1YYwr6/m+b0XJm7ZWyrVETMWpVegAdWdXxk9Fmto5Bg=;
-        b=aswekvf+2COUhe4JXbIyZjLjF0iup/02FhmfDDKBjElDRNYXQzwusyGSnZaN78IESW
-         5N+Ua6yDtNrwEnEB+LCwFjRmQ11XRRknvt1pbrD9Aa2kzLQI8tp4y+Qf4qTc+Bi8Rmx1
-         GPuzfW0DGPATipMAkuusmEPXC2bVjqWmpeBd8Z78eVVXVX8kPm4DEl65ApMb59CJpfni
-         FyssH9Nd2+9X+fSwQh7VtmiPLN7K1ku7afE9hH18KSK3PDiXfVLKzBwgk0zSZ9sOVYRo
-         KdpaN1wwu+4JWV5Wm/9e8E3NAd9NaeuKEM/c4i25mZnKhem1lUGtoAtP3oR6fp2ACegt
-         5LAQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUqfWoS+xxFQ1AXu/PRsSVbPOdGl98ZZqnmUKUuqE5HdY3axEqFoewEBatkjnowMD5m/A60OxPfXfZw/PvldUov@lists.infradead.org
-X-Gm-Message-State: AOJu0YyqDe1fJVPnRhOs6vfQ8evt98wjRIgkL2ds901vKX/wLuz/fvzf
-	bTVvZR2i0M5pjQEmEKYc+JM2qq9Em6N7v9mjbVWaZWnAIKC5oK3C+6Fp+PqvvWHxIL0qRKlJPpg
-	FXcYc3AhLrnQTxCSJZnA5IjO89csKXEVZPoA51pz2Lg==
-X-Gm-Gg: ASbGnctdgLfh2O0+7vAbwsVjaJyHyuMhQWbxe+j4pDcAEya2VHcSCBVWB+mNjZBOryv
-	ktoqc3Z6PR4/F35t/aeQ7lt0VTahKH50PlET/APS/x8NLgm0Kk5ZY3VVaVe2Bhx5CCOZpbpdZ2c
-	NMeDyBVdSBxSDnHhYitgDG/J7Q308dqvrrXUvm+ItjmhHm5XnNy4QgtLRVQG8TsM4vMGriOM5z3
-	4XYkZ4m0WVuLZgNxfJSnfGa521doW7PsaQMG3ldc3Aiy16K7McLbS+0flr1XiJrbON+FAsdhHwr
-	IsMPXzlhoke9BvyIaqMB9dvdO3c1
-X-Google-Smtp-Source: AGHT+IE/cYHjwh32MRdltB28T2tJfN1f0Ft40ID0C4cRQVP34kZKhQiUHkvPg/zZ8LIUS1orCjlgHUCSDffLbt6pAO8=
-X-Received: by 2002:a05:620a:179f:b0:8a3:cd9e:e40e with SMTP id
- af79cd13be357-8b32749aedcmr396458285a.86.1763649557337; Thu, 20 Nov 2025
- 06:39:17 -0800 (PST)
-MIME-Version: 1.0
-References: <20251118-james-cs-syncfreq-v5-0-82efd7b1a751@linaro.org>
- <20251118-james-cs-syncfreq-v5-3-82efd7b1a751@linaro.org> <CAJ9a7VhYaU=kAtvZtSnkj-9OicCWwqYQBX4Q3zDtCay-8=Y7Cg@mail.gmail.com>
- <4090a47c-2208-486b-bd96-47518d7aa90c@linaro.org> <20251120141821.GA724103@e132581.arm.com>
- <20251120142520.GB724103@e132581.arm.com>
-In-Reply-To: <20251120142520.GB724103@e132581.arm.com>
-From: Mike Leach <mike.leach@linaro.org>
-Date: Thu, 20 Nov 2025 14:39:06 +0000
-X-Gm-Features: AWmQ_bkldnJdoOcwmqeUFrf-9arSuuMXBjA2pwzRXHnuYEEP3hoN9Iyvci9YeZk
-Message-ID: <CAJ9a7VgcZP_Ck=ZJrHBi3uffYk-DNC=MV0q3CoAm2twrsoCgvA@mail.gmail.com>
-Subject: Re: [PATCH v5 03/13] coresight: Refactor etm4_config_timestamp_event()
-To: Leo Yan <leo.yan@arm.com>
-Cc: James Clark <james.clark@linaro.org>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jonathan Corbet <corbet@lwn.net>, 
-	Randy Dunlap <rdunlap@infradead.org>, coresight@lists.linaro.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-doc@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+	Thu, 20 Nov 2025 14:40:33 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 3847440485;
+	Thu, 20 Nov 2025 14:40:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 10751C4CEF1;
+	Thu, 20 Nov 2025 14:40:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1763649631;
+	bh=hP2rrXLl45oNk0vB1/YtmaDxUpumojiwKa4dQyuZ/ZE=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=dKLnp1EOQnEGrX9BJ7gtw/RVIIlOCygiWlne2eGq3Po3mip1OVTa+v4C37f+CeUpT
+	 KtRM1eFoqTAwdcBKpLlrXOI9KNzwT78epRV+541Xp0A/VQ8LAckKYCTVPvZE2hO/BI
+	 jb1iF9oiTwlOUK2hRO2mYpas5bMF+Wt4kCOrg0aNKNHYSAe4Rfq8lQu3G2aEocRGv2
+	 lckQEM6N0gMbk3btuvOHjqSAsFw7iYkHE2ApR1v4Y0UxZTJKuxcAA5vGzKXbEGAWZn
+	 M5SEdH8VfRdHTRfAONiYenMlqZssQrcuseA3rzIWjUJYeRQqJwyq+h38uQOFpKZaL7
+	 Z7SKYrzFdEv9A==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vM5pk-00000006uwP-3bj9;
+	Thu, 20 Nov 2025 14:40:28 +0000
+Date: Thu, 20 Nov 2025 14:40:28 +0000
+Message-ID: <867bvksr6r.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Maximilian Dittgen <mdittgen@amazon.de>
+Cc: <oliver.upton@linux.dev>,
+	<pbonzini@redhat.com>,
+	<shuah@kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>,
+	<kvmarm@lists.linux.dev>,
+	<linux-kselftest@vger.kernel.org>,
+	<kvm@vger.kernel.org>,
+	<lilitj@amazon.de>,
+	<sauravsc@amazon.de>,
+	<nh-open-source@amazon.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <zenghui.yu@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>
+Subject: Re: [RFC PATCH 00/13] Introduce per-vCPU vLPI injection control API
+In-Reply-To: <20251120140305.63515-1-mdittgen@amazon.de>
+References: <20251120140305.63515-1-mdittgen@amazon.de>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: mdittgen@amazon.de, oliver.upton@linux.dev, pbonzini@redhat.com, shuah@kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kselftest@vger.kernel.org, kvm@vger.kernel.org, lilitj@amazon.de, sauravsc@amazon.de, nh-open-source@amazon.com, suzuki.poulose@arm.com, zenghui.yu@linux.dev, joey.gouly@arm.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251120_063919_038896_404C8967 
-X-CRM114-Status: GOOD (  11.75  )
+X-CRM114-CacheID: sfid-20251120_064032_453441_66E21164 
+X-CRM114-Status: GOOD (  26.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,40 +94,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Leo,
+Maximilian: you keep ignoring the reviewers that are listed in
+MAINTAINERS. This isn't acceptable. Next time, I will simply ignore
+your patches.
 
-On Thu, 20 Nov 2025 at 14:25, Leo Yan <leo.yan@arm.com> wrote:
->
-> On Thu, Nov 20, 2025 at 02:18:21PM +0000, Coresight ML wrote:
->
-> [...]
->
-> > Maybe define a general macro but with extra checking:
-> >
-> >   #define TRCCNTCTLRn_RLDEVENT_MASK  GENMASK(15, 8)
-> >
-> >   #define ETM4_RS_SEL_EVENT(paired, sel) ({  \
-> >       if (paired)                            \
-> >           assert(!(sel & ~GENMASK(3, 0)));   \
-> >       else                                   \
-> >           assert(!(sel & ~GENMASK(4, 0)));   \
-> >       FIELD_PREP(TRCCNTCTLRn_RLDEVENT_MASK,  \
-> >                  ((paird << 7) | sel));      \
-> >   })
->
-> It'd be better to use BUILD_BUG_ON() instead of assert().
+On Thu, 20 Nov 2025 14:02:49 +0000,
+Maximilian Dittgen <mdittgen@amazon.de> wrote:
+> 
+> At the moment, the ability to direct-inject vLPIs is only enableable
+> on an all-or-nothing per-VM basis, causing unnecessary I/O performance
+> loss in cases where a VM's vCPU count exceeds available vPEs. This RFC
+> introduces per-vCPU control over vLPI injection to realize potential
+> I/O performance gain in such situations.
+> 
+> Background
+> ----------
+> 
+> The value of dynamically enabling the direct injection of vLPIs on a
+> per-vCPU basis is the ability to run guest VMs with simultaneous
+> hardware-forwarded and software-forwarded message-signaled interrupts.
+> 
+> Currently, hardware-forwarded vLPI direct injection on a KVM guest
+> requires GICv4 and is enabled on a per-VM, all-or-nothing basis. vLPI
+> injection enablment happens in two stages:
+> 
+>     1) At vGIC initialization, allocate direct injection structures for
+>        each vCPU (doorbell IRQ, vPE table entry, virtual pending table,
+>        vPEID).
+>     2) When a PCI device is configured for passthrough, map its MSIs to
+>        vLPIs using the structures allocated in step 1.
+> 
+> Step 1 is all-or-nothing; if any vCPU cannot be configured with the
+> vPE structures necessary for direct injection, the vPEs of all vCPUs
+> are torn down and direct injection is disabled VM-wide.
+> 
+> This universality of direct vLPI injection enablement sparks several
+> issues, with the most pressing being performance degradation on
+> overcommitted hosts.
+> 
+> VM-wide vLPI enablement creates resource inefficiency when guest
+> VMs have more vCPUs than the host has available vPEIDs. The amount of
+> vPEIDs (and consequently, vPEs) a host can allocate is constrained by
+> hardware and defined by GICD_TYPER2.VID + 1 (ITS_MAX_VPEID). Since
+> direct injection requires a vCPU to be assigned a vPEID, at most
+> ITS_MAX_VPEID vCPUs can be configured for direct injection at a time.
+> Because vLPI direct injection is all-or-nothing on a VM, if a new guest
+> VM would exhaust remaining vPEIDs, all vCPUs on that VM would fall back
+> to hypervisor-forwarded LPIs, causing considerable I/O performance
+> degradation. 
+> 
+> Such performance degradation is exemplified on hosts with CPU
+> overcommitment. Overcommitting an arbitrarily high number of vCPUs
+> enables a VM's vCPU count to easily exceed the host's available vPEIDs.
 
-That is a decent option - except I would have ETM4_RS_SEL_EVENT(mask,
-paired, sel) - so it can be used for every register that has the form
-<REGNAME>_<EVENTFIEILD>_MASK
+Let it be crystal clear: GICv4 and overcommitment is a non-story. It
+isn't designed for that. If that's what you are trying to achieve, you
+clearly didn't get the memo.
 
-It is slightly vulnerable though if someone passes something that is
-not 1/0 for paired - which is why I preferred the two separate macros.
+> Even with marginally more vCPUs than vPEIDs, the current all-or-nothing
+> vLPI paradigm disables direct injection entirely. This creates two
+> problems: first, a single many-vCPU overcommitted VM loses all direct
+> injection despite having vPEIDs available;
 
-Mike
+Are you saying that your HW is so undersized that you cannot create a
+*single VM* with direct injection? You really have fewer than 9 bit
+worth of VPEIDs? I'm sorry, but that's laughable. Even a $200 dev
+board does better.
+
+> second, on multi-tenant
+> hosts, VMs booted first consume all vPEIDs, leaving later VMs without
+> direct injection regardless of their I/O intensity. Per-vCPU control
+> would allow userspace to allocate available vPEIDs across VMs based on
+> I/O workload rather than boot order or per-VM vCPU count. This per-vCPU
+> granularity recovers most of the direct injection performance benefit
+> instead of losing it completely.
+> 
+> To allow this per-vCPU granularity, this RFC introduces three new ioctls
+> to the KVM API that enables userspace the ability to activate/deactivate
+> direct vLPI injection capability and resources to vCPUs ad-hoc during VM
+> runtime.
+
+How can that even work when changing the affinity of a vLPI (directly
+injected) to a vcpu that doesn't have direct injection enabled? You'd
+have to unmap the vLPI, and plug it back as a normal LPI. Not only
+this is absolutely ridiculous from a performance perspective, but you
+are also guaranteed to lose interrupts that would have fired in the
+meantime. Losing interrupts in a total no-go.
+
+Before I even look at the code, I you to explain how you are dealing
+with this.
+
+	M.
 
 -- 
-Mike Leach
-Principal Engineer, ARM Ltd.
-Manchester Design Centre. UK
+Without deviation from the norm, progress is not possible.
 
