@@ -4,111 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E21C0CF8549
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 07:13:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 458DDCF8548
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Nov 2025 07:21:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2xEGgaVY/dJMsn0NgTLcpNpIWQTC8RubSJ+fh/bkGZ4=; b=Uy4FnfsZBzGS/b8t/LlRseMX9i
-	1zj/0seWZiSQrc9s4k2OzYPmWqN/27DpsQHkK5iF7q3cEK+uGJ5r/BFM9tZdBgnxRbU6I04E+c4Dx
-	cfRqiR7WDXo1/BRHPvW5/hzs9/sOUT5rKcte9xz3MZydn/QSLz8s1Zbc57QdjDUgFsOrWIydl8A2f
-	2fIcw7VmLFWUXZLBZiBKfP+/Za8ntuXT2EkTVMd4k6V3bs4d/JuMjpDoRjnjTJwNtLL/6UiqTXePt
-	KbRh0RaxczwqcYCgIQbCKrSUYLvcl61JmfzbpWvlxRDVTr8UFw8Rt9HqaXTkXUjHSJ6uYCbAFUuXY
-	OJvBbjmw==;
+	bh=czJcuQ5Urf4DvTYKbPcWrAcA0kCkCZn4V2PGpIonnik=; b=YNciOofGXuOKJlMpVbeMZIoqK1
+	wtKUYQW+S0IW9uXxRfRvDN5Qc5crSz374E4u2XgC0aJktqpkkmOoo927HrGKcqUS9Ih7KRZFxxHC1
+	7mduYnod3JioVe6iTW0OwwDNam5PHJm4Wpdm1bgLt54pOfSrfFMVnOE+xAY7pJMbG+BUmgavlzU+4
+	c8o1guByhys8d4bTsGAjCTbQN9c+iF/pE4wkf0S7WNnNi7wyYXFAjt0YLMeJbBaGDKrjr78vi8Exx
+	gwgqdDmZo2SAYESzdW25LtOslOtuj64TKRToCiUdg84iaCCsIbQTaswSI7tQ0KJvP2Wt9BG8oUuvI
+	P/rrc/iQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLyr8-00000006HZl-3HPJ;
-	Thu, 20 Nov 2025 07:13:26 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1vLyyg-00000006I1X-2zrd;
+	Thu, 20 Nov 2025 07:21:14 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vLyr4-00000006HXk-0htO
+	id 1vLyyf-00000006I1O-0Wea
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Nov 2025 07:13:23 +0000
-Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5AK4piQw3407991;
-	Thu, 20 Nov 2025 07:13:14 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	2xEGgaVY/dJMsn0NgTLcpNpIWQTC8RubSJ+fh/bkGZ4=; b=buGMdNJymGHPN5tV
-	E3de6kJMr3BDbC/1I3j2UPU7I0jyopUfKxUTpQaQr8opuUFvE3o4MqrU/3EdXwOF
-	XPbl8ClMD1YtvmHYVtxbKC3fHDVgUutI3gQIFAL63WezDUbLkzDzpuya70xdigBx
-	2t37qG6l7d4ib99GYXFMBP+nTX9SFovNcON+r8ZtgGpmrm+ckt+XS5P2vI45ae0v
-	yf3WBdxKOiSPk5/Os+loAVYYQASml6ElR8Rdde5XQ0vGNjYF7v8Xw0HPN3Zgnmkz
-	FOoBJ55Dti0SIKU77RjAzeVdC/I/uWPk7lxrLvcmLlVLhaRD9ARfRNZm1YPIaRxF
-	I29GEQ==
-Received: from nasanppmta04.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4ahm811qu3-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 20 Nov 2025 07:13:14 +0000 (GMT)
-Received: from nasanex01a.na.qualcomm.com (nasanex01a.na.qualcomm.com [10.52.223.231])
-	by NASANPPMTA04.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 5AK7DD4h028531
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 20 Nov 2025 07:13:13 GMT
-Received: from [10.204.78.57] (10.80.80.8) by nasanex01a.na.qualcomm.com
- (10.52.223.231) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Wed, 19 Nov
- 2025 23:13:06 -0800
-Message-ID: <110a5e50-327b-4db3-93bc-4c3fad5c7f5a@quicinc.com>
-Date: Thu, 20 Nov 2025 12:43:03 +0530
+	Thu, 20 Nov 2025 07:21:13 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 37259600C4;
+	Thu, 20 Nov 2025 07:21:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DED68C4CEF1;
+	Thu, 20 Nov 2025 07:21:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1763623271;
+	bh=Q9x7pfr68ABlQkeGDOQXfTv4u0y1Q9ao0HbtlLeZBks=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Nb6ActO4kn5WR22MgZjBWnEhix29+SAXSkzvBaTiYlthZrhPeDL2UyotiI4/dFl3G
+	 CifRWjVgR+IJPR1LDUCi/XQzpU3AP2TnzTk7P0jgZwbG7vNm8sQquNWtMFl+/om2Tb
+	 LxYHzl8vQQELTJQb7NnXh80mV/vTTRhBUBxXHc7+lcavP0TtPpsXyKrQtj3bBODjAx
+	 +HgdU2zRDeqKOoI5hiFt9a9mKAt9tZ58Lp83ZEibBiIP16VJNgbSspvaUazIqEQESj
+	 87GBtLVfJZnjF+CR/0M18mx8sy7KXThc3JEI/6owWCwr6ZgohZQpRMi9pI15uksJ2M
+	 NQSikIjacL0WA==
+Message-ID: <c503061b-00cc-4d04-8380-3a0fe0a2c788@kernel.org>
+Date: Thu, 20 Nov 2025 08:21:04 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/4] arm64: dts: qcom: lemans: add mdss1 displayPort
- device nodes
-To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-CC: <marijn.suijten@somainline.org>, <swboyd@chromium.org>,
-        <mripard@kernel.org>, <abel.vesa@linaro.org>, <andersson@kernel.org>,
-        <konradybcio@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-        <conor+dt@kernel.org>, <robin.clark@oss.qualcomm.com>,
-        <jessica.zhang@oss.qualcomm.com>, <abhinav.kumar@linux.dev>,
-        <sean@poorly.run>, <airlied@gmail.com>, <simona@ffwll.ch>,
-        <alex.vinarskis@gmail.com>, <linux-arm-msm@vger.kernel.org>,
-        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>,
-        <freedreno@lists.freedesktop.org>, <dri-devel@lists.freedesktop.org>,
-        <quic_rajeevny@quicinc.com>, <quic_vproddut@quicinc.com>,
-        <quic_riteshk@quicinc.com>, <quic_amitsi@quicinc.com>
-References: <20250926085956.2346179-1-quic_mkuntuma@quicinc.com>
- <20250926085956.2346179-3-quic_mkuntuma@quicinc.com>
- <kxy6p3fj656utoubj37ujzycmmszebmwb4c4u7zkb7t46ddwuk@xwg3xht5elj4>
+Subject: Re: [PATCH 25/26] dt-bindings: reserved-memory: Add Google Kinfo
+ Pixel reserved memory
+To: Eugen Hristev <eugen.hristev@linaro.org>, linux-arm-msm@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-mm@kvack.org, tglx@linutronix.de,
+ andersson@kernel.org, pmladek@suse.com, rdunlap@infradead.org,
+ corbet@lwn.net, david@redhat.com, mhocko@suse.com
+Cc: tudor.ambarus@linaro.org, mukesh.ojha@oss.qualcomm.com,
+ linux-arm-kernel@lists.infradead.org, linux-hardening@vger.kernel.org,
+ jonechou@google.com, rostedt@goodmis.org, linux-doc@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-remoteproc@vger.kernel.org,
+ linux-arch@vger.kernel.org, tony.luck@intel.com, kees@kernel.org
+References: <20251119154427.1033475-1-eugen.hristev@linaro.org>
+ <20251119154427.1033475-26-eugen.hristev@linaro.org>
+ <e73bdb23-c27b-4a18-b7e3-942f2d40b726@kernel.org>
+ <060e7412-8f1f-4d31-af39-79213c560e85@linaro.org>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
-From: Mani Chandana Kuntumalla <quic_mkuntuma@quicinc.com>
-In-Reply-To: <kxy6p3fj656utoubj37ujzycmmszebmwb4c4u7zkb7t46ddwuk@xwg3xht5elj4>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+Autocrypt: addr=krzk@kernel.org; keydata=
+ xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
+ cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
+ JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
+ gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
+ J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
+ NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
+ BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
+ vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
+ Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
+ TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
+ S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
+ FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJoF1BKBQkWlnSaAAoJEBuTQ307
+ QWKbHukP/3t4tRp/bvDnxJfmNdNVn0gv9ep3L39IntPalBFwRKytqeQkzAju0whYWg+R/rwp
+ +r2I1Fzwt7+PTjsnMFlh1AZxGDmP5MFkzVsMnfX1lGiXhYSOMP97XL6R1QSXxaWOpGNCDaUl
+ ajorB0lJDcC0q3xAdwzRConxYVhlgmTrRiD8oLlSCD5baEAt5Zw17UTNDnDGmZQKR0fqLpWy
+ 786Lm5OScb7DjEgcA2PRm17st4UQ1kF0rQHokVaotxRM74PPDB8bCsunlghJl1DRK9s1aSuN
+ hL1Pv9VD8b4dFNvCo7b4hfAANPU67W40AaaGZ3UAfmw+1MYyo4QuAZGKzaP2ukbdCD/DYnqi
+ tJy88XqWtyb4UQWKNoQqGKzlYXdKsldYqrLHGoMvj1UN9XcRtXHST/IaLn72o7j7/h/Ac5EL
+ 8lSUVIG4TYn59NyxxAXa07Wi6zjVL1U11fTnFmE29ALYQEXKBI3KUO1A3p4sQWzU7uRmbuxn
+ naUmm8RbpMcOfa9JjlXCLmQ5IP7Rr5tYZUCkZz08LIfF8UMXwH7OOEX87Y++EkAB+pzKZNNd
+ hwoXulTAgjSy+OiaLtuCys9VdXLZ3Zy314azaCU3BoWgaMV0eAW/+gprWMXQM1lrlzvwlD/k
+ whyy9wGf0AEPpLssLVt9VVxNjo6BIkt6d1pMg6mHsUEVzsFNBFVDXDQBEADNkrQYSREUL4D3
+ Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
+ MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
+ OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
+ GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
+ 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
+ YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
+ 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
+ BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
+ JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
+ 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
+ YpsFAmgXUF8FCRaWWyoACgkQG5NDfTtBYptO0w//dlXJs5/42hAXKsk+PDg3wyEFb4NpyA1v
+ qmx7SfAzk9Hf6lWwU1O6AbqNMbh6PjEwadKUk1m04S7EjdQLsj/MBSgoQtCT3MDmWUUtHZd5
+ RYIPnPq3WVB47GtuO6/u375tsxhtf7vt95QSYJwCB+ZUgo4T+FV4hquZ4AsRkbgavtIzQisg
+ Dgv76tnEv3YHV8Jn9mi/Bu0FURF+5kpdMfgo1sq6RXNQ//TVf8yFgRtTUdXxW/qHjlYURrm2
+ H4kutobVEIxiyu6m05q3e9eZB/TaMMNVORx+1kM3j7f0rwtEYUFzY1ygQfpcMDPl7pRYoJjB
+ dSsm0ZuzDaCwaxg2t8hqQJBzJCezTOIkjHUsWAK+tEbU4Z4SnNpCyM3fBqsgYdJxjyC/tWVT
+ AQ18NRLtPw7tK1rdcwCl0GFQHwSwk5pDpz1NH40e6lU+NcXSeiqkDDRkHlftKPV/dV+lQXiu
+ jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
+ zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
+ XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
+In-Reply-To: <060e7412-8f1f-4d31-af39-79213c560e85@linaro.org>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nasanex01a.na.qualcomm.com (10.52.223.231)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-ORIG-GUID: srG46lSQgobzr9FupC6y0GFo5pHcLB_i
-X-Proofpoint-GUID: srG46lSQgobzr9FupC6y0GFo5pHcLB_i
-X-Authority-Analysis: v=2.4 cv=SJ5PlevH c=1 sm=1 tr=0 ts=691ebf8a cx=c_pps
- a=JYp8KDb2vCoCEuGobkYCKw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
- a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=6UeiqGixMTsA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=COk6AnOGAAAA:8 a=t__oJxIELa5aI4MPX10A:9
- a=QEXdDO2ut3YA:10 a=TjNXssC_j7lpFel5tvFf:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMTIwMDA0MCBTYWx0ZWRfX4dulppsb8J2Q
- xH5tFnhq+QFveNv/ZuK9cwgiIcujSx1Mg6wGa9Tr1pcRTJBcZmRA8FzDfTlPSKgIzYXzEqXOcn+
- G2V266bGCG7UWjykkL5fkMb14eH3n5rUxYTJdnD9vYQTdJV4P8AwV2BYFte08qDmsusPCxvcBom
- FS7NevOiWIGhnxYO9Z0qcBNy1xHp4XsjVqvOylBIVU8h2vNxBDjIcBHhXXr8qOlnEmFKcR+/L6k
- Qoaj1WNGpZLIwSm4O7KBF4zZQP5L/Bfq9TNtjbKXzumOsTiXIkfmommlUxBmxxDJAvsUUAX1L46
- wbpzWRmjvssGbwB8K6N2u53tobDdHqVEejoKR0YD2hfJ85bRAqzYW1T7mA9Os9J9K5DRldFX5V4
- CnES9iBvaCTmJ23NqGGVrm2R6X0zsA==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
- definitions=2025-11-20_02,2025-11-18_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 phishscore=0 bulkscore=0 suspectscore=0 priorityscore=1501
- lowpriorityscore=0 malwarescore=0 adultscore=0 spamscore=0 clxscore=1011
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2510240001 definitions=main-2511200040
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251119_231322_250549_F33A2D24 
-X-CRM114-Status: GOOD (  12.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,24 +123,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 9/26/2025 7:23 PM, Dmitry Baryshkov wrote:
-> On Fri, Sep 26, 2025 at 02:29:54PM +0530, Mani Chandana Ballary Kuntumalla wrote:
->> Add device tree nodes for the mdss1 DPTX0 and DPTX1 controllers
->> with their corresponding PHYs.
->>
->> Signed-off-by: Mani Chandana Ballary Kuntumalla <quic_mkuntuma@quicinc.com>
->> ---
->>   arch/arm64/boot/dts/qcom/lemans.dtsi | 245 +++++++++++++++++++++++++++
->>   1 file changed, 245 insertions(+)
->>
+On 19/11/2025 17:19, Eugen Hristev wrote:
 > 
-> Squash together with the series adding mdss1. There should be exactly
-> three patches: fix for DP, addition of mdss1 to the lemans.dtsi,
-> addition of mdss1 to lemans-ride.dtsi.
 > 
+> On 11/19/25 18:02, Krzysztof Kozlowski wrote:
+>> On 19/11/2025 16:44, Eugen Hristev wrote:
+>>> Add documentation for Google Kinfo Pixel reserved memory area.
+>>
+>> Above and commit msg describe something completely else than binding. In
+>> the binding you described kinfo Linux driver, above you suggest this is
+>> some sort of reserved memory.
+>>
+>>>
+>>> Signed-off-by: Eugen Hristev <eugen.hristev@linaro.org>
+>>> ---
+>>>  .../reserved-memory/google,kinfo.yaml         | 49 +++++++++++++++++++
+>>>  MAINTAINERS                                   |  5 ++
+>>>  2 files changed, 54 insertions(+)
+>>>  create mode 100644 Documentation/devicetree/bindings/reserved-memory/google,kinfo.yaml
+>>>
+>>> diff --git a/Documentation/devicetree/bindings/reserved-memory/google,kinfo.yaml b/Documentation/devicetree/bindings/reserved-memory/google,kinfo.yaml
+>>> new file mode 100644
+>>> index 000000000000..12d0b2815c02
+>>> --- /dev/null
+>>> +++ b/Documentation/devicetree/bindings/reserved-memory/google,kinfo.yaml
+>>> @@ -0,0 +1,49 @@
+>>> +# SPDX-License-Identifier: GPL-2.0 OR BSD-2-Clause
+>>> +%YAML 1.2
+>>> +---
+>>> +$id: http://devicetree.org/schemas/reserved-memory/google,kinfo.yaml#
+>>
+>> Filename based on the compatible.
+>>
+>>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+>>> +
+>>> +title: Google Pixel Kinfo reserved memory
+>>> +
+>>> +maintainers:
+>>> +  - Eugen Hristev <eugen.hristev@linaro.org>
+>>> +
+>>> +description:
+>>> +  This binding describes the Google Pixel Kinfo reserved memory, a region
+>>
+>> Don't use "This binding", but please describe here hardware.
+>>
+>>> +  of reserved-memory used to store data for firmware/bootloader on the Pixel
+>>> +  platform. The data stored is debugging information on the running kernel.
+>>> +
+>>> +properties:
+>>> +  compatible:
+>>> +    items:
+>>> +      - const: google,kinfo
+>>> +
+>>> +  memory-region:
+>>> +    maxItems: 1
+>>> +    description: Reference to the reserved-memory for the data
+>>
+>> This does not match description. Unfortunately it looks like you added a
+>> node just to instantiate Linux driver and this is not allowed.
+>>
+>> If this was some special reserved memory region, then it would be part
+>> of reserved memory bindings - see reserved-memory directory.
+> 
+> I sent this patch for reserved-memory directory, where all the
+> reserved-memory bindings reside. Or maybe I do not understand your
+> comment ?>
 
-Sure, we will update the patches as per your suggestion.
+There is no ref to reserved memory here. Please look first how reserved
+memory bindings are written,
 
+>> Compatible suggests that it is purely Linux driver, so another hint.
+> 
+> This reserved memory area is used by both Linux and firmware. Linux
+> stores some information into this reserved memory to be used by the
+> firmware/bootloader in some specific scenarios (e.g. crash or recovery
+> situations)
+> As the firmware reserves this memory for this specific purpose, it is
+> natural to inform Linux that the memory should not be used by another
+> purpose, but by the purpose it was reserved for.
+
+But you did not write bindings for it. You wrote bindings for Linux
+device driver, I already explained that last time.
+
+> Which would be the best way to have Linux understand where is this
+> memory area so it could be handled?
+
+
+> 
+> 
+>>
+>> Looks like this is a SoC specific thing, so maybe this should be folded
+>> in some of the soc drivers.
+>>
+> Not really soc specific. Any soc who implements this at firmware level
+> can use it. The firmware can reserve some memory for this specific
+> purpose and then pass it to Linux, so Linux can fill it up.
+> It just happens that the Pixel phone has this implemented right now, but
+> it is not constrained to Pixel only.
+> 
+> Instantiating this driver with a call like platform_device_register_data
+> would make the driver unaware of where exactly the firmware looks for
+> the data. This is right now passed through the DT node. Do you have a
+> better suggestion on how to pass it ?
+
+I do not see how this question is relevant here. I don't care how you
+pass it to the driver, because we discuss bindings. You created bindings
+for Linux driver and that's a no. If you wanted that, I suggests that it
+could be instantiated by some other driver, but sure - we don't have to
+go that way, that was just an idea how to solve the problem bindings
+like this cannot be accepted.
+
+Best regards,
+Krzysztof
 
