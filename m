@@ -4,55 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 235A5CFC279
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 14:18:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22B0CCFC27E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 14:18:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mQVsHdM1l/HhpUTwekXfEaDF9gliETScz24Au6tJas0=; b=xR7j5lbpFukThq18B6OPwyIIuL
-	2TWSYY6uREjZWzHoy9lf+eVYp3WobScniUZNyb2I9l/LOzpdJy7B4YwNafARZ9ukHXzZTjCxQUWcn
-	6Ysj5h4RXTHFysJ44srRe9CpR9FL+Jg5uQ1W9kbZwcxfK7BCBLDZ3nGCkSfxw94LsRpxrlVPg09Rp
-	F8TvtrKoXsramYWy3r9YmVybPBINro9Pd4e8AHTafm3aIHWzwy3CV/uFIAeXYEkOwhaOhljCO+AL4
-	h1WZQoIHJeReXm9kohIxKuZGm38mzD8DXkx/VS70kEf3t8Y529dcD3PzEgPj/3hGZc7j6Vz/Ro/8w
-	0rIwfD6g==;
+	bh=oILG4ti50rGCPNEOqHPrYHlo2X7JI3KNn/lxh7b0evU=; b=pC9Qbjj8+e+dVqVGLjDknnDFF4
+	yzeA+9ssMknMP1mmUXCQT43b/Cs/G946ielEJxb0mJOk1MDRS15KnlOd+P1hYvJwdDuC0FM7ohQxh
+	0UoODjcfkzoc/FDZX3zOgJwOD4v8YxG6Aw0+uoIQGXUyXwNf0zyhDG5I3wFUJpgi5F1oEgCRXkGrm
+	4+5jV8e0+irQXc3yFdANpiTR2noF2zcEY7GDNN2O68JKtRbdTPebQ4cO/QNUspY9PcKAVoAKC4U5V
+	6YCDsAUMD+EA0oFDlkBuD6UzJLy6w0VVmFwH4+2J8AgYvHcZ2lItaafVExrkdHGkXLe82/uCQuM7u
+	QWNBVivQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMRy5-00000008VVY-2Hz8;
-	Fri, 21 Nov 2025 14:18:33 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vMRyC-00000008VYZ-2iIA;
+	Fri, 21 Nov 2025 14:18:40 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMRy4-00000008VVR-2P9t
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Nov 2025 14:18:32 +0000
+	id 1vMRy9-00000008VWu-3mUJ;
+	Fri, 21 Nov 2025 14:18:39 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E89E2602C2;
-	Fri, 21 Nov 2025 14:18:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3EF5BC4CEF1;
-	Fri, 21 Nov 2025 14:18:31 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 8B67D40148;
+	Fri, 21 Nov 2025 14:18:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E0A0CC4CEFB;
+	Fri, 21 Nov 2025 14:18:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1763734711;
-	bh=SBMXop/PAw5czQpijsWvGpCFvDrNh6vBAkrLsdRGe/U=;
+	s=korg; t=1763734717;
+	bh=/ps74yrhCFbWWi/ubw8fCfzRCAKntOmoNTx1vsMerDQ=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=iXlmGEBjAAAtAuRE3vwVXLn0igIqx3dDNExfg8002OsqugiET0N2Yt1o1xK0iN/fB
-	 XGR7wOGuY+70Ip3KzZWht2JmEjWuth78hAWq7BzPo51e/xsV74e7hG/IjrA292mdvE
-	 ymk6ZxYcZIg7Txwf8osWh5roiD4T0VsfpuPuQLfU=
-Date: Fri, 21 Nov 2025 15:04:45 +0100
-From: Greg KH <gregkh@linuxfoundation.org>
-To: Ma Ke <make24@iscas.ac.cn>
-Cc: vz@mleia.com, piotr.wojtaszczyk@timesys.com, arnd@arndb.de,
-	stigge@antcom.de, linux-usb@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	akpm@linux-foundation.org, stable@vger.kernel.org
-Subject: Re: [PATCH] USB: Fix error handling in gadget driver
-Message-ID: <2025112122-fedora-tiny-6fa3@gregkh>
-References: <20251116014948.14093-1-make24@iscas.ac.cn>
+	b=OGcTmQSfjh4TKUz+J+VEEhlgvbvjQ09TxO8tHZfEjnB6WQdIeCIeG6knH3oECln+H
+	 CW+XBYS+NLaUBseaNPRyk7itTziZolu23Uk34EE59/BYOPD+0aQDW+UoxkLk7mu8MV
+	 7WE9TFOwN9+GDZZRYLMipUB0KUk1CPuwrZX53MO8=
+Date: Fri, 21 Nov 2025 15:07:30 +0100
+From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: Chaoyi Chen <kernel@airkyi.com>
+Cc: Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+	Peter Chen <hzpeterchen@gmail.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>, Sandy Huang <hjc@rock-chips.com>,
+	Andy Yan <andy.yan@rock-chips.com>,
+	Yubing Zhang <yubing.zhang@rock-chips.com>,
+	Frank Wang <frank.wang@rock-chips.com>,
+	Andrzej Hajda <andrzej.hajda@intel.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Robert Foss <rfoss@kernel.org>,
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Amit Sunil Dhamne <amitsd@google.com>,
+	Chaoyi Chen <chaoyi.chen@rock-chips.com>,
+	Dragan Simic <dsimic@manjaro.org>, Johan Jonker <jbx6244@gmail.com>,
+	Diederik de Haas <didi.debian@cknow.org>,
+	Peter Robinson <pbrobinson@gmail.com>, linux-usb@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, dri-devel@lists.freedesktop.org
+Subject: Re: [PATCH v10 02/11] usb: typec: Export all typec device types
+Message-ID: <2025112109-glacial-outmatch-add7@gregkh>
+References: <20251120022343.250-1-kernel@airkyi.com>
+ <20251120022343.250-3-kernel@airkyi.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251116014948.14093-1-make24@iscas.ac.cn>
+In-Reply-To: <20251120022343.250-3-kernel@airkyi.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251121_061838_039375_CD79F647 
+X-CRM114-Status: UNSURE (   7.46  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,129 +97,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Nov 16, 2025 at 09:49:48AM +0800, Ma Ke wrote:
-> lpc32xx_udc_probe() acquires an i2c_client reference through
-> isp1301_get_client() but fails to release it in both error handling
-> paths and the normal removal path. This could result in a reference
-> count leak for the I2C device, preventing proper cleanup and
-> potentially leading to resource exhaustion. Add put_device() to
-> release the reference in the probe failure path and in the remove
-> function.
+On Thu, Nov 20, 2025 at 10:23:34AM +0800, Chaoyi Chen wrote:
+> From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
 > 
-> Calling path: isp1301_get_client() -> of_find_i2c_device_by_node() ->
-> i2c_find_device_by_fwnode(). As comments of
-> i2c_find_device_by_fwnode() says, 'The user must call
-> put_device(&client->dev) once done with the i2c client.'
-> 
-> Found by code review.
-> 
-> Cc: stable@vger.kernel.org
-> Fixes: 24a28e428351 ("USB: gadget driver for LPC32xx")
-> Signed-off-by: Ma Ke <make24@iscas.ac.cn>
-> ---
->  drivers/usb/gadget/udc/lpc32xx_udc.c | 35 +++++++++++++++++++++++-----
->  1 file changed, 29 insertions(+), 6 deletions(-)
-> 
-> diff --git a/drivers/usb/gadget/udc/lpc32xx_udc.c b/drivers/usb/gadget/udc/lpc32xx_udc.c
-> index 1a7d3c4f652f..b6fddfff712d 100644
-> --- a/drivers/usb/gadget/udc/lpc32xx_udc.c
-> +++ b/drivers/usb/gadget/udc/lpc32xx_udc.c
-> @@ -2986,6 +2986,7 @@ static int lpc32xx_udc_probe(struct platform_device *pdev)
->  	int retval, i;
->  	dma_addr_t dma_handle;
->  	struct device_node *isp1301_node;
-> +	bool isp1301_acquired = false;
+> Export all typec device types for identification.
 
-This bool should not be needed, you "know" if you have acquired this or
-not by virtue of being later in the function call.
+I do not understand what this means.  Who is going to use these symbols,
+and for what exactly?
 
-
->  
->  	udc = devm_kmemdup(dev, &controller_template, sizeof(*udc), GFP_KERNEL);
->  	if (!udc)
-> @@ -3013,6 +3014,7 @@ static int lpc32xx_udc_probe(struct platform_device *pdev)
->  	if (!udc->isp1301_i2c_client) {
->  		return -EPROBE_DEFER;
->  	}
-> +	isp1301_acquired = true;
->  
->  	dev_info(udc->dev, "ISP1301 I2C device at address 0x%x\n",
->  		 udc->isp1301_i2c_client->addr);
-> @@ -3020,7 +3022,7 @@ static int lpc32xx_udc_probe(struct platform_device *pdev)
->  	pdev->dev.dma_mask = &lpc32xx_usbd_dmamask;
->  	retval = dma_set_coherent_mask(&pdev->dev, DMA_BIT_MASK(32));
->  	if (retval)
-> -		return retval;
-> +		goto i2c_fail;
->  
->  	udc->board = &lpc32xx_usbddata;
->  
-> @@ -3038,28 +3040,32 @@ static int lpc32xx_udc_probe(struct platform_device *pdev)
->  	/* Get IRQs */
->  	for (i = 0; i < 4; i++) {
->  		udc->udp_irq[i] = platform_get_irq(pdev, i);
-> -		if (udc->udp_irq[i] < 0)
-> -			return udc->udp_irq[i];
-> +		if (udc->udp_irq[i] < 0) {
-> +			retval = udc->udp_irq[i];
-> +			goto i2c_fail;
-> +		}
->  	}
->  
->  	udc->udp_baseaddr = devm_platform_ioremap_resource(pdev, 0);
->  	if (IS_ERR(udc->udp_baseaddr)) {
->  		dev_err(udc->dev, "IO map failure\n");
-> -		return PTR_ERR(udc->udp_baseaddr);
-> +		retval = PTR_ERR(udc->udp_baseaddr);
-> +		goto i2c_fail;
->  	}
->  
->  	/* Get USB device clock */
->  	udc->usb_slv_clk = devm_clk_get(&pdev->dev, NULL);
->  	if (IS_ERR(udc->usb_slv_clk)) {
->  		dev_err(udc->dev, "failed to acquire USB device clock\n");
-> -		return PTR_ERR(udc->usb_slv_clk);
-> +		retval = PTR_ERR(udc->usb_slv_clk);
-> +		goto i2c_fail;
->  	}
->  
->  	/* Enable USB device clock */
->  	retval = clk_prepare_enable(udc->usb_slv_clk);
->  	if (retval < 0) {
->  		dev_err(udc->dev, "failed to start USB device clock\n");
-> -		return retval;
-> +		goto i2c_fail;
->  	}
->  
->  	/* Setup deferred workqueue data */
-> @@ -3161,6 +3167,8 @@ static int lpc32xx_udc_probe(struct platform_device *pdev)
->  	dma_free_coherent(&pdev->dev, UDCA_BUFF_SIZE,
->  			  udc->udca_v_base, udc->udca_p_base);
->  i2c_fail:
-> +	if (isp1301_acquired && udc->isp1301_i2c_client)
-> +		put_device(&udc->isp1301_i2c_client->dev);
->  	clk_disable_unprepare(udc->usb_slv_clk);
->  	dev_err(udc->dev, "%s probe failed, %d\n", driver_name, retval);
->  
-> @@ -3170,6 +3178,18 @@ static int lpc32xx_udc_probe(struct platform_device *pdev)
->  static void lpc32xx_udc_remove(struct platform_device *pdev)
->  {
->  	struct lpc32xx_udc *udc = platform_get_drvdata(pdev);
-> +	struct device *dev = &pdev->dev;
-> +	struct device_node *isp1301_node;
-> +	bool isp1301_acquired = false;
-
-This bool isn't needed either, just trigger off of isp1301_node.
-
-But really:
-
-> +
-> +	/* Check if we acquired isp1301 via device tree */
-> +	if (dev->of_node) {
-> +		isp1301_node = of_parse_phandle(dev->of_node, "transceiver", 0);
-
-Shouldn't this node be saved in the device structure instead?  That's
-the "correct" solution here.
+Be specific please.
 
 thanks,
 
