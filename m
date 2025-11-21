@@ -4,143 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CB4BCFC28C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 14:54:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEC2ECFC28B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 14:55:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
-	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=h3T53g7xBgvHEx7HfC5HSakwZWPWLNi811KzyB5b8Cc=; b=u360Z9hnNpGIx6BJTbwoYypGBH
-	gYCIxbz+nTKtMoMCdTrGqqaFdzou4xl3K/gYAnN+TSf2eB1clZaPEFWdZTYmPjKl1WQlVvnt7jWe0
-	vcgQ3xTAl1K9J0DMu38H7xsWJmQcdbBigLeJU8FqBNgo2cokk4tw/OCHArUM2RnfDNpM6Y0koQW7S
-	2/Td8VljLhztaR7maTTttZ15hgNBCNAXHU1R81FiE2w6m+VxPf8UHLkReOwUytdjj4ZlN1R/9mfce
-	7h4Y8DpKFMgJobLhQZRjP4jfEaD8F0RCA1G6lIFDpmz+8vJorObhBw+tsu69dIPmns3W1fspK/YfC
-	Jt5l50ag==;
+	bh=cUWCvxpi6yN02JYD/ezJBruMSnXyrEhd3rz8Me29Xlw=; b=cTqfnikYopSfvr/6eE4J8dJHQH
+	8O7hKyAvs6Grxc/3ZNwEQiptxSubTPJB5VZ1EHUsWW+T3ruWjW0JjCqQvSwsObmgNhbv6yLru/K0Q
+	Y/66XQTqNf9x7OvT+vP3pFniP7p/ful7MAxrF6RhgwI/+toN6MJ2LD5M/wWnP04mHTJwyev/615Ge
+	2x3gVBwy9x+Ur9rDTODIUA2ouxhAkBsYfQK8sB0fHChsUFSxJ797kCvmt0FJ3og01NmsW5RLpyeD0
+	Xjll+/0m783na9j+C/fbeFI4uM/gTWUBb+ezrObJooYrbG3F7iqdUtzj1Zg+6RD9qaKHmH8skCQTc
+	BbOw6YJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMSX2-00000008YPt-1Ot8;
-	Fri, 21 Nov 2025 14:54:40 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1vMSXZ-00000008YZn-0lSx;
+	Fri, 21 Nov 2025 14:55:13 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMSX0-00000008YOS-0ODg
+	id 1vMSXW-00000008YYa-1ifW
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Nov 2025 14:54:39 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-477619f8ae5so12591445e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Nov 2025 06:54:37 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1763736876; x=1764341676; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:references:cc:to:subject:reply-to:from:user-agent
-         :mime-version:date:message-id:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=h3T53g7xBgvHEx7HfC5HSakwZWPWLNi811KzyB5b8Cc=;
-        b=B/X3ANfMZR5nraEgL0I1my+ohBZ4ZMit62aD4kEYs3bJQ7WeW2Cz+6sDNlFGER5MGc
-         1riK2G1ROJbs31tf7VT9aV51nWTeFxzyRFvULfeWBKBTxlLElFNqELezd+vml3ReSS5Z
-         pR+s6+1asr1W/VH2zIvnNSNNRPTtCuowvSptsXjYTtTFVaVjF59ojZff+MdeoKOeUWH8
-         G8z4MQ5KA3b9Rlsn2O62A6NW2ni2fnYufMfbaAYa/QVWo/Xzpg4M8MkZwLpz+qeq0H/o
-         xwF5TLL4zwZv7fsrOYnUTh4JLTGgP3o+wcU+Qqlhk7TNyWiLiQts5mj0akBeV54fZOoM
-         kfWg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763736876; x=1764341676;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:references:cc:to:subject:reply-to:from:user-agent
-         :mime-version:date:message-id:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=h3T53g7xBgvHEx7HfC5HSakwZWPWLNi811KzyB5b8Cc=;
-        b=A3UqNlMf5dWxauzo5GqmpbINFWPJuTSoVNcQGnMv0JjkX1k7MfGpNfTQxcmMdTxdUI
-         GNWbkQYYU0EyC85dcmJ9ovq6xPdIkTuaULR0V20Ppz/x4hq0cOA8zrWpeiurLGtmpTYU
-         98RGg0LGe4tUwKtKH8Dhm8R0GSodi8wEIDkoiQLAybzw617GvWggnhsv/AofstQjOG4G
-         h7NVgMVxWigvLnHoBHaL9iJn4VVcCvELkvAiqCwF0GksovAYHUUzqCRtogS/v/rwf16y
-         HfOFv5zJKfQ6B5AN2q3fprKOOZ9uw096HU40dOY6IL1sw1ijCYaBiIJa/UBie+tAWlJ4
-         f3YQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVQ6dd38ZSptSxv220j+iOOq+luLcamjPTvhkGtON/yogBp+s3DUQ0kgS+7FOdNnlofb9cMyDw3+k+1zU5TcUXP@lists.infradead.org
-X-Gm-Message-State: AOJu0YyLt7MHwsIg4DYXUqc3v01s27LJNG43aPfotOoA+EC5WY1eEsm2
-	3tV2Zo7cMPn6KA6X+9ZcEfKj8Ex1ZYO81AWnZbZwmMbBwohkcX/DJhLHlsEmLTqvVTg=
-X-Gm-Gg: ASbGncskLteXqXmv8HAI8PxIq2e+tykGOiRqUgfOgHcooEUjjW1Lr+TKqeG+kkxISwu
-	2eOqxBbKZXMq6si8+f2F8B1gAQmTOLh4lfHMkZfUOmazM+SzfyEKq1AaKLw7Y9KlBVlb8kNqgOT
-	bjr43uuLetay21oQUMw+OyvpmhBBaXWVaKI9CbBnKl8iI3DGXax1+ZtJJbqLDyRjINWYkrObxac
-	1AInmHxrxONBLZ1uAOvziTFVl7ya4rLtPJPVERF+CLjkmmbXQ8Uw59UEx5uLoL55yO2rPM1FDDp
-	Qcuv9asQTOWScXZxoX6MP6XLjXNXhrzjHP1vW7yBKfRE1aeLF7jcgFFiUOCRctzJE+RiiEnxDkZ
-	hYocE5a+SRrIhNV5jU8507aaEpKkeE6+Sv+dHUxryc7WcL4KLzlm6mw+nik0U2OiP2FXr4vDtEu
-	Lp9n7NuLLqjnlisSOsHxh5mTpb2AYwFtV2XiMGFoIqDNZ3PKZdCR8S6pQIhVe9mzxngOnVO0X16
-	Q==
-X-Google-Smtp-Source: AGHT+IEzj6mKlAXc/f2f5s+FD/b07AX4yw2dXdDsDHdfncbSE2QSufZD0iTF+t3WaYL5TpdOFlDOEA==
-X-Received: by 2002:a05:600c:1f8f:b0:477:a0dd:b2af with SMTP id 5b1f17b1804b1-477c01ea502mr22713205e9.33.1763736876159;
-        Fri, 21 Nov 2025 06:54:36 -0800 (PST)
-Received: from ?IPV6:2a01:e0a:3d9:2080:159f:1839:bb92:1eca? ([2a01:e0a:3d9:2080:159f:1839:bb92:1eca])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42cc231dc6esm3409457f8f.7.2025.11.21.06.54.34
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 21 Nov 2025 06:54:35 -0800 (PST)
-Message-ID: <326cd208-fcce-49d1-94ee-4913f85bffbf@linaro.org>
-Date: Fri, 21 Nov 2025 15:54:34 +0100
+	Fri, 21 Nov 2025 14:55:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=cUWCvxpi6yN02JYD/ezJBruMSnXyrEhd3rz8Me29Xlw=; b=aO0PLSK7qfu/FovGYhfLS+dQiM
+	jWQuzAs6xPj0Vr0IjwVw3gv6cdQwoc9+Yx0NbvWRI8UwmV3c7fAmavCZLEpmQ0fLazJtH9JTTzKsd
+	dKPLG6xN2203lxzeTq9E1Dbb5rC1mGh1yBwhX7Udq2kzTZFv4U5l+7cQNyN1bH5Oi5lt1OzsxGGJt
+	ev+SQZ1it8FDnn78f3rejJBbFH8pFxn2JL9qhi3E3E4i0DFoLOMk2l7+YNkAmOUt3nJGwqmEu985C
+	6CU8IGKWREZcvV/e4EXDexO8eXzXmqgvtbgvgAQfU0k6FkZf6Tk5bsKXfA+UWeAnCUbXNq4E3guDR
+	QECPI58g==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:59300)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1vMSXJ-000000007gY-3h78;
+	Fri, 21 Nov 2025 14:54:57 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1vMSXG-000000005Qf-0QYl;
+	Fri, 21 Nov 2025 14:54:54 +0000
+Date: Fri, 21 Nov 2025 14:54:53 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>
+Subject: Re: [PATCH net-next] net: stmmac: move stmmac_mac_finish() after
+ stmmac_mac_config()
+Message-ID: <aSB9Pfd0cAd4CQgL@shell.armlinux.org.uk>
+References: <E1vMNoX-0000000FTBd-3Oup@rmk-PC.armlinux.org.uk>
+ <0423d36b-05fa-4a2b-858c-e6ef5ff1560d@bootlin.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: Neil Armstrong <neil.armstrong@linaro.org>
-Subject: Re: [PATCH v10 07/11] phy: rockchip: phy-rockchip-typec: Add DRM AUX
- bridge
-To: Chaoyi Chen <kernel@airkyi.com>,
- Heikki Krogerus <heikki.krogerus@linux.intel.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
- Peter Chen <hzpeterchen@gmail.com>, Luca Ceresoli
- <luca.ceresoli@bootlin.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>,
- Kishon Vijay Abraham I <kishon@kernel.org>, Heiko Stuebner
- <heiko@sntech.de>, Sandy Huang <hjc@rock-chips.com>,
- Andy Yan <andy.yan@rock-chips.com>,
- Yubing Zhang <yubing.zhang@rock-chips.com>,
- Frank Wang <frank.wang@rock-chips.com>,
- Andrzej Hajda <andrzej.hajda@intel.com>, Robert Foss <rfoss@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Amit Sunil Dhamne <amitsd@google.com>,
- Chaoyi Chen <chaoyi.chen@rock-chips.com>, Dragan Simic <dsimic@manjaro.org>,
- Johan Jonker <jbx6244@gmail.com>, Diederik de Haas <didi.debian@cknow.org>,
- Peter Robinson <pbrobinson@gmail.com>
-Cc: linux-usb@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- dri-devel@lists.freedesktop.org
-References: <20251120022343.250-1-kernel@airkyi.com>
- <20251120022343.250-8-kernel@airkyi.com>
-Content-Language: en-US, fr
-Autocrypt: addr=neil.armstrong@linaro.org; keydata=
- xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
- GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
- BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
- qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
- 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
- AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
- OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
- Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
- YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
- GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
- UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
- GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
- yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
- QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
- SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
- 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
- Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
- oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
- M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
- 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
- KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
- 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
- QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
-Organization: Linaro
-In-Reply-To: <20251120022343.250-8-kernel@airkyi.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <0423d36b-05fa-4a2b-858c-e6ef5ff1560d@bootlin.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251121_065438_194227_8E47DFC1 
-X-CRM114-Status: GOOD (  16.56  )
+X-CRM114-CacheID: sfid-20251121_065510_720449_76D1637A 
+X-CRM114-Status: GOOD (  22.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,68 +85,43 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: Neil Armstrong <neil.armstrong@linaro.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/20/25 03:23, Chaoyi Chen wrote:
-> From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+On Fri, Nov 21, 2025 at 01:03:59PM +0100, Maxime Chevallier wrote:
+> Hi Russell,
 > 
-> Using the DRM_AUX_BRIDGE helper to create the transparent DRM bridge
-> device.
+> On 21/11/2025 10:52, Russell King (Oracle) wrote:
+> > Keep the functions and initialisers in the same order that they exist
+> > in phylink_mac_ops. This is the preferred order for phylink methods
+> > as it arranges the configuration methods by called order.
+> > 
+> > Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+> > ---
+> >  drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 3 ++-
+> >  1 file changed, 2 insertions(+), 1 deletion(-)
+> > 
+> > diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> > index 970c670fc302..d16e522c1e7d 100644
+> > --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> > +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> > @@ -932,7 +932,8 @@ static int stmmac_mac_finish(struct phylink_config *config, unsigned int mode,
+> >  	struct stmmac_priv *priv = netdev_priv(ndev);
+> >  
+> >  	if (priv->plat->mac_finish)
+> > -		priv->plat->mac_finish(ndev, priv->plat->bsp_priv, mode, interface);
+> > +		priv->plat->mac_finish(ndev, priv->plat->bsp_priv, mode,
+> > +				       interface);
 > 
-> Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-> ---
-> 
-> Changes in v10:
-> - Use drm_aux_bridge_register_from_node() instead.
-> 
-> (no changes since v7)
-> 
-> Changes in v6:
-> - Fix depend in Kconfig.
-> 
->   drivers/phy/rockchip/Kconfig              | 2 ++
->   drivers/phy/rockchip/phy-rockchip-typec.c | 5 +++++
->   2 files changed, 7 insertions(+)
-> 
-> diff --git a/drivers/phy/rockchip/Kconfig b/drivers/phy/rockchip/Kconfig
-> index db4adc7c53da..bcb5476222fc 100644
-> --- a/drivers/phy/rockchip/Kconfig
-> +++ b/drivers/phy/rockchip/Kconfig
-> @@ -120,6 +120,8 @@ config PHY_ROCKCHIP_TYPEC
->   	tristate "Rockchip TYPEC PHY Driver"
->   	depends on OF && (ARCH_ROCKCHIP || COMPILE_TEST)
->   	depends on TYPEC || TYPEC=n
-> +	depends on DRM || DRM=n
-> +	select DRM_AUX_BRIDGE if DRM_BRIDGE
->   	select EXTCON
->   	select GENERIC_PHY
->   	select RESET_CONTROLLER
-> diff --git a/drivers/phy/rockchip/phy-rockchip-typec.c b/drivers/phy/rockchip/phy-rockchip-typec.c
-> index 1f5b4142cbe4..e31b778c3537 100644
-> --- a/drivers/phy/rockchip/phy-rockchip-typec.c
-> +++ b/drivers/phy/rockchip/phy-rockchip-typec.c
-> @@ -56,6 +56,7 @@
->   #include <linux/phy/phy.h>
->   #include <linux/usb/typec_dp.h>
->   #include <linux/usb/typec_mux.h>
-> +#include <drm/bridge/aux-bridge.h>
->   
->   #define CMN_SSM_BANDGAP			(0x21 << 2)
->   #define CMN_SSM_BIAS			(0x22 << 2)
-> @@ -1312,6 +1313,10 @@ static int tcphy_setup_typec_mux(struct rockchip_typec_phy *tcphy)
->   	if (!of_property_read_bool(np, "mode-switch"))
->   		goto put_np;
->   
-> +	ret = drm_aux_bridge_register_from_node(tcphy->dev, np);
-> +	if (ret)
-> +		goto put_np;
-> +
->   	mux_desc.drvdata = tcphy;
->   	mux_desc.fwnode = device_get_named_child_node(tcphy->dev, "dp-port");
->   	mux_desc.set = tcphy_typec_mux_set;
+> This is just a line wrap, I don't really see the connexion with the
+> commit log :( Some missing hunks in the commit maybe ?
 
-Much better now !
-Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
+Oh, I thought I hadn't sent the patch, but I had... meanwhile I'd
+updated my local copy to fix the line wrap, forgotten I'd done that,
+rebased the patch and ended up with a patch with that description
+but with only the reformatting. Bah. I'll move it out of patchwork.
+
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
