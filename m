@@ -4,61 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27A75CFC29A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 18:42:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB574CFC29A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 18:44:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=H+qKI0T3AN48nttjKqI2C1ItBR5pvb6YKTuhf/frMSA=; b=hEH/mIWMIWk0Uhe554lFGbelCp
-	N84ikJUDStpP37M1i/GFJxvTDeuUc1/GFQxVTj/lB4focpQOJ0S4gkvRkmHakERgWez/RpDl2NMVs
-	ALfrjOYP7eBv+m/U3Wc150UjY2V1FFLeiGdthJX/KgAftw3OBGQN+TI8LmWLOEUoXT2j0LafynvOE
-	WYGCyeGcwDgqa2JY3nWW3L6Z0SZoRFMTW73uJBl2SP30M2oMcEY8Gdo77ZsD7DgXCpGbYd9IhJorN
-	K9tA4cCoLA8zwpRe1DTygN9JUQ6BDueQcYCxPKl1oyoSoM/p2I5b1z9d6vTadnXiNqa3eEdINW8ON
-	4YRMapXA==;
+	bh=c0Lat5Lybgmydvmco3yn5fpGeDyEHrPo9zBkU69PSlI=; b=XGoyNrbauAqu781ddTMpORkBge
+	kH89OYKx/n43vx1HpM7IOLSHK3I8TOz5AsDzsDhjDF7Y38XMiQAzmAgnvbZZiQPKCEOBFLFLkzsfi
+	C3LU6BBJJswQIXYsgN9RH3WnxXNTjfSKi+NYIeqEyQPBDnTK+p3dYQAVfByY892o8lXwE0DWZplws
+	Xe79VIVwowQOkLVLUF0pSs6ZtyfeB2oYqARy7PfwemASUdzEUO5Mk+NKLSwMTsKVGZWi2m5unmRK7
+	dvzigljlj1EaQMRpxpChCAqYvhNQV5ihUrlsUkGKN8TD0xxz9fSuMi3hbZrjXjeZOqbEBOxkS+aIP
+	zxKP4mFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMW5u-00000008raK-2bwV;
-	Fri, 21 Nov 2025 18:42:54 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vMW7G-00000008rmU-19EZ;
+	Fri, 21 Nov 2025 18:44:18 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMW5s-00000008rZe-2VHh;
-	Fri, 21 Nov 2025 18:42:53 +0000
+	id 1vMW7E-00000008rmF-2ali
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 21 Nov 2025 18:44:16 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2E44943702;
-	Fri, 21 Nov 2025 18:42:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AFB4EC4CEF1;
-	Fri, 21 Nov 2025 18:42:49 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id CABD9601CE;
+	Fri, 21 Nov 2025 18:44:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A6399C4CEF1;
+	Fri, 21 Nov 2025 18:44:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763750570;
-	bh=0bMZ4NLDj8CskLCEMHyms2+DxxfLSA3gVajQFVYgIow=;
+	s=k20201202; t=1763750655;
+	bh=er1DOqN8XKcwmjh5oTWZ/2giUJo2yI7UZQbBBDHtzOg=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=OwfS76PxWsTyb+evI0DjzSdw52gt48ZkvUBIvhqu2K2chtrb1J5goM2bIhcK6YF17
-	 2E6jYyd9wEhXy8Ly+42iLaN2hn4Sfkv75r5BoMILmn6GdQqeojmMsN3yRq8/2KhEKD
-	 poytx9cTo5q78MOQMGe0mtWoxln3wO+iG3ZqK82cPdN/vF2jpmKIooXZgNdygXvriL
-	 CZjHlg7Jgm/kqJ8rHoRWCuVdjqJ2FXMtlRGsf1q9D0jHzbEs60T40Q3Npktkah8zdY
-	 XIrSPHV/iIQj+YOeBEK8Imx4rz3lGbXX+xbuA+l08mP4vyDtnJzOObgUwo1rVcRbGJ
-	 4I43q2OgU7yGA==
-Date: Fri, 21 Nov 2025 10:42:47 -0800
-From: Josh Poimboeuf <jpoimboe@kernel.org>
-To: Nathan Chancellor <nathan@kernel.org>
-Cc: Tiezhu Yang <yangtiezhu@loongson.cn>, Ard Biesheuvel <ardb@kernel.org>, 
-	Huacai Chen <chenhuacai@kernel.org>, linux-kbuild@vger.kernel.org, linux-efi@vger.kernel.org, 
-	loongarch@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v1] kbuild: Add KBUILD_VMLINUX_LIBS_PRELINK
-Message-ID: <hka6ukulmkmxp7mrcmxmllco2sqof2elextc7ggcikazfzmwni@a4pnogedcr7r>
-References: <20251119042708.27658-1-yangtiezhu@loongson.cn>
- <20251121070140.GA780042@ax162>
+	b=PU3Ev8qFEy/Hh4XsuOCwhFbtwDbMICtrEXQqAsONV5fPTQJ5vgQXYcIm36g/oCKBv
+	 U+Mx7JTGyPjfl7ibI+7Lt1bXC8XV0CTbVhZm9FQ6C3jlREEOJDBXA4jHjn9EtIvr7C
+	 9MvQafAR6I1F6lfQ3XAixPTtlTBxEgdMlCgJn1LrLiI+PmcbqwiSEtsim+96u0JxpS
+	 UmlQZYDL2dzl9/n4F36jhAlAP/cDz186yVz7/zG4VFJk+kAPZamoTpGSVPLC6xXJix
+	 ELaiTDl4URgiY8liHpe4GYYAK4ef+lUVZcGIme299td0m/ZhNf9vdDWI0Z9RDNi4i+
+	 +PRwwOT+TjhMw==
+Date: Fri, 21 Nov 2025 18:44:11 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+Cc: Randy Dunlap <rdunlap@infradead.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Will Deacon <will@kernel.org>, linux-kernel@vger.kernel.org,
+	Arnd Bergmann <arnd@arndb.de>, wangyushan12@huawei.com
+Subject: Re: [PATCH v1] arm64, lib: make ARM64 select
+ ARCH_HAS_CPU_CACHE_INVALIDATE_MEMREGION not GENERIC_CPU_CACHE_MAINTENANCE
+Message-ID: <20251121-uncoated-trapeze-e1e7d9c0cbb8@spud>
+References: <20251119-zippy-distinct-1e2a7da7b69b@spud>
+ <aR9QRuUigBsxxelm@arm.com>
+ <20251120-ruined-liability-9ecbf53affd1@spud>
+ <669d4bbb-4011-493c-b056-34e682a1ac26@infradead.org>
+ <aR-KxRIDvGNlW2jy@arm.com>
+ <a6fff5b6-7e7f-4883-b905-500d55dbf21e@infradead.org>
+ <20251121104827.00005033@huawei.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="/1G6JnR6SY9eI9zl"
 Content-Disposition: inline
-In-Reply-To: <20251121070140.GA780042@ax162>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251121_104252_660830_B2AB30FD 
-X-CRM114-Status: GOOD (  13.58  )
+In-Reply-To: <20251121104827.00005033@huawei.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,40 +80,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 21, 2025 at 12:01:40AM -0700, Nathan Chancellor wrote:
-> > @@ -1199,6 +1199,7 @@ KBUILD_VMLINUX_OBJS := built-in.a $(patsubst %/, %/lib.a, $(filter %/, $(libs-y)
-> >  KBUILD_VMLINUX_LIBS := $(filter-out %/, $(libs-y))
-> >  
-> >  export KBUILD_VMLINUX_LIBS
-> > +export KBUILD_VMLINUX_LIBS_PRELINK
-> 
-> This variable name is a little confusing to me since they do get added
-> to vmlinux during linking, not before. I am not sure of a better one
-> though, maybe KBUILD_VMLINUX_LIBS_FINAL?
 
-I think that name was my idea.  Not sure what I was thinking, I guess
-"prelink" was somehow meant to imply after the vmlinux.o whole-archive
-link but before the "final" link.
+--/1G6JnR6SY9eI9zl
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-"final" is indeed better.
+On Fri, Nov 21, 2025 at 10:48:27AM +0000, Jonathan Cameron wrote:
+> On Thu, 20 Nov 2025 15:25:46 -0800
+> Randy Dunlap <rdunlap@infradead.org> wrote:
+> > On 11/20/25 1:40 PM, Catalin Marinas wrote:
 
-> It may also make sense to
-> introduce similar syntax to the existing libs-y syntax, maybe
-> 
->   final-libs-y
-> 
-> or something like that?
+> > > As an alternative, I'm happy for arm64 to select both the ARCH and
+> > > GENERIC options if you think that works better.
+> > >  =20
+> >=20
+> > Yes, I think that would be much better.
+> > Thanks.
+> >=20
+>=20
+> I'm fine with that as well (was where we were in earlier versions).
+> I'm offline for 10 days from tomorrow, but wangyushan +CC has been heavily
+> involved in this series throughout if we need to test anything etc.
+>=20
+> For a patch that is basically just (this to me seems fine to squash
+> as well if that is easier)
 
-Yeah, I suppose that would mirror how KBUILD_VMLINUX_LIBS is wired up.
+Right, 3 votes for both, so I squashed that in.
 
-> Also, since these objects are no longer in KBUILD_VMLINUX_LIBS, does
-> this new variable need to be added to any of the other places in the
-> build system that use KBUILD_VMLINUX_LIBS for things such as build
-> dependencies?
+Thanks guys.
 
-Not sure about that one.  drivers/firmware/efi/libstub/lib.a is getting
-built regardless so there must already be an implicit dependency?
+--/1G6JnR6SY9eI9zl
+Content-Type: application/pgp-signature; name="signature.asc"
 
--- 
-Josh
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaSCy+wAKCRB4tDGHoIJi
+0hf3AP49RJTktKwmPiJYJH0F7CQBkBz2DLxIykNLJ5LyitA9OgD/TybjvGMP8lSU
+CnHl/S5msYsThe2KBHhzYGDR4gMRKwo=
+=4J2T
+-----END PGP SIGNATURE-----
+
+--/1G6JnR6SY9eI9zl--
 
