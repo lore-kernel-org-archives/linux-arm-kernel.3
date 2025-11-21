@@ -4,123 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8C31CFA76D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 10:20:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FB2DCFA76C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 10:21:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fFYKTd5B+7gO6/TjVQWTAksijmJ+eux1mvExPdX8f0A=; b=ycaUW3hy9pBvgz8bjc+z/8mnB3
-	y8DrUiEpavIjfEQOvHkl45uzOgeX1YqRGujeMazpkoU//cWv9ovhHewFuT/k95FzfXp1QAmJz1QPo
-	22uZWk10Lgmdxp9tdD7hic64ylNbYjyntZ7hmsF+CKdkJo9JcxhFWIaCS8cAGgyikPb4L0Dne7KdZ
-	OcgOgAIV8lN13/iJTM6HrhcNSBcd+0JHKpWgTBj7eL9mWxP1BAlkEdAdhUWjAqWzTyySXLqORErVA
-	BS9c0KIqaqHhEyKZyyNN6fNhCsltee5bHV4EGBmqOhwZ8vLaTm6FRTmvUo91llLAciM+p9kKCLqdw
-	NnTEg2Tg==;
+	bh=DmfI//jDc+SutvcPkcAsQW6M+QXS7fQhKaN+xJdDWXk=; b=N0uiwSC1X7nYKeUXPKnLshcXwO
+	dVB9RPeQt3Bor1dZW9rHkaeCwVzDZ/QXkiW91X2lWJqbIjLDNZAZnSHo88lzJqONNepDOd2DqBr4D
+	T82ElRFu4eNjN7Izrd4Va/v8WqvuU7rREgFkj5tvRXkaBSrbWXAwnnqVqfqVomsg1XAmvzpq8MXPV
+	/adMpOpAYe7jnF4pmaMm4NcmlUqjM7zwAY42vr1ycyvO8VNIeF5RLK6re6Br5VO7cqOnHXJAwH5Oc
+	puvrFMl8yUHVhFFB0OuWaEVudVTc7udkp9ivToy63WQoJgbMEeuKuMFzJniafFB53BOOjp6YHrlGI
+	SA5wX/+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMOFk-00000008E1d-1mox;
-	Fri, 21 Nov 2025 10:20:32 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vMOGe-00000008E98-3VfN;
+	Fri, 21 Nov 2025 10:21:28 +0000
+Received: from canpmsgout09.his.huawei.com ([113.46.200.224])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMOFh-00000008E0y-1vwy
+	id 1vMOGb-00000008E8H-4ADJ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Nov 2025 10:20:30 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6107F43C3B;
-	Fri, 21 Nov 2025 10:20:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 126C3C4CEF1;
-	Fri, 21 Nov 2025 10:20:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763720428;
-	bh=iWqnAe3/O6/plnWbSTIG2BUYeub0UScAt2PUN//TgMw=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=cuHCcysWsoxtxgwICw6OTThJvO4dPnZ4jA4TSmgF+iit+i2g3Du3jEAGU3krgF4d3
-	 S6/97IraiN60AsumeiTAvOH2MVkzAKXzxgUYUD5qFbXfheP+aEmg4iEFISRNnQGhCW
-	 H0wjQJutHn5Iat/aAISJ0wv5YAguL/8fcaDzEpCSbnQ2eo173RcAkyJjzJWc6XUmxI
-	 LZgz2Rj15UCG7QOSjO7yYy1uwQjUuxf2zb8E08sh5+6pxrYRKg2783Vv3ZR4V2ppRN
-	 Y44wThgFJLNYdLCLCrFsvQumqncopPw96v1qr0yicOy5Xdn3ZXZ7pmSJfn6FkOkNfk
-	 dwkSAfls6B1WA==
-Message-ID: <e27e1a6b-53ae-4416-8322-dbfb1c212755@kernel.org>
-Date: Fri, 21 Nov 2025 11:20:20 +0100
+	Fri, 21 Nov 2025 10:21:27 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=DmfI//jDc+SutvcPkcAsQW6M+QXS7fQhKaN+xJdDWXk=;
+	b=0z8pR8WfT775x726EkNdOncOLgPPCb5HrQ0rtwDUHKC76QJ0JTEvF9cfpXwh8NE8NYNECs/yT
+	nBCVTI+GJ1cTaSID3fbVSGbjA8tVOPpXV79m7RZbaLRpAzrwQTAzlPArIx22ZI3vu+k+p5dmX8q
+	nKwQCXkMUYU0+vzIba4YMYE=
+Received: from mail.maildlp.com (unknown [172.19.163.44])
+	by canpmsgout09.his.huawei.com (SkyGuard) with ESMTPS id 4dCWRT05kXz1cyP6;
+	Fri, 21 Nov 2025 18:19:33 +0800 (CST)
+Received: from kwepemr100010.china.huawei.com (unknown [7.202.195.125])
+	by mail.maildlp.com (Postfix) with ESMTPS id 5509A14010D;
+	Fri, 21 Nov 2025 18:21:18 +0800 (CST)
+Received: from [10.67.120.103] (10.67.120.103) by
+ kwepemr100010.china.huawei.com (7.202.195.125) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Fri, 21 Nov 2025 18:21:17 +0800
+Message-ID: <90180222-5399-442c-b7a3-e65b7d0e1378@huawei.com>
+Date: Fri, 21 Nov 2025 18:21:16 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 00/10] gpio: improve support for shared GPIOs
-To: Bartosz Golaszewski <brgl@bgdev.pl>, Val Packett <val@packett.cool>
-Cc: Kees Cook <kees@kernel.org>, Mika Westerberg <westeri@kernel.org>,
- Dmitry Torokhov <dmitry.torokhov@gmail.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Linus Walleij <linus.walleij@linaro.org>,
- Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Saravana Kannan <saravanak@google.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Andy Shevchenko <andy@kernel.org>, Catalin Marinas
- <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Srinivas Kandagatla <srini@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>,
- Mark Brown <broonie@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
- Takashi Iwai <tiwai@suse.com>, Alexey Klimov <alexey.klimov@linaro.org>,
- Bjorn Andersson <andersson@kernel.org>,
- Konrad Dybcio <konradybcio@kernel.org>, linux-hardening@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sound@vger.kernel.org,
- linux-arm-msm@vger.kernel.org,
- Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-References: <20251112-gpio-shared-v4-0-b51f97b1abd8@linaro.org>
- <3b5d9df5-934d-4591-8827-6c9573a6f7ba@packett.cool>
- <CAMRc=McHCG8N0zeVUUvYF+rHqBrBKe52o+pf+Hjp5dnG3+NmjA@mail.gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <CAMRc=McHCG8N0zeVUUvYF+rHqBrBKe52o+pf+Hjp5dnG3+NmjA@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH v2 0/5] Support the FEAT_HDBSS introduced in Armv9.5
+To: Marc Zyngier <maz@kernel.org>, Tian Zheng <zhengtian10@huawei.com>
+CC: <oliver.upton@linux.dev>, <catalin.marinas@arm.com>, <corbet@lwn.net>,
+	<pbonzini@redhat.com>, <will@kernel.org>, <linux-kernel@vger.kernel.org>,
+	<yuzenghui@huawei.com>, <wangzhou1@hisilicon.com>, <yezhenyu2@huawei.com>,
+	<xiexiangyou@huawei.com>, <zhengchuan@huawei.com>, <joey.gouly@arm.com>,
+	<kvmarm@lists.linux.dev>, <kvm@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-doc@vger.kernel.org>,
+	<suzuki.poulose@arm.com>
+References: <20251121092342.3393318-1-zhengtian10@huawei.com>
+ <86zf8fr9r2.wl-maz@kernel.org>
+From: z00939249 <zhengtian10@huawei.com>
+In-Reply-To: <86zf8fr9r2.wl-maz@kernel.org>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.67.120.103]
+X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
+ kwepemr100010.china.huawei.com (7.202.195.125)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251121_022029_559958_4B043CA9 
-X-CRM114-Status: GOOD (  17.43  )
+X-CRM114-CacheID: sfid-20251121_022126_622312_B15AA585 
+X-CRM114-Status: GOOD (  16.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,56 +83,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 21/11/2025 10:03, Bartosz Golaszewski wrote:
-> On Fri, Nov 21, 2025 at 1:28 AM Val Packett <val@packett.cool> wrote:
+On 2025/11/21 17:54, Marc Zyngier wrote:
+> On Fri, 21 Nov 2025 09:23:37 +0000,
+> Tian Zheng <zhengtian10@huawei.com> wrote:
 >>
->> Hi,
+>> This series of patches add support to the Hardware Dirty state tracking
+>> Structure(HDBSS) feature, which is introduced by the ARM architecture
+>> in the DDI0601(ID121123) version.
 >>
->> On 11/12/25 10:55 AM, Bartosz Golaszewski wrote:
->>> ---
->>> Bartosz Golaszewski (10):
->>>        string: provide strends()
->>>        gpiolib: define GPIOD_FLAG_SHARED
->>>        gpiolib: implement low-level, shared GPIO support
->>>        gpio: shared-proxy: implement the shared GPIO proxy driver
->>>        gpiolib: support shared GPIOs in core subsystem code
->>>        gpio: provide gpiod_is_shared()
->>>        arm64: select HAVE_SHARED_GPIOS for ARCH_QCOM
->>>        ASoC: wsa881x: drop GPIOD_FLAGS_BIT_NONEXCLUSIVE flag from GPIO lookup
->>>        ASoC: wsa883x: drop GPIOD_FLAGS_BIT_NONEXCLUSIVE flag from GPIO lookup
->>>        regulator: make the subsystem aware of shared GPIOs
+>> The HDBSS feature is an extension to the architecture that enhances
+>> tracking translation table descriptors' dirty state, identified as
+>> FEAT_HDBSS. The goal of this feature is to reduce the cost of surveying
+>> for dirtied granules, with minimal effect on recording when a granule
+>> has been dirtied.
 >>
->> this seems to actually have caused a regression for me, audio does not
->> initialize anymore on hamoa due to EBUSY since upgrading
->> from next-20251114 to next-20251118 or next-20251120:
+>> The purpose of this feature is to make the execution overhead of live
+>> migration lower to both the guest and the host, compared to existing
+>> approaches (write-protect or search stage 2 tables).
 >>
+>> After these patches, users(such as qemu) can use the
+>> KVM_CAP_ARM_HW_DIRTY_STATE_TRACK ioctl to enable or disable the HDBSS
+>> feature before and after the live migration.
+>>
+>> This feature is similar to Intel's Page Modification Logging (PML),
+>> offering hardware-assisted dirty tracking to reduce live migration
+>> overhead. With PML support expanding beyond Intel, HDBSS introduces a
+>> comparable mechanism for ARM.
 > 
-> Thanks for the heads-up.
+> Where is the change log describing what was changed compared to the
+> previous version?
 > 
->> [   11.748781] platform
->> 6800000.remoteproc:glink-edge:gpr:service@1:dais: Adding to iommu group 30
->> [   11.785864] wsa_macro 6aa0000.codec: using zero-initialized flat
->> cache, this may cause unexpected behavior
->> [   11.796964] reset-gpio reset-gpio.0: error -EBUSY: Could not get
->> reset gpios
->> [   11.796984] reset-gpio reset-gpio.0: probe with driver reset-gpio
->> failed with error -16
->> [   11.894662] reset-gpio reset-gpio.1: error -EBUSY: Could not get
->> reset gpios
->> [   11.894676] reset-gpio reset-gpio.1: probe with driver reset-gpio
->> failed with error -16
+> We gave you extensive comments back in March. You never replied to the
+> feedback. And you now dump a whole set of patches, 6 months later,
+> without the slightest indication of what has changed?
 > 
-> It seems like it's the reset-gpio driver, not shared GPIOLIB path?
-> This driver has never used the GPIOD_FLAGS_BIT_NONEXCLUSIVE flag.
+> Why should we make the effort to review this again?
 
-NONEXCLUSIVE does not matter here. I think this is just broken code -
-your patch 3 goes through allnodes for_each_property_of_node() and then
-assumes it is shared GPIO, so probably this nicely breaks existing DTS
-and reset-gpio. Well, it is not a shared GPIO, so all your assumptions
-here are just wrong.
+Apologies for the lack of proper changelog and the delayed follow-up on 
+the feedback provided in March. This was an oversight on our part during 
+the transition of maintainership for the HDBSS patch series. We 
+sincerely appreciate the thorough comments you shared earlier and regret 
+not responding in a timely manner.
 
-reset-gpio is already used on multiple Qualcomm and other SoC  platforms.
+Below is a summary of the changes made from v1 to v2.
 
-Best regards,
-Krzysztof
+v1:
+https://lore.kernel.org/kvm/20250311040321.1460-1-yezhenyu2@huawei.com/
+
+v1->v2 changes:
+- Removed redundant macro definitions and switched to tool-generated.
+- Split HDBSS interface and implementation into separate patches.
+- Integrate system_supports_hdbss() into ARM feature initialization.
+- Refactored HDBSS data structure to store meaningful values instead
+of raw register contents.
+- Fixed permission checks when applying DBM bits in page tables to
+prevent potential memory corruption.
+- Removed unnecessary dsb instructions.
+- Drop the debugging printks.
+- Merged the two patches "using ioctl to enable/disable the HDBSS
+feature" and "support to handle the HDBSSF event" into one.
+
+We apologize again for the delay and the missing changelog, and we 
+greatly appreciate your time in reviewing this updated version.
+
 
