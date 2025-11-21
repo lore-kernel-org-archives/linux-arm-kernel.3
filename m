@@ -4,67 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FCE7CFC28A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 15:06:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AC24CFC28A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 15:06:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
+	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=IDu1CC/wEtk13jK8r1bC4Reoj4j2PboNbZf/VOYI1qU=; b=P9UZToBgawl156
-	D1PGL/wK9GeWwYQr1psRcAVf8knFI4CnhogjMdtMINfWCVp7A9gXDDVozRFojNK4BXnfYvLTdxuoO
-	qmQUx1X96iUI3q4dpbgr0AcO4eIUdWMFD4J6ApnS2+oXq8wf1bkp8RjGAVl/JdFIf6PNzEKWCQFz8
-	FAfVAmd26QR/nN4sx/19bzmDhVGMZQRmmoQbfWDH2oYIY1UhnRQyan/3sYUxanvwsDQHQeiEnKLes
-	iQiHv8pxkTaiHnftMar5lkV7SrdztP30MfuT8noSnMFml7RzlT/0HOBx3HCo/BkCwLgLkSWRPWrlE
-	2+phiBjDbyEMBFI2cHsw==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/Lcd65qdK3N3Syg4ISpKIf2L7mbIn3FDiBZgbtG7nCY=; b=ckqODIr950gam57sqmwSKfI1yZ
+	K7HDv7mCJfmlet1Q90KRt1ZAPuUPOI4a1dRtkh2ZrtIgdU6PWz3RyWEgk7rqS5qUB3SY+3s//4QNI
+	kh38/cMBcQn2mOpJUTLckxor5NF8RjRoa8muFaGNyEmyViShe6vTEc5zWU2ew26S7rf3xDWpN4tu2
+	cYgsbKpk4rBA+moyLdso37J/erWkeJ8lYU3SnhpwyO0uAUP6JOqc1Y53sycdV6j/yxl/IJEcVTsli
+	HwSDa3qqCdza9DbNS6CpwbSgS4sLwlfcoXaJv8Xyd2tU1yZwQ0d7NXcJj74+H74JQq868e86OoqCW
+	bdMJF6rw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMSiT-00000008ZMI-3ouG;
-	Fri, 21 Nov 2025 15:06:29 +0000
+	id 1vMSiZ-00000008ZOI-2X4P;
+	Fri, 21 Nov 2025 15:06:35 +0000
 Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMSiR-00000008ZLW-1IFQ
+	id 1vMSiT-00000008ZLZ-3UJE
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Nov 2025 15:06:29 +0000
+	Fri, 21 Nov 2025 15:06:30 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1763737587; x=1795273587;
-  h=from:subject:date:message-id:mime-version:
-   content-transfer-encoding:to:cc;
-  bh=5OKOBmxX26Rgs0xbx9ZdRJ+HfMTLClzJoEFjvcG4AcE=;
-  b=dqU5FxrifFwd82hvgpoOBZH8m8Njzaq4pyFnPJrhjFL06SOT7aVEdFAY
-   1K0seKPovsii0WS6V0lEdjGsa39xZY3OPAW0oSjM9h0w+mRRbVkaZmuLL
-   S2DEXYoj4cCKUQ6TYur8kRWY/NLkvyJRBdMOptUudGQ2VVibqV7SF4tk8
-   aoIXc8CVB6WzrYN5IaVhdrJVfbToyqmR5SdxOgRN0O9B7qcZQ6jnXglln
-   m0zbe9kJNywp3Jfw8/a72wTwpWlH/z6Cz7MM/FR5JrcGyeoZUCUeTdsw3
-   dB6pojwNbxUC7U54S+CXaMaCQiCQjSl2i5BdMuVlbOchpy4B2VkyRIYRt
+  t=1763737589; x=1795273589;
+  h=from:date:subject:mime-version:content-transfer-encoding:
+   message-id:references:in-reply-to:to:cc;
+  bh=//80TLvazu3o6H3NRSjGjho+1pdoyVKmxiXPeB2mjFI=;
+  b=ayarKmuf5AngIs1jAey49jAVFR+gNOj4JloFnsftXmagdf/XnSHvrsB2
+   T2fJdjIKNVVbg7bwgrkjWuId+/f9NYa94E5XGnKG8W+eEB5tNNPbNVEgb
+   N7majq5VR07AIfLzv3fYrYwhi0l8PFAFDtCT/IOlx1qjUrbG7ruTRsvEc
+   e03iHN+t5ib6kPKoJwt8iBaz0exs5SHZe5077ehAyu4rHE300MHK2WW9K
+   T2JMDPG2mSFKUkVBTsxOlfhAlUSSr63LzyQ3M9y+LVrAsWhK8YOp2+PNo
+   /vJAkkq+DLSyppJRLrOLJN3m7EDW7HOSEcivqOeUQw58BnVHDDtsvVYxr
    A==;
-X-CSE-ConnectionGUID: aKGyDUYeT0auUjyru6LUFw==
-X-CSE-MsgGUID: 0QpqpqUxSZeAdq+oerucoQ==
+X-CSE-ConnectionGUID: Ubo8wtofT1S9f5fCNZ+Rrw==
+X-CSE-MsgGUID: gZ3q7jPvQZ2UJm2tgreohw==
 X-IronPort-AV: E=Sophos;i="6.20,216,1758610800"; 
-   d="scan'208";a="49513427"
+   d="scan'208";a="56053149"
 X-Amp-Result: SKIPPED(no attachment in message)
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa3.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Nov 2025 08:06:25 -0700
-Received: from chn-vm-ex04.mchp-main.com (10.10.87.151) by
- chn-vm-ex3.mchp-main.com (10.10.87.32) with Microsoft SMTP Server
+  by esa1.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 21 Nov 2025 08:06:25 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
+ chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.2.2562.29; Fri, 21 Nov 2025 08:06:05 -0700
+ 15.1.2507.58; Fri, 21 Nov 2025 08:06:15 -0700
 Received: from [127.0.0.1] (10.10.85.11) by chn-vm-ex04.mchp-main.com
  (10.10.85.152) with Microsoft SMTP Server id 15.1.2507.58 via Frontend
- Transport; Fri, 21 Nov 2025 08:05:59 -0700
+ Transport; Fri, 21 Nov 2025 08:06:10 -0700
 From: Ludovic Desroches <ludovic.desroches@microchip.com>
-Subject: [PATCH 0/8] drm/atmel-hlcdc: make more use of helpers
-Date: Fri, 21 Nov 2025 16:04:32 +0100
-Message-ID: <20251121-lcd_cleanup_mainline-v1-0-2587e6fe4d67@microchip.com>
+Date: Fri, 21 Nov 2025 16:04:34 +0100
+Subject: [PATCH 2/8] drm/atmel-hlcdc: add support for the nomodeset kernel
+ parameter
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAIB/IGkC/y3M0QqDMAyF4VeRXK9gC1W2VxlDYoxboMu0XYcgv
- rtFd/kdOP8KiaNwglu1QuSfJPlogb1UQC/UJxsZisHVzlvrrAk0dBQYNU/dG0WDKJu+QaLW9x7
- rK5TrFHmU5cjeH6cjz7nUv/9x23Zy78/iewAAAA==
-X-Change-ID: 20251121-lcd_cleanup_mainline-b6acc75b5a09
+Message-ID: <20251121-lcd_cleanup_mainline-v1-2-2587e6fe4d67@microchip.com>
+References: <20251121-lcd_cleanup_mainline-v1-0-2587e6fe4d67@microchip.com>
+In-Reply-To: <20251121-lcd_cleanup_mainline-v1-0-2587e6fe4d67@microchip.com>
 To: Manikandan Muralidharan <manikandan.m@microchip.com>, "Dharma
  Balasubiramani" <dharma.b@microchip.com>, Maarten Lankhorst
 	<maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
@@ -76,27 +75,26 @@ CC: <dri-devel@lists.freedesktop.org>, <linux-arm-kernel@lists.infradead.org>,
 	<linux-kernel@vger.kernel.org>, Ludovic Desroches
 	<ludovic.desroches@microchip.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1487;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1062;
  i=ludovic.desroches@microchip.com; h=from:subject:message-id;
- bh=5OKOBmxX26Rgs0xbx9ZdRJ+HfMTLClzJoEFjvcG4AcE=;
- b=owEBbQKS/ZANAwAKAT455hP3e2QtAcsmYgBpIH/V/jo0GHq7RSD6t65Y7Wb7x4XUYdRHQcceV
- JdZU01U1c6JAjMEAAEKAB0WIQQAMEvJiWmsW41tNU0+OeYT93tkLQUCaSB/1QAKCRA+OeYT93tk
- La3pD/957QSxYkmoTRU9HxiWluWn7V5pUbnW/fArwLbQyTTsA9MWgo4dM2oBAnkeamIl7efuRdM
- 0q8V4yjPqLgZAce9cwRRrR++Hie2kCOlJY5yLfIP3o609gD5BIgThIrX0MWHOYuWOTskaNxUdJh
- edklWkSKXGKnvT95FndeE+5yAPQjPuUpMKq811W+BoAUwRP+hGjzwIVsQr1ZwM4hKUl0KAw+Q3G
- vevbFWmsbKaIVEJZ41W63qmdigjrmp6Hc4y288HInAjel2SwgQvxQoHUdIUBmM0TWfyhskFTCFo
- RFCc626Wiv0DPIRpwCQEC96O7O+rHrg+v9l/R0tqiMZZ9a7nDyZRwPZbJxiiVwGTvUpMSi+DEVW
- g0nQPmF6f2YTZ5wsjBO18d8vdV0aqt3f6vJdBe4E0jB6egb7ecL/VAO76go/WGgIMXpdiqA2+tB
- UAg4YOyaHm8Kp2fQXngJbDLHrzCYOF7UI87wTqYtBlnR/9dgxm0oncStF11PE7ByBXB6ebW1Bf7
- mdwz7ovHvGfpYMM01wdq+z8FCS9sBFDIM5eDwQWL2sVUhtvYorRhCyoVVAkp+UtnCHKpxaoZXGP
- caMYBjakS9xe6n4OycaCIsYn5nmpaSx2dqqrBdtl3/5XZXYCIckT2Sfl78xZQvhkY7CkwnwntUP
- Na0k/1sbfXWP3Xg==
+ bh=//80TLvazu3o6H3NRSjGjho+1pdoyVKmxiXPeB2mjFI=;
+ b=owEBbQKS/ZANAwAKAT455hP3e2QtAcsmYgBpIH/Wx435lU4YdoP1U1wLYVVkjIgThXEiZrDNh
+ hJx10HGQMqJAjMEAAEKAB0WIQQAMEvJiWmsW41tNU0+OeYT93tkLQUCaSB/1gAKCRA+OeYT93tk
+ LVmZD/9xc9Spy6hS+6PVIpR2aBWpK1pbeCzt7GdY7RPvUtQJ50ErAwpoAk6gw9QfYTfdr7I7RhP
+ Horf8ZT+0UvYNnN/lsZkLzNfCunuHzqgCxuYddEO3L9d1kTetlwruZbu2x3Wgw438cAu2GlIO/s
+ FsrDGyWo274YN6t6N2smyNmeBS/XqzuAGtRx0wrVLnqL6bshf2LqTsgw5TqKmQivoj6H6aSHMQS
+ ypTwk6aRN4iCjXLikwHkyj3yH4qgrFlvlp00fPRvtt/sxVLV4imFOIHLPcVL8LIQ1NG5YjAyx8L
+ 3d33IPZUak1i5NQn+mFOS9Swwt4oEtubB1tYgaVZX+UPSCjbHcnd8fkaCMKVfoB0CdgLV3oxgcX
+ V9j5Z2QdxCFRqESCWpA708gs+PV3VjFYsLGI8vR/+8qotLvm0BWh/0CUChflGi5An0l5GtlSEwd
+ N0ApHTQejTfp9c/KpoINc/r4rIGqcUMC+ItGZB9I0YgL5ngPqWary4avm63cJ/WdS249i83y60c
+ H0zvKpFsfdTJ9ULifiqevM3O2owjGZM4JXywM+oE0VxCHBsVVLR+CX/ueF7cg2edvNOWH0rQZ4Y
+ u/qxasf2VWZJM1vUI/UHUbKNjc92RDd4LL8actkbkY5Avx0OQzMC79o5XiOyjCqgKXWjczi+AWh
+ kERr9QPgdxRkgAA==
 X-Developer-Key: i=ludovic.desroches@microchip.com; a=openpgp;
  fpr=665BAA7297BE089A28B77696E332995F09DCC11A
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251121_070627_564406_7415B040 
-X-CRM114-Status: UNSURE (   9.60  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251121_070629_890071_FE3A9280 
+X-CRM114-Status: GOOD (  11.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,39 +109,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-This set of patches is mostly about using available helpers when
-possible to simplify the code and ease the maintenance.
-
-There is a dependency on "drm/panel: simple: restore connector_type
-fallback" that I just submitted, otherwise the atmel-hlcdc driver may
-fail during the probe.
+According to Documentation/admin-guide/kernel-parameters.txt, this
+parameter can be used to disable kernel modesetting.
 
 Signed-off-by: Ludovic Desroches <ludovic.desroches@microchip.com>
+Reviewed-by: Dharma Balasubiramani <dharma.b@microchip.com>
+Reviewed-by: Manikandan Muralidharan <manikandan.m@microchip.com>
 ---
-Ludovic Desroches (8):
-      drm/atmel-hlcdc: use managed device resources for the display controller
-      drm/atmel-hlcdc: add support for the nomodeset kernel parameter
-      drm/atmel-hlcdc: use drmm_simple_encoder_alloc()
-      drm/atmel-hlcdc: use drm_crtc_mask()
-      drm/atmel-hlcdc: use devm_drm_of_get_bridge()
-      drm/atmel-hlcdc: use drmm_crtc_alloc_with_planes()
-      drm/atmel-hlcdc: use drmm_universal_plane_alloc()
-      drm/atmel-hlcdc: destroy properly the plane state in the reset callback
+ drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_dc.c | 3 +++
+ 1 file changed, 3 insertions(+)
 
- drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_crtc.c   | 32 ++---------
- drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_dc.c     | 40 +++++++------
- drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_dc.h     |  1 +
- drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_output.c | 43 ++++----------
- drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_plane.c  | 73 +++++++++++-------------
- 5 files changed, 73 insertions(+), 116 deletions(-)
----
-base-commit: 88cbd8ac379cf5ce68b7efcfd4d1484a6871ee0b
-change-id: 20251121-lcd_cleanup_mainline-b6acc75b5a09
+diff --git a/drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_dc.c b/drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_dc.c
+index 8ed029381c555db10d596efc8d52753c47767633..8ff582a394794aacf84f9e23fd59f123445926a3 100644
+--- a/drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_dc.c
++++ b/drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_dc.c
+@@ -858,6 +858,9 @@ static int atmel_hlcdc_dc_drm_probe(struct platform_device *pdev)
+ 	struct drm_device *ddev;
+ 	int ret;
+ 
++	if (drm_firmware_drivers_only())
++		return -ENODEV;
++
+ 	dc = devm_drm_dev_alloc(&pdev->dev, &atmel_hlcdc_dc_driver, struct atmel_hlcdc_dc, dev);
+ 	if (IS_ERR(dc))
+ 		return PTR_ERR(dc);
 
-Best regards,
 -- 
-Ludovic Desroches <ludovic.desroches@microchip.com>
+2.51.0
 
 
