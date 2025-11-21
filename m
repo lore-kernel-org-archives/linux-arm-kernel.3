@@ -4,73 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A39ECFA76C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 10:31:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07B83CFA773
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 10:48:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qQHzK2BSqPbNmZjYn7h/zJPYkRFHLnhXjNXGPoqjX0Q=; b=yEEFTBS/Ryi792i/8vSgVk7kVV
-	8jf1MbE4/7ruzHtQGs0Ceoip5I5t0/xjh3Doqlf5xCoHs6V2J/7UZhbThYqPfVGdYc6Hhc28ACORc
-	zIC9FHZwVSQ86z0QLDRRfRIsWEfft+kB4eQ129D14jzrOi1RMd2xvQBgsSI1+5pGiBVwTha7BOyMC
-	0l1J/2gcOxZbi66mFZZVFm54qgZHJMMXxgI/qIDEaU6VGVDeVjInh4vvCaiwd1EicMqHWQEiDnTc6
-	SBfQyk2hBDcomaPPYrVJ17I3D9t3SnUS3Na4TvrpR/8DnDIZC2SFSo4C5AjMUeZdnheVfooQbxkQo
-	M/5LyfIQ==;
+	bh=sLITRhok25tkEJqOhFpmjgfHxigOgpBDTIjHKBmgH00=; b=QVPy6Z7ZEjedojfIF7ZARfVkhG
+	Fzb2zZ12trXkuCjoNEpskrVXx+JO9CFduP45BTSlewPfwWSH+/mK4L0wNC2xNPBbbhIi+N6PAZMRB
+	RHn8IXdpknLSD7tkKQ9lUvHtz0CqFt2Y5j2BUf+XX1tYrmUKqLVtyBH1htCaqH7wWZGH/3pJkDOIH
+	cxoUNhYwTkWxf7SBKETnffttRiDcGQRZi+2oQWtE0ckjzVAqw5GvqOL/UVlYNj0+8/fVOYoCMub25
+	xJJBkgCDVFkLt7zfbFAlp6mjeTFCaJUdTnBg+ZjboTfdgCBgSHi6qJtW8B+URnSAYj60DVFtg3L0V
+	enPSVaCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMOQG-00000008EpU-29nH;
-	Fri, 21 Nov 2025 10:31:24 +0000
-Received: from sender3-pp-f112.zoho.com ([136.143.184.112])
+	id 1vMOh1-00000008FnH-35qN;
+	Fri, 21 Nov 2025 10:48:43 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMOQE-00000008Eoo-40Nt
+	id 1vMOgz-00000008Fmk-1J5E
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Nov 2025 10:31:24 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1763721068; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=Iq8Ov80lrJX6+LHwHs0xm8fC1Wsply20gg7+T5a3661OGwPs089k35v8vpAM/IelV6duqgd2IPRRu6J3dHPqyczQmFqKtuEsTrXMbmAyQpUW6S3RaA9z+ihcQDM030QmOojyM4CdQblLTkCzdtWkPZsJw3FNn7S5DG3yemntxpk=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1763721068; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=qQHzK2BSqPbNmZjYn7h/zJPYkRFHLnhXjNXGPoqjX0Q=; 
-	b=M3fsSNFoPXMwrM2WhQ3FZLvZtauaN1oel7ogVIM6A8nQQNxvCWNRXKq5RfOEd1eDRPw8dcBcWT3OlZxh8WA01onOcZCSp90s0kQHLC4jZrQ7e5yJ5RM1/q4K6CKWfhek/q7ZRtmYVsk08HmpSBdJjYeCnA3oTVEWG7HKS5YZV3Q=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=benjamin.gaignard@collabora.com;
-	dmarc=pass header.from=<benjamin.gaignard@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1763721068;
-	s=zohomail; d=collabora.com; i=benjamin.gaignard@collabora.com;
-	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:References:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
-	bh=qQHzK2BSqPbNmZjYn7h/zJPYkRFHLnhXjNXGPoqjX0Q=;
-	b=AjZP1bemhFSCaLhbZoMrxKfzCzXnJUS6f5nPQrWAWUpj04jI1x1qDOIGeuGTdB5N
-	+MiATYxh59/kaPVLnXA4j0gwEYYEC9WV04G80AN9op+T9S02HsLWoT0PH5qk8X3P+33
-	3gKSwYLmunqp1x4YCZ5DH8ezfbgN7fcfKmrOwxnQ=
-Received: by mx.zohomail.com with SMTPS id 1763721066252962.4226785100166;
-	Fri, 21 Nov 2025 02:31:06 -0800 (PST)
-Message-ID: <10929ed9-7137-442c-9bea-5291b81bd630@collabora.com>
-Date: Fri, 21 Nov 2025 11:31:01 +0100
+	Fri, 21 Nov 2025 10:48:43 +0000
+Received: from mail.maildlp.com (unknown [172.18.186.31])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4dCX3y3zXdzJ46bL;
+	Fri, 21 Nov 2025 18:47:42 +0800 (CST)
+Received: from dubpeml100005.china.huawei.com (unknown [7.214.146.113])
+	by mail.maildlp.com (Postfix) with ESMTPS id 896481402EF;
+	Fri, 21 Nov 2025 18:48:29 +0800 (CST)
+Received: from localhost (10.122.19.247) by dubpeml100005.china.huawei.com
+ (7.214.146.113) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Fri, 21 Nov
+ 2025 10:48:28 +0000
+Date: Fri, 21 Nov 2025 10:48:27 +0000
+From: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+To: Randy Dunlap <rdunlap@infradead.org>
+CC: Catalin Marinas <catalin.marinas@arm.com>, Conor Dooley
+	<conor@kernel.org>, <linux-arm-kernel@lists.infradead.org>, Conor Dooley
+	<conor.dooley@microchip.com>, Will Deacon <will@kernel.org>,
+	<linux-kernel@vger.kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+	<wangyushan12@huawei.com>
+Subject: Re: [PATCH v1] arm64, lib: make ARM64 select
+ ARCH_HAS_CPU_CACHE_INVALIDATE_MEMREGION not GENERIC_CPU_CACHE_MAINTENANCE
+Message-ID: <20251121104827.00005033@huawei.com>
+In-Reply-To: <a6fff5b6-7e7f-4883-b905-500d55dbf21e@infradead.org>
+References: <20251119-zippy-distinct-1e2a7da7b69b@spud>
+	<aR9QRuUigBsxxelm@arm.com>
+	<20251120-ruined-liability-9ecbf53affd1@spud>
+	<669d4bbb-4011-493c-b056-34e682a1ac26@infradead.org>
+	<aR-KxRIDvGNlW2jy@arm.com>
+	<a6fff5b6-7e7f-4883-b905-500d55dbf21e@infradead.org>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] media: verisilicon: Avoid G2 bus error while decoding
- H.264 and HEVC
-To: ming.qian@oss.nxp.com, linux-media@vger.kernel.org
-Cc: mchehab@kernel.org, hverkuil-cisco@xs4all.nl, nicolas@ndufresne.ca,
- p.zabel@pengutronix.de, sebastian.fricke@collabora.com, shawnguo@kernel.org,
- ulf.hansson@linaro.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
- festevam@gmail.com, linux-imx@nxp.com, l.stach@pengutronix.de,
- peng.fan@nxp.com, eagle.zhou@nxp.com, imx@lists.linux.dev,
- linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-References: <20251121081911.1682-1-ming.qian@oss.nxp.com>
- <20251121081911.1682-2-ming.qian@oss.nxp.com>
-Content-Language: en-US
-From: Benjamin Gaignard <benjamin.gaignard@collabora.com>
-In-Reply-To: <20251121081911.1682-2-ming.qian@oss.nxp.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="US-ASCII"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.122.19.247]
+X-ClientProxiedBy: lhrpeml500010.china.huawei.com (7.191.174.240) To
+ dubpeml100005.china.huawei.com (7.214.146.113)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251121_023123_077957_BD6D9C99 
-X-CRM114-Status: GOOD (  20.08  )
+X-CRM114-CacheID: sfid-20251121_024841_644948_500B220F 
+X-CRM114-Status: GOOD (  25.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,128 +79,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, 20 Nov 2025 15:25:46 -0800
+Randy Dunlap <rdunlap@infradead.org> wrote:
 
-Le 21/11/2025 à 09:19, ming.qian@oss.nxp.com a écrit :
-> From: Ming Qian <ming.qian@oss.nxp.com>
->
-> For the i.MX8MQ platform, there is a hardware limitation: the g1 VPU and
-> g2 VPU cannot decode simultaneously; otherwise, it will cause below bus
-> error and produce corrupted pictures, even led to system hang.
->
-> [  110.527986] hantro-vpu 38310000.video-codec: frame decode timed out.
-> [  110.583517] hantro-vpu 38310000.video-codec: bus error detected.
->
-> Therefore, it is necessary to ensure that g1 and g2 operate alternately.
-> Then this allows for successful multi-instance decoding of H.264 and HEVC.
-> Fixes: cb5dd5a0fa518 ("media: hantro: Introduce G2/HEVC decoder")
-> Signed-off-by: Ming Qian <ming.qian@oss.nxp.com>
+> On 11/20/25 1:40 PM, Catalin Marinas wrote:
+> > On Thu, Nov 20, 2025 at 12:13:10PM -0800, Randy Dunlap wrote:  
+> >> On 11/20/25 11:29 AM, Conor Dooley wrote:  
+> >>> On Thu, Nov 20, 2025 at 05:30:46PM +0000, Catalin Marinas wrote:  
+> >>>> On Wed, Nov 19, 2025 at 07:08:27PM +0000, Conor Dooley wrote:  
+> >>>>> index 09aec4a1e13f..ac223e627bc5 100644
+> >>>>> --- a/lib/Kconfig
+> >>>>> +++ b/lib/Kconfig
+> >>>>> @@ -544,8 +544,9 @@ config ARCH_HAS_CPU_CACHE_INVALIDATE_MEMREGION
+> >>>>>  	bool
+> >>>>>  
+> >>>>>  config GENERIC_CPU_CACHE_MAINTENANCE
+> >>>>> -	bool
+> >>>>> -	select ARCH_HAS_CPU_CACHE_INVALIDATE_MEMREGION
+> >>>>> +	def_bool y
+> >>>>> +	depends on ARCH_HAS_CPU_CACHE_INVALIDATE_MEMREGION
+> >>>>> +	depends on ARM64  
+> >>>>
+> >>>> That's what we do if GENERIC_CPU_CACHE_MAINTENANCE depends on some arch
+> >>>> code but that's not the case here. GENERIC_CPU_CACHE_MAINTENANCE is an
+> >>>> alternative implementation that an arch can select if it does not
+> >>>> provide its own. I find the current code without the above patch better.  
+> >>>
+> >>> Right, I am going to leave it as-is for now then. That's both you and I
+> >>> (and presumably Jonathan) finding the current form more natural. Sorry
+> >>> Randy!  
+> >>
+> >> Thanks. I tried.
+> >>
+> >> I still say that it makes no sense for something generic
+> >> (GENERIC_CPU_CACHE_MAINTENANCE in lib/Kconfig) to inform the
+> >> config system that the config has something $ARCH-specific
+> >> (ARCH_HAS_CPU_CACHE_INVALIDATE_MEMREGION).  
+> > 
+> > Yes, that's not great either but the solution with the GENERIC depending
+> > on ARCH does work since there's no actual dependency between them.
+> > 
+> > As an alternative, I'm happy for arm64 to select both the ARCH and
+> > GENERIC options if you think that works better.
+> >   
+> 
+> Yes, I think that would be much better.
+> Thanks.
+> 
 
-Thanks for the patch.
+I'm fine with that as well (was where we were in earlier versions).
+I'm offline for 10 days from tomorrow, but wangyushan +CC has been heavily
+involved in this series throughout if we need to test anything etc.
 
-Reviewed-by: Benjamin Gaignard <benjamin.gaignard@collabora.com>
+For a patch that is basically just (this to me seems fine to squash
+as well if that is easier)
 
-> ---
->   drivers/media/platform/verisilicon/hantro.h   |  1 +
->   .../media/platform/verisilicon/hantro_drv.c   | 26 +++++++++++++++++++
->   .../media/platform/verisilicon/imx8m_vpu_hw.c |  4 +++
->   3 files changed, 31 insertions(+)
->
-> diff --git a/drivers/media/platform/verisilicon/hantro.h b/drivers/media/platform/verisilicon/hantro.h
-> index e0fdc4535b2d..8baebf767d26 100644
-> --- a/drivers/media/platform/verisilicon/hantro.h
-> +++ b/drivers/media/platform/verisilicon/hantro.h
-> @@ -101,6 +101,7 @@ struct hantro_variant {
->   	unsigned int double_buffer : 1;
->   	unsigned int legacy_regs : 1;
->   	unsigned int late_postproc : 1;
-> +	atomic_t *shared_resource;
->   };
->   
->   /**
-> diff --git a/drivers/media/platform/verisilicon/hantro_drv.c b/drivers/media/platform/verisilicon/hantro_drv.c
-> index 60b95b5d8565..036ce43c9359 100644
-> --- a/drivers/media/platform/verisilicon/hantro_drv.c
-> +++ b/drivers/media/platform/verisilicon/hantro_drv.c
-> @@ -19,6 +19,7 @@
->   #include <linux/slab.h>
->   #include <linux/videodev2.h>
->   #include <linux/workqueue.h>
-> +#include <linux/iopoll.h>
->   #include <media/v4l2-event.h>
->   #include <media/v4l2-mem2mem.h>
->   #include <media/videobuf2-core.h>
-> @@ -93,6 +94,9 @@ static void hantro_job_finish(struct hantro_dev *vpu,
->   
->   	clk_bulk_disable(vpu->variant->num_clocks, vpu->clocks);
->   
-> +	if (vpu->variant->shared_resource)
-> +		atomic_cmpxchg(vpu->variant->shared_resource, 0, 1);
-> +
->   	hantro_job_finish_no_pm(vpu, ctx, result);
->   }
->   
-> @@ -166,12 +170,34 @@ void hantro_end_prepare_run(struct hantro_ctx *ctx)
->   			      msecs_to_jiffies(2000));
->   }
->   
-> +static int hantro_wait_shared_resource(struct hantro_dev *vpu)
-> +{
-> +	u32 data;
-> +	int ret;
-> +
-> +	if (!vpu->variant->shared_resource)
-> +		return 0;
-> +
-> +	ret = read_poll_timeout(atomic_cmpxchg, data, data, 10, 300 * NSEC_PER_MSEC, false,
-> +				vpu->variant->shared_resource, 1, 0);
-> +	if (ret) {
-> +		dev_err(vpu->dev, "Failed to wait shared resource\n");
-> +		return -EINVAL;
-> +	}
-> +
-> +	return 0;
-> +}
-> +
->   static void device_run(void *priv)
->   {
->   	struct hantro_ctx *ctx = priv;
->   	struct vb2_v4l2_buffer *src, *dst;
->   	int ret;
->   
-> +	ret = hantro_wait_shared_resource(ctx->dev);
-> +	if (ret < 0)
-> +		goto err_cancel_job;
-> +
->   	src = hantro_get_src_buf(ctx);
->   	dst = hantro_get_dst_buf(ctx);
->   
-> diff --git a/drivers/media/platform/verisilicon/imx8m_vpu_hw.c b/drivers/media/platform/verisilicon/imx8m_vpu_hw.c
-> index 5be0e2e76882..1b3a0bfbf890 100644
-> --- a/drivers/media/platform/verisilicon/imx8m_vpu_hw.c
-> +++ b/drivers/media/platform/verisilicon/imx8m_vpu_hw.c
-> @@ -324,6 +324,8 @@ static const char * const imx8mq_reg_names[] = { "g1", "g2", "ctrl" };
->   static const char * const imx8mq_g1_clk_names[] = { "g1" };
->   static const char * const imx8mq_g2_clk_names[] = { "g2" };
->   
-> +static atomic_t imx8mq_shared_resource = ATOMIC_INIT(1);
-> +
->   const struct hantro_variant imx8mq_vpu_variant = {
->   	.dec_fmts = imx8m_vpu_dec_fmts,
->   	.num_dec_fmts = ARRAY_SIZE(imx8m_vpu_dec_fmts),
-> @@ -356,6 +358,7 @@ const struct hantro_variant imx8mq_vpu_g1_variant = {
->   	.num_irqs = ARRAY_SIZE(imx8mq_irqs),
->   	.clk_names = imx8mq_g1_clk_names,
->   	.num_clocks = ARRAY_SIZE(imx8mq_g1_clk_names),
-> +	.shared_resource = &imx8mq_shared_resource,
->   };
->   
->   const struct hantro_variant imx8mq_vpu_g2_variant = {
-> @@ -371,6 +374,7 @@ const struct hantro_variant imx8mq_vpu_g2_variant = {
->   	.num_irqs = ARRAY_SIZE(imx8mq_g2_irqs),
->   	.clk_names = imx8mq_g2_clk_names,
->   	.num_clocks = ARRAY_SIZE(imx8mq_g2_clk_names),
-> +	.shared_resource = &imx8mq_shared_resource,
->   };
->   
->   const struct hantro_variant imx8mm_vpu_g1_variant = {
+Acked-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+
+
+diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+index 893e0af0bc51..b4507eeabc4c 100644
+--- a/arch/arm64/Kconfig
++++ b/arch/arm64/Kconfig
+@@ -20,6 +20,7 @@ config ARM64
+        select ARCH_ENABLE_SPLIT_PMD_PTLOCK if PGTABLE_LEVELS > 2
+        select ARCH_ENABLE_THP_MIGRATION if TRANSPARENT_HUGEPAGE
+        select ARCH_HAS_CACHE_LINE_SIZE
++       select ARCH_HAS_CPU_CACHE_INVALIDATE_MEMREGION
+        select ARCH_HAS_CC_PLATFORM
+        select ARCH_HAS_CURRENT_STACK_POINTER
+        select ARCH_HAS_DEBUG_VIRTUAL
+diff --git a/lib/Kconfig b/lib/Kconfig
+index e11136d188ae..2923924bea78 100644
+--- a/lib/Kconfig
++++ b/lib/Kconfig
+@@ -544,7 +544,6 @@ config ARCH_HAS_CPU_CACHE_INVALIDATE_MEMREGION
+
+ config GENERIC_CPU_CACHE_MAINTENANCE
+        bool
+-       select ARCH_HAS_CPU_CACHE_INVALIDATE_MEMREGION
+
+ config ARCH_HAS_MEMREMAP_COMPAT_ALIGN
+        bool
+
+If not I'm guessing no one will mind too much if we tidy this up post or
+late in merge window.
+
+Thanks,
+
+Jonathan
+
+
 
