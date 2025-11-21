@@ -4,105 +4,139 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B255CFC279
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 14:37:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B78B8CFC279
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 14:50:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sSqjmw47egF/N94mEdR3iEsMh8hAGTJSLEFFawVJke0=; b=BmnPFNlqDcVRYnLFgysqeFA/Dq
-	UbNxAjYKvLpMkFxQCEmWt83WQ/YTbX7X8Njei7PrLkwgC5QslSR/J84BMHYctJiJ18D0Nzz4BeWlh
-	JKh2Tp764nyOitTSfnYvmojdYhPHAq7o3dmHjF7FcuWogHtMggm2g1Y2S5h682uE+Yll+I5Y04zcf
-	55zRPNu9iqzH9nqR7vpbm85yWt9NZBM5FFZWfrY7R9YLCwWNvAlk6ohZcswMMIvkS/y9XjJ+uBMOs
-	nUGMrn5Ar/C7lPg21pljzma83Kz0dKoAM8+nhW5P8JrezEFk6mp6A4e53UzwqqymvT29ULELyECsI
-	w4w2iEZw==;
+	bh=y4yMm5gRaB703rYohlWyjuL3DkCaUbLUnDXibYrUjg0=; b=PCqL6AnvlcZS5v7PILd1Iigyab
+	0xP2FQAw7s1ixoxc7fEh129BOm06tU3evwngh/TD7nDnJX6LXqv7nZ4aCfh3W8IL8LVEdUYPyjVIZ
+	kEZeJzA7kRkK/1f+QPBYaRe55GeBGsTXw+dy5LERZc1ysIOK3iuGtYkNg51kBroDyUIf0A9TcsO0k
+	WbfFF5IorIEA9g5XdRTlg/vohRi3wfVuEmyKnBLva6qpL5bkvDcXHE3dIpnbd/Iy8wnyyMpKJHSh6
+	A9CmOgTVlgHlkSasyL0TUBmgbXo1P2o2zO8hNYkaFyeCJTWX9lrBtl4CnAesUnAGfs0gX9qa1k5eC
+	PumzwsMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMSGh-00000008XDk-0xyC;
-	Fri, 21 Nov 2025 14:37:47 +0000
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+	id 1vMST9-00000008Xzh-32KE;
+	Fri, 21 Nov 2025 14:50:39 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMSGf-00000008XDA-28nK
+	id 1vMST7-00000008Xz5-14WR
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Nov 2025 14:37:46 +0000
-Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-477a1c28778so23949515e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Nov 2025 06:37:44 -0800 (PST)
+	Fri, 21 Nov 2025 14:50:38 +0000
+Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5AL8Z2m13139807
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Nov 2025 14:50:36 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	y4yMm5gRaB703rYohlWyjuL3DkCaUbLUnDXibYrUjg0=; b=Io0bpT/EpkpXSFLs
+	D91WsCR6qVXIp/UbEh+epgzpRqth9vIzKDpVF4kI+bw1DeoY0rzGBSd9wltA1VfO
+	O8OLJFFD6DiQHsaBDr3tlaMvNtvrjSGV+N4gD8bHLg1WfMZvseQkHFFO2hU3jD4y
+	WOhU0hdEkQs07PdQj7NfpnJU/XZANUq6oW70ofjyNY9tfaq0GtswfqtQGrv6tuGO
+	KPWUNqwhnbmn5b9qNQ0ycvRd33eNdoiv7HRK7MdcAxP0GCnkwXOD/EIvkim1eLzd
+	93arcj2qwfEkGcsjHDpBChKRHLR4+P388Q635cOe/f+nEhbu2lnxb3TfgIaDy6rz
+	iO3h0Q==
+Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4ajmpph8w9-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Nov 2025 14:50:36 +0000 (GMT)
+Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-4ee409f1880so4123061cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Nov 2025 06:50:36 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1763735863; x=1764340663; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1763736635; x=1764341435; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=sSqjmw47egF/N94mEdR3iEsMh8hAGTJSLEFFawVJke0=;
-        b=Egg71fUOpc5o7hKvQ/dhN1Gnk9EGTQp1YQaJ7GejVOi4CH9yUn+Q/NJ6PKHWU5fj9Q
-         3AGjDHIeKLg0auffQ2r8vV6eBy7I/8nmHcY+gZY0GPdoXGpPPTuwTCABNBOZ08uVinL3
-         gAWlAcIa4Bs/eScAhO+2Iew89/hx0o1mCsqn+bJ75SJSiBKc4Rbv2d4Mg9rMXz4n5wZW
-         X8s6jShmCu/FSFLf2Hb99C18CFqVShl9BgS2sF6SkaRHm2atWXHV0YK8d/4Hu9NG9RUv
-         cQ7I+fL55DLZKi+CcITlc5b5EzXbsFTlpFbXG4kJ1Fd1R9kTkANCPso8RPkg+mRtv0cr
-         afSw==
+        bh=y4yMm5gRaB703rYohlWyjuL3DkCaUbLUnDXibYrUjg0=;
+        b=jbbNUYNAS+wLiEjqajScyx2IOOyZnW/aQR8FGRPun2QW7JlsATUmuIp5CvsJ/G7pdn
+         h4IbsVSftYqL9t8RjKrX+H9cPXMtSV7uaZ65U6DEzR8g3UQTglSJrn8An3uHgCSnKk6N
+         9oYZPy5hQLXRoMLQV7RFuxXvXYDYalgOjUdLRIzPYrbnNqeF/k9k8rooGL7AQ/aqdrbO
+         ZmWbPQ2snxeeaWrZ9xUuttieTh8116M5bJshYAQyOQshMbW7kr3yhxuERT5tv8xGzv7t
+         QZ0YcidTRyD4sxM3PU86gu+MSNVzrwgab2iw4K/GQdXnRMiLwZrHYxg1tgbLx/OwEPRS
+         3jDA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763735863; x=1764340663;
+        d=1e100.net; s=20230601; t=1763736635; x=1764341435;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=sSqjmw47egF/N94mEdR3iEsMh8hAGTJSLEFFawVJke0=;
-        b=en/e+kFMMYUV2DqDU0tMS2BcF5mW+BKF1u2lKoPx0IYwjd8Z2z8hTbjq7rT7cg0jrY
-         sWVu8ygTWy1FBADb7GYc2scmqT/mC2YmSI0BRohQ6Uv1DZ5fEwPl9WZgU+nDMHCvjrA+
-         5w7ZdfAczyHDndMH9R3lu5f/xhEUF1I9Y+KOsu4Bjz/d8L7fWd0ZizLgWsi9HoG6ul9G
-         /tsVXOs6/R4s5tUIWJ44ajfXsBpWEIXY1YPMF5au60C0U8YC0hl4ePZlpuJ2Hvl7ESQa
-         LVvIAw9iar2w1HdQyfyqJYBHV2J7jjWLSGoGbYuoaYS2QKWQC4/r8/YmERFtrX25kaBx
-         WElA==
-X-Forwarded-Encrypted: i=1; AJvYcCU6ubluu6ww/fZ3cpw2fY0rWnzqos7/xyDNruBMjatpajLSrWfQlaG2EV8a6CkvUCts7hJHO+FZtXPgObdjY4NG@lists.infradead.org
-X-Gm-Message-State: AOJu0YwhBozb93q3osrd0iSCGRM4gTIaKv4QfOwuz8TlkYZNMx/cF0S+
-	vLMqlKEuNARcLeXDwjbTRMTu+OOkWdKoUuR+MSa1cr8VaqrBxm8sp5j1/kzQRX+WetE=
-X-Gm-Gg: ASbGncsjhzLrlayZMBYPSyyiSdGXQRKihbYT9mpR724C4iJOoGPA5q8N/78tFAz5Vtt
-	VIXvp2PoHuMDehsjiGn8rfEqbCYuks1NK8I7mj+5x5vMedFfQ3/b3YCW0TYxNJ3y95Anrmu05bc
-	99kJVVmXpjb8PrFrY569cMlmOaEZ+HiTH+ZNrfkC1hnSZzCmvDlvTT3Uzrq/rzVJBm+7X44g7ia
-	5rJc5L19euQDuJmlfh511AcGhXj2qRx6K6uM7Xl9EAbm8US1c3VawRzM27otywjS1vBDzAh++Ii
-	EKOMAhNI4y40VGXcftp383mURmEd51cnqsP/fn1kAJZDe+EfOzvE0LREuh4FG/Hk4lWBVssbzdz
-	u1RuBNUIeeJLt0/0xgN5pkVu1OvD+QloJMEXjNnjP3t1zjGEJUQ5/pITA7b20cekJFYSRsd6CLh
-	+ggdBw6r6DpRlysiJyyKmx3WDqTJ+JvDVatYAbDy40i8YKfDQP/qQrWGTCkSI1qbpDOX/BiAkEW
-	rxt
-X-Google-Smtp-Source: AGHT+IFD1wPtEuNTYpQ8xE6F8oI1MRv/OML7G8ADOWBdJfI5P969OqsJ7Zy8eXH/iFI9OqcudodJig==
-X-Received: by 2002:a05:600c:190c:b0:477:5c58:3d42 with SMTP id 5b1f17b1804b1-477c017d879mr28676045e9.10.1763735863512;
-        Fri, 21 Nov 2025 06:37:43 -0800 (PST)
-Received: from ?IPV6:2a05:6e02:1041:c10:37e6:ed62:3c8b:2621? ([2a05:6e02:1041:c10:37e6:ed62:3c8b:2621])
-        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-477bf22dfcesm46879155e9.13.2025.11.21.06.37.42
+        bh=y4yMm5gRaB703rYohlWyjuL3DkCaUbLUnDXibYrUjg0=;
+        b=Dg6vSwq2ozEkZcSxO0WGlz8ioSP8qtKVV9rp/iw5MTvsYzvPjVmMbfvZ7xTJOtc+8C
+         uyOBu+juNRNhwj4tiOAROlroWqfdvNEULAEC10uMy6vnA++CPvYeKDQahE3YE8r3ntIJ
+         GQWXib+IDAtlSM8SXqlxtgEVj3PNISo3w4qyDB/wWAV6qc+1ptHgkrAEZIaT1rOduAXV
+         sk1p/+MQr4l9aNGhOSShf7vtxHeRbIy8pNvEhSxsbHAhrJaqIgpbYeYMvFhz/+3PFvXf
+         MeEwoHVmE1OIGaOs99aCE1l7BWC0XhvPWZIwiA+wo4kAbtYy3eXxtawjlp9k8D843Oob
+         TrCw==
+X-Gm-Message-State: AOJu0Yw+JTAQDkRMygkSBi3+aabQPUr5+IyMTh1SJU1h2IsvcZueb6PQ
+	cZYZ0P9eSiOVeBikdns6gK0WQJrRN/0SDF06M6bShBq96p9DBQ2r4Sg0wZ86nGORPAhQeqfw4Nh
+	QXVFJwoMZ9iQSmmtyiSWgoPM03PFG6CBIzxZmn3qnGnlj7A0Q1BtF43WbZ6AuVL9muo4VjTuojD
+	FbLw==
+X-Gm-Gg: ASbGnculFD1zAr1ISz1N++MkHtVVMyddFHyZTF0+1g09ncuz31tbX86PS1E+7I7eAR2
+	vUxvDYGT9RWbLLuQRVjkeuVZ3NlGbkMJ53NpobNQ3an/uw56CtIc7MXOsRAt3IerrO72Olc/11b
+	+MPOHQNDcPUgRhSjnfk0Lnf78aq1aNlngmt+KF8vr7PMZasMdFQR0uQU+0tE9VJykOKZ2nTcZr+
+	hRXSuII1JFrF1i73FsmeO4TgJrKUgTjIiKWSJedYEzA+PMZN2zjReS5Yc4vaXXShteLhi+tJAIL
+	t83RUs5oT3rE10qVrpSNROvRkpTc0sKMN21UyLSgtTIGth7979Jmcayj8cJuugQpxMn1IJbUfur
+	dBLRGzHjZz6hDd2mKAtiEWaRXlDbkyNYKnls5BdM0sT2ujFcscqlwDro5IwapNe3NWo0=
+X-Received: by 2002:a05:622a:151:b0:4ee:1924:c6fc with SMTP id d75a77b69052e-4ee5883a43cmr25444401cf.1.1763736635180;
+        Fri, 21 Nov 2025 06:50:35 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IHxj2AABKQQlV7xQ2ap9JjI3812ONi/dGdeAeCium8JGunYEAvRHgpsHbcoAjOYZET5U86ETA==
+X-Received: by 2002:a05:622a:151:b0:4ee:1924:c6fc with SMTP id d75a77b69052e-4ee5883a43cmr25444141cf.1.1763736634749;
+        Fri, 21 Nov 2025 06:50:34 -0800 (PST)
+Received: from [192.168.119.202] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-645363b5a46sm4708560a12.8.2025.11.21.06.50.32
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 21 Nov 2025 06:37:42 -0800 (PST)
-Message-ID: <79cb0a99-1431-4a3e-9ec2-f70b4154b41f@linaro.org>
-Date: Fri, 21 Nov 2025 15:37:41 +0100
+        Fri, 21 Nov 2025 06:50:34 -0800 (PST)
+Message-ID: <3abea679-fc83-4157-9d2d-587354b85c68@oss.qualcomm.com>
+Date: Fri, 21 Nov 2025 15:50:32 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 1/6] ARM: make register_current_timer_delay()
- accessible after init
-To: Will McVicker <willmcvicker@google.com>,
- Russell King <linux@armlinux.org.uk>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Thomas Gleixner <tglx@linutronix.de>, Krzysztof Kozlowski <krzk@kernel.org>,
- Alim Akhtar <alim.akhtar@samsung.com>
-Cc: Donghoon Yu <hoony.yu@samsung.com>, Hosung Kim <hosung0.kim@samsung.com>,
- Rob Herring <robh@kernel.org>, John Stultz <jstultz@google.com>,
- Youngmin Nam <youngmin.nam@samsung.com>,
- Peter Griffin <peter.griffin@linaro.org>,
- Tudor Ambarus <tudor.ambarus@linaro.org>,
- =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Marek Szyprowski <m.szyprowski@samsung.com>,
- linux-samsung-soc@vger.kernel.org, kernel-team@android.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20251120184242.1625820-1-willmcvicker@google.com>
- <20251120184242.1625820-2-willmcvicker@google.com>
+Subject: Re: [PATCH] cpuidle: warn and fixup on sanity check instead of
+ rejecting the driver
+To: Val Packett <val@packett.cool>, "Rafael J. Wysocki" <rafael@kernel.org>,
+        Daniel Lezcano <daniel.lezcano@linaro.org>,
+        Christian Loehle <christian.loehle@arm.com>,
+        Artem Bityutskiy <artem.bityutskiy@linux.intel.com>,
+        Maulik Shah <maulik.shah@oss.qualcomm.com>,
+        Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+        "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
+        linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20251121010756.6687-1-val@packett.cool>
 Content-Language: en-US
-From: Daniel Lezcano <daniel.lezcano@linaro.org>
-In-Reply-To: <20251120184242.1625820-2-willmcvicker@google.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+In-Reply-To: <20251121010756.6687-1-val@packett.cool>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-ORIG-GUID: CcpBTxziC_3KRCO8Bm3nqqD14qbCsm_c
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMTIxMDEwOCBTYWx0ZWRfX0CAXJCinZnEF
+ 288ZUGtWiSa3akLhli0/LprDdSEM0eBqoK/8hw6q84KG8ZbNpee9KPKZnOWk/XJYCjZp1whN4US
+ A1G32SYhHWhQy4AtIB60ndPXPo563bL6EsNjlWOeLYfl/6p4QMT67teHE64cZp0L/g9uF4yZX8A
+ suE7wBTXC/9ZU4Whm93m0vTWmffhQvvzQO1NmRRqS21GVG6CpGc2nWMTBk4FUplxv02PONf0iis
+ a4defkcnj67GTKpChcSz6dYiifclags8Kr5KNJNhXu9LCJnUquDXB1+GH5RT1h5+NtiBklWWXYV
+ afQxPL2UXbhzSTfyvQqfzA4odSG3HpSdYaHuShx0Oqq6AWGpw1kcOWK6Q6FzHpJ8elNBwEjp+0h
+ cQ5MIf8wGINJXw+DMyFBFeSniJxxpQ==
+X-Proofpoint-GUID: CcpBTxziC_3KRCO8Bm3nqqD14qbCsm_c
+X-Authority-Analysis: v=2.4 cv=CK4nnBrD c=1 sm=1 tr=0 ts=69207c3c cx=c_pps
+ a=JbAStetqSzwMeJznSMzCyw==:117 a=FpWmc02/iXfjRdCD7H54yg==:17
+ a=IkcTkHD0fZMA:10 a=6UeiqGixMTsA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=2g0XylBXbUAb_SZQJ8YA:9 a=QEXdDO2ut3YA:10
+ a=uxP6HrT_eTzRwkO_Te1X:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
+ definitions=2025-11-21_03,2025-11-21_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ phishscore=0 bulkscore=0 adultscore=0 spamscore=0 impostorscore=0
+ suspectscore=0 lowpriorityscore=0 clxscore=1015 malwarescore=0
+ priorityscore=1501 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2510240001
+ definitions=main-2511210108
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251121_063745_571171_7809F58F 
-X-CRM114-Status: GOOD (  12.04  )
+X-CRM114-CacheID: sfid-20251121_065037_327408_A5C64D4F 
+X-CRM114-Status: GOOD (  14.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,23 +151,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/20/25 19:42, Will McVicker wrote:
-> The function register_current_timer_delay() is called from the
-> exynos_mct clocksource driver at probe time. In the event that the
-> exynos_mct driver is probed deferred or the platform manually unbinds
-> and rebinds the driver we need this function available. So drop the
-> __init tag.
+On 11/21/25 2:06 AM, Val Packett wrote:
+> On Device Tree platforms, the latency and target residency values come
+> directly from device trees, which are numerous and weren't all written
+> with cpuidle invariants in mind. For example, qcom/hamoa.dtsi currently
+> trips this check: exit latency 680000 > residency 600000.
+> 
+> Instead of harshly rejecting the entire cpuidle driver with a mysterious
+> error message, print a warning and set the target residency value to be
+> equal to the exit latency.
+> 
+> Fixes: 76934e495cdc ("cpuidle: Add sanity check for exit latency and target residency")
+> Signed-off-by: Val Packett <val@packett.cool>
+> ---
 
-Is this change supposed to fix an existing bug or is it a guess it could 
-happen ? If the latter, I prefer to not pick this patch until is proven 
-it fixes an observed issue.
+FWIW this is caused by:
+
+--- hamoa.dtsi
+cluster_c4: cpu-sleep-0 {
+	compatible = "arm,idle-state";
+	idle-state-name = "ret";
+	arm,psci-suspend-param = <0x00000004>;
+	entry-latency-us = <180>;
+	exit-latency-us = <500>;
+	min-residency-us = <600>;
+};
+
+which notably lacks 'wakeup-latency-us', which triggers this code path:
+
+/*
+ * If wakeup-latency-us is missing, default to entry+exit
+ * latencies as defined in idle states bindings
+ */
+idle_state->exit_latency = entry_latency + exit_latency;
+
+which fails this sanity check because 500+180=680 > 600
+
+(which would have been good to note somewhere)
 
 
++Maulik can we fix up the numbers somehow?
 
--- 
-<http://www.linaro.org/> Linaro.org │ Open source software for ARM SoCs
-
-Follow Linaro:  <http://www.facebook.com/pages/Linaro> Facebook |
-<http://twitter.com/#!/linaroorg> Twitter |
-<http://www.linaro.org/linaro-blog/> Blog
+Konrad
 
