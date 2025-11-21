@@ -4,71 +4,185 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72C68CFC27C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 13:36:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FB0BCFC27C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 13:37:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=efH9Agej6Z9Q3tfyl7rJRxdmC7o9Bt18Qr1lcQtX8mc=; b=VM5ld4jDLndJH2r+4ox+WT2bgh
-	f6xIWjsv2YEX0ViRLe35xfULbi9eOZ/p4B3eSMZLmQTaBqCJjyz665PufP3jmzG7QWl/4VwzfhYct
-	0VbBXfXD6pbAeEegnv6OYruVzsVYkBWSpZURtuweuAHIr8D6yC5/ZtlBSKPiLotj/+TjuteOqQi87
-	+Nh501WTRr/OVeK2tLUlBK9udwsbB7Z3VlqBcZhk9Yhm05gTJA3mTn7ByEWWeSfUytoC9iwH2KfMR
-	mq8zNsfePj37sEGX/EDH5DojvCx+70DXergrV9xT1OVaxH21IlYeHsgt1G4hmkUCMLgoUumeGYZHt
-	WnmNfRuA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=DIgyY1cZUOKzkjJfdY46tZkGUtEuln9bC+BdeZLrX70=; b=TiiI0kzzGWvY81
+	84cj3aviCzc/m7mWC4n/3Kav01qhvlmKoFMzeOfkRmzW6gqbUSseWs4uHgkLMypESFTZrmua9Ra1m
+	tEXPpocgD6+uvtxLl5VqMTDTs1WTBowgw5CwzbnmROlRbWl+h45C1id1XCC2euk+MGLgag4gLJG45
+	B005Np4tvTHcMuA9QW72/So0Tbmd1W4XL6Z5HOJ5+kR2PNw0FJj1jh8J/yLSch346OqkhqSC85Kvs
+	Mv+MZ9zf/4XBW6JbEOjIUmVKpFgT+lK5RN6v45BB4F0gbRuxlu86YRtyk4OAcanlw9vnEHbe68a09
+	KNX5zzI/PWy7wkrujmIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMRJ6-00000008Q3w-3vql;
-	Fri, 21 Nov 2025 13:36:12 +0000
-Received: from sender3-pp-f112.zoho.com ([136.143.184.112])
+	id 1vMRK5-00000008QHV-0TAH;
+	Fri, 21 Nov 2025 13:37:13 +0000
+Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMRJ4-00000008Q2g-1943;
-	Fri, 21 Nov 2025 13:36:11 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1763732154; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=e74KFJ9vgz6b7ewcQ7f+S6Y5PMn78ts9kOwvCErWbdDYE4SIyWbscAAry8pkQQfrMWOIwqIcbZ9+D2Iy156DDaPIWmRX8Sj+ot0DYUzOcbyY2pFg8i4Q0PiAccmOxDpYhWHIACiiAge3sOtKsqECQOGVjFI1Qku5jESw0Tq4MWk=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1763732154; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=efH9Agej6Z9Q3tfyl7rJRxdmC7o9Bt18Qr1lcQtX8mc=; 
-	b=YA1Ny9ZNwPA2FUgRm2gbSvX+4S/mTCW5tfW7gXxIOP4YdtH/V3QPTNOToRxn6kac1Hg97WDJUSJfu7blPXn5QCGQ/FdoFih5kwVn4O+SHb/h45JgG3haD3sTFuLXLFXv2OZ1Heyf4gsnD7krYPaqQ/is8fp/jX893nJpnSoD91w=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=louisalexis.eyraud@collabora.com;
-	dmarc=pass header.from=<louisalexis.eyraud@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1763732154;
-	s=zohomail; d=collabora.com; i=louisalexis.eyraud@collabora.com;
-	h=Message-ID:Subject:Subject:From:From:To:To:Cc:Cc:Date:Date:In-Reply-To:References:Content-Type:Content-Transfer-Encoding:MIME-Version:Message-Id:Reply-To;
-	bh=efH9Agej6Z9Q3tfyl7rJRxdmC7o9Bt18Qr1lcQtX8mc=;
-	b=YXfjgUMiM1VsxigPCn65uyQOmegLHes3Ns4fqUi3yiOMpA5SFVI938rbr6iDe0y7
-	L+/l3di69KmJtcCFI2+aYo8mz31rZkoUCHaykAKfh6xheIXwClq0ObTtfNzj3c/hPl1
-	IcUNkYSggpnkS5dlDSmdnqHax9h1wg7N5J3gzWhQ=
-Received: by mx.zohomail.com with SMTPS id 1763732152616682.0078621223064;
-	Fri, 21 Nov 2025 05:35:52 -0800 (PST)
-Message-ID: <07011558548dfc88fb237b7d21d43a6bc25dd0fd.camel@collabora.com>
-Subject: Re: [PATCH - URGENT] pmdomains: mtk-pm-domains: Fix spinlock
- recursion in probe
-From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	ulf.hansson@linaro.org
-Cc: matthias.bgg@gmail.com, nfraprado@collabora.com,
- irving-ch.lin@mediatek.com, 	wenst@chromium.org, linux-pm@vger.kernel.org,
- linux-kernel@vger.kernel.org, 	linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, 	robh@kernel.org, krzk@kernel.org,
- conor@kernel.org, kernel@collabora.com
-Date: Fri, 21 Nov 2025 14:35:47 +0100
-In-Reply-To: <20251121125212.43093-1-angelogioacchino.delregno@collabora.com>
-References: <20251121125212.43093-1-angelogioacchino.delregno@collabora.com>
-Organization: Collabora Ltd
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2 (3.56.2-2.fc42) 
+	id 1vMRK1-00000008QFU-1kjm
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 21 Nov 2025 13:37:12 +0000
+Received: from pps.filterd (m0241204.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5ALDZTJc3452033;
+	Fri, 21 Nov 2025 14:37:00 +0100
+Received: from osppr02cu001.outbound.protection.outlook.com (mail-norwayeastazon11013055.outbound.protection.outlook.com [40.107.159.55])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 4ajnmt8x2e-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Fri, 21 Nov 2025 14:36:59 +0100 (CET)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=xk4FuvFyA3CfA4xt6VrZl8aod9GfgVOMe/CvyiwrTb4tiYFvcFHyu3ffFcbi+Pk6oR7R/YuehHZDRq5eQbxCz7dhwHc9IFe9t0WBeTMmFxOeujRXtxN8Z7I6uj0kdjZNo1Vq+YA/KLlDEXRsr2BWAV8X0d8UeJkVWYrT6RDhMq4CUR9ZWDsCaZE169JFG6pgnQyAj/TxQ8dNPLAYI8wOc6TZgn0pCVTG40LebPKmXieZ3/cTDpGKgk+QCizT+8B0kr4v/kkIffQq87PBbEmX0WjQukN+L1v4hzkT62nJkvuSGmQOfI7X4dMmuOyumIFdvhC3Wa7bOE9K/ix/LMxtNw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=DIgyY1cZUOKzkjJfdY46tZkGUtEuln9bC+BdeZLrX70=;
+ b=yDSRvwboqYlb4xnjXG4pvsRorLVSnF3cmNDdaArjEbSm4YtCkYIVvVq1p3HKdUBnpT03Ndzi1qt+p7tcdwVcAh+x/Bd0iy+Y9aApFcjf0nMSR2jhRjm2ShyO74xkTLLivcEuKM3hkJ6y2BaPijIVekuBnFEtZljh6AQDZ7JpyIGXVg/gNWpkbIakwk1a52sAKVoC6cyn22LxCWsF9C5TVx/NiYUm5GyoDCeBgg5cQ1jQnLy+b9zLU8STkIUQv9Y7XL8RCy9JM/NWBRQKvChj2ryjWa8rp6sD+UxMSaRc4fW9l8snLaZO2EuE6FYf3EKOTrJUNARJrOgOBYVxQmE4gQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 164.130.1.59) smtp.rcpttodomain=linaro.org smtp.mailfrom=foss.st.com;
+ dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=DIgyY1cZUOKzkjJfdY46tZkGUtEuln9bC+BdeZLrX70=;
+ b=etRObKoh+1Yfqh9gEa65k91J4MdMYYpsLjOeWJwC81YJ7IMfAOcl4RvDUUtPNG+BKxG/bsNPXxGXDz6+RatBnigZ9Ef0oM9entC269BKf4OUWCUsOUtPxRf+tR/4+XTL9lFMB80lFH/dl+SvMqjUBxjjaCXuPdlaCxF9cFME3MWFcve1wu1ywP/LLt+XwzLDicaiTlLNjsWqrCi/KT+5LL1raTCtYZelCAe+GO/9EqqrynIYj2cqMWkXFOBk8aSksoFCOWoBgpEijuCz67GaOol5ePQI1RjzsZMXlUlNTbfxSXynIqL8mKi+5BqcbZKoSiSwoXQV+Rtv/BhINa4s0Q==
+Received: from DUZPR01CA0333.eurprd01.prod.exchangelabs.com
+ (2603:10a6:10:4b8::27) by DU0PR10MB6019.EURPRD10.PROD.OUTLOOK.COM
+ (2603:10a6:10:3b1::9) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9343.11; Fri, 21 Nov
+ 2025 13:36:57 +0000
+Received: from DB1PEPF000509F3.eurprd02.prod.outlook.com
+ (2603:10a6:10:4b8:cafe::f5) by DUZPR01CA0333.outlook.office365.com
+ (2603:10a6:10:4b8::27) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9343.12 via Frontend Transport; Fri,
+ 21 Nov 2025 13:36:54 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.59)
+ smtp.mailfrom=foss.st.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=foss.st.com;
+Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
+ designate 164.130.1.59 as permitted sender) receiver=protection.outlook.com;
+ client-ip=164.130.1.59; helo=smtpO365.st.com;
+Received: from smtpO365.st.com (164.130.1.59) by
+ DB1PEPF000509F3.mail.protection.outlook.com (10.167.242.149) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9343.9 via Frontend Transport; Fri, 21 Nov 2025 13:36:57 +0000
+Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpo365.st.com
+ (10.250.44.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Fri, 21 Nov
+ 2025 14:37:21 +0100
+Received: from localhost (10.48.86.127) by STKDAG1NODE2.st.com (10.75.128.133)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Fri, 21 Nov
+ 2025 14:36:56 +0100
+From: Amelie Delaunay <amelie.delaunay@foss.st.com>
+Subject: [PATCH v2 0/4] dmaengine: stm32-dma3: improvements and helper
+ functions
+Date: Fri, 21 Nov 2025 14:36:55 +0100
+Message-ID: <20251121-dma3_improv-v2-0-76a207b13ea6@foss.st.com>
 MIME-Version: 1.0
-X-ZohoMailClient: External
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAPdqIGkC/23MywqDMBCF4VeRWTeSm1W66nsUKUYndRYayUhok
+ bx7U9dd/gfOdwBjJGS4VQdETMQU1hL6UsE4D+sLBU2lQUvdKCWNmJbBPGnZYkjCWWeuiNootFA
+ eW0RP71N79KVn4j3Ez4kn9Vv/O0kJKZrWS9s5r7u2vfvAXPNej2GBPuf8BX2vVR+oAAAA
+To: Vinod Koul <vkoul@kernel.org>,
+        Maxime Coquelin
+	<mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>
+CC: <dmaengine@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        Amelie Delaunay <amelie.delaunay@foss.st.com>,
+        Eugen Hristev
+	<eugen.hristev@linaro.org>
+X-Mailer: b4 0.13.0
+X-Originating-IP: [10.48.86.127]
+X-ClientProxiedBy: STKCAS1NODE1.st.com (10.75.128.134) To STKDAG1NODE2.st.com
+ (10.75.128.133)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DB1PEPF000509F3:EE_|DU0PR10MB6019:EE_
+X-MS-Office365-Filtering-Correlation-Id: e97a7f69-2db1-4614-d08b-08de29030a83
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|1800799024|376014|82310400026;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?UHMxYldPbXVQWi9zYlpWS0NDUEZSbUpRbXl5b2FpT1JuUy9vUjRZZmZuNmhE?=
+ =?utf-8?B?SDNLTmFMaVdGT3Q5MXNzNHptd1JuOHVVVHJ4TkJPL0FYSEJyUDVEa05GUE9R?=
+ =?utf-8?B?V3JWemkyN0ZKa1FOaGEzdEpVcVA0enVzdTE0UE90dnFYV0F3anowMG9XR0FD?=
+ =?utf-8?B?SkliUWJFZ1pZRjRkNEpIeVdjb2dKTzBzcXhZVm1KNlI2OGhjVm96MXp1Lzli?=
+ =?utf-8?B?YzNuMkw5a2U1ZHN1eTNBOWZoR2s0cUFwZjQzZmpYbW5BWlpmNWs1TXVNWHVB?=
+ =?utf-8?B?NDhqVjBWSjk5QWtKQ2FvOUJvMmFJajAyMmQrdklla1hENTVvcVRlNURsSTdr?=
+ =?utf-8?B?em45aUFERFVQN1V3NTVPSlJ6OGlITFloMU13YXc2WEh1SnVsYWRTamdMZk16?=
+ =?utf-8?B?MGs2SjMvZU9jQ0drL0hFS3F4aFJDMDh1aUJWZHA3bUlJdVdXSHNISU1jblRo?=
+ =?utf-8?B?ZTV6dWlKTmV0NlY4am83Wk1hZVRETWVTbTNTSjRuUEhrei82UW5NYjVNOEQr?=
+ =?utf-8?B?ekN4Sk5uT09wZWY1MkNNUkkzNTJEOHJQMG1UejFQRFRpZDdrTC9XVUI5VVYx?=
+ =?utf-8?B?LzBzaXdSUVhFUWNNcmNPc1dNblQvaWxSL0dNK3FndE9MQUp2aFphRjNxdHN2?=
+ =?utf-8?B?ZlZtaG9LekRPaFdxaXhmempzNndFWHdSVC9rMC92QWE1eVVKNm5JZVFuS0hu?=
+ =?utf-8?B?VFhubEdLZ0J4cDFmTE10cittVnpVRXU4WFQzRUpSQTd3SE1vdkxFaWxJQ0NF?=
+ =?utf-8?B?bUI1NFBWUU16Yk82L0YyNjVTYjdFV0ROTUgwTEJhRWdOTzZ1QWhwc2RkYlFo?=
+ =?utf-8?B?N3hlSTN2MFBML0lPZjhONm1xak1GMXhHQ0hGNTNVKzdJUHVVVHppSEhHcCtB?=
+ =?utf-8?B?a3NnL2hSc2hrVmNkRTFjU2JhZnkzZmdaVVBmeWI2dUdQcDE2THRDU0phcVV2?=
+ =?utf-8?B?bWtRaldubUdTUDUyeHNQUEdQNCtaQVM5RVU0R0hiL2NDbFVhT3hyS2FML01w?=
+ =?utf-8?B?T1NiaG9Sb255YmdhbFR2Y3dWWGhqUjRlbmFqdVhkQW8wczlwa1FmU2Z4Ykhm?=
+ =?utf-8?B?NjZUT0pLWG9KQ2RveVhqbmdlRm5oM1MvT2FxV2szUy80QlBRalVWbHN2U1Nm?=
+ =?utf-8?B?SmtVV3pYR2Z1c1NDRk9UandObjlVbHlrOHRTVEdRYnVyS3lZT3l6dFBXY2tG?=
+ =?utf-8?B?cnhFR25LUnF2blo5NDBMTlh1TC9kUXlBUXUxR1RUOHM5b2x1RkRWTk9SQlNs?=
+ =?utf-8?B?djBUTldwc01xMTRFcTI3UHl3cEhHRHNoeGRiU3hSVWFPWnlBa1JFc0xuVmhD?=
+ =?utf-8?B?TThFbkpyQzlZQTd1TE56WEZMa0Q2OXV5ODMvSko5RS9YOTFsS1dZSEJiTUx1?=
+ =?utf-8?B?WklLR2EvVy82d2JlVTZ2TGNrM0VFbjlxZFl6ak4yaHRmYWZoS0pOWFZvTVBR?=
+ =?utf-8?B?UkFWT2grbEY5akt5MVZWRmNNVHE4ZmZuZEpsdjJHVkM0NGZ2bWxCU3lmZ1N2?=
+ =?utf-8?B?Rk43ZTV4elNMNWpzRFFzVCtCcjlGSFQxSkV4d0M1eWYweUUrQ3pqeXhKL01G?=
+ =?utf-8?B?VTZTQW9aclhiYlRKSjRtV0FkR1hObXVQd3IzckhSVGVxY3pQUkdSZmR1RVVG?=
+ =?utf-8?B?clhUR0doVWJIU2tLTUllOWxhT2ovZyttTkppaVdMTHQ0YmRxRWYxamxsUURz?=
+ =?utf-8?B?eitJbFp1NktCTHJ2Z1N3ZGE4d29EUmprUEJHdUw5bzViVjhEdXBZTmYwQnNu?=
+ =?utf-8?B?eVZqWElVcTY4aVlaT0hEMlRaMTVWNkpZMm9lN2M3QUYzSzBUN2pJTXIrci9O?=
+ =?utf-8?B?QjFqMWV0V0ZRTHVJQlhHV2hybk1PeHVLOElFMFc1czNEcGJwajVVaFJMUTlN?=
+ =?utf-8?B?YkdiWHJsUWNaZ0VjdEZoMHZiNEpyOFVIbHZzY082WkFTZjZ6UUt4UU9qZEpq?=
+ =?utf-8?B?SkhvSUZhVURUdW1nSnovOHdSV0pIUlF1TkFDU0VxRHB3dEh3MFVTUkxJMkh5?=
+ =?utf-8?B?UWY4RHluQzNFd2dLSzhQWnBSYm5QRE5UU0dUZFZGNXRkaGpvNkhReHlnRkUz?=
+ =?utf-8?B?b0JnK1hFMUZabTJFR1VSYjlvaVJXbnI1ejd1WXZsaTN6WVd4SGNWOVlhemFL?=
+ =?utf-8?Q?RBJYZ3X2adTvK1kNh/0ni4PLg?=
+X-Forefront-Antispam-Report: CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700013)(1800799024)(376014)(82310400026);DIR:OUT;SFP:1101;
+X-OriginatorOrg: foss.st.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Nov 2025 13:36:57.0085
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: e97a7f69-2db1-4614-d08b-08de29030a83
+X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.59];Helo=[smtpO365.st.com]
+X-MS-Exchange-CrossTenant-AuthSource: DB1PEPF000509F3.eurprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0PR10MB6019
+X-Authority-Analysis: v=2.4 cv=fYKgCkQF c=1 sm=1 tr=0 ts=69206afc cx=c_pps
+ a=H8i1M1V/suqiaFjUero0jA==:117 a=d6reE3nDawwanmLcZTMRXA==:17
+ a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=iPq3YwKX0LwA:10 a=IkcTkHD0fZMA:10
+ a=6UeiqGixMTsA:10 a=s63m1ICgrNkA:10 a=KrXZwBdWH7kA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=VwQbUJbxAAAA:8 a=8b9GpE9nAAAA:8
+ a=FnA8CDKvPw8sk-bsElgA:9 a=QEXdDO2ut3YA:10 a=T3LWEMljR5ZiDmsYVIUa:22
+X-Proofpoint-GUID: 0dS2B-euAi0koSuZFiKMWLQnLLESmXFV
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMTIxMDA5OSBTYWx0ZWRfX0OrTw26uqoYB
+ fGZ2V5V9KlQ5WliOwDclaV/emOeMduBxpDQWIlvdut5QtgR01nUPl4LRfVRUiTQm3ciEo5Bf1G6
+ gxj5K7ms1KGlTpbjL0zy3NxhObMks3Z8xgnu7XyZkXfw5aXLcejNji3g3EoBGwdX0hjW7AEmZf0
+ pAUK2VfY2o+4nlSDBeJiBvwkAPb4tSYEFoXMvNGWeEsHmhkfnZeIge1wYk6mSxG7AwY0OqnqQlK
+ R7Ry9xibg0GWdLnmo0eeKPildrhZ5L6qXLXWf08lpnwbSAnVDzx/jDKtDcCjRQh8ZPn1a6Fzgyu
+ jsHjVvUEdLZjzut26zTV7BWDem3ouThBTcO04keWX8QpMpUSabI1gnB4hPsVycJjvPJfGnj7Rs4
+ dvpVXeM/2Q15ae10nl3bfP4qmJReAg==
+X-Proofpoint-ORIG-GUID: 0dS2B-euAi0koSuZFiKMWLQnLLESmXFV
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
+ definitions=2025-11-21_03,2025-11-21_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0
+ priorityscore=1501 impostorscore=0 adultscore=0 clxscore=1015 bulkscore=0
+ lowpriorityscore=0 spamscore=0 suspectscore=0 phishscore=0 malwarescore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2510240001 definitions=main-2511210099
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251121_053610_368568_D6E9B923 
-X-CRM114-Status: GOOD (  33.57  )
+X-CRM114-CacheID: sfid-20251121_053709_987612_04441574 
+X-CRM114-Status: UNSURE (   8.16  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,173 +197,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Angelo,
+This series introduces improvements and helper functions for channel
+and driver management.
 
-On Fri, 2025-11-21 at 13:52 +0100, AngeloGioacchino Del Regno wrote:
-> For some reason, of_find_node_with_property() is creating a spinlock
-> recursion issue along with fwnode_count_parents(), and this issue
-> is making all MediaTek boards unbootable.
->=20
-> As of kernel v6.18-rc6, there are only three users of this function,
-> one of which is this driver.
->=20
-> Migrate away from of_find_node_with_property() by adding a local
-> scpsys_get_legacy_regmap_node() function, which acts similarly to
-> of_find_node_with_property(), and calling the former in place of
-> the latter.
->=20
-> This resolves the following spinlock recursion issue:
->=20
-> [=C2=A0=C2=A0=C2=A0 1.773979] BUG: spinlock recursion on CPU#2, kworker/u=
-24:1/60
-> [=C2=A0=C2=A0=C2=A0 1.790485]=C2=A0 lock: devtree_lock+0x0/0x40, .magic: =
-dead4ead,
-> .owner: kworker/u24:1/60, .owner_cpu: 2
-> [=C2=A0=C2=A0=C2=A0 1.791644] CPU: 2 UID: 0 PID: 60 Comm: kworker/u24:1 T=
-ainted:
-> G=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 W=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 6.18.0-rc6 #3 PREEMPT
-> [=C2=A0=C2=A0=C2=A0 1.791649] Tainted: [W]=3DWARN
-> [=C2=A0=C2=A0=C2=A0 1.791650] Hardware name: MediaTek Genio-510 EVK (DT)
-> [=C2=A0=C2=A0=C2=A0 1.791653] Workqueue: events_unbound deferred_probe_wo=
-rk_func
-> [=C2=A0=C2=A0=C2=A0 1.791658] Call trace:
-> [=C2=A0=C2=A0=C2=A0 1.791659]=C2=A0 show_stack+0x18/0x30 (C)
-> [=C2=A0=C2=A0=C2=A0 1.791664]=C2=A0 dump_stack_lvl+0x68/0x94
-> [=C2=A0=C2=A0=C2=A0 1.791668]=C2=A0 dump_stack+0x18/0x24
-> [=C2=A0=C2=A0=C2=A0 1.791672]=C2=A0 spin_dump+0x78/0x88
-> [=C2=A0=C2=A0=C2=A0 1.791678]=C2=A0 do_raw_spin_lock+0x110/0x140
-> [=C2=A0=C2=A0=C2=A0 1.791684]=C2=A0 _raw_spin_lock_irqsave+0x58/0x6c
-> [=C2=A0=C2=A0=C2=A0 1.791690]=C2=A0 of_get_parent+0x28/0x74
-> [=C2=A0=C2=A0=C2=A0 1.791694]=C2=A0 of_fwnode_get_parent+0x38/0x7c
-> [=C2=A0=C2=A0=C2=A0 1.791700]=C2=A0 fwnode_count_parents+0x34/0xf0
-> [=C2=A0=C2=A0=C2=A0 1.791705]=C2=A0 fwnode_full_name_string+0x28/0x120
-> [=C2=A0=C2=A0=C2=A0 1.791710]=C2=A0 device_node_string+0x3e4/0x50c
-> [=C2=A0=C2=A0=C2=A0 1.791715]=C2=A0 pointer+0x294/0x430
-> [=C2=A0=C2=A0=C2=A0 1.791718]=C2=A0 vsnprintf+0x21c/0x5bc
-> [=C2=A0=C2=A0=C2=A0 1.791722]=C2=A0 vprintk_store+0x108/0x47c
-> [=C2=A0=C2=A0=C2=A0 1.791728]=C2=A0 vprintk_emit+0xc4/0x350
-> [=C2=A0=C2=A0=C2=A0 1.791732]=C2=A0 vprintk_default+0x34/0x40
-> [=C2=A0=C2=A0=C2=A0 1.791736]=C2=A0 vprintk+0x24/0x30
-> [=C2=A0=C2=A0=C2=A0 1.791740]=C2=A0 _printk+0x60/0x8c
-> [=C2=A0=C2=A0=C2=A0 1.791744]=C2=A0 of_node_release+0x154/0x194
-> [=C2=A0=C2=A0=C2=A0 1.791749]=C2=A0 kobject_put+0xa0/0x120
-> [=C2=A0=C2=A0=C2=A0 1.791753]=C2=A0 of_node_put+0x18/0x28
-> [=C2=A0=C2=A0=C2=A0 1.791756]=C2=A0 of_find_node_with_property+0x74/0x100
-> [=C2=A0=C2=A0=C2=A0 1.791761]=C2=A0 scpsys_probe+0x338/0x5e0
-> [=C2=A0=C2=A0=C2=A0 1.791765]=C2=A0 platform_probe+0x5c/0xa4
-> [=C2=A0=C2=A0=C2=A0 1.791770]=C2=A0 really_probe+0xbc/0x2ac
-> [=C2=A0=C2=A0=C2=A0 1.791774]=C2=A0 __driver_probe_device+0x78/0x118
-> [=C2=A0=C2=A0=C2=A0 1.791779]=C2=A0 driver_probe_device+0x3c/0x170
-> [=C2=A0=C2=A0=C2=A0 1.791783]=C2=A0 __device_attach_driver+0xb8/0x150
-> [=C2=A0=C2=A0=C2=A0 1.791788]=C2=A0 bus_for_each_drv+0x88/0xe8
-> [=C2=A0=C2=A0=C2=A0 1.791792]=C2=A0 __device_attach+0x9c/0x1a0
-> [=C2=A0=C2=A0=C2=A0 1.791796]=C2=A0 device_initial_probe+0x14/0x20
-> [=C2=A0=C2=A0=C2=A0 1.791801]=C2=A0 bus_probe_device+0xa0/0xa4
-> [=C2=A0=C2=A0=C2=A0 1.791805]=C2=A0 deferred_probe_work_func+0x88/0xd0
-> [=C2=A0=C2=A0=C2=A0 1.791809]=C2=A0 process_one_work+0x1e8/0x448
-> [=C2=A0=C2=A0=C2=A0 1.791813]=C2=A0 worker_thread+0x1ac/0x340
-> [=C2=A0=C2=A0=C2=A0 1.791816]=C2=A0 kthread+0x138/0x220
-> [=C2=A0=C2=A0=C2=A0 1.791821]=C2=A0 ret_from_fork+0x10/0x20
->=20
-> Fixes: c29345fa5f66 ("pmdomain: mediatek: Refactor bus protection
-> regmaps retrieval")
-> Signed-off-by: AngeloGioacchino Del Regno
-> <angelogioacchino.delregno@collabora.com>
-> ---
->=20
-> This might not be the best fix to perform, and I have Cc'ed Rob and
-> Krzysztof for them to have a look at the spinlock recursion issue,
-> as I think it either has to be fixed, or the affected function has
-> to be removed (or both, actually - in any case, if not fixed, this
-> could backfire, and I'm not sure that the only function that shows
-> this issue is just only of_find_node_with_property() or if others
-> also do; at least, nothing else on MediaTek machines as of now).
->=20
-> Counting that this makes *all* MediaTek machines to be unbootable,
-> I'd prefer this fix to get merged immediately - so that it lands
-> in v6.18 (which is at rc6 at the time of writing).
->=20
-> That - because I think that resolving the source of this issue will
-> take a bit of time and research - and I really don't want the LTS
-> kernel to be broken on all MediaTek devices.
->=20
-> Note: When I initially tested the commit pointed out in the Fixes
-> tag, it was working with no spinlock recursion - I don't clearly
-> remember what kernel version was that, but I think it was some
-> linux-next around v6.16 or v6.17.
->=20
-> =C2=A0drivers/pmdomain/mediatek/mtk-pm-domains.c | 18 +++++++++++++++---
-> =C2=A01 file changed, 15 insertions(+), 3 deletions(-)
->=20
-> diff --git a/drivers/pmdomain/mediatek/mtk-pm-domains.c
-> b/drivers/pmdomain/mediatek/mtk-pm-domains.c
-> index 407b4a7aba10..721224c89865 100644
-> --- a/drivers/pmdomain/mediatek/mtk-pm-domains.c
-> +++ b/drivers/pmdomain/mediatek/mtk-pm-domains.c
-> @@ -1006,6 +1006,18 @@ static void scpsys_domain_cleanup(struct
-> scpsys *scpsys)
-> =C2=A0	}
-> =C2=A0}
-> =C2=A0
-> +static struct device_node *scpsys_get_legacy_regmap(struct
-> device_node *np, const char *pn)
-> +{
-> +	struct device_node *local_node;
-> +
-> +	for_each_child_of_node(np, local_node) {
-> +		if (of_property_present(local_node, pn))
-> +			return local_node;
-> +	}
-> +
-> +	return NULL;
-> +}
-> +
-> =C2=A0static int scpsys_get_bus_protection_legacy(struct device *dev,
-> struct scpsys *scpsys)
-> =C2=A0{
-> =C2=A0	const u8 bp_blocks[3] =3D {
-> @@ -1027,7 +1039,7 @@ static int
-> scpsys_get_bus_protection_legacy(struct device *dev, struct scpsys *s
-> =C2=A0	 * this makes it then possible to allocate the array of
-> bus_prot
-> =C2=A0	 * regmaps and convert all to the new style handling.
-> =C2=A0	 */
-> -	node =3D of_find_node_with_property(np, "mediatek,infracfg");
-> +	node =3D scpsys_get_legacy_regmap(np, "mediatek,infracfg");
-> =C2=A0	if (node) {
-> =C2=A0		regmap[0] =3D syscon_regmap_lookup_by_phandle(node,
-> "mediatek,infracfg");
-> =C2=A0		of_node_put(node);
-> @@ -1040,7 +1052,7 @@ static int
-> scpsys_get_bus_protection_legacy(struct device *dev, struct scpsys *s
-> =C2=A0		regmap[0] =3D NULL;
-> =C2=A0	}
-> =C2=A0
-> -	node =3D of_find_node_with_property(np, "mediatek,smi");
-> +	node =3D scpsys_get_legacy_regmap(np, "mediatek,smi");
-> =C2=A0	if (node) {
-> =C2=A0		smi_np =3D of_parse_phandle(node, "mediatek,smi", 0);
-> =C2=A0		of_node_put(node);
-> @@ -1058,7 +1070,7 @@ static int
-> scpsys_get_bus_protection_legacy(struct device *dev, struct scpsys *s
-> =C2=A0		regmap[1] =3D NULL;
-> =C2=A0	}
-> =C2=A0
-> -	node =3D of_find_node_with_property(np, "mediatek,infracfg-
-> nao");
-> +	node =3D scpsys_get_legacy_regmap(np, "mediatek,infracfg-
-> nao");
-> =C2=A0	if (node) {
-> =C2=A0		regmap[2] =3D syscon_regmap_lookup_by_phandle(node,
-> "mediatek,infracfg-nao");
-> =C2=A0		num_regmaps++;
-I've tested your patch on top of a v6.18-rc6 kernel with a default
-config. My Mediatek Genio 350-EVK (MT8365), 510-EVK (MT8370) and 1200-
-EVK (MT8395) boards are all now booting without issue.
+It enables proper unloading of the stm32_dma3 module, replacing the
+previous subsys_initcall() mechanism with module_plaform_driver().
 
-Tested-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+It introduces helper functions to take and release the channel semaphore,
+and restores the semaphore state on resume, considering the possible
+reset of CxSEMCR register during suspend.
 
-Regards,
-Louis-Alexis
+It also adds a helper to retrieve the device pointer from the dma_device
+structure contained in stm32_dma3_ddata, simplifying the code.
+
+Signed-off-by: Amelie Delaunay <amelie.delaunay@foss.st.com>
+---
+Changes in v2:
+- Refine PATCH 4/4 commit description and remove unintended blank line
+- Collect Reviewed-by tag
+- Link to v1: https://lore.kernel.org/r/20251103-dma3_improv-v1-0-57f048bf2877@foss.st.com
+
+---
+Amelie Delaunay (4):
+      dmaengine: stm32-dma3: use module_platform_driver
+      dmaengine: stm32-dma3: introduce channel semaphore helpers
+      dmaengine: stm32-dma3: restore channel semaphore status after suspend
+      dmaengine: stm32-dma3: introduce ddata2dev helper
+
+ drivers/dma/stm32/stm32-dma3.c | 165 +++++++++++++++++++++++++++++++++--------
+ 1 file changed, 136 insertions(+), 29 deletions(-)
+---
+base-commit: 398035178503bf662281bbffb4bebce1460a4bc5
+change-id: 20251103-dma3_improv-b4b36ee231e4
+
+Best regards,
+-- 
+Amelie Delaunay <amelie.delaunay@foss.st.com>
+
 
