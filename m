@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A52FCFA76C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 10:30:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A39ECFA76C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 10:31:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gn3wOGMh35VRAyLK1z47rfPXxroKNFJ6qRR7lUA5vuc=; b=c37hdFeYj6//UCWtb1jiXATrfF
-	EuswCBoj/lYjmP/zeRjQonMcxP8aqMLkASKy6z2/c07kA9bsyhJQoeoj0DYnpbJ9xqaFB6fKgD4qG
-	eNSmY7+Cq5VYSFX+G6ZB3DDy7nPmEPh098qo5lScRkIArnK9PS9mFebRllQg8Cwu5VOjUTqWWfCu3
-	GSrgvyiZvIAbMuZ2ydmRhH4bSr0Op5qG7rsHqxmiuFXHHdSCN+XUvJj7RXt7kwnvcBi/A3rvGKdTs
-	gssbbLzMMkHuyvnkRE3vMW/xBgRZUT3Q9VnZmr5Q4e4u+nKhxki6GF7X0gfZSVmRbm0Dt9cP5YjT7
-	VYxB+ScA==;
+	bh=qQHzK2BSqPbNmZjYn7h/zJPYkRFHLnhXjNXGPoqjX0Q=; b=yEEFTBS/Ryi792i/8vSgVk7kVV
+	8jf1MbE4/7ruzHtQGs0Ceoip5I5t0/xjh3Doqlf5xCoHs6V2J/7UZhbThYqPfVGdYc6Hhc28ACORc
+	zIC9FHZwVSQ86z0QLDRRfRIsWEfft+kB4eQ129D14jzrOi1RMd2xvQBgsSI1+5pGiBVwTha7BOyMC
+	0l1J/2gcOxZbi66mFZZVFm54qgZHJMMXxgI/qIDEaU6VGVDeVjInh4vvCaiwd1EicMqHWQEiDnTc6
+	SBfQyk2hBDcomaPPYrVJ17I3D9t3SnUS3Na4TvrpR/8DnDIZC2SFSo4C5AjMUeZdnheVfooQbxkQo
+	M/5LyfIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMOPU-00000008Eij-3lZS;
-	Fri, 21 Nov 2025 10:30:36 +0000
+	id 1vMOQG-00000008EpU-29nH;
+	Fri, 21 Nov 2025 10:31:24 +0000
 Received: from sender3-pp-f112.zoho.com ([136.143.184.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMOPR-00000008Ei9-3aeT
+	id 1vMOQE-00000008Eoo-40Nt
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Nov 2025 10:30:35 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1763721012; cv=none; 
+	Fri, 21 Nov 2025 10:31:24 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1763721068; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=Seii7yGgiAK8YqQd3A1uljT0JIy/Rn1UVCro8gYHBzeklgaoSJaCMu7uOlMHUgPEAhdXAhmjmlNsPRCTMhn7cpq97vpdfkT1BHJRmpTjNbm0oUj8FwmIEvqt+ZmA5Ytgxpc8/bAGyoq0/A2YJyOkPqWJYhTZqiEu4yux09mM/kg=
+	b=Iq8Ov80lrJX6+LHwHs0xm8fC1Wsply20gg7+T5a3661OGwPs089k35v8vpAM/IelV6duqgd2IPRRu6J3dHPqyczQmFqKtuEsTrXMbmAyQpUW6S3RaA9z+ihcQDM030QmOojyM4CdQblLTkCzdtWkPZsJw3FNn7S5DG3yemntxpk=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1763721012; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=gn3wOGMh35VRAyLK1z47rfPXxroKNFJ6qRR7lUA5vuc=; 
-	b=HFwMQKJpirHsE9HjQ/VIVGncO0FhTLIjc0JjMJfsDtKZ0TqCEbW480JVdpP0uL846XjpYMKjE2OzilpF/3oE4JGaQZujwLrpowTBeBhOrWubk0hUjSL04XlYAzvLcL5XSZ4RSqdPsZsq7Bq6mWOmX61Hxti+4M/zuqNzWInjOrw=
+	t=1763721068; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=qQHzK2BSqPbNmZjYn7h/zJPYkRFHLnhXjNXGPoqjX0Q=; 
+	b=M3fsSNFoPXMwrM2WhQ3FZLvZtauaN1oel7ogVIM6A8nQQNxvCWNRXKq5RfOEd1eDRPw8dcBcWT3OlZxh8WA01onOcZCSp90s0kQHLC4jZrQ7e5yJ5RM1/q4K6CKWfhek/q7ZRtmYVsk08HmpSBdJjYeCnA3oTVEWG7HKS5YZV3Q=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
 	dkim=pass  header.i=collabora.com;
 	spf=pass  smtp.mailfrom=benjamin.gaignard@collabora.com;
 	dmarc=pass header.from=<benjamin.gaignard@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1763721012;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1763721068;
 	s=zohomail; d=collabora.com; i=benjamin.gaignard@collabora.com;
 	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:References:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
-	bh=gn3wOGMh35VRAyLK1z47rfPXxroKNFJ6qRR7lUA5vuc=;
-	b=c13HocQPgKuWgTuCJ2uA0XulrvwGkyEwubh0Q4UmVk0K7Z1djTilCdbbxC3s+llP
-	PkzpvWfpHABOipyA778yBgcZv5fYSpzmFaFhoovo+i9b7hgKTOZx19rbnti5xDa6KAN
-	QrNsdOGJBtc9CRESwezDzB+MPvrIDI9/1aMDs8Ic=
-Received: by mx.zohomail.com with SMTPS id 1763721011318865.399722972453;
-	Fri, 21 Nov 2025 02:30:11 -0800 (PST)
-Message-ID: <ec5adaa8-078f-4c6b-94af-c75b1fe3ec84@collabora.com>
-Date: Fri, 21 Nov 2025 11:30:06 +0100
+	bh=qQHzK2BSqPbNmZjYn7h/zJPYkRFHLnhXjNXGPoqjX0Q=;
+	b=AjZP1bemhFSCaLhbZoMrxKfzCzXnJUS6f5nPQrWAWUpj04jI1x1qDOIGeuGTdB5N
+	+MiATYxh59/kaPVLnXA4j0gwEYYEC9WV04G80AN9op+T9S02HsLWoT0PH5qk8X3P+33
+	3gKSwYLmunqp1x4YCZ5DH8ezfbgN7fcfKmrOwxnQ=
+Received: by mx.zohomail.com with SMTPS id 1763721066252962.4226785100166;
+	Fri, 21 Nov 2025 02:31:06 -0800 (PST)
+Message-ID: <10929ed9-7137-442c-9bea-5291b81bd630@collabora.com>
+Date: Fri, 21 Nov 2025 11:31:01 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] pmdomain: imx8m-blk-ctrl: Remove separate rst and clk
- mask for 8mq vpu
+Subject: Re: [PATCH 2/2] media: verisilicon: Avoid G2 bus error while decoding
+ H.264 and HEVC
 To: ming.qian@oss.nxp.com, linux-media@vger.kernel.org
 Cc: mchehab@kernel.org, hverkuil-cisco@xs4all.nl, nicolas@ndufresne.ca,
  p.zabel@pengutronix.de, sebastian.fricke@collabora.com, shawnguo@kernel.org,
@@ -62,14 +62,15 @@ Cc: mchehab@kernel.org, hverkuil-cisco@xs4all.nl, nicolas@ndufresne.ca,
  linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org
 References: <20251121081911.1682-1-ming.qian@oss.nxp.com>
+ <20251121081911.1682-2-ming.qian@oss.nxp.com>
 Content-Language: en-US
 From: Benjamin Gaignard <benjamin.gaignard@collabora.com>
-In-Reply-To: <20251121081911.1682-1-ming.qian@oss.nxp.com>
+In-Reply-To: <20251121081911.1682-2-ming.qian@oss.nxp.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251121_023033_993087_A3B938C8 
-X-CRM114-Status: GOOD (  14.26  )
+X-CRM114-CacheID: sfid-20251121_023123_077957_BD6D9C99 
+X-CRM114-Status: GOOD (  20.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,13 +89,16 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 Le 21/11/2025 à 09:19, ming.qian@oss.nxp.com a écrit :
 > From: Ming Qian <ming.qian@oss.nxp.com>
 >
-> The ADB in the VPUMIX domain has no separate reset and clock
-> enable bits, but is ungated and reset together with the VPUs.
-> So we can't reset G1 or G2 separately, it may led to the system hang.
-> Remove rst_mask and clk_mask of imx8mq_vpu_blk_ctl_domain_data.
-> Let imx8mq_vpu_power_notifier() do really vpu reset.
+> For the i.MX8MQ platform, there is a hardware limitation: the g1 VPU and
+> g2 VPU cannot decode simultaneously; otherwise, it will cause below bus
+> error and produce corrupted pictures, even led to system hang.
 >
-> Fixes: 608d7c325e85 ("soc: imx: imx8m-blk-ctrl: add i.MX8MQ VPU blk-ctrl")
+> [  110.527986] hantro-vpu 38310000.video-codec: frame decode timed out.
+> [  110.583517] hantro-vpu 38310000.video-codec: bus error detected.
+>
+> Therefore, it is necessary to ensure that g1 and g2 operate alternately.
+> Then this allows for successful multi-instance decoding of H.264 and HEVC.
+> Fixes: cb5dd5a0fa518 ("media: hantro: Introduce G2/HEVC decoder")
 > Signed-off-by: Ming Qian <ming.qian@oss.nxp.com>
 
 Thanks for the patch.
@@ -102,28 +106,107 @@ Thanks for the patch.
 Reviewed-by: Benjamin Gaignard <benjamin.gaignard@collabora.com>
 
 > ---
->   drivers/pmdomain/imx/imx8m-blk-ctrl.c | 4 ----
->   1 file changed, 4 deletions(-)
+>   drivers/media/platform/verisilicon/hantro.h   |  1 +
+>   .../media/platform/verisilicon/hantro_drv.c   | 26 +++++++++++++++++++
+>   .../media/platform/verisilicon/imx8m_vpu_hw.c |  4 +++
+>   3 files changed, 31 insertions(+)
 >
-> diff --git a/drivers/pmdomain/imx/imx8m-blk-ctrl.c b/drivers/pmdomain/imx/imx8m-blk-ctrl.c
-> index 5c83e5599f1e..1f07ff041295 100644
-> --- a/drivers/pmdomain/imx/imx8m-blk-ctrl.c
-> +++ b/drivers/pmdomain/imx/imx8m-blk-ctrl.c
-> @@ -852,16 +852,12 @@ static const struct imx8m_blk_ctrl_domain_data imx8mq_vpu_blk_ctl_domain_data[]
->   		.clk_names = (const char *[]){ "g1", },
->   		.num_clks = 1,
->   		.gpc_name = "g1",
-> -		.rst_mask = BIT(1),
-> -		.clk_mask = BIT(1),
->   	},
->   	[IMX8MQ_VPUBLK_PD_G2] = {
->   		.name = "vpublk-g2",
->   		.clk_names = (const char *[]){ "g2", },
->   		.num_clks = 1,
->   		.gpc_name = "g2",
-> -		.rst_mask = BIT(0),
-> -		.clk_mask = BIT(0),
->   	},
+> diff --git a/drivers/media/platform/verisilicon/hantro.h b/drivers/media/platform/verisilicon/hantro.h
+> index e0fdc4535b2d..8baebf767d26 100644
+> --- a/drivers/media/platform/verisilicon/hantro.h
+> +++ b/drivers/media/platform/verisilicon/hantro.h
+> @@ -101,6 +101,7 @@ struct hantro_variant {
+>   	unsigned int double_buffer : 1;
+>   	unsigned int legacy_regs : 1;
+>   	unsigned int late_postproc : 1;
+> +	atomic_t *shared_resource;
 >   };
 >   
+>   /**
+> diff --git a/drivers/media/platform/verisilicon/hantro_drv.c b/drivers/media/platform/verisilicon/hantro_drv.c
+> index 60b95b5d8565..036ce43c9359 100644
+> --- a/drivers/media/platform/verisilicon/hantro_drv.c
+> +++ b/drivers/media/platform/verisilicon/hantro_drv.c
+> @@ -19,6 +19,7 @@
+>   #include <linux/slab.h>
+>   #include <linux/videodev2.h>
+>   #include <linux/workqueue.h>
+> +#include <linux/iopoll.h>
+>   #include <media/v4l2-event.h>
+>   #include <media/v4l2-mem2mem.h>
+>   #include <media/videobuf2-core.h>
+> @@ -93,6 +94,9 @@ static void hantro_job_finish(struct hantro_dev *vpu,
+>   
+>   	clk_bulk_disable(vpu->variant->num_clocks, vpu->clocks);
+>   
+> +	if (vpu->variant->shared_resource)
+> +		atomic_cmpxchg(vpu->variant->shared_resource, 0, 1);
+> +
+>   	hantro_job_finish_no_pm(vpu, ctx, result);
+>   }
+>   
+> @@ -166,12 +170,34 @@ void hantro_end_prepare_run(struct hantro_ctx *ctx)
+>   			      msecs_to_jiffies(2000));
+>   }
+>   
+> +static int hantro_wait_shared_resource(struct hantro_dev *vpu)
+> +{
+> +	u32 data;
+> +	int ret;
+> +
+> +	if (!vpu->variant->shared_resource)
+> +		return 0;
+> +
+> +	ret = read_poll_timeout(atomic_cmpxchg, data, data, 10, 300 * NSEC_PER_MSEC, false,
+> +				vpu->variant->shared_resource, 1, 0);
+> +	if (ret) {
+> +		dev_err(vpu->dev, "Failed to wait shared resource\n");
+> +		return -EINVAL;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+>   static void device_run(void *priv)
+>   {
+>   	struct hantro_ctx *ctx = priv;
+>   	struct vb2_v4l2_buffer *src, *dst;
+>   	int ret;
+>   
+> +	ret = hantro_wait_shared_resource(ctx->dev);
+> +	if (ret < 0)
+> +		goto err_cancel_job;
+> +
+>   	src = hantro_get_src_buf(ctx);
+>   	dst = hantro_get_dst_buf(ctx);
+>   
+> diff --git a/drivers/media/platform/verisilicon/imx8m_vpu_hw.c b/drivers/media/platform/verisilicon/imx8m_vpu_hw.c
+> index 5be0e2e76882..1b3a0bfbf890 100644
+> --- a/drivers/media/platform/verisilicon/imx8m_vpu_hw.c
+> +++ b/drivers/media/platform/verisilicon/imx8m_vpu_hw.c
+> @@ -324,6 +324,8 @@ static const char * const imx8mq_reg_names[] = { "g1", "g2", "ctrl" };
+>   static const char * const imx8mq_g1_clk_names[] = { "g1" };
+>   static const char * const imx8mq_g2_clk_names[] = { "g2" };
+>   
+> +static atomic_t imx8mq_shared_resource = ATOMIC_INIT(1);
+> +
+>   const struct hantro_variant imx8mq_vpu_variant = {
+>   	.dec_fmts = imx8m_vpu_dec_fmts,
+>   	.num_dec_fmts = ARRAY_SIZE(imx8m_vpu_dec_fmts),
+> @@ -356,6 +358,7 @@ const struct hantro_variant imx8mq_vpu_g1_variant = {
+>   	.num_irqs = ARRAY_SIZE(imx8mq_irqs),
+>   	.clk_names = imx8mq_g1_clk_names,
+>   	.num_clocks = ARRAY_SIZE(imx8mq_g1_clk_names),
+> +	.shared_resource = &imx8mq_shared_resource,
+>   };
+>   
+>   const struct hantro_variant imx8mq_vpu_g2_variant = {
+> @@ -371,6 +374,7 @@ const struct hantro_variant imx8mq_vpu_g2_variant = {
+>   	.num_irqs = ARRAY_SIZE(imx8mq_g2_irqs),
+>   	.clk_names = imx8mq_g2_clk_names,
+>   	.num_clocks = ARRAY_SIZE(imx8mq_g2_clk_names),
+> +	.shared_resource = &imx8mq_shared_resource,
+>   };
+>   
+>   const struct hantro_variant imx8mm_vpu_g1_variant = {
 
