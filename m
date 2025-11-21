@@ -4,73 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EDC4CFC283
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 15:19:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF14FCFC283
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 15:28:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ukRcYICZgu2AzX5qkKBW0DutNMeds0GOIEwYjtlsEjk=; b=YoiXEXDJMSFDsTrTo+1xcVbd7N
-	1KaqcB9J/DLzlaMTdsxy6yTNpC/HXMwASSobilkC1Cede+Il6BPfQeR1ld1eRt3uvhOTr0QKg05gc
-	cBRcGWZyz6GLnF/Ds58sorxsanmYKO2TKhmTBlMUmFokXX+1/AwiLYCmibL2spsaKwCo/UCiinfpz
-	sYEKNSPbvoxPPmFA9pqfCJ5094mtf3THSjpm8JXIn0Szq+1jzCDfHZI6vT79sbfyumOcvP4tHZ2zH
-	BhC9O7AOTW7460KA+PzqW2MimZudFwlS1mEc98sVGjWWtQVI8I6IGicZL8R/B3l90FoQ6ofi++4CS
-	VjgWn18w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=SBugfBz9WW+Z6pDsQ+14VfD8g7WL4gjffYaqAMhBaw8=; b=de1EfcsNSm1DtMuR+8im4pHk2D
+	jY87kPSmdHk82Ipmcz/kAc4AJ44tzPxalXsk3O9+in3lMkdVS60H3s1H3vtypEGbCNY/uInSMRFWr
+	fyxgKYYaiIhth+e3p6RFm+47baTB7o7ZZLU8UqjWYkPxwb3X70JRuldClDzf4kgBdwsVMVtwHOTgi
+	QIUDAbBFTDM6MnI4nVql8Diz6mUnSM5r5irQJDxVmh6ba5fmiqcysVAFwOayygY3YUvxERKZAHWsn
+	zqjtBhiKN5BTGLJ5WU6zd1GjLEbMtw0nFur8E25zvWiKNzZCGE5RxcVh/ZeavekdG6oV1tS0ZdtDJ
+	MlJHzQNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMSud-00000008bgz-2KMz;
-	Fri, 21 Nov 2025 15:19:03 +0000
+	id 1vMT3P-00000008cBt-2Eak;
+	Fri, 21 Nov 2025 15:28:07 +0000
 Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMSub-00000008bgZ-0xhF
+	id 1vMT3M-00000008cBS-3IOY
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Nov 2025 15:19:02 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
+	Fri, 21 Nov 2025 15:28:06 +0000
+Received: from dude05.red.stw.pengutronix.de ([2a0a:edc0:0:1101:1d::54])
+	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
 	(envelope-from <p.zabel@pengutronix.de>)
-	id 1vMSuQ-0001mM-AS; Fri, 21 Nov 2025 16:18:50 +0100
-Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1vMSuP-001bmX-2X;
-	Fri, 21 Nov 2025 16:18:49 +0100
-Received: from pza by lupine with local (Exim 4.98.2)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1vMSuP-0000000096L-2pSt;
-	Fri, 21 Nov 2025 16:18:49 +0100
-Message-ID: <24e594539714c5997545414d084a60128673a50b.camel@pengutronix.de>
-Subject: Re: [PATCH v5 4/6] reset: imx8mp-audiomix: Extend the driver usage
+	id 1vMT3L-0002yc-4j; Fri, 21 Nov 2025 16:28:03 +0100
 From: Philipp Zabel <p.zabel@pengutronix.de>
-To: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>, Krzysztof Kozlowski
-	 <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Shawn Guo
-	 <shawnguo@kernel.org>, Fabio Estevam <festevam@gmail.com>, Daniel Baluta
-	 <daniel.baluta@nxp.com>, Shengjiu Wang <shengjiu.wang@nxp.com>, Frank Li
-	 <Frank.Li@nxp.com>
-Cc: devicetree@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Pengutronix Kernel Team
-	 <kernel@pengutronix.de>
-Date: Fri, 21 Nov 2025 16:18:49 +0100
-In-Reply-To: <3959e908-ae61-4424-a8ef-89f655a4de8c@gmail.com>
-References: <20251114133738.1762-1-laurentiumihalcea111@gmail.com>
-	 <20251114133738.1762-5-laurentiumihalcea111@gmail.com>
-	 <8b225c56612ff01845a90388be0945c7d0b3f0d2.camel@pengutronix.de>
-	 <3959e908-ae61-4424-a8ef-89f655a4de8c@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-0+deb13u1 
+To: soc@kernel.org
+Cc: linux-arm-kernel@lists.infradead.org,
+	kernel@pengutronix.de,
+	Philipp Zabel <p.zabel@pengutronix.de>
+Subject: [GIT PULL] Reset/GPIO/swnode changes for v6.19 (v2)
+Date: Fri, 21 Nov 2025 16:28:02 +0100
+Message-ID: <20251121152802.3619853-1-p.zabel@pengutronix.de>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:1101:1d::54
 X-SA-Exim-Mail-From: p.zabel@pengutronix.de
 X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
 X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251121_071901_271405_5009069A 
-X-CRM114-Status: GOOD (  22.72  )
+X-CRM114-CacheID: sfid-20251121_072804_827531_19F0515C 
+X-CRM114-Status: UNSURE (   7.48  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,84 +64,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fr, 2025-11-21 at 01:29 -0800, Laurentiu Mihalcea wrote:
-> On 11/14/2025 8:02 AM, Philipp Zabel wrote:
-> > On Fr, 2025-11-14 at 05:37 -0800, Laurentiu Mihalcea wrote:
-> > > From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
-> > >=20
-> > > Switch to per-device reset map to allow reusing the driver for other =
-NXP
-> > > block control IPs.
-> > >=20
-> > > Reviewed-by: Daniel Baluta <daniel.baluta@nxp.com>
-> > > Reviewed-by: Frank Li <Frank.Li@nxp.com>
-> > > Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
-> > > ---
-> > >  drivers/reset/reset-imx8mp-audiomix.c | 18 ++++++++++++++++--
-> > >  1 file changed, 16 insertions(+), 2 deletions(-)
-> > >=20
-> > > diff --git a/drivers/reset/reset-imx8mp-audiomix.c b/drivers/reset/re=
-set-imx8mp-audiomix.c
-> > > index 35df9bd5f71a..d3396f37d1ff 100644
-> > > --- a/drivers/reset/reset-imx8mp-audiomix.c
-> > > +++ b/drivers/reset/reset-imx8mp-audiomix.c
-> > > @@ -24,7 +24,12 @@ struct imx8mp_reset_map {
-> > >  	bool active_low;
-> > >  };
-> > > =20
-> > > -static const struct imx8mp_reset_map reset_map[] =3D {
-> > > +struct imx8mp_reset_info {
-> > > +	const struct imx8mp_reset_map *map;
-> > > +	int num_lines;
-> > > +};
-> > > +
-> > > +static const struct imx8mp_reset_map imx8mp_reset_map[] =3D {
-> > >  	[IMX8MP_AUDIOMIX_EARC_RESET] =3D {
-> > >  		.offset	=3D IMX8MP_AUDIOMIX_EARC_RESET_OFFSET,
-> > >  		.bit =3D 0,
-> > > @@ -42,9 +47,15 @@ static const struct imx8mp_reset_map reset_map[] =
-=3D {
-> > >  	},
-> > >  };
-> > > =20
-> > > +static const struct imx8mp_reset_info imx8mp_reset_info =3D {
-> > > +	.map =3D imx8mp_reset_map,
-> > > +	.num_lines =3D ARRAY_SIZE(imx8mp_reset_map),
-> > > +};
-> > > +
-> > >  struct imx8mp_audiomix_reset {
-> > >  	struct reset_controller_dev rcdev;
-> > >  	struct regmap *regmap;
-> > > +	const struct imx8mp_reset_info *rinfo;
-> > Since only rinfo->map is used in imx8mp_audiomix_update(), you could
-> > directly store a
-> >=20
-> > 	const struct imx8mp_reset_map *map;
->=20
->=20
-> hm, that is true, but I wonder if instead of replacing "rinfo" with "map"=
-, it would be better to
->=20
-> keep "rinfo" and add an out-of-bounds check for the reset ID in imx8mp_au=
-diomix_update().
->=20
-> Something like:
->=20
->=20
-> =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 if (id >=3D priv-=
->rinfo->num_lines)
->=20
-> =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 ret=
-urn -EINVAL;
->=20
->=20
-> we are stuck with "struct imx8mp_reset_info" so might as well fully make =
-use of it?
+Dear arm-soc maintainers,
 
-There is no need to check this again. You copy rinfo->num_lines into
-rcdev.nr_resets, which is checked in of_reset_simple_xlate() before the
-reset_control is even handed to the consumer.
+The following changes since commit 5fc4e4cf7a2268b5f73700fd1e8d02159f2417d8:
 
-regards
-Philipp
+  reset: gpio: use software nodes to setup the GPIO lookup (2025-11-20 16:51:49 +0100)
+
+are available in the Git repository at:
+
+  https://git.pengutronix.de/git/pza/linux.git tags/reset-gpio-for-v6.19-2
+
+for you to fetch changes up to 527250cd9092461f1beac3e4180a4481bffa01b5:
+
+  platform/x86: intel: chtwc_int33fe: don't dereference swnode args (2025-11-21 15:31:43 +0100)
+
+This is a follow-up to the reset-gpio-for-v6.19 pull request [1] fixing
+the build issue reported at [2].
+
+[1] https://lore.kernel.org/all/20251120163252.34760-1-p.zabel@pengutronix.de/
+[2] https://lore.kernel.org/all/20251121111534.7cdbfe5c@canb.auug.org.au/
+
+----------------------------------------------------------------
+Reset/GPIO/swnode changes for v6.19 (v2)
+
+* Fix chtwc_int33fe build issue since commit d7cdbbc93c56 ("software
+  node: allow referencing firmware nodes").
+
+----------------------------------------------------------------
+Bartosz Golaszewski (1):
+      platform/x86: intel: chtwc_int33fe: don't dereference swnode args
+
+ drivers/platform/x86/intel/chtwc_int33fe.c | 29 ++++++++++++++++++++---------
+ 1 file changed, 20 insertions(+), 9 deletions(-)
 
