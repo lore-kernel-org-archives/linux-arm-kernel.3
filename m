@@ -4,156 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FEE7CFA466
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 02:02:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 407B7CFA466
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 02:09:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=E+kt2XB2+zZdUhbx/1ZWCozM8d3xM5b5/gX+XxDJSWs=; b=X9PxJdoN1eGIayMQf+rP6jtE48
-	56f5iHRkyMBKrbz26AMkyt/dk9OSnZCYJC5yR/eq2ZdzSDXzW8VKU9NMFFGU2Z2KjIAygEPlCx/qg
-	8IBYDV9AVdq99165YnPfRk4KoOF/2SW6+QGsy1zEsHtCK3VOB5g0vFYRkReXFGl1UeleyHtMvc/+8
-	vMsmAXQnhDZh/z7PNxGObomQBPnA0nbtSZzbS3Mu4mEhy/Ktp1K/idLiOSoI7olC4tJMJy5h8PZZb
-	ZH6oTNpSHeqcYaHFqT8LG/NY0myMssJDv4mt2gHzu5uCtfecku0YnRv2OwA7rQVpE8l3kuEUw7aDq
-	IzRDRUSA==;
+	bh=WHyOoJhkwc0dLiN8PVK6x+2klPbPMSxlqSrwJgtAi8g=; b=no0TmxvBtMiV7kYkCO+iUBrNE5
+	4B2KJ9M6q3n8qQ4a0Yce4RMuAkm0Z4EpTMST82y2K5QHNDRS7rwElp+zl10+tUrJz/qM+amOPThwI
+	tOZrjEFUGmsfuBUi9ZVEA7frUfGrq0eTyus0s/zJZiMXHZfUFnQgaqCHke6P6SdWyC7ZS+ku9eJbN
+	AmmbNsLBd2g+HPF5TvylnGyQNlf7GgXYL/l0w1DCHSjWYhKGK62ATdYqX8+ZUNaiFwCQLf/31itCg
+	cAupOM7oS/latPUdIxM9cNsdNQ+FH4mLIolJheTymn0gIv+NcjOc3DEwo2WP2KQ4NAZigvO/duPYM
+	AaGaHQ4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMGTs-00000007flN-3pJF;
-	Fri, 21 Nov 2025 02:02:36 +0000
-Received: from mail-northeuropeazon11010057.outbound.protection.outlook.com ([52.101.84.57] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1vMGaT-00000007gCV-33UT;
+	Fri, 21 Nov 2025 02:09:25 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMGTq-00000007fkO-0zNo
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Nov 2025 02:02:35 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=wW3qY+HfSdzYFduTwxe87H0l4RJ11qI5NKGsWb0DmBaO1uFglxKEwrNWe3LyQQQEt7mfHeaS2t2r5TbppBFEVsPMSdx1LyPrJIp94S/z/HQD8b1dk/7zpZXMM8UwRHQTLkL9WjFzAO2mgD4XUWzVQrVk8mmMfbUZU9TVSZQ6LryP0ICMIuw4w9fJdwZtw7La2OVoUJRpmhJ72AQaz4q0Famd/HxpsRBnQzy+y2E2AYsmOIkmRgy0fkDvZn9mIIAYDfyG0FlEz4KQE5rkDphyldAeGwYU3sQJsR9iRgMS79k6i30sLrg08AJWbOlku2gJJhXj+HLB05oD0D4TjBOPhg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=E+kt2XB2+zZdUhbx/1ZWCozM8d3xM5b5/gX+XxDJSWs=;
- b=mG4FER4ZqUC54mRAb7nAT5eJ1EXwa+ORmhfbEomalXv4ns78nKeja7cX54VMyvPZl5K4C4KnRRkt5hisJ9u8BuT/87z+sD1kcEeNkJPDX5UWjoTVPhSH0oWmrliqMRJgYIVWc0WxtNsK0mR5eKNGIUOMrhf0EX9zT03dw2lZvd/GR6f8mKbXnMjjgSnkJD0+tXIK8IWEmJvYnb+yux+Mw4kHPY5j62BPpQxka+H0JTrSk//vT3qKkPjUFPSbzL19QcrHbKhhpYIFEOPhGWzMT9tfm4C6u8OKryhSsW2BuHtVzzhhPLhO1GsWl5hkz1w26S4NGo1/Y5ECFLqGp3kSuQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=E+kt2XB2+zZdUhbx/1ZWCozM8d3xM5b5/gX+XxDJSWs=;
- b=dB7vyNPrs9TCe+qgIN56WKs+XgSfgJQ0Oydj1aDLxpiUSuYmb5gBqrblBA6HOlk8xNquPXNS+pfAAwWUxXf02o6K2sf0QTkZUI1NYcwePZ3g2uqbnshuCfAmnhYZljFAynL+pULTnbfDNrik20gqR6OzRDydSNEUtHLQDbahZLqMWnFknDtn7WRlNOZfnp63ij+lUyBeevERNVBytA+4fBWTdaK0IiKPpbd8+YFxpkrEhcVwm+TTFCwnDbDz/Yv0qCFZQDwdVdPEokwvhrTKcfLFTqDOcwsOw4o7PGEzWWZyhHojG7DI1gnYGIpdqRshudJknXHcGZIkrEqKSM1wtA==
-Received: from VI2PR04MB11147.eurprd04.prod.outlook.com
- (2603:10a6:800:293::14) by GV2PR04MB12140.eurprd04.prod.outlook.com
- (2603:10a6:150:30c::18) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9343.11; Fri, 21 Nov
- 2025 02:02:30 +0000
-Received: from VI2PR04MB11147.eurprd04.prod.outlook.com
- ([fe80::75ad:fac7:cfe7:b687]) by VI2PR04MB11147.eurprd04.prod.outlook.com
- ([fe80::75ad:fac7:cfe7:b687%6]) with mapi id 15.20.9343.009; Fri, 21 Nov 2025
- 02:02:30 +0000
-From: Carlos Song <carlos.song@nxp.com>
-To: Frank Li <frank.li@nxp.com>
-CC: Aisheng Dong <aisheng.dong@nxp.com>, "andi.shyti@kernel.org"
-	<andi.shyti@kernel.org>, "shawnguo@kernel.org" <shawnguo@kernel.org>,
-	"s.hauer@pengutronix.de" <s.hauer@pengutronix.de>, "kernel@pengutronix.de"
-	<kernel@pengutronix.de>, "linux-i2c@vger.kernel.org"
-	<linux-i2c@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>
-Subject: RE: [PATCH v2] i2c: imx-lpi2c: change to PIO mode in system-wide
- suspend/resume progress
-Thread-Topic: [PATCH v2] i2c: imx-lpi2c: change to PIO mode in system-wide
- suspend/resume progress
-Thread-Index: AQHcWgjDQMuVHMkgJ02wkgZ//qr+H7T7s6+AgACt15A=
-Date: Fri, 21 Nov 2025 02:02:30 +0000
-Message-ID: <VI2PR04MB111472C34041D6C5E825C8CD6E8D5A@VI2PR04MB11147.eurprd04.prod.outlook.com>
-References: <20251120103039.1824209-1-carlos.song@nxp.com>
- <aR82OaSHDEl+87+/@lizhi-Precision-Tower-5810>
-In-Reply-To: <aR82OaSHDEl+87+/@lizhi-Precision-Tower-5810>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: VI2PR04MB11147:EE_|GV2PR04MB12140:EE_
-x-ms-office365-filtering-correlation-id: c9b73d52-89ff-45a2-8573-08de28a2071a
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|376014|366016|19092799006|38070700021|7053199007;
-x-microsoft-antispam-message-info: =?us-ascii?Q?23F+q1nBm5lEwdjE5LWCDyn8qpRc2Yy4nrtKebyc6qYaohmra8257idMX2Xx?=
- =?us-ascii?Q?t5WMJJ8SH1hqo+6m/G7UT9yKsg1YzdgKYszV3ItYsHnDSGBdfM9qJ2ni7G4z?=
- =?us-ascii?Q?TttCZzIynhq76ZptqvY8McCmXaP7wZADadLB5DGRrh2T2iP8fzpB4luc2QN6?=
- =?us-ascii?Q?qWtP/QnSyW4ybGp43a+y1PEN72qt6cPtMkCAsJ3xhsM31j/nsEg2KgSYBWZw?=
- =?us-ascii?Q?qtJOzQD1y/6o3BWgwzHPC6unsGbWMxkeYsGAPyhpUhlffwkOy1QTe0mGxOMh?=
- =?us-ascii?Q?DGdu2g+KE7S9yeN7MTrxDneuMltPAAX50J5mWeAHS97UuAqXL9k99mrxiv6F?=
- =?us-ascii?Q?auJzRHYBrpgzTzZ7BsHgLC4L5w+gDV0sqvLjdB9zyqtoWLo35fRCBRdb2e30?=
- =?us-ascii?Q?YW18B4mC1JHoM0jk76Xxl09Y09UNkljRuv/NL6eSaO+IarFNyb/n0cC7vaaV?=
- =?us-ascii?Q?NgAMym2bNUoJkFXNzKnRbcPcJlljpl4NEvsTuBN9oIxZv9eJDHbudf2+mDwK?=
- =?us-ascii?Q?BN0v71Pa2pnLtKpkAzpbOvadsp3xczDIXW++sg0PNAdBM4THAISU9Ebta++N?=
- =?us-ascii?Q?uEd84WN2Ua2/oJQpd33RpC7RLXilAKa3FXjZWq21+q4bzgl/ANFFhwVGQwve?=
- =?us-ascii?Q?/7UqcTaawSoqMjIyVfTeMANElH+ByMLLS5LIQF7LM4zP/vWN6xtZO1Lj2eIa?=
- =?us-ascii?Q?rPqaD87gV/wLCD1tfz9XXqiygaF1V/qr3z91iO3KMBe3zGIZBdQD+cUAEw7A?=
- =?us-ascii?Q?WF0srB+veRc/m1bfcxeTtyfidkveoAlbklX5ADDxvK9XZMq+v0UXW+J4zANE?=
- =?us-ascii?Q?1ZYTQNwqYDCefySjmNirYGAlCdOEXlUwuE7sV5+MBttdOAUkvvd7BM3Ozz8j?=
- =?us-ascii?Q?LrE39X4Of6DFdamQuim2TO6flVSyWbTkKHo8y/nVBZt+G5SeBCzfTH+BKFqp?=
- =?us-ascii?Q?SglhhSweFrf2zUZ1SqrrxrpttFSQ7CJ2v2VTC3IPCzLsN6fCgkWjX/KJb5h6?=
- =?us-ascii?Q?vKD1iQI4K20WkXnmsWqNq9rKehIHsYoemE0gWiDRSmW5qOLEaIoWzJ6AERDY?=
- =?us-ascii?Q?MFZ+CbYWSrAyT2IQ+c5GGISSal9zG/7PCWNNxiSJa01Gf0lmTPtHkdSM3nei?=
- =?us-ascii?Q?emh2gJ5srqdgDc22s/C0kEWe60UG3pTXkUA8MfSDAFo97zHm6aXP8vvC8EfI?=
- =?us-ascii?Q?3USaFCZ2T0vw7AqfjIIKuCLoaZzmsTfQI0HoUQfuomTVd6hoDLqh20qUHK1c?=
- =?us-ascii?Q?TeThrJ9Mq6OjlOHVyZG+eVkHyBr3u1De374nYVIwjvycCzpUJbztnox3Lu+Q?=
- =?us-ascii?Q?4SgYLbethdLsVr6EbnWCAvU6g25/9XtDp8gj5CwKFfidpybo2npaBiZbcwBJ?=
- =?us-ascii?Q?3mtzcsCj8kalC7AtWuKlBsLuqztTi50PQm+Aq7GmXf8/MxljunznjAHDKzUk?=
- =?us-ascii?Q?fWvlZ36JTDdk+qlgIbN/w+vWoVLEIOdV0AgDFNHflioB7XAb8c0pn+FypbOm?=
- =?us-ascii?Q?2+vLXPo3Q9V0i9SiTjvMc5j8dhzuZxW3pfzh?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI2PR04MB11147.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(366016)(19092799006)(38070700021)(7053199007);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?wPGsdK8cT6KAG13T7f8A3c24cchtiJ0CgnxRYEZYOFB+bLZUdwQ2O20lvTpq?=
- =?us-ascii?Q?0eKUx7PA5e31BL3jJc53O+9BOqXpQhVe0ylxPO3mDYC4U9HJwtNfxoKNXSXU?=
- =?us-ascii?Q?0CkpZ+Bcb83/pTAcX8DLdQOZ54wFQ1OqQmyfmEhP/uHQuZnga9rlxIpqVjDk?=
- =?us-ascii?Q?kbQeLyXm5DIH1q0sBEk6j3GrXv0kzAfE2YD2rTO6hmnVHXo56z4syIwRJaJj?=
- =?us-ascii?Q?01NjTk7J2t2ZsA5FIr/EWT9yyXL/0eSMYozaiE3i+2/woywYY96IfH5vc7Mh?=
- =?us-ascii?Q?cPJQ4C6uu8Doq3373PIFyOZZCjrgVPRsM5jAQCy32Ec89D6CqJXOyEqZzmBD?=
- =?us-ascii?Q?iXWDmbJfEVFYWxc1Gycl1fNaJhhxjxwznshuWBO1YS7t0yr7lh2jFdXhYnmQ?=
- =?us-ascii?Q?qDQN9CohN05aoRcFQ8WqOlIACfp4ZDFLiN/OmAd/vlqinDdKh62iB+W/kGuY?=
- =?us-ascii?Q?vjEcap507SowrHgBvBSJ1c4E7wnzKAemiFV4el7igUdzLdyp/h9AVZS17p91?=
- =?us-ascii?Q?EBMghtkTY4YAU8BcWq3Ddgui0aoCldzh/rKxUhV2Dp+T+ZkhWgQHqkybfMA1?=
- =?us-ascii?Q?b5Ztb79LvVu2mjfCXud88Ly/6uOKgCqwnOVkLmzSzT/01IDFh4XpI32PKl58?=
- =?us-ascii?Q?/TPScS5dWUVogWOEcwMwI/Z3j7+AQNS+2q7vkUgfBOvSgI33GoXYCcfOIItb?=
- =?us-ascii?Q?MaSTcXBdwtAre+y/57QgKq1r3xEgCinNqWON8LLscDFEK76gAptCKZZmSA6V?=
- =?us-ascii?Q?pLnCizEmzT4YAqDBLAeByGHu/jRn/ILIf9CxNkO/6M5uBm/HgSd+pGy9p0jV?=
- =?us-ascii?Q?s3F7Z4UbvFYsztdoXlsaonmCWRLSgX3SQNh0aRPEvazp131HYOWzorNjuyEm?=
- =?us-ascii?Q?SN55YAC4dscMmxe86867TaQ845RJTDUs6VvgfN979qDiePjgHUnJXRc+X2LI?=
- =?us-ascii?Q?M2ltahj78c6FuMW+BN9zeur9eUOnx5RPOgIzLOXqdCYZ+9rN59K9jLJx2m1D?=
- =?us-ascii?Q?jB7UvfvwtGCXPKRzBmi9TkaLIBnBSJ9hJB93KPYcszpShBXuTSsulo1RfYwQ?=
- =?us-ascii?Q?AGzBlHikKtDFMyC5gNhMk5CAzKLZjQz8sSJVOfsZvPHY734TrmTRFAiju608?=
- =?us-ascii?Q?p2w361CqpXkeVcAAsytorSG+V6qo4Nm/lJjEZrkzW54GLIchihISJAO9x1Pm?=
- =?us-ascii?Q?RctehhKaTGaiXqtRfuhxu1kTr7QgTmaWhiFUsPoL4lmozOvxP7+qdtPP8HP/?=
- =?us-ascii?Q?sXFJYrYeZSxKMMN3o8yILTLskT8bjkJZd8s3W8khPbktyV5LELec3fF4OOiE?=
- =?us-ascii?Q?YClO3g/1Cmk5QQJad/DAVqtOtygwRqdVCdRN/KspsAcbmbjUJVGF8jUVnUfp?=
- =?us-ascii?Q?Cpwlz2V1708ZNOqM9ctJW3rNG7FqZudSzZNNinGpMM2dZ1I0FMZ7W1Kl3aB6?=
- =?us-ascii?Q?uVZZAvw5EuOKXeAqW1hlIRgz9cpkkUPa/8+PxxSOobZMG+Ahh5JbTkATKh+r?=
- =?us-ascii?Q?20JbOVFp3F4PXJxDKfCyZNHIkv/MZ51otrhkUOYd0uJEH/MCH8Om+CmscLsr?=
- =?us-ascii?Q?YkGReco2IQk5OgiwaiGJRxKoXCZkKoFfZYd/dRr4?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	id 1vMGaR-00000007gBj-35yJ;
+	Fri, 21 Nov 2025 02:09:24 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 2282D4445F;
+	Fri, 21 Nov 2025 02:09:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 30026C4CEF1;
+	Fri, 21 Nov 2025 02:09:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1763690963;
+	bh=Bz7xeF2JFxhA+tr4bBYKwtM1aze7r6fWJHliCqTnUpU=;
+	h=Date:From:To:cc:Subject:In-Reply-To:References:From;
+	b=j3dSOGzTqbCddJGVT5roKZn7ficPkxCfcZaQAbSHTo9ZEpPBpOUx6A+7D3iJGElrS
+	 xERwOpb0HglzyK+cyiMtdgu+xzC+v5c2uu28ifTlgYK2Oge6TJdh2knqdBtSef+qsa
+	 n4EASFxrLwd1zfxuHQhx80lddfRqlhkum8rXwIpnFiTVaQjEI29yJEKBIpe+M/FWR8
+	 OLEfnFo43eLM03+3tVi64Nr+UnQNI7VzrHe31zP9rsXTL7AzLiKeGnBkSfiX1Gvg3X
+	 9VJ4TWJNC3VVZ1aJwt1vadaOPQj2cIIv/pcsMPa30N8hKbqp7RTHENp04Ckbf6rwHH
+	 UvjI8iIQZXrfQ==
+Date: Thu, 20 Nov 2025 19:09:18 -0700 (MST)
+From: Paul Walmsley <pjw@kernel.org>
+To: Huacai Chen <chenhuacai@kernel.org>
+cc: Will Deacon <will@kernel.org>, Josh Poimboeuf <jpoimboe@kernel.org>, 
+    Catalin Marinas <catalin.marinas@arm.com>, Paul Walmsley <pjw@kernel.org>, 
+    Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+    "Madhavan T. Venkataraman" <madvenka@linux.microsoft.com>, 
+    Tiezhu Yang <yangtiezhu@loongson.cn>, Ard Biesheuvel <ardb@kernel.org>, 
+    loongarch@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+    linux-riscv@lists.infradead.org, linux-efi@vger.kernel.org, 
+    linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] efistub: Only link libstub to final vmlinux
+In-Reply-To: <aRsH7RTpAah4g5Xr@willie-the-truck>
+Message-ID: <e36f8b19-c801-c872-381e-7eb40dc5e3e4@kernel.org>
+References: <CAAhV-H6m5vszCyiF3qi94cpHBPVuqM2xH93D=gfsQqOSYvC-sA@mail.gmail.com> <33612d85-e70b-26da-8460-ea6b9064ce08@loongson.cn> <CAAhV-H5ZSTFDxvm-W1CrgEoQ5d_jw5yVsfetQ_J_qL5pqLtzgg@mail.gmail.com> <CAMj1kXGk0udgM67wrWqahqK8H0uE8emQj51SmJey+7fE-FTjdA@mail.gmail.com>
+ <CAAhV-H4c=vdNWO0v_mYL2xZ9FYjDyRDvt6f_kV4d8Bh=CRJniQ@mail.gmail.com> <CAMj1kXEaxxcWTTANWeEMNjYDymdL5Fxy2B=XBF4RGtteEkfinw@mail.gmail.com> <421c08e1-255b-447b-b5e3-ee6544fbefd2@loongson.cn> <CAAhV-H5KsFShDJ_Cxu+1_ces8oojn8+S-7PLmE7aUj8gX5_GEw@mail.gmail.com>
+ <32s3lvzfu6jkyho7qenrqbsm5wkgjnzn2imdp6tfwycmyxpzgu@kg5367uxmxii> <CAAhV-H47fzaKcMhgLWWOTxB+srBsg85-eK0LW1vQXQnvq32-+w@mail.gmail.com> <aRsH7RTpAah4g5Xr@willie-the-truck>
 MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: VI2PR04MB11147.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c9b73d52-89ff-45a2-8573-08de28a2071a
-X-MS-Exchange-CrossTenant-originalarrivaltime: 21 Nov 2025 02:02:30.1939
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: zlNz01tlVziCKL5TtJQGUkmhZryksXZtwsqDbNeO5C12uZth+kLqn+H/f96fclNeKBl+mTseI7fgi4RFLfDtgw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR04MB12140
+Content-Type: multipart/mixed; boundary="8323329-1623710078-1763690962=:1910464"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251120_180234_278127_2BA3B42C 
-X-CRM114-Status: GOOD (  29.99  )
+X-CRM114-CacheID: sfid-20251120_180923_817158_BDE0305D 
+X-CRM114-Status: GOOD (  20.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -168,89 +77,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+  This message is in MIME format.  The first part should be readable text,
+  while the remaining parts are likely unreadable without MIME-aware tools.
+
+--8323329-1623710078-1763690962=:1910464
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8BIT
+
+On Mon, 17 Nov 2025, Will Deacon wrote:
+
+> On Sat, Nov 15, 2025 at 11:16:42AM +0800, Huacai Chen wrote:
+> > On Wed, Nov 12, 2025 at 2:00 AM Josh Poimboeuf <jpoimboe@kernel.org> wrote:
+> > > On Mon, Nov 10, 2025 at 03:00:00PM +0800, Huacai Chen wrote:
+> > >
+> > > > Changing efistub code and changing objtool (ignore __efistub prefix)
+> > > > are both workarounds, but I think changing objtool is a little more
+> > > > reasonable. Maybe Josh has different ideas?
+> > >
+> > > I thought the conversation had converged on what Tiezhu mentioned above,
+> > > which is to skip objtool on libstub for loongarch, but leave the other
+> > > arches alone.  That way objtool behavior is consistent between loongarch
+> > > and x86, and objtool doesn't need to ignore any prefixes.
+> > >
+> > > So basically, the v2 patch minus the arm64/riscv changes.
+> > 
+> > Hi, ARM64 and RISC-V maintainers,
+> > 
+> > Would you mind that this patch modifies the three architectures
+> > together (they are exactly the same style now)?
+> > 
+> > Madhavan is the author of ARM64's objtool, I think your opinion is
+> > also very important.
+> 
+> arm64 doesn't (yet) use objtool.
+> 
+> I defer to Ard on anything relating to the arm64 efistub. Reading the
+> start of this thread, it doesn't look like he's convinced and I'm not
+> surprised if it's purely an issue with objtool.
+
+Same for RISC-V.
 
 
-> -----Original Message-----
-> From: Frank Li <frank.li@nxp.com>
-> Sent: Thursday, November 20, 2025 11:40 PM
-> To: Carlos Song <carlos.song@nxp.com>
-> Cc: Aisheng Dong <aisheng.dong@nxp.com>; andi.shyti@kernel.org;
-> shawnguo@kernel.org; s.hauer@pengutronix.de; kernel@pengutronix.de;
-> linux-i2c@vger.kernel.org; imx@lists.linux.dev;
-> linux-arm-kernel@lists.infradead.org; linux-kernel@vger.kernel.org
-> Subject: Re: [PATCH v2] i2c: imx-lpi2c: change to PIO mode in system-wide
-> suspend/resume progress
->=20
-> On Thu, Nov 20, 2025 at 06:30:39PM +0800, Carlos Song wrote:
-> > EDMA resume is in early stage and suspend is in late stage, but LPI2C
-> > resume and suspend are in NOIRQ stage. So LPI2C resource become ready
-> > earlier than EDMA. When IRQ enabled, immediately slave will trigger
-> > LPI2C to read data and the length meets the requirements for DMA
-> > usage, the DMA
->=20
-> "the length meets the requirements for DMA usage" is condition to trigger=
- DMA,
-> reader easily miss this and confuse.
->=20
-> > will be needed at this time. Within a very small time window, EDMA is
-> > still not resumed.
-> >
-> > If a system-wide suspend or resume transition is in progress. LPI2C
-> > should use PIO to transfer data not DMA to avoid issue caused by not
-> > ready DMA HW resource.
->=20
-> You can use AI help rephrase.
->=20
-> EDMA resume happens in the early stage and suspend in the late stage, whi=
-le
-> LPI2C resume and suspend run in the NOIRQ stage. This causes the LPI2C
-> resources to become available earlier than EDMA. When IRQs are enabled, a
-> slave device may immediately trigger LPI2C to read data. If the transfer =
-length
-> meets the DMA requirements, the driver will attempt to use EDMA even thou=
-gh
-> EDMA may not yet be resumed.
->=20
-> Within this small timing window, EDMA is unavailable, leading to transfer
-> failures. Force PIO mode for LPI2C during system suspend and resume
-> transitions to reduce system dependency and avoid using an unready EDMA
-> resource.
->=20
-
-Thank you Frank, I will send V3 according to this.
-
-> Frank
-> >
-> > Fixes: a09c8b3f9047 ("i2c: imx-lpi2c: add eDMA mode support for
-> > LPI2C")
-> > Signed-off-by: Carlos Song <carlos.song@nxp.com>
-> > ---
-> >  drivers/i2c/busses/i2c-imx-lpi2c.c | 7 +++++++
-> >  1 file changed, 7 insertions(+)
-> >
-> > diff --git a/drivers/i2c/busses/i2c-imx-lpi2c.c
-> > b/drivers/i2c/busses/i2c-imx-lpi2c.c
-> > index 2a0962a0b441..d882126c1778 100644
-> > --- a/drivers/i2c/busses/i2c-imx-lpi2c.c
-> > +++ b/drivers/i2c/busses/i2c-imx-lpi2c.c
-> > @@ -592,6 +592,13 @@ static bool is_use_dma(struct lpi2c_imx_struct
-> *lpi2c_imx, struct i2c_msg *msg)
-> >  	if (!lpi2c_imx->can_use_dma)
-> >  		return false;
-> >
-> > +	/*
-> > +	 * A system-wide suspend or resume transition is in progress. LPI2C s=
-hould
-> use PIO to
-> > +	 * transfer data to avoid issue caused by no ready DMA HW resource.
-> > +	 */
-> > +	if (pm_suspend_in_progress())
-> > +		return false;
-> > +
-> >  	/*
-> >  	 * When the length of data is less than I2C_DMA_THRESHOLD,
-> >  	 * cpu mode is used directly to avoid low performance.
-> > --
-> > 2.34.1
-> >
+- Paul
+--8323329-1623710078-1763690962=:1910464--
 
