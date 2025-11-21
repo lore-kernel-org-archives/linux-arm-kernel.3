@@ -4,93 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DACFCFA761
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 09:26:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 593A0CFA761
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 09:30:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KDp2iG5BTBVt/GPrCjnqeO98ZCL9PVStlkdxlxkQjj0=; b=oSMiz3UGKXPbN2yuUSzIlBnjrB
-	Urcw9j2EFcotdILAPS/qyqiWM2Cu5lIrierJiXxX3IucxBm6uZO1FzvjcmyEL7A0iwJEAgudW4mp9
-	I+eN45YK9XiIZvZ7m8ro8HiVopalbCAUvZgsTHVZC60VhRp0aX72RpKucnc35fkVmLjv80ICGl6QY
-	4ks4Qf4PpmUGKyIWpKGT/3+kzNKDGn07C9Pxo/gbGLkTDmSA+S7dmJcs0CMCYeryugq3+5tGLcmaI
-	gmFkdF3bdqGOFqKIG8x/NELzgC55ZnpUzdkblo+119ftB76v2EbZ14dnJ40YH+hvsr011oOeRQTj2
-	qi75gqpg==;
+	bh=Wl2xu8XKN1gPMV9ACQzl23UL67KsRhgGQiSjpamCaq0=; b=kOVAqxVpVgU+rlphXRXg7EGFyg
+	RruY++NZ7SQR+uFSqyO89tmEEHKRCSSxiuFHvUGvsF7uAJ9y3S5rIdoO8UdLYeuzzYYzN/sqeSBra
+	FKTEdjw+OLwJVnVIqKQIQKMwK9zQdqIf6hlpgdsNVbAYoTZxwOi2tvlXSuIF2+C4KvkypmxlAylFG
+	z/pZdsFWbBQMj6QzHg2TNG0xE9oZnDqoFx01M3zEgvDLaR2GGqMWogZLFPXtmVfhs2c9QDS5WFsZR
+	56rS/XbYFHl9IPUafZOOis6rfgZoHDsfuNbBvwQvjpLNeqhgxXAycgqq3cT2O397ahNHtQwMRn7LB
+	NMzOF4qw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMNPo-000000089RT-420H;
-	Fri, 21 Nov 2025 09:26:52 +0000
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+	id 1vMNSl-000000089gp-1w5W;
+	Fri, 21 Nov 2025 09:29:55 +0000
+Received: from mail-ej1-x630.google.com ([2a00:1450:4864:20::630])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMNPn-000000089Qp-28NW
+	id 1vMNSj-000000089gL-0gpH
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Nov 2025 09:26:52 +0000
-Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-477a1c28778so20409835e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Nov 2025 01:26:51 -0800 (PST)
+	Fri, 21 Nov 2025 09:29:54 +0000
+Received: by mail-ej1-x630.google.com with SMTP id a640c23a62f3a-b71397df721so334531966b.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Nov 2025 01:29:52 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1763717210; x=1764322010; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:from
+        d=gmail.com; s=20230601; t=1763717391; x=1764322191; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=KDp2iG5BTBVt/GPrCjnqeO98ZCL9PVStlkdxlxkQjj0=;
-        b=jZ5UcCClOm53WO3/UgQQ4vRd6bu89jUXAfKosGiyN4uWMhQQ+FBNjs5iFK/Ur2IpQ5
-         abZRL/47KBF2YFdqXaqHsGLZDJV5Z340LNenygfGbBkVRFYxIszxpTinTj01RJ4CosW8
-         3YY+hTC7wmzaEOtCJtsAP/VHpLmLEGfjwdimaqNBdW4fd4U5sgIVi6tt/e4BP4IXw3yq
-         WtJL0UCOvFGP/jJf5C+pSRYv+EY3dTPPLnR+/bnBsrJX9RbnP0wZXHzxEHPjbNrZGVOI
-         hz8yaO3XdosdappNdeDV7XlR3FyDy3MfUtpE+ewQ5QujvHFvP06guR00/rJQNqO/oJzk
-         HNRg==
+        bh=Wl2xu8XKN1gPMV9ACQzl23UL67KsRhgGQiSjpamCaq0=;
+        b=EBN+RZvhff4uNbJtXi+dxUSBpmFPUQGJo94/79Y7VrpV9BS7EXJXVhFc/hzQ051ArX
+         GtvQ+X53n0+ApQlVMnWyacX+lHj1xZs/lv+uom7HeGvfID2gaRtIViupnxyt2Gezu1uo
+         2cpkM1uCiRqlp4TS7MSE4mCpLyE2N6FfwUwqz8d+Wblhn8Rxqy1EY5B1yynvwn0cvfAA
+         kUonp96EBjYxr/Ztnb1oB7G4PzUMNQKSCEdB1rrG4K8muiXu6LHw/gzXb1axttamFau7
+         0FbBfnzzfcGjjLbRLAOwY9ZG0d+llvTohMPSQr5BTXHom5bc539Yi/MjruGjG9XpwClv
+         IaCw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763717210; x=1764322010;
-        h=content-transfer-encoding:in-reply-to:content-language:from
+        d=1e100.net; s=20230601; t=1763717391; x=1764322191;
+        h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=KDp2iG5BTBVt/GPrCjnqeO98ZCL9PVStlkdxlxkQjj0=;
-        b=WM0oIWENPzdqq/wMc4yITk2jL2o65XZnLMLGg0SB7xXhTz5hdo1FPdlJTVtoaaK4l7
-         GdTLvWENdz3CPXzmMlVxK0bqYVy3pp7t89AbCthKWln4LBzv1XM1ISjeu88MIv6xcY12
-         5+oXvJmg3HtbyNjSwf5Jium+K1V13N5/Il6bhuAGOc+euggV51A6HVV5CSkt/0LuB5U/
-         LbuSF5dDqnAcLRplNKgBZtzmTq54UN5F7tidmbGyH3o60l5NH3htxtX2kXq01D+2gCMK
-         z1YtEYNXK15YuXgH0gb13Fk1RvJoF5tZt+8drTIyNHL8WMxTP3n3tUFfFWN2oVs45mIg
-         Fqlw==
-X-Forwarded-Encrypted: i=1; AJvYcCVuoVFBGxYzsq3nYBnEtOYAL2be51zV1mmBqVEwH20q5tgZXIvr1ZbZPWWSZWh9xvqoudvSTdNdslSnnEYwb912@lists.infradead.org
-X-Gm-Message-State: AOJu0YzMpduFFM59sn3ehmea9crHjeCSdgzMndiy+ZEYpJ3nR7h3LXm0
-	D0uHS8Nd1oLB9feIONtYtgvABaORI1/stUQFEuXwzlk9mrKq3lD2bkic4aOFZHMKDGw=
-X-Gm-Gg: ASbGncvtH8T0l1qj2oyEfJ50NwE9yQToLRRowpaYxw85XbgqB9Jlo3OmYiT42xt7daK
-	rB1i+pivGjP0I6fy/u0MrUEQsZ+4w9YI/6EWFfWdF5jNp0J+V1AlLcamSsWJXYsawA50lKkSz0T
-	d4lPHXtXvPzK1B8HD3zIZWlgggGjBIoN22fpka8W9nrfxcJRfBvQeUIXShQDyjk7GLUg/RIpf9n
-	kbPlTqOiw9UrYOODvx3KgcJ6w6/i5T/3/09mJNU5G7ckVSk4wNNEeTHAv3wG7SXfyFTKydHiN6J
-	cdvLCHDwGQ5robXLjVmJB53kekQJs7FhiSuzBS0ot2fCAgcc4P3R2DN/wGG7A2aPgqdatMrB4Dx
-	74qWLQZpV93k58jcBedp13r8gjabFMQ5yDTTO6/xHDWxD7StACx8toEQzFFyriwnO7V+SFsTyLP
-	7Lr0ZccgTznJZiHg9PSQ==
-X-Google-Smtp-Source: AGHT+IFFoQKN4lvZpPcX6YcwQEY2oYp+D9yrpDQzITsjrjlHpyL9s6Wn+65FnIuxFxbiNVzQkT63aA==
-X-Received: by 2002:a05:600c:3b09:b0:46e:6d5f:f68 with SMTP id 5b1f17b1804b1-477c0185b65mr19721245e9.12.1763717209146;
-        Fri, 21 Nov 2025 01:26:49 -0800 (PST)
-Received: from [192.168.0.39] ([82.76.24.202])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-477bf3b4fafsm34690175e9.14.2025.11.21.01.26.48
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 21 Nov 2025 01:26:48 -0800 (PST)
-Message-ID: <e7f489db-e04f-4e45-b331-51666b244a69@linaro.org>
-Date: Fri, 21 Nov 2025 11:26:47 +0200
+        bh=Wl2xu8XKN1gPMV9ACQzl23UL67KsRhgGQiSjpamCaq0=;
+        b=LnSMRePi7z1+GhHFfCDkuBg5sOWG4Y6ZrxuWlj6SWh8+7nFAlkLryEBhaVs8o842nW
+         0ndmaH6nINS0QV7iTqUm3XYuHmqqJ4p+PJ4dT+9GGoWzXj4zjI4PiSmlZc5rlBmUG2EV
+         5WvxQ0huaEk1DTk5VrbgSgeOONUOh/hpZhrc/perb2mmutzxqQKV1FRanj9Z396Li4Kc
+         WjnVN3PuutlcXTT3IxYSq9DHH5NKyrBUbUZaSxgIORbl+JMap3nRBegqCryIsgWd2F9X
+         GQOc/8QXvr2FhHPlpt3xlFDsFC4U9wECGUuaoVe9f4qnlPe4K/mIg+fh5+oVJSdJgf7/
+         KK3A==
+X-Forwarded-Encrypted: i=1; AJvYcCUWgxAsm4TKLI0+BInMWRchYeXmHNSVG46WdYKSXH5WNVZZOkgdMebzAALsSEMF1qxFxKr5QnP9LxCtjkpIodq5@lists.infradead.org
+X-Gm-Message-State: AOJu0YwCyXsCU2AfrKixjNlg60bvmjFAZXbMzTPCUGDcrwJlwJULibYM
+	Vy+8B0VII5/qT+8DlCDGp+Ga8JckV9RiG+G90C48f8c6hw3Hkx0yhvuC
+X-Gm-Gg: ASbGncucvYo8ucEHLXDOSv6Q+abvAzK74Th3PvaQ2uo16LcJ/1BetPGchfbw9liQmkG
+	4MI1LI4iCgjK0/i3fi4ZiZs8QvaGcwnXZG5KFQXHCt/f15DpxHlXR+GS/YTRBUYmdtVnFu8iq/u
+	jHQDuXWdiobsXyeDWu8lhJ1sO3EEZqTG2cFWjJq9INT5BSfsMHYDD0jfAhhBK6XtE2ZxXelx5SU
+	dbsW5ZDUx/4nk21UopPnBzysW5WKU4EA5eSwz97y6/CJy1T2UqBcDhAEKkKVDgFe5aDS8kX1S/Y
+	xKbmJNl9F6jJLkRlm7qkclKxIe0T2pWJOGs25of69HB3R1/sy1tuu7yGn2J269dc82WehgRyvTX
+	1rOq8xkx8KGka9SrlPPgKLjZA/L+goixoump8jcrTdbcVdEVcaHNml5x9XwhDKabnsNgPU/PvuL
+	Mj8iULFYotFcV0WbG8ADDx1H6F+0HamVPU3Ihy1Z1IWUQ=
+X-Google-Smtp-Source: AGHT+IHq8hk9zncY5NjxJIA+5dLJtbgJgeFMs63IXI+ZjuoPAQXsuFcRPpdcxS7UMwvUHeWvXnedJA==
+X-Received: by 2002:a17:906:fe4a:b0:b76:277b:9a3d with SMTP id a640c23a62f3a-b767170a37emr166265266b.29.1763717390579;
+        Fri, 21 Nov 2025 01:29:50 -0800 (PST)
+Received: from [10.25.210.163] ([128.77.115.157])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b7654fd4275sm402635166b.37.2025.11.21.01.29.49
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 21 Nov 2025 01:29:50 -0800 (PST)
+Message-ID: <3959e908-ae61-4424-a8ef-89f655a4de8c@gmail.com>
+Date: Fri, 21 Nov 2025 01:29:48 -0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/4] dmaengine: stm32-dma3: use module_platform_driver
-To: Amelie Delaunay <amelie.delaunay@foss.st.com>,
- Vinod Koul <vkoul@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>
-Cc: dmaengine@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20251103-dma3_improv-v1-0-57f048bf2877@foss.st.com>
- <20251103-dma3_improv-v1-1-57f048bf2877@foss.st.com>
-From: Eugen Hristev <eugen.hristev@linaro.org>
+Subject: Re: [PATCH v5 4/6] reset: imx8mp-audiomix: Extend the driver usage
+To: Philipp Zabel <p.zabel@pengutronix.de>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Fabio Estevam <festevam@gmail.com>, Daniel Baluta <daniel.baluta@nxp.com>,
+ Shengjiu Wang <shengjiu.wang@nxp.com>, Frank Li <Frank.Li@nxp.com>
+Cc: devicetree@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Pengutronix Kernel Team <kernel@pengutronix.de>
+References: <20251114133738.1762-1-laurentiumihalcea111@gmail.com>
+ <20251114133738.1762-5-laurentiumihalcea111@gmail.com>
+ <8b225c56612ff01845a90388be0945c7d0b3f0d2.camel@pengutronix.de>
 Content-Language: en-US
-In-Reply-To: <20251103-dma3_improv-v1-1-57f048bf2877@foss.st.com>
+From: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
+In-Reply-To: <8b225c56612ff01845a90388be0945c7d0b3f0d2.camel@pengutronix.de>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251121_012651_565042_B255E435 
-X-CRM114-Status: GOOD (  14.28  )
+X-CRM114-CacheID: sfid-20251121_012953_220994_B60C4B60 
+X-CRM114-Status: GOOD (  17.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,40 +110,74 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
+On 11/14/2025 8:02 AM, Philipp Zabel wrote:
+> On Fr, 2025-11-14 at 05:37 -0800, Laurentiu Mihalcea wrote:
+>> From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+>>
+>> Switch to per-device reset map to allow reusing the driver for other NXP
+>> block control IPs.
+>>
+>> Reviewed-by: Daniel Baluta <daniel.baluta@nxp.com>
+>> Reviewed-by: Frank Li <Frank.Li@nxp.com>
+>> Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+>> ---
+>>  drivers/reset/reset-imx8mp-audiomix.c | 18 ++++++++++++++++--
+>>  1 file changed, 16 insertions(+), 2 deletions(-)
+>>
+>> diff --git a/drivers/reset/reset-imx8mp-audiomix.c b/drivers/reset/reset-imx8mp-audiomix.c
+>> index 35df9bd5f71a..d3396f37d1ff 100644
+>> --- a/drivers/reset/reset-imx8mp-audiomix.c
+>> +++ b/drivers/reset/reset-imx8mp-audiomix.c
+>> @@ -24,7 +24,12 @@ struct imx8mp_reset_map {
+>>  	bool active_low;
+>>  };
+>>  
+>> -static const struct imx8mp_reset_map reset_map[] = {
+>> +struct imx8mp_reset_info {
+>> +	const struct imx8mp_reset_map *map;
+>> +	int num_lines;
+>> +};
+>> +
+>> +static const struct imx8mp_reset_map imx8mp_reset_map[] = {
+>>  	[IMX8MP_AUDIOMIX_EARC_RESET] = {
+>>  		.offset	= IMX8MP_AUDIOMIX_EARC_RESET_OFFSET,
+>>  		.bit = 0,
+>> @@ -42,9 +47,15 @@ static const struct imx8mp_reset_map reset_map[] = {
+>>  	},
+>>  };
+>>  
+>> +static const struct imx8mp_reset_info imx8mp_reset_info = {
+>> +	.map = imx8mp_reset_map,
+>> +	.num_lines = ARRAY_SIZE(imx8mp_reset_map),
+>> +};
+>> +
+>>  struct imx8mp_audiomix_reset {
+>>  	struct reset_controller_dev rcdev;
+>>  	struct regmap *regmap;
+>> +	const struct imx8mp_reset_info *rinfo;
+> Since only rinfo->map is used in imx8mp_audiomix_update(), you could
+> directly store a
+>
+> 	const struct imx8mp_reset_map *map;
 
-On 11/3/25 12:15, Amelie Delaunay wrote:
-> Without module_platform_driver(), stm32-dma3 doesn't have a
-> module_exit procedure. Once stm32-dma3 module is inserted, it
-> can't be removed, marked busy.
-> Use module_platform_driver() instead of subsys_initcall() to register
-> (insmod) and unregister (rmmod) stm32-dma3 driver.
-> 
-> Signed-off-by: Amelie Delaunay <amelie.delaunay@foss.st.com>
 
-Reviewed-by: Eugen Hristev <eugen.hristev@linaro.org>
+hm, that is true, but I wonder if instead of replacing "rinfo" with "map", it would be better to
 
-> ---
->  drivers/dma/stm32/stm32-dma3.c | 7 +------
->  1 file changed, 1 insertion(+), 6 deletions(-)
-> 
-> diff --git a/drivers/dma/stm32/stm32-dma3.c b/drivers/dma/stm32/stm32-dma3.c
-> index 50e7106c5cb7..9500164c8f68 100644
-> --- a/drivers/dma/stm32/stm32-dma3.c
-> +++ b/drivers/dma/stm32/stm32-dma3.c
-> @@ -1914,12 +1914,7 @@ static struct platform_driver stm32_dma3_driver = {
->  	},
->  };
->  
-> -static int __init stm32_dma3_init(void)
-> -{
-> -	return platform_driver_register(&stm32_dma3_driver);
-> -}
-> -
-> -subsys_initcall(stm32_dma3_init);
-> +module_platform_driver(stm32_dma3_driver);
->  
->  MODULE_DESCRIPTION("STM32 DMA3 controller driver");
->  MODULE_AUTHOR("Amelie Delaunay <amelie.delaunay@foss.st.com>");
-> 
+keep "rinfo" and add an out-of-bounds check for the reset ID in imx8mp_audiomix_update().
 
+Something like:
+
+
+                if (id >= priv->rinfo->num_lines)
+
+                    return -EINVAL;
+
+
+we are stuck with "struct imx8mp_reset_info" so might as well fully make use of it?
+
+
+>
+>
+> regards
+> Philipp
 
