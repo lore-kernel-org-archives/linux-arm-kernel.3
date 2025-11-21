@@ -4,109 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75E50CFC294
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 16:49:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 148FBCFC28C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 17:00:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tA1YZwkpqBYNCNgFaNMq2uv3rKscqjzMZ5GFDmRce68=; b=hPFT45XknegOouVhMwPsQzCarW
-	/m/3gndSoW4IDBYv+SDlCyvM0CICNl/yYpTQGjflpAbRBdHf9O9AK7kLAhgT9Cf4vEQfi4AMFU+yf
-	+ak5gXyuOWRsBmMLcdjUi2QVB2LDzOSHb1BqwdJbORhXCFsi+lSsz2gfdVs/3Q99t1xr+bVCDaJI+
-	WoYnWF500pimBIGIx/ksrpFpnF6MOHNAS2KbWLO+qHt2dmbM5MU1+n1R9W9SSKdWPErOqtpvz7kMU
-	C1M4Us0jMrIjYd9qAXHVAW89acgc57mDXWHPZJanZW+c4LipkyBDwF2P1HT9uKYm4OCoA57zMxQcF
-	qy9cH5Jw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WqqYECqxRb9GDnIg8k3uHftaZvDK7y89nQ1CqYzUe9Y=; b=vIc25tIzdhoW9PHvkucneQBkgc
+	s9rxXMETqBLc37Ti1b3mWnO4IY8q0skAOFMTJ7rvv9+O6b2cj1J6KGkGo8EgG1ODuSjAU2jtIfZn9
+	ypXu4xHthR//Ipp4cRKtWTHC+Jn2OyV684zLJh0ybG5r8drqaG67r5wEnecBvCtV588M6wmwSymeW
+	+0xEWhKLp8SL2iIC9hRfuF/eAh8nmcY73+sC/sL3r1tja+Oq9Wv4yIu96DEWDW6cexI//YdYx/bkw
+	SueqI+e0GteBySQUvu5LKiUvaLx5d8POhgn00rxaL126VYwRPYIjQlHoySz/HlQiMpzQfq/Ux9kOJ
+	Sh9aE77Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMUKM-00000008kcD-1FqP;
-	Fri, 21 Nov 2025 16:49:42 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	id 1vMUV3-00000008lbl-1lIM;
+	Fri, 21 Nov 2025 17:00:45 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMUK9-00000008kW8-42wU
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Nov 2025 16:49:31 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-4779cc419b2so24040525e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Nov 2025 08:49:29 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1763743768; x=1764348568; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=tA1YZwkpqBYNCNgFaNMq2uv3rKscqjzMZ5GFDmRce68=;
-        b=FHlglN5xhSOQAu4rR0OhrXMAO3+uMoc1dNh0BMgJTCfjikrJz+NM10dm6FrlrBFi5r
-         H2KYhr7dnJ5aZnlRoUtObXSqe0fwNdgPEFPsCYiFAtRT6ocF9nJnypXNz8uQrpxRSlNx
-         RqTya4xEIof6krsBnsbgSv8gGD+5NPxF3RQJ2riKJO1o/s5Kw0c5tmAHC4CXZpOkoqpT
-         L2lWsBE8tIA5DUbDo4FrvLw+kU6Sk/4QIlDShvxBZ8Q+MEa37uD2iSoJ6MX/bXrODH9R
-         fJtqlvmCbiNv22RBL4mh1a6F0rRyN9kKD3G4AnqLPaw74Jhxm9+2u7EUKSVkQ815yZDE
-         S8ag==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763743768; x=1764348568;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=tA1YZwkpqBYNCNgFaNMq2uv3rKscqjzMZ5GFDmRce68=;
-        b=ZT96V2F2UeHkLXhtELIhAGLSI8iAj/3Xd44qw0JowIR4QzAzjtxeYuMqiv6aezWaTH
-         SCjtWMRqoWmE5lWWsqHO1/DQCzs4V40BUph+8CEgfSfGM+Mv44kWuGNstY2braRg3x4f
-         BKitDSWr48GgZybFslyVeszoeJaT/KuyhHtAoxDxQVe1WQ2mYPX1Exrlca0g8OGr72jE
-         cuMAWE7g4uMtamp5688bod7N2hovyP5FSLgPr/bGvGK38nR7m2+hzoJEEEBzifRfD8lC
-         tcv9sHpWH8CeUhtvKcTTCNQX0icOej8OVqni1pUAkcFocr7OnLpXbfLF5NZUPQ9GZxL9
-         +pvQ==
-X-Forwarded-Encrypted: i=1; AJvYcCV8JvlqfmLiVspDa7yzaQmO5r9ANm0DielwkR79uy1aUXGkGTLPRoBuQpe8TUvhsFRTDWPO5apL6iakdB4pV9/2@lists.infradead.org
-X-Gm-Message-State: AOJu0YyexxVOURT8zzmjgkdfBBRDuEE/+lAQX3GeTt4IkgoPXbk5pG8C
-	98KHZACh3jzyofVgpsX40jG0hjKtT46HA3atP/ffZ5IKIHaQvG3qkCkcMFySphhzIRY=
-X-Gm-Gg: ASbGncvHcGN5OLAhhlSqnpsjz4/KlSNQxzj8YFNvFUqLZ0J8/g8KU9DxgEtjkQYvjMZ
-	JvfPGZc6zU2Y2Ux61u6EBCfsRMkkMoHFs4kLorD6Ow/qKDZ7x3ZYlBdTgJy6gt4xfdIn68KqlpG
-	Of1pg6MqZXswIaix76YR7vtlDbOoubWiUx7HNA06OGnqDVQSaSiNqc359FvRBWlnD6lLnOuAwPp
-	3/F6HSV9MCmciPrSeZ4BXHXQy44kCX4q+XjHTIVMoYw5TDJqLkkccROSRdzhAXhtP8svyFPk/zM
-	eLRunr4VtBtDfhiumBkjyEij83LVvy7zOmeqkLNtJZfQTsnOEeLfH4xui1zRRQUTE1BMrKnxWwp
-	9RvVUYutgkDcVSqkypvq89SSmGNEkxmVwcFHoSZlnTwPMWP/jGs/su747xF8foD0/bpaxITs281
-	0gxm0+7meFek+OsuE2i2k=
-X-Google-Smtp-Source: AGHT+IECYLnmyytfY8LzC6PdkZB/9Qv9aOOwBQ8USRlzz0beo5YI3DVNF2FJyRPzQ4ThwhycZbswbg==
-X-Received: by 2002:a05:600c:4f06:b0:471:9da:5248 with SMTP id 5b1f17b1804b1-477c114ef3dmr30830045e9.26.1763743768105;
-        Fri, 21 Nov 2025 08:49:28 -0800 (PST)
-Received: from vingu-cube.. ([2a01:e0a:f:6020:803a:ae25:6381:a6fc])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42cb7fb8ff3sm12938478f8f.29.2025.11.21.08.49.26
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 21 Nov 2025 08:49:26 -0800 (PST)
-From: Vincent Guittot <vincent.guittot@linaro.org>
-To: chester62515@gmail.com,
-	mbrugger@suse.com,
-	ghennadi.procopciuc@oss.nxp.com,
-	s32@nxp.com,
-	bhelgaas@google.com,
-	jingoohan1@gmail.com,
-	lpieralisi@kernel.org,
-	kwilczynski@kernel.org,
-	mani@kernel.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	Ionut.Vicovan@nxp.com,
-	larisa.grigore@nxp.com,
-	Ghennadi.Procopciuc@nxp.com,
-	ciprianmarian.costea@nxp.com,
-	bogdan.hamciuc@nxp.com,
-	Frank.li@nxp.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-pci@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev
-Cc: cassel@kernel.org
-Subject: [PATCH 4/4 v6] MAINTAINERS: Add MAINTAINER for NXP S32G PCIe driver
-Date: Fri, 21 Nov 2025 17:49:20 +0100
-Message-ID: <20251121164920.2008569-5-vincent.guittot@linaro.org>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20251121164920.2008569-1-vincent.guittot@linaro.org>
-References: <20251121164920.2008569-1-vincent.guittot@linaro.org>
-MIME-Version: 1.0
+	id 1vMUV1-00000008lbY-38zL;
+	Fri, 21 Nov 2025 17:00:43 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id D1D2D60515;
+	Fri, 21 Nov 2025 17:00:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 58C79C116D0;
+	Fri, 21 Nov 2025 17:00:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1763744442;
+	bh=90DNGtFm9MdQlp4AmTDRnAxa7ja0sbcC058ubJ/XCpw=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=QXVqhXKQsC6vuM6z3TZJVHYw9E2N8BceNMfCU1JtZYQ68/XXZg61NXd+fcuWoybbs
+	 m+gutwnYEnCnNLvDInugffbf6Yv9bNdhrwq5rvl0NPaZcTB4KtneQT/TdKmvjTDtwC
+	 0SEVb7NSsf0ombKmQSJtUKNiY5EkjvtuAVCszqp9CgNIkqwsb2Cu0xTtOHpZ503+MB
+	 Vsg0kyP7Q74kvbGwUcEN+hYObx2LbE2Gys8tDJlDl7ZeP8C9YOiMsK6pd3iZF9o7YE
+	 NVC7CYwgT3ESn9aUWU0jRWXqiCyHe82/sRK/Kf/dBx+zo3F1/yjLQld8Ew/IAcQQUm
+	 RkTuipMD7zikQ==
+Date: Fri, 21 Nov 2025 11:00:41 -0600
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251121_084930_036208_9135C83A 
-X-CRM114-Status: UNSURE (   9.16  )
-X-CRM114-Notice: Please train this message.
+MIME-Version: 1.0
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: linux-mtd@lists.infradead.org, devicetree@vger.kernel.org, 
+ Vignesh Raghavendra <vigneshr@ti.com>, 
+ Miquel Raynal <miquel.raynal@bootlin.com>, 
+ =?utf-8?q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>, 
+ linux-kernel@vger.kernel.org, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ linux-arm-kernel@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>, 
+ Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>, 
+ Richard Weinberger <richard@nod.at>, 
+ Linus Walleij <linus.walleij@linaro.org>, 
+ =?utf-8?q?Beno=C3=AEt_Monin?= <benoit.monin@bootlin.com>
+To: Gregory CLEMENT <gregory.clement@bootlin.com>
+In-Reply-To: <20251121-mtd-memregion-v2-2-c5535fdcebe4@bootlin.com>
+References: <20251121-mtd-memregion-v2-0-c5535fdcebe4@bootlin.com>
+ <20251121-mtd-memregion-v2-2-c5535fdcebe4@bootlin.com>
+Message-Id: <176374444102.1332163.10540866248088706987.robh@kernel.org>
+Subject: Re: [PATCH v2 2/3] dt-bindings: mtd: physmap: Allow using
+ memory-region to access memory resources
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,35 +78,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a new entry for S32G PCIe driver.
 
-Signed-off-by: Vincent Guittot <vincent.guittot@linaro.org>
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
----
- MAINTAINERS | 9 +++++++++
- 1 file changed, 9 insertions(+)
+On Fri, 21 Nov 2025 16:42:36 +0100, Gregory CLEMENT wrote:
+> Enable access to memory resources not only via I/O address using reg,
+> but also through a portion of main memory using memory-region. To
+> achieve this, new compatible strings have been introduced: mtd-mem and
+> mtd-memro.
+> 
+> Signed-off-by: Gregory CLEMENT <gregory.clement@bootlin.com>
+> ---
+>  .../devicetree/bindings/mtd/mtd-physmap.yaml       | 59 +++++++++++++++-------
+>  1 file changed, 40 insertions(+), 19 deletions(-)
+> 
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index e64b94e6b5a9..bec5d5792a5f 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -3137,6 +3137,15 @@ F:	arch/arm64/boot/dts/freescale/s32g*.dts*
- F:	drivers/pinctrl/nxp/
- F:	drivers/rtc/rtc-s32g.c
- 
-+ARM/NXP S32G PCIE CONTROLLER DRIVER
-+M:	Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>
-+R:	NXP S32 Linux Team <s32@nxp.com>
-+L:	imx@lists.linux.dev
-+L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
-+S:	Maintained
-+F:	Documentation/devicetree/bindings/pci/nxp,s32g-pcie.yaml
-+F:	drivers/pci/controller/dwc/pcie-nxp-s32g*
-+
- ARM/NXP S32G/S32R DWMAC ETHERNET DRIVER
- M:	Jan Petrous <jan.petrous@oss.nxp.com>
- R:	s32@nxp.com
--- 
-2.43.0
+My bot found errors running 'make dt_binding_check' on your patch:
+
+yamllint warnings/errors:
+
+dtschema/dtc warnings/errors:
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/mtd/mtd-physmap.example.dtb: memlog (mtd-mem): $nodename:0: 'memlog' does not match '^(flash|.*sram|nand)(@.*)?$'
+	from schema $id: http://devicetree.org/schemas/mtd/mtd-physmap.yaml
+
+doc reference errors (make refcheckdocs):
+
+See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20251121-mtd-memregion-v2-2-c5535fdcebe4@bootlin.com
+
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
+
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
+
+pip3 install dtschema --upgrade
+
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
 
 
