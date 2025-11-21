@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FB0BCFC27C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 13:37:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7322CFC27C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 13:37:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
+	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=DIgyY1cZUOKzkjJfdY46tZkGUtEuln9bC+BdeZLrX70=; b=TiiI0kzzGWvY81
-	84cj3aviCzc/m7mWC4n/3Kav01qhvlmKoFMzeOfkRmzW6gqbUSseWs4uHgkLMypESFTZrmua9Ra1m
-	tEXPpocgD6+uvtxLl5VqMTDTs1WTBowgw5CwzbnmROlRbWl+h45C1id1XCC2euk+MGLgag4gLJG45
-	B005Np4tvTHcMuA9QW72/So0Tbmd1W4XL6Z5HOJ5+kR2PNw0FJj1jh8J/yLSch346OqkhqSC85Kvs
-	Mv+MZ9zf/4XBW6JbEOjIUmVKpFgT+lK5RN6v45BB4F0gbRuxlu86YRtyk4OAcanlw9vnEHbe68a09
-	KNX5zzI/PWy7wkrujmIg==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0C2QTeR3cQQEoE360avKsictL355g1NCYjLzLxkW0Jk=; b=aBhjSOd8pxfluP9qesmcqdbtb2
+	6FHN3qYYZGmU6yoCikPalQdA7FB67YjQ+KtbX2/wDCuANlE98ylXOkF8TMDBBl49kXpL9pmvKivSV
+	Yk81NoXC7kIngZll5EgboRmTPDDuAb8WnDH62nfRKZLrHL8F3cZnR1dO4YN/1DwWtrBZ8NBbzxnkQ
+	y6sw+wa6AJnthAztCluAHEs5hDWr3vV7ZblHwKHWcp6ZJEcEO8pk5kMoD2qWxHxT9OLrMQGpVeZNE
+	C5EMDj7pUjo67QT49qw0/uBiRc5LiCB+2Fv/gXUSrAeR+NYpx0Y3T9JzZKRpv1JuZkBIY7eTzbj28
+	19Mwty4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMRK5-00000008QHV-0TAH;
-	Fri, 21 Nov 2025 13:37:13 +0000
+	id 1vMRKA-00000008QKr-10ls;
+	Fri, 21 Nov 2025 13:37:18 +0000
 Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMRK1-00000008QFU-1kjm
+	id 1vMRK2-00000008QFu-3ner
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Nov 2025 13:37:12 +0000
-Received: from pps.filterd (m0241204.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5ALDZTJc3452033;
-	Fri, 21 Nov 2025 14:37:00 +0100
-Received: from osppr02cu001.outbound.protection.outlook.com (mail-norwayeastazon11013055.outbound.protection.outlook.com [40.107.159.55])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 4ajnmt8x2e-1
+	Fri, 21 Nov 2025 13:37:13 +0000
+Received: from pps.filterd (m0288072.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5ALDZKoS3611604;
+	Fri, 21 Nov 2025 14:37:04 +0100
+Received: from osppr02cu001.outbound.protection.outlook.com (mail-norwayeastazon11013024.outbound.protection.outlook.com [40.107.159.24])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 4ajr6pr6rd-1
 	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Fri, 21 Nov 2025 14:36:59 +0100 (CET)
+	Fri, 21 Nov 2025 14:37:04 +0100 (CET)
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=xk4FuvFyA3CfA4xt6VrZl8aod9GfgVOMe/CvyiwrTb4tiYFvcFHyu3ffFcbi+Pk6oR7R/YuehHZDRq5eQbxCz7dhwHc9IFe9t0WBeTMmFxOeujRXtxN8Z7I6uj0kdjZNo1Vq+YA/KLlDEXRsr2BWAV8X0d8UeJkVWYrT6RDhMq4CUR9ZWDsCaZE169JFG6pgnQyAj/TxQ8dNPLAYI8wOc6TZgn0pCVTG40LebPKmXieZ3/cTDpGKgk+QCizT+8B0kr4v/kkIffQq87PBbEmX0WjQukN+L1v4hzkT62nJkvuSGmQOfI7X4dMmuOyumIFdvhC3Wa7bOE9K/ix/LMxtNw==
+ b=TO61bcHK5LltEEN/T4Z4jGXMod1JTl9Ro/bfcfdzv22cfrK5+ORY1chIhKu42p5TGlmGxnFmeJGwf6UoolqMWKkdA0PJJpZZkL9VEhQO6jSPbaTlbVtdudkJ4yWF/DR6mJVtd9AAatEyqBNvmDhKTjGKk2NAielIf0Eea93HVQT9Mi9TgYRtVmEtOKkrqp9ctrAWuYDBOxUpvguCei36tgEC7XF10kFvVkm+L9s0ZAeI9FF8hVJ7Kt9LJMLejd9cwotZWxMvggp3Y+qz5ct4wnBSxnGqAncvGqW0SKjpq/kLdi3IeTwhky67/HEWd9fKBBezVAxxovE7QH4uJDQQUA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=DIgyY1cZUOKzkjJfdY46tZkGUtEuln9bC+BdeZLrX70=;
- b=yDSRvwboqYlb4xnjXG4pvsRorLVSnF3cmNDdaArjEbSm4YtCkYIVvVq1p3HKdUBnpT03Ndzi1qt+p7tcdwVcAh+x/Bd0iy+Y9aApFcjf0nMSR2jhRjm2ShyO74xkTLLivcEuKM3hkJ6y2BaPijIVekuBnFEtZljh6AQDZ7JpyIGXVg/gNWpkbIakwk1a52sAKVoC6cyn22LxCWsF9C5TVx/NiYUm5GyoDCeBgg5cQ1jQnLy+b9zLU8STkIUQv9Y7XL8RCy9JM/NWBRQKvChj2ryjWa8rp6sD+UxMSaRc4fW9l8snLaZO2EuE6FYf3EKOTrJUNARJrOgOBYVxQmE4gQ==
+ bh=0C2QTeR3cQQEoE360avKsictL355g1NCYjLzLxkW0Jk=;
+ b=jYsn+kbOxnBO7Iy+wUNbR22BukrEC/uOzeX7BxDzNDtkEmI9gPtElhQtz9D9sCn6/sO8k9aDzgst/xsD0Inx9Zp4QqVEZIcKy/hImaCPYUwDK2N9HpB1QF+/Lm093r00I6sTUdPi4rySXaEL3EiQqp6umtAyxmV1+QGmsNd2EIEwtUZFMOT1oHNkObsElK/Np2TRWxTsQRilakJ5sgRQSbm6M6lkfbFp5lpcXd0YHOtWwIyLhZ5l7ua0vWeVY2+8EQxs4jE0W6hXzhDf+SrhwGsTSnAQWjcnmh6oNhekbck88nWk/msc6ELEObKWS/2YcZGd7+kf0fXZa3Wgtqs+CA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.59) smtp.rcpttodomain=linaro.org smtp.mailfrom=foss.st.com;
- dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
- dkim=none (message not signed); arc=none (0)
+ 164.130.1.59) smtp.rcpttodomain=st-md-mailman.stormreply.com
+ smtp.mailfrom=foss.st.com; dmarc=fail (p=none sp=none pct=100) action=none
+ header.from=foss.st.com; dkim=none (message not signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
  s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=DIgyY1cZUOKzkjJfdY46tZkGUtEuln9bC+BdeZLrX70=;
- b=etRObKoh+1Yfqh9gEa65k91J4MdMYYpsLjOeWJwC81YJ7IMfAOcl4RvDUUtPNG+BKxG/bsNPXxGXDz6+RatBnigZ9Ef0oM9entC269BKf4OUWCUsOUtPxRf+tR/4+XTL9lFMB80lFH/dl+SvMqjUBxjjaCXuPdlaCxF9cFME3MWFcve1wu1ywP/LLt+XwzLDicaiTlLNjsWqrCi/KT+5LL1raTCtYZelCAe+GO/9EqqrynIYj2cqMWkXFOBk8aSksoFCOWoBgpEijuCz67GaOol5ePQI1RjzsZMXlUlNTbfxSXynIqL8mKi+5BqcbZKoSiSwoXQV+Rtv/BhINa4s0Q==
-Received: from DUZPR01CA0333.eurprd01.prod.exchangelabs.com
- (2603:10a6:10:4b8::27) by DU0PR10MB6019.EURPRD10.PROD.OUTLOOK.COM
- (2603:10a6:10:3b1::9) with Microsoft SMTP Server (version=TLS1_2,
+ bh=0C2QTeR3cQQEoE360avKsictL355g1NCYjLzLxkW0Jk=;
+ b=O8lyxsdd8pSAljRV8ejqWm9HerEIuYM78KQOA1rmxoKvo9o8larRK723O+eduOQEX9ChrpiCixa9gGAo9tT+6cbxe69nk7egKaLRpVWgLzoM/vBt2zqbynmvNrYruLd29JkNlR0z+QlVihJ0D++dgj4g+ei1VON/hGtMG03c9RhsqSfSXDFwiE56py7/Fmun6R0VndSBwBNAbuv/bZ+IGoV25gDaOhFTL99vY4nWjmPrXkwQYEzqHUObrUNwwZsuM3GBiDdBDY6L+CjJ1X1o2cQVwhb7YjbijCXJcs45YW5Md1U4ah4VfE3YVNhHi3p86mijcX61489sQ0PmQy+yGg==
+Received: from DU7P191CA0010.EURP191.PROD.OUTLOOK.COM (2603:10a6:10:54e::35)
+ by DB5PR10MB9193.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:10:5e6::15) with
+ Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9343.11; Fri, 21 Nov
- 2025 13:36:57 +0000
-Received: from DB1PEPF000509F3.eurprd02.prod.outlook.com
- (2603:10a6:10:4b8:cafe::f5) by DUZPR01CA0333.outlook.office365.com
- (2603:10a6:10:4b8::27) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9343.12 via Frontend Transport; Fri,
- 21 Nov 2025 13:36:54 +0000
+ 2025 13:36:59 +0000
+Received: from DB1PEPF000509F9.eurprd02.prod.outlook.com
+ (2603:10a6:10:54e:cafe::2e) by DU7P191CA0010.outlook.office365.com
+ (2603:10a6:10:54e::35) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9343.14 via Frontend Transport; Fri,
+ 21 Nov 2025 13:36:57 +0000
 X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.59)
  smtp.mailfrom=foss.st.com; dkim=none (message not signed)
  header.d=none;dmarc=fail action=none header.from=foss.st.com;
@@ -67,122 +67,118 @@ Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
  designate 164.130.1.59 as permitted sender) receiver=protection.outlook.com;
  client-ip=164.130.1.59; helo=smtpO365.st.com;
 Received: from smtpO365.st.com (164.130.1.59) by
- DB1PEPF000509F3.mail.protection.outlook.com (10.167.242.149) with Microsoft
+ DB1PEPF000509F9.mail.protection.outlook.com (10.167.242.155) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9343.9 via Frontend Transport; Fri, 21 Nov 2025 13:36:57 +0000
+ 15.20.9343.9 via Frontend Transport; Fri, 21 Nov 2025 13:36:59 +0000
 Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpo365.st.com
  (10.250.44.71) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Fri, 21 Nov
- 2025 14:37:21 +0100
+ 2025 14:37:22 +0100
 Received: from localhost (10.48.86.127) by STKDAG1NODE2.st.com (10.75.128.133)
  with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Fri, 21 Nov
- 2025 14:36:56 +0100
+ 2025 14:36:57 +0100
 From: Amelie Delaunay <amelie.delaunay@foss.st.com>
-Subject: [PATCH v2 0/4] dmaengine: stm32-dma3: improvements and helper
- functions
-Date: Fri, 21 Nov 2025 14:36:55 +0100
-Message-ID: <20251121-dma3_improv-v2-0-76a207b13ea6@foss.st.com>
+Date: Fri, 21 Nov 2025 14:36:57 +0100
+Subject: [PATCH v2 2/4] dmaengine: stm32-dma3: introduce channel semaphore
+ helpers
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAPdqIGkC/23MywqDMBCF4VeRWTeSm1W66nsUKUYndRYayUhok
- bx7U9dd/gfOdwBjJGS4VQdETMQU1hL6UsE4D+sLBU2lQUvdKCWNmJbBPGnZYkjCWWeuiNootFA
- eW0RP71N79KVn4j3Ez4kn9Vv/O0kJKZrWS9s5r7u2vfvAXPNej2GBPuf8BX2vVR+oAAAA
+Message-ID: <20251121-dma3_improv-v2-2-76a207b13ea6@foss.st.com>
+References: <20251121-dma3_improv-v2-0-76a207b13ea6@foss.st.com>
+In-Reply-To: <20251121-dma3_improv-v2-0-76a207b13ea6@foss.st.com>
 To: Vinod Koul <vkoul@kernel.org>,
         Maxime Coquelin
 	<mcoquelin.stm32@gmail.com>,
         Alexandre Torgue <alexandre.torgue@foss.st.com>
 CC: <dmaengine@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
         <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        Amelie Delaunay <amelie.delaunay@foss.st.com>,
-        Eugen Hristev
-	<eugen.hristev@linaro.org>
+        Amelie Delaunay <amelie.delaunay@foss.st.com>
 X-Mailer: b4 0.13.0
 X-Originating-IP: [10.48.86.127]
 X-ClientProxiedBy: STKCAS1NODE1.st.com (10.75.128.134) To STKDAG1NODE2.st.com
  (10.75.128.133)
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DB1PEPF000509F3:EE_|DU0PR10MB6019:EE_
-X-MS-Office365-Filtering-Correlation-Id: e97a7f69-2db1-4614-d08b-08de29030a83
+X-MS-TrafficTypeDiagnostic: DB1PEPF000509F9:EE_|DB5PR10MB9193:EE_
+X-MS-Office365-Filtering-Correlation-Id: 506c60d3-3641-46c3-10d2-08de29030c02
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|1800799024|376014|82310400026;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?UHMxYldPbXVQWi9zYlpWS0NDUEZSbUpRbXl5b2FpT1JuUy9vUjRZZmZuNmhE?=
- =?utf-8?B?SDNLTmFMaVdGT3Q5MXNzNHptd1JuOHVVVHJ4TkJPL0FYSEJyUDVEa05GUE9R?=
- =?utf-8?B?V3JWemkyN0ZKa1FOaGEzdEpVcVA0enVzdTE0UE90dnFYV0F3anowMG9XR0FD?=
- =?utf-8?B?SkliUWJFZ1pZRjRkNEpIeVdjb2dKTzBzcXhZVm1KNlI2OGhjVm96MXp1Lzli?=
- =?utf-8?B?YzNuMkw5a2U1ZHN1eTNBOWZoR2s0cUFwZjQzZmpYbW5BWlpmNWs1TXVNWHVB?=
- =?utf-8?B?NDhqVjBWSjk5QWtKQ2FvOUJvMmFJajAyMmQrdklla1hENTVvcVRlNURsSTdr?=
- =?utf-8?B?em45aUFERFVQN1V3NTVPSlJ6OGlITFloMU13YXc2WEh1SnVsYWRTamdMZk16?=
- =?utf-8?B?MGs2SjMvZU9jQ0drL0hFS3F4aFJDMDh1aUJWZHA3bUlJdVdXSHNISU1jblRo?=
- =?utf-8?B?ZTV6dWlKTmV0NlY4am83Wk1hZVRETWVTbTNTSjRuUEhrei82UW5NYjVNOEQr?=
- =?utf-8?B?ekN4Sk5uT09wZWY1MkNNUkkzNTJEOHJQMG1UejFQRFRpZDdrTC9XVUI5VVYx?=
- =?utf-8?B?LzBzaXdSUVhFUWNNcmNPc1dNblQvaWxSL0dNK3FndE9MQUp2aFphRjNxdHN2?=
- =?utf-8?B?ZlZtaG9LekRPaFdxaXhmempzNndFWHdSVC9rMC92QWE1eVVKNm5JZVFuS0hu?=
- =?utf-8?B?VFhubEdLZ0J4cDFmTE10cittVnpVRXU4WFQzRUpSQTd3SE1vdkxFaWxJQ0NF?=
- =?utf-8?B?bUI1NFBWUU16Yk82L0YyNjVTYjdFV0ROTUgwTEJhRWdOTzZ1QWhwc2RkYlFo?=
- =?utf-8?B?N3hlSTN2MFBML0lPZjhONm1xak1GMXhHQ0hGNTNVKzdJUHVVVHppSEhHcCtB?=
- =?utf-8?B?a3NnL2hSc2hrVmNkRTFjU2JhZnkzZmdaVVBmeWI2dUdQcDE2THRDU0phcVV2?=
- =?utf-8?B?bWtRaldubUdTUDUyeHNQUEdQNCtaQVM5RVU0R0hiL2NDbFVhT3hyS2FML01w?=
- =?utf-8?B?T1NiaG9Sb255YmdhbFR2Y3dWWGhqUjRlbmFqdVhkQW8wczlwa1FmU2Z4Ykhm?=
- =?utf-8?B?NjZUT0pLWG9KQ2RveVhqbmdlRm5oM1MvT2FxV2szUy80QlBRalVWbHN2U1Nm?=
- =?utf-8?B?SmtVV3pYR2Z1c1NDRk9UandObjlVbHlrOHRTVEdRYnVyS3lZT3l6dFBXY2tG?=
- =?utf-8?B?cnhFR25LUnF2blo5NDBMTlh1TC9kUXlBUXUxR1RUOHM5b2x1RkRWTk9SQlNs?=
- =?utf-8?B?djBUTldwc01xMTRFcTI3UHl3cEhHRHNoeGRiU3hSVWFPWnlBa1JFc0xuVmhD?=
- =?utf-8?B?TThFbkpyQzlZQTd1TE56WEZMa0Q2OXV5ODMvSko5RS9YOTFsS1dZSEJiTUx1?=
- =?utf-8?B?WklLR2EvVy82d2JlVTZ2TGNrM0VFbjlxZFl6ak4yaHRmYWZoS0pOWFZvTVBR?=
- =?utf-8?B?UkFWT2grbEY5akt5MVZWRmNNVHE4ZmZuZEpsdjJHVkM0NGZ2bWxCU3lmZ1N2?=
- =?utf-8?B?Rk43ZTV4elNMNWpzRFFzVCtCcjlGSFQxSkV4d0M1eWYweUUrQ3pqeXhKL01G?=
- =?utf-8?B?VTZTQW9aclhiYlRKSjRtV0FkR1hObXVQd3IzckhSVGVxY3pQUkdSZmR1RVVG?=
- =?utf-8?B?clhUR0doVWJIU2tLTUllOWxhT2ovZyttTkppaVdMTHQ0YmRxRWYxamxsUURz?=
- =?utf-8?B?eitJbFp1NktCTHJ2Z1N3ZGE4d29EUmprUEJHdUw5bzViVjhEdXBZTmYwQnNu?=
- =?utf-8?B?eVZqWElVcTY4aVlaT0hEMlRaMTVWNkpZMm9lN2M3QUYzSzBUN2pJTXIrci9O?=
- =?utf-8?B?QjFqMWV0V0ZRTHVJQlhHV2hybk1PeHVLOElFMFc1czNEcGJwajVVaFJMUTlN?=
- =?utf-8?B?YkdiWHJsUWNaZ0VjdEZoMHZiNEpyOFVIbHZzY082WkFTZjZ6UUt4UU9qZEpq?=
- =?utf-8?B?SkhvSUZhVURUdW1nSnovOHdSV0pIUlF1TkFDU0VxRHB3dEh3MFVTUkxJMkh5?=
- =?utf-8?B?UWY4RHluQzNFd2dLSzhQWnBSYm5QRE5UU0dUZFZGNXRkaGpvNkhReHlnRkUz?=
- =?utf-8?B?b0JnK1hFMUZabTJFR1VSYjlvaVJXbnI1ejd1WXZsaTN6WVd4SGNWOVlhemFL?=
- =?utf-8?Q?RBJYZ3X2adTvK1kNh/0ni4PLg?=
-X-Forefront-Antispam-Report: CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700013)(1800799024)(376014)(82310400026);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700013|82310400026|376014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?OTM3L09jWU04ZWNVZUlaR2Q2aEpvbkJ6eEdOUlhuNklBV1dXa3pERkZNeWtF?=
+ =?utf-8?B?UjVLOGczenN2anNobFR0ampJSmNFU1ZnTW1WYTZrSGJOV2xGS09nY0Juakdz?=
+ =?utf-8?B?ZlNMWi95YUxDdHZDYzc3Q0VidjFid2FrSCtCb3kzTHp5dTNXR1dsOGt2aGhP?=
+ =?utf-8?B?azZEVndwNVE2NWQ5b1A3TE1ZWmY0aXRlUThmeDlRdDMxVXRhb2pGYzNtRjFv?=
+ =?utf-8?B?NXA5LzRCejhkMENaTGYzNDNoZXcvY1d3cGdCekk2S2gyMDh3WGp4aFZuemZk?=
+ =?utf-8?B?SWtGSEJuczBpd2xsbGFGWGc0MHBRL0J4aU8wV2Jua3VJZ1crMWNpcGxMNHlr?=
+ =?utf-8?B?MmZtdCthaTIwckxENjZvbTZ4TlB6RkxZQnpDbVloN01tYXR6ZGNReDBQVzBE?=
+ =?utf-8?B?NjNUdEw2d09BK3pSVlUrakJKL0ZSbmU3MnEvL3lXWHJCeW9WckRkMTN1YzI2?=
+ =?utf-8?B?cXJFTng3b2VqK0lOYW5CZk5UUHg2eUwyRFp0L1dsVnlHeGJSK2VvYWdnUmNQ?=
+ =?utf-8?B?OTZSU0ppb0NIT0htZnYzZEFmNCt1NExxUXJJMk1SaWNYaU5KYVRYMytsRklv?=
+ =?utf-8?B?dUludy9yWlp3QUNMclZkd0JXbTI2TXphajJpWXV2UE4vMXVXRDVseGhuSnA4?=
+ =?utf-8?B?MlY0N3BvLzluVVVPMWk3cGh4TU5rODYxWDA0QmxlMDJTUVp1bkg5T21XWThj?=
+ =?utf-8?B?K21Dd1oxa3NwRDFhTW5GbzhlTG9EaWhyMVkySEI1ZmdzMDhqdGlGcFpDNEsv?=
+ =?utf-8?B?OVo2elF4OXN3Z0l5eGdnYXpzWXM3ZVVnS2F6NDlmek9xMXVlYUhQeUpiUVpq?=
+ =?utf-8?B?dnYvKzNUUmdGOVdDM3lqTENDQlJQZjNEK0UxWXhZNi96Q1VKdFRyM081czBR?=
+ =?utf-8?B?NElqUnBKQ0JwZmszaTlSVXEyblY2bGg4TkFqUjRWVUcwY3daSmpPaUxBVEx1?=
+ =?utf-8?B?b0tMRWpCVmpPejBoVkRnU0I3RWtOSml0Vjl0eFN6UDhCOFIyQkx4bU15N3N4?=
+ =?utf-8?B?eEFoVUJhRFhCNTgvVTlHdkRDa2RiTzh2Qms5SE5Ld003ZDE5KzRBbXl1M0V0?=
+ =?utf-8?B?SWJXSUFNZEQraXZBRGpFeWJZY3BNRDFoYXQ3dURhNW9NVGhHZ3FpUTFNK2xY?=
+ =?utf-8?B?aHdYcVlCZmdJZkFhbnNQZURWRHlYL1QvNWU4MWRkMEVLU0Q1V2VyWWhBYktH?=
+ =?utf-8?B?SEs3RTZvOHRNcUZoeU5aUm1ORDh2dzEyK09JeEZPQ3pFdGVCWTArOUdNbG4r?=
+ =?utf-8?B?STQ1WGE4aURadm5RbmFZOEpRR1l5V2FVV1pXVWZ0L2FyUEdkZEdLVUttdDFv?=
+ =?utf-8?B?ZUdtU2ZCbGs0OGlac2ZIV1hiRm9hSzJDc3dRcXpMSm9KNkFJcEllem5mem0y?=
+ =?utf-8?B?MHlVODBMMDBRTjRlTjZPa0M0L2VzNTEzKzlybTRITVloY0tCaW0zODQxcGs1?=
+ =?utf-8?B?cFF4dVlYVDNKRVcrQ0ZMVUx2SGsvYUd5YzdVNCtyMENYUmlkWEMwcURJSzJI?=
+ =?utf-8?B?SE1udW9nZjFqby85R0daQlVGYk5hcWs4OUNzVG0rS2RLUjR4VElub3lUZ2Q4?=
+ =?utf-8?B?QnEzUzJ4bWZvQ0hFNENjZkZZNWw4b3VyN0hWZ0QvSW9Wc09tNDZEeFFwVEFv?=
+ =?utf-8?B?ZXcvLzNWVlY0dllNbzdrNjBtakpKUWgxYzUzYzRBL3hjdzkrWEs5OFZ0RC9a?=
+ =?utf-8?B?UitqNWRCWXJYemovZmlML2xjTTRCbVlSZUo0YUtWM29XZGFWNEVUc1FYcGNx?=
+ =?utf-8?B?L3NhL3NXN3d1bE81dDJWOU1wV2l4dVNUSXlsdXZVRTU4eURPdy9sVThIdExq?=
+ =?utf-8?B?VjdDNU1MY0JmUkljY2pNY25wRlAwZndUWmpEY1ZrbTN6UmRxcElOVFRaUklE?=
+ =?utf-8?B?SWJ1cFU4YXdhVFFFcFBNNE5LYVhBWDlSbE1KdnR1TEdIY1BGUEVxRTRtSjFi?=
+ =?utf-8?B?WElnM244SzBqYkd3bVBEUHJRL2FjUitUMjRNL3dJMTlrUitQbG9YbGVKL0xq?=
+ =?utf-8?B?ZlhlRXV1b3pnTytCR3NqbkhuSE9yMGpHc1paR2RJdC9HRnpmR042bkVyZlFw?=
+ =?utf-8?B?c092WUJaT2tLUTVTbENMVUpUZVYweFlFWlNqT3FNeERnWHFhNS9leWkzc3JK?=
+ =?utf-8?Q?QQJg=3D?=
+X-Forefront-Antispam-Report: CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(36860700013)(82310400026)(376014);DIR:OUT;SFP:1101;
 X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Nov 2025 13:36:57.0085
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Nov 2025 13:36:59.5205
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: e97a7f69-2db1-4614-d08b-08de29030a83
+X-MS-Exchange-CrossTenant-Network-Message-Id: 506c60d3-3641-46c3-10d2-08de29030c02
 X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.59];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource: DB1PEPF000509F3.eurprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthSource: DB1PEPF000509F9.eurprd02.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0PR10MB6019
-X-Authority-Analysis: v=2.4 cv=fYKgCkQF c=1 sm=1 tr=0 ts=69206afc cx=c_pps
- a=H8i1M1V/suqiaFjUero0jA==:117 a=d6reE3nDawwanmLcZTMRXA==:17
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB5PR10MB9193
+X-Proofpoint-GUID: NWszJs1F1d04DedvDNeuDLDyrkx_ioC3
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMTIxMDA5OSBTYWx0ZWRfXzyT6VXR0hiUK
+ LjQiYUmNLbMmlk6QH4DD03fXFDuxeG+Ryot12GJxCDh0wCnWRoRFfbJaEXz0TljGnd714Rd7TqE
+ ekpeAGXNpQyPD2JPg1VKLpDdrq7ZruBMTbOTZNy0PMrb45cUSOlVpjELKCOnQnBPAT0yXw+oSIF
+ ZikwHXDfdQqyzhmeyeYsjUgHQwmgE7zB8xcSuPsWEufcV479E6mjLX4JkMO7ZmX8qcKziD5JYzq
+ 9TND5GtIBJgDZep6+mmzotIhWslpJTr/LbRInSTLczUI6wEyOcYy7iKkl/eXKveKzCnPY4Yi48z
+ 8vfb3GAeGTY6gjvVteYH0aWaUG1jFFd8JN3VvxdhwOOxKBUcIX0UF03TgH2B5EHkhI0SFM6oR2G
+ WNzPc2hlZsjVViPH5h3nlk+d37SStQ==
+X-Authority-Analysis: v=2.4 cv=J+inLQnS c=1 sm=1 tr=0 ts=69206b00 cx=c_pps
+ a=gkXL6sAu4RnYAcgyXzJ/6g==:117 a=d6reE3nDawwanmLcZTMRXA==:17
  a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=iPq3YwKX0LwA:10 a=IkcTkHD0fZMA:10
  a=6UeiqGixMTsA:10 a=s63m1ICgrNkA:10 a=KrXZwBdWH7kA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=VwQbUJbxAAAA:8 a=8b9GpE9nAAAA:8
- a=FnA8CDKvPw8sk-bsElgA:9 a=QEXdDO2ut3YA:10 a=T3LWEMljR5ZiDmsYVIUa:22
-X-Proofpoint-GUID: 0dS2B-euAi0koSuZFiKMWLQnLLESmXFV
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMTIxMDA5OSBTYWx0ZWRfX0OrTw26uqoYB
- fGZ2V5V9KlQ5WliOwDclaV/emOeMduBxpDQWIlvdut5QtgR01nUPl4LRfVRUiTQm3ciEo5Bf1G6
- gxj5K7ms1KGlTpbjL0zy3NxhObMks3Z8xgnu7XyZkXfw5aXLcejNji3g3EoBGwdX0hjW7AEmZf0
- pAUK2VfY2o+4nlSDBeJiBvwkAPb4tSYEFoXMvNGWeEsHmhkfnZeIge1wYk6mSxG7AwY0OqnqQlK
- R7Ry9xibg0GWdLnmo0eeKPildrhZ5L6qXLXWf08lpnwbSAnVDzx/jDKtDcCjRQh8ZPn1a6Fzgyu
- jsHjVvUEdLZjzut26zTV7BWDem3ouThBTcO04keWX8QpMpUSabI1gnB4hPsVycJjvPJfGnj7Rs4
- dvpVXeM/2Q15ae10nl3bfP4qmJReAg==
-X-Proofpoint-ORIG-GUID: 0dS2B-euAi0koSuZFiKMWLQnLLESmXFV
+ a=VkNPw1HP01LnGYTKEx00:22 a=8b9GpE9nAAAA:8 a=IQHcLSFj4Mn2yckHXKoA:9
+ a=QEXdDO2ut3YA:10 a=T3LWEMljR5ZiDmsYVIUa:22
+X-Proofpoint-ORIG-GUID: NWszJs1F1d04DedvDNeuDLDyrkx_ioC3
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
  definitions=2025-11-21_03,2025-11-21_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0
- priorityscore=1501 impostorscore=0 adultscore=0 clxscore=1015 bulkscore=0
- lowpriorityscore=0 spamscore=0 suspectscore=0 phishscore=0 malwarescore=0
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 bulkscore=0
+ phishscore=0 clxscore=1015 suspectscore=0 spamscore=0 impostorscore=0
+ adultscore=0 lowpriorityscore=0 priorityscore=1501 malwarescore=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2510240001 definitions=main-2511210099
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251121_053709_987612_04441574 
-X-CRM114-Status: UNSURE (   8.16  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251121_053711_248859_B627EAC8 
+X-CRM114-Status: GOOD (  17.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -197,41 +193,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series introduces improvements and helper functions for channel
-and driver management.
-
-It enables proper unloading of the stm32_dma3 module, replacing the
-previous subsys_initcall() mechanism with module_plaform_driver().
-
-It introduces helper functions to take and release the channel semaphore,
-and restores the semaphore state on resume, considering the possible
-reset of CxSEMCR register during suspend.
-
-It also adds a helper to retrieve the device pointer from the dma_device
-structure contained in stm32_dma3_ddata, simplifying the code.
+Before restoring semaphore status after suspend, introduce new functions
+to handle semaphore operations :
+- stm32_dma3_get_chan_sem() to take the semaphore
+- stm32_dma3_put_chan_sem() to release the semaphore
+Also, use a new boolean variable semaphore_taken, which is true when the
+semaphore has been taken and false when it has been released.
 
 Signed-off-by: Amelie Delaunay <amelie.delaunay@foss.st.com>
 ---
-Changes in v2:
-- Refine PATCH 4/4 commit description and remove unintended blank line
-- Collect Reviewed-by tag
-- Link to v1: https://lore.kernel.org/r/20251103-dma3_improv-v1-0-57f048bf2877@foss.st.com
+ drivers/dma/stm32/stm32-dma3.c | 55 +++++++++++++++++++++++++++++++++---------
+ 1 file changed, 44 insertions(+), 11 deletions(-)
 
----
-Amelie Delaunay (4):
-      dmaengine: stm32-dma3: use module_platform_driver
-      dmaengine: stm32-dma3: introduce channel semaphore helpers
-      dmaengine: stm32-dma3: restore channel semaphore status after suspend
-      dmaengine: stm32-dma3: introduce ddata2dev helper
+diff --git a/drivers/dma/stm32/stm32-dma3.c b/drivers/dma/stm32/stm32-dma3.c
+index 9500164c8f68..a1583face7ec 100644
+--- a/drivers/dma/stm32/stm32-dma3.c
++++ b/drivers/dma/stm32/stm32-dma3.c
+@@ -288,6 +288,7 @@ struct stm32_dma3_chan {
+ 	u32 fifo_size;
+ 	u32 max_burst;
+ 	bool semaphore_mode;
++	bool semaphore_taken;
+ 	struct stm32_dma3_dt_conf dt_config;
+ 	struct dma_slave_config dma_config;
+ 	u8 config_set;
+@@ -1063,11 +1064,50 @@ static irqreturn_t stm32_dma3_chan_irq(int irq, void *devid)
+ 	return IRQ_HANDLED;
+ }
+ 
++static int stm32_dma3_get_chan_sem(struct stm32_dma3_chan *chan)
++{
++	struct stm32_dma3_ddata *ddata = to_stm32_dma3_ddata(chan);
++	u32 csemcr, ccid;
++
++	csemcr = readl_relaxed(ddata->base + STM32_DMA3_CSEMCR(chan->id));
++	/* Make an attempt to take the channel semaphore if not already taken */
++	if (!(csemcr & CSEMCR_SEM_MUTEX)) {
++		writel_relaxed(CSEMCR_SEM_MUTEX, ddata->base + STM32_DMA3_CSEMCR(chan->id));
++		csemcr = readl_relaxed(ddata->base + STM32_DMA3_CSEMCR(chan->id));
++	}
++
++	/* Check if channel is under CID1 control */
++	ccid = FIELD_GET(CSEMCR_SEM_CCID, csemcr);
++	if (!(csemcr & CSEMCR_SEM_MUTEX) || ccid != CCIDCFGR_CID1)
++		goto bad_cid;
++
++	chan->semaphore_taken = true;
++	dev_dbg(chan2dev(chan), "under CID1 control (semcr=0x%08x)\n", csemcr);
++
++	return 0;
++
++bad_cid:
++	chan->semaphore_taken = false;
++	dev_err(chan2dev(chan), "not under CID1 control (in-use by CID%d)\n", ccid);
++
++	return -EACCES;
++}
++
++static void stm32_dma3_put_chan_sem(struct stm32_dma3_chan *chan)
++{
++	struct stm32_dma3_ddata *ddata = to_stm32_dma3_ddata(chan);
++
++	if (chan->semaphore_taken) {
++		writel_relaxed(0, ddata->base + STM32_DMA3_CSEMCR(chan->id));
++		chan->semaphore_taken = false;
++		dev_dbg(chan2dev(chan), "no more under CID1 control\n");
++	}
++}
++
+ static int stm32_dma3_alloc_chan_resources(struct dma_chan *c)
+ {
+ 	struct stm32_dma3_chan *chan = to_stm32_dma3_chan(c);
+ 	struct stm32_dma3_ddata *ddata = to_stm32_dma3_ddata(chan);
+-	u32 id = chan->id, csemcr, ccid;
+ 	int ret;
+ 
+ 	ret = pm_runtime_resume_and_get(ddata->dma_dev.dev);
+@@ -1092,16 +1132,9 @@ static int stm32_dma3_alloc_chan_resources(struct dma_chan *c)
+ 
+ 	/* Take the channel semaphore */
+ 	if (chan->semaphore_mode) {
+-		writel_relaxed(CSEMCR_SEM_MUTEX, ddata->base + STM32_DMA3_CSEMCR(id));
+-		csemcr = readl_relaxed(ddata->base + STM32_DMA3_CSEMCR(id));
+-		ccid = FIELD_GET(CSEMCR_SEM_CCID, csemcr);
+-		/* Check that the channel is well taken */
+-		if (ccid != CCIDCFGR_CID1) {
+-			dev_err(chan2dev(chan), "Not under CID1 control (in-use by CID%d)\n", ccid);
+-			ret = -EPERM;
++		ret = stm32_dma3_get_chan_sem(chan);
++		if (ret)
+ 			goto err_pool_destroy;
+-		}
+-		dev_dbg(chan2dev(chan), "Under CID1 control (semcr=0x%08x)\n", csemcr);
+ 	}
+ 
+ 	return 0;
+@@ -1135,7 +1168,7 @@ static void stm32_dma3_free_chan_resources(struct dma_chan *c)
+ 
+ 	/* Release the channel semaphore */
+ 	if (chan->semaphore_mode)
+-		writel_relaxed(0, ddata->base + STM32_DMA3_CSEMCR(chan->id));
++		stm32_dma3_put_chan_sem(chan);
+ 
+ 	pm_runtime_put_sync(ddata->dma_dev.dev);
+ 
 
- drivers/dma/stm32/stm32-dma3.c | 165 +++++++++++++++++++++++++++++++++--------
- 1 file changed, 136 insertions(+), 29 deletions(-)
----
-base-commit: 398035178503bf662281bbffb4bebce1460a4bc5
-change-id: 20251103-dma3_improv-b4b36ee231e4
-
-Best regards,
 -- 
-Amelie Delaunay <amelie.delaunay@foss.st.com>
+2.43.0
 
 
