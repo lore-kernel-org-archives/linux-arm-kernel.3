@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76C48CFC283
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96682CFC28C
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 15:06:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,56 +12,55 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=goplYJ31MJta2agakikc4AbJPDWhZtFNJoq8MKPkDOI=; b=l6CBN821x4tWpfV9KpIlyiADeQ
-	tZTbK4BB3wZNlPhokptpbUkTKD1QYKsPkWCyQXJE+s6Vr2+17rK8aIzc8Js1PIxuXjXQq8Pz95zqW
-	tphLQFSDA3yh647W8iAOmS0+gQdl/cyxejlLleHFs+YKhuAZgJJvgOwxX9tMGqEpvSjyFon15uLFG
-	PxsPTjS8HinQFJZT5zVzn4MqmVYUP13e33kARdltmXgJO7mMc1U2aLiJ6YPv8CZ+lyUSQy+Nl1Nzb
-	FvvOqq4E+HtA2qeo1ngxYVCm6rmxjr8VRfQVRMsAhin0RRIA3w2jO8TJxZJqdw0FSkWV3P32mpcH5
-	nkoaXQPQ==;
+	bh=JvZXLmPzwzhm6QvSDpXn8GzT07LgcYZ5zkWt2yi5Rr0=; b=U9IV324IkvOp3Fkk73iRCiCkCj
+	yHHnaSih+9TXcqolkgu7CwYGXk11LIPs5B/CZf8MYhUgkZdDTnn3DKz0zaneJIGAG7miIkQZqE8sZ
+	iU41ZYbqlcT283hkfL1YF47aSKqiq2tMzez213FqWVz++wZtRtnroLC3Mhv1Vlz/qnXLvLoZ8Of/X
+	GXfb4anAm7SuW/rdQA9sUHiV4cnUdesJ5yvcnUv/qtI6qj4CpuwCI4rqsJBUxQWksIrlvyb765ssD
+	+4ZK6NxLgQuMrnSoeTyCApCw7N26GJRKQ6ht/a8AzX8q3yW2NJ+vIksXin7V/INzpoc58zBRN+SdM
+	w9Gijtgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMSiZ-00000008ZNx-1AoA;
+	id 1vMSiZ-00000008ZOm-3ody;
 	Fri, 21 Nov 2025 15:06:35 +0000
 Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMSiR-00000008ZLZ-2bux
+	id 1vMSiT-00000008ZM6-3nWg
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Nov 2025 15:06:29 +0000
+	Fri, 21 Nov 2025 15:06:31 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1763737587; x=1795273587;
+  t=1763737589; x=1795273589;
   h=from:date:subject:mime-version:content-transfer-encoding:
    message-id:references:in-reply-to:to:cc;
-  bh=aemOi5IutzwP6lzpzpNVxlpvX5r89JXmAras5OUfufs=;
-  b=ZwCGo+6Yk0PvNBcQDE7xK1UHHuY/yeKX3KWZDl5AYNUN7u2czxTAxGdJ
-   QivLCF2P6esDtHBTERffIlQFz+pH8+gtUXPS+p8U2Yk/YgQftmseqhdca
-   I+esEEgq5hbi8UEIlDoptGb57MrP8PDTjJ9FtxYlFmZFQPHy1Gm3zDYxq
-   lmrOJFku3iW2WfOgqHUTG4oEkp8faQTO2EIARm5OXHtBuh8N6K7rP8P1c
-   jsSD6nTV3lWI0/VBpfsMaqWiidl3s3chvXSbb41SRJpLNSpPFi6rLepbu
-   HQ4S+VHR5Wl93XfEY2mRUf4x/pT0mDruW+jVPiqrhq0cg8UOormri8ZZu
-   A==;
+  bh=B5OMjTtB3KvSOSitHSwKvJyc6OwPvRdH+hvUZpIHPnI=;
+  b=t1ebvH7rIDnVhPA+OFtXIsltr4rxo2iZ78AmJpzTdpac2bXwAdjFvHWg
+   2rtIGfWeB9PaLXTC+ZpXl71pd7KHfaU18HUNx267tvu38PRlyXuJVWTgA
+   owL8VfSAdZCyKyTDjpRqrTHkW17j7kuGSO+w/lnBVYNicqOtRn9I5qefc
+   jADcdE+Gm0ksG8pmJNKmo6YWd0RMC8UdFdB7/lCa0PxIR7I24mqDkEWay
+   GlVKpBHMqnv7015Nc2rOI/7neuxPxxdZnlgRnMAYkgJHgTqIctTUKuv3T
+   ry94Mg4lvLOlts5kYpTvS8uJPlo7lkR5zRrYnaDEnBEqFvL9xWLR3qcDz
+   w==;
 X-CSE-ConnectionGUID: Ubo8wtofT1S9f5fCNZ+Rrw==
-X-CSE-MsgGUID: pADxvoh3QCWJavHee7GYog==
+X-CSE-MsgGUID: g4LF2+ioTUiA4vtG7Q8JpA==
 X-IronPort-AV: E=Sophos;i="6.20,216,1758610800"; 
-   d="scan'208";a="56053148"
+   d="scan'208";a="56053150"
 X-Amp-Result: SKIPPED(no attachment in message)
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa1.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 21 Nov 2025 08:06:24 -0700
+  by esa1.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 21 Nov 2025 08:06:25 -0700
 Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
  chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.58; Fri, 21 Nov 2025 08:06:09 -0700
+ 15.1.2507.58; Fri, 21 Nov 2025 08:06:21 -0700
 Received: from [127.0.0.1] (10.10.85.11) by chn-vm-ex04.mchp-main.com
  (10.10.85.152) with Microsoft SMTP Server id 15.1.2507.58 via Frontend
- Transport; Fri, 21 Nov 2025 08:06:05 -0700
+ Transport; Fri, 21 Nov 2025 08:06:17 -0700
 From: Ludovic Desroches <ludovic.desroches@microchip.com>
-Date: Fri, 21 Nov 2025 16:04:33 +0100
-Subject: [PATCH 1/8] drm/atmel-hlcdc: use managed device resources for the
- display controller
+Date: Fri, 21 Nov 2025 16:04:35 +0100
+Subject: [PATCH 3/8] drm/atmel-hlcdc: use drmm_simple_encoder_alloc()
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20251121-lcd_cleanup_mainline-v1-1-2587e6fe4d67@microchip.com>
+Message-ID: <20251121-lcd_cleanup_mainline-v1-3-2587e6fe4d67@microchip.com>
 References: <20251121-lcd_cleanup_mainline-v1-0-2587e6fe4d67@microchip.com>
 In-Reply-To: <20251121-lcd_cleanup_mainline-v1-0-2587e6fe4d67@microchip.com>
 To: Manikandan Muralidharan <manikandan.m@microchip.com>, "Dharma
@@ -75,26 +74,26 @@ CC: <dri-devel@lists.freedesktop.org>, <linux-arm-kernel@lists.infradead.org>,
 	<linux-kernel@vger.kernel.org>, Ludovic Desroches
 	<ludovic.desroches@microchip.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3275;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2109;
  i=ludovic.desroches@microchip.com; h=from:subject:message-id;
- bh=aemOi5IutzwP6lzpzpNVxlpvX5r89JXmAras5OUfufs=;
- b=owEBbQKS/ZANAwAKAT455hP3e2QtAcsmYgBpIH/WnQGbg+azsgk8P3WvGqFEEKIarqJFR93R9
- Ow3U7VotzyJAjMEAAEKAB0WIQQAMEvJiWmsW41tNU0+OeYT93tkLQUCaSB/1gAKCRA+OeYT93tk
- LTvPD/0fqREFIc5dX+MVxkGSvLd5iUpodlj3CIqK+w0yexw9K/AjXTvSg947IYM71FIldcLWdl8
- o+Nm6c6B/Rpf7+Vweyxvzug9QW/0mNlDv8RA7b3AD88wFa62gcQf4N/88+SiGwgrHdYb2tyu9je
- kPADCx6V65Hd5hK+fNV3oetWrG6raS39BGgu+ZMyhQA14EaCpGFzPax4/7C8garb/iizxKWjJV5
- emn4yMaSnmOw+J03vBtTmohzYKNMrbwkBrFhCOzVE2SriRxfNLoBX+yAPj/4R5fnBWq7IBSGHGG
- 12D4trxlx1HDibGWBK3q4dLL+W54n0iIgbpJ6qkGQbVy3+cKgOiqFJJtpqAG5NTj6Oc0ntuqdOW
- iTqejWqs24Qincze4MfhQF97L+M3GtoXJBRoo32RmB1We2S5UERaTmGlJEyDv1EEku3CBzKPby+
- PTphStV+eivBbKFkzapjR5/QkA4vWKjxXzA+i3Yj6r7av/D2lOEVC4M3iApKAZjDWsIte/WO9W3
- 8Q/Hhyy9/9efkyiX73aHFIYMSYWFwi5K66qYe7Tk299Cb1CxWIRhUqoAPDiBjWiXUc6n4uK26AC
- s/D8+kdB5RVWoESbBl6mKWMu9OwEXMFiemtcWgr/eTtL9kAWlql/E1BKruxX6h5UVc0bJOOVxoQ
- PrUZrNBpxsQopjA==
+ bh=B5OMjTtB3KvSOSitHSwKvJyc6OwPvRdH+hvUZpIHPnI=;
+ b=owEBbQKS/ZANAwAKAT455hP3e2QtAcsmYgBpIH/WAcQuo7Hgt4L59frM6s6uPhpepMvIVGwjA
+ wngCTtUKpSJAjMEAAEKAB0WIQQAMEvJiWmsW41tNU0+OeYT93tkLQUCaSB/1gAKCRA+OeYT93tk
+ LbjmD/0U/W8SnPLpZ3AacgQf/X++EdIxaLPSqNaRprjSPoBQYv3cwL/inKrefkFcq5nP7RGIF6z
+ 2N9u2TaEbXxjmmkhlWiZCjCS+M0drepYHLRPgfacVB++6MZwD1eP2n+WS0wS34bNPSrAv2Y282P
+ 49kr6YeXe81iexpbzUj4SjB0gEFupC8b0gcF2Xv69qfh6DhZ9xYlsGJ44liLSHSwaTmAmklPN76
+ 6MLyX8yZCaUDRTWr3g7/aFA3dIeSojg+g53lFn9UkpJ30WhBUR3xnimUV1YpQUetprbueOSwOxL
+ rnoczMML1Wue7kpJ4aFIFk+JsAXD3UCq9unihXIA1DN3vO92S5MOexHDZR17biWPL4ct8XfqMnG
+ /7D+WPdos5i/V03gP0PA3qbxSdGAm2JwWS1xPd1ZbbHRRY4rIy3b/ImGoKYfvzJMAW+LlIS+rau
+ qVreRuxCUkgeYkCWW1Gl9eC1nraap29z2n5KFWhjAgH2AMNKNMdaK/wXpS8wHJE84QOkMiOvm2h
+ G+w6a1wGT4tqeW2C4zLsR9zZAA+JKA5Gd8AG88h7Z7JPCuW3reQbbJhGPiEW0tEqGNPI48/epcS
+ PKtjBc6FFuxAzRluPil0rlUrgVNYuOVeHXwjv+fHhilfXdKN/HWKNXlnzdmCU+ltarb2rmPvvlg
+ QskfThUnRSANNGg==
 X-Developer-Key: i=ludovic.desroches@microchip.com; a=openpgp;
  fpr=665BAA7297BE089A28B77696E332995F09DCC11A
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251121_070627_674183_50FF168B 
-X-CRM114-Status: GOOD (  15.52  )
+X-CRM114-CacheID: sfid-20251121_070629_986470_B4FC0A73 
+X-CRM114-Status: GOOD (  10.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,102 +108,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Take benefit of managed device resources to reduce the risk of memory
-leak and to simplify error paths.
+Simplify the code using drmm_simple_encoder_alloc to handle allocation
+and initialization at once.
 
 Signed-off-by: Ludovic Desroches <ludovic.desroches@microchip.com>
 Reviewed-by: Manikandan Muralidharan <manikandan.m@microchip.com>
 ---
- drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_dc.c | 25 ++++++++++++-------------
- drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_dc.h |  1 +
- 2 files changed, 13 insertions(+), 13 deletions(-)
+ drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_output.c | 27 ++++++++----------------
+ 1 file changed, 9 insertions(+), 18 deletions(-)
 
-diff --git a/drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_dc.c b/drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_dc.c
-index dd70894c8f38e7303e06167594ac289cb345b510..8ed029381c555db10d596efc8d52753c47767633 100644
---- a/drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_dc.c
-+++ b/drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_dc.c
-@@ -751,11 +751,16 @@ static int atmel_hlcdc_dc_modeset_init(struct drm_device *dev)
- 	return 0;
- }
- 
-+static struct atmel_hlcdc_dc *atmel_hlcdc_dc_of_dev(struct drm_device *dev)
-+{
-+	return container_of(dev, struct atmel_hlcdc_dc, dev);
-+}
-+
- static int atmel_hlcdc_dc_load(struct drm_device *dev)
- {
- 	struct platform_device *pdev = to_platform_device(dev->dev);
- 	const struct of_device_id *match;
--	struct atmel_hlcdc_dc *dc;
-+	struct atmel_hlcdc_dc *dc = atmel_hlcdc_dc_of_dev(dev);
+diff --git a/drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_output.c b/drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_output.c
+index 0b8a86afb0965ca3085dd5524983a0072199ec0b..1f43e0feeedae54321a17efc266654e72e8b9d8e 100644
+--- a/drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_output.c
++++ b/drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_output.c
+@@ -73,22 +73,19 @@ static int atmel_hlcdc_attach_endpoint(struct drm_device *dev, int endpoint)
+ 	struct drm_bridge *bridge;
  	int ret;
  
- 	match = of_match_node(atmel_hlcdc_of_match, dev->dev->parent->of_node);
-@@ -769,10 +774,6 @@ static int atmel_hlcdc_dc_load(struct drm_device *dev)
+-	ep = of_graph_get_endpoint_by_regs(dev->dev->of_node, 0, endpoint);
+-	if (!ep)
+-		return -ENODEV;
+-
+ 	ret = drm_of_find_panel_or_bridge(dev->dev->of_node, 0, endpoint,
+ 					  &panel, &bridge);
+-	if (ret) {
+-		of_node_put(ep);
++	if (ret)
+ 		return ret;
+-	}
+ 
+-	output = devm_kzalloc(dev->dev, sizeof(*output), GFP_KERNEL);
+-	if (!output) {
+-		of_node_put(ep);
+-		return -ENOMEM;
+-	}
++	output = drmm_simple_encoder_alloc(dev, struct atmel_hlcdc_rgb_output,
++					   encoder, DRM_MODE_ENCODER_NONE);
++	if (IS_ERR(output))
++		return PTR_ERR(output);
++
++	ep = of_graph_get_endpoint_by_regs(dev->dev->of_node, 0, endpoint);
++	if (!ep)
++		return -ENODEV;
+ 
+ 	output->bus_fmt = atmel_hlcdc_of_bus_fmt(ep);
+ 	of_node_put(ep);
+@@ -97,10 +94,6 @@ static int atmel_hlcdc_attach_endpoint(struct drm_device *dev, int endpoint)
  		return -EINVAL;
  	}
  
--	dc = devm_kzalloc(dev->dev, sizeof(*dc), GFP_KERNEL);
--	if (!dc)
--		return -ENOMEM;
--
- 	dc->desc = match->data;
- 	dc->hlcdc = dev_get_drvdata(dev->dev->parent);
- 	dev->dev_private = dc;
-@@ -853,16 +854,18 @@ static const struct drm_driver atmel_hlcdc_dc_driver = {
+-	ret = drm_simple_encoder_init(dev, &output->encoder,
+-				      DRM_MODE_ENCODER_NONE);
+-	if (ret)
+-		return ret;
  
- static int atmel_hlcdc_dc_drm_probe(struct platform_device *pdev)
- {
-+	struct atmel_hlcdc_dc *dc;
- 	struct drm_device *ddev;
- 	int ret;
+ 	output->encoder.possible_crtcs = 0x1;
  
--	ddev = drm_dev_alloc(&atmel_hlcdc_dc_driver, &pdev->dev);
--	if (IS_ERR(ddev))
--		return PTR_ERR(ddev);
-+	dc = devm_drm_dev_alloc(&pdev->dev, &atmel_hlcdc_dc_driver, struct atmel_hlcdc_dc, dev);
-+	if (IS_ERR(dc))
-+		return PTR_ERR(dc);
-+	ddev = &dc->dev;
+@@ -120,8 +113,6 @@ static int atmel_hlcdc_attach_endpoint(struct drm_device *dev, int endpoint)
+ 			drm_panel_bridge_remove(bridge);
+ 	}
  
- 	ret = atmel_hlcdc_dc_load(ddev);
- 	if (ret)
--		goto err_put;
-+		return ret;
- 
- 	ret = drm_dev_register(ddev, 0);
- 	if (ret)
-@@ -875,9 +878,6 @@ static int atmel_hlcdc_dc_drm_probe(struct platform_device *pdev)
- err_unload:
- 	atmel_hlcdc_dc_unload(ddev);
- 
--err_put:
--	drm_dev_put(ddev);
+-	drm_encoder_cleanup(&output->encoder);
 -
  	return ret;
  }
  
-@@ -887,7 +887,6 @@ static void atmel_hlcdc_dc_drm_remove(struct platform_device *pdev)
- 
- 	drm_dev_unregister(ddev);
- 	atmel_hlcdc_dc_unload(ddev);
--	drm_dev_put(ddev);
- }
- 
- static void atmel_hlcdc_dc_drm_shutdown(struct platform_device *pdev)
-diff --git a/drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_dc.h b/drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_dc.h
-index 53d47f01db0bd4d906b73f9f2a46f2ef7326d8c6..26b26185cf34ac1678f385982caabd2dbbc22630 100644
---- a/drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_dc.h
-+++ b/drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_dc.h
-@@ -350,6 +350,7 @@ struct atmel_hlcdc_dc {
- 	struct dma_pool *dscrpool;
- 	struct atmel_hlcdc *hlcdc;
- 	struct drm_crtc *crtc;
-+	struct drm_device dev;
- 	struct atmel_hlcdc_layer *layers[ATMEL_HLCDC_MAX_LAYERS];
- 	struct {
- 		u32 imr;
 
 -- 
 2.51.0
