@@ -4,73 +4,142 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 776F6CFA761
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 10:01:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8E93CFA76A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 10:07:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HzjekNmgRaAQ18lyWUzsEgEEJcD+Pamj+FUs+1j6mw8=; b=WuNPZ5SYKt4AMXl7erqRJ6j0az
-	Jo/CMH7GRaMzjU6a51s1V/tllqI5Q58BVtRX5Tt20vimSz8gg6QGRh+tC+QoCqySWacLlwouLrYqh
-	Sdg6e9hH2aKUbavDDYcT5HVScDOBJ0DNudQMooufK3tzH8aPhr0lmegReq7KJZq+CrHmCb2tNhmo8
-	z9THfsdhb5HSzwFYeP3Beuq4lA9qAsbQbMYM438KZOAcRirEx0sYifbFqNQA1gIYXcqzRLrmGIKqg
-	+z+ArT67ybKXzYTTWYnEOxu6cPqZ1khCjYxcKx0K+q1xFPudz1IjpNO2Piw3BgWK2XJ/Oq2COhyvP
-	WlAtpONw==;
+	bh=SwO77VZOzFTjZAvBz0g5FmwChhtiApIbRQIotLVXRho=; b=dTnWbKi31CEjxVzX5upRG/BmmN
+	FKibEuuACO5tXjqhwlIw4ZB5uv/seDFJ2ZElJCSkatQ9wmMrJnPtF3wUsJ8ySdVqfZDkcnlWaKRUZ
+	uzkOFdir93DLnprcza4WpIxcMsswanEohIbljach7FFAex4YIlFn0H7uet5urggSmO7/sYJCoIC3Q
+	3KAv2FcXXXi0lbKo8u7sd+5MQ0VOGDe2rwMEGM8h+3QLGWG6Bsh0CrxI/FabJPx4sBVLjvcSeFAHm
+	lUmNxUTPcrc5yhQY4EZE78m74LhFEE9B5sRnPs81MnJMcSH4t1V1+hUDLvO9Y/s6Z2BX5IdSYolAH
+	n2jSN02g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMNxg-00000008BvY-2msS;
-	Fri, 21 Nov 2025 10:01:52 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1vMO31-00000008Cj8-1PIl;
+	Fri, 21 Nov 2025 10:07:23 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMNxQ-00000008BdU-0sPv
+	id 1vMO2y-00000008Ci5-1zA6
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Nov 2025 10:01:37 +0000
+	Fri, 21 Nov 2025 10:07:22 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1763719290;
+	s=mimecast20190719; t=1763719639;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=HzjekNmgRaAQ18lyWUzsEgEEJcD+Pamj+FUs+1j6mw8=;
-	b=Q1lyjIVJUji3hRiYJopbi9dVjhd0tLk5u+uYHD1CyrsmpAJk5CrgO08aDs+Jt58NzER+kg
-	1HA71aCQKKjecdfecFCR6RQ/gRu/221j1PyRafGFKGoMfDDlA1DR31Yq1wbXYBqNCSLvJR
-	9g8ukmQX65H2ebp+CrVJPp/0RprXtE8=
-Received: from mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-147-KhGOA54LO2idn1_FQ3SIiw-1; Fri,
- 21 Nov 2025 05:01:27 -0500
-X-MC-Unique: KhGOA54LO2idn1_FQ3SIiw-1
-X-Mimecast-MFC-AGG-ID: KhGOA54LO2idn1_FQ3SIiw_1763719284
-Received: from mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.12])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id A83221954B1B;
-	Fri, 21 Nov 2025 10:01:24 +0000 (UTC)
-Received: from thuth-p1g4.redhat.com (unknown [10.44.32.78])
-	by mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 9142E1955F66;
-	Fri, 21 Nov 2025 10:01:22 +0000 (UTC)
-From: Thomas Huth <thuth@redhat.com>
-To: Arnd Bergmann <arnd@arndb.de>,
-	linux-arch@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-kbuild@vger.kernel.org,
-	Thomas Huth <thuth@redhat.com>
-Subject: [PATCH v4 8/9] x86/headers: Replace __ASSEMBLY__ stragglers with __ASSEMBLER__
-Date: Fri, 21 Nov 2025 11:00:43 +0100
-Message-ID: <20251121100044.282684-9-thuth@redhat.com>
-In-Reply-To: <20251121100044.282684-1-thuth@redhat.com>
-References: <20251121100044.282684-1-thuth@redhat.com>
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=SwO77VZOzFTjZAvBz0g5FmwChhtiApIbRQIotLVXRho=;
+	b=PXKiQ5ES3hzXg7ay0m8gBlaqHkvbWpp97FHpavTi6cd5fCaV8OryWWvJw8eduFIxaMr5O1
+	YabP1OEgnrUOk3zIVGjEHtVRt9bCotpxxvSQB47G/uveI/L349PXxiNn61FTrnYeLrFzpG
+	tMrMfYV/D5r1ITG4G9X9tNH4IPBj5Ws=
+Received: from mail-wm1-f69.google.com (mail-wm1-f69.google.com
+ [209.85.128.69]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-586-AGW4gLdvMI6XNvZBmIf7jg-1; Fri, 21 Nov 2025 05:07:16 -0500
+X-MC-Unique: AGW4gLdvMI6XNvZBmIf7jg-1
+X-Mimecast-MFC-AGG-ID: AGW4gLdvMI6XNvZBmIf7jg_1763719635
+Received: by mail-wm1-f69.google.com with SMTP id 5b1f17b1804b1-47799717212so16722285e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Nov 2025 02:07:16 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1763719635; x=1764324435;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=SwO77VZOzFTjZAvBz0g5FmwChhtiApIbRQIotLVXRho=;
+        b=dD0PTK+E3dnv7jRJHvxmhOUDhNv150UwktoJEtTqVT2uZ7pMa/U9ML0/DEP9QxW7qM
+         bO3lHL76vyAEYOAJLNB9IpJY2sVTt4DgWbf+MyJQDNHf5z5Fw0TOsgX5Aw2p962m9LSy
+         G5PKW8AxF8Pxi2gyGpKaw+eHbo2xVggvelDDcNlkJDAhfjF3maTOhWe/+lbpHb4M7tMX
+         L4FW2nJ7m+fo9NKIE4iouOIWTStCSjeUjNmo5AmoBjcKeFM1AP3nYqZVio4/A5p7Z6kH
+         c2WQ+ARxj98ph2I0YKSwoMeVmxj9aLxmS5gRcSm+MBMp66ANqIiE6V1kphnCGFxOlj2x
+         zMOw==
+X-Gm-Message-State: AOJu0YxtGM6ZAPkVyfTm/Cn+n93oS0VBWyo9a4fZ0ZFvOAr4kTBbMrZ2
+	O2BGqRjrXZC6u3hg7TVcWX2TCHyY/rpM+GTqQjI6VjdLA1UIIDq9KEM9iw2ZUXT6LwbRvKUOpe3
+	ykbImWcXFiJFSZqe3I/EJ77150LL59uZK34Vsu0gd/fjMgo4Gi1u+qO3U7na14j772Eb9a5w+08
+	nS
+X-Gm-Gg: ASbGncsWJQfOcbbPW7Ot8UMPZJJxsy+8M2zEtdNKEAsuUIa90rBw+8kFd/2fcswiL8L
+	c2u9WylXF41PVva7JLz2E3y0cRUbm23+i0cMXPMS87u6uAZyWjNH5X9SQSTNforToSofSuwNASQ
+	xz5Lk1DABvlNcA8hM+uZKAbzt4n4Lobhhi+4CD+2CJQ4CYHQuF0UjvOPxBu6ZYWRcCgD/KB6m9u
+	w2gSYj0WgzntyXLtePCSzg0oGl2gXnI3qB8t5v/twbg4u6cCVUhQDyikTG1bYF35K3bFPfVucMc
+	r++9aHVJZeR6GEi7DfT+mIQMLXtYVrAk09Xu27aOoQytDcRpiUf3VgGoex6DMO29gQJN4hZ0aww
+	wXgb+EA==
+X-Received: by 2002:a05:600c:1d0d:b0:475:dd9a:f791 with SMTP id 5b1f17b1804b1-477c1126d1emr15010475e9.28.1763719635368;
+        Fri, 21 Nov 2025 02:07:15 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IFqoMD153kz/c03aS70gHVzf/BnaKJUbZBoP7k9YyW4edzStSR45m5QJCTapcyKzEEWA+6bGQ==
+X-Received: by 2002:a05:600c:1d0d:b0:475:dd9a:f791 with SMTP id 5b1f17b1804b1-477c1126d1emr15010165e9.28.1763719634864;
+        Fri, 21 Nov 2025 02:07:14 -0800 (PST)
+Received: from [192.168.0.5] ([47.64.114.57])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-477a97213b8sm81828235e9.1.2025.11.21.02.07.14
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 21 Nov 2025 02:07:14 -0800 (PST)
+Message-ID: <ba1499c3-47ca-42ed-a0d7-74c5ee768132@redhat.com>
+Date: Fri, 21 Nov 2025 11:07:13 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Scanned-By: MIMEDefang 3.0 on 10.30.177.12
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 0/9] treewide: Replace __ASSEMBLY__ with __ASSEMBLER__
+ in header files
+To: Arnd Bergmann <arnd@arndb.de>, linux-arch@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org, linux-kbuild@vger.kernel.org
+References: <20251121100044.282684-1-thuth@redhat.com>
+From: Thomas Huth <thuth@redhat.com>
+Autocrypt: addr=thuth@redhat.com; keydata=
+ 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
+In-Reply-To: <20251121100044.282684-1-thuth@redhat.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: 2R2uk48dkYyufg2dO-iZwwT8zI0Pkimv3hf79zklco4_1763719635
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251121_020136_367923_0F665A01 
-X-CRM114-Status: GOOD (  13.32  )
+X-CRM114-CacheID: sfid-20251121_020720_589168_D5300FFB 
+X-CRM114-Status: GOOD (  23.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,87 +154,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Thomas Huth <thuth@redhat.com>
+On 21/11/2025 11.00, Thomas Huth wrote:
+>   Hi Arnd!
+> 
+> Could you please help to get the remaining patches of this macro
+> renaming series merged? I already got most patches from the initial
+> version merged through the architecture specific trees (thanks to every
+> maintainer who helped me here!), but for alpha and arm 32-bit, I did
+> not manage to get the attention of the maintainers. Hexagon got an
+> Acked-by by Brian, but the patches did not get merged yet.
 
-After converting the __ASSEMBLY__ statements to __ASSEMBLER__ in
-commit 24a295e4ef1ca ("x86/headers: Replace __ASSEMBLY__ with
-__ASSEMBLER__ in non-UAPI headers"), some new code has been
-added that uses __ASSEMBLY__ again. Convert these stragglers, too.
+Sorry, forgot to mention: csky and arm64 are still in linux-next and not in 
+Linus' master branch yet, so they need to get merged first.
 
-This is a mechanical patch, done with a simple "sed -i" command.
+  Thomas
 
-Signed-off-by: Thomas Huth <thuth@redhat.com>
----
- arch/x86/include/asm/irqflags.h      | 4 ++--
- arch/x86/include/asm/percpu.h        | 2 +-
- arch/x86/include/asm/runtime-const.h | 6 +++---
- 3 files changed, 6 insertions(+), 6 deletions(-)
 
-diff --git a/arch/x86/include/asm/irqflags.h b/arch/x86/include/asm/irqflags.h
-index b30e5474c18e1..5feaac1d235f0 100644
---- a/arch/x86/include/asm/irqflags.h
-+++ b/arch/x86/include/asm/irqflags.h
-@@ -77,7 +77,7 @@ static __always_inline void native_local_irq_restore(unsigned long flags)
- #endif
- 
- #ifndef CONFIG_PARAVIRT
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- /*
-  * Used in the idle loop; sti takes one instruction cycle
-  * to complete:
-@@ -95,7 +95,7 @@ static __always_inline void halt(void)
- {
- 	native_halt();
- }
--#endif /* __ASSEMBLY__ */
-+#endif /* __ASSEMBLER__ */
- #endif /* CONFIG_PARAVIRT */
- 
- #ifdef CONFIG_PARAVIRT_XXL
-diff --git a/arch/x86/include/asm/percpu.h b/arch/x86/include/asm/percpu.h
-index 725d0eff7acdf..50f73a8df7f6c 100644
---- a/arch/x86/include/asm/percpu.h
-+++ b/arch/x86/include/asm/percpu.h
-@@ -20,7 +20,7 @@
- 
- #define PER_CPU_VAR(var)	__percpu(var)__percpu_rel
- 
--#else /* !__ASSEMBLY__: */
-+#else /* !__ASSEMBLER__: */
- 
- #include <linux/args.h>
- #include <linux/bits.h>
-diff --git a/arch/x86/include/asm/runtime-const.h b/arch/x86/include/asm/runtime-const.h
-index e5a13dc8816e2..4cd94fdcb45e2 100644
---- a/arch/x86/include/asm/runtime-const.h
-+++ b/arch/x86/include/asm/runtime-const.h
-@@ -6,7 +6,7 @@
-   #error "Cannot use runtime-const infrastructure from modules"
- #endif
- 
--#ifdef __ASSEMBLY__
-+#ifdef __ASSEMBLER__
- 
- .macro RUNTIME_CONST_PTR sym reg
- 	movq	$0x0123456789abcdef, %\reg
-@@ -16,7 +16,7 @@
- 	.popsection
- .endm
- 
--#else /* __ASSEMBLY__ */
-+#else /* __ASSEMBLER__ */
- 
- #define runtime_const_ptr(sym) ({				\
- 	typeof(sym) __ret;					\
-@@ -74,5 +74,5 @@ static inline void runtime_const_fixup(void (*fn)(void *, unsigned long),
- 	}
- }
- 
--#endif /* __ASSEMBLY__ */
-+#endif /* __ASSEMBLER__ */
- #endif
--- 
-2.51.1
+> Anyway, original patch series description follows:
+> 
+> The kernel Makefiles define the __ASSEMBLY__ macro to provide
+> a way to use headers in both, assembly and C source code.
+> However, all the supported versions of the GCC and Clang compilers
+> also define the macro __ASSEMBLER__ automatically already when compiling
+> assembly code, so some kernel headers are using __ASSEMBLER__ instead.
+> With regards to userspace code, this seems also to be constant source
+> of confusion, see for example these links here:
+> 
+>   https://lore.kernel.org/kvm/20250222014526.2302653-1-seanjc@google.com/
+>   https://stackoverflow.com/questions/28924355/gcc-assembler-preprocessor-not-compatible-with-standard-headers
+>   https://forums.raspberrypi.com/viewtopic.php?p=1652944#p1653834
+>   https://github.com/riscv-software-src/opensbi/issues/199
+> 
+> To avoid confusion in the future, it would make sense to standardize
+> on the macro that gets defined by the compiler, so this patch series
+> changes all occurances of __ASSEMBLY__ into __ASSEMBLER__ and
+> finally removes the -D__ASSEMBLY__ from the Makefiles.
+> 
+> I split the patches per architecture to ease the review, and I also
+> split the uapi headers from the normal ones in case we decide that
+> uapi needs to be treated differently from the normal headers here.
+> 
+> v4:
+> - Most patches from the original series got already merged via the
+>    tree of the individual architectures, so the amount of patches here
+>    has been greatly reduced
+> - Rebased patches on top of linux-next, fixed conflicts and new
+>    occurances
+> 
+> Thomas Huth (9):
+>    alpha: Replace __ASSEMBLY__ with __ASSEMBLER__ in the alpha headers
+>    arm: Replace __ASSEMBLY__ with __ASSEMBLER__ in uapi headers
+>    arm: Replace __ASSEMBLY__ with __ASSEMBLER__ in non-uapi headers
+>    hexagon: Replace __ASSEMBLY__ with __ASSEMBLER__ in uapi headers
+>    hexagon: Replace __ASSEMBLY__ with __ASSEMBLER__ in non-uapi headers
+>    uapi: Replace __ASSEMBLY__ with __ASSEMBLER__ in uapi headers
+>    include: Replace __ASSEMBLY__ with __ASSEMBLER__ in non-uapi headers
+>    x86/headers: Replace __ASSEMBLY__ stragglers with __ASSEMBLER__
+>    treewide: Stop defining __ASSEMBLY__ for assembler files
 
 
