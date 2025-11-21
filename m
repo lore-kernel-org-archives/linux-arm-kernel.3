@@ -4,74 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AD87CFC28B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 15:16:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38E81CFC28B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 15:16:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=DWmP04issxGUeAn2n4NK4wgwB+w1x7Og9rgH/yqHHAg=; b=FZywrlzx8HGDeX4weeF1bk0gDT
-	nU9abGxVFNKgRh2KGKZhq8Pfkz+AfFobdQc0/vL6bDWRloKEShBdDkPZjCUUvW4jfvJjfNuXs1hvM
-	q2qk91iYDqvUbWaCqBPZVAotguc/mkydlv7L+qcZTcwGWnjSQAhw+wVeEOHGOoHVh66FRjZZokinI
-	fvhHF8bOl9Drx6NRqLzp/ClQpn4nyxz+e7qeNLNs9HKuw+DoGl0qJbhGwewJPqhCZvTovQEqO6AJw
-	k5xPU+0moFPwJu0n08WRCtqSNvI5NHa9FfUoOkwGaHpKyucWJkJzvMSXuhm9OIVclUIQXm5QxB5UG
-	hV+eepng==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4Nw5kzDQ9aadF93520L+loYg4Pe3c7ohExj2x9LkHTc=; b=KIfY4kfAbWsIBpccnJBITzrMZ1
+	lpI1xjw/jF8jUaR7h3JxoH3t6JVLo73MqrebU53C+uqgXck3jedWRx0ya7IVv7gxjbz3UxtnLsiip
+	KnJcChitgQD+kAP5BhFhD6XO3QKSIFRsPw259/U7kuboD0Nmlu0AhgkbKhktn3WPtQ2koio2/fmQu
+	b3WRIHFd8vEgibSyn8KUCv5o9Z+3XKvd9JNs3JEHd+E1VA2VyFGls4kgATJCAiate30bWU1MHinfo
+	jhWC+izPrKMHFDo0Z6b2Xn7HeIEcw1J6eQ+ljQKPd0PNsjoE2ygfbgCsqsohB8EconiJ5IOHaDklP
+	eZy/48Uw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMSrg-00000008bH6-3qJt;
-	Fri, 21 Nov 2025 15:16:00 +0000
-Received: from mgamail.intel.com ([198.175.65.12])
+	id 1vMSsH-00000008bMU-3Lsk;
+	Fri, 21 Nov 2025 15:16:37 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMSre-00000008bGO-1hoX
+	id 1vMSsE-00000008bLV-2qTl
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Nov 2025 15:15:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1763738159; x=1795274159;
-  h=date:from:to:cc:subject:message-id:mime-version;
-  bh=iGz46GQ64R0vdnHbLnUapXse7W/VUu7m2LOn564jGDw=;
-  b=KXnAfFgK8Pd4ANfdm4SZLREGJmBOazj/n7W4b+Sxr5KQYy+YvdrWW0np
-   2r5ljSukmm+g9v55NXjeHtKQdm1YM0IqYDurqnB8U1boo0p3RgaOjk3Ek
-   AweRu/kQekWNnJ8S6yzW8iCOwdEvIvc9JJJtlrJNOen18sTTyBKATtSsp
-   dDo/yz/SkN+5RCAEFHgMwwNBF4Gct7u/pRj0Sl/IQU81tKd5W2XbjknAi
-   Tc3HhQ8w+BQrB4wBoTSvpg88IB0WglS5Yb1frwqzBG3eTOsuXU6CMpECd
-   YfHJaF5w7aMfWAwP8mpf/PlQLgZwn34OvcVZHTOdnp5W1O0taxOA97V1L
-   A==;
-X-CSE-ConnectionGUID: 2H2M8GtyRCiPh060eASHzg==
-X-CSE-MsgGUID: yQ519/xqRZi6dxeN+ETO7Q==
-X-IronPort-AV: E=McAfee;i="6800,10657,11620"; a="77305683"
-X-IronPort-AV: E=Sophos;i="6.20,216,1758610800"; 
-   d="scan'208";a="77305683"
-Received: from orviesa008.jf.intel.com ([10.64.159.148])
-  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Nov 2025 07:15:58 -0800
-X-CSE-ConnectionGUID: vtkVoWJmQ4eLP0upaSGyDw==
-X-CSE-MsgGUID: 3GRY8M0KT7yn02szl3KuQA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.20,216,1758610800"; 
-   d="scan'208";a="191829324"
-Received: from lkp-server01.sh.intel.com (HELO adf6d29aa8d9) ([10.239.97.150])
-  by orviesa008.jf.intel.com with ESMTP; 21 Nov 2025 07:15:56 -0800
-Received: from kbuild by adf6d29aa8d9 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1vMSrZ-0006V9-2J;
-	Fri, 21 Nov 2025 15:15:53 +0000
-Date: Fri, 21 Nov 2025 23:15:37 +0800
-From: kernel test robot <lkp@intel.com>
-To: Linus Walleij <linus.walleij@linaro.org>
-Cc: oe-kbuild-all@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	Marek Vasut <marek.vasut+renesas@mailbox.org>
-Subject: [linusw-nomadik:b4/mcde-drm-regression-thirdfix 4/4]
- drivers/gpu/drm/renesas/rcar-du/rcar_du_kms.c:552:41: error: 'state'
- undeclared; did you mean 'statx'?
-Message-ID: <202511212325.j72kz6Hj-lkp@intel.com>
+	Fri, 21 Nov 2025 15:16:35 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 991B743E9D
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Nov 2025 15:16:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 79B5BC19424
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Nov 2025 15:16:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1763738193;
+	bh=4Nw5kzDQ9aadF93520L+loYg4Pe3c7ohExj2x9LkHTc=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=YZZ1uHWX8jA8h3KqeGr5dk5BqSVqo2ZxZUdgIweTw8ldAfF2BlKGbx9hcCetumLYF
+	 6Z0Av4erPZ1ceu78hk33NVgzoft53GdBcDHrjLQI208QVTibCUAnQCXJr7dFEKOJzp
+	 vgyagzRm0Pw7hrUcJLqFULp4DiiDbA7fgHa7kGVIyYElH9FO0ZKbsfr0lXWeW/Etan
+	 9UrtWfJtqyHR0CmqDBUR48vIDrb0Baro3f00cbZ9KAHq7CW2noZ8PM+tJ3/z8URu75
+	 6Z9cxuWlBxzHnFoYSYDYrRggRq5Y9axSC4q01vXWPQt8uMMkjzBr553v5fFmpzGmGb
+	 +QnmP3qW8lTuw==
+Received: by mail-lf1-f53.google.com with SMTP id 2adb3069b0e04-5957d7e0bf3so3012689e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Nov 2025 07:16:33 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCXrMlMOOLzzz72sGVypMdH641Az9/FY25ofZk74JdlVIhUldDBM4P548aTcXIpzpjb7+ab3zqt3khnhnCnOSNj/@lists.infradead.org
+X-Gm-Message-State: AOJu0YxkjwmV/SF+EBtXqCwNZs3X8P2mvErxUWuJFgoMTpg5nn6treDc
+	AyJ6Dv4mMJs4umuyGKrK/qVUHNdsSEVTCOH/yHVz0U8UQdNglow4SXMwaEbdJHDg4kH7JcS9k0s
+	/rf24q9rebvqbdjBLSA2bLzYZi6WrYZY=
+X-Google-Smtp-Source: AGHT+IGPowCSKA7rqmBuuVeVvwKvJAgVwSGnoB8Wq+tDig5gUYW9uVP5SF2rLUXJXBy7GBEfdZMPDjZn9AIuPMCXlv4=
+X-Received: by 2002:a05:6512:15a6:b0:594:5f1d:d60d with SMTP id
+ 2adb3069b0e04-596a377e72dmr1012107e87.14.1763738191788; Fri, 21 Nov 2025
+ 07:16:31 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+References: <20251121135624.494768-1-tzimmermann@suse.de> <96a8d591-29d5-4764-94f9-6042252e53ff@app.fastmail.com>
+In-Reply-To: <96a8d591-29d5-4764-94f9-6042252e53ff@app.fastmail.com>
+From: Ard Biesheuvel <ardb@kernel.org>
+Date: Fri, 21 Nov 2025 16:16:20 +0100
+X-Gmail-Original-Message-ID: <CAMj1kXF1Dh0RbuqYc0fhAPf-CM0mdYh8BhenM8-ugKVHfwnhBg@mail.gmail.com>
+X-Gm-Features: AWmQ_bl_zPBWf1NywIhUPQAGEMUCFj4H1ZabIpySRf4mYN0qS7e_KlhM-cPxo4Y
+Message-ID: <CAMj1kXF1Dh0RbuqYc0fhAPf-CM0mdYh8BhenM8-ugKVHfwnhBg@mail.gmail.com>
+Subject: Re: [PATCH 0/6] arch,sysfb: Move screen and edid info into single place
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: Thomas Zimmermann <tzimmermann@suse.de>, Javier Martinez Canillas <javierm@redhat.com>, x86@kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-efi@vger.kernel.org, loongarch@lists.linux.dev, 
+	linux-riscv@lists.infradead.org, dri-devel@lists.freedesktop.org, 
+	linux-hyperv@vger.kernel.org, linux-pci@vger.kernel.org, 
+	linux-fbdev@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251121_071558_517439_E6C7638E 
-X-CRM114-Status: GOOD (  15.49  )
+X-CRM114-CacheID: sfid-20251121_071634_731231_B1252100 
+X-CRM114-Status: GOOD (  16.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,90 +86,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tree:   https://git.kernel.org/pub/scm/linux/kernel/git/linusw/linux-nomadik.git b4/mcde-drm-regression-thirdfix
-head:   3e64b03a4bf2f67f43046af7e41c197df9fd6efb
-commit: 3e64b03a4bf2f67f43046af7e41c197df9fd6efb [4/4] RFT: drm/rcar-du: Modify custom commit tail
-config: arm-randconfig-002-20251121 (https://download.01.org/0day-ci/archive/20251121/202511212325.j72kz6Hj-lkp@intel.com/config)
-compiler: arm-linux-gnueabi-gcc (GCC) 11.5.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20251121/202511212325.j72kz6Hj-lkp@intel.com/reproduce)
+On Fri, 21 Nov 2025 at 16:10, Arnd Bergmann <arnd@arndb.de> wrote:
+>
+> On Fri, Nov 21, 2025, at 14:36, Thomas Zimmermann wrote:
+> > Replace screen_info and edid_info with sysfb_primary_device of type
+> > struct sysfb_display_info. Update all users.
+> >
+> > Sysfb DRM drivers currently fetch the global edid_info directly, when
+> > they should get that information together with the screen_info from their
+> > device. Wrapping screen_info and edid_info in sysfb_primary_display and
+> > passing this to drivers enables this.
+> >
+> > Replacing both with sysfb_primary_display has been motivate by the EFI
+> > stub. EFI wants to transfer EDID via config table in a single entry.
+> > Using struct sysfb_display_info this will become easily possible. Hence
+> > accept some churn in architecture code for the long-term improvements.
+>
+> This all looks good to me,
+>
+> Acked-by: Arnd Bergmann <arnd@arndb.de>
+>
+> It should also bring us one step closer to eventually
+> disconnecting the x86 boot ABI from the kernel-internal
+> sysfb_primary_display.
+>
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202511212325.j72kz6Hj-lkp@intel.com/
+Agreed
 
-All errors (new ones prefixed by >>):
+Acked-by: Ard Biesheuvel <ardb@kernel.org>
 
-   drivers/gpu/drm/renesas/rcar-du/rcar_du_kms.c: In function 'rcar_du_atomic_commit_tail':
->> drivers/gpu/drm/renesas/rcar-du/rcar_du_kms.c:552:41: error: 'state' undeclared (first use in this function); did you mean 'statx'?
-     552 |         drm_encoder_bridge_disable(dev, state);
-         |                                         ^~~~~
-         |                                         statx
-   drivers/gpu/drm/renesas/rcar-du/rcar_du_kms.c:552:41: note: each undeclared identifier is reported only once for each function it appears in
-
-
-vim +552 drivers/gpu/drm/renesas/rcar-du/rcar_du_kms.c
-
-   516	
-   517	static void rcar_du_atomic_commit_tail(struct drm_atomic_state *old_state)
-   518	{
-   519		struct drm_device *dev = old_state->dev;
-   520		struct rcar_du_device *rcdu = to_rcar_du_device(dev);
-   521		struct drm_crtc_state *crtc_state;
-   522		struct drm_crtc *crtc;
-   523		unsigned int i;
-   524	
-   525		/*
-   526		 * Store RGB routing to DPAD0 and DPAD1, the hardware will be configured
-   527		 * when starting the CRTCs.
-   528		 */
-   529		rcdu->dpad1_source = -1;
-   530	
-   531		for_each_new_crtc_in_state(old_state, crtc, crtc_state, i) {
-   532			struct rcar_du_crtc_state *rcrtc_state =
-   533				to_rcar_crtc_state(crtc_state);
-   534			struct rcar_du_crtc *rcrtc = to_rcar_crtc(crtc);
-   535	
-   536			if (rcrtc_state->outputs & BIT(RCAR_DU_OUTPUT_DPAD0))
-   537				rcdu->dpad0_source = rcrtc->index;
-   538	
-   539			if (rcrtc_state->outputs & BIT(RCAR_DU_OUTPUT_DPAD1))
-   540				rcdu->dpad1_source = rcrtc->index;
-   541		}
-   542	
-   543		/*
-   544		 * Apply the atomic update.
-   545		 *
-   546		 * We need special ordering to make sure the CRTC disabled last
-   547		 * and enabled first. We do this with modified versions of the
-   548		 * common modeset_disables/enables functions.
-   549		 */
-   550	
-   551		/* Variant of drm_atomic_helper_commit_modeset_disables() */
- > 552		drm_encoder_bridge_disable(dev, state);
-   553		drm_encoder_bridge_post_disable(dev, state);
-   554		drm_crtc_disable(dev, state);
-   555		drm_atomic_helper_update_legacy_modeset_state(dev, state);
-   556		drm_atomic_helper_calc_timestamping_constants(state);
-   557		drm_crtc_set_mode(dev, state);
-   558	
-   559		drm_atomic_helper_commit_planes(dev, old_state,
-   560						DRM_PLANE_COMMIT_ACTIVE_ONLY);
-   561	
-   562		/* Variant of drm_atomic_helper_commit_modeset_enables() */
-   563		drm_crtc_enable(dev, state);
-   564		drm_encoder_bridge_pre_enable(dev, state);
-   565		drm_encoder_bridge_enable(dev, state);
-   566		drm_atomic_helper_commit_writebacks(dev, state);
-   567	
-   568		drm_atomic_helper_commit_hw_done(old_state);
-   569		drm_atomic_helper_wait_for_flip_done(dev, old_state);
-   570	
-   571		drm_atomic_helper_cleanup_planes(dev, old_state);
-   572	}
-   573	
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+I can take patches 1-2 right away, if that helps during the next cycle.
 
