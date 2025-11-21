@@ -4,80 +4,182 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79EEFCFC267
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 12:17:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6193CFC26F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 12:17:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UjHhJGIAC9ACfZdzl+a0sh7VEg935VcUUd1+5PZGvGE=; b=mKfeeNvzHizZt5SnmZsUFCkbEn
-	CbNu2cwxfa5rI2Y0m+Y8XOE0ui8zjkjMECmcWajMq0XO4p9T2nxkm9Qs4SxqXmY/dyd82acAzr30B
-	uYAhm4LmKhQQ+c1KlhENQ2jlmcGQ9kXcaxp7tZQg5Tevg/D76DD2yVnDJsY/2h01KYpB0SuiCgI4N
-	rFJ2VlEbG3vO3EgJXRqX3z7S7HQDXflpLEIWoI/Em58ko2NRFMPpk3ZtWB1GDIkzM5P8AdjbrgSa7
-	aQlOMInm1EUkM1EuDUFjzUH5/uBGRzLtw+0VnjMPpCjaCEhYE4K4Bjk/LcoMjwIbHM+BYE7cjf4k0
-	jbKOZvGg==;
+	bh=cVrThsM9UOAKfi/vbBZnoIbTzRZ9SUMTxeLyIXIfc9k=; b=SzsDzgpekJEmzW1ggyGJCEqInE
+	LyVxcmgwEXzPGY3O9gwX/mfu/LPaV/8EjpyFKIG5E4n+vKiDEnW3sCTp6/djp0ODqilCgvxlmiQ9o
+	8uW+sLtxQRndL5qWPHgMwH7VGJ9e1idZVgSyxkiFU7RGn7+i013PyWg/pUyoMOGXsUHtfYiGihgbW
+	8nwGDNIe/uMyUMsy6s2oacUe3J8BrJU2LLLchaGnuBFea4Ye8VpUMhEF8acz4DNFRqpBDYpceRZSs
+	DzbAFVEdTULARS1KBGqQACImlxZqXJ1e95sc6mxECyXFhOxaTDFeWMcO9Iyg2E1RgukKSCTPqDAun
+	5uh1r/og==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMQ4P-00000008Lyh-22pD;
+	id 1vMQ4P-00000008Lyb-0r3b;
 	Fri, 21 Nov 2025 12:16:57 +0000
-Received: from mailout2.w1.samsung.com ([210.118.77.12])
+Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMQ4J-00000008Lxj-3UiD
+	id 1vMQ4L-00000008Lxo-2pX0
 	for linux-arm-kernel@lists.infradead.org;
 	Fri, 21 Nov 2025 12:16:55 +0000
-Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
-	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20251121121646euoutp02a320e90b01f983d174d0e6d7f7ace0c1~6BLs9qxki2958029580euoutp02k
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Nov 2025 12:16:46 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20251121121646euoutp02a320e90b01f983d174d0e6d7f7ace0c1~6BLs9qxki2958029580euoutp02k
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1763727406;
-	bh=UjHhJGIAC9ACfZdzl+a0sh7VEg935VcUUd1+5PZGvGE=;
-	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
-	b=N/mnyrvJLfliUKMvo22G6w0gdto6R8S+4k6pJM9amxLSNzQMZlzd1gSl9/sVQ0n9x
-	 OIz58tPzbD5qUKPrvagdbfwv1Fod0lU11qm2T8u5hIgT+9VdIgTE0QsXaeF/L5lkpM
-	 7d0/PcO5pqy/+DDa+PtDjOSIr371DFmC7BYIJ9fo=
-Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
-	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
-	20251121121645eucas1p12dd30c192405728ec413d4acb98ce092~6BLsdBTd13162331623eucas1p1d;
-	Fri, 21 Nov 2025 12:16:45 +0000 (GMT)
-Received: from [106.210.134.192] (unknown [106.210.134.192]) by
-	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20251121121644eusmtip19a898de384c5ea010a269f3050f82b2a~6BLrQslbf0867308673eusmtip1D;
-	Fri, 21 Nov 2025 12:16:44 +0000 (GMT)
-Message-ID: <691f464e-1c91-4752-8218-74b9ebf49018@samsung.com>
-Date: Fri, 21 Nov 2025 13:16:43 +0100
+Received: from pps.filterd (m0241204.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5ALC6E6B3288091;
+	Fri, 21 Nov 2025 13:16:37 +0100
+Received: from gvxpr05cu001.outbound.protection.outlook.com (mail-swedencentralazon11013004.outbound.protection.outlook.com [52.101.83.4])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 4ajnmt8nax-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Fri, 21 Nov 2025 13:16:37 +0100 (CET)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=jRxarjtROX1wvHqGeAJZaiXCh5Y7/BtkgK6OXF8/6ez32xNJCUtvj5HFALehEkJ94u/8f72O+rU7f9Ah4TN81MgPP1nXUNQ+CeEbbWvs5un+7KPTD1+bkjoAtblOo8+cAKmbwt2duEB3yEHFL0BcIdtmniixHFdNfMSHvPu3iTNNXAdFbBg6jBGgtVIkHReWSXa6RSXnRylIIP37ruZzKpqzIbuQPxgfdoY3ZWGRMTqENwH7fofrMKmFY1khf1Vxz7DvWJCIoK+7ldLHufuWuwqi8sfYGU5icGOcaGRCj8YKcBcE90euBjKlJNDIiNSdnZAiri4C7R1sGgvGLo07yw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=cVrThsM9UOAKfi/vbBZnoIbTzRZ9SUMTxeLyIXIfc9k=;
+ b=s1WueV6CUw7V1riM0s6My56Ql7qFfG0eqjSR+TflcXppZ0xKZAjHnW8+TkxofD+EIdH8LcTtWwAdbinkG+gMeWrYkOzq8qjir5ch3StKlbTTQvC3iNtXRjoDaPY5XzBjJG7zVhAZU1F1gC0YwF9xaBr9Uk2seAOPseX7ES2jv28g75WAq5f1GGu2aSlfIwmPGo+LOe8Bv4qS77gHqY7eR8HM11OcUcyl0Oztik9BPk0WtqxUApm4nev/5OrP940FaCgZCYx4Qlz2n/hCe6PCzuZ0X/FdgkYkl8S6LHVDC6PXuSoNMflV00jJFAbGZJy3EMv+Mal7/TMBdhPl9PG7VA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 164.130.1.60) smtp.rcpttodomain=linaro.org smtp.mailfrom=foss.st.com;
+ dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=cVrThsM9UOAKfi/vbBZnoIbTzRZ9SUMTxeLyIXIfc9k=;
+ b=JPAQY/nLskWd6BwjBoxidBJLXnn1FAxrshri+9fUYzX93OqGznQRfRa3vDjtJekygsCMiJX0ZIizUFvEm8jyy/TmI2J8rZpxiWJs0NzRMxxhuZtYP2nANjaVa0r5LTVURahqE81Vh7DJTJTF8lW2FRoCO9lEtZsBAsPqnFxecqjncST+z0MNmAw6SNcDYrs4P9NUZUVBUa1WEADJoi3uXBgrQZbc43WmDO4fGlAlt4Nw1Lts8UfL+gKa47++lQZBshxz11bB+yvl3vMXBqlA/aKV2pNPkahCSLiKD+Kjl5ggfhC+h+IF2Uh0+Xa//1PGhAJMc2XxVZsiW4DKgUuang==
+Received: from DB9PR06CA0009.eurprd06.prod.outlook.com (2603:10a6:10:1db::14)
+ by DB4PR10MB6991.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:10:3f5::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9343.11; Fri, 21 Nov
+ 2025 12:16:28 +0000
+Received: from DB3PEPF00008860.eurprd02.prod.outlook.com
+ (2603:10a6:10:1db:cafe::3) by DB9PR06CA0009.outlook.office365.com
+ (2603:10a6:10:1db::14) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9343.11 via Frontend Transport; Fri,
+ 21 Nov 2025 12:16:18 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.60)
+ smtp.mailfrom=foss.st.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=foss.st.com;
+Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
+ designate 164.130.1.60 as permitted sender) receiver=protection.outlook.com;
+ client-ip=164.130.1.60; helo=smtpO365.st.com;
+Received: from smtpO365.st.com (164.130.1.60) by
+ DB3PEPF00008860.mail.protection.outlook.com (10.167.242.11) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9343.9 via Frontend Transport; Fri, 21 Nov 2025 12:16:28 +0000
+Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpO365.st.com
+ (10.250.44.72) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Fri, 21 Nov
+ 2025 13:16:53 +0100
+Received: from [10.48.86.127] (10.48.86.127) by STKDAG1NODE2.st.com
+ (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Fri, 21 Nov
+ 2025 13:16:27 +0100
+Message-ID: <871f07f3-5d0a-43c4-863b-ad4d804e1e38@foss.st.com>
+Date: Fri, 21 Nov 2025 13:16:27 +0100
 MIME-Version: 1.0
-User-Agent: Betterbird (Windows)
-Subject: Re: [PATCH v6 0/6] Add module support for Arm64 Exynos MCT driver
-To: Will McVicker <willmcvicker@google.com>, Russell King
-	<linux@armlinux.org.uk>, Catalin Marinas <catalin.marinas@arm.com>, Will
-	Deacon <will@kernel.org>, Daniel Lezcano <daniel.lezcano@linaro.org>, Thomas
-	Gleixner <tglx@linutronix.de>, Krzysztof Kozlowski <krzk@kernel.org>, Alim
-	Akhtar <alim.akhtar@samsung.com>
-Cc: Donghoon Yu <hoony.yu@samsung.com>, Rob Herring <robh@kernel.org>, John
-	Stultz <jstultz@google.com>, Youngmin Nam <youngmin.nam@samsung.com>, Peter
-	Griffin <peter.griffin@linaro.org>, Tudor Ambarus
-	<tudor.ambarus@linaro.org>, =?UTF-8?Q?Andr=C3=A9_Draszik?=
-	<andre.draszik@linaro.org>, Conor Dooley <conor+dt@kernel.org>,
-	linux-samsung-soc@vger.kernel.org, kernel-team@android.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 4/4] dmaengine: stm32-dma3: introduce ddata2dev helper
+To: Eugen Hristev <eugen.hristev@linaro.org>, Vinod Koul <vkoul@kernel.org>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue
+	<alexandre.torgue@foss.st.com>
+CC: <dmaengine@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+References: <20251103-dma3_improv-v1-0-57f048bf2877@foss.st.com>
+ <20251103-dma3_improv-v1-4-57f048bf2877@foss.st.com>
+ <85f08f72-7608-4076-a474-579eb4c7dc4c@linaro.org>
 Content-Language: en-US
-From: Marek Szyprowski <m.szyprowski@samsung.com>
-In-Reply-To: <20251120184242.1625820-1-willmcvicker@google.com>
-Content-Transfer-Encoding: 8bit
-X-CMS-MailID: 20251121121645eucas1p12dd30c192405728ec413d4acb98ce092
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-RootMTR: 20251120184253eucas1p17d9dea24d56e4eefc283a738a94f2634
-X-EPHeader: CA
-X-CMS-RootMailID: 20251120184253eucas1p17d9dea24d56e4eefc283a738a94f2634
-References: <CGME20251120184253eucas1p17d9dea24d56e4eefc283a738a94f2634@eucas1p1.samsung.com>
-	<20251120184242.1625820-1-willmcvicker@google.com>
+From: Amelie Delaunay <amelie.delaunay@foss.st.com>
+In-Reply-To: <85f08f72-7608-4076-a474-579eb4c7dc4c@linaro.org>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.48.86.127]
+X-ClientProxiedBy: STKCAS1NODE1.st.com (10.75.128.134) To STKDAG1NODE2.st.com
+ (10.75.128.133)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DB3PEPF00008860:EE_|DB4PR10MB6991:EE_
+X-MS-Office365-Filtering-Correlation-Id: 56e34232-5897-4637-f310-08de28f7cc57
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|376014|1800799024|82310400026;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?M29nYkppczY5L2NMaFE1djZjZldUck5zMHhsLys1L1lEVEFFNE14NU5XRmh3?=
+ =?utf-8?B?TlZDTm45bklsZFFST1c1NUxIbS8rY3hDRHY3NVdkSm1DRyttMmhkMm5YNVlH?=
+ =?utf-8?B?Vlk5NGNCZHlaV1JDRUIxdGFLM3pHa1hsSlM3ZTBFK3VROWpVTEF0OU45TTMw?=
+ =?utf-8?B?R2QxSGpXRjljZHQ1b1ZNMk1BSjlCcjhPN1QvWFV6dVlXTGMvV2lzZHJ1NEhY?=
+ =?utf-8?B?RzVUVWdoU3pkQjEzKzM1QWxGV243cUxZUm5heXBFRzJLOFJTZUplaGNMb0c3?=
+ =?utf-8?B?M1k5RVdnNXB2QWdiYUo2YlAzbWM1SGxRNURKZlIrSlZJZ1lKanJJOFNuVzB4?=
+ =?utf-8?B?REwweU5YMmZFdWd3U3hvTUdtNHNOOEF0L3lxYkdNb1R6aXRkVTFqdFFCMzNr?=
+ =?utf-8?B?WCtkYWpoWmFKTGN5K3R5d3NnaktVdHRTSUhsWTJVTTFjVWtaR0x2UDMveEFj?=
+ =?utf-8?B?Sm5CQU94ck4rZVB3cmxnaTBkaUxEVnlTcWdmMW9LSVhXVXBKYXpCZTlNa1RB?=
+ =?utf-8?B?SUR1QVYyaWt4MjlMb21WZUFLc2RlVFVsbUd5Rm5BbDlBcWNFdnpPZnUvUElr?=
+ =?utf-8?B?U1djRWFqUWNmZzdCZERlUGRZNVQ1NXlXTWpNcWJYMzFUOFZkS3p1aHdCL2FM?=
+ =?utf-8?B?WWJVVWd4YkJEZ1diOUZGVzgrTWRFUnJ2MmNVckNFTWc2TG1sLzBFaEJIU0RN?=
+ =?utf-8?B?RGJ3WndsVUtxdW1SbmhUWVF0RWNoYjRKSlYwUHhPTWZUakZzK0k4ZnNHL2dw?=
+ =?utf-8?B?RWlSMFBUenN3QkE5NVIyWXBKWjdNUGE5dlNXNWVBM20rMmhGa1RzcXozT1Ex?=
+ =?utf-8?B?d1pEYk5pOWpZbXpZL1lJVy9HNVliQ0VXRUFwZGZYdEtvT0JvOUFkZ2F2aGxT?=
+ =?utf-8?B?TG5nNEZQUWo5SnpubVpKdEhEcEtPT3k1N1kzMGpCemNUMnpyeS9XeGlaMXNm?=
+ =?utf-8?B?RkRUbVhRM2lXK3REVnRZRkVRcTlJMzJWZm0xa0JKbmRyQlBvWUNXVG5ma0pU?=
+ =?utf-8?B?bmRhSENiSGFwdXMvajFlNUg2Z3BNY28rcVo0K0JVQTFXTS9RT1N6WC9iMkMr?=
+ =?utf-8?B?YnRHd2VaSW1mVkg4NHI2Qk9RdWEvOWw3SGlLV0w2MmxXU0MrTVRhamlsU2tQ?=
+ =?utf-8?B?L29WUytMS0ZxRndSV2h3Mkt6aEUwNWZEOUNVbnVZZ1ltTTBONUVxVTZrazZm?=
+ =?utf-8?B?aStHVUpyRVpESTNIWTRRV05uNFFreFAyM0tlenlhcTByemdYRXVUMmo3TW82?=
+ =?utf-8?B?dEs4MnZVUFpCNmIxbnV5MVlBbUtTc2NPeEdMWi91bkRrV3RXWjNOemQ2YXRz?=
+ =?utf-8?B?UWtrUTF1WlZlMWRiYnZJRSt4OHYzSVczd0pEam41dkxGTURrR2U3KzJKVzN6?=
+ =?utf-8?B?VWRqQmZhbUh5WWgySE5QK2NsR0EzTHlZU09Pa1ljUERJNUFBejB1L3gyTlEz?=
+ =?utf-8?B?MHFXMTRxSjhqaVVOd3JBN3dkcXY3aGN5YytFWlF2cDVHYVZkb0YzczJRYytN?=
+ =?utf-8?B?NTBEYjhnbUFOdmczWE91TlFBTW1rdDJXSUkrOWZueSt1NC9mbU8yVVJ4dWRG?=
+ =?utf-8?B?UXlsc2RqNlRWdnJubWl4SjRTb3UrSjJKa0NGdlBJMzRXNU5rUG0vK203bXNy?=
+ =?utf-8?B?aVVoSU8vQnNuWXZHejl6RnRNRnY3c3NxUzAxTno2ekhhd2NkVEwxMGlwRCtI?=
+ =?utf-8?B?NThDYjkrcFoxYkFUR1V6YlFBcjNWa3drbG40WWY0WVMxZ28vRVFXTzdUOVR0?=
+ =?utf-8?B?NGQ1WlBhY0hvNS9TOHJxZUFYL1VrVEZvb0tFbUYwOUNyeWJjTGg5QityUjlt?=
+ =?utf-8?B?MlhRZnZTcmV0YUpVWGVaL3BRRnpVVHJULzdud3R1NnlJU1FiTE50b0N2bkNq?=
+ =?utf-8?B?N1lCOE53NFZCRmpObmpMV1N6U1RBakNBNDRBbUxQWC9YaGRzeENmaFFSSWc2?=
+ =?utf-8?B?NXZKYllUMWM3MG1OYjVnaVViSWVNSU1DNWxsSDlpK1J1TXR3MEw2YVV0bGhn?=
+ =?utf-8?B?SGFPV2NXOXJndlBieXVkK2VtL1FSbHhPampZQW9sMG9xeHBpblJJUmFOMWFo?=
+ =?utf-8?B?NW1uUlRFRExSQW9HUlFSdStXYTcvSGdqTUUzQkhNNnA4S3lEV2tKNFhJTzVT?=
+ =?utf-8?Q?tEjY=3D?=
+X-Forefront-Antispam-Report: CIP:164.130.1.60;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700013)(376014)(1800799024)(82310400026);DIR:OUT;SFP:1101;
+X-OriginatorOrg: foss.st.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Nov 2025 12:16:28.2400
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 56e34232-5897-4637-f310-08de28f7cc57
+X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.60];Helo=[smtpO365.st.com]
+X-MS-Exchange-CrossTenant-AuthSource: DB3PEPF00008860.eurprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB4PR10MB6991
+X-Authority-Analysis: v=2.4 cv=fYKgCkQF c=1 sm=1 tr=0 ts=69205825 cx=c_pps
+ a=OO0GoY2mO76woEg6W8CiTg==:117 a=uCuRqK4WZKO1kjFMGfU4lQ==:17
+ a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=iPq3YwKX0LwA:10 a=IkcTkHD0fZMA:10
+ a=6UeiqGixMTsA:10 a=s63m1ICgrNkA:10 a=KrXZwBdWH7kA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=8b9GpE9nAAAA:8 a=RjcZ-PNYxbEjufFQTR4A:9
+ a=QEXdDO2ut3YA:10 a=T3LWEMljR5ZiDmsYVIUa:22
+X-Proofpoint-GUID: 0JKom53V4fmRmFA1VfPifmEllF2zLf8x
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMTIxMDA5MiBTYWx0ZWRfX+/buOgwwk7I0
+ RGW0UfXv/NAMc2rJVJDjabC2tk/5WMWNWbWc/s9a4v5GmaWh6h0KrTU8qedEukZENEkI6YBSNrW
+ w/CZSAEL6bTrrncfiqcoHHV7dXyJ1rukKle35R4Fq7KhBDbMiY9x2NG21muR+aTR7eF6Pig0ky2
+ NucZuh6uSIhKTXqk70R+zC26VaE7YGUBbs0ragJs2lskF5exLjBx13tQDoKYcrfDXYe6eNtUvCf
+ apWZDC+jeeFDzzzD9CGsgmDoE9V0cJqgksOw/0iU+VKdFgwZAEclgf3ayxwv7G/Ojk3DwRUiBLi
+ 1WOE/QIuf8bWYIEHOSl+jbfdrQMyHjt6XHU+yTq0dPX7HuAqOkQAdQtocgwoVcThcqnpdiC7u6e
+ m+cw9gBECDo/GBeKtt+/ifXfQAdzdQ==
+X-Proofpoint-ORIG-GUID: 0JKom53V4fmRmFA1VfPifmEllF2zLf8x
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
+ definitions=2025-11-21_03,2025-11-20_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0
+ priorityscore=1501 impostorscore=0 adultscore=0 clxscore=1011 bulkscore=0
+ lowpriorityscore=0 spamscore=0 suspectscore=0 phishscore=0 malwarescore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2510240001 definitions=main-2511210092
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251121_041653_288298_ADF25535 
-X-CRM114-Status: GOOD (  40.59  )
+X-CRM114-CacheID: sfid-20251121_041654_339844_7F0EBC27 
+X-CRM114-Status: GOOD (  19.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,154 +194,165 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 20.11.2025 19:42, Will McVicker wrote:
-> This series adds support to build the Arm64 Exynos MCT driver as a module.
-> This is only possible on Arm64 SoCs since they can use the Arm architected
-> timer as the clocksource. Once the Exynos MCT module is loaded and the
-> device probes, the MCT is used as the wakeup source for the arch_timer to
-> ensure the device can wakeup from the "c2" idle state.
->
-> These patches are originally from the downstream Pixel 6 (gs101) kernel
-> found at [1] and have been adapted for upstream. Not only has the Exynos MCT
-> driver been shipping as a module in the field with Android, but I've also
-> tested this series with the upstream kernel on my Pixel 6 Pro.
->
-> To verify the module on Pixel 6 Pro is used and the arch_timer is used as the
-> main clocksource, I ran these tests:
->
-> # lsmod | grep exynos_mct
-> exynos_mct             24576  9 [permanent]
->
-> $ cat /proc/interrupts | grep -E "mct|arch_timer"
->   23:        222        171        211        139        184        124        825        378    GICv3  30 Level     arch_timer
-> 117:          1          0          0          0          0          0          0          0    GICv3 785 Level     mct_comp_irq
-> 118:        228          0          0          0          0          0          0          0    GICv3 789 Level     mct_tick0
-> 119:          0        351          0          0          0          0          0          0    GICv3 790 Level     mct_tick1
-> 120:          0          0       1490          0          0          0          0          0    GICv3 791 Level     mct_tick2
-> 121:          0          0          0        325          0          0          0          0    GICv3 792 Level     mct_tick3
-> 122:          0          0          0          0         97          0          0          0    GICv3 793 Level     mct_tick4
-> 123:          0          0          0          0          0        150          0          0    GICv3 794 Level     mct_tick5
-> 124:          0          0          0          0          0          0        188          0    GICv3 795 Level     mct_tick6
-> 125:          0          0          0          0          0          0          0        157    GICv3 796 Level     mct_tick7
->
-> # cat /sys/devices/system/clocksource/clocksource0/current_clocksource
-> arch_sys_counter
->
-> I also compile tested for ARCH=ARM DEFCONFIG=multi_v7_defconfig with the
-> following debug configs to ensure the section mismatches are fixed:
->    CONFIG_DEBUG_SECTION_MISMATCH=y
->    # CONFIG_SECTION_MISMATCH_WARN_ONLY is not set
->
-> Any additional testing is much appreciated!
 
-Works fine on 32bit Exynos systems in my test farm!
 
-Tested-by: Marek Szyprowski <m.szyprowski@samsung.com>
+On 11/21/25 10:25, Eugen Hristev wrote:
+> 
+> 
+> On 11/3/25 12:15, Amelie Delaunay wrote:
+>> ddata2dev helper returns the device pointer from struct dma_device stored
+>> in stm32_dma3_ddata structure.
+>> Device pointer from struct dma_device has been initialized with &pdev->dev,
+>> so the ddata2dev helper returns &pdev->dev.
+>>
+>> Signed-off-by: Amelie Delaunay <amelie.delaunay@foss.st.com>
+>> ---
+>>   drivers/dma/stm32/stm32-dma3.c | 29 ++++++++++++++++++-----------
+>>   1 file changed, 18 insertions(+), 11 deletions(-)
+>>
+>> diff --git a/drivers/dma/stm32/stm32-dma3.c b/drivers/dma/stm32/stm32-dma3.c
+>> index 29ea510fa539..9f49ef8e2972 100644
+>> --- a/drivers/dma/stm32/stm32-dma3.c
+>> +++ b/drivers/dma/stm32/stm32-dma3.c
+>> @@ -333,6 +333,11 @@ static struct device *chan2dev(struct stm32_dma3_chan *chan)
+>>   	return &chan->vchan.chan.dev->device;
+>>   }
+>>   
+>> +static struct device *ddata2dev(struct stm32_dma3_ddata *ddata)
+>> +{
+>> +	return ddata->dma_dev.dev;
+>> +}
+> 
+> Not really sure how much this helper actually simplifies the code. To me
+> it appears as if there is no improvement, but this is a personal
+> preference.> +
 
-> Thanks,
-> Will
->
-> Note1, instructions to build and flash a Pixel 6 device with the upstream
-> kernel can be found at [2].
->
-> Note2, this series is based off of krzk/for-next commit 870f6ca955ea ("Merge
-> branch 'next/clk' into for-next").
->
-> [1] https://android.googlesource.com/kernel/gs/+log/refs/heads/android-gs-raviole-5.10-android12-d1
-> [2] https://gitlab.com/LinaroLtd/googlelt/pixelscripts/-/blob/clo/main/README.md?ref_type=heads
->
-> Cc: Alim Akhtar <alim.akhtar@samsung.com>
-> Cc: Daniel Lezcano <daniel.lezcano@linaro.org>
-> Cc: Donghoon Yu <hoony.yu@samsung.com>
-> Cc: Hosung Kim <hosung0.kim@samsung.com>
-> Cc: Rob Herring <robh@kernel.org>
-> Cc: John Stultz <jstultz@google.com>
-> Cc: Thomas Gleixner <tglx@linutronix.de>
-> Cc: Youngmin Nam <youngmin.nam@samsung.com>
-> Cc: Peter Griffin <peter.griffin@linaro.org>
-> Cc: Tudor Ambarus <tudor.ambarus@linaro.org>
-> Cc: André Draszik <andre.draszik@linaro.org>
-> Cc: Will Deacon <will@kernel.org>
-> Cc: Conor Dooley <conor+dt@kernel.org>
-> Cc: Krzysztof Kozlowski <krzk@kernel.org>
-> Cc: Marek Szyprowski <m.szyprowski@samsung.com>
-> Cc: linux-samsung-soc@vger.kernel.org
-> Cc: kernel-team@android.com
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: linux-kernel@vger.kernel.org
-> ---
->
-> Changes in v6:
-> - Updated module support to only register the MCT driver as a platform driver
->    for ARM64 to ensure ARM 32-bit SoCs continue to probe the MCT driver very
->    early.
-> - Squashed the percpu fix suggested by Marek Szyprowski in
->    https://lore.kernel.org/all/20250827102645.1964659-1-m.szyprowski@samsung.com/
->    together with patch 3/6.
->
-> Changes in v5:
-> - Fixed section mismatch issues.
-> - Addressed Arnd's concerns regarding potential issues with unloading and/or
->    unbinding the driver.
-> - Fixed SoB concerns to clarify the development chain from AOSP to Linux.
-> - Pulled in https://lore.kernel.org/all/20250827102645.1964659-1-m.szyprowski@samsung.com/
->    to limit percpu interrupts only for ARM64.
->
-> Changes in v4:
-> - Missed the "v3" string in the previous series for the actual patches
-> - Re-generated patches with --base a15edf91668beefdb5171c53fa698c9b43dd1e0d
->    for kernel test robot.
->
-> Changes in v3:
-> - Rebased on top of Daniel's timer modularization prep series [3] and
->    krzk/for-next commit a15edf91668b ("Merge branch 'next/dt64' into
->    for-next")
-> - Added owner references to Exynos MCT clocksource and clockevent objects.
-> - Dropped #ifdef MODULE conditional section in favor of just using
->    module_platform_driver() which will properly handle setting up the
->    of_device_id table based on if the driver is built-in or a module.
-> - Update commit message for patch 2 based on John's feedback.
-> - Dropped DT change from v2 as it was picked up by Krzysztof for CPU Idle.
->
-> Changes in v2:
-> - Re-worked patch v1 5 based on Rob Herring's review to use the compatible
->    data for retrieving the mct_init function pointer.
-> - Updated the Kconfig logic to disallow building the Exynos MCT driver as
->    a module for ARM32 configurations based on Krzysztof Kozlowski's findings.
-> - Added comments and clarified commit messages in patches 1 and 2 based on
->    reviews from John Stultz and Youngmin Nam.
-> - Fixed an issue found during testing that resulted in the device getting
->    stuck on boot. This is included in v2 as patch 5.
-> - Collected *-by tags
-> - Rebased to the latest linux-next/master.
-> ---
->
-> Donghoon Yu (2):
->    clocksource/drivers/exynos_mct: Don't register as a sched_clock on
->      arm64
->    clocksource/drivers/exynos_mct: Add module support for ARM64
->
-> Hosung Kim (1):
->    clocksource/drivers/exynos_mct: Set percpu local timer interrupts for
->      ARM64
->
-> Will McVicker (3):
->    ARM: make register_current_timer_delay() accessible after init
->    clocksource/drivers/exynos_mct: Fix uninitialized irq name warning
->    arm64: exynos: Drop select CLKSRC_EXYNOS_MCT
->
->   arch/arm/lib/delay.c             |  2 +-
->   arch/arm64/Kconfig.platforms     |  1 -
->   drivers/clocksource/Kconfig      |  3 +-
->   drivers/clocksource/exynos_mct.c | 87 +++++++++++++++++++++++++++-----
->   4 files changed, 78 insertions(+), 15 deletions(-)
->
->
-> base-commit: 870f6ca955ea3f23b4d7824c815c81180a6d7c48
+Hi Eugen, thanks for your review.
 
-Best regards
--- 
-Marek Szyprowski, PhD
-Samsung R&D Institute Poland
+Saving two characters cannot be considered an improvement, but the 
+purpose of this helper is to 'standardize' device pointer retrieval, 
+similar to the chan2dev() helper above.
+
+>>   static void stm32_dma3_chan_dump_reg(struct stm32_dma3_chan *chan)
+>>   {
+>>   	struct stm32_dma3_ddata *ddata = to_stm32_dma3_ddata(chan);
+>> @@ -392,6 +397,7 @@ static void stm32_dma3_chan_dump_hwdesc(struct stm32_dma3_chan *chan,
+>>   	} else {
+>>   		dev_dbg(chan2dev(chan), "X\n");
+>>   	}
+>> +
+> This newline here appears to be unintended >  }
+
+Indeed! I'll fix it in v2 Thanks for catching that.
+
+Regards,
+Amelie
+
+>>   
+>>   static struct stm32_dma3_swdesc *stm32_dma3_chan_desc_alloc(struct stm32_dma3_chan *chan, u32 count)
+>> @@ -1110,7 +1116,7 @@ static int stm32_dma3_alloc_chan_resources(struct dma_chan *c)
+>>   	struct stm32_dma3_ddata *ddata = to_stm32_dma3_ddata(chan);
+>>   	int ret;
+>>   
+>> -	ret = pm_runtime_resume_and_get(ddata->dma_dev.dev);
+>> +	ret = pm_runtime_resume_and_get(ddata2dev(ddata));
+>>   	if (ret < 0)
+>>   		return ret;
+>>   
+>> @@ -1144,7 +1150,7 @@ static int stm32_dma3_alloc_chan_resources(struct dma_chan *c)
+>>   	chan->lli_pool = NULL;
+>>   
+>>   err_put_sync:
+>> -	pm_runtime_put_sync(ddata->dma_dev.dev);
+>> +	pm_runtime_put_sync(ddata2dev(ddata));
+>>   
+>>   	return ret;
+>>   }
+>> @@ -1170,7 +1176,7 @@ static void stm32_dma3_free_chan_resources(struct dma_chan *c)
+>>   	if (chan->semaphore_mode)
+>>   		stm32_dma3_put_chan_sem(chan);
+>>   
+>> -	pm_runtime_put_sync(ddata->dma_dev.dev);
+>> +	pm_runtime_put_sync(ddata2dev(ddata));
+>>   
+>>   	/* Reset configuration */
+>>   	memset(&chan->dt_config, 0, sizeof(chan->dt_config));
+>> @@ -1610,11 +1616,11 @@ static bool stm32_dma3_filter_fn(struct dma_chan *c, void *fn_param)
+>>   		if (!(mask & BIT(chan->id)))
+>>   			return false;
+>>   
+>> -	ret = pm_runtime_resume_and_get(ddata->dma_dev.dev);
+>> +	ret = pm_runtime_resume_and_get(ddata2dev(ddata));
+>>   	if (ret < 0)
+>>   		return false;
+>>   	semcr = readl_relaxed(ddata->base + STM32_DMA3_CSEMCR(chan->id));
+>> -	pm_runtime_put_sync(ddata->dma_dev.dev);
+>> +	pm_runtime_put_sync(ddata2dev(ddata));
+>>   
+>>   	/* Check if chan is free */
+>>   	if (semcr & CSEMCR_SEM_MUTEX)
+>> @@ -1636,7 +1642,7 @@ static struct dma_chan *stm32_dma3_of_xlate(struct of_phandle_args *dma_spec, st
+>>   	struct dma_chan *c;
+>>   
+>>   	if (dma_spec->args_count < 3) {
+>> -		dev_err(ddata->dma_dev.dev, "Invalid args count\n");
+>> +		dev_err(ddata2dev(ddata), "Invalid args count\n");
+>>   		return NULL;
+>>   	}
+>>   
+>> @@ -1645,14 +1651,14 @@ static struct dma_chan *stm32_dma3_of_xlate(struct of_phandle_args *dma_spec, st
+>>   	conf.tr_conf = dma_spec->args[2];
+>>   
+>>   	if (conf.req_line >= ddata->dma_requests) {
+>> -		dev_err(ddata->dma_dev.dev, "Invalid request line\n");
+>> +		dev_err(ddata2dev(ddata), "Invalid request line\n");
+>>   		return NULL;
+>>   	}
+>>   
+>>   	/* Request dma channel among the generic dma controller list */
+>>   	c = dma_request_channel(mask, stm32_dma3_filter_fn, &conf);
+>>   	if (!c) {
+>> -		dev_err(ddata->dma_dev.dev, "No suitable channel found\n");
+>> +		dev_err(ddata2dev(ddata), "No suitable channel found\n");
+>>   		return NULL;
+>>   	}
+>>   
+>> @@ -1665,6 +1671,7 @@ static struct dma_chan *stm32_dma3_of_xlate(struct of_phandle_args *dma_spec, st
+>>   
+>>   static u32 stm32_dma3_check_rif(struct stm32_dma3_ddata *ddata)
+>>   {
+>> +	struct device *dev = ddata2dev(ddata);
+>>   	u32 chan_reserved, mask = 0, i, ccidcfgr, invalid_cid = 0;
+>>   
+>>   	/* Reserve Secure channels */
+>> @@ -1676,7 +1683,7 @@ static u32 stm32_dma3_check_rif(struct stm32_dma3_ddata *ddata)
+>>   	 * In case CID filtering is not configured, dma-channel-mask property can be used to
+>>   	 * specify available DMA channels to the kernel.
+>>   	 */
+>> -	of_property_read_u32(ddata->dma_dev.dev->of_node, "dma-channel-mask", &mask);
+>> +	of_property_read_u32(dev->of_node, "dma-channel-mask", &mask);
+>>   
+>>   	/* Reserve !CID-filtered not in dma-channel-mask, static CID != CID1, CID1 not allowed */
+>>   	for (i = 0; i < ddata->dma_channels; i++) {
+>> @@ -1696,7 +1703,7 @@ static u32 stm32_dma3_check_rif(struct stm32_dma3_ddata *ddata)
+>>   				ddata->chans[i].semaphore_mode = true;
+>>   			}
+>>   		}
+>> -		dev_dbg(ddata->dma_dev.dev, "chan%d: %s mode, %s\n", i,
+>> +		dev_dbg(dev, "chan%d: %s mode, %s\n", i,
+>>   			!(ccidcfgr & CCIDCFGR_CFEN) ? "!CID-filtered" :
+>>   			ddata->chans[i].semaphore_mode ? "Semaphore" : "Static CID",
+>>   			(chan_reserved & BIT(i)) ? "denied" :
+>> @@ -1704,7 +1711,7 @@ static u32 stm32_dma3_check_rif(struct stm32_dma3_ddata *ddata)
+>>   	}
+>>   
+>>   	if (invalid_cid)
+>> -		dev_warn(ddata->dma_dev.dev, "chan%*pbl have invalid CID configuration\n",
+>> +		dev_warn(dev, "chan%*pbl have invalid CID configuration\n",
+>>   			 ddata->dma_channels, &invalid_cid);
+>>   
+>>   	return chan_reserved;
+>>
+> 
 
 
