@@ -4,72 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66F02CFC273
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 13:23:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72C68CFC27C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 13:36:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=toG3EBybNyGJ1GV0IybCBxeuilaLYcbyrlGkMqTdB58=; b=oMH93HeaaH6Yt+n2UalijCvQMP
-	l9YzUlVRpny3zUL5pefQEuHlWJmYulK2dm2cpirx/3o7sYr3mgPMkAUnT8dmeSNF67FRMkHcTpQ1W
-	+MzRb+/6U3TT3kPbJs1fclHnVHlHhmHPqoKh+f6OExmL1q4RK8BlFC3w0uoF18v08zLQiapwM7Oqv
-	GRBFQ/Y3XqCywqc6xOPw+FoB1bWDBmfFdz/Puu8zD5z9HT9equffyanWhm+vUsVPpRB7zwGwWayvi
-	ylqdthdqgNZtunBc4ZwyJGyx//0pDKxx+MwiYz8SOa0juw/zjtPe+4M0+lTE4L1rnGjTAxiXsmDdL
-	IYvAepeQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=efH9Agej6Z9Q3tfyl7rJRxdmC7o9Bt18Qr1lcQtX8mc=; b=VM5ld4jDLndJH2r+4ox+WT2bgh
+	f6xIWjsv2YEX0ViRLe35xfULbi9eOZ/p4B3eSMZLmQTaBqCJjyz665PufP3jmzG7QWl/4VwzfhYct
+	0VbBXfXD6pbAeEegnv6OYruVzsVYkBWSpZURtuweuAHIr8D6yC5/ZtlBSKPiLotj/+TjuteOqQi87
+	+Nh501WTRr/OVeK2tLUlBK9udwsbB7Z3VlqBcZhk9Yhm05gTJA3mTn7ByEWWeSfUytoC9iwH2KfMR
+	mq8zNsfePj37sEGX/EDH5DojvCx+70DXergrV9xT1OVaxH21IlYeHsgt1G4hmkUCMLgoUumeGYZHt
+	WnmNfRuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMR75-00000008POn-0WwY;
-	Fri, 21 Nov 2025 13:23:47 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vMRJ6-00000008Q3w-3vql;
+	Fri, 21 Nov 2025 13:36:12 +0000
+Received: from sender3-pp-f112.zoho.com ([136.143.184.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMR73-00000008POf-2qfS
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Nov 2025 13:23:45 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id B9D0F60249
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Nov 2025 13:23:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 68623C19424
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Nov 2025 13:23:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763731424;
-	bh=ECEcTZSNracREyRBoHBY0EQNPthTpIWDuJV7GHm79Ug=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=nG3IEBU1k9MufuwLMiuLVKZHavGOX5qH8JNk2SxUWFchiruvinJ2lvg3vnId/fhR9
-	 +gwiS0ClKy/mrd+Ph9ljzddjMrvqgrPngTvdyn5IbvYkOWKf4xiZp/byz7vPD+ZeUj
-	 peVPECgoivANQ2YWt69lFoI68Qxz/d9mEwdV2RvEbpyd3KIn95UPesTYRcbReZHqul
-	 hG9RsTV/iog3GjjDm2OQc8/QLbG/35DPXmvf34qCKz7Utm7waTql2gHdbFW0Ddi6k6
-	 SwB78YaLhf6Tk+FKMpgmdChbIGJIJRddeCMBOpyc5+dSzIg7kioTlA+52UaOFahpBI
-	 Yawy/dohFPcbQ==
-Received: by mail-oo1-f49.google.com with SMTP id 006d021491bc7-656b52c0f88so778545eaf.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Nov 2025 05:23:44 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCVDO8P38ZMAx1xMrZQImPSsyCBH9ko1junDX0mPFmcQgW6qlfM9Cic3rKC04R06A9QzcV6qTZQFRD8ObWi223tG@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx0FKTVDrawuaWjv0RScMQ2hjp/IcOHKz3mXZ9keY5oHGc26kT7
-	OKOxvb1y9EfEyVyWzwyz+p+9aCnzDTu2bveV6Bo/hKNiHkGUcghluy3ML0YU3BUwNQTxJkQmPm4
-	iA/M6HXeR1UUKcXNSWyCikXIAojN/Cek=
-X-Google-Smtp-Source: AGHT+IFhp0YVKTtgS3L8OPuDSBkiyOLNkIUJXxKQSshiG2x2l23LJvripY/gCRFK9MFfhVgywKlcZjUCU7fKQ5VhEaA=
-X-Received: by 2002:a05:6820:810c:b0:656:b1fb:a8fd with SMTP id
- 006d021491bc7-65790a01bcamr707581eaf.1.1763731423664; Fri, 21 Nov 2025
- 05:23:43 -0800 (PST)
-MIME-Version: 1.0
-References: <20251121010756.6687-1-val@packett.cool> <efe52356123168be06811abd08a99f65d6980baa.camel@linux.intel.com>
-In-Reply-To: <efe52356123168be06811abd08a99f65d6980baa.camel@linux.intel.com>
-From: "Rafael J. Wysocki" <rafael@kernel.org>
-Date: Fri, 21 Nov 2025 14:23:32 +0100
-X-Gmail-Original-Message-ID: <CAJZ5v0h2u_Y8H-mCzeX+gxT4Aipa_MK6egMaA2fGuGkJBGXq7Q@mail.gmail.com>
-X-Gm-Features: AWmQ_bk47UcrAbnlYbzZbn257NFsWpeFAQcdakF9SM7SuiCPFKaw52f_xwxzm34
-Message-ID: <CAJZ5v0h2u_Y8H-mCzeX+gxT4Aipa_MK6egMaA2fGuGkJBGXq7Q@mail.gmail.com>
-Subject: Re: [PATCH] cpuidle: warn and fixup on sanity check instead of
- rejecting the driver
-To: Artem Bityutskiy <artem.bityutskiy@linux.intel.com>
-Cc: Val Packett <val@packett.cool>, "Rafael J. Wysocki" <rafael@kernel.org>, 
-	Daniel Lezcano <daniel.lezcano@linaro.org>, Christian Loehle <christian.loehle@arm.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org, 
-	"Rafael J. Wysocki" <rafael.j.wysocki@intel.com>, linux-pm@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
+	id 1vMRJ4-00000008Q2g-1943;
+	Fri, 21 Nov 2025 13:36:11 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1763732154; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=e74KFJ9vgz6b7ewcQ7f+S6Y5PMn78ts9kOwvCErWbdDYE4SIyWbscAAry8pkQQfrMWOIwqIcbZ9+D2Iy156DDaPIWmRX8Sj+ot0DYUzOcbyY2pFg8i4Q0PiAccmOxDpYhWHIACiiAge3sOtKsqECQOGVjFI1Qku5jESw0Tq4MWk=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1763732154; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=efH9Agej6Z9Q3tfyl7rJRxdmC7o9Bt18Qr1lcQtX8mc=; 
+	b=YA1Ny9ZNwPA2FUgRm2gbSvX+4S/mTCW5tfW7gXxIOP4YdtH/V3QPTNOToRxn6kac1Hg97WDJUSJfu7blPXn5QCGQ/FdoFih5kwVn4O+SHb/h45JgG3haD3sTFuLXLFXv2OZ1Heyf4gsnD7krYPaqQ/is8fp/jX893nJpnSoD91w=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=louisalexis.eyraud@collabora.com;
+	dmarc=pass header.from=<louisalexis.eyraud@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1763732154;
+	s=zohomail; d=collabora.com; i=louisalexis.eyraud@collabora.com;
+	h=Message-ID:Subject:Subject:From:From:To:To:Cc:Cc:Date:Date:In-Reply-To:References:Content-Type:Content-Transfer-Encoding:MIME-Version:Message-Id:Reply-To;
+	bh=efH9Agej6Z9Q3tfyl7rJRxdmC7o9Bt18Qr1lcQtX8mc=;
+	b=YXfjgUMiM1VsxigPCn65uyQOmegLHes3Ns4fqUi3yiOMpA5SFVI938rbr6iDe0y7
+	L+/l3di69KmJtcCFI2+aYo8mz31rZkoUCHaykAKfh6xheIXwClq0ObTtfNzj3c/hPl1
+	IcUNkYSggpnkS5dlDSmdnqHax9h1wg7N5J3gzWhQ=
+Received: by mx.zohomail.com with SMTPS id 1763732152616682.0078621223064;
+	Fri, 21 Nov 2025 05:35:52 -0800 (PST)
+Message-ID: <07011558548dfc88fb237b7d21d43a6bc25dd0fd.camel@collabora.com>
+Subject: Re: [PATCH - URGENT] pmdomains: mtk-pm-domains: Fix spinlock
+ recursion in probe
+From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	ulf.hansson@linaro.org
+Cc: matthias.bgg@gmail.com, nfraprado@collabora.com,
+ irving-ch.lin@mediatek.com, 	wenst@chromium.org, linux-pm@vger.kernel.org,
+ linux-kernel@vger.kernel.org, 	linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, 	robh@kernel.org, krzk@kernel.org,
+ conor@kernel.org, kernel@collabora.com
+Date: Fri, 21 Nov 2025 14:35:47 +0100
+In-Reply-To: <20251121125212.43093-1-angelogioacchino.delregno@collabora.com>
+References: <20251121125212.43093-1-angelogioacchino.delregno@collabora.com>
+Organization: Collabora Ltd
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2 (3.56.2-2.fc42) 
+MIME-Version: 1.0
+X-ZohoMailClient: External
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251121_053610_368568_D6E9B923 
+X-CRM114-Status: GOOD (  33.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,67 +83,173 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 21, 2025 at 2:16=E2=80=AFPM Artem Bityutskiy
-<artem.bityutskiy@linux.intel.com> wrote:
->
-> On Thu, 2025-11-20 at 22:06 -0300, Val Packett wrote:
-> > On Device Tree platforms, the latency and target residency values come
-> > directly from device trees, which are numerous and weren't all written
-> > with cpuidle invariants in mind. For example, qcom/hamoa.dtsi currently
-> > trips this check: exit latency 680000 > residency 600000.
-> >
-> > Instead of harshly rejecting the entire cpuidle driver with a mysteriou=
-s
-> > error message, print a warning and set the target residency value to be
-> > equal to the exit latency.
-> >
-> > Fixes: 76934e495cdc ("cpuidle: Add sanity check for exit latency and ta=
-rget residency")
-> > Signed-off-by: Val Packett <val@packett.cool>
-> > ---
-> >  drivers/cpuidle/driver.c | 7 +++++--
-> >  1 file changed, 5 insertions(+), 2 deletions(-)
-> >
-> > diff --git a/drivers/cpuidle/driver.c b/drivers/cpuidle/driver.c
-> > index 1c295a93d582..06aeb59c1017 100644
-> > --- a/drivers/cpuidle/driver.c
-> > +++ b/drivers/cpuidle/driver.c
-> > @@ -199,8 +199,11 @@ static int __cpuidle_driver_init(struct cpuidle_dr=
-iver *drv)
-> >                * exceed its target residency which is assumed in cpuidl=
-e in
-> >                * multiple places.
-> >                */
-> > -             if (s->exit_latency_ns > s->target_residency_ns)
-> > -                     return -EINVAL;
-> > +             if (s->exit_latency_ns > s->target_residency_ns) {
-> > +                     pr_warn("cpuidle: state %d: exit latency %lld > r=
-esidency %lld (fixing)\n",
-> > +                             i, s->exit_latency_ns, s->target_residenc=
-y_ns);
-> > +                     s->target_residency_ns =3D s->exit_latency_ns;
-> > +             }
-> >       }
->
-> Ideally, in a perfect world, driver.c should verify input data and
-> reject bad input, rather than correct bad input.
->
-> So ideally, if there is an idle driver between DT and driver.c (like
-> intel_idle.c in case of Intel), that would be its job to correct DT
-> data.
->
-> But I'm not familiar with DT platforms, so I don't know if there is a
-> driver/piece of SW between DT parsing and driver.c that could handle
-> this correction at an earlier stage.
->
-> The reason I think this patch is not ideal is because it changes the
-> input data at the core framework level, and in theory the change may be
-> surprising to users. In general, sometimes rejecting bluntly is better
-> than correcting in a possibly unexpected way.
+Hi Angelo,
 
-Unless rejecting it causes the functionality to be missing entirely
-and users have no straightforward way to fix it up.
+On Fri, 2025-11-21 at 13:52 +0100, AngeloGioacchino Del Regno wrote:
+> For some reason, of_find_node_with_property() is creating a spinlock
+> recursion issue along with fwnode_count_parents(), and this issue
+> is making all MediaTek boards unbootable.
+>=20
+> As of kernel v6.18-rc6, there are only three users of this function,
+> one of which is this driver.
+>=20
+> Migrate away from of_find_node_with_property() by adding a local
+> scpsys_get_legacy_regmap_node() function, which acts similarly to
+> of_find_node_with_property(), and calling the former in place of
+> the latter.
+>=20
+> This resolves the following spinlock recursion issue:
+>=20
+> [=C2=A0=C2=A0=C2=A0 1.773979] BUG: spinlock recursion on CPU#2, kworker/u=
+24:1/60
+> [=C2=A0=C2=A0=C2=A0 1.790485]=C2=A0 lock: devtree_lock+0x0/0x40, .magic: =
+dead4ead,
+> .owner: kworker/u24:1/60, .owner_cpu: 2
+> [=C2=A0=C2=A0=C2=A0 1.791644] CPU: 2 UID: 0 PID: 60 Comm: kworker/u24:1 T=
+ainted:
+> G=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 W=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 6.18.0-rc6 #3 PREEMPT
+> [=C2=A0=C2=A0=C2=A0 1.791649] Tainted: [W]=3DWARN
+> [=C2=A0=C2=A0=C2=A0 1.791650] Hardware name: MediaTek Genio-510 EVK (DT)
+> [=C2=A0=C2=A0=C2=A0 1.791653] Workqueue: events_unbound deferred_probe_wo=
+rk_func
+> [=C2=A0=C2=A0=C2=A0 1.791658] Call trace:
+> [=C2=A0=C2=A0=C2=A0 1.791659]=C2=A0 show_stack+0x18/0x30 (C)
+> [=C2=A0=C2=A0=C2=A0 1.791664]=C2=A0 dump_stack_lvl+0x68/0x94
+> [=C2=A0=C2=A0=C2=A0 1.791668]=C2=A0 dump_stack+0x18/0x24
+> [=C2=A0=C2=A0=C2=A0 1.791672]=C2=A0 spin_dump+0x78/0x88
+> [=C2=A0=C2=A0=C2=A0 1.791678]=C2=A0 do_raw_spin_lock+0x110/0x140
+> [=C2=A0=C2=A0=C2=A0 1.791684]=C2=A0 _raw_spin_lock_irqsave+0x58/0x6c
+> [=C2=A0=C2=A0=C2=A0 1.791690]=C2=A0 of_get_parent+0x28/0x74
+> [=C2=A0=C2=A0=C2=A0 1.791694]=C2=A0 of_fwnode_get_parent+0x38/0x7c
+> [=C2=A0=C2=A0=C2=A0 1.791700]=C2=A0 fwnode_count_parents+0x34/0xf0
+> [=C2=A0=C2=A0=C2=A0 1.791705]=C2=A0 fwnode_full_name_string+0x28/0x120
+> [=C2=A0=C2=A0=C2=A0 1.791710]=C2=A0 device_node_string+0x3e4/0x50c
+> [=C2=A0=C2=A0=C2=A0 1.791715]=C2=A0 pointer+0x294/0x430
+> [=C2=A0=C2=A0=C2=A0 1.791718]=C2=A0 vsnprintf+0x21c/0x5bc
+> [=C2=A0=C2=A0=C2=A0 1.791722]=C2=A0 vprintk_store+0x108/0x47c
+> [=C2=A0=C2=A0=C2=A0 1.791728]=C2=A0 vprintk_emit+0xc4/0x350
+> [=C2=A0=C2=A0=C2=A0 1.791732]=C2=A0 vprintk_default+0x34/0x40
+> [=C2=A0=C2=A0=C2=A0 1.791736]=C2=A0 vprintk+0x24/0x30
+> [=C2=A0=C2=A0=C2=A0 1.791740]=C2=A0 _printk+0x60/0x8c
+> [=C2=A0=C2=A0=C2=A0 1.791744]=C2=A0 of_node_release+0x154/0x194
+> [=C2=A0=C2=A0=C2=A0 1.791749]=C2=A0 kobject_put+0xa0/0x120
+> [=C2=A0=C2=A0=C2=A0 1.791753]=C2=A0 of_node_put+0x18/0x28
+> [=C2=A0=C2=A0=C2=A0 1.791756]=C2=A0 of_find_node_with_property+0x74/0x100
+> [=C2=A0=C2=A0=C2=A0 1.791761]=C2=A0 scpsys_probe+0x338/0x5e0
+> [=C2=A0=C2=A0=C2=A0 1.791765]=C2=A0 platform_probe+0x5c/0xa4
+> [=C2=A0=C2=A0=C2=A0 1.791770]=C2=A0 really_probe+0xbc/0x2ac
+> [=C2=A0=C2=A0=C2=A0 1.791774]=C2=A0 __driver_probe_device+0x78/0x118
+> [=C2=A0=C2=A0=C2=A0 1.791779]=C2=A0 driver_probe_device+0x3c/0x170
+> [=C2=A0=C2=A0=C2=A0 1.791783]=C2=A0 __device_attach_driver+0xb8/0x150
+> [=C2=A0=C2=A0=C2=A0 1.791788]=C2=A0 bus_for_each_drv+0x88/0xe8
+> [=C2=A0=C2=A0=C2=A0 1.791792]=C2=A0 __device_attach+0x9c/0x1a0
+> [=C2=A0=C2=A0=C2=A0 1.791796]=C2=A0 device_initial_probe+0x14/0x20
+> [=C2=A0=C2=A0=C2=A0 1.791801]=C2=A0 bus_probe_device+0xa0/0xa4
+> [=C2=A0=C2=A0=C2=A0 1.791805]=C2=A0 deferred_probe_work_func+0x88/0xd0
+> [=C2=A0=C2=A0=C2=A0 1.791809]=C2=A0 process_one_work+0x1e8/0x448
+> [=C2=A0=C2=A0=C2=A0 1.791813]=C2=A0 worker_thread+0x1ac/0x340
+> [=C2=A0=C2=A0=C2=A0 1.791816]=C2=A0 kthread+0x138/0x220
+> [=C2=A0=C2=A0=C2=A0 1.791821]=C2=A0 ret_from_fork+0x10/0x20
+>=20
+> Fixes: c29345fa5f66 ("pmdomain: mediatek: Refactor bus protection
+> regmaps retrieval")
+> Signed-off-by: AngeloGioacchino Del Regno
+> <angelogioacchino.delregno@collabora.com>
+> ---
+>=20
+> This might not be the best fix to perform, and I have Cc'ed Rob and
+> Krzysztof for them to have a look at the spinlock recursion issue,
+> as I think it either has to be fixed, or the affected function has
+> to be removed (or both, actually - in any case, if not fixed, this
+> could backfire, and I'm not sure that the only function that shows
+> this issue is just only of_find_node_with_property() or if others
+> also do; at least, nothing else on MediaTek machines as of now).
+>=20
+> Counting that this makes *all* MediaTek machines to be unbootable,
+> I'd prefer this fix to get merged immediately - so that it lands
+> in v6.18 (which is at rc6 at the time of writing).
+>=20
+> That - because I think that resolving the source of this issue will
+> take a bit of time and research - and I really don't want the LTS
+> kernel to be broken on all MediaTek devices.
+>=20
+> Note: When I initially tested the commit pointed out in the Fixes
+> tag, it was working with no spinlock recursion - I don't clearly
+> remember what kernel version was that, but I think it was some
+> linux-next around v6.16 or v6.17.
+>=20
+> =C2=A0drivers/pmdomain/mediatek/mtk-pm-domains.c | 18 +++++++++++++++---
+> =C2=A01 file changed, 15 insertions(+), 3 deletions(-)
+>=20
+> diff --git a/drivers/pmdomain/mediatek/mtk-pm-domains.c
+> b/drivers/pmdomain/mediatek/mtk-pm-domains.c
+> index 407b4a7aba10..721224c89865 100644
+> --- a/drivers/pmdomain/mediatek/mtk-pm-domains.c
+> +++ b/drivers/pmdomain/mediatek/mtk-pm-domains.c
+> @@ -1006,6 +1006,18 @@ static void scpsys_domain_cleanup(struct
+> scpsys *scpsys)
+> =C2=A0	}
+> =C2=A0}
+> =C2=A0
+> +static struct device_node *scpsys_get_legacy_regmap(struct
+> device_node *np, const char *pn)
+> +{
+> +	struct device_node *local_node;
+> +
+> +	for_each_child_of_node(np, local_node) {
+> +		if (of_property_present(local_node, pn))
+> +			return local_node;
+> +	}
+> +
+> +	return NULL;
+> +}
+> +
+> =C2=A0static int scpsys_get_bus_protection_legacy(struct device *dev,
+> struct scpsys *scpsys)
+> =C2=A0{
+> =C2=A0	const u8 bp_blocks[3] =3D {
+> @@ -1027,7 +1039,7 @@ static int
+> scpsys_get_bus_protection_legacy(struct device *dev, struct scpsys *s
+> =C2=A0	 * this makes it then possible to allocate the array of
+> bus_prot
+> =C2=A0	 * regmaps and convert all to the new style handling.
+> =C2=A0	 */
+> -	node =3D of_find_node_with_property(np, "mediatek,infracfg");
+> +	node =3D scpsys_get_legacy_regmap(np, "mediatek,infracfg");
+> =C2=A0	if (node) {
+> =C2=A0		regmap[0] =3D syscon_regmap_lookup_by_phandle(node,
+> "mediatek,infracfg");
+> =C2=A0		of_node_put(node);
+> @@ -1040,7 +1052,7 @@ static int
+> scpsys_get_bus_protection_legacy(struct device *dev, struct scpsys *s
+> =C2=A0		regmap[0] =3D NULL;
+> =C2=A0	}
+> =C2=A0
+> -	node =3D of_find_node_with_property(np, "mediatek,smi");
+> +	node =3D scpsys_get_legacy_regmap(np, "mediatek,smi");
+> =C2=A0	if (node) {
+> =C2=A0		smi_np =3D of_parse_phandle(node, "mediatek,smi", 0);
+> =C2=A0		of_node_put(node);
+> @@ -1058,7 +1070,7 @@ static int
+> scpsys_get_bus_protection_legacy(struct device *dev, struct scpsys *s
+> =C2=A0		regmap[1] =3D NULL;
+> =C2=A0	}
+> =C2=A0
+> -	node =3D of_find_node_with_property(np, "mediatek,infracfg-
+> nao");
+> +	node =3D scpsys_get_legacy_regmap(np, "mediatek,infracfg-
+> nao");
+> =C2=A0	if (node) {
+> =C2=A0		regmap[2] =3D syscon_regmap_lookup_by_phandle(node,
+> "mediatek,infracfg-nao");
+> =C2=A0		num_regmaps++;
+I've tested your patch on top of a v6.18-rc6 kernel with a default
+config. My Mediatek Genio 350-EVK (MT8365), 510-EVK (MT8370) and 1200-
+EVK (MT8395) boards are all now booting without issue.
 
-As I said in my reply, what can be done in this situation is to print
-a warning when assumptions are not met.
+Tested-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+
+Regards,
+Louis-Alexis
 
