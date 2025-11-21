@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FFBACFC28F
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C1E8CFC291
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 15:43:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,45 +12,46 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vd05fhfs2qIh00fsYfg5TZpdIMO9uBjqduJxogccVqo=; b=AVMiur5QwDraMv86DRqzRxu59q
-	3N/zPpRbAXi/X1ZOFuQrCtoEwosrsMHk33Ezt8/GbHXLmYHVIaszNLh1Zut9kacujp3evTh4R6ne9
-	9jhAk8mZfN+keoqdb1zgYUO1JuySWk7lco8JnVYUnNoVHRuHbWJ+jkh+kqzN6wuQTOz/gLEIDf3hq
-	Ier29dl5Yt+lTRQvy8yxT1ei+qH4WFN7UpQMLfGex290PDlnx6RryZsQwqGz3Px9Bdfn8RM0OxUTT
-	9BWd4mT1eD46oNbhGCWAyx9tzfPyBLlZj9awiCggMqWizy+J8TyPVnNo3qLK0b7g5DxYdCBDK826e
-	NBJu53sQ==;
+	bh=BTriyQZYYbnJqpQ9NHQXwg7JbzvLw55voRo8bIRkgF0=; b=JO7kM8wYye5++J0MtVRvB/+M60
+	vkfGMC7xFhS0YUto7b33afSb3ft7Tb9f7KnCBvwaiYHZjB/tAmmXRBbM4NMlJRs8RymGvl+Bx3VIr
+	JjqEdivMKX6aIK3pv1eSkUGSv8qUzR1cEo/vO21ALQKHIf/c1ieB8MZc72FNLym9ibdeInRNUU+rw
+	r7exN7zbvgTDWyH/8ypHIo0Qlym3avQAz7Qfw96NyxmkdiR1hhGg5liyFyp3m2JwBQy6Rlc5XXmRK
+	R+Oc+2HLoZikYSIq2W2quKpvLlbGuZmgnjITZ/0sEDwofuqOXP+WHp2oXX5lqCCaXj9lom/mD+c/O
+	rVvNiNyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMTHj-00000008dE3-38av;
-	Fri, 21 Nov 2025 15:42:55 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1vMTHk-00000008dEX-0BFZ;
+	Fri, 21 Nov 2025 15:42:56 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMTHb-00000008d9i-1pNk;
+	id 1vMTHd-00000008d9m-0SLj
+	for linux-arm-kernel@lists.infradead.org;
 	Fri, 21 Nov 2025 15:42:50 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 3208B1A1C96;
-	Fri, 21 Nov 2025 15:42:45 +0000 (UTC)
+	by smtpout-03.galae.net (Postfix) with ESMTPS id CA9824E41832;
+	Fri, 21 Nov 2025 15:42:46 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 0707960719;
-	Fri, 21 Nov 2025 15:42:45 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 038AD103721D4;
-	Fri, 21 Nov 2025 16:42:42 +0100 (CET)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 9E51D60719;
+	Fri, 21 Nov 2025 15:42:46 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id A793210372188;
+	Fri, 21 Nov 2025 16:42:44 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1763739764; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1763739765; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=vd05fhfs2qIh00fsYfg5TZpdIMO9uBjqduJxogccVqo=;
-	b=gvolDSzwc4oz9CtQ9n9Ne+bvhUP9cWcSiXZQMTWfdlpF8D92vHrXO8g5UmdoKhbHoLiOzZ
-	MUeEtzXz5+v7rMX9/zpl37C6JnoqmXL7LF2aBc6aux7vr3aabgLSqFT++fCEQiuqhwJSYF
-	4L5sxyPcn0IGQVmP2C7SMNaPSD9VHmWlqbQWi2hp+E+hWKhNBpIgV3wRRUN0ECCC9BlE/D
-	iOSNmc+iPYm16ZHpSVIWWV02HOSS7JgKeTOjwCzR35nqXf5/RcvcBJHTtOBFJc42cgEME1
-	9UZWLLu+VKi6eK/hecmr5+rFspaYoaZDpKorHR+e5eCDjk5kyQXgRc7D3F6G8g==
+	bh=BTriyQZYYbnJqpQ9NHQXwg7JbzvLw55voRo8bIRkgF0=;
+	b=cvmVBhT6OnVhWqrq/NM5dwpFkuXvXiRy+NzWEqJJOy1dNawbXqrlhyFSOExl1av7RgTWXV
+	pWRRuJ25YYOIquXNd9ssNDDExXKSelGjameE8FGYnF45biWFSmLXHqd7NiRdfEUBkIq76I
+	RuddAFVlYFKhIGyPdGXHVZ4A/S6uL7Gj7R3KqfpoSxfh9UJTQG8TXuYNEyh1rYYdm1Yo7X
+	/i1Io1C8oJUV0ljSZZbRYVVbRlmdvAlQTYKATPKK0XFHTSO/MLb16BIY1vO5E5j4auqknt
+	URLxal3XwSQOoUZ3rsexAtskjDkthSvpHJSr0R/ehNAJiNfrdJ8LF1yl8SL3vw==
 From: Gregory CLEMENT <gregory.clement@bootlin.com>
-Date: Fri, 21 Nov 2025 16:42:36 +0100
-Subject: [PATCH v2 2/3] dt-bindings: mtd: physmap: Allow using
- memory-region to access memory resources
+Date: Fri, 21 Nov 2025 16:42:37 +0100
+Subject: [PATCH v2 3/3] mtd: physmap: Add support for RAM reserved memory
+ regions
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251121-mtd-memregion-v2-2-c5535fdcebe4@bootlin.com>
+Message-Id: <20251121-mtd-memregion-v2-3-c5535fdcebe4@bootlin.com>
 References: <20251121-mtd-memregion-v2-0-c5535fdcebe4@bootlin.com>
 In-Reply-To: <20251121-mtd-memregion-v2-0-c5535fdcebe4@bootlin.com>
 To: Rob Herring <robh@kernel.org>, Linus Walleij <linus.walleij@linaro.org>, 
@@ -68,9 +69,8 @@ Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
 X-Mailer: b4 0.14.3
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251121_074248_427290_D2998460 
-X-CRM114-Status: UNSURE (   9.83  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251121_074249_417303_CD005E54 
+X-CRM114-Status: GOOD (  23.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,112 +85,120 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable access to memory resources not only via I/O address using reg,
-but also through a portion of main memory using memory-region. To
-achieve this, new compatible strings have been introduced: mtd-mem and
-mtd-memro.
+MTD fixed-partitions can now be exposed for reserved RAM regions, not
+just ROM reg regions. This is achieved by using a memory-region
+phandle to reference the reserved RAM region instead of the reg
+property.
+
+Based on the work of Muhammad Musa <muhammad.musa@intel.com>
 
 Signed-off-by: Gregory CLEMENT <gregory.clement@bootlin.com>
 ---
- .../devicetree/bindings/mtd/mtd-physmap.yaml       | 59 +++++++++++++++-------
- 1 file changed, 40 insertions(+), 19 deletions(-)
+ drivers/mtd/maps/physmap-core.c | 56 ++++++++++++++++++++++++++++++++++-------
+ 1 file changed, 47 insertions(+), 9 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/mtd/mtd-physmap.yaml b/Documentation/devicetree/bindings/mtd/mtd-physmap.yaml
-index 1b375dee83b0c..323e89aacaacd 100644
---- a/Documentation/devicetree/bindings/mtd/mtd-physmap.yaml
-+++ b/Documentation/devicetree/bindings/mtd/mtd-physmap.yaml
-@@ -13,10 +13,6 @@ description: |
-   Flash chips (Memory Technology Devices) are often used for solid state
-   file systems on embedded devices.
+diff --git a/drivers/mtd/maps/physmap-core.c b/drivers/mtd/maps/physmap-core.c
+index 2bd7a1af898c9..f084f6f34d611 100644
+--- a/drivers/mtd/maps/physmap-core.c
++++ b/drivers/mtd/maps/physmap-core.c
+@@ -39,6 +39,7 @@
+ #include <linux/mtd/cfi_endian.h>
+ #include <linux/io.h>
+ #include <linux/of.h>
++#include <linux/of_reserved_mem.h>
+ #include <linux/pm_runtime.h>
+ #include <linux/gpio/consumer.h>
  
--allOf:
--  - $ref: mtd.yaml#
--  - $ref: /schemas/memory-controllers/mc-peripheral-props.yaml#
+@@ -263,6 +264,14 @@ static const struct of_device_id of_flash_match[] = {
+ 		.type = "rom",
+ 		.compatible = "direct-mapped"
+ 	},
++	{
++		.compatible = "mtd-mem",
++		.data = "map_ram",
++	},
++	{
++		.compatible = "mtd-memro",
++		.data = "map_rom",
++	},
+ 	{ /* sentinel */ },
+ };
+ MODULE_DEVICE_TABLE(of, of_flash_match);
+@@ -446,8 +455,9 @@ static int physmap_flash_pdata_init(struct platform_device *dev)
+ static int physmap_flash_probe(struct platform_device *dev)
+ {
+ 	struct physmap_flash_info *info;
+-	int err = 0;
+-	int i;
++	struct resource *res_array;
++	int err = 0, is_rsvd_mem = 0, nreg = 0;
++	int i, curr_reg;
+ 
+ 	if (!dev->dev.of_node && !dev_get_platdata(&dev->dev))
+ 		return -EINVAL;
+@@ -459,9 +469,13 @@ static int physmap_flash_probe(struct platform_device *dev)
+ 	while (platform_get_resource(dev, IORESOURCE_MEM, info->nmaps))
+ 		info->nmaps++;
+ 
+-	if (!info->nmaps)
+-		return -ENODEV;
 -
- properties:
-   compatible:
-     oneOf:
-@@ -61,6 +57,8 @@ properties:
-           - jedec-flash
-           - mtd-ram
-           - mtd-rom
-+          - mtd-mem
-+          - mtd-memro
++	if (!info->nmaps) {
++		info->nmaps = of_reserved_mem_region_total_count(dev->dev.of_node);
++		if (info->nmaps > 0)
++			is_rsvd_mem = 1;
++		else
++			return -ENODEV;
++	}
+ 	info->maps = devm_kzalloc(&dev->dev,
+ 				  sizeof(*info->maps) * info->nmaps,
+ 				  GFP_KERNEL);
+@@ -503,7 +517,23 @@ static int physmap_flash_probe(struct platform_device *dev)
+ 	for (i = 0; i < info->nmaps; i++) {
+ 		struct resource *res;
  
-   reg:
-     description: |
-@@ -116,6 +114,10 @@ properties:
-     minItems: 1
-     maxItems: 8
- 
-+  memory-region:
-+    items:
-+      - description: Memory regions to map into mtd
+-		info->maps[i].virt = devm_platform_get_and_ioremap_resource(dev, i, &res);
++		if (is_rsvd_mem) {
++			if (nreg <= i) {
++				int cnt = of_reserved_mem_region_to_resource_array(&dev->dev,
++							   dev->dev.of_node, i, &res_array);
++				if (cnt < 0) {
++					err = cnt;
++					goto err_out;
++				}
++				nreg += cnt;
++				curr_reg = 0;
++			}
++			res = &res_array[curr_reg++];
++			info->maps[i].virt = devm_ioremap_resource(&dev->dev, res);
++		} else {
++			info->maps[i].virt = devm_platform_get_and_ioremap_resource(dev, i, &res);
++		}
 +
-   '#address-cells':
-     const: 1
+ 		if (IS_ERR(info->maps[i].virt)) {
+ 			err = PTR_ERR(info->maps[i].virt);
+ 			goto err_out;
+@@ -519,9 +549,17 @@ static int physmap_flash_probe(struct platform_device *dev)
+ 			info->maps[i].phys = res->start;
  
-@@ -129,21 +131,25 @@ properties:
+ 		info->win_order = fls64(resource_size(res)) - 1;
+-		info->maps[i].size = BIT(info->win_order +
+-					 (info->gpios ?
+-					  info->gpios->ndescs : 0));
++		/* When using a memory region, the size is not necessarily a
++		 * power of 2, so win_order is not applicable. Since GPIOs are
++		 * unavailable in this context, directly using the region's size
++		 * is safe.
++		 */
++		if (is_rsvd_mem)
++			info->maps[i].size = resource_size(res);
++		else
++			info->maps[i].size = BIT(info->win_order +
++						 (info->gpios ?
++						  info->gpios->ndescs : 0));
  
- required:
-   - compatible
--  - reg
--
--if:
--  properties:
--    compatible:
--      contains:
--        const: cortina,gemini-flash
--then:
--  properties:
--    syscon:
--      $ref: /schemas/types.yaml#/definitions/phandle
--      description:
--        Phandle to the syscon controller
--  required:
--    - syscon
-+
-+allOf:
-+  - $ref: mtd.yaml#
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            enum:
-+              - mtd-mem
-+              - mtd-memro
-+    then:
-+      required:
-+        - memory-region
-+      properties:
-+        addr-gpios: false
-+    else:
-+      $ref: /schemas/memory-controllers/mc-peripheral-props.yaml#
-+      required:
-+        - reg
+ 		info->maps[i].map_priv_1 = (unsigned long)dev;
  
- unevaluatedProperties: false
- 
-@@ -223,4 +229,19 @@ examples:
-             reg = <0 0x04000000>;
-         };
-     };
-+
-+  - |
-+    /* An example using mtd-mem */
-+    mem_logs: mem_logs@10000800 {
-+        reg = <0x1 0x0000800 0x0 0x000f800>;
-+        no-map;
-+    };
-+
-+    memlog {
-+        compatible = "mtd-mem";
-+        memory-region = <&mem_log>;
-+        bank-width = <4>;
-+        device-width = <1>;
-+    };
-+
- ...
 
 -- 
 2.51.0
