@@ -4,83 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58415CFC283
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 15:04:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FCE7CFC28A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 15:06:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ILc8yh6YOOoFIzJ+tZjqghixKaKMpYM5qDbQunnGNNk=; b=yienyhfzfvEwDtpo+Mw6V7Lz0A
-	VP2n9FKcc+MGkz7u5VDgGwCgD+GUb05wgbgAK4/YHVNcKpAnoB8lgdElY3ekTd4KV8SUi6u9liKep
-	tq3tKPh1oA9CDiXak9l3DPOrhCOaa/vcisUKU1s4ng6xH77DNf+LnEj1llVL5EMddS+IPgimzlv4j
-	x0UpLwzdlbrwDanIHoF5yh99wy3bNHwj2kSVIqKCathGhEIVZZvqbg3+eYUascdzbefugmePnw0+M
-	Qe3B/1tYKgmpMBZNTY7e/9GYisID6FNJoMU5pbOtWsT0BL/NufB8PUT7dUBlvcAy9AOgrIWFLeNJc
-	w3cVDkzQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=IDu1CC/wEtk13jK8r1bC4Reoj4j2PboNbZf/VOYI1qU=; b=P9UZToBgawl156
+	D1PGL/wK9GeWwYQr1psRcAVf8knFI4CnhogjMdtMINfWCVp7A9gXDDVozRFojNK4BXnfYvLTdxuoO
+	qmQUx1X96iUI3q4dpbgr0AcO4eIUdWMFD4J6ApnS2+oXq8wf1bkp8RjGAVl/JdFIf6PNzEKWCQFz8
+	FAfVAmd26QR/nN4sx/19bzmDhVGMZQRmmoQbfWDH2oYIY1UhnRQyan/3sYUxanvwsDQHQeiEnKLes
+	iQiHv8pxkTaiHnftMar5lkV7SrdztP30MfuT8noSnMFml7RzlT/0HOBx3HCo/BkCwLgLkSWRPWrlE
+	2+phiBjDbyEMBFI2cHsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMSgg-00000008ZCP-25M7;
-	Fri, 21 Nov 2025 15:04:38 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1vMSiT-00000008ZMI-3ouG;
+	Fri, 21 Nov 2025 15:06:29 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMSge-00000008ZBv-0aGI
+	id 1vMSiR-00000008ZLW-1IFQ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Nov 2025 15:04:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=ILc8yh6YOOoFIzJ+tZjqghixKaKMpYM5qDbQunnGNNk=; b=obfBwo5jzkTt9G6By8vNaSFZFt
-	P1PSmSQ8oCgFqETqveCGTfTauQH5saDlc4OQ7uVnNzt37lIcoeEmtdt2ugTpxmyEeeuDpxB2kXrlu
-	fu04ZLnQDLjI6G7YaxRalG3ki8i4Lwa3PkmuTPDKXBsiplhizK9AfznXhD6yWPAkKx9boNjPtA316
-	G078MyRz+NyuifMwChhHGqSXwLpJsgRS/wD9In3uXrFVAQMQYHFAxYakdD45wSMxQLokGcLmBhbCw
-	DJMdwelE+5ikf9Niru6qA5oHtzWX55y/YXb3tkPJyNa+lTb1X0jxfNQxH+zns36FziZJZrr5LJpMp
-	iIgnqCmQ==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:35276)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1vMSgL-000000007hO-1G93;
-	Fri, 21 Nov 2025 15:04:17 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1vMSgI-000000005Qn-0VDD;
-	Fri, 21 Nov 2025 15:04:14 +0000
-Date: Fri, 21 Nov 2025 15:04:13 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Will McVicker <willmcvicker@google.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Donghoon Yu <hoony.yu@samsung.com>,
-	Hosung Kim <hosung0.kim@samsung.com>, Rob Herring <robh@kernel.org>,
-	John Stultz <jstultz@google.com>,
-	Youngmin Nam <youngmin.nam@samsung.com>,
-	Peter Griffin <peter.griffin@linaro.org>,
-	Tudor Ambarus <tudor.ambarus@linaro.org>,
-	=?iso-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	linux-samsung-soc@vger.kernel.org, kernel-team@android.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v6 1/6] ARM: make register_current_timer_delay()
- accessible after init
-Message-ID: <aSB_bUbfjenD1fjZ@shell.armlinux.org.uk>
-References: <20251120184242.1625820-1-willmcvicker@google.com>
- <20251120184242.1625820-2-willmcvicker@google.com>
+	Fri, 21 Nov 2025 15:06:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1763737587; x=1795273587;
+  h=from:subject:date:message-id:mime-version:
+   content-transfer-encoding:to:cc;
+  bh=5OKOBmxX26Rgs0xbx9ZdRJ+HfMTLClzJoEFjvcG4AcE=;
+  b=dqU5FxrifFwd82hvgpoOBZH8m8Njzaq4pyFnPJrhjFL06SOT7aVEdFAY
+   1K0seKPovsii0WS6V0lEdjGsa39xZY3OPAW0oSjM9h0w+mRRbVkaZmuLL
+   S2DEXYoj4cCKUQ6TYur8kRWY/NLkvyJRBdMOptUudGQ2VVibqV7SF4tk8
+   aoIXc8CVB6WzrYN5IaVhdrJVfbToyqmR5SdxOgRN0O9B7qcZQ6jnXglln
+   m0zbe9kJNywp3Jfw8/a72wTwpWlH/z6Cz7MM/FR5JrcGyeoZUCUeTdsw3
+   dB6pojwNbxUC7U54S+CXaMaCQiCQjSl2i5BdMuVlbOchpy4B2VkyRIYRt
+   A==;
+X-CSE-ConnectionGUID: aKGyDUYeT0auUjyru6LUFw==
+X-CSE-MsgGUID: 0QpqpqUxSZeAdq+oerucoQ==
+X-IronPort-AV: E=Sophos;i="6.20,216,1758610800"; 
+   d="scan'208";a="49513427"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa3.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Nov 2025 08:06:25 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.87.151) by
+ chn-vm-ex3.mchp-main.com (10.10.87.32) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.2.2562.29; Fri, 21 Nov 2025 08:06:05 -0700
+Received: from [127.0.0.1] (10.10.85.11) by chn-vm-ex04.mchp-main.com
+ (10.10.85.152) with Microsoft SMTP Server id 15.1.2507.58 via Frontend
+ Transport; Fri, 21 Nov 2025 08:05:59 -0700
+From: Ludovic Desroches <ludovic.desroches@microchip.com>
+Subject: [PATCH 0/8] drm/atmel-hlcdc: make more use of helpers
+Date: Fri, 21 Nov 2025 16:04:32 +0100
+Message-ID: <20251121-lcd_cleanup_mainline-v1-0-2587e6fe4d67@microchip.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251120184242.1625820-2-willmcvicker@google.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAIB/IGkC/y3M0QqDMAyF4VeRXK9gC1W2VxlDYoxboMu0XYcgv
+ rtFd/kdOP8KiaNwglu1QuSfJPlogb1UQC/UJxsZisHVzlvrrAk0dBQYNU/dG0WDKJu+QaLW9x7
+ rK5TrFHmU5cjeH6cjz7nUv/9x23Zy78/iewAAAA==
+X-Change-ID: 20251121-lcd_cleanup_mainline-b6acc75b5a09
+To: Manikandan Muralidharan <manikandan.m@microchip.com>, "Dharma
+ Balasubiramani" <dharma.b@microchip.com>, Maarten Lankhorst
+	<maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>, Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea
+	<claudiu.beznea@tuxon.dev>
+CC: <dri-devel@lists.freedesktop.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, Ludovic Desroches
+	<ludovic.desroches@microchip.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1487;
+ i=ludovic.desroches@microchip.com; h=from:subject:message-id;
+ bh=5OKOBmxX26Rgs0xbx9ZdRJ+HfMTLClzJoEFjvcG4AcE=;
+ b=owEBbQKS/ZANAwAKAT455hP3e2QtAcsmYgBpIH/V/jo0GHq7RSD6t65Y7Wb7x4XUYdRHQcceV
+ JdZU01U1c6JAjMEAAEKAB0WIQQAMEvJiWmsW41tNU0+OeYT93tkLQUCaSB/1QAKCRA+OeYT93tk
+ La3pD/957QSxYkmoTRU9HxiWluWn7V5pUbnW/fArwLbQyTTsA9MWgo4dM2oBAnkeamIl7efuRdM
+ 0q8V4yjPqLgZAce9cwRRrR++Hie2kCOlJY5yLfIP3o609gD5BIgThIrX0MWHOYuWOTskaNxUdJh
+ edklWkSKXGKnvT95FndeE+5yAPQjPuUpMKq811W+BoAUwRP+hGjzwIVsQr1ZwM4hKUl0KAw+Q3G
+ vevbFWmsbKaIVEJZ41W63qmdigjrmp6Hc4y288HInAjel2SwgQvxQoHUdIUBmM0TWfyhskFTCFo
+ RFCc626Wiv0DPIRpwCQEC96O7O+rHrg+v9l/R0tqiMZZ9a7nDyZRwPZbJxiiVwGTvUpMSi+DEVW
+ g0nQPmF6f2YTZ5wsjBO18d8vdV0aqt3f6vJdBe4E0jB6egb7ecL/VAO76go/WGgIMXpdiqA2+tB
+ UAg4YOyaHm8Kp2fQXngJbDLHrzCYOF7UI87wTqYtBlnR/9dgxm0oncStF11PE7ByBXB6ebW1Bf7
+ mdwz7ovHvGfpYMM01wdq+z8FCS9sBFDIM5eDwQWL2sVUhtvYorRhCyoVVAkp+UtnCHKpxaoZXGP
+ caMYBjakS9xe6n4OycaCIsYn5nmpaSx2dqqrBdtl3/5XZXYCIckT2Sfl78xZQvhkY7CkwnwntUP
+ Na0k/1sbfXWP3Xg==
+X-Developer-Key: i=ludovic.desroches@microchip.com; a=openpgp;
+ fpr=665BAA7297BE089A28B77696E332995F09DCC11A
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251121_070436_210417_38D8B424 
-X-CRM114-Status: GOOD (  12.95  )
+X-CRM114-CacheID: sfid-20251121_070627_564406_7415B040 
+X-CRM114-Status: UNSURE (   9.60  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,39 +111,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Nov 20, 2025 at 06:42:29PM +0000, Will McVicker wrote:
-> The function register_current_timer_delay() is called from the
-> exynos_mct clocksource driver at probe time. In the event that the
-> exynos_mct driver is probed deferred or the platform manually unbinds
-> and rebinds the driver we need this function available. So drop the
-> __init tag.
+Hi,
 
-First question. Why.
+This set of patches is mostly about using available helpers when
+possible to simplify the code and ease the maintenance.
 
-Second, have you analysed the code to check that you _can_ call this
-after init time?
+There is a dependency on "drm/panel: simple: restore connector_type
+fallback" that I just submitted, otherwise the atmel-hlcdc driver may
+fail during the probe.
 
-Let's look at the code:
+Signed-off-by: Ludovic Desroches <ludovic.desroches@microchip.com>
+---
+Ludovic Desroches (8):
+      drm/atmel-hlcdc: use managed device resources for the display controller
+      drm/atmel-hlcdc: add support for the nomodeset kernel parameter
+      drm/atmel-hlcdc: use drmm_simple_encoder_alloc()
+      drm/atmel-hlcdc: use drm_crtc_mask()
+      drm/atmel-hlcdc: use devm_drm_of_get_bridge()
+      drm/atmel-hlcdc: use drmm_crtc_alloc_with_planes()
+      drm/atmel-hlcdc: use drmm_universal_plane_alloc()
+      drm/atmel-hlcdc: destroy properly the plane state in the reset callback
 
-        if (!delay_calibrated && (!delay_res || (res < delay_res))) {
-        } else {
-                pr_info("Ignoring duplicate/late registration of read_current_ti
-mer delay\n");
-        }
+ drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_crtc.c   | 32 ++---------
+ drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_dc.c     | 40 +++++++------
+ drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_dc.h     |  1 +
+ drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_output.c | 43 ++++----------
+ drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_plane.c  | 73 +++++++++++-------------
+ 5 files changed, 73 insertions(+), 116 deletions(-)
+---
+base-commit: 88cbd8ac379cf5ce68b7efcfd4d1484a6871ee0b
+change-id: 20251121-lcd_cleanup_mainline-b6acc75b5a09
 
-So, if delay_calibrated is set, then this will fail. When is that set?
-It's set by calibrate_delay_is_known() and calibration_delay_done().
-When are these called? Basically after calibrate_delay() has finished.
-When is calibrate_delay() called? It's called by start_kernel(), while
-the init sections are still present.
-
-So, calling this _after_ the init sections has been freed will result
-in the above pr_info() printed and this function doing *nothing*.
-So it's utterly pointless to call if the init sections have been freed.
-
-Please find a different solution.
-
+Best regards,
 -- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+Ludovic Desroches <ludovic.desroches@microchip.com>
+
 
