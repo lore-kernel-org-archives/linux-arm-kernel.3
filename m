@@ -4,96 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42509CFA75F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 09:20:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59FE8CFA762
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 09:24:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e1dPKtKKJmj3IMfe4CyfskOugiUHTRNyn0MFvMIRuU0=; b=02ksvrdamDMd3jYcf/v2dnqapm
-	hZDkiJ7PuZbzVSRndo6Mz5S7/2iqvYu69Ec5Payw1hP9ulnBEd6AgWxi+DahnzGMG6nCM9jnRBM5I
-	4hB1iEjmwmscybfd4e59CZOEpCUsx98j9rWYSyUhjozUNrVFvG52/cEPAg8WW7SjG9vnaWAq4l24D
-	sshR6j66qu3uNMdP2/9EoXFHlxKv/qaEoAJZkl9fizJ7pnJISoWif7Xt9cu9ee+BwC1eukOPdl2QI
-	nJoRgRJ0oS6UK4oy5655NN+1YZC4MHFkysnyGnFQqypzsqI5+tIk5BPbUei/RXKEl8eYG3f4+mbS/
-	UaSTwNvw==;
+	bh=UrY+pCES8Lr8ar4CYQXHO9RG4hQV+PjFmGgWq4oPIAA=; b=nQRSd5lPHBY5QNK/9AmNHZBiJT
+	lY8fj8nKpjElUGosNY9dr1Awjfd9ZyEU7zOUmqspsx37WWttKWG5r4AihF5tKSR/1PNAuGG7nqM8F
+	n+CqvMiqjkooxaRBZQ/RPWlXXa4rPFePB/JSPpUtsrpoAGj/XAwr5fAee0BRHSoraD/KpiqGjNbpL
+	i3i7ksG2/T822+DmghXQGgv8XO7IG34+dQuLpfRQW1sI8HTllp+J6OFjLI2L9hNCIXPVNB+K3O4qB
+	przYAuO5mOxxeZQca/WmlLRDcjvKEuyAjeKs9ALBfbixI/zkyE8xU3WC8q3FWdIAXleaPM5BCY9Ri
+	N+pU7PCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMNJU-000000088UC-3mWL;
-	Fri, 21 Nov 2025 09:20:20 +0000
-Received: from mgamail.intel.com ([192.198.163.14])
+	id 1vMNMy-000000088kD-3BSD;
+	Fri, 21 Nov 2025 09:23:56 +0000
+Received: from canpmsgout11.his.huawei.com ([113.46.200.226])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMNJQ-000000088Tp-34v5
+	id 1vMNMu-000000088hi-3p7H
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Nov 2025 09:20:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1763716817; x=1795252817;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=UIAMIZ0sD0LbqFA5wDFNCQuWZ6L0827P8gGkWTNvHMw=;
-  b=WGH2kcL8xDpjgWvwSxT5kvOrGiFrA1z5wppALFMznbF5hQbdNrKG4ZUI
-   TgvO6eWpumoNSkOzpxJxvbvoYWEBX52B0j1EIBLz9N4aHlfNbckTzZKzv
-   N7QVzaHGPb5TToZOh8MTf2SsFY/vR2Ul316Txrk6xU/Ekz6/5H9O90S8r
-   eoMFcqkJUVYEDRloZX5OKrpmzt2BCn33x2l8/0BePapEBTgInrYyy46+5
-   LkxHaJyI+l0NauylPgopxw7yoLJQdpTH924goLIz4NxqkMCVYSumjaJlv
-   wHfia+Bvq3ZGyStY6Vaycooc78x14r9a6VgCYy8YoxyoMUC05z/WqocVQ
-   A==;
-X-CSE-ConnectionGUID: jFDyX1aHSKqaSsNHD1xe2Q==
-X-CSE-MsgGUID: P+52JuHcQ9WeKrA3z0QBYw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11619"; a="65842353"
-X-IronPort-AV: E=Sophos;i="6.20,215,1758610800"; 
-   d="scan'208";a="65842353"
-Received: from orviesa001.jf.intel.com ([10.64.159.141])
-  by fmvoesa108.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Nov 2025 01:20:15 -0800
-X-CSE-ConnectionGUID: Q13u732IQoKmAyiDHRVh9w==
-X-CSE-MsgGUID: Th/xPFcITrmd6Q892tAdkg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.20,215,1758610800"; 
-   d="scan'208";a="228939278"
-Received: from fdefranc-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.245.4])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Nov 2025 01:20:10 -0800
-Date: Fri, 21 Nov 2025 11:20:07 +0200
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Robert Jarzmik <robert.jarzmik@free.fr>
-Cc: Jisheng Zhang <jszhang@kernel.org>,
-	Andy Shevchenko <andy.shevchenko@gmail.com>,
-	Doug Berger <opendmb@gmail.com>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	bcm-kernel-feedback-list@broadcom.com,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>,
-	Hoan Tran <hoan@os.amperecomputing.com>,
-	Andy Shevchenko <andy@kernel.org>, Daniel Palmer <daniel@thingy.jp>,
-	Romain Perier <romain.perier@gmail.com>,
-	Grygorii Strashko <grygorii.strashko@ti.com>,
-	Santosh Shilimkar <ssantosh@kernel.org>,
-	Kevin Hilman <khilman@kernel.org>,
-	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>,
-	Srinivas Neeli <srinivas.neeli@amd.com>,
-	Michal Simek <michal.simek@amd.com>, linux-gpio@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-omap@vger.kernel.org
-Subject: Re: [PATCH v2 05/15] gpio: pxa: Use modern PM macros
-Message-ID: <aSAux4n-1hzHfD6L@smile.fi.intel.com>
-References: <20251118003229.26636-1-jszhang@kernel.org>
- <20251118003229.26636-6-jszhang@kernel.org>
- <CAHp75VevWmB4X_Mh+st_NLChAYZw5V-b3pM9Yrcd-ofa9xYvDQ@mail.gmail.com>
- <m2ecpvm20y.fsf@free.fr>
- <aR22decsE0DYDUnS@xhacker>
- <m28qg0mnvl.fsf@free.fr>
+	Fri, 21 Nov 2025 09:23:55 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=UrY+pCES8Lr8ar4CYQXHO9RG4hQV+PjFmGgWq4oPIAA=;
+	b=JEy7kf+6F/tBqxGKMOknAV8OX/p+URTD23jg7dHml3kKmPLxmWb7Q3OnpmdoOkZ+jXnAhxHe4
+	r6wP+AJNXuTiYE+3it6noIqKNu2gqN2hHYsgSlhxPqOMlYYyxdC7exPJXl7wm94Yp2vdfhHoeKv
+	MqwohDLKTjAXmoxMMMhW5Ao=
+Received: from mail.maildlp.com (unknown [172.19.88.234])
+	by canpmsgout11.his.huawei.com (SkyGuard) with ESMTPS id 4dCV9418fTzKmWx;
+	Fri, 21 Nov 2025 17:22:00 +0800 (CST)
+Received: from kwepemr100010.china.huawei.com (unknown [7.202.195.125])
+	by mail.maildlp.com (Postfix) with ESMTPS id B206614022D;
+	Fri, 21 Nov 2025 17:23:45 +0800 (CST)
+Received: from huawei.com (10.50.163.32) by kwepemr100010.china.huawei.com
+ (7.202.195.125) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Fri, 21 Nov
+ 2025 17:23:44 +0800
+From: Tian Zheng <zhengtian10@huawei.com>
+To: <maz@kernel.org>, <oliver.upton@linux.dev>, <catalin.marinas@arm.com>,
+	<corbet@lwn.net>, <pbonzini@redhat.com>, <will@kernel.org>
+CC: <linux-kernel@vger.kernel.org>, <zhengtian10@huawei.com>,
+	<yuzenghui@huawei.com>, <wangzhou1@hisilicon.com>, <yezhenyu2@huawei.com>,
+	<xiexiangyou@huawei.com>, <zhengchuan@huawei.com>, <linuxarm@huawei.com>,
+	<joey.gouly@arm.com>, <kvmarm@lists.linux.dev>, <kvm@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-doc@vger.kernel.org>,
+	<suzuki.poulose@arm.com>
+Subject: [PATCH v2 5/5] KVM: arm64: Document HDBSS ioctl
+Date: Fri, 21 Nov 2025 17:23:42 +0800
+Message-ID: <20251121092342.3393318-6-zhengtian10@huawei.com>
+X-Mailer: git-send-email 2.33.0
+In-Reply-To: <20251121092342.3393318-1-zhengtian10@huawei.com>
+References: <20251121092342.3393318-1-zhengtian10@huawei.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <m28qg0mnvl.fsf@free.fr>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.50.163.32]
+X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
+ kwepemr100010.china.huawei.com (7.202.195.125)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251121_012016_815779_DBA9F81B 
-X-CRM114-Status: GOOD (  19.39  )
+X-CRM114-CacheID: sfid-20251121_012353_432555_D2F6A1CB 
+X-CRM114-Status: UNSURE (   8.22  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,40 +83,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Nov 20, 2025 at 09:48:30PM +0100, Robert Jarzmik wrote:
-> Jisheng Zhang <jszhang@kernel.org> writes:
-> > On Tue, Nov 18, 2025 at 11:03:41PM +0100, Robert Jarzmik wrote:
-> > 
-> > hmm, each controller adds 16bytes, then even on 100 controller platforms
-> > 1600bytes. 1600 Bytes/64MB ~= 0.238%. it's trival. And is there such
-> > platform?
-> Yes, actually most of them have around 64MB, at least the pxa25x and pxa27x.
-> The pxa3xx might have more (thing 128MB, maybe 256MB).
-> There are very old platforms, we're in 2003/2004 there ...
-> 
-> > From another side, recently UP support is removed from the core sched,
-> > that removing adds more .text and .data overhead, so if the users really
-> > care about this kind of 16bytes, it means he(she) can't afford even the
-> > 16Bytes overhead, then I bet he(she) the always SMP in core sched, so
-> > why not stick with the old kernel? What do you think?
-> I think I would go with Andy's proposal, decouple the changes :
-> - keep your changes in the PM callbaks
-> - remove your change (put back the ifdef) in the data structure
+A new ioctl (KVM_CAP_ARM_HW_DIRTY_STATE_TRACK) provides a mechanism for
+userspace to configure the HDBSS buffer size during live migration,
+enabling hardware-assisted dirty page tracking.
 
-It can't be done like this, unfortunately.
+Signed-off-by: eillon <yezhenyu2@huawei.com>
+Signed-off-by: Tian Zheng <zhengtian10@huawei.com>
+---
+ Documentation/virt/kvm/api.rst | 15 +++++++++++++++
+ 1 file changed, 15 insertions(+)
 
-Either we need to waste a pointer and kmalloc() overheads at runtime, or keep
-these bytes for !PM cases.
+diff --git a/Documentation/virt/kvm/api.rst b/Documentation/virt/kvm/api.rst
+index 57061fa29e6a..25d60ff136e9 100644
+--- a/Documentation/virt/kvm/api.rst
++++ b/Documentation/virt/kvm/api.rst
+@@ -8703,6 +8703,21 @@ This capability indicate to the userspace whether a PFNMAP memory region
+ can be safely mapped as cacheable. This relies on the presence of
+ force write back (FWB) feature support on the hardware.
 
-Alternatively we can drop this change and simply add a comment explaining
-the memory requirements and why we don't want to always waste those bytes.
++7.44 KVM_CAP_ARM_HW_DIRTY_STATE_TRACK
++:Architectures: arm64
++:Type: VM
++:Parameters: args[0] is the allocation order determining HDBSS buffer size
++:Returns: 0 on success, negative value on failure
++
++Enables hardware-assisted dirty page tracking via the Hardware Dirty State
++Tracking Structure (HDBSS).
++
++When live migration is initiated, userspace can enable this feature by
++setting KVM_CAP_ARM_HW_DIRTY_STATE_TRACK through IOCTL. KVM will allocate
++per-vCPU HDBSS buffers.
++
++The feature is disabled by invoking the ioctl again.
++
+ 8. Other capabilities.
+ ======================
 
-Ideally would be good to have some kind of struct_group() macro that is
-dependent on IS_ENABLED() case. It may help in many cases like this then.
-
--- 
-With Best Regards,
-Andy Shevchenko
-
+--
+2.33.0
 
 
