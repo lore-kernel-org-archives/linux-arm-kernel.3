@@ -4,82 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96FAACFC506
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 20:36:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57BEECFC281
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 21:08:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FsE68aBeWQv7ok/egjq60UEqiYlK9UY9L086weOplk0=; b=DmHDEdIoH/AzPeTMg+kg72SGxV
-	XLCqNP5GmcKzYjNrJ6NXCr+++Sl1y8/VCcLFF2IkrkJDYDRU/4c/r6I+rO23HDMyodzc1m/tTORSD
-	nVpQomJvVGACde4v/+sAIlj4X+0rqsq2GEZGfnORghhwCLBFK9Fy4oh8l1aHlFjMi76YDqFhF5cNY
-	gU+nDqVX6v1bYzDM4XXCXtHiPzqkotWR6cb3m46ty+sbOy075tbjRpp4Kc0fOfFCZr6Bm4cb0OslX
-	gyPoCZ3jKZadpcKY+DHocZDzYhNF06OmUAZWP6yX8lgkjohz7+GbDyS/BAUqT94HBgVPg/29vgsaS
-	Hr0r4DfQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Z77HOgLnGIrSOIuNuhehrUEgLJR6GqRouQe7Mk1A4+Y=; b=xwgmoWmNsH73/yy/bFn3+ooWEm
+	qWhSLNXvqRRJQlXhHpcw2Rt8H8czrZR63LHoTYwKDyHuCVj498MLjkuqknrPLtoBWVO5TBuZPfbl4
+	7YMPTvfbp511vq+Dw94P7aDGfC2Vfp04s3d6yq0Er6okVkrYKMmth5t5JqqeupelgdM3HCr1KFRGI
+	KDKbLhD3jE5ZsOr9HtF4/1N/w83uU80y2Uz6Of9PWFl0x6k6ADwcql55TIsZBdk4sonmtE+f/i4UK
+	DAYiVvpQzazRivvGF0f2g6Qd6ExKHq0Qj8DhkAfx20ML6ttrnT4YnZAYdKYoH8cdplsiHbuOfMC6o
+	OmKn43QQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMXrP-00000008xbi-2QMX;
-	Fri, 21 Nov 2025 20:36:03 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vMYMT-00000008z3t-3C7A;
+	Fri, 21 Nov 2025 21:08:09 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMXrM-00000008xZn-1I9e
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Nov 2025 20:36:01 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id EB7804407A
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Nov 2025 20:35:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C76E7C2BC9E
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Nov 2025 20:35:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763757358;
-	bh=meSktXQNs/zDvTr1rLs7LeQfxQysPHSbGkzQDId9XMY=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=L+zvWL/Nh94FkM1rZrXcBtTOzgK+mkJwTDosBcBijCdV34X53/cdtFJtiuZ0Md/WM
-	 GcqhqeRjUC0vm45dWjFBz6XmwGZdDlx/1YsRu2QyrzPY+3hCmTjo6+j5LM3zBib4I4
-	 J6tKQx3AUF2IB07P8TFo+IWDzck0Yp3oj5x5qK+1dMshchSxQDW1aIOTW5EmLdVjPD
-	 3zqNL5lRPlgjWSvClhgdnUG+fb4P2UmRkId3/JrLTerz93MIgGIWp8gL3/SUNNbMpt
-	 Z0A6qD2K62qoXRs1K/9ABvtlMFte9d0O1sWFPTl8RY6sAvXTCprA/RgDr/i7m3fD6z
-	 YI+JdDMM/fmQg==
-Received: by mail-oo1-f49.google.com with SMTP id 006d021491bc7-656de56ce7aso526008eaf.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Nov 2025 12:35:58 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCUVw+6fBAtecGh36//qvH04K5HhxJ8YxDDZ6cSsyPlxrVj4TN8VuRNhLOI8i0hc9/chVOGRRzkB0ybIO8zd9Rb0@lists.infradead.org
-X-Gm-Message-State: AOJu0YyTXeL5g02B4gyTGC1ZemIQWzzgnc2MtPF8TZAvnZSbkHW4IkOE
-	/Dqz7RPFLDHBoSeTXDvgTA962E4mKTnXBnXQ9r2oCW9/fJYGlDyPQj2j/lEzRBF6ssvPvDH7OF8
-	0s5icq7uSC5gr4UQa+ajA9FQTOnbwLRY=
-X-Google-Smtp-Source: AGHT+IEGV1wW0AyQ4uV5rOeWs+mu0pohToH8QfmqGgzcM1nDvWFgodvXp8dfzsS7PUq8QlplylLWmLPmTb2ii+XtGZ8=
-X-Received: by 2002:a05:6820:4d57:10b0:657:7289:b1dc with SMTP id
- 006d021491bc7-65792596028mr1028369eaf.6.1763757357967; Fri, 21 Nov 2025
- 12:35:57 -0800 (PST)
+	id 1vMYMQ-00000008z2p-1AFa;
+	Fri, 21 Nov 2025 21:08:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1763759281;
+	bh=O30+J/lWM+0Cj4sc9VOirkgJHPEp5wDaPWz1YBwM0J0=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=N7fntxrW8dgbsqwy08w03HLyURtGu/v5MOZYxp05sTz55EJW1v5jhdfpu43HN8hq/
+	 M3yqW46Oxmv46JGhcmqiAkLsTjfzwB4dqWNod/zw2HDSBFLsG5o45jQhs5OI26XWUP
+	 FIWrc/V0uMqutdgII2u23ePIRIDRvvp2OF2CcTZtPtT7nmujuM9UxyOOzrVqRzCgWO
+	 UIM9dWuB5PcaXnwI5B6X7/GDFsZz69gvhVHCqKzAUgj5CLsLCr64AsZzldylJ199N7
+	 7hFzlR1Zxodbjqa5dY92z+swt4hbLriENigYJLNNScncFkddAT7n/VqVEXcKRjmzrC
+	 Zjvp3sOxuRrrQ==
+Received: from [IPv6:2606:6d00:17:7b4b::5ac] (unknown [IPv6:2606:6d00:17:7b4b::5ac])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: nicolas)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 38B2D17E00B0;
+	Fri, 21 Nov 2025 22:08:00 +0100 (CET)
+Message-ID: <c95c1df8a68908f3450aaf82ce9c14464ff27230.camel@collabora.com>
+Subject: Re: [PATCH v3 4/5] media: vcodec: Implement manual request
+ completion
+From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+To: Sakari Ailus <sakari.ailus@linux.intel.com>, Laurent Pinchart	
+ <laurent.pinchart@ideasonboard.com>, Mauro Carvalho Chehab
+ <mchehab@kernel.org>,  Hans Verkuil <hverkuil@xs4all.nl>, Tiffany Lin
+ <tiffany.lin@mediatek.com>, Andrew-CT Chen	 <andrew-ct.chen@mediatek.com>,
+ Yunfei Dong <yunfei.dong@mediatek.com>,  Matthias Brugger
+ <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+ <angelogioacchino.delregno@collabora.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org, kernel@collabora.com, 
+	linux-media@vger.kernel.org
+Date: Fri, 21 Nov 2025 16:07:57 -0500
+In-Reply-To: <20250604-sebastianfricke-vcodec_manual_request_completion_with_state_machine-v3-4-603db4749d90@collabora.com>
+References: <20250604-sebastianfricke-vcodec_manual_request_completion_with_state_machine-v3-0-603db4749d90@collabora.com>
+	 <20250604-sebastianfricke-vcodec_manual_request_completion_with_state_machine-v3-4-603db4749d90@collabora.com>
+Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Organization: Collabora Canada
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-pdyX8It8qD/v0i5OYA8T"
+User-Agent: Evolution 3.58.1 (3.58.1-1.fc43) 
 MIME-Version: 1.0
-References: <20251120-thermal-device-v1-0-bbdad594d57a@gmx.de>
-In-Reply-To: <20251120-thermal-device-v1-0-bbdad594d57a@gmx.de>
-From: "Rafael J. Wysocki" <rafael@kernel.org>
-Date: Fri, 21 Nov 2025 21:35:47 +0100
-X-Gmail-Original-Message-ID: <CAJZ5v0jOPrBcozzJMsB1eE12MuZRWDAV-+=jfrhJbi=S0p5J9Q@mail.gmail.com>
-X-Gm-Features: AWmQ_bmY4Rgl1Z4nj5ks6gNTVnBjHocEaNjk9D0MQSLHqvtZo8fqobTCygtTNLc
-Message-ID: <CAJZ5v0jOPrBcozzJMsB1eE12MuZRWDAV-+=jfrhJbi=S0p5J9Q@mail.gmail.com>
-Subject: Re: [PATCH RFC RESEND 0/8] thermal: core: Allow setting the parent
- device of thermal zone/cooling devices
-To: Armin Wolf <W_Armin@gmx.de>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>, Daniel Lezcano <daniel.lezcano@linaro.org>, 
-	Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>, Len Brown <lenb@kernel.org>, 
-	Jonathan Corbet <corbet@lwn.net>, Ido Schimmel <idosch@nvidia.com>, Petr Machata <petrm@nvidia.com>, 
-	linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	etnaviv@lists.freedesktop.org, dri-devel@lists.freedesktop.org, 
-	linux-tegra@vger.kernel.org, linux-acpi@vger.kernel.org, 
-	linux-doc@vger.kernel.org, netdev@vger.kernel.org, 
-	linux-wireless@vger.kernel.org, ath10k@lists.infradead.org, 
-	ath11k@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org, platform-driver-x86@vger.kernel.org, 
-	linux-pci@vger.kernel.org, imx@lists.linux.dev, 
-	linux-renesas-soc@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251121_123600_408059_3B08BF84 
-X-CRM114-Status: GOOD (  28.96  )
+X-CRM114-CacheID: sfid-20251121_130806_637587_D1B13A1C 
+X-CRM114-Status: GOOD (  29.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,91 +96,415 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Nov 20, 2025 at 4:41=E2=80=AFAM Armin Wolf <W_Armin@gmx.de> wrote:
->
-> Drivers registering thermal zone/cooling devices are currently unable
-> to tell the thermal core what parent device the new thermal zone/
-> cooling device should have, potentially causing issues with suspend
-> ordering
 
-This is one potential class of problems that may arise, but I would
-like to see a real example of this.
+--=-pdyX8It8qD/v0i5OYA8T
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-As it stands today, thermal_class has no PM callbacks, so there are no
-callback execution ordering issues with devices in that class and what
-other suspend/resume ordering issues are there?
+Hi,
 
-Also, the suspend and resume of thermal zones is handled via PM
-notifiers.  Is there a problem with this?
 
-> and making it impossible for user space applications to
-> associate a given thermal zone device with its parent device.
+Le mercredi 04 juin 2025 =C3=A0 16:09 -0400, Nicolas Dufresne a =C3=A9crit=
+=C2=A0:
+> From: Sebastian Fricke <sebastian.fricke@collabora.com>
+>=20
+> Rework how requests are completed in the MediaTek VCodec driver, by
+> implementing the new manual request completion feature, which allows to
+> keep a request open while allowing to add new bitstream data.
+> This is useful in this case, because the hardware has a LAT and a core
+> decode work, after the LAT decode the bitstream isn't required anymore
+> so the source buffer can be set done and the request stays open until
+> the core decode work finishes.
 
-Why does user space need to know the parent of a given cooling device
-or thermal zone?
+I was about to process this one, but while doing more tests I found more
+problems.
 
-> This patch series aims to fix this issue by extending the functions
-> used to register thermal zone/cooling devices to also accept a parent
-> device pointer. The first six patches convert all functions used for
-> registering cooling devices, while the functions used for registering
-> thermal zone devices are converted by the remaining two patches.
->
-> I tested this series on various devices containing (among others):
-> - ACPI thermal zones
-> - ACPI processor devices
-> - PCIe cooling devices
-> - Intel Wifi card
-> - Intel powerclamp
-> - Intel TCC cooling
+1. caps_to_disp() and streamoff can be concurrent in this driver
 
-What exactly did you do to test it?
+The driver does not implement a mechanism to abort. So when userspace do an
+early streamoff, there is a chance stop_streaming (which complete the pendi=
+ng
+request) call will be followed by a cap_to_disp(), which indicate the HW is
+done.
 
-> I also compile-tested the remaining affected drivers, however i would
-> still be happy if the relevant maintainers (especially those of the
-> mellanox ethernet switch driver) could take a quick glance at the
-> code and verify that i am using the correct device as the parent
-> device.
+One way forward is to also use the request state in stop_streaming, and so =
+I
+made these changes. Though it raised another, bigger problem.
 
-I think that the above paragraph is not relevant any more?
+2. When the LAT fails, it signals the error buffers before the current buff=
+er
 
-> This work is also necessary for extending the ACPI thermal zone driver
-> to support the _TZD ACPI object in the future.
+Since the LAT is processing the next frame while we finish the reconstructi=
+on,
+if the LAT fails and we complete the request, we endup signalling buffers a=
+nd
+request out of order.
 
-I'm still unsure why _TZD support requires the ability to set a
-thermal zone parent device.
+That will require more work,
+Nicolas
 
-> Signed-off-by: Armin Wolf <W_Armin@gmx.de>
+>=20
+> Signed-off-by: Sebastian Fricke <sebastian.fricke@collabora.com>
+> Co-developed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+> Signed-off-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+> Reviewed-by: AngeloGioacchino Del Regno
+> <angelogioacchino.delregno@collabora.com>
 > ---
-> Armin Wolf (8):
->       thermal: core: Allow setting the parent device of cooling devices
->       thermal: core: Set parent device in thermal_of_cooling_device_regis=
-ter()
->       ACPI: processor: Stop creating "device" sysfs link
+> =C2=A0.../mediatek/vcodec/decoder/mtk_vcodec_dec.c=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0 |=C2=A0=C2=A0 4 +-
+> =C2=A0.../mediatek/vcodec/decoder/mtk_vcodec_dec_drv.h=C2=A0=C2=A0 |=C2=
+=A0 29 +++++
+> =C2=A0.../vcodec/decoder/mtk_vcodec_dec_stateless.c=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0 | 140 ++++++++++++++++----
+> -
+> =C2=A03 files changed, 140 insertions(+), 33 deletions(-)
+>=20
+> diff --git a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_de=
+c.c
+> b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec.c
+> index
+> 98838217b97d45ed2b5431fdf87c94e0ff79fc57..036ad191a9c3e644fe99b4ce25d6a08=
+9292f
+> 1e57 100644
+> --- a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec.c
+> +++ b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec.c
+> @@ -889,8 +889,10 @@ void vb2ops_vdec_stop_streaming(struct vb2_queue *q)
+> =C2=A0					src_buf->vb2_buf.req_obj.req;
+> =C2=A0				v4l2_m2m_buf_done(src_buf,
+> =C2=A0						VB2_BUF_STATE_ERROR);
+> -				if (req)
+> +				if (req) {
+> =C2=A0					v4l2_ctrl_request_complete(req, &ctx-
+> >ctrl_hdl);
+> +					media_request_manual_complete(req);
+> +				}
+> =C2=A0			}
+> =C2=A0		}
+> =C2=A0		return;
+> diff --git
+> a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_drv.h
+> b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_drv.h
+> index
+> aececca7ecf8936bb2b3b55c99354af983746b30..6f9728a95720a257dee9201463c5e27=
+5d058
+> 6a94 100644
+> --- a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_drv.h
+> +++ b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_drv.h
+> @@ -64,6 +64,19 @@ enum mtk_vdec_hw_arch {
+> =C2=A0	MTK_VDEC_LAT_SINGLE_CORE,
+> =C2=A0};
+> =C2=A0
+> +/**
+> + * enum mtk_vdec_request_state - Stages of processing a request
+> + * @MTK_VDEC_REQUEST_RECEIVED: Hardware prepared for the LAT decode
+> + * @MTK_VDEC_REQUEST_LAT_DONE: LAT decode finished, the bitstream is not
+> + *		=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 needed anymore
+> + * @MTK_VDEC_REQUEST_CORE_DONE: CORE decode finished
+> + */
+> +enum mtk_vdec_request_state {
+> +	MTK_VDEC_REQUEST_RECEIVED =3D 0,
+> +	MTK_VDEC_REQUEST_LAT_DONE =3D 1,
+> +	MTK_VDEC_REQUEST_CORE_DONE =3D 2,
+> +};
+> +
+> =C2=A0/**
+> =C2=A0 * struct vdec_pic_info=C2=A0 - picture size information
+> =C2=A0 * @pic_w: picture width
+> @@ -128,6 +141,17 @@ struct mtk_vcodec_dec_pdata {
+> =C2=A0	bool uses_stateless_api;
+> =C2=A0};
+> =C2=A0
+> +/**
+> + * struct mtk_vcodec_dec_request - Media request private data.
+> + *
+> + * @req_state: Request completion state
+> + * @req: Media Request structure
+> + */
+> +struct mtk_vcodec_dec_request {
+> +	enum mtk_vdec_request_state req_state;
+> +	struct media_request req;
+> +};
+> +
+> =C2=A0/**
+> =C2=A0 * struct mtk_vcodec_dec_ctx - Context (instance) private data.
+> =C2=A0 *
+> @@ -319,6 +343,11 @@ static inline struct mtk_vcodec_dec_ctx
+> *ctrl_to_dec_ctx(struct v4l2_ctrl *ctrl)
+> =C2=A0	return container_of(ctrl->handler, struct mtk_vcodec_dec_ctx,
+> ctrl_hdl);
+> =C2=A0}
+> =C2=A0
+> +static inline struct mtk_vcodec_dec_request *req_to_dec_req(struct
+> media_request *req)
+> +{
+> +	return container_of(req, struct mtk_vcodec_dec_request, req);
+> +}
+> +
+> =C2=A0/* Wake up context wait_queue */
+> =C2=A0static inline void
+> =C2=A0wake_up_dec_ctx(struct mtk_vcodec_dec_ctx *ctx, unsigned int reason=
+, unsigned
+> int hw_id)
+> diff --git
+> a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_stateless=
+.c
+> b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_stateless=
+.c
+> index
+> d873159b9b3069fe3460502c2751f2e8b2714f44..eea0050eacc1c41abd8e0a1cd546c1e=
+cce90
+> a311 100644
+> ---
+> a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_stateless=
+.c
+> +++
+> b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_stateless=
+.c
+> @@ -242,10 +242,61 @@ static const struct v4l2_frmsize_stepwise stepwise_=
+fhd =3D
+> {
+> =C2=A0	.step_height =3D 16
+> =C2=A0};
+> =C2=A0
+> +static const char *state_to_str(enum mtk_vdec_request_state state)
+> +{
+> +	switch (state) {
+> +	case MTK_VDEC_REQUEST_RECEIVED:
+> +		return "RECEIVED";
+> +	case MTK_VDEC_REQUEST_LAT_DONE:
+> +		return "LAT_DONE";
+> +	case MTK_VDEC_REQUEST_CORE_DONE:
+> +		return "CORE_DONE";
+> +	default:
+> +		return "UNKNOWN";
+> +	}
+> +}
+> +
+> +static void mtk_vcodec_dec_request_complete(struct mtk_vcodec_dec_ctx *c=
+tx,
+> +					=C2=A0=C2=A0=C2=A0 enum mtk_vdec_request_state
+> state,
+> +					=C2=A0=C2=A0=C2=A0 enum vb2_buffer_state
+> buffer_state,
+> +					=C2=A0=C2=A0=C2=A0 struct media_request
+> *src_buf_req)
+> +{
+> +	struct mtk_vcodec_dec_request *req =3D req_to_dec_req(src_buf_req);
+> +	struct vb2_v4l2_buffer *src_buf, *dst_buf;
+> +
+> +	mutex_lock(&ctx->lock);
+> +
+> +	if (req->req_state >=3D state) {
+> +		mutex_unlock(&ctx->lock);
+> +		return;
+> +	}
+> +
+> +	switch (req->req_state) {
+> +	case MTK_VDEC_REQUEST_RECEIVED:
+> +		v4l2_ctrl_request_complete(src_buf_req, &ctx->ctrl_hdl);
+> +		src_buf =3D v4l2_m2m_src_buf_remove(ctx->m2m_ctx);
+> +		v4l2_m2m_buf_done(src_buf, buffer_state);
+> +		if (state =3D=3D MTK_VDEC_REQUEST_LAT_DONE)
+> +			break;
+> +		fallthrough;
+> +	case MTK_VDEC_REQUEST_LAT_DONE:
+> +		dst_buf =3D v4l2_m2m_dst_buf_remove(ctx->m2m_ctx);
+> +		v4l2_m2m_buf_done(dst_buf, buffer_state);
+> +		media_request_manual_complete(src_buf_req);
+> +		break;
+> +	default:
+> +		break;
+> +	}
+> +
+> +	mtk_v4l2_vdec_dbg(3, ctx, "Switch state from %s to %s.\n",
+> +			=C2=A0 state_to_str(req->req_state), state_to_str(state));
+> +	req->req_state =3D state;
+> +	mutex_unlock(&ctx->lock);
+> +}
+> +
+> =C2=A0static void mtk_vdec_stateless_cap_to_disp(struct mtk_vcodec_dec_ct=
+x *ctx,
+> int error,
+> =C2=A0					=C2=A0=C2=A0 struct media_request *src_buf_req)
+> =C2=A0{
+> -	struct vb2_v4l2_buffer *vb2_dst;
+> =C2=A0	enum vb2_buffer_state state;
+> =C2=A0
+> =C2=A0	if (error)
+> @@ -253,17 +304,7 @@ static void mtk_vdec_stateless_cap_to_disp(struct
+> mtk_vcodec_dec_ctx *ctx, int e
+> =C2=A0	else
+> =C2=A0		state =3D VB2_BUF_STATE_DONE;
+> =C2=A0
+> -	vb2_dst =3D v4l2_m2m_dst_buf_remove(ctx->m2m_ctx);
+> -	if (vb2_dst) {
+> -		v4l2_m2m_buf_done(vb2_dst, state);
+> -		mtk_v4l2_vdec_dbg(2, ctx, "free frame buffer id:%d to done
+> list",
+> -				=C2=A0 vb2_dst->vb2_buf.index);
+> -	} else {
+> -		mtk_v4l2_vdec_err(ctx, "dst buffer is NULL");
+> -	}
+> -
+> -	if (src_buf_req)
+> -		v4l2_ctrl_request_complete(src_buf_req, &ctx->ctrl_hdl);
+> +	mtk_vcodec_dec_request_complete(ctx, MTK_VDEC_REQUEST_CORE_DONE,
+> state, src_buf_req);
+> =C2=A0}
+> =C2=A0
+> =C2=A0static struct vdec_fb *vdec_get_cap_buffer(struct mtk_vcodec_dec_ct=
+x *ctx)
+> @@ -306,6 +347,7 @@ static void vb2ops_vdec_buf_request_complete(struct
+> vb2_buffer *vb)
+> =C2=A0	struct mtk_vcodec_dec_ctx *ctx =3D vb2_get_drv_priv(vb->vb2_queue)=
+;
+> =C2=A0
+> =C2=A0	v4l2_ctrl_request_complete(vb->req_obj.req, &ctx->ctrl_hdl);
+> +	media_request_manual_complete(vb->req_obj.req);
+> =C2=A0}
+> =C2=A0
+> =C2=A0static void mtk_vdec_worker(struct work_struct *work)
+> @@ -318,7 +360,8 @@ static void mtk_vdec_worker(struct work_struct *work)
+> =C2=A0	struct mtk_vcodec_mem *bs_src;
+> =C2=A0	struct mtk_video_dec_buf *dec_buf_src;
+> =C2=A0	struct media_request *src_buf_req;
+> -	enum vb2_buffer_state state;
+> +	enum mtk_vdec_request_state req_state;
+> +	enum vb2_buffer_state buf_state;
+> =C2=A0	bool res_chg =3D false;
+> =C2=A0	int ret;
+> =C2=A0
+> @@ -351,37 +394,43 @@ static void mtk_vdec_worker(struct work_struct *wor=
+k)
+> =C2=A0			=C2=A0 ctx->id, bs_src->va, &bs_src->dma_addr, bs_src-
+> >size, vb2_src);
+> =C2=A0	/* Apply request controls. */
+> =C2=A0	src_buf_req =3D vb2_src->req_obj.req;
+> -	if (src_buf_req)
+> -		v4l2_ctrl_request_setup(src_buf_req, &ctx->ctrl_hdl);
+> -	else
+> +	if (WARN_ON(!src_buf_req)) {
+> +		v4l2_m2m_job_finish(dev->m2m_dev_dec, ctx->m2m_ctx);
+> =C2=A0		mtk_v4l2_vdec_err(ctx, "vb2 buffer media request is NULL");
+> +		return;
+> +	}
+> +	v4l2_ctrl_request_setup(src_buf_req, &ctx->ctrl_hdl);
+> =C2=A0
+> =C2=A0	ret =3D vdec_if_decode(ctx, bs_src, NULL, &res_chg);
+> -	if (ret && ret !=3D -EAGAIN) {
+> +
+> +	if (ret =3D=3D -EAGAIN) {
+> +		buf_state =3D VB2_BUF_STATE_DONE;
+> +		req_state =3D MTK_VDEC_REQUEST_RECEIVED;
+> +	} else if (ret) {
+> =C2=A0		mtk_v4l2_vdec_err(ctx,
+> -				=C2=A0 "[%d] decode src_buf[%d] sz=3D0x%zx pts=3D%llu
+> ret=3D%d res_chg=3D%d",
+> +				=C2=A0 "[%d] decode src_buf[%d] sz=3D0x%zx pts=3D%llu
+> res_chg=3D%d ret=3D%d",
+> =C2=A0				=C2=A0 ctx->id, vb2_src->index, bs_src->size,
+> -				=C2=A0 vb2_src->timestamp, ret, res_chg);
+> +				=C2=A0 vb2_src->timestamp, res_chg, ret);
+> =C2=A0		if (ret =3D=3D -EIO) {
+> =C2=A0			mutex_lock(&ctx->lock);
+> =C2=A0			dec_buf_src->error =3D true;
+> =C2=A0			mutex_unlock(&ctx->lock);
+> =C2=A0		}
+> -	}
+> =C2=A0
+> -	state =3D ret ? VB2_BUF_STATE_ERROR : VB2_BUF_STATE_DONE;
+> -	if (!IS_VDEC_LAT_ARCH(dev->vdec_pdata->hw_arch) ||
+> -	=C2=A0=C2=A0=C2=A0 ctx->current_codec =3D=3D V4L2_PIX_FMT_VP8_FRAME) {
+> -		v4l2_m2m_buf_done_and_job_finish(dev->m2m_dev_dec, ctx-
+> >m2m_ctx, state);
+> -		if (src_buf_req)
+> -			v4l2_ctrl_request_complete(src_buf_req, &ctx-
+> >ctrl_hdl);
+> +		buf_state =3D VB2_BUF_STATE_ERROR;
+> +		req_state =3D MTK_VDEC_REQUEST_CORE_DONE;
+> =C2=A0	} else {
+> -		if (ret !=3D -EAGAIN) {
+> -			v4l2_m2m_src_buf_remove(ctx->m2m_ctx);
+> -			v4l2_m2m_buf_done(vb2_v4l2_src, state);
+> -		}
+> -		v4l2_m2m_job_finish(dev->m2m_dev_dec, ctx->m2m_ctx);
+> +		buf_state =3D VB2_BUF_STATE_DONE;
+> +
+> +		if (!IS_VDEC_LAT_ARCH(dev->vdec_pdata->hw_arch) ||
+> +		=C2=A0=C2=A0=C2=A0 ctx->current_codec =3D=3D V4L2_PIX_FMT_VP8_FRAME)
+> +			req_state =3D MTK_VDEC_REQUEST_CORE_DONE;
+> +		else
+> +			req_state =3D MTK_VDEC_REQUEST_LAT_DONE;
+> =C2=A0	}
+> +
+> +	mtk_vcodec_dec_request_complete(ctx, req_state, buf_state,
+> src_buf_req);
+> +	v4l2_m2m_job_finish(dev->m2m_dev_dec, ctx->m2m_ctx);
+> =C2=A0}
+> =C2=A0
+> =C2=A0static void vb2ops_vdec_stateless_buf_queue(struct vb2_buffer *vb)
+> @@ -709,6 +758,22 @@ static int mtk_vcodec_dec_ctrls_setup(struct
+> mtk_vcodec_dec_ctx *ctx)
+> =C2=A0	return 0;
+> =C2=A0}
+> =C2=A0
+> +static struct media_request *fops_media_request_alloc(struct media_devic=
+e
+> *mdev)
+> +{
+> +	struct mtk_vcodec_dec_request *req;
+> +
+> +	req =3D kzalloc(sizeof(*req), GFP_KERNEL);
+> +
+> +	return &req->req;
+> +}
+> +
+> +static void fops_media_request_free(struct media_request *mreq)
+> +{
+> +	struct mtk_vcodec_dec_request *req =3D req_to_dec_req(mreq);
+> +
+> +	kfree(req);
+> +}
+> +
+> =C2=A0static int fops_media_request_validate(struct media_request *mreq)
+> =C2=A0{
+> =C2=A0	const unsigned int buffer_cnt =3D vb2_request_buffer_cnt(mreq);
+> @@ -729,9 +794,20 @@ static int fops_media_request_validate(struct
+> media_request *mreq)
+> =C2=A0	return vb2_request_validate(mreq);
+> =C2=A0}
+> =C2=A0
+> +static void fops_media_request_queue(struct media_request *mreq)
+> +{
+> +	struct mtk_vcodec_dec_request *req =3D req_to_dec_req(mreq);
+> +
+> +	media_request_mark_manual_completion(mreq);
+> +	req->req_state =3D MTK_VDEC_REQUEST_RECEIVED;
+> +	v4l2_m2m_request_queue(mreq);
+> +}
+> +
+> =C2=A0const struct media_device_ops mtk_vcodec_media_ops =3D {
+> +	.req_alloc=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 =3D fops_media_request_alloc,
+> +	.req_free=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 =3D fops_media_request_free,
+> =C2=A0	.req_validate	=3D fops_media_request_validate,
+> -	.req_queue	=3D v4l2_m2m_request_queue,
+> +	.req_queue	=3D fops_media_request_queue,
+> =C2=A0};
+> =C2=A0
+> =C2=A0static void mtk_vcodec_add_formats(unsigned int fourcc,
 
-That link is not to the cooling devices' parent, but to the ACPI
-device object (a struct acpi_device) that corresponds to the parent.
-The parent of the cooling device should be the processor device, not
-its ACPI companion, so I'm not sure why there would be a conflict.
+--=-pdyX8It8qD/v0i5OYA8T
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+Content-Transfer-Encoding: 7bit
 
->       ACPI: fan: Stop creating "device" sysfs link
->       ACPI: video: Stop creating "device" sysfs link
+-----BEGIN PGP SIGNATURE-----
 
-Analogously in the above two cases AFAICS.
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaSDUrQAKCRDZQZRRKWBy
+9KNzAQD/fCCnpfSzR71tccNQdenrLVk0zTSbZVpQMyV5SBVcqQEA953UXsFDpelP
+HOyldZ/anpH/mHieVRUPi/2rBxGgmQo=
+=sDVn
+-----END PGP SIGNATURE-----
 
-The parent of a cooling device should be a "physical" device object,
-like a platform device or a PCI device or similar, not a struct
-acpi_device (which in fact is not a device even).
-
->       thermal: core: Set parent device in thermal_cooling_device_register=
-()
->       ACPI: thermal: Stop creating "device" sysfs link
-
-And this link is to the struct acpi_device representing the thermal zone it=
-self.
-
->       thermal: core: Allow setting the parent device of thermal zone devi=
-ces
-
-I'm not sure if this is a good idea, at least until it is clear what
-the role of a thermal zone parent device should be.
+--=-pdyX8It8qD/v0i5OYA8T--
 
