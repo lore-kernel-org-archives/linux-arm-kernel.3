@@ -4,145 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B036CFC29B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 17:50:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E2CFCFC29B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 17:52:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lbpdozOYhy0BMLI8lFThkkg/d76zv4kCPJ/fwh1/PTM=; b=AZkptW5HCc5omuuPRzJVSzbkq/
-	y5/UNtWVpWjPFIcKl04dktsdArtxuk03G+HTezuKpB4xjqPakTtpiTS2+TtjLCx9p1Ab0a1rpc3eW
-	PVzgDHYgnnEjOdGB+RRtjEcJkWu0d+0LLFx3ssthp7lbkG+efkJFSFDVG3iB1YKnA1C5b22b1RBXy
-	LtQrtMTxrdnjk83RIu+N3FBH8aXHewD9YlZLFDqbjMMn9I14VohsCZQoFZqdoGArKBeFHqGL+3zid
-	VAcTmHIQCFToS0G+o2G1v7f2gfrb9lXyeLh3ysc3b34TGjVLyyzcof18Rut/tpDGIc23XsWY/aZwU
-	cBq/p4YA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2ZYN6CUWohQloljnDLqdKdUMC90qRAZ5XfNki7IHyQA=; b=MBGBgPIm317kHBwFehNp4OQ+WT
+	XhHtzwcCDPxZ9LezlJovRV7/C0aC2G5LB1ieXqYqXdT18XwiAs/uXhRRCv+gJ8eInpPCUJMZPrZgh
+	bNJCuJDB9kx8fo0yghHX8YNfUx5lPgnF2yZP68dLahjRFZPFRotwe66RerQq+bu6OQFahXPFtY4MG
+	UOHT95bDLcUvVUE4yDVVCmjQzJ79WVxddDAjRK/Sz0uQ8ywKzQEn6nZ/uDRw5L/cUrTCl8sROMayG
+	YMtZqOkh8ycpdfZUPzaJJSa4pQDpB9OE8/OLV201CQqz9HnyWnM6IpK9z4NEV1NXLLRZWYqelgiyg
+	cMdkSPuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMVH2-00000008oUk-0pLL;
-	Fri, 21 Nov 2025 17:50:20 +0000
-Received: from mgamail.intel.com ([198.175.65.15])
+	id 1vMVIm-00000008okY-0SwJ;
+	Fri, 21 Nov 2025 17:52:08 +0000
+Received: from mail-pf1-x42a.google.com ([2607:f8b0:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMVGz-00000008oUI-25gU;
-	Fri, 21 Nov 2025 17:50:18 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1763747418; x=1795283418;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=YckklQG/5FwUbczH+x3i0icUWdCO2DJMQNFuo3RKWck=;
-  b=CxEoigRIfvFQT+OgznmOEVgay7cSukJC0IKVY3RhsRCP2zcatrFqO22Z
-   DuJIr9BBVa2id4rlsgT1UBqzV1dhSd0rg5Okh3X25tGx0V+Bv8dkuT7vz
-   o+1Ua044vVSEHZP8++J+pJqOZVh0aEOnirvgS3xdf8dx5AIuM9LhixJjt
-   uh37Dr2GDKufK7IIO40tpK32d6zYjCLOmsCDss3bFAkccSPuURLuN8VFy
-   QR5et+flPuQZuRseQUWd+jUV9zorirhI588OjDEzWWYJk3ZxDGsP2GYuN
-   VHeEU9Ju+aWu10Cfc8jZ0Ke7nLMTTFNdowgfxDlQW/eEfL6ghQlox0ti6
-   w==;
-X-CSE-ConnectionGUID: E2lhTDTbR2+0ivMiPMctbQ==
-X-CSE-MsgGUID: M3aBHLb8TDq8+g3+fqzmVg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11620"; a="69465916"
-X-IronPort-AV: E=Sophos;i="6.20,216,1758610800"; 
-   d="scan'208";a="69465916"
-Received: from orviesa002.jf.intel.com ([10.64.159.142])
-  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Nov 2025 09:50:17 -0800
-X-CSE-ConnectionGUID: TALVmW4IQoSpoxqsJrQTWg==
-X-CSE-MsgGUID: pw0Ufr6DT1ewmiN2aWhOIA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.20,216,1758610800"; 
-   d="scan'208";a="222378181"
-Received: from schen9-mobl4.amr.corp.intel.com (HELO [10.125.110.60]) ([10.125.110.60])
-  by orviesa002-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Nov 2025 09:50:15 -0800
-Message-ID: <2837ea3e-c0b8-46b0-b8da-bf06906d124d@intel.com>
-Date: Fri, 21 Nov 2025 09:50:14 -0800
+	id 1vMVIi-00000008okA-2wox
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 21 Nov 2025 17:52:06 +0000
+Received: by mail-pf1-x42a.google.com with SMTP id d2e1a72fcca58-7aab7623f42so2357511b3a.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Nov 2025 09:52:03 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1763747523; x=1764352323; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=2ZYN6CUWohQloljnDLqdKdUMC90qRAZ5XfNki7IHyQA=;
+        b=ItYpm+VXsPr2nrUaS9nQlX+rFh4Y7QLwFdLAd41+qxBSH8/7N1vSJ0O9UMtY592rxR
+         Ra4C8Pr1g8VYGPBMu2Y+bfyD6Ho+rRQbME76J7S4XsQnTVmvExxVtAnIUBqPzryiFMm8
+         GetKaROgymDhNo7lmtpK6RAm2pHqUZzmpo7LPCI2B5yxfFflNwfGp3y/B9RQpZCmxIBP
+         5f46SqwYu0ND8ul4z8zSXKhcFEdFtMrHHYYyYY7buKm2o+pF9xHrJUnhJfZ2tlATbnr6
+         nY2FK3RzvOLu/LQyqFGdPCJSPn+i2ZUcKn/rb8nMzuxmujlcXU1Eo4tZcQNGZNxsSgGk
+         vUwQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1763747523; x=1764352323;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=2ZYN6CUWohQloljnDLqdKdUMC90qRAZ5XfNki7IHyQA=;
+        b=OBXztcOZ2kwAVEJBRkeDK14eTrYA0V/WPOJsNkFcbW7JWUYVc1pvOeci7mpp1Q9dGo
+         6UdUhXzy5yY7yEzAvsWPImq63d+hQRKptFAMc5BGwRG+ueEGPUq+EATZBiUPf81nqjYK
+         CnJZzo9Qsaqcdy78qeFC0BSRW2PGnJbvrfsbRzGyEU24a9z7Gd0yFBDLLXixzqP4HVNw
+         C5ghH43WHuCPSRdtCObYRXlGlcMmlyzQWE+0w8aTBW4xw6/dzH5DhJqL7oMnjSv72Zog
+         yOou7d6icJKv/kA17i4XC9qUl4gRJ+YC4Q3v1Y9FHRuwc4lV2NHFBsWNLeBsJ2QhiIeN
+         cmNw==
+X-Forwarded-Encrypted: i=1; AJvYcCVjhaH6/eWqXWStwk0EQKGTyrP81eIpv21ixUB0wq88ym3ab0Lw7c/RUOSabaxewlIZyzftehmjoveLyr7aeONP@lists.infradead.org
+X-Gm-Message-State: AOJu0YxLq4ZQ0NCmKeVZJcGX6fzKMcpL9JO3zykcP8GRVJgxJw+r0LOs
+	M8e9aDeg3Xn5I+l8a2r549W7wF4BxWkdFrgW0nns2i+WHEuYsHeKnaRbXgCZJcSSZA==
+X-Gm-Gg: ASbGncsAkkimU5bep1Z+YstvxrpsFQlBrfYfhh2qKq0asgZdWA97patSmJaKEnw3EUA
+	oLEDQNU8I2ScR9aqLWXRw7JYxyy07bEWbgimUKRlZ1el1kuUFhlwCuty9YPXE6Yn8uBBxMWWwi+
+	xiB+jvcOD6qrQnukmGPUH4VvnlNK390zZdAdOJ+RYn3CI9ZroDBUqX9PQpFkk5pbalqlhnvXr1T
+	/9YG035LxZuYzRgOmObEq2+wXB8y2Yh7nJY4cXvdaIFAUFmd5CKdFFdSAVGGJ+WwdEnQitweL9U
+	d0pRlKzKsePT7DUMwP5uCo7QDu3jWB37vWSpud3VsXfnhcSIASZfxZGlrT39V8wAtLOTAGSMjvB
+	g0ZZXwRKAtjCwNze+fEJKfI9N7oaYgp2qVe6/zjNHJVsl8OY0uknuYBeOEIIiWZtEj3zaOdq0CW
+	yZ2cmQyU0xjOYe9rLk2m/pXMwqmpUbVfi6DygSdHiBFaiGdA2o9w2lxqA=
+X-Google-Smtp-Source: AGHT+IFPL3FivnOWfid8exhOdWBbh9Ql9Sf8cs9AXnf97m9xxC/jy3I6lLegY3I666JwhN5KsK/Tfw==
+X-Received: by 2002:a05:6a00:9286:b0:782:5ca1:e1c with SMTP id d2e1a72fcca58-7c58e112b18mr3708723b3a.21.1763747522951;
+        Fri, 21 Nov 2025 09:52:02 -0800 (PST)
+Received: from google.com (226.174.82.34.bc.googleusercontent.com. [34.82.174.226])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7c3f174ba7dsm6627878b3a.64.2025.11.21.09.52.02
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 21 Nov 2025 09:52:02 -0800 (PST)
+Date: Fri, 21 Nov 2025 17:51:58 +0000
+From: William McVicker <willmcvicker@google.com>
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Donghoon Yu <hoony.yu@samsung.com>,
+	Hosung Kim <hosung0.kim@samsung.com>, Rob Herring <robh@kernel.org>,
+	John Stultz <jstultz@google.com>,
+	Youngmin Nam <youngmin.nam@samsung.com>,
+	Peter Griffin <peter.griffin@linaro.org>,
+	Tudor Ambarus <tudor.ambarus@linaro.org>,
+	=?iso-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	linux-samsung-soc@vger.kernel.org, kernel-team@android.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v6 1/6] ARM: make register_current_timer_delay()
+ accessible after init
+Message-ID: <aSCmvsOc13Z1TS6y@google.com>
+References: <20251120184242.1625820-1-willmcvicker@google.com>
+ <20251120184242.1625820-2-willmcvicker@google.com>
+ <aSB_bUbfjenD1fjZ@shell.armlinux.org.uk>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v7 30/31] x86/mm, mm/vmalloc: Defer kernel TLB flush
- IPIs under CONFIG_COALESCE_TLBI=y
-To: Valentin Schneider <vschneid@redhat.com>, linux-kernel@vger.kernel.org,
- linux-mm@kvack.org, rcu@vger.kernel.org, x86@kernel.org,
- linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
- linux-riscv@lists.infradead.org, linux-arch@vger.kernel.org,
- linux-trace-kernel@vger.kernel.org
-Cc: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
- Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
- "H. Peter Anvin" <hpa@zytor.com>, Andy Lutomirski <luto@kernel.org>,
- Peter Zijlstra <peterz@infradead.org>,
- Arnaldo Carvalho de Melo <acme@kernel.org>,
- Josh Poimboeuf <jpoimboe@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
- Arnd Bergmann <arnd@arndb.de>, Frederic Weisbecker <frederic@kernel.org>,
- "Paul E. McKenney" <paulmck@kernel.org>, Jason Baron <jbaron@akamai.com>,
- Steven Rostedt <rostedt@goodmis.org>, Ard Biesheuvel <ardb@kernel.org>,
- Sami Tolvanen <samitolvanen@google.com>,
- "David S. Miller" <davem@davemloft.net>,
- Neeraj Upadhyay <neeraj.upadhyay@kernel.org>,
- Joel Fernandes <joelagnelf@nvidia.com>, Josh Triplett
- <josh@joshtriplett.org>, Boqun Feng <boqun.feng@gmail.com>,
- Uladzislau Rezki <urezki@gmail.com>,
- Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
- Mel Gorman <mgorman@suse.de>, Andrew Morton <akpm@linux-foundation.org>,
- Masahiro Yamada <masahiroy@kernel.org>, Han Shen <shenhan@google.com>,
- Rik van Riel <riel@surriel.com>, Jann Horn <jannh@google.com>,
- Dan Carpenter <dan.carpenter@linaro.org>, Oleg Nesterov <oleg@redhat.com>,
- Juri Lelli <juri.lelli@redhat.com>, Clark Williams <williams@redhat.com>,
- Yair Podemsky <ypodemsk@redhat.com>, Marcelo Tosatti <mtosatti@redhat.com>,
- Daniel Wagner <dwagner@suse.de>, Petr Tesarik <ptesarik@suse.com>,
- Shrikanth Hegde <sshegde@linux.ibm.com>
-References: <20251114150133.1056710-1-vschneid@redhat.com>
- <20251114151428.1064524-10-vschneid@redhat.com>
- <bad9eaaa-561a-498a-90d1-fe3a3ab8ba37@intel.com>
- <xhsmh5xb3thh6.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
-Content-Language: en-US
-From: Dave Hansen <dave.hansen@intel.com>
-Autocrypt: addr=dave.hansen@intel.com; keydata=
- xsFNBE6HMP0BEADIMA3XYkQfF3dwHlj58Yjsc4E5y5G67cfbt8dvaUq2fx1lR0K9h1bOI6fC
- oAiUXvGAOxPDsB/P6UEOISPpLl5IuYsSwAeZGkdQ5g6m1xq7AlDJQZddhr/1DC/nMVa/2BoY
- 2UnKuZuSBu7lgOE193+7Uks3416N2hTkyKUSNkduyoZ9F5twiBhxPJwPtn/wnch6n5RsoXsb
- ygOEDxLEsSk/7eyFycjE+btUtAWZtx+HseyaGfqkZK0Z9bT1lsaHecmB203xShwCPT49Blxz
- VOab8668QpaEOdLGhtvrVYVK7x4skyT3nGWcgDCl5/Vp3TWA4K+IofwvXzX2ON/Mj7aQwf5W
- iC+3nWC7q0uxKwwsddJ0Nu+dpA/UORQWa1NiAftEoSpk5+nUUi0WE+5DRm0H+TXKBWMGNCFn
- c6+EKg5zQaa8KqymHcOrSXNPmzJuXvDQ8uj2J8XuzCZfK4uy1+YdIr0yyEMI7mdh4KX50LO1
- pmowEqDh7dLShTOif/7UtQYrzYq9cPnjU2ZW4qd5Qz2joSGTG9eCXLz5PRe5SqHxv6ljk8mb
- ApNuY7bOXO/A7T2j5RwXIlcmssqIjBcxsRRoIbpCwWWGjkYjzYCjgsNFL6rt4OL11OUF37wL
- QcTl7fbCGv53KfKPdYD5hcbguLKi/aCccJK18ZwNjFhqr4MliQARAQABzUVEYXZpZCBDaHJp
- c3RvcGhlciBIYW5zZW4gKEludGVsIFdvcmsgQWRkcmVzcykgPGRhdmUuaGFuc2VuQGludGVs
- LmNvbT7CwXgEEwECACIFAlQ+9J0CGwMGCwkIBwMCBhUIAgkKCwQWAgMBAh4BAheAAAoJEGg1
- lTBwyZKwLZUP/0dnbhDc229u2u6WtK1s1cSd9WsflGXGagkR6liJ4um3XCfYWDHvIdkHYC1t
- MNcVHFBwmQkawxsYvgO8kXT3SaFZe4ISfB4K4CL2qp4JO+nJdlFUbZI7cz/Td9z8nHjMcWYF
- IQuTsWOLs/LBMTs+ANumibtw6UkiGVD3dfHJAOPNApjVr+M0P/lVmTeP8w0uVcd2syiaU5jB
- aht9CYATn+ytFGWZnBEEQFnqcibIaOrmoBLu2b3fKJEd8Jp7NHDSIdrvrMjYynmc6sZKUqH2
- I1qOevaa8jUg7wlLJAWGfIqnu85kkqrVOkbNbk4TPub7VOqA6qG5GCNEIv6ZY7HLYd/vAkVY
- E8Plzq/NwLAuOWxvGrOl7OPuwVeR4hBDfcrNb990MFPpjGgACzAZyjdmYoMu8j3/MAEW4P0z
- F5+EYJAOZ+z212y1pchNNauehORXgjrNKsZwxwKpPY9qb84E3O9KYpwfATsqOoQ6tTgr+1BR
- CCwP712H+E9U5HJ0iibN/CDZFVPL1bRerHziuwuQuvE0qWg0+0SChFe9oq0KAwEkVs6ZDMB2
- P16MieEEQ6StQRlvy2YBv80L1TMl3T90Bo1UUn6ARXEpcbFE0/aORH/jEXcRteb+vuik5UGY
- 5TsyLYdPur3TXm7XDBdmmyQVJjnJKYK9AQxj95KlXLVO38lczsFNBFRjzmoBEACyAxbvUEhd
- GDGNg0JhDdezyTdN8C9BFsdxyTLnSH31NRiyp1QtuxvcqGZjb2trDVuCbIzRrgMZLVgo3upr
- MIOx1CXEgmn23Zhh0EpdVHM8IKx9Z7V0r+rrpRWFE8/wQZngKYVi49PGoZj50ZEifEJ5qn/H
- Nsp2+Y+bTUjDdgWMATg9DiFMyv8fvoqgNsNyrrZTnSgoLzdxr89FGHZCoSoAK8gfgFHuO54B
- lI8QOfPDG9WDPJ66HCodjTlBEr/Cwq6GruxS5i2Y33YVqxvFvDa1tUtl+iJ2SWKS9kCai2DR
- 3BwVONJEYSDQaven/EHMlY1q8Vln3lGPsS11vSUK3QcNJjmrgYxH5KsVsf6PNRj9mp8Z1kIG
- qjRx08+nnyStWC0gZH6NrYyS9rpqH3j+hA2WcI7De51L4Rv9pFwzp161mvtc6eC/GxaiUGuH
- BNAVP0PY0fqvIC68p3rLIAW3f97uv4ce2RSQ7LbsPsimOeCo/5vgS6YQsj83E+AipPr09Caj
- 0hloj+hFoqiticNpmsxdWKoOsV0PftcQvBCCYuhKbZV9s5hjt9qn8CE86A5g5KqDf83Fxqm/
- vXKgHNFHE5zgXGZnrmaf6resQzbvJHO0Fb0CcIohzrpPaL3YepcLDoCCgElGMGQjdCcSQ+Ci
- FCRl0Bvyj1YZUql+ZkptgGjikQARAQABwsFfBBgBAgAJBQJUY85qAhsMAAoJEGg1lTBwyZKw
- l4IQAIKHs/9po4spZDFyfDjunimEhVHqlUt7ggR1Hsl/tkvTSze8pI1P6dGp2XW6AnH1iayn
- yRcoyT0ZJ+Zmm4xAH1zqKjWplzqdb/dO28qk0bPso8+1oPO8oDhLm1+tY+cOvufXkBTm+whm
- +AyNTjaCRt6aSMnA/QHVGSJ8grrTJCoACVNhnXg/R0g90g8iV8Q+IBZyDkG0tBThaDdw1B2l
- asInUTeb9EiVfL/Zjdg5VWiF9LL7iS+9hTeVdR09vThQ/DhVbCNxVk+DtyBHsjOKifrVsYep
- WpRGBIAu3bK8eXtyvrw1igWTNs2wazJ71+0z2jMzbclKAyRHKU9JdN6Hkkgr2nPb561yjcB8
- sIq1pFXKyO+nKy6SZYxOvHxCcjk2fkw6UmPU6/j/nQlj2lfOAgNVKuDLothIxzi8pndB8Jju
- KktE5HJqUUMXePkAYIxEQ0mMc8Po7tuXdejgPMwgP7x65xtfEqI0RuzbUioFltsp1jUaRwQZ
- MTsCeQDdjpgHsj+P2ZDeEKCbma4m6Ez/YWs4+zDm1X8uZDkZcfQlD9NldbKDJEXLIjYWo1PH
- hYepSffIWPyvBMBTW2W5FRjJ4vLRrJSUoEfJuPQ3vW9Y73foyo/qFoURHO48AinGPZ7PC7TF
- vUaNOTjKedrqHkaOcqB185ahG2had0xnFsDPlx5y
-In-Reply-To: <xhsmh5xb3thh6.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aSB_bUbfjenD1fjZ@shell.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251121_095017_594704_15C87AB1 
-X-CRM114-Status: GOOD (  18.87  )
+X-CRM114-CacheID: sfid-20251121_095204_753109_F47EB68A 
+X-CRM114-Status: GOOD (  27.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,66 +116,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/21/25 09:37, Valentin Schneider wrote:
-> On 19/11/25 10:31, Dave Hansen wrote:
->> On 11/14/25 07:14, Valentin Schneider wrote:
->>> +static bool flush_tlb_kernel_cond(int cpu, void *info)
->>> +{
->>> +	return housekeeping_cpu(cpu, HK_TYPE_KERNEL_NOISE) ||
->>> +	       per_cpu(kernel_cr3_loaded, cpu);
->>> +}
->>
->> Is it OK that 'kernel_cr3_loaded' can be be stale? Since it's not part
->> of the instruction that actually sets CR3, there's a window between when
->> 'kernel_cr3_loaded' is set (or cleared) and CR3 is actually written.
->>
->> Is that OK?
->>
->> It seems like it could lead to both unnecessary IPIs being sent and for
->> IPIs to be missed.
->>
+Hi Daniel and Russell,
+
+On 11/21/2025, Russell King (Oracle) wrote:
+> On Thu, Nov 20, 2025 at 06:42:29PM +0000, Will McVicker wrote:
+> > The function register_current_timer_delay() is called from the
+> > exynos_mct clocksource driver at probe time. In the event that the
+> > exynos_mct driver is probed deferred or the platform manually unbinds
+> > and rebinds the driver we need this function available. So drop the
+> > __init tag.
 > 
-> So the pattern is
+> First question. Why.
+
+Sorry for not explaining this very well. Let me fill in the gaps.
+
 > 
->   SWITCH_TO_KERNEL_CR3
->   FLUSH
->   KERNEL_CR3_LOADED := 1
+> Second, have you analysed the code to check that you _can_ call this
+> after init time?
 > 
->   KERNEL_CR3_LOADED := 0
->   SWITCH_TO_USER_CR3
+> Let's look at the code:
 > 
+>         if (!delay_calibrated && (!delay_res || (res < delay_res))) {
+>         } else {
+>                 pr_info("Ignoring duplicate/late registration of read_current_ti
+> mer delay\n");
+>         }
 > 
-> The 0 -> 1 transition has a window between the unconditional flush and the
-> write to 1 where a remote flush IPI may be omitted. Given that the write is
-> immediately following the unconditional flush, that would really be just
-> two flushes racing with each other,
+> So, if delay_calibrated is set, then this will fail. When is that set?
+> It's set by calibrate_delay_is_known() and calibration_delay_done().
+> When are these called? Basically after calibrate_delay() has finished.
+> When is calibrate_delay() called? It's called by start_kernel(), while
+> the init sections are still present.
+> 
+> So, calling this _after_ the init sections has been freed will result
+> in the above pr_info() printed and this function doing *nothing*.
+> So it's utterly pointless to call if the init sections have been freed.
+> 
+> Please find a different solution.
 
-Let me fix that for you. When you wrote "a remote flush IPI may be
-omitted" you meant to write: "there's a bug." ;)
+Sorry for wasting your time digging into this! You're right we shouldn't (and
+don't) call register_current_timer_delay() after the init sections are freed.
+This change was made purely to address the section mismatch compile-time
+errors. The Exynos MCT driver cannot be compiled as a module for ARM 32-bit
+devices; however, since ARM64 and ARM devices both call the function
+exynos4_clocksource_init() and ARM64 configurations can set the MCT driver as
+a module, we hit a section mismatch error due to calling an __init tagged
+function -- register_current_timer_delay() -- from a non-init tagged function
+-- exynos4_clocksource_init(). If you inspect the code, you will see that
+register_current_timer_delay() is compiled out of the driver for ARM64. To
+avoid hacking up the MCT driver with more `#if defined(CONFIG_ARM)` to handle
+this section mismatch, I decided it was cleaner to drop the __init tag.
 
-In the end, KERNEL_CR3_LOADED==0 means, "you don't need to send this CPU
-flushing IPIs because it will flush the TLB itself before touching
-memory that needs a flush".
+I'd be happy to re-factor the MCT driver to split up the ARM and ARM64 parts of
+exynos4_clocksource_init() to avoid the section mismatch altogher in order to
+keep the __init tag for register_current_timer_delay(). Given the comments
+here, I think that makes sense.
 
-   SWITCH_TO_KERNEL_CR3
-   FLUSH
-   // On kernel CR3, *AND* not getting IPIs
-   KERNEL_CR3_LOADED := 1
+I hope that explains it. Let me know if I overlooked anything.
 
-> but I could punt the kernel_cr3_loaded
-> write above the unconditional flush.
-
-Yes, that would eliminate the window, as long as the memory ordering is
-right. You not only need to have the KERNEL_CR3_LOADED:=1 CPU set that
-variable, you need to ensure that it has seen the page table update.
-
-> The 1 -> 0 transition is less problematic, worst case a remote flush races
-> with the CPU returning to userspace and it'll get interrupted back to
-> kernelspace.
-
-It's also not just "returning to userspace". It could well be *in*
-userspace by the point the IPI shows up. It's not the end of the world,
-and the window isn't infinitely long. But there certainly is still a
-possibility of getting spurious interrupts for the precious NOHZ_FULL
-task while it's in userspace.
+Thanks,
+Will
 
