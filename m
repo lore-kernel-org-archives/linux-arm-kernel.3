@@ -4,107 +4,122 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA81CCFC296
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 17:24:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C3B1CFC299
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 17:37:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=R2LUQpjLnjU2fPAxJkhB5ZqoLW1T9y88Gu7FNUECRao=; b=V8jd8PM+9hfSxpS9Am/Q99yBRV
-	zlDIxb5QCtK5ZLJbJfZK3NyMVQWjWPACGrgzCY//ubTpmzS5FSzmV56iQRYrksdcsQVPfb5maCQAS
-	7cstIcKFrrRovt+5xCC0AUPMovEZI/GR1qZprnH43GHYWuTVxVypQNztRNCWoZeff5k6WPYc3dW/g
-	X2nDZj6ebiEI+yPt6B+XmAl7906zA0C6+DYXTCXxhNLZEke/5g4ISfzQ00tp1/HwEK3q3h2xS6NtQ
-	JnKzbGygxIArb8USyT8u1wNGoz8OYBY9Y7zUHecSAhOUz5if9wHQXVqKQ9eyZRuGCrcga3G7qw4qn
-	8xNK48ZQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=V3OE0zpMaGFe7FLO1SjE8KbYNBSyHZmUa+LcldBnwuQ=; b=u1xx7rGc/r0JS+PzKfS8BKh2TW
+	J/WhZkGLCyxEioC63ZxsyMNipER8wZ2kmfU4VAqBJawzqxFjmfLtQoS3ezoGgclr3BeG992r9Le59
+	uLah8SZZalASwMUyVP1d0qdDN+2gkFnMT4OsNPdd8+SRrmHQCbuhDyxoeDAY7s971dloah4k9OcR5
+	L3cgd0CLJ9xbtuzsQpuD6YTkk4YG/RPqcGLMhDG6ND0lkUrKyAURsG+hpx8r2dihf/Aja7eXOSS0j
+	Yb8f3OMPQiVBPVTZlhvWt/9cZXKRSewuVgwrB+GT60ic6pai0PwjKFWXcL2ibLugHIZMAF0OTHmgd
+	APvSuW5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMUsF-00000008nOc-2CUW;
-	Fri, 21 Nov 2025 17:24:43 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vMV4R-00000008ntC-48xY;
+	Fri, 21 Nov 2025 17:37:19 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMUsD-00000008nOW-1e7X
+	id 1vMV4O-00000008nsS-3KIH
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Nov 2025 17:24:41 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 843C7601B8;
-	Fri, 21 Nov 2025 17:24:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2B76CC4CEF1;
-	Fri, 21 Nov 2025 17:24:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763745880;
-	bh=vxgX1VqggYstAMJH873cI8KBW1I9cdI8Sh2h+6/XtwQ=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=A2+qaBm7LCLuLlNd/mfyfkmv1E+mEuMU91U315TdWSon7bReyZYxrnpISTPrKdS8P
-	 fRFWY/KWu1h79I6sGoRmDP7xkqtVXKGjcQB3DmBdPxivLJm3F8QTo8D3JOxnnuiO6R
-	 Y1w3roH0ZEpPYiQi5LY+MYo96K7+U1kW6WMsnI0dCqlmxIxw4/CdBuRb5sSSjY8z4p
-	 LcOer5qpYGW7QK7Uh2LMGXqnUrkIW0jl0kDZMECmuhgFmqcW/bWdDVxNVCE4UH5g8Y
-	 DT8bpEyUGh/kxjvgHqBC9XWPkgw4hZwP66lGFnX4N8q3L7MAofoytSxBAn4fEl9oBi
-	 OBS8qLQwYHj+Q==
-Message-ID: <a75675ef-dff6-4f97-854e-a007d289c45d@kernel.org>
-Date: Fri, 21 Nov 2025 18:24:36 +0100
+	Fri, 21 Nov 2025 17:37:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1763746635;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=V3OE0zpMaGFe7FLO1SjE8KbYNBSyHZmUa+LcldBnwuQ=;
+	b=FpSVxKH/bn74QMz+W+LqdEAZEhf5t2z1b58ys9RqQCDkgH5dfC7pxg4MSJmiK+MWsGG9Z2
+	ae9Z01mdBDhL6r3vn6T1q2/4/Sx1Gt+QLTOqljlnw+ysroZSBwIEGSxNon1roxBvSm4ukC
+	M9YQF4KogLZOTWubyf8jPEwj2shJRJE=
+Received: from mail-wr1-f70.google.com (mail-wr1-f70.google.com
+ [209.85.221.70]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-141-UHOWjgnwMbKV_RVO6qhokg-1; Fri, 21 Nov 2025 12:37:13 -0500
+X-MC-Unique: UHOWjgnwMbKV_RVO6qhokg-1
+X-Mimecast-MFC-AGG-ID: UHOWjgnwMbKV_RVO6qhokg_1763746632
+Received: by mail-wr1-f70.google.com with SMTP id ffacd0b85a97d-42b3c965ce5so1804639f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Nov 2025 09:37:13 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1763746632; x=1764351432;
+        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
+         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=V3OE0zpMaGFe7FLO1SjE8KbYNBSyHZmUa+LcldBnwuQ=;
+        b=BQ4HZhKiEq43OVYp8hzhic+hyIECdyRwkJrE1oAnJkdK2jyMY5hwG11O6L6eH0KO97
+         H8h8mMu5fppASArlXMX4UGwtuyysfYrIXkLZp3C5dq0v6MsT6Ez3iNIf9ANff0ih8EqX
+         ObJUbxSik8HqK4LcDi/MOZmFlPT7qaj81kFffNvjfpIAd4b2IZzGaHZ2RABacTq+yeZ1
+         enqhylPqJ4Zc1hlu1+adz26ust44sBLvlCE+YBbIsCdtoPk6dGZGZ62N2jnP1R2nQiLN
+         VdMMsCus4TgLuTnAAs9vakoGVFKKzTXVAjad6eUBE7NUIY3+8DUDjR9CXK4igojrCRj1
+         AW/A==
+X-Forwarded-Encrypted: i=1; AJvYcCWul0s0U1y5WAf+AewxAMb3q0R28x+KngQ/efuAr0aZUgjHjvKQiPx+uM1O3BnYGrUkLQ2tWs2WyvciCKhae+xq@lists.infradead.org
+X-Gm-Message-State: AOJu0YyiSPniHLnpZVSKKd2fGVDLdPu58Ec5kHznx8Z5lkpwupctbCK0
+	CtDnA956iT0POOE7NKF7JP5kqEU7Fj+wIdJYXOPr0Onpn8Wz/uO7LqF+gKs0YF/E4MDfTq6TfU7
+	iDfpCFE7t6MwXI99C1JqqNjDNPigTOYtRnST9UuTH/Ivmj8L0mTDSU83H6lIsM9IYI7jNJa5SBh
+	9B
+X-Gm-Gg: ASbGncvKUEYVclxMQuhiBJHvil+zH5mmjgznGyPt31zAVxqyJR+p8mZCAA7W1fi1L7Y
+	5wkbEn8bYo2w6UgMelmSlZ42GFVIwKy3jNuUz61vPFAwMxVmu75QY3eGlf8YrEanrB41iV344IW
+	S0PdYSoOuM5D/5UGrZYDyQiW+HZVAhm5A0CTEfMvB6Kk7mbk2Y+y0i3Z2Eq5Z90Q0VRbWzUurkF
+	PEqSFTaSfnBBwdRrgWc33wJYuf1bWTVTKi5tqUsPxJlp8cdhrVKOaJb8AtKcKdWnIz2Jff+sfF8
+	KGvUY/wzR23zQBqKXVG5STQqta11vdlp3s6+YMd5aWlgFlDiH+rk3I6QAMXBhZgOsF3sJZx7MqH
+	7eY242MseTV8NkHznlwIb8Bb6eebC764jOw0rYC9RdUb7MAp0o1KHt2LsWcYJKg44ezI/i3w=
+X-Received: by 2002:a05:6000:2282:b0:42b:3ab7:b8b9 with SMTP id ffacd0b85a97d-42cc1cbd0dcmr3334259f8f.20.1763746631944;
+        Fri, 21 Nov 2025 09:37:11 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IFwrptJrvQrMlATO+zOU3GD53XUKYoEIwVBRtwZMVM9uxcxDwDk+rU+CpbkpyNs1Ksl4qe7Bg==
+X-Received: by 2002:a05:6000:2282:b0:42b:3ab7:b8b9 with SMTP id ffacd0b85a97d-42cc1cbd0dcmr3334227f8f.20.1763746631366;
+        Fri, 21 Nov 2025 09:37:11 -0800 (PST)
+Received: from vschneid-thinkpadt14sgen2i.remote.csb (213-44-135-146.abo.bbox.fr. [213.44.135.146])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42cc231dc6esm4094867f8f.7.2025.11.21.09.37.09
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 21 Nov 2025 09:37:10 -0800 (PST)
+From: Valentin Schneider <vschneid@redhat.com>
+To: Dave Hansen <dave.hansen@intel.com>, linux-kernel@vger.kernel.org,
+ linux-mm@kvack.org, rcu@vger.kernel.org, x86@kernel.org,
+ linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
+ linux-riscv@lists.infradead.org, linux-arch@vger.kernel.org,
+ linux-trace-kernel@vger.kernel.org
+Cc: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+ "H. Peter Anvin" <hpa@zytor.com>, Andy Lutomirski <luto@kernel.org>, Peter
+ Zijlstra <peterz@infradead.org>, Arnaldo Carvalho de Melo
+ <acme@kernel.org>, Josh Poimboeuf <jpoimboe@kernel.org>, Paolo Bonzini
+ <pbonzini@redhat.com>, Arnd Bergmann <arnd@arndb.de>, Frederic Weisbecker
+ <frederic@kernel.org>, "Paul E. McKenney" <paulmck@kernel.org>, Jason
+ Baron <jbaron@akamai.com>, Steven Rostedt <rostedt@goodmis.org>, Ard
+ Biesheuvel <ardb@kernel.org>, Sami Tolvanen <samitolvanen@google.com>,
+ "David S. Miller" <davem@davemloft.net>, Neeraj Upadhyay
+ <neeraj.upadhyay@kernel.org>, Joel Fernandes <joelagnelf@nvidia.com>, Josh
+ Triplett <josh@joshtriplett.org>, Boqun Feng <boqun.feng@gmail.com>,
+ Uladzislau Rezki <urezki@gmail.com>, Mathieu Desnoyers
+ <mathieu.desnoyers@efficios.com>, Mel Gorman <mgorman@suse.de>, Andrew
+ Morton <akpm@linux-foundation.org>, Masahiro Yamada
+ <masahiroy@kernel.org>, Han Shen <shenhan@google.com>, Rik van Riel
+ <riel@surriel.com>, Jann Horn <jannh@google.com>, Dan Carpenter
+ <dan.carpenter@linaro.org>, Oleg Nesterov <oleg@redhat.com>, Juri Lelli
+ <juri.lelli@redhat.com>, Clark Williams <williams@redhat.com>, Yair
+ Podemsky <ypodemsk@redhat.com>, Marcelo Tosatti <mtosatti@redhat.com>,
+ Daniel Wagner <dwagner@suse.de>, Petr Tesarik <ptesarik@suse.com>,
+ Shrikanth Hegde <sshegde@linux.ibm.com>
+Subject: Re: [RFC PATCH v7 30/31] x86/mm, mm/vmalloc: Defer kernel TLB flush
+ IPIs under CONFIG_COALESCE_TLBI=y
+In-Reply-To: <bad9eaaa-561a-498a-90d1-fe3a3ab8ba37@intel.com>
+References: <20251114150133.1056710-1-vschneid@redhat.com>
+ <20251114151428.1064524-10-vschneid@redhat.com>
+ <bad9eaaa-561a-498a-90d1-fe3a3ab8ba37@intel.com>
+Date: Fri, 21 Nov 2025 18:37:09 +0100
+Message-ID: <xhsmh5xb3thh6.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/3] dt-bindings: ARM: samsung: Add Samsung Manta (Google
- Nexus 10)
-To: Lukas Timmermann <linux@timmermann.space>
-Cc: Alim Akhtar <alim.akhtar@samsung.com>, Rob Herring <robh@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Alexandre Marquet <tb@a-marquet.fr>,
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20251120144018.961604-1-linux@timmermann.space>
- <20251120144018.961604-2-linux@timmermann.space>
- <20251121-convivial-wren-of-wind-cefe21@kuoka>
- <zgyxb6jqfvfr6iah4lw7rvweextbwxrtlysap4dfzeejqgulwo@ik25opshvwxd>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <zgyxb6jqfvfr6iah4lw7rvweextbwxrtlysap4dfzeejqgulwo@ik25opshvwxd>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: G0Q1KxDGivms89PeLqy6qwBNpEa_LzlZFyrvi6ib9_g_1763746632
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251121_093716_898467_6D1A23B9 
+X-CRM114-Status: GOOD (  17.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,49 +134,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 21/11/2025 14:45, Lukas Timmermann wrote:
-> On Fri, Nov 21, 2025 at 10:04:43AM +0100, Krzysztof Kozlowski wrote:
->> On Thu, Nov 20, 2025 at 03:40:14PM +0100, Lukas Timmermann wrote:
->>> From: Alexandre Marquet <tb@a-marquet.fr>
->>>
->>> Add the Google Nexus 10 board to documentation.
->>>
->>> Signed-off-by: Alexandre Marquet <tb@a-marquet.fr>
->>> Signed-off-by: Lukas Timmermann <linux@timmermann.space>
->>> ---
->>>  .../devicetree/bindings/arm/samsung/samsung-boards.yaml          | 1 +
->>>  1 file changed, 1 insertion(+)
->>>
->>> diff --git a/Documentation/devicetree/bindings/arm/samsung/samsung-boards.yaml b/Documentation/devicetree/bindings/arm/samsung/samsung-boards.yaml
->>> index f8e20e602c20..97a5a678f43c 100644
->>> --- a/Documentation/devicetree/bindings/arm/samsung/samsung-boards.yaml
->>> +++ b/Documentation/devicetree/bindings/arm/samsung/samsung-boards.yaml
->>> @@ -120,6 +120,7 @@ properties:
->>>                - google,snow-rev5                # Google Snow Rev 5+
->>>                - google,spring                   # Google Spring
->>>                - insignal,arndale                # Insignal Arndale
->>> +              - samsung,nexus10-manta           # Samsung Manta (Google Nexus 10)
->>
->> Google Nexus or Samsung Nexus or Samsung Manta? I am sorry, but I am
->> 100% sure that Samsung and Google are two different companies. Google
->> products use only google prefixes, see all other Google devices.
->>
->> Best regards,
->> Krzysztof
->>
-> Google sold the device under it's Nexus brand. But it was built by
-> Samsung, not just it's SoC. It's codename is "manta". Google places it 
-> in the Samsung directory instead of their own.
-> See: https://android.googlesource.com/device/samsung/manta/
-> It is a Samsung board, but also a Google device.
+On 19/11/25 10:31, Dave Hansen wrote:
+> On 11/14/25 07:14, Valentin Schneider wrote:
+>> +static bool flush_tlb_kernel_cond(int cpu, void *info)
+>> +{
+>> +	return housekeeping_cpu(cpu, HK_TYPE_KERNEL_NOISE) ||
+>> +	       per_cpu(kernel_cr3_loaded, cpu);
+>> +}
+>
+> Is it OK that 'kernel_cr3_loaded' can be be stale? Since it's not part
+> of the instruction that actually sets CR3, there's a window between when
+> 'kernel_cr3_loaded' is set (or cleared) and CR3 is actually written.
+>
+> Is that OK?
+>
+> It seems like it could lead to both unnecessary IPIs being sent and for
+> IPIs to be missed.
+>
 
-As I said, all Google end-user made by Samsung have Google names, not
-Samsung. Do you see there samsung,spring? Or samsung,nexus for other
-Nexuses? No.
+So the pattern is
 
-There is just no such thing as samsung,nexus. Never was, so you cannot
-use that as product.
+  SWITCH_TO_KERNEL_CR3
+  FLUSH
+  KERNEL_CR3_LOADED := 1
 
-Best regards,
-Krzysztof
+  KERNEL_CR3_LOADED := 0
+  SWITCH_TO_USER_CR3
+
+
+The 0 -> 1 transition has a window between the unconditional flush and the
+write to 1 where a remote flush IPI may be omitted. Given that the write is
+immediately following the unconditional flush, that would really be just
+two flushes racing with each other, but I could punt the kernel_cr3_loaded
+write above the unconditional flush.
+
+The 1 -> 0 transition is less problematic, worst case a remote flush races
+with the CPU returning to userspace and it'll get interrupted back to
+kernelspace.
+
 
