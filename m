@@ -4,97 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FEE2CFA756
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 08:51:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 552F4CFA756
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 08:52:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2Zl49bFVQ8HXNASEX2XzPWaAJ5IL+RSr8MjMD86xJZI=; b=Gsn+uPUEFr1A3EOLO6SgQ15nQR
-	fYSzDeBCqxknBXBLKBTBtJIS2w12eB/KmP16fNVXGnIoD7MiU6g8vDpbmJJ4BaaWnsDtL4Zfn222W
-	VjjSk7cqr+HnbNZ6gexjhOZUZNBopNagFiI31R7BH6Yn+NaPtGnwP+wBKeRf0EHmzVImiN5uKxSUH
-	sOfAD01TYmZ91BLRhQfM5IoxabjdglLqYs3yz0cDZxxAP93AxMP2H0ZJ3Mc1mkXZm+nDAUBF/6nLu
-	oULo52lg/eLB0dkui8cO+E1Jk/Un1c6wV1whXtRJSOYq3oydwa9E//8DYkDxNblpiLNwT4gMZk0vm
-	/fXWwtjQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uQD6IPCAAuAQSaBuKc7iCXVSBWn0b9pFdIhTL2DU8uw=; b=x7Gq2qyHEg5iKqj+ye1ZjNiJWq
+	NUfdHyL/xxDbqGSrSCCzWZb3hW/bcbdycRbDgcieJIzMRNoi8X4pZH6BaFAd2EqpKCk62Y2RODS3j
+	g0jelkMwZKJ6QOrwCWE5Fq3A4yyzUmN8iWuJc+Qjjk/RfQjJpE7fMaHMAWzlwRVQDuxln1dcs74Lw
+	720qikctrUeAC2h9U8QTaKtMRqou4eGKHUEsaXBkzl/gpscrfiEqZUXU923/zx+gA3oBezOIb4JJD
+	cUNecogBPgy9Mc/I4rEEsbV9JMuF7vYHZ5i42XofMn1w0nJ55NQ/XYQ8V+ujCW5BYT5Zjz3dE+fsc
+	EETSMw3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMMrH-00000008686-3DE1;
-	Fri, 21 Nov 2025 08:51:11 +0000
-Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
+	id 1vMMsE-000000086Ht-0V6X;
+	Fri, 21 Nov 2025 08:52:10 +0000
+Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMMrD-0000000867F-2Ulk
+	id 1vMMsB-000000086Ga-1BRR
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Nov 2025 08:51:10 +0000
-Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-297dd95ffe4so15517145ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Nov 2025 00:51:06 -0800 (PST)
+	Fri, 21 Nov 2025 08:52:08 +0000
+Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-42b39d51dcfso1085268f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Nov 2025 00:52:06 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1763715066; x=1764319866; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=2Zl49bFVQ8HXNASEX2XzPWaAJ5IL+RSr8MjMD86xJZI=;
-        b=VDMrOqsqwxvvdWrtwWBtRkjZ0r7cXtLRhF6Om3/Q8KSI05ALvH/2dmM8ecFtJiQwma
-         4w5lRykzVSSsA+rjO/nvzbQlf/28n5lYhezyYZJ87HfGHRfZTeeZsk1JsA0/81eRjRLi
-         1j926vFq9K/LPTgQ6ALcxZ9ml6qw7BXiPGYj+cchr0gSv0AjoldUryhfvZYTiV4bTvoh
-         KwG5fIaztP9U1mJLcpHGLU7pKgYHiI0GzwveGoJo5KLEXgaiH/TNFvotoNOA8hKSIHw7
-         82+nSZWMjyCE6hHgMtJ390tQPHizpD5vVdLwCbVCdlgS65qMRB1FpQDDv3phOw2DOW0v
-         HKAA==
+        d=linaro.org; s=google; t=1763715125; x=1764319925; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=uQD6IPCAAuAQSaBuKc7iCXVSBWn0b9pFdIhTL2DU8uw=;
+        b=CNZUR8SpETIlJaRBKV+08auSSegiZsWIbFzJm/TmgkHSzN8Er/lm2fUUWee8PFLMVz
+         xQ4sb6ahxXFX5L7To3Jxg6563MMvzsnkSxN3Qxs9fR6o3fGg6Avl55QvGLD+INEaY6V2
+         ohqyOy9ER+/TDc0TMfEPVohR38mg953sroHkmUaUawaVqfRS0HyYcZ2VTUD7E+yGgSnw
+         rlYnCP7q1HE7qr1UMyOLfXffA7JbQ/8Tgi8R7G03Z0aGMSS5r3leGZo92OSXaSIXqS8U
+         oKcy352mf710e1t+fWpI+Q2ruwe/ItUApNoLNk6Wvh/AWh5nNd96grv5ZmbfZ21jW780
+         TztA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763715066; x=1764319866;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=2Zl49bFVQ8HXNASEX2XzPWaAJ5IL+RSr8MjMD86xJZI=;
-        b=WH+hvlG8jlA3WszgFDJicoAnBHjaIpDr3VqmX2hfdDxA9qk5SH5EdT66WUpdEIYm8P
-         opqmxk6u+Yepu9tEsIoxt+AGItiDPFsredyIRAIfnZgWte+0DzQtVjgUOQEvstkQ6yKk
-         mqIa4Q/ZThO9UEoGGw2QrKk2oEoF73Ua+XOBnqsM4kRZs6MXGDu/DvkJh2CYEFXj4oDE
-         hsg2XgxVQZtua81MsWrTbtfCZo9xz2A5o4JTIrSrPL2ufrhhtqkL5atHbpEquWT7VsBk
-         8wUCN9/jCe6oWVjST0vg25zW9icqdArWX8LzrFJxD+jPfclcHf4DOquWQmTloH9ZHhzd
-         p3ug==
-X-Forwarded-Encrypted: i=1; AJvYcCW1QOoQQRaXsK3UQwytjzMdkjl9cE6w36sOivJmnWm1C1nR3WJit8iv+9iOwHhpIJsDIm4WNdBiCKwRWWI6EwvA@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxe1Xq8kwtTMt66+SoyGjsOoKsKbpod/GN4+diyLDlqKFgLqRTx
-	3PY6S6ln4gDwolBJ1cFInETMDA0T0ZsenZA2qNITPbvuRB7y/STkWOW4wmxpZ0CszoA=
-X-Gm-Gg: ASbGnctzUT3xEGaK5xA11GV5KD10H3rwk3UarHKtnFUYGfQnGxJDlYL7UHjpChWtg8O
-	VpNmNcPQ6/tYWethRxTvGIerNdvjBOpMFC3nx8wgKPzYNmMyB0kfUEIuYsm0Czv6rb0ScImsbPn
-	vKUYo/wW2VxTGaqt9aBOWspZMH2kA+k5G7biHphpW9duw1odrdRt+C64BVjk28FF3f9uR5p1PCL
-	XXhxXGFDcMD2KdBUGgjnPhk1CLgNiACm3+9MaB4TXxES8CnxQ36k++4NWN/wE3JW/6S9IHZlQZ1
-	J1ru0iqHx7iJ/4TMs9uePMc3u11qNWLZH+PDz90O8DC8JJ3qyJT9KlUtdlrU53nBCbCBuaiSPhd
-	H2PPywn1tErA7psIzoBksiHwc9gNSfO+tTdZ8inpsFpOPEfwc4/NKAD4EtYvvMxS3poj0SRb0mY
-	OK9ao6oJnIiUbDUJ4L
-X-Google-Smtp-Source: AGHT+IForle4Voi5B250DXGCJPKzmYnRrMuv4VZwFpXmqKqn4IMqRvfMy2WJ1GWndhzWr/EzoK5qvQ==
-X-Received: by 2002:a17:90b:35cc:b0:341:194:5e7d with SMTP id 98e67ed59e1d1-34733f19c00mr2066526a91.24.1763715066040;
-        Fri, 21 Nov 2025 00:51:06 -0800 (PST)
-Received: from sunil-laptop ([106.51.195.35])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-345b036a282sm5593927a91.4.2025.11.21.00.50.59
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 21 Nov 2025 00:51:05 -0800 (PST)
-Date: Fri, 21 Nov 2025 14:20:56 +0530
-From: Sunil V L <sunilvl@ventanamicro.com>
-To: niliqiang <ni_liqiang@126.com>
-Cc: apatel@ventanamicro.com, ajones@ventanamicro.com, anup@brainfault.org,
-	atishp@atishpatra.org, bjorn@kernel.org, conor+dt@kernel.org,
-	devicetree@vger.kernel.org, frowand.list@gmail.com,
-	krzysztof.kozlowski+dt@linaro.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, maz@kernel.org, palmer@dabbelt.com,
-	paul.walmsley@sifive.com, robh+dt@kernel.org, saravanak@google.com,
-	tglx@linutronix.de, hu.yuye@zte.com.cn, deng.weixian@zte.com.cn,
-	ni.liqiang@zte.com.cn
-Subject: Re: [PATCH v16 6/9] irqchip: Add RISC-V advanced PLIC driver for
- direct-mode
-Message-ID: <aSAn8DdQVBBzenlJ@sunil-laptop>
-References: <20240307140307.646078-7-apatel@ventanamicro.com>
- <20251120144311.5083-1-ni_liqiang@126.com>
+        d=1e100.net; s=20230601; t=1763715125; x=1764319925;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=uQD6IPCAAuAQSaBuKc7iCXVSBWn0b9pFdIhTL2DU8uw=;
+        b=DhcbaMZ5/C53OtAV9CZoLQHd8bbYCKPsUO6d4NM5p2ufeoA2UGM1wN+8OPLGsoolyf
+         DbKx1V2+RPG/Ed3jm/9Vu1knr5UclYz5Mar+UXiaaA4RVZLw8aQevsevLoJp5QABm69v
+         W8eXzAHvSLmnhlbMrhsxt7oWCadbm8UbmoazutoiOj9i6kQFnFOGNBk6g3BcB1MlI9tB
+         mpQRh1A5j1SkpLVSLw3wprovGtdUIB9qxviPiv630Ttfwl1dGSbQBAmpRfQl+Gwk+ajI
+         QcSVUwTqkSluttWpxwq+glcIVTNknUF2eeBoX+v/fl9/AOI+Y3vPMPEvhviOA6W4pY/H
+         TnWQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUrsTMmKLaAiCaDZPmOti6+MbJFv3Gq/itBqdp3C8BDMe8KlWatVG2i7cxf+7qK6zoOWBOfTIrdF9PGHirE+RKU@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyg9V37j0EEl9WdUdY1UfQfOYSdIt1d92f8nyDPYhfK9AREDwaW
+	+X3PGnL+VP4INrwCHJ+vxBs3xCqvFlvRO4XghXAxUAfFMUmk+gfqh0rKzAKCXEVtQ0I=
+X-Gm-Gg: ASbGnctEXgnpiH269KpEgXC67x9mSYA+HB0amRi4Hr46CXj6PBiC9y120WGmpiIp9/a
+	CsVVe4fSyAeeaAfyJxuFSU3xsFJtQeEoZNn7Ow8GZ8Y/Gl603pwRqT4HgLnQ23xYcsl7BrBMVQI
+	d/zznmmHbe/LK9CgNEvAigxhA8Xpk9RLDxL5IXyShbCU8qdl8KznyCIxET1i0XOLkfckHIduh50
+	+UJbs78sE+IHlyTYVyXUOcm0zVaECq83KvEh8cJjAR5w8jYWWd8v/kBq4QAmMlL8E2fKsUlB896
+	j0B2FCz0YZB3CH52eLsReTgb9nD54ST3d5w1mEjUOiM9Fdmel++QuI7O4vbba3dYUjCF4Wzl6Fq
+	bkG0ZlU9dXk/pEFhKv81GMsMcmwNgKx6w53rpVQAjO34ecIRSg3C64AN/yw9hQuZIY8yCYhE/l0
+	uCvbBzGjX+G7UeFkmlNdi333uXx0k1
+X-Google-Smtp-Source: AGHT+IEinokPPaK0hYNLhqdwlX0uFESNUqrKrPuclcH1lbM4qDAV3Wx0cwOCGh0v5dfKc0oa55/cew==
+X-Received: by 2002:a05:600c:3588:b0:477:bcb:24cd with SMTP id 5b1f17b1804b1-477c11179ffmr14043965e9.22.1763715125067;
+        Fri, 21 Nov 2025 00:52:05 -0800 (PST)
+Received: from [192.168.0.39] ([82.76.24.202])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42cb7fa3a81sm10032980f8f.26.2025.11.21.00.52.04
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 21 Nov 2025 00:52:04 -0800 (PST)
+Message-ID: <af7028da-34cc-42e5-8768-b6218ebae3f2@linaro.org>
+Date: Fri, 21 Nov 2025 10:52:03 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20251120144311.5083-1-ni_liqiang@126.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH dmaengine 1/2] dmaengine: at_hdmac: fix formats under
+ 64-bit
+To: Rosen Penev <rosenp@gmail.com>, dmaengine@vger.kernel.org
+Cc: Vinod Koul <vkoul@kernel.org>,
+ Ludovic Desroches <ludovic.desroches@microchip.com>,
+ open list <linux-kernel@vger.kernel.org>,
+ "moderated list:MICROCHIP AT91 DMA DRIVERS"
+ <linux-arm-kernel@lists.infradead.org>
+References: <20251106022405.85604-1-rosenp@gmail.com>
+ <20251106022405.85604-2-rosenp@gmail.com>
+Content-Language: en-US
+From: Eugen Hristev <eugen.hristev@linaro.org>
+In-Reply-To: <20251106022405.85604-2-rosenp@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251121_005107_652264_A31D86AE 
-X-CRM114-Status: GOOD (  25.70  )
+X-CRM114-CacheID: sfid-20251121_005207_353542_CF063FCA 
+X-CRM114-Status: GOOD (  12.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,67 +107,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Liqiang,
 
-On Thu, Nov 20, 2025 at 10:43:11PM +0800, niliqiang wrote:
-> > diff --git a/drivers/irqchip/irq-riscv-aplic-main.c b/drivers/irqchip/irq-riscv-aplic-main.c
-> > +static const struct of_device_id aplic_match[] = {
-> > + { .compatible = "riscv,aplic" },
-> > + {}
-> > +};
-> > +
-> > +static struct platform_driver aplic_driver = {
-> > + .driver = {
-> > +  .name  = "riscv-aplic",
-> > +  .of_match_table = aplic_match,
-> > + },
-> > + .probe = aplic_probe,
-> > +};
-> > +builtin_platform_driver(aplic_driver);
-> 
-> Dear Anup Patel and all concerned,
-> 
-> I am writing to inquire about the historical rationale behind defining the APLIC driver's
-> initialization priority using builtin_platform_driver in the current implementation.
-> 
-> In our environment, we are encountering an issue where this priority level causes ACPI-based PCIe
-> enumeration to be executed in the system_unbound_wq work queue. This parallel execution model
-> results in PCIe devices being enumerated in an arbitrary order rather than strictly following the
-> sequence defined in the ACPI DSDT table.
-> 
-> The random enumeration order is adversely affecting customer experience, particularly in scenarios
-> where device ordering is critical for proper system operation or application compatibility.
-> 
-> We are considering modifying the APLIC driver's initialization priority to ensure PCIe enumeration
-> occurs sequentially according to the DSDT specification. However, before proceeding with such
-> changes, we wanted to consult with you regarding:
-> 
-> 1. Were there specific technical considerations that led to the current priority selection?
-> 2. Are there any potential side effects or broader impacts that we might have overlooked?
-> 3. Would you support such a priority adjustment, or do you have alternative suggestions to 
-> address the enumeration order issue?
-> 
-> We greatly appreciate your insights and expertise on this matter, as it will help us make an
-> informed decision while maintaining system stability and compatibility.
-> 
-> Thank you for your time and consideration.
-> 
 
-IRQ subsystem maintainers rejected the idea of relying on initcalls to
-enforce probe order because initcalls do not guarantee ordering. The
-Linux driver model instead ensures probe order through device
-dependencies. Since PCI INTx depends on the APLIC being probed first,
-the PCI host bridge probe cannot occur until after the APLIC probe
-completes. This requirement and behavior are the same for both DT and
-ACPI. In DT, the driver model uses fw_devlink to establish probe
-ordering, while in ACPI this is handled through either an explicit _DEP
-or, on RISC-V, the GSI mapping.
+On 11/6/25 04:24, Rosen Penev wrote:
+> size_t formats under 32-bit evaluate to the same thing and GCC does not
+> warn against it. Not the case with 64-bit.
+> 
+> Signed-off-by: Rosen Penev <rosenp@gmail.com>
 
-Typically, this dependency appears in the DSDT only for the PCI host
-bridge. Individual PCIe devices are enumerated through the standard PCI
-scan once the host bridge has been probed. Therefore, I’m not sure what
-you meant by a probe sequence defined in the DSDT for PCIe devices.
+Reviewed-by: Eugen Hristev <eugen.hristev@linaro.org>
 
-Regards,
-Sunil
+> ---
+>  drivers/dma/at_hdmac.c | 6 +++---
+>  1 file changed, 3 insertions(+), 3 deletions(-)
+> 
+> diff --git a/drivers/dma/at_hdmac.c b/drivers/dma/at_hdmac.c
+> index 2d147712cbc6..7d226453961f 100644
+> --- a/drivers/dma/at_hdmac.c
+> +++ b/drivers/dma/at_hdmac.c
+> @@ -887,7 +887,7 @@ atc_prep_dma_interleaved(struct dma_chan *chan,
+>  	first = xt->sgl;
+>  
+>  	dev_info(chan2dev(chan),
+> -		 "%s: src=%pad, dest=%pad, numf=%d, frame_size=%d, flags=0x%lx\n",
+> +		 "%s: src=%pad, dest=%pad, numf=%zu, frame_size=%zu, flags=0x%lx\n",
+>  		__func__, &xt->src_start, &xt->dst_start, xt->numf,
+>  		xt->frame_size, flags);
+>  
+> @@ -1174,7 +1174,7 @@ atc_prep_dma_memset_sg(struct dma_chan *chan,
+>  	int			i;
+>  	int			ret;
+>  
+> -	dev_vdbg(chan2dev(chan), "%s: v0x%x l0x%zx f0x%lx\n", __func__,
+> +	dev_vdbg(chan2dev(chan), "%s: v0x%x l0x%x f0x%lx\n", __func__,
+>  		 value, sg_len, flags);
+>  
+>  	if (unlikely(!sgl || !sg_len)) {
+> @@ -1503,7 +1503,7 @@ atc_prep_dma_cyclic(struct dma_chan *chan, dma_addr_t buf_addr, size_t buf_len,
+>  	unsigned int		periods = buf_len / period_len;
+>  	unsigned int		i;
+>  
+> -	dev_vdbg(chan2dev(chan), "prep_dma_cyclic: %s buf@%pad - %d (%d/%d)\n",
+> +	dev_vdbg(chan2dev(chan), "prep_dma_cyclic: %s buf@%pad - %d (%zu/%zu)\n",
+>  			direction == DMA_MEM_TO_DEV ? "TO DEVICE" : "FROM DEVICE",
+>  			&buf_addr,
+>  			periods, buf_len, period_len);
+
 
