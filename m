@@ -4,85 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CA53CFA779
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 11:17:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41224CFC261
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 11:25:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e2fByfp9dOUXpwO9BW8DdhO3KoaullA2Pe/eBIC2M1w=; b=zvrLRFZXsT5vCwrSLgOwx+DBIN
-	+JrC669s9kZMziob+bXlVYAdgLZWmbrK4vmG0G/u+1Fa9GmpR7W/epFs8swrTLScv2nfjwUoQxlsH
-	6fO5v7z8QnN1D2JiQJid20HsIM04W+Vr0v3vwvJ2KHkWea2OuBTZvhdN06H6QMdYQjpg0tJZDKUXZ
-	UY+C7SXOnTBwMmrUPIbC1w/ace0ICW6/dggKTWO2lZdAFyQwttghX0553WkXLJ+/Vl140QoOK/k6t
-	kf5oJuyQVFgOG1n0Q0Ar6cHHZlrR2nOQCQgqJOiJJ4louxM6tTeRvmPOXPf+D+KPWhdoD1kofvVQv
-	iQa3fjtg==;
+	bh=a0xm/PimYBI7QTShSUbqekIyDmRlXD3/nFnREaHBgqw=; b=ylgCd69Gcjxh06MDUDGNYxGgGj
+	CFiZXaB8ejx8DGx3MsEKIBJgbbmBIhHp3pVdfbsPst8aAFdlVKnpgpsq3R44fgbxAmmXJ5dTBjjNZ
+	9+ZOhBUM8QSP21rVLCzBWerTz3O9r+4NJtIaRVd6jdM7SChPVRtigsSVdREgSnJnojdK+Rdi2fAD4
+	njbc3u298po2f5NtRtAtw9K4SLT6kS3Dlxkcjj9yIOTUHt2ISrEMaIe9PmN8eWQhooLpjVsvGQ6o9
+	rERD+N/jUUDPsXerCFKywROYQOVYNcipA8nNDtapsPKxOBcEnZEg/LL7DIm3rpnQS+UhWdybTaLvD
+	lAQGXSFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMP8n-00000008ICY-0W4i;
-	Fri, 21 Nov 2025 11:17:25 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1vMPGj-00000008JIQ-0N41;
+	Fri, 21 Nov 2025 11:25:37 +0000
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMP8e-00000008I1i-1lMb;
-	Fri, 21 Nov 2025 11:17:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1763723834;
-	bh=FWX6doiIFJbuvcNXJG2PzUmhBN7PahCOqtK0OpcsM8c=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=bxOumx2O8USLvbi7czzpsQGWtCMAMZgqCNUI4Fs8jPifuGTwuBwFat7uqo8Vkang5
-	 iO30lQu8VHgygYKbZ3N48zat91bf0vOyPmWgThytAAb0GiOUc/Jy11wncSvoUQq1h+
-	 nlpU6Q8bzc5f5Lz6tjyjzf9gsxFTZr2N9DG4TDLEWeCqHoAs5OgWga0oscQd20iPKo
-	 r8JJu/cRGucsFj69Emg+DQnglvXLSo4dTnAHSS61QKLlEvamXvasZjJWTGLPr+6EGh
-	 PdAHipzXhtQ5+iXrIBBWrbWiSrTL4jfItRRFiWYMMZ9ovQ/dg7ALXn41EO18et/C4b
-	 qJ8cUhrSB4nqw==
-Received: from laura.lan (unknown [IPv6:2001:b07:646b:e2:c4bf:9969:6e1c:dc69])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: laura.nao)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id D911117E35D3;
-	Fri, 21 Nov 2025 12:17:12 +0100 (CET)
-From: Laura Nao <laura.nao@collabora.com>
-To: srini@kernel.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	rafael@kernel.org,
-	daniel.lezcano@linaro.org,
-	rui.zhang@intel.com,
-	lukasz.luba@arm.com,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com
-Cc: nfraprado@collabora.com,
-	arnd@arndb.de,
-	colin.i.king@gmail.com,
-	u.kleine-koenig@baylibre.com,
-	andrew-ct.chen@mediatek.com,
-	lala.lin@mediatek.com,
-	bchihi@baylibre.com,
-	frank-w@public-files.de,
-	wenst@chromium.org,
-	fshao@chromium.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-pm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	kernel@collabora.com,
-	Laura Nao <laura.nao@collabora.com>
-Subject: [PATCH v4 8/9] thermal/drivers/mediatek/lvts_thermal: Add MT8196 support
-Date: Fri, 21 Nov 2025 12:16:41 +0100
-Message-Id: <20251121-mt8196-lvts-v4-v4-8-357f955a3176@collabora.com>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20251121-mt8196-lvts-v4-v4-0-357f955a3176@collabora.com>
-References: <20251121-mt8196-lvts-v4-v4-0-357f955a3176@collabora.com>
+	id 1vMPGg-00000008JHx-0g7B
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 21 Nov 2025 11:25:35 +0000
+Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-477bf34f5f5so5823315e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Nov 2025 03:25:33 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1763724332; x=1764329132; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=a0xm/PimYBI7QTShSUbqekIyDmRlXD3/nFnREaHBgqw=;
+        b=Wea2hSEAJJzw1eLoFqqn3byPVJ1rwOKh8CoJNaqJJaxV2sBsYJf1WfPu3WJFroi72b
+         CSweISENqZ2zs59SdWZyWU1ZhUmFHkvuMpW7Z6EugDMLjyK34m0vyEQ+I5Z3i20dFBMC
+         TzAwMbSbZmhegj21DN+baEmkak0WCSifWElIyykStW9cRHkFT3FggE5GdGnuMSKl6Bv4
+         awGqjZNSzYdiu28FJFFPE9Mxi75eJZuCj16I6YmtKFxdNsUZbipsoELh+/XwuxNnTS2J
+         nxfr0xxPjnq5gTeMJ2JiKOBHZbhMo53CIn8vBwXSjSFWMhj+wzAbXfaP3FRK1GO9vx+j
+         XXog==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1763724332; x=1764329132;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=a0xm/PimYBI7QTShSUbqekIyDmRlXD3/nFnREaHBgqw=;
+        b=xU09LG22GymBBatHtLYjdK6vUxUA9iup081UZGjU+HeXIsXfjYLmMlfRe168LCteDg
+         wK5xaEfl3I75UcAL5mi2iHHzo4kdNhwJxVnrXlHUBdcLM618WgbKUi730IW/7CGN1NPV
+         PBJwKkCTCLAxKZijkrds8+GYShAhmmCtLJ/yED8fWKQ+oeDPVdHbE5P6re78EmjVQGL5
+         Txaawr+7L4tT8myfi3oyVoQ0tIVlQZ5os7gtjK+V46Hm521fJMmJahMvmqN7octZRzot
+         sgJ0hlfDruVKB9A5BvSai82FkTpXAEFfL0i6xJ8zJ5pWQNDASB48WFduqFKTE0TXZ+3S
+         tYow==
+X-Forwarded-Encrypted: i=1; AJvYcCWs7j1CoDIDaCDRsmPKSeKBz3S9sdN3VzW9Ch0ExFrSO1NLNfTZg+afDNIzEH6pMLhhyJjdDvUJIGLsYQlpveLE@lists.infradead.org
+X-Gm-Message-State: AOJu0YxfttNmnKy6jbGGfZEIRi9QvxnxtlZ/7iJDcxGWMRTZ1SRg38Eb
+	XchCKulgYT0e5Jsr2GySCA2OgphXzshEvHyyZ2UcIvoyLKXPDY1Zb9Z9
+X-Gm-Gg: ASbGncvvzaVLodYJCEdvC8uKvFgR28B5FSK8po+klGqZgCF1uxh+jDfguvxWobyFpKH
+	uDV7s/iC9V3YjFXFKwhUVnz9CWcuwhqV7yZR13FOq4xnfkcCHHsNrTtIMam+CxHfcwOi+ToQABn
+	QRhvSM6IInfTNl8LF3WV3+9bysnEoICSd4Y83HxJgVImoeCQPYHB6sh0kYL9QpdIK02DIe4nhzi
+	Tv0Ghy32+qqcSebFzg2h6NRe7d7NBYXd2Xmz/XBbuNPXgufeEIPjtm+ex6FAsg7HVBMyaJCmTFt
+	DfV1wwGFlSwcP0X1Sv7ZRRnISCTS86DTRtLh/mDqtBzExNJLwP7n0RaGdEv2xpcTXvxIjLCZz60
+	JFqq5Q8iH8p1sqb2Ba6gwwG0Pcq3dyPeUza+mUpaNpp6z1Ony05QxnIxaSFkW1pPqTTsnbGV0/5
+	jQw7mEfRMG2TFdOos6boE+tvQ=
+X-Google-Smtp-Source: AGHT+IEQgLDezxuB/3Bt5w+9c4IjI+5mMo4URpXWEj4gL76tDkRoyLjFbJw02JhBlsBW/bbk9MSoqg==
+X-Received: by 2002:a5d:5f48:0:b0:42b:3867:b3a7 with SMTP id ffacd0b85a97d-42cc1cd5cffmr1874053f8f.8.1763724331793;
+        Fri, 21 Nov 2025 03:25:31 -0800 (PST)
+Received: from [192.168.0.38] ([86.12.216.189])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42cb7f2e598sm10317686f8f.4.2025.11.21.03.25.30
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 21 Nov 2025 03:25:31 -0800 (PST)
+Message-ID: <05dd180e-f12f-44ef-96e2-2a6013da14df@gmail.com>
+Date: Fri, 21 Nov 2025 11:25:30 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 0/3] arm64/sme: Support disabling streaming mode via
+ ptrace on SME only systems
+Content-Language: en-US
+To: Catalin Marinas <cmarinas@kernel.org>, Will Deacon <will@kernel.org>,
+ Shuah Khan <shuah@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
+ Oleg Nesterov <oleg@redhat.com>, Mark Brown <broonie@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+ Mark Rutland <mark.rutland@arm.com>, David Spickett
+ <david.spickett@arm.com>, Thiago Jung Bauermann
+ <thiago.bauermann@linaro.org>, linux-arm-kernel@lists.infradead.org,
+ linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-doc@vger.kernel.org
+References: <20251015-arm64-sme-ptrace-sme-only-v2-0-33c7b2f27cbf@kernel.org>
+ <176341325906.789443.15370787298292895484.b4-ty@arm.com>
+From: Luis <luis.machado.foss@gmail.com>
+In-Reply-To: <176341325906.789443.15370787298292895484.b4-ty@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251121_031716_605262_1181B6C0 
-X-CRM114-Status: GOOD (  11.16  )
+X-CRM114-CacheID: sfid-20251121_032534_245448_605B1303 
+X-CRM114-Status: GOOD (  13.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,225 +110,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add LVTS driver support for MT8196.
+[off-list, as I'm having bouncing issues]
 
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Tested-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Tested-by: Frank Wunderlich <frank-w@public-files.de>
-Signed-off-by: Laura Nao <laura.nao@collabora.com>
----
- drivers/thermal/mediatek/lvts_thermal.c | 164 ++++++++++++++++++++++++++++++++
- 1 file changed, 164 insertions(+)
+Hi,
 
-diff --git a/drivers/thermal/mediatek/lvts_thermal.c b/drivers/thermal/mediatek/lvts_thermal.c
-index 6558994cbee0..c1e20150b92c 100644
---- a/drivers/thermal/mediatek/lvts_thermal.c
-+++ b/drivers/thermal/mediatek/lvts_thermal.c
-@@ -92,6 +92,10 @@
- #define LVTS_COEFF_B_MT8195			250460
- #define LVTS_COEFF_A_MT7988			-204650
- #define LVTS_COEFF_B_MT7988			204650
-+#define LVTS_COEFF_A_MT8196			391460
-+#define LVTS_COEFF_B_MT8196			-391460
-+
-+#define LVTS_MSR_OFFSET_MT8196		-984
- 
- #define LVTS_MSR_READ_TIMEOUT_US	400
- #define LVTS_MSR_READ_WAIT_US		(LVTS_MSR_READ_TIMEOUT_US / 2)
-@@ -763,6 +767,39 @@ static int lvts_sensor_init(struct device *dev, struct lvts_ctrl *lvts_ctrl,
-  * <-----ap--tc#3-----> <-----sensor#7-----> <-----sensor#8----->
-  *  0x40 | 0x41 | 0x42 | 0x43 | 0x44 | 0x45 | 0x46 | 0x47 | 0x48
-  *
-+ * MT8196 :
-+ * Stream index map for MCU Domain mt8196 :
-+ *
-+ * <-sensor#1--> <-sensor#0--> <-sensor#3--> <-sensor#2-->
-+ *  0x04 | 0x05 | 0x06 | 0x07 | 0x08 | 0x09 | 0x0A | 0x0B
-+ *
-+ * <-sensor#5--> <-sensor#4--> <-sensor#7--> <-sensor#6-->
-+ *  0x0C | 0x0D | 0x0E | 0x0F | 0x10 | 0x11 | 0x12 | 0x13
-+ *
-+ * <-sensor#9--> <-sensor#8--> <-sensor#11-> <-sensor#10->
-+ *  0x14 | 0x15 | 0x16 | 0x17 | 0x18 | 0x19 | 0x1A | 0X1B
-+ *
-+ * <-sensor#13-> <-sensor#12-> <-sensor#15-> <-sensor#14->
-+ *  0x1C | 0x1D | 0x1E | 0x1F | 0x20 | 0x21 | 0x22 | 0x23
-+ *
-+ * Stream index map for APU Domain mt8196 :
-+ *
-+ * <-sensor#1--> <-sensor#0--> <-sensor#3--> <-sensor#2-->
-+ *  0x24 | 0x25 | 0x26 | 0x27 | 0x28 | 0x29 | 0x2A | 0x2B
-+ *
-+ * Stream index map for GPU Domain mt8196 :
-+ *
-+ * <-sensor#1--> <-sensor#0-->
-+ *  0x2C | 0x2D | 0x2E | 0x2F
-+ *
-+ * Stream index map for AP Domain mt8196 :
-+ *
-+ * <-sensor#1--> <-sensor#0--> <-sensor#3--> <-sensor#2-->
-+ *  0x30 | 0x31 | 0x32 | 0x33 | 0x34 | 0x35 | 0x36 | 0x37
-+ *
-+ * <-sensor#5--> <-sensor#4--> <-sensor#6--> <-sensor#7-->
-+ *  0x38 | 0x39 | 0x3A | 0x3B | 0x3C | 0x3D | 0x3E | 0x3F
-+ *
-  * Note: In some cases, values don't strictly follow a little endian ordering.
-  * The data description gives byte offsets constituting each calibration value
-  * for each sensor.
-@@ -1833,11 +1870,112 @@ static const struct lvts_ctrl_data mt8195_lvts_ap_data_ctrl[] = {
- 	}
- };
- 
-+static const struct lvts_ctrl_data mt8196_lvts_mcu_data_ctrl[] = {
-+	{
-+		.lvts_sensor = {
-+			{ .dt_id = MT8196_MCU_MEDIUM_CPU6_0,
-+			  .cal_offsets = { 0x06, 0x07 } },
-+			{ .dt_id = MT8196_MCU_MEDIUM_CPU6_1,
-+			  .cal_offsets = { 0x04, 0x05 } },
-+			{ .dt_id = MT8196_MCU_DSU2,
-+			  .cal_offsets = { 0x0A, 0x0B } },
-+			{ .dt_id = MT8196_MCU_DSU3,
-+			  .cal_offsets = { 0x08, 0x09 } }
-+		},
-+		VALID_SENSOR_MAP(1, 1, 1, 1),
-+		.offset = 0x0,
-+		.mode = LVTS_MSR_ATP_MODE,
-+	},
-+	{
-+		.lvts_sensor = {
-+			{ .dt_id = MT8196_MCU_LITTLE_CPU3,
-+			  .cal_offsets = { 0x0E, 0x0F } },
-+			{ .dt_id = MT8196_MCU_LITTLE_CPU0,
-+			  .cal_offsets = { 0x0C, 0x0D } },
-+			{ .dt_id = MT8196_MCU_LITTLE_CPU1,
-+			  .cal_offsets = { 0x12, 0x13 } },
-+			{ .dt_id = MT8196_MCU_LITTLE_CPU2,
-+			  .cal_offsets = { 0x10, 0x11 } }
-+		},
-+		VALID_SENSOR_MAP(1, 1, 1, 1),
-+		.offset = 0x100,
-+		.mode = LVTS_MSR_ATP_MODE,
-+	},
-+	{
-+		.lvts_sensor = {
-+			{ .dt_id = MT8196_MCU_MEDIUM_CPU4_0,
-+			  .cal_offsets = { 0x16, 0x17 } },
-+			{ .dt_id = MT8196_MCU_MEDIUM_CPU4_1,
-+			  .cal_offsets = { 0x14, 0x15 } },
-+			{ .dt_id = MT8196_MCU_MEDIUM_CPU5_0,
-+			  .cal_offsets = { 0x1A, 0x1B } },
-+			{ .dt_id = MT8196_MCU_MEDIUM_CPU5_1,
-+			  .cal_offsets = { 0x18, 0x19 } }
-+		},
-+		VALID_SENSOR_MAP(1, 1, 1, 1),
-+		.offset = 0x200,
-+		.mode = LVTS_MSR_ATP_MODE,
-+	},
-+	{
-+		.lvts_sensor = {
-+			{ .dt_id = MT8196_MCU_DSU0,
-+			  .cal_offsets = { 0x1E, 0x1F } },
-+			{ .dt_id = MT8196_MCU_DSU1,
-+			  .cal_offsets = { 0x1C, 0x1D } },
-+			{ .dt_id = MT8196_MCU_BIG_CPU7_0,
-+			  .cal_offsets = { 0x22, 0x23 } },
-+			{ .dt_id = MT8196_MCU_BIG_CPU7_1,
-+			  .cal_offsets = { 0x20, 0x21 } }
-+		},
-+		VALID_SENSOR_MAP(1, 1, 1, 1),
-+		.offset = 0x300,
-+		.mode = LVTS_MSR_ATP_MODE,
-+	}
-+};
-+
-+static const struct lvts_ctrl_data mt8196_lvts_ap_data_ctrl[] = {
-+	{
-+		.lvts_sensor = {
-+			{ .dt_id = MT8196_AP_TOP0,
-+			  .cal_offsets = { 0x32, 0x33 } },
-+			{ .dt_id = MT8196_AP_TOP1,
-+			  .cal_offsets = { 0x30, 0x31 } },
-+			{ .dt_id = MT8196_AP_TOP2,
-+			  .cal_offsets = { 0x36, 0x37 } },
-+			{ .dt_id = MT8196_AP_TOP3,
-+			  .cal_offsets = { 0x34, 0x35 } }
-+		},
-+		VALID_SENSOR_MAP(1, 1, 1, 1),
-+		.offset = 0x0,
-+		.mode = LVTS_MSR_ATP_MODE,
-+	},
-+	{
-+		.lvts_sensor = {
-+			{ .dt_id = MT8196_AP_BOT0,
-+			  .cal_offsets = { 0x3A, 0x3B } },
-+			{ .dt_id = MT8196_AP_BOT1,
-+			  .cal_offsets = { 0x38, 0x39 } },
-+			{ .dt_id = MT8196_AP_BOT2,
-+			  .cal_offsets = { 0x3E, 0x3F } },
-+			{ .dt_id = MT8196_AP_BOT3,
-+			  .cal_offsets = { 0x3C, 0x3D } }
-+		},
-+		VALID_SENSOR_MAP(1, 1, 1, 1),
-+		.offset = 0x100,
-+		.mode = LVTS_MSR_ATP_MODE,
-+	}
-+};
-+
- static const struct lvts_platform_ops lvts_platform_ops_mt7988 = {
- 	.lvts_raw_to_temp = lvts_raw_to_temp_mt7988,
- 	.lvts_temp_to_raw = lvts_temp_to_raw_mt7988,
- };
- 
-+static const struct lvts_platform_ops lvts_platform_ops_mt8196 = {
-+	.lvts_raw_to_temp = lvts_raw_to_temp_mt7988,
-+	.lvts_temp_to_raw = lvts_temp_to_raw_mt8196,
-+};
-+
- static const struct lvts_data mt7988_lvts_ap_data = {
- 	.lvts_ctrl	= mt7988_lvts_ap_data_ctrl,
- 	.conn_cmd	= mt7988_conn_cmds,
-@@ -1957,6 +2095,30 @@ static const struct lvts_data mt8195_lvts_ap_data = {
- 	.ops = &lvts_platform_ops_mt7988,
- };
- 
-+static const struct lvts_data mt8196_lvts_mcu_data = {
-+	.lvts_ctrl	= mt8196_lvts_mcu_data_ctrl,
-+	.num_lvts_ctrl	= ARRAY_SIZE(mt8196_lvts_mcu_data_ctrl),
-+	.temp_factor	= LVTS_COEFF_A_MT8196,
-+	.temp_offset	= LVTS_COEFF_B_MT8196,
-+	.gt_calib_bit_offset = 0,
-+	.def_calibration = 14437,
-+	.num_cal_offsets = 2,
-+	.msr_offset = LVTS_MSR_OFFSET_MT8196,
-+	.ops = &lvts_platform_ops_mt8196,
-+};
-+
-+static const struct lvts_data mt8196_lvts_ap_data = {
-+	.lvts_ctrl	= mt8196_lvts_ap_data_ctrl,
-+	.num_lvts_ctrl	= ARRAY_SIZE(mt8196_lvts_ap_data_ctrl),
-+	.temp_factor	= LVTS_COEFF_A_MT8196,
-+	.temp_offset	= LVTS_COEFF_B_MT8196,
-+	.gt_calib_bit_offset = 0,
-+	.def_calibration = 14437,
-+	.num_cal_offsets = 2,
-+	.msr_offset = LVTS_MSR_OFFSET_MT8196,
-+	.ops = &lvts_platform_ops_mt8196,
-+};
-+
- static const struct of_device_id lvts_of_match[] = {
- 	{ .compatible = "mediatek,mt7988-lvts-ap", .data = &mt7988_lvts_ap_data },
- 	{ .compatible = "mediatek,mt8186-lvts", .data = &mt8186_lvts_data },
-@@ -1966,6 +2128,8 @@ static const struct of_device_id lvts_of_match[] = {
- 	{ .compatible = "mediatek,mt8192-lvts-ap", .data = &mt8192_lvts_ap_data },
- 	{ .compatible = "mediatek,mt8195-lvts-mcu", .data = &mt8195_lvts_mcu_data },
- 	{ .compatible = "mediatek,mt8195-lvts-ap", .data = &mt8195_lvts_ap_data },
-+	{ .compatible = "mediatek,mt8196-lvts-mcu", .data = &mt8196_lvts_mcu_data },
-+	{ .compatible = "mediatek,mt8196-lvts-ap", .data = &mt8196_lvts_ap_data },
- 	{},
- };
- MODULE_DEVICE_TABLE(of, lvts_of_match);
+On 17/11/2025 21:00, Catalin Marinas wrote:
+> From: Catalin Marinas <catalin.marinas@arm.com>
+> 
+> On Wed, 15 Oct 2025 18:56:35 +0100, Mark Brown wrote:
+>> Currently it is not possible to disable streaming mode via ptrace on SME
+>> only systems, the interface for doing this is to write via NT_ARM_SVE but
+>> such writes will be rejected on a system without SVE support. Enable this
+>> functionality by allowing userspace to write SVE_PT_REGS_FPSIMD format data
+>> via NT_ARM_SVE with the vector length set to 0 on SME only systems. Such
+>> writes currently error since we require that a vector length is specified
+>> which should minimise the risk that existing software is relying on current
+>> behaviour.
+>>
+>> [...]
+> 
+> I don't think we'll get gdb feedback soon. Thanks David for the LLDB
+> ack.
 
--- 
-2.39.5
+Unfortunately this flew under the radar for me, and I haven´t been 
+following these discussions closely.
+
+Is there someone working to rectify/validate this in GDB from Arm's side?
+
+I´d gladly review it and get it through into upstream gdb.
 
