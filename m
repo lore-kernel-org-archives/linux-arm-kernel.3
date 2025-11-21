@@ -4,96 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D03DECFA758
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 09:04:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1738CCFA753
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 09:04:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qcWFlcuSs7Y0eO4oq2DsaroJj7DisvwmuRZnugA2UKI=; b=ezrah44YiemZLBPZP6FbVvSfaD
-	W6BMVmy7+iOc+sCLmLYbrofb5z7DftrPDGuhHjxnjX+tNiZIWIrnxAFAfkUk7SkcGBY8VyDm7Xh7n
-	V8at6f6sUID2vO70coQvZsOK3V78BYcb9VYNss0oWcPoF0myWcpYq5PdCOouRlg50b1Zme6kkWfXA
-	8TPjQtwLYTQAt3RCGFFa/kIMw8jlCCFrNxH7aLWtR7gynC25IJb13ViLAH7ZQtLgCCXGUxPraJFst
-	MryI45NxswDDb0mKuIfZKOvUc3+4qdh5dWyUaIsziNiOtM0ClC9SCLnqryVTNM9y2tCao2sVl/zOl
-	qoOa8SZA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eEwPaGvwHwjgZa/EQNC7gAHIwTUCVi7RCovDNgJxsho=; b=37XiLl5+Zdi4lFTXqhRAet6cQV
+	m3Q6M2OPGBiNBt6b8IjhkpW3ue4vKvspxcJxgBWBl4IKFZ6QrVLsuDTXldCsNRtThGq1BUQtFll9q
+	esYC3hf1PskpocyTvScDeGKgVC+EdAX4edMqX4KLKWem4OT5eG4u8VXvlnBgzMn/+dV1sx7fc+Dp7
+	c4OO5/w48xnN+4cZhALjeqHVWr0MRE7c3Eh3yvdYw/xWtXJLOMqk1RIlddmaT7ld0qFE6XWs1W1Ks
+	URAp7HttAuZDH11Z2FGm5gPGBzJwZBPyh6qn54B4P5Xi1LtHXp4Snod1GWDxdBoO4AFhNlEG50yl2
+	FMfHi74Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMN3e-000000087Qr-1M6B;
-	Fri, 21 Nov 2025 09:03:58 +0000
-Received: from mail-lf1-x135.google.com ([2a00:1450:4864:20::135])
+	id 1vMN4S-000000087bP-0nPz;
+	Fri, 21 Nov 2025 09:04:48 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMN3b-000000087Q2-250w
+	id 1vMN4R-000000087bD-0JJs
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Nov 2025 09:03:56 +0000
-Received: by mail-lf1-x135.google.com with SMTP id 2adb3069b0e04-5959b2f3fc9so1739214e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Nov 2025 01:03:54 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1763715833; x=1764320633; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=qcWFlcuSs7Y0eO4oq2DsaroJj7DisvwmuRZnugA2UKI=;
-        b=p0NzS16/L0HImRYWDoPCYSj5qkhwDLbdrgVBmBOoGvVW/LoFBtQbqbYCH4kTFDBlS3
-         mM6ZTLZHdBTXZiwg1QlN++kA5qRn8Yuo0zh66hamGG2m1tOdGpYfkeAbGXMQ31CCXmf9
-         IwRwWO4jnWiqah8OJMTgb+/LSxRMxyBQmZ1y8ZkNLhtCggbkZ3sBOyYxjJ8Viwdvxy0U
-         2O2M8Kfdd2tXkgPMgpwCLHIONfir6kUWM3U8Jz/xBBE9Dyekht+yAK/mhwFsILqmQozg
-         1deKR98rN0OHnughSuikk++wscAyLCAuYrkzigjvUKtUN5TyJoDCmYnKtmXyOl2GZVhP
-         LPdw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763715833; x=1764320633;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=qcWFlcuSs7Y0eO4oq2DsaroJj7DisvwmuRZnugA2UKI=;
-        b=hZbFxx2O3vaARzJZSzbLVD8bwPdp9ClghBik6FHNG45PHKo5++MF4HUJMVIwJPrayG
-         ovEbA+9QpAiVQrV7xX7hOFHp6euDhGVjTtB/FU08z2AXBrf5Oq61G0av7S5kxsurztm8
-         Liga4Ii1NWtUfX4s/T5rap8xr69Z1ii9r4Z4TqmntiYrxI9itqIvh+z/v+2sYAKYBdRx
-         lRSTWgr/qsQayYD8o0DhfSDZp0JbkniU/XMn8OVK6fGjBhRTy8QIqYHVdtqBL+h3JYn6
-         F1IqjMJLjPh1iAfG3UNY9l8kzsQ/fR6Yjk16eUum+dyKK/1rvyCObG38oStnRAu2fyWH
-         Bcxg==
-X-Forwarded-Encrypted: i=1; AJvYcCXK2XUmMDoCnxjt/FMr0dXoDWPebgHi/Ha9/ygnWrZlbzx/OU0gUCTlmrFlfpR7ny3cZgJygphcTldJGMqVZ5xf@lists.infradead.org
-X-Gm-Message-State: AOJu0YyW6GQ2+dtQmP3qy3V6mHcfn0l++0Nhmy/fUiwrV4Q4Aimthc02
-	BYFgAoNVU4OJdUnNm9SHBk0o9KzrjnLL2M+tP2kKwpEDzAn68EiFnYSW4tYTWZjbhue8p9sN6vy
-	929ArqrK/Ap4bfIFojX21+PrT4mcV5HmhQjh7W1Ezng==
-X-Gm-Gg: ASbGnctCJniXJpQOTbFJMInl0oM4KURkiWh9QZ2y+ZRiTeVLhirceraEHeCyNcCpnOt
-	bnCUAiagQQ4PH9w0IQlmMlwIye2aniACYT+XAefou3cYbjpMlowj6UiDj9477lRiIkRWg3tzNlY
-	zSxNOl4md0kWbMxDqaHml/bJZtepKPFbk2cbGmvBdv/qf1uozlGZXDAfU3tKvwbIxAAJ+RDetBx
-	LxY0Lzb6AHNFk2EfAzhLLXDsM0VbtlcOm7jv26Ju/oXLjT83cHMtMfan7N4CVKLXI8ft+ORRNri
-	oUtqZq7We0ajJy99zRP/ur0MsyE=
-X-Google-Smtp-Source: AGHT+IG0xMLdX41Lvo7vBm08ZV8ZEpQ5JhaXD6X3/W4zoN34NhHz8H25fTpuCQYyNb+ut5xnYF/JFxp9/xuV++nbU+8=
-X-Received: by 2002:a05:6512:e8c:b0:594:2f72:2f7b with SMTP id
- 2adb3069b0e04-596a3e9fd96mr603564e87.6.1763715833160; Fri, 21 Nov 2025
- 01:03:53 -0800 (PST)
+	Fri, 21 Nov 2025 09:04:47 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 7494E6022D;
+	Fri, 21 Nov 2025 09:04:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C1A1BC4CEF1;
+	Fri, 21 Nov 2025 09:04:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1763715886;
+	bh=mdWTS0w+dAGnTqUEF31kZZjQuTijMBMD7hWA2qO2TI8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=oIK2C9boupkzyp68FmyqtvUkEKe/Ewi0ktOCPLMi9UbgxO/K//IfYTREufWaHfGsv
+	 iZF0+9eSbAnzORngPUNCSbA3QR9pIJterlw/LsSUQgADlXbSEYKsh5fsbke2ELyfhq
+	 n1gmmFUpe30NvteBju0YUTkCsemAKUQcyfyNGaVwiB189bB5xkdvxx/4IxI61MWW3z
+	 PeO/PQZq0xoulqPJxM0KFGvhxj+3/4HfFnC6vmq7oAQOxquBOBWgMBA/pOH9VaU4RP
+	 1lH3v5vZvPQrmaqp2urqxe8OqMFWnH4rM4J7KKH1TIzr4bU0XDaX4V2PMDcZn9OO8R
+	 pljPZAVfHWAdg==
+Date: Fri, 21 Nov 2025 10:04:43 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Lukas Timmermann <linux@timmermann.space>
+Cc: Alim Akhtar <alim.akhtar@samsung.com>, Rob Herring <robh@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Alexandre Marquet <tb@a-marquet.fr>, 
+	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/3] dt-bindings: ARM: samsung: Add Samsung Manta (Google
+ Nexus 10)
+Message-ID: <20251121-convivial-wren-of-wind-cefe21@kuoka>
+References: <20251120144018.961604-1-linux@timmermann.space>
+ <20251120144018.961604-2-linux@timmermann.space>
 MIME-Version: 1.0
-References: <20251112-gpio-shared-v4-0-b51f97b1abd8@linaro.org> <3b5d9df5-934d-4591-8827-6c9573a6f7ba@packett.cool>
-In-Reply-To: <3b5d9df5-934d-4591-8827-6c9573a6f7ba@packett.cool>
-From: Bartosz Golaszewski <brgl@bgdev.pl>
-Date: Fri, 21 Nov 2025 10:03:40 +0100
-X-Gm-Features: AWmQ_bkRtfIm-ZUN8rNvHIz8drG7ooSNLpBN4-3cE0G66VIlgSyBd_sHX8YgQAA
-Message-ID: <CAMRc=McHCG8N0zeVUUvYF+rHqBrBKe52o+pf+Hjp5dnG3+NmjA@mail.gmail.com>
-Subject: Re: [PATCH v4 00/10] gpio: improve support for shared GPIOs
-To: Val Packett <val@packett.cool>
-Cc: Kees Cook <kees@kernel.org>, Mika Westerberg <westeri@kernel.org>, 
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>, Andrew Morton <akpm@linux-foundation.org>, 
-	Linus Walleij <linus.walleij@linaro.org>, Manivannan Sadhasivam <mani@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Saravana Kannan <saravanak@google.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Andy Shevchenko <andy@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Srinivas Kandagatla <srini@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
-	Alexey Klimov <alexey.klimov@linaro.org>, Bjorn Andersson <andersson@kernel.org>, 
-	Konrad Dybcio <konradybcio@kernel.org>, linux-hardening@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-sound@vger.kernel.org, 
-	linux-arm-msm@vger.kernel.org, 
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251121_010355_680544_1E6A7B7E 
-X-CRM114-Status: GOOD (  19.37  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20251120144018.961604-2-linux@timmermann.space>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,82 +72,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 21, 2025 at 1:28=E2=80=AFAM Val Packett <val@packett.cool> wrot=
-e:
->
-> Hi,
->
-> On 11/12/25 10:55 AM, Bartosz Golaszewski wrote:
-> > ---
-> > Bartosz Golaszewski (10):
-> >        string: provide strends()
-> >        gpiolib: define GPIOD_FLAG_SHARED
-> >        gpiolib: implement low-level, shared GPIO support
-> >        gpio: shared-proxy: implement the shared GPIO proxy driver
-> >        gpiolib: support shared GPIOs in core subsystem code
-> >        gpio: provide gpiod_is_shared()
-> >        arm64: select HAVE_SHARED_GPIOS for ARCH_QCOM
-> >        ASoC: wsa881x: drop GPIOD_FLAGS_BIT_NONEXCLUSIVE flag from GPIO =
-lookup
-> >        ASoC: wsa883x: drop GPIOD_FLAGS_BIT_NONEXCLUSIVE flag from GPIO =
-lookup
-> >        regulator: make the subsystem aware of shared GPIOs
->
-> this seems to actually have caused a regression for me, audio does not
-> initialize anymore on hamoa due to EBUSY since upgrading
-> from next-20251114 to next-20251118 or next-20251120:
->
+On Thu, Nov 20, 2025 at 03:40:14PM +0100, Lukas Timmermann wrote:
+> From: Alexandre Marquet <tb@a-marquet.fr>
+> 
+> Add the Google Nexus 10 board to documentation.
+> 
+> Signed-off-by: Alexandre Marquet <tb@a-marquet.fr>
+> Signed-off-by: Lukas Timmermann <linux@timmermann.space>
+> ---
+>  .../devicetree/bindings/arm/samsung/samsung-boards.yaml          | 1 +
+>  1 file changed, 1 insertion(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/arm/samsung/samsung-boards.yaml b/Documentation/devicetree/bindings/arm/samsung/samsung-boards.yaml
+> index f8e20e602c20..97a5a678f43c 100644
+> --- a/Documentation/devicetree/bindings/arm/samsung/samsung-boards.yaml
+> +++ b/Documentation/devicetree/bindings/arm/samsung/samsung-boards.yaml
+> @@ -120,6 +120,7 @@ properties:
+>                - google,snow-rev5                # Google Snow Rev 5+
+>                - google,spring                   # Google Spring
+>                - insignal,arndale                # Insignal Arndale
+> +              - samsung,nexus10-manta           # Samsung Manta (Google Nexus 10)
 
-Thanks for the heads-up.
+Google Nexus or Samsung Nexus or Samsung Manta? I am sorry, but I am
+100% sure that Samsung and Google are two different companies. Google
+products use only google prefixes, see all other Google devices.
 
-> [   11.748781] platform
-> 6800000.remoteproc:glink-edge:gpr:service@1:dais: Adding to iommu group 3=
-0
-> [   11.785864] wsa_macro 6aa0000.codec: using zero-initialized flat
-> cache, this may cause unexpected behavior
-> [   11.796964] reset-gpio reset-gpio.0: error -EBUSY: Could not get
-> reset gpios
-> [   11.796984] reset-gpio reset-gpio.0: probe with driver reset-gpio
-> failed with error -16
-> [   11.894662] reset-gpio reset-gpio.1: error -EBUSY: Could not get
-> reset gpios
-> [   11.894676] reset-gpio reset-gpio.1: probe with driver reset-gpio
-> failed with error -16
+Best regards,
+Krzysztof
 
-It seems like it's the reset-gpio driver, not shared GPIOLIB path?
-This driver has never used the GPIOD_FLAGS_BIT_NONEXCLUSIVE flag.
-
-> [   12.006938] wcd938x_codec audio-codec: bound sdw:2:0:0217:010d:00:4
-> (ops wcd_sdw_component_ops [snd_soc_wcd_common])
-> [   12.006964] wcd938x_codec audio-codec: bound sdw:3:0:0217:010d:00:3
-> (ops wcd_sdw_component_ops [snd_soc_wcd_common])
-> [   15.424657] qcom-soundwire 6ab0000.soundwire: qcom_swrm_irq_handler:
-> SWR CMD error, fifo status 0x4e00c00f, flushing fifo
-> [   21.994354] qcom-soundwire 6ab0000.soundwire: qcom_swrm_irq_handler:
-> SWR CMD error, fifo status 0xe00c000, flushing fifo
-> [   21.996001] qcom-soundwire 6b10000.soundwire: qcom_swrm_irq_handler:
-> SWR CMD error, fifo status 0x4e00c00f, flushing fifo
-> [   21.996239] platform sound: deferred probe pending: snd-x1e80100: WSA
-> Playback: codec dai not found
-> [   21.996248] soundwire sdw:4:0:0217:0204:00:0: deferred probe pending:
-> wsa884x-codec: Failed to get reset
-> [   21.996250] soundwire sdw:4:0:0217:0204:00:1: deferred probe pending:
-> wsa884x-codec: Failed to get reset
-> [   21.996251] soundwire sdw:1:0:0217:0204:00:0: deferred probe pending:
-> wsa884x-codec: Failed to get reset
-> [   21.996253] soundwire sdw:1:0:0217:0204:00:1: deferred probe pending:
-> wsa884x-codec: Failed to get reset
->
-> gpio_shared_proxy, reset_gpio, pinctrl_sm8550_lpass_lpi are all built as
-> modules and were autoloaded fine.
->
-> This is wsa884x (not wsa881x nor wsa883x), failing in
-> devm_reset_control_get_optional_shared..
->
-
-Can you enable DEBUG_GPIO in menuconfig and post the entire kernel log
-somewhere as well as the output of gpiodetect and gpioinfo after
-booting?
-
-Bartosz
 
