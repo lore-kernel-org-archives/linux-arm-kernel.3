@@ -4,146 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EE47CFA468
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 08:26:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D8EBCFA468
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 08:26:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QNVKTVtjst6ZEFVtH1YafY4MP3OGJGY5T4qdhFTV6yg=; b=nhQqLLCr2kCEBu3NXFkgEe+EeE
-	Jm6LMCyMGnI6S2D/YckEMU90/qnXORTaIBYZUi/KxI7oBoISvBtnHN1dfi7ey7U//KuwFPMoU0qiM
-	yI7cHMzQxSlMPXONftgbBCs0pzuR1whBVaGmL9Zv01RYw5AJJUeUYtp+sCSzIFZv64GEZMjvnfPK/
-	cGsTV8s7JToOIrSHnzqipgqMehI+XSaWbtUIlH/l4fKoTH70bbAQDWwcAj2vg9+cOyZodrAJWwAU4
-	o9oYtAr4wYYyTN1+O3TEeDEjbQgXci0UaFSMFS1jGutIrTbsdRWC2MINPXHlDo45e7X5mL8BVzS4f
-	T5RQJ1pw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:From:Message-Id:Content-Type
+	:Mime-Version:Subject:Cc:To:Date:Content-Transfer-Encoding:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=eJ+FzEufrvbHpOroaZ2V6g/NkWBVb9p6/GlSGX5who4=; b=yqXTXLA4RuF9MkAFVhviPVMZX+
+	7hLsjwN4N8qcBif4ZxBlmz1c2M4KsjtRygl/a8FHOm/t8nCESuEty9NnJJTc/UXHC1bF2JCz/SOC3
+	rL1dn14ZQTFVuYjiuZfdVrrEpfE46EMK0RkgdAwHTFwWLhtW+o8uQEOsHYb/f0BXjz0hShVYWioPZ
+	toYxpX5wrge1ix82Gs3kn8nyaMtfQoYQSdsnd6kQ87nwThEvL7cPSTXO232BNFr0huK2f69UotTEO
+	zqSKnqY5/Pgl6nJPU2Lm6TvlC1b4fAqfEDw3YhVMMQpmLWUesOWrA4HsuHw00vUhsXOWhVMTqFcEH
+	/pE+0H1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMMTS-0000000842J-37Rj;
-	Fri, 21 Nov 2025 08:26:34 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1vMMTh-0000000847D-3fZJ;
+	Fri, 21 Nov 2025 08:26:49 +0000
+Received: from sg-1-103.ptr.blmpb.com ([118.26.132.103])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMMTQ-0000000841N-1h4t
+	id 1vMMTQ-0000000841B-1B02
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Nov 2025 08:26:33 +0000
-Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5AL5TFtY2831860
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Nov 2025 08:26:31 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	QNVKTVtjst6ZEFVtH1YafY4MP3OGJGY5T4qdhFTV6yg=; b=KD9bAmfjVeSQMNhz
-	aKM2odgIQjyQsIsAj9obGtypuV/E0VdiLaiXvcX1z7A/5plLM0IS0Fso5q1eUGQX
-	SQZOq2EwTbFRXO0j6kqWdiMSl5m6GlKslrd3PT8QtmgGzDM1Xm9nj367Bl364bmi
-	tvGuMBHuGpJLNNnffaqyXr43TrkKdLu+cFmwxlS/syJ00Tq6xp44ZnDMw10jDsxq
-	OnceEVs3voR3Uzs0WxiaxgvgFVYHXFRAyAJAwF9TGq34LuPD43Guz4/pdIAfVNKn
-	7FHZwy7x6JXtqYZMCLLoCefWM9jDSPWHykOVnHnRv2Lni9TDSTWBLqsqdbxm/URP
-	+ZNGwg==
-Received: from mail-pj1-f72.google.com (mail-pj1-f72.google.com [209.85.216.72])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4ajhyq0fmj-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Nov 2025 08:26:31 +0000 (GMT)
-Received: by mail-pj1-f72.google.com with SMTP id 98e67ed59e1d1-34566e62f16so2175918a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Nov 2025 00:26:31 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1763713590; x=1764318390; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=QNVKTVtjst6ZEFVtH1YafY4MP3OGJGY5T4qdhFTV6yg=;
-        b=eXUW1NQpv9BNYJ/rbOOHnVlbqUqhJpJWHtdQaOpbzP2K5I92/Y+izxklCLEXVqEqAY
-         zdsV9TeVdU1gjCeqtfxbbtGc9Ll0FtH2ZMwOYXKGVk5HtC4IPmXCZhnIRTpAMJO7kXxC
-         6VLUPD1sxMmiDTx+gF02JuwE1hMo6Ns994t7SaF9q+dqWsENsQq3SJSWQPjBRvzAv1sJ
-         6mdqVXDaZf4PZkghtYiS0xVdQpRfqEnHvANQqrX5ERGaFeRgERux6JTGP+8ciZoZL63N
-         Lq+L9T3En8BkNib5MkVgIFE7rQGVLiocFqJLtYqlWHYKcRTLw7qh4Z7WjIkCuhGTPdmc
-         DChw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763713590; x=1764318390;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=QNVKTVtjst6ZEFVtH1YafY4MP3OGJGY5T4qdhFTV6yg=;
-        b=eszH2RFbOV9SccW+N8bzFp5YwUxoQQIuzVbCVsXdhz41gMqOkelmF68aYoL+Hr6hVM
-         G1ybJXL5mAemnGMZI3mU10fhgh8zBExiHRTKmqz9owVLXM8E5A0q1nUl21ii6oe9jjUr
-         sbw77b1+QlZO1hOtFnwdtj/igG/l84/ur76ICyurv36GG4Y8d0XvSUm736sQjuMBKZMp
-         8m8K5q3BitzgogPkW9uXzZFFTVgOFUwRaFuh5iffNdooA8p59JIhzwxsH4R3p2Q6k4Av
-         pNT9BGbF+pTL5gSKQfYiyIVYBmbni8hjhsJfRnE6PJb5ZdtBxXd/jHuC6Iovg8Z05qL4
-         NIyw==
-X-Forwarded-Encrypted: i=1; AJvYcCVxz0cIOyeAuB62ltGd0pg0Ya1dzEcwcJIDRstfHBEcUanpS6e8Eq+BxDRvbRlYiUmN9zh307CUDpRf9Qf3Ds0d@lists.infradead.org
-X-Gm-Message-State: AOJu0YzRAUD0+sMrql+iqZFg0w3YF6ri7PfY7Y8RJGVCNH/xej0LkU5o
-	5i3KpyEQF4868SVNUO/kkd/FQ+UuDS5vu5Qedfi1dlANNxMCXpLXIWwafpx3s2IA9ZZyCkjrsWi
-	aoSNM0x5c5mGLqb4cUZ1s3pvv1WysV+Pn34CG1ixZSAVr9yDv3W0vggq3zd3LijRyBV6PB4l6Hg
-	C4VQ==
-X-Gm-Gg: ASbGnctlS+Uj2Rh7lPF7ORWpp21fslDoEqq058QxZw4vry3EFe3L5/pKT3cp5iiGeee
-	+SkEiZUu5wCocRD47aXnJozOvYiPJG9QIqwP8XHmOWLJ6i73D1eHA8n6ei/8WrYqszgL4McytC9
-	IeAE9aPZjqpvtXfH+vQXGfuJM9fBPm8RH8Eqo+ZAmbvohdRn4lKY9SLIDp/nZOoaUhwzwHKVOup
-	H3EhxOLKXVVUJtCc7qVgBMkpWV/5DBQfLki2Clxy31qVEHUc106X8BoVPyFRvpl3ozCBhzURiAt
-	1qq1Z9mPjv/IJwCkfM4xMNdL4jg1SozdL1XfvGuRy8YJyERp/FHO15KLAzAJPtJiBAixyr+njZx
-	AveEeW3zdYyhuqdS5BhFS9yykbROoKvMNRWrEyI870Cv3DGTrYZPT4xIiPbGauV7hL7wp4VaPgP
-	s=
-X-Received: by 2002:a17:90b:37cf:b0:32e:7c34:70cf with SMTP id 98e67ed59e1d1-34733f5d324mr1632119a91.36.1763713590489;
-        Fri, 21 Nov 2025 00:26:30 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IGuBevw2FKEQYH+fjg0nmPWQ/BlIg2gNnWEfuCXeEFv6Sbqr8G7K9lkWtJ/3LY7h7/iY/0Zkg==
-X-Received: by 2002:a17:90b:37cf:b0:32e:7c34:70cf with SMTP id 98e67ed59e1d1-34733f5d324mr1632092a91.36.1763713589931;
-        Fri, 21 Nov 2025 00:26:29 -0800 (PST)
-Received: from [10.133.33.178] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3472693c35bsm4878413a91.14.2025.11.21.00.26.24
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 21 Nov 2025 00:26:29 -0800 (PST)
-Message-ID: <024539e5-1fcf-4ad8-8d7d-af87fd02a1b7@oss.qualcomm.com>
-Date: Fri, 21 Nov 2025 16:26:21 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 1/2] dt-bindings: arm: add CTCU device for monaco
-To: Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Mike Leach <mike.leach@linaro.org>,
-        James Clark <james.clark@linaro.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
-        Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>,
-        Mao Jinlong <jinlong.mao@oss.qualcomm.com>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>
-Cc: linux-arm-msm@vger.kernel.org, coresight@lists.linaro.org,
-        linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-        linux-kernel@vger.kernel.org, Krzysztof Kozlowski <krzk@kernel.org>
-References: <20251103-enable-ctcu-for-monaco-v4-0-92ff83201584@oss.qualcomm.com>
- <20251103-enable-ctcu-for-monaco-v4-1-92ff83201584@oss.qualcomm.com>
-Content-Language: en-US
-From: Jie Gan <jie.gan@oss.qualcomm.com>
-In-Reply-To: <20251103-enable-ctcu-for-monaco-v4-1-92ff83201584@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-GUID: IDnKcTyMij9EJ4ihmZT7JiG_d2K6Cmod
-X-Proofpoint-ORIG-GUID: IDnKcTyMij9EJ4ihmZT7JiG_d2K6Cmod
-X-Authority-Analysis: v=2.4 cv=N94k1m9B c=1 sm=1 tr=0 ts=69202237 cx=c_pps
- a=RP+M6JBNLl+fLTcSJhASfg==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
- a=IkcTkHD0fZMA:10 a=6UeiqGixMTsA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=KKAkSRfTAAAA:8 a=7CQSdrXTAAAA:8 a=VwQbUJbxAAAA:8
- a=EUspDBNiAAAA:8 a=51A4gIhVuH9znBGuUk4A:9 a=QEXdDO2ut3YA:10
- a=iS9zxrgQBfv6-_F4QbHw:22 a=cvBusfyB2V15izCimMoJ:22 a=a-qgeE7W1pNrGK8U0ZQC:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMTIxMDA2NCBTYWx0ZWRfX2BqnnY9mPk+f
- MD17UMePsjsx7mUOCpKeslCd9AfnR9WEuSS10O+NFq6RSU55hVSQbOWPY5f0qcJqMvyEWBqm+8l
- IrRHkTsEJaNPsg6zy/7ZgOwbv+1UNvYUv2Jb2Kj01ipiRIDfxhl82IsKZ/ljciheqCw93THQt19
- FN4fM51lBjnuuOR43Azkd0g+OylXZ7pAf909aG8ogwaLMdDkmxUysYFAHkCO7XnsJogm1wXyYzg
- SATc9xiiegJkcChFkB6bGhVzKjGXF6rEFZmpAPC7OBBOdctoxYg4pcGb9A1c0+8hV8ddMCZptI2
- WLju6gpa2QiC181kUe9eBPBcnI/qA8muNYH7as2qyx/cyBm/fVCH7rb2LKXTtX8RZpBNy5QN2nr
- LE72X/dLVReZi12irAy2+3YTvtdDzQ==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
- definitions=2025-11-21_02,2025-11-20_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- bulkscore=0 suspectscore=0 spamscore=0 adultscore=0 clxscore=1015
- priorityscore=1501 impostorscore=0 malwarescore=0 phishscore=0
- lowpriorityscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2510240001
- definitions=main-2511210064
+	Fri, 21 Nov 2025 08:26:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ s=2212171451; d=bytedance.com; t=1763713582; h=from:subject:
+ mime-version:from:date:message-id:subject:to:cc:reply-to:content-type:
+ mime-version:in-reply-to:message-id;
+ bh=eJ+FzEufrvbHpOroaZ2V6g/NkWBVb9p6/GlSGX5who4=;
+ b=PeFSzCGDA+NKze4ebHCvIJHhw8qQHa2mc06mQ7cdW04q4P+KxdIvvISbmrEIPZ1g+w8xfA
+ x3Kaw1fSFIWxqDUbL+Ref8TqbRrX4iA0iQVry79wTy+GRKcTshyIZWPXf6/gS1+/rGfPkR
+ PufKNJi71vkb94vjl/fTUwO7OVogzzY6KP7cPvLNWBFFc6iIYcRGq2O62rvAiG2yHa6oNn
+ I+iw99BLWWJZzfmV5HcsD9XWiQAE9MVgefqLYEpVbfgyzpGJLr0ribE0Jxsz/Zn2p1c5HH
+ JuTYRmK6VEi/fUPQdYMdqJzrAOPta/Ayq9EpJ6oOoox+t0n1PetoLY2FcpgGnw==
+Content-Transfer-Encoding: quoted-printable
+Date: Fri, 21 Nov 2025 16:26:19 +0800
+To: <cleger@rivosinc.com>
+Cc: "Paul Walmsley" <paul.walmsley@sifive.com>, 
+	"Palmer Dabbelt" <palmer@dabbelt.com>, 
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>, 
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
+	"Himanshu Chauhan" <hchauhan@ventanamicro.com>, 
+	"Anup Patel" <apatel@ventanamicro.com>, 
+	=?utf-8?q?=E8=B7=AF=E6=97=AD?= <luxu.kernel@bytedance.com>, 
+	"Atish Patra" <atishp@atishpatra.org>, 
+	=?utf-8?q?Bj=C3=B6rn_T=C3=B6pel?= <bjorn@rivosinc.com>, 
+	=?utf-8?q?=E5=B4=94=E8=BF=90=E8=BE=89?= <cuiyunhui@bytedance.com>, 
+	=?utf-8?q?=E5=85=83=E7=AB=B9?= <yuanzhu@bytedance.com>
+Subject: SSE May Corrupt KVM's Context
+Mime-Version: 1.0
+X-Lms-Return-Path: <lba+16920222c+946b48+lists.infradead.org+zhangzhanpeng.jasper@bytedance.com>
+Content-Type: text/plain; charset=UTF-8
+Message-Id: <00786ddb6d626442879072851d455bbd8ef1181d.e1f179e9.b8a1.463b.998f.98948268e9ea@bytedance.com>
+From: "Zhanpeng Zhang" <zhangzhanpeng.jasper@bytedance.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251121_002632_448663_578D932F 
-X-CRM114-Status: GOOD (  16.83  )
+X-CRM114-CacheID: sfid-20251121_002632_664040_5F57FFD4 
+X-CRM114-Status: UNSURE (   5.23  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,52 +76,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Cl=C3=A9ment,=C2=A0
 
+I encountered another SSE problem recently. Host SSE events may affect the =
+guest. Neither PMU-SBI-SSE or KVM-SSE is enabled. Just using the simplest r=
+iscv_sse_test to trigger ecall SSE, and it will affect the KVM vcpu running=
+ in the background.
 
-On 11/3/2025 3:06 PM, Jie Gan wrote:
-> The CTCU device for monaco shares the same configurations as SA8775p. Add
-> a fallback to enable the CTCU for monaco to utilize the compitable of the
-> SA8775p.
+The following log is the output of KVM and QEMU when vcpu crashes:
 
-Hi Maintainers,
+[=C2=A0 152.228548] kvm [145]: VCPU exit error -14
+[=C2=A0 152.230664] kvm [145]: SEPC=3D0xffffffff80040280 SSTATUS=3D0x200004=
+500 HSTATUS=3D0x200201100
+[=C2=A0 152.231868] kvm [145]: SCAUSE=3D0xf STVAL=3D0x3c8 HTVAL=3D0x0 HTINS=
+T=3D0x103023
+error: kvm run failed Bad address
+=C2=A0pc =C2=A0 =C2=A0 =C2=A0 ffffffff80040280
+=C2=A0mhartid=C2=A0 0000000000000000
+=C2=A0mstatus=C2=A0 0000000200000100
+=C2=A0mip =C2=A0 =C2=A0=C2=A0 0000000000000000
+=C2=A0mie =C2=A0 =C2=A0=C2=A0 0000000000000000
+=C2=A0mideleg=C2=A0 0000000000000000
+=C2=A0medeleg=C2=A0 0000000000000000
+=C2=A0mtvec =C2=A0=C2=A0 0000000000000000
+=C2=A0mepc =C2=A0 =C2=A0 0000000000000000
+=C2=A0mcause =C2=A0 0000000000000000
+=C2=A0mtval =C2=A0=C2=A0 0000000000000000
+=C2=A0mscratch 0000000000000000
+=C2=A0x0/zero=C2=A0 0000000000000000 x1/ra =C2=A0=C2=A0 ffffffff80c1ac2c x2=
+/sp =C2=A0=C2=A0 ffffffff81e03cf0 x3/gp =C2=A0=C2=A0 ffffffff8201aa68
+=C2=A0x4/tp =C2=A0=C2=A0 ffffffff81e0e0c0 x5/t0 =C2=A0=C2=A0 ffffffff80b91a=
+08 x6/t1 =C2=A0=C2=A0 ffffaf80fee00000 x7/t2 =C2=A0=C2=A0 0000000200000020
+=C2=A0x8/s0 =C2=A0=C2=A0 ffffffff81e03d50 x9/s1 =C2=A0=C2=A0 00000000010000=
+00 x10/a0 =C2=A0 0000000000000000 x11/a1 =C2=A0 0000000000000000
+=C2=A0x12/a2 =C2=A0 0000000001000000 x13/a3 =C2=A0 ffffaf80ffe00000 x14/a4 =
+=C2=A0 0000000000000000 x15/a5 =C2=A0 ffffaf7f80000000
+=C2=A0x16/a6 =C2=A0 0000000000000002 x17/a7 =C2=A0 0000000000000002 x18/s2 =
+=C2=A0 ffffaf80fee00000 x19/s3 =C2=A0 ffffffff81639170
+=C2=A0x20/s4 =C2=A0 ffffffff820200f8 x21/s5 =C2=A0 0000000000000000 x22/s6 =
+=C2=A0 0000000000000000 x23/s7 =C2=A0 0000000000000000
+=C2=A0x24/s8 =C2=A0 0000000000000000 x25/s9 =C2=A0 0000000000000000 x26/s10=
+=C2=A0 0000000000000000 x27/s11=C2=A0 0000000000000000
+=C2=A0x28/t3 =C2=A0 ffffffff80b85110 x29/t4 =C2=A0 ffffffff8205d258 x30/t5 =
+=C2=A0 ffffffff8205d258 x31/t6 =C2=A0 ffffffff8205d2a0
+[=C2=A0 152.312824] riscv_sse_test: FAILED: Failed to wait for event local_=
+software_injected completion on CPU 2
+[=C2=A0 152.317933] riscv_sse_test: FAILED: Received SSE event -65536 on CP=
+U 2 instead of 4
 
-Greeting for the Friday!
+The following is the assembly context where vcpu crashes, which is the SAVE=
+_GUEST_GPRS macro that runs when it get back to host(vcpu_switch.S: Lkvm_sw=
+itch_return).
+The sscratch is set to 0(or other bad and low addresses) by mistake, causin=
+g a crash when storing the virtual machine context.
 
-Do we have a chance to apply this patch for 6.19?
+=C2=A0=C2=A0 0xffffffff8004027c <+252>: =C2=A0 csrrw =C2=A0 a0,sscratch,a0
+=C2=A0=C2=A0 0xffffffff80040280 <+256>: =C2=A0 sd =C2=A0 =C2=A0=C2=A0 ra,96=
+8(a0)
+=C2=A0=C2=A0 0xffffffff80040284 <+260>: =C2=A0 sd =C2=A0 =C2=A0=C2=A0 sp,97=
+6(a0)
+=C2=A0=C2=A0 0xffffffff80040288 <+264>: =C2=A0 sd =C2=A0 =C2=A0=C2=A0 gp,98=
+4(a0)
+=C2=A0=C2=A0 0xffffffff8004028c <+268>: =C2=A0 sd =C2=A0 =C2=A0=C2=A0 tp,99=
+2(a0)
+=C2=A0=C2=A0 0xffffffff80040290 <+272>: =C2=A0 sd =C2=A0 =C2=A0=C2=A0 t0,10=
+00(a0)
+=C2=A0=C2=A0 0xffffffff80040294 <+276>: =C2=A0 sd =C2=A0 =C2=A0=C2=A0 t1,10=
+08(a0)
 
-Thanks for checking!
+This is a must-occur problem in my environment. As long as an idle VM is ru=
+nning in the background,=C2=A0 run the SSE test in loop on the host, and th=
+e vcpu will crash. Can this problem be reproduced in your environment?
 
-Jie
-
-> 
-> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-> Acked-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-> Reviewed-by: Bjorn Andersson <andersson@kernel.org>
-> Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
-> ---
->   Documentation/devicetree/bindings/arm/qcom,coresight-ctcu.yaml | 9 +++++++--
->   1 file changed, 7 insertions(+), 2 deletions(-)
-> 
-> diff --git a/Documentation/devicetree/bindings/arm/qcom,coresight-ctcu.yaml b/Documentation/devicetree/bindings/arm/qcom,coresight-ctcu.yaml
-> index c969c16c21ef..460f38ddbd73 100644
-> --- a/Documentation/devicetree/bindings/arm/qcom,coresight-ctcu.yaml
-> +++ b/Documentation/devicetree/bindings/arm/qcom,coresight-ctcu.yaml
-> @@ -26,8 +26,13 @@ description: |
->   
->   properties:
->     compatible:
-> -    enum:
-> -      - qcom,sa8775p-ctcu
-> +    oneOf:
-> +      - items:
-> +          - enum:
-> +              - qcom,qcs8300-ctcu
-> +          - const: qcom,sa8775p-ctcu
-> +      - enum:
-> +          - qcom,sa8775p-ctcu
->   
->     reg:
->       maxItems: 1
-> 
-
+Regards,
+Zhanpeng
 
