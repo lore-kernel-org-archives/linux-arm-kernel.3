@@ -4,83 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17624CFC28C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 15:48:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00E07CFC28D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 15:49:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GvTQy1gYriW9xl7vEzspYmyg5mBNmY71KZ9JC2a1rCo=; b=XcXCQHEM3MCBN5HFqG5Cof82l4
-	ZUXkGYe0naJnFYTs3xhdwXinpEjXWjLw5K4oLXoAE4wimMPBadzJHLfP2GPaBmlptw5F1F6qRP4kF
-	2K1aVFeL2I9ak0tjN5oHu7Cr6eNo0BroGbogC8HEnKY5ymjfXSdWONHsW/Qxk8IQ1ycuDJecnUlUx
-	WiLOEYkPZUKR/S2JcRjni36FXG/8yFQDLk6S+sEUYYeZwEQ5vodllDAtKW3qmSXgJ04Wj5hHmu8sd
-	Zq2kDihtfdfiMcG422tpSaceSB/EmqXZFbvdmM+8Hnnm4XAJ2Axlluhn25B7+zsWixUFpqfyPUgUA
-	bRJIEByw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=w9k2T4tG23heSDGRFCTHUPgEZ33I1v2w5qaXmCFP3rY=; b=agM5JBW5f+Le/+gd67MdubEM71
+	dzYDLY+YYihrlI90ygS1aBs6KTRjPJUTrYc5KWhrWS2kJueq4ipdEYR8Z0dENGtb+j1dsa2tYvzUy
+	beG8MDcnBZ17ihviSHKwxRgZBdW9KhgIcpTt8zJoJtOjZpLgSc3jYqbeKEbelXTGGsPAScsbHuTdF
+	MNbRXEDusMNfMHvFeTjG+LGIvRtvb12jADsrIYLaPHGTVphluKg5ci/yn5E5IoHU6L2Y9CiYGuwa/
+	L5/PXjDMf4GSMotNLt0dXNObad/od2j371H7TqtUrgoUMmqHB9cRMjgDkSTAHtNfmhzrnZTpxii9M
+	qKDLPXAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMTMm-00000008e7n-1QqV;
-	Fri, 21 Nov 2025 15:48:08 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vMTNk-00000008eGR-1snk;
+	Fri, 21 Nov 2025 15:49:08 +0000
+Received: from mgamail.intel.com ([192.198.163.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMTMj-00000008e7J-2wIf;
-	Fri, 21 Nov 2025 15:48:06 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id F011243B7A;
-	Fri, 21 Nov 2025 15:48:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 58CF7C4CEF1;
-	Fri, 21 Nov 2025 15:48:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763740084;
-	bh=LP19xB2HDi68fuNxVCCeUKCjpFYJR01O9e89Ljq/vBE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=gArfeFEl7E2v8V9k8s2WjNhF4wZMdNkZzkWgc7KQY8OQ/FD5Hc+1k+raO/DlGaXWx
-	 /GceRDthNXPsCEH4F2NCAVsMsVJwHJP/PlMNkiMVfx39FlHwL1/ma3z734ELDG2Oyd
-	 LldNcvyOwLeV/boYVeOAYG6A4XF2fPqfz4loVZhgi7bS1Pk+ppALCIT326VJe04F44
-	 ZvSW+Z7e8o710Rg/3/P64GqV2ZzTp390cBoGs83UqrDC4gnWvhssHMfEDesVbRGZGz
-	 575P6s9ja9jrdFOmW3pQeHf7jHjtrLlcjw59AcxB/MsvNzwrbd22kf8IswCoJvDDwo
-	 5/qlR1iV7lZOw==
-Date: Fri, 21 Nov 2025 16:48:02 +0100
-From: Maxime Ripard <mripard@kernel.org>
-To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-Cc: Andrzej Hajda <andrzej.hajda@intel.com>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
-	Simona Vetter <simona@ffwll.ch>, Sandy Huang <hjc@rock-chips.com>, 
-	Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>, Chen-Yu Tsai <wens@csie.org>, 
-	Samuel Holland <samuel@sholland.org>, Dave Stevenson <dave.stevenson@raspberrypi.com>, 
-	=?utf-8?B?TWHDrXJh?= Canal <mcanal@igalia.com>, Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, 
-	Liu Ying <victor.liu@nxp.com>, Rob Clark <robin.clark@oss.qualcomm.com>, 
-	Dmitry Baryshkov <lumag@kernel.org>, Abhinav Kumar <abhinav.kumar@linux.dev>, 
-	Jessica Zhang <jessica.zhang@oss.qualcomm.com>, Sean Paul <sean@poorly.run>, 
-	Marijn Suijten <marijn.suijten@somainline.org>, dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-sunxi@lists.linux.dev, 
-	linux-arm-msm@vger.kernel.org, freedreno@lists.freedesktop.org, 
-	Daniel Stone <daniels@collabora.com>
-Subject: Re: [PATCH v4 01/10] drm/connector: let drivers declare infoframes
- as unsupported
-Message-ID: <eiaxss57hauegv64ek4ddi3ib5x4t4g4xwiqvuaj43b52wpctb@p63ewh6tqblk>
-References: <20250909-drm-limit-infoframes-v4-0-53fd0a65a4a2@oss.qualcomm.com>
- <20250909-drm-limit-infoframes-v4-1-53fd0a65a4a2@oss.qualcomm.com>
- <20250910-furry-singing-axolotl-9aceac@houat>
- <z333ysst5ifakomo35jtbpydj44epqwwn4da76rcnsq4are62m@32gsmgx2pcdi>
- <20250925-didactic-spiked-lobster-fefabe@penduick>
- <jfxtcvh4l5kzyv74llmzz3bbt6m4mhzhhwl6lh5kfeqgqhkrhi@jzfvtxpedmyf>
- <20251003-primitive-sepia-griffin-cfca55@houat>
- <54a06852-4897-4dae-ab9c-330d99f3bf42@oss.qualcomm.com>
- <5cc5l2dihgdbgnwyugelwrklpaiiy5yaczqllu4bi6asvlt354@kib3flskh34g>
- <ez6y7q4lgbwt7kpnlpausjpznckr3yyejrwtxm7o6qw6wlhqoj@6iypzdhfthzy>
+	id 1vMTNh-00000008eG1-0nh6
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 21 Nov 2025 15:49:06 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1763740145; x=1795276145;
+  h=date:from:to:cc:subject:message-id:mime-version;
+  bh=I+eZM8y4822ZhQguud4i5d0RspiKKU1aFhvwdNevmxw=;
+  b=dLOevbYUXc0IY8KXrrKmb4MJnxoiV+GJWfnpPsPuL5mIVM3eTFY8+68F
+   xi7WuLEfKbT5mOGjfChwRoZSJmmI4FOqhSleBLfr4wB5uA2ZCkIXGXmdX
+   nnVsx9mMTnWHp0rMJ4pLJhJ9PrwCYSDLBjeJPqEKqpWtNiVwHr2nlKMpo
+   UbOESuG31EC0sfEb2T/CsiGNwJTTGfX52762JOwZ7oRgHLO+s+Bl1uVap
+   ZYT4GNkFkNw3oRB03AFwR23Vz99pUeJkhxidojusVK6NC8NYpgKOXzsy6
+   NLIPAY/gzOs3UkpOadmtLvf3TB3LF9kMa1JKQSbmB4ZvIaHWdyLUrFAr7
+   Q==;
+X-CSE-ConnectionGUID: +czuyMrcR7mAgewq6y/W4A==
+X-CSE-MsgGUID: 2UzUDlCnQ3azTwlu/Dfutw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11620"; a="69702102"
+X-IronPort-AV: E=Sophos;i="6.20,216,1758610800"; 
+   d="scan'208";a="69702102"
+Received: from orviesa010.jf.intel.com ([10.64.159.150])
+  by fmvoesa106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Nov 2025 07:49:03 -0800
+X-CSE-ConnectionGUID: os19VIQmS+WQt9HVXi79qQ==
+X-CSE-MsgGUID: lfxCkzQeT+eS4DRpKuSLHg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.20,216,1758610800"; 
+   d="scan'208";a="191022926"
+Received: from lkp-server01.sh.intel.com (HELO adf6d29aa8d9) ([10.239.97.150])
+  by orviesa010.jf.intel.com with ESMTP; 21 Nov 2025 07:49:02 -0800
+Received: from kbuild by adf6d29aa8d9 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1vMTNa-0006YF-2B;
+	Fri, 21 Nov 2025 15:48:58 +0000
+Date: Fri, 21 Nov 2025 23:48:22 +0800
+From: kernel test robot <lkp@intel.com>
+To: Linus Walleij <linus.walleij@linaro.org>
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	Marek Vasut <marek.vasut+renesas@mailbox.org>
+Subject: [linusw-nomadik:b4/mcde-drm-regression-thirdfix 4/4]
+ drivers/gpu/drm/renesas/rcar-du/rcar_du_kms.c:552:34: error: use of
+ undeclared identifier 'state'
+Message-ID: <202511212319.aUKKl3Vq-lkp@intel.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha384;
-	protocol="application/pgp-signature"; boundary="vnfz4xpbantfwz3r"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <ez6y7q4lgbwt7kpnlpausjpznckr3yyejrwtxm7o6qw6wlhqoj@6iypzdhfthzy>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251121_074805_830200_32F4B880 
-X-CRM114-Status: GOOD (  55.50  )
+X-CRM114-CacheID: sfid-20251121_074905_241744_D9442CCC 
+X-CRM114-Status: GOOD (  12.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,177 +87,115 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+tree:   https://git.kernel.org/pub/scm/linux/kernel/git/linusw/linux-nomadik.git b4/mcde-drm-regression-thirdfix
+head:   3e64b03a4bf2f67f43046af7e41c197df9fd6efb
+commit: 3e64b03a4bf2f67f43046af7e41c197df9fd6efb [4/4] RFT: drm/rcar-du: Modify custom commit tail
+config: arm-randconfig-003-20251121 (https://download.01.org/0day-ci/archive/20251121/202511212319.aUKKl3Vq-lkp@intel.com/config)
+compiler: clang version 22.0.0git (https://github.com/llvm/llvm-project 9e9fe08b16ea2c4d9867fb4974edf2a3776d6ece)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20251121/202511212319.aUKKl3Vq-lkp@intel.com/reproduce)
 
---vnfz4xpbantfwz3r
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v4 01/10] drm/connector: let drivers declare infoframes
- as unsupported
-MIME-Version: 1.0
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202511212319.aUKKl3Vq-lkp@intel.com/
 
-On Tue, Oct 14, 2025 at 07:02:03PM +0300, Dmitry Baryshkov wrote:
-> On Tue, Oct 14, 2025 at 02:43:58PM +0200, Maxime Ripard wrote:
-> > On Fri, Oct 03, 2025 at 06:41:58PM +0300, Dmitry Baryshkov wrote:
-> > > On 03/10/2025 17:23, Maxime Ripard wrote:
-> > > > On Thu, Sep 25, 2025 at 05:55:06PM +0300, Dmitry Baryshkov wrote:
-> > > > > > > As we will be getting more and more features, some of the Inf=
-oFrames
-> > > > > > > or data packets will be 'good to have, but not required'.
-> > > > > >=20
-> > > > > > And drivers would be free to ignore those.
-> > > > > >=20
-> > > > > > > > So, no, sorry. That's still a no for me. Please stop sendin=
-g that patch
-> > > > > > >=20
-> > > > > > > Oops :-)
-> > > > > > >=20
-> > > > > > > > unless we have a discussion about it and you convince me th=
-at it's
-> > > > > > > > actually something that we'd need.
-> > > > > > >=20
-> > > > > > > My main concern is that the drivers should not opt-out of the=
- features.
-> > > > > > > E.g. if we start supporting ISRC packets or MPEG or NTSC VBI =
-InfoFrames
-> > > > > > > (yes, stupid examples), it should not be required to go throu=
-gh all the
-> > > > > > > drivers, making sure that they disable those. Instead the DRM=
- framework
-> > > > > > > should be able to make decisions like:
-> > > > > > >=20
-> > > > > > > - The driver supports SPD and the VSDB defines SPD, enable th=
-is
-> > > > > > >    InfoFrame (BTW, this needs to be done anyway, we should no=
-t be sending
-> > > > > > >    SPD if it's not defined in VSDB, if I read it correctly).
-> > > > > > >=20
-> > > > > > > - The driver hints that the pixel data has only 10 meaninful =
-bits of
-> > > > > > >    data per component (e.g. out of 12 for DeepColor 36), the =
-Sink has
-> > > > > > >    HF-VSDB, send HF-VSIF.
-> > > > > > >=20
-> > > > > > > - The driver has enabled 3D stereo mode, but it doesn't decla=
-re support
-> > > > > > >    for HF-VSIF. Send only H14b-VSIF.
-> > > > > > >=20
-> > > > > > > Similarly (no, I don't have these on my TODO list, these are =
-just
-> > > > > > > examples):
-> > > > > > > - The driver defines support for NTSC VBI, register a VBI dev=
-ice.
-> > > > > > >=20
-> > > > > > > - The driver defines support for ISRC packets, register ISRC-=
-related
-> > > > > > >    properties.
-> > > > > > >=20
-> > > > > > > - The driver defines support for MPEG Source InfoFrame, provi=
-de a way
-> > > > > > >    for media players to report frame type and bit rate.
-> > > > > > >=20
-> > > > > > > - The driver provides limited support for Extended HDR DM Inf=
-oFrames,
-> > > > > > >    select the correct frame type according to driver capabili=
-ties.
-> > > > > > >=20
-> > > > > > > Without the 'supported' information we should change atomic_c=
-heck()
-> > > > > > > functions to set infoframe->set to false for all unsupported =
-InfoFrames
-> > > > > > > _and_ go through all the drivers again each time we add suppo=
-rt for a
-> > > > > > > feature (e.g. after adding HF-VSIF support).
-> > > > > >=20
-> > > > > >  From what you described here, I think we share a similar goal =
-and have
-> > > > > > somewhat similar concerns (thanks, btw, it wasn't obvious to me=
- before),
-> > > > > > we just disagree on the trade-offs and ideal solution :)
-> > > > > >=20
-> > > > > > I agree that we need to sanity check the drivers, and I don't w=
-ant to go
-> > > > > > back to the situation we had before where drivers could just ig=
-nore
-> > > > > > infoframes and take the easy way out.
-> > > > > >=20
-> > > > > > It should be hard, and easy to catch during review.
-> > > > > >=20
-> > > > > > I don't think bitflag are a solution because, to me, it kind of=
- fails
-> > > > > > both.
-> > > > > >=20
-> > > > > > What if, just like the debugfs discussion, we split write_infof=
-rame into
-> > > > > > write_avi_infoframe (mandatory), write_spd_infoframe (optional),
-> > > > > > write_audio_infoframe (checked by drm_connector_hdmi_audio_init=
-?) and
-> > > > > > write_hdr_infoframe (checked in drmm_connector_hdmi_init if max=
-_bpc > 8)
-> > > > > >=20
-> > > > > > How does that sound?
-> > > > >=20
-> > > > > I'd say, I really like the single function to be called for writi=
-ng the
-> > > > > infoframes. It makes it much harder for drivers to misbehave or t=
-o skip
-> > > > > something.
-> > > >=20
-> > > >  From a driver PoV, I believe we should still have that single func=
-tion
-> > > > indeed. It would be drm_atomic_helper_connector_hdmi_update_infofra=
-mes's
-> > > > job to fan out and call the multiple callbacks, not the drivers.
-> > >=20
-> > > I like this idea, however it stops at the drm_bridge_connector abstra=
-ction.
-> > > The only way to handle this I can foresee is to make individual bridg=
-es
-> > > provide struct drm_connector_hdmi_funcs implementation (which I'm fin=
-e with)
-> > > and store void *data or struct drm_bridge *hdmi_bridge somewhere insi=
-de
-> > > struct drm_connector_hdmi in order to let bridge drivers find their d=
-ata.
-> >=20
-> > Does it change anything? The last HDMI bridge should implement all the
-> > infoframes it supports. I don't think we should take care of one bridge
-> > with one infoframe type and some other with another?
->=20
-> Note: I wrote about the _data_. So far the connector's write_infoframe /
-> clear_infoframe callbacks get drm_connector as an arg. The fact that
-> there is a drm_bridge which implements a callback is hidden well inside
-> drm_bridge_connector (and only it knows the bridge_hdmi pointer).
-> Otherwise, the bridge, trying to implement drm_connector_hdmi_funcs has
-> no way to go from drm_connector to drm_bridge.
->=20
-> The only possible solution would be to introduce something like
-> drm_connector_hdmi::data (either void* or drm_bridge*) and use it
-> internally. But for me this looks like a bit loose abstraction. Though,
-> if it looks good from your POV, I agree, it would solve enough of
-> issues.
+All errors (new ones prefixed by >>):
 
-I'm not sure I understand, sorry.
+>> drivers/gpu/drm/renesas/rcar-du/rcar_du_kms.c:552:34: error: use of undeclared identifier 'state'
+     552 |         drm_encoder_bridge_disable(dev, state);
+         |                                         ^~~~~
+   drivers/gpu/drm/renesas/rcar-du/rcar_du_kms.c:553:39: error: use of undeclared identifier 'state'
+     553 |         drm_encoder_bridge_post_disable(dev, state);
+         |                                              ^~~~~
+   drivers/gpu/drm/renesas/rcar-du/rcar_du_kms.c:554:24: error: use of undeclared identifier 'state'
+     554 |         drm_crtc_disable(dev, state);
+         |                               ^~~~~
+   drivers/gpu/drm/renesas/rcar-du/rcar_du_kms.c:555:53: error: use of undeclared identifier 'state'
+     555 |         drm_atomic_helper_update_legacy_modeset_state(dev, state);
+         |                                                            ^~~~~
+   drivers/gpu/drm/renesas/rcar-du/rcar_du_kms.c:556:48: error: use of undeclared identifier 'state'
+     556 |         drm_atomic_helper_calc_timestamping_constants(state);
+         |                                                       ^~~~~
+   drivers/gpu/drm/renesas/rcar-du/rcar_du_kms.c:557:25: error: use of undeclared identifier 'state'
+     557 |         drm_crtc_set_mode(dev, state);
+         |                                ^~~~~
+   drivers/gpu/drm/renesas/rcar-du/rcar_du_kms.c:563:23: error: use of undeclared identifier 'state'
+     563 |         drm_crtc_enable(dev, state);
+         |                              ^~~~~
+   drivers/gpu/drm/renesas/rcar-du/rcar_du_kms.c:564:37: error: use of undeclared identifier 'state'
+     564 |         drm_encoder_bridge_pre_enable(dev, state);
+         |                                            ^~~~~
+   drivers/gpu/drm/renesas/rcar-du/rcar_du_kms.c:565:33: error: use of undeclared identifier 'state'
+     565 |         drm_encoder_bridge_enable(dev, state);
+         |                                        ^~~~~
+   drivers/gpu/drm/renesas/rcar-du/rcar_du_kms.c:566:43: error: use of undeclared identifier 'state'
+     566 |         drm_atomic_helper_commit_writebacks(dev, state);
+         |                                                  ^~~~~
+   10 errors generated.
 
-What prevents us from adding ~4 functions to bridge->funcs that take the
-bridge, and drm_bridge_connector would get the connector, retrieve the
-bridge instance from it, and pass it to the bridge actually implementing
-it? Like we do currently for write_infoframe and clear_infoframe
-already?
 
-Maxime
+vim +/state +552 drivers/gpu/drm/renesas/rcar-du/rcar_du_kms.c
 
---vnfz4xpbantfwz3r
-Content-Type: application/pgp-signature; name="signature.asc"
+   516	
+   517	static void rcar_du_atomic_commit_tail(struct drm_atomic_state *old_state)
+   518	{
+   519		struct drm_device *dev = old_state->dev;
+   520		struct rcar_du_device *rcdu = to_rcar_du_device(dev);
+   521		struct drm_crtc_state *crtc_state;
+   522		struct drm_crtc *crtc;
+   523		unsigned int i;
+   524	
+   525		/*
+   526		 * Store RGB routing to DPAD0 and DPAD1, the hardware will be configured
+   527		 * when starting the CRTCs.
+   528		 */
+   529		rcdu->dpad1_source = -1;
+   530	
+   531		for_each_new_crtc_in_state(old_state, crtc, crtc_state, i) {
+   532			struct rcar_du_crtc_state *rcrtc_state =
+   533				to_rcar_crtc_state(crtc_state);
+   534			struct rcar_du_crtc *rcrtc = to_rcar_crtc(crtc);
+   535	
+   536			if (rcrtc_state->outputs & BIT(RCAR_DU_OUTPUT_DPAD0))
+   537				rcdu->dpad0_source = rcrtc->index;
+   538	
+   539			if (rcrtc_state->outputs & BIT(RCAR_DU_OUTPUT_DPAD1))
+   540				rcdu->dpad1_source = rcrtc->index;
+   541		}
+   542	
+   543		/*
+   544		 * Apply the atomic update.
+   545		 *
+   546		 * We need special ordering to make sure the CRTC disabled last
+   547		 * and enabled first. We do this with modified versions of the
+   548		 * common modeset_disables/enables functions.
+   549		 */
+   550	
+   551		/* Variant of drm_atomic_helper_commit_modeset_disables() */
+ > 552		drm_encoder_bridge_disable(dev, state);
+   553		drm_encoder_bridge_post_disable(dev, state);
+   554		drm_crtc_disable(dev, state);
+   555		drm_atomic_helper_update_legacy_modeset_state(dev, state);
+   556		drm_atomic_helper_calc_timestamping_constants(state);
+   557		drm_crtc_set_mode(dev, state);
+   558	
+   559		drm_atomic_helper_commit_planes(dev, old_state,
+   560						DRM_PLANE_COMMIT_ACTIVE_ONLY);
+   561	
+   562		/* Variant of drm_atomic_helper_commit_modeset_enables() */
+   563		drm_crtc_enable(dev, state);
+   564		drm_encoder_bridge_pre_enable(dev, state);
+   565		drm_encoder_bridge_enable(dev, state);
+   566		drm_atomic_helper_commit_writebacks(dev, state);
+   567	
+   568		drm_atomic_helper_commit_hw_done(old_state);
+   569		drm_atomic_helper_wait_for_flip_done(dev, old_state);
+   570	
+   571		drm_atomic_helper_cleanup_planes(dev, old_state);
+   572	}
+   573	
 
------BEGIN PGP SIGNATURE-----
-
-iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCaSCJsgAKCRAnX84Zoj2+
-dh89AYC3OvDkzVUlxqCCClS0XtTSV3f+Nh4/Ge3ApQd7tPCinePMjVqIhRTX3dQG
-WVZWcbMBfitqxdp4k9BqJt3mOot50bZme9uev5F+nwaHhM+5UZP2cO8R3UKSWVxx
-o5Zr7qAz4A==
-=c8cr
------END PGP SIGNATURE-----
-
---vnfz4xpbantfwz3r--
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
