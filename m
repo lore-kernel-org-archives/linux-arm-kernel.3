@@ -4,90 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EB82CFA74F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 08:47:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BE14CFA754
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 08:48:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9rw6P3vTkq9/VDf2BdRM52eT1wyytd0Ws0h+4Sg6bhM=; b=3MKF5I+UmKWfq+yj8onzX1iPJV
-	ljBjS8Em9bxvShjK26weRJVuNBU9UJP1fDm531DX7MffikH4oxQ5BBSA+iS13IVGcMY0DVyqv1BkX
-	tDY4dMP286I60B2zfmbDYN9VYzKlFlluo3vzcOwYrExGF8UFZSVDXsExd/Rh2zsHX6OWwSZZUH0dH
-	bX8zXLUJRVsnl9LYRqFRvKhiPfdcTuEYexjmwz0ZFa1LtouyJASs98Saq/ulBAcxdcEa1GkTBtKfR
-	IquTT7r8ij2Q/5bq8IcRL9EgDV36dOXnJTquNpHsRQeCJP36tblGaVBNVnF+m0clw7U+/jsAhwXjw
-	aBWoyXcA==;
+	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
+	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dYV7kYk0gVZSLvesijw8GqzdIX8qi3XKfGlYXeHpxBc=; b=HZytKRwViW9ddNd2lEGZer0dvu
+	T+ZaEwvkJT79P4Z9B9MUlAcTaGMT0eSlt/MhCb1MenJ+FzSKAYG4iBKwkfMzfcMTC1WgF+hAVylKU
+	UX/f2tTMv8S/g5dvr8oSkhOZ1j5v3mHD0h3L09lvqxBJ8Fg+pJjilqBlstwsDiT3vdFfOiDKOKpfg
+	EFu8+q9uN1WyVki7ba9DHrY+VNrQ86jhXlEXdHwzDjjETtQ1RrmWMd+T0tXQuUOIDbvbIAVblOph0
+	3co7fUKd/nyeVJ1dmU1RY/S4q1CUzYinPpBcmDtGKAebm1QFxQ2CPFJpJq18gpOo1oKgYfQ8tIwKQ
+	lgfsGVDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMMnF-000000085lY-2fNC;
-	Fri, 21 Nov 2025 08:47:01 +0000
-Received: from mail-pf1-x42b.google.com ([2607:f8b0:4864:20::42b])
+	id 1vMMoV-000000085st-1Ov4;
+	Fri, 21 Nov 2025 08:48:19 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMMnD-000000085ks-3rT4
+	id 1vMMoU-000000085sh-14xv
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Nov 2025 08:47:01 +0000
-Received: by mail-pf1-x42b.google.com with SMTP id d2e1a72fcca58-7b22ffa2a88so1574270b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Nov 2025 00:46:58 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1763714818; x=1764319618; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=9rw6P3vTkq9/VDf2BdRM52eT1wyytd0Ws0h+4Sg6bhM=;
-        b=tX7YYGhDS5nRY6mU0gwehzkzr0wFaFwdG+wEzc3M0CPJ0OTRzQSg/ygB4VK6QIt2so
-         HIMau39h96jAEQ6oZ4sjRfVw6thFU/9DH4sNz23/OwSPh7B/BmCDJvJLwU8UvPDYhpz2
-         MHerwlgi9Xx5z+nm7iNILyCDn/Fk23s3PxdcLQWlq/GmVt8DC5yX7V02aP7MTp6AgLTy
-         xA9EQnxRlWJhJ0Sb4PXrLyLX/mvti/PzUQkwksUhML3ZE8QQhVZ/4y9S3OS6XA6i5Js/
-         rrYWUQA04HXIoDY7Js+5M3kQT+1baCc0anPpwfb9HzHcSDTiDt5TGdLFxSX6DvTlupWa
-         op4A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763714818; x=1764319618;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=9rw6P3vTkq9/VDf2BdRM52eT1wyytd0Ws0h+4Sg6bhM=;
-        b=g4sgquLs82PxfdrbN+WxhrEnMwTEPnS8qppgMmd3NxXt+j3kYmwZCDqdmQcCuFtbSG
-         kHRBhdBNllKQ8mgpmYROPMis+XTfv7kaW3O69nm3+bv1u1NBieGtCAH7nyAKFpujA2dD
-         bpZIwoFQ/s8OpK46Y1tgCuY70Og52suwGgbuDuNvfxty0zdZzoxGWhlL9/6mulqXPD8U
-         0mnt+/wWkv1VXphBmynoyaBMUZum+foOYnK/XvbKL2UQjIj4CWjxpklsX2HRk64RpMnY
-         hPvqCAzJvA694NZ9bxX1Fs2PbVLcKIhpUdvoFSYYFG9F5ewVhmnNpHDPtD9gv3D50HfX
-         k+Lg==
-X-Forwarded-Encrypted: i=1; AJvYcCUBEfZ1U4IBTokFtFw/zWHq59Cq3KqwEBdLi51YQhbg4h5YUeCXnRQ+yvc0K4Own0ozJ4YthgGqrMQOUKnCHrPh@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzhk8dQxgHhcufWKRMLHbS2kMMQwZF2mb5xv3OGFrt55VP+vzcB
-	SoJCkqny/Q/4lDijf5mRlug638ZLxAZAS72qjiHjPwmoIAhIfRfk6jhO3P1jfqZF4HwYCZdbETQ
-	wdGmywjSRr/6uB0h26NbK3VxJqryztEy3sqAm7gMx
-X-Gm-Gg: ASbGnctH9iTtrmsKTubPkZNc0HrDXfJ3twzNK34GSzBh8GbV0MzcZA2HiI9WXkA0Y1t
-	Ltk+krGt2r38plKzRM0H+a54zMaNtd6W/AKfmIRmY6ejDiPYO175kV+2bobXJjFYvc0TBW+e6eE
-	6ynOTN+l2HbHxz+rihceg+FWHCvzjeYTNGJiTOqUkc9jSS5DTZBIX83r0rGRw6nwHj9KBaa+P7m
-	zNiLUtwrqAAwMeFjktP4Z5ApCy9WxtRqJuM25gEYznk4UUHOGO8aGdxb612jJS4Ej1kA5Y=
-X-Google-Smtp-Source: AGHT+IEGKK1JVapl4Bfkn+X1caSvW4BJYyhUwjXrKD36ojgbUTuY+cLlAhIn+4hGtsKsgQZA7TevAUxQK94FOcafFjQ=
-X-Received: by 2002:a05:7022:ea46:10b0:119:e569:f26c with SMTP id
- a92af1059eb24-11c9d819c4amr549173c88.21.1763714817986; Fri, 21 Nov 2025
- 00:46:57 -0800 (PST)
-MIME-Version: 1.0
-References: <20251120-phyb4-v6-0-b6694e1f0caf@google.com> <20251120-phyb4-v6-1-b6694e1f0caf@google.com>
- <20251121-attentive-demonic-jacamar-fc4afb@kuoka>
-In-Reply-To: <20251121-attentive-demonic-jacamar-fc4afb@kuoka>
-From: Roy Luo <royluo@google.com>
-Date: Fri, 21 Nov 2025 16:46:21 +0800
-X-Gm-Features: AWmQ_bmUVOlmJqcVyT_EtvB6gdvlOG5rtdefUR1SndkOE8ikDuOVfBKFFoK6hGc
-Message-ID: <CA+zupgxskC2HMy_sLusDbb_L1t49frjLQW6isBfAKa6BgNvpNQ@mail.gmail.com>
-Subject: Re: [PATCH v6 1/2] dt-bindings: phy: google: Add Google Tensor G5 USB PHY
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Peter Griffin <peter.griffin@linaro.org>, =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
-	Tudor Ambarus <tudor.ambarus@linaro.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	Badhri Jagan Sridharan <badhri@google.com>, Doug Anderson <dianders@google.com>, linux-phy@lists.infradead.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
-	Joy Chakraborty <joychakr@google.com>, Naveen Kumar <mnkumar@google.com>
-Content-Type: text/plain; charset="UTF-8"
+	Fri, 21 Nov 2025 08:48:18 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 12D96601EF;
+	Fri, 21 Nov 2025 08:48:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 96255C4CEF1;
+	Fri, 21 Nov 2025 08:48:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1763714896;
+	bh=OUDGpBZDkEF3ySxw/DubSWv8lCLf/8bprs+E92p9msE=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=nym8QA/4pUtTT7KbzxjHpCROPkgxhY9urUzAdVQAW4mpzhEzAe/cqwUjM3tsNl0sQ
+	 Q1UY5xAqHAeOon/ygQvG56xZtzLRVqzRX7aLhNHDRw0m413K6JOPxKRawIDw9a7V0P
+	 CGoD5MXgj1z32uWsaITdlo+7eZqoErgliNIUBzUhmbYcUfSJKfH4PhZj9DgZme/B/5
+	 ljtJqSl7l5PQFB6I3xGG6BUFXMZkz/DHLmR5UyqwRwzkPiabHyhWkP1HXZOOE2sbYu
+	 zDi3ks2K82mRl2GXZtCbUB9Dvmd0684Dl8M4cTDdzcsDysAYK/ka07AQxXv15zSjbu
+	 rvesMlrkY9Kfg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vMMoP-00000007A9E-3sXc;
+	Fri, 21 Nov 2025 08:48:14 +0000
+Date: Fri, 21 Nov 2025 08:48:13 +0000
+Message-ID: <863467srea.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Radu Rendec <rrendec@redhat.com>
+Cc: linux-pci@vger.kernel.org,	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,	Bjorn Helgaas <bhelgaas@google.com>,
+	Manivannan Sadhasivam <mani@kernel.org>,	Rob Herring <robh@kernel.org>,
+	Krzysztof =?UTF-8?B?V2lsY3p5xYRza2k=?= <kwilczynski@kernel.org>,	Lorenzo
+ Pieralisi <lpieralisi@kernel.org>
+Subject: Re: [PATCH] PCI: host-generic: Move bridge allocation outside of pci_host_common_init()
+In-Reply-To: <73a0863a70d558efaf29d6b988f3fec6312a22a9.camel@redhat.com>
+References: <20251120113630.2036078-1-maz@kernel.org>
+	<73a0863a70d558efaf29d6b988f3fec6312a22a9.camel@redhat.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251121_004659_963649_D06763CF 
-X-CRM114-Status: GOOD (  19.84  )
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: rrendec@redhat.com, linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, bhelgaas@google.com, mani@kernel.org, robh@kernel.org, kwilczynski@kernel.org, lpieralisi@kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,55 +85,212 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 21, 2025 at 4:16=E2=80=AFPM Krzysztof Kozlowski <krzk@kernel.or=
-g> wrote:
->
-> On Thu, Nov 20, 2025 at 05:36:41PM +0000, Roy Luo wrote:
->
-> I read last discussion and patch is fine, except one issue in example I
-> never noticed before (see at the end), which I want to fix. Apologies
-> for not bringing it up anytime earlier, I missed it. While at it also
-> one more nit.
->
-> > +description: |
->
-> nit: drop |, do not need '|' unless you need to preserve formatting.
->
-> > +  Describes the USB PHY interfaces integrated with the DWC3 USB contro=
-ller on
-> > +  Google Tensor SoCs, starting with the G5 generation (laguna).
-> > +  Two specific PHY IPs from Synopsys are integrated, including eUSB 2.=
-0 PHY IP
-> > +  and USB3.2/DisplayPort combo PHY IP.
->
-> ...
->
-> > > +
-> > +additionalProperties: false
+On Thu, 20 Nov 2025 17:58:42 +0000,
+Radu Rendec <rrendec@redhat.com> wrote:
+>=20
+> On Thu, 2025-11-20 at 11:36 +0000, Marc Zyngier wrote:
+> > Having the host bridge allocation inside pci_host_common_init() results
+> > in a lot of complexity in the pcie-apple driver (the only direct user
+> > of this function outside of code PCI code).
+>                               ^^^^
+> nit: s/code/core :)
+>=20
+> > It forces the allocation of driver-specific tracking structures outside
+> > of the bridge allocation, which in turns requires it to use inneficient
+> > data structures to match the bridge and the private structre as needed.
+> >=20
+> > Instead, let the bridge structure be passed to pci_host_common_init(),
+> > allowing the driver to allocate it together with the private data,
+> > as it is usually intended. The driver can then retrieve the bridge
+> > via the owning device attached to the PCI config window structure.
+> > This allows the pcie-apple driver to be significantly simplified.
+> >=20
+> > Both core and driver code are changed in one go to avoid going via
+> > a transitional interface.
+> >=20
+> > Link: https://lore.kernel.org/r/86jyzms036.wl-maz@kernel.org
+> > Signed-off-by: Marc Zyngier <maz@kernel.org>
+> > Cc: Radu Rendec <rrendec@redhat.com>
+> > Cc: Bjorn Helgaas <bhelgaas@google.com>
+> > Cc: Manivannan Sadhasivam <mani@kernel.org>
+> > Cc: Rob Herring <robh@kernel.org>
+> > Cc: Krzysztof Wilczy=C5=84ski <kwilczynski@kernel.org>
+> > Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>
+> > ---
+> > =C2=A0drivers/pci/controller/pci-host-common.c | 13 ++++----
+> > =C2=A0drivers/pci/controller/pci-host-common.h |=C2=A0 1 +
+> > =C2=A0drivers/pci/controller/pcie-apple.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+ | 42 ++++--------------------
+> > =C2=A03 files changed, 14 insertions(+), 42 deletions(-)
+> >=20
+> > diff --git a/drivers/pci/controller/pci-host-common.c b/drivers/pci/con=
+troller/pci-host-common.c
+> > index 810d1c8de24e9..c473e7c03baca 100644
+> > --- a/drivers/pci/controller/pci-host-common.c
+> > +++ b/drivers/pci/controller/pci-host-common.c
+> > @@ -53,16 +53,12 @@ struct pci_config_window *pci_host_common_ecam_crea=
+te(struct device *dev,
+> > =C2=A0EXPORT_SYMBOL_GPL(pci_host_common_ecam_create);
+> > =C2=A0
+> > =C2=A0int pci_host_common_init(struct platform_device *pdev,
+> > +			 struct pci_host_bridge *bridge,
+> > =C2=A0			 const struct pci_ecam_ops *ops)
+> > =C2=A0{
+> > =C2=A0	struct device *dev =3D &pdev->dev;
+> > -	struct pci_host_bridge *bridge;
+> > =C2=A0	struct pci_config_window *cfg;
+> > =C2=A0
+> > -	bridge =3D devm_pci_alloc_host_bridge(dev, 0);
+> > -	if (!bridge)
+> > -		return -ENOMEM;
+> > -
+> > =C2=A0	of_pci_check_probe_only();
+> > =C2=A0
+> > =C2=A0	platform_set_drvdata(pdev, bridge);
+> > @@ -85,12 +81,17 @@ EXPORT_SYMBOL_GPL(pci_host_common_init);
+> > =C2=A0int pci_host_common_probe(struct platform_device *pdev)
+> > =C2=A0{
+> > =C2=A0	const struct pci_ecam_ops *ops;
+> > +	struct pci_host_bridge *bridge;
+> > =C2=A0
+> > =C2=A0	ops =3D of_device_get_match_data(&pdev->dev);
+> > =C2=A0	if (!ops)
+> > =C2=A0		return -ENODEV;
+> > =C2=A0
+> > -	return pci_host_common_init(pdev, ops);
+> > +	bridge =3D devm_pci_alloc_host_bridge(&pdev->dev, 0);
+> > +	if (!bridge)
+> > +		return -ENOMEM;
 > > +
-> > +examples:
-> > +  - |
-> > +    soc {
-> > +        #address-cells =3D <2>;
-> > +        #size-cells =3D <2>;
-> > +
-> > +        usb_phy: usb_phy@c410000 {
->
-> node name: usb-phy, because there are no underscors used anywhere in
-> upstream. While at it, you can drop the label as well, because it is not
-> uised, so just usb-phy@..... {
->
-> Please send new version with these two fixed and:
->
-> Reviewed-by: Krzysztof Kozlowski <krzk@kernel.org>
->
-> Best regards,
-> Krzysztof
->
+> > +	return pci_host_common_init(pdev, bridge, ops);
+> > =C2=A0}
+> > =C2=A0EXPORT_SYMBOL_GPL(pci_host_common_probe);
+> > =C2=A0
+> > diff --git a/drivers/pci/controller/pci-host-common.h b/drivers/pci/con=
+troller/pci-host-common.h
+> > index 51c35ec0cf37d..b5075d4bd7eb3 100644
+> > --- a/drivers/pci/controller/pci-host-common.h
+> > +++ b/drivers/pci/controller/pci-host-common.h
+> > @@ -14,6 +14,7 @@ struct pci_ecam_ops;
+> > =C2=A0
+> > =C2=A0int pci_host_common_probe(struct platform_device *pdev);
+> > =C2=A0int pci_host_common_init(struct platform_device *pdev,
+> > +			 struct pci_host_bridge *bridge,
+> > =C2=A0			 const struct pci_ecam_ops *ops);
+> > =C2=A0void pci_host_common_remove(struct platform_device *pdev);
+> > =C2=A0
+> > diff --git a/drivers/pci/controller/pcie-apple.c b/drivers/pci/controll=
+er/pcie-apple.c
+> > index 0380d300adca6..a902aa81a497e 100644
+> > --- a/drivers/pci/controller/pcie-apple.c
+> > +++ b/drivers/pci/controller/pcie-apple.c
+> > @@ -206,9 +206,6 @@ struct apple_pcie_port {
+> > =C2=A0	int			idx;
+> > =C2=A0};
+> > =C2=A0
+> > -static LIST_HEAD(pcie_list);
+> > -static DEFINE_MUTEX(pcie_list_lock);
+> > -
+> > =C2=A0static void rmw_set(u32 set, void __iomem *addr)
+> > =C2=A0{
+> > =C2=A0	writel_relaxed(readl_relaxed(addr) | set, addr);
+> > @@ -724,32 +721,9 @@ static int apple_msi_init(struct apple_pcie *pcie)
+> > =C2=A0	return 0;
+> > =C2=A0}
+> > =C2=A0
+> > -static void apple_pcie_register(struct apple_pcie *pcie)
+> > -{
+> > -	guard(mutex)(&pcie_list_lock);
+> > -
+> > -	list_add_tail(&pcie->entry, &pcie_list);
+> > -}
+> > -
+> > -static void apple_pcie_unregister(struct apple_pcie *pcie)
+> > -{
+> > -	guard(mutex)(&pcie_list_lock);
+> > -
+> > -	list_del(&pcie->entry);
+> > -}
+> > -
+> > =C2=A0static struct apple_pcie *apple_pcie_lookup(struct device *dev)
+> > =C2=A0{
+> > -	struct apple_pcie *pcie;
+> > -
+> > -	guard(mutex)(&pcie_list_lock);
+> > -
+> > -	list_for_each_entry(pcie, &pcie_list, entry) {
+> > -		if (pcie->dev =3D=3D dev)
+> > -			return pcie;
+> > -	}
+> > -
+> > -	return NULL;
+> > +	return pci_host_bridge_priv(dev_get_drvdata(dev));
+> > =C2=A0}
+> >=20
+> >=20
+>=20
+> You forgot to remove the `entry` field from struct apple_pcie. It's no
+> longer needed now that pcie_list is gone.
 
-Thank you for the review, I appreciate it!
-Ack on both points and will send out a new version.
+Ah, good point. Fixed.
 
-Regards,
-Roy Luo
+>=20
+> > =C2=A0
+> > =C2=A0static struct apple_pcie_port *apple_pcie_get_port(struct pci_dev=
+ *pdev)
+> > @@ -875,13 +849,15 @@ static const struct pci_ecam_ops apple_pcie_cfg_e=
+cam_ops =3D {
+> > =C2=A0static int apple_pcie_probe(struct platform_device *pdev)
+> > =C2=A0{
+> > =C2=A0	struct device *dev =3D &pdev->dev;
+> > +	struct pci_host_bridge *bridge;
+> > =C2=A0	struct apple_pcie *pcie;
+> > =C2=A0	int ret;
+> > =C2=A0
+> > -	pcie =3D devm_kzalloc(dev, sizeof(*pcie), GFP_KERNEL);
+> > -	if (!pcie)
+> > +	bridge =3D devm_pci_alloc_host_bridge(dev, sizeof(*pcie));
+> > +	if (!bridge)
+> > =C2=A0		return -ENOMEM;
+> > =C2=A0
+> > +	pcie =3D pci_host_bridge_priv(bridge);
+> > =C2=A0	pcie->dev =3D dev;
+> > =C2=A0	pcie->hw =3D of_device_get_match_data(dev);
+> > =C2=A0	if (!pcie->hw)
+> > @@ -897,13 +873,7 @@ static int apple_pcie_probe(struct platform_device=
+ *pdev)
+> > =C2=A0	if (ret)
+> > =C2=A0		return ret;
+> > =C2=A0
+> > -	apple_pcie_register(pcie);
+> > -
+> > -	ret =3D pci_host_common_init(pdev, &apple_pcie_cfg_ecam_ops);
+> > -	if (ret)
+> > -		apple_pcie_unregister(pcie);
+> > -
+> > -	return ret;
+> > +	return pci_host_common_init(pdev, bridge, &apple_pcie_cfg_ecam_ops);
+> > =C2=A0}
+> > =C2=A0
+> > =C2=A0static const struct of_device_id apple_pcie_of_match[] =3D {
+>=20
+> With those two nitpicks addressed,
+>=20
+> Reviewed-by: Radu Rendec <rrendec@redhat.com>
+
+Thanks. I'll repost this patch some time next week, as this is only an
+optimisation, not really a fix.
+
+>=20
+> And thanks again for spending time on this and creating the patch.
+
+Nerd-sniping is a sport, it seems... ;-)
+
+Cheers,
+
+	M.
+
+
+--=20
+Without deviation from the norm, progress is not possible.
 
