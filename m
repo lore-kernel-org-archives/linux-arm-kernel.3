@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D929CFA76E
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D429CCFA77F
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 11:17:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,37 +12,37 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fuRVQNlLXzUjzmKQMOUQSA4iiMhuz7d5M7eAD7ONLHs=; b=nMIn5vFEi3pQIxwj9O46acrxIz
-	9WwOLB4BH5ANYLjPh8KPUWgxQHHKXBd1ftByHh8cOO6u2SmnLJK0FFFh0PBhIxQYv57u/mw4X6GQi
-	kzMZoIr2cz2MgK+z96TQnN943aWiyMzcbrYNqiY9TKhRSB746drU9nmsJbp8d5yk0tIFVbkDqrEC2
-	WTmW9ydd0Ze1byCJSiI2OWip2oI+wvCxyJbYL++eqOw4HOQFUzUHknYFXntsWgPQYEiHRcKXecIOl
-	bbCEJMf6OPxoFVQIhGZYCeRDXdN2gauaovSa1+qO06XDi8V+jTp+kM+q16ioEiDPfVUd90ZBOlPh3
-	hzQWrcKg==;
+	bh=TCsgvyN19sbjUIn5UZpKyaiwePUESWFNhhsOnqCIlpo=; b=IsMdZKVkZC9/GHBIPsWDQ0OVMp
+	jmVVlGDaIpybnLuhbDQkgVfeBWnOrawFAEgmt9Esz7pdxGRBPWO2yg5KU1oMI4mB2zuqY6S5Ii5vI
+	msxx3SCtsmyuvVSLECy+D+pde9JTQEAp4rGcBRsWNyDIsep7CXXoSsQyPYRpF/FSto08vv1TmjwRO
+	7pUaWTrjzhhVwCDUbYDZx3UhkVHr/0jUcyefN/Ld9qgsvT8HwCSyNR1YcYlmFtnNfji8/4z8hPDrz
+	yOzoAlhh9/GELt+b1IlciW+xr5Z7bZDqWCwoNmqRGhZsMZbv5OYQJs8t0+NcJYwbOFzbfy04Q/VLZ
+	OVo82eoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMP8l-00000008I7t-04iA;
-	Fri, 21 Nov 2025 11:17:23 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1vMP8m-00000008IB5-1kc6;
+	Fri, 21 Nov 2025 11:17:24 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMP8a-00000008HyV-0Dl1;
-	Fri, 21 Nov 2025 11:17:13 +0000
+	id 1vMP8d-00000008I0r-03uC;
+	Fri, 21 Nov 2025 11:17:16 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1763723829;
-	bh=6YJLPO2KEF9QyWxLaPwxFzoKrk88Q8+O4pyGSdBlLAA=;
+	s=mail; t=1763723832;
+	bh=CwepC8yqeaRnnicwyhA3IjDb1SuVWrSSGjrDhmIJNMs=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=nQP53C4aNcllaqDO3XfJj8E58ySqopLc2lmPgBcGShIjCc21m1Fu12LRDzy3GH8NZ
-	 josECmRaXYjnYbHyPkukHtE7o3SdB7s/UUyS6soW6NTz7HRtvZytCx6rYPF00x/xv/
-	 Mc+4LPNYo0vD1tYYw5WEHAW3PBCbuxxm6Qk17LM3Rg3QhYeRG71XPC9VAVqlKMq7x6
-	 fH1atf8vkkxJUsxPwVZHU/dkfiL8uFyqfjqZlHiy2ER0C02UqyH70gncO564dyG0AQ
-	 57zA88Ui9vqusQDk1nyfQYb0JF9XfDbWnP3UeU9JSC6jQSyMNOT11s3QorH4hd4b0D
-	 Ntnw6WWkKMgKg==
+	b=J7WyscAIaAh0iVhvFbZjMLc9LETtu++q9rw/nAamzP5vYsww8W/Y7HRT9NnTX7i1+
+	 UjtY6eQGAt1Gzpwtxh4NOAQPjBcRZ5j2m5dfQr6LOjWgK0QQKi5EvoI1CL4XyQYwBx
+	 JXiSmdPxlig0GHDUkbi9uxuZ4tnsxAPX2z8E+T+Tz/UFRiaMlzHllXaYucASzr4Rg0
+	 rJOO/0aZ5pKmIq44Lb49rxkGjOkXieNIYldyAnlGo5FUKCkCwlDLQetZgsOJB4MDIa
+	 71CBZKfbfByu2WTNcOBVIeg/AQwRvL5mo0W/Sj35FCU7vf3f9E/wMomAjZm77DLYJ5
+	 rTyzngC3Z2qoA==
 Received: from laura.lan (unknown [IPv6:2001:b07:646b:e2:c4bf:9969:6e1c:dc69])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: laura.nao)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id B287E17E156E;
-	Fri, 21 Nov 2025 12:17:08 +0100 (CET)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 7CAB417E35CB;
+	Fri, 21 Nov 2025 12:17:11 +0100 (CET)
 From: Laura Nao <laura.nao@collabora.com>
 To: srini@kernel.org,
 	robh@kernel.org,
@@ -71,9 +71,9 @@ Cc: nfraprado@collabora.com,
 	linux-mediatek@lists.infradead.org,
 	kernel@collabora.com,
 	Laura Nao <laura.nao@collabora.com>
-Subject: [PATCH v4 5/9] thermal/drivers/mediatek/lvts: Add lvts_temp_to_raw variant
-Date: Fri, 21 Nov 2025 12:16:38 +0100
-Message-Id: <20251121-mt8196-lvts-v4-v4-5-357f955a3176@collabora.com>
+Subject: [PATCH v4 7/9] thermal/drivers/mediatek/lvts: Support MSR offset for 16-bit calibration data
+Date: Fri, 21 Nov 2025 12:16:40 +0100
+Message-Id: <20251121-mt8196-lvts-v4-v4-7-357f955a3176@collabora.com>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20251121-mt8196-lvts-v4-v4-0-357f955a3176@collabora.com>
 References: <20251121-mt8196-lvts-v4-v4-0-357f955a3176@collabora.com>
@@ -81,9 +81,8 @@ MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251121_031712_251486_DF136213 
-X-CRM114-Status: UNSURE (   8.62  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251121_031715_206627_904ADA6F 
+X-CRM114-Status: GOOD (  14.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,45 +97,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-MT8196/MT6991 require a different version of lvts_temp_to_raw(),
-specifically the multiplicative inverse of the existing implementation.
-Introduce a variant of the function with inverted calculation logic to
-match this requirement.
+On MT8196/MT6991, per-sensor calibration data read from eFuses is
+16-bit. When the LVTS controller operates in 16-bit mode, a fixed offset
+must be added to MSR values during post-processing to obtain correct
+temperature readings. Introduce a new msr_offset field in lvts_data,
+program the respective register and apply the offset to the calibration
+data read from eFuses.
 
-This ensures accurate raw value generation for temperature
-thresholds, avoiding spurious thermal interrupts or unintended hardware
-resets on MT8196/MT6991.
-
-Reviewed-by: Chen-Yu Tsai <wenst@chromium.org>
 Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Reviewed-by: Fei Shao <fshao@chromium.org>
 Tested-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Tested-by: Frank Wunderlich <frank-w@public-files.de>
 Signed-off-by: Laura Nao <laura.nao@collabora.com>
 ---
- drivers/thermal/mediatek/lvts_thermal.c | 9 +++++++++
- 1 file changed, 9 insertions(+)
+ drivers/thermal/mediatek/lvts_thermal.c | 16 ++++++++++++++++
+ 1 file changed, 16 insertions(+)
 
 diff --git a/drivers/thermal/mediatek/lvts_thermal.c b/drivers/thermal/mediatek/lvts_thermal.c
-index d713c46c21fc..3e05b29f7b05 100644
+index d1bfbcb1a7d0..6558994cbee0 100644
 --- a/drivers/thermal/mediatek/lvts_thermal.c
 +++ b/drivers/thermal/mediatek/lvts_thermal.c
-@@ -307,6 +307,15 @@ static u32 lvts_temp_to_raw_mt7988(int temperature, int temp_factor)
- 	return raw_temp;
+@@ -44,6 +44,7 @@
+ #define LVTS_EDATA01(__base)	(__base + 0x0058)
+ #define LVTS_EDATA02(__base)	(__base + 0x005C)
+ #define LVTS_EDATA03(__base)	(__base + 0x0060)
++#define LVTS_MSROFT(__base)		(__base + 0x006C)
+ #define LVTS_ATP0(__base)		(__base + 0x0070)
+ #define LVTS_ATP1(__base)		(__base + 0x0074)
+ #define LVTS_ATP2(__base)		(__base + 0x0078)
+@@ -150,6 +151,7 @@ struct lvts_data {
+ 	int temp_offset;
+ 	int gt_calib_bit_offset;
+ 	unsigned int def_calibration;
++	u16 msr_offset;
+ };
+ 
+ struct lvts_sensor {
+@@ -218,6 +220,7 @@ static const struct debugfs_reg32 lvts_regs[] = {
+ 	LVTS_DEBUG_FS_REGS(LVTS_EDATA01),
+ 	LVTS_DEBUG_FS_REGS(LVTS_EDATA02),
+ 	LVTS_DEBUG_FS_REGS(LVTS_EDATA03),
++	LVTS_DEBUG_FS_REGS(LVTS_MSROFT),
+ 	LVTS_DEBUG_FS_REGS(LVTS_ATP0),
+ 	LVTS_DEBUG_FS_REGS(LVTS_ATP1),
+ 	LVTS_DEBUG_FS_REGS(LVTS_ATP2),
+@@ -790,6 +793,8 @@ static int lvts_calibration_init(struct device *dev, struct lvts_ctrl *lvts_ctrl
+ 
+ 		if (gt) {
+ 			lvts_ctrl->calibration[i] = calib;
++			if (lvts_ctrl->lvts_data->msr_offset)
++				lvts_ctrl->calibration[i] += lvts_ctrl->lvts_data->msr_offset;
+ 		} else if (lvts_ctrl->lvts_data->def_calibration) {
+ 			lvts_ctrl->calibration[i] = lvts_ctrl->lvts_data->def_calibration;
+ 		} else {
+@@ -1097,6 +1102,17 @@ static int lvts_ctrl_calibrate(struct device *dev, struct lvts_ctrl *lvts_ctrl)
+ 	for (i = 0; i < LVTS_SENSOR_MAX; i++)
+ 		writel(lvts_ctrl->calibration[i], lvts_edata[i]);
+ 
++	/* LVTS_MSROFT : Constant offset applied to MSR values
++	 * for post-processing
++	 *
++	 * Bits:
++	 *
++	 * 20-0 : Constant data added to MSR values
++	 */
++	if (lvts_ctrl->lvts_data->msr_offset)
++		writel(lvts_ctrl->lvts_data->msr_offset,
++		       LVTS_MSROFT(lvts_ctrl->base));
++
+ 	return 0;
  }
  
-+static u32 lvts_temp_to_raw_mt8196(int temperature, int temp_factor)
-+{
-+	u32 raw_temp;
-+
-+	raw_temp = temperature - golden_temp_offset;
-+
-+	return div_s64((s64)temp_factor << 14, raw_temp);
-+}
-+
- static int lvts_get_temp(struct thermal_zone_device *tz, int *temp)
- {
- 	struct lvts_sensor *lvts_sensor = thermal_zone_device_priv(tz);
 
 -- 
 2.39.5
