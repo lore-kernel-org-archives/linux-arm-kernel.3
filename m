@@ -4,78 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3894CCFA768
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 16:31:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40BC6CFC28C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 16:35:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:Date:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=owyjlUy/SqpiA4dTaFVfFg0dfIcn+U6AM1Ugi8v8PJk=; b=Q7AdH8Cj8UZwSby0rMNDMLv8R9
-	J/TJFcvk0lUhlskCero7x6g8Vd9uiNKHuyqog3vLXRnHWjqFU7lZvjJ3+EJp08FMoSMszOkTqxkpa
-	Ycg+tAryW+POIwgqgqNH5Bgld5Wrt/2bEJFCD65hl6kfw002aNDpPuxEslwMZoQkARuOeFHA5RxKu
-	sjQkbkuv36M4jARsveIzew0IXeB4g6od6KxcAfXnMpEX2HXODFpsmu/GYBVepyO1xckBaWCkf9c3/
-	B9KXV8iVnRy7QttZ3/28lGUT1Tr0Ws35DoIyGyuB2CfmYOYpvnIkXohY1maxJ11EeE0BtG7UPNo6b
-	5oXiC2pg==;
+	bh=LeBh4Bmf/10he6RTgyJAy/hm7lbhgMBwonk4NxPOv6g=; b=jx8R/SwQwYqCGvpM7g73/yVGga
+	fBP6scT4Wdyi/08YeeblgNJlLAMqlC5TFCQtk7SQYoN34H5AB4Ik/NmEmxdJNI3u8Gt2SCaLOYV8k
+	H8QyOcHKK6q5VcT3qbYHKWK8zqhwehlnYMCMZ90bgz40ewlCRe8JLCd2IFMi0BWo9SQtWifuASxZI
+	0LOGygz5nUEv7vri3FK/yp9tJff6GhtlWigEoOxiA1PFwO3qL/TPfzzqa2t/lEoiyC7p02A5byzJj
+	0Y88Ti1lKUhVsCc7w5fK3JkJDKTt/HhFhzXXfFHy0ybSza2/yGivScjsbkrj6FVTtVuIVHgogUFDS
+	169VDinA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMU2b-00000008ij9-2okZ;
-	Fri, 21 Nov 2025 16:31:21 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vMU6A-00000008jQl-3Dhu;
+	Fri, 21 Nov 2025 16:35:02 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMU2Y-00000008iht-40DN
+	id 1vMU68-00000008jQ8-0pb7
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Nov 2025 16:31:20 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 52FB241B29
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Nov 2025 16:31:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 30436C116C6
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Nov 2025 16:31:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763742678;
-	bh=cyjFZt5pBXnXq1dohzZ9h4FcHLsal8bFkRJaHhMWMaY=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=qSU1u2/6ipckE+A/OsHbqAjCI7HauJiSh2s1S29Ie812amaZwjQ3D1uHEsNymui1D
-	 WGmrl0EHTPa9Y1RvEF5u0THNmon9mI0hYPxTjjvl6zVdmZg+TDznwbNrL+cEb13ht5
-	 GPOWRMw/8ZsekvhZPaMBnQ8+tlQVkoNj9q0tUoG8EQC8/MU45wwKg/1qcKNrNkLDd/
-	 PBHk6omD2z2gPyjqDktFAJv9YCWCL8yUEhrPrZfp3hWVqmGnN5sjWnYhCzvFoloFwx
-	 OcqRqeIQZLuYAl057xl/eddeQO7fMU/jVtb/7/QjsDeMebFjUwFfoml37ROnHu+nHc
-	 BWyArk68dF2SA==
-Received: by mail-lf1-f43.google.com with SMTP id 2adb3069b0e04-5957d7e0bf3so3085914e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Nov 2025 08:31:18 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCX4P6bzhLyTJLAyskzIlBx//GVcY+8+pyN5Ap6XQbGm1MwoxYeqxlhmsLCn80IOu2KIWATzTFqZM7Fj5oSNfkgT@lists.infradead.org
-X-Gm-Message-State: AOJu0YzH5bnehmpbxG2JrYpSJ6zpWV7N41+JMuy/tAmgaIVX5wxTfXVr
-	+ieMIKOUvME69QfQ4msdVeil2qKu7aN+8XhGAClNwf5HbEPz6/1wHQwYOBaap6IH6x6Cwcm0qsu
-	88sgSeque1NseamIT4LVoowmqsTsKaPw=
-X-Google-Smtp-Source: AGHT+IHv94YBPiEOZjVBTWao8a3/iUuQL5cnLW52Wc5H+gjJzlYuoPCzdcoJKR5m6QrcIhi6WOqHYr6zv5IgKHaKwNI=
-X-Received: by 2002:a05:6512:1391:b0:594:2bd4:c856 with SMTP id
- 2adb3069b0e04-596a374965amr995757e87.6.1763742676554; Fri, 21 Nov 2025
- 08:31:16 -0800 (PST)
+	Fri, 21 Nov 2025 16:35:01 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-4777771ed1aso15168775e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Nov 2025 08:34:59 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1763742898; x=1764347698; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=LeBh4Bmf/10he6RTgyJAy/hm7lbhgMBwonk4NxPOv6g=;
+        b=BwQy0lVVxK2zJ0VbztYusEsKimz1N/obaumqBOW0qakP1kdkCR/Hmd0bz6I11zP2BP
+         0kdH4NRz5AYLaN5NUNa63nXO6D4hp0BWyzcuxWYfpK43wk/V7cFVEkh/IvfgRmspUtA4
+         6+CRhL/f2OWf8m8hwMF6h4jpaI+d1Y7A7/MOyHn/S55TWcBgGR56Ysh2h6PjVTXmPat2
+         KV2UAK/2XuEJOkiL73LydiaU55gjNJYygLanbhHBRYPOYWgzZbtEozxqAG+TW5rp6P5g
+         YWGkgxhm9pIHKkI0m/jjoz6+DPnJtsFWTigvx2FtCvkFyZKHaXr9DZb8zRSyUda0cc3Q
+         QHvg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1763742898; x=1764347698;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:date:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=LeBh4Bmf/10he6RTgyJAy/hm7lbhgMBwonk4NxPOv6g=;
+        b=YvZcHkPsfgfN1pokDFRZKkSMIdwKzdr9CjkheYWNc31ueHWSyUCQ/+cwRa5uHsgX+O
+         XyzBQo507kCF8agqdSwPzElzW2l1HTYqFlUOemzkJMRvCewUS1HeFl4NtcBi06l48/78
+         UzyMAeRQiovR916ShcGB+4M6J2vmOXcsBRpum5Ga9n//AXeVhofxyCL2JUYUmNk5eYzc
+         mMdtk0oWmSYG8zVcL1yU0KIe7WbpUpDLDKfPp/9IvuvLLt1aXUHFOZMggqzcm2v2p5pd
+         qeN6qjxPC6Fz6fMNhN0pDLNHjxZOh9kNyIFseJQKiGgvvX6vKAp1IX4Hy4DxVv8isoDp
+         wpLw==
+X-Forwarded-Encrypted: i=1; AJvYcCXhqxZiXgT5npHPC02Ioir5SpewGA+nMY71CHnl+/Zxhafw//6h/OvhK6SXYqpSK3s2Er9WhVbvfU39B52kpDD3@lists.infradead.org
+X-Gm-Message-State: AOJu0YxG/yI/SDu1Wm3/hlRiOvXt5sKO2fZvZj1O2vUR0OV6zpHwErmE
+	xXROvadSVdbqSiKyPsG3oxeE7nS6fjGiGYTGlPrhApXXOOtr7RDMmT1K
+X-Gm-Gg: ASbGnctbF9ZUOzEBNsPYnd7YuGo/JQuW2n6fzOQcJdXVlEJ3GvWvoeCc6LM9juklVGS
+	/QANi3bWsBYPgT1x6bgD+km7UzeZGYJCwNlCak5mHqyPovsmtPo6EwtjBhqz4aLU0JfvZLrkwdO
+	rFLtUcWsCtOOdueS+bk4zK5Rmz3h1XZhrzEUJZMQ9OxxiMJ3LVAHh1J8I0stNnibnsBflUpfpFH
+	rgzn2aS96CQjELB9x4F6Ra1L2wA6zpimx3+hBHeY80P7yLtVb76HzZyPLVx8BV981oo0SDHgU7B
+	byDvgFFBE3MeiV7A3mDgaDBA9VYTkSdTVFQMKfNS4rGr/woL987Y0wtEV9HsEOajNYk/AkjJniV
+	DHzBa+QzZBoWv3nQeYnLFbA5DM5AgcxxMAxPMWtM6NjCox4A5Fejcl4SL1U276wrqrep2ylKE4x
+	Nh+Fr5
+X-Google-Smtp-Source: AGHT+IEKdc92wQhMBHJXAveRBg7fiF+sSYb2PsxuIGwuTPQH/pLO5VsLsMQfdUdHa4/EJSA5dpNgdA==
+X-Received: by 2002:a05:600c:310d:b0:477:9fcf:3ff9 with SMTP id 5b1f17b1804b1-477c01c359fmr32515485e9.27.1763742898107;
+        Fri, 21 Nov 2025 08:34:58 -0800 (PST)
+Received: from krava ([2a00:102a:500a:1917:4c7b:f90f:b94c:79b1])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-477bf35f976sm52771145e9.4.2025.11.21.08.34.56
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 21 Nov 2025 08:34:57 -0800 (PST)
+From: Jiri Olsa <olsajiri@gmail.com>
+X-Google-Original-From: Jiri Olsa <jolsa@kernel.org>
+Date: Fri, 21 Nov 2025 17:34:54 +0100
+To: Jordan Rife <jordan@jrife.io>
+Cc: bpf@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-s390@vger.kernel.org, x86@kernel.org,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Martin KaFai Lau <martin.lau@linux.dev>,
+	Puranjay Mohan <puranjay@kernel.org>,
+	Ilya Leoshkevich <iii@linux.ibm.com>,
+	Ingo Molnar <mingo@redhat.com>
+Subject: Re: [RFC PATCH bpf-next 1/7] bpf: Set up update_prog scaffolding for
+ bpf_tracing_link_lops
+Message-ID: <aSCUrtsBrfS2iTkB@krava>
+References: <20251118005305.27058-1-jordan@jrife.io>
+ <20251118005305.27058-2-jordan@jrife.io>
 MIME-Version: 1.0
-References: <20251121135624.494768-1-tzimmermann@suse.de> <96a8d591-29d5-4764-94f9-6042252e53ff@app.fastmail.com>
- <CAMj1kXF1Dh0RbuqYc0fhAPf-CM0mdYh8BhenM8-ugKVHfwnhBg@mail.gmail.com>
- <199e7538-5b4a-483b-8976-84e4a8a0f2fd@suse.de> <CAMj1kXE+mS1Sm5GaROU0P97J2w1pew0P_To4sKiw8h1iOMuLcg@mail.gmail.com>
- <d080729c-6586-4b9c-b234-470977849d3d@suse.de> <6dff8e7e-c99b-443d-a1d8-22650ca0b595@suse.de>
- <CAMj1kXGpC_162bFL65kQw=7qVP7ezYw77Q76y217dDs8pqHogw@mail.gmail.com> <8d0bc096-e346-462b-a274-f0cc1456eea3@suse.de>
-In-Reply-To: <8d0bc096-e346-462b-a274-f0cc1456eea3@suse.de>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Fri, 21 Nov 2025 17:31:05 +0100
-X-Gmail-Original-Message-ID: <CAMj1kXFdethf2sb1tm1V4wRW1SyPt-OnCmaAXc5cHNKuLJMXWA@mail.gmail.com>
-X-Gm-Features: AWmQ_bn8zhFEK816tkr85kGEYNB_leVhAjJQxQ75BwMURzs3nYpX4WL_zzKYI_Q
-Message-ID: <CAMj1kXFdethf2sb1tm1V4wRW1SyPt-OnCmaAXc5cHNKuLJMXWA@mail.gmail.com>
-Subject: Re: [PATCH 0/6] arch, sysfb: Move screen and edid info into single place
-To: Thomas Zimmermann <tzimmermann@suse.de>
-Cc: Arnd Bergmann <arnd@arndb.de>, Javier Martinez Canillas <javierm@redhat.com>, x86@kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-efi@vger.kernel.org, loongarch@lists.linux.dev, 
-	linux-riscv@lists.infradead.org, dri-devel@lists.freedesktop.org, 
-	linux-hyperv@vger.kernel.org, linux-pci@vger.kernel.org, 
-	linux-fbdev@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251118005305.27058-2-jordan@jrife.io>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251121_083119_032976_76A9ED33 
-X-CRM114-Status: GOOD (  27.72  )
+X-CRM114-CacheID: sfid-20251121_083500_283583_E78D05E7 
+X-CRM114-Status: GOOD (  24.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,83 +108,124 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 21 Nov 2025 at 17:26, Thomas Zimmermann <tzimmermann@suse.de> wrote:
->
-> Hi
->
-> Am 21.11.25 um 17:19 schrieb Ard Biesheuvel:
-> > On Fri, 21 Nov 2025 at 17:09, Thomas Zimmermann <tzimmermann@suse.de> wrote:
-> >>
-> >>
-> >> Am 21.11.25 um 17:08 schrieb Thomas Zimmermann:
-> >>> Hi
-> >>>
-> >>> Am 21.11.25 um 16:56 schrieb Ard Biesheuvel:
-> >>>> On Fri, 21 Nov 2025 at 16:53, Thomas Zimmermann <tzimmermann@suse.de>
-> >>>> wrote:
-> >>>>> Hi
-> >>>>>
-> >>>>> Am 21.11.25 um 16:16 schrieb Ard Biesheuvel:
-> >>>>>> On Fri, 21 Nov 2025 at 16:10, Arnd Bergmann <arnd@arndb.de> wrote:
-> >>>>>>> On Fri, Nov 21, 2025, at 14:36, Thomas Zimmermann wrote:
-> >>>>>>>> Replace screen_info and edid_info with sysfb_primary_device of type
-> >>>>>>>> struct sysfb_display_info. Update all users.
-> >>>>>>>>
-> >>>>>>>> Sysfb DRM drivers currently fetch the global edid_info directly,
-> >>>>>>>> when
-> >>>>>>>> they should get that information together with the screen_info
-> >>>>>>>> from their
-> >>>>>>>> device. Wrapping screen_info and edid_info in
-> >>>>>>>> sysfb_primary_display and
-> >>>>>>>> passing this to drivers enables this.
-> >>>>>>>>
-> >>>>>>>> Replacing both with sysfb_primary_display has been motivate by
-> >>>>>>>> the EFI
-> >>>>>>>> stub. EFI wants to transfer EDID via config table in a single entry.
-> >>>>>>>> Using struct sysfb_display_info this will become easily possible.
-> >>>>>>>> Hence
-> >>>>>>>> accept some churn in architecture code for the long-term
-> >>>>>>>> improvements.
-> >>>>>>> This all looks good to me,
-> >>>>>>>
-> >>>>>>> Acked-by: Arnd Bergmann <arnd@arndb.de>
-> >>>>> Thanks
-> >>>>>
-> >>>>>>> It should also bring us one step closer to eventually
-> >>>>>>> disconnecting the x86 boot ABI from the kernel-internal
-> >>>>>>> sysfb_primary_display.
-> >>>>>>>
-> >>>>>> Agreed
-> >>>>>>
-> >>>>>> Acked-by: Ard Biesheuvel <ardb@kernel.org>
-> >>>>> Thanks
-> >>>>>
-> >>>>>> I can take patches 1-2 right away, if that helps during the next
-> >>>>>> cycle.
-> >>>>>    From my sysfb-focused POV, these patches would ideally all go through
-> >>>>> the same tree, say efi or generic arch, or whatever fits best. Most of
-> >>>>> the other code is only renames anyway.
-> >>>>>
-> >>>> I don't mind queueing all of it, but I did get a conflict on
-> >>>> drivers/pci/vgaarb.c
-> >>> Probably from a78835b86a44 ("PCI/VGA: Select SCREEN_INFO on X86")
-> >> https://lore.kernel.org/all/20251013220829.1536292-1-superm1@kernel.org/
-> >>
-> > Yes, if I merge back -rc2 first, I can apply patches 1-5 onto my
-> > efi/next tree. But then I hit
-> >
-> > Applying: sysfb: Move edid_info into sysfb_primary_display
-> > error: sha1 information is lacking or useless (drivers/gpu/drm/sysfb/efidrm.c).
-> > error: could not build fake ancestor
-> > Patch failed at 0006 sysfb: Move edid_info into sysfb_primary_display
-> >
-> > If you prefer, you can take the whole lot via the sysfb tree instead,
-> > assuming it does not depend on the EDID changes I already queued up?
->
-> Sure, I can also add it to the drm-misc tree. ETA in upstream would be
-> v6.20-rc1.
->
+On Mon, Nov 17, 2025 at 04:52:53PM -0800, Jordan Rife wrote:
 
-But does that mean the EDID firmware on non-x86 will have to wait for
-6.21? I was trying to avoid making this a 6 month effort.
+SNIP
+
+> diff --git a/kernel/bpf/syscall.c b/kernel/bpf/syscall.c
+> index f62d61b6730a..b0da7c428a65 100644
+> --- a/kernel/bpf/syscall.c
+> +++ b/kernel/bpf/syscall.c
+> @@ -63,6 +63,8 @@ static DEFINE_IDR(map_idr);
+>  static DEFINE_SPINLOCK(map_idr_lock);
+>  static DEFINE_IDR(link_idr);
+>  static DEFINE_SPINLOCK(link_idr_lock);
+> +/* Synchronizes access to prog between link update operations. */
+> +static DEFINE_MUTEX(trace_link_mutex);
+>  
+>  int sysctl_unprivileged_bpf_disabled __read_mostly =
+>  	IS_BUILTIN(CONFIG_BPF_UNPRIV_DEFAULT_OFF) ? 2 : 0;
+> @@ -3562,11 +3564,77 @@ static int bpf_tracing_link_fill_link_info(const struct bpf_link *link,
+>  	return 0;
+>  }
+>  
+> +static int bpf_tracing_link_update_prog(struct bpf_link *link,
+> +					struct bpf_prog *new_prog,
+> +					struct bpf_prog *old_prog)
+> +{
+> +	struct bpf_tracing_link *tr_link =
+> +		container_of(link, struct bpf_tracing_link, link.link);
+> +	struct bpf_attach_target_info tgt_info = {0};
+> +	int err = 0;
+> +	u32 btf_id;
+> +
+> +	mutex_lock(&trace_link_mutex);
+
+that seems too much, we could add link->mutex
+
+> +
+> +	if (old_prog && link->prog != old_prog) {
+> +		err = -EPERM;
+> +		goto out;
+> +	}
+> +	old_prog = link->prog;
+> +	if (old_prog->type != new_prog->type ||
+> +	    old_prog->expected_attach_type != new_prog->expected_attach_type) {
+> +		err = -EINVAL;
+> +		goto out;
+> +	}
+> +
+> +	mutex_lock(&new_prog->aux->dst_mutex);
+> +
+> +	if (!new_prog->aux->dst_trampoline ||
+> +	    new_prog->aux->dst_trampoline->key != tr_link->trampoline->key) {
+
+hum, would be easier (and still usefull) to allow just programs for the same function?
+
+> +		bpf_trampoline_unpack_key(tr_link->trampoline->key, NULL,
+> +					  &btf_id);
+> +		/* If there is no saved target, or the target associated with
+> +		 * this link is different from the destination specified at
+> +		 * load time, we need to check for compatibility.
+> +		 */
+> +		err = bpf_check_attach_target(NULL, new_prog, tr_link->tgt_prog,
+> +					      btf_id, &tgt_info);
+> +		if (err)
+> +			goto out_unlock;
+> +	}
+> +
+> +	err = bpf_trampoline_update_prog(&tr_link->link, new_prog,
+> +					 tr_link->trampoline);
+> +	if (err)
+> +		goto out_unlock;
+> +
+> +	/* Clear the trampoline, mod, and target prog from new_prog->aux to make
+> +	 * sure the original attach destination is not kept alive after a
+> +	 * program is (re-)attached to another target.
+> +	 */
+> +	if (new_prog->aux->dst_prog)
+> +		bpf_prog_put(new_prog->aux->dst_prog);
+> +	bpf_trampoline_put(new_prog->aux->dst_trampoline);
+
+would it be possible just to take tr->mutex and unlink/link
+the programs, something like:
+
+        mutex_lock(&tr->mutex);
+
+	__bpf_trampoline_unlink_prog(old_prog)
+	__bpf_trampoline_link_prog(new_prog)
+
+        mutex_unlock(&tr->mutex);
+
+I might be missing something but this way we wouldn't need
+the arch chages in the following patches?
+
+
+jirka
+
+
+> +	module_put(new_prog->aux->mod);
+> +
+> +	new_prog->aux->dst_prog = NULL;
+> +	new_prog->aux->dst_trampoline = NULL;
+> +	new_prog->aux->mod = tgt_info.tgt_mod;
+> +	tgt_info.tgt_mod = NULL; /* Make module_put() below do nothing. */
+> +out_unlock:
+> +	mutex_unlock(&new_prog->aux->dst_mutex);
+> +out:
+> +	mutex_unlock(&trace_link_mutex);
+> +	module_put(tgt_info.tgt_mod);
+> +	return err;
+> +}
+> +
+>  static const struct bpf_link_ops bpf_tracing_link_lops = {
+>  	.release = bpf_tracing_link_release,
+>  	.dealloc = bpf_tracing_link_dealloc,
+>  	.show_fdinfo = bpf_tracing_link_show_fdinfo,
+>  	.fill_link_info = bpf_tracing_link_fill_link_info,
+> +	.update_prog = bpf_tracing_link_update_prog,
+>  };
+>  
+
+SNIP
 
