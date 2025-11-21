@@ -4,173 +4,142 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B451CFC28B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 14:52:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12977CFC28B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 14:54:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
+	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZTJx+HVIWTkFIxnlRkeO/492rmnJgRPWmykHRIkPSR4=; b=P7TgrqoRMDOW0fwU6U2KL/fCDs
-	0mVUMl48qmfbtZTv31VrXKRGH2NwYWSUAf0wg83fWHdP8qsfSnkb/jKS37Giz1liodfQTQQZ7XbS+
-	9J+0IaMickja+xlfp7Zplu4jxt7kD8gvfP//NNzBhKOqdHlRQgPAicPtEQ5J3YREJfmvVA9RcynXb
-	as/EBoVky55y2C0FR83PbCoeX+Zd+WI+HVUqLVWfBlT3gzkOv/uV8lButP5yDF1/mPH04unafEF1Z
-	8DZ5Ii/TbIB3vCFNFZ8nSgeursxrXmEUglbJb9c8W8uzoOuE+v8cKLqaUL03We1L6Ad+clRPGBOJO
-	SUCLdGnw==;
+	bh=ETN4gl1iZbhJeLn6OCDI+9u79qwxOMAaoq4ImqB9HJI=; b=tR4AFvKYnUIxwaNHnSWCRJruLV
+	KMHvxOSojEJvqakuZMTarpFEOyWDYaJr961ZlrltaoFzUwXWUjpLw00xKHYD5QqoucuvJmsiwynKz
+	oZiehyJ04eFCuYDgzaHjPjwIVpUTkVc/K5QQS2BmzhUTbOJykpztgEetceU6GXQZXCOxCWGsBrCht
+	998Um1+sw3Oj1bY8QmPeA+riyVEAtJVpfFQM2vzOk+O+j2VeOK04RvAgl9oFUGEXLbn6KY+Dv7aaw
+	jLDJKjGfN/LO1s95IifM2xI0I7OY2MzmtBPZTA/UrPu0RQusqGm1/Xiujo1dvtMuJbX8KKNCr+J9/
+	fP1jLlfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMSUh-00000008Y8D-0sGo;
-	Fri, 21 Nov 2025 14:52:15 +0000
-Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1vMSWn-00000008YLZ-4ANS;
+	Fri, 21 Nov 2025 14:54:25 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMSUe-00000008Y7l-1Wzb;
-	Fri, 21 Nov 2025 14:52:14 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ORX/SNrTTKTsFCajSJ7SSWET4QL7Dj3K1jf5JWTPdYuxFCai4U2E+tBDPuXTuCTiAhBn82qX5YYXzn4FsJV32+qF4YdUoBiTuSVV86Bd0MG43OEsCG2UTTuDQEw4rZORwB8WmgZzd65HlazpdNmnWfmUIVNmgQTAMZO3jhnVw4Y+ALrj+UGPlxmhjb87Q0PA1n5LqUsoNgeo6DF+hwFPQWOfB56vqBH+MA6gWB0RRRVcl2qGrHKyqwRot4//kiUcGq43jIG3jgis5aO4UltT2eM+7r+r0r+stXoA0iTAPlVhHG9tNUWF2Qetqw91QHxyR+dbdl8z9prRJ5PtZ+3q8A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ZTJx+HVIWTkFIxnlRkeO/492rmnJgRPWmykHRIkPSR4=;
- b=AiRpQwdtuuFAGjp/Qgwi1SZt1DWTmPSVR5t5My+GikjWxIIl5yM6HArUkyh1Gpz5T+rtxOQkYMcg23S1/K8Kd8jq1XbtghE2nfb1TxFYKeaKY0vjkrRDpRlhpeiOLHMqShnE8teBOQIXEteOTfsAh9FTgrj8EHvhIRFXIRTuM/rWZgXDnTqNZ6EpyjRx2Phhdv62yj9EGtpszybQ2HC0PlKYnbViixnHJms/91ESv1u6wU/WWmlLASdBSKYnntcRizkQvwgJ5hRejZhyAmmK1mUhS7Yxw/gJp+GEZqTFZq07wyfAa9TuOErpWPSX+wop6RM6gyLgKIf0cbeDa1PEjw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=genexis.eu; dmarc=pass action=none header.from=iopsys.eu;
- dkim=pass header.d=iopsys.eu; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=iopsys.eu;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ZTJx+HVIWTkFIxnlRkeO/492rmnJgRPWmykHRIkPSR4=;
- b=C5U0x1yfFf2FZIdIiXtOAjYsBYh0QZpzgv57sM4elCHucIJNgkAGASzh7K6ThS/sK9PHXqGV0cN1E8NAu9ezYz2JMGt/8QISjk6CKAtDV7l/Maz8ZK/9KL/34Z9xtrUjerUn7Lyj8FRYzc/9a0hyy7kx4ioEYr3rRednftj3ajzHg/vhH3euoY1rKXYBSYM0QM/0sEds/NOjOijwRMl3qKIy80EuDnKD+lZuh9KaWNwFWMInMoTX+9EDi69QA9oulcH62BIFZDugksq2Yug38qLkQX3KFzlOQ+49mXYd+ucLZiWlw0S5mOEtCx0xB2/ePzXBVw5Eh07g0lhl1sULCQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=iopsys.eu;
-Received: from GV2PR08MB8121.eurprd08.prod.outlook.com (2603:10a6:150:7d::22)
- by DB9PR08MB11529.eurprd08.prod.outlook.com (2603:10a6:10:607::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9343.11; Fri, 21 Nov
- 2025 14:51:53 +0000
-Received: from GV2PR08MB8121.eurprd08.prod.outlook.com
- ([fe80::4cd3:da80:2532:daa0]) by GV2PR08MB8121.eurprd08.prod.outlook.com
- ([fe80::4cd3:da80:2532:daa0%3]) with mapi id 15.20.9343.011; Fri, 21 Nov 2025
- 14:51:53 +0000
-Message-ID: <a0b0b7cf-31d4-4932-945a-bf138cfe2f33@iopsys.eu>
-Date: Fri, 21 Nov 2025 17:51:51 +0300
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/3] spi: airoha-snfi: en7523: workaround flash
- damaging if UART_TXD was short to GND
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Lorenzo Bianconi <lorenzo@kernel.org>, Ray Liu <ray.liu@airoha.com>,
- Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
- linux-arm-kernel@lists.infradead.org, linux-spi@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-mediatek@lists.infradead.org
-Cc: Andreas Gnau <andreas.gnau@iopsys.eu>
-References: <20251120042753.640492-1-mikhail.kshevetskiy@iopsys.eu>
- <20251120042753.640492-2-mikhail.kshevetskiy@iopsys.eu>
- <15bf444c-0eff-4856-93a4-764668666c3c@collabora.com>
-From: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>
-Content-Language: en-US, ru-RU
-In-Reply-To: <15bf444c-0eff-4856-93a4-764668666c3c@collabora.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: GV3P280CA0036.SWEP280.PROD.OUTLOOK.COM
- (2603:10a6:150:9::23) To GV2PR08MB8121.eurprd08.prod.outlook.com
- (2603:10a6:150:7d::22)
+	id 1vMSWj-00000008YJw-3O2B
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 21 Nov 2025 14:54:24 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-4779a4fc95aso21456465e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Nov 2025 06:54:21 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1763736860; x=1764341660; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:references:cc:to:subject:reply-to:from:user-agent
+         :mime-version:date:message-id:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=ETN4gl1iZbhJeLn6OCDI+9u79qwxOMAaoq4ImqB9HJI=;
+        b=el6fFxeBIhECIp1WdMk0ohsmkhZ41j6JsvgoYS+w9EFItT7+MoPauQgX0cnT0a1sKR
+         60NRyn42nuEWKTAIQogtJTWes+WN1onUH0jmHBLNZtQw5wSACzIRRVU5Uz9CJPqzh6X5
+         kd/SBzWqhnig4ZYD+TMLhN/qWdSvDP8payLl9Su1QdpluXXJfblp2HCYlh7YAlpYEbnJ
+         eChNkTD2uxEKfOHoEWr9R2kywORrZTADUIfCPZLnHdRWfWSwQNiR+UH0Yv0V9TI6n+ge
+         SmaSIuY3shiXNEtR3aNhMrXONW/3rVAbebGj/CEKgfrFq9b8WsqleVVUweffWcP5YkZi
+         46mA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1763736860; x=1764341660;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:references:cc:to:subject:reply-to:from:user-agent
+         :mime-version:date:message-id:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=ETN4gl1iZbhJeLn6OCDI+9u79qwxOMAaoq4ImqB9HJI=;
+        b=aXEr07iMAwHyLuekbOGheBsOFL2v0MhSurR3jQ/EiG0EtiP6Hup/qMhaNlDLE3Bfyb
+         Qctzj4dLSHvk1HltLWdiKTK0ZDGyvlP64pdL19izx5vgY7UM+T6h0qObNWX0yHGF6Qvv
+         BqFiR/2hE6ED0FJjORabh2y028Fwb2G9mUitgdz31u5ry9TXwMOxoRIHaDey5WBeG0f+
+         bVkJ5ME7cji3N7djJZICo2FBvEm90vegi+uROGfnYgX0exG62sVyLl/2FLwJgd8MIeDj
+         FEIVnfn0YxzdVVkkO3ZUKpE8ksqp7RW/hzdb4nGRo5WB7KPsLrhbCjb4Cl8hehfPjzHn
+         oYDQ==
+X-Forwarded-Encrypted: i=1; AJvYcCU32a4rbGhb1ovRT1mCeevD0j7bHKBgJmK/hDYv4FmS/GVEMoru75kgV+Kq7CP6QYTVI2VWuErlO/c90NGOk7Xy@lists.infradead.org
+X-Gm-Message-State: AOJu0YwJPX4oipnu6Th4ox3dAPJWmDKlS/RoiRIzbWAEW4UuCeOtYCQv
+	uUoYar5pq1MnNPiH1KCjVprXWp33Y7G9I1WT9PZzAHiMSouC/myrGwYDY5zb1Od2avI=
+X-Gm-Gg: ASbGncuzIaENRbAUwZtzggC9YAL6IuryXw6epSobkh0vkicxzHgcJ+dYwb2DjrBnwS0
+	PLYjDE0pm9jm2MdcpUZMiq5uxuqluWaOTE80CpF5HES2p6Sb6MrQr8qgV4P8jjRxn216VY6ARLS
+	iyzZ+55WqJQXpkeztIg2sILsQxaUd8k6VbpU8or7febw42NF/3G1sbwMqmW0KVtL5CvnU4VvCBo
+	RczicMaGj01pnrakg26tanHV4TlHtk+gJvOF73Hbd4S2JKuaxU1avypBZHrg+Y97iLf2KK0u/Me
+	lRA4N+CaqY+kN3zDIIp5UgXOLGJV2WA1OqFVrYYNESb4GXSh6+86dqkIh/PYuHatFvmW5dlarCr
+	nKhX5VUOHKO8CUcvAuSkrxMsyDAtbzSZnmmQ6c4+pBsXgbxV7NcJKaY4/GAf2Fb6BjOYp2hJnti
+	txo6Vb8B2c4EVnWAtZgLlxHEnbd638rxG0iYH3U2h+PqZ9oHig5F54hLc4Z+HzU5g=
+X-Google-Smtp-Source: AGHT+IEGzoj+G1XJyD7HRZUpDf/Nmo3R0LQETO+OA2bCF/axjJi8k5L8RSAIauSreqKt4GiwYJQXaA==
+X-Received: by 2002:a05:600c:1d14:b0:477:9d88:2da6 with SMTP id 5b1f17b1804b1-477c026ed62mr28503395e9.0.1763736859683;
+        Fri, 21 Nov 2025 06:54:19 -0800 (PST)
+Received: from ?IPV6:2a01:e0a:3d9:2080:159f:1839:bb92:1eca? ([2a01:e0a:3d9:2080:159f:1839:bb92:1eca])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42cb7f3635bsm11604067f8f.17.2025.11.21.06.54.18
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 21 Nov 2025 06:54:19 -0800 (PST)
+Message-ID: <cd200f33-dd6f-4eb3-b2d9-8f41d0dde992@linaro.org>
+Date: Fri, 21 Nov 2025 15:54:18 +0100
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR08MB8121:EE_|DB9PR08MB11529:EE_
-X-MS-Office365-Filtering-Correlation-Id: 79fba532-687d-4ccb-8c2b-08de290d825a
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016|921020;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?Q0lyVWlEbnY5ZlB3MXB3eGRrMGJSUjVoejhOcDhPenpoVmxJMURlMzJvbmx3?=
- =?utf-8?B?STdvZlhkTy9rSmZPK1VOaGxpcVFrM040OWVQVkh4QTdFQ1QxRlhsYmRqNHlD?=
- =?utf-8?B?T2NBa3BRRElqQUwvcWw2YkZiZkE2RDN1SXFFWnpvYko1WHg3S0tvOFhsekN1?=
- =?utf-8?B?ZFVTWUY1NkpOSndvajdMelo2R1krU2o1TVpnY1VIWWhKUUllQlAyaElOcDdk?=
- =?utf-8?B?T2ZKUmpCU2JmcEk5Wlg2SDVSeTBVUWRhNERtQWVaeldkWUc3djkrU1UvdVNv?=
- =?utf-8?B?OXVYNFNMN0Q0UmNiOUl1ZTdtdWdiSTlGbDdzZmZjQnFNS0hKTCsvTzlUWFJk?=
- =?utf-8?B?KzlVMGpPajRRME42cUd2ZGtiYUt4TlE0MFV6OVplTXFtQi9pQ2wyOVRpandQ?=
- =?utf-8?B?UDNTSFpvdnVOUXZJVVZZbGIxdWt1ejM1YSs2TWdhSFBUcERrWUxBRzArNE1m?=
- =?utf-8?B?Y1VkK0lxZERPVzhSWkNHOHhZSFk0VEdCOG5uK2VyODlheGRSRDZ0RkJ1RzVy?=
- =?utf-8?B?eUFBbVFaMHBybDVlZmFkVlBiYUFtT1FHejlTRm54UVBTMzBxUS9xUjREeHpS?=
- =?utf-8?B?aTdwU1o1YlFPdWxuNW9vRVJpdkRJTXI1LzRZZUREZFV6SU8xVzljUWUvbndB?=
- =?utf-8?B?Tk1ZdUZXTElQWWEvSS9vcTBxSWluUFI4WVVqSHdXNEs2UnMyNDlrWEJQeGNK?=
- =?utf-8?B?MCtYWEFvQWFsMjhuUU05bjZDaVp6V1U1U1MxZDFNcmEvWnhIWTdRSkxwcml0?=
- =?utf-8?B?VkYzOGE0RlFjL2xaTWtHOWU5eXdGKzhHeVUyTU42WE44akh2VXIzZWlNSCtw?=
- =?utf-8?B?TW5mTEV6L2daVVpmcExHMG56dXFoZDdYcjJjbWQ2OURnTXRTNTFncFU5TTcz?=
- =?utf-8?B?akpzcncvYjd5U3JKd2poaTlBcWtjWXdYQXl5cis5bkU0eFk1cFcyQ0hpRlRs?=
- =?utf-8?B?OWVtUDJpNnFvclErMkMyWk94VHJWTmRyRjh5Qk13RGJxMjBnMjZ2Yk1icjA5?=
- =?utf-8?B?dFRDNzNQckZLcWJ1UWk5UWtibkRjTS92Z2FtNWEvR25Ia2trdnhBNWJ5dDIv?=
- =?utf-8?B?cEh5T2Vxa29hYk9HL3RKc2xyczUxbDdqV01FZ3grNk44RnlVdVNXbUNJM25O?=
- =?utf-8?B?SHpSQ3hBR0J1d3ZmL0daWXRzdjdaZVFqVnpiWFRDc1VnVjczQ2JNeTgyR280?=
- =?utf-8?B?aXRkRjhnWTlmK2E5Y2NJN2ROMjE4eGt3UGxTTTJuOHRBdW05UVVJMUZseFlZ?=
- =?utf-8?B?eCsybWg2Njg4eSt0S2t2T2hKcjJTZlpNVFBHSi9ZYWh3TVdXTjlPMVhNUVNw?=
- =?utf-8?B?Rk9JTVRtTVhrOG5wSktKSG5aOGUzU0hqcjRXVjB4MS9QRERidDZUSkJDSmt1?=
- =?utf-8?B?OWlJamRuQzRDTk9xTTRkV1NYZlAzenRCbVFHS3IybFR6ZVhSajEwcWRWeUll?=
- =?utf-8?B?VDVGbG9aSk1NakdqVFBNNGdMMUtpNEIvemZsYUJ0L0FWMWF6QXBSWmRGekxq?=
- =?utf-8?B?ZlBKRWJTYWRNS0xlVCtsWm9sZCtEb21GdGZGQXc0WCtIQ2NIYzdYV1dXeGJX?=
- =?utf-8?B?bzEwL2FxclRZNE0yUXVSUHNrZmFVNlNTeE0zMHBVM1FkcFVTRGVRd09SaHor?=
- =?utf-8?B?VkxMMy9QQWxHNnJhWWIyakR1Zks3dTl4V1JTcDRxci95YWkzcmlVNDFLa2Qw?=
- =?utf-8?B?K2U5WG9zYUFPLzBkcXRPakExbXh3anlLVUFGTS9tT2swQjlhUE1jWXRORmcw?=
- =?utf-8?B?ZjBPWlBGK1FUdUFNVDFHTm5ZTHJYajczTlJ4T2RZZFJPVDNWRTVXd2QxaTBm?=
- =?utf-8?B?N3JNS3hVbyt6alUxOU9WdXNwRE5XbGEweUJ5UjM4MVRORkduU2xjcGlqVFdy?=
- =?utf-8?B?cU0wR3BrY1RORVVjUXlqamZ6aTBRRkphL1Z3a3RBR2JEOEtScVVnYTFzdVpu?=
- =?utf-8?B?UU9yWEpCTlYraW5FMDMzS3RoK21yeXJCRjN6WDlpaU4yNUtkMCs1akI0dWR1?=
- =?utf-8?Q?p2tE4tbt91GCmw5oqrYYDYsmgdP824=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR08MB8121.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016)(921020);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?RHlESElBVmFoUWFpOGJRZ0FXNzNYcHhPTW9FUmhJay9RR1hLWjVPeTk3RmUw?=
- =?utf-8?B?TEVZbUtHR0ZIYUQ4WENGOHZsYVE0NUVhcnFUOTFhaXhzbXBsUVVFajNCTVdH?=
- =?utf-8?B?cllFVnhpRERNOU1NZ3R0TVFkMHhITXZXb29ZSS9vOHZTWk1ucmMvNnhwenNC?=
- =?utf-8?B?aFIvTmMzTCtnS1BYeUlxME9OWDQ0a2pYRlZjNjROY1Urd29OZXFvODlxVzZs?=
- =?utf-8?B?d0xHYWV5SEhXVUtCYXlyaGdqUjM4QkFtWXJsbGxHcmR3NVlibGVqTG01djgz?=
- =?utf-8?B?ZFdyRjRiRlZpbEFnY0lXdDVqQkdDbDRBN20xWU9LeGxrb3NQZ2lEbG03SWQ4?=
- =?utf-8?B?ZUpFbHBETW9ERmRsb1JpQm9OQ1BQQUdBdll4b0t6K0ZHVHBrd052QWVTTEp1?=
- =?utf-8?B?blFNUUZlZitLK1d3M1JVZ3YyZVRmVHdNbDlCL2ozL0VsVmgwb0lneWp4dGQz?=
- =?utf-8?B?eXA4dlR1Wk1jZzN0a1VZamJuT1lVZ2tRaTlYanE1V1hFQTI5VXVvTFYyb210?=
- =?utf-8?B?SlFOVnYvakJEM3hlbVZnanNiNGtTNk5DOUFsWnpjVC8vMHdkcm5LVFF5VnE5?=
- =?utf-8?B?R1laVHFuTVQ5Mnl0azNzdVMvU0VYeWpMYytHOXR5S3dPaGlKV1hkSEUzZGtR?=
- =?utf-8?B?N1VISlMyMDVzTmVONVdSc0MySVpXbzdTWVhqTUJwOVNzclhTSysxbXJPczFk?=
- =?utf-8?B?d3l3T2NpdXVLamRiYW5ySy9ESThrNmhZNkNHTG1pb1hQMFFjdDk4YlU0elNT?=
- =?utf-8?B?Q3lKeDl3TkNKQ2lHVkdFTE1SMlVvRkJSU0J2bm5jT1dmMnJnbWp1MGZCV3Jy?=
- =?utf-8?B?bEFFeHpVaTkzREZ0bjJYQmxyS3IxdDEvQ2xPeXU4UlNvaGlyYVFvbEQ5b2ND?=
- =?utf-8?B?Tnl3N0tJWWltTW5CbVRVMEttcmVHNHI2S2I1VGgvM3ZpOFdSQkhzb2NEN0Fv?=
- =?utf-8?B?TmQrUGZEZWgxYUZvZmRwVlNlQ0FHWG82cFNlRmtHZzRaNWp0eTBVdU1kTHg4?=
- =?utf-8?B?QVRwNHk5ckJxMHYvdS8xdEpZa2RmeHVnUk5JaFM0ZjBvNW1HLzNtTXlSMmRR?=
- =?utf-8?B?cWc4a2NndUd3MmxuYjJZRllJQ1pyaVhQRTk2MXJrd0xGcytmSjlVaTlBbDRB?=
- =?utf-8?B?NXNvMFVKYmhqcTV6a25SZ29uOUxEdm5Lc2FkeHpiOFl6QjdOODh4enBqUlA3?=
- =?utf-8?B?eHM3Mk9BZjF0ZzVMbUF4alN5NjZoeDR1WVFmMURibUhKdG9wckV1N2MzMklI?=
- =?utf-8?B?TUJSekFYWk13YWtnaFd0c3Bja29WbXcwMVRHQXBtMWlYOHE2SWE0cVI1ODVo?=
- =?utf-8?B?WkJPNm1ZYWhHT3A0OVI4clM3a0JHNlJLT2s2UmpEVzJnSDZsaE1zM3NGOCsv?=
- =?utf-8?B?eDZMOEduWDRoK0F1c0Q3M254bC9YZTVCeVVtQjM5NURDT3lXd1ZRdll0cjlU?=
- =?utf-8?B?cDlFSG9lU3FJQWlaTmF2VDBpNlBXZVJSTXZITG5jVlZMNzF6Mk0xMHhab2NC?=
- =?utf-8?B?cVpNSFlyTmx0U0NmTUkyMDFYTEVOSUhMK1p3MXdEQnUzck13eTNWbEtRUlRF?=
- =?utf-8?B?RGc5QWg4MDZnWjUxb2ovQ1p1emwzVjBtRG5HcHVEUzQxM1FvSVlnRVhmVkhQ?=
- =?utf-8?B?dzVPQnZjMkR6dGlOL0JGWmY3RjBheG1RMFgxQmpZalJoQ0NUREF5QjdQcG1w?=
- =?utf-8?B?enE1enpxbGdXYU5lQkRNY3hobHk3VlZGekw4cERWWWsybForMHNTdlh1MklR?=
- =?utf-8?B?bUU2VEVLMjZWSU0wNjlsVkJ0ZEdRS1k2VFozN29PMk01NDF4QWRyblFpam52?=
- =?utf-8?B?MWhKajloVlcxSENheS9JK3ZZZE1jR3JsY2NQZDI1V3ZVTmtxdnVIeWYxOXU3?=
- =?utf-8?B?SEk0TjErUnI3eW51NXV5cnB4Nzl5THdrcE1aS1IzVjRiZ0twc1kzalNVL0hE?=
- =?utf-8?B?UjVNVCtVblY4UVF3dkdYLytnYmk5aVMrRS9QWDQxNEx6dDFNcU9SWlBXelFQ?=
- =?utf-8?B?ektGclNoRmJZN21JS0lUZ3IvNis2TTMyZ0NpTnhMaGF4cFNZUUlHRmJYRVlQ?=
- =?utf-8?B?MENvQjlrMTU4enFxTUJmYkN5V0JqRDBrSXFmQmdEWUcxQ1NmTlYreWVwOEY0?=
- =?utf-8?B?YWV3aWl3TnZyRnVKajJEWHNKM3BHSDVFUHhmb2xYRUJTRFZURHVhM3N1L3B6?=
- =?utf-8?Q?fCxffsIMm1v6H2N4I6dELF8=3D?=
-X-OriginatorOrg: iopsys.eu
-X-MS-Exchange-CrossTenant-Network-Message-Id: 79fba532-687d-4ccb-8c2b-08de290d825a
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR08MB8121.eurprd08.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Nov 2025 14:51:53.2837
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 8d891be1-7bce-4216-9a99-bee9de02ba58
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: F82W/506BAGV+Af6+vB1IdGtIWZ8giDNKizu70w9ugvB2vJt5eF22hmbb/Znk4rrd+8iSWMJZWzPA9ju8OkkuWQh+EJxeNR7Zks0kfVw8Kw=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR08MB11529
+User-Agent: Mozilla Thunderbird
+From: Neil Armstrong <neil.armstrong@linaro.org>
+Subject: Re: [PATCH v10 04/11] drm/bridge: aux: Add
+ drm_aux_bridge_register_from_node()
+To: Chaoyi Chen <kernel@airkyi.com>,
+ Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+ Peter Chen <hzpeterchen@gmail.com>, Luca Ceresoli
+ <luca.ceresoli@bootlin.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>,
+ Kishon Vijay Abraham I <kishon@kernel.org>, Heiko Stuebner
+ <heiko@sntech.de>, Sandy Huang <hjc@rock-chips.com>,
+ Andy Yan <andy.yan@rock-chips.com>,
+ Yubing Zhang <yubing.zhang@rock-chips.com>,
+ Frank Wang <frank.wang@rock-chips.com>,
+ Andrzej Hajda <andrzej.hajda@intel.com>, Robert Foss <rfoss@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Amit Sunil Dhamne <amitsd@google.com>,
+ Chaoyi Chen <chaoyi.chen@rock-chips.com>, Dragan Simic <dsimic@manjaro.org>,
+ Johan Jonker <jbx6244@gmail.com>, Diederik de Haas <didi.debian@cknow.org>,
+ Peter Robinson <pbrobinson@gmail.com>
+Cc: linux-usb@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ dri-devel@lists.freedesktop.org
+References: <20251120022343.250-1-kernel@airkyi.com>
+ <20251120022343.250-5-kernel@airkyi.com>
+Content-Language: en-US, fr
+Autocrypt: addr=neil.armstrong@linaro.org; keydata=
+ xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
+ GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
+ BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
+ qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
+ 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
+ AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
+ OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
+ Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
+ YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
+ GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
+ UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
+ GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
+ yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
+ QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
+ SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
+ 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
+ Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
+ oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
+ M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
+ 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
+ KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
+ 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
+ QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
+Organization: Linaro
+In-Reply-To: <20251120022343.250-5-kernel@airkyi.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251121_065212_929367_92FF1417 
-X-CRM114-Status: GOOD (  16.02  )
+X-CRM114-CacheID: sfid-20251121_065421_910122_69405B44 
+X-CRM114-Status: GOOD (  23.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -182,79 +151,104 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: Neil Armstrong <neil.armstrong@linaro.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 11/20/25 03:23, Chaoyi Chen wrote:
+> From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+> 
+> The drm_aux_bridge_register() uses the device->of_node as the
+> bridge->of_node.
+> 
+> This patch adds drm_aux_bridge_register_from_node() to allow
+> specifying the of_node corresponding to the bridge.
+> 
+> Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+> ---
+>   drivers/gpu/drm/bridge/aux-bridge.c | 24 ++++++++++++++++++++++--
+>   include/drm/bridge/aux-bridge.h     |  6 ++++++
+>   2 files changed, 28 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/gpu/drm/bridge/aux-bridge.c b/drivers/gpu/drm/bridge/aux-bridge.c
+> index b3e4cdff61d6..52dff4601c2d 100644
+> --- a/drivers/gpu/drm/bridge/aux-bridge.c
+> +++ b/drivers/gpu/drm/bridge/aux-bridge.c
+> @@ -35,6 +35,7 @@ static void drm_aux_bridge_unregister_adev(void *_adev)
+>   /**
+>    * drm_aux_bridge_register - Create a simple bridge device to link the chain
+>    * @parent: device instance providing this bridge
+> + * @np: device node pointer corresponding to this bridge instance
+>    *
+>    * Creates a simple DRM bridge that doesn't implement any drm_bridge
+>    * operations. Such bridges merely fill a place in the bridge chain linking
+> @@ -42,7 +43,7 @@ static void drm_aux_bridge_unregister_adev(void *_adev)
+>    *
+>    * Return: zero on success, negative error code on failure
+>    */
+> -int drm_aux_bridge_register(struct device *parent)
+> +int drm_aux_bridge_register_from_node(struct device *parent, struct device_node *np)
+>   {
+>   	struct auxiliary_device *adev;
+>   	int ret;
+> @@ -62,7 +63,10 @@ int drm_aux_bridge_register(struct device *parent)
+>   	adev->dev.parent = parent;
+>   	adev->dev.release = drm_aux_bridge_release;
+>   
+> -	device_set_of_node_from_dev(&adev->dev, parent);
+> +	if (np)
+> +		device_set_node(&adev->dev, of_fwnode_handle(np));
+> +	else
+> +		device_set_of_node_from_dev(&adev->dev, parent);
+>   
+>   	ret = auxiliary_device_init(adev);
+>   	if (ret) {
+> @@ -80,6 +84,22 @@ int drm_aux_bridge_register(struct device *parent)
+>   
+>   	return devm_add_action_or_reset(parent, drm_aux_bridge_unregister_adev, adev);
+>   }
+> +EXPORT_SYMBOL_GPL(drm_aux_bridge_register_from_node);
+> +
+> +/**
+> + * drm_aux_bridge_register - Create a simple bridge device to link the chain
+> + * @parent: device instance providing this bridge
+> + *
+> + * Creates a simple DRM bridge that doesn't implement any drm_bridge
+> + * operations. Such bridges merely fill a place in the bridge chain linking
+> + * surrounding DRM bridges.
+> + *
+> + * Return: zero on success, negative error code on failure
+> + */
+> +int drm_aux_bridge_register(struct device *parent)
+> +{
+> +	return drm_aux_bridge_register_from_node(parent, NULL);
+> +}
+>   EXPORT_SYMBOL_GPL(drm_aux_bridge_register);
+>   
+>   struct drm_aux_bridge_data {
+> diff --git a/include/drm/bridge/aux-bridge.h b/include/drm/bridge/aux-bridge.h
+> index c2f5a855512f..7dd1f17a1354 100644
+> --- a/include/drm/bridge/aux-bridge.h
+> +++ b/include/drm/bridge/aux-bridge.h
+> @@ -13,11 +13,17 @@ struct auxiliary_device;
+>   
+>   #if IS_ENABLED(CONFIG_DRM_AUX_BRIDGE)
+>   int drm_aux_bridge_register(struct device *parent);
+> +int drm_aux_bridge_register_from_node(struct device *parent, struct device_node *np);
+>   #else
+>   static inline int drm_aux_bridge_register(struct device *parent)
+>   {
+>   	return 0;
+>   }
+> +
+> +static inline int drm_aux_bridge_register_from_node(struct device *parent, struct device_node *np)
+> +{
+> +	return 0;
+> +}
+>   #endif
+>   
+>   #if IS_ENABLED(CONFIG_DRM_AUX_HPD_BRIDGE)
 
-On 11/20/25 13:18, AngeloGioacchino Del Regno wrote:
-> Il 20/11/25 05:27, Mikhail Kshevetskiy ha scritto:
->> We found that some serial console may pull TX line to GROUND during
->> board
->> boot time. Airoha uses TX line as one of it's BOOT pins. This will lead
->> to booting in RESERVED boot mode.
->>
->> It was found that some flashes operates incorrectly in RESERVED mode.
->> Micron and Skyhigh flashes are definitely affected by the issue,
->> Winbond flashes are NOT affected.
->>
->> Details:
->> --------
->> DMA reading of odd pages on affected flashes operates incorrectly. Page
->> reading offset (start of the page) on hardware level is replaced by
->> 0x10.
->> Thus results in incorrect data reading. Usage of UBI make things even
->> worse. Any attempt to access UBI leads to ubi damaging. As result OS
->> loading
->> becomes impossible.
->>
->> Non-DMA reading is OK.
->>
->> This patch detects booting in reserved mode, turn off DMA and print big
->> fat warning.
->>
->> Signed-off-by: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>
->
-> This is important enough to get a Fixes tag. 
-
-
-Actually I don't know what version should be mentioned in the Fixes tag.
-
-First of all the issue is en7523 specific, but en7523 was not supported
-by the driver before this series. So it looks like no issue was present
-early.
-
-Second, we don't actually know when the issue actually appears. It
-definitely present in the latest version. I would say:
-
-* with almost 100% probability an issue present since the first driver
-  revision
-* with a quite small probability an issue appeared within my commits:
-    - 70eec454f2d6 ("spi: airoha: avoid setting of page/oob sizes in
-      REG_SPI_NFI_PAGEFMT")
-    - d1ff30df1d9a ("spi: airoha: reduce the number of modification
-      of REG_SPI_NFI_CNFG and REG_SPI_NFI_SECCUS_SIZE registers")
-    - fb81b5cecb85 ("spi: airoha: set custom sector size equal to flash
-      page size")
-    - 902c0ea18a97 ("spi: airoha: avoid reading flash page settings
-      from SNFI registers during driver startup")
-
-We start using something similar to 902c0ea18a97 ("spi: airoha: avoid
-reading flash page settings from SNFI registers during driver startup")
-since June  of 2022. Before this date we was using code similar to what
-was before 70eec454f2d6 ("spi: airoha: avoid setting of page/oob sizes
-in REG_SPI_NFI_PAGEFMT").
-
-The mentioned issue was fixed in the February of 2024. We never test
-old code for the issue presence. 
-
-Regards,
-Mikhail Kshevetskiy
-
->
-> Please resend with the appropriate one, after which:
->
-> Reviewed-by: AngeloGioacchino Del Regno
-> <angelogioacchino.delregno@collabora.com>
->
->
+Looks fine:
+Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
 
