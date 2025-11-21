@@ -4,115 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 444E0CFA751
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 08:38:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EB82CFA74F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 08:47:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Subject:Cc:To:From:Date:Message-ID:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2qSXvzlmdS35P7fsTtvXLVpdTT/36B4mvzOkNUVsHgc=; b=nMBYlCD/42CJO/Ygxy24KS9eYF
-	uP1AR3tQnQRH9fWTSmivVVEEkmAif1mCEFVwqdPWMZsq9xkgSAfsbCDsd3TU5WxA3acJ/lT3XIXpP
-	eYNP/TF2ayersfo5GZmsjnoCmFkorMxzja+9TXN67bo5oHwCj0rg3aSagwVypkltKbP0KzipYKTrM
-	oM+65tOjNNUSL5tXCGmZykFe9Gbo8oxe9j1jJ/k3gJ70nfOdgVKWnkqhJHfE4A5n5P3gc9Azpf7yT
-	AmRt8y6L9wEep1MKD2Jp4okVBXzcdQQDTUGU/sXpiAwnhb71o2hmQh6+azuic4tr2N7MDL2rtkDUq
-	vdWiv2TA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9rw6P3vTkq9/VDf2BdRM52eT1wyytd0Ws0h+4Sg6bhM=; b=3MKF5I+UmKWfq+yj8onzX1iPJV
+	ljBjS8Em9bxvShjK26weRJVuNBU9UJP1fDm531DX7MffikH4oxQ5BBSA+iS13IVGcMY0DVyqv1BkX
+	tDY4dMP286I60B2zfmbDYN9VYzKlFlluo3vzcOwYrExGF8UFZSVDXsExd/Rh2zsHX6OWwSZZUH0dH
+	bX8zXLUJRVsnl9LYRqFRvKhiPfdcTuEYexjmwz0ZFa1LtouyJASs98Saq/ulBAcxdcEa1GkTBtKfR
+	IquTT7r8ij2Q/5bq8IcRL9EgDV36dOXnJTquNpHsRQeCJP36tblGaVBNVnF+m0clw7U+/jsAhwXjw
+	aBWoyXcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMMea-000000085JY-1J5P;
-	Fri, 21 Nov 2025 08:38:04 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vMMnF-000000085lY-2fNC;
+	Fri, 21 Nov 2025 08:47:01 +0000
+Received: from mail-pf1-x42b.google.com ([2607:f8b0:4864:20::42b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMMeY-000000085Iz-3MsP
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 21 Nov 2025 08:38:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Subject:Cc:To:From:Date:Message-ID:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=2qSXvzlmdS35P7fsTtvXLVpdTT/36B4mvzOkNUVsHgc=; b=S5cva67oS95vUtmfhUSVuUITx9
-	aH+mdU6szD/6HI7TS8FD5a8oASLT8ZJHJhvLlRdyjek19XzPNoRKN0HdDn3I5Fsn+IJSRJnRYND4J
-	uWRtxACo3T7rCdTeLm5rHbWP1wSnnun4n9l63UN7Xn85pO30y+oOiuq3JkfRJOGKsu0aQ2/t2BnJF
-	mtDo7OY23UnSNEqFbJHSOt/XiMavomlpS3W7GikYgTMOTuD0vC0G1UFLbGX4GZggXSx6umDMyZnVE
-	7BoDWoKk9wW7H944R2teYLgRnkpW9M75mXzi7hgGQCf30lMZPY/7c7DaBzfUY2P8d0RnipZAD+v48
-	ELhapAwg==;
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMLmr-0000000GKL0-27fy
+	id 1vMMnD-000000085ks-3rT4
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Nov 2025 07:42:36 +0000
-Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-477a1c28778so19869955e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Nov 2025 00:37:56 -0800 (PST)
+	Fri, 21 Nov 2025 08:47:01 +0000
+Received: by mail-pf1-x42b.google.com with SMTP id d2e1a72fcca58-7b22ffa2a88so1574270b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Nov 2025 00:46:58 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1763714276; x=1764319076; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:subject:cc
-         :to:from:date:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=2qSXvzlmdS35P7fsTtvXLVpdTT/36B4mvzOkNUVsHgc=;
-        b=MjR/WIJqdfIYgUvkVNPr3zuUFscGmonjdV5wHNW6GSTKth4untqkawU1LiHBJa9LX0
-         jbjNo/oKOJtUOMU97fJ2cenYhtmdQyP65zd+2WgYjzZuHmifG+B3fI+zVYDJd9HXaJBS
-         bQE++2KVoxK0Sd0HDOlrX6ZYCG/Im6iJe4zdtL1SApc56fj7ujTHeQeGHbQjpoyKd0JE
-         7awbO+Ii4/J3uT3OYgptT+hYApmFhibyCmMk19ISNTbdxmBCOaogg+5ChCsegEGMm1lq
-         d17qI9E4a8fMDIVJy/stOIIjxzIQamyu6JwUtAZIx7xl82sqm6xsY4rP4+DpA1bwNjTG
-         UCxQ==
+        d=google.com; s=20230601; t=1763714818; x=1764319618; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=9rw6P3vTkq9/VDf2BdRM52eT1wyytd0Ws0h+4Sg6bhM=;
+        b=tX7YYGhDS5nRY6mU0gwehzkzr0wFaFwdG+wEzc3M0CPJ0OTRzQSg/ygB4VK6QIt2so
+         HIMau39h96jAEQ6oZ4sjRfVw6thFU/9DH4sNz23/OwSPh7B/BmCDJvJLwU8UvPDYhpz2
+         MHerwlgi9Xx5z+nm7iNILyCDn/Fk23s3PxdcLQWlq/GmVt8DC5yX7V02aP7MTp6AgLTy
+         xA9EQnxRlWJhJ0Sb4PXrLyLX/mvti/PzUQkwksUhML3ZE8QQhVZ/4y9S3OS6XA6i5Js/
+         rrYWUQA04HXIoDY7Js+5M3kQT+1baCc0anPpwfb9HzHcSDTiDt5TGdLFxSX6DvTlupWa
+         op4A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763714276; x=1764319076;
-        h=in-reply-to:content-disposition:mime-version:references:subject:cc
-         :to:from:date:message-id:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=2qSXvzlmdS35P7fsTtvXLVpdTT/36B4mvzOkNUVsHgc=;
-        b=wSxFiGrKSAQ+zd7xta4FJzJJHRJU1hPBvRyA0Ob+ub8uoreDWzNgjpPJ+BQbDPIBEo
-         +mh6aZva5nG/Vwd6J41V3K2KTEtPuikab6EF3KRGBVTjr1e6ZRHb6JvHp+YmlkvENt7X
-         j0bv2wvrmCcV5uc5xH2CBavxzd/m5ku+zkCcjEJ5KLG4TtHIptzIQ3mKe7Ldfi4Rll7w
-         VqqYuc92JccQu3lqC/TRIY1gMzYILnbs0uYVHRRs/DPbJPaQzavq2MtD+RDmR+5XtHBT
-         GXUq2OCZJfBZD4hrhc/LECk4QT2TlNN1NHyYRcgGxQvFZ/NES4YsFZvbr36SMZxTLhAX
-         PrIA==
-X-Forwarded-Encrypted: i=1; AJvYcCVmCzkWfNSamaHh5sSW6OHJlbOn3thFimHCuO1ta0V01jOrbVINWQZVvaB1zvknY0izFYOi3i8hzATKIAUDQ3E9@lists.infradead.org
-X-Gm-Message-State: AOJu0YyLiji2frH30M+yJACo6lg3MG9t+40NkTl4Qe5/75zbxHUETMYF
-	NAPIodmXXRoQ+l6QBAf6j0i5NJ3dr97LmRkwu10qtZpLoS8tF0r/4qT2
-X-Gm-Gg: ASbGncvjtFSQ5bJm8Xs6StP2XIwiuFcZz+ss/PqWE/7t2N1NJTYnewmsySwDutIckyV
-	PC65AUDF5pRqAMJjdTUv48EK7IcuGFnFidZd0lJxrd0elGHRuVTwSiomI2fS9WWtxMuqzCbzI31
-	gebGWCzXrX2v0iI35FTBb5lpx1QLazwZiC6s5IUSlfGM0eUd+qcEOQI6q0qH71KgzMr6TvsRarT
-	UAjpZ+efvFeqcaaC9MSAvLAtUIST1i2JRpTrliY7P9cYwtieLLljsLCzKWB7Z6rUYuLPPi36bnl
-	Ibudx6GlRAIHvxfz1dBZIDi0bT1tjH99/vB9eWNK4wtm0DEtP12hfgHC8G1CwUmkJZml6KN2m/N
-	GBQwYOoH5GihoMvWdXzI91k2uKZjsm4hsXa6YQD5WG509QMXjavrUiJB/NtndDAive0hfsNWq1n
-	5bwWNEaWXkD8cCsnyzsNYQGUkVAL3oTmPDVQ2Z2FM=
-X-Google-Smtp-Source: AGHT+IEA+dyN8n6gI9VghYdVrCVyA5Lkx+Pi/7Qw0bW1qYcQrv+1D9Mt2waBz7nsc6tPHypUcxzIAw==
-X-Received: by 2002:a05:600c:35ce:b0:477:6d96:b3e5 with SMTP id 5b1f17b1804b1-477c016c071mr18413245e9.7.1763714275447;
-        Fri, 21 Nov 2025 00:37:55 -0800 (PST)
-Received: from Ansuel-XPS. (93-34-90-37.ip49.fastwebnet.it. [93.34.90.37])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-477a9deeb96sm82356155e9.4.2025.11.21.00.37.54
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 21 Nov 2025 00:37:55 -0800 (PST)
-Message-ID: <692024e3.050a0220.183811.f1dc@mx.google.com>
-X-Google-Original-Message-ID: <aSAk4XQ-S6d7iXUs@Ansuel-XPS.>
-Date: Fri, 21 Nov 2025 09:37:53 +0100
-From: Christian Marangi <ansuelsmth@gmail.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Cyril Chao <Cyril.Chao@mediatek.com>, Arnd Bergmann <arnd@arndb.de>,
-	=?iso-8859-1?Q?N=EDcolas_F=2E_R=2E_A=2E?= Prado <nfraprado@collabora.com>,
-	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
-	linux-sound@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, upstream@airoha.com
-Subject: Re: [PATCH v2 2/3] ASoC: dt-bindings: Add Airoha AN7581 AFE YAML
-References: <20251121054537.25796-1-ansuelsmth@gmail.com>
- <20251121054537.25796-3-ansuelsmth@gmail.com>
- <20251121-daft-secret-collie-629a2c@kuoka>
+        d=1e100.net; s=20230601; t=1763714818; x=1764319618;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=9rw6P3vTkq9/VDf2BdRM52eT1wyytd0Ws0h+4Sg6bhM=;
+        b=g4sgquLs82PxfdrbN+WxhrEnMwTEPnS8qppgMmd3NxXt+j3kYmwZCDqdmQcCuFtbSG
+         kHRBhdBNllKQ8mgpmYROPMis+XTfv7kaW3O69nm3+bv1u1NBieGtCAH7nyAKFpujA2dD
+         bpZIwoFQ/s8OpK46Y1tgCuY70Og52suwGgbuDuNvfxty0zdZzoxGWhlL9/6mulqXPD8U
+         0mnt+/wWkv1VXphBmynoyaBMUZum+foOYnK/XvbKL2UQjIj4CWjxpklsX2HRk64RpMnY
+         hPvqCAzJvA694NZ9bxX1Fs2PbVLcKIhpUdvoFSYYFG9F5ewVhmnNpHDPtD9gv3D50HfX
+         k+Lg==
+X-Forwarded-Encrypted: i=1; AJvYcCUBEfZ1U4IBTokFtFw/zWHq59Cq3KqwEBdLi51YQhbg4h5YUeCXnRQ+yvc0K4Own0ozJ4YthgGqrMQOUKnCHrPh@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzhk8dQxgHhcufWKRMLHbS2kMMQwZF2mb5xv3OGFrt55VP+vzcB
+	SoJCkqny/Q/4lDijf5mRlug638ZLxAZAS72qjiHjPwmoIAhIfRfk6jhO3P1jfqZF4HwYCZdbETQ
+	wdGmywjSRr/6uB0h26NbK3VxJqryztEy3sqAm7gMx
+X-Gm-Gg: ASbGnctH9iTtrmsKTubPkZNc0HrDXfJ3twzNK34GSzBh8GbV0MzcZA2HiI9WXkA0Y1t
+	Ltk+krGt2r38plKzRM0H+a54zMaNtd6W/AKfmIRmY6ejDiPYO175kV+2bobXJjFYvc0TBW+e6eE
+	6ynOTN+l2HbHxz+rihceg+FWHCvzjeYTNGJiTOqUkc9jSS5DTZBIX83r0rGRw6nwHj9KBaa+P7m
+	zNiLUtwrqAAwMeFjktP4Z5ApCy9WxtRqJuM25gEYznk4UUHOGO8aGdxb612jJS4Ej1kA5Y=
+X-Google-Smtp-Source: AGHT+IEGKK1JVapl4Bfkn+X1caSvW4BJYyhUwjXrKD36ojgbUTuY+cLlAhIn+4hGtsKsgQZA7TevAUxQK94FOcafFjQ=
+X-Received: by 2002:a05:7022:ea46:10b0:119:e569:f26c with SMTP id
+ a92af1059eb24-11c9d819c4amr549173c88.21.1763714817986; Fri, 21 Nov 2025
+ 00:46:57 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251121-daft-secret-collie-629a2c@kuoka>
+References: <20251120-phyb4-v6-0-b6694e1f0caf@google.com> <20251120-phyb4-v6-1-b6694e1f0caf@google.com>
+ <20251121-attentive-demonic-jacamar-fc4afb@kuoka>
+In-Reply-To: <20251121-attentive-demonic-jacamar-fc4afb@kuoka>
+From: Roy Luo <royluo@google.com>
+Date: Fri, 21 Nov 2025 16:46:21 +0800
+X-Gm-Features: AWmQ_bmUVOlmJqcVyT_EtvB6gdvlOG5rtdefUR1SndkOE8ikDuOVfBKFFoK6hGc
+Message-ID: <CA+zupgxskC2HMy_sLusDbb_L1t49frjLQW6isBfAKa6BgNvpNQ@mail.gmail.com>
+Subject: Re: [PATCH v6 1/2] dt-bindings: phy: google: Add Google Tensor G5 USB PHY
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Peter Griffin <peter.griffin@linaro.org>, =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
+	Tudor Ambarus <tudor.ambarus@linaro.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	Badhri Jagan Sridharan <badhri@google.com>, Doug Anderson <dianders@google.com>, linux-phy@lists.infradead.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+	Joy Chakraborty <joychakr@google.com>, Naveen Kumar <mnkumar@google.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251121_074233_578541_228AFF89 
-X-CRM114-Status: GOOD (  21.30  )
+X-CRM114-CacheID: sfid-20251121_004659_963649_D06763CF 
+X-CRM114-Status: GOOD (  19.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,83 +102,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 21, 2025 at 09:36:10AM +0100, Krzysztof Kozlowski wrote:
-> On Fri, Nov 21, 2025 at 06:45:00AM +0100, Christian Marangi wrote:
-> > Add documentation for Airoha AN7581 AFE YAML schema.
-> 
-> Drop YAML and YAML schema from subbect and commit description. See also
-> submitting-patches in DT dir. You cannot add documentation for YAML
-> schema. It's like adding a Linux driver for C code.
-> 
-> > 
-> > Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
-> > ---
-> >  .../bindings/sound/airoha,an7581-wm8960.yaml  | 67 +++++++++++++++++++
-> >  1 file changed, 67 insertions(+)
-> >  create mode 100644 Documentation/devicetree/bindings/sound/airoha,an7581-wm8960.yaml
-> > 
-> > diff --git a/Documentation/devicetree/bindings/sound/airoha,an7581-wm8960.yaml b/Documentation/devicetree/bindings/sound/airoha,an7581-wm8960.yaml
-> > new file mode 100644
-> > index 000000000000..ebeda0876280
-> > --- /dev/null
-> > +++ b/Documentation/devicetree/bindings/sound/airoha,an7581-wm8960.yaml
-> > @@ -0,0 +1,67 @@
-> > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> > +%YAML 1.2
-> > +---
-> > +$id: http://devicetree.org/schemas/sound/airoha,an7581-wm8960.yaml#
-> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > +
-> > +title: Airoha AN7581 sound card with WM8960 codec
-> > +
-> > +maintainers:
-> > +  - Christian Marangi <ansuelsmth@gmail.com>
-> > +
-> > +allOf:
-> > +  - $ref: sound-card-common.yaml#
-> > +
-> > +properties:
-> > +  compatible:
-> > +    const: airoha,an7581-wm8960-sound
-> > +
-> > +  platform:
-> > +    type: object
-> > +    additionalProperties: false
-> > +    properties:
-> > +      sound-dai:
-> > +        description: The phandle of AN7581 platform.
-> > +        maxItems: 1
-> > +    required:
-> > +      - sound-dai
-> > +
-> > +  codec:
-> > +    type: object
-> > +    additionalProperties: false
-> > +    properties:
-> > +      sound-dai:
-> > +        description: The phandle of wm8960 codec.
-> > +        maxItems: 1
-> > +    required:
-> > +      - sound-dai
-> > +
-> > +unevaluatedProperties: false
-> 
-> Please place it after 'required:' block.
+On Fri, Nov 21, 2025 at 4:16=E2=80=AFPM Krzysztof Kozlowski <krzk@kernel.or=
+g> wrote:
 >
-
-Thanks for the review. Will do!
-
+> On Thu, Nov 20, 2025 at 05:36:41PM +0000, Roy Luo wrote:
+>
+> I read last discussion and patch is fine, except one issue in example I
+> never noticed before (see at the end), which I want to fix. Apologies
+> for not bringing it up anytime earlier, I missed it. While at it also
+> one more nit.
+>
+> > +description: |
+>
+> nit: drop |, do not need '|' unless you need to preserve formatting.
+>
+> > +  Describes the USB PHY interfaces integrated with the DWC3 USB contro=
+ller on
+> > +  Google Tensor SoCs, starting with the G5 generation (laguna).
+> > +  Two specific PHY IPs from Synopsys are integrated, including eUSB 2.=
+0 PHY IP
+> > +  and USB3.2/DisplayPort combo PHY IP.
+>
+> ...
+>
+> > > +
+> > +additionalProperties: false
 > > +
-> > +required:
-> > +  - compatible
-> > +  - audio-routing
-> > +  - platform
-> > +  - codec
-> 
+> > +examples:
+> > +  - |
+> > +    soc {
+> > +        #address-cells =3D <2>;
+> > +        #size-cells =3D <2>;
+> > +
+> > +        usb_phy: usb_phy@c410000 {
+>
+> node name: usb-phy, because there are no underscors used anywhere in
+> upstream. While at it, you can drop the label as well, because it is not
+> uised, so just usb-phy@..... {
+>
+> Please send new version with these two fixed and:
+>
+> Reviewed-by: Krzysztof Kozlowski <krzk@kernel.org>
+>
 > Best regards,
 > Krzysztof
-> 
+>
 
--- 
-	Ansuel
+Thank you for the review, I appreciate it!
+Ack on both points and will send out a new version.
+
+Regards,
+Roy Luo
 
