@@ -4,68 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB574CFC29A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 18:44:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6CC4CFC29E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 18:56:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:To:From:Subject
+	:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:Cc:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c0Lat5Lybgmydvmco3yn5fpGeDyEHrPo9zBkU69PSlI=; b=XGoyNrbauAqu781ddTMpORkBge
-	kH89OYKx/n43vx1HpM7IOLSHK3I8TOz5AsDzsDhjDF7Y38XMiQAzmAgnvbZZiQPKCEOBFLFLkzsfi
-	C3LU6BBJJswQIXYsgN9RH3WnxXNTjfSKi+NYIeqEyQPBDnTK+p3dYQAVfByY892o8lXwE0DWZplws
-	Xe79VIVwowQOkLVLUF0pSs6ZtyfeB2oYqARy7PfwemASUdzEUO5Mk+NKLSwMTsKVGZWi2m5unmRK7
-	dvzigljlj1EaQMRpxpChCAqYvhNQV5ihUrlsUkGKN8TD0xxz9fSuMi3hbZrjXjeZOqbEBOxkS+aIP
-	zxKP4mFg==;
+	bh=Gf/8Pk7Wi+5ZKHSgJ1cayHET+i6n5m5sIz+x1glR7jY=; b=nrSLxrcBtEu4dh7PetdPUQRy6V
+	3tbZQVq7bWgME6FXPl9u6DMRDo1cnnGVYP/wr7u7rOgGsOJc9sI/hmCcgYoRwGGpCqxw6gztYlH7p
+	xAdxyGd30FTrMk746bWDezNOHIO/PGYtFM7NyPqY4eqqZ19keneIq2ceK3rdAN9TM0vlyd1lOQMVN
+	731+jJelCxTitilbhcZx4mNRh7CcZRJlfu0XNxxURS8Ad1f4e76+jhCfXPkWe2Vpwhv0Qip8ag+Bb
+	1+HGmDwB1dtd4LNNPmHFugk8KSldBJLYnu0OTDRranai+yWRs4a7R2N3Zg6z9YC3JgWiQsv9C99fD
+	n+cvymVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMW7G-00000008rmU-19EZ;
-	Fri, 21 Nov 2025 18:44:18 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vMWJL-00000008sOD-11hc;
+	Fri, 21 Nov 2025 18:56:47 +0000
+Received: from mail-pl1-x649.google.com ([2607:f8b0:4864:20::649])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMW7E-00000008rmF-2ali
+	id 1vMWJI-00000008sNr-1REV
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Nov 2025 18:44:16 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id CABD9601CE;
-	Fri, 21 Nov 2025 18:44:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A6399C4CEF1;
-	Fri, 21 Nov 2025 18:44:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763750655;
-	bh=er1DOqN8XKcwmjh5oTWZ/2giUJo2yI7UZQbBBDHtzOg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=PU3Ev8qFEy/Hh4XsuOCwhFbtwDbMICtrEXQqAsONV5fPTQJ5vgQXYcIm36g/oCKBv
-	 U+Mx7JTGyPjfl7ibI+7Lt1bXC8XV0CTbVhZm9FQ6C3jlREEOJDBXA4jHjn9EtIvr7C
-	 9MvQafAR6I1F6lfQ3XAixPTtlTBxEgdMlCgJn1LrLiI+PmcbqwiSEtsim+96u0JxpS
-	 UmlQZYDL2dzl9/n4F36jhAlAP/cDz186yVz7/zG4VFJk+kAPZamoTpGSVPLC6xXJix
-	 ELaiTDl4URgiY8liHpe4GYYAK4ef+lUVZcGIme299td0m/ZhNf9vdDWI0Z9RDNi4i+
-	 +PRwwOT+TjhMw==
-Date: Fri, 21 Nov 2025 18:44:11 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-Cc: Randy Dunlap <rdunlap@infradead.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Will Deacon <will@kernel.org>, linux-kernel@vger.kernel.org,
-	Arnd Bergmann <arnd@arndb.de>, wangyushan12@huawei.com
-Subject: Re: [PATCH v1] arm64, lib: make ARM64 select
- ARCH_HAS_CPU_CACHE_INVALIDATE_MEMREGION not GENERIC_CPU_CACHE_MAINTENANCE
-Message-ID: <20251121-uncoated-trapeze-e1e7d9c0cbb8@spud>
-References: <20251119-zippy-distinct-1e2a7da7b69b@spud>
- <aR9QRuUigBsxxelm@arm.com>
- <20251120-ruined-liability-9ecbf53affd1@spud>
- <669d4bbb-4011-493c-b056-34e682a1ac26@infradead.org>
- <aR-KxRIDvGNlW2jy@arm.com>
- <a6fff5b6-7e7f-4883-b905-500d55dbf21e@infradead.org>
- <20251121104827.00005033@huawei.com>
-MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="/1G6JnR6SY9eI9zl"
-Content-Disposition: inline
-In-Reply-To: <20251121104827.00005033@huawei.com>
+	Fri, 21 Nov 2025 18:56:45 +0000
+Received: by mail-pl1-x649.google.com with SMTP id d9443c01a7336-297f48e81b8so35509605ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Nov 2025 10:56:43 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1763751403; x=1764356203; darn=lists.infradead.org;
+        h=to:from:subject:message-id:references:mime-version:in-reply-to:date
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=Gf/8Pk7Wi+5ZKHSgJ1cayHET+i6n5m5sIz+x1glR7jY=;
+        b=mYFUueL2RjgkGCtOtXXEbUY8urJENJgS58MHjDQmr2KMFW/XlzbAe+/OIVfTYxWi1p
+         V0Xo/sMpdNl14d0TJkmg1bMcOGE1vpyU/zTwbQo8VEt9Vm+R/u958HMHnY2FnZbPqq6d
+         7mBmGi7iAin3MC1p/CVt6XChzadb8Fga5fTfFyDQ53K9yZQKLX00ieqEGr5G06ZUfWjJ
+         edUj5EjUBsJkxnHLQRKpLRS5sUn0dz79Y3H1GLmR+d1Mzk3PIzPZune8aaEWyiGiT5lO
+         2CuCiyDlLoLN3KCJ+8+ivSpSUuCDd8G7ishiKKLtlNUIfRV2wgwTkBgZCjoNerffFIDV
+         TZ0Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1763751403; x=1764356203;
+        h=to:from:subject:message-id:references:mime-version:in-reply-to:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=Gf/8Pk7Wi+5ZKHSgJ1cayHET+i6n5m5sIz+x1glR7jY=;
+        b=uVmouPPWuTBSWSYCGBYiKtMZWxrKUe0IVGZsuM4d/hjc/C8iAIKW/CTFe0XxOVPwVs
+         tRUcNQmgKscAgKplVtV5rKgLdy+NgO6YtNxpgGUg5ff4hiOOjetsDx89JFSE6rRDVND6
+         rrKusF4YJ9pOzOL8eFP/zkxIQfBpXzG8vcMVZo2I/L0xL7sYeosBgvzEaOnUHAvfuy0i
+         7MHbq3sjR50DiLAQEagLW5O8PmF6mr9vb4Wp54dcID3GSLxggriVw1bBEl7ykCQzjH3e
+         eOU3tr8YS57haOLW+A4+kDcGuAVmdZAO2ODalyp+6FIr06yLt6b23pSRGEs0GxUkujSA
+         ehaQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVF/IrifVgII6OjQ/7n5NvidSoIWzFZvsuGM6NxPKpS4b74QgUiU9nRQINLHTou/KgxEabCtvI5F3UbnPgWUfYf@lists.infradead.org
+X-Gm-Message-State: AOJu0YxTIQvvlX1ipoSlkfN8UVRf7/PVbPCnRzQZPLku+2NUaOptcydY
+	JPy9MF6pheBO1USYVY1qPr2ngVR9sJiDEVBQd826idh5jd0Yt2nK1BCGS7lPh1bQsv9PUz0viHn
+	3eqd4jQ==
+X-Google-Smtp-Source: AGHT+IGl6lVP4k6Ffz1FVATVkFbVRdK/+fQjLr4mrrmG1VOjxZCvjJw3L3ZKENAl8ILCy7qu+uQ9S2crdpg=
+X-Received: from plhv10.prod.google.com ([2002:a17:903:238a:b0:298:3543:5212])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:903:11cd:b0:298:639b:a64f
+ with SMTP id d9443c01a7336-29b6beee840mr49422585ad.6.1763751403034; Fri, 21
+ Nov 2025 10:56:43 -0800 (PST)
+Date: Fri, 21 Nov 2025 10:55:37 -0800
+In-Reply-To: <20251028225827.2269128-1-jmattson@google.com>
+Mime-Version: 1.0
+References: <20251028225827.2269128-1-jmattson@google.com>
+X-Mailer: git-send-email 2.52.0.rc2.455.g230fcf2819-goog
+Message-ID: <176375118181.288827.8430542805047208308.b4-ty@google.com>
+Subject: Re: [PATCH v2 0/4] KVM: selftests: Test SET_NESTED_STATE with 48-bit
+ L2 on 57-bit L1
+From: Sean Christopherson <seanjc@google.com>
+To: Sean Christopherson <seanjc@google.com>, Paolo Bonzini <pbonzini@redhat.com>, 
+	Shuah Khan <shuah@kernel.org>, Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
+	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Andrew Jones <ajones@ventanamicro.com>, 
+	Huacai Chen <chenhuacai@kernel.org>, Bibo Mao <maobibo@loongson.cn>, 
+	"Pratik R. Sampat" <prsampat@amd.com>, James Houghton <jthoughton@google.com>, linux-kernel@vger.kernel.org, 
+	kvm@vger.kernel.org, linux-kselftest@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	Jim Mattson <jmattson@google.com>
+Content-Type: text/plain; charset="utf-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251121_105644_407034_46E8020A 
+X-CRM114-Status: GOOD (  10.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,46 +96,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, 28 Oct 2025 15:30:38 -0700, Jim Mattson wrote:
+> Prior to commit 9245fd6b8531 ("KVM: x86: model canonical checks more
+> precisely"), KVM_SET_NESTED_STATE would fail if the state was captured
+> with L2 active, L1 had CR4.LA57 set, L2 did not, and the
+> VMCS12.HOST_GSBASE (or other host-state field checked for canonicality)
+> had an address greater than 48 bits wide.
+> 
+> Add a regression test that reproduces the KVM_SET_NESTED_STATE failure
+> conditions. To do so, the first three patches add support for 5-level
+> paging in the selftest L1 VM.
+> 
+> [...]
 
---/1G6JnR6SY9eI9zl
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Applied to kvm-x86 selftests, thanks!
 
-On Fri, Nov 21, 2025 at 10:48:27AM +0000, Jonathan Cameron wrote:
-> On Thu, 20 Nov 2025 15:25:46 -0800
-> Randy Dunlap <rdunlap@infradead.org> wrote:
-> > On 11/20/25 1:40 PM, Catalin Marinas wrote:
+[1/4] KVM: selftests: Use a loop to create guest page tables
+      https://github.com/kvm-x86/linux/commit/ae5b498b8da9
+[2/4] KVM: selftests: Use a loop to walk guest page tables
+      https://github.com/kvm-x86/linux/commit/2103a8baf5cb
+[3/4] KVM: selftests: Change VM_MODE_PXXV48_4K to VM_MODE_PXXVYY_4K
+      https://github.com/kvm-x86/linux/commit/ec5806639e39
+[4/4] KVM: selftests: Add a VMX test for LA57 nested state
+      https://github.com/kvm-x86/linux/commit/6a8818de21d2
 
-> > > As an alternative, I'm happy for arm64 to select both the ARCH and
-> > > GENERIC options if you think that works better.
-> > >  =20
-> >=20
-> > Yes, I think that would be much better.
-> > Thanks.
-> >=20
->=20
-> I'm fine with that as well (was where we were in earlier versions).
-> I'm offline for 10 days from tomorrow, but wangyushan +CC has been heavily
-> involved in this series throughout if we need to test anything etc.
->=20
-> For a patch that is basically just (this to me seems fine to squash
-> as well if that is easier)
-
-Right, 3 votes for both, so I squashed that in.
-
-Thanks guys.
-
---/1G6JnR6SY9eI9zl
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaSCy+wAKCRB4tDGHoIJi
-0hf3AP49RJTktKwmPiJYJH0F7CQBkBz2DLxIykNLJ5LyitA9OgD/TybjvGMP8lSU
-CnHl/S5msYsThe2KBHhzYGDR4gMRKwo=
-=4J2T
------END PGP SIGNATURE-----
-
---/1G6JnR6SY9eI9zl--
+--
+https://github.com/kvm-x86/linux/tree/next
 
