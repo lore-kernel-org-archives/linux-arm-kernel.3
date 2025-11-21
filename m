@@ -4,77 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 065EDCFA478
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 07:30:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6657CFA477
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 07:32:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yXg8+7/IaBeahjUcoxp7tnRw/aA/6ViGCJ49LoFeOZY=; b=cogsy3iG5awhP+5KNf8jY7f/ha
-	ptoW+TZbSWW75JvE+m3lNv8AONuREXalyBMM0GPoBEi3JW0Bfj2wWBl9x+lWwdf8biHPNnb2sFP41
-	AvyOBo4L/b8jox6OVN8rovdVPCe3rb1mWSrssCQksmWm5fgj0IK/xr6Ckzxl+dt3F5t+Jckv2ByH0
-	NAImY9QkoT0+j4po5+QnDSyjy/nLE1gU4yyzsXDJEs/m6VIo0X6aruwkMVcmNLobALzXNyRTKD4xQ
-	9DLYM8bzD1zgFbpvO6vhPfcMwBVk4T1nS11Wzl1MCLiZmhjx8NKOyeyF8Q5uK6+1ILHAWD25FpYI0
-	dpiY7QNA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=5Dqt//Bb3x/Y5eSf+OIeQhron5iHwkVjbr2ny9T+e44=; b=HR6DbY+sk8EaYd5EFmKtnW8dmh
+	5O2RVeKyXKzs6TyJp6EdJ2cnaKz8YzMkkV8MJJbEKEkPUs8RKxtJvtUJYS3GYJKZPqPB7nQL8RS8y
+	RxvMrfNvYOQKFLihXdiFWFdJUiPBRsfhctpUKqDj6oIiRe/02sjhod+aq/8dsBYt+inEiMJMMXUWQ
+	Onf5RYPLGxapZAK+9piVN379E7pfv41f1oo8cXR0WFG177/P6e6i2oVwEOLrZ3KkLADvd+Jt3yY1f
+	CVgm48cCIIZ9ariLDgUCZG5mKDbWBTbsRmjKzc/RtLLubDXBF9VW596F5wkgViEcxda+ywbufTNqx
+	Mtnbpx3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMLao-00000007yak-3EhU;
-	Fri, 21 Nov 2025 07:30:06 +0000
-Received: from canpmsgout04.his.huawei.com ([113.46.200.219])
+	id 1vMLcr-00000007ylS-0y2E;
+	Fri, 21 Nov 2025 07:32:13 +0000
+Received: from mx-relay139-hz1.antispameurope.com ([94.100.133.185])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMLal-00000007yZO-2wFb
+	id 1vMLco-00000007ykm-2qfj
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Nov 2025 07:30:05 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=yXg8+7/IaBeahjUcoxp7tnRw/aA/6ViGCJ49LoFeOZY=;
-	b=BWDCPuIZauSbS7kpISZx+lbXlOQi8ORkqYVjuyrDXbFs+yIsiwHAMLmUx67uxxMQYnbwxF5cO
-	+sRHBt+QaAhe81TOPUfdEfqV5/LIYtAUsrAWxcF437IxQk1g3joCkF0PFG6DIi/I7/a2XncjiY7
-	mY0/l7JUeQCu0RV2xJYRHWs=
-Received: from mail.maildlp.com (unknown [172.19.163.252])
-	by canpmsgout04.his.huawei.com (SkyGuard) with ESMTPS id 4dCRdk0kPQz1prL2;
-	Fri, 21 Nov 2025 15:28:10 +0800 (CST)
-Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id D5DB6180BCF;
-	Fri, 21 Nov 2025 15:29:55 +0800 (CST)
-Received: from [10.67.109.254] (10.67.109.254) by
- dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Fri, 21 Nov 2025 15:29:53 +0800
-Message-ID: <a383b3c6-e036-294e-5c62-c7719349c75c@huawei.com>
-Date: Fri, 21 Nov 2025 15:29:53 +0800
+	Fri, 21 Nov 2025 07:32:11 +0000
+ARC-Authentication-Results: i=1; mx-gate139-hz1.hornetsecurity.com 1;
+ spf=pass reason=mailfrom (ip=94.100.132.6, headerfrom=ew.tq-group.com)
+ smtp.mailfrom=ew.tq-group.com smtp.helo=smtp-out02-hz1.hornetsecurity.com;
+ dmarc=pass header.from=ew.tq-group.com orig.disposition=pass
+ARC-Message-Signature: a=rsa-sha256;
+ bh=5Dqt//Bb3x/Y5eSf+OIeQhron5iHwkVjbr2ny9T+e44=; c=relaxed/relaxed;
+ d=hornetsecurity.com; h=from:to:date:subject:mime-version:; i=1; s=hse1;
+ t=1763710320;
+ b=G48CkNKbhJrYRlScCwqxh7EuGV/h927Vk3ctPv1ootqN9j7GsSIB1zb1/M3S90VDeTFQd7ah
+ exxMuxYdoV9FzP8CqfF7r/aQJ07u64EbzirIG2+sPLEELT3mfgcKIbuclNx41l7vVJMc+50LPDK
+ UZ3FsHMTTE1Lsrpj0do+Sq2q6Q869fKLk34kMD65Wbg2wNMCSYb0Q4w+/LZ30wF3T7+WTN3pAV6
+ qs15VdIugmPOwe9+iN0CatNxJ25/ml0npMWHCa3Tfq6rCS3nGN0R1MZC6LDihI8x7jfS3FDN4LO
+ eIAjahwIrcHA6nJZVpdHW+1nPwtD/6i/yKDfNwgZGX/zA==
+ARC-Seal: a=rsa-sha256; cv=none; d=hornetsecurity.com; i=1; s=hse1;
+ t=1763710320;
+ b=bJnwsESa3xZPSGkWmRLfYFhog2+mqVuw5nDMW29BkxQTOtrlQglUmUMCFfxsUDKFuWxtbetk
+ nSNjBn7p1gIRSoR7aR2wTvhxvyhZU8wm0aZA5Uj+I6y+zSUvd/59BlJ+oEYrImbGxZDmRlcvEpP
+ GTWkZ5PGp0LqcsM0PwVykyfhzDH+ZXEdm/hbu2p4LdCHQRMIQ1X/cMiD8sPny0UrHthiRvZhScU
+ 5RJ5b+4KLBGGRzLhlmlquXtQvKo5XlGsprJQpckwDw2ktxpuTHimQXPcokBq4DABF/Pn0m9dGz7
+ QCfaxMu3Vlk4MBeBn8Sv4jr6udsX7ox9r0Xpx9to94JQQ==
+Received: from he-nlb01-hz1.hornetsecurity.com ([94.100.132.6]) by mx-relay139-hz1.antispameurope.com;
+ Fri, 21 Nov 2025 08:32:00 +0100
+Received: from steina-w.tq-net.de (host-82-135-125-110.customer.m-online.net [82.135.125.110])
+	(Authenticated sender: alexander.stein@ew.tq-group.com)
+	by smtp-out02-hz1.hornetsecurity.com (Postfix) with ESMTPSA id 382945A0495;
+	Fri, 21 Nov 2025 08:31:45 +0100 (CET)
+From: Alexander Stein <alexander.stein@ew.tq-group.com>
+To: Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Cc: Alexander Stein <alexander.stein@ew.tq-group.com>,
+	linux@ew.tq-group.com,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 1/2] arm64: dts: tqma8xxs: replace 0 with IMX_LPCG_CLK_0 for lpcg indices
+Date: Fri, 21 Nov 2025 08:31:40 +0100
+Message-ID: <20251121073142.3367642-1-alexander.stein@ew.tq-group.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.2.0
-Subject: Re: [PATCH v7 06/11] arm64/ptrace: Expand secure_computing() in place
-Content-Language: en-US
-To: Kevin Brodsky <kevin.brodsky@arm.com>, <catalin.marinas@arm.com>,
-	<will@kernel.org>, <oleg@redhat.com>, <tglx@linutronix.de>,
-	<peterz@infradead.org>, <luto@kernel.org>, <shuah@kernel.org>,
-	<kees@kernel.org>, <wad@chromium.org>, <akpm@linux-foundation.org>,
-	<ldv@strace.io>, <macro@orcam.me.uk>, <deller@gmx.de>,
-	<mark.rutland@arm.com>, <song@kernel.org>, <mbenes@suse.cz>,
-	<ryan.roberts@arm.com>, <ada.coupriediaz@arm.com>,
-	<anshuman.khandual@arm.com>, <broonie@kernel.org>, <pengcan@kylinos.cn>,
-	<dvyukov@google.com>, <kmal@cock.li>, <lihongbo22@huawei.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<linux-kselftest@vger.kernel.org>
-References: <20251117133048.53182-1-ruanjinjie@huawei.com>
- <20251117133048.53182-7-ruanjinjie@huawei.com>
- <e33d0fdb-e8a5-4abd-8e40-773349008b6b@arm.com>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <e33d0fdb-e8a5-4abd-8e40-773349008b6b@arm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.109.254]
-X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
- dggpemf500011.china.huawei.com (7.185.36.131)
+Content-Transfer-Encoding: 8bit
+X-cloud-security-sender: alexander.stein@ew.tq-group.com
+X-cloud-security-recipient: linux-arm-kernel@lists.infradead.org
+X-cloud-security-crypt: load encryption module
+X-cloud-security-Mailarchiv: E-Mail archived for: alexander.stein@ew.tq-group.com
+X-cloud-security-Mailarchivtype: outbound
+X-cloud-security-Virusscan: CLEAN
+X-cloud-security-disclaimer: This E-Mail was scanned by E-Mailservice on mx-relay139-hz1.antispameurope.com with 4dCRjs6s50zNwSv
+X-cloud-security-connect: he-nlb01-hz1.hornetsecurity.com[94.100.132.6], TLS=1, IP=94.100.132.6
+X-cloud-security-Digest: 56853c09cfe5c0363f0c70f3518d825f
+X-cloud-security: scantime:2.285
+DKIM-Signature: a=rsa-sha256;
+ bh=5Dqt//Bb3x/Y5eSf+OIeQhron5iHwkVjbr2ny9T+e44=; c=relaxed/relaxed;
+ d=ew.tq-group.com;
+ h=content-type:mime-version:subject:from:to:message-id:date; s=hse1;
+ t=1763710320; v=1;
+ b=qz3ellwDsg84TTayZCLA+5xFSKB1qTkmFCdVuvC40OsJe5wh50aYqHGyTzRrfbGi9bckzFnO
+ SM0wFty7YfzX/Jk8R6AqsR8LeU2zfU172E2cGaXGtezIqsg9mbovFx1xzg5APd1qJHYn3mpiDVf
+ 9ngMSPoKksmZjMWvgVbLFq5iLfOujK+aNlzb8HKEQFaY4xGFJNb4ng+GOVyfpv3kklCrqg1piIm
+ IoG6539FIJm8aLhWvXnF3w0B+BrYG69e6pgn7cQYLgsDqlZZItX14y4T0Rrce9tuJw6p6Xik/tI
+ S9zM8RnxpnzKkwW//0ykY9MwKAigVhRFyZU1FkzLrbzjg==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251120_233004_222828_AF5B1E1B 
-X-CRM114-Status: GOOD (  13.70  )
+X-CRM114-CacheID: sfid-20251120_233210_854766_11D69F0B 
+X-CRM114-Status: GOOD (  12.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,54 +110,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Replace the 0 with IMX_LPCG_CLK_0 for LPCG clock indices. Although the
+numerical value is identical, the LPCG input is defined as
+IMX_LPCG_CLK_<n>, so using the symbolic constant improves clarity and
+consistency with the LPCG clock naming convention.
 
+Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
+---
+ arch/arm64/boot/dts/freescale/tqma8xxs.dtsi | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-On 2025/11/19 1:12, Kevin Brodsky wrote:
-> On 17/11/2025 14:30, Jinjie Ruan wrote:
->> The generic entry expand secure_computing() in place and call
->> __secure_computing() directly.
->>
->> In order to switch to the generic entry for arm64, refactor
->> secure_computing() for syscall_trace_enter().
->>
->> No functional changes.
->>
->> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
->> ---
->>  arch/arm64/kernel/ptrace.c | 7 +++++--
->>  1 file changed, 5 insertions(+), 2 deletions(-)
->>
->> diff --git a/arch/arm64/kernel/ptrace.c b/arch/arm64/kernel/ptrace.c
->> index 707951ad5d24..9af3046a2ce9 100644
->> --- a/arch/arm64/kernel/ptrace.c
->> +++ b/arch/arm64/kernel/ptrace.c
->> @@ -2387,8 +2387,11 @@ int syscall_trace_enter(struct pt_regs *regs, long syscall, unsigned long flags)
->>  	}
->>  
->>  	/* Do the secure computing after ptrace; failures should be fast. */
->> -	if (secure_computing() == -1)
->> -		return NO_SYSCALL;
->> +	if (flags & _TIF_SECCOMP) {
->> +		ret = __secure_computing(NULL);
-> 
-> No argument was passed to __secure_computing() in v6, as expected since
-> it was removed in v6.15. Not sure why this NULL reappeared.
-> 
-There is a typo here.
+diff --git a/arch/arm64/boot/dts/freescale/tqma8xxs.dtsi b/arch/arm64/boot/dts/freescale/tqma8xxs.dtsi
+index 2d0a329c2fa50..ebf20d5b5df9c 100644
+--- a/arch/arm64/boot/dts/freescale/tqma8xxs.dtsi
++++ b/arch/arm64/boot/dts/freescale/tqma8xxs.dtsi
+@@ -406,7 +406,7 @@ &sai1 {
+ 	assigned-clocks = <&clk IMX_SC_R_AUDIO_PLL_0 IMX_SC_PM_CLK_PLL>,
+ 			  <&clk IMX_SC_R_AUDIO_PLL_0 IMX_SC_PM_CLK_SLV_BUS>,
+ 			  <&clk IMX_SC_R_AUDIO_PLL_0 IMX_SC_PM_CLK_MST_BUS>,
+-			  <&sai1_lpcg 0>;
++			  <&sai1_lpcg IMX_LPCG_CLK_0>;
+ 	assigned-clock-rates = <786432000>, <49152000>, <12288000>, <49152000>;
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&pinctrl_sai1>;
+-- 
+2.43.0
 
->> +		if (ret == -1L)
-> 
-> ret is an int, so should be -1, not -1L.
-
-Right, not -1L.
-
-> 
-> - Kevin
-> 
->> +			return NO_SYSCALL;
->> +	}
->>  
->>  	/* Either of the above might have changed the syscall number */
->>  	syscall = syscall_get_nr(current, regs);
-> 
 
