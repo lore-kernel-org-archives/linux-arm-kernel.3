@@ -4,85 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBC94CFC27E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 14:16:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 235A5CFC279
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 14:18:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XGIzUaLaZRVrSbPfHE//yeEGilVOdLZVqcPFbYg9Y+4=; b=VUu73D4uATcrN0VQbZsmGBwauO
-	HNCMGdcgVQhzpptPpEUgQX2Udh62j8tV07l99fUPahaTWoeuePMxPaECVabTMqy+EGZ6PCRR9iSUj
-	RBbv9bsSB4sD2lMpWnlSHlbqWD/vyfspDKz7baex1OqY3vY1RoCS1hfze/Oc+qffMM6fZiPbWsF3M
-	BFFx7HKTCg7/zJbUnyDXKoG8jVGAMOgeZWW/y2+3JxqwL93RBcnsKXUnPWMHtbmFg29qyDsQx82BF
-	HgWQDVIxcDSJwp7st+phwp4k2a8SD0HHYRYnCZu+2KVjImQQCWkL91bkIR3ZtmM139rHbq+Uoyq+c
-	xqFZMR3w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mQVsHdM1l/HhpUTwekXfEaDF9gliETScz24Au6tJas0=; b=xR7j5lbpFukThq18B6OPwyIIuL
+	2TWSYY6uREjZWzHoy9lf+eVYp3WobScniUZNyb2I9l/LOzpdJy7B4YwNafARZ9ukHXzZTjCxQUWcn
+	6Ysj5h4RXTHFysJ44srRe9CpR9FL+Jg5uQ1W9kbZwcxfK7BCBLDZ3nGCkSfxw94LsRpxrlVPg09Rp
+	F8TvtrKoXsramYWy3r9YmVybPBINro9Pd4e8AHTafm3aIHWzwy3CV/uFIAeXYEkOwhaOhljCO+AL4
+	h1WZQoIHJeReXm9kohIxKuZGm38mzD8DXkx/VS70kEf3t8Y529dcD3PzEgPj/3hGZc7j6Vz/Ro/8w
+	0rIwfD6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMRvn-00000008VFw-0Iaw;
-	Fri, 21 Nov 2025 14:16:11 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vMRy5-00000008VVY-2Hz8;
+	Fri, 21 Nov 2025 14:18:33 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMRvm-00000008VFT-370d
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 21 Nov 2025 14:16:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=XGIzUaLaZRVrSbPfHE//yeEGilVOdLZVqcPFbYg9Y+4=; b=Q8IiuyZVEwRgv616RbQvioU0Wh
-	qXJRyy4MDhbzyrchmt6kzHa8TDzsHoJABNyW9ONV9y3ys47PcHvbrEHLLBCRNhiMubtzMFA3pyjaK
-	p12dTZyJO01OM8S8vB2Gxdz14VvjwN5o+gikpOy2h9MaFZ8M1qZNvXzPp7MBov/ysmsmsa2BaHYEr
-	J+aF5ppBAEgx1pAlTBFtttd9i+/ObxZUGUamtuIRErc33jE/XQO8wkMSEDShyzI0wchhJg2X08ZEa
-	WT8KVlUn+FKdHBYGy+c2hFZOVSmz4v2muyZkKq7KvDAAjNCN0g0kHyeILZ6K24GakGhBsiBYcHHN8
-	15QHHgNg==;
-Received: from smtpout-03.galae.net ([185.246.85.4])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMR44-0000000GwIR-3T2K
+	id 1vMRy4-00000008VVR-2P9t
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Nov 2025 13:20:44 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 1CB9A4E41831;
-	Fri, 21 Nov 2025 14:15:56 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id DC77A60719;
-	Fri, 21 Nov 2025 14:15:55 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id E0284103721B2;
-	Fri, 21 Nov 2025 15:15:51 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1763734555; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=XGIzUaLaZRVrSbPfHE//yeEGilVOdLZVqcPFbYg9Y+4=;
-	b=Jpa475cjmBN/rq5RJWqpN3qlEofCtV5t4+twhUjga30DLpkwBlxrqi2Y86TAfN3e8h5jeM
-	ts6fF10DTZvoLIJJyQk1Y63s1KfDIQV376h46WE2yVD/AQFIDZ9KMWNVFVOHXXTMy5VyPa
-	fsVUZ4J2E9uFpG55jUYNS8E23WsWWRfNuZXq3U0Ezm4HOqzIl7cDOUqZW5Io5TEfw/sHAC
-	v3pOmxEZF4PfU6ffqdv4fXUOhWHhsva+XYxGMz08HDM3kEI415zyleuTInogCy52CgGAn3
-	x/T4pFyU6+gtJ8Br+f/AHSn7Vpnjf1yuSbf4SDw0Sda4xXf4TgU/5zpUlfHBBA==
-From: Miquel Raynal <miquel.raynal@bootlin.com>
-To: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Richard Weinberger <richard@nod.at>,  Vignesh Raghavendra
- <vigneshr@ti.com>,  Nicolas Ferre <nicolas.ferre@microchip.com>,
-  Alexandre Belloni <alexandre.belloni@bootlin.com>,  Claudiu Beznea
- <claudiu.beznea@tuxon.dev>,  Russell King <linux@armlinux.org.uk>,
-  linux-mtd@lists.infradead.org,  linux-arm-kernel@lists.infradead.org,
-  linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 1/3] mtd: nand: atmel: Defer probe if SRAM is missing
-In-Reply-To: <20251120-at91-probe-v2-1-8c8592f02e8e@kernel.org> (Rob Herring's
-	message of "Thu, 20 Nov 2025 15:37:50 -0600")
-References: <20251120-at91-probe-v2-0-8c8592f02e8e@kernel.org>
-	<20251120-at91-probe-v2-1-8c8592f02e8e@kernel.org>
-User-Agent: mu4e 1.12.7; emacs 30.2
-Date: Fri, 21 Nov 2025 15:15:51 +0100
-Message-ID: <87pl9bzd2g.fsf@bootlin.com>
+	Fri, 21 Nov 2025 14:18:32 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id E89E2602C2;
+	Fri, 21 Nov 2025 14:18:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3EF5BC4CEF1;
+	Fri, 21 Nov 2025 14:18:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
+	s=korg; t=1763734711;
+	bh=SBMXop/PAw5czQpijsWvGpCFvDrNh6vBAkrLsdRGe/U=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=iXlmGEBjAAAtAuRE3vwVXLn0igIqx3dDNExfg8002OsqugiET0N2Yt1o1xK0iN/fB
+	 XGR7wOGuY+70Ip3KzZWht2JmEjWuth78hAWq7BzPo51e/xsV74e7hG/IjrA292mdvE
+	 ymk6ZxYcZIg7Txwf8osWh5roiD4T0VsfpuPuQLfU=
+Date: Fri, 21 Nov 2025 15:04:45 +0100
+From: Greg KH <gregkh@linuxfoundation.org>
+To: Ma Ke <make24@iscas.ac.cn>
+Cc: vz@mleia.com, piotr.wojtaszczyk@timesys.com, arnd@arndb.de,
+	stigge@antcom.de, linux-usb@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	akpm@linux-foundation.org, stable@vger.kernel.org
+Subject: Re: [PATCH] USB: Fix error handling in gadget driver
+Message-ID: <2025112122-fedora-tiny-6fa3@gregkh>
+References: <20251116014948.14093-1-make24@iscas.ac.cn>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251121_132040_936398_366843F3 
-X-CRM114-Status: UNSURE (   9.85  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251116014948.14093-1-make24@iscas.ac.cn>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,28 +67,131 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Rob,
+On Sun, Nov 16, 2025 at 09:49:48AM +0800, Ma Ke wrote:
+> lpc32xx_udc_probe() acquires an i2c_client reference through
+> isp1301_get_client() but fails to release it in both error handling
+> paths and the normal removal path. This could result in a reference
+> count leak for the I2C device, preventing proper cleanup and
+> potentially leading to resource exhaustion. Add put_device() to
+> release the reference in the probe failure path and in the remove
+> function.
+> 
+> Calling path: isp1301_get_client() -> of_find_i2c_device_by_node() ->
+> i2c_find_device_by_fwnode(). As comments of
+> i2c_find_device_by_fwnode() says, 'The user must call
+> put_device(&client->dev) once done with the i2c client.'
+> 
+> Found by code review.
+> 
+> Cc: stable@vger.kernel.org
+> Fixes: 24a28e428351 ("USB: gadget driver for LPC32xx")
+> Signed-off-by: Ma Ke <make24@iscas.ac.cn>
+> ---
+>  drivers/usb/gadget/udc/lpc32xx_udc.c | 35 +++++++++++++++++++++++-----
+>  1 file changed, 29 insertions(+), 6 deletions(-)
+> 
+> diff --git a/drivers/usb/gadget/udc/lpc32xx_udc.c b/drivers/usb/gadget/udc/lpc32xx_udc.c
+> index 1a7d3c4f652f..b6fddfff712d 100644
+> --- a/drivers/usb/gadget/udc/lpc32xx_udc.c
+> +++ b/drivers/usb/gadget/udc/lpc32xx_udc.c
+> @@ -2986,6 +2986,7 @@ static int lpc32xx_udc_probe(struct platform_device *pdev)
+>  	int retval, i;
+>  	dma_addr_t dma_handle;
+>  	struct device_node *isp1301_node;
+> +	bool isp1301_acquired = false;
 
-> diff --git a/drivers/mtd/nand/raw/atmel/nand-controller.c b/drivers/mtd/n=
-and/raw/atmel/nand-controller.c
-> index 83ba4ebd02d4..e60998eb754b 100644
-> --- a/drivers/mtd/nand/raw/atmel/nand-controller.c
-> +++ b/drivers/mtd/nand/raw/atmel/nand-controller.c
-> @@ -2306,7 +2306,7 @@ atmel_hsmc_nand_controller_init(struct atmel_hsmc_n=
-and_controller *nc)
->  					 "atmel,nfc-sram", 0);
->  	if (!nc->sram.pool) {
->  		dev_err(nc->base.dev, "Missing SRAM\n");
-> -		return -ENOMEM;
-> +		return -EPROBE_DEFER;
+This bool should not be needed, you "know" if you have acquired this or
+not by virtue of being later in the function call.
 
-I am totally fine with the idea of probe deferral, however I think the
-policy is to avoid making noise when this happens. The dev_err() call is
-no longer relevant there. You can either lower it to dev_dbg() manually
-or, at your convenience, return with:
 
-   return dev_err_probe(nc->base.dev, "Missing SRAM\n", -EPROBE_DEFER);
+>  
+>  	udc = devm_kmemdup(dev, &controller_template, sizeof(*udc), GFP_KERNEL);
+>  	if (!udc)
+> @@ -3013,6 +3014,7 @@ static int lpc32xx_udc_probe(struct platform_device *pdev)
+>  	if (!udc->isp1301_i2c_client) {
+>  		return -EPROBE_DEFER;
+>  	}
+> +	isp1301_acquired = true;
+>  
+>  	dev_info(udc->dev, "ISP1301 I2C device at address 0x%x\n",
+>  		 udc->isp1301_i2c_client->addr);
+> @@ -3020,7 +3022,7 @@ static int lpc32xx_udc_probe(struct platform_device *pdev)
+>  	pdev->dev.dma_mask = &lpc32xx_usbd_dmamask;
+>  	retval = dma_set_coherent_mask(&pdev->dev, DMA_BIT_MASK(32));
+>  	if (retval)
+> -		return retval;
+> +		goto i2c_fail;
+>  
+>  	udc->board = &lpc32xx_usbddata;
+>  
+> @@ -3038,28 +3040,32 @@ static int lpc32xx_udc_probe(struct platform_device *pdev)
+>  	/* Get IRQs */
+>  	for (i = 0; i < 4; i++) {
+>  		udc->udp_irq[i] = platform_get_irq(pdev, i);
+> -		if (udc->udp_irq[i] < 0)
+> -			return udc->udp_irq[i];
+> +		if (udc->udp_irq[i] < 0) {
+> +			retval = udc->udp_irq[i];
+> +			goto i2c_fail;
+> +		}
+>  	}
+>  
+>  	udc->udp_baseaddr = devm_platform_ioremap_resource(pdev, 0);
+>  	if (IS_ERR(udc->udp_baseaddr)) {
+>  		dev_err(udc->dev, "IO map failure\n");
+> -		return PTR_ERR(udc->udp_baseaddr);
+> +		retval = PTR_ERR(udc->udp_baseaddr);
+> +		goto i2c_fail;
+>  	}
+>  
+>  	/* Get USB device clock */
+>  	udc->usb_slv_clk = devm_clk_get(&pdev->dev, NULL);
+>  	if (IS_ERR(udc->usb_slv_clk)) {
+>  		dev_err(udc->dev, "failed to acquire USB device clock\n");
+> -		return PTR_ERR(udc->usb_slv_clk);
+> +		retval = PTR_ERR(udc->usb_slv_clk);
+> +		goto i2c_fail;
+>  	}
+>  
+>  	/* Enable USB device clock */
+>  	retval = clk_prepare_enable(udc->usb_slv_clk);
+>  	if (retval < 0) {
+>  		dev_err(udc->dev, "failed to start USB device clock\n");
+> -		return retval;
+> +		goto i2c_fail;
+>  	}
+>  
+>  	/* Setup deferred workqueue data */
+> @@ -3161,6 +3167,8 @@ static int lpc32xx_udc_probe(struct platform_device *pdev)
+>  	dma_free_coherent(&pdev->dev, UDCA_BUFF_SIZE,
+>  			  udc->udca_v_base, udc->udca_p_base);
+>  i2c_fail:
+> +	if (isp1301_acquired && udc->isp1301_i2c_client)
+> +		put_device(&udc->isp1301_i2c_client->dev);
+>  	clk_disable_unprepare(udc->usb_slv_clk);
+>  	dev_err(udc->dev, "%s probe failed, %d\n", driver_name, retval);
+>  
+> @@ -3170,6 +3178,18 @@ static int lpc32xx_udc_probe(struct platform_device *pdev)
+>  static void lpc32xx_udc_remove(struct platform_device *pdev)
+>  {
+>  	struct lpc32xx_udc *udc = platform_get_drvdata(pdev);
+> +	struct device *dev = &pdev->dev;
+> +	struct device_node *isp1301_node;
+> +	bool isp1301_acquired = false;
 
-Thanks,
-Miqu=C3=A8l
+This bool isn't needed either, just trigger off of isp1301_node.
+
+But really:
+
+> +
+> +	/* Check if we acquired isp1301 via device tree */
+> +	if (dev->of_node) {
+> +		isp1301_node = of_parse_phandle(dev->of_node, "transceiver", 0);
+
+Shouldn't this node be saved in the device structure instead?  That's
+the "correct" solution here.
+
+thanks,
+
+greg k-h
 
