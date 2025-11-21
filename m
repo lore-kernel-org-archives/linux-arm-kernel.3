@@ -4,156 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 611EFCFC294
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 16:26:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B335CFA768
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 16:30:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2EbQbMBVh+wtPe2xKxStWSFqDMGQxv4HinVXPej2xOg=; b=U2clCXcCa/gLvvKVT0tDXWg6Rm
-	fwRGX2cKLfGaWa7f9llrdRxJpyuqtYjkNJYIbKEeC2rBck/ogLSVCjjaiFiNT68pw8GX0yAFI4EHn
-	1VjEX65HNc9czgTye1L1VonlgMioSAPDUvR1wgCRpCw+vn2gpy3FSKuffdrJXy/h+Ber9nh9a08us
-	/YF7nVCLH1eRbcbdNL/em0RpqL5SJad/oygEpxaIErF32WyAlbw1Pp9ZpJ8xs9LP1fKLLih5Ixa7q
-	7zC5KN6cpQ8UeUr0ziZBwaEODmtuuUTvgCrk8+f76oqpWN+NZZ2zWw+kttNChAiPKJXcyD5FhUt3g
-	/a6zzy0Q==;
+	bh=2zySQOdwGxFpkY27ErIngTUBlvdPwiMxRULejkAbxCU=; b=xXzLdaAPYGa0g6CCyThMLkvEa3
+	zdSqDcKRuv2dG2/MtQj1t/lPJ9BIO3zSuS/G8pT5c9yc0yIBcRNd44fhaMef/oG7EkoAmd8T3s0zR
+	4oBU/7AURumyBl1cq4By/tQs5dlSm/8/0FGrlYtMUNU3d/ck5byVld2FCNKnDvCGtWpNIc5PnCj1p
+	43VJJGKTbdssNNH25ABdbD9c8FbexLE313ut1iVCkg3DQReU+XmzEpegbtShYLyQ8PqTPj1d5htNR
+	KLRDAw6HCBZa/y63HNaujMdadoyMSEDo/2m4+iNEsvWv0cNrgmDYLXDW/hUxjFQfmZEvi3L1Xi+b4
+	NXtYu15g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMTxx-00000008i8E-3W8F;
-	Fri, 21 Nov 2025 16:26:33 +0000
-Received: from smtp-out2.suse.de ([2a07:de40:b251:101:10:150:64:2])
+	id 1vMU23-00000008iba-2qli;
+	Fri, 21 Nov 2025 16:30:47 +0000
+Received: from mail-pf1-x42c.google.com ([2607:f8b0:4864:20::42c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMTxY-00000008i54-0FVQ
+	id 1vMU21-00000008ib1-1XGj
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Nov 2025 16:26:33 +0000
-Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id 787425BCC3;
-	Fri, 21 Nov 2025 16:26:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1763742366; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=2EbQbMBVh+wtPe2xKxStWSFqDMGQxv4HinVXPej2xOg=;
-	b=e3xa/MVuw2mTa15pphIIiW3Fo7ayZEAeOTwDRCYR+LSYpJRosugF3q8BfYZsKiIeylcIKN
-	YIYoyBuposxE+4Rr1Ce+L4ACEOKq+vf77cEx7yYM/ws7Z+bMZl0KxfmusjiCcEWmaVBZcz
-	20pSRFRcmE31f9WhvQ7MpDYL7bY2Snw=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1763742366;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=2EbQbMBVh+wtPe2xKxStWSFqDMGQxv4HinVXPej2xOg=;
-	b=6iaW69cVy6XAOoi/21AmFXwZp5jxrwUMBQUI59lgt1PS9XOI1mtWjrvhU9z5hhbcc+K3tV
-	/iuFckSa5kxqfoDg==
-Authentication-Results: smtp-out2.suse.de;
-	none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1763742365; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=2EbQbMBVh+wtPe2xKxStWSFqDMGQxv4HinVXPej2xOg=;
-	b=VV/AperTpowj2cQmB95YfLGIhbpQrsQdRUpH6FBgAa1qYMuAS6fMKFCPCqOaoIKYR5pSB4
-	s6yuV4YEVNYreBx6rSo410SJITGRhO777f9G+Ep18SefHIXYGhrp2EVLCJPMUAQB58tYIt
-	0Jx4ZrMAj5vAxEIoUWzrP4mvhqCnn1w=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1763742365;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=2EbQbMBVh+wtPe2xKxStWSFqDMGQxv4HinVXPej2xOg=;
-	b=+DorV6SINtIaTNa/HgRma0Y9SsO2x1mw1lziFfqwcAn1sqMO59qo7Cirv+ZBnP7ohtLy2P
-	CM9XZ8kP0TEKzvBA==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 1B7E63EA61;
-	Fri, 21 Nov 2025 16:26:05 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id 0FlbBZ2SIGnICQAAD6G6ig
-	(envelope-from <tzimmermann@suse.de>); Fri, 21 Nov 2025 16:26:05 +0000
-Message-ID: <8d0bc096-e346-462b-a274-f0cc1456eea3@suse.de>
-Date: Fri, 21 Nov 2025 17:26:04 +0100
+	Fri, 21 Nov 2025 16:30:46 +0000
+Received: by mail-pf1-x42c.google.com with SMTP id d2e1a72fcca58-7b9a98b751eso1781129b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Nov 2025 08:30:44 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1763742644; x=1764347444; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:user-agent
+         :references:in-reply-to:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=2zySQOdwGxFpkY27ErIngTUBlvdPwiMxRULejkAbxCU=;
+        b=kALQ2tekd2CpoCw2S4atHZ7Xg+UKM7OVfPmlJpReofEEUCa9xRQHZtxtkaDHZldkW5
+         Wj13H7v+d92VX9d0iNjzeUFDH66PPAWiNv+PVOxQKzhsgN1ZsYVgLDYb+iSmyokhH5UC
+         xsVsvgWh5WO4uw4LJ1/RXfW/kPW2FWNMy9beBZOVHUDWK0oYq6wJVoAi7Cc+hcfLGFbq
+         LnLD9W7w0OkmFpQeEpUi1of5n+WdEjgpLFELgg9+bhGr0rShn+ia+ZQ4a16zIec2NEcf
+         GLqj/6MO9i2YpuVnWU6NQgQkLE5nVoXhh4lgqTM4N8ibbjNHRGBTvN26e/0F3DPOZYkP
+         U9uQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1763742644; x=1764347444;
+        h=content-transfer-encoding:mime-version:message-id:date:user-agent
+         :references:in-reply-to:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=2zySQOdwGxFpkY27ErIngTUBlvdPwiMxRULejkAbxCU=;
+        b=o+VCW9+BCPUiX3k3Bvagq3+/rsfnqGYw8v43rfF8F5SFrzSPMEWsugxns9/atAFxA0
+         MIjRVj9885plAQZhPha7xmF3eu3ja3KRRcSbsh+MWoZH1x14cpV5yYr9AnfHTHXQvejN
+         2WzTbZCwfROvmPxm4QVOsRV4AhDYZDXkYO20KGDH6xeHt51QtRCMAgQ42UEutmCAS9kv
+         olWmMP1kDrTKWw+05Jhv0eVQFN7CIfM+Dxy5lIZH+CJDBcZUxW4qIhqPvjF5D4K4qvhd
+         hCoQ8YAIo2NGiPs8CV0uN8sfeMBkieT+F4w/LEAHItN0FMxNwTVFX6NG7duM3gwWFk+R
+         aszA==
+X-Forwarded-Encrypted: i=1; AJvYcCXI/tbVMJZo2CpP0fhxUDGoFFVN/qk4rl459/3BYWNcTZQU7XJ8q2vRGaUR/1ad6xhc6z8sCNTJf0t4DMo5wdxJ@lists.infradead.org
+X-Gm-Message-State: AOJu0YxqZ0KJ9HpeOCYCwmqri+LNtundtqAE4RtBlqYjAt3thgXdOMTy
+	UFO1mAD9PAEnqybIYFtxzena+XmThJZAZnLCRSr8RFWQvoi6eCYrwAhxkjKozGJ4lyw=
+X-Gm-Gg: ASbGncvtZHHwfiTZQLecXwkuXpccC1o5ZHb3F7MtZuKJQFl+m3TVZm3T5o361/DTQBe
+	OtVnsJH8GSjXtrK8DPOnGCwG9GAIk8iQ3iIpbT9LL414rGoYnaIXvwEJAqppG+3XAbSRrmzFHVl
+	OPOBweorxVRn3JuQc7NV580oGsSdzLOMn89NEQRTWX2lB4W2x46UqShKwfngjyAmX6CFwOtFJTd
+	36DvO69tNeVi36zw4oPiz6pG7TfFjjgsF8eynRwaVIAHCvDQU4CDF+YyBUA09IH6+upv4UdGUWI
+	2n7o6fzuvIvFxIh9wTcQtyZcAmdCSfpWeJk6v5crYB1IspzEixFdKJqN1gsnFSTx4nOCBYgCWjh
+	D5iXeCoOYlKZ6ludLcfo2nIcu7grma2gImTp1uC/+LLTQx6DDMU6+jdwPK8jVhRXhYfbMc8K4h5
+	AOdOsU2ByBB16qrl2IhDixq1yQJINj
+X-Google-Smtp-Source: AGHT+IGR6kXLQfWOqj3ROiSJXt8B7HXDEY6evWJWJeMFCfbxn2XfmxkaSR6X5pAKpq9yjUhxglQGWw==
+X-Received: by 2002:a05:7022:2390:b0:11b:8b4b:bff7 with SMTP id a92af1059eb24-11c9d866a70mr1156623c88.39.1763742644015;
+        Fri, 21 Nov 2025 08:30:44 -0800 (PST)
+Received: from localhost ([2804:14d:7e39:8083:8d:38f1:8213:f721])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-11c93e55af3sm26561874c88.7.2025.11.21.08.30.43
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 21 Nov 2025 08:30:43 -0800 (PST)
+From: Thiago Jung Bauermann <thiago.bauermann@linaro.org>
+To: Luis <luis.machado.foss@gmail.com>
+Cc: Catalin Marinas <cmarinas@kernel.org>,  Will Deacon <will@kernel.org>,
+  Shuah Khan <shuah@kernel.org>,  Jonathan Corbet <corbet@lwn.net>,  Oleg
+ Nesterov <oleg@redhat.com>,  Mark Brown <broonie@kernel.org>,  Catalin
+ Marinas <catalin.marinas@arm.com>,  Mark Rutland <mark.rutland@arm.com>,
+  David Spickett <david.spickett@arm.com>,
+  linux-arm-kernel@lists.infradead.org,  linux-kselftest@vger.kernel.org,
+  linux-kernel@vger.kernel.org,  linux-doc@vger.kernel.org
+Subject: Re: [PATCH v2 0/3] arm64/sme: Support disabling streaming mode via
+ ptrace on SME only systems
+In-Reply-To: <05dd180e-f12f-44ef-96e2-2a6013da14df@gmail.com> (Luis's message
+	of "Fri, 21 Nov 2025 11:25:30 +0000")
+References: <20251015-arm64-sme-ptrace-sme-only-v2-0-33c7b2f27cbf@kernel.org>
+	<176341325906.789443.15370787298292895484.b4-ty@arm.com>
+	<05dd180e-f12f-44ef-96e2-2a6013da14df@gmail.com>
+User-Agent: mu4e 1.12.13; emacs 30.2
+Date: Fri, 21 Nov 2025 13:30:41 -0300
+Message-ID: <87ms4fmjpq.fsf@linaro.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/6] arch, sysfb: Move screen and edid info into single
- place
-To: Ard Biesheuvel <ardb@kernel.org>
-Cc: Arnd Bergmann <arnd@arndb.de>,
- Javier Martinez Canillas <javierm@redhat.com>, x86@kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-efi@vger.kernel.org, loongarch@lists.linux.dev,
- linux-riscv@lists.infradead.org, dri-devel@lists.freedesktop.org,
- linux-hyperv@vger.kernel.org, linux-pci@vger.kernel.org,
- linux-fbdev@vger.kernel.org
-References: <20251121135624.494768-1-tzimmermann@suse.de>
- <96a8d591-29d5-4764-94f9-6042252e53ff@app.fastmail.com>
- <CAMj1kXF1Dh0RbuqYc0fhAPf-CM0mdYh8BhenM8-ugKVHfwnhBg@mail.gmail.com>
- <199e7538-5b4a-483b-8976-84e4a8a0f2fd@suse.de>
- <CAMj1kXE+mS1Sm5GaROU0P97J2w1pew0P_To4sKiw8h1iOMuLcg@mail.gmail.com>
- <d080729c-6586-4b9c-b234-470977849d3d@suse.de>
- <6dff8e7e-c99b-443d-a1d8-22650ca0b595@suse.de>
- <CAMj1kXGpC_162bFL65kQw=7qVP7ezYw77Q76y217dDs8pqHogw@mail.gmail.com>
-Content-Language: en-US
-From: Thomas Zimmermann <tzimmermann@suse.de>
-Autocrypt: addr=tzimmermann@suse.de; keydata=
- xsBNBFs50uABCADEHPidWt974CaxBVbrIBwqcq/WURinJ3+2WlIrKWspiP83vfZKaXhFYsdg
- XH47fDVbPPj+d6tQrw5lPQCyqjwrCPYnq3WlIBnGPJ4/jreTL6V+qfKRDlGLWFjZcsrPJGE0
- BeB5BbqP5erN1qylK9i3gPoQjXGhpBpQYwRrEyQyjuvk+Ev0K1Jc5tVDeJAuau3TGNgah4Yc
- hdHm3bkPjz9EErV85RwvImQ1dptvx6s7xzwXTgGAsaYZsL8WCwDaTuqFa1d1jjlaxg6+tZsB
- 9GluwvIhSezPgnEmimZDkGnZRRSFiGP8yjqTjjWuf0bSj5rUnTGiyLyRZRNGcXmu6hjlABEB
- AAHNJ1Rob21hcyBaaW1tZXJtYW5uIDx0emltbWVybWFubkBzdXNlLmRlPsLAjgQTAQgAOAIb
- AwULCQgHAgYVCgkICwIEFgIDAQIeAQIXgBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftODH
- AAoJEGgNwR1TC3ojx1wH/0hKGWugiqDgLNXLRD/4TfHBEKmxIrmfu9Z5t7vwUKfwhFL6hqvo
- lXPJJKQpQ2z8+X2vZm/slsLn7J1yjrOsoJhKABDi+3QWWSGkaGwRJAdPVVyJMfJRNNNIKwVb
- U6B1BkX2XDKDGffF4TxlOpSQzdtNI/9gleOoUA8+jy8knnDYzjBNOZqLG2FuTdicBXblz0Mf
- vg41gd9kCwYXDnD91rJU8tzylXv03E75NCaTxTM+FBXPmsAVYQ4GYhhgFt8S2UWMoaaABLDe
- 7l5FdnLdDEcbmd8uLU2CaG4W2cLrUaI4jz2XbkcPQkqTQ3EB67hYkjiEE6Zy3ggOitiQGcqp
- j//OwE0EWznS4AEIAMYmP4M/V+T5RY5at/g7rUdNsLhWv1APYrh9RQefODYHrNRHUE9eosYb
- T6XMryR9hT8XlGOYRwKWwiQBoWSDiTMo/Xi29jUnn4BXfI2px2DTXwc22LKtLAgTRjP+qbU6
- 3Y0xnQN29UGDbYgyyK51DW3H0If2a3JNsheAAK+Xc9baj0LGIc8T9uiEWHBnCH+RdhgATnWW
- GKdDegUR5BkDfDg5O/FISymJBHx2Dyoklv5g4BzkgqTqwmaYzsl8UxZKvbaxq0zbehDda8lv
- hFXodNFMAgTLJlLuDYOGLK2AwbrS3Sp0AEbkpdJBb44qVlGm5bApZouHeJ/+n+7r12+lqdsA
- EQEAAcLAdgQYAQgAIAIbDBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftOH6AAoJEGgNwR1T
- C3ojVSkIALpAPkIJPQoURPb1VWjh34l0HlglmYHvZszJWTXYwavHR8+k6Baa6H7ufXNQtThR
- yIxJrQLW6rV5lm7TjhffEhxVCn37+cg0zZ3j7zIsSS0rx/aMwi6VhFJA5hfn3T0TtrijKP4A
- SAQO9xD1Zk9/61JWk8OysuIh7MXkl0fxbRKWE93XeQBhIJHQfnc+YBLprdnxR446Sh8Wn/2D
- Ya8cavuWf2zrB6cZurs048xe0UbSW5AOSo4V9M0jzYI4nZqTmPxYyXbm30Kvmz0rYVRaitYJ
- 4kyYYMhuULvrJDMjZRvaNe52tkKAvMevcGdt38H4KSVXAylqyQOW5zvPc4/sq9c=
-In-Reply-To: <CAMj1kXGpC_162bFL65kQw=7qVP7ezYw77Q76y217dDs8pqHogw@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Spamd-Result: default: False [-4.30 / 50.00];
-	BAYES_HAM(-3.00)[100.00%];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	FUZZY_RATELIMITED(0.00)[rspamd.com];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	MIME_TRACE(0.00)[0:+];
-	ARC_NA(0.00)[];
-	TO_DN_SOME(0.00)[];
-	MID_RHS_MATCH_FROM(0.00)[];
-	RCVD_TLS_ALL(0.00)[];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	FROM_HAS_DN(0.00)[];
-	RCPT_COUNT_TWELVE(0.00)[13];
-	FROM_EQ_ENVFROM(0.00)[];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	RCVD_COUNT_TWO(0.00)[2];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo,arndb.de:email,suse.com:url,suse.de:email,suse.de:mid]
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251121_082608_403469_9D3DCC4C 
-X-CRM114-Status: GOOD (  16.18  )
+X-CRM114-CacheID: sfid-20251121_083045_453889_9B89F1B8 
+X-CRM114-Status: GOOD (  13.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -168,91 +109,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi
+Luis <luis.machado.foss@gmail.com> writes:
 
-Am 21.11.25 um 17:19 schrieb Ard Biesheuvel:
-> On Fri, 21 Nov 2025 at 17:09, Thomas Zimmermann <tzimmermann@suse.de> wrote:
->>
->>
->> Am 21.11.25 um 17:08 schrieb Thomas Zimmermann:
->>> Hi
+> [off-list, as I'm having bouncing issues]
+>
+> Hi,
+>
+> On 17/11/2025 21:00, Catalin Marinas wrote:
+>> From: Catalin Marinas <catalin.marinas@arm.com>
+>> On Wed, 15 Oct 2025 18:56:35 +0100, Mark Brown wrote:
+>>> Currently it is not possible to disable streaming mode via ptrace on SME
+>>> only systems, the interface for doing this is to write via NT_ARM_SVE b=
+ut
+>>> such writes will be rejected on a system without SVE support. Enable th=
+is
+>>> functionality by allowing userspace to write SVE_PT_REGS_FPSIMD format =
+data
+>>> via NT_ARM_SVE with the vector length set to 0 on SME only systems. Such
+>>> writes currently error since we require that a vector length is specifi=
+ed
+>>> which should minimise the risk that existing software is relying on cur=
+rent
+>>> behaviour.
 >>>
->>> Am 21.11.25 um 16:56 schrieb Ard Biesheuvel:
->>>> On Fri, 21 Nov 2025 at 16:53, Thomas Zimmermann <tzimmermann@suse.de>
->>>> wrote:
->>>>> Hi
->>>>>
->>>>> Am 21.11.25 um 16:16 schrieb Ard Biesheuvel:
->>>>>> On Fri, 21 Nov 2025 at 16:10, Arnd Bergmann <arnd@arndb.de> wrote:
->>>>>>> On Fri, Nov 21, 2025, at 14:36, Thomas Zimmermann wrote:
->>>>>>>> Replace screen_info and edid_info with sysfb_primary_device of type
->>>>>>>> struct sysfb_display_info. Update all users.
->>>>>>>>
->>>>>>>> Sysfb DRM drivers currently fetch the global edid_info directly,
->>>>>>>> when
->>>>>>>> they should get that information together with the screen_info
->>>>>>>> from their
->>>>>>>> device. Wrapping screen_info and edid_info in
->>>>>>>> sysfb_primary_display and
->>>>>>>> passing this to drivers enables this.
->>>>>>>>
->>>>>>>> Replacing both with sysfb_primary_display has been motivate by
->>>>>>>> the EFI
->>>>>>>> stub. EFI wants to transfer EDID via config table in a single entry.
->>>>>>>> Using struct sysfb_display_info this will become easily possible.
->>>>>>>> Hence
->>>>>>>> accept some churn in architecture code for the long-term
->>>>>>>> improvements.
->>>>>>> This all looks good to me,
->>>>>>>
->>>>>>> Acked-by: Arnd Bergmann <arnd@arndb.de>
->>>>> Thanks
->>>>>
->>>>>>> It should also bring us one step closer to eventually
->>>>>>> disconnecting the x86 boot ABI from the kernel-internal
->>>>>>> sysfb_primary_display.
->>>>>>>
->>>>>> Agreed
->>>>>>
->>>>>> Acked-by: Ard Biesheuvel <ardb@kernel.org>
->>>>> Thanks
->>>>>
->>>>>> I can take patches 1-2 right away, if that helps during the next
->>>>>> cycle.
->>>>>    From my sysfb-focused POV, these patches would ideally all go through
->>>>> the same tree, say efi or generic arch, or whatever fits best. Most of
->>>>> the other code is only renames anyway.
->>>>>
->>>> I don't mind queueing all of it, but I did get a conflict on
->>>> drivers/pci/vgaarb.c
->>> Probably from a78835b86a44 ("PCI/VGA: Select SCREEN_INFO on X86")
->> https://lore.kernel.org/all/20251013220829.1536292-1-superm1@kernel.org/
->>
-> Yes, if I merge back -rc2 first, I can apply patches 1-5 onto my
-> efi/next tree. But then I hit
+>>> [...]
+>> I don't think we'll get gdb feedback soon. Thanks David for the LLDB
+>> ack.
 >
-> Applying: sysfb: Move edid_info into sysfb_primary_display
-> error: sha1 information is lacking or useless (drivers/gpu/drm/sysfb/efidrm.c).
-> error: could not build fake ancestor
-> Patch failed at 0006 sysfb: Move edid_info into sysfb_primary_display
+> Unfortunately this flew under the radar for me, and I haven=C2=B4t been f=
+ollowing these
+> discussions closely.
 >
-> If you prefer, you can take the whole lot via the sysfb tree instead,
-> assuming it does not depend on the EDID changes I already queued up?
+> Is there someone working to rectify/validate this in GDB from Arm's side?
+>
+> I=C2=B4d gladly review it and get it through into upstream gdb.
 
-Sure, I can also add it to the drm-misc tree. ETA in upstream would be 
-v6.20-rc1.
+I will work on it next week.
 
-Best regards
-Thomas
-
-
--- 
---
-Thomas Zimmermann
-Graphics Driver Developer
-SUSE Software Solutions Germany GmbH
-Frankenstr. 146, 90461 Nürnberg, Germany, www.suse.com
-GF: Jochen Jaser, Andrew McDonald, Werner Knoblich, (HRB 36809, AG Nürnberg)
-
-
+--=20
+Thiago
 
