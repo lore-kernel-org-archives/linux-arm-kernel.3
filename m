@@ -4,94 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6F13CFC29B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 18:07:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 403E1CFC29A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 18:10:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3reEjUab7HQIYE8MwmDCD1KFRlukjdmGK/LzC0B9YJA=; b=aazqDSMuOC6FHKz4a2AeF1NWMK
-	rLl7Zlg7Nvk0hiVHgK0fNWvVqWLZ4U6b9KmGKqVYD5UaEl6iv4QqkrfmNXcqqCp2t0Vg+dQ27P14Q
-	bPCq9V0rhvRVyOl95+OifRK7jBoLg33DUF8mZVLk2gImYYfYgxNQ+XEzkL08lBOl5UjFT3sFe29HW
-	46sdNXOnStFipNE8jCxR/R62/4weVXsWRwp4YqTTTdspKy2DUg4w9rx68AlJsStlbe9hni55E7Fsh
-	S2NHa7gCwhWl3SRNY/MuBPS3DGwLXXRTd6wQiA6A/njfBDzfiP/J2kzYS0q06AwSGu2vcSic96tzA
-	8cefZ5AA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OuCsw4YNx9pGzZxsO+SpvMSdRXc0EvTj4hFgZER8FXw=; b=GSQVQWwOnE9hPbAHm0ChZeFr5F
+	HmRBFBKrKEWmp7A2lxQ1PDEcrS3UfU4yBoqIX/W4PYQAMUZb+VFZpNOO/DbkGv20tshv2YlIi3TOl
+	ALhAnfWmBAkctm1fqIKWaBic312B5ex29jdYp8meRAsCYNt/uZBy3sHPhxpxq5blzSEj/cCgFAgyT
+	3bXml6UcU48aTmf8admLB4QMi8QbmkuU2vfjWm+sztIcZWeBYpXYFv8B/lO4OsInfuixnibyUr9rN
+	u2lWEi6zIKeXPYdgjcW8ZI5wqNjfBcZLdpcpNkfDdGkCRaXD7YDCPLs/Tzd8k1Ck98mRYmdlDpXGT
+	LG2UcpKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMVXu-00000008pnl-3O2D;
-	Fri, 21 Nov 2025 18:07:46 +0000
-Received: from mail-qv1-xf31.google.com ([2607:f8b0:4864:20::f31])
+	id 1vMVaE-00000008q53-3TQ0;
+	Fri, 21 Nov 2025 18:10:11 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMVXo-00000008pmD-12Ul
+	id 1vMVaB-00000008q4V-3ADw
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Nov 2025 18:07:41 +0000
-Received: by mail-qv1-xf31.google.com with SMTP id 6a1803df08f44-882390f7952so23912796d6.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Nov 2025 10:07:39 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ndufresne-ca.20230601.gappssmtp.com; s=20230601; t=1763748458; x=1764353258; darn=lists.infradead.org;
-        h=mime-version:user-agent:references:in-reply-to:date:cc:to:from
-         :subject:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=3reEjUab7HQIYE8MwmDCD1KFRlukjdmGK/LzC0B9YJA=;
-        b=qQCSeeKxCfXIJ3TZvo9KDLvKE6rHwXs6OLiCPDtmCvlaGB8Gzso5XuhuewOtTTreb8
-         AQkHAHRXB5YhTKN3TTWZ1KXHXOkzWJRIFFCOgetsgXMHval/VxBKd1xJ80oBKfnCkrVF
-         CeeS3ujNHFNgBjUitd1o8cP0Wn/z9TbcpabXFDaiLVVbjioOLCWvrtTHUT9HdLTCT6LP
-         gzyiCGw/QwEZN+7ryFSPNOGsT4tllku03Kf1/pOf45M1y0+o1Tc3Vtru6N4eO9ZpAn5g
-         gXV8jz5nTJha9QghCqNkPS0s9xLqeMqsq3/936XTb8FsXCiavN0vvzJFvfaQbzkXD2zN
-         4okA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763748458; x=1764353258;
-        h=mime-version:user-agent:references:in-reply-to:date:cc:to:from
-         :subject:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=3reEjUab7HQIYE8MwmDCD1KFRlukjdmGK/LzC0B9YJA=;
-        b=fb7tM6F1lV450UdKwUO1pisTNJ5tEgEPjDNaxUzShXo0RuSULnXxlKNfhmjBg9wnj7
-         583Nz47Rwgi2LKpdVXobPI5Rox33eJ1paFkNarfGS8Ruyt5l16XFxuugqofMfVq6qaBx
-         xg/wIs0cqrGUH366E8cbWVxmK6qywp0Q5rkmN1Q9FeOZwoGQ7KI5fKLE8EsIDgCzR4QY
-         t4O7wYcoIcOKp+EjNc5TFCGDj+UhI0Motxv1zyUItBuPR7fpkosFNt7jjXk5Megn1uh8
-         ZSh7aWG0oZi9252+XmrtbtVWScYrolhQf/odgggzsYELn61P9EisrZjbOOnFXhhhUb+L
-         2QdA==
-X-Forwarded-Encrypted: i=1; AJvYcCX488jexnBx1hKrdR9xuIyD+uD4wxdTAAvUegLivojCxSKSNbj0XFoxaaMMRIMIE51/OYBqTN3CuyJwxX/vYDKW@lists.infradead.org
-X-Gm-Message-State: AOJu0YwJyeFIwR2+4pj9dYL7jyzwXW6ysNmmzNvF486dRNMVtM/A5d77
-	gOHpVybN555FAALDO3zJBejmIwf+0Z5Zz8Nwt2e08kaeevDTtT97e5rH0R1fxgvsqjc=
-X-Gm-Gg: ASbGnctldc8R5Vg7L0eqAzVPMXKFQvvzh0w/htVSdsdmsZO9VL1DP0Va22oNJaAwEdj
-	bcNIhCTG9qKBFfPgEbi5ZrsbsRsAL+VeK3g4JnsV3dIYwpVGTRZarZ4tbA1hlvL6OpHRMBey2l1
-	yheUXStBScoSNFjI5yiqU8pTMOGQFth6nQEOiw5NmAbuyF6Jds0ZzJK+GFnTz8TWCyTBI3UiHjw
-	DzAvmKFAIyP+ROuoAEd3mEH4MbGKSsT3K2v/Ut0tIkb2A6JM/j46HiO3A8K8SMHcwI0XBmp0BXy
-	oEg3PKrWLPg/hR4VtmIj7E27nl7+DWNBPt4jXgv8yI0PthtJaf9txA/EYOcBteyoi1zDwBzOTn9
-	pRTgKywLOdqlzObNP/ljqHYB6wVSf9dkEB6PPLQ3AktMlg3SPA4WHA3dlx9EgBGwdFTAE3y87Wp
-	gWRzyOi7WF3zF0132P
-X-Google-Smtp-Source: AGHT+IGSn6lWVFdXMF2O7+16BxyboE+vLKmTO8u+vsDg8rBpHj7vHOjDlUdUHZhhn3mvBIHkM4SR0A==
-X-Received: by 2002:a05:6214:f01:b0:882:4987:367 with SMTP id 6a1803df08f44-8847c546402mr35659826d6.65.1763748458256;
-        Fri, 21 Nov 2025 10:07:38 -0800 (PST)
-Received: from ?IPv6:2606:6d00:17:7b4b::5ac? ([2606:6d00:17:7b4b::5ac])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-8846e599ac9sm44053446d6.49.2025.11.21.10.07.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 21 Nov 2025 10:07:37 -0800 (PST)
-Message-ID: <11354064b251d01f8a0f8974c451c91d515be1a4.camel@ndufresne.ca>
-Subject: Re: [PATCH 1/2] pmdomain: imx8m-blk-ctrl: Remove separate rst and
- clk mask for 8mq vpu
-From: Nicolas Dufresne <nicolas@ndufresne.ca>
-To: ming.qian@oss.nxp.com, linux-media@vger.kernel.org
-Cc: mchehab@kernel.org, hverkuil-cisco@xs4all.nl, 
-	benjamin.gaignard@collabora.com, p.zabel@pengutronix.de, 
-	sebastian.fricke@collabora.com, shawnguo@kernel.org,
- ulf.hansson@linaro.org, 	s.hauer@pengutronix.de, kernel@pengutronix.de,
- festevam@gmail.com, 	linux-imx@nxp.com, l.stach@pengutronix.de,
- peng.fan@nxp.com, eagle.zhou@nxp.com, 	imx@lists.linux.dev,
- linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org
-Date: Fri, 21 Nov 2025 13:07:35 -0500
-In-Reply-To: <20251121081911.1682-1-ming.qian@oss.nxp.com>
-References: <20251121081911.1682-1-ming.qian@oss.nxp.com>
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-CGluF/KiYEHV7bilRPFN"
-User-Agent: Evolution 3.58.1 (3.58.1-1.fc43) 
+	Fri, 21 Nov 2025 18:10:09 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 849C243B55;
+	Fri, 21 Nov 2025 18:10:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5AB4BC4CEF1;
+	Fri, 21 Nov 2025 18:10:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1763748605;
+	bh=mkuiTzZ8SL8fFa0RSAl00vrBpSOGaNcsPY8EMW5Txfk=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=txUDKbtouIZ/pWXur7/y9LYaZ4KIP+vyFWFDqexLT9o3Vb9E831GZ6/bljwJEfyHH
+	 X2XmPQZNQxGrB/kpScXpl/YZYsQcWWFN6V3BybMwLpnbtwXhBeuuGj8Ei6ZtcgkqoY
+	 WtQH25WXVaHsmlc5+41rvc57p/3WiPUCWKrqmY9EcGsf6kjKLBoIG3BmfWnwYJGRHJ
+	 BBu7JgrD7egT90ERrw5EG3gP4EX/I+SqthpP4Z8AK89kmglWbElD7uikJskJNDyOeR
+	 tcuBlX8aJ8QGnqvgE11DbOeY58nxkZrlKQcwr0stUXLS/YSwLv08d/odlDsxE8GALj
+	 0vvq5ePE3fIYg==
+Message-ID: <bc7b7f86-6e15-44d0-8456-e53a808add83@kernel.org>
+Date: Fri, 21 Nov 2025 19:10:01 +0100
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/3] dt-bindings: ARM: samsung: Add Samsung Manta (Google
+ Nexus 10)
+To: Lukas Timmermann <linux@timmermann.space>
+Cc: Alim Akhtar <alim.akhtar@samsung.com>, Rob Herring <robh@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Alexandre Marquet <tb@a-marquet.fr>,
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20251120144018.961604-1-linux@timmermann.space>
+ <20251120144018.961604-2-linux@timmermann.space>
+ <20251121-convivial-wren-of-wind-cefe21@kuoka>
+ <zgyxb6jqfvfr6iah4lw7rvweextbwxrtlysap4dfzeejqgulwo@ik25opshvwxd>
+ <a75675ef-dff6-4f97-854e-a007d289c45d@kernel.org>
+ <3phpqlnzbqoclx6zqkqymugzgazg3xtxrmvl3coflgos4ncwf4@ljo4zpgyp7vh>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <3phpqlnzbqoclx6zqkqymugzgazg3xtxrmvl3coflgos4ncwf4@ljo4zpgyp7vh>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251121_100740_567740_C2258BBD 
-X-CRM114-Status: GOOD (  17.21  )
+X-CRM114-CacheID: sfid-20251121_101007_912072_880B9BE1 
+X-CRM114-Status: GOOD (  16.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,74 +124,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 21/11/2025 19:07, Lukas Timmermann wrote:
+> On Fri, Nov 21, 2025 at 06:24:36PM +0100, Krzysztof Kozlowski wrote:
+>> On 21/11/2025 14:45, Lukas Timmermann wrote:
+>>> On Fri, Nov 21, 2025 at 10:04:43AM +0100, Krzysztof Kozlowski wrote:
+>>>> On Thu, Nov 20, 2025 at 03:40:14PM +0100, Lukas Timmermann wrote:
+>>>>> From: Alexandre Marquet <tb@a-marquet.fr>
+>>>>>
+>>>>> Add the Google Nexus 10 board to documentation.
+>>>>>
+>>>>> Signed-off-by: Alexandre Marquet <tb@a-marquet.fr>
+>>>>> Signed-off-by: Lukas Timmermann <linux@timmermann.space>
+>>>>> ---
+>>>>>  .../devicetree/bindings/arm/samsung/samsung-boards.yaml          | 1 +
+>>>>>  1 file changed, 1 insertion(+)
+>>>>>
+>>>>> diff --git a/Documentation/devicetree/bindings/arm/samsung/samsung-boards.yaml b/Documentation/devicetree/bindings/arm/samsung/samsung-boards.yaml
+>>>>> index f8e20e602c20..97a5a678f43c 100644
+>>>>> --- a/Documentation/devicetree/bindings/arm/samsung/samsung-boards.yaml
+>>>>> +++ b/Documentation/devicetree/bindings/arm/samsung/samsung-boards.yaml
+>>>>> @@ -120,6 +120,7 @@ properties:
+>>>>>                - google,snow-rev5                # Google Snow Rev 5+
+>>>>>                - google,spring                   # Google Spring
+>>>>>                - insignal,arndale                # Insignal Arndale
+>>>>> +              - samsung,nexus10-manta           # Samsung Manta (Google Nexus 10)
+>>>>
+>>>> Google Nexus or Samsung Nexus or Samsung Manta? I am sorry, but I am
+>>>> 100% sure that Samsung and Google are two different companies. Google
+>>>> products use only google prefixes, see all other Google devices.
+>>>>
+>>>> Best regards,
+>>>> Krzysztof
+>>>>
+>>> Google sold the device under it's Nexus brand. But it was built by
+>>> Samsung, not just it's SoC. It's codename is "manta". Google places it 
+>>> in the Samsung directory instead of their own.
+>>> See: https://android.googlesource.com/device/samsung/manta/
+>>> It is a Samsung board, but also a Google device.
+>>
+>> As I said, all Google end-user made by Samsung have Google names, not
+>> Samsung. Do you see there samsung,spring? Or samsung,nexus for other
+>> Nexuses? No.
+>>
+>> There is just no such thing as samsung,nexus. Never was, so you cannot
+>> use that as product.
+>>
+>> Best regards,
+>> Krzysztof
+>>
+> I compared some Pixel and Nexus devices and now understand what you
+> meant. So "google,manta" should be the correct name here?
+> As seen in "google,sargo" -> Google Pixel 3a
 
---=-CGluF/KiYEHV7bilRPFN
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 
-Hi Ming,
+I don't know what is Manta. If Google calls it code name Manta, can be
+Manta. We use code names everywhere and it is fine. But if Google calls
+it only Nexus10, should be rather nexus.
 
-thanks a lot for working on this.
 
-Le vendredi 21 novembre 2025 =C3=A0 16:19 +0800, ming.qian@oss.nxp.com a =
-=C3=A9crit=C2=A0:
-> From: Ming Qian <ming.qian@oss.nxp.com>
->=20
-> The ADB in the VPUMIX domain has no separate reset and clock
-> enable bits, but is ungated and reset together with the VPUs.
-> So we can't reset G1 or G2 separately, it may led to the system hang.
-> Remove rst_mask and clk_mask of imx8mq_vpu_blk_ctl_domain_data.
-> Let imx8mq_vpu_power_notifier() do really vpu reset.
->=20
-> Fixes: 608d7c325e85 ("soc: imx: imx8m-blk-ctrl: add i.MX8MQ VPU blk-ctrl"=
-)
-> Signed-off-by: Ming Qian <ming.qian@oss.nxp.com>
-> ---
-> =C2=A0drivers/pmdomain/imx/imx8m-blk-ctrl.c | 4 ----
-> =C2=A01 file changed, 4 deletions(-)
->=20
-> diff --git a/drivers/pmdomain/imx/imx8m-blk-ctrl.c b/drivers/pmdomain/imx=
-/imx8m-blk-ctrl.c
-> index 5c83e5599f1e..1f07ff041295 100644
-> --- a/drivers/pmdomain/imx/imx8m-blk-ctrl.c
-> +++ b/drivers/pmdomain/imx/imx8m-blk-ctrl.c
-> @@ -852,16 +852,12 @@ static const struct imx8m_blk_ctrl_domain_data imx8=
-mq_vpu_blk_ctl_domain_data[]
-> =C2=A0		.clk_names =3D (const char *[]){ "g1", },
-> =C2=A0		.num_clks =3D 1,
-> =C2=A0		.gpc_name =3D "g1",
-> -		.rst_mask =3D BIT(1),
-> -		.clk_mask =3D BIT(1),
-> =C2=A0	},
-> =C2=A0	[IMX8MQ_VPUBLK_PD_G2] =3D {
-> =C2=A0		.name =3D "vpublk-g2",
-> =C2=A0		.clk_names =3D (const char *[]){ "g2", },
-> =C2=A0		.num_clks =3D 1,
-> =C2=A0		.gpc_name =3D "g2",
-> -		.rst_mask =3D BIT(0),
-> -		.clk_mask =3D BIT(0),
-> =C2=A0	},
-
-That was also our impression, but we could not get information about this H=
-W.
-One question here, how do we ensure that we don't reset twice on power on ?
-
-Nicolas
-
-> =C2=A0};
-> =C2=A0
-
---=-CGluF/KiYEHV7bilRPFN
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaSCqZwAKCRDZQZRRKWBy
-9A6ZAP90EgdxFgS1MNEpip8ViNpAOQ1t5ODnf13yvBhSJ87yTwD/W2WHO1JhMsym
-rs/FdLqAmGCaIVG4rntDh6YMtk3p6gc=
-=VrGj
------END PGP SIGNATURE-----
-
---=-CGluF/KiYEHV7bilRPFN--
+Best regards,
+Krzysztof
 
