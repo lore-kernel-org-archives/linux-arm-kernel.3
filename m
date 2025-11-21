@@ -4,84 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6CC4CFC29E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 18:56:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6940CFC29A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 19:14:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:To:From:Subject
-	:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:Cc:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Gf/8Pk7Wi+5ZKHSgJ1cayHET+i6n5m5sIz+x1glR7jY=; b=nrSLxrcBtEu4dh7PetdPUQRy6V
-	3tbZQVq7bWgME6FXPl9u6DMRDo1cnnGVYP/wr7u7rOgGsOJc9sI/hmCcgYoRwGGpCqxw6gztYlH7p
-	xAdxyGd30FTrMk746bWDezNOHIO/PGYtFM7NyPqY4eqqZ19keneIq2ceK3rdAN9TM0vlyd1lOQMVN
-	731+jJelCxTitilbhcZx4mNRh7CcZRJlfu0XNxxURS8Ad1f4e76+jhCfXPkWe2Vpwhv0Qip8ag+Bb
-	1+HGmDwB1dtd4LNNPmHFugk8KSldBJLYnu0OTDRranai+yWRs4a7R2N3Zg6z9YC3JgWiQsv9C99fD
-	n+cvymVA==;
+	bh=/O9Eii6dat9eCp/ibDvYWvyJXa+g5foPa3ruMXQLMzo=; b=0Wi0yoVTv+D1cdx8JeeuZ7TUia
+	A3HzhPOgEeUlBvhXk5W+p1SPkmXtpuoO+Kvj/+XzT0Q/4wf2+jTO6RW+mQLBglKvUcFxWK8QJ0rDu
+	GohyAQ7GMz00GEslabGYbdkRpAbrsM3nBTLNauh8A3zgyLqCLvhMf9pMcbpNTqcpytd/2s77MJxN6
+	cOEsdlDD8zJDb9caQp5sUR4dqfVNhTDBItuH7fHB95mD8bTwEkfk3Far1lUtl6qEthfxbWX1udG65
+	Y4ssAxGGDhkvXmRbNP/SbkSfoUspgDkP5qvNRnLaLgQCGArOkqaEN/RsJo3wkJSHB2EJHnGdwb3j5
+	AK5lpHtw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMWJL-00000008sOD-11hc;
-	Fri, 21 Nov 2025 18:56:47 +0000
-Received: from mail-pl1-x649.google.com ([2607:f8b0:4864:20::649])
+	id 1vMWad-00000008tE0-10s1;
+	Fri, 21 Nov 2025 19:14:39 +0000
+Received: from mgamail.intel.com ([192.198.163.13])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMWJI-00000008sNr-1REV
+	id 1vMWaa-00000008tDZ-2Ril
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Nov 2025 18:56:45 +0000
-Received: by mail-pl1-x649.google.com with SMTP id d9443c01a7336-297f48e81b8so35509605ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Nov 2025 10:56:43 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1763751403; x=1764356203; darn=lists.infradead.org;
-        h=to:from:subject:message-id:references:mime-version:in-reply-to:date
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=Gf/8Pk7Wi+5ZKHSgJ1cayHET+i6n5m5sIz+x1glR7jY=;
-        b=mYFUueL2RjgkGCtOtXXEbUY8urJENJgS58MHjDQmr2KMFW/XlzbAe+/OIVfTYxWi1p
-         V0Xo/sMpdNl14d0TJkmg1bMcOGE1vpyU/zTwbQo8VEt9Vm+R/u958HMHnY2FnZbPqq6d
-         7mBmGi7iAin3MC1p/CVt6XChzadb8Fga5fTfFyDQ53K9yZQKLX00ieqEGr5G06ZUfWjJ
-         edUj5EjUBsJkxnHLQRKpLRS5sUn0dz79Y3H1GLmR+d1Mzk3PIzPZune8aaEWyiGiT5lO
-         2CuCiyDlLoLN3KCJ+8+ivSpSUuCDd8G7ishiKKLtlNUIfRV2wgwTkBgZCjoNerffFIDV
-         TZ0Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763751403; x=1764356203;
-        h=to:from:subject:message-id:references:mime-version:in-reply-to:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Gf/8Pk7Wi+5ZKHSgJ1cayHET+i6n5m5sIz+x1glR7jY=;
-        b=uVmouPPWuTBSWSYCGBYiKtMZWxrKUe0IVGZsuM4d/hjc/C8iAIKW/CTFe0XxOVPwVs
-         tRUcNQmgKscAgKplVtV5rKgLdy+NgO6YtNxpgGUg5ff4hiOOjetsDx89JFSE6rRDVND6
-         rrKusF4YJ9pOzOL8eFP/zkxIQfBpXzG8vcMVZo2I/L0xL7sYeosBgvzEaOnUHAvfuy0i
-         7MHbq3sjR50DiLAQEagLW5O8PmF6mr9vb4Wp54dcID3GSLxggriVw1bBEl7ykCQzjH3e
-         eOU3tr8YS57haOLW+A4+kDcGuAVmdZAO2ODalyp+6FIr06yLt6b23pSRGEs0GxUkujSA
-         ehaQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVF/IrifVgII6OjQ/7n5NvidSoIWzFZvsuGM6NxPKpS4b74QgUiU9nRQINLHTou/KgxEabCtvI5F3UbnPgWUfYf@lists.infradead.org
-X-Gm-Message-State: AOJu0YxTIQvvlX1ipoSlkfN8UVRf7/PVbPCnRzQZPLku+2NUaOptcydY
-	JPy9MF6pheBO1USYVY1qPr2ngVR9sJiDEVBQd826idh5jd0Yt2nK1BCGS7lPh1bQsv9PUz0viHn
-	3eqd4jQ==
-X-Google-Smtp-Source: AGHT+IGl6lVP4k6Ffz1FVATVkFbVRdK/+fQjLr4mrrmG1VOjxZCvjJw3L3ZKENAl8ILCy7qu+uQ9S2crdpg=
-X-Received: from plhv10.prod.google.com ([2002:a17:903:238a:b0:298:3543:5212])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:903:11cd:b0:298:639b:a64f
- with SMTP id d9443c01a7336-29b6beee840mr49422585ad.6.1763751403034; Fri, 21
- Nov 2025 10:56:43 -0800 (PST)
-Date: Fri, 21 Nov 2025 10:55:37 -0800
-In-Reply-To: <20251028225827.2269128-1-jmattson@google.com>
-Mime-Version: 1.0
-References: <20251028225827.2269128-1-jmattson@google.com>
-X-Mailer: git-send-email 2.52.0.rc2.455.g230fcf2819-goog
-Message-ID: <176375118181.288827.8430542805047208308.b4-ty@google.com>
-Subject: Re: [PATCH v2 0/4] KVM: selftests: Test SET_NESTED_STATE with 48-bit
- L2 on 57-bit L1
-From: Sean Christopherson <seanjc@google.com>
-To: Sean Christopherson <seanjc@google.com>, Paolo Bonzini <pbonzini@redhat.com>, 
-	Shuah Khan <shuah@kernel.org>, Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
-	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Andrew Jones <ajones@ventanamicro.com>, 
-	Huacai Chen <chenhuacai@kernel.org>, Bibo Mao <maobibo@loongson.cn>, 
-	"Pratik R. Sampat" <prsampat@amd.com>, James Houghton <jthoughton@google.com>, linux-kernel@vger.kernel.org, 
-	kvm@vger.kernel.org, linux-kselftest@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	Jim Mattson <jmattson@google.com>
-Content-Type: text/plain; charset="utf-8"
+	Fri, 21 Nov 2025 19:14:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1763752477; x=1795288477;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=fGWNibXFUGAhDYfqhQTSp+K9Mm1aNTTr8crCL6BSz6s=;
+  b=CKqEaJ7m+Util47zKTvqYfABDTgN/de324F/q1iCwMtB4ONat0RZwmjN
+   EDLkH5cIibuWVmwiDS7PdhNOvpY0qM5Nw8LumH3u0YUCy5qqsNTQ6dMHx
+   bmFvRHCRxJGXZ7kVhasbzdVvzz0pJl/Fd2PjFKxBRgc7lAyWmPnDUdgz5
+   +iSi0pqQsiCbovnUbGiYLqlxLzdDnfpjhKNIM4f+8NqkOIhFo6k6GgvPI
+   8b8fwO64SlPvlPPzB6WCTPCJW/CMrxMuDFCdMg8wynmpMGhx5m/Vzqd8H
+   jBrF0/LZLSUUTYZo/BgJPeSpzSrRo+kFOypUJyQuEkzU3BzGdbSkFePVx
+   Q==;
+X-CSE-ConnectionGUID: LAd54eEFRMOVYIroOtNtng==
+X-CSE-MsgGUID: LXp/gEAiTrqnL/hHdin8lA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11620"; a="68455003"
+X-IronPort-AV: E=Sophos;i="6.20,216,1758610800"; 
+   d="scan'208";a="68455003"
+Received: from orviesa003.jf.intel.com ([10.64.159.143])
+  by fmvoesa107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Nov 2025 11:14:35 -0800
+X-CSE-ConnectionGUID: 2Ijzr5YBT3aA7bLtsNb2Hw==
+X-CSE-MsgGUID: PUXp5Oq0QOCwVdGLd9G5ng==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.20,216,1758610800"; 
+   d="scan'208";a="195936493"
+Received: from lkp-server01.sh.intel.com (HELO adf6d29aa8d9) ([10.239.97.150])
+  by orviesa003.jf.intel.com with ESMTP; 21 Nov 2025 11:14:28 -0800
+Received: from kbuild by adf6d29aa8d9 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1vMWaP-0006m3-1U;
+	Fri, 21 Nov 2025 19:14:25 +0000
+Date: Sat, 22 Nov 2025 03:13:48 +0800
+From: kernel test robot <lkp@intel.com>
+To: Eugen Hristev <eugen.hristev@linaro.org>, linux-arm-msm@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-mm@kvack.org,
+	tglx@linutronix.de, andersson@kernel.org, pmladek@suse.com,
+	rdunlap@infradead.org, corbet@lwn.net, david@redhat.com,
+	mhocko@suse.com
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	tudor.ambarus@linaro.org, mukesh.ojha@oss.qualcomm.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-hardening@vger.kernel.org, jonechou@google.com,
+	rostedt@goodmis.org, linux-doc@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-remoteproc@vger.kernel.org,
+	linux-arch@vger.kernel.org, tony.luck@intel.com, kees@kernel.org,
+	Eugen Hristev <eugen.hristev@linaro.org>
+Subject: Re: [PATCH 03/26] mm/percpu: Annotate static information into
+ meminspect
+Message-ID: <202511220241.7y7acdEZ-lkp@intel.com>
+References: <20251119154427.1033475-4-eugen.hristev@linaro.org>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251119154427.1033475-4-eugen.hristev@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251121_105644_407034_46E8020A 
-X-CRM114-Status: GOOD (  10.94  )
+X-CRM114-CacheID: sfid-20251121_111436_684669_CBDD43C2 
+X-CRM114-Status: GOOD (  11.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,30 +98,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 28 Oct 2025 15:30:38 -0700, Jim Mattson wrote:
-> Prior to commit 9245fd6b8531 ("KVM: x86: model canonical checks more
-> precisely"), KVM_SET_NESTED_STATE would fail if the state was captured
-> with L2 active, L1 had CR4.LA57 set, L2 did not, and the
-> VMCS12.HOST_GSBASE (or other host-state field checked for canonicality)
-> had an address greater than 48 bits wide.
-> 
-> Add a regression test that reproduces the KVM_SET_NESTED_STATE failure
-> conditions. To do so, the first three patches add support for 5-level
-> paging in the selftest L1 VM.
-> 
-> [...]
+Hi Eugen,
 
-Applied to kvm-x86 selftests, thanks!
+kernel test robot noticed the following build errors:
 
-[1/4] KVM: selftests: Use a loop to create guest page tables
-      https://github.com/kvm-x86/linux/commit/ae5b498b8da9
-[2/4] KVM: selftests: Use a loop to walk guest page tables
-      https://github.com/kvm-x86/linux/commit/2103a8baf5cb
-[3/4] KVM: selftests: Change VM_MODE_PXXV48_4K to VM_MODE_PXXVYY_4K
-      https://github.com/kvm-x86/linux/commit/ec5806639e39
-[4/4] KVM: selftests: Add a VMX test for LA57 nested state
-      https://github.com/kvm-x86/linux/commit/6a8818de21d2
+[auto build test ERROR on rppt-memblock/fixes]
+[also build test ERROR on linus/master v6.18-rc6]
+[cannot apply to akpm-mm/mm-everything rppt-memblock/for-next next-20251121]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
---
-https://github.com/kvm-x86/linux/tree/next
+url:    https://github.com/intel-lab-lkp/linux/commits/Eugen-Hristev/kernel-Introduce-meminspect/20251119-235912
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/rppt/memblock.git fixes
+patch link:    https://lore.kernel.org/r/20251119154427.1033475-4-eugen.hristev%40linaro.org
+patch subject: [PATCH 03/26] mm/percpu: Annotate static information into meminspect
+config: sparc64-allmodconfig (https://download.01.org/0day-ci/archive/20251122/202511220241.7y7acdEZ-lkp@intel.com/config)
+compiler: clang version 22.0.0git (https://github.com/llvm/llvm-project 9e9fe08b16ea2c4d9867fb4974edf2a3776d6ece)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20251122/202511220241.7y7acdEZ-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202511220241.7y7acdEZ-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+>> mm/percpu.c:3350:25: error: use of undeclared identifier '__per_cpu_offset'; did you mean '__per_cpu_start'?
+    3350 | MEMINSPECT_SIMPLE_ENTRY(__per_cpu_offset);
+         |                         ^~~~~~~~~~~~~~~~
+         |                         __per_cpu_start
+   include/linux/meminspect.h:101:40: note: expanded from macro 'MEMINSPECT_SIMPLE_ENTRY'
+     101 |         MEMINSPECT_ENTRY(MEMINSPECT_ID_##sym, sym, sizeof(sym))
+         |                                               ^~~
+   include/linux/meminspect.h:92:29: note: expanded from macro 'MEMINSPECT_ENTRY'
+      92 |                                                .va = (void *)&(sym),            \
+         |                                                                ^~~
+   include/asm-generic/sections.h:42:13: note: '__per_cpu_start' declared here
+      42 | extern char __per_cpu_start[], __per_cpu_end[];
+         |             ^
+>> mm/percpu.c:3350:25: error: use of undeclared identifier '__per_cpu_offset'; did you mean '__per_cpu_start'?
+    3350 | MEMINSPECT_SIMPLE_ENTRY(__per_cpu_offset);
+         |                         ^~~~~~~~~~~~~~~~
+         |                         __per_cpu_start
+   include/linux/meminspect.h:101:52: note: expanded from macro 'MEMINSPECT_SIMPLE_ENTRY'
+     101 |         MEMINSPECT_ENTRY(MEMINSPECT_ID_##sym, sym, sizeof(sym))
+         |                                                           ^~~
+   include/linux/meminspect.h:93:22: note: expanded from macro 'MEMINSPECT_ENTRY'
+      93 |                                                .size = (sz),                    \
+         |                                                         ^~
+   include/asm-generic/sections.h:42:13: note: '__per_cpu_start' declared here
+      42 | extern char __per_cpu_start[], __per_cpu_end[];
+         |             ^
+>> mm/percpu.c:3350:1: error: invalid application of 'sizeof' to an incomplete type 'char[]'
+    3350 | MEMINSPECT_SIMPLE_ENTRY(__per_cpu_offset);
+         | ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/meminspect.h:101:51: note: expanded from macro 'MEMINSPECT_SIMPLE_ENTRY'
+     101 |         MEMINSPECT_ENTRY(MEMINSPECT_ID_##sym, sym, sizeof(sym))
+         |         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+   include/linux/meminspect.h:93:22: note: expanded from macro 'MEMINSPECT_ENTRY'
+      93 |                                                .size = (sz),                    \
+         |                                                         ^~
+   3 errors generated.
+
+
+vim +3350 mm/percpu.c
+
+  3349	
+> 3350	MEMINSPECT_SIMPLE_ENTRY(__per_cpu_offset);
+  3351	/*
+  3352	 * pcpu_nr_pages - calculate total number of populated backing pages
+  3353	 *
+  3354	 * This reflects the number of pages populated to back chunks.  Metadata is
+  3355	 * excluded in the number exposed in meminfo as the number of backing pages
+  3356	 * scales with the number of cpus and can quickly outweigh the memory used for
+  3357	 * metadata.  It also keeps this calculation nice and simple.
+  3358	 *
+  3359	 * RETURNS:
+  3360	 * Total number of populated backing pages in use by the allocator.
+  3361	 */
+  3362	unsigned long pcpu_nr_pages(void)
+  3363	{
+  3364		return data_race(READ_ONCE(pcpu_nr_populated)) * pcpu_nr_units;
+  3365	}
+  3366	
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
