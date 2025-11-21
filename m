@@ -4,71 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC6F4CFC269
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 12:04:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1E33CFC269
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 12:06:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qn8oEqQjcmd6CEjxpqT3b2zYZp/Y/5mbvScnLweKkFw=; b=gWc+jyG3ZbnJMKkUVRzMIyrjMD
-	8Dpr75WdSqeeyXDhreOEqmspWi2OVnKWwhPpF7UsVjV5fWvGocM3qdEihtU2xzpgAlkJnHRZdD4yx
-	8GhN2Wd0IpVr4zChQJlvWKGNxJRcsefxHWiHbFqIgBA4fjodmrnFaynfGqN0aLc3E10j6PULKzgVD
-	ttYlxvAvB63KsAjItqRooliOJyPgOyz+W3/t0AwRnqV4eWAD/VNK/9ec6eDeOENZxdS+UZseBEw5B
-	4BDGHG2HuuEeMJAl4aH4AbV0ehotHjONb/nRbeSiZIf+pSnArF2ZBb6q2oJME7hq0aGTFRw++fqjz
-	M0cfJuHA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kW4EyxFRplveLRr+4iJDnejmmKOCrbL0yL/oTxS4Oy0=; b=20b8kybMRhsRwbizEIhVpJLRhN
+	15Oi6yd2d/EZnx6QufyU2gty3RZ8PCUnYWYu64uZFs8fCef3c01lY61+ezig1Yr7gHxNUNLokrXhU
+	7kP2mdfAMFkpWK8rZHC+KA6eTw3H3tKTwPLZBzqrWLxlQZz4tWOYMenTvB3I2bWrLGkIzBat45pXI
+	WyiPj4rdD2bm64/DEbzNFh4Kebge4wYqgeC2wrCSUS03codtvZ56dUAWhbl2tgy6jMz8EV0oQgq9h
+	j8+5PUeiYkx6eJWCu1mrkPz5v2hCv1MaQdJiKpoO8XI1igC6kY/nTtIcIJGdiXsaOUJsvp3cCAh8M
+	4pb5Bg6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMPs8-00000008LE2-2q3p;
-	Fri, 21 Nov 2025 12:04:16 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1vMPuI-00000008LO7-0X5i;
+	Fri, 21 Nov 2025 12:06:30 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMPs4-00000008LD1-38mb
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Nov 2025 12:04:14 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 64D1A4E41831;
-	Fri, 21 Nov 2025 12:04:08 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 3A6D760719;
-	Fri, 21 Nov 2025 12:04:08 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id EA70310371CF6;
-	Fri, 21 Nov 2025 13:04:00 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1763726647; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=qn8oEqQjcmd6CEjxpqT3b2zYZp/Y/5mbvScnLweKkFw=;
-	b=n5935cNgfgt/0SF2ev9crcoHzpfkF0g6foJM3k7UmpMwTDk86jFs3UAeEj1LqKVdKITqwQ
-	EbJ9O/jKx4bmFHRpuN9JwYl2EXIcGxJXmIxDm9ToYFTBPCdaAJfRI8lC3ly77Zklij9e12
-	Gay1jhrRaWeniUh8nV42T8Wb/211FDXCW7Ui2lu3tSSYWKG6oAZ5iD7w+wuYlp1+cZYbxu
-	qFl19DUhLy3KRzA+FnsTwrNuBUhVd5e3Jwilo65wWaptX5rkLQtyzhmc9xW53zTwicKpaL
-	81/pe2Wk49SR/i7igajQHrxFt6dKwfw0QVnz2OxaV6LCtXBzHMzFTWBgMtiFHw==
-Message-ID: <0423d36b-05fa-4a2b-858c-e6ef5ff1560d@bootlin.com>
-Date: Fri, 21 Nov 2025 13:03:59 +0100
+	id 1vMPuH-00000008LNv-0avH;
+	Fri, 21 Nov 2025 12:06:29 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 1C8176022D;
+	Fri, 21 Nov 2025 12:06:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1C236C4CEF1;
+	Fri, 21 Nov 2025 12:06:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1763726787;
+	bh=VqX7+WbzEjRbWfiARZi1O4BEpVb3WUA3Oo+pfFVi0W4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=XEBTj8gyooZy0CocdtbIgZytL3SxTSMOjNLl/zyKqMnhPb4UuY8BnKRixPJ7g1qnV
+	 WJyr0yuf4VbIiRQQhWi9UHYAMNMNuHmlgGXbgldsIxjafyKxMLO8dFMC7E234Cv6i1
+	 8xzAVPvTt7dY5BT9xUNzjUf+kmDSJYRo2SdlwlcucSE4E+SP4udWzy7ui7uE+1Htow
+	 kiK4BRirtZeytS2Awt9s8v/c/vtOir4GAhWNW9cRtyVJQRVB2QnPcasx3ko3cuicd7
+	 flNaoM82MM6mbHlcexrYApURdbArzwqv63fbzV5LF61QmqroYnmKDsiR8ob7UO57XO
+	 TJYFAyxkeYngQ==
+Date: Fri, 21 Nov 2025 17:36:24 +0530
+From: Vinod Koul <vkoul@kernel.org>
+To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Cc: Bjorn Andersson <andersson@kernel.org>,
+	Stefan Wahren <wahrenst@gmx.net>,
+	Thomas Andreatta <thomasandreatta2000@gmail.com>,
+	Caleb Sander Mateos <csander@purestorage.com>,
+	dmaengine@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	Olivier Dautricourt <olivierdautricourt@gmail.com>,
+	Stefan Roese <sr@denx.de>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
+	Lars-Peter Clausen <lars@metafoo.de>,
+	Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>,
+	Daniel Mack <daniel@zonque.org>,
+	Haojian Zhuang <haojian.zhuang@gmail.com>,
+	Robert Jarzmik <robert.jarzmik@free.fr>,
+	Lizhi Hou <lizhi.hou@amd.com>, Brian Xu <brian.xu@amd.com>,
+	Raj Kumar Rampelli <raj.kumar.rampelli@amd.com>,
+	Michal Simek <michal.simek@amd.com>,
+	Andrew Morton <akpm@linux-foundation.org>
+Subject: Re: [PATCH v3 00/13] dmaengine: introduce sg_nents_for_dma() and
+ convert users
+Message-ID: <aSBVwOs3igPF71DQ@vaman>
+References: <20251113151603.3031717-1-andriy.shevchenko@linux.intel.com>
+ <aR9otpWZkPZrb9ug@smile.fi.intel.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next] net: stmmac: move stmmac_mac_finish() after
- stmmac_mac_config()
-To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
- Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, linux-arm-kernel@lists.infradead.org,
- linux-stm32@st-md-mailman.stormreply.com,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
- Paolo Abeni <pabeni@redhat.com>
-References: <E1vMNoX-0000000FTBd-3Oup@rmk-PC.armlinux.org.uk>
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Content-Language: en-US
-In-Reply-To: <E1vMNoX-0000000FTBd-3Oup@rmk-PC.armlinux.org.uk>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251121_040413_112672_BE402E42 
-X-CRM114-Status: GOOD (  16.08  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aR9otpWZkPZrb9ug@smile.fi.intel.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,37 +88,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Russell,
-
-On 21/11/2025 10:52, Russell King (Oracle) wrote:
-> Keep the functions and initialisers in the same order that they exist
-> in phylink_mac_ops. This is the preferred order for phylink methods
-> as it arranges the configuration methods by called order.
+On 20-11-25, 21:15, Andy Shevchenko wrote:
+> On Thu, Nov 13, 2025 at 04:12:56PM +0100, Andy Shevchenko wrote:
 > 
-> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
-> ---
->  drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 3 ++-
->  1 file changed, 2 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> index 970c670fc302..d16e522c1e7d 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> @@ -932,7 +932,8 @@ static int stmmac_mac_finish(struct phylink_config *config, unsigned int mode,
->  	struct stmmac_priv *priv = netdev_priv(ndev);
->  
->  	if (priv->plat->mac_finish)
-> -		priv->plat->mac_finish(ndev, priv->plat->bsp_priv, mode, interface);
-> +		priv->plat->mac_finish(ndev, priv->plat->bsp_priv, mode,
-> +				       interface);
+> Vinod, what is your plan on the DMAengine patches? (Asking not only about this series)
+> Please, tell if anything needs to be done from my side to help them being pulled.
 
-This is just a line wrap, I don't really see the connexion with the
-commit log :( Some missing hunks in the commit maybe ?
+Sure would appreciate if folks can review, make it easier for me to
+pick. Yeah been behind for a bit, picking things now.
 
-Maxime
+Reg this series, looks okay, who would ack patch 1?
 
->  
->  	return 0;
->  }
-
+-- 
+~Vinod
 
