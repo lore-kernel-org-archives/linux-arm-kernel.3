@@ -4,153 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE6A2CFC279
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 13:49:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FD6ECFC27C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 13:53:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0mJ+Jg1f8cRgt+oDez5dZ80zpBBg2DNnsDtmRxQ/NN0=; b=hwOBPoUlTKAsnm2rwual07Br5B
-	M0ryAgF4R2BPSB62XFfLFRpQ9GhBKjWwhZLAKV0Zi4gCieEHG/QlxFZweATJvmOO9rD75g3oApTNl
-	IRV7nEqHK1QEu+AtMFilq3TwaNFj2hmGShAYpnPTSTlYRP/+DUJbGUpS/74SA7NDZPyCX2qVNs9S2
-	DFYiR7wAgWcsrILAzhFfq6BolcwNX9UJseyFNEv5KXnVHYU0ENqzmaZmfAmbnqoE2BksUy25jxxWX
-	WftcKNxuVeEYRr9nLjea+JQJvHaqPtz8mKpD57X/6icfvHW3On+2xSfdRBSsNzhV3BR8KJnpomNQM
-	vz8RWLXQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:Date:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dHb504fa+R3MQSYXb7rM8ukJxMXoBFNQYhj0anYj8Ok=; b=QE2K/F2wgnCUSIWis573TUjxV9
+	uFNuivx2PPDyI3WtchYxNWueImtbJtDtZq2CtHfMxyWiVhGXqBqFqPjl8i9S2chlZ7L+Mm3k1Whkw
+	JRjrCNa/oEFBGZlrSwRgXCybhGeSN2g1cCvWIDYGoKI8aZfbhgE8smaJ4KMXSpAy5Gbihhp05fHb6
+	MEQXGZbN7WA8TzMfDkjia9Y5dXuQ1X9Y5+o+B+6KcAvmxrYa5+0GxQ+/4r7Nd59Imz/qagTeLHeHe
+	o0ia6mkFTPCnlpYnRkExiHFRq8aZeWnmqyg7OUUIfVlCCDjyej5BwePFFLtYdeTom/pyGcmBUp8hN
+	8xmpyuYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMRW4-00000008SJW-0mPh;
-	Fri, 21 Nov 2025 13:49:36 +0000
-Received: from mail-northcentralusazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c105::7] helo=CH4PR04CU002.outbound.protection.outlook.com)
+	id 1vMRZN-00000008Sd8-12N6;
+	Fri, 21 Nov 2025 13:53:01 +0000
+Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMRW1-00000008SI6-07SW
+	id 1vMRZK-00000008ScX-1SZr
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Nov 2025 13:49:34 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Z4mT5MxHv2jqUiBV8dLnTXJywphkOn3npi09Keo+bQYS4r1V+dRpalouIvt5COXHEdrPJE/DRJfFzxaaZLkkRez0X6tuUSs9J8nEoLCqz2m8MgBQRMLuytFbpMFpQbJWpcwAZTjo4PPjPQSWbmQlaF9loB/rDqht34lNrJI/WBlpl0Q6BQu8AdRRGgqG8WP5ILFkTlqbAEIVgs6N7izq9/fcS4SvzR8r1OQMXO49hAUhLuh/Ml4f0Wqf8eiaqGmvn9atEpdhTtbaDwx+FfcPTj9sDgAVDxNX4/BiSTCspZMfQmZU1L31cJ7jh6hpr65KSjHSQanJ2vJxm81A/y2M2A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=0mJ+Jg1f8cRgt+oDez5dZ80zpBBg2DNnsDtmRxQ/NN0=;
- b=kYUgOTyNPK6Kcvjj8u1TfRwx4URr29r+6ako/KGwegu9VMc3vM7s/pdg656JipkMFzNf3kk0uCQ19SAb3TwTnM1Y8e3ByW3T8FnEpPXTGs5rxgVVniX5ZiakBO9XMeY+Sr0R6uMPsOGoyKsZZnkdh/2YPEGwyM44bUWA4aVleJEvJ+yq5HjCNv2VjSgEQposuvMj38ABM0iXJagy3BqrQP4+rvqCybUdzgDCF98pk3VN1qUYE26SJ6lETeuE9Vlq662TqgqZxw/qwt3/x5/XahcWA0kKRfTeASefvD9+iMlITX/LncaPdGsH09qo+Epj1HDEQBovcJRrBQldXfyN2g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.23.194) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=0mJ+Jg1f8cRgt+oDez5dZ80zpBBg2DNnsDtmRxQ/NN0=;
- b=pcZxzE0JGwC6NV05YwEAGPsJcZglVT5DAT2SoaQ/H04rGQ3LWwM/F1YXDy3GEz31qupYKdhp2fNrEIN9LD4sIkrCItkw+HY09Ftu6jOKRMGybJIVAdXIyN+LzeKvyBHHrxKCc56I+wHJOe5o25Aq5y/W3IhsVUaYtb8eqSBv8C8=
-Received: from SJ0PR05CA0118.namprd05.prod.outlook.com (2603:10b6:a03:334::33)
- by SJ0PR10MB5552.namprd10.prod.outlook.com (2603:10b6:a03:3da::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9343.10; Fri, 21 Nov
- 2025 13:49:28 +0000
-Received: from CO1PEPF000075ED.namprd03.prod.outlook.com
- (2603:10b6:a03:334:cafe::a2) by SJ0PR05CA0118.outlook.office365.com
- (2603:10b6:a03:334::33) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9343.10 via Frontend Transport; Fri,
- 21 Nov 2025 13:49:27 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.194)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.23.194 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.23.194; helo=lewvzet200.ext.ti.com; pr=C
-Received: from lewvzet200.ext.ti.com (198.47.23.194) by
- CO1PEPF000075ED.mail.protection.outlook.com (10.167.249.36) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9343.9 via Frontend Transport; Fri, 21 Nov 2025 13:49:27 +0000
-Received: from DLEE203.ent.ti.com (157.170.170.78) by lewvzet200.ext.ti.com
- (10.4.14.103) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 21 Nov
- 2025 07:49:24 -0600
-Received: from DLEE208.ent.ti.com (157.170.170.97) by DLEE203.ent.ti.com
- (157.170.170.78) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 21 Nov
- 2025 07:49:23 -0600
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE208.ent.ti.com
- (157.170.170.97) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Fri, 21 Nov 2025 07:49:23 -0600
-Received: from uda0132425.dhcp.ti.com (uda0132425.dhcp.ti.com [172.24.233.103])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 5ALDnJrK1313880;
-	Fri, 21 Nov 2025 07:49:20 -0600
-From: Vignesh Raghavendra <vigneshr@ti.com>
-To: <nm@ti.com>, <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-	<conor+dt@kernel.org>, <y-abhilashchandra@ti.com>, <u-kumar1@ti.com>,
-	Siddharth Vadapalli <s-vadapalli@ti.com>
-CC: Vignesh Raghavendra <vigneshr@ti.com>, <stable@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <srk@ti.com>
-Subject: Re: [PATCH v2] arm64: dts: ti: k3-j721e-sk: Fix pinmux for pin Y1 used by power regulator
-Date: Fri, 21 Nov 2025 19:19:17 +0530
-Message-ID: <176373265680.739386.4552474353060268697.b4-ty@ti.com>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20251119160148.2752616-1-s-vadapalli@ti.com>
-References: <20251119160148.2752616-1-s-vadapalli@ti.com>
+	Fri, 21 Nov 2025 13:52:59 +0000
+Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-42b3377aaf2so1182882f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Nov 2025 05:52:57 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1763733176; x=1764337976; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=dHb504fa+R3MQSYXb7rM8ukJxMXoBFNQYhj0anYj8Ok=;
+        b=gMAkO2WqjpdHAqlPGvULV1OoYRj7lYFDJWv6OGqgDw8WKq+Ld8LnLfVdKebWGMo+wX
+         A7NL5GEmqX/oSJ5SLi5GfeOd6G5AwHpme+ZvEnEvA8ZWRZh1d4QR90Ww8kD21mURxPap
+         5W/nxZlG63a7gbeOSLwHoKE2e+A9YyJicJvAcVXIIxYgtbzRMqH+YrtfAEN1X7sVk9H0
+         Z/ZKPxAZv/d509Yp4gpBZUQFGVyHdDaptZ6yzj9k5EhgOXNODSSGgZlbADxSUIj21B7L
+         b0hwzBl1yrJxSTf80bUtYxd0h2wYM4A7zE8wQnNlSc2hv/qWEi46TS+Nr10pa7KFUL5v
+         0RiA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1763733176; x=1764337976;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:date:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=dHb504fa+R3MQSYXb7rM8ukJxMXoBFNQYhj0anYj8Ok=;
+        b=fkGva1y6NZnsxPyudhEZqfPvYoMLXWtAIvtnUzhiAXN/DKEzvrC+iU89bm803ApiBP
+         olKMLYwfFTgqF/P2MN/0kxo18OA6W/c8IFfOdM8MvGFXZAqLpJvOgWsrUAMMHLl0vw3A
+         soFaFX1InfsFk+Ocw6aAYsmfhnnNWdICC4Pw/RTfR5B0OzHid20qnWdlv6L2mu91uvTw
+         QwSbDjThOUOe3If1/VtefDjC38iWMt1MXzgrK0JO+IpXOvv3YjKdyKydSlm+SFh2l3i2
+         Cjd+bVU3JdzC7+XS6FHqD+/duTaIXv8L7ZAUz5Yx8pOzRpBoZfB4rLwvcGE2d2bb+eAd
+         Dxxw==
+X-Forwarded-Encrypted: i=1; AJvYcCVCvVy7wqK1KoHiS9dhdV3WiV4jrAXqGwgGYh8rPRNdSkhaBojsp2g7Ld2QrbTzqDd4OEROeSCx1pMSmlA0WGWC@lists.infradead.org
+X-Gm-Message-State: AOJu0YxejrjeEvDevEQDPnuw4GQnCuwRS6dju765DGmu1bDtgOda0hj4
+	I32Ix0aKvKLEtginfQzjxNLAjn/VFM7WlVPWNcSSqCQL89ea1+3q3iTl
+X-Gm-Gg: ASbGncvyM8EVssT6El0nZ2BaiSoAZIerc5UabeTvzcL2GeBCLBjpdRFBvF/4eWXpsZe
+	Ag0hzh2NUsfkWN3zS1FOZhFmO6AxF4SRiPV56ohPAfy5hvYC4dfkH7I0Wp299ZIb+k4SqEX/zCG
+	HIF77dB0wWhBoRqW6LM2l3Im2JRLw6XMCugcLlCMUYSNbSDGnzgH0V7ISmBu+8gp5firpA+wnOp
+	cH7RpsvipN/oPYYQyK9ZIzeB2iSe0839yaIiti4Oe4y2ULWo5+r3MVv6w2vK5tllniS/jSJfzB+
+	jdOqned9hjJL8bSvybkJSKw6Yk6eyjnoDlPqc11YYKZQ0PzBIuVFuHDqAIvZhPuCp7ljLDwX9hh
+	SldQD8Ju6STXoCBMQNnC633WMcM8OjwrjALGVhhkch+QPz4kfiT8hfJKUgDOk
+X-Google-Smtp-Source: AGHT+IFQ2PJAV2V/f/yufGQdBh2mTA4a80qGAW4aT6F0XegW/TNsy0SedHzzQNPnq9UvVkxWMsAwzg==
+X-Received: by 2002:a05:6000:4202:b0:42b:2a41:f1a with SMTP id ffacd0b85a97d-42cc1cc2a7amr2525379f8f.26.1763733175918;
+        Fri, 21 Nov 2025 05:52:55 -0800 (PST)
+Received: from krava ([2a02:8308:a00c:e200::b44f])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42cb7f34fe8sm11228058f8f.15.2025.11.21.05.52.54
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 21 Nov 2025 05:52:55 -0800 (PST)
+From: Jiri Olsa <olsajiri@gmail.com>
+X-Google-Original-From: Jiri Olsa <jolsa@kernel.org>
+Date: Fri, 21 Nov 2025 14:52:53 +0100
+To: bot+bpf-ci@kernel.org
+Cc: rostedt@kernel.org, revest@google.com, mark.rutland@arm.com,
+	bpf@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, ast@kernel.org,
+	daniel@iogearbox.net, andrii@kernel.org, menglong8.dong@gmail.com,
+	song@kernel.org, martin.lau@kernel.org, eddyz87@gmail.com,
+	yonghong.song@linux.dev, clm@meta.com, ihor.solodrai@linux.dev
+Subject: Re: [PATCHv3 bpf-next 4/8] ftrace: Add update_ftrace_direct_del
+ function
+Message-ID: <aSButfibgD140NXI@krava>
+References: <20251120212402.466524-5-jolsa@kernel.org>
+ <35e436ca1a638c9e30456c2a3645c23a20b2483160e3bb34b7c73fe42776f4df@mail.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CO1PEPF000075ED:EE_|SJ0PR10MB5552:EE_
-X-MS-Office365-Filtering-Correlation-Id: 94072576-017b-4539-f58f-08de2904c9bb
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|376014|1800799024|82310400026;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?bzZ3S1hRYjByelZhWnJ6UWMvekJaTUd5dWxYeEZiUjZsSk9RVWNUOFFQU1lw?=
- =?utf-8?B?Z3BZRElWSnBUL0NqMS85M0JwQmRrbEp4Q0M5Z05WZ05ocm94MnJOL3dPSW5F?=
- =?utf-8?B?a1kzU2pVT2VxSEx1K1RrQStNbGtMWlVXTUJsU0VGdzZ4NTJjd2pUVEM5NXdR?=
- =?utf-8?B?SzUxMUlMMnQ4ZDVPQnoyWnlLSTlhZSs4SllIYzBaSUpHOGI1NTBQbndOOFZU?=
- =?utf-8?B?NmV2RDZDbzRRV09pRjdDRE5UZGZEdzg3RkFraE1ZaDRsS3F5VkEraGRERGVj?=
- =?utf-8?B?Ull0S2g5NCtkditYc1I2dlZxUmEzUkF3SkhuQmYzTTlPN0VLTVBNYk56dDNB?=
- =?utf-8?B?dlZPQ0RFUytiTnQ4R0lDVlhPYUpQNzFiUHN5RWRBalBBalRDdkhndE1sU1Vw?=
- =?utf-8?B?L1J3by9ZRWZsM1VZZjBiQWsvTEE3U1JrVDRMcUhLbkZ0ZGFIcGJZanV3cDJB?=
- =?utf-8?B?eVVxTERYbWZPU3RzbWtuZ1NQMVlNSXR2VWYwdEFyK3MwcUlKTk1YOHdXejZ4?=
- =?utf-8?B?U3RTdzZ6d3FqNTNEeEVMN3QwQytjRVNOLzRDY2tiUzFmYkFZNFJFRHd1b0ho?=
- =?utf-8?B?RGFQZlU4ZXJZK1plTWZkdHQxOGtxK2VYbEFhSEoxcFNEaHhrcmR6clBDcEVR?=
- =?utf-8?B?QU5Qd3RaNzg1YnhUL0k5dGNtZzJLaEZCK0ZEUlk5bW04UEk1WUZvY0VidWsr?=
- =?utf-8?B?Y2x2SFN5U1ZhbHpESnFURE1kR1MxMWZSY0dVcm1GRTlPUnVmenpEbGVEbmpQ?=
- =?utf-8?B?eG1tNGhMQ0VUTGNqdnhreThDWVQwRXVjVEJGcWRjR21rbFRpYUE2ZUdNQ0Q0?=
- =?utf-8?B?alF0d3ZhSDAwSUlUcVc5bE9WeGwwaFVoTWlIcnZLUVhJc1FDWXoxblpqRHBz?=
- =?utf-8?B?TExUNXIya2JwVG55Rzd4VUJPN3B1RWZNODBiUVZKaE9FTllza0phdFJLdVlD?=
- =?utf-8?B?T0NTS2hQazZUNnc4d0JrVUVyWXRkTVFKWHRnR2xId01vUmdUNTlaQWdYRTVy?=
- =?utf-8?B?WjdYUm5VYWRvb21rL2JZUGtsQ1RzbWVGbXpNOVlNRXJiVTVRamsrejE2OUFC?=
- =?utf-8?B?S0dweWFOcE5MdCsvekEzVEVpeE9rdXJJdVJiNFNTdktHa1FYcENNWUZhVVBV?=
- =?utf-8?B?U1dhTjh0VEhLaUJTVytRYzFOSmo4TXZIQWdjRFd5TGdpanVzT1RSL1MrcUlT?=
- =?utf-8?B?SHRacUFyemd1bnlTckU3dm1ESXp5MHJacGpSUzN3dFovYlp4dVAxOVRxdlMz?=
- =?utf-8?B?YTZwNTNremxNdVpqMU9jZzhHTVZaQWt5UmtESjVZbzJZVUFLSzNpMklLc25y?=
- =?utf-8?B?enNWTC92VjZ3Ky9RSjRkMWR5dUZ0S3REMW9uaGtWaTJpUkxBS3RCei9vbkhJ?=
- =?utf-8?B?TVBmTkFkYW9NR0ZqdEFMZGU3eXNIbUpuSnJ6czBFbWp0U3RrTFV3TzA0UDFY?=
- =?utf-8?B?YlNNVVJFOU4wQVk2Z3JMUzdzY2RscFoxNVp5SG5HQldSWURhZ0NNb29SUGgr?=
- =?utf-8?B?ek5sa2Y1VENOUVVkWEdCdElKWHZQYWMwM0dDcHNEOGhhYzRNYWY3U0oxN1pN?=
- =?utf-8?B?YU90cWhQTlhqVVBwMUlCMjY4eXoySkFFelBRV3BQK3pMOFNyblFEQlROS0ly?=
- =?utf-8?B?TnBFQVJNVHFTLzVBRVl5VVpCK0dIMWRKVms2cnNFVExvTkFheDhWaFErOU1q?=
- =?utf-8?B?MXBMYk9FWUZ1T3VFQ2ZVSHJrUGU4dHVUU0IwMjFmc05mZGdzUTJiZVNGODNB?=
- =?utf-8?B?V1dUVDBoTmNkZ0xzek5CeEZhSWIvN1hueWFzWkFGdS9PMnBIOW9WbUoreDg4?=
- =?utf-8?B?QXFIL2pTd1BaRzh3bDkyRTdiR3FIcFJtdC9oOXNPT2E3S2p1bGJaK3pFWGJF?=
- =?utf-8?B?VitFSE55c0xDZ0FEN0xIQm83VWsvQkQrYWpqSUxPbHJBck56eGUzMjN3SDUv?=
- =?utf-8?B?N21NTklPWDk4YnNFakc3ZVlMaGxUbENJRjFPSTUzaGlIM1NDWGoyRHl1aS9s?=
- =?utf-8?B?SkQ5ck9hbms4RDlXTkw3ZERyd0VpY0JkVVhQSHVPY2ZveDJvS1lTQ01hU1E5?=
- =?utf-8?B?Z0t5OHdJK2JpUE4wTmdZUytCd1FXLzNraW1hb0l5M3IzMmdpR2V6VTR4dHJx?=
- =?utf-8?Q?pmV4=3D?=
-X-Forefront-Antispam-Report: CIP:198.47.23.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet200.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700013)(376014)(1800799024)(82310400026);DIR:OUT;SFP:1101;
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Nov 2025 13:49:27.2958
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 94072576-017b-4539-f58f-08de2904c9bb
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.194];Helo=[lewvzet200.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: CO1PEPF000075ED.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR10MB5552
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <35e436ca1a638c9e30456c2a3645c23a20b2483160e3bb34b7c73fe42776f4df@mail.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251121_054933_072890_E6158951 
-X-CRM114-Status: GOOD (  15.07  )
+X-CRM114-CacheID: sfid-20251121_055258_436765_0C55EE3B 
+X-CRM114-Status: GOOD (  23.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -165,45 +105,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Siddharth Vadapalli,
-
-On Wed, 19 Nov 2025 21:31:05 +0530, Siddharth Vadapalli wrote:
-> The SoC pin Y1 is incorrectly defined in the WKUP Pinmux device-tree node
-> (pinctrl@4301c000) leading to the following silent failure:
+On Thu, Nov 20, 2025 at 10:23:46PM +0000, bot+bpf-ci@kernel.org wrote:
+> > diff --git a/include/linux/ftrace.h b/include/linux/ftrace.h
+> > index 9cf4cd56d..c571deeff 100644
+> > --- a/include/linux/ftrace.h
+> > +++ b/include/linux/ftrace.h
+> > @@ -551,6 +551,7 @@ int modify_ftrace_direct(struct ftrace_ops *ops, unsigned long addr);
+> >  int modify_ftrace_direct_nolock(struct ftrace_ops *ops, unsigned long addr);
+> >
+> >  int update_ftrace_direct_add(struct ftrace_ops *ops, struct ftrace_hash *hash);
+> > +int update_ftrace_direct_del(struct ftrace_ops *ops, struct ftrace_hash *hash);
+> >
+> >  void ftrace_stub_direct_tramp(void);
+> >
+> > @@ -583,6 +584,11 @@ static inline int update_ftrace_direct_add(struct ftrace_ops *ops, struct ftrace
+> >  	return -ENODEV;
+> >  }
+> >
+> > +static inline int update_ftrace_direct_del(struct ftrace_ops *ops, struct ftrace_hash *hash)
+> > +{
+> > +	return -ENODEV;
+> > +}
+> > +
 > 
->     pinctrl-single 4301c000.pinctrl: mux offset out of range: 0x1dc (0x178)
+> [ ... ]
 > 
-> According to the datasheet for the J721E SoC [0], the pin Y1 belongs to the
-> MAIN Pinmux device-tree node (pinctrl@11c000). This is confirmed by the
-> address of the pinmux register for it on page 142 of the datasheet which is
-> 0x00011C1DC.
+> > diff --git a/kernel/trace/ftrace.c b/kernel/trace/ftrace.c
+> > index 850ff55ff..cc730a8fd 100644
+> > --- a/kernel/trace/ftrace.c
+> > +++ b/kernel/trace/ftrace.c
 > 
-> [...]
+> [ ... ]
+> 
+> > +/**
+> > + * hash_sub - substracts @b from @a and returns the result
+> > + * @a: struct ftrace_hash object
+> > + * @b: struct ftrace_hash object
+> > + *
+> > + * Returns struct ftrace_hash object on success, NULL on error.
+> > + */
+> > +static struct ftrace_hash *hash_sub(struct ftrace_hash *a, struct ftrace_hash *b)
+> > +{
+> > +	struct ftrace_func_entry *entry, *del;
+> > +	struct ftrace_hash *sub;
+> > +	int size, i;
+> > +
+> > +	sub = alloc_and_copy_ftrace_hash(a->size_bits, a);
+>                                            ^^^^^^^^^^^^
+> 
+> Can hash_sub() handle a NULL hash pointer in parameter a?  I notice the
+> parallel function hash_add() safely handles NULL via hash_count() and
+> alloc_and_copy_ftrace_hash() which checks ftrace_hash_empty().
+> 
+> However, hash_sub() directly dereferences a->size_bits before passing a
+> to alloc_and_copy_ftrace_hash().  This will crash if a is NULL.
+> 
+> This matters because update_ftrace_direct_del() calls hash_sub() with
+> old_filter_hash which can be NULL:
+> 
+>     old_filter_hash = ops->func_hash ? ops->func_hash->filter_hash : NULL;
+>     ...
+>     new_filter_hash = hash_sub(old_filter_hash, hash);
+> 
+> The existing update_ftrace_direct_add() has the same defensive check and
+> passes the potentially-NULL old_filter_hash to hash_add(), which handles
+> it correctly.
 
-I have applied the following to branch ti-k3-dts-next on [1].
-Thank you!
+so we never call update_ftrace_direct_del without having
+update_ftrace_direct_add called, which ensures the existence of filter_hash,
+but it's probably good idea to do explicit check for future
 
-[1/1] arm64: dts: ti: k3-j721e-sk: Fix pinmux for pin Y1 used by power regulator
-      commit: 51f89c488f2ecc020f82bfedd77482584ce8027a
+thanks,
+jirka
 
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent up the chain during
-the next merge window (or sooner if it is a relevant bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
 
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
-
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
-[1] https://git.kernel.org/pub/scm/linux/kernel/git/ti/linux.git
---
-Vignesh
+> 
+> > +	if (!sub)
+> > +		goto error;
+> > +
+> > +	size = 1 << b->size_bits;
+> > +	for (i = 0; i < size; i++) {
+> > +		hlist_for_each_entry(entry, &b->buckets[i], hlist) {
+> > +			del = __ftrace_lookup_ip(sub, entry->ip);
+> > +			if (WARN_ON_ONCE(!del))
+> > +				goto error;
+> > +			remove_hash_entry(sub, del);
+> > +			kfree(del);
+> > +		}
+> > +	}
+> > +	return sub;
+> > +
+> > + error:
+> > +	free_ftrace_hash(sub);
+> > +	return NULL;
+> > +}
+> > +
+> > +int update_ftrace_direct_del(struct ftrace_ops *ops, struct ftrace_hash *hash)
+> > +{
+> 
+> [ ... ]
+> 
+> 
+> ---
+> AI reviewed your patch. Please fix the bug or email reply why it's not a bug.
+> See: https://github.com/kernel-patches/vmtest/blob/master/ci/claude/README.md
+> 
+> CI run summary: https://github.com/kernel-patches/bpf/actions/runs/19552032346
 
 
