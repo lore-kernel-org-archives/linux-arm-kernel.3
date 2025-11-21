@@ -4,98 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79B9ACFA459
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 00:24:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2EEACFA459
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 00:28:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=kXY0DT6HIsSoJH5czBF21Sus1oqhqzcXbPhbx1UdXUk=; b=f/uZ+5sqzEeOmIxhiQTdeJd7zj
-	Bqv6fMCZ6xey9fWGKMrc6azM0ElNnzTGwJm5JNzPIyD3NKLzceSccaLTNpinpvX+asRdmig0rSMtR
-	4m1xHWPVxcPiTOoBNE66x5nnaRr+5bpX0B0BFJyJnyFZRXRcW5xoAGknbJKJLcltaaINgyqejQqWx
-	hTK8jeRADQIY6knqHK2xkA/h2lyiW81PQVMzD77gZ/YAhYNXBWGejwOYycY336JhAYkb0j3IcGCa6
-	kasEiacoqKEluOWALmVVIn3ob5l2IlqJZko9/INXePAzlgGBLM7vAV/4hFN2n865u83RWo4Wwn7no
-	KkOI20TA==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AsdQVZDTYPb+WJU5W+qBd4HHdK8qY/Whv5lgvrY3/f4=; b=IF1UcGKEPeQohmcgrbcQ+roft9
+	6tMlRCRuils+nBaCFcR1J7Ub2sk1m6iERZ3jmthMb96/yq/eyJh78804bNOk3Xbr1oigNVRvx74vT
+	jLeJVLLo6jKSngZZWiunMp4YGgtsIWisFalB+SN01l9KSoxMaDIP+JGrZGdMom0RsAIHvkSZsxZXF
+	uDxpWzDjKkh0tDpiLKhBFej23gIA3cYHziiHcItXeKhNWZsyBi2bL55gIgblX6uAKzJuB9+2k1wxv
+	VaOLOwj4rFDoM8/ImbAhmxoyui5dFICxLpA2gI8oU8JG27iqW8ytv+NtDSH481sK7h4BQ2ALc9NHe
+	aOsC7X3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMEwf-00000007biu-2HFE;
-	Fri, 21 Nov 2025 00:24:13 +0000
-Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
+	id 1vMF0T-00000007bvi-0TiX;
+	Fri, 21 Nov 2025 00:28:09 +0000
+Received: from out-170.mta1.migadu.com ([2001:41d0:203:375::aa])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMEwc-00000007biU-3qaD
+	id 1vMF0P-00000007bvD-2yDv
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Nov 2025 00:24:12 +0000
-Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-2953ad5517dso19118195ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Nov 2025 16:24:10 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1763684650; x=1764289450; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=kXY0DT6HIsSoJH5czBF21Sus1oqhqzcXbPhbx1UdXUk=;
-        b=e2hjhG7KadEO9fvf4MoihmT1rqGqzOmPsk5f0SkVvO9loLKVAE+d2tzkLkpAV9qs3n
-         r4mJSjXRGESuE2kT9n9ZxFMzvhkbhSjH1uKM2MHxqur/6XZW5f5TJd/oWy5MjeYYwtc2
-         QS7Ob0aBlway5Bc+KXgn20HoiuROfLtwkOYrWXfVMJdEUE9JtC3MvqIxtgFCs5ZgPkHH
-         9gmSpQXILQz9dkMkVK3T21T+ShBhi9e0U91poYjtcI1Ng7SV8nWxIroFzhaOJzdf1P3L
-         UpKD5vtOJCSDGkULrI9EViRNcZSKSsXSgoHhn9m00SKJ3mywikKjYYD3pY1tAhTXTMyr
-         jHNA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763684650; x=1764289450;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=kXY0DT6HIsSoJH5czBF21Sus1oqhqzcXbPhbx1UdXUk=;
-        b=rYenO27F3kPdy5EXYOL5uyRpdpGZkkGVC0t9Lq15yjy2/rE4MsfzPZFKFo6U/vKD7A
-         xf05qwVKd6jU/xrHbFxSRg95jiusPwEJgcxeS0G5w9mZKwjXLkjXGwh3i2g1b44u11S3
-         aS9AMKBGVaJ00Wm8xwNGkuKOeLHnEReAykQaW7ZnEicc4j6Xc3okxDCTVNgwu1SwHgqQ
-         x2e6NWSR94sqbPWYdSejYPvHv5Dk+Xvu4R4YliqulMPZtrje//j9pXAP69yz+DO6raPm
-         N9mYoiqm+rNLUnXpTLbnRj6mN6Tm/8kFZ9tIhxCFfKaOeDwcw6t3R2emi+gaNUf1Dskj
-         ADGw==
-X-Forwarded-Encrypted: i=1; AJvYcCU2AA3FNzE++PM+oqFdn72YtQ+Blo3Q6WNJPSH0tDf13gxI197LWbYnAaNXjRJPlHy3J3pVNyBqX1mM3cedlT2N@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxd6hVGuDXgzrEkCJOG/BTIKSYLsYJE59vTgr5Gm47YhGAvQCqj
-	L0S6kgumNNSWw90aP/p5+JuSHKLReExrcmYCyTtd7fQs2/9Dbs25lcBs
-X-Gm-Gg: ASbGncuiX+uBe2+8zHA+E+0zhbyyRMU0JBNOvRKNFmpErDHd890fAU5Z+SYenqQU/Aj
-	2xU3db8XE0XTr7cTZxZjcaya7NZ0jwEQLORLGAlzqel4UTsdmoop4xTRn7wTOB2J5mAXFxAHm0l
-	sekfPS2hl+NG8eZC8bvy9BzMqvSg9npDg9ph8gGkt9Jtaq91HOAL8ORc73yB8dRAALjHW338tLD
-	aGWd9Oux0VBqvvuOWoVlo+km4UZFwxtNCFKK1s8GSUGuS8GUwCmS6GQHKbIlyW22AWeY+Pfvvge
-	gryFIHlNch2VfnN4yaTm5AZUr8l1Wwsf/XUhImjBD9rqxD1tKJSZd1dyTvFwjjsNvC6jokRbJo2
-	xjaqQWpxMNlU8vn32fkuIpb2erTXLmtA3pP0wYQf+A3M2+zmsx9NpSBisIrBalAL7gzw/1XoGfy
-	0wkRft3wp8vrhEI3S3Js6c2skWN9wB0qLBedXP24bunu4EhWXa9xZIaRH4ItB+oJzPXlBtBJwR4
-	+7el/MQBtpSPYEUxiEuACQD
-X-Google-Smtp-Source: AGHT+IFuVB+OPt8sF01Uh6d7xMc9CZaiz4OHSBYz4E7xn1OnH2Ffn63x7dRG/05JN4//aaaMjYq71A==
-X-Received: by 2002:a17:902:d54d:b0:295:615d:f1d2 with SMTP id d9443c01a7336-29b6bf5deb5mr6487245ad.48.1763684649751;
-        Thu, 20 Nov 2025 16:24:09 -0800 (PST)
-Received: from visitorckw-work01.c.googlers.com.com (14.250.194.35.bc.googleusercontent.com. [35.194.250.14])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-bd75e4ca0casm3630383a12.10.2025.11.20.16.24.06
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 20 Nov 2025 16:24:09 -0800 (PST)
-From: Kuan-Wei Chiu <visitorckw@gmail.com>
-To: suzuki.poulose@arm.com
-Cc: mike.leach@linaro.org,
-	james.clark@linaro.org,
-	alexander.shishkin@linux.intel.com,
-	pratikp@codeaurora.org,
-	mathieu.poirier@linaro.org,
-	gregkh@linuxfoundation.org,
-	jserv@ccns.ncku.edu.tw,
-	marscheng@google.com,
-	ericchancf@google.com,
-	milesjiang@google.com,
-	nickpan@google.com,
-	coresight@lists.linaro.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Kuan-Wei Chiu <visitorckw@gmail.com>
-Subject: [PATCH] coresight: etm3x: Fix buffer overwrite in cntr_val_show()
-Date: Fri, 21 Nov 2025 00:23:50 +0000
-Message-ID: <20251121002350.1166758-1-visitorckw@gmail.com>
-X-Mailer: git-send-email 2.52.0.rc2.455.g230fcf2819-goog
+	Fri, 21 Nov 2025 00:28:07 +0000
+Message-ID: <3b5d9df5-934d-4591-8827-6c9573a6f7ba@packett.cool>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=packett.cool;
+	s=key1; t=1763684880;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=AsdQVZDTYPb+WJU5W+qBd4HHdK8qY/Whv5lgvrY3/f4=;
+	b=u0pinqtH5K5gMsYy6NyVpNY8dBuXeK5wBOcc2uf8rR1UgTk27xhJcC4Hj3lRoUnQHyyesm
+	XtKuphT7jjVztBw5mmcMZ9nsEyPEge4LHLnbmkUQLmEipQwAeeARmAV3+Zv8F8MtMQR88H
+	GNm3VkgBHJQ34FpknGh5YM4A8fMJNFGWMepFqY8hmb0xGyu7BY2z+T5AwQ2baE3G+EwjI5
+	xuYD3tS3H1InSop+P0eI4NkXDdZy+A6VrV0ubA2Na1REKSrjDr+4HGe0jKa6mFVVoXOV5O
+	5qXieNcr64wSjFk/5s5DFjfb8eXE5bpDolBEKQ9+bAtF9O9D8BpiY3XdQPnwqA==
+Date: Thu, 20 Nov 2025 21:27:46 -0300
 MIME-Version: 1.0
+Subject: Re: [PATCH v4 00/10] gpio: improve support for shared GPIOs
+To: Bartosz Golaszewski <brgl@bgdev.pl>, Kees Cook <kees@kernel.org>,
+ Mika Westerberg <westeri@kernel.org>,
+ Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Linus Walleij <linus.walleij@linaro.org>,
+ Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Saravana Kannan <saravanak@google.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Andy Shevchenko <andy@kernel.org>, Catalin Marinas
+ <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Srinivas Kandagatla <srini@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>,
+ Mark Brown <broonie@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
+ Takashi Iwai <tiwai@suse.com>, Alexey Klimov <alexey.klimov@linaro.org>,
+ Bjorn Andersson <andersson@kernel.org>,
+ Konrad Dybcio <konradybcio@kernel.org>
+Cc: linux-hardening@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-sound@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+ Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+References: <20251112-gpio-shared-v4-0-b51f97b1abd8@linaro.org>
+Content-Language: en-US
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Val Packett <val@packett.cool>
+In-Reply-To: <20251112-gpio-shared-v4-0-b51f97b1abd8@linaro.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251120_162410_964560_45054A1D 
-X-CRM114-Status: GOOD (  19.12  )
+X-CRM114-CacheID: sfid-20251120_162806_270776_57DA2492 
+X-CRM114-Status: UNSURE (   9.18  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,54 +89,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The cntr_val_show() function is meant to display the values of all
-available counters. However, the sprintf() call inside the loop was
-always writing to the beginning of the buffer, causing the output of
-previous iterations to be overwritten. As a result, only the value of
-the last counter was actually returned to the user.
+Hi,
 
-Fix this by using the return value of sprintf() to calculate the
-correct offset into the buffer for the next write, ensuring that all
-counter values are appended sequentially.
+On 11/12/25 10:55 AM, Bartosz Golaszewski wrote:
+> ---
+> Bartosz Golaszewski (10):
+>        string: provide strends()
+>        gpiolib: define GPIOD_FLAG_SHARED
+>        gpiolib: implement low-level, shared GPIO support
+>        gpio: shared-proxy: implement the shared GPIO proxy driver
+>        gpiolib: support shared GPIOs in core subsystem code
+>        gpio: provide gpiod_is_shared()
+>        arm64: select HAVE_SHARED_GPIOS for ARCH_QCOM
+>        ASoC: wsa881x: drop GPIOD_FLAGS_BIT_NONEXCLUSIVE flag from GPIO lookup
+>        ASoC: wsa883x: drop GPIOD_FLAGS_BIT_NONEXCLUSIVE flag from GPIO lookup
+>        regulator: make the subsystem aware of shared GPIOs
 
-Fixes: a939fc5a71ad ("coresight-etm: add CoreSight ETM/PTM driver")
-Signed-off-by: Kuan-Wei Chiu <visitorckw@gmail.com>
----
-Build tested only. I do not have the hardware to run the etm3x driver,
-so I would be grateful if someone could verify this on actual hardware.
+this seems to actually have caused a regression for me, audio does not 
+initialize anymore on hamoa due to EBUSY since upgrading 
+from next-20251114 to next-20251118 or next-20251120:
 
-I noticed this issue while browsing the coresight code after attending
-a technical talk on the subject. This code dates back to the initial
-driver submission over 10 years ago, so I was surprised it hadn't been
-caught earlier. Although I cannot perform runtime testing, the logic
-error seems obvious to me, so I still decided to submit this patch.
+[   11.748781] platform 
+6800000.remoteproc:glink-edge:gpr:service@1:dais: Adding to iommu group 30
+[   11.785864] wsa_macro 6aa0000.codec: using zero-initialized flat 
+cache, this may cause unexpected behavior
+[   11.796964] reset-gpio reset-gpio.0: error -EBUSY: Could not get 
+reset gpios
+[   11.796984] reset-gpio reset-gpio.0: probe with driver reset-gpio 
+failed with error -16
+[   11.894662] reset-gpio reset-gpio.1: error -EBUSY: Could not get 
+reset gpios
+[   11.894676] reset-gpio reset-gpio.1: probe with driver reset-gpio 
+failed with error -16
+[   12.006938] wcd938x_codec audio-codec: bound sdw:2:0:0217:010d:00:4 
+(ops wcd_sdw_component_ops [snd_soc_wcd_common])
+[   12.006964] wcd938x_codec audio-codec: bound sdw:3:0:0217:010d:00:3 
+(ops wcd_sdw_component_ops [snd_soc_wcd_common])
+[   15.424657] qcom-soundwire 6ab0000.soundwire: qcom_swrm_irq_handler: 
+SWR CMD error, fifo status 0x4e00c00f, flushing fifo
+[   21.994354] qcom-soundwire 6ab0000.soundwire: qcom_swrm_irq_handler: 
+SWR CMD error, fifo status 0xe00c000, flushing fifo
+[   21.996001] qcom-soundwire 6b10000.soundwire: qcom_swrm_irq_handler: 
+SWR CMD error, fifo status 0x4e00c00f, flushing fifo
+[   21.996239] platform sound: deferred probe pending: snd-x1e80100: WSA 
+Playback: codec dai not found
+[   21.996248] soundwire sdw:4:0:0217:0204:00:0: deferred probe pending: 
+wsa884x-codec: Failed to get reset
+[   21.996250] soundwire sdw:4:0:0217:0204:00:1: deferred probe pending: 
+wsa884x-codec: Failed to get reset
+[   21.996251] soundwire sdw:1:0:0217:0204:00:0: deferred probe pending: 
+wsa884x-codec: Failed to get reset
+[   21.996253] soundwire sdw:1:0:0217:0204:00:1: deferred probe pending: 
+wsa884x-codec: Failed to get reset
 
- drivers/hwtracing/coresight/coresight-etm3x-sysfs.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+gpio_shared_proxy, reset_gpio, pinctrl_sm8550_lpass_lpi are all built as 
+modules and were autoloaded fine.
 
-diff --git a/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c b/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c
-index 762109307b86..312033e74b7a 100644
---- a/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c
-+++ b/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c
-@@ -725,7 +725,7 @@ static ssize_t cntr_val_show(struct device *dev,
- 	if (!coresight_get_mode(drvdata->csdev)) {
- 		spin_lock(&drvdata->spinlock);
- 		for (i = 0; i < drvdata->nr_cntr; i++)
--			ret += sprintf(buf, "counter %d: %x\n",
-+			ret += sprintf(buf + ret, "counter %d: %x\n",
- 				       i, config->cntr_val[i]);
- 		spin_unlock(&drvdata->spinlock);
- 		return ret;
-@@ -733,7 +733,7 @@ static ssize_t cntr_val_show(struct device *dev,
- 
- 	for (i = 0; i < drvdata->nr_cntr; i++) {
- 		val = etm_readl(drvdata, ETMCNTVRn(i));
--		ret += sprintf(buf, "counter %d: %x\n", i, val);
-+		ret += sprintf(buf + ret, "counter %d: %x\n", i, val);
- 	}
- 
- 	return ret;
--- 
-2.52.0.rc2.455.g230fcf2819-goog
+This is wsa884x (not wsa881x nor wsa883x), failing in 
+devm_reset_control_get_optional_shared..
+
+
+Thanks,
+~val
 
 
