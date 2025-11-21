@@ -4,56 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADAD9CFC281
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 21:54:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEA6DCFC50B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 22:17:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oNTyimO871Xt4NO/18w82UlZYwpwaAQDmJMcKdNIrJI=; b=fiZyEAgOLXYEvIaaN/VsuFG9co
-	V6KuPCCaWhnw+nUbaq4wuH8suqcVOdAUacoXD4uaCBG7R4KQpkk/TFHcTJ7VGTTNNBiwZ6LlkOZX9
-	428nGqFV8lfw0RG51Rdo9kt0Rfp3mOg2gJGZwxoQFXqgYiUlUUXLK7FoWtYe0qvvTPZhL0fRia8i6
-	AclCryVoY+BdSNZ3Wid9ZQj5PFW5SjdqCiMzbSCcV0KhGYxlMOcHiCD0ZviKlKtf1xYwVLcqvqgas
-	+ATOP7Ye8Iqzn+15ouUKoKD8Ex6SjafcDfsyiW5VZxKfWriMFxujfj/VTJXPIBzpp1khD4n5l6EJs
-	OchP8YIw==;
+	bh=ZTTs6Mh9QHJWEgknccDFZ8tvGhlrxxXkdvw28mO5CvI=; b=ENo0iBXnzsDT2/yFC2qw1KsGvO
+	huikBhXM/3n7eooY/AKeqhpxJZaFhlZbeWAcd4WO4r0476MHhHFAOtAO984PhhoIIJ6aqfGSDU73y
+	gjMpVUcV3mgmQSZgvsu9LvyqzzPjfv0VFdYmVsUPBAakLp5L8VGWNvnRXoqyxW/sh9vn0xnR8D3rw
+	X+lwRiYDiLs3Dq7DBN6NCT4WrmTT6ZJJQ+EdiIEIwjki6I4wHyiEXdM4atQ067yLpWH+ZhDDpQ0Qe
+	W46jREFKyhxVzN/2wYzPeYA9gYL4l9C322HFLGk+PfITL/M3osT16w5j4ruzmeGa6k5GPuC2y9J2z
+	VAcC/xnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMZ5P-000000090xE-32Sa;
-	Fri, 21 Nov 2025 21:54:35 +0000
-Received: from gentwo.org ([62.72.0.81])
+	id 1vMZR5-000000091gA-2C7k;
+	Fri, 21 Nov 2025 22:16:59 +0000
+Received: from mgamail.intel.com ([198.175.65.9])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMZ5N-000000090wp-0j2Z
+	id 1vMZR1-000000091fn-1oU3
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Nov 2025 21:54:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=gentwo.org;
-	s=default; t=1763762071;
-	bh=oNTyimO871Xt4NO/18w82UlZYwpwaAQDmJMcKdNIrJI=;
-	h=Date:From:To:cc:Subject:In-Reply-To:References:From;
-	b=baHE14DnqToLTpcWLV46ykovAGTwpYPj3FZvzSllhHkUJgKI1zSX15TUWTNKHXcfd
-	 1PjSVeabs3ddZLW+xnka3d2clFeKZq1e2szriin2SISK9xkx6Twx8OOM+pp3CVaIUG
-	 vbGCZ2FSIOa5R/qx+zQW39Xd2nZk1jf90UtgG3rY=
-Received: by gentwo.org (Postfix, from userid 1003)
-	id 6E057402BA; Fri, 21 Nov 2025 13:54:31 -0800 (PST)
-Received: from localhost (localhost [127.0.0.1])
-	by gentwo.org (Postfix) with ESMTP id 6CEDD402B9;
-	Fri, 21 Nov 2025 13:54:31 -0800 (PST)
-Date: Fri, 21 Nov 2025 13:54:31 -0800 (PST)
-From: "Christoph Lameter (Ampere)" <cl@gentwo.org>
-To: Yang Shi <yang@os.amperecomputing.com>
-cc: catalin.marinas@arm.com, will@kernel.org, ryan.roberts@arm.com, 
-    linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [v4 PATCH] arm64: mm: show direct mapping use in /proc/meminfo
-In-Reply-To: <20251121193437.2147939-1-yang@os.amperecomputing.com>
-Message-ID: <7a1ac262-c992-6ef3-421d-b4419a0c4e19@gentwo.org>
-References: <20251121193437.2147939-1-yang@os.amperecomputing.com>
+	Fri, 21 Nov 2025 22:16:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1763763416; x=1795299416;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=IZWfBJDaHCe7l541lCMHfRRvdDcJ9cS7vOHixV9h5tc=;
+  b=cGOKcdcl1fINBPXtRNWJgmOgmvIKEzbEJqHFJ7j1wxJdJ5GKS4Nu8w4l
+   cXosAIjUkYQKyQy+kiGPFlAxSXW4qCztbqbYHsPgHuwbn326L3RENMDks
+   Q8VLWJSy/kyfqXKNqD9eCHg5LSLWOJPy0W4ezN4U/xOxo+15/Us80d+CP
+   WCuxG/s25rX2VyZ894/H+2wiJqk8esaHCghfXOsEPt9viiXaztmQ3TpuI
+   MxTCv4ONwnG6W+p/NKfgsB8X2nF2NWtLQi65HnYjZtb3UHDm9SqTuOkv0
+   XDf7UmhawXIZn0971iVglxGeqzyAwBGaN8UWjwAscVuOezF/X/xJCxYot
+   w==;
+X-CSE-ConnectionGUID: 90GefND+RuyywkswatOpgQ==
+X-CSE-MsgGUID: 9D/n3ON2QFevSS4upJDlhw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11620"; a="88515032"
+X-IronPort-AV: E=Sophos;i="6.20,216,1758610800"; 
+   d="scan'208";a="88515032"
+Received: from fmviesa009.fm.intel.com ([10.60.135.149])
+  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Nov 2025 14:16:55 -0800
+X-CSE-ConnectionGUID: TOehty9pSyCfviE3bYiNSw==
+X-CSE-MsgGUID: BIxr2Fa8QbCS5hbxVrvkJw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.20,216,1758610800"; 
+   d="scan'208";a="192265938"
+Received: from lkp-server01.sh.intel.com (HELO adf6d29aa8d9) ([10.239.97.150])
+  by fmviesa009.fm.intel.com with ESMTP; 21 Nov 2025 14:16:49 -0800
+Received: from kbuild by adf6d29aa8d9 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1vMZQs-0006vH-32;
+	Fri, 21 Nov 2025 22:16:46 +0000
+Date: Sat, 22 Nov 2025 06:16:25 +0800
+From: kernel test robot <lkp@intel.com>
+To: Eugen Hristev <eugen.hristev@linaro.org>, linux-arm-msm@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-mm@kvack.org,
+	tglx@linutronix.de, andersson@kernel.org, pmladek@suse.com,
+	rdunlap@infradead.org, corbet@lwn.net, david@redhat.com,
+	mhocko@suse.com
+Cc: oe-kbuild-all@lists.linux.dev, tudor.ambarus@linaro.org,
+	mukesh.ojha@oss.qualcomm.com, linux-arm-kernel@lists.infradead.org,
+	linux-hardening@vger.kernel.org, jonechou@google.com,
+	rostedt@goodmis.org, linux-doc@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-remoteproc@vger.kernel.org,
+	linux-arch@vger.kernel.org, tony.luck@intel.com, kees@kernel.org,
+	Eugen Hristev <eugen.hristev@linaro.org>
+Subject: Re: [PATCH 12/26] kernel/configs: Register dynamic information into
+ meminspect
+Message-ID: <202511220511.nMJSuw8H-lkp@intel.com>
+References: <20251119154427.1033475-13-eugen.hristev@linaro.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251119154427.1033475-13-eugen.hristev@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251121_135433_249848_E9AF4481 
-X-CRM114-Status: UNSURE (   8.78  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251121_141655_565359_756E0F7A 
+X-CRM114-Status: GOOD (  10.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,15 +97,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 21 Nov 2025, Yang Shi wrote:
+Hi Eugen,
 
-> Although ptdump also can tell the direct map use, but it needs to dump
-> the whole kernel page table. It is costly and overkilling. It is also
-> in debugfs which may not be enabled by all distros. So showing direct
-> map use in /proc/meminfo seems more convenient and has less overhead.
+kernel test robot noticed the following build errors:
 
-Also done the same way on x86, parisc, powerpc and s390.
+[auto build test ERROR on rppt-memblock/fixes]
+[also build test ERROR on linus/master v6.18-rc6]
+[cannot apply to akpm-mm/mm-everything rppt-memblock/for-next next-20251121]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-Reviewed-by: Christoph Lameter (Ampere) <cl@gentwo.org>
+url:    https://github.com/intel-lab-lkp/linux/commits/Eugen-Hristev/kernel-Introduce-meminspect/20251119-235912
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/rppt/memblock.git fixes
+patch link:    https://lore.kernel.org/r/20251119154427.1033475-13-eugen.hristev%40linaro.org
+patch subject: [PATCH 12/26] kernel/configs: Register dynamic information into meminspect
+config: i386-allmodconfig (https://download.01.org/0day-ci/archive/20251122/202511220511.nMJSuw8H-lkp@intel.com/config)
+compiler: gcc-14 (Debian 14.2.0-19) 14.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20251122/202511220511.nMJSuw8H-lkp@intel.com/reproduce)
 
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202511220511.nMJSuw8H-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+   In file included from kernel/configs.c:18:
+   kernel/configs.c: In function 'ikconfig_init':
+>> include/linux/meminspect.h:144:39: error: implicit declaration of function 'virt_to_phys'; did you mean 'virt_to_page'? [-Wimplicit-function-declaration]
+     144 |         meminspect_register_id_pa(id, virt_to_phys(va), size, MEMINSPECT_TYPE_REGULAR)
+         |                                       ^~~~~~~~~~~~
+   include/linux/meminspect.h:170:17: note: in expansion of macro 'meminspect_register_id_va'
+     170 |                 meminspect_register_id_va(__VA_ARGS__); \
+         |                 ^~~~~~~~~~~~~~~~~~~~~~~~~
+   kernel/configs.c:69:9: note: in expansion of macro 'meminspect_lock_register_id_va'
+      69 |         meminspect_lock_register_id_va(MEMINSPECT_ID_CONFIG,
+         |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+vim +144 include/linux/meminspect.h
+
+184ddf27f54a0b Eugen Hristev 2025-11-19  139  
+184ddf27f54a0b Eugen Hristev 2025-11-19  140  #define meminspect_register_pa(...) \
+184ddf27f54a0b Eugen Hristev 2025-11-19  141  	meminspect_register_id_pa(MEMINSPECT_ID_DYNAMIC, __VA_ARGS__, MEMINSPECT_TYPE_REGULAR)
+184ddf27f54a0b Eugen Hristev 2025-11-19  142  
+184ddf27f54a0b Eugen Hristev 2025-11-19  143  #define meminspect_register_id_va(id, va, size) \
+184ddf27f54a0b Eugen Hristev 2025-11-19 @144  	meminspect_register_id_pa(id, virt_to_phys(va), size, MEMINSPECT_TYPE_REGULAR)
+184ddf27f54a0b Eugen Hristev 2025-11-19  145  
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
