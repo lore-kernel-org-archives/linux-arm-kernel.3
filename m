@@ -4,63 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A04CCFA478
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 06:30:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5845ACFA477
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 07:01:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C5Vj8yz/DhCU9Gt2qmzFgb2eoXaSc2c80n68bA7PYLI=; b=dOFgGnID/gV2UDEari8xBtx5IL
-	5IDjCY0utzaPGFkre5zumz5+hNgS3HZ0Z8hQNvNdnlk7eUbKr0XNF0hOoGELpm3Ml5AY7gavG8Kek
-	S3/Qs00mwB3r4jJqF3jD/b6hfiSgtFXYAkSw+arvnavyNE79x3AGrrzlfF6Rwoa5OBgWNBP5CaHSk
-	SIrUzc8/f15M7fS8vbkpAKk7A/ir/YXweeBHlknEn4ShT8ikaCUYXpUBP5zuQgRgAjbTLHuZHVPAE
-	cpWV/AFtrP/EeHMwXuynqqEiAlVSdsK65ehKK1GPDs45+pXkBkjHPC91oJbDiCraOu+TXcUFDHVsV
-	LAzPPonQ==;
+	bh=MrfAeYBRk5j8q75JHYMXvcqC4ZJaZ3wygSK23kZoRKM=; b=IZK6FaEElboHvfWRvMQjArszmz
+	1pFFGm/o1JBAu/jQfVdkv/31DeG2cascsjvL3oSHBLOaGWsBwjK4lfT4bkoxMIOrjj0OAAV3HGtqz
+	p4uzca35YvmK446RvYCgMk/jboaJ3jKEcvxPnezA558Chi+lkWaxzJqlSWp0nU+00cWHNZo0TgZak
+	3c7z3wRdEXiVVBy5jWln0q1wTOPEQ3akSaLzp+2jo0veI0DsureHOOCpc4u525WKvr0Tlb7wrL22f
+	uxbhot2YOb3LtozLiG79A/Ph3IPG+krPnoG+EHMDut0j/o/eCAS/xNSDVDaNPLHPL1ono/m21k97f
+	zZ+GOqLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMKfK-00000007uqj-1G75;
-	Fri, 21 Nov 2025 06:30:42 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vML9P-00000007wkh-24BM;
+	Fri, 21 Nov 2025 07:01:47 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMKfI-00000007uqZ-2xnL;
-	Fri, 21 Nov 2025 06:30:40 +0000
+	id 1vML9O-00000007wkX-39bt;
+	Fri, 21 Nov 2025 07:01:46 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D145460220;
-	Fri, 21 Nov 2025 06:30:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AE8E1C4CEF1;
-	Fri, 21 Nov 2025 06:30:36 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id DAE8460216;
+	Fri, 21 Nov 2025 07:01:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 60DE4C4CEF1;
+	Fri, 21 Nov 2025 07:01:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763706639;
-	bh=gDSALg5PLW9mySOKY3LcUIAnuzMXaM0GWAeazqo8adg=;
+	s=k20201202; t=1763708505;
+	bh=1YnEm2rwYro5kibPE7TCBvONQ7gMituY5BQOTzSye/Q=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=mAxOl9OxLsYR5RPnQ2ArO8vBCMbdZAyISNQZhdk/iBF3dZeBadX4O84qPuYSlgHG+
-	 aTceCMPEqg08aC+59W3sLYzlxJXQQbTm/wm7Y6zeybU4gXHMAhQQrkLrC8MC0cUX15
-	 rtir2oUBb8empsgR4WrVpSid23V1e85rhnwOSMTUf/xDm1KsNan+i7qjBYrMKcqi11
-	 wW0lkTO6dPWPHM1Bq2YjtO7bqMKlNXYRCaJIgX3S++m6nejwOLxX0Udwny8KDgXdVl
-	 BxUV44DQzoD6A4jk24+47g8pQ+00Q6v6KFxU+uKXP/Ff0nOZ4Z2eOaScZ+udG8PMRU
-	 OWqDPHXlelZiA==
-Date: Thu, 20 Nov 2025 23:30:33 -0700
+	b=SsIlKV+azWDhpO+J32G4unagDrWFST2VumSfhKWuVYUEAwoDv+aVp22lROqHAwE6m
+	 eZT/MSEkH8tWj56AeDZ6Nb2SoQQdCXvXvlJmz/0OvXlf1PkkaLAOLBidSpbxs5LqyQ
+	 wx8oNhKq1nfYTl4yoPqn/cfgW0aE14ipP/6SQ4nOVl4FtWsvpeFZcgkKeAsCJTUkcM
+	 dIddexyQrvr70uypC0ogeCOFlyHyBVBZQ4ThAj2Q1asa7ikRlgWO/H4gyc9sXOx6VR
+	 R4L+zkr8xX0yj+c0NAeWAsINUCBl4OxhjHw76dwQChivSgX7SEjQ7YDQbZ/LVt9gwY
+	 1zdrWruK71EFw==
+Date: Fri, 21 Nov 2025 00:01:40 -0700
 From: Nathan Chancellor <nathan@kernel.org>
-To: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Nicolas Schier <nicolas.schier@linux.dev>,
-	Russell King <linux@armlinux.org.uk>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v2] kbuild: Support directory targets for building DTBs
-Message-ID: <20251121063033.GA571346@ax162>
-References: <20251120204812.1983452-4-robh@kernel.org>
+To: Tiezhu Yang <yangtiezhu@loongson.cn>
+Cc: Josh Poimboeuf <jpoimboe@kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
+	Huacai Chen <chenhuacai@kernel.org>, linux-kbuild@vger.kernel.org,
+	linux-efi@vger.kernel.org, loongarch@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v1] kbuild: Add KBUILD_VMLINUX_LIBS_PRELINK
+Message-ID: <20251121070140.GA780042@ax162>
+References: <20251119042708.27658-1-yangtiezhu@loongson.cn>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251120204812.1983452-4-robh@kernel.org>
+In-Reply-To: <20251119042708.27658-1-yangtiezhu@loongson.cn>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,136 +70,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Nov 20, 2025 at 02:48:13PM -0600, Rob Herring (Arm) wrote:
-> It is useful to be able to build all the DTBs for a vendor. One can list
-> all the .dts files in a directory and convert those to %.dtb targets,
-> but that doesn't work for base+overlay DTB targets.
+On Wed, Nov 19, 2025 at 12:27:08PM +0800, Tiezhu Yang wrote:
+> In order to only link libstub to the final vmlinux, it can not use the
+> current KBUILD_VMLINUX_LIBS, just add KBUILD_VMLINUX_LIBS_PRELINK. This
+> is preparation for later patch, no functionality change.
 > 
-> Adding the dts subdirectory is straight-forward, but building the
-> DTBs should only happen for certain targets (dtbs, dtbs_check, %.dtb,
-> %.dtbo, and the directory target(s)).
-> 
-> The 'scripts_dtc' rule doesn't really depend on 'dt_binding_schemas',
-> but the directory target only depends on 'scripts' which depends on
-> 'scripts_dtc'.
-> 
-> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+> Link: https://lore.kernel.org/lkml/pq4h7jgndnt6p45lj4kgubxjd5gidfetugcuf5rcxzxxanzetd@6rrlpjnjsmuy/
+> Suggested-by: Josh Poimboeuf <jpoimboe@kernel.org>
+> Signed-off-by: Tiezhu Yang <yangtiezhu@loongson.cn>
 > ---
-> Please ack and I'll take this in the DT tree.
+> There is a long discussion in the previous patch:
+> https://lore.kernel.org/lkml/20250928085506.4471-1-yangtiezhu@loongson.cn/
 > 
-> I don't really like looking at MAKECMDGOALS, but that's the only way I
-> could come up with that works. Maybe someone knows a better way.
-
-Yeah, I do worry that just looking for "dtb" in MAKECMDGOALS could
-result in some false positives but in the tree now, I only see one .c
-file that would trigger this logic, so maybe it is not that big of a
-deal?
-
-  $ fd dtb
-  arch/microblaze/boot/dts/linked_dtb.S
-  arch/mips/include/asm/mach-loongson64/builtin_dtbs.h
-  arch/um/kernel/dtb.c
-  drivers/gpu/drm/ci/dtbs-check.sh
-  scripts/Makefile.dtbinst
-  scripts/Makefile.dtbs
-
-Unfortunately, my Make-fu is pretty weak right now so I do not have any
-immediate suggestions but Nicolas might... otherwise, we could probably
-ride this for right now and either revert it or forward fix it if
-problems come up in further testing, since this does seem rather useful
-for folks working on device tree files.
-
-> v2:
->  - Convert arm, mips and riscv. The other DT enabled arches don't have 
->    vendor directories.
->  - Link to v1: https://lore.kernel.org/all/20251113225952.867138-1-robh@kernel.org/ 
+> This version is based on 6.18-rc6, split the generic parts out
+> into a separate patch to avoid merge conflicts, the other parts
+> will send out after the merge window.
 > 
-> ---
->  Makefile              | 2 +-
->  arch/arm/Kbuild       | 2 ++
->  arch/arm64/Kbuild     | 2 ++
->  arch/mips/Kbuild      | 2 ++
->  arch/riscv/Kbuild     | 2 ++
->  scripts/Makefile.dtbs | 3 +++
->  6 files changed, 12 insertions(+), 1 deletion(-)
+>  Makefile                | 1 +
+>  scripts/link-vmlinux.sh | 5 ++---
+>  2 files changed, 3 insertions(+), 3 deletions(-)
 > 
 > diff --git a/Makefile b/Makefile
-> index 17cfa11ca716..85018d461575 100644
+> index d763c2c75cdb..69485f47b794 100644
 > --- a/Makefile
 > +++ b/Makefile
-> @@ -1494,7 +1494,7 @@ export CHECK_DTBS=y
->  endif
+> @@ -1199,6 +1199,7 @@ KBUILD_VMLINUX_OBJS := built-in.a $(patsubst %/, %/lib.a, $(filter %/, $(libs-y)
+>  KBUILD_VMLINUX_LIBS := $(filter-out %/, $(libs-y))
 >  
->  ifneq ($(CHECK_DTBS),)
-> -dtbs_prepare: dt_binding_schemas
-> +scripts_dtc: dt_binding_schemas
->  endif
+>  export KBUILD_VMLINUX_LIBS
+> +export KBUILD_VMLINUX_LIBS_PRELINK
+
+This variable name is a little confusing to me since they do get added
+to vmlinux during linking, not before. I am not sure of a better one
+though, maybe KBUILD_VMLINUX_LIBS_FINAL? It may also make sense to
+introduce similar syntax to the existing libs-y syntax, maybe
+
+  final-libs-y
+
+or something like that?
+
+Also, since these objects are no longer in KBUILD_VMLINUX_LIBS, does
+this new variable need to be added to any of the other places in the
+build system that use KBUILD_VMLINUX_LIBS for things such as build
+dependencies?
+
+>  export KBUILD_LDS          := arch/$(SRCARCH)/kernel/vmlinux.lds
 >  
->  dtbs_check: dtbs
-> diff --git a/arch/arm/Kbuild b/arch/arm/Kbuild
-> index 69de6b6243c7..af7dd53585c3 100644
-> --- a/arch/arm/Kbuild
-> +++ b/arch/arm/Kbuild
-> @@ -10,5 +10,7 @@ obj-y				+= probes/
->  obj-y				+= net/
->  obj-y				+= crypto/
+>  ifdef CONFIG_TRIM_UNUSED_KSYMS
+> diff --git a/scripts/link-vmlinux.sh b/scripts/link-vmlinux.sh
+> index 433849ff7529..e72d3254b93f 100755
+> --- a/scripts/link-vmlinux.sh
+> +++ b/scripts/link-vmlinux.sh
+> @@ -61,12 +61,11 @@ vmlinux_link()
+>  	shift
 >  
-> +subdir-y += boot/dts
-> +
->  # for cleaning
->  subdir- += boot
-> diff --git a/arch/arm64/Kbuild b/arch/arm64/Kbuild
-> index 5bfbf7d79c99..9e9820af48c9 100644
-> --- a/arch/arm64/Kbuild
-> +++ b/arch/arm64/Kbuild
-> @@ -5,5 +5,7 @@ obj-$(CONFIG_XEN)	+= xen/
->  obj-$(subst m,y,$(CONFIG_HYPERV))	+= hyperv/
->  obj-$(CONFIG_CRYPTO)	+= crypto/
+>  	if is_enabled CONFIG_LTO_CLANG || is_enabled CONFIG_X86_KERNEL_IBT; then
+> -		# Use vmlinux.o instead of performing the slow LTO link again.
+>  		objs=vmlinux.o
+> -		libs=
+> +		libs="${KBUILD_VMLINUX_LIBS_PRELINK}"
+>  	else
+>  		objs=vmlinux.a
+> -		libs="${KBUILD_VMLINUX_LIBS}"
+> +		libs="${KBUILD_VMLINUX_LIBS} ${KBUILD_VMLINUX_LIBS_PRELINK}"
+>  	fi
 >  
-> +subdir-y += boot/dts
-> +
->  # for cleaning
->  subdir- += boot
-> diff --git a/arch/mips/Kbuild b/arch/mips/Kbuild
-> index e901bf554483..6125d00cdcef 100644
-> --- a/arch/mips/Kbuild
-> +++ b/arch/mips/Kbuild
-> @@ -21,5 +21,7 @@ ifdef CONFIG_KVM
->  obj-y += kvm/
->  endif
->  
-> +subdir-y += boot/dts
-> +
->  # for cleaning
->  subdir- += boot
-> diff --git a/arch/riscv/Kbuild b/arch/riscv/Kbuild
-> index 126fb738fc44..3cf7f84eb287 100644
-> --- a/arch/riscv/Kbuild
-> +++ b/arch/riscv/Kbuild
-> @@ -7,5 +7,7 @@ obj-$(CONFIG_KVM) += kvm/
->  
->  obj-$(CONFIG_ARCH_SUPPORTS_KEXEC_PURGATORY) += purgatory/
->  
-> +subdir-y += boot/dts
-> +
->  # for cleaning
->  subdir- += boot
-> diff --git a/scripts/Makefile.dtbs b/scripts/Makefile.dtbs
-> index 2d321b813600..4d0d164df275 100644
-> --- a/scripts/Makefile.dtbs
-> +++ b/scripts/Makefile.dtbs
-> @@ -14,7 +14,10 @@ dtb-y           := $(addprefix $(obj)/, $(dtb-y))
->  multi-dtb-y     := $(addprefix $(obj)/, $(multi-dtb-y))
->  real-dtb-y      := $(addprefix $(obj)/, $(real-dtb-y))
->  
-> +ifneq ($(findstring /dts/,$(MAKECMDGOALS))$(findstring dtb,$(MAKECMDGOALS)),)
->  always-y        += $(dtb-y)
-> +endif
-> +
->  targets         += $(real-dtb-y)
->  
->  # dtbs-list
+>  	if is_enabled CONFIG_GENERIC_BUILTIN_DTB; then
 > -- 
-> 2.51.0
+> 2.42.0
 > 
 
