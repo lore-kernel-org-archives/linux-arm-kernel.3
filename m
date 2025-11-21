@@ -4,61 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18B24CFA460
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 01:08:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88C06CFA466
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 02:01:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=z0lB3o3SwbOYKkV5Q0JuzwgjnjNnSnFiQ4AX0Mcpicc=; b=YhZNtTxLRlIt4I1ebbkxd5Rno+
-	wgcT+keb+nZ5EPQ2688oIhl61VHrKqk0A31B7DjsbGce1KMt+apl4h3G2GeZrATO27v1YzyXrlZdR
-	Uoqz2mCsww/Sh7fANynV/m1bnnfiQH593yMhhMsFw6WDI6GRr3wIrTsV8G8igG1h+AJxPRH5rdjCC
-	Q81fI5+2cLhynpyU6NfRtr2Q3yOZs/6AuZpueSbwkT07AaLe8SouZ8inaR7AqJGqO7n/hlpJS0Nip
-	2UPXVGbtPGnPPkUH+NbuioYly6UyU0bJP4sBNSF4mxXvkqBAMnzHQ9XHUnGc/L0GUiJKW9xbL0DTp
-	pGhy2o8w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TmMgzSNybkEcpQi6di7RgNZIuwns0hwI5oRFP3erMUE=; b=0yQFtBUz647EsZFBW7iwonu3m+
+	OpQ76CWguLVSdyI/xmc2nifYnQdL0KrO/uu9kxnilNKNZs01Y9pehbgOFp2WATrF+zVP87zgJ9wTZ
+	uIzgLyrPRI11OMU18xRTzOSese7uP94/CRXghsBhorGcWbNiVpkNSAwlwKBpLkwd3U1k9ckTEyGoA
+	XRT/TcSUL2McclymY1n1nyPSD3H9udB2tGle6txyLKB32PjkrT3vayYLuYhC4ltcJkwffn5hwcxLF
+	Z3OQkuF06UFcR0rnBmUnvkReWIR0H47yZThobPZ2ccFApCJUQ6ZrlZM2ADCR61D5xDEq2kUOga+1p
+	1tXw3jKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMFdk-00000007dZE-3zoj;
-	Fri, 21 Nov 2025 01:08:44 +0000
-Received: from out-177.mta0.migadu.com ([91.218.175.177])
+	id 1vMGSC-00000007fGx-42Q9;
+	Fri, 21 Nov 2025 02:00:52 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMFdh-00000007dYD-3av8
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Nov 2025 01:08:43 +0000
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=packett.cool;
-	s=key1; t=1763687318;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=z0lB3o3SwbOYKkV5Q0JuzwgjnjNnSnFiQ4AX0Mcpicc=;
-	b=hr1YTfTGgd3PUDkIDH8vn+xaYQpiQITjQ3PP0CMHGeD8WcxNAvTZrwlOMVZrQhzR4Uxv90
-	gGgxueXVuH+AaZpaDdFgwVyiGuC0a2Lndd0SgjdVFVkc7u2sQiXYAse8bePoDwLcusu8kf
-	5OAoB0LOJOlNr6V7k2ztBBiQ15XZnMc0pJNOQBHKLXzkAtK6aTm4QI6mh12j2EmJxiSXUj
-	l4OUqwpovtt1127jPykIjltcD2WfJNpTWlEue++3PxNUDRjh3+OIOS48xlHLt2ZqfND+1v
-	lXNQJ/gYNQyEvlwJvVcKfgVoS/LEdfO/nnhTcCeDNFyfh4+/StvL7uttO6SI4w==
-From: Val Packett <val@packett.cool>
-To: "Rafael J. Wysocki" <rafael@kernel.org>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Christian Loehle <christian.loehle@arm.com>,
-	Artem Bityutskiy <artem.bityutskiy@linux.intel.com>
-Cc: Val Packett <val@packett.cool>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-arm-msm@vger.kernel.org,
-	"Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
-	linux-pm@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] cpuidle: warn and fixup on sanity check instead of rejecting the driver
-Date: Thu, 20 Nov 2025 22:06:25 -0300
-Message-ID: <20251121010756.6687-1-val@packett.cool>
+	id 1vMGSB-00000007fGg-3Ht5;
+	Fri, 21 Nov 2025 02:00:51 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id CCDFC60216;
+	Fri, 21 Nov 2025 02:00:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7D0F3C4CEF1;
+	Fri, 21 Nov 2025 02:00:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1763690450;
+	bh=oURpXBr3KdDn9PGKvZ71lA/uZ3b0bjDvzcwrD9A6oco=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=RDaxqjBXt1j3UIdjy7D7SVnLs8g7GgWn0u8nIwwGC1fkiNvamtVFDj/FQO/M8D/eh
+	 ZYIA8xclzKyMLPZroHugJ3RkCZs5j9pKq0uWtuDFi0aBxiZtSOUzYSr5VSAEob6tbA
+	 +24SZmZdWrSItahXVbfOjubhuO2Q9wBLd3uWK8Q1anPuB2bUlhg79qq/F3gvp3PXJe
+	 GCBA+D0/jJI9zu1fGsaJShWGCCkqQPKRf5p99z7rHol3XvaTdbp8EZvcxoMvleDjLd
+	 cvjpgHB4iUi5H3cdt7LM8reUKZkE25YppGHm/F3OQ8XDVF7CXgsxWVC/aJfF3PxY64
+	 b0Fp/3p8/tkTA==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id AE07F3A41003;
+	Fri, 21 Nov 2025 02:00:16 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251120_170842_165951_A5F82A3A 
-X-CRM114-Status: GOOD (  10.60  )
+Subject: Re: [PATCH net-next 0/3] net: stmmac: pass struct device to init/exit
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <176369041551.1856901.1355582687378802410.git-patchwork-notify@kernel.org>
+Date: Fri, 21 Nov 2025 02:00:15 +0000
+References: <aR2V0Kib7j0L4FNN@shell.armlinux.org.uk>
+In-Reply-To: <aR2V0Kib7j0L4FNN@shell.armlinux.org.uk>
+To: Russell King (Oracle) <linux@armlinux.org.uk>
+Cc: andrew@lunn.ch, hkallweit1@gmail.com, alexandre.torgue@foss.st.com,
+ andrew+netdev@lunn.ch, wens@csie.org, davem@davemloft.net,
+ fustini@kernel.org, edumazet@google.com, wefu@redhat.com, guoren@kernel.org,
+ heiko@sntech.de, kuba@kernel.org, jan.petrous@oss.nxp.com,
+ jernej.skrabec@gmail.com, keguang.zhang@gmail.com,
+ prabhakar.mahadev-lad.rj@bp.renesas.com,
+ linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
+ linux-renesas-soc@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-sunxi@lists.linux.dev, maxime.chevallier@bootlin.com,
+ mcoquelin.stm32@gmail.com, netdev@vger.kernel.org, pabeni@redhat.com,
+ s32@nxp.com, samuel@sholland.org
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,40 +80,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Device Tree platforms, the latency and target residency values come
-directly from device trees, which are numerous and weren't all written
-with cpuidle invariants in mind. For example, qcom/hamoa.dtsi currently
-trips this check: exit latency 680000 > residency 600000.
+Hello:
 
-Instead of harshly rejecting the entire cpuidle driver with a mysterious
-error message, print a warning and set the target residency value to be
-equal to the exit latency.
+This series was applied to netdev/net-next.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
 
-Fixes: 76934e495cdc ("cpuidle: Add sanity check for exit latency and target residency")
-Signed-off-by: Val Packett <val@packett.cool>
----
- drivers/cpuidle/driver.c | 7 +++++--
- 1 file changed, 5 insertions(+), 2 deletions(-)
+On Wed, 19 Nov 2025 10:02:56 +0000 you wrote:
+> Rather than passing the platform device to the ->init() and ->exit()
+> methods, make these methods useful for other devices by passing the
+> struct device instead. Update the implementations appropriately for
+> this change.
+> 
+> Move the calls for these methods into the core driver's probe and
+> remove methods from the stmmac_platform layer.
+> 
+> [...]
 
-diff --git a/drivers/cpuidle/driver.c b/drivers/cpuidle/driver.c
-index 1c295a93d582..06aeb59c1017 100644
---- a/drivers/cpuidle/driver.c
-+++ b/drivers/cpuidle/driver.c
-@@ -199,8 +199,11 @@ static int __cpuidle_driver_init(struct cpuidle_driver *drv)
- 		 * exceed its target residency which is assumed in cpuidle in
- 		 * multiple places.
- 		 */
--		if (s->exit_latency_ns > s->target_residency_ns)
--			return -EINVAL;
-+		if (s->exit_latency_ns > s->target_residency_ns) {
-+			pr_warn("cpuidle: state %d: exit latency %lld > residency %lld (fixing)\n",
-+				i, s->exit_latency_ns, s->target_residency_ns);
-+			s->target_residency_ns = s->exit_latency_ns;
-+		}
- 	}
- 
- 	return 0;
+Here is the summary with links:
+  - [net-next,1/3] net: stmmac: pass struct device to init()/exit() methods
+    https://git.kernel.org/netdev/net-next/c/85081acc6b11
+  - [net-next,2/3] net: stmmac: move probe/remove calling of init/exit
+    https://git.kernel.org/netdev/net-next/c/32da89a840e8
+  - [net-next,3/3] net: stmmac: rk: convert to init()/exit() methods
+    https://git.kernel.org/netdev/net-next/c/1a62894e040d
+
+You are awesome, thank you!
 -- 
-2.51.0
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
 
 
