@@ -4,103 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B234CFA47A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 07:27:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 065EDCFA478
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 07:30:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=k3tJvLsA3nwHU5DlF+mbLwpZA3aTkQK4IJeCwZ9snx8=; b=pcZrFtFJb758g32PbjufICIBvU
-	YzJPN0CeAxFSVjOGL5ATHg+0Om5QthsYj3HjSUxWq/h7CMg/pGpDf6V+HqlN3HPtdxVjU68ARSt/m
-	ZEi0FyCpTa1yeiHxjWTibIFmkjcTz5qDuTsVSHp/DPJgveX8T2giMmf13JLsHWJHfJm1cKcJ0tdBM
-	OA7oIpUEh8CSIzymdQWp1HW69BuWR6N7Ml1+Bl8Z5/3/jj2qCT1pPgCttEwEklXy1YpTDu9CAehCV
-	9RZfgGecTeKS4zh+f/D0puKZk/do7glWlOGNwkl61rO6bNP/5ICbkiuME/lALVBmuCye1P7SVm8gb
-	MuYM+Ctw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yXg8+7/IaBeahjUcoxp7tnRw/aA/6ViGCJ49LoFeOZY=; b=cogsy3iG5awhP+5KNf8jY7f/ha
+	ptoW+TZbSWW75JvE+m3lNv8AONuREXalyBMM0GPoBEi3JW0Bfj2wWBl9x+lWwdf8biHPNnb2sFP41
+	AvyOBo4L/b8jox6OVN8rovdVPCe3rb1mWSrssCQksmWm5fgj0IK/xr6Ckzxl+dt3F5t+Jckv2ByH0
+	NAImY9QkoT0+j4po5+QnDSyjy/nLE1gU4yyzsXDJEs/m6VIo0X6aruwkMVcmNLobALzXNyRTKD4xQ
+	9DLYM8bzD1zgFbpvO6vhPfcMwBVk4T1nS11Wzl1MCLiZmhjx8NKOyeyF8Q5uK6+1ILHAWD25FpYI0
+	dpiY7QNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMLYH-00000007yGp-2mwV;
-	Fri, 21 Nov 2025 07:27:29 +0000
-Received: from mx-relay93-hz2.antispameurope.com ([94.100.136.193])
+	id 1vMLao-00000007yak-3EhU;
+	Fri, 21 Nov 2025 07:30:06 +0000
+Received: from canpmsgout04.his.huawei.com ([113.46.200.219])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMLYC-00000007yG3-2jOj
+	id 1vMLal-00000007yZO-2wFb
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Nov 2025 07:27:28 +0000
-ARC-Authentication-Results: i=1; mx-gate93-hz2.hornetsecurity.com 1; spf=pass
- reason=mailfrom (ip=94.100.132.6, headerfrom=ew.tq-group.com)
- smtp.mailfrom=ew.tq-group.com
- smtp.helo=hmail-p-smtp01-out03-hz1.hornetsecurity.com; dmarc=pass
- header.from=ew.tq-group.com orig.disposition=pass
-ARC-Message-Signature: a=rsa-sha256;
- bh=k3tJvLsA3nwHU5DlF+mbLwpZA3aTkQK4IJeCwZ9snx8=; c=relaxed/relaxed;
- d=hornetsecurity.com; h=from:to:date:subject:mime-version:; i=1; s=hse1;
- t=1763710031;
- b=ihoGT6QSo1220JZFrePr3fd8xmuW6AB8ARyZHLyeIrEabQM4HHoWizBwXcWiYmvM/7T4bnRF
- IYkOOibGDbmazLfPdT9KcP4DxSBDwTt6sNq/flMiztf80QF337CeT3a6qwp9irV/Y0JICBMLp7c
- jkM4P7M0XFKH1SpODFyngoXvv0mU4o6i9z4GVEeFfVZ+X2F2KDM1n9kHWi2DvekjEj0NBDor2Iy
- sBRJY/JVHlhnIKKZFjooYLGaFBfLhI6zWGO6VWauPEgm5LHUceQAXMH99M8LAZ6cv+yDyeRlUv0
- kBkEKTSOww2i0y+abjVrXXQ6DwcN1txidFFRKEM/WCnTA==
-ARC-Seal: a=rsa-sha256; cv=none; d=hornetsecurity.com; i=1; s=hse1;
- t=1763710031;
- b=FCbOEaLmlh0oG+PYbHzPQwCApNCF4566hqI8k4rdyKbokbEC1fMJoyYdxf7Q5x/863SlaEBT
- SaBv+R4D6f873Jr1K4yZnyFP6WaTh4tLZ2Y3siesfTNCRWZU35iSqzjCpxV6YoKRdsEGX9MyR5Q
- NiuZf1IJpMr4sGweBbKzi9m0BLHZS6o0hibFEYveWy5LEedKsHUvF5+CIYSmsXo8/vRr96ganRq
- m8Aor3q8Ix0RoKif75EO1ZvezMLVZ/C5rgGaNyRJrGt2FtxX2o4CoRg7RhSw4NxLe8+90D6Clmm
- z5LK8EyeHV01L339c/WTQbb6U1jGB1qpRK9x0/Qkpq40Q==
-Received: from he-nlb01-hz1.hornetsecurity.com ([94.100.132.6]) by mx-relay93-hz2.antispameurope.com;
- Fri, 21 Nov 2025 08:27:11 +0100
-Received: from steina-w.localnet (host-82-135-125-110.customer.m-online.net [82.135.125.110])
-	(Authenticated sender: alexander.stein@ew.tq-group.com)
-	by hmail-p-smtp01-out03-hz1.hornetsecurity.com (Postfix) with ESMTPSA id D12E6CC0CB7;
-	Fri, 21 Nov 2025 08:26:55 +0100 (CET)
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
-To: Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- "open list:TQ SYSTEMS BOARD & DRIVER SUPPORT" <linux@ew.tq-group.com>,
- "open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <imx@lists.linux.dev>,
- "moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE"
- <linux-arm-kernel@lists.infradead.org>,
- "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
- <devicetree@vger.kernel.org>, open list <linux-kernel@vger.kernel.org>,
- Frank Li <Frank.Li@nxp.com>
-Cc: imx@lists.linux.dev
-Subject: Re: [PATCH 1/1] arm64: dts: mba8xx: replace 0 with IMX_LPCG_CLK_0 for lpcg
- indices
-Date: Fri, 21 Nov 2025 08:26:54 +0100
-Message-ID: <6219606.lOV4Wx5bFT@steina-w>
-Organization: TQ-Systems GmbH
-In-Reply-To: <20251120214318.347483-1-Frank.Li@nxp.com>
-References: <20251120214318.347483-1-Frank.Li@nxp.com>
+	Fri, 21 Nov 2025 07:30:05 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=yXg8+7/IaBeahjUcoxp7tnRw/aA/6ViGCJ49LoFeOZY=;
+	b=BWDCPuIZauSbS7kpISZx+lbXlOQi8ORkqYVjuyrDXbFs+yIsiwHAMLmUx67uxxMQYnbwxF5cO
+	+sRHBt+QaAhe81TOPUfdEfqV5/LIYtAUsrAWxcF437IxQk1g3joCkF0PFG6DIi/I7/a2XncjiY7
+	mY0/l7JUeQCu0RV2xJYRHWs=
+Received: from mail.maildlp.com (unknown [172.19.163.252])
+	by canpmsgout04.his.huawei.com (SkyGuard) with ESMTPS id 4dCRdk0kPQz1prL2;
+	Fri, 21 Nov 2025 15:28:10 +0800 (CST)
+Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
+	by mail.maildlp.com (Postfix) with ESMTPS id D5DB6180BCF;
+	Fri, 21 Nov 2025 15:29:55 +0800 (CST)
+Received: from [10.67.109.254] (10.67.109.254) by
+ dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Fri, 21 Nov 2025 15:29:53 +0800
+Message-ID: <a383b3c6-e036-294e-5c62-c7719349c75c@huawei.com>
+Date: Fri, 21 Nov 2025 15:29:53 +0800
 MIME-Version: 1.0
-Content-Type: multipart/signed; boundary="nextPart5062970.31r3eYUQgx";
- micalg="pgp-sha512"; protocol="application/pgp-signature"
-X-cloud-security-sender: alexander.stein@ew.tq-group.com
-X-cloud-security-recipient: linux-arm-kernel@lists.infradead.org
-X-cloud-security-body-digest: 85f9472f373959296694e824be05722c
-X-cloud-security-crypt: load encryption module
-X-cloud-security-Mailarchiv: E-Mail archived for: alexander.stein@ew.tq-group.com
-X-cloud-security-Mailarchivtype: outbound
-X-cloud-security-Virusscan: CLEAN
-X-cloud-security-disclaimer: This E-Mail was scanned by E-Mailservice on mx-relay93-hz2.antispameurope.com with 4dCRcJ4FP5z4QZkv
-X-cloud-security-connect: he-nlb01-hz1.hornetsecurity.com[94.100.132.6], TLS=1, IP=94.100.132.6
-X-cloud-security-Digest: 89040410fe253a30377afa8de9f8e326
-X-cloud-security: scantime:2.154
-DKIM-Signature: a=rsa-sha256;
- bh=k3tJvLsA3nwHU5DlF+mbLwpZA3aTkQK4IJeCwZ9snx8=; c=relaxed/relaxed;
- d=ew.tq-group.com;
- h=content-type:mime-version:subject:from:to:message-id:date; s=hse1;
- t=1763710031; v=1;
- b=hqzDGKXm2ardJDpaH2C46gZ1am4S5erJIgCEu496OHVCKoeTDmgpJ5sp/lcBf2GAcFg6bLrc
- HvOZd+8lhxdd19f0SCcNKDq56u/NO8QXKvt3Y/xNMdYTSV52r5Z7rrjD2NZ/SH18G2ODJN/rC3w
- o3GaK7xH2gHhH5cw8EsCqQdCMgG+JkjzMqi0GhXfFo0hfSnwHUXUxX+aMYDiBEg/+/4wc0Y8MZi
- VNdZ8BWaKJYnKWsgmvezmLVSivNkFgrNb5D6p2DR4+Pr+8/xtjTOH62Fsy+E2wfih4UCDX70P4R
- Dq078BELGM0mNeO6m/Ey97/n1NB0GbG5p8fl1osd/KtsQ==
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.2.0
+Subject: Re: [PATCH v7 06/11] arm64/ptrace: Expand secure_computing() in place
+Content-Language: en-US
+To: Kevin Brodsky <kevin.brodsky@arm.com>, <catalin.marinas@arm.com>,
+	<will@kernel.org>, <oleg@redhat.com>, <tglx@linutronix.de>,
+	<peterz@infradead.org>, <luto@kernel.org>, <shuah@kernel.org>,
+	<kees@kernel.org>, <wad@chromium.org>, <akpm@linux-foundation.org>,
+	<ldv@strace.io>, <macro@orcam.me.uk>, <deller@gmx.de>,
+	<mark.rutland@arm.com>, <song@kernel.org>, <mbenes@suse.cz>,
+	<ryan.roberts@arm.com>, <ada.coupriediaz@arm.com>,
+	<anshuman.khandual@arm.com>, <broonie@kernel.org>, <pengcan@kylinos.cn>,
+	<dvyukov@google.com>, <kmal@cock.li>, <lihongbo22@huawei.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<linux-kselftest@vger.kernel.org>
+References: <20251117133048.53182-1-ruanjinjie@huawei.com>
+ <20251117133048.53182-7-ruanjinjie@huawei.com>
+ <e33d0fdb-e8a5-4abd-8e40-773349008b6b@arm.com>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <e33d0fdb-e8a5-4abd-8e40-773349008b6b@arm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.67.109.254]
+X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
+ dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251120_232725_064136_772AE07C 
-X-CRM114-Status: GOOD (  17.95  )
+X-CRM114-CacheID: sfid-20251120_233004_222828_AF5B1E1B 
+X-CRM114-Status: GOOD (  13.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,86 +89,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---nextPart5062970.31r3eYUQgx
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="iso-8859-1"; protected-headers="v1"
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
-Cc: imx@lists.linux.dev
-Date: Fri, 21 Nov 2025 08:26:54 +0100
-Message-ID: <6219606.lOV4Wx5bFT@steina-w>
-Organization: TQ-Systems GmbH
-In-Reply-To: <20251120214318.347483-1-Frank.Li@nxp.com>
-References: <20251120214318.347483-1-Frank.Li@nxp.com>
-MIME-Version: 1.0
-
-Hi Frank,
-
-Am Donnerstag, 20. November 2025, 22:43:18 CET schrieb Frank Li:
-> Replace the 0 with IMX_LPCG_CLK_0 for LPCG clock indices. Although the
-> numerical value is identical, the LPCG input is defined as
-> IMX_LPCG_CLK_<n>, so using the symbolic constant improves clarity and
-> consistency with the LPCG clock naming convention.
->=20
-> Signed-off-by: Frank Li <Frank.Li@nxp.com>
-
-Thanks!
-Reviewed-by: Alexander Stein <alexander.stein@ew.tq-group.com>
-
-> ---
->  arch/arm64/boot/dts/freescale/mba8xx.dtsi | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
->=20
-> diff --git a/arch/arm64/boot/dts/freescale/mba8xx.dtsi b/arch/arm64/boot/=
-dts/freescale/mba8xx.dtsi
-> index c4b5663949ade..78f5dfdc5cc8a 100644
-> --- a/arch/arm64/boot/dts/freescale/mba8xx.dtsi
-> +++ b/arch/arm64/boot/dts/freescale/mba8xx.dtsi
-> @@ -225,7 +225,7 @@ &i2c1 {
->  	tlv320aic3x04: audio-codec@18 {
->  		compatible =3D "ti,tlv320aic32x4";
->  		reg =3D <0x18>;
-> -		clocks =3D <&mclkout0_lpcg 0>;
-> +		clocks =3D <&mclkout0_lpcg IMX_LPCG_CLK_0>;
->  		clock-names =3D "mclk";
->  		iov-supply =3D <&reg_1v8>;
->  		ldoin-supply =3D <&reg_3v3>;
-> @@ -336,7 +336,7 @@ &sai1 {
->  	assigned-clocks =3D <&clk IMX_SC_R_AUDIO_PLL_0 IMX_SC_PM_CLK_PLL>,
->  			  <&clk IMX_SC_R_AUDIO_PLL_0 IMX_SC_PM_CLK_SLV_BUS>,
->  			  <&clk IMX_SC_R_AUDIO_PLL_0 IMX_SC_PM_CLK_MST_BUS>,
-> -			  <&sai1_lpcg 0>;
-> +			  <&sai1_lpcg IMX_LPCG_CLK_0>;
->  	assigned-clock-rates =3D <786432000>, <49152000>, <12288000>, <49152000=
->;
->  	pinctrl-names =3D "default";
->  	pinctrl-0 =3D <&pinctrl_sai1>;
->=20
 
 
-=2D-=20
-TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
-Amtsgericht M=FCnchen, HRB 105018
-Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
-http://www.tq-group.com/
---nextPart5062970.31r3eYUQgx
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part.
-Content-Transfer-Encoding: 7Bit
+On 2025/11/19 1:12, Kevin Brodsky wrote:
+> On 17/11/2025 14:30, Jinjie Ruan wrote:
+>> The generic entry expand secure_computing() in place and call
+>> __secure_computing() directly.
+>>
+>> In order to switch to the generic entry for arm64, refactor
+>> secure_computing() for syscall_trace_enter().
+>>
+>> No functional changes.
+>>
+>> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
+>> ---
+>>  arch/arm64/kernel/ptrace.c | 7 +++++--
+>>  1 file changed, 5 insertions(+), 2 deletions(-)
+>>
+>> diff --git a/arch/arm64/kernel/ptrace.c b/arch/arm64/kernel/ptrace.c
+>> index 707951ad5d24..9af3046a2ce9 100644
+>> --- a/arch/arm64/kernel/ptrace.c
+>> +++ b/arch/arm64/kernel/ptrace.c
+>> @@ -2387,8 +2387,11 @@ int syscall_trace_enter(struct pt_regs *regs, long syscall, unsigned long flags)
+>>  	}
+>>  
+>>  	/* Do the secure computing after ptrace; failures should be fast. */
+>> -	if (secure_computing() == -1)
+>> -		return NO_SYSCALL;
+>> +	if (flags & _TIF_SECCOMP) {
+>> +		ret = __secure_computing(NULL);
+> 
+> No argument was passed to __secure_computing() in v6, as expected since
+> it was removed in v6.15. Not sure why this NULL reappeared.
+> 
+There is a typo here.
 
------BEGIN PGP SIGNATURE-----
+>> +		if (ret == -1L)
+> 
+> ret is an int, so should be -1, not -1L.
 
-iQEzBAABCgAdFiEEByESxqszIvkmWRwbaS+g2M0Z/iUFAmkgFD4ACgkQaS+g2M0Z
-/iUgUggAtEtgpzATuowAJMkBiof/iitCR7c15FBQ+YaxX5BIvfh29ytr6z25ak3Z
-UJhAW2KamHXI21LGIDS6C2VFxJGmNhaZcN89VlEnVoy5IBbqvbWp+2wrWHrPfE67
-xm7D/JZh0U04dJOqNbVIoe+SyxGfToEV3BAI3diSkHSmivdHyqVDxWyhdCWp+FR6
-ktG4DKP/YNXjzqzNLP+LsSrkbUQqbY45jOjkgL26UlzZVXUmPvm8asTvCrPfUfsf
-plaF4ynO9tbyjzEo5ubwFn7F2ynIvdHfJdHjSRJBoseWuVNVTfspue+Tu+Fp1JU3
-B3qWpQZXo05V4YjY+JLZpW8BC7gY2A==
-=vWvp
------END PGP SIGNATURE-----
+Right, not -1L.
 
---nextPart5062970.31r3eYUQgx--
-
-
-
+> 
+> - Kevin
+> 
+>> +			return NO_SYSCALL;
+>> +	}
+>>  
+>>  	/* Either of the above might have changed the syscall number */
+>>  	syscall = syscall_get_nr(current, regs);
+> 
 
