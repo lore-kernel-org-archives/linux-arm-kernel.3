@@ -4,65 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 407B7CFA466
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 02:09:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75D49CFA46B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 02:10:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WHyOoJhkwc0dLiN8PVK6x+2klPbPMSxlqSrwJgtAi8g=; b=no0TmxvBtMiV7kYkCO+iUBrNE5
-	4B2KJ9M6q3n8qQ4a0Yce4RMuAkm0Z4EpTMST82y2K5QHNDRS7rwElp+zl10+tUrJz/qM+amOPThwI
-	tOZrjEFUGmsfuBUi9ZVEA7frUfGrq0eTyus0s/zJZiMXHZfUFnQgaqCHke6P6SdWyC7ZS+ku9eJbN
-	AmmbNsLBd2g+HPF5TvylnGyQNlf7GgXYL/l0w1DCHSjWYhKGK62ATdYqX8+ZUNaiFwCQLf/31itCg
-	cAupOM7oS/latPUdIxM9cNsdNQ+FH4mLIolJheTymn0gIv+NcjOc3DEwo2WP2KQ4NAZigvO/duPYM
-	AaGaHQ4w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/QBXMxi4aTiF86gHeX+FCJpE6hjq2/kP7NQCC+c4KJo=; b=NE+mg5zY4NSV2FmBuUC6jisu5H
+	WW+zZzuQKfMrMI9d0r4fHhB2D5nn1oP9a8dhnBtb903FCskBVzxHS+KUETBwaziDnpuKRSNhSteUS
+	31xkez18ZM5HUkxLlF2mGQ8iH9Cqlj4wRByoDNbnizzcUu7jWMFQrQOO9jO/fGE59D/YIwB6iame7
+	usF5lI0MyXXmhshLlJ8UU4kfOaQmmu8+Tr+CGDz51Y5iyqEYLb1QybrKkK0FBBWlwW++Wwmjd7QOr
+	OPodjVY+ompme4Evk2G4ySjWcK822COZvrSvFaGQ/1jOh1EITaWhQcU03elsHXFV3yaTE4ra6K3vx
+	cM4Yavng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMGaT-00000007gCV-33UT;
-	Fri, 21 Nov 2025 02:09:25 +0000
+	id 1vMGbs-00000007gPS-1adC;
+	Fri, 21 Nov 2025 02:10:52 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMGaR-00000007gBj-35yJ;
-	Fri, 21 Nov 2025 02:09:24 +0000
+	id 1vMGbp-00000007gP3-1ukZ
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 21 Nov 2025 02:10:50 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2282D4445F;
-	Fri, 21 Nov 2025 02:09:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 30026C4CEF1;
-	Fri, 21 Nov 2025 02:09:22 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 29B8843C96;
+	Fri, 21 Nov 2025 02:10:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 02F68C4CEF1;
+	Fri, 21 Nov 2025 02:10:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763690963;
-	bh=Bz7xeF2JFxhA+tr4bBYKwtM1aze7r6fWJHliCqTnUpU=;
-	h=Date:From:To:cc:Subject:In-Reply-To:References:From;
-	b=j3dSOGzTqbCddJGVT5roKZn7ficPkxCfcZaQAbSHTo9ZEpPBpOUx6A+7D3iJGElrS
-	 xERwOpb0HglzyK+cyiMtdgu+xzC+v5c2uu28ifTlgYK2Oge6TJdh2knqdBtSef+qsa
-	 n4EASFxrLwd1zfxuHQhx80lddfRqlhkum8rXwIpnFiTVaQjEI29yJEKBIpe+M/FWR8
-	 OLEfnFo43eLM03+3tVi64Nr+UnQNI7VzrHe31zP9rsXTL7AzLiKeGnBkSfiX1Gvg3X
-	 9VJ4TWJNC3VVZ1aJwt1vadaOPQj2cIIv/pcsMPa30N8hKbqp7RTHENp04Ckbf6rwHH
-	 UvjI8iIQZXrfQ==
-Date: Thu, 20 Nov 2025 19:09:18 -0700 (MST)
-From: Paul Walmsley <pjw@kernel.org>
-To: Huacai Chen <chenhuacai@kernel.org>
-cc: Will Deacon <will@kernel.org>, Josh Poimboeuf <jpoimboe@kernel.org>, 
-    Catalin Marinas <catalin.marinas@arm.com>, Paul Walmsley <pjw@kernel.org>, 
-    Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-    "Madhavan T. Venkataraman" <madvenka@linux.microsoft.com>, 
-    Tiezhu Yang <yangtiezhu@loongson.cn>, Ard Biesheuvel <ardb@kernel.org>, 
-    loongarch@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-    linux-riscv@lists.infradead.org, linux-efi@vger.kernel.org, 
-    linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] efistub: Only link libstub to final vmlinux
-In-Reply-To: <aRsH7RTpAah4g5Xr@willie-the-truck>
-Message-ID: <e36f8b19-c801-c872-381e-7eb40dc5e3e4@kernel.org>
-References: <CAAhV-H6m5vszCyiF3qi94cpHBPVuqM2xH93D=gfsQqOSYvC-sA@mail.gmail.com> <33612d85-e70b-26da-8460-ea6b9064ce08@loongson.cn> <CAAhV-H5ZSTFDxvm-W1CrgEoQ5d_jw5yVsfetQ_J_qL5pqLtzgg@mail.gmail.com> <CAMj1kXGk0udgM67wrWqahqK8H0uE8emQj51SmJey+7fE-FTjdA@mail.gmail.com>
- <CAAhV-H4c=vdNWO0v_mYL2xZ9FYjDyRDvt6f_kV4d8Bh=CRJniQ@mail.gmail.com> <CAMj1kXEaxxcWTTANWeEMNjYDymdL5Fxy2B=XBF4RGtteEkfinw@mail.gmail.com> <421c08e1-255b-447b-b5e3-ee6544fbefd2@loongson.cn> <CAAhV-H5KsFShDJ_Cxu+1_ces8oojn8+S-7PLmE7aUj8gX5_GEw@mail.gmail.com>
- <32s3lvzfu6jkyho7qenrqbsm5wkgjnzn2imdp6tfwycmyxpzgu@kg5367uxmxii> <CAAhV-H47fzaKcMhgLWWOTxB+srBsg85-eK0LW1vQXQnvq32-+w@mail.gmail.com> <aRsH7RTpAah4g5Xr@willie-the-truck>
+	s=k20201202; t=1763691049;
+	bh=kvQa++p6gglRftEUktn9riubSNfwD3W32cZEi9pBAWY=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=Twk/p/gYlYP/EAWT4XmRrWKgonGQLRZk4KA6jUI/fJ6FBAjFd3oAePormezFh4aqF
+	 yYTovm5a3b3obx99AnDkhX+iIl6xdknkkqQJ4RDmVmFf1J+fbES1ATO2Uf/09y8oc/
+	 /4PSNZf2OqOVJk005Vj7PyDkJ/ghko3Hu3cvkWTCjN7TC3EKD1yp9zgSkRAEOpHDvo
+	 rK3dj3MFy/a2qMrFtB2aN2lX+KHvElo630SKk1mjt0JpbOJNCCmMZ+JqwcHmFuISu3
+	 6LFZIl+eUCBIt0qVE1cp8I5KnMJipdNnJmFOAAzLfw5yhbHqmPn1GP63R3hQoF/3bK
+	 WTYj4OE0xzPog==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3553B3A41003;
+	Fri, 21 Nov 2025 02:10:15 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="8323329-1623710078-1763690962=:1910464"
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net-next 0/6] net: stmmac: simplify axi_blen handling
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <176369101402.1860510.18224805167286449640.git-patchwork-notify@kernel.org>
+Date: Fri, 21 Nov 2025 02:10:14 +0000
+References: <aR2aaDs6rqfu32B-@shell.armlinux.org.uk>
+In-Reply-To: <aR2aaDs6rqfu32B-@shell.armlinux.org.uk>
+To: Russell King (Oracle) <linux@armlinux.org.uk>
+Cc: andrew@lunn.ch, hkallweit1@gmail.com, alexandre.torgue@foss.st.com,
+ andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-stm32@st-md-mailman.stormreply.com, mcoquelin.stm32@gmail.com,
+ netdev@vger.kernel.org, pabeni@redhat.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251120_180923_817158_BDE0305D 
-X-CRM114-Status: GOOD (  20.59  )
+X-CRM114-CacheID: sfid-20251120_181049_519009_2FB3ED5D 
+X-CRM114-Status: UNSURE (   8.75  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,47 +78,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-  This message is in MIME format.  The first part should be readable text,
-  while the remaining parts are likely unreadable without MIME-aware tools.
+Hello:
 
---8323329-1623710078-1763690962=:1910464
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8BIT
+This series was applied to netdev/net-next.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
 
-On Mon, 17 Nov 2025, Will Deacon wrote:
-
-> On Sat, Nov 15, 2025 at 11:16:42AM +0800, Huacai Chen wrote:
-> > On Wed, Nov 12, 2025 at 2:00 AM Josh Poimboeuf <jpoimboe@kernel.org> wrote:
-> > > On Mon, Nov 10, 2025 at 03:00:00PM +0800, Huacai Chen wrote:
-> > >
-> > > > Changing efistub code and changing objtool (ignore __efistub prefix)
-> > > > are both workarounds, but I think changing objtool is a little more
-> > > > reasonable. Maybe Josh has different ideas?
-> > >
-> > > I thought the conversation had converged on what Tiezhu mentioned above,
-> > > which is to skip objtool on libstub for loongarch, but leave the other
-> > > arches alone.  That way objtool behavior is consistent between loongarch
-> > > and x86, and objtool doesn't need to ignore any prefixes.
-> > >
-> > > So basically, the v2 patch minus the arm64/riscv changes.
-> > 
-> > Hi, ARM64 and RISC-V maintainers,
-> > 
-> > Would you mind that this patch modifies the three architectures
-> > together (they are exactly the same style now)?
-> > 
-> > Madhavan is the author of ARM64's objtool, I think your opinion is
-> > also very important.
+On Wed, 19 Nov 2025 10:22:32 +0000 you wrote:
+> stmmac's axi_blen (burst length) handling is very verbose and
+> unnecessary.
 > 
-> arm64 doesn't (yet) use objtool.
+> Firstly, the burst length register bitfield is the same across all
+> dwmac cores, so we can use common definitions for these bits which
+> platform glue can use.
 > 
-> I defer to Ard on anything relating to the arm64 efistub. Reading the
-> start of this thread, it doesn't look like he's convinced and I'm not
-> surprised if it's purely an issue with objtool.
+> [...]
 
-Same for RISC-V.
+Here is the summary with links:
+  - [net-next,1/6] net: stmmac: dwc-qos-eth: simplify switch() in dwc_eth_dwmac_config_dt()
+    https://git.kernel.org/netdev/net-next/c/f7ac9a0bbe3f
+  - [net-next,2/6] net: stmmac: move common DMA AXI register bits to common.h
+    https://git.kernel.org/netdev/net-next/c/8c696659f47a
+  - [net-next,3/6] net: stmmac: provide common stmmac_axi_blen_to_mask()
+    https://git.kernel.org/netdev/net-next/c/2704af20c8e5
+  - [net-next,4/6] net: stmmac: move stmmac_axi_blen_to_mask() to stmmac_main.c
+    https://git.kernel.org/netdev/net-next/c/6ff3310ca282
+  - [net-next,5/6] net: stmmac: move stmmac_axi_blen_to_mask() to axi_blen init sites
+    https://git.kernel.org/netdev/net-next/c/e676cc8561c8
+  - [net-next,6/6] net: stmmac: remove axi_blen array
+    https://git.kernel.org/netdev/net-next/c/efd3c8cc52bb
+
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
 
 
-- Paul
---8323329-1623710078-1763690962=:1910464--
 
