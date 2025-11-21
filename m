@@ -4,78 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E16ECFA47B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 07:19:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E0A4CFA477
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 07:20:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=m6QG7hfmulkeeV0+FHZzzjlI9CbiaVleYLa2jgnVOXQ=; b=pBbfO62fDh06hgOhpndbTXCi9Z
-	5BjDg6zzV6QPkis53R+meWjFU68WDmHpiYf/hOz+2/DsCvcgPaX1geDFtxl88zQ0fwEHYS770zar9
-	PUEXFmO8VzxMowVULgg6WsMlGZE93jRauGV728/gY21x4laJa9UTbUyEuRvesSJW+f6tUKYNhblbk
-	Bzyk+sVInWooQ1vGvOZXL9BSVYnh1nhjhSzRQ5C/S5ZOlYJN8R44fdPOuSerUWoxPeAD4LYHzsOs1
-	7hFdz1+T5yfELKD/UM6y1KzBVNcOMi41+8ai2u9uSaWNQbN6+bYmn05ywng6pc+x4C287wBsvuWX6
-	37xvuEBw==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HhTe7S6VRP2G+kRp3DV9R9gjWJm0R5xvUc1kwWHsYEI=; b=ORkOopvWsDikAuliGzo15GZqAW
+	yLwrGPfDH0AJaLw4Ou4cg0rVhtGk7JD747ywjoR1mulHlliw0Xcox8g9PuGQeWZ8uZpNJves5YIQm
+	McUi2hbya6XatNM6iEshlRJanhOZkhrRSO6EVJi7GZ8XHsgTLJezZpArIyrxVF90af9Trppl8ssx4
+	FL69D78oywcon8ejVOBZCzJ0wciri0Y03YxXryA67YpGJirRCHvfjqDYfpUEKumixySEQf3KTFGPW
+	N0Hh04hE16WrJDBZr7xlFBQJ3zEcLYylsXtBNUb+37YSifVvaODVSWvLqfgGeF5n2mhjmcAUmUHQ7
+	/wK0fvJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMLQ9-00000007xSb-18h5;
-	Fri, 21 Nov 2025 07:19:05 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vMLRL-00000007xZX-2kdz;
+	Fri, 21 Nov 2025 07:20:19 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMLQ7-00000007xSU-2ElS
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Nov 2025 07:19:03 +0000
+	id 1vMLRJ-00000007xYv-1o5b;
+	Fri, 21 Nov 2025 07:20:18 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E72B26021D;
-	Fri, 21 Nov 2025 07:19:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A728DC4CEF1;
-	Fri, 21 Nov 2025 07:18:56 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id CF82C434DB;
+	Fri, 21 Nov 2025 07:20:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 27CB0C4CEF1;
+	Fri, 21 Nov 2025 07:20:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763709540;
-	bh=68TiG8pngG5tdRAO1B2gHqjjpClbYtgeNfVCoKK25F0=;
-	h=Date:Subject:To:References:From:In-Reply-To:From;
-	b=I0ePuL0/DxC2p6fV5sC4VWvkJonvYfxIMteRqvLXdrcYijhnef29lw6lJ7nEJlTDP
-	 jl53pldujo8nBkEuNR2w0S26fepxmXyt6M7Mo2qb1LkLOFNqDaJv40uc/xwPJ99rRY
-	 6uVZ0G3MsplidCRxPwhSXupQKKPBk+vvKG245T8uwq6+zqfRPIs5RzedGdQ6sZKCOS
-	 Er3CevJItLA96CBlNPbf9Z83O5pTZWx13iFyDMRMYB0sZyEmEun9RrlRcv3ic9xcV9
-	 kS0pszq5LpZ20qh+h/U8ruh6hFmVtS3DdQdONRiFkZ36WjqcE7z64noYLf0PHjrVPR
-	 wHn2OHOpwPwWw==
-Message-ID: <3f81e6dc-65c9-4c99-ac5a-43bea16d6e55@kernel.org>
-Date: Fri, 21 Nov 2025 08:18:54 +0100
+	s=k20201202; t=1763709616;
+	bh=DsaehILub2Q2F4EUeMDc+anS5yO9bwV/ssPH4iS2BPY=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=hoTJs30bswKa/MCZZCE1NOnTq7G8YrP0mbOKwsBckliAqwxwcWYYxP9vTbGWLuL+L
+	 wwE5+qF2wqQ3IHjgQgcw7jZR7Soo9oIm2axjSi6ZT0npWe8dgBXsqkCNX0P99ESscj
+	 TE4mTZtSi/wukRXvTPDQdsxT7vDfWPieuY0uWDrPRaZYUbYIfm+cklUPFfSeF/Juk3
+	 0oDXpMdr99MVABZqtL0zPRSfIWTEfEdLRC18JNMcMQ4MSo5chBZu6kN5FQvRCPMf1R
+	 4MnqX66c/QRO+he5Xr5XgjV7NdliD1sBWdc0WbS6VHZ9vGg9b4Gc0gNKTMB87SPnGa
+	 nVkYvVjNRTArg==
+Message-ID: <1c70dc3f-a994-4978-af26-0a3eb746fb5b@kernel.org>
+Date: Fri, 21 Nov 2025 08:20:11 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v20 1/4] dt-bindings: i2c: Split AST2600 binding into a
- new YAML
-To: Ryan Chen <ryan_chen@aspeedtech.com>,
- "benh@kernel.crashing.org" <benh@kernel.crashing.org>,
- "joel@jms.id.au" <joel@jms.id.au>,
- "andi.shyti@kernel.org" <andi.shyti@kernel.org>,
- "jk@codeconstruct.com.au" <jk@codeconstruct.com.au>,
- "robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
- <krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
- "andrew@codeconstruct.com.au" <andrew@codeconstruct.com.au>,
- "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
- "andriy.shevchenko@linux.intel.com" <andriy.shevchenko@linux.intel.com>,
- "naresh.solanki@9elements.com" <naresh.solanki@9elements.com>,
- "linux-i2c@vger.kernel.org" <linux-i2c@vger.kernel.org>,
- "openbmc@lists.ozlabs.org" <openbmc@lists.ozlabs.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
+Subject: Re: [PATCH v2 1/5] mfd: mt6397: Fix formatting of RTC_BBPU_KEY
+ definition
+To: =?UTF-8?B?U2h1bnhpIFpoYW5nICjnq6Dpobrllpwp?=
+ <ot_shunxi.zhang@mediatek.com>, =?UTF-8?B?RWRkaWUgSHVhbmcgKOm7g+aZuuWCkSk=?=
+ <eddie.huang@mediatek.com>,
+ "alexandre.belloni@bootlin.com" <alexandre.belloni@bootlin.com>,
+ =?UTF-8?B?VmluY2UtV0wgTGl1ICjlionmlofpvo0p?= <Vince-WL.Liu@mediatek.com>,
+ =?UTF-8?B?SmggSHN1ICjoqLHluIzlrZwp?= <Jh.Hsu@mediatek.com>,
+ Sean Wang <Sean.Wang@mediatek.com>, "conor+dt@kernel.org"
+ <conor+dt@kernel.org>, "robh@kernel.org" <robh@kernel.org>,
+ "lee@kernel.org" <lee@kernel.org>,
+ "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
+ =?UTF-8?B?U2lyaXVzIFdhbmcgKOeOi+eak+aYsSk=?= <Sirius.Wang@mediatek.com>,
+ "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: "linux-arm-kernel@lists.infradead.org"
  <linux-arm-kernel@lists.infradead.org>,
- "linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-References: <20251021013548.2375190-1-ryan_chen@aspeedtech.com>
- <20251021013548.2375190-2-ryan_chen@aspeedtech.com>
- <0b76f196-f642-4991-ad5c-717c23938421@kernel.org>
- <TY2PPF5CB9A1BE6597ECD46BD4CB7C5F09FF2FAA@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
- <3c3287f6-1c5c-4c4d-9349-32665a5e1585@kernel.org>
- <TY2PPF5CB9A1BE6FE06477B9CC51B8133DAF2CFA@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
- <TY2PPF5CB9A1BE67DBBC08424DD062549BDF2CDA@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
- <28fa635b-f9a6-41c3-8199-9630ed3e7649@kernel.org>
- <TY2PPF5CB9A1BE6C0ACB11FE9BB209B9273F2CAA@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
- <TY2PPF5CB9A1BE605A022105E6F1B6AA8F5F2D5A@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>
+References: <20251120121805.6775-1-ot_shunxi.zhang@mediatek.com>
+ <20251120121805.6775-2-ot_shunxi.zhang@mediatek.com>
+ <de26ada1-0d8f-4d3c-a665-091925dd44ce@kernel.org>
+ <b8c4a2420a5f57f4a646ca7abee86a203ac4bf79.camel@mediatek.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -121,9 +114,13 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <TY2PPF5CB9A1BE605A022105E6F1B6AA8F5F2D5A@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
+In-Reply-To: <b8c4a2420a5f57f4a646ca7abee86a203ac4bf79.camel@mediatek.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251120_232017_509836_8F11DF43 
+X-CRM114-Status: UNSURE (   9.69  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,90 +135,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 21/11/2025 06:23, Ryan Chen wrote:
->> Subject: RE: [PATCH v20 1/4] dt-bindings: i2c: Split AST2600 binding into a new
->> YAML
+On 21/11/2025 04:07, Shunxi Zhang (章顺喜) wrote:
+> On Thu, 2025-11-20 at 14:38 +0100, Krzysztof Kozlowski wrote:
+>> External email : Please do not click links or open attachments until
+>> you have verified the sender or the content.
 >>
->>> Subject: Re: [PATCH v20 1/4] dt-bindings: i2c: Split AST2600 binding
->>> into a new YAML
->>>
->>> On 13/11/2025 10:34, Ryan Chen wrote:
->>>>>>>>> +  reg:
->>>>>>>>> +    minItems: 1
->>>>>>>>
->>>>>>>> Why?
->>>>>>>
->>>>>>> Will update as following.
->>>>>>>
->>>>>>> reg:
->>>>>>>   minItems: 1
->>>>>>>   maxItems: 2
->>>>>>
->>>>>>
->>>>>> No. You changed nothing. Instead explain why this is flexible.
->>>>>>
->>>>>> See writing bindings.
->>>>>
->>>>> Sorry, I still not understand your point. Do you mean need to
->>>>> explain why reg is flexible 1 -> 2?
->>>>> If yes, I will update to following.
->>>>>
->>>>> reg:
->>>>>   minItems: 1
->>>>>   maxItems: 2
->>>>>   description:
->>>>>     The first region covers the controller registers.
->>>>>     The optional second region covers the controller's buffer space.
->>>>
->>>> After check the
->>>> https://docs.kernel.org/devicetree/bindings/writing-schema.html#anno
->>>> ta ted-example-schema I think I should update with following, am I
->>>> correct ?
->>>>
->>>>  reg:
->>>>    items:
->>>>      - description: The first region covers the controller registers.
->>>> 	 - description: The optional second region covers the controller's
->>>> buffer
->>> space.
->>>
->>> Please drop "The first region covers" and same for the second. Just
->>> say what is this - controller register and controllers buffer space -
->>> and second one is not optional now.
 >>
->> Thanks, will update
+>> On 20/11/2025 13:17, ot_shunxi.zhang@mediatek.com wrote:
+>>> From: Shunxi Zhang <ot_shunxi.zhang@mediatek.com>
+>>>
+>>> Adjust the whitespace alignment for the RTC_BBPU_KEY macro
+>>> definition
+>>> in the mt6397 RTC header file. This is a cosmetic change to improve
+>>> code consistency.
 >>
->> items:
->>   - description: Controller registers
->>   - description: Controller buffer space
->>>
->>>>
->>>> What you question about
->>>> " Please explain me how one, same SoC has optional IO address space?
->>>> I
->>> asked to explain WHY this is flexible"
->>>> The AST2600 i2c controller have three io,buffer,dma mode.
->>>> The AST2600 have buffer register for buffer transfer. That is 2nd reg offset.
->>>
->>> So the SoC *HAS* it. It is always there. It cannot be missing in the hardware.
->>>
->>>> If dtsi not descript it, the driver will go back to io mode
->>>> transfer. Flexible
->>> implement is in driver.
->>>
->>> Describe the hardware.
+>> Please don't send such changes line by line.. You have other patches
+>> here doing the same. Organize all such trivial stuff, including for
+>> other drivers not only this one (!!),  in one patch. This is just
+>> churn.
 >>
->> Understood, thanks your guidance.
+>>
+>>
+>> Best regards,
+>> Krzysztof
 > 
-> Hello Krzysztof.
-> 	Appreciate your review.
-> 	I’ve updated the reg and clock section according to your comments.
-> 	Do you have any further suggestions on those updates?	https://lore.kernel.org/all/20251118014034.820988-2-ryan_chen@aspeedtech.com/
+> Dear sir,
+> Execuse me,
+> do you mean we shouldn't make the "formatting changes" a separate
+> patch? This was based on a previous comment: 
 
-You sent it on Nov 18. Then you pinged on Nov 19, now you ping on Nov 21.
+Fix entire subsystem or multiple drivers not only one line.
 
-What's sort of rush is this? I don't respond well to such pressure so I
-will move your patch to the bottom of review queue.
 
 Best regards,
 Krzysztof
