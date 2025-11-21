@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7322CFC27C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 13:37:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 723E7CFC27B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 13:37:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0C2QTeR3cQQEoE360avKsictL355g1NCYjLzLxkW0Jk=; b=aBhjSOd8pxfluP9qesmcqdbtb2
-	6FHN3qYYZGmU6yoCikPalQdA7FB67YjQ+KtbX2/wDCuANlE98ylXOkF8TMDBBl49kXpL9pmvKivSV
-	Yk81NoXC7kIngZll5EgboRmTPDDuAb8WnDH62nfRKZLrHL8F3cZnR1dO4YN/1DwWtrBZ8NBbzxnkQ
-	y6sw+wa6AJnthAztCluAHEs5hDWr3vV7ZblHwKHWcp6ZJEcEO8pk5kMoD2qWxHxT9OLrMQGpVeZNE
-	C5EMDj7pUjo67QT49qw0/uBiRc5LiCB+2Fv/gXUSrAeR+NYpx0Y3T9JzZKRpv1JuZkBIY7eTzbj28
-	19Mwty4g==;
+	bh=KjYBgcTcnb2XTdgoCzHLv90ebNazMCij/1AbxUshzzA=; b=Xj5XKOditzgP/oGpaevgkeTkg3
+	+yP7HJa9s3DnEMwd1yJ5hnn7UIir/LneLnqemTLtOoYsEy04Dk5U/XLU9yPUEIdAev29U0wjWOe8K
+	ErhWZeBueNCNN9FsidLOjXKFkd7X04t0HjO5+iloXqFhI/ZmM/ggScXWFjErtRlH0X5a+I/QxMWCJ
+	PE9iEUkFP0+Bd4Uj0FaEogHmr6lt6wq6FUkgZjbU7zGiAiggjU2B1GXs8OEIbkRrk88lObXqbeE/k
+	v+k8lyetTz0SeZ5tlhWXYvU+ndxSNCHv5kBsSyWW20DbR16wEFs2mB7G+JEDcSseIbQfWF7v5h+YZ
+	W+iHpXFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMRKA-00000008QKr-10ls;
+	id 1vMRKA-00000008QLt-3gAH;
 	Fri, 21 Nov 2025 13:37:18 +0000
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
+Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMRK2-00000008QFu-3ner
+	id 1vMRK7-00000008QIa-1iM2
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Nov 2025 13:37:13 +0000
-Received: from pps.filterd (m0288072.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5ALDZKoS3611604;
+	Fri, 21 Nov 2025 13:37:16 +0000
+Received: from pps.filterd (m0046660.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5ALDP1tA3755298;
 	Fri, 21 Nov 2025 14:37:04 +0100
-Received: from osppr02cu001.outbound.protection.outlook.com (mail-norwayeastazon11013024.outbound.protection.outlook.com [40.107.159.24])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 4ajr6pr6rd-1
+Received: from am0pr02cu008.outbound.protection.outlook.com (mail-westeuropeazon11013050.outbound.protection.outlook.com [52.101.72.50])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 4ajna5s12c-1
 	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Fri, 21 Nov 2025 14:37:04 +0100 (CET)
+	Fri, 21 Nov 2025 14:37:03 +0100 (CET)
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=TO61bcHK5LltEEN/T4Z4jGXMod1JTl9Ro/bfcfdzv22cfrK5+ORY1chIhKu42p5TGlmGxnFmeJGwf6UoolqMWKkdA0PJJpZZkL9VEhQO6jSPbaTlbVtdudkJ4yWF/DR6mJVtd9AAatEyqBNvmDhKTjGKk2NAielIf0Eea93HVQT9Mi9TgYRtVmEtOKkrqp9ctrAWuYDBOxUpvguCei36tgEC7XF10kFvVkm+L9s0ZAeI9FF8hVJ7Kt9LJMLejd9cwotZWxMvggp3Y+qz5ct4wnBSxnGqAncvGqW0SKjpq/kLdi3IeTwhky67/HEWd9fKBBezVAxxovE7QH4uJDQQUA==
+ b=PYdh0GQLbaeGjc6rSG2/HylXad+g9Eet5pb4qQIbhMwAonhn8sxUQkECRT4OPYRpx5XB4HuAyx/VEF643cahRYnUprBMqWVlzCpvMkhgB/vOKBdP8XzkPe/sgc7hhlKo1T8vHBg7NCmcxSojC771xMuVZk4PH6+t/N0oj/WMwurrpmWtwiI2dX1dBK66acQn8a8D7AAAyvt9B3ENHBihTiOCrbfOwgvr4woMNGS7IwMYxbta3vCzwqCHhZkkny+ILNi1zg33G5mCAD1L1r1b/nernjO4jVFnuoJCXIgK5WrwMuwlB2RXeJFUqeSBqIagA9Vmy+4v87ofxFCfQLUxQQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=0C2QTeR3cQQEoE360avKsictL355g1NCYjLzLxkW0Jk=;
- b=jYsn+kbOxnBO7Iy+wUNbR22BukrEC/uOzeX7BxDzNDtkEmI9gPtElhQtz9D9sCn6/sO8k9aDzgst/xsD0Inx9Zp4QqVEZIcKy/hImaCPYUwDK2N9HpB1QF+/Lm093r00I6sTUdPi4rySXaEL3EiQqp6umtAyxmV1+QGmsNd2EIEwtUZFMOT1oHNkObsElK/Np2TRWxTsQRilakJ5sgRQSbm6M6lkfbFp5lpcXd0YHOtWwIyLhZ5l7ua0vWeVY2+8EQxs4jE0W6hXzhDf+SrhwGsTSnAQWjcnmh6oNhekbck88nWk/msc6ELEObKWS/2YcZGd7+kf0fXZa3Wgtqs+CA==
+ bh=KjYBgcTcnb2XTdgoCzHLv90ebNazMCij/1AbxUshzzA=;
+ b=upOBkTp/D5BGzTMNxAOLrQTspi3V+UyDcau+/TWT+QWysyY/XAqvXYYPocWUJhJbRAYL0jtGWtbUOFY26N5QJRri5l3VqAeP4P/i8ln9xrecUCuTKhZCjyyohqBzP8rg7BDkUMAdQkJwieabioS3LY+7Nnh5D9XDlE0kX1MJY/tcguodBW37wzHFWKCxaf12JnVXer/cE0ctTSjPFfgVcdcImGQt2qs8Hnu80W69/HLMKR+s92fBfOwiBWs1eydcpGoi8BImwdOF4Zj2o3l/Sg3yTEmzpoOqQYKXLlOGn593/fBJHrz2SRFPN0HL0lQZw+WXWh08Q2tbzhri9GIdlA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
  164.130.1.59) smtp.rcpttodomain=st-md-mailman.stormreply.com
  smtp.mailfrom=foss.st.com; dmarc=fail (p=none sp=none pct=100) action=none
@@ -48,18 +48,18 @@ ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
  s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=0C2QTeR3cQQEoE360avKsictL355g1NCYjLzLxkW0Jk=;
- b=O8lyxsdd8pSAljRV8ejqWm9HerEIuYM78KQOA1rmxoKvo9o8larRK723O+eduOQEX9ChrpiCixa9gGAo9tT+6cbxe69nk7egKaLRpVWgLzoM/vBt2zqbynmvNrYruLd29JkNlR0z+QlVihJ0D++dgj4g+ei1VON/hGtMG03c9RhsqSfSXDFwiE56py7/Fmun6R0VndSBwBNAbuv/bZ+IGoV25gDaOhFTL99vY4nWjmPrXkwQYEzqHUObrUNwwZsuM3GBiDdBDY6L+CjJ1X1o2cQVwhb7YjbijCXJcs45YW5Md1U4ah4VfE3YVNhHi3p86mijcX61489sQ0PmQy+yGg==
-Received: from DU7P191CA0010.EURP191.PROD.OUTLOOK.COM (2603:10a6:10:54e::35)
- by DB5PR10MB9193.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:10:5e6::15) with
+ bh=KjYBgcTcnb2XTdgoCzHLv90ebNazMCij/1AbxUshzzA=;
+ b=IsifIa2z3CK2ptGkgl2LEUY4yuasut/KvV9bvHyvFsgcJVExNnVkK8XaQTu2S5GbLL05VCxG8hj8lA6vTgRjcPEhe1BLiFtPObgH3vTmqTdMoOE//bypK4QUY3ZzTgzQH1RWvoQGf5M2ucfO+gySSkKX6gCDMKb+QudX+nEUaQXNGxPvuP5Zvas2bhQnVpt9h1+MsX39xqMD11yCZ94WDEPGD25rJrFb8AUCSRkHBISdm9adEEhYk5XrF54zqH+Onk8M1XrRgo98QBQvLSkH5zSeSTrxcdKAlJqvjpWSP4G6y33nSfHZmi/Pl15o/E+Oh5+0KIFei2bo93FVUTQD+w==
+Received: from DU7P191CA0011.EURP191.PROD.OUTLOOK.COM (2603:10a6:10:54e::18)
+ by VI1PR10MB3343.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:803:13e::11) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9343.11; Fri, 21 Nov
- 2025 13:36:59 +0000
+ 2025 13:37:00 +0000
 Received: from DB1PEPF000509F9.eurprd02.prod.outlook.com
- (2603:10a6:10:54e:cafe::2e) by DU7P191CA0010.outlook.office365.com
- (2603:10a6:10:54e::35) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9343.14 via Frontend Transport; Fri,
- 21 Nov 2025 13:36:57 +0000
+ (2603:10a6:10:54e:cafe::ff) by DU7P191CA0011.outlook.office365.com
+ (2603:10a6:10:54e::18) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9343.11 via Frontend Transport; Fri,
+ 21 Nov 2025 13:36:59 +0000
 X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.59)
  smtp.mailfrom=foss.st.com; dkim=none (message not signed)
  header.d=none;dmarc=fail action=none header.from=foss.st.com;
@@ -69,23 +69,22 @@ Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
 Received: from smtpO365.st.com (164.130.1.59) by
  DB1PEPF000509F9.mail.protection.outlook.com (10.167.242.155) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9343.9 via Frontend Transport; Fri, 21 Nov 2025 13:36:59 +0000
+ 15.20.9343.9 via Frontend Transport; Fri, 21 Nov 2025 13:37:00 +0000
 Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpo365.st.com
  (10.250.44.71) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Fri, 21 Nov
- 2025 14:37:22 +0100
+ 2025 14:37:23 +0100
 Received: from localhost (10.48.86.127) by STKDAG1NODE2.st.com (10.75.128.133)
  with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Fri, 21 Nov
- 2025 14:36:57 +0100
+ 2025 14:36:59 +0100
 From: Amelie Delaunay <amelie.delaunay@foss.st.com>
-Date: Fri, 21 Nov 2025 14:36:57 +0100
-Subject: [PATCH v2 2/4] dmaengine: stm32-dma3: introduce channel semaphore
- helpers
+Date: Fri, 21 Nov 2025 14:36:59 +0100
+Subject: [PATCH v2 4/4] dmaengine: stm32-dma3: introduce ddata2dev helper
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20251121-dma3_improv-v2-2-76a207b13ea6@foss.st.com>
+Message-ID: <20251121-dma3_improv-v2-4-76a207b13ea6@foss.st.com>
 References: <20251121-dma3_improv-v2-0-76a207b13ea6@foss.st.com>
 In-Reply-To: <20251121-dma3_improv-v2-0-76a207b13ea6@foss.st.com>
 To: Vinod Koul <vkoul@kernel.org>,
@@ -101,84 +100,84 @@ X-ClientProxiedBy: STKCAS1NODE1.st.com (10.75.128.134) To STKDAG1NODE2.st.com
  (10.75.128.133)
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DB1PEPF000509F9:EE_|DB5PR10MB9193:EE_
-X-MS-Office365-Filtering-Correlation-Id: 506c60d3-3641-46c3-10d2-08de29030c02
+X-MS-TrafficTypeDiagnostic: DB1PEPF000509F9:EE_|VI1PR10MB3343:EE_
+X-MS-Office365-Filtering-Correlation-Id: 79a87863-2e82-4ee9-1b50-08de29030c53
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700013|82310400026|376014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?OTM3L09jWU04ZWNVZUlaR2Q2aEpvbkJ6eEdOUlhuNklBV1dXa3pERkZNeWtF?=
- =?utf-8?B?UjVLOGczenN2anNobFR0ampJSmNFU1ZnTW1WYTZrSGJOV2xGS09nY0Juakdz?=
- =?utf-8?B?ZlNMWi95YUxDdHZDYzc3Q0VidjFid2FrSCtCb3kzTHp5dTNXR1dsOGt2aGhP?=
- =?utf-8?B?azZEVndwNVE2NWQ5b1A3TE1ZWmY0aXRlUThmeDlRdDMxVXRhb2pGYzNtRjFv?=
- =?utf-8?B?NXA5LzRCejhkMENaTGYzNDNoZXcvY1d3cGdCekk2S2gyMDh3WGp4aFZuemZk?=
- =?utf-8?B?SWtGSEJuczBpd2xsbGFGWGc0MHBRL0J4aU8wV2Jua3VJZ1crMWNpcGxMNHlr?=
- =?utf-8?B?MmZtdCthaTIwckxENjZvbTZ4TlB6RkxZQnpDbVloN01tYXR6ZGNReDBQVzBE?=
- =?utf-8?B?NjNUdEw2d09BK3pSVlUrakJKL0ZSbmU3MnEvL3lXWHJCeW9WckRkMTN1YzI2?=
- =?utf-8?B?cXJFTng3b2VqK0lOYW5CZk5UUHg2eUwyRFp0L1dsVnlHeGJSK2VvYWdnUmNQ?=
- =?utf-8?B?OTZSU0ppb0NIT0htZnYzZEFmNCt1NExxUXJJMk1SaWNYaU5KYVRYMytsRklv?=
- =?utf-8?B?dUludy9yWlp3QUNMclZkd0JXbTI2TXphajJpWXV2UE4vMXVXRDVseGhuSnA4?=
- =?utf-8?B?MlY0N3BvLzluVVVPMWk3cGh4TU5rODYxWDA0QmxlMDJTUVp1bkg5T21XWThj?=
- =?utf-8?B?K21Dd1oxa3NwRDFhTW5GbzhlTG9EaWhyMVkySEI1ZmdzMDhqdGlGcFpDNEsv?=
- =?utf-8?B?OVo2elF4OXN3Z0l5eGdnYXpzWXM3ZVVnS2F6NDlmek9xMXVlYUhQeUpiUVpq?=
- =?utf-8?B?dnYvKzNUUmdGOVdDM3lqTENDQlJQZjNEK0UxWXhZNi96Q1VKdFRyM081czBR?=
- =?utf-8?B?NElqUnBKQ0JwZmszaTlSVXEyblY2bGg4TkFqUjRWVUcwY3daSmpPaUxBVEx1?=
- =?utf-8?B?b0tMRWpCVmpPejBoVkRnU0I3RWtOSml0Vjl0eFN6UDhCOFIyQkx4bU15N3N4?=
- =?utf-8?B?eEFoVUJhRFhCNTgvVTlHdkRDa2RiTzh2Qms5SE5Ld003ZDE5KzRBbXl1M0V0?=
- =?utf-8?B?SWJXSUFNZEQraXZBRGpFeWJZY3BNRDFoYXQ3dURhNW9NVGhHZ3FpUTFNK2xY?=
- =?utf-8?B?aHdYcVlCZmdJZkFhbnNQZURWRHlYL1QvNWU4MWRkMEVLU0Q1V2VyWWhBYktH?=
- =?utf-8?B?SEs3RTZvOHRNcUZoeU5aUm1ORDh2dzEyK09JeEZPQ3pFdGVCWTArOUdNbG4r?=
- =?utf-8?B?STQ1WGE4aURadm5RbmFZOEpRR1l5V2FVV1pXVWZ0L2FyUEdkZEdLVUttdDFv?=
- =?utf-8?B?ZUdtU2ZCbGs0OGlac2ZIV1hiRm9hSzJDc3dRcXpMSm9KNkFJcEllem5mem0y?=
- =?utf-8?B?MHlVODBMMDBRTjRlTjZPa0M0L2VzNTEzKzlybTRITVloY0tCaW0zODQxcGs1?=
- =?utf-8?B?cFF4dVlYVDNKRVcrQ0ZMVUx2SGsvYUd5YzdVNCtyMENYUmlkWEMwcURJSzJI?=
- =?utf-8?B?SE1udW9nZjFqby85R0daQlVGYk5hcWs4OUNzVG0rS2RLUjR4VElub3lUZ2Q4?=
- =?utf-8?B?QnEzUzJ4bWZvQ0hFNENjZkZZNWw4b3VyN0hWZ0QvSW9Wc09tNDZEeFFwVEFv?=
- =?utf-8?B?ZXcvLzNWVlY0dllNbzdrNjBtakpKUWgxYzUzYzRBL3hjdzkrWEs5OFZ0RC9a?=
- =?utf-8?B?UitqNWRCWXJYemovZmlML2xjTTRCbVlSZUo0YUtWM29XZGFWNEVUc1FYcGNx?=
- =?utf-8?B?L3NhL3NXN3d1bE81dDJWOU1wV2l4dVNUSXlsdXZVRTU4eURPdy9sVThIdExq?=
- =?utf-8?B?VjdDNU1MY0JmUkljY2pNY25wRlAwZndUWmpEY1ZrbTN6UmRxcElOVFRaUklE?=
- =?utf-8?B?SWJ1cFU4YXdhVFFFcFBNNE5LYVhBWDlSbE1KdnR1TEdIY1BGUEVxRTRtSjFi?=
- =?utf-8?B?WElnM244SzBqYkd3bVBEUHJRL2FjUitUMjRNL3dJMTlrUitQbG9YbGVKL0xq?=
- =?utf-8?B?ZlhlRXV1b3pnTytCR3NqbkhuSE9yMGpHc1paR2RJdC9HRnpmR042bkVyZlFw?=
- =?utf-8?B?c092WUJaT2tLUTVTbENMVUpUZVYweFlFWlNqT3FNeERnWHFhNS9leWkzc3JK?=
- =?utf-8?Q?QQJg=3D?=
-X-Forefront-Antispam-Report: CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(36860700013)(82310400026)(376014);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|1800799024|82310400026|376014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?VFBXNHczY1grdXRlK3czT3NYem14MklWR0J5SFJoOG9nYTdiVS84N2p2aUVX?=
+ =?utf-8?B?NStuUWJjS2pVRm5Bb1RiamZpS29iS1hnL1pseWRnMEJzK2pIak5zTDBuWEtL?=
+ =?utf-8?B?QlE0MnUrZGRJRG1NNkpYOEVpbldURTlublNWcFA2Zk1vYmZWU0ZWZW9Cc1gz?=
+ =?utf-8?B?V29Pbm42ckFoSHM2NE0xMTJxM0M0Ujk4UjJaYU1MMFNON3dsUG5SczFDRUhu?=
+ =?utf-8?B?c1pDZ1hYNGRWb2loMTVFUEpheVA2bGYxdCtWWkErVmFsL3ArZGx6NTBmK25N?=
+ =?utf-8?B?a2JFYmtSTUxMUkl4VjRScGJyNUVaMTR4Rm1UWTNZUHNPL2x4UGwyUmFpN0tU?=
+ =?utf-8?B?RHkrZ2FEUE1DTU9ib292WFJGZ0Nzb0NFOWt1WmdIRXhKQm1mTXdvMkNWOUhh?=
+ =?utf-8?B?REJXMG9xWXpmK3oyaGJ6Z2pxVm5OZnBSRG93YjAwVU80WUZoMzc3TzR0VEVx?=
+ =?utf-8?B?QXluSHk2S3VrUVF1UVlPNFJZUVFhdmxSeThEVnlTUmVRbFlQSGxQUVVUemFj?=
+ =?utf-8?B?MGpCMDVMTmZxd0VPUjh3MSttTnBlUXFwTGZlOG1FTFpFTFJxMWNVNTFTenFl?=
+ =?utf-8?B?THV3MktQdUxSeHZheE5qcHpBaENRVytHV25hb291L0tDK2p4QlhtbitnaWhT?=
+ =?utf-8?B?eUU0L0VveE9PWG9MUWg4ZWszK3hMSjA4QjNxWGx0WjNVMXdUUUUvMHRCaWNo?=
+ =?utf-8?B?VEI5QWcxd0hzOHNmVGhzNzZkaG5jYjIyRXB2NWZKUisrdmRRWGEzc1BHRW9F?=
+ =?utf-8?B?S2xMYUZnYnRYaWFuZVFsaC9senh4eGJWazB1QjhLVUZJNHRjdERjc1dUUWJx?=
+ =?utf-8?B?Qy9JOFhtcEZuL01XOEFmNXpHdHk5bElGTmJZMmU2bHZpZUN6ZUE5ZmxFMFhL?=
+ =?utf-8?B?YjUrcXhaSTMxY0pHQmxVZXI3QkZjMGZCbWNHMEJhUjVidDhXUFlDeDY2Vk54?=
+ =?utf-8?B?U2ZoLzljNzNPRFhYcmU4WHdYL1ZJZVdjQkovUGxwczJnTVI5NGlmWTRjSkpE?=
+ =?utf-8?B?RHVlNnpoYld5cTJMUlZkZ2xrVWN6bGF2WlBrbU1HaWFKSFBUUzBlQlh0Ukc5?=
+ =?utf-8?B?aElpS2dOeXh6MzJ3Y1hPampVTStkcFNKVzNmMXFvVkZFUXVhVmJBR0U2VnRE?=
+ =?utf-8?B?Ry9iWHhReGpIVlNFWHUrYnN0VFV4Z1l6bDhZaFdybThrVHdqV1ZKdXZKMEJ1?=
+ =?utf-8?B?cTYrL2p0cGZ2R3hzM3FKaUc4VDE4Uk9YK2RsM0dCaVV6bFhLTjFnSFpFN0xk?=
+ =?utf-8?B?K0VPS29YOE8yZVJqUkJSSk9MUWVPOG9CYlZIVU13dzNrQ053ZS83WU4xZnBl?=
+ =?utf-8?B?UVFLODlhWS9zZDFKaFlid3hIaUZaWUxnQ3NUeUNCRXM3U0tSVUhuRnFLMDZH?=
+ =?utf-8?B?T05VallnU0RTeEltR3pvN3NOMytjYUppZnRpYVB2T0dqTVdtMllaanp0SXkw?=
+ =?utf-8?B?eFk3M1AwaWdMM3RZeExjVVJyM29lZ0QvZXNtNU5BVjdXR0pSTm12VGZYOERq?=
+ =?utf-8?B?N0hCR0M2UVdyYTc3NkpsQ2QxcDFvS0VFOGlKZUNlTGZqamhOS2MxUjdWZklO?=
+ =?utf-8?B?NHhCNE5Wd254bHhqbENEcmIwUVBSRGo3QzBvQjRLK20zSEFWZW9kSlNMSjJH?=
+ =?utf-8?B?YjlzZ01JRjd0aDc4aTVwTVFVd3ZiV2hXbGNVdG5nU0h1NUhyaFhQbnZZTm81?=
+ =?utf-8?B?R1lhRUNUUEdsMm15cWE4RDZlRk03MTRuVnZmdzcxK2UvNmJPZVNvUUoxczJh?=
+ =?utf-8?B?VFJBL1VqVDYxYlZrb1RGbjdHSXI3b251NHg5UmNZelZQZzRDNXhsR2lGSEZk?=
+ =?utf-8?B?NUVPbFVzSk1PZGNlRkFYUFdMcVFDb2syOVFBREFSdmpJeVNWU1JMV1BqcGY1?=
+ =?utf-8?B?LzJuREpEVENjRGVsbjRiS1NrYm5QMHQzSGVBYXFOY25GTGtidFd2bDA3SW5u?=
+ =?utf-8?B?N2pKa0RYR29uYlFMNmUzaVpOWlNtekkyWElrOW1qaGNBNnIxcmpaRG02YjJC?=
+ =?utf-8?B?a2xiOW1paStQZ3phN24vU2NCaTZxdnJLd3FGSXlBcStYM1NkSWZ2OHdad2Vo?=
+ =?utf-8?B?SDUzWjB5OXN5MEdhWlk0ZXNWSkQrU0FuZWVnSm14a0FFSkxnZ2t1N3BXRGxz?=
+ =?utf-8?Q?03lM=3D?=
+X-Forefront-Antispam-Report: CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700013)(1800799024)(82310400026)(376014);DIR:OUT;SFP:1101;
 X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Nov 2025 13:36:59.5205
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Nov 2025 13:37:00.0399
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 506c60d3-3641-46c3-10d2-08de29030c02
+X-MS-Exchange-CrossTenant-Network-Message-Id: 79a87863-2e82-4ee9-1b50-08de29030c53
 X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.59];Helo=[smtpO365.st.com]
 X-MS-Exchange-CrossTenant-AuthSource: DB1PEPF000509F9.eurprd02.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB5PR10MB9193
-X-Proofpoint-GUID: NWszJs1F1d04DedvDNeuDLDyrkx_ioC3
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMTIxMDA5OSBTYWx0ZWRfXzyT6VXR0hiUK
- LjQiYUmNLbMmlk6QH4DD03fXFDuxeG+Ryot12GJxCDh0wCnWRoRFfbJaEXz0TljGnd714Rd7TqE
- ekpeAGXNpQyPD2JPg1VKLpDdrq7ZruBMTbOTZNy0PMrb45cUSOlVpjELKCOnQnBPAT0yXw+oSIF
- ZikwHXDfdQqyzhmeyeYsjUgHQwmgE7zB8xcSuPsWEufcV479E6mjLX4JkMO7ZmX8qcKziD5JYzq
- 9TND5GtIBJgDZep6+mmzotIhWslpJTr/LbRInSTLczUI6wEyOcYy7iKkl/eXKveKzCnPY4Yi48z
- 8vfb3GAeGTY6gjvVteYH0aWaUG1jFFd8JN3VvxdhwOOxKBUcIX0UF03TgH2B5EHkhI0SFM6oR2G
- WNzPc2hlZsjVViPH5h3nlk+d37SStQ==
-X-Authority-Analysis: v=2.4 cv=J+inLQnS c=1 sm=1 tr=0 ts=69206b00 cx=c_pps
- a=gkXL6sAu4RnYAcgyXzJ/6g==:117 a=d6reE3nDawwanmLcZTMRXA==:17
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR10MB3343
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMTIxMDA5OSBTYWx0ZWRfX5qttP84FGHID
+ g3Tf4QZLCJCFHFrszc3i4Hfkit6qlkui9oQySK2tJPL1MAI6+z/xiL8jWdl5AIjUzUXUs/8yGcg
+ R/3hesqZcdvercgNYLIgrsMHOkbDL/a0VUFCpS2h86GYXxnWvWatnIen0Ag4b/mcipdvWm7sfmG
+ VbYT5gy5fm84PGJN8ns6Z3CGUlPpPNRp7mik5G9i7CBeVbxuS9V1P34RhJk0luRS+dHS7XQqgoL
+ v6peYLsOqem0rKBeX0J+EtwzOTdJckegOU8I6EaBuydc68s92XjxK3eZOrLG5QaCeROBvHz3ZKT
+ NU9YT2jxodJmUUTtV+t7jGGzd+phkukmSMAkhs2zV+H4KZJ3X688M/pIxcFq0UKfb1lQONBLQc+
+ fdgx90cA11s135Fk6odLG3S4tk2VdA==
+X-Proofpoint-GUID: 1zJK8M_AFFOxiwKU5Nclh5sMM5NEU5SH
+X-Proofpoint-ORIG-GUID: 1zJK8M_AFFOxiwKU5Nclh5sMM5NEU5SH
+X-Authority-Analysis: v=2.4 cv=YLiSCBGx c=1 sm=1 tr=0 ts=69206aff cx=c_pps
+ a=v0EG2prNrbZAmvYa4Zp51w==:117 a=d6reE3nDawwanmLcZTMRXA==:17
  a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=iPq3YwKX0LwA:10 a=IkcTkHD0fZMA:10
  a=6UeiqGixMTsA:10 a=s63m1ICgrNkA:10 a=KrXZwBdWH7kA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=8b9GpE9nAAAA:8 a=IQHcLSFj4Mn2yckHXKoA:9
+ a=VkNPw1HP01LnGYTKEx00:22 a=8b9GpE9nAAAA:8 a=KjfASy0ghDGyr30XYOQA:9
  a=QEXdDO2ut3YA:10 a=T3LWEMljR5ZiDmsYVIUa:22
-X-Proofpoint-ORIG-GUID: NWszJs1F1d04DedvDNeuDLDyrkx_ioC3
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
  definitions=2025-11-21_03,2025-11-21_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 bulkscore=0
- phishscore=0 clxscore=1015 suspectscore=0 spamscore=0 impostorscore=0
- adultscore=0 lowpriorityscore=0 priorityscore=1501 malwarescore=0
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0
+ priorityscore=1501 spamscore=0 clxscore=1015 bulkscore=0 impostorscore=0
+ suspectscore=0 malwarescore=0 phishscore=0 adultscore=0 lowpriorityscore=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2510240001 definitions=main-2511210099
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251121_053711_248859_B627EAC8 
-X-CRM114-Status: GOOD (  17.40  )
+X-CRM114-CacheID: sfid-20251121_053715_727984_49BE20B1 
+X-CRM114-Status: GOOD (  16.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -193,110 +192,136 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Before restoring semaphore status after suspend, introduce new functions
-to handle semaphore operations :
-- stm32_dma3_get_chan_sem() to take the semaphore
-- stm32_dma3_put_chan_sem() to release the semaphore
-Also, use a new boolean variable semaphore_taken, which is true when the
-semaphore has been taken and false when it has been released.
+The purpose of this helper is to 'standardize' device pointer retrieval,
+similar to the chan2dev() helper.
+ddata2dev() helper returns the device pointer from struct dma_device stored
+in stm32_dma3_ddata structure.
+Device pointer from struct dma_device has been initialized with &pdev->dev,
+so the ddata2dev helper returns &pdev->dev.
 
 Signed-off-by: Amelie Delaunay <amelie.delaunay@foss.st.com>
 ---
- drivers/dma/stm32/stm32-dma3.c | 55 +++++++++++++++++++++++++++++++++---------
- 1 file changed, 44 insertions(+), 11 deletions(-)
+ drivers/dma/stm32/stm32-dma3.c | 28 +++++++++++++++++-----------
+ 1 file changed, 17 insertions(+), 11 deletions(-)
 
 diff --git a/drivers/dma/stm32/stm32-dma3.c b/drivers/dma/stm32/stm32-dma3.c
-index 9500164c8f68..a1583face7ec 100644
+index 29ea510fa539..84b00c436134 100644
 --- a/drivers/dma/stm32/stm32-dma3.c
 +++ b/drivers/dma/stm32/stm32-dma3.c
-@@ -288,6 +288,7 @@ struct stm32_dma3_chan {
- 	u32 fifo_size;
- 	u32 max_burst;
- 	bool semaphore_mode;
-+	bool semaphore_taken;
- 	struct stm32_dma3_dt_conf dt_config;
- 	struct dma_slave_config dma_config;
- 	u8 config_set;
-@@ -1063,11 +1064,50 @@ static irqreturn_t stm32_dma3_chan_irq(int irq, void *devid)
- 	return IRQ_HANDLED;
+@@ -333,6 +333,11 @@ static struct device *chan2dev(struct stm32_dma3_chan *chan)
+ 	return &chan->vchan.chan.dev->device;
  }
  
-+static int stm32_dma3_get_chan_sem(struct stm32_dma3_chan *chan)
++static struct device *ddata2dev(struct stm32_dma3_ddata *ddata)
 +{
-+	struct stm32_dma3_ddata *ddata = to_stm32_dma3_ddata(chan);
-+	u32 csemcr, ccid;
-+
-+	csemcr = readl_relaxed(ddata->base + STM32_DMA3_CSEMCR(chan->id));
-+	/* Make an attempt to take the channel semaphore if not already taken */
-+	if (!(csemcr & CSEMCR_SEM_MUTEX)) {
-+		writel_relaxed(CSEMCR_SEM_MUTEX, ddata->base + STM32_DMA3_CSEMCR(chan->id));
-+		csemcr = readl_relaxed(ddata->base + STM32_DMA3_CSEMCR(chan->id));
-+	}
-+
-+	/* Check if channel is under CID1 control */
-+	ccid = FIELD_GET(CSEMCR_SEM_CCID, csemcr);
-+	if (!(csemcr & CSEMCR_SEM_MUTEX) || ccid != CCIDCFGR_CID1)
-+		goto bad_cid;
-+
-+	chan->semaphore_taken = true;
-+	dev_dbg(chan2dev(chan), "under CID1 control (semcr=0x%08x)\n", csemcr);
-+
-+	return 0;
-+
-+bad_cid:
-+	chan->semaphore_taken = false;
-+	dev_err(chan2dev(chan), "not under CID1 control (in-use by CID%d)\n", ccid);
-+
-+	return -EACCES;
++	return ddata->dma_dev.dev;
 +}
 +
-+static void stm32_dma3_put_chan_sem(struct stm32_dma3_chan *chan)
-+{
-+	struct stm32_dma3_ddata *ddata = to_stm32_dma3_ddata(chan);
-+
-+	if (chan->semaphore_taken) {
-+		writel_relaxed(0, ddata->base + STM32_DMA3_CSEMCR(chan->id));
-+		chan->semaphore_taken = false;
-+		dev_dbg(chan2dev(chan), "no more under CID1 control\n");
-+	}
-+}
-+
- static int stm32_dma3_alloc_chan_resources(struct dma_chan *c)
+ static void stm32_dma3_chan_dump_reg(struct stm32_dma3_chan *chan)
  {
- 	struct stm32_dma3_chan *chan = to_stm32_dma3_chan(c);
  	struct stm32_dma3_ddata *ddata = to_stm32_dma3_ddata(chan);
--	u32 id = chan->id, csemcr, ccid;
+@@ -1110,7 +1115,7 @@ static int stm32_dma3_alloc_chan_resources(struct dma_chan *c)
+ 	struct stm32_dma3_ddata *ddata = to_stm32_dma3_ddata(chan);
  	int ret;
  
- 	ret = pm_runtime_resume_and_get(ddata->dma_dev.dev);
-@@ -1092,16 +1132,9 @@ static int stm32_dma3_alloc_chan_resources(struct dma_chan *c)
+-	ret = pm_runtime_resume_and_get(ddata->dma_dev.dev);
++	ret = pm_runtime_resume_and_get(ddata2dev(ddata));
+ 	if (ret < 0)
+ 		return ret;
  
- 	/* Take the channel semaphore */
- 	if (chan->semaphore_mode) {
--		writel_relaxed(CSEMCR_SEM_MUTEX, ddata->base + STM32_DMA3_CSEMCR(id));
--		csemcr = readl_relaxed(ddata->base + STM32_DMA3_CSEMCR(id));
--		ccid = FIELD_GET(CSEMCR_SEM_CCID, csemcr);
--		/* Check that the channel is well taken */
--		if (ccid != CCIDCFGR_CID1) {
--			dev_err(chan2dev(chan), "Not under CID1 control (in-use by CID%d)\n", ccid);
--			ret = -EPERM;
-+		ret = stm32_dma3_get_chan_sem(chan);
-+		if (ret)
- 			goto err_pool_destroy;
--		}
--		dev_dbg(chan2dev(chan), "Under CID1 control (semcr=0x%08x)\n", csemcr);
+@@ -1144,7 +1149,7 @@ static int stm32_dma3_alloc_chan_resources(struct dma_chan *c)
+ 	chan->lli_pool = NULL;
+ 
+ err_put_sync:
+-	pm_runtime_put_sync(ddata->dma_dev.dev);
++	pm_runtime_put_sync(ddata2dev(ddata));
+ 
+ 	return ret;
+ }
+@@ -1170,7 +1175,7 @@ static void stm32_dma3_free_chan_resources(struct dma_chan *c)
+ 	if (chan->semaphore_mode)
+ 		stm32_dma3_put_chan_sem(chan);
+ 
+-	pm_runtime_put_sync(ddata->dma_dev.dev);
++	pm_runtime_put_sync(ddata2dev(ddata));
+ 
+ 	/* Reset configuration */
+ 	memset(&chan->dt_config, 0, sizeof(chan->dt_config));
+@@ -1610,11 +1615,11 @@ static bool stm32_dma3_filter_fn(struct dma_chan *c, void *fn_param)
+ 		if (!(mask & BIT(chan->id)))
+ 			return false;
+ 
+-	ret = pm_runtime_resume_and_get(ddata->dma_dev.dev);
++	ret = pm_runtime_resume_and_get(ddata2dev(ddata));
+ 	if (ret < 0)
+ 		return false;
+ 	semcr = readl_relaxed(ddata->base + STM32_DMA3_CSEMCR(chan->id));
+-	pm_runtime_put_sync(ddata->dma_dev.dev);
++	pm_runtime_put_sync(ddata2dev(ddata));
+ 
+ 	/* Check if chan is free */
+ 	if (semcr & CSEMCR_SEM_MUTEX)
+@@ -1636,7 +1641,7 @@ static struct dma_chan *stm32_dma3_of_xlate(struct of_phandle_args *dma_spec, st
+ 	struct dma_chan *c;
+ 
+ 	if (dma_spec->args_count < 3) {
+-		dev_err(ddata->dma_dev.dev, "Invalid args count\n");
++		dev_err(ddata2dev(ddata), "Invalid args count\n");
+ 		return NULL;
  	}
  
- 	return 0;
-@@ -1135,7 +1168,7 @@ static void stm32_dma3_free_chan_resources(struct dma_chan *c)
+@@ -1645,14 +1650,14 @@ static struct dma_chan *stm32_dma3_of_xlate(struct of_phandle_args *dma_spec, st
+ 	conf.tr_conf = dma_spec->args[2];
  
- 	/* Release the channel semaphore */
- 	if (chan->semaphore_mode)
--		writel_relaxed(0, ddata->base + STM32_DMA3_CSEMCR(chan->id));
-+		stm32_dma3_put_chan_sem(chan);
+ 	if (conf.req_line >= ddata->dma_requests) {
+-		dev_err(ddata->dma_dev.dev, "Invalid request line\n");
++		dev_err(ddata2dev(ddata), "Invalid request line\n");
+ 		return NULL;
+ 	}
  
- 	pm_runtime_put_sync(ddata->dma_dev.dev);
+ 	/* Request dma channel among the generic dma controller list */
+ 	c = dma_request_channel(mask, stm32_dma3_filter_fn, &conf);
+ 	if (!c) {
+-		dev_err(ddata->dma_dev.dev, "No suitable channel found\n");
++		dev_err(ddata2dev(ddata), "No suitable channel found\n");
+ 		return NULL;
+ 	}
  
+@@ -1665,6 +1670,7 @@ static struct dma_chan *stm32_dma3_of_xlate(struct of_phandle_args *dma_spec, st
+ 
+ static u32 stm32_dma3_check_rif(struct stm32_dma3_ddata *ddata)
+ {
++	struct device *dev = ddata2dev(ddata);
+ 	u32 chan_reserved, mask = 0, i, ccidcfgr, invalid_cid = 0;
+ 
+ 	/* Reserve Secure channels */
+@@ -1676,7 +1682,7 @@ static u32 stm32_dma3_check_rif(struct stm32_dma3_ddata *ddata)
+ 	 * In case CID filtering is not configured, dma-channel-mask property can be used to
+ 	 * specify available DMA channels to the kernel.
+ 	 */
+-	of_property_read_u32(ddata->dma_dev.dev->of_node, "dma-channel-mask", &mask);
++	of_property_read_u32(dev->of_node, "dma-channel-mask", &mask);
+ 
+ 	/* Reserve !CID-filtered not in dma-channel-mask, static CID != CID1, CID1 not allowed */
+ 	for (i = 0; i < ddata->dma_channels; i++) {
+@@ -1696,7 +1702,7 @@ static u32 stm32_dma3_check_rif(struct stm32_dma3_ddata *ddata)
+ 				ddata->chans[i].semaphore_mode = true;
+ 			}
+ 		}
+-		dev_dbg(ddata->dma_dev.dev, "chan%d: %s mode, %s\n", i,
++		dev_dbg(dev, "chan%d: %s mode, %s\n", i,
+ 			!(ccidcfgr & CCIDCFGR_CFEN) ? "!CID-filtered" :
+ 			ddata->chans[i].semaphore_mode ? "Semaphore" : "Static CID",
+ 			(chan_reserved & BIT(i)) ? "denied" :
+@@ -1704,7 +1710,7 @@ static u32 stm32_dma3_check_rif(struct stm32_dma3_ddata *ddata)
+ 	}
+ 
+ 	if (invalid_cid)
+-		dev_warn(ddata->dma_dev.dev, "chan%*pbl have invalid CID configuration\n",
++		dev_warn(dev, "chan%*pbl have invalid CID configuration\n",
+ 			 ddata->dma_channels, &invalid_cid);
+ 
+ 	return chan_reserved;
 
 -- 
 2.43.0
