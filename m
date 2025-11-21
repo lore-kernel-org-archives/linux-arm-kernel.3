@@ -4,141 +4,168 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FDB1CFC27F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 13:57:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6ECBCFC279
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 13:57:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xtghZh7eeBa0zgsffKJ3eiOL5OvyE27c0pocmVijFC4=; b=cmmeSnQjz8Pmu1L8wZP02dQNVy
-	IS5J2J7HU+T6M8msQ7HHF/h7OQvnWiUGUMEp0fy0pHz2F1fNwO2RnJ+hnz7IgCYD0ctMJWiil2Inp
-	1gwkgxNErY2obG85/ClEpR9JKjd4S3Il57IXbC5k2UCOZv1nwmQ36Irsk0TgTSb+1k4N+KxjdzeyB
-	dl8w/MrYO+1I0DRC0TkHP5jPZN2Uz6VFZCG9osRBPRWaoArlK3v8u9ZdB1zVwv3BGZphcHNey+XsQ
-	U6YY1MXx6oY5AAT2djUfvBcOyfNGYNzG7CDD4FQ7raQ9g6fzT6ScvbGxL2LzFIRmRVyYCyO4oa5H5
-	51UEQu/g==;
+	bh=lPRjWKgQK4GbWHhYLu5IMziL3gmxX8Lp65S1Ri/lXtw=; b=UtZZ8ZqOUl1u478ln0wAykwfdd
+	ubIcJ7KFZRJKhhn+aWwh9PidqwZ0mCjXhFhR/QB5IvnijQYneClbAZjEgzsHWSxrNHNptrM9Un00I
+	RlosUuI9H+Uf6oYGx8Y3Ogammd92COueEGGZNwnk+n9PUFhgebypZuyztmEJrYf4+DFpHHhAhUKlH
+	xPPDgzPQrhz89UXb6/vVWLkcynXwKFHNRx4KDVZZv8IXXic3eMXdvMhbCewwclUNL+FzaYqqL9nDH
+	2tPUGwVl+qhtvcTWhrgZrMY1QtS9fo7ysukXoYHmYIPut2pJPNPv8Re14hIAp3FnUBCviPomdAwAQ
+	zR0PRVRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMRdF-00000008TTZ-0V4R;
-	Fri, 21 Nov 2025 13:57:01 +0000
-Received: from smtp-out2.suse.de ([195.135.223.131])
+	id 1vMRdW-00000008TmV-45Pw;
+	Fri, 21 Nov 2025 13:57:18 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMRd8-00000008TJB-25FR
+	id 1vMRdV-00000008TkX-2ZUY
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 21 Nov 2025 13:57:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=lPRjWKgQK4GbWHhYLu5IMziL3gmxX8Lp65S1Ri/lXtw=; b=ntryvJ7MBO4iM9e9NQRlpw2gHE
+	eJUZgPBwhzATmqpgQf/25/oa9EAa0RqZzcWupDJ91aiZSJ9aoUPD/YUitz7nK8BMo2UMXKxO/6Np0
+	/+mlQITtU8HT+Hn2uQRB/hZQrLaLORa8mz1UdWYvuKlnDCuwf4BO4lhTowre5lEEfi5haOltQJHqP
+	9754xgHt89NGaVgFQjMNZ8q5nGakZEJYUm02OWtQ3COKvv+BfDd/FiDRDlCDVp0mDzxNAzdRlJNtH
+	ek0aog8JGQjVwlWOT9TAcv12fvUuAukC8PJTW03iz5NMOEt1AQgoSawQtTEb6p0BvulBWZWdah6T9
+	Lc4YqLxg==;
+Received: from mail-westcentralusazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c112::7] helo=CY3PR05CU001.outbound.protection.outlook.com)
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vMQln-0000000Gu74-3CCr
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Nov 2025 13:56:56 +0000
-Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id 68BDB21018;
-	Fri, 21 Nov 2025 13:56:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1763733393; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=xtghZh7eeBa0zgsffKJ3eiOL5OvyE27c0pocmVijFC4=;
-	b=HO5kGCHF/D1Pc+UNPx6GzgfVmbxpF5grD3EOQWM0q0xHGH0wMn3yv3RMHjiUVNU5nico0H
-	iaasSfMC/VKHi2q1hp0HDcfNhdjGaWhysg6aRDg8yirFpj3P1GVCRUE0Js3YSpD6Zm6let
-	fFcLsgH15EI7B5yD5ZUd+fj6+Qavma4=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1763733393;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=xtghZh7eeBa0zgsffKJ3eiOL5OvyE27c0pocmVijFC4=;
-	b=1pD1z/ul2RdfgYUbYvh2lclQ3zoY14m4Wxf+MQKFaqNHcVe8UwV8qBBkn5e1AgvpdONtIE
-	ryP6CP5k9FLQDUDQ==
-Authentication-Results: smtp-out2.suse.de;
-	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=HO5kGCHF;
-	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b="1pD1z/ul"
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1763733393; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=xtghZh7eeBa0zgsffKJ3eiOL5OvyE27c0pocmVijFC4=;
-	b=HO5kGCHF/D1Pc+UNPx6GzgfVmbxpF5grD3EOQWM0q0xHGH0wMn3yv3RMHjiUVNU5nico0H
-	iaasSfMC/VKHi2q1hp0HDcfNhdjGaWhysg6aRDg8yirFpj3P1GVCRUE0Js3YSpD6Zm6let
-	fFcLsgH15EI7B5yD5ZUd+fj6+Qavma4=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1763733393;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=xtghZh7eeBa0zgsffKJ3eiOL5OvyE27c0pocmVijFC4=;
-	b=1pD1z/ul2RdfgYUbYvh2lclQ3zoY14m4Wxf+MQKFaqNHcVe8UwV8qBBkn5e1AgvpdONtIE
-	ryP6CP5k9FLQDUDQ==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 115AD3EA61;
-	Fri, 21 Nov 2025 13:56:33 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id 0JjBApFvIGkqdQAAD6G6ig
-	(envelope-from <tzimmermann@suse.de>); Fri, 21 Nov 2025 13:56:33 +0000
-From: Thomas Zimmermann <tzimmermann@suse.de>
-To: ardb@kernel.org,
-	javierm@redhat.com,
-	arnd@arndb.de
-Cc: x86@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-efi@vger.kernel.org,
-	loongarch@lists.linux.dev,
-	linux-riscv@lists.infradead.org,
-	dri-devel@lists.freedesktop.org,
-	linux-hyperv@vger.kernel.org,
-	linux-pci@vger.kernel.org,
-	linux-fbdev@vger.kernel.org,
-	Thomas Zimmermann <tzimmermann@suse.de>
-Subject: [PATCH 6/6] sysfb: Move edid_info into sysfb_primary_display
-Date: Fri, 21 Nov 2025 14:36:10 +0100
-Message-ID: <20251121135624.494768-7-tzimmermann@suse.de>
-X-Mailer: git-send-email 2.51.1
-In-Reply-To: <20251121135624.494768-1-tzimmermann@suse.de>
-References: <20251121135624.494768-1-tzimmermann@suse.de>
+	Fri, 21 Nov 2025 13:01:50 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=dVTubdl2bHhz14l25bEUgscFn/NnC7QqDP1Mg4pXQ1COOrsCyLA1+PTpc60XwmCiRFoIZCZE9o+YOlbiFrkbCFmT8kgU991PeZw7RLHjo9Exqs+aotSs6pSu1ylmYjg4DtkzgsXA14Fgj9/c9kiogIR94OIAKqFJ7PlQQRLHiFY+Xp9vt2MlJ91YY7fAfyOzY5WZMEva4OFl5TMXmlvHpRNOhrdUnTNYA/JxLFGLE+VzrmiwNN27qcIpRUEKZhGYr/yEe9/An2pAY6xYwGuPzw52yxoyWzOOH835oWR9V0XXR+3hRwBA+Nb2rJp3oK+QQzbXGXtUl+P/IzjmJFGYPw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=lPRjWKgQK4GbWHhYLu5IMziL3gmxX8Lp65S1Ri/lXtw=;
+ b=Jz4eYHRJmoLfYmac1Tlp/S7hPlcYrbzKQQkMYHMLDK0Ngfs6iznxhQY/0FpI2Bj5exZxdJUsRl8MsaNA7Rr2IUCV2t5OQXNXKvUjIhyibOw0m0KJyuJ+fVqhRQJJQpzonNzuwzbhh/AamE+pLJCLa4tFTyFKGqlxHj/WTyCP3ga6T67c3QfELLmA9TzlGyEWsy+j+4jRnt81d3YSgu2dOVXuItyKbbrwC1z7BzLVKj6TzV135sM58Q5cWeLVYvFnURHJGBxC71ShQkF7Z+TliD/ZUme6xlz1ZEZILw459nt3OtuKYmS89QRF7Su9QXd7HrzxDdNfsIaycaZ1TXCp5w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.23.195) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=lPRjWKgQK4GbWHhYLu5IMziL3gmxX8Lp65S1Ri/lXtw=;
+ b=PsfSjX8BlZ8I/+bHYgPzFp/ucZzAkjBbb2iDtJBcv0uYPB3EsSMlwplgauMCVZ91CNL/FsJOrWRj81Mzc2vKAynxkSHtoQDmlE0TbSJrbFagyTBkHxMzw7shu7wc8Wds9B06uK+ZfqIaWV7qdmbPlIMLKturnDXbOBGm74Et9UA=
+Received: from BL1P221CA0019.NAMP221.PROD.OUTLOOK.COM (2603:10b6:208:2c5::20)
+ by SJ0PR10MB4415.namprd10.prod.outlook.com (2603:10b6:a03:2dc::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9343.12; Fri, 21 Nov
+ 2025 13:57:02 +0000
+Received: from MN1PEPF0000ECD7.namprd02.prod.outlook.com
+ (2603:10b6:208:2c5:cafe::37) by BL1P221CA0019.outlook.office365.com
+ (2603:10b6:208:2c5::20) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9343.14 via Frontend Transport; Fri,
+ 21 Nov 2025 13:57:01 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.195)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
+Received: from lewvzet201.ext.ti.com (198.47.23.195) by
+ MN1PEPF0000ECD7.mail.protection.outlook.com (10.167.242.136) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9343.9 via Frontend Transport; Fri, 21 Nov 2025 13:57:01 +0000
+Received: from DLEE201.ent.ti.com (157.170.170.76) by lewvzet201.ext.ti.com
+ (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 21 Nov
+ 2025 07:56:57 -0600
+Received: from DLEE201.ent.ti.com (157.170.170.76) by DLEE201.ent.ti.com
+ (157.170.170.76) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 21 Nov
+ 2025 07:56:56 -0600
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE201.ent.ti.com
+ (157.170.170.76) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Fri, 21 Nov 2025 07:56:56 -0600
+Received: from uda0132425.dhcp.ti.com (uda0132425.dhcp.ti.com [172.24.233.103])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 5ALDurVV1323598;
+	Fri, 21 Nov 2025 07:56:54 -0600
+From: Vignesh Raghavendra <vigneshr@ti.com>
+To: Nishanth Menon <nm@ti.com>, Rob Herring <robh@kernel.org>, Tero Kristo
+	<kristo@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+	<conor+dt@kernel.org>, Michael Walle <mwalle@kernel.org>
+CC: Vignesh Raghavendra <vigneshr@ti.com>,
+	<linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH] arm64: dts: ti: sa67: add build time dtb for overlays
+Date: Fri, 21 Nov 2025 19:26:51 +0530
+Message-ID: <176373265676.739386.15498422901678738455.b4-ty@ti.com>
+X-Mailer: git-send-email 2.49.0
+In-Reply-To: <20251120080138.2397851-1-mwalle@kernel.org>
+References: <20251120080138.2397851-1-mwalle@kernel.org>
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-Rspamd-Queue-Id: 68BDB21018
-X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
-X-Spamd-Result: default: False [-3.01 / 50.00];
-	BAYES_HAM(-3.00)[100.00%];
-	MID_CONTAINS_FROM(1.00)[];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	R_MISSING_CHARSET(0.50)[];
-	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	MX_GOOD(-0.01)[];
-	SPAMHAUS_XBL(0.00)[2a07:de40:b281:104:10:150:64:97:from];
-	FUZZY_RATELIMITED(0.00)[rspamd.com];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	MIME_TRACE(0.00)[0:+];
-	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
-	RCPT_COUNT_TWELVE(0.00)[14];
-	ARC_NA(0.00)[];
-	RCVD_COUNT_TWO(0.00)[2];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
-	DWL_DNSWL_BLOCKED(0.00)[suse.de:dkim];
-	FROM_EQ_ENVFROM(0.00)[];
-	R_RATELIMIT(0.00)[to_ip_from(RLtfyjk8sg4x43ngtem9djprcp)];
-	RCVD_TLS_ALL(0.00)[];
-	DKIM_TRACE(0.00)[suse.de:+];
-	TO_DN_SOME(0.00)[];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo,imap1.dmz-prg2.suse.org:rdns,suse.de:email,suse.de:mid,suse.de:dkim]
-X-Rspamd-Action: no action
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MN1PEPF0000ECD7:EE_|SJ0PR10MB4415:EE_
+X-MS-Office365-Filtering-Correlation-Id: a37e8bd5-4507-48ba-d341-08de2905d88e
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|376014|36860700013|1800799024;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?ZUFJV0JRNEtWTExNaHRFMHpnN3A4Y3pEa0xlMVNxZFlGc3B3cmNZMU1LTHIw?=
+ =?utf-8?B?NW83UEhHZk5LNy9oRDBoVVkzaStvMjROUlNidkdyR3hkWThKZmRHSzlWQnZO?=
+ =?utf-8?B?TFd3Y0N4QVQ2ZlhPTjlVc01wbWwyWURkM1IyOVNOM3ViRzRuakhoc2wreVlZ?=
+ =?utf-8?B?ZTBlWVQ3cjZsb1dVVkh0aGZFSXN1K1N3V1IydW55QUE3aFZmd1IwMXZKcXg4?=
+ =?utf-8?B?YUhYNnB1bldqa1NBR3p2K3dFeFFyUS8zWGhmNW1uVTZTdnpyMTdCcmJ6Qk9F?=
+ =?utf-8?B?UlZLMmF1RXZDZThRUHpmMEVOKzRPWEtUVlFSV0Y5bnROTU9iVitBOGx1eHM1?=
+ =?utf-8?B?Q2ZNU1dUaVlNK0tmZzdJT0RzMmRMbmJHVU9LcTE2YmI4aU1MZGRFenZtUDVT?=
+ =?utf-8?B?TDExKzlYcy9xNGpIdlVPZ2tuL3YySWkrbmk5Wk9odmdIMXZOYWpSMnFUTGFK?=
+ =?utf-8?B?dFAwNjRxbGliZlVWNEVML1NrTkVuMTdmZXRyckg0bUF4MHQrK3VkcjBjWE5p?=
+ =?utf-8?B?a0lmSDVRaVNIR0xMU0VTOS9lVHRqOXpzZUxnK05qYVZLQVRPNXRFWkFXV3Ny?=
+ =?utf-8?B?bTJsdldFRSszRXNPMVY0L0ZxREpudjF5aDlxKzNYbEpDUU5vOUd5Ulg3Z29x?=
+ =?utf-8?B?bEJLZDNYRlJDdktVN2p5MVFFbnA3c0EvaXVXWlNHVVpvNnZUUmN5bW5TbFhS?=
+ =?utf-8?B?RUNMVWxrWUdTSEJBY1BJcXRSaUJETFBpMTZ5djhMSnl6dnM0cFZKeXpXVis2?=
+ =?utf-8?B?RWhMSXhyNEU1dnBuZU5HcXN1UHA3THcrcmkrd0JnOEQ2MzRMYXpGdVNVWjg0?=
+ =?utf-8?B?bUxobjdjbHcvbUJtemRRNHpIM1RKWUNxcVVCRlpMQ29TZUVDOEdYUURwNS93?=
+ =?utf-8?B?Z3Q1akRsNnRLYTZZK0kwbnJGUWFvN2VTb3JHR3lxazg2TTZDMUNGaGlUVnJ4?=
+ =?utf-8?B?ZXVmTFIxbEF1OGhyK1N0ZWpmSDdpdG9ZZTdJK2ZsenlJa0xQcVZjSStBbmhS?=
+ =?utf-8?B?S2ZJb2FxQVJBUE03aEh3MzBlU3RibHlKdTA1eWtPN2hQUlZvbFJDT09zZjhP?=
+ =?utf-8?B?VDdqSzFxQnp1dUdLRXkrMlhpdXVYajdSaGh4QS9MZkdFbEdQem0xZXAyTGJH?=
+ =?utf-8?B?TmJLbzd5MGMyWXhiK2VybTJOdHB0Mk1oR2s2UHl4andJWjdTM3YxK01FY3hR?=
+ =?utf-8?B?cndUYmNER2pBV0pFa2xFUERjTldzd3JudDFIYWpQMWl0OS9sMFNIb2lSZWtL?=
+ =?utf-8?B?ZTZNVCtldmFCOUFKdFp1WStneExNaUlacHEyTWNOTkZYNitHeFVNbTdZeGJk?=
+ =?utf-8?B?SVVwTnlOM1NnbVVnNk1QOVlWMlJCN0o5WkhJY2J0TTQ0Sy9RS00vTEovYk50?=
+ =?utf-8?B?b2xacEhKWCswQUt1NjkrZWpGdlczcnRIYVRXYkh5eGVIUDlDdW1DMUdaRVBs?=
+ =?utf-8?B?aGNVeEFxVUFvZS9HRTdrNy9DRW1qRlJWZlBpK0VNY0xlaFRSSGxBOFVwS29N?=
+ =?utf-8?B?RkZ2TVBzUXNNTW1aMWVRWngzam1VRFJuT0t5OURhSWZzcVU1V05UOER3RHo0?=
+ =?utf-8?B?SVdyZGtxbHQ4ZVZ1Uk1SYUI0Sm9mVEVEMWQ4VlYrR3QrNi9USUlXYVB4MW5z?=
+ =?utf-8?B?MXRLb0F5UGx6bnF6ZVlRc1pLSXQ5dlJJd25ON1hBMVp6N3BKSEh1ZWxjWmJW?=
+ =?utf-8?B?MjJqYjBiMGRMUmZ3UzFDTUpvU3FWWkVtdnhnWE52K1I0NERmODI3MlFBZWpQ?=
+ =?utf-8?B?VjNKMGRSbVFmN3FzUHdwSzlBM3hOVXJKRkJGb082R3VvV2JScEFabDJydU01?=
+ =?utf-8?B?cUZwb1E5bkl2b2Q4VVBCZUh5aXlXKzQwS21mbnNLd3hjTTdzdXVBQm1jVHFC?=
+ =?utf-8?B?NUpUQWszK2E1RXN5cS9xUUJ3Q0hpQ3lFRnRMdFNvRzM2M3dGOW9sVXA2Sldq?=
+ =?utf-8?B?UFBaU3I3RXVvTVU3RTNtOGh3OXVFZEszbzh1cmYzODBoWmp1VnpFc25ZNGVv?=
+ =?utf-8?B?Q20wL0lMenRjNHA3N2oyUjhEb09IbmZUK3FUMXZVckgwR25aNG83R0RaMFdR?=
+ =?utf-8?B?RmN6dUhpaE11aVF6RTNzZjJyL3UrSVpaOHFVQ1VyVEFEYW42Q0JLYUw2Q2dN?=
+ =?utf-8?Q?22MA=3D?=
+X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(376014)(36860700013)(1800799024);DIR:OUT;SFP:1101;
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Nov 2025 13:57:01.6833
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: a37e8bd5-4507-48ba-d341-08de2905d88e
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: MN1PEPF0000ECD7.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR10MB4415
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251121_055654_839279_BF2D03D8 
-X-CRM114-Status: GOOD (  17.89  )
+X-CRM114-CacheID: sfid-20251121_130147_848644_5A82977C 
+X-CRM114-Status: GOOD (  12.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,178 +180,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Move x86's edid_info into sysfb_primary_display as a new field named
-edid. Adapt all users.
+Hi Michael Walle,
 
-An instance of edid_info has only been defined on x86. With the move
-into sysfb_primary_display, it becomes available on all architectures.
-Therefore remove this contraint from CONFIG_FIRMWARE_EDID.
+On Thu, 20 Nov 2025 09:01:22 +0100, Michael Walle wrote:
+> Since commit d8c8a575f5aa ("kbuild: Ensure .dtbo targets are applied to
+> a base .dtb") kbuild will throw a warning for any stray overlays. Add a
+> new .dtb which will only be build if CONFIG_OF_ALL_DTBS is enabled.
+> 
+> 
 
-x86 fills the EDID data from boot_params.edid_info. DRM drivers pick
-up the raw data and make it available to DRM clients. Replace the
-drivers' references to edid_info and instead use the sysfb_display_info
-as passed from sysfb.
+I have applied the following to branch ti-k3-dts-next on [1].
+Thank you!
 
-Signed-off-by: Thomas Zimmermann <tzimmermann@suse.de>
----
- arch/x86/kernel/setup.c          | 6 +-----
- drivers/gpu/drm/sysfb/efidrm.c   | 5 ++---
- drivers/gpu/drm/sysfb/vesadrm.c  | 5 ++---
- drivers/video/Kconfig            | 1 -
- drivers/video/fbdev/core/fbmon.c | 8 +++++---
- include/linux/sysfb.h            | 6 ++++++
- include/video/edid.h             | 4 ----
- 7 files changed, 16 insertions(+), 19 deletions(-)
+[1/1] arm64: dts: ti: sa67: add build time dtb for overlays
+      commit: 4ba96cd38f22b24d72eb3f7c76a0e1cd0af1039d
 
-diff --git a/arch/x86/kernel/setup.c b/arch/x86/kernel/setup.c
-index 675e4b9deb1f..d9bfe2032cd9 100644
---- a/arch/x86/kernel/setup.c
-+++ b/arch/x86/kernel/setup.c
-@@ -215,10 +215,6 @@ arch_initcall(init_x86_sysctl);
- 
- struct sysfb_display_info sysfb_primary_display;
- EXPORT_SYMBOL(sysfb_primary_display);
--#if defined(CONFIG_FIRMWARE_EDID)
--struct edid_info edid_info;
--EXPORT_SYMBOL_GPL(edid_info);
--#endif
- 
- extern int root_mountflags;
- 
-@@ -530,7 +526,7 @@ static void __init parse_boot_params(void)
- 	ROOT_DEV = old_decode_dev(boot_params.hdr.root_dev);
- 	sysfb_primary_display.screen = boot_params.screen_info;
- #if defined(CONFIG_FIRMWARE_EDID)
--	edid_info = boot_params.edid_info;
-+	sysfb_primary_display.edid = boot_params.edid_info;
- #endif
- #ifdef CONFIG_X86_32
- 	apm_info.bios = boot_params.apm_bios_info;
-diff --git a/drivers/gpu/drm/sysfb/efidrm.c b/drivers/gpu/drm/sysfb/efidrm.c
-index 29533ae8fbbf..50e0aeef709c 100644
---- a/drivers/gpu/drm/sysfb/efidrm.c
-+++ b/drivers/gpu/drm/sysfb/efidrm.c
-@@ -24,7 +24,6 @@
- #include <drm/drm_print.h>
- #include <drm/drm_probe_helper.h>
- 
--#include <video/edid.h>
- #include <video/pixel_format.h>
- 
- #include "drm_sysfb_helper.h"
-@@ -207,8 +206,8 @@ static struct efidrm_device *efidrm_device_create(struct drm_driver *drv,
- 		&format->format, width, height, stride);
- 
- #if defined(CONFIG_FIRMWARE_EDID)
--	if (drm_edid_header_is_valid(edid_info.dummy) == 8)
--		sysfb->edid = edid_info.dummy;
-+	if (drm_edid_header_is_valid(dpy->edid.dummy) == 8)
-+		sysfb->edid = dpy->edid.dummy;
- #endif
- 	sysfb->fb_mode = drm_sysfb_mode(width, height, 0, 0);
- 	sysfb->fb_format = format;
-diff --git a/drivers/gpu/drm/sysfb/vesadrm.c b/drivers/gpu/drm/sysfb/vesadrm.c
-index 16fc223f8c5b..0680638b8131 100644
---- a/drivers/gpu/drm/sysfb/vesadrm.c
-+++ b/drivers/gpu/drm/sysfb/vesadrm.c
-@@ -25,7 +25,6 @@
- #include <drm/drm_print.h>
- #include <drm/drm_probe_helper.h>
- 
--#include <video/edid.h>
- #include <video/pixel_format.h>
- #include <video/vga.h>
- 
-@@ -474,8 +473,8 @@ static struct vesadrm_device *vesadrm_device_create(struct drm_driver *drv,
- 	}
- 
- #if defined(CONFIG_FIRMWARE_EDID)
--	if (drm_edid_header_is_valid(edid_info.dummy) == 8)
--		sysfb->edid = edid_info.dummy;
-+	if (drm_edid_header_is_valid(dpy->edid.dummy) == 8)
-+		sysfb->edid = dpy->edid.dummy;
- #endif
- 	sysfb->fb_mode = drm_sysfb_mode(width, height, 0, 0);
- 	sysfb->fb_format = format;
-diff --git a/drivers/video/Kconfig b/drivers/video/Kconfig
-index d51777df12d1..ad55e7d62159 100644
---- a/drivers/video/Kconfig
-+++ b/drivers/video/Kconfig
-@@ -63,7 +63,6 @@ endif # HAS_IOMEM
- 
- config FIRMWARE_EDID
- 	bool "Enable firmware EDID"
--	depends on X86
- 	help
- 	  This enables access to the EDID transferred from the firmware.
- 	  On x86, this is from the VESA BIOS. DRM display drivers will
-diff --git a/drivers/video/fbdev/core/fbmon.c b/drivers/video/fbdev/core/fbmon.c
-index 0a65bef01e3c..07df7e98f8a3 100644
---- a/drivers/video/fbdev/core/fbmon.c
-+++ b/drivers/video/fbdev/core/fbmon.c
-@@ -32,11 +32,13 @@
- #include <linux/module.h>
- #include <linux/pci.h>
- #include <linux/slab.h>
--#include <video/edid.h>
-+#include <linux/string_choices.h>
-+#include <linux/sysfb.h>
-+
- #include <video/of_videomode.h>
- #include <video/videomode.h>
-+
- #include "../edid.h"
--#include <linux/string_choices.h>
- 
- /*
-  * EDID parser
-@@ -1504,7 +1506,7 @@ const unsigned char *fb_firmware_edid(struct device *device)
- 		res = &dev->resource[PCI_ROM_RESOURCE];
- 
- 	if (res && res->flags & IORESOURCE_ROM_SHADOW)
--		edid = edid_info.dummy;
-+		edid = sysfb_primary_display.edid.dummy;
- 
- 	return edid;
- }
-diff --git a/include/linux/sysfb.h b/include/linux/sysfb.h
-index e8bde392c690..5226efde9ad4 100644
---- a/include/linux/sysfb.h
-+++ b/include/linux/sysfb.h
-@@ -12,6 +12,8 @@
- #include <linux/screen_info.h>
- #include <linux/types.h>
- 
-+#include <video/edid.h>
-+
- struct device;
- struct platform_device;
- struct screen_info;
-@@ -62,6 +64,10 @@ struct efifb_dmi_info {
- 
- struct sysfb_display_info {
- 	struct screen_info screen;
-+
-+#if defined(CONFIG_FIRMWARE_EDID)
-+	struct edid_info edid;
-+#endif
- };
- 
- extern struct sysfb_display_info sysfb_primary_display;
-diff --git a/include/video/edid.h b/include/video/edid.h
-index c2b186b1933a..52aabb706032 100644
---- a/include/video/edid.h
-+++ b/include/video/edid.h
-@@ -4,8 +4,4 @@
- 
- #include <uapi/video/edid.h>
- 
--#if defined(CONFIG_FIRMWARE_EDID)
--extern struct edid_info edid_info;
--#endif
--
- #endif /* __linux_video_edid_h__ */
--- 
-2.51.1
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent up the chain during
+the next merge window (or sooner if it is a relevant bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+[1] https://git.kernel.org/pub/scm/linux/kernel/git/ti/linux.git
+--
+Vignesh
 
 
