@@ -4,72 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7D38CFC26F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 13:11:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C204CFC272
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Nov 2025 13:16:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MnqwdaA5dWUbYPOBzVA/TgPmN1pvq/3tSA2sot+sBr0=; b=FUf2DVkRFO9vcEX3pZPr1vO1CP
-	umWGcYuUTzgOKPG40FVjwDUOnnhDKjy+Wdus7gXPo+K6uUvVBc2aWVacdxcTlL7QZ82WAK7x8mS/w
-	yrNHcJC3Okqyw+WdDGL+VclvzhXht0u4fv5RJDgFRxzxqY9BsQ1+iXEMbHB3uZn1195OtcaEUtraV
-	lkPUMejR/omV0Z9yRs2GovHx1WfOMO2iRgpp/ETqJu4jff3tOg158DigJASH66lzbUbzEcpCqHVoS
-	HK6pPE4+VN19/vXwdS0rFxfDvRa4Pe9XiJMxFQ2D8g+S5iYOOCSlcbo+A5In1zgIY2yn3PHOOor7B
-	1F8wIHNg==;
+	bh=gRHZBynpa1Xg/GWZaZ4PlRksyos/x1P/fCt/M2a4Jjg=; b=KUy+1/zry41M+DFKRzOVijV8vZ
+	pZJ+wxGiIqCj1ngjhEJ+2jjeoe+moM13iQVNMr451sq9cQNE+4HOo66ihEa0Zg/U0vr2w/aQLYh0H
+	4b8+K+jD6W+8PgIv8gEafP2HHPJMbCoUOLUXv9GbP4bQCjxT07lC4z/S5Dslr/MgyulZem97PlsjD
+	rK3ECXQEdSO49Ns7u0PaUyk3v9QyCKuNgB3BZVmC0wOma2RtnN8VATNofei8gifhEHcvVEMizBQf8
+	KhAP/8syUylOFqU6868ysO2QLHQUEJ3J+YmsaeQEYWCT9SMpTsZ+mFf+LEQoAL8N4PQhxDz4oPGDO
+	dwqI6h/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMQuu-00000008OlY-37zb;
-	Fri, 21 Nov 2025 13:11:12 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vMR0F-00000008P84-40yD;
+	Fri, 21 Nov 2025 13:16:43 +0000
+Received: from mgamail.intel.com ([192.198.163.17])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMQut-00000008OlH-33VC
+	id 1vMR0C-00000008P7e-3i95
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Nov 2025 13:11:11 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4B3C260233
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Nov 2025 13:11:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E89B7C19422
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Nov 2025 13:11:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763730669;
-	bh=JIYgszXNH0+jUKbQeR1Qnn/VbarzzshNt59U4gEqEK0=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=V8n//RAoJaXbyG/NykKaLbrkpW9S3T/XfJSSPZvw/T+v/rlrCrjAUtEhNTOfasiGc
-	 sH8oRb+G5/TVBpeSYrgfxws/B+fZy5/Ad/nbH+vzMgAYrDKZwT94xRzFETzgjeTadr
-	 koJM6ouwQ+O6JEJVwLnjv9Jvcp3wgLRIEMSYddi/+TKEGrtZQI2NRQcRcnNGJa5P9s
-	 V9hM+HUmFeI28PwiyaVX2sFA6G+gsIwkBq/nszvnDvBhidLgz40UuN1eLWn9gUm32W
-	 xrpmhB9wEHwhmRBYUeSBbSlTXDevUoUudgM5QY5X0vjmyQq0DbubQCV88/OF4vQZXe
-	 xcKhJY1X3oBjA==
-Received: by mail-oa1-f48.google.com with SMTP id 586e51a60fabf-3e41b6469f5so950127fac.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Nov 2025 05:11:09 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCVP3yIw/F0DVSr0JiiDgfKRW8KuKUIFVuCIbvNr3D/cmtlgBgURFIRBZXHwOpeHKAiapBc0tjlQ0KOiM/8G+b7s@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxuv0Hx6HobR6TkfY9Wq65/KWkHrHIOy5y8eSt5zdBn7eyXXcH6
-	hwaMKZM04ZxE9e6D60aZF+AADFN5VBtB+ompXR8TfZTQoSKkX7872GRRgodSo4gKAUUER7BpSSD
-	2CYohYe0yBUXynTVwFG+TK8BsTx1e0os=
-X-Google-Smtp-Source: AGHT+IGN3qq9mxPnMrC9Lfj98rFkvXMzHsdrNeR1Gcm9BGsVmmtpx4DeRJz1cZ8PyQVmNJWLKd/C2lpyhpx400YUIdU=
-X-Received: by 2002:a05:6808:2110:b0:450:ba5b:a46b with SMTP id
- 5614622812f47-45112d8cc9bmr807890b6e.64.1763730669214; Fri, 21 Nov 2025
- 05:11:09 -0800 (PST)
-MIME-Version: 1.0
-References: <20251121010756.6687-1-val@packett.cool>
-In-Reply-To: <20251121010756.6687-1-val@packett.cool>
-From: "Rafael J. Wysocki" <rafael@kernel.org>
-Date: Fri, 21 Nov 2025 14:10:57 +0100
-X-Gmail-Original-Message-ID: <CAJZ5v0h1VTozCKweKvma3dQiUCz8KkR88Hue1cL_jDaKiP+BEw@mail.gmail.com>
-X-Gm-Features: AWmQ_blcWB5zoePI22y4acEeAzm9bTDT2TYoTrkXb4JkvJhzZsLYBoEjcWPdnG0
-Message-ID: <CAJZ5v0h1VTozCKweKvma3dQiUCz8KkR88Hue1cL_jDaKiP+BEw@mail.gmail.com>
+	Fri, 21 Nov 2025 13:16:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1763731001; x=1795267001;
+  h=message-id:subject:from:to:cc:date:in-reply-to:
+   references:content-transfer-encoding:mime-version;
+  bh=eme6ZS8FJJxzqwbZg8ZaCh+HrZE7enpHSIvrum+fCgs=;
+  b=YfHJv4YAHxSVZHEQe7KJT4PwE6zkEbqbC6L1uQ2Hdy5XEpPNXX0E8UHd
+   lWl8bVFh65jNwqnK8fAO1aa7DxeL9bmzezWSB/DqycXXrU3kZ3W0WLpcF
+   xSNxyLm+Sw07BxyZ4amIaQ3BDbhu4kbCLiJnTZOhDCy7fTF479SnNZd+W
+   ar+z4VzyEdd9ejNXIyQCX88GGbmBBABxwp+9byS+2u9jx3+qvPai+sMBU
+   Dm607cwDPv20nCXbnZbqYSAM0DnvtJYRTT+RtNrwWJQJQUOf5dUYByTms
+   eqMPjAW98hwzJsWACc4JPgchK8fqp/bu1a3PLM7DmFmODVjPEigNGrcog
+   g==;
+X-CSE-ConnectionGUID: WGGN8zsATImmD2aOGIACKA==
+X-CSE-MsgGUID: i1CIYvdWQPiNhpH69PVHoA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11619"; a="65715168"
+X-IronPort-AV: E=Sophos;i="6.20,215,1758610800"; 
+   d="scan'208";a="65715168"
+Received: from orviesa008.jf.intel.com ([10.64.159.148])
+  by fmvoesa111.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Nov 2025 05:16:39 -0800
+X-CSE-ConnectionGUID: BYD38/rGScCo6JrhPcAgwA==
+X-CSE-MsgGUID: TeF7mPGHQ7+l5Q7FZNI3vg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.20,215,1758610800"; 
+   d="scan'208";a="191803187"
+Received: from linux.intel.com ([10.54.29.200])
+  by orviesa008.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Nov 2025 05:16:38 -0800
+Received: from [10.245.245.66] (abityuts-desk.ger.corp.intel.com [10.245.245.66])
+	by linux.intel.com (Postfix) with ESMTP id 6FED820A8406;
+	Fri, 21 Nov 2025 05:16:35 -0800 (PST)
+Message-ID: <efe52356123168be06811abd08a99f65d6980baa.camel@linux.intel.com>
 Subject: Re: [PATCH] cpuidle: warn and fixup on sanity check instead of
  rejecting the driver
-To: Val Packett <val@packett.cool>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>, Daniel Lezcano <daniel.lezcano@linaro.org>, 
-	Christian Loehle <christian.loehle@arm.com>, 
-	Artem Bityutskiy <artem.bityutskiy@linux.intel.com>, linux-arm-kernel@lists.infradead.org, 
-	linux-arm-msm@vger.kernel.org, 
-	"Rafael J. Wysocki" <rafael.j.wysocki@intel.com>, linux-pm@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: multipart/mixed; boundary="00000000000004b6f206441a8c22"
+From: Artem Bityutskiy <artem.bityutskiy@linux.intel.com>
+To: Val Packett <val@packett.cool>, "Rafael J. Wysocki" <rafael@kernel.org>,
+  Daniel Lezcano <daniel.lezcano@linaro.org>, Christian Loehle
+ <christian.loehle@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org, 
+ "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>, linux-pm@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+Date: Fri, 21 Nov 2025 15:16:34 +0200
+In-Reply-To: <20251121010756.6687-1-val@packett.cool>
+References: <20251121010756.6687-1-val@packett.cool>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2 (3.56.2-2.fc42) 
+MIME-Version: 1.0
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251121_051640_938912_3F58B36B 
+X-CRM114-Status: GOOD (  21.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,109 +91,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---00000000000004b6f206441a8c22
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-
-On Fri, Nov 21, 2025 at 2:08=E2=80=AFAM Val Packett <val@packett.cool> wrot=
-e:
->
+On Thu, 2025-11-20 at 22:06 -0300, Val Packett wrote:
 > On Device Tree platforms, the latency and target residency values come
 > directly from device trees, which are numerous and weren't all written
 > with cpuidle invariants in mind. For example, qcom/hamoa.dtsi currently
 > trips this check: exit latency 680000 > residency 600000.
-
-So this breaks cpuidle expectations and it doesn't work correctly on
-the affected platforms.
-
+>=20
 > Instead of harshly rejecting the entire cpuidle driver with a mysterious
 > error message, print a warning and set the target residency value to be
 > equal to the exit latency.
-
-This generally doesn't work because the new target residency may be
-greater than the target residency of the next state.
-
+>=20
 > Fixes: 76934e495cdc ("cpuidle: Add sanity check for exit latency and targ=
 et residency")
 > Signed-off-by: Val Packett <val@packett.cool>
 > ---
 >  drivers/cpuidle/driver.c | 7 +++++--
 >  1 file changed, 5 insertions(+), 2 deletions(-)
->
+>=20
 > diff --git a/drivers/cpuidle/driver.c b/drivers/cpuidle/driver.c
 > index 1c295a93d582..06aeb59c1017 100644
 > --- a/drivers/cpuidle/driver.c
 > +++ b/drivers/cpuidle/driver.c
 > @@ -199,8 +199,11 @@ static int __cpuidle_driver_init(struct cpuidle_driv=
 er *drv)
->                  * exceed its target residency which is assumed in cpuidl=
-e in
->                  * multiple places.
->                  */
-> -               if (s->exit_latency_ns > s->target_residency_ns)
-> -                       return -EINVAL;
-> +               if (s->exit_latency_ns > s->target_residency_ns) {
-> +                       pr_warn("cpuidle: state %d: exit latency %lld > r=
-esidency %lld (fixing)\n",
-> +                               i, s->exit_latency_ns, s->target_residenc=
-y_ns);
-> +                       s->target_residency_ns =3D s->exit_latency_ns;
+>  		 * exceed its target residency which is assumed in cpuidle in
+>  		 * multiple places.
+>  		 */
+> -		if (s->exit_latency_ns > s->target_residency_ns)
+> -			return -EINVAL;
+> +		if (s->exit_latency_ns > s->target_residency_ns) {
+> +			pr_warn("cpuidle: state %d: exit latency %lld > residency %lld (fixin=
+g)\n",
+> +				i, s->exit_latency_ns, s->target_residency_ns);
+> +			s->target_residency_ns =3D s->exit_latency_ns;
+> +		}
+>  	}
 
-And you also need to update s->target_residency.
+Ideally, in a perfect world, driver.c should verify input data and
+reject bad input, rather than correct bad input.
 
-Moreover, that needs to be done when all of the target residency and
-exit latency values have been computed and full sanitization of all
-the states would need to be done (including the ordering checks), but
-the kernel has insufficient information to do that (for instance, if
-the ordering is not as expected, it is not clear how to fix it up).
-Even the above sanitization is unlikely to result in the intended
-behavior.
+So ideally, if there is an idle driver between DT and driver.c (like
+intel_idle.c in case of Intel), that would be its job to correct DT
+data.
 
-So if returning the error code doesn't work, printing a warning is as
-much as can be done, like in the attached patch.
+But I'm not familiar with DT platforms, so I don't know if there is a
+driver/piece of SW between DT parsing and driver.c that could handle
+this correction at an earlier stage.
 
-If this works for you, I'll submit it properly later.
+The reason I think this patch is not ideal is because it changes the
+input data at the core framework level, and in theory the change may be
+surprising to users. In general, sometimes rejecting bluntly is better
+than correcting in a possibly unexpected way.
 
-> +               }
->         }
->
->         return 0;
-> --
-
---00000000000004b6f206441a8c22
-Content-Type: text/x-patch; charset="US-ASCII"; name="cpuidle-warn.patch"
-Content-Disposition: attachment; filename="cpuidle-warn.patch"
-Content-Transfer-Encoding: base64
-Content-ID: <f_mi8vnx550>
-X-Attachment-Id: f_mi8vnx550
-
-LS0tCiBkcml2ZXJzL2NwdWlkbGUvZHJpdmVyLmMgfCAgIDE4ICsrKysrKysrLS0tLS0tLS0tLQog
-MSBmaWxlIGNoYW5nZWQsIDggaW5zZXJ0aW9ucygrKSwgMTAgZGVsZXRpb25zKC0pCgotLS0gYS9k
-cml2ZXJzL2NwdWlkbGUvZHJpdmVyLmMKKysrIGIvZHJpdmVycy9jcHVpZGxlL2RyaXZlci5jCkBA
-IC04LDYgKzgsOCBAQAogICogVGhpcyBjb2RlIGlzIGxpY2VuY2VkIHVuZGVyIHRoZSBHUEwuCiAg
-Ki8KIAorI2RlZmluZSBwcl9mbXQoZm10KSBLQlVJTERfTU9ETkFNRSAiOiAiIGZtdAorCiAjaW5j
-bHVkZSA8bGludXgvbXV0ZXguaD4KICNpbmNsdWRlIDxsaW51eC9tb2R1bGUuaD4KICNpbmNsdWRl
-IDxsaW51eC9zY2hlZC5oPgpAQCAtMTUyLDcgKzE1NCw3IEBAIHN0YXRpYyB2b2lkIGNwdWlkbGVf
-c2V0dXBfYnJvYWRjYXN0X3RpbWUKICAqIF9fY3B1aWRsZV9kcml2ZXJfaW5pdCAtIGluaXRpYWxp
-emUgdGhlIGRyaXZlcidzIGludGVybmFsIGRhdGEKICAqIEBkcnY6IGEgdmFsaWQgcG9pbnRlciB0
-byBhIHN0cnVjdCBjcHVpZGxlX2RyaXZlcgogICovCi1zdGF0aWMgaW50IF9fY3B1aWRsZV9kcml2
-ZXJfaW5pdChzdHJ1Y3QgY3B1aWRsZV9kcml2ZXIgKmRydikKK3N0YXRpYyB2b2lkIF9fY3B1aWRs
-ZV9kcml2ZXJfaW5pdChzdHJ1Y3QgY3B1aWRsZV9kcml2ZXIgKmRydikKIHsKIAlpbnQgaTsKIApA
-QCAtMTk1LDE1ICsxOTcsMTMgQEAgc3RhdGljIGludCBfX2NwdWlkbGVfZHJpdmVyX2luaXQoc3Ry
-dWN0CiAJCQlzLT5leGl0X2xhdGVuY3kgPSBkaXZfdTY0KHMtPmV4aXRfbGF0ZW5jeV9ucywgTlNF
-Q19QRVJfVVNFQyk7CiAKIAkJLyoKLQkJICogRW5zdXJlIHRoYXQgdGhlIGV4aXQgbGF0ZW5jeSBv
-ZiBhIENQVSBpZGxlIHN0YXRlIGRvZXMgbm90Ci0JCSAqIGV4Y2VlZCBpdHMgdGFyZ2V0IHJlc2lk
-ZW5jeSB3aGljaCBpcyBhc3N1bWVkIGluIGNwdWlkbGUgaW4KLQkJICogbXVsdGlwbGUgcGxhY2Vz
-LgorCQkgKiBXYXJuIGlmIHRoZSBleGl0IGxhdGVuY3kgb2YgYSBDUFUgaWRsZSBzdGF0ZSBleGNl
-ZWRzIGl0cworCQkgKiB0YXJnZXQgcmVzaWRlbmN5IHdoaWNoIGlzIGFzc3VtZWQgdG8gbmV2ZXIg
-aGFwcGVuIGluIGNwdWlkbGUKKwkJICogaW4gbXVsdGlwbGUgcGxhY2VzLgogCQkgKi8KIAkJaWYg
-KHMtPmV4aXRfbGF0ZW5jeV9ucyA+IHMtPnRhcmdldF9yZXNpZGVuY3lfbnMpCi0JCQlyZXR1cm4g
-LUVJTlZBTDsKKwkJCXByX3dhcm4oIklkbGUgc3RhdGUgJWQgdGFyZ2V0IHJlc2lkZW5jeSB0b28g
-bG93XG4iLCBpKTsKIAl9Ci0KLQlyZXR1cm4gMDsKIH0KIAogLyoqCkBAIC0yMzMsOSArMjMzLDcg
-QEAgc3RhdGljIGludCBfX2NwdWlkbGVfcmVnaXN0ZXJfZHJpdmVyKHN0cgogCWlmIChjcHVpZGxl
-X2Rpc2FibGVkKCkpCiAJCXJldHVybiAtRU5PREVWOwogCi0JcmV0ID0gX19jcHVpZGxlX2RyaXZl
-cl9pbml0KGRydik7Ci0JaWYgKHJldCkKLQkJcmV0dXJuIHJldDsKKwlfX2NwdWlkbGVfZHJpdmVy
-X2luaXQoZHJ2KTsKIAogCXJldCA9IF9fY3B1aWRsZV9zZXRfZHJpdmVyKGRydik7CiAJaWYgKHJl
-dCkK
---00000000000004b6f206441a8c22--
+Artem.
 
