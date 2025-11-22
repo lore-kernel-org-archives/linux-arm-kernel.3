@@ -4,91 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B535CFC521
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Nov 2025 09:32:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59688CFC51E
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Nov 2025 09:38:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PwfSbVA0IF+INvF3WYKe7TTnKMqGNeoc7QfEa9rVX5E=; b=gl0IXBWuWysChHVX9IpPLuP0qQ
-	vH00j5z8nEeSUDjQ9XoVO0o1euDa+iDlPyGCzGdBCTsB7ozk+JMSBPcfXK9qLbEJT1HVCy9mZZXFH
-	uSBYz/9kuNPPar39psi4owKLMRihH2PPPR5u9sjpqr7kQnJFzl3eYmIySwcTsnRt1HkWqqiupeQD2
-	sIaPnmtR8+8kb2qmsPsIrqimBhPgPstXqj++f6clOeM+tPN1QcO2fgYuZa6dBYKswFDBe45g9q4FU
-	1JiafHYAaFWr4CZM8U/fQnGNblm5fXvxAwRbK+euVU2xvI4+DBpP32HLMn6JUPB3HUDvhsXM9v3NT
-	woT1GkBg==;
+	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
+	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Bvp3ywi9lhdI/Xf4lqizcKjRt46VWyjXdWJlRwnRuQ0=; b=389q+Yex5R7n5GzRta1rn+canH
+	ypuam2C+Wws3HCAH989iEeS9KV7FNrxpNCBlPI27TMTkR2JmPMJCnEB29ZNoYRB/IqRWYGyqkn4Dm
+	CIUxfF02KDM4/lWy7PXeHYuN3W2tua/8JwnozoLfbBgioVLDio1QByqcnLzIFRF42RoUEEtvAGI5T
+	F7wZJKPV480L+N630u8nfI2G4rbI93dlUby1uYDshRjXC66diUhZhOdghyzgEG+2kgmtLUqzuSy20
+	i03zPn5xSZ+uBNO/3gmwJCDGPehJ1hEnXfUcmC7vdXk+/i6J5XK9GPwDcvRGcKeYpLdba50S/IKLG
+	6lvbPiwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMjyw-00000009QNn-0hKj;
-	Sat, 22 Nov 2025 09:32:38 +0000
-Received: from mail-pf1-x42a.google.com ([2607:f8b0:4864:20::42a])
+	id 1vMk4G-00000009Qos-09Mm;
+	Sat, 22 Nov 2025 09:38:08 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMjyt-00000009QLK-0ugf
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 22 Nov 2025 09:32:36 +0000
-Received: by mail-pf1-x42a.google.com with SMTP id d2e1a72fcca58-7aab061e7cbso3315391b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 22 Nov 2025 01:32:34 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1763803954; x=1764408754; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=PwfSbVA0IF+INvF3WYKe7TTnKMqGNeoc7QfEa9rVX5E=;
-        b=YxgqT+Jz8zgbF+ZJYNJ0u1+gZWQfzvUcPKPe2VK+Cj733yJOvCmoa4U6HIfs5r1TyD
-         0ctpsDn7ebMsABw4lmMlp00Lj+bKIwBvwU31sH5T0j4/5Gq1vTnFYiaqivNfop++TTSC
-         DJaCXoJck2SbujNdMFWvvW22dWC6AKAJUcTKYZ9GxZsaBX1y2iwZNVduQIPNaGh73xT9
-         48GazyDUIw/RpGKFyTRWwlQd5W/N8t8iElH8bymXaXVHgndts4euHDXLu9JPqwqhFbR6
-         VsGzUPPa9E5mvWf0Co6uN68W1hieQvdr9A/MuTeQLUvR+bVSJmt0yVJaQMlqJfirBsmb
-         tjnA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763803954; x=1764408754;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=PwfSbVA0IF+INvF3WYKe7TTnKMqGNeoc7QfEa9rVX5E=;
-        b=kk8LhxFKmHL17XenMBv5O1tJirq91VfIwvbGE26RO1j0PmFnZk0rVaBdpLnhom/hve
-         4momiPL3YFuKwiJDJymcE6j5TrOMRlqngZZpr3+RiOniQdsGkFAssfDkdPkEXagxpf3O
-         Stgq+d74JOkjdFAz9B1nZvcPQQuI+zZgwZNa10FqLcg+/ynutFjtmePbXNniLZHYDRVW
-         fRIZMV0kR3qGkFj/s4Nw4lY99JNDMmRbsSDmAQEHeFodq6tCYss+fJjbCGssuGurp+NE
-         Gjdcj3i9AcgotAHsO1Gz3pMW8epg8DVoPkeQqyAwOgAm3Tmopo7/dnc9HPrP0xGf8Omb
-         2nZQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUN75RGapfEhl8SDQCJBRqr7ptVHvhO5jgXzBZxlY5UP2p8c539DVbYexpR1KoBrO+ecIzLJLKSvPNo0L5y1XCs@lists.infradead.org
-X-Gm-Message-State: AOJu0YyBw6rnfdCHymIEeS1h9eJpew6vhxKboyc8jyeykbISRO7XwvPO
-	lAmazwSTUrgwiDrG31TyA8mVR1RqKlNvtCGN58oiVGK4PvXAI2VgMGGBdF5dNueyvGoQGr4n6Xt
-	ygola1ubr7+9zdiVULMcBwa/a706EYUNMC2EWyS/r
-X-Gm-Gg: ASbGnctaOF64I5cftMiES5Ubl5zZ+64jmOYBGiaM2vrvZGPnfcF2aoW1oKt/15b//ch
-	8z+ZLl7T0gkU4LOdmdM8z40/R+jPU6VQQ9hVyzkqEGieJELRFPGIorV9E5fszL3njlFYfP+XaV1
-	O1SRdUqaPSG1VFUO6SoTFfXqqxhdeqhq10kWhvX3h94B1BAoYfsVxFgRmlGDRGzTAQTXEyfmNOU
-	L9jshjnhvtwEZd0c+ArXWhJNAVxZ/x6TuMeHbqMfHB27/0MPcUpUsTcYeEHqExfGslJgTU=
-X-Google-Smtp-Source: AGHT+IEtl9+0xCjdQa9+R+GC+GJziEZM6X7VYbuzp+qoVNZuwKZ3umLayWIhnoniyzbglxAh3nD2e8iWh7BCQ7kfWaI=
-X-Received: by 2002:a05:7022:6727:b0:119:e56c:18a7 with SMTP id
- a92af1059eb24-11c9d712aebmr2102850c88.15.1763803953323; Sat, 22 Nov 2025
- 01:32:33 -0800 (PST)
-MIME-Version: 1.0
-References: <20251119093749.292926-1-royluo@google.com> <20251119093749.292926-3-royluo@google.com>
- <2025112144-claw-recolor-49c3@gregkh>
-In-Reply-To: <2025112144-claw-recolor-49c3@gregkh>
-From: Roy Luo <royluo@google.com>
-Date: Sat, 22 Nov 2025 17:31:56 +0800
-X-Gm-Features: AWmQ_blaOp8wg2UyednGm_iXI4eOxC8hbQ1lsk34Jq7M1OwHCTll441SPBByo04
-Message-ID: <CA+zupgyEP+_q0uO1SpvR_wpk0ZP2EWf_E6FGQpOCLW63dKp5Fw@mail.gmail.com>
-Subject: Re: [PATCH v7 2/2] usb: dwc3: Add Google Tensor SoC DWC3 glue driver
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Thinh Nguyen <Thinh.Nguyen@synopsys.com>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, Peter Griffin <peter.griffin@linaro.org>, 
-	=?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
-	Tudor Ambarus <tudor.ambarus@linaro.org>, Joy Chakraborty <joychakr@google.com>, 
-	Naveen Kumar <mnkumar@google.com>, Badhri Jagan Sridharan <badhri@google.com>, 
-	Doug Anderson <dianders@google.com>, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-usb@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+	id 1vMk4D-00000009QoQ-1wOK;
+	Sat, 22 Nov 2025 09:38:06 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id C281B404C1;
+	Sat, 22 Nov 2025 09:38:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 94781C4CEF5;
+	Sat, 22 Nov 2025 09:38:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1763804282;
+	bh=XYJsNNEAFKWw+GFpRdXSFOCFfouPlV2hU/sp7ovg0ng=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=RUJRkzdtRToNgW4Uy5JkI2e2Dch22SVdb2x7yUV/20KlwHeEDQYiSywUzeq4rdC9c
+	 J2o4aQPO2LfK812kH5eHQbekl/XxEw804txakvdVtSwu5CC4pgcZXgxnyrvBBuQt4x
+	 kD/cv+zr7+zndCu5SLbt0RiIooG1/OS1c5EeXeiUxJSDxoMnTJ8yz7WiPFMigPpTdo
+	 vPPZ2DYCyk+ERCfCqbChitSkEMcbzeZ6Ftlit0wZ9i0twkG9n6+wfmZ947yNpHrNK0
+	 cW2JGAgWULrKcLZ2Eds3zl3uAjiktb41EaEJswDtO0LMU3NY7oCIC35o+2S+x85v0R
+	 8e36id9jvF0/A==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vMk47-00000007SZ3-3Ecj;
+	Sat, 22 Nov 2025 09:37:59 +0000
+Date: Sat, 22 Nov 2025 09:37:58 +0000
+Message-ID: <87ms4eflvt.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: niliqiang <ni_liqiang@126.com>
+Cc: sunilvl@ventanamicro.com,
+	ajones@ventanamicro.com,
+	anup@brainfault.org,
+	apatel@ventanamicro.com,
+	atishp@atishpatra.org,
+	bjorn@kernel.org,
+	conor+dt@kernel.org,
+	deng.weixian@zte.com.cn,
+	devicetree@vger.kernel.org,
+	frowand.list@gmail.com,
+	hu.yuye@zte.com.cn,
+	krzysztof.kozlowski+dt@linaro.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	ni.liqiang@zte.com.cn,
+	palmer@dabbelt.com,
+	paul.walmsley@sifive.com,
+	robh+dt@kernel.org,
+	saravanak@google.com,
+	tglx@linutronix.de,
+	dai.hualiang@zte.com.cn,
+	liu.qingtao2@zte.com.cn,
+	guo.chang2@zte.com.cn,
+	wu.jiabao@zte.com.cn,
+	liu.wenhong35@zte.com.cn
+Subject: Re: [PATCH v16 6/9] irqchip: Add RISC-V advanced PLIC driver for direct-mode
+In-Reply-To: <20251121135407.53372-1-ni_liqiang@126.com>
+References: <aSAn8DdQVBBzenlJ@sunil-laptop>
+	<20251121135407.53372-1-ni_liqiang@126.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: quoted-printable
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: ni_liqiang@126.com, sunilvl@ventanamicro.com, ajones@ventanamicro.com, anup@brainfault.org, apatel@ventanamicro.com, atishp@atishpatra.org, bjorn@kernel.org, conor+dt@kernel.org, deng.weixian@zte.com.cn, devicetree@vger.kernel.org, frowand.list@gmail.com, hu.yuye@zte.com.cn, krzysztof.kozlowski+dt@linaro.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, ni.liqiang@zte.com.cn, palmer@dabbelt.com, paul.walmsley@sifive.com, robh+dt@kernel.org, saravanak@google.com, tglx@linutronix.de, dai.hualiang@zte.com.cn, liu.qingtao2@zte.com.cn, guo.chang2@zte.com.cn, wu.jiabao@zte.com.cn, liu.wenhong35@zte.com.cn
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251122_013235_260279_E3F57EF3 
-X-CRM114-Status: GOOD (  29.27  )
+X-CRM114-CacheID: sfid-20251122_013805_557591_DB72627F 
+X-CRM114-Status: GOOD (  12.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,92 +108,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 21, 2025 at 10:26=E2=80=AFPM Greg Kroah-Hartman
-<gregkh@linuxfoundation.org> wrote:
+On Fri, 21 Nov 2025 13:54:07 +0000,
+niliqiang <ni_liqiang@126.com> wrote:
 >
-> On Wed, Nov 19, 2025 at 09:37:48AM +0000, Roy Luo wrote:
-> > Add support for the DWC3 USB controller found on Google Tensor G5
-> > (codename: laguna). The controller features dual-role functionality
-> > and hibernation.
-> >
-> > The primary focus is implementing hibernation support in host mode,
-> > enabling the controller to enter a low-power state (D3). This is
-> > particularly relevant during system power state transition and
-> > runtime power management for power efficiency.
-> > Highlights:
-> > - Align suspend callback with dwc3_suspend_common() for deciding
-> >   between a full teardown and hibernation in host mode.
-> > - Integration with `psw` (power switchable) and `top` power domains,
-> >   managing their states and device links to support hibernation.
-> > - A notifier callback dwc3_google_usb_psw_pd_notifier() for
-> >   `psw` power domain events to manage controller state
-> >   transitions to/from D3.
-> > - Coordination of the `non_sticky` reset during power state
-> >   transitions, asserting it on D3 entry and deasserting on D0 entry
-> >   in hibernation scenario.
-> > - Handling of high-speed and super-speed PME interrupts
-> >   that are generated by remote wakeup during hibernation.
-> >
-> > Acked-by: Thinh Nguyen <Thinh.Nguyen@synopsys.com>
-> > Co-developed-by: Joy Chakraborty <joychakr@google.com>
-> > Signed-off-by: Joy Chakraborty <joychakr@google.com>
-> > Co-developed-by: Naveen Kumar <mnkumar@google.com>
-> > Signed-off-by: Naveen Kumar <mnkumar@google.com>
-> > Signed-off-by: Roy Luo <royluo@google.com>
-> > ---
-> >  drivers/usb/dwc3/Kconfig       |  10 +
-> >  drivers/usb/dwc3/Makefile      |   1 +
-> >  drivers/usb/dwc3/dwc3-google.c | 628 +++++++++++++++++++++++++++++++++
-> >  3 files changed, 639 insertions(+)
-> >  create mode 100644 drivers/usb/dwc3/dwc3-google.c
-> >
-> > diff --git a/drivers/usb/dwc3/Kconfig b/drivers/usb/dwc3/Kconfig
-> > index 4925d15084f8..bb0e4dc97da3 100644
-> > --- a/drivers/usb/dwc3/Kconfig
-> > +++ b/drivers/usb/dwc3/Kconfig
-> > @@ -200,4 +200,14 @@ config USB_DWC3_GENERIC_PLAT
-> >         the dwc3 child node in the device tree.
-> >         Say 'Y' or 'M' here if your platform integrates DWC3 in a simil=
-ar way.
-> >
-> > +config USB_DWC3_GOOGLE
-> > +     tristate "Google Platform"
-> > +     depends on OF && COMMON_CLK && RESET_CONTROLLER
->
-> No build testing?
 
-Will add depends on COMPILE_TEST.
+[...]
 
->
-> > +     default n
->
-> This is always the default, no need to list it here.
+> 2. But the OS enumerates them in random order upon each boot (first boot =
+sequence =E2=89=A0 second boot sequence)
+> first boot sequence ~ # dmesg |grep -i "PCI Root"
+> [ 8794.588531] ACPI: PCI Root Bridge [PC08] (domain 0006 [bus 80-ff])
+> [ 8794.624478] ACPI: PCI Root Bridge [PC06] (domain 0005 [bus 00-ff])
+> [ 8794.672741] ACPI: PCI Root Bridge [PC10] (domain 0008 [bus 00-ff])
+> [ 8794.696680] ACPI: PCI Root Bridge [PC07] (domain 0006 [bus 00-7f])
+> [ 8794.728234] ACPI: PCI Root Bridge [PC11] (domain 0009 [bus 00-ff])
+> [ 8794.755098] ACPI: PCI Root Bridge [PC09] (domain 0007 [bus 00-ff])
+> second boot sequence ~ # dmesg |grep -i "PCI Root"
+> [ 8794.588531] ACPI: PCI Root Bridge [PC09] (domain 0007 [bus 00-ff])
+> [ 8794.624478] ACPI: PCI Root Bridge [PC06] (domain 0005 [bus 00-ff])
+> [ 8794.672741] ACPI: PCI Root Bridge [PC08] (domain 0006 [bus 80-ff])
+> [ 8794.696680] ACPI: PCI Root Bridge [PC11] (domain 0009 [bus 00-ff])
+> [ 8794.728234] ACPI: PCI Root Bridge [PC07] (domain 0006 [bus 00-7f])
+> [ 8794.755098] ACPI: PCI Root Bridge [PC10] (domain 0008 [bus 00-ff])
+>=20
+> This creates a critical issue: when NVMe devices are connected to
+> these host bridges, the unpredictable kernel scanning sequence
+> causes device identifiers (e.g., /dev/nvme0n1, /dev/nvme1n1) to
+> change across reboots. In server environments, such device naming
+> instability is unacceptable as it breaks storage configuration
+> reliability and consistency.
 
-Will drop it.
+You're barking up the wrong tree. It is *userspace*'s job to ensure
+this consistency. That's why udev exists. That's why device and
+partition UUIDs exist. In short, this isn't the kernel's job. The
+kernel gives you all the tools you need already.
 
->
-> > +     help
-> > +       Support the DesignWare Core USB3 IP found on Google Tensor
-> > +       SoCs, starting with the G5 generation. This driver includes
-> > +       support for hibernation in host mode.
-> > +       Say 'Y' or 'M' if you have one such device.
->
-> You forgot the module name :(
->
-> > +#define to_dwc3_google(d) container_of((d), struct dwc3_google, dwc)
->
-> container_of_const() please.
+Thanks,
 
-Ack, will fix it in the next version.
+	M.
 
->
->
-> thanks,
->
-> greg k-h
-
-Thanks for the review.
-
-Regards,
-Roy Luo
+--=20
+Jazz isn't dead. It just smells funny.
 
