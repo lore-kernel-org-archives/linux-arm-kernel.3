@@ -4,72 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F180DCFC518
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Nov 2025 03:17:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C80B5CFC515
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Nov 2025 04:56:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6m8XnT+e+a12kgO1uCENfrTn9a5Y/h61Rpk0gERo5NI=; b=mEXHh2NyEPy903TE1Q5P3xGgXg
-	zEeQM8hWhERaUXUMhxPk8BgA+1Di8iBM36gGnnPm8kROYRUlmQj3xyo7mmIv1fo33B2zLjuZiZuyJ
-	eU77TVzgEPpJdG6BGL5Cpk0OUhhpgoVlKTKQ0awF+XB+F63WjH0L84YAQNM/cxMeFJ33wSzPSAQqV
-	RoaVxPEgT9c26A25NHXqQZpf+y9OZlwqbe/tTB51myRO10ryGsGCyzcoOnWvuAsKpx9VetwTwVm22
-	e2YZlg5PM9PR9HHuL+f6AcYQOQrS8iSuTJhsdFvHL50WMKgd24cM6wUpc9dGhXaqskdCWZO+xSEU/
-	FguW3mRw==;
+	bh=yuA3YWeLSsaqbfc364gnRkQWvn7S9drMMnYRnYCpi1Q=; b=h05c/aHtzVOd8owGHIZorZsyy9
+	5+j6Hw/fwMyAnY7tcUcA5JsbV6M0I76yuUcrtI/ekR3RTd/L29KiKfMPcBdDJHlObFG1np5wbRz5v
+	MmIQL9Dm1nWdK/swvfkxG0k4J1vKdw/wpjaaddT03nkzdpegb/dlYeOYXwXDRVi8YYWVSLMetmLv2
+	Iaru0p1zjo4rMxyWOMg9DsHisUQc75SJNeYtjWcoVHWDBW2cGLmgL9KTEnXGoELBF6YvHQ+W31vl7
+	2hjqm8HCuVYCO1o3G5lQbbanEFr4tJRsqA3cSUYwf+3MCvmks0xu2JlzM5BNDuFwxM2LWbBy4PQYR
+	faxhT0Gg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMe8E-00000009DYt-3i4c;
-	Sat, 22 Nov 2025 03:17:50 +0000
-Received: from abb.hmeau.com ([180.181.231.80])
+	id 1vMffq-00000009GXD-0dL7;
+	Sat, 22 Nov 2025 04:56:38 +0000
+Received: from mgamail.intel.com ([192.198.163.18])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMe8B-00000009DYP-3VZf
+	id 1vMffn-00000009GWg-2Ho9
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 22 Nov 2025 03:17:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=gondor.apana.org.au; s=h01; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:cc:to:subject:message-id:date:
-	from:content-type:reply-to; bh=6m8XnT+e+a12kgO1uCENfrTn9a5Y/h61Rpk0gERo5NI=; 
-	b=kP8TCZWIw/ZlW1ubCRhqNLJNKTL5A/sz4uLGjNpTM06cFB96q71XPwT3rejwBn9uB69z72+Hyf4
-	28vGTymGO+Ug2V6i5+VGKn8aJ8z3ErpLRqdaWTMbI6Hipvt/F+AT1qjeGNWbyKe4ySn5TBjmc2LKy
-	Mc+Y2EM0jtAjbK3436yEvXUDAPiTAi/agXCjfqzpeF3MGSKSpauxXE3N84SxR4BHbf0oi8QuVkFhJ
-	nrlzAEPC1LdqBHCBIep2B/xothr+XAeAEFNObvuUW9B2tigB0Ji1vf97XDP6DruzhrdKlUkgNt79k
-	IPMGVn1BuZ5nLUY1ccWsjhpQhtYC+Hq9LhHw==;
-Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
-	by formenos.hmeau.com with smtp (Exim 4.96 #2 (Debian))
-	id 1vMe7u-0056Vl-0X;
-	Sat, 22 Nov 2025 11:17:31 +0800
-Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Sat, 22 Nov 2025 11:17:30 +0800
-Date: Sat, 22 Nov 2025 11:17:30 +0800
-From: Herbert Xu <herbert@gondor.apana.org.au>
-To: "Jain, Harsh (AECG-SSW)" <h.jain@amd.com>
-Cc: "davem@davemloft.net" <davem@davemloft.net>,
-	"linux-crypto@vger.kernel.org" <linux-crypto@vger.kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"robh@kernel.org" <robh@kernel.org>,
-	"krzk+dt@kernel.org" <krzk+dt@kernel.org>,
-	"conor+dt@kernel.org" <conor+dt@kernel.org>,
-	"Botcha, Mounika" <Mounika.Botcha@amd.com>,
-	"Savitala, Sarat Chand" <sarat.chand.savitala@amd.com>,
-	"Simek, Michal" <michal.simek@amd.com>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"Buddhabhatti, Jay" <jay.buddhabhatti@amd.com>
-Subject: Re: [PATCH 09/15] crypto: zynqmp-aes-gcm: Fix setkey operation to
- select HW keys
-Message-ID: <aSErShjDlRaTEoL9@gondor.apana.org.au>
-References: <20251029102158.3190743-1-h.jain@amd.com>
- <20251029102158.3190743-10-h.jain@amd.com>
- <aQwlEgMlYr8EPrTo@gondor.apana.org.au>
- <DS0PR12MB934525C9192C679D5AE681DD97CFA@DS0PR12MB9345.namprd12.prod.outlook.com>
+	Sat, 22 Nov 2025 04:56:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1763787395; x=1795323395;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=RpAta5pW7pTRynNxwbJLZvj/eo8rVxs+scWqmeP4VCc=;
+  b=jv9+es5yAUSxIgpO4yWHsjQ8RIGNEoquEYw7HjGTHtGQJaru/dj6RAsE
+   HlzRqZOh5IrTr6bxlHn8qlPoXVqn2e5H58Qg692nuO0CWG7V9klPFV6kB
+   HdzQ8cvqpe+EU+pvezyNYejDQ2oK7fb99nFHisNy/QmzsXqWECAlf8Q0V
+   6wI87L6tVAOQAn/UwYIxTpVI7azrsOcLAK1BanQhGEloqrj+1tyfaSZSl
+   q6MjZhLG6cqQMqjdVj7Ij7/Q/usGiaaLwOQxPMgP5J++CZYD0+bBMJCBW
+   /QCBa9DtRPxFVPn5YyjE5NGdRMaX0np0DHw5IxuUrBkdq7cs782Eu6lzI
+   w==;
+X-CSE-ConnectionGUID: AQ5+ft61Qx2DuWQM7DleuA==
+X-CSE-MsgGUID: dulmxXvvS1e7oazl9RfxAw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11620"; a="65068441"
+X-IronPort-AV: E=Sophos;i="6.20,217,1758610800"; 
+   d="scan'208";a="65068441"
+Received: from fmviesa001.fm.intel.com ([10.60.135.141])
+  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Nov 2025 20:56:31 -0800
+X-CSE-ConnectionGUID: TyUuip1jSRSAWl7cfJynJA==
+X-CSE-MsgGUID: rNBLW3izQzutdtYWUy0/fw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.20,217,1758610800"; 
+   d="scan'208";a="222811795"
+Received: from lkp-server01.sh.intel.com (HELO adf6d29aa8d9) ([10.239.97.150])
+  by fmviesa001.fm.intel.com with ESMTP; 21 Nov 2025 20:56:26 -0800
+Received: from kbuild by adf6d29aa8d9 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1vMffc-0007AZ-1E;
+	Sat, 22 Nov 2025 04:56:24 +0000
+Date: Sat, 22 Nov 2025 12:55:58 +0800
+From: kernel test robot <lkp@intel.com>
+To: Eugen Hristev <eugen.hristev@linaro.org>, linux-arm-msm@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-mm@kvack.org,
+	tglx@linutronix.de, andersson@kernel.org, pmladek@suse.com,
+	rdunlap@infradead.org, corbet@lwn.net, david@redhat.com,
+	mhocko@suse.com
+Cc: oe-kbuild-all@lists.linux.dev, tudor.ambarus@linaro.org,
+	mukesh.ojha@oss.qualcomm.com, linux-arm-kernel@lists.infradead.org,
+	linux-hardening@vger.kernel.org, jonechou@google.com,
+	rostedt@goodmis.org, linux-doc@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-remoteproc@vger.kernel.org,
+	linux-arch@vger.kernel.org, tony.luck@intel.com, kees@kernel.org,
+	Eugen Hristev <eugen.hristev@linaro.org>
+Subject: Re: [PATCH 23/26] soc: qcom: Add minidump driver
+Message-ID: <202511221252.PPEXScZ2-lkp@intel.com>
+References: <20251119154427.1033475-24-eugen.hristev@linaro.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <DS0PR12MB934525C9192C679D5AE681DD97CFA@DS0PR12MB9345.namprd12.prod.outlook.com>
+In-Reply-To: <20251119154427.1033475-24-eugen.hristev@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251121_191747_879231_75B30374 
-X-CRM114-Status: UNSURE (   8.74  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251121_205635_654937_16528E7E 
+X-CRM114-Status: GOOD (  14.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,21 +96,152 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 11, 2025 at 11:57:33AM +0000, Jain, Harsh (AECG-SSW) wrote:
->
-> We have two types of key registers
-> 1) Registers to save user supplied keys like ZYNQMP_AES_KUP_KEY
-> 2) Register Where H/W internally generates the keys like ZYNQMP_AES_DEV_KEY and ZYNQMP_AES_PUF_KEY
-> 
-> Fallback is for 1), because driver has saved key in private ctx and can be fallback to S/W.
+Hi Eugen,
 
-OK so in our parlance this isn't a hardware key and it should stay
-with the plain "aes" driver.  "paes" should be used for hardware
-keys with no corresponding software key.
+kernel test robot noticed the following build warnings:
 
-Cheers,
+[auto build test WARNING on rppt-memblock/fixes]
+[also build test WARNING on linus/master v6.18-rc6]
+[cannot apply to akpm-mm/mm-everything rppt-memblock/for-next next-20251121]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Eugen-Hristev/kernel-Introduce-meminspect/20251119-235912
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/rppt/memblock.git fixes
+patch link:    https://lore.kernel.org/r/20251119154427.1033475-24-eugen.hristev%40linaro.org
+patch subject: [PATCH 23/26] soc: qcom: Add minidump driver
+config: nios2-randconfig-r123-20251122 (https://download.01.org/0day-ci/archive/20251122/202511221252.PPEXScZ2-lkp@intel.com/config)
+compiler: nios2-linux-gcc (GCC) 11.5.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20251122/202511221252.PPEXScZ2-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202511221252.PPEXScZ2-lkp@intel.com/
+
+sparse warnings: (new ones prefixed by >>)
+>> drivers/soc/qcom/minidump.c:108:35: sparse: sparse: restricted __le32 degrades to integer
+>> drivers/soc/qcom/minidump.c:154:22: sparse: sparse: incorrect type in assignment (different base types) @@     expected restricted __le32 [usertype] seq_num @@     got unsigned int enum meminspect_uid const id @@
+   drivers/soc/qcom/minidump.c:154:22: sparse:     expected restricted __le32 [usertype] seq_num
+   drivers/soc/qcom/minidump.c:154:22: sparse:     got unsigned int enum meminspect_uid const id
+>> drivers/soc/qcom/minidump.c:184:19: sparse: sparse: unsigned value that used to be signed checked against zero?
+   drivers/soc/qcom/minidump.c:183:39: sparse: signed value source
+
+vim +108 drivers/soc/qcom/minidump.c
+
+    93	
+    94	/**
+    95	 * qcom_md_get_region_index() - Lookup minidump region by id
+    96	 * @md: minidump data
+    97	 * @id: minidump region id
+    98	 *
+    99	 * Return: On success, it returns the internal region index, on failure,
+   100	 *	returns	negative error value
+   101	 */
+   102	static int qcom_md_get_region_index(struct minidump *md, int id)
+   103	{
+   104		unsigned int count = le32_to_cpu(md->toc->region_count);
+   105		unsigned int i;
+   106	
+   107		for (i = 0; i < count; i++)
+ > 108			if (md->regions[i].seq_num == id)
+   109				return i;
+   110	
+   111		return -ENOENT;
+   112	}
+   113	
+   114	/**
+   115	 * register_md_region() - Register a new minidump region
+   116	 * @priv: private data
+   117	 * @e: pointer to inspect entry
+   118	 *
+   119	 * Return: None
+   120	 */
+   121	static void __maybe_unused register_md_region(void *priv,
+   122						      const struct inspect_entry *e)
+   123	{
+   124		unsigned int num_region, region_cnt;
+   125		const char *name = "unknown";
+   126		struct minidump_region *mdr;
+   127		struct minidump *md = priv;
+   128	
+   129		if (!(e->va || e->pa) || !e->size) {
+   130			dev_dbg(md->dev, "invalid region requested\n");
+   131			return;
+   132		}
+   133	
+   134		if (e->id < ARRAY_SIZE(meminspect_id_to_md_string))
+   135			name = meminspect_id_to_md_string[e->id];
+   136	
+   137		if (qcom_md_get_region_index(md, e->id) >= 0) {
+   138			dev_dbg(md->dev, "%s:%d region is already registered\n",
+   139				name, e->id);
+   140			return;
+   141		}
+   142	
+   143		/* Check if there is a room for a new entry */
+   144		num_region = le32_to_cpu(md->toc->region_count);
+   145		if (num_region >= MAX_NUM_REGIONS) {
+   146			dev_dbg(md->dev, "maximum region limit %u reached\n",
+   147				num_region);
+   148			return;
+   149		}
+   150	
+   151		region_cnt = le32_to_cpu(md->toc->region_count);
+   152		mdr = &md->regions[region_cnt];
+   153		scnprintf(mdr->name, MAX_REGION_NAME_LENGTH, "K%.8s", name);
+ > 154		mdr->seq_num = e->id;
+   155		if (e->pa)
+   156			mdr->address = cpu_to_le64(e->pa);
+   157		else if (e->va)
+   158			mdr->address = cpu_to_le64(__pa(e->va));
+   159		mdr->size = cpu_to_le64(ALIGN(e->size, 4));
+   160		mdr->valid = cpu_to_le32(MINIDUMP_REGION_VALID);
+   161		region_cnt++;
+   162		md->toc->region_count = cpu_to_le32(region_cnt);
+   163	
+   164		dev_dbg(md->dev, "%s:%d region registered %llx:%llx\n",
+   165			mdr->name, mdr->seq_num, mdr->address, mdr->size);
+   166	}
+   167	
+   168	/**
+   169	 * unregister_md_region() - Unregister a previously registered minidump region
+   170	 * @priv: private data
+   171	 * @e: pointer to inspect entry
+   172	 *
+   173	 * Return: None
+   174	 */
+   175	static void __maybe_unused unregister_md_region(void *priv,
+   176							const struct inspect_entry *e)
+   177	{
+   178		struct minidump_region *mdr;
+   179		struct minidump *md = priv;
+   180		unsigned int region_cnt;
+   181		unsigned int idx;
+   182	
+   183		idx = qcom_md_get_region_index(md, e->id);
+ > 184		if (idx < 0) {
+   185			dev_dbg(md->dev, "%d region is not present\n", e->id);
+   186			return;
+   187		}
+   188	
+   189		mdr = &md->regions[0];
+   190		region_cnt = le32_to_cpu(md->toc->region_count);
+   191	
+   192		/*
+   193		 * Left shift one position all the regions located after the
+   194		 * region being removed, in order to fill the gap.
+   195		 * Then, zero out the last region at the end.
+   196		 */
+   197		memmove(&mdr[idx], &mdr[idx + 1], (region_cnt - idx - 1) * sizeof(*mdr));
+   198		memset(&mdr[region_cnt - 1], 0, sizeof(*mdr));
+   199		region_cnt--;
+   200		md->toc->region_count = cpu_to_le32(region_cnt);
+   201	}
+   202	
+
 -- 
-Email: Herbert Xu <herbert@gondor.apana.org.au>
-Home Page: http://gondor.apana.org.au/~herbert/
-PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
