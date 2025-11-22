@@ -4,89 +4,144 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27EA4CFC516
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Nov 2025 01:43:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCA89CFC519
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Nov 2025 01:58:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eK4AUJBiIJz3oZNmu7sUeKDHnLWzFnSMuNw1lB79Qkw=; b=hLHTe4jwcvFnGNDIQwGKCe+fUr
-	NdjpWw9DmuovClC+eAcedc9HUsm0NiZNSPbYnVpw25FuLKB1SS4tXPs5sMI+r677JuEs6ZkH47YQV
-	I53xHGB37wmyfa6kXxwY8OYuefjMGYl/55BtqndFlvZWBgmTmf4T5A8bsKXotfzg7TEm/A4REoqc0
-	XVHv2Xo1SFaRzvhWc3xp8cgmXirOQYZ9nWoM57GTBUwB+HocBtkPiOqQ3ALxrajlZvYbh6oVFEXxp
-	SOFE1pkhL9pKCDP3xnayylvBHJuNifJ+celc6XjUs+gYO5xP4Is0zDdGlpwXyhX9Ltf+uujalp0R1
-	qtQ1g7gw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mNY9x1RtcvkkzqkoxtEh/9kLnwrlK2GzglZgK+WuMC0=; b=FD4OOpIEuYjSlp34+INoNVlJeh
+	PsP7siAZG7Z8pUsTs2YW3QntE0A3Ytn1R4G9AZ0Q1FC1Y3YRpNcfwVcxbRV0zW5atV47PCKIoxtg4
+	KOXZhoCqhliZ/ifQZEM0f8vZr14Gua71YcfWViYCUDlW07lHkfDxJCPb+1xiheDtqxpT4RA1ZITja
+	4aHqN3d6Ts4OkPkxaBh2WoTbj/W32fWEs7b2sfFYHMKlVd+35rXxIzKrbchzf1BY6MK1BNMo9x2C4
+	MjExxECtLu2QwWf3okQH+/ZnkzLKKSWvAjpsgZPaA07KLi6Q85ePqil26Oz7aIfpJ3LlJ+oHJVLoO
+	s3MD7lUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMcfA-000000099yt-3uXe;
-	Sat, 22 Nov 2025 01:43:44 +0000
-Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
+	id 1vMct1-00000009ARg-0w3N;
+	Sat, 22 Nov 2025 01:58:03 +0000
+Received: from mail-southcentralusazlp170120001.outbound.protection.outlook.com ([2a01:111:f403:c10d::1] helo=SN4PR2101CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMcf8-000000099yF-0Sh3
+	id 1vMcsy-00000009AR4-2eSx
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 22 Nov 2025 01:43:43 +0000
-Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-42b32ff5d10so2299901f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Nov 2025 17:43:41 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1763775820; x=1764380620; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=eK4AUJBiIJz3oZNmu7sUeKDHnLWzFnSMuNw1lB79Qkw=;
-        b=Db478SPi9E9FXy2vlWM7B1t4KBibcCfM4MwZ8p5gtNGHz+X2zX5QO1PC8S8M92yK5Z
-         hHyQ5q87KDixTFaq6yWovAbb/6zUoZM2ycnbBAU4UKG2aTNQVuExHtwmMX4Gaew1VD9y
-         VfwHjyc5UpjlhoQZNObprgM/1tc+I42usLejpq5xSK9U4a8oU81WQLlZzVvK+genkiPr
-         ISuQzHFUDm4eKuTFQxWfypkqAwS0x3Lu0qKAMCe/Q3Kae9W/REasT+hs0QM0b8gogiGs
-         hiupdTZpnTiBH9deZzwfxXsQ5reIUn7eNPTAr3ObPuNoc4OBT3nYOwdj4nJy2lJRML63
-         2jrw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763775820; x=1764380620;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=eK4AUJBiIJz3oZNmu7sUeKDHnLWzFnSMuNw1lB79Qkw=;
-        b=aL3LWG6P8lNPGOtlaZT/i5ZQWgbC5iUBkDIXKN13WC97PwFZEBiES9bcf1wiRv+oD2
-         NGmXetYEm0CYqEjB2wLfDXeSTzeO6EBba88YTwuEcyrWzzG0VpqFFfbZQTlQ60QyetaT
-         AAzyfqkiKIVvHeurc4OgAtEDn91cgvI7JMiUj6SXvTG1LONkVkrhgAspm3cDbBoviYDL
-         5KwERLX1lVmO5tbLecZeLyMrhBcrcox7N8Yik8GHjqLTg5lSkqKVM5ziiFpPuzVBuvzI
-         hTlJEB/hT9uAjmKtmcFKAFJgADrTY7n78xjI5wGyzC3d+SmDSG4U6C7t0eJ3byCStysz
-         Vp+Q==
-X-Forwarded-Encrypted: i=1; AJvYcCWAndWUqxSezCvyLqOnEi/GaUF4uFqaFDSu9W9Ao3i/RybOQ2PqphxMuOSLApy91kJ3qgErydth8UiGZEB3P513@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw5n0mXhxM1xHqsDyC9pvzzD/pIP8hDAmwAG7Ysl+RIAowMBZ9E
-	x/YlD21vJSUgfoSlofna17MYAbpzX9MAy/iwXQu8PeqBwW1wE1x3opdpp0KX6ygKwmxv/4NlUST
-	+515QB/CfdwT8jqlpT35wrO+EKaRi6pk=
-X-Gm-Gg: ASbGncv5OFyog++Sl5DePdPPd6Uv1GRwWe5W1eOneOBD0TiiM0jIlCySM5yykes/Dw1
-	MmauJgc4Nv8U++JzwmlBj2MSyi5aHL1MmGludxDsHFw6Ni7JGtrQUoxWpsd8sCTBxz7pWB2TZoo
-	RCH/2XpoDGhvblXN4Yj+SVGYz6EDGxiTQLszioQOeXGueKyUuXRTVlvf8pMWD93mZ7RPrtz6o0z
-	VYbktA56t4AwpeY4j0/pHN0odMHAWOk/7n/cOaSWLEDWy5HgQUMIQVfD2zrQuaHR5WmRMJYX5pQ
-	nsqSmW0F/L5p6bvR7muXSPTGKvBV
-X-Google-Smtp-Source: AGHT+IHNIEMsKMuIfgmf4nSIkpkBE7g7sYoDWkVC8xsVj6L3W+IxV7WiDaJ3iYbj6vVbtX2WyqaxCHsUQwVIf+tm5GM=
-X-Received: by 2002:a05:6000:26c7:b0:411:3c14:3ad9 with SMTP id
- ffacd0b85a97d-42cc137bc77mr5027746f8f.21.1763775819744; Fri, 21 Nov 2025
- 17:43:39 -0800 (PST)
+	Sat, 22 Nov 2025 01:58:02 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=vQSdpwVdXIUbBtVWzcHJytMEj9d7icDuc2ebf9Hv/wGaOl6IZS+KGgNbOQCQQcAcszRrbBTEGG9AIyvQtXeDufPRH5B6Yb/puPB/YNo/esFm+d1GSDRy9mYt5diyT/KroQZ8qENF+hAiZ8RlnPmIQhETSETFQOvYFJYbCulFZ5x3nQrzDkrqTW3MGxiHjhdyoKygfRF718lJjm0tVe91KbxCbrXa1D1ha6bzajaR0Yrx3U+y+pbCiB7cet7njUBfMGJc+d5M5KRYkrlZDfkdkE6qne9bY9/OdsFMNhb2SwBgdWuZW3dR3zqKrXx8IskHk1478MXrAsDFD856M61Reg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=mNY9x1RtcvkkzqkoxtEh/9kLnwrlK2GzglZgK+WuMC0=;
+ b=F+zEMag8HgUi7/v14ENra57DSmXow2xTDcZbRuO+2acubK+l+pyp5rE+4T87k40GgSVSUJ3W5QU/ot7T38N3peJMHVPuU6LxEXkj8uQ8WWl1pWTSMRzgOQV6CNLt+BDOPgaUtqiFOZfPDTAr6F6+q+moC93XxJx4YmQZruZdKe/gBQFj4V63qre2KmFjuVIU1qWwavdCaqcfI1OV+n/HmPwW+C7bdzI6HV0KglR8pB2E6LltISR9HdgyEkbpLH8AgjqXb/UdaQ3RiPoWnwalHLbq90WA/eJam36IaFuNB8IQKs0SMkUanSskanUcOtLF4/YDqv/eLv05I5LzgfvRbA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.118.232) smtp.rcpttodomain=8bytes.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=mNY9x1RtcvkkzqkoxtEh/9kLnwrlK2GzglZgK+WuMC0=;
+ b=CmhGFo0ilh7R27IRidcUngcqJgzwWgn9t0KZg7y6Va30N/vMRc3BzAjbBvwnItien7NIpRa+ls1V9uPPHEOAY5zLiNVF5dyFe6ZHpumv0IN3+GsHSdzFaH514h8Yfms0nCDR8k0ZEwvhDmOGFZjQeYBVToLglHoBAhB5FG4pQJ2QxzGYMqf3DooohvRt2JyUvHcpX+4kTp50loanLrvmQRnQpBSRgsGVQZkhwgp4eVGkmRU4/AJPH2C5gvo6YHUsDDhfHlWD4h7c6Ry/1QVHaUyvU4zfB9Eera685qsW6hjqsfzW3mjSQbZaRCYxJM4TRTOBmp31GFR5eNhGWDPbGw==
+Received: from BL1PR13CA0383.namprd13.prod.outlook.com (2603:10b6:208:2c0::28)
+ by LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9343.10; Sat, 22 Nov
+ 2025 01:57:54 +0000
+Received: from BL02EPF0001A104.namprd05.prod.outlook.com
+ (2603:10b6:208:2c0:cafe::fa) by BL1PR13CA0383.outlook.office365.com
+ (2603:10b6:208:2c0::28) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9343.10 via Frontend Transport; Sat,
+ 22 Nov 2025 01:57:54 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.232)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.118.232 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.118.232; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.118.232) by
+ BL02EPF0001A104.mail.protection.outlook.com (10.167.241.135) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9343.9 via Frontend Transport; Sat, 22 Nov 2025 01:57:54 +0000
+Received: from drhqmail201.nvidia.com (10.126.190.180) by mail.nvidia.com
+ (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 21 Nov
+ 2025 17:57:46 -0800
+Received: from drhqmail202.nvidia.com (10.126.190.181) by
+ drhqmail201.nvidia.com (10.126.190.180) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.20; Fri, 21 Nov 2025 17:57:45 -0800
+Received: from Asurada-Nvidia.nvidia.com (10.127.8.11) by mail.nvidia.com
+ (10.126.190.181) with Microsoft SMTP Server id 15.2.2562.20 via Frontend
+ Transport; Fri, 21 Nov 2025 17:57:44 -0800
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: <joro@8bytes.org>, <afael@kernel.org>, <bhelgaas@google.com>,
+	<alex@shazbot.org>, <jgg@nvidia.com>
+CC: <will@kernel.org>, <robin.murphy@arm.com>, <lenb@kernel.org>,
+	<kevin.tian@intel.com>, <baolu.lu@linux.intel.com>,
+	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
+	<linux-kernel@vger.kernel.org>, <linux-acpi@vger.kernel.org>,
+	<linux-pci@vger.kernel.org>, <kvm@vger.kernel.org>,
+	<patches@lists.linux.dev>, <pjaroszynski@nvidia.com>, <vsethi@nvidia.com>,
+	<helgaas@kernel.org>, <etzhao1900@gmail.com>
+Subject: [PATCH v7 1/5] iommu: Lock group->mutex in iommu_deferred_attach()
+Date: Fri, 21 Nov 2025 17:57:28 -0800
+Message-ID: <a7ebae88c78e81e7ff0d14788ddff2e6a9fcecd3.1763775108.git.nicolinc@nvidia.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <cover.1763775108.git.nicolinc@nvidia.com>
+References: <cover.1763775108.git.nicolinc@nvidia.com>
 MIME-Version: 1.0
-References: <20251118005305.27058-1-jordan@jrife.io>
-In-Reply-To: <20251118005305.27058-1-jordan@jrife.io>
-From: Alexei Starovoitov <alexei.starovoitov@gmail.com>
-Date: Fri, 21 Nov 2025 17:43:28 -0800
-X-Gm-Features: AWmQ_bmZ4EmkvTNStUUIL16LVXwHaftQKTWLBknsNveweaHyuQUb67hzwSYmSE4
-Message-ID: <CAADnVQJ-9JubH5r4oSwQneu3o6U6s8Fa0cjCsi=+6-R+9nkzHw@mail.gmail.com>
-Subject: Re: [RFC PATCH bpf-next 0/7] bpf: Implement BPF_LINK_UPDATE for
- tracing links
-To: Jordan Rife <jordan@jrife.io>
-Cc: bpf <bpf@vger.kernel.org>, 
-	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, 
-	linux-s390 <linux-s390@vger.kernel.org>, X86 ML <x86@kernel.org>, 
-	Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
-	Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau <martin.lau@linux.dev>, 
-	Puranjay Mohan <puranjay@kernel.org>, Ilya Leoshkevich <iii@linux.ibm.com>, Ingo Molnar <mingo@redhat.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BL02EPF0001A104:EE_|LV8PR12MB9620:EE_
+X-MS-Office365-Filtering-Correlation-Id: 62534e43-b3c3-4174-4052-08de296a8d0d
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|82310400026|36860700013|1800799024;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?+kv2YfsnkNt0kMCYVKtsZ8zyP1GJ3R8/jmda4KS+5y20ZMZzyHODGCsSGl/R?=
+ =?us-ascii?Q?hEJKGqNVz9r8DWBEDghN/kSlt//TYeCtQe9lIF9w0nO7qvv7TVYfBIawY3oI?=
+ =?us-ascii?Q?vRPQvTpwZ3JvwiHSl4xXsfT0jLhzjI/IOpRuZ9hdPAc96WIafBbwdGK8uwPb?=
+ =?us-ascii?Q?JtT2DxZxw6YD55rh/G5/yY1ZfGxHMoMkeySZGcOtnfrdOEqg7Cg2Oy21oyl2?=
+ =?us-ascii?Q?0HtsWCd6oh3H+l7FjInTP5T8sCrc495SioIU3aeFRqp3vmCJP70wWaJthSxu?=
+ =?us-ascii?Q?bGQ72YBiMp+O2dV+R+GQCJymSoOR+8sHqjKuzMac9Bte33LjA+0PycUyYv8/?=
+ =?us-ascii?Q?LQrxLNaXJORmsR2mgIe25lLkPaA5nl2AopK6K1bXuzTRMfu9Sz+qxtIeChtg?=
+ =?us-ascii?Q?+azQ/GkpPUX5Q5x2EgeBvLUxwW8SZ1UHx5PEhopQZfNZlZAy1wxIjobDEj9v?=
+ =?us-ascii?Q?wZBCaaLj/taDYPpdErsEHNFBmfXS0sjPqLzfKstOWFD7LXoUrKAFwoMgp0X7?=
+ =?us-ascii?Q?q9j8lE3MhrlrYXs3G+C/N742E1qoSHYfgz6+xqoX93ni+VYAlX91uQHp5Elf?=
+ =?us-ascii?Q?NyMgl/decmiju0CiQaEvTbcUYuonK8bvkQkBYXmxeXTY5QtKnNlZdOwteZ4t?=
+ =?us-ascii?Q?YZYt0Sw0Gwmi3THmumyMt99slLNEl/70c662f1Egdt3RgNYYaQerD9QhWFzP?=
+ =?us-ascii?Q?tjI21y2n28H2byTkAWtjW6qXmQLyeuo5i9w7ou1LesS84LwGlO+kofW/tFG0?=
+ =?us-ascii?Q?N3brHG1ePe7WaxWq06zNL1f7wPsHCL661xR6kHxTCKxjiTYziSYJS+BxKRTp?=
+ =?us-ascii?Q?dI34OqeclD8Hy7urJm/qEyNb8b0f1ZwGDi+mH4j32mOZFB4V0yVRfPlYNDxk?=
+ =?us-ascii?Q?NOYYa/A1ZCg9vh+3afaBsUrut1O2wa/fixAJW1j5X4fabj/fLLsrRQ2ANHOy?=
+ =?us-ascii?Q?CpyhkyYzghsyOYCKe9M+A1VtYZAB2a1pib/aBY7RKIEadcGgdZDsVJFEanL1?=
+ =?us-ascii?Q?IKveDvtA54uXagiihOrpEOEnodl4btaeRdrVkLSxweGgDHqb/gn45rL3pcsz?=
+ =?us-ascii?Q?Qmbp4oJgsLdatDGxEuHeh6Hg8lJuE0s3XS2NCOz7tJlahDnN3vHmkzjATUNi?=
+ =?us-ascii?Q?uX6X1A7IjCEekBTOTnLAUcVwAxzlE+6sDGVzgypNOAR6HBotrLYyPa/YR52H?=
+ =?us-ascii?Q?wMyqAqWNrazOca/oUxNCYIIXxM2Po1skUWmXpo7Q630Mj6zQtIYGCZSKaZKU?=
+ =?us-ascii?Q?bOjW09B/H33J50dFPbVuFGeuyYu2qA+muAaNqdP0UGLeEQSkhgumcFA2AVsA?=
+ =?us-ascii?Q?1EpuQbCjCdg0pWje3nuRLZXj7B7WNm7EGmBKpGjxj2HVMyA5PFGEZ4PN6wN0?=
+ =?us-ascii?Q?JWoqHveK7U172iNOA6zDJlZ1/mfDL7YZ8L1ZMySpRLrY07K7iw4jkxc7++GL?=
+ =?us-ascii?Q?18NikgUrz3Yj4z37uli3JcJ/zag9HlyHLemlERd+QjPwGwVQyagjT8HChm72?=
+ =?us-ascii?Q?uDJuaDcRNzF28cWd3NnyZ3evc4hC1GdsFcUrm5KjkrhB3veHWsv7Vwj6at8N?=
+ =?us-ascii?Q?LLgrE8PqYSe0fhzgz3U=3D?=
+X-Forefront-Antispam-Report: CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(7416014)(376014)(82310400026)(36860700013)(1800799024);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Nov 2025 01:57:54.1226
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 62534e43-b3c3-4174-4052-08de296a8d0d
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: BL02EPF0001A104.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV8PR12MB9620
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251121_174342_160825_36C41DA9 
-X-CRM114-Status: GOOD (  11.02  )
+X-CRM114-CacheID: sfid-20251121_175800_697889_D584C1C3 
+X-CRM114-Status: GOOD (  13.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,21 +156,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 17, 2025 at 4:53=E2=80=AFPM Jordan Rife <jordan@jrife.io> wrote=
-:
->
-> Implement update_prog for bpf_tracing_link_lops to enable
-> BPF_LINK_UPDATE for fentry, fexit, fmod_ret, freplace, etc. links.
->
-> My initial motivation for this was to enable a use case where one
-> process creates and owns links pointing to "hooks" within a tc, xdp, ...
-> attachment and an external "plugin" loads freplace programs and updates
-> links to these hooks. Aside from that though, it seemed like it could
-> be useful to be able to atomically swap out the program associated with
-> an freplace/fentry/fexit/fmod_ret link more generally.
+The iommu_deferred_attach() function invokes __iommu_attach_device(), but
+doesn't hold the group->mutex like other __iommu_attach_device() callers.
 
-I don't think we should burden the kernel with link_update for fentry/fexit=
-.
-bpf trampoline is already complex enough. I don't feel that
-additional complexity is justified.
+Though there is no pratical bug being triggered so far, it would be better
+to apply the same locking to this __iommu_attach_device(), since the IOMMU
+drivers nowaday are more aware of the group->mutex -- some of them use the
+iommu_group_mutex_assert() function that could be potentially in the path
+of an attach_dev callback function invoked by the __iommu_attach_device().
+
+Worth mentioning that the iommu_deferred_attach() will soon need to check
+group->resetting_domain that must be locked also.
+
+Thus, grab the mutex to guard __iommu_attach_device() like other callers.
+
+Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
+Reviewed-by: Kevin Tian <kevin.tian@intel.com>
+Reviewed-by: Lu Baolu <baolu.lu@linux.intel.com>
+Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+---
+ drivers/iommu/iommu.c | 13 ++++++++++---
+ 1 file changed, 10 insertions(+), 3 deletions(-)
+
+diff --git a/drivers/iommu/iommu.c b/drivers/iommu/iommu.c
+index 2ca990dfbb884..170e522b5bda4 100644
+--- a/drivers/iommu/iommu.c
++++ b/drivers/iommu/iommu.c
+@@ -2185,10 +2185,17 @@ EXPORT_SYMBOL_GPL(iommu_attach_device);
+ 
+ int iommu_deferred_attach(struct device *dev, struct iommu_domain *domain)
+ {
+-	if (dev->iommu && dev->iommu->attach_deferred)
+-		return __iommu_attach_device(domain, dev, NULL);
++	/*
++	 * This is called on the dma mapping fast path so avoid locking. This is
++	 * racy, but we have an expectation that the driver will setup its DMAs
++	 * inside probe while being single threaded to avoid racing.
++	 */
++	if (!dev->iommu || !dev->iommu->attach_deferred)
++		return 0;
+ 
+-	return 0;
++	guard(mutex)(&dev->iommu_group->mutex);
++
++	return __iommu_attach_device(domain, dev, NULL);
+ }
+ 
+ void iommu_detach_device(struct iommu_domain *domain, struct device *dev)
+-- 
+2.43.0
+
 
