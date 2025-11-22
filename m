@@ -4,82 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99775CFC536
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Nov 2025 14:18:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B968BCFC539
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Nov 2025 14:22:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Kc4yf/ip/zYhJKQehc/v1Ono+m+rQ7sS8fbaEIg4oWE=; b=wbYlKuSgOcAWqXnjCKbysO4tlb
-	kyN4m+dq2Y61AWGSe9iyKejF5OKx9I3DsSyP1GUGuuCzdiVI2U4+ktPWsgtrK72B3P3iXF6rBWmpr
-	eL8Tq4jHWi+78tmWkignv023DPteyZS2eG3SApCdoOSLL8q2jW8wWJRYZIrEElnRKLWfahlz9d44k
-	BAT+I5aLuWpY+ULDy54NSGABRjolAo6cl+3Ab5JbSTRfUQTrDTV1TlHV4YFIOHTrHNr7RpyXsR6kl
-	23WhQunRUgZmG4rR7ph9NHYwL+essY2X6gg1sujBihXUHObjK6aq3iWRLgH8xIpNZX0+yQyO81uei
-	SD6E/gDQ==;
+	bh=CbgH1togCEu70x2vN5bqkQ02nuE6gEO0wQ/tYHMUFhY=; b=Ks69tA9XgXga2HTwqq/HTYZqfh
+	PuLx1zaaW+RNndjGQvTFouFqE1LdZDMA5sfXGDFbgQ6H7oUanLfpcp49CYfN7Bdhp8StKrcbYuPr4
+	qbVtSSEi0r51qGqgnxRAiizni+XNKFyeO1g9w0Ea8jj9jmrADlx+NaXd0rDHEleQE76aaSYFoi9kV
+	bRjeR3Emj+hjTU6SmymCL5xJlZxl0epy/OvzSpXPdYIZkuhIVmed720vK6qgTynHi/VL0mFG62CA2
+	nm82dLvNpSV3/69iM58KN1lit6n2WqHSytWFcB6Wl3j80Vt5dZgcmSLxTuARyJgEZQaHeAk36rE/M
+	s3V2PCQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMoRY-00000009eTh-0LcI;
-	Sat, 22 Nov 2025 14:18:28 +0000
-Received: from mout.gmx.net ([212.227.17.21])
+	id 1vMoV4-00000009etn-2ECh;
+	Sat, 22 Nov 2025 14:22:06 +0000
+Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMoRU-00000009eT7-3HZD;
-	Sat, 22 Nov 2025 14:18:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.de;
-	s=s31663417; t=1763821096; x=1764425896; i=w_armin@gmx.de;
-	bh=Kc4yf/ip/zYhJKQehc/v1Ono+m+rQ7sS8fbaEIg4oWE=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
-	 References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=Y1UpTHto+ZoqLH5nQvLgtnB839wOH5s3ITuS1rBa0F5opUsqMNbpc05RvhNXdN+w
-	 LbP2H+cO5IdH6PqtSNGHEF0wlSpdifa3lUKxga5MHCcYij0kd1p3i2kmcuxyr5UQ5
-	 oGe/sP7emNQKmeW/rEv8Cvq8dL5crOw9wD+533pSWpiapdYfR9/sww4wBBoWvI303
-	 ko9K5byBMbCV91+W64U/ZMJVRN4NMrQJW46iRwfz8la0g21B5gAbcg9n72nkQ6yPd
-	 djLm9H5GxLznIw/0QBpCYsDwHP3840idibV2CETRLYzHOGszREUKs3+RFrJiyDlhX
-	 j6/yZOEhEn8SEgmJTw==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from [192.168.0.69] ([93.202.247.91]) by mail.gmx.net (mrgmx104
- [212.227.17.168]) with ESMTPSA (Nemesis) id 1MbAci-1vy58R25Qu-00ZeVB; Sat, 22
- Nov 2025 15:18:15 +0100
-Message-ID: <5f3ef610-4024-4ca0-a934-2649f5d25f40@gmx.de>
-Date: Sat, 22 Nov 2025 15:18:11 +0100
+	id 1vMoV1-00000009etL-1B4d
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 22 Nov 2025 14:22:04 +0000
+Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-42b3d7c1321so1727697f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 22 Nov 2025 06:22:02 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=tuxon.dev; s=google; t=1763821321; x=1764426121; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=CbgH1togCEu70x2vN5bqkQ02nuE6gEO0wQ/tYHMUFhY=;
+        b=YNHMFjzanYUEnSiBiiRKVgODOtbKqrCKSu/yj31FROb3b+36yJb/cBTtvWIuth8PEk
+         KRLccJ+db5SP0XyVYOKaUv6XOItN0pFryiOoDIC4k3C3zUsxu5Ym+jizLUOhueM6puT5
+         9yIDCEtLkDC0rSj18wQSRo9l/zMImrlCG6CLqaUbNNh4COjsSocJKDw+y1gJ6HDbHn7C
+         RZ7DeXQJJpA+iUKjQO8SIwwccS4HMjA4uvPQB2/9MYp2xRooMnbrp7elRvl+CaqIMcvQ
+         kN8SAfAiD+C+z1fJu+fYFhZT/SdZ7vqoIbxQwqo5fObpgP5mWyL5whhyI9/VlHJieVir
+         3wtQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1763821321; x=1764426121;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=CbgH1togCEu70x2vN5bqkQ02nuE6gEO0wQ/tYHMUFhY=;
+        b=PO+lSLZQRd5/NJbhREcLI52YXMaTBB4TjqW9wkja+0pyPu5RE4+lOHsDMIzjWdBb56
+         tOV/j2LXO1Y6cIElNxWtA7EVN7wPJ8ic6e1uRet69tm2VxEHxwI5PpSUUG1LIEP6xe7m
+         WO6BykvUdXiTr5Jnrnj+6b5p8zvL+KQkbna8J+Bz5UX/Oe0G3dM99R1OZoY3fGsxkj7f
+         UQqdtg/XLmM4j15NOQlAtuTovyaKMPFonoT74T6FxpXvmKVwpQa74anVRNtobr/bMCKE
+         y2V7vH/19fcjFHPvb7iZVtzSXu6hESqtSJRw1ILP9gbraMyZqQ8G00CKxQc0ULOaAq/O
+         UDTQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUVUH3wizY6lDY6EgV8d6V//sPOrJ7sBtaLe/jGWgmEzsjeHsm09Oy2mn1J+oQFJo2uEifp2sTZ896Kk3WSQ9N1@lists.infradead.org
+X-Gm-Message-State: AOJu0YzqtnIwz149lTQvTkINkYx2X+L8CUj53IN5pq7XzsgtlofHxD5O
+	x2G/XabPnGCLunhXJai8gs46XIKr3+gQGT7X1gCrBeTmk2jYYWPi+Zc1V+3HGoZfl6k=
+X-Gm-Gg: ASbGncsMw4hdhpTZfDd/nI5UeykZnVQR9Pfr7E2Rer+unxZrvaSM0wXwobCjGtAp9tA
+	iRH5+aD5UunjMPtEgDKMsYsITRJM1zjt5nDbls2lcBoaL1VYoMGtaSt7+zf5EjYa1os9/sfcaNh
+	ACnu9RL6BAQWJ6Z6a+A8bElY1L6oAS5f9he9eAntaCYLh4Ur2RjwUtXgfx62/wCQWMyGdhnm1S0
+	Gi4Ban2kSLD/I7Et4omQIVnaTJOeF0daet8jLPH9U/s8FhEVjo8gWpvSrj7JphaqGXdkdo1p5v9
+	jY04Jrc5B8jkiVyalqxkvHEg5dY4P/WsgKEJ/FIpJCM1Ea4flfr8EJ+rHaEzrO/xOSQ0qgBnF4K
+	pJ47esypnNcnmYjuTHK1n33Ld/zzozxv1CbMBWH1YQSud82QucnlkTtgPWjq+U7tg8VmKQPWIJQ
+	NEGE3b4RpOMbKMNgqj21A=
+X-Google-Smtp-Source: AGHT+IFqel5FKG4mPclsUJOqrx9rHT/z6E4W3n3TtUFun9s++jfXNrwVrDGfd3VnkelnXn+GP4CMhg==
+X-Received: by 2002:a05:6000:40df:b0:42b:40df:2338 with SMTP id ffacd0b85a97d-42cc1d22c88mr6452923f8f.52.1763821320827;
+        Sat, 22 Nov 2025 06:22:00 -0800 (PST)
+Received: from [192.168.50.4] ([82.78.167.134])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42cb7fa3592sm16341540f8f.21.2025.11.22.06.21.59
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sat, 22 Nov 2025 06:22:00 -0800 (PST)
+Message-ID: <0d21cf40-3614-48f4-86e0-69c7a87458e9@tuxon.dev>
+Date: Sat, 22 Nov 2025 16:21:59 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC RESEND 0/8] thermal: core: Allow setting the parent
- device of thermal zone/cooling devices
-To: "Rafael J. Wysocki" <rafael@kernel.org>
-Cc: Daniel Lezcano <daniel.lezcano@linaro.org>,
- Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>,
- Len Brown <lenb@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
- Ido Schimmel <idosch@nvidia.com>, Petr Machata <petrm@nvidia.com>,
- linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
- etnaviv@lists.freedesktop.org, dri-devel@lists.freedesktop.org,
- linux-tegra@vger.kernel.org, linux-acpi@vger.kernel.org,
- linux-doc@vger.kernel.org, netdev@vger.kernel.org,
- linux-wireless@vger.kernel.org, ath10k@lists.infradead.org,
- ath11k@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, platform-driver-x86@vger.kernel.org,
- linux-pci@vger.kernel.org, imx@lists.linux.dev,
- linux-renesas-soc@vger.kernel.org
-References: <20251120-thermal-device-v1-0-bbdad594d57a@gmx.de>
- <CAJZ5v0jOPrBcozzJMsB1eE12MuZRWDAV-+=jfrhJbi=S0p5J9Q@mail.gmail.com>
+Subject: Re: [PATCH 2/2] ARM: dts: Add support for pcb8385
+To: Horatiu Vultur <horatiu.vultur@microchip.com>, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, nicolas.ferre@microchip.com,
+ alexandre.belloni@bootlin.com, wsa+renesas@sang-engineering.com,
+ romain.sioen@microchip.com
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20251117125709.102013-1-horatiu.vultur@microchip.com>
+ <20251117125709.102013-3-horatiu.vultur@microchip.com>
+From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
 Content-Language: en-US
-From: Armin Wolf <W_Armin@gmx.de>
-In-Reply-To: <CAJZ5v0jOPrBcozzJMsB1eE12MuZRWDAV-+=jfrhJbi=S0p5J9Q@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:p1RNGZcFb7DMYC4pNIt+bKMVaFtCpVDJjA+b5GK6HVl6ii0Qvy6
- F02X8anlkVakkbi2OTFbnt8tYeJSvn6gGOs4ruxe4iOSm964VHeR0KGAfYYSOGHAkEHE1SL
- f+0kJN0U4H4TG67hcvhs8e2p+bBtnKPBsYGRBwzRgM45wOTh3XumwYG+ToUgVBnpYQ3YAqx
- wayKxHUnhSBUFp4PBU0OA==
-UI-OutboundReport: notjunk:1;M01:P0:vXFK1AWv0os=;NZUt21siNzvTNFU+NCb4ppbI26X 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 L4DlDx0w=
+In-Reply-To: <20251117125709.102013-3-horatiu.vultur@microchip.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251122_061825_207147_BA2395DB 
-X-CRM114-Status: GOOD (  38.46  )
+X-CRM114-CacheID: sfid-20251122_062203_446091_5CBF59C7 
+X-CRM114-Status: GOOD (  19.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,212 +106,185 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am 21.11.25 um 21:35 schrieb Rafael J. Wysocki:
+Hi, Horatiu,
 
-> On Thu, Nov 20, 2025 at 4:41=E2=80=AFAM Armin Wolf <W_Armin@gmx.de> wrot=
-e:
->> Drivers registering thermal zone/cooling devices are currently unable
->> to tell the thermal core what parent device the new thermal zone/
->> cooling device should have, potentially causing issues with suspend
->> ordering
-> This is one potential class of problems that may arise, but I would
-> like to see a real example of this.
->
-> As it stands today, thermal_class has no PM callbacks, so there are no
-> callback execution ordering issues with devices in that class and what
-> other suspend/resume ordering issues are there?
+On 11/17/25 14:57, Horatiu Vultur wrote:
+> Add basic support for pcb8385 [1]. It is a modular board which allows
+> to add different daughter cards on which there are different PHYs.
+> This adds support for UART, LEDs and I2C.
+> 
+> [1] https://www.microchip.com/en-us/development-tool/ev83e85a
+> 
+> Signed-off-by: Horatiu Vultur <horatiu.vultur@microchip.com>
+> ---
+>  arch/arm/boot/dts/microchip/Makefile          |   3 +-
+>  .../boot/dts/microchip/lan966x-pcb8385.dts    | 137 ++++++++++++++++++
+>  2 files changed, 139 insertions(+), 1 deletion(-)
+>  create mode 100644 arch/arm/boot/dts/microchip/lan966x-pcb8385.dts
+> 
+> diff --git a/arch/arm/boot/dts/microchip/Makefile b/arch/arm/boot/dts/microchip/Makefile
+> index 79cd38fdc7dab..08986c24a4700 100644
+> --- a/arch/arm/boot/dts/microchip/Makefile
+> +++ b/arch/arm/boot/dts/microchip/Makefile
+> @@ -102,4 +102,5 @@ dtb-$(CONFIG_SOC_LAN966) += \
+>  	lan966x-kontron-kswitch-d10-mmt-8g.dtb \
+>  	lan966x-pcb8290.dtb \
+>  	lan966x-pcb8291.dtb \
+> -	lan966x-pcb8309.dtb
+> +	lan966x-pcb8309.dtb \
+> +	lan966x-pcb8385.dtb
+> diff --git a/arch/arm/boot/dts/microchip/lan966x-pcb8385.dts b/arch/arm/boot/dts/microchip/lan966x-pcb8385.dts
+> new file mode 100644
+> index 0000000000000..f4817cee93436
+> --- /dev/null
+> +++ b/arch/arm/boot/dts/microchip/lan966x-pcb8385.dts
+> @@ -0,0 +1,137 @@
+> +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+> +/*
+> + * lan966x-pcb8385.dts - Device Tree file for PCB8385
+> + */
+> +/dts-v1/;
+> +
+> +#include "lan966x.dtsi"
+> +#include "dt-bindings/phy/phy-lan966x-serdes.h"
+> +
+> +/ {
+> +	model = "Microchip EVB - LAN9668";
+> +	compatible = "microchip,lan9668-pcb8385", "microchip,lan9668", "microchip,lan966";
+> +
+> +	chosen {
+> +		stdout-path = "serial0:115200n8";
+> +	};
+> +
+> +	aliases {
+> +		serial0 = &usart3;
+> +	};
+> +
+> +	gpio-restart {
+> +		compatible = "gpio-restart";
+> +		gpios = <&gpio 59 GPIO_ACTIVE_LOW>;
+> +		open-source;
+> +		priority = <200>;
+> +	};
+> +
+> +	leds {
+> +		compatible = "gpio-leds";
+> +
+> +		led-p1-green {
+> +			label = "cu0:green";
+> +			gpios = <&sgpio_out 2 0 GPIO_ACTIVE_LOW>;
+> +			default-state = "off";
+> +			linux,default-trigger = "e200413c.mdio-mii:01:link";
+> +		};
+> +
+> +		led-p1-yellow {
+> +			label = "cu0:yellow";
+> +			gpios = <&sgpio_out 2 1 GPIO_ACTIVE_LOW>;
+> +			default-state = "off";
+> +		};
+> +
+> +		led-p2-green {
+> +			label = "cu1:green";
+> +			gpios = <&sgpio_out 3 0 GPIO_ACTIVE_LOW>;
+> +			default-state = "off";
+> +			linux,default-trigger = "e200413c.mdio-mii:02:link";
+> +		};
+> +
+> +		led-p2-yellow {
+> +			label = "cu1:yellow";
+> +			gpios = <&sgpio_out 3 1 GPIO_ACTIVE_LOW>;
+> +			default-state = "off";
+> +		};
+> +	};
+> +};
+> +
+> +&aes {
+> +	status = "disabled"; /* Reserved by secure OS */
+> +};
+> +
+> +&gpio {
+> +	fc0_b_pins: fc0-b-pins {
+> +		/* SCL, SDA */
+> +		pins = "GPIO_25", "GPIO_26";
+> +		function = "fc0_b";
+> +	};
+> +
+> +	fc3_b_pins: fc3-b-pins {
+> +		/* RX, TX */
+> +		pins = "GPIO_52", "GPIO_53";
+> +		function = "fc3_b";
+> +	};
+> +
+> +	sgpio_a_pins: sgpio-a-pins {
+> +		/* SCK, D0, D1, LD */
+> +		pins = "GPIO_32", "GPIO_33", "GPIO_34", "GPIO_35";
+> +		function = "sgpio_a";
+> +	};
+> +};
+> +
+> +&flx0 {
 
-Correct, that is why i said "potentially".
+This would go after aes node to have them alphanumerically sorted. I can
+handled it while applying, if any.
 
->
-> Also, the suspend and resume of thermal zones is handled via PM
-> notifiers.  Is there a problem with this?
+> +	atmel,flexcom-mode = <ATMEL_FLEXCOM_MODE_TWI>;
+> +	status = "okay";
+> +
+> +	i2c0: i2c@600 {
+> +		pinctrl-0 = <&fc0_b_pins>;
+> +		pinctrl-names = "default";
+> +		dmas = <0>, <0>;
+> +		i2c-analog-filter;
+> +		i2c-digital-filter;
+> +		i2c-digital-filter-width-ns = <35>;
+> +		i2c-sda-hold-time-ns = <1500>;
+> +		status = "okay";
+> +	};
+> +};
+> +
+> +&flx3 {
+> +	atmel,flexcom-mode = <ATMEL_FLEXCOM_MODE_USART>;
+> +	status = "okay";
+> +
+> +	usart3: serial@200 {
+> +		pinctrl-0 = <&fc3_b_pins>;
+> +		pinctrl-names = "default";
+> +		status = "okay";
+> +	};
+> +};
+> +
+> +&i2c0 {
+> +	eeprom@54 {
+> +		compatible = "atmel,24c01";
+> +		reg = <0x54>;
+> +		status = "okay";
+> +	};
+> +
+> +	eeprom@55 {
+> +		compatible = "atmel,24c01";
+> +		reg = <0x55>;
+> +		status = "okay";
+> +	};
 
-The problem with PM notifiers is that thermal zones stop working even befo=
-re
-user space is frozen. Freezing user space might take a lot of time, so hav=
-ing
-no thermal management during this period is less than ideal.
+Any reason for not keeping these above under "i2c0: i2c@600 {" ?
 
-This problem would not occur when using dev_pm_ops, as thermal zones would=
- be
-suspended after user space has been frozen successfully. Additionally, whe=
-n using
-dev_pm_ops we can get rid of thermal_pm_suspended, as the device core alre=
-ady mandates
-that no new devices (including thermal zones and cooling devices) be regis=
-tered during
-a suspend/resume cycle.
+Thank you,
+Claudiu
 
-Replacing the PM notifiers with dev_pm_ops would of course be a optimizati=
-on with
-its own patch series.
-
->> and making it impossible for user space applications to
->> associate a given thermal zone device with its parent device.
-> Why does user space need to know the parent of a given cooling device
-> or thermal zone?
-
-Lets say that we have two thermal zones registered by two instances of the
-Intel Wifi driver. User space is currently unable to find out which therma=
-l zone
-belongs to which Wifi adapter, as both thermal zones have the (nearly) sam=
-e type string ("iwlwifi[0-X]").
-
-This problem would be solved once we populate the parent device pointer in=
-side the thermal zone
-device, as user space can simply look at the "device" symlink to determine=
- the parent device behind
-a given thermal zone device.
-
-Additionally, being able to access the acpi_handle of the parent device wi=
-ll be necessary for the
-ACPI thermal zone driver to support cooling devices other than ACPI fans a=
-nd ACPI processors.
-
->> This patch series aims to fix this issue by extending the functions
->> used to register thermal zone/cooling devices to also accept a parent
->> device pointer. The first six patches convert all functions used for
->> registering cooling devices, while the functions used for registering
->> thermal zone devices are converted by the remaining two patches.
->>
->> I tested this series on various devices containing (among others):
->> - ACPI thermal zones
->> - ACPI processor devices
->> - PCIe cooling devices
->> - Intel Wifi card
->> - Intel powerclamp
->> - Intel TCC cooling
-> What exactly did you do to test it?
-
-I tested:
-- the thermal zone temperature readout
-- correctness of the new sysfs links
-- suspend/resume
-
-I also verified that ACPI thermal zones still bind with the ACPI fans.
-
->> I also compile-tested the remaining affected drivers, however i would
->> still be happy if the relevant maintainers (especially those of the
->> mellanox ethernet switch driver) could take a quick glance at the
->> code and verify that i am using the correct device as the parent
->> device.
-> I think that the above paragraph is not relevant any more?
-
-You are right, however i originally meant to CC the mellanox maintainers a=
-s
-i was a bit unsure about the changes i made to their driver. I will rework
-this section in the next revision and CC the mellanox maintainers.
-
->
->> This work is also necessary for extending the ACPI thermal zone driver
->> to support the _TZD ACPI object in the future.
-> I'm still unsure why _TZD support requires the ability to set a
-> thermal zone parent device.
-
-_TZD allows the ACPI thermal zone to bind to cooling devices other than AC=
-PI fans
-and ACPI processors, like ACPI batteries. This however will currently not =
-work as
-the ACPI thermal zone driver uses the private drvdata of the cooling devic=
-e to
-determine if said cooling device should bind. This only works for ACPI fan=
-s and
-processors due to the fact that those drivers store a ACPI device pointer =
-inside
-drvdata, something the ACPI thermal zone expects.
-
-As we cannot require all cooling devices to store an ACPI device pointer i=
-nside
-their drvdata field in order to support ACPI, we must use a more generic a=
-pproach.
-I was thinking about using the acpi_handle of the parent device instead of=
- messing
-with the drvdata field, but this only works if the parent device pointer o=
-f the
-cooling device is populated.
-
-(Cooling devices without a parent device would then be ignored by the ACPI=
- thermal
-zone driver, as such cooling devices cannot be linked to ACPI).
-
->
->> Signed-off-by: Armin Wolf <W_Armin@gmx.de>
->> ---
->> Armin Wolf (8):
->>        thermal: core: Allow setting the parent device of cooling device=
-s
->>        thermal: core: Set parent device in thermal_of_cooling_device_re=
-gister()
->>        ACPI: processor: Stop creating "device" sysfs link
-> That link is not to the cooling devices' parent, but to the ACPI
-> device object (a struct acpi_device) that corresponds to the parent.
-> The parent of the cooling device should be the processor device, not
-> its ACPI companion, so I'm not sure why there would be a conflict.
-
- From the perspective of the Linux device core, a parent device does not h=
-ave to be
-a "physical" device. In the case of the ACPI processor driver, the ACPI de=
-vice is used,
-so the cooling device registered by said driver belongs to the ACPI device=
-. I agree
-that using the Linux processor device would make more sense, but this will=
- require
-changes inside the ACPI processor driver.
-
-As for the "device" symlink: The conflict would be a naming conflict, as b=
-oth "device" symlinks
-(the one created by the ACPI processor driver and the one created by the d=
-evice core) will
-be created in the same directory (which is the directory of the cooling de=
-vice).
-
->>        ACPI: fan: Stop creating "device" sysfs link
->>        ACPI: video: Stop creating "device" sysfs link
-> Analogously in the above two cases AFAICS.
->
-> The parent of a cooling device should be a "physical" device object,
-> like a platform device or a PCI device or similar, not a struct
-> acpi_device (which in fact is not a device even).
-
- From the perspective of the Linux device core, a ACPI device is a perfect=
-ly valid device.
-I agree that using a platform device or PCI device is better, but this alr=
-eady happens
-inside the ACPI fan driver (platform device).
-
-Only the ACPI video driver created a "device" sysfs link that points to th=
-e ACPI device
-instead of the PCI device. I just noticed that i accidentally changed this=
- by using the
-PCI device as the parent device for the cooling device.
-
-If you want then we can keep this change.
-
->>        thermal: core: Set parent device in thermal_cooling_device_regis=
-ter()
->>        ACPI: thermal: Stop creating "device" sysfs link
-> And this link is to the struct acpi_device representing the thermal zone=
- itself.
-
-Correct, the ACPI thermal zone driver is a ACPI driver, meaning that he bi=
-nds to
-ACPI devices. Because of this all (thermal zone) devices created by an ins=
-tance of
-said driver are descendants of the ACPI device said instance is bound to.
-
-We can of course convert the ACPI thermal zone driver into a platform driv=
-er, but
-this would be a separate patch series.
-
->>        thermal: core: Allow setting the parent device of thermal zone d=
-evices
-> I'm not sure if this is a good idea, at least until it is clear what
-> the role of a thermal zone parent device should be.
-
-Take a look at my explanation with the Intel Wifi driver.
-
-Thanks,
-Armin Wolf
+> +};
+> +
+> +&sgpio {
+> +	pinctrl-0 = <&sgpio_a_pins>;
+> +	pinctrl-names = "default";
+> +	microchip,sgpio-port-ranges = <0 3>;
+> +	status = "okay";
+> +
+> +	gpio@0 {
+> +		ngpios = <64>;
+> +	};
+> +	gpio@1 {
+> +		ngpios = <64>;
+> +	};
+> +};
 
 
