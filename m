@@ -4,84 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C80B5CFC515
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Nov 2025 04:56:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38A21CFC51D
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Nov 2025 07:23:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yuA3YWeLSsaqbfc364gnRkQWvn7S9drMMnYRnYCpi1Q=; b=h05c/aHtzVOd8owGHIZorZsyy9
-	5+j6Hw/fwMyAnY7tcUcA5JsbV6M0I76yuUcrtI/ekR3RTd/L29KiKfMPcBdDJHlObFG1np5wbRz5v
-	MmIQL9Dm1nWdK/swvfkxG0k4J1vKdw/wpjaaddT03nkzdpegb/dlYeOYXwXDRVi8YYWVSLMetmLv2
-	Iaru0p1zjo4rMxyWOMg9DsHisUQc75SJNeYtjWcoVHWDBW2cGLmgL9KTEnXGoELBF6YvHQ+W31vl7
-	2hjqm8HCuVYCO1o3G5lQbbanEFr4tJRsqA3cSUYwf+3MCvmks0xu2JlzM5BNDuFwxM2LWbBy4PQYR
-	faxhT0Gg==;
+	bh=1kEMr01EhmfSeAZXCzNJdK9+NLGdWztGzynTyztDrFo=; b=NncxS07L9zjsGkjdJTnF4IlvsP
+	M0AZyhMOcbmsRvRvUHVGa6raUWtDVmFi9vpNP4bm73wZiLEnOGdfp9GFA4dLzbDwaXvpU/HvW92RN
+	UNjmqUyiCCWywlVMWlkMbTb50Z4P2iGvhcQ+DkmWm7SF/wSR42nmT7cwqKpvZtzyGO0KPDWlJTThK
+	PqgusTARsPCA+S0sgmeOjUOUdrQcdjE49RMq2WpY77JpvnOo91YkPPEBGqyPDQfA0IdD4KyvbS41X
+	0uyBwhrslppM+V18LboaAoxPRrsQea3f8yLIexUwLyCwCclPhY3BipLPtIVmKz6KrNwPynPbVxDZS
+	W3JS1bYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMffq-00000009GXD-0dL7;
-	Sat, 22 Nov 2025 04:56:38 +0000
-Received: from mgamail.intel.com ([192.198.163.18])
+	id 1vMhxr-00000009L8G-1EGj;
+	Sat, 22 Nov 2025 07:23:23 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMffn-00000009GWg-2Ho9
+	id 1vMhxn-00000009L7m-3zmi
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 22 Nov 2025 04:56:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1763787395; x=1795323395;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=RpAta5pW7pTRynNxwbJLZvj/eo8rVxs+scWqmeP4VCc=;
-  b=jv9+es5yAUSxIgpO4yWHsjQ8RIGNEoquEYw7HjGTHtGQJaru/dj6RAsE
-   HlzRqZOh5IrTr6bxlHn8qlPoXVqn2e5H58Qg692nuO0CWG7V9klPFV6kB
-   HdzQ8cvqpe+EU+pvezyNYejDQ2oK7fb99nFHisNy/QmzsXqWECAlf8Q0V
-   6wI87L6tVAOQAn/UwYIxTpVI7azrsOcLAK1BanQhGEloqrj+1tyfaSZSl
-   q6MjZhLG6cqQMqjdVj7Ij7/Q/usGiaaLwOQxPMgP5J++CZYD0+bBMJCBW
-   /QCBa9DtRPxFVPn5YyjE5NGdRMaX0np0DHw5IxuUrBkdq7cs782Eu6lzI
-   w==;
-X-CSE-ConnectionGUID: AQ5+ft61Qx2DuWQM7DleuA==
-X-CSE-MsgGUID: dulmxXvvS1e7oazl9RfxAw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11620"; a="65068441"
-X-IronPort-AV: E=Sophos;i="6.20,217,1758610800"; 
-   d="scan'208";a="65068441"
-Received: from fmviesa001.fm.intel.com ([10.60.135.141])
-  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Nov 2025 20:56:31 -0800
-X-CSE-ConnectionGUID: TyUuip1jSRSAWl7cfJynJA==
-X-CSE-MsgGUID: rNBLW3izQzutdtYWUy0/fw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.20,217,1758610800"; 
-   d="scan'208";a="222811795"
-Received: from lkp-server01.sh.intel.com (HELO adf6d29aa8d9) ([10.239.97.150])
-  by fmviesa001.fm.intel.com with ESMTP; 21 Nov 2025 20:56:26 -0800
-Received: from kbuild by adf6d29aa8d9 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1vMffc-0007AZ-1E;
-	Sat, 22 Nov 2025 04:56:24 +0000
-Date: Sat, 22 Nov 2025 12:55:58 +0800
-From: kernel test robot <lkp@intel.com>
-To: Eugen Hristev <eugen.hristev@linaro.org>, linux-arm-msm@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-mm@kvack.org,
-	tglx@linutronix.de, andersson@kernel.org, pmladek@suse.com,
-	rdunlap@infradead.org, corbet@lwn.net, david@redhat.com,
-	mhocko@suse.com
-Cc: oe-kbuild-all@lists.linux.dev, tudor.ambarus@linaro.org,
-	mukesh.ojha@oss.qualcomm.com, linux-arm-kernel@lists.infradead.org,
-	linux-hardening@vger.kernel.org, jonechou@google.com,
-	rostedt@goodmis.org, linux-doc@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-remoteproc@vger.kernel.org,
-	linux-arch@vger.kernel.org, tony.luck@intel.com, kees@kernel.org,
-	Eugen Hristev <eugen.hristev@linaro.org>
-Subject: Re: [PATCH 23/26] soc: qcom: Add minidump driver
-Message-ID: <202511221252.PPEXScZ2-lkp@intel.com>
-References: <20251119154427.1033475-24-eugen.hristev@linaro.org>
+	Sat, 22 Nov 2025 07:23:21 +0000
+Received: from pendragon.ideasonboard.com (fs276ed015.tkyc509.ap.nuro.jp [39.110.208.21])
+	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 4020C7FA;
+	Sat, 22 Nov 2025 08:21:05 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1763796068;
+	bh=wDAd/utJor1Eg8gaGuthzbI/HfUkWQXcbpHV13Nxvw4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ntmNzrZtJEcsZYB/uV9D/DGOSrZtX3DsZEM69ACiqZzHnxm3GHdpfZ/Zs4grGKHKg
+	 DzBhjGsymI0AG1YJOhXNUeIGqLxy/bbtAQVhvABpReK2IgvAnE1YdzbGqIXyAatzVe
+	 5CCYZa27mFMnVWTjnXIo4DqY1txJlH+3bvON/w4E=
+Date: Sat, 22 Nov 2025 16:22:46 +0900
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Wei Fang <wei.fang@nxp.com>
+Cc: Clark Wang <xiaoning.wang@nxp.com>,
+	Oleksij Rempel <o.rempel@pengutronix.de>,
+	Emanuele Ghidoli <ghidoliemanuele@gmail.com>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	Daniel Scally <dan.scally@ideasonboard.com>,
+	Kieran Bingham <kieran.bingham@ideasonboard.com>,
+	Stefan Klug <stefan.klug@ideasonboard.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Fabio Estevam <festevam@gmail.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>,
+	"Russell King (Oracle)" <linux@armlinux.org.uk>
+Subject: Re: [PATCH] arm64: dts: imx8mp-debix-model-a: Disable EEE for 1000T
+Message-ID: <20251122072246.GA16239@pendragon.ideasonboard.com>
+References: <20251027234648.GC24987@pendragon.ideasonboard.com>
+ <aQAVE96NAD4Z4lgt@shell.armlinux.org.uk>
+ <20251028071817.GX13023@pendragon.ideasonboard.com>
+ <20251111235434.GA25874@pendragon.ideasonboard.com>
+ <aRR3gVsZcr01zwzN@shell.armlinux.org.uk>
+ <20251112222551.GB9135@pendragon.ideasonboard.com>
+ <20251113010627.GC9135@pendragon.ideasonboard.com>
+ <aRW6CxvmIEqkMrfA@shell.armlinux.org.uk>
+ <20251114222654.GI30434@pendragon.ideasonboard.com>
+ <PAXPR04MB8510E17B2B8C612DD02175CE88D6A@PAXPR04MB8510.eurprd04.prod.outlook.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20251119154427.1033475-24-eugen.hristev@linaro.org>
+In-Reply-To: <PAXPR04MB8510E17B2B8C612DD02175CE88D6A@PAXPR04MB8510.eurprd04.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251121_205635_654937_16528E7E 
-X-CRM114-Status: GOOD (  14.37  )
+X-CRM114-CacheID: sfid-20251121_232320_305963_14977EC1 
+X-CRM114-Status: GOOD (  66.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,152 +90,650 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Eugen,
+Hello Wei,
 
-kernel test robot noticed the following build warnings:
+On Tue, Nov 18, 2025 at 01:50:55AM +0000, Wei Fang wrote:
+> Sorry, I only have a little experience with DWMac, add Clark to help look
+> at this issue.
 
-[auto build test WARNING on rppt-memblock/fixes]
-[also build test WARNING on linus/master v6.18-rc6]
-[cannot apply to akpm-mm/mm-everything rppt-memblock/for-next next-20251121]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+Thank you.
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Eugen-Hristev/kernel-Introduce-meminspect/20251119-235912
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/rppt/memblock.git fixes
-patch link:    https://lore.kernel.org/r/20251119154427.1033475-24-eugen.hristev%40linaro.org
-patch subject: [PATCH 23/26] soc: qcom: Add minidump driver
-config: nios2-randconfig-r123-20251122 (https://download.01.org/0day-ci/archive/20251122/202511221252.PPEXScZ2-lkp@intel.com/config)
-compiler: nios2-linux-gcc (GCC) 11.5.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20251122/202511221252.PPEXScZ2-lkp@intel.com/reproduce)
+I think we're getting close to having a good understanding of the
+problem. I've debugged it as far as I could based on the information
+available publicly. Let's try to get to the bottom of this issue, it
+impacts quite a lot of people and it would be very nice to fix it
+properly in mainline.
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202511221252.PPEXScZ2-lkp@intel.com/
+The short summary is that I'm experiencing an interrupt storm on IRQ 135
+when EEE is enabled with the EQOS interface.
 
-sparse warnings: (new ones prefixed by >>)
->> drivers/soc/qcom/minidump.c:108:35: sparse: sparse: restricted __le32 degrades to integer
->> drivers/soc/qcom/minidump.c:154:22: sparse: sparse: incorrect type in assignment (different base types) @@     expected restricted __le32 [usertype] seq_num @@     got unsigned int enum meminspect_uid const id @@
-   drivers/soc/qcom/minidump.c:154:22: sparse:     expected restricted __le32 [usertype] seq_num
-   drivers/soc/qcom/minidump.c:154:22: sparse:     got unsigned int enum meminspect_uid const id
->> drivers/soc/qcom/minidump.c:184:19: sparse: sparse: unsigned value that used to be signed checked against zero?
-   drivers/soc/qcom/minidump.c:183:39: sparse: signed value source
+My current theory is that
 
-vim +108 drivers/soc/qcom/minidump.c
+- The lpi_intr_o signal of the EQOS is OR'ed into IRQ 135.
+- The issue is triggerted by the PHY exiting LPI mode
+- When it exits LPI mode, the PHY restarts generating the RX clock
+  (clk_rx_i).
+- The MAC detects exit from LPI, and asserts lpi_intr_o.
+- Before the CPU has time to process the interrupt, the PHY enters LPI
+  mode again, and stops generating the RX clock.
+- The CPU processes the interrupt and reads the GMAC4_LPI_CTRL_STATUS
+  registers. This does not clear lpi_intr_o as there's no clk_rx_i.
 
-    93	
-    94	/**
-    95	 * qcom_md_get_region_index() - Lookup minidump region by id
-    96	 * @md: minidump data
-    97	 * @id: minidump region id
-    98	 *
-    99	 * Return: On success, it returns the internal region index, on failure,
-   100	 *	returns	negative error value
-   101	 */
-   102	static int qcom_md_get_region_index(struct minidump *md, int id)
-   103	{
-   104		unsigned int count = le32_to_cpu(md->toc->region_count);
-   105		unsigned int i;
-   106	
-   107		for (i = 0; i < count; i++)
- > 108			if (md->regions[i].seq_num == id)
-   109				return i;
-   110	
-   111		return -ENOENT;
-   112	}
-   113	
-   114	/**
-   115	 * register_md_region() - Register a new minidump region
-   116	 * @priv: private data
-   117	 * @e: pointer to inspect entry
-   118	 *
-   119	 * Return: None
-   120	 */
-   121	static void __maybe_unused register_md_region(void *priv,
-   122						      const struct inspect_entry *e)
-   123	{
-   124		unsigned int num_region, region_cnt;
-   125		const char *name = "unknown";
-   126		struct minidump_region *mdr;
-   127		struct minidump *md = priv;
-   128	
-   129		if (!(e->va || e->pa) || !e->size) {
-   130			dev_dbg(md->dev, "invalid region requested\n");
-   131			return;
-   132		}
-   133	
-   134		if (e->id < ARRAY_SIZE(meminspect_id_to_md_string))
-   135			name = meminspect_id_to_md_string[e->id];
-   136	
-   137		if (qcom_md_get_region_index(md, e->id) >= 0) {
-   138			dev_dbg(md->dev, "%s:%d region is already registered\n",
-   139				name, e->id);
-   140			return;
-   141		}
-   142	
-   143		/* Check if there is a room for a new entry */
-   144		num_region = le32_to_cpu(md->toc->region_count);
-   145		if (num_region >= MAX_NUM_REGIONS) {
-   146			dev_dbg(md->dev, "maximum region limit %u reached\n",
-   147				num_region);
-   148			return;
-   149		}
-   150	
-   151		region_cnt = le32_to_cpu(md->toc->region_count);
-   152		mdr = &md->regions[region_cnt];
-   153		scnprintf(mdr->name, MAX_REGION_NAME_LENGTH, "K%.8s", name);
- > 154		mdr->seq_num = e->id;
-   155		if (e->pa)
-   156			mdr->address = cpu_to_le64(e->pa);
-   157		else if (e->va)
-   158			mdr->address = cpu_to_le64(__pa(e->va));
-   159		mdr->size = cpu_to_le64(ALIGN(e->size, 4));
-   160		mdr->valid = cpu_to_le32(MINIDUMP_REGION_VALID);
-   161		region_cnt++;
-   162		md->toc->region_count = cpu_to_le32(region_cnt);
-   163	
-   164		dev_dbg(md->dev, "%s:%d region registered %llx:%llx\n",
-   165			mdr->name, mdr->seq_num, mdr->address, mdr->size);
-   166	}
-   167	
-   168	/**
-   169	 * unregister_md_region() - Unregister a previously registered minidump region
-   170	 * @priv: private data
-   171	 * @e: pointer to inspect entry
-   172	 *
-   173	 * Return: None
-   174	 */
-   175	static void __maybe_unused unregister_md_region(void *priv,
-   176							const struct inspect_entry *e)
-   177	{
-   178		struct minidump_region *mdr;
-   179		struct minidump *md = priv;
-   180		unsigned int region_cnt;
-   181		unsigned int idx;
-   182	
-   183		idx = qcom_md_get_region_index(md, e->id);
- > 184		if (idx < 0) {
-   185			dev_dbg(md->dev, "%d region is not present\n", e->id);
-   186			return;
-   187		}
-   188	
-   189		mdr = &md->regions[0];
-   190		region_cnt = le32_to_cpu(md->toc->region_count);
-   191	
-   192		/*
-   193		 * Left shift one position all the regions located after the
-   194		 * region being removed, in order to fill the gap.
-   195		 * Then, zero out the last region at the end.
-   196		 */
-   197		memmove(&mdr[idx], &mdr[idx + 1], (region_cnt - idx - 1) * sizeof(*mdr));
-   198		memset(&mdr[region_cnt - 1], 0, sizeof(*mdr));
-   199		region_cnt--;
-   200		md->toc->region_count = cpu_to_le32(region_cnt);
-   201	}
-   202	
+Would someone at NXP with access to internal documentation and/or the
+RTL be able to confirm that lpi_intr_o is indeed OR'ed into IRQ 135 ?
+
+> > Dropping Catalin Popescu from CC as his e-mail address bounces, and adding
+> > Fugang Duan, Joakim Zhang, Wei Fang and Yannick Vignong from NXP who have
+> > worked on upstream i.MX8MP support in the driver.
+> > 
+> > Fugang, Joakim, Wei and Yannick, there's a question for you below.
+> > 
+> > On Thu, Nov 13, 2025 at 10:59:23AM +0000, Russell King (Oracle) wrote:
+> > > On Thu, Nov 13, 2025 at 03:06:27AM +0200, Laurent Pinchart wrote:
+> > > > On Thu, Nov 13, 2025 at 12:25:52AM +0200, Laurent Pinchart wrote:
+> > > > > On Wed, Nov 12, 2025 at 12:03:13PM +0000, Russell King (Oracle) wrote:
+> > > > > > On Wed, Nov 12, 2025 at 01:54:34AM +0200, Laurent Pinchart wrote:
+> > > > > > > On Tue, Oct 28, 2025 at 09:18:17AM +0200, Laurent Pinchart wrote:
+> > > > > > > > I didn't notice it at the time because my board was
+> > > > > > > > connected to a switch that didn't support EEE.
+> > > > > > >
+> > > > > > > I can confirm that reverting that commit makes the issue
+> > > > > > > disappear. So we're dealing with an interrupt storm that
+> > > > > > > occurs when all three of the following conditions are true:
+> > > > > > >
+> > > > > > > - cpu-pd-wait is enabled
+> > > > > > > - EEE is enabled
+> > > > > > > - the peer also supports EEE
+> > > > > >
+> > > > > > Thanks - overall, please take the statistics and interrupt
+> > > > > > status bits with a pinch of salt - I suspect there are cases
+> > > > > > where the interrupt is not actually enabled, and the code
+> > > > > > doesn't take action to clear down a set status bit, but _does_
+> > > > > > count it - so every interrupt that happens increments the counter.
+> > > > >
+> > > > > True. To (partly) avoid that, I've dropped the line that discards
+> > > > > disabled bits in dwmac4_irq_status():
+> > > > >
+> > > > >  	/* Discard disabled bits */
+> > > > > -	intr_status &= intr_enable;
+> > > > >
+> > > > > to ensure that all bits are processed and cleared. I then didn't
+> > > > > see any high count of any of the GMAC_INT_STATUS interrupts. For
+> > > > > MTL_INTERRUPT_STATUS it's a bit different, as by default only one
+> > > > > queue is processed.
+> > > > >
+> > > > > > > Furthermore, I tried counting bits from all the interrupt
+> > > > > > > status registers I could find. The count of
+> > > > > > > MTL_INTERRUPT_STATUS Q0IS to Q4IS bits is very high, and so are the
+> > DMA_CH0_STATUS TBU and ETI bits.
+> > > > > >
+> > > > > > TBU means that the transmitter found that the next buffer was
+> > > > > > owned by the "application" rather than the hardware, which would
+> > > > > > be normal after getting to the end of the queued packets.
+> > > > > >
+> > > > > > ETI means that a packet has been transferred into MTL memory,
+> > > > > > and thus would occur for every transmitted packet.
+> > > > > >
+> > > > > > Having dug into the imx8m documentation and the driver this
+> > > > > > morning, I don't think TBU and ETI are the source of the
+> > > > > > interrupt storm. Their corresponding interrupt enable bits are
+> > > > > > DMA_CHAN_INTR_ENA_TBUE and DMA_CHAN_INTR_ENA_ETE (driver
+> > names).
+> > > > > > Both of these only appear in a header file - the code never
+> > > > > > enables these interrupts. So, TBU and ETI should not be causing an
+> > interrupt storm.
+> > > > > >
+> > > > > > As for QxIS, stmmac_common_interrupt() will iterate over the
+> > > > > > queues in use, calling stmmac_host_mtl_irq_status() aka
+> > > > > > dwmac4_irq_mtl_status() for each. Only if this happens will
+> > > > > > MTL_CHAN_INT_CTRL() be read which clears the status bit. In
+> > > > > > other words, if e.g. Q1IS is set, but only one queue is being
+> > > > > > used. dwmac4_irq_mtl_status() won't be called for queue 1, and thus
+> > MTL_CHAN_INT_CTRL() won't be read to clear Q1IS.
+> > > > >
+> > > > > That's why I tried to enable all 5 queues in DT, but alas, it
+> > > > > didn't help. I'll try again and count all possible interrupts.
+> > > >
+> > > > Here's my debug patch (not very pretty, sorry about that):
+> > >
+> > > That's fine. Thanks for providing this and the raw data.
+> > >
+> > > > Here are the corresponding stats captured right after booting to
+> > > > userspace, with the 0 counts stripped off to keep the output readable:
+> > > >
+> > > >      irq_gmac_0_n: 1
+> > >
+> > > RSGMIIS, disabled, cleared by read of MAC_PHYIF_CONTROL_STATUS.
+> > >
+> > > >      irq_gmac_5_n: 4047
+> > >
+> > > LPIIS, enabled, cleared by read of LPI_CONTROL_STATUS which is done.
+> > >
+> > > >      irq_gmac_18_n: 46
+> > >
+> > > MDIOIS, disabled, clear on read of _this_ status register
+> > >
+> > > >      irq_mtl0_n: 2244307
+> > >
+> > > This will increment each time dwmac4_irq_mtl_status() is called for
+> > > channel 0, which will be called each time stmmac_common_interrupt() is
+> > > called. Thus, this indicates the total number of times the stmmac
+> > > interrupt handler has been called.
+> > 
+> > Yes, my goal with the irq_mtlX_n counters was to check for which
+> > channels/queues the dwmac4_irq_mtl_status() was called.
+> > 
+> > > >      irq_mtl_0_n: 2244307
+> > > >      irq_mtl_1_n: 2244307
+> > > >      irq_mtl_2_n: 2244307
+> > > >      irq_mtl_3_n: 2244307
+> > > >      irq_mtl_4_n: 2244307
+> > >
+> > > These should be cleared by reading the corresponding queue interrupt
+> > > control/status register, iow MTL_CHAN_INT_CTRL(). However, we do not
+> > > write to MTL_CHAN_INT_CTRL() to enable any of the interrupts there, so
+> > > this looks weird to me, so it would be an idea to look at what value
+> > > this MTL_CHAN_INT_CTRL() register contains, it may provide something
+> > > useful, but I actually suspect it's another red herring.
+> > 
+> > All the MTL_CHAN_INT_CTRL() registers read as 0x00000002, so the interrupts
+> > are not enabled.
+> > 
+> > > >      irq_chan0_n: 2244307
+> > >
+> > > Similarly to irq_mtl0_n, this will increment each time
+> > > dwmac4_dma_interrupt() is called for channel 0, which will be via
+> > > stmmac_napi_check(), stmmac_dma_interrupt() and
+> > > stmmac_common_interrupt(). Therefore, it is expected to have the same
+> > > value as irq_mtl0_n.
+> > >
+> > > >      irq_chan0_0_n: 333
+> > > >      irq_chan0_2_n: 2244307
+> > > >      irq_chan0_6_n: 2769
+> > > >      irq_chan0_10_n: 2244307
+> > > >      irq_chan0_11_n: 2799
+> > > >      irq_chan0_15_n: 2701
+> > >
+> > > Only interrupts 0, 6, 12, 14 and 15 are enabled. Status bits in this
+> > > register require '1' to be written to clear them. As the value written
+> > > back is the status that was read masked by the interrupt enable, if
+> > > bits 2 or 10 are set, they will never be cleared, so will increment
+> > > each and every time stmmac_common_interrupt() is called. Therefore,
+> > > these values are not significant.
+> > 
+> > I've commented out the masking in dwmac4_dma_interrupt(), and the counters
+> > show that bits 2 and 10 were indeed not significant:
+> > 
+> >      irq_gmac_0_n: 1
+> >      irq_gmac_5_n: 3846
+> >      irq_gmac_18_n: 59
+> >      irq_mtl0_n: 2189598
+> >      irq_mtl_0_n: 2189598
+> >      irq_mtl_1_n: 2189598
+> >      irq_mtl_2_n: 2189598
+> >      irq_mtl_3_n: 2189598
+> >      irq_mtl_4_n: 2189598
+> >      irq_chan0_n: 2189598
+> >      irq_chan0_0_n: 258
+> >      irq_chan0_2_n: 2680
+> >      irq_chan0_6_n: 2660
+> >      irq_chan0_10_n: 2682
+> >      irq_chan0_11_n: 1659
+> >      irq_chan0_15_n: 2598
+> >      irq_tx_path_in_lpi_mode_n: 6
+> >      irq_tx_path_exit_lpi_mode_n: 6
+> >      irq_rx_path_in_lpi_mode_n: 2012
+> >      irq_rx_path_exit_lpi_mode_n: 2009
+> >      irq_rgmii_n: 1
+> >      rx_normal_irq_n: 2660
+> >      tx_normal_irq_n: 258
+> >      normal_irq_n: 4577
+> >      q0_tx_irq_n: 258
+> >      q0_rx_irq_n: 2660
+> > 
+> > There is still an interrupt storm, as shown by bits Q0IS to Q4IS in
+> > MTL_INTERRUPT_STATUS. Those bits are documented in the i.MX8MP RM as
+> > 
+> >   Queue 0 Interrupt status
+> > 
+> >   This bit indicates that there is an interrupt from Queue 0. To reset
+> >   this bit, the application must read Queue 0 Interrupt Control and
+> >   Status register to get the exact cause of the interrupt and clear its
+> >   source.
+> > 
+> > I've added counters for the MTL_CHAN_INT_CTRL() registers bits in
+> > dwmac4_irq_mtl_status():
+> > 
+> >      irq_gmac_0_n: 1
+> >      irq_gmac_5_n: 4088
+> >      irq_gmac_18_n: 70
+> >      irq_mtl0_n: 2279161
+> >      irq_mtl_0_n: 2279161
+> >      irq_mtl_1_n: 2279161
+> >      irq_mtl_2_n: 2279161
+> >      irq_mtl_3_n: 2279161
+> >      irq_mtl_4_n: 2279161
+> >      irq_mtl_chan0_1_n: 2279161
+> >      irq_chan0_n: 2279161
+> >      irq_chan0_0_n: 269
+> >      irq_chan0_2_n: 2874
+> >      irq_chan0_6_n: 2754
+> >      irq_chan0_10_n: 2871
+> >      irq_chan0_11_n: 1793
+> >      irq_chan0_15_n: 2749
+> >      irq_tx_path_in_lpi_mode_n: 13
+> >      irq_tx_path_exit_lpi_mode_n: 13
+> >      irq_rx_path_in_lpi_mode_n: 2112
+> >      irq_rx_path_exit_lpi_mode_n: 2111
+> >      irq_rgmii_n: 1
+> >      rx_normal_irq_n: 2754
+> >      tx_normal_irq_n: 269
+> >      normal_irq_n: 4816
+> >      q0_tx_irq_n: 269
+> >      q0_rx_irq_n: 2754
+> > 
+> > I've then modified dwmac4_irq_mtl_status() to write back the status value to
+> > MTL_CHAN_INT_CTRL() unconditionally:
+> > 
+> >      irq_gmac_0_n: 1
+> >      irq_gmac_5_n: 4429
+> >      irq_gmac_18_n: 96
+> >      irq_mtl0_n: 5165861
+> >      irq_mtl_0_n: 5212
+> >      irq_mtl_1_n: 5165861
+> >      irq_mtl_2_n: 5165861
+> >      irq_mtl_3_n: 5165861
+> >      irq_mtl_4_n: 5165861
+> >      irq_mtl_chan0_1_n: 5212
+> >      irq_chan0_n: 5165861
+> >      irq_chan0_0_n: 274
+> >      irq_chan0_2_n: 2965
+> >      irq_chan0_6_n: 2858
+> >      irq_chan0_10_n: 2965
+> >      irq_chan0_11_n: 1899
+> >      irq_chan0_15_n: 2838
+> >      irq_tx_path_in_lpi_mode_n: 6
+> >      irq_tx_path_exit_lpi_mode_n: 6
+> >      irq_rx_path_in_lpi_mode_n: 2364
+> >      irq_rx_path_exit_lpi_mode_n: 2363
+> >      irq_rgmii_n: 1
+> >      rx_normal_irq_n: 2858
+> >      tx_normal_irq_n: 274
+> >      normal_irq_n: 5031
+> >      q0_tx_irq_n: 274
+> >      q0_rx_irq_n: 2858
+> > 
+> > As expected, that clears the interrupt source for Q01S, so irq_mtl_chan0_1_n
+> > and irq_mtl_0_n are now under control.Enabling support for 5 channels in DT:
+> > 
+> >      irq_gmac_0_n: 1
+> >      irq_gmac_5_n: 4993
+> >      irq_gmac_18_n: 74
+> >      irq_mtl0_n: 3084994
+> >      irq_mtl1_n: 3084994
+> >      irq_mtl2_n: 3084994
+> >      irq_mtl3_n: 3084994
+> >      irq_mtl4_n: 3084994
+> >      irq_mtl_0_n: 5433
+> >      irq_mtl_1_n: 9272
+> >      irq_mtl_2_n: 13218
+> >      irq_mtl_3_n: 17084
+> >      irq_mtl_4_n: 21010
+> >      irq_mtl_chan0_0_n: 1
+> >      irq_mtl_chan0_1_n: 4401
+> >      irq_mtl_chan0_16_n: 1
+> >      irq_mtl_chan1_1_n: 4401
+> >      irq_mtl_chan2_1_n: 4401
+> >      irq_mtl_chan3_1_n: 4401
+> >      irq_mtl_chan4_1_n: 4401
+> >      irq_chan0_n: 3084994
+> >      irq_chan1_n: 3084994
+> >      irq_chan2_n: 3084994
+> >      irq_chan3_n: 3084994
+> >      irq_chan4_n: 3084994
+> >      irq_chan0_0_n: 266
+> >      irq_chan0_2_n: 2923
+> >      irq_chan0_6_n: 2809
+> >      irq_chan0_10_n: 2925
+> >      irq_chan0_11_n: 2203
+> >      irq_chan0_15_n: 2738
+> >      irq_chan1_2_n: 3
+> >      irq_chan1_10_n: 3
+> >      irq_chan2_2_n: 1
+> >      irq_chan2_10_n: 1
+> >      irq_chan3_2_n: 8
+> >      irq_chan3_10_n: 8
+> >      irq_chan4_2_n: 2
+> >      irq_chan4_10_n: 2
+> >      irq_tx_path_in_lpi_mode_n: 6
+> >      irq_tx_path_exit_lpi_mode_n: 6
+> >      irq_rx_path_in_lpi_mode_n: 2633
+> >      irq_rx_path_exit_lpi_mode_n: 2632
+> >      irq_rgmii_n: 1
+> >      rx_normal_irq_n: 2809
+> >      tx_normal_irq_n: 266
+> >      normal_irq_n: 5278
+> >      q0_tx_irq_n: 266
+> >      q0_rx_irq_n: 2809
+> > 
+> > There are no more storms in interrupt bit counters. The only counters that are
+> > out of control are irq_mtlX_n and irq_chanX_n, as expected, as they simply
+> > count the number of times the IRQ handling functions are called.
+> > 
+> > Unless we're missing some interrupt sources in other registers, I think this
+> > indicates that the storm is not caused by the sbd_intr_o or
+> > sbd_perch_[rt]x_intr_o signals. lpi_intr_o seems the most likely culprit at this
+> > point (more on that below).
+> > 
+> > > > Here are the stats after enabling five queues in DT, also captured
+> > > > right after booting to userspace:
+> > > >
+> > > >      irq_gmac_0_n: 1
+> > > >      irq_gmac_5_n: 4020
+> > > >      irq_gmac_18_n: 41
+> > > >      irq_mtl0_n: 1286469
+> > > >      irq_mtl1_n: 1286469
+> > > >      irq_mtl2_n: 1286469
+> > > >      irq_mtl3_n: 1286469
+> > > >      irq_mtl4_n: 1286469
+> > > >      irq_mtl_0_n: 6432345
+> > > >      irq_mtl_1_n: 6432345
+> > > >      irq_mtl_2_n: 6432345
+> > > >      irq_mtl_3_n: 6432345
+> > > >      irq_mtl_4_n: 6432345
+> > >
+> > > These values are the sum of irq_mtl[0-4]_n, so would be expected given
+> > > the other numbers.
+> > >
+> > > >      irq_chan0_n: 1286469
+> > > >      irq_chan1_n: 1286469
+> > > >      irq_chan2_n: 1286469
+> > > >      irq_chan3_n: 1286469
+> > > >      irq_chan4_n: 1286469
+> > > >      irq_chan0_0_n: 416
+> > > >      irq_chan0_2_n: 1286466
+> > > >      irq_chan0_6_n: 3470
+> > > >      irq_chan0_10_n: 1286466
+> > > >      irq_chan0_11_n: 2740
+> > > >      irq_chan0_15_n: 2686
+> > > >      irq_chan1_2_n: 1286469
+> > > >      irq_chan1_10_n: 1286469
+> > > >      irq_chan2_2_n: 1286467
+> > > >      irq_chan2_10_n: 1286467
+> > > >      irq_chan4_2_n: 1286469
+> > > >      irq_chan4_10_n: 1286469
+> > >
+> > > It's slightly interesting that irq_chanX_2_n and irq_chanX_10_n don't
+> > > match their corresponding irq_chanX_n values, which implies that they
+> > > have been clear. It's likely given that we're talking about 0, 2 or 3
+> > > times that's due to the first few packets and these bits hadn't been
+> > > set. So again, I don't think TBU and ETI are significant.
+> > >
+> > > > Setting eee-broken-1000t, with a single queue:
+> > > >
+> > > >      irq_gmac_0_n: 1
+> > > >      irq_gmac_18_n: 6
+> > > >      irq_mtl0_n: 2548
+> > > >      irq_mtl_0_n: 2548
+> > > >      irq_mtl_1_n: 2548
+> > > >      irq_mtl_2_n: 2548
+> > > >      irq_mtl_3_n: 2548
+> > > >      irq_mtl_4_n: 2548
+> > > >      irq_chan0_n: 2548
+> > > >      irq_chan0_0_n: 282
+> > > >      irq_chan0_2_n: 2548
+> > > >      irq_chan0_6_n: 2324
+> > > >      irq_chan0_10_n: 2548
+> > > >      irq_chan0_11_n: 29
+> > > >      irq_chan0_15_n: 2548
+> > >
+> > > These counts suggest that the interrupt handler was entered 2548 times
+> > > at the point they were captured, which corresponds to "normal"
+> > > interrupts for channel 0.
+> > >
+> > > >
+> > > > And eee-broken-1000t with 5 queues:
+> > > >
+> > > >      irq_gmac_0_n: 1
+> > > >      irq_gmac_18_n: 8
+> > > >      irq_mtl0_n: 2672
+> > > >      irq_mtl1_n: 2672
+> > > >      irq_mtl2_n: 2672
+> > > >      irq_mtl3_n: 2672
+> > > >      irq_mtl4_n: 2672
+> > > >      irq_mtl_0_n: 13360
+> > > >      irq_mtl_1_n: 13360
+> > > >      irq_mtl_2_n: 13360
+> > > >      irq_mtl_3_n: 13360
+> > > >      irq_mtl_4_n: 13360
+> > > >      irq_chan0_n: 2672
+> > > >      irq_chan1_n: 2672
+> > > >      irq_chan2_n: 2672
+> > > >      irq_chan3_n: 2672
+> > > >      irq_chan4_n: 2672
+> > > >      irq_chan0_0_n: 283
+> > > >      irq_chan0_2_n: 2672
+> > > >      irq_chan0_6_n: 2439
+> > > >      irq_chan0_10_n: 2672
+> > > >      irq_chan0_11_n: 46
+> > > >      irq_chan0_15_n: 2672
+> > > >      irq_chan2_2_n: 2670
+> > > >      irq_chan2_10_n: 2670
+> > > >      irq_chan3_2_n: 2672
+> > > >      irq_chan3_10_n: 2672
+> > >
+> > > So channel 0 responsible for 2672 normal interrupts. Again, this
+> > > reinforces that the other values with 2672 are likely not significant.
+> > >
+> > > > Given the enabled interrupts, I agree that the counters are
+> > > > misleading, as none of the interrupt bits with high counts are
+> > > > enabled. I'm however not entirely sure about the MTL interrupt
+> > > > status register, it's not clear to me if it is wired to the EQOS IRQ
+> > > > line as I don't see a corresponding interrupt enable register.
+> > > >
+> > > > If we rule out the main EQOS IRQ line and the per-channel RX and TX
+> > > > IRQ lines as the source of the interrupt storm, the last possible
+> > > > culprit according to section 7.1.2 (A53 Interrupts) of the i.MX8MP
+> > > > reference manual would be the "ENET QOS TSN LPI RX exit Interrupt"
+> > > > that is OR'ed into IRQ 135. As that's related to EEE, it's a
+> > > > probable culprit, but I don't know how what controls that IRQ line.
+> > >
+> > > As you have several interrupt signals which presumably show up in
+> > > /proc/interrupts, do the values in your IRQ counters correspond with
+> > > those interrupt sources? Are any of these interrupts shared with
+> > > anything else?
+> > 
+> > # cat /proc/interrupts
+> >            CPU0       CPU1       CPU2       CPU3
+> >   9:          0          0          0          0    GICv3  25
+> > Level     vgic
+> >  11:       4587       5251       5038       5230    GICv3  30
+> > Level     arch_timer
+> >  12:          0          0          0          0    GICv3  27
+> > Level     kvm guest vtimer
+> >  14:       3953       7210       6374       5861    GICv3  79
+> > Level     timer@306a0000
+> >  15:          0          0          0          0    GICv3  60
+> > Level     30880000.serial
+> >  16:        173          0          0          0    GICv3  59
+> > Level     30890000.serial
+> >  17:          0          0          0          0    GICv3  61
+> > Level     30a60000.serial
+> >  18:          0          0          0          0    GICv3  36
+> > Level     30370000.snvs:snvs-powerkey
+> >  19:          0          0          0          0    GICv3  51
+> > Level     rtc alarm
+> >  20:          0          0          0          0    GICv3 110
+> > Level     30280000.watchdog
+> >  21:         52          0          0          0    GICv3  56
+> > Level     mmc2
+> >  23:          0          0          0          0    GICv3  23
+> > Level     arm-pmu
+> >  24:          0          0          0          0    GICv3 130
+> > Level     imx8_ddr_perf_pmu
+> >  30:          0          0          0          0 gpio-mxc   3 Edge
+> > pca9450-irq
+> >  72:          0          0          0          0 gpio-mxc  11 Edge
+> > hym8563
+> >  73:          0          0          0          0 gpio-mxc  12 Edge
+> > 30b50000.mmc cd
+> > 195:        810          0          0          0    GICv3  67
+> > Level     30a20000.i2c
+> > 196:        140          0          0          0    GICv3  68
+> > Level     30a30000.i2c
+> > 197:          0          0          0          0    GICv3  69
+> > Level     30a40000.i2c
+> > 198:         35          0          0          0    GICv3  70
+> > Level     30a50000.i2c
+> > 199:          0          0          0          0    GICv3 109
+> > Level     30ae0000.i2c
+> > 200:    5930706          0          0          0    GICv3 167
+> > Level     eth0
+> > 201:          0          0          0          0    GICv3 166
+> > Level     eth0
+> > 202:        370          0          0          0    GICv3  55
+> > Level     mmc1
+> > 203:          0          0          0          0    GICv3 181
+> > Level     32f10108.usb
+> > 205:         81          0          0          0    GICv3  73
+> > Level     xhci-hcd:usb1
+> > 206:          0          0          0          0    GICv3  34
+> > Level     30bd0000.dma-controller
+> > 207:          0          0          0          0    GICv3  49
+> > Level     32e40000.csi
+> > 208:          0          0          0          0    GICv3  35
+> > Level     38000000.gpu
+> > 209:          0          0          0          0    GICv3  66
+> > Level     30e00000.dma-controller
+> > 210:          0          0          0          0    GICv3  57
+> > Level     38008000.gpu
+> > 211:          0          0          0          0    GICv3  45
+> > Level     38500000.npu
+> > 212:          0          0          0          0    GICv3 132
+> > Level     32e30000.dwe
+> > 213:          0          0          0          0 irqsteer   0 Level
+> > 32fd8000.hdmi
+> > 214:          0          0          0          0    GICv3 135
+> > Level     30e10000.dma-controller
+> > 215:          0          0          0          0    GICv3 106
+> > Level     rkisp1
+> > 216:          0          0          0          0 irqsteer   8 Level
+> > imx-lcdif
+> > 217:          0          0          0          0    GICv3  39
+> > Level     38300000.video-codec
+> > 218:          0          0          0          0    GICv3  40
+> > Level     38310000.video-codec
+> > IPI0:       587        430        859        896       Rescheduling
+> > interrupts
+> > IPI1:      5548       7530       6814       7366       Function call
+> > interrupts
+> > IPI2:         0          0          0          0       CPU stop
+> > interrupts
+> > IPI3:         0          0          0          0       CPU stop
+> > NMIs
+> > IPI4:      2410       3635       3487       3707       Timer
+> > broadcast interrupts
+> > IPI5:      3554       4650       3986       3762       IRQ work
+> > interrupts
+> > IPI6:         0          0          0          0       CPU
+> > backtrace interrupts
+> > IPI7:         0          0          0          0       KGDB
+> > roundup interrupts
+> > Err:          0
+> > 
+> > GICv3 167 is interrupt 135 from section 7.1.2.
+> > 
+> > > Hmm, looking at 7.1.2, and the mention of "ENET QOS TSN LPI RX exit
+> > > Interrupt" I'm wondering whether Freescale have wired the lpi_intr_o
+> > > signal of the GMAC to their OR4 gate. This is the LPI RX exit
+> > > interrupt output, and it is cleared when reading the LPI control/
+> > > status register. However, its deassertion is synchronous to the RX
+> > > clock domain, so it will take time to clear.
+> > 
+> > I think we're getting somewhere... All the data above confirm this hypothesis in
+> > my opinion (or at least they rule out all the other hypotheses I had).
+> > 
+> > Fugang, Joakim, Wei, Yannick, would you be able to check is the lpi_intr_o signal
+> > is indeed OR'ed into interrupt 137 ? Are you aware of the issue investigated in
+> > this mail thread ?
+> > 
+> > > The purpose of this signal is to trigger to external hardware (to the
+> > > GMAC) to restore the application clock to the MAC. I'm not sure that
+> > > this was meant to be wired to an actual CPU interrupt. The only clue
+> > > is the name which suggests it is, but there's nothing that states
+> > > there's a way to disable it being asserted which makes me more
+> > > suspicious that it's not meant to be a CPU interrupt.
+> > 
+> > I've modified dwmac4_irq_status() to read GMAC4_LPI_CTRL_STATUS
+> > unconditionally, and the problem persists. This could be explained by the fact
+> > that lpi_intr_o takes time to clear as you mentioned.
+> > 
+> > Now I'm exploring unknown territory, this may be a stupid hypothesis, but what
+> > if:
+> > 
+> > - The PHY exits LPI mode, and restarts generating the RX clock (clk_rx_i).
+> > - The MAC detects exit from LPI, and asserts lpi_intr_o.
+> > - Before the CPU has time to process the interrupt, the PHY enters LPI
+> >   mode again, and stops generating the RX clock.
+> > - The CPU processes the interrupt and reads the GMAC4_LPI_CTRL_STATUS
+> >   registers. This does not clear lpi_intr_o as there's no clk_rx_i.
+> > 
+> > > So, maybe this is the cause of the interrupt storm. Maybe Kieran isn't
+> > > seeing the storm because his receive path is not entering LPI.
+> > 
+> > Kieran told me he will perform more tests, but ran out of time this week.
+> > 
+> > > I think a useful check for this would be if you could either disable
+> > > LPI entry at the link partner, or hook it up to another system which
+> > > can have tx_lpi disabled, and see how the iMX8 system behaves.
+> > 
+> > I tried that with my RTL8153 USB-ethernet adapter, but I don't think I can really
+> > trust the result. The device doesn't respond to `ethtool --set-eee` in an expected
+> > way, it got stuck with LPI completely disabled and I had to disconnect and
+> > reconnect it to recover from that.
+> > 
+> > I have another USB-ethernet adapter doesn't support EEE, and no second
+> > i.MX8MP system I could use for testing right now. I'll see if I can find suitable
+> > hardware, but it may take a while (I'm about to go on a trip abroad).
+> > 
+> > > If preventing the iMX8 receive path entering LPI fixes the problem,
+> > > then I think this is likely the culpret.
+> > >
+> > > However, I'd be worred about this - if we "disable LPI" by way of the
+> > > advertisement at the local end, there is the possibility that a remote
+> > > system could override the negotiation and force its transmit link into
+> > > LPI mode, which would cause the iMX8MP receive side to see LPI entry
+> > > and exit, triggering this interrupt. If this is correct, that gives an
+> > > attacker a way to manipulate the iMX8MP system, potentially causing
+> > > all sorts of problems.
+> > >
+> > > Hmm. Not sure I like this look of that.
+> > 
+> > I'm sure I don't like it :-/
+> > 
+> > > If this hypothesis is correct, then yes, disabling EEE is the only way
+> > > forward for this, but I would suggest going further - ensuring that
+> > > SmartEEE is enabled on the PHY but with the advertisement cleared (so
+> > > EEE negotiation indicates not supported) to block the receive side LPI
+> > > getting to the EQOS.
+> > 
+> > I'm not sure how that should be implemented, I'd appreciate guidance. In
+> > particular, the RTL8211E appears to support SmartEEE (based on the
+> > information provided in this mail thread), but the registers to control it are not
+> > documented. Maybe we can just rely on the fact it will be enabled as a reset
+> > default at boot time.
+> > 
+> > > This also means that 100M EEE would also be affected, so just
+> > > disabling 1G EEE in DT is insufficient.
+> > 
+> > Agreed. I've just tested forcing 100BaseT with EEE enabled, and the issue
+> > persists.
+> > 
+> > > Andrew - if we need to go down this path, I think we need a flag in
+> > > the PHY flags to indicate that we want SmartEEE enabled.
 
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Regards,
+
+Laurent Pinchart
 
