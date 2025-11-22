@@ -4,69 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D5EBCFD2EF
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Nov 2025 20:39:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 742D8CFD30D
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Nov 2025 22:37:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1mDPcISwzK7xAIdWy/zIW/Nj+iQrYmcCUccTdjg4sNk=; b=kxKAi8oS+RdhFNtFK5y7grnkkl
-	mGsvMrpFPTy9SHCZDhFQukW4/WMSUrwkdHiFVp97NvabymMCcBt78evlp8mNciwKXnYUpXHUtcRkj
-	8MdcsoX2LYXvtSN552AQlw60+KmJ7cxTMqr1G1yIq3ml6zlqne5420ZXf1CHkou3912pESjlTycmv
-	ETiARfcbX14jPw3A9b70g5Q8Qz2+mxVXCmAdwMR2mjEt3f6anioqlV5iAMRrM4fTAC4d96v0hl2+Q
-	33cieXc0iFFJGN+hlUOOElFYo9kmujDL80HEUwgklex9v/e4RnxgKyyZwX8Ges/f9BiTT7fLkl1ak
-	F/ySSmfg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=90ieWVEFnrmkah40DdoyKIPrvrjOMmfo0X2Y0d4qC9o=; b=j9oaulsZ23ZZn0O1E5z0bl+ehV
+	UXR4sfjuVBpdk7P5y1odx6W7jUo8AV+vAYPlUQttAr2DbKEigKYCkOkrXQMhZp6vJAVe3aK5HffX5
+	ln2Oto2eghoUjqgi3MaGasWOejyyrF7MaVp6ItVAXbBMtTVvw61ajKdNVpykD6yacDY5+QZekXrno
+	JchIF9xb75QhhiEyfj9NNXC+2hwintGr5QG5cL9gc6cuuUmex3KTXVxmdch56ytfgN0/C4VzYno3J
+	et/c3et3+0ajCyeMqA0btAsdtMc/hauksHliLPB0rNAlvb/4iTEmYgVBnMpeuhhJ9dqQ7sclA8zm7
+	KDsrkSxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMuNu-00000009sRn-2FPa;
-	Sat, 22 Nov 2025 20:39:06 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vMwEA-00000009w6d-3xQL;
+	Sat, 22 Nov 2025 22:37:10 +0000
+Received: from mgamail.intel.com ([198.175.65.18])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMuNs-00000009sRJ-035b
+	id 1vMwE9-00000009w67-03Jb
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 22 Nov 2025 20:39:05 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2BDC94385E;
-	Sat, 22 Nov 2025 20:39:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ADE83C4CEF5;
-	Sat, 22 Nov 2025 20:38:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763843943;
-	bh=LytqE/ino26TpMNy7C4TEQXxJLwP78jNqt4RMla9zf4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Fp6XCUd8jijkalz67G0GS7Yd4xnEiOcWIRxKyxdkRCjDAT4IN2n0m5Pw9gshzl1YP
-	 eqNQcllFJhFRl2L4k17c53DgF5kerAX6Jrw392QAafvAvMRL0OB1/YTsCW3FacfqB1
-	 K2ZxYZAeKHp7jxYUEx1JS1ozQQK6WpSqbq/8UvWEzWmgFi7biCmuH6tCWmlKnWJaLS
-	 fGCKkKsJ1DJfzFm6URVZbvIQ6k83wq7oJ66rOjRQ3wXYjdaET2U9ZflFAGm8ZFl/sW
-	 Hg+WqGoZnQuhnOGQl7Kpcg6/f4EuPSt7QsEfoV2EpYUPOIM9JJTUYsz7ETmf97MqVR
-	 CU+VAKMu4nyCg==
-Date: Sat, 22 Nov 2025 13:38:56 -0700
-From: Nathan Chancellor <nathan@kernel.org>
-To: Salvatore Bonaccorso <carnil@debian.org>
-Cc: Jochen Sprickerhof <jspricke@debian.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Sylwester Nawrocki <s.nawrocki@samsung.com>,
-	Chanwoo Choi <cw00.choi@samsung.com>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, 1121211@bugs.debian.org,
-	linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-hardening@vger.kernel.org, Kees Cook <kees@kernel.org>
-Subject: Re: Bug#1121211: UBSAN: array-index-out-of-bounds in
- /build/reproducible-path/linux-6.17.8/drivers/clk/samsung/clk-exynos-clkout.c:178:18
-Message-ID: <20251122203856.GA1099833@ax162>
-References: <176383554642.17713.6408785381758213911.reportbug@vis>
- <aSIYDN5eyKFKoXKL@eldamar.lan>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aSIYDN5eyKFKoXKL@eldamar.lan>
+	Sat, 22 Nov 2025 22:37:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1763851029; x=1795387029;
+  h=date:from:to:cc:subject:message-id;
+  bh=06evhm11Q7L5GeVZ77SE0AVVK9kShMr2oUE+1331+2g=;
+  b=QXzXkv6WRFAqtStb7PRykhK9hXMAAEDa2fWMRbwAiY+O/auseyfz+zg9
+   xJxiPbZx7ANeFhX49ralBlnuX7192Ejz+P4WvhwfOdIxFYtakj4sqHfvl
+   hegVN7yzI+DSe38n9/dmhRwPVS6Mq160IwcuDjM2KGUUT9D2+4zvIPy6X
+   Hz8rHZCQHwE5qNS4s6uAAm/5zS+XqcKF2RahEwA/sJu9lZ6sjib5qWK5S
+   9Q/CHpJA4aHtz5SHlrLH0ZBgihqm/1yA6zkOqmGJDqxpO3RrzeiCfzqJ9
+   l6xBEVWsKvmjpBxRFF13BZm8Zs9GaRkT8Yg4k5fw1xqo1oTfhfRlcvwh6
+   A==;
+X-CSE-ConnectionGUID: BW2AcCWEThybqJDrzuFmHQ==
+X-CSE-MsgGUID: hMMA7b3bSpyhHnbPAtgUWw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11621"; a="65934583"
+X-IronPort-AV: E=Sophos;i="6.20,219,1758610800"; 
+   d="scan'208";a="65934583"
+Received: from orviesa009.jf.intel.com ([10.64.159.149])
+  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Nov 2025 14:37:07 -0800
+X-CSE-ConnectionGUID: m+fIY40qR2SvmFRhyqkijQ==
+X-CSE-MsgGUID: d7pnESvbTx+SotV5CWeiYA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.20,219,1758610800"; 
+   d="scan'208";a="191775373"
+Received: from lkp-server01.sh.intel.com (HELO adf6d29aa8d9) ([10.239.97.150])
+  by orviesa009.jf.intel.com with ESMTP; 22 Nov 2025 14:37:06 -0800
+Received: from kbuild by adf6d29aa8d9 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1vMwE4-0007sh-0b;
+	Sat, 22 Nov 2025 22:37:04 +0000
+Date: Sun, 23 Nov 2025 06:36:51 +0800
+From: kernel test robot <lkp@intel.com>
+To: Kevin Hilman <khilman@baylibre.com>
+Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
+Subject: [soc:omap/defconfig] BUILD SUCCESS
+ 393f40ef96628f603b40e97b6da9847d20a904c0
+Message-ID: <202511230646.96iLGo2D-lkp@intel.com>
+User-Agent: s-nail v14.9.25
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251122_123904_096855_B18E9FB2 
-X-CRM114-Status: GOOD (  15.58  )
+X-CRM114-CacheID: sfid-20251122_143709_085451_2070B697 
+X-CRM114-Status: UNSURE (   4.75  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,108 +83,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Nov 22, 2025 at 09:07:40PM +0100, Salvatore Bonaccorso wrote:
-> Hi,
-> 
-> Jochen reported the folowing while booting 6.17.8 based kernel in
-> Debian:
-> 
-> On Sat, Nov 22, 2025 at 07:19:06PM +0100, Jochen Sprickerhof wrote:
-> > Package: src:linux
-> > Version: 6.17.8-1
-> > Severity: normal
-> > 
-> > First time booting into 6.17.8-1 and first time I see UBSAN in my logs:
-> > 
-> > [Nov21 08:31] Booting Linux on physical CPU 0x100
-> > [  +0,012977] ------------[ cut here ]------------
-> > [  +0,000017] UBSAN: array-index-out-of-bounds in /build/reproducible-path/linux-6.17.8/drivers/clk/samsung/clk-exynos-clkout.c:178:18
-> > [  +0,000038] index 0 is out of range for type 'clk_hw *[*]'
-> > [  +0,000025] CPU: 4 UID: 0 PID: 1 Comm: swapper/0 Not tainted 6.17.8+deb14-armmp #1 NONE  Debian 6.17.8-1
-> > [  +0,000018] Hardware name: Samsung Exynos (Flattened Device Tree)
-> > [  +0,000007] Call trace:
-> > [  +0,000009]  unwind_backtrace from show_stack+0x18/0x1c
-> > [  +0,000042]  show_stack from dump_stack_lvl+0x54/0x68
-> > [  +0,000036]  dump_stack_lvl from ubsan_epilogue+0x8/0x34
-> > [  +0,000025]  ubsan_epilogue from __ubsan_handle_out_of_bounds+0x88/0x8c
-> > [  +0,000024]  __ubsan_handle_out_of_bounds from exynos_clkout_probe+0x38c/0x428
-> > [  +0,000029]  exynos_clkout_probe from platform_probe+0x64/0x98
-> > [  +0,000034]  platform_probe from really_probe+0xd8/0x3ac
-> > [  +0,000031]  really_probe from __driver_probe_device+0x94/0x1dc
-> > [  +0,000027]  __driver_probe_device from driver_probe_device+0x3c/0xd8
-> > [  +0,000027]  driver_probe_device from __driver_attach+0xd8/0x1d8
-> > [  +0,000028]  __driver_attach from bus_for_each_dev+0x84/0xd4
-> > [  +0,000026]  bus_for_each_dev from bus_add_driver+0xf4/0x218
-> > [  +0,000023]  bus_add_driver from driver_register+0x8c/0x140
-> > [  +0,000027]  driver_register from do_one_initcall+0x50/0x24c
-> > [  +0,000023]  do_one_initcall from kernel_init_freeable+0x288/0x2fc
-> > [  +0,000022]  kernel_init_freeable from kernel_init+0x24/0x140
-> > [  +0,000022]  kernel_init from ret_from_fork+0x14/0x28
-> > [  +0,000015] Exception stack(0xf0835fb0 to 0xf0835ff8)
-> > [  +0,000012] 5fa0:                                     00000000 00000000 00000000 00000000
-> > [  +0,000011] 5fc0: 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
-> > [  +0,000009] 5fe0: 00000000 00000000 00000000 00000000 00000013 00000000
-> > [  +0,000007] ---[ end trace ]---
-> > [  +0,000226] ------------[ cut here ]------------
-> > [  +0,000012] UBSAN: array-index-out-of-bounds in /build/reproducible-path/linux-6.17.8/drivers/clk/samsung/clk-exynos-clkout.c:183:29
-> > [  +0,000032] index 0 is out of range for type 'clk_hw *[*]'
-> > [  +0,000021] CPU: 4 UID: 0 PID: 1 Comm: swapper/0 Not tainted 6.17.8+deb14-armmp #1 NONE  Debian 6.17.8-1
-> > [  +0,000014] Hardware name: Samsung Exynos (Flattened Device Tree)
-> > [  +0,000006] Call trace:
-> > [  +0,000006]  unwind_backtrace from show_stack+0x18/0x1c
-> > [  +0,000032]  show_stack from dump_stack_lvl+0x54/0x68
-> > [  +0,000033]  dump_stack_lvl from ubsan_epilogue+0x8/0x34
-> > [  +0,000023]  ubsan_epilogue from __ubsan_handle_out_of_bounds+0x88/0x8c
-> > [  +0,000020]  __ubsan_handle_out_of_bounds from exynos_clkout_probe+0x354/0x428
-> > [  +0,000024]  exynos_clkout_probe from platform_probe+0x64/0x98
-> > [  +0,000031]  platform_probe from really_probe+0xd8/0x3ac
-> > [  +0,000031]  really_probe from __driver_probe_device+0x94/0x1dc
-> > [  +0,000031]  __driver_probe_device from driver_probe_device+0x3c/0xd8
-> > [  +0,000028]  driver_probe_device from __driver_attach+0xd8/0x1d8
-> > [  +0,000027]  __driver_attach from bus_for_each_dev+0x84/0xd4
-> > [  +0,000025]  bus_for_each_dev from bus_add_driver+0xf4/0x218
-> > [  +0,000023]  bus_add_driver from driver_register+0x8c/0x140
-> > [  +0,000027]  driver_register from do_one_initcall+0x50/0x24c
-> > [  +0,000022]  do_one_initcall from kernel_init_freeable+0x288/0x2fc
-> > [  +0,000019]  kernel_init_freeable from kernel_init+0x24/0x140
-> > [  +0,000020]  kernel_init from ret_from_fork+0x14/0x28
-> > [  +0,000016] Exception stack(0xf0835fb0 to 0xf0835ff8)
-> > [  +0,000010] 5fa0:                                     00000000 00000000 00000000 00000000
-> > [  +0,000009] 5fc0: 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
-> > [  +0,000009] 5fe0: 00000000 00000000 00000000 00000000 00000013 00000000
-> > [  +0,000098] ---[ end trace ]---
-> 
-> Can you have a look into it? The downstream report is at
-> https://bugs.debian.org/1121211
+tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git omap/defconfig
+branch HEAD: 393f40ef96628f603b40e97b6da9847d20a904c0  ARM: multi_v7_defconfig: Enable TI PRU Ethernet driver
 
-I bet it is the same problem as the ones I fixed in
+elapsed time: 1529m
 
-  6dc445c19050 ("clk: bcm: rpi: Assign ->num before accessing ->hws")
-  9368cdf90f52 ("clk: bcm: dvp: Assign ->num before accessing ->hws")
+configs tested: 1
+configs skipped: 158
 
-So something like this?
+The following configs have been built successfully.
+More configs may be tested in the coming days.
 
-Cheers,
-Nathan
+tested configs:
+arm  allnoconfig    clang-22
 
-diff --git a/drivers/clk/samsung/clk-exynos-clkout.c b/drivers/clk/samsung/clk-exynos-clkout.c
-index 5f1a4f5e2e59..5b21025338bd 100644
---- a/drivers/clk/samsung/clk-exynos-clkout.c
-+++ b/drivers/clk/samsung/clk-exynos-clkout.c
-@@ -175,6 +175,7 @@ static int exynos_clkout_probe(struct platform_device *pdev)
- 	clkout->mux.shift = EXYNOS_CLKOUT_MUX_SHIFT;
- 	clkout->mux.lock = &clkout->slock;
- 
-+	clkout->data.num = EXYNOS_CLKOUT_NR_CLKS;
- 	clkout->data.hws[0] = clk_hw_register_composite(NULL, "clkout",
- 				parent_names, parent_count, &clkout->mux.hw,
- 				&clk_mux_ops, NULL, NULL, &clkout->gate.hw,
-@@ -185,7 +186,6 @@ static int exynos_clkout_probe(struct platform_device *pdev)
- 		goto err_unmap;
- 	}
- 
--	clkout->data.num = EXYNOS_CLKOUT_NR_CLKS;
- 	ret = of_clk_add_hw_provider(clkout->np, of_clk_hw_onecell_get, &clkout->data);
- 	if (ret)
- 		goto err_clk_unreg;
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
