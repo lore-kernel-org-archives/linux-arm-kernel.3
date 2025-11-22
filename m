@@ -4,102 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D1BFCF64B1
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Nov 2025 11:05:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 172A9CFC526
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Nov 2025 11:27:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zxgMTK/rpJeW62sRb1TXMj768OjTRDF/xqa+/y0Pa8E=; b=23cZugIr+E2CLx2cUhQ/M61RCe
-	lEV4+mH9a941wS3MLW1kCH8fDEZNJjS47P6FITlRI5VlPmXL8fu+YDlyg83RspwM4yv13xDmvHOEC
-	Lz5bDx+Bi3GRJUDrrUiOD/NeQ1iMw7I3tRgJjaXz6RhjBt3UZ4pHHjxp/osfc4b9kMSILC6Vc0xAO
-	0sPfqxvMbrM3abOXyzCIiy9rTICVYg/s4U3LbwbJabNOu48UuiA610zB/RzWI86cAyhHS5+gEfTS1
-	vjyoNk/EP2s9ygcMRh+gTCr7iDcLKPa2kKu+vmEnl4Q8TbC5DarXYiumryX6mS+vQjfzx0tEu2lDO
-	Ebtxuf+A==;
+	bh=F0CF4lZ+jifDCXnDHaRPIm69RahNaZRjwQ8dsfCkA68=; b=snsV95qhwM46WBlekbnYel8nTh
+	VbTIrjAEaP4FlJC73HmXmzQp8dhR6vePXUAuu25kNVM7oi4sj3Q70W7eFEDq4MlRBSzZempzOdqFA
+	0ro48Oiu/w8psIS0ll2ky948RQZbBFody2hjybj9HdbsW3puAp3RqqorB1d2V7xbaj9Flhz+e7POU
+	iaUHeGSrdk9xRT8GS9fZoGOvam+LoAFgKxLFq8wwB8NT7lzzW8cZOME9L0/SKdQBqmWMa8InWHEeI
+	fl3Fn2yCvpdAq8qIJ6ZBhA5XktZxKTJ5rtkQRyo8g4nMNjENb9wioR6UnsqkuQeBVmUSQYARu1+9X
+	32WlSW2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMlQL-00000009Tva-3PAC;
-	Sat, 22 Nov 2025 11:05:01 +0000
+	id 1vMllv-00000009Urz-0V2x;
+	Sat, 22 Nov 2025 11:27:19 +0000
 Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMlQK-00000009Tv2-1jHh;
-	Sat, 22 Nov 2025 11:05:00 +0000
+	id 1vMllt-00000009Uro-39jW;
+	Sat, 22 Nov 2025 11:27:17 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:Content-Type:
 	In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender
 	:Reply-To:Content-ID:Content-Description;
-	bh=zxgMTK/rpJeW62sRb1TXMj768OjTRDF/xqa+/y0Pa8E=; b=Q2PBLQBi5oSoNFfWP8kA4vUvTJ
-	vNtLx1nVZuzWxbncsVLv7Qz0EYG3aEbd7xNiaGeK0aao6h8jPYd64XzjFuTDGMEFPAfW68+G/b9aL
-	fPbST/f9YK6bGDFYvGRPdi32E0INcotoXpCu8HaL6pzOlHfgG0I01G5cXiqIbKlP9x8vzvBoEOhF7
-	TS4nMWfxJg52rerKOcZp4Jh2GqJjIHd0QYwmYkT4koRNy83eI+V6m8Odt449R4ek65ZGeseKkdLnS
-	orrWNUqm+XNKJAXxdSpAV2PJnkO8RrSZlR98pKiMn1p0tXNkGtwjnWGohzAQwjiH5LhErvc7OjfaH
-	VI5Vl0Ww==;
+	bh=F0CF4lZ+jifDCXnDHaRPIm69RahNaZRjwQ8dsfCkA68=; b=lAHpKSuPs4pmkcXgGHkua6WQIB
+	l3Hdxl5isBVnVDS5ejlD/UMa2QT5vHno+3es+l6/ROtDWIKZeIgMf1/iL8gcmsx+SYGYQVOiK9bU9
+	9/y+vw0qMJQ0Ko+jq+pJqx7GuG4a8GM3RTto93Or6OSls4jk1NOtdjkfTFI6Rezhwk2gXKIfBMmvE
+	ITDRiMsouu9vkNttNGSF8ZkgPGzdEPr7xlwUn74kBBFvJ+xDn1IAbSLd+nB5W0VmG0SM9vGqvH+Ge
+	2a+nS38tv5ssjEnT2cqPrD6N1wpTsOiW9EAuz50iwwDm+IG+bAF5jaAOoRm87hc8wbAqNbA4KB5Mm
+	0r1HjNZQ==;
 Received: from mail.loongson.cn ([114.242.206.163])
 	by casper.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMlQF-00000004FX9-2GgY;
-	Sat, 22 Nov 2025 11:04:58 +0000
+	id 1vMllo-00000004GkW-0bIC;
+	Sat, 22 Nov 2025 11:27:16 +0000
 Received: from loongson.cn (unknown [36.44.121.68])
-	by gateway (Coremail) with SMTP id _____8Cx77_EmCFpBO0mAA--.16101S3;
-	Sat, 22 Nov 2025 19:04:36 +0800 (CST)
+	by gateway (Coremail) with SMTP id _____8Bx39MEniFpMe4mAA--.13414S3;
+	Sat, 22 Nov 2025 19:27:01 +0800 (CST)
 Received: from [192.168.0.111] (unknown [36.44.121.68])
-	by front1 (Coremail) with SMTP id qMiowJDx_8O6mCFpg+Y7AQ--.35665S3;
-	Sat, 22 Nov 2025 19:04:32 +0800 (CST)
-Message-ID: <39617a3e-c476-abac-8425-bbcece769cdb@loongson.cn>
-Date: Sat, 22 Nov 2025 19:04:33 +0800
+	by front1 (Coremail) with SMTP id qMiowJAxvsH8nSFpm+g7AQ--.53718S3;
+	Sat, 22 Nov 2025 19:26:57 +0800 (CST)
+Message-ID: <7f179e5f-610c-6468-cb3f-17d25d096a8f@loongson.cn>
+Date: Sat, 22 Nov 2025 19:26:52 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
  Thunderbird/91.4.0
-Subject: Re: [PATCH v2] efistub: Only link libstub to final vmlinux
+Subject: Re: [PATCH v1] kbuild: Add KBUILD_VMLINUX_LIBS_PRELINK
 Content-Language: en-US
-To: Huacai Chen <chenhuacai@kernel.org>, Will Deacon <will@kernel.org>
-Cc: Josh Poimboeuf <jpoimboe@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Paul Walmsley <pjw@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- "Madhavan T. Venkataraman" <madvenka@linux.microsoft.com>,
- Ard Biesheuvel <ardb@kernel.org>, loongarch@lists.linux.dev,
+To: Nathan Chancellor <nathan@kernel.org>
+Cc: Josh Poimboeuf <jpoimboe@kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
+ Huacai Chen <chenhuacai@kernel.org>, linux-kbuild@vger.kernel.org,
+ linux-efi@vger.kernel.org, loongarch@lists.linux.dev,
  linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org,
- linux-efi@vger.kernel.org, linux-kbuild@vger.kernel.org,
- linux-kernel@vger.kernel.org, Nathan Chancellor <nathan@kernel.org>
-References: <CAAhV-H6m5vszCyiF3qi94cpHBPVuqM2xH93D=gfsQqOSYvC-sA@mail.gmail.com>
- <33612d85-e70b-26da-8460-ea6b9064ce08@loongson.cn>
- <CAAhV-H5ZSTFDxvm-W1CrgEoQ5d_jw5yVsfetQ_J_qL5pqLtzgg@mail.gmail.com>
- <CAMj1kXGk0udgM67wrWqahqK8H0uE8emQj51SmJey+7fE-FTjdA@mail.gmail.com>
- <CAAhV-H4c=vdNWO0v_mYL2xZ9FYjDyRDvt6f_kV4d8Bh=CRJniQ@mail.gmail.com>
- <CAMj1kXEaxxcWTTANWeEMNjYDymdL5Fxy2B=XBF4RGtteEkfinw@mail.gmail.com>
- <421c08e1-255b-447b-b5e3-ee6544fbefd2@loongson.cn>
- <CAAhV-H5KsFShDJ_Cxu+1_ces8oojn8+S-7PLmE7aUj8gX5_GEw@mail.gmail.com>
- <32s3lvzfu6jkyho7qenrqbsm5wkgjnzn2imdp6tfwycmyxpzgu@kg5367uxmxii>
- <CAAhV-H47fzaKcMhgLWWOTxB+srBsg85-eK0LW1vQXQnvq32-+w@mail.gmail.com>
- <aRsH7RTpAah4g5Xr@willie-the-truck>
- <CAAhV-H4AasfFet_Gi_mVyte3RPMH3qBS73dBfF-=Gd7HJ6ZPEw@mail.gmail.com>
+ linux-kernel@vger.kernel.org
+References: <20251119042708.27658-1-yangtiezhu@loongson.cn>
+ <20251122013551.GA3928114@ax162>
 From: Tiezhu Yang <yangtiezhu@loongson.cn>
-In-Reply-To: <CAAhV-H4AasfFet_Gi_mVyte3RPMH3qBS73dBfF-=Gd7HJ6ZPEw@mail.gmail.com>
+In-Reply-To: <20251122013551.GA3928114@ax162>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: qMiowJDx_8O6mCFpg+Y7AQ--.35665S3
+Content-Transfer-Encoding: 7bit
+X-CM-TRANSID: qMiowJAxvsH8nSFpm+g7AQ--.53718S3
 X-CM-SenderInfo: p1dqw3xlh2x3gn0dqz5rrqw2lrqou0/
-X-Coremail-Antispam: 1Uk129KBj93XoWxAF45tryxCw18uFyfCr1kCrX_yoWrJw48pF
-	WjyFWqkr4DJr4fXwnrK3WUXFWYyr1fJrW8WF90vry8CrWqvrn7Xw4Fkr4j9FyDXr13Wr12
-	vrW0qFyavFWUA3gCm3ZEXasCq-sJn29KB7ZKAUJUUUU7529EdanIXcx71UUUUU7KY7ZEXa
+X-Coremail-Antispam: 1Uk129KBj93XoW7AFWxury5KFWUGFW7Gr17Jwc_yoW8GFW5pa
+	1vyr4jvFsrJw4vqan7C345Xa1YqF95XrWxWFyDKa98Z3yDXr10vrZFgF43ZF9FvFyDAF4S
+	gFs7XF9xCry7K3gCm3ZEXasCq-sJn29KB7ZKAUJUUUUr529EdanIXcx71UUUUU7KY7ZEXa
 	sCq-sGcSsGvfJ3Ic02F40EFcxC0VAKzVAqx4xG6I80ebIjqfuFe4nvWSU5nxnvy29KBjDU
 	0xBIdaVrnRJUUUPFb4IE77IF4wAFF20E14v26r1j6r4UM7CY07I20VC2zVCF04k26cxKx2
-	IYs7xG6rWj6s0DM7CIcVAFz4kK6r1Y6r17M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48v
+	IYs7xG6rWj6s0DM7CIcVAFz4kK6r106r15M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48v
 	e4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Jr0_JF4l84ACjcxK6xIIjxv20xvEc7CjxVAFwI
 	0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW8JVWxJwA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_
 	Gr0_Gr1UM2kKe7AKxVWUXVWUAwAS0I0E0xvYzxvE52x082IY62kv0487Mc804VCY07AIYI
-	kI8VC2zVCFFI0UMc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUAVWU
-	twAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcVAKI48JMx
-	k0xIA0c2IEe2xFo4CEbIxvr21lc7CjxVAaw2AFwI0_Jw0_GFyl42xK82IYc2Ij64vIr41l
+	kI8VC2zVCFFI0UMc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUXVWU
+	AwAv7VC2z280aVAFwI0_Gr0_Cr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcVAKI48JMx
+	k0xIA0c2IEe2xFo4CEbIxvr21lc7CjxVAaw2AFwI0_JF0_Jw1l42xK82IYc2Ij64vIr41l
 	4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1l4IxYO2xFxVAFwI0_Jrv_JF1lx2IqxVAqx4xG67AKxV
-	WUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r4a6rW5MIIYrxkI
+	WUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r1q6r43MIIYrxkI
 	7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r
-	4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI
-	42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjxUceOJUUUUU
+	1j6r4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVW8JVWxJwCI
+	42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjxU4Z2-UUUUU
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251122_110456_174713_52077D66 
-X-CRM114-Status: GOOD (  22.26  )
+X-CRM114-CacheID: sfid-20251122_112712_713633_3337256E 
+X-CRM114-Status: UNSURE (   8.44  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,91 +102,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Cc: Nathan Chancellor <nathan@kernel.org>
-
-Hi all,
-
-On 11/21/25 22:36, Huacai Chen wrote:
-> On Mon, Nov 17, 2025 at 7:33 PM Will Deacon <will@kernel.org> wrote:
->>
->> On Sat, Nov 15, 2025 at 11:16:42AM +0800, Huacai Chen wrote:
->>> On Wed, Nov 12, 2025 at 2:00 AM Josh Poimboeuf <jpoimboe@kernel.org> wrote:
->>>>
->>>> On Mon, Nov 10, 2025 at 03:00:00PM +0800, Huacai Chen wrote:
->>>>> On Mon, Nov 10, 2025 at 9:19 AM Tiezhu Yang <yangtiezhu@loongson.cn> wrote:
->>>>>> If I understand correctly, I should modify this patch to remove the
->>>>>> changes of arm and riscv for now, do the changes only when there is
->>>>>> a real problem or requirement some day, right? If no more comments,
->>>>>> I will send v3 later.
->>>>>
->>>>> Now everyone involved agrees that the efistub code is correct, so the
->>>>> proper solution is to fix the compiler.
->>>>
->>>> Hm?  I don't see how it's a compiler bug.  It's really just an objtool
->>>> limitation.
->>>>
->>>>> Changing efistub code and changing objtool (ignore __efistub prefix)
->>>>> are both workarounds, but I think changing objtool is a little more
->>>>> reasonable. Maybe Josh has different ideas?
->>>>
->>>> I thought the conversation had converged on what Tiezhu mentioned above,
->>>> which is to skip objtool on libstub for loongarch, but leave the other
->>>> arches alone.  That way objtool behavior is consistent between loongarch
->>>> and x86, and objtool doesn't need to ignore any prefixes.
->>>>
->>>> So basically, the v2 patch minus the arm64/riscv changes.
->>>
->>> Hi, ARM64 and RISC-V maintainers,
->>>
->>> Would you mind that this patch modifies the three architectures
->>> together (they are exactly the same style now)?
->>>
->>> Madhavan is the author of ARM64's objtool, I think your opinion is
->>> also very important.
->>
->> arm64 doesn't (yet) use objtool.
->>
->> I defer to Ard on anything relating to the arm64 efistub. Reading the
->> start of this thread, it doesn't look like he's convinced and I'm not
->> surprised if it's purely an issue with objtool.
-> OK, I know, but I have a concern.
+On 11/22/25 09:35, Nathan Chancellor wrote:
+> On Wed, Nov 19, 2025 at 12:27:08PM +0800, Tiezhu Yang wrote:
+> ...
+>> index 433849ff7529..e72d3254b93f 100755
+>> --- a/scripts/link-vmlinux.sh
+>> +++ b/scripts/link-vmlinux.sh
+>> @@ -61,12 +61,11 @@ vmlinux_link()
+>>   	shift
+>>   
+>>   	if is_enabled CONFIG_LTO_CLANG || is_enabled CONFIG_X86_KERNEL_IBT; then
+>> -		# Use vmlinux.o instead of performing the slow LTO link again.
 > 
-> Ard said that he is reluctant to make changes to accommodate a flawed
-> build time tool and there may be regression risk.
-> 
-> So, I'm also reluctant and don't want LoongArch to meet regression
-> risk. If one day LoongArch has a regression, we probably need another
-> workaround to "fix" this workaround. But if these three architectures
-> change in the same way, we may have a chance to solve some fundamental
-> problems...
+> Why is this comment getting removed?
 
-IIUC, Josh do not like to ignore these EFISTUB functions in
-validate_branch() of objtool, Huacai do not like to only link
-libstub to vmlinux only for LoongArch.
+When using KBUILD_VMLINUX_LIBS_PRELINK or KBUILD_VMLINUX_LIBS_FINAL,
+drivers/firmware/efi/libstub/lib.a needs to be linked to the final
+vmlinux with vmlinux.o, so I thought the above comment is not proper,
+it I misunderstood it, I will keep the comment as is.
 
-It seems that there is only one way to fix or workaround this
-problem, remove the attribute __noreturn for real_kernel_entry()
-and then make efi_boot_kernel() ends with a return instruction [1]
-or an unconditional jump instruction [2] that only touches
-drivers/firmware/efi/libstub/loongarch.c.
+>>   		objs=vmlinux.o
+>> -		libs=
+>> +		libs="${KBUILD_VMLINUX_LIBS_PRELINK}"
+>>   	else
+>>   		objs=vmlinux.a
+>> -		libs="${KBUILD_VMLINUX_LIBS}"
+>> +		libs="${KBUILD_VMLINUX_LIBS} ${KBUILD_VMLINUX_LIBS_PRELINK}"
+>>   	fi
+>>   
+>>   	if is_enabled CONFIG_GENERIC_BUILTIN_DTB; then
 
-Since this is a issue only for LoongArch by now, what do you
-think of this minimal change only for LoongArch libstub code?
-Using "return EFI_LOAD_ERROR" [1] or "while (1)" [2]?
-
-Maybe this is the simple and direct way for this special issue
-only on LoongArch so far. If not, any other suggestions?
-
-On the other hand, is it possible to add KBUILD_VMLINUX_LIBS_FINAL
-and then use it only for LoongArch first [3]? Any potential risks?
-
-What is the next step?
+FYI, the previous patch is still under discussion yesterday [1],
+I do not know whether this patch is necessary and what is the next
+step [2].
 
 [1] 
-https://lore.kernel.org/loongarch/CAMj1kXH-rK0bRyHXdJ-crAyMyvJHApH0WR7_8Qd8vrSPBLK+yg@mail.gmail.com/
+https://lore.kernel.org/loongarch/CAAhV-H4AasfFet_Gi_mVyte3RPMH3qBS73dBfF-=Gd7HJ6ZPEw@mail.gmail.com/
 [2] 
-https://lore.kernel.org/loongarch/20250826064631.9617-2-yangtiezhu@loongson.cn/
-[3] https://lore.kernel.org/loongarch/20251122000101.GA1996391@ax162/
+https://lore.kernel.org/loongarch/39617a3e-c476-abac-8425-bbcece769cdb@loongson.cn/
 
 Thanks,
 Tiezhu
