@@ -4,94 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B968BCFC539
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Nov 2025 14:22:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2CFCCFC53E
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Nov 2025 15:37:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CbgH1togCEu70x2vN5bqkQ02nuE6gEO0wQ/tYHMUFhY=; b=Ks69tA9XgXga2HTwqq/HTYZqfh
-	PuLx1zaaW+RNndjGQvTFouFqE1LdZDMA5sfXGDFbgQ6H7oUanLfpcp49CYfN7Bdhp8StKrcbYuPr4
-	qbVtSSEi0r51qGqgnxRAiizni+XNKFyeO1g9w0Ea8jj9jmrADlx+NaXd0rDHEleQE76aaSYFoi9kV
-	bRjeR3Emj+hjTU6SmymCL5xJlZxl0epy/OvzSpXPdYIZkuhIVmed720vK6qgTynHi/VL0mFG62CA2
-	nm82dLvNpSV3/69iM58KN1lit6n2WqHSytWFcB6Wl3j80Vt5dZgcmSLxTuARyJgEZQaHeAk36rE/M
-	s3V2PCQQ==;
+	bh=eTyNC1+UYoKVAcGxt2SVHOhb/Uf0xrNXGcZihp5xtts=; b=OCoX4Hvx9zs5HV/MF0cs6MrgDC
+	RV7In44wZZDnmse02haSq3Otm1Y/RDTSwIQ5tL4cKyZxbBcqhpnpCVyBYOOWj7/BaXeC/9DT9h0aQ
+	PfzzU4bh9XwKbOmeMSOkbhgXRN1QoorepMG0+YZs14hhJ0UlG6kiZA4M8rTrtbbAcQIqKxqzkxKXm
+	PMBoUZejOVXBbIHmeQcfRstyX/WqpjO7DWPHsaRA9AuYIgJyiJmJlNorm83SovKopEfYq7+8P6YpY
+	pl0sEBXwhbpHw7vYcPNgRr1NFstZrp1U+QK6soK6lmdbG3Q/kB7Y1TIfefUPYiRNWkHaWp7MS7b+f
+	p4z30Opg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMoV4-00000009etn-2ECh;
-	Sat, 22 Nov 2025 14:22:06 +0000
-Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
+	id 1vMpgB-00000009hNA-2Xf4;
+	Sat, 22 Nov 2025 15:37:39 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMoV1-00000009etL-1B4d
+	id 1vMpg8-00000009hMT-1A8a
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 22 Nov 2025 14:22:04 +0000
-Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-42b3d7c1321so1727697f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 22 Nov 2025 06:22:02 -0800 (PST)
+	Sat, 22 Nov 2025 15:37:37 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-47774d3536dso23131115e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 22 Nov 2025 07:37:35 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tuxon.dev; s=google; t=1763821321; x=1764426121; darn=lists.infradead.org;
+        d=tuxon.dev; s=google; t=1763825854; x=1764430654; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:content-language:from
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=CbgH1togCEu70x2vN5bqkQ02nuE6gEO0wQ/tYHMUFhY=;
-        b=YNHMFjzanYUEnSiBiiRKVgODOtbKqrCKSu/yj31FROb3b+36yJb/cBTtvWIuth8PEk
-         KRLccJ+db5SP0XyVYOKaUv6XOItN0pFryiOoDIC4k3C3zUsxu5Ym+jizLUOhueM6puT5
-         9yIDCEtLkDC0rSj18wQSRo9l/zMImrlCG6CLqaUbNNh4COjsSocJKDw+y1gJ6HDbHn7C
-         RZ7DeXQJJpA+iUKjQO8SIwwccS4HMjA4uvPQB2/9MYp2xRooMnbrp7elRvl+CaqIMcvQ
-         kN8SAfAiD+C+z1fJu+fYFhZT/SdZ7vqoIbxQwqo5fObpgP5mWyL5whhyI9/VlHJieVir
-         3wtQ==
+        bh=eTyNC1+UYoKVAcGxt2SVHOhb/Uf0xrNXGcZihp5xtts=;
+        b=QGRWZ5Dkx3yUnV//B3/k7HhXr3diqu87CcBqvuu1q85FpTa+jNd8ZxmxqETIh/5WOa
+         d1OfCDamKe72Wqsa7Z1P83O6kxSVuEaY8IdcV7r8w1n5I/U76ubGdV30OBV+n8DJRKDq
+         Q5HWZ2Jb3HoqzLruXLrEtKmdvGZzZ5Z9wUu3YcZuQou31YSNkkhSkKZATFzzrwS3vtTe
+         twq1TMq524lhVfroYMCaboPqCkFpBCntBxHj1vCvVoWXb+FmLO8e26N2sxR4PTQX3x5A
+         Sae8ffDK13S+4qCEX8EZNHr1fbt95P8fIdJdQbYqFhKLs+YhsHoguVI7fFFr3zpUv79t
+         Rx+g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763821321; x=1764426121;
+        d=1e100.net; s=20230601; t=1763825854; x=1764430654;
         h=content-transfer-encoding:in-reply-to:content-language:from
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=CbgH1togCEu70x2vN5bqkQ02nuE6gEO0wQ/tYHMUFhY=;
-        b=PO+lSLZQRd5/NJbhREcLI52YXMaTBB4TjqW9wkja+0pyPu5RE4+lOHsDMIzjWdBb56
-         tOV/j2LXO1Y6cIElNxWtA7EVN7wPJ8ic6e1uRet69tm2VxEHxwI5PpSUUG1LIEP6xe7m
-         WO6BykvUdXiTr5Jnrnj+6b5p8zvL+KQkbna8J+Bz5UX/Oe0G3dM99R1OZoY3fGsxkj7f
-         UQqdtg/XLmM4j15NOQlAtuTovyaKMPFonoT74T6FxpXvmKVwpQa74anVRNtobr/bMCKE
-         y2V7vH/19fcjFHPvb7iZVtzSXu6hESqtSJRw1ILP9gbraMyZqQ8G00CKxQc0ULOaAq/O
-         UDTQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUVUH3wizY6lDY6EgV8d6V//sPOrJ7sBtaLe/jGWgmEzsjeHsm09Oy2mn1J+oQFJo2uEifp2sTZ896Kk3WSQ9N1@lists.infradead.org
-X-Gm-Message-State: AOJu0YzqtnIwz149lTQvTkINkYx2X+L8CUj53IN5pq7XzsgtlofHxD5O
-	x2G/XabPnGCLunhXJai8gs46XIKr3+gQGT7X1gCrBeTmk2jYYWPi+Zc1V+3HGoZfl6k=
-X-Gm-Gg: ASbGncsMw4hdhpTZfDd/nI5UeykZnVQR9Pfr7E2Rer+unxZrvaSM0wXwobCjGtAp9tA
-	iRH5+aD5UunjMPtEgDKMsYsITRJM1zjt5nDbls2lcBoaL1VYoMGtaSt7+zf5EjYa1os9/sfcaNh
-	ACnu9RL6BAQWJ6Z6a+A8bElY1L6oAS5f9he9eAntaCYLh4Ur2RjwUtXgfx62/wCQWMyGdhnm1S0
-	Gi4Ban2kSLD/I7Et4omQIVnaTJOeF0daet8jLPH9U/s8FhEVjo8gWpvSrj7JphaqGXdkdo1p5v9
-	jY04Jrc5B8jkiVyalqxkvHEg5dY4P/WsgKEJ/FIpJCM1Ea4flfr8EJ+rHaEzrO/xOSQ0qgBnF4K
-	pJ47esypnNcnmYjuTHK1n33Ld/zzozxv1CbMBWH1YQSud82QucnlkTtgPWjq+U7tg8VmKQPWIJQ
-	NEGE3b4RpOMbKMNgqj21A=
-X-Google-Smtp-Source: AGHT+IFqel5FKG4mPclsUJOqrx9rHT/z6E4W3n3TtUFun9s++jfXNrwVrDGfd3VnkelnXn+GP4CMhg==
-X-Received: by 2002:a05:6000:40df:b0:42b:40df:2338 with SMTP id ffacd0b85a97d-42cc1d22c88mr6452923f8f.52.1763821320827;
-        Sat, 22 Nov 2025 06:22:00 -0800 (PST)
+        bh=eTyNC1+UYoKVAcGxt2SVHOhb/Uf0xrNXGcZihp5xtts=;
+        b=gUdjfaKY8zw2tZkL81h3ax4xQMEQc4F04emThFMJ5z6EjifCJgrr0NQS4e7SCtaff5
+         0QB0MsS1vkImQJwULJKzdOFyLLfH5TD/amYzq8e4X6njpp+S3adAJ3Wv5+Ue0zAiCyDA
+         JuOOj9Al90l9+jYdzCYRLc+HSSb9qDeD3/iutvOxo/FPpAYn3lj2hyyD4bjb1oBanDrC
+         n6o/3632h+FpKa5N3glGYgBVv+Xn3vCFEFKF9V0rnaoYDA29A+GYn970FDn+ig/tYbSI
+         nCtuIiij6QyBjIK1AA1XYdzLQxuNDTpnHw7y0TiT5yRzMBEfgH7KjMjB+wDwNThu8qCp
+         UanQ==
+X-Forwarded-Encrypted: i=1; AJvYcCW8Iw9HEJTXqHCyuiBD0csZ6mo4ZNsrTmWbvpdEtrr8wMqqfAFb0WSH+RqjvmBT85IbDZa58vYoy+Htt+M0n0v/@lists.infradead.org
+X-Gm-Message-State: AOJu0YzmCZlkk1S5nYvfEFnYi1GOI7XyrmrjOX64xF5UUVCaml2i5uqS
+	cKH4N+rPpil1LNCupHpSokMGGsMqYyFr1mvu6t9WiTb+Gc//LIC7vjHfOlGcJ1IipsA=
+X-Gm-Gg: ASbGncsA/IB5sRaTqLUa6y0fTpJsYhvN0cCs/RMUDUJY96WNDuWjk7x0Lyi5Mn7T1gr
+	EA7RJaS4hq7FPkekw8LxvsIy5yLUMQYwIIxXn+t/Fs4LR8sneSZWMgrzlPE1ShfoUg6qiuHuvil
+	VtCGnujjKLsk8UOA+gmoq1DuFp4sJIBh/M234eIa7JhorP+/pqloMPXgnMP/IpE+LoF7JBPXwom
+	PbbzA0jFUykpcAdtUO5lpmJDpnEQw2PYn6q1XhnK9VWQU/AT7GkUY47yvMQW365jHzOcs0dPOpv
+	eBFx/aZkVWC3jRKE468nkX7uyHLigbJ4PcPQ5hv6iySXTuRV1EptJEOp9u8tbGKrVNpLcGKW2A1
+	Z52wb0eqLcVD6Rf+kz1FKcLAHwzaoQxRz7L5TGJNBV/y2qlDr4L3FlUU7WDigBuyxU6AZvy3g09
+	mT86ypw1rVkESN1XDsYZ5ZbgkeHsgShA==
+X-Google-Smtp-Source: AGHT+IGNsCW8GaBWE80eC552ADlIIeLb1DFaNnNWkr5NJ5EoHsoPa7vEmJGXkXIjZpH3a0KG8muD6g==
+X-Received: by 2002:a05:600c:4f45:b0:45d:5c71:769d with SMTP id 5b1f17b1804b1-477c04db9a0mr64162485e9.8.1763825854228;
+        Sat, 22 Nov 2025 07:37:34 -0800 (PST)
 Received: from [192.168.50.4] ([82.78.167.134])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42cb7fa3592sm16341540f8f.21.2025.11.22.06.21.59
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-477bf3aef57sm93496025e9.11.2025.11.22.07.37.32
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 22 Nov 2025 06:22:00 -0800 (PST)
-Message-ID: <0d21cf40-3614-48f4-86e0-69c7a87458e9@tuxon.dev>
-Date: Sat, 22 Nov 2025 16:21:59 +0200
+        Sat, 22 Nov 2025 07:37:33 -0800 (PST)
+Message-ID: <ece2d53c-3e16-4e5e-9bb9-3ed7bb362b7b@tuxon.dev>
+Date: Sat, 22 Nov 2025 17:37:31 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] ARM: dts: Add support for pcb8385
-To: Horatiu Vultur <horatiu.vultur@microchip.com>, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, nicolas.ferre@microchip.com,
- alexandre.belloni@bootlin.com, wsa+renesas@sang-engineering.com,
- romain.sioen@microchip.com
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+Subject: Re: [PATCH v2 2/3] ARM: at91: Move PM init functions to .init_late
+ hook
+To: Rob Herring <robh@kernel.org>, Miquel Raynal <miquel.raynal@bootlin.com>,
+ Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>,
+ Nicolas Ferre <nicolas.ferre@microchip.com>,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>,
+ Russell King <linux@armlinux.org.uk>
+Cc: linux-mtd@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
  linux-kernel@vger.kernel.org
-References: <20251117125709.102013-1-horatiu.vultur@microchip.com>
- <20251117125709.102013-3-horatiu.vultur@microchip.com>
+References: <20251120-at91-probe-v2-0-8c8592f02e8e@kernel.org>
+ <20251120-at91-probe-v2-2-8c8592f02e8e@kernel.org>
 From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
 Content-Language: en-US
-In-Reply-To: <20251117125709.102013-3-horatiu.vultur@microchip.com>
+In-Reply-To: <20251120-at91-probe-v2-2-8c8592f02e8e@kernel.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251122_062203_446091_5CBF59C7 
-X-CRM114-Status: GOOD (  19.60  )
+X-CRM114-CacheID: sfid-20251122_073736_351561_BDC24819 
+X-CRM114-Status: GOOD (  15.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,185 +108,150 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, Horatiu,
+Hi, Rob,
 
-On 11/17/25 14:57, Horatiu Vultur wrote:
-> Add basic support for pcb8385 [1]. It is a modular board which allows
-> to add different daughter cards on which there are different PHYs.
-> This adds support for UART, LEDs and I2C.
+On 11/20/25 23:37, Rob Herring wrote:
+> Move the AT91 PM init functions to .init_late hook to ensure driver
+> dependencies have probed.
 > 
-> [1] https://www.microchip.com/en-us/development-tool/ev83e85a
-> 
-> Signed-off-by: Horatiu Vultur <horatiu.vultur@microchip.com>
+> Cc: Nicolas Ferre <nicolas.ferre@microchip.com>
+> Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>
+> Cc: linux-arm-kernel@lists.infradead.org
+> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+
+'From: Rob Herring <robh@kernel.org>' != 'Signed-off-by: Rob Herring (Arm)
+<robh@kernel.org>
+
+
 > ---
->  arch/arm/boot/dts/microchip/Makefile          |   3 +-
->  .../boot/dts/microchip/lan966x-pcb8385.dts    | 137 ++++++++++++++++++
->  2 files changed, 139 insertions(+), 1 deletion(-)
->  create mode 100644 arch/arm/boot/dts/microchip/lan966x-pcb8385.dts
+> v2:
+>  - new patch
+> ---
+>  arch/arm/mach-at91/at91rm9200.c | 3 +--
+>  arch/arm/mach-at91/at91sam9.c   | 3 +--
+>  arch/arm/mach-at91/sam9x60.c    | 3 +--
+>  arch/arm/mach-at91/sam9x7.c     | 3 +--
+>  arch/arm/mach-at91/sama5.c      | 2 +-
+>  arch/arm/mach-at91/sama7.c      | 3 +--
+>  6 files changed, 6 insertions(+), 11 deletions(-)
 > 
-> diff --git a/arch/arm/boot/dts/microchip/Makefile b/arch/arm/boot/dts/microchip/Makefile
-> index 79cd38fdc7dab..08986c24a4700 100644
-> --- a/arch/arm/boot/dts/microchip/Makefile
-> +++ b/arch/arm/boot/dts/microchip/Makefile
-> @@ -102,4 +102,5 @@ dtb-$(CONFIG_SOC_LAN966) += \
->  	lan966x-kontron-kswitch-d10-mmt-8g.dtb \
->  	lan966x-pcb8290.dtb \
->  	lan966x-pcb8291.dtb \
-> -	lan966x-pcb8309.dtb
-> +	lan966x-pcb8309.dtb \
-> +	lan966x-pcb8385.dtb
-> diff --git a/arch/arm/boot/dts/microchip/lan966x-pcb8385.dts b/arch/arm/boot/dts/microchip/lan966x-pcb8385.dts
-> new file mode 100644
-> index 0000000000000..f4817cee93436
-> --- /dev/null
-> +++ b/arch/arm/boot/dts/microchip/lan966x-pcb8385.dts
-> @@ -0,0 +1,137 @@
-> +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-> +/*
-> + * lan966x-pcb8385.dts - Device Tree file for PCB8385
-> + */
-> +/dts-v1/;
-> +
-> +#include "lan966x.dtsi"
-> +#include "dt-bindings/phy/phy-lan966x-serdes.h"
-> +
-> +/ {
-> +	model = "Microchip EVB - LAN9668";
-> +	compatible = "microchip,lan9668-pcb8385", "microchip,lan9668", "microchip,lan966";
-> +
-> +	chosen {
-> +		stdout-path = "serial0:115200n8";
-> +	};
-> +
-> +	aliases {
-> +		serial0 = &usart3;
-> +	};
-> +
-> +	gpio-restart {
-> +		compatible = "gpio-restart";
-> +		gpios = <&gpio 59 GPIO_ACTIVE_LOW>;
-> +		open-source;
-> +		priority = <200>;
-> +	};
-> +
-> +	leds {
-> +		compatible = "gpio-leds";
-> +
-> +		led-p1-green {
-> +			label = "cu0:green";
-> +			gpios = <&sgpio_out 2 0 GPIO_ACTIVE_LOW>;
-> +			default-state = "off";
-> +			linux,default-trigger = "e200413c.mdio-mii:01:link";
-> +		};
-> +
-> +		led-p1-yellow {
-> +			label = "cu0:yellow";
-> +			gpios = <&sgpio_out 2 1 GPIO_ACTIVE_LOW>;
-> +			default-state = "off";
-> +		};
-> +
-> +		led-p2-green {
-> +			label = "cu1:green";
-> +			gpios = <&sgpio_out 3 0 GPIO_ACTIVE_LOW>;
-> +			default-state = "off";
-> +			linux,default-trigger = "e200413c.mdio-mii:02:link";
-> +		};
-> +
-> +		led-p2-yellow {
-> +			label = "cu1:yellow";
-> +			gpios = <&sgpio_out 3 1 GPIO_ACTIVE_LOW>;
-> +			default-state = "off";
-> +		};
-> +	};
-> +};
-> +
-> +&aes {
-> +	status = "disabled"; /* Reserved by secure OS */
-> +};
-> +
-> +&gpio {
-> +	fc0_b_pins: fc0-b-pins {
-> +		/* SCL, SDA */
-> +		pins = "GPIO_25", "GPIO_26";
-> +		function = "fc0_b";
-> +	};
-> +
-> +	fc3_b_pins: fc3-b-pins {
-> +		/* RX, TX */
-> +		pins = "GPIO_52", "GPIO_53";
-> +		function = "fc3_b";
-> +	};
-> +
-> +	sgpio_a_pins: sgpio-a-pins {
-> +		/* SCK, D0, D1, LD */
-> +		pins = "GPIO_32", "GPIO_33", "GPIO_34", "GPIO_35";
-> +		function = "sgpio_a";
-> +	};
-> +};
-> +
-> +&flx0 {
+> diff --git a/arch/arm/mach-at91/at91rm9200.c b/arch/arm/mach-at91/at91rm9200.c
+> index 4f8186211619..2ac564eb8bbb 100644
+> --- a/arch/arm/mach-at91/at91rm9200.c
+> +++ b/arch/arm/mach-at91/at91rm9200.c
+> @@ -17,8 +17,6 @@
+>  static void __init at91rm9200_dt_device_init(void)
+>  {
+>  	of_platform_default_populate(NULL, NULL, NULL);
+> -
+> -	at91rm9200_pm_init();
+>  }
+>  
+>  static const char *const at91rm9200_dt_board_compat[] __initconst = {
+> @@ -27,6 +25,7 @@ static const char *const at91rm9200_dt_board_compat[] __initconst = {
+>  };
+>  
+>  DT_MACHINE_START(at91rm9200_dt, "Atmel AT91RM9200")
+> +	.init_late	= at91rm9200_pm_init,
+>  	.init_machine	= at91rm9200_dt_device_init,
+>  	.dt_compat	= at91rm9200_dt_board_compat,
+>  MACHINE_END
+> diff --git a/arch/arm/mach-at91/at91sam9.c b/arch/arm/mach-at91/at91sam9.c
+> index 7e572189a5eb..cf07cba4ee5d 100644
+> --- a/arch/arm/mach-at91/at91sam9.c
+> +++ b/arch/arm/mach-at91/at91sam9.c
+> @@ -17,8 +17,6 @@
+>  static void __init at91sam9_init(void)
+>  {
+>  	of_platform_default_populate(NULL, NULL, NULL);
+> -
+> -	at91sam9_pm_init();
+>  }
+>  
+>  static const char *const at91_dt_board_compat[] __initconst = {
+> @@ -28,6 +26,7 @@ static const char *const at91_dt_board_compat[] __initconst = {
+>  
+>  DT_MACHINE_START(at91sam_dt, "Atmel AT91SAM9")
+>  	/* Maintainer: Atmel */
+> +	.init_late	= at91sam9_pm_init,
+>  	.init_machine	= at91sam9_init,
+>  	.dt_compat	= at91_dt_board_compat,
+>  MACHINE_END
+> diff --git a/arch/arm/mach-at91/sam9x60.c b/arch/arm/mach-at91/sam9x60.c
+> index d8c739d25458..a31beaaeffcd 100644
+> --- a/arch/arm/mach-at91/sam9x60.c
+> +++ b/arch/arm/mach-at91/sam9x60.c
+> @@ -18,8 +18,6 @@
+>  static void __init sam9x60_init(void)
+>  {
+>  	of_platform_default_populate(NULL, NULL, NULL);
+> -
+> -	sam9x60_pm_init();
+>  }
+>  
+>  static const char *const sam9x60_dt_board_compat[] __initconst = {
+> @@ -29,6 +27,7 @@ static const char *const sam9x60_dt_board_compat[] __initconst = {
+>  
+>  DT_MACHINE_START(sam9x60_dt, "Microchip SAM9X60")
+>  	/* Maintainer: Microchip */
+> +	.init_late	= sam9x60_pm_init,
+>  	.init_machine	= sam9x60_init,
+>  	.dt_compat	= sam9x60_dt_board_compat,
+>  MACHINE_END
+> diff --git a/arch/arm/mach-at91/sam9x7.c b/arch/arm/mach-at91/sam9x7.c
+> index e1ff30b5b09b..0c73f7fefd4f 100644
+> --- a/arch/arm/mach-at91/sam9x7.c
+> +++ b/arch/arm/mach-at91/sam9x7.c
+> @@ -17,8 +17,6 @@
+>  static void __init sam9x7_init(void)
+>  {
+>  	of_platform_default_populate(NULL, NULL, NULL);
+> -
+> -	sam9x7_pm_init();
+>  }
+>  
+>  static const char * const sam9x7_dt_board_compat[] __initconst = {
+> @@ -28,6 +26,7 @@ static const char * const sam9x7_dt_board_compat[] __initconst = {
+>  
+>  DT_MACHINE_START(sam9x7_dt, "Microchip SAM9X7")
+>  	/* Maintainer: Microchip */
+> +	.init_late	= sam9x7_pm_init,
+>  	.init_machine	= sam9x7_init,
+>  	.dt_compat	= sam9x7_dt_board_compat,
+>  MACHINE_END
+> diff --git a/arch/arm/mach-at91/sama5.c b/arch/arm/mach-at91/sama5.c
+> index bf2b5c6a18c6..efae697ce29c 100644
+> --- a/arch/arm/mach-at91/sama5.c
+> +++ b/arch/arm/mach-at91/sama5.c
+> @@ -33,7 +33,6 @@ static void __init sama5_secure_cache_init(void)
+>  static void __init sama5_dt_device_init(void)
+>  {
+>  	of_platform_default_populate(NULL, NULL, NULL);
+> -	sama5_pm_init();
+>  }
+>  
+>  static const char *const sama5_dt_board_compat[] __initconst = {
+> @@ -43,6 +42,7 @@ static const char *const sama5_dt_board_compat[] __initconst = {
+>  
+>  DT_MACHINE_START(sama5_dt, "Atmel SAMA5")
+>  	/* Maintainer: Atmel */
+> +	.init_late	= sama5_pm_init,
+>  	.init_machine	= sama5_dt_device_init,
+>  	.dt_compat	= sama5_dt_board_compat,
+>  MACHINE_END
+> diff --git a/arch/arm/mach-at91/sama7.c b/arch/arm/mach-at91/sama7.c
+> index bd43733ede18..3e28727f2a8e 100644
+> --- a/arch/arm/mach-at91/sama7.c
+> +++ b/arch/arm/mach-at91/sama7.c
+> @@ -17,8 +17,6 @@
+>  static void __init sama7_dt_device_init(void)
+>  {
+>  	of_platform_default_populate(NULL, NULL, NULL);
+> -	sama7_pm_init();
+> -}
 
-This would go after aes node to have them alphanumerically sorted. I can
-handled it while applying, if any.
-
-> +	atmel,flexcom-mode = <ATMEL_FLEXCOM_MODE_TWI>;
-> +	status = "okay";
-> +
-> +	i2c0: i2c@600 {
-> +		pinctrl-0 = <&fc0_b_pins>;
-> +		pinctrl-names = "default";
-> +		dmas = <0>, <0>;
-> +		i2c-analog-filter;
-> +		i2c-digital-filter;
-> +		i2c-digital-filter-width-ns = <35>;
-> +		i2c-sda-hold-time-ns = <1500>;
-> +		status = "okay";
-> +	};
-> +};
-> +
-> +&flx3 {
-> +	atmel,flexcom-mode = <ATMEL_FLEXCOM_MODE_USART>;
-> +	status = "okay";
-> +
-> +	usart3: serial@200 {
-> +		pinctrl-0 = <&fc3_b_pins>;
-> +		pinctrl-names = "default";
-> +		status = "okay";
-> +	};
-> +};
-> +
-> +&i2c0 {
-> +	eeprom@54 {
-> +		compatible = "atmel,24c01";
-> +		reg = <0x54>;
-> +		status = "okay";
-> +	};
-> +
-> +	eeprom@55 {
-> +		compatible = "atmel,24c01";
-> +		reg = <0x55>;
-> +		status = "okay";
-> +	};
-
-Any reason for not keeping these above under "i2c0: i2c@600 {" ?
+} was dropped as well.
 
 Thank you,
 Claudiu
-
-> +};
-> +
-> +&sgpio {
-> +	pinctrl-0 = <&sgpio_a_pins>;
-> +	pinctrl-names = "default";
-> +	microchip,sgpio-port-ranges = <0 3>;
-> +	status = "okay";
-> +
-> +	gpio@0 {
-> +		ngpios = <64>;
-> +	};
-> +	gpio@1 {
-> +		ngpios = <64>;
-> +	};
-> +};
-
 
