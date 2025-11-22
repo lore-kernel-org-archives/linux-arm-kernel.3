@@ -4,81 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0605CFC52A
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Nov 2025 11:36:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0AD4CFC52A
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Nov 2025 11:40:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ssx1AOXXKyIJrMeb4sV8GAIINn58cqA9AlbJYAa/hnk=; b=oW86ZLGMBQpkH6e67CugDEzahP
-	o3QMTfHAnmUYyn05VQ/FuWv+E24LNTcIHxezWCyTDgWVAzduNaW68SWrzsOqXfPRALF0tUt/zPhWP
-	Dzh1r00aFCHt3QBiCL7O1eB/8JFB6vnqt+8ZndWBM8NNhyg74b8dZZypTT22CwEFFvcYnKjXBF9//
-	AAemaEtthGezqbQ/goiSFX8paVWXzixrZiKFNy86JJGN7yDyAvob3KUjzInQOopid+VblsSd9q7im
-	cY0Nx8HKa+QO0f2PPul1EPS6y+3fYERH6kcvs0+5/db0Co+TGSL/VHi3hiNv5Csbcso0veC0DOe89
-	xsayS3pA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=yuMMfRji0QsBlO0qJt9H926jh5AK/yBWl814HSXET8M=; b=JMU5ldBO+A8CDq/aWA0Fx01vF9
+	JKYyS6oensXHjOFzazhQmoakwcCpWU44rb30XigcKc0XEaSoG18H1MDpkJp0MH91lQ8UZDPoq00wP
+	efNyG8RCfm1g1cPFgdaeXsMzro3zJYp7Ht9v7UVK3iunhuUYAH8uFaQWNaNnV4+75aKdCf4SPvbcK
+	6ZPRrSne+7ezJ7GwbBg26kWWpUX9IvB2zrmYgzC2Dvdg4Uw/JJT0KRWGMMixWEZ4ssxthgMkp/Mut
+	i03qWVKVdXp6tXUsKx/DuAGHW7k+0R7JFESy3romDxUGlnqS7Aq2NLq+uqiyS2ucV2TCD/VTYHL5u
+	pU51pSpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMlue-00000009VeY-1Kve;
-	Sat, 22 Nov 2025 11:36:20 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vMlz4-00000009VsB-2EPN;
+	Sat, 22 Nov 2025 11:40:54 +0000
+Received: from out-189.mta1.migadu.com ([95.215.58.189])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMluc-00000009Ve6-0DJ4
+	id 1vMlz1-00000009Vrl-2Ghs
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 22 Nov 2025 11:36:19 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id BC4B5416FD;
-	Sat, 22 Nov 2025 11:36:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 922AEC4CEF5;
-	Sat, 22 Nov 2025 11:36:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763811377;
-	bh=N8UVOM97bpuzdMThEtEW9EoLnzHdhFQiiRsevvt0RN4=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=fuya2A4SJO/hHRzoRnE7wHp5qyLAc+XRIhpr4gR0jPmWncNhkPPiCHUqKS5a8Q9tD
-	 Cp4K2fQNqtprBEymcDctSjB1LC6k5VRIzdZiyTZyanbUWcV4lUBMNVtS+AzsR9xHr2
-	 mmr5cvecYKEh2s46aiYgcaHOyFq4itwV3nZhAUxrJrrKMBQGQkOGI0cIQuMBhSTD4m
-	 CqEc1pJ816h+6GHK2f7RGzOV18XFnoXPjEcnSJMFOT8xmyTF1hICFJSLnmKWHue6IU
-	 ZQVQH8yE4pRAViUm+sdP74GQ//JKqro70124HWT++luv6Av5DwN4COEqXcjytw9UET
-	 AkfXySze6Ve4A==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1vMluZ-00000007TZy-0hdz;
-	Sat, 22 Nov 2025 11:36:15 +0000
-Date: Sat, 22 Nov 2025 11:36:14 +0000
-Message-ID: <86y0nyqoy9.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: "=?utf-8?q?Kornel_Dul=C4=99ba?=" <korneld@google.com>
-Cc: Oliver Upton <oupton@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Bartlomiej Grzesik <bgrzesik@google.com>,
-	Tomasz Nowicki <tnowicki@google.com>,
-	Sebastian Ene <sebastianene@google.com>,
+	Sat, 22 Nov 2025 11:40:52 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1763811646;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=yuMMfRji0QsBlO0qJt9H926jh5AK/yBWl814HSXET8M=;
+	b=SZeVeTM/OdvxH7SLi3A4YesDiPCrgCawtJyyHZd+uHQGXJ0MdX7rEbgjuRgOSn7DuN8pwD
+	aKOxahNrshLUcYfza9Y1O+sU7Cr2aVChKxiuM6YxPyxddCt4FJ2/3PQa/5LV0eb6A93G9R
+	gfPdfR9lT2jKZBqzG1j6f43qVecXYfY=
+From: Thorsten Blum <thorsten.blum@linux.dev>
+To: Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>
+Cc: Thorsten Blum <thorsten.blum@linux.dev>,
+	linux-stm32@st-md-mailman.stormreply.com,
 	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] KVM: arm64: Fix error checking for FFA_VERSION
-In-Reply-To: <20251114-pkvm_init_noffa-v1-1-87a82e87c345@google.com>
-References: <20251114-pkvm_init_noffa-v1-1-87a82e87c345@google.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: korneld@google.com, oupton@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, bgrzesik@google.com, tnowicki@google.com, sebastianene@google.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+Subject: [PATCH RESEND] stm class: Remove unnecessary local variable in stm_write()
+Date: Sat, 22 Nov 2025 12:40:18 +0100
+Message-ID: <20251122114017.446643-2-thorsten.blum@linux.dev>
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251122_033618_106782_53BD07C5 
-X-CRM114-Status: GOOD (  17.25  )
+X-CRM114-CacheID: sfid-20251122_034051_814910_55F1C9C0 
+X-CRM114-Status: UNSURE (   8.14  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,32 +69,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 14 Nov 2025 11:11:53 +0000,
-"=?utf-8?q?Kornel_Dul=C4=99ba?=" <korneld@google.com> wrote:
-> 
-> According to section 13.2 of the DEN0077 FF-A specification, when
-> firmware does not support the requested version, it should reply with
-> FFA_RET_NOT_SUPPORTED(-1). Table 13.6 specifies the type of the error
-> code as int32.
-> Currently, the error checking logic compares the unsigned long return
-> value it got from the SMC layer, against a "-1" literal. This fails due
-> to a type mismatch: the literal is extended to 64 bits, whereas the
-> register contains only 32 bits of ones(0x00000000ffffffff).
-> Consequently, hyp_ffa_init misinterprets the "-1" return value as an
-> invalid FF-A version. This prevents pKVM initialization on devices where
-> FF-A is not supported in firmware.
+The local variable 'err' and the corresponding if check in stm_write()
+are unnecessary. Remove them.
 
-Is this statement accurate? I regularly boot KVM in protected mode in
-environments that really cannot be suspected of implementing FF-A
-(there is no EL3 to start with). And yet I don't see any failure of
-the sort.
+Signed-off-by: Thorsten Blum <thorsten.blum@linux.dev>
+---
+ drivers/hwtracing/stm/core.c | 8 +-------
+ 1 file changed, 1 insertion(+), 7 deletions(-)
 
-Please clarify the circumstances this is triggered.
-
-Thanks,
-
-	M.
-
+diff --git a/drivers/hwtracing/stm/core.c b/drivers/hwtracing/stm/core.c
+index cdba4e875b28..f3814e4ecf23 100644
+--- a/drivers/hwtracing/stm/core.c
++++ b/drivers/hwtracing/stm/core.c
+@@ -602,17 +602,11 @@ static ssize_t notrace
+ stm_write(struct stm_device *stm, struct stm_output *output,
+ 	  unsigned int chan, const char *buf, size_t count, struct stm_source_data *source)
+ {
+-	int err;
+-
+ 	/* stm->pdrv is serialized against policy_mutex */
+ 	if (!stm->pdrv)
+ 		return -ENODEV;
+ 
+-	err = stm->pdrv->write(stm->data, output, chan, buf, count, source);
+-	if (err < 0)
+-		return err;
+-
+-	return err;
++	return stm->pdrv->write(stm->data, output, chan, buf, count, source);
+ }
+ 
+ static ssize_t stm_char_write(struct file *file, const char __user *buf,
 -- 
-Without deviation from the norm, progress is not possible.
+2.51.1
+
 
