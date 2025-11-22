@@ -4,80 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C732CFC52A
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Nov 2025 11:43:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F07DACFC52A
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Nov 2025 11:59:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
 	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pzcdHab46Q//OS1klFShvUsQLmkHeRBBg8zKfHQy7yM=; b=QB5m+F0g6UOQmfs0VrZQz93o+v
-	ojdMI7O+LqM8F+fH/A1FawLGimIKUl/gAjt3ffotlFBQvnJMyNrh3yrZ7d5i3Ir/LPJjS7xnovIHj
-	dlH8M94EMdNHuCk4Ou7loXr+fM9ZPMUKbRh0o9ertRkHf8jGhZO+XJNdP5RvpxboEumH9nLT3Ncyb
-	WMEwHS8XWxXHwYiZpWuS89oszOUo23LWBlRsBjinjwXEfgX+GRKXeZyCZaOwuh+n9s5abLWoKCgHB
-	JvVri4R77rZ4Jg04/styD5Bm8AaXT5fkNIgk4mABiaPibzcFB3kQKWu98PfMqoYgrLY0kmDJTT1U6
-	W9GMm0Zg==;
+	bh=MBrm3JMtHLy7FDNmdG9NnfjfQSeL7J0SNX9N6hNH2js=; b=Sn5VlUNySjm0kQyr40AhAkReVi
+	yMJ6opUXzdLMI3Qltwybv15No4OTqKhHqHybpH4hajnXHRTPTRbVP2hldGoVELpah6KzhAu5Mewnc
+	SVaiojJ/J/1521yiSVslWa6U/GEQz4URfLbJgdqu32EPYhMeyNbNV6pkSzWua4RmraTEF/BEcCcup
+	InFvwa7bXFmoXvGvznD1mNZ1eb5C1KtOs89N0nOk902zDKwtWkxY8Ppz9mrmIYziFbm89TcIBEHIE
+	Joj0df16+H0Z+zV38pnmO8ZtqELTAmO75lM/8Zwa0KRCB+OSiYjwaY02tP2Ni99WyWqbbJCow87L/
+	khths6ig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMm1L-00000009W4Y-3Y1g;
-	Sat, 22 Nov 2025 11:43:15 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vMmGV-00000009Wiu-09Cp;
+	Sat, 22 Nov 2025 11:58:55 +0000
+Received: from mail-qt1-x82f.google.com ([2607:f8b0:4864:20::82f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMm1I-00000009W3b-2Knf
+	id 1vMmGS-00000009WiO-10tZ
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 22 Nov 2025 11:43:13 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E176B44044
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 22 Nov 2025 11:43:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C1C5AC116C6
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 22 Nov 2025 11:43:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763811791;
-	bh=p8H88tgM9+gXap9lRijwllIzLZu5llgC1f7xv5nwybk=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=Ipvswz18aqd0/TPfyaDV4JwDv6OLD0cZeJIq8CrXbsMPz1VZwsapYJAtdiVIc37YT
-	 P/L0lbDBumBVIGHT+mEZV/7MD9cSmtv3T3DWptmTmc9qxDrBKkyRPXa4Ae8aE0PQUQ
-	 HbDVsMpuUKTcGgV/9mxXWCLrCfILdEio7MaZrfnJFLJTlc/yk47dzUsqNJjonEuNfi
-	 r7fYLuhO8HnGh2sORE0RhoxErJSvva28uDuBOu5ftFkehUDuNOUqLnkO6/lmnaImM7
-	 hcZKmV+aF+35cjIVo76O+EsmfvKSnHRb4a8+jOL/NKN437gxi/5FmsRnI8XRWwG0Y8
-	 yt3iC2HpajEig==
-Received: by mail-lf1-f45.google.com with SMTP id 2adb3069b0e04-595910c9178so1943196e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 22 Nov 2025 03:43:11 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCUm+hz9kO9N+GgEIrzCJ0FInwQfF98RB3oqPcnwTHcxQwmWvwqAkEfmsSY2TEM5qml5kG6+L1dgYvoX+dg4Rndi@lists.infradead.org
-X-Gm-Message-State: AOJu0YzPtj7TAvLSJSmzdEFClY6O5dSXXjKuaiNSv1dHhhrhm814Qfk4
-	lRYbQKKk3/nkQ7VEaVtYQbtUgCCP8xLE2D3M2C+GB4r37nKGPCBrQ9feHjrpYg2EZ3uEjiDog1h
-	BX3jHI6Sc5j7CqMc91doNV4OalWdMAU4=
-X-Google-Smtp-Source: AGHT+IGKRFlgwehxRBm62tvmwTXy609E55PZi7OAqnBZ+de0+tT9jGT1vTKQcXSXNqsiURj9qycDJBw3M2X6JvRwZDY=
-X-Received: by 2002:a05:6512:3b27:b0:592:fa8a:810d with SMTP id
- 2adb3069b0e04-596a3ea7847mr1884146e87.16.1763811789974; Sat, 22 Nov 2025
- 03:43:09 -0800 (PST)
+	Sat, 22 Nov 2025 11:58:53 +0000
+Received: by mail-qt1-x82f.google.com with SMTP id d75a77b69052e-4ee2014c228so23567561cf.2
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 22 Nov 2025 03:58:51 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1763812730; x=1764417530; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=MBrm3JMtHLy7FDNmdG9NnfjfQSeL7J0SNX9N6hNH2js=;
+        b=TPPobZiYFHCfTEYWoU/vkLB1Ci58kLlXFNlR0/iDvsbjU/B/oKW2X0lS5+dlf9dGzJ
+         fOgBx1iELRT33n0sJvE0JJTw3sQGzhcvstmdI4xybg9nz1fGawxkkmy3taRLKeped91/
+         cTK/ddiy9Eq6ARxskuSfsNxTd4Xv03d3z1Jr0GMFlYFdZSPnzQ5yKe1z8BlxFn7bMaKc
+         KmuTDKd8Ar8Q+/+87sGR8vg1sqS4UJn8Az3ZV5yVHW0ZhT7eOQcl9Hz28+j7obtD03IY
+         9SGmT/a9QS0kPl79IbJQbDfLaAc4iqpLGXOa3webyiLOzCsvJtWM9zlCSU/bRR7NAbM2
+         PXbA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1763812730; x=1764417530;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=MBrm3JMtHLy7FDNmdG9NnfjfQSeL7J0SNX9N6hNH2js=;
+        b=QOGhq1Y1wFjNYf14DpEmC0IYXpPr4CLPcdT4AE8wBroZSIQ5yobnc+1FPGNxx/i8Z8
+         wkw9uVsOyg3eAHJG/Ow1nYhmivLRwaMowGlFn/jgE8Kn4D6Gqo1n/RpE2/i1lUCfn+6B
+         Jyq4Ht3CNuNvdT2ktE41AS5kpdCGEEOeyNyVbuDwDT6lSJ1Wxf+HvM/iVRb+uq29dpTK
+         xaK8bwDrJXTyADop1HmKLV7MvEyFKsCd+mM1Xhv2NKKFNWCZpJFUxcgCzX8Dd4tEBioe
+         6oBSWjOh0aaQhRPGKMSMTXBnrZ62+f0a0CfxmV+GUPv5BFg4ZFu7dUK67jDZ1QRzO7Cx
+         bAHQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVS1mW6f5IZiwhM5IhdCGyPrMc/9yAgYgdHuMXXEjs3BiFBCixVHhdFQz9OUQ4FuWljUU1fju72OJkF7PEQLDjH@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz0gAlPJqQUe4vB4/BQuGO9CgNDFGk7UE97k97Y4fyhxTsUfz/3
+	snB+1euCV2AUiJcgNlBgOrypGB0DYuUiG2fMxstXrVJrLK06fHREJO5ccV6vKrHyJc8jeiPIvpB
+	jrW2PnAgKmGQ/B8pw0vmq041t5uiZC8waLCCbRxjbrKXqgKCnOv8x+VcWuA==
+X-Gm-Gg: ASbGnctcbTCSRHw8isFxk5igqCYKQlzHLEk3TKeY5cRTczfE9owuD1oBh0Ea4Dwg0u/
+	0UkejwyHa3EfiIwtlfNYsjrjoqOurmlsqwsxVHZJsMtryJe3twtV65y/uwVnENfcQMCWswJeKwa
+	UdSML0SHt+w+cG/UkFLGRljecyOugqRpFhlW/U4Zix+wNKHDnckQSeryDw3yhwB1QvmiDAPSs9Y
+	jLWVDAJzkIyMul0q8CNeARAAV7coJh4B1CV+4Ah/jBJqzwQclBYbAnfdj0Fs5GNoLx9XfE83bzX
+	3KutoQ==
+X-Google-Smtp-Source: AGHT+IHDkZQ+ImU9RTRugkonJf2E+hg917WnNusnwXVOvnWYJ8u+14drqRk1eQk1lC04UEf9Ur7igG1PLO7dWtr7QLg=
+X-Received: by 2002:ac8:5d47:0:b0:4ee:5fc:43da with SMTP id
+ d75a77b69052e-4ee588189c5mr66608501cf.11.1763812730384; Sat, 22 Nov 2025
+ 03:58:50 -0800 (PST)
 MIME-Version: 1.0
-References: <20251121135624.494768-1-tzimmermann@suse.de> <96a8d591-29d5-4764-94f9-6042252e53ff@app.fastmail.com>
- <CAMj1kXF1Dh0RbuqYc0fhAPf-CM0mdYh8BhenM8-ugKVHfwnhBg@mail.gmail.com>
- <199e7538-5b4a-483b-8976-84e4a8a0f2fd@suse.de> <CAMj1kXE+mS1Sm5GaROU0P97J2w1pew0P_To4sKiw8h1iOMuLcg@mail.gmail.com>
- <d080729c-6586-4b9c-b234-470977849d3d@suse.de> <6dff8e7e-c99b-443d-a1d8-22650ca0b595@suse.de>
- <CAMj1kXGpC_162bFL65kQw=7qVP7ezYw77Q76y217dDs8pqHogw@mail.gmail.com>
- <8d0bc096-e346-462b-a274-f0cc1456eea3@suse.de> <CAMj1kXFdethf2sb1tm1V4wRW1SyPt-OnCmaAXc5cHNKuLJMXWA@mail.gmail.com>
- <4c716fd1-c989-4e48-9878-e7312fefc302@suse.de>
-In-Reply-To: <4c716fd1-c989-4e48-9878-e7312fefc302@suse.de>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Sat, 22 Nov 2025 12:42:58 +0100
-X-Gmail-Original-Message-ID: <CAMj1kXHO12LritnbMXapGBV8QnQOCVopJbaBi2ejMUgZQFGdSg@mail.gmail.com>
-X-Gm-Features: AWmQ_blTv2LH7aQFylqJjjKyEMR6uIyXZhGHq7nWzAQ8kC07d8tB-75tF0Nly1A
-Message-ID: <CAMj1kXHO12LritnbMXapGBV8QnQOCVopJbaBi2ejMUgZQFGdSg@mail.gmail.com>
-Subject: Re: [PATCH 0/6] arch, sysfb: Move screen and edid info into single place
-To: Thomas Zimmermann <tzimmermann@suse.de>
-Cc: Arnd Bergmann <arnd@arndb.de>, Javier Martinez Canillas <javierm@redhat.com>, x86@kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-efi@vger.kernel.org, loongarch@lists.linux.dev, 
-	linux-riscv@lists.infradead.org, dri-devel@lists.freedesktop.org, 
-	linux-hyperv@vger.kernel.org, linux-pci@vger.kernel.org, 
-	linux-fbdev@vger.kernel.org
+References: <20251122-controller-v8-0-e7562e0df658@google.com> <20251122-controller-v8-2-e7562e0df658@google.com>
+In-Reply-To: <20251122-controller-v8-2-e7562e0df658@google.com>
+From: Peter Griffin <peter.griffin@linaro.org>
+Date: Sat, 22 Nov 2025 11:58:39 +0000
+X-Gm-Features: AWmQ_bmxr74_zcagVpTKmx_rF_8JcJE4EnUUPe-ZPMt4veKA7v9CBx5wm0awg0g
+Message-ID: <CADrjBPqPsPBBSbhx8ZFreFWX2tRxaATT=azS-b1H2b=TJoVAAw@mail.gmail.com>
+Subject: Re: [PATCH v8 2/2] usb: dwc3: Add Google Tensor SoC DWC3 glue driver
+To: Roy Luo <royluo@google.com>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	=?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
+	Tudor Ambarus <tudor.ambarus@linaro.org>, Thinh Nguyen <Thinh.Nguyen@synopsys.com>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, Badhri Jagan Sridharan <badhri@google.com>, 
+	Doug Anderson <dianders@google.com>, linux-usb@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-samsung-soc@vger.kernel.org, Joy Chakraborty <joychakr@google.com>, 
+	Naveen Kumar <mnkumar@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251122_034312_632550_D18AB3F1 
-X-CRM114-Status: GOOD (  28.58  )
+X-CRM114-CacheID: sfid-20251122_035852_338333_C8002252 
+X-CRM114-Status: GOOD (  29.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,92 +101,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, 22 Nov 2025 at 11:52, Thomas Zimmermann <tzimmermann@suse.de> wrote:
->
-> Hi
->
-> Am 21.11.25 um 17:31 schrieb Ard Biesheuvel:
-> > On Fri, 21 Nov 2025 at 17:26, Thomas Zimmermann <tzimmermann@suse.de> wrote:
-> >> Hi
-> >>
-> >> Am 21.11.25 um 17:19 schrieb Ard Biesheuvel:
-> >>> On Fri, 21 Nov 2025 at 17:09, Thomas Zimmermann <tzimmermann@suse.de> wrote:
-> >>>>
-> >>>> Am 21.11.25 um 17:08 schrieb Thomas Zimmermann:
-> >>>>> Hi
-> >>>>>
-> >>>>> Am 21.11.25 um 16:56 schrieb Ard Biesheuvel:
-> >>>>>> On Fri, 21 Nov 2025 at 16:53, Thomas Zimmermann <tzimmermann@suse.de>
-> >>>>>> wrote:
-> >>>>>>> Hi
-> >>>>>>>
-> >>>>>>> Am 21.11.25 um 16:16 schrieb Ard Biesheuvel:
-> >>>>>>>> On Fri, 21 Nov 2025 at 16:10, Arnd Bergmann <arnd@arndb.de> wrote:
-> >>>>>>>>> On Fri, Nov 21, 2025, at 14:36, Thomas Zimmermann wrote:
-> >>>>>>>>>> Replace screen_info and edid_info with sysfb_primary_device of type
-> >>>>>>>>>> struct sysfb_display_info. Update all users.
-> >>>>>>>>>>
-> >>>>>>>>>> Sysfb DRM drivers currently fetch the global edid_info directly,
-> >>>>>>>>>> when
-> >>>>>>>>>> they should get that information together with the screen_info
-> >>>>>>>>>> from their
-> >>>>>>>>>> device. Wrapping screen_info and edid_info in
-> >>>>>>>>>> sysfb_primary_display and
-> >>>>>>>>>> passing this to drivers enables this.
-> >>>>>>>>>>
-> >>>>>>>>>> Replacing both with sysfb_primary_display has been motivate by
-> >>>>>>>>>> the EFI
-> >>>>>>>>>> stub. EFI wants to transfer EDID via config table in a single entry.
-> >>>>>>>>>> Using struct sysfb_display_info this will become easily possible.
-> >>>>>>>>>> Hence
-> >>>>>>>>>> accept some churn in architecture code for the long-term
-> >>>>>>>>>> improvements.
-> >>>>>>>>> This all looks good to me,
-> >>>>>>>>>
-> >>>>>>>>> Acked-by: Arnd Bergmann <arnd@arndb.de>
-> >>>>>>> Thanks
-> >>>>>>>
-> >>>>>>>>> It should also bring us one step closer to eventually
-> >>>>>>>>> disconnecting the x86 boot ABI from the kernel-internal
-> >>>>>>>>> sysfb_primary_display.
-> >>>>>>>>>
-> >>>>>>>> Agreed
-> >>>>>>>>
-> >>>>>>>> Acked-by: Ard Biesheuvel <ardb@kernel.org>
-> >>>>>>> Thanks
-> >>>>>>>
-> >>>>>>>> I can take patches 1-2 right away, if that helps during the next
-> >>>>>>>> cycle.
-> >>>>>>>     From my sysfb-focused POV, these patches would ideally all go through
-> >>>>>>> the same tree, say efi or generic arch, or whatever fits best. Most of
-> >>>>>>> the other code is only renames anyway.
-> >>>>>>>
-> >>>>>> I don't mind queueing all of it, but I did get a conflict on
-> >>>>>> drivers/pci/vgaarb.c
-> >>>>> Probably from a78835b86a44 ("PCI/VGA: Select SCREEN_INFO on X86")
-> >>>> https://lore.kernel.org/all/20251013220829.1536292-1-superm1@kernel.org/
-> >>>>
-> >>> Yes, if I merge back -rc2 first, I can apply patches 1-5 onto my
-> >>> efi/next tree. But then I hit
-> >>>
-> >>> Applying: sysfb: Move edid_info into sysfb_primary_display
-> >>> error: sha1 information is lacking or useless (drivers/gpu/drm/sysfb/efidrm.c).
-> >>> error: could not build fake ancestor
-> >>> Patch failed at 0006 sysfb: Move edid_info into sysfb_primary_display
-> >>>
-> >>> If you prefer, you can take the whole lot via the sysfb tree instead,
-> >>> assuming it does not depend on the EDID changes I already queued up?
-> >> Sure, I can also add it to the drm-misc tree. ETA in upstream would be
-> >> v6.20-rc1.
-> >>
-> > But does that mean the EDID firmware on non-x86 will have to wait for
-> > 6.21? I was trying to avoid making this a 6 month effort.
->
-> No problem. Then let me rebase onto linux-next and put the existing EDID
-> patches for EFI on top. It's mostly acked or reviewed already. Once we
-> have it in good shape we can merged it all at once via the linux-efi
-> tree. Does that work for you?
->
+Hi Roy,
 
-Sounds good.
+Thanks for your patch. It's great to see Laguna support being added upstream.
+
+On Sat, 22 Nov 2025 at 09:32, Roy Luo <royluo@google.com> wrote:
+>
+> Add support for the DWC3 USB controller found on Google Tensor G5
+> (codename: laguna). The controller features dual-role functionality
+> and hibernation.
+>
+> The primary focus is implementing hibernation support in host mode,
+> enabling the controller to enter a low-power state (D3). This is
+> particularly relevant during system power state transition and
+> runtime power management for power efficiency.
+> Highlights:
+> - Align suspend callback with dwc3_suspend_common() for deciding
+>   between a full teardown and hibernation in host mode.
+> - Integration with `psw` (power switchable) and `top` power domains,
+>   managing their states and device links to support hibernation.
+> - A notifier callback dwc3_google_usb_psw_pd_notifier() for
+>   `psw` power domain events to manage controller state
+>   transitions to/from D3.
+> - Coordination of the `non_sticky` reset during power state
+>   transitions, asserting it on D3 entry and deasserting on D0 entry
+>   in hibernation scenario.
+> - Handling of high-speed and super-speed PME interrupts
+>   that are generated by remote wakeup during hibernation.
+>
+> Co-developed-by: Joy Chakraborty <joychakr@google.com>
+> Signed-off-by: Joy Chakraborty <joychakr@google.com>
+> Co-developed-by: Naveen Kumar <mnkumar@google.com>
+> Signed-off-by: Naveen Kumar <mnkumar@google.com>
+> Signed-off-by: Roy Luo <royluo@google.com>
+> ---
+>  drivers/usb/dwc3/Kconfig       |  13 +
+>  drivers/usb/dwc3/Makefile      |   1 +
+>  drivers/usb/dwc3/dwc3-google.c | 628 +++++++++++++++++++++++++++++++++++++++++
+>  3 files changed, 642 insertions(+)
+>
+> diff --git a/drivers/usb/dwc3/Kconfig b/drivers/usb/dwc3/Kconfig
+> index 4925d15084f816d3ff92059b476ebcc799b56b51..f58c70dabf108878cbefe0abea88572d9ae81e26 100644
+> --- a/drivers/usb/dwc3/Kconfig
+> +++ b/drivers/usb/dwc3/Kconfig
+> @@ -200,4 +200,17 @@ config USB_DWC3_GENERIC_PLAT
+>           the dwc3 child node in the device tree.
+>           Say 'Y' or 'M' here if your platform integrates DWC3 in a similar way.
+>
+> +config USB_DWC3_GOOGLE
+> +       tristate "Google Platform"
+> +       depends on COMPILE_TEST
+> +       depends on OF && COMMON_CLK && RESET_CONTROLLER
+> +       help
+> +         Support the DesignWare Core USB3 IP found on Google Tensor
+> +         SoCs, starting with the G5 generation. This driver includes
+
+consider adding: (Laguna)
+
+> +         support for hibernation in host mode.
+> +         Say 'Y' or 'M' if you have one such device.
+> +
+> +         To compile this driver as a module, choose M here: the
+> +         module will be called dwc3-google.ko.
+> +
+>  endif
+> diff --git a/drivers/usb/dwc3/Makefile b/drivers/usb/dwc3/Makefile
+> index 96469e48ff9d189cc8d0b65e65424eae2158bcfe..cf1cd408d938b3ac26d58b9be7fcc5af3ee82660 100644
+> --- a/drivers/usb/dwc3/Makefile
+> +++ b/drivers/usb/dwc3/Makefile
+> @@ -58,3 +58,4 @@ obj-$(CONFIG_USB_DWC3_XILINX)         += dwc3-xilinx.o
+>  obj-$(CONFIG_USB_DWC3_OCTEON)          += dwc3-octeon.o
+>  obj-$(CONFIG_USB_DWC3_RTK)             += dwc3-rtk.o
+>  obj-$(CONFIG_USB_DWC3_GENERIC_PLAT)    += dwc3-generic-plat.o
+> +obj-$(CONFIG_USB_DWC3_GOOGLE)          += dwc3-google.o
+> diff --git a/drivers/usb/dwc3/dwc3-google.c b/drivers/usb/dwc3/dwc3-google.c
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..53e04a5409d8a11eb025b0f5cd351cb1b33281ab
+> --- /dev/null
+> +++ b/drivers/usb/dwc3/dwc3-google.c
+> @@ -0,0 +1,628 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * dwc3-google.c - Google DWC3 Specific Glue Layer
+> + *
+> + * Copyright (c) 2025, Google LLC
+> + * Author: Roy Luo <royluo@google.com>
+> + */
+> +
+> +#include <linux/of.h>
+> +#include <linux/bitfield.h>
+> +#include <linux/irq.h>
+> +#include <linux/clk.h>
+> +#include <linux/module.h>
+> +#include <linux/kernel.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/reset.h>
+> +#include <linux/pm_domain.h>
+> +#include <linux/iopoll.h>
+> +#include <linux/regmap.h>
+> +#include <linux/mfd/syscon.h>
+
+Please sort the headers alphabetically. It helps avoid duplicates and
+is easier when adding new headers.
+
+Also can you add this file, and the bindings patch to the Tensor SoC
+MAINTAINERS entry, so it's easier to review future patches?
+
+With those nits  addressed:
+Reviewed-by: Peter Griffin <peter.griffin@linaro.org>
+
+regards,
+
+Peter.
 
