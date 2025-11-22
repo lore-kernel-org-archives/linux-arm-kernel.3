@@ -4,91 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D971DCF64B1
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Nov 2025 13:00:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB78DCFC538
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Nov 2025 13:25:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=D33saOqa18RCkbxGkW6RKN+23lAQ9LGSuB2LH3pnMFs=; b=wNo3Dfu24ZA+5Qsr4R2qFXssKa
-	svzFL31S0cfnzv0t80JZ4jaBGDVZUvb7WNhXheEZIPMLhVveL/uLNdHvaFP1Awniy4IBCUC5dNGu7
-	OgKMshA6ehz+sD3mp4jBvHIESpJQRBsEmhRU0Esut7egMqO7UDj23oHzDriK0sEmjZlj5qpCnhIv2
-	YmKwGRIdJH8IVCiEgs7kGRuRg2JxKPLyOGS0bEHX63+vWUW7a6RN/BYtVK1t8qJvzKzkDwKRW3UU0
-	4fjvlTpxuRqaMB5DoQKxOCJEiRMMdZnuvV3BAyKbQPiQoecuoqFr4MeQd3hsB6irpYOFKhD23nl6c
-	/mLzR7Nw==;
+	bh=y+FWXqUAeSub0JOoxZkXhN3IQ/05DjSS+/uicwaJQDM=; b=yCSJpioBEqCBtf6cQ7hc3qzbIT
+	vK2jViNn3brWkcTUdl9WvCjJrEQB1GgfjDMNmF9D9avSRYsMtg+US9tRwRASkLXZVAouQJAelw5C7
+	A86gpVEog1uuOuZG+EEkexu+1R+QlkA3wzHYAkr2XP7nFL2flnS3ikt8BdvODvsl0f0qyu9FfIcGK
+	/xUgvi5YHonCJOygi0VH1zZf7BwB2dL+XRC0LK05wNuVDBSJMnLUitf1xfnxc4Vzyo3HX6riGO0h5
+	a//cDbSUQvjBd+UsZfFXzBq3240rvXkbrJhrC8+HD4yjV4REpoZ1fodH0tNBoRISbJSmU6QZlWrYZ
+	V9deSzKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMnDw-00000009bJx-0RaS;
-	Sat, 22 Nov 2025 13:00:20 +0000
-Received: from mail-qv1-xf29.google.com ([2607:f8b0:4864:20::f29])
+	id 1vMncK-00000009cL0-2aV4;
+	Sat, 22 Nov 2025 13:25:32 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMnDt-00000009bJ9-0vLV
+	id 1vMncI-00000009cKd-1O3I
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 22 Nov 2025 13:00:18 +0000
-Received: by mail-qv1-xf29.google.com with SMTP id 6a1803df08f44-8845498be17so40249206d6.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 22 Nov 2025 05:00:16 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1763816416; x=1764421216; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=D33saOqa18RCkbxGkW6RKN+23lAQ9LGSuB2LH3pnMFs=;
-        b=cEf1WqBL9X+ga5jSItSdbvpCtxSk5bLIuV6blqPPnuFbld6ANIQIHZaSLu3zOzKCZ6
-         EZyrSpyBb/32WYL6hyddrwgAV3csOe3qayyQyAVW1G2Gh3vNZxWMAlWgE1RpoK8mhOed
-         KUm955QpI6WuXXNWsoY+a8VdC3IYquKpLSmnDr8HC51ayHaqTNg7gqscN5XVM1XekmJq
-         JLWq6WZOhRQsE4pK3PyBAQa/oDJaX+OhK8k+CV/9iukMgA9tvg2NxQK4WQfJ8KMk3SNe
-         xDcEfBMdapMqy9HBqxCOgQR/bihntHrVcPwBufBVz/0jBA6DOXvj6/nKwCMZB9Y4XQMg
-         xl2Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763816416; x=1764421216;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=D33saOqa18RCkbxGkW6RKN+23lAQ9LGSuB2LH3pnMFs=;
-        b=SuWZEJEVhK+BDuVaL0H6HW8ZfLBQrFVkBw9OHqbEbZ/Ggx72I/U5dBmvoaZzzJlOry
-         t4CYpofuX1Hc/JGfg1dDNWqj4vWQdtyWKtY4PiNG8mAuUMyiVq/6/PSPSZDvjtNkZuCN
-         01doBJipLTggb6DMHgIw/3gi0WdDkV7KXDRxke5feayr+FAe0zZUuAOVKLCTvnDerIx+
-         xsEVpRQWEEKDrB/TY/Lezj7ZM/6XUOXnIJWJ/BlrQ9jXkE5bXPw8VRbJfnGOsqrAsER4
-         QoFlGKjpAmq2RA9gnRpYYJgWv6sOC7fr0afM+Ufr76S50kHCBpkCWht/zm9QtmJU5B9I
-         s7Rg==
-X-Forwarded-Encrypted: i=1; AJvYcCWWEc4IHGrzFbXWZkFjpIRxFnga4HvpghQoTcP33nrYM0HhVzjfuWGr2AQki7pjnIh7hTFe50TWbx0mBY7Fy1E/@lists.infradead.org
-X-Gm-Message-State: AOJu0YyBkN4LTTpVg3fJn4kVa5MTK77sPKjl311xTNUKns9xR8QNtHwx
-	28ulZ/khRlFFGcrAIq9thjxlTsfuuKGsA+dNfbHRtOvMrZYBnnmD3HRSCqagXyLsv51s1eZPIzk
-	xC5emnSR1OQeqeqPsrZDpgUOTLhIlmbTgqMBrXhChoA==
-X-Gm-Gg: ASbGncsEyamfY8eWJ0wViAKJj93WiY3d2nDl7Yf6EUWB6xdTRKJ4tS/TF/0LJVoPohm
-	pE1s8ladRXe/qLIM+gbYPnAr98P87thgME3aHZLV4aJNKmWH2uXR1+JBAtmmNGcxBMsv5UzHi5F
-	JFF3tM1Kl1vz++SNRcFTpowxBR7SDlx6n9HSxaOC/Sue8zAHObsLQW4Byd0fXV5+FCi16RmxIsG
-	VG3Wtx25/8bUMCYQethe4GxhdRSDCHPQj0K6MyFVDynHtV20aO+M9MzzddaFxDXkQg/Xxc54xhI
-	M0TmCg==
-X-Google-Smtp-Source: AGHT+IHJrCgIOLl4o7NWWLpx4hV5ffDAfX6bvndBUHOzhVwN3Sh2SMUBYCSUaMSJYcN7I8cF0AZYPeseet0woJPXfmE=
-X-Received: by 2002:a05:6214:19ef:b0:880:53b3:a9bd with SMTP id
- 6a1803df08f44-8847c48694cmr88775616d6.5.1763816415832; Sat, 22 Nov 2025
- 05:00:15 -0800 (PST)
-MIME-Version: 1.0
-References: <20251122-controller-v8-0-e7562e0df658@google.com>
- <20251122-controller-v8-2-e7562e0df658@google.com> <CADrjBPqPsPBBSbhx8ZFreFWX2tRxaATT=azS-b1H2b=TJoVAAw@mail.gmail.com>
- <2025112248-spoon-waffle-a508@gregkh>
-In-Reply-To: <2025112248-spoon-waffle-a508@gregkh>
-From: Peter Griffin <peter.griffin@linaro.org>
-Date: Sat, 22 Nov 2025 13:00:04 +0000
-X-Gm-Features: AWmQ_blyAPM0LR0XqdHlXvnT72Nj6YIaIeoZyPTuWF8E9Zu5nwZOromhbyVp9eo
-Message-ID: <CADrjBPp0icwChpAdeK-CBEqvV__ALJ4YO=cp5uhXEUu3nqL4UQ@mail.gmail.com>
-Subject: Re: [PATCH v8 2/2] usb: dwc3: Add Google Tensor SoC DWC3 glue driver
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: Roy Luo <royluo@google.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	=?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
-	Tudor Ambarus <tudor.ambarus@linaro.org>, Thinh Nguyen <Thinh.Nguyen@synopsys.com>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, Badhri Jagan Sridharan <badhri@google.com>, 
-	Doug Anderson <dianders@google.com>, linux-usb@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-samsung-soc@vger.kernel.org, Joy Chakraborty <joychakr@google.com>, 
-	Naveen Kumar <mnkumar@google.com>
-Content-Type: text/plain; charset="UTF-8"
+	Sat, 22 Nov 2025 13:25:31 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 8279A407E6;
+	Sat, 22 Nov 2025 13:25:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 36870C4CEF5;
+	Sat, 22 Nov 2025 13:25:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1763817927;
+	bh=e5AzHO81/a9aj3GGCW5h753xla0jVym/io664XMZHaI=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=MPFqf4s97YnlpFpPgLeDgfSjRJDbo4g8ily8P1JGPTsEdLK4SavjKLSbGof22Tlsk
+	 1GXUs8Rgj342YdjdSXJMmnxmr5ZY4NScgsmX+lEXlaNAtM8rb5cPv2T2fcAx5VXqKH
+	 xVwo/q0If8WQDQAjb+fB0pD3APpSjI5DgURuyE8Wypb0CTSbSFKttkmBA+q7guCcPV
+	 f1LRXKToE/rvYbj3/ETtCMO599A8X/Yajovd4IYCtDwynCKBgYll4DVNTcJp1bVTxN
+	 ncMnxbsZvW5jK0t+hzsYQf7sAYzUwwOldwOFZe6TKYUEd89fThSlCDm5P5HnPAt951
+	 TsQca6TBCJTOA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vMncC-00000007UgK-44UT;
+	Sat, 22 Nov 2025 13:25:25 +0000
+Date: Sat, 22 Nov 2025 13:25:24 +0000
+Message-ID: <86tsymqjwb.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Tian Zheng <zhengtian10@huawei.com>
+Cc: <oliver.upton@linux.dev>,
+	<catalin.marinas@arm.com>,
+	<corbet@lwn.net>,
+	<pbonzini@redhat.com>,
+	<will@kernel.org>,
+	<linux-kernel@vger.kernel.org>,
+	<yuzenghui@huawei.com>,
+	<wangzhou1@hisilicon.com>,
+	<yezhenyu2@huawei.com>,
+	<xiexiangyou@huawei.com>,
+	<zhengchuan@huawei.com>,
+	<linuxarm@huawei.com>,
+	<joey.gouly@arm.com>,
+	<kvmarm@lists.linux.dev>,
+	<kvm@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>,
+	<linux-doc@vger.kernel.org>,
+	<suzuki.poulose@arm.com>
+Subject: Re: [PATCH v2 3/5] KVM: arm64: Add support for FEAT_HDBSS
+In-Reply-To: <20251121092342.3393318-4-zhengtian10@huawei.com>
+References: <20251121092342.3393318-1-zhengtian10@huawei.com>
+	<20251121092342.3393318-4-zhengtian10@huawei.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: zhengtian10@huawei.com, oliver.upton@linux.dev, catalin.marinas@arm.com, corbet@lwn.net, pbonzini@redhat.com, will@kernel.org, linux-kernel@vger.kernel.org, yuzenghui@huawei.com, wangzhou1@hisilicon.com, yezhenyu2@huawei.com, xiexiangyou@huawei.com, zhengchuan@huawei.com, linuxarm@huawei.com, joey.gouly@arm.com, kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, suzuki.poulose@arm.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251122_050017_272564_1167ABCD 
-X-CRM114-Status: GOOD (  28.25  )
+X-CRM114-CacheID: sfid-20251122_052530_413917_7227E783 
+X-CRM114-Status: GOOD (  34.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,77 +100,175 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Greg
+On Fri, 21 Nov 2025 09:23:40 +0000,
+Tian Zheng <zhengtian10@huawei.com> wrote:
+> 
+> From: eillon <yezhenyu2@huawei.com>
+> 
+> Armv9.5 introduces the Hardware Dirty Bit State Structure (HDBSS) feature,
+> indicated by ID_AA64MMFR1_EL1.HAFDBS == 0b0100.
+> 
+> Add the Kconfig for FEAT_HDBSS and support detecting and enabling the
+> feature. A CPU capability is added to notify the user of the feature.
+> 
+> Add KVM_CAP_ARM_HW_DIRTY_STATE_TRACK ioctl and basic framework for
+> ARM64 HDBSS support. Since the HDBSS buffer size is configurable and
+> cannot be determined at KVM initialization, an IOCTL interface is
+> required.
+> 
+> Actually exposing the new capability to user space happens in a later
+> patch.
+> 
+> Signed-off-by: eillon <yezhenyu2@huawei.com>
+> Signed-off-by: Tian Zheng <zhengtian10@huawei.com>
+> ---
+>  arch/arm64/Kconfig                  | 14 ++++++++++++++
+>  arch/arm64/include/asm/cpucaps.h    |  2 ++
+>  arch/arm64/include/asm/cpufeature.h |  5 +++++
+>  arch/arm64/include/asm/kvm_host.h   |  4 ++++
+>  arch/arm64/include/asm/sysreg.h     | 12 ++++++++++++
+>  arch/arm64/kernel/cpufeature.c      |  9 +++++++++
+>  arch/arm64/tools/cpucaps            |  1 +
+>  include/uapi/linux/kvm.h            |  1 +
+>  tools/include/uapi/linux/kvm.h      |  1 +
+>  9 files changed, 49 insertions(+)
+> 
+> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+> index 6663ffd23f25..1edf75888a09 100644
+> --- a/arch/arm64/Kconfig
+> +++ b/arch/arm64/Kconfig
+> @@ -2201,6 +2201,20 @@ config ARM64_GCS
+> 
+>  endmenu # "ARMv9.4 architectural features"
+> 
+> +menu "ARMv9.5 architectural features"
+> +
+> +config ARM64_HDBSS
+> +	bool "Enable support for Hardware Dirty state tracking Structure (HDBSS)"
+> +	help
+> +	  Hardware Dirty state tracking Structure(HDBSS) enhances tracking
+> +	  translation table descriptors' dirty state to reduce the cost of
+> +	  surveying for dirtied granules.
+> +
+> +	  The feature introduces new assembly registers (HDBSSBR_EL2 and
+> +	  HDBSSPROD_EL2), which are accessed via generated register accessors.
 
-On Sat, 22 Nov 2025 at 12:35, Greg Kroah-Hartman
-<gregkh@linuxfoundation.org> wrote:
->
-> On Sat, Nov 22, 2025 at 11:58:39AM +0000, Peter Griffin wrote:
-> > Hi Roy,
-> >
-> > Thanks for your patch. It's great to see Laguna support being added upstream.
-> >
-> > On Sat, 22 Nov 2025 at 09:32, Roy Luo <royluo@google.com> wrote:
-> > >
-> > > Add support for the DWC3 USB controller found on Google Tensor G5
-> > > (codename: laguna). The controller features dual-role functionality
-> > > and hibernation.
-> > >
-> > > The primary focus is implementing hibernation support in host mode,
-> > > enabling the controller to enter a low-power state (D3). This is
-> > > particularly relevant during system power state transition and
-> > > runtime power management for power efficiency.
-> > > Highlights:
-> > > - Align suspend callback with dwc3_suspend_common() for deciding
-> > >   between a full teardown and hibernation in host mode.
-> > > - Integration with `psw` (power switchable) and `top` power domains,
-> > >   managing their states and device links to support hibernation.
-> > > - A notifier callback dwc3_google_usb_psw_pd_notifier() for
-> > >   `psw` power domain events to manage controller state
-> > >   transitions to/from D3.
-> > > - Coordination of the `non_sticky` reset during power state
-> > >   transitions, asserting it on D3 entry and deasserting on D0 entry
-> > >   in hibernation scenario.
-> > > - Handling of high-speed and super-speed PME interrupts
-> > >   that are generated by remote wakeup during hibernation.
-> > >
-> > > Co-developed-by: Joy Chakraborty <joychakr@google.com>
-> > > Signed-off-by: Joy Chakraborty <joychakr@google.com>
-> > > Co-developed-by: Naveen Kumar <mnkumar@google.com>
-> > > Signed-off-by: Naveen Kumar <mnkumar@google.com>
-> > > Signed-off-by: Roy Luo <royluo@google.com>
-> > > ---
-> > >  drivers/usb/dwc3/Kconfig       |  13 +
-> > >  drivers/usb/dwc3/Makefile      |   1 +
-> > >  drivers/usb/dwc3/dwc3-google.c | 628 +++++++++++++++++++++++++++++++++++++++++
-> > >  3 files changed, 642 insertions(+)
-> > >
-> > > diff --git a/drivers/usb/dwc3/Kconfig b/drivers/usb/dwc3/Kconfig
-> > > index 4925d15084f816d3ff92059b476ebcc799b56b51..f58c70dabf108878cbefe0abea88572d9ae81e26 100644
-> > > --- a/drivers/usb/dwc3/Kconfig
-> > > +++ b/drivers/usb/dwc3/Kconfig
-> > > @@ -200,4 +200,17 @@ config USB_DWC3_GENERIC_PLAT
-> > >           the dwc3 child node in the device tree.
-> > >           Say 'Y' or 'M' here if your platform integrates DWC3 in a similar way.
-> > >
-> > > +config USB_DWC3_GOOGLE
-> > > +       tristate "Google Platform"
-> > > +       depends on COMPILE_TEST
-> > > +       depends on OF && COMMON_CLK && RESET_CONTROLLER
-> > > +       help
-> > > +         Support the DesignWare Core USB3 IP found on Google Tensor
-> > > +         SoCs, starting with the G5 generation. This driver includes
-> >
-> > consider adding: (Laguna)
->
-> What is "laguna" and why should it be listed here?
+This last but means nothing to most people.
 
-Laguna is the codename of the SoC (mentioned in the commit message).
-The dt compatibles and proposed dt files all mention Laguna (as
-opposed to G5) or its abbreviated form lga  so it could be helpful to
-have this mentioned in the help message.
+But more importantly, I really don't want to see this as a config
+option. KVM comes with "battery included", and all features should be
+available at all times.
 
-See https://lore.kernel.org/lkml/20251111112158.1.I72a0b72562b85d02fee424fed939fea9049ddda9@changeid/
+> +
+> +endmenu # "ARMv9.5 architectural features"
+> +
+>  config ARM64_SVE
+>  	bool "ARM Scalable Vector Extension support"
+>  	default y
+> diff --git a/arch/arm64/include/asm/cpucaps.h b/arch/arm64/include/asm/cpucaps.h
+> index 9d769291a306..5e5a26f28dec 100644
+> --- a/arch/arm64/include/asm/cpucaps.h
+> +++ b/arch/arm64/include/asm/cpucaps.h
+> @@ -48,6 +48,8 @@ cpucap_is_possible(const unsigned int cap)
+>  		return IS_ENABLED(CONFIG_ARM64_GCS);
+>  	case ARM64_HAFT:
+>  		return IS_ENABLED(CONFIG_ARM64_HAFT);
+> +	case ARM64_HAS_HDBSS:
+> +		return IS_ENABLED(CONFIG_ARM64_HDBSS);
+>  	case ARM64_UNMAP_KERNEL_AT_EL0:
+>  		return IS_ENABLED(CONFIG_UNMAP_KERNEL_AT_EL0);
+>  	case ARM64_WORKAROUND_843419:
+> diff --git a/arch/arm64/include/asm/cpufeature.h b/arch/arm64/include/asm/cpufeature.h
+> index e223cbf350e4..b231415a2b76 100644
+> --- a/arch/arm64/include/asm/cpufeature.h
+> +++ b/arch/arm64/include/asm/cpufeature.h
+> @@ -856,6 +856,11 @@ static inline bool system_supports_haft(void)
+>  	return cpus_have_final_cap(ARM64_HAFT);
+>  }
+> 
+> +static inline bool system_supports_hdbss(void)
+> +{
+> +	return cpus_have_final_cap(ARM64_HAS_HDBSS);
+> +}
+> +
+>  static __always_inline bool system_supports_mpam(void)
+>  {
+>  	return alternative_has_cap_unlikely(ARM64_MPAM);
+> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+> index 64302c438355..d962932f0e5f 100644
+> --- a/arch/arm64/include/asm/kvm_host.h
+> +++ b/arch/arm64/include/asm/kvm_host.h
+> @@ -60,6 +60,10 @@
+> 
+>  #define KVM_HAVE_MMU_RWLOCK
+> 
+> +/* HDBSS entry field definitions */
+> +#define HDBSS_ENTRY_VALID BIT(0)
+> +#define HDBSS_ENTRY_IPA GENMASK_ULL(55, 12)
+> +
 
-Peter.
+None of this is used here. Move it to the patch where it belongs.
+
+>  /*
+>   * Mode of operation configurable with kvm-arm.mode early param.
+>   * See Documentation/admin-guide/kernel-parameters.txt for more information.
+> diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/sysreg.h
+> index c231d2a3e515..3511edea1fbc 100644
+> --- a/arch/arm64/include/asm/sysreg.h
+> +++ b/arch/arm64/include/asm/sysreg.h
+> @@ -1129,6 +1129,18 @@
+>  #define gicr_insn(insn)			read_sysreg_s(GICV5_OP_GICR_##insn)
+>  #define gic_insn(v, insn)		write_sysreg_s(v, GICV5_OP_GIC_##insn)
+> 
+> +/*
+> + * Definitions for the HDBSS feature
+> + */
+> +#define HDBSS_MAX_SIZE		HDBSSBR_EL2_SZ_2MB
+> +
+> +#define HDBSSBR_EL2(baddr, sz)	(((baddr) & GENMASK(55, 12 + sz)) | \
+> +				 FIELD_PREP(HDBSSBR_EL2_SZ_MASK, sz))
+> +#define HDBSSBR_BADDR(br)	((br) & GENMASK(55, (12 + HDBSSBR_SZ(br))))
+> +#define HDBSSBR_SZ(br)		FIELD_GET(HDBSSBR_EL2_SZ_MASK, br)
+
+This is a bit backward. When would you need to read-back and mask
+random bits off the register?
+
+> +
+> +#define HDBSSPROD_IDX(prod)	FIELD_GET(HDBSSPROD_EL2_INDEX_MASK, prod)
+> +
+
+As previously said, these definitions don't serve any purpose here,
+and would be better in the following patch.
+
+>  #define ARM64_FEATURE_FIELD_BITS	4
+> 
+>  #ifdef __ASSEMBLY__
+> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+> index e25b0f84a22d..f39973b68bdb 100644
+> --- a/arch/arm64/kernel/cpufeature.c
+> +++ b/arch/arm64/kernel/cpufeature.c
+> @@ -2710,6 +2710,15 @@ static const struct arm64_cpu_capabilities arm64_features[] = {
+>  		.matches = has_cpuid_feature,
+>  		ARM64_CPUID_FIELDS(ID_AA64MMFR1_EL1, HAFDBS, HAFT)
+>  	},
+> +#endif
+> +#ifdef CONFIG_ARM64_HDBSS
+> +	{
+> +		.desc = "Hardware Dirty state tracking structure (HDBSS)",
+> +		.type = ARM64_CPUCAP_SYSTEM_FEATURE,
+> +		.capability = ARM64_HAS_HDBSS,
+> +		.matches = has_cpuid_feature,
+> +		ARM64_CPUID_FIELDS(ID_AA64MMFR1_EL1, HAFDBS, HDBSS)
+> +	},
+
+I think this is one of the features we should restrict to VHE. I don't
+imagine pKVM ever making use of this, and no non-VHE HW will ever
+build this.
+
+Thanks,
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
