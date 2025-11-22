@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 279C1CFD2EC
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Nov 2025 19:34:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7ED0BCFD2F5
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Nov 2025 19:34:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-Id:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/pFdE7Ni958DET8hD73qoOqlpG5Gc+gD72GrriJOiuE=; b=iJbtKXBkDg9MIBz1xKI359GNiT
-	JHE/KVzuyL3upts4Z4RggU3Fd5gY4qs8tEytz4Xa0Gr2anANzdMMwrVY0F+HwBioirRfg9aUdE6ok
-	Y+JVLYxcxKI69uKy/+z2TmW6K+D2WpMynQp5+slZ52WNdCbEMMHm+OnLIuBpn67Wgs1LYb8L/2t4+
-	cSxlN+cEu/i72KRcmxu70BMAuF1dcM5muHIC+0NKcaVJtJB/H7cvX0saymkhV6DTZQ2lfEBQFwrku
-	VXi4sSeVPzP6y47mte+varEMl3iCr2s5TN7ZwdDp6Z5+sHjn2wzTGKLRDkEt/4RIw4M7GNMEkoXlY
-	XmMEzlyw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YlR2F1LELL7j3sexgwZSKeMDc4U/MCXA8ZeAhv9CrA4=; b=oGPeYiVHxP3JvmYqosvwgKSU7O
+	629piKEbqa2xRTNI9WrSgzmX5sMyeup8mYO/jkl9c3qc2SEcXILyCS8UdOwFbpR+ZL9qSoJtRIgI+
+	mSflYTVaQL7zf0ByCOCmMafMqFC6l2QzN1Sgwkg7LghtMfthmIUpyHr/9JqYIYVYIqA47X8GaiEEf
+	XseSlByGADZ7AOkVURZRgvGJKu9EVWQTpSsPbxOfPxjmFdd/Gyk1BAuhV8NFqSu7bzmF37qJcMSEa
+	ECzi4bBImqxMBmofNUXeYYAN2u0c6vZ3dwLitdyhW/BmcwVIisg/gQwZnpCZhmOeFfyeiQgssG5ah
+	4gG9ZmGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMtN6-00000009pJb-1Hp2;
-	Sat, 22 Nov 2025 19:34:12 +0000
+	id 1vMtNB-00000009pPg-20Dv;
+	Sat, 22 Nov 2025 19:34:17 +0000
 Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMtN1-00000009pG0-17d6;
-	Sat, 22 Nov 2025 19:34:08 +0000
+	id 1vMtN3-00000009pG0-1TaB;
+	Sat, 22 Nov 2025 19:34:10 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=UDmMvyHpeqV6zoYcGDPO2iAP1Z3OerzISu8VOQp1tczoi9Cq+vXSreOiPp4PXEvlrNqq4XRm9PaohrB7HOfgUYWwadUI2mEkCdb9C936LPOJcsEHgbZCOtAqqit/8cSub5arBEKGdSB9Q54t0FbmaqilQyw7DsJaQaKGxqUvAMf3z/nl5jjRKcDpbpP8S88fHggK5uDEQUqIAKdt8Zw5iAsIVeWTB5nzUWjI2Tybm5TVXnfiS8oo/lW+H1lRQIebhu4XmKPPKjmuLG67fWdlX5THtaZhL/a4RlgCzZrIJPZ/5z/n+Z1/HOViBMuvuVmfDDJwh/bczP4IYQpzwWb4LA==
+ b=AsCqefdR2kur+g1MxQI9b4rshLpSTorWFqtiY1+9WXdtD3TdB2e6c2+MLlzCKWiYBv8JXGoMQwwM6Kc0FB+wbGabg0iZTrdLmpOxeb7/zWm8PsmFqITErWlAFRajIOdZjxIx3X/vf77JNAja/bt3gnU4rqZiS/xMT5qvgf53k0KMp1JH4S5R4wo5wFIj3XwLUC1VpGv2NvqyXfM253tyY1snSIkr1+j3efq1K+tdzCuscMAY/YREpuKQ2YJZeBvnmukUb9vpycA/rjtVvBMfVegTPTT/1MnkeQeaxYUeiqhGoRMzIl/lv+6bE2szXH5/PUUyeuiQBJRv6l87QGdfGQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=/pFdE7Ni958DET8hD73qoOqlpG5Gc+gD72GrriJOiuE=;
- b=F7shiF1Z1aUaon6xZlZUr4Z97VzCHtTQXKclKu/8C+zKf7NHfBfhYDobYAd2OPH/lc/9ghZOzCbzo29ArUXWWpGdYcqydFgwWdMB5D5MedLzzcFEOAifG0iRzW8Io7jA6ZoZLYke4oD77Qpbb4ticRdje2myYoIRD7AyzZ1QhCnLRVWJKQG/RaRsHqYCDoWYQgF/jADdgNwwqfH+Hy2ZwNDb0ThwpBmJbMmLX+qcno5bpszZaaXo03AHMUWyPlyt4XLCa93/Adh8j2HXuaX4AeFkg/NeqlisoG1M2naNkFn+vkHsXZluZbCKTdaLKFkw2GSGlpKd9WvMmmpKQfe5HA==
+ bh=YlR2F1LELL7j3sexgwZSKeMDc4U/MCXA8ZeAhv9CrA4=;
+ b=tIFFAi18IYi2QLskawdbBYIalTjv/JdxCsfINXElJhMeAdaNOS8DcBncXbzBj9nbBT/+sMDlMzrt4CTGsubJkNlRiIDOVcJr0zzbybdIFHUDcbQ+Dci1c/pWej77Mg22/xfA5cpWpgfzVXbJgWPLlLvsT/J2eQQ+pcjYCxaHVfajRQHEa5GKZQh1yO+sBaHIpeoVsZB59O/ot5+LnNr9ckaeuwf1WrAxe9AXqH5E/mgIlBZK+5iAAr+TvTjwGPsRPA2TfRUrJ4olPjJeUnKPbiQEeQfP1bmoDuBxHvyMIWWmUAfkYkljK0s6MPfide8ryQAn7eZlSfYDBRuQpFXBYw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
  header.d=nxp.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=/pFdE7Ni958DET8hD73qoOqlpG5Gc+gD72GrriJOiuE=;
- b=DpIY1NqKW4pULDlv+w2inRFJuM0jicqmyLz4bE0WZi2YlyKXOomq+8sLvn2A2T/FNQHKt+PzCOb7IYaihK/ll9knl3bW5TYTwvA5aK1hSvhlyvEQVpoYlVXod4PQ8c6Dco+mNKIKipW0u83134q7UQoWAlXjkImEI2VZ1drp8dtLOf4gW4V2h9lH1F5eWJMt6TA9XB4Wr+hvrp98eHJlHqMI8aE0KxQ3YmCBhePtlU0hgXlSLENvxD9IqAqdlJHrpMbX8lD8zf3vgWpZS25uFcDt9Ci18ydV2hePFVMevWweNXHkRatz4AYCyH13wwC0KdnYZmjOkLc9ONBFWOkQ5A==
+ bh=YlR2F1LELL7j3sexgwZSKeMDc4U/MCXA8ZeAhv9CrA4=;
+ b=mpMcsdnVPMINruP03v6olDO7dD7cxE3ACkU0aWCEH5rdT895QbgeiT6FRBOjB53Tm7eDLw01L/t0if0uLHSdLlUnsyQP1AsHW7malrwlc5mWqY3oiK2p2/jhH4hGehqn+A0SLfAZC5UZ4oNwAeTloIgdnDioIrl10u4KLcjYDUnIVU4nBjpCSiuBF4fdlAB7bzZ2Oywj0k13M3pMMuk0+mcQuAiOoaYU02GjlRtX47/diFIlAuj/VflyEVNjLjNjb1IQ/65zE5Ex0toYlJY1BCUoVmofgYMU3BYGCFV114/G5Ftjd/7pw8XKTkm+K9R64x1lpZ0ca87gMfXWKPdaJw==
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=nxp.com;
 Received: from AM9PR04MB8585.eurprd04.prod.outlook.com (2603:10a6:20b:438::13)
  by AS8PR04MB9510.eurprd04.prod.outlook.com (2603:10a6:20b:44a::11) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9343.15; Sat, 22 Nov
- 2025 19:33:58 +0000
+ 2025 19:34:01 +0000
 Received: from AM9PR04MB8585.eurprd04.prod.outlook.com
  ([fe80::8063:666f:9a2e:1dab]) by AM9PR04MB8585.eurprd04.prod.outlook.com
  ([fe80::8063:666f:9a2e:1dab%5]) with mapi id 15.20.9343.011; Sat, 22 Nov 2025
- 19:33:58 +0000
+ 19:34:01 +0000
 From: Vladimir Oltean <vladimir.oltean@nxp.com>
 To: netdev@vger.kernel.org,
 	devicetree@vger.kernel.org,
@@ -78,109 +78,93 @@ Cc: linux-kernel@vger.kernel.org,
 	=?UTF-8?q?Marek=20Beh=C3=BAn?= <kabel@kernel.org>,
 	Lee Jones <lee@kernel.org>,
 	Patrice Chotard <patrice.chotard@foss.st.com>
-Subject: [PATCH net-next 1/9] dt-bindings: phy: rename transmit-amplitude.yaml to phy-common-props.yaml
-Date: Sat, 22 Nov 2025 21:33:33 +0200
-Message-Id: <20251122193341.332324-2-vladimir.oltean@nxp.com>
+Subject: [PATCH net-next 3/9] dt-bindings: phy-common-props: RX and TX lane polarity inversion
+Date: Sat, 22 Nov 2025 21:33:35 +0200
+Message-Id: <20251122193341.332324-4-vladimir.oltean@nxp.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20251122193341.332324-1-vladimir.oltean@nxp.com>
 References: <20251122193341.332324-1-vladimir.oltean@nxp.com>
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-ClientProxiedBy: AM0PR10CA0010.EURPRD10.PROD.OUTLOOK.COM
  (2603:10a6:208:17c::20) To AM9PR04MB8585.eurprd04.prod.outlook.com
  (2603:10a6:20b:438::13)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: AM9PR04MB8585:EE_|AS8PR04MB9510:EE_
-X-MS-Office365-Filtering-Correlation-Id: e9ab40ea-2568-46ae-4b14-08de29fe14ac
+X-MS-Office365-Filtering-Correlation-Id: c9d7ddb0-8cb8-453b-9c96-08de29fe16d3
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
 X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|52116014|366016|10070799003|1800799024|19092799006;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?OXlFM3NTQ3REdlJCV3BrYnl1aVc3NUN0bExLZnkxaS91REovWGNrMlVTeHh6?=
- =?utf-8?B?NDk4L1N5WVRPaFczMzN2S1Bsa1pkK3c3QzNTcm9tTldwU2YrNnJsSjJYK3Ey?=
- =?utf-8?B?UGQyMGV5ZmlhaXI1SlQ5RVl3TWJ6WmZ2RUFSVUk3NFlLa1VuMFJEaEZOSlJQ?=
- =?utf-8?B?dm92eGFMYmJ6T2N5WTB2S3d4d2MvRUlLakwwUWZVYm5odW82RHNPZkNNblJY?=
- =?utf-8?B?V3NCUE5OV1ZTTkxKcEltb2toVWhBQURxTFlKQ01QRGFNZ1NyMGFYWEVNNXNL?=
- =?utf-8?B?Q1ZYeEtrVWFVRDhsRnNRVU9hWkJNYjRhUnFFaGt1K0JqTm5YZ25FS1RuYTBj?=
- =?utf-8?B?elN3a1VrM3VxU05iZlZaS01pRkxoRlk2WWlvVkVRTzJ2d2NNdDRHVVR2Tldu?=
- =?utf-8?B?NDMxMEgrVmRsOS9ZaEtSalIycEZYRUwwRFpKM1ZIUDhDaHhPV1hMRVRBRmxL?=
- =?utf-8?B?YUUzcTE3akRFQVZBWGFJQ2R2eGRIbFd6SlpCMDlyYzloYkVCS3RvcTdpbTdq?=
- =?utf-8?B?MUswdWU3dmxvbHBqR0xkNVR0RERLTC9UMW9QSFBXZ1JRRHdWRlRJTktodlE1?=
- =?utf-8?B?RnJ6Z29rYkZqclpNMzA2RktjcmV5NzZaaUtmRDh4bUZhRG5tTmVDU1dOZm53?=
- =?utf-8?B?UHdNMWliblpEL2U2VlVhNmpNZXFOSFN2akRzb0JsbFcrTlVZa1E0aURSaWRN?=
- =?utf-8?B?blNCaStWN1RjcnR6RW1BcDZOVWJzdVk0Z0c5UVc3TDUyTTMxMTZUeU5UT3JY?=
- =?utf-8?B?bE5ZRXVIK2d4NVIxbW4rSHZKSTRCVmJYOGNVdGhtdW9GcUlMMEdsYTZpRmpu?=
- =?utf-8?B?TllibnVFQnd1Yi9GT0k3NXZranRHTzk1WExFVzVHNlZ0Q0hXQldTeEp5cXB4?=
- =?utf-8?B?aDdKUkNuTEFiV2FCQU1sdWlxS3RrZlpFcms2a3ZJN1RIajM2RXgxa1o3QjRV?=
- =?utf-8?B?RTVtUDFiRjROeGRZS21tM0xDaHpJWFFXTk5GREF1Y2xtWDliRkhVQjlOS2hs?=
- =?utf-8?B?S0Z0cEd1c1ZnYzhKbFdaeDdvN0VUT0lrZGlacFcxdEVWQjFxUDNkMWx5ZCs3?=
- =?utf-8?B?V29lYTR5S0RQblBXdno5c2JaYVh2d3R6LytsYU54aDdkNmtyR1h5ZXh1S3A2?=
- =?utf-8?B?UkpwS0thY3FsNHA4dzM4QUlnYXhsdFpSOThTOEpNWmkvR0pYakRkT1owVVpI?=
- =?utf-8?B?dm5xR3NWci8xa0p0QllUSWxOREdHaUhmd21tYUplQ2NVUVZEc1k5OWFsZmxx?=
- =?utf-8?B?L0xKTWs5aU1GMG1oTkpCdk5KTWl0dGYrNGlpRGw2OTJISG9NakpibnhSaENW?=
- =?utf-8?B?S1ZRdm92SEkrS0djK256bmpMOENVOEI4QVFHak9RNlVSWWZOZmJza0VUK3lz?=
- =?utf-8?B?a0tXdjFLWGR1d2U4aDkvYVkxS0d0cHZENjJvaEVEcjVxa0xVTHFpc3ZzSk1q?=
- =?utf-8?B?eHBxTlhVOWsxRDJMT1g3MXVWN3hINWU2dVF3N0FiZjhpc2svaU5lSm0yWTdZ?=
- =?utf-8?B?THRFMnl0Y0RUWjZ0cldmWDlWVWJEbU9CQTNENkRJdytVQjlPLzBsSkVuUkxC?=
- =?utf-8?B?SUJXaS9za0tWWGdlNU8ydXorYnNoV25jNEJuaTF2M2ltcWtqTkhDaDB5bWR1?=
- =?utf-8?B?MU9vT3diMzNhZ1NOanZxZ2kraGo4ZVlUTFR5Y05iWEVSOWx6T0FzZGdpTzd3?=
- =?utf-8?B?ODd2OUtKbTh1M25Dck9NUWRCUFcxOXJEZlVuanFNZlA2VHZobjVWSmFiUDcv?=
- =?utf-8?B?YUtnaDh4R3l1a2k3R3lXVDl0OS96ZzRlZWpsSW82Qy8vT2VUaXkzTTFmR1pi?=
- =?utf-8?B?RE5QTFc3blp2bFYzeUpiUHB4S3I4Q04rbFpSRW9BU2lUN1VabzFkRlgyWTlr?=
- =?utf-8?B?ZisyeTVDaDRjQXBOYWdldDlGUDdNOEN1YnVrUXNXS3luaEE9PQ==?=
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?r37ldvDKZWLf0sGYNv2qoJ7hjiDUVs5oUFpIHHIxrv2zK6fn0UNHb1dBkgUT?=
+ =?us-ascii?Q?qSaz3BvvkwSvw/q2J5MJ3kuUCwM3dbMaj41p9Q9gX6gjlwsfeVlMJKBIISNw?=
+ =?us-ascii?Q?WP7j+LqUQGMc7bP0IYf+nw/H/ppTlur6qbdQe2kShC6MpULejA6AlFHf7xrt?=
+ =?us-ascii?Q?QfTu+LY4lyVjMzFl3hIysYQVTPniR9juUTcuAPN6R0jnPTMnX03B7umBR31K?=
+ =?us-ascii?Q?H6VH7+5KiXgy+K1R7U0paINwg6kkI/dj/pc2RQt849tHPfQ52Q+bXrk5URlM?=
+ =?us-ascii?Q?oXT5ZdmgV2aaX0ct4/MRx9/q6Cq/e1RCU2bHflsZm37NRmyZO34vHL0KRkWf?=
+ =?us-ascii?Q?2EON72d9F1QsfUVvUZbUJkwJA2+t/LC8cpjcmtEangwpnFhgrAfebD8zy6KA?=
+ =?us-ascii?Q?hCwzUBY+HCggO8K/w4r0WgQ6N7KORAOcS/xQirybw7pDEawMKhDskuNxlMFj?=
+ =?us-ascii?Q?y347E7+OV0E7JyAkcWQf9OGhPH8iCtfRgmF2m42GUQxV9L+De6bh3IDVzfjP?=
+ =?us-ascii?Q?kX8oTpA2wXHVZ8dsoXR0luax0qg1hkOELCQ/fpDc7R9hV73OkqlgtSIRII23?=
+ =?us-ascii?Q?o9SPsWNBF+2Y6bFfwINViEU7/T/Zd0EQomOIRaDUzI3VHWYdvMVXnqwumtHq?=
+ =?us-ascii?Q?Nd8Drh6t1VRDzFm2zCtpRff8SlHAhBL1ZA0AJBImzifac7u+g3cfGxizrmiF?=
+ =?us-ascii?Q?xLTD2WCPynKSBc6/7Eouu/tgjH42B+o4xWoxwKwmuK4WaPRwVKEqxGM6L+iW?=
+ =?us-ascii?Q?QF76ApasR6N/f+Z9NfYojfQhSJDGbj2zaO5+n/jH0IZwNVQjw8Q7RF3dj1EZ?=
+ =?us-ascii?Q?g/nvUjG6sn5OqWwPA+bk72QC6f6TfoS+Mt+RHRNaGiALTOVKL8SMaSAiUQS+?=
+ =?us-ascii?Q?xv56jn7nGgUVKL15XzZUMELjFk8iY71/MY/K0tCNoCdBtqgi4O+KM9/9D28W?=
+ =?us-ascii?Q?9zBlHM3Q8U6H05RPHaFMcqRCdG0lUzxYn6JumMitQ0gEa08ax21/PVgaG7AF?=
+ =?us-ascii?Q?dbvKd99TVqLIl+qxGEv29uEnd89xRAnIZCjmW54Vk83CeOTImEKBGFcPrAJ3?=
+ =?us-ascii?Q?nZVDAF4ob6grQMgnhGTzc/uEQsUFiwphm9qRows4YbJwldihnhGqJ8RIZB4P?=
+ =?us-ascii?Q?n+5hOvoK27cJ6DcUfr1n7/PAdoGoDPctD81ZoQsZ5FT385psKDNPWcjKcru/?=
+ =?us-ascii?Q?Zf38VrsRaw+/hw0p7V7H0t2HVvLjEaXIHcL8uYNIFf3KxQiM0EQvKxhEroaQ?=
+ =?us-ascii?Q?FebgEPFJDFAhIHXP7DhyyXIcVko1Si0TUewcs8ERlHDGLH5DwtimJxPOzj6T?=
+ =?us-ascii?Q?+x7gAMFctgkLFLvJUfl1PeExO4pUQcaEbIKZd4bVU1S/ylWzFKt4zWGchwQc?=
+ =?us-ascii?Q?YjkVCI68fb2Y5rmEt8+ucs+jdyagO32rdmcTSkUT1pROZIQmMmPi+7QpRTUT?=
+ =?us-ascii?Q?7dY6SBr5mMEfdmyUll6YSRj0G0mX84acfHRjQh8i6sc4DouDX4fnFw=3D=3D?=
 X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8585.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(52116014)(366016)(10070799003)(1800799024)(19092799006);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?ZnN2emxlU1ZqbnZtSmcyWDBZOUZTV2Y4WUs0M3E3SUR6SjVVUWpuVjhzVlU5?=
- =?utf-8?B?NmRuR2ZCQldvQndxaXB2ZFc5T085SWg2d1FjdjhrQ0RGK1pXZXVuWnByZkw0?=
- =?utf-8?B?UmFXUTVicmxTbFVnU0VleWwvanMxMi8wNHhZaldWNDlFTUVWWG9aVEx4MjdM?=
- =?utf-8?B?YURKLzFXSFVCNER6aGk4SG4zNEtIdjRMY2ZZS2JkNWo2VUR1cU9EbEY0SmJJ?=
- =?utf-8?B?a2I5L05pTmV3ck1tRkVsSytiY0I2RjlXSTVCMlJJcHZhd0gxQ2lQUStySFN6?=
- =?utf-8?B?a3MvMk9DOWl1U2szS1czNzFQV3ZuV1dSM243a01CL2VxSFNDdnU0WDZwZkU2?=
- =?utf-8?B?dmdaMVEraGRhVkhLbGdHdy85SFRIektWb0JyRHQ5M2x0R0J5Vmo0QWE1YS9P?=
- =?utf-8?B?V2ZPL29xL0dhVFR0bWxUNTFldU9WYzYyZkJ2bVd6QWJnNXBMM3o2ZFJKM1Rj?=
- =?utf-8?B?QlBCdWRPTWZhaTRYUXlKRXMwaE5XT3p5N0lTS0I0RzlETHkvVThWbmhvOUZS?=
- =?utf-8?B?cU9KYmRmWGpLS0tsb3dneEZ5Uk5kVkswaFdleVBGV3djTFNpNlZQQ2xUTlpi?=
- =?utf-8?B?dmw1UkRBVmxwQzVWWmVta1Z0TlZDY2ZsRDJ0RXNjUCtQNTZvSFNGZXJVY3lp?=
- =?utf-8?B?ZFNWbnUyQlJaL1VPZWlwUkoxeTkvVSt4OHJ4Z0NFUTRqczNDbGxwbWs1QjNE?=
- =?utf-8?B?clJ3WFpDWmN4SWZMdUNEdlhFRW1EcW1xWXpBSXlYUm5rTTFlMXNvWnF2T3hw?=
- =?utf-8?B?d0JPbS9KUnhhQXYyeUVQdVd4ZVRmVktFS2F5b3QvWi9LdGRuVXhWT1hUUVRt?=
- =?utf-8?B?R1NhRCtERUE4NjBEMksrcUJYdFJEOUhzOEpQMWtXWUM1YTBwdVg2dVRUbXFG?=
- =?utf-8?B?U3dNVjlFZVdkK3NCazEzZjFUVXprU3UxbEVXWEhoMTE0K1B5OFZQYkRjUEZx?=
- =?utf-8?B?dnVTS2RYc2ttcEd1YzJzbzVzQ3JVcmlDeG1tUTlBa1hqZk0zMXllSVg3Rm1s?=
- =?utf-8?B?T0J1V3hOTkZUY1VoZ0ZCcjlEVGwxZ0s3bjJPdHZDSTloL3dsRjhvQjAwRGsr?=
- =?utf-8?B?RHNhVUJUSmpqUXZjUVMxRlIzbFVXSUR4dzg0L3MzSjdJZnpIakR6eUdCVWsw?=
- =?utf-8?B?V2diOFk2a2YvSGE5dVdSbytReWpYTmVTVk1ySmJuTTdObUc0blFSdTdVL1VF?=
- =?utf-8?B?NnVCKzNMSSttbjVacllwZjhKQ3NSbW9LdExWM2MwVVVMd2pYZGNGUHNHUEVn?=
- =?utf-8?B?dW1BSjBvRzNZM1lIeWRpc0loY09pSmw0MkdEOFRlQ0haZ093R0gwTjhvV24v?=
- =?utf-8?B?dnBkQ0RJOTJia0FDUytONzNwS1liUXVncUFKbERKWFJUeTN1K3ZvaDBHT0dr?=
- =?utf-8?B?UkVtMkQzNkFXbVpSeUVvcnhQYkFXcmxkR0pHeWVFbXJBM3ZGcnpkZjJaRTZR?=
- =?utf-8?B?TEpiQW4rVGxyTklRL1g4bG56YWprcHZaMVl1Y1lwNHY5NkJ1amEyc1AyUGlZ?=
- =?utf-8?B?U1gwcVZ4b29PaFloakI2Z0RBL21XNWR6cG1ZSlhSQlRTN0pCeXk0OVVmdGRN?=
- =?utf-8?B?bHNkbUtXb3l2SDhKRkZIb2RFZHV0MTZGWjFBVGs2VGdNNDVUTEFWbWU4UUk3?=
- =?utf-8?B?b3JnbW1LVWJVQWY3c21pK1hKQkVKcE1YNWs3eUpNVGVYVG16akhMYUZBNDJZ?=
- =?utf-8?B?MWhETGhRMmEyRVg5RW4zS21QcHBoaHBzR01OUW9TKzVaT2twUVEwZ0V2M1Vr?=
- =?utf-8?B?bHUwSnlLbEhiaGdZRHZkcG5HZmZ2Y3VKcW5UeFJrQ2RLdmZQQmNibDVQMXF6?=
- =?utf-8?B?UWZIU1lZYk8rMExhVWJXbHcySTJ4M3B5ZVRWaHZ2QW16TndTOXY5TkxXVjZj?=
- =?utf-8?B?djd1c2FUTFdsRk8zQkhlVEUxMUJOUFFsSGtSWEhyWTdwRDNIVVRGcE53elY5?=
- =?utf-8?B?YmhHR1gwdXZZVks3d25GNzlLQm11RDNlcUg5UGxROForZisyL28vY1RTa05T?=
- =?utf-8?B?TlI0SWgvUXZoQVdPVE53K0xPSDdjd3FHNEl1dGJucXRTN0JvR0xGZ0t2SlZw?=
- =?utf-8?B?cHRDdHQxTzBqWFpnZThEQjYrUzZNaHB3STBveUZEc05SbDloZHBxakNZd09F?=
- =?utf-8?B?S2g1dWZnemVKeDE5WFBmQ0xkeHN6cWJnQ0tKM3V6UzRKNy92d090c2pHUGIv?=
- =?utf-8?Q?MhEaU9ff+9/D1556iQGFHk4=3D?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?aZtSH5lTuuY3uoynOSmVE1+zG58lb+dbYOJ5os81I2Kol6POUjnpBitAF+pa?=
+ =?us-ascii?Q?VpEhIdp2LJb+VrTL3RAqVooAO0oUDJlVbFrqI9xio6JxaKCoQ/52T5UCkMgR?=
+ =?us-ascii?Q?Sjg+eb67bGmteffHltff9IcuZ9QeOAvJgnQ5OjHeZfczGJYq/QZq50Ym442Q?=
+ =?us-ascii?Q?PMXBeJehwkSW/yw8r/dFjQHr9EcxgW1malQFjcCWqKgtkG3l40UXMihLmLFb?=
+ =?us-ascii?Q?NOpGvc8xuCVyDOOHHXQSA7Rk7jCOUtPWCyvIoREhfBUgsBj8q8cerzyNrfhD?=
+ =?us-ascii?Q?0OZX9nVF7zjI51f+5sCwg+a3HYlWhIlm7akANZzRhLehb0JI9zJXub/q+9B3?=
+ =?us-ascii?Q?2fslKoP/z0Phk1DA611NthETpPTf/q67HoiGr0udydA2I19rsl9+hNti5vpP?=
+ =?us-ascii?Q?GPA9oLwwDQ1pncyBkvVQF0f0eR5friWvLOAY7OQUWQ3PKAFDSpvwWQ9um9Y5?=
+ =?us-ascii?Q?6hDG9TnOJAF9J17ko2rx92xH8WUWD8IbLZ2gxNdDmbX4QmQYApA2g9XFQl6z?=
+ =?us-ascii?Q?ruw2UEBlY8NK4BcqcUH/wa5lKweHWK8w9yYUWnjhstze7OIpzk6nTpvtwI01?=
+ =?us-ascii?Q?eK+P1tL+Slbddi2oW+d/VsQ6oFVwtbYlOtkaRMGw7669aoukrfYXqRM6ef9G?=
+ =?us-ascii?Q?5Fxk7e27yRaBaOkxu7gPfsOH0nZ5S3Vk0Nj4STNhxqfmCTGJDmUj+Nqlj271?=
+ =?us-ascii?Q?YQco0EDTpAqN6fAvbqoCagkCD+7AKVf8ubHDtvAp7mqvhocTdpmG8zc0F86h?=
+ =?us-ascii?Q?TCJYFE5w+Dbn97Zh3S4QsVHkRXLRgrrQwbD71fqhzLfSTc4+SOhV6B7ktPUe?=
+ =?us-ascii?Q?O/TfdIFN0Xk+eqkG/xpDcjGlf19Lprg5keQrNzgNTkFidFc/6V3kNG2c4E51?=
+ =?us-ascii?Q?+/7ThZqjbxL5tkrsfWTcqtuiIj5G+YNZbxvoGLp1MV0ZsomGGfzz4DSwqCoy?=
+ =?us-ascii?Q?+E6nC/7tNw+qhFAIKZqSzBIUx4lny7VogJQKoMi3U3dHiENJw/ywM9YHSdwL?=
+ =?us-ascii?Q?3mpH1o4c9580+qG/5GHhY/5WgehR77kz2GUWbhiCYADd5hkeSLNfB5a/SrWQ?=
+ =?us-ascii?Q?sSCwQdXBXtJc6K72mmVi23eQ0s2YQ+KSBHtean0q7KoB0jpuOiC8u2UYfmVB?=
+ =?us-ascii?Q?+bnePACxsW47ksqpvH4511q/M9DDP9LG60yvovA3c5PhzxwN1dTSJY6DxtqX?=
+ =?us-ascii?Q?Ez+Jt7ZvK54GxxeKllmyAh8wtiOndkHmPz0Wzcu0L4W9PSnzbpjpAqPCOp4F?=
+ =?us-ascii?Q?Y+uQed/gNHO5QkKU8j4bcWzjAr9hZLSSbA8lUSfp4BdOJPh1AvkMYKQmHuHy?=
+ =?us-ascii?Q?r0kGc5Hjj7CB7iSvg7AzeSGohfuVyrMP+Zcxp6AO87y5BGSYgUvkm1w9jzos?=
+ =?us-ascii?Q?A0Buhi7gBHMYmM74OYkx/tbMjRiFlBh0pEswUtNtTH84ZEFyhJuORIahn+RV?=
+ =?us-ascii?Q?j2MZ9U5d8qZzd6GAIanKOD7h43v2dz/SjJB8JFooUH8puVUvEYkPgCHw/LeT?=
+ =?us-ascii?Q?+EDS3hyXhSh5XU/rt3G4ndspVYMsW+JwB1e1RYW2B1e2J2/Z8T+Y68MdjeuO?=
+ =?us-ascii?Q?aoIf4/gPVpDyLAHX35Bbr9FA826d0x3e2Y48fdlaoq6DuTocSdsg8Eou3M6u?=
+ =?us-ascii?Q?cYaaZXkpdd2xr5s7U38XTXo=3D?=
 X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: e9ab40ea-2568-46ae-4b14-08de29fe14ac
+X-MS-Exchange-CrossTenant-Network-Message-Id: c9d7ddb0-8cb8-453b-9c96-08de29fe16d3
 X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8585.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Nov 2025 19:33:58.0594
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Nov 2025 19:34:01.5945
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: uMk5FGpSD9cU2/vB0AFW2ZLR0khdGsIr2mnqjxKtmyuumu6easMu8VKaFcwYFuRT7AtfDvetPRuw1jqBeN2ASw==
+X-MS-Exchange-CrossTenant-UserPrincipalName: 4VWPMIv6S8vFPqZDJzb/UTdadVuRTt5hCJwh4z0y7Fz6c1C2PgOFPT+m3oYkFE+ldakRNVuGm4uIh6NxdiB4uw==
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB9510
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251122_113407_307904_FABEBE66 
-X-CRM114-Status: GOOD (  10.24  )
+X-CRM114-CacheID: sfid-20251122_113409_552472_46EE0F85 
+X-CRM114-Status: GOOD (  20.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -195,46 +179,174 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-I would like to add more properties similar to tx-p2p-microvolt, and I
-don't think it makes sense to create one schema for each such property
-(transmit-amplitude.yaml, lane-polarity.yaml, transmit-equalization.yaml
-etc).
+Differential signaling is a technique for high-speed protocols to be
+more resilient to noise. At the transmit side we have a positive and a
+negative signal which are mirror images of each other. At the receiver,
+if we subtract the negative signal (say of amplitude -A) from the
+positive signal (say +A), we recover the original single-ended signal at
+twice its original amplitude. But any noise, like one coming from EMI
+from outside sources, is supposed to have an almost equal impact upon
+the positive (A + E, E being for "error") and negative signal (-A + E).
+So (A + E) - (-A + E) eliminates this noise, and this is what makes
+differential signaling useful.
 
-Instead, let's rename to phy-common-props.yaml, which makes it a more
-adequate host schema for all the above properties.
+Except that in order to work, there must be strict requirements observed
+during PCB design and layout, like the signal traces needing to have the
+same length and be physically close to each other, and many others.
+
+Sometimes it is not easy to fulfill all these requirements, a simple
+case to understand is when on chip A's pins, the positive pin is on the
+left and the negative is on the right, but on the chip B's pins (with
+which A tries to communicate), positive is on the right and negative on
+the left. The signals would need to cross, using vias and other ugly
+stuff that affects signal integrity (introduces impedance
+discontinuities which cause reflections, etc).
+
+So sometimes, board designers intentionally connect differential lanes
+the wrong way, and expect somebody else to invert that signal to recover
+useful data. This is where RX and TX polarity inversion comes in as a
+generic concept that applies to any high-speed serial protocol as long
+as it uses differential signaling.
+
+I've stopped two attempts to introduce more vendor-specific descriptions
+of this only in the past month:
+https://lore.kernel.org/linux-phy/20251110110536.2596490-1-horatiu.vultur@microchip.com/
+https://lore.kernel.org/netdev/20251028000959.3kiac5kwo5pcl4ft@skbuf/
+
+and in the kernel we already have merged:
+- "st,px_rx_pol_inv"
+- "st,pcie-tx-pol-inv"
+- "st,sata-tx-pol-inv"
+- "mediatek,pnswap"
+- "airoha,pnswap-rx"
+- "airoha,pnswap-tx"
+
+and maybe more. So it is pretty general.
+
+One additional element of complexity is introduced by the fact that for
+some protocols, receivers can automatically detect and correct for an
+inverted lane polarity (example: the PCIe LTSSM does this in the
+Polling.Configuration state; the USB 3.1 Link Layer Test Specification
+says that the detection and correction of the lane polarity inversion in
+SuperSpeed operation shall be enabled in Polling.RxEQ.). Whereas for
+other protocols (SGMII, SATA, 10GBase-R, etc etc), the polarity is all
+manual and there is no detection mechanism mandated by their respective
+standards.
+
+So why would one even describe rx-polarity and tx-polarity for protocols
+like PCIe, if it had to always be PHY_POL_AUTO?
+
+Related question: why would we define the polarity as an array per
+protocol? Isn't the physical PCB layout protocol-agnostic, and aren't we
+describing the same physical reality from the lens of different protocols?
+
+The answer to both questions is because multi-protocol PHYs exist
+(supporting e.g. USB2 and USB3, or SATA and PCIe, or PCIe and Ethernet
+over the same lane), one would need to manually set the polarity for
+SATA/Ethernet, while leaving it at auto for PCIe/USB 3.0+.
+
+I also investigated from another angle: what if polarity inversion in
+the PHY is one layer, and then the PCIe/USB3 LTSSM polarity detection is
+another layer on top? Then rx-polarity = <PHY_POL_AUTO> doesn't make
+sense, it can still be rx-polarity = <PHY_POL_NORMAL> or <PHY_POL_INVERT>,
+and the link training state machine figures things out on top of that.
+This would radically simplify the design, as the elimination of
+PHY_POL_AUTO inherently means that the need for a property array per
+protocol also goes away.
+
+I don't know how things are in the general case, but at least in the 10G
+and 28G Lynx SerDes blocks from NXP Layerscape devices, this isn't the
+case, and there's only a single level of RX polarity inversion: in the
+SerDes lane. In the case of PCIe, the controller is in charge of driving
+the RDAT_INV bit autonomously, and it is read-only to software.
+
+So the existence of this kind of SerDes lane proves the need for
+PHY_POL_AUTO to be a third state.
 
 Signed-off-by: Vladimir Oltean <vladimir.oltean@nxp.com>
 ---
- .../{transmit-amplitude.yaml => phy-common-props.yaml}    | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
- rename Documentation/devicetree/bindings/phy/{transmit-amplitude.yaml => phy-common-props.yaml} (90%)
+ .../bindings/phy/phy-common-props.yaml        | 45 +++++++++++++++++++
+ include/dt-bindings/phy/phy.h                 |  4 ++
+ 2 files changed, 49 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/phy/transmit-amplitude.yaml b/Documentation/devicetree/bindings/phy/phy-common-props.yaml
-similarity index 90%
-rename from Documentation/devicetree/bindings/phy/transmit-amplitude.yaml
-rename to Documentation/devicetree/bindings/phy/phy-common-props.yaml
-index 617f3c0b3dfb..255205ac09cd 100644
---- a/Documentation/devicetree/bindings/phy/transmit-amplitude.yaml
+diff --git a/Documentation/devicetree/bindings/phy/phy-common-props.yaml b/Documentation/devicetree/bindings/phy/phy-common-props.yaml
+index 775f4dfe3cc3..538b85559113 100644
+--- a/Documentation/devicetree/bindings/phy/phy-common-props.yaml
 +++ b/Documentation/devicetree/bindings/phy/phy-common-props.yaml
-@@ -1,14 +1,14 @@
- # SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
- %YAML 1.2
- ---
--$id: http://devicetree.org/schemas/phy/transmit-amplitude.yaml#
-+$id: http://devicetree.org/schemas/phy/phy-common-props.yaml#
- $schema: http://devicetree.org/meta-schemas/core.yaml#
+@@ -93,15 +93,60 @@ properties:
+       property. Required only if multiple voltages are provided.
+     $ref: "#/$defs/protocol-names"
  
--title: Common PHY and network PCS transmit amplitude property
-+title: Common PHY and network PCS properties
++  rx-polarity:
++    description:
++      An array of values indicating whether the differential receiver's
++      polarity is inverted. Each value can be one of
++      PHY_POL_NORMAL (0) which means the negative signal is decoded from the
++      RXN pin, and the positive signal from the the RXP pin;
++      PHY_POL_INVERT (1) which means the negative signal is decoded from the
++      RXP pin, and the positive signal from the RXN pin;
++      PHY_POL_AUTO (2) which means the receiver performs automatic polarity
++      detection and correction, which is a mandatory part of link training for
++      some protocols (PCIe, USB SS).
++
++      The values are defined in <dt-bindings/phy/phy.h>.
++
++      If this property contains multiple values for various protocols, the
++      'rx-polarity-names' property must be provided.
++    $ref: /schemas/types.yaml#/definitions/uint32-array
++    minItems: 1
++    maxItems: 16
++    items:
++      enum: [0, 1, 2]
++
++  rx-polarity-names:
++    $ref: '#/$defs/protocol-names'
++
++  tx-polarity:
++    description:
++      Like 'rx-polarity', except it applies to differential transmitters,
++      and only the values of PHY_POL_NORMAL and PHY_POL_INVERT are possible.
++    $ref: /schemas/types.yaml#/definitions/uint32-array
++    minItems: 1
++    maxItems: 16
++    items:
++      enum: [0, 1]
++
++  tx-polarity-names:
++    $ref: '#/$defs/protocol-names'
++
+ dependencies:
+   tx-p2p-microvolt-names: [ tx-p2p-microvolt ]
++  rx-polarity-names: [ rx-polarity ]
++  tx-polarity-names: [ tx-polarity ]
  
- description:
--  Binding describing the peak-to-peak transmit amplitude for common PHYs
--  and network PCSes.
-+  Common PHY and network PCS properties, such as peak-to-peak transmit
-+  amplitude.
+ additionalProperties: true
  
- maintainers:
-   - Marek Behún <kabel@kernel.org>
+ examples:
+   - |
++    #include <dt-bindings/phy/phy.h>
++
+     phy: phy {
+       #phy-cells = <1>;
+       tx-p2p-microvolt = <915000>, <1100000>, <1200000>;
+       tx-p2p-microvolt-names = "2500base-x", "usb-hs", "usb-ss";
++      rx-polarity = <PHY_POL_AUTO>, <PHY_POL_NORMAL>;
++      rx-polarity-names = "usb-ss", "default";
++      tx-polarity = <PHY_POL_INVERT>;
+     };
+diff --git a/include/dt-bindings/phy/phy.h b/include/dt-bindings/phy/phy.h
+index 6b901b342348..f8d4094f0880 100644
+--- a/include/dt-bindings/phy/phy.h
++++ b/include/dt-bindings/phy/phy.h
+@@ -24,4 +24,8 @@
+ #define PHY_TYPE_CPHY		11
+ #define PHY_TYPE_USXGMII	12
+ 
++#define PHY_POL_NORMAL		0
++#define PHY_POL_INVERT		1
++#define PHY_POL_AUTO		2
++
+ #endif /* _DT_BINDINGS_PHY */
 -- 
 2.34.1
 
