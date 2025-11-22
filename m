@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8F70CFD2EB
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Nov 2025 19:34:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47AE2CFD2EC
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Nov 2025 19:34:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-Id:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aC/ZMv1bNjW/zf8GrihDCoLrK0spQbT0h6SSzN1TQog=; b=ZQH6Y0jTMUjgyqE3VHkrSwX6nZ
-	1E2RgUd1Bm8e03op7XbVwW6d5n9uuz9L8Q7uE8kufvxBk0wUWRrr2CVSdTQmCNbkQg6BPWf3lV3br
-	BdjYkXyGcFCg4syPAweydg0LdzVJtXwR5IpaWOGYqPKU5G3dxiMP4SQuszUYE6SW0ZxnDYU2uaHjJ
-	TJHnjv8Ddj3hzhAkKvS7sQ5axi9T3YkSkNo+DPlnK7e8+mK/VmX+DnoKO2WLJbOx6yYqECir7IzlF
-	XkryK+K2FQPMWLEkHnu9EDCLiEl9sCEBS7G/Mq84zguseClDr04IrfBEU53BXXQGR5+pDVxL6tVHC
-	4CEeJpzw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=O+suvX9L9ykqEocC+DDpA9Po6Ervo4BQo7MoybH/oOY=; b=H+0E/MR5a/D7QX6DjmNdRopez9
+	Grrs4378y9ulcix/ieKlddZwvgGJmuwjFk+cm1Y2wljP5Vq9V9uQNK6yEi1kWN4efYyrd76keO2Wz
+	red2f3sIrWX1DwceiZ4dy4y6flYFuYMe8/8Z1SHmiUFr24emEg9DIL6F8sr6bcdbzXEa6puO9d4uO
+	HWZ/IgZC556OLGgeCICmmw/HO26wx3n6h3UPiXs2RWu0xG/hY8qF63k2GcPc4mPLC08QnJNxkm28f
+	2iO/OATWEyxik0I2DL/HStvcDjzMEa8ZSeukdh3egxyhCDlG5RxiwnW8WRFwYl6K9p3Juxxfr/52E
+	5jdC2IQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMtNC-00000009pRC-1e86;
-	Sat, 22 Nov 2025 19:34:18 +0000
-Received: from mail-northeuropeazon11010041.outbound.protection.outlook.com ([52.101.84.41] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1vMtNG-00000009pWx-07YQ;
+	Sat, 22 Nov 2025 19:34:22 +0000
+Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vMtN5-00000009pHB-0hlB;
-	Sat, 22 Nov 2025 19:34:12 +0000
+	id 1vMtN7-00000009pG0-2avT;
+	Sat, 22 Nov 2025 19:34:14 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=CERt2CnJEC5Ydl3k0kvB4368D1XElsIkod1+sAXGmkbIHkaNTyP3bV3tI/4sTWJVB6ae77Zx3Jyj3E4arkamWhmWPhR4vuWpyRtrc2AEez+cuzlRhxZ/Wu+7Ff5ooXoGcGK8MRc3hObieq0dM+yRkYl6ciAx99EqJU59ldubA8bNugz1uGWFE+GQzHD0pezJ6lSLNoefmsrrwkNAZa+clqT/05Z1jhNBGP5dpqTq5Qv2Bt+Ya0R4VaauqxA2MgREFiqZkcUaP2fNgSze/qbZj+zwBV3dpsMl5wQGbxcuDi0+/CDH27TRoJR91I483ShZOTklXrR3N/ZAGZ0CVvQNgg==
+ b=NqeaFLz2nihhs81CXyz0BB+hEisCWfvewbxlL63ZYWemmoqwie3ZKafZdx/bAVANvKTAoIICebwRtFUmpvZ1dbEphu4OnFvzC3yhQM4k7KVTFVUHrG9tFpcEXY5RI4FQJXUW2NGiphMv7Ps2spbFFGcGeM9/nQXodKKiZ8K9oWYS2EpEFp2msr/KFDiUkidA112QSztWYQ0O/l2BVTZZ4RZ5KvuCQGpm0vLSXS1QxO1gBK0UPgyEmn8crT/ZD9kV5OSDykwv4AM6OrjkvwhQYaaaLVzn5alTW/OPsoFgPPXS54rYIFk+KrvewAuwTGOsroaNMzxIL7u5cfKFBAxaDQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=aC/ZMv1bNjW/zf8GrihDCoLrK0spQbT0h6SSzN1TQog=;
- b=vI2rOZML1y1mvfEpCcWZlQHz3eOoP2GEgPn2Bhy/fOOas2ENJgyfuX8CMuTKv/AXmI4kIHus8CS4WIfSMcqGKhMcvKKMBrwxD7k+x5h1d9hPU9YBMnbVx8oQYICG61Tqt5sHIdtAK7YV7uT8i8A0M+swi2Ex+EDwm13vy9bwZaklbotcmyId3ijLzIB8yKTyZviGnE0DY/pA4hs/PpRIuIykQDGAew0daeWoVRQ+OYQ8WYNU9RALG8BaWw37LQDTwaHIgExoAcWOt+o/xcbHpJ+9gj0MCCT+SiJAHNPnOORaJXmROckYziETzYQbdL6wQHz2ozSp8Z1s+TezPGBMDQ==
+ bh=O+suvX9L9ykqEocC+DDpA9Po6Ervo4BQo7MoybH/oOY=;
+ b=JuvaC0NQqhI3Li3/iLoiW0HrptGxH8NTJpeKR3btMAWkQDmQZxhsxz9KMDeQbCU6BfTkapDKd99xS1wIE9NH+/HPkVuXE3oOA/sYim1cOYufFMFkDF+fXX9zJOXG4ujJrdCMpcLik/KerF9j2V4g5oBnnNPQ57JW0OF6+OoXJ6BnvXNUg8J7360IJf5iRCczUhX+u9pBntBGf6QHLYmVnCB03HeYKmexpXaC3rWLdBAXBu7RJDDl28jB1W2H67s2Fa7CRhHpbJF6t78NHHZuuH422WAwaYaWvp1v50wl0bL3kwkRKGov/4TPnjgofYxibQG67PUKbdIIX2QsFnGBJg==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
  header.d=nxp.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=aC/ZMv1bNjW/zf8GrihDCoLrK0spQbT0h6SSzN1TQog=;
- b=cqj73uJD5XFSvSQlRwwcLfCuaKABpyteyMj9q/n04CnRMmr2W0r9P4VGYG7oOOcu8/nvFniiw5UzRQuM9HvMP5chQjLQIUaT/KQEg4iDSKhgceigtCbm8kZfrdPWUdkAVK4IkJgMhulmwpcjj41j3KOuQGFMP2K/pZoFx8eBh2LQbRD3czk9GnKNw62+L9qwpLkM+0RXiAhEPzb2q7kCQTI827F+NMJPAie3FBdThgi6EzD0E9IlxYcqvMTDFj4oKVr2LMn87Yqh03HnJXHDbq0IODfIMWAoS8sWroUkVcDyOThXmdfD6r8V9yeawRSuCViNd+lXDrKaelz27/dTxQ==
+ bh=O+suvX9L9ykqEocC+DDpA9Po6Ervo4BQo7MoybH/oOY=;
+ b=SmjI+lniczPGZNWmSha13SaSwxn9CbeOmktcdZOGFg2FdBon40sAryIgRIdysRymCMzlbBAJmsWrRNNm3nL65+zMmOvxEaAyDp0fNgolcNi7YGHJblDgqtVJve7VwGHp9EF2xmbVdPEZ3oFfYpn8BYeSln8PMTJOxfBDNW777tvk1ZE+qjTi+2aweZzI18LIDh1AkT8ARhTfvJEg8HCX73H6ZUiuZvsUfsBtuv4cNMjlpKuLW+WFrnk2JyJIcud+OZcwbWKE6RdFiJKxDBTPkGEkoE3RY5d8bdSiBNN60YRtFm3SPMGtnJNj2sahft0QOzhYLHqB5ppzH55Xy0lUGg==
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=nxp.com;
 Received: from AM9PR04MB8585.eurprd04.prod.outlook.com (2603:10a6:20b:438::13)
  by AS8PR04MB9510.eurprd04.prod.outlook.com (2603:10a6:20b:44a::11) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9343.15; Sat, 22 Nov
- 2025 19:33:59 +0000
+ 2025 19:34:06 +0000
 Received: from AM9PR04MB8585.eurprd04.prod.outlook.com
  ([fe80::8063:666f:9a2e:1dab]) by AM9PR04MB8585.eurprd04.prod.outlook.com
  ([fe80::8063:666f:9a2e:1dab%5]) with mapi id 15.20.9343.011; Sat, 22 Nov 2025
- 19:33:59 +0000
+ 19:34:06 +0000
 From: Vladimir Oltean <vladimir.oltean@nxp.com>
 To: netdev@vger.kernel.org,
 	devicetree@vger.kernel.org,
@@ -78,110 +78,93 @@ Cc: linux-kernel@vger.kernel.org,
 	=?UTF-8?q?Marek=20Beh=C3=BAn?= <kabel@kernel.org>,
 	Lee Jones <lee@kernel.org>,
 	Patrice Chotard <patrice.chotard@foss.st.com>
-Subject: [PATCH net-next 2/9] dt-bindings: phy-common-props: create a reusable "protocol-names" definition
-Date: Sat, 22 Nov 2025 21:33:34 +0200
-Message-Id: <20251122193341.332324-3-vladimir.oltean@nxp.com>
+Subject: [PATCH net-next 6/9] net: pcs: xpcs: promote SJA1105 TX polarity inversion to core
+Date: Sat, 22 Nov 2025 21:33:38 +0200
+Message-Id: <20251122193341.332324-7-vladimir.oltean@nxp.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20251122193341.332324-1-vladimir.oltean@nxp.com>
 References: <20251122193341.332324-1-vladimir.oltean@nxp.com>
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-ClientProxiedBy: AM0PR10CA0010.EURPRD10.PROD.OUTLOOK.COM
  (2603:10a6:208:17c::20) To AM9PR04MB8585.eurprd04.prod.outlook.com
  (2603:10a6:20b:438::13)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: AM9PR04MB8585:EE_|AS8PR04MB9510:EE_
-X-MS-Office365-Filtering-Correlation-Id: 45f7c517-1761-41d8-e39a-08de29fe15cb
+X-MS-Office365-Filtering-Correlation-Id: 65babb9e-f791-434c-8548-08de29fe19f4
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
 X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|52116014|366016|10070799003|1800799024|19092799006;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?Tm8vbVdUMXkrQU1mYTM1QU5OaEt6ZTJ0Yi81SUVlTUhVUDFSTWNQWS9ObWhF?=
- =?utf-8?B?aG5ibER5TU5nakpMSE9pMjA3RW1LR1dzdm1KejY0ck0wdHh6T1dsallGTjlu?=
- =?utf-8?B?QW5tMDFOdFIrRVVVMkZuQ3ZaZWdrTERaYnhxOEQ1Vmo3NUVNQ1R0RjNNU2ZU?=
- =?utf-8?B?eDRuWCswdTBac1RFbU5tS2htVWFydTlaNmZZVGxYZjJ6NHFVeURCd0cweWg1?=
- =?utf-8?B?dWFIQmk0NGIwd1dKQW5Sa2xLdWliSWc3M2JXU2pCdkQ4VHVNTXVENHppM0Za?=
- =?utf-8?B?NzFlWVBvTlE3bzBzbzgzT3NuZDBxY1ZvVGV4SnFsYmVvNDFnM1F4clRDaGFE?=
- =?utf-8?B?Sm5sTy83MkplcXpub1Q3MnBKYno3bnVrZHdLbUpGQzNPN1VvMUVLaHY5UHE3?=
- =?utf-8?B?MnRLdndkaW1CVU1sVkl2Q3QxQ3oreEpSVXlZdElIajZpRlVKRHJ1UEF5QzFk?=
- =?utf-8?B?L2x3VTlreW5PdGh1UXcyV2pDT0JZZmlyZ1NTNkVGQTBkcHE0akZFWEovNmNZ?=
- =?utf-8?B?aGJNeDhWZ25KYzBvL0ZTN1NlS25MNEQ0bDEyNFZDTzFVR2RZU0VjZ213d2tk?=
- =?utf-8?B?alRvMXRYUGFRSFRnZkpvYkVwWEltamQ4a1lrajhrOG5PQmRmZ3lXVkRLTy9K?=
- =?utf-8?B?UUFIOTdSQTMvMkNXd2tpTlJTcDNvSGNZZkRsVzV3Z0VsWXljOHNnWEROMWg5?=
- =?utf-8?B?OTFqbDg2YkJSZnpwdUdac3dnL3dXakNSSGkrTG05eTJocDRoSm1FcnpwYVZq?=
- =?utf-8?B?NTN3UG40VlZVWFdaWW94VFl3Q1YvaXBYOC9TOXpRS1hoOUUxOWo5K1R5RjJW?=
- =?utf-8?B?VTE3QUs2RCs0YWtSNURSTUU3R2l6WkVmV29IWXJKWkFOaGFaSVY5amxUMWFQ?=
- =?utf-8?B?bk5yc2ZBY0hYc2d1aXdWay9UZnZmRkxnQ2YzRlBwUXBPT05vZVBNQ3IyMndP?=
- =?utf-8?B?NUFVRmt6UGIxMGpmK0ticFBSU2VlR2lyNUJCd0ZxN3B0WE1saExpaG9HZGxy?=
- =?utf-8?B?UzZLSHp6THlCRkpuNVZtR3JEQzdNamZ6M3FpWmRha1VMUElZSmJCTUJLaHBn?=
- =?utf-8?B?MFQvemJOY1BzOEgzZnd3L0w4bVYySWloQ09SMnRMVXkvem04bS9FSjYyT094?=
- =?utf-8?B?cXBxRHJwNHB5Q2I0MzE5dG1tYzY2RlFJZU93clZSc0JPVHQ1NkEraDZPN251?=
- =?utf-8?B?ZE9Qc21kbmUvUFVpTXBlNTkwWWxlTXlXRVV6SGl0L1l5bUZ2QW00SGdNenln?=
- =?utf-8?B?ajJwandhRXdFaTJlVGNKWnl5OEhlWlZvaXI3aUFkWCs3NEhMRUM5U1NCTExW?=
- =?utf-8?B?alErcm9LOGxZOTRnd0N2czRUS1MvWS9QSWZ1dzFpZWVOUDZySzNySU1XWm5H?=
- =?utf-8?B?QWNISm9ZWG5oaHNsbkdGeStXRytDdGFBbFVoR1J2WVZtYVVSbXpuMjJVeS9w?=
- =?utf-8?B?SFVwY0FPbTBORk1QN0I3ZXNJQmdsNkM4VHZmelZ0N3ZJRDZEZXZleXhwNDJt?=
- =?utf-8?B?ZG41U0Z4elFKbkRjYk12OUlabHN6U0ZBYWpuS1c0VDZJc2JUSUZQTnVxa1Rw?=
- =?utf-8?B?OXNYQk42QlZ0NEJtMmp1VVUxRk02SVlrbEIwalkrZUV3SEJucGtmeUVYbUJ1?=
- =?utf-8?B?VE54UEcrdnB2allWMThyMjBmU1g2aGZXcUhvQ0IwVUJwUGpEWGhXd0JYNU5x?=
- =?utf-8?B?ZXg5VGV0TTJ4eHQ5anlhUUMxREYxNlU5MVVXZzhMYnQzRVNhOFhPN0FORTRJ?=
- =?utf-8?B?dWJHbDMzMlZLSjJQYmp1OFNBcDI1c3FGNStTd3FxQTFZMVFCNFFiUURzQkxr?=
- =?utf-8?B?MmdEa3FsS2NRcGNVdUFSUGJLRmQ4YzUzMEhCdTBucEdYQUJ3S0JZOUxKME4r?=
- =?utf-8?B?WHZEVHRMR0plZSswREt3Uk4xZzNYSmx6bGJ2WHl3VklDYkJHM1N2N2VwV1lx?=
- =?utf-8?Q?WsmTHs/Pv/DstxTeP0oUIiXJqlmXen4U?=
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?MWuPb+a1l9xlCZo2DaIb2T8co2/couUS+/xXV8GKP/bMKwVWlV6yAFtK6K/n?=
+ =?us-ascii?Q?T+9uUQERzl8l/qwmjfy+QLrrVFVJDAOGX8EUihjlSzcUPBRLbwMYnUQNs1BE?=
+ =?us-ascii?Q?FrJP4bUoDWoMYB2pehj39bDMuFbTCEYPTN1AmjJCUvkfTTkp8R1WRdv+ezI1?=
+ =?us-ascii?Q?ssHY+6ddAQqPXaarHCBruDz9IxX63T788l5jSY4yPBJYCC78gS5X7mYrciWX?=
+ =?us-ascii?Q?0CoytQ/COlBq/88TjlLuhwTfHUg0u/imZnwqUeiy+WLvGRegDvMrQaKuk3Ks?=
+ =?us-ascii?Q?wsYsAean09cj1uHA4uQDs3pCs5zMD5B0Dedak1XmzLLy7sSEbUM+EXnSJYLX?=
+ =?us-ascii?Q?bFXl6E8mhzFaadcFRApy23ugDrFZ3H0hxhACQevL3C/Q+BbwYBrzvwGysLLx?=
+ =?us-ascii?Q?D68PZz6MMN9sbW+ekh4IS7tjmQ9BdPhRiVwXrRq3Bmc7hNfz9t6jJcZUnGFw?=
+ =?us-ascii?Q?x/urZIGqZb/oSq9JYQyOw6XOQ8/BNUfXF8ZVUMaqT4j5BxX1QMR//55ogg8a?=
+ =?us-ascii?Q?B60Ulg9CCmqii4ldaBp419vrZVSK5If2t/4gPtaTNlMk0vIZcxO4FiMfCtU5?=
+ =?us-ascii?Q?TPAr3vWmCX4Ia5nr8Kt4sepXE3l5sM9yH25QVOGVys9UiR1n2BzQS4QkgZZU?=
+ =?us-ascii?Q?cJBodbXQApms3iZ6OWT0xFIDwv3eKPhQHiOOAnD241LRcmVcQf1xAaxMDgtm?=
+ =?us-ascii?Q?HhFPUss4GezJDbK6soZyjoGJBmZMPoyfcrSE9QAt2tklgXTJ2jMlayrk/rp9?=
+ =?us-ascii?Q?zoiasp6i/swJOqYYDMhFCG0HLVEF/S+4V9s0DlmrGf7a37FPYHOphTN65Utw?=
+ =?us-ascii?Q?ZFlQW0G/xschMd2owtExV+2WSt9UO0v+Gdcv0yXE8bUZbXzp6jBK52T+O/pP?=
+ =?us-ascii?Q?+ld7n8VQPH3AXm5nyNU596wFHxieixp9Bv9dnenyx2AGI4HlfRCjbWkPlJFb?=
+ =?us-ascii?Q?ANRXZvSnoeroj0JKyLT3ZeuAOOdUgbpl3yQ9nsCbKcUVbK3P6uxX/syAPIpk?=
+ =?us-ascii?Q?a+22NXvGY10PF75jl3ltfRyFh3b4BmUQxGQ71t5Ftp26mY8s/NjpuIeT/zi8?=
+ =?us-ascii?Q?nBjdG4IiyiBkiZd61Q0DVkc+9TqbjBnJ98MPBgXdhzWWYOI4PRiQa4QB5hJs?=
+ =?us-ascii?Q?1U2ZTulLt2x+yYqfYOsLD2vdUMBO+VyDMIf+D6vBb4QEYtVFcFbmfEA1er8Z?=
+ =?us-ascii?Q?f9haiZ8jFt6ExznGBLu72fv5TyWf6kohOjcTQEd3idBTFGSegO6QoqxIpZgs?=
+ =?us-ascii?Q?ZS8k4S8QlXXP7DpJkgioJmep21I32nt1GH/TSUjadv/QVxHzdhg9yIwD+bO+?=
+ =?us-ascii?Q?lDSeQyjpFS0He9qNSp4fItwu08pqV6+wyNLoopfHU1WRHCcG0dTZw+RKG0mL?=
+ =?us-ascii?Q?66QYAA4GkgYAV6qlvloiv2KWyU+v2NAne0SInLkF5eqnrNt76MIUWXy39dS+?=
+ =?us-ascii?Q?nrKnmkn5DC0nI5tSjy4sU7bcaB7GXzF/?=
 X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8585.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(52116014)(366016)(10070799003)(1800799024)(19092799006);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?OWplWDFRZDEvYUg3RVJ1cWh2YmZKMmd6eVJrUzcxRDFzZjh3bGpteld1WFBl?=
- =?utf-8?B?WDJ2VkVBMW5ZTGxNTzJSWk9pZ3BWR002Zi9Kampmeks5c1Q1b1V0YUU3L1gz?=
- =?utf-8?B?UldsRWZuWmdFaUdkNy9XUnYvekFJeDU0Tyt5ei9XSnQ5WUxYVjQ0Q2tzd21F?=
- =?utf-8?B?QVIwZWtSay9meDlURTlMV2U1S2xLbnptTHFFaE16UjczYjJTVVNXclZ2ekpt?=
- =?utf-8?B?eTRZekMxc0Y4YVZoV3U2NlNIV054MHhDL0hPVFR3OENJNDFReHdDWTBvL1A1?=
- =?utf-8?B?RllBdWpSaHUvbXJaQzhkQm00NTJIWjFiUDhEdmpGckVJYzFXYkltQ1lrVUNz?=
- =?utf-8?B?UWFCQi93SjJicTdZejNLaDJ0NmdTRUlXYkpoSFk4QTEyNHVqS3RvMGhQRjY3?=
- =?utf-8?B?VVp2YXVBSTVRTlRPRjNwUVA2YWl0WDBlOTFYaW5Sem1ldHZ4WnBGVk93eEhm?=
- =?utf-8?B?cFY2L2hnTXZjUVdiUDVwbnpJZ1ZKUGpKQXF1SEk5RFZRZ0U2WEk3MUFkbXdw?=
- =?utf-8?B?Uk5BcldERlJETElpOEExOTAwa0VUSjRZTzlENnYwUUgxSjNzRWd1dnBrdE4r?=
- =?utf-8?B?dXFvcFdINnZLMDJxVDdhWDR2dXNwV3ZpTkpQVGRXdStqRTNZaVhNN0Qvb1cy?=
- =?utf-8?B?WjYyM1FVZEUvYnB2b1pCK05vWFJqem9taldaa3B0OEJhcXRWK2tZTndlZ1N5?=
- =?utf-8?B?NkZpYWswMkFkVUVKdFc2MUgzbTdUWHhtZFFjWXJoODJMNm1xSEdrRkhZa1By?=
- =?utf-8?B?R1JmWFIweFdyN0xsMGNrRURoSUthdUJMZDgyN1RQSmJrS0hvMWJIWFk0OUNl?=
- =?utf-8?B?VVhkbzZRS0psMWlqa1VtVmxBc0lWYTlBWUVhNzh4T1BkMDUyYnBCSHBaSWhr?=
- =?utf-8?B?amcycllaRElJci9SdlJPRFJyVVVlRGNRd2ZRSHBEVmZyMzMwN1lmZ1VjWGZl?=
- =?utf-8?B?aG84aFNMdHcybElhck5YMm8wNEVUYnk3ejRGYTB0NjBjNllLSFJ1WVdLWjZJ?=
- =?utf-8?B?VUY2bzRENlNBeTR1bzN6S2NjOTVUeUZGWmxsN3hLWTEyT2E3SWMrbVFPSlJ6?=
- =?utf-8?B?ZjNUUjNGZFMxQXdxLysvNGJXUjVEM01ONlhnL1V5cHk3MTJNZG1CeDdyRlpL?=
- =?utf-8?B?b3kyb3JPNS9keDNCV3c4bVlBaThBL09tZDNGT0dFWXVQSXV0VVRNOEJCYUo4?=
- =?utf-8?B?Vml1eVVBZVI1Q0U2c09UUmFKa1BjOFB0Vk9WRTZGOXRMS201d3NVUjZ1U25O?=
- =?utf-8?B?ZXcvRkhvdFRqK3RuTXNvb3JRSnk3ZXhHbVFkNlF6UHV3dkdLQk41bDNJS3hR?=
- =?utf-8?B?aVdYdjY2NWtDNlBydE82aitrcmZxZCtyN3BXS1pPbElMcC9lUHQ2U1hIMGJx?=
- =?utf-8?B?TE9heUVFMnZUNE5vNGVZaFJ2ZnBrYTJkbXV1UVgvcWs3TmlJVXA5WURBR1dU?=
- =?utf-8?B?V1BTRytEdmR0MlAvU3FQUmpzdldiOG9wRDM3R2MwY0FzUm5ubEl0MzdIa3lx?=
- =?utf-8?B?cUlpV2Vhb2htU1hreE9sM2lmekZHSnhsMThNT3o4Y1liN2cyUFNuUmZTWnc2?=
- =?utf-8?B?WDYyVXhPdVFscjBtMmtUMEpwcVl4UkMySXIwejkrTUU1WXdxdDhHTkhTa3Fz?=
- =?utf-8?B?Q1E0OTRLR1pPVE9UYWxTcTlzNzdUK3FYRWRVbVBmNExaREp5SjU5SnRkY3RT?=
- =?utf-8?B?TCtSU0FwT1NoTHU2Q3lmTmc1OUxuY2x3VDZaV1VzWnE1aEkrZTNtRld6Y1FQ?=
- =?utf-8?B?My9USDJReDN2T2JWd2RBNkRpa3NzUnBLTE1BUUF0RzlpRjZCbjdEajFwNE5r?=
- =?utf-8?B?R1NjNTdVbGx0TkI2K3Nkc09kdmxBM1ZFV1ZVZldRM1RNcWNiM3VNUENLSGRt?=
- =?utf-8?B?S2dSenhkakIxdVlDMTRlNW50QUZWRzVOZWtDZnB1c1pvRmIxQ3N3bVorUVAx?=
- =?utf-8?B?T09ZVlVmb2F0R2UxalFzNml0eFpiQit3dzZiOFZWa3JqSXVBdlp4WC82MFMx?=
- =?utf-8?B?QlRyYTRRQ0wzRUF5Q2dtemR1RG1NQUoyQUw1RzBQVkVmUTZ0cHR0U2U5MnRo?=
- =?utf-8?B?L1FSaVlEYndRam1MSmxrWjlOODgySkZqQVhneG16Q3NiSlE2NkJjdVVFUHM0?=
- =?utf-8?B?QTlLcE1VcmRlQkVsbkM3aDdkaE1ma3pLQUJ5TFlKYyt1QmJGV3lTZVErWWVs?=
- =?utf-8?Q?Ax9hRcJWtuqlCtRG7jQrB/8=3D?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?rCSIfhnesH5T9qNEWCO3Ol4E2Y/VjuZA4k/m1S60QNbydCJ31w/LRRrxZ7Ci?=
+ =?us-ascii?Q?SMmnUe3RvYUrhazNv4Y/uKy71NtCn7fNlF1n6d6n20oNo9VVCe7xA7Wb2v/O?=
+ =?us-ascii?Q?UFF5KPWy6Ic1IHf7yMOZPg5Uug9sE5GJknjv47xRkACICgl7tQV97uxx0vxM?=
+ =?us-ascii?Q?fu+LF02YSAadfKM69wJsWZ4f8aeJHjCRRIe+OLhBhvlHq3YetXKk5U9+F5k3?=
+ =?us-ascii?Q?4JT+Eynn7I4NsHS69/QXbvHu822sV0VJuyDdFGIEI/w2QmdzRt3e61wId3u1?=
+ =?us-ascii?Q?kU1AXgYvB/OWB4JF+u8Z0NlfC4+Yiws+dNazR1qOGeqtS5RbS0JeowrA+e85?=
+ =?us-ascii?Q?xLR73sFHOqgrCuVQfyRR7aZh9dG9IiCAh8YuRO5BwxoTOFpAKiBhjQzXjbMp?=
+ =?us-ascii?Q?2AaTn3Qfh98r02DwfxX9+2djrSSb+iFGrw0Q4iaUFw+c/5tGVDtflPLCM6dI?=
+ =?us-ascii?Q?sQu9md+Z5BWqEqDp1oYHXvyzbEUDNBSFu4gvkIq5fFFrT9cDGdINsk+2Ya4u?=
+ =?us-ascii?Q?i0VPXDQZrV5Y3GS2HU2sysZ/Ds5WDY2XFtlPHffyqnDPNWkRfmm+xeMeesQx?=
+ =?us-ascii?Q?yo3hIoQALGTOM3C5DL65++Ill+IYkXPj+NIdkhdDJEwYMbtNBc+sMo30aie/?=
+ =?us-ascii?Q?FnF/LRXH8oN4Mn2jfg9Oz0FzeszBvVMY1lE7R+8sz5vk9yCSt9z8nkByX0Fj?=
+ =?us-ascii?Q?CwYCjbjjSDFLpsX/0vO091YfLI4YHHxX/oNm4ntZrV34gvfov80fkUTWX8ta?=
+ =?us-ascii?Q?9+Hwag7ZU2Pxj9lqfjd1IgvnKM6U78HDhAeZZ6k1DRwJ/I2ZEZTqaXp8YMCP?=
+ =?us-ascii?Q?WpHemNLINkaZpPJeiCb2vUlDYBabv8LegOZ31iZn0HX3IbvWr68ickXcIZGq?=
+ =?us-ascii?Q?Pj8JpuZCAHo8XIErFr8lRf0Ub4cpGrO5jSMbWJVX4YU7TBdh2/mAKmjIT/J+?=
+ =?us-ascii?Q?TStXyf/jnqXT3PLozo+xhEa93JSZlhvwhh+t0ZSt9PpJIcPykSsw2uJCQvXg?=
+ =?us-ascii?Q?2qpIDXErTLxfBBbcimnO67KZ2vLhVtm1VcluZH9KEhiE2ZypwZn9Os+IjP8v?=
+ =?us-ascii?Q?QI5PTp3q4qGkrXfTzySK3XRjloLBafQVi4Gn2FaU+t2/BZg3BTQiIRBRODNE?=
+ =?us-ascii?Q?5tDMscDJTea7OiG8a0XnSa9l5fm0/T0PqtSKVOCnZEqbCQCaL4aXuwBfQyMc?=
+ =?us-ascii?Q?IZIU6RKU/xVbCdXQT6zPNe+cBA22V6SvKcxu2iQOVIxiCATaXKP02MvE9d0E?=
+ =?us-ascii?Q?utremIsiWFbeFBJedu3Pmq1OoWEYR7Os9FTf0hYA2K84kx3dsjqAdSP2UqA7?=
+ =?us-ascii?Q?qo0u33KAKoPuZH6a1Hzh07KVnxz98ODF+feA2eoKco0FWSa71UvLodQcusKh?=
+ =?us-ascii?Q?UgzygtUOp1TyYTpNqLQFbVSbjJS8QVoTSZbMrG2jCIgiANmD2ckNXbo9ShFk?=
+ =?us-ascii?Q?Fzq0gBpshZ0Fqr+cFPm50NgNyyncSOqmA7rJ3tYm4OtXuK7obe3vqvCKSYEQ?=
+ =?us-ascii?Q?xrwbVFH+IyDDtBPM3thlzO84n176fY7wol2y6OPbGcVOvD/h3rveVcj3JnKG?=
+ =?us-ascii?Q?UUnUCvseSawgmQ2cUgOYrYt53D2Vq3Xbi6wJoonEdiZOqTHJrRdn2dFM5CqC?=
+ =?us-ascii?Q?4fx/Q+MyoHd2fPaGg/XbO9k=3D?=
 X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 45f7c517-1761-41d8-e39a-08de29fe15cb
+X-MS-Exchange-CrossTenant-Network-Message-Id: 65babb9e-f791-434c-8548-08de29fe19f4
 X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8585.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Nov 2025 19:33:59.8635
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Nov 2025 19:34:06.8465
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: /4ar3aX0pFz8af38iADLW5yPZ33YpWeRVO5fyZMQtiDGxuGcoLIB4RLpfNkiq1wzqf4lwdCoi9QUTHxOpnbfdw==
+X-MS-Exchange-CrossTenant-UserPrincipalName: UHWK1jXGeuu0Y7EZUNGTVN3P1gNdpmEVDncCFtTF1zPCxBnL8EluVEf9EocS8HNN7h6P8/4cllJE8+ZV5ne5NA==
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB9510
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251122_113411_218636_241F3BDE 
-X-CRM114-Status: GOOD (  14.39  )
+X-CRM114-CacheID: sfid-20251122_113413_662685_94BAB13F 
+X-CRM114-Status: GOOD (  19.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -196,68 +179,136 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Other properties also need to be defined per protocol than just
-tx-p2p-microvolt-names. Create a common definition to avoid copying a 55
-line property.
+The SJA1105 'PMA' code is actually PCS code to adapt to a custom PMA as
+present in NXP SJA1105, that wants opposite differential lane polarity
+in the TX direction, to account for an internal quirk.
+
+We should write to the DW_VR_MII_DIG_CTRL2 PCS register from PCS code,
+especially since the XPCS is about to gain more freeform support to
+alter the lane polarity in the RX and TX directions.
+
+The compat->pma_config() interface is kept for SJA1110, but is now
+wrapped around a xpcs_pma_config() that handles SJA1105 as a quirk
+implemented in common code.
 
 Signed-off-by: Vladimir Oltean <vladimir.oltean@nxp.com>
 ---
- .../bindings/phy/phy-common-props.yaml        | 34 +++++++++++--------
- 1 file changed, 19 insertions(+), 15 deletions(-)
+ drivers/net/pcs/pcs-xpcs-nxp.c | 11 ----------
+ drivers/net/pcs/pcs-xpcs.c     | 37 ++++++++++++++++++++++++++--------
+ drivers/net/pcs/pcs-xpcs.h     |  2 +-
+ 3 files changed, 30 insertions(+), 20 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/phy/phy-common-props.yaml b/Documentation/devicetree/bindings/phy/phy-common-props.yaml
-index 255205ac09cd..775f4dfe3cc3 100644
---- a/Documentation/devicetree/bindings/phy/phy-common-props.yaml
-+++ b/Documentation/devicetree/bindings/phy/phy-common-props.yaml
-@@ -13,22 +13,12 @@ description:
- maintainers:
-   - Marek Behún <kabel@kernel.org>
+diff --git a/drivers/net/pcs/pcs-xpcs-nxp.c b/drivers/net/pcs/pcs-xpcs-nxp.c
+index e8efe94cf4ec..37708b28a7aa 100644
+--- a/drivers/net/pcs/pcs-xpcs-nxp.c
++++ b/drivers/net/pcs/pcs-xpcs-nxp.c
+@@ -64,17 +64,6 @@
+ /* RX_CDR_CTLE register */
+ #define SJA1110_RX_CDR_CTLE		0x8042
  
--properties:
--  tx-p2p-microvolt:
-+$defs:
-+  protocol-names:
-     description:
--      Transmit amplitude voltages in microvolts, peak-to-peak. If this property
--      contains multiple values for various PHY modes, the
--      'tx-p2p-microvolt-names' property must be provided and contain
--      corresponding mode names.
+-/* In NXP SJA1105, the PCS is integrated with a PMA that has the TX lane
+- * polarity inverted by default (PLUS is MINUS, MINUS is PLUS). To obtain
+- * normal non-inverted behavior, the TX lane polarity must be inverted in the
+- * PCS, via the DIGITAL_CONTROL_2 register.
+- */
+-int nxp_sja1105_sgmii_pma_config(struct dw_xpcs *xpcs)
+-{
+-	return xpcs_write(xpcs, MDIO_MMD_VEND2, DW_VR_MII_DIG_CTRL2,
+-			  DW_VR_MII_DIG_CTRL2_TX_POL_INV);
+-}
 -
--  tx-p2p-microvolt-names:
--    description: |
--      Names of the modes corresponding to voltages in the 'tx-p2p-microvolt'
--      property. Required only if multiple voltages are provided.
+ static int nxp_sja1110_pma_config(struct dw_xpcs *xpcs,
+ 				  u16 txpll_fbdiv, u16 txpll_refdiv,
+ 				  u16 rxpll_fbdiv, u16 rxpll_refdiv,
+diff --git a/drivers/net/pcs/pcs-xpcs.c b/drivers/net/pcs/pcs-xpcs.c
+index 3d1bd5aac093..670441186cc6 100644
+--- a/drivers/net/pcs/pcs-xpcs.c
++++ b/drivers/net/pcs/pcs-xpcs.c
+@@ -808,6 +808,26 @@ static int xpcs_config_2500basex(struct dw_xpcs *xpcs)
+ 			   BMCR_SPEED1000);
+ }
+ 
++static int xpcs_pma_config(struct dw_xpcs *xpcs, const struct dw_xpcs_compat *compat)
++{
++	int ret;
++
++	if (xpcs->need_opposite_tx_polarity) {
++		ret = xpcs_write(xpcs, MDIO_MMD_VEND2, DW_VR_MII_DIG_CTRL2,
++				 DW_VR_MII_DIG_CTRL2_TX_POL_INV);
++		if (ret)
++			return ret;
++	}
++
++	if (compat->pma_config) {
++		ret = compat->pma_config(xpcs);
++		if (ret)
++			return ret;
++	}
++
++	return 0;
++}
++
+ static int xpcs_do_config(struct dw_xpcs *xpcs, phy_interface_t interface,
+ 			  const unsigned long *advertising,
+ 			  unsigned int neg_mode)
+@@ -859,13 +879,7 @@ static int xpcs_do_config(struct dw_xpcs *xpcs, phy_interface_t interface,
+ 		return -EINVAL;
+ 	}
+ 
+-	if (compat->pma_config) {
+-		ret = compat->pma_config(xpcs);
+-		if (ret)
+-			return ret;
+-	}
 -
--      If a value of 'default' is provided, the system should use it for any PHY
--      mode that is otherwise not defined here. If 'default' is not provided, the
--      system should use manufacturer default value.
-+      Names of the PHY modes. If a value of 'default' is provided, the system
-+      should use it for any PHY mode that is otherwise not defined here. If
-+      'default' is not provided, the system should use manufacturer default value.
-     minItems: 1
-     maxItems: 16
-     items:
-@@ -89,6 +79,20 @@ properties:
-         - mipi-dphy-univ
-         - mipi-dphy-v2.5-univ
+-	return 0;
++	return xpcs_pma_config(xpcs, compat);
+ }
  
-+properties:
-+  tx-p2p-microvolt:
-+    description:
-+      Transmit amplitude voltages in microvolts, peak-to-peak. If this property
-+      contains multiple values for various PHY modes, the
-+      'tx-p2p-microvolt-names' property must be provided and contain
-+      corresponding mode names.
-+
-+  tx-p2p-microvolt-names:
-+    description:
-+      Names of the modes corresponding to voltages in the 'tx-p2p-microvolt'
-+      property. Required only if multiple voltages are provided.
-+    $ref: "#/$defs/protocol-names"
-+
- dependencies:
-   tx-p2p-microvolt-names: [ tx-p2p-microvolt ]
+ static int xpcs_config(struct phylink_pcs *pcs, unsigned int neg_mode,
+@@ -1341,7 +1355,6 @@ static const struct dw_xpcs_compat nxp_sja1105_xpcs_compat[] = {
+ 		.interface = PHY_INTERFACE_MODE_SGMII,
+ 		.supported = xpcs_sgmii_features,
+ 		.an_mode = DW_AN_C37_SGMII,
+-		.pma_config = nxp_sja1105_sgmii_pma_config,
+ 	}, {
+ 	}
+ };
+@@ -1500,6 +1513,14 @@ static struct dw_xpcs *xpcs_create(struct mdio_device *mdiodev)
+ 	else
+ 		xpcs->need_reset = true;
  
++	/* In NXP SJA1105, the PCS is integrated with a PMA that has the TX
++	 * lane polarity inverted by default (PLUS is MINUS, MINUS is PLUS).
++	 * To obtain normal non-inverted behavior, the TX lane polarity must be
++	 * inverted in the PCS, via the DIGITAL_CONTROL_2 register.
++	 */
++	if (xpcs->desc->compat == nxp_sja1105_xpcs_compat)
++		xpcs->need_opposite_tx_polarity = true;
++
+ 	return xpcs;
+ 
+ out_clear_clks:
+diff --git a/drivers/net/pcs/pcs-xpcs.h b/drivers/net/pcs/pcs-xpcs.h
+index 929fa238445e..2a92e101da1b 100644
+--- a/drivers/net/pcs/pcs-xpcs.h
++++ b/drivers/net/pcs/pcs-xpcs.h
+@@ -113,6 +113,7 @@ struct dw_xpcs {
+ 	struct phylink_pcs pcs;
+ 	phy_interface_t interface;
+ 	bool need_reset;
++	bool need_opposite_tx_polarity;
+ 	u8 eee_mult_fact;
+ };
+ 
+@@ -121,7 +122,6 @@ int xpcs_write(struct dw_xpcs *xpcs, int dev, u32 reg, u16 val);
+ int xpcs_modify(struct dw_xpcs *xpcs, int dev, u32 reg, u16 mask, u16 set);
+ int xpcs_read_vpcs(struct dw_xpcs *xpcs, int reg);
+ int xpcs_write_vpcs(struct dw_xpcs *xpcs, int reg, u16 val);
+-int nxp_sja1105_sgmii_pma_config(struct dw_xpcs *xpcs);
+ int nxp_sja1110_sgmii_pma_config(struct dw_xpcs *xpcs);
+ int nxp_sja1110_2500basex_pma_config(struct dw_xpcs *xpcs);
+ int txgbe_xpcs_switch_mode(struct dw_xpcs *xpcs, phy_interface_t interface);
 -- 
 2.34.1
 
