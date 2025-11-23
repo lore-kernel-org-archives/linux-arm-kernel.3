@@ -4,60 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C6A3CFA46B
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Nov 2025 21:15:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3911CFD318
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Nov 2025 21:20:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QW5GmuTtOkT5QelGjHdCuzPZFPIXPVMzvKyJz55jSBk=; b=lsmsNG7C3UEM+OTmqH86G9arZ3
-	jYoF0mrXiBiRngT7wOapliF3fgMJFXsSnfcvJzngi8zuXyuuRLpu3/VZG2ye21bJq0F6z691zdZ+o
-	7IT4kvj3z/lXTPdRh9qg9pBnmIL8gfjThDIao6d4tIWx8pI/2PptnzRpdxbhQXXlas+/h1Sa1nX6R
-	BubWZqAl+2VEpP3vJ5k06SQkHB9eiQ6mY9KlWNCV2GMR/RrvrUAj22WyPuaprc4fKdnmq131deCcz
-	wlt8R+azJ7rotynEA1yv4xOqPf6pY+29GmFMSRHwO6ssUZHUoLKIHkuh4hiYrVnSq7PvGRZrtNvG8
-	73Ey1ZlQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZoDWglqkScO5HlItWaasov7CJUmSq0LaPJiWuWMCV/s=; b=rbQCOFpomnmEoBy3W9YwBq7SWE
+	+UtOTQA99CVjBoNfPao7fxzGTFcFXWu+8X1Kn09SiuxwcpK53wjBKT8v2B9BF9iNTLnHm2WgYR/cR
+	2GbUrOJEeenD1OOWqyzzFlsLlb435yu9G9EsxCKF2UcFp3sd7IKtrO97kjNNelMQ+31KIWzKFMRlw
+	z1ACmt5oSpWCMW2P/Zjk+S1fVCdWF33KMa9RnEF1AvuSPhhqlIELQrtWww4sFjGCgGU3aP5pzu0db
+	vOJivEIIFM1m4GbJw4PPVXg2qTguJ5fUvDAHP6PFhWFPz5G7vaw5SzcL50dw9PEkgLOpbbRpEyX+k
+	BRs+TY5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNHQk-0000000AheB-2LcL;
-	Sun, 23 Nov 2025 21:15:34 +0000
+	id 1vNHVI-0000000Ahw5-3xu6;
+	Sun, 23 Nov 2025 21:20:16 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNHQj-0000000Ahe2-30Wi;
-	Sun, 23 Nov 2025 21:15:33 +0000
+	id 1vNHVH-0000000Ahvm-40CH;
+	Sun, 23 Nov 2025 21:20:16 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C829060198;
-	Sun, 23 Nov 2025 21:15:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6BD64C113D0;
-	Sun, 23 Nov 2025 21:15:30 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 4049C60175;
+	Sun, 23 Nov 2025 21:20:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id C128FC16AAE;
+	Sun, 23 Nov 2025 21:20:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763932532;
-	bh=D+OCR0hsIV5XBu9XitqcJnVl2OG0xT1N8cd+2rxAbx0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=u5OfKYtv/ujJ053wsKTh+hcRA+Ivna+Bt62V0TjLzF2yiIHx7BpzLiRUDINbCJ8Yx
-	 WzFACAdHIyvvVpE5gvPtCls6LtSWJSY3vyCek4t3xSyLUfxr2z+32kGj+aUrQZuKne
-	 NCJXnlSqTi6KFqidDad5ynXBMp9rn/lXF36IxnSPfTMveQMFvo6d1hiwyjxBQfrDZQ
-	 SDf95KbWuILgD2SkzBxC7jvITxbJlbmH95RuJrQgA1zp+xn0SvcBYl+YDIkR2FI2C1
-	 6zJYFk7EwaHnDkKKcFGvTiDSgVq1zLvAw5Glu2MTwTYBANcdaZUvkXc+U8NI35BSy9
-	 T6oq6SOQ3K1gQ==
-Date: Sun, 23 Nov 2025 14:15:27 -0700
-From: Nathan Chancellor <nathan@kernel.org>
-To: Tiezhu Yang <yangtiezhu@loongson.cn>
-Cc: Josh Poimboeuf <jpoimboe@kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
-	Huacai Chen <chenhuacai@kernel.org>, linux-kbuild@vger.kernel.org,
-	linux-efi@vger.kernel.org, loongarch@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v1] kbuild: Add KBUILD_VMLINUX_LIBS_PRELINK
-Message-ID: <20251123211527.GB3667167@ax162>
-References: <20251119042708.27658-1-yangtiezhu@loongson.cn>
- <20251122013551.GA3928114@ax162>
- <7f179e5f-610c-6468-cb3f-17d25d096a8f@loongson.cn>
+	s=k20201202; t=1763932814;
+	bh=3/FNvvvthqfqE8Hlk9y9M/lWMbT998+aR2jWJxRXnA4=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=KBXD6Q+jWlPzG+0shR4MHFzHUXktDR7CVzoHPdEH7AK459wMK3BLBU9GEiBGBvumB
+	 gXk+G54wNYf2UfsGtPMIVPdkMs1eOl/vrnkUMT+l/d5gYcFj4rLTKKg8qrtg8EbiH8
+	 DOHqUilHJKAOzTOpQ23R2Vl4/Q3mHUt/UJoMSwepPA16RCZEM4xqGuwTjuVKrUJskD
+	 Rv7lbw3vWrOMVkndZEZfXoHlEFUwxxUE7uquf+GQ/oZl1nDNjctKVpoCv/zD9xJu/A
+	 e5MOvenYbUsKuQlrPoAJ9suhYAhl7jgFUuEfzPSkva1T6fKPSpPubtQ2rHPfeRombt
+	 s4140q4H1tymQ==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id A58EBCFD316;
+	Sun, 23 Nov 2025 21:20:14 +0000 (UTC)
+From: Sven Peter <sven@kernel.org>
+Date: Sun, 23 Nov 2025 21:19:54 +0000
+Subject: [PATCH v2 1/3] soc: apple: Add hardware tunable support
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <7f179e5f-610c-6468-cb3f-17d25d096a8f@loongson.cn>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20251123-b4-atcphy-v2-1-34cc7092b22a@kernel.org>
+References: <20251123-b4-atcphy-v2-0-34cc7092b22a@kernel.org>
+In-Reply-To: <20251123-b4-atcphy-v2-0-34cc7092b22a@kernel.org>
+To: Janne Grunau <j@jannau.net>, Neal Gompa <neal@gompa.dev>, 
+ Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>
+Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-phy@lists.infradead.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Sven Peter <sven@kernel.org>, 
+ Alyssa Rosenzweig <alyssa@rosenzweig.io>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=6699; i=sven@kernel.org;
+ h=from:subject:message-id;
+ bh=3/FNvvvthqfqE8Hlk9y9M/lWMbT998+aR2jWJxRXnA4=;
+ b=owGbwMvMwCHmIlirolUq95LxtFoSQ6ZyVfvqmXN2z770dMcnbo8dGWWfgs13stXe1Ljpard5X
+ rXN9XnyHaUsDGIcDLJiiizb99ubPnn4RnDppkvvYeawMoEMYeDiFICJmIYx/BW9VXbEf1dd/b3c
+ vFivisVvnU70RGzIkKy2v9bHfs75SRHD/+jk6NWWHG8bn37sZFoUJSxnc2rdNC+mhYd/Bdyb+iH
+ OnxcA
+X-Developer-Key: i=sven@kernel.org; a=openpgp;
+ fpr=A1E3E34A2B3C820DBC4955E5993B08092F131F93
+X-Endpoint-Received: by B4 Relay for sven@kernel.org/default with
+ auth_id=407
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,49 +87,205 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Nov 22, 2025 at 07:26:52PM +0800, Tiezhu Yang wrote:
-> On 11/22/25 09:35, Nathan Chancellor wrote:
-> > On Wed, Nov 19, 2025 at 12:27:08PM +0800, Tiezhu Yang wrote:
-> > ...
-> > > index 433849ff7529..e72d3254b93f 100755
-> > > --- a/scripts/link-vmlinux.sh
-> > > +++ b/scripts/link-vmlinux.sh
-> > > @@ -61,12 +61,11 @@ vmlinux_link()
-> > >   	shift
-> > >   	if is_enabled CONFIG_LTO_CLANG || is_enabled CONFIG_X86_KERNEL_IBT; then
-> > > -		# Use vmlinux.o instead of performing the slow LTO link again.
-> > 
-> > Why is this comment getting removed?
-> 
-> When using KBUILD_VMLINUX_LIBS_PRELINK or KBUILD_VMLINUX_LIBS_FINAL,
-> drivers/firmware/efi/libstub/lib.a needs to be linked to the final
-> vmlinux with vmlinux.o, so I thought the above comment is not proper,
-> it I misunderstood it, I will keep the comment as is.
+Various hardware, like the Type-C PHY or the Thunderbolt/USB4 NHI,
+present on Apple SoCs need machine-specific tunables passed from our
+bootloader m1n1 to the device tree. Add generic helpers so that we
+don't have to duplicate this across multiple drivers.
 
-I think this comment is referring to the use of vmlinux.o instead of
-vmlinux.a, nothing to do with libs=, so I think the comment should
-remain.
+Reviewed-by: Alyssa Rosenzweig <alyssa@rosenzweig.io>
+Reviewed-by: Neal Gompa <neal@gompa.dev>
+Reviewed-by: Janne Grunau <j@jannau.net>
+Signed-off-by: Sven Peter <sven@kernel.org>
+---
+ drivers/soc/apple/Kconfig         |  4 ++
+ drivers/soc/apple/Makefile        |  3 ++
+ drivers/soc/apple/tunable.c       | 80 +++++++++++++++++++++++++++++++++++++++
+ include/linux/soc/apple/tunable.h | 62 ++++++++++++++++++++++++++++++
+ 4 files changed, 149 insertions(+)
 
-> > >   		objs=vmlinux.o
-> > > -		libs=
-> > > +		libs="${KBUILD_VMLINUX_LIBS_PRELINK}"
-> > >   	else
-> > >   		objs=vmlinux.a
-> > > -		libs="${KBUILD_VMLINUX_LIBS}"
-> > > +		libs="${KBUILD_VMLINUX_LIBS} ${KBUILD_VMLINUX_LIBS_PRELINK}"
-> > >   	fi
-> > >   	if is_enabled CONFIG_GENERIC_BUILTIN_DTB; then
-> 
-> FYI, the previous patch is still under discussion yesterday [1],
-> I do not know whether this patch is necessary and what is the next
-> step [2].
-> 
-> [1] https://lore.kernel.org/loongarch/CAAhV-H4AasfFet_Gi_mVyte3RPMH3qBS73dBfF-=Gd7HJ6ZPEw@mail.gmail.com/
-> [2] https://lore.kernel.org/loongarch/39617a3e-c476-abac-8425-bbcece769cdb@loongson.cn/
+diff --git a/drivers/soc/apple/Kconfig b/drivers/soc/apple/Kconfig
+index ad67368892311bed5a94d358288390a6fb8b3b4a..d0ff32182a2b4a10c98cb96c70a03bea8c650f84 100644
+--- a/drivers/soc/apple/Kconfig
++++ b/drivers/soc/apple/Kconfig
+@@ -38,6 +38,10 @@ config APPLE_SART
+ 
+ 	  Say 'y' here if you have an Apple SoC.
+ 
++config APPLE_TUNABLE
++	tristate
++	depends on ARCH_APPLE || COMPILE_TEST
++
+ endmenu
+ 
+ endif
+diff --git a/drivers/soc/apple/Makefile b/drivers/soc/apple/Makefile
+index 4d9ab8f3037b7159771d8817fa507ba29f99ae10..0b85ab61aefe131349a67d0aa80204edd8e89925 100644
+--- a/drivers/soc/apple/Makefile
++++ b/drivers/soc/apple/Makefile
+@@ -8,3 +8,6 @@ apple-rtkit-y = rtkit.o rtkit-crashlog.o
+ 
+ obj-$(CONFIG_APPLE_SART) += apple-sart.o
+ apple-sart-y = sart.o
++
++obj-$(CONFIG_APPLE_TUNABLE) += apple-tunable.o
++apple-tunable-y = tunable.o
+diff --git a/drivers/soc/apple/tunable.c b/drivers/soc/apple/tunable.c
+new file mode 100644
+index 0000000000000000000000000000000000000000..6593238391715be07cdfec0c1b116d6946f53fb5
+--- /dev/null
++++ b/drivers/soc/apple/tunable.c
+@@ -0,0 +1,80 @@
++// SPDX-License-Identifier: GPL-2.0-only OR MIT
++/*
++ * Apple Silicon hardware tunable support
++ *
++ * Each tunable is a list with each entry containing a offset into the MMIO
++ * region, a mask of bits to be cleared and a set of bits to be set. These
++ * tunables are passed along by the previous boot stages and vary from device
++ * to device such that they cannot be hardcoded in the individual drivers.
++ *
++ * Copyright (C) The Asahi Linux Contributors
++ */
++
++#include <linux/io.h>
++#include <linux/module.h>
++#include <linux/of.h>
++#include <linux/overflow.h>
++#include <linux/soc/apple/tunable.h>
++
++struct apple_tunable *devm_apple_tunable_parse(struct device *dev,
++					       struct device_node *np,
++					       const char *name,
++					       struct resource *res)
++{
++	struct apple_tunable *tunable;
++	struct property *prop;
++	const __be32 *p;
++	size_t sz;
++	int i;
++
++	if (resource_size(res) < 4)
++		return ERR_PTR(-EINVAL);
++
++	prop = of_find_property(np, name, NULL);
++	if (!prop)
++		return ERR_PTR(-ENOENT);
++
++	if (prop->length % (3 * sizeof(u32)))
++		return ERR_PTR(-EINVAL);
++	sz = prop->length / (3 * sizeof(u32));
++
++	tunable = devm_kzalloc(dev, struct_size(tunable, values, sz), GFP_KERNEL);
++	if (!tunable)
++		return ERR_PTR(-ENOMEM);
++	tunable->sz = sz;
++
++	for (i = 0, p = NULL; i < tunable->sz; ++i) {
++		p = of_prop_next_u32(prop, p, &tunable->values[i].offset);
++		p = of_prop_next_u32(prop, p, &tunable->values[i].mask);
++		p = of_prop_next_u32(prop, p, &tunable->values[i].value);
++
++		/* Sanity checks to catch bugs in our bootloader */
++		if (tunable->values[i].offset % 4)
++			return ERR_PTR(-EINVAL);
++		if (tunable->values[i].offset > (resource_size(res) - 4))
++			return ERR_PTR(-EINVAL);
++	}
++
++	return tunable;
++}
++EXPORT_SYMBOL(devm_apple_tunable_parse);
++
++void apple_tunable_apply(void __iomem *regs, struct apple_tunable *tunable)
++{
++	size_t i;
++
++	for (i = 0; i < tunable->sz; ++i) {
++		u32 val, old_val;
++
++		old_val = readl(regs + tunable->values[i].offset);
++		val = old_val & ~tunable->values[i].mask;
++		val |= tunable->values[i].value;
++		if (val != old_val)
++			writel(val, regs + tunable->values[i].offset);
++	}
++}
++EXPORT_SYMBOL(apple_tunable_apply);
++
++MODULE_LICENSE("Dual MIT/GPL");
++MODULE_AUTHOR("Sven Peter <sven@kernel.org>");
++MODULE_DESCRIPTION("Apple Silicon hardware tunable support");
+diff --git a/include/linux/soc/apple/tunable.h b/include/linux/soc/apple/tunable.h
+new file mode 100644
+index 0000000000000000000000000000000000000000..531ca814cd02357a0c5de6f3acde805294c13d4a
+--- /dev/null
++++ b/include/linux/soc/apple/tunable.h
+@@ -0,0 +1,62 @@
++/* SPDX-License-Identifier: GPL-2.0-only OR MIT */
++/*
++ * Apple Silicon hardware tunable support
++ *
++ * Each tunable is a list with each entry containing a offset into the MMIO
++ * region, a mask of bits to be cleared and a set of bits to be set. These
++ * tunables are passed along by the previous boot stages and vary from device
++ * to device such that they cannot be hardcoded in the individual drivers.
++ *
++ * Copyright (C) The Asahi Linux Contributors
++ */
++
++#ifndef _LINUX_SOC_APPLE_TUNABLE_H_
++#define _LINUX_SOC_APPLE_TUNABLE_H_
++
++#include <linux/device.h>
++#include <linux/types.h>
++
++/**
++ * Struct to store an Apple Silicon hardware tunable.
++ *
++ * Each tunable is a list with each entry containing a offset into the MMIO
++ * region, a mask of bits to be cleared and a set of bits to be set. These
++ * tunables are passed along by the previous boot stages and vary from device
++ * to device such that they cannot be hardcoded in the individual drivers.
++ *
++ * @param sz Number of [offset, mask, value] tuples stored in values.
++ * @param values [offset, mask, value] array.
++ */
++struct apple_tunable {
++	size_t sz;
++	struct {
++		u32 offset;
++		u32 mask;
++		u32 value;
++	} values[] __counted_by(sz);
++};
++
++/**
++ * Parse an array of hardware tunables from the device tree.
++ *
++ * @dev: Device node used for devm_kzalloc internally.
++ * @np: Device node which contains the tunable array.
++ * @name: Name of the device tree property which contains the tunables.
++ * @res: Resource to which the tunables will be applied, used for bound checking
++ *
++ * @return: devres allocated struct on success or PTR_ERR on failure.
++ */
++struct apple_tunable *devm_apple_tunable_parse(struct device *dev,
++					       struct device_node *np,
++					       const char *name,
++					       struct resource *res);
++
++/**
++ * Apply a previously loaded hardware tunable.
++ *
++ * @param regs: MMIO to which the tunable will be applied.
++ * @param tunable: Pointer to the tunable.
++ */
++void apple_tunable_apply(void __iomem *regs, struct apple_tunable *tunable);
++
++#endif
 
-Thanks, we will wait to see the conclusion of those threads before
-applying this.
+-- 
+2.34.1
 
-Cheers,
-Nathan
+
 
