@@ -4,66 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73A4CCFC518
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Nov 2025 09:30:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70110CFA46B
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Nov 2025 09:42:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cZwgq339TSMYJh8YIgAvWfwXDzFNF4bhK85kfSJeBPc=; b=ALt5uzgLp8ryPtme2KrQ5M+Dfl
-	sZUkGKnwXxaQM13rhT1sjAjuD+3bwmwRcSVqF8OlwujCsp9NbLnJf5e9MAUKZzsAMS7dH2JxB1onI
-	2ugnP5+y2/Gi8xlt4xuNWEL7pllbaZIAmS/l73UKZp9E8t3uo8qCys1UBNPu74IJAyMJX8r4+Zxjd
-	5HrkAWLry4S7bcacDZ6iLMIYM4V6uB7jdyh619jMDStLZWnZM/LIp760QxWG3vQH+Djo8su0dbrnd
-	KVpLiTmUMLX8xtSyleA22e7xVRanKhPPunhO4upKS/joaZhmoJ5R5opZKp7Ov7TIUGDeCLuHBmGPE
-	GVMtO/wQ==;
+	bh=lyC2NUp2eiii8d81o13Fi55FGP+755nIS0RL+nNm1T4=; b=HJtxB4z4HTJKdp9i4YZ7KUGDYN
+	koDTlvQ3BUu+Czw4N4KnCLLp7mHoU9WNa9G4mSjqjsCPoIYO2a918eeYxwZbFczA/VwGPGRrdD2mW
+	DkGqfUgE33vefhpv0OmSiT55LM2SPI2LHGll4OMVfJ5JJU5etGpaBweYBVaXKTXJJujovk5jyApfL
+	lScNdibNLbAMamwUe+BDS14HzbWf30A6BvDSVnONv3CvjA+49P13S4ZWLVuTGchb/Ja6K8PaBeZku
+	fMHvOf88lbV+y/58kjtUQ70c83CzDd9xTvVimOAuST1bM+hTLwC0waR3iCxhHB14P5IOwL1nF9mjz
+	+gmkrv0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vN6Ql-0000000AJBc-1FXu;
-	Sun, 23 Nov 2025 09:30:51 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vN6cD-0000000AJav-1o4H;
+	Sun, 23 Nov 2025 09:42:41 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vN6Qj-0000000AJB6-2YxY
+	id 1vN6cB-0000000AJan-3e7Z
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 23 Nov 2025 09:30:50 +0000
+	Sun, 23 Nov 2025 09:42:39 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 962A641737;
-	Sun, 23 Nov 2025 09:30:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 353CFC113D0;
-	Sun, 23 Nov 2025 09:30:44 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id D5D5E60158;
+	Sun, 23 Nov 2025 09:42:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3070AC113D0;
+	Sun, 23 Nov 2025 09:42:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763890248;
-	bh=K3TpFSb9ANyNnS8xU/rAnNEn5bG4SKZpFHbcEF2yWDc=;
+	s=k20201202; t=1763890956;
+	bh=kkM+mQVbzz5/S52nBwvpTsvT8OLm2D5Q0QHcj7SfeT4=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=BPoLXw+XdWH117b9FBR/onCqy6kVXPJb3E1ZvIjTilTnCsCox4SuljHotuF3Ky5aN
-	 CO/E1LHNxYOZwtXOcMaahZLbFgaWiC2QN3RHEycUOFr8OoWyT1YKKmB/wbgv8UZBwd
-	 XsCBnqGHqnMqnQfcw8yTcYchtgcqOiO1/NkNLMSB2gHbJvPIEdujWz2KhwzMXnSVu6
-	 sGJ6tOkqO76OYbY4yc121Ku9LDIgS+Nk0E4cRj41TKGrV8GmRTY1xsujvhtG7vithP
-	 jhWM0fsXYklEHxLIxgjo8PWBxH5yONGF1D2KuCMgBx7EjbqAeE3NgWx0xlZplx/A2T
-	 UAmxq/1rwk+4w==
-Message-ID: <699d4476-aaaa-4cec-9e2c-240348950e4c@kernel.org>
-Date: Sun, 23 Nov 2025 10:30:42 +0100
+	b=nzjtzajGDAvOL3sjwsn5tDTmrN4oQldYX2ptU8r9Zi47yRQ7jwsPCW/WM4Wi/Xmnc
+	 iy+DDEIymLLXQkwnTFkI9a1UxQ6Qme/4qHq+KJoJdAT1p/AeYDacex+aUzNYld30gT
+	 M0KY6EMboDNvdG/4kdYpEL2h+23EvCq3ws6c7SP073oFA5jhUS+92Db0HdK9VxHLxM
+	 9+ku0YEsGPRFLdAqjCuR+mGSFkRrpBgpVydsXB5FOb96FOr2sgu0yqAqg+y+zVbMqu
+	 O1uwDaEIvleXkerm/DVwsyY4MGR0i1msEzXS2Badpt1JtJ9Dmt+n9SvK7SAqto4mmo
+	 w9ySpPf7vDMQg==
+Message-ID: <7e50c694-af6b-40cc-b1dc-4dd4ecf85a8d@kernel.org>
+Date: Sun, 23 Nov 2025 10:42:29 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/6] dt-bindings: mfd: maxim,max77759: add charger child
- node
-To: amitsd@google.com, Sebastian Reichel <sre@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, =?UTF-8?Q?Andr=C3=A9_Draszik?=
- <andre.draszik@linaro.org>, Lee Jones <lee@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Badhri Jagan Sridharan <badhri@google.com>,
- Heikki Krogerus <heikki.krogerus@linux.intel.com>,
- Peter Griffin <peter.griffin@linaro.org>,
- Tudor Ambarus <tudor.ambarus@linaro.org>,
- Alim Akhtar <alim.akhtar@samsung.com>
-Cc: linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
- devicetree@vger.kernel.org, linux-usb@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- RD Babiera <rdbabiera@google.com>, Kyle Tso <kyletso@google.com>
-References: <20251123-max77759-charger-v1-0-6b2e4b8f7f54@google.com>
- <20251123-max77759-charger-v1-2-6b2e4b8f7f54@google.com>
+Subject: Re: [PATCH v5 2/2] arm64: dts: add support for NXP i.MX8MP FRDM board
+To: Rogerio Pimentel <rpimentel.silva@gmail.com>, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, shawnguo@kernel.org,
+ s.hauer@pengutronix.de
+Cc: kernel@pengutronix.de, festevam@gmail.com,
+ alexander.stein@ew.tq-group.com, dario.binacchi@amarulasolutions.com,
+ marex@denx.de, Markus.Niebel@tq-group.com, y.moog@phytec.de,
+ joao.goncalves@toradex.com, frieder.schrempf@kontron.de,
+ josua@solid-run.com, francesco.dolcini@toradex.com, primoz.fiser@norik.com,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ Xiaofeng Wei <xiaofeng.wei@nxp.com>, Joseph Guo <qijian.guo@nxp.com>,
+ Steven Yang <steven.yang@nxp.com>, Lei Xu <lei.xu@nxp.com>
+References: <20251123003603.246399-1-rpimentel.silva@gmail.com>
+ <20251123003603.246399-2-rpimentel.silva@gmail.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -109,12 +106,9 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20251123-max77759-charger-v1-2-6b2e4b8f7f54@google.com>
+In-Reply-To: <20251123003603.246399-2-rpimentel.silva@gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251123_013049_695639_863775CC 
-X-CRM114-Status: GOOD (  13.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,49 +123,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 23/11/2025 09:35, Amit Sunil Dhamne via B4 Relay wrote:
-> From: Amit Sunil Dhamne <amitsd@google.com>
+On 23/11/2025 01:36, Rogerio Pimentel wrote:
+> The FRDM-i.MX8MP is an NXP development platform based on the i.MX8M Plus
+> SoC, featuring a quad Cortex-A53, Cortex-M7 co-processor, 4GB LPDDR4,
+> 32GB eMMC, Wi-Fi 6/Bluetooth 5.4/802.15.4 tri-radio, Ethernet, HDMI/MIPI
+> display interfaces, camera connectors, and standard expansion headers.
 > 
-> The Maxim MAX77759 MFD includes a charger function, hence add its
-> binding as a property. Also, update the example to include charger.
+> Based on the device tree found in the NXP repository at github
+> https://github.com/nxp-imx-support/meta-imx-frdm and on imx8mp-evk
+> board kernel mainline device tree.
 > 
-> Signed-off-by: Amit Sunil Dhamne <amitsd@google.com>
+> This is a basic device tree supporting:
+> 
+>  - Quad Cortex-A53
+>  - 4GB LPDDR4 DRAM
+>  - PCA9450C PMIC with regulators
+>  - Two NXP PCAL6416 GPIO expanders
+>  - RGB LEDs via GPIO expander
+>  - I2C1, I2C2, I2C3 controllers
+>  - UART2 (console) and UART3 (with RTS/CTS)
+>  - USDHC3 (8-bit eMMC)
+>  - SNVS power key (onboard power button)
+> 
+> Author: Xiaofeng Wei <xiaofeng.wei@nxp.com>
+
+There is no such tag. Use git commit --amend --reset-author to set the
+author.
+
+> Signed-off-by: Xiaofeng Wei <xiaofeng.wei@nxp.com>
+> 
+> Co-developed-by: Joseph Guo <qijian.guo@nxp.com>
+> Signed-off-by: Joseph Guo <qijian.guo@nxp.com>
+> 
+
+There is never blank line between tags.
+
+> Co-developed-by: Steven Yang <steven.yang@nxp.com>
+> Signed-off-by: Steven Yang <steven.yang@nxp.com>
+> 
+> Co-developed-by: Lei Xu <lei.xu@nxp.com>
+> Signed-off-by: Lei Xu <lei.xu@nxp.com>
+> 
+> Co-developed-by: Rogerio Pimentel <rpimentel.silva@gmail.com>
+> Signed-off-by: Rogerio Pimentel <rpimentel.silva@gmail.com>
 > ---
->  Documentation/devicetree/bindings/mfd/maxim,max77759.yaml | 12 ++++++++++++
->  1 file changed, 12 insertions(+)
 > 
-> diff --git a/Documentation/devicetree/bindings/mfd/maxim,max77759.yaml b/Documentation/devicetree/bindings/mfd/maxim,max77759.yaml
-> index 525de9ab3c2b..29132f73f2c8 100644
-> --- a/Documentation/devicetree/bindings/mfd/maxim,max77759.yaml
-> +++ b/Documentation/devicetree/bindings/mfd/maxim,max77759.yaml
-> @@ -37,6 +37,9 @@ properties:
->    nvmem-0:
->      $ref: /schemas/nvmem/maxim,max77759-nvmem.yaml
->  
-> +  charger:
-> +    $ref: /schemas/power/supply/maxim,max77759-charger.yaml
+> Changes in v5:
+> 
+>  - Replace underscores (_) in node names with dashes (-)
+>  - Added missing Co-developed-by and Signed-off-by tags from all contributors
 
-You need to explain dependencies/merging in the cover letter. This patch
-now cannot be merged alone through MFD.
+I assume you actually saw these SoBs in the code you took as your base?
+Remember, do not add SoBs which were never present in the original work
+(if company asks you, you can politely reply that they need to read what
+SoB means)
 
-Or just decouple the dependency and list here only compatible, assuming
-this child node even stays.
-
-> +
->  required:
->    - compatible
->    - interrupts
-> @@ -95,5 +98,14 @@ examples:
->                      };
->                  };
->              };
-> +
-> +            charger {
-> +                compatible = "maxim,max77759-charger";
-> +                power-supplies = <&maxtcpc>;
-
-Feels like you miss here battery.
-
+That's anyway weirdly a lot of co-developed tags, are you sure they
+wrote the code you took as the base here?
 
 Best regards,
 Krzysztof
