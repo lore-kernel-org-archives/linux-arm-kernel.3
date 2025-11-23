@@ -4,96 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AFA1CFC518
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Nov 2025 17:51:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75F5FCFA46B
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Nov 2025 18:15:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:References:Cc:To:From:
-	Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vIANx9jGl2SWaC9mRIgpqWIi2tjrJHPgyOK0RQo1cKY=; b=nF0D6kTbic6t2uiZ4/6/lVEm4w
-	KAt6VNpp25D4zoAqLdNuIW9p5sfWdih73tGOfKi6Wib1yKT1pOOWVcRzHhjRyB5c2l/2tswQRB5pj
-	MDxwUL6jatbgYtit6KSwXRNkwi+xjvQGfX2zZCt53d1E+dqPqCfpX5MPJcJIGruHUAHp7/dS801N9
-	ZOTtuLK0Vwf1HaYMdG2WgJsuZqsyUUmAiycFJbLCPP5b7ihPLpXr1QOm5cOwT9vjVhqYTS5AUHq9e
-	Vh0L5v4Pfc4EUMDDUbmk2hsCEl1NdN06nZ9EvFCGLurPvl2t05tiCWJbG6FHV6m90nbhnS/3/+VoW
-	/D190CAg==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=dCX6WT7m7rVOFFnbXXZfQ29NTD0s+0MEDDI8eQG4yUM=; b=Oyh/srll9aAN6wGvnZtC0Eju7l
+	cXJfagdX2Kv1rWnfbRnOzP36rgLwJsYfcdfWceKYQuGPywwXfXNIGu3uawg7bkPfyk1cQpf2wtfc1
+	X0ZR/XA2lgZvxURADeuxqXI9JId7bGw5HLvVlyBAJyMsgDf88inb2fbG95Fr/MCTMKLNdFrI3SaSM
+	CKN2yFdgRjA7YWWJ15Ai6DUXDjmB1Yc/4KFtW87ExAJ69sLkJ0namVmu/Sf5c9V+2JPn7c4RgKWb0
+	ExJaifL3DM48UHPb/451nT4MyMLEMh3IGPy0mo4b6XRspEmDBQYHlJ7/8wtFmsL0Qme352EVWYsY0
+	juFPEUIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNEFI-0000000AaoJ-1bgB;
-	Sun, 23 Nov 2025 17:51:32 +0000
-Received: from mail-qv1-xf2d.google.com ([2607:f8b0:4864:20::f2d])
+	id 1vNEbw-0000000AbSK-10Ya;
+	Sun, 23 Nov 2025 18:14:56 +0000
+Received: from mail-qk1-x72c.google.com ([2607:f8b0:4864:20::72c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNEFF-0000000Aanu-2gps
+	id 1vNEbs-0000000AbRk-3xW9
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 23 Nov 2025 17:51:31 +0000
-Received: by mail-qv1-xf2d.google.com with SMTP id 6a1803df08f44-8845498be17so51078216d6.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 23 Nov 2025 09:51:28 -0800 (PST)
+	Sun, 23 Nov 2025 18:14:54 +0000
+Received: by mail-qk1-x72c.google.com with SMTP id af79cd13be357-8b31a665ba5so333890085a.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 23 Nov 2025 10:14:52 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=marek.ca; s=google; t=1763920288; x=1764525088; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-language:in-reply-to:mime-version
-         :user-agent:date:message-id:references:cc:to:from:subject:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=vIANx9jGl2SWaC9mRIgpqWIi2tjrJHPgyOK0RQo1cKY=;
-        b=NWnI117JkxF4kvjH0Rq2nVpLLH/uSWY2gBdmngIvcPMmQnUOmWoqF1+3o9f5NZXPse
-         q1MoxBPaS4rBuPdn9pK1wQyp5mIp6Cmt1bK0qavlYEb9ruI5JLW1b5wSSw0D31tRuJmI
-         Y91tBZGDhAJfnqElOu5HC/Wzswfk1jvFPZPsyzTgDJpoQrDI/+QOnmbVixcuHQyYLati
-         yo740gj/4gaQjBVkESKDjW3hzgQLiBUrY6gB6K8os24CT60kz4Jn7cYtXS0uIPtAnxC8
-         ywAi26nBG4aPTN3Sy6hejZPEm7ztaX+dJoa+uAy5+KPS74mtIXMuRZ3V18T5aC0d5CWZ
-         sxxA==
+        d=gmail.com; s=20230601; t=1763921691; x=1764526491; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=dCX6WT7m7rVOFFnbXXZfQ29NTD0s+0MEDDI8eQG4yUM=;
+        b=koxYRz6h5z5uhWew0EaVQUqFPjoLAR2JzOFSKOvsff86XHUIayftE53LCF9pO0+blD
+         jplPfeGLteaoSv2bTAOlFG/gp3kl210dzkQJO2LFtS/QqoxJNYCvhJswcAdiX5nN/Lhw
+         AHaygG/jbRf5TmEi+FaFla1bQY8RSmvp+zgSBKxRUF99dFnNdpo31Z74kvaNQeGYYDVt
+         01sPvwj7r7F45TzCYC5pCvvifzMVNzsjjXpJqO9kthoQ+vEPixJ16E47jv/lzUFWUU13
+         SiJ6eZVx1XBmSw5yD1ZdaI+1z/aOHz6o44/kX983NQFYp7+4umHXS9Xu2igV03m6I/ep
+         yMFQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763920288; x=1764525088;
-        h=content-transfer-encoding:content-language:in-reply-to:mime-version
-         :user-agent:date:message-id:references:cc:to:from:subject:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=vIANx9jGl2SWaC9mRIgpqWIi2tjrJHPgyOK0RQo1cKY=;
-        b=eo/sOmnNn/L9P5y3GvJ6bamSAwIhzqOL42AXRtu+XgQBjNO7/QsgnpGlmIFa/md4qA
-         iY6nj2LnMJShOQogvBY1UzhCjmVjvGe2qWFGIF3UxuWVfCPciF9sC1ht6r12Xg5MPwM1
-         rDNiB3s2Y3+kQ0Wq1EmS5gE1Uw0gDsfR8eeMT2fE0IXzGKOhcjP4G05dBCW5yN/og/qT
-         FEEGO0vqaOAbehu3cqDpqL6H8yxbeDhtIC5CuoMYTs4pYOB242dZavWLhRlN5cwjYBnZ
-         kUQMhIutkONeInl+d9VgETucYOxFor6Jqs+43Ca3qDjBTd/aRX59X0+cr8KFzmttvIx3
-         BfGQ==
-X-Gm-Message-State: AOJu0YwFASSoHo5vQYdDKWYP/HBuUns2iShr53mQenS+MVg1s1Lw1trQ
-	jOC8mlwFPvcUfnakV1SQ8MdEKSMB+KqTQA/N31XsVaSwn9hwl4Ek7Wy+Hr67E1YqQQw=
-X-Gm-Gg: ASbGnctyB69ZqYXN1rX8xVy8DJtHl9X0XcsjFbcif6htbPdjhCRFN0GHixOjTzH2VhS
-	JANIDcdGMq8J5AxBOcLV5OTgM1ng4p4a0Qb1PlnZcq2/ABphg39TNDqJxit2EyYTIWgBWCU5sGd
-	0Dc5bPR78M9t3mLy5BybRgBF1OCZJo+EArmNcOGXUoVDOX5qoYIU7AEMWHKdJyk4hZpeWEZWFAf
-	6QhSd4jJA2GFbPIqNbg7j2zIM+W4LsgbLnNd7M/v6+Rc+aKrzQSZMa0nld5P+XjpKDjewnCxwKx
-	WGAUk1ZJEBCOwK8PZCc3ZKfRroOeesH7Lp+FzLn8vOZG9bRxmSDLWsYlOjQop9NObG6KyJM7pEv
-	FxPSbCFvv972GrnCLzQyLgsfePPGrVnNN+yKZc/UkK53FphYWdtgmS0gjJQKywn+6/5O48SvZq8
-	NbU9EC7m+Jd/PwtI0glcS+i7OKgddezNMnjR20DQDu4w0zFQTEsHMeK4acSw==
-X-Google-Smtp-Source: AGHT+IGGmRjy6S6jG9UQOZ7re2IoKjO567YiFxEaApg45oVagihjcnDFg0s0qlsPTSkuzLAkIZrimw==
-X-Received: by 2002:a05:6214:ac6:b0:880:78d6:fa67 with SMTP id 6a1803df08f44-8847c4a3e03mr126072936d6.23.1763920287620;
-        Sun, 23 Nov 2025 09:51:27 -0800 (PST)
-Received: from [192.168.0.189] (modemcable125.110-19-135.mc.videotron.ca. [135.19.110.125])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-8846e5744ddsm84544876d6.45.2025.11.23.09.51.26
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 23 Nov 2025 09:51:27 -0800 (PST)
-Subject: Re: [PATCH] arm64: proton-pack: Fix hard lockup when
- !MITIGATE_SPECTRE_BRANCH_HISTORY
-From: Jonathan Marek <jonathan@marek.ca>
-To: Will Deacon <will@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org,
- Catalin Marinas <catalin.marinas@arm.com>, James Morse
- <james.morse@arm.com>, Douglas Anderson <dianders@chromium.org>,
- Trilok Soni <quic_tsoni@quicinc.com>, shechenglong
- <shechenglong@xfusion.com>,
- Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
- Shameer Kolothum <skolothumtho@nvidia.com>,
- open list <linux-kernel@vger.kernel.org>
-References: <20251117051211.16108-1-jonathan@marek.ca>
-Message-ID: <71ec790c-511d-7b57-a5cb-7c26c46257fe@marek.ca>
-Date: Sun, 23 Nov 2025 12:50:24 -0500
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
- Thunderbird/68.2.2
+        d=1e100.net; s=20230601; t=1763921691; x=1764526491;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=dCX6WT7m7rVOFFnbXXZfQ29NTD0s+0MEDDI8eQG4yUM=;
+        b=s/lpbNY1SRbKah6Y+kgT3SgMUw9WHMsS35EV+wF4C/8xHLDiRRU94sd38fJOmobPZ3
+         qfz5qmJXn2hmGHR9qJTnuKu4y0WveatKoE+T8kCzWmuL+DxQ0JYB4vU95mC1vT4hNgb1
+         +WFXZofx23flvoziVsCxlTFX2zzaTOTNmX0zp29ZQt9j3Yk24jR0QTuMoqyohq0tIFnA
+         OK1bwbXWLQu8Q/oBAE6aWFcvc3Ja0a2QtIsd47xRmTGUQFi+iRuI7ygX2T/6XPr0Qkzp
+         nPjCiEC2q/zRdbMM1HEEngKF+bopYUV9uRne57x0zYXpu3h20bguly9wB0qlWO4G4KV8
+         5D3g==
+X-Forwarded-Encrypted: i=1; AJvYcCVhmqBid0FiKKPrrt+tMsmKP31OP7wG03fwk0L6M045oCN31QWysTcaD4CXMIfrr4w32e5KteS7Ig2OHnBT1y6x@lists.infradead.org
+X-Gm-Message-State: AOJu0YywJh/M8tf9+dSmxVmZTHNZmum4FmqGb9wcMg3VcvdwSL7KL0qa
+	D/j2gZuYDoAyUQNcfO89vJOHPTV/B4DDSJpPfbkYRtdnc/dIYXI7vTYZ
+X-Gm-Gg: ASbGncuRWq8AEowQIl5a0e97Oq0DZwxj5cOr69B2hvDQvuiviButpllNF+Louoknj85
+	9PJqNCk6vKRUYzljbWUOFPwA3t4gwKtEx6GK4bautC/fJebS8pQ6PABjm/glFw8p9zWDmVgMOdT
+	8DbIvsLz1FcnhZjzVyHrNvI4aUsJJ9Dk7NVlh5KiFQQ846df0HxqrU7HPyxjb8NOht2A+xrf/yW
+	zU6i/GLV10+0uxqu8ZsCFU67CMif32B0XbJKFk7YojbCGqp2ZIhTmbnxoGUspqOm81mdghy9Vyh
+	d92XC6rqyWa7ezTN7jyJGzFTC92RwCX0Zii3J5n7VIgT6roimPjw87xa3aYZiK6xsZ0njKDARzZ
+	l7h/YB0Vf18+thVgXsb1fd/UWSmXiyzb2FHKMRXQVfN1EEr6pRpxx0WgXCiI1i4R036NtO2s6ge
+	K3CXRSR1qNo3jnjz5JZGlFQNvpQg7t
+X-Google-Smtp-Source: AGHT+IFCca9D0Nqlxq/e//g/tvSDD1qUyYElNo9V329H3YLMPI6JAiHun0zZOL76EY5TDf4OeItFbQ==
+X-Received: by 2002:a05:620a:1a03:b0:8b0:f2bd:4764 with SMTP id af79cd13be357-8b33d4d84aemr1213451985a.63.1763921691498;
+        Sun, 23 Nov 2025 10:14:51 -0800 (PST)
+Received: from rogerio-laptop.home ([142.188.15.215])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-8b3295f17dcsm782010085a.55.2025.11.23.10.14.49
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 23 Nov 2025 10:14:50 -0800 (PST)
+From: Rogerio Pimentel <rpimentel.silva@gmail.com>
+To: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	shawnguo@kernel.org,
+	s.hauer@pengutronix.de,
+	krzk@kernel.org
+Cc: kernel@pengutronix.de,
+	festevam@gmail.com,
+	alexander.stein@ew.tq-group.com,
+	dario.binacchi@amarulasolutions.com,
+	marex@denx.de,
+	Markus.Niebel@tq-group.com,
+	y.moog@phytec.de,
+	joao.goncalves@toradex.com,
+	frieder.schrempf@kontron.de,
+	josua@solid-run.com,
+	francesco.dolcini@toradex.com,
+	primoz.fiser@norik.com,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Rogerio Pimentel <rpimentel.silva@gmail.com>,
+	Conor Dooley <conor.dooley@microchip.com>
+Subject: [PATCH v6 1/2] dt-bindings: arm: fsl: Add i.MX8MP FRDM board
+Date: Sun, 23 Nov 2025 13:14:43 -0500
+Message-Id: <20251123181444.266030-1-rpimentel.silva@gmail.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-In-Reply-To: <20251117051211.16108-1-jonathan@marek.ca>
-Content-Type: text/plain; charset=utf-8; format=flowed
-Content-Language: en-US
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251123_095129_782930_BDF3DCE1 
-X-CRM114-Status: GOOD (  18.82  )
+X-CRM114-CacheID: sfid-20251123_101453_014002_84D14509 
+X-CRM114-Status: UNSURE (   8.15  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,34 +118,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Can you pick this up? Its an urgent fix..
+Add device tree compatible string for the i.MX8MP FRDM board.
 
-And looks like I forgot it, you can add:
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+Signed-off-by: Rogerio Pimentel <rpimentel.silva@gmail.com>
+---
+No changes in v6
 
-Signed-off-by: Jonathan Marek <jonathan@marek.ca>
+Changes in v5:
 
-On 11/17/25 12:12 AM, Jonathan Marek wrote:
-> The "drop print" commit removed the whole branch and not just the print.
-> For some ARM64 cpus, this leads to hard lockup when
-> CONFIG_MITIGATE_SPECTRE_BRANCH_HISTORY is not enabled.
-> 
-> Fixes: 62e72463ca71 ("arm64: proton-pack: Drop print when !CONFIG_MITIGATE_SPECTRE_BRANCH_HISTORY")
-> ---
->   arch/arm64/kernel/proton-pack.c | 2 ++
->   1 file changed, 2 insertions(+)
-> 
-> diff --git a/arch/arm64/kernel/proton-pack.c b/arch/arm64/kernel/proton-pack.c
-> index c7d70d04c164c..80a580e019c50 100644
-> --- a/arch/arm64/kernel/proton-pack.c
-> +++ b/arch/arm64/kernel/proton-pack.c
-> @@ -1032,6 +1032,8 @@ void spectre_bhb_enable_mitigation(const struct arm64_cpu_capabilities *entry)
->   
->   	if (arm64_get_spectre_v2_state() == SPECTRE_VULNERABLE) {
->   		/* No point mitigating Spectre-BHB alone. */
-> +	} else if (!IS_ENABLED(CONFIG_MITIGATE_SPECTRE_BRANCH_HISTORY)) {
-> +		/* Do nothing */
->   	} else if (supports_ecbhb(SCOPE_LOCAL_CPU)) {
->   		state = SPECTRE_MITIGATED;
->   		set_bit(BHB_HW, &system_bhb_mitigations);
-> 
+ - Include Acked-by tag from Conor Dooley
+
+No changes in v4
+
+No changes in v3
+
+No changes in v2
+
+ Documentation/devicetree/bindings/arm/fsl.yaml | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/Documentation/devicetree/bindings/arm/fsl.yaml b/Documentation/devicetree/bindings/arm/fsl.yaml
+index 68a2d5fecc43..960c0ce8d128 100644
+--- a/Documentation/devicetree/bindings/arm/fsl.yaml
++++ b/Documentation/devicetree/bindings/arm/fsl.yaml
+@@ -1099,6 +1099,7 @@ properties:
+               - emcraft,imx8mp-navqp      # i.MX8MP Emcraft Systems NavQ+ Kit
+               - fsl,imx8mp-evk            # i.MX8MP EVK Board
+               - fsl,imx8mp-evk-revb4      # i.MX8MP EVK Rev B4 Board
++              - fsl,imx8mp-frdm           # i.MX8MP Freedom Board
+               - gateworks,imx8mp-gw71xx-2x # i.MX8MP Gateworks Board
+               - gateworks,imx8mp-gw72xx-2x # i.MX8MP Gateworks Board
+               - gateworks,imx8mp-gw73xx-2x # i.MX8MP Gateworks Board
+-- 
+2.25.1
+
 
