@@ -4,92 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFC69CFA46B
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Nov 2025 20:24:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E4F2CFA46B
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Nov 2025 20:34:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=AF5ogFOESgOt7rvRfEwnyUu5pZ0Em2kftQ5XUCG+Du0=; b=m2h3SETM33RP/SoD4S1ZTzPidR
-	pqkNkSdVwqfy5q7Hlb4xmmCx2Eqfl84EHDs78gWIqWZPz1U760bmqGe7lw4yxa/k8IazT6iGsTryx
-	djYipMOBTIt2yYkWtapDgz69cYCIzz1zX1uTmH3UpQcwk1/pmjkCZxc08bC0skx8WEHmSqLY/daiU
-	VULTzzDaVFIELJNFHm/HovSap/Z8jB5/icw2sFVDHQrtH3PhQNrJgnLSIi2e+CkB1yUY2P6mwD6+1
-	BF5aK/lSACgF251jd4LVeTg4oZrT5VdAM+nR4uPhaa65hMwBxtsFrS8To332DgIySxjrTCwPqnHHN
-	dsPvUDiw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CSgH1ZaYBrxKmSAB6ChlLxpJ6NUOOuEnqqcyJnSbdbw=; b=tfZ4u2NRe/qOmI7n7D9JCDsJv1
+	/BAuBgeub/LdHS01dlXBHG8lz21EDXMtR2+gXq/dRzXP4H/0BqLItTYPPlQq+5/9V0GmjEITdt9D0
+	1fwDYxLrYen6ncS3e4QzQWVP0cFQVuqnvscQw3r3eaxF0ws0dGfCggMEHmQ3gUK7wbvMJbwkmz6Ry
+	FXhkV1nrPY118jT+3u84UZfalZL52jg8Zndv7ybc0P5UDF9qihrZ+Inx2XJug447UVsnPDqRFHhqU
+	TDyv6O7lAbYiqegOXJ+MqBf47NqB26n39ojSRbGNK3BY6PI+maBWqe+e7NVSYw4qU7KXcUw/b8O+Z
+	BS8uegcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNGdb-0000000AgQz-0STc;
-	Sun, 23 Nov 2025 20:24:47 +0000
-Received: from mail-lj1-x22e.google.com ([2a00:1450:4864:20::22e])
+	id 1vNGmZ-0000000Agip-1YOq;
+	Sun, 23 Nov 2025 20:34:05 +0000
+Received: from stravinsky.debian.org ([2001:41b8:202:deb::311:108])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNGdY-0000000AgQc-3dFn
+	id 1vNGmX-0000000AgiR-0VpN
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 23 Nov 2025 20:24:46 +0000
-Received: by mail-lj1-x22e.google.com with SMTP id 38308e7fff4ca-37a34702a20so30876971fa.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 23 Nov 2025 12:24:43 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1763929482; x=1764534282; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=AF5ogFOESgOt7rvRfEwnyUu5pZ0Em2kftQ5XUCG+Du0=;
-        b=evYisUYr2dWNXxoR0b8/bII5VvQByH818/ANfRbsV7BWIpAKIW6EwAMVus/ODTSdno
-         v+bV2Gq8PftFHDD5ebseq8eehY8hsFtKwk6+1cj428B2PiIuW9ts0wZJ2vChQ0KaR0I/
-         9huBFM6uPlKJVv2K5X4h28MFTyyIw12J8e/2fKSkk3YYnIMEESn00oDJhR4oJdlCzPoZ
-         a+2hYgwlmg+sKJHTV3jGHtVkzjaQP2eKwJkxsGVV9Ombc7iE1U5btZhdi7I7R0SrT4Nx
-         DeP/ZdXsjZtfKFDys6ZKhrv7qT/DiYjNufYDu+ucqkMMslF3rj5OD7RVfJeVEP4FmgON
-         fSfg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763929482; x=1764534282;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=AF5ogFOESgOt7rvRfEwnyUu5pZ0Em2kftQ5XUCG+Du0=;
-        b=lE4jgn6caktf55V01opQLqfNuS8HqKyb6jyr4wABr7qalhZZVTQckGH5dex0lsOHqi
-         Ld4gVQzkMnrglVg5h3yEhiFW+uhoeUIQjuNRIlmkSymvfB5rwv1/g8CVrYss1MUTfFqJ
-         hEbKBOPrucdR8AU+qs61+kHeLu+L1NGV/Zw55H1bBd2FodWVrU9uhwRRatuJko0Cw5VA
-         4zAfhRq2Ho0l7L/pcACduJCNcoYFKw3kS3POc/RcPaBgtNXKgkfHkyE+hhq6i85Bnicx
-         wC1qDztXTHZ8SYj5yu2rz/4oedXKQqvYxKi7IKF9vbjO/Gc3BMz7EJDOk85kiI5oHt76
-         HamA==
-X-Forwarded-Encrypted: i=1; AJvYcCUxddECgujQstUGLee/1i/2ZadCYeHvgPsRafQF6XzKJy6+7HI/UflsBrzNXEAXi6PD/7T2Re2ePAxNQ0YbMH9x@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw55Zft0BNxipiSb8cDHqbRZwSi1GrQieeDZ8ldQvmwVYm/TVKM
-	+JeVcV10QLfyVzdlCAfq7GMlLGt6JbcJZOsp2T2J6lBlJ0ld7z0jXczE
-X-Gm-Gg: ASbGncvWMgwDI3GqH1tAZ9jutDdxoeFg5G55grSDrG2/KNr2Psu4T0SpgCE0achMXwx
-	HhljzgPTySON98qB9ZHQOz8rJzjE8KuEXVO4uDyv1hgkDLxBooJFtBpGuaRVQ5jAX14ewIorhn7
-	v0Dc5vzcppiwL2Jar4JxNrToyB+2tWjej6H1AU6W0Uk/lhU0mN2pxeYaqLLqy1PJMKHnwNHyJ4H
-	2yHl3jySlt+U/z+Dygzt6jGjLbJwPEo8cn3Uy4IYSceDplZIO3K1O3iNXxQNnF3Z2ojD63lSLid
-	pLw2UGpESwmJwq7B7z5BKFH17ClrzTLeKJ3NiolgSRIgrhbxNiFA3OirGEdQJsgtJ7tGm2LHBxg
-	TXsZ8j897JD5mcMVbDQ/BCiTk5riBHXmMepxA+ZtawFPRiVAbJi7m0rbRnz10fF5GNkWA41fkYt
-	TLxzeDZxHDxznzKolcetlZO+7liQ/Pe+E7rZBwEbiFIl0OM7I8Ls4=
-X-Google-Smtp-Source: AGHT+IElMmJIMHZiMdJFwuffpKzKXBYS7kUrz2YRBC6mjXJcPZe+Z3suYg7bX4lYoavOAlzsAyWpjA==
-X-Received: by 2002:a2e:3509:0:b0:378:e540:2f69 with SMTP id 38308e7fff4ca-37cd92e0edbmr18198111fa.45.1763929482031;
-        Sun, 23 Nov 2025 12:24:42 -0800 (PST)
-Received: from CryoVivoBook.. (176-67-24-127.dynamic-pool.mclaut.cc. [176.67.24.127])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-37cc6b59d3esm23275771fa.14.2025.11.23.12.24.40
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 23 Nov 2025 12:24:41 -0800 (PST)
-From: Oleksandr Suvorov <cryosay@gmail.com>
-To: linux-kernel@vger.kernel.org
-Cc: Oleksandr Suvorov <cryosay@gmail.com>,
-	Fabio Estevam <festevam@gmail.com>,
-	Guenter Roeck <linux@roeck-us.net>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Wim Van Sebroeck <wim@linux-watchdog.org>,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-watchdog@vger.kernel.org
-Subject: [PATCH] watchdog: imx7ulp_wdt: handle the nowayout option
-Date: Sun, 23 Nov 2025 22:24:33 +0200
-Message-ID: <20251123202437.2340955-1-cryosay@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	Sun, 23 Nov 2025 20:34:02 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=debian.org;
+	s=smtpauto.stravinsky; h=X-Debian-User:In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=CSgH1ZaYBrxKmSAB6ChlLxpJ6NUOOuEnqqcyJnSbdbw=; b=EUxLKgZvejQzA83OMk/dgKzdez
+	DtjkRGcx3Abo0/ozjfZ8XDtFsuqAclp5UUdY0DkSZ9jO0CXZZVgfDiVTfdLoZZMjREIJZr2qZWKaq
+	2c6Ll4p5qKdlEPyekY4XaJ7aDjx1wX3q7O6i5UMewlYPLPk/LelEW4njYFka7R5MX+GqfUWJgi79H
+	4J5bhbELxKUXt2CGBSv262saQhAXhF2PRV0uPwuVu8ciyq09Py9qM1ZZIcg1JN9L5SIolg76UWeBc
+	F4NCsDmZWODHMum0v8i+R/qBTIA8WVe/vKH+yBrgx+0KgnaoRMM1bA35UBRajWdcY/nalc/zSDXg5
+	SCrh9MNQ==;
+Received: from authenticated user
+	by stravinsky.debian.org with utf8esmtpsa (TLS1.3:ECDHE_SECP256R1__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
+	(Exim 4.94.2)
+	(envelope-from <jspricke@debian.org>)
+	id 1vNGmL-0022dN-Vb; Sun, 23 Nov 2025 20:33:50 +0000
+Date: Sun, 23 Nov 2025 21:33:47 +0100
+From: Jochen Sprickerhof <jspricke@debian.org>
+To: Nathan Chancellor <nathan@kernel.org>
+Cc: Salvatore Bonaccorso <carnil@debian.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Sylwester Nawrocki <s.nawrocki@samsung.com>,
+	Chanwoo Choi <cw00.choi@samsung.com>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, 1121211@bugs.debian.org,
+	linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-hardening@vger.kernel.org, Kees Cook <kees@kernel.org>
+Subject: Re: Bug#1121211: UBSAN: array-index-out-of-bounds in
+ /build/reproducible-path/linux-6.17.8/drivers/clk/samsung/clk-exynos-clkout.c:178:18
+Message-ID: <aSNvq-YjABITPQV5@vis>
+References: <176383554642.17713.6408785381758213911.reportbug@vis>
+ <aSIYDN5eyKFKoXKL@eldamar.lan>
+ <20251122203856.GA1099833@ax162>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="//E4p0t+s0jrCbp/"
+Content-Disposition: inline
+In-Reply-To: <20251122203856.GA1099833@ax162>
+Organization: The Debian Project
+X-Debian-User: jspricke
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251123_122444_931430_1C115034 
-X-CRM114-Status: GOOD (  10.66  )
+X-CRM114-CacheID: sfid-20251123_123401_176333_A4942284 
+X-CRM114-Status: GOOD (  11.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,34 +85,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The module parameter `nowayout` indicates whether the watchdog should ever
-be allowed to stop, but the driver currently ignores this option.
 
-Pass the `nowayout` parameter to the watchdog core by setting the
-WDOG_NO_WAY_OUT flag accordingly.
+--//E4p0t+s0jrCbp/
+Content-Type: text/plain; charset=us-ascii; format=flowed
+Content-Disposition: inline
 
-Signed-off-by: Oleksandr Suvorov <cryosay@gmail.com>
+Hi Nathan,
 
----
+* Nathan Chancellor <nathan@kernel.org> [2025-11-22 13:38]:
+>I bet it is the same problem as the ones I fixed in
+>
+>  6dc445c19050 ("clk: bcm: rpi: Assign ->num before accessing ->hws")
+>  9368cdf90f52 ("clk: bcm: dvp: Assign ->num before accessing ->hws")
+>
+>So something like this?
+>
+>Cheers,
+>Nathan
+>
+>diff --git a/drivers/clk/samsung/clk-exynos-clkout.c b/drivers/clk/samsung/clk-exynos-clkout.c
+>index 5f1a4f5e2e59..5b21025338bd 100644
+>--- a/drivers/clk/samsung/clk-exynos-clkout.c
+>+++ b/drivers/clk/samsung/clk-exynos-clkout.c
+>@@ -175,6 +175,7 @@ static int exynos_clkout_probe(struct platform_device *pdev)
+> 	clkout->mux.shift = EXYNOS_CLKOUT_MUX_SHIFT;
+> 	clkout->mux.lock = &clkout->slock;
+>
+>+	clkout->data.num = EXYNOS_CLKOUT_NR_CLKS;
+> 	clkout->data.hws[0] = clk_hw_register_composite(NULL, "clkout",
+> 				parent_names, parent_count, &clkout->mux.hw,
+> 				&clk_mux_ops, NULL, NULL, &clkout->gate.hw,
+>@@ -185,7 +186,6 @@ static int exynos_clkout_probe(struct platform_device *pdev)
+> 		goto err_unmap;
+> 	}
+>
+>-	clkout->data.num = EXYNOS_CLKOUT_NR_CLKS;
+> 	ret = of_clk_add_hw_provider(clkout->np, of_clk_hw_onecell_get, &clkout->data);
+> 	if (ret)
+> 		goto err_clk_unreg;
+>
 
- drivers/watchdog/imx7ulp_wdt.c | 1 +
- 1 file changed, 1 insertion(+)
+This fixes it for me, feel free to add a
 
-diff --git a/drivers/watchdog/imx7ulp_wdt.c b/drivers/watchdog/imx7ulp_wdt.c
-index 0f13a30533574..03479110453ce 100644
---- a/drivers/watchdog/imx7ulp_wdt.c
-+++ b/drivers/watchdog/imx7ulp_wdt.c
-@@ -346,6 +346,7 @@ static int imx7ulp_wdt_probe(struct platform_device *pdev)
- 	watchdog_stop_on_reboot(wdog);
- 	watchdog_stop_on_unregister(wdog);
- 	watchdog_set_drvdata(wdog, imx7ulp_wdt);
-+	watchdog_set_nowayout(wdog, nowayout);
- 
- 	imx7ulp_wdt->hw = of_device_get_match_data(dev);
- 	ret = imx7ulp_wdt_init(imx7ulp_wdt, wdog->timeout * imx7ulp_wdt->hw->wdog_clock_rate);
--- 
-2.43.0
+Tested-by: Jochen Sprickerhof <jochen@sprickerhof.de>
 
-base-commit: 1af5c1d3a90246a15225fc7de0ed7e5f9b2f3f98
-branch: master-imc7ulp_wdt-nowayout
+Thanks!
+
+Jochen
+
+--//E4p0t+s0jrCbp/
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCgAdFiEEc7KZy9TurdzAF+h6W//cwljmlDMFAmkjb6cACgkQW//cwljm
+lDMoDg//WSStBBpXj6C9bzA/OXvHMMCtdAs1iFeSvljh/6z+MJLvZ1b4Vo5zok1/
+lbQHn5aM/rYeSKlCM4vEiIJdMEaDD8tYD0TLgGAwDirnB/GStWYVRClBiEyLlhmf
+0/9at7smuicoYDM6/5AMglwznd4Dqx8WzNjDfBFe5PzkDd41+/vQ+M9uc8ql9F0A
+KI4YpGrwXCo86y213ke/9EALuafdzI0iY3+/DVypdB5sp5dtwhvfY3T0B1Is4Ldh
+wBhZqz3f5eOn5U87MHEFmcRDr01z37Oyj8kRFwMPWy7WJ9wn5Xc8o4wC36oRgwBY
+5FpvRXTcoZL4V6fnL+9243yz2BOV6ZUtQ5PQEvtHcwGDn/COlU4Ibn6XO1pryRxO
+lEksJbWGN5c6wd+NwxaXdb+U3wABQY8r12RwhZHEXAgIdBBHnmJ5NVNQDR+OF/kX
+iSpW2QokVWpi/D6U5gjuSC+bkce0XLoKHawDV8eNDnLpW9hQU/1mhhbNZZGzp2Ur
+YBul0za2dSfSklh/bH/7PsIiQrKJvYD+14u6ZWOuF2bZLZ/mMr6bjYr6k/x4iC0J
+njfvrmxBMq0c8kYBaS+g7mOTGEON7vbnP0JK6BW/MfQjYZO/jKmu1MCUhIgKhwsq
+EcGRUeH+NeSuA1DUbVd4t/NbxzzQjhTH1jQFxj8jCHEFdtB/oMM=
+=txjC
+-----END PGP SIGNATURE-----
+
+--//E4p0t+s0jrCbp/--
 
