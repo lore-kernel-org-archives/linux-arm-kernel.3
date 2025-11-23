@@ -4,90 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4FA2CFC518
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Nov 2025 03:37:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D698ECFC518
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Nov 2025 05:35:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=W5oK2o3SrLjHM01f0TeRILhWEOg+46/ai8RnHe/MR9w=; b=s9ATMD51RZb4zcOHGmsPMA6o2B
-	W8o1BUfZTHiK/IZKzMRGlaJouR14D9Tw5XsmphlowG7t89e8BctphQtvAbqnOuvI8YmLSFdwDy8nb
-	LEf7LkdMQiZ5UtUcE6fpCjM0Y7d05i7HeDlgtbsmIznh6ZwqRgEa3MtMcaFsposivFGFb2jZ7IfCH
-	Q6n4Ufe5QQKUxtgZKpBZ6aXw8hhFoIKYgA1y6z5ilI0Xsq9yof20jy84+NPucj1z/Qmj6k4cScF8C
-	3y5SW9ODq2Vi4MbkrOOT0YE8v4lh3yr5zRSSIOqgAgR5meZKAIuy8ur+5pvM11ylBklg/f906/Bqi
-	h/dc+h1g==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=T+e2JOelVmS+sr+Sleudbqnke/JjW6sLAGC7No2VitU=; b=2ZFbcOHWjY0udy46JRnM5kGzkb
+	3ALPGA/+G6CTtRgMKXAqDcx/sLcqb5tWhQIuFnD1GUSpsx08LdkX7VA09SYrG1emb1qdlxciLOjaY
+	i/dIG9ym6zhei8CGmPo4oWteqSCKUWl87HJQoOQ7NO+Gh9vU1mxIZ5boqqRawunkjKo0UioJTcH0p
+	FKueQ6/ZgDYDc+mG6fgrN6gIm9SakRjnNSL16kl5aKO8sCGX0mqH1KsoXI1+txfu4YW9krD7hoH/q
+	px0LsSF6CUvAyxf/vuhSMctT/UASFX8vxigkWMvFESR0k6cEd7uSiVAACsHz896kQeZ5E78E44oZb
+	mItCoyTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vN0uo-0000000A6QA-23KC;
-	Sun, 23 Nov 2025 03:37:30 +0000
-Received: from mail.loongson.cn ([114.242.206.163])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vN0ul-0000000A6Oq-3B5V;
-	Sun, 23 Nov 2025 03:37:29 +0000
-Received: from loongson.cn (unknown [117.22.84.22])
-	by gateway (Coremail) with SMTP id _____8BxE9BogSJpoxUnAA--.18294S3;
-	Sun, 23 Nov 2025 11:37:12 +0800 (CST)
-Received: from [192.168.0.111] (unknown [117.22.84.22])
-	by front1 (Coremail) with SMTP id qMiowJDxrcFkgSJp3Hs8AQ--.7566S3;
-	Sun, 23 Nov 2025 11:37:10 +0800 (CST)
-Message-ID: <fc4fa66f-15a0-ebe3-0a27-f3f38b03bbdb@loongson.cn>
-Date: Sun, 23 Nov 2025 11:37:14 +0800
+	id 1vN2lI-0000000A9wo-3UsK;
+	Sun, 23 Nov 2025 05:35:48 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vN2lF-0000000A9wP-19ZC
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 23 Nov 2025 05:35:46 +0000
+Received: from pendragon.ideasonboard.com (fs276ed015.tkyc509.ap.nuro.jp [39.110.208.21])
+	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 81B70928;
+	Sun, 23 Nov 2025 06:33:34 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1763876015;
+	bh=7R2J3UHNTGq7sW4OHvxo2SU6BqTfcIBAWds//ac/RlY=;
+	h=From:To:Cc:Subject:Date:From;
+	b=Khc2Hr796jzUuEDdathLgOSrUaQv1sfQn24lnohpe07FWmQ9eIcIo6PqDP34E+dgL
+	 OlEI0JSy93dS5Wk23Su+fNOSnIw/dI1M9vXgeZg45FRnKiV+g82a3FOv1zsrePhr3a
+	 acosTqqBzQ8Z9+O+ZNE6Zam7QUo89CEI/2WWswsg=
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: netdev@vger.kernel.org,
+	imx@lists.linux.dev
+Cc: linux-arm-kernel@lists.infradead.org,
+	Kieran Bingham <kieran.bingham@ideasonboard.com>,
+	Stefan Klug <stefan.klug@ideasonboard.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	Clark Wang <xiaoning.wang@nxp.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Fabio Estevam <festevam@denx.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Francesco Dolcini <francesco.dolcini@toradex.com>,
+	Frank Li <Frank.Li@nxp.com>,
+	Heiko Schocher <hs@denx.de>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Joakim Zhang <qiangqing.zhang@nxp.com>,
+	Joy Zou <joy.zou@nxp.com>,
+	Marcel Ziswiler <marcel.ziswiler@toradex.com>,
+	Marco Felsch <m.felsch@pengutronix.de>,
+	Martyn Welch <martyn.welch@collabora.com>,
+	Mathieu Othacehe <othacehe@gnu.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Richard Hu <richard.hu@technexion.com>,
+	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Shenwei Wang <shenwei.wang@nxp.com>,
+	Stefano Radaelli <stefano.radaelli21@gmail.com>,
+	Wei Fang <wei.fang@nxp.com>,
+	Xiaoliang Yang <xiaoliang.yang_1@nxp.com>
+Subject: [PATCH] net: stmmac: imx: Do not stop RX_CLK in Rx LPI state for i.MX8MP
+Date: Sun, 23 Nov 2025 14:35:18 +0900
+Message-ID: <20251123053518.8478-1-laurent.pinchart@ideasonboard.com>
+X-Mailer: git-send-email 2.51.2
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.4.0
-Subject: Re: [PATCH v2] efistub: Only link libstub to final vmlinux
-Content-Language: en-US
-To: Huacai Chen <chenhuacai@kernel.org>
-Cc: Will Deacon <will@kernel.org>, Josh Poimboeuf <jpoimboe@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Paul Walmsley <pjw@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- "Madhavan T. Venkataraman" <madvenka@linux.microsoft.com>,
- Ard Biesheuvel <ardb@kernel.org>, loongarch@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org,
- linux-efi@vger.kernel.org, linux-kbuild@vger.kernel.org,
- linux-kernel@vger.kernel.org, Nathan Chancellor <nathan@kernel.org>
-References: <CAAhV-H6m5vszCyiF3qi94cpHBPVuqM2xH93D=gfsQqOSYvC-sA@mail.gmail.com>
- <33612d85-e70b-26da-8460-ea6b9064ce08@loongson.cn>
- <CAAhV-H5ZSTFDxvm-W1CrgEoQ5d_jw5yVsfetQ_J_qL5pqLtzgg@mail.gmail.com>
- <CAMj1kXGk0udgM67wrWqahqK8H0uE8emQj51SmJey+7fE-FTjdA@mail.gmail.com>
- <CAAhV-H4c=vdNWO0v_mYL2xZ9FYjDyRDvt6f_kV4d8Bh=CRJniQ@mail.gmail.com>
- <CAMj1kXEaxxcWTTANWeEMNjYDymdL5Fxy2B=XBF4RGtteEkfinw@mail.gmail.com>
- <421c08e1-255b-447b-b5e3-ee6544fbefd2@loongson.cn>
- <CAAhV-H5KsFShDJ_Cxu+1_ces8oojn8+S-7PLmE7aUj8gX5_GEw@mail.gmail.com>
- <32s3lvzfu6jkyho7qenrqbsm5wkgjnzn2imdp6tfwycmyxpzgu@kg5367uxmxii>
- <CAAhV-H47fzaKcMhgLWWOTxB+srBsg85-eK0LW1vQXQnvq32-+w@mail.gmail.com>
- <aRsH7RTpAah4g5Xr@willie-the-truck>
- <CAAhV-H4AasfFet_Gi_mVyte3RPMH3qBS73dBfF-=Gd7HJ6ZPEw@mail.gmail.com>
- <39617a3e-c476-abac-8425-bbcece769cdb@loongson.cn>
- <CAAhV-H4fHBuRpDEDQrExApgnREJaT8JWUJ2700bEPFxDqToi2w@mail.gmail.com>
-From: Tiezhu Yang <yangtiezhu@loongson.cn>
-In-Reply-To: <CAAhV-H4fHBuRpDEDQrExApgnREJaT8JWUJ2700bEPFxDqToi2w@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: qMiowJDxrcFkgSJp3Hs8AQ--.7566S3
-X-CM-SenderInfo: p1dqw3xlh2x3gn0dqz5rrqw2lrqou0/
-X-Coremail-Antispam: 1Uk129KBj93XoW3Jw4DKw47AFWftFWkCw47Jrc_yoW7GFy5pF
-	WUAayqkF4DArW3Cw1ktw18WFyayr1xXry8Wrn8KrykAryqvrnxJr4Skr1j9F9Yqr1rW3W2
-	vF40qFyavFWUA3gCm3ZEXasCq-sJn29KB7ZKAUJUUUUx529EdanIXcx71UUUUU7KY7ZEXa
-	sCq-sGcSsGvfJ3Ic02F40EFcxC0VAKzVAqx4xG6I80ebIjqfuFe4nvWSU5nxnvy29KBjDU
-	0xBIdaVrnRJUUUPFb4IE77IF4wAFF20E14v26r1j6r4UM7CY07I20VC2zVCF04k26cxKx2
-	IYs7xG6rWj6s0DM7CIcVAFz4kK6r1Y6r17M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48v
-	e4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_JFI_Gr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI
-	0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVWUJVW8JwA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_
-	Gr0_Gr1UM2kKe7AKxVWUAVWUtwAS0I0E0xvYzxvE52x082IY62kv0487Mc804VCY07AIYI
-	kI8VC2zVCFFI0UMc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUAVWU
-	twAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcVAKI48JMx
-	k0xIA0c2IEe2xFo4CEbIxvr21lc7CjxVAaw2AFwI0_Jw0_GFyl42xK82IYc2Ij64vIr41l
-	4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1l4IxYO2xFxVAFwI0_JF0_Jw1lx2IqxVAqx4xG67AKxV
-	WUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r4a6rW5MIIYrxkI
-	7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_JFI_Gr1lIxAIcVC0I7IYx2IY6xkF7I0E14v26r
-	4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI
-	42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjxU2-VyUUUUU
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251122_193728_194535_1D86218E 
-X-CRM114-Status: GOOD (  26.50  )
+X-CRM114-CacheID: sfid-20251122_213545_782830_1A50B2A1 
+X-CRM114-Status: GOOD (  28.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,142 +92,124 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/23/25 10:29, Huacai Chen wrote:
-> On Sat, Nov 22, 2025 at 7:04 PM Tiezhu Yang <yangtiezhu@loongson.cn> wrote:
->>
->> Cc: Nathan Chancellor <nathan@kernel.org>
->>
->> Hi all,
->>
->> On 11/21/25 22:36, Huacai Chen wrote:
->>> On Mon, Nov 17, 2025 at 7:33 PM Will Deacon <will@kernel.org> wrote:
->>>>
->>>> On Sat, Nov 15, 2025 at 11:16:42AM +0800, Huacai Chen wrote:
->>>>> On Wed, Nov 12, 2025 at 2:00 AM Josh Poimboeuf <jpoimboe@kernel.org> wrote:
->>>>>>
->>>>>> On Mon, Nov 10, 2025 at 03:00:00PM +0800, Huacai Chen wrote:
->>>>>>> On Mon, Nov 10, 2025 at 9:19 AM Tiezhu Yang <yangtiezhu@loongson.cn> wrote:
->>>>>>>> If I understand correctly, I should modify this patch to remove the
->>>>>>>> changes of arm and riscv for now, do the changes only when there is
->>>>>>>> a real problem or requirement some day, right? If no more comments,
->>>>>>>> I will send v3 later.
->>>>>>>
->>>>>>> Now everyone involved agrees that the efistub code is correct, so the
->>>>>>> proper solution is to fix the compiler.
->>>>>>
->>>>>> Hm?  I don't see how it's a compiler bug.  It's really just an objtool
->>>>>> limitation.
->>>>>>
->>>>>>> Changing efistub code and changing objtool (ignore __efistub prefix)
->>>>>>> are both workarounds, but I think changing objtool is a little more
->>>>>>> reasonable. Maybe Josh has different ideas?
->>>>>>
->>>>>> I thought the conversation had converged on what Tiezhu mentioned above,
->>>>>> which is to skip objtool on libstub for loongarch, but leave the other
->>>>>> arches alone.  That way objtool behavior is consistent between loongarch
->>>>>> and x86, and objtool doesn't need to ignore any prefixes.
->>>>>>
->>>>>> So basically, the v2 patch minus the arm64/riscv changes.
->>>>>
->>>>> Hi, ARM64 and RISC-V maintainers,
->>>>>
->>>>> Would you mind that this patch modifies the three architectures
->>>>> together (they are exactly the same style now)?
->>>>>
->>>>> Madhavan is the author of ARM64's objtool, I think your opinion is
->>>>> also very important.
->>>>
->>>> arm64 doesn't (yet) use objtool.
->>>>
->>>> I defer to Ard on anything relating to the arm64 efistub. Reading the
->>>> start of this thread, it doesn't look like he's convinced and I'm not
->>>> surprised if it's purely an issue with objtool.
->>> OK, I know, but I have a concern.
->>>
->>> Ard said that he is reluctant to make changes to accommodate a flawed
->>> build time tool and there may be regression risk.
->>>
->>> So, I'm also reluctant and don't want LoongArch to meet regression
->>> risk. If one day LoongArch has a regression, we probably need another
->>> workaround to "fix" this workaround. But if these three architectures
->>> change in the same way, we may have a chance to solve some fundamental
->>> problems...
->>
->> IIUC, Josh do not like to ignore these EFISTUB functions in
->> validate_branch() of objtool, Huacai do not like to only link
->> libstub to vmlinux only for LoongArch.
->>
->> It seems that there is only one way to fix or workaround this
->> problem, remove the attribute __noreturn for real_kernel_entry()
->> and then make efi_boot_kernel() ends with a return instruction [1]
->> or an unconditional jump instruction [2] that only touches
->> drivers/firmware/efi/libstub/loongarch.c.
->>
->> Since this is a issue only for LoongArch by now, what do you
->> think of this minimal change only for LoongArch libstub code?
->> Using "return EFI_LOAD_ERROR" [1] or "while (1)" [2]?
->>
->> Maybe this is the simple and direct way for this special issue
->> only on LoongArch so far. If not, any other suggestions?
->>
->> On the other hand, is it possible to add KBUILD_VMLINUX_LIBS_FINAL
->> and then use it only for LoongArch first [3]? Any potential risks?
->>
->> What is the next step?
-> Is it possible to improve objtool that can handle indirect __noreturn functions?
-> Is it possible to improve objtool that can handle
-> OBJECT_FILES_NON_STANDARD event LTO is enabled?
-> Is it possible to improve objtool that only ignore __efistub prefix
-> for LoongArch?
+The i.MX8MP-based Debix Model A board experiences an interrupt storm
+on the ENET_EQOS IRQ (135) when connected to an EEE-enabled peer.
 
-I think a new arch_is_efistub() can be added in objtool
-to handle this issue only for LoongArch, something like:
+Setting the eee-broken-1000t DT property in the PHY node solves the
+problem, which confirms that the issue is related to EEE. Device trees
+for 8 boards in the mainline kernel, including the i.MX8MP EVK, set the
+property, which indicates the issue is likely not limited to the Debix
+board, although some of those device trees may have blindly copied the
+property from the EVK.
 
-bool arch_is_retpoline(struct symbol *sym);
-bool arch_is_rethunk(struct symbol *sym);
-bool arch_is_embedded_insn(struct symbol *sym);
+The IRQ is documented in the reference manual as the logical OR of 4
+signals:
 
-This is valid for LoongArch and will not affect x86,
-arm64 and riscv can implement it some day.
+- ENET QOS TSN LPI RX Exit Interrupt
+- ENET QOS TSN Host System Interrupt
+- ENET QOS TSN Host System RX Channel Interrupts, Logical OR of
+  channels[4:0]
+- ENET QOS TSN Host System TX Channel Interrupts, Logical OR of
+  channels[4:0]
 
-The code looks like:
+Debugging the issue showed no unmasked interrupt sources from the Host
+System Interrupt (GMAC_INT_STATUS), Host System RX Channel Interrupts or
+Host System TX Channel Interrupts (MTL_INT_STATUS, MTL_CHAN_INT_CTRL and
+DMA_CHAN_STATUS) that was flagged at an unexpected high rate. This
+leaves the LPI RX Exit Interrupt as the most likely culprit.
 
-tools/objtool/include/objtool/arch.h:
-bool arch_is_efistub(struct symbol *sym);
+The reference manual doesn't clearly indicate what the interrupt signal
+is, but from its name we can reasonably infer that it would be connected
+to the EQOS lpi_intr_o output. That interrupt is cleared when reading
+the LPI control/status register. However, its deassertion is synchronous
+to the RX clock domain, so it will take time to clear. It appears that
+it could even fail to clear at all, as in the following sequence of
+events:
 
-tools/objtool/check.c:
-__weak bool arch_is_efistub(struct symbol *sym)
-{
-	return false;
-}
+- When the PHY exits LPI mode, it restarts generating the RX clock
+  (clk_rx_i input signal to the GMAC).
+- The MAC detects exit from LPI, and asserts lpi_intr_o. This triggers
+  the ENET_EQOS interrupt.
+- Before the CPU has time to process the interrupt, the PHY enters LPI
+  mode again, and stops generating the RX clock.
+- The CPU processes the interrupt and reads the GMAC4_LPI_CTRL_STATUS
+  registers. This does not clear lpi_intr_o as there's no clk_rx_i.
 
-tools/objtool/arch/loongarch/decode.c:
-bool arch_is_efistub(struct symbol *sym)
-{
-	return !strncmp(func->name, "__efistub_", 10));
-}
+The ENET_EQOS interrupt will keep firing until the PHY resumes
+generating the RX clock when it eventually exits LPI mode again.
 
-tools/objtool/check.c:
-static int validate_branch()
-{
-...
-			if (arch_is_efistub(func))
-				return 0;
+As LPI exit is reported by the LPIIS bit in GMAC_INT_STATUS, the
+lpi_intr_o signal may not have been meant to be wired to a CPU
+interrupt. It can't be masked in GMAC registers, and OR'ing it to the
+other GMAC interrupt signals seems to be a design mistake as it makes it
+impossible to selectively mask the interrupt in the GIC either.
 
-			if (file->ignore_unreachables)
-				return 0;
+Setting the STMMAC_FLAG_RX_CLK_RUNS_IN_LPI platform data flag gets rid
+of the interrupt storm, which confirms the above theory.
 
-			WARN("%s() falls through to next function %s()",
-			     func->name, insn_func(insn)->name);
-			func->warned = 1;
+The i.MX8DXL and i.MX93, which also integrate an EQOS, may also be
+affected, as hinted by the eee-broken-1000t property being set in the
+i.MX8DXL EVK and the i.MX93 Variscite SoM device trees. The reference
+manual of the i.MX93 indicates that the ENET_EQOS interrupt also OR's
+the "ENET QOS TSN LPI RX exit Interrupt", while the i.MX8DXL reference
+manual doesn't provide details about the ENET_EQOS interrupt.
 
-			return 1;
-...
-}
+Additional testing is needed with the i.MX8DXL and i.MX93, so for now
+set the flag for the i.MX8MP only. The eee-broken-1000t property could
+possibly be removed from some of the i.MX8MP device trees, but that also
+require per-board testing.
 
-Let us wait for Josh's opinion.
+Suggested-by: Russell King <linux@armlinux.org.uk>
+Signed-off-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+---
+I have CC'ed authors and maintainers of the i.MX8DXL, i.MX8MP and i.MX93
+device trees that set the eee-broken-1000t property for awareness. To
+test if the property can be dropped, you will need to
 
-Thanks,
-Tiezhu
+- Connect the EQOS interface to an EEE-enabled peer with a 1000T link.
+- Drop the eee-broken-1000t property from the device tree.
+- Boot the board and check with `ethtool --show-eee` that EEE is active.
+- Check the number of interrupts received from the EQOS in
+  /proc/interrupts. After boot on my system (with an NFS root) I have
+  ~6000 interrupts when no interrupt storm occurs, and hundreds of
+  thousands otherwise.
+- Apply this patch and check that EEE works as expected without any
+  interrupt storm. For i.MX8DXL and i.MX93, you will need to set the
+  STMMAC_FLAG_RX_CLK_RUNS_IN_LPI in the corresponding imx_dwmac_ops
+  instances in drivers/net/ethernet/stmicro/stmmac/dwmac-imx.c.
+---
+ drivers/net/ethernet/stmicro/stmmac/dwmac-imx.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-imx.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-imx.c
+index 4268b9987237..125bf435c281 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac-imx.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-imx.c
+@@ -362,8 +362,7 @@ static int imx_dwmac_probe(struct platform_device *pdev)
+ 		return ret;
+ 	}
+ 
+-	if (data->flags & STMMAC_FLAG_HWTSTAMP_CORRECT_LATENCY)
+-		plat_dat->flags |= STMMAC_FLAG_HWTSTAMP_CORRECT_LATENCY;
++	plat_dat->flags |= data->flags;
+ 
+ 	/* Default TX Q0 to use TSO and rest TXQ for TBS */
+ 	for (int i = 1; i < plat_dat->tx_queues_to_use; i++)
+@@ -401,7 +400,8 @@ static struct imx_dwmac_ops imx8mp_dwmac_data = {
+ 	.addr_width = 34,
+ 	.mac_rgmii_txclk_auto_adj = false,
+ 	.set_intf_mode = imx8mp_set_intf_mode,
+-	.flags = STMMAC_FLAG_HWTSTAMP_CORRECT_LATENCY,
++	.flags = STMMAC_FLAG_HWTSTAMP_CORRECT_LATENCY
++	       | STMMAC_FLAG_RX_CLK_RUNS_IN_LPI,
+ };
+ 
+ static struct imx_dwmac_ops imx8dxl_dwmac_data = {
+
+base-commit: dcb6fa37fd7bc9c3d2b066329b0d27dedf8becaa
+-- 
+Regards,
+
+Laurent Pinchart
 
 
