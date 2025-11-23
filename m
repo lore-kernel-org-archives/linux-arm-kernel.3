@@ -4,65 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2D05CFD316
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Nov 2025 21:46:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0A7CCFD2F6
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Nov 2025 22:04:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3ImInCLnHSIfTBavtoKv6xuVjVE82FbF9sBSZUzkv9w=; b=S/Lm54yKlvexNKOl6uK8q3Irv0
-	1Eq8lR1FsE8k9Oq+3c9yvaYbC9a/VqjMjn903wJMXjjcnVBZi6JXXZ+7dcfmho1R3UVf6pHjJ2ZdQ
-	EMZImVP40LFI8/qvlO7YaWFrxII9NsoaIA7fcOz4k91IdYrAZBnpZceeujXrZIsxpdnxBIaup8gnc
-	jqg1MA7dT4d2nCXP7kf5YpB/LTtN+pWqpSKtcWkjsA6yoqdiVmWwq6WldpCVRoOQuIpkWs2GHQIgu
-	MWur2gCcGhJZNXL8KK9pMxEVYToFsoQY32eUAmwZNPvUKwsl8uzCUu2cEA7+xbCfjp0iYi/DKMme2
-	8eopUZuQ==;
+	bh=87aVKtphPmWH51C+RJV57IlAYwC+mC5UV6mscsFpSJ0=; b=QQhjBSA5rRoBs7NZv8UsoEt6Bo
+	By02Nl88BAxQt3FjtaT2FHs77NBCJsUVpDtqgtVJ5yDUX+u+f75ixe18V2j4G/TxBwrftGbZ7/tE8
+	eGVRATjOaFcHNK29Z80QP1B2oWSavfzQq9DKGwev2lvqFrL6mFmRUCFeYcHEyml3CdK0eYetMasMe
+	jJwm5EK+n2g0frQBipFGwrzJJif5LjQe2pHlMJnaPCAbvxFeO34r5tmw+lCC3G9Xa10INvceLTQyv
+	m774Jyh0spy4DIMDLEmj5jL//v9I605bn5pbN4aG8axaEmhOM9lTWIvwi81suShVzMOPKlOtZlv6N
+	RBzZD8dw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNHuQ-0000000Aiq3-2WNo;
-	Sun, 23 Nov 2025 21:46:14 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vNIC8-0000000AjMG-0XRN;
+	Sun, 23 Nov 2025 22:04:32 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNHuO-0000000Aipj-2gPA
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 23 Nov 2025 21:46:13 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A1E5140B00;
-	Sun, 23 Nov 2025 21:46:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E5CEFC113D0;
-	Sun, 23 Nov 2025 21:46:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763934371;
-	bh=erfZkZ5UG+aglPHXCSoaPTJtbm5oOoBqRQdNgSjH3p8=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=OTQjUcgpGsoo/tI+Ste3IPNsPwquTF15b/vz+oJg/31YH7tWfXd+mdvv4fMX2SESS
-	 iJY3xT1A5n+x3tOKzQNyab83B9yhLuBapLwi3ymRbZ+8IBUwgbZNfmVlOV5WME3Uj9
-	 a652dLeB0DCMPFO0SyFNB879qeQd6avgu7IyIQdEmGc0X+U9vNMTEb7lwZAdN+68Z2
-	 LJ7fqHwI1prtLQj+HCfaOCsdYX1jlf1p9R4FSIto2kYJO3IPMrjW79/33h7f6y9CfG
-	 tpnynnzmemGLEEEcaMGXxAqwpL1iGGqpmm8czNrrwItU9AVDZwh4m07ArO4z0JvAoW
-	 7KZfc+w9k/AiA==
-Message-ID: <9d0aa1ef-a356-4ce0-8ea4-321d07c25ad2@kernel.org>
-Date: Sun, 23 Nov 2025 22:46:06 +0100
+	id 1vNIC6-0000000AjLY-0GyW;
+	Sun, 23 Nov 2025 22:04:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=87aVKtphPmWH51C+RJV57IlAYwC+mC5UV6mscsFpSJ0=; b=RXXJTQXismvJyTDBN7rfBczTLa
+	F+XWpvrLeB3NEJsyf8s1Qg21HXFvIPhH+3iVpIwfDvSqKBuJ+AsT0uLEhdl54R0vt0Avm6aXzU8JS
+	vV3mfFidjuhfgXAmTSWVuECOY2Vg4Xcv9Mxm2zOgQncJxIBDtV+pe3QCbmnfBu6J1XOEY1Eocg3Py
+	FQ2DPIaTQDoeMLxoqGsOEtsDM7yz3KGcU0S6Y8Qy+Ph6uM6eRM42a3IjvIphoEpQkz4271+Cqtmyc
+	cCGUwqjZ5AT1FoewevopSrMfHFaPugrKKBB4nkK1ah1qWzznAFVel+4YmfSaMKkzxMXnhF8pgPaac
+	LHiHjRyw==;
+Received: from i53875bd2.versanet.de ([83.135.91.210] helo=phil..)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1vNIC0-00008P-9S; Sun, 23 Nov 2025 23:04:24 +0100
+From: Heiko Stuebner <heiko@sntech.de>
+To: mturquette@baylibre.com,
+	sboyd@kernel.org,
+	robh@kernel.org,
+	p.zabel@pengutronix.de,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	Elaine Zhang <zhangqing@rock-chips.com>
+Cc: Heiko Stuebner <heiko@sntech.de>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-clk@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	finley.xiao@rock-chips.com
+Subject: Re: [PATCH v9 0/2] clk: rockchip: Add clock controller for the RK3506
+Date: Sun, 23 Nov 2025 23:04:21 +0100
+Message-ID: <176393545901.212596.10640796816193748171.b4-ty@sntech.de>
+X-Mailer: git-send-email 2.47.2
+In-Reply-To: <20251121075350.2564860-1-zhangqing@rock-chips.com>
+References: <20251121075350.2564860-1-zhangqing@rock-chips.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] nvmem: apple-spmi-nvmem: wrap regmap calls to satisfy CFI
-To: Jens Reidel <adrian@mainlining.org>, Janne Grunau <j@jannau.net>,
- Neal Gompa <neal@gompa.dev>, Srinivas Kandagatla <srini@kernel.org>,
- Sasha Finkelstein <fnkl.kernel@gmail.com>, Hector Martin <marcan@marcan.st>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Clayton Craft <craftyguy@postmarketos.org>,
- stable@vger.kernel.org
-References: <20251118-apple-spmi-nvmem-cfi-v1-1-75b9ced0a2c2@mainlining.org>
-Content-Language: en-US
-From: Sven Peter <sven@kernel.org>
-In-Reply-To: <20251118-apple-spmi-nvmem-cfi-v1-1-75b9ced0a2c2@mainlining.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251123_134612_708790_C8BACF99 
-X-CRM114-Status: UNSURE (   8.44  )
+X-CRM114-CacheID: sfid-20251123_140430_147823_97828AD4 
+X-CRM114-Status: UNSURE (   9.90  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -78,40 +82,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 18.11.25 03:35, Jens Reidel wrote:
-> The Apple SPMI NVMEM driver previously cast regmap_bulk_read/write to
-> void * when assigning them to nvmem_config's reg_read/reg_write
-> function pointers.
+
+On Fri, 21 Nov 2025 15:53:48 +0800, Elaine Zhang wrote:
+> [PATCH 1/5] ~ [PATCH 3/5] has applied.
 > 
-> This cast breaks the expected function signature of nvmem_reg_read_t
-> and nvmem_reg_write_t. With CFI enabled, indirect calls through
-> these pointers fail:
+> Change in V9:
+> [PATCH v9 1/2]: Fix "clocks"
+> [PATCH v9 2/2]: No change
 > 
->    CFI failure at nvmem_reg_write+0x194/0x1e4 (target: regmap_bulk_write+0x0/0x2c8; expected type: 0x83a189c3)
->    ...
->    Call trace:
->     nvmem_reg_write+0x194/0x1e4 (P)
->     __nvmem_cell_entry_write+0x298/0x2e8
->     nvmem_cell_write+0x24/0x34
->     macsmc_reboot_probe+0x1dc/0x454 [macsmc_reboot]
->    ...
+> Change in V8:
+> [PATCH v8 1/2]: Add explanations for "clocks"
+> [PATCH v8 2/2]: No change
 > 
-> Introduce thin wrapper functions with the correct nvmem function
-> pointer types to satisfy the CFI checks.
-> 
-> Fixes: fe91c24a551c ("nvmem: Add apple-spmi-nvmem driver")
-> Signed-off-by: Jens Reidel <adrian@mainlining.org>
-> Reported-by: Clayton Craft <craftyguy@postmarketos.org>
-> Tested-by: Clayton Craft <craftyguy@postmarketos.org>
-> Cc: stable@vger.kernel.org
-> ---
+> [...]
 
-Reviewed-by: Sven Peter <sven@kernel.org>
+Applied, thanks!
 
+[1/2] dt-bindings: clock: rockchip: Add RK3506 clock and reset unit
+      commit: 84898f8e9cea06f8178fc5ca53f068180f7bfba0
+[2/2] clk: rockchip: Add clock and reset driver for RK3506
+      commit: 18191dd750e6c9e17fabefd09ff418dd587bcdb9
 
-Thanks,
-
-
-Sven
-
+Best regards,
+-- 
+Heiko Stuebner <heiko@sntech.de>
 
