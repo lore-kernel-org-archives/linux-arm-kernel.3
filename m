@@ -4,112 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0B4ACFC518
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Nov 2025 10:23:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1E1DCFC518
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Nov 2025 10:39:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l/z36+6SY7PiBO3YBvcIfA8Id/2fYt86l8T5gzt0UJM=; b=dPSKxnv8DTzIao6O8t+1PU3O9h
-	ZknjJeP0CwIuLnNtGrG/r8donuFmVsMuqvokZoRucPpc4VNea2XYifWw9epa4qcdlQ6ozB4GfCC9Y
-	QY+az3KcSnLbnnmP9YrYsMu16YkxXPqL1ZbjjI6PknTjVTuBud4UhFz2qiiZenUU7cLBE/zASTfN8
-	TtMz+KJFtdrrr9oRg5Rft5lfyDNPAK2DhWiqdbKA72uvXs46C2HDTc9gyZ7ATJfsDHetivlam4Kwn
-	KFs/ro2GFDEl2w++Gp3YyJhgaAyaodUm0kJmV7n7kiRTULe38rZbzevzxzEgd9WimgSat2jdRblaC
-	Sw5DMWUw==;
+	bh=fhOZ5JmIh1oIgeJ6cR9Q76ZGPwtpfzxdsPIXzLPxJEU=; b=sh7QEbbz1TMqXi5dTHjPP0JPjC
+	IIorU1ndxcVaGVfc83HH9ANsdCCzE/8d7ls90Ai9XDvMGPFxiguJlN3qrdfqR9tUtwadFrx9vMQr1
+	+mag2MCIRQdfsTVBt3K/DxUwlHEUyMm0Nm8xxQjb/RtNo3z76K0Ohpp4jHFlS3ck7bDAaxYHNTTeF
+	EGINd9EDy7WxDpxjLlb4QZQaicxZsCm4YBVFfpXtqvcjwY01OFY2H8v4g1ff9rCM+p3gvrCmzCWoX
+	EErtb1ugNJVDHJuNU5hOH6Tv526+1W3DdniMGJAq0peVl98+9a0+MhLwYZHcbhTTxlnh2q6MV8Bo4
+	ASinZ8rg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vN7Fa-0000000ALI7-0mOh;
-	Sun, 23 Nov 2025 10:23:22 +0000
+	id 1vN7V5-0000000ALwU-0Zql;
+	Sun, 23 Nov 2025 10:39:23 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vN7FY-0000000ALHr-1FhZ
+	id 1vN7V4-0000000ALvx-0UKH
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 23 Nov 2025 10:23:20 +0000
+	Sun, 23 Nov 2025 10:39:22 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 690B660154;
-	Sun, 23 Nov 2025 10:23:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E5D90C113D0;
-	Sun, 23 Nov 2025 10:23:13 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 2967F6015B;
+	Sun, 23 Nov 2025 10:39:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C28D9C113D0;
+	Sun, 23 Nov 2025 10:39:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763893399;
-	bh=UiX7HVf3vaYnrjH0z8zCjrfqBr/dzzXW1fZ0kqi45VM=;
-	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
-	b=Tarun4EMLm/3AZKunWxcyKCAkMOWd8a/zIZbPLFSEioDD/m45BkNjFJ3Fd1r75o/y
-	 p5kS+YGd29OaLc6tXGR/yb0twr4ByhhFFWg0KX7mqUZpJ9Lu+LjPz6sPCbKZ+L36Xh
-	 zR0CjOMNi3i8wIwq+p+1kV+q0UDGw3ask4WsCugsoJQ4XlncTQ+zuPvXyD+NH3B6D0
-	 XzeeW1CILUZ+BZmbjxLtLPJhH01rvfsSsUcpryW0/arA81mSdItlbcA7hgnBXFwkaz
-	 WqYPdfEkDda1OsYR3YVIktGbjG4XeRqsDaCKN/ogUGc5no/qM6jpJWXzFqN5X8yr4I
-	 NzY8qbUoIwkdg==
-Message-ID: <b8d5e008-d004-4e4f-8229-1d8d23087718@kernel.org>
-Date: Sun, 23 Nov 2025 11:23:12 +0100
+	s=k20201202; t=1763894360;
+	bh=YyvJJLcgMMvpHfeF0q1qBa27/x+2KwhqR4QjVqfSxuM=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=QLOjAMRn4oRsexQ0IXXNK/QNsLmjPdbucoLA+PmQf3cXfXJer2U1kn6YCExOWKuRQ
+	 8o+es1gsKwxrFZwTOvoZd6z49/avshVcf+DE3d85kUkv7T40nKz3E9CYb8EW1CqJSy
+	 UUNe4a4nyfnPOTSYBeEdR1s49uHcxxcHmSXf2uOknz72QrjJUALYS3ryM4o4vkhJ7g
+	 gDtZcUOQTh0i5WZ2fZ/Xc/Me0p8HO8tg00R/o1DTjPi5Xe9qsuB/RzGqMHAmM6adIc
+	 t5L/vcylGTFE6Y9K0A9RJFlduqHR3k51KRhln4gatyUYyEWf/0hTyH14OBE3HEpJg6
+	 iv70jt8k4uLQg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vN7V0-00000007cYo-1rzp;
+	Sun, 23 Nov 2025 10:39:18 +0000
+From: Marc Zyngier <maz@kernel.org>
+To: stable@vger.kernel.org
+Cc: Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Peter Maydell <peter.maydell@linaro.org>
+Subject: [PATCH 6.12.y] KVM: arm64: Make all 32bit ID registers fully writable
+Date: Sun, 23 Nov 2025 10:39:09 +0000
+Message-ID: <20251123103909.3518993-1-maz@kernel.org>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <2025112021-arrest-chip-7336@gregkh>
+References: <2025112021-arrest-chip-7336@gregkh>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 2/2] arm64: dts: add support for NXP i.MX8MP FRDM board
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Rogerio Pimentel <rpimentel.silva@gmail.com>, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, shawnguo@kernel.org,
- s.hauer@pengutronix.de
-Cc: kernel@pengutronix.de, festevam@gmail.com,
- alexander.stein@ew.tq-group.com, dario.binacchi@amarulasolutions.com,
- marex@denx.de, Markus.Niebel@tq-group.com, y.moog@phytec.de,
- joao.goncalves@toradex.com, frieder.schrempf@kontron.de,
- josua@solid-run.com, francesco.dolcini@toradex.com, primoz.fiser@norik.com,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- Xiaofeng Wei <xiaofeng.wei@nxp.com>, Joseph Guo <qijian.guo@nxp.com>,
- Steven Yang <steven.yang@nxp.com>, Lei Xu <lei.xu@nxp.com>
-References: <20251123003603.246399-1-rpimentel.silva@gmail.com>
- <20251123003603.246399-2-rpimentel.silva@gmail.com>
- <7e50c694-af6b-40cc-b1dc-4dd4ecf85a8d@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <7e50c694-af6b-40cc-b1dc-4dd4ecf85a8d@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: stable@vger.kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, peter.maydell@linaro.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,70 +84,128 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 23/11/2025 10:42, Krzysztof Kozlowski wrote:
-> On 23/11/2025 01:36, Rogerio Pimentel wrote:
->> The FRDM-i.MX8MP is an NXP development platform based on the i.MX8M Plus
->> SoC, featuring a quad Cortex-A53, Cortex-M7 co-processor, 4GB LPDDR4,
->> 32GB eMMC, Wi-Fi 6/Bluetooth 5.4/802.15.4 tri-radio, Ethernet, HDMI/MIPI
->> display interfaces, camera connectors, and standard expansion headers.
->>
->> Based on the device tree found in the NXP repository at github
->> https://github.com/nxp-imx-support/meta-imx-frdm and on imx8mp-evk
->> board kernel mainline device tree.
->>
->> This is a basic device tree supporting:
->>
->>  - Quad Cortex-A53
->>  - 4GB LPDDR4 DRAM
->>  - PCA9450C PMIC with regulators
->>  - Two NXP PCAL6416 GPIO expanders
->>  - RGB LEDs via GPIO expander
->>  - I2C1, I2C2, I2C3 controllers
->>  - UART2 (console) and UART3 (with RTS/CTS)
->>  - USDHC3 (8-bit eMMC)
->>  - SNVS power key (onboard power button)
->>
->> Author: Xiaofeng Wei <xiaofeng.wei@nxp.com>
-> 
-> There is no such tag. Use git commit --amend --reset-author to set the
-> author.
-> 
->> Signed-off-by: Xiaofeng Wei <xiaofeng.wei@nxp.com>
->>
->> Co-developed-by: Joseph Guo <qijian.guo@nxp.com>
->> Signed-off-by: Joseph Guo <qijian.guo@nxp.com>
->>
-> 
-> There is never blank line between tags.
-> 
->> Co-developed-by: Steven Yang <steven.yang@nxp.com>
->> Signed-off-by: Steven Yang <steven.yang@nxp.com>
->>
->> Co-developed-by: Lei Xu <lei.xu@nxp.com>
->> Signed-off-by: Lei Xu <lei.xu@nxp.com>
->>
->> Co-developed-by: Rogerio Pimentel <rpimentel.silva@gmail.com>
->> Signed-off-by: Rogerio Pimentel <rpimentel.silva@gmail.com>
->> ---
->>
->> Changes in v5:
->>
->>  - Replace underscores (_) in node names with dashes (-)
->>  - Added missing Co-developed-by and Signed-off-by tags from all contributors
-> 
-> I assume you actually saw these SoBs in the code you took as your base?
-> Remember, do not add SoBs which were never present in the original work
-> (if company asks you, you can politely reply that they need to read what
-> SoB means)
-> 
-> That's anyway weirdly a lot of co-developed tags, are you sure they
-> wrote the code you took as the base here?
+commit 3f9eacf4f0705876a5d6526d7d320ca91d7d7a16 upstream.
 
-Although I think you mentioned you wanted all these last time, so it's
-fine. Although I did not think you will literally use that syntax and
-literally all the tags from Daniel's responses, because the syntax was
-not correct.
+32bit ID registers aren't getting much love these days, and are
+often missed in updates. One of these updates broke restoring
+a GICv2 guest on a GICv3 machine.
 
-Best regards,
-Krzysztof
+Instead of performing a piecemeal fix, just bite the bullet
+and make all 32bit ID regs fully writable. KVM itself never
+relies on them for anything, and if the VMM wants to mess up
+the guest, so be it.
+
+Fixes: 5cb57a1aff755 ("KVM: arm64: Zero ID_AA64PFR0_EL1.GIC when no GICv3 is presented to the guest")
+Reported-by: Peter Maydell <peter.maydell@linaro.org>
+Cc: stable@vger.kernel.org
+Reviewed-by: Oliver Upton <oupton@kernel.org>
+Link: https://patch.msgid.link/20251030122707.2033690-2-maz@kernel.org
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+---
+ arch/arm64/kvm/sys_regs.c | 61 ++++++++++++++++++++-------------------
+ 1 file changed, 32 insertions(+), 29 deletions(-)
+
+diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+index 42791971f7588..5c09c788aaa61 100644
+--- a/arch/arm64/kvm/sys_regs.c
++++ b/arch/arm64/kvm/sys_regs.c
+@@ -2176,22 +2176,26 @@ static bool bad_redir_trap(struct kvm_vcpu *vcpu,
+ 	.val = 0,				\
+ }
+ 
+-/* sys_reg_desc initialiser for known cpufeature ID registers */
+-#define AA32_ID_SANITISED(name) {		\
++/* sys_reg_desc initialiser for writable ID registers */
++#define ID_WRITABLE(name, mask) {		\
+ 	ID_DESC(name),				\
+ 	.set_user = set_id_reg,			\
+-	.visibility = aa32_id_visibility,	\
++	.visibility = id_visibility,		\
+ 	.reset = kvm_read_sanitised_id_reg,	\
+-	.val = 0,				\
++	.val = mask,				\
+ }
+ 
+-/* sys_reg_desc initialiser for writable ID registers */
+-#define ID_WRITABLE(name, mask) {		\
++/*
++ * 32bit ID regs are fully writable when the guest is 32bit
++ * capable. Nothing in the KVM code should rely on 32bit features
++ * anyway, only 64bit, so let the VMM do its worse.
++ */
++#define AA32_ID_WRITABLE(name) {		\
+ 	ID_DESC(name),				\
+ 	.set_user = set_id_reg,			\
+-	.visibility = id_visibility,		\
++	.visibility = aa32_id_visibility,	\
+ 	.reset = kvm_read_sanitised_id_reg,	\
+-	.val = mask,				\
++	.val = GENMASK(31, 0),			\
+ }
+ 
+ /*
+@@ -2380,40 +2384,39 @@ static const struct sys_reg_desc sys_reg_descs[] = {
+ 
+ 	/* AArch64 mappings of the AArch32 ID registers */
+ 	/* CRm=1 */
+-	AA32_ID_SANITISED(ID_PFR0_EL1),
+-	AA32_ID_SANITISED(ID_PFR1_EL1),
++	AA32_ID_WRITABLE(ID_PFR0_EL1),
++	AA32_ID_WRITABLE(ID_PFR1_EL1),
+ 	{ SYS_DESC(SYS_ID_DFR0_EL1),
+ 	  .access = access_id_reg,
+ 	  .get_user = get_id_reg,
+ 	  .set_user = set_id_dfr0_el1,
+ 	  .visibility = aa32_id_visibility,
+ 	  .reset = read_sanitised_id_dfr0_el1,
+-	  .val = ID_DFR0_EL1_PerfMon_MASK |
+-		 ID_DFR0_EL1_CopDbg_MASK, },
++	  .val = GENMASK(31, 0), },
+ 	ID_HIDDEN(ID_AFR0_EL1),
+-	AA32_ID_SANITISED(ID_MMFR0_EL1),
+-	AA32_ID_SANITISED(ID_MMFR1_EL1),
+-	AA32_ID_SANITISED(ID_MMFR2_EL1),
+-	AA32_ID_SANITISED(ID_MMFR3_EL1),
++	AA32_ID_WRITABLE(ID_MMFR0_EL1),
++	AA32_ID_WRITABLE(ID_MMFR1_EL1),
++	AA32_ID_WRITABLE(ID_MMFR2_EL1),
++	AA32_ID_WRITABLE(ID_MMFR3_EL1),
+ 
+ 	/* CRm=2 */
+-	AA32_ID_SANITISED(ID_ISAR0_EL1),
+-	AA32_ID_SANITISED(ID_ISAR1_EL1),
+-	AA32_ID_SANITISED(ID_ISAR2_EL1),
+-	AA32_ID_SANITISED(ID_ISAR3_EL1),
+-	AA32_ID_SANITISED(ID_ISAR4_EL1),
+-	AA32_ID_SANITISED(ID_ISAR5_EL1),
+-	AA32_ID_SANITISED(ID_MMFR4_EL1),
+-	AA32_ID_SANITISED(ID_ISAR6_EL1),
++	AA32_ID_WRITABLE(ID_ISAR0_EL1),
++	AA32_ID_WRITABLE(ID_ISAR1_EL1),
++	AA32_ID_WRITABLE(ID_ISAR2_EL1),
++	AA32_ID_WRITABLE(ID_ISAR3_EL1),
++	AA32_ID_WRITABLE(ID_ISAR4_EL1),
++	AA32_ID_WRITABLE(ID_ISAR5_EL1),
++	AA32_ID_WRITABLE(ID_MMFR4_EL1),
++	AA32_ID_WRITABLE(ID_ISAR6_EL1),
+ 
+ 	/* CRm=3 */
+-	AA32_ID_SANITISED(MVFR0_EL1),
+-	AA32_ID_SANITISED(MVFR1_EL1),
+-	AA32_ID_SANITISED(MVFR2_EL1),
++	AA32_ID_WRITABLE(MVFR0_EL1),
++	AA32_ID_WRITABLE(MVFR1_EL1),
++	AA32_ID_WRITABLE(MVFR2_EL1),
+ 	ID_UNALLOCATED(3,3),
+-	AA32_ID_SANITISED(ID_PFR2_EL1),
++	AA32_ID_WRITABLE(ID_PFR2_EL1),
+ 	ID_HIDDEN(ID_DFR1_EL1),
+-	AA32_ID_SANITISED(ID_MMFR5_EL1),
++	AA32_ID_WRITABLE(ID_MMFR5_EL1),
+ 	ID_UNALLOCATED(3,7),
+ 
+ 	/* AArch64 ID registers */
+-- 
+2.47.3
+
 
