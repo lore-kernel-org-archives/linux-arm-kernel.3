@@ -4,89 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 959BACFA46B
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Nov 2025 08:52:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 314D6CFC518
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Nov 2025 09:29:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=08g22nr12SGt1AMC1UScMdDYRZ8GFxl1IyYsNJMcbEk=; b=MqEUt5Bt2/GpBQwVguRfZKBQaj
-	xCqff7qBMESxgHa2Ufbbql7OpF58K7af+0rl4gLrqRmdYdC6FInIXcx/xbetgqMAcfA7v93sZ8w30
-	Wrjgr4m/yLgKWsG0O8lh/l+uFrQudnxCdiuUShfK7x2ZsTqHFVIcoivXlXfPvoyJ7dVLAv/eRstTz
-	d0rfFV93ubLQZ+zqCtBLHcsBo3IcKpteJCMeeIppf3gNZA45GfOAx4bLs+fHL927JAIBhrJZBbGmA
-	8qyo7q3YExCAXiYjYnGSGlXfIYthYIy2iZtCacKWcxiDTJxFznHZjw8xqJHp9PEtS1Mpf8sxw9O2h
-	c3ildkwg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mgRpOyeJE/QzzD3GIQgOF1qaF1I2GjCBkq/eNZ8fXCc=; b=rbhQDv2ukEo9tfxNhOo6oAOjFg
+	zGTnm5Bek5PtIjzu++0OI24B5yIHffTC4/CUTy7hxPC/K4gNRM6XmIo5rpIH33o/6LI9gygReqnqd
+	qrHzHq1NG97axFm8BC2Yng8gw1ck44l03eUhCDKrGraETq8V+z7QJ5ZXDFE5wEoN/f75lQWzFmHpv
+	HR/JfB5ZtobMzz9dsybAQxNCL3+yn9UV0BjRQlaGFUpEzLwbzjQ6bsjPliwWca/R6s5G6wEoYuHS4
+	wS7BFJUZ+txJ/NYefI0nNIp0uvl2ICT8Soxoz/FLl+V2gW6cDKsz1eVKqn14cf6x3cecGYLrukOo3
+	kSLUMEgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vN5pI-0000000AHO9-3KPx;
-	Sun, 23 Nov 2025 08:52:08 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1vN6Or-0000000AIsu-2K23;
+	Sun, 23 Nov 2025 09:28:53 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vN5pG-0000000AHNa-3iXV
+	id 1vN6Op-0000000AIsd-2zNr
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 23 Nov 2025 08:52:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=08g22nr12SGt1AMC1UScMdDYRZ8GFxl1IyYsNJMcbEk=; b=pnoeNTFYDtS4uizYE1TPiZFfYv
-	f/u0SWkdsnAHZna7A23UyrlfRXJRjv6Q2IK2g5/GARBjf4u1HCd0eiAXa7oe+snQ1Y6Q/mahtaWAe
-	/StrZ1wKMjb14xjrDzbpE39PDymsGs16AfmM8iZa29roKUYUBvO069lcj/pYBlrSEHHqC90dbjOs3
-	/FuULFhUVnRYTfSOAVDKkZgcScHJOhtsAsYEKcJeGByNUCUCeGfr0m8YmqR20WiXsGLD0E2Zsoajd
-	MJIol+qkPpJsTFgFaABOQvVW65sSYowJHUUhayEBORwiIclZqu2SjT4yECkONn2Sp5FBsdalkGmbp
-	M/tIOwhg==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:51102)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1vN5pC-000000000la-0TJi;
-	Sun, 23 Nov 2025 08:52:02 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1vN5pA-0000000079L-2FWx;
-	Sun, 23 Nov 2025 08:52:00 +0000
-Date: Sun, 23 Nov 2025 08:52:00 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-Cc: Wei Fang <wei.fang@nxp.com>, Clark Wang <xiaoning.wang@nxp.com>,
-	Oleksij Rempel <o.rempel@pengutronix.de>,
-	Emanuele Ghidoli <ghidoliemanuele@gmail.com>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	Daniel Scally <dan.scally@ideasonboard.com>,
-	Kieran Bingham <kieran.bingham@ideasonboard.com>,
-	Stefan Klug <stefan.klug@ideasonboard.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Fabio Estevam <festevam@gmail.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>
-Subject: Re: [PATCH] arm64: dts: imx8mp-debix-model-a: Disable EEE for 1000T
-Message-ID: <aSLLMMNkHnfwyO0y@shell.armlinux.org.uk>
-References: <20251111235434.GA25874@pendragon.ideasonboard.com>
- <aRR3gVsZcr01zwzN@shell.armlinux.org.uk>
- <20251112222551.GB9135@pendragon.ideasonboard.com>
- <20251113010627.GC9135@pendragon.ideasonboard.com>
- <aRW6CxvmIEqkMrfA@shell.armlinux.org.uk>
- <20251114222654.GI30434@pendragon.ideasonboard.com>
- <PAXPR04MB8510E17B2B8C612DD02175CE88D6A@PAXPR04MB8510.eurprd04.prod.outlook.com>
- <20251122072246.GA16239@pendragon.ideasonboard.com>
- <aSGJHV9Sga2kBIBX@shell.armlinux.org.uk>
- <20251123053802.GA25329@pendragon.ideasonboard.com>
+	Sun, 23 Nov 2025 09:28:51 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 98EEE60154;
+	Sun, 23 Nov 2025 09:28:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E511EC113D0;
+	Sun, 23 Nov 2025 09:28:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1763890130;
+	bh=ZJkP354JwVluZpn5qkk7mYQ71zCcqGPCvqTY+M/gDik=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=nYO809KtdTwfcmWhdTpYUKCtZ1NQz0vvT6t7TMW05gJZnfMBDyk3QSoyp9rlnx01G
+	 lAlIbCg8TI9fLBNBMi+GCDGmQ5IV+X4Ueb0DR6v8WKwCLfgOEkck/+BEVlbvbZQJMu
+	 meBhYv5TEazNsU7Eg3+RFnlK4EPiVcAmfslFJbQRWF0jBCG8jfBS084rSujykEbm2J
+	 KR2Wol2C3JnHyUlHIhLw/oi69vQsC3V5+JyjKKM3T2LmaT7ySIqpqTmScW80/Ep2B4
+	 Tw1pysFRjC6eOhcMEmVa5GZHr7HqtKKKo+wgGrBgIl0JW6LzcuQs5bLXA92cCnVNoV
+	 6CcWypDCarYNg==
+Message-ID: <d4455f4b-2a0f-4bc0-b897-14f2e27af3ea@kernel.org>
+Date: Sun, 23 Nov 2025 10:28:43 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251123053802.GA25329@pendragon.ideasonboard.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251123_005206_954276_E358B80F 
-X-CRM114-Status: GOOD (  36.10  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/6] dt-bindings: power: supply: Add Maxim MAX77759
+ charger
+To: amitsd@google.com, Sebastian Reichel <sre@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, =?UTF-8?Q?Andr=C3=A9_Draszik?=
+ <andre.draszik@linaro.org>, Lee Jones <lee@kernel.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Badhri Jagan Sridharan <badhri@google.com>,
+ Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+ Peter Griffin <peter.griffin@linaro.org>,
+ Tudor Ambarus <tudor.ambarus@linaro.org>,
+ Alim Akhtar <alim.akhtar@samsung.com>
+Cc: linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-usb@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+ RD Babiera <rdbabiera@google.com>, Kyle Tso <kyletso@google.com>
+References: <20251123-max77759-charger-v1-0-6b2e4b8f7f54@google.com>
+ <20251123-max77759-charger-v1-1-6b2e4b8f7f54@google.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20251123-max77759-charger-v1-1-6b2e4b8f7f54@google.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,66 +126,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Nov 23, 2025 at 02:38:02PM +0900, Laurent Pinchart wrote:
-> Hi Russell,
+On 23/11/2025 09:35, Amit Sunil Dhamne via B4 Relay wrote:
+> From: Amit Sunil Dhamne <amitsd@google.com>
 > 
-> On Sat, Nov 22, 2025 at 09:57:49AM +0000, Russell King (Oracle) wrote:
-> > On Sat, Nov 22, 2025 at 04:22:46PM +0900, Laurent Pinchart wrote:
-> > > Hello Wei,
-> > > 
-> > > On Tue, Nov 18, 2025 at 01:50:55AM +0000, Wei Fang wrote:
-> > > > Sorry, I only have a little experience with DWMac, add Clark to help look
-> > > > at this issue.
-> > > 
-> > > Thank you.
-> > > 
-> > > I think we're getting close to having a good understanding of the
-> > > problem. I've debugged it as far as I could based on the information
-> > > available publicly. Let's try to get to the bottom of this issue, it
-> > > impacts quite a lot of people and it would be very nice to fix it
-> > > properly in mainline.
-> > > 
-> > > The short summary is that I'm experiencing an interrupt storm on IRQ 135
-> > > when EEE is enabled with the EQOS interface.
-> > > 
-> > > My current theory is that
-> > > 
-> > > - The lpi_intr_o signal of the EQOS is OR'ed into IRQ 135.
-> > > - The issue is triggerted by the PHY exiting LPI mode
-> > > - When it exits LPI mode, the PHY restarts generating the RX clock
-> > >   (clk_rx_i).
-> > > - The MAC detects exit from LPI, and asserts lpi_intr_o.
-> > > - Before the CPU has time to process the interrupt, the PHY enters LPI
-> > >   mode again, and stops generating the RX clock.
-> > > - The CPU processes the interrupt and reads the GMAC4_LPI_CTRL_STATUS
-> > >   registers. This does not clear lpi_intr_o as there's no clk_rx_i.
-> > 
-> > Please try setting STMMAC_FLAG_RX_CLK_RUNS_IN_LPI in dwmac-imx.c and
-> > see whether that changes the behaviour.
+> Add bindings for Maxim max77759 charger device.
 > 
-> I have tested that and it worked like a charm ! I have submitted
-> https://lore.kernel.org/r/20251123053518.8478-1-laurent.pinchart@ideasonboard.com
+> Signed-off-by: Amit Sunil Dhamne <amitsd@google.com>
+> ---
+>  .../power/supply/maxim,max77759-charger.yaml       | 36 ++++++++++++++++++++++
+>  1 file changed, 36 insertions(+)
 > 
-> That was quite an adventure. Thank you so much for all your support, I'm
-> not sure I would have managed without you (or at least I would have
-> needed way more time). I really really appreciate it.
-> 
-> If the above patch gets accepted, we will probably be able to remove the
-> eee-broken-* properties from the i.MX8MP device tree files (and possibly
-> from i.MX8DXL and i.MX93 as well). I have mentioned that below the
-> commit message of the patch, with a test procedure as it should be
-> tested on each board.
+> diff --git a/Documentation/devicetree/bindings/power/supply/maxim,max77759-charger.yaml b/Documentation/devicetree/bindings/power/supply/maxim,max77759-charger.yaml
+> new file mode 100644
+> index 000000000000..71f866419774
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/power/supply/maxim,max77759-charger.yaml
+> @@ -0,0 +1,36 @@
+> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/power/supply/maxim,max77759-charger.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Maxim Integrated MAX77759 Battery charger
+> +
+> +maintainers:
+> +  - Amit Sunil Dhamne <amitsd@google.com>
+> +
+> +description: |
+> +  This module is part of the MAX77759 PMIC. For additional information, see
+> +  Documentation/devicetree/bindings/mfd/maxim,max77759.yaml.
+> +
+> +  The Maxim MAX77759 is a dual input switch mode battery charger for portable
+> +  applications. It supports wired and wireless charging and can operate in buck
+> +  and boost mode.
+> +
+> +allOf:
+> +  - $ref: power-supply.yaml#
+> +
+> +properties:
+> +  compatible:
+> +    const: maxim,max77759-charger
+> +
 
-As stated in reply to that patch, while this may reduce the severity of
-the storm, I don't think it'll completely eliminate it.
+This should be just folded into parent node, no need for separate
+charger device or is just incomplete.
 
-I made the suggestion to set the flag as a test to confirm whether the
-lpi_intr_o is indeed the problem by ensuring that the receive domain is
-always clocked, and thus ensuring that the signal clears within four
-clock cycles, rather than an indefinite period should the remote end
-re-enter LPI mode quicky.
+> +  usb-otg-vbus-regulator:
+> +    type: object
+> +    description: Provides Boost for sourcing VBUS.
+> +    $ref: /schemas/regulator/regulator.yaml#
+> +    unevaluatedProperties: false
+> +
 
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+Best regards,
+Krzysztof
 
