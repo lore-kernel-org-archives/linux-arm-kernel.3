@@ -4,72 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1E1DCFC518
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Nov 2025 10:39:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B566CFA46B
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Nov 2025 11:30:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fhOZ5JmIh1oIgeJ6cR9Q76ZGPwtpfzxdsPIXzLPxJEU=; b=sh7QEbbz1TMqXi5dTHjPP0JPjC
-	IIorU1ndxcVaGVfc83HH9ANsdCCzE/8d7ls90Ai9XDvMGPFxiguJlN3qrdfqR9tUtwadFrx9vMQr1
-	+mag2MCIRQdfsTVBt3K/DxUwlHEUyMm0Nm8xxQjb/RtNo3z76K0Ohpp4jHFlS3ck7bDAaxYHNTTeF
-	EGINd9EDy7WxDpxjLlb4QZQaicxZsCm4YBVFfpXtqvcjwY01OFY2H8v4g1ff9rCM+p3gvrCmzCWoX
-	EErtb1ugNJVDHJuNU5hOH6Tv526+1W3DdniMGJAq0peVl98+9a0+MhLwYZHcbhTTxlnh2q6MV8Bo4
-	ASinZ8rg==;
+	Content-Type:To:Subject:Message-ID:Date:From:MIME-Version:Reply-To:Cc:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=VgeIlMglQgJUe938qG3fSEs1eXSckUK6pwXjrBlPbXA=; b=JM+PjHkPZoXcbzUFuNZimKEge0
+	4CGtTXcSfwwC89KhZWJV88ln5p4cG8GWvKtFmiAQ1E05D4pO7QHydNlB+CJ2xeKR1XSFAVJ7r55GC
+	lRMUNT1RM81muprP6Rfy6CUNYZyANx1TzbKaT02dzHOhjuQQlzeMiV31eRmKW7v8Wd/QqcZnK70R0
+	oYippEJGG6zzAYaAiVkHPxrRB2uvd0TYtH6tbwHnCL4WTSDZ0zpDyYLV3U6o4YZW+10leE5WOIwtC
+	O6M7RNJ2+BMTKjUhwOwZd95oQvnZ8Nx31iAPR7ujkGc5X9SRCpfzt+Hd582lFtwk98RTHEs9RI7t8
+	+a7dd8HA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vN7V5-0000000ALwU-0Zql;
-	Sun, 23 Nov 2025 10:39:23 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vN8Ib-0000000ANLE-1ttg;
+	Sun, 23 Nov 2025 11:30:33 +0000
+Received: from mail-ed1-x531.google.com ([2a00:1450:4864:20::531])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vN7V4-0000000ALvx-0UKH
+	id 1vN8IZ-0000000ANKm-2A2u
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 23 Nov 2025 10:39:22 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2967F6015B;
-	Sun, 23 Nov 2025 10:39:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C28D9C113D0;
-	Sun, 23 Nov 2025 10:39:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763894360;
-	bh=YyvJJLcgMMvpHfeF0q1qBa27/x+2KwhqR4QjVqfSxuM=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=QLOjAMRn4oRsexQ0IXXNK/QNsLmjPdbucoLA+PmQf3cXfXJer2U1kn6YCExOWKuRQ
-	 8o+es1gsKwxrFZwTOvoZd6z49/avshVcf+DE3d85kUkv7T40nKz3E9CYb8EW1CqJSy
-	 UUNe4a4nyfnPOTSYBeEdR1s49uHcxxcHmSXf2uOknz72QrjJUALYS3ryM4o4vkhJ7g
-	 gDtZcUOQTh0i5WZ2fZ/Xc/Me0p8HO8tg00R/o1DTjPi5Xe9qsuB/RzGqMHAmM6adIc
-	 t5L/vcylGTFE6Y9K0A9RJFlduqHR3k51KRhln4gatyUYyEWf/0hTyH14OBE3HEpJg6
-	 iv70jt8k4uLQg==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1vN7V0-00000007cYo-1rzp;
-	Sun, 23 Nov 2025 10:39:18 +0000
-From: Marc Zyngier <maz@kernel.org>
-To: stable@vger.kernel.org
-Cc: Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oupton@kernel.org>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	kvmarm@lists.linux.dev,
-	kvm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Peter Maydell <peter.maydell@linaro.org>
-Subject: [PATCH 6.12.y] KVM: arm64: Make all 32bit ID registers fully writable
-Date: Sun, 23 Nov 2025 10:39:09 +0000
-Message-ID: <20251123103909.3518993-1-maz@kernel.org>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <2025112021-arrest-chip-7336@gregkh>
-References: <2025112021-arrest-chip-7336@gregkh>
+	Sun, 23 Nov 2025 11:30:32 +0000
+Received: by mail-ed1-x531.google.com with SMTP id 4fb4d7f45d1cf-6419aaced59so4722164a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 23 Nov 2025 03:30:30 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1763897429; x=1764502229; darn=lists.infradead.org;
+        h=content-transfer-encoding:to:subject:message-id:date:from
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=VgeIlMglQgJUe938qG3fSEs1eXSckUK6pwXjrBlPbXA=;
+        b=Bj91u5sxeCXTOj7lVvOybT/4TmHQQBo5hkW5HlKdS+dppbXJTVWnjDenAoQ8P7u+Bu
+         0WFRIpheTnE/Tpn9RPohiOU90XlnhQucMlppCRX/JVSI0aVeUkiv6C6rKhJXZW5qdmZf
+         pkjUzvqXnqxxIpRM8c5jnCXvRVKbrdeXUYG5vyw5lA9C5LZWhCeqTJzOWO8RxjyNlI1U
+         8TUTMKh59Y03U2OiGR9F1gilqug32SCC7PAM6M0jYsXK71zBKCeKyN8SySutmc2SB4CR
+         Q/dyHBclsRNz6QQGBJ6lkPY5HHAwlL0C1/KP2bV6xLrtZiU/ajHxJ2vCrhckuBhsf61a
+         vNpg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1763897429; x=1764502229;
+        h=content-transfer-encoding:to:subject:message-id:date:from
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=VgeIlMglQgJUe938qG3fSEs1eXSckUK6pwXjrBlPbXA=;
+        b=hzRyQd/3SybpDS/8XIf6fVHVTQ92RuGzAc22sw/PVLJ2RUPYIhu8yhd9faEP8Cxip2
+         jCHaMoR1SuRcHXNJRID7mXMI3a2e+5r3qoP+RmTe81P0sCJiTfOZC3kXGZkR/hjwAynb
+         gpOoRttLWrMKM3HTE8l4oIhLUh0aLiwt0VECUmDL2o2IL5jJ7xzMEgN3134Znz9hdB1r
+         n4fXf/A/28LKRZgHQ69b1rVl7PdUL5SkHZ3zHaM1Rp47cheS3WJHDVT3vCHutvkIGqBc
+         /N4RiWG54dhAs3gTyJFEnCIRJyfglfQTlBp8r1DpWLqvTVhFu5q2/17kNqGYJWANOyKg
+         at7w==
+X-Gm-Message-State: AOJu0Ywha9uLUCBYpzU+VRpdmpf7wGaaERO/sKV50iNx0MbiWrewtt00
+	grMtTzu47RM7CHAjldQpxrbUBD5bHaCHvD+cFQpOEnypYfODlf+nDTGPXQOdfDACRkYYodRrbqk
+	xsyJwt6nwpePO/5B8O23ffgtlekOulYDGRQpn
+X-Gm-Gg: ASbGnct1NGyhRBhnv9uGhA0qyRknpTJ0ucGal1Q7RlxuWEQ4GEJDKLJskeyOKwoy/NO
+	46hUloKYVQve3/GdsWYA5J+epN0g103zoHOMUlh3CsKCkW46yyLMBHD45URnvkBUTQQpxzMr/Be
+	OApQy42QagAXE1ehD3kJF+KpMBB6ScwDKWkXHRGNeBNxRG7E7Q/ZOJs85+6vTr/bpOvlhFvmxbz
+	ECC0OmgNsVgFIWmoxKKoVtinMmEMtKyRgHq6jBTbjfRyF+o72EZ6P52cXY2Il6n13ON
+X-Google-Smtp-Source: AGHT+IGKz7sdkbip00rM8Pz695Qx3/+epffebuioXMSXrVtid8YcAa+J1k2eODdUK34aWwaMaAgBxLkSW/09l/DhMxs=
+X-Received: by 2002:a17:906:478a:b0:b6d:67b0:ca0b with SMTP id
+ a640c23a62f3a-b76719f74e2mr791872166b.61.1763897428588; Sun, 23 Nov 2025
+ 03:30:28 -0800 (PST)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: stable@vger.kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, peter.maydell@linaro.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+From: =?UTF-8?B?5YiY56uL6LaF?= <liulichao09679@gmail.com>
+Date: Sun, 23 Nov 2025 19:30:14 +0800
+X-Gm-Features: AWmQ_bmEHDLZPFk-Myx53hT4s9I4I3o2Ubgku_AdnZY__0O_PPabN6J5b7hCtVg
+Message-ID: <CAHt-b_NGfmn112yOOBHtO2w63ySy1rJUXAabmMi6D1xuLfysGg@mail.gmail.com>
+Subject: What's the memory order about pcie write?
+To: linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251123_033031_582607_979D9161 
+X-CRM114-Status: UNSURE (   6.96  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,128 +90,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-commit 3f9eacf4f0705876a5d6526d7d320ca91d7d7a16 upstream.
+What's the memory order in this situation:
 
-32bit ID registers aren't getting much love these days, and are
-often missed in updates. One of these updates broke restoring
-a GICv2 guest on a GICv3 machine.
+ARM CPU connects a PCIe NIC(Network Interface Card)
+The NIC writes data and descriptor to ARM CPU memory, data and
+descriptor are normal memory.
+ARM CPU first poll descriptor to know there is a pkt received, then
+read the data.
 
-Instead of performing a piecemeal fix, just bite the bullet
-and make all 32bit ID regs fully writable. KVM itself never
-relies on them for anything, and if the VMM wants to mess up
-the guest, so be it.
+My question:
+ARM CPU is weak order, The write of the CPU might be out of order, but
+what about the write of the NIC=EF=BC=9FNIC's write order is:write data, th=
+en
+write descriptor, but if the actual write order become:write
+descriptor then write data, it will cause mistake.
+I specified the situation to ARM architecture, because X86 is strong
+order, so I think NIC writes to X86 is strong order too. Is this
+right?
 
-Fixes: 5cb57a1aff755 ("KVM: arm64: Zero ID_AA64PFR0_EL1.GIC when no GICv3 is presented to the guest")
-Reported-by: Peter Maydell <peter.maydell@linaro.org>
-Cc: stable@vger.kernel.org
-Reviewed-by: Oliver Upton <oupton@kernel.org>
-Link: https://patch.msgid.link/20251030122707.2033690-2-maz@kernel.org
-Signed-off-by: Marc Zyngier <maz@kernel.org>
----
- arch/arm64/kvm/sys_regs.c | 61 ++++++++++++++++++++-------------------
- 1 file changed, 32 insertions(+), 29 deletions(-)
-
-diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-index 42791971f7588..5c09c788aaa61 100644
---- a/arch/arm64/kvm/sys_regs.c
-+++ b/arch/arm64/kvm/sys_regs.c
-@@ -2176,22 +2176,26 @@ static bool bad_redir_trap(struct kvm_vcpu *vcpu,
- 	.val = 0,				\
- }
- 
--/* sys_reg_desc initialiser for known cpufeature ID registers */
--#define AA32_ID_SANITISED(name) {		\
-+/* sys_reg_desc initialiser for writable ID registers */
-+#define ID_WRITABLE(name, mask) {		\
- 	ID_DESC(name),				\
- 	.set_user = set_id_reg,			\
--	.visibility = aa32_id_visibility,	\
-+	.visibility = id_visibility,		\
- 	.reset = kvm_read_sanitised_id_reg,	\
--	.val = 0,				\
-+	.val = mask,				\
- }
- 
--/* sys_reg_desc initialiser for writable ID registers */
--#define ID_WRITABLE(name, mask) {		\
-+/*
-+ * 32bit ID regs are fully writable when the guest is 32bit
-+ * capable. Nothing in the KVM code should rely on 32bit features
-+ * anyway, only 64bit, so let the VMM do its worse.
-+ */
-+#define AA32_ID_WRITABLE(name) {		\
- 	ID_DESC(name),				\
- 	.set_user = set_id_reg,			\
--	.visibility = id_visibility,		\
-+	.visibility = aa32_id_visibility,	\
- 	.reset = kvm_read_sanitised_id_reg,	\
--	.val = mask,				\
-+	.val = GENMASK(31, 0),			\
- }
- 
- /*
-@@ -2380,40 +2384,39 @@ static const struct sys_reg_desc sys_reg_descs[] = {
- 
- 	/* AArch64 mappings of the AArch32 ID registers */
- 	/* CRm=1 */
--	AA32_ID_SANITISED(ID_PFR0_EL1),
--	AA32_ID_SANITISED(ID_PFR1_EL1),
-+	AA32_ID_WRITABLE(ID_PFR0_EL1),
-+	AA32_ID_WRITABLE(ID_PFR1_EL1),
- 	{ SYS_DESC(SYS_ID_DFR0_EL1),
- 	  .access = access_id_reg,
- 	  .get_user = get_id_reg,
- 	  .set_user = set_id_dfr0_el1,
- 	  .visibility = aa32_id_visibility,
- 	  .reset = read_sanitised_id_dfr0_el1,
--	  .val = ID_DFR0_EL1_PerfMon_MASK |
--		 ID_DFR0_EL1_CopDbg_MASK, },
-+	  .val = GENMASK(31, 0), },
- 	ID_HIDDEN(ID_AFR0_EL1),
--	AA32_ID_SANITISED(ID_MMFR0_EL1),
--	AA32_ID_SANITISED(ID_MMFR1_EL1),
--	AA32_ID_SANITISED(ID_MMFR2_EL1),
--	AA32_ID_SANITISED(ID_MMFR3_EL1),
-+	AA32_ID_WRITABLE(ID_MMFR0_EL1),
-+	AA32_ID_WRITABLE(ID_MMFR1_EL1),
-+	AA32_ID_WRITABLE(ID_MMFR2_EL1),
-+	AA32_ID_WRITABLE(ID_MMFR3_EL1),
- 
- 	/* CRm=2 */
--	AA32_ID_SANITISED(ID_ISAR0_EL1),
--	AA32_ID_SANITISED(ID_ISAR1_EL1),
--	AA32_ID_SANITISED(ID_ISAR2_EL1),
--	AA32_ID_SANITISED(ID_ISAR3_EL1),
--	AA32_ID_SANITISED(ID_ISAR4_EL1),
--	AA32_ID_SANITISED(ID_ISAR5_EL1),
--	AA32_ID_SANITISED(ID_MMFR4_EL1),
--	AA32_ID_SANITISED(ID_ISAR6_EL1),
-+	AA32_ID_WRITABLE(ID_ISAR0_EL1),
-+	AA32_ID_WRITABLE(ID_ISAR1_EL1),
-+	AA32_ID_WRITABLE(ID_ISAR2_EL1),
-+	AA32_ID_WRITABLE(ID_ISAR3_EL1),
-+	AA32_ID_WRITABLE(ID_ISAR4_EL1),
-+	AA32_ID_WRITABLE(ID_ISAR5_EL1),
-+	AA32_ID_WRITABLE(ID_MMFR4_EL1),
-+	AA32_ID_WRITABLE(ID_ISAR6_EL1),
- 
- 	/* CRm=3 */
--	AA32_ID_SANITISED(MVFR0_EL1),
--	AA32_ID_SANITISED(MVFR1_EL1),
--	AA32_ID_SANITISED(MVFR2_EL1),
-+	AA32_ID_WRITABLE(MVFR0_EL1),
-+	AA32_ID_WRITABLE(MVFR1_EL1),
-+	AA32_ID_WRITABLE(MVFR2_EL1),
- 	ID_UNALLOCATED(3,3),
--	AA32_ID_SANITISED(ID_PFR2_EL1),
-+	AA32_ID_WRITABLE(ID_PFR2_EL1),
- 	ID_HIDDEN(ID_DFR1_EL1),
--	AA32_ID_SANITISED(ID_MMFR5_EL1),
-+	AA32_ID_WRITABLE(ID_MMFR5_EL1),
- 	ID_UNALLOCATED(3,7),
- 
- 	/* AArch64 ID registers */
--- 
-2.47.3
-
+Thanks.
 
