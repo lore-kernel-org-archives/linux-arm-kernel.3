@@ -4,95 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 142DBCFA46B
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Nov 2025 17:14:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AFA1CFC518
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Nov 2025 17:51:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=2SBUjU42Sbm495ZmFakW4ID8bbWQ9JN9OmAvmJYfmus=; b=L+GzJ22PF4dTDMqptcdvUVs26r
-	wUsfebCN+hwKW+zlakceiXdO9dEY4A+KiuMuXevvtkdYrO/akAT/gWiw11x1UUZWqBLKrr8I64xun
-	wy9C+5aasGtsGVpZacp3ZlIcviKGwC5QfaLxjFYdmZFDLUvv6bk9vDRmZgRXEm+fnTX8iGIyzEjmm
-	BHgx1/OHs9o39MAzvfQ0Hp6/aBDJvjGjB74ig3Ay8g52twRhTWYCTajDO2HEfza1QSvIyHh+vKtiY
-	BFeTpXX79kn5aX4ZvCAP1j3aAOJyujd6BM4UKq9Ste4WYp/0CxKbgPB3G2uqDe3icReDTEnFy8nj2
-	bI4YbZ0w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:References:Cc:To:From:
+	Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vIANx9jGl2SWaC9mRIgpqWIi2tjrJHPgyOK0RQo1cKY=; b=nF0D6kTbic6t2uiZ4/6/lVEm4w
+	KAt6VNpp25D4zoAqLdNuIW9p5sfWdih73tGOfKi6Wib1yKT1pOOWVcRzHhjRyB5c2l/2tswQRB5pj
+	MDxwUL6jatbgYtit6KSwXRNkwi+xjvQGfX2zZCt53d1E+dqPqCfpX5MPJcJIGruHUAHp7/dS801N9
+	ZOTtuLK0Vwf1HaYMdG2WgJsuZqsyUUmAiycFJbLCPP5b7ihPLpXr1QOm5cOwT9vjVhqYTS5AUHq9e
+	Vh0L5v4Pfc4EUMDDUbmk2hsCEl1NdN06nZ9EvFCGLurPvl2t05tiCWJbG6FHV6m90nbhnS/3/+VoW
+	/D190CAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNDfI-0000000AZpa-1YRR;
-	Sun, 23 Nov 2025 17:14:20 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
+	id 1vNEFI-0000000AaoJ-1bgB;
+	Sun, 23 Nov 2025 17:51:32 +0000
+Received: from mail-qv1-xf2d.google.com ([2607:f8b0:4864:20::f2d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNDfC-0000000AZoN-0ZQT
+	id 1vNEFF-0000000Aanu-2gps
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 23 Nov 2025 17:14:18 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-47778b23f64so18448235e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 23 Nov 2025 09:14:13 -0800 (PST)
+	Sun, 23 Nov 2025 17:51:31 +0000
+Received: by mail-qv1-xf2d.google.com with SMTP id 6a1803df08f44-8845498be17so51078216d6.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 23 Nov 2025 09:51:28 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1763918052; x=1764522852; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=2SBUjU42Sbm495ZmFakW4ID8bbWQ9JN9OmAvmJYfmus=;
-        b=MNSfvDTl8UHuDNu9KlPNObewfZmhZIvwdVsFGhPXhh/TlTZSLm1kMS6cyXIiztfaxw
-         P/UC23t/I20yivGCZjNcOdWaU8CuvAiPfqNPbenUgpoIm9Wk1Je7OWudRvvti8TM0N/k
-         b45Z2N14sjxMy0cRvmKiXthW2IsZNrStU6l2dFMG1N2emsNVNg8fWhql4rO1Tx7OjcUS
-         hQCfR94p2HLRWao0TE6hLd11SU02UYowXG0iDzqBCE7x68Do1K0wlMhjui/vRrncUnuN
-         MY2CfydgfRcU/TbJ9u4oELQgbLeN2v/8omCYTJWnZtBb5kEWHSBUCM56ZwRQGUP6c2Hu
-         Oc6g==
+        d=marek.ca; s=google; t=1763920288; x=1764525088; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-language:in-reply-to:mime-version
+         :user-agent:date:message-id:references:cc:to:from:subject:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=vIANx9jGl2SWaC9mRIgpqWIi2tjrJHPgyOK0RQo1cKY=;
+        b=NWnI117JkxF4kvjH0Rq2nVpLLH/uSWY2gBdmngIvcPMmQnUOmWoqF1+3o9f5NZXPse
+         q1MoxBPaS4rBuPdn9pK1wQyp5mIp6Cmt1bK0qavlYEb9ruI5JLW1b5wSSw0D31tRuJmI
+         Y91tBZGDhAJfnqElOu5HC/Wzswfk1jvFPZPsyzTgDJpoQrDI/+QOnmbVixcuHQyYLati
+         yo740gj/4gaQjBVkESKDjW3hzgQLiBUrY6gB6K8os24CT60kz4Jn7cYtXS0uIPtAnxC8
+         ywAi26nBG4aPTN3Sy6hejZPEm7ztaX+dJoa+uAy5+KPS74mtIXMuRZ3V18T5aC0d5CWZ
+         sxxA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763918052; x=1764522852;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=2SBUjU42Sbm495ZmFakW4ID8bbWQ9JN9OmAvmJYfmus=;
-        b=nSwAHpdDrOo29okJPBuzZrbSXT3k39IARu3CZVF/NO168KxpR3QN20poQZ8TVCTyNg
-         M85K81p0o3b4/ct+92aXHTKbAOD0422fckaII52bVHQDMwjpm1shMB+RYlJz1qGHAEaZ
-         wtKnxrM6ZURl75Qg5YBwnb2yPw3zmkBX94faKbaWVpGGSbAmMP8D/dkNkd+c2W0vBhfK
-         88FfErIbPAmbwtBMN/xVsjFc08KwXQ+FXKtLT2exXL9mPxzjYirr32lwYBbnuUfjuGDn
-         W1M5MazphGsvMT1u1LmHgzkciMmJ5CO++w75ZAPJfGOMpW6FU7gLti+TZvxm6HwCxr0w
-         1O8w==
-X-Forwarded-Encrypted: i=1; AJvYcCUPyjB+gC9qhCUozny13/GrLE65vHTPzMYWGSRfiuNN+6QHJcU35QxpeS2sYEX0VqCFPUW6i09bB6t3VGBzkJib@lists.infradead.org
-X-Gm-Message-State: AOJu0YxwtIZMQ14kR7gwzFP+07fKklwV6DVGLX71xB/jJkBhxKiliWBI
-	yf6y6i8585A0p0Va0E8XxY2qZi0Vr0gOSDIuh84tcjeiQA6I3gw2GgVHkoeg5tMPdv0=
-X-Gm-Gg: ASbGnctZNeVsu+xTAM8zbAjuXCM4v+Oi8hCJuy5Znv/+10a+coT/qY9q4sosf/U+Yll
-	4FGVzEnJqwb6R/h+g8OMKvoVHBV567CsMh/Xgfz4KGYkLtQbiq6sVEWCwzM2ZzXNr8GZt1YR7HQ
-	TLztEyxUz+FuiM1a0BddUCV5iW71Id+jTPQF17I6BOG71h1e37hCApbd2YPqSd6Ro4l/8zaWkDU
-	mQYmi++L5wp0eislP/f48vTxO7dXoN74o4wTkcSX97skySGgsV/+cBfSjl7xJSvmZinwpqO9qUZ
-	guvs5nqPDiXW6yaaZ5TEZRK/1G9GcBzL2cAJPC7qnuZwKkgSlMSGPPhEiii/1IOyacJapkdlfGo
-	k4uiNpxZVl9JzJziAKktUpTve1ckf1vc7G5loGJoS4uuBCJ5YXYeGUod+8S1929o8IZmylkdChx
-	SLyHj0tlPDWgPARg==
-X-Google-Smtp-Source: AGHT+IEMVHajdQc6mO75+50UqpdHBDZGtu0DQkU6l/qte3nrP9B8VROGytjnVhIoLoLV5NlrKgQsTA==
-X-Received: by 2002:a05:600c:3b01:b0:477:54cd:200a with SMTP id 5b1f17b1804b1-477c110325dmr74538475e9.6.1763918051866;
-        Sun, 23 Nov 2025 09:14:11 -0800 (PST)
-Received: from [127.0.1.1] ([2a01:e0a:e50:3860:51a7:9db7:1d49:a8ae])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-477bf3af0ecsm151637785e9.9.2025.11.23.09.14.11
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 23 Nov 2025 09:14:11 -0800 (PST)
-From: Guillaume La Roque <glaroque@baylibre.com>
-Date: Sun, 23 Nov 2025 18:14:10 +0100
-Subject: [PATCH] arm64: dts: amlogic: meson-g12b: Fix L2 cache reference
- for S922X CPUs
+        d=1e100.net; s=20230601; t=1763920288; x=1764525088;
+        h=content-transfer-encoding:content-language:in-reply-to:mime-version
+         :user-agent:date:message-id:references:cc:to:from:subject:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=vIANx9jGl2SWaC9mRIgpqWIi2tjrJHPgyOK0RQo1cKY=;
+        b=eo/sOmnNn/L9P5y3GvJ6bamSAwIhzqOL42AXRtu+XgQBjNO7/QsgnpGlmIFa/md4qA
+         iY6nj2LnMJShOQogvBY1UzhCjmVjvGe2qWFGIF3UxuWVfCPciF9sC1ht6r12Xg5MPwM1
+         rDNiB3s2Y3+kQ0Wq1EmS5gE1Uw0gDsfR8eeMT2fE0IXzGKOhcjP4G05dBCW5yN/og/qT
+         FEEGO0vqaOAbehu3cqDpqL6H8yxbeDhtIC5CuoMYTs4pYOB242dZavWLhRlN5cwjYBnZ
+         kUQMhIutkONeInl+d9VgETucYOxFor6Jqs+43Ca3qDjBTd/aRX59X0+cr8KFzmttvIx3
+         BfGQ==
+X-Gm-Message-State: AOJu0YwFASSoHo5vQYdDKWYP/HBuUns2iShr53mQenS+MVg1s1Lw1trQ
+	jOC8mlwFPvcUfnakV1SQ8MdEKSMB+KqTQA/N31XsVaSwn9hwl4Ek7Wy+Hr67E1YqQQw=
+X-Gm-Gg: ASbGnctyB69ZqYXN1rX8xVy8DJtHl9X0XcsjFbcif6htbPdjhCRFN0GHixOjTzH2VhS
+	JANIDcdGMq8J5AxBOcLV5OTgM1ng4p4a0Qb1PlnZcq2/ABphg39TNDqJxit2EyYTIWgBWCU5sGd
+	0Dc5bPR78M9t3mLy5BybRgBF1OCZJo+EArmNcOGXUoVDOX5qoYIU7AEMWHKdJyk4hZpeWEZWFAf
+	6QhSd4jJA2GFbPIqNbg7j2zIM+W4LsgbLnNd7M/v6+Rc+aKrzQSZMa0nld5P+XjpKDjewnCxwKx
+	WGAUk1ZJEBCOwK8PZCc3ZKfRroOeesH7Lp+FzLn8vOZG9bRxmSDLWsYlOjQop9NObG6KyJM7pEv
+	FxPSbCFvv972GrnCLzQyLgsfePPGrVnNN+yKZc/UkK53FphYWdtgmS0gjJQKywn+6/5O48SvZq8
+	NbU9EC7m+Jd/PwtI0glcS+i7OKgddezNMnjR20DQDu4w0zFQTEsHMeK4acSw==
+X-Google-Smtp-Source: AGHT+IGGmRjy6S6jG9UQOZ7re2IoKjO567YiFxEaApg45oVagihjcnDFg0s0qlsPTSkuzLAkIZrimw==
+X-Received: by 2002:a05:6214:ac6:b0:880:78d6:fa67 with SMTP id 6a1803df08f44-8847c4a3e03mr126072936d6.23.1763920287620;
+        Sun, 23 Nov 2025 09:51:27 -0800 (PST)
+Received: from [192.168.0.189] (modemcable125.110-19-135.mc.videotron.ca. [135.19.110.125])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-8846e5744ddsm84544876d6.45.2025.11.23.09.51.26
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 23 Nov 2025 09:51:27 -0800 (PST)
+Subject: Re: [PATCH] arm64: proton-pack: Fix hard lockup when
+ !MITIGATE_SPECTRE_BRANCH_HISTORY
+From: Jonathan Marek <jonathan@marek.ca>
+To: Will Deacon <will@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org,
+ Catalin Marinas <catalin.marinas@arm.com>, James Morse
+ <james.morse@arm.com>, Douglas Anderson <dianders@chromium.org>,
+ Trilok Soni <quic_tsoni@quicinc.com>, shechenglong
+ <shechenglong@xfusion.com>,
+ Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
+ Shameer Kolothum <skolothumtho@nvidia.com>,
+ open list <linux-kernel@vger.kernel.org>
+References: <20251117051211.16108-1-jonathan@marek.ca>
+Message-ID: <71ec790c-511d-7b57-a5cb-7c26c46257fe@marek.ca>
+Date: Sun, 23 Nov 2025 12:50:24 -0500
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
+ Thunderbird/68.2.2
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+In-Reply-To: <20251117051211.16108-1-jonathan@marek.ca>
+Content-Type: text/plain; charset=utf-8; format=flowed
+Content-Language: en-US
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251123-fixkhadas-v1-1-045348f0a4c2@baylibre.com>
-X-B4-Tracking: v=1; b=H4sIAOFAI2kC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDI1NDQyNj3bTMiuyMxJTEYt1kC5OURPMU82QT82QloPqColSgJNis6NjaWgB
- xAQqgWwAAAA==
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
- Anand Moon <linux.amoon@gmail.com>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Guillaume La Roque <glaroque@baylibre.com>
-X-Mailer: b4 0.14.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251123_091414_317250_EA761409 
-X-CRM114-Status: GOOD (  11.98  )
+X-CRM114-CacheID: sfid-20251123_095129_782930_BDF3DCE1 
+X-CRM114-Status: GOOD (  18.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,47 +108,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The original addition of cache information for the Amlogic S922X SoC
-used the wrong next-level cache node for CPU cores 100 and 101,
-incorrectly referencing `l2_cache_l`. These cores actually belong to
-the big cluster and should reference `l2_cache_b`. Update the device
-tree accordingly.
+Can you pick this up? Its an urgent fix..
 
-Fixes: e7f85e6c155a ("arm64: dts: amlogic: Add cache information to the Amlogic S922X SoC")
-Signed-off-by: Guillaume La Roque <glaroque@baylibre.com>
----
- arch/arm64/boot/dts/amlogic/meson-g12b.dtsi | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+And looks like I forgot it, you can add:
 
-diff --git a/arch/arm64/boot/dts/amlogic/meson-g12b.dtsi b/arch/arm64/boot/dts/amlogic/meson-g12b.dtsi
-index f04efa828256..23358d94844c 100644
---- a/arch/arm64/boot/dts/amlogic/meson-g12b.dtsi
-+++ b/arch/arm64/boot/dts/amlogic/meson-g12b.dtsi
-@@ -87,7 +87,7 @@ cpu100: cpu@100 {
- 			i-cache-line-size = <32>;
- 			i-cache-size = <0x8000>;
- 			i-cache-sets = <32>;
--			next-level-cache = <&l2_cache_l>;
-+			next-level-cache = <&l2_cache_b>;
- 			#cooling-cells = <2>;
- 		};
- 
-@@ -103,7 +103,7 @@ cpu101: cpu@101 {
- 			i-cache-line-size = <32>;
- 			i-cache-size = <0x8000>;
- 			i-cache-sets = <32>;
--			next-level-cache = <&l2_cache_l>;
-+			next-level-cache = <&l2_cache_b>;
- 			#cooling-cells = <2>;
- 		};
- 
+Signed-off-by: Jonathan Marek <jonathan@marek.ca>
 
----
-base-commit: 6a23ae0a96a600d1d12557add110e0bb6e32730c
-change-id: 20251123-fixkhadas-c84da7d7c47c
-
-Best regards,
--- 
-Guillaume La Roque <glaroque@baylibre.com>
-
+On 11/17/25 12:12 AM, Jonathan Marek wrote:
+> The "drop print" commit removed the whole branch and not just the print.
+> For some ARM64 cpus, this leads to hard lockup when
+> CONFIG_MITIGATE_SPECTRE_BRANCH_HISTORY is not enabled.
+> 
+> Fixes: 62e72463ca71 ("arm64: proton-pack: Drop print when !CONFIG_MITIGATE_SPECTRE_BRANCH_HISTORY")
+> ---
+>   arch/arm64/kernel/proton-pack.c | 2 ++
+>   1 file changed, 2 insertions(+)
+> 
+> diff --git a/arch/arm64/kernel/proton-pack.c b/arch/arm64/kernel/proton-pack.c
+> index c7d70d04c164c..80a580e019c50 100644
+> --- a/arch/arm64/kernel/proton-pack.c
+> +++ b/arch/arm64/kernel/proton-pack.c
+> @@ -1032,6 +1032,8 @@ void spectre_bhb_enable_mitigation(const struct arm64_cpu_capabilities *entry)
+>   
+>   	if (arm64_get_spectre_v2_state() == SPECTRE_VULNERABLE) {
+>   		/* No point mitigating Spectre-BHB alone. */
+> +	} else if (!IS_ENABLED(CONFIG_MITIGATE_SPECTRE_BRANCH_HISTORY)) {
+> +		/* Do nothing */
+>   	} else if (supports_ecbhb(SCOPE_LOCAL_CPU)) {
+>   		state = SPECTRE_MITIGATED;
+>   		set_bit(BHB_HW, &system_bhb_mitigations);
+> 
 
