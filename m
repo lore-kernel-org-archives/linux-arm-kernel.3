@@ -4,89 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA5D8CFC518
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Nov 2025 17:11:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 142DBCFA46B
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Nov 2025 17:14:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=q/yVcbueqTHeAEtEqlq/9UVTAmFW9jVRWkCvEl9tyNE=; b=mxVz/bdM2tSlJv/g7090XFvfg+
-	EUOxfIxP+B0ubaiKtzuBnqNVVRzEIJgd9WflB+oTSxc8hcC7s26Jy55RGGtioB1S3qlSgPL9XNZXD
-	DejPXjX5ezYMq9YDtPT+nglrOTh1f/Lvj06+FH4J1yEJY6OzYyWnjXQkMHFh6guEvX7Dx96Nij/gz
-	p3xb/60lRxrdOr5b0fRIYBl70Cu/LVwBKXeNMBEPCiyfSNuR839EQgTkpMrBA2aCcN9FdFOX8JaAs
-	ZS68gmx39o76fEErfRYIGf6qcZkZLL6BkKCNyjWet5x1hnqPt/LjsWwZn12hUgnXt0quBMkchf+uc
-	TcsyLSFA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=2SBUjU42Sbm495ZmFakW4ID8bbWQ9JN9OmAvmJYfmus=; b=L+GzJ22PF4dTDMqptcdvUVs26r
+	wUsfebCN+hwKW+zlakceiXdO9dEY4A+KiuMuXevvtkdYrO/akAT/gWiw11x1UUZWqBLKrr8I64xun
+	wy9C+5aasGtsGVpZacp3ZlIcviKGwC5QfaLxjFYdmZFDLUvv6bk9vDRmZgRXEm+fnTX8iGIyzEjmm
+	BHgx1/OHs9o39MAzvfQ0Hp6/aBDJvjGjB74ig3Ay8g52twRhTWYCTajDO2HEfza1QSvIyHh+vKtiY
+	BFeTpXX79kn5aX4ZvCAP1j3aAOJyujd6BM4UKq9Ste4WYp/0CxKbgPB3G2uqDe3icReDTEnFy8nj2
+	bI4YbZ0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNDch-0000000AZch-2Go0;
-	Sun, 23 Nov 2025 17:11:39 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1vNDfI-0000000AZpa-1YRR;
+	Sun, 23 Nov 2025 17:14:20 +0000
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNDce-0000000AZcJ-3UKR
+	id 1vNDfC-0000000AZoN-0ZQT
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 23 Nov 2025 17:11:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=q/yVcbueqTHeAEtEqlq/9UVTAmFW9jVRWkCvEl9tyNE=; b=Kx9Ze6XAmXb3n4ZB+5fXHwkjhn
-	ViHpyCpb75Sry8xMT62qWnhQYwGxyqQ3e98zKM8eUmG57drtxYX6Bz41ZEDOoag5m/44vxvN0of1w
-	l5I+zXpLgaWNoPbsVydcgHnWpNd+Lmez21lnGyhPqbY05weHpAaOUVWngz7zohl6n6KO/CA0SQAUd
-	UrLk2dngxJLy5HkQXcncMYCg+HVxdDfyQqAQLHIN2KDJLarrSKMvYp/7dwILRQ5TzUwT45GNlD3OJ
-	ZRQP5wcw4VQs7VMj57cgJFeXZbfQ6avYYueUiT5VSQ40m/0uZ+WcpKRTp0G0lJIty2BFYybd0qE8O
-	8hvkvZbA==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:34632)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1vNDcX-000000000z8-2wh9;
-	Sun, 23 Nov 2025 17:11:29 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1vNDcV-000000007RW-1wR1;
-	Sun, 23 Nov 2025 17:11:27 +0000
-Date: Sun, 23 Nov 2025 17:11:27 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-Cc: Wei Fang <wei.fang@nxp.com>, Clark Wang <xiaoning.wang@nxp.com>,
-	Oleksij Rempel <o.rempel@pengutronix.de>,
-	Emanuele Ghidoli <ghidoliemanuele@gmail.com>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	Daniel Scally <dan.scally@ideasonboard.com>,
-	Kieran Bingham <kieran.bingham@ideasonboard.com>,
-	Stefan Klug <stefan.klug@ideasonboard.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Fabio Estevam <festevam@gmail.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>
-Subject: Re: [PATCH] arm64: dts: imx8mp-debix-model-a: Disable EEE for 1000T
-Message-ID: <aSNAP9G4cwRKvxng@shell.armlinux.org.uk>
-References: <20251112222551.GB9135@pendragon.ideasonboard.com>
- <20251113010627.GC9135@pendragon.ideasonboard.com>
- <aRW6CxvmIEqkMrfA@shell.armlinux.org.uk>
- <20251114222654.GI30434@pendragon.ideasonboard.com>
- <PAXPR04MB8510E17B2B8C612DD02175CE88D6A@PAXPR04MB8510.eurprd04.prod.outlook.com>
- <20251122072246.GA16239@pendragon.ideasonboard.com>
- <aSGJHV9Sga2kBIBX@shell.armlinux.org.uk>
- <20251123053802.GA25329@pendragon.ideasonboard.com>
- <aSLLMMNkHnfwyO0y@shell.armlinux.org.uk>
- <20251123152356.GF15447@pendragon.ideasonboard.com>
+	Sun, 23 Nov 2025 17:14:18 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-47778b23f64so18448235e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 23 Nov 2025 09:14:13 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1763918052; x=1764522852; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=2SBUjU42Sbm495ZmFakW4ID8bbWQ9JN9OmAvmJYfmus=;
+        b=MNSfvDTl8UHuDNu9KlPNObewfZmhZIvwdVsFGhPXhh/TlTZSLm1kMS6cyXIiztfaxw
+         P/UC23t/I20yivGCZjNcOdWaU8CuvAiPfqNPbenUgpoIm9Wk1Je7OWudRvvti8TM0N/k
+         b45Z2N14sjxMy0cRvmKiXthW2IsZNrStU6l2dFMG1N2emsNVNg8fWhql4rO1Tx7OjcUS
+         hQCfR94p2HLRWao0TE6hLd11SU02UYowXG0iDzqBCE7x68Do1K0wlMhjui/vRrncUnuN
+         MY2CfydgfRcU/TbJ9u4oELQgbLeN2v/8omCYTJWnZtBb5kEWHSBUCM56ZwRQGUP6c2Hu
+         Oc6g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1763918052; x=1764522852;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=2SBUjU42Sbm495ZmFakW4ID8bbWQ9JN9OmAvmJYfmus=;
+        b=nSwAHpdDrOo29okJPBuzZrbSXT3k39IARu3CZVF/NO168KxpR3QN20poQZ8TVCTyNg
+         M85K81p0o3b4/ct+92aXHTKbAOD0422fckaII52bVHQDMwjpm1shMB+RYlJz1qGHAEaZ
+         wtKnxrM6ZURl75Qg5YBwnb2yPw3zmkBX94faKbaWVpGGSbAmMP8D/dkNkd+c2W0vBhfK
+         88FfErIbPAmbwtBMN/xVsjFc08KwXQ+FXKtLT2exXL9mPxzjYirr32lwYBbnuUfjuGDn
+         W1M5MazphGsvMT1u1LmHgzkciMmJ5CO++w75ZAPJfGOMpW6FU7gLti+TZvxm6HwCxr0w
+         1O8w==
+X-Forwarded-Encrypted: i=1; AJvYcCUPyjB+gC9qhCUozny13/GrLE65vHTPzMYWGSRfiuNN+6QHJcU35QxpeS2sYEX0VqCFPUW6i09bB6t3VGBzkJib@lists.infradead.org
+X-Gm-Message-State: AOJu0YxwtIZMQ14kR7gwzFP+07fKklwV6DVGLX71xB/jJkBhxKiliWBI
+	yf6y6i8585A0p0Va0E8XxY2qZi0Vr0gOSDIuh84tcjeiQA6I3gw2GgVHkoeg5tMPdv0=
+X-Gm-Gg: ASbGnctZNeVsu+xTAM8zbAjuXCM4v+Oi8hCJuy5Znv/+10a+coT/qY9q4sosf/U+Yll
+	4FGVzEnJqwb6R/h+g8OMKvoVHBV567CsMh/Xgfz4KGYkLtQbiq6sVEWCwzM2ZzXNr8GZt1YR7HQ
+	TLztEyxUz+FuiM1a0BddUCV5iW71Id+jTPQF17I6BOG71h1e37hCApbd2YPqSd6Ro4l/8zaWkDU
+	mQYmi++L5wp0eislP/f48vTxO7dXoN74o4wTkcSX97skySGgsV/+cBfSjl7xJSvmZinwpqO9qUZ
+	guvs5nqPDiXW6yaaZ5TEZRK/1G9GcBzL2cAJPC7qnuZwKkgSlMSGPPhEiii/1IOyacJapkdlfGo
+	k4uiNpxZVl9JzJziAKktUpTve1ckf1vc7G5loGJoS4uuBCJ5YXYeGUod+8S1929o8IZmylkdChx
+	SLyHj0tlPDWgPARg==
+X-Google-Smtp-Source: AGHT+IEMVHajdQc6mO75+50UqpdHBDZGtu0DQkU6l/qte3nrP9B8VROGytjnVhIoLoLV5NlrKgQsTA==
+X-Received: by 2002:a05:600c:3b01:b0:477:54cd:200a with SMTP id 5b1f17b1804b1-477c110325dmr74538475e9.6.1763918051866;
+        Sun, 23 Nov 2025 09:14:11 -0800 (PST)
+Received: from [127.0.1.1] ([2a01:e0a:e50:3860:51a7:9db7:1d49:a8ae])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-477bf3af0ecsm151637785e9.9.2025.11.23.09.14.11
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 23 Nov 2025 09:14:11 -0800 (PST)
+From: Guillaume La Roque <glaroque@baylibre.com>
+Date: Sun, 23 Nov 2025 18:14:10 +0100
+Subject: [PATCH] arm64: dts: amlogic: meson-g12b: Fix L2 cache reference
+ for S922X CPUs
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251123152356.GF15447@pendragon.ideasonboard.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20251123-fixkhadas-v1-1-045348f0a4c2@baylibre.com>
+X-B4-Tracking: v=1; b=H4sIAOFAI2kC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDI1NDQyNj3bTMiuyMxJTEYt1kC5OURPMU82QT82QloPqColSgJNis6NjaWgB
+ xAQqgWwAAAA==
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+ Anand Moon <linux.amoon@gmail.com>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Guillaume La Roque <glaroque@baylibre.com>
+X-Mailer: b4 0.14.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251123_091137_048974_74F3E79D 
-X-CRM114-Status: GOOD (  50.60  )
+X-CRM114-CacheID: sfid-20251123_091414_317250_EA761409 
+X-CRM114-Status: GOOD (  11.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,132 +107,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 24, 2025 at 12:23:56AM +0900, Laurent Pinchart wrote:
-> On Sun, Nov 23, 2025 at 08:52:00AM +0000, Russell King (Oracle) wrote:
-> > On Sun, Nov 23, 2025 at 02:38:02PM +0900, Laurent Pinchart wrote:
-> > > On Sat, Nov 22, 2025 at 09:57:49AM +0000, Russell King (Oracle) wrote:
-> > > > On Sat, Nov 22, 2025 at 04:22:46PM +0900, Laurent Pinchart wrote:
-> > > > > Hello Wei,
-> > > > > 
-> > > > > On Tue, Nov 18, 2025 at 01:50:55AM +0000, Wei Fang wrote:
-> > > > > > Sorry, I only have a little experience with DWMac, add Clark to help look
-> > > > > > at this issue.
-> > > > > 
-> > > > > Thank you.
-> > > > > 
-> > > > > I think we're getting close to having a good understanding of the
-> > > > > problem. I've debugged it as far as I could based on the information
-> > > > > available publicly. Let's try to get to the bottom of this issue, it
-> > > > > impacts quite a lot of people and it would be very nice to fix it
-> > > > > properly in mainline.
-> > > > > 
-> > > > > The short summary is that I'm experiencing an interrupt storm on IRQ 135
-> > > > > when EEE is enabled with the EQOS interface.
-> > > > > 
-> > > > > My current theory is that
-> > > > > 
-> > > > > - The lpi_intr_o signal of the EQOS is OR'ed into IRQ 135.
-> > > > > - The issue is triggerted by the PHY exiting LPI mode
-> > > > > - When it exits LPI mode, the PHY restarts generating the RX clock
-> > > > >   (clk_rx_i).
-> > > > > - The MAC detects exit from LPI, and asserts lpi_intr_o.
-> > > > > - Before the CPU has time to process the interrupt, the PHY enters LPI
-> > > > >   mode again, and stops generating the RX clock.
-> > > > > - The CPU processes the interrupt and reads the GMAC4_LPI_CTRL_STATUS
-> > > > >   registers. This does not clear lpi_intr_o as there's no clk_rx_i.
-> > > > 
-> > > > Please try setting STMMAC_FLAG_RX_CLK_RUNS_IN_LPI in dwmac-imx.c and
-> > > > see whether that changes the behaviour.
-> > > 
-> > > I have tested that and it worked like a charm ! I have submitted
-> > > https://lore.kernel.org/r/20251123053518.8478-1-laurent.pinchart@ideasonboard.com
-> > > 
-> > > That was quite an adventure. Thank you so much for all your support, I'm
-> > > not sure I would have managed without you (or at least I would have
-> > > needed way more time). I really really appreciate it.
-> > > 
-> > > If the above patch gets accepted, we will probably be able to remove the
-> > > eee-broken-* properties from the i.MX8MP device tree files (and possibly
-> > > from i.MX8DXL and i.MX93 as well). I have mentioned that below the
-> > > commit message of the patch, with a test procedure as it should be
-> > > tested on each board.
-> > 
-> > As stated in reply to that patch, while this may reduce the severity of
-> > the storm, I don't think it'll completely eliminate it.
-> > 
-> > I made the suggestion to set the flag as a test to confirm whether the
-> > lpi_intr_o is indeed the problem by ensuring that the receive domain is
-> > always clocked, and thus ensuring that the signal clears within four
-> > clock cycles, rather than an indefinite period should the remote end
-> > re-enter LPI mode quicky.
-> 
-> You're right. I've checked replied to the patch with the following
-> numbers.
-> 
-> 100TX link, eee-broken-* set: 7000 interrupts
-> 1000T link, eee-broken-* set: 2711 interrupts
-> 100TX link, eee-broken-* unset: 9450 interrupts
-> 1000T link, eee-broken-* unset: 6066 interrupts
+The original addition of cache information for the Amlogic S922X SoC
+used the wrong next-level cache node for CPU cores 100 and 101,
+incorrectly referencing `l2_cache_l`. These cores actually belong to
+the big cluster and should reference `l2_cache_b`. Update the device
+tree accordingly.
 
-Sadly, I think this means for iMX8MP, the correct answer is to disable
-EEE completely. What I was thinking when I brought this up is as follows
-and dwmac-imx.c can set STMMAC_FLAG_EEE_DISABLE for iMX8MP to prevent
-the use of EEE.
+Fixes: e7f85e6c155a ("arm64: dts: amlogic: Add cache information to the Amlogic S922X SoC")
+Signed-off-by: Guillaume La Roque <glaroque@baylibre.com>
+---
+ arch/arm64/boot/dts/amlogic/meson-g12b.dtsi | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-This works because, in phylink, pl->mac_supports_eee_ops will be set
-since stmmac implements the two LPI operations. pl->mac_supports_eee
-will be clear because pl->config->lpi_capabilities will be zero, and
-pl->config->lpi_interfaces will be empty. This causes phylink to call
-phy_disable_eee() on all PHYs that end up being attached to this
-phylink instance, which should result in the PHY EEE advertisement
-being cleared.
-
-I'll package this up into a proper patch tomorrow.
-
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 7 ++++++-
- include/linux/stmmac.h                            | 9 +++++----
- 2 files changed, 11 insertions(+), 5 deletions(-)
-
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index 1d37c2b5ad46..113cae2bc593 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -1376,7 +1376,12 @@ static int stmmac_phylink_setup(struct stmmac_priv *priv)
- 				 config->supported_interfaces,
- 				 pcs->supported_interfaces);
+diff --git a/arch/arm64/boot/dts/amlogic/meson-g12b.dtsi b/arch/arm64/boot/dts/amlogic/meson-g12b.dtsi
+index f04efa828256..23358d94844c 100644
+--- a/arch/arm64/boot/dts/amlogic/meson-g12b.dtsi
++++ b/arch/arm64/boot/dts/amlogic/meson-g12b.dtsi
+@@ -87,7 +87,7 @@ cpu100: cpu@100 {
+ 			i-cache-line-size = <32>;
+ 			i-cache-size = <0x8000>;
+ 			i-cache-sets = <32>;
+-			next-level-cache = <&l2_cache_l>;
++			next-level-cache = <&l2_cache_b>;
+ 			#cooling-cells = <2>;
+ 		};
  
--	if (priv->dma_cap.eee) {
-+	/* Some platforms, e.g. iMX8MP, wire lpi_intr_o to the same interrupt
-+	 * used for stmmac's main interrupts, which leads to interrupt storms.
-+	 * STMMAC_FLAG_EEE_DISABLE allows EEE to be disabled on such platforms.
-+	 */
-+	if (priv->dma_cap.eee &&
-+	    !(priv->plat->flags & STMMAC_FLAG_EEE_DISABLE)) {
- 		/* Assume all supported interfaces also support LPI */
- 		memcpy(config->lpi_interfaces, config->supported_interfaces,
- 		       sizeof(config->lpi_interfaces));
-diff --git a/include/linux/stmmac.h b/include/linux/stmmac.h
-index 8ae068706b63..4c770262a2f8 100644
---- a/include/linux/stmmac.h
-+++ b/include/linux/stmmac.h
-@@ -187,10 +187,11 @@ enum dwmac_core_type {
- #define STMMAC_FLAG_MULTI_MSI_EN		BIT(7)
- #define STMMAC_FLAG_EXT_SNAPSHOT_EN		BIT(8)
- #define STMMAC_FLAG_INT_SNAPSHOT_EN		BIT(9)
--#define STMMAC_FLAG_RX_CLK_RUNS_IN_LPI		BIT(10)
--#define STMMAC_FLAG_EN_TX_LPI_CLOCKGATING	BIT(11)
--#define STMMAC_FLAG_EN_TX_LPI_CLK_PHY_CAP	BIT(12)
--#define STMMAC_FLAG_HWTSTAMP_CORRECT_LATENCY	BIT(13)
-+#define STMMAC_FLAG_EEE_DISABLE			BIT(10)
-+#define STMMAC_FLAG_RX_CLK_RUNS_IN_LPI		BIT(11)
-+#define STMMAC_FLAG_EN_TX_LPI_CLOCKGATING	BIT(12)
-+#define STMMAC_FLAG_EN_TX_LPI_CLK_PHY_CAP	BIT(13)
-+#define STMMAC_FLAG_HWTSTAMP_CORRECT_LATENCY	BIT(14)
- 
- struct mac_device_info;
+@@ -103,7 +103,7 @@ cpu101: cpu@101 {
+ 			i-cache-line-size = <32>;
+ 			i-cache-size = <0x8000>;
+ 			i-cache-sets = <32>;
+-			next-level-cache = <&l2_cache_l>;
++			next-level-cache = <&l2_cache_b>;
+ 			#cooling-cells = <2>;
+ 		};
  
 
+---
+base-commit: 6a23ae0a96a600d1d12557add110e0bb6e32730c
+change-id: 20251123-fixkhadas-c84da7d7c47c
+
+Best regards,
 -- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+Guillaume La Roque <glaroque@baylibre.com>
+
 
