@@ -4,49 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70110CFA46B
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Nov 2025 09:42:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0B4ACFC518
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Nov 2025 10:23:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lyC2NUp2eiii8d81o13Fi55FGP+755nIS0RL+nNm1T4=; b=HJtxB4z4HTJKdp9i4YZ7KUGDYN
-	koDTlvQ3BUu+Czw4N4KnCLLp7mHoU9WNa9G4mSjqjsCPoIYO2a918eeYxwZbFczA/VwGPGRrdD2mW
-	DkGqfUgE33vefhpv0OmSiT55LM2SPI2LHGll4OMVfJ5JJU5etGpaBweYBVaXKTXJJujovk5jyApfL
-	lScNdibNLbAMamwUe+BDS14HzbWf30A6BvDSVnONv3CvjA+49P13S4ZWLVuTGchb/Ja6K8PaBeZku
-	fMHvOf88lbV+y/58kjtUQ70c83CzDd9xTvVimOAuST1bM+hTLwC0waR3iCxhHB14P5IOwL1nF9mjz
-	+gmkrv0Q==;
+	bh=l/z36+6SY7PiBO3YBvcIfA8Id/2fYt86l8T5gzt0UJM=; b=dPSKxnv8DTzIao6O8t+1PU3O9h
+	ZknjJeP0CwIuLnNtGrG/r8donuFmVsMuqvokZoRucPpc4VNea2XYifWw9epa4qcdlQ6ozB4GfCC9Y
+	QY+az3KcSnLbnnmP9YrYsMu16YkxXPqL1ZbjjI6PknTjVTuBud4UhFz2qiiZenUU7cLBE/zASTfN8
+	TtMz+KJFtdrrr9oRg5Rft5lfyDNPAK2DhWiqdbKA72uvXs46C2HDTc9gyZ7ATJfsDHetivlam4Kwn
+	KFs/ro2GFDEl2w++Gp3YyJhgaAyaodUm0kJmV7n7kiRTULe38rZbzevzxzEgd9WimgSat2jdRblaC
+	Sw5DMWUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vN6cD-0000000AJav-1o4H;
-	Sun, 23 Nov 2025 09:42:41 +0000
+	id 1vN7Fa-0000000ALI7-0mOh;
+	Sun, 23 Nov 2025 10:23:22 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vN6cB-0000000AJan-3e7Z
+	id 1vN7FY-0000000ALHr-1FhZ
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 23 Nov 2025 09:42:39 +0000
+	Sun, 23 Nov 2025 10:23:20 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D5D5E60158;
-	Sun, 23 Nov 2025 09:42:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3070AC113D0;
-	Sun, 23 Nov 2025 09:42:30 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 690B660154;
+	Sun, 23 Nov 2025 10:23:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E5D90C113D0;
+	Sun, 23 Nov 2025 10:23:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763890956;
-	bh=kkM+mQVbzz5/S52nBwvpTsvT8OLm2D5Q0QHcj7SfeT4=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=nzjtzajGDAvOL3sjwsn5tDTmrN4oQldYX2ptU8r9Zi47yRQ7jwsPCW/WM4Wi/Xmnc
-	 iy+DDEIymLLXQkwnTFkI9a1UxQ6Qme/4qHq+KJoJdAT1p/AeYDacex+aUzNYld30gT
-	 M0KY6EMboDNvdG/4kdYpEL2h+23EvCq3ws6c7SP073oFA5jhUS+92Db0HdK9VxHLxM
-	 9+ku0YEsGPRFLdAqjCuR+mGSFkRrpBgpVydsXB5FOb96FOr2sgu0yqAqg+y+zVbMqu
-	 O1uwDaEIvleXkerm/DVwsyY4MGR0i1msEzXS2Badpt1JtJ9Dmt+n9SvK7SAqto4mmo
-	 w9ySpPf7vDMQg==
-Message-ID: <7e50c694-af6b-40cc-b1dc-4dd4ecf85a8d@kernel.org>
-Date: Sun, 23 Nov 2025 10:42:29 +0100
+	s=k20201202; t=1763893399;
+	bh=UiX7HVf3vaYnrjH0z8zCjrfqBr/dzzXW1fZ0kqi45VM=;
+	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
+	b=Tarun4EMLm/3AZKunWxcyKCAkMOWd8a/zIZbPLFSEioDD/m45BkNjFJ3Fd1r75o/y
+	 p5kS+YGd29OaLc6tXGR/yb0twr4ByhhFFWg0KX7mqUZpJ9Lu+LjPz6sPCbKZ+L36Xh
+	 zR0CjOMNi3i8wIwq+p+1kV+q0UDGw3ask4WsCugsoJQ4XlncTQ+zuPvXyD+NH3B6D0
+	 XzeeW1CILUZ+BZmbjxLtLPJhH01rvfsSsUcpryW0/arA81mSdItlbcA7hgnBXFwkaz
+	 WqYPdfEkDda1OsYR3YVIktGbjG4XeRqsDaCKN/ogUGc5no/qM6jpJWXzFqN5X8yr4I
+	 NzY8qbUoIwkdg==
+Message-ID: <b8d5e008-d004-4e4f-8229-1d8d23087718@kernel.org>
+Date: Sun, 23 Nov 2025 11:23:12 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v5 2/2] arm64: dts: add support for NXP i.MX8MP FRDM board
+From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Rogerio Pimentel <rpimentel.silva@gmail.com>, robh@kernel.org,
  krzk+dt@kernel.org, conor+dt@kernel.org, shawnguo@kernel.org,
  s.hauer@pengutronix.de
@@ -61,7 +62,7 @@ Cc: kernel@pengutronix.de, festevam@gmail.com,
  Steven Yang <steven.yang@nxp.com>, Lei Xu <lei.xu@nxp.com>
 References: <20251123003603.246399-1-rpimentel.silva@gmail.com>
  <20251123003603.246399-2-rpimentel.silva@gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+ <7e50c694-af6b-40cc-b1dc-4dd4ecf85a8d@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
  xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
@@ -106,7 +107,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20251123003603.246399-2-rpimentel.silva@gmail.com>
+In-Reply-To: <7e50c694-af6b-40cc-b1dc-4dd4ecf85a8d@kernel.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -123,63 +124,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 23/11/2025 01:36, Rogerio Pimentel wrote:
-> The FRDM-i.MX8MP is an NXP development platform based on the i.MX8M Plus
-> SoC, featuring a quad Cortex-A53, Cortex-M7 co-processor, 4GB LPDDR4,
-> 32GB eMMC, Wi-Fi 6/Bluetooth 5.4/802.15.4 tri-radio, Ethernet, HDMI/MIPI
-> display interfaces, camera connectors, and standard expansion headers.
+On 23/11/2025 10:42, Krzysztof Kozlowski wrote:
+> On 23/11/2025 01:36, Rogerio Pimentel wrote:
+>> The FRDM-i.MX8MP is an NXP development platform based on the i.MX8M Plus
+>> SoC, featuring a quad Cortex-A53, Cortex-M7 co-processor, 4GB LPDDR4,
+>> 32GB eMMC, Wi-Fi 6/Bluetooth 5.4/802.15.4 tri-radio, Ethernet, HDMI/MIPI
+>> display interfaces, camera connectors, and standard expansion headers.
+>>
+>> Based on the device tree found in the NXP repository at github
+>> https://github.com/nxp-imx-support/meta-imx-frdm and on imx8mp-evk
+>> board kernel mainline device tree.
+>>
+>> This is a basic device tree supporting:
+>>
+>>  - Quad Cortex-A53
+>>  - 4GB LPDDR4 DRAM
+>>  - PCA9450C PMIC with regulators
+>>  - Two NXP PCAL6416 GPIO expanders
+>>  - RGB LEDs via GPIO expander
+>>  - I2C1, I2C2, I2C3 controllers
+>>  - UART2 (console) and UART3 (with RTS/CTS)
+>>  - USDHC3 (8-bit eMMC)
+>>  - SNVS power key (onboard power button)
+>>
+>> Author: Xiaofeng Wei <xiaofeng.wei@nxp.com>
 > 
-> Based on the device tree found in the NXP repository at github
-> https://github.com/nxp-imx-support/meta-imx-frdm and on imx8mp-evk
-> board kernel mainline device tree.
+> There is no such tag. Use git commit --amend --reset-author to set the
+> author.
 > 
-> This is a basic device tree supporting:
+>> Signed-off-by: Xiaofeng Wei <xiaofeng.wei@nxp.com>
+>>
+>> Co-developed-by: Joseph Guo <qijian.guo@nxp.com>
+>> Signed-off-by: Joseph Guo <qijian.guo@nxp.com>
+>>
 > 
->  - Quad Cortex-A53
->  - 4GB LPDDR4 DRAM
->  - PCA9450C PMIC with regulators
->  - Two NXP PCAL6416 GPIO expanders
->  - RGB LEDs via GPIO expander
->  - I2C1, I2C2, I2C3 controllers
->  - UART2 (console) and UART3 (with RTS/CTS)
->  - USDHC3 (8-bit eMMC)
->  - SNVS power key (onboard power button)
+> There is never blank line between tags.
 > 
-> Author: Xiaofeng Wei <xiaofeng.wei@nxp.com>
+>> Co-developed-by: Steven Yang <steven.yang@nxp.com>
+>> Signed-off-by: Steven Yang <steven.yang@nxp.com>
+>>
+>> Co-developed-by: Lei Xu <lei.xu@nxp.com>
+>> Signed-off-by: Lei Xu <lei.xu@nxp.com>
+>>
+>> Co-developed-by: Rogerio Pimentel <rpimentel.silva@gmail.com>
+>> Signed-off-by: Rogerio Pimentel <rpimentel.silva@gmail.com>
+>> ---
+>>
+>> Changes in v5:
+>>
+>>  - Replace underscores (_) in node names with dashes (-)
+>>  - Added missing Co-developed-by and Signed-off-by tags from all contributors
+> 
+> I assume you actually saw these SoBs in the code you took as your base?
+> Remember, do not add SoBs which were never present in the original work
+> (if company asks you, you can politely reply that they need to read what
+> SoB means)
+> 
+> That's anyway weirdly a lot of co-developed tags, are you sure they
+> wrote the code you took as the base here?
 
-There is no such tag. Use git commit --amend --reset-author to set the
-author.
-
-> Signed-off-by: Xiaofeng Wei <xiaofeng.wei@nxp.com>
-> 
-> Co-developed-by: Joseph Guo <qijian.guo@nxp.com>
-> Signed-off-by: Joseph Guo <qijian.guo@nxp.com>
-> 
-
-There is never blank line between tags.
-
-> Co-developed-by: Steven Yang <steven.yang@nxp.com>
-> Signed-off-by: Steven Yang <steven.yang@nxp.com>
-> 
-> Co-developed-by: Lei Xu <lei.xu@nxp.com>
-> Signed-off-by: Lei Xu <lei.xu@nxp.com>
-> 
-> Co-developed-by: Rogerio Pimentel <rpimentel.silva@gmail.com>
-> Signed-off-by: Rogerio Pimentel <rpimentel.silva@gmail.com>
-> ---
-> 
-> Changes in v5:
-> 
->  - Replace underscores (_) in node names with dashes (-)
->  - Added missing Co-developed-by and Signed-off-by tags from all contributors
-
-I assume you actually saw these SoBs in the code you took as your base?
-Remember, do not add SoBs which were never present in the original work
-(if company asks you, you can politely reply that they need to read what
-SoB means)
-
-That's anyway weirdly a lot of co-developed tags, are you sure they
-wrote the code you took as the base here?
+Although I think you mentioned you wanted all these last time, so it's
+fine. Although I did not think you will literally use that syntax and
+literally all the tags from Daniel's responses, because the syntax was
+not correct.
 
 Best regards,
 Krzysztof
