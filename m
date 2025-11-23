@@ -4,77 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C99BCFA46B
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Nov 2025 05:38:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54A21CFC26D
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Nov 2025 07:10:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fdTAoGIkVJdTBNn5w5JezM40NIKQVYvjlSA7P/AFoaY=; b=oXCaVqGy1seu6lLRqxWub18INw
-	FqEmg1YIME8UPTA/P6J2yYMKzwdcnEXfBYlN5gSeqxdMekz5kC63vm8/pZNTVzkUIYRzN7DQZRW0H
-	LNpngCcpJM3Zcbu8R5H0ehZCcxI3hD93TKf2R4Iyx9LE/rFsbp32swdTIr/CYrfJAyfOhEsJflg4H
-	uf2I2G8LRcB1cQTEF2J+tSRZRyVQABq8zEVpP9O3uZAE/Lfn3ssUDPhoXTUs1YV7cjt0TkC+opA5a
-	misQaoB0vXXjNZZRmY5SkxF6MXYMbsHxZDAGiaGvrZv66yph7BEDl0WP0yY+96XDwgOP01zdjGBYc
-	32/7V/dw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=PwG2NvtqtgTxx/LedM7ZSRwupcpxNiROYVeju+b13Js=; b=XrNbnGiOreiuqCT2wjrEqg3asu
+	r6HgyyX9s0DbKiue55BxOhoEAMwhY+I6QseLdzi3HZre81h3Gf9hy9ciI0wAXnhcFwShD4s8TSeNC
+	TAt/FKDJ83Qbck+Fcj6OVrHZDjRE1VMFLN0EKVQjl0OhW6Jag2Ppnha766tjBnSlvND9+91ll6TIS
+	mZZfhLs8HSpScwjmVytCYv/IfeilW6OVDmAJIv2Rdke8DATyHj1B2h7M64mwqvMgmHcYbjSvm0OP2
+	8IshA3mJvyhcgqFAfhVledRhUNvIUBOLtdYAkKbCuPygRpn9qLuSLFoxKarIgITGXHc2TakEiIYjm
+	a9e/U2NQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vN2nv-0000000AA5i-1NfW;
-	Sun, 23 Nov 2025 05:38:31 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1vN4Ev-0000000ACj2-0hF8;
+	Sun, 23 Nov 2025 07:10:29 +0000
+Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vN2ns-0000000AA5N-45Xo
+	id 1vN4Es-0000000ACih-3uAd
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 23 Nov 2025 05:38:30 +0000
-Received: from pendragon.ideasonboard.com (fs276ed015.tkyc509.ap.nuro.jp [39.110.208.21])
-	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 1ACF39CE;
-	Sun, 23 Nov 2025 06:36:18 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1763876180;
-	bh=He+lt4QQh/rQAbv/9qG6zLXqw96LteC0N/tPxNFTT9Q=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=l+vRVvw/93ZcT4UkaXR21OlThwf3YkZfWidDUFelwrcI4c9O/cHW2aeEbmsNYiNXP
-	 wtipELrgx72t+eaWhoYJn6EhgZIvMjpMkwmjLY4BUdXbTZmVr6Alog0Tq1EHDu8NVb
-	 ai1oUz3t9lPbyycsjkmH2jMkA8MbH7fmRdLYyVu4=
-Date: Sun, 23 Nov 2025 14:38:02 +0900
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-Cc: Wei Fang <wei.fang@nxp.com>, Clark Wang <xiaoning.wang@nxp.com>,
-	Oleksij Rempel <o.rempel@pengutronix.de>,
-	Emanuele Ghidoli <ghidoliemanuele@gmail.com>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	Daniel Scally <dan.scally@ideasonboard.com>,
-	Kieran Bingham <kieran.bingham@ideasonboard.com>,
-	Stefan Klug <stefan.klug@ideasonboard.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Fabio Estevam <festevam@gmail.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>
-Subject: Re: [PATCH] arm64: dts: imx8mp-debix-model-a: Disable EEE for 1000T
-Message-ID: <20251123053802.GA25329@pendragon.ideasonboard.com>
-References: <20251028071817.GX13023@pendragon.ideasonboard.com>
- <20251111235434.GA25874@pendragon.ideasonboard.com>
- <aRR3gVsZcr01zwzN@shell.armlinux.org.uk>
- <20251112222551.GB9135@pendragon.ideasonboard.com>
- <20251113010627.GC9135@pendragon.ideasonboard.com>
- <aRW6CxvmIEqkMrfA@shell.armlinux.org.uk>
- <20251114222654.GI30434@pendragon.ideasonboard.com>
- <PAXPR04MB8510E17B2B8C612DD02175CE88D6A@PAXPR04MB8510.eurprd04.prod.outlook.com>
- <20251122072246.GA16239@pendragon.ideasonboard.com>
- <aSGJHV9Sga2kBIBX@shell.armlinux.org.uk>
+	Sun, 23 Nov 2025 07:10:28 +0000
+Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-2957850c63bso23586105ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 22 Nov 2025 23:10:26 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1763881825; x=1764486625; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=PwG2NvtqtgTxx/LedM7ZSRwupcpxNiROYVeju+b13Js=;
+        b=mIrau4qCH7h07ToFF8dX3W5Lu7L8UMzB9Z5s+TlfiLdSI31zPLHegEJiryifFIPmHu
+         z7oWhhOzoFqdDQdduZvqAwaOR7vCMllHwplmQ7QA2LnY+FVyLW5CwWYBfLfDSjvb3bpl
+         2ly5kq3gRKEpinHTCnY3my6iWEnc/gGo1kkKZ8HfXcq0GurdgHJqBxiL6kAkEmPhvfSl
+         9KgiUiQCYPgmSUezjoim0T6sqCQtVahNMQkyfHQXNd8GhVo5JLZujg7m+wADUkPNJSse
+         /8ouE77KfzK9wYuIBkJksIr/YOc7lzwdlsSh/DNmOZocyQ/pzi7nPZ4IH3AWcwvEcCf8
+         0m4A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1763881825; x=1764486625;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=PwG2NvtqtgTxx/LedM7ZSRwupcpxNiROYVeju+b13Js=;
+        b=Y50EkgtMREK/WnO+e4vv66dWyqTgbj2RK0R07rcfQhW8LXRyKZkxM/nHx8/GO+JvEi
+         St0PjgHI5N/00KJTeBxbH1HYvAAymnk/gp+kMXHD9mdsIYWTjsdu6prGZkvSm+0Y/P9m
+         C+UAXew4tPeDY4RkqCC0FgJIopwlaMv2XqP7hVFLXHLe19133llCoao2G1COILmfGucf
+         KnMiF26HcOUdlT0AHgvvQzEROTec+FKmI94Wx+8J9YVPeAK1pa0P4Ofk0e0lxMVZE6pq
+         owo2ipAzqs1hrFPxmKtMnBPFhi1Ywt6ClLQi3psGQnWXaMdazc05SurRRW1oipZojLo1
+         54fA==
+X-Forwarded-Encrypted: i=1; AJvYcCUZFqiapxAorcX64+1rNFV+z1C8Y4C3s2P5hRhS0P4Ew5yyvHeYvEFmdn2Bj9E0TYSfmzruawIsozmMORwS4DeF@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxr6A8JH88DvYBHcLZFKg+f5oiV+qAmVcR8c/xCtZ3XT9ooOkVX
+	9r9HOMs7lhi+kgwC9zBqeO6r5hGQivFkO03lIFX9Kt5yDsuINrHayNMa
+X-Gm-Gg: ASbGncu2kHteIfLfiA6KZfV33r+ONFDwdxIPbJTl6SOFGIFzm61HQkpvjXL3cSSjlza
+	kftNPGpne+3KKCRsAiMS9cqQ9kOxs8xb1ZZSjGetsNEkpearQWEbTbd8cvEM5BI3bGDo5lemLLE
+	VerSoTfUxREOwd+5EwTihuaURE4ktYKyiA771F2Wb8/8e7IR8fH84QupyL7ysM9QiXCMRwTR633
+	Juq35OUJJAdJhL7Tkbo5Jj4Tg0X3yq1dJ2/CYjZdAlzRzYCrmwCRlX7lyCVCqHBTkvq9LCd3ScX
+	tPTMY6bbwiqMY60Dst7hvp5V4Nkg4Zd+TgqL1TshhtwsxPaHmjuBZ3gu4hJ5L/fb8Agd5ZuxnoZ
+	G0jZM1SYZ7EIASESqJkatfRMZ1siXewg5nJmAGO4IDMvc7fnqGNPSTJo++cX0t/JnOQgVACDhzq
+	VvJGvfT3LB
+X-Google-Smtp-Source: AGHT+IGOb2SPkDuexkN6TZJ/1imTC0LGqAJENCoa3Npb4oSStvaDCmaZVboHY52QWjAi7Q8yBVralQ==
+X-Received: by 2002:a17:903:2f0f:b0:283:f19a:bffe with SMTP id d9443c01a7336-29b6bf0db2amr88567395ad.7.1763881825449;
+        Sat, 22 Nov 2025 23:10:25 -0800 (PST)
+Received: from t14.. ([103.170.245.236])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-29b5b2ae1c3sm102091315ad.92.2025.11.22.23.10.21
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 22 Nov 2025 23:10:25 -0800 (PST)
+From: Sidharth Seela <sidharthseela@gmail.com>
+To: claudiu.beznea@tuxon.dev,
+	alexandre.belloni@bootlin.com,
+	nicolas.ferre@microchip.com,
+	sboyd@kernel.org,
+	mturquette@baylibre.com
+Cc: linux-clk@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	david.hunter.linux@gmail.com,
+	skhan@linuxfoundation.org,
+	khalid@kernel.org,
+	Sidharth Seela <sidharthseela@gmail.com>
+Subject: [RFT PATCH v2] Use kmalloc_array() instead of kmalloc()
+Date: Sun, 23 Nov 2025 12:39:06 +0530
+Message-ID: <20251123070905.93652-2-sidharthseela@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <aSGJHV9Sga2kBIBX@shell.armlinux.org.uk>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251122_213829_170874_AE8933BC 
-X-CRM114-Status: GOOD (  30.43  )
+X-CRM114-CacheID: sfid-20251122_231026_973360_713ABCCD 
+X-CRM114-Status: UNSURE (   9.71  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,57 +106,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Russell,
+Refactor to new API, for cases with dynamic size calculations
+inside kmalloc(). Such calculations were found using grep in the
+sources. The patch compiles properly with multi_v7_defconfig
+and multi_v5_defconfig and generates object files for the following
+driver files.
 
-On Sat, Nov 22, 2025 at 09:57:49AM +0000, Russell King (Oracle) wrote:
-> On Sat, Nov 22, 2025 at 04:22:46PM +0900, Laurent Pinchart wrote:
-> > Hello Wei,
-> > 
-> > On Tue, Nov 18, 2025 at 01:50:55AM +0000, Wei Fang wrote:
-> > > Sorry, I only have a little experience with DWMac, add Clark to help look
-> > > at this issue.
-> > 
-> > Thank you.
-> > 
-> > I think we're getting close to having a good understanding of the
-> > problem. I've debugged it as far as I could based on the information
-> > available publicly. Let's try to get to the bottom of this issue, it
-> > impacts quite a lot of people and it would be very nice to fix it
-> > properly in mainline.
-> > 
-> > The short summary is that I'm experiencing an interrupt storm on IRQ 135
-> > when EEE is enabled with the EQOS interface.
-> > 
-> > My current theory is that
-> > 
-> > - The lpi_intr_o signal of the EQOS is OR'ed into IRQ 135.
-> > - The issue is triggerted by the PHY exiting LPI mode
-> > - When it exits LPI mode, the PHY restarts generating the RX clock
-> >   (clk_rx_i).
-> > - The MAC detects exit from LPI, and asserts lpi_intr_o.
-> > - Before the CPU has time to process the interrupt, the PHY enters LPI
-> >   mode again, and stops generating the RX clock.
-> > - The CPU processes the interrupt and reads the GMAC4_LPI_CTRL_STATUS
-> >   registers. This does not clear lpi_intr_o as there's no clk_rx_i.
-> 
-> Please try setting STMMAC_FLAG_RX_CLK_RUNS_IN_LPI in dwmac-imx.c and
-> see whether that changes the behaviour.
+Signed-off-by: Sidharth Seela <sidharthseela@gmail.com>
+---
+Changelog:
+v1:https://lore.kernel.org/all/20250924145552.55058-1-sidharthseela@gmail.com/
+-refactor code and run checkpatch.
+-use sizeof(*ptr) not sizeof(void*).
+-add RFT and the how the issue was found.
 
-I have tested that and it worked like a charm ! I have submitted
-https://lore.kernel.org/r/20251123053518.8478-1-laurent.pinchart@ideasonboard.com
-
-That was quite an adventure. Thank you so much for all your support, I'm
-not sure I would have managed without you (or at least I would have
-needed way more time). I really really appreciate it.
-
-If the above patch gets accepted, we will probably be able to remove the
-eee-broken-* properties from the i.MX8MP device tree files (and possibly
-from i.MX8DXL and i.MX93 as well). I have mentioned that below the
-commit message of the patch, with a test procedure as it should be
-tested on each board.
-
+diff --git a/drivers/clk/at91/sam9x7.c b/drivers/clk/at91/sam9x7.c
+index 89868a0aeaba..01bf557034e0 100644
+--- a/drivers/clk/at91/sam9x7.c
++++ b/drivers/clk/at91/sam9x7.c
+@@ -754,9 +754,9 @@ static void __init sam9x7_pmc_setup(struct device_node *np)
+ 	if (!sam9x7_pmc)
+ 		return;
+ 
+-	clk_mux_buffer = kmalloc(sizeof(void *) *
+-				 (ARRAY_SIZE(sam9x7_gck)),
+-				 GFP_KERNEL);
++	clk_mux_buffer = kmalloc_array(ARRAY_SIZE(sam9x7_gck),
++				       sizeof(*clk_mux_buffer),
++				       GFP_KERNEL);
+ 	if (!clk_mux_buffer)
+ 		goto err_free;
+ 
+diff --git a/drivers/clk/at91/sama7d65.c b/drivers/clk/at91/sama7d65.c
+index 7dee2b160ffb..91a5615f724a 100644
+--- a/drivers/clk/at91/sama7d65.c
++++ b/drivers/clk/at91/sama7d65.c
+@@ -1127,9 +1127,9 @@ static void __init sama7d65_pmc_setup(struct device_node *np)
+ 	if (!sama7d65_pmc)
+ 		return;
+ 
+-	alloc_mem = kmalloc(sizeof(void *) *
+-			    (ARRAY_SIZE(sama7d65_mckx) + ARRAY_SIZE(sama7d65_gck)),
+-			    GFP_KERNEL);
++	alloc_mem = kmalloc_array(ARRAY_SIZE(sama7d65_mckx) + ARRAY_SIZE(sama7d65_gck),
++				  sizeof(*alloc_mem),
++				  GFP_KERNEL);
+ 	if (!alloc_mem)
+ 		goto err_free;
+ 
+diff --git a/drivers/clk/at91/sama7g5.c b/drivers/clk/at91/sama7g5.c
+index 1340c2b00619..a12381f6c068 100644
+--- a/drivers/clk/at91/sama7g5.c
++++ b/drivers/clk/at91/sama7g5.c
+@@ -1004,9 +1004,9 @@ static void __init sama7g5_pmc_setup(struct device_node *np)
+ 	if (!sama7g5_pmc)
+ 		return;
+ 
+-	alloc_mem = kmalloc(sizeof(void *) *
+-			    (ARRAY_SIZE(sama7g5_mckx) + ARRAY_SIZE(sama7g5_gck)),
+-			    GFP_KERNEL);
++	alloc_mem = kmalloc_array(ARRAY_SIZE(sama7g5_mckx) + ARRAY_SIZE(sama7g5_gck),
++				  sizeof(*alloc_mem),
++				  GFP_KERNEL);
+ 	if (!alloc_mem)
+ 		goto err_free;
+ 
 -- 
-Regards,
+2.43.0
 
-Laurent Pinchart
 
