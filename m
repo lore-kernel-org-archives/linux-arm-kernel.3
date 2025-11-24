@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81201CFD313
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 00:39:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17B14CFD313
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 00:39:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HcEoGqoyw8QQRW0cvEw+qrVp5/GCJykCAzAwGqnzN3I=; b=S31GKVcKh6LA+LgdaHJ1Wx7MlS
-	xJHKPDDEvhTl0EoFOY1D2K08VmXdtXkCA5Tf/doibde1MFa4+28MIz315+2NnmUUf7FPaxgsvZUva
-	s9k/KQd2H5QdHoZjIj3RPhOu1MfndUiWyc3DYXFkUCBgcxUvHzGZUdgX8TLt46YtHFH/lwb/reWmx
-	tB6xNHDO7lAKt2JoXICLLwPiy7Tg2JFaVURvqSx7mD2EPog7XbsAFctI29/nYehX+MFy4dkoRkf4d
-	2jFdEGAIx6p2rvk3bfxzurFoIyYdN0P0yEx9WJOtsRjjQTQmNUNr2TLjtzdvQPM5fXEC8oW/mrEuZ
-	eYvnhmig==;
+	bh=CScahu1qup1u5hvkOYF8CrEeWd5glFp2xSPBnUXIsWo=; b=adpBN22Le9KD7L2ToUzjXL3w2B
+	0EQT0TlSgzaKuSq1g9uYGGNDaRvlgnhZDhu+SyYYHDGElaYieDbmz/YqIRMfCstSkaFlU4sj8MoUM
+	bl9Pd1d2YzDBOU/QxNZIVoNLxvhMMPou1tJ66Gk4pQrj4bfh5/zgl8M9oaIBbbn8ltLy8PFr7BELF
+	nucL5JcR76L6hMKi2oXA7WBfF6KeImrlCOWwcxFFe57Dcz5Srppx7F/hw0H5iVzGmUpSqEog0Xrl8
+	Usrl9GcKYTj0wLbjcilyRb0MdHNld6BuxGOdsAUnSuoUMSZqkB85oybbKMy8X8yBHF1ZPXxd8wLCY
+	fUR45AXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNKbp-0000000Aqzi-1fl3;
-	Mon, 24 Nov 2025 00:39:13 +0000
+	id 1vNKbu-0000000Ar1t-0wHU;
+	Mon, 24 Nov 2025 00:39:18 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNKbm-0000000Aqyf-3huZ
+	id 1vNKbo-0000000AqzG-2Izg
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Nov 2025 00:39:12 +0000
+	Mon, 24 Nov 2025 00:39:13 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E6C2444341;
-	Mon, 24 Nov 2025 00:39:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 140B3C113D0;
-	Mon, 24 Nov 2025 00:39:03 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 386D64169C;
+	Mon, 24 Nov 2025 00:39:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 34A8DC116D0;
+	Mon, 24 Nov 2025 00:39:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763944747;
-	bh=2hkE4qrZTMJx3LKrzCmdn4jDcilUVOmMo1JI2JFIt9M=;
+	s=k20201202; t=1763944752;
+	bh=UkCi6spCoGBukorZ8+mAQyPnpIaXJp83L7Ud7SQYBdU=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=gX9BEm0V2hbEZTdzOHE3SV6ph03SBheYsYdTyWZVuM9MXFg37dRlmXHQcmpCF4vxk
-	 7MqVh6kXbftGVrkDxJrAQ9p8DyuANgbAK37avBppEk9PSlQ2LY7tIfHij8+iAwKsIQ
-	 hQoYr6stQ555kinDrJsYeRLWDQcGtetXfeeQRrlaEe6YLdE23B0Xiq5nnroMJdxjDU
-	 eRyjqM2NATSTVyRe1c+h63m8ruq19P+wwAazNsXVBgHgDni71DSq+KVmEnH7mHuzE+
-	 Lg848RwYoH4Vf32LlSxkle4Y1EuOJ8ka+GD9F6pJkYKl0dq76roByayYbFsFKL6daN
-	 GjBvn7k6Onesw==
+	b=N3GUd97s11C65b3B4qczTaFB/BDMk6u89hqkuACWfPDSZ3+08hQ2INkLoJHrLPy0t
+	 wasnmNO3N1CwHmTIkXszdhHaE/81lep+7ox6CPjXOuk5Ou8IMZdu1IbVDvUKYgz8oG
+	 HenuTddNMXOJ3La6mK0vOeSO94jPeuIZdOKsE+dFY0o8d9PX3E/EtkGm/fFqXtcDe2
+	 4MWqyhZ1Da3wE+HF+gEP82L/BGOFd87sNyDBS7RHLx/gKDRsExDLYezWNfvsCgQKxp
+	 mXvwTySfWeIxGcvWH5GGDHyxWixrI5rMgVKSuNlCtHU9uNHh0lKT5vLc/RSx8dTEZx
+	 ORfGozdp9b4jQ==
 From: Jisheng Zhang <jszhang@kernel.org>
 To: Doug Berger <opendmb@gmail.com>,
 	Florian Fainelli <florian.fainelli@broadcom.com>,
@@ -64,18 +64,19 @@ To: Doug Berger <opendmb@gmail.com>,
 Cc: linux-gpio@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	linux-omap@vger.kernel.org
-Subject: [PATCH v5 02/14] gpio: brcmstb: Use modern PM macros
-Date: Mon, 24 Nov 2025 08:20:53 +0800
-Message-ID: <20251124002105.25429-3-jszhang@kernel.org>
+	linux-omap@vger.kernel.org,
+	Andy Shevchenko <andriy.shevchenko@intel.com>
+Subject: [PATCH v5 03/14] gpio: htc-egpio: Use modern PM macros
+Date: Mon, 24 Nov 2025 08:20:54 +0800
+Message-ID: <20251124002105.25429-4-jszhang@kernel.org>
 X-Mailer: git-send-email 2.51.0
 In-Reply-To: <20251124002105.25429-1-jszhang@kernel.org>
 References: <20251124002105.25429-1-jszhang@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251123_163910_959944_BA9617D5 
-X-CRM114-Status: GOOD (  14.49  )
+X-CRM114-CacheID: sfid-20251123_163912_627118_C74B3A96 
+X-CRM114-Status: GOOD (  13.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,51 +100,66 @@ independently of any Kconfig option. Thanks to that, bugs and other
 regressions are subsequently easier to catch.
 
 Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-Acked-by: Doug Berger <opendmb@gmail.com>
 Reviewed-by: Florian Fainelli <florian.fainelli@broadcom.com>
-Acked-by: Linus Walleij <linus.walleij@linaro.org>
+Reviewed-by: Andy Shevchenko <andriy.shevchenko@intel.com>
 ---
- drivers/gpio/gpio-brcmstb.c | 12 +++---------
- 1 file changed, 3 insertions(+), 9 deletions(-)
+ drivers/gpio/gpio-htc-egpio.c | 21 ++++++++-------------
+ 1 file changed, 8 insertions(+), 13 deletions(-)
 
-diff --git a/drivers/gpio/gpio-brcmstb.c b/drivers/gpio/gpio-brcmstb.c
-index f40c9472588b..af9287ff5dc4 100644
---- a/drivers/gpio/gpio-brcmstb.c
-+++ b/drivers/gpio/gpio-brcmstb.c
-@@ -533,7 +533,6 @@ static void brcmstb_gpio_shutdown(struct platform_device *pdev)
- 	brcmstb_gpio_quiesce(&pdev->dev, false);
- }
- 
--#ifdef CONFIG_PM_SLEEP
- static void brcmstb_gpio_bank_restore(struct brcmstb_gpio_priv *priv,
- 				      struct brcmstb_gpio_bank *bank)
- {
-@@ -572,14 +571,9 @@ static int brcmstb_gpio_resume(struct device *dev)
+diff --git a/drivers/gpio/gpio-htc-egpio.c b/drivers/gpio/gpio-htc-egpio.c
+index 2eaed83214d8..72935d6dbebf 100644
+--- a/drivers/gpio/gpio-htc-egpio.c
++++ b/drivers/gpio/gpio-htc-egpio.c
+@@ -364,21 +364,20 @@ static int __init egpio_probe(struct platform_device *pdev)
  	return 0;
  }
  
+-#ifdef CONFIG_PM
+-static int egpio_suspend(struct platform_device *pdev, pm_message_t state)
++static int egpio_suspend(struct device *dev)
+ {
+-	struct egpio_info *ei = platform_get_drvdata(pdev);
++	struct egpio_info *ei = dev_get_drvdata(dev);
+ 
+-	if (ei->chained_irq && device_may_wakeup(&pdev->dev))
++	if (ei->chained_irq && device_may_wakeup(dev))
+ 		enable_irq_wake(ei->chained_irq);
+ 	return 0;
+ }
+ 
+-static int egpio_resume(struct platform_device *pdev)
++static int egpio_resume(struct device *dev)
+ {
+-	struct egpio_info *ei = platform_get_drvdata(pdev);
++	struct egpio_info *ei = dev_get_drvdata(dev);
+ 
+-	if (ei->chained_irq && device_may_wakeup(&pdev->dev))
++	if (ei->chained_irq && device_may_wakeup(dev))
+ 		disable_irq_wake(ei->chained_irq);
+ 
+ 	/* Update registers from the cache, in case
+@@ -386,19 +385,15 @@ static int egpio_resume(struct platform_device *pdev)
+ 	egpio_write_cache(ei);
+ 	return 0;
+ }
 -#else
--#define brcmstb_gpio_suspend	NULL
--#define brcmstb_gpio_resume	NULL
--#endif /* CONFIG_PM_SLEEP */
--
- static const struct dev_pm_ops brcmstb_gpio_pm_ops = {
--	.suspend_noirq	= brcmstb_gpio_suspend,
--	.resume_noirq = brcmstb_gpio_resume,
-+	.suspend_noirq = pm_sleep_ptr(brcmstb_gpio_suspend),
-+	.resume_noirq = pm_sleep_ptr(brcmstb_gpio_resume),
+-#define egpio_suspend NULL
+-#define egpio_resume NULL
+-#endif
+ 
++static DEFINE_SIMPLE_DEV_PM_OPS(egpio_pm_ops, egpio_suspend, egpio_resume);
+ 
+ static struct platform_driver egpio_driver = {
+ 	.driver = {
+ 		.name = "htc-egpio",
+ 		.suppress_bind_attrs = true,
++		.pm = pm_sleep_ptr(&egpio_pm_ops),
+ 	},
+-	.suspend      = egpio_suspend,
+-	.resume       = egpio_resume,
  };
  
- static int brcmstb_gpio_probe(struct platform_device *pdev)
-@@ -755,7 +749,7 @@ static struct platform_driver brcmstb_gpio_driver = {
- 	.driver = {
- 		.name = "brcmstb-gpio",
- 		.of_match_table = brcmstb_gpio_of_match,
--		.pm = &brcmstb_gpio_pm_ops,
-+		.pm = pm_sleep_ptr(&brcmstb_gpio_pm_ops),
- 	},
- 	.probe = brcmstb_gpio_probe,
- 	.remove = brcmstb_gpio_remove,
+ static int __init egpio_init(void)
 -- 
 2.51.0
 
