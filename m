@@ -4,78 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A212CCFD318
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 17:34:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4B85CFD313
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 17:42:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6P4T20o3fAocb21Oxho19vUtbK/LWEqCEHkr8xv1y+Y=; b=PTdRauVW6PJm0yaYSjz8+3xLSN
-	W2jr3IuOz/I+pHCLdP9KAijprsD7fLZavkMXeZBByw+eJQyC4F0pxkeTRQJxmGxoCM2yv7WqWmjQa
-	hZRpGt6ghJI9w4ko+b8Rx1TSwsjvDC1BHLISKC7fQcUZrJ538nM4V+mCrUwKca7csUHCthQ1G3z2V
-	eVPqSZmhH5h6cTuR7fFEEbT29V4pkve/tmgMKnrQv4hjcZaN2Rgvx90VDnGib9eKosuF/Yfc5gnrj
-	44ux1YDKH3A03cUs8VQy5wzBRSfGg/hlSJlm+pIsbhFrYPUjMjivi2SK5FJDMuyqddvwHz84Zbw+r
-	n9E2uuXw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wJlK4WkEfRbWEw3zV/b5T4Bu/Nyg8DEPoH+DiAjRgFs=; b=TaS8IX/uSNa2srm7RM9ksBAMRQ
+	++jHYaF1tjGgNvEYClYe9fv3JKDWOyxduhZ5vM6RGr/bk0+XDrUUOIkJoOsi6EvG8K9gpQdZTLAJd
+	jnqnOXOOkkPVDDmpMlzV9+mPloGMgu7E2AxJKaLOIlUY9ZdNYa/esM9KAjYhFTCP6cyUlkVZxWG2c
+	d8YLiyQknq6RBCnbC/cm9SVuIqOPUzgFfBgQZW7OzdME1VNxJ+Wxg2qj8JGEpaq0fsqMgYSRj8AEE
+	URi6dEjz71Nvuu3+NcYgXsQ7qKFK0UOzCQXfNljJ/WWFNYC7eg5Vp05G7w2JmayabiMcGb9/zd6Io
+	nZG/SeuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNaSC-0000000C6ld-2xXn;
-	Mon, 24 Nov 2025 17:34:20 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vNaaG-0000000C7TY-2Q1A;
+	Mon, 24 Nov 2025 17:42:40 +0000
+Received: from mail-qt1-x830.google.com ([2607:f8b0:4864:20::830])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNaSB-0000000C6lW-45kV
+	id 1vNaaC-0000000C7Sd-19ER
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Nov 2025 17:34:20 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3BF57601F2
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Nov 2025 17:34:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E2353C4CEF1
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Nov 2025 17:34:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764005656;
-	bh=QrwrudDXcmBwv5MpjExmSZyNDnG2x6mJE3eaNfxGUrk=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=cSMluTDn9fYYcsY96+RxCVmBU1UT6UeyACkllJmWSzU7gZrvo4gGKXo7uyft1pw/J
-	 X0UATKXVk+76/kBFRGVF3WN6uZgdNS3IO4AInkWQW27lHULnedM31JIF4SYAhBxdt1
-	 htoENAzwePRLjk5wCvlNeLCA2EhSsiJdEzldD7GbpiOoH+JZ0hIPxhLZNrJGTVLqyY
-	 2rgtF3juLEX+iTIqseecGdaakgW0CW4dYuyzvYUgbL2kageR3wIVXZrIeJIMhRFjpw
-	 s8V/JiAZGEYvkqjz/CuBiFxqZYv8hiBAk1mJsvk15Xna/VKLCOvT4hJYMMNMBq/vD8
-	 cuwKoO9s+/KJg==
-Received: by mail-ej1-f52.google.com with SMTP id a640c23a62f3a-b75c7cb722aso670411366b.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Nov 2025 09:34:15 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCVOrEG0VmniYNJylcDvCOqrkBTk30r+hKtBQRFeu7xhhPe+eSTddsutysquqtuTDzW8oLkR0UwyjLVc3Ie6mIVp@lists.infradead.org
-X-Gm-Message-State: AOJu0YzqxdBSoSNyGKkZnEbJJMcu7xEo4fD3HwdasNEvMVbsQFR4/dqN
-	nsbqquxEaczE4XumVh7VBW+scOp8XRz9yA5nJs05zpcuUv9GqUq/l9yzVFY7Og/dmFdqqBA2UW6
-	xxZ4OqKRbatXGg5D/OdDbvUEg8J5Ccw==
-X-Google-Smtp-Source: AGHT+IH4zThrBiVwTM/gMTFGPCf7Ko+9nQcpXA9JRi2zbFqO9WDmcAZTQclKPHj9NMzyHEHvrVsg+wN6QcpewpApah8=
-X-Received: by 2002:a17:907:1b0f:b0:b6d:573d:bbc5 with SMTP id
- a640c23a62f3a-b767170cca7mr1240223266b.37.1764005654444; Mon, 24 Nov 2025
- 09:34:14 -0800 (PST)
+	Mon, 24 Nov 2025 17:42:39 +0000
+Received: by mail-qt1-x830.google.com with SMTP id d75a77b69052e-4ee1939e70bso43729011cf.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Nov 2025 09:42:35 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1764006155; x=1764610955; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=wJlK4WkEfRbWEw3zV/b5T4Bu/Nyg8DEPoH+DiAjRgFs=;
+        b=IXSf4VedzHsjPeddTT6I7erSptcCUY3omGE7AuZ6O3mCr5BgDFAmzL20C43FBTyhnV
+         W3Hs5DpGyITj1OU7/q2t2dfKLCKtrPa6oqr7RpVwhFP+Z35OrSfiS8jY4mr3jOxolAer
+         rVRtdWq3I89ZYfXi8wypYg7EmccW2bIW00Ilqoxm+pqyue3bJCI1eiy5bGFCOY6qRaFt
+         APEct51P4a8GHB++V7KS8BVxb+oICGbLZ3y3qoFqxIPGZRNN/TIZrXJUom84AS2ZYBnP
+         C823dbYNpnpeSf+azQMGF8MUFc+USnZ65EK9Y/p+AbMSi8el/vI6FM9LHHE2ebTnakjc
+         GPgw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1764006155; x=1764610955;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=wJlK4WkEfRbWEw3zV/b5T4Bu/Nyg8DEPoH+DiAjRgFs=;
+        b=ddLSOzGH4sZ/7gaVzjgFtqoz8QeYnQYB4Vq9k5EuasBctL+G/vjrbW8rpZdybiS87x
+         kkfEegChKgFYSS8q84n66XEnhDYaHpTctPAGyD3L14f66+rEYnsFiF2dJglM7sodizAc
+         +3mwPRgZqK7YmSLKc9rjFUcfxmArnQRcMg6M/IVOfpV+78FVZ73p7yebPnSelaWg/bB4
+         OmoD3K3Gpd+bEaV9Jz3slNcvSoxNztsbd7RBgTvpwTsjtKTm3Jj8XNj+vmte5M4kEMYH
+         t64uidcH+eHvZDSMVBOBeCYfPLiaYTLshDYubPaUBRYKrGiLRCTpVe2PVreHM0lsYIoC
+         HaEA==
+X-Forwarded-Encrypted: i=1; AJvYcCVl9DqCsrK3Nc1sdRwlUOmfrJ1LBBGfwk8DzaInUkGYxPu/tIgCFZpnxu/mgbyKODUvQix3n90oKE7whM/NYl0C@lists.infradead.org
+X-Gm-Message-State: AOJu0YxhhcFsrxHB2Yc3DYPMfmBsX+zl6+bBiNDhNQ5VQl2gKYtjQWn4
+	Zgu2ug5B0l5wyk2n8VurRa19e9YEF9QZR6X4gN3q2+q70IXqsptIhKda7uGE/sr8a5sM7T1UJ00
+	ashJoXoDIcrg2ofL4XskKHbhEJa+fRB0perksHy8OIg==
+X-Gm-Gg: ASbGncsG4yRbmedZeaU8O5+ssQpGmyo34KN6sNQuROS9XlWieAz2cBXyICOj8QESKX1
+	5BbRjNye6GxZ4VTD7DiK2M41+tBpsN6fsxVcV2upSNhJ3QDfv+Wy3OJ2XgB8Pg5Z97MeZmFuesU
+	r8aRQ3CFKx+4d4pJOEyibQ9pavfy5hM74BHcDuyRdvRxR1HUkxSbQ6xhEE2wjaB5q61gqiAlvxX
+	/7druahN5AOPX7AT71RNN/Kwa3RDtFOvqmUCd5isH/zJiloSl2npMmsbCbSY7T2XtL1wxY=
+X-Google-Smtp-Source: AGHT+IH68eFLCxGAwB70YXKDcrzscx1x/5nopbEjXq3rg0i05BtoHBXKwXgwKJ1Je/SGb0RGBvXAIWmKGfE/9kaXr84=
+X-Received: by 2002:ac8:59c5:0:b0:4ee:24e8:c9a1 with SMTP id
+ d75a77b69052e-4ee588908eamr163978631cf.44.1764006154636; Mon, 24 Nov 2025
+ 09:42:34 -0800 (PST)
 MIME-Version: 1.0
-References: <20251031175926.1465360-1-robh@kernel.org> <aRN0fdOAV0B728qo@p14s>
- <20251111195923.GA3629535-robh@kernel.org> <CANLsYkwcbrTaKASdr5fj0m9ARS4xUgzVH8iWQKwTCvEsoZDDsQ@mail.gmail.com>
- <CAL_JsqL7HcDkPgJjcqJSagdN=gH2rv6noVS57QMGNRp0YCxUBw@mail.gmail.com> <aRX6DJoaP4MXG3fN@p14s>
-In-Reply-To: <aRX6DJoaP4MXG3fN@p14s>
-From: Rob Herring <robh@kernel.org>
-Date: Mon, 24 Nov 2025 11:34:02 -0600
-X-Gmail-Original-Message-ID: <CAL_JsqJGtQTVdaJ99DKiqbo3GfxmU7V6QjroTxHi7gR53Dfe-Q@mail.gmail.com>
-X-Gm-Features: AWmQ_bmPMfxmmKwhG7Mzx1bAQRdZoKMheTTGVeWZ-CEQx6BfmTyQnFsumwKZ_Xg
-Message-ID: <CAL_JsqJGtQTVdaJ99DKiqbo3GfxmU7V6QjroTxHi7gR53Dfe-Q@mail.gmail.com>
-Subject: Re: [PATCH v6] remoteproc: Use of_reserved_mem_region_* functions for "memory-region"
-To: Mathieu Poirier <mathieu.poirier@linaro.org>
-Cc: Bjorn Andersson <andersson@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Geert Uytterhoeven <geert+renesas@glider.be>, 
-	Magnus Damm <magnus.damm@gmail.com>, Patrice Chotard <patrice.chotard@foss.st.com>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>, Peng Fan <peng.fan@nxp.com>, 
-	linux-remoteproc@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-arm-msm@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
-	linux-stm32@st-md-mailman.stormreply.com
+References: <CGME20251117073601epcas2p2c72bdd8689a69b35b988894653300c75@epcas2p2.samsung.com>
+ <20251117074140.4090939-1-youngmin.nam@samsung.com>
+In-Reply-To: <20251117074140.4090939-1-youngmin.nam@samsung.com>
+From: Peter Griffin <peter.griffin@linaro.org>
+Date: Mon, 24 Nov 2025 17:42:22 +0000
+X-Gm-Features: AWmQ_bkIQmeVVQ1__i6Ji95mfG_JBQNHpbx1ya0fFzrMqWuIcxJaF_YHxRYrtX0
+Message-ID: <CADrjBPrPpgy93At1bBanBoka14eyRbAArep5zuvbGWcOEnOuRQ@mail.gmail.com>
+Subject: Re: [RFT PATCH v2 0/5] pinctrl: samsung: exynos9 cleanups and fixes
+To: Youngmin Nam <youngmin.nam@samsung.com>
+Cc: krzk@kernel.org, s.nawrocki@samsung.com, alim.akhtar@samsung.com, 
+	linus.walleij@linaro.org, semen.protsenko@linaro.org, ryu.real@samsung.com, 
+	d7271.choe@samsung.com, linux-arm-kernel@lists.infradead.org, 
+	linux-samsung-soc@vger.kernel.org, linux-gpio@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251124_094237_836581_64BA64BF 
+X-CRM114-Status: GOOD (  22.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,144 +97,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Nov 13, 2025 at 9:32=E2=80=AFAM Mathieu Poirier
-<mathieu.poirier@linaro.org> wrote:
->
-> On Wed, Nov 12, 2025 at 10:59:42AM -0600, Rob Herring wrote:
-> > On Wed, Nov 12, 2025 at 9:43=E2=80=AFAM Mathieu Poirier
-> > <mathieu.poirier@linaro.org> wrote:
-> > >
-> > > On Tue, 11 Nov 2025 at 12:59, Rob Herring <robh@kernel.org> wrote:
-> > > >
-> > > > On Tue, Nov 11, 2025 at 10:38:05AM -0700, Mathieu Poirier wrote:
-> > > > > Hi Rob,
-> > > > >
-> > > > > Please see may comment for st_remoteproc.c
-> > > > >
-> > > > > On Fri, Oct 31, 2025 at 12:59:22PM -0500, Rob Herring (Arm) wrote=
-:
-> > > > > > Use the newly added of_reserved_mem_region_to_resource() and
-> > > > > > of_reserved_mem_region_count() functions to handle "memory-regi=
-on"
-> > > > > > properties.
-> >
-> > [...]
-> >
-> > > > > > diff --git a/drivers/remoteproc/st_remoteproc.c b/drivers/remot=
-eproc/st_remoteproc.c
-> > > > > > index e6566a9839dc..043348366926 100644
-> > > > > > --- a/drivers/remoteproc/st_remoteproc.c
-> > > > > > +++ b/drivers/remoteproc/st_remoteproc.c
-> > > > > > @@ -120,40 +120,37 @@ static int st_rproc_parse_fw(struct rproc=
- *rproc, const struct firmware *fw)
-> > > > > >     struct device *dev =3D rproc->dev.parent;
-> > > > > >     struct device_node *np =3D dev->of_node;
-> > > > > >     struct rproc_mem_entry *mem;
-> > > > > > -   struct reserved_mem *rmem;
-> > > > > > -   struct of_phandle_iterator it;
-> > > > > > -   int index =3D 0;
-> > > > > > -
-> > > > > > -   of_phandle_iterator_init(&it, np, "memory-region", NULL, 0)=
-;
-> > > > > > -   while (of_phandle_iterator_next(&it) =3D=3D 0) {
-> > > > > > -           rmem =3D of_reserved_mem_lookup(it.node);
-> > > > > > -           if (!rmem) {
-> > > > > > -                   of_node_put(it.node);
-> > > > > > -                   dev_err(dev, "unable to acquire memory-regi=
-on\n");
-> > > > > > -                   return -EINVAL;
-> > > > > > -           }
-> > > > > > +   int index =3D 0, mr =3D 0;
-> > > > > > +
-> > > > > > +   while (1) {
-> > > > > > +           struct resource res;
-> > > > > > +           int ret;
-> > > > > > +
-> > > > > > +           ret =3D of_reserved_mem_region_to_resource(np, mr++=
-, &res);
-> > > > > > +           if (ret)
-> > > > > > +                   return 0;
-> > > > >
-> > > > > The original code calls rproc_elf_load_rsc_table() [1] after iter=
-ating through
-> > > > > the memory region, something that won't happen with the above.
-> > > >
-> > > > Indeed. it needs the following incremental change. It is slightly
-> > > > different in that rproc_elf_load_rsc_table() is not called if
-> > > > 'memory-region' is missing, but the binding says that's required.
-> > > >
-> > > > 8<--------------------------------------------------
-> > > >
-> > > > diff --git a/drivers/remoteproc/st_remoteproc.c b/drivers/remotepro=
-c/st_remoteproc.c
-> > > > index 043348366926..cb09c244fdb5 100644
-> > > > --- a/drivers/remoteproc/st_remoteproc.c
-> > > > +++ b/drivers/remoteproc/st_remoteproc.c
-> > > > @@ -120,15 +120,19 @@ static int st_rproc_parse_fw(struct rproc *rp=
-roc, const struct firmware *fw)
-> > > >         struct device *dev =3D rproc->dev.parent;
-> > > >         struct device_node *np =3D dev->of_node;
-> > > >         struct rproc_mem_entry *mem;
-> > > > -       int index =3D 0, mr =3D 0;
-> > > > +       int index =3D 0;
-> > > >
-> > > >         while (1) {
-> > > >                 struct resource res;
-> > > >                 int ret;
-> > > >
-> > > > -               ret =3D of_reserved_mem_region_to_resource(np, mr++=
-, &res);
-> > > > -               if (ret)
-> > > > -                       return 0;
-> > > > +               ret =3D of_reserved_mem_region_to_resource(np, inde=
-x, &res);
-> > > > +               if (ret) {
-> > > > +                       if (index)
-> > > > +                               break;
-> > > > +                       else
-> > > > +                               return ret;
-> > > > +               }
-> > >
-> > > This looks brittle and I'm not sure it would work.
-> > >
-> > > Going back to the original implementation, the only time we want to
-> > > "break" is when @index is equal to the amount of memory regions _and_
-> > > ret is -EINVAL.  Any other condition should return.
-> >
-> > @index equal to number of entries returns -ENODEV, so that condition
-> > is impossible. We can simply it to this:
-> >
-> > if (ret =3D=3D -ENODEV && index)
-> >     break;
-> > else
-> >     return ret;
->
-> To me this needs to be:
->
-> entries =3D of_reserved_mem_region_count(np);
+Hi Youngmin,
 
-Ideally, we try to avoid parsing the same property twice. The places
-we count and then read the property again are when we need to allocate
-an array of the right size in between. But if that puts this patch to
-bed finally, then fine.
+On Mon, 17 Nov 2025 at 07:36, Youngmin Nam <youngmin.nam@samsung.com> wrote:
+>
+> Several SoCs carried near-duplicate pin bank macro families, making
+> tables verbose and hard to share when only the bank type (alive/off)
+> differs.
+>
+> GS101 had its own helpers even though the newer EXYNOS9_* helpers cover
+> the same semantics, including per-bank filter control (FLTCON) offsets.
+>
+> Some pin-bank tables didn't match the SoC TRMs (bank type, EINT class,
+> or bank names), and FLTCON wasn't always at a contiguous offset from
+> EINT.
+>
+> This series does
+> - Consolidate on EXYNOS9_* pin-bank macros. Pass bank_type explicitly.
+> - Fix table errors on Exynos2200/7885/8890/8895 per TRM.
+> - Add explicit per-bank FLTCON offsets and update affected tables.
+> - Drop GS101-specific macros in favor of EXYNOS9_*.
+> - Rename gs101_pinctrl_{suspend,resume} ->
+>   exynos9_pinctrl_{suspend,resume}.
+>
+> This series was based on the pinctrl/samsung tree [1].
+>
+> I tested on Exynos850 through boot and verified the pin values as
+> follows:
+
+One thing I just noticed is exynos850_pin_ctrl isn't actually setting
+the .suspend and .resume callbacks so some of this code won't be
+executed there (specifically saving/restoring the fltcon register). If
+you're using e850 platform to test this series, you likely want to set
+
+.suspend = exynos9_pinctrl_suspend,
+.resume = exynos9_pinctrl_resume,
+
+in exynos850_pin_ctrl for the alive bank
+
+You can then #define DEBUG in drivers/pinctrl/samsung/pinctrl-exynos.c
+
+Recompile, and do
+
+echo platform > /sys/power/pm_test
+echo mem > /sys/power/state
+
+and you should see all the debug from the newly enabled exynos9
+suspend/resume callbacks
+
+[  871.104840][  T741] gph2: save     con 0x00000000
+[  871.104932][  T741] gph2: save fltcon0 0x00000000
+[  871.105022][  T741] gph2: save fltcon1 0x00000000
+[  871.105109][  T741] gph2: save    mask 0x0000003f
+<snip>
+
+Prior to adding fltcon_offset and the gs101 (now exynos9) specific
+suspend/resume callbacks this would generate a SError on gs101
+
+Thanks,
+
+Peter
 
 >
+> $:/sys/kernel/debug/pinctrl/139b0000.pinctrl-samsung-pinctrl# cat pins
+> registered pins: 42
+> pin 0 (gpg0-0) 0:gpg0 CON(0x0) DAT(0x0) PUD(0x1) DRV(0x2) CON_PDN(0x2) PUD_PDN(0x1)
+> pin 1 (gpg0-1) 1:gpg0 CON(0x0) DAT(0x0) PUD(0x1) DRV(0x2) CON_PDN(0x2) PUD_PDN(0x1)
 > ...
-> ...
 >
-> if (ret =3D=3D -ENODEV && index =3D=3D entries)
->         break;
-> else
->         return ret;
+> Additional testing on the affected Exynos9-era platforms would be
+> appreciated.
 >
-> But taking a step back, it might even be easier to go from a while() to a=
- for(),
-> the same way you did in imx_rproc_addr_init().
+> [1] https://git.kernel.org/pub/scm/linux/kernel/git/pinctrl/samsung.git
 >
-> >
-> > If you want to keep the prior behavior when 'memory-region' is
-> > missing, then '&& index' can be removed, but I think that was wrong
-> > behavior.
-> >
-> > Rob
+> Changes in v2:
+>   - Added base tree for this series (pinctrl/samsung).
+>   - Renamed the macro parameter from 'types' to 'bank_type' for clarity
+>     (struct member remains 'type').
+>   - Reflowed commit messages (wrap at ~72 cols).
+>   - Replaced non-ASCII characters with ASCII equivalents.
+>   - Collected tags:
+>       Reviewed-by: Sam Protsenko <semen.protsenko@linaro.org>
+>       Tested-by: Sam Protsenko <semen.protsenko@linaro.org>
+>   - Normalized hex literals to lowercase and removed double spaces.
+>   - Aligned backslashes in macro definitions to form a vertical column
+>     for readability.
+>   - Added missing mailing lists (including linux-kernel) to Cc per
+>     scripts/get_maintainer.pl.
+>
+> Youngmin Nam (5):
+>   pinctrl: samsung: Consolidate pin-bank macros under EXYNOS9_* and pass
+>     bank_type explicitly
+>   pinctrl: samsung: fix incorrect pin-bank entries on
+>     Exynos2200/7885/8890/8895
+>   pinctrl: samsung: add per-bank FLTCON offset to EXYNOS9_PIN_BANK_* and
+>     fix tables
+>   pinctrl: samsung: fold GS101 pin-bank macros into EXYNOS9_*
+>   pinctrl: samsung: rename gs101_pinctrl_* to exynos9_pinctrl_*
+>
+>  .../pinctrl/samsung/pinctrl-exynos-arm64.c    | 1069 ++++++++---------
+>  drivers/pinctrl/samsung/pinctrl-exynos.c      |    4 +-
+>  drivers/pinctrl/samsung/pinctrl-exynos.h      |   97 +-
+>  drivers/pinctrl/samsung/pinctrl-samsung.h     |    4 +-
+>  4 files changed, 562 insertions(+), 612 deletions(-)
+>
+> --
+> 2.39.2
+>
 
