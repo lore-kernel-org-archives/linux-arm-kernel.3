@@ -4,73 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A34C8CFD355
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 21:19:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F27A8CFD355
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 21:21:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=tdjPnIM6TqpD1FiYWypJzBxdXFMlqjNcIoj6euKiUXg=; b=i+CEggsXwtjUdI
-	/K/FRsC5PLFx+NtfUfAHQX4y/0fXVM8ZKN/11XArTplWAqhVJ0Oo/IBCx61dSFLtphx+nDJ/FG1D9
-	GvcInsS7OtjzOztIisks8zZxeMFpkOZvaVxBFdzOdp4MDgltAE3ai4iJFaIOI9Q0W2Lp4LVfJv2k2
-	7VwSz5qecxV53UX3kq3y4IPvieV72DhelbjMxy29RCOi7lA2CgLq3z6RBTdgUA7f0/JBb1BJqsZfF
-	cIYJfT2RO5n0o6iHfIdXKXeSmBU7XjRqIkaC2v3zpd3kFx+vbbFvrUUwvHkPH+lOd+LjoNc5gFkuv
-	mjF/CMAi1MrmEFDKDiFQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=/9QGz46UYtLMXI1pmFW9bRaeIDfyEN0luwe8T1UQhkk=; b=jjnFpl/xa11/nwCRh5FOswjtJh
+	9lo1A1us5EE+rtlMW4lukfTviFFNkc5co4fdbRcucRWnc9FDQItiLF/j0lKpRusjINLvD9TdoQgVp
+	g2iBIbF3Q//Y41cj+C7uh1AhGo8YLbb8XjGFfSdla86vo6q5BuDc6j5Ww+IdiTaAOJVSiPFN2MSA0
+	P9j/Rg27eXjf8vzaa8rPP42JSZg5BfxyGJIHuPGkK/T+dfYSaO51eiNxp7aahXMyoe1GEBJh7zHM9
+	F2DGG+OvSjvcCzg6v3DOUeTOvMLSHton63ViylUuRi+32rTsgeYwBetNlBl2VgQ+D+fXS7NTwhb8C
+	qhID8udw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNdxj-0000000CKUn-2kV6;
-	Mon, 24 Nov 2025 21:19:07 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vNdzq-0000000CKiT-2OVE;
+	Mon, 24 Nov 2025 21:21:18 +0000
+Received: from mail-pf1-x42e.google.com ([2607:f8b0:4864:20::42e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNdxi-0000000CKUb-12IS;
-	Mon, 24 Nov 2025 21:19:06 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1FAC46016B;
-	Mon, 24 Nov 2025 21:19:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9DA9AC4CEFB;
-	Mon, 24 Nov 2025 21:19:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764019144;
-	bh=DiDxFX94NXXIUzvxcS2+Fvuf/2KCTsklF/QbVLxONjU=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=DNAG9tPd/4nqTFtv4FYVdApqANdOMIrVWr3lJDe2sCqX42/Zeq4glUcUMsPhjiD+Q
-	 t2m7XFOTFBJhBOnUXsp47g2HExxgWWc/M14S26V+yUlO67lCX508xmAuCm2EQWMZw2
-	 A9g6zO4z1WS9mllO+NiBHFuu7ogogLgoi+xlWZDuE4PeOTvPRBLrlW+QIX+D4AnHiu
-	 ExwSSAnfYbD2Et6LgjBwH1OESwSoyPlL+5t+B8e6G+n+xmDrNVq0ILqfngMEvVR86r
-	 a9TEkRX0ihIQi0Sja/eRtaJCbzbtDFER07VnFSBlrlpyMt1OtS6hK1uMjACv6wF2FN
-	 5QMXNSJwunAtg==
-Date: Mon, 24 Nov 2025 15:19:03 -0600
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Manivannan Sadhasivam <mani@kernel.org>
-Cc: Niklas Cassel <cassel@kernel.org>, Shawn Lin <shawn.lin@rock-chips.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Rob Herring <robh@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
-	Kever Yang <kever.yang@rock-chips.com>,
-	Simon Xue <xxm@rock-chips.com>, Damien Le Moal <dlemoal@kernel.org>,
-	Dragan Simic <dsimic@manjaro.org>, FUKAUMI Naoki <naoki@radxa.com>,
-	Diederik de Haas <diederik@cknow-tech.com>,
-	Richard Zhu <hongxing.zhu@nxp.com>, Frank Li <Frank.li@nxp.com>,
-	Lucas Stach <l.stach@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Conor Dooley <conor@kernel.org>,
+	id 1vNdzo-0000000CKhs-0coS
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 24 Nov 2025 21:21:17 +0000
+Received: by mail-pf1-x42e.google.com with SMTP id d2e1a72fcca58-7b6dd81e2d4so4382313b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Nov 2025 13:21:15 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1764019275; x=1764624075; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=/9QGz46UYtLMXI1pmFW9bRaeIDfyEN0luwe8T1UQhkk=;
+        b=ha45ODQ02aC0BQwwKt1TXQ5ThpomukDCdpjcUU98zhX/twiX94Y4MvOc02SM4VTM+y
+         962F5r49DmHN6vEkzzF5uvQA2xedrLAJGAbFK1HamfjjpFEWcKhV8vjBIv0FE6+60m0m
+         SVf+47yD3E8bqQM6iAcB0+mxnweCozbQ1Rupdk3cCt/cbsNV4llymmbG4nExlFr1ejHC
+         v7e2QKE18DR5+Anb8339MAOTOwsPsEyAVyg57+pope8ubMXICKk2dEw8tBkWOzYE6qqs
+         19oxOEtumJmh62/su09SzVPkLdX/B9aP0IXFMOA020+1TIFdhyBlXDkW0fkmVHAwfr3r
+         pijA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1764019275; x=1764624075;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=/9QGz46UYtLMXI1pmFW9bRaeIDfyEN0luwe8T1UQhkk=;
+        b=cm9vuh7eUkONN7zjDX10fZqrOACm7I47rSCV8PNIUsLLc26OmCO2LaRYpJVA/uLnc+
+         QIigjjMhgOpiaVFKJZOTQIVpEFqW1E3MXMOe5+96TTlHJ3EMxgwM3Df55APiOcZ43xJh
+         T4Tc07Beme/UBQLr4xteJMX7QRUwCuBjlKd2+z/9eo8svxkWGmaKurVD4bJej42lNX7O
+         ADMkG3XyuEYPQbJkntzAvEfb+2dBmuuQgMmuBtUjaYGK2SLRZ2ejgtQlXD5EJbq7pVQQ
+         hVF+8ja3SUgl+6XgtZtYVeRdZKmRzE76ZKMqhEu08GFDt5yQ6ohotIaRYMyKEi6Dkb5m
+         cwbg==
+X-Gm-Message-State: AOJu0Yxkikue3QqIjKGyg63L1NHHg9hKGzmjHlPczImcHj++oFxMjva2
+	zF8DPiJYxyX9llDcqyKkBxK8NM9GGXY2NuhYlWa7KtlvNmvPBl1yLVJ3
+X-Gm-Gg: ASbGncue+j5m0AU+Whh/ieL/Y2dU2ToTO0n65lLNdx12jDtmb05Y3N1ojA/ipV1nSQY
+	Kx7TD6Cplg5i2GXJgxPmKod1vW9nHLF0atBb5USvS3j/T3xDNmHn9AUTAZbLw0s+vFsVJIbImMt
+	P2B9WD7fKEYEeyoA3IwvuWI1THYP65GlwTbJJUY/EhzD05CROtFC5JInTwfKbpB+pSMRuMweaSQ
+	+gpQdJnM77OZy+yRVkhkpHbgbl2inVHa73cXkqRXgI13kGa6UaArMZlOzTF7o7Fcq7fL4KbXERs
+	E5GYJcOBQ00qV+zrhi5udrbcCnPHd7/0gXQeLt1unQo3z6PiqqgtU5sHtfcwITYQnjahIxU6DSD
+	DjL/08HpxrQlLmD4rLfw7Br3cCofV5bpaUo9DOFZADFyNUNzQg30KOPsomljD3nrLFpP7qHMmMP
+	zx9w==
+X-Google-Smtp-Source: AGHT+IHgLL5D3yM9RdlZQ1MwTuPoHc0+CT7LUpZzSIOdrIYHqHAGsgDGRtjFBOllHJFbG3YjuM6J7Q==
+X-Received: by 2002:a05:6a20:734c:b0:35f:cfb:1ee3 with SMTP id adf61e73a8af0-3614ecc9fd3mr13510474637.25.1764019274844;
+        Mon, 24 Nov 2025 13:21:14 -0800 (PST)
+Received: from gmail.com ([218.32.81.133])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7c3ed076eb3sm15702319b3a.1.2025.11.24.13.21.12
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 24 Nov 2025 13:21:14 -0800 (PST)
+From: Peter Shen <sjg168@gmail.com>
+To: devicetree@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-aspeed@lists.ozlabs.org,
+	linux-kernel@vger.kernel.org,
+	Andrew Jeffery <andrew@codeconstruct.com.au>,
+	Joel Stanley <joel@jms.id.au>,
+	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk@kernel.org>,
-	Thierry Reding <thierry.reding@gmail.com>,
-	Jonathan Hunter <jonathanh@nvidia.com>,
-	Hans Zhang <hans.zhang@cixtech.com>, linux-tegra@vger.kernel.org,
-	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, kernel@pengutronix.de,
-	Bjorn Helgaas <bhelgaas@google.com>
-Subject: Re: [PATCH v2 1/4] PCI: dwc: Advertise L1 PM Substates only if
- driver requests it
-Message-ID: <20251124211903.GA2712341@bhelgaas>
+	Conor Dooley <conor+dt@kernel.org>,
+	peter.shen@amd.com,
+	colin.huang2@amd.com,
+	Peter Shen <sjg168@gmail.com>
+Subject: [PATCH v8 0/2] ARM: dts: aspeed: Add Device Tree for Facebook Anacapa BMC
+Date: Tue, 25 Nov 2025 05:21:04 +0800
+Message-Id: <20251124212106.2068069-1-sjg168@gmail.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <wja7vxtg7bqq2udepl5r3mvgg5swvuqtuzk6cnimgcbw2aegqs@hru6yzg4xx3o>
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251124_132116_214866_0D822897 
+X-CRM114-Status: GOOD (  13.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,30 +104,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Nov 20, 2025 at 01:10:56PM +0530, Manivannan Sadhasivam wrote:
-> On Tue, Nov 18, 2025 at 03:42:15PM -0600, Bjorn Helgaas wrote:
-> > From: Bjorn Helgaas <bhelgaas@google.com>
-> > 
-> > L1 PM Substates require the CLKREQ# signal and may also require
-> > device-specific support.  If CLKREQ# is not supported or driver support is
-> > lacking, enabling L1.1 or L1.2 may cause errors when accessing devices,
-> > e.g.,
-> > 
-> >   nvme nvme0: controller is down; will reset: CSTS=0xffffffff, PCI_STATUS=0x10
-> > 
-> > If the kernel is built with CONFIG_PCIEASPM_POWER_SUPERSAVE=y or users
-> > enable L1.x via sysfs, users may trip over these errors even if L1
-> > Substates haven't been enabled by firmware or the driver.
-> > 
-> > To prevent such errors, disable advertising the L1 PM Substates unless the
-> > driver sets "dw_pcie.l1ss_support" to indicate that it knows CLKREQ# is
-> > present and any device-specific configuration has been done.
-> 
-> Going by this reasoning, why can't we enable L1 PM Substates for
-> these platforms by default?
+This patch series introduces the initial Device Tree support for the
+Facebook Anacapa BMC platform, which is based on the Aspeed AST2600 SoC.
+It configures the platform-specific peripherals and aliases for OpenBMC
+usage.
 
-I think we can, in a separate series.  I don't have time to deal with
-this before the v6.19 merge window, but you can certainly do that.
+The series is comprised of two patches:
+1. Adds the compatible string for the board to the binding documentation.
+2. Adds the main Device Tree Source file for the Anacapa BMC.
 
-Bjorn
+Changes in v8:
+* Dropped the unused 'pcc_memory' reserved memory region as suggested
+    by Andrew Jeffery.
+* Reordered the 'spi-gpio' properties to group all '-gpios' properties
+    together for better readability (Andrew Jeffery).
+* Moved the 'pinctrl_ncsi3_default' pinctrl group from the board DTS
+    file to 'arch/arm/boot/dts/aspeed-g6.dtsi' (assuming this dtsi
+    change is applied separately or already in the base) to make it
+    available for other platforms (Andrew Jeffery).
+* Revised the 'gpio-line-names' for better clarity and alignment with
+    schematic signal names, avoiding confusion with pin-muxed functions
+    (Andrew Jeffery).
+* Improved the formatting and readability of 'sgpio-line-names' list.
+* Removed the unused 'led-2' definition from the 'leds' node.
+* Added support for the ADC128D818 sensor to the I2C bus.
+* No functional changes in the binding patch (1/2).
+* Added clarification for mixed-case signal names (Andrew Jeffery):
+  The mixed-case names (e.g., FM_CPU0_SYS_RESET_N) in gpio-line-names
+  are chosen to directly match the signal names used in the hardware 
+  schematics.
+  This convention is used to maintain strict adherence and clarity when
+  cross-referencing between the Device Tree and the board design documents.
+
+Peter Shen (2):
+  dt-bindings: arm: aspeed: Add compatible for Facebook Anacapa BMC
+  ARM: dts: aspeed: Add Device Tree for Facebook Anacapa BMC
+
+ .../bindings/arm/aspeed/aspeed.yaml           |    1 +
+ arch/arm/boot/dts/aspeed/Makefile             |    1 +
+ .../aspeed/aspeed-bmc-facebook-anacapa.dts    | 1044 +++++++++++++++++
+ 3 files changed, 1046 insertions(+)
+ create mode 100644 arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa.dts
+
+-- 
+2.34.1
+
 
