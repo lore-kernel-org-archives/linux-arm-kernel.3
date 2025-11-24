@@ -4,86 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48DB7CFD31F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 13:24:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57194CFD313
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 13:38:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7d4Hx+/jSNJzFIDxPMp3ANPnah/DpPc1NXVsMX3uNvo=; b=vGT4v01kPmOfgygB5J5jI+YDbR
-	7sxzS/O2J4FXGNB+zM4UCd/vytM1IaZ0O5CSMxpSZqqleZ1c3IdljNoj94X4yp6SKlJI2/YzBsiUu
-	TrFHYGGstGobkzwCnumRlcWmGo/B/8qL9+cSE5AgEOI02PpyfdWCV4VW+RWdZp6dmWFD2fAkpuVJK
-	IV1FFZ3LtkUGeOjrSec2scy4wVb5khDgUi/1s5V/F4qGpbJJDKMxVceJfJdZQI8+c9pZEwQe9OI3N
-	CeljZ/UFOthsDgy86cxCZ1DlO6cxkI75z1JiPUuSb0WFo17O4i7tFad9x4MbuxAj03I9Xzjg2nog5
-	NtoVfx3w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JE9pjO3UpZdaA8ZHIvUnnEVbk9/ieWSHw5PejiTXCdM=; b=QxeE6rTxG0V2TAIj0knLUnq5zG
+	5fItuQ5YS2FZ5QwjcF4BemDLi/w4wRwTIPfeav/CaxJ0mzqr6Ykmd8Ag0OdmXn3h7Y0sDeMlrefCl
+	PtGVJeirDnQW7MZYjrHjAL6Ta+ZcbwS5IBIJow1bgPwz+l/mi5PoasZwkWzAEdp/lkVeLu3g9SueU
+	7PcpbRE1BI19GOxpRl7CbSTH1xTe1YcUqYMcK97VRpMXtWqSA0JaNhg4k01cFilbAzLRxBgQxk6D9
+	WDpLQzBA1Pj4NEZHXi+ASGVJCjZsiyIwDcSwiZLa8Krqc0dNG6lnKXjg6YJs3bARpHTkjSEwnVpo/
+	GaAdTybA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNWY3-0000000Bk1G-3aPN;
-	Mon, 24 Nov 2025 13:24:07 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNWXl-0000000Bjlw-2mTW
+	id 1vNWm1-0000000BlSm-26rR;
+	Mon, 24 Nov 2025 13:38:33 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vNWm0-0000000BlSX-0YNk
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Nov 2025 13:23:51 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 32E20169E;
-	Mon, 24 Nov 2025 05:23:41 -0800 (PST)
-Received: from e123572-lin.arm.com (e123572-lin.cambridge.arm.com [10.1.194.54])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 80E893F73B;
-	Mon, 24 Nov 2025 05:23:43 -0800 (PST)
-From: Kevin Brodsky <kevin.brodsky@arm.com>
-To: linux-mm@kvack.org
-Cc: linux-kernel@vger.kernel.org,
-	Kevin Brodsky <kevin.brodsky@arm.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Andreas Larsson <andreas@gaisler.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Boris Ostrovsky <boris.ostrovsky@oracle.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	David Hildenbrand <david@redhat.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	David Woodhouse <dwmw2@infradead.org>,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Ingo Molnar <mingo@redhat.com>,
-	Jann Horn <jannh@google.com>,
-	Juergen Gross <jgross@suse.com>,
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
-	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Michal Hocko <mhocko@suse.com>,
-	Mike Rapoport <rppt@kernel.org>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	"Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Venkat Rao Bagalkote <venkat88@linux.ibm.com>,
-	Vlastimil Babka <vbabka@suse.cz>,
-	Will Deacon <will@kernel.org>,
-	Yeoreum Yun <yeoreum.yun@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linuxppc-dev@lists.ozlabs.org,
-	sparclinux@vger.kernel.org,
-	xen-devel@lists.xenproject.org,
-	x86@kernel.org
-Subject: [PATCH v5 12/12] x86/xen: use lazy_mmu_state when context-switching
-Date: Mon, 24 Nov 2025 13:22:28 +0000
-Message-ID: <20251124132228.622678-13-kevin.brodsky@arm.com>
-X-Mailer: git-send-email 2.51.2
-In-Reply-To: <20251124132228.622678-1-kevin.brodsky@arm.com>
-References: <20251124132228.622678-1-kevin.brodsky@arm.com>
+	Mon, 24 Nov 2025 13:38:32 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 028EA60167;
+	Mon, 24 Nov 2025 13:38:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5E929C4CEF1;
+	Mon, 24 Nov 2025 13:38:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1763991510;
+	bh=B3XxBWJfthTej/qaAy/mzipRhOyNUi8ahgoYJf5vnms=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=m3h78+Orb7KyZeoZDFEzQ1zvbY37167Fsft0+oJzz4aIL13eeiTC9HWmrsBRBAuWs
+	 1wVM8MO2IjiT6G8UFXawUpHg4bSdnHkFaop6OI/ogGC1m9eWp2T5taMVQtBfAW8hXL
+	 XBCRQxgQulHJcBg987zerjLNmBbEQVuAwBS55mSuoPX7F1aiW5vSUhpwdl6TCsqlfH
+	 7356thh+tPjfglTqt0ArOsCBXZjRdYalxfIw5k0MyhXxmN9Kiovk/DIJPioRRra3Eq
+	 1wHfsjUs9/mF+1YOQfsZu4AiECVUN3K50MNayLfP42to7xWlJ+8WPd6pmHnTvmrRnm
+	 DLBFXCq+x810w==
+Date: Mon, 24 Nov 2025 13:38:25 +0000
+From: Will Deacon <will@kernel.org>
+To: Luke Yang <luyang@redhat.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Jirka Hladky <jhladky@redhat.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Joe Mario <jmario@redhat.com>
+Subject: Re: [PATCH] arm64: clear_user: align __arch_clear_user() to 128B for
+ I-cache efficiency
+Message-ID: <aSRf0doyqsnYk3RO@willie-the-truck>
+References: <CAL2CeByu46f48j8O9=237fvhpPUCsKjOZkFuuHU3xrr3wVF5Eg@mail.gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251124_052349_861496_FE8CD4B8 
-X-CRM114-Status: GOOD (  15.78  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CAL2CeByu46f48j8O9=237fvhpPUCsKjOZkFuuHU3xrr3wVF5Eg@mail.gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,65 +71,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-We currently set a TIF flag when scheduling out a task that is in
-lazy MMU mode, in order to restore it when the task is scheduled
-again.
+On Fri, Nov 21, 2025 at 12:04:55AM -0500, Luke Yang wrote:
+> On  aarch64 kernels, recent changes (specifically irqbypass patch
+> https://lore.kernel.org/all/20250516230734.2564775-6-seanjc@google.com/)
+> shifted __arch_clear_user() such that the tight zeroing loop straddles
+> I-cache lines. This causes measurable read performance regression when
+> reading from /dev/zero.
+> 
+> Add `.p2align 6` (64-byte alignment) to guarantee the loop stays within a
+> single I-cache boundary, restoring the previous IPC and throughput.
 
-The generic lazy_mmu layer now tracks whether a task is in lazy MMU
-mode in task_struct::lazy_mmu_state. We can therefore check that
-state when switching to the new task, instead of using a separate
-TIF flag.
+Hmm, but what's special about __arch_clear_user()? If we make this change,
+anybody could surely make similar arguments for other functions on their
+hot paths?
 
-Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
----
- arch/x86/include/asm/thread_info.h | 4 +---
- arch/x86/xen/enlighten_pv.c        | 3 +--
- 2 files changed, 2 insertions(+), 5 deletions(-)
+Amusingly, there's CONFIG_DEBUG_FORCE_FUNCTION_ALIGN_64B to play around
+with that and it sounds like the irqbyass change you cite calls into
+the category of changes highlighted by the Kconfig text.
 
-diff --git a/arch/x86/include/asm/thread_info.h b/arch/x86/include/asm/thread_info.h
-index e71e0e8362ed..0067684afb5b 100644
---- a/arch/x86/include/asm/thread_info.h
-+++ b/arch/x86/include/asm/thread_info.h
-@@ -100,8 +100,7 @@ struct thread_info {
- #define TIF_FORCED_TF		24	/* true if TF in eflags artificially */
- #define TIF_SINGLESTEP		25	/* reenable singlestep on user return*/
- #define TIF_BLOCKSTEP		26	/* set when we want DEBUGCTLMSR_BTF */
--#define TIF_LAZY_MMU_UPDATES	27	/* task is updating the mmu lazily */
--#define TIF_ADDR32		28	/* 32-bit address space on 64 bits */
-+#define TIF_ADDR32		27	/* 32-bit address space on 64 bits */
- 
- #define _TIF_SSBD		BIT(TIF_SSBD)
- #define _TIF_SPEC_IB		BIT(TIF_SPEC_IB)
-@@ -114,7 +113,6 @@ struct thread_info {
- #define _TIF_FORCED_TF		BIT(TIF_FORCED_TF)
- #define _TIF_BLOCKSTEP		BIT(TIF_BLOCKSTEP)
- #define _TIF_SINGLESTEP		BIT(TIF_SINGLESTEP)
--#define _TIF_LAZY_MMU_UPDATES	BIT(TIF_LAZY_MMU_UPDATES)
- #define _TIF_ADDR32		BIT(TIF_ADDR32)
- 
- /* flags to check in __switch_to() */
-diff --git a/arch/x86/xen/enlighten_pv.c b/arch/x86/xen/enlighten_pv.c
-index 4806cc28d7ca..98dbb6a61087 100644
---- a/arch/x86/xen/enlighten_pv.c
-+++ b/arch/x86/xen/enlighten_pv.c
-@@ -426,7 +426,6 @@ static void xen_start_context_switch(struct task_struct *prev)
- 
- 	if (this_cpu_read(xen_lazy_mode) == XEN_LAZY_MMU) {
- 		arch_leave_lazy_mmu_mode();
--		set_ti_thread_flag(task_thread_info(prev), TIF_LAZY_MMU_UPDATES);
- 	}
- 	enter_lazy(XEN_LAZY_CPU);
- }
-@@ -437,7 +436,7 @@ static void xen_end_context_switch(struct task_struct *next)
- 
- 	xen_mc_flush();
- 	leave_lazy(XEN_LAZY_CPU);
--	if (test_and_clear_ti_thread_flag(task_thread_info(next), TIF_LAZY_MMU_UPDATES))
-+	if (__task_lazy_mmu_mode_active(next))
- 		arch_enter_lazy_mmu_mode();
- }
- 
--- 
-2.51.2
-
+Will
 
