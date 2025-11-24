@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B534CFD356
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 21:42:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3271BCFD35C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 21:43:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dD8256YYHdEFXIWSRd86Zz4lOajwHp3e30kt6rDaiC4=; b=EdOdfpUL+4SgJS3CQKk9+qZ6x+
-	OO3maMSWMGUnlRc5dW2UvWkd9Utr2+Gf/8iJMYCdwRN12iGSVNk/KnXr2s1Rq8lGV8+Xl80BtcGKG
-	vAcyWXiodfwECa4pE2vag4PHbNDeQ/9I54W9GsIq9wFOFgWMu4w1vqP/UpTCX8Yr+KZQ63w8c1my3
-	ctup6iMFE+urlqD7WF/BN75oBGS+O3UVU/VkahUD+PJBampQcidfwkGkEqjiZJYde8SL2banRm+vs
-	EyYInH9ETyWv+uWCsLxCLoKcRu9hAL5clgihzoYi7prS744SYPpZnr/YbHw6TMoGb7w5z5GwpbUgs
-	b68sJ3lg==;
+	bh=3Dx10vbJL/TzdnPPy/kS34urDgMnaBZyZKhiZwacWOc=; b=NNgAuiHOxvMVb9D2Rmlhwm2Ivr
+	AolZEVrH+K6p3y2yuJrskGgNAR5r+bpFMpvM+By2ZcDXnec2vsa/X0kwVNmWN/GUEgzsjDvmJMzSK
+	/8N5z8YXGmimWig4tr0IY73U/43L4BQd540iG+WcuNfr3qxGkf/GDHqMfsQDqhmo6BPtVJVdoFO3Y
+	j3nkY5uKWfQfdEFqo8ga3Z2qz5YEYhLNvgoc5yDAJxCzrzUXTvcc8y8bFi2J/xGvFb8GO2o3lI6BS
+	12gi+zaYaqSYFsa9Y3w1XbwR1jvKtg9QJYtTwRa+tbwDcek1SKvu9oUuGTu6cEj18gODc3xQ5E8SZ
+	L35JJi/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNeKW-0000000CLut-1V9I;
-	Mon, 24 Nov 2025 21:42:40 +0000
+	id 1vNeKu-0000000CM0V-327t;
+	Mon, 24 Nov 2025 21:43:04 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNeKT-0000000CLuB-3VNl
+	id 1vNeKs-0000000CLzk-1Osm
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Nov 2025 21:42:39 +0000
+	Mon, 24 Nov 2025 21:43:03 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5B0A241967;
-	Mon, 24 Nov 2025 21:42:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B9B0DC4CEFB;
-	Mon, 24 Nov 2025 21:42:34 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id E6FF2402F5;
+	Mon, 24 Nov 2025 21:43:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 24BFDC4CEF1;
+	Mon, 24 Nov 2025 21:42:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764020557;
-	bh=4dyVxU18eNujO0O+8F/kKf6bj/VTA+a7QmdT7PhUMnM=;
+	s=k20201202; t=1764020581;
+	bh=1DBTbXT5XFmNZaTfnC6zGXl9doaHJLY4/GiojX8PYi0=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=atPW7j9f2Hu4HDB3X25xkWERIOMRFRf0xTZtkpWKObwDWf2XsoYp8WvCXIO8LWpCx
-	 JcijPOc32d+Su0lxvso6ROBnRwbu1jpOlOuSXPuEvqeAotS0IzfMi2HHRrbEAOuYTm
-	 PZXB8D8UYbbYftFuE0+aVjEhMrX9YJfy/1fWRv3rGKI7F2ABTP5H+VzbymqI31vBEQ
-	 zT2hwefF/wup8eMmbK+a4fwnyeiIXPxZ6YhjEoYoi76FkoPIc1HeIUO4Bed5xrQFLP
-	 3gQ69IT9WJfmN3hL6Ggvlllg1nxXeLm/I3srHuK8lgHcrBl4FdnHM+FeXv5Qmv9J/T
-	 aGR+BOymg0whA==
-Date: Mon, 24 Nov 2025 21:42:31 +0000
+	b=B5SpGS8SVO/6aWOKgjxCiB3dRBN0aJAqPeBVtsQ67OcysYxDTkZhCTAr/PUQ6m/j7
+	 mpAg1Us8FdH5nTQCDFHAEW8JJedL/aWA3OSUxzJPN+YouytEGBs0ATqfihdPz5O5JZ
+	 FAY1BmyLXj3D11SsAkJC/+EHZ52LpaOmNowzNbNammu7TGVjLD/LmxG0m06G5UZZgS
+	 s1hn37HN367+Dqn8f6mWdOEeI7YqpSmc63sajdWv3WHBNHp3zRZPXH0Vnroe7DMJBO
+	 NR8xJ5VhHnJZtfK8H5a2bUWljV89+0uVsUV3btJakCon1GxxnKxfL/LWRQnSZr2Dty
+	 1foWEvvp7WWkw==
+Date: Mon, 24 Nov 2025 21:42:55 +0000
 From: Will Deacon <will@kernel.org>
 To: Nicolin Chen <nicolinc@nvidia.com>
 Cc: jean-philippe@linaro.org, robin.murphy@arm.com, joro@8bytes.org,
@@ -50,18 +50,18 @@ Cc: jean-philippe@linaro.org, robin.murphy@arm.com, joro@8bytes.org,
 	peterz@infradead.org, kevin.tian@intel.com, praan@google.com,
 	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v5 3/7] iommu/arm-smmu-v3: Introduce a per-domain
- arm_smmu_invs array
-Message-ID: <aSTRRyTBh1nATwBa@willie-the-truck>
+Subject: Re: [PATCH v5 4/7] iommu/arm-smmu-v3: Pre-allocate a per-master
+ invalidation array
+Message-ID: <aSTRX5RJJhfNU6l3@willie-the-truck>
 References: <cover.1762588839.git.nicolinc@nvidia.com>
- <eea7bffde13574e099212e3b3823a0f192d6aec3.1762588839.git.nicolinc@nvidia.com>
+ <b6e1b5d0ac0157fc06b5cd20c5cd72caec892c47.1762588839.git.nicolinc@nvidia.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <eea7bffde13574e099212e3b3823a0f192d6aec3.1762588839.git.nicolinc@nvidia.com>
+In-Reply-To: <b6e1b5d0ac0157fc06b5cd20c5cd72caec892c47.1762588839.git.nicolinc@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251124_134237_932471_69DBC820 
-X-CRM114-Status: GOOD (  39.40  )
+X-CRM114-CacheID: sfid-20251124_134302_433754_DBA40C14 
+X-CRM114-Status: GOOD (  30.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,220 +76,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Nov 08, 2025 at 12:08:04AM -0800, Nicolin Chen wrote:
-> From: Jason Gunthorpe <jgg@nvidia.com>
+On Sat, Nov 08, 2025 at 12:08:05AM -0800, Nicolin Chen wrote:
+> When a master is attached from an old domain to a new domain, it needs to
+> build an invalidation array to delete and add the array entries from/onto
+> the invalidation arrays of those two domains, passed via the to_merge and
+> to_unref arguments into arm_smmu_invs_merge/unref() respectively.
 > 
-> Create a new data structure to hold an array of invalidations that need to
-> be performed for the domain based on what masters are attached, to replace
-> the single smmu pointer and linked list of masters in the current design.
+> Since the master->num_streams might differ across masters, a memory would
+> have to be allocated when building an to_merge/to_unref array which might
+> fail with -ENOMEM.
 > 
-> Each array entry holds one of the invalidation actions - S1_ASID, S2_VMID,
-> ATS or their variant with information to feed invalidation commands to HW.
-> It is structured so that multiple SMMUs can participate in the same array,
-> removing one key limitation of the current system.
+> On the other hand, an attachment to arm_smmu_blocked_domain must not fail
+> so it's the best to avoid any memory allocation in that path.
 > 
-> To maximize performance, a sorted array is used as the data structure. It
-> allows grouping SYNCs together to parallelize invalidations. For instance,
-> it will group all the ATS entries after the ASID/VMID entry, so they will
-> all be pushed to the PCI devices in parallel with one SYNC.
+> Pre-allocate a fixed size invalidation array for every master. This array
+> will be used as a scratch to fill dynamically when building a to_merge or
+> to_unref invs array. Sort fwspec->ids in an ascending order to fit to the
+> arm_smmu_invs_merge() function.
 > 
-> To minimize the locking cost on the invalidation fast path (reader of the
-> invalidation array), the array is managed with RCU.
-> 
-> Provide a set of APIs to add/delete entries to/from an array, which cover
-> cannot-fail attach cases, e.g. attaching to arm_smmu_blocked_domain. Also
-> add kunit coverage for those APIs.
-> 
+> Co-developed-by: Jason Gunthorpe <jgg@nvidia.com>
 > Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
 > Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
-> Co-developed-by: Nicolin Chen <nicolinc@nvidia.com>
 > Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
 > ---
->  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h   |  91 +++++++
->  .../iommu/arm/arm-smmu-v3/arm-smmu-v3-test.c  |  93 +++++++
->  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c   | 248 ++++++++++++++++++
->  3 files changed, 432 insertions(+)
+>  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h |  8 ++++++
+>  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 27 +++++++++++++++++++++
+>  2 files changed, 35 insertions(+)
 > 
 > diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-> index 96a23ca633cb6..757158b9ea655 100644
+> index 757158b9ea655..7b81a82c0dfe4 100644
 > --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
 > +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-> @@ -649,6 +649,85 @@ struct arm_smmu_cmdq_batch {
->  	int				num;
->  };
+> @@ -922,6 +922,14 @@ struct arm_smmu_master {
+>  	struct arm_smmu_device		*smmu;
+>  	struct device			*dev;
+>  	struct arm_smmu_stream		*streams;
+> +	/*
+> +	 * Scratch memory for a to_merge or to_unref array to build a per-domain
+> +	 * invalidation array. It'll be pre-allocated with enough enries for all
+> +	 * possible build scenarios. It can be used by only one caller at a time
+> +	 * until the arm_smmu_invs_merge/unref() finishes. Must be locked by the
+> +	 * iommu_group mutex.
+> +	 */
+> +	struct arm_smmu_invs		*build_invs;
+>  	struct arm_smmu_vmaster		*vmaster; /* use smmu->streams_mutex */
+>  	/* Locked by the iommu core using the group mutex */
+>  	struct arm_smmu_ctx_desc_cfg	cd_table;
+> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> index 8266d0839a927..26b8492a13f20 100644
+> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> @@ -3693,12 +3693,22 @@ static int arm_smmu_init_sid_strtab(struct arm_smmu_device *smmu, u32 sid)
+>  	return 0;
+>  }
 >  
-> +/*
-> + * The order here also determines the sequence in which commands are sent to the
-> + * command queue. E.g. TLBI must be done before ATC_INV.
-> + */
-> +enum arm_smmu_inv_type {
-> +	INV_TYPE_S1_ASID,
-> +	INV_TYPE_S2_VMID,
-> +	INV_TYPE_S2_VMID_S1_CLEAR,
-> +	INV_TYPE_ATS,
-> +	INV_TYPE_ATS_FULL,
-> +};
-> +
-> +struct arm_smmu_inv {
-> +	struct arm_smmu_device *smmu;
-> +	u8 type;
-> +	u8 size_opcode;
-> +	u8 nsize_opcode;
-> +	u32 id; /* ASID or VMID or SID */
-> +	union {
-> +		size_t pgsize; /* ARM_SMMU_FEAT_RANGE_INV */
-> +		u32 ssid; /* INV_TYPE_ATS */
-> +	};
-> +
-> +	refcount_t users; /* users=0 to mark as a trash to be purged */
-> +};
-> +
-> +static inline bool arm_smmu_inv_is_ats(struct arm_smmu_inv *inv)
+> +static int arm_smmu_ids_cmp(const void *_l, const void *_r)
 > +{
-> +	return inv->type == INV_TYPE_ATS || inv->type == INV_TYPE_ATS_FULL;
+> +	const typeof_member(struct iommu_fwspec, ids[0]) *l = _l;
+> +	const typeof_member(struct iommu_fwspec, ids[0]) *r = _r;
+> +
+> +	return cmp_int(*l, *r);
 > +}
 > +
-> +/**
-> + * struct arm_smmu_invs - Per-domain invalidation array
-> + * @num_invs: number of invalidations in the flexible array
-> + * @rwlock: optional rwlock to fench ATS operations
-> + * @has_ats: flag if the array contains an INV_TYPE_ATS or INV_TYPE_ATS_FULL
-> + * @rcu: rcu head for kfree_rcu()
-> + * @inv: flexible invalidation array
-> + *
-> + * The arm_smmu_invs is an RCU data structure. During a ->attach_dev callback,
-> + * arm_smmu_invs_merge(), arm_smmu_invs_unref() and arm_smmu_invs_purge() will
-> + * be used to allocate a new copy of an old array for addition and deletion in
-> + * the old domain's and new domain's invs arrays.
-> + *
-> + * The arm_smmu_invs_unref() mutates a given array, by internally reducing the
-> + * users counts of some given entries. This exists to support a no-fail routine
-> + * like attaching to an IOMMU_DOMAIN_BLOCKED. And it could pair with a followup
-> + * arm_smmu_invs_purge() call to generate a new clean array.
-> + *
-> + * Concurrent invalidation thread will push every invalidation described in the
-> + * array into the command queue for each invalidation event. It is designed like
-> + * this to optimize the invalidation fast path by avoiding locks.
-> + *
-> + * A domain can be shared across SMMU instances. When an instance gets removed,
-> + * it would delete all the entries that belong to that SMMU instance. Then, a
-> + * synchronize_rcu() would have to be called to sync the array, to prevent any
-> + * concurrent invalidation thread accessing the old array from issuing commands
-> + * to the command queue of a removed SMMU instance.
-> + */
-> +struct arm_smmu_invs {
-> +	size_t num_invs;
-> +	rwlock_t rwlock;
-> +	bool has_ats;
-> +	struct rcu_head rcu;
-> +	struct arm_smmu_inv inv[];
-> +};
+>  static int arm_smmu_insert_master(struct arm_smmu_device *smmu,
+>  				  struct arm_smmu_master *master)
+>  {
+>  	int i;
+>  	int ret = 0;
+>  	struct iommu_fwspec *fwspec = dev_iommu_fwspec_get(master->dev);
+> +	bool ats_supported = dev_is_pci(master->dev) &&
+> +			     pci_ats_supported(to_pci_dev(master->dev));
+>  
+>  	master->streams = kcalloc(fwspec->num_ids, sizeof(*master->streams),
+>  				  GFP_KERNEL);
+> @@ -3706,6 +3716,21 @@ static int arm_smmu_insert_master(struct arm_smmu_device *smmu,
+>  		return -ENOMEM;
+>  	master->num_streams = fwspec->num_ids;
+>  
+> +	if (!ats_supported) {
+> +		/* Base case has 1 ASID entry or maximum 2 VMID entries */
+> +		master->build_invs = arm_smmu_invs_alloc(2);
+> +	} else {
+> +		/* Put the ids into order for sorted to_merge/to_unref arrays */
+> +		sort_nonatomic(fwspec->ids, fwspec->num_ids,
+> +			       sizeof(fwspec->ids[0]), arm_smmu_ids_cmp, NULL);
+> +		/* ATS case adds num_ids of entries, on top of the base case */
+> +		master->build_invs = arm_smmu_invs_alloc(2 + fwspec->num_ids);
 
-Can you use __counted_by(num_invs) here?
-
-> +
-> +static inline struct arm_smmu_invs *arm_smmu_invs_alloc(size_t num_invs)
-> +{
-> +	struct arm_smmu_invs *new_invs;
-> +
-> +	new_invs = kzalloc(struct_size(new_invs, inv, num_invs), GFP_KERNEL);
-> +	if (!new_invs)
-> +		return ERR_PTR(-ENOMEM);
-
-Just return NULL on failure like most allocator functions?
-
-> +	rwlock_init(&new_invs->rwlock);
-> +	new_invs->num_invs = num_invs;
-> +	return new_invs;
-> +}
-> +
-
-[...]
-
-> +VISIBLE_IF_KUNIT
-> +struct arm_smmu_invs *arm_smmu_invs_merge(struct arm_smmu_invs *invs,
-> +					  struct arm_smmu_invs *to_merge)
-> +{
-> +	struct arm_smmu_invs *new_invs;
-> +	struct arm_smmu_inv *new;
-> +	size_t num_trashes = 0;
-> +	size_t num_adds = 0;
-> +	size_t i, j;
-> +
-> +	for (i = j = 0; i < invs->num_invs || j < to_merge->num_invs;) {
-
-Maybe worth having a simple iterator macro for this?
-
-> +		int cmp;
-> +
-> +		/* Skip any trash entry */
-> +		if (i < invs->num_invs && !refcount_read(&invs->inv[i].users)) {
-> +			num_trashes++;
-> +			i++;
-> +			continue;
-> +		}
-> +
-> +		cmp = arm_smmu_invs_cmp(invs, i, to_merge, j);
-> +		if (cmp < 0) {
-> +			/* not found in to_merge, leave alone */
-> +			i++;
-> +		} else if (cmp == 0) {
-> +			/* same item */
-> +			i++;
-> +			j++;
-> +		} else {
-> +			/* unique to to_merge */
-> +			num_adds++;
-> +			j++;
-> +		}
-> +	}
-> +
-> +	new_invs = arm_smmu_invs_alloc(invs->num_invs - num_trashes + num_adds);
-> +	if (IS_ERR(new_invs))
-> +		return new_invs;
-> +
-> +	new = new_invs->inv;
-> +	for (i = j = 0; i < invs->num_invs || j < to_merge->num_invs;) {
-> +		int cmp;
-> +
-> +		if (i < invs->num_invs && !refcount_read(&invs->inv[i].users)) {
-> +			i++;
-> +			continue;
-> +		}
-> +
-> +		cmp = arm_smmu_invs_cmp(invs, i, to_merge, j);
-> +		if (cmp < 0) {
-> +			*new = invs->inv[i];
-> +			i++;
-> +		} else if (cmp == 0) {
-> +			*new = invs->inv[i];
-> +			refcount_inc(&new->users);
-> +			i++;
-> +			j++;
-> +		} else {
-> +			*new = to_merge->inv[j];
-> +			refcount_set(&new->users, 1);
-> +			j++;
-> +		}
-> +
-> +		/*
-> +		 * Check that the new array is sorted. This also validates that
-> +		 * to_merge is sorted.
-> +		 */
-> +		if (new != new_invs->inv)
-> +			WARN_ON_ONCE(arm_smmu_inv_cmp(new - 1, new) == 1);
-> +		new++;
-> +	}
-> +
-> +	WARN_ON(new != new_invs->inv + new_invs->num_invs);
-> +
-> +	return new_invs;
-> +}
-> +EXPORT_SYMBOL_IF_KUNIT(arm_smmu_invs_merge);
-
-There's nothing really SMMU-specific about this data structure manipulation.
-Do you think we can abstract the invalidation array concept into a library
-which other IOMMU drivers could use too?
+Although I can't point at a specific issue here, I'm nervous about mutating
+the 'fwspec->ids' array from within the driver, The array isn't allocated
+or populated directly by the driver and so I don't think we really have any
+business sorting it. Could we hack iommu_fwspec_add_ids() to keep the array
+ordered instead?
 
 Will
 
