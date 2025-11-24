@@ -4,106 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85ABFCFD317
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 10:43:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3B7DCFD317
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 10:46:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IPMaYfKvhruxz/7aEIx8rHbzh3ajqn2UKQXi0f0Mf6g=; b=dYpVcmRU9VlCqMx9MTxvusc4O8
-	w7h72y3bS8o7rSJ7xtVzsB9CJjkcKSsUva/VT71aO/vZiAlxAPDkW4xaYOQx2oI+/l9rvNDBf0y7p
-	BporVaozmlFjFLFfmLsi7t0aXX+BxjFhK+Yz2aaxPOG2xNO9a040LmoVjggi/5r3WpuTQ4iUXT0OA
-	d3eMMiZp/9i6x6Bk0oVPWDqDbQN+iCs8QEK3VXRHtd5o8wztirGKrWYXFnsj7mts8WWla+fjmFlvx
-	Kw1v6C/8dyUqnXQV6TCl3S21oftE89FqtMt2u5/UmwemOG8q49H2wlA3SVkUdV48KfIx3uu/ebe14
-	GiHypvmA==;
+	bh=UvxeS/74nBAEFSf4nVKv65BSIxiE58qrGcTM82uuMOU=; b=UKo1QIEz0UEuuvk2ZY+klcwci8
+	QRAPT2t0Pb4+s5/sSh2eEWP9DXLtvUSmRuuoCl6jnyYHK2ImOLV0csCIcCAlKgjrP9tV038WUNqWA
+	TDiS57LkKwaEBIOQTA+SSS+N4bPHDOdLav67HZdRDW9Zio4murm4NEJOTUxcGvpJ7quASdk9qziS0
+	KtQZsbrmS30544mibGL0g7QwbECtJJsH/1eOKi5TlyLooE3q5RDHcxetUc+lYB0QVPDNUSDtWnqzg
+	qi7hmg484H7YWEDm6ia4E7Ibg3R9g3ecCZvBVIlkAotA8jaXBJ/53Y6aj/pRMXlsuGT3BFKrPzyjQ
+	XZ0AgCAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNU2d-0000000BRlW-27OR;
-	Mon, 24 Nov 2025 10:43:31 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1vNU50-0000000BRxm-0F1Y;
+	Mon, 24 Nov 2025 10:45:58 +0000
+Received: from mail-lf1-x132.google.com ([2a00:1450:4864:20::132])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNU2a-0000000BRl6-3eh1
+	id 1vNU4x-0000000BRww-0XsG
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Nov 2025 10:43:30 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-477aa218f20so25457895e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Nov 2025 02:43:28 -0800 (PST)
+	Mon, 24 Nov 2025 10:45:56 +0000
+Received: by mail-lf1-x132.google.com with SMTP id 2adb3069b0e04-5957e017378so4274062e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Nov 2025 02:45:54 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1763981006; x=1764585806; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1763981152; x=1764585952; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=IPMaYfKvhruxz/7aEIx8rHbzh3ajqn2UKQXi0f0Mf6g=;
-        b=SIHVAHjsgLOKOco59vKvDtVGCIHvkpnkLxc0d2D6hTGeXDgP5kNo/EKpgQcr4qu6mf
-         5nDBrsAGtnrXNpsTRrfWaRDPVsoC/VZBwRwRMNAAv277fQt5I9lXa0w81sGnT9zkuiFx
-         Qdw/tqmbIZYFYxVbdlBbZz702PKNStyxu3dcW8RlyCNqbp0w4407vDjyJV+Ebq3SXwN9
-         VvB4/SxdKdrxsaEvrI/KTVQb9MKrqXa/amwcqO12JadFweQDr6JFwQ5RAUFR5s9+0S8b
-         IoZGBoHnga8Gn/p1dnoSOd/3rEgeWVD+0AeNc0pyrUe1XLDr1T9DXP5JhiCjC3iqONg8
-         hvKw==
+        bh=UvxeS/74nBAEFSf4nVKv65BSIxiE58qrGcTM82uuMOU=;
+        b=cLJ6D51sZFOXVADphZsc1mNfwjwSdMGv4NxLIOgZdYz2MGhTIcX6MymBT5Mk27XwkF
+         uVHghWX6NqDxgE1PBMni9Ra5PHQF1Zs1R+Wa0ZXwjdH0pQCzptP/gT/R3CITRCvszBrS
+         xISQL/RTu9+pHY+JTfM4qh9FJpnNQbtmVBLBFVOjsZPX6enxCDk0WVOB9VH3DqhkeZsd
+         ldW9fcunA/lkCjsb8glmOr5MVeYGwQh35u6HAdJ+y2lXxLfIYXU6vQJW/jIdRjJOZvRE
+         9ezcpiNZn3xx8L2i19scYeVySaRi9SV418L3SSJqUqBiyYTSoN1651UZdYnbyfXfW0E7
+         ez8g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763981006; x=1764585806;
+        d=1e100.net; s=20230601; t=1763981152; x=1764585952;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=IPMaYfKvhruxz/7aEIx8rHbzh3ajqn2UKQXi0f0Mf6g=;
-        b=w8bfflVxQJA1thg18iGop8HbA2VYgaq95EldmLaAoebfjhYgOjhSOKMCbmd5qZQHEO
-         PZqeyGUiYlAeTLqXtkyVA5uOO/2UVFgN0GYbgWev8LQH+A8RIPEdlRb3zcX2zpMo4c56
-         dqXRXcc8eiBw/tXtwbeNLKWuxuIqF43MI+rl2EMfqTio0ch1ioUFAxX9PCcTcOqdfI6b
-         OFW/duXY9FYhQt3WEAi7h8M52IbTrjp+rdPAl3ZTFaskGAX7OcfS8Fpwmn0tZ6UBNZJH
-         u4TDe5raOX0B5a22FHEe9jza7BPXhgLmSck7MZof+gkejjZzvFdXzQNSE9wQZLLFX+rF
-         qHLQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXgfqjNp5bkybyieglozVmp9kkV1SqsHo3E87qDNCpKLR5kdaEdl7nnDRWQAFzkk2V5y00a0IJ8JYYrupTpURyi@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx1cLL06QB2RUxnbzQD4O133HT+cxMoqZSMhjRGiv3SXTT/xCXu
-	KoxmoH1EE2FE71uA/2TBSxvnUPPp9KIcc5m7Hjr/9/vleiYAYMJKC6EA48R6kLs6RFo=
-X-Gm-Gg: ASbGncv2AoqZ9qvr2VKWyFI6YcFtBdC1NVy0SNE18XlzitAo02EiVxMr3Jxoh8+VbVz
-	vxsIxKhFpSHifYBnV1nYcrWuzFoV7+6mWg21lOUCQT3MSUolArFLXJinVIInl2KIUmxKQlV5Jra
-	vpNpbzR9vmjX0BwU/IsjEsFtlbXDmnho36XQphnqbvh+8+6vZ/HDb8FLkuIWZTAmswj9NUlrEzX
-	Xkv9zly/SlS3L0Tr6ZkibpVXauui903p1lHLViu+/qVxSecyOmocc52pE3I9EDfflDNyb7B8mZj
-	oe6hkFeWfy7FQp9Dzi2UjWbHYRwXWGZ02HzhStjOt0eDCqQzh5z628a705Hvj3EnZ4V7SgMs23Q
-	ZseVh9ef4nkN9vFLidLqKJWfBhBbMWiojh9NEcAQ6480T+OS7OmPWrsPGBiYIWyoV5qXwzPobo8
-	dogqjofoc6UanUpbK2CHey6vIPg/g=
-X-Google-Smtp-Source: AGHT+IHUwHL8Ak/SSQPUMF7+OGU9CxDUvw1EzBytBVdE43sHRPf2JfCvp+pEC30Sy8UWing4gkJFBg==
-X-Received: by 2002:a05:600c:450f:b0:46d:ba6d:65bb with SMTP id 5b1f17b1804b1-477c01eb9bdmr122420585e9.31.1763981006460;
-        Mon, 24 Nov 2025 02:43:26 -0800 (PST)
-Received: from [10.11.12.107] ([5.12.85.52])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-477bf22ea00sm190158965e9.14.2025.11.24.02.43.24
+        bh=UvxeS/74nBAEFSf4nVKv65BSIxiE58qrGcTM82uuMOU=;
+        b=Nk8XeuZsrXwdwRmx0JtoPrIDVBibrJIzZBGGkuF0EA72XeG7bfS7Aw1ow0S61ehLYU
+         IoYswirGwQOd9EIhgbFnnF7Xv/QZgBM+iFXBIsMhMboJsLXO+CkEAdvsyjvvgCf629dc
+         gWC3U85OT0CV2c17GNeiy+KZBmRbDX29qh17e8HLJKKJQgBvGE5EsU9It3F5ZQzBZ4vL
+         LfMeZ2BG3b18WOlzvzTYUZh6jVe8ASX1EOmI0SLwHLdYdu27Rj636lmqPjaEMlOkLb+z
+         ssVjEPCSCIeMlt18pxExzifLlNsFFZItj/PIMTfo4ZbipS91MuoTTMfSNTrUua2QDNTk
+         ohcQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUa7HTwkXqPOKtyFTa74/lzt2hhiKzbW5HamXUXS9mWvqAQW5ogOsFwrma7K+TCIb3wX3T5mFgkvhiCCtNB0j4z@lists.infradead.org
+X-Gm-Message-State: AOJu0YwJXwhLfti62Wrw93ujiY8aYLzcUHH6uSfUGDNu9YE7vhfNr6hG
+	0uNh6q6A0m9bwnfWsiU1w8q9LGE7dYau/4YnfNczT3A3r6jTwDioctor3P5ve8VX
+X-Gm-Gg: ASbGnctyjQZg5+rOeNU8MJxoWQZSy4zUlHjUzQDPfv1PvSng+pt333b9e2ze9JEzh8L
+	NSArUOoptxYAia2qRcmAbEFdgqYmpAHUj84OT2DT8W4lawPyJ0YDh5tHQqJGT4S6nCHfrXtcF2R
+	DbK2Lapsmwb3B1Y868mVseyJX2ndhT9deTKeYMa6Go+2vDK/DEESftRJT8MA/rynwSSA4dl78pu
+	jKdJRj4qOrv/W739g7xScRy0zjwxQNzskFMmC+M6bsAZZjrVOFr/eE9iUlvcZNlJZrwR+PvZyyw
+	rhlGPG2O1L96R3C30r5k+tnSYSKrcWzcgfRbvipUeQMAJLRoaA3pqB784BD7WUaBv0rS6sfl7vt
+	OLbOqLw/ty6vWZ4ajGRmUOzI16NLhF16bgnInkqqn5KYX06W7r8JvaIxCCTig94FjmrQIOxgYRB
+	qSpgrJUOjFN3pTdw==
+X-Google-Smtp-Source: AGHT+IGzb+yApYHtjewkoQzx7FPWIVvgfb9lCElhP6A4EWOQNvayCoMjjLyY5L5QUpilRr8Cj3haxw==
+X-Received: by 2002:a05:6512:104a:b0:595:90ee:f476 with SMTP id 2adb3069b0e04-596a3edab46mr4292946e87.28.1763974136131;
+        Mon, 24 Nov 2025 00:48:56 -0800 (PST)
+Received: from [10.38.18.76] ([213.255.186.37])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5969dbc5c5dsm4019850e87.79.2025.11.24.00.48.55
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 24 Nov 2025 02:43:25 -0800 (PST)
-Message-ID: <12346382-7718-4942-a497-4de278b1d5a0@linaro.org>
-Date: Mon, 24 Nov 2025 12:43:22 +0200
+        Mon, 24 Nov 2025 00:48:55 -0800 (PST)
+Message-ID: <6ee209b3-4d7a-45a8-bd65-6a51730d458d@gmail.com>
+Date: Mon, 24 Nov 2025 10:48:54 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 RESEND 2/3] thermal: exynos_tmu: Support new hardware
- and update TMU interface
-To: =?UTF-8?B?7IaQ7Iug?= <shin.son@samsung.com>,
- 'Daniel Lezcano' <daniel.lezcano@linaro.org>,
- 'Bartlomiej Zolnierkiewicz' <bzolnier@gmail.com>,
- 'Krzysztof Kozlowski' <krzk@kernel.org>,
- "'Rafael J . Wysocki'" <rafael@kernel.org>, 'Zhang Rui'
- <rui.zhang@intel.com>, 'Lukasz Luba' <lukasz.luba@arm.com>,
- 'Rob Herring' <robh@kernel.org>, 'Conor Dooley' <conor+dt@kernel.org>,
- 'Alim Akhtar' <alim.akhtar@samsung.com>
-Cc: 'Henrik Grimler' <henrik@grimler.se>, linux-pm@vger.kernel.org,
- linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Peter Griffin <peter.griffin@linaro.org>,
- =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
- William McVicker <willmcvicker@google.com>, jyescas@google.com
-References: <20251113064022.2701578-1-shin.son@samsung.com>
- <CGME20251113064044epcas2p1b87addb21473eca7cc52052e4e2e9237@epcas2p1.samsung.com>
- <20251113064022.2701578-3-shin.son@samsung.com>
- <2180a854-8ba6-4424-add2-eb34637530c1@linaro.org>
- <000001dc5d2a$0697bf10$13c73d30$@samsung.com>
+Subject: Re: [PATCH v3 1/2] Revert "treewide: Fix probing of devices in DT
+ overlays"
+To: Saravana Kannan <saravanak@google.com>,
+ Herve Codina <herve.codina@bootlin.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ "Rafael J. Wysocki" <rafael@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>,
+ Wolfram Sang <wsa+renesas@sang-engineering.com>,
+ Rob Herring <robh@kernel.org>, Mark Brown <broonie@kernel.org>,
+ Len Brown <lenb@kernel.org>,
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+ Daniel Scally <djrscally@gmail.com>,
+ Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+ Sakari Ailus <sakari.ailus@linux.intel.com>,
+ Geert Uytterhoeven <geert+renesas@glider.be>
+Cc: kernel-team@android.com, Wolfram Sang <wsa@kernel.org>,
+ linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-i2c@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-spi@vger.kernel.org,
+ linux-acpi@vger.kernel.org, Matti Vaittinen <mazziesaccount@gmail.com>
+References: <20240411235623.1260061-1-saravanak@google.com>
+ <20240411235623.1260061-2-saravanak@google.com>
 Content-Language: en-US
-From: Tudor Ambarus <tudor.ambarus@linaro.org>
-In-Reply-To: <000001dc5d2a$0697bf10$13c73d30$@samsung.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+From: Kalle Niemi <kaleposti@gmail.com>
+In-Reply-To: <20240411235623.1260061-2-saravanak@google.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251124_024328_960873_90BA176A 
-X-CRM114-Status: GOOD (  10.72  )
+X-CRM114-CacheID: sfid-20251124_024555_221850_970FA52D 
+X-CRM114-Status: GOOD (  22.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,61 +121,162 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, Shin,
+On 4/12/24 02:56, Saravana Kannan wrote:
+> This reverts commit 1a50d9403fb90cbe4dea0ec9fd0351d2ecbd8924.
+> 
+> While the commit fixed fw_devlink overlay handling for one case, it
+> broke it for another case. So revert it and redo the fix in a separate
+> patch.
+> 
+> Fixes: 1a50d9403fb9 ("treewide: Fix probing of devices in DT overlays")
+> Reported-by: Herve Codina <herve.codina@bootlin.com>
+> Closes: https://lore.kernel.org/lkml/CAMuHMdXEnSD4rRJ-o90x4OprUacN_rJgyo8x6=9F9rZ+-KzjOg@mail.gmail.com/
+> Closes: https://lore.kernel.org/all/20240221095137.616d2aaa@bootlin.com/
+> Closes: https://lore.kernel.org/lkml/20240312151835.29ef62a0@bootlin.com/
+> Signed-off-by: Saravana Kannan <saravanak@google.com>
+> ---
+>   drivers/bus/imx-weim.c    | 6 ------
+>   drivers/i2c/i2c-core-of.c | 5 -----
+>   drivers/of/dynamic.c      | 1 -
+>   drivers/of/platform.c     | 5 -----
+>   drivers/spi/spi.c         | 5 -----
+>   5 files changed, 22 deletions(-)
+> 
+> diff --git a/drivers/bus/imx-weim.c b/drivers/bus/imx-weim.c
+> index 837bf9d51c6e..caaf887e0ccc 100644
+> --- a/drivers/bus/imx-weim.c
+> +++ b/drivers/bus/imx-weim.c
+> @@ -331,12 +331,6 @@ static int of_weim_notify(struct notifier_block *nb, unsigned long action,
+>   				 "Failed to setup timing for '%pOF'\n", rd->dn);
+>   
+>   		if (!of_node_check_flag(rd->dn, OF_POPULATED)) {
+> -			/*
+> -			 * Clear the flag before adding the device so that
+> -			 * fw_devlink doesn't skip adding consumers to this
+> -			 * device.
+> -			 */
+> -			rd->dn->fwnode.flags &= ~FWNODE_FLAG_NOT_DEVICE;
+>   			if (!of_platform_device_create(rd->dn, NULL, &pdev->dev)) {
+>   				dev_err(&pdev->dev,
+>   					"Failed to create child device '%pOF'\n",
+> diff --git a/drivers/i2c/i2c-core-of.c b/drivers/i2c/i2c-core-of.c
+> index a6c407d36800..a250921bbce0 100644
+> --- a/drivers/i2c/i2c-core-of.c
+> +++ b/drivers/i2c/i2c-core-of.c
+> @@ -178,11 +178,6 @@ static int of_i2c_notify(struct notifier_block *nb, unsigned long action,
+>   			return NOTIFY_OK;
+>   		}
+>   
+> -		/*
+> -		 * Clear the flag before adding the device so that fw_devlink
+> -		 * doesn't skip adding consumers to this device.
+> -		 */
+> -		rd->dn->fwnode.flags &= ~FWNODE_FLAG_NOT_DEVICE;
+>   		client = of_i2c_register_device(adap, rd->dn);
+>   		if (IS_ERR(client)) {
+>   			dev_err(&adap->dev, "failed to create client for '%pOF'\n",
+> diff --git a/drivers/of/dynamic.c b/drivers/of/dynamic.c
+> index 4d57a4e34105..19a1a38554f2 100644
+> --- a/drivers/of/dynamic.c
+> +++ b/drivers/of/dynamic.c
+> @@ -224,7 +224,6 @@ static void __of_attach_node(struct device_node *np)
+>   	np->sibling = np->parent->child;
+>   	np->parent->child = np;
+>   	of_node_clear_flag(np, OF_DETACHED);
+> -	np->fwnode.flags |= FWNODE_FLAG_NOT_DEVICE;
+>   
+>   	raw_spin_unlock_irqrestore(&devtree_lock, flags);
+>   
+> diff --git a/drivers/of/platform.c b/drivers/of/platform.c
+> index 389d4ea6bfc1..efd861fa254f 100644
+> --- a/drivers/of/platform.c
+> +++ b/drivers/of/platform.c
+> @@ -743,11 +743,6 @@ static int of_platform_notify(struct notifier_block *nb,
+>   		if (of_node_check_flag(rd->dn, OF_POPULATED))
+>   			return NOTIFY_OK;
+>   
+> -		/*
+> -		 * Clear the flag before adding the device so that fw_devlink
+> -		 * doesn't skip adding consumers to this device.
+> -		 */
+> -		rd->dn->fwnode.flags &= ~FWNODE_FLAG_NOT_DEVICE;
+>   		/* pdev_parent may be NULL when no bus platform device */
+>   		pdev_parent = of_find_device_by_node(rd->dn->parent);
+>   		pdev = of_platform_device_create(rd->dn, NULL,
+> diff --git a/drivers/spi/spi.c b/drivers/spi/spi.c
+> index ff75838c1b5d..17cd417f7681 100644
+> --- a/drivers/spi/spi.c
+> +++ b/drivers/spi/spi.c
+> @@ -4761,11 +4761,6 @@ static int of_spi_notify(struct notifier_block *nb, unsigned long action,
+>   			return NOTIFY_OK;
+>   		}
+>   
+> -		/*
+> -		 * Clear the flag before adding the device so that fw_devlink
+> -		 * doesn't skip adding consumers to this device.
+> -		 */
+> -		rd->dn->fwnode.flags &= ~FWNODE_FLAG_NOT_DEVICE;
+>   		spi = of_register_spi_device(ctlr, rd->dn);
+>   		put_device(&ctlr->dev);
+>   
+Hello,
 
-On 11/24/25 12:06 PM, 손신 wrote:
->>> +static void update_con_reg(struct exynos_tmu_data *data) {
->>> +	u32 val, t_buf_vref_sel, t_buf_slope_sel;
->>> +
->>> +	val = readl(data->base + EXYNOS_TMU_REG_TRIMINFO);
->>> +	t_buf_vref_sel = (val >> EXYNOSAUTOV920_TMU_T_BUF_VREF_SEL_SHIFT)
->>> +				& EXYNOSAUTOV920_TMU_T_BUF_VREF_SEL_MASK;
->>> +	t_buf_slope_sel = (val >> EXYNOSAUTOV920_TMU_T_BUF_SLOPE_SEL_SHIFT)
->>> +				& EXYNOSAUTOV920_TMU_T_BUF_SLOPE_SEL_MASK;
->>> +
->>> +	val = readl(data->base +  EXYNOSAUTOV920_TMU_REG_CONTROL);
->>> +	val &= ~(EXYNOS_TMU_REF_VOLTAGE_MASK <<
->> EXYNOS_TMU_REF_VOLTAGE_SHIFT);
->>> +	val |= (t_buf_vref_sel << EXYNOS_TMU_REF_VOLTAGE_SHIFT);
->>> +	val &= ~(EXYNOS_TMU_BUF_SLOPE_SEL_MASK <<
->> EXYNOS_TMU_BUF_SLOPE_SEL_SHIFT);
->>> +	val |= (t_buf_slope_sel << EXYNOS_TMU_BUF_SLOPE_SEL_SHIFT);
->>> +	writel(val, data->base + EXYNOSAUTOV920_TMU_REG_CONTROL);
->>> +
->>> +	val = readl(data->base + EXYNOSAUTOV920_TMU_REG_CONTROL1);
->>> +	val &= ~(EXYNOSAUTOV920_TMU_NUM_PROBE_MASK <<
->> EXYNOSAUTOV920_TMU_NUM_PROBE_SHIFT);
->>> +	val &= ~(EXYNOSAUTOV920_TMU_LPI_MODE_MASK <<
->> EXYNOSAUTOV920_TMU_LPI_MODE_SHIFT);
->>> +	val |= (data->sensor_count << EXYNOSAUTOV920_TMU_NUM_PROBE_SHIFT);
->>> +	writel(val, data->base + EXYNOSAUTOV920_TMU_REG_CONTROL1);
->>> +
->>> +	writel(1, data->base + EXYNOSAUTOV920_TMU_SAMPLING_INTERVAL);
->>> +	writel(EXYNOSAUTOV920_TMU_AVG_CON_UPDATE, data->base +
->> EXYNOSAUTOV920_TMU_REG_AVG_CONTROL);
->>> +	writel(EXYNOSAUTOV920_TMU_COUNTER_VALUE0_UPDATE,
->>> +	       data->base + EXYNOSAUTOV920_TMU_REG_COUNTER_VALUE0);
->>> +	writel(EXYNOSAUTOV920_TMU_COUNTER_VALUE1_UPDATE,
->>> +	       data->base + EXYNOSAUTOV920_TMU_REG_COUNTER_VALUE1);
->>> +}
->>> +
->> This is unreadable; please make it understandable for those who don’t have
->> the documentation (explicit static inline functions, comments, etc ...).
-> I'll restructure this code by introducing explicit static inline helper functions and proper comments to improve readability.
+Test system testing drivers for ROHM ICs bisected this commit to cause 
+BD71847 drivers probe to not be called.
 
-We likely shouldn't use inlines here, see Linus's reply from 2006:
-https://lore.kernel.org/all/Pine.LNX.4.64.0601021105000.3668@g5.osdl.org/T/#u
+The devicetree blob overlay describing bd71847 enables I2C1 bus on 
+BeagleBone Black aswell.
 
-I guess you can make this easier to read if you use FIELD_GET/SET from
-bitfield.h. Other improvement would be using the regmap api.
+Probe is called when the driver is used with HW connected to I2C2 bus. 
+I2C2 bus is enabled before overlaying devicetree blobs.
 
-Shin, a bit unrelated with the patch, but I wanted to let you know that
-I started looking at the GS101 TMU. I assume it's very similar with the 
-TMU on exynosautov920. Do you know if they share the same IP version?
 
-I noticed GS101 uses ACPM calls to communicate with the TMU. Why did you
-choose to not use ACPM for exynosautov920 TMU?
+---- BD71847 Devicetree overlay source ----
 
-Thanks!
-ta
+/dts-v1/;
+/plugin/;
+
+/{ /* this is our device tree overlay root node */
+
+	compatible = "ti,beaglebone", "ti,beaglebone-black";
+	part-number = "BBB-I2C1";
+  	version = "00A0";
+
+	fragment@0 {
+		target = <&am33xx_pinmux>; // this is a link to an already defined 
+node in the device tree, so that node is overlayed with our modification
+
+		__overlay__ {
+			i2c1_pins: pinmux_i2c1_pins {
+				pinctrl-single,pins = <
+           			0x158 0x72 /* spi0_d1.i2c1_sda */
+           			0x15C 0x72 /* spi0_cs0.i2c1_sdl */
+         			>;
+			};
+		};
+	};
+....
+....
+
+	fragment@2 {
+		target = <&i2c1>;
+
+		__overlay__ {
+			pinctrl-0 = <&i2c1_pins>;
+			clock-frequency = <100000>;
+			status = "okay";
+
+			pmic: pmic@4b { /* the "test" defined as child of the i2c1 bus */
+				compatible = "rohm,bd71847";
+				reg = <0x4b>;
+				....
+				....
+}; /* root node end */
+
+---- END OF BD71847 Devicetree overlay source ----
+
+Reverting this patch from linux-next from last friday fixes the issue.
+
+BR
+Kalle Niemi
 
