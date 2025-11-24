@@ -4,63 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 306C4CFA466
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 09:49:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C6B3CFD317
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 09:49:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bcui04wUrJGLCUSACMGAJjVCbT+7fdon+daQNvMd9Zo=; b=LFJig2MUXbkiIFRRt6uMxSwTae
-	k27kHQHY72ZT2bafW7iV5DDi+0Ir3NTbxOrwufc+JDV0tuNd8Ap35nlj0dekhpym+avDC2IqF1mKz
-	kSrerZpxAKPS6jCQncLww3plKNfzxDdH86ckD+LRdW9IS8w8ynULONhlN4onfoyiAbJ+iZx0uepB7
-	VXKXwTdIRGOwcp7EwTQ9iLXiUGC44Mq8TZuQzfWLE4gJKTgbYUwpTQSc9zm4GzDX0OzznxCYbTCXG
-	oXMkgL786cg/LMiIxWqV2mlbn9s0AQtmwW2Xtlbe+gCKDGeUz/LCO0K6COTfwuMOC3ds28qAtjT23
-	+PVJ+gcw==;
+	bh=e0Rfgj366tJxe1xsMBXGVrkz7jJATsofvCJET5b+Jts=; b=a79zhZ4hwqFoywR1JM4DqOUwQc
+	p8goCMILOVBy8+VdoZIDHDv1uirAdRZGJLZaUrIphGLZqKPIQOoCQelgn3jc70YRosqS9A2i+Jn8l
+	dXxxe4hFa7bVaQowieR2l6kmTPpeJLnUeFT5cQqvzp3mOiEY++9kQrKaTfzXEyiCJFssnkUhNrHcT
+	HF3PQrzQ3SvFiZCj6fsQaeCdsaoQvHvr4cf5z3xreSvmQBOiIZyaFrmDPQUrSKMbb7YMFCb1DuD6p
+	+WhhsOihV711pOX2/L16dzeUL+675Rqn+rKktdThUervHPCKbEuVxgCDv0J/hRpfEhlbZKMKFMO2C
+	T6WKPGOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNTC2-0000000BNLx-0QOP;
-	Mon, 24 Nov 2025 09:49:10 +0000
-Received: from abb.hmeau.com ([180.181.231.80])
+	id 1vNTCl-0000000BNQE-0VNM;
+	Mon, 24 Nov 2025 09:49:55 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNTBy-0000000BNLA-23oD
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Nov 2025 09:49:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=gondor.apana.org.au; s=h01; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:cc:to:subject:message-id:date:
-	from:content-type:reply-to; bh=bcui04wUrJGLCUSACMGAJjVCbT+7fdon+daQNvMd9Zo=; 
-	b=Gzok8FeUMi+72XYChLg5NvbnOmmS+6/dobmqOxyGZ3EPUr1DGs3dCT4nf7Jc6igiIg5VlkExM5o
-	qfujUK4WYscZTivMF+W8YXg2ONdVoBVzpzgN0wY1o0UZwbUtE/1gcb8ZVOw2UyqUtlp/CWYs8rUN+
-	WORtHCOxERS6jw39KJmj7/byJ2NqyWj9AXalsRX+tdtzNcuxJLiutXJHNJjxe9tlE9u9JPMvvyoq+
-	xMShLX8tmDs/5pUnSHRsqBbSUoFBWF2H/G3YjU/nIUG8cjGFmn8k/4R1I0dEvk3uC/Gmqj+XQKik5
-	R7ZZ8jTss3SADpVdsGTRydaFYdPiR4NSVq6A==;
-Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
-	by formenos.hmeau.com with smtp (Exim 4.96 #2 (Debian))
-	id 1vNTBT-005XMj-1s;
-	Mon, 24 Nov 2025 17:48:36 +0800
-Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Mon, 24 Nov 2025 17:48:35 +0800
-Date: Mon, 24 Nov 2025 17:48:35 +0800
-From: Herbert Xu <herbert@gondor.apana.org.au>
-To: Thorsten Blum <thorsten.blum@linux.dev>
-Cc: "David S. Miller" <davem@davemloft.net>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	linux-crypto@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] crypto: testmgr - Add missing DES weak and semi-weak key
- tests
-Message-ID: <aSQp8x2yrLTZQ-lj@gondor.apana.org.au>
-References: <20251117114426.99713-2-thorsten.blum@linux.dev>
+	id 1vNTCi-0000000BNPW-2FWo;
+	Mon, 24 Nov 2025 09:49:53 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 86F6443332;
+	Mon, 24 Nov 2025 09:49:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 165A9C4CEF1;
+	Mon, 24 Nov 2025 09:49:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1763977791;
+	bh=e0Rfgj366tJxe1xsMBXGVrkz7jJATsofvCJET5b+Jts=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=CZQpsh8tusQGHYy87IQbB12/uZyISK2efxLt05bMvy6mIeMUIC1mBpVhhUFerRFB+
+	 018dT15yOy/onqeQ6NsERRsh0KnxXLUt/WDGf2qYEchZoF4d36nj6pi6BzcexdSgHK
+	 9Nj7vcHtBl7HieT4EBiuSEwooNsa6Xul+5g4gV+ZMshkEFu+BDKuaFLeJtH8clu+/O
+	 rtTTxpI+llZ3UZXD225zpleXnnVBGSqr13zMhFImf6b9YqKPkHgpxYuPcljEx3gXnB
+	 GLU1VtHBmF2V+ICTZWr/Qohw1/HQpts2pGKioMa6eKGGuvjUnBRE9DjwWJgBK8AIo7
+	 EvWRO7s/T7T1Q==
+Date: Mon, 24 Nov 2025 10:49:44 +0100
+From: Niklas Cassel <cassel@kernel.org>
+To: Hans Zhang <18255117159@163.com>
+Cc: lpieralisi@kernel.org, kwilczynski@kernel.org, bhelgaas@google.com,
+	helgaas@kernel.org, heiko@sntech.de, mani@kernel.org,
+	yue.wang@amlogic.com, pali@kernel.org, neil.armstrong@linaro.org,
+	robh@kernel.org, jingoohan1@gmail.com, khilman@baylibre.com,
+	jbrunet@baylibre.com, martin.blumenstingl@googlemail.com,
+	linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-amlogic@lists.infradead.org,
+	linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH v6 0/2] PCI: Configure Root Port MPS during host probing
+Message-ID: <aSQqOHH2VLNNpX3D@ryzen>
+References: <20251104165125.174168-1-18255117159@163.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251117114426.99713-2-thorsten.blum@linux.dev>
+In-Reply-To: <20251104165125.174168-1-18255117159@163.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251124_014907_135537_8AAD2537 
-X-CRM114-Status: GOOD (  13.92  )
+X-CRM114-CacheID: sfid-20251124_014952_599949_DF9E87E6 
+X-CRM114-Status: UNSURE (   7.66  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,29 +78,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 17, 2025 at 12:44:26PM +0100, Thorsten Blum wrote:
-> Ever since commit da7f033ddc9f ("crypto: cryptomgr - Add test
-> infrastructure"), the DES test suite has tested only one of the four
-> weak keys and none of the twelve semi-weak keys.
-> 
-> DES has four weak keys and twelve semi-weak keys, and the kernel's DES
-> implementation correctly detects and rejects all of these keys when the
-> CRYPTO_TFM_REQ_FORBID_WEAK_KEYS flag is set. However, only a single weak
-> key was being tested. Add tests for all 16 weak and semi-weak keys.
-> 
-> While DES is deprecated, it is still used in some legacy protocols, and
-> weak/semi-weak key detection should be tested accordingly.
-> 
-> Tested on arm64 with cryptographic self-tests.
-> 
-> Signed-off-by: Thorsten Blum <thorsten.blum@linux.dev>
-> ---
->  crypto/testmgr.h | 120 +++++++++++++++++++++++++++++++++++++++++++++++
->  1 file changed, 120 insertions(+)
+On Wed, Nov 05, 2025 at 12:51:23AM +0800, Hans Zhang wrote:
+> Current PCIe initialization exhibits a key optimization gap: Root Ports
+> may operate with non-optimal Maximum Payload Size (MPS) settings. While
+> downstream device configuration is handled during bus enumeration, Root
+> Port MPS values inherited from firmware or hardware defaults often fail
+> to utilize the full capabilities supported by controller hardware. This
+> results in suboptimal data transfer efficiency throughout the PCIe
+> hierarchy.
 
-Patch applied.  Thanks.
--- 
-Email: Herbert Xu <herbert@gondor.apana.org.au>
-Home Page: http://gondor.apana.org.au/~herbert/
-PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
+Hello PCI maintainers,
+
+Merge window is opening soon,
+what is the status of this series?
+
+
+Kind regards,
+Niklas
 
