@@ -4,67 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8E58CFD313
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 18:08:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB8EFCFD313
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 18:09:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Mime-Version:References:In-Reply-To:Message-Id:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1EDndxfXQbvOqPBlz8NrS7Ws7lhc2QHJjs8Zhx0VmNg=; b=0nDv2PHVc76qkB8V4f4cNifG/3
-	fwPZ7bgs6ekMl0zDhCUmqyIcKz/5ILQ1+398504ezSMvMSZu8fbNAs+auAh5r+VO1tBwqbxcivI5h
-	nl0A3t1E3yTfF6ttAfbCFHe69no8qf99yztecan0nfOdmOhHp0LVLuhnov6AD27cfp0FYqsLuq9Eo
-	xoSgSenL5gUWAPcGF9Hj1v6jYY6/WDYQUGty6eyEPflFhkZdKbvYWqkRQP6ilpu4QYKkgNscgigFu
-	2KiGAGqAEkn8EM9YWesCz2mMeMXYS9S0lC3gFHyTwtkGCj4Auzo4/3VTSE22UMyz0KtzS70oN66vh
-	8HPQXL6g==;
+	bh=kQNMYKd9siYIhB9tFjsATcj9sVR0Byk2z5xo7rABYOc=; b=WUyNkyhsPzq5I4pig8t6KKFcdq
+	ntqn/b3SpumYZQQaegEFUwgr+337jgkqBHnilW4dxWcx5mc+bwRclAXbqb/u1eBuC+wPf0F95bwje
+	NKgZDZXwZSVELMF/bxStowciN2K7NaqjQx0G3pf+pOycf+kWPe0aQqJxnsfFZrExV/jPJhg9x/YKe
+	lXKEgTMrAYQEmABXxfEM2UMMxGJVoZBUGtR5/ZRh4WI8z9ShVAnPngPgmXCK1O/9enMCTqqI0EsMm
+	W3av8L8ytSwAOXaSaBAdvYU97vrkfMpMiykp/O56vpJ3kCQZgO3i5QRh0ZJ7Ww/Cge6Uq/q8sCn1F
+	WmkOOR+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNaz7-0000000C9dT-0z8X;
-	Mon, 24 Nov 2025 18:08:21 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNaz4-0000000C9co-38Ej
+	id 1vNb0K-0000000C9nZ-2dmY;
+	Mon, 24 Nov 2025 18:09:37 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vNb0I-0000000C9n3-2spS
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Nov 2025 18:08:19 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 47C6F43D99;
-	Mon, 24 Nov 2025 18:08:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E2090C4CEF1;
-	Mon, 24 Nov 2025 18:08:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linux-foundation.org;
-	s=korg; t=1764007697;
-	bh=IlF6JklCMMnUUMN0qCEJlEyZPZI/K4AomTLbC+Ab6gE=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=Rez6gWytpa46FR5MaQj+eFH7x+37KxShAIV9jQ4YyOYt6s8w5g8GgQtNu940wrHOX
-	 hnpReiw6vr9TsK2VaGWJKo0vSkacJRDktv8nbsI6CRaDG16Vp01fkHT93/GaR4sjQp
-	 agbeoqpaPFI82E5mBj4t0emDIiJs7SwLNBrasu8E=
-Date: Mon, 24 Nov 2025 10:08:16 -0800
-From: Andrew Morton <akpm@linux-foundation.org>
-To: "David Hildenbrand (Red Hat)" <david@kernel.org>
-Cc: Balbir Singh <balbirs@nvidia.com>, Catalin Marinas
- <catalin.marinas@arm.com>, "David Hildenbrand (Red Hat)"
- <davidhildenbrandkernel@gmail.com>, Jan Polensky <japo@linux.ibm.com>,
- linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org, will@kernel.org
-Subject: Re: [PATCH] mm/huge_memory: restrict __GFP_ZEROTAGS to HW tagging
- architectures
-Message-Id: <20251124100816.a4f16b6a84bae7c97dfc21fb@linux-foundation.org>
-In-Reply-To: <e83945be-056a-443c-b140-e3301c2109c5@kernel.org>
-References: <20251031170133.280742-1-catalin.marinas@arm.com>
-	<20251109003613.1461433-1-japo@linux.ibm.com>
-	<690ce196-58cb-4252-ab72-967e1e1574cf@gmail.com>
-	<aRG05VS-IIxV2y_C@li-276bd24c-2dcc-11b2-a85c-945b6f05615c.ibm.com>
-	<fbca7868-6f68-4b98-a2f2-e39eb46b7f12@gmail.com>
-	<aRIEkLw7BofLjOWs@arm.com>
-	<9ab7f5c8-a2fd-497b-a32e-4def84e0be26@nvidia.com>
-	<e83945be-056a-443c-b140-e3301c2109c5@kernel.org>
-X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
-Mime-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+	Mon, 24 Nov 2025 18:09:35 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 76C961477;
+	Mon, 24 Nov 2025 10:09:26 -0800 (PST)
+Received: from [10.57.88.238] (unknown [10.57.88.238])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A9C073F86F;
+	Mon, 24 Nov 2025 10:09:32 -0800 (PST)
+Message-ID: <fa1def37-b5c6-4652-890d-cae9ab45f82d@arm.com>
+Date: Mon, 24 Nov 2025 18:09:31 +0000
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] arm64/pageattr: Propagate return value from
+ __change_memory_common
+Content-Language: en-GB
+To: Will Deacon <will@kernel.org>
+Cc: Dev Jain <dev.jain@arm.com>, catalin.marinas@arm.com, rppt@kernel.org,
+ shijie@os.amperecomputing.com, yang@os.amperecomputing.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20251112062716.64801-1-dev.jain@arm.com>
+ <20251112062716.64801-2-dev.jain@arm.com>
+ <6bc0fac0-3c00-4ecf-948e-5648584ec939@arm.com>
+ <aSR1mn8jjzty5J9F@willie-the-truck>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <aSR1mn8jjzty5J9F@willie-the-truck>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251124_100818_814074_B726297E 
-X-CRM114-Status: GOOD (  17.89  )
+X-CRM114-CacheID: sfid-20251124_100934_769451_BF61EA36 
+X-CRM114-Status: GOOD (  20.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,28 +69,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 24 Nov 2025 11:57:09 +0100 "David Hildenbrand (Red Hat)" <david@kernel.org> wrote:
+On 24/11/2025 15:11, Will Deacon wrote:
+> On Thu, Nov 13, 2025 at 11:55:48AM +0000, Ryan Roberts wrote:
+>> On 12/11/2025 06:27, Dev Jain wrote:
+>>> The rodata=on security measure requires that any code path which does
+>>> vmalloc -> set_memory_ro/set_memory_rox must protect the linear map alias
+>>> too. Therefore, if such a call fails, we must abort set_memory_* and caller
+>>> must take appropriate action; currently we are suppressing the error, and
+>>> there is a real chance of such an error arising post commit a166563e7ec3
+>>> ("arm64: mm: support large block mapping when rodata=full"). Therefore,
+>>> propagate any error to the caller.
+>>>
+>>> Fixes: a166563e7ec3 ("arm64: mm: support large block mapping when rodata=full")
+>>> Signed-off-by: Dev Jain <dev.jain@arm.com>
+>>
+>> Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
+>>
+>> It would be good to get this into v6.18 I guess?
+> 
+> I'm not sure I see the urgency. When the commit message says:
+> 
+>   "there is a real chance of such an error arising post commit a166563e7ec3"
+> 
+> afaict that's either due to -ENOMEM 
 
-> > I've run into the issue where due to init being set to false if zero_tags was set,
-> > the system does not clear the zero_folio. I just spent a lot of time debugging it :)
-> > 
-> > Catalin, were you going to send out this patch as a fix to be included in mm-unstable?
-> > I've for now reverted your __GFP_ZEROTAGS change to get_huge_zero_folio() for my testing
-> > 
-> > I am on the current mm-new branch.
-> 
-> We have a fix upstream now:
-> 
-> commit 5bebe8de19264946d398ead4e6c20c229454a552
-> Author: Linus Torvalds <torvalds@linux-foundation.org>
-> Date:   Tue Nov 18 08:21:27 2025 -0800
-> 
->      mm/huge_memory: Fix initialization of huge zero folio
-> 
-> 
-> Andrew could consider picking it up as well temporarily to fix the issue 
-> until we rebase on top of the new kernel.
+Yes this is the main risk; failing to allocate an intermediate page table during
+split_kernel_leaf_mapping(). I have no idea how likely that is in production.
+The only data point I have is that for the theoretical memory hotplug -ENOMEM
+that Chaitanya and Linu fixed recently, we tried to provoke it by hotplugging a
+lot of memory on a system under high memory pressure; no matter what we did, we
+couldn't get that 4K pgtable allocation to fail. So on that basis, I think we
+are unlikely to see it.
 
-Sure, I added 5bebe8de19264946d398ead4e6c20c229454a552 to mm-new as a
-temp thing.
+> or some hideous issue with the
+> page-tables (e.g. the -EINVALs in pageattr_pXd_entry() seem completely
+> unnecessary to me).
+
+I thought the -EINVALs were trying to catch the case where someone tries to set
+permissions on a sub-portion of a vmalloc_huge() area on a system that doesn't
+support BBML2_NOABORT. But looking again, we already refuse vmalloc_huge in
+change_memory_common.
+
+> 
+> Do you think failure is actually likely and recoverable?
+
+As above, I think failure is unlikely, but not impossible. I guess the result
+would be memory that remains RW when it should have been set RO or RX. But I
+think it will all work itself out at vfree. I think.
+
+We can defer this to next cycle if you prefer.
+
+Thanks,
+Ryan
+
+> 
+> Will
+
 
