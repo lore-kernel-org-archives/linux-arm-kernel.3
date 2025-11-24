@@ -4,72 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 045FCCFD313
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 17:20:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61CD6CFD313
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 17:22:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yBaK1VMbh5GqBcscNVX/8kPYMoVIPxjABGPOjgRRLCk=; b=4Y57+s6crnLzv8xeAZITIWqNNQ
-	AfEoxDRSSVxhq69n5qK5Iu0RmS70zbeJbC3AtVWxIzxMr07IV+CoXsseQxN/Gy5vONW1VHWBSN9nP
-	q5yL4rmkQTPHqmN4dvgzuxY1msh5jw8dKXg7MF+11CXFycJFh2Udwa3lKAPB9wmJWTrIqc6pV9JoL
-	iAAxEKLgL4tF2iw+nbLULrbFpThALTu0GgHXgvnbi5RH9RdnVEch+gbZ9reFo3dgKq98G3YaIeRTR
-	dRwk+XDR2N6TDCBrG96PVaFp6tlmoLE2sT1siSZUIn1EZEt0pYUa+bivm7vA7+T6ZaIEEF98YJIl6
-	p9OcPgKw==;
+	bh=H+dXzu+OtwVQATYT2SD8WXaq/eak4pH3LzFk0SdSmXo=; b=v2QtIAqTqclbstotRYKoFqvWMd
+	JpuWOACnId/qb38GsEnHg+8kSD4F8fPjKm/E+80E4/8JHS2/4rVdN/+qJQwdTtPm1m5xtrwycP69M
+	pBW5xrenJdNsK3Y3cHJBSDuVFSHedzWHyA6fvW2gwMVtycW8hfYLSyzjhGguTl6LD63oWrst8nNDN
+	Sy4BhVAGpYjxLZ7BpY1Uyd04P3KgjzJ/j//KgC7iYYWIngwYVSykYoWFTP/j8X9RQxqxw4PyKbaeP
+	htDKF+d8fTaoJUVD8teGpVHSWaitLX7powQaO9HkLnpFNUcT7RZVmQQtdYZDUAQpTRtoDZjVoNe+p
+	fpQvz8zA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNaEm-0000000C5p3-3NfL;
-	Mon, 24 Nov 2025 17:20:28 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vNaGZ-0000000C5zB-0s3x;
+	Mon, 24 Nov 2025 17:22:19 +0000
+Received: from mail-qv1-xf30.google.com ([2607:f8b0:4864:20::f30])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNaEl-0000000C5oi-02Ny
+	id 1vNaGW-0000000C5yq-1VDJ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Nov 2025 17:20:28 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E0E44406C7;
-	Mon, 24 Nov 2025 17:20:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B8515C4CEF1;
-	Mon, 24 Nov 2025 17:20:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764004825;
-	bh=8Jh1+msclllAhWkIRS4dmtHb+2vlJQ4M7I0IgY0rHWU=;
-	h=Date:From:To:Cc:Subject:Reply-To:References:In-Reply-To:From;
-	b=aOSsCRYaDVx48dgGoxXEgEHBWIcENMIeb+36J4DiLBE5+YNt7JYD+omVWn7Zdvr6Z
-	 bVz9Hipc5C5fJAQx2X9Swkue8Jnsd2lWWlMJg1LVvG5OSh1cQIUkEXZfl2f9sXxUaI
-	 5MnkEv0XGlB+QSr1IwkuMehCQP6hXS/AZaYInrVUOE20T7wFp5wMVxIhsChc9/a7Hw
-	 GKows9W1KmfF5hDnH9hb4tO/qXo6yTSw1pLzCgM/sxmh0QyZUed+c7xwxj4F9DYF+J
-	 QvtPn1SGLAn01nMOGcwER35sRll1dVtV3sk/sIcaGp7GUuhQwvQVYsScJi6mbheQD9
-	 3DAc99YzZG3Zw==
-Received: by paulmck-ThinkPad-P17-Gen-1.home (Postfix, from userid 1000)
-	id 50A1DCE0C56; Mon, 24 Nov 2025 09:20:25 -0800 (PST)
-Date: Mon, 24 Nov 2025 09:20:25 -0800
-From: "Paul E. McKenney" <paulmck@kernel.org>
-To: Will Deacon <will@kernel.org>
-Cc: rcu@vger.kernel.org, linux-kernel@vger.kernel.org, kernel-team@meta.com,
-	rostedt@goodmis.org, Catalin Marinas <catalin.marinas@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org,
-	frederic@kernel.org
-Subject: Re: [PATCH v2 15/16] srcu: Optimize SRCU-fast-updown for arm64
-Message-ID: <c632fb32-dccb-4c61-9b2e-d0c2b55fb2e4@paulmck-laptop>
-References: <bb177afd-eea8-4a2a-9600-e36ada26a500@paulmck-laptop>
- <20251105203216.2701005-15-paulmck@kernel.org>
- <aQ9AoauJKLYeYvrn@willie-the-truck>
- <d53a5852-f84a-4dae-9bf4-312751880452@paulmck-laptop>
- <aRHLV8lLX0fxQICR@willie-the-truck>
- <ab6cd1c2-39c5-4b39-9585-6123835a6229@paulmck-laptop>
- <aSRX1HKNdks5pHsd@willie-the-truck>
+	Mon, 24 Nov 2025 17:22:17 +0000
+Received: by mail-qv1-xf30.google.com with SMTP id 6a1803df08f44-8823fa3bd95so48189446d6.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Nov 2025 09:22:15 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1764004935; x=1764609735; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=H+dXzu+OtwVQATYT2SD8WXaq/eak4pH3LzFk0SdSmXo=;
+        b=O/w0JCs4FUJN7YjAiBsYqdT8AY8FGY7qhZ8nZWD3xh6qx1ZtiZK31UnIHsLe7NB2Bx
+         +MepBW91gwefdUZ+yHQCDwFZev6x/yJ3yP8+vave5V/EuFjVmkGW1g6C4L2gZqozUi3W
+         5BU2537GC1s/shrKg409e9NE3aoyrcnxn9FO+fXOakThnFJdtBBaVyMl4+i/ucVZl8Mt
+         zEllpD5bhe2V9xcsrduN9JGJShPiLgBnQoYCMk/BG/lbK0mt/j3BITlHl/XLMv/hNhKK
+         8Zp/sZiW98iZR3lsqTI9t2t/gO2dP0fZTWycqFJkV70bMK18t/xRBx670oj1Cggde8OV
+         FrdA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1764004935; x=1764609735;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=H+dXzu+OtwVQATYT2SD8WXaq/eak4pH3LzFk0SdSmXo=;
+        b=QWK7e633LU2qHXBZyIurpFPYyoCtcbslSm1+/nrjpSOWba/OHRWlMBwOb6e2STVsRx
+         8VzTFtMKlVxf39bVTzQCxE/lYtPvN38R/5UptySsfq4SBY2XmseZAR1Jr1uThqUXeAuZ
+         Jhgc7/vQ/dl/FGnlG3b2i6gkOsA0VnrFtE5stlJwD6ODRrd5FHIua6kUYxm0wLpsJ0lx
+         aP7vtuPEWpl2BHrvv8Mr7ba8T9qvhF7bAvHBiyBMbGMom837eaOuEKQBGiKLNnw4HlU4
+         yoBbGB5G2+8lUXDo8O18roE5tY2X66FJHxSpDpFefR/9Slwg2N4OfZypfpTd9orV6Mrs
+         yY4w==
+X-Forwarded-Encrypted: i=1; AJvYcCVXDoDrkXAxtfQu+hMWrwFUvuKO4TYmOVvwVV9zMowTYOiv5Rb8AN3y/L1I4CTNW50Yl0MA4MHGjKbH6H1PlYxS@lists.infradead.org
+X-Gm-Message-State: AOJu0YxxbitUJceZaNLL028yZq+S9jMUs4txj6O3+CIxb9a6psq4b1VE
+	wT6939rZTW1bgvXyYcCRciNwY4k55EqoJcER2ClII9QwkJCErnCF7AAo5/H2JXzCIYECWZXUquU
+	rQ7o1BfHG17FzKdydnywz15vl+gJT5Jj5CWr4t9U4sQ==
+X-Gm-Gg: ASbGnctNi8sEJn3AkYpMRkTvk9YWec+YRS6FnDSD2OgxeTh8bLPpioCw6KnFAfS+u4H
+	vRuLzIRQGpK1tJE0RRl3DZN071kzhdvx0FrGOF9yNeR9x7xETtMRIVaeCqp8z03o7et8Rxd46IM
+	pFxpOKlr74k4jIe+A/2RI8dP7w3W3AmGO5XHKGlPkMldBuTuGIqsWpTBjP7FEow8XEqEdz73Pei
+	J310mJUyQ7lZlIiOJld1M25X2B558vPSh7Y74z/+SpBcSUdLDyfJW58DLVFKjOwEMRlkeo=
+X-Google-Smtp-Source: AGHT+IGur7qIOhwydiDE1YdricdgFBJKpzAzcrVA0e8HEfbCvBR/llLvZ/uw2OutwktsYwyQUs0eBjA/3PkYC9zPCKk=
+X-Received: by 2002:ad4:5e8e:0:b0:884:6f86:e09a with SMTP id
+ 6a1803df08f44-8847c440274mr206409366d6.6.1764004934295; Mon, 24 Nov 2025
+ 09:22:14 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aSRX1HKNdks5pHsd@willie-the-truck>
+References: <CGME20251117073604epcas2p3f35b42617fb26aa087409eb84c19724c@epcas2p3.samsung.com>
+ <20251117074140.4090939-1-youngmin.nam@samsung.com> <20251117074140.4090939-5-youngmin.nam@samsung.com>
+In-Reply-To: <20251117074140.4090939-5-youngmin.nam@samsung.com>
+From: Peter Griffin <peter.griffin@linaro.org>
+Date: Mon, 24 Nov 2025 17:22:03 +0000
+X-Gm-Features: AWmQ_bk4g88xYV4Wotp3KJG1hjaYXqURmaKu-TssPY9mMy-anug4aQBTum0eDz4
+Message-ID: <CADrjBPoG_omRShNhwUJZ0yeRLAzQxmGHvO6OzsR2NOfLczoptg@mail.gmail.com>
+Subject: Re: [RFT PATCH v2 4/5] pinctrl: samsung: fold GS101 pin-bank macros
+ into EXYNOS9_*
+To: Youngmin Nam <youngmin.nam@samsung.com>
+Cc: krzk@kernel.org, s.nawrocki@samsung.com, alim.akhtar@samsung.com, 
+	linus.walleij@linaro.org, semen.protsenko@linaro.org, ryu.real@samsung.com, 
+	d7271.choe@samsung.com, linux-arm-kernel@lists.infradead.org, 
+	linux-samsung-soc@vger.kernel.org, linux-gpio@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251124_092027_089058_FFB000FC 
-X-CRM114-Status: GOOD (  32.06  )
+X-CRM114-CacheID: sfid-20251124_092216_440087_7B1465C8 
+X-CRM114-Status: GOOD (  10.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,77 +95,36 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: paulmck@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 24, 2025 at 01:04:20PM +0000, Will Deacon wrote:
-> On Mon, Nov 10, 2025 at 09:29:43AM -0800, Paul E. McKenney wrote:
-> > On Mon, Nov 10, 2025 at 11:24:07AM +0000, Will Deacon wrote:
-> > > On Sat, Nov 08, 2025 at 10:38:32AM -0800, Paul E. McKenney wrote:
-> > > > On Sat, Nov 08, 2025 at 01:07:45PM +0000, Will Deacon wrote:
-> > > > > On Wed, Nov 05, 2025 at 12:32:15PM -0800, Paul E. McKenney wrote:
-> > > > > > Some arm64 platforms have slow per-CPU atomic operations, for example,
-> > > > > > the Neoverse V2.  This commit therefore moves SRCU-fast from per-CPU
-> > > > > > atomic operations to interrupt-disabled non-read-modify-write-atomic
-> > > > > > atomic_read()/atomic_set() operations.  This works because
-> > > > > > SRCU-fast-updown is not invoked from read-side primitives, which
-> > > > > > means that if srcu_read_unlock_fast() NMI handlers.  This means that
-> > > > > > srcu_read_lock_fast_updown() and srcu_read_unlock_fast_updown() can
-> > > > > > exclude themselves and each other
-> > > > > > 
-> > > > > > This reduces the overhead of calls to srcu_read_lock_fast_updown() and
-> > > > > > srcu_read_unlock_fast_updown() from about 100ns to about 12ns on an ARM
-> > > > > > Neoverse V2.  Although this is not excellent compared to about 2ns on x86,
-> > > > > > it sure beats 100ns.
-> > > > > > 
-> > > > > > This command was used to measure the overhead:
-> > > > > > 
-> > > > > > tools/testing/selftests/rcutorture/bin/kvm.sh --torture refscale --allcpus --duration 5 --configs NOPREEMPT --kconfig "CONFIG_NR_CPUS=64 CONFIG_TASKS_TRACE_RCU=y" --bootargs "refscale.loops=100000 refscale.guest_os_delay=5 refscale.nreaders=64 refscale.holdoff=30 torture.disable_onoff_at_boot refscale.scale_type=srcu-fast-updown refscale.verbose_batched=8 torture.verbose_sleep_frequency=8 torture.verbose_sleep_duration=8 refscale.nruns=100" --trust-make
-> > > > > > 
-> > > > > > Signed-off-by: Paul E. McKenney <paulmck@kernel.org>
-> > > > > > Cc: Catalin Marinas <catalin.marinas@arm.com>
-> > > > > > Cc: Will Deacon <will@kernel.org>
-> > > > > > Cc: Mark Rutland <mark.rutland@arm.com>
-> > > > > > Cc: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
-> > > > > > Cc: Steven Rostedt <rostedt@goodmis.org>
-> > > > > > Cc: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-> > > > > > Cc: <linux-arm-kernel@lists.infradead.org>
-> > > > > > Cc: <bpf@vger.kernel.org>
-> > > > > > ---
-> > > > > >  include/linux/srcutree.h | 51 +++++++++++++++++++++++++++++++++++++---
-> > > > > >  1 file changed, 48 insertions(+), 3 deletions(-)
-> > > > > 
-> > > > > I've queued the per-cpu tweak from Catalin in the arm64 fixes tree [1]
-> > > > > for 6.18, so please can you drop this SRCU commit from your tree?
-> > > > 
-> > > > Very good!  Adding Frederic on CC since he is doing the pull request
-> > > > for the upcoming merge window.
-> > > > 
-> > > > But if this doesn't show up in -rc1, we reserve the right to put it
-> > > > back in.
-> > > > 
-> > > > Sorry, couldn't resist!   ;-)
-> > > 
-> > > I've merged it as a fix, so hopefully it will show up in v6.18-rc6.
-> > 
-> > Even better, thank you!!!
-> 
-> It landed in Linus' tree here:
-> 
-> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/arch/arm64?id=535fdfc5a228524552ee8810c9175e877e127c27
+Hi Youngmin,
 
-Again, thank you, and Breno has started backporting it for use in
-our fleet.
+Thanks for taking the time to do this cleanup!
 
-> Please can you drop the SRCU change from -next? It still shows up in
-> 20251121.
+On Mon, 17 Nov 2025 at 07:36, Youngmin Nam <youngmin.nam@samsung.com> wrote:
+>
+> GS101 had dedicated GS101_PIN_BANK_EINT{G,W} helpers, but they are
+> redundant with EXYNOS9_PIN_BANK_EINT{G,W} (same semantics, including
+> the per-bank .eint_fltcon_offset).
+> This change removes the GS101_* macros and switches the GS101 pin-bank
+> tables to the EXYNOS9_* helpers with exynos9_bank_type_{alive,off}.
+> While here, update the struct comment to note FLTCON is Exynos9-specific
+> (not 'GS101-specific').
+>
+> One macro family for all Exynos9-era SoCs (incl. GS101) reduces
+> copy-paste drift and keeps the FLTCON handling consistent.
+> There is no functional change.
+>
+> Signed-off-by: Youngmin Nam <youngmin.nam@samsung.com>
+> Reviewed-by: Sam Protsenko <semen.protsenko@linaro.org>
+> Tested-by: Sam Protsenko <semen.protsenko@linaro.org>
+> ---
 
-This one?
+Reviewed-by: Peter Griffin <peter.griffin@linaro.org>
+Tested-by:  Peter Griffin <peter.griffin@linaro.org> (tested on Pixel 6 / gs101)
 
-11f748499236 ("srcu: Optimize SRCU-fast-updown for arm64")
+regards,
 
-if so, Frederic, could you please drop this commit?
-
-							Thanx, Paul
+Peter
 
