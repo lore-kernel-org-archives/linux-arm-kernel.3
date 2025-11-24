@@ -4,73 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCC8DCFD356
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 20:13:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47D22CFD356
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 20:52:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=J0CENvIFiiChmg1u1Zg4btCo2c4EIaORXBcq4ilAj5k=; b=14V8QW7Drp+BdVr02SyRPQ1YhX
-	bzaAojSKuj5obaFkHxHsCMm/M/64Yq07r77LnjKNzF5nTZpmHQTJLECIfE476XxUmmnCPMc8hBD7k
-	4dINJ40uJY/tUKpYnaoVIlGw6XwkiWGYCKI2rec67VZxGy3n4zHCr52wfHrUjrhSBIia409tdWybk
-	Hfx5Her2zFT5aujR4eMjF5gMTdLBiJ0ml+r/hBF7Bfyn0E7oNZSCWPxig1SYtkSEjUKd8TLlTcF0L
-	KBISND1JKA0zhdxnN3hRogUDCJIqcdoZyLziAQddlgHko75NOf28apD0fhnC3ujqDE/6pkcOLhol3
-	bg+X89gQ==;
+	bh=3DG8aNFGVcFB4CATalGn7NOhxZ0DeO8/oe9bHCpl8sw=; b=KWxnVoBT6ItuVGvc9Z/CNei/4I
+	5NlL+fKakUwgXFyus1UzM774ihqq+sPYnjQ4OoXAe+PSDpmDE243faFgFBhGYklPFIH5L5BZBp9Yd
+	A6+x/6ucvsuWKTRj3WAGwBrvdEVKjsLbuwJISyfe1wJeGUENij9rd4NQiSknv9ceVG+MyNmkGT8Qu
+	xuVSKsWBXdKV518eseJnJY2Xrf6TclNMOkKNx2pyhLA7hZogcEkZLlFAB8l3/JcKF2mHQWeSZIx6/
+	f+ZA4FQ+44woQTD4Zkbvqv4RgSy7zbKZXJmCQWWHIp8myLw9i95zIN+A79rtBC3rp0s01tpnZzuXi
+	tRiCei1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNcvr-0000000CHwy-077x;
-	Mon, 24 Nov 2025 20:13:07 +0000
+	id 1vNdXV-0000000CJ9j-1h9A;
+	Mon, 24 Nov 2025 20:52:01 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNcvn-0000000CHwb-44xY
+	id 1vNdXT-0000000CJ9E-1C8n
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Nov 2025 20:13:05 +0000
+	Mon, 24 Nov 2025 20:52:00 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2E7C743C9B;
-	Mon, 24 Nov 2025 20:13:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 716C5C16AAE;
-	Mon, 24 Nov 2025 20:12:59 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 9F18A44325;
+	Mon, 24 Nov 2025 20:51:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7E166C16AAE;
+	Mon, 24 Nov 2025 20:51:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764015183;
-	bh=59SAY8rSRQdKkmSqsZ8fxhNqn4eJOSo2jhDbTdmHHMU=;
+	s=k20201202; t=1764017518;
+	bh=V+Uwt+ZdbJkBrqBbLMY3BQCOogr0mkRy+ckU06EArFU=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=R2QHujrFXR0jsKPScMcDVOwzUAxawOasc77PuB08gEwfLV++tpH7HWheW9+C1zFFG
-	 OL5X0V+s5ngLMaYNV3qq270C0fQMPWGM0hSbubzLl2THDPpx9JCvI2SE5qxne8YWbV
-	 t+HvdFePKS1dOTcJQoKAzp9YaNoVYqJnreIUQLcXklYgVLf3EHSaH1xGy6hReEzNF1
-	 CO07v54YkkSDOKdee7NZ1OrxjqcqUb+EQCs8KhOiQwP1UC11xQKlK/6fi83Dc2tpfa
-	 AIRRzfsBin/uqF6CXCyEzdZVw/KvHMUsh20kllg/foXagaMDlvyXPjYCKwThfQlPae
-	 PdRi6vuXPZV9Q==
-Date: Mon, 24 Nov 2025 20:12:56 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Peter Maydell <peter.maydell@linaro.org>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Will Deacon <will@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
-	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>,
-	Dave Martin <Dave.Martin@arm.com>, Fuad Tabba <tabba@google.com>,
+	b=L02WjnJWfVbhAXiT/h0NFN+hEBPiubc2NS6O7J/ZHxdyXcS1jbjrfE+8/mkySFlWC
+	 +J1GyjhG4rnXHRJxtVcP+E+x5wH1wFw8JjpWj3CSwJnbww2zMaQrJth8PvqiFzyThv
+	 mte/qHteRbAC1XoXRdGk8DO/Vbx9zkUXEsOhNnqis4YOMsreRPRDuQLYZNomi0PS2d
+	 pvfgsmGDp43gT75M70iuE9R66srWy+7U2YGbiZFaY4pTZGvzflx+q2Tz+aOTxVHKJ3
+	 13ZIb762wmHtP/QjIE/AY5p6Bq+j8B4q5pcIstUC6Szso82GawAH0AENekc5Ozk3wP
+	 axLDfP4QuBp+A==
+Date: Mon, 24 Nov 2025 12:51:58 -0800
+From: Kees Cook <kees@kernel.org>
+To: Ryan Roberts <ryan.roberts@arm.com>
+Cc: Will Deacon <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Jeremy Linton <jeremy.linton@arm.com>,
+	Catalin Marinas <Catalin.Marinas@arm.com>,
 	Mark Rutland <mark.rutland@arm.com>,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org, kvm@vger.kernel.org,
-	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org,
-	Eric Auger <eric.auger@redhat.com>
-Subject: Re: [PATCH v8 11/29] KVM: arm64: Document the KVM ABI for SME
-Message-ID: <df712591-397e-422b-b9c9-fbf080cad9aa@sirena.org.uk>
-References: <20250902-kvm-arm64-sme-v8-0-2cb2199c656c@kernel.org>
- <20250902-kvm-arm64-sme-v8-11-2cb2199c656c@kernel.org>
- <CAFEAcA_GJ7gzn7aMCZYxHnJWvx4tHSHBKsOxtQ7NTb4gPjkMJQ@mail.gmail.com>
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
+Subject: Re: [DISCUSSION] kstack offset randomization: bugs and performance
+Message-ID: <202511241250.EB2ADED@keescook>
+References: <66c4e2a0-c7fb-46c2-acce-8a040a71cd8e@arm.com>
+ <dd8c37bc-795f-4c7a-9086-69e584d8ab24@arm.com>
+ <aSRtaVjfNc11EtKg@willie-the-truck>
+ <B696956E-579E-412E-B774-AAADCFA4B31C@kernel.org>
+ <ecc11ec7-ba00-41f1-8a2a-8f3a83c9ffd9@arm.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="EW4pgm0dnCxmWii4"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <CAFEAcA_GJ7gzn7aMCZYxHnJWvx4tHSHBKsOxtQ7NTb4gPjkMJQ@mail.gmail.com>
-X-Cookie: Single tasking: Just Say No.
+In-Reply-To: <ecc11ec7-ba00-41f1-8a2a-8f3a83c9ffd9@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251124_121304_066524_8C2A6B1B 
-X-CRM114-Status: GOOD (  40.75  )
+X-CRM114-CacheID: sfid-20251124_125159_486320_493DFA9A 
+X-CRM114-Status: GOOD (  28.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,121 +80,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, Nov 24, 2025 at 05:50:14PM +0000, Ryan Roberts wrote:
+> On 24/11/2025 17:11, Kees Cook wrote:
+> > 
+> > 
+> > On November 24, 2025 6:36:25 AM PST, Will Deacon <will@kernel.org> wrote:
+> >> On Mon, Nov 17, 2025 at 11:31:22AM +0000, Ryan Roberts wrote:
+> >>> On 17/11/2025 11:30, Ryan Roberts wrote:
+> >>>> Could this give us a middle ground between strong-crng and
+> >>>> weak-timestamp-counter? Perhaps the main issue is that we need to store the
+> >>>> secret key for a long period?
+> >>>>
+> >>>>
+> >>>> Anyway, I plan to work up a series with the bugfixes and performance
+> >>>> improvements. I'll add the siphash approach as an experimental addition and get
+> >>>> some more detailed numbers for all the options. But wanted to raise it all here
+> >>>> first to get any early feedback.
+> >>
+> >> FWIW, I share Mark's concerns about using a counter for this. Given that
+> >> the feature currently appears to be both slow _and_ broken I'd vote for
+> >> either removing it or switching over to per-thread offsets as a first
+> >> step.
+> > 
+> > That it has potential weaknesses doesn't mean it should be entirely removed.
+> > 
+> >> We already have a per-task stack canary with
+> >> CONFIG_STACKPROTECTOR_PER_TASK so I don't understand the reluctance to
+> >> do something similar here.
+> > 
+> > That's not a reasonable comparison: the stack canary cannot change arbitrarily for a task or it would immediately crash on a function return. :)
+> > 
+> >> Speeding up the crypto feels like something that could happen separately.
+> > 
+> > Sure. But let's see what Ryan's patches look like. The suggested changes sound good to me.
+> 
+> Just to say I haven't forgotten about this; I ended up having to switch to
+> something more urgent. Hoping to get back to it later this week. I don't think
+> this is an urgent issue, so hopefully folks are ok waiting.
+> 
+> I propose to post whatever I end up with then we can all disscuss from there.
+> But the rough shape so far:
+> 
+> Fixes:
+>  - Remove choose_random_kstack_offset()
+>  - arch passes random into add_random_kstack_offset() (fixes migration bypass)
+>  - Move add_random_kstack_offset() to el0_svc()/el0_svc_compat() (before
+>    enabling interrupts) to fix non-preemption requirement (arm64)
 
---EW4pgm0dnCxmWii4
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+I thought we'd keep choose_random_kstack_offset() and just move
+everything into a per-task location? (And for arm64 only)
 
-On Mon, Nov 24, 2025 at 03:48:06PM +0000, Peter Maydell wrote:
-> On Tue, 2 Sept 2025 at 12:45, Mark Brown <broonie@kernel.org> wrote:
-
-> > SME, the Scalable Matrix Extension, is an arm64 extension which adds
-> > support for matrix operations, with core concepts patterned after SVE.
-
-> I haven't actually tried writing any code that uses this proposed
-> ABI, but mostly it looks OK to me. I have a few nits below, but
-> my main concern is the bits of text that say (or seem to say --
-> maybe I'm misinterpreting them) that various parts of how userspace
-> accesses the guest state (e.g. the fp regs) depend on the current
-> state of the vcpu, rather than being only a function of how the
-> vcpu was configured. That seems to me like it's unnecessarily awkward.
-> (More detail below.)
-
-That was deliberate and I agree it is awkward, it was introduced as a
-result of earlier review comments.  I had originally implemented an ABI
-where the VL for the vector registers was the maximum of the SVE and SME
-VLs but the feedback was that the ABI should instead follow what the
-architecture does with the vector length and potentially presence of the
-vector registers depending on the current streaming mode configuration.
-It sounds like you would prefer something more like what was there
-originally?
-
-> > For SME unware VMMs on systems with both SVE and SME support the SVE
-> > registers may be larger than expected, this should be less disruptive
-> > than on a system without SVE as they will simply ignore the high bits of
-> > the registers.
-
-> I think that since enabling SME is something the VMM has to actively
-> do, it isn't a big deal that they also need to do something in the
-> fp or sve register access codepaths to handle SME. You can't get
-> SME by surprise (same as you can't get SVE by surprise).
-
-Yes, it's not going to affect anything without enabling it.  I can't
-remember what that was in reference to, it clearly needs an update.
-
-> >  .. [1] These encodings are not accepted for SVE-enabled vcpus.  See
-> > -       :ref:`KVM_ARM_VCPU_INIT`.
-> > +       :ref:`KVM_ARM_VCPU_INIT`.  They are also not accepted when SME is
-> > +       enabled without SVE and the vcpu is in streaming mode.
-
-> Does this mean that on an SME-no-SVE VM the VMM needs to know
-> if the vcpu is currently in streaming mode or not to determine
-> whether to read the FP registers as fp_regs or sve regs? That
-> seems unpleasant -- I was expecting this to be strictly a
-> matter of how the VM was configured (as it is with SVE).
-
-Yes, it does.
-
-> > +arm64 SME registers have the following bit patterns:
-
-> > +  0x6080 0000 0017 00 <n:5> <slice:5>   ZA.H[n] bits[2048*slice + 2047 : 2048*slice]
-> > +  0x60XX 0000 0017 0100                 ZT0
-
-> What's the XX here ?
-
-Sorry, will fill that in - thanks for spotting it.
-
-> > +  0x6060 0000 0017 fffe                 KVM_REG_ARM64_SME_VLS pseudo-register
-> > +
-> > +Access to Z, P or ZA register IDs where 2048 * slice >= 128 * max_vq
-> > +will fail with ENOENT.  max_vq is the vcpu's maximum supported vector
-> > +length in 128-bit quadwords: see [2]_ below.
-
-> What about FFR registers ? Is their ENOENT condition the same,
-> or different?
-
-It should be the same, will update to clarify.
-
-> > +       max_vq.  This is the maximum vector length currently available to
-> > +       the guest on this vcpu, and determines which register slices are
-> > +       visible through this ioctl interface.
-
-> > +       If SME is supported then the max_vq used for the Z and P registers
-> > +       while SVCR.SM is 1 this vector length will be the maximum SME
-> > +       vector length available for the guest, otherwise it will be the
-> > +       maximum SVE vector length available.
-
-> I can't figure out what this paragraph is trying to say, partly
-> because it seems like it might be missing some text between
-> "is 1" and "this vector length".
-
-> In any case, the "while SVCR.SM is 1" part seems odd -- I
-> don't think this ABI should care about the runtime vcpu state,
-> only what the vcpu's max vector lengths were configured as.
-> My expectation would be that the max_vq for VMM register
-> access would be the maximum of the SVE and SME vector lengths
-> configured for the vcpu.
-
-This is attempting to say that the VL for the Z and P registers (and
-FFR) will vary depending on if the vCPU is in streaming mode or not if
-the maximum VL for SVE and SME differs, similarly to how the Z, P and
-FFR registers disappear when we are not in streaming mode in a SME only
-system.
-
---EW4pgm0dnCxmWii4
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmkkvEgACgkQJNaLcl1U
-h9Bszwf/TOe0ab3gn4vn1mCKo72tW/w2yyoCXjm7kHc+dxKFjFQtadGE6kDzG01F
-bUz75fKCTu/MUQZAZ9v96NA8uaXueyAzHVr9mz3m6GKBnCcoTp8ipSDCJPfvta0+
-vx1tFQqzG6Dbdmz4+JmfZXmC6BMqVKKunjMGnMRFlBmNUT/J/NgHIbV5NHHpzAK4
-iOo0BplyddmzPT4fV/sRD/pftSNew4y0XcmOrCNKJgKj7+fH99pMEkESVi2xviLn
-6uzaN/7XsQVr06e5p+uXjFmPbjJ8pm/R/VvJ5h2UfktCnPvwfrtSGdoHvJ9PFJtY
-gXmZJ0OovxVpTYerBjInafx3x26q6Q==
-=C2Mw
------END PGP SIGNATURE-----
-
---EW4pgm0dnCxmWii4--
+-- 
+Kees Cook
 
