@@ -4,105 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78E16CFD313
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 02:34:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8578CFD316
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 03:02:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kJnKQ9oJ9uOzEtfzk8AKk4PwanNXBUdVi5ibWSqh/IQ=; b=Q2MBVtpkjd/foBNPLKGPmMqUiM
-	AKg241M/DibNj8zq8TKtz/lHktk1373srGbVJPqdA/DN0UI9Qm5sq2JQHbtTx50Dh/DUKMhpXg9sH
-	/OF+/2RniqJbduAzWo1GzO8BNRwkFOi5zp1tZ6KeYzFRnLncCHY69ycqIjZ94DXlXcuyBoyOiS3DE
-	p+qw0Dws2yotJxdrRgOa4IEMK9EAhj1f4N8lOed2mJpvSWz0L8pYjge/Dqzg0OZAaZPA1J0kVfDaV
-	E24VzGNzGA+aqmHfzntH5oqpla1fcxAnuYO6tKLi1WkJyyF4yfRZ9TdD1AS3kikf3VhOA1pPjtc0+
-	HgViCc6g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EThjVRtG3u91ThHtH8s7htB0Qt2hP8NHKg4Z/0u1oC4=; b=U9W4Jq1h5or8PW5hd/LOqYzHxY
+	wnXJe9cqGqi9I3UvOP0B2U2+EbtdwCOtEJYqw49/MTyg8T0/+jor98mPyN9kfO/QxHW/gO7FKP+hc
+	MPQK8xJszYuXvsfd+WqrsIWeDCKyPx19W5NWtCZaZqEAAi3V7R6kTQ+i096pPcOILH1RKz+AH/cBm
+	MVMKHmlqJ2pzt1IN0rDhmHj66tV7c6JgdkhdUq/bcMHz4u6V5oGajtmj5sblBXQIl/fCs61KhaCm9
+	RyZV9Z71fLSjNWe6orwy7GsZLOV++QBLbfshsDXMmLh7u9GFAsSukfcnxyzTPr1skyeZQLTht2Dnv
+	yT0SqoSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNMP8-0000000AzB4-0e1W;
-	Mon, 24 Nov 2025 02:34:14 +0000
-Received: from mail-yw1-x112f.google.com ([2607:f8b0:4864:20::112f])
+	id 1vNMqj-0000000B0pQ-1m7K;
+	Mon, 24 Nov 2025 03:02:45 +0000
+Received: from mail-pj1-x1034.google.com ([2607:f8b0:4864:20::1034])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNMP5-0000000AzAd-1JL5
+	id 1vNMqh-0000000B0oy-0tXZ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Nov 2025 02:34:12 +0000
-Received: by mail-yw1-x112f.google.com with SMTP id 00721157ae682-78aa642f306so3603197b3.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 23 Nov 2025 18:34:10 -0800 (PST)
+	Mon, 24 Nov 2025 03:02:44 +0000
+Received: by mail-pj1-x1034.google.com with SMTP id 98e67ed59e1d1-340a5c58bf1so2422686a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 23 Nov 2025 19:02:42 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1763951649; x=1764556449; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=kJnKQ9oJ9uOzEtfzk8AKk4PwanNXBUdVi5ibWSqh/IQ=;
-        b=PNH4zTAPemA/76ifPFWTYFA5hvpS7FgNmh1hoqa3BQMzegF0OtLy/5+b30DUkEMK0U
-         tAa/tICU0guWgEDvDbPptNf1UubBQQcfd39WoUwBskQH69eLKzrjMzCpXgH+bXpwsVbg
-         BtcPjX7AyZMyRo8rFS7AWPlqLa5KytWs7vr3joOFeOsNrFsXccFORU6wptzRl4WwAWPo
-         gPL2drlAl9zwUVI8Luqm9/QR+gIwmfHyX/dJ5W1Kgh20SO2iL9FFyMS7U9aqjuAxfRVO
-         qGZCkD+ObxqxIhTP8zgX7u3JzpqQV5JaxIKBWJq0crMkTyaRFVoI30X8IbApIaVpfhTt
-         /A0Q==
+        d=gmail.com; s=20230601; t=1763953362; x=1764558162; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=EThjVRtG3u91ThHtH8s7htB0Qt2hP8NHKg4Z/0u1oC4=;
+        b=PzZxbTtDN0/z3AkqP1TudSXd9/P0BDrHs6CsMR8KaOfDNKpbKLAOmr5vq+3Ofb/DRK
+         +Z4MUvUeR5ATVpMVKq18mz5RwkW9YFZroOOSvEPmg4b3FRws+t+C59IWwYwWFEkyJYe4
+         7U8zHFLUTSleGv6fNi6QCL462kL89EoeIharSL+4Mm9fUMM1HN5uxpwQXW/g6PXD8EJM
+         0c5Ok1vy1I06H0dc7fU1QlQkGMFmwriaOiaiTKSPEZhk/IMxF0dUyimSgUk3FCU1jtGb
+         SWbgIOzf8H9DWlBBXfplZRSsPkazu3n6WwvSGxNdkNSYdlYusoJT0GSYNQWoPOPJ3a7P
+         hxFw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763951649; x=1764556449;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=kJnKQ9oJ9uOzEtfzk8AKk4PwanNXBUdVi5ibWSqh/IQ=;
-        b=Kg+asSB487Pltv8/xJUB89Ne/72EvlirVbXqVhUoFn3aNBl4FadjqxvbvcQw6TePS3
-         NwGpvsf1u0fcrbd+3BJmceQ0oGW5+yA9EftyR6wDcFtTmPn3j7ToHqchQHhXwIU33MLm
-         Y9YrRlu/cW/K7Lmo+Xdtlym/QH6b4Zxpjq2B0udUAlqzpvCuMjAg+KOFIelDrAMq61IT
-         dyA0hpM2xUjN3MXX3j84tR9aHm+6aoCNapUwk/v0p8YX1j2s/Y0wiZpIC1+kDu4R9iEc
-         m/hoQf6pWz39EejopsOJvGeUqSYGxRP26qNnlfBdUlAKl6EcFMIWn+V7z7+OpSoEpCqC
-         aGkg==
-X-Forwarded-Encrypted: i=1; AJvYcCVUP1Kjib9V1S2HfsFIYxnsIz2qSfhcsJvSbXuFlP0mBFSQXR0DXo548ndqPpg9azqS0F9BL2niop+nkbM8X9vq@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz/mbEBD1LhnkzppfWOPgYb/FMSfsDU6CyujSmyc2ruQmG/421F
-	Nrar7wEkvOxOfaoMeMUaoi0fy8JuhEkjIdLSq8SNNc5ck/JMpg+cwjQhTkKq6AIXOA==
-X-Gm-Gg: ASbGncscOWslF5eE5RpBZzIors61PJ1zXzzhAflKyvAhELqTsvLh5Uj4XuDThIBjMxi
-	opsm95O06mGL9+OkfeG1auh58WWP1xzmJGcVOvIxR6wA2kfApEC+pFMyGFt39Q89PI06zjQ8HmP
-	G+e1Pr9wneNqbc3c18XMIrOA7HtMz21CWPQce0ztjXKaPMMQugl2RQXHFAreZWc+xPwm9xFJQqt
-	3Dg6cgv/zWVzj8OBJAZEEtlsQAs7w44xLYkYGl6CMCjuQS8X8lpE0xVnExBCgZJ1GdO9NHHyNCF
-	xdKkqG04bvH5LO1LKL/X6mJWwrfDEj6hggTtsCX2QHKfeJoQyFtlFV2R6r2djgYxzZnhlzbSqHT
-	IepsIxGQOBq7IAsqTz2LBKxPBSib0ImuBzX2tN+HhJVSd0HyG9wJHOrjv75yBDxRpKzKE90Bdas
-	OKqv6MaJMXTnw28z3QYujSY0kCWafQZrbjQZA9SZK/wxI5QFo+xf9BDJ1yvTE=
-X-Google-Smtp-Source: AGHT+IHxC+BdP7vzl95DrlP/y364+xUvzMJ0RS3cskY282bYh7RWJ066M6U+GDgwPwRF2d9d7KuiRA==
-X-Received: by 2002:a05:690e:400d:b0:641:f5bc:699a with SMTP id 956f58d0204a3-64302b37d39mr6827251d50.72.1763951649099;
-        Sun, 23 Nov 2025 18:34:09 -0800 (PST)
-Received: from ?IPV6:2600:1700:4570:89a0:1806:1fd4:facd:d088? ([2600:1700:4570:89a0:1806:1fd4:facd:d088])
-        by smtp.gmail.com with ESMTPSA id 00721157ae682-78a798a5decsm40005717b3.21.2025.11.23.18.34.07
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 23 Nov 2025 18:34:08 -0800 (PST)
-Message-ID: <c9b059f8-9219-4219-95c8-23a3733fea58@google.com>
-Date: Sun, 23 Nov 2025 18:34:05 -0800
+        d=1e100.net; s=20230601; t=1763953362; x=1764558162;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=EThjVRtG3u91ThHtH8s7htB0Qt2hP8NHKg4Z/0u1oC4=;
+        b=sMGvB1HmaQQzQer+BnYhCe6GZwWYjtOfs5b9cppipZaLaMh2mvRX/qRj8SAeol03UK
+         NqvBHAnZlr/0UeXLcMJXqAYbkGF+hxHJgAU0LCwHd98W+K6h+aYmyJvR2rkBzuDyLo9L
+         zYX5KiI9hja8UN5E78XDRyIkHmqfNZGAxcOemVOh4kpCynDHGwPFBWVJXtDzrd5hY8R3
+         BfQY3Df+YnY5/fHWigwBYLBpypnHvVTQZD8WG/xt7L9rpqZS8RH6a+lPPqow0B4yoKa9
+         54y/DtOEvu9SBpwvTrbIACtC0TtfQqsmkME1zYtAcL27L1UyYBNVLT9pOuaqf2TMvYtQ
+         SBUw==
+X-Forwarded-Encrypted: i=1; AJvYcCWkB+eq1Mg5QbRItbmVr9Jff9L+fWJXdu1j/HHh1tCSjFJG2/Ekh9BjNGsBdMNOsq9JAGhJNtg8g5w4VozhIx52@lists.infradead.org
+X-Gm-Message-State: AOJu0YxVqDHEbp4JFqAOTgsjAHbuTVIOJLcPFKKlBXuEo/Q4pk+mEdRo
+	NoIdKgXxPDuPsrQjxSyUR0c1zVI2TvuKoTDNMPkhD6qoXmjGb6vBgXP7
+X-Gm-Gg: ASbGncsGh+4arQny5acgEUZ/nIEv4+GyRPKwfiY4oQZOQ1oGzRk/NcorLM1fVAICJ92
+	RnloRo9TJrSxBHcNKUJFXBW/cXW/z7R18kmnIiHLRJCAZGi+8xXzEGrDi0aWMgmfA9zPKoiteN5
+	zSg/F2OwSGlP4OMSGTAUujdAv7hbt0eKBFmUC43wmCqq49Cx5EHWkENZvxdVOn1kUcmtD67Begq
+	KkPO9mKS5mMAo+3clk6k9zeImQyXjbVoYqkEQg1T21ZKOaGJ7s8HCGO7qPjXw3iu5TvQQA52IDS
+	lVmg5hw8agNd++IX8tDZ0NfOuAL7xNYKMgdasZDvtHPTxzGPrjlWRu/wy5KDG8Tz9n9lZHrA0av
+	JsDws7DwdiprpTaQ85o59z57Zox7GY4bodzlOgm/kKrm97LHcBKV5Uv0XAiQ1xO3WpkJ+K1nZvs
+	bHLo0eCpAkM8Q=
+X-Google-Smtp-Source: AGHT+IEMt538xCkv+fqIIYil9IQfkAkpZOfttXOCrxqxU9ijd4Z/n1H3Gpy/X0jI7VxwtTCqcmNbzA==
+X-Received: by 2002:a17:90b:35cc:b0:341:194:5e7d with SMTP id 98e67ed59e1d1-34733f19c00mr11223472a91.24.1763953361678;
+        Sun, 23 Nov 2025 19:02:41 -0800 (PST)
+Received: from archie.me ([210.87.74.117])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-34727d5178esm11869866a91.16.2025.11.23.19.02.39
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 23 Nov 2025 19:02:40 -0800 (PST)
+Received: by archie.me (Postfix, from userid 1000)
+	id 8D1794209E72; Mon, 24 Nov 2025 10:02:37 +0700 (WIB)
+Date: Mon, 24 Nov 2025 10:02:37 +0700
+From: Bagas Sanjaya <bagasdotme@gmail.com>
+To: Eugen Hristev <eugen.hristev@linaro.org>, linux-arm-msm@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-mm@kvack.org,
+	tglx@linutronix.de, andersson@kernel.org, pmladek@suse.com,
+	rdunlap@infradead.org, corbet@lwn.net, david@redhat.com,
+	mhocko@suse.com
+Cc: tudor.ambarus@linaro.org, mukesh.ojha@oss.qualcomm.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-hardening@vger.kernel.org, jonechou@google.com,
+	rostedt@goodmis.org, linux-doc@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-remoteproc@vger.kernel.org,
+	linux-arch@vger.kernel.org, tony.luck@intel.com, kees@kernel.org
+Subject: Re: [PATCH 01/26] kernel: Introduce meminspect
+Message-ID: <aSPKzcsFixn48edg@archie.me>
+References: <20251119154427.1033475-1-eugen.hristev@linaro.org>
+ <20251119154427.1033475-2-eugen.hristev@linaro.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/6] dt-bindings: power: supply: Add Maxim MAX77759
- charger
-To: Krzysztof Kozlowski <krzk@kernel.org>, Sebastian Reichel
- <sre@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, =?UTF-8?Q?Andr=C3=A9_Draszik?=
- <andre.draszik@linaro.org>, Lee Jones <lee@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Badhri Jagan Sridharan <badhri@google.com>,
- Heikki Krogerus <heikki.krogerus@linux.intel.com>,
- Peter Griffin <peter.griffin@linaro.org>,
- Tudor Ambarus <tudor.ambarus@linaro.org>,
- Alim Akhtar <alim.akhtar@samsung.com>
-Cc: linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
- devicetree@vger.kernel.org, linux-usb@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- RD Babiera <rdbabiera@google.com>, Kyle Tso <kyletso@google.com>
-References: <20251123-max77759-charger-v1-0-6b2e4b8f7f54@google.com>
- <20251123-max77759-charger-v1-1-6b2e4b8f7f54@google.com>
- <d4455f4b-2a0f-4bc0-b897-14f2e27af3ea@kernel.org>
-From: Amit Sunil Dhamne <amitsd@google.com>
-Content-Language: en-US
-In-Reply-To: <d4455f4b-2a0f-4bc0-b897-14f2e27af3ea@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="jjzv1iO7GRx9l9vd"
+Content-Disposition: inline
+In-Reply-To: <20251119154427.1033475-2-eugen.hristev@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251123_183411_387271_3C5BBCD2 
-X-CRM114-Status: GOOD (  16.00  )
+X-CRM114-CacheID: sfid-20251123_190243_298363_AF248ED8 
+X-CRM114-Status: GOOD (  43.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,76 +110,331 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
 
-On 11/23/25 1:28 AM, Krzysztof Kozlowski wrote:
-> On 23/11/2025 09:35, Amit Sunil Dhamne via B4 Relay wrote:
->> From: Amit Sunil Dhamne <amitsd@google.com>
->>
->> Add bindings for Maxim max77759 charger device.
->>
->> Signed-off-by: Amit Sunil Dhamne <amitsd@google.com>
->> ---
->>  .../power/supply/maxim,max77759-charger.yaml       | 36 ++++++++++++++++++++++
->>  1 file changed, 36 insertions(+)
->>
->> diff --git a/Documentation/devicetree/bindings/power/supply/maxim,max77759-charger.yaml b/Documentation/devicetree/bindings/power/supply/maxim,max77759-charger.yaml
->> new file mode 100644
->> index 000000000000..71f866419774
->> --- /dev/null
->> +++ b/Documentation/devicetree/bindings/power/supply/maxim,max77759-charger.yaml
->> @@ -0,0 +1,36 @@
->> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
->> +%YAML 1.2
->> +---
->> +$id: http://devicetree.org/schemas/power/supply/maxim,max77759-charger.yaml#
->> +$schema: http://devicetree.org/meta-schemas/core.yaml#
->> +
->> +title: Maxim Integrated MAX77759 Battery charger
->> +
->> +maintainers:
->> +  - Amit Sunil Dhamne <amitsd@google.com>
->> +
->> +description: |
->> +  This module is part of the MAX77759 PMIC. For additional information, see
->> +  Documentation/devicetree/bindings/mfd/maxim,max77759.yaml.
->> +
->> +  The Maxim MAX77759 is a dual input switch mode battery charger for portable
->> +  applications. It supports wired and wireless charging and can operate in buck
->> +  and boost mode.
->> +
->> +allOf:
->> +  - $ref: power-supply.yaml#
->> +
->> +properties:
->> +  compatible:
->> +    const: maxim,max77759-charger
->> +
-> This should be just folded into parent node, no need for separate
-> charger device or is just incomplete.
+--jjzv1iO7GRx9l9vd
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Thanks for the review! You are right, the binding is incomplete. This
-charger block actually listens on its own I2C address, distinct from the
-main PMIC.
+On Wed, Nov 19, 2025 at 05:44:02PM +0200, Eugen Hristev wrote:
+> diff --git a/Documentation/dev-tools/index.rst b/Documentation/dev-tools/=
+index.rst
+> index 4b8425e348ab..8ce605de8ee6 100644
+> --- a/Documentation/dev-tools/index.rst
+> +++ b/Documentation/dev-tools/index.rst
+> @@ -38,6 +38,7 @@ Documentation/process/debugging/index.rst
+>     gpio-sloppy-logic-analyzer
+>     autofdo
+>     propeller
+> +   meminspect
+> =20
+> =20
+>  .. only::  subproject and html
+> diff --git a/Documentation/dev-tools/meminspect.rst b/Documentation/dev-t=
+ools/meminspect.rst
+> new file mode 100644
+> index 000000000000..2a0bd4d6e448
+> --- /dev/null
+> +++ b/Documentation/dev-tools/meminspect.rst
+> @@ -0,0 +1,139 @@
+> +.. SPDX-License-Identifier: GPL-2.0
+> +
+> +=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+> +meminspect
+> +=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+> +
+> +This document provides information about the meminspect feature.
+> +
+> +Overview
+> +=3D=3D=3D=3D=3D=3D=3D=3D
+> +
+> +meminspect is a mechanism that allows the kernel to register a chunk of
+> +memory into a table, to be used at a later time for a specific
+> +inspection purpose like debugging, memory dumping or statistics.
+> +
+> +meminspect allows drivers to traverse the inspection table on demand,
+> +or to register a notifier to be called whenever a new entry is being add=
+ed
+> +or removed.
+> +
+> +The reasoning for meminspect is also to minimize the required information
+> +in case of a kernel problem. For example a traditional debug method invo=
+lves
+> +dumping the whole kernel memory and then inspecting it. Meminspect allow=
+s the
+> +users to select which memory is of interest, in order to help this speci=
+fic
+> +use case in production, where memory and connectivity are limited.
+> +
+> +Although the kernel has multiple internal mechanisms, meminspect fits
+> +a particular model which is not covered by the others.
+> +
+> +meminspect Internals
+> +=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+> +
+> +API
+> +---
+> +
+> +Static memory can be registered at compile time, by instructing the comp=
+iler
+> +to create a separate section with annotation info.
+> +For each such annotated memory (variables usually), a dedicated struct
+> +is being created with the required information.
+> +To achieve this goal, some basic APIs are available:
+> +
+> +  MEMINSPECT_ENTRY(idx, sym, sz)
+> +is the basic macro that takes an ID, the symbol, and a size.
+> +
+> +To make it easier, some wrappers are also defined:
+> +  MEMINSPECT_SIMPLE_ENTRY(sym)
+> +will use the dedicated MEMINSPECT_ID_##sym with a size equal to sizeof(s=
+ym)
+> +
+> +  MEMINSPECT_NAMED_ENTRY(name, sym)
+> +will be a simple entry that has an id that cannot be derived from the sy=
+m,
+> +so a name has to be provided
+> +
+> +  MEMINSPECT_AREA_ENTRY(sym, sz)
+> +this will register sym, but with the size given as sz, useful for e.g.
+> +arrays which do not have a fixed size at compile time.
+> +
+> +For dynamically allocated memory, or for other cases, the following APIs
+> +are being defined:
+> +  meminspect_register_id_pa(enum meminspect_uid id, phys_addr_t zone,
+> +                            size_t size, unsigned int type);
+> +which takes the ID and the physical address.
+> +Similarly there are variations:
+> +  meminspect_register_pa() omits the ID
+> +  meminspect_register_id_va() requires the ID but takes a virtual address
+> +  meminspect_register_va() omits the ID and requires a virtual address
+> +
+> +If the ID is not given, the next avialable dynamic ID is allocated.
+> +
+> +To unregister a dynamic entry, some APIs are being defined:
+> +  meminspect_unregister_pa(phys_addr_t zone, size_t size);
+> +  meminspect_unregister_id(enum meminspect_uid id);
+> +  meminspect_unregister_va(va, size);
+> +
+> +All of the above have a lock variant that ensures the lock on the table
+> +is taken.
+> +
+> +
+> +meminspect drivers
+> +------------------
+> +
+> +Drivers are free to traverse the table by using a dedicated function
+> +meminspect_traverse(void *priv, MEMINSPECT_ITERATOR_CB cb)
+> +The callback will be called for each entry in the table.
+> +
+> +Drivers can also register a notifier with
+> +  meminspect_notifier_register()
+> +and unregister with
+> +  meminspect_notifier_unregister()
+> +to be called when a new entry is being added or removed.
+> +
+> +Data structures
+> +---------------
+> +
+> +The regions are being stored in a simple fixed size array. It avoids
+> +memory allocation overhead. This is not performance critical nor does
+> +allocating a few hundred entries create a memory consumption problem.
+> +
+> +The static variables registered into meminspect are being annotated into
+> +a dedicated .inspect_table memory section. This is then walked by memins=
+pect
+> +at a later time and each variable is then copied to the whole inspect ta=
+ble.
+> +
+> +meminspect Initialization
+> +-------------------------
+> +
+> +At any time, meminspect will be ready to accept region registration
+> +from any part of the kernel. The table does not require any initializati=
+on.
+> +In case CONFIG_CRASH_DUMP is enabled, meminspect will create an ELF head=
+er
+> +corresponding to a core dump image, in which each region is added as a
+> +program header. In this scenario, the first region is this ELF header, a=
+nd
+> +the second region is the vmcoreinfo ELF note.
+> +By using this mechanism, all the meminspect table, if dumped, can be
+> +concatenated to obtain a core image that is loadable with the `crash` to=
+ol.
+> +
+> +meminspect example
+> +=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+> +
+> +A simple scenario for meminspect is the following:
+> +The kernel registers the linux_banner variable into meminspect with
+> +a simple annotation like:
+> +
+> +  MEMINSPECT_SIMPLE_ENTRY(linux_banner);
+> +
+> +The meminspect late initcall will parse the compilation time created tab=
+le
+> +and copy the entry information into the inspection table.
+> +At a later point, any interested driver can call the traverse function to
+> +find out all entries in the table.
+> +A specific driver will then note into a specific table the address of the
+> +banner and the size of it.
+> +The specific table is then written to a shared memory area that can be
+> +read by upper level firmware.
+> +When the kernel freezes (hypothetically), the kernel will no longer feed
+> +the watchdog. The watchdog will trigger a higher exception level interru=
+pt
+> +which will be handled by the upper level firmware. This firmware will th=
+en
+> +read the shared memory table and find an entry with the start and size of
+> +the banner. It will then copy it for debugging purpose. The upper level
+> +firmware will then be able to provide useful debugging information,
+> +like in this example, the banner.
+> +
+> +As seen here, meminspect facilitates the interaction between the kernel
+> +and a specific firmware.
 
-I will update v2 to include the reg property. I will also add the
-standard properties `constant-charge-current-max-microamp` and
-`constant-charge-voltage-max-microvolt` to configure the hardware
-limits, as this charger device does not manage the battery profile
-directly (that is handled by a separate fuel gauge).
+Sphinx reports htmldocs warnings:
 
+Documentation/dev-tools/meminspect.rst:42: WARNING: Block quote ends withou=
+t a blank line; unexpected unindent. [docutils]
+Documentation/dev-tools/meminspect.rst:46: WARNING: Definition list ends wi=
+thout a blank line; unexpected unindent. [docutils]
+Documentation/dev-tools/meminspect.rst:49: WARNING: Block quote ends withou=
+t a blank line; unexpected unindent. [docutils]
+Documentation/dev-tools/meminspect.rst:53: WARNING: Block quote ends withou=
+t a blank line; unexpected unindent. [docutils]
+Documentation/dev-tools/meminspect.rst:58: ERROR: Unexpected indentation. [=
+docutils]
+Documentation/dev-tools/meminspect.rst:60: WARNING: Block quote ends withou=
+t a blank line; unexpected unindent. [docutils]
+Documentation/dev-tools/meminspect.rst:62: ERROR: Unexpected indentation. [=
+docutils]
+Documentation/dev-tools/meminspect.rst:80: WARNING: Inline emphasis start-s=
+tring without end-string. [docutils]
+Documentation/dev-tools/meminspect.rst:88: WARNING: Definition list ends wi=
+thout a blank line; unexpected unindent. [docutils]
 
-Thanks,
+I have to fix them up:
 
-Amit
+---- >8 ----
+diff --git a/Documentation/dev-tools/meminspect.rst b/Documentation/dev-too=
+ls/meminspect.rst
+index 2a0bd4d6e4481e..d6a221b1169f04 100644
+--- a/Documentation/dev-tools/meminspect.rst
++++ b/Documentation/dev-tools/meminspect.rst
+@@ -38,37 +38,43 @@ For each such annotated memory (variables usually), a d=
+edicated struct
+ is being created with the required information.
+ To achieve this goal, some basic APIs are available:
+=20
+-  MEMINSPECT_ENTRY(idx, sym, sz)
+-is the basic macro that takes an ID, the symbol, and a size.
++  * MEMINSPECT_ENTRY(idx, sym, sz)
++    is the basic macro that takes an ID, the symbol, and a size.
+=20
+ To make it easier, some wrappers are also defined:
+-  MEMINSPECT_SIMPLE_ENTRY(sym)
+-will use the dedicated MEMINSPECT_ID_##sym with a size equal to sizeof(sym)
+=20
+-  MEMINSPECT_NAMED_ENTRY(name, sym)
+-will be a simple entry that has an id that cannot be derived from the sym,
+-so a name has to be provided
++  * MEMINSPECT_SIMPLE_ENTRY(sym)
++    will use the dedicated MEMINSPECT_ID_##sym with a size equal to sizeof=
+(sym)
+=20
+-  MEMINSPECT_AREA_ENTRY(sym, sz)
+-this will register sym, but with the size given as sz, useful for e.g.
+-arrays which do not have a fixed size at compile time.
++  * MEMINSPECT_NAMED_ENTRY(name, sym)
++    will be a simple entry that has an id that cannot be derived from the =
+sym,
++    so a name has to be provided
++
++  * MEMINSPECT_AREA_ENTRY(sym, sz)
++    this will register sym, but with the size given as sz, useful for e.g.
++    arrays which do not have a fixed size at compile time.
+=20
+ For dynamically allocated memory, or for other cases, the following APIs
+-are being defined:
++are being defined::
++
+   meminspect_register_id_pa(enum meminspect_uid id, phys_addr_t zone,
+                             size_t size, unsigned int type);
++
+ which takes the ID and the physical address.
++
+ Similarly there are variations:
+-  meminspect_register_pa() omits the ID
+-  meminspect_register_id_va() requires the ID but takes a virtual address
+-  meminspect_register_va() omits the ID and requires a virtual address
++
++  * meminspect_register_pa() omits the ID
++  * meminspect_register_id_va() requires the ID but takes a virtual address
++  * meminspect_register_va() omits the ID and requires a virtual address
+=20
+ If the ID is not given, the next avialable dynamic ID is allocated.
+=20
+ To unregister a dynamic entry, some APIs are being defined:
+-  meminspect_unregister_pa(phys_addr_t zone, size_t size);
+-  meminspect_unregister_id(enum meminspect_uid id);
+-  meminspect_unregister_va(va, size);
++
++  * meminspect_unregister_pa(phys_addr_t zone, size_t size);
++  * meminspect_unregister_id(enum meminspect_uid id);
++  * meminspect_unregister_va(va, size);
+=20
+ All of the above have a lock variant that ensures the lock on the table
+ is taken.
+@@ -77,15 +83,15 @@ is taken.
+ meminspect drivers
+ ------------------
+=20
+-Drivers are free to traverse the table by using a dedicated function
+-meminspect_traverse(void *priv, MEMINSPECT_ITERATOR_CB cb)
++Drivers are free to traverse the table by using a dedicated function::
++
++  meminspect_traverse(void *priv, MEMINSPECT_ITERATOR_CB cb)
++
+ The callback will be called for each entry in the table.
+=20
+-Drivers can also register a notifier with
+-  meminspect_notifier_register()
+-and unregister with
+-  meminspect_notifier_unregister()
+-to be called when a new entry is being added or removed.
++Drivers can also register a notifier with meminspect_notifier_register()
++and unregister with meminspect_notifier_unregister() to be called when a n=
+ew
++entry is being added or removed.
+=20
+ Data structures
+ ---------------
+@@ -115,7 +121,7 @@ meminspect example
+=20
+ A simple scenario for meminspect is the following:
+ The kernel registers the linux_banner variable into meminspect with
+-a simple annotation like:
++a simple annotation like::
+=20
+   MEMINSPECT_SIMPLE_ENTRY(linux_banner);
+=20
 
->
->> +  usb-otg-vbus-regulator:
->> +    type: object
->> +    description: Provides Boost for sourcing VBUS.
->> +    $ref: /schemas/regulator/regulator.yaml#
->> +    unevaluatedProperties: false
->> +
-> Best regards,
-> Krzysztof
+Thanks.
+
+--=20
+An old man doll... just what I always wanted! - Clara
+
+--jjzv1iO7GRx9l9vd
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQSSYQ6Cy7oyFNCHrUH2uYlJVVFOowUCaSPKyAAKCRD2uYlJVVFO
+o3X1AQDv/TE1tWTJ8ZXxzegUA8QbZl8nMDxfkacY7FNjZC/xRQD8DSFK9tPqxhS0
+Zf7jek/k/PHFmMUwkhTyDVy+lTogUgc=
+=cIN1
+-----END PGP SIGNATURE-----
+
+--jjzv1iO7GRx9l9vd--
 
