@@ -4,62 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 238F3CFD313
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 15:23:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D83CCFD313
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 15:27:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r2j1WT/JPisBzFeuejv5Ew7uC27JuAkmwt9Wvom+d2o=; b=UcMaORsSVrYrWfZ7Npp445AIpn
-	36Mu+0L8/u9BSwxDlM3et1hog1Mf3vK8L3oWj2pm0B+5PSbqb0JhNp21J+6Pt+naoBf9mDJ8E3iCa
-	f14r3ANuxH3Er+X3V+QzIbxCOWWWrfeZqSnAqyvSnRDOuWUBdfZjB0X6XWGV/y790b1vP1m7xa1Sw
-	RR8NEiDkHeZlCklBRD8+XCKpslrpHTcP304Ouv4bdSSRE5UhO8DiV3BTIjfJ44sYUkZUZS0EpIPLH
-	jLEdTXIz2Tujk2mHXPYeG6YjH+MwJunbPVttXeyHUmS998QOn0d7d6qquAsRCjhOdCDp+f0VCSsXG
-	bcvcDvkg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hPXbuoT8gLmsTcz1LKML8KzSKiAMgBQ+ViKr9I+j9RY=; b=XXtzR0eul/jy5/RIBZr+YcVYb7
+	rFTtDiiDMTSuliYxz8h9Fse/2KcdbrN3BM21WJmVY+Ma96+UKjQN3jCtHj01+GF4sUBul9MyWPZUR
+	h/+pNo8dtP7YzbD7CRZpZbZjDqCWfy7wRUtM1Z+8b176DBAtp40fUNXzVj8F9eJ8eb97v2qHDJwp+
+	/DvrudNzNRTfaRrh5YU5XU4huiDn8GMdMNILEV+S/MVNZk9cc3qU6LUXCDE19Wrvx94bzE5icXUUn
+	ZN9Z8Z3fa/880oA0gsvUpspNPIjM8LYUab4qqMXR/3a7Im9TeRYiz0NwK/Hwhy9vJb3lN2RbfOGWG
+	sPmGOvIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNYPI-0000000Buf2-3yar;
-	Mon, 24 Nov 2025 15:23:12 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNYPG-0000000Buef-2J5z
+	id 1vNYTW-0000000Bv7K-2YmA;
+	Mon, 24 Nov 2025 15:27:34 +0000
+Received: from mail-ed1-x52c.google.com ([2a00:1450:4864:20::52c])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vNYTT-0000000Bv6l-2rEj
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Nov 2025 15:23:11 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6F081497;
-	Mon, 24 Nov 2025 07:23:01 -0800 (PST)
-Received: from [10.57.40.218] (unknown [10.57.40.218])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 02BE23F73B;
-	Mon, 24 Nov 2025 07:23:03 -0800 (PST)
-Message-ID: <247aa84f-0550-42d9-8d65-615297e78a74@arm.com>
-Date: Mon, 24 Nov 2025 16:23:01 +0100
+	Mon, 24 Nov 2025 15:27:33 +0000
+Received: by mail-ed1-x52c.google.com with SMTP id 4fb4d7f45d1cf-640a0812658so7160031a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Nov 2025 07:27:30 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1763998049; x=1764602849; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=hPXbuoT8gLmsTcz1LKML8KzSKiAMgBQ+ViKr9I+j9RY=;
+        b=VxOvoFa/U7GEnBQcNXiKRfP+iz6qEc3/fc4jbEAlxcq8cC8mGrMZcLcbInxX14vIqC
+         fHKEqh//q6XTENtuBVwmz0Y7NUhMNvnjry6xA0bX+ECJExuC8+10t4X8I5q4ajulS4M1
+         DGBNrUffLGYP1ix7jMmPnsXCwJspH/ITdfda8Ub5O7nyp71xq+u3H4kE3ZA+hdfd23fY
+         /32+rIUu7mlwAjhj0Qt8uRJpHMlPkolQFpwhVCeEe+0zwdjqXXpl5oGKw5fY3Ia/jFAd
+         DTXrsE/gnRBgcH6SjOjb7dshWjJTYcvUHj+xIXl7WjU2Vw3r5n1fgxaGVptK0q2fcLR2
+         uyZg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1763998049; x=1764602849;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=hPXbuoT8gLmsTcz1LKML8KzSKiAMgBQ+ViKr9I+j9RY=;
+        b=nMIPRK2ZN+MKKsmX7b3AiozC2lRK/DQOJb7+eqS1rxBZLyo1q7RUA6Dpac+ndAyV3A
+         c7fAXTKpL3gbgbUQWsgAccG+zyPUQTBAT5qL470n/5LMuWfIhdoUQUPJuo68S389LI0S
+         c0wJs1EAB/jt9O1NheUJyEXcOecb/IIQiCnIPAM9rGHgj8gjIpJbMlFR0pwOqjlsX/tJ
+         zCahFF/Ca4JRcx4zm8oIfOQ4Sj2gUUT5M99ih54czM+/qZ3Wkro/nZmy1QQmdLES7Zxy
+         wpR+cyXs3UImqhcapEUG/Rk+UDkMZotvBeBQUMxokwEsUQenUt73Kih59kYs5Yp7UR2Y
+         QJ/Q==
+X-Forwarded-Encrypted: i=1; AJvYcCU/hnfEyAtqa9jBM2dRpzFK/B63Z6iX1YNAANR2i68inM8wnCJYp9zymfLR4AMteZ2MFb1HG1UmLrlhnZs5jc0d@lists.infradead.org
+X-Gm-Message-State: AOJu0YzU7wP1wqE3OO4pEQ3uF113ZFyWGG9PQJ1hTbw3PIedHtfIqlxA
+	SoNq901+UOMVUisYr4jmmHVX3nSz21iiRDjas4HPaVgUssIiCmwNwe+8hehw3j17fHPfU1Jogi5
+	gWWDHinGyljShldBzW9uVQCxopW+0S+R1aHhsI7tMzQ==
+X-Gm-Gg: ASbGnctQ9IjQW7B6o7jWd1Env6ELSkW0iyk6Aepv2owyRoDqlLcVDHAuKOID3NYedWS
+	UBoJ41o59WpGD/l7L9juY58PqEspsGAYAN7LjrFOZes5h+xTfPIfkoB3596fpcIqxD88mT85Ulv
+	HlfN24d+b056X4csG+pEcbcN0qj/B5FXARXJK0yWhsw/7mZMtvXVGfzR2aRLs3M90reYL8X2O6Z
+	HKs2xcfDWs44Lf+/1cB3Hq3t+xTVGTMbxeUgZFawJLo288ygias8SsEVcsu/H8wFv5JRhRoaQka
+	O/IURjC2qmwL6NXLV4BufiTnOuwJ0DbAvh/c2M7t
+X-Google-Smtp-Source: AGHT+IF8QEkzWvf4ABwZ5746O2obgVPWntwD+fd5/y1Lc5h5RDwaFcxXgvVKNe3CbF15J7X0KGPpVRchdEIoJn8QTA8=
+X-Received: by 2002:a05:6402:2552:b0:63c:3c63:75ed with SMTP id
+ 4fb4d7f45d1cf-64554685163mr11501766a12.22.1763998049271; Mon, 24 Nov 2025
+ 07:27:29 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 08/11] entry: Add
- arch_ptrace_report_syscall_entry/exit()
-To: Jinjie Ruan <ruanjinjie@huawei.com>, catalin.marinas@arm.com,
- will@kernel.org, oleg@redhat.com, tglx@linutronix.de, peterz@infradead.org,
- luto@kernel.org, shuah@kernel.org, kees@kernel.org, wad@chromium.org,
- akpm@linux-foundation.org, ldv@strace.io, macro@orcam.me.uk, deller@gmx.de,
- mark.rutland@arm.com, song@kernel.org, mbenes@suse.cz, ryan.roberts@arm.com,
- ada.coupriediaz@arm.com, anshuman.khandual@arm.com, broonie@kernel.org,
- pengcan@kylinos.cn, dvyukov@google.com, kmal@cock.li, lihongbo22@huawei.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-kselftest@vger.kernel.org
-References: <20251117133048.53182-1-ruanjinjie@huawei.com>
- <20251117133048.53182-9-ruanjinjie@huawei.com>
- <55e1345f-94d7-41a9-8f0a-694fd56f63ed@arm.com>
- <8489ee0d-8b9c-080a-04a0-b299549e86cf@huawei.com>
-Content-Language: en-GB
-From: Kevin Brodsky <kevin.brodsky@arm.com>
-In-Reply-To: <8489ee0d-8b9c-080a-04a0-b299549e86cf@huawei.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20251122-imx95-rproc-2025-11-20-v3-0-9ae6ee619a78@nxp.com>
+In-Reply-To: <20251122-imx95-rproc-2025-11-20-v3-0-9ae6ee619a78@nxp.com>
+From: Mathieu Poirier <mathieu.poirier@linaro.org>
+Date: Mon, 24 Nov 2025 08:27:18 -0700
+X-Gm-Features: AWmQ_bmPua71P-c3C9amQu2EA6PcheE8Yz3sJ-xba42mtqxFzXSsE84-oyqxRX8
+Message-ID: <CANLsYkynN2xSShAKXAcRsGTeS2YX1qhO=83xCScaaonJN=2hFA@mail.gmail.com>
+Subject: Re: [PATCH v3 0/5] remoteproc: imx_rproc: Support i.MX95
+To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Cc: Bjorn Andersson <andersson@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Frank Li <Frank.Li@nxp.com>, 
+	Daniel Baluta <daniel.baluta@nxp.com>, linux-remoteproc@vger.kernel.org, 
+	devicetree@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Peng Fan <peng.fan@nxp.com>, Krzysztof Kozlowski <krzk@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251124_072310_866540_0E2C48F3 
-X-CRM114-Status: GOOD (  15.04  )
+X-CRM114-CacheID: sfid-20251124_072731_768468_028A627E 
+X-CRM114-Status: GOOD (  27.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,62 +100,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 24/11/2025 10:34, Jinjie Ruan wrote:
+Good morning,
+
+Please note that due to other patchsets that need to be reviewed,
+Linux Plumbers and the upcoming 2-week December holidays in the
+western hemisphere, I do not foresee being able to look at this
+patchset before January.
+
+Thanks,
+Mathieu
+
+On Fri, 21 Nov 2025 at 17:58, Peng Fan (OSS) <peng.fan@oss.nxp.com> wrote:
 >
-> On 2025/11/19 1:13, Kevin Brodsky wrote:
->> On 17/11/2025 14:30, Jinjie Ruan wrote:
->>> [...]
->>>
->>> diff --git a/kernel/entry/syscall-common.c b/kernel/entry/syscall-common.c
->>> index 66e6ba7fa80c..27310e611567 100644
->>> --- a/kernel/entry/syscall-common.c
->>> +++ b/kernel/entry/syscall-common.c
->>> @@ -17,6 +17,25 @@ static inline void syscall_enter_audit(struct pt_regs *regs, long syscall)
->>>  	}
->>>  }
->>>  
->>> +/**
->>> + * arch_ptrace_report_syscall_entry - Architecture specific
->>> + *				      ptrace_report_syscall_entry().
->>> + *
->>> + * Invoked from syscall_trace_enter() to wrap ptrace_report_syscall_entry().
->>> + * Defaults to ptrace_report_syscall_entry.
->>> + *
->>> + * The main purpose is to support arch-specific ptrace_report_syscall_entry()
->>> + * implementation.
->>> + */
->>> +static __always_inline int arch_ptrace_report_syscall_entry(struct pt_regs *regs);
->>> +
->>> +#ifndef arch_ptrace_report_syscall_entry
->>> +static __always_inline int arch_ptrace_report_syscall_entry(struct pt_regs *regs)
->>> +{
->>> +	return ptrace_report_syscall_entry(regs);
->> I saw that Thomas suggested this approach on v4, and it makes sense to
->> me, but I find the naming surprising. If an architecture does need extra
->> handling, then the generic function should never be called from generic
->> code. So it seems to me that the more logical change would be:
->>
->> * Rename: ptrace_report_syscall_entry -> __ptrace_report_syscall_entry
->> * Introduce ptrace_report_syscall_entry(), defaults to
->> __ptrace_report_syscall_entry()
-> If ptrace_report_syscall_entry() is defined in linux/ptrace.h, and an
-> architecture also needs to redefine this function, but the
-> architecture's own <asm/entry-common.h> must include <linux/ptrace.h>,
-> the function will end up being defined twice and cause a "duplicate
-> definition" compile error.
-
-There's plenty of arch-defined functions in <linux/ptrace.h> already.
-__ptrace_report_syscall_entry() should be defined inside an #ifndef and
-architectures can define their own implementation in <asm/ptrace.h>,
-like force_successful_syscall_return() for instance.
-
-- Kevin
-
->> All this would be done in <linux/ptrace.h>, where it clearly belongs.
->> The __ prefix makes it clear that the generic function is not the main
->> interface. Even better, no need to change any caller with that approach.
->>
->> - Kevin
->>
->>> [...]
+> This patchset is pick up a previous patchset [1] with rebased on
+> next-20251030, and some changes applied.
+>  - Add runtime ops to separate cpu ops and lmm ops
+>  - added more comments
+>  - moved some check imx_sm_rproc_detect_mode() from imx_rproc_sm_prepare().
+>
+> No changes to the dt-binding patch, so R-b/A-b are kept.
+> More info could be found in commit message of each patch and below.
+>
+> [1]https://lore.kernel.org/linux-remoteproc/20250821-imx95-rproc-1-v5-0-e93191dfac51@nxp.com/
+>
+> i.MX95 features a Cortex-M33 core, six Cortex-A55 cores, and
+> one Cortex-M7 core. The System Control Management Interface(SCMI)
+> firmware runs on the M33 core. The i.MX95 SCMI firmware named System
+> Manager(SM) includes vendor extension protocols, Logical Machine
+> Management(LMM) protocol and CPU protocol and etc.
+>
+> There are three cases for M7:
+> (1) M7 in a separate Logical Machine(LM) that Linux couldn't control it.
+> (2) M7 in a separate Logical Machine that Linux could control it using
+>     LMM protocol
+> (3) M7 runs in same Logical Machine as A55, so Linux could control it
+>     using CPU protocol
+>
+> In patch 3, Use LMM and CPU protocol to manage M7. More info could be
+> found in the patch commit log
+>     Current setup relies on pre-Linux software(U-Boot) to do
+> M7 TCM ECC initialization. In future, we could add the support in Linux
+>
+> Patchset was tested with below boot images when the patchset based on next-20251030:
+> imx-boot-variant-rpmsg-imx95-19x19-lpddr5-evk-sd.bin-flash_lpboot_sm_a55 (Use LMM protocol)
+> imx-boot-variant-alt-imx95-19x19-lpddr5-evk-sd.bin-flash_alt (Use CPU protocol)
+> imx-boot-imx95-19x19-lpddr5-evk-sd.bin-flash_all (M7 not under A55 control)
+>
+> Also tested i.MX8MP/8ULP-EVK.
+>
+> Signed-off-by: Peng Fan <peng.fan@nxp.com>
+> ---
+> Changes in v3:
+> - Add R-b for patch 2,3,5
+> - Patch 4:
+>   Rename imx_rproc_ops_sm to imx_rproc_ops_sm_lmm.
+>   Add more comments in code
+>   Simplify if check in imx_rproc_sm_lmm_prepare()
+>   Update commit log
+>   Use dev_err for failure path
+> - Link to v2: https://lore.kernel.org/linux-remoteproc/20251031-imx95-rproc-2025-10-31-v2-0-758b2e547a55@nxp.com/T/#t
+>
+> Changes in v2:
+> - Patch 2: Change to const pointer for ops, update commit log and add R-b from Frank
+> - Patch 3: New patch, introduce prepare ops
+> - Patch 4: Rename imx_rproc_sm_prepare to imx_rproc_sm_lmm_prepare
+>            drop IMX_RPROC_FLAGS_SM_CPU_OP and IMX_RPROC_FLAGS_SM_LMM_OP
+>            Add a bool for dcfg->lmid and info->lmid check.
+>            Provide separate plat ops for lmm and cpu setup.
+>            Move LM permission check to a separate function.
+> - Patch 5: Drop macro IMX95_M7_CPUID and IMX95_M7_LMID
+> - Link to v1: https://lore.kernel.org/r/20251028-imx95-rproc-2025-10-28-v1-0-ce9e7db9edcb@nxp.com
+>
+> ---
+> Peng Fan (5):
+>       dt-bindings: remoteproc: fsl,imx-rproc: Add support for i.MX95
+>       remoteproc: imx_rproc: Add runtime ops copy to support dynamic behavior
+>       remoteproc: imx_rproc: Introduce prepare ops for imx_rproc_dcfg
+>       remoteproc: imx_rproc: Add support for System Manager API
+>       remoteproc: imx_rproc: Add support for i.MX95
+>
+>  .../bindings/remoteproc/fsl,imx-rproc.yaml         |   1 +
+>  drivers/remoteproc/Kconfig                         |   2 +
+>  drivers/remoteproc/imx_rproc.c                     | 245 +++++++++++++++++++--
+>  drivers/remoteproc/imx_rproc.h                     |   4 +
+>  4 files changed, 238 insertions(+), 14 deletions(-)
+> ---
+> base-commit: 88cbd8ac379cf5ce68b7efcfd4d1484a6871ee0b
+> change-id: 20251120-imx95-rproc-2025-11-20-3b9369670d6a
+>
+> Best regards,
+> --
+> Peng Fan <peng.fan@nxp.com>
+>
 
