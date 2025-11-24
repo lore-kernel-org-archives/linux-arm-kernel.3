@@ -4,62 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B5EBCFD313
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 14:36:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 562A9CFD313
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 14:36:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/9aEVym/RLd4tmR48YKaaHoFNY3l8U8s4kydBuwmD5E=; b=JB7oUlE0nd3D1xIY4ZWt4fgOs/
-	1pRYQvfEh9HfRuXOiqr1EKT3Sk5ytz8+TVJNYKQc8iq3Dj8xiWd9PJbj/qTnizNxSDwCPfI/LXfUe
-	QTC/TVEpdLhVhSEssuP40V9fjLRPO7H5evNO0vMD0jH+ZOy1y7ssH/nhZi3Fxs3C2RoRO/LxapwGX
-	TE5xv/Xn2dKdjMxnb14EGp2GvUzUITTwUlm0VMUeGtPUN7AOm3DQaKUzMcMWABFrz4nm9dA5HNAg3
-	VNHRqMoVefKWHJlD3AuBVhg849LUzT07jDirWUodtuUIzTYqhkEPiLIGaum700j0zgX++nylNDN/7
-	CAuep9qg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YJ471huPf3AbbCsoCzRDaoFvk+dd/VjhisJknTSiicY=; b=mp+KQqre/nmkFJwxkll9zcFNyc
+	woyJZTV190PkfB3Cc7UNVix4UJAcFLIGYuXw8oVKchy9AgE8l02+cuWEvLmwiPVf0mdmEVRtNBvqZ
+	ARV+couGZq+k4fXgPvfc2N9uqAUqnWeJzCWqI5fNDvDRsX+UYVadju+Zto3oRsqFEqSvP5CJPllY0
+	y+nF3qdhPhrfdSS0eM6brjmoPTK1m7nrzIBowrhSEPPFjDUS80ksJ7NwlAl/J7ITFRBM2em+m2E43
+	HmraV/Vn+qBTJUOLgDld2LPf++P8BXigc5vZmPvrsT4cGcUFlowupeTxlJ8UdIHKRJ8TpAMOQnPIe
+	vG1LLoDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNXgA-0000000Br0B-2jww;
-	Mon, 24 Nov 2025 14:36:35 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNXg8-0000000Br05-3xFU
+	id 1vNXgL-0000000Br2T-3xWK;
+	Mon, 24 Nov 2025 14:36:45 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vNXgJ-0000000Br1F-05CR
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Nov 2025 14:36:33 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id AFE2060123;
-	Mon, 24 Nov 2025 14:36:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8A146C4CEF1;
-	Mon, 24 Nov 2025 14:36:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763994990;
-	bh=jv+kHE0CbbAmhUFnnaX4NXCqihvcaq32PQYDP3CMyI0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Lxfjr2T72UKaCpHYIhwm/V7poM7aGoLcwcP7CVLX2+F8oba3UvBNF/pqTl9RnpiFW
-	 W0aWtEGve2b/7c9356hgf5jdkxNNgQDw1VbY02GqGQUBNkKWKLLQ2NWbp/a7Ajmiby
-	 h63E/JG5HZP2jcANq5iqaMMToz4bIMnGBc/ygNq08beHtpZfmgL2MlaUQ3pNAV1Whh
-	 DiIc+t8kIm6boix6bpi5vQ1ME1sUweNx1g83nDvMlbtA6Bk962XrwuLfvFaSdqAkfM
-	 s9jqTjY4/7ntF1qbw42HQ+PkHSOZrJZkBLIOpvpqNUudmXvKg+rVJ8/I/8fRRdmF0o
-	 2jtcxdw3YAQHA==
-Date: Mon, 24 Nov 2025 14:36:25 +0000
-From: Will Deacon <will@kernel.org>
-To: Ryan Roberts <ryan.roberts@arm.com>
-Cc: Kees Cook <kees@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Jeremy Linton <jeremy.linton@arm.com>,
-	Catalin Marinas <Catalin.Marinas@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
-Subject: Re: [DISCUSSION] kstack offset randomization: bugs and performance
-Message-ID: <aSRtaVjfNc11EtKg@willie-the-truck>
-References: <66c4e2a0-c7fb-46c2-acce-8a040a71cd8e@arm.com>
- <dd8c37bc-795f-4c7a-9086-69e584d8ab24@arm.com>
+	Mon, 24 Nov 2025 14:36:44 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 80775497;
+	Mon, 24 Nov 2025 06:36:32 -0800 (PST)
+Received: from [10.57.88.238] (unknown [10.57.88.238])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 94CBA3F6A8;
+	Mon, 24 Nov 2025 06:36:34 -0800 (PST)
+Message-ID: <b52726c7-ea9c-4743-a68d-3eafce4e5c61@arm.com>
+Date: Mon, 24 Nov 2025 14:36:32 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <dd8c37bc-795f-4c7a-9086-69e584d8ab24@arm.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 06/12] mm: introduce generic lazy_mmu helpers
+Content-Language: en-GB
+To: Kevin Brodsky <kevin.brodsky@arm.com>, linux-mm@kvack.org
+Cc: linux-kernel@vger.kernel.org, Alexander Gordeev <agordeev@linux.ibm.com>,
+ Andreas Larsson <andreas@gaisler.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Boris Ostrovsky <boris.ostrovsky@oracle.com>, Borislav Petkov
+ <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>,
+ Christophe Leroy <christophe.leroy@csgroup.eu>,
+ Dave Hansen <dave.hansen@linux.intel.com>,
+ David Hildenbrand <david@redhat.com>, "David S. Miller"
+ <davem@davemloft.net>, David Woodhouse <dwmw2@infradead.org>,
+ "H. Peter Anvin" <hpa@zytor.com>, Ingo Molnar <mingo@redhat.com>,
+ Jann Horn <jannh@google.com>, Juergen Gross <jgross@suse.com>,
+ "Liam R. Howlett" <Liam.Howlett@oracle.com>,
+ Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+ Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Michal Hocko <mhocko@suse.com>,
+ Mike Rapoport <rppt@kernel.org>, Nicholas Piggin <npiggin@gmail.com>,
+ Peter Zijlstra <peterz@infradead.org>, Suren Baghdasaryan
+ <surenb@google.com>, Thomas Gleixner <tglx@linutronix.de>,
+ Vlastimil Babka <vbabka@suse.cz>, Will Deacon <will@kernel.org>,
+ Yeoreum Yun <yeoreum.yun@arm.com>, linux-arm-kernel@lists.infradead.org,
+ linuxppc-dev@lists.ozlabs.org, sparclinux@vger.kernel.org,
+ xen-devel@lists.xenproject.org, x86@kernel.org
+References: <20251029100909.3381140-1-kevin.brodsky@arm.com>
+ <20251029100909.3381140-7-kevin.brodsky@arm.com>
+ <71418b31-aedb-4600-9558-842515dd6c44@arm.com>
+ <b44825dd-aef9-4d3e-91fd-a44122264c23@arm.com>
+ <f36ebc15-c724-487a-8e4a-9ca95edc544a@arm.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <f36ebc15-c724-487a-8e4a-9ca95edc544a@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251124_063643_199703_9CCF837B 
+X-CRM114-Status: GOOD (  13.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,26 +88,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 17, 2025 at 11:31:22AM +0000, Ryan Roberts wrote:
-> On 17/11/2025 11:30, Ryan Roberts wrote:
-> > Could this give us a middle ground between strong-crng and
-> > weak-timestamp-counter? Perhaps the main issue is that we need to store the
-> > secret key for a long period?
-> > 
-> > 
-> > Anyway, I plan to work up a series with the bugfixes and performance
-> > improvements. I'll add the siphash approach as an experimental addition and get
-> > some more detailed numbers for all the options. But wanted to raise it all here
-> > first to get any early feedback.
+On 24/11/2025 12:47, Kevin Brodsky wrote:
+> On 10/11/2025 11:45, Kevin Brodsky wrote:
+>>>> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+>>>> index b8d37eb037fc..d9c8e94f140f 100644
+>>>> --- a/arch/arm64/mm/mmu.c
+>>>> +++ b/arch/arm64/mm/mmu.c
+>>>> @@ -731,7 +731,7 @@ int split_kernel_leaf_mapping(unsigned long start, unsigned long end)
+>>>>  		return -EINVAL;
+>>>>  
+>>>>  	mutex_lock(&pgtable_split_lock);
+>>>> -	arch_enter_lazy_mmu_mode();
+>>>> +	lazy_mmu_mode_enable();
+>>>>  
+>>>>  	/*
+>>>>  	 * The split_kernel_leaf_mapping_locked() may sleep, it is not a
+>>> This is a bit unfortunate, IMHO. The rest of this comment explains that although
+>>> you're not supposed to sleep inside lazy mmu mode, it's fine for arm64's
+>>> implementation. But we are no longer calling arm64's implementation; we are
+>>> calling a generic function, which does who knows what.
+>>>
+>>> I think it all still works, but we are no longer containing our assumptions in
+>>> arm64 code. We are relying on implementation details of generic code.
+>> I see your point. The change itself is still correct (and required
+>> considering patch 8), but maybe the documentation of the generic
+>> interface should be clarified to guarantee that the generic layer can
+>> itself cope with sleeping - without any guarantee regarding the
+>> behaviour of arch_*_lazy_mmu_mode.
+> 
+> Re-reading the existing comment in <linux/pgtable.h>, I think it already
+> makes clear that sleeping is not forbidden by design:
+> 
+>>  * In the general case, no lock is guaranteed to be held between entry
+>> and exit
+>>  * of the lazy mode. So the implementation must assume preemption may
+>> be enabled
+>>  * and cpu migration is possible; it must take steps to be robust
+>> against this.
+> 
+> The arch implementation may disable preemption, but arm64 code can rely
+> on the arm64 implementation allowing sleeping.
 
-FWIW, I share Mark's concerns about using a counter for this. Given that
-the feature currently appears to be both slow _and_ broken I'd vote for
-either removing it or switching over to per-thread offsets as a first
-step. We already have a per-task stack canary with
-CONFIG_STACKPROTECTOR_PER_TASK so I don't understand the reluctance to
-do something similar here.
+Yeah ok, I buy that!
 
-Speeding up the crypto feels like something that could happen separately.
+> 
+> - Kevin
+> 
 
-Will
 
