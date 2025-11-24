@@ -4,68 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE9AACFD318
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 17:14:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 045FCCFD313
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 17:20:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LdiTuAPMsdSklIdlRlLQFxKoYVhC4YIkUoorfpWkpSo=; b=4SWbEmgA2+FGVMrJ5uX1W5n+VL
-	rIVWwaw+akwr2sDfRYcp6P5kVVTaijZyIl3CESLSyJp/BqVOpZP18UXGd/MIZ1SbLvj9bUnfBflrU
-	n04hEwZ961mnJc0uCk9w2+8sXT4azJPwaXZgTO4vYZ1VcyjyNGXjashKeK+8Z524CFapuj6sErPc6
-	3RaEwfL4GptjlXq36H5f4d+Nxlk417WLsrWNSC/ZCLcBQ8ILvw0/7aqCr+UZktzSjhZjsMEU4oYtS
-	uv2VZLReCWEqW4lv/EAC7hjYcbxVhcDJ3QXcb0/TmjHmj3LwCtNn1qWUmk3LTVQDH8KdchsBF3tHq
-	elnNdGNg==;
+	bh=yBaK1VMbh5GqBcscNVX/8kPYMoVIPxjABGPOjgRRLCk=; b=4Y57+s6crnLzv8xeAZITIWqNNQ
+	AfEoxDRSSVxhq69n5qK5Iu0RmS70zbeJbC3AtVWxIzxMr07IV+CoXsseQxN/Gy5vONW1VHWBSN9nP
+	q5yL4rmkQTPHqmN4dvgzuxY1msh5jw8dKXg7MF+11CXFycJFh2Udwa3lKAPB9wmJWTrIqc6pV9JoL
+	iAAxEKLgL4tF2iw+nbLULrbFpThALTu0GgHXgvnbi5RH9RdnVEch+gbZ9reFo3dgKq98G3YaIeRTR
+	dRwk+XDR2N6TDCBrG96PVaFp6tlmoLE2sT1siSZUIn1EZEt0pYUa+bivm7vA7+T6ZaIEEF98YJIl6
+	p9OcPgKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNa8W-0000000C5U9-016V;
-	Mon, 24 Nov 2025 17:14:00 +0000
-Received: from jabberwock.ucw.cz ([46.255.230.98])
+	id 1vNaEm-0000000C5p3-3NfL;
+	Mon, 24 Nov 2025 17:20:28 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNa8U-0000000C5TU-0UKN
+	id 1vNaEl-0000000C5oi-02Ny
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Nov 2025 17:13:59 +0000
-Received: by jabberwock.ucw.cz (Postfix, from userid 1017)
-	id 06C0D1C00AB; Mon, 24 Nov 2025 18:13:54 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ucw.cz; s=gen1;
-	t=1764004434;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=LdiTuAPMsdSklIdlRlLQFxKoYVhC4YIkUoorfpWkpSo=;
-	b=QlDRCX7OPONlUDTkKv1GHVunDHwbB4oIxye2FqDf9keAfama0I9Rxo6S/fLMbmvmRcA+ih
-	rzdQtu27R/MYcLvHla1y0G2l71UK/8N4sYMwRJjgODoBfeYxMJESlr8qJZsIBgbo6bRb/g
-	rYG7zFWj44Y0OBaUyaqWmqDdQM+2K9g=
-Date: Mon, 24 Nov 2025 18:13:53 +0100
-From: Pavel Machek <pavel@ucw.cz>
-To: Alexandre Messier <alex@me.ssier.org>
-Cc: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Luca Weiss <luca@lucaweiss.eu>,
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-	~postmarketos/upstreaming@lists.sr.ht, phone-devel@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/4] ARM: dts: qcom: msm8974pro-htc-m8: add status LEDs
-Message-ID: <aSSSUahMBR8Wujni@duo.ucw.cz>
-References: <20251007-m8-dts-additions-v1-0-53d7ab3594e7@me.ssier.org>
- <20251007-m8-dts-additions-v1-1-53d7ab3594e7@me.ssier.org>
- <6c791f05-70e7-49c9-a3ce-50fb82b0c894@oss.qualcomm.com>
- <fef52764-3092-4375-b9c7-793d85adc102@me.ssier.org>
- <41c63020-9226-45d9-979d-429b7299da41@oss.qualcomm.com>
- <77efe2a2-ee81-4096-9145-a76e35954e84@me.ssier.org>
+	Mon, 24 Nov 2025 17:20:28 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id E0E44406C7;
+	Mon, 24 Nov 2025 17:20:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B8515C4CEF1;
+	Mon, 24 Nov 2025 17:20:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1764004825;
+	bh=8Jh1+msclllAhWkIRS4dmtHb+2vlJQ4M7I0IgY0rHWU=;
+	h=Date:From:To:Cc:Subject:Reply-To:References:In-Reply-To:From;
+	b=aOSsCRYaDVx48dgGoxXEgEHBWIcENMIeb+36J4DiLBE5+YNt7JYD+omVWn7Zdvr6Z
+	 bVz9Hipc5C5fJAQx2X9Swkue8Jnsd2lWWlMJg1LVvG5OSh1cQIUkEXZfl2f9sXxUaI
+	 5MnkEv0XGlB+QSr1IwkuMehCQP6hXS/AZaYInrVUOE20T7wFp5wMVxIhsChc9/a7Hw
+	 GKows9W1KmfF5hDnH9hb4tO/qXo6yTSw1pLzCgM/sxmh0QyZUed+c7xwxj4F9DYF+J
+	 QvtPn1SGLAn01nMOGcwER35sRll1dVtV3sk/sIcaGp7GUuhQwvQVYsScJi6mbheQD9
+	 3DAc99YzZG3Zw==
+Received: by paulmck-ThinkPad-P17-Gen-1.home (Postfix, from userid 1000)
+	id 50A1DCE0C56; Mon, 24 Nov 2025 09:20:25 -0800 (PST)
+Date: Mon, 24 Nov 2025 09:20:25 -0800
+From: "Paul E. McKenney" <paulmck@kernel.org>
+To: Will Deacon <will@kernel.org>
+Cc: rcu@vger.kernel.org, linux-kernel@vger.kernel.org, kernel-team@meta.com,
+	rostedt@goodmis.org, Catalin Marinas <catalin.marinas@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org,
+	frederic@kernel.org
+Subject: Re: [PATCH v2 15/16] srcu: Optimize SRCU-fast-updown for arm64
+Message-ID: <c632fb32-dccb-4c61-9b2e-d0c2b55fb2e4@paulmck-laptop>
+References: <bb177afd-eea8-4a2a-9600-e36ada26a500@paulmck-laptop>
+ <20251105203216.2701005-15-paulmck@kernel.org>
+ <aQ9AoauJKLYeYvrn@willie-the-truck>
+ <d53a5852-f84a-4dae-9bf4-312751880452@paulmck-laptop>
+ <aRHLV8lLX0fxQICR@willie-the-truck>
+ <ab6cd1c2-39c5-4b39-9585-6123835a6229@paulmck-laptop>
+ <aSRX1HKNdks5pHsd@willie-the-truck>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha1;
-	protocol="application/pgp-signature"; boundary="xMMfKyXYP5va5Mht"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <77efe2a2-ee81-4096-9145-a76e35954e84@me.ssier.org>
+In-Reply-To: <aSRX1HKNdks5pHsd@willie-the-truck>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251124_091358_449925_53FE3E37 
-X-CRM114-Status: GOOD (  26.76  )
+X-CRM114-CacheID: sfid-20251124_092027_089058_FFB000FC 
+X-CRM114-Status: GOOD (  32.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,103 +81,77 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: paulmck@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, Nov 24, 2025 at 01:04:20PM +0000, Will Deacon wrote:
+> On Mon, Nov 10, 2025 at 09:29:43AM -0800, Paul E. McKenney wrote:
+> > On Mon, Nov 10, 2025 at 11:24:07AM +0000, Will Deacon wrote:
+> > > On Sat, Nov 08, 2025 at 10:38:32AM -0800, Paul E. McKenney wrote:
+> > > > On Sat, Nov 08, 2025 at 01:07:45PM +0000, Will Deacon wrote:
+> > > > > On Wed, Nov 05, 2025 at 12:32:15PM -0800, Paul E. McKenney wrote:
+> > > > > > Some arm64 platforms have slow per-CPU atomic operations, for example,
+> > > > > > the Neoverse V2.  This commit therefore moves SRCU-fast from per-CPU
+> > > > > > atomic operations to interrupt-disabled non-read-modify-write-atomic
+> > > > > > atomic_read()/atomic_set() operations.  This works because
+> > > > > > SRCU-fast-updown is not invoked from read-side primitives, which
+> > > > > > means that if srcu_read_unlock_fast() NMI handlers.  This means that
+> > > > > > srcu_read_lock_fast_updown() and srcu_read_unlock_fast_updown() can
+> > > > > > exclude themselves and each other
+> > > > > > 
+> > > > > > This reduces the overhead of calls to srcu_read_lock_fast_updown() and
+> > > > > > srcu_read_unlock_fast_updown() from about 100ns to about 12ns on an ARM
+> > > > > > Neoverse V2.  Although this is not excellent compared to about 2ns on x86,
+> > > > > > it sure beats 100ns.
+> > > > > > 
+> > > > > > This command was used to measure the overhead:
+> > > > > > 
+> > > > > > tools/testing/selftests/rcutorture/bin/kvm.sh --torture refscale --allcpus --duration 5 --configs NOPREEMPT --kconfig "CONFIG_NR_CPUS=64 CONFIG_TASKS_TRACE_RCU=y" --bootargs "refscale.loops=100000 refscale.guest_os_delay=5 refscale.nreaders=64 refscale.holdoff=30 torture.disable_onoff_at_boot refscale.scale_type=srcu-fast-updown refscale.verbose_batched=8 torture.verbose_sleep_frequency=8 torture.verbose_sleep_duration=8 refscale.nruns=100" --trust-make
+> > > > > > 
+> > > > > > Signed-off-by: Paul E. McKenney <paulmck@kernel.org>
+> > > > > > Cc: Catalin Marinas <catalin.marinas@arm.com>
+> > > > > > Cc: Will Deacon <will@kernel.org>
+> > > > > > Cc: Mark Rutland <mark.rutland@arm.com>
+> > > > > > Cc: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
+> > > > > > Cc: Steven Rostedt <rostedt@goodmis.org>
+> > > > > > Cc: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+> > > > > > Cc: <linux-arm-kernel@lists.infradead.org>
+> > > > > > Cc: <bpf@vger.kernel.org>
+> > > > > > ---
+> > > > > >  include/linux/srcutree.h | 51 +++++++++++++++++++++++++++++++++++++---
+> > > > > >  1 file changed, 48 insertions(+), 3 deletions(-)
+> > > > > 
+> > > > > I've queued the per-cpu tweak from Catalin in the arm64 fixes tree [1]
+> > > > > for 6.18, so please can you drop this SRCU commit from your tree?
+> > > > 
+> > > > Very good!  Adding Frederic on CC since he is doing the pull request
+> > > > for the upcoming merge window.
+> > > > 
+> > > > But if this doesn't show up in -rc1, we reserve the right to put it
+> > > > back in.
+> > > > 
+> > > > Sorry, couldn't resist!   ;-)
+> > > 
+> > > I've merged it as a fix, so hopefully it will show up in v6.18-rc6.
+> > 
+> > Even better, thank you!!!
+> 
+> It landed in Linus' tree here:
+> 
+> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/arch/arm64?id=535fdfc5a228524552ee8810c9175e877e127c27
 
---xMMfKyXYP5va5Mht
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Again, thank you, and Breno has started backporting it for use in
+our fleet.
 
-Hi!
+> Please can you drop the SRCU change from -next? It still shows up in
+> 20251121.
 
-> >>> Do they form a single notification led, or are they supposed
-> >>> to act separately?
-> >>
-> >> Good point, I had to check the phone user manual to confirm. Indeed, i=
-t is
-> >> referred to as a one logical notification LED. It also mentions the co=
-lor can
-> >> be either green or orange, it does not mention using the combined colo=
-r of
-> >> the two LEDs.
-> >>
-> >> So I would say they are supposed to act separately.
-> >>
-> >> Hope this answers your question, and let me know if more details are n=
-eeded.
-> >>
-> >> BTW: I will be sending a V2 to update the color name, since the user
-> >> manual says the color is orange, not amber.
-> >=20
-> > Let's describe it as a single LED then:
-> >=20
-> > multi-led {
-> >         color =3D <LED_COLOR_ID_MULTI>; // notice it's not RGB
-> >         function =3D LED_FUNCTION_STATUS;
-> >=20
-> >         #address-cells =3D <1>;
-> >         #size-cells =3D <0>;
-> >=20
-> >         led@6 {
-> >                 reg =3D <6>;
-> >                 color =3D <LED_COLOR_ID_GREEN>;
-> >         };
-> >=20
-> >         led@7 {
-> >                 reg =3D <7>;
-> >                 color =3D <LED_COLOR_ID_ORANGE>;
-> >         };
-> > };
->=20
-> Using multi-led is fine for me.
->=20
-> But currently, the "qcom-lpg" driver doesn't support LED_COLOR_ID_MULTI, =
-only
-> LED_COLOR_ID_RGB. Adding support for LED_COLOR_ID_MULTI is trivial, I tes=
-ted it
-> and it works.
->=20
-> Or I can also use the "leds-group-multicolor" driver, using the two indiv=
-idual
-> LEDs. I also tested this method and it works.
->=20
-> >=20
-> > + Pavel the LED maintainer, please take a look if you think it makes se=
-nse
->=20
-> If Pavel agrees using multi-led makes sense, I think the first option is =
-the
-> best. I will separate the LED patch into a new series, along with the cha=
-nge to
-> the qcom-lpg driver to support LED_COLOR_ID_MULTI.
+This one?
 
-I see nothing horribly wrong here (and am late to the party). ID_MULTI
-leds are pretty uncommon for phones, but if that's what you have...
+11f748499236 ("srcu: Optimize SRCU-fast-updown for arm64")
 
-Anyway:
+if so, Frederic, could you please drop this commit?
 
-LED SUBSYSTEM
-M:      Lee Jones <lee@kernel.org>
-M:      Pavel Machek <pavel@kernel.org>
-L:      linux-leds@vger.kernel.org
-
-Best regards,
-								Pavel
---=20
-I don't work for Nazis and criminals, and neither should you.
-Boycott Putin, Trump, Netanyahu and Musk!
-
---xMMfKyXYP5va5Mht
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iF0EABECAB0WIQRPfPO7r0eAhk010v0w5/Bqldv68gUCaSSSUQAKCRAw5/Bqldv6
-8jXhAJ9zJDH/Tv6cujn6IBoZoYOIrHdbWgCgvp78nRFqKpGFXPhA0d+xLRexqqw=
-=iMor
------END PGP SIGNATURE-----
-
---xMMfKyXYP5va5Mht--
+							Thanx, Paul
 
