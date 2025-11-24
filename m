@@ -4,109 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3B7DCFD317
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 10:46:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6DE1CFA466
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 10:57:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UvxeS/74nBAEFSf4nVKv65BSIxiE58qrGcTM82uuMOU=; b=UKo1QIEz0UEuuvk2ZY+klcwci8
-	QRAPT2t0Pb4+s5/sSh2eEWP9DXLtvUSmRuuoCl6jnyYHK2ImOLV0csCIcCAlKgjrP9tV038WUNqWA
-	TDiS57LkKwaEBIOQTA+SSS+N4bPHDOdLav67HZdRDW9Zio4murm4NEJOTUxcGvpJ7quASdk9qziS0
-	KtQZsbrmS30544mibGL0g7QwbECtJJsH/1eOKi5TlyLooE3q5RDHcxetUc+lYB0QVPDNUSDtWnqzg
-	qi7hmg484H7YWEDm6ia4E7Ibg3R9g3ecCZvBVIlkAotA8jaXBJ/53Y6aj/pRMXlsuGT3BFKrPzyjQ
-	XZ0AgCAw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:List-Owner;
+	bh=4pXZKhOe7QyXXq7lgC1cUUIT+gRiFvMsFZpLQRZjmdc=; b=dbMFTCCSEz1DgT/RNY5v86f4qH
+	YrEUGgOKuLv14Cr7sIab5cKnURNTYBjGLfcu/QXiT1nVnYOCB7TkN2fTQXJ+t3r9TXfKqI1LQ0Rez
+	8xVlAlRFtWI5Q6yITRK5lFxxQNhVt9LFfoi15y5gAlNi2IGI4y5KKdY9x1jGiLReAwy8RIOR7PL9F
+	LhA8JrxLUaoB45BOd5P9BjOyEz4JOw7AkRVovTLGs91Cn1iYSE1Vqa2nP8Hos7q9jbH/FTVT02BcG
+	+Xx3WOeK9ZqV6zbVhrnozdAeSXhMjXD5Lzt3RDiEog4C/9MF2znbXItqDlMwng5I4DEUBMS3Vn6Yk
+	Y2wSBsSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNU50-0000000BRxm-0F1Y;
-	Mon, 24 Nov 2025 10:45:58 +0000
-Received: from mail-lf1-x132.google.com ([2a00:1450:4864:20::132])
+	id 1vNUFn-0000000BTOk-25e8;
+	Mon, 24 Nov 2025 10:57:07 +0000
+Received: from [203.254.224.33] (helo=mailout3.samsung.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNU4x-0000000BRww-0XsG
+	id 1vNUFj-0000000BTMY-3Rnw
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Nov 2025 10:45:56 +0000
-Received: by mail-lf1-x132.google.com with SMTP id 2adb3069b0e04-5957e017378so4274062e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Nov 2025 02:45:54 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1763981152; x=1764585952; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=UvxeS/74nBAEFSf4nVKv65BSIxiE58qrGcTM82uuMOU=;
-        b=cLJ6D51sZFOXVADphZsc1mNfwjwSdMGv4NxLIOgZdYz2MGhTIcX6MymBT5Mk27XwkF
-         uVHghWX6NqDxgE1PBMni9Ra5PHQF1Zs1R+Wa0ZXwjdH0pQCzptP/gT/R3CITRCvszBrS
-         xISQL/RTu9+pHY+JTfM4qh9FJpnNQbtmVBLBFVOjsZPX6enxCDk0WVOB9VH3DqhkeZsd
-         ldW9fcunA/lkCjsb8glmOr5MVeYGwQh35u6HAdJ+y2lXxLfIYXU6vQJW/jIdRjJOZvRE
-         9ezcpiNZn3xx8L2i19scYeVySaRi9SV418L3SSJqUqBiyYTSoN1651UZdYnbyfXfW0E7
-         ez8g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763981152; x=1764585952;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=UvxeS/74nBAEFSf4nVKv65BSIxiE58qrGcTM82uuMOU=;
-        b=Nk8XeuZsrXwdwRmx0JtoPrIDVBibrJIzZBGGkuF0EA72XeG7bfS7Aw1ow0S61ehLYU
-         IoYswirGwQOd9EIhgbFnnF7Xv/QZgBM+iFXBIsMhMboJsLXO+CkEAdvsyjvvgCf629dc
-         gWC3U85OT0CV2c17GNeiy+KZBmRbDX29qh17e8HLJKKJQgBvGE5EsU9It3F5ZQzBZ4vL
-         LfMeZ2BG3b18WOlzvzTYUZh6jVe8ASX1EOmI0SLwHLdYdu27Rj636lmqPjaEMlOkLb+z
-         ssVjEPCSCIeMlt18pxExzifLlNsFFZItj/PIMTfo4ZbipS91MuoTTMfSNTrUua2QDNTk
-         ohcQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUa7HTwkXqPOKtyFTa74/lzt2hhiKzbW5HamXUXS9mWvqAQW5ogOsFwrma7K+TCIb3wX3T5mFgkvhiCCtNB0j4z@lists.infradead.org
-X-Gm-Message-State: AOJu0YwJXwhLfti62Wrw93ujiY8aYLzcUHH6uSfUGDNu9YE7vhfNr6hG
-	0uNh6q6A0m9bwnfWsiU1w8q9LGE7dYau/4YnfNczT3A3r6jTwDioctor3P5ve8VX
-X-Gm-Gg: ASbGnctyjQZg5+rOeNU8MJxoWQZSy4zUlHjUzQDPfv1PvSng+pt333b9e2ze9JEzh8L
-	NSArUOoptxYAia2qRcmAbEFdgqYmpAHUj84OT2DT8W4lawPyJ0YDh5tHQqJGT4S6nCHfrXtcF2R
-	DbK2Lapsmwb3B1Y868mVseyJX2ndhT9deTKeYMa6Go+2vDK/DEESftRJT8MA/rynwSSA4dl78pu
-	jKdJRj4qOrv/W739g7xScRy0zjwxQNzskFMmC+M6bsAZZjrVOFr/eE9iUlvcZNlJZrwR+PvZyyw
-	rhlGPG2O1L96R3C30r5k+tnSYSKrcWzcgfRbvipUeQMAJLRoaA3pqB784BD7WUaBv0rS6sfl7vt
-	OLbOqLw/ty6vWZ4ajGRmUOzI16NLhF16bgnInkqqn5KYX06W7r8JvaIxCCTig94FjmrQIOxgYRB
-	qSpgrJUOjFN3pTdw==
-X-Google-Smtp-Source: AGHT+IGzb+yApYHtjewkoQzx7FPWIVvgfb9lCElhP6A4EWOQNvayCoMjjLyY5L5QUpilRr8Cj3haxw==
-X-Received: by 2002:a05:6512:104a:b0:595:90ee:f476 with SMTP id 2adb3069b0e04-596a3edab46mr4292946e87.28.1763974136131;
-        Mon, 24 Nov 2025 00:48:56 -0800 (PST)
-Received: from [10.38.18.76] ([213.255.186.37])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5969dbc5c5dsm4019850e87.79.2025.11.24.00.48.55
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 24 Nov 2025 00:48:55 -0800 (PST)
-Message-ID: <6ee209b3-4d7a-45a8-bd65-6a51730d458d@gmail.com>
-Date: Mon, 24 Nov 2025 10:48:54 +0200
+	Mon, 24 Nov 2025 10:57:06 +0000
+Received: from epcas5p4.samsung.com (unknown [182.195.41.42])
+	by mailout3.samsung.com (KnoxPortal) with ESMTP id 20251124105654epoutp03095653085e327b15a2a409e34465d311~67B0nkPgK2369123691epoutp03h
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Nov 2025 10:56:54 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout3.samsung.com 20251124105654epoutp03095653085e327b15a2a409e34465d311~67B0nkPgK2369123691epoutp03h
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1763981814;
+	bh=4pXZKhOe7QyXXq7lgC1cUUIT+gRiFvMsFZpLQRZjmdc=;
+	h=From:To:Cc:Subject:Date:References:From;
+	b=ujIZ7J/prNdobJghBxhXast/2F72toIbeyb0LS2SL2CMJJtqbNESFZBpvq5sDE/zh
+	 Ql6HxrgZiqWOIeKzfzF3enRTuXMv3skjiM8HZjxiF8R0rBIZqORBjYVLXob1CXQ4f2
+	 IOR+n76oVLq4erds8fMBO38W1H8L+7MTdcCgsx68=
+Received: from epsnrtp01.localdomain (unknown [182.195.42.153]) by
+	epcas5p2.samsung.com (KnoxPortal) with ESMTPS id
+	20251124105653epcas5p247b3c199f45453d974c7069a14dc6e6e~67BzwUogi0227802278epcas5p2z;
+	Mon, 24 Nov 2025 10:56:53 +0000 (GMT)
+Received: from epcas5p2.samsung.com (unknown [182.195.38.90]) by
+	epsnrtp01.localdomain (Postfix) with ESMTP id 4dFN78199Gz6B9m9; Mon, 24 Nov
+	2025 10:56:52 +0000 (GMT)
+Received: from epsmtip2.samsung.com (unknown [182.195.34.31]) by
+	epcas5p2.samsung.com (KnoxPortal) with ESMTPA id
+	20251124105651epcas5p20d9987d882d5d3850b599b4b46cf70d5~67ByWtb8_0225902259epcas5p29;
+	Mon, 24 Nov 2025 10:56:51 +0000 (GMT)
+Received: from bose.samsungds.net (unknown [107.108.83.9]) by
+	epsmtip2.samsung.com (KnoxPortal) with ESMTPA id
+	20251124105639epsmtip2c2dcf6edea506c44a38072aeab701fb2~67Bm2VBSQ1716317163epsmtip2s;
+	Mon, 24 Nov 2025 10:56:38 +0000 (GMT)
+From: Pritam Manohar Sutar <pritam.sutar@samsung.com>
+To: vkoul@kernel.org, kishon@kernel.org, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, alim.akhtar@samsung.com,
+	andre.draszik@linaro.org, peter.griffin@linaro.org, kauschluss@disroot.org,
+	johan@kernel.org, ivo.ivanov.ivanov1@gmail.com, m.szyprowski@samsung.com,
+	s.nawrocki@samsung.com, pritam.sutar@samsung.com
+Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org, rosa.pila@samsung.com,
+	dev.tailor@samsung.com, faraz.ata@samsung.com, muhammed.ali@samsung.com,
+	selvarasu.g@samsung.com
+Subject: [PATCH v10 0/6] initial usbdrd phy support for Exynosautov920 soc
+Date: Mon, 24 Nov 2025 16:34:47 +0530
+Message-Id: <20251124110453.2887437-1-pritam.sutar@samsung.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/2] Revert "treewide: Fix probing of devices in DT
- overlays"
-To: Saravana Kannan <saravanak@google.com>,
- Herve Codina <herve.codina@bootlin.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- "Rafael J. Wysocki" <rafael@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>,
- Wolfram Sang <wsa+renesas@sang-engineering.com>,
- Rob Herring <robh@kernel.org>, Mark Brown <broonie@kernel.org>,
- Len Brown <lenb@kernel.org>,
- Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
- Daniel Scally <djrscally@gmail.com>,
- Heikki Krogerus <heikki.krogerus@linux.intel.com>,
- Sakari Ailus <sakari.ailus@linux.intel.com>,
- Geert Uytterhoeven <geert+renesas@glider.be>
-Cc: kernel-team@android.com, Wolfram Sang <wsa@kernel.org>,
- linux-kernel@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-i2c@vger.kernel.org,
- devicetree@vger.kernel.org, linux-spi@vger.kernel.org,
- linux-acpi@vger.kernel.org, Matti Vaittinen <mazziesaccount@gmail.com>
-References: <20240411235623.1260061-1-saravanak@google.com>
- <20240411235623.1260061-2-saravanak@google.com>
-Content-Language: en-US
-From: Kalle Niemi <kaleposti@gmail.com>
-In-Reply-To: <20240411235623.1260061-2-saravanak@google.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-CMS-MailID: 20251124105651epcas5p20d9987d882d5d3850b599b4b46cf70d5
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+CMS-TYPE: 105P
+cpgsPolicy: CPGSC10-542,Y
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20251124105651epcas5p20d9987d882d5d3850b599b4b46cf70d5
+References: <CGME20251124105651epcas5p20d9987d882d5d3850b599b4b46cf70d5@epcas5p2.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251124_024555_221850_970FA52D 
-X-CRM114-Status: GOOD (  22.75  )
+X-CRM114-CacheID: sfid-20251124_025704_494723_BB647F90 
+X-CRM114-Status: GOOD (  18.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,162 +95,159 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 4/12/24 02:56, Saravana Kannan wrote:
-> This reverts commit 1a50d9403fb90cbe4dea0ec9fd0351d2ecbd8924.
-> 
-> While the commit fixed fw_devlink overlay handling for one case, it
-> broke it for another case. So revert it and redo the fix in a separate
-> patch.
-> 
-> Fixes: 1a50d9403fb9 ("treewide: Fix probing of devices in DT overlays")
-> Reported-by: Herve Codina <herve.codina@bootlin.com>
-> Closes: https://lore.kernel.org/lkml/CAMuHMdXEnSD4rRJ-o90x4OprUacN_rJgyo8x6=9F9rZ+-KzjOg@mail.gmail.com/
-> Closes: https://lore.kernel.org/all/20240221095137.616d2aaa@bootlin.com/
-> Closes: https://lore.kernel.org/lkml/20240312151835.29ef62a0@bootlin.com/
-> Signed-off-by: Saravana Kannan <saravanak@google.com>
-> ---
->   drivers/bus/imx-weim.c    | 6 ------
->   drivers/i2c/i2c-core-of.c | 5 -----
->   drivers/of/dynamic.c      | 1 -
->   drivers/of/platform.c     | 5 -----
->   drivers/spi/spi.c         | 5 -----
->   5 files changed, 22 deletions(-)
-> 
-> diff --git a/drivers/bus/imx-weim.c b/drivers/bus/imx-weim.c
-> index 837bf9d51c6e..caaf887e0ccc 100644
-> --- a/drivers/bus/imx-weim.c
-> +++ b/drivers/bus/imx-weim.c
-> @@ -331,12 +331,6 @@ static int of_weim_notify(struct notifier_block *nb, unsigned long action,
->   				 "Failed to setup timing for '%pOF'\n", rd->dn);
->   
->   		if (!of_node_check_flag(rd->dn, OF_POPULATED)) {
-> -			/*
-> -			 * Clear the flag before adding the device so that
-> -			 * fw_devlink doesn't skip adding consumers to this
-> -			 * device.
-> -			 */
-> -			rd->dn->fwnode.flags &= ~FWNODE_FLAG_NOT_DEVICE;
->   			if (!of_platform_device_create(rd->dn, NULL, &pdev->dev)) {
->   				dev_err(&pdev->dev,
->   					"Failed to create child device '%pOF'\n",
-> diff --git a/drivers/i2c/i2c-core-of.c b/drivers/i2c/i2c-core-of.c
-> index a6c407d36800..a250921bbce0 100644
-> --- a/drivers/i2c/i2c-core-of.c
-> +++ b/drivers/i2c/i2c-core-of.c
-> @@ -178,11 +178,6 @@ static int of_i2c_notify(struct notifier_block *nb, unsigned long action,
->   			return NOTIFY_OK;
->   		}
->   
-> -		/*
-> -		 * Clear the flag before adding the device so that fw_devlink
-> -		 * doesn't skip adding consumers to this device.
-> -		 */
-> -		rd->dn->fwnode.flags &= ~FWNODE_FLAG_NOT_DEVICE;
->   		client = of_i2c_register_device(adap, rd->dn);
->   		if (IS_ERR(client)) {
->   			dev_err(&adap->dev, "failed to create client for '%pOF'\n",
-> diff --git a/drivers/of/dynamic.c b/drivers/of/dynamic.c
-> index 4d57a4e34105..19a1a38554f2 100644
-> --- a/drivers/of/dynamic.c
-> +++ b/drivers/of/dynamic.c
-> @@ -224,7 +224,6 @@ static void __of_attach_node(struct device_node *np)
->   	np->sibling = np->parent->child;
->   	np->parent->child = np;
->   	of_node_clear_flag(np, OF_DETACHED);
-> -	np->fwnode.flags |= FWNODE_FLAG_NOT_DEVICE;
->   
->   	raw_spin_unlock_irqrestore(&devtree_lock, flags);
->   
-> diff --git a/drivers/of/platform.c b/drivers/of/platform.c
-> index 389d4ea6bfc1..efd861fa254f 100644
-> --- a/drivers/of/platform.c
-> +++ b/drivers/of/platform.c
-> @@ -743,11 +743,6 @@ static int of_platform_notify(struct notifier_block *nb,
->   		if (of_node_check_flag(rd->dn, OF_POPULATED))
->   			return NOTIFY_OK;
->   
-> -		/*
-> -		 * Clear the flag before adding the device so that fw_devlink
-> -		 * doesn't skip adding consumers to this device.
-> -		 */
-> -		rd->dn->fwnode.flags &= ~FWNODE_FLAG_NOT_DEVICE;
->   		/* pdev_parent may be NULL when no bus platform device */
->   		pdev_parent = of_find_device_by_node(rd->dn->parent);
->   		pdev = of_platform_device_create(rd->dn, NULL,
-> diff --git a/drivers/spi/spi.c b/drivers/spi/spi.c
-> index ff75838c1b5d..17cd417f7681 100644
-> --- a/drivers/spi/spi.c
-> +++ b/drivers/spi/spi.c
-> @@ -4761,11 +4761,6 @@ static int of_spi_notify(struct notifier_block *nb, unsigned long action,
->   			return NOTIFY_OK;
->   		}
->   
-> -		/*
-> -		 * Clear the flag before adding the device so that fw_devlink
-> -		 * doesn't skip adding consumers to this device.
-> -		 */
-> -		rd->dn->fwnode.flags &= ~FWNODE_FLAG_NOT_DEVICE;
->   		spi = of_register_spi_device(ctlr, rd->dn);
->   		put_device(&ctlr->dev);
->   
-Hello,
+This SoC has a single USB 3.1 DRD combo phy and three USB2.0 only
+DRD phy controllers as mentined below
 
-Test system testing drivers for ROHM ICs bisected this commit to cause 
-BD71847 drivers probe to not be called.
-
-The devicetree blob overlay describing bd71847 enables I2C1 bus on 
-BeagleBone Black aswell.
-
-Probe is called when the driver is used with HW connected to I2C2 bus. 
-I2C2 bus is enabled before overlaying devicetree blobs.
+  * Combo phy supports USB3.1 SSP+(10Gbps) protocol and is backwards
+    compatible to the USB3.0 SS(5Gbps). 'Add-on USB2.0' phy is added
+    to support USB2.0 HS(480Mbps), FS(12Mbps) and LS(1.5Mbps) data rates.
+    These two phys are combined to form a combo phy as mentioned below.
 
 
----- BD71847 Devicetree overlay source ----
+   USB30DRD_0 port
 
-/dts-v1/;
-/plugin/;
+ +------------------------------------------------------------+
+ |                                                            |
+ |                (combo) USB phy controller                  |
+ |      +----------------------------------------------+      |
+ |      |                  USB HSPHY                   |      |
+ |      |  (samsung,exynosautov920-usbdrd-combo-hsphy) |      |
+ |      +----------------------------------------------+      |
+ |                                                            |
+ |    +--------------------------------------------------+    |
+ |    |                   USB SSPHY                      |    |
+ |    |   (samsung,exynosautov920-usb31drd-combo-ssphy)  |    |
+ |    +--------------------------------------------------+-   |
+ |                                                            |
+ +------------------------------------------------------------+
+ |                                                            |
+ |                     USBDRD30 Link                          |
+ |                       Controller                           |
+ +------------------------------------------------------------+
 
-/{ /* this is our device tree overlay root node */
+  * USB2.0 phy supports only UTMI+ interface. USB2.0DRD phy
+    is very similar to the existing Exynos850 support in this driver.
 
-	compatible = "ti,beaglebone", "ti,beaglebone-black";
-	part-number = "BBB-I2C1";
-  	version = "00A0";
+    USB20DRD_0/1/2 ports
 
-	fragment@0 {
-		target = <&am33xx_pinmux>; // this is a link to an already defined 
-node in the device tree, so that node is overlayed with our modification
+      +---------------------------------------------------+
+      |                                                   |
+      |                USB PHY controller                 |
+      |    +-----------------------------------------+    |
+      |    |              USB HSPHY                  |    |
+      |    |  (samsung,exynosautov920-usbdrd-phy)    |    |
+      |    +-----------------------------------------+    |
+      |                                                   |
+      +---------------------------------------------------+
+      |                                                   |
+      |             USBDRD20_* Link                       |
+      |                Controller                         |
+      |                                                   |
+      +---------------------------------------------------+
 
-		__overlay__ {
-			i2c1_pins: pinmux_i2c1_pins {
-				pinctrl-single,pins = <
-           			0x158 0x72 /* spi0_d1.i2c1_sda */
-           			0x15C 0x72 /* spi0_cs0.i2c1_sdl */
-         			>;
-			};
-		};
-	};
-....
-....
+The "USB20 phy output isolation" is shared across the USB20 phys.
+We have to bypass isolation when any one of the USBs is configured
+and enable it when all are turned off. The "USB31 phy isolation"
+is seperate for USB31 phy.
 
-	fragment@2 {
-		target = <&i2c1>;
+This patchset only supports device mode and same is verified with
+as NCM device
 
-		__overlay__ {
-			pinctrl-0 = <&i2c1_pins>;
-			clock-frequency = <100000>;
-			status = "okay";
+changelog
+----------
+Changes in v10:
+- Added the RB tag that was given in v9 [1].
+- Fixed typo in commit message.
+- Added discription in commit message for ss phy patch.
+[1]: https://lore.kernel.org/linux-phy/d99d7b54-88af-4649-84c2-02027b4d9655@kernel.org/
 
-			pmic: pmic@4b { /* the "test" defined as child of the i2c1 bus */
-				compatible = "rohm,bd71847";
-				reg = <0x4b>;
-				....
-				....
-}; /* root node end */
+Changes in v9:
+- added RB tags those were given in v7 [1] and v8.
+- updated commit message in patch no.1 by adding supplies'
+  names those are taken from phy User Manual [2]
+  link for v8: https://lore.kernel.org/linux-phy/20250903073827.3015662-1-pritam.sutar@samsung.com/
+[1]: https://lore.kernel.org/linux-phy/20250824-mustang-of-glorious-sufficiency-b55bf4@kuoka/
+[2]: https://lore.kernel.org/linux-phy/02ef5180-ad56-45f0-a56f-87f442bf6793@kernel.org/
 
----- END OF BD71847 Devicetree overlay source ----
+Changes in v8:
+- modified supplies' names in schema and driver.
+- Since supplies' names are changed, modified patch no 5. to
+  fix warnings in dtbs_check dt_binding_check.
+- updated commit message for patch no. 1, 3 and 5 to describe
+  hardware details.
+  link for v7: https://lore.kernel.org/linux-phy/20250822093845.1179395-1-pritam.sutar@samsung.com/
 
-Reverting this patch from linux-next from last friday fixes the issue.
+Changes in v7:
+- added fixes for driver build warnings
+  link for v6: https://lore.kernel.org/linux-phy/20250821073703.2498302-1-pritam.sutar@samsung.com/
 
-BR
-Kalle Niemi
+Changes in v6:
+- added else part for new supplies in schemas those are only
+  supported for exynosautov920.
+- addressed comments for driver given in v5.
+  link for v5: https://lore.kernel.org/linux-phy/20250805115216.3798121-1-pritam.sutar@samsung.com/
+
+Changes in v5:
+
+- addressed comments from v4 patchset.
+  - patch (1/6)
+    - DTS style is corrected and added required supplies in code/schema.
+    - schema block added to resolve below failure during 'dtbs_check'.
+      Unevaluated properties are not allowed ('dvdd075-usb-supply', 'vdd18-usb20-supply', 'vdd33-usb20-supply' were unexpected.
+  - patch (2/6)
+    - removed usage_counter(take this later in subsequent patch-sets)
+  - patch (3/6)
+    - There are 3 types of the phys in this SoC.
+      - one is simmilar with exynos850 as mentioned in patch no.1.
+      - second supports only USB3.1 SSP+ and denoted in patch no 5
+      - third supports only USB2.0 HS as in patch3.
+    - hs phy in combo phy is "NOT" same as phy. (in patch no. 1)
+    - These three phys(usbdrd-phy, combo-hsphy, combo-ssphy) are totally
+      deferent, "NOT" same, hence added three compatible for three phys.
+  - patch (5/6)
+    - Since there are two phys in combo phy, explaination is given
+      in each patch.
+  link for v4: https://lore.kernel.org/linux-phy/20250701120706.2219355-1-pritam.sutar@samsung.com/
+
+Changes in v4:
+- addressed comments from v3 patchset
+  - removed dts related patches, to be posted in new patchset.
+  - added regulator, pmu and power sequences.
+  - phy isol is shared across USBs, added usage counter to bypass or
+    enable phy isolation.
+  - modified schemas with hs and combo phy compatible names
+    (used "combo" to denote combo phy) and regulators
+- modified code to work with binding and unbinding devices/drivers
+- added "Reviewed-by" tag.
+  link for v3: https://lore.kernel.org/linux-phy/20250613055613.866909-1-pritam.sutar@samsung.com/
+
+Changes in v3:
+- Updated dt-bindings for USB2.0 only.
+- Added dt-bindings for combo phy.
+- Added implementation for combo phy (SS and HS phy).
+- Added added DTS nodes for all the phys
+  link for v2: https://lore.kernel.org/linux-phy/20250516102650.2144487-1-pritam.sutar@samsung.com/
+
+Changes in v2:
+- Used standard GENMASK() and FIELD_GET() to get the major version
+  from controller version register.
+  link for v1: https://lore.kernel.org/linux-phy/20250514134813.380807-1-pritam.sutar@samsung.com/
+
+Pritam Manohar Sutar (6):
+  dt-bindings: phy: samsung,usb3-drd-phy: add ExynosAutov920 HS phy
+    compatible
+  phy: exynos5-usbdrd: support HS phy for ExynosAutov920
+  dt-bindings: phy: samsung,usb3-drd-phy: add ExynosAutov920 combo hsphy
+  phy: exynos5-usbdrd: support HS combo phy for ExynosAutov920
+  dt-bindings: phy: samsung,usb3-drd-phy: add ExynosAutov920 combo ssphy
+  phy: exynos5-usbdrd: support SS combo phy for ExynosAutov920
+
+ .../bindings/phy/samsung,usb3-drd-phy.yaml    |  48 ++
+ drivers/phy/samsung/phy-exynos5-usbdrd.c      | 651 ++++++++++++++++++
+ include/linux/soc/samsung/exynos-regs-pmu.h   |   3 +
+ 3 files changed, 702 insertions(+)
+
+-- 
+2.34.1
+
 
