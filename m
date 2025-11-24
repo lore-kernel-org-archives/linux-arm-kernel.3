@@ -4,71 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0807CFD2F6
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Nov 2025 23:58:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDFB0CFD313
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 00:12:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=S/F0c3gziMLCWpgc5UFC6sXPni/60CTjzPwZOJJZUoU=; b=lPd8vy1b7KRdskzoiiHGC9mNfP
-	h+SViGaPJg/xKvGqAH+o+JfcNqeKl4FHg18D9V6FuJZ6A4gQXxiflyKQPrjWtehio7bm9VDgUnMcd
-	9nytqR0uRxb8Jz1+ItOG8Q1VpGpWs+JB87YJPjPPh4bgRH+4Inkorgb4MOyxniqP2zrCyV2jUvkU+
-	rBmsLOrhPljjLQ9N3ugnmuNAv7a+izShn51FU7gbnnXYk8erF+8aBcyR+yI6QoeYZpEuA1qUUs+r0
-	8APJZwZlLbEvBMYmlsFWj0MrvgYDIU8XtkwkWi6l+6mTly50zut1mfVGR4eL8gi/pPJORbbfVbrsR
-	HrFKYtYw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ohnzunvjhvNnTppiVCgBsgUR2en+eAVCVa28UhIykNY=; b=Gxe0W/CymzwZXCn/B7pIGjqF9J
+	2TzUomNtLY9ahmEi1FAe+XpYu5oGDFCymo0l5aJeVSDsKvdKFwxCzzPiQsXWPw+rdocLacTADgqnR
+	bo4JyGEo4nIwINlEuoUVRF7ek2+5623/veO3pvYj0Wp8cKY5Jl6kZkmlYXQQC8xcLv1yjt5hMuJsx
+	+As00F2ew6RRON65soOeThy+/rRbBPzrkEhFlahjU++0i+WmHBvgfvaRF9cOpKaBQOiBlc4C02r05
+	Jam4FGq6E21qtqCrih3/wjAE+I99ebBE+YOsoFU1Qddmj9c6H63p830fT2cTPYLxTsr1l3R+Minsv
+	0NVo/BZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNJyW-0000000AoPc-325m;
-	Sun, 23 Nov 2025 23:58:36 +0000
-Received: from mgamail.intel.com ([198.175.65.19])
+	id 1vNKCD-0000000ApCF-19km;
+	Mon, 24 Nov 2025 00:12:45 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNJyT-0000000AoPC-3SnP
+	id 1vNKCB-0000000ApBR-0a5m
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 23 Nov 2025 23:58:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1763942314; x=1795478314;
-  h=date:from:to:cc:subject:message-id;
-  bh=jsEVAjHmKSy9W7ozoVdUeCHGN07TEqPjB+VopgtXhao=;
-  b=IeplTHH6P5MaQ4/YC60N0EINsOZH9yk6U5MTFhJmOpUC8mI8SYqAV7J+
-   Y6W915QYCCn+Hv88OAMrJ9qjcLWZaHv12NAMyuBvXfGMa2uCyZmJ6ksIK
-   TYGTsLAb1RGgLuJCBVzq2fCzmgT3QqpKzpPAfOSYBIm6iV4M3x3Oylf6E
-   Ibg0V+ykxKXWgtJv4RPtSN+gCpmfVNSH/PkoqmHps6ZhTfdJn98PGSczw
-   b9FI3ssr5ohMMXYBOTLeiFp7MwVXMBo8m/WuUg2N7qnHsx5DXq4wbjL8v
-   y40ZKQn4coG4A7u/g+h/37mSsKdXTB+PDM17fHwrnJamk324I07aDHkXy
-   g==;
-X-CSE-ConnectionGUID: weUNwHtTSRGWVXKYA+cUXA==
-X-CSE-MsgGUID: g734pfbeSTijQ0Ca89XJNA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11622"; a="65823569"
-X-IronPort-AV: E=Sophos;i="6.20,221,1758610800"; 
-   d="scan'208";a="65823569"
-Received: from fmviesa002.fm.intel.com ([10.60.135.142])
-  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2025 15:58:33 -0800
-X-CSE-ConnectionGUID: L+sk34dJRyCXMLbITsE75A==
-X-CSE-MsgGUID: mL9qoD71RvGWTultK+KqYA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.20,221,1758610800"; 
-   d="scan'208";a="215539013"
-Received: from lkp-server01.sh.intel.com (HELO 4664bbef4914) ([10.239.97.150])
-  by fmviesa002.fm.intel.com with ESMTP; 23 Nov 2025 15:58:31 -0800
-Received: from kbuild by 4664bbef4914 with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1vNJyO-000000000F2-47wd;
-	Sun, 23 Nov 2025 23:58:28 +0000
-Date: Mon, 24 Nov 2025 07:58:12 +0800
-From: kernel test robot <lkp@intel.com>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
-Subject: [soc:for-next] BUILD SUCCESS
- 9cb0ebd6fef266182e62dadbf9e6e964c95fb5e0
-Message-ID: <202511240706.vihZWeIv-lkp@intel.com>
-User-Agent: s-nail v14.9.25
+	Mon, 24 Nov 2025 00:12:44 +0000
+Received: from pendragon.ideasonboard.com (unknown [210.170.118.136])
+	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 8C7B529A;
+	Mon, 24 Nov 2025 01:10:31 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1763943032;
+	bh=vJG0Qwix1POvTb+AAFX2RrWo0EkB/Z4JteoPIsJvwak=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=hlx0NMTRjzGRyawi2kfkQgIDGesb8d1mI6aGmAWZuzqd4MDMft+ZXjZeJ6DA3TC9j
+	 vdarSP2wQTHIgbBkoX2QOcQde5kLvY2gclcnWQbo0eGjpSi9XizdDG+rFAZprmuVKh
+	 dkzv5wW/f5UeFIE89hMxqmuDlftmor1LozbSZgK8=
+Date: Mon, 24 Nov 2025 09:12:14 +0900
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
+Cc: Wei Fang <wei.fang@nxp.com>, Clark Wang <xiaoning.wang@nxp.com>,
+	Oleksij Rempel <o.rempel@pengutronix.de>,
+	Emanuele Ghidoli <ghidoliemanuele@gmail.com>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	Daniel Scally <dan.scally@ideasonboard.com>,
+	Kieran Bingham <kieran.bingham@ideasonboard.com>,
+	Stefan Klug <stefan.klug@ideasonboard.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Fabio Estevam <festevam@gmail.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>
+Subject: Re: [PATCH] arm64: dts: imx8mp-debix-model-a: Disable EEE for 1000T
+Message-ID: <20251124001214.GI15447@pendragon.ideasonboard.com>
+References: <20251113010627.GC9135@pendragon.ideasonboard.com>
+ <aRW6CxvmIEqkMrfA@shell.armlinux.org.uk>
+ <20251114222654.GI30434@pendragon.ideasonboard.com>
+ <PAXPR04MB8510E17B2B8C612DD02175CE88D6A@PAXPR04MB8510.eurprd04.prod.outlook.com>
+ <20251122072246.GA16239@pendragon.ideasonboard.com>
+ <aSGJHV9Sga2kBIBX@shell.armlinux.org.uk>
+ <20251123053802.GA25329@pendragon.ideasonboard.com>
+ <aSLLMMNkHnfwyO0y@shell.armlinux.org.uk>
+ <20251123152356.GF15447@pendragon.ideasonboard.com>
+ <aSNAP9G4cwRKvxng@shell.armlinux.org.uk>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <aSNAP9G4cwRKvxng@shell.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251123_155833_954678_FD35BF01 
-X-CRM114-Status: UNSURE (   5.25  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251123_161243_325458_368A4F85 
+X-CRM114-Status: GOOD (  56.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,86 +89,139 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git for-next
-branch HEAD: 9cb0ebd6fef266182e62dadbf9e6e964c95fb5e0  Merge branch 'soc/dt' into for-next
+On Sun, Nov 23, 2025 at 05:11:27PM +0000, Russell King (Oracle) wrote:
+> On Mon, Nov 24, 2025 at 12:23:56AM +0900, Laurent Pinchart wrote:
+> > On Sun, Nov 23, 2025 at 08:52:00AM +0000, Russell King (Oracle) wrote:
+> > > On Sun, Nov 23, 2025 at 02:38:02PM +0900, Laurent Pinchart wrote:
+> > > > On Sat, Nov 22, 2025 at 09:57:49AM +0000, Russell King (Oracle) wrote:
+> > > > > On Sat, Nov 22, 2025 at 04:22:46PM +0900, Laurent Pinchart wrote:
+> > > > > > Hello Wei,
+> > > > > > 
+> > > > > > On Tue, Nov 18, 2025 at 01:50:55AM +0000, Wei Fang wrote:
+> > > > > > > Sorry, I only have a little experience with DWMac, add Clark to help look
+> > > > > > > at this issue.
+> > > > > > 
+> > > > > > Thank you.
+> > > > > > 
+> > > > > > I think we're getting close to having a good understanding of the
+> > > > > > problem. I've debugged it as far as I could based on the information
+> > > > > > available publicly. Let's try to get to the bottom of this issue, it
+> > > > > > impacts quite a lot of people and it would be very nice to fix it
+> > > > > > properly in mainline.
+> > > > > > 
+> > > > > > The short summary is that I'm experiencing an interrupt storm on IRQ 135
+> > > > > > when EEE is enabled with the EQOS interface.
+> > > > > > 
+> > > > > > My current theory is that
+> > > > > > 
+> > > > > > - The lpi_intr_o signal of the EQOS is OR'ed into IRQ 135.
+> > > > > > - The issue is triggerted by the PHY exiting LPI mode
+> > > > > > - When it exits LPI mode, the PHY restarts generating the RX clock
+> > > > > >   (clk_rx_i).
+> > > > > > - The MAC detects exit from LPI, and asserts lpi_intr_o.
+> > > > > > - Before the CPU has time to process the interrupt, the PHY enters LPI
+> > > > > >   mode again, and stops generating the RX clock.
+> > > > > > - The CPU processes the interrupt and reads the GMAC4_LPI_CTRL_STATUS
+> > > > > >   registers. This does not clear lpi_intr_o as there's no clk_rx_i.
+> > > > > 
+> > > > > Please try setting STMMAC_FLAG_RX_CLK_RUNS_IN_LPI in dwmac-imx.c and
+> > > > > see whether that changes the behaviour.
+> > > > 
+> > > > I have tested that and it worked like a charm ! I have submitted
+> > > > https://lore.kernel.org/r/20251123053518.8478-1-laurent.pinchart@ideasonboard.com
+> > > > 
+> > > > That was quite an adventure. Thank you so much for all your support, I'm
+> > > > not sure I would have managed without you (or at least I would have
+> > > > needed way more time). I really really appreciate it.
+> > > > 
+> > > > If the above patch gets accepted, we will probably be able to remove the
+> > > > eee-broken-* properties from the i.MX8MP device tree files (and possibly
+> > > > from i.MX8DXL and i.MX93 as well). I have mentioned that below the
+> > > > commit message of the patch, with a test procedure as it should be
+> > > > tested on each board.
+> > > 
+> > > As stated in reply to that patch, while this may reduce the severity of
+> > > the storm, I don't think it'll completely eliminate it.
+> > > 
+> > > I made the suggestion to set the flag as a test to confirm whether the
+> > > lpi_intr_o is indeed the problem by ensuring that the receive domain is
+> > > always clocked, and thus ensuring that the signal clears within four
+> > > clock cycles, rather than an indefinite period should the remote end
+> > > re-enter LPI mode quicky.
+> > 
+> > You're right. I've checked replied to the patch with the following
+> > numbers.
+> > 
+> > 100TX link, eee-broken-* set: 7000 interrupts
+> > 1000T link, eee-broken-* set: 2711 interrupts
+> > 100TX link, eee-broken-* unset: 9450 interrupts
+> > 1000T link, eee-broken-* unset: 6066 interrupts
+> 
+> Sadly, I think this means for iMX8MP, the correct answer is to disable
+> EEE completely. What I was thinking when I brought this up is as follows
+> and dwmac-imx.c can set STMMAC_FLAG_EEE_DISABLE for iMX8MP to prevent
+> the use of EEE.
 
-elapsed time: 2980m
+I suppose there's no way to disable EEE in the RX path while keeping it
+enabled in the TX path ?
 
-configs tested: 66
-configs skipped: 0
+> This works because, in phylink, pl->mac_supports_eee_ops will be set
+> since stmmac implements the two LPI operations. pl->mac_supports_eee
+> will be clear because pl->config->lpi_capabilities will be zero, and
+> pl->config->lpi_interfaces will be empty. This causes phylink to call
+> phy_disable_eee() on all PHYs that end up being attached to this
+> phylink instance, which should result in the PHY EEE advertisement
+> being cleared.
+> 
+> I'll package this up into a proper patch tomorrow.
 
-The following configs have been built successfully.
-More configs may be tested in the coming days.
+Thank you. I can respin my patch on top.
 
-tested configs:
-alpha                   allnoconfig    gcc-15.1.0
-arc                     allnoconfig    gcc-15.1.0
-arc         randconfig-001-20251122    gcc-14.3.0
-arc         randconfig-002-20251122    gcc-9.5.0
-arm                     allnoconfig    clang-22
-arm         randconfig-001-20251122    clang-22
-arm         randconfig-002-20251122    clang-22
-arm         randconfig-003-20251122    clang-22
-arm         randconfig-004-20251122    gcc-12.5.0
-arm64                   allnoconfig    gcc-15.1.0
-arm64       randconfig-001-20251123    gcc-8.5.0
-arm64       randconfig-002-20251123    gcc-11.5.0
-arm64       randconfig-003-20251123    clang-22
-arm64       randconfig-004-20251123    clang-22
-csky                    allnoconfig    gcc-15.1.0
-csky        randconfig-001-20251123    gcc-15.1.0
-csky        randconfig-002-20251123    gcc-15.1.0
-hexagon                 allnoconfig    clang-22
-hexagon     randconfig-001-20251122    clang-22
-hexagon     randconfig-002-20251122    clang-17
-i386                    allnoconfig    gcc-14
-loongarch               allnoconfig    clang-22
-loongarch   randconfig-001-20251122    gcc-12.5.0
-loongarch   randconfig-002-20251122    gcc-14.3.0
-m68k                    allnoconfig    gcc-15.1.0
-microblaze              allnoconfig    gcc-15.1.0
-mips                    allnoconfig    gcc-15.1.0
-nios2                   allnoconfig    gcc-11.5.0
-nios2       randconfig-001-20251122    gcc-11.5.0
-nios2       randconfig-002-20251122    gcc-8.5.0
-openrisc                allnoconfig    gcc-15.1.0
-parisc                  allnoconfig    gcc-15.1.0
-parisc      randconfig-001-20251123    gcc-14.3.0
-parisc      randconfig-002-20251123    gcc-14.3.0
-powerpc                 allnoconfig    gcc-15.1.0
-powerpc     randconfig-001-20251123    clang-22
-powerpc     randconfig-002-20251123    gcc-8.5.0
-powerpc64   randconfig-001-20251123    clang-22
-powerpc64   randconfig-002-20251123    clang-22
-riscv                   allnoconfig    gcc-15.1.0
-riscv       randconfig-001-20251123    clang-20
-riscv       randconfig-002-20251123    gcc-8.5.0
-s390                    allnoconfig    clang-22
-s390        randconfig-001-20251123    gcc-8.5.0
-s390        randconfig-002-20251123    clang-22
-sh                      allnoconfig    gcc-15.1.0
-sh                        defconfig    gcc-15.1.0
-sh          randconfig-001-20251123    gcc-12.5.0
-sh          randconfig-002-20251123    gcc-14.3.0
-sparc                   allnoconfig    gcc-15.1.0
-sparc       randconfig-001-20251123    gcc-8.5.0
-sparc       randconfig-002-20251123    gcc-15.1.0
-sparc64                   defconfig    clang-20
-sparc64     randconfig-001-20251123    clang-22
-sparc64     randconfig-002-20251123    clang-22
-um                      allnoconfig    clang-22
-um                        defconfig    clang-22
-um                   i386_defconfig    gcc-14
-um          randconfig-001-20251123    gcc-14
-um          randconfig-002-20251123    gcc-14
-um                 x86_64_defconfig    clang-22
-x86_64                  allnoconfig    clang-20
-x86_64                    defconfig    gcc-14
-xtensa                  allnoconfig    gcc-15.1.0
-xtensa      randconfig-001-20251123    gcc-14.3.0
-xtensa      randconfig-002-20251123    gcc-10.5.0
+>  drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 7 ++++++-
+>  include/linux/stmmac.h                            | 9 +++++----
+>  2 files changed, 11 insertions(+), 5 deletions(-)
+> 
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> index 1d37c2b5ad46..113cae2bc593 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> @@ -1376,7 +1376,12 @@ static int stmmac_phylink_setup(struct stmmac_priv *priv)
+>  				 config->supported_interfaces,
+>  				 pcs->supported_interfaces);
+>  
+> -	if (priv->dma_cap.eee) {
+> +	/* Some platforms, e.g. iMX8MP, wire lpi_intr_o to the same interrupt
+> +	 * used for stmmac's main interrupts, which leads to interrupt storms.
+> +	 * STMMAC_FLAG_EEE_DISABLE allows EEE to be disabled on such platforms.
+> +	 */
+> +	if (priv->dma_cap.eee &&
+> +	    !(priv->plat->flags & STMMAC_FLAG_EEE_DISABLE)) {
+>  		/* Assume all supported interfaces also support LPI */
+>  		memcpy(config->lpi_interfaces, config->supported_interfaces,
+>  		       sizeof(config->lpi_interfaces));
+> diff --git a/include/linux/stmmac.h b/include/linux/stmmac.h
+> index 8ae068706b63..4c770262a2f8 100644
+> --- a/include/linux/stmmac.h
+> +++ b/include/linux/stmmac.h
+> @@ -187,10 +187,11 @@ enum dwmac_core_type {
+>  #define STMMAC_FLAG_MULTI_MSI_EN		BIT(7)
+>  #define STMMAC_FLAG_EXT_SNAPSHOT_EN		BIT(8)
+>  #define STMMAC_FLAG_INT_SNAPSHOT_EN		BIT(9)
+> -#define STMMAC_FLAG_RX_CLK_RUNS_IN_LPI		BIT(10)
+> -#define STMMAC_FLAG_EN_TX_LPI_CLOCKGATING	BIT(11)
+> -#define STMMAC_FLAG_EN_TX_LPI_CLK_PHY_CAP	BIT(12)
+> -#define STMMAC_FLAG_HWTSTAMP_CORRECT_LATENCY	BIT(13)
+> +#define STMMAC_FLAG_EEE_DISABLE			BIT(10)
+> +#define STMMAC_FLAG_RX_CLK_RUNS_IN_LPI		BIT(11)
+> +#define STMMAC_FLAG_EN_TX_LPI_CLOCKGATING	BIT(12)
+> +#define STMMAC_FLAG_EN_TX_LPI_CLK_PHY_CAP	BIT(13)
+> +#define STMMAC_FLAG_HWTSTAMP_CORRECT_LATENCY	BIT(14)
+>  
+>  struct mac_device_info;
+>  
 
---
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+-- 
+Regards,
+
+Laurent Pinchart
 
