@@ -4,88 +4,153 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D83CCFD313
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 15:27:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DA13CFD313
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 15:28:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hPXbuoT8gLmsTcz1LKML8KzSKiAMgBQ+ViKr9I+j9RY=; b=XXtzR0eul/jy5/RIBZr+YcVYb7
-	rFTtDiiDMTSuliYxz8h9Fse/2KcdbrN3BM21WJmVY+Ma96+UKjQN3jCtHj01+GF4sUBul9MyWPZUR
-	h/+pNo8dtP7YzbD7CRZpZbZjDqCWfy7wRUtM1Z+8b176DBAtp40fUNXzVj8F9eJ8eb97v2qHDJwp+
-	/DvrudNzNRTfaRrh5YU5XU4huiDn8GMdMNILEV+S/MVNZk9cc3qU6LUXCDE19Wrvx94bzE5icXUUn
-	ZN9Z8Z3fa/880oA0gsvUpspNPIjM8LYUab4qqMXR/3a7Im9TeRYiz0NwK/Hwhy9vJb3lN2RbfOGWG
-	sPmGOvIA==;
+	bh=8okQT4j/nUrcE4w8ta/1ombqUkljeXvIinqVSug4ckE=; b=oxrKHDiA9+alN9n4//mUEOwTsm
+	WAneUqBUFtZurgbH0n7J2OlMvPR6iTVBMxis5LI0SSGcRx7oyyQsi6IP7RwXT+smAS/5WM1Czr6of
+	erL9F2yUJUuW5H6sSDFiLiUhbfLHhUf4w9QbvfwAsY56IF0hzJx/hiEIj+kSFL/8j4iJlNAjhjxKi
+	2l5qkndLalDv3wr5CQKNZzg0x3SBAetNsXJc1EtP7yt0OaFxNUkPCHjEcAanWuuS9BOreQznxpAi6
+	6ngwpKPzJI9a4MARtGQ5q3GE2CIxzE494DadV1vHW1rJumPSunBIigqAsMUvgHTV3uiw/aeIAOj2x
+	42lDKDTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNYTW-0000000Bv7K-2YmA;
-	Mon, 24 Nov 2025 15:27:34 +0000
-Received: from mail-ed1-x52c.google.com ([2a00:1450:4864:20::52c])
+	id 1vNYUQ-0000000BvGj-2VIx;
+	Mon, 24 Nov 2025 15:28:30 +0000
+Received: from mail-swedencentralazon11013021.outbound.protection.outlook.com ([52.101.83.21] helo=GVXPR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNYTT-0000000Bv6l-2rEj
+	id 1vNYUM-0000000BvFC-1U5y
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Nov 2025 15:27:33 +0000
-Received: by mail-ed1-x52c.google.com with SMTP id 4fb4d7f45d1cf-640a0812658so7160031a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Nov 2025 07:27:30 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1763998049; x=1764602849; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=hPXbuoT8gLmsTcz1LKML8KzSKiAMgBQ+ViKr9I+j9RY=;
-        b=VxOvoFa/U7GEnBQcNXiKRfP+iz6qEc3/fc4jbEAlxcq8cC8mGrMZcLcbInxX14vIqC
-         fHKEqh//q6XTENtuBVwmz0Y7NUhMNvnjry6xA0bX+ECJExuC8+10t4X8I5q4ajulS4M1
-         DGBNrUffLGYP1ix7jMmPnsXCwJspH/ITdfda8Ub5O7nyp71xq+u3H4kE3ZA+hdfd23fY
-         /32+rIUu7mlwAjhj0Qt8uRJpHMlPkolQFpwhVCeEe+0zwdjqXXpl5oGKw5fY3Ia/jFAd
-         DTXrsE/gnRBgcH6SjOjb7dshWjJTYcvUHj+xIXl7WjU2Vw3r5n1fgxaGVptK0q2fcLR2
-         uyZg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763998049; x=1764602849;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=hPXbuoT8gLmsTcz1LKML8KzSKiAMgBQ+ViKr9I+j9RY=;
-        b=nMIPRK2ZN+MKKsmX7b3AiozC2lRK/DQOJb7+eqS1rxBZLyo1q7RUA6Dpac+ndAyV3A
-         c7fAXTKpL3gbgbUQWsgAccG+zyPUQTBAT5qL470n/5LMuWfIhdoUQUPJuo68S389LI0S
-         c0wJs1EAB/jt9O1NheUJyEXcOecb/IIQiCnIPAM9rGHgj8gjIpJbMlFR0pwOqjlsX/tJ
-         zCahFF/Ca4JRcx4zm8oIfOQ4Sj2gUUT5M99ih54czM+/qZ3Wkro/nZmy1QQmdLES7Zxy
-         wpR+cyXs3UImqhcapEUG/Rk+UDkMZotvBeBQUMxokwEsUQenUt73Kih59kYs5Yp7UR2Y
-         QJ/Q==
-X-Forwarded-Encrypted: i=1; AJvYcCU/hnfEyAtqa9jBM2dRpzFK/B63Z6iX1YNAANR2i68inM8wnCJYp9zymfLR4AMteZ2MFb1HG1UmLrlhnZs5jc0d@lists.infradead.org
-X-Gm-Message-State: AOJu0YzU7wP1wqE3OO4pEQ3uF113ZFyWGG9PQJ1hTbw3PIedHtfIqlxA
-	SoNq901+UOMVUisYr4jmmHVX3nSz21iiRDjas4HPaVgUssIiCmwNwe+8hehw3j17fHPfU1Jogi5
-	gWWDHinGyljShldBzW9uVQCxopW+0S+R1aHhsI7tMzQ==
-X-Gm-Gg: ASbGnctQ9IjQW7B6o7jWd1Env6ELSkW0iyk6Aepv2owyRoDqlLcVDHAuKOID3NYedWS
-	UBoJ41o59WpGD/l7L9juY58PqEspsGAYAN7LjrFOZes5h+xTfPIfkoB3596fpcIqxD88mT85Ulv
-	HlfN24d+b056X4csG+pEcbcN0qj/B5FXARXJK0yWhsw/7mZMtvXVGfzR2aRLs3M90reYL8X2O6Z
-	HKs2xcfDWs44Lf+/1cB3Hq3t+xTVGTMbxeUgZFawJLo288ygias8SsEVcsu/H8wFv5JRhRoaQka
-	O/IURjC2qmwL6NXLV4BufiTnOuwJ0DbAvh/c2M7t
-X-Google-Smtp-Source: AGHT+IF8QEkzWvf4ABwZ5746O2obgVPWntwD+fd5/y1Lc5h5RDwaFcxXgvVKNe3CbF15J7X0KGPpVRchdEIoJn8QTA8=
-X-Received: by 2002:a05:6402:2552:b0:63c:3c63:75ed with SMTP id
- 4fb4d7f45d1cf-64554685163mr11501766a12.22.1763998049271; Mon, 24 Nov 2025
- 07:27:29 -0800 (PST)
+	Mon, 24 Nov 2025 15:28:29 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=D34MqUU0L20LtTlg8GSxG28LfoYFZJNXJ3xALazoIZ6qD3sHbyeXHXaQXkUFpzRiIopjptWdEZuowA/QHRQdmXqJlupo/XPChCYX0kq0iCjJrzpdy0F+5WCD4SDhRO+hlyREGGbcP6V6z0bnPO+T/mBjHqBPR4l51a6xYeJnDqM0cAdR0MWETMuwgZMFRxNJF4SctiSGzlFfqXm/JPiymfoIkLQ91NW332ruvcT/X3C5lqW5oEDQfDmQB9ndnrOu6Gmozpn60p4zVCsoYUeTEKZZ5fbPPdrKcS9DGZa9hdRKlcBgUJImDRL8H7FHJMe2Ah/spc8WVV4zSGdyUsJecQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=8okQT4j/nUrcE4w8ta/1ombqUkljeXvIinqVSug4ckE=;
+ b=OSV1RXssnr64PuyAYX60xypBJ7i+lxW78KvwhcKI2t9W6CFm3Rd4VbrB+MxptWg2bipR4IrwMyB+p/BGmqleezXnsUExfJOxRIwdPo6rqO9Tw458E42rwB0IskAibLJWbJcGpxbP1/ZuVaJotwn5M2xuEEe1d5mc3t9nmJkFYF9z2d+892LuyLtevHqKujtPwOY92AkCORR9keMMOHCLRtAye2QEaafl69Dg9ENNwv8SzPJOLdfMCsnmvX2tNhg3/ui0BqytL66Gn2Em0+vG5mXf10IA7+DHro1ebISWT5jHe3oY2WPOIKen6Idv+kgy4pruRPrAaLRkg7OSoTaPSQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=8okQT4j/nUrcE4w8ta/1ombqUkljeXvIinqVSug4ckE=;
+ b=PDMWsszR3h44ZbfT9FqsHQ5ODUy90ckXZ6Gym4vMHNZDw4TgEPP+P1iP/XL+172RmO8zbKRecCXXLgb7wt1eAnAf8tb8RNsugwSYynH6M8zRYK+ezes03ys+LrrtJMKhX+OnUrPU4QNgajN9H52c3LlUvEZGGjraw+Hc5jorbOJDMzDeHMdSiOI/gzmlIFc3dCoED8fHMz/tv6gzchtpirlTN31F53s7nMv9tiTBFpUcvXSHSBoUvSuz+IkYHUMJtQzpMmUNz9Jlh3gs2DqHXaHBXilhzuXctipsV1FgFtkBebLke28Xnv2KnCEgGW3w+rKs0i0VNW7TNQ9OBsY5QA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from DU2PR04MB8951.eurprd04.prod.outlook.com (2603:10a6:10:2e2::22)
+ by DU4PR04MB10718.eurprd04.prod.outlook.com (2603:10a6:10:58f::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9343.17; Mon, 24 Nov
+ 2025 15:28:19 +0000
+Received: from DU2PR04MB8951.eurprd04.prod.outlook.com
+ ([fe80::753c:468d:266:196]) by DU2PR04MB8951.eurprd04.prod.outlook.com
+ ([fe80::753c:468d:266:196%4]) with mapi id 15.20.9343.016; Mon, 24 Nov 2025
+ 15:28:19 +0000
+Date: Mon, 24 Nov 2025 10:28:08 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: Jean-Michel Hautbois <jeanmichel.hautbois@yoseli.org>
+Cc: Greg Ungerer <gerg@linux-m68k.org>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Olivia Mackall <olivia@selenic.com>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, linux-m68k@lists.linux-m68k.org,
+	linux-kernel@vger.kernel.org, linux-crypto@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v3 2/3] hwrng: imx-rngc: Use optional clock
+Message-ID: <aSR5iI8ZgmJZ08Ep@lizhi-Precision-Tower-5810>
+References: <20251124-b4-m5441x-add-rng-support-v3-0-f447251dad27@yoseli.org>
+ <20251124-b4-m5441x-add-rng-support-v3-2-f447251dad27@yoseli.org>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251124-b4-m5441x-add-rng-support-v3-2-f447251dad27@yoseli.org>
+X-ClientProxiedBy: BY1P220CA0017.NAMP220.PROD.OUTLOOK.COM
+ (2603:10b6:a03:5c3::6) To DU2PR04MB8951.eurprd04.prod.outlook.com
+ (2603:10a6:10:2e2::22)
 MIME-Version: 1.0
-References: <20251122-imx95-rproc-2025-11-20-v3-0-9ae6ee619a78@nxp.com>
-In-Reply-To: <20251122-imx95-rproc-2025-11-20-v3-0-9ae6ee619a78@nxp.com>
-From: Mathieu Poirier <mathieu.poirier@linaro.org>
-Date: Mon, 24 Nov 2025 08:27:18 -0700
-X-Gm-Features: AWmQ_bmPua71P-c3C9amQu2EA6PcheE8Yz3sJ-xba42mtqxFzXSsE84-oyqxRX8
-Message-ID: <CANLsYkynN2xSShAKXAcRsGTeS2YX1qhO=83xCScaaonJN=2hFA@mail.gmail.com>
-Subject: Re: [PATCH v3 0/5] remoteproc: imx_rproc: Support i.MX95
-To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-Cc: Bjorn Andersson <andersson@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Frank Li <Frank.Li@nxp.com>, 
-	Daniel Baluta <daniel.baluta@nxp.com>, linux-remoteproc@vger.kernel.org, 
-	devicetree@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Peng Fan <peng.fan@nxp.com>, Krzysztof Kozlowski <krzk@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU2PR04MB8951:EE_|DU4PR04MB10718:EE_
+X-MS-Office365-Filtering-Correlation-Id: c4483eb2-ed5f-40f3-7a33-08de2b6e18bb
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|1800799024|52116014|376014|7416014|366016|38350700014|7053199007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?Iu3aYZekrOWYqKT1jYAdbXxP+p5xrPnB/q09hwCphwed7y/QmUNFCl9KIa59?=
+ =?us-ascii?Q?CkV/AsfyKLuUh6QIp5e/WuPZPKsDzprQz4Zgz3hyBIEG8O7IWnu21bhNxH98?=
+ =?us-ascii?Q?8hJSE7vsUlGwgK1TgM1e3wOcAseogwFFolSL80/66+66cPGrvw7UEkszxDh4?=
+ =?us-ascii?Q?Bfzfcpq7WvpXiMq2dabv1mN1+9KXdJWRg/urkGcExDdj8KGNVmP6Muwy+Z76?=
+ =?us-ascii?Q?4rf+yKGykzysE7UI1GW7UBkSLj8zVI5YguWXQad5Pxg/4tyIKj9cfjPKVp6w?=
+ =?us-ascii?Q?cdFBL5CR16XF1BbQ0gvb4D6Vr+mQr18OmVBH6LCSTdNHKzZmzcbchfPDoY/P?=
+ =?us-ascii?Q?9c3ltcmUL7anREnXxarMwmVc5PR53TSq8uGf3qleSYevq040u090Bh1EtL3g?=
+ =?us-ascii?Q?FrRMObOCES3r7NTTMnkTlAjugqXHxAnP4DwQTVtPbioy2oMhD0UXU2i8apU8?=
+ =?us-ascii?Q?otqxm+vych2zKl2W22UrfBd1KU/p0u9j0OxMEWQB4IOHvERNUjRDQjK8S0hQ?=
+ =?us-ascii?Q?63LkSAvppcEXr9XhhEgRgREspNZHHWx1SPNQt7WimC+EDpXtGLGv9p0XfPZP?=
+ =?us-ascii?Q?nGCg0ecxqQuxUiiFLPkmrZUQqSjDYg1M1fXL/OGJzb3VZYw60oaca2ZLbtE9?=
+ =?us-ascii?Q?gliRZNOAUJj5NTr62LLgdEOZxRnn5z5tapD0xWvf1ffBbPckWU/H7LSuF5LW?=
+ =?us-ascii?Q?rH3CKwA0D9E6KjDuPKSCdMlhYlBTMHF40X7FMr2ruIz4QAT2cSDb09Lnur4Y?=
+ =?us-ascii?Q?rKzGm/fOIvT0aanJmKNNwl91e3Cq/4X2KW0gTu6wvCTy/0q4cyUxZ4S2lN5j?=
+ =?us-ascii?Q?PEmrZ5DWRXZbNeAxUG7SBQByQMItvxgt7/ITG4UsAVA+JZHenoySQhXir7ol?=
+ =?us-ascii?Q?7yxsJT2q/4ILlHl6ebVNFiJUPDoZVnLEkUXCQK52YDKR334ebXhnk1qinvwZ?=
+ =?us-ascii?Q?trz7pUtpnFR/LvAKDKoVBF/T7caUfEiRhuLYr0qdXZdM2avl3Wn1za2KxRQo?=
+ =?us-ascii?Q?p0wOpXH+DqOEBX6NYCMFDoFpzl+83oJ+8gXalkL2V/xVJIB+DHDOX0hFoubF?=
+ =?us-ascii?Q?W8dCOQxWU7qx6TrCk/jUBLIigDlV6A6+eCiahlTz6iiKojipMai+6pJMHGr2?=
+ =?us-ascii?Q?4qNkThhOMInfTmXLl/XcCRcfxR+gu1R/VQgybY7E88HK/9l4jYmNPPkMNDmS?=
+ =?us-ascii?Q?p4ic9Yshk2PKqQxxWhnFbdcnsgtApRymAxuLXF/Erg49uBP1uaM824Qb9nDa?=
+ =?us-ascii?Q?gzeBDhDEvSVlYbBvoFPj3GUOvz9ellpL3ZE3dSrxNbR0XN0ZbNeA0Hlqa+Ko?=
+ =?us-ascii?Q?hG68Awn9wkQqh30dhGLDVsieaa582VgWrFkf0k2m5fow14iJxsc5vjtZpaJ2?=
+ =?us-ascii?Q?pG4SCjv5YIJQWaPjRpydqI/pIeRr38mannFNepIgDZFfb9AmIhHghrGzAcD9?=
+ =?us-ascii?Q?4yOYTXJ5yiHJPpKWKZijEyPw0EtOl8Zxt27n8fpUqG1C2Mfyss5exTvCbst+?=
+ =?us-ascii?Q?uG80mcF786lyBVQybQpvYpSyzkB6FMmJWv6I?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8951.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(1800799024)(52116014)(376014)(7416014)(366016)(38350700014)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?JJCJ8lTMA/OfgNXW3wky+RjtW7ipvQBhPFCMo7CNK/T3jw9CSwGWALCBppNc?=
+ =?us-ascii?Q?rZOeP7aYVhx83pZT6vwiDDS/NOO31wp77UUrHGzPydLgVgHROYg4v4ksm/df?=
+ =?us-ascii?Q?hWUKGOEp16YHWapLQDn/9eE4RsQoQzxVuoV4CkW1RQTzYGnkzsfrgJb8a2Av?=
+ =?us-ascii?Q?afTOXY9dzSgD8+25U3f6JrXh3pex20a/Y8J/2wUVayC3auRPf56Ak8qFI8JX?=
+ =?us-ascii?Q?GpHdBCTfto7KF/3l8zpL8X9WvSNqkWh4daeJrySj0k/NBNj1ynfzSHk/Q87g?=
+ =?us-ascii?Q?FCHDhMyOtGIKAtRMOBdQhT6GO+Yf2mOXyyJHD8dYi1xsnAPNDY3BJql8thaN?=
+ =?us-ascii?Q?qIDG4kmrrm1bxIUnf4Xm39BRCWM1kNL2eL+d01Jwc+EAyN2TZh/wYz/7K5Pj?=
+ =?us-ascii?Q?XsdmoXpxvNwwPHbuppRBM38EmWoWk6TjkBJIoQkf4O+6Z8P2lMHxpzz8QkJq?=
+ =?us-ascii?Q?WGu2QSBLv9gTRmJogkqjrxabSyY5NyGtWgGam1RFrwJz5WGGxGO5Us6IgOQa?=
+ =?us-ascii?Q?K5nC4C1Kw5LFAvAh7fRYNVPsPDCVkYQXWyds2axHPbmVKxp71JSyvR3UKTxE?=
+ =?us-ascii?Q?BEEoZuirGHbwXC1DP6U6NCM/EYz47JMXRpIpVZgMkTD/URQuHkGUkcdSpf1K?=
+ =?us-ascii?Q?O6nFZE5uoXCqP3uikSOY7L9ie+lysNPJ2zxtzXrC52vQWWaXerCcxlh3ylL1?=
+ =?us-ascii?Q?LReMfs3qR1uP4+Jf8zOgi6xrlej8nz99qjwYCPU4D8F93FOEsynoLcKgkDHW?=
+ =?us-ascii?Q?7K+rfnXiImsEufyCKpeMVr4H6/ht55EzuGwaFES3en4Y9pvTpaFzTTY3u2HF?=
+ =?us-ascii?Q?6gPPz0ilk6p3Tzla0wrqJXKWjkentqpHW5h+/T74c3wk9LN14eGhaJSLfCEd?=
+ =?us-ascii?Q?WObqaRtkmMnB3qn/ognS3XL/Ou6gbv8AiN0/WH+A7xmjxNhxFNRFlQRjN+0y?=
+ =?us-ascii?Q?giM0Kbt99IK9utFLNo0NJbvptbHvTfo3qbSpF+eWkM+/LIcUKLtBvGTyfcJp?=
+ =?us-ascii?Q?2VoEIAMXQ5YXo1i55lFq9SlFV0TOshf//FojpQ/08ZKsRIPll2A2pjJMCdMZ?=
+ =?us-ascii?Q?55ZSf6mR++BfzdD6o3lA7UOW03IbnUMU6Ks6VHEOEGY8u1/TgTDcmjKn12p1?=
+ =?us-ascii?Q?+7aAlDpn0DQjxBU6owL7x9NXiSSBCJeqHpievZkSOsVKSHCqYhP8Y58vvTl6?=
+ =?us-ascii?Q?8hAZxQN2F+YVsQCrhRKZz/+q1RWn6Y5pCn27MWieT2k61xAUN90d+OaoX1ZK?=
+ =?us-ascii?Q?uojXR4yk577IQBuXW/VBs8LvDBR1bgw5wxi+IGKx1tkqya6HprYC30FBMKw0?=
+ =?us-ascii?Q?EtBCNy5sg5OqWkVX8IIgpCr6Ub+ijrpu7EO4afN8xN3f/KZQCNuBH6mKn/XK?=
+ =?us-ascii?Q?H2fAfa+I4dT4TUhPKmSm8SzUgEdPmekDjn8POeWV46h4tbCLcdKFJNmoR4wf?=
+ =?us-ascii?Q?iAVFt/FEjlmznKCzbOdzmXJSNnkziPPMgzy9Y/M+Z2WdeR38e12u7V0wlt39?=
+ =?us-ascii?Q?6sc5Hc2tLsRnPRTXeP6w+9le/LPxR3lwKcMfRJ1gnM5X/BMW7/BQyYrq57tN?=
+ =?us-ascii?Q?XiCUeVPxcTkjnv2ugRw=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: c4483eb2-ed5f-40f3-7a33-08de2b6e18bb
+X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8951.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Nov 2025 15:28:19.6780
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: n3TVeTm3aAeiqzJJaZwvRRzFV4TGv//F4P2ybeLURjkoJbR855BRqWQiJfW0hej+8fmJwm9jFr8FCz8IBKScCA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB10718
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251124_072731_768468_028A627E 
-X-CRM114-Status: GOOD (  27.02  )
+X-CRM114-CacheID: sfid-20251124_072826_393866_AFA1B619 
+X-CRM114-Status: GOOD (  17.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,96 +165,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Good morning,
-
-Please note that due to other patchsets that need to be reviewed,
-Linux Plumbers and the upcoming 2-week December holidays in the
-western hemisphere, I do not foresee being able to look at this
-patchset before January.
-
-Thanks,
-Mathieu
-
-On Fri, 21 Nov 2025 at 17:58, Peng Fan (OSS) <peng.fan@oss.nxp.com> wrote:
+On Mon, Nov 24, 2025 at 02:04:07PM +0100, Jean-Michel Hautbois wrote:
+> Change devm_clk_get() to devm_clk_get_optional() to support platforms
+> where the RNG clock is always enabled and not exposed via the clock
+> framework (such as ColdFire MCF54418).
 >
-> This patchset is pick up a previous patchset [1] with rebased on
-> next-20251030, and some changes applied.
->  - Add runtime ops to separate cpu ops and lmm ops
->  - added more comments
->  - moved some check imx_sm_rproc_detect_mode() from imx_rproc_sm_prepare().
->
-> No changes to the dt-binding patch, so R-b/A-b are kept.
-> More info could be found in commit message of each patch and below.
->
-> [1]https://lore.kernel.org/linux-remoteproc/20250821-imx95-rproc-1-v5-0-e93191dfac51@nxp.com/
->
-> i.MX95 features a Cortex-M33 core, six Cortex-A55 cores, and
-> one Cortex-M7 core. The System Control Management Interface(SCMI)
-> firmware runs on the M33 core. The i.MX95 SCMI firmware named System
-> Manager(SM) includes vendor extension protocols, Logical Machine
-> Management(LMM) protocol and CPU protocol and etc.
->
-> There are three cases for M7:
-> (1) M7 in a separate Logical Machine(LM) that Linux couldn't control it.
-> (2) M7 in a separate Logical Machine that Linux could control it using
->     LMM protocol
-> (3) M7 runs in same Logical Machine as A55, so Linux could control it
->     using CPU protocol
->
-> In patch 3, Use LMM and CPU protocol to manage M7. More info could be
-> found in the patch commit log
->     Current setup relies on pre-Linux software(U-Boot) to do
-> M7 TCM ECC initialization. In future, we could add the support in Linux
->
-> Patchset was tested with below boot images when the patchset based on next-20251030:
-> imx-boot-variant-rpmsg-imx95-19x19-lpddr5-evk-sd.bin-flash_lpboot_sm_a55 (Use LMM protocol)
-> imx-boot-variant-alt-imx95-19x19-lpddr5-evk-sd.bin-flash_alt (Use CPU protocol)
-> imx-boot-imx95-19x19-lpddr5-evk-sd.bin-flash_all (M7 not under A55 control)
->
-> Also tested i.MX8MP/8ULP-EVK.
->
-> Signed-off-by: Peng Fan <peng.fan@nxp.com>
+> Signed-off-by: Jean-Michel Hautbois <jeanmichel.hautbois@yoseli.org>
 > ---
-> Changes in v3:
-> - Add R-b for patch 2,3,5
-> - Patch 4:
->   Rename imx_rproc_ops_sm to imx_rproc_ops_sm_lmm.
->   Add more comments in code
->   Simplify if check in imx_rproc_sm_lmm_prepare()
->   Update commit log
->   Use dev_err for failure path
-> - Link to v2: https://lore.kernel.org/linux-remoteproc/20251031-imx95-rproc-2025-10-31-v2-0-758b2e547a55@nxp.com/T/#t
+
+
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
+
+>  drivers/char/hw_random/imx-rngc.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 >
-> Changes in v2:
-> - Patch 2: Change to const pointer for ops, update commit log and add R-b from Frank
-> - Patch 3: New patch, introduce prepare ops
-> - Patch 4: Rename imx_rproc_sm_prepare to imx_rproc_sm_lmm_prepare
->            drop IMX_RPROC_FLAGS_SM_CPU_OP and IMX_RPROC_FLAGS_SM_LMM_OP
->            Add a bool for dcfg->lmid and info->lmid check.
->            Provide separate plat ops for lmm and cpu setup.
->            Move LM permission check to a separate function.
-> - Patch 5: Drop macro IMX95_M7_CPUID and IMX95_M7_LMID
-> - Link to v1: https://lore.kernel.org/r/20251028-imx95-rproc-2025-10-28-v1-0-ce9e7db9edcb@nxp.com
+> diff --git a/drivers/char/hw_random/imx-rngc.c b/drivers/char/hw_random/imx-rngc.c
+> index 241664a9b5d9ac7244f15cbe5d5302ca3787ebea..d6a847e48339b2758c73c95d57a7aa48eb4875e0 100644
+> --- a/drivers/char/hw_random/imx-rngc.c
+> +++ b/drivers/char/hw_random/imx-rngc.c
+> @@ -259,7 +259,7 @@ static int __init imx_rngc_probe(struct platform_device *pdev)
+>  	if (IS_ERR(rngc->base))
+>  		return PTR_ERR(rngc->base);
 >
-> ---
-> Peng Fan (5):
->       dt-bindings: remoteproc: fsl,imx-rproc: Add support for i.MX95
->       remoteproc: imx_rproc: Add runtime ops copy to support dynamic behavior
->       remoteproc: imx_rproc: Introduce prepare ops for imx_rproc_dcfg
->       remoteproc: imx_rproc: Add support for System Manager API
->       remoteproc: imx_rproc: Add support for i.MX95
+> -	rngc->clk = devm_clk_get(&pdev->dev, NULL);
+> +	rngc->clk = devm_clk_get_optional(&pdev->dev, NULL);
+>  	if (IS_ERR(rngc->clk))
+>  		return dev_err_probe(&pdev->dev, PTR_ERR(rngc->clk), "Cannot get rng_clk\n");
 >
->  .../bindings/remoteproc/fsl,imx-rproc.yaml         |   1 +
->  drivers/remoteproc/Kconfig                         |   2 +
->  drivers/remoteproc/imx_rproc.c                     | 245 +++++++++++++++++++--
->  drivers/remoteproc/imx_rproc.h                     |   4 +
->  4 files changed, 238 insertions(+), 14 deletions(-)
-> ---
-> base-commit: 88cbd8ac379cf5ce68b7efcfd4d1484a6871ee0b
-> change-id: 20251120-imx95-rproc-2025-11-20-3b9369670d6a
 >
-> Best regards,
 > --
-> Peng Fan <peng.fan@nxp.com>
+> 2.39.5
 >
 
