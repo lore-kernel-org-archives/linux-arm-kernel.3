@@ -4,85 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 715E3CFA466
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 10:17:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1B55CFA466
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 10:35:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=II8YI3C/iUDdwVikJhgiudHAop3AyyPyPytzzAcj7uU=; b=L9wWSVeBkvZC2NMeIJIIksE1YX
-	lVayPdqvNcGtoRFgJOI96uFUuGBLa1siALIpDueVrJvtwP7FSB5E91uXNcRpVSHpbv9Of83Ef8jU7
-	ge3qWwR/2HRk6U2u05YBjfvmKEaYAQvWlVmMmwpMAddImxKKinYWGkou5rrw3V/7SNhEGbmkQpiam
-	M/INaSu33QDPXcfWBUg1VSD51W3NhepFsnsYy9/Nt4v4HkY9OQX5UxhyZyCAUNIv46rcJFw0Y1RjP
-	HuSTR7VjtEMv/t+lxDgtcT8dYfE9ZNIrEdUsQ807q/tzYyRmnIrjYcpdXNenjzJafhlC9P6HTioSx
-	YIp6iwpg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ndD6GFhIDsyYEQSTuUmCfWcKYqCeLVrqI/SLqnCg8Xg=; b=YaIZQJ3b6xlj4zVnTXf8nhsVK+
+	hgCYTeAt3S4qBBGKuOJBzzEMhi/pK1FVH7Kk4q4/wP4qXRY+wpEOYag01HMMMc5Agg5n06Fj0EWc0
+	RvOgdFIvOvWHJ+Tjxu5qDyXUC65YZJN1IiQliHnRLhFCO4qWaVXW7daWAIPhZ2Et9bdQ4ceXZSHPA
+	05KwWrWVNzrwCKjdMr6C197KBgMDLdTwnanumOzrEcOYtv0AYHHjORHt16xHA8CxUtTy0pcHqgPTg
+	a2nZ8dGO2+USx1mgj3taVDbTf+GzU0M2rTau3zv+gJb+6bhygKi0/PHUvKjMetyo4nwT2p/OtXvSH
+	0vTTEpqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNTdM-0000000BPWi-0SE8;
-	Mon, 24 Nov 2025 10:17:24 +0000
-Received: from mail-yx1-xb134.google.com ([2607:f8b0:4864:20::b134])
+	id 1vNTuq-0000000BQuJ-0HV1;
+	Mon, 24 Nov 2025 10:35:28 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNTdI-0000000BPV7-2eLt
+	id 1vNTun-0000000BQtj-2FyB
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Nov 2025 10:17:22 +0000
-Received: by mail-yx1-xb134.google.com with SMTP id 956f58d0204a3-63fc6115d65so3240107d50.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Nov 2025 02:17:18 -0800 (PST)
+	Mon, 24 Nov 2025 10:35:26 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-47798ded6fcso25086245e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Nov 2025 02:35:23 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1763979438; x=1764584238; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=II8YI3C/iUDdwVikJhgiudHAop3AyyPyPytzzAcj7uU=;
-        b=w0zU+LpWpfsywPWoR7KnHFqaUKzLlrl0uDxck9UorcL5Zp/UCfHhoQZmh8/vcMwbMx
-         0Afxxcfqg5Bk9HX4bztaijFn69/MSu4TDnprFjtLkvdpyM2lHp/vd3/nVehdMyqQ+A1i
-         RdIaNOGkvoDFwn5FC+1TeR5GOyF//O8m450/C8AXRceDBb6rObzURRd7H9id/p/B/xem
-         sFeqURmLQ7vu3od6ss5z2t01g3beGJsn/sfTfLxUAHb5A1khScfnXQPwuAOFNP4IhdCN
-         nMj75erivVHiuqUBGsAuY8zXhS2VRyZrzvlWuslVwzKxP8JAe5cltZj2ZYF7XoXi4TbJ
-         W+kA==
+        d=linaro.org; s=google; t=1763980522; x=1764585322; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=ndD6GFhIDsyYEQSTuUmCfWcKYqCeLVrqI/SLqnCg8Xg=;
+        b=SMqC2Z3edLX3lMCi1mBkdA4fTAg9Egtci8WdjF3r2GHlL9//VMJL36W96f20ybRwm7
+         8rdQvfoD+2kXBFuqn8baF6h1oiUh2hqYxToJximvDClAMk9QbNvzSJUiwm+wbVWBrRIe
+         NxdoxH0zmTc2NqU/bUfUcuNgoxn1/jtrmdIGfxKscSAeTjo2ZKStxhMmX8Y57MJLM9VJ
+         wVCLmpupyuznF8X36Z2aAicaaQ88x4emXYKDTYdKdKtBvNrwO4+ojUxtBrn7wkek7wGS
+         UyZ6jKxbSvDP6I1sRkSokLHujVHrrqs8bhmEIOysn5ej0kjKcsigcfAVZD15tTJDLNnz
+         gHwQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763979438; x=1764584238;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=II8YI3C/iUDdwVikJhgiudHAop3AyyPyPytzzAcj7uU=;
-        b=PisnwHpOIG7KndtgKt4UAEQMUZt4OWfmbo3qkzGytxuo/t/kZ3Kqki0a+1s0MeZIyl
-         dtfz3usuTN2tnUDFkcvkVRGcpZ3GUtTZuZhyi8UOfyMlyK28AA/dRe2zjSX+BiKIR8la
-         A4kuH/H5OBs3e9Ix24g9901P9qw4Y0mLEacmCnPOQevbw+qZ0CCP+jYlE45DYjVsmcJf
-         kwqwPyy4zQufPXQ6PKFtczPqSCM5wtTnI6lwGy1RJsNrO1TddmVSmtLPHwDRdLNpb/PD
-         e1CsWzESKEgifgcZZGVH1UQ0HTOOXXLRKh9WHGz+TCbYBJ/0zZeqzgpBoSb6+wlsIvr0
-         k1kQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUnqnzM12sro68ZTRG7pT9RjL/l8UkhjFQpOIgw1rotTst190LRGgmsKgXwROKakzQLn38EclfqEaKsSfJHlbpS@lists.infradead.org
-X-Gm-Message-State: AOJu0YyKUNOrGOTFpYK8atGBFeZwOkCq/k7D01IDgpld45LG8Eu8YZMh
-	Bhh4AMx1VfKQ1P5vGyBI7vb7FNC9PzgNWRiE2HtwFhJZkrpCFgKG8nSIPURuy0Mox4XTB+r30Gu
-	7O1WuprQ5JUJVxVpoOD7uJE9v5HYJ3dqFF5RoHegvvA==
-X-Gm-Gg: ASbGnctpYDsX82tP8sND4bAhLAE+6omoNDxhsFhzRcvR93lsxyCbzkWlwIthQTomj+8
-	0tiJtI9Y68y/cu+YkgBdZBsTQqMmKL1O6hBs3B2DrxrdGCLiwdDt/a0XUYxo7IT1tX6U0uSqC7s
-	Qz+5NKm1hjhV3VgtyoyvHKM7oGp+7krv674+Q+DDIkXuBrAG/Etp2ccfpe7Kolt/Fr6oRlUPaHA
-	zMifYR7iCvwD1zYueZm2bJ/OzKYTzf2V6Yjln3Kk6UR/XFyxSdC6+2gavMR9t/Oiya3ulz7
-X-Google-Smtp-Source: AGHT+IHZKiPR/ZbuRZ0U59HQ+RscPzcZbVdRLvk9GoovnNcNednqmG4npANrIbRzWrLj9FeTBSnrW93KTr0acBSdJJU=
-X-Received: by 2002:a05:690e:14c:b0:640:dead:f78 with SMTP id
- 956f58d0204a3-64302acadefmr6058059d50.68.1763979437967; Mon, 24 Nov 2025
- 02:17:17 -0800 (PST)
+        d=1e100.net; s=20230601; t=1763980522; x=1764585322;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=ndD6GFhIDsyYEQSTuUmCfWcKYqCeLVrqI/SLqnCg8Xg=;
+        b=RiN52cmYSmh+3A8svN/nOLaXvbZNX0WR1HKmJOee2xo62V4TrY31vGUIx5TpzI/W7k
+         +ETP7PXAZguA1AfeoUsIf3THrjC/A1teY9wiXVamyYkL705Feyon6XeiRDAp+AxfQci2
+         44WeQ3FL1FRzmjiAnu3w3O81bxkfblrZw2cJ90cP6YKwAJw7Yb6SA0zeGUfvpygLpv4B
+         n87k991dGcfJ+c7Ptyd4kPww+aGDZB/SQwci7JzIPv1P24TQJRCSsxkHQ22tlaf4/Aya
+         nk2EZ6EkAJU+t8cu7C2r/bmKnYK16vu4Vc4NRa+66L/3TWXsyu6VzC0Q3XGklsIISu06
+         Feow==
+X-Forwarded-Encrypted: i=1; AJvYcCXI4I8fbOTaNeoV1P1blHPC5G3DLkdabzNwtEdRSsn2+yU03nHdc+6CWSiZVWOpMXP/GBDW11/HHc40uISJHwww@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy0VjtiqtCpW819a5hGUFEPYujdtm48BLYCYezJ9lny28bo508t
+	pygp91qxqt/E/p6akrxFZus15lPVfyCJcpN7U0qjB6PTQZgZe5kRijZNS8o2piMOJXI=
+X-Gm-Gg: ASbGncs3Jm0ZrWpt5jRB/TpyzZ28cRcRhCVyJPq01zF0cSr+eyOfPPHyImtKoFmRmpY
+	Ms56soaZe5br1ohprPt0KlA5E+/BHfD/2bYSxjVADsE/g1BWBY4k6U8RQKFrHLsirJmZJRB8BW3
+	crZQ69DKEMJxgoYzeiBXJbcC65Uv7XDm788G319FvyUhX6ba6CJsbaz4phJUgBg4GJbQirZD1Kx
+	mErkNFtebhH+XLX3IICLBTU14G6ZLLPewh0Ed3GoP7I04sP7kc0noYao38Dv3GJBL76a3lglYCd
+	hSysMQ48cmowrc06N2hZ5e3P/kKqSCdkB27R1TuivuMtBCNvBFkwKGFNH0NtBHWyD6r4+TBWSpx
+	mD3xRFaugWo285oGcKlgkfAxwsiEnmuaQA9ubPW93gQ/V7AWsMGrb+E71x1UxBWKvX+ixGWelR4
+	pNaeu9bcrbT0506EIaC+EUk5NvkbWl3sXECp43CPyKjCcCs0ujIUaMebFMVA6EM9pM0g==
+X-Google-Smtp-Source: AGHT+IElNEZ5h3JUQ/4nKEFrG2nnJ9W9xdmqEYug4voX9K+dF3FjdDILyhWbdWr6Fd3WQPE4haywCg==
+X-Received: by 2002:a05:600c:3511:b0:476:d494:41d2 with SMTP id 5b1f17b1804b1-477c112f7b1mr105073885e9.29.1763980522164;
+        Mon, 24 Nov 2025 02:35:22 -0800 (PST)
+Received: from ?IPV6:2a05:6e02:1041:c10:a756:bb6c:7b35:af9b? ([2a05:6e02:1041:c10:a756:bb6c:7b35:af9b])
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-477bf1df3d5sm188767955e9.2.2025.11.24.02.35.21
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 24 Nov 2025 02:35:21 -0800 (PST)
+Message-ID: <ab35c20e-390c-4479-9bb1-9f5e49cba2a0@linaro.org>
+Date: Mon, 24 Nov 2025 11:35:20 +0100
 MIME-Version: 1.0
-References: <20251121125212.43093-1-angelogioacchino.delregno@collabora.com>
-In-Reply-To: <20251121125212.43093-1-angelogioacchino.delregno@collabora.com>
-From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Mon, 24 Nov 2025 11:16:41 +0100
-X-Gm-Features: AWmQ_bmRF82IjFCOc91DUmABpVXVUdYe_hVuYPuZC-41JJhfg_bW2drgqfzyHeg
-Message-ID: <CAPDyKFp32GafgWBEn=PbVex1MXRo+nBFcVSgLxrqxMtLXnRFSA@mail.gmail.com>
-Subject: Re: [PATCH - URGENT] pmdomains: mtk-pm-domains: Fix spinlock
- recursion in probe
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: matthias.bgg@gmail.com, nfraprado@collabora.com, 
-	irving-ch.lin@mediatek.com, wenst@chromium.org, linux-pm@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org, robh@kernel.org, krzk@kernel.org, 
-	conor@kernel.org, kernel@collabora.com
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 RESEND 2/3] thermal: exynos_tmu: Support new hardware
+ and update TMU interface
+To: =?UTF-8?B?7IaQ7Iug?= <shin.son@samsung.com>,
+ 'Bartlomiej Zolnierkiewicz' <bzolnier@gmail.com>,
+ 'Krzysztof Kozlowski' <krzk@kernel.org>,
+ "'Rafael J . Wysocki'" <rafael@kernel.org>, 'Zhang Rui'
+ <rui.zhang@intel.com>, 'Lukasz Luba' <lukasz.luba@arm.com>,
+ 'Rob Herring' <robh@kernel.org>, 'Conor Dooley' <conor+dt@kernel.org>,
+ 'Alim Akhtar' <alim.akhtar@samsung.com>
+Cc: 'Henrik Grimler' <henrik@grimler.se>, linux-pm@vger.kernel.org,
+ linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20251113064022.2701578-1-shin.son@samsung.com>
+ <CGME20251113064044epcas2p1b87addb21473eca7cc52052e4e2e9237@epcas2p1.samsung.com>
+ <20251113064022.2701578-3-shin.son@samsung.com>
+ <2180a854-8ba6-4424-add2-eb34637530c1@linaro.org>
+ <000001dc5d2a$0697bf10$13c73d30$@samsung.com>
+Content-Language: en-US
+From: Daniel Lezcano <daniel.lezcano@linaro.org>
+In-Reply-To: <000001dc5d2a$0697bf10$13c73d30$@samsung.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251124_021720_701256_E872A904 
-X-CRM114-Status: GOOD (  38.01  )
+X-CRM114-CacheID: sfid-20251124_023525_594913_C71B2F49 
+X-CRM114-Status: UNSURE (   7.44  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,157 +115,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 21 Nov 2025 at 13:52, AngeloGioacchino Del Regno
-<angelogioacchino.delregno@collabora.com> wrote:
->
-> For some reason, of_find_node_with_property() is creating a spinlock
-> recursion issue along with fwnode_count_parents(), and this issue
-> is making all MediaTek boards unbootable.
->
-> As of kernel v6.18-rc6, there are only three users of this function,
-> one of which is this driver.
->
-> Migrate away from of_find_node_with_property() by adding a local
-> scpsys_get_legacy_regmap_node() function, which acts similarly to
-> of_find_node_with_property(), and calling the former in place of
-> the latter.
->
-> This resolves the following spinlock recursion issue:
->
-> [    1.773979] BUG: spinlock recursion on CPU#2, kworker/u24:1/60
-> [    1.790485]  lock: devtree_lock+0x0/0x40, .magic: dead4ead, .owner: kworker/u24:1/60, .owner_cpu: 2
-> [    1.791644] CPU: 2 UID: 0 PID: 60 Comm: kworker/u24:1 Tainted: G        W           6.18.0-rc6 #3 PREEMPT
-> [    1.791649] Tainted: [W]=WARN
-> [    1.791650] Hardware name: MediaTek Genio-510 EVK (DT)
-> [    1.791653] Workqueue: events_unbound deferred_probe_work_func
-> [    1.791658] Call trace:
-> [    1.791659]  show_stack+0x18/0x30 (C)
-> [    1.791664]  dump_stack_lvl+0x68/0x94
-> [    1.791668]  dump_stack+0x18/0x24
-> [    1.791672]  spin_dump+0x78/0x88
-> [    1.791678]  do_raw_spin_lock+0x110/0x140
-> [    1.791684]  _raw_spin_lock_irqsave+0x58/0x6c
-> [    1.791690]  of_get_parent+0x28/0x74
-> [    1.791694]  of_fwnode_get_parent+0x38/0x7c
-> [    1.791700]  fwnode_count_parents+0x34/0xf0
-> [    1.791705]  fwnode_full_name_string+0x28/0x120
-> [    1.791710]  device_node_string+0x3e4/0x50c
-> [    1.791715]  pointer+0x294/0x430
-> [    1.791718]  vsnprintf+0x21c/0x5bc
-> [    1.791722]  vprintk_store+0x108/0x47c
-> [    1.791728]  vprintk_emit+0xc4/0x350
-> [    1.791732]  vprintk_default+0x34/0x40
-> [    1.791736]  vprintk+0x24/0x30
-> [    1.791740]  _printk+0x60/0x8c
-> [    1.791744]  of_node_release+0x154/0x194
-> [    1.791749]  kobject_put+0xa0/0x120
-> [    1.791753]  of_node_put+0x18/0x28
-> [    1.791756]  of_find_node_with_property+0x74/0x100
-> [    1.791761]  scpsys_probe+0x338/0x5e0
-> [    1.791765]  platform_probe+0x5c/0xa4
-> [    1.791770]  really_probe+0xbc/0x2ac
-> [    1.791774]  __driver_probe_device+0x78/0x118
-> [    1.791779]  driver_probe_device+0x3c/0x170
-> [    1.791783]  __device_attach_driver+0xb8/0x150
-> [    1.791788]  bus_for_each_drv+0x88/0xe8
-> [    1.791792]  __device_attach+0x9c/0x1a0
-> [    1.791796]  device_initial_probe+0x14/0x20
-> [    1.791801]  bus_probe_device+0xa0/0xa4
-> [    1.791805]  deferred_probe_work_func+0x88/0xd0
-> [    1.791809]  process_one_work+0x1e8/0x448
-> [    1.791813]  worker_thread+0x1ac/0x340
-> [    1.791816]  kthread+0x138/0x220
-> [    1.791821]  ret_from_fork+0x10/0x20
->
-> Fixes: c29345fa5f66 ("pmdomain: mediatek: Refactor bus protection regmaps retrieval")
-> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+On 11/24/25 11:06, 손신 wrote:
 
-Applied this for fixes, thanks!
+[ ... ]
 
-Yes, it seems like we may need some additional analysis/fix, but let's
-look into that separately beyond this fix.
+> However, since ExynosAutov920 diverges significantly from the existing driver,
+> Would introducing a separate driver instead of unifying everything be acceptable?
 
-Kind regards
-Uffe
+So this driver is one controller for multiple sensors while the others 
+drivers are one controller for one sensor, right ?
 
 
-> ---
->
-> This might not be the best fix to perform, and I have Cc'ed Rob and
-> Krzysztof for them to have a look at the spinlock recursion issue,
-> as I think it either has to be fixed, or the affected function has
-> to be removed (or both, actually - in any case, if not fixed, this
-> could backfire, and I'm not sure that the only function that shows
-> this issue is just only of_find_node_with_property() or if others
-> also do; at least, nothing else on MediaTek machines as of now).
->
-> Counting that this makes *all* MediaTek machines to be unbootable,
-> I'd prefer this fix to get merged immediately - so that it lands
-> in v6.18 (which is at rc6 at the time of writing).
->
-> That - because I think that resolving the source of this issue will
-> take a bit of time and research - and I really don't want the LTS
-> kernel to be broken on all MediaTek devices.
->
-> Note: When I initially tested the commit pointed out in the Fixes
-> tag, it was working with no spinlock recursion - I don't clearly
-> remember what kernel version was that, but I think it was some
-> linux-next around v6.16 or v6.17.
->
->  drivers/pmdomain/mediatek/mtk-pm-domains.c | 18 +++++++++++++++---
->  1 file changed, 15 insertions(+), 3 deletions(-)
->
-> diff --git a/drivers/pmdomain/mediatek/mtk-pm-domains.c b/drivers/pmdomain/mediatek/mtk-pm-domains.c
-> index 407b4a7aba10..721224c89865 100644
-> --- a/drivers/pmdomain/mediatek/mtk-pm-domains.c
-> +++ b/drivers/pmdomain/mediatek/mtk-pm-domains.c
-> @@ -1006,6 +1006,18 @@ static void scpsys_domain_cleanup(struct scpsys *scpsys)
->         }
->  }
->
-> +static struct device_node *scpsys_get_legacy_regmap(struct device_node *np, const char *pn)
-> +{
-> +       struct device_node *local_node;
-> +
-> +       for_each_child_of_node(np, local_node) {
-> +               if (of_property_present(local_node, pn))
-> +                       return local_node;
-> +       }
-> +
-> +       return NULL;
-> +}
-> +
->  static int scpsys_get_bus_protection_legacy(struct device *dev, struct scpsys *scpsys)
->  {
->         const u8 bp_blocks[3] = {
-> @@ -1027,7 +1039,7 @@ static int scpsys_get_bus_protection_legacy(struct device *dev, struct scpsys *s
->          * this makes it then possible to allocate the array of bus_prot
->          * regmaps and convert all to the new style handling.
->          */
-> -       node = of_find_node_with_property(np, "mediatek,infracfg");
-> +       node = scpsys_get_legacy_regmap(np, "mediatek,infracfg");
->         if (node) {
->                 regmap[0] = syscon_regmap_lookup_by_phandle(node, "mediatek,infracfg");
->                 of_node_put(node);
-> @@ -1040,7 +1052,7 @@ static int scpsys_get_bus_protection_legacy(struct device *dev, struct scpsys *s
->                 regmap[0] = NULL;
->         }
->
-> -       node = of_find_node_with_property(np, "mediatek,smi");
-> +       node = scpsys_get_legacy_regmap(np, "mediatek,smi");
->         if (node) {
->                 smi_np = of_parse_phandle(node, "mediatek,smi", 0);
->                 of_node_put(node);
-> @@ -1058,7 +1070,7 @@ static int scpsys_get_bus_protection_legacy(struct device *dev, struct scpsys *s
->                 regmap[1] = NULL;
->         }
->
-> -       node = of_find_node_with_property(np, "mediatek,infracfg-nao");
-> +       node = scpsys_get_legacy_regmap(np, "mediatek,infracfg-nao");
->         if (node) {
->                 regmap[2] = syscon_regmap_lookup_by_phandle(node, "mediatek,infracfg-nao");
->                 num_regmaps++;
-> --
-> 2.51.2
->
+-- 
+<http://www.linaro.org/> Linaro.org │ Open source software for ARM SoCs
+
+Follow Linaro:  <http://www.facebook.com/pages/Linaro> Facebook |
+<http://twitter.com/#!/linaroorg> Twitter |
+<http://www.linaro.org/linaro-blog/> Blog
 
