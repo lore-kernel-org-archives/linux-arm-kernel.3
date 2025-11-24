@@ -4,64 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 559B4CFD313
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 03:05:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E74ECFD2F6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 03:32:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:Message-ID:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Mc6O4SdjGVe0glDr2dRtnu/v/hHIP/v2O9TVaWZr76U=; b=N37ncCFRp7/ar5+wWgyZBPWcEx
-	5KTlWiZW8Vu3RY1izpO86q/kMFNEH/kxDBAEAUqvqHOlE7ucRxeAufZQuVRAbe4Q+do5f3qLQwf+i
-	fK+KVrJYas1vAIt3eL/Kht2VepAjO2opfRksxqn3qOCtOgBbNwR9VKLJywmcfmyPzavgaei4Okjy8
-	aWHBi1n9/0zCjNcPND/uRilHWJqsUkB5C1osR8BvFP0gMNktjtn9IdvNWlmvy/miRZack7St7119f
-	ktNa7MXWYRedCDj7M6d57HEMnhwBzq+nPqV6CITTVVu0yrkbO5oKgQM/+AawtJnBW2pUHGcXS3Bps
-	FVkAgfnA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=toOpJi12FR6Tm4uRNkngqm1i3ZI345NMYtz5/4KyLyk=; b=lZB4xj1+IfhSP9vj+dRjDuyR+Q
+	P0wtXrEvi0uB6HLach6SQvNmbeGsU/RnA4zbyK5s0Lzloxt3Tvb3rNeFvQl7t3MFsb0GvHECE/yaY
+	6jMFt/jPDbV5WKF8xtSSWMwnOBtVQG+xLatxXriwPVlXLwCT/E7Mgf0xP4uPwicOYbzvEHDdlEfVv
+	b+nJdmDbSKidmI+CtkGebgnSPAhl1Hbh99ZrgCUhbqxcw8TiqFCaiTMvnbyT7UC6yiFZgGVue6/ZO
+	ZwIJWOmKXpT2vB4hSYZXrCdRzoj7/Zo/QAudrwgG/Iatmzs+1a82XLx03sL1VBbfuFTy1TP0vqbYw
+	YT1mDnCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNMta-0000000B12r-4C7F;
-	Mon, 24 Nov 2025 03:05:43 +0000
-Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
+	id 1vNNJe-0000000B1tq-36GE;
+	Mon, 24 Nov 2025 03:32:38 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNMtY-0000000B12O-07hn
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Nov 2025 03:05:41 +0000
-Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Mon, 24 Nov
- 2025 11:05:30 +0800
-Received: from [127.0.1.1] (192.168.10.13) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
- Transport; Mon, 24 Nov 2025 11:05:30 +0800
-From: Jammy Huang <jammy_huang@aspeedtech.com>
-Date: Mon, 24 Nov 2025 11:05:14 +0800
-Subject: [PATCH] media: aspeed: Fix dram hang at res-change
+	id 1vNNJb-0000000B1sN-3joI;
+	Mon, 24 Nov 2025 03:32:37 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id C3AF244398;
+	Mon, 24 Nov 2025 03:32:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 94261C2BC9E;
+	Mon, 24 Nov 2025 03:32:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1763955154;
+	bh=nQMpas0P68zqe+jsuAUQuc78OljFGZeSHfJ158LMKlg=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=LIvqdsee1woYL1Q8LlyGqPI8UWC+R3TubGMryLxV0Lbrjw1PUqH1+0rJGHSYq1tzW
+	 eDifwaEwSBYALohqMjo5p22/686Mjw832VBupIP5TTaoZtBobhGXBLaAftNEjtFIco
+	 dX5gzqMTJxLrX2RrCe1r+154pMsLSTq0Is4iJPJ9K7vm1I1fDlSw3Iu567FfLMI9N2
+	 OoNfNVbVdk2YMATkWV2uyfnW7+vyqnaGpvhI0K2dTG39slf9Mw9tFBCKXOEZ1yRDwk
+	 05P/M7Mfirm+JfS8T2VyNAcKtQVFyZEVfqAS+qgUJnEMyhdg352PJA+QpsmmO8+lqT
+	 BT3og9flY3swA==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 8685BCFD31F;
+	Mon, 24 Nov 2025 03:32:34 +0000 (UTC)
+From: Zhentao Guo via B4 Relay <devnull+zhentao.guo.amlogic.com@kernel.org>
+Date: Mon, 24 Nov 2025 11:32:19 +0800
+Subject: [PATCH RFC v2 3/3] arm64: dts: amlogic: Add video decoder driver
+ support for S4 SOCs
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20251124-video_dram_reset-v1-1-9d37229e4ec5@aspeedtech.com>
-X-B4-Tracking: v=1; b=H4sIAGnLI2kC/x3MQQqAIBBA0avErBNSs6CrRITlWLMoYwwJwrsnL
- d/i/xciMmGEoXqBMVGkcBbIuoJ1t+eGglwxqEYZKVUrEjkMs2N7zIwRb7EaLX23WNNrDyW7GD0
- 9/3Kccv4AB0H6jmIAAAA=
-X-Change-ID: 20251124-video_dram_reset-c531f6ba573f
-To: Eddie James <eajames@linux.ibm.com>, Mauro Carvalho Chehab
-	<mchehab@kernel.org>, Joel Stanley <joel@jms.id.au>, Andrew Jeffery
-	<andrew@codeconstruct.com.au>, Philipp Zabel <p.zabel@pengutronix.de>
-CC: <linux-media@vger.kernel.org>, <openbmc@lists.ozlabs.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-aspeed@lists.ozlabs.org>,
-	<linux-kernel@vger.kernel.org>, Jammy Huang <jammy_huang@aspeedtech.com>
+Message-Id: <20251124-b4-s4-vdec-upstream-v2-3-bdbbce3f11a6@amlogic.com>
+References: <20251124-b4-s4-vdec-upstream-v2-0-bdbbce3f11a6@amlogic.com>
+In-Reply-To: <20251124-b4-s4-vdec-upstream-v2-0-bdbbce3f11a6@amlogic.com>
+To: Mauro Carvalho Chehab <mchehab@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-amlogic@lists.infradead.org, Zhentao Guo <zhentao.guo@amlogic.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1763953530; l=3275;
- i=jammy_huang@aspeedtech.com; s=20251124; h=from:subject:message-id;
- bh=T6tPkI8Yhq/QCiReLdboMNyc54/4lLjHBMvqDCJv39c=;
- b=eLjDgw5bFeCqwi/if6MHl7scB8sgk6NJB2zQCtHChWUuSG7CfiFUfK7iM21/k5xMbau7Yqt2i
- EqdhlEqPRi6BjXdvgWfAM/l/O1kQmhA1OYr/dMLO9HPhxxrSpxJPXO8
-X-Developer-Key: i=jammy_huang@aspeedtech.com; a=ed25519;
- pk=E5YwijeJZZcuDR6srvwNlXrNHvLxwipUg3Mb/xxUF9o=
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1763955152; l=1441;
+ i=zhentao.guo@amlogic.com; s=20251024; h=from:subject:message-id;
+ bh=ipvSyoCuAjlj5iGd/O8ZvsuGOB2B3dXxp1S6BN3SOc4=;
+ b=+1wPmnRCbaMUs0SfXj44FPENcjNu8W4k/F7Tgy5s0bjQiMcfnJkYcBKCv5+xdb+cSPZT7jend
+ eHRRpV6VIQSA8ZOxSqEmAJO5YdnW3ZVx3xXwZdX4csth3oNHl+54ezg
+X-Developer-Key: i=zhentao.guo@amlogic.com; a=ed25519;
+ pk=5yfDKrjreXwcAoEUsdtWafy6YN500upXp/CgtnXjLVU=
+X-Endpoint-Received: by B4 Relay for zhentao.guo@amlogic.com/20251024 with
+ auth_id=555
+X-Original-From: Zhentao Guo <zhentao.guo@amlogic.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251123_190540_079253_9D621C7D 
-X-CRM114-Status: GOOD (  14.72  )
+X-CRM114-CacheID: sfid-20251123_193235_974796_BBB7220D 
+X-CRM114-Status: UNSURE (   8.97  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,105 +89,60 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: zhentao.guo@amlogic.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dram hang could happen in the steps below:
-1. start capture/compression
-2. out-of-lock watchdog raise irq because of res-change.
-3. aspeed_video_irq_res_change do clk-off
+From: Zhentao Guo <zhentao.guo@amlogic.com>
 
-At step3, capture/compression could be not accomplished yet. If clk-off
-in the middle of video operation, dram controller could hang at ast2500.
+Add vcodec node to enable Amlogic V4L2 stateless video decoder
+support.
 
-Use reset rather than clk-off/on to avoid this problem.
-
-Signed-off-by: Jammy Huang <jammy_huang@aspeedtech.com>
+Signed-off-by: Zhentao Guo <zhentao.guo@amlogic.com>
 ---
-On Aspeed KVM testing, we found it could lead to dram-hang if
-res-change. Although the issue rarely happens, the impact is serious.
+ arch/arm64/boot/dts/amlogic/meson-s4.dtsi | 27 +++++++++++++++++++++++++++
+ 1 file changed, 27 insertions(+)
 
-To avoid this issue, we use reset only rathar than clk-off/on in
-res-change to avoid this issue.
----
- drivers/media/platform/aspeed/aspeed-video.c | 22 +++++++++++++++++++---
- 1 file changed, 19 insertions(+), 3 deletions(-)
-
-diff --git a/drivers/media/platform/aspeed/aspeed-video.c b/drivers/media/platform/aspeed/aspeed-video.c
-index b83e432452..41cb96f601 100644
---- a/drivers/media/platform/aspeed/aspeed-video.c
-+++ b/drivers/media/platform/aspeed/aspeed-video.c
-@@ -26,6 +26,7 @@
- #include <linux/workqueue.h>
- #include <linux/debugfs.h>
- #include <linux/ktime.h>
-+#include <linux/reset.h>
- #include <linux/regmap.h>
- #include <linux/mfd/syscon.h>
- #include <media/v4l2-ctrls.h>
-@@ -310,6 +311,7 @@ struct aspeed_video {
- 	void __iomem *base;
- 	struct clk *eclk;
- 	struct clk *vclk;
-+	struct reset_control *reset;
- 
- 	struct device *dev;
- 	struct v4l2_ctrl_handler ctrl_handler;
-@@ -720,6 +722,13 @@ static void aspeed_video_on(struct aspeed_video *video)
- 	set_bit(VIDEO_CLOCKS_ON, &video->flags);
- }
- 
-+static void aspeed_video_reset(struct aspeed_video *v)
-+{
-+	reset_control_assert(v->reset);
-+	usleep_range(100, 150);
-+	reset_control_deassert(v->reset);
-+}
+diff --git a/arch/arm64/boot/dts/amlogic/meson-s4.dtsi b/arch/arm64/boot/dts/amlogic/meson-s4.dtsi
+index 9d99ed2994df..80f1b92492a5 100644
+--- a/arch/arm64/boot/dts/amlogic/meson-s4.dtsi
++++ b/arch/arm64/boot/dts/amlogic/meson-s4.dtsi
+@@ -853,5 +853,32 @@ emmc: mmc@fe08c000 {
+ 			no-sd;
+ 			status = "disabled";
+ 		};
 +
- static void aspeed_video_bufs_done(struct aspeed_video *video,
- 				   enum vb2_buffer_state state)
- {
-@@ -742,7 +751,9 @@ static void aspeed_video_irq_res_change(struct aspeed_video *video, ulong delay)
- 
- 	video->v4l2_input_status = V4L2_IN_ST_NO_SIGNAL;
- 
--	aspeed_video_off(video);
-+	aspeed_video_write(video, VE_INTERRUPT_CTRL, 0);
-+	aspeed_video_write(video, VE_INTERRUPT_STATUS, 0xffffffff);
-+	aspeed_video_reset(video);
- 	aspeed_video_bufs_done(video, VB2_BUF_STATE_ERROR);
- 
- 	schedule_delayed_work(&video->res_work, delay);
-@@ -1984,8 +1995,7 @@ static void aspeed_video_stop_streaming(struct vb2_queue *q)
- 		 * Need to force stop any DMA and try and get HW into a good
- 		 * state for future calls to start streaming again.
- 		 */
--		aspeed_video_off(video);
--		aspeed_video_on(video);
-+		aspeed_video_reset(video);
- 
- 		aspeed_video_init_regs(video);
- 
-@@ -2230,6 +2240,12 @@ static int aspeed_video_init(struct aspeed_video *video)
- 	}
- 	dev_info(video->dev, "irq %d\n", irq);
- 
-+	video->reset = devm_reset_control_get(dev, NULL);
-+	if (IS_ERR(video->reset)) {
-+		dev_err(dev, "Unable to get reset\n");
-+		return PTR_ERR(video->reset);
-+	}
++		canvas: video-lut@fe036048 {
++			compatible = "amlogic,canvas";
++			reg = <0x0 0xfe036048 0x0 0x14>;
++		};
 +
- 	video->eclk = devm_clk_get(dev, "eclk");
- 	if (IS_ERR(video->eclk)) {
- 		dev_err(dev, "Unable to get ECLK\n");
++		video-codec@fe320000 {
++			compatible = "amlogic,s4-vcodec-dec";
++			reg = <0x0 0xfe320000 0x0 0x10000>,
++			      <0x0 0xfe036000 0x0 0x20>;
++			amlogic,canvas = <&canvas>;
++			reg-names = "dos",
++				    "dmc";
++			interrupts = <GIC_SPI 91 IRQ_TYPE_EDGE_RISING>,
++				     <GIC_SPI 92 IRQ_TYPE_EDGE_RISING>,
++				     <GIC_SPI 93 IRQ_TYPE_EDGE_RISING>;
++			clocks = <&clkc_periphs CLKID_DOS>,
++				 <&clkc_periphs CLKID_VDEC_SEL>,
++				 <&clkc_periphs CLKID_HEVCF_SEL>;
++			clock-names = "vdec",
++				      "clk_vdec_mux",
++				      "clk_hevcf_mux";
++			power-domains = <&pwrc PWRC_S4_DOS_VDEC_ID>,
++					<&pwrc PWRC_S4_DOS_HEVC_ID>;
++			power-domain-names = "vdec",
++					     "hevc";
++		};
+ 	};
+ };
 
----
-base-commit: ac3fd01e4c1efce8f2c054cdeb2ddd2fc0fb150d
-change-id: 20251124-video_dram_reset-c531f6ba573f
-
-Best regards,
 -- 
-Jammy Huang <jammy_huang@aspeedtech.com>
+2.42.0
+
 
 
