@@ -4,76 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 562A9CFD313
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 14:36:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3F47CFA466
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 14:41:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YJ471huPf3AbbCsoCzRDaoFvk+dd/VjhisJknTSiicY=; b=mp+KQqre/nmkFJwxkll9zcFNyc
-	woyJZTV190PkfB3Cc7UNVix4UJAcFLIGYuXw8oVKchy9AgE8l02+cuWEvLmwiPVf0mdmEVRtNBvqZ
-	ARV+couGZq+k4fXgPvfc2N9uqAUqnWeJzCWqI5fNDvDRsX+UYVadju+Zto3oRsqFEqSvP5CJPllY0
-	y+nF3qdhPhrfdSS0eM6brjmoPTK1m7nrzIBowrhSEPPFjDUS80ksJ7NwlAl/J7ITFRBM2em+m2E43
-	HmraV/Vn+qBTJUOLgDld2LPf++P8BXigc5vZmPvrsT4cGcUFlowupeTxlJ8UdIHKRJ8TpAMOQnPIe
-	vG1LLoDA==;
+	bh=i/sSy55cVlTajDSdyXyQdQhob4xLe9O9Mx/OjvKBiH8=; b=N/j5ngu+NGmkeXNVuFhD9GmFwn
+	bcJECHCOFGxRWneJn4uZM2I5wRzwz3rk0fttvLAaYz5jSTk+ZYF/av4IAf4FrrGXR1tN3WV44pKbT
+	axbuicuiuVWcmKz5KAai/6cicFBt9WE+EyMMs33QhrUgtmHVFEtyi0xftOZacCMelxp4AQYPqurw5
+	bh3/yRcXk0y1yw3Rp0RO/OUHwcqZqtFubdEFiNiI7XmUqo7cNjjae+6BvOhlYXYGnbtzqOsGZgsT4
+	d5rjM3XT4jKQY7hTa4HM6kYS7o4n95zPPwwIaOUcSGA5cUULy5XaMoHDWtDlaqAlIOQZzAQ9PARWJ
+	kfOTROnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNXgL-0000000Br2T-3xWK;
-	Mon, 24 Nov 2025 14:36:45 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNXgJ-0000000Br1F-05CR
+	id 1vNXkf-0000000BrPc-2HGV;
+	Mon, 24 Nov 2025 14:41:13 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vNXkd-0000000BrP5-1r0K
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Nov 2025 14:36:44 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 80775497;
-	Mon, 24 Nov 2025 06:36:32 -0800 (PST)
-Received: from [10.57.88.238] (unknown [10.57.88.238])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 94CBA3F6A8;
-	Mon, 24 Nov 2025 06:36:34 -0800 (PST)
-Message-ID: <b52726c7-ea9c-4743-a68d-3eafce4e5c61@arm.com>
-Date: Mon, 24 Nov 2025 14:36:32 +0000
+	Mon, 24 Nov 2025 14:41:12 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id D8FB0441F9;
+	Mon, 24 Nov 2025 14:41:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4968CC116D0;
+	Mon, 24 Nov 2025 14:41:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1763995270;
+	bh=XncGfPrcCJsYArhUGXo8sANatKFrQIfr4atzE1U5wz4=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=nEwlnCMf536/aUl1zrHR8DlxDK9Wuqz7X4+J5Dn65GfOULKeqYgDkfcVnGGA0xGpe
+	 KP4T2dGCf6MNFiJXOgLq8uj3cxHJYNkqUZVdpcD47pHrB/kM5jOe2VRVAyCEDecdaR
+	 Yk0MDoVtjL/ttnfqaDyTTCQGgT+EosFnRYeEpNCWbaFHPngcR/TIw/jwHVlzlZsVXt
+	 Vp2eWtg249NKera8L0wTAwNYsPgwDP5p/viZQkZTlnVRGmLtzt4F1UPE8gm85Oppy6
+	 A5mC/p6NDtatl/uSdvxzkvHhEwItGVTkxfTKiVRwiK3HiNg5qt7GIgbVTQsa3Ko+xz
+	 JMrDuGy5g0q9g==
+From: Will Deacon <will@kernel.org>
+To: linux-arm-kernel@lists.infradead.org,
+	Jonathan Marek <jonathan@marek.ca>
+Cc: catalin.marinas@arm.com,
+	kernel-team@android.com,
+	Will Deacon <will@kernel.org>,
+	James Morse <james.morse@arm.com>,
+	Douglas Anderson <dianders@chromium.org>,
+	Trilok Soni <quic_tsoni@quicinc.com>,
+	shechenglong <shechenglong@xfusion.com>,
+	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
+	Shameer Kolothum <skolothumtho@nvidia.com>,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] arm64: proton-pack: Fix hard lockup when !MITIGATE_SPECTRE_BRANCH_HISTORY
+Date: Mon, 24 Nov 2025 14:41:02 +0000
+Message-Id: <176399113353.3273155.581458888814324419.b4-ty@kernel.org>
+X-Mailer: git-send-email 2.39.5
+In-Reply-To: <20251117051211.16108-1-jonathan@marek.ca>
+References: <20251117051211.16108-1-jonathan@marek.ca>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 06/12] mm: introduce generic lazy_mmu helpers
-Content-Language: en-GB
-To: Kevin Brodsky <kevin.brodsky@arm.com>, linux-mm@kvack.org
-Cc: linux-kernel@vger.kernel.org, Alexander Gordeev <agordeev@linux.ibm.com>,
- Andreas Larsson <andreas@gaisler.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Boris Ostrovsky <boris.ostrovsky@oracle.com>, Borislav Petkov
- <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>,
- Christophe Leroy <christophe.leroy@csgroup.eu>,
- Dave Hansen <dave.hansen@linux.intel.com>,
- David Hildenbrand <david@redhat.com>, "David S. Miller"
- <davem@davemloft.net>, David Woodhouse <dwmw2@infradead.org>,
- "H. Peter Anvin" <hpa@zytor.com>, Ingo Molnar <mingo@redhat.com>,
- Jann Horn <jannh@google.com>, Juergen Gross <jgross@suse.com>,
- "Liam R. Howlett" <Liam.Howlett@oracle.com>,
- Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
- Madhavan Srinivasan <maddy@linux.ibm.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Michal Hocko <mhocko@suse.com>,
- Mike Rapoport <rppt@kernel.org>, Nicholas Piggin <npiggin@gmail.com>,
- Peter Zijlstra <peterz@infradead.org>, Suren Baghdasaryan
- <surenb@google.com>, Thomas Gleixner <tglx@linutronix.de>,
- Vlastimil Babka <vbabka@suse.cz>, Will Deacon <will@kernel.org>,
- Yeoreum Yun <yeoreum.yun@arm.com>, linux-arm-kernel@lists.infradead.org,
- linuxppc-dev@lists.ozlabs.org, sparclinux@vger.kernel.org,
- xen-devel@lists.xenproject.org, x86@kernel.org
-References: <20251029100909.3381140-1-kevin.brodsky@arm.com>
- <20251029100909.3381140-7-kevin.brodsky@arm.com>
- <71418b31-aedb-4600-9558-842515dd6c44@arm.com>
- <b44825dd-aef9-4d3e-91fd-a44122264c23@arm.com>
- <f36ebc15-c724-487a-8e4a-9ca95edc544a@arm.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <f36ebc15-c724-487a-8e4a-9ca95edc544a@arm.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251124_063643_199703_9CCF837B 
-X-CRM114-Status: GOOD (  13.87  )
+X-CRM114-CacheID: sfid-20251124_064111_501847_CD88EDA3 
+X-CRM114-Status: UNSURE (   8.33  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,51 +82,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 24/11/2025 12:47, Kevin Brodsky wrote:
-> On 10/11/2025 11:45, Kevin Brodsky wrote:
->>>> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
->>>> index b8d37eb037fc..d9c8e94f140f 100644
->>>> --- a/arch/arm64/mm/mmu.c
->>>> +++ b/arch/arm64/mm/mmu.c
->>>> @@ -731,7 +731,7 @@ int split_kernel_leaf_mapping(unsigned long start, unsigned long end)
->>>>  		return -EINVAL;
->>>>  
->>>>  	mutex_lock(&pgtable_split_lock);
->>>> -	arch_enter_lazy_mmu_mode();
->>>> +	lazy_mmu_mode_enable();
->>>>  
->>>>  	/*
->>>>  	 * The split_kernel_leaf_mapping_locked() may sleep, it is not a
->>> This is a bit unfortunate, IMHO. The rest of this comment explains that although
->>> you're not supposed to sleep inside lazy mmu mode, it's fine for arm64's
->>> implementation. But we are no longer calling arm64's implementation; we are
->>> calling a generic function, which does who knows what.
->>>
->>> I think it all still works, but we are no longer containing our assumptions in
->>> arm64 code. We are relying on implementation details of generic code.
->> I see your point. The change itself is still correct (and required
->> considering patch 8), but maybe the documentation of the generic
->> interface should be clarified to guarantee that the generic layer can
->> itself cope with sleeping - without any guarantee regarding the
->> behaviour of arch_*_lazy_mmu_mode.
+On Mon, 17 Nov 2025 00:12:08 -0500, Jonathan Marek wrote:
+> The "drop print" commit removed the whole branch and not just the print.
+> For some ARM64 cpus, this leads to hard lockup when
+> CONFIG_MITIGATE_SPECTRE_BRANCH_HISTORY is not enabled.
 > 
-> Re-reading the existing comment in <linux/pgtable.h>, I think it already
-> makes clear that sleeping is not forbidden by design:
-> 
->>  * In the general case, no lock is guaranteed to be held between entry
->> and exit
->>  * of the lazy mode. So the implementation must assume preemption may
->> be enabled
->>  * and cpu migration is possible; it must take steps to be robust
->> against this.
-> 
-> The arch implementation may disable preemption, but arm64 code can rely
-> on the arm64 implementation allowing sleeping.
-
-Yeah ok, I buy that!
-
-> 
-> - Kevin
 > 
 
+Applied (with your SoB) to arm64 (for-next/fixes), thanks!
+
+[1/1] arm64: proton-pack: Fix hard lockup when !MITIGATE_SPECTRE_BRANCH_HISTORY
+      https://git.kernel.org/arm64/c/165eb13e485c
+
+I'd be inclined to remove CONFIG_MITIGATE_SPECTRE_BRANCH_HISTORY
+entirely (i.e. make it unconditional) given the number of CPUs
+affected and the dynamic controls we already have for the mitigation.
+
+Cheers,
+-- 
+Will
+
+https://fixes.arm64.dev
+https://next.arm64.dev
+https://will.arm64.dev
 
