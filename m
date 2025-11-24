@@ -4,84 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A99CCFA466
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 13:06:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C13BCCFD313
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 13:14:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vaN3sg+3xgDr2zTrBNy/b/SzOSlvYlYJAi8WaQsj7ZA=; b=SIFXS+rQ8475P3XJLKgFp8vviC
-	i/fg+EL50NjrbhXcQK4Sq+OoE/ev8OWiSFglk2ikz0tuXZfTt65Org2zOs/K3w9wXZiw2vcyhG4ud
-	KXqEnCfAiU4u0UF0m44UI0FlDTwsoIDevyMFH9sfWCXZ21GSiLQDkMTP6OC9SLB8mQobwLXUVJZ9k
-	sQl/lFYuajMeyVjJ5iArj2kpvYp0L8BpJY5xr4Y0PHDulAicSo7H82eGHM0NSvzzifkcK5+74Kh+x
-	QEzOZWyno0b/YmaAHF28HR8EQIHsPsQGsoS/vnQpmfS6oK7p2kOMeraVwa+8FxzBFGXPZv2NuzKTQ
-	NijV9V7g==;
+	bh=t+Nt4PwtSCWJNIshSoQ6Pe0T+do8j4Lql840RsA+7Cs=; b=pfYA2jPRn17P2qM29edIyJ2V6L
+	cysr8l/rBxcggbIqtzKHfSQeJFEYNOMXrhrvP25snmgqAqtHwoOLFoyalpEeEHhwkyY96kUbjFkmK
+	QIta58/QkAGGG//hIjXHPHzV8mUPPRL5Fi3NcjWobygcsJRuQnPg6ijydxitNIOmYBYyXIpOFLdz0
+	OBVdrd38U64z6T/zOW0qPsDRZeDUa1r24JqBBGfjmYtad+d2n7ahvC3WZ/9Qp6rl8LH08YfXP8Zjc
+	mSt3iPfA+MRjgh50SMAu9xFx7JuvaTYL7b/pQyaTh3cbXpqMkKoh6kC3Xf1N8pazJ5CcI76eoXMjz
+	iZMCa7LQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNWH6-0000000BhYe-2mWN;
-	Mon, 24 Nov 2025 13:06:36 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vNWOm-0000000BiT9-0rJx;
+	Mon, 24 Nov 2025 13:14:32 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNWH2-0000000BhXs-3lB9
+	id 1vNWOl-0000000BiSi-1Fmf
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Nov 2025 13:06:35 +0000
+	Mon, 24 Nov 2025 13:14:31 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 43D4540DB8;
-	Mon, 24 Nov 2025 13:06:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1ACEFC116D0;
-	Mon, 24 Nov 2025 13:06:32 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 66699601B8;
+	Mon, 24 Nov 2025 13:14:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8E64EC116C6;
+	Mon, 24 Nov 2025 13:14:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763989592;
-	bh=5j0CLSvOJClj10Gzqp4SzaePQkmDOy6Vdp6NVHuro04=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=m3V8BGSgC33MuYL+7IJxdicRfHPtObuQIPuR9g/U+fAPn2+3zga2WCZU5KBrGOnGi
-	 1YOgzNXdk2lGlaOLjwjepa0O0YgY204eUo8mcryVjAr6UZF+svSCtGc2MzavsDbviD
-	 US4QliUeH2ZmLsYmYqxJEtM+hMShI0bQIy77+4rCQ0CuNornjXAOtj+77027bYnTFD
-	 mvuL8QA89qMzREMKm/yejISFrfxDViL13NmuDg7D6Q+c3BvUVVr7WezqVDvoltZzCa
-	 KBOPueLvBIgAB/Va8rftGGomNarbKr8cXhIW1xJ2/QiEZyVCJIq8Q0L8H+2RSzy7vp
-	 nx09yKENSacwQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1vNWGz-00000007r1G-3j9E;
-	Mon, 24 Nov 2025 13:06:29 +0000
-Date: Mon, 24 Nov 2025 13:06:29 +0000
-Message-ID: <86o6orr356.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Mark Brown <broonie@kernel.org>
-Cc: Fuad Tabba <tabba@google.com>,
-	kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	kvm@vger.kernel.org,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oupton@kernel.org>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Christoffer Dall <christoffer.dall@arm.com>,
-	Volodymyr Babchuk <Volodymyr_Babchuk@epam.com>,
-	Yao Yuan <yaoyuan@linux.alibaba.com>
-Subject: Re: [PATCH v2 29/45] KVM: arm64: GICv3: Set ICH_HCR_EL2.TDIR when interrupts overflow LR capacity
-In-Reply-To: <51f5b5d7-9e98-40b8-8f8b-f50254573f3d@sirena.org.uk>
-References: <20251109171619.1507205-1-maz@kernel.org>
-	<20251109171619.1507205-30-maz@kernel.org>
-	<CA+EHjTzRwswNq+hZQDD5tXj+-0nr04OmR201mHmi82FJ0VHuJA@mail.gmail.com>
-	<86cy5ku06v.wl-maz@kernel.org>
-	<51f5b5d7-9e98-40b8-8f8b-f50254573f3d@sirena.org.uk>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: broonie@kernel.org, tabba@google.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, christoffer.dall@arm.com, Volodymyr_Babchuk@epam.com, yaoyuan@linux.alibaba.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251124_050633_899470_D7D2983A 
-X-CRM114-Status: GOOD (  27.85  )
+	s=k20201202; t=1763990070;
+	bh=RkP3XoBrROfWxpPBrDgZoNSdZ6SM16qUrh12yE+95MM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=jmZ/16DT0AV5S1MN9ZABpryaAZ3eE5oVUK1vVTDTfYkNQzDDlagWodLtTcSEHSRHE
+	 bBx8CzXdWq6kmAoB0um7jWzu6RT21Mfp0Y3UUfrAI5iWePndMdFXpN7ipEpuY+4Xvg
+	 wUGWCymAWyCllQgPeKsZ8sBhc3U6xtF/RTRcQlBafh5TYS2ZCqC8fIh3Ys8LYgDJUW
+	 xYw++b6a0Eae2yMUU3qNcVzlRd20nTzHxqDqLVCgqcj6fbs1H77qJSk8OYmdc7VyP/
+	 Hx1Yi91I9FhKM2ctMbelRoQU4RInZZX77QIz2CdYeKYKZ2up2tFxBslyS0aHGgWBZz
+	 S4d793LsYiBxg==
+Date: Mon, 24 Nov 2025 13:14:24 +0000
+From: Will Deacon <will@kernel.org>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>
+Cc: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>,
+	Jonathan Cameron <Jonathan.Cameron@huawei.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-coco@lists.linux.dev, catalin.marinas@arm.com,
+	gshan@redhat.com, aneesh.kumar@kernel.org, sami.mujawar@arm.com,
+	sudeep.holla@arm.com, steven.price@arm.com,
+	regressions@lists.linux.dev
+Subject: Re: [REGRESSION] GHES firmware can't be readonly - Was: Re: [PATCH
+ v3 3/3] arm64: acpi: Enable ACPI CCEL support
+Message-ID: <aSRaME9ZO-nchE1I@willie-the-truck>
+References: <20250918125618.2125733-1-suzuki.poulose@arm.com>
+ <20250918125618.2125733-4-suzuki.poulose@arm.com>
+ <20251121224611.07efa95a@foz.lan>
+ <4a750da6-7883-4afa-94c1-4806677e61c2@arm.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <4a750da6-7883-4afa-94c1-4806677e61c2@arm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,49 +77,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 24 Nov 2025 11:52:07 +0000,
-Mark Brown <broonie@kernel.org> wrote:
+On Mon, Nov 24, 2025 at 05:21:00AM +0000, Suzuki K Poulose wrote:
+> On 21/11/2025 21:46, Mauro Carvalho Chehab wrote:
+> > Hi,
+> > 
+> > Em Thu, 18 Sep 2025 13:56:18 +0100
+> > Suzuki K Poulose <suzuki.poulose@arm.com> escreveu:
+> > 
+> > > Add support for ACPI CCEL by handling the EfiACPIMemoryNVS type memory.
+> > > As per UEFI specifications NVS memory is reserved for Firmware use even
+> > > after exiting boot services. Thus map the region as read-only.
+> > > 
+> > > Cc: Sami Mujawar <sami.mujawar@arm.com>
+> > > Cc: Will Deacon <will@kernel.org>
+> > > Cc: Catalin Marinas <catalin.marinas@arm.com>
+> > > Cc: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
+> > > Cc: Steven Price <steven.price@arm.com>
+> > > Cc: Sudeep Holla <sudeep.holla@arm.com>
+> > > Cc: Gavin Shan <gshan@redhat.com>
+> > > Reviewed-by: Gavin Shan <gshan@redhat.com>
+> > > Tested-by: Sami Mujawar <sami.mujawar@arm.com>
+> > > Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+> > > ---
+> > >   arch/arm64/kernel/acpi.c | 10 ++++++++++
+> > >   1 file changed, 10 insertions(+)
+> > > 
+> > > diff --git a/arch/arm64/kernel/acpi.c b/arch/arm64/kernel/acpi.c
+> > > index 4d529ff7ba51..b3195b3b895f 100644
+> > > --- a/arch/arm64/kernel/acpi.c
+> > > +++ b/arch/arm64/kernel/acpi.c
+> > > @@ -357,6 +357,16 @@ void __iomem *acpi_os_ioremap(acpi_physical_address phys, acpi_size size)
+> > >   			 * as long as we take care not to create a writable
+> > >   			 * mapping for executable code.
+> > >   			 */
+> > > +			fallthrough;
+> > > +
+> > > +		case EFI_ACPI_MEMORY_NVS:
+> > > +			/*
+> > > +			 * ACPI NVS marks an area reserved for use by the
+> > > +			 * firmware, even after exiting the boot service.
+> > > +			 * This may be used by the firmware for sharing dynamic
+> > > +			 * tables/data (e.g., ACPI CCEL) with the OS. Map it
+> > > +			 * as read-only.
+> > > +			 */
+> > >   			prot = PAGE_KERNEL_RO;
+> > 
+> > Please revert this change.
+> > 
+> > Making area reserved to be used by firmware breaks some APEI
+> > notification mechanisms:
 > 
-> [1  <text/plain; us-ascii (quoted-printable)>]
-> On Fri, Nov 14, 2025 at 03:02:32PM +0000, Marc Zyngier wrote:
-> > Fuad Tabba <tabba@google.com> wrote:
-> > > On Sun, 9 Nov 2025 at 17:17, Marc Zyngier <maz@kernel.org> wrote:
-> 
-> > > > +       /*
-> > > > +        * Note that we set the trap irrespective of EOIMode, as that
-> > > > +        * can change behind our back without any warning...
-> > > > +        */
-> > > > +       if (irqs_active_outside_lrs(als))
-> > > > +               cpuif->vgic_hcr |= ICH_HCR_EL2_TDIR;
-> > > >  }
-> 
-> > > I just tested these patches as they are on kvmarm/next
-> > > 2ea7215187c5759fc5d277280e3095b350ca6a50 ("Merge branch
-> > > 'kvm-arm64/vgic-lr-overflow' into kvmarm/next"), without any
-> > > additional pKVM patches. I tried running it with pKVM (non-protected)
-> > > and with just plain nVHE. In both cases, I get a trap to EL2 (0x18)
-> > > when booting a non-protected guest, which triggers a bug in
-> > > handle_trap() arch/arm64/kvm/hyp/nvhe/hyp-main.c:706
-> 
-> > > This trap is happening because of setting this particular trap (TDIR).
-> > > Just removing this trap from vgic_v3_configure_hcr() from the ToT on
-> > > kvmarm/next boots fine.
-> 
-> > This is surprising, as I'm not hitting this on actual HW. Are you
-> > getting a 0x18 trap? If so, is it coming from the host? Can you
-> > correlate the PC with what the host is doing?
-> 
-> FWIW I am seeing this on i.MX8MP (4xA53+GICv3):
-> 
->   https://lava.sirena.org.uk/scheduler/job/2118713#L1044
+> Thanks for the report. Clearly, we missed this case. I am happy for this
+> patch to be reverted and we can work out the handling of NVS later.
 
-There are worrying errors way before that, in the VMID allocator init,
-and I can't see what the GIC has to do with it. The issue Fuad
-reported was at run time, not boot time. so this really doesn't align
-with what you are seeing.
+I'll revert the change shortly.
 
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
+Will
 
