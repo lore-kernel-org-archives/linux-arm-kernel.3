@@ -4,74 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E46BCFD313
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 18:28:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDD51CFD313
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 18:29:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5sEC0LXMpKuhyA6mhLHAKU08sW7BTxyqrUEtzwwYjpc=; b=FlUXOLKhw0YRl6PQGeWn9SOETf
-	pzyNU/RnvtRNaJawRYbg6loKq5S4HhEQQ03xAOBxWA2l1iwNN+b4B0QOjmGFeuK3GwM5dQVQI+TtU
-	mSOEnuDd9f8jjtFHgDx9VYfph89UIz+hJqyH5a/QqrfIIloJ3PChxkvjRCjk4E6XyUO3itU5vziXu
-	AGBSfQlfjODlMZcJ+MPqJWGkB5GQxvO0sfPfZx2rjVHuQK39mF6gx7w1YGLms1tNDET1xqvAq70PE
-	eJmX+tKZDG1LgKj823+QKL1IF35+f/6EidyAyPbdcnJfDk92L431vtLwp9Zx2/suqjJNP2NMp8nev
-	y9gA+bIA==;
+	bh=No5KfVBZeNSAD/ylqJFzKZhQRFVvDWjCD8DcnddvI6c=; b=d4YpKbI86cZlbMTpLSgeh/bzPx
+	c+UdNln5haC8oCEJYJelFpRAeZnDBom2FF3ZozHdfhQzbAN0pmZPvm+Ic1YOjhhzr1TOwn3GDP1Tk
+	OYSTAoKzYCu3LKQFYllBprc2c1ovwqTPC1PF38HJ9BAY+ZlzCZ3x8wbYhsQXpqsZkxN5/OHJh492q
+	t1fF/GpOgW4fXIN73e6E42bQ2zz9wToF+MndI8/sKQmJ6jkW3bfKnP9QFmeN7iQUOx2NzTIEml+P1
+	8tzYXiREyXI4ncyTBT1xgeAhoHbcW/onseFm515GuwweXXbYbX/LY4wKLS1lEgHFsaUvKOQmZV3p/
+	nWAgqRNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNbIR-0000000CBD2-0V12;
-	Mon, 24 Nov 2025 18:28:19 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNbIM-0000000CBBZ-2DLe
+	id 1vNbJ3-0000000CBKr-1zac;
+	Mon, 24 Nov 2025 18:28:57 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vNbJ0-0000000CBK7-13a3
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Nov 2025 18:28:14 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 73CB960176;
-	Mon, 24 Nov 2025 18:28:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E81B8C4CEF1;
-	Mon, 24 Nov 2025 18:28:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764008893;
-	bh=LveFK3svzwr3240pinEzhr4cRcEQRM0RRxCFeTRmktU=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=JGq6Jx7pBzvR2a+xdiqPUncCy1FvjZRbHZDBF+ugQBicvMnPobpFHPoZHIQMCce+J
-	 9qpdLngMVe17YC25iva5Kv0+tr1Z502VyIo48cTJeLzt+e/sTE589Ib8NqihaP3Owl
-	 GaZMkeokHq7NgRUQqA9aJNY5LsS5iAz5bSqpsMXSv4XZKwsQ06gQ9BdHk2MRlTgd8X
-	 geRahs6QZeiu7vVGLMetG0eXeNctJdJ3GOhG2vThlKG/DQiERnrF4wXdVaV6gjZZGe
-	 Utcp5ttWxDaiAxjKYH/xDtUR/FLmRGWrqPHpdhFq3XVvI7g8Eo94rWzcfhpCEyHF7Y
-	 ed9VCgAY54w5Q==
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Bjorn Andersson <andersson@kernel.org>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Magnus Damm <magnus.damm@gmail.com>,
-	Patrice Chotard <patrice.chotard@foss.st.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>
-Cc: Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>,
-	Peng Fan <peng.fan@nxp.com>,
-	Beleswar Padhi <b-padhi@ti.com>,
-	linux-remoteproc@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-msm@vger.kernel.org
-Subject: [PATCH v7 2/2] remoteproc: qcom: Use of_reserved_mem_region_* functions for "memory-region"
-Date: Mon, 24 Nov 2025 12:27:48 -0600
-Message-ID: <20251124182751.507624-2-robh@kernel.org>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20251124182751.507624-1-robh@kernel.org>
-References: <20251124182751.507624-1-robh@kernel.org>
+	Mon, 24 Nov 2025 18:28:56 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 00AB51477;
+	Mon, 24 Nov 2025 10:28:44 -0800 (PST)
+Received: from [10.1.30.67] (unknown [10.1.30.67])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 47ED13F86F;
+	Mon, 24 Nov 2025 10:28:50 -0800 (PST)
+Message-ID: <4813dc26-0f5c-47f8-b4e4-333f3a26c042@arm.com>
+Date: Mon, 24 Nov 2025 18:28:48 +0000
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/2] perf: arm-ni: add topology debug info for the clock
+ domain
+To: Shouping Wang <allen.wang@hj-micro.com>, will@kernel.org
+Cc: mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, andy.xu@hj-micro.com, peter.du@hj-micro.com
+References: <20251107084320.555979-1-allen.wang@hj-micro.com>
+ <20251107084320.555979-3-allen.wang@hj-micro.com>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <20251107084320.555979-3-allen.wang@hj-micro.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251124_102854_374920_A8ACB364 
+X-CRM114-Status: GOOD (  25.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,373 +66,154 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use the newly added of_reserved_mem_region_to_resource() and
-of_reserved_mem_region_count() functions to handle "memory-region"
-properties.
+On 2025-11-07 8:43 am, Shouping Wang wrote:
+> When capturing PMU info with perf, it is necessary to know the nodeid of
+> the interface. Here, we add topology debug info for the clock domain to
+> display the nodeid of the interfaces.
+> 
+> $ cat /sys/kernel/debug/arm-ni/map_1f3c06
+> as shown below:
+> | HSNI #5 || PMNI #6 || PMU  #14 |
 
-The error handling is a bit different in some cases. Often
-"memory-region" is optional, so failed lookup is not an error. But then
-an error in of_reserved_mem_lookup() is treated as an error. However,
-that distinction is not really important. Either the region is available
-and usable or it is not. So now, it is just
-of_reserved_mem_region_to_resource() which is checked for an error.
+This doesn't really provide any useful driver debugging facility though, 
+it's just repeating the exact same information that's already perfectly 
+visible through the perf interface.
 
-Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
----
-v7:
- - Split QCom to separate patch
----
- drivers/remoteproc/qcom_q6v5_adsp.c | 24 ++++------
- drivers/remoteproc/qcom_q6v5_mss.c  | 60 ++++++++-----------------
- drivers/remoteproc/qcom_q6v5_pas.c  | 69 +++++++++++------------------
- drivers/remoteproc/qcom_q6v5_wcss.c | 25 +++++------
- drivers/remoteproc/qcom_wcnss.c     | 23 ++++------
- 5 files changed, 72 insertions(+), 129 deletions(-)
+Debugfs is not meant for presenting information to end users. If they 
+really don't know the NI topology, it's trivial to query what interfaces 
+the driver knows about by simply opening an event for every possible ID 
+of the relevant type and seeing which are considered valid - at most 
+that's 128*5 perf_event_open syscalls, which can be done in a matter of 
+milliseconds. A user only needs to do that once per platform, then 
+they're free to use that data to generate numbers that are still largely 
+meaningless without knowledge of what those interfaces represent in the 
+context of the system outside the NI :)
 
-diff --git a/drivers/remoteproc/qcom_q6v5_adsp.c b/drivers/remoteproc/qcom_q6v5_adsp.c
-index e98b7e03162c..d3933a66ed3d 100644
---- a/drivers/remoteproc/qcom_q6v5_adsp.c
-+++ b/drivers/remoteproc/qcom_q6v5_adsp.c
-@@ -625,26 +625,20 @@ static int adsp_init_mmio(struct qcom_adsp *adsp,
- 
- static int adsp_alloc_memory_region(struct qcom_adsp *adsp)
- {
--	struct reserved_mem *rmem = NULL;
--	struct device_node *node;
--
--	node = of_parse_phandle(adsp->dev->of_node, "memory-region", 0);
--	if (node)
--		rmem = of_reserved_mem_lookup(node);
--	of_node_put(node);
-+	int ret;
-+	struct resource res;
- 
--	if (!rmem) {
-+	ret = of_reserved_mem_region_to_resource(adsp->dev->of_node, 0, &res);
-+	if (ret) {
- 		dev_err(adsp->dev, "unable to resolve memory-region\n");
--		return -EINVAL;
-+		return ret;
- 	}
- 
--	adsp->mem_phys = adsp->mem_reloc = rmem->base;
--	adsp->mem_size = rmem->size;
--	adsp->mem_region = devm_ioremap_wc(adsp->dev,
--				adsp->mem_phys, adsp->mem_size);
-+	adsp->mem_phys = adsp->mem_reloc = res.start;
-+	adsp->mem_size = resource_size(&res);
-+	adsp->mem_region = devm_ioremap_resource_wc(adsp->dev, &res);
- 	if (!adsp->mem_region) {
--		dev_err(adsp->dev, "unable to map memory region: %pa+%zx\n",
--			&rmem->base, adsp->mem_size);
-+		dev_err(adsp->dev, "unable to map memory region: %pR\n", &res);
- 		return -EBUSY;
- 	}
- 
-diff --git a/drivers/remoteproc/qcom_q6v5_mss.c b/drivers/remoteproc/qcom_q6v5_mss.c
-index 3087d895b87f..91940977ca89 100644
---- a/drivers/remoteproc/qcom_q6v5_mss.c
-+++ b/drivers/remoteproc/qcom_q6v5_mss.c
-@@ -1970,8 +1970,8 @@ static int q6v5_init_reset(struct q6v5 *qproc)
- static int q6v5_alloc_memory_region(struct q6v5 *qproc)
- {
- 	struct device_node *child;
--	struct reserved_mem *rmem;
--	struct device_node *node;
-+	struct resource res;
-+	int ret;
- 
- 	/*
- 	 * In the absence of mba/mpss sub-child, extract the mba and mpss
-@@ -1979,71 +1979,49 @@ static int q6v5_alloc_memory_region(struct q6v5 *qproc)
- 	 */
- 	child = of_get_child_by_name(qproc->dev->of_node, "mba");
- 	if (!child) {
--		node = of_parse_phandle(qproc->dev->of_node,
--					"memory-region", 0);
-+		ret = of_reserved_mem_region_to_resource(qproc->dev->of_node, 0, &res);
- 	} else {
--		node = of_parse_phandle(child, "memory-region", 0);
-+		ret = of_reserved_mem_region_to_resource(child, 0, &res);
- 		of_node_put(child);
- 	}
- 
--	if (!node) {
--		dev_err(qproc->dev, "no mba memory-region specified\n");
--		return -EINVAL;
--	}
--
--	rmem = of_reserved_mem_lookup(node);
--	of_node_put(node);
--	if (!rmem) {
-+	if (ret) {
- 		dev_err(qproc->dev, "unable to resolve mba region\n");
--		return -EINVAL;
-+		return ret;
- 	}
- 
--	qproc->mba_phys = rmem->base;
--	qproc->mba_size = rmem->size;
-+	qproc->mba_phys = res.start;
-+	qproc->mba_size = resource_size(&res);
- 
- 	if (!child) {
--		node = of_parse_phandle(qproc->dev->of_node,
--					"memory-region", 1);
-+		ret = of_reserved_mem_region_to_resource(qproc->dev->of_node, 1, &res);
- 	} else {
- 		child = of_get_child_by_name(qproc->dev->of_node, "mpss");
--		node = of_parse_phandle(child, "memory-region", 0);
-+		ret = of_reserved_mem_region_to_resource(child, 0, &res);
- 		of_node_put(child);
- 	}
- 
--	if (!node) {
--		dev_err(qproc->dev, "no mpss memory-region specified\n");
--		return -EINVAL;
--	}
--
--	rmem = of_reserved_mem_lookup(node);
--	of_node_put(node);
--	if (!rmem) {
-+	if (ret) {
- 		dev_err(qproc->dev, "unable to resolve mpss region\n");
--		return -EINVAL;
-+		return ret;
- 	}
- 
--	qproc->mpss_phys = qproc->mpss_reloc = rmem->base;
--	qproc->mpss_size = rmem->size;
-+	qproc->mpss_phys = qproc->mpss_reloc = res.start;
-+	qproc->mpss_size = resource_size(&res);
- 
- 	if (!child) {
--		node = of_parse_phandle(qproc->dev->of_node, "memory-region", 2);
-+		ret = of_reserved_mem_region_to_resource(qproc->dev->of_node, 2, &res);
- 	} else {
- 		child = of_get_child_by_name(qproc->dev->of_node, "metadata");
--		node = of_parse_phandle(child, "memory-region", 0);
-+		ret = of_reserved_mem_region_to_resource(child, 0, &res);
- 		of_node_put(child);
- 	}
- 
--	if (!node)
-+	if (ret)
- 		return 0;
- 
--	rmem = of_reserved_mem_lookup(node);
--	if (!rmem) {
--		dev_err(qproc->dev, "unable to resolve metadata region\n");
--		return -EINVAL;
--	}
--
--	qproc->mdata_phys = rmem->base;
--	qproc->mdata_size = rmem->size;
-+	qproc->mdata_phys = res.start;
-+	qproc->mdata_size = resource_size(&res);
- 
- 	return 0;
- }
-diff --git a/drivers/remoteproc/qcom_q6v5_pas.c b/drivers/remoteproc/qcom_q6v5_pas.c
-index 158bcd6cc85c..7bac843ce406 100644
---- a/drivers/remoteproc/qcom_q6v5_pas.c
-+++ b/drivers/remoteproc/qcom_q6v5_pas.c
-@@ -547,53 +547,37 @@ static void qcom_pas_pds_detach(struct qcom_pas *pas, struct device **pds, size_
- 
- static int qcom_pas_alloc_memory_region(struct qcom_pas *pas)
- {
--	struct reserved_mem *rmem;
--	struct device_node *node;
--
--	node = of_parse_phandle(pas->dev->of_node, "memory-region", 0);
--	if (!node) {
--		dev_err(pas->dev, "no memory-region specified\n");
--		return -EINVAL;
--	}
-+	struct resource res;
-+	int ret;
- 
--	rmem = of_reserved_mem_lookup(node);
--	of_node_put(node);
--	if (!rmem) {
-+	ret = of_reserved_mem_region_to_resource(pas->dev->of_node, 0, &res);
-+	if (ret) {
- 		dev_err(pas->dev, "unable to resolve memory-region\n");
--		return -EINVAL;
-+		return ret;
- 	}
- 
--	pas->mem_phys = pas->mem_reloc = rmem->base;
--	pas->mem_size = rmem->size;
--	pas->mem_region = devm_ioremap_wc(pas->dev, pas->mem_phys, pas->mem_size);
-+	pas->mem_phys = pas->mem_reloc = res.start;
-+	pas->mem_size = resource_size(&res);
-+	pas->mem_region = devm_ioremap_resource_wc(pas->dev, &res);
- 	if (!pas->mem_region) {
--		dev_err(pas->dev, "unable to map memory region: %pa+%zx\n",
--			&rmem->base, pas->mem_size);
-+		dev_err(pas->dev, "unable to map memory region: %pR\n", &res);
- 		return -EBUSY;
- 	}
- 
- 	if (!pas->dtb_pas_id)
- 		return 0;
- 
--	node = of_parse_phandle(pas->dev->of_node, "memory-region", 1);
--	if (!node) {
--		dev_err(pas->dev, "no dtb memory-region specified\n");
--		return -EINVAL;
--	}
--
--	rmem = of_reserved_mem_lookup(node);
--	of_node_put(node);
--	if (!rmem) {
-+	ret = of_reserved_mem_region_to_resource(pas->dev->of_node, 1, &res);
-+	if (ret) {
- 		dev_err(pas->dev, "unable to resolve dtb memory-region\n");
--		return -EINVAL;
-+		return ret;
- 	}
- 
--	pas->dtb_mem_phys = pas->dtb_mem_reloc = rmem->base;
--	pas->dtb_mem_size = rmem->size;
--	pas->dtb_mem_region = devm_ioremap_wc(pas->dev, pas->dtb_mem_phys, pas->dtb_mem_size);
-+	pas->dtb_mem_phys = pas->dtb_mem_reloc = res.start;
-+	pas->dtb_mem_size = resource_size(&res);
-+	pas->dtb_mem_region = devm_ioremap_resource_wc(pas->dev, &res);
- 	if (!pas->dtb_mem_region) {
--		dev_err(pas->dev, "unable to map dtb memory region: %pa+%zx\n",
--			&rmem->base, pas->dtb_mem_size);
-+		dev_err(pas->dev, "unable to map dtb memory region: %pR\n", &res);
- 		return -EBUSY;
- 	}
- 
-@@ -603,7 +587,6 @@ static int qcom_pas_alloc_memory_region(struct qcom_pas *pas)
- static int qcom_pas_assign_memory_region(struct qcom_pas *pas)
- {
- 	struct qcom_scm_vmperm perm[MAX_ASSIGN_COUNT];
--	struct device_node *node;
- 	unsigned int perm_size;
- 	int offset;
- 	int ret;
-@@ -612,17 +595,15 @@ static int qcom_pas_assign_memory_region(struct qcom_pas *pas)
- 		return 0;
- 
- 	for (offset = 0; offset < pas->region_assign_count; ++offset) {
--		struct reserved_mem *rmem = NULL;
--
--		node = of_parse_phandle(pas->dev->of_node, "memory-region",
--					pas->region_assign_idx + offset);
--		if (node)
--			rmem = of_reserved_mem_lookup(node);
--		of_node_put(node);
--		if (!rmem) {
-+		struct resource res;
-+
-+		ret = of_reserved_mem_region_to_resource(pas->dev->of_node,
-+							 pas->region_assign_idx + offset,
-+							 &res);
-+		if (ret) {
- 			dev_err(pas->dev, "unable to resolve shareable memory-region index %d\n",
- 				offset);
--			return -EINVAL;
-+			return ret;
- 		}
- 
- 		if (pas->region_assign_shared)  {
-@@ -637,8 +618,8 @@ static int qcom_pas_assign_memory_region(struct qcom_pas *pas)
- 			perm_size = 1;
- 		}
- 
--		pas->region_assign_phys[offset] = rmem->base;
--		pas->region_assign_size[offset] = rmem->size;
-+		pas->region_assign_phys[offset] = res.start;
-+		pas->region_assign_size[offset] = resource_size(&res);
- 		pas->region_assign_owners[offset] = BIT(QCOM_SCM_VMID_HLOS);
- 
- 		ret = qcom_scm_assign_mem(pas->region_assign_phys[offset],
-diff --git a/drivers/remoteproc/qcom_q6v5_wcss.c b/drivers/remoteproc/qcom_q6v5_wcss.c
-index 07c88623f597..ca748e3bcc7f 100644
---- a/drivers/remoteproc/qcom_q6v5_wcss.c
-+++ b/drivers/remoteproc/qcom_q6v5_wcss.c
-@@ -873,27 +873,22 @@ static int q6v5_wcss_init_mmio(struct q6v5_wcss *wcss,
- 
- static int q6v5_alloc_memory_region(struct q6v5_wcss *wcss)
- {
--	struct reserved_mem *rmem = NULL;
--	struct device_node *node;
- 	struct device *dev = wcss->dev;
-+	struct resource res;
-+	int ret;
- 
--	node = of_parse_phandle(dev->of_node, "memory-region", 0);
--	if (node)
--		rmem = of_reserved_mem_lookup(node);
--	of_node_put(node);
--
--	if (!rmem) {
-+	ret = of_reserved_mem_region_to_resource(dev->of_node, 0, &res);
-+	if (ret) {
- 		dev_err(dev, "unable to acquire memory-region\n");
--		return -EINVAL;
-+		return ret;
- 	}
- 
--	wcss->mem_phys = rmem->base;
--	wcss->mem_reloc = rmem->base;
--	wcss->mem_size = rmem->size;
--	wcss->mem_region = devm_ioremap_wc(dev, wcss->mem_phys, wcss->mem_size);
-+	wcss->mem_phys = res.start;
-+	wcss->mem_reloc = res.start;
-+	wcss->mem_size = resource_size(&res);
-+	wcss->mem_region = devm_ioremap_resource_wc(dev, &res);
- 	if (!wcss->mem_region) {
--		dev_err(dev, "unable to map memory region: %pa+%pa\n",
--			&rmem->base, &rmem->size);
-+		dev_err(dev, "unable to map memory region: %pR\n", &res);
- 		return -EBUSY;
- 	}
- 
-diff --git a/drivers/remoteproc/qcom_wcnss.c b/drivers/remoteproc/qcom_wcnss.c
-index 2c7e519a2254..14005fb049a2 100644
---- a/drivers/remoteproc/qcom_wcnss.c
-+++ b/drivers/remoteproc/qcom_wcnss.c
-@@ -526,25 +526,20 @@ static int wcnss_request_irq(struct qcom_wcnss *wcnss,
- 
- static int wcnss_alloc_memory_region(struct qcom_wcnss *wcnss)
- {
--	struct reserved_mem *rmem = NULL;
--	struct device_node *node;
--
--	node = of_parse_phandle(wcnss->dev->of_node, "memory-region", 0);
--	if (node)
--		rmem = of_reserved_mem_lookup(node);
--	of_node_put(node);
-+	struct resource res;
-+	int ret;
- 
--	if (!rmem) {
-+	ret = of_reserved_mem_region_to_resource(wcnss->dev->of_node, 0, &res);
-+	if (ret) {
- 		dev_err(wcnss->dev, "unable to resolve memory-region\n");
--		return -EINVAL;
-+		return ret;
- 	}
- 
--	wcnss->mem_phys = wcnss->mem_reloc = rmem->base;
--	wcnss->mem_size = rmem->size;
--	wcnss->mem_region = devm_ioremap_wc(wcnss->dev, wcnss->mem_phys, wcnss->mem_size);
-+	wcnss->mem_phys = wcnss->mem_reloc = res.start;
-+	wcnss->mem_size = resource_size(&res);
-+	wcnss->mem_region = devm_ioremap_resource_wc(wcnss->dev, &res);
- 	if (!wcnss->mem_region) {
--		dev_err(wcnss->dev, "unable to map memory region: %pa+%zx\n",
--			&rmem->base, wcnss->mem_size);
-+		dev_err(wcnss->dev, "unable to map memory region: %pR\n", &res);
- 		return -EBUSY;
- 	}
- 
--- 
-2.51.0
+Thanks,
+Robin.
 
+> 
+> Signed-off-by: Shouping Wang <allen.wang@hj-micro.com>
+> ---
+>   drivers/perf/arm-ni.c | 63 ++++++++++++++++++++++++++++++++++++++++++-
+>   1 file changed, 62 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/perf/arm-ni.c b/drivers/perf/arm-ni.c
+> index 32eabdbe877a..e0f0e18d0120 100644
+> --- a/drivers/perf/arm-ni.c
+> +++ b/drivers/perf/arm-ni.c
+> @@ -13,6 +13,7 @@
+>   #include <linux/perf_event.h>
+>   #include <linux/platform_device.h>
+>   #include <linux/slab.h>
+> +#include <linux/debugfs.h>
+>   
+>   /* Common registers */
+>   #define NI_NODE_TYPE		0x000
+> @@ -110,6 +111,7 @@ struct arm_ni_cd {
+>   	struct arm_ni_unit *units;
+>   	struct perf_event *evcnt[NI_NUM_COUNTERS];
+>   	struct perf_event *ccnt;
+> +	struct dentry *debug;
+>   };
+>   
+>   struct arm_ni {
+> @@ -476,6 +478,59 @@ static irqreturn_t arm_ni_handle_irq(int irq, void *dev_id)
+>   	}
+>   }
+>   
+> +static struct dentry *arm_ni_cd_debugfs;
+> +
+> +#ifdef CONFIG_DEBUG_FS
+> +static const char *arm_ni_node_type(enum ni_node_type type)
+> +{
+> +	switch (type) {
+> +	case NI_ASNI:
+> +		return "| ASNI ";
+> +	case NI_AMNI:
+> +		return "| AMNI ";
+> +	case NI_PMU:
+> +		return "| PMU  ";
+> +	case NI_HSNI:
+> +		return "| HSNI ";
+> +	case NI_HMNI:
+> +		return "| HMNI ";
+> +	case NI_PMNI:
+> +		return "| PMNI ";
+> +	default:
+> +		return "| ???? ";
+> +	}
+> +}
+> +
+> +static int arm_ni_cd_map_show(struct seq_file *s, void *data)
+> +{
+> +	struct arm_ni_cd *cd = s->private;
+> +
+> +	cd_for_each_unit(cd, unit) {
+> +		seq_printf(s, "%s#%-2d |", arm_ni_node_type(unit->type), unit->id);
+> +	}
+> +	seq_puts(s, "\n");
+> +
+> +	return 0;
+> +}
+> +
+> +DEFINE_SHOW_ATTRIBUTE(arm_ni_cd_map);
+> +
+> +static void arm_ni_cd_debugfs_init(struct arm_ni_cd *cd, u64 res_start)
+> +{
+> +	const char *name = "map";
+> +
+> +	if (res_start > 0)
+> +		name = devm_kasprintf(cd_to_ni(cd)->dev, GFP_KERNEL, "map_%llx",
+> +				res_start >> NI_PMU_PA_SHIFT);
+> +	if (!name)
+> +		return;
+> +
+> +	cd->debug = debugfs_create_file(name, 0444, arm_ni_cd_debugfs, cd, &arm_ni_cd_map_fops);
+> +}
+> +#else
+> +static void arm_ni_cd_debugfs_init(struct arm_ni_cd *cd, u64 res_start) {}
+> +#endif
+> +
+>   static int arm_ni_init_cd(struct arm_ni *ni, struct arm_ni_node *node, u64 res_start)
+>   {
+>   	struct arm_ni_cd *cd = ni->cds + node->id;
+> @@ -563,6 +618,7 @@ static int arm_ni_init_cd(struct arm_ni *ni, struct arm_ni_node *node, u64 res_s
+>   	name = devm_kasprintf(ni->dev, GFP_KERNEL, "arm_ni_%llx", res_start >> NI_PMU_PA_SHIFT);
+>   	if (!name)
+>   		return -ENOMEM;
+> +	arm_ni_cd_debugfs_init(cd, res_start);
+>   
+>   	return perf_pmu_register(&cd->pmu, name, -1);
+>   }
+> @@ -575,6 +631,7 @@ static void arm_ni_remove(struct platform_device *pdev)
+>   		writel_relaxed(0, cd->pmu_base + NI_PMCR);
+>   		writel_relaxed(U32_MAX, cd->pmu_base + NI_PMINTENCLR);
+>   		perf_pmu_unregister(&cd->pmu);
+> +		debugfs_remove(cd->debug);
+>   	}
+>   	cpuhp_state_remove_instance_nocalls(arm_ni_hp_state, &ni->cpuhp_node);
+>   }
+> @@ -787,9 +844,12 @@ static int __init arm_ni_init(void)
+>   
+>   	arm_ni_hp_state = ret;
+>   
+> +	arm_ni_cd_debugfs = debugfs_create_dir("arm-ni", NULL);
+>   	ret = platform_driver_register(&arm_ni_driver);
+> -	if (ret)
+> +	if (ret) {
+>   		cpuhp_remove_multi_state(arm_ni_hp_state);
+> +		debugfs_remove(arm_ni_cd_debugfs);
+> +	}
+>   	return ret;
+>   }
+>   
+> @@ -797,6 +857,7 @@ static void __exit arm_ni_exit(void)
+>   {
+>   	platform_driver_unregister(&arm_ni_driver);
+>   	cpuhp_remove_multi_state(arm_ni_hp_state);
+> +	debugfs_remove(arm_ni_cd_debugfs);
+>   }
+>   
+>   module_init(arm_ni_init);
 
