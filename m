@@ -4,166 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25BF1CFD31F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 17:07:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D170CFD318
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 17:10:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fveucv3YLcZIR99K90Z5C/tVAVkHENqwEJf8S539mbw=; b=a1HSOQqUUE9KJPTrMC7FAFOByb
-	hLaoiLQHxQ+u6mJSN8iaE08VGj37ZKyUZ87uRG8PhZ8TzwSALGrsbeWtOeGS/RmsalGfZ364Q3A/k
-	ICJwezY72HkhTQVPzO4f4lNVH6KU48H43EtUSsHoDy/R8c/1K7FCNYHHThHfzVmJy83ltUDMibDQx
-	cH8ywS2ex+CfLaXlep+iz5GzJGpJJyNvS0t4sP5kmiaOd+ppBmkDnNWUkiZIgGOQeqV+30H9xm5Da
-	khUTTAE3GVTZD3y/RuZz6S8kuJVPeGZbA9xgW+9nB7Liir/fWcijrKqP0rPo21JRWaeJbCB6IDA0v
-	stlv2qeA==;
+	bh=FjELbD1gWRjpQBsqfo+fckd8h4RPqZ7n7+l68bVnpr4=; b=J8kxdbdvkHuMLwVZqhAM/Z82JN
+	nSrtO18hJXQ42y8KEBHtwyaUQd4yNzE+egYRPjnhvhAONBaIoU0+m1tZqY3yHbW3W6CMZTw0h3w3G
+	E9/eFIRfepq9gmsYQa/1Vshhdap0WkEGp8xINNrKffh+htEYqm2+TFI3gLUev4RJmvXXNcFV/kNW6
+	6GXGQtPeEfl/O/GwyZUFgV5LriEcfn6Rf42nC1dFtMLW6w/QGC2uNJESk4zEKuVEQUXQGKlIoYqxy
+	9S5UVj/zxaAiNfVojvJjUkR8YywsrK+iStU/l4B7ckI/FlavYXIWCmGjg2wLf3KTnzNZBvyZ7ijWG
+	lkfSHADw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNa2T-0000000C4hb-3Cdk;
-	Mon, 24 Nov 2025 17:07:45 +0000
-Received: from mail-northeuropeazon11011069.outbound.protection.outlook.com ([52.101.65.69] helo=DU2PR03CU002.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNa2Q-0000000C4h2-4AMt
+	id 1vNa4y-0000000C4vJ-39k1;
+	Mon, 24 Nov 2025 17:10:20 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vNa4w-0000000C4uv-2zmM
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Nov 2025 17:07:44 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=nb44PUl16DLI5/TbufYjOc8YOJO20fRoCrsyJCMSlZ4KzDdia+cwqAeO/eeUjWGV7oRoSdVflzyBWI+QUQ/AVCJ0IQVdiTdS5L365jIe92vjkBeJCiiyNQBO1NTPe00KD1HDDOeV1YqJr14Jhwdox5FSulwbl94+KYE4Jx+eWnT0nQ7XraoBYA1cM5cEmMe/uHWNZaAbtSzMQIqJcPXw/odxpoZ1n8jXYJIN5lOoHcEEBnCSlKfvIMcRcvPrKFO1vZVJFGugT2tBbSpifYWOB1Y/Lb1+HvgYdQ+7MmNJf75nMLx5pKU+qlSJFtOHgAGbIJHXoCVFzLbvVstgfW0N5A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=fveucv3YLcZIR99K90Z5C/tVAVkHENqwEJf8S539mbw=;
- b=plBZ0f0KuT1YAFtXNKQKrSfhJJWRNheHPxsEs4mlkA2Drb2Z9GuQsrQjNTMXuioLWNk7uUDM7VTK5b9ekmcUIqt4xbReOiyjpU7ezvjB5WiWgCKsIAbamSzcc9nfd0TaOprG3vg5oauZXbf6GyiFMEEffIAQA5CsLLESHrB7MLiS5919G4mb4fkhsOy+zIok2JzZWfJH4E7y6szxMto1LHli5E8MW82qlEgYb519yUQ99RWAr9GpvmB/kwI90wZv/fSr4bxliXSJ7Aa2sK71iBeNeCg6XtzHi0rE8ETiVMXSwNAbWrKQYrJxqzXuIQJiiX/DMnEtjJMlKmOXHwJ95A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=fveucv3YLcZIR99K90Z5C/tVAVkHENqwEJf8S539mbw=;
- b=NUSmMNNnCMFf8ilk6eFqZlqZ2BcFtoEQOe28w5KpqO3h1Xh9ird9pBqT/IxnhQ/RajJHJhsnAdwDoxGHtOxigCg1vEa7yUXBafLRu0y/UbfuM1DKENW2kTPzJP7RJ74Q0pgZMoCwH0+6AgaCD80wVSowzjSsRb0BFSZY3dJZjY/zChZxS+9YINZtx0L3MJ7MA9j+5iaUxl+oZvCC9ADAj8JAEPp9/HEQZVQu1Gr607mJdKpyKF5e0MEk/1HrurxAadeHskABj6nXcdng5Dzlup7j1NPdZX+xfedxkiNR6SrC7aI8l1O+60k8sSYuwnEnlc+WEaWtq/8flrwoTcb4rw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from DU2PR04MB8951.eurprd04.prod.outlook.com (2603:10a6:10:2e2::22)
- by PA2PR04MB10087.eurprd04.prod.outlook.com (2603:10a6:102:40b::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9343.17; Mon, 24 Nov
- 2025 17:07:38 +0000
-Received: from DU2PR04MB8951.eurprd04.prod.outlook.com
- ([fe80::753c:468d:266:196]) by DU2PR04MB8951.eurprd04.prod.outlook.com
- ([fe80::753c:468d:266:196%4]) with mapi id 15.20.9343.016; Mon, 24 Nov 2025
- 17:07:38 +0000
-Date: Mon, 24 Nov 2025 12:07:31 -0500
-From: Frank Li <Frank.li@nxp.com>
-To: Carlos Song <carlos.song@nxp.com>
-Cc: aisheng.dong@nxp.com, andi.shyti@kernel.org, shawnguo@kernel.org,
-	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
-	linux-i2c@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] i2c: imx-lpi2c: Add runtime PM support for IRQ and clock
- management on i.MX8QXP/8QM
-Message-ID: <aSSQ0wPU5I3Fss9s@lizhi-Precision-Tower-5810>
-References: <20251124061743.1988773-1-carlos.song@nxp.com>
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20251124061743.1988773-1-carlos.song@nxp.com>
-X-ClientProxiedBy: PH0PR07CA0032.namprd07.prod.outlook.com
- (2603:10b6:510:e::7) To DU2PR04MB8951.eurprd04.prod.outlook.com
- (2603:10a6:10:2e2::22)
+	Mon, 24 Nov 2025 17:10:20 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B34401477;
+	Mon, 24 Nov 2025 09:10:08 -0800 (PST)
+Received: from [10.1.200.38] (e119884-lin.cambridge.arm.com [10.1.200.38])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 60F883F73B;
+	Mon, 24 Nov 2025 09:10:15 -0800 (PST)
+Message-ID: <4c5d3da8-424e-4529-b5f4-4ad1f5f3810b@arm.com>
+Date: Mon, 24 Nov 2025 17:10:13 +0000
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU2PR04MB8951:EE_|PA2PR04MB10087:EE_
-X-MS-Office365-Filtering-Correlation-Id: a59e5735-e4f5-4ccd-ca90-08de2b7bf8a4
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|19092799006|52116014|376014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?Zm1hd2orNm5Yc2NWb0lqbmNoNFhneE9KTmZmZTdmK0FCZXpqRDJnL1lnRVl5?=
- =?utf-8?B?NWw4N3ZZNUQzWFZMN0tHSTVhaXpySi9LZTZNSWhVWHgrMlNoZm9GVXBJL0ZL?=
- =?utf-8?B?azZkWU1jTnNIbnJoN0NySW5xcjIvWEsvc3ZSaXZ2REZWOFlCZ05IcUpZdGpC?=
- =?utf-8?B?TGJvOSt1WHpNTnJtVW10TjV1aUYxeGliN0lVZ0JlNk4zcWRIc3Y3allKc09F?=
- =?utf-8?B?b3dDVWs3dzRoZlI1Z1BoOE14NTdpenpJbUJaUFJ6ZWM4THNDL2xDOThITTVN?=
- =?utf-8?B?NHkwYzduRnFqcEFFK1JPNTFHV1BuU2RZU0Z2U2ErcEp3a3hqeEZHNmNCeDZC?=
- =?utf-8?B?OFR0TVErUzUrTmFIMWRNbmxVSVJBcmtQbHRhc0JhUmJwaFJBM2hyZ3hXUXgw?=
- =?utf-8?B?WUp0c2dSN1NFdWZlQmd2d2Zpa1c0SXgvSHlKTnFRQ2kzQm91WWhORUN0WG9p?=
- =?utf-8?B?OHpZU2FyVldsY0RkSmJCR2xUTmdQUDkvdlZXVHpSWmczUk52NXp4eGNhbU4v?=
- =?utf-8?B?eXJoTWRTdEhHcmVLbFEwZGp4Q3lpTkV4eWFUQkZWWTIyMklvTlRzZ0NwNTNv?=
- =?utf-8?B?K1luOWxjL3RpUXc1MnVBMEM4dmFFajdzdEJ1WmN0QSs4ZWZmWVhWdTkybWV0?=
- =?utf-8?B?MGFHRllnTVhCMmJobkpndnBEakNLc3ZOZWNKUGhRc0hQMkUycVNmL0tsY1N0?=
- =?utf-8?B?TWsrbWdhWFJmV3lEUmZUYTZ1dmRndncvME9nWW10NVduRHpuT2VDam9kMi9B?=
- =?utf-8?B?S2lrbG5zL3BoU05ZMUUrZ0tRY1kwWE5ydXZlUUpsRmFNcnRUODNudWpObUZH?=
- =?utf-8?B?VmhzZnRIV3VvYi9GZnlNTEV6TUpXVXVTYjdrRDRhRDZkWUZBZkJ3azEwN3Ur?=
- =?utf-8?B?U2lFa3F6ZnMwVHo1aS9ZNmZBaW1CWXRBWUJLLzlEazFxNEVjcmpMVUlmNngv?=
- =?utf-8?B?RTlDV1NabHlBdDZzL2VvNHJJeUNGemFuY1FncnFodDhWTlhxUEFORkVnNUxN?=
- =?utf-8?B?QUhJSDdjbjl3T1VPZjJrUlk3Tnc1Q3lWZ1NleGVkZnQxamdFR1ZEd04veWQ2?=
- =?utf-8?B?ai9GSVJzZmZ3WDNJSkk1czNqbk10SWtVaDVpeGEvWG9UWnZiN0Ntc2toWG1q?=
- =?utf-8?B?Q1l0WlRqazByMHB6ejg2NTc0UjVJazBPaVFCZWR4azh5VTNaQkNGSjNVWmtK?=
- =?utf-8?B?SHVYVjNjSkN1RU5zNFJIK0x2R3FsNE1ESnRpTXFOR29Jb2hPMUpzSFhWdkht?=
- =?utf-8?B?QmZzVU5hVEpzY0w0emkvRFFjZ2NGSHFRbUVTQk9QWE9zd2p5aXBhSXhCOFlv?=
- =?utf-8?B?cWNSZVphNzRFQkNWQWdnZ3BhaDc3Y2IxTG9NWXhmSHhHNCtRY3BBNmxLQzYr?=
- =?utf-8?B?Y2dkZmlyK1ZkU0dPbGF2czl3MnRMalFVNG91SE5SNzE2clYwclhSV0ZVY0JR?=
- =?utf-8?B?Vk5GdGJwS2lmbzRObXE1MjFSRkJXNlZFcWpjd0MwTzZ6UzVkaitXQllyY3pD?=
- =?utf-8?B?Z1NGVmZPRTBsUWoxOE1DZjRMSkg0LzJPQjlGNXVxVDMyb1B1UmhlL3ZYNGVv?=
- =?utf-8?B?TU9xSmhIVU53SUpYbElKUVhYaG9NTlY4eGpVMitKNHJpUDA4bXNzUXgyWkRs?=
- =?utf-8?B?YW9FQ3AxQzEyODcvT2tQVEUzMG4vcHMvL2dnLytQV1hrdjBBWW9jNzFZempj?=
- =?utf-8?B?a1Zha0NGQnhDYzkxQkJYV0dheFhTQTNheEwycEI2QTdwT3E2NE5KVEhCVlFL?=
- =?utf-8?B?K2lIVGlORndCZ29JSFpKZW90UWFJZkNBSzRjSWFWYW9INmJQVGZJT0RyNkMw?=
- =?utf-8?B?QlB2aVgrQi84UXNFVDlmeHQrQ1VtUVg0UXFNcFo2Z0I2ME9iNStBYXVhWmtR?=
- =?utf-8?B?TWhhRC9HNzRFelJlYXc4MzJJcjB0YXhkd0ZCdXJRWU03TjVpWTBNMm1BNzl1?=
- =?utf-8?B?RDhIaWtjdVpoYnRyaURYWlZGSTlmUzRITmJlaUpxVHRNUGRQRFZuQzhKRDlC?=
- =?utf-8?B?K0F3NVhWak5VZ09meGl5R0FQUHltQllYZHhmbG4xYytjN2tWSE10Tlk4cWZn?=
- =?utf-8?Q?lEtir4?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8951.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(19092799006)(52116014)(376014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?M2daTFJjTHEySnpsUDVzZ3o1U25oV2hDcGdPNklRRzJYME9BajcwWGh2ZGNM?=
- =?utf-8?B?bU9TaC9FVXhBeFluQ0VTUnhuMlJVUHQvVzYvRkZMTTh1aDJKZWZzaE15RGNt?=
- =?utf-8?B?bTZyeS92akd5VmZTZmV2ajZ4YUhWR2NyZ2U1TTNhc2xLbWpMWE1aU3BCdzVw?=
- =?utf-8?B?bnhBUS9UWFRnOUo5UUNwQzFrUWhXd3V5Nmsrd1doQzN0MXZiNXZ2RmpqdDlu?=
- =?utf-8?B?cGg2L0E0SWM2WlRLaUxKK21CZm8rNmpYTDBESzRsT2U4MG1oWDZOT2JucEhS?=
- =?utf-8?B?MEVveTNsZWNidFpTaUlrem9TbUxQR010Um1RYmhCZ0JvVmhzWW1neXJOK3VQ?=
- =?utf-8?B?U2VVNHJvV2lNaUh0RmtOZ1UxTHVvOTZlT2NWYTZLQ2F6ZlFJaytkblZkTDln?=
- =?utf-8?B?MDIzR1JZWklRTTM1bUxCb09hT3JCN1k2Yzc1U0UyN3NNMVVJN1pqRlVjWFk3?=
- =?utf-8?B?N2g3ZjZIMzdsT2E1VkF0VFpxK0dkaE4xNVYvNXd3RTdyZlo4MkFLNjU2YWdq?=
- =?utf-8?B?dmwrR093c1B0WEJKK25nU1VrdWE4UjQ2ZE5hZnpwb3YrbEJMK0F5MmR3MGV5?=
- =?utf-8?B?akV6bGNseDV1dHM4Sm1ncCtXbU9kUms0NlZmUldRU1JGMEU3RVUzQU8zK3Vi?=
- =?utf-8?B?azdWRElKOEoyT0cwVktHUmM2YytmOUZZa2c3ZysrcDJoWnQyRUNnM0tHbUxU?=
- =?utf-8?B?ZUhkZy81bitmUURQaktpZGV4YzlLSHJKS0p3UHhXSGFJMnN2QzZ0a1JCSDZC?=
- =?utf-8?B?aW96U2UzSW5MclNPeExKdDR3eU9sSGpsWE9XbXhnQ2xtakgrRjh3YVRNc1l4?=
- =?utf-8?B?anVGWVF6U0pCYkF2TXQwRnlCVnRQb2d1b0ZNZHVyZ0NMVXg3VGd3bmprQk55?=
- =?utf-8?B?YzlLbWRHZUlMK1lMckxHaGN2emcwMnhvS1BwVHlUZE5FMWJwUko3d2JVWFJw?=
- =?utf-8?B?WWlwSGxKcUdNbU5hanZ1QmJmOWFaRGlzNTJDNHgyY0orU2wxZldxbVEwQ0E3?=
- =?utf-8?B?Y3ZhK1I3aDVjQWs2MmozdVdrYmdkdDZZVDJqSmRUZmNyZWRLMmVSemJDbWtK?=
- =?utf-8?B?T0RSMyt2dWh2VUdEeXZSNlNUTzNjZTc1Q3JhbSs3L1ZxZzNmc2lEOWZBUkh4?=
- =?utf-8?B?amhMaldGbG1HVFhhVTRYaFFyaUhNT2EyVFVDTWlsMUx2bkNwTnJFMHlYOVYw?=
- =?utf-8?B?SGgrMFFBZlE4MUNJWUI5eEQzbldXMzNXeUtUc1FFK3JuQzJBVWZqdXhSUEZw?=
- =?utf-8?B?aHZpY0hRaStRRVR2cElDb1NmeHd0b2dERWhxcHlpUWZ6dGtReDFLVkpmQTZr?=
- =?utf-8?B?VDZtQTVOdFpiNVhieDIrZzBOYXg1Uzl4TVRTWjcydjMwSE9kRThMRWk3aUti?=
- =?utf-8?B?YWYyM0JINU9WM0ZiR3Z5VTlaRENtQmFDYjFHd3I1bnQzRGlodHZPQm1STFcx?=
- =?utf-8?B?T2FHb01MSUVpUVNEZXpCRFlWMFRKTGNCVEUyUVA5QnBDVnBoRzhUQ0VNMllk?=
- =?utf-8?B?MFpVN1JHL2ErZFAxSHphUm1hWkxaQmlRaGdqT09vSVoyQ1N1Sk5yMU5objhm?=
- =?utf-8?B?c1BHWE55RUJDNUtQZUdwa3Nvd1NFNkNQcWJkZ09RRDhObHlNWnhvUndIcWp1?=
- =?utf-8?B?aEpRZzhjamgzeTB6UWdZTU5OVG05eTUzWDczd0puQ2dFQW1wV0h2bGw1RDFl?=
- =?utf-8?B?L2hxV3lPMmhKbDdoSGVVL0pySjRkVkRsOEc5VEh5alBXb2I5WGxqRGlLbmRp?=
- =?utf-8?B?VXNnMUtjREhWLzRHSTZRMnhEazBYa0prVTV5NXBKMkU4RzVuT0I5ZGZxODYw?=
- =?utf-8?B?TVFPVTFOT2kwT3BxTEUrd3JYeDBxcFBxT1ZVWDc4Sk0ydUMxRkdoTEZESTVW?=
- =?utf-8?B?M0d0dmZkTk9oS2syd0Rnek5QYmNBK2JNQVNsNDU0elZ1elA1YmxnTndoTEVR?=
- =?utf-8?B?dkFLZ0pocnJWaGp6Y055ZU95L25VeHZJd3RrWmpNU2xVbjE0VmUra2UyRmov?=
- =?utf-8?B?dU9Wand0Q29lcXlnZ2U5ZkQrWUVad2xuOUQ2N0svUEFuQzVmOWYvSEdmMG8w?=
- =?utf-8?B?Sy9na2RBbVNITlJOR0t6TXFjRFBKdmRhYmZ2TElIR3ZCcyswWWE5bjZpM0lO?=
- =?utf-8?Q?F9Cs=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: a59e5735-e4f5-4ccd-ca90-08de2b7bf8a4
-X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8951.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Nov 2025 17:07:38.7535
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: IG0e1sQmKkfLieiNK3Bwz3QJdAQ7BUOfMgmj+JFxm4DgRQx/nXGFh2EYFZsO0Jbx+TFn2snu0vVaPTkIse/VFg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA2PR04MB10087
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: dts: morello: Add CMN PMU
+To: Robin Murphy <robin.murphy@arm.com>, liviu.dudau@arm.com,
+ sudeep.holla@arm.com, lpieralisi@kernel.org
+Cc: linux-arm-kernel@lists.infradead.org
+References: <cbeb3832ded539c8c4616d49d3133078a34f88ad.1748350539.git.robin.murphy@arm.com>
+Content-Language: en-US
+From: Vincenzo Frascino <vincenzo.frascino@arm.com>
+In-Reply-To: <cbeb3832ded539c8c4616d49d3133078a34f88ad.1748350539.git.robin.murphy@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251124_090743_178690_DB72917E 
-X-CRM114-Status: GOOD (  26.28  )
+X-CRM114-CacheID: sfid-20251124_091018_817126_AB8DA14D 
+X-CRM114-Status: GOOD (  13.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -178,254 +64,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 24, 2025 at 02:17:43PM +0800, Carlos Song wrote:
-> On i.MX8QXP/8QM SoCs, both the lvds/mipi and lvds/mipi-lpi2c power domains
-> must enter low-power mode during runtime suspend to achieve deep power
-> savings.
->
-> LPI2C resides in the lvds-lpi2c/mipi-lpi2c power domain, while its IRQ is
-> routed through an irqsteer located in the lvds/mipi power domain. The LPI2C
-> clock source comes from an LPCG within the lvds-lpi2c domain.
->
-> For example, the hierarchy for lvds0 and lvds0-lpi2c0 domains is:
-> ┌───────────────────────┐
-> │ pm-domain : lvds0     │
-> │                       │
-> │    ┌──────────────┐   │
-> │    │   irqsteer   │   │
-> │    └───────▲──────┘   │
-> │            │irq       │
-> │            │          │
-> └────────────┼──────────┘
-> ┌────────────┼──────────┐
-> │        ┌───┼───┐      │
-> │        │lpi2c0 │      │
-> │        └───┬───┘clk   │
-> │   ┌────────┼───────┐  │
-> │   │       LPCG     │  │
-> │   └────────────────┘  │
-> │pm-domain:lvds0-lpi2c0 │
-> └───────────────────────┘
->
-> To allow these domains to power down in system runtime suspend:
->
-> - All irqsteer clients must release IRQs.
-> - All LPCG clients must disable and unprepare clocks.
->
-> Thus, LPI2C must:
->
-> - Free its IRQ during runtime suspend and re-request it on resume.
-> - Disable and unprepare all clocks during runtime suspend and prepare
->   and rne ble them on resume.
->
-> This enables the lvds/mipi domains to enter deep low-power mode,
-> significantly reducing power consumption compared to active mode.
->
-> Signed-off-by: Carlos Song <carlos.song@nxp.com>
+
+
+On 27/05/2025 13:55, Robin Murphy wrote:
+> Although CMN-Skeena is mildly modified for the Morello hardware
+> architecture, it still identifies itself as CMN-600 r3p1. Since
+> there are also no documented changes to its PMU functionality,
+> we can make the PMU accessible via the standard CMN-600 binding.
+> In general, PMU registers are non-functional on CMN Fast Models,
+> so this is only meaningful for the real SDP hardware.
+> 
+> Signed-off-by: Robin Murphy <robin.murphy@arm.com>
+
+Fine by me.
+
+Acked-by: Vincenzo Frascino <vincenzo.frascino@arm.com>
+
 > ---
-...
->
-> diff --git a/drivers/i2c/busses/i2c-imx-lpi2c.c b/drivers/i2c/busses/i2c-imx-lpi2c.c
-> index 39088567db59..87e34746fad3 100644
-> --- a/drivers/i2c/busses/i2c-imx-lpi2c.c
-> +++ b/drivers/i2c/busses/i2c-imx-lpi2c.c
-> @@ -132,6 +132,7 @@
->  #define CHUNK_DATA	256
->
->  #define I2C_PM_TIMEOUT		10 /* ms */
-> +#define I2C_PM_LONG_TIMEOUT	1000 /* Avoid dead lock caused by big clock prepare lock */
+>  arch/arm64/boot/dts/arm/morello-sdp.dts | 7 +++++++
+>  1 file changed, 7 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/arm/morello-sdp.dts b/arch/arm64/boot/dts/arm/morello-sdp.dts
+> index cee49dee7571..42c85f450fa9 100644
+> --- a/arch/arm64/boot/dts/arm/morello-sdp.dts
+> +++ b/arch/arm64/boot/dts/arm/morello-sdp.dts
+> @@ -108,6 +108,13 @@ smmu_pcie: iommu@4f400000 {
+>  		dma-coherent;
+>  	};
+>  
+> +	pmu@50000000 {
+> +		compatible = "arm,cmn-600";
+> +		reg = <0x0 0x50000000 0x0 0x4000000>;
+> +		interrupts = <GIC_SPI 46 IRQ_TYPE_LEVEL_HIGH>;
+> +		arm,root-node = <0x804000>;
+> +	};
+> +
+>  	pcie_ctlr: pcie@28c0000000 {
+>  		device_type = "pci";
+>  		compatible = "pci-host-ecam-generic";
 
-Add unit, I2C_PM_LONG_TIMEOUT_MS,
+-- 
+Regards,
+Vincenzo
 
-You'd better add more detail about why need longer PM TIMEOUT in comments.
-
->  #define I2C_DMA_THRESHOLD	8 /* bytes */
->
->  enum lpi2c_imx_mode {
-> @@ -149,6 +150,11 @@ enum lpi2c_imx_pincfg {
->  	FOUR_PIN_PP,
->  };
->
-> +struct imx_lpi2c_hwdata {
-> +	bool	need_request_free_irq;		/* Needed by irqsteer */
-> +	bool	need_prepare_unprepare_clk;	/* Needed by LPCG */
-> +};
-> +
->  struct lpi2c_imx_dma {
->  	bool		using_pio_mode;
->  	u8		rx_cmd_buf_len;
-> @@ -187,6 +193,21 @@ struct lpi2c_imx_struct {
->  	bool			can_use_dma;
->  	struct lpi2c_imx_dma	*dma;
->  	struct i2c_client	*target;
-> +	int			irqsteer_irq;
-
-irq should be enough
-
-> +	const struct imx_lpi2c_hwdata *hwdata;
-> +};
-> +
-> +static const struct imx_lpi2c_hwdata imx7ulp_lpi2c_hwdata = {
-> +};
-> +
-> +static const struct imx_lpi2c_hwdata imx8qxp_lpi2c_hwdata = {
-> +	.need_request_free_irq		= true,
-> +	.need_prepare_unprepare_clk	= true,
-> +};
-> +
-> +static const struct imx_lpi2c_hwdata imx8qm_lpi2c_hwdata = {
-> +	.need_request_free_irq		= true,
-> +	.need_prepare_unprepare_clk	= true,
->  };
->
->  #define lpi2c_imx_read_msr_poll_timeout(atomic, val, cond)                    \
-> @@ -1423,7 +1444,9 @@ static const struct i2c_algorithm lpi2c_imx_algo = {
->  };
->
->  static const struct of_device_id lpi2c_imx_of_match[] = {
-> -	{ .compatible = "fsl,imx7ulp-lpi2c" },
-> +	{ .compatible = "fsl,imx7ulp-lpi2c", .data = &imx7ulp_lpi2c_hwdata,},
-> +	{ .compatible = "fsl,imx8qxp-lpi2c", .data = &imx8qxp_lpi2c_hwdata,},
-> +	{ .compatible = "fsl,imx8qm-lpi2c", .data = &imx8qm_lpi2c_hwdata,},
->  	{ }
->  };
->  MODULE_DEVICE_TABLE(of, lpi2c_imx_of_match);
-> @@ -1440,6 +1463,10 @@ static int lpi2c_imx_probe(struct platform_device *pdev)
->  	if (!lpi2c_imx)
->  		return -ENOMEM;
->
-> +	lpi2c_imx->hwdata = of_device_get_match_data(&pdev->dev);
-> +	if (!lpi2c_imx->hwdata)
-> +		return -ENODEV;
-> +
->  	lpi2c_imx->base = devm_platform_get_and_ioremap_resource(pdev, 0, &res);
->  	if (IS_ERR(lpi2c_imx->base))
->  		return PTR_ERR(lpi2c_imx->base);
-> @@ -1448,6 +1475,9 @@ static int lpi2c_imx_probe(struct platform_device *pdev)
->  	if (irq < 0)
->  		return irq;
->
-> +	if (lpi2c_imx->hwdata->need_request_free_irq)
-> +		lpi2c_imx->irqsteer_irq = irq;
-> +
-
-Needn't check this flags here, just uncondtional save irq number/
-
-	lpi2c_imx->irq = irq;
-
-
->  	lpi2c_imx->adapter.owner	= THIS_MODULE;
->  	lpi2c_imx->adapter.algo		= &lpi2c_imx_algo;
->  	lpi2c_imx->adapter.dev.parent	= &pdev->dev;
-> @@ -1492,7 +1522,11 @@ static int lpi2c_imx_probe(struct platform_device *pdev)
->  		return dev_err_probe(&pdev->dev, -EINVAL,
->  				     "can't get I2C peripheral clock rate\n");
->
-> -	pm_runtime_set_autosuspend_delay(&pdev->dev, I2C_PM_TIMEOUT);
-> +	if (lpi2c_imx->hwdata->need_prepare_unprepare_clk)
-> +		pm_runtime_set_autosuspend_delay(&pdev->dev, I2C_PM_LONG_TIMEOUT);
-> +	else
-> +		pm_runtime_set_autosuspend_delay(&pdev->dev, I2C_PM_TIMEOUT);
-> +
->  	pm_runtime_use_autosuspend(&pdev->dev);
->  	pm_runtime_get_noresume(&pdev->dev);
->  	pm_runtime_set_active(&pdev->dev);
-> @@ -1544,31 +1578,78 @@ static void lpi2c_imx_remove(struct platform_device *pdev)
->  	pm_runtime_dont_use_autosuspend(&pdev->dev);
->  }
->
-> -static int __maybe_unused lpi2c_runtime_suspend(struct device *dev)
-> +static int __maybe_unused _lpi2c_runtime_suspend(struct lpi2c_imx_struct *lpi2c_imx,
-> +						 bool need_request_free_irq,
-> +						 bool need_prepare_unprepare_clk)
->  {
-> -	struct lpi2c_imx_struct *lpi2c_imx = dev_get_drvdata(dev);
-> +	if (need_request_free_irq)
-> +		devm_free_irq(lpi2c_imx->adapter.dev.parent, lpi2c_imx->irqsteer_irq, lpi2c_imx);
->
-> -	clk_bulk_disable(lpi2c_imx->num_clks, lpi2c_imx->clks);
-> -	pinctrl_pm_select_sleep_state(dev);
-> +	if (need_prepare_unprepare_clk)
-> +		clk_bulk_disable_unprepare(lpi2c_imx->num_clks, lpi2c_imx->clks);
-> +	else
-> +		clk_bulk_disable(lpi2c_imx->num_clks, lpi2c_imx->clks);
-> +	pinctrl_pm_select_sleep_state(lpi2c_imx->adapter.dev.parent);
->
->  	return 0;
->  }
->
-> -static int __maybe_unused lpi2c_runtime_resume(struct device *dev)
-> +static int __maybe_unused _lpi2c_runtime_resume(struct lpi2c_imx_struct *lpi2c_imx,
-> +						bool need_request_free_irq,
-> +						bool need_prepare_unprepare_clk)
->  {
-
-look like both helper() have not big beneafit. you can direct put code
-in original lpi2c_runtime_suspend() and lpi2c_runtime_resume().
-
-Frank
-> -	struct lpi2c_imx_struct *lpi2c_imx = dev_get_drvdata(dev);
->  	int ret;
->
-> -	pinctrl_pm_select_default_state(dev);
-> -	ret = clk_bulk_enable(lpi2c_imx->num_clks, lpi2c_imx->clks);
-> -	if (ret) {
-> -		dev_err(dev, "failed to enable I2C clock, ret=%d\n", ret);
-> -		return ret;
-> +	pinctrl_pm_select_default_state(lpi2c_imx->adapter.dev.parent);
-> +	if (need_prepare_unprepare_clk) {
-> +		ret = clk_bulk_prepare_enable(lpi2c_imx->num_clks, lpi2c_imx->clks);
-> +		if (ret) {
-> +			dev_err(lpi2c_imx->adapter.dev.parent, "failed to enable clock %d\n", ret);
-> +			return ret;
-> +		}
-> +	} else {
-> +		ret = clk_bulk_enable(lpi2c_imx->num_clks, lpi2c_imx->clks);
-> +		if (ret) {
-> +			dev_err(lpi2c_imx->adapter.dev.parent, "failed to enable clock %d\n", ret);
-> +			return ret;
-> +		}
-> +	}
-> +
-> +	if (need_request_free_irq) {
-> +		ret = devm_request_irq(lpi2c_imx->adapter.dev.parent, lpi2c_imx->irqsteer_irq,
-> +				       lpi2c_imx_isr, IRQF_NO_SUSPEND,
-> +				       dev_name(lpi2c_imx->adapter.dev.parent),
-> +				       lpi2c_imx);
-> +		if (ret) {
-> +			dev_err(lpi2c_imx->adapter.dev.parent, "can't claim irq %d\n",
-> +				lpi2c_imx->irqsteer_irq);
-> +			return ret;
-> +		}
->  	}
->
->  	return 0;
->  }
->
-> +static int __maybe_unused lpi2c_runtime_resume(struct device *dev)
-> +{
-> +	struct lpi2c_imx_struct *lpi2c_imx = dev_get_drvdata(dev);
-> +	bool need_request_free_irq = lpi2c_imx->hwdata->need_request_free_irq;
-> +	bool need_prepare_unprepare_clk = lpi2c_imx->hwdata->need_prepare_unprepare_clk;
-> +
-> +	return _lpi2c_runtime_resume(lpi2c_imx, need_request_free_irq,
-> +				     need_prepare_unprepare_clk);
-> +}
-> +
-> +static int __maybe_unused lpi2c_runtime_suspend(struct device *dev)
-> +{
-> +	struct lpi2c_imx_struct *lpi2c_imx = dev_get_drvdata(dev);
-> +	bool need_request_free_irq = lpi2c_imx->hwdata->need_request_free_irq;
-> +	bool need_prepare_unprepare_clk = lpi2c_imx->hwdata->need_prepare_unprepare_clk;
-> +
-> +	return _lpi2c_runtime_suspend(lpi2c_imx, need_request_free_irq,
-> +				      need_prepare_unprepare_clk);
-> +}
-> +
->  static int __maybe_unused lpi2c_suspend_noirq(struct device *dev)
->  {
->  	return pm_runtime_force_suspend(dev);
-> --
-> 2.34.1
->
 
