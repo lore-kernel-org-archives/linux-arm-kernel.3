@@ -4,93 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 749D9CFD313
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 12:10:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6CB2CFD313
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 12:12:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MMGrTHc19P4j44Fotni27VvsNwpNQXxVAR6ywnGSzS0=; b=JtcjiR3xizV1hgorrb/Z/QoGFB
-	ft6hw12po9aR9RzsXR9qhjuQLrpk4xnofjPPQ7Tijd4gwoEwlT86kD8C/moh1HCy1VU5xwQA3JWZd
-	V57QNEl1PNjsKY+AIYAmmqcM5INtyUcVk5rdf77OWahKKD5RtiqFIPZ3/DGegT4Tvp8j0KWTz0Zb0
-	5Lba3PY8AeDhgIf9yrhB1jNU3RLK4lSc3w+mOqsavlmUuqpot5JrDfSPBFR/6hw1D/u/faExiXfYB
-	BplxiZRJFXrEc19VoqxO6ypgAeKXiVmRX/YsE3fB3AdFYYT6dVRjAY3CKpAyAwShT2T3ffjUb/GBB
-	y2KFoJzw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FsM1ztKXi3y+tX16b2iiEH9QqHspOPTUgYvJo8a7BhI=; b=vkErowuKqNkd+wim7rdnfISv/3
+	puOgx+791679/OVSshIrI7BDLrwc6QN4BtS/zcUlkZXsM+5jATZZN136ICRisoxGym4owbUk6nhnz
+	Khe9CwOk6YWQrJN7aMeaUAOjpNT/mvKDVJiYnQb6tV5RiKarszorBZmKIH967I3b4tw6oXAAmiUWS
+	bU1Xg2cC6cBRc155+aAV9qcmqMYqkNaACgOirsS8z1HWWy7PrqSgnDrHZxV2h7QSvWy+tOCIhQULH
+	H/2ZfPsqSlMiGnAQpEYPsmDvuDol2djnX5UYHknG4XpPsug+/QuBELxrMz5piMfhnd+O9eF3+fkA3
+	dc7k/bJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNVOj-0000000BcGX-04sG;
-	Mon, 24 Nov 2025 12:10:25 +0000
-Received: from mgamail.intel.com ([192.198.163.19])
+	id 1vNVQU-0000000BcQZ-11wV;
+	Mon, 24 Nov 2025 12:12:14 +0000
+Received: from mgamail.intel.com ([192.198.163.7])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNVOd-0000000BcFM-3ax0;
-	Mon, 24 Nov 2025 12:10:22 +0000
+	id 1vNVQQ-0000000BcP4-1EEZ;
+	Mon, 24 Nov 2025 12:12:11 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1763986219; x=1795522219;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=d5nNg3j4GXG9OHJ73JYH0c5+/jyYRN1qHBQffAJxf+Q=;
-  b=GWMyEFDmDGJOoiu74hFfOqISzYEv++rZiImgk8EjolmE+6GVcX3SsIQw
-   ywkJSgGS9piXqHVNQ93a222upUBeXAIIa4svGBrhIyx80g8tHzZzJjTJL
-   Nyt6ks1bSTE1UPq6xVZcoJLCMlnRd6pl+UGg0Urn38f+TGytdxWzv1rBI
-   WSrlMt9FErdcS7OtCwjKN5h7ZO1GyjMWADrh1X5zDz26UmKyRg7xUvKyR
-   E+bjfgOT+sZuBY3W2LLPnh9LmGtwAtOrQr22D6I4p7nem3g7YcD53+5uu
-   Co2BxwY+KTAtkFhaHNb8u34cv47Zrf5FRLnDS+wY3iCS2x9o0uqG9evEJ
+  t=1763986330; x=1795522330;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=/cxJU6vGAsQflUr/+ZE9vbpP5RWmAFwZncC3phpHqKM=;
+  b=jMIquwsJ4zjNZw6+PufC4oOiI0DdMin6gvsQmtSnqDOjhiqgc7g09bvo
+   MW6HlevxH78/Ty2e5MfqE0Ef9EsysfcjL7XQKxDU+epIMDl5fdN1oD7br
+   f7zRj4dQvr3URXFipvCww+XGgMqYuJt/iqBFk6BuhoaVC2E3vuoNNeVmP
+   +uSRHESyTje980Yu7MZG/+6Sxv2lSGxhQ9KpDiytFwz8ayFMTwe4ttT3Z
+   2BT32Cqk10VEMSXQfYCXyQHjh1d6Ws6JHsqyADom8uEboZTRuH0b0Lffe
+   EWg4T1MzItsruSL2wN6JRO0uhjPxU0RB45yUTtzn/k8PP9brsUdzeMAf3
    A==;
-X-CSE-ConnectionGUID: gzBEpWnLQTi082dg8J1DsA==
-X-CSE-MsgGUID: 9n+5KO71Q1aFQ/dvdSoT4A==
-X-IronPort-AV: E=McAfee;i="6800,10657,11622"; a="64984411"
+X-CSE-ConnectionGUID: sMiMXSdIQuOttPglGaSsLA==
+X-CSE-MsgGUID: 5O2WpllHRpKEi0rla4RjjA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11622"; a="91467911"
 X-IronPort-AV: E=Sophos;i="6.20,222,1758610800"; 
-   d="scan'208";a="64984411"
-Received: from fmviesa007.fm.intel.com ([10.60.135.147])
-  by fmvoesa113.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2025 04:10:16 -0800
-X-CSE-ConnectionGUID: kCgZIcdZRl+BizAz96HPnQ==
-X-CSE-MsgGUID: ATl7n97tSL2Horct6YF6tg==
+   d="scan'208";a="91467911"
+Received: from fmviesa008.fm.intel.com ([10.60.135.148])
+  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2025 04:12:09 -0800
+X-CSE-ConnectionGUID: fh/9F8B6QSyvv2FZin4FtQ==
+X-CSE-MsgGUID: v9ZK9M8yQI6oey+Xgb50lQ==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.20,222,1758610800"; 
-   d="scan'208";a="191986359"
-Received: from egrumbac-mobl6.ger.corp.intel.com (HELO localhost) ([10.245.244.5])
-  by fmviesa007-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2025 04:10:11 -0800
-Date: Mon, 24 Nov 2025 14:10:09 +0200
+   d="scan'208";a="192559536"
+Received: from black.igk.intel.com ([10.91.253.5])
+  by fmviesa008.fm.intel.com with ESMTP; 24 Nov 2025 04:12:04 -0800
+Received: by black.igk.intel.com (Postfix, from userid 1003)
+	id 4975DA1; Mon, 24 Nov 2025 13:12:03 +0100 (CET)
 From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Vinod Koul <vkoul@kernel.org>
-Cc: Stefan Wahren <wahrenst@gmx.net>,
+To: Bjorn Andersson <andersson@kernel.org>,
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	Stefan Wahren <wahrenst@gmx.net>,
+	Vinod Koul <vkoul@kernel.org>,
 	Thomas Andreatta <thomasandreatta2000@gmail.com>,
 	Caleb Sander Mateos <csander@purestorage.com>,
-	dmaengine@vger.kernel.org, linux-kernel@vger.kernel.org,
+	dmaengine@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
 	linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-	Olivier Dautricourt <olivierdautricourt@gmail.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-arm-msm@vger.kernel.org
+Cc: Olivier Dautricourt <olivierdautricourt@gmail.com>,
 	Stefan Roese <sr@denx.de>,
 	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Ray Jui <rjui@broadcom.com>,
+	Scott Branden <sbranden@broadcom.com>,
 	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
 	Lars-Peter Clausen <lars@metafoo.de>,
 	Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>,
 	Daniel Mack <daniel@zonque.org>,
 	Haojian Zhuang <haojian.zhuang@gmail.com>,
 	Robert Jarzmik <robert.jarzmik@free.fr>,
-	Lizhi Hou <lizhi.hou@amd.com>, Brian Xu <brian.xu@amd.com>,
+	Lizhi Hou <lizhi.hou@amd.com>,
+	Brian Xu <brian.xu@amd.com>,
 	Raj Kumar Rampelli <raj.kumar.rampelli@amd.com>,
 	Michal Simek <michal.simek@amd.com>,
 	Andrew Morton <akpm@linux-foundation.org>
-Subject: Re: [PATCH v2 07/13] dmaengine: lgm: use sg_nents_for_dma() helper
-Message-ID: <aSRLIY4KmhAxePq1@smile.fi.intel.com>
-References: <20251110103805.3562136-1-andriy.shevchenko@linux.intel.com>
- <20251110103805.3562136-8-andriy.shevchenko@linux.intel.com>
- <aSGCJQc152Y9V10E@vaman>
+Subject: [PATCH v4 01/13] scatterlist: introduce sg_nents_for_dma() helper
+Date: Mon, 24 Nov 2025 13:09:19 +0100
+Message-ID: <20251124121202.424072-2-andriy.shevchenko@linux.intel.com>
+X-Mailer: git-send-email 2.50.1
+In-Reply-To: <20251124121202.424072-1-andriy.shevchenko@linux.intel.com>
+References: <20251124121202.424072-1-andriy.shevchenko@linux.intel.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <aSGCJQc152Y9V10E@vaman>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251124_041021_629906_29CCA542 
-X-CRM114-Status: GOOD (  10.12  )
+X-CRM114-CacheID: sfid-20251124_041210_368043_EE425D62 
+X-CRM114-Status: GOOD (  12.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,26 +108,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Nov 22, 2025 at 02:58:05PM +0530, Vinod Koul wrote:
-> On 10-11-25, 11:23, Andy Shevchenko wrote:
-> > Instead of open coded variant let's use recently introduced helper.
+Sometimes the user needs to split each entry on the mapped scatter list
+due to DMA length constrains. This helper returns a number of entities
+assuming that each of them is not bigger than supplied maximum length.
 
-...
+Reviewed-by: Bjorn Andersson <andersson@kernel.org>
+Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+---
+ include/linux/scatterlist.h |  2 ++
+ lib/scatterlist.c           | 26 ++++++++++++++++++++++++++
+ 2 files changed, 28 insertions(+)
 
-> > +	num = sg_nents_for_dma(sgl, sg_len, DMA_MAX_SIZE);
-> 
-> drivers/dma/lgm/lgm-dma.c:1176:37: error: ‘sg_len’ undeclared (first use in this function); did you mean ‘sglen’?
->          num = sg_nents_for_dma(sgl, sg_len, DMA_MAX_SIZE);
-> 
-> I am getting the build failure, as well as few unused warning with this,
-> pls fix
-
-Indeed, sorry for that, in v4 should be fixed.
-Thanks!
-
+diff --git a/include/linux/scatterlist.h b/include/linux/scatterlist.h
+index 29f6ceb98d74..6de1a2434299 100644
+--- a/include/linux/scatterlist.h
++++ b/include/linux/scatterlist.h
+@@ -441,6 +441,8 @@ static inline void sg_init_marker(struct scatterlist *sgl,
+ 
+ int sg_nents(struct scatterlist *sg);
+ int sg_nents_for_len(struct scatterlist *sg, u64 len);
++int sg_nents_for_dma(struct scatterlist *sgl, unsigned int sglen, size_t len);
++
+ struct scatterlist *sg_last(struct scatterlist *s, unsigned int);
+ void sg_init_table(struct scatterlist *, unsigned int);
+ void sg_init_one(struct scatterlist *, const void *, unsigned int);
+diff --git a/lib/scatterlist.c b/lib/scatterlist.c
+index 4af1c8b0775a..21bc9c1f7c06 100644
+--- a/lib/scatterlist.c
++++ b/lib/scatterlist.c
+@@ -64,6 +64,32 @@ int sg_nents_for_len(struct scatterlist *sg, u64 len)
+ }
+ EXPORT_SYMBOL(sg_nents_for_len);
+ 
++/**
++ * sg_nents_for_dma - return the count of DMA-capable entries in scatterlist
++ * @sgl:	The scatterlist
++ * @sglen:	The current number of entries
++ * @len:	The maximum length of DMA-capable block
++ *
++ * Description:
++ * Determines the number of entries in @sgl which would be permitted in
++ * DMA-capable transfer if list had been split accordingly, taking into
++ * account chaining as well.
++ *
++ * Returns:
++ *   the number of sgl entries needed
++ *
++ **/
++int sg_nents_for_dma(struct scatterlist *sgl, unsigned int sglen, size_t len)
++{
++	struct scatterlist *sg;
++	int i, nents = 0;
++
++	for_each_sg(sgl, sg, sglen, i)
++		nents += DIV_ROUND_UP(sg_dma_len(sg), len);
++	return nents;
++}
++EXPORT_SYMBOL(sg_nents_for_dma);
++
+ /**
+  * sg_last - return the last scatterlist entry in a list
+  * @sgl:	First entry in the scatterlist
 -- 
-With Best Regards,
-Andy Shevchenko
-
+2.50.1
 
 
