@@ -4,135 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CBC8CFA466
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 09:09:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DAE7CFD31C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 09:09:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xHFdMTG2+HmRhF/FWoRVjEvoIBg22P4/gKri5wecEPE=; b=fUv9s8OhIH1wz7HJ47FJHQ5eEK
-	nA/kzRG6cDQNEa+qXX3PvCrln7sho+wZDEfhP9yd5zULbrNZg0huymYx2cuKY7c52u2uV5sdXIHT1
-	delAxa4mKrdlT1cEpvDYuNxXOZqM4gm82DbA+0clmPT24MzZRxed8I9OBQIHnYq4mgo38T9vM+OIl
-	Cg2sOfQWtaJWwEmfiH1Z5Xbm0QzMewq//H9DH5u/BjKH1ynjEHBQrWQqHGk/l5LtAGhvJH20UVdAL
-	2xQzRcxRsYJDrOz6D8CGbPgAz32QbB0KMmuYAGUKQfdMOiYHttlv7XgfhzDFcUUsl28AgapZMbAkm
-	xppSE1QA==;
+	bh=OvXHuoRgH+XIUx292dJAYC+bXU3Y0ChyF2IbAzcMS/Q=; b=Z5v6Hqb5kWtFkvNGbxG8fm/6wl
+	CxF4+XhD/6nTLMVBrmTF7vf+0fVcSIJcELQ7LWQdp5p/fkp+rafhLv0ucYChEd25Xz8kYOgDtqjy5
+	kOkDzjp+qff6wywsx+nvQC3Zh0ZESvAK+VP1GSR4hFkLUBdHC5o8l6bMBRLvoZ7LmhjMHWA7W0eWC
+	4hJ2rSBgpwl90GXLwq+A492w0+toya8EnvIwluliRO/H2uqHbSU9SC4hwLd/ARDgZcJu5PBVFdW82
+	5aQx2XTTDl38FtagG03MKvq8e+ilxgwM7aTyaPurNNldfxbbs61JAW+XhOceBUgDWEY1igE3f2vVq
+	vgNzO38g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNSZQ-0000000BJQ0-2Vrz;
-	Mon, 24 Nov 2025 09:09:16 +0000
-Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1vNSZd-0000000BJS2-3tFe;
+	Mon, 24 Nov 2025 09:09:29 +0000
+Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNSZN-0000000BJP2-0FzN
+	id 1vNSZb-0000000BJRF-0M8o
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Nov 2025 09:09:14 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=d2A6scxsiPNAisxESXytsq3eg5ZHBwoQidJcyi7vGpV3NCD/C0iU1bTFC5cNonao1UHXP4KnAS3Fjwt3tXnSAyUJiUUsOfxqkFs07X/svTuleQdQsDbY4DlmOT9IVmwaMxaT66TB6mtrohXn9+oe4g28ByqEH5Ju3BfXhbGu64n+UPXHNCCxJXukmOj1bWjzlOa/v9sW2QJrIn9spwJg04zNfs7SlEk5YnDk2ZoQu4sLzZuXxAEgLhr5y2T2CxiKG7OJFoyyZet8alHp+ByltFDEhxz2k+1wwibj2SV9D4w3UfCmmuVtW9I8XXB8Yrpu8OO0jbOBdAeSYHOR48lbtg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=xHFdMTG2+HmRhF/FWoRVjEvoIBg22P4/gKri5wecEPE=;
- b=gcKTdYjce+N1Axs+uULgsRCh9QGtTWIPsI6neaMxkLIWA9V8PsyZUpq11QkwXmCcnDYmxvevlt2hCUAk8XbZlAErWZaz4CN/KQ4LMqwkFpcF7pYGJ2K5SdyRYhBKQkAX8SRqMFDeaQz11NYWeps5pOUekmpa+d1lqlURrRk/5UEw/9tDB2coq4ajeyHtsPjSG0jJIUJsMT4pinS4luzCdbfdhT2X5QwCeV8gvKoCT+4wQn08RT//LVn6dZZI1kvhUu2J/OWFeORV3YSecV4o9M3Zbty5+vvOd55UQboH/cr2GTqQdeN4eYgxa4mfsqmkX5ekUI5lf40IRyFc3KWB7w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=softfail (sender ip
- is 91.26.50.189) smtp.rcpttodomain=ti.com smtp.mailfrom=phytec.de; dmarc=fail
- (p=quarantine sp=quarantine pct=100) action=quarantine header.from=phytec.de;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=phytec.de;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=xHFdMTG2+HmRhF/FWoRVjEvoIBg22P4/gKri5wecEPE=;
- b=bbSty2aL1vIHMl2rniuKljtUaqTOoVxkheRZR9GuXfkptfwN47y8gpxpHgtPIDcp6PRuUAACt/v6y53iTBcwC23zmaOnYHevTP25fWABU11FKgPC35E8gbArjiKz16ZX0Z1Mz8Lnuu23x/6eFnlulFewVSloP/IqAaI4de4BZlthgmxK2CaTjTdNzQ+5j2gyKQLsiz10gJ9X4oWfWyOrrZIin7VUzPwaz75BraLP30PILRHIEwMRfT1Nv9qOBzshKMtubQb8ql8HuxX3zAvEWXs6ybh2NfE2k2GZNfyTjZYTTjAKMCy2wI2e1yxbyUfLqyB1tLFA2Gz6FFF/7kFCdA==
-Received: from AS9PR04CA0066.eurprd04.prod.outlook.com (2603:10a6:20b:48b::19)
- by AS4P195MB1480.EURP195.PROD.OUTLOOK.COM (2603:10a6:20b:4b5::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9343.17; Mon, 24 Nov
- 2025 09:09:05 +0000
-Received: from AM3PEPF0000A795.eurprd04.prod.outlook.com
- (2603:10a6:20b:48b:cafe::e3) by AS9PR04CA0066.outlook.office365.com
- (2603:10a6:20b:48b::19) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9343.17 via Frontend Transport; Mon,
- 24 Nov 2025 09:09:05 +0000
-X-MS-Exchange-Authentication-Results: spf=softfail (sender IP is 91.26.50.189)
- smtp.mailfrom=phytec.de; dkim=none (message not signed)
- header.d=none;dmarc=fail action=quarantine header.from=phytec.de;
-Received-SPF: SoftFail (protection.outlook.com: domain of transitioning
- phytec.de discourages use of 91.26.50.189 as permitted sender)
-Received: from Postix.phytec.de (91.26.50.189) by
- AM3PEPF0000A795.mail.protection.outlook.com (10.167.16.100) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9366.7 via Frontend Transport; Mon, 24 Nov 2025 09:09:04 +0000
-Received: from ls-radium.phytec (172.25.39.17) by Postix.phytec.de
- (172.25.0.11) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.29; Mon, 24 Nov
- 2025 10:09:01 +0100
-From: Daniel Schultz <d.schultz@phytec.de>
-To: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
-	<krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>
-CC: <upstream@lists.phytec.de>, Daniel Schultz <d.schultz@phytec.de>
-Subject: [PATCH v2 2/2] arm64: dts: ti: k3-am62a-phycore-som: Enable cpsw_mac_syscon in U-Boot
-Date: Mon, 24 Nov 2025 01:08:42 -0800
-Message-ID: <20251124090842.3377294-2-d.schultz@phytec.de>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20251124090842.3377294-1-d.schultz@phytec.de>
-References: <20251124090842.3377294-1-d.schultz@phytec.de>
+	Mon, 24 Nov 2025 09:09:28 +0000
+Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-42b2a0c18caso2458128f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Nov 2025 01:09:26 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1763975365; x=1764580165; darn=lists.infradead.org;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=OvXHuoRgH+XIUx292dJAYC+bXU3Y0ChyF2IbAzcMS/Q=;
+        b=LfDTzSQn4MtMVTGOYpDHhLmfkHUNNSl1oCH6+DFMzJe9OUsM4omzMNIJ9J80ohRgiR
+         +572+0XzPx4R9E4jDh8KO0/kNirR2zOE+Z6uohJcgzsY+fgd/p+gNHFFZ9HnVc7BWlQf
+         aOQf/XMilClAZzAfbv5VQEx2vuullourg+txHH/rxhHDplxYJ7yH2oXeySJvPPqNwYoB
+         r3e2PCAnztvysPRHbnN3nLfCBiLk7rhjG5kuMEKpjlHjOeMKBaLP9v1Ph2NBvyO+TgRb
+         THQfJneDuM9vXW70//qyb/UA2+cVBqYidTR+5OoECe5vnYMyz5u4M6ZsmYxV69JqJ5TD
+         S2Ng==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1763975365; x=1764580165;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=OvXHuoRgH+XIUx292dJAYC+bXU3Y0ChyF2IbAzcMS/Q=;
+        b=BDWwZirhuiYu4C1y2wIt5izKTRFNYwf81CKoaNRyNDsUdB/ZkeB+it33GCoehCnBgM
+         NhaPRAl+eicgKo12DsFXV/dpxkzar8c6vGdSWZdSTVcQoR6/tz8ZsrpZgB0iT2pNOXQn
+         6I9lqWSo3kbY1xNUE8JKt3pWubG9qZh/+wjxSvXpRADQr4eqgn3OT/IP0J3O/l4xpBBS
+         fa3GIkMs5wFtEC0naYRwWFLa12C50fWSs4W4Za4eldEkUHen678CpU0ksKktsiocKhLK
+         ySBsbAH/AfE4TZFI/cZ64EHaodamTNOntbECn079vUQnNBCYvZfyxek6SwT6erWhkNt6
+         /GVg==
+X-Forwarded-Encrypted: i=1; AJvYcCUY04L2hIwihBo/Yz+dH26rsx7q+SLllOShJXoGJRDqtH/l7byhmqYTOQN2fJciPqXpo30qwPLTH9IloSg6kRiA@lists.infradead.org
+X-Gm-Message-State: AOJu0YzC+/HQ+DpYzlJbo5nelt5edKib2Yb1e4oD7jKawUrLfbqf5rSY
+	ifzoOg82hVKUSpCiwM9nCFLG8gR2G3LUT/hN/yQeXdrJmMbaGwVFsTFygXPHSLPsbD8=
+X-Gm-Gg: ASbGnctyGQD6frQfEcZxjgsb3Q2bPLNfewaNZRc/gOTd8hgd76Gkwh0Q6Xq3I/WyCfN
+	QrAjauyXYBuNs3i/MhwHJnv/eCX0C5M1UoevzhLks9oImV4hlesp2LIVnU9+Vt3mhZbP5qa0LJc
+	G54mLhgIPIjA1yx3cIALyzd8OQ3Cbl9W3PmI5qm5fRgZIV2aLdt0zo9GtfqJIUlTc5iGCEWl4rk
+	pmNvEHOeDnvzM18YybA7DgNKrBUBvonzlt0G6i6UwJu6WU9vAwYBmEcujoE440J7dJ1FQ/kgXTs
+	/WLCZCrIivFgpm37z9RBzC36SKlRkj+2CbTOsvk7NAxqKlTk43E8wjBtjjOjzH+T69BDa667Kz3
+	hhiZDv3zJqGUUmnHUqxwcfJru89NFKJfAPlB5VFAz0p6awBk1DrMYGY3339QkdsCHByxLfJ3QfY
+	ofWV5TQegQT8muiIIL3Q==
+X-Google-Smtp-Source: AGHT+IGb2anSnU9yUNqdmZbv+SeaRHh1StnydsjMu/nMg2MY1ixTXj9wwNITrqgGCjoJ7tz/T/jZVA==
+X-Received: by 2002:a5d:5f44:0:b0:42b:41dc:1b58 with SMTP id ffacd0b85a97d-42cc1d19957mr11009024f8f.45.1763975365182;
+        Mon, 24 Nov 2025 01:09:25 -0800 (PST)
+Received: from draszik.lan ([212.129.72.170])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42cb7fb9190sm27162766f8f.33.2025.11.24.01.09.23
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 24 Nov 2025 01:09:24 -0800 (PST)
+Message-ID: <9cad7b42dbfea351fb3b708736bf6f6715bcf694.camel@linaro.org>
+Subject: Re: [PATCH 6/6] usb: typec: tcpm/tcpci_maxim: deprecate WAR for
+ setting charger mode
+From: =?ISO-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
+To: amitsd@google.com, Sebastian Reichel <sre@kernel.org>, Rob Herring	
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley	
+ <conor+dt@kernel.org>, Lee Jones <lee@kernel.org>, Greg Kroah-Hartman	
+ <gregkh@linuxfoundation.org>, Badhri Jagan Sridharan <badhri@google.com>, 
+ Heikki Krogerus <heikki.krogerus@linux.intel.com>, Peter Griffin
+ <peter.griffin@linaro.org>, Tudor Ambarus	 <tudor.ambarus@linaro.org>, Alim
+ Akhtar <alim.akhtar@samsung.com>
+Cc: linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-usb@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, RD
+ Babiera <rdbabiera@google.com>, Kyle Tso <kyletso@google.com>
+Date: Mon, 24 Nov 2025 09:09:37 +0000
+In-Reply-To: <20251123-max77759-charger-v1-6-6b2e4b8f7f54@google.com>
+References: <20251123-max77759-charger-v1-0-6b2e4b8f7f54@google.com>
+	 <20251123-max77759-charger-v1-6-6b2e4b8f7f54@google.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2-2+build3 
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [172.25.39.17]
-X-ClientProxiedBy: Postix.phytec.de (172.25.0.11) To Postix.phytec.de
- (172.25.0.11)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM3PEPF0000A795:EE_|AS4P195MB1480:EE_
-X-MS-Office365-Filtering-Correlation-Id: 40c6baa3-ec85-4838-774f-08de2b391d80
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|82310400026|1800799024|36860700013;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?xS3WqQ9cV/Lm/Sam9kKFlfg8/z1bZL3yemP5ir7c0UcqgwSZD+jW3BMJKrmz?=
- =?us-ascii?Q?KDNV26KnipKQZUZfAeuehXL9tGfd8dXvJTsxxOeDh1lHTzSlVlBLQgi6vY6v?=
- =?us-ascii?Q?FhmijLU6MLFGZ2WoxNDMppXVbVHudlOTOKkkzmt7dxx/dUHEyYp0yLXEbBJy?=
- =?us-ascii?Q?kbrW+YGqstopnrKSEXJdjurXNcLvqUuysV/mtkB+Q367yxvdOd4lUvqE8I0G?=
- =?us-ascii?Q?AAByqtk5Aam5IsLOimfPIL0VLMJLkUGJJIa4+hhOBNaQ7swLhumzQjgql4dv?=
- =?us-ascii?Q?3NjY/+q4hW+jRZOrtHk2MDnc0D1RkTk5MBXcTxPYlvFsJj0mMRSsb37WF1lC?=
- =?us-ascii?Q?Rf+D0MJidIWCNYZ9VTRxvWaOHUiC09bTP1N70wIlXCAyWovoK4DSu3DyS/cN?=
- =?us-ascii?Q?E7DOG2ppefgL9dM/9VsHJCxpT0+Ow4velpg32U7F+p1tQAEm2snqWc0WHjY9?=
- =?us-ascii?Q?kwKQhzfJq5ewbm1V1gSYgr286bCRIXFazbdJK3oQqYduGfcurI1feuPPyJeq?=
- =?us-ascii?Q?K5slbmC17mD4pJuzS1GDtB9wNLPUAwVo2WvHsfB3h8jRGXwnxR7Kd4mxywuj?=
- =?us-ascii?Q?i9w6/l+tA460vyB3N0ihK/3vJ2DueXmZXtNPwgbpRY1WrHvuENw7dM3pS5YX?=
- =?us-ascii?Q?zYLUTfxCKZjYfGWs82pjtKqHZ6I81rFQP/9EGiKPwPS52+Oo5PvAY++DA9bu?=
- =?us-ascii?Q?wkExFxm5MGbsusuZTlUP6+9bybZ1KUlcU2d0WmIEUc0NQs9KpEuyJJi97RIV?=
- =?us-ascii?Q?Dyx0HPKJSxde0+4abk9dJf5xpl0sEf/NqvhEUi2CDuNxnsvTil+dAbjzB7qB?=
- =?us-ascii?Q?dsCXGMcHHSlkCv3k/G5j8Kd3FAqHo8tPIMMbgBhOsDaJ2VtnlUshKwj1aRkw?=
- =?us-ascii?Q?vo/rRF9+ZbuRzCSPM0GatzzKDYccf7ap3cFxhX5aoAqCt3KUV9DHWVd6vd4K?=
- =?us-ascii?Q?VxJLUbjTMUIN0IPRpQw5ZwsxwmrQHS6r2DCCx2mlJM/9Kzfb+KA5QSeIZo8c?=
- =?us-ascii?Q?rKmMfi9IKzPXD9sJR5u/vvLj7qdk7kXdAcyLCUia0/gVBs9hb4zbFKchhaw1?=
- =?us-ascii?Q?oCmqIuAgUX61VuOa02vooAvSRf9tnJyrEsW1ZLc0VPNFV2SWNaP0plUW6qkJ?=
- =?us-ascii?Q?/FGNo9N0LkcwbihRPgSUIfw6h9pqsQwj/+MCA/bzZywnFWKgxgHcrcG5JPdp?=
- =?us-ascii?Q?rV32X32Is+kh3akhA5BZ405umYzvvtCEZI46NxLGXqD82KqpEa2W1p1R/a/F?=
- =?us-ascii?Q?Oz0l/nS9qsRFB9CphzMiYxeeSvJYXi2n9HRQGJsEKW29jABUnvSTue6cDMhg?=
- =?us-ascii?Q?XDKKOJyzETVi9HtC5/4vkj6hA3oa6eNBV8E1E74JmmOa1TDgsRzhBbSeZZPF?=
- =?us-ascii?Q?rMK1EihDuUbn8qCFu9x1uhqbgnajsdIA5yGDWVOMKKQI9Ok19wc6zUg11T9G?=
- =?us-ascii?Q?ucLaJYNqLlGp+xALBA5sW4d4OWR1ePbRhmaEIn36wpW0zrWz3W31yZTEdKGO?=
- =?us-ascii?Q?5wJ/ytYDIzrtayWl2N2rA04Gzr4TO6sYDE3ViLKCSuEmzhouWt85GTYyRr+3?=
- =?us-ascii?Q?5simFtV7IZu/6ACB1Nk=3D?=
-X-Forefront-Antispam-Report: CIP:91.26.50.189;CTRY:DE;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:Postix.phytec.de;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(82310400026)(1800799024)(36860700013);DIR:OUT;SFP:1102;
-X-OriginatorOrg: phytec.de
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Nov 2025 09:09:04.0883
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 40c6baa3-ec85-4838-774f-08de2b391d80
-X-MS-Exchange-CrossTenant-Id: e609157c-80e2-446d-9be3-9c99c2399d29
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e609157c-80e2-446d-9be3-9c99c2399d29;Ip=[91.26.50.189];Helo=[Postix.phytec.de]
-X-MS-Exchange-CrossTenant-AuthSource: AM3PEPF0000A795.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS4P195MB1480
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251124_010913_121589_F585F080 
-X-CRM114-Status: UNSURE (   9.83  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251124_010927_185717_2E9077D8 
+X-CRM114-Status: GOOD (  22.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,40 +110,121 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the "bootph-all" property to cpsw_mac_syscon.
+Hi Amit,
 
-This fuse region contains the internal MAC address. Without this
-syscon node enabled, this interface will get a random MAC during
-network boot. This is problematic because the AM62Ax network
-boot is using BOOTP protocol for some binaries and this protocol
-does not support dynamic lease expiration. Therefore, the DHCP
-server can run out of free IP addresses.
+On Sun, 2025-11-23 at 08:35 +0000, Amit Sunil Dhamne via B4 Relay wrote:
+> From: Amit Sunil Dhamne <amitsd@google.com>
+>=20
+> TCPCI maxim driver directly writes to the charger's register space to
+> set charger mode depending on the power role. As MAX77759 chg driver
+> exists, this WAR is not required.
+>=20
+> Instead, use a regulator interface to set OTG Boost mode.
+>=20
+> Signed-off-by: Amit Sunil Dhamne <amitsd@google.com>
+> ---
+> =C2=A0drivers/usb/typec/tcpm/tcpci_maxim.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 =
+|=C2=A0 1 +
+> =C2=A0drivers/usb/typec/tcpm/tcpci_maxim_core.c | 48 ++++++++++++++++++++=
++----------
+> =C2=A02 files changed, 34 insertions(+), 15 deletions(-)
+>=20
+> diff --git a/drivers/usb/typec/tcpm/tcpci_maxim.h b/drivers/usb/typec/tcp=
+m/tcpci_maxim.h
+> index b33540a42a95..6c82a61efe46 100644
+> --- a/drivers/usb/typec/tcpm/tcpci_maxim.h
+> +++ b/drivers/usb/typec/tcpm/tcpci_maxim.h
+> @@ -60,6 +60,7 @@ struct max_tcpci_chip {
+> =C2=A0	struct tcpm_port *port;
+> =C2=A0	enum contamiant_state contaminant_state;
+> =C2=A0	bool veto_vconn_swap;
+> +	struct regulator *otg_reg;
+> =C2=A0};
+> =C2=A0
+> =C2=A0static inline int max_tcpci_read16(struct max_tcpci_chip *chip, uns=
+igned int reg, u16 *val)
+> diff --git a/drivers/usb/typec/tcpm/tcpci_maxim_core.c b/drivers/usb/type=
+c/tcpm/tcpci_maxim_core.c
+> index 19f638650796..6d819a762fa1 100644
+> --- a/drivers/usb/typec/tcpm/tcpci_maxim_core.c
+> +++ b/drivers/usb/typec/tcpm/tcpci_maxim_core.c
+> @@ -10,6 +10,7 @@
+> =C2=A0#include <linux/kernel.h>
+> =C2=A0#include <linux/module.h>
+> =C2=A0#include <linux/regmap.h>
+> +#include <linux/regulator/consumer.h>
+> =C2=A0#include <linux/usb/pd.h>
+> =C2=A0#include <linux/usb/tcpci.h>
+> =C2=A0#include <linux/usb/tcpm.h>
+> @@ -202,32 +203,49 @@ static void process_rx(struct max_tcpci_chip *chip,=
+ u16 status)
+> =C2=A0	tcpm_pd_receive(chip->port, &msg, rx_type);
+> =C2=A0}
+> =C2=A0
+> +static int get_otg_regulator_handle(struct max_tcpci_chip *chip)
+> +{
+> +	if (IS_ERR_OR_NULL(chip->otg_reg)) {
+> +		chip->otg_reg =3D devm_regulator_get_exclusive(chip->dev,
+> +							=C2=A0=C2=A0=C2=A0=C2=A0 "otg-vbus");
+> +		if (IS_ERR_OR_NULL(chip->otg_reg)) {
+> +			dev_err(chip->dev,
+> +				"Failed to get otg regulator handle");
+> +			return -ENODEV;
+> +		}
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> =C2=A0static int max_tcpci_set_vbus(struct tcpci *tcpci, struct tcpci_dat=
+a *tdata, bool source, bool sink)
+> =C2=A0{
+> =C2=A0	struct max_tcpci_chip *chip =3D tdata_to_max_tcpci(tdata);
+> -	u8 buffer_source[2] =3D {MAX_BUCK_BOOST_OP, MAX_BUCK_BOOST_SOURCE};
+> -	u8 buffer_sink[2] =3D {MAX_BUCK_BOOST_OP, MAX_BUCK_BOOST_SINK};
+> -	u8 buffer_none[2] =3D {MAX_BUCK_BOOST_OP, MAX_BUCK_BOOST_OFF};
 
-Signed-off-by: Daniel Schultz <d.schultz@phytec.de>
----
-Changes in v2:
-  Moved changes from k2-am62a-main.dsti to k3-am62a-phycore-som.dtsi
+You should also remove the corresponding #defines at the top of this file.
 
- arch/arm64/boot/dts/ti/k3-am62a-phycore-som.dtsi | 5 +++++
- 1 file changed, 5 insertions(+)
+> -	struct i2c_client *i2c =3D chip->client;
+> =C2=A0	int ret;
+> =C2=A0
+> -	struct i2c_msg msgs[] =3D {
+> -		{
+> -			.addr =3D MAX_BUCK_BOOST_SID,
+> -			.flags =3D i2c->flags & I2C_M_TEN,
+> -			.len =3D 2,
+> -			.buf =3D source ? buffer_source : sink ? buffer_sink : buffer_none,
+> -		},
+> -	};
+> -
+> =C2=A0	if (source && sink) {
+> =C2=A0		dev_err(chip->dev, "Both source and sink set\n");
+> =C2=A0		return -EINVAL;
+> =C2=A0	}
+> =C2=A0
+> -	ret =3D i2c_transfer(i2c->adapter, msgs, 1);
+> +	ret =3D get_otg_regulator_handle(chip);
+> +	if (ret) {
+> +		/*
+> +		 * Regulator is not necessary for sink only applications. Return
+> +		 * success in cases where sink mode is being modified.
+> +		 */
+> +		return source ? ret : 1;
+> +	}
+> +
+> +	if (source) {
+> +		if (!regulator_is_enabled(chip->otg_reg))
+> +			ret =3D regulator_enable(chip->otg_reg);
+> +	} else {
+> +		if (regulator_is_enabled(chip->otg_reg))
+> +			ret =3D regulator_disable(chip->otg_reg);
+> +	}
 
-diff --git a/arch/arm64/boot/dts/ti/k3-am62a-phycore-som.dtsi b/arch/arm64/boot/dts/ti/k3-am62a-phycore-som.dtsi
-index b3d012a5a26a..7f00576a4bd2 100644
---- a/arch/arm64/boot/dts/ti/k3-am62a-phycore-som.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am62a-phycore-som.dtsi
-@@ -197,6 +197,11 @@ &cpsw_port1 {
- 	bootph-all;
- };
- 
-+
-+&cpsw_mac_syscon {
-+	bootph-all;
-+};
-+
- &cpsw3g_mdio {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&main_mdio1_pins_default>;
--- 
-2.25.1
+Given otg_reg is the fake regulator created by a previous patch in this
+series, this means that the regulator API is really used to configure two
+out of 16 possible charger modes here. That doesn't look right.
 
+Cheers,
+Andre'
 
