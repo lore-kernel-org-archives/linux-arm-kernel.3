@@ -4,101 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 528BCCFD341
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 17:56:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67FFACFD341
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 18:01:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dgj16XmQKLfzuMiMJnYwYhnRMSc7HIdJxo40jdxC8fc=; b=ag9nkNInkv70F/YOSHANTDLhrV
-	bnX0faXWWkjlVwxcpIL2reufhtT1uiLNrmd6L2RhUKSs6Qsd8QHctYwkjHtRMq1WEEKbhuKTKyvt8
-	xKNQNM0owTIfKLhJuSgL91fHOLwQMnFhRU9H4sYbfbVxKDAZ4id6JrM8f16pEmdL4DKlBhOONi5d1
-	d355yoAw2wPsfpYtR38LYLRV8fUzPxcrNjl6F/jsUc01VqOVCtkIm+95yiwvIDK9N40/+UI8Mpjs2
-	j6Jlctt5r1xEs7Xk0LAOs/f5a3P9Nit2Pgqy9wY5TOrr14HCuw9/8YN0DdLoRH5H2gQEARNOUG/Of
-	ZR2yGMDw==;
+	bh=1d7db4jbpWEDjxSJmiEb+yX2P+MCvXx8kaBol+kPG6w=; b=Pr2NP2ISdPIdylbaeR8UlPvQNv
+	2PKgYpEelsydYlSYoal96Xf4+sgxVqait3WYB5fVA1q+D+JHDTxjzVMKj3N9WruVR1sLrMlrkGnOx
+	q3sYE1JtuloHL1gT28fvw4hIh6LRL8+qPusVehY494EIClZNuo53BE7RcFruW0HpPl2yybvHy9OEw
+	Q58OKunBQ/eLhUtZOv1N01PfX0tpP3PmXB/O01YwuhX9OyyLvmMjlG8W6cGSB7MXVkwT5YqyVkQcW
+	C/B63JebG6bC20Ca0mdPW4itZSh6MI6yc0By5G1kWRT2rqgEHSVS9Vl44GNAOVs0Q1LZR8ATcUMUF
+	SO3PRVkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNank-0000000C8b3-1a1k;
-	Mon, 24 Nov 2025 17:56:36 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNanh-0000000C8aD-2SN3
+	id 1vNasH-0000000C94z-3NQi;
+	Mon, 24 Nov 2025 18:01:17 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vNasF-0000000C94U-0bt3
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Nov 2025 17:56:34 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-477ba2c1ca2so48258485e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Nov 2025 09:56:32 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1764006991; x=1764611791; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=dgj16XmQKLfzuMiMJnYwYhnRMSc7HIdJxo40jdxC8fc=;
-        b=A/n34a9DxVpJXi1RaTVFZj284yFUdo0wNHNJQ54to2LNre9Rn0d23Gy0hvLGa2NleQ
-         0RS+HhnhHVsPYBD+9ebSxWir4/uvzW3dotWaBZM+xUQKJJQlqU1MCmM0uW+EA5OEc7r1
-         OWJul8K5/ELRHoyOyaK2n9Dkobv9QbVdGHK+KvX0XTOOEdyjaZMG/+UTYQGO6GxSgq19
-         aI4G5jHEkiFjPDD/mOIODI4miCSWrzyUHnzEDMTICMyDN5fhVlhZwEY5JDiimeEi5p9i
-         GVgLQgBlQU4bLGvMZ9yOn/D89STKWHOmNb4s2iq1bPATKh58Sy7wrSm77htUPEs1YXUE
-         JBJg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764006991; x=1764611791;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=dgj16XmQKLfzuMiMJnYwYhnRMSc7HIdJxo40jdxC8fc=;
-        b=ULWHLqmezr6cSaPTTfriXuzWdVVkqmojqavnhYfQpxWmSq7UA8fmFJFe10yz8NXRL7
-         Wtc8ptVfxFAqoLksEdMDsYkCl0glsVqmqW+XM+QomJPHx8BGKOtIdM1SSBNyLgrgWCW8
-         R5CCI3XOgAJqvceVuz0AMsGxXCZuZ618Dr4/OaRP2jzls/u+HZOYNGYXBL7y3iriod+E
-         ZWrJMhTbfcUoaL/rvYTUvO22elyhBiP/yAVn8t9gvYkLU8/TT9TIBXYvVmgCYvrwqQop
-         rh40QXvQscKZILrurlrMvGOPQ+qGA1nVPqtfJdnjSnYELlPcdFVIzJ9qRRwn5bZ1fNvv
-         RZ9Q==
-X-Forwarded-Encrypted: i=1; AJvYcCV6b4QDhruffH77zVqtyPBQG8W+ttGNh8fKpWnLJ5uzlFNyAeCQmZBDL8SHipuYiddneOm1SO1thrbMb0J/aifj@lists.infradead.org
-X-Gm-Message-State: AOJu0YxUx2NRd3ExtlCDZ6BXV5PhpSUNaBR3Sse9IU75BoDHcBLdx4JZ
-	jqmFGwHh/SUzCdkrsK6IGotGcSmjJYAN0T1BGmkMYEmkhyXaizRg7m9eNqf+zCyrVXc=
-X-Gm-Gg: ASbGncsK1V15FikKCrikDFpem7VzRm1+kbeX6Z8vDvb6kC5d1pQjX+4t4jkcaKYxQzP
-	NZMLCft7zejAIxGjApEvuz9SJFp7bgPQtBKXb/7i3wVg3cuQQ0uFbTJR/p6pnEQVco/owpXUE1K
-	WRI9XCHafqoAKy9xWY6ykNQ1ConcmwI6dsdf0ySyDre2rqPXA8xXVZbTA/J7jNSa5INen3Hbqmb
-	sAJsVW7c627RC/+eby6VRLQck7IyUDH/3xPNOkBG2GLhmQLnLcKUueS/zrJhb1HHSt0t/IzGiZk
-	94T/vjGxS8fvxumustVQroPLmdGEwypoYmWC5/F64WxVHIfVMoVEfP9Luhdrfd33Tpui9JIPNys
-	gvXaoZZNcY/cfXur1HFJuigy5whynov+J9QT9gIlD8MW+2LTZesNPTxo4WfAfMoEKjACkrfTL9y
-	gan8W7jS732a8e+x4grVYIXPn8w1UL8X5KaECOfyPnNcfl4zbsg0zpEkV2kQyA5NgnXJK6FQs7P
-	3SC
-X-Google-Smtp-Source: AGHT+IF9jQYjGDYWRD+2xNGzxOUo7frTRxo+/YiP6cBgQWSgQQXQD/fGaLUkrkLZhoAvTfv/zaiUjQ==
-X-Received: by 2002:a05:600c:1f94:b0:477:28c1:26ce with SMTP id 5b1f17b1804b1-477c016bbd5mr123402035e9.7.1764006991417;
-        Mon, 24 Nov 2025 09:56:31 -0800 (PST)
-Received: from ?IPV6:2a05:6e02:1041:c10:a756:bb6c:7b35:af9b? ([2a05:6e02:1041:c10:a756:bb6c:7b35:af9b])
-        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-477bf198a67sm217894095e9.0.2025.11.24.09.56.30
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 24 Nov 2025 09:56:30 -0800 (PST)
-Message-ID: <190003b6-2931-406a-a8f6-ec8909c65162@linaro.org>
-Date: Mon, 24 Nov 2025 18:56:29 +0100
+	Mon, 24 Nov 2025 18:01:16 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id F0BE01477;
+	Mon, 24 Nov 2025 10:01:06 -0800 (PST)
+Received: from [10.1.30.67] (unknown [10.1.30.67])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id AAE793F86F;
+	Mon, 24 Nov 2025 10:01:12 -0800 (PST)
+Message-ID: <0bea885c-6647-4552-a7f7-4fef260ef97c@arm.com>
+Date: Mon, 24 Nov 2025 18:01:10 +0000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 3/9] thermal/drivers/mediatek/lvts: Fail probe if
- temp_factor is zero
-To: Laura Nao <laura.nao@collabora.com>, srini@kernel.org, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, rafael@kernel.org,
- rui.zhang@intel.com, lukasz.luba@arm.com, matthias.bgg@gmail.com,
- angelogioacchino.delregno@collabora.com
-Cc: nfraprado@collabora.com, arnd@arndb.de, colin.i.king@gmail.com,
- u.kleine-koenig@baylibre.com, andrew-ct.chen@mediatek.com,
- lala.lin@mediatek.com, bchihi@baylibre.com, frank-w@public-files.de,
- wenst@chromium.org, fshao@chromium.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- kernel@collabora.com
-References: <20251121-mt8196-lvts-v4-v4-0-357f955a3176@collabora.com>
- <20251121-mt8196-lvts-v4-v4-3-357f955a3176@collabora.com>
-Content-Language: en-US
-From: Daniel Lezcano <daniel.lezcano@linaro.org>
-In-Reply-To: <20251121-mt8196-lvts-v4-v4-3-357f955a3176@collabora.com>
+Subject: Re: [PATCH 1/2] perf/arm-ni: rename PMU device name
+To: Will Deacon <will@kernel.org>, Shouping Wang <allen.wang@hj-micro.com>
+Cc: mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, andy.xu@hj-micro.com, peter.du@hj-micro.com
+References: <20251107084320.555979-1-allen.wang@hj-micro.com>
+ <20251107084320.555979-2-allen.wang@hj-micro.com>
+ <aSR-Lu-nkSJl0V-x@willie-the-truck>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <aSR-Lu-nkSJl0V-x@willie-the-truck>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251124_095633_654390_AD98F62A 
-X-CRM114-Status: GOOD (  17.47  )
+X-CRM114-CacheID: sfid-20251124_100115_227974_FA2AC386 
+X-CRM114-Status: GOOD (  17.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,43 +66,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/21/25 12:16, Laura Nao wrote:
-> temp_factor is used in lvts_temp_to_raw() and lvts_raw_to_temp(). If
-> platform data is incorrect and temp_factor is zero, it could cause a
-> division by zero. Fail the probe early to prevent a kernel crash.
+On 2025-11-24 3:47 pm, Will Deacon wrote:
+> On Fri, Nov 07, 2025 at 04:43:18PM +0800, Shouping Wang wrote:
+>> The PMU device names are arm_ni_1_*,arm_ni_2_*, etc.
+>> The device names change based on the order of registration
+>> for multiple NI instances. By naming the PMU device using
+>> its address, the device name can be made independent of
+>> the registration order.
+>>
+>> Signed-off-by: Shouping Wang <allen.wang@hj-micro.com>
+>> ---
+>>   drivers/perf/arm-ni.c | 6 ++----
+>>   1 file changed, 2 insertions(+), 4 deletions(-)
+>>
+>> diff --git a/drivers/perf/arm-ni.c b/drivers/perf/arm-ni.c
+>> index 1615a0564031..32eabdbe877a 100644
+>> --- a/drivers/perf/arm-ni.c
+>> +++ b/drivers/perf/arm-ni.c
+>> @@ -53,6 +53,7 @@
+>>   
+>>   #define NI_NUM_COUNTERS		8
+>>   #define NI_CCNT_IDX		31
+>> +#define NI_PMU_PA_SHIFT		12
+>>   
+>>   /* Event attributes */
+>>   #define NI_CONFIG_TYPE		GENMASK_ULL(15, 0)
+>> @@ -115,7 +116,6 @@ struct arm_ni {
+>>   	struct device *dev;
+>>   	void __iomem *base;
+>>   	enum ni_part part;
+>> -	int id;
+>>   	int cpu;
+>>   	int num_cds;
+>>   	struct hlist_node cpuhp_node;
+>> @@ -560,7 +560,7 @@ static int arm_ni_init_cd(struct arm_ni *ni, struct arm_ni_node *node, u64 res_s
+>>   		.read = arm_ni_event_read,
+>>   	};
+>>   
+>> -	name = devm_kasprintf(ni->dev, GFP_KERNEL, "arm_ni_%d_cd_%d", ni->id, cd->id);
+>> +	name = devm_kasprintf(ni->dev, GFP_KERNEL, "arm_ni_%llx", res_start >> NI_PMU_PA_SHIFT);
 > 
-> Signed-off-by: Laura Nao <laura.nao@collabora.com>
-> ---
->   drivers/thermal/mediatek/lvts_thermal.c | 5 +++++
->   1 file changed, 5 insertions(+)
+> Doesn't this have the potential to break userspace (e.g. scripts) that
+> expect the current naming to be stable?
+
+Certainly on platforms where only arm_ni_0 ever exists. For 
+multi-instance cases it's always been documented that this ID is 
+arbitrary, and users should look at the platform device that is the 
+sysfs parent of the PMU device(s) in order to disambiguate - from there 
+they already have the freedom to use whatever information they like, 
+including MMIO resources, but also interrupt numbers, ACPI _UIDs or 
+whatever. So although changing one arbitrary value to a different 
+arbitrary value is in theory something well-behaved users should be OK 
+with, in practice changing it from a small decimal integer to a massive 
+hex number may well still break parsing expectations.
+
+Thanks,
+Robin.
+
 > 
-> diff --git a/drivers/thermal/mediatek/lvts_thermal.c b/drivers/thermal/mediatek/lvts_thermal.c
-> index 1c54d0b75b1a..b49441d82ffd 100644
-> --- a/drivers/thermal/mediatek/lvts_thermal.c
-> +++ b/drivers/thermal/mediatek/lvts_thermal.c
-> @@ -1346,6 +1346,11 @@ static int lvts_probe(struct platform_device *pdev)
->   	if (irq < 0)
->   		return irq;
->   
-> +	if (!lvts_data->temp_factor)
-> +		return dev_err_probe(
-> +			dev, -EINVAL,
-> +			"temp_factor should never be zero; check platform data.\n");
-> +
-
- From my POV, this is not really useful. The temp_factor is set for each 
-version statically in the code. The scope is limited to the driver, IOW 
-it is not a parameter other subsystems passes to the driver.
-
-If it is NULL, then shame on the submitter who did not test the driver 
-before sending ;)
-
-
-
--- 
-<http://www.linaro.org/> Linaro.org │ Open source software for ARM SoCs
-
-Follow Linaro:  <http://www.facebook.com/pages/Linaro> Facebook |
-<http://twitter.com/#!/linaroorg> Twitter |
-<http://www.linaro.org/linaro-blog/> Blog
+> Either way, I'll need Robin's acks for these changes.
+> 
+> Will
 
