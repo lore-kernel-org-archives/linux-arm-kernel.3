@@ -4,86 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0460BCFD31F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 13:23:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0696CFA466
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 13:23:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Sej7ZjFgI2CH8GESRNbiLLlZq9lukw2BQZdjj2KK/T8=; b=DcnFbFwSbzUuQQKFMWQLo4Oz33
-	2TTrIU4/uiRS2hD5DuKzPYzyN0cxD0TVAAfuw35SMmv0sL/hUf7ajZHlEMSxbp5sw6zWZPI4O4Iw2
-	5bB0pOPL7ADN0VXpGmmTNFi4cLyIKa12KQFPNtRgH0Fi5Rbr5uxIQI+RnBKpCSkgmeWZsUCWLPZFq
-	BauPLcUVaoMOLvSbSTKH4Su9uah0hR52Ueme3CbxdD5I2YFPwwWNQ8xjxAGlfKZbEdss1nO4haP83
-	Fb3fURAhRvG+/WoC7ViBX434RRCwfSVRDHjsST/WwwmWntCwrj2XETUmMYTFcVCLY6C+PSSH04OAM
-	UJCfxmFw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QLZyO6kLH2c9SNW5e9XBllX+q9FJho1SsS7BGoq4Xb8=; b=kLMwWI0+CmL06/dQjLthI6rZT9
+	vT7KvAY+iwLks2ruHlJ/dI4KI3ItBLk31SV28BdIDP3uT7Y83RInLnna9kA6YBJRA/IBSnsOtSMCF
+	pXUNRSk9pcY0pvRKQnA7z94TuSDQNQq3waI0N3tjVvMXxdojauVUWo8EQVJcQGVeYBh3gymzmZfN4
+	ubYY88rG99cOSMuzt/ov+UMmS5lfSt3GP1G90FFrmxIyEEUc41+e7hhX5ITFbedslGPAhFviMeal1
+	SM9YqgCuAWL0ad142cpcK1YVNyiz8MrQHYyIXaAbaM2/arZuusyRaDs/fxCZ1pp8eYHYr3WCfGYk1
+	naZUe/eA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNWXJ-0000000BjMq-0mQa;
+	id 1vNWXJ-0000000BjNO-2D5J;
 	Mon, 24 Nov 2025 13:23:21 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNWX8-0000000BjCt-360P
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vNWXC-0000000BjGg-35p6
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Nov 2025 13:23:12 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9CB1815A1;
-	Mon, 24 Nov 2025 05:23:02 -0800 (PST)
-Received: from e123572-lin.arm.com (e123572-lin.cambridge.arm.com [10.1.194.54])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EBD573F73B;
-	Mon, 24 Nov 2025 05:23:04 -0800 (PST)
-From: Kevin Brodsky <kevin.brodsky@arm.com>
-To: linux-mm@kvack.org
-Cc: linux-kernel@vger.kernel.org,
-	Kevin Brodsky <kevin.brodsky@arm.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Andreas Larsson <andreas@gaisler.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Boris Ostrovsky <boris.ostrovsky@oracle.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	David Hildenbrand <david@redhat.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	David Woodhouse <dwmw2@infradead.org>,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Ingo Molnar <mingo@redhat.com>,
-	Jann Horn <jannh@google.com>,
-	Juergen Gross <jgross@suse.com>,
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
-	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Michal Hocko <mhocko@suse.com>,
-	Mike Rapoport <rppt@kernel.org>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	"Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Venkat Rao Bagalkote <venkat88@linux.ibm.com>,
-	Vlastimil Babka <vbabka@suse.cz>,
-	Will Deacon <will@kernel.org>,
-	Yeoreum Yun <yeoreum.yun@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linuxppc-dev@lists.ozlabs.org,
-	sparclinux@vger.kernel.org,
-	xen-devel@lists.xenproject.org,
-	x86@kernel.org
-Subject: [PATCH v5 05/12] mm: introduce CONFIG_ARCH_HAS_LAZY_MMU_MODE
-Date: Mon, 24 Nov 2025 13:22:21 +0000
-Message-ID: <20251124132228.622678-6-kevin.brodsky@arm.com>
-X-Mailer: git-send-email 2.51.2
-In-Reply-To: <20251124132228.622678-1-kevin.brodsky@arm.com>
-References: <20251124132228.622678-1-kevin.brodsky@arm.com>
+	Mon, 24 Nov 2025 13:23:15 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 30B62601F4;
+	Mon, 24 Nov 2025 13:23:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 85E1AC116C6;
+	Mon, 24 Nov 2025 13:23:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1763990593;
+	bh=ZkveGrdkvCfPZFoOUJbbqtFMDnhuefLqnTOZdpFUeTg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=iJ1Hmwx9zq6u/cnF1AWukxT1quc2d66mXECA5dl6e16/7bLcnUFeBC4B41HvRk+UD
+	 D4aU5LTRl7k5mw/273TdJmLhqIhN4sJIjtY9G5l29ZQyuvbnyqmZ+yf/CmEnxcmAmP
+	 eQnFIu1E0Pu2VGOXIT8ARfUhq4avwxSjHb98EtCIJaGJoJBEE4YcNmwAIZ1anWYJ2n
+	 OHcT4HtO10dn9eUzFCnYefUIQ0fcJa64sUsJxvyGIhmxKudlURT5moD0SxXxYKFcVW
+	 6VzQK9fc3/Y/3uygosq1OfKSn04to+6Fz/6qr9+NjlxqmuNUfl+yBYpVvz+kA7j2Yj
+	 xVVai9St2BZuQ==
+Date: Mon, 24 Nov 2025 13:23:08 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Marc Zyngier <maz@kernel.org>
+Cc: Fuad Tabba <tabba@google.com>, kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oupton@kernel.org>, Zenghui Yu <yuzenghui@huawei.com>,
+	Christoffer Dall <christoffer.dall@arm.com>,
+	Volodymyr Babchuk <Volodymyr_Babchuk@epam.com>,
+	Yao Yuan <yaoyuan@linux.alibaba.com>
+Subject: Re: [PATCH v2 29/45] KVM: arm64: GICv3: Set ICH_HCR_EL2.TDIR when
+ interrupts overflow LR capacity
+Message-ID: <342302ba-5678-408a-ab63-1a854099d4a1@sirena.org.uk>
+References: <20251109171619.1507205-1-maz@kernel.org>
+ <20251109171619.1507205-30-maz@kernel.org>
+ <CA+EHjTzRwswNq+hZQDD5tXj+-0nr04OmR201mHmi82FJ0VHuJA@mail.gmail.com>
+ <86cy5ku06v.wl-maz@kernel.org>
+ <51f5b5d7-9e98-40b8-8f8b-f50254573f3d@sirena.org.uk>
+ <86o6orr356.wl-maz@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251124_052310_886203_75F30137 
-X-CRM114-Status: GOOD (  17.15  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="hFXx54rNo6XRJZ1B"
+Content-Disposition: inline
+In-Reply-To: <86o6orr356.wl-maz@kernel.org>
+X-Cookie: Single tasking: Just Say No.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,195 +82,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Architectures currently opt in for implementing lazy_mmu helpers by
-defining __HAVE_ARCH_ENTER_LAZY_MMU_MODE.
 
-In preparation for introducing a generic lazy_mmu layer that will
-require storage in task_struct, let's switch to a cleaner approach:
-instead of defining a macro, select a CONFIG option.
+--hFXx54rNo6XRJZ1B
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-This patch introduces CONFIG_ARCH_HAS_LAZY_MMU_MODE and has each
-arch select it when it implements lazy_mmu helpers.
-__HAVE_ARCH_ENTER_LAZY_MMU_MODE is removed and <linux/pgtable.h>
-relies on the new CONFIG instead.
+On Mon, Nov 24, 2025 at 01:06:29PM +0000, Marc Zyngier wrote:
+> Mark Brown <broonie@kernel.org> wrote:
 
-On x86, lazy_mmu helpers are only implemented if PARAVIRT_XXL is
-selected. This creates some complications in arch/x86/boot/, because
-a few files manually undefine PARAVIRT* options. As a result
-<asm/paravirt.h> does not define the lazy_mmu helpers, but this
-breaks the build as <linux/pgtable.h> only defines them if
-!CONFIG_ARCH_HAS_LAZY_MMU_MODE. There does not seem to be a clean
-way out of this - let's just undefine that new CONFIG too.
+> > FWIW I am seeing this on i.MX8MP (4xA53+GICv3):
 
-Acked-by: David Hildenbrand <david@redhat.com>
-Reviewed-by: Ritesh Harjani (IBM) <ritesh.list@gmail.com>
-Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
-Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
----
- arch/arm64/Kconfig                                 | 1 +
- arch/arm64/include/asm/pgtable.h                   | 1 -
- arch/powerpc/include/asm/book3s/64/tlbflush-hash.h | 2 --
- arch/powerpc/platforms/Kconfig.cputype             | 1 +
- arch/sparc/Kconfig                                 | 1 +
- arch/sparc/include/asm/tlbflush_64.h               | 2 --
- arch/x86/Kconfig                                   | 1 +
- arch/x86/boot/compressed/misc.h                    | 1 +
- arch/x86/boot/startup/sme.c                        | 1 +
- arch/x86/include/asm/paravirt.h                    | 1 -
- include/linux/pgtable.h                            | 2 +-
- mm/Kconfig                                         | 3 +++
- 12 files changed, 10 insertions(+), 7 deletions(-)
+> >   https://lava.sirena.org.uk/scheduler/job/2118713#L1044
 
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index 6663ffd23f25..74be32f5f446 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -34,6 +34,7 @@ config ARM64
- 	select ARCH_HAS_KCOV
- 	select ARCH_HAS_KERNEL_FPU_SUPPORT if KERNEL_MODE_NEON
- 	select ARCH_HAS_KEEPINITRD
-+	select ARCH_HAS_LAZY_MMU_MODE
- 	select ARCH_HAS_MEMBARRIER_SYNC_CORE
- 	select ARCH_HAS_MEM_ENCRYPT
- 	select ARCH_SUPPORTS_MSEAL_SYSTEM_MAPPINGS
-diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
-index 0944e296dd4a..54f8d6bb6f22 100644
---- a/arch/arm64/include/asm/pgtable.h
-+++ b/arch/arm64/include/asm/pgtable.h
-@@ -80,7 +80,6 @@ static inline void queue_pte_barriers(void)
- 	}
- }
- 
--#define  __HAVE_ARCH_ENTER_LAZY_MMU_MODE
- static inline void arch_enter_lazy_mmu_mode(void)
- {
- 	/*
-diff --git a/arch/powerpc/include/asm/book3s/64/tlbflush-hash.h b/arch/powerpc/include/asm/book3s/64/tlbflush-hash.h
-index 2d45f57df169..565c1b7c3eae 100644
---- a/arch/powerpc/include/asm/book3s/64/tlbflush-hash.h
-+++ b/arch/powerpc/include/asm/book3s/64/tlbflush-hash.h
-@@ -24,8 +24,6 @@ DECLARE_PER_CPU(struct ppc64_tlb_batch, ppc64_tlb_batch);
- 
- extern void __flush_tlb_pending(struct ppc64_tlb_batch *batch);
- 
--#define __HAVE_ARCH_ENTER_LAZY_MMU_MODE
--
- static inline void arch_enter_lazy_mmu_mode(void)
- {
- 	struct ppc64_tlb_batch *batch;
-diff --git a/arch/powerpc/platforms/Kconfig.cputype b/arch/powerpc/platforms/Kconfig.cputype
-index 4c321a8ea896..f399917c17bd 100644
---- a/arch/powerpc/platforms/Kconfig.cputype
-+++ b/arch/powerpc/platforms/Kconfig.cputype
-@@ -93,6 +93,7 @@ config PPC_BOOK3S_64
- 	select IRQ_WORK
- 	select PPC_64S_HASH_MMU if !PPC_RADIX_MMU
- 	select KASAN_VMALLOC if KASAN
-+	select ARCH_HAS_LAZY_MMU_MODE
- 
- config PPC_BOOK3E_64
- 	bool "Embedded processors"
-diff --git a/arch/sparc/Kconfig b/arch/sparc/Kconfig
-index a630d373e645..2bad14744ca4 100644
---- a/arch/sparc/Kconfig
-+++ b/arch/sparc/Kconfig
-@@ -112,6 +112,7 @@ config SPARC64
- 	select NEED_PER_CPU_PAGE_FIRST_CHUNK
- 	select ARCH_SUPPORTS_SCHED_SMT if SMP
- 	select ARCH_SUPPORTS_SCHED_MC  if SMP
-+	select ARCH_HAS_LAZY_MMU_MODE
- 
- config ARCH_PROC_KCORE_TEXT
- 	def_bool y
-diff --git a/arch/sparc/include/asm/tlbflush_64.h b/arch/sparc/include/asm/tlbflush_64.h
-index 925bb5d7a4e1..4e1036728e2f 100644
---- a/arch/sparc/include/asm/tlbflush_64.h
-+++ b/arch/sparc/include/asm/tlbflush_64.h
-@@ -39,8 +39,6 @@ static inline void flush_tlb_range(struct vm_area_struct *vma,
- 
- void flush_tlb_kernel_range(unsigned long start, unsigned long end);
- 
--#define __HAVE_ARCH_ENTER_LAZY_MMU_MODE
--
- void flush_tlb_pending(void);
- void arch_enter_lazy_mmu_mode(void);
- void arch_flush_lazy_mmu_mode(void);
-diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
-index a3700766a8c0..db769c4addf9 100644
---- a/arch/x86/Kconfig
-+++ b/arch/x86/Kconfig
-@@ -805,6 +805,7 @@ config PARAVIRT
- config PARAVIRT_XXL
- 	bool
- 	depends on X86_64
-+	select ARCH_HAS_LAZY_MMU_MODE
- 
- config PARAVIRT_DEBUG
- 	bool "paravirt-ops debugging"
-diff --git a/arch/x86/boot/compressed/misc.h b/arch/x86/boot/compressed/misc.h
-index db1048621ea2..cdd7f692d9ee 100644
---- a/arch/x86/boot/compressed/misc.h
-+++ b/arch/x86/boot/compressed/misc.h
-@@ -11,6 +11,7 @@
- #undef CONFIG_PARAVIRT
- #undef CONFIG_PARAVIRT_XXL
- #undef CONFIG_PARAVIRT_SPINLOCKS
-+#undef CONFIG_ARCH_HAS_LAZY_MMU_MODE
- #undef CONFIG_KASAN
- #undef CONFIG_KASAN_GENERIC
- 
-diff --git a/arch/x86/boot/startup/sme.c b/arch/x86/boot/startup/sme.c
-index e7ea65f3f1d6..b76a7c95dfe1 100644
---- a/arch/x86/boot/startup/sme.c
-+++ b/arch/x86/boot/startup/sme.c
-@@ -24,6 +24,7 @@
- #undef CONFIG_PARAVIRT
- #undef CONFIG_PARAVIRT_XXL
- #undef CONFIG_PARAVIRT_SPINLOCKS
-+#undef CONFIG_ARCH_HAS_LAZY_MMU_MODE
- 
- /*
-  * This code runs before CPU feature bits are set. By default, the
-diff --git a/arch/x86/include/asm/paravirt.h b/arch/x86/include/asm/paravirt.h
-index b5e59a7ba0d0..13f9cd31c8f8 100644
---- a/arch/x86/include/asm/paravirt.h
-+++ b/arch/x86/include/asm/paravirt.h
-@@ -526,7 +526,6 @@ static inline void arch_end_context_switch(struct task_struct *next)
- 	PVOP_VCALL1(cpu.end_context_switch, next);
- }
- 
--#define  __HAVE_ARCH_ENTER_LAZY_MMU_MODE
- static inline void arch_enter_lazy_mmu_mode(void)
- {
- 	PVOP_VCALL0(mmu.lazy_mode.enter);
-diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
-index b13b6f42be3c..de7d2c7e63eb 100644
---- a/include/linux/pgtable.h
-+++ b/include/linux/pgtable.h
-@@ -231,7 +231,7 @@ static inline int pmd_dirty(pmd_t pmd)
-  * held, but for kernel PTE updates, no lock is held). Nesting is not permitted
-  * and the mode cannot be used in interrupt context.
-  */
--#ifndef __HAVE_ARCH_ENTER_LAZY_MMU_MODE
-+#ifndef CONFIG_ARCH_HAS_LAZY_MMU_MODE
- static inline void arch_enter_lazy_mmu_mode(void) {}
- static inline void arch_leave_lazy_mmu_mode(void) {}
- static inline void arch_flush_lazy_mmu_mode(void) {}
-diff --git a/mm/Kconfig b/mm/Kconfig
-index bd0ea5454af8..a7486fae0cd3 100644
---- a/mm/Kconfig
-+++ b/mm/Kconfig
-@@ -1464,6 +1464,9 @@ config PT_RECLAIM
- config FIND_NORMAL_PAGE
- 	def_bool n
- 
-+config ARCH_HAS_LAZY_MMU_MODE
-+	bool
-+
- source "mm/damon/Kconfig"
- 
- endmenu
--- 
-2.51.2
+> There are worrying errors way before that, in the VMID allocator init,
+> and I can't see what the GIC has to do with it. The issue Fuad
+> reported was at run time, not boot time. so this really doesn't align
+> with what you are seeing.
 
+Yeah, I was just looking further and realising it was probably
+different - sorry about that.  I was checking what else was failing
+after seeing the qemu issue he was, all the platforms aren't booting one
+way or another.  FWIW with earlycon on the AM625 is showing similar
+issues to the i.MX8MP.
+
+--hFXx54rNo6XRJZ1B
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmkkXDwACgkQJNaLcl1U
+h9C2vQf/ZbF4IdL2c4d01zdL9N7tPXlRLDT98/P32kMDIRLhCDDdoBw+Y9fOnYa7
+KEbi4DHROC73/b49D7t63cVaBwBE55FSvyRk/XPWGb/KFUlzapbyEn9p338AojG0
+TIihc0wE3J8q4W3vcJSmwIY+XoZOwQUuL8yxfoa3k+EAlYewtFRT3T7rMwGpvic8
+kd5pt4mIRbTVM3rqOdpfq8xkzFVrQ0SZLrWVtzqPF+sEdjLdw15LH96rl6gzOnxt
+nPeEylyci7LuRB3kPnw7pxYjOstZun3de+aEC0BLaSJxPWCW6y4N87RONHeZ+75j
+jONlJPB3f5zFMqWmcO3lQlNXSnSUyw==
+=fXcl
+-----END PGP SIGNATURE-----
+
+--hFXx54rNo6XRJZ1B--
 
