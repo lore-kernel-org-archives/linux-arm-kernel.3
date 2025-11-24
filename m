@@ -4,75 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3C9DCFD317
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 12:48:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0C01CFD313
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 12:54:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pU+jnmvgd+G4YbcI1jrZhswEj1b5jzOEmkm4kKdxr30=; b=Xa1P3PZ4YDGo5jMNLOGiOEyZeC
-	yzB7G11mlAOAKCbs/dz2pa/p7zcPep760iD1KBgrAWWfnv4gcAZHW9oGOx/acESkhn0nTXCS7sG4a
-	kVebNkRvsHFpsCQ1JGtntI7NkLMsCo9IBdaQ4Jimgi5z2NWFpINnA8fgcow/ZCTTBywzlQa/TMCMf
-	ZeWkHeUaOiBfi+R1KTPxyHYtHlxNp6xXi/p9K3kFQSrir6WuCEJ/yo9r/r0A+BJRz3RS09DXY1qUe
-	+0K5n6PhFIlRWaO9j0NhFae7VciI+Xe21X8MMNpRUfRS+PvvQvaVf7OXT/IYJKmwyhva2y0xLzJts
-	Lpg2sKyQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XcesIxOO/Np+qLcxiFFW3W+6uCyBSgujCnq5oL1kJWY=; b=KuU0u6F9EKV+MvK7yi3roOj3jR
+	TDH2BcgD5wr1QhNMOgGb0tt7whd+1jH13HJKCqfq20U5/K4KfVzSOwUHy+R5h1fxcHQPxUiL9My5b
+	6rJ71fDVn5d2K6gTxxwA5LQWTs/OvUziPQuADbzY47jAxh0D5wlcLxqYTfrAKCNswZwwjbklC+oHw
+	q7xCBOyryCa9yz95GhqaMYW59AFiGKaf8NUd8XkIPMUCzhLBD6hX0rt0+jaKij7JCFUD9A+DHuaZz
+	BnNT/PnJvapj0IyFUCgycGP7koqwapVcWTdYzXqlRhAr3OSaFoLyyIY6sr9aGXZObeIRZqMnsuux9
+	ReumB+Cw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNVzF-0000000BfeT-1jMd;
-	Mon, 24 Nov 2025 12:48:09 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNVzC-0000000Bfdg-1SlP
+	id 1vNW5c-0000000Bg1z-0yTL;
+	Mon, 24 Nov 2025 12:54:44 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vNW5b-0000000Bg1g-02AX
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Nov 2025 12:48:08 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 57038497;
-	Mon, 24 Nov 2025 04:47:57 -0800 (PST)
-Received: from [10.57.40.193] (unknown [10.57.40.193])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id AEF4F3F6A8;
-	Mon, 24 Nov 2025 04:47:56 -0800 (PST)
-Message-ID: <f36ebc15-c724-487a-8e4a-9ca95edc544a@arm.com>
-Date: Mon, 24 Nov 2025 13:47:53 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 06/12] mm: introduce generic lazy_mmu helpers
-From: Kevin Brodsky <kevin.brodsky@arm.com>
-To: Ryan Roberts <ryan.roberts@arm.com>, linux-mm@kvack.org
-Cc: linux-kernel@vger.kernel.org, Alexander Gordeev <agordeev@linux.ibm.com>,
- Andreas Larsson <andreas@gaisler.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Boris Ostrovsky <boris.ostrovsky@oracle.com>, Borislav Petkov
- <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>,
- Christophe Leroy <christophe.leroy@csgroup.eu>,
- Dave Hansen <dave.hansen@linux.intel.com>,
- David Hildenbrand <david@redhat.com>, "David S. Miller"
- <davem@davemloft.net>, David Woodhouse <dwmw2@infradead.org>,
- "H. Peter Anvin" <hpa@zytor.com>, Ingo Molnar <mingo@redhat.com>,
- Jann Horn <jannh@google.com>, Juergen Gross <jgross@suse.com>,
- "Liam R. Howlett" <Liam.Howlett@oracle.com>,
- Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
- Madhavan Srinivasan <maddy@linux.ibm.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Michal Hocko <mhocko@suse.com>,
- Mike Rapoport <rppt@kernel.org>, Nicholas Piggin <npiggin@gmail.com>,
- Peter Zijlstra <peterz@infradead.org>, Suren Baghdasaryan
- <surenb@google.com>, Thomas Gleixner <tglx@linutronix.de>,
- Vlastimil Babka <vbabka@suse.cz>, Will Deacon <will@kernel.org>,
- Yeoreum Yun <yeoreum.yun@arm.com>, linux-arm-kernel@lists.infradead.org,
- linuxppc-dev@lists.ozlabs.org, sparclinux@vger.kernel.org,
- xen-devel@lists.xenproject.org, x86@kernel.org
-References: <20251029100909.3381140-1-kevin.brodsky@arm.com>
- <20251029100909.3381140-7-kevin.brodsky@arm.com>
- <71418b31-aedb-4600-9558-842515dd6c44@arm.com>
- <b44825dd-aef9-4d3e-91fd-a44122264c23@arm.com>
-Content-Language: en-GB
-In-Reply-To: <b44825dd-aef9-4d3e-91fd-a44122264c23@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251124_044806_552933_70163B56 
-X-CRM114-Status: GOOD (  14.60  )
+	Mon, 24 Nov 2025 12:54:43 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 2B137601B8;
+	Mon, 24 Nov 2025 12:54:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C9747C4CEF1;
+	Mon, 24 Nov 2025 12:54:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1763988881;
+	bh=BVX+0lqg+9IsvmNv+Eftv4V7s42mUPCpJ0PE8synrpU=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=gIiXq+m6h5hQqpxycXFOLH9UJvEqHMIiF84Y+h0dZUz+elmZLgFZlzGb2U/22BcqX
+	 n7R5gni5H5oSANu8/QCrCtqj07B0IwpE++nv3pVNFlRbpH/mh72ZmQfUBcgoopysM8
+	 sVDC32YKo4ovKJRBlKrYThowIdRiVhh/HeQn4evvfHdeZZssYTtYyuZPu32z7LdNQX
+	 CsVXEQmXHg5iMmjUyfFiAu9CZrYyLh+070cFSEKttBLoktF3PlE9rkvybYLohk2z+9
+	 209X+976hmSi1ukMgLTYv76jobon7dXqgRbKv4xisviSjl3ty1tmS9SK9SBMKiJs8q
+	 gGhuNjfMt/Etw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vNW5X-00000007qqJ-1bmx;
+	Mon, 24 Nov 2025 12:54:39 +0000
+Date: Mon, 24 Nov 2025 12:54:38 +0000
+Message-ID: <86pl97r3ox.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Jack Thomson <jackabt.amazon@gmail.com>
+Cc: oliver.upton@linux.dev,
+	pbonzini@redhat.com,
+	joey.gouly@arm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	shuah@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	isaku.yamahata@intel.com,
+	xmarcalx@amazon.co.uk,
+	kalyazin@amazon.co.uk,
+	jackabt@amazon.com
+Subject: Re: [PATCH v3 1/3] KVM: arm64: Add pre_fault_memory implementation
+In-Reply-To: <86see3r7e9.wl-maz@kernel.org>
+References: <20251119154910.97716-1-jackabt.amazon@gmail.com>
+	<20251119154910.97716-2-jackabt.amazon@gmail.com>
+	<86see3r7e9.wl-maz@kernel.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: jackabt.amazon@gmail.com, oliver.upton@linux.dev, pbonzini@redhat.com, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, shuah@kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org, isaku.yamahata@intel.com, xmarcalx@amazon.co.uk, kalyazin@amazon.co.uk, jackabt@amazon.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,46 +96,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/11/2025 11:45, Kevin Brodsky wrote:
->>> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
->>> index b8d37eb037fc..d9c8e94f140f 100644
->>> --- a/arch/arm64/mm/mmu.c
->>> +++ b/arch/arm64/mm/mmu.c
->>> @@ -731,7 +731,7 @@ int split_kernel_leaf_mapping(unsigned long start, unsigned long end)
->>>  		return -EINVAL;
->>>  
->>>  	mutex_lock(&pgtable_split_lock);
->>> -	arch_enter_lazy_mmu_mode();
->>> +	lazy_mmu_mode_enable();
->>>  
->>>  	/*
->>>  	 * The split_kernel_leaf_mapping_locked() may sleep, it is not a
->> This is a bit unfortunate, IMHO. The rest of this comment explains that although
->> you're not supposed to sleep inside lazy mmu mode, it's fine for arm64's
->> implementation. But we are no longer calling arm64's implementation; we are
->> calling a generic function, which does who knows what.
->>
->> I think it all still works, but we are no longer containing our assumptions in
->> arm64 code. We are relying on implementation details of generic code.
-> I see your point. The change itself is still correct (and required
-> considering patch 8), but maybe the documentation of the generic
-> interface should be clarified to guarantee that the generic layer can
-> itself cope with sleeping - without any guarantee regarding the
-> behaviour of arch_*_lazy_mmu_mode.
+On Mon, 24 Nov 2025 11:34:38 +0000,
+Marc Zyngier <maz@kernel.org> wrote:
+> 
+> On Wed, 19 Nov 2025 15:49:08 +0000,
+> Jack Thomson <jackabt.amazon@gmail.com> wrote:
+> >
 
-Re-reading the existing comment in <linux/pgtable.h>, I think it already
-makes clear that sleeping is not forbidden by design:
+[...]
 
->  * In the general case, no lock is guaranteed to be held between entry
-> and exit
->  * of the lazy mode. So the implementation must assume preemption may
-> be enabled
->  * and cpu migration is possible; it must take steps to be robust
-> against this.
+> > +	fault_info->hpfar_el2 = HPFAR_EL2_NS |
+> > +		FIELD_PREP(HPFAR_EL2_FIPA, ipa >> 12);
+> > +
+> > +	if (kvm_slot_has_gmem(memslot)) {
+> > +		ret = gmem_abort(vcpu, ipa, NULL, memslot, false);
+> > +	} else {
+> > +		hva = gfn_to_hva_memslot_prot(memslot, gfn, NULL);
+> > +		if (kvm_is_error_hva(hva)) {
+> > +			ret = -EFAULT;
+> > +			goto out;
+> > +		}
+> > +		ret = user_mem_abort(vcpu, ipa, NULL, memslot, &page_size, hva,
+> > +				     false);
+> > +	}
 
-The arch implementation may disable preemption, but arm64 code can rely
-on the arm64 implementation allowing sleeping.
+And thinking of it a bit more, this is completely broken. What happens
+if the vcpu is in a nested context? You just populate random pages in
+an IPA space that is not relevant at all, corrupting the guest state.
 
-- Kevin
+You must correctly handle the context the vcpu is in, instead of
+assuming that this is the canonical context. This means going via the
+*guest's* S2 translation, just like handle_mem_abort() does.
 
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
