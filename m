@@ -4,88 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5BC6CFA466
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 09:42:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58D65CFA466
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 09:42:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BqhaweuwzMttxmZu8t6Oiw75KHZIeFhkpjfIVLPQGMk=; b=Z+xcKN2Zw9+EJvVdouXo8uTmbp
-	nug3rO9Z7dR7qOnrDk46GgGga+dMisVKuVoc+sCOQ80k8kUJ2HnYgahbRuvUDaWH6yye9uhNzqXxs
-	ixdG+WoszLyVH15YvBx72yISfvAdsAOg9dfewItKDZjHgr9GnI7zXUXK9YsCIXdT3DbwX9RW73Hlt
-	cADcdMWW88fA0sHqzDlXq+0Lfb3QadspZu4etPvDmnz4ttkSoj53Aa34lpnA2lM6H5TuTtKtzNmVp
-	uuD+KN9rb8ADYyqU5K/FRTlMtoFBD5Eq178MjgW9cqNE90pKxIHdQSh0jPTXoYdxWAOuE7n2ylMer
-	2CKeRJEw==;
+	bh=5edmLpAJol0ofD/5VwKDeDKVDhKSBzmjsYcc4t6QqVk=; b=s6Tzm5zu+HFAKe2eADwKAo5BzL
+	yhBIU7sg/Xo47YG6k9tzSWA2yJ11tNXMwBof3x8Fpyu8KVBYAWljDgWXQzorv015UTFje9Co1Tx6I
+	1/Dq+WFuDhhww57p8ib9atPyAEXTJWhUBa08NUA6gaUvKta3ap8o8I4Ix/ZqtKaFlD+BKmUxrGoJ1
+	foqw1NXYXU50G/7CEBeCoHt9Z9fesHEZhiSv29mCJdH1Y9kScLyZg1tpSxWbmuDRIeesJl6DfP7fP
+	2FrBqpIOO3zDOqJyp+PpldcUEpG/yPd0FdKBRZddIdHYscYf5L1d89is94fkLK4AhsNVBT+X8jiC8
+	h4lyWqtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNT5Y-0000000BMhy-2wdG;
-	Mon, 24 Nov 2025 09:42:28 +0000
-Received: from mail-qk1-x72a.google.com ([2607:f8b0:4864:20::72a])
+	id 1vNT5g-0000000BMjj-01Hh;
+	Mon, 24 Nov 2025 09:42:36 +0000
+Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNT5V-0000000BMhY-35zv
+	id 1vNT5b-0000000BMiN-3Bk0
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Nov 2025 09:42:27 +0000
-Received: by mail-qk1-x72a.google.com with SMTP id af79cd13be357-8b2ed01ba15so359366285a.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Nov 2025 01:42:24 -0800 (PST)
+	Mon, 24 Nov 2025 09:42:34 +0000
+Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-42b3720e58eso3118158f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Nov 2025 01:42:31 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1763977344; x=1764582144; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=BqhaweuwzMttxmZu8t6Oiw75KHZIeFhkpjfIVLPQGMk=;
-        b=yDRdvj/+J82rI6ZPKyZq8KROkas+XYmoYr+wEfals1SDYikbjUedDkyshM7OMd5TYx
-         2pH6NlAdL9wJ9/asrAT+L6ostxIf9++fR+k8fLgwiNhSfVXv9v2VOAi1DGsgDxXFnT1S
-         BCOek+TTIvIRNfMbpXQnLQe0YWF7npeunkjq/cy8LHr8+X+KKIKZD08eyQnEwB81YwIB
-         pB4fUUpmPIzYTha3KwQKM2jvp02xJ8rTT5OKk3aSFftZSVC0atu/M/10gQrEU4O+cfcD
-         WMs4gdQ8ZKKLeXFoCu6H83a+pKwiJR4EB1y7i4qbHoigWYslpi/nAOLbLdtatRITPvWf
-         30qQ==
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1763977350; x=1764582150; darn=lists.infradead.org;
+        h=mime-version:message-id:date:user-agent:references:in-reply-to
+         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=5edmLpAJol0ofD/5VwKDeDKVDhKSBzmjsYcc4t6QqVk=;
+        b=NIIT+IRN98BiarPz4Cjfe8UA8KxjULyrMT3Smsmyo5q+2RKZtAdruzu9P6sMuSFpEM
+         Kl5xsBsi3T8kPXOysPX5Fhw3RirqO+gl8qob0f9h/6VNNI1IuymtwWjbcQhd3yThT//8
+         V483KwdB73ieCyUO4leay2LaYv98oNONv17Xbc9BGj0ckvp9YfgsTrlD9rtYrncBioIw
+         UARhYEBzclZkEKI0Syt9bzAB58xb0j3en4gZ7QkN6TMms9ZC7dT2hsMb30V7F0bPHiSu
+         RG8l2ySH8vpqOfbVpE5b8HTaOPbET9+XarT+314RvCHx1xc3XMolV+FPL//cIgo6Qzql
+         hzng==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763977344; x=1764582144;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=BqhaweuwzMttxmZu8t6Oiw75KHZIeFhkpjfIVLPQGMk=;
-        b=LKzJ16Nv5qOdK4UXidQWdWqvSpkl5mQr9ijQADr8UOugaRLe4R6bwUVmQsiemnsEBL
-         IdzSJPtvsPkaeqVD0eT9vYjElh6EOxl+j2mYgPxEN4bwY5wCHSwEMacJOQpOrWsR4++0
-         WcU1FJbGZz/zjP4d8htcOIfiso5PJYZE2N5IpRdWfs1PJfvmRRBwU61lOkNCOsOys2rO
-         at+IbbzHdVDe1F6E9RRpbbNy0MP/H0ybFKTbI65vM9/tK5rz5VgBC9MvxTmzS0cd8OoY
-         l9IHNTeWBhQpj0SbrB0VDMn54qOe7S1FTGYvKP0r95UKOMEddZex1hl5jiH6Fvq968/d
-         UU+A==
-X-Forwarded-Encrypted: i=1; AJvYcCWx6Rmyd5SNFi6Ce5NhNXWKFgcdaIWdrJp5oP7LcS7vmoh2CvZ3HDCHiY5CjEUNSDtKnjMblmIfwBXXSFjmOuRA@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxtnr0D92xwhQvRoXZ6blaZz71y0FM/kJrwIP22YWZ/KKotTJXd
-	KtRQmwa386RQFcfYwUC7fUFQCAG5eRij2U9Nk0roKkXk3qWv7XnfwPyP7GoPJltEYjjbTikL3uP
-	QBGARjynIwmqX/9eVxaac1hxVX5q5m45ONH+k2I9pmw==
-X-Gm-Gg: ASbGnctkp547kVRIaGj2AFtZQ3Pq4UYyqyhhFkWZ4D6REKTI5+VFIJDAejSSWqfALZF
-	rRPDz0OI1JTR7ZvoDiwZtQSZAPRboRdVOljACn3cDVK8bAs3N53RKP5Zoj/SHjzEmhkHCQ3o8xT
-	BrUGMXso9EA85ES97S+kXwesURIuyCVuQPQMqN4YRpIWyhtov73FRzVetqTG+DZOK7+nAfETdws
-	Fl5XXRNQ5INutdfacQaRuCnSLAPwOfgZcviSP8jrM5gKFprrna+JYRQFYOWOWjdWV8kB4xKVICy
-	X7+ivmNQjUjh7kZ7nPVgFPxqJoc4
-X-Google-Smtp-Source: AGHT+IFFxSO5AlAryI2psTqWj0Xzeun0O+KDEbJaL9Cfcyk6Wevx0S+SNPLnjccuMxNfD3QLuE5nhCcO9Qo7ZqI+2TM=
-X-Received: by 2002:a05:620a:4713:b0:8b2:7290:27f6 with SMTP id
- af79cd13be357-8b33d482773mr1370994185a.67.1763977343915; Mon, 24 Nov 2025
- 01:42:23 -0800 (PST)
+        d=1e100.net; s=20230601; t=1763977350; x=1764582150;
+        h=mime-version:message-id:date:user-agent:references:in-reply-to
+         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=5edmLpAJol0ofD/5VwKDeDKVDhKSBzmjsYcc4t6QqVk=;
+        b=a9UIxrQRZxEJItUu+bq0ON7KCirhW9hPuWwUIo98K+JXHktiqZ9wJj3bvNT1Z3cGmY
+         bsZjMN1AkXLkVCZW23GF9FErc5SqPszGVj8EHGucYhsQshEBaDUGDxDH0Y5HvTJij0V5
+         8h9/oPXtzWcRyP4+QYj1rnqWdlVARbQpSn2IXwx7gnPWxZC4stsKjP0/c6DoP6zNOSsM
+         is5Y5SBjWsMEVuzDkG2GUy6HXAOvEacC0egPxif54SqEP9LjJ7/2sVyCCbNDLRBU6bsq
+         UC+0rJJXlYkszgSLNHKjNkoRUs28+fLbXUOZv/D3+aJBre5R5qDB7p8Eg6rlStMtaqOa
+         cuDQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWk20D5Luy8y2EfXzt07OpEfKyGg+DDL2jgP3QDjZ8c2AZpVzFqiMgWmhJPoK44C/HGOWmef9vH/HApzlnZzoco@lists.infradead.org
+X-Gm-Message-State: AOJu0YwY6q+jPp6dxU/DOLDqGwThlKwdWZin7GAuU5yEBgtVHrTg5goM
+	A1EKmZPeeSWjxMG7fXBYcpGqK0jazNEPExCll87g9eKokWu9TieRYlbTRzaVYBr9xc8=
+X-Gm-Gg: ASbGncv9xvFHohEzg1mCujaOSlgd0Vww0oz11ZnjbRN1ac1HmHLhvtA4xQNI5VTxni5
+	PoFLsH875bc0g/wM96tS2Ps3q4ntolaMetpZzlRVu1uzeHN2woKi7avLFDtg+oRBnvtDYUOHx6r
+	JXPlRwQ2wGOT+90lS0KOo/rMr8wuxKZNoTPRX0VT17oW2PeZ8vbGVBpaKo+6Qgkc7H4LPrL8r2B
+	QtYJrtj1UAur1F1QnHOJeuG0EzEIOe+S6t0X2sFJkrxI0XDm8KC+0FQ6VEh45vxke68zo+0mama
+	5Ex4JH6J1Jnz7IIWkeSz2EgaAqqOssI/LvLRhrJ3k13ejqft60hsqzNFzbXsZ+1A/xAuGB6SLub
+	5SM2AqG3G4B+ODuOL3TrOMqrWyLGGUIM/MpSVG9XS4mh1PyQ4Ulnoo8yvdv6AovCJ+hlDLLVsSC
+	n3MMlhnlmoAg==
+X-Google-Smtp-Source: AGHT+IGwjh8RFllfmQbKPF5ZnK9q9eRxrFyVQQOL6EWNnFbHwQ3xJa9mpcbdAT4H1yHXUMUvUOKx1g==
+X-Received: by 2002:a05:6000:26cf:b0:429:d3e9:661 with SMTP id ffacd0b85a97d-42cc1ce4617mr11610940f8f.15.1763977349616;
+        Mon, 24 Nov 2025 01:42:29 -0800 (PST)
+Received: from localhost ([2a01:e0a:3c5:5fb1:4e2e:74ae:77df:106f])
+        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-42cb7f363e4sm27744706f8f.12.2025.11.24.01.42.28
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 24 Nov 2025 01:42:29 -0800 (PST)
+From: Jerome Brunet <jbrunet@baylibre.com>
+To: Jian Hu <jian.hu@amlogic.com>
+Cc: Xianwei Zhao <xianwei.zhao@amlogic.com>,  Chuan Liu
+ <chuan.liu@amlogic.com>,  Neil Armstrong <neil.armstrong@linaro.org>,
+  Kevin Hilman <khilman@baylibre.com>,  "Stephen Boyd" <sboyd@kernel.org>,
+  Michael Turquette <mturquette@baylibre.com>,  "Dmitry Rokosov"
+ <ddrokosov@sberdevices.ru>,  robh+dt <robh+dt@kernel.org>,  Rob Herring
+ <robh@kernel.org>,  devicetree <devicetree@vger.kernel.org>,  linux-clk
+ <linux-clk@vger.kernel.org>,  linux-amlogic
+ <linux-amlogic@lists.infradead.org>,  linux-kernel
+ <linux-kernel@vger.kernel.org>,  linux-arm-kernel
+ <linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH v5 5/5] clk: meson: t7: add t7 clock peripherals
+ controller driver
+In-Reply-To: <20251121105934.1759745-6-jian.hu@amlogic.com> (Jian Hu's message
+	of "Fri, 21 Nov 2025 18:59:34 +0800")
+References: <20251121105934.1759745-1-jian.hu@amlogic.com>
+	<20251121105934.1759745-6-jian.hu@amlogic.com>
+User-Agent: mu4e 1.12.9; emacs 30.1
+Date: Mon, 24 Nov 2025 10:42:28 +0100
+Message-ID: <1j4iqjvkaj.fsf@starbuckisacylon.baylibre.com>
 MIME-Version: 1.0
-References: <20251118-james-cs-syncfreq-v5-0-82efd7b1a751@linaro.org>
- <20251118-james-cs-syncfreq-v5-3-82efd7b1a751@linaro.org> <CAJ9a7VhYaU=kAtvZtSnkj-9OicCWwqYQBX4Q3zDtCay-8=Y7Cg@mail.gmail.com>
- <4090a47c-2208-486b-bd96-47518d7aa90c@linaro.org> <CAJ9a7ViDnGa26qdAk1qWBugMVuGp_9w7NMAnMn4v3wf5HTp-Tw@mail.gmail.com>
- <26c00401-47d8-4c0a-8f3c-e5e888ff0440@linaro.org>
-In-Reply-To: <26c00401-47d8-4c0a-8f3c-e5e888ff0440@linaro.org>
-From: Mike Leach <mike.leach@linaro.org>
-Date: Mon, 24 Nov 2025 09:42:12 +0000
-X-Gm-Features: AWmQ_bmJymMlXgre4EvK2wVNQi6ukI7O7-lngQZf_923iAhe4USPabXVGZfhgOo
-Message-ID: <CAJ9a7Vj8EO4Dd1_qf1YqQz6L8s-37ASyngUU7vEJxJrMjC5hDg@mail.gmail.com>
-Subject: Re: [PATCH v5 03/13] coresight: Refactor etm4_config_timestamp_event()
-To: James Clark <james.clark@linaro.org>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jonathan Corbet <corbet@lwn.net>, 
-	Leo Yan <leo.yan@arm.com>, Randy Dunlap <rdunlap@infradead.org>, coresight@lists.linaro.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-doc@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251124_014225_865864_6F5E4839 
-X-CRM114-Status: GOOD (  71.46  )
+X-CRM114-CacheID: sfid-20251124_014232_100145_B1512DC6 
+X-CRM114-Status: GOOD (  24.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,394 +109,1344 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi James
+On Fri 21 Nov 2025 at 18:59, Jian Hu <jian.hu@amlogic.com> wrote:
 
-On Thu, 20 Nov 2025 at 14:42, James Clark <james.clark@linaro.org> wrote:
+> Add Peripheral clock controller driver for the Amlogic T7 SoC family.
 >
+> Signed-off-by: Jian Hu <jian.hu@amlogic.com>
+> ---
+>  drivers/clk/meson/Kconfig          |   13 +
+>  drivers/clk/meson/Makefile         |    1 +
+>  drivers/clk/meson/t7-peripherals.c | 1266 ++++++++++++++++++++++++++++
+>  3 files changed, 1280 insertions(+)
+>  create mode 100644 drivers/clk/meson/t7-peripherals.c
 >
->
-> On 20/11/2025 2:26 pm, Mike Leach wrote:
-> > HI James
-> >
-> > On Thu, 20 Nov 2025 at 13:52, James Clark <james.clark@linaro.org> wrote:
-> >>
-> >>
-> >>
-> >> On 20/11/2025 1:04 pm, Mike Leach wrote:
-> >>> Hi James
-> >>>
-> >>> On Tue, 18 Nov 2025 at 16:28, James Clark <james.clark@linaro.org> wrote:
-> >>>>
-> >>>> Remove some of the magic numbers and try to clarify some of the
-> >>>> documentation so it's clearer how this sets up the timestamp interval.
-> >>>>
-> >>>> Return errors directly instead of jumping to out and returning ret,
-> >>>> nothing needs to be cleaned up at the end and it only obscures the flow
-> >>>> and return value.
-> >>>>
-> >>>> Reviewed-by: Leo Yan <leo.yan@arm.com>
-> >>>> Signed-off-by: James Clark <james.clark@linaro.org>
-> >>>> ---
-> >>>>    drivers/hwtracing/coresight/coresight-etm4x-core.c | 96 ++++++++++++++--------
-> >>>>    drivers/hwtracing/coresight/coresight-etm4x.h      | 23 ++++--
-> >>>>    2 files changed, 81 insertions(+), 38 deletions(-)
-> >>>>
-> >>>> diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> >>>> index 560975b70474..5d21af346799 100644
-> >>>> --- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> >>>> +++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> >>>> @@ -642,18 +642,33 @@ static void etm4_enable_sysfs_smp_call(void *info)
-> >>>>     * TRCRSCTLR1 (always true) used to get the counter to decrement.  From
-> >>>>     * there a resource selector is configured with the counter and the
-> >>>>     * timestamp control register to use the resource selector to trigger the
-> >>>> - * event that will insert a timestamp packet in the stream.
-> >>>> + * event that will insert a timestamp packet in the stream:
-> >>>> + *
-> >>>> + *  +--------------+
-> >>>> + *  | Resource 1   |   fixed "always-true" resource
-> >>>> + *  +--------------+
-> >>>> + *         |
-> >>>> + *  +------v-------+
-> >>>> + *  | Counter x    |   (reload to 1 on underflow)
-> >>>> + *  +--------------+
-> >>>> + *         |
-> >>>> + *  +------v--------------+
-> >>>> + *  | Resource Selector y |   (trigger on counter x == 0)
-> >>>> + *  +---------------------+
-> >>>> + *         |
-> >>>> + *  +------v---------------+
-> >>>> + *  | Timestamp Generator  |  (timestamp on resource y)
-> >>>> + *  +----------------------+
-> >>>>     */
-> >>>>    static int etm4_config_timestamp_event(struct etmv4_drvdata *drvdata)
-> >>>>    {
-> >>>> -       int ctridx, ret = -EINVAL;
-> >>>> -       int counter, rselector;
-> >>>> -       u32 val = 0;
-> >>>> +       int ctridx;
-> >>>> +       int rselector;
-> >>>>           struct etmv4_config *config = &drvdata->config;
-> >>>>
-> >>>>           /* No point in trying if we don't have at least one counter */
-> >>>>           if (!drvdata->nr_cntr)
-> >>>> -               goto out;
-> >>>> +               return -EINVAL;
-> >>>>
-> >>>>           /* Find a counter that hasn't been initialised */
-> >>>>           for (ctridx = 0; ctridx < drvdata->nr_cntr; ctridx++)
-> >>>> @@ -663,15 +678,19 @@ static int etm4_config_timestamp_event(struct etmv4_drvdata *drvdata)
-> >>>>           /* All the counters have been configured already, bail out */
-> >>>>           if (ctridx == drvdata->nr_cntr) {
-> >>>>                   pr_debug("%s: no available counter found\n", __func__);
-> >>>> -               ret = -ENOSPC;
-> >>>> -               goto out;
-> >>>> +               return -ENOSPC;
-> >>>>           }
-> >>>>
-> >>>>           /*
-> >>>> -        * Searching for an available resource selector to use, starting at
-> >>>> -        * '2' since every implementation has at least 2 resource selector.
-> >>>> -        * ETMIDR4 gives the number of resource selector _pairs_,
-> >>>> -        * hence multiply by 2.
-> >>>> +        * Searching for an available resource selector to use, starting at '2'
-> >>>> +        * since resource 0 is the fixed 'always returns false' resource and 1
-> >>>> +        * is the fixed 'always returns true' resource. See IHI0064H_b '7.3.64
-> >>>> +        * TRCRSCTLRn, Resource Selection Control Registers, n=2-31'. If there
-> >>>> +        * are no resources, there would also be no counters so wouldn't get
-> >>>> +        * here.
-> >>>> +        *
-> >>>> +        * ETMIDR4 gives the number of resource selector _pairs_, hence multiply
-> >>>> +        * by 2.
-> >>>>            */
-> >>>>           for (rselector = 2; rselector < drvdata->nr_resource * 2; rselector++)
-> >>>>                   if (!config->res_ctrl[rselector])
-> >>>> @@ -680,13 +699,9 @@ static int etm4_config_timestamp_event(struct etmv4_drvdata *drvdata)
-> >>>>           if (rselector == drvdata->nr_resource * 2) {
-> >>>>                   pr_debug("%s: no available resource selector found\n",
-> >>>>                            __func__);
-> >>>> -               ret = -ENOSPC;
-> >>>> -               goto out;
-> >>>> +               return -ENOSPC;
-> >>>>           }
-> >>>>
-> >>>> -       /* Remember what counter we used */
-> >>>> -       counter = 1 << ctridx;
-> >>>> -
-> >>>>           /*
-> >>>>            * Initialise original and reload counter value to the smallest
-> >>>>            * possible value in order to get as much precision as we can.
-> >>>> @@ -694,26 +709,41 @@ static int etm4_config_timestamp_event(struct etmv4_drvdata *drvdata)
-> >>>>           config->cntr_val[ctridx] = 1;
-> >>>>           config->cntrldvr[ctridx] = 1;
-> >>>>
-> >>>> -       /* Set the trace counter control register */
-> >>>> -       val =  0x1 << 16        |  /* Bit 16, reload counter automatically */
-> >>>> -              0x0 << 7         |  /* Select single resource selector */
-> >>>> -              0x1;                /* Resource selector 1, i.e always true */
-> >>>> -
-> >>>> -       config->cntr_ctrl[ctridx] = val;
-> >>>> -
-> >>>> -       val = 0x2 << 16         | /* Group 0b0010 - Counter and sequencers */
-> >>>> -             counter << 0;       /* Counter to use */
-> >>>> -
-> >>>> -       config->res_ctrl[rselector] = val;
-> >>>> +       /*
-> >>>> +        * Trace Counter Control Register TRCCNTCTLRn
-> >>>> +        *
-> >>>> +        * CNTCHAIN = 0, don't reload on the previous counter
-> >>>> +        * RLDSELF = true, reload counter automatically on underflow
-> >>>> +        * RLDTYPE = 0, one reload input resource
-> >>>
-> >>> These field descriptions should match the terminology in the spec -
-> >>> and this is not field in this register as defined in the spec - nor
-> >>> are the following really. The event format is generic - so need a
-> >>> event select macro, which is then applied to any register that needs
-> >>> it
-> >>>
-> >>>> +        * RLDSEL = RES_SEL_FALSE (0), reload on false resource (never reload)
-> >>>> +        * CNTTYPE = 0, one count input resource
-> >>>
-> >>>
-> >>>> +        * CNTSEL = RES_SEL_TRUE (1), count fixed 'always true' resource (always decrement)
-> >>>> +        */
-> >>
-> >> Hmmm not sure where they came from. I think I got stuck trying to decide
-> >> on which format to use because the ETM spec and Arm ARM are slightly
-> >> different. I tried to settle on the Arm ARM (because this code is also
-> >> for ETE, it's newer, and there was existing code that matched its style)
-> >> but didn't copy that properly either. It should be:
-> >>
-> >> CNTCHAIN
-> >> RLDSELF
-> >> RLDEVENT_TYPE
-> >> RLDEVENT_SEL
-> >> CNTEVENT_TYPE
-> >> CNTEVENT_SEL
-> >>
-> >> Some are correct but some need updating.
-> >>
-> >>>> +       config->cntr_ctrl[ctridx] = TRCCNTCTLRn_RLDSELF |
-> >>>> +                                   FIELD_PREP(TRCCNTCTLRn_RLDSEL_MASK, ETM_RES_SEL_FALSE) |
-> >>>> +                                   FIELD_PREP(TRCCNTCTLRn_CNTSEL_MASK, ETM_RES_SEL_TRUE);
-> >>>>
-> >>>
-> >>> So if we define generic event generators:-
-> >>>
-> >>> #define ETM4_SEL_RS_PAIR BIT(7)
-> >>> #defiine ETM4_RS_SEL_EVENT_SINGLE(rs_sel_idx) (GENMASK(4:0) & rs_sel_idx)
-> >>> #define ETM4_RS_SEL_EVENT_PAIR(rs_sel_pair_idx) ((GENMASK(3:0) &
-> >>> rs_sel_pair_idx) | ETM4_SEL_RS_PAIR)
-> >>>
-> >>> these are then reuseable for all registers that need the 8 bit event
-> >>> selectors, beyond just this register.
-> >>>
-> >>> Thus we now accurately define the fields in the TRCCNTCTLRn
-> >>>
-> >>> #define TRCCNTCTLRn_RLDEVENT_MASK  GENMASK(15, 8)
-> >>>
-> >>> and use
-> >>>
-> >>> FIELD_PREP(TRCCNTCTLRn_RLDEVENT_MASK,
-> >>> ETM4_RS_SEL_EVENT_SINGLE(ETM_RES_SEL_FALSE))
-> >>>
-> >>> etc.
-> >>>
-> >>>
-> >>
-> >> I'm not sure I agree with that, the Arm ARM has CNTEVENT_TYPE as a
-> >> regular bit in the TRCCNTCTLRn register so it should be set like any
-> >
-> > Given that this is the ETMv4 driver I was looking at the ETMv4
-> > specification that defines an 8-bit event field. This might have
-> > changed for ETE
-> >
-> >> other. Hiding it as a subfield of "EVENT" when it always exists and
-> >> always does the same thing was maybe seen as a bad decision which is why
-> >> it was updated?
-> >>
-> >
-> > I think it is more a side effect of generating documentation from
-> > computer readable register definitions - which in my view results in
-> > far poorer documentation from a human readable/comprehension
-> > perspective.
->
-> If that's wrong then it makes sense to get it fixed up in the Arm ARM
-> first. And then once that's fixed we can update the driver. We're moving
-> towards the sysreg-defs.h style, and even that can be auto generated
-> with json so will give us the registers defined in this format.
->
-> I don't think the Arm ARM can ever be "wrong" because there's some other
-> document that used to define something slightly differently.
->
-> > It is a common event format, and naming a bit that always appears and
-> > does the same thing with multiple different names is not more
-> > understandable.
-> >
-> >
-> >> Also IMO, beyond using labels instead of raw numbers, the code should
-> >> just show what's programmed into the register.
-> >> ETM4_RS_SEL_EVENT_SINGLE() would be one more macro to jump through to
-> >> see what's actually happening.
-> >
-> > Except that if the macro is used consistently throughout the code, and
-> > you understand the event field format - then you only need to look it
-> > up once to understand what is happening everywhere it appears in the
-> > code.
-> >
-> > Moreover, "TRCCNTCTLRn_RLDSEL_MASK GENMASK(12, 8)" is only actually
-> > valid if TRCCNTCTLRn_RLDTYPE is set to 0. If this bit is set to 1 then
-> > the correct mask is (11, 8) - you can have 0-31 single resources
-> > selected, but only 0-15 pairs.
-> >
->
-> I'm wondering if this review is taking into context what the commit
-> message says this change is doing. I'm trying to remove magic numbers
-> from existing code in a single function, rather than re-write anything
-> or make any new frameworks.
->
+> diff --git a/drivers/clk/meson/Kconfig b/drivers/clk/meson/Kconfig
+> index 6cdc6a96e105..d2442ae0f5be 100644
+> --- a/drivers/clk/meson/Kconfig
+> +++ b/drivers/clk/meson/Kconfig
+> @@ -215,4 +215,17 @@ config COMMON_CLK_T7_PLL
+>  	  device, AKA T7. PLLs are required by most peripheral to operate
+>  	  Say Y if you are a T7 based device.
+>  
+> +config COMMON_CLK_T7_PERIPHERALS
+> +	tristate "Amlogic T7 SoC peripherals clock controller support"
+> +	depends on ARM64
+> +	default ARCH_MESON
+> +	select COMMON_CLK_MESON_REGMAP
+> +	select COMMON_CLK_MESON_CLKC_UTILS
+> +	select COMMON_CLK_MESON_DUALDIV
+> +	imply COMMON_CLK_SCMI
+> +	imply COMMON_CLK_T7_PLL
+> +	help
+> +	  Support for the Peripherals clock controller on Amlogic A311D2 based
+> +	  device, AKA T7. Peripherals are required by most peripheral to operate
+> +	  Say Y if you are a T7 based device.
 
-I am not suggesting new frameworks or re-writing.  Naming as per spec
-seems reasonable though, and the issue here is that this is a combined
-ETE/ETMv4 driver and the specs differ on the naming.
-No problem using the ARM ARM names - perhaps a comment to say which
-spec is used for the names would work.
+I don't think anybody "is" a clock controller ;)
 
-However., the defines do need to be accurate, and the field size does
-change with the value of the type bit in the two registers in use in
-this patch. As a minimum the define name should indicate that it is
-for a single resource field, and we can then add a second define for
-the resource pair case if and when needed.
+>  endmenu
+> diff --git a/drivers/clk/meson/Makefile b/drivers/clk/meson/Makefile
+> index 8e3f7f94c639..c6719694a242 100644
+> --- a/drivers/clk/meson/Makefile
+> +++ b/drivers/clk/meson/Makefile
+> @@ -27,3 +27,4 @@ obj-$(CONFIG_COMMON_CLK_MESON8B) += meson8b.o meson8-ddr.o
+>  obj-$(CONFIG_COMMON_CLK_S4_PLL) += s4-pll.o
+>  obj-$(CONFIG_COMMON_CLK_S4_PERIPHERALS) += s4-peripherals.o
+>  obj-$(CONFIG_COMMON_CLK_T7_PLL) += t7-pll.o
+> +obj-$(CONFIG_COMMON_CLK_T7_PERIPHERALS) += t7-peripherals.o
+> diff --git a/drivers/clk/meson/t7-peripherals.c b/drivers/clk/meson/t7-peripherals.c
+> new file mode 100644
+> index 000000000000..10e77456b0d0
+> --- /dev/null
+> +++ b/drivers/clk/meson/t7-peripherals.c
+> @@ -0,0 +1,1266 @@
+> +// SPDX-License-Identifier: (GPL-2.0-only OR MIT)
+> +/*
+> + * Copyright (C) 2024-2025 Amlogic, Inc. All rights reserved.
+> + * Author: Jian Hu <jian.hu@amlogic.com>
+> + */
+> +
+> +#include <linux/clk-provider.h>
+> +#include <linux/platform_device.h>
+> +#include "clk-dualdiv.h"
+> +#include "clk-regmap.h"
+> +#include "meson-clkc-utils.h"
+> +#include <dt-bindings/clock/amlogic,t7-peripherals-clkc.h>
+> +
+> +#define RTC_BY_OSCIN_CTRL0	0x8
+> +#define RTC_BY_OSCIN_CTRL1	0xc
+> +#define RTC_CTRL		0x10
+> +#define SYS_CLK_CTRL0		0x40
+> +#define SYS_CLK_EN0_REG0	0x44
+> +#define SYS_CLK_EN0_REG1	0x48
+> +#define SYS_CLK_EN0_REG2	0x4c
+> +#define SYS_CLK_EN0_REG3	0x50
+> +#define CECA_CTRL0		0x88
+> +#define CECA_CTRL1		0x8c
+> +#define CECB_CTRL0		0x90
+> +#define CECB_CTRL1		0x94
+> +#define SC_CLK_CTRL		0x98
+> +#define DSPA_CLK_CTRL0		0x9c
+> +#define DSPB_CLK_CTRL0		0xa0
+> +#define CLK12_24_CTRL		0xa8
+> +#define ANAKIN_CLK_CTRL		0xac
+> +#define MIPI_CSI_PHY_CLK_CTRL	0x10c
+> +#define MIPI_ISP_CLK_CTRL	0x110
+> +#define TS_CLK_CTRL		0x158
+> +#define MALI_CLK_CTRL		0x15c
+> +#define ETH_CLK_CTRL		0x164
+> +#define NAND_CLK_CTRL		0x168
+> +#define SD_EMMC_CLK_CTRL	0x16c
+> +#define SPICC_CLK_CTRL		0x174
+> +#define SAR_CLK_CTRL0		0x17c
+> +#define PWM_CLK_AB_CTRL		0x180
+> +#define PWM_CLK_CD_CTRL		0x184
+> +#define PWM_CLK_EF_CTRL		0x188
+> +#define PWM_CLK_AO_AB_CTRL	0x1a0
+> +#define PWM_CLK_AO_CD_CTRL	0x1a4
+> +#define PWM_CLK_AO_EF_CTRL	0x1a8
+> +#define PWM_CLK_AO_GH_CTRL	0x1ac
+> +#define SPICC_CLK_CTRL1		0x1c0
+> +#define SPICC_CLK_CTRL2		0x1c4
+> +
+> +#define T7_COMP_SEL(_name, _reg, _shift, _mask, _pdata) \
+> +	MESON_COMP_SEL(t7_, _name, _reg, _shift, _mask, _pdata, NULL, 0, 0)
+> +
+> +#define T7_COMP_DIV(_name, _reg, _shift, _width) \
+> +	MESON_COMP_DIV(t7_, _name, _reg, _shift, _width, 0, CLK_SET_RATE_PARENT)
+> +
+> +#define T7_COMP_GATE(_name, _reg, _bit, _iflags) \
+> +	MESON_COMP_GATE(t7_, _name, _reg, _bit, CLK_SET_RATE_PARENT | _iflags)
+> +
 
-Regards
+parathesis around _iflags please
 
-Mike
+> +static struct clk_regmap t7_rtc_dualdiv_in = {
+> +	.data = &(struct clk_regmap_gate_data){
+> +		.offset = RTC_BY_OSCIN_CTRL0,
+> +		.bit_idx = 31,
+> +	},
+> +	.hw.init = &(struct clk_init_data) {
+> +		.name = "rtc_duandiv_in",
+> +		.ops = &clk_regmap_gate_ops,
+> +		.parent_data = &(const struct clk_parent_data) {
+> +			.fw_name = "xtal",
+> +		},
+> +		.num_parents = 1,
+> +	},
+> +};
+> +
+> +static const struct meson_clk_dualdiv_param t7_dualdiv_table[] = {
+> +	{
+> +		.n1	= 733, .m1	= 8,
+> +		.n2	= 732, .m2	= 11,
+> +		.dual	= 1,
+> +	},
+> +	{}
+> +};
+> +
+> +static struct clk_regmap t7_rtc_dualdiv_div = {
+> +	.data = &(struct meson_clk_dualdiv_data){
+> +		.n1 = {
+> +			.reg_off = RTC_BY_OSCIN_CTRL0,
+> +			.shift   = 0,
+> +			.width   = 12,
+> +		},
+> +		.n2 = {
+> +			.reg_off = RTC_BY_OSCIN_CTRL0,
+> +			.shift   = 12,
+> +			.width   = 12,
+> +		},
+> +		.m1 = {
+> +			.reg_off = RTC_BY_OSCIN_CTRL1,
+> +			.shift   = 0,
+> +			.width   = 12,
+> +		},
+> +		.m2 = {
+> +			.reg_off = RTC_BY_OSCIN_CTRL1,
+> +			.shift   = 12,
+> +			.width   = 12,
+> +		},
+> +		.dual = {
+> +			.reg_off = RTC_BY_OSCIN_CTRL0,
+> +			.shift   = 28,
+> +			.width   = 1,
+> +		},
+> +		.table = t7_dualdiv_table,
+> +	},
+> +	.hw.init = &(struct clk_init_data){
+> +		.name = "rtc_dualdiv_div",
+> +		.ops = &meson_clk_dualdiv_ops,
+> +		.parent_hws = (const struct clk_hw *[]) {
+> +			&t7_rtc_dualdiv_in.hw
+> +		},
+> +		.num_parents = 1,
+> +	},
+> +};
+> +
+> +static struct clk_regmap t7_rtc_dualdiv_sel = {
+> +	.data = &(struct clk_regmap_mux_data) {
+> +		.offset = RTC_BY_OSCIN_CTRL1,
+> +		.mask = 0x1,
+> +		.shift = 24,
+> +	},
+> +	.hw.init = &(struct clk_init_data){
+> +		.name = "rtc_dualdiv_sel",
+> +		.ops = &clk_regmap_mux_ops,
+> +		.parent_hws = (const struct clk_hw *[]) {
+> +			&t7_rtc_dualdiv_div.hw,
+> +			&t7_rtc_dualdiv_in.hw,
+> +		},
+> +		.num_parents = 2,
+> +		.flags = CLK_SET_RATE_PARENT,
+> +	},
+> +};
+> +
+> +static struct clk_regmap t7_rtc_dualdiv = {
+> +	.data = &(struct clk_regmap_gate_data){
+> +		.offset = RTC_BY_OSCIN_CTRL0,
+> +		.bit_idx = 30,
+> +	},
+> +	.hw.init = &(struct clk_init_data) {
+> +		.name = "rtc_dualdiv",
+> +		.ops = &clk_regmap_gate_ops,
+> +		.parent_hws = (const struct clk_hw *[]) {
+> +			&t7_rtc_dualdiv_sel.hw
+> +		},
+> +		.num_parents = 1,
+> +		.flags = CLK_SET_RATE_PARENT,
+> +	},
+> +};
+> +
+> +static struct clk_regmap t7_rtc = {
+> +	.data = &(struct clk_regmap_mux_data) {
+> +		.offset = RTC_CTRL,
+> +		.mask = 0x3,
+> +		.shift = 0,
+> +	},
+> +	.hw.init = &(struct clk_init_data){
+> +		.name = "rtc",
+> +		.ops = &clk_regmap_mux_ops,
+> +		/* The first and fourth clock sources are identical in RTC clock design. */
+> +		.parent_data = (const struct clk_parent_data []) {
+> +			{ .fw_name = "xtal", },
+> +			{ .hw = &t7_rtc_dualdiv.hw },
+> +			{ .fw_name = "ext_rtc", },
+> +			{ .fw_name = "xtal", },
+> +		},
+> +		.num_parents = 2,
+> +		.flags = CLK_SET_RATE_PARENT | CLK_SET_RATE_NO_REPARENT,
 
-> Of course we can always do more and start to validate and assert like
-> Leo suggested, but that can be on top of this and is more of a
-> functional change. I don't think it necessarily needs to block this
-> change as it is now. Only the slightly off field names in the block
-> comment make sense to update.
->
-> This has also been on the list for quite a while now and I'm starting to
-> wonder if style changes at this stage are the most efficient way to go
-> about tidying up.
->
-> > Regards
-> >
-> > Mike
->
-> >>
-> >>>> -       val = 0x0 << 7          | /* Select single resource selector */
-> >>>> -             rselector;          /* Resource selector */
-> >>>> +       /*
-> >>>> +        * Resource Selection Control Register TRCRSCTLRn
-> >>>> +        *
-> >>>> +        * PAIRINV = 0, INV = 0, don't invert
-> >>>> +        * GROUP = 2, SELECT = ctridx, trigger when counter 'ctridx' reaches 0
-> >>>> +        *
-> >>>> +        * Multiple counters can be selected, and each bit signifies a counter,
-> >>>> +        * so set bit 'ctridx' to select our counter.
-> >>>> +        */
-> >>>> +       config->res_ctrl[rselector] = FIELD_PREP(TRCRSCTLRn_GROUP_MASK, 2) |
-> >>>> +                                     FIELD_PREP(TRCRSCTLRn_SELECT_MASK, 1 << ctridx);
-> >>>>
-> >>>> -       config->ts_ctrl = val;
-> >>>> +       /*
-> >>>> +        * Global Timestamp Control Register TRCTSCTLR
-> >>>> +        *
-> >>>> +        * TYPE = 0, one input resource
-> >>>> +        * SEL = rselector, generate timestamp on resource 'rselector'
-> >>>> +        */
-> >>>> +       config->ts_ctrl = FIELD_PREP(TRCTSCTLR_SEL_MASK, rselector);
-> >>>>
-> >>>
-> >>> FIELD_PREP(TRCTSCTLR_EVENT_MASK, ETM4_RS_SEL_EVENT_SINGLE(rselector))
-> >>>
-> >>>
-> >>>> -       ret = 0;
-> >>>> -out:
-> >>>> -       return ret;
-> >>>> +       return 0;
-> >>>>    }
-> >>>>
-> >>>>    static int etm4_parse_event_config(struct coresight_device *csdev,
-> >>>> diff --git a/drivers/hwtracing/coresight/coresight-etm4x.h b/drivers/hwtracing/coresight/coresight-etm4x.h
-> >>>> index d178d79d9827..b319335e9bc3 100644
-> >>>> --- a/drivers/hwtracing/coresight/coresight-etm4x.h
-> >>>> +++ b/drivers/hwtracing/coresight/coresight-etm4x.h
-> >>>> @@ -225,6 +225,19 @@
-> >>>>    #define TRCRSCTLRn_GROUP_MASK                  GENMASK(19, 16)
-> >>>>    #define TRCRSCTLRn_SELECT_MASK                 GENMASK(15, 0)
-> >>>>
-> >>>> +#define TRCCNTCTLRn_CNTCHAIN                   BIT(17)
-> >>>> +#define TRCCNTCTLRn_RLDSELF                    BIT(16)
-> >>>> +#define TRCCNTCTLRn_RLDTYPE                    BIT(15)
-> >>>> +#define TRCCNTCTLRn_RLDSEL_MASK                        GENMASK(12, 8)
-> >>> per spec this should be
-> >>> TRCCNTCTLRn_RLDEVENT_MASK  GENMASK(15, 8)
-> >>>
-> >>>> +#define TRCCNTCTLRn_CNTTYPE_MASK               BIT(7)
-> >>>> +#define TRCCNTCTLRn_CNTSEL_MASK                        GENMASK(4, 0)
-> >>>
-> >>> per spec this should be
-> >>> TRCCNTCTLRn_CNTEVENT_MASK  GENMASK(7, 0)
-> >>>
-> >>>
-> >>>> +
-> >>>> +#define TRCTSCTLR_TYPE                         BIT(7)
-> >>>> +#define TRCTSCTLR_SEL_MASK                     GENMASK(4, 0)
-> >>>
-> >>> TRCTSCTLR_EVENT_MASK GENMASK(7:0)
-> >>>
-> >>>> +
-> >>>> +#define ETM_RES_SEL_FALSE 0 /* Fixed function 'always false' resource selector */
-> >>>> +#define ETM_RES_SEL_TRUE  1 /* Fixed function 'always true' resource selector */
-> >>>> +
-> >>>>    /*
-> >>>>     * System instructions to access ETM registers.
-> >>>>     * See ETMv4.4 spec ARM IHI0064F section 4.3.6 System instructions
-> >>>> @@ -824,7 +837,7 @@ struct etmv4_config {
-> >>>>           u32                             eventctrl0;
-> >>>>           u32                             eventctrl1;
-> >>>>           u32                             stall_ctrl;
-> >>>> -       u32                             ts_ctrl;
-> >>>> +       u32                             ts_ctrl; /* TRCTSCTLR */
-> >>>>           u32                             ccctlr;
-> >>>>           u32                             bb_ctrl;
-> >>>>           u32                             vinst_ctrl;
-> >>>> @@ -837,11 +850,11 @@ struct etmv4_config {
-> >>>>           u32                             seq_rst;
-> >>>>           u32                             seq_state;
-> >>>>           u8                              cntr_idx;
-> >>>> -       u32                             cntrldvr[ETMv4_MAX_CNTR];
-> >>>> -       u32                             cntr_ctrl[ETMv4_MAX_CNTR];
-> >>>> -       u32                             cntr_val[ETMv4_MAX_CNTR];
-> >>>> +       u32                             cntrldvr[ETMv4_MAX_CNTR]; /* TRCCNTRLDVRn */
-> >>>> +       u32                             cntr_ctrl[ETMv4_MAX_CNTR];  /* TRCCNTCTLRn */
-> >>>> +       u32                             cntr_val[ETMv4_MAX_CNTR]; /* TRCCNTVRn */
-> >>>>           u8                              res_idx;
-> >>>> -       u32                             res_ctrl[ETM_MAX_RES_SEL];
-> >>>> +       u32                             res_ctrl[ETM_MAX_RES_SEL]; /* TRCRSCTLRn */
-> >>>>           u8                              ss_idx;
-> >>>>           u32                             ss_ctrl[ETM_MAX_SS_CMP];
-> >>>>           u32                             ss_status[ETM_MAX_SS_CMP];
-> >>>>
-> >>>> --
-> >>>> 2.34.1
-> >>>>
-> >>>
-> >>> Regards
-> >>>
-> >>> Mike
-> >>>
-> >>
-> >
-> >
->
+Are you about sure CLK_SET_RATE_PARENT here ?
 
+Also, no need to have the 4th entry:
+* Just drop the the 4th entry in the list above
+* Add comment that xtal is also on parent input #3 but that it is not
+  useful to CCF since the same parent is available with parent input #0
+
+... assuming this is not a mistake
+
+> +	},
+> +};
+> +
+> +static struct clk_regmap t7_ceca_dualdiv_in = {
+> +	.data = &(struct clk_regmap_gate_data){
+> +		.offset = CECA_CTRL0,
+> +		.bit_idx = 31,
+> +	},
+> +	.hw.init = &(struct clk_init_data) {
+> +		.name = "ceca_dualdiv_in",
+> +		.ops = &clk_regmap_gate_ops,
+> +		.parent_data = &(const struct clk_parent_data) {
+> +			.fw_name = "xtal",
+> +		},
+> +		.num_parents = 1,
+> +	},
+> +};
+> +
+> +static struct clk_regmap t7_ceca_dualdiv_div = {
+> +	.data = &(struct meson_clk_dualdiv_data){
+> +		.n1 = {
+> +			.reg_off = CECA_CTRL0,
+> +			.shift   = 0,
+> +			.width   = 12,
+> +		},
+> +		.n2 = {
+> +			.reg_off = CECA_CTRL0,
+> +			.shift   = 12,
+> +			.width   = 12,
+> +		},
+> +		.m1 = {
+> +			.reg_off = CECA_CTRL1,
+> +			.shift   = 0,
+> +			.width   = 12,
+> +		},
+> +		.m2 = {
+> +			.reg_off = CECA_CTRL1,
+> +			.shift   = 12,
+> +			.width   = 12,
+> +		},
+> +		.dual = {
+> +			.reg_off = CECA_CTRL0,
+> +			.shift   = 28,
+> +			.width   = 1,
+> +		},
+> +		.table = t7_dualdiv_table,
+> +	},
+> +	.hw.init = &(struct clk_init_data){
+> +		.name = "ceca_dualdiv_div",
+> +		.ops = &meson_clk_dualdiv_ops,
+> +		.parent_hws = (const struct clk_hw *[]) {
+> +			&t7_ceca_dualdiv_in.hw
+> +		},
+> +		.num_parents = 1,
+> +	},
+> +};
+> +
+> +static struct clk_regmap t7_ceca_dualdiv_sel = {
+> +	.data = &(struct clk_regmap_mux_data) {
+> +		.offset = CECA_CTRL1,
+> +		.mask = 0x1,
+> +		.shift = 24,
+> +	},
+> +	.hw.init = &(struct clk_init_data){
+> +		.name = "ceca_dualdiv_sel",
+> +		.ops = &clk_regmap_mux_ops,
+> +		.parent_hws = (const struct clk_hw *[]) {
+> +			&t7_ceca_dualdiv_div.hw,
+> +			&t7_ceca_dualdiv_in.hw,
+> +		},
+> +		.num_parents = 2,
+> +		.flags = CLK_SET_RATE_PARENT,
+> +	},
+> +};
+> +
+> +static struct clk_regmap t7_ceca_dualdiv = {
+> +	.data = &(struct clk_regmap_gate_data){
+> +		.offset = CECA_CTRL0,
+> +		.bit_idx = 30,
+> +	},
+> +	.hw.init = &(struct clk_init_data){
+> +		.name = "ceca_dualdiv",
+> +		.ops = &clk_regmap_gate_ops,
+> +		.parent_hws = (const struct clk_hw *[]) {
+> +			&t7_ceca_dualdiv_sel.hw
+> +		},
+> +		.num_parents = 1,
+> +		.flags = CLK_SET_RATE_PARENT,
+> +	},
+> +};
+> +
+> +static struct clk_regmap t7_ceca = {
+> +	.data = &(struct clk_regmap_mux_data) {
+> +		.offset = CECA_CTRL1,
+> +		.mask = 0x1,
+> +		.shift = 31,
+> +	},
+> +	.hw.init = &(struct clk_init_data){
+> +		.name = "ceca",
+> +		.ops = &clk_regmap_mux_ops,
+> +		.parent_hws = (const struct clk_hw *[]) {
+> +			&t7_ceca_dualdiv.hw,
+> +			&t7_rtc.hw,
+> +		},
+> +		.num_parents = 2,
+> +		.flags = CLK_SET_RATE_PARENT,
+> +	},
+> +};
+> +
+> +static struct clk_regmap t7_cecb_dualdiv_in = {
+> +	.data = &(struct clk_regmap_gate_data){
+> +		.offset = CECB_CTRL0,
+> +		.bit_idx = 31,
+> +	},
+> +	.hw.init = &(struct clk_init_data) {
+> +		.name = "cecb_dualdiv_in",
+> +		.ops = &clk_regmap_gate_ops,
+> +		.parent_data = &(const struct clk_parent_data) {
+> +			.fw_name = "xtal",
+> +		},
+> +		.num_parents = 1,
+> +	},
+> +};
+> +
+> +static struct clk_regmap t7_cecb_dualdiv_div = {
+> +	.data = &(struct meson_clk_dualdiv_data){
+> +		.n1 = {
+> +			.reg_off = CECB_CTRL0,
+> +			.shift   = 0,
+> +			.width   = 12,
+> +		},
+> +		.n2 = {
+> +			.reg_off = CECB_CTRL0,
+> +			.shift   = 12,
+> +			.width   = 12,
+> +		},
+> +		.m1 = {
+> +			.reg_off = CECB_CTRL1,
+> +			.shift   = 0,
+> +			.width   = 12,
+> +		},
+> +		.m2 = {
+> +			.reg_off = CECB_CTRL1,
+> +			.shift   = 12,
+> +			.width   = 12,
+> +		},
+> +		.dual = {
+> +			.reg_off = CECB_CTRL0,
+> +			.shift   = 28,
+> +			.width   = 1,
+> +		},
+> +		.table = t7_dualdiv_table,
+> +	},
+> +	.hw.init = &(struct clk_init_data){
+> +		.name = "cecb_dualdiv_div",
+> +		.ops = &meson_clk_dualdiv_ops,
+> +		.parent_hws = (const struct clk_hw *[]) {
+> +			&t7_cecb_dualdiv_in.hw
+> +		},
+> +		.num_parents = 1,
+> +	},
+> +};
+> +
+> +static struct clk_regmap t7_cecb_dualdiv_sel = {
+> +	.data = &(struct clk_regmap_mux_data) {
+> +		.offset = CECB_CTRL1,
+> +		.mask = 0x1,
+> +		.shift = 24,
+> +	},
+> +	.hw.init = &(struct clk_init_data){
+> +		.name = "cecb_dualdiv_sel",
+> +		.ops = &clk_regmap_mux_ops,
+> +		.parent_hws = (const struct clk_hw *[]) {
+> +			&t7_cecb_dualdiv_div.hw,
+> +			&t7_cecb_dualdiv_in.hw,
+> +		},
+> +		.num_parents = 2,
+> +		.flags = CLK_SET_RATE_PARENT,
+> +	},
+> +};
+> +
+> +static struct clk_regmap t7_cecb_dualdiv = {
+> +	.data = &(struct clk_regmap_gate_data){
+> +		.offset = CECB_CTRL0,
+> +		.bit_idx = 30,
+> +	},
+> +	.hw.init = &(struct clk_init_data){
+> +		.name = "cecb_dualdiv",
+> +		.ops = &clk_regmap_gate_ops,
+> +		.parent_hws = (const struct clk_hw *[]) {
+> +			&t7_cecb_dualdiv_sel.hw
+> +		},
+> +		.num_parents = 1,
+> +		.flags = CLK_SET_RATE_PARENT,
+> +	},
+> +};
+> +
+> +static struct clk_regmap t7_cecb = {
+> +	.data = &(struct clk_regmap_mux_data) {
+> +		.offset = CECB_CTRL1,
+> +		.mask = 0x1,
+> +		.shift = 31,
+> +	},
+> +	.hw.init = &(struct clk_init_data){
+> +		.name = "cecb",
+> +		.ops = &clk_regmap_mux_ops,
+> +		.parent_hws = (const struct clk_hw *[]) {
+> +			&t7_cecb_dualdiv.hw,
+> +			&t7_rtc.hw,
+> +		},
+> +		.num_parents = 2,
+> +		.flags = CLK_SET_RATE_PARENT,
+> +	},
+> +};
+> +
+> +static const struct clk_parent_data t7_sc_parents[] = {
+> +	{ .fw_name = "fdiv4", },
+> +	{ .fw_name = "fdiv3", },
+> +	{ .fw_name = "fdiv5", },
+> +	{ .fw_name = "xtal", },
+> +};
+> +
+> +static T7_COMP_SEL(sc, SC_CLK_CTRL, 9, 0x3, t7_sc_parents);
+> +static T7_COMP_DIV(sc, SC_CLK_CTRL, 0, 8);
+> +static T7_COMP_GATE(sc, SC_CLK_CTRL, 8, 0);
+> +
+> +static const struct clk_parent_data t7_dsp_parents[] = {
+> +	{ .fw_name = "xtal", },
+> +	{ .fw_name = "fdiv2p5", },
+> +	{ .fw_name = "fdiv3", },
+> +	{ .fw_name = "fdiv5", },
+> +	{ .fw_name = "hifi", },
+> +	{ .fw_name = "fdiv4", },
+> +	{ .fw_name = "fdiv7", },
+> +	{ .hw = &t7_rtc.hw },
+> +};
+> +
+> +static T7_COMP_SEL(dspa_0, DSPA_CLK_CTRL0, 10, 0x7, t7_dsp_parents);
+> +static T7_COMP_DIV(dspa_0, DSPA_CLK_CTRL0, 0, 10);
+> +static T7_COMP_GATE(dspa_0, DSPA_CLK_CTRL0, 13, CLK_SET_RATE_GATE);
+> +
+> +static T7_COMP_SEL(dspa_1, DSPA_CLK_CTRL0, 26, 0x7, t7_dsp_parents);
+> +static T7_COMP_DIV(dspa_1, DSPA_CLK_CTRL0, 16, 10);
+> +static T7_COMP_GATE(dspa_1, DSPA_CLK_CTRL0, 29, CLK_SET_RATE_GATE);
+> +
+> +static struct clk_regmap t7_dspa = {
+> +	.data = &(struct clk_regmap_mux_data){
+> +		.offset = DSPA_CLK_CTRL0,
+> +		.mask = 0x1,
+> +		.shift = 15,
+> +	},
+> +	.hw.init = &(struct clk_init_data){
+> +		.name = "dspa",
+> +		.ops = &clk_regmap_mux_ops,
+> +		.parent_hws = (const struct clk_hw *[]) {
+> +			&t7_dspa_0.hw,
+> +			&t7_dspa_1.hw,
+> +		},
+> +		.num_parents = 2,
+> +		.flags = CLK_SET_RATE_PARENT,
+> +	},
+> +};
+> +
+> +static T7_COMP_SEL(dspb_0, DSPB_CLK_CTRL0, 10, 0x7, t7_dsp_parents);
+> +static T7_COMP_DIV(dspb_0, DSPB_CLK_CTRL0, 0, 10);
+> +static T7_COMP_GATE(dspb_0, DSPB_CLK_CTRL0, 13, CLK_SET_RATE_GATE);
+> +
+> +static T7_COMP_SEL(dspb_1, DSPB_CLK_CTRL0, 26, 0x7, t7_dsp_parents);
+> +static T7_COMP_DIV(dspb_1, DSPB_CLK_CTRL0, 16, 10);
+> +static T7_COMP_GATE(dspb_1, DSPB_CLK_CTRL0, 29, CLK_SET_RATE_GATE);
+> +
+> +static struct clk_regmap t7_dspb = {
+> +	.data = &(struct clk_regmap_mux_data){
+> +		.offset = DSPB_CLK_CTRL0,
+> +		.mask = 0x1,
+> +		.shift = 15,
+> +	},
+> +	.hw.init = &(struct clk_init_data){
+> +		.name = "dspb",
+> +		.ops = &clk_regmap_mux_ops,
+> +		.parent_hws = (const struct clk_hw *[]) {
+> +			&t7_dspb_0.hw,
+> +			&t7_dspb_1.hw,
+> +		},
+> +		.num_parents = 2,
+> +		.flags = CLK_SET_RATE_PARENT,
+> +	},
+> +};
+> +
+> +static struct clk_regmap t7_24m = {
+> +	.data = &(struct clk_regmap_gate_data){
+> +		.offset = CLK12_24_CTRL,
+> +		.bit_idx = 11,
+> +	},
+> +	.hw.init = &(struct clk_init_data) {
+> +		.name = "24m",
+> +		.ops = &clk_regmap_gate_ops,
+> +		.parent_data = &(const struct clk_parent_data) {
+> +			.fw_name = "xtal",
+> +		},
+> +		.num_parents = 1,
+> +	},
+> +};
+> +
+> +static struct clk_fixed_factor t7_24m_div2 = {
+> +	.mult = 1,
+> +	.div = 2,
+> +	.hw.init = &(struct clk_init_data){
+> +		.name = "24m_div2",
+> +		.ops = &clk_fixed_factor_ops,
+> +		.parent_hws = (const struct clk_hw *[]) {
+> +			&t7_24m.hw
+> +		},
+> +		.num_parents = 1,
+> +	},
+> +};
+> +
+> +static struct clk_regmap t7_12m = {
+> +	.data = &(struct clk_regmap_gate_data){
+> +		.offset = CLK12_24_CTRL,
+> +		.bit_idx = 10,
+> +	},
+> +	.hw.init = &(struct clk_init_data) {
+> +		.name = "12m",
+> +		.ops = &clk_regmap_gate_ops,
+> +		.parent_hws = (const struct clk_hw *[]) {
+> +			&t7_24m_div2.hw
+> +		},
+> +		.num_parents = 1,
+> +	},
+> +};
+> +
+> +static struct clk_regmap t7_25m_div = {
+> +	.data = &(struct clk_regmap_div_data){
+> +		.offset = CLK12_24_CTRL,
+> +		.shift = 0,
+> +		.width = 8,
+> +	},
+> +	.hw.init = &(struct clk_init_data){
+> +		.name = "25m_div",
+> +		.ops = &clk_regmap_divider_ops,
+> +		.parent_data = &(const struct clk_parent_data) {
+> +			.fw_name = "fix",
+> +		},
+> +		.num_parents = 1,
+> +	},
+> +};
+> +
+> +static struct clk_regmap t7_25m = {
+> +	.data = &(struct clk_regmap_gate_data){
+> +		.offset = CLK12_24_CTRL,
+> +		.bit_idx = 12,
+> +	},
+> +	.hw.init = &(struct clk_init_data){
+> +		.name = "25m",
+> +		.ops = &clk_regmap_gate_ops,
+> +		.parent_hws = (const struct clk_hw *[]) {
+> +			&t7_25m_div.hw
+> +		},
+> +		.num_parents = 1,
+> +		.flags = CLK_SET_RATE_PARENT,
+> +	},
+> +};
+> +
+> +static const struct clk_parent_data t7_anakin_parents[] = {
+> +	{ .fw_name = "fdiv4", },
+> +	{ .fw_name = "fdiv3", },
+> +	{ .fw_name = "fdiv5", },
+> +	{ .fw_name = "fdiv2", },
+> +	{ .fw_name = "vid_pll0", },
+> +	{ .fw_name = "mpll1", },
+> +	{ .fw_name = "mpll2", },
+> +	{ .fw_name = "fdiv2p5", },
+> +};
+> +
+> +static T7_COMP_SEL(anakin_0, ANAKIN_CLK_CTRL, 9, 0x7, t7_anakin_parents);
+> +static T7_COMP_DIV(anakin_0, ANAKIN_CLK_CTRL, 0, 7);
+> +static T7_COMP_GATE(anakin_0, ANAKIN_CLK_CTRL, 8, CLK_SET_RATE_GATE);
+> +
+> +static T7_COMP_SEL(anakin_1, ANAKIN_CLK_CTRL, 25, 0x7, t7_anakin_parents);
+> +static T7_COMP_DIV(anakin_1, ANAKIN_CLK_CTRL, 16, 7);
+> +static T7_COMP_GATE(anakin_1, ANAKIN_CLK_CTRL, 24, CLK_SET_RATE_GATE);
+> +
+> +static struct clk_regmap t7_anakin_01_sel = {
+> +	.data = &(struct clk_regmap_mux_data){
+> +		.offset = ANAKIN_CLK_CTRL,
+> +		.mask = 1,
+> +		.shift = 31,
+> +	},
+> +	.hw.init = &(struct clk_init_data){
+> +		.name = "anakin_01_sel",
+> +		.ops = &clk_regmap_mux_ops,
+> +		.parent_hws = (const struct clk_hw *[]) {
+> +			&t7_anakin_0.hw,
+> +			&t7_anakin_1.hw
+> +		},
+> +		.num_parents = 2,
+> +		.flags = CLK_SET_RATE_PARENT
+> +	},
+> +};
+> +
+> +static struct clk_regmap t7_anakin = {
+> +	.data = &(struct clk_regmap_gate_data){
+> +		.offset = ANAKIN_CLK_CTRL,
+> +		.bit_idx = 30,
+> +	},
+> +	.hw.init = &(struct clk_init_data) {
+> +		.name = "anakin",
+> +		.ops = &clk_regmap_gate_ops,
+> +		.parent_hws = (const struct clk_hw *[]) {
+> +			&t7_anakin_01_sel.hw
+> +		},
+> +		.num_parents = 1,
+> +		.flags = CLK_SET_RATE_PARENT
+> +	},
+> +};
+> +
+> +static const struct clk_parent_data t7_mipi_csi_phy_parents[] = {
+> +	{ .fw_name = "xtal", },
+> +	{ .fw_name = "gp1", },
+> +	{ .fw_name = "mpll1", },
+> +	{ .fw_name = "mpll2", },
+> +	{ .fw_name = "fdiv3", },
+> +	{ .fw_name = "fdiv4", },
+> +	{ .fw_name = "fdiv5", },
+> +	{ .fw_name = "fdiv7", },
+> +};
+> +
+> +static T7_COMP_SEL(mipi_csi_phy_0, MIPI_CSI_PHY_CLK_CTRL, 9, 0x7, t7_mipi_csi_phy_parents);
+> +static T7_COMP_DIV(mipi_csi_phy_0, MIPI_CSI_PHY_CLK_CTRL, 0, 7);
+> +static T7_COMP_GATE(mipi_csi_phy_0, MIPI_CSI_PHY_CLK_CTRL, 8, CLK_SET_RATE_GATE);
+> +
+> +static T7_COMP_SEL(mipi_csi_phy_1, MIPI_CSI_PHY_CLK_CTRL, 25, 0x7, t7_mipi_csi_phy_parents);
+> +static T7_COMP_DIV(mipi_csi_phy_1, MIPI_CSI_PHY_CLK_CTRL, 16, 7);
+> +static T7_COMP_GATE(mipi_csi_phy_1, MIPI_CSI_PHY_CLK_CTRL, 24, CLK_SET_RATE_GATE);
+> +
+> +static struct clk_regmap t7_mipi_csi_phy = {
+> +	.data = &(struct clk_regmap_mux_data){
+> +		.offset = MIPI_CSI_PHY_CLK_CTRL,
+> +		.mask = 0x1,
+> +		.shift = 31,
+> +	},
+> +	.hw.init = &(struct clk_init_data){
+> +		.name = "mipi_csi_phy",
+> +		.ops = &clk_regmap_mux_ops,
+> +		.parent_hws = (const struct clk_hw *[]) {
+> +			&t7_mipi_csi_phy_0.hw,
+> +			&t7_mipi_csi_phy_1.hw
+> +		},
+> +		.num_parents = 2,
+> +		.flags = CLK_SET_RATE_PARENT,
+> +	},
+> +};
+> +
+> +static const struct clk_parent_data t7_mipi_isp_parents[] = {
+> +	{ .fw_name = "xtal", },
+> +	{ .fw_name = "fdiv4", },
+> +	{ .fw_name = "fdiv3", },
+> +	{ .fw_name = "fdiv5", },
+> +	{ .fw_name = "fdiv7", },
+> +	{ .fw_name = "mpll2", },
+> +	{ .fw_name = "mpll3", },
+> +	{ .fw_name = "gp1", },
+> +};
+> +
+> +static T7_COMP_SEL(mipi_isp, MIPI_ISP_CLK_CTRL, 9, 0x7, t7_mipi_isp_parents);
+> +static T7_COMP_DIV(mipi_isp, MIPI_ISP_CLK_CTRL, 0, 7);
+> +static T7_COMP_GATE(mipi_isp, MIPI_ISP_CLK_CTRL, 8, 0);
+> +
+> +static struct clk_regmap t7_ts_div = {
+> +	.data = &(struct clk_regmap_div_data){
+> +		.offset = TS_CLK_CTRL,
+> +		.shift = 0,
+> +		.width = 8,
+> +	},
+> +	.hw.init = &(struct clk_init_data){
+> +		.name = "ts_div",
+> +		.ops = &clk_regmap_divider_ops,
+> +		.parent_data = &(const struct clk_parent_data) {
+> +			.fw_name = "xtal",
+> +		},
+> +		.num_parents = 1,
+> +	},
+> +};
+> +
+> +static struct clk_regmap t7_ts = {
+> +	.data = &(struct clk_regmap_gate_data){
+> +		.offset = TS_CLK_CTRL,
+> +		.bit_idx = 8,
+> +	},
+> +	.hw.init = &(struct clk_init_data){
+> +		.name = "ts",
+> +		.ops = &clk_regmap_gate_ops,
+> +		.parent_hws = (const struct clk_hw *[]) {
+> +			&t7_ts_div.hw
+> +		},
+> +		.num_parents = 1,
+> +		.flags = CLK_SET_RATE_PARENT,
+> +	},
+> +};
+> +
+> +static const struct clk_parent_data t7_mali_parents[] = {
+> +	{ .fw_name = "xtal", },
+> +	{ .fw_name = "gp0", },
+> +	{ .fw_name = "gp1", },
+> +	{ .fw_name = "fdiv2p5", },
+> +	{ .fw_name = "fdiv3", },
+> +	{ .fw_name = "fdiv4", },
+> +	{ .fw_name = "fdiv5", },
+> +	{ .fw_name = "fdiv7", },
+> +};
+> +
+> +static T7_COMP_SEL(mali_0, MALI_CLK_CTRL, 9, 0x7, t7_mali_parents);
+> +static T7_COMP_DIV(mali_0, MALI_CLK_CTRL, 0, 7);
+> +static T7_COMP_GATE(mali_0, MALI_CLK_CTRL, 8, CLK_SET_RATE_GATE);
+> +
+> +static T7_COMP_SEL(mali_1, MALI_CLK_CTRL, 25, 0x7, t7_mali_parents);
+> +static T7_COMP_DIV(mali_1, MALI_CLK_CTRL, 16, 7);
+> +static T7_COMP_GATE(mali_1, MALI_CLK_CTRL, 24, CLK_SET_RATE_GATE);
+> +
+> +static struct clk_regmap t7_mali = {
+> +	.data = &(struct clk_regmap_mux_data){
+> +		.offset = MALI_CLK_CTRL,
+> +		.mask = 1,
+> +		.shift = 31,
+> +	},
+> +	.hw.init = &(struct clk_init_data){
+> +		.name = "mali",
+> +		.ops = &clk_regmap_mux_ops,
+> +		.parent_hws = (const struct clk_hw *[]) {
+> +			&t7_mali_0.hw,
+> +			&t7_mali_1.hw,
+> +		},
+> +		.num_parents = 2,
+> +		.flags = CLK_SET_RATE_PARENT,
+> +	},
+> +};
+> +
+> +/*
+> + * parent index 2, 3, 4, 5, 6 not connect any clock signal,
+> + * the last parent connect external PAD
+> + */
+> +static u32 t7_eth_rmii_parents_val_table[] = { 0, 1, 7 };
+> +static const struct clk_parent_data t7_eth_rmii_parents[] = {
+> +	{ .fw_name = "fdiv2", },
+> +	{ .fw_name = "gp1", },
+> +	{ .fw_name = "ext_rmii", },
+> +};
+> +
+> +static struct clk_regmap t7_eth_rmii_sel = {
+> +	.data = &(struct clk_regmap_mux_data) {
+> +		.offset = ETH_CLK_CTRL,
+> +		.mask = 0x7,
+> +		.shift = 9,
+> +		.table = t7_eth_rmii_parents_val_table,
+> +	},
+> +	.hw.init = &(struct clk_init_data){
+> +		.name = "eth_rmii_sel",
+> +		.ops = &clk_regmap_mux_ops,
+> +		.parent_data = t7_eth_rmii_parents,
+> +		.num_parents = ARRAY_SIZE(t7_eth_rmii_parents),
+> +		.flags = CLK_SET_RATE_NO_REPARENT,
+> +	},
+> +};
+> +
+> +static struct clk_regmap t7_eth_rmii_div = {
+> +	.data = &(struct clk_regmap_div_data) {
+> +		.offset = ETH_CLK_CTRL,
+> +		.shift = 0,
+> +		.width = 7,
+> +	},
+> +	.hw.init = &(struct clk_init_data){
+> +		.name = "eth_rmii_div",
+> +		.ops = &clk_regmap_divider_ops,
+> +		.parent_hws = (const struct clk_hw *[]) {
+> +			&t7_eth_rmii_sel.hw
+> +		},
+> +		.num_parents = 1,
+> +		.flags = CLK_SET_RATE_PARENT,
+> +	},
+> +};
+> +
+> +static struct clk_regmap t7_eth_rmii = {
+> +	.data = &(struct clk_regmap_gate_data) {
+> +		.offset = ETH_CLK_CTRL,
+> +		.bit_idx = 8,
+> +	},
+> +	.hw.init = &(struct clk_init_data){
+> +		.name = "eth_rmii",
+> +		.ops = &clk_regmap_gate_ops,
+> +		.parent_hws = (const struct clk_hw *[]) {
+> +			&t7_eth_rmii_div.hw
+> +		},
+> +		.num_parents = 1,
+> +		.flags = CLK_SET_RATE_PARENT,
+> +	},
+> +};
+> +
+> +static struct clk_fixed_factor t7_fdiv2_div8 = {
+> +	.mult = 1,
+> +	.div = 8,
+> +	.hw.init = &(struct clk_init_data){
+> +		.name = "fdiv2_div8",
+> +		.ops = &clk_fixed_factor_ops,
+> +		.parent_data = &(const struct clk_parent_data) {
+> +			.fw_name = "fdiv2",
+> +		},
+> +		.num_parents = 1,
+> +	},
+> +};
+> +
+> +static struct clk_regmap t7_eth_125m = {
+> +	.data = &(struct clk_regmap_gate_data) {
+> +		.offset = ETH_CLK_CTRL,
+> +		.bit_idx = 7,
+> +	},
+> +	.hw.init = &(struct clk_init_data){
+> +		.name = "eth_125m",
+> +		.ops = &clk_regmap_gate_ops,
+> +		.parent_hws = (const struct clk_hw *[]) {
+> +			&t7_fdiv2_div8.hw
+> +		},
+> +		.num_parents = 1,
+> +	},
+> +};
+> +
+> +static const struct clk_parent_data t7_sd_emmc_parents[] = {
+> +	{ .fw_name = "xtal", },
+> +	{ .fw_name = "fdiv2", },
+> +	{ .fw_name = "fdiv3", },
+> +	{ .fw_name = "hifi", },
+> +	{ .fw_name = "fdiv2p5", },
+> +	{ .fw_name = "mpll2", },
+> +	{ .fw_name = "mpll3", },
+> +	{ .fw_name = "gp0", },
+> +};
+> +
+> +static T7_COMP_SEL(sd_emmc_c, NAND_CLK_CTRL, 9, 0x7, t7_sd_emmc_parents);
+> +static T7_COMP_DIV(sd_emmc_c, NAND_CLK_CTRL, 0, 7);
+> +static T7_COMP_GATE(sd_emmc_c, NAND_CLK_CTRL, 7, 0);
+> +
+> +static T7_COMP_SEL(sd_emmc_a, SD_EMMC_CLK_CTRL, 9, 0x7, t7_sd_emmc_parents);
+> +static T7_COMP_DIV(sd_emmc_a, SD_EMMC_CLK_CTRL, 0, 7);
+> +static T7_COMP_GATE(sd_emmc_a, SD_EMMC_CLK_CTRL, 7, 0);
+> +
+> +static T7_COMP_SEL(sd_emmc_b, SD_EMMC_CLK_CTRL, 25, 0x7, t7_sd_emmc_parents);
+> +static T7_COMP_DIV(sd_emmc_b, SD_EMMC_CLK_CTRL, 16, 7);
+> +static T7_COMP_GATE(sd_emmc_b, SD_EMMC_CLK_CTRL, 23, 0);
+
+I admit it is a touch pedantic but C, then A then B is odd ...
+
+> +
+> +static const struct clk_parent_data t7_spicc_parents[] = {
+> +	{ .fw_name = "xtal", },
+> +	{ .fw_name = "sys", },
+> +	{ .fw_name = "fdiv4", },
+> +	{ .fw_name = "fdiv3", },
+> +	{ .fw_name = "fdiv2", },
+> +	{ .fw_name = "fdiv5", },
+> +	{ .fw_name = "fdiv7", },
+> +	{ .fw_name = "gp1", },
+> +};
+> +
+> +static T7_COMP_SEL(spicc0, SPICC_CLK_CTRL, 7, 0x7, t7_spicc_parents);
+> +static T7_COMP_DIV(spicc0, SPICC_CLK_CTRL, 0, 6);
+> +static T7_COMP_GATE(spicc0, SPICC_CLK_CTRL, 6, 0);
+> +
+> +static T7_COMP_SEL(spicc1, SPICC_CLK_CTRL, 23, 0x7, t7_spicc_parents);
+> +static T7_COMP_DIV(spicc1, SPICC_CLK_CTRL, 16, 6);
+> +static T7_COMP_GATE(spicc1, SPICC_CLK_CTRL, 22, 0);
+> +
+> +static T7_COMP_SEL(spicc2, SPICC_CLK_CTRL1, 7, 0x7, t7_spicc_parents);
+> +static T7_COMP_DIV(spicc2, SPICC_CLK_CTRL1, 0, 6);
+> +static T7_COMP_GATE(spicc2, SPICC_CLK_CTRL1, 6, 0);
+> +
+> +static T7_COMP_SEL(spicc3, SPICC_CLK_CTRL1, 23, 0x7, t7_spicc_parents);
+> +static T7_COMP_DIV(spicc3, SPICC_CLK_CTRL1, 16, 6);
+> +static T7_COMP_GATE(spicc3, SPICC_CLK_CTRL1, 22, 0);
+> +
+> +static T7_COMP_SEL(spicc4, SPICC_CLK_CTRL2, 7, 0x7, t7_spicc_parents);
+> +static T7_COMP_DIV(spicc4, SPICC_CLK_CTRL2, 0, 6);
+> +static T7_COMP_GATE(spicc4, SPICC_CLK_CTRL2, 6, 0);
+> +
+> +static T7_COMP_SEL(spicc5, SPICC_CLK_CTRL2, 23, 0x7, t7_spicc_parents);
+> +static T7_COMP_DIV(spicc5, SPICC_CLK_CTRL2, 16, 6);
+> +static T7_COMP_GATE(spicc5, SPICC_CLK_CTRL2, 22, 0);
+> +
+> +static const struct clk_parent_data t7_saradc_parents[] = {
+> +	{ .fw_name = "xtal" },
+> +	{ .fw_name = "sys" },
+> +};
+> +
+> +static T7_COMP_SEL(saradc, SAR_CLK_CTRL0, 9, 0x1, t7_saradc_parents);
+> +static T7_COMP_DIV(saradc, SAR_CLK_CTRL0, 0, 8);
+> +static T7_COMP_GATE(saradc, SAR_CLK_CTRL0, 8, 0);
+> +
+> +static const struct clk_parent_data t7_pwm_parents[]  = {
+> +	{ .fw_name = "xtal", },
+> +	{ .fw_name = "vid_pll0", },
+> +	{ .fw_name = "fdiv4", },
+> +	{ .fw_name = "fdiv3", },
+> +};
+> +
+> +static T7_COMP_SEL(pwm_a, PWM_CLK_AB_CTRL, 9, 0x3, t7_pwm_parents);
+> +static T7_COMP_DIV(pwm_a, PWM_CLK_AB_CTRL, 0, 8);
+> +static T7_COMP_GATE(pwm_a, PWM_CLK_AB_CTRL, 8, 0);
+> +
+> +static T7_COMP_SEL(pwm_b, PWM_CLK_AB_CTRL, 25, 0x3, t7_pwm_parents);
+> +static T7_COMP_DIV(pwm_b, PWM_CLK_AB_CTRL, 16, 8);
+> +static T7_COMP_GATE(pwm_b, PWM_CLK_AB_CTRL, 24, 0);
+> +
+> +static T7_COMP_SEL(pwm_c, PWM_CLK_CD_CTRL, 9, 0x3, t7_pwm_parents);
+> +static T7_COMP_DIV(pwm_c, PWM_CLK_CD_CTRL, 0, 8);
+> +static T7_COMP_GATE(pwm_c, PWM_CLK_CD_CTRL, 8, 0);
+> +
+> +static T7_COMP_SEL(pwm_d, PWM_CLK_CD_CTRL, 25, 0x3, t7_pwm_parents);
+> +static T7_COMP_DIV(pwm_d, PWM_CLK_CD_CTRL, 16, 8);
+> +static T7_COMP_GATE(pwm_d, PWM_CLK_CD_CTRL, 24, 0);
+> +
+> +static T7_COMP_SEL(pwm_e, PWM_CLK_EF_CTRL, 9, 0x3, t7_pwm_parents);
+> +static T7_COMP_DIV(pwm_e, PWM_CLK_EF_CTRL, 0, 8);
+> +static T7_COMP_GATE(pwm_e, PWM_CLK_EF_CTRL, 8, 0);
+> +
+> +static T7_COMP_SEL(pwm_f, PWM_CLK_EF_CTRL, 25, 0x3, t7_pwm_parents);
+> +static T7_COMP_DIV(pwm_f, PWM_CLK_EF_CTRL, 16, 8);
+> +static T7_COMP_GATE(pwm_f, PWM_CLK_EF_CTRL, 24, 0);
+> +
+> +static T7_COMP_SEL(pwm_ao_a, PWM_CLK_AO_AB_CTRL, 9, 0x3, t7_pwm_parents);
+> +static T7_COMP_DIV(pwm_ao_a, PWM_CLK_AO_AB_CTRL, 0, 8);
+> +static T7_COMP_GATE(pwm_ao_a, PWM_CLK_AO_AB_CTRL, 8, 0);
+> +
+> +static T7_COMP_SEL(pwm_ao_b, PWM_CLK_AO_AB_CTRL, 25, 0x3, t7_pwm_parents);
+> +static T7_COMP_DIV(pwm_ao_b, PWM_CLK_AO_AB_CTRL, 16, 8);
+> +static T7_COMP_GATE(pwm_ao_b, PWM_CLK_AO_AB_CTRL, 24, 0);
+> +
+> +static T7_COMP_SEL(pwm_ao_c, PWM_CLK_AO_CD_CTRL, 9, 0x3, t7_pwm_parents);
+> +static T7_COMP_DIV(pwm_ao_c, PWM_CLK_AO_CD_CTRL, 0, 8);
+> +static T7_COMP_GATE(pwm_ao_c, PWM_CLK_AO_CD_CTRL, 8, 0);
+> +
+> +static T7_COMP_SEL(pwm_ao_d, PWM_CLK_AO_CD_CTRL, 25, 0x3, t7_pwm_parents);
+> +static T7_COMP_DIV(pwm_ao_d, PWM_CLK_AO_CD_CTRL, 16, 8);
+> +static T7_COMP_GATE(pwm_ao_d, PWM_CLK_AO_CD_CTRL, 24, 0);
+> +
+> +static T7_COMP_SEL(pwm_ao_e, PWM_CLK_AO_EF_CTRL, 9, 0x3, t7_pwm_parents);
+> +static T7_COMP_DIV(pwm_ao_e, PWM_CLK_AO_EF_CTRL, 0, 8);
+> +static T7_COMP_GATE(pwm_ao_e, PWM_CLK_AO_EF_CTRL, 8, 0);
+> +
+> +static T7_COMP_SEL(pwm_ao_f, PWM_CLK_AO_EF_CTRL, 25, 0x3, t7_pwm_parents);
+> +static T7_COMP_DIV(pwm_ao_f, PWM_CLK_AO_EF_CTRL, 16, 8);
+> +static T7_COMP_GATE(pwm_ao_f, PWM_CLK_AO_EF_CTRL, 24, 0);
+> +
+> +static T7_COMP_SEL(pwm_ao_g, PWM_CLK_AO_GH_CTRL, 9, 0x3, t7_pwm_parents);
+> +static T7_COMP_DIV(pwm_ao_g, PWM_CLK_AO_GH_CTRL, 0, 8);
+> +static T7_COMP_GATE(pwm_ao_g, PWM_CLK_AO_GH_CTRL, 8, 0);
+> +
+> +static T7_COMP_SEL(pwm_ao_h, PWM_CLK_AO_GH_CTRL, 25, 0x3, t7_pwm_parents);
+> +static T7_COMP_DIV(pwm_ao_h, PWM_CLK_AO_GH_CTRL, 16, 8);
+> +static T7_COMP_GATE(pwm_ao_h, PWM_CLK_AO_GH_CTRL, 24, 0);
+> +
+> +static const struct clk_parent_data t7_sys_pclk_parents = { .fw_name = "sys" };
+> +
+> +#define T7_SYS_PCLK(_name, _reg, _bit, _flags) \
+> +	MESON_PCLK(t7_##_name, _reg, _bit, &t7_sys_pclk_parents, _flags)
+> +
+> +static T7_SYS_PCLK(sys_ddr,		SYS_CLK_EN0_REG0, 0,	0);
+> +static T7_SYS_PCLK(sys_dos,		SYS_CLK_EN0_REG0, 1,	0);
+> +static T7_SYS_PCLK(sys_mipi_dsi_a,	SYS_CLK_EN0_REG0, 2,	0);
+> +static T7_SYS_PCLK(sys_mipi_dsi_b,	SYS_CLK_EN0_REG0, 3,	0);
+> +static T7_SYS_PCLK(sys_ethphy,		SYS_CLK_EN0_REG0, 4,	0);
+> +static T7_SYS_PCLK(sys_mali,		SYS_CLK_EN0_REG0, 6,	0);
+> +static T7_SYS_PCLK(sys_aocpu,		SYS_CLK_EN0_REG0, 13,	0);
+> +static T7_SYS_PCLK(sys_aucpu,		SYS_CLK_EN0_REG0, 14,	0);
+> +static T7_SYS_PCLK(sys_cec,		SYS_CLK_EN0_REG0, 16,	0);
+> +static T7_SYS_PCLK(sys_gdc,		SYS_CLK_EN0_REG0, 17,	0);
+> +static T7_SYS_PCLK(sys_deswarp,		SYS_CLK_EN0_REG0, 18,	0);
+> +static T7_SYS_PCLK(sys_ampipe_nand,	SYS_CLK_EN0_REG0, 19,	0);
+> +static T7_SYS_PCLK(sys_ampipe_eth,	SYS_CLK_EN0_REG0, 20,	0);
+> +static T7_SYS_PCLK(sys_am2axi0,		SYS_CLK_EN0_REG0, 21,	0);
+> +static T7_SYS_PCLK(sys_am2axi1,		SYS_CLK_EN0_REG0, 22,	0);
+> +static T7_SYS_PCLK(sys_am2axi2,		SYS_CLK_EN0_REG0, 23,	0);
+> +static T7_SYS_PCLK(sys_sd_emmc_a,	SYS_CLK_EN0_REG0, 24,	0);
+> +static T7_SYS_PCLK(sys_sd_emmc_b,	SYS_CLK_EN0_REG0, 25,	0);
+> +static T7_SYS_PCLK(sys_sd_emmc_c,	SYS_CLK_EN0_REG0, 26,	0);
+> +static T7_SYS_PCLK(sys_smartcard,	SYS_CLK_EN0_REG0, 27,	0);
+> +static T7_SYS_PCLK(sys_acodec,		SYS_CLK_EN0_REG0, 28,	0);
+> +static T7_SYS_PCLK(sys_spifc,		SYS_CLK_EN0_REG0, 29,	0);
+> +static T7_SYS_PCLK(sys_msr_clk,		SYS_CLK_EN0_REG0, 30,	0);
+> +static T7_SYS_PCLK(sys_ir_ctrl,		SYS_CLK_EN0_REG0, 31,	0);
+> +static T7_SYS_PCLK(sys_audio,		SYS_CLK_EN0_REG1, 0,	0);
+> +static T7_SYS_PCLK(sys_eth,		SYS_CLK_EN0_REG1, 3,	0);
+> +static T7_SYS_PCLK(sys_uart_a,		SYS_CLK_EN0_REG1, 5,	0);
+> +static T7_SYS_PCLK(sys_uart_b,		SYS_CLK_EN0_REG1, 6,	0);
+> +static T7_SYS_PCLK(sys_uart_c,		SYS_CLK_EN0_REG1, 7,	0);
+> +static T7_SYS_PCLK(sys_uart_d,		SYS_CLK_EN0_REG1, 8,	0);
+> +static T7_SYS_PCLK(sys_uart_e,		SYS_CLK_EN0_REG1, 9,	0);
+> +static T7_SYS_PCLK(sys_uart_f,		SYS_CLK_EN0_REG1, 10,	0);
+> +static T7_SYS_PCLK(sys_aififo,		SYS_CLK_EN0_REG1, 11,	0);
+> +static T7_SYS_PCLK(sys_spicc2,		SYS_CLK_EN0_REG1, 12,	0);
+> +static T7_SYS_PCLK(sys_spicc3,		SYS_CLK_EN0_REG1, 13,	0);
+> +static T7_SYS_PCLK(sys_spicc4,		SYS_CLK_EN0_REG1, 14,	0);
+> +static T7_SYS_PCLK(sys_ts_a73,		SYS_CLK_EN0_REG1, 15,	0);
+> +static T7_SYS_PCLK(sys_ts_a53,		SYS_CLK_EN0_REG1, 16,	0);
+> +static T7_SYS_PCLK(sys_spicc5,		SYS_CLK_EN0_REG1, 17,	0);
+> +static T7_SYS_PCLK(sys_g2d,		SYS_CLK_EN0_REG1, 20,	0);
+> +static T7_SYS_PCLK(sys_spicc0,		SYS_CLK_EN0_REG1, 21,	0);
+> +static T7_SYS_PCLK(sys_spicc1,		SYS_CLK_EN0_REG1, 22,	0);
+> +static T7_SYS_PCLK(sys_pcie,		SYS_CLK_EN0_REG1, 24,	0);
+> +static T7_SYS_PCLK(sys_usb,		SYS_CLK_EN0_REG1, 26,	0);
+> +static T7_SYS_PCLK(sys_pcie_phy,	SYS_CLK_EN0_REG1, 27,	0);
+> +static T7_SYS_PCLK(sys_i2c_ao_a,	SYS_CLK_EN0_REG1, 28,	0);
+> +static T7_SYS_PCLK(sys_i2c_ao_b,	SYS_CLK_EN0_REG1, 29,	0);
+> +static T7_SYS_PCLK(sys_i2c_m_a,		SYS_CLK_EN0_REG1, 30,	0);
+> +static T7_SYS_PCLK(sys_i2c_m_b,		SYS_CLK_EN0_REG1, 31,	0);
+> +static T7_SYS_PCLK(sys_i2c_m_c,		SYS_CLK_EN0_REG2, 0,	0);
+> +static T7_SYS_PCLK(sys_i2c_m_d,		SYS_CLK_EN0_REG2, 1,	0);
+> +static T7_SYS_PCLK(sys_i2c_m_e,		SYS_CLK_EN0_REG2, 2,	0);
+> +static T7_SYS_PCLK(sys_i2c_m_f,		SYS_CLK_EN0_REG2, 3,	0);
+> +static T7_SYS_PCLK(sys_hdmitx_apb,	SYS_CLK_EN0_REG2, 4,	0);
+> +static T7_SYS_PCLK(sys_i2c_s_a,		SYS_CLK_EN0_REG2, 5,	0);
+> +static T7_SYS_PCLK(sys_hdmirx_pclk,	SYS_CLK_EN0_REG2, 8,	0);
+> +static T7_SYS_PCLK(sys_mmc_apb,		SYS_CLK_EN0_REG2, 11,	0);
+> +static T7_SYS_PCLK(sys_mipi_isp_pclk,	SYS_CLK_EN0_REG2, 17,	0);
+> +static T7_SYS_PCLK(sys_rsa,		SYS_CLK_EN0_REG2, 18,	0);
+> +static T7_SYS_PCLK(sys_pclk_sys_apb,	SYS_CLK_EN0_REG2, 19,	0);
+> +static T7_SYS_PCLK(sys_a73pclk_apb,	SYS_CLK_EN0_REG2, 20,	0);
+> +static T7_SYS_PCLK(sys_dspa,		SYS_CLK_EN0_REG2, 21,	0);
+> +static T7_SYS_PCLK(sys_dspb,		SYS_CLK_EN0_REG2, 22,	0);
+> +static T7_SYS_PCLK(sys_vpu_intr,	SYS_CLK_EN0_REG2, 25,	0);
+> +static T7_SYS_PCLK(sys_sar_adc,		SYS_CLK_EN0_REG2, 28,	0);
+> +/*
+> + * sys_gic provides the clock for GIC(Generic Interrupt Controller).
+> + * After clock is disabled, The GIC cannot work properly. At present, the driver
+> + * used by our GIC is the public driver in kernel, and there is no management
+> + * clock in the driver.
+> + */
+> +static T7_SYS_PCLK(sys_gic,		SYS_CLK_EN0_REG2, 30,	CLK_IS_CRITICAL);
+> +static T7_SYS_PCLK(sys_ts_gpu,		SYS_CLK_EN0_REG2, 31,	0);
+> +static T7_SYS_PCLK(sys_ts_nna,		SYS_CLK_EN0_REG3, 0,	0);
+> +static T7_SYS_PCLK(sys_ts_vpu,		SYS_CLK_EN0_REG3, 1,	0);
+> +static T7_SYS_PCLK(sys_ts_hevc,		SYS_CLK_EN0_REG3, 2,	0);
+> +static T7_SYS_PCLK(sys_pwm_ao_ab,	SYS_CLK_EN0_REG3, 3,	0);
+> +static T7_SYS_PCLK(sys_pwm_ao_cd,	SYS_CLK_EN0_REG3, 4,	0);
+> +static T7_SYS_PCLK(sys_pwm_ao_ef,	SYS_CLK_EN0_REG3, 5,	0);
+> +static T7_SYS_PCLK(sys_pwm_ao_gh,	SYS_CLK_EN0_REG3, 6,	0);
+> +static T7_SYS_PCLK(sys_pwm_ab,		SYS_CLK_EN0_REG3, 7,	0);
+> +static T7_SYS_PCLK(sys_pwm_cd,		SYS_CLK_EN0_REG3, 8,	0);
+> +static T7_SYS_PCLK(sys_pwm_ef,		SYS_CLK_EN0_REG3, 9,	0);
+> +
+> +/* Array of all clocks registered by this provider */
+> +static struct clk_hw *t7_peripherals_hw_clks[] = {
+> +	[CLKID_RTC_DUALDIV_IN]		= &t7_rtc_dualdiv_in.hw,
+> +	[CLKID_RTC_DUALDIV_DIV]		= &t7_rtc_dualdiv_div.hw,
+> +	[CLKID_RTC_DUALDIV_SEL]		= &t7_rtc_dualdiv_sel.hw,
+> +	[CLKID_RTC_DUALDIV]		= &t7_rtc_dualdiv.hw,
+> +	[CLKID_RTC]			= &t7_rtc.hw,
+> +	[CLKID_CECA_DUALDIV_IN]		= &t7_ceca_dualdiv_in.hw,
+> +	[CLKID_CECA_DUALDIV_DIV]	= &t7_ceca_dualdiv_div.hw,
+> +	[CLKID_CECA_DUALDIV_SEL]	= &t7_ceca_dualdiv_sel.hw,
+> +	[CLKID_CECA_DUALDIV]		= &t7_ceca_dualdiv.hw,
+> +	[CLKID_CECA]			= &t7_ceca.hw,
+> +	[CLKID_CECB_DUALDIV_IN]		= &t7_cecb_dualdiv_in.hw,
+> +	[CLKID_CECB_DUALDIV_DIV]	= &t7_cecb_dualdiv_div.hw,
+> +	[CLKID_CECB_DUALDIV_SEL]	= &t7_cecb_dualdiv_sel.hw,
+> +	[CLKID_CECB_DUALDIV]		= &t7_cecb_dualdiv.hw,
+> +	[CLKID_CECB]			= &t7_cecb.hw,
+> +	[CLKID_SC_SEL]			= &t7_sc_sel.hw,
+> +	[CLKID_SC_DIV]			= &t7_sc_div.hw,
+> +	[CLKID_SC]			= &t7_sc.hw,
+> +	[CLKID_DSPA_0_SEL]		= &t7_dspa_0_sel.hw,
+> +	[CLKID_DSPA_0_DIV]		= &t7_dspa_0_div.hw,
+> +	[CLKID_DSPA_0]			= &t7_dspa_0.hw,
+> +	[CLKID_DSPA_1_SEL]		= &t7_dspa_1_sel.hw,
+> +	[CLKID_DSPA_1_DIV]		= &t7_dspa_1_div.hw,
+> +	[CLKID_DSPA_1]			= &t7_dspa_1.hw,
+> +	[CLKID_DSPA]			= &t7_dspa.hw,
+> +	[CLKID_DSPB_0_SEL]		= &t7_dspb_0_sel.hw,
+> +	[CLKID_DSPB_0_DIV]		= &t7_dspb_0_div.hw,
+> +	[CLKID_DSPB_0]			= &t7_dspb_0.hw,
+> +	[CLKID_DSPB_1_SEL]		= &t7_dspb_1_sel.hw,
+> +	[CLKID_DSPB_1_DIV]		= &t7_dspb_1_div.hw,
+> +	[CLKID_DSPB_1]			= &t7_dspb_1.hw,
+> +	[CLKID_DSPB]			= &t7_dspb.hw,
+> +	[CLKID_24M]			= &t7_24m.hw,
+> +	[CLKID_24M_DIV2]		= &t7_24m_div2.hw,
+> +	[CLKID_12M]			= &t7_12m.hw,
+> +	[CLKID_25M_DIV]			= &t7_25m_div.hw,
+> +	[CLKID_25M]			= &t7_25m.hw,
+> +	[CLKID_ANAKIN_0_SEL]		= &t7_anakin_0_sel.hw,
+> +	[CLKID_ANAKIN_0_DIV]		= &t7_anakin_0_div.hw,
+> +	[CLKID_ANAKIN_0]		= &t7_anakin_0.hw,
+> +	[CLKID_ANAKIN_1_SEL]		= &t7_anakin_1_sel.hw,
+> +	[CLKID_ANAKIN_1_DIV]		= &t7_anakin_1_div.hw,
+> +	[CLKID_ANAKIN_1]		= &t7_anakin_1.hw,
+> +	[CLKID_ANAKIN_01_SEL]		= &t7_anakin_01_sel.hw,
+> +	[CLKID_ANAKIN]			= &t7_anakin.hw,
+> +	[CLKID_MIPI_CSI_PHY_0_SEL]	= &t7_mipi_csi_phy_0_sel.hw,
+> +	[CLKID_MIPI_CSI_PHY_0_DIV]	= &t7_mipi_csi_phy_0_div.hw,
+> +	[CLKID_MIPI_CSI_PHY_0]		= &t7_mipi_csi_phy_0.hw,
+> +	[CLKID_MIPI_CSI_PHY_1_SEL]	= &t7_mipi_csi_phy_1_sel.hw,
+> +	[CLKID_MIPI_CSI_PHY_1_DIV]	= &t7_mipi_csi_phy_1_div.hw,
+> +	[CLKID_MIPI_CSI_PHY_1]		= &t7_mipi_csi_phy_1.hw,
+> +	[CLKID_MIPI_CSI_PHY]		= &t7_mipi_csi_phy.hw,
+> +	[CLKID_MIPI_ISP_SEL]		= &t7_mipi_isp_sel.hw,
+> +	[CLKID_MIPI_ISP_DIV]		= &t7_mipi_isp_div.hw,
+> +	[CLKID_MIPI_ISP]		= &t7_mipi_isp.hw,
+> +	[CLKID_TS_DIV]			= &t7_ts_div.hw,
+> +	[CLKID_TS]			= &t7_ts.hw,
+> +	[CLKID_MALI_0_SEL]		= &t7_mali_0_sel.hw,
+> +	[CLKID_MALI_0_DIV]		= &t7_mali_0_div.hw,
+> +	[CLKID_MALI_0]			= &t7_mali_0.hw,
+> +	[CLKID_MALI_1_SEL]		= &t7_mali_1_sel.hw,
+> +	[CLKID_MALI_1_DIV]		= &t7_mali_1_div.hw,
+> +	[CLKID_MALI_1]			= &t7_mali_1.hw,
+> +	[CLKID_MALI]			= &t7_mali.hw,
+> +	[CLKID_ETH_RMII_SEL]		= &t7_eth_rmii_sel.hw,
+> +	[CLKID_ETH_RMII_DIV]		= &t7_eth_rmii_div.hw,
+> +	[CLKID_ETH_RMII]		= &t7_eth_rmii.hw,
+> +	[CLKID_FCLK_DIV2_DIV8]		= &t7_fdiv2_div8.hw,
+> +	[CLKID_ETH_125M]		= &t7_eth_125m.hw,
+> +	[CLKID_SD_EMMC_C_SEL]		= &t7_sd_emmc_c_sel.hw,
+> +	[CLKID_SD_EMMC_C_DIV]		= &t7_sd_emmc_c_div.hw,
+> +	[CLKID_SD_EMMC_C]		= &t7_sd_emmc_c.hw,
+> +	[CLKID_SD_EMMC_A_SEL]		= &t7_sd_emmc_a_sel.hw,
+> +	[CLKID_SD_EMMC_A_DIV]		= &t7_sd_emmc_a_div.hw,
+> +	[CLKID_SD_EMMC_A]		= &t7_sd_emmc_a.hw,
+> +	[CLKID_SD_EMMC_B_SEL]		= &t7_sd_emmc_b_sel.hw,
+> +	[CLKID_SD_EMMC_B_DIV]		= &t7_sd_emmc_b_div.hw,
+> +	[CLKID_SD_EMMC_B]		= &t7_sd_emmc_b.hw,
+> +	[CLKID_SPICC0_SEL]		= &t7_spicc0_sel.hw,
+> +	[CLKID_SPICC0_DIV]		= &t7_spicc0_div.hw,
+> +	[CLKID_SPICC0]			= &t7_spicc0.hw,
+> +	[CLKID_SPICC1_SEL]		= &t7_spicc1_sel.hw,
+> +	[CLKID_SPICC1_DIV]		= &t7_spicc1_div.hw,
+> +	[CLKID_SPICC1]			= &t7_spicc1.hw,
+> +	[CLKID_SPICC2_SEL]		= &t7_spicc2_sel.hw,
+> +	[CLKID_SPICC2_DIV]		= &t7_spicc2_div.hw,
+> +	[CLKID_SPICC2]			= &t7_spicc2.hw,
+> +	[CLKID_SPICC3_SEL]		= &t7_spicc3_sel.hw,
+> +	[CLKID_SPICC3_DIV]		= &t7_spicc3_div.hw,
+> +	[CLKID_SPICC3]			= &t7_spicc3.hw,
+> +	[CLKID_SPICC4_SEL]		= &t7_spicc4_sel.hw,
+> +	[CLKID_SPICC4_DIV]		= &t7_spicc4_div.hw,
+> +	[CLKID_SPICC4]			= &t7_spicc4.hw,
+> +	[CLKID_SPICC5_SEL]		= &t7_spicc5_sel.hw,
+> +	[CLKID_SPICC5_DIV]		= &t7_spicc5_div.hw,
+> +	[CLKID_SPICC5]			= &t7_spicc5.hw,
+> +	[CLKID_SARADC_SEL]		= &t7_saradc_sel.hw,
+> +	[CLKID_SARADC_DIV]		= &t7_saradc_div.hw,
+> +	[CLKID_SARADC]			= &t7_saradc.hw,
+> +	[CLKID_PWM_A_SEL]		= &t7_pwm_a_sel.hw,
+> +	[CLKID_PWM_A_DIV]		= &t7_pwm_a_div.hw,
+> +	[CLKID_PWM_A]			= &t7_pwm_a.hw,
+> +	[CLKID_PWM_B_SEL]		= &t7_pwm_b_sel.hw,
+> +	[CLKID_PWM_B_DIV]		= &t7_pwm_b_div.hw,
+> +	[CLKID_PWM_B]			= &t7_pwm_b.hw,
+> +	[CLKID_PWM_C_SEL]		= &t7_pwm_c_sel.hw,
+> +	[CLKID_PWM_C_DIV]		= &t7_pwm_c_div.hw,
+> +	[CLKID_PWM_C]			= &t7_pwm_c.hw,
+> +	[CLKID_PWM_D_SEL]		= &t7_pwm_d_sel.hw,
+> +	[CLKID_PWM_D_DIV]		= &t7_pwm_d_div.hw,
+> +	[CLKID_PWM_D]			= &t7_pwm_d.hw,
+> +	[CLKID_PWM_E_SEL]		= &t7_pwm_e_sel.hw,
+> +	[CLKID_PWM_E_DIV]		= &t7_pwm_e_div.hw,
+> +	[CLKID_PWM_E]			= &t7_pwm_e.hw,
+> +	[CLKID_PWM_F_SEL]		= &t7_pwm_f_sel.hw,
+> +	[CLKID_PWM_F_DIV]		= &t7_pwm_f_div.hw,
+> +	[CLKID_PWM_F]			= &t7_pwm_f.hw,
+> +	[CLKID_PWM_AO_A_SEL]		= &t7_pwm_ao_a_sel.hw,
+> +	[CLKID_PWM_AO_A_DIV]		= &t7_pwm_ao_a_div.hw,
+> +	[CLKID_PWM_AO_A]		= &t7_pwm_ao_a.hw,
+> +	[CLKID_PWM_AO_B_SEL]		= &t7_pwm_ao_b_sel.hw,
+> +	[CLKID_PWM_AO_B_DIV]		= &t7_pwm_ao_b_div.hw,
+> +	[CLKID_PWM_AO_B]		= &t7_pwm_ao_b.hw,
+> +	[CLKID_PWM_AO_C_SEL]		= &t7_pwm_ao_c_sel.hw,
+> +	[CLKID_PWM_AO_C_DIV]		= &t7_pwm_ao_c_div.hw,
+> +	[CLKID_PWM_AO_C]		= &t7_pwm_ao_c.hw,
+> +	[CLKID_PWM_AO_D_SEL]		= &t7_pwm_ao_d_sel.hw,
+> +	[CLKID_PWM_AO_D_DIV]		= &t7_pwm_ao_d_div.hw,
+> +	[CLKID_PWM_AO_D]		= &t7_pwm_ao_d.hw,
+> +	[CLKID_PWM_AO_E_SEL]		= &t7_pwm_ao_e_sel.hw,
+> +	[CLKID_PWM_AO_E_DIV]		= &t7_pwm_ao_e_div.hw,
+> +	[CLKID_PWM_AO_E]		= &t7_pwm_ao_e.hw,
+> +	[CLKID_PWM_AO_F_SEL]		= &t7_pwm_ao_f_sel.hw,
+> +	[CLKID_PWM_AO_F_DIV]		= &t7_pwm_ao_f_div.hw,
+> +	[CLKID_PWM_AO_F]		= &t7_pwm_ao_f.hw,
+> +	[CLKID_PWM_AO_G_SEL]		= &t7_pwm_ao_g_sel.hw,
+> +	[CLKID_PWM_AO_G_DIV]		= &t7_pwm_ao_g_div.hw,
+> +	[CLKID_PWM_AO_G]		= &t7_pwm_ao_g.hw,
+> +	[CLKID_PWM_AO_H_SEL]		= &t7_pwm_ao_h_sel.hw,
+> +	[CLKID_PWM_AO_H_DIV]		= &t7_pwm_ao_h_div.hw,
+> +	[CLKID_PWM_AO_H]		= &t7_pwm_ao_h.hw,
+> +	[CLKID_SYS_DDR]			= &t7_sys_ddr.hw,
+> +	[CLKID_SYS_DOS]			= &t7_sys_dos.hw,
+> +	[CLKID_SYS_MIPI_DSI_A]		= &t7_sys_mipi_dsi_a.hw,
+> +	[CLKID_SYS_MIPI_DSI_B]		= &t7_sys_mipi_dsi_b.hw,
+> +	[CLKID_SYS_ETHPHY]		= &t7_sys_ethphy.hw,
+> +	[CLKID_SYS_MALI]		= &t7_sys_mali.hw,
+> +	[CLKID_SYS_AOCPU]		= &t7_sys_aocpu.hw,
+> +	[CLKID_SYS_AUCPU]		= &t7_sys_aucpu.hw,
+> +	[CLKID_SYS_CEC]			= &t7_sys_cec.hw,
+> +	[CLKID_SYS_GDC]			= &t7_sys_gdc.hw,
+> +	[CLKID_SYS_DESWARP]		= &t7_sys_deswarp.hw,
+> +	[CLKID_SYS_AMPIPE_NAND]		= &t7_sys_ampipe_nand.hw,
+> +	[CLKID_SYS_AMPIPE_ETH]		= &t7_sys_ampipe_eth.hw,
+> +	[CLKID_SYS_AM2AXI0]		= &t7_sys_am2axi0.hw,
+> +	[CLKID_SYS_AM2AXI1]		= &t7_sys_am2axi1.hw,
+> +	[CLKID_SYS_AM2AXI2]		= &t7_sys_am2axi2.hw,
+> +	[CLKID_SYS_SD_EMMC_A]		= &t7_sys_sd_emmc_a.hw,
+> +	[CLKID_SYS_SD_EMMC_B]		= &t7_sys_sd_emmc_b.hw,
+> +	[CLKID_SYS_SD_EMMC_C]		= &t7_sys_sd_emmc_c.hw,
+> +	[CLKID_SYS_SMARTCARD]		= &t7_sys_smartcard.hw,
+> +	[CLKID_SYS_ACODEC]		= &t7_sys_acodec.hw,
+> +	[CLKID_SYS_SPIFC]		= &t7_sys_spifc.hw,
+> +	[CLKID_SYS_MSR_CLK]		= &t7_sys_msr_clk.hw,
+> +	[CLKID_SYS_IR_CTRL]		= &t7_sys_ir_ctrl.hw,
+> +	[CLKID_SYS_AUDIO]		= &t7_sys_audio.hw,
+> +	[CLKID_SYS_ETH]			= &t7_sys_eth.hw,
+> +	[CLKID_SYS_UART_A]		= &t7_sys_uart_a.hw,
+> +	[CLKID_SYS_UART_B]		= &t7_sys_uart_b.hw,
+> +	[CLKID_SYS_UART_C]		= &t7_sys_uart_c.hw,
+> +	[CLKID_SYS_UART_D]		= &t7_sys_uart_d.hw,
+> +	[CLKID_SYS_UART_E]		= &t7_sys_uart_e.hw,
+> +	[CLKID_SYS_UART_F]		= &t7_sys_uart_f.hw,
+> +	[CLKID_SYS_AIFIFO]		= &t7_sys_aififo.hw,
+> +	[CLKID_SYS_SPICC2]		= &t7_sys_spicc2.hw,
+> +	[CLKID_SYS_SPICC3]		= &t7_sys_spicc3.hw,
+> +	[CLKID_SYS_SPICC4]		= &t7_sys_spicc4.hw,
+> +	[CLKID_SYS_TS_A73]		= &t7_sys_ts_a73.hw,
+> +	[CLKID_SYS_TS_A53]		= &t7_sys_ts_a53.hw,
+> +	[CLKID_SYS_SPICC5]		= &t7_sys_spicc5.hw,
+> +	[CLKID_SYS_G2D]			= &t7_sys_g2d.hw,
+> +	[CLKID_SYS_SPICC0]		= &t7_sys_spicc0.hw,
+> +	[CLKID_SYS_SPICC1]		= &t7_sys_spicc1.hw,
+> +	[CLKID_SYS_PCIE]		= &t7_sys_pcie.hw,
+> +	[CLKID_SYS_USB]			= &t7_sys_usb.hw,
+> +	[CLKID_SYS_PCIE_PHY]		= &t7_sys_pcie_phy.hw,
+> +	[CLKID_SYS_I2C_AO_A]		= &t7_sys_i2c_ao_a.hw,
+> +	[CLKID_SYS_I2C_AO_B]		= &t7_sys_i2c_ao_b.hw,
+> +	[CLKID_SYS_I2C_M_A]		= &t7_sys_i2c_m_a.hw,
+> +	[CLKID_SYS_I2C_M_B]		= &t7_sys_i2c_m_b.hw,
+> +	[CLKID_SYS_I2C_M_C]		= &t7_sys_i2c_m_c.hw,
+> +	[CLKID_SYS_I2C_M_D]		= &t7_sys_i2c_m_d.hw,
+> +	[CLKID_SYS_I2C_M_E]		= &t7_sys_i2c_m_e.hw,
+> +	[CLKID_SYS_I2C_M_F]		= &t7_sys_i2c_m_f.hw,
+> +	[CLKID_SYS_HDMITX_APB]		= &t7_sys_hdmitx_apb.hw,
+> +	[CLKID_SYS_I2C_S_A]		= &t7_sys_i2c_s_a.hw,
+> +	[CLKID_SYS_HDMIRX_PCLK]		= &t7_sys_hdmirx_pclk.hw,
+> +	[CLKID_SYS_MMC_APB]		= &t7_sys_mmc_apb.hw,
+> +	[CLKID_SYS_MIPI_ISP_PCLK]	= &t7_sys_mipi_isp_pclk.hw,
+> +	[CLKID_SYS_RSA]			= &t7_sys_rsa.hw,
+> +	[CLKID_SYS_PCLK_SYS_APB]	= &t7_sys_pclk_sys_apb.hw,
+> +	[CLKID_SYS_A73PCLK_APB]		= &t7_sys_a73pclk_apb.hw,
+> +	[CLKID_SYS_DSPA]		= &t7_sys_dspa.hw,
+> +	[CLKID_SYS_DSPB]		= &t7_sys_dspb.hw,
+> +	[CLKID_SYS_VPU_INTR]		= &t7_sys_vpu_intr.hw,
+> +	[CLKID_SYS_SAR_ADC]		= &t7_sys_sar_adc.hw,
+> +	[CLKID_SYS_GIC]			= &t7_sys_gic.hw,
+> +	[CLKID_SYS_TS_GPU]		= &t7_sys_ts_gpu.hw,
+> +	[CLKID_SYS_TS_NNA]		= &t7_sys_ts_nna.hw,
+> +	[CLKID_SYS_TS_VPU]		= &t7_sys_ts_vpu.hw,
+> +	[CLKID_SYS_TS_HEVC]		= &t7_sys_ts_hevc.hw,
+> +	[CLKID_SYS_PWM_AO_AB]		= &t7_sys_pwm_ao_ab.hw,
+> +	[CLKID_SYS_PWM_AO_CD]		= &t7_sys_pwm_ao_cd.hw,
+> +	[CLKID_SYS_PWM_AO_EF]		= &t7_sys_pwm_ao_ef.hw,
+> +	[CLKID_SYS_PWM_AO_GH]		= &t7_sys_pwm_ao_gh.hw,
+> +	[CLKID_SYS_PWM_AB]		= &t7_sys_pwm_ab.hw,
+> +	[CLKID_SYS_PWM_CD]		= &t7_sys_pwm_cd.hw,
+> +	[CLKID_SYS_PWM_EF]		= &t7_sys_pwm_ef.hw,
+> +};
+> +
+> +static const struct meson_clkc_data t7_peripherals_data = {
+> +	.hw_clks = {
+> +		.hws = t7_peripherals_hw_clks,
+> +		.num = ARRAY_SIZE(t7_peripherals_hw_clks),
+> +	},
+> +};
+> +
+> +static const struct of_device_id t7_peripherals_clkc_match_table[] = {
+> +	{ .compatible = "amlogic,t7-peripherals-clkc", .data = &t7_peripherals_data },
+
+Nitpick again, please use multiline format when it is long like that.
+
+> +	{}
+> +};
+> +MODULE_DEVICE_TABLE(of, t7_peripherals_clkc_match_table);
+> +
+> +static struct platform_driver t7_peripherals_clkc_driver = {
+> +	.probe = meson_clkc_mmio_probe,
+> +	.driver = {
+> +		.name = "t7-peripherals-clkc",
+> +		.of_match_table = t7_peripherals_clkc_match_table,
+> +	},
+> +};
+> +module_platform_driver(t7_peripherals_clkc_driver);
+> +
+> +MODULE_DESCRIPTION("Amlogic T7 Peripherals Clock Controller driver");
+> +MODULE_AUTHOR("Jian Hu <jian.hu@amlogic.com>");
+> +MODULE_LICENSE("GPL");
+> +MODULE_IMPORT_NS("CLK_MESON");
 
 -- 
-Mike Leach
-Principal Engineer, ARM Ltd.
-Manchester Design Centre. UK
+Jerome
 
