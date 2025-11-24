@@ -4,56 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80605CFD313
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 16:35:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 689FECFD318
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 16:35:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uZ9EHjTIO0Z7Xhk3cUhW/piM3vYynY3HcSsvQe8IgaI=; b=h+oTxMkLmvdd3PoD96oChd0SCL
-	HdiB2vaTEYRyWklElGHWM61Mm0DSbkDp/mfcKMBpkE8HOJ0XdiiTjfIrjrXjtIUNzSpJXRVXaXGEt
-	g7Jlo2ngsk3mrxno+/OVSeOnCNHmeyz/PsSE6LOcEFJjxTkM348LjQxr0rseHNm5HwXXTojGrPI5L
-	W7sjaMfDx6gaZMyxe7Xd649YGJCJCgnk3OP46vLBZHND3aau7zQDBlLsQJBoy4EWPnyXP3f/XNE/v
-	VEBKvLtYilri8ky0Rmm2H5KCIdHvvmLXUXinnj3BS+y0xlV7uesyISXilhqnP7pNR+Mk037oP7KgT
-	FiPTeo+A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=miaYyJ0TuFkZVArno8w28NueGxVTnuS3MUsKhQyI8tE=; b=DrS+hJQZ42G5zmdKvs+9VSlIsh
+	SWPMhQ0fiXitZGR3aQ6Oqr5HFnPySrXfO/CQGGjdKBD+zlXdIMG3XDWep8Ga1WRr9PcXQdERehewP
+	wy18cTWJMPU9vkkEhQ62k6JHc8eO3DWDLtCEUy7rLX5doNSUuk0aUL5Xbr6flbJG9Ntr/Nl7fKEmm
+	dcWORhZLHcxXRYopfbaVkFanItSw+emiLofLSNbZ1dilx+4Mc4gPxjTlpIVh3B6E9X3hGmDGcdNdI
+	QTPf452SU4VjCyak2rxEBvZMMrM+THGqxJTtppzD+A3JPmSsBfstmAk+5kOydBeLy8LhN5CzsR73I
+	rFFAL2hQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNZXI-0000000C0H3-35x1;
-	Mon, 24 Nov 2025 16:35:32 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNZXH-0000000C0Gk-1Ucf
+	id 1vNZXX-0000000C0Iq-07LK;
+	Mon, 24 Nov 2025 16:35:47 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vNZXU-0000000C0IF-1E7V
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Nov 2025 16:35:32 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9D21A40350;
-	Mon, 24 Nov 2025 16:35:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 272AAC4CEF1;
-	Mon, 24 Nov 2025 16:35:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1764002130;
-	bh=EmC+AiSYeGSl26uiPMPxIiViCHrRPLaCMJy21dp/1+c=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=PVKCqp02shsMvbhfhXLoN/SSZJyx5bau9gzvk7pH7rXp9XMhT+ODgjdwv8TMTcpTE
-	 2ov56RdfUjTzQK1ehzb4VWiFtfYD3XHvg7mRne61a8sm86OV06Yp7G4u2ifVz1lAje
-	 0hDu20pwMyMKgC3uqgUuO9PqR/zkfvPdWyMiFMdI=
-Date: Mon, 24 Nov 2025 17:34:57 +0100
-From: Greg KH <gregkh@linuxfoundation.org>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [GIT PULL] coresight: Updates for Linux v6.19
-Message-ID: <2025112442-shiny-neutron-28ab@gregkh>
-References: <20251124053342.1082606-1-suzuki.poulose@arm.com>
+	Mon, 24 Nov 2025 16:35:45 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 37CB01477;
+	Mon, 24 Nov 2025 08:35:34 -0800 (PST)
+Received: from [10.1.30.67] (unknown [10.1.30.67])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CE52F3F86F;
+	Mon, 24 Nov 2025 08:35:40 -0800 (PST)
+Message-ID: <f06636ed-c96f-4504-9706-9274cfd0c15b@arm.com>
+Date: Mon, 24 Nov 2025 16:35:39 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251124053342.1082606-1-suzuki.poulose@arm.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: dts: morello: Add CMN PMU
+From: Robin Murphy <robin.murphy@arm.com>
+To: vincenzo.frascino@arm.com, liviu.dudau@arm.com, sudeep.holla@arm.com,
+ lpieralisi@kernel.org
+Cc: linux-arm-kernel@lists.infradead.org
+References: <cbeb3832ded539c8c4616d49d3133078a34f88ad.1748350539.git.robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <cbeb3832ded539c8c4616d49d3133078a34f88ad.1748350539.git.robin.murphy@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251124_083531_435714_D7460A23 
-X-CRM114-Status: UNSURE (   9.50  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251124_083544_382072_09D34A27 
+X-CRM114-Status: GOOD (  13.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,26 +64,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 24, 2025 at 05:33:42AM +0000, Suzuki K Poulose wrote:
-> Hi Greg,
-> 
-> Please find the coresight self hosted tracing subsystem updates targeting v6.19.
-> 
-> Kindly pull,
-> 
-> Suzuki
-> 
-> 
-> 
-> The following changes since commit dcb6fa37fd7bc9c3d2b066329b0d27dedf8becaa:
-> 
->   Linux 6.18-rc3 (2025-10-26 15:59:49 -0700)
-> 
-> are available in the Git repository at:
-> 
->   git://git.kernel.org/pub/scm/linux/kernel/git/coresight/linux.git tags/coresight-next-v6.19
+[ Trying to catch up with loose ends... ]
 
-Pulled and pushed out, thanks.
+On 2025-05-27 1:55 pm, Robin Murphy wrote:
+> Although CMN-Skeena is mildly modified for the Morello hardware
+> architecture, it still identifies itself as CMN-600 r3p1. Since
+> there are also no documented changes to its PMU functionality,
+> we can make the PMU accessible via the standard CMN-600 binding.
+> In general, PMU registers are non-functional on CMN Fast Models,
+> so this is only meaningful for the real SDP hardware.
 
-greg k-h
+Vincenzo, Sudeep, any opinion on this? I believe it was considered 
+useful by at least the one person who asked me about it :)
+
+Thanks,
+Robin.
+
+> 
+> Signed-off-by: Robin Murphy <robin.murphy@arm.com>
+> ---
+>   arch/arm64/boot/dts/arm/morello-sdp.dts | 7 +++++++
+>   1 file changed, 7 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/arm/morello-sdp.dts b/arch/arm64/boot/dts/arm/morello-sdp.dts
+> index cee49dee7571..42c85f450fa9 100644
+> --- a/arch/arm64/boot/dts/arm/morello-sdp.dts
+> +++ b/arch/arm64/boot/dts/arm/morello-sdp.dts
+> @@ -108,6 +108,13 @@ smmu_pcie: iommu@4f400000 {
+>   		dma-coherent;
+>   	};
+>   
+> +	pmu@50000000 {
+> +		compatible = "arm,cmn-600";
+> +		reg = <0x0 0x50000000 0x0 0x4000000>;
+> +		interrupts = <GIC_SPI 46 IRQ_TYPE_LEVEL_HIGH>;
+> +		arm,root-node = <0x804000>;
+> +	};
+> +
+>   	pcie_ctlr: pcie@28c0000000 {
+>   		device_type = "pci";
+>   		compatible = "pci-host-ecam-generic";
+
 
