@@ -4,62 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B254ACFD34E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 19:10:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CC64CFD348
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 19:11:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=J5k+QlHwI7+Y2+rSOknCwTrjavJFEEoZVz/kq+73SRA=; b=pW9DkHogCYWx4tKGB/VTgtP/VF
-	eY1bLpe1sjWlHVbTLU3a7INwfeAdKRelZpO0A54se68mQJi3eueYwcjdvasac1a9dhh3Rw6wl9csM
-	RZtzxG/NNfWx7f02Nnm656EazTsZbN7vwoWxHtk7u/9mcio2Xznfdomejo2W3XTBUfA13PqCkG57E
-	4WTm3AY3Pg78ivaAigNh6J84AL2e2sP0HfWpKTPgHMJLqImfzr7Wk5BLEApiDhNi6jpgOkCkxtvyf
-	FodbjvIsd3b7qiip0b0SDpr+ofaE0W8xrYoQeB316zGlDX4vbi9aQiykkwG6JtcemMh/1f++I2b19
-	+vJkZ4AA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=SRh80JRPdtQFZsVwmVzBJkwgQWYPU8Gma6w5B4XhKxI=; b=owgUWvsnN/2H4e2lwwvZifrZmB
+	WcffSfsJahqW/gpAJ3NhLfX6tRwVXvZGJQe0sBxDkjP1C6iC6zKentVG1fszvrmYiaJxJdGRraVdR
+	T0L/Hh3Ecl+PlJc0hIDe49AjbYsHOFYhud318ksLAweOhEa/q0+ghg8+gph+l3S0vAvbb08Kz0iN6
+	OvxE95j/oD9U7YLfhQzX5y/jRfj3X4ZPlesHo3+IcNBp3gQYlX/xLond42EygRTw+TaZZzJ80JPdF
+	LAhusOBHbFMYung3k6zTl2R7MCugAHO2aY2s5FXzz3HIGHMX4lm8Lf6CbNKYsrcVHeezqAdsuLLt+
+	gTIiBJUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNbxH-0000000CDke-3Oyd;
-	Mon, 24 Nov 2025 19:10:31 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vNby5-0000000CDt2-2nzc;
+	Mon, 24 Nov 2025 19:11:21 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNbxF-0000000CDkV-3FmO
+	id 1vNby3-0000000CDsM-2CHu
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Nov 2025 19:10:29 +0000
+	Mon, 24 Nov 2025 19:11:20 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E9AED60122;
-	Mon, 24 Nov 2025 19:10:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EA665C4CEF1;
-	Mon, 24 Nov 2025 19:10:26 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 7ABB24032A;
+	Mon, 24 Nov 2025 19:11:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 13B88C4CEF1;
+	Mon, 24 Nov 2025 19:11:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764011428;
-	bh=JPqHRqXoVR3BFq0YCOeqZBWcEnjcQXFhJQoaGkZKN9o=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=YjcORZUHd3J4egMs+Z1WXfvFQO5wqEjUs0zUBCntkEsRsSx59bFpjToqOj6DG6WF4
-	 7fpI/CLYrNjZn33PpLMajFtYeqFubLsTCV3VXAtYWNmBJ2gtx4HeunMHC+QkVD2jRX
-	 Lcph2BMki+0UQ3IOBjkn/yIzhJ/xACsHr49h3j3HcoPIGUVSpQi0D6K7gD/0z2cEap
-	 /i6s/IQzvBtM0aj9R9dtXKOCM6j95PirY2lJsCS/6Exsib+sf8CEwaYVotgliJYtFh
-	 5i9909+josZ12x1POdHWTPH3yDMpzWVMfWavoTSBH/4wMtW1VZpvYqo3LuOMQUmYQ+
-	 f3OhxyghRCRCg==
-Date: Mon, 24 Nov 2025 19:10:23 +0000
-From: Will Deacon <will@kernel.org>
-To: Ryan Roberts <ryan.roberts@arm.com>
-Cc: Dev Jain <dev.jain@arm.com>, catalin.marinas@arm.com, rppt@kernel.org,
-	shijie@os.amperecomputing.com, yang@os.amperecomputing.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/2] arm64/pageattr: Propagate return value from
- __change_memory_common
-Message-ID: <aSStn55E-omGunwA@willie-the-truck>
-References: <20251112062716.64801-1-dev.jain@arm.com>
- <20251112062716.64801-2-dev.jain@arm.com>
- <6bc0fac0-3c00-4ecf-948e-5648584ec939@arm.com>
- <aSR1mn8jjzty5J9F@willie-the-truck>
- <fa1def37-b5c6-4652-890d-cae9ab45f82d@arm.com>
+	s=k20201202; t=1764011478;
+	bh=O3EyU3E5bo9vSzH59x8bJJr1BEBx3anTP1amwii3DyI=;
+	h=From:Date:Subject:To:Cc:From;
+	b=QG8mRcC579NKEbAZxe3afv0EhlOFaXQB4THuLOwr+uDjWlasFCKCWFKRoLxmEvVLu
+	 oc7bqMqxhOlj4Q3GiPBIsYhnJI8XB1O5NbsjCGIQeIWMFSJx0asHIS0SDOGiEbdiJK
+	 Or1vEf+RbdI6b1nMW6EOs7xVaNg2LKFksR7LUPIRT1HTD3ncTlXNRu4nz0wJT5fVN5
+	 mRkzdoSwO0+eRde2lFv4VYSP9D6rbcgqcX18W2eKP1hCQPZICuA4l6Qy5ImX2bhXW+
+	 L63bVsvoS9DbbuPgbAhi3mIfLQryJQNQuojFrl/zh/Wl2uaxVpKfSXEQ6Zs+JjZZ8U
+	 MT6TZiKzY7fZA==
+From: Nathan Chancellor <nathan@kernel.org>
+Date: Mon, 24 Nov 2025 12:11:06 -0700
+Subject: [PATCH] clk: samsung: exynos-clkout: Assign .num before accessing
+ .hws
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <fa1def37-b5c6-4652-890d-cae9ab45f82d@arm.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20251124-exynos-clkout-fix-ubsan-bounds-error-v1-1-224a5282514b@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAMqtJGkC/yXN0QrCMAyF4VcZuTawdo6qryJerF3UqDSSrDIZe
+ 3erXn5w+M8CRspkcGgWUHqxseQKt2kgXYd8IeSxGnzre+f8Fml+ZzFMj7uUCc88Y4k2ZIxS8mh
+ IqqK479rgutBTCjuoqadSXf5ujqe/rcQbpenbhnX9AEXISzGIAAAA
+X-Change-ID: 20251124-exynos-clkout-fix-ubsan-bounds-error-93071375ec78
+To: Krzysztof Kozlowski <krzk@kernel.org>, 
+ Sylwester Nawrocki <s.nawrocki@samsung.com>, 
+ Chanwoo Choi <cw00.choi@samsung.com>, Alim Akhtar <alim.akhtar@samsung.com>, 
+ Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Kees Cook <kees@kernel.org>, 
+ "Gustavo A. R. Silva" <gustavoars@kernel.org>
+Cc: Salvatore Bonaccorso <carnil@debian.org>, 
+ linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-hardening@vger.kernel.org, stable@vger.kernel.org, 
+ Jochen Sprickerhof <jochen@sprickerhof.de>, 
+ Nathan Chancellor <nathan@kernel.org>
+X-Mailer: b4 0.15-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2434; i=nathan@kernel.org;
+ h=from:subject:message-id; bh=O3EyU3E5bo9vSzH59x8bJJr1BEBx3anTP1amwii3DyI=;
+ b=owGbwMvMwCUmm602sfCA1DTG02pJDJkqay9VW7gv2v0sLjfCWjXnqNZ295dH9dZ9mhenlPQoS
+ D24NZy9o5SFQYyLQVZMkaX6sepxQ8M5ZxlvnJoEM4eVCWQIAxenAExk0UuG/3m2W2MLXBl9HBy2
+ t4lO3vphj5PbJJUPVlv+v+tc2yr5NYThn81vm4jAieJnbeLFI/i1Jv/yF6u/L5m3Sobv0+UrEz5
+ f4gcA
+X-Developer-Key: i=nathan@kernel.org; a=openpgp;
+ fpr=2437CB76E544CB6AB3D9DFD399739260CB6CB716
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251124_111119_606386_332EDE95 
+X-CRM114-Status: GOOD (  13.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,59 +92,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 24, 2025 at 06:09:31PM +0000, Ryan Roberts wrote:
-> On 24/11/2025 15:11, Will Deacon wrote:
-> > On Thu, Nov 13, 2025 at 11:55:48AM +0000, Ryan Roberts wrote:
-> >> On 12/11/2025 06:27, Dev Jain wrote:
-> >>> The rodata=on security measure requires that any code path which does
-> >>> vmalloc -> set_memory_ro/set_memory_rox must protect the linear map alias
-> >>> too. Therefore, if such a call fails, we must abort set_memory_* and caller
-> >>> must take appropriate action; currently we are suppressing the error, and
-> >>> there is a real chance of such an error arising post commit a166563e7ec3
-> >>> ("arm64: mm: support large block mapping when rodata=full"). Therefore,
-> >>> propagate any error to the caller.
-> >>>
-> >>> Fixes: a166563e7ec3 ("arm64: mm: support large block mapping when rodata=full")
-> >>> Signed-off-by: Dev Jain <dev.jain@arm.com>
-> >>
-> >> Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
-> >>
-> >> It would be good to get this into v6.18 I guess?
-> > 
-> > I'm not sure I see the urgency. When the commit message says:
-> > 
-> >   "there is a real chance of such an error arising post commit a166563e7ec3"
-> > 
-> > afaict that's either due to -ENOMEM 
-> 
-> Yes this is the main risk; failing to allocate an intermediate page table during
-> split_kernel_leaf_mapping(). I have no idea how likely that is in production.
-> The only data point I have is that for the theoretical memory hotplug -ENOMEM
-> that Chaitanya and Linu fixed recently, we tried to provoke it by hotplugging a
-> lot of memory on a system under high memory pressure; no matter what we did, we
-> couldn't get that 4K pgtable allocation to fail. So on that basis, I think we
-> are unlikely to see it.
-> 
-> > or some hideous issue with the
-> > page-tables (e.g. the -EINVALs in pageattr_pXd_entry() seem completely
-> > unnecessary to me).
-> 
-> I thought the -EINVALs were trying to catch the case where someone tries to set
-> permissions on a sub-portion of a vmalloc_huge() area on a system that doesn't
-> support BBML2_NOABORT. But looking again, we already refuse vmalloc_huge in
-> change_memory_common.
-> 
-> > 
-> > Do you think failure is actually likely and recoverable?
-> 
-> As above, I think failure is unlikely, but not impossible. I guess the result
-> would be memory that remains RW when it should have been set RO or RX. But I
-> think it will all work itself out at vfree. I think.
-> 
-> We can defer this to next cycle if you prefer.
+Commit f316cdff8d67 ("clk: Annotate struct clk_hw_onecell_data with
+__counted_by") annotated the hws member of 'struct clk_hw_onecell_data'
+with __counted_by, which informs the bounds sanitizer (UBSAN_BOUNDS)
+about the number of elements in .hws[], so that it can warn when .hws[]
+is accessed out of bounds. As noted in that change, the __counted_by
+member must be initialized with the number of elements before the first
+array access happens, otherwise there will be a warning from each access
+prior to the initialization because the number of elements is zero. This
+occurs in exynos_clkout_probe() due to .num being assigned after .hws[]
+has been accessed:
 
-Yeah, I think we have bigger problems if we can't find memory to allocate
-page tables tbh.
+  UBSAN: array-index-out-of-bounds in drivers/clk/samsung/clk-exynos-clkout.c:178:18
+  index 0 is out of range for type 'clk_hw *[*]'
 
-Will
+Move the .num initialization to before the first access of .hws[],
+clearing up the warning.
+
+Cc: stable@vger.kernel.org
+Fixes: f316cdff8d67 ("clk: Annotate struct clk_hw_onecell_data with __counted_by")
+Reported-by: Jochen Sprickerhof <jochen@sprickerhof.de>
+Closes: https://lore.kernel.org/aSIYDN5eyKFKoXKL@eldamar.lan/
+Tested-by: Jochen Sprickerhof <jochen@sprickerhof.de>
+Signed-off-by: Nathan Chancellor <nathan@kernel.org>
+---
+ drivers/clk/samsung/clk-exynos-clkout.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/drivers/clk/samsung/clk-exynos-clkout.c b/drivers/clk/samsung/clk-exynos-clkout.c
+index 5f1a4f5e2e59..5b21025338bd 100644
+--- a/drivers/clk/samsung/clk-exynos-clkout.c
++++ b/drivers/clk/samsung/clk-exynos-clkout.c
+@@ -175,6 +175,7 @@ static int exynos_clkout_probe(struct platform_device *pdev)
+ 	clkout->mux.shift = EXYNOS_CLKOUT_MUX_SHIFT;
+ 	clkout->mux.lock = &clkout->slock;
+ 
++	clkout->data.num = EXYNOS_CLKOUT_NR_CLKS;
+ 	clkout->data.hws[0] = clk_hw_register_composite(NULL, "clkout",
+ 				parent_names, parent_count, &clkout->mux.hw,
+ 				&clk_mux_ops, NULL, NULL, &clkout->gate.hw,
+@@ -185,7 +186,6 @@ static int exynos_clkout_probe(struct platform_device *pdev)
+ 		goto err_unmap;
+ 	}
+ 
+-	clkout->data.num = EXYNOS_CLKOUT_NR_CLKS;
+ 	ret = of_clk_add_hw_provider(clkout->np, of_clk_hw_onecell_get, &clkout->data);
+ 	if (ret)
+ 		goto err_clk_unreg;
+
+---
+base-commit: b6430552c8cd95e90bb842ce2f421e7a5381859f
+change-id: 20251124-exynos-clkout-fix-ubsan-bounds-error-93071375ec78
+
+Best regards,
+--  
+Nathan Chancellor <nathan@kernel.org>
+
 
