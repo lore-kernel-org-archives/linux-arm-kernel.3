@@ -4,77 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDFB0CFD313
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 00:12:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05735CFD313
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 00:39:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ohnzunvjhvNnTppiVCgBsgUR2en+eAVCVa28UhIykNY=; b=Gxe0W/CymzwZXCn/B7pIGjqF9J
-	2TzUomNtLY9ahmEi1FAe+XpYu5oGDFCymo0l5aJeVSDsKvdKFwxCzzPiQsXWPw+rdocLacTADgqnR
-	bo4JyGEo4nIwINlEuoUVRF7ek2+5623/veO3pvYj0Wp8cKY5Jl6kZkmlYXQQC8xcLv1yjt5hMuJsx
-	+As00F2ew6RRON65soOeThy+/rRbBPzrkEhFlahjU++0i+WmHBvgfvaRF9cOpKaBQOiBlc4C02r05
-	Jam4FGq6E21qtqCrih3/wjAE+I99ebBE+YOsoFU1Qddmj9c6H63p830fT2cTPYLxTsr1l3R+Minsv
-	0NVo/BZw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=sp1w+eZZjEhgXtL1xF4e8qR3Rt0nm3rPRScz7bL5s2w=; b=RILfqZ+2UbyDK4zdNZt+ujXNA+
+	ztsxIQqSGULg8sFdr2Cuav1TT52918HogYVZKJpB8x1sMmCvJwhLToUqt2rNtb5y809eKKJVZKkj9
+	R4W9qIutXZ5QWghmlgH9HbX2BMpci+nXjpqMJS5Q0aSc7VSxAlN98wHS7Ru+Qoei59xDn8AfVick0
+	dOy1LZfpPuZjjf3FWWeE3MGA6IZeXJTUgGwC6w4zFKcDENenRjlFpeOGsRUPgMBqeefFbu2hiuDHS
+	owv+KICOnjEt6ETu1rbnWzzf83BpNiJC9fXgvcwNmrhIYT1Sy4h/8fQrCtAYDmi/T/9PmUZxsz3f2
+	5vUhPuaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNKCD-0000000ApCF-19km;
-	Mon, 24 Nov 2025 00:12:45 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1vNKbe-0000000AqxE-3H5t;
+	Mon, 24 Nov 2025 00:39:02 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNKCB-0000000ApBR-0a5m
+	id 1vNKbd-0000000Aqww-1395
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Nov 2025 00:12:44 +0000
-Received: from pendragon.ideasonboard.com (unknown [210.170.118.136])
-	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 8C7B529A;
-	Mon, 24 Nov 2025 01:10:31 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1763943032;
-	bh=vJG0Qwix1POvTb+AAFX2RrWo0EkB/Z4JteoPIsJvwak=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=hlx0NMTRjzGRyawi2kfkQgIDGesb8d1mI6aGmAWZuzqd4MDMft+ZXjZeJ6DA3TC9j
-	 vdarSP2wQTHIgbBkoX2QOcQde5kLvY2gclcnWQbo0eGjpSi9XizdDG+rFAZprmuVKh
-	 dkzv5wW/f5UeFIE89hMxqmuDlftmor1LozbSZgK8=
-Date: Mon, 24 Nov 2025 09:12:14 +0900
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-Cc: Wei Fang <wei.fang@nxp.com>, Clark Wang <xiaoning.wang@nxp.com>,
-	Oleksij Rempel <o.rempel@pengutronix.de>,
-	Emanuele Ghidoli <ghidoliemanuele@gmail.com>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	Daniel Scally <dan.scally@ideasonboard.com>,
-	Kieran Bingham <kieran.bingham@ideasonboard.com>,
-	Stefan Klug <stefan.klug@ideasonboard.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Fabio Estevam <festevam@gmail.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>
-Subject: Re: [PATCH] arm64: dts: imx8mp-debix-model-a: Disable EEE for 1000T
-Message-ID: <20251124001214.GI15447@pendragon.ideasonboard.com>
-References: <20251113010627.GC9135@pendragon.ideasonboard.com>
- <aRW6CxvmIEqkMrfA@shell.armlinux.org.uk>
- <20251114222654.GI30434@pendragon.ideasonboard.com>
- <PAXPR04MB8510E17B2B8C612DD02175CE88D6A@PAXPR04MB8510.eurprd04.prod.outlook.com>
- <20251122072246.GA16239@pendragon.ideasonboard.com>
- <aSGJHV9Sga2kBIBX@shell.armlinux.org.uk>
- <20251123053802.GA25329@pendragon.ideasonboard.com>
- <aSLLMMNkHnfwyO0y@shell.armlinux.org.uk>
- <20251123152356.GF15447@pendragon.ideasonboard.com>
- <aSNAP9G4cwRKvxng@shell.armlinux.org.uk>
+	Mon, 24 Nov 2025 00:39:01 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id D5DCE60051;
+	Mon, 24 Nov 2025 00:38:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9B998C113D0;
+	Mon, 24 Nov 2025 00:38:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1763944739;
+	bh=ZhoNPDXJHC7TiqZOtG3ztIsi7d4KbS0+5ZUx4cRA0g4=;
+	h=From:To:Cc:Subject:Date:From;
+	b=poPtU+RQO8RjB8GAMlOW7WNtJYy88FQzbJTa8a406xYJnr+5Pg7+01FdDO75ny0Fc
+	 pk/FW2DdD6RwWMEpB/c7Dpbw6CWOQ/EDJE5ByAmyxjN2CcejqDm/Bh13A387bqsdYT
+	 vD7i9x8YVpE+sSge4pyEHfTi28cibFjDS0p6mP7pA3iCpOCaUoR9EkEHpG7OrHZVUj
+	 U4hLU3bA1bPNLD0D9L/8xTU4nXzGnj8S7ckfiTeZoKmht7gwW3aCU0WJPxyw6PwabZ
+	 77Hla0Evtr0vhITWuBYFzM4A9KKbTAketkHaryUAMXHpIFx4PfX3P3H64eXAlECS0O
+	 UO2zJ5Mb4JfIw==
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Doug Berger <opendmb@gmail.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	bcm-kernel-feedback-list@broadcom.com,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Bartosz Golaszewski <brgl@bgdev.pl>,
+	Hoan Tran <hoan@os.amperecomputing.com>,
+	Andy Shevchenko <andy@kernel.org>,
+	Daniel Palmer <daniel@thingy.jp>,
+	Romain Perier <romain.perier@gmail.com>,
+	Grygorii Strashko <grygorii.strashko@ti.com>,
+	Santosh Shilimkar <ssantosh@kernel.org>,
+	Kevin Hilman <khilman@kernel.org>,
+	Robert Jarzmik <robert.jarzmik@free.fr>,
+	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>,
+	Srinivas Neeli <srinivas.neeli@amd.com>,
+	Michal Simek <michal.simek@amd.com>
+Cc: linux-gpio@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-omap@vger.kernel.org
+Subject: [PATCH v5 00/14] gpio: Use modern PM macros
+Date: Mon, 24 Nov 2025 08:20:51 +0800
+Message-ID: <20251124002105.25429-1-jszhang@kernel.org>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <aSNAP9G4cwRKvxng@shell.armlinux.org.uk>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251123_161243_325458_368A4F85 
-X-CRM114-Status: GOOD (  56.38  )
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,139 +85,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Nov 23, 2025 at 05:11:27PM +0000, Russell King (Oracle) wrote:
-> On Mon, Nov 24, 2025 at 12:23:56AM +0900, Laurent Pinchart wrote:
-> > On Sun, Nov 23, 2025 at 08:52:00AM +0000, Russell King (Oracle) wrote:
-> > > On Sun, Nov 23, 2025 at 02:38:02PM +0900, Laurent Pinchart wrote:
-> > > > On Sat, Nov 22, 2025 at 09:57:49AM +0000, Russell King (Oracle) wrote:
-> > > > > On Sat, Nov 22, 2025 at 04:22:46PM +0900, Laurent Pinchart wrote:
-> > > > > > Hello Wei,
-> > > > > > 
-> > > > > > On Tue, Nov 18, 2025 at 01:50:55AM +0000, Wei Fang wrote:
-> > > > > > > Sorry, I only have a little experience with DWMac, add Clark to help look
-> > > > > > > at this issue.
-> > > > > > 
-> > > > > > Thank you.
-> > > > > > 
-> > > > > > I think we're getting close to having a good understanding of the
-> > > > > > problem. I've debugged it as far as I could based on the information
-> > > > > > available publicly. Let's try to get to the bottom of this issue, it
-> > > > > > impacts quite a lot of people and it would be very nice to fix it
-> > > > > > properly in mainline.
-> > > > > > 
-> > > > > > The short summary is that I'm experiencing an interrupt storm on IRQ 135
-> > > > > > when EEE is enabled with the EQOS interface.
-> > > > > > 
-> > > > > > My current theory is that
-> > > > > > 
-> > > > > > - The lpi_intr_o signal of the EQOS is OR'ed into IRQ 135.
-> > > > > > - The issue is triggerted by the PHY exiting LPI mode
-> > > > > > - When it exits LPI mode, the PHY restarts generating the RX clock
-> > > > > >   (clk_rx_i).
-> > > > > > - The MAC detects exit from LPI, and asserts lpi_intr_o.
-> > > > > > - Before the CPU has time to process the interrupt, the PHY enters LPI
-> > > > > >   mode again, and stops generating the RX clock.
-> > > > > > - The CPU processes the interrupt and reads the GMAC4_LPI_CTRL_STATUS
-> > > > > >   registers. This does not clear lpi_intr_o as there's no clk_rx_i.
-> > > > > 
-> > > > > Please try setting STMMAC_FLAG_RX_CLK_RUNS_IN_LPI in dwmac-imx.c and
-> > > > > see whether that changes the behaviour.
-> > > > 
-> > > > I have tested that and it worked like a charm ! I have submitted
-> > > > https://lore.kernel.org/r/20251123053518.8478-1-laurent.pinchart@ideasonboard.com
-> > > > 
-> > > > That was quite an adventure. Thank you so much for all your support, I'm
-> > > > not sure I would have managed without you (or at least I would have
-> > > > needed way more time). I really really appreciate it.
-> > > > 
-> > > > If the above patch gets accepted, we will probably be able to remove the
-> > > > eee-broken-* properties from the i.MX8MP device tree files (and possibly
-> > > > from i.MX8DXL and i.MX93 as well). I have mentioned that below the
-> > > > commit message of the patch, with a test procedure as it should be
-> > > > tested on each board.
-> > > 
-> > > As stated in reply to that patch, while this may reduce the severity of
-> > > the storm, I don't think it'll completely eliminate it.
-> > > 
-> > > I made the suggestion to set the flag as a test to confirm whether the
-> > > lpi_intr_o is indeed the problem by ensuring that the receive domain is
-> > > always clocked, and thus ensuring that the signal clears within four
-> > > clock cycles, rather than an indefinite period should the remote end
-> > > re-enter LPI mode quicky.
-> > 
-> > You're right. I've checked replied to the patch with the following
-> > numbers.
-> > 
-> > 100TX link, eee-broken-* set: 7000 interrupts
-> > 1000T link, eee-broken-* set: 2711 interrupts
-> > 100TX link, eee-broken-* unset: 9450 interrupts
-> > 1000T link, eee-broken-* unset: 6066 interrupts
-> 
-> Sadly, I think this means for iMX8MP, the correct answer is to disable
-> EEE completely. What I was thinking when I brought this up is as follows
-> and dwmac-imx.c can set STMMAC_FLAG_EEE_DISABLE for iMX8MP to prevent
-> the use of EEE.
+Use the modern PM macros for the suspend and resume functions to be
+automatically dropped by the compiler when CONFIG_PM or
+CONFIG_PM_SLEEP are disabled, without having to use #ifdef guards or
+__maybe_unused.
 
-I suppose there's no way to disable EEE in the RX path while keeping it
-enabled in the TX path ?
+This has the advantage of always compiling these functions in,
+independently of any Kconfig option. Thanks to that, bugs and other
+regressions are subsequently easier to catch.
 
-> This works because, in phylink, pl->mac_supports_eee_ops will be set
-> since stmmac implements the two LPI operations. pl->mac_supports_eee
-> will be clear because pl->config->lpi_capabilities will be zero, and
-> pl->config->lpi_interfaces will be empty. This causes phylink to call
-> phy_disable_eee() on all PHYs that end up being attached to this
-> phylink instance, which should result in the PHY EEE advertisement
-> being cleared.
-> 
-> I'll package this up into a proper patch tomorrow.
+Almost all drivers are converted, only gpio-tegra and gpio-mlxbf are
+left as is, because the memory for saving HW context is not trivial,
+if we convert them, then the two drivers' users may complain for
+!CONFIG_PM && !CONFIG_PM_SLEEP case. So I didn't touch them.
 
-Thank you. I can respin my patch on top.
+patch to gpio-dwapb.c is tested on real HW, others are compile-tested only.
 
->  drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 7 ++++++-
->  include/linux/stmmac.h                            | 9 +++++----
->  2 files changed, 11 insertions(+), 5 deletions(-)
-> 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> index 1d37c2b5ad46..113cae2bc593 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> @@ -1376,7 +1376,12 @@ static int stmmac_phylink_setup(struct stmmac_priv *priv)
->  				 config->supported_interfaces,
->  				 pcs->supported_interfaces);
->  
-> -	if (priv->dma_cap.eee) {
-> +	/* Some platforms, e.g. iMX8MP, wire lpi_intr_o to the same interrupt
-> +	 * used for stmmac's main interrupts, which leads to interrupt storms.
-> +	 * STMMAC_FLAG_EEE_DISABLE allows EEE to be disabled on such platforms.
-> +	 */
-> +	if (priv->dma_cap.eee &&
-> +	    !(priv->plat->flags & STMMAC_FLAG_EEE_DISABLE)) {
->  		/* Assume all supported interfaces also support LPI */
->  		memcpy(config->lpi_interfaces, config->supported_interfaces,
->  		       sizeof(config->lpi_interfaces));
-> diff --git a/include/linux/stmmac.h b/include/linux/stmmac.h
-> index 8ae068706b63..4c770262a2f8 100644
-> --- a/include/linux/stmmac.h
-> +++ b/include/linux/stmmac.h
-> @@ -187,10 +187,11 @@ enum dwmac_core_type {
->  #define STMMAC_FLAG_MULTI_MSI_EN		BIT(7)
->  #define STMMAC_FLAG_EXT_SNAPSHOT_EN		BIT(8)
->  #define STMMAC_FLAG_INT_SNAPSHOT_EN		BIT(9)
-> -#define STMMAC_FLAG_RX_CLK_RUNS_IN_LPI		BIT(10)
-> -#define STMMAC_FLAG_EN_TX_LPI_CLOCKGATING	BIT(11)
-> -#define STMMAC_FLAG_EN_TX_LPI_CLK_PHY_CAP	BIT(12)
-> -#define STMMAC_FLAG_HWTSTAMP_CORRECT_LATENCY	BIT(13)
-> +#define STMMAC_FLAG_EEE_DISABLE			BIT(10)
-> +#define STMMAC_FLAG_RX_CLK_RUNS_IN_LPI		BIT(11)
-> +#define STMMAC_FLAG_EN_TX_LPI_CLOCKGATING	BIT(12)
-> +#define STMMAC_FLAG_EN_TX_LPI_CLK_PHY_CAP	BIT(13)
-> +#define STMMAC_FLAG_HWTSTAMP_CORRECT_LATENCY	BIT(14)
->  
->  struct mac_device_info;
->  
+since v4:
+  - collect Reviewed-by tags.
+  - use pm_ptr() instead of pm_sleep_ptr() for gpio-tqmx86 
+  - drop patch5 for gpio-pxa due to maintainer's conern with memory waste
+
+since v3:
+  - fix typos.
+  - fix the stray change in gpio-pxa driver.
+
+since v2:
+  - collect Acked-by, Reviewed-by tags.
+  - move the embeddng the structure for pm in gpio-dwapb out, will send
+    it as a separate patch.
+
+since v1:
+  - rebase on the latest gpio/for-next branch.
+  - collect Acked-by, Reviewed-by tags.
+  - clarify the trival memory wasted numbers with CONFIG_PM=n in the
+    dwapb's patch commit message as suggested by Andy.
+  - drop patch to bt8xxx since the clean up is acchieved when switching
+    to generic PCI pm framework.
+
+
+Jisheng Zhang (14):
+  gpio: dwapb: Use modern PM macros
+  gpio: brcmstb: Use modern PM macros
+  gpio: htc-egpio: Use modern PM macros
+  gpio: pl061: Use modern PM macros
+  gpio: ml-ioh: Use modern PM macros
+  gpio: mlxbf2: Use modern PM macros
+  gpio: msc313: Use modern PM macros
+  gpio: omap: Use modern PM macros
+  gpio: pch: Use modern PM macros
+  gpio: tqmx86: Use modern PM macros
+  gpio: uniphier: Use modern PM macros
+  gpio: xgene: Use modern PM macros
+  gpio: xilinx: Use modern PM macros
+  gpio: zynq: Use modern PM macros
+
+ drivers/gpio/gpio-brcmstb.c   | 12 +++---------
+ drivers/gpio/gpio-dwapb.c     | 18 ++++--------------
+ drivers/gpio/gpio-htc-egpio.c | 21 ++++++++-------------
+ drivers/gpio/gpio-ml-ioh.c    | 12 ++++++------
+ drivers/gpio/gpio-mlxbf2.c    |  8 ++++----
+ drivers/gpio/gpio-msc313.c    |  8 ++++----
+ drivers/gpio/gpio-omap.c      | 15 +++++++--------
+ drivers/gpio/gpio-pch.c       | 12 ++++++------
+ drivers/gpio/gpio-pl061.c     | 17 ++---------------
+ drivers/gpio/gpio-tqmx86.c    |  9 ++++-----
+ drivers/gpio/gpio-uniphier.c  |  9 ++++-----
+ drivers/gpio/gpio-xgene.c     |  8 ++++----
+ drivers/gpio/gpio-xilinx.c    | 15 +++++++--------
+ drivers/gpio/gpio-zynq.c      | 15 +++++++--------
+ 14 files changed, 70 insertions(+), 109 deletions(-)
 
 -- 
-Regards,
+2.51.0
 
-Laurent Pinchart
 
