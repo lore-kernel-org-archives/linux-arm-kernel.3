@@ -4,97 +4,131 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8099FCFD31C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 06:21:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C62ACFA466
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 06:32:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=REZ04im9FdK76DRTIwu+Cc/Q2WxCSUPnF2cnra53O5Y=; b=SAnfzHMUvFpXIPoaYMqaclt3Sq
-	iFLG1fhLB405YnlWz338J4vy/oegJvB5CtgmfVRx+ujYYeSly8G1jhicLTBC34QYSQOAaB2/eUlZh
-	eJZ2tIvSNKHGUMc1RC2BRjBOu7HFJL5e65rqy9pnlqJjgu/IJYaj/FLkG+vVy2soU+ejhaL3IJZYG
-	I99Q52RdDMP4h6fpvXb/oFk0Htoo3JBpVTWb6zi6lnX7rzOZ9j61fbeY/motzu4PgR9ifpFPS+Y31
-	ibV4VKSxKqv5uIJ+BkuenquzJufdS6rOJV872BkKqKkTpLEEzdisSmugCphwVlhqDCB8tcZz3xCS8
-	CrUovTgw==;
+	bh=3VQ5M4Kmtc+TWGoRAwzWfTGma9Dl77J/P9PvcN8pii0=; b=utynIjBWGZjsyhU03C9l5WNsGU
+	5hCHjSWqfxPIeH0zy+qINhJDvrCInEF55WrXLId35x++1l21ffeW/27nbPXbgounF+SO1fjMZJ6G0
+	C/pC+iCYuBYGsEW1yWUlKJ2YT/1dhWVPVcAJ/2h0PQEPwWnFQ1r/t6/ZtYsS7t++58bvj94zjw7mr
+	uSxK1hXyNGRPyvbGUq1TNKfsJE3UISwpqaYMFAkCtri9DD6wIEu80wvI3mnL1SQ390hzRxx4jnFhI
+	xvPQdR/wjINxi3Q+yN43vcgeS+W5wP0wOiHMz/zyaHCftJxQYqKUhLMn0mStdNDmDoN7oZjtsxUSO
+	lj/cCtgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNPwU-0000000B8sF-2sQk;
-	Mon, 24 Nov 2025 06:20:55 +0000
-Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
+	id 1vNQ84-0000000BAUM-2AOt;
+	Mon, 24 Nov 2025 06:32:52 +0000
+Received: from mail-japaneastazon11023104.outbound.protection.outlook.com ([52.101.127.104] helo=TYDPR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNPwR-0000000B8rq-2dIh
+	id 1vNQ81-0000000BASb-1mYI
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Nov 2025 06:20:52 +0000
-Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-4779a637712so23076285e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 23 Nov 2025 22:20:50 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1763965249; x=1764570049; darn=lists.infradead.org;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=REZ04im9FdK76DRTIwu+Cc/Q2WxCSUPnF2cnra53O5Y=;
-        b=haDiSUQTieBXr0Iw98SDFJcrG4RlwBwZyoOdR3ODjK7TnzVe2f5mtmlPOgXVKpD3FS
-         CGd3NmKlUkPAQ6rqhuiYnMCslqa3ES548oJZmPWeIq8hM7drmjlpYMv4ucvuazUuQxV0
-         tBkXJ+HZykmuZzKw+qGdujGcNKmrEzcSewIjMegbLnC6SSbqFLK5lBSKEhQwsso/vQOz
-         dmJEE05WyEe7R/t6Hl9N6JsYpC6vo72QT8pneogdwqbZPRXwPLc6l9Jk+jC+C+Glo0Ib
-         ww62dD7+EQBm8+WNkBUHtmZFRz1rbOASGLC/ngVfOg+JdbuzEktRIDQdVUbwAbsEEnXo
-         785w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763965249; x=1764570049;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=REZ04im9FdK76DRTIwu+Cc/Q2WxCSUPnF2cnra53O5Y=;
-        b=a6+/nTV7jhIqN9qd2AG/EKfkDbLf4LfoTj48Pa1Ewg7tsWou1DxjSJYGT5WnGaG76u
-         SPvvWVUcP08iq6tLcA9y5LRu20Wm7T0b8KfsU0tAPaUCAy3S9ZxZsi895cklZp6zYp/B
-         vOXjjqBX9nY62mzPUx3SKDLSgQaHzS0yZ2CD+iCRgHjsxS5hX0+R3MC/W6EyzDkP6Uxc
-         VBAr2yX5i611jme/EXcrxfje/DpzCgWC+NkLFadSJ0wot/7iqsew94fsilwFYcUh7hUG
-         ps0Z8A5sPypP5f1zl6UiQsoApnfxQaYnSyWhG0CDJ+YChC/afo6YJ9shNedschyfpW41
-         raBg==
-X-Forwarded-Encrypted: i=1; AJvYcCVXuzDt17MfUrfawI71mhx8/fDlCPj4WGOA+Z8qrsktyWGA1nWNjwvWmdleI9OaoeJDVLVI0Aumk1vBW/iqyIW8@lists.infradead.org
-X-Gm-Message-State: AOJu0YwN2onzlAiQVeeaVemhGlKyOc3NcIxNdtsmDph4+kBiP2fxWLcF
-	WGHb4kLEBG7ph3T/coXj4WOcnYrtTRP7xf54W5MnwOJniMbX83tp5kwkuqNP8Z3Vxcg=
-X-Gm-Gg: ASbGncvZY7UtTzIoZz3w79sg3wNcMDDtbmybZq3S7PVA0JqIwkLsY7Z+f9ZUlkEYUGy
-	caLZlBpMJ9bV5RpDZgYzjrwlG/YSBBgb0TdP5pv8ZqbGxl8Ws/uM+4IgOwXknvffAvCOlN4oY7s
-	aQGJTctgyvpUysCXPHOWXRErpMAZfQOsJjmdwaNUkwJ5sGKumk/70QxXaJCcDaNOci9lWNqkk2n
-	GaoRZJf8l/z2uwgColJPsK3MiNtRtI74RFwlzuUyv2cofvOqmWZ27VUTEZJq/wBOcWncQmKj0mF
-	HOoamtKO5/utRvLx9uDfKLFJyIqhpddoAUu8LRA10UPMvlfHyH4F5KbH6us5nH+SAON+belxIfi
-	jVF+T8C83njByHylcTy5ICeSGdXM5Iv37u0+wMB9I4Cer8mhTMhk7aJuYmgJEBjMx1nYki30Nhu
-	JaY6E5/n2YtXuU4bBRYxJm+vm0kRNr
-X-Google-Smtp-Source: AGHT+IEkAHuQrVSean0CMnJmgdroQFGEXS2JnDMuJL0ECBf4DUqCtzz0alMdPUQuLJolnNwjmMRrhw==
-X-Received: by 2002:a05:600c:3110:b0:477:632c:5b91 with SMTP id 5b1f17b1804b1-477c01b4b2amr122845505e9.16.1763965249310;
-        Sun, 23 Nov 2025 22:20:49 -0800 (PST)
-Received: from draszik.lan ([212.129.72.170])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42cb7f2e454sm26304551f8f.2.2025.11.23.22.20.47
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 23 Nov 2025 22:20:48 -0800 (PST)
-Message-ID: <5c901a6c831775a04924880cc9f783814f75b6aa.camel@linaro.org>
-Subject: Re: [PATCH 4/6] mfd: max77759: modify irq configs
-From: =?ISO-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
-To: amitsd@google.com, Sebastian Reichel <sre@kernel.org>, Rob Herring	
- <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley	
- <conor+dt@kernel.org>, Lee Jones <lee@kernel.org>, Greg Kroah-Hartman	
- <gregkh@linuxfoundation.org>, Badhri Jagan Sridharan <badhri@google.com>, 
- Heikki Krogerus <heikki.krogerus@linux.intel.com>, Peter Griffin
- <peter.griffin@linaro.org>, Tudor Ambarus	 <tudor.ambarus@linaro.org>, Alim
- Akhtar <alim.akhtar@samsung.com>
-Cc: linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-usb@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, RD
- Babiera <rdbabiera@google.com>, Kyle Tso <kyletso@google.com>
-Date: Mon, 24 Nov 2025 06:21:00 +0000
-In-Reply-To: <20251123-max77759-charger-v1-4-6b2e4b8f7f54@google.com>
-References: <20251123-max77759-charger-v1-0-6b2e4b8f7f54@google.com>
-	 <20251123-max77759-charger-v1-4-6b2e4b8f7f54@google.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-2+build3 
+	Mon, 24 Nov 2025 06:32:51 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=D02gPUFqWa9lIlAfR12CdsUvE0W/2RzB0PiY1YkqRQiYON3YKPbcBbz3cdJx8CVvTpRZJNsUzHOlBKwpnPEF+sR/D2TObS7o4Xg9FbwMA124tIydxS/dZiajU9/S85RexkoPxb9l5qxxT/VIjPLI4X+BH/SisfYvStudtxjZMbgnApoioAkJ0zb1ArsVlPcdaLwOVYRB5jMhpe90CmJ5I0c+ZzLGhsJBqHu5yh8AetPJiyfBQuVgN6CRljuuyZWkxabPojACcDHH6bJnxkNWVULQJ4ivlAjJjsEKuFwLvN6tPBnMPiWwGnwI1jQ20lEEmQcGVSa0COOh6MeuOz4ZTw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=3VQ5M4Kmtc+TWGoRAwzWfTGma9Dl77J/P9PvcN8pii0=;
+ b=wk4FbJEbl1XZVUyiVnnkp4lhXksXstAT0GYILEt7p37tH0QrOyqrZSjXpe8fJsCZNVeOB7lwOKKQm78MomHYNAazDH9VyPklnd5iF3XH/+V8rRCFQA2DZvm+8hxGOcxjiYUNnBG9wfyf5ZMPct0YR2e/JWnrHa+HgFKSPgIqtPAi7Mvvl25vNFV7/HfN7D9sAQyP/twdfNrh13zuEQanStDK8A78bWGMFLNT3S5tvY6rn6IkQnWAMu9NifSwUXyrApg5j59oyzZVuXjIuNQXpoAqnn1IbkSX7vBbBy6sZM0JvC/H7yjaggleO8aE+msVB8VPMtRc0QT34n/ZHt/JGw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 222.71.101.198) smtp.rcpttodomain=cixtech.com smtp.mailfrom=cixtech.com;
+ dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
+ not signed); arc=none (0)
+Received: from PUZP153CA0018.APCP153.PROD.OUTLOOK.COM (2603:1096:301:c2::14)
+ by SE1PPF4D95A16FB.apcprd06.prod.outlook.com (2603:1096:108:1::414) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9343.15; Mon, 24 Nov
+ 2025 06:32:37 +0000
+Received: from OSA0EPF000000C8.apcprd02.prod.outlook.com
+ (2603:1096:301:c2:cafe::97) by PUZP153CA0018.outlook.office365.com
+ (2603:1096:301:c2::14) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9388.3 via Frontend Transport; Mon,
+ 24 Nov 2025 06:32:27 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 222.71.101.198)
+ smtp.mailfrom=cixtech.com; dkim=none (message not signed)
+ header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
+Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
+ 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
+ client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
+Received: from smtprelay.cixcomputing.com (222.71.101.198) by
+ OSA0EPF000000C8.mail.protection.outlook.com (10.167.240.54) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9366.7 via Frontend Transport; Mon, 24 Nov 2025 06:32:36 +0000
+Received: from localhost.localdomain (unknown [172.16.64.196])
+	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id B8BFE40A5BD8;
+	Mon, 24 Nov 2025 14:32:35 +0800 (CST)
+From: Gary Yang <gary.yang@cixtech.com>
+To: p.zabel@pengutronix.de,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org
+Cc: devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	cix-kernel-upstream@cixtech.com,
+	Gary Yang <gary.yang@cixtech.com>
+Subject: [PATCH v3 3/3] arm64: dts: cix: add support for cix sky1 resets
+Date: Mon, 24 Nov 2025 14:32:35 +0800
+Message-ID: <20251124063235.952136-4-gary.yang@cixtech.com>
+X-Mailer: git-send-email 2.49.0
+In-Reply-To: <20251124063235.952136-1-gary.yang@cixtech.com>
+References: <20251124063235.952136-1-gary.yang@cixtech.com>
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: OSA0EPF000000C8:EE_|SE1PPF4D95A16FB:EE_
+Content-Type: text/plain
+X-MS-Office365-Filtering-Correlation-Id: 3e3cbfa1-013e-4a6f-5f7d-08de2b234233
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|82310400026|36860700013;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?meB1lpPy5pUFUr9bfV58kp98cRNdmUeF5gRgDR4sGh22x+BEmllpAyw42Pyx?=
+ =?us-ascii?Q?TKn+827g1mJGNc4VTspadnPznyNShXn7V1sp357Exj3/x9CkyktwnAkUFXNm?=
+ =?us-ascii?Q?tHehlspBGvN2GCLYujFXGUZQTv9ffbhQ4YsMwPlnvqXicGg0g+KvuusfWHL2?=
+ =?us-ascii?Q?pYCUovOL1Fh3Ft3TNaE/I0TfXFcHWipipKRkPhA+Nwf7x4SCKYPE6gYVGp7x?=
+ =?us-ascii?Q?LYxJCeISoNSRpS3lbNPTq5xItQhYCl7XnjkzyOQzXPUuIZYgUCWe5K6Q7ly6?=
+ =?us-ascii?Q?xKj5VgniR7U+NHi+1HMoiZSyBwGedf8AhzRsSS+6uiVuadiFsGUJ/Av3AWtq?=
+ =?us-ascii?Q?8qLxr+2OTIHPMAys8QsTKkoBqZStVCIP9EVasXzaZVPjG5oV2/EegkiNYVB3?=
+ =?us-ascii?Q?gXmz7P2SycWn5MD+thlRZJTKmknw4KgAT70rSRDyzn20hFXqVyPH/iSZPNcv?=
+ =?us-ascii?Q?YlTYX3mTiIVimVltPmtpYmGYz499UEyqCctO25GhvNDRwuG6wz1K7mcadpdX?=
+ =?us-ascii?Q?QNqsb7NMPie2CWZRBHkNGJso7QbFNe02BmX5PEfFmvbcE9bx33kNJMNr6TAp?=
+ =?us-ascii?Q?2ULnO2W+y+9jW/f0g2CPbR9F90vIdrfkpHh9CZKgeq4U8wjt56W9ndgz9FHP?=
+ =?us-ascii?Q?K/24BogAyGGpJam16F5gntxiRFXy8xFhaOv6O1weWgZ6qYoJaRNa8YMY5Toy?=
+ =?us-ascii?Q?qR3ypLoWwUSgstf/C8PZrdpGOiDWY43s5lYd2T14+mSq9uU5nzpc4Y4DPpi9?=
+ =?us-ascii?Q?6l4pDOlzvkvIfIN6AOYCr4hQxxl8SSFtrYBal8rRvyN6K+n3WPrziCzPo12U?=
+ =?us-ascii?Q?h779LhjVy62BjFdFVD+BiaPDq6BfwQjPqkp/njAnYK+xdvbG8ospS6h5INEa?=
+ =?us-ascii?Q?moNbwhIcRfUXSjaYgoQ75F7qGsyT7SlgTynod4rc5n7AR3hWU9ldNGnPy4Sq?=
+ =?us-ascii?Q?C2D3ipxIsz+umBjIYSxZSJFXxywZiXaCYjaM843qgB7BHs9aEjaKaPMw+92Z?=
+ =?us-ascii?Q?e22mSzawWaPqG7IolBLFuQm7ggo2Fbk79wbw3WKLDH8SZ+GTszr7NhhlP6ip?=
+ =?us-ascii?Q?sp+R3oUOvQS+9ihxl1YQyXhWxyo6Y0mzS66saU4Vm3OnvHRenFl/ymkoZ1Ag?=
+ =?us-ascii?Q?Ex02PTJnRajvDAQ1MKuWNp9KEnrpRA9HExHlRlAUUqoo0xdbMs8QaG3LtAJE?=
+ =?us-ascii?Q?p6rg9rBahzR2qm5vGUQJNmbiUDj6QErou8WzWyamUcZzeyabavk1RRX/e3Dc?=
+ =?us-ascii?Q?HDdT4vSnbFEMSqaXCBL0P2XPuM26yzWV0ZO9dFj+CVLTkY/+AKe0trkzkgNm?=
+ =?us-ascii?Q?ATy5ZGCivvG80wl6f5Jt9F1np9rxz7o62Y1fDCiMGys/Fy6uy9yBdVYUk46v?=
+ =?us-ascii?Q?ERkeDEhVfCREkCvcu0CKv0sajMnafLIMEXfN/SlENx6LP/VDEyvz04xhi5u+?=
+ =?us-ascii?Q?DekBM/oAFdOzvTIJB9tO0N5eT6Iw9Fb6qnAYUkNA0KYbkumbdGuKMWmj8yKv?=
+ =?us-ascii?Q?zCMtHKueH7nAhOaE+JoJ4lzWdsGkXPDEuK6O4bQfNAJVcgqDZKxeWv7bShAh?=
+ =?us-ascii?Q?/2o86xSFV8uftuFvFCU=3D?=
+X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(1800799024)(82310400026)(36860700013);DIR:OUT;SFP:1102;
+X-OriginatorOrg: cixtech.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Nov 2025 06:32:36.5626
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3e3cbfa1-013e-4a6f-5f7d-08de2b234233
+X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
+X-MS-Exchange-CrossTenant-AuthSource: OSA0EPF000000C8.apcprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SE1PPF4D95A16FB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251123_222051_714364_FFC81B2F 
-X-CRM114-Status: GOOD (  23.65  )
+X-CRM114-CacheID: sfid-20251123_223249_462736_C886F528 
+X-CRM114-Status: UNSURE (   9.39  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,151 +143,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Amit,
+There are two reset conctrollers on Cix Sky1 Soc.
+One is located in S0 domain, and the other is located
+in S5 domain.
 
-Thanks for your patches to enable the charger!
+Signed-off-by: Gary Yang <gary.yang@cixtech.com>
+---
+ arch/arm64/boot/dts/cix/sky1.dtsi | 14 ++++++++++++++
+ 1 file changed, 14 insertions(+)
 
-> From: Amit Sunil Dhamne <amitsd@google.com>
->=20
-> Define specific bit-level masks for charger's registers and modify the
-> irq mask for charger irq_chip. Also, configure the max77759 interrupt
-> lines as active low to all interrupt registrations to ensure the
-> interrupt controllers are configured with the correct trigger type.
->=20
-> Signed-off-by: Amit Sunil Dhamne <amitsd@google.com>
-> ---
-> =C2=A0drivers/mfd/max77759.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 | 24 +++=
-++++++++++++++-------
-> =C2=A0include/linux/mfd/max77759.h |=C2=A0 9 +++++++++
-> =C2=A02 files changed, 26 insertions(+), 7 deletions(-)
->=20
-> diff --git a/drivers/mfd/max77759.c b/drivers/mfd/max77759.c
-> index 6cf6306c4a3b..5fe22884f362 100644
-> --- a/drivers/mfd/max77759.c
-> +++ b/drivers/mfd/max77759.c
-> @@ -256,8 +256,17 @@ static const struct regmap_irq max77759_topsys_irqs[=
-] =3D {
-> =C2=A0};
-> =C2=A0
-> =C2=A0static const struct regmap_irq max77759_chgr_irqs[] =3D {
-> -	REGMAP_IRQ_REG(MAX77759_CHARGER_INT_1, 0, GENMASK(7, 0)),
-> -	REGMAP_IRQ_REG(MAX77759_CHARGER_INT_2, 1, GENMASK(7, 0)),
-> +	REGMAP_IRQ_REG(MAX77759_CHARGER_INT_1, 0,
-> +		=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 MAX77759_CHGR_REG_CHG_INT_AICL |
-> +		=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 MAX77759_CHGR_REG_CHG_INT_CHGIN |
-> +		=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 MAX77759_CHGR_REG_CHG_INT_CHG |
-> +		=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 MAX77759_CHGR_REG_CHG_INT_INLIM),
-> +	REGMAP_IRQ_REG(MAX77759_CHARGER_INT_2, 1,
-> +		=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 MAX77759_CHGR_REG_CHG_INT2_BAT_OI=
-LO |
-> +		=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 MAX77759_CHGR_REG_CHG_INT2_CHG_ST=
-A_CC |
-> +		=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 MAX77759_CHGR_REG_CHG_INT2_CHG_ST=
-A_CV |
-> +		=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 MAX77759_CHGR_REG_CHG_INT2_CHG_ST=
-A_TO |
-> +		=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 MAX77759_CHGR_REG_CHG_INT2_CHG_ST=
-A_DONE),
-> =C2=A0};
-> =C2=A0
-> =C2=A0static const struct regmap_irq_chip max77759_pmic_irq_chip =3D {
-> @@ -486,8 +495,8 @@ static int max77759_add_chained_irq_chip(struct devic=
-e *dev,
-> =C2=A0				=C2=A0=C2=A0=C2=A0=C2=A0 "failed to get parent vIRQ(%d) for chi=
-p %s\n",
-> =C2=A0				=C2=A0=C2=A0=C2=A0=C2=A0 pirq, chip->name);
-> =C2=A0
-> -	ret =3D devm_regmap_add_irq_chip(dev, regmap, irq,
-> -				=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 IRQF_ONESHOT | IRQF_SHARED, 0, =
-chip,
-> +	ret =3D devm_regmap_add_irq_chip(dev, regmap, irq, IRQF_ONESHOT |
-> +				=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 IRQF_SHARED | IRQF_TRIGGER_LOW,=
- 0, chip,
-> =C2=A0				=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 data);
+diff --git a/arch/arm64/boot/dts/cix/sky1.dtsi b/arch/arm64/boot/dts/cix/sky1.dtsi
+index d21387224e79..72ebffe05ef7 100644
+--- a/arch/arm64/boot/dts/cix/sky1.dtsi
++++ b/arch/arm64/boot/dts/cix/sky1.dtsi
+@@ -348,6 +348,12 @@ i3c1: i3c@4100000 {
+ 			status = "disabled";
+ 		};
+ 
++		src_fch: reset-controller@4160008 {
++			compatible = "cix,sky1-rst-fch";
++			reg = <0x0 0x04160008 0x0 0xc>;
++			#reset-cells = <1>;
++		};
++
+ 		iomuxc: pinctrl@4170000 {
+ 			compatible = "cix,sky1-iomuxc";
+ 			reg = <0x0 0x04170000 0x0 0x1000>;
+@@ -568,6 +574,14 @@ ppi_partition1: interrupt-partition-1 {
+ 			};
+ 		};
+ 
++		src: reset-controller@16000304 {
++			compatible = "cix,sky1-rst";
++			reg = <0x0 0x16000304 0x0 0xc>,
++			      <0x0 0x16000400 0x0 0x10>,
++			      <0x0 0x16000800 0x0 0x8>;
++			#reset-cells = <1>;
++		};
++
+ 		iomuxc_s5: pinctrl@16007000 {
+ 			compatible = "cix,sky1-iomuxc-s5";
+ 			reg = <0x0 0x16007000 0x0 0x1000>;
+-- 
+2.49.0
 
-Please correct me if I'm wrong, but I don't think this makes sense for a
-chained IRQ in this case. What problem does this change fix?
-
-> =C2=A0	if (ret)
-> =C2=A0		return dev_err_probe(dev, ret, "failed to add %s IRQ chip\n",
-> @@ -519,8 +528,9 @@ static int max77759_add_chained_maxq(struct i2c_clien=
-t *client,
-> =C2=A0
-> =C2=A0	ret =3D devm_request_threaded_irq(&client->dev, apcmdres_irq,
-> =C2=A0					NULL, apcmdres_irq_handler,
-> -					IRQF_ONESHOT | IRQF_SHARED,
-> -					dev_name(&client->dev), max77759);
-> +					IRQF_ONESHOT | IRQF_SHARED |
-> +					IRQF_TRIGGER_LOW, dev_name(&client->dev),
-> +					max77759);
-
-dito.
-
-> =C2=A0	if (ret)
-> =C2=A0		return dev_err_probe(&client->dev, ret,
-> =C2=A0				=C2=A0=C2=A0=C2=A0=C2=A0 "MAX77759_MAXQ_INT_APCMDRESI failed\n"=
-);
-> @@ -633,7 +643,7 @@ static int max77759_probe(struct i2c_client *client)
-> =C2=A0		return dev_err_probe(&client->dev, -EINVAL,
-> =C2=A0				=C2=A0=C2=A0=C2=A0=C2=A0 "invalid IRQ: %d\n", client->irq);
-> =C2=A0
-> -	irq_flags =3D IRQF_ONESHOT | IRQF_SHARED;
-> +	irq_flags =3D IRQF_ONESHOT | IRQF_SHARED | IRQF_TRIGGER_LOW;
-
-I don't believe IRQF_TRIGGER_LOW should be added here, as this is board-spe=
-cific.
-The polarity is meant to be set via DT (and the only current user of this d=
-river
-does so).
-
-> =C2=A0	irq_flags |=3D irqd_get_trigger_type(irq_data);
-
-That's what gets us the config from DT.
-
-> =C2=A0
-> =C2=A0	ret =3D devm_regmap_add_irq_chip(&client->dev, max77759->regmap_to=
-p,
-> diff --git a/include/linux/mfd/max77759.h b/include/linux/mfd/max77759.h
-> index c6face34e385..0ef29a48deec 100644
-> --- a/include/linux/mfd/max77759.h
-> +++ b/include/linux/mfd/max77759.h
-> @@ -62,7 +62,16 @@
-> =C2=A0#define MAX77759_CHGR_REG_CHG_INT=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 0xb0
-> =C2=A0#define MAX77759_CHGR_REG_CHG_INT2=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 0xb1
-> =C2=A0#define MAX77759_CHGR_REG_CHG_INT_MASK=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0 0xb2
-> +#define MAX77759_CHGR_REG_CHG_INT_AICL=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0 BIT(7)
-> +#define MAX77759_CHGR_REG_CHG_INT_CHGIN=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0 BIT(6)
-> +#define MAX77759_CHGR_REG_CHG_INT_CHG=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0 BIT(4)
-> +#define MAX77759_CHGR_REG_CHG_INT_INLIM=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0 BIT(2)
-> =C2=A0#define MAX77759_CHGR_REG_CHG_INT2_MASK=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0 0xb3
-> +#define MAX77759_CHGR_REG_CHG_INT2_BAT_OILO=C2=A0=C2=A0=C2=A0=C2=A0 BIT(=
-4)
-> +#define MAX77759_CHGR_REG_CHG_INT2_CHG_STA_CC=C2=A0=C2=A0 BIT(3)
-> +#define MAX77759_CHGR_REG_CHG_INT2_CHG_STA_CV=C2=A0=C2=A0 BIT(2)
-> +#define MAX77759_CHGR_REG_CHG_INT2_CHG_STA_TO=C2=A0=C2=A0 BIT(1)
-> +#define MAX77759_CHGR_REG_CHG_INT2_CHG_STA_DONE BIT(0)
-
-Even if wireless out of scope, it'd still be nice to add macros for
-the remaining bits to make this complete and avoid having to update
-these again in case wireless support gets added in the future.
-
-Also, would be nice to keep existing style and indent the bits from
-the registers (see existing bit definitions in this file a few lines
-further up).
-
-Finally, can you add the bits below the respective register (0xb0 / 0xb1)
-please, to keep suffix meaningful, and to follow existing style for cases
-like this (see MAX77759_MAXQ_REG_UIC_INT1).
-
-
-Cheers,
-Andre'
 
