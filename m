@@ -4,66 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D47ABCFD31C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 07:39:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98B45CFD31C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 07:50:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EbfNQbneTwDg/Qam42digSIDomFoRBUd7z3gC5lrups=; b=a/Pk3FCyC1twRCHrkgjAnzOLMb
-	M/FszutZ9j0SqbEJ9VK7wH1Qx0c2Ub6cwr5nkY8LyHDOcX4PI2Sf00AD2wytLYcCGS/80VrVq8Wpu
-	18ExGqp6vHKwfpMqiqksOO6k37t3F+1GAN5v/9PEpQgG+5uGPuz97FEm9l9rQt7ir6nfX5l5Fqg5L
-	UoHGlYw37hb5Td4DGl+GEZIndeA7glJzduMPxkHFbVewFwQiUk0l/3Ws8IYrLMp8JxPMxanAMj0pJ
-	1VPnt3XmZ2TiQvAmGPVGwFV3Zf/6NugE70rnWK5U0X2qRunTRmXEhLl1pgNyHFtbPclx2L5VPAOiX
-	utOG+nfQ==;
+	bh=mJiuKaFO9xY29F0lH3L4Fu13sEGhR2k+m3i3j9RfCZs=; b=bsXHtg2E4hNUqFch70q3xJ8V6Y
+	xF3D6eHBTQ75Y+WW1Y5bM8NQcVsSbccKosoIt3enzDJqNjZFf5uONEX/+MiEfjtpMNEJo9XDkx26+
+	NnzjwCMNG+ywztm5dEW0VH0+PiWMI/T0+01ohr23RlUzVLm8IKvxQF8bd4GqP2cRgBFE/ji1HO94K
+	XptN/iG0q+nGI1TrzGb/Szyqn/rnamvgmxSWL5cnwEAhTZ6v9y3t2WVz5tmSXMQOR8/kMHp6b1QVo
+	RWOcdAGrJsCI2fEhl3VTld9TnGjzl0v3MfbuYd2S/g2jbYM+vUaVIBjR1luFGBf85Y2qsG9m2L5LP
+	nD3J05QA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNRAb-0000000BE0z-3PEo;
-	Mon, 24 Nov 2025 07:39:33 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vNRKn-0000000BEVe-0aaz;
+	Mon, 24 Nov 2025 07:50:05 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNRAa-0000000BE0c-2BjS
+	id 1vNRKk-0000000BEV7-1VY1
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Nov 2025 07:39:32 +0000
+	Mon, 24 Nov 2025 07:50:03 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A89B660181;
-	Mon, 24 Nov 2025 07:39:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EC155C4CEF1;
-	Mon, 24 Nov 2025 07:39:26 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 9C77E401BA;
+	Mon, 24 Nov 2025 07:50:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 33493C4CEF1;
+	Mon, 24 Nov 2025 07:50:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763969971;
-	bh=sY8ilj4l0AMnsXFPN9kmU/jiVIb75XyvDgZpSSSWnSg=;
+	s=k20201202; t=1763970601;
+	bh=KABm2DVqKO27Id5/uV0UFwNWUvZYC3fd6Ekc3hp8LRs=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=oP6c8ESSz+1kdVH8Q0hzjVVODYpyAnTH8DGgGcbFPm7ukYHA2TjaL1+Kv+JIeSdUW
-	 DdMbmmnn6NPp2ydP1RDbDQx8rtTct/f4l6Fj6teRmVBC7CNcmjjeehqjwuPNb2rndI
-	 Y3Axynuv2H2B6XZmyoCYvtgBnCShrE3ppcVQ3B7sMesaafsldM1xDBiDNsln/rCYBq
-	 KU7pHWqY+zLbtFxuxIofk9bH2bn89lJOpjv3pW56HYiT2JO3gR1ALboL7T4+SNFYBB
-	 JoVgOq3gdwFhsDT1YG3bWzrhvTgZu0P6fZJ36x2QWHQ3vYvpLKdZwxEoUZb77oCG0i
-	 P+VOESIfyhG2w==
-Message-ID: <d2184e6b-ba22-423a-8d3c-3b8c2f8ec329@kernel.org>
-Date: Mon, 24 Nov 2025 08:39:25 +0100
+	b=GAD3uzhreW+AWmQ2T5+IwakHdheOOcAT1oAAwWMRRp02aRWpRuYaNx7tUnEUErjTG
+	 ta7gxa+kQJUWCSECZe4Ua9H4B9REUkztAP9ZcY7vKZyJP4PFG/rO/aR7IAQhfnyC/h
+	 5FFA9mU/XrSUpIF12jcxV8W88iCQ0WpowjdO8KXU7xMeOJSfUl6YdCzopq30G4wsnU
+	 w3zxiK7JloxvNMzx3EGiX15qyOguh58lr6hBhYumwcIETh1YC1uOYisUI42LWePLN/
+	 Fjey6cWIWzd/nEYcgFuZ52PRYvUGp0XZgE3egAKt2bnwr6hI1Fadr/OrRrXxCkQri4
+	 Uopsioa1sIYBw==
+Message-ID: <69dc1405-9acb-4b3e-b354-8725b05b39ea@kernel.org>
+Date: Mon, 24 Nov 2025 08:49:58 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 4/6] mfd: max77759: modify irq configs
-To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
- amitsd@google.com, Sebastian Reichel <sre@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Lee Jones <lee@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Badhri Jagan Sridharan <badhri@google.com>,
- Heikki Krogerus <heikki.krogerus@linux.intel.com>,
- Peter Griffin <peter.griffin@linaro.org>,
- Tudor Ambarus <tudor.ambarus@linaro.org>,
- Alim Akhtar <alim.akhtar@samsung.com>
-Cc: linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
- devicetree@vger.kernel.org, linux-usb@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- RD Babiera <rdbabiera@google.com>, Kyle Tso <kyletso@google.com>
-References: <20251123-max77759-charger-v1-0-6b2e4b8f7f54@google.com>
- <20251123-max77759-charger-v1-4-6b2e4b8f7f54@google.com>
- <5c901a6c831775a04924880cc9f783814f75b6aa.camel@linaro.org>
+Subject: Re: linux-next: duplicate patch in the samsung-krzk tree
+To: Stephen Rothwell <sfr@canb.auug.org.au>, Arnd Bergmann <arnd@arndb.de>
+Cc: ARM <linux-arm-kernel@lists.infradead.org>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ Linux Next Mailing List <linux-next@vger.kernel.org>
+References: <20251124120913.76374412@canb.auug.org.au>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -109,9 +97,13 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <5c901a6c831775a04924880cc9f783814f75b6aa.camel@linaro.org>
+In-Reply-To: <20251124120913.76374412@canb.auug.org.au>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251123_235002_449818_CA5AC4E1 
+X-CRM114-Status: UNSURE (   9.98  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,28 +118,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 24/11/2025 07:21, André Draszik wrote:
+On 24/11/2025 02:09, Stephen Rothwell wrote:
+> Hi all,
 > 
->>  	if (ret)
->>  		return dev_err_probe(&client->dev, ret,
->>  				     "MAX77759_MAXQ_INT_APCMDRESI failed\n");
->> @@ -633,7 +643,7 @@ static int max77759_probe(struct i2c_client *client)
->>  		return dev_err_probe(&client->dev, -EINVAL,
->>  				     "invalid IRQ: %d\n", client->irq);
->>  
->> -	irq_flags = IRQF_ONESHOT | IRQF_SHARED;
->> +	irq_flags = IRQF_ONESHOT | IRQF_SHARED | IRQF_TRIGGER_LOW;
+> The following commit is also in the arm-soc tree as a different commit
+> (but the same patch):
 > 
-> I don't believe IRQF_TRIGGER_LOW should be added here, as this is board-specific.
-> The polarity is meant to be set via DT (and the only current user of this driver
-> does so).
+>   2e646b21df4c ("arm64: defconfig: enable Exynos ACPM clocks")
 > 
+> This is commit
+> 
+>   38c8787f1b81 ("arm64: defconfig: enable Exynos ACPM clocks")
+> 
+> in the arm-soc tree.
 
-
-If this is the main chip interrupt, then you are right and the code is
-obviously wrong. What's more, it is completely unexplained in the commit
-msg, because that vague statement cannot be taken as any reasonable
-explanation.
+Thanks, that's expected. I dropped mine now.
 
 Best regards,
 Krzysztof
