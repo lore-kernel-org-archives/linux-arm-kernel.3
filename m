@@ -4,91 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABBE9CFD34D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 18:54:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4F7ECFD348
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 19:02:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UVhQPGFGqrt1+uVUFNTc71/aYdl5cd0D4DfQVcOLfgI=; b=xX9MuZUBb2GnTKfczc4WM0876n
-	EL0r52EZGfvLF7XbCfJR2D6WrHm4XRoORp+q5VTKxAOCQWUtiIagnedw/A5p8A7SuVDjyQfR1RLp7
-	g5gAnJeSsSymIEyXZr4/uhy5PDNyOqLjJskGS8tTpPEJKsee4D1ozJk8nsLidVVZTF2d2DI6brHui
-	4O88Xlo5LOY24MV+lINGV09C47/xHnfjTvdNimO/N0dPKGFKs7nHC3zl+t9we3KEpGnqYf1Y/A7PE
-	N/j5GhBJD94g7XTVoF2sw4xfMOZsI1iyI6AvV3VTAdWHB3+IQIx6JyuIVxoaXfmVWT7wEfClwZ/4l
-	apvtFsbQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CmmSPdJl3K7g0vYrR5PzWSeexHm/mp6mW5X46Ly/gUI=; b=OsrWmSttEMUFBPhw8569/EMut1
+	CqDRzzb5ln0mfcc6ZnPi2sFeW/FqcqmlmC2Mcgfl+Mu3YbDZZ9QU8uXDnIk0l2OISxklVuuvM9swB
+	BQrVFlwMmM7RTUP6ci+FDBj+MZiy49LU9TwPm//FMrLnuuTHHkXNAhtV8ZDv/f+VcgCwiv4CHE6nX
+	+rWwS3MCD9aqJcu2dDgJ1xLi/5DVdEgRozh7i/UQns+ANHPkW4cHmjfGQaDRUt6Z9nE73nrvwHcaX
+	4naEIsMs172feh0B0MAg++zwSSjLz4oYAZR5JTmyyS4KVJcwbDe27TBXMkObZEu04Dddh1LwEBzh1
+	H3z5tYew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNbho-0000000CCiF-383Z;
-	Mon, 24 Nov 2025 18:54:32 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vNbpG-0000000CDCk-2cHi;
+	Mon, 24 Nov 2025 19:02:14 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNbhb-0000000CCd8-0pCj
+	id 1vNbpE-0000000CDBt-1lTU
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Nov 2025 18:54:21 +0000
+	Mon, 24 Nov 2025 19:02:13 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6C95644415
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Nov 2025 18:54:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 50C11C16AAE
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Nov 2025 18:54:18 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id C87C340E14;
+	Mon, 24 Nov 2025 19:02:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 33823C4CEF1;
+	Mon, 24 Nov 2025 19:02:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764010458;
-	bh=TEK7y+I345Za9ATxX+knyA/Uh489WPY9Dd1JCZP1I5g=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=jaJZZFHd9EbEwx/HXqWrnJzLLWTmDsjeCYIq0msXegrh1uOLQsYkLcGsOqDhYGYa1
-	 ulVE7WOFxgFtpE2/6TkwNTfV+9Rh0FSoTOohVIha1MYp1K5u2GOOF4aS+plyAfBAle
-	 vAZP1pWHSc2BhkypnD2nz0a3oVcYZoWGxiPrhyCwtfso6TjC0ca6YjyLVtMdloPCZj
-	 YjsoUkmPkN4DfXzzlBmRG07pBRUjbMkoJH5hAhMxXKO6mhdkj9L8ykHTsvk6JpcSId
-	 e4dHeGWi1OOrSvjb2TfH3swea0z/yg8jzYuM1iQ+XmmH3i9ds4f6wja6p20TfYTyKh
-	 Wz2iE90nWxrRA==
-Received: by mail-ed1-f54.google.com with SMTP id 4fb4d7f45d1cf-640b0639dabso8037115a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Nov 2025 10:54:18 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCWdUZQKP2e7Ix1XXPL62y/b+jh/iWXADq1PC6BYq75BJHSluzgzHbJRVVy+UELIXqDUPTEM9Y90GsT6Fp9iHz+/@lists.infradead.org
-X-Gm-Message-State: AOJu0YwudTVbBxWj+mrdCo4UXTJb/bi+TaUrHt2EhQBO+wZfAp4i0Aq6
-	lsKf29tI2722wHykRthehC/gZERGN+ECmCWAzrJfyrtqGoWbVbm+0iCHCAsIDehVGLYHU4pxA8L
-	eQZvvgiDNC+tG135bTrSsipV9YG4Ipg==
-X-Google-Smtp-Source: AGHT+IFReAtDFuSFDhp918Ohx2vHaiN5KlMAX/uodATZY6O/YB75rQVqkELqtwQbH271c/8FxbJ2Dkum3f0Uu3OWMzM=
-X-Received: by 2002:a05:6402:5252:b0:643:4e9c:d166 with SMTP id
- 4fb4d7f45d1cf-6455443ed4cmr10891528a12.8.1764010456224; Mon, 24 Nov 2025
- 10:54:16 -0800 (PST)
+	s=k20201202; t=1764010931;
+	bh=uD7Maoubwz/B9JiuTc7YFA7RBSK4vwlOgZPF2XYEwFk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=r30mEbj+WvnJRyOhTtrNhs+NqNMXjUVtxUST6L9f42xGeJtj5MikU7F0SgCiTGgIG
+	 M/MfliWdX44MhVcYIbncUgfkHL57LunAUnTEzbgjq9hsnlvhpg+Kby9xbhjjiMIeC/
+	 SYCNIsKIDE/CtUxNTozDDsSzdJDk9gkeMkqi1lEytgMgjCnTggMnDxH37B5L939s7c
+	 cYlZ8xM3i9JIwsAOz5U385JyDwkVXyAybrF39QQie0k7wzFRMGA+o7r7zxM5d7uXrU
+	 qGPAAySKuL/p9igksvocIgb0YSif5cxJF0gCEIMQ02FZR+Q3aUC1wpd0U7ZnexqedX
+	 S2jXnWoZsywoQ==
+Date: Mon, 24 Nov 2025 19:02:06 +0000
+From: Will Deacon <will@kernel.org>
+To: Leo Yan <leo.yan@arm.com>
+Cc: Mark Rutland <mark.rutland@arm.com>,
+	Alexandru Elisei <alexandru.elisei@arm.com>,
+	James Clark <james.clark@linaro.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 1/2] perf: arm_spe: Correct setting the
+ PERF_HES_STOPPED flag
+Message-ID: <aSSrrmX_nAl82GKE@willie-the-truck>
+References: <20251110-arm_spe_fix_truncated_flag-v2-0-a629740985cc@arm.com>
+ <20251110-arm_spe_fix_truncated_flag-v2-1-a629740985cc@arm.com>
+ <aSSEXzMr1drvL2zz@willie-the-truck>
+ <20251124184815.GC724103@e132581.arm.com>
 MIME-Version: 1.0
-References: <20250911151001.108744-1-ariel.dalessandro@collabora.com>
- <20250911151001.108744-4-ariel.dalessandro@collabora.com> <20250912140619.GA1293647-robh@kernel.org>
- <fb20e4fe-df0a-4089-a7cf-e82bfe1f8e00@collabora.com>
-In-Reply-To: <fb20e4fe-df0a-4089-a7cf-e82bfe1f8e00@collabora.com>
-From: Rob Herring <robh@kernel.org>
-Date: Mon, 24 Nov 2025 12:54:04 -0600
-X-Gmail-Original-Message-ID: <CAL_Jsq+eeiw9oaqQPWt2=rZSX98Pak_oB=tfQFvEehwLZ=S52g@mail.gmail.com>
-X-Gm-Features: AWmQ_blUF-g1qhHGkKsa6U6HY_V7mtf4Q-WkpVuhZVm09t2HSWt6-IOrweXVTPs
-Message-ID: <CAL_Jsq+eeiw9oaqQPWt2=rZSX98Pak_oB=tfQFvEehwLZ=S52g@mail.gmail.com>
-Subject: Re: [PATCH v2 03/12] dt-bindings: net: Convert Marvell 8897/8997
- bindings to DT schema
-To: "Ariel D'Alessandro" <ariel.dalessandro@collabora.com>
-Cc: airlied@gmail.com, amergnat@baylibre.com, andrew+netdev@lunn.ch, 
-	andrew-ct.chen@mediatek.com, angelogioacchino.delregno@collabora.com, 
-	broonie@kernel.org, chunkuang.hu@kernel.org, conor+dt@kernel.org, 
-	davem@davemloft.net, dmitry.torokhov@gmail.com, edumazet@google.com, 
-	flora.fu@mediatek.com, heiko@sntech.de, houlong.wei@mediatek.com, 
-	jeesw@melfas.com, kernel@collabora.com, krzk+dt@kernel.org, kuba@kernel.org, 
-	lgirdwood@gmail.com, linus.walleij@linaro.org, 
-	louisalexis.eyraud@collabora.com, luiz.dentz@gmail.com, 
-	maarten.lankhorst@linux.intel.com, marcel@holtmann.org, 
-	matthias.bgg@gmail.com, mchehab@kernel.org, minghsiu.tsai@mediatek.com, 
-	mripard@kernel.org, p.zabel@pengutronix.de, pabeni@redhat.com, 
-	sean.wang@kernel.org, simona@ffwll.ch, support.opensource@diasemi.com, 
-	tiffany.lin@mediatek.com, tzimmermann@suse.de, yunfei.dong@mediatek.com, 
-	devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org, 
-	linux-arm-kernel@lists.infradead.org, linux-bluetooth@vger.kernel.org, 
-	linux-gpio@vger.kernel.org, linux-input@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
-	linux-mediatek@lists.infradead.org, linux-rockchip@lists.infradead.org, 
-	linux-sound@vger.kernel.org, netdev@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251124184815.GC724103@e132581.arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251124_105419_275012_1A4C7C73 
-X-CRM114-Status: GOOD (  17.37  )
+X-CRM114-CacheID: sfid-20251124_110212_523845_795ACCE8 
+X-CRM114-Status: GOOD (  30.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,44 +78,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 1, 2025 at 12:28=E2=80=AFPM Ariel D'Alessandro
-<ariel.dalessandro@collabora.com> wrote:
->
-> Rob,
->
-> On 9/12/25 11:06 AM, Rob Herring wrote:
-> > On Thu, Sep 11, 2025 at 12:09:52PM -0300, Ariel D'Alessandro wrote:
-> >> Convert the existing text-based DT bindings for Marvell 8897/8997
-> >> (sd8897/sd8997) bluetooth devices controller to a DT schema.
-> >>
-> >> While here:
-> >>
-> >> * bindings for "usb1286,204e" (USB interface) are dropped from the DT
-> >>    schema definition as these are currently documented in file [0].
-> >> * DT binding users are updated to use bluetooth generic name
-> >>    recommendation.
-> >>
-> >> [0] Documentation/devicetree/bindings/net/btusb.txt
-> >>
-> >> Signed-off-by: Ariel D'Alessandro <ariel.dalessandro@collabora.com>
-> >> ---
-> >>   .../net/bluetooth/marvell,sd8897-bt.yaml      | 79 +++++++++++++++++=
-+
-> >>   .../devicetree/bindings/net/btusb.txt         |  2 +-
-> >>   .../bindings/net/marvell-bt-8xxx.txt          | 83 -----------------=
---
-> >
-> >>   .../dts/rockchip/rk3288-veyron-fievel.dts     |  2 +-
-> >>   .../boot/dts/rockchip/rk3288-veyron-jaq.dts   |  2 +-
-> >>   arch/arm64/boot/dts/mediatek/mt8173-elm.dtsi  |  2 +-
-> >
-> > .dts files should be separate patches. Please send the bindings patches
-> > separately per subsystem so subsystem maintainers can apply them. All
-> > the Mediatek dts changes can be 1 series.
->
-> Ack, will fix in v3.
+On Mon, Nov 24, 2025 at 06:48:15PM +0000, Leo Yan wrote:
+> On Mon, Nov 24, 2025 at 04:14:23PM +0000, Will Deacon wrote:
+> > On Mon, Nov 10, 2025 at 04:28:31PM +0000, Leo Yan wrote:
+> > > In arm_spe_perf_aux_output_begin(), if the calculation of limit fails
+> > > and arm_spe_pmu_next_off() returns zero, the driver misses to set the
+> > > PERF_HES_STOPPED flag for the event.  As a result, hwc->state does not
+> > > reflect the latest state, which can mislead subsequent operations.
+> > > 
+> > > Validate the limit when exiting the function: if the limit is 0,
+> > > that tracing is disabled, set the PERF_HES_STOPPED flag accordingly.
+> > > 
+> > > Fixes: d5d9696b0380 ("drivers/perf: Add support for ARMv8.2 Statistical Profiling Extension")
+> > > Signed-off-by: Leo Yan <leo.yan@arm.com>
+> > > ---
+> > >  drivers/perf/arm_spe_pmu.c | 9 ++++++---
+> > >  1 file changed, 6 insertions(+), 3 deletions(-)
+> > > 
+> > > diff --git a/drivers/perf/arm_spe_pmu.c b/drivers/perf/arm_spe_pmu.c
+> > > index fa50645feddadbea5dc1e404f80f62cf5aa96fd4..fc8f908c2c3a270f2d1ae574c2badb1fbcf51484 100644
+> > > --- a/drivers/perf/arm_spe_pmu.c
+> > > +++ b/drivers/perf/arm_spe_pmu.c
+> > > @@ -597,7 +597,6 @@ static void arm_spe_perf_aux_output_begin(struct perf_output_handle *handle,
+> > >  	/* Start a new aux session */
+> > >  	buf = perf_aux_output_begin(handle, event);
+> > >  	if (!buf) {
+> > > -		event->hw.state |= PERF_HES_STOPPED;
+> > >  		/*
+> > >  		 * We still need to clear the limit pointer, since the
+> > >  		 * profiler might only be disabled by virtue of a fault.
+> > > @@ -608,15 +607,19 @@ static void arm_spe_perf_aux_output_begin(struct perf_output_handle *handle,
+> > >  
+> > >  	limit = buf->snapshot ? arm_spe_pmu_next_snapshot_off(handle)
+> > >  			      : arm_spe_pmu_next_off(handle);
+> > > -	if (limit)
+> > > -		limit |= PMBLIMITR_EL1_E;
+> > > +	if (!limit)
+> > > +		goto out_write_limit;
+> > 
+> > Is 'limit == 0' always indicative of an error, even in snapshot mode?
+> 
+> Yes, the 'limit' would never be zero unless an error occurs.
+> 
+> > If __arm_spe_pmu_next_off() fails, it will call perf_aux_output_end()
+> > with the TRUNCATED flag set, which should then disable the event
+> > via arm_spe_pmu_del() and update the state there.
+> > 
+> > Is that not happening?
+> 
+> Correct.  However, this patch is not for the flow you mentioned.
 
-Are you going to send v3 still?
+How is it not for this flow? You're talking about:
 
-Rob
+arm_spe_pmu_start
+	=> arm_spe_perf_aux_output_begin
+		=> arm_spe_pmu_next_off // Returns error
+
+The only way arm_spe_pmu_next_off() returns an error is if
+__arm_spe_pmu_next_off() fails, and that's the flow I'm talking about.
+
+> If an error is returned from arm_spe_pmu_next_off(), because hw.state
+> is not set to PERF_HES_STOPPED, the caller arm_spe_pmu_start() cannot
+> detect error properly:
+
+But why isn't PERF_HES_STOPPED set by the sequence I described?
+
+I have a feeling you're right, but I can't piece it together from the
+information here.
+
+Will
 
