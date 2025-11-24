@@ -4,98 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F241CFD313
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 15:05:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35A71CFA466
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 15:07:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aP3c9SMShxEOwyq3nLN0BBLkAiPxhUwRn01NB/RvErU=; b=xgKTv188Lp0PdQXv1MKoQhaXNX
-	CaGY756N7JdcCPJnw/rSKyq+WNQ/7c2UMXhmF7wwK9s5V9emY2PtVVou4nXEpOWDWBESDzY3y7E90
-	4Vg6DSlSab85e/3KfczjAaXTa+LBPlzfOAI2A1syXMnU84uZ2Gmac10sxjwPhnZ5th+oky8nVnquB
-	QoFW4klybWnaN87ZNbgp9vU4ni1gwepqhq57eR06aovfwNHy/fAqA+rUBSwHKBtKIe4h1GGeX9JM9
-	MoNflDR1bPgYh/QzLysmQQUIk65uHD7idYGbdqa3rWTccUctJVNf/LyviBUbQgFG6OIss7rBxCVkV
-	VhF+D7vA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dV+ZlAU4OBnFEg107R4rtfdkFCn9kcPxLlA51vyMQP8=; b=Sw8yrl8DAXyigcTQ8Lz88IhnZh
+	G4KCsrsQ2Z5WfFLqn9HjBltY0y/vsLxBavg9ljKRNPXs7PdQTBbMLHTJYjyGeo3jDzvrn9SJTIBz8
+	M/IJ90CV+LdcR8rvdax42gPYCgBndQ30YQMhQ2HqennhaueUPXJ7GV5KLF0EJlLJt6EJlmMDG0e+7
+	YDcL5e4nqOUd4dH2u3naMu+pI+aweyztBcF/mYbHWq4DrOr4U1/1XUCs9RhNHQ1CQldzX4mQPp1BP
+	7dbmnDyA2PoO/xxIdzOxo5ly+Q2kBYzZOaMSA0MDgDl+xskOieNqU0VC3DMkojZ0RYyb231M2z7yN
+	dWv8Y0uw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNY8O-0000000BsvM-2olO;
-	Mon, 24 Nov 2025 15:05:44 +0000
-Received: from mail-yw1-x112a.google.com ([2607:f8b0:4864:20::112a])
+	id 1vNY9Y-0000000Bt4h-2GBF;
+	Mon, 24 Nov 2025 15:06:56 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNY8M-0000000Bsuv-1QDB
+	id 1vNY9V-0000000Bt4E-3pe0
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Nov 2025 15:05:43 +0000
-Received: by mail-yw1-x112a.google.com with SMTP id 00721157ae682-7866375e943so33642727b3.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Nov 2025 07:05:42 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1763996741; x=1764601541; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=aP3c9SMShxEOwyq3nLN0BBLkAiPxhUwRn01NB/RvErU=;
-        b=ixc+ij4WmNcPtwN4awNrUGOj/EWC4IfgYYKzvIQXrJqU4JBvGn+iisdSv7qaf7C9Lw
-         L2Au3qkQ3ahaOTWIsN6OU5+EmsZBWlElct5mwlMxZv6gubu5fe09FBKdJOc7u1cYnaw2
-         3l2K2g0ga9lTjw0vnlfWVU9pxgG4llACE474lLtTNZ+Sls7jPHs3waQ4YtaKfQD9/Jx/
-         ya6++1MTrKFgs5RHWyGeQ4c5vs7UQD45VFGSPKFBkZY//71W7tm6+BzPk7ae55cjyThk
-         Rz4LwAvY4Dx6raIvtsRBb3afExbLc+9RfsVNYBP443tHLj/B+wb5G+frcG0epyv89RBh
-         XZXA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763996741; x=1764601541;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=aP3c9SMShxEOwyq3nLN0BBLkAiPxhUwRn01NB/RvErU=;
-        b=Ew1wbd4pGnuStcLJb9rUU761acLpbgIHpsmhyrDLiRSxex4Czt66dPV/e6mJ5iIyff
-         UUNpKv3ro1COHVdGHb3yY97B+j1IP7wszEl6H5j0q/2FgjjZ+t3j3EA7P8YHHKE1VZxX
-         RDmoOD7LfBjsC8ceCksd9jqPvUe5bg/NLQcAhzpFQfWBhhDKj0vBI/9pNCI0hVW2H28k
-         xacGY0VLHDkvLjOZc1UPL6SPBumvCiDo/TfkdsY5ssg1EmgoFocJtiKuYR2oOGIfrU5M
-         vuAKWe7xN0xNnza4T1Rndk+PuE1/Kz1mFOzWmXJwCuEiohrQBG13hk1fQd7IIAET1JAG
-         pWYA==
-X-Forwarded-Encrypted: i=1; AJvYcCXftM+B+tG0EF+W8zJe6NmFtCTfA7LZjx6sFtLYMqggZhg8wpgoG7eYWyzlbep1vqRMBLYBZzGDhBA7MwxGFURI@lists.infradead.org
-X-Gm-Message-State: AOJu0YyHOcq2npcdkE8vUucn4Nyik51oNmlyc+BiebmTyYMhN3fxzpxH
-	AuLuU5WgViCFCXJn8bmsQAPtZEw6HSX9E1qhTJ0J41tRdMzDKd6uo1yCWvuI8eFYYI3BlQvR4xA
-	HfmckhLy2a+QzuZxArNc8W2o/OhH/XnM=
-X-Gm-Gg: ASbGncvlMUmWI1tqNpQ+JK1wkrjoVux6+AZPzFmTdKvQ9h2jCL+TRK8iJEQTxQG7l2p
-	d3ajB7gdo1NVua2pZYYeWHzZAIJPckWw39/yyUFPQAllReR24YYhT/jWEey/zOaCtFXdnBWnuwG
-	VphGbtQSNtGB9b+dyY1wugEADz3EsG8zZ8nrqLkKCq//gMrRgJysQDxx2CTPvVEmaPTYLYmBiUQ
-	2PJZ0/zYF0ln7+FHgvmp7Uyj9rJZJJ+MDEGgP6WXy04qV0l6OUvSKZHgjRT5cJ1lleGqbsw3Nar
-	2dZg
-X-Google-Smtp-Source: AGHT+IFcExc3fv4iwEnjwdVElQfQ9ZjwdK/2sF8WqvaZYhh0951LGPDi6Qt6Ua7iwje0oVX+jz1IhOPYeDB7if/Vs7I=
-X-Received: by 2002:a53:8547:0:b0:63e:17d8:d985 with SMTP id
- 956f58d0204a3-64302ac3230mr6411404d50.53.1763996741097; Mon, 24 Nov 2025
- 07:05:41 -0800 (PST)
+	Mon, 24 Nov 2025 15:06:55 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 5659240764;
+	Mon, 24 Nov 2025 15:06:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C6CB2C4CEF1;
+	Mon, 24 Nov 2025 15:06:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1763996798;
+	bh=GTAFpH4TJSYDJC+6zyiuuCI/A3Ih+shkhJTdyMtqR4s=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=aLUhEunI/PKycRbjz1yN6hgMVJK8jGCFGoUwM59UdyObThw7ePnfya50lykNV0/oN
+	 CvSMy3yKFQuFljVU0rBrSkOVl8jvBUiaYivMt8wpbI3ILAGFU3brRvMz91s84Q2bVj
+	 q4HJzJVhfExlwk3jAIAJtksbTs6CV6eIuhk4iSK8ipOk1Z2I32VdK6W0CSS2T06l8R
+	 3p81c97aN4MFID/lJ+tdNduzQ1KtUWYpJWUl4lRSuau08LzHjzUe67FU2MJBiUgscp
+	 hl1BRbPqZrMKCMvbOKYJS+d683sSsnbIGjS7KXou2RK6aruIWnNcFJNInJxAs4w7+h
+	 6YT8deCN9pVCw==
+Date: Mon, 24 Nov 2025 15:06:32 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Marc Zyngier <maz@kernel.org>
+Cc: Fuad Tabba <tabba@google.com>, kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oupton@kernel.org>, Zenghui Yu <yuzenghui@huawei.com>,
+	Christoffer Dall <christoffer.dall@arm.com>,
+	Volodymyr Babchuk <Volodymyr_Babchuk@epam.com>,
+	Yao Yuan <yaoyuan@linux.alibaba.com>
+Subject: Re: [PATCH v2 29/45] KVM: arm64: GICv3: Set ICH_HCR_EL2.TDIR when
+ interrupts overflow LR capacity
+Message-ID: <499fde92-c6a9-413f-88fe-771be267e0c7@sirena.org.uk>
+References: <20251109171619.1507205-1-maz@kernel.org>
+ <20251109171619.1507205-30-maz@kernel.org>
+ <CA+EHjTzRwswNq+hZQDD5tXj+-0nr04OmR201mHmi82FJ0VHuJA@mail.gmail.com>
+ <86cy5ku06v.wl-maz@kernel.org>
+ <51f5b5d7-9e98-40b8-8f8b-f50254573f3d@sirena.org.uk>
+ <86o6orr356.wl-maz@kernel.org>
+ <342302ba-5678-408a-ab63-1a854099d4a1@sirena.org.uk>
+ <86ldjvr1kc.wl-maz@kernel.org>
+ <86jyzfr03h.wl-maz@kernel.org>
 MIME-Version: 1.0
-References: <20251124002105.25429-1-jszhang@kernel.org> <20251124002105.25429-3-jszhang@kernel.org>
- <CAOiHx==ttP2T=VLsSE9nLr5Cai_D+Khr6ePJVdOEim8ThWSdmA@mail.gmail.com>
- <CAHp75VcRWODpL2DjAiPm0=bhTJfjs6RdNgtroRbvEW7ong3ALg@mail.gmail.com>
- <CAOiHx==5TkW_-3yoqN_MzhdLKbMFvXRj-pWpuS5ahTM_ccVekw@mail.gmail.com> <aSRwXCfG1RimQZxX@smile.fi.intel.com>
-In-Reply-To: <aSRwXCfG1RimQZxX@smile.fi.intel.com>
-From: Jonas Gorski <jonas.gorski@gmail.com>
-Date: Mon, 24 Nov 2025 16:05:29 +0100
-X-Gm-Features: AWmQ_blzotQnnPxsn4ZXGglW8dyTnG1bAcKi8OqUcRNMcebAISg0ref3oiKykrg
-Message-ID: <CAOiHx==4NSMNVdW163nE-vYf_FtDjS5aHfj5chPr3n6D2Mt9Nw@mail.gmail.com>
-Subject: Re: [PATCH v5 02/14] gpio: brcmstb: Use modern PM macros
-To: Andy Shevchenko <andriy.shevchenko@intel.com>
-Cc: Andy Shevchenko <andy.shevchenko@gmail.com>, Jisheng Zhang <jszhang@kernel.org>, 
-	Doug Berger <opendmb@gmail.com>, Florian Fainelli <florian.fainelli@broadcom.com>, 
-	bcm-kernel-feedback-list@broadcom.com, 
-	Linus Walleij <linus.walleij@linaro.org>, Bartosz Golaszewski <brgl@bgdev.pl>, 
-	Hoan Tran <hoan@os.amperecomputing.com>, Andy Shevchenko <andy@kernel.org>, 
-	Daniel Palmer <daniel@thingy.jp>, Romain Perier <romain.perier@gmail.com>, 
-	Grygorii Strashko <grygorii.strashko@ti.com>, Santosh Shilimkar <ssantosh@kernel.org>, 
-	Kevin Hilman <khilman@kernel.org>, Robert Jarzmik <robert.jarzmik@free.fr>, 
-	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>, Masami Hiramatsu <mhiramat@kernel.org>, 
-	Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>, Srinivas Neeli <srinivas.neeli@amd.com>, 
-	Michal Simek <michal.simek@amd.com>, linux-gpio@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-omap@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="ZrY4YkY6KfCCWCC+"
+Content-Disposition: inline
+In-Reply-To: <86jyzfr03h.wl-maz@kernel.org>
+X-Cookie: Single tasking: Just Say No.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251124_070542_389044_AEFA8C75 
-X-CRM114-Status: GOOD (  24.38  )
+X-CRM114-CacheID: sfid-20251124_070653_971134_D614833A 
+X-CRM114-Status: GOOD (  12.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,67 +88,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 24, 2025 at 3:49=E2=80=AFPM Andy Shevchenko
-<andriy.shevchenko@intel.com> wrote:
->
-> On Mon, Nov 24, 2025 at 03:20:00PM +0100, Jonas Gorski wrote:
-> > On Mon, Nov 24, 2025 at 2:52=E2=80=AFPM Andy Shevchenko
-> > <andy.shevchenko@gmail.com> wrote:
-> > > On Mon, Nov 24, 2025 at 2:40=E2=80=AFPM Jonas Gorski <jonas.gorski@gm=
-ail.com> wrote:
-> > > > On Mon, Nov 24, 2025 at 1:39=E2=80=AFAM Jisheng Zhang <jszhang@kern=
-el.org> wrote:
->
-> ...
->
-> > > > >  static const struct dev_pm_ops brcmstb_gpio_pm_ops =3D {
-> > > > > -       .suspend_noirq  =3D brcmstb_gpio_suspend,
-> > > > > -       .resume_noirq =3D brcmstb_gpio_resume,
-> > > > > +       .suspend_noirq =3D pm_sleep_ptr(brcmstb_gpio_suspend),
-> > > > > +       .resume_noirq =3D pm_sleep_ptr(brcmstb_gpio_resume),
-> > > > >  };
->
-> ...
->
-> > > > > -               .pm =3D &brcmstb_gpio_pm_ops,
-> > > > > +               .pm =3D pm_sleep_ptr(&brcmstb_gpio_pm_ops),
-> > > >
-> > > > won't this cause a "brcmstb_gpio_pm_ops is unused" compile warning =
-for
-> > > > !CONFIG_PM_SLEEP?
-> > > >
-> > > > You probably need to add a __maybe_unused to brcmstb_gpio_pm_ops
-> > > > (which incidentally DEFINE_NOIRQ_DEV_PM_OPS() also doesn't set, but
-> > > > all other *_DEV_PM_OPS() macros do).
->
-> Do they? I mean the modern ones and not that are deprecated.
->
-> > > Shouldn't it be covered by the same trick as pm_sleep_ptr() does for =
-functions?
-> >
-> > pm_sleep_ptr() becomes NULL for !CONFIG_PM_SLEEP, so there is no
-> > reference then anymore to brcmstb_gpio_pm_ops. You would need a
-> > wrapper for brcmstb_gpio_pm_ops itself to conditionally define it to
-> > avoid the warning, or add __maybe_unused to it to silence it.
->
-> PTR_IF() magic is exactly to make sure compiler will have a visibility wh=
-ile
-> dropping a dead code. Did I miss anything?
 
-No, I just was working with old assumptions, so my bad. I faintly
-remember that they used to work that way, but maybe I also
-misremember. TIL. So disregard my comment.
+--ZrY4YkY6KfCCWCC+
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-> > Note how SIMPLE_DEV_PM_OPS() and UNIVERSAL_DEV_PM_OPS() tag the struct
-> > with it (for that reason I assume).
->
-> Both are deprecated. Not a good orienteer.
-> None of the new approach uses __maybe_unused. (See DEFINE_*() macros in p=
-m.h.)
+On Mon, Nov 24, 2025 at 02:12:18PM +0000, Marc Zyngier wrote:
+> Marc Zyngier <maz@kernel.org> wrote:
 
-Maybe that some were using it was confusing me into thinking it is required=
-.
+> > Something is badly screwed in -next, and I'm not convinced it is KVM.
 
-Best regards,
-Jonas
+> > 	d0f23ccf6ba9e cpumask: Cache num_possible_cpus()
+
+> > is my current suspect.
+
+> Confirmed, and the fix is at 21782b3a5cd40892cb2995aa1ec3e74dd1112f1d.
+
+Great, thanks for checking.  Unfortunately it looks like that missed
+today's -next but hopefully it'll show up tomorrow.
+
+--ZrY4YkY6KfCCWCC+
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmkkdHgACgkQJNaLcl1U
+h9AW2wf9Gx09NFZkbOxrWK1ZCPVMxa5QkABW1zwg+HvlAZuCBTPi6h72caAbxgrv
+l3VT6gtzb7r0v91RX2qHIqDLFALkYgnHvkDNcKo0vMNSi5MgfZYxP+s0faHHD6Qy
+77Ya8IbOqnB8y872kIqYyGluZaPZFWm+BLQPjgcf8dDp70P9p2FS1NLiHa+1iy1j
+n7ZVAJ7f8cY0XFE9xpYdubh18g8JFWtqFHmthbvRjn3Cxczw1JO7l/YrjpTkq0Z0
+LUisxUstkAykqVck5iLrqma7jhr+sGEksbaz5m4tDj7tpZyjZBDdtSIUSqDq+y8d
+iH9d8J4cy4V7D7B9CzZkjFhu38k76A==
+=ljRj
+-----END PGP SIGNATURE-----
+
+--ZrY4YkY6KfCCWCC+--
 
