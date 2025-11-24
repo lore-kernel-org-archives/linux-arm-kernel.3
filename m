@@ -4,89 +4,154 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BCC1CFD313
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 15:48:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4057DCFD313
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 15:49:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Dhe14QqCiQiiyB/p8iyIjb6+UGtDhSJERPBSMqZWZ34=; b=iyOPtTt2DtaMPlub4aXp3/i6Ix
-	GwDPHcSBEaa0v//0QZK/um5VSGbdBJxoddiWr9U6wK16BvPLINbriM4ijVOFzcCf+xp2tTBKSDIyf
-	ZVx8w51/e81ow6uK/lqBjSZOaQ7HPgLSbE9RF6nugKoU0oZrrogW1oaKupmilU5033Ro5RhtbAufe
-	8+nHQWLsBFBEAqKfa7lvTcU6eoSez9j22YmDR6jFsnl4GWDmPiJOH+ORgf4X8n6Dpufw26m/Utgfj
-	7dLyxQr2Z38ySwqh4BmH+gihmLHTxBp3Hbh8KdcWvZP1W1wydrRkeJAeE6fLVY7uJVO4CDJ4n3Hxj
-	ryYq/a0A==;
+	bh=TghA5rkcZoe13lKhax0U8ktMUKJrlpbilfvIA6c1Vq4=; b=xNm+mPd3kznIMzsiQieeSCFGqW
+	jZNBwY5ul8a6WfkbNT+Zkdjc0gzJ4U/ZCXhLAFkwIAHHtSTK3ljjdMhIolL5rn5N6aQXiJFshWXQe
+	rRaNUoWKknRFh6tLC/G+23BK7tP82CHosH6Am9q3IYXXOfBXJG040K8yBeGthSy8PL3vty26Gc1pc
+	ES4kFslAYLPilLX32CMwzThx/YScv9Y0DOWkcWV652AIwcX94OF+D09RKqH5MoRHSAMpVmft5Qw/z
+	JX16qWJTvU4j36jv+7g97FwxBrcf7S0o5wXY7UKGkFr0GzAlbcsiCWEE7L22OyYQapfYK6MyA/kZu
+	TfX+VUNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNYne-0000000Bwcs-08Pc;
-	Mon, 24 Nov 2025 15:48:22 +0000
-Received: from mail-yw1-x1134.google.com ([2607:f8b0:4864:20::1134])
+	id 1vNYol-0000000Bwql-0U98;
+	Mon, 24 Nov 2025 15:49:31 +0000
+Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNYnc-0000000Bwc1-0765
+	id 1vNYoj-0000000BwqI-36nx
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Nov 2025 15:48:21 +0000
-Received: by mail-yw1-x1134.google.com with SMTP id 00721157ae682-78a6c7ac38fso47305367b3.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Nov 2025 07:48:19 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1763999298; x=1764604098; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=Dhe14QqCiQiiyB/p8iyIjb6+UGtDhSJERPBSMqZWZ34=;
-        b=ZUWcCnVHuvfFEaf20FWDpsCL1n/sLX+TemJoMpdP1QilcfUcOZ0nBmkwsk1LTkBocR
-         Iu1xGGxD0erVPaCaRK851BADyferNPjHCvGhH+GO/UolN2RvzMXlNXZzozMSRrgv1qBe
-         ujjpk7LRJIgKeZxhZWvZZpeQoqWv9RibpsDqaU73GgwwBYExUQexYJZ73YxlKd8g9JGu
-         Dizb4sQxEkYBJUoRzdmkcS/b1eSt7wb1QPtqi/PpzLRKVCW8q28y1MIvhD/Bf60eY2Kd
-         AUNK07TsRl3zGxD8p5G/C/18kwEyawN7OHf0riz2bx+04JzZIQUObf8mmI98vqwtOgSj
-         HFtg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763999298; x=1764604098;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Dhe14QqCiQiiyB/p8iyIjb6+UGtDhSJERPBSMqZWZ34=;
-        b=Qir92RL4rnTJitjSVBglUr57mcaZxnJw/B54lqvSsBH5RCFw8FFkGfPsNAIGLk1Iio
-         u9qIYj/OSjfI82JZ668ZuBwM1radv8uhzdJWWqQXblygOYkRtkBWxSUliIoQQlyz1sIx
-         rIIPEWjZ3wTd47jPsyqOHr8CvWh+8KzUE+63Ac5krS87ZzWU9dPf4ZDnhnOJ9fj/5JP6
-         NXM8QCMb8XB/7Uon1bgP6u7knAb4VHRmmuIpz0AFkP1rrBvnrWbUkPh94BdQQRh6Dlpi
-         rlkBiqj6ZiQjkSIENcF7k1q/Uy7s9nSxquDdIvfb4zEsq3HsQP34OYgw0HWrjab2XhFb
-         sApA==
-X-Forwarded-Encrypted: i=1; AJvYcCXQnK3xwMdq7Eqsn8VPQTIYin+QJUwQuCnv3rbeOT40/FHDd/+bwbpK6vh442rrwv+V1rivYvDzJgyf7GacaOYL@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw8uQQLdq3uD1a2sWxsWcg1cZq9qtUpD/oe2QObH+4b5vLdxfde
-	fzKUwkSbz2k3JFK+hfMK02hXhfJLEQ0sgt4aRqJsmf3avhrqgg8qxBN/a/+M/SBKYyNIZo+EOrd
-	AJUl+z5nuYImsAq7QzWB2apatLkP1BGXokNq6Uy/PxA==
-X-Gm-Gg: ASbGncuFbrIyK06G8CGiQ2OlG8T/0L0Lq5oVoa3rJKxf9P6Jr9iz8Vvu6guE7tlfht6
-	5ACDuSKYPzSnQ58K3+WqOCsxTBKN4CIpHF1whpLK94gEPkhUG2E3Sn+5oUbzdgL3eIWUhNaLSMh
-	W/kGhe8yt0/S2CsBY8U5mIeg5B9+rR0laQpCiKL2N1M1pDK609Nus7jmHW/FMg1gYN2wmh9JR8f
-	na1wEgXJPsUcy2UihzUjGDIr3cPeBIU53LNxTvVdRGhRYXEy8D78cXxwN4+Xth6DOyHivuJUjNB
-	Yru4XoE=
-X-Google-Smtp-Source: AGHT+IFXLeEni9mHEbFQTU/eUct/W0PzmxnSk74uTOG+KIQijx0uZ3p8CfFH9qpt1kJGYDocY45XWQwqsmbH09VD3mM=
-X-Received: by 2002:a05:690e:18d:b0:63c:f5a7:40f with SMTP id
- 956f58d0204a3-64302acb21dmr6404480d50.67.1763999298028; Mon, 24 Nov 2025
- 07:48:18 -0800 (PST)
+	Mon, 24 Nov 2025 15:49:30 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=awxWLZIqoui5PFwhNqfkk8Dk98lzSwMWXrqZ64VIUsW0CuyYmMGESjrFQ5Dowjfe5zQYNLJ/DCBnBzHctI4pCNOFiVbdQc8nH38PHGM5Xlr/+xkaGxROJu6y2Z7xNt1XAszLnXOBn7HWLxfip6Jl3AQpT8gMsedXuJf6FaDwCzWfzBMl70vIvWc1+4ATovP667dHdyNvLtt8Gg19SGpBsT3hn8xKyzx8Nv+FjyORYSXrheAI4FmGaQNAN6ywyQYZgZHp/M+a+c7e/xdu4VwBQEgPj5uazminNzQ6b1GXQ/32i+HnaMVu9X6sf8iraL0bHR6Iwg0TLWV/R4AqPCGOag==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=TghA5rkcZoe13lKhax0U8ktMUKJrlpbilfvIA6c1Vq4=;
+ b=Z2VunPALWOeRcowEufBBS6cgFC4TBMZwk3RYJAWVrifPKnSPuzD5qYfbYn3HfusHSaJVLzNCDIrqesVFXM+6AtY8nJrKpFAjjYX31/r04HSP/GwCBebRaB4yYg8HtLcfYUSXbhbSP8Qt3C4f73/XXhsyJrsdqGh/vB8ZMVcjcXim5wJid/w4YBnU+5M9qVqwf5ijD6KRLVngC7Ir3AZG5H8IyldDQkIYBOHnZmLKKbkqKR0hPREQ618UoirrMcS6zwFWzhgCPZDsvGd1htB08ph7asSmyosizmcUEfTFKWa6ABcSnfq40sNOFGmhDPaRWB+O+kkNycmHtd3dnD8cOw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=TghA5rkcZoe13lKhax0U8ktMUKJrlpbilfvIA6c1Vq4=;
+ b=QRavQBf6fBh4cKB3kvDPYvt2YEHMpDTldnSsNr2F6F4iJ2rC4+mKfDqz2a4Rq/0NZ0acv+0asnuo6Hvd2ygZfj3OsD/D2lhAqjicftfQVmM2iv2bhfDsP/E0RC9C9xFhBcNkEUz9bWNY1JxXXQAUOh5KLFjP/or17FnzBuKF2gVG0vo35Kk7KYPhaIwAWuSC5FIQ2/AcYwCrAyX4DHQb9HpX5TBwQFUv6uSi2rsXu9VGzCXTlR3Duq/icwtPZVZGzzzymHXzlRvWDmw+/CE8dILVdpSa9ogy06mjIOJG9wP271ormn8mwqVbOs95pSUPIvzlvfutUaybIjXXzhxVaQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from DU2PR04MB8951.eurprd04.prod.outlook.com (2603:10a6:10:2e2::22)
+ by AM9PR04MB8827.eurprd04.prod.outlook.com (2603:10a6:20b:40a::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9343.17; Mon, 24 Nov
+ 2025 15:49:25 +0000
+Received: from DU2PR04MB8951.eurprd04.prod.outlook.com
+ ([fe80::753c:468d:266:196]) by DU2PR04MB8951.eurprd04.prod.outlook.com
+ ([fe80::753c:468d:266:196%4]) with mapi id 15.20.9343.016; Mon, 24 Nov 2025
+ 15:49:25 +0000
+Date: Mon, 24 Nov 2025 10:49:13 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: "Ming Qian(OSS)" <ming.qian@oss.nxp.com>
+Cc: linux-media@vger.kernel.org, mchehab@kernel.org,
+	hverkuil-cisco@xs4all.nl, nicolas@ndufresne.ca,
+	benjamin.gaignard@collabora.com, p.zabel@pengutronix.de,
+	sebastian.fricke@collabora.com, shawnguo@kernel.org,
+	ulf.hansson@linaro.org, s.hauer@pengutronix.de,
+	kernel@pengutronix.de, festevam@gmail.com, linux-imx@nxp.com,
+	l.stach@pengutronix.de, peng.fan@nxp.com, eagle.zhou@nxp.com,
+	imx@lists.linux.dev, linux-pm@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 2/2] media: verisilicon: Avoid G2 bus error while
+ decoding H.264 and HEVC
+Message-ID: <aSR+eaVxBhnahOl7@lizhi-Precision-Tower-5810>
+References: <20251121081911.1682-1-ming.qian@oss.nxp.com>
+ <20251121081911.1682-2-ming.qian@oss.nxp.com>
+ <aSCOZCJ2rSw7LAvE@lizhi-Precision-Tower-5810>
+ <d282811a-866d-4ca8-b9f6-fc1da3a7565e@oss.nxp.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <d282811a-866d-4ca8-b9f6-fc1da3a7565e@oss.nxp.com>
+X-ClientProxiedBy: BY3PR05CA0045.namprd05.prod.outlook.com
+ (2603:10b6:a03:39b::20) To DU2PR04MB8951.eurprd04.prod.outlook.com
+ (2603:10a6:10:2e2::22)
 MIME-Version: 1.0
-References: <20250902-kvm-arm64-sme-v8-0-2cb2199c656c@kernel.org> <20250902-kvm-arm64-sme-v8-11-2cb2199c656c@kernel.org>
-In-Reply-To: <20250902-kvm-arm64-sme-v8-11-2cb2199c656c@kernel.org>
-From: Peter Maydell <peter.maydell@linaro.org>
-Date: Mon, 24 Nov 2025 15:48:06 +0000
-X-Gm-Features: AWmQ_blKJPr9UiZ03PNJYKVppsgjz7HVl46QteqBVXyuwWp-raNgrqIbXILR-YA
-Message-ID: <CAFEAcA_GJ7gzn7aMCZYxHnJWvx4tHSHBKsOxtQ7NTb4gPjkMJQ@mail.gmail.com>
-Subject: Re: [PATCH v8 11/29] KVM: arm64: Document the KVM ABI for SME
-To: Mark Brown <broonie@kernel.org>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
-	Joey Gouly <joey.gouly@arm.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Will Deacon <will@kernel.org>, 
-	Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>, 
-	Dave Martin <Dave.Martin@arm.com>, Fuad Tabba <tabba@google.com>, 
-	Mark Rutland <mark.rutland@arm.com>, linux-arm-kernel@lists.infradead.org, 
-	kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, kvm@vger.kernel.org, 
-	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org, 
-	Eric Auger <eric.auger@redhat.com>
-Content-Type: text/plain; charset="UTF-8"
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU2PR04MB8951:EE_|AM9PR04MB8827:EE_
+X-MS-Office365-Filtering-Correlation-Id: 377cb43d-e0d0-42b1-26aa-08de2b710b47
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|376014|52116014|7416014|1800799024|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?WK/MpO3zhjsYNifB/DQI8wlBWCeZI1Meo/W296chJH9uhK7FCItdhZcsoD6U?=
+ =?us-ascii?Q?j1sg1qAgXmsfuoiFS1NJ+nmzWOeqNRayda0gYT7RMDaKU9wGFNvYdP3b+I2t?=
+ =?us-ascii?Q?S+6U+qXR7O3nep4XhVV+TCbOAJ1bT4wtg7lnxEJtVyTTJFzI5F9wQTBMHOgb?=
+ =?us-ascii?Q?o22DugIDet6Ydpy5nijOcIU0DQtreagToeJ3wuEosoKJjkghnsL395sUW1+t?=
+ =?us-ascii?Q?D0iuPUQ43YKHSVqIITHEQMfR+lObh2Uf1Q7KyZQBlS90NnbNhhNLImrdAwlq?=
+ =?us-ascii?Q?Mu17OFqyFRMtZ6TtfHoXSdZ6uF2KlnLX5G6ZHi55Y7QnXfw/keNg1XzvRYty?=
+ =?us-ascii?Q?n5hRqbaYFYipL1ue3H2J4uf9kyBp7BrFRaZXJAIGjsGqJaPKvHKuVBoSUrqK?=
+ =?us-ascii?Q?F2uRo6Na7j/AQ98HN8vtkRErduby/mxxSvew75q7LNERqmWQ8rzPL0KQYzgJ?=
+ =?us-ascii?Q?otjkVWPr219CYzHE5SQoX663x+tK7pI+5z4qEA5PN1TKu6I3PrUph/fnIFTE?=
+ =?us-ascii?Q?szOVtTUgl/tyDz85BsJsl7a9XJDcmnZYZ7yyW5S+hzK5tsE+TqDXjayEjYG0?=
+ =?us-ascii?Q?tHn+A/VFwzWoISK28HsCXWbwF5yc4aI6/CPtoUUmE8ph+aFnljGMV1MCkLxi?=
+ =?us-ascii?Q?FZIU85klKV78ThSaMye9aaFdjYDzdQPf5M9Pd26nf+sDr9GDcg/IHAlLZmCp?=
+ =?us-ascii?Q?rdLeZa26GOEe8NTJxza4eHi3vnMIPXbgUz+YIEPUaJzGYQVh8QJZ2qNj0LBJ?=
+ =?us-ascii?Q?jctMRxG50xCZFszmr9eH/RKinsLOmjPuDl2uvFj41Kw4VxNQnri9RTNjuY/q?=
+ =?us-ascii?Q?awkxcqt+I8TDG95YVPyogyhtGBTj4KDdV9sLj/bHzcMKWu83hWocRLksv6pO?=
+ =?us-ascii?Q?z/Q7w0VYmI+Og1wyptQX29RRtN40shDCGy0tYEA3JgWqDA1LqwSFTwP8RMtq?=
+ =?us-ascii?Q?KYawzmDFkCrBfm1lTL03Chsf8YK+M9UbtnIdEWOB5L1TCDMPFuDa8ubUcKao?=
+ =?us-ascii?Q?PmWEKOZ15v8Nuc5sVNesz1aUaerlS/xcndDaaagJkRRfk8HRJsU+WFthYC84?=
+ =?us-ascii?Q?dolCbUfYb5Y1XeySGSDUr2ShWJF07aZaFO9Vpx5tOIiHXfanXZHCeynZtzRh?=
+ =?us-ascii?Q?w6u1P57H3Qqq/+O5RG1xhfrPT3hA6OLRNhYvvucm5lDybtZfS7ywyt/l683f?=
+ =?us-ascii?Q?RrIWyGz3YO2KjmBg3Mjo2u7NvJvifmU7Jgx65iObEewgkKyZLqqn5xlSYbv+?=
+ =?us-ascii?Q?zvV5CfpTPwWac0hjDaIYCRPf8lHl/uKpbUeTzE86HzrR+Cpq6VlbthzlPR5i?=
+ =?us-ascii?Q?hQEE7leUYeRdBPWZg0zvMeTxzk25B1cDXUAXxS6F3tDpAoMSUQoDzaRHeqA/?=
+ =?us-ascii?Q?kScM8fCrbzSlU6u6RXMU0jwAon6JVPgiGMgAQ/Xeztt1y6L5HssbuwgEIFEy?=
+ =?us-ascii?Q?C1rw7+UVNfhMRj/kmGIb4XnqGZ9MU3adEmXMWU/dTqtwNO55TvJIJg=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8951.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(376014)(52116014)(7416014)(1800799024)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?kb1m8vUxrKKqg28P61um2PcB4NSYVJAO/dDi/2osRzYtViqL0AyM5pE4oUGt?=
+ =?us-ascii?Q?EbSN5yxZKn0pKmyE+YLL3QFhNMbU55dXAv7xjjRhhcejAzlWI9mkPS6mJcam?=
+ =?us-ascii?Q?1/3RyxfD6PkQvD371AaQGz3J6pt9vwPHBLdz1GquFtpj4XHyMP0jlUA/OgCi?=
+ =?us-ascii?Q?Ad/nqL3bwtHQiR1Xnsx1+MdL4hO/98StS2TnmJnre05Fd+naszDuacRCQYrX?=
+ =?us-ascii?Q?+z95zNJIM0wvv4viHUAawk0SNn0KF/V8h8ZU9+NaApED9aGB/0TGJAEFcF7I?=
+ =?us-ascii?Q?AEJDmxS0uLdL2OOUVVKU4+zg0bgLUInAtuCu108Ew4SdelbgC7zvLYI3NZUi?=
+ =?us-ascii?Q?u3YZqhiIO4KO3t8V29QABF9v5wf1eD4ZAqY8Kp2L6sJ2i4xB2aYNL7JfCnJm?=
+ =?us-ascii?Q?G8hy6WPJ8/iuWJ/EWyNDnso3qjIeabxtm27fxjAryzo+meDSipInmgJOhK4v?=
+ =?us-ascii?Q?Y8O9HtELxEZJybInHzYstRZ8/rQa5p3sRDsO+aj6isUecSclneE7Yh1RAOqC?=
+ =?us-ascii?Q?kJzx7HKScs9hMAhNkzROATCCT6aWVRRBJa/UXquf8QTGHIZRf5xT3XBLm6gk?=
+ =?us-ascii?Q?Bb8VuEN9ymGEuecfRCfCNhsnADw+V1lzeqpmsXRqClcNnftR+rcmjaUwMhMI?=
+ =?us-ascii?Q?hoa8WKUAxXIHqwrVWUAwlr/pFvS7v6W5OkGwQnhlaNw5dMaowcm3CFskYSJ9?=
+ =?us-ascii?Q?TZflUi1TtLGB0bF/m8tW7TWdSJRoM8LZu8JfPIGAROHeCYQ4MBdzbFZeps8W?=
+ =?us-ascii?Q?b71oxFyKdVDynD55FTxlmEef5qoqdXt5L7CHOZQuOT0dzk2SFpxlJOTweiIA?=
+ =?us-ascii?Q?/2h7xIJcUJUGcBxwaK9uQgRE9rDnQ5QfDDpGx6iWduzD9pNaaTi5nniwiZxW?=
+ =?us-ascii?Q?P95C9rQCThUZJWAOtS+R7ABMq5Qigk3ZI/TwrarM49oVXSxz0/yhilm1vadX?=
+ =?us-ascii?Q?nOlyhUoTRMALnVDmnxOkD1ZUW/Cywq/S7xpca57yAFw3tsm/Nass6wmW2rk+?=
+ =?us-ascii?Q?vji7t+nJKgb6yYyWt40+RGPYSG5DVZC8LO+6+rjCECxgNf4EXNe9RlomHAny?=
+ =?us-ascii?Q?0WTHZaVAIxen/rLm1J+tAcJiaDseu0UoOG87eW7lrsA3I+cd59sqEiFkjzRn?=
+ =?us-ascii?Q?7BPwjEZR9CpBZUlQ0hnW7QGGj+z6U4BsnnRnC0hMN3uSBz/mmgOQ0MI9CtGB?=
+ =?us-ascii?Q?6gjMfWzu/tcatQyZdM4JOH/8ZclesJAc5rstnwkTLKb/op82UnDMYQyL5X3l?=
+ =?us-ascii?Q?aPPPjh78vcp1xBiMECLK8Mfj1ct7bGlLRgQWAsK+9kH2BBltLyn78BPQ5Imd?=
+ =?us-ascii?Q?kpG6Cqg19rPG/AENxpKU6ltnVbO/SW1mjOzUDYidgUg6UguvQAhlVKc8n4tf?=
+ =?us-ascii?Q?KAk37BdGbpxgjERsbrjM5mOStlGl0RpbcU4SwNUphgi3qq6yDMklw1C5BO0y?=
+ =?us-ascii?Q?xKIHnW5J+sGdEMA2M92VBaab7EAyIqr/t2+r+d9F9GNgwU7pWuXdBTWC7kSH?=
+ =?us-ascii?Q?Qa5VIadjHl9nIL6gWrf62bCt1owdaxEBBA6LaW8R5hUbkvBJ518heGCjDb01?=
+ =?us-ascii?Q?NfusBF4W8qipOenFvEEsZz9MrnN6oytGp7o0FaLu?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 377cb43d-e0d0-42b1-26aa-08de2b710b47
+X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8951.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Nov 2025 15:49:25.5472
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: KISbn+GuyR8LsGCG07hQDfoL3LpKjahcFybS7Xi1wzip0HicuyBx1ScY03gIGAUctoEX+V3QbBeoloB2I1fPBA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8827
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251124_074820_097207_91C235DD 
-X-CRM114-Status: GOOD (  48.96  )
+X-CRM114-CacheID: sfid-20251124_074929_781675_CCE960DB 
+X-CRM114-Status: GOOD (  29.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,162 +166,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 2 Sept 2025 at 12:45, Mark Brown <broonie@kernel.org> wrote:
+On Mon, Nov 24, 2025 at 09:38:15AM +0800, Ming Qian(OSS) wrote:
+> Hi Frank,
 >
-> SME, the Scalable Matrix Extension, is an arm64 extension which adds
-> support for matrix operations, with core concepts patterned after SVE.
-
-Hi; apologies for not having got round to looking at this earlier.
-
-I haven't actually tried writing any code that uses this proposed
-ABI, but mostly it looks OK to me. I have a few nits below, but
-my main concern is the bits of text that say (or seem to say --
-maybe I'm misinterpreting them) that various parts of how userspace
-accesses the guest state (e.g. the fp regs) depend on the current
-state of the vcpu, rather than being only a function of how the
-vcpu was configured. That seems to me like it's unnecessarily awkward.
-(More detail below.)
-
-> If SME is enabled for a guest without SVE then the FPSIMD Vn registers
-> must be accessed via the low 128 bits of the SVE Zn registers as is the
-> case when SVE is enabled. This is not ideal but allows access to SVCR and
-> the registers in any order without duplication or ambiguity about which
-> values should take effect. This may be an issue for VMMs that are
-> unaware of SME on systems that implement it without SVE if they let SME
-> be enabled, the lack of access to Vn may surprise them, but it seems
-> like an unusual implementation choice.
+> On 11/22/2025 12:08 AM, Frank Li wrote:
+> > On Fri, Nov 21, 2025 at 04:19:09PM +0800, ming.qian@oss.nxp.com wrote:
+> > > From: Ming Qian <ming.qian@oss.nxp.com>
+> > >
+> > > For the i.MX8MQ platform, there is a hardware limitation: the g1 VPU and
+> > > g2 VPU cannot decode simultaneously; otherwise, it will cause below bus
+> > > error and produce corrupted pictures, even led to system hang.
+> > >
+> > > [  110.527986] hantro-vpu 38310000.video-codec: frame decode timed out.
+> > > [  110.583517] hantro-vpu 38310000.video-codec: bus error detected.
+> > >
+> > > Therefore, it is necessary to ensure that g1 and g2 operate alternately.
+> > > Then this allows for successful multi-instance decoding of H.264 and HEVC.
+> > >
+> > > Fixes: cb5dd5a0fa518 ("media: hantro: Introduce G2/HEVC decoder")
+> > > Signed-off-by: Ming Qian <ming.qian@oss.nxp.com>
+> > > ---
+> > >   drivers/media/platform/verisilicon/hantro.h   |  1 +
+> > >   .../media/platform/verisilicon/hantro_drv.c   | 26 +++++++++++++++++++
+> > >   .../media/platform/verisilicon/imx8m_vpu_hw.c |  4 +++
+> > >   3 files changed, 31 insertions(+)
+> > >
+> > ...
+> > >   #include <linux/workqueue.h>
+> > > +#include <linux/iopoll.h>
+> > >   #include <media/v4l2-event.h>
+> > >   #include <media/v4l2-mem2mem.h>
+> > >   #include <media/videobuf2-core.h>
+> > > @@ -93,6 +94,9 @@ static void hantro_job_finish(struct hantro_dev *vpu,
+> > >
+> > >   	clk_bulk_disable(vpu->variant->num_clocks, vpu->clocks);
+> > >
+> > > +	if (vpu->variant->shared_resource)
+> > > +		atomic_cmpxchg(vpu->variant->shared_resource, 0, 1);
+> > > +
+> > >   	hantro_job_finish_no_pm(vpu, ctx, result);
+> > >   }
+> > >
+> > > @@ -166,12 +170,34 @@ void hantro_end_prepare_run(struct hantro_ctx *ctx)
+> > >   			      msecs_to_jiffies(2000));
+> > >   }
+> > >
+> > > +static int hantro_wait_shared_resource(struct hantro_dev *vpu)
+> > > +{
+> > > +	u32 data;
+> > > +	int ret;
+> > > +
+> > > +	if (!vpu->variant->shared_resource)
+> > > +		return 0;
+> > > +
+> > > +	ret = read_poll_timeout(atomic_cmpxchg, data, data, 10, 300 * NSEC_PER_MSEC, false,
+> > > +				vpu->variant->shared_resource, 1, 0);
+> > > +	if (ret) {
+> > > +		dev_err(vpu->dev, "Failed to wait shared resource\n");
+> > > +		return -EINVAL;
+> > > +	}
+> >
+> > why not use a mutex?
+> >
+> > mutex() lock here, unlock at hantro_job_finish(), if second instance
+> > run to here, mutex() will block thread, until previous hantro_job_finish()
+> > finish.
+> >
+> > Frank
 >
-> For SME unware VMMs on systems with both SVE and SME support the SVE
-> registers may be larger than expected, this should be less disruptive
-> than on a system without SVE as they will simply ignore the high bits of
-> the registers.
+> G1 and G2 are two different devices. If I were to use a mutex, I would
+> need to define a global mutex. Therefore, to avoid using a global mutex,
+> I only define a static atomic variable.
 
-I think that since enabling SME is something the VMM has to actively
-do, it isn't a big deal that they also need to do something in the
-fp or sve register access codepaths to handle SME. You can't get
-SME by surprise (same as you can't get SVE by surprise).
+static atomic varible also is global.  Global mutex is allowed if it is
+really needed.
 
-> Signed-off-by: Mark Brown <broonie@kernel.org>
-> ---
->  Documentation/virt/kvm/api.rst | 115 +++++++++++++++++++++++++++++------------
->  1 file changed, 81 insertions(+), 34 deletions(-)
 >
-> diff --git a/Documentation/virt/kvm/api.rst b/Documentation/virt/kvm/api.rst
-> index 6aa40ee05a4a..94a22407a1d4 100644
-> --- a/Documentation/virt/kvm/api.rst
-> +++ b/Documentation/virt/kvm/api.rst
-> @@ -406,7 +406,7 @@ Errors:
->               instructions from device memory (arm64)
->    ENOSYS     data abort outside memslots with no syndrome info and
->               KVM_CAP_ARM_NISV_TO_USER not enabled (arm64)
-> -  EPERM      SVE feature set but not finalized (arm64)
-> +  EPERM      SVE or SME feature set but not finalized (arm64)
->    =======    ==============================================================
->
->  This ioctl is used to run a guest virtual cpu.  While there are no
-> @@ -2601,11 +2601,11 @@ Specifically:
->  ======================= ========= ===== =======================================
->
->  .. [1] These encodings are not accepted for SVE-enabled vcpus.  See
-> -       :ref:`KVM_ARM_VCPU_INIT`.
-> +       :ref:`KVM_ARM_VCPU_INIT`.  They are also not accepted when SME is
-> +       enabled without SVE and the vcpu is in streaming mode.
+> If a static mutex is acceptable, I think I can change it to a mutex.
 
-Does this mean that on an SME-no-SVE VM the VMM needs to know
-if the vcpu is currently in streaming mode or not to determine
-whether to read the FP registers as fp_regs or sve regs? That
-seems unpleasant -- I was expecting this to be strictly a
-matter of how the VM was configured (as it is with SVE).
+ref to
+https://elixir.bootlin.com/linux/v6.18-rc6/source/drivers/base/core.c#L43
 
->         The equivalent register content can be accessed via bits [127:0] of
-> -       the corresponding SVE Zn registers instead for vcpus that have SVE
-> -       enabled (see below).
-> +       the corresponding SVE Zn registers in these cases (see below).
+Frank
 >
->  arm64 CCSIDR registers are demultiplexed by CSSELR value::
+> Regards,
+> Ming
 >
-> @@ -2636,24 +2636,34 @@ arm64 SVE registers have the following bit patterns::
->    0x6050 0000 0015 060 <slice:5>        FFR bits[256*slice + 255 : 256*slice]
->    0x6060 0000 0015 ffff                 KVM_REG_ARM64_SVE_VLS pseudo-register
->
-> -Access to register IDs where 2048 * slice >= 128 * max_vq will fail with
-> -ENOENT.  max_vq is the vcpu's maximum supported vector length in 128-bit
-> -quadwords: see [2]_ below.
-> +arm64 SME registers have the following bit patterns:
-> +
-> +  0x6080 0000 0017 00 <n:5> <slice:5>   ZA.H[n] bits[2048*slice + 2047 : 2048*slice]
-> +  0x60XX 0000 0017 0100                 ZT0
-
-What's the XX here ?
-
-> +  0x6060 0000 0017 fffe                 KVM_REG_ARM64_SME_VLS pseudo-register
-> +
-> +Access to Z, P or ZA register IDs where 2048 * slice >= 128 * max_vq
-> +will fail with ENOENT.  max_vq is the vcpu's maximum supported vector
-> +length in 128-bit quadwords: see [2]_ below.
-
-What about FFR registers ? Is their ENOENT condition the same,
-or different?
-
-> +
-> +Access to the ZA and ZT0 registers is only available if SVCR.ZA is set
-> +to 1.
->
->  These registers are only accessible on vcpus for which SVE is enabled.
->  See KVM_ARM_VCPU_INIT for details.
->
-> -In addition, except for KVM_REG_ARM64_SVE_VLS, these registers are not
-> -accessible until the vcpu's SVE configuration has been finalized
-> -using KVM_ARM_VCPU_FINALIZE(KVM_ARM_VCPU_SVE).  See KVM_ARM_VCPU_INIT
-> -and KVM_ARM_VCPU_FINALIZE for more information about this procedure.
-> +In addition, except for KVM_REG_ARM64_SVE_VLS and
-> +KVM_REG_ARM64_SME_VLS, these registers are not accessible until the
-> +vcpu's SVE and SME configuration has been finalized using
-> +KVM_ARM_VCPU_FINALIZE(KVM_ARM_VCPU_VEC).  See KVM_ARM_VCPU_INIT and
-> +KVM_ARM_VCPU_FINALIZE for more information about this procedure.
->
-> -KVM_REG_ARM64_SVE_VLS is a pseudo-register that allows the set of vector
-> -lengths supported by the vcpu to be discovered and configured by
-> -userspace.  When transferred to or from user memory via KVM_GET_ONE_REG
-> -or KVM_SET_ONE_REG, the value of this register is of type
-> -__u64[KVM_ARM64_SVE_VLS_WORDS], and encodes the set of vector lengths as
-> -follows::
-> +KVM_REG_ARM64_SVE_VLS and KVM_ARM64_VCPU_SME_VLS are pseudo-registers
-> +that allows the set of vector lengths supported by the vcpu to be
-> +discovered and configured by userspace.  When transferred to or from
-> +user memory via KVM_GET_ONE_REG or KVM_SET_ONE_REG, the value of this
-> +register is of type __u64[KVM_ARM64_SVE_VLS_WORDS], and encodes the
-> +set of vector lengths as follows::
->
->    __u64 vector_lengths[KVM_ARM64_SVE_VLS_WORDS];
->
-> @@ -2665,19 +2675,25 @@ follows::
->         /* Vector length vq * 16 bytes not supported */
->
->  .. [2] The maximum value vq for which the above condition is true is
-> -       max_vq.  This is the maximum vector length available to the guest on
-> -       this vcpu, and determines which register slices are visible through
-> -       this ioctl interface.
-> +       max_vq.  This is the maximum vector length currently available to
-> +       the guest on this vcpu, and determines which register slices are
-> +       visible through this ioctl interface.
-> +
-> +       If SME is supported then the max_vq used for the Z and P registers
-> +       while SVCR.SM is 1 this vector length will be the maximum SME
-> +       vector length available for the guest, otherwise it will be the
-> +       maximum SVE vector length available.
-
-I can't figure out what this paragraph is trying to say, partly
-because it seems like it might be missing some text between
-"is 1" and "this vector length".
-
-In any case, the "while SVCR.SM is 1" part seems odd -- I
-don't think this ABI should care about the runtime vcpu state,
-only what the vcpu's max vector lengths were configured as.
-My expectation would be that the max_vq for VMM register
-access would be the maximum of the SVE and SME vector lengths
-configured for the vcpu.
-
-thanks
--- PMM
+> > > +
+> > > +	return 0;
+> > > +}
+> > > +
+> > >   static void device_run(void *priv)
+> > >   {
+> > >   	struct hantro_ctx *ctx = priv;
+> > >   	struct vb2_v4l2_buffer *src, *dst;
+> > >   	int ret;
+> > >
+> > > +	ret = hantro_wait_shared_resource(ctx->dev);
+> > > +	if (ret < 0)
+> > > +		goto err_cancel_job;
+> > > +
+> > >   	src = hantro_get_src_buf(ctx);
+> > >   	dst = hantro_get_dst_buf(ctx);
+> > ...
+> >
+> > >
+> > > --
+> > > 2.34.1
+> > >
 
