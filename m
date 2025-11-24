@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6EE3CFA466
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 13:23:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59598CFD313
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 13:23:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WVgyfR//D2q7JroeMxNIl2TxTXsGcGIa5UzeM8XuVb4=; b=Gi1K850v6l3zxGg7MWRof+Re82
-	RCG7fq9uNzZcTc672dZ6PPoq4URIYE9Tbgkxldt+LXlnGcehQN8a58yWlUlPQLLK5lPexH5oAlwTo
-	LxWUvm7eBcOynvrwoXQsY3ZQ4JcCQvx/tqHsoWvAWdUK6phdIcxk8jo/4K1WVp97WPlLiTzbFP7pW
-	1ZLcISk3YiwskyIrY3XyLrWMI2Ej3n97SKirPo+VDHpJj1PavXoSB+hWSEbB+TnJKVBEMuqzi36ni
-	TqgZ7H21PQNya18nRrWjr9RFt/dT/l83GpCepev/rTaFFs2nV11F1hc1sT7sdd4qrGm5doixA8Lrq
-	AMzUwfbQ==;
+	bh=wxflffJTh0pyYZvyWMeVPJtd+lYqkq24w2n0H8YxAm8=; b=XD+AjT2Qff3hFEHRnFYXa1sxWu
+	8ZgaRXMohuagmlIbS2VDTcP2mcZOG7ybCPMtlZP4d8+gXaZmCybD+NgyLSQMoSQsgtPuwf5+MDM38
+	U4kckfuuSijFRgibk1TLfj0SXO21vFW/MCrPJMp5rvH19CsXfM+aaXHx758y3x0xJ77NufFEHd86D
+	jjM9NLRZyNLuLAI1QnIAbqzT8TFw9/wG/6GZcCVbVutMkbm2NfFMLitSlzQrKhkpVXQxHbwEvy2tt
+	8N/bOWqOElGQ2LpkIm85OQUnocKXTXoFa7ltAd00UqqGC9LV9S8f4rKX6lriV1aih9PQCyPc9GChb
+	nBEyMHng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNWXA-0000000BjEU-2KTZ;
+	id 1vNWXA-0000000BjF3-3u0y;
 	Mon, 24 Nov 2025 13:23:12 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNWWy-0000000Bj5s-1lOv
+	id 1vNWX4-0000000Bj9x-0kqJ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Nov 2025 13:23:03 +0000
+	Mon, 24 Nov 2025 13:23:07 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A86B71516;
-	Mon, 24 Nov 2025 05:22:51 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 282AA1595;
+	Mon, 24 Nov 2025 05:22:57 -0800 (PST)
 Received: from e123572-lin.arm.com (e123572-lin.cambridge.arm.com [10.1.194.54])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0518D3F73B;
-	Mon, 24 Nov 2025 05:22:53 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 787003F73B;
+	Mon, 24 Nov 2025 05:22:59 -0800 (PST)
 From: Kevin Brodsky <kevin.brodsky@arm.com>
 To: linux-mm@kvack.org
 Cc: linux-kernel@vger.kernel.org,
@@ -73,17 +73,17 @@ Cc: linux-kernel@vger.kernel.org,
 	sparclinux@vger.kernel.org,
 	xen-devel@lists.xenproject.org,
 	x86@kernel.org
-Subject: [PATCH v5 03/12] powerpc/mm: implement arch_flush_lazy_mmu_mode()
-Date: Mon, 24 Nov 2025 13:22:19 +0000
-Message-ID: <20251124132228.622678-4-kevin.brodsky@arm.com>
+Subject: [PATCH v5 04/12] sparc/mm: implement arch_flush_lazy_mmu_mode()
+Date: Mon, 24 Nov 2025 13:22:20 +0000
+Message-ID: <20251124132228.622678-5-kevin.brodsky@arm.com>
 X-Mailer: git-send-email 2.51.2
 In-Reply-To: <20251124132228.622678-1-kevin.brodsky@arm.com>
 References: <20251124132228.622678-1-kevin.brodsky@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251124_052301_389372_8371AB08 
-X-CRM114-Status: GOOD (  13.13  )
+X-CRM114-CacheID: sfid-20251124_052306_362533_24F0E064 
+X-CRM114-Status: GOOD (  13.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,58 +103,58 @@ arch_flush_lazy_mmu_mode() to be called when leaving a nested
 lazy_mmu section.
 
 Move the relevant logic from arch_leave_lazy_mmu_mode() to
-arch_flush_lazy_mmu_mode() and have the former call the latter. The
-radix_enabled() check is required in both as
-arch_flush_lazy_mmu_mode() will be called directly from the generic
-layer in a subsequent patch.
+arch_flush_lazy_mmu_mode() and have the former call the latter.
 
-Note: the additional this_cpu_ptr() and radix_enabled() calls on the
+Note: the additional this_cpu_ptr() call on the
 arch_leave_lazy_mmu_mode() path will be removed in a subsequent
 patch.
 
 Acked-by: David Hildenbrand <david@redhat.com>
 Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
 ---
- .../powerpc/include/asm/book3s/64/tlbflush-hash.h | 15 ++++++++++++---
- 1 file changed, 12 insertions(+), 3 deletions(-)
+ arch/sparc/include/asm/tlbflush_64.h | 2 +-
+ arch/sparc/mm/tlb.c                  | 9 ++++++++-
+ 2 files changed, 9 insertions(+), 2 deletions(-)
 
-diff --git a/arch/powerpc/include/asm/book3s/64/tlbflush-hash.h b/arch/powerpc/include/asm/book3s/64/tlbflush-hash.h
-index 146287d9580f..2d45f57df169 100644
---- a/arch/powerpc/include/asm/book3s/64/tlbflush-hash.h
-+++ b/arch/powerpc/include/asm/book3s/64/tlbflush-hash.h
-@@ -41,7 +41,7 @@ static inline void arch_enter_lazy_mmu_mode(void)
- 	batch->active = 1;
+diff --git a/arch/sparc/include/asm/tlbflush_64.h b/arch/sparc/include/asm/tlbflush_64.h
+index 8b8cdaa69272..925bb5d7a4e1 100644
+--- a/arch/sparc/include/asm/tlbflush_64.h
++++ b/arch/sparc/include/asm/tlbflush_64.h
+@@ -43,8 +43,8 @@ void flush_tlb_kernel_range(unsigned long start, unsigned long end);
+ 
+ void flush_tlb_pending(void);
+ void arch_enter_lazy_mmu_mode(void);
++void arch_flush_lazy_mmu_mode(void);
+ void arch_leave_lazy_mmu_mode(void);
+-#define arch_flush_lazy_mmu_mode()      do {} while (0)
+ 
+ /* Local cpu only.  */
+ void __flush_tlb_all(void);
+diff --git a/arch/sparc/mm/tlb.c b/arch/sparc/mm/tlb.c
+index a35ddcca5e76..7b5dfcdb1243 100644
+--- a/arch/sparc/mm/tlb.c
++++ b/arch/sparc/mm/tlb.c
+@@ -59,12 +59,19 @@ void arch_enter_lazy_mmu_mode(void)
+ 	tb->active = 1;
  }
  
--static inline void arch_leave_lazy_mmu_mode(void)
-+static inline void arch_flush_lazy_mmu_mode(void)
+-void arch_leave_lazy_mmu_mode(void)
++void arch_flush_lazy_mmu_mode(void)
  {
- 	struct ppc64_tlb_batch *batch;
+ 	struct tlb_batch *tb = this_cpu_ptr(&tlb_batch);
  
-@@ -51,12 +51,21 @@ static inline void arch_leave_lazy_mmu_mode(void)
- 
- 	if (batch->index)
- 		__flush_tlb_pending(batch);
+ 	if (tb->tlb_nr)
+ 		flush_tlb_pending();
 +}
 +
-+static inline void arch_leave_lazy_mmu_mode(void)
++void arch_leave_lazy_mmu_mode(void)
 +{
-+	struct ppc64_tlb_batch *batch;
-+
-+	if (radix_enabled())
-+		return;
-+	batch = this_cpu_ptr(&ppc64_tlb_batch);
++	struct tlb_batch *tb = this_cpu_ptr(&tlb_batch);
 +
 +	arch_flush_lazy_mmu_mode();
- 	batch->active = 0;
+ 	tb->active = 0;
  	preempt_enable();
  }
- 
--#define arch_flush_lazy_mmu_mode()      do {} while (0)
--
- extern void hash__tlbiel_all(unsigned int action);
- 
- extern void flush_hash_page(unsigned long vpn, real_pte_t pte, int psize,
 -- 
 2.51.2
 
