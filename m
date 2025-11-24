@@ -4,63 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABF09CFD313
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 15:11:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57BFDCFD313
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 15:16:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CBIVNcif2wkQdg5r0HmparyX7/p4Cy+GpGHPFwxTHl8=; b=yOTN5V1sqqcMqsjm2H7NKnJHTP
-	kCZ2Zfr0Dz3PcF5gJ/BiobcGBrVGr4ARLemz+DsUzh1e84yHnWTeF8d5dNcjKW7XsqQqUJZo3CGDW
-	EVAqPFDuDwGt9wxZEKCkfka/gwpEbhNFIJC6io0368uxiVnJmP5soUVkrNmciUM2r1VVmMm1Oadzy
-	1hjAGqJhL/GMgNPwGlWCjYmLG3PO67efgGRG628If88NxAyaX9J7QDuHhjZws2sQXOjAV6icfAinW
-	3B2JmVQwtdJ/CroReZRmN465C3MJCKLZR99e0dgheiIwMmAYu+fDSDY+QlRFH2eZVCmJT9xn1+9nf
-	CYonSDnA==;
+	bh=zM4LhHiGguqW4GxrHXHlOhST5maHFvGrTe92pnsfX60=; b=a7ZfOi32lUsnjvQcPlX3P2pNrG
+	/SBzxwHlXrh3MakIoxLH5LvDkjTXzPf+VUbOcYaLpBD0oeKQutyv26Ihu5E/M3ViUeuhndAqzZL0U
+	sc+4dQ7GP1ghQHSK87W+qNwAFHA9jxA9eQCcGnOO1YcXe3fQXql0tr/gV0AptdgzanjjRcGBTWALH
+	eT1T8Z+RKvy/EpJDpG6g6cnVFUreypoZ4U22HND+C6U0/Jte1JZbc9GHi0apmuY8+PX3+PoIm2XVO
+	pseOvfzRb81gpVgGrgHSUSUpLx58k7Tolu/Y7jxRv1hAq4PaaerEVrNbJ1t0+XP41V4gTuUUnox/U
+	k0yufS3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNYDy-0000000BtVb-3Cv7;
-	Mon, 24 Nov 2025 15:11:30 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNYDv-0000000BtV6-39Aj
+	id 1vNYJ6-0000000BttW-3EM2;
+	Mon, 24 Nov 2025 15:16:48 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vNYJ2-0000000Btsu-03MW
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Nov 2025 15:11:29 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6B440417B5;
-	Mon, 24 Nov 2025 15:11:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9509AC4CEF1;
-	Mon, 24 Nov 2025 15:11:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763997087;
-	bh=B+qDEK+5a4QqhpoYF9b9tb+sSkdccGdDJ6yuZXTMx9w=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=cdxLvwev5DLJVRP0ZGuksgjqW6B6aIzNHugXWYQTzc61tdF2EiBTTmPCY1/E0HSVZ
-	 E116BGy88AoR9h4ukGJ28hqjob28kwsyAyhfe0gq7FPGKblLTPavBO4V4waT84Z+RP
-	 50scLnZ+GV4FjQZfiM+BXSyI/pzxOzRroN/E2MhIC4RlBtsvDYavcVshccYJRvvMgi
-	 aZ+opHe30wCe8V0rFkw1kWiTTuxLIttXkr4ZQF0lt61fELx5vKTb0hu0E3oAiRcn/7
-	 VcfT8c42ATCF4TLuagAebV0DDf6Xqi/hw143YEGnYEBikj2KIUM4O8f3wMgfMhihOe
-	 F26LB7huUkB9w==
-Date: Mon, 24 Nov 2025 15:11:22 +0000
-From: Will Deacon <will@kernel.org>
-To: Ryan Roberts <ryan.roberts@arm.com>
-Cc: Dev Jain <dev.jain@arm.com>, catalin.marinas@arm.com, rppt@kernel.org,
-	shijie@os.amperecomputing.com, yang@os.amperecomputing.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/2] arm64/pageattr: Propagate return value from
- __change_memory_common
-Message-ID: <aSR1mn8jjzty5J9F@willie-the-truck>
-References: <20251112062716.64801-1-dev.jain@arm.com>
- <20251112062716.64801-2-dev.jain@arm.com>
- <6bc0fac0-3c00-4ecf-948e-5648584ec939@arm.com>
+	Mon, 24 Nov 2025 15:16:47 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 50455497;
+	Mon, 24 Nov 2025 07:16:33 -0800 (PST)
+Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2230F3F73B;
+	Mon, 24 Nov 2025 07:16:39 -0800 (PST)
+Date: Mon, 24 Nov 2025 15:16:35 +0000
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: will@kernel.org, Huang Shijie <shijie@os.amperecomputing.com>
+Cc: patches@amperecomputing.com, cl@linux.com,
+	Shubhang@os.amperecomputing.com,
+	linux-arm-kernel@lists.infradead.org,
+	krzysztof.kozlowski@linaro.org, geert+renesas@glider.be,
+	arnd@arndb.de, linux-kernel@vger.kernel.org, peterz@infradead.org,
+	soc@lists.linux.dev, Zenghui Yu <yuzenghui@huawei.com>
+Subject: Re: [PATCH v2] arm64: defconfig: Remove the redundant
+ SCHED_MC/SCHED_SMT
+Message-ID: <aSR206S6V3-EaDfp@arm.com>
+References: <20251021075704.527626-1-shijie@os.amperecomputing.com>
+ <176357945539.2095097.9737276524353571173.b4-ty@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <6bc0fac0-3c00-4ecf-948e-5648584ec939@arm.com>
+In-Reply-To: <176357945539.2095097.9737276524353571173.b4-ty@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251124_071128_952402_47F50EB8 
-X-CRM114-Status: GOOD (  15.00  )
+X-CRM114-CacheID: sfid-20251124_071644_111688_6FA4E87D 
+X-CRM114-Status: GOOD (  10.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,32 +68,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Nov 13, 2025 at 11:55:48AM +0000, Ryan Roberts wrote:
-> On 12/11/2025 06:27, Dev Jain wrote:
-> > The rodata=on security measure requires that any code path which does
-> > vmalloc -> set_memory_ro/set_memory_rox must protect the linear map alias
-> > too. Therefore, if such a call fails, we must abort set_memory_* and caller
-> > must take appropriate action; currently we are suppressing the error, and
-> > there is a real chance of such an error arising post commit a166563e7ec3
-> > ("arm64: mm: support large block mapping when rodata=full"). Therefore,
-> > propagate any error to the caller.
+On Wed, Nov 19, 2025 at 07:10:55PM +0000, Catalin Marinas wrote:
+> From: Catalin Marinas <catalin.marinas@arm.com>
+> 
+> On Tue, 21 Oct 2025 15:57:04 +0800, Huang Shijie wrote:
+> > The patch "7bd291abe2d sched: Unify the SCHED_{SMT,CLUSTER,MC} Kconfig"
+> > has enabled the SCHED_MC/SCHED_SMT by default for arm64.
 > > 
-> > Fixes: a166563e7ec3 ("arm64: mm: support large block mapping when rodata=full")
-> > Signed-off-by: Dev Jain <dev.jain@arm.com>
+> > So remove the redundant code in defconfig.
 > 
-> Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
+> It's usually Arnd picking up defconfig changes but since it's more about
+> core features, I queued it.
 > 
-> It would be good to get this into v6.18 I guess?
+> Applied to arm64 (for-next/defconfig), thanks!
+> 
+> [1/1] arm64: defconfig: Remove the redundant SCHED_MC/SCHED_SMT
+>       https://git.kernel.org/arm64/c/a086f211a3b1
 
-I'm not sure I see the urgency. When the commit message says:
+I'll drop this as Arnd already merged it.
 
-  "there is a real chance of such an error arising post commit a166563e7ec3"
-
-afaict that's either due to -ENOMEM or some hideous issue with the
-page-tables (e.g. the -EINVALs in pageattr_pXd_entry() seem completely
-unnecessary to me).
-
-Do you think failure is actually likely and recoverable?
-
-Will
+-- 
+Catalin
 
