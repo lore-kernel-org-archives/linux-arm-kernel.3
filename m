@@ -4,91 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6270DCFD355
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 19:55:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCC8DCFD356
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 20:13:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=s1kHi++ZNMidWcUYlTrVTx3q+FjuKsJa/tn2+fCONh8=; b=vchGrsxHxYR4uJt+CACDUx5ABX
-	/dbgW1lvKCKMnkZPoQnYLtAXv2iLTOHESmSsWWIlIHLrn9iw/9HH7rOQFD8Z5NukxdWl+SgYRuk7h
-	b/+VUeEGJs8p0LrX1V4WtFiZsxyKIFj1O0T9bnPu+X5PTCqBncul/5n2YTxiFd/+rEWUzTWxPM/iA
-	dh+UaP9Hpqs1/G/w5yBF//FL6d35EhlwIOun/u77XVb320gVz+5YRmITbfU/e7t6tTuKVC94cp2Wh
-	/hjg10e7gnfPMWtStqO5fFhfznmWcHklV7/z1FmrG9wwrCxRBF63Ln5hz7+Cjercp+D/XoHvkQ9nQ
-	URwn/5Lg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=J0CENvIFiiChmg1u1Zg4btCo2c4EIaORXBcq4ilAj5k=; b=14V8QW7Drp+BdVr02SyRPQ1YhX
+	bzaAojSKuj5obaFkHxHsCMm/M/64Yq07r77LnjKNzF5nTZpmHQTJLECIfE476XxUmmnCPMc8hBD7k
+	4dINJ40uJY/tUKpYnaoVIlGw6XwkiWGYCKI2rec67VZxGy3n4zHCr52wfHrUjrhSBIia409tdWybk
+	Hfx5Her2zFT5aujR4eMjF5gMTdLBiJ0ml+r/hBF7Bfyn0E7oNZSCWPxig1SYtkSEjUKd8TLlTcF0L
+	KBISND1JKA0zhdxnN3hRogUDCJIqcdoZyLziAQddlgHko75NOf28apD0fhnC3ujqDE/6pkcOLhol3
+	bg+X89gQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNcew-0000000CGr1-1QZc;
-	Mon, 24 Nov 2025 19:55:38 +0000
-Received: from mail-lf1-x12e.google.com ([2a00:1450:4864:20::12e])
+	id 1vNcvr-0000000CHwy-077x;
+	Mon, 24 Nov 2025 20:13:07 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNceu-0000000CGqZ-20ag
+	id 1vNcvn-0000000CHwb-44xY
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Nov 2025 19:55:37 +0000
-Received: by mail-lf1-x12e.google.com with SMTP id 2adb3069b0e04-59304084e17so649969e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Nov 2025 11:55:35 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1764014134; x=1764618934; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to:subject
-         :user-agent:mime-version:date:message-id:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=s1kHi++ZNMidWcUYlTrVTx3q+FjuKsJa/tn2+fCONh8=;
-        b=ih2hpGhuYUk+PdD57yWAD9YByUNN1PTyzWCkrLepJt/iw627WoRiy49wNb9WIuUa/e
-         T9WAO8WF4R8vXcNLqX+wxvz3JtoP8ntSJNMUfOT33h9lZBgqvd4mkNFSCpegyeR2XrEr
-         gWOnV56Wpapj/+qwbn8rTNnUZcq6WeAhwRWAGHCLmP6Gyk9XN5QEhu5NzXb0GGLxxTsU
-         qF662mjXvU/5MVZlpYIovcSI/6nNgM7RlVrDsn1IplnWb/5HppaIIYkLzoXdriPmISs0
-         L26Y14XyygvB4WE/Dk/wHvSqPyDc3PWIVshxfZq9NcFJa9rdaMQBWrgWahfB6mZfBL6C
-         oyRw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764014134; x=1764618934;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to:subject
-         :user-agent:mime-version:date:message-id:x-gm-gg:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=s1kHi++ZNMidWcUYlTrVTx3q+FjuKsJa/tn2+fCONh8=;
-        b=Axwqii67B3tW0gFL2WPW5FpLwOWoow0jHw6kuk0qPm7TO8OXng7OE+HuUXtiH7jyKH
-         dZxyO/DQBmHWk1vj0jU7zax5IO00/5uPss0+H1vfjjUAqQjJVI6Zs3aMcJdTCSU12Chf
-         aA7LxxoWeL2YuDKEGjGQ1CI/tgvf/6sBzJuNraRkDbQ47TT8OEOE7kt2pA77qC19RJVs
-         777JNWzs2SULA8gyw+yRFz40CCWkMorygXszUguKr89rjsP9UuNtuc9yKHvlBpzL5qBE
-         8vErzr00hAeN7Eab4Lu96I1SGXExRoks/bYs4GtJ/fxfmEgePq00RH3x8Tkz/YzACicx
-         DMgQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVojgn8Q7MJvkanz5Hiw2MH0l/O+k/ssNxNYLciIYh2e0zChf1Q8UpNj7iA9vwsaKsjFRLziDOY3gUZ9mN63pHO@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyqrn2VXeNPPr0XMc//zVnPEIvos3knVQUiwNTRWzx+9SPtEPbg
-	ej0eupbBsNi5HKSwzqk4R2KuiF7dnOneQE11vUQvzH4wLLvOFZ+z3nZ5adon71ej+uw=
-X-Gm-Gg: ASbGnctVA7/p3UdK8DhTU+3bEsAaJR3oWShoekr5DtQ2JbdzfvOYl+usd4J7oaKQlpM
-	H4ZmgHc5k6DpExWtCmMDKx1KfVueudXhvLonSNRjEGbshHjkKJGnRGN9bQzLucqPtRy0HJBsAgz
-	AL/B78JYwzbRMGT25vfYiEvMtsidoU9mTj6QWD7Na95Sw7nRtdny61Trlcx53sSwmWxHH6CNHMg
-	Hu51pGzP8E5hyx4yG9B/eENDjaZnsYhM1ytF9xPbr7XCt5EJUJOPoc3s9+xZj0ZMxyKyXBsh548
-	+vUavcqhboZsyyR8+FtXTABKxCIdsf8lhK0U4HU00kvGl4SSOXG+frJV777dv8xGAKW/XXvS4Gb
-	gOUgAu0VwkWn5PIGURWY5G27/Rk6Ged59KVSZ4sefkjbzBqeMSpmJ2pb9gOY6HYaN4+60NY2nuc
-	jSFBLkPtQyoHDGAW/4iYs2EMhvQLDcJ76arR5S0uprIiy32NRN9Qe6OP4aXTJzlG5SKg==
-X-Google-Smtp-Source: AGHT+IGftA4Sbl7SbaEW6aFFPJ2zH/lY6elgcX7aSCiKVohOvTSQTJmNIh0kVXSACBJSpj5m6pkvWQ==
-X-Received: by 2002:a05:651c:3251:b0:37a:5ae5:a1d2 with SMTP id 38308e7fff4ca-37cd9254795mr18408431fa.5.1764014134295;
-        Mon, 24 Nov 2025 11:55:34 -0800 (PST)
-Received: from [192.168.1.100] (91-159-24-186.elisa-laajakaista.fi. [91.159.24.186])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-37cc6b64091sm29578181fa.22.2025.11.24.11.55.33
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 24 Nov 2025 11:55:33 -0800 (PST)
-Message-ID: <4d347c15-a2fa-4b86-a5c3-c47ecbc804bf@linaro.org>
-Date: Mon, 24 Nov 2025 21:54:53 +0200
+	Mon, 24 Nov 2025 20:13:05 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 2E7C743C9B;
+	Mon, 24 Nov 2025 20:13:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 716C5C16AAE;
+	Mon, 24 Nov 2025 20:12:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1764015183;
+	bh=59SAY8rSRQdKkmSqsZ8fxhNqn4eJOSo2jhDbTdmHHMU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=R2QHujrFXR0jsKPScMcDVOwzUAxawOasc77PuB08gEwfLV++tpH7HWheW9+C1zFFG
+	 OL5X0V+s5ngLMaYNV3qq270C0fQMPWGM0hSbubzLl2THDPpx9JCvI2SE5qxne8YWbV
+	 t+HvdFePKS1dOTcJQoKAzp9YaNoVYqJnreIUQLcXklYgVLf3EHSaH1xGy6hReEzNF1
+	 CO07v54YkkSDOKdee7NZ1OrxjqcqUb+EQCs8KhOiQwP1UC11xQKlK/6fi83Dc2tpfa
+	 AIRRzfsBin/uqF6CXCyEzdZVw/KvHMUsh20kllg/foXagaMDlvyXPjYCKwThfQlPae
+	 PdRi6vuXPZV9Q==
+Date: Mon, 24 Nov 2025 20:12:56 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Peter Maydell <peter.maydell@linaro.org>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Will Deacon <will@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
+	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>,
+	Dave Martin <Dave.Martin@arm.com>, Fuad Tabba <tabba@google.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org, kvm@vger.kernel.org,
+	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org,
+	Eric Auger <eric.auger@redhat.com>
+Subject: Re: [PATCH v8 11/29] KVM: arm64: Document the KVM ABI for SME
+Message-ID: <df712591-397e-422b-b9c9-fbf080cad9aa@sirena.org.uk>
+References: <20250902-kvm-arm64-sme-v8-0-2cb2199c656c@kernel.org>
+ <20250902-kvm-arm64-sme-v8-11-2cb2199c656c@kernel.org>
+ <CAFEAcA_GJ7gzn7aMCZYxHnJWvx4tHSHBKsOxtQ7NTb4gPjkMJQ@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: cpufeature: Unrestrict ID_AA64MMFR1_EL1 bit
- assignments
-To: Marc Zyngier <maz@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Mark Brown <broonie@kernel.org>, linux-arm-kernel@lists.infradead.org,
- linux-arm-msm@vger.kernel.org
-References: <20251124162955.3616314-1-vladimir.zapolskiy@linaro.org>
- <86ikezqq46.wl-maz@kernel.org>
-From: Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>
-In-Reply-To: <86ikezqq46.wl-maz@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="EW4pgm0dnCxmWii4"
+Content-Disposition: inline
+In-Reply-To: <CAFEAcA_GJ7gzn7aMCZYxHnJWvx4tHSHBKsOxtQ7NTb4gPjkMJQ@mail.gmail.com>
+X-Cookie: Single tasking: Just Say No.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251124_115536_552173_2D8F13A6 
-X-CRM114-Status: GOOD (  22.01  )
+X-CRM114-CacheID: sfid-20251124_121304_066524_8C2A6B1B 
+X-CRM114-Status: GOOD (  40.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,49 +85,121 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marc.
 
-On 11/24/25 19:47, Marc Zyngier wrote:
-> On Mon, 24 Nov 2025 16:29:55 +0000,
-> Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org> wrote:
->>
->> It appears that 4 out of 8 Qualcomm SM8450 SoC cores do not generate
->> an SError interrupt due to an External abort on a speculative read,
->> and it is reported as a failed sanity check on boot:
->>
->>      CPU features: SANITY CHECK: Unexpected variation in SYS_ID_AA64MMFR1_EL1. Boot CPU: 0x00000011212122, CPU4: 0x00000010212122
->>      CPU features: SANITY CHECK: Unexpected variation in SYS_ID_AA64MMFR1_EL1. Boot CPU: 0x00000011212122, CPU5: 0x0000001021212
->>      CPU features: SANITY CHECK: Unexpected variation in SYS_ID_AA64MMFR1_EL1. Boot CPU: 0x00000011212122, CPU6: 0x00000010212122
->>      CPU features: SANITY CHECK: Unexpected variation in SYS_ID_AA64MMFR1_EL1. Boot CPU: 0x00000011212122, CPU7: 0x00000010212122
->>
->> Due to the failed sanity check the kernel is marked as tainted in runtime:
->>
->>      Tainted: [S]=CPU_OUT_OF_SPEC
->>
->> Unrestrict the ID_AA64MMFR1_EL1 SpecSEI bits, since apparently it's
->> a supported option at least on this heterogeneous SoC.
-> 
-> Supporting asymmetric configurations has always been on the basis of
-> having the same feature set. Just because some SoCs ignore this
-> requirement doesn't make it acceptable.
-> 
-> Tainting the kernel is the right thing to do IMO, because that's an
-> unexpected difference.
-> 
-> Additionally, making things non-strict may open a gaping hole in the
-> virtualisation support. All you would need to do is boot on the CPUs
-> that do not have SpecSEI, and bring up the CPUs that do have SpecSEI
-> late, *after* you have started a VM. That VM will have been told that
-> it cannot get a speculative SError, and yet will be able to run on
-> CPUs that do.
-> 
+--EW4pgm0dnCxmWii4
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-Thank you for the detailed explanation, perhaps the unveiled problem
-on Qualcomm SM8450 SoC could not be nicely resolved in the software,
-and I'm convinced that leaving the kernel in the tained state is the
-best option, at least I can not imagine any better workaround.
+On Mon, Nov 24, 2025 at 03:48:06PM +0000, Peter Maydell wrote:
+> On Tue, 2 Sept 2025 at 12:45, Mark Brown <broonie@kernel.org> wrote:
 
--- 
-Best wishes,
-Vladimir
+> > SME, the Scalable Matrix Extension, is an arm64 extension which adds
+> > support for matrix operations, with core concepts patterned after SVE.
+
+> I haven't actually tried writing any code that uses this proposed
+> ABI, but mostly it looks OK to me. I have a few nits below, but
+> my main concern is the bits of text that say (or seem to say --
+> maybe I'm misinterpreting them) that various parts of how userspace
+> accesses the guest state (e.g. the fp regs) depend on the current
+> state of the vcpu, rather than being only a function of how the
+> vcpu was configured. That seems to me like it's unnecessarily awkward.
+> (More detail below.)
+
+That was deliberate and I agree it is awkward, it was introduced as a
+result of earlier review comments.  I had originally implemented an ABI
+where the VL for the vector registers was the maximum of the SVE and SME
+VLs but the feedback was that the ABI should instead follow what the
+architecture does with the vector length and potentially presence of the
+vector registers depending on the current streaming mode configuration.
+It sounds like you would prefer something more like what was there
+originally?
+
+> > For SME unware VMMs on systems with both SVE and SME support the SVE
+> > registers may be larger than expected, this should be less disruptive
+> > than on a system without SVE as they will simply ignore the high bits of
+> > the registers.
+
+> I think that since enabling SME is something the VMM has to actively
+> do, it isn't a big deal that they also need to do something in the
+> fp or sve register access codepaths to handle SME. You can't get
+> SME by surprise (same as you can't get SVE by surprise).
+
+Yes, it's not going to affect anything without enabling it.  I can't
+remember what that was in reference to, it clearly needs an update.
+
+> >  .. [1] These encodings are not accepted for SVE-enabled vcpus.  See
+> > -       :ref:`KVM_ARM_VCPU_INIT`.
+> > +       :ref:`KVM_ARM_VCPU_INIT`.  They are also not accepted when SME is
+> > +       enabled without SVE and the vcpu is in streaming mode.
+
+> Does this mean that on an SME-no-SVE VM the VMM needs to know
+> if the vcpu is currently in streaming mode or not to determine
+> whether to read the FP registers as fp_regs or sve regs? That
+> seems unpleasant -- I was expecting this to be strictly a
+> matter of how the VM was configured (as it is with SVE).
+
+Yes, it does.
+
+> > +arm64 SME registers have the following bit patterns:
+
+> > +  0x6080 0000 0017 00 <n:5> <slice:5>   ZA.H[n] bits[2048*slice + 2047 : 2048*slice]
+> > +  0x60XX 0000 0017 0100                 ZT0
+
+> What's the XX here ?
+
+Sorry, will fill that in - thanks for spotting it.
+
+> > +  0x6060 0000 0017 fffe                 KVM_REG_ARM64_SME_VLS pseudo-register
+> > +
+> > +Access to Z, P or ZA register IDs where 2048 * slice >= 128 * max_vq
+> > +will fail with ENOENT.  max_vq is the vcpu's maximum supported vector
+> > +length in 128-bit quadwords: see [2]_ below.
+
+> What about FFR registers ? Is their ENOENT condition the same,
+> or different?
+
+It should be the same, will update to clarify.
+
+> > +       max_vq.  This is the maximum vector length currently available to
+> > +       the guest on this vcpu, and determines which register slices are
+> > +       visible through this ioctl interface.
+
+> > +       If SME is supported then the max_vq used for the Z and P registers
+> > +       while SVCR.SM is 1 this vector length will be the maximum SME
+> > +       vector length available for the guest, otherwise it will be the
+> > +       maximum SVE vector length available.
+
+> I can't figure out what this paragraph is trying to say, partly
+> because it seems like it might be missing some text between
+> "is 1" and "this vector length".
+
+> In any case, the "while SVCR.SM is 1" part seems odd -- I
+> don't think this ABI should care about the runtime vcpu state,
+> only what the vcpu's max vector lengths were configured as.
+> My expectation would be that the max_vq for VMM register
+> access would be the maximum of the SVE and SME vector lengths
+> configured for the vcpu.
+
+This is attempting to say that the VL for the Z and P registers (and
+FFR) will vary depending on if the vCPU is in streaming mode or not if
+the maximum VL for SVE and SME differs, similarly to how the Z, P and
+FFR registers disappear when we are not in streaming mode in a SME only
+system.
+
+--EW4pgm0dnCxmWii4
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmkkvEgACgkQJNaLcl1U
+h9Bszwf/TOe0ab3gn4vn1mCKo72tW/w2yyoCXjm7kHc+dxKFjFQtadGE6kDzG01F
+bUz75fKCTu/MUQZAZ9v96NA8uaXueyAzHVr9mz3m6GKBnCcoTp8ipSDCJPfvta0+
+vx1tFQqzG6Dbdmz4+JmfZXmC6BMqVKKunjMGnMRFlBmNUT/J/NgHIbV5NHHpzAK4
+iOo0BplyddmzPT4fV/sRD/pftSNew4y0XcmOrCNKJgKj7+fH99pMEkESVi2xviLn
+6uzaN/7XsQVr06e5p+uXjFmPbjJ8pm/R/VvJ5h2UfktCnPvwfrtSGdoHvJ9PFJtY
+gXmZJ0OovxVpTYerBjInafx3x26q6Q==
+=C2Mw
+-----END PGP SIGNATURE-----
+
+--EW4pgm0dnCxmWii4--
 
