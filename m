@@ -4,52 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D170CFD318
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 17:10:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0691CFD318
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 17:11:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Message-ID:References:In-Reply-To:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FjELbD1gWRjpQBsqfo+fckd8h4RPqZ7n7+l68bVnpr4=; b=J8kxdbdvkHuMLwVZqhAM/Z82JN
-	nSrtO18hJXQ42y8KEBHtwyaUQd4yNzE+egYRPjnhvhAONBaIoU0+m1tZqY3yHbW3W6CMZTw0h3w3G
-	E9/eFIRfepq9gmsYQa/1Vshhdap0WkEGp8xINNrKffh+htEYqm2+TFI3gLUev4RJmvXXNcFV/kNW6
-	6GXGQtPeEfl/O/GwyZUFgV5LriEcfn6Rf42nC1dFtMLW6w/QGC2uNJESk4zEKuVEQUXQGKlIoYqxy
-	9S5UVj/zxaAiNfVojvJjUkR8YywsrK+iStU/l4B7ckI/FlavYXIWCmGjg2wLf3KTnzNZBvyZ7ijWG
-	lkfSHADw==;
+	bh=bWEp3vPM9oHHrXo0a4SYBugyipdbCtP06g6AkOcLzNo=; b=HbszLMQ5C5PzTvpqqiKuePPlVg
+	HufnU4ldkGYB92tXA91MMALhML6PeH6Rn8fOVZT1KNAxjl4v59+/+5katiquNK/bmased4vjt+V9P
+	jYkyb15XmcH8odMMXhVs2SmtGQYe9kDHA2fQNvydrUnC2S8Ih2e/IOLiEJeXRYRDC5a5rSD24+l9u
+	CPB1+iShg+p+3vBvINlaoZvM49GNPfFGHR85sRB5zPrknw9h0xT6MofH5qDFvlAPhclNkk/N/4RTx
+	Eq738pRXIDiYTQGLT6xZqtB38bimYne+BcuISSP+zrvBtX/7tAUYkgTcRvFYu0ZIYQGjiFy8nPtKR
+	mWTuNSZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNa4y-0000000C4vJ-39k1;
-	Mon, 24 Nov 2025 17:10:20 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNa4w-0000000C4uv-2zmM
+	id 1vNa65-0000000C52v-0QVK;
+	Mon, 24 Nov 2025 17:11:29 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vNa62-0000000C52V-3HPf
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Nov 2025 17:10:20 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B34401477;
-	Mon, 24 Nov 2025 09:10:08 -0800 (PST)
-Received: from [10.1.200.38] (e119884-lin.cambridge.arm.com [10.1.200.38])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 60F883F73B;
-	Mon, 24 Nov 2025 09:10:15 -0800 (PST)
-Message-ID: <4c5d3da8-424e-4529-b5f4-4ad1f5f3810b@arm.com>
-Date: Mon, 24 Nov 2025 17:10:13 +0000
+	Mon, 24 Nov 2025 17:11:27 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id CF0C14413B;
+	Mon, 24 Nov 2025 17:11:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7F528C4CEF1;
+	Mon, 24 Nov 2025 17:11:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1764004285;
+	bh=bWEp3vPM9oHHrXo0a4SYBugyipdbCtP06g6AkOcLzNo=;
+	h=Date:From:To:CC:Subject:In-Reply-To:References:From;
+	b=T7PUyzdcYOjYhbjL+noP71iMLU8qCNV4cVOJ/3rJKP8WjNW1x4z3T6+ZZtTcS9Haq
+	 s6vahxmY3XasEIi9II3M+gLfrS24ITj/yUv3VWqrA++GwfiuH6RXrStGykTjTztoTf
+	 KeToYQ2GnMQTh3y6C9TOYK7GtjGXAcrmRwora7MppvsGsQdV2BoNMakYpfKchhbsUk
+	 Exdp3ErPxTI0X53u/lgExx9u67FY6q9WuKhctfH0J6eLLzYtFG8xHqmSkeAb5TWg/r
+	 R3PAEx4ag7w0O5LKZ0zoNIdlR0TcVU0Z5ijT1ZJam14GdQQf0lN9aFFMePyJeoy8S5
+	 gEwAy1kpPyfuQ==
+Date: Mon, 24 Nov 2025 09:11:23 -0800
+From: Kees Cook <kees@kernel.org>
+To: Will Deacon <will@kernel.org>, Ryan Roberts <ryan.roberts@arm.com>
+CC: Arnd Bergmann <arnd@arndb.de>, Ard Biesheuvel <ardb@kernel.org>,
+ Jeremy Linton <jeremy.linton@arm.com>,
+ Catalin Marinas <Catalin.Marinas@arm.com>,
+ Mark Rutland <mark.rutland@arm.com>,
+ "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
+Subject: Re: [DISCUSSION] kstack offset randomization: bugs and performance
+User-Agent: K-9 Mail for Android
+In-Reply-To: <aSRtaVjfNc11EtKg@willie-the-truck>
+References: <66c4e2a0-c7fb-46c2-acce-8a040a71cd8e@arm.com> <dd8c37bc-795f-4c7a-9086-69e584d8ab24@arm.com> <aSRtaVjfNc11EtKg@willie-the-truck>
+Message-ID: <B696956E-579E-412E-B774-AAADCFA4B31C@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: dts: morello: Add CMN PMU
-To: Robin Murphy <robin.murphy@arm.com>, liviu.dudau@arm.com,
- sudeep.holla@arm.com, lpieralisi@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org
-References: <cbeb3832ded539c8c4616d49d3133078a34f88ad.1748350539.git.robin.murphy@arm.com>
-Content-Language: en-US
-From: Vincenzo Frascino <vincenzo.frascino@arm.com>
-In-Reply-To: <cbeb3832ded539c8c4616d49d3133078a34f88ad.1748350539.git.robin.murphy@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain;
+ charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251124_091018_817126_AB8DA14D 
-X-CRM114-Status: GOOD (  13.67  )
+X-CRM114-CacheID: sfid-20251124_091126_840530_C8213504 
+X-CRM114-Status: GOOD (  16.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,45 +79,48 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-On 27/05/2025 13:55, Robin Murphy wrote:
-> Although CMN-Skeena is mildly modified for the Morello hardware
-> architecture, it still identifies itself as CMN-600 r3p1. Since
-> there are also no documented changes to its PMU functionality,
-> we can make the PMU accessible via the standard CMN-600 binding.
-> In general, PMU registers are non-functional on CMN Fast Models,
-> so this is only meaningful for the real SDP hardware.
-> 
-> Signed-off-by: Robin Murphy <robin.murphy@arm.com>
+On November 24, 2025 6:36:25 AM PST, Will Deacon <will@kernel=2Eorg> wrote=
+:
+>On Mon, Nov 17, 2025 at 11:31:22AM +0000, Ryan Roberts wrote:
+>> On 17/11/2025 11:30, Ryan Roberts wrote:
+>> > Could this give us a middle ground between strong-crng and
+>> > weak-timestamp-counter? Perhaps the main issue is that we need to sto=
+re the
+>> > secret key for a long period?
+>> >=20
+>> >=20
+>> > Anyway, I plan to work up a series with the bugfixes and performance
+>> > improvements=2E I'll add the siphash approach as an experimental addi=
+tion and get
+>> > some more detailed numbers for all the options=2E But wanted to raise=
+ it all here
+>> > first to get any early feedback=2E
+>
+>FWIW, I share Mark's concerns about using a counter for this=2E Given tha=
+t
+>the feature currently appears to be both slow _and_ broken I'd vote for
+>either removing it or switching over to per-thread offsets as a first
+>step=2E
 
-Fine by me.
+That it has potential weaknesses doesn't mean it should be entirely remove=
+d=2E
 
-Acked-by: Vincenzo Frascino <vincenzo.frascino@arm.com>
+> We already have a per-task stack canary with
+>CONFIG_STACKPROTECTOR_PER_TASK so I don't understand the reluctance to
+>do something similar here=2E
 
-> ---
->  arch/arm64/boot/dts/arm/morello-sdp.dts | 7 +++++++
->  1 file changed, 7 insertions(+)
-> 
-> diff --git a/arch/arm64/boot/dts/arm/morello-sdp.dts b/arch/arm64/boot/dts/arm/morello-sdp.dts
-> index cee49dee7571..42c85f450fa9 100644
-> --- a/arch/arm64/boot/dts/arm/morello-sdp.dts
-> +++ b/arch/arm64/boot/dts/arm/morello-sdp.dts
-> @@ -108,6 +108,13 @@ smmu_pcie: iommu@4f400000 {
->  		dma-coherent;
->  	};
->  
-> +	pmu@50000000 {
-> +		compatible = "arm,cmn-600";
-> +		reg = <0x0 0x50000000 0x0 0x4000000>;
-> +		interrupts = <GIC_SPI 46 IRQ_TYPE_LEVEL_HIGH>;
-> +		arm,root-node = <0x804000>;
-> +	};
-> +
->  	pcie_ctlr: pcie@28c0000000 {
->  		device_type = "pci";
->  		compatible = "pci-host-ecam-generic";
+That's not a reasonable comparison: the stack canary cannot change arbitra=
+rily for a task or it would immediately crash on a function return=2E :)
 
--- 
-Regards,
-Vincenzo
+>Speeding up the crypto feels like something that could happen separately=
+=2E
 
+Sure=2E But let's see what Ryan's patches look like=2E The suggested chang=
+es sound good to me=2E
+
+-Kees
+
+
+--=20
+Kees Cook
 
