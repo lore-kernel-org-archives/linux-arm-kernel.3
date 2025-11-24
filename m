@@ -4,96 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74633CFD313
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 16:12:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08558CFA466
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 16:13:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9kUwL5iJCQukHjA2c6jwYym9BNWDh7Ih2TgBHqMmyUg=; b=vh9lu86bq3cSfil+G50keYq2zQ
-	amrHKJ9r+RlXzvrqvUakPmduu7JBNydKpGIOnivXH/etZegayMt64k8kP4wx5wiW7c380APXa1YjA
-	l3y47fCb9ZmRQfYqXfcgs5a2EDaSWVKBEdYXw9aqISQxFF6AI+QTxM2i72xT0gRV62eorN0mPKtSF
-	Gi4zWH39zHDkzY8hEe7Q31F5kLM0XLtJAbx4OSxubEePNdHS3iylZ6T7BfaoAr5Swhi9kX0prpaj+
-	GxEHi4yNIZX1DD7iba66bCF0dmBtGY93lpI1dByjughoiKDgAW2PykGEs4gQOrE/XBDLK8gZCQwbN
-	3htmBtCA==;
+	bh=s3e2+5ErfhqMPd2m9183lfzRZ3SAL+PNdFL42U93T6o=; b=HtHf4J7G4zwSnR9t2je1JTO3iF
+	z70DdhHrEbPIg0NnPBltaJwX4VMLiGxENqMEBY4sBxMC+vGJ91ObYCwQFfZUNL6ItmNze6EQZkGib
+	3F0acF4jBFEh5llbw0HS5CIXHj121WZbJs3bc0/7FL+NLBhZ5whBBZgA8tIaSl8mDpt1dyzMC+ecZ
+	cq3xo/C+QZL9ZlbUZHbbrZamPpWdAYkW9bTQ5W2gXXfkQS3BY6mzd7h3nw6CAh8sqiJjcyo2pNRvw
+	IIaElyByZMxoxi8ktHHtH+f49iduSaK12jSkpKCCsi5VfV0xc4ArDkebhDgeHcHSo97dxmVH3clJv
+	GAtjHJXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNZBA-0000000ByaP-4BhM;
-	Mon, 24 Nov 2025 16:12:41 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	id 1vNZBv-0000000ByhH-1QYH;
+	Mon, 24 Nov 2025 16:13:27 +0000
+Received: from mail-ed1-x52f.google.com ([2a00:1450:4864:20::52f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNZB7-0000000ByZI-3qIq
+	id 1vNZBt-0000000BygG-0724
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Nov 2025 16:12:39 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-4777771ed1aso29890315e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Nov 2025 08:12:37 -0800 (PST)
+	Mon, 24 Nov 2025 16:13:26 +0000
+Received: by mail-ed1-x52f.google.com with SMTP id 4fb4d7f45d1cf-640aa1445c3so6758315a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Nov 2025 08:13:21 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1764000756; x=1764605556; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=9kUwL5iJCQukHjA2c6jwYym9BNWDh7Ih2TgBHqMmyUg=;
-        b=h1lXKNvLyTvRDunT/hZncKQOZZa4x8ctKigku6HcDGr2t592gTnfN/P7cHmiV9ZTA2
-         dXQhysH9u3PMJDLk2Lco2mHmnJ1b8Ofe5w+hooNNZql0Y4kqE4aLcoewDQwKWyIJSuBp
-         juNTHez9hTk/+gjhS/sEBOJLJq+G6DK0k4U21PtbSB0nIbj4vc5dGWF/X2bWeIKQIIIf
-         t2LzLxSNarU2uFAVCJnMBzMRiOmw7jC2wwSaGWhFqTgyHC+p2xuzgzQdM011Wd5fMV6h
-         NpKtV0w5AuOgSrxyxP0UtYGDZ2Sykyswjrqrn2eyDpgcW/aOu2520Nap9+O16m9hTyTL
-         mNFA==
+        d=chromium.org; s=google; t=1764000800; x=1764605600; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=s3e2+5ErfhqMPd2m9183lfzRZ3SAL+PNdFL42U93T6o=;
+        b=QYLvFRKuk0rGQbuy6Ypy9RqGN9V/R2dZ7pAnzXjb8l/q1lX3yxybqgShdhDsDRvC+5
+         nc+DEg5prbczAurJxyPujBTQkVxbmPr3nBbummG3wU1nV19iDCSNhUL5giJEmRfB4Owr
+         MQmeqqfALcYy9JZkNQIan9g6LzwyJmB6Ta8u0=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764000756; x=1764605556;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=9kUwL5iJCQukHjA2c6jwYym9BNWDh7Ih2TgBHqMmyUg=;
-        b=uMY+tdfkNFzyQkHwXG8XqQJpWigmjfOREWxnnx3CsK/dicTWGXyL0Nm34fXxalnWRi
-         n7dpMeQyYNb6I6pS5zEl5GcSdzP0hauzpePgQJUl7+XKT88h8p6g4CFEDTr7FSRF5Vk7
-         uLvYK89UFe+Pkep5KuXpnd0hIkr8f0+XFw8RqfpmhNrZAAlx9td36XC9xYBLMHQfcFJ5
-         sLVp4lxnP04j/hDz1YrDF3dtFkRfDmULzNZQeSl0M9BVIsNDygZPY0V/nmsb4ef/8Jxq
-         0kYbgpCgbuwLu9PqjcVkwigwv1+bmy+jRScU8f2/rzqO1n1NbnqL/RP8UykhXmvE5KGE
-         1ZzA==
-X-Forwarded-Encrypted: i=1; AJvYcCXF5FiAplYTBjuREJfbOd4A/pu9laczuOT1GIuvMw6SUu3K1ksVf/2xOs1j/UeFLYE9S7kTQCITQY7jccZS84K6@lists.infradead.org
-X-Gm-Message-State: AOJu0YyllktqtLssbAtZE+bS3eyg4jdUFXYVDqrtEFKAWvjoIfWmRkOZ
-	Gne++m2b3zrtKOgZa8fCCvbhF/1tv+eGfNawK1psESLR2dQuJzHivU02xqNXFv/NvWI=
-X-Gm-Gg: ASbGnctOJeDU2AsLTF/QMtz6c2a/SHLkV/GjACGt8PVjR8bIaFYa3U7wCVrpEFGD3U3
-	jyerI4krkkfxAVXuFTdNT4TeQZFKe3FMl2bob0pI1p7T6+XnjvpWgc1OGIgQvfnx3WHLNsSinTk
-	cCiN3jlaG9qcJhTMIhT4grepMchMb5kOD2+oqyZeR4t/FVeCdrs39ssexDqSuc9NVa93bMbHxJ1
-	KpHRAGYVHhQS26rzl+BBu2MJUrH4KcZDRrNt8qUho/KGE+/k9KJ7CKJQJQrpRaCwOCnT0tfo3uv
-	qMeOQVez5rKr/0CRr8AXhDeaMZn4sEBFNnFJkaGLJqDY09HQqa16KJcCtAvPEAwQvsNt+zPsBUx
-	xVP8kcQu8AsQip/gQu5YUjQOOWjgEDsx5Pfe8JPr2odAh0piRwx7gu9VdPg6ciRe+GYEgusLsNc
-	WYs+wR9UnHgaNDh0BD
-X-Google-Smtp-Source: AGHT+IFy72lQUXBFhPuwWRndjDr59yWxK1zJh9Nt3ZYz3copTeRMO5SUVt2oB9vIYaFjGLRGWbz7rA==
-X-Received: by 2002:a05:600c:1d0e:b0:477:89d5:fdb2 with SMTP id 5b1f17b1804b1-477c017d9damr124191795e9.14.1764000755679;
-        Mon, 24 Nov 2025 08:12:35 -0800 (PST)
-Received: from [192.168.1.3] ([185.48.77.170])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-477bf1df392sm205509945e9.1.2025.11.24.08.12.34
+        d=1e100.net; s=20230601; t=1764000800; x=1764605600;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=s3e2+5ErfhqMPd2m9183lfzRZ3SAL+PNdFL42U93T6o=;
+        b=Bt1bgrp59QKcIum2oZcGcl7sM1EnFOqxJ8B5e3OecY+j6Rt6ciFvtZPz+mIKJT8dUI
+         45h1VIoZdqla6TgchYSjjZidSrwfp7uzvP4cyX1sjRd2RmaPk+c27bWcv0Z8igHBicEm
+         VV/uevttSZGIyfjMg/9YkJA5EE9bttvW53s7TuDwc76C4RLl1qAw5eCfI5C6z1yhqQxY
+         rahusDbrhlDdmEZLZvpRGk3KjF5FiRDu368jvMPmF8HoFEKoMQSKXD9ngKKryfMBRshb
+         Y0Ifq/yoMG1za6DeexZLMcKo5R5cNLG3meOlxwm++hfzCwSOMoxlc8dXpzNvLjfcxG/c
+         0nQQ==
+X-Forwarded-Encrypted: i=1; AJvYcCW9DyXMvg3/4x3vYZC4auy6b8Ag1SJKSGu/KGk9yDgSZrhOyzzSslXqLGy6uwhGbiwV4L0Uqu/uKOpyrYNa3sV/@lists.infradead.org
+X-Gm-Message-State: AOJu0YyUUBh2u0QD4qsUS0g2PRruRzW2DNohRKNBMtIGrp4P4RfEm0YE
+	Gco4FWVqd1icwDECaO02hlpIP8gvG6hLDxxwqy+MtMFifCuxrkJLht0vJgN5MP/9S+o3o0Krj2F
+	WkshZZA==
+X-Gm-Gg: ASbGncve0XZTth9osCdrCSLIHpMuV1nGe4STsR5PBULoI2num08SlToNKGcm3e4SFlT
+	JHw9puXcdxkAoA9AxMCwBUCV/z7UqZ8WiGmLumIo4dPo012Hvs4Qd+hhiFYvYBrrQv6pkec686Q
+	fcUm/DIRDwcQ21qdtkQkGj3gDcPQeJofwZOCYztNRmnksXrrY6O4IjyAVQSZznJKH25r9QEoQC9
+	OBmrt/MltGc5UWLNb2+9nDzBbLVWFilhLF3kzBoHQLnlO7WD/goNhf1e+YMY+Iv0pZcY/cSDVEn
+	RbA1rZd/YVj7TkClSDrfkqrb26EIwkGWwM8RlwggA9ebS5wjWTfP7HR7lHCw0QhsOnOUsEyFvf8
+	JeZgCjgCR1HlBk3fRngVNvedBrzOvdxeYLGU1cFgdrGtUKyUuu4ts1mbknDibT48Fj5zJe+mWzu
+	pNUwiTU6g/hBqRdjhrGxMFOl0lixvRpjjEbPqX7zvjS7edzRjfsBbW5BhrgKch
+X-Google-Smtp-Source: AGHT+IE7TjH5dHyz5DtnST37pFmzTi7hsFxNkz0wZMDLp+FDJACJiRQpX9REB64oK3t57X667t5jIw==
+X-Received: by 2002:a05:6402:5056:b0:645:dc31:fb9c with SMTP id 4fb4d7f45d1cf-645dc31fbb9mr1714318a12.10.1764000800400;
+        Mon, 24 Nov 2025 08:13:20 -0800 (PST)
+Received: from mail-wr1-f41.google.com (mail-wr1-f41.google.com. [209.85.221.41])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-645363ac8e3sm12796411a12.2.2025.11.24.08.13.20
+        for <linux-arm-kernel@lists.infradead.org>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 24 Nov 2025 08:12:35 -0800 (PST)
-Message-ID: <05babb6d-a588-49f8-a34a-c82d5f58adf5@linaro.org>
-Date: Mon, 24 Nov 2025 16:12:34 +0000
+        Mon, 24 Nov 2025 08:13:20 -0800 (PST)
+Received: by mail-wr1-f41.google.com with SMTP id ffacd0b85a97d-42b3d4d9ca6so3656426f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Nov 2025 08:13:20 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCV5CMNvtSlkyaUyT/a483Ygnhjeff+b+8lj8Rdx9Kv81JVO+KywAe6862HvklVp94qSA8hgOozZPdeNDMnaHct4@lists.infradead.org
+X-Received: by 2002:a05:6000:2504:b0:42b:5448:7ae8 with SMTP id
+ ffacd0b85a97d-42cc1d2d6fcmr12194643f8f.29.1764000799689; Mon, 24 Nov 2025
+ 08:13:19 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] coresight: etm3x: Fix buffer overwrite in cntr_val_show()
-To: Kuan-Wei Chiu <visitorckw@gmail.com>
-Cc: suzuki.poulose@arm.com, mike.leach@linaro.org,
- alexander.shishkin@linux.intel.com, pratikp@codeaurora.org,
- mathieu.poirier@linaro.org, gregkh@linuxfoundation.org,
- jserv@ccns.ncku.edu.tw, marscheng@google.com, ericchancf@google.com,
- milesjiang@google.com, nickpan@google.com, coresight@lists.linaro.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20251121002350.1166758-1-visitorckw@gmail.com>
- <172ca2d9-4a6f-4498-bdfd-8aa7428581ce@linaro.org>
- <aSCbJR9aT1vOpz0a@google.com>
-Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <aSCbJR9aT1vOpz0a@google.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+References: <20251111192422.4180216-1-dianders@chromium.org> <aSOKS35/huSWd/RW@duo.ucw.cz>
+In-Reply-To: <aSOKS35/huSWd/RW@duo.ucw.cz>
+From: Doug Anderson <dianders@chromium.org>
+Date: Mon, 24 Nov 2025 08:13:07 -0800
+X-Gmail-Original-Message-ID: <CAD=FV=WVeiGa6YkRmce4McnePEV9X_n79YA0bywPdNZcZCV=ZQ@mail.gmail.com>
+X-Gm-Features: AWmQ_bnTIIDYlcAzuiT7QR2OuZm4XUUvQ7JBRQh8rXJBFJr7sqsbbpHBMlqok64
+Message-ID: <CAD=FV=WVeiGa6YkRmce4McnePEV9X_n79YA0bywPdNZcZCV=ZQ@mail.gmail.com>
+Subject: Re: [PATCH 0/4] arm64: google: Introduce frankel, blazer, and mustang boards
+To: Pavel Machek <pavel@ucw.cz>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Peter Griffin <peter.griffin@linaro.org>, 
+	=?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
+	Tudor Ambarus <tudor.ambarus@linaro.org>, linux-samsung-soc@vger.kernel.org, 
+	Roy Luo <royluo@google.com>, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, Chen-Yu Tsai <wenst@chromium.org>, 
+	Julius Werner <jwerner@chromium.org>, William McVicker <willmcvicker@google.com>, 
+	Alexandre Belloni <alexandre.belloni@bootlin.com>, Arnd Bergmann <arnd@arndb.de>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Drew Fustini <fustini@kernel.org>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Jiri Slaby <jirislaby@kernel.org>, 
+	Krzysztof Kozlowski <krzk@kernel.org>, Linus Walleij <linus.walleij@linaro.org>, 
+	Will Deacon <will@kernel.org>, linux-kernel@vger.kernel.org, 
+	linux-serial@vger.kernel.org, soc@lists.linux.dev
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251124_081238_004719_4745A30B 
-X-CRM114-Status: GOOD (  39.33  )
+X-CRM114-CacheID: sfid-20251124_081325_105929_F0F8240F 
+X-CRM114-Status: GOOD (  15.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,106 +117,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi,
+
+On Sun, Nov 23, 2025 at 2:27=E2=80=AFPM Pavel Machek <pavel@ucw.cz> wrote:
+>
+> Hi!
+>
+> > This series adds barebones device trees for Pixel 10 (frankel), Pixel
+> > 10 Pro (blazer), and Pixel 10 Pro XL (mustang). With a yet-unreleased
+> > bootloader these can boot to a UART command prompt from an initramfs.
+>
+> Well, booting to full system with working cameras would be nicer,
+
+For sure!
 
 
-On 21/11/2025 5:02 pm, Kuan-Wei Chiu wrote:
-> Hi James,
-> 
-> On Fri, Nov 21, 2025 at 09:50:03AM +0000, James Clark wrote:
->>
->>
->> On 21/11/2025 12:23 am, Kuan-Wei Chiu wrote:
->>> The cntr_val_show() function is meant to display the values of all
->>> available counters. However, the sprintf() call inside the loop was
->>> always writing to the beginning of the buffer, causing the output of
->>> previous iterations to be overwritten. As a result, only the value of
->>> the last counter was actually returned to the user.
->>>
->>> Fix this by using the return value of sprintf() to calculate the
->>> correct offset into the buffer for the next write, ensuring that all
->>> counter values are appended sequentially.
->>>
->>> Fixes: a939fc5a71ad ("coresight-etm: add CoreSight ETM/PTM driver")
->>> Signed-off-by: Kuan-Wei Chiu <visitorckw@gmail.com>
->>> ---
->>> Build tested only. I do not have the hardware to run the etm3x driver,
->>> so I would be grateful if someone could verify this on actual hardware.
->>>
->>> I noticed this issue while browsing the coresight code after attending
->>> a technical talk on the subject. This code dates back to the initial
->>> driver submission over 10 years ago, so I was surprised it hadn't been
->>> caught earlier. Although I cannot perform runtime testing, the logic
->>> error seems obvious to me, so I still decided to submit this patch.
->>
->> Nice find. I think the point that it wasn't caught changes how we fix it.
->> Either nobody used it ever - so we can just delete it. Or someone was using
->> it and they expect it to always return a single entry with the value of the
->> last counter and this is a potentially breaking change. So maybe instead of
->> fixing this we should add a new cntr_vals_show() which works correctly. But
->> then again if nobody is using it we shouldn't do that either.
-> 
-> Thanks for your feedback.
-> 
-> I agree that if any tool relies on the current behavior, this patch
-> would break the ABI and violate the hard rule that we must never break
-> userspace.
-> 
-> However, I am not sure how to determine if any userspace tools are
-> actually using this sysfs interface. Is there a recommended way to
-> verify this, or a standard procedure/convention to follow in this
-> situation?
-> 
-> Regards,
-> Kuan-Wei
-> 
+> but
+> this is good start. Do you plan / do you have resources for full
+> support in some reasonable timeframe?
 
-There's no way of knowing apart from deducing that there are 0 users of 
-the 'correct' version of the API because it never existed. This isn't 
-even a regression, it was broken from the beginning.
+As you can probably guess, I can't really make any promises. :-) Of
+course, "full support" of Pixel 10 by an upstream kernel in a
+"reasonable" timeframe could arguably be impossible no matter how many
+resources were thrown at it. There are just some drivers / subsystems
+where getting upstream working as well as downstream is working
+doesn't feel likely as a short term goal.
 
-I suppose it does work when hardware only has one counter, but I don't 
-know how likely that is?
+That all being said, interest / support from the community helps.
+Knowing that people are interested in this work helps motivate folks
+at Google and (hopefully) upstream maintainers.
 
-Looking at cntr_val_store() I think I was wrong before when I said it 
-should be a separate file for each counter. Writing to it already writes 
-to the counter currently selected by cntr_idx and splitting it out to 
-separate files would have to break that too. So we can fix the display 
-bug by making show operate on the currently selected counter in the same 
-way as store. Then it makes a bit more sense and we can delete the 
-"counter %d: " prefix.
 
-ETM4 already does it this way too.
+> Please cc phone-devel@vger with phone related patches.
 
->>
->> The interface isn't even that great, it should be a separate file per
->> counter. You don't want to be parsing strings and colons to try to read a
->> single value, especially in C. Separate files allows you to read it directly
->> without any hassle.
->>
->>>
->>>    drivers/hwtracing/coresight/coresight-etm3x-sysfs.c | 4 ++--
->>>    1 file changed, 2 insertions(+), 2 deletions(-)
->>>
->>> diff --git a/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c b/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c
->>> index 762109307b86..312033e74b7a 100644
->>> --- a/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c
->>> +++ b/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c
->>> @@ -725,7 +725,7 @@ static ssize_t cntr_val_show(struct device *dev,
->>>    	if (!coresight_get_mode(drvdata->csdev)) {
->>>    		spin_lock(&drvdata->spinlock);
->>>    		for (i = 0; i < drvdata->nr_cntr; i++)
->>> -			ret += sprintf(buf, "counter %d: %x\n",
->>> +			ret += sprintf(buf + ret, "counter %d: %x\n",
->>>    				       i, config->cntr_val[i]);
->>>    		spin_unlock(&drvdata->spinlock);
->>>    		return ret;
->>> @@ -733,7 +733,7 @@ static ssize_t cntr_val_show(struct device *dev,
->>>    	for (i = 0; i < drvdata->nr_cntr; i++) {
->>>    		val = etm_readl(drvdata, ETMCNTVRn(i));
->>> -		ret += sprintf(buf, "counter %d: %x\n", i, val);
->>> +		ret += sprintf(buf + ret, "counter %d: %x\n", i, val);
->>>    	}
->>>    	return ret;
->>
+I will try to remember.
 
+
+> And... thanks! :-).
+
+Of course! Hopefully many people find the work interesting / helpful.
+
+-Doug
 
