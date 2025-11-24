@@ -4,64 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34903CFD313
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 04:44:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19066CFD313
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 04:51:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
 	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
 	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ErEcB/qyD7QsiTGNF9CSiehZrNAUsr2NNSV13bbmFB8=; b=BRIbOFWxBkjmUZgL9a+SDhPhyA
-	LmR6LvthfokYy+RFFGdjoJbhqTChDOfb3KTOH6D2X45E1i5ZgymxL+OJ3LrAGbdRKRIyMriKq7k3i
-	t4KVVilwIMcFD5R3WFwmgFJfg9r3XbKlWqL/7Kx47OkdhZrhSgey6z8Q5z1EpmmptZxPoGa0Wk4pT
-	ytN53HWKim+7CYUgjbCwYvawPw94iD2PdQVran5Y4MEQH935L9CWhnZJQuDnM4WYTBAXyiS2Fmu+j
-	sXjEycZaFa22wVy4V8bE7SZ+sc+YZB9KMaoIdMm1tcMYsk/OZekpwgSiVyb1Z0vKujDJ3L3A6vNqw
-	z4IUIEmw==;
+	bh=yLoLSRS0goZRqoYuNJwGXmkVYLQAq/toqhyMWgS8220=; b=znlYSSg8bH4CA+YJcst7bG/QMp
+	YOMT7HS3J7H3GWc0wzeklNZ43oPm4fpo/GhAD5dtXocpF4UBRQDEmIqH/Wptfykr3u6ujIZtMiMRd
+	nEVaZCTnE5OsmyatmiQaECbG3S2CmQbe77ruQ4eLPJ4Eg1+Ltenw+ZTRKhxQBD6X0OQVB6nvUu2Bl
+	HrY0A34GvTSC3M+kIni3KVZ+Gxxo54woagT9UA+U6PQvQsAQ6HOxzn6K/yeN5moWrAqRywPzBC//i
+	URWwe4Fdu6QI5i4VXhhY14iWzSonx2lrBoQyskUjWqVEzCauwutA9BqXmvHfpgxK6Kc0AU4/Lbkad
+	sjS1uXtA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNOR9-0000000B53N-0vJX;
-	Mon, 24 Nov 2025 04:44:27 +0000
+	id 1vNOXq-0000000B5UU-2kl4;
+	Mon, 24 Nov 2025 04:51:22 +0000
 Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNOR6-0000000B52t-0BdK
+	id 1vNOXn-0000000B5Tz-27Wy
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Nov 2025 04:44:25 +0000
+	Mon, 24 Nov 2025 04:51:20 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=codeconstruct.com.au; s=2022a; t=1763959462;
-	bh=ErEcB/qyD7QsiTGNF9CSiehZrNAUsr2NNSV13bbmFB8=;
+	d=codeconstruct.com.au; s=2022a; t=1763959877;
+	bh=yLoLSRS0goZRqoYuNJwGXmkVYLQAq/toqhyMWgS8220=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=NfOkLKJ9+KaqsHnZz4BA472PHttN4fhTp0lzqpmLD3f2LiHNL0a8eBA7jU2bGuhve
-	 77H0vsNtq3RC/SLBwwshj+HzzPieq17dlfn57Ddq0MOcxfAB6Fxf92PhUdXw3oi7y7
-	 BOqrossQs9ah0Xgf4hCTzzDqZdu4S+ExzENq88OjAvmdeg1HVcBnQhFi/R62PVeDjw
-	 I5whS1LNAETonXmmeheD+8nNmi+U+rpKDRpjf8KPpsiCv9sAoSMNACLnUhD0AWcd7D
-	 qtvSKPGNkPEi9qT31pTBLbKv+B2kpbtLiSlzvXelDDVL+Cy30LhpNop+cxhOiJ61W+
-	 pHKlgP20xTFfw==
+	b=Ffh9O5Z4zQOoVQ0ABvwI0KKeOL6UzL2f6GCv9mGCKKCeG5B+mEvRKTyG4PFLqGmKT
+	 s2yOZcU0nGAX9ueJhruJ34RTQiXEgLprVIWQWgEJDMMLo+lOqffM/7tu8zrnMcspCA
+	 J17VOp1nyY9WRyZ8N8aE0LbAM4GDROb3Vad4Mnqcg4/a1DqkW/Ods20hqqFamidsyj
+	 XEC1lr1xAGJS5/Se0ozi0YLaJBZNslQG3GtopB0eBwDy2v+mbbuSG8LStQdj2I9yRa
+	 R1Stg6GMlRXwy0rg67a2UIi/X+hkziWoBUnqT3ZDZNuTkzKPb5AAz4yuwG3sFRTin0
+	 RiZ+JMy37eaMA==
 Received: from [192.168.68.115] (unknown [180.150.112.38])
-	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 75BD97BE0E;
-	Mon, 24 Nov 2025 12:44:21 +0800 (AWST)
-Message-ID: <74b9c09cebac1de0e6e2e712a1374ab5294f61d8.camel@codeconstruct.com.au>
-Subject: Re: [PATCH 3/3] ARM: dts: aspeed: yosemite5: Rename sgpio
- P0_I3C_APML_ALERT_L
+	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id B96F864DF5;
+	Mon, 24 Nov 2025 12:51:16 +0800 (AWST)
+Message-ID: <430d2ae7b148534ca6277c7066304e35a25ef682.camel@codeconstruct.com.au>
+Subject: Re: [PATCH v7 1/2] dt-bindings: arm: aspeed: Add compatible for
+ Facebook Anacapa BMC
 From: Andrew Jeffery <andrew@codeconstruct.com.au>
-To: Kevin Tung <kevin.tung.openbmc@gmail.com>
+To: Peter Shen <sjg168@gmail.com>, Krzysztof Kozlowski <krzk@kernel.org>
 Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, Amithash
- Prasasd	 <amithash@meta.com>, Kevin Tung <Kevin.Tung@quantatw.com>, Ken
- Chen	 <Ken.Chen@quantatw.com>, Leo Yang <Leo-Yang@quantatw.com>, Rob
- Herring	 <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor
- Dooley	 <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>
-Date: Mon, 24 Nov 2025 15:14:21 +1030
-In-Reply-To: <20251118-yv5_revise_dts-v1-3-fcd6b44b4497@gmail.com>
-References: <20251118-yv5_revise_dts-v1-0-fcd6b44b4497@gmail.com>
-	 <20251118-yv5_revise_dts-v1-3-fcd6b44b4497@gmail.com>
+	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, Joel Stanley	
+ <joel@jms.id.au>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski	
+ <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, peter.shen@amd.com
+Date: Mon, 24 Nov 2025 15:21:16 +1030
+In-Reply-To: <CAJTz7Jd_fuTXpsseEE_161a7nLgoh4g9nH7M__HTsGihqNLQWA@mail.gmail.com>
+References: <20251112211248.3711889-1-sjg168@gmail.com>
+	 <20251118041058.1342672-1-sjg168@gmail.com>
+	 <20251118041058.1342672-2-sjg168@gmail.com>
+	 <c061ee38-5026-497d-b757-b0b9db2e6729@kernel.org>
+	 <CAJTz7Jd_fuTXpsseEE_161a7nLgoh4g9nH7M__HTsGihqNLQWA@mail.gmail.com>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 User-Agent: Evolution 3.56.2-0+deb13u1 
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251123_204424_280191_2563D4BF 
-X-CRM114-Status: GOOD (  11.80  )
+X-CRM114-CacheID: sfid-20251123_205119_884737_39F0F4AD 
+X-CRM114-Status: UNSURE (   8.96  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,36 +78,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 2025-11-18 at 18:53 +0800, Kevin Tung wrote:
-> Rename P0_I3C_APML_ALERT_L to FM_APML_CPU_ALERT_N for clarity.
+Hi Peter,
 
-Are user space components looking for these names? Will updating the
-devicetree break older applications? I'd like to see more discussion of
-these problems in the commit message.
+On Tue, 2025-11-18 at 03:11 -0500, Peter Shen wrote:
+> Hi Krzysztof,
+>=20
+> Thanks for your detailed explanation. I apologize for ignoring it earlier=
+.
+> I now understand the importance of Acked-by/Reviewed-by/Tested-by tags, a=
+nd of
+> not attaching patchsets to unrelated threads.
+>=20
+> I will follow the proper process from now on, and also fix my local b4
+> environment so that generating the correct trailers works smoothly.
 
-Cheers,
+Can you please apply Krzysztof's tag and resend the series as v8,
+separated from the v6 and v7 combo thread?
+
+Thanks,
 
 Andrew
-
->=20
-> Signed-off-by: Kevin Tung <kevin.tung.openbmc@gmail.com>
-> ---
-> =C2=A0arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-yosemite5.dts | 2 +-
-> =C2=A01 file changed, 1 insertion(+), 1 deletion(-)
->=20
-> diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-yosemite5.dts b=
-/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-yosemite5.dts
-> index 45b8ac2e8c65a4f672e64571631b7f6944f26213..060757b7211a6da777c51d9f0=
-c886796cf2450a4 100644
-> --- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-yosemite5.dts
-> +++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-yosemite5.dts
-> @@ -964,7 +964,7 @@ &sgpiom0 {
-> =C2=A0	"FAULT_P3V3_NIC_N","",
-> =C2=A0	"FAULT_P12V_NIC_N","",
-> =C2=A0	"FAULT_P12V_SCM_N","",
-> -	"P0_I3C_APML_ALERT_L","",
-> +	"FM_APML_CPU_ALERT_N","",
-> =C2=A0	"ALERT_INLET_TEMP_N","",
-> =C2=A0	"FM_CPU_PROCHOT_R_N","",
-> =C2=A0	"FM_CPU_THERMTRIP_N","",
 
