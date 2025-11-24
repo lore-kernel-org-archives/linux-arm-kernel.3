@@ -4,117 +4,150 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAF22CFD313
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 17:11:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CDB4CFD318
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 17:13:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=MEAZ+s7oSiGGfdL5l2JcoHJfpVSigWIAdB2fV9O9CG0=; b=m5enx9udYrltc8qob3KxjGYT69
-	c6ODXFVs9zTQ0RYKo+cIH6TmlgJHmdqCCuCESUt1vN4M6y6GuhPUR2PpcbZe6IN+r0Y+YtDRxxAm9
-	Jmn3xPwJfTXilCeW36kb3D8VxklhLvzf7w5YTKYboEGLkb1pDVOd9ExyyZVBfYxaB6B/N97RBEZzE
-	Kb/WfKu+qnWe4ZzaI1flZAM09aH+Eccx8Sw92YybhUMEr9M/Kq1G18gXYxIVdCZw/gk1o3/LiI8n8
-	yQyJc1HE1KjYWQNJOBboxsivACd9kvhMD/1b3WlsGwYFrWe1vmnAsr7d2+ttRZVJyzJ2j75/T+wKO
-	5gFarlXg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3DQGnQVCU5MzCGy/EMVSQp63NmPezi19zgM1YKQ/aOE=; b=1m+izClXcMr+YMO9ypvcBRaKpu
+	siLW0R78EOu0sLHqgGmpSKHqHO8KdE+TwU+slpqQjvZC8IeVelwtXw+rnjQwe88MxBJNU7ijjNKAN
+	Y4WuvYnTuO4uk+5ef+/fdGhHNxFul703k6Z+qGJAvRRZnMcK/7bQkzdHHIu9GwTri/MyDiTA9CJxo
+	WnusbNjIY2mc8Y9GcKUBvJTV2cL/tLkwHTWYlQ3Mmsy1mWoTFLwNjzsih9Sc3VdHQGG5dVl+qroXA
+	CqN3Gd4AO9063j3FpWOiXTriO4KzLnfuqYvKEyw3v27ExKa94XeGtYfKEQg5p1HaV+z1gRipmf9Ki
+	YT2/VqsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNa6K-0000000C55W-1gnn;
-	Mon, 24 Nov 2025 17:11:44 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vNa7X-0000000C5H8-3gxB;
+	Mon, 24 Nov 2025 17:12:59 +0000
+Received: from mail-francecentralazon11013023.outbound.protection.outlook.com ([40.107.162.23] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNa6J-0000000C54x-061s
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 24 Nov 2025 17:11:43 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=MEAZ+s7oSiGGfdL5l2JcoHJfpVSigWIAdB2fV9O9CG0=; b=altQf35iP+mGd8Iwsld633LNEb
-	rLz7Op9s8IFamrcsCSAfXKjik2xW8JzpCbbmPJQYpsq5u9S6huLKY5BktcS4mUDT5OfZvNYW36JR7
-	TqbXHrK8Pn3ByRWQSysNvUeiE4hplY3QnHLpIoQGUfxafYvDsT6qA7p/ZRHEhNrTNnB98SSaBAwxl
-	mUNyja0k+dwR2V6pkwr1lZ5/oWtzlr5ToGbas/s98on4+zf4wo0l2OZOROFx2eJhHCFe5qSR82vd5
-	R1erOL94p3EguhDXrIoAXZr5kyPTgbNTKDyxXc4vc/GujluBQLHTGerSJtDb1aq9YdXzT6g4NF7Xs
-	4QBOSJrQ==;
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNZEe-00000004BGs-1k4U
+	id 1vNa7V-0000000C5Gi-0s0z
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Nov 2025 16:16:18 +0000
-Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5AOFuKEa776425;
-	Mon, 24 Nov 2025 17:11:24 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:date:from:message-id:mime-version
-	:subject:to; s=qcppdkim1; bh=MEAZ+s7oSiGGfdL5l2JcoHJfpVSigWIAdB2
-	fV9O9CG0=; b=E/5MMTPqEDmfq6ryTUYL63jD6c/tKq9PRhh2pIF5tNBopuIxKQ3
-	BNi+Xck2IY540ouLWD5nDo+kHAbcUjpWzzXmSBiOcic2ocWrZL5CqS2CQHSoUhsv
-	Cktj0fXM4jp8Kvl3ww+pT+wHeKejAiOGR8vrnlk0fY2eVFrpfbvxSzGg1OiXBNgi
-	dtqVQ5wcJQl/viyfnrdPG30+xDEd1e52OlX0j4wgJqEnEH7VfQbsXmDiBa09e7aU
-	ShwXBBbvFVkL0IsmGs+Ktfdj91AWNQP+Of3iRrrnTkzSVjswWgn/Qk9ENxqw17iH
-	Zw/gy8vkasqskp/wuLC7Y+M507xuceovuYw==
-Received: from apblrppmta02.qualcomm.com (blr-bdr-fw-01_GlobalNAT_AllZones-Outside.qualcomm.com [103.229.18.19])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4amr8s8p65-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 24 Nov 2025 17:11:23 +0000 (GMT)
-Received: from pps.filterd (APBLRPPMTA02.qualcomm.com [127.0.0.1])
-	by APBLRPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTP id 5AOHBKN0009720;
-	Mon, 24 Nov 2025 17:11:20 GMT
-Received: from pps.reinject (localhost [127.0.0.1])
-	by APBLRPPMTA02.qualcomm.com (PPS) with ESMTPS id 4ak68mp3jf-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 24 Nov 2025 17:11:20 +0000
-Received: from APBLRPPMTA02.qualcomm.com (APBLRPPMTA02.qualcomm.com [127.0.0.1])
-	by pps.reinject (8.17.1.5/8.17.1.5) with ESMTP id 5AOHBKi0009706;
-	Mon, 24 Nov 2025 17:11:20 GMT
-Received: from hu-devc-hyd-u22-c.qualcomm.com (hu-charante-hyd.qualcomm.com [10.213.97.134])
-	by APBLRPPMTA02.qualcomm.com (PPS) with ESMTPS id 5AOHBJJt009692
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 24 Nov 2025 17:11:20 +0000
-Received: by hu-devc-hyd-u22-c.qualcomm.com (Postfix, from userid 389980)
-	id 03B065CE; Mon, 24 Nov 2025 22:41:19 +0530 (+0530)
-From: Charan Teja Kalla <charan.kalla@oss.qualcomm.com>
-To: konrad.dybcio@oss.qualcomm.com, robin.clark@oss.qualcomm.com,
-        will@kernel.org, robin.murphy@arm.com, joro@8bytes.org,
-        dmitry.baryshkov@oss.qualcomm.com
-Cc: iommu@lists.linux.dev, linux-arm-msm@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        Charan Teja Kalla <charan.kalla@oss.qualcomm.com>
-Subject: [PATCH V3] iommu/arm-smmu: add actlr settings for mdss on Qualcomm platforms
-Date: Mon, 24 Nov 2025 22:40:30 +0530
-Message-Id: <20251124171030.323989-1-charan.kalla@oss.qualcomm.com>
-X-Mailer: git-send-email 2.34.1
+	Mon, 24 Nov 2025 17:12:58 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=W3cNAeMl6d1UMBj+omnI3OZZYlhozUu0G1Hboba4xe2AsRKEz4rXTGJ+zZtjRpcJbWPCLaIV9HkstQNO5Mv81KYhX1d4Tf1VYxt6cwAT94TEOthPtaZof3/jIhKM/kI4ZBF7DsVSQP8gTu1vIc+1BS/SyJQ171ulXXZjkRVSlayd6QnN0zSCkc38LP4iTRKRoGcreTPdM1DyoQFtYkynMKcI41KeOAQLr0OcyyaMQpkDQYrLyoXjG5II3uoGSym9AHH1jszL4+qRDIriF9uykBeQJh0VjS/gs26rqObrDn/tgdevWAQrBcmYGdGOhq2kLpeCo+DiN+kyeZTbt/foSw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=3DQGnQVCU5MzCGy/EMVSQp63NmPezi19zgM1YKQ/aOE=;
+ b=i2Tm7wFa6Mft6OcGpvYbIsmbunbTLpj2f2cOPcXJhgHpCWldyF3O71ZY/ebBvC/EmxPd4kRpr6HsFS5wKod5bWNLxviEsIVkhZWKdq16nWF7yg5RTCqOmcWRFn5EB7KaO9FwujJUgY83qaaTJULwRUJxsTCMqnd6ozDpFuUmkgLOw9JODPpU7EVc3hys+xj7+NibXI4QWjgAwPpSPEyypWTn9cGitTS2QJsbqd6n97NUavnQtBdjE9xYfOZLHFoESXMGo1iMIkrcbagxRbUHE/pR/GMIe2KVz6W5s3Un46sLCZPryAR36unLDbRNPFuN+TdNTAw+4Q98sub1Kk05zw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=3DQGnQVCU5MzCGy/EMVSQp63NmPezi19zgM1YKQ/aOE=;
+ b=R8kBVaJSBpam38T+9gsnYRdVV5vopLYjpiwBAm0KpXwcbWjUNnqblD9u6lPp2FIbMMfsW7aWIQpy7e3XmMPzgPtHP9xaZmrymVAS8GwbiOFPzZXx1X+kQoqo8rDgFglgM+lp+6NBk92pdrw2W+3N6KNoFmVkcqLqduqE66dqS0xIwI5+Nqjae+KiN4OMXuEKMIBF4R7lPF6mwMWNeJr+0IURiMpV46BY51iqa3rHwoO3ccyv+u+WHcuHlHWxT1/3QIFpPZELvqpQamXR7bK+RXEQpwOjpjomzp1N99EMNvBFMZh7r7ivzTUkrJ5+tXAXQmp4jJxg6A7LLTzBOAhgBA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from DU2PR04MB8951.eurprd04.prod.outlook.com (2603:10a6:10:2e2::22)
+ by PA2PR04MB10087.eurprd04.prod.outlook.com (2603:10a6:102:40b::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9343.17; Mon, 24 Nov
+ 2025 17:12:53 +0000
+Received: from DU2PR04MB8951.eurprd04.prod.outlook.com
+ ([fe80::753c:468d:266:196]) by DU2PR04MB8951.eurprd04.prod.outlook.com
+ ([fe80::753c:468d:266:196%4]) with mapi id 15.20.9343.016; Mon, 24 Nov 2025
+ 17:12:53 +0000
+Date: Mon, 24 Nov 2025 12:12:44 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: Oleksandr Suvorov <cryosay@gmail.com>
+Cc: linux-kernel@vger.kernel.org, Fabio Estevam <festevam@gmail.com>,
+	Guenter Roeck <linux@roeck-us.net>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Wim Van Sebroeck <wim@linux-watchdog.org>, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-watchdog@vger.kernel.org
+Subject: Re: [PATCH] watchdog: imx7ulp_wdt: handle the nowayout option
+Message-ID: <aSSSDBKl2vvQCRSw@lizhi-Precision-Tower-5810>
+References: <20251123202437.2340955-1-cryosay@gmail.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251123202437.2340955-1-cryosay@gmail.com>
+X-ClientProxiedBy: SJ0PR05CA0193.namprd05.prod.outlook.com
+ (2603:10b6:a03:330::18) To DU2PR04MB8951.eurprd04.prod.outlook.com
+ (2603:10a6:10:2e2::22)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-QCInternal: smtphost
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-ORIG-GUID: zhEoXNapgT-dT2HT6KIXUnkKzQbZfBZg
-X-Authority-Analysis: v=2.4 cv=KP5XzVFo c=1 sm=1 tr=0 ts=692491bb cx=c_pps
- a=Ou0eQOY4+eZoSc0qltEV5Q==:117 a=Ou0eQOY4+eZoSc0qltEV5Q==:17
- a=6UeiqGixMTsA:10 a=VkNPw1HP01LnGYTKEx00:22 a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8
- a=9jHMADLK-yuNcm8qUCkA:9
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMTI0MDE1MCBTYWx0ZWRfX5+9mBA7RbRKH
- rV/GX26iziPG5dGVd/nqYxfqb4CA6iES8k3CUb+hCijnWYAMg11TVOL380zMiHkX8qylb+HXJuZ
- TBq4Z6OL5CVi/1IbiwaW9klGy9JiJCE5M+U+NuqcmgVPtseYZ3yYZV+Q6WcB9F8CoCHm37E2y61
- hZHKVVx7xno5fqfN0RWxjwPQGLTICmxMsNJQ2gGhbTZARDRagaJix+Aqg15GaDmQnINLXwf35m8
- 8zzZr4zytZsOYylajQZAQHpJ4yDIlF1qe5L/N/KqhEg65GkVFkq40zAE1rz1fEVkzwSLksry1X2
- A0gVQJn45qTZupXZTYePhybabeX2mCZ2HSRuL4QuT1JrIVoh895Bb1RCm09Fmdgfw7bewu2YxPB
- 3db084beeIx9st7bfvLJk/GPyjItZw==
-X-Proofpoint-GUID: zhEoXNapgT-dT2HT6KIXUnkKzQbZfBZg
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
- definitions=2025-11-24_06,2025-11-24_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 impostorscore=0 clxscore=1015 lowpriorityscore=0 phishscore=0
- bulkscore=0 spamscore=0 priorityscore=1501 suspectscore=0 adultscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2510240001 definitions=main-2511240150
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU2PR04MB8951:EE_|PA2PR04MB10087:EE_
+X-MS-Office365-Filtering-Correlation-Id: ef42d089-1c92-41c6-864f-08de2b7cb418
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|52116014|7416014|376014|366016|1800799024|38350700014|7053199007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?z8NzOSFiA4NyDn2cmdnb7OgpwzKHFMu6BlciY3gaSyfYoN/T4WSb/a9YUeQr?=
+ =?us-ascii?Q?EqWy30HmAFlfFLkafUCUz8SwePPnhKH5LjEraV77wJvTAPJHO5O5VtCsADUt?=
+ =?us-ascii?Q?5i0uBQa32vOZMfOHDrz15COrMGvs+d5tM/gi+b600j7LO3ve4osUMkRwfkY6?=
+ =?us-ascii?Q?9eNBYwi7enkaB5wv1gUqnS6MsOYw5KZTi5jAVikvMhi2YHAyxGSmQrJTCQEe?=
+ =?us-ascii?Q?VbVODigPxa1PmEAJ7blaStfWtGvxjAp5t0TZsOgRO0tqswZ+E0aPVb+KtbRE?=
+ =?us-ascii?Q?o0kR8isAdk5vkHbkDMQmEEuI3qbzjgEplgVLQSO8rqm6YEs0x5IIOlIEWol+?=
+ =?us-ascii?Q?ZqPJHOsPxxlFQLH+JhZuNDXhqtZI1mJPDVcfDUArnK8Nodz429A5NV79r7Zs?=
+ =?us-ascii?Q?P5/GPGqFYbBEZOTzzObvDzTelk4G3pboDL03DRs1X9e1W/Zx0m+qT5Dy/aga?=
+ =?us-ascii?Q?14CtiB9ADvwgkiSACdh/tx9wi4WAEvsKb1TP7wQNnFmkHheUWfW1QWBQ1ZlR?=
+ =?us-ascii?Q?grZhqoBRuc76G8LDGO2YDpSxA64JlIMKQZgBJxWJJSPADcOoBjqhwmGAfltg?=
+ =?us-ascii?Q?52kjI6fnVDyJKV1wOpvxQTeisMR6ryWszGCTfBkwRHo4e71KlVG3AAatk+lp?=
+ =?us-ascii?Q?q0s/KeyJyDYxXMr5Xgel5zUCnFZBkHwH8DBay7N4S1/ZQz4arbmsXhGYYcUd?=
+ =?us-ascii?Q?inAuovxPZ2d5kxw79/bss5TodM4tQyn3mIYIui//ZoY0fg7O+5uz0YX3sMeg?=
+ =?us-ascii?Q?MB23GJAuIuKYsyYKFD2NENCULYx5VFM4/JXoZAAGezeKNFBmU83ZTfr3gy6l?=
+ =?us-ascii?Q?W5SsJFEbiFwnb5soPZpcUsgDvDTVq1b5T5f5Qfgwq2Nou2ej4zuqgS1Cff9R?=
+ =?us-ascii?Q?itE8eVi/dd7vCspEWbBP0zcZyXxYD3VR5cHF+DjikvmkTzsTaDgkQ7gTYoj+?=
+ =?us-ascii?Q?dgqQwP5WJzbH4ZoMnZNepwevdFqN00taKCB1/fmcLtEo4E7B/g6AGSybZxEX?=
+ =?us-ascii?Q?EmOKrLRagj5WB4NkcuUpZJJa16j2tP89HOhASGtK7CpvuscgkJizZYaX2TYS?=
+ =?us-ascii?Q?l63zD8YFuBBNY5WAVLRuVmEn4uKKg4Q5xTNTK9OxhisPf5tsG2ss2YO9leD4?=
+ =?us-ascii?Q?FXqQL1s4LunTpWF2NQNiAdC4JxubcfAjANKMWLBe7DeiFsDUhg3A3JzHxep5?=
+ =?us-ascii?Q?mvojpLUr/XOPGuEhnJbaGyeevGCdey96kzkRl3GpCbnGmMr3uqqcVgtE/06x?=
+ =?us-ascii?Q?xFr8YuTHxv74k/Y2hOMG0gtbtT70veABrkCrlGEy+CexCn5sxg9ZHdGVJdmH?=
+ =?us-ascii?Q?Yg0BXmFLLHCnMNkNl5dTzpHqXm+mzQXk1bRoYyIeNFUpOKXZL6Ck+TKEnnjh?=
+ =?us-ascii?Q?zzwPUyqdRSZ6fxb3y/B9tyiQRvtKmnFWyyenAtWHXgTU+0j8C4vj9H1ttFum?=
+ =?us-ascii?Q?fTjSl7vqznlTtI/p5H/VYuBxREB7sUMp/VrbU1RD/g8bUpb8RLiti4GR86kz?=
+ =?us-ascii?Q?pLTen75ylKJZHstorRGVASmBNcytwnikgQpB?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8951.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(52116014)(7416014)(376014)(366016)(1800799024)(38350700014)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?FnolFxNJzzVER28y/y8ttZQiCnCyNtT+WQyeUppo/vCTJ5CAh5lrgGVvrAB2?=
+ =?us-ascii?Q?27wuszeXrQ3eXsgJEfdr73Jr2gfBnZrLONCV67zZWVRWmxYGs5/rl0liIvPh?=
+ =?us-ascii?Q?p9k5dhPH2zuZbd/bl5naioWqBJMzjJhagmQo8lyR8OJAljj6ETIKrSAha3tK?=
+ =?us-ascii?Q?pq9sVY71dtpaw4xbwtPYIZvC3u5ZAYdXT8p494uI7CCbpbDL6pwUr4ql0PAR?=
+ =?us-ascii?Q?UgGQH6jFOfJr1zhcpiJbXulssPNyD4wB/rsL6hNk99Nssjhr3/vj1SLALXvH?=
+ =?us-ascii?Q?Y839INfC41KE8BoQ/p9Khmmt8UYvLamksiuLxtCxUhR1rnaipXHbYgNsgQQj?=
+ =?us-ascii?Q?ieXIRhVuLNteTsDM2+WTuIrwUkd+UwcS2uEHOFope3uoMO+kAIiZPt3eIPeD?=
+ =?us-ascii?Q?/8JobaRM2xP5E1zSIi0WGcHIVz4pNXwg8Z8jS/wS6VEEQPpp0Hlw9rTnH5Qh?=
+ =?us-ascii?Q?qUAF+KH3EsuRzq8ysCgnuhGFqCBAsns9+PdUiX+jbitsrfBS0dNhWm+4Viol?=
+ =?us-ascii?Q?4RR5x+rLsjP3f4fua55u0DXhPVI8hWNYNalueBxqG9pypsls/jRXY+xpooXn?=
+ =?us-ascii?Q?w1vuoYJl5dsRsEp5zb3v0nNPFAm2I0Iu80KycKt8nIl3lKsWV0Uhi4HShPyl?=
+ =?us-ascii?Q?IsbS2svBi+Uu0kCJrE6ESDV+nwAMJmNV3q7E1xI2tBsLuqrhu9Y1t9mdyhqm?=
+ =?us-ascii?Q?hcf8uhgXKbeE7CVTZfrKD764gKKX12VKOSJCynr7R87Mt3nujAU/zfmSbMf3?=
+ =?us-ascii?Q?/xqSXIcXUduFWpe7dtF1prRmJhukO2CnyEnzfnMjUFlIw9kjNB5VDqmU8EJr?=
+ =?us-ascii?Q?VtQozWO6zpiGTjd3DFgU9mFVh4sJMsAitLEn2mqiBMCcQRFcE0RFxcAa/xLL?=
+ =?us-ascii?Q?muMopCwvmZRdUgnd61Qo2k5OuP5ueOcZjoYJeaM9Alr0RwPGZNCc5lWBb1xy?=
+ =?us-ascii?Q?fmqb84wlfRvF9Ezgf6BntWvETLNYeRhfASMIABZUNfeF6nzRyWB91TDU0XkM?=
+ =?us-ascii?Q?VIkk/UMTWDfWn5ssJy1BNvg3KWWzQw+v1Mud9jUaWY3DXRI7ZbhHeCAMaiTS?=
+ =?us-ascii?Q?G2BAivblPfo9Vwplw0H0RLNmT6xEhX6+wbiSgHBOciRRp6sXcagPB5cuHZmt?=
+ =?us-ascii?Q?sly88v+Mnam3z4M6PM0A0JBMh1mBp+aEiqoDh81gTj0mJn7vRrUr5m/OKDPV?=
+ =?us-ascii?Q?VPc1f/yScPSNDVWdEVhIpDjNSwGszJzWAwJqSmfrCHcML2spjaZNpvEF+CXY?=
+ =?us-ascii?Q?FaQ3+qAq/J1F/oIdEjqEI3G1UwslAQwRt3WGf4Jw3JcVtw1lOA2P4S6ZV1sK?=
+ =?us-ascii?Q?a2REOw1mLRw9WZbN4vqvY7kGq4BliHNqOt8aMc64w6vR2sMm1Fsrk2974Et5?=
+ =?us-ascii?Q?lSd8lNaLO0NQZZe6GKlTy12H8/eWtZ/Bu9CuSRDqW0hh9yGRNC2mJMquK5rI?=
+ =?us-ascii?Q?8T6rOvQZE5qceM2JbaB/6YfqFn0B4VTEeV1nhQhvEgsKmE0IBMTVcbEDWHn6?=
+ =?us-ascii?Q?HltyHks3SvaRDiLACrmuLgwuWXbJvFZX4V0H1Hy6KmAWnxw6FIyyQS48Du6D?=
+ =?us-ascii?Q?VqcKdhO5cRf4b32W2NnMYHnGD/N6M3j9wgV+dun2?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ef42d089-1c92-41c6-864f-08de2b7cb418
+X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8951.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Nov 2025 17:12:53.5310
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Zw6B2jnRDgt+qXmUA+R4+sqUlZt4eG5dUo3PoR/rBiGV71t1h9vckgtUvDm3T+EZGPr9psEvU/07/HeHa80e+Q==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA2PR04MB10087
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251124_161616_733541_CBB163CD 
-X-CRM114-Status: GOOD (  11.88  )
+X-CRM114-CacheID: sfid-20251124_091257_246836_E2D2DF32 
+X-CRM114-Status: GOOD (  16.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,70 +162,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add ACTLR settings for missing MDSS devices on Qualcomm platforms.
-
-These are QoS settings and are specific to per SoC thus different
-settings, eg: some have shallow prefetch while others have no
-prefetch.
-
-Signed-off-by: Charan Teja Kalla <charan.kalla@oss.qualcomm.com>
----
-Changes from V2:
- 1) Add actlr settings for all the mdss devices on Qualcomm platforms.
- 2) Improved the commit message that explain why different ACTLR
-    settings
-https://lore.kernel.org/lkml/20251118171822.3539062-1-charan.kalla@oss.qualcomm.com/#t
-
-Changes from V1:
-  1) Added actlr setting only for MDSS and dropped for fastrpc. --
-konrad
-  2) ACTLR table is updated per alphanumeric order -- konrad 
-  https://lore.kernel.org/all/20251105075307.1658329-1-charan.kalla@oss.qualcomm.com/
-
-
- drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c | 22 ++++++++++++++++++++++
- 1 file changed, 22 insertions(+)
-
-diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
-index c21a401c71eb..ead1a59d40ae 100644
---- a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
-+++ b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
-@@ -41,12 +41,34 @@ static const struct of_device_id qcom_smmu_actlr_client_of_match[] = {
- 			.data = (const void *) (PREFETCH_DEEP | CPRE | CMTLB) },
- 	{ .compatible = "qcom,fastrpc",
- 			.data = (const void *) (PREFETCH_DEEP | CPRE | CMTLB) },
-+	{ .compatible = "qcom,qcm2290-mdss",
-+			.data = (const void *) (PREFETCH_SHALLOW | CPRE | CMTLB) },
- 	{ .compatible = "qcom,sc7280-mdss",
- 			.data = (const void *) (PREFETCH_SHALLOW | CPRE | CMTLB) },
- 	{ .compatible = "qcom,sc7280-venus",
- 			.data = (const void *) (PREFETCH_SHALLOW | CPRE | CMTLB) },
-+	{ .compatible = "qcom,sc8180x-mdss",
-+			.data = (const void *) (PREFETCH_SHALLOW | CPRE | CMTLB) },
-+	{ .compatible = "qcom,sm6125-mdss",
-+			.data = (const void *) (PREFETCH_SHALLOW | CPRE | CMTLB) },
-+	{ .compatible = "qcom,sm6350-mdss",
-+			.data = (const void *) (PREFETCH_SHALLOW | CPRE | CMTLB) },
-+	{ .compatible = "qcom,sm8150-mdss",
-+			.data = (const void *) (PREFETCH_SHALLOW | CPRE | CMTLB) },
-+	{ .compatible = "qcom,sm8250-mdss",
-+			.data = (const void *) (PREFETCH_SHALLOW | CPRE | CMTLB) },
-+	{ .compatible = "qcom,sm8350-mdss",
-+			.data = (const void *) (PREFETCH_SHALLOW | CPRE | CMTLB) },
-+	{ .compatible = "qcom,sm8450-mdss",
-+			.data = (const void *) (PREFETCH_DEFAULT | CMTLB) },
- 	{ .compatible = "qcom,sm8550-mdss",
- 			.data = (const void *) (PREFETCH_DEFAULT | CMTLB) },
-+	{ .compatible = "qcom,sm8650-mdss",
-+			.data = (const void *) (PREFETCH_DEFAULT | CMTLB) },
-+	{ .compatible = "qcom,sm8750-mdss",
-+			.data = (const void *) (PREFETCH_DEFAULT | CMTLB) },
-+	{ .compatible = "qcom,x1e80100-mdss",
-+			.data = (const void *) (PREFETCH_DEFAULT | CMTLB) },
- 	{ }
- };
- 
--- 
-2.34.1
-
+On Sun, Nov 23, 2025 at 10:24:33PM +0200, Oleksandr Suvorov wrote:
+> The module parameter `nowayout` indicates whether the watchdog should ever
+> be allowed to stop, but the driver currently ignores this option.
+>
+> Pass the `nowayout` parameter to the watchdog core by setting the
+> WDOG_NO_WAY_OUT flag accordingly.
+>
+> Signed-off-by: Oleksandr Suvorov <cryosay@gmail.com>
+>
+> ---
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
+>
+>  drivers/watchdog/imx7ulp_wdt.c | 1 +
+>  1 file changed, 1 insertion(+)
+>
+> diff --git a/drivers/watchdog/imx7ulp_wdt.c b/drivers/watchdog/imx7ulp_wdt.c
+> index 0f13a30533574..03479110453ce 100644
+> --- a/drivers/watchdog/imx7ulp_wdt.c
+> +++ b/drivers/watchdog/imx7ulp_wdt.c
+> @@ -346,6 +346,7 @@ static int imx7ulp_wdt_probe(struct platform_device *pdev)
+>  	watchdog_stop_on_reboot(wdog);
+>  	watchdog_stop_on_unregister(wdog);
+>  	watchdog_set_drvdata(wdog, imx7ulp_wdt);
+> +	watchdog_set_nowayout(wdog, nowayout);
+>
+>  	imx7ulp_wdt->hw = of_device_get_match_data(dev);
+>  	ret = imx7ulp_wdt_init(imx7ulp_wdt, wdog->timeout * imx7ulp_wdt->hw->wdog_clock_rate);
+> --
+> 2.43.0
+>
+> base-commit: 1af5c1d3a90246a15225fc7de0ed7e5f9b2f3f98
+> branch: master-imc7ulp_wdt-nowayout
 
