@@ -4,84 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D262CFD318
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 16:52:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F83ECFD31F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 16:52:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BrrbJ3alRtzOMTMhYJrDntjaxvd3iXypW6GUIunVDTk=; b=xEPuadjakoRVVOq3Q+oOEJbeb+
-	zB3S6X4GsTipG+GviCtGWisKdXtLzklXqUSNB+5Lvl/miVczefs/mekdOUNTSCmunlx2dndquYcpf
-	B8mvHRUhglsW17AodouzKAV2XRi3mp/ZbP/Hs9KSOLl+X8jM445QpjbtnJSimnc99SxHNmLkdcPQ1
-	E2uw0IoFdS8Fthtjo5M6Bx4ezVoprqLuByBHPXoinUF7P+ya6LMH9QGwi05/E5LTWCXONlDbIKLtW
-	nWBfMCOuivC1ZyaZGTyupQxQHRq6wDZNepRlaIntskNEoD6kMxORXLeqY1LPonxX04EVvgNETk0z1
-	YbfRybDg==;
+	bh=XPW+X7Z9Og3TIXMVS76E66zrmesV1TERYcVqY5JCDD0=; b=s+mCn7vAkSQwLgvczveCA26XOg
+	fyi1uowSHDuN2BdM0xS9vyQClG41MwiBmTXVpJPs+mOphJnatS3C4OKDrJAuKJ5NQyxoZe+x0q250
+	lQU98ojK7O9eltKKZHh5urLn6CLZcp8ObJGKsIX9gtCcgzKx9QeY243CtWWsLsquR+aAoQl3VZ0v8
+	PthHm8E4QL2bd7jZSGIbzfh+AEeK0X0jojpfRxPH+94FhZAq7ay6SqZnHGAnKgHGWR13THO6UxZmm
+	Uy1bJyzJENPi9/v/uSk5k1S7yU/+mdpOHn5OkaV9aZPF7DMNekzYFelBGJxdoy76G4rPhz7BJYOW8
+	KjxrRRtQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNZnA-0000000C1mE-1X8I;
-	Mon, 24 Nov 2025 16:51:56 +0000
-Received: from smtp-out2.suse.de ([2a07:de40:b251:101:10:150:64:2])
+	id 1vNZnK-0000000C1zN-2h3L;
+	Mon, 24 Nov 2025 16:52:06 +0000
+Received: from smtp-out1.suse.de ([195.135.223.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNZn0-0000000C1Z6-0VPQ
+	id 1vNZn4-0000000C1dP-1tZf
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Nov 2025 16:51:48 +0000
-Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
+	Mon, 24 Nov 2025 16:51:51 +0000
+Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id 957765BD02;
-	Mon, 24 Nov 2025 16:51:29 +0000 (UTC)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id 4E533221A3;
+	Mon, 24 Nov 2025 16:51:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1764003089; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	t=1764003087; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
 	 mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=BrrbJ3alRtzOMTMhYJrDntjaxvd3iXypW6GUIunVDTk=;
-	b=ZuBlnnBI/FPFHvSIg3dvx5YpAZ2e9rlfCP03v1lWv1IGV0TBxVeaOGLnmMuGOUbCVEtLUa
-	UxNE+PQbvs2gFLIppcuHEeD14Lx8AaQZGXTrSlVbyVkeLhfw4x8lxU7RiRYr83FFMyyuDr
-	hfdDb8r30G+G746mvNOpD1X77Dv7ZOo=
+	bh=XPW+X7Z9Og3TIXMVS76E66zrmesV1TERYcVqY5JCDD0=;
+	b=X6ERMnBwi7q1wKrzIJjZOHC3iodPC4YuOM5tasOAfb5GDVs5QVwaF4aXNRyijzOUrp/0Mw
+	buLIT2AtqhMdRRLZVSfEISfwJVbJ9fKihEl9DAXzu4M3mcXzqlFbhKmqGzT9+VZU/sla13
+	GS5eYOUqbbo82bA9CsigVWho5Z0EHnU=
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1764003089;
+	s=susede2_ed25519; t=1764003087;
 	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
 	 mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=BrrbJ3alRtzOMTMhYJrDntjaxvd3iXypW6GUIunVDTk=;
-	b=LOoAZ9pMNSxSfE3mgBgbTl/EXiNdf07OiOXNKducmrvAS4oyglkKv8mdayRIfuDWCPbC1i
-	DFoJvSF1Le9CTnCg==
-Authentication-Results: smtp-out2.suse.de;
-	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=ZuBlnnBI;
-	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=LOoAZ9pM
+	bh=XPW+X7Z9Og3TIXMVS76E66zrmesV1TERYcVqY5JCDD0=;
+	b=iJOo+7RpM8BqwQg4UCh/LWKoCCGhExmjL1rEhrKYlsvDepX7YG0s+oSQ1k7TmKIKE7d6Of
+	efOaQAFu44iiLrAg==
+Authentication-Results: smtp-out1.suse.de;
+	none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1764003089; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	t=1764003087; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
 	 mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=BrrbJ3alRtzOMTMhYJrDntjaxvd3iXypW6GUIunVDTk=;
-	b=ZuBlnnBI/FPFHvSIg3dvx5YpAZ2e9rlfCP03v1lWv1IGV0TBxVeaOGLnmMuGOUbCVEtLUa
-	UxNE+PQbvs2gFLIppcuHEeD14Lx8AaQZGXTrSlVbyVkeLhfw4x8lxU7RiRYr83FFMyyuDr
-	hfdDb8r30G+G746mvNOpD1X77Dv7ZOo=
+	bh=XPW+X7Z9Og3TIXMVS76E66zrmesV1TERYcVqY5JCDD0=;
+	b=X6ERMnBwi7q1wKrzIJjZOHC3iodPC4YuOM5tasOAfb5GDVs5QVwaF4aXNRyijzOUrp/0Mw
+	buLIT2AtqhMdRRLZVSfEISfwJVbJ9fKihEl9DAXzu4M3mcXzqlFbhKmqGzT9+VZU/sla13
+	GS5eYOUqbbo82bA9CsigVWho5Z0EHnU=
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1764003089;
+	s=susede2_ed25519; t=1764003087;
 	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
 	 mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=BrrbJ3alRtzOMTMhYJrDntjaxvd3iXypW6GUIunVDTk=;
-	b=LOoAZ9pMNSxSfE3mgBgbTl/EXiNdf07OiOXNKducmrvAS4oyglkKv8mdayRIfuDWCPbC1i
-	DFoJvSF1Le9CTnCg==
+	bh=XPW+X7Z9Og3TIXMVS76E66zrmesV1TERYcVqY5JCDD0=;
+	b=iJOo+7RpM8BqwQg4UCh/LWKoCCGhExmjL1rEhrKYlsvDepX7YG0s+oSQ1k7TmKIKE7d6Of
+	efOaQAFu44iiLrAg==
 Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 32C253EA63;
-	Mon, 24 Nov 2025 16:51:29 +0000 (UTC)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id D87E63EA65;
+	Mon, 24 Nov 2025 16:51:26 +0000 (UTC)
 Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
 	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id GHfoChGNJGm3GgAAD6G6ig
-	(envelope-from <tzimmermann@suse.de>); Mon, 24 Nov 2025 16:51:29 +0000
+	id YF9xMw6NJGm3GgAAD6G6ig
+	(envelope-from <tzimmermann@suse.de>); Mon, 24 Nov 2025 16:51:26 +0000
 From: Thomas Zimmermann <tzimmermann@suse.de>
 To: ardb@kernel.org,
 	javierm@redhat.com,
@@ -98,47 +97,38 @@ Cc: x86@kernel.org,
 	linux-pci@vger.kernel.org,
 	linux-fbdev@vger.kernel.org,
 	Thomas Zimmermann <tzimmermann@suse.de>
-Subject: [PATCH v2 10/10] efi: libstub: Simplify interfaces for primary_display
-Date: Mon, 24 Nov 2025 17:40:22 +0100
-Message-ID: <20251124165116.502813-11-tzimmermann@suse.de>
+Subject: [PATCH v2 05/10] sysfb: Pass sysfb_primary_display to devices
+Date: Mon, 24 Nov 2025 17:40:17 +0100
+Message-ID: <20251124165116.502813-6-tzimmermann@suse.de>
 X-Mailer: git-send-email 2.51.1
 In-Reply-To: <20251124165116.502813-1-tzimmermann@suse.de>
 References: <20251124165116.502813-1-tzimmermann@suse.de>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-Rspamd-Queue-Id: 957765BD02
-X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
-X-Spamd-Result: default: False [-3.01 / 50.00];
+X-Spamd-Result: default: False [-2.80 / 50.00];
 	BAYES_HAM(-3.00)[100.00%];
-	MID_CONTAINS_FROM(1.00)[];
 	NEURAL_HAM_LONG(-1.00)[-1.000];
+	MID_CONTAINS_FROM(1.00)[];
 	R_MISSING_CHARSET(0.50)[];
-	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
 	NEURAL_HAM_SHORT(-0.20)[-1.000];
 	MIME_GOOD(-0.10)[text/plain];
-	MX_GOOD(-0.01)[];
-	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	FUZZY_RATELIMITED(0.00)[rspamd.com];
-	SPAMHAUS_XBL(0.00)[2a07:de40:b281:104:10:150:64:97:from];
-	MIME_TRACE(0.00)[0:+];
-	ARC_NA(0.00)[];
-	RCPT_COUNT_TWELVE(0.00)[15];
-	RCVD_COUNT_TWO(0.00)[2];
 	TO_MATCH_ENVRCPT_ALL(0.00)[];
 	FROM_HAS_DN(0.00)[];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
-	FROM_EQ_ENVFROM(0.00)[];
-	R_RATELIMIT(0.00)[to_ip_from(RLtfyjk8sg4x43ngtem9djprcp)];
-	RCVD_TLS_ALL(0.00)[];
-	DKIM_TRACE(0.00)[suse.de:+];
+	ARC_NA(0.00)[];
+	MIME_TRACE(0.00)[0:+];
 	TO_DN_SOME(0.00)[];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:email,suse.de:mid,suse.de:dkim,imap1.dmz-prg2.suse.org:helo,imap1.dmz-prg2.suse.org:rdns]
-X-Rspamd-Action: no action
+	RCPT_COUNT_TWELVE(0.00)[15];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:email,suse.de:mid,imap1.dmz-prg2.suse.org:helo];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	FROM_EQ_ENVFROM(0.00)[];
+	RCVD_COUNT_TWO(0.00)[2];
+	FUZZY_RATELIMITED(0.00)[rspamd.com];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	R_RATELIMIT(0.00)[to_ip_from(RLykjg6e7ifkwtw7jmpw7b9yio)];
+	RCVD_TLS_ALL(0.00)[]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251124_085146_307704_EECE81BB 
-X-CRM114-Status: GOOD (  21.71  )
+X-CRM114-CacheID: sfid-20251124_085150_713278_7289AE02 
+X-CRM114-Status: GOOD (  18.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,201 +143,220 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Rename alloc_primary_display() and __alloc_primary_display(), clarify
-free semantics to make interfaces easier to understand.
-
-Rename alloc_primary_display() to lookup_primary_display() as it
-does not necessarily allocate. Then rename __alloc_primary_display()
-to the new alloc_primary_display(). The helper belongs to
-free_primary_display), so it should be named without underscores.
-
-The lookup helper does not necessarily allocate, so the output
-parameter needs_free to indicate when free should be called. Pass
-an argument through the calls to track this state. Put the free
-handling into release_primary_display() for simplificy.
-
-Also move the comment fro primary_display.c to efi-stub-entry.c,
-where it now describes lookup_primary_display().
+Instead of screen_info, store a copy of sysfb_primary_display as
+device data. Pick it up in drivers. Later changes will add additional
+data to the display info, such as EDID information.
 
 Signed-off-by: Thomas Zimmermann <tzimmermann@suse.de>
+Acked-by: Arnd Bergmann <arnd@arndb.de>
+Acked-by: Ard Biesheuvel <ardb@kernel.org>
 ---
- drivers/firmware/efi/libstub/efi-stub-entry.c | 23 +++++++++++++++++--
- drivers/firmware/efi/libstub/efi-stub.c       | 22 ++++++++++++------
- drivers/firmware/efi/libstub/efistub.h        |  2 +-
- .../firmware/efi/libstub/primary_display.c    | 17 +-------------
- drivers/firmware/efi/libstub/zboot.c          |  6 +++--
- 5 files changed, 42 insertions(+), 28 deletions(-)
+ drivers/firmware/sysfb.c        |  5 +++--
+ drivers/gpu/drm/sysfb/efidrm.c  |  9 ++++++---
+ drivers/gpu/drm/sysfb/vesadrm.c |  9 ++++++---
+ drivers/video/fbdev/efifb.c     | 10 ++++++----
+ drivers/video/fbdev/vesafb.c    | 10 ++++++----
+ drivers/video/fbdev/vga16fb.c   |  8 +++++---
+ 6 files changed, 32 insertions(+), 19 deletions(-)
 
-diff --git a/drivers/firmware/efi/libstub/efi-stub-entry.c b/drivers/firmware/efi/libstub/efi-stub-entry.c
-index aa85e910fe59..3077b51fe0b2 100644
---- a/drivers/firmware/efi/libstub/efi-stub-entry.c
-+++ b/drivers/firmware/efi/libstub/efi-stub-entry.c
-@@ -14,10 +14,29 @@ static void *kernel_image_addr(void *addr)
- 	return addr + kernel_image_offset;
- }
+diff --git a/drivers/firmware/sysfb.c b/drivers/firmware/sysfb.c
+index 1f671f9219b0..8833582c1883 100644
+--- a/drivers/firmware/sysfb.c
++++ b/drivers/firmware/sysfb.c
+@@ -141,7 +141,8 @@ static struct device *sysfb_parent_dev(const struct screen_info *si)
  
--struct sysfb_display_info *alloc_primary_display(void)
-+/*
-+ * There are two ways of populating the core kernel's sysfb_primary_display
-+ * via the stub:
-+ *
-+ *   - using a configuration table, which relies on the EFI init code to
-+ *     locate the table and copy the contents; or
-+ *
-+ *   - by linking directly to the core kernel's copy of the global symbol.
-+ *
-+ * The latter is preferred because it makes the EFIFB earlycon available very
-+ * early, but it only works if the EFI stub is part of the core kernel image
-+ * itself. The zboot decompressor can only use the configuration table
-+ * approach.
-+ */
+ static __init int sysfb_init(void)
+ {
+-	struct screen_info *si = &sysfb_primary_display.screen;
++	struct sysfb_display_info *dpy = &sysfb_primary_display;
++	struct screen_info *si = &dpy->screen;
+ 	struct device *parent;
+ 	unsigned int type;
+ 	struct simplefb_platform_data mode;
+@@ -202,7 +203,7 @@ static __init int sysfb_init(void)
+ 
+ 	sysfb_set_efifb_fwnode(si, pd);
+ 
+-	ret = platform_device_add_data(pd, si, sizeof(*si));
++	ret = platform_device_add_data(pd, dpy, sizeof(*dpy));
+ 	if (ret)
+ 		goto err;
+ 
+diff --git a/drivers/gpu/drm/sysfb/efidrm.c b/drivers/gpu/drm/sysfb/efidrm.c
+index 1b683d55d6ea..29533ae8fbbf 100644
+--- a/drivers/gpu/drm/sysfb/efidrm.c
++++ b/drivers/gpu/drm/sysfb/efidrm.c
+@@ -4,7 +4,7 @@
+ #include <linux/efi.h>
+ #include <linux/limits.h>
+ #include <linux/platform_device.h>
+-#include <linux/screen_info.h>
++#include <linux/sysfb.h>
+ 
+ #include <drm/clients/drm_client_setup.h>
+ #include <drm/drm_atomic.h>
+@@ -141,6 +141,7 @@ static const struct drm_mode_config_funcs efidrm_mode_config_funcs = {
+ static struct efidrm_device *efidrm_device_create(struct drm_driver *drv,
+ 						  struct platform_device *pdev)
+ {
++	const struct sysfb_display_info *dpy;
+ 	const struct screen_info *si;
+ 	const struct drm_format_info *format;
+ 	int width, height, stride;
+@@ -160,9 +161,11 @@ static struct efidrm_device *efidrm_device_create(struct drm_driver *drv,
+ 	size_t nformats;
+ 	int ret;
+ 
+-	si = dev_get_platdata(&pdev->dev);
+-	if (!si)
++	dpy = dev_get_platdata(&pdev->dev);
++	if (!dpy)
+ 		return ERR_PTR(-ENODEV);
++	si = &dpy->screen;
 +
-+struct sysfb_display_info *lookup_primary_display(bool *needs_free)
+ 	if (screen_info_video_type(si) != VIDEO_TYPE_EFI)
+ 		return ERR_PTR(-ENODEV);
+ 
+diff --git a/drivers/gpu/drm/sysfb/vesadrm.c b/drivers/gpu/drm/sysfb/vesadrm.c
+index 7b7b5ba26317..16fc223f8c5b 100644
+--- a/drivers/gpu/drm/sysfb/vesadrm.c
++++ b/drivers/gpu/drm/sysfb/vesadrm.c
+@@ -4,7 +4,7 @@
+ #include <linux/ioport.h>
+ #include <linux/limits.h>
+ #include <linux/platform_device.h>
+-#include <linux/screen_info.h>
++#include <linux/sysfb.h>
+ 
+ #include <drm/clients/drm_client_setup.h>
+ #include <drm/drm_atomic.h>
+@@ -391,6 +391,7 @@ static const struct drm_mode_config_funcs vesadrm_mode_config_funcs = {
+ static struct vesadrm_device *vesadrm_device_create(struct drm_driver *drv,
+ 						    struct platform_device *pdev)
  {
-+	*needs_free = true;
++	const struct sysfb_display_info *dpy;
+ 	const struct screen_info *si;
+ 	const struct drm_format_info *format;
+ 	int width, height, stride;
+@@ -410,9 +411,11 @@ static struct vesadrm_device *vesadrm_device_create(struct drm_driver *drv,
+ 	size_t nformats;
+ 	int ret;
+ 
+-	si = dev_get_platdata(&pdev->dev);
+-	if (!si)
++	dpy = dev_get_platdata(&pdev->dev);
++	if (!dpy)
+ 		return ERR_PTR(-ENODEV);
++	si = &dpy->screen;
 +
- 	if (IS_ENABLED(CONFIG_ARM))
--		return __alloc_primary_display();
-+		return alloc_primary_display();
+ 	if (screen_info_video_type(si) != VIDEO_TYPE_VLFB)
+ 		return ERR_PTR(-ENODEV);
+ 
+diff --git a/drivers/video/fbdev/efifb.c b/drivers/video/fbdev/efifb.c
+index 0e1bd3dba255..47ebc0107209 100644
+--- a/drivers/video/fbdev/efifb.c
++++ b/drivers/video/fbdev/efifb.c
+@@ -15,7 +15,7 @@
+ #include <linux/fb.h>
+ #include <linux/platform_device.h>
+ #include <linux/printk.h>
+-#include <linux/screen_info.h>
++#include <linux/sysfb.h>
+ #include <video/vga.h>
+ #include <asm/efi.h>
+ #include <drm/drm_utils.h> /* For drm_get_panel_orientation_quirk */
+@@ -345,6 +345,7 @@ ATTRIBUTE_GROUPS(efifb);
+ 
+ static int efifb_probe(struct platform_device *dev)
+ {
++	struct sysfb_display_info *dpy;
+ 	struct screen_info *si;
+ 	struct fb_info *info;
+ 	struct efifb_par *par;
+@@ -360,10 +361,11 @@ static int efifb_probe(struct platform_device *dev)
+ 	 * driver. We get a copy of the attached screen_info, so that we can
+ 	 * modify its values without affecting later drivers.
+ 	 */
+-	si = dev_get_platdata(&dev->dev);
+-	if (!si)
++	dpy = dev_get_platdata(&dev->dev);
++	if (!dpy)
+ 		return -ENODEV;
+-	si = devm_kmemdup(&dev->dev, si, sizeof(*si), GFP_KERNEL);
 +
-+	*needs_free = false;
++	si = devm_kmemdup(&dev->dev, &dpy->screen, sizeof(*si), GFP_KERNEL);
+ 	if (!si)
+ 		return -ENOMEM;
  
- 	if (IS_ENABLED(CONFIG_X86) ||
- 	    IS_ENABLED(CONFIG_EFI_EARLYCON) ||
-diff --git a/drivers/firmware/efi/libstub/efi-stub.c b/drivers/firmware/efi/libstub/efi-stub.c
-index 42d6073bcd06..dc545f62c62b 100644
---- a/drivers/firmware/efi/libstub/efi-stub.c
-+++ b/drivers/firmware/efi/libstub/efi-stub.c
-@@ -51,14 +51,14 @@ static bool flat_va_mapping = (EFI_RT_VIRTUAL_OFFSET != 0);
- void __weak free_primary_display(struct sysfb_display_info *dpy)
- { }
+diff --git a/drivers/video/fbdev/vesafb.c b/drivers/video/fbdev/vesafb.c
+index f135033c22fb..f84f4db244bf 100644
+--- a/drivers/video/fbdev/vesafb.c
++++ b/drivers/video/fbdev/vesafb.c
+@@ -20,7 +20,7 @@
+ #include <linux/ioport.h>
+ #include <linux/init.h>
+ #include <linux/platform_device.h>
+-#include <linux/screen_info.h>
++#include <linux/sysfb.h>
+ #include <linux/io.h>
  
--static struct sysfb_display_info *setup_primary_display(void)
-+static struct sysfb_display_info *setup_primary_display(bool *dpy_needs_free)
+ #include <video/vga.h>
+@@ -243,6 +243,7 @@ static int vesafb_setup(char *options)
+ 
+ static int vesafb_probe(struct platform_device *dev)
  {
- 	struct sysfb_display_info *dpy;
- 	struct screen_info *screen = NULL;
- 	struct edid_info *edid = NULL;
- 	efi_status_t status;
- 
--	dpy = alloc_primary_display();
-+	dpy = lookup_primary_display(dpy_needs_free);
- 	if (!dpy)
- 		return NULL;
- 	screen = &dpy->screen;
-@@ -68,15 +68,22 @@ static struct sysfb_display_info *setup_primary_display(void)
- 
- 	status = efi_setup_graphics(screen, edid);
- 	if (status != EFI_SUCCESS)
--		goto err_free_primary_display;
-+		goto err___free_primary_display;
- 
- 	return dpy;
- 
--err_free_primary_display:
--	free_primary_display(dpy);
-+err___free_primary_display:
-+	if (*dpy_needs_free)
-+		free_primary_display(dpy);
- 	return NULL;
- }
- 
-+static void release_primary_display(struct sysfb_display_info *dpy, bool dpy_needs_free)
-+{
-+	if (dpy && dpy_needs_free)
-+		free_primary_display(dpy);
-+}
++	struct sysfb_display_info *dpy;
+ 	struct screen_info *si;
+ 	struct fb_info *info;
+ 	struct vesafb_par *par;
+@@ -257,10 +258,11 @@ static int vesafb_probe(struct platform_device *dev)
+ 	 * driver. We get a copy of the attached screen_info, so that we can
+ 	 * modify its values without affecting later drivers.
+ 	 */
+-	si = dev_get_platdata(&dev->dev);
+-	if (!si)
++	dpy = dev_get_platdata(&dev->dev);
++	if (!dpy)
+ 		return -ENODEV;
+-	si = devm_kmemdup(&dev->dev, si, sizeof(*si), GFP_KERNEL);
 +
- static void install_memreserve_table(void)
++	si = devm_kmemdup(&dev->dev, &dpy->screen, sizeof(*si), GFP_KERNEL);
+ 	if (!si)
+ 		return -ENOMEM;
+ 
+diff --git a/drivers/video/fbdev/vga16fb.c b/drivers/video/fbdev/vga16fb.c
+index 6b81337a4909..22085d3668e8 100644
+--- a/drivers/video/fbdev/vga16fb.c
++++ b/drivers/video/fbdev/vga16fb.c
+@@ -21,7 +21,7 @@
+ #include <linux/ioport.h>
+ #include <linux/init.h>
+ #include <linux/platform_device.h>
+-#include <linux/screen_info.h>
++#include <linux/sysfb.h>
+ 
+ #include <asm/io.h>
+ #include <video/vga.h>
+@@ -1305,15 +1305,17 @@ static const struct fb_ops vga16fb_ops = {
+ 
+ static int vga16fb_probe(struct platform_device *dev)
  {
- 	struct linux_efi_memreserve *rsv;
-@@ -156,13 +163,14 @@ efi_status_t efi_stub_common(efi_handle_t handle,
- 			     char *cmdline_ptr)
- {
- 	struct sysfb_display_info *dpy;
-+	bool dpy_needs_free;
- 	efi_status_t status;
++	struct sysfb_display_info *dpy;
+ 	struct screen_info *si;
+ 	struct fb_info *info;
+ 	struct vga16fb_par *par;
+ 	int i;
+ 	int ret = 0;
  
- 	status = check_platform_features();
- 	if (status != EFI_SUCCESS)
- 		return status;
+-	si = dev_get_platdata(&dev->dev);
+-	if (!si)
++	dpy = dev_get_platdata(&dev->dev);
++	if (!dpy)
+ 		return -ENODEV;
++	si = &dpy->screen;
  
--	dpy = setup_primary_display();
-+	dpy = setup_primary_display(&dpy_needs_free);
- 
- 	efi_retrieve_eventlog();
- 
-@@ -182,7 +190,7 @@ efi_status_t efi_stub_common(efi_handle_t handle,
- 
- 	status = efi_boot_kernel(handle, image, image_addr, cmdline_ptr);
- 
--	free_primary_display(dpy);
-+	release_primary_display(dpy, dpy_needs_free);
- 
- 	return status;
- }
-diff --git a/drivers/firmware/efi/libstub/efistub.h b/drivers/firmware/efi/libstub/efistub.h
-index 979a21818cc1..1503ffb82903 100644
---- a/drivers/firmware/efi/libstub/efistub.h
-+++ b/drivers/firmware/efi/libstub/efistub.h
-@@ -1176,8 +1176,8 @@ efi_enable_reset_attack_mitigation(void) { }
- 
- void efi_retrieve_eventlog(void);
- 
-+struct sysfb_display_info *lookup_primary_display(bool *needs_free);
- struct sysfb_display_info *alloc_primary_display(void);
--struct sysfb_display_info *__alloc_primary_display(void);
- void free_primary_display(struct sysfb_display_info *dpy);
- 
- void efi_cache_sync_image(unsigned long image_base,
-diff --git a/drivers/firmware/efi/libstub/primary_display.c b/drivers/firmware/efi/libstub/primary_display.c
-index cdaebab26514..34c54ac1e02a 100644
---- a/drivers/firmware/efi/libstub/primary_display.c
-+++ b/drivers/firmware/efi/libstub/primary_display.c
-@@ -7,24 +7,9 @@
- 
- #include "efistub.h"
- 
--/*
-- * There are two ways of populating the core kernel's sysfb_primary_display
-- * via the stub:
-- *
-- *   - using a configuration table, which relies on the EFI init code to
-- *     locate the table and copy the contents; or
-- *
-- *   - by linking directly to the core kernel's copy of the global symbol.
-- *
-- * The latter is preferred because it makes the EFIFB earlycon available very
-- * early, but it only works if the EFI stub is part of the core kernel image
-- * itself. The zboot decompressor can only use the configuration table
-- * approach.
-- */
--
- static efi_guid_t primary_display_guid = LINUX_EFI_PRIMARY_DISPLAY_TABLE_GUID;
- 
--struct sysfb_display_info *__alloc_primary_display(void)
-+struct sysfb_display_info *alloc_primary_display(void)
- {
- 	struct sysfb_display_info *dpy;
- 	efi_status_t status;
-diff --git a/drivers/firmware/efi/libstub/zboot.c b/drivers/firmware/efi/libstub/zboot.c
-index 4b76f74c56da..c1fd1fdbcb08 100644
---- a/drivers/firmware/efi/libstub/zboot.c
-+++ b/drivers/firmware/efi/libstub/zboot.c
-@@ -26,9 +26,11 @@ void __weak efi_cache_sync_image(unsigned long image_base,
- 	// executable code loaded into memory to be safe for execution.
- }
- 
--struct sysfb_display_info *alloc_primary_display(void)
-+struct sysfb_display_info *lookup_primary_display(bool *needs_free)
- {
--	return __alloc_primary_display();
-+	*needs_free = true;
-+
-+	return alloc_primary_display();
- }
- 
- asmlinkage efi_status_t __efiapi
+ 	ret = check_mode_supported(si);
+ 	if (ret)
 -- 
 2.51.1
 
