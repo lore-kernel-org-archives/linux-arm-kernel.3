@@ -4,86 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46FD5CFD313
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 16:33:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80605CFD313
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 16:35:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r8dse397mKQuH+i0q15EHVnsUl93xS6YyZyzx9NW954=; b=QzNiGsgOFzCsz/XfzzTQO0LJaa
-	9hzvdziL5rh785r6jgGoZwY6wxHgjYQ8U1ATR8tODANBQD1/Q4Q2yHVJKcNvXWV0/PzJvu6pF1sWZ
-	4lr88r6JqH+t1REh9WIO2g+Aq/5r/dvDTF09wohDDJ5VT8J6Xz4uhzC5CcH9NXfI9qz5ajFXnxZRA
-	2UHAZmuEI5CYSmXoUlVh1n9Ep2LHWJa1zQs6uvrZtEj1FCd7u/WWTZPT/RYXkSirLh4h/eteSLREc
-	Pi5ssC0QCqRB2FZeQZVAMeDzBvCmiiXtLo2CzEA8QIfo3tZblkP4l9kcVEI3LjjxoWv3Y1+MMnwZi
-	cChAu5jQ==;
+	bh=uZ9EHjTIO0Z7Xhk3cUhW/piM3vYynY3HcSsvQe8IgaI=; b=h+oTxMkLmvdd3PoD96oChd0SCL
+	HdiB2vaTEYRyWklElGHWM61Mm0DSbkDp/mfcKMBpkE8HOJ0XdiiTjfIrjrXjtIUNzSpJXRVXaXGEt
+	g7Jlo2ngsk3mrxno+/OVSeOnCNHmeyz/PsSE6LOcEFJjxTkM348LjQxr0rseHNm5HwXXTojGrPI5L
+	W7sjaMfDx6gaZMyxe7Xd649YGJCJCgnk3OP46vLBZHND3aau7zQDBlLsQJBoy4EWPnyXP3f/XNE/v
+	VEBKvLtYilri8ky0Rmm2H5KCIdHvvmLXUXinnj3BS+y0xlV7uesyISXilhqnP7pNR+Mk037oP7KgT
+	FiPTeo+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNZVN-0000000C04D-1YJV;
-	Mon, 24 Nov 2025 16:33:33 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vNZXI-0000000C0H3-35x1;
+	Mon, 24 Nov 2025 16:35:32 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNZVL-0000000C041-1rMD;
-	Mon, 24 Nov 2025 16:33:31 +0000
+	id 1vNZXH-0000000C0Gk-1Ucf
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 24 Nov 2025 16:35:32 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8E38D60173;
-	Mon, 24 Nov 2025 16:33:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B2D80C116C6;
-	Mon, 24 Nov 2025 16:33:29 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 9D21A40350;
+	Mon, 24 Nov 2025 16:35:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 272AAC4CEF1;
+	Mon, 24 Nov 2025 16:35:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1764002010;
-	bh=b0HsFdIr9UYeg1Jbb+ezqHtOK4AZhADd9B70yMMGZFc=;
+	s=korg; t=1764002130;
+	bh=EmC+AiSYeGSl26uiPMPxIiViCHrRPLaCMJy21dp/1+c=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=g+47ol/xVPKvHq8mO+c2fpgR8DW18YAaKTmijBBG2VtkLGfdTcX8n57jEGZgYFtXt
-	 DF01gZjsrt73ZFaL90qrJ9go9zBaa62onSiMzWQEv3i/waUjE3nOD4/TVDH9cmjl4K
-	 53oeGgUWsOdxH3qnIhbrSMDif3kOexD/8BLXzSs0=
-Date: Mon, 24 Nov 2025 17:33:27 +0100
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-Cc: Chaoyi Chen <kernel@airkyi.com>,
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-	Peter Chen <hzpeterchen@gmail.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>, Sandy Huang <hjc@rock-chips.com>,
-	Andy Yan <andy.yan@rock-chips.com>,
-	Yubing Zhang <yubing.zhang@rock-chips.com>,
-	Frank Wang <frank.wang@rock-chips.com>,
-	Andrzej Hajda <andrzej.hajda@intel.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Robert Foss <rfoss@kernel.org>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Amit Sunil Dhamne <amitsd@google.com>,
-	Dragan Simic <dsimic@manjaro.org>, Johan Jonker <jbx6244@gmail.com>,
-	Diederik de Haas <didi.debian@cknow.org>,
-	Peter Robinson <pbrobinson@gmail.com>, linux-usb@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, dri-devel@lists.freedesktop.org
-Subject: Re: [PATCH v10 01/11] usb: typec: Add notifier functions
-Message-ID: <2025112448-brush-porcupine-c851@gregkh>
-References: <20251120022343.250-1-kernel@airkyi.com>
- <20251120022343.250-2-kernel@airkyi.com>
- <2025112102-laurel-mulch-58e4@gregkh>
- <462ad1bd-7eec-4f26-b383-96b049e14559@rock-chips.com>
- <2025112402-unopposed-polio-e6e9@gregkh>
- <a80483de-518d-45d5-b46a-9b70cca5b236@rock-chips.com>
+	b=PVKCqp02shsMvbhfhXLoN/SSZJyx5bau9gzvk7pH7rXp9XMhT+ODgjdwv8TMTcpTE
+	 2ov56RdfUjTzQK1ehzb4VWiFtfYD3XHvg7mRne61a8sm86OV06Yp7G4u2ifVz1lAje
+	 0hDu20pwMyMKgC3uqgUuO9PqR/zkfvPdWyMiFMdI=
+Date: Mon, 24 Nov 2025 17:34:57 +0100
+From: Greg KH <gregkh@linuxfoundation.org>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [GIT PULL] coresight: Updates for Linux v6.19
+Message-ID: <2025112442-shiny-neutron-28ab@gregkh>
+References: <20251124053342.1082606-1-suzuki.poulose@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <a80483de-518d-45d5-b46a-9b70cca5b236@rock-chips.com>
+In-Reply-To: <20251124053342.1082606-1-suzuki.poulose@arm.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251124_083531_435714_D7460A23 
+X-CRM114-Status: UNSURE (   9.50  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,100 +68,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 24, 2025 at 04:05:53PM +0800, Chaoyi Chen wrote:
+On Mon, Nov 24, 2025 at 05:33:42AM +0000, Suzuki K Poulose wrote:
 > Hi Greg,
 > 
-> On 11/24/2025 3:10 PM, Greg Kroah-Hartman wrote:
+> Please find the coresight self hosted tracing subsystem updates targeting v6.19.
 > 
-> > On Mon, Nov 24, 2025 at 09:40:03AM +0800, Chaoyi Chen wrote:
-> > > Hi Greg,
-> > > 
-> > > On 11/21/2025 10:07 PM, Greg Kroah-Hartman wrote:
-> > > > On Thu, Nov 20, 2025 at 10:23:33AM +0800, Chaoyi Chen wrote:
-> > > > > From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-> > > > > 
-> > > > > Some other part of kernel may want to know the event of typec bus.
-> > > > Be specific, WHAT part of the kernel will need to know this?
-> > > For now, it is DRM.
-> > Then say this.
+> Kindly pull,
 > 
-> Okay, please refer to the discussion below.
+> Suzuki
 > 
-> > 
-> > > > And why a new notifier, why not just use the existing notifiers that you
-> > > > already have?  And what is this going to be used for?
-> > > We have discussed this before, but the current bus notifier cannot achieve the expected notification [0].
-> > > 
-> > > [0] https://lore.kernel.org/all/aPsuLREPS_FEV3DS@kuha.fi.intel.com/
-> > Then you need to document the heck out of this in the changelog text.
-> > But I'm still not quite understanding why the bus notifier does not work
-> > here, as you only want this information if the usb device is bound to
-> > the bus there, you do not want to know this if it did not complete.
-> > 
-> > That thread says you want this not "too late", but why?  What is the
-> > problem there, and how will you handle your code getting loaded after
-> > the typec code is loaded?  Notifier callbacks don't work for that
-> > situation, right?
 > 
-> In fact, the typec_register_altmode() function generates two
-> registered events. The first one is the registered event of the port
-> device, and the second one is the registered event of the partner
-> device. The second one event only occurs after a Type-C device is
-> inserted.
-> The bus notifier event does not actually take effect for the port
-> device, because it only sets the bus for the partner device:
 > 
->     /* The partners are bind to drivers */
->     if (is_typec_partner(parent))
->         alt->adev.dev.bus = &typec_bus;
-
-Setting the bus is correct, then it needs to be registered with the
-driver core so the bus link shows up (and a driver is bound to it.)
-That is when the bus notifier can happen, right?
-
-> I hope it's not too late. In fact, the notifier here will notify DRM to establish a bridge chain.
-
-What is a "bridge chain"?
-
-> The downstream DP controller driver hopes to obtain the fwnode of the last-level Type-C device
-> through this bridge chain to create a DRM connector. And when a device is inserted,
-> drivers/usb/typec/altmodes/displayport.c can notify the HPD (Hot Plug Detect) event.
-
-But aren't you just the driver for the "partner device"?
-
-If not, why isn't a real device being created that you then bind to,
-what "fake" type of thing are you attempting to do here that would
-require you to do this out-of-band?
-
-> If relying on the second event, the bridge chain may never be established, and the operations of the DP driver will be
-> always deferred. Furthermore, other parts of the display controller driver will also be deferred accordingly.
-
-What operations?  What exactly is delayed?  You should not be touching a
-device before you have it on your bus, right?
-
-> > > > Notifiers are a pain, and should almost never be added.  Use real
-> > > > function calls instead.
-> > > In v6, I used direct function calls, but had to switch to notifiers because couldn't resolve the dependencies between DRM and Type-C [1]. Do you have any good ideas? Thank you.
-> > Only allow this DRM code to be built if typec code is enabled, do NOT
-> > use a select, use a depends in the drm code.
+> The following changes since commit dcb6fa37fd7bc9c3d2b066329b0d27dedf8becaa:
 > 
-> Sorry, I didn't get your point. Does this mean that the current notifiers approach still needs to be changed to direct function calls?
+>   Linux 6.18-rc3 (2025-10-26 15:59:49 -0700)
+> 
+> are available in the Git repository at:
+> 
+>   git://git.kernel.org/pub/scm/linux/kernel/git/coresight/linux.git tags/coresight-next-v6.19
 
-If you somehow convince me that the existing bus notifiers will not
-work, yes :)
-
-> If so, then based on the previous discussion, typec should not depend
-> on any DRM components. Does this mean that we should add the if
-> (IS_REACHABLE(CONFIG_DRM_AUX_BRIDGE)) before the direct function call?
-
-No, do it properly like any other function call to another subsystem.
-
-> Additionally, the current version of CONFIG_DRM_AUX_BRIDGE is selected
-> by the DP driver in patch9.
-
-Don't do "select" if at all possible, always try to do "depends on".
-
-thanks,
+Pulled and pushed out, thanks.
 
 greg k-h
 
