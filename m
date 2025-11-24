@@ -4,170 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D446CCFA466
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 06:18:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8099FCFD31C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 06:21:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Eay28VVt6fuy0W5ux3jFakrgizyoolpgRjhlBs6GlSU=; b=BJBK8s8oX212FzVmT+61zJpgmZ
-	129ak6GADSoCjXIp2VpXsc+2FJ6bDQtKS197e2xT9HO+g6kFKtxGluDPC1Ims7U1zQvZTMWo7/N5m
-	wJsYiVL+ASLFPGyM/ogp2/oEiOZh+8upNWhuaf4W8dpoypmeSacUrc4oJepZii6A7fq2W1lscLJI1
-	BVMxIcQ21xFn3hi4FlDN2JcJ8BxACg05d80pDZkTyW64zZdUiw9rhWdn8T2j2OpOHwmD/zGTTNorw
-	diEVpasS2bnU5tsGVe2wSIpGqBAw7aM4MxczCkZQNSABJG2jx4PtJKlsAu/3Av/ODQEbO5lUsI3gP
-	mpGCCj1g==;
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=REZ04im9FdK76DRTIwu+Cc/Q2WxCSUPnF2cnra53O5Y=; b=SAnfzHMUvFpXIPoaYMqaclt3Sq
+	iFLG1fhLB405YnlWz338J4vy/oegJvB5CtgmfVRx+ujYYeSly8G1jhicLTBC34QYSQOAaB2/eUlZh
+	eJZ2tIvSNKHGUMc1RC2BRjBOu7HFJL5e65rqy9pnlqJjgu/IJYaj/FLkG+vVy2soU+ejhaL3IJZYG
+	I99Q52RdDMP4h6fpvXb/oFk0Htoo3JBpVTWb6zi6lnX7rzOZ9j61fbeY/motzu4PgR9ifpFPS+Y31
+	ibV4VKSxKqv5uIJ+BkuenquzJufdS6rOJV872BkKqKkTpLEEzdisSmugCphwVlhqDCB8tcZz3xCS8
+	CrUovTgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNPu3-0000000B8f1-2yhb;
-	Mon, 24 Nov 2025 06:18:23 +0000
-Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1vNPwU-0000000B8sF-2sQk;
+	Mon, 24 Nov 2025 06:20:55 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNPu0-0000000B8dq-30ux
+	id 1vNPwR-0000000B8rq-2dIh
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Nov 2025 06:18:22 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ho6CZrcIoj8dQor5Sh1wBp52Z05+rOLuEmxAwjwF3UZV0Me46jd/9NJpkKplmsXAGwjGAhswOFzj2MLv3JYqO9ue2Csvmc7VpWsQm+oum8sRK54UjhUIfuYQzLC1dWyp3PFxhOvCBV5oH2nsNc/S0I1COTuyj3e7p6EGzxjcgG5StziklRE31UPtj2m1Xi5OIHZPUfNx23YPsGx/yHIYv9+YmOIoQcEZaqAG5YQGxOFCl+0sBY2V+AieYGhygThK/sKsXh2/GHVcEmVRqXGs8jPB3zDgQ4xGNv7nXhl68kcU1AvQwLAACjVdEQpN9NYgWCOqVTqXvwJm25ECV51i5g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Eay28VVt6fuy0W5ux3jFakrgizyoolpgRjhlBs6GlSU=;
- b=ew42KeE8swUfdEkFXto3wDoi6/EhbVPlmm6mz9/RC5mJnX+fsVCW6ex57nyGdJcr6v18rxwXM64erVN58tv2LGF3cS2TYUP9x8dIOoEip0NuKBxzB89LK6Qz0L5sXJy72hV4w5IGREtaETlAzMwNeTuPI+PI/BDgYnv827b0VdZmGCJ7jSvXQ7p6tCUxJLbQQ4jLAK9DYb7Rgh6MqR8Tb+s0bhCPPb9RSdrzbPNPc+H/gascFym1G9QcfF+VzO45axbgxyQCT1aZzrxjwkhFIOMuZ6kO+9Qw0pEr4rDSngViA0iuS90Q1bS1wwbBRgP0QAel72KwBFPerwqqZ9mh1A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Eay28VVt6fuy0W5ux3jFakrgizyoolpgRjhlBs6GlSU=;
- b=ka7c+WlYwqUIApDOM3Xid9tuFjOMneAKz2WVXyAwjfrEOOY2rJ4uJZhuWeb2sy4VAH6PbUi4MuSVyx9nZXJErDdSZjtbXIb1DY9N/UBcDSPNbvKHwTr50Jfme1LhxtuVUyEfRq1u+luvfr6UGU0NGD7TVHk+BGCjD7KU2VME6wIV5OAJgDcrPSmMpvI3B8qTdjTlurAyVSOnjMEYg1l9km5It5py+1DItwXeAJTRCkILIQ5sNrNieC5+aE6o2ZAm1Cli5zRAQYfoP5LgdpnG3clk8ys9qe1GmDmYNK6CT+3dLtaWaMNnnkGhxVpQBmlSJs6kz7xg632zNX/PZTcZdw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from VI2PR04MB11147.eurprd04.prod.outlook.com
- (2603:10a6:800:293::14) by AM8PR04MB8052.eurprd04.prod.outlook.com
- (2603:10a6:20b:234::9) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9343.17; Mon, 24 Nov
- 2025 06:18:09 +0000
-Received: from VI2PR04MB11147.eurprd04.prod.outlook.com
- ([fe80::75ad:fac7:cfe7:b687]) by VI2PR04MB11147.eurprd04.prod.outlook.com
- ([fe80::75ad:fac7:cfe7:b687%6]) with mapi id 15.20.9343.011; Mon, 24 Nov 2025
- 06:18:09 +0000
-From: Carlos Song <carlos.song@nxp.com>
-To: aisheng.dong@nxp.com,
-	andi.shyti@kernel.org,
-	shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	frank.li@nxp.com
-Cc: linux-i2c@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Carlos Song <carlos.song@nxp.com>
-Subject: [PATCH] i2c: imx-lpi2c: Add runtime PM support for IRQ and clock management on i.MX8QXP/8QM
-Date: Mon, 24 Nov 2025 14:17:43 +0800
-Message-Id: <20251124061743.1988773-1-carlos.song@nxp.com>
-X-Mailer: git-send-email 2.34.1
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: SI1PR02CA0007.apcprd02.prod.outlook.com
- (2603:1096:4:1f7::6) To VI2PR04MB11147.eurprd04.prod.outlook.com
- (2603:10a6:800:293::14)
+	Mon, 24 Nov 2025 06:20:52 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-4779a637712so23076285e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 23 Nov 2025 22:20:50 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1763965249; x=1764570049; darn=lists.infradead.org;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=REZ04im9FdK76DRTIwu+Cc/Q2WxCSUPnF2cnra53O5Y=;
+        b=haDiSUQTieBXr0Iw98SDFJcrG4RlwBwZyoOdR3ODjK7TnzVe2f5mtmlPOgXVKpD3FS
+         CGd3NmKlUkPAQ6rqhuiYnMCslqa3ES548oJZmPWeIq8hM7drmjlpYMv4ucvuazUuQxV0
+         tBkXJ+HZykmuZzKw+qGdujGcNKmrEzcSewIjMegbLnC6SSbqFLK5lBSKEhQwsso/vQOz
+         dmJEE05WyEe7R/t6Hl9N6JsYpC6vo72QT8pneogdwqbZPRXwPLc6l9Jk+jC+C+Glo0Ib
+         ww62dD7+EQBm8+WNkBUHtmZFRz1rbOASGLC/ngVfOg+JdbuzEktRIDQdVUbwAbsEEnXo
+         785w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1763965249; x=1764570049;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=REZ04im9FdK76DRTIwu+Cc/Q2WxCSUPnF2cnra53O5Y=;
+        b=a6+/nTV7jhIqN9qd2AG/EKfkDbLf4LfoTj48Pa1Ewg7tsWou1DxjSJYGT5WnGaG76u
+         SPvvWVUcP08iq6tLcA9y5LRu20Wm7T0b8KfsU0tAPaUCAy3S9ZxZsi895cklZp6zYp/B
+         vOXjjqBX9nY62mzPUx3SKDLSgQaHzS0yZ2CD+iCRgHjsxS5hX0+R3MC/W6EyzDkP6Uxc
+         VBAr2yX5i611jme/EXcrxfje/DpzCgWC+NkLFadSJ0wot/7iqsew94fsilwFYcUh7hUG
+         ps0Z8A5sPypP5f1zl6UiQsoApnfxQaYnSyWhG0CDJ+YChC/afo6YJ9shNedschyfpW41
+         raBg==
+X-Forwarded-Encrypted: i=1; AJvYcCVXuzDt17MfUrfawI71mhx8/fDlCPj4WGOA+Z8qrsktyWGA1nWNjwvWmdleI9OaoeJDVLVI0Aumk1vBW/iqyIW8@lists.infradead.org
+X-Gm-Message-State: AOJu0YwN2onzlAiQVeeaVemhGlKyOc3NcIxNdtsmDph4+kBiP2fxWLcF
+	WGHb4kLEBG7ph3T/coXj4WOcnYrtTRP7xf54W5MnwOJniMbX83tp5kwkuqNP8Z3Vxcg=
+X-Gm-Gg: ASbGncvZY7UtTzIoZz3w79sg3wNcMDDtbmybZq3S7PVA0JqIwkLsY7Z+f9ZUlkEYUGy
+	caLZlBpMJ9bV5RpDZgYzjrwlG/YSBBgb0TdP5pv8ZqbGxl8Ws/uM+4IgOwXknvffAvCOlN4oY7s
+	aQGJTctgyvpUysCXPHOWXRErpMAZfQOsJjmdwaNUkwJ5sGKumk/70QxXaJCcDaNOci9lWNqkk2n
+	GaoRZJf8l/z2uwgColJPsK3MiNtRtI74RFwlzuUyv2cofvOqmWZ27VUTEZJq/wBOcWncQmKj0mF
+	HOoamtKO5/utRvLx9uDfKLFJyIqhpddoAUu8LRA10UPMvlfHyH4F5KbH6us5nH+SAON+belxIfi
+	jVF+T8C83njByHylcTy5ICeSGdXM5Iv37u0+wMB9I4Cer8mhTMhk7aJuYmgJEBjMx1nYki30Nhu
+	JaY6E5/n2YtXuU4bBRYxJm+vm0kRNr
+X-Google-Smtp-Source: AGHT+IEkAHuQrVSean0CMnJmgdroQFGEXS2JnDMuJL0ECBf4DUqCtzz0alMdPUQuLJolnNwjmMRrhw==
+X-Received: by 2002:a05:600c:3110:b0:477:632c:5b91 with SMTP id 5b1f17b1804b1-477c01b4b2amr122845505e9.16.1763965249310;
+        Sun, 23 Nov 2025 22:20:49 -0800 (PST)
+Received: from draszik.lan ([212.129.72.170])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42cb7f2e454sm26304551f8f.2.2025.11.23.22.20.47
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 23 Nov 2025 22:20:48 -0800 (PST)
+Message-ID: <5c901a6c831775a04924880cc9f783814f75b6aa.camel@linaro.org>
+Subject: Re: [PATCH 4/6] mfd: max77759: modify irq configs
+From: =?ISO-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
+To: amitsd@google.com, Sebastian Reichel <sre@kernel.org>, Rob Herring	
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley	
+ <conor+dt@kernel.org>, Lee Jones <lee@kernel.org>, Greg Kroah-Hartman	
+ <gregkh@linuxfoundation.org>, Badhri Jagan Sridharan <badhri@google.com>, 
+ Heikki Krogerus <heikki.krogerus@linux.intel.com>, Peter Griffin
+ <peter.griffin@linaro.org>, Tudor Ambarus	 <tudor.ambarus@linaro.org>, Alim
+ Akhtar <alim.akhtar@samsung.com>
+Cc: linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-usb@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, RD
+ Babiera <rdbabiera@google.com>, Kyle Tso <kyletso@google.com>
+Date: Mon, 24 Nov 2025 06:21:00 +0000
+In-Reply-To: <20251123-max77759-charger-v1-4-6b2e4b8f7f54@google.com>
+References: <20251123-max77759-charger-v1-0-6b2e4b8f7f54@google.com>
+	 <20251123-max77759-charger-v1-4-6b2e4b8f7f54@google.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2-2+build3 
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: VI2PR04MB11147:EE_|AM8PR04MB8052:EE_
-X-MS-Office365-Filtering-Correlation-Id: 3f155d51-3085-4361-8bde-08de2b213cce
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|19092799006|376014|366016|52116014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?UFdNM1dXMmttQXZuLzVMc1FMeHVYK0gvOFhrT3gvTmpIMmdnNXd6TnB2S090?=
- =?utf-8?B?ellGMmx4Q2JROFNlaVJOSTFWdlR6ekVnY2RwRjlDWGY5OCtjaUhMT0NEVzVE?=
- =?utf-8?B?UTBkVExFdlMwYmd1aXlVdFhDTDJMMDhUYllwSFB3WnJyYUh5Ujd1SS9vWjU3?=
- =?utf-8?B?cEpZSVVBcW5ZenJkTU1jazFFeEVmZVphZmZuV3BoTS9FZ04wSHpTTHZiZXZP?=
- =?utf-8?B?dm1zYmxWeFlvaFJrYVFBbVhUWnZRN1RlSVEzbjhadkQ3V1FZOExkNHdiOThq?=
- =?utf-8?B?RmsvdldSNktkK2sxVzQ5bEZ5djZFaUl3OXpNNnp3VGsvdFlhU0JuMTBGY205?=
- =?utf-8?B?TWlFSmVsQzBvczdLdTN0QmlQYzN3NkNPYzcySEdwRklZNEc1WGVXeFdVTE1H?=
- =?utf-8?B?VkxhUENHYzZtWVBZNjBJNjJLSDhZTEZDZTgwdUtUY3ZOcS9vK213d050UDNL?=
- =?utf-8?B?ODkxZDNUcFdtclovUXQ5eFJKVDlPS3NmclJ2d3RPWVBqM3BmdnJrU0taVW5U?=
- =?utf-8?B?OEpDcFhGYVpOR1J5U1htLzFLVDZ0M1ptdENoK2dESDB2NDM0T2MxekFLNWFn?=
- =?utf-8?B?U1NNK2g2dm91NW1mK3JOZFJRcngzZkxuZ3pkblFWVHFzV01IbC9JNXpQaVlF?=
- =?utf-8?B?M0dGLzJYWmZjN3JTYTZDdkFzdy9aWDNLZzRncnZwbldXSDhYZExhNXUxNzBY?=
- =?utf-8?B?b25LanZ2cjh3SjZjNEVBaTB6Q1R6WUNpVS9nQmxqMnl4WkNDUXFBTlp5TDhC?=
- =?utf-8?B?bUVhV3JmeVdkREJqTXFsU002b245ZVJmYTk3K01SZFJ2eWRIUWE2Wlh0YTRv?=
- =?utf-8?B?YzJxUnV0Y3Y2VkVVeDB0Wmo5TXpHYWp3RFdoUWZ5dFdKaGlZM25GMXJoZkkr?=
- =?utf-8?B?MTFmK0kzNjloUmRpMGNGVmsrS0RxKzhURGhtaWk2WXl5eGtyN1BhRzZoQnY5?=
- =?utf-8?B?SndIR2FsdVo3bE9GeEszL2p2ZzFFYzlOSFI5WDAvbk1VYW1mS2tpcUk4UjRn?=
- =?utf-8?B?aGt6U0hTTEQvUUpwNi9acVJXakxJbDdvbXdyb3NSRFhOMUFOZkxrMnBDVzJz?=
- =?utf-8?B?TU91OUhRei9qM1NibXNzQUJhQTNjenpBck11RjljcjNJZVNEZm1oVUs2K1NG?=
- =?utf-8?B?YkluSUZaMjZiY25ZV0kzYmZSQmV0ODZFTlJZd2FkQkg0VUNxOVFvLy9yR2hX?=
- =?utf-8?B?QnpTRlpOL2Njd2M2bHhRYWdPbUo0dkM2Qm1hNmtLempKZ3BTNnZndVJGRWRP?=
- =?utf-8?B?cnFiMnBLdnh3dlEzVGhGbFk3M2Zod0ppa1AzcWlsV05waWVKVnkxbEIwK0FO?=
- =?utf-8?B?c0RPOWp4NXRsbGFlYS8rZXVSS01nb3Fma1NGMjZkRllOd2pEVm1kM1RLZVpH?=
- =?utf-8?B?aS9pOXYzTzFxbnVNUFc3MUp3TzFWMGRqTUNHZ0t5dk4waFpqZ2YwUDJabU1t?=
- =?utf-8?B?bXVjQzNnemJDOVVqMWZmd0J1WHRLWHdBTWpUSVVVcklNM2tUdnYyaXF6dEhT?=
- =?utf-8?B?SVpIZC9xdmF6VEIxNHErSmZqbFcwVUJIaGRadGJaRE0xNGk0cmpGK1lUUGQz?=
- =?utf-8?B?S3Frazl1LzBkUmtDdG5kTFBEemJpSjNweUsxcXJENmZiNlk1UURiQmxoNzRl?=
- =?utf-8?B?WUpHOU1HeDhPQzhyRHVORklqSHpIaUx4a2Y4L1FDVGtVUjZPbkE2TFRmeHZC?=
- =?utf-8?B?Ymxtc3NXUnY0VEU1ckhua3M2VG9ucEovcWlNUmhBTE12Ry9tM0YwbjlHNXdL?=
- =?utf-8?B?Q3NWazByTkw4WXFGRmFJeXRiaUxjTmNLbHFzTkRHNUw5c3l5aVdpQzNuWmM5?=
- =?utf-8?B?MXNCYXk2ak10TzA1UzJDck1CNVdZV2xKZUozYWlwWjBlK29PZHFkSGM4MVJK?=
- =?utf-8?B?M2pnZFEvbVhDMnRDRlBlRFVEVzNXQmxWR3g5bFVDMzFtWkhBQkRvaGxrMHlE?=
- =?utf-8?B?bjZVR0czMUVNclJqQUsva3NFK2xtY21XMnJqNzQ4MU1Qd3o4T2tTWGV6RFFr?=
- =?utf-8?B?YTdkUFpPcy9LTXRGaHFBaVFhNC9LVFdYRktKS0xVUWg4bmtQQ3ZzNmpQYjJE?=
- =?utf-8?Q?KW8I3B?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI2PR04MB11147.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(19092799006)(376014)(366016)(52116014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?RDZxQ1JsU010bGt1dzJEQUtPUHRBeGRjZmxUOHpaT2RCcjg5UjIwV080L1JZ?=
- =?utf-8?B?bHROWEVtQ2twZDJQd0FoU1lhMGJWMlJTNkUzYXJFMzg1a0FvWlJRNCtvSzNP?=
- =?utf-8?B?WXp5cEh4OXhsNnRUSmd0dWhCRjlDWVlYc0puNE8vVkk5Zloyd2plN3g1S0xJ?=
- =?utf-8?B?WlA1M25Cc1ArQ2x3ZFNadVE3cjU3RDBscWNQZXBxUDlQYzB2UG9YbHFMaE94?=
- =?utf-8?B?TlJJeWhVdCtQSDJaQkJIRisyMVRoTWo1TDl3M2NvSmJNc1FVUXlZK3IzZGpT?=
- =?utf-8?B?RmtJbVQydlZvUnZsOGFEVnZQaHBpVGpGaGJJcUI3R1FBZUMrUWs1L1ZCT0dz?=
- =?utf-8?B?V1ptVXpveExPRysrVEJZTGRYV01ha28rbkE3bTlCNDZDc3FJOEk4YTkyYlZN?=
- =?utf-8?B?dDR3ckFoSXlIVmc3ZWcybzkyK0NCK0pzb0s5a3BtNHVMMzJGTmJKMHp6bEV5?=
- =?utf-8?B?aUViNXlmTlY5MDlGY0pBb3RoSWZvMkZFTFRkajYrQkdZQ0RlekYwMzFlN2la?=
- =?utf-8?B?dGlRbjQ4YmNyZjNtdjI2Q3BiZTRUN1BXazVIZWFLeEUwaXZ4VkI1YlhiUWV4?=
- =?utf-8?B?aExyTHlPeDRCdW03OFBTNnRPVGRySU55ZGVzTTZUK1NFRzdtOWpoN0daWkF2?=
- =?utf-8?B?OFVQRndwc045QWc5cG1TbE53YnFJS0FKM3ZyL0orbU1KaVU1SlZ0TW5pQldW?=
- =?utf-8?B?VFZjSmN1MjFxMUpVQ0ZKRjZBK0lxVFpwL2tSbTIveHRxSW9hdWdhdGE3YnZF?=
- =?utf-8?B?Wmo1bC96WC9oNW5nRHdpamFQR0Q2MVlERTNSL3hzMTFUay9iNFhRTEYzd2xM?=
- =?utf-8?B?RzlqL0NyTk4xS3lZemVQdkU2U2tDV08xYTIvcjVIRUVjMGpOY0VrYVFtcndq?=
- =?utf-8?B?K2dyeW9RWWlxMmxpMDRxbHB2ZW9VbGY5a2NFQURUMHhCeEJDdEUvTGh4T3d1?=
- =?utf-8?B?TmsreGx5NmtOM1pYV1BBWkhQay9zYjVSQXI4L2xvenlaSGFpWDNYQTBocUlY?=
- =?utf-8?B?am95TG5TYWo2YW84MzRON0FFMlZNOVRNbi9WZkYwTUdEdWowOVRPWjJCN29F?=
- =?utf-8?B?Ulllc09CbEk5bm1mSTVaOHpBUHZZWjdTSkJjWEVPVGlzdGtMa1FzakVkRGky?=
- =?utf-8?B?MTUzZ2pIRDc0d1RSalJCbkZVRSt1TU5KKytsTm5sQzJMVHJBSnlGalB1bVN0?=
- =?utf-8?B?RzJRSTZMSTlpanJka09rd1lxUlZKbHlRTkFrK3FGcDBCZUtmbWI1ODF3UWdJ?=
- =?utf-8?B?K21VS1YzSmFQNllDT1J0dXFLa3d2MG1aZUJwQ2NOd1JtalE5Mm5QOGJXajVP?=
- =?utf-8?B?a0J6aUgzZXJzd3loZmhCY1lqUHI3U1ZlUVdXOHl4bVVWdVpMSjcvcFYvbGFt?=
- =?utf-8?B?TFU4U3ZjejU5aEtmdXRCUW55WjhYUVV1MnFIL1JrUURXdFduV2V6UEJ2ait2?=
- =?utf-8?B?b2VMT2JCRmFON1BvQ242Um4wUll6a0NscmQvNEpiREUzZEhQR3RzZ1BzSkVk?=
- =?utf-8?B?cEpMMVVWMmpncm1JMWZud1JxSHdIUWFJUmdvalFQUHR4WEhpckJZd3owSTJj?=
- =?utf-8?B?NEx5SDNLR2RWb21DempaUmx5S25lZVFYZiswTWRTaFVNTVBsN3R1REFaSW5U?=
- =?utf-8?B?U1o5N29HYmt2cEJhRWE3eGdTMzVQdHdRR0tJaXJpcjNlUUZMR1Y5dy9NZnFy?=
- =?utf-8?B?eExrTFRSVkpaWW1VQVB0eGtwZnlFSjlKNlRlMXBOVmljRXl3Vm90KzhsaGFz?=
- =?utf-8?B?SCtCbFRvR1pYeUYxaGV4UUFLMGxzQ1lKaWRJYWYwWUJjK0s1UGtYaDNHTE0y?=
- =?utf-8?B?UWN2d29LSCtnUFplYWpndVNSOWNqazFwQUl0WjJJNkh0cGIwREtYRjV3cTJ4?=
- =?utf-8?B?YUlJc3hld3NYTGJqSzlEM3NtVHpLNGFEeTdpZHFGbG9lVFB5WDhYL1FyWlMy?=
- =?utf-8?B?QzFtQzhLWk43RzIveGtjMDdxVHlLUFhBOHpDM2J5NWhGaXZ6N0ZLeHRsbjFQ?=
- =?utf-8?B?OVZqb0VRcjkxT0VzWm1TTmhKSWlySzBlMDZyMHoxc2ZDUHczWHpla2NzUDA1?=
- =?utf-8?B?Q1c2L0ZVMXl1eHJqQ1crMkVuUUhyNkt5Yk80aDRJakZuRW1JOC9qQWNVKzZG?=
- =?utf-8?Q?gl5QWk6WjqpnS56cDGq5SI9+y?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3f155d51-3085-4361-8bde-08de2b213cce
-X-MS-Exchange-CrossTenant-AuthSource: VI2PR04MB11147.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Nov 2025 06:18:09.0704
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: VJ2v1+vqh2WVnkGC6Q/anEy/9VdhoStmoMDhVkx9z6FGOZrmw7NnM5FjbMVsFs35ZICt69qxLnBgHaJ2aKeJvw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM8PR04MB8052
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251123_221820_937312_584C47CC 
-X-CRM114-Status: GOOD (  15.92  )
+X-CRM114-CacheID: sfid-20251123_222051_714364_FFC81B2F 
+X-CRM114-Status: GOOD (  23.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -182,289 +109,151 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On i.MX8QXP/8QM SoCs, both the lvds/mipi and lvds/mipi-lpi2c power domains
-must enter low-power mode during runtime suspend to achieve deep power
-savings.
+Hi Amit,
 
-LPI2C resides in the lvds-lpi2c/mipi-lpi2c power domain, while its IRQ is
-routed through an irqsteer located in the lvds/mipi power domain. The LPI2C
-clock source comes from an LPCG within the lvds-lpi2c domain.
+Thanks for your patches to enable the charger!
 
-For example, the hierarchy for lvds0 and lvds0-lpi2c0 domains is:
-┌───────────────────────┐
-│ pm-domain : lvds0     │
-│                       │
-│    ┌──────────────┐   │
-│    │   irqsteer   │   │
-│    └───────▲──────┘   │
-│            │irq       │
-│            │          │
-└────────────┼──────────┘
-┌────────────┼──────────┐
-│        ┌───┼───┐      │
-│        │lpi2c0 │      │
-│        └───┬───┘clk   │
-│   ┌────────┼───────┐  │
-│   │       LPCG     │  │
-│   └────────────────┘  │
-│pm-domain:lvds0-lpi2c0 │
-└───────────────────────┘
+> From: Amit Sunil Dhamne <amitsd@google.com>
+>=20
+> Define specific bit-level masks for charger's registers and modify the
+> irq mask for charger irq_chip. Also, configure the max77759 interrupt
+> lines as active low to all interrupt registrations to ensure the
+> interrupt controllers are configured with the correct trigger type.
+>=20
+> Signed-off-by: Amit Sunil Dhamne <amitsd@google.com>
+> ---
+> =C2=A0drivers/mfd/max77759.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 | 24 +++=
+++++++++++++++-------
+> =C2=A0include/linux/mfd/max77759.h |=C2=A0 9 +++++++++
+> =C2=A02 files changed, 26 insertions(+), 7 deletions(-)
+>=20
+> diff --git a/drivers/mfd/max77759.c b/drivers/mfd/max77759.c
+> index 6cf6306c4a3b..5fe22884f362 100644
+> --- a/drivers/mfd/max77759.c
+> +++ b/drivers/mfd/max77759.c
+> @@ -256,8 +256,17 @@ static const struct regmap_irq max77759_topsys_irqs[=
+] =3D {
+> =C2=A0};
+> =C2=A0
+> =C2=A0static const struct regmap_irq max77759_chgr_irqs[] =3D {
+> -	REGMAP_IRQ_REG(MAX77759_CHARGER_INT_1, 0, GENMASK(7, 0)),
+> -	REGMAP_IRQ_REG(MAX77759_CHARGER_INT_2, 1, GENMASK(7, 0)),
+> +	REGMAP_IRQ_REG(MAX77759_CHARGER_INT_1, 0,
+> +		=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 MAX77759_CHGR_REG_CHG_INT_AICL |
+> +		=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 MAX77759_CHGR_REG_CHG_INT_CHGIN |
+> +		=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 MAX77759_CHGR_REG_CHG_INT_CHG |
+> +		=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 MAX77759_CHGR_REG_CHG_INT_INLIM),
+> +	REGMAP_IRQ_REG(MAX77759_CHARGER_INT_2, 1,
+> +		=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 MAX77759_CHGR_REG_CHG_INT2_BAT_OI=
+LO |
+> +		=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 MAX77759_CHGR_REG_CHG_INT2_CHG_ST=
+A_CC |
+> +		=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 MAX77759_CHGR_REG_CHG_INT2_CHG_ST=
+A_CV |
+> +		=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 MAX77759_CHGR_REG_CHG_INT2_CHG_ST=
+A_TO |
+> +		=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 MAX77759_CHGR_REG_CHG_INT2_CHG_ST=
+A_DONE),
+> =C2=A0};
+> =C2=A0
+> =C2=A0static const struct regmap_irq_chip max77759_pmic_irq_chip =3D {
+> @@ -486,8 +495,8 @@ static int max77759_add_chained_irq_chip(struct devic=
+e *dev,
+> =C2=A0				=C2=A0=C2=A0=C2=A0=C2=A0 "failed to get parent vIRQ(%d) for chi=
+p %s\n",
+> =C2=A0				=C2=A0=C2=A0=C2=A0=C2=A0 pirq, chip->name);
+> =C2=A0
+> -	ret =3D devm_regmap_add_irq_chip(dev, regmap, irq,
+> -				=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 IRQF_ONESHOT | IRQF_SHARED, 0, =
+chip,
+> +	ret =3D devm_regmap_add_irq_chip(dev, regmap, irq, IRQF_ONESHOT |
+> +				=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 IRQF_SHARED | IRQF_TRIGGER_LOW,=
+ 0, chip,
+> =C2=A0				=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 data);
 
-To allow these domains to power down in system runtime suspend:
+Please correct me if I'm wrong, but I don't think this makes sense for a
+chained IRQ in this case. What problem does this change fix?
 
-- All irqsteer clients must release IRQs.
-- All LPCG clients must disable and unprepare clocks.
+> =C2=A0	if (ret)
+> =C2=A0		return dev_err_probe(dev, ret, "failed to add %s IRQ chip\n",
+> @@ -519,8 +528,9 @@ static int max77759_add_chained_maxq(struct i2c_clien=
+t *client,
+> =C2=A0
+> =C2=A0	ret =3D devm_request_threaded_irq(&client->dev, apcmdres_irq,
+> =C2=A0					NULL, apcmdres_irq_handler,
+> -					IRQF_ONESHOT | IRQF_SHARED,
+> -					dev_name(&client->dev), max77759);
+> +					IRQF_ONESHOT | IRQF_SHARED |
+> +					IRQF_TRIGGER_LOW, dev_name(&client->dev),
+> +					max77759);
 
-Thus, LPI2C must:
+dito.
 
-- Free its IRQ during runtime suspend and re-request it on resume.
-- Disable and unprepare all clocks during runtime suspend and prepare
-  and rne ble them on resume.
+> =C2=A0	if (ret)
+> =C2=A0		return dev_err_probe(&client->dev, ret,
+> =C2=A0				=C2=A0=C2=A0=C2=A0=C2=A0 "MAX77759_MAXQ_INT_APCMDRESI failed\n"=
+);
+> @@ -633,7 +643,7 @@ static int max77759_probe(struct i2c_client *client)
+> =C2=A0		return dev_err_probe(&client->dev, -EINVAL,
+> =C2=A0				=C2=A0=C2=A0=C2=A0=C2=A0 "invalid IRQ: %d\n", client->irq);
+> =C2=A0
+> -	irq_flags =3D IRQF_ONESHOT | IRQF_SHARED;
+> +	irq_flags =3D IRQF_ONESHOT | IRQF_SHARED | IRQF_TRIGGER_LOW;
 
-This enables the lvds/mipi domains to enter deep low-power mode,
-significantly reducing power consumption compared to active mode.
+I don't believe IRQF_TRIGGER_LOW should be added here, as this is board-spe=
+cific.
+The polarity is meant to be set via DT (and the only current user of this d=
+river
+does so).
 
-Signed-off-by: Carlos Song <carlos.song@nxp.com>
----
-1. Why not apply prepare and unprepare clocks management for all platforms:
-As the report from me early:
-https://lists.openwall.net/linux-kernel/2025/07/01/139
-Scope of global prepare_lock is too big, it will cause dead clock
-between RPM and prepare_lock in some specail case. But clock
-prepare/unprepare is also necessary for low power consumption in I.MX8QXP
-and 8QM, so I add separate clock management for these platforms to
-avoid impacting other I.MX platforms. But it's possible that some
-customers might encounter deadlock issues in IMX8QXP/8QM, so I prolong the
-runtime PM timeout for 8QXP/QM platforms, which is currently a suitable
-workaround method I think.
+> =C2=A0	irq_flags |=3D irqd_get_trigger_type(irq_data);
 
-2. Low power status report
-Power domain status can be shown in pm_genpd_summary and sc firmware. Take
-8QM platform lvds0 and lvds0-lpi2c0 power domain as example, before apply
-this patch set:
-root@imx8qmmek:~# cat /sys/kernel/debug/pm_genpd/pm_genpd_summary
-domain                          status          children        performance
-    /device                         runtime status               managed by
----------------------------------------------------------------------------
-lvds0-lpi2c0                    on                              0
-    lvds0_i2c0_clk                  active                      0       SW
-    56243014.clock-controller       active                      0       SW
-    56247000.i2c                    suspended                   0       SW
-lvds0                           on                              0
-    lvds0_bypass_clk                suspended                   0       SW
-    lvds0_pixel_clk                 suspended                   0       SW
-    lvds0_phy_clk                   suspended                   0       SW
-    56240000.interrupt-controller   active                      0       SW
-sc firmware will show the power domain status:
->$ power.r
-    LVDS_0 = on
-    LVDS_0_I2C_0 = on
+That's what gets us the config from DT.
 
-After apply this patch set:
-root@imx8qmmek:~# cat /sys/kernel/debug/pm_genpd/pm_genpd_summary
-domain                          status          children        performance
-    /device                         runtime status               managed by
----------------------------------------------------------------------------
-lvds0-lpi2c0                    off-0                           0
-    lvds0_i2c0_clk                  suspended                   0        SW
-    56243014.clock-controller       suspended                   0        SW
-    56247000.i2c                    suspended                   0        SW
-lvds0                           off-0                           0
-    lvds0_bypass_clk                suspended                   0        SW
-    lvds0_pixel_clk                 suspended                   0        SW
-    lvds0_phy_clk                   suspended                   0        SW
-    56240000.interrupt-controller   suspended                   0        SW
+> =C2=A0
+> =C2=A0	ret =3D devm_regmap_add_irq_chip(&client->dev, max77759->regmap_to=
+p,
+> diff --git a/include/linux/mfd/max77759.h b/include/linux/mfd/max77759.h
+> index c6face34e385..0ef29a48deec 100644
+> --- a/include/linux/mfd/max77759.h
+> +++ b/include/linux/mfd/max77759.h
+> @@ -62,7 +62,16 @@
+> =C2=A0#define MAX77759_CHGR_REG_CHG_INT=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 0xb0
+> =C2=A0#define MAX77759_CHGR_REG_CHG_INT2=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 0xb1
+> =C2=A0#define MAX77759_CHGR_REG_CHG_INT_MASK=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0 0xb2
+> +#define MAX77759_CHGR_REG_CHG_INT_AICL=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0 BIT(7)
+> +#define MAX77759_CHGR_REG_CHG_INT_CHGIN=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0 BIT(6)
+> +#define MAX77759_CHGR_REG_CHG_INT_CHG=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0 BIT(4)
+> +#define MAX77759_CHGR_REG_CHG_INT_INLIM=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0 BIT(2)
+> =C2=A0#define MAX77759_CHGR_REG_CHG_INT2_MASK=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0 0xb3
+> +#define MAX77759_CHGR_REG_CHG_INT2_BAT_OILO=C2=A0=C2=A0=C2=A0=C2=A0 BIT(=
+4)
+> +#define MAX77759_CHGR_REG_CHG_INT2_CHG_STA_CC=C2=A0=C2=A0 BIT(3)
+> +#define MAX77759_CHGR_REG_CHG_INT2_CHG_STA_CV=C2=A0=C2=A0 BIT(2)
+> +#define MAX77759_CHGR_REG_CHG_INT2_CHG_STA_TO=C2=A0=C2=A0 BIT(1)
+> +#define MAX77759_CHGR_REG_CHG_INT2_CHG_STA_DONE BIT(0)
 
-sc firmware will show the power domain status:
->$ power.r
-    LVDS_0 = lp
-    LVDS_0_I2C_0 = lp
----
- drivers/i2c/busses/i2c-imx-lpi2c.c | 107 +++++++++++++++++++++++++----
- 1 file changed, 94 insertions(+), 13 deletions(-)
+Even if wireless out of scope, it'd still be nice to add macros for
+the remaining bits to make this complete and avoid having to update
+these again in case wireless support gets added in the future.
 
-diff --git a/drivers/i2c/busses/i2c-imx-lpi2c.c b/drivers/i2c/busses/i2c-imx-lpi2c.c
-index 39088567db59..87e34746fad3 100644
---- a/drivers/i2c/busses/i2c-imx-lpi2c.c
-+++ b/drivers/i2c/busses/i2c-imx-lpi2c.c
-@@ -132,6 +132,7 @@
- #define CHUNK_DATA	256
- 
- #define I2C_PM_TIMEOUT		10 /* ms */
-+#define I2C_PM_LONG_TIMEOUT	1000 /* Avoid dead lock caused by big clock prepare lock */
- #define I2C_DMA_THRESHOLD	8 /* bytes */
- 
- enum lpi2c_imx_mode {
-@@ -149,6 +150,11 @@ enum lpi2c_imx_pincfg {
- 	FOUR_PIN_PP,
- };
- 
-+struct imx_lpi2c_hwdata {
-+	bool	need_request_free_irq;		/* Needed by irqsteer */
-+	bool	need_prepare_unprepare_clk;	/* Needed by LPCG */
-+};
-+
- struct lpi2c_imx_dma {
- 	bool		using_pio_mode;
- 	u8		rx_cmd_buf_len;
-@@ -187,6 +193,21 @@ struct lpi2c_imx_struct {
- 	bool			can_use_dma;
- 	struct lpi2c_imx_dma	*dma;
- 	struct i2c_client	*target;
-+	int			irqsteer_irq;
-+	const struct imx_lpi2c_hwdata *hwdata;
-+};
-+
-+static const struct imx_lpi2c_hwdata imx7ulp_lpi2c_hwdata = {
-+};
-+
-+static const struct imx_lpi2c_hwdata imx8qxp_lpi2c_hwdata = {
-+	.need_request_free_irq		= true,
-+	.need_prepare_unprepare_clk	= true,
-+};
-+
-+static const struct imx_lpi2c_hwdata imx8qm_lpi2c_hwdata = {
-+	.need_request_free_irq		= true,
-+	.need_prepare_unprepare_clk	= true,
- };
- 
- #define lpi2c_imx_read_msr_poll_timeout(atomic, val, cond)                    \
-@@ -1423,7 +1444,9 @@ static const struct i2c_algorithm lpi2c_imx_algo = {
- };
- 
- static const struct of_device_id lpi2c_imx_of_match[] = {
--	{ .compatible = "fsl,imx7ulp-lpi2c" },
-+	{ .compatible = "fsl,imx7ulp-lpi2c", .data = &imx7ulp_lpi2c_hwdata,},
-+	{ .compatible = "fsl,imx8qxp-lpi2c", .data = &imx8qxp_lpi2c_hwdata,},
-+	{ .compatible = "fsl,imx8qm-lpi2c", .data = &imx8qm_lpi2c_hwdata,},
- 	{ }
- };
- MODULE_DEVICE_TABLE(of, lpi2c_imx_of_match);
-@@ -1440,6 +1463,10 @@ static int lpi2c_imx_probe(struct platform_device *pdev)
- 	if (!lpi2c_imx)
- 		return -ENOMEM;
- 
-+	lpi2c_imx->hwdata = of_device_get_match_data(&pdev->dev);
-+	if (!lpi2c_imx->hwdata)
-+		return -ENODEV;
-+
- 	lpi2c_imx->base = devm_platform_get_and_ioremap_resource(pdev, 0, &res);
- 	if (IS_ERR(lpi2c_imx->base))
- 		return PTR_ERR(lpi2c_imx->base);
-@@ -1448,6 +1475,9 @@ static int lpi2c_imx_probe(struct platform_device *pdev)
- 	if (irq < 0)
- 		return irq;
- 
-+	if (lpi2c_imx->hwdata->need_request_free_irq)
-+		lpi2c_imx->irqsteer_irq = irq;
-+
- 	lpi2c_imx->adapter.owner	= THIS_MODULE;
- 	lpi2c_imx->adapter.algo		= &lpi2c_imx_algo;
- 	lpi2c_imx->adapter.dev.parent	= &pdev->dev;
-@@ -1492,7 +1522,11 @@ static int lpi2c_imx_probe(struct platform_device *pdev)
- 		return dev_err_probe(&pdev->dev, -EINVAL,
- 				     "can't get I2C peripheral clock rate\n");
- 
--	pm_runtime_set_autosuspend_delay(&pdev->dev, I2C_PM_TIMEOUT);
-+	if (lpi2c_imx->hwdata->need_prepare_unprepare_clk)
-+		pm_runtime_set_autosuspend_delay(&pdev->dev, I2C_PM_LONG_TIMEOUT);
-+	else
-+		pm_runtime_set_autosuspend_delay(&pdev->dev, I2C_PM_TIMEOUT);
-+
- 	pm_runtime_use_autosuspend(&pdev->dev);
- 	pm_runtime_get_noresume(&pdev->dev);
- 	pm_runtime_set_active(&pdev->dev);
-@@ -1544,31 +1578,78 @@ static void lpi2c_imx_remove(struct platform_device *pdev)
- 	pm_runtime_dont_use_autosuspend(&pdev->dev);
- }
- 
--static int __maybe_unused lpi2c_runtime_suspend(struct device *dev)
-+static int __maybe_unused _lpi2c_runtime_suspend(struct lpi2c_imx_struct *lpi2c_imx,
-+						 bool need_request_free_irq,
-+						 bool need_prepare_unprepare_clk)
- {
--	struct lpi2c_imx_struct *lpi2c_imx = dev_get_drvdata(dev);
-+	if (need_request_free_irq)
-+		devm_free_irq(lpi2c_imx->adapter.dev.parent, lpi2c_imx->irqsteer_irq, lpi2c_imx);
- 
--	clk_bulk_disable(lpi2c_imx->num_clks, lpi2c_imx->clks);
--	pinctrl_pm_select_sleep_state(dev);
-+	if (need_prepare_unprepare_clk)
-+		clk_bulk_disable_unprepare(lpi2c_imx->num_clks, lpi2c_imx->clks);
-+	else
-+		clk_bulk_disable(lpi2c_imx->num_clks, lpi2c_imx->clks);
-+	pinctrl_pm_select_sleep_state(lpi2c_imx->adapter.dev.parent);
- 
- 	return 0;
- }
- 
--static int __maybe_unused lpi2c_runtime_resume(struct device *dev)
-+static int __maybe_unused _lpi2c_runtime_resume(struct lpi2c_imx_struct *lpi2c_imx,
-+						bool need_request_free_irq,
-+						bool need_prepare_unprepare_clk)
- {
--	struct lpi2c_imx_struct *lpi2c_imx = dev_get_drvdata(dev);
- 	int ret;
- 
--	pinctrl_pm_select_default_state(dev);
--	ret = clk_bulk_enable(lpi2c_imx->num_clks, lpi2c_imx->clks);
--	if (ret) {
--		dev_err(dev, "failed to enable I2C clock, ret=%d\n", ret);
--		return ret;
-+	pinctrl_pm_select_default_state(lpi2c_imx->adapter.dev.parent);
-+	if (need_prepare_unprepare_clk) {
-+		ret = clk_bulk_prepare_enable(lpi2c_imx->num_clks, lpi2c_imx->clks);
-+		if (ret) {
-+			dev_err(lpi2c_imx->adapter.dev.parent, "failed to enable clock %d\n", ret);
-+			return ret;
-+		}
-+	} else {
-+		ret = clk_bulk_enable(lpi2c_imx->num_clks, lpi2c_imx->clks);
-+		if (ret) {
-+			dev_err(lpi2c_imx->adapter.dev.parent, "failed to enable clock %d\n", ret);
-+			return ret;
-+		}
-+	}
-+
-+	if (need_request_free_irq) {
-+		ret = devm_request_irq(lpi2c_imx->adapter.dev.parent, lpi2c_imx->irqsteer_irq,
-+				       lpi2c_imx_isr, IRQF_NO_SUSPEND,
-+				       dev_name(lpi2c_imx->adapter.dev.parent),
-+				       lpi2c_imx);
-+		if (ret) {
-+			dev_err(lpi2c_imx->adapter.dev.parent, "can't claim irq %d\n",
-+				lpi2c_imx->irqsteer_irq);
-+			return ret;
-+		}
- 	}
- 
- 	return 0;
- }
- 
-+static int __maybe_unused lpi2c_runtime_resume(struct device *dev)
-+{
-+	struct lpi2c_imx_struct *lpi2c_imx = dev_get_drvdata(dev);
-+	bool need_request_free_irq = lpi2c_imx->hwdata->need_request_free_irq;
-+	bool need_prepare_unprepare_clk = lpi2c_imx->hwdata->need_prepare_unprepare_clk;
-+
-+	return _lpi2c_runtime_resume(lpi2c_imx, need_request_free_irq,
-+				     need_prepare_unprepare_clk);
-+}
-+
-+static int __maybe_unused lpi2c_runtime_suspend(struct device *dev)
-+{
-+	struct lpi2c_imx_struct *lpi2c_imx = dev_get_drvdata(dev);
-+	bool need_request_free_irq = lpi2c_imx->hwdata->need_request_free_irq;
-+	bool need_prepare_unprepare_clk = lpi2c_imx->hwdata->need_prepare_unprepare_clk;
-+
-+	return _lpi2c_runtime_suspend(lpi2c_imx, need_request_free_irq,
-+				      need_prepare_unprepare_clk);
-+}
-+
- static int __maybe_unused lpi2c_suspend_noirq(struct device *dev)
- {
- 	return pm_runtime_force_suspend(dev);
--- 
-2.34.1
+Also, would be nice to keep existing style and indent the bits from
+the registers (see existing bit definitions in this file a few lines
+further up).
 
+Finally, can you add the bits below the respective register (0xb0 / 0xb1)
+please, to keep suffix meaningful, and to follow existing style for cases
+like this (see MAX77759_MAXQ_REG_UIC_INT1).
+
+
+Cheers,
+Andre'
 
