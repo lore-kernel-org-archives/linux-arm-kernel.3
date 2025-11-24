@@ -4,76 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61CD6CFD313
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 17:22:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72181CFD313
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 17:24:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
 	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=H+dXzu+OtwVQATYT2SD8WXaq/eak4pH3LzFk0SdSmXo=; b=v2QtIAqTqclbstotRYKoFqvWMd
-	JpuWOACnId/qb38GsEnHg+8kSD4F8fPjKm/E+80E4/8JHS2/4rVdN/+qJQwdTtPm1m5xtrwycP69M
-	pBW5xrenJdNsK3Y3cHJBSDuVFSHedzWHyA6fvW2gwMVtycW8hfYLSyzjhGguTl6LD63oWrst8nNDN
-	Sy4BhVAGpYjxLZ7BpY1Uyd04P3KgjzJ/j//KgC7iYYWIngwYVSykYoWFTP/j8X9RQxqxw4PyKbaeP
-	htDKF+d8fTaoJUVD8teGpVHSWaitLX7powQaO9HkLnpFNUcT7RZVmQQtdYZDUAQpTRtoDZjVoNe+p
-	fpQvz8zA==;
+	bh=BwPH+P89qWOfRnemNosIIZCTQ+b7gKnqulQnrIBXs9U=; b=L/zX0fCHDb2lk9ACfyxfEGPDBI
+	FJdsw6wnExjO7lDwtUCYKPighEVsXuRmsv2165NP3mUQjwUQf5BvBfGmxJg/d5VzN98R8zdJJiPKR
+	3Bz0ViWxB+ZzCpf96KVPTVyxFDsc8zS75RVZg2C67bQtLc4bHpXqDvPpppP7fdlLZEjxDXoctovIl
+	1Buok6C38igMNv0ef8GEkcPK8KTybrnl7G1Jjgnd1Ip6gvTWQDchKZ6pbbR9b3hs/nUGJhic+FjPm
+	ShALpvAbQBs15RBlFKzViX27G++fhnOmF/33Vq3rf49QqaIvJP8+Rh/j457SEIktkDyfHX3+nFITI
+	i52RnvSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNaGZ-0000000C5zB-0s3x;
-	Mon, 24 Nov 2025 17:22:19 +0000
-Received: from mail-qv1-xf30.google.com ([2607:f8b0:4864:20::f30])
+	id 1vNaIV-0000000C6Ah-11No;
+	Mon, 24 Nov 2025 17:24:19 +0000
+Received: from mail-qv1-xf34.google.com ([2607:f8b0:4864:20::f34])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNaGW-0000000C5yq-1VDJ
+	id 1vNaIT-0000000C6A9-1Rl0
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Nov 2025 17:22:17 +0000
-Received: by mail-qv1-xf30.google.com with SMTP id 6a1803df08f44-8823fa3bd95so48189446d6.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Nov 2025 09:22:15 -0800 (PST)
+	Mon, 24 Nov 2025 17:24:18 +0000
+Received: by mail-qv1-xf34.google.com with SMTP id 6a1803df08f44-8804650ca32so42003456d6.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Nov 2025 09:24:16 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1764004935; x=1764609735; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1764005056; x=1764609856; darn=lists.infradead.org;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=H+dXzu+OtwVQATYT2SD8WXaq/eak4pH3LzFk0SdSmXo=;
-        b=O/w0JCs4FUJN7YjAiBsYqdT8AY8FGY7qhZ8nZWD3xh6qx1ZtiZK31UnIHsLe7NB2Bx
-         +MepBW91gwefdUZ+yHQCDwFZev6x/yJ3yP8+vave5V/EuFjVmkGW1g6C4L2gZqozUi3W
-         5BU2537GC1s/shrKg409e9NE3aoyrcnxn9FO+fXOakThnFJdtBBaVyMl4+i/ucVZl8Mt
-         zEllpD5bhe2V9xcsrduN9JGJShPiLgBnQoYCMk/BG/lbK0mt/j3BITlHl/XLMv/hNhKK
-         8Zp/sZiW98iZR3lsqTI9t2t/gO2dP0fZTWycqFJkV70bMK18t/xRBx670oj1Cggde8OV
-         FrdA==
+        bh=BwPH+P89qWOfRnemNosIIZCTQ+b7gKnqulQnrIBXs9U=;
+        b=ak2kC9EDxhjOdw/+XoRkHUaUi8G8ttpWtxFLiq0hpTA3VrkhJfcLAGdwhvjkBZ4h++
+         USkAeP0woMGAVX+IYQ8takLE64xFdKzIeey6BESTruwnfmIn+B9rE6ZKG7nLCANEo/Vx
+         fKQ61sBztYjs/wMPorJr9Wf10sGZFwsj/ecrXfjXWTiDjqZbZZy8L1Kw8omoo9p1TDXp
+         AR7QARGY+OKfAtl8hSCNNLbEl3QHAHRX01KfpYEkBcnMPr5pH9mQs8Ljufqs0D12hW7c
+         RrK2iUvZ97/lwDOv1QMGP/Ah9kn+naMRr7x1Writy6GhvYuA/2jQuh5fPW4WctvGQiFv
+         HkLQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764004935; x=1764609735;
+        d=1e100.net; s=20230601; t=1764005056; x=1764609856;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=H+dXzu+OtwVQATYT2SD8WXaq/eak4pH3LzFk0SdSmXo=;
-        b=QWK7e633LU2qHXBZyIurpFPYyoCtcbslSm1+/nrjpSOWba/OHRWlMBwOb6e2STVsRx
-         8VzTFtMKlVxf39bVTzQCxE/lYtPvN38R/5UptySsfq4SBY2XmseZAR1Jr1uThqUXeAuZ
-         Jhgc7/vQ/dl/FGnlG3b2i6gkOsA0VnrFtE5stlJwD6ODRrd5FHIua6kUYxm0wLpsJ0lx
-         aP7vtuPEWpl2BHrvv8Mr7ba8T9qvhF7bAvHBiyBMbGMom837eaOuEKQBGiKLNnw4HlU4
-         yoBbGB5G2+8lUXDo8O18roE5tY2X66FJHxSpDpFefR/9Slwg2N4OfZypfpTd9orV6Mrs
-         yY4w==
-X-Forwarded-Encrypted: i=1; AJvYcCVXDoDrkXAxtfQu+hMWrwFUvuKO4TYmOVvwVV9zMowTYOiv5Rb8AN3y/L1I4CTNW50Yl0MA4MHGjKbH6H1PlYxS@lists.infradead.org
-X-Gm-Message-State: AOJu0YxxbitUJceZaNLL028yZq+S9jMUs4txj6O3+CIxb9a6psq4b1VE
-	wT6939rZTW1bgvXyYcCRciNwY4k55EqoJcER2ClII9QwkJCErnCF7AAo5/H2JXzCIYECWZXUquU
-	rQ7o1BfHG17FzKdydnywz15vl+gJT5Jj5CWr4t9U4sQ==
-X-Gm-Gg: ASbGnctNi8sEJn3AkYpMRkTvk9YWec+YRS6FnDSD2OgxeTh8bLPpioCw6KnFAfS+u4H
-	vRuLzIRQGpK1tJE0RRl3DZN071kzhdvx0FrGOF9yNeR9x7xETtMRIVaeCqp8z03o7et8Rxd46IM
-	pFxpOKlr74k4jIe+A/2RI8dP7w3W3AmGO5XHKGlPkMldBuTuGIqsWpTBjP7FEow8XEqEdz73Pei
-	J310mJUyQ7lZlIiOJld1M25X2B558vPSh7Y74z/+SpBcSUdLDyfJW58DLVFKjOwEMRlkeo=
-X-Google-Smtp-Source: AGHT+IGur7qIOhwydiDE1YdricdgFBJKpzAzcrVA0e8HEfbCvBR/llLvZ/uw2OutwktsYwyQUs0eBjA/3PkYC9zPCKk=
-X-Received: by 2002:ad4:5e8e:0:b0:884:6f86:e09a with SMTP id
- 6a1803df08f44-8847c440274mr206409366d6.6.1764004934295; Mon, 24 Nov 2025
- 09:22:14 -0800 (PST)
+        bh=BwPH+P89qWOfRnemNosIIZCTQ+b7gKnqulQnrIBXs9U=;
+        b=I5imPN+KtZNcHtEjtPB5VEnrAlAOaRhf5v3XeJIOaoti6yFKgVAaPsQ4cppWRK+2+8
+         ET7u9P1ZHx+HNn96+5KFjBAG4tkLwzNFeB0NAqNh275Esn0yD3t8T42u1YvEBxnLPfgV
+         q5Ctu3PW5x0qNzld75gDaxAsRi0aWa3FnSKBW/CDvmGK0bcnM7PYYx/UxEAPxaU2otRN
+         urTFmZ6GuAkfz0wTHIURhey6RKlKoy0cp0oWxzEJbhiiSs//n35LfXPtyJXJycFK8+64
+         R6HOd389jSq6UJeaUKpat+JSmhm/0yrqy2xlw0oCuUexOK1qP7X1c4oiagCtMscZVy+z
+         jOVg==
+X-Forwarded-Encrypted: i=1; AJvYcCUsD2uXCw0SQR9TymAoydAgosgPhIollXBAL9ds6zuLUNm8fimy9VN9oT/sZplIeJFOzp1Aos5jNHBcTHJHezKA@lists.infradead.org
+X-Gm-Message-State: AOJu0YzRWXmLBgqHdquBO+QtOfJYVFMXtZcLe+tFTyKb+5FUlnIWMfrI
+	B/qJuzp5bIQDexLQZgu/+B2XD8d/1pQTZOnkANqyQ5p5wO95E5hYjmU3kn7bpbEbRSoPTX6pi4e
+	KCvw/anXeuph4yGuafPih/zOb3DKGa4pt2jq1zNBaH2ZZbl5Vgc88cXs=
+X-Gm-Gg: ASbGncs4siiyyalRkj0Y/nZ6HKH2ZzBoeN2jjAoVFs3qUQ50Y6yXD6HEHYYAMAzP9Z3
+	bvAOTrkxGtmT2R05bhJEZISo2xwysgUUQn6tb9gGqJh8yClS+CTOv27+1nXQZPG1nDTfklJet5D
+	oiRDveGbn90cBh1VDSNeB/cRb+Okw0ZwR2W++Ol2NMxfef/BTrrKnGeaL/BYzhOULydD6/YvcMj
+	FVuG2h5Eku6fjsXuakbqqMrjKbgRAu1LsoreRAvgxuMmwz81oNG/0/O5Bdf2M7xnHetKDk=
+X-Google-Smtp-Source: AGHT+IFnvdWmjJCRzYLrbPvZGNPiEJ5Q839vHfC1gV/jBx6hNY1xoYFkx0yUuNsyMUDPM1RLCsF8HVzcVzBbZ0/NXV8=
+X-Received: by 2002:a05:6214:3286:b0:880:48c6:acfb with SMTP id
+ 6a1803df08f44-8847c52771emr181588346d6.49.1764005056039; Mon, 24 Nov 2025
+ 09:24:16 -0800 (PST)
 MIME-Version: 1.0
-References: <CGME20251117073604epcas2p3f35b42617fb26aa087409eb84c19724c@epcas2p3.samsung.com>
- <20251117074140.4090939-1-youngmin.nam@samsung.com> <20251117074140.4090939-5-youngmin.nam@samsung.com>
-In-Reply-To: <20251117074140.4090939-5-youngmin.nam@samsung.com>
+References: <CGME20251117073605epcas2p19eac6ba9cf1d4fd2e866e5de6a843802@epcas2p1.samsung.com>
+ <20251117074140.4090939-1-youngmin.nam@samsung.com> <20251117074140.4090939-6-youngmin.nam@samsung.com>
+In-Reply-To: <20251117074140.4090939-6-youngmin.nam@samsung.com>
 From: Peter Griffin <peter.griffin@linaro.org>
-Date: Mon, 24 Nov 2025 17:22:03 +0000
-X-Gm-Features: AWmQ_bk4g88xYV4Wotp3KJG1hjaYXqURmaKu-TssPY9mMy-anug4aQBTum0eDz4
-Message-ID: <CADrjBPoG_omRShNhwUJZ0yeRLAzQxmGHvO6OzsR2NOfLczoptg@mail.gmail.com>
-Subject: Re: [RFT PATCH v2 4/5] pinctrl: samsung: fold GS101 pin-bank macros
- into EXYNOS9_*
+Date: Mon, 24 Nov 2025 17:24:04 +0000
+X-Gm-Features: AWmQ_bkGzF2wniRoBjZTDbuGXNp0h_ztTCTVOwPYyYiq_8xUg5WYRfFqZfMc01Y
+Message-ID: <CADrjBPo79HCUVsX_pv6EZ2_C5qB=pFMS=KMkMz8xkageuFvmAA@mail.gmail.com>
+Subject: Re: [RFT PATCH v2 5/5] pinctrl: samsung: rename gs101_pinctrl_* to exynos9_pinctrl_*
 To: Youngmin Nam <youngmin.nam@samsung.com>
 Cc: krzk@kernel.org, s.nawrocki@samsung.com, alim.akhtar@samsung.com, 
 	linus.walleij@linaro.org, semen.protsenko@linaro.org, ryu.real@samsung.com, 
@@ -82,8 +81,8 @@ Cc: krzk@kernel.org, s.nawrocki@samsung.com, alim.akhtar@samsung.com,
 	linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251124_092216_440087_7B1465C8 
-X-CRM114-Status: GOOD (  10.45  )
+X-CRM114-CacheID: sfid-20251124_092417_388758_B99341C9 
+X-CRM114-Status: GOOD (  11.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,31 +99,27 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Hi Youngmin,
 
-Thanks for taking the time to do this cleanup!
-
 On Mon, 17 Nov 2025 at 07:36, Youngmin Nam <youngmin.nam@samsung.com> wrote:
 >
-> GS101 had dedicated GS101_PIN_BANK_EINT{G,W} helpers, but they are
-> redundant with EXYNOS9_PIN_BANK_EINT{G,W} (same semantics, including
-> the per-bank .eint_fltcon_offset).
-> This change removes the GS101_* macros and switches the GS101 pin-bank
-> tables to the EXYNOS9_* helpers with exynos9_bank_type_{alive,off}.
-> While here, update the struct comment to note FLTCON is Exynos9-specific
-> (not 'GS101-specific').
+> The suspend/resume helpers named gs101_pinctrl_{suspend,resume} are not
+> GS101-specific. They implement the generic save/restore sequence used by
+> Exynos9-style controllers that have EINT filter configuration
+> (eint_fltcon) to preserve.
 >
-> One macro family for all Exynos9-era SoCs (incl. GS101) reduces
-> copy-paste drift and keeps the FLTCON handling consistent.
-> There is no functional change.
+> Rename them to exynos9_pinctrl_{suspend,resume} and update all users:
+>   - exynos2200, exynos9810, exynos8895, exynos7885, exynos7870,
+>     exynosautov9, fsd, and gs101 controller tables
+>   - prototypes in pinctrl-exynos.h
+>   - definitions in pinctrl-exynos.c
+>
+> This aligns naming with the earlier macro/doc cleanups (e.g. using
+> EXYNOS9_PIN_BANK_* and describing eint_fltcon as Exynos9-specific) and
+> makes the helpers clearly reusable by other Exynos9-like SoCs.
 >
 > Signed-off-by: Youngmin Nam <youngmin.nam@samsung.com>
 > Reviewed-by: Sam Protsenko <semen.protsenko@linaro.org>
-> Tested-by: Sam Protsenko <semen.protsenko@linaro.org>
 > ---
 
 Reviewed-by: Peter Griffin <peter.griffin@linaro.org>
 Tested-by:  Peter Griffin <peter.griffin@linaro.org> (tested on Pixel 6 / gs101)
-
-regards,
-
-Peter
 
