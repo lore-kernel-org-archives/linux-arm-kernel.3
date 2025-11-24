@@ -4,68 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47D22CFD356
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 20:52:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB4A4CFD359
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 20:52:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3DG8aNFGVcFB4CATalGn7NOhxZ0DeO8/oe9bHCpl8sw=; b=KWxnVoBT6ItuVGvc9Z/CNei/4I
-	5NlL+fKakUwgXFyus1UzM774ihqq+sPYnjQ4OoXAe+PSDpmDE243faFgFBhGYklPFIH5L5BZBp9Yd
-	A6+x/6ucvsuWKTRj3WAGwBrvdEVKjsLbuwJISyfe1wJeGUENij9rd4NQiSknv9ceVG+MyNmkGT8Qu
-	xuVSKsWBXdKV518eseJnJY2Xrf6TclNMOkKNx2pyhLA7hZogcEkZLlFAB8l3/JcKF2mHQWeSZIx6/
-	f+ZA4FQ+44woQTD4Zkbvqv4RgSy7zbKZXJmCQWWHIp8myLw9i95zIN+A79rtBC3rp0s01tpnZzuXi
-	tRiCei1w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=z6idQiT/Lk41XT3er1JulNtEcFMX7tPcBFqFIy23wX4=; b=HfMv+TLbwPWvyuR6LLZEUpifaJ
+	D11WjKjsFfIVEFHSvgai4Q9kqbNliijeaet2G9CNPDsw8gH9PpiMHh9c06lgi5t04gQQdiUe0EKYz
+	gF0xI2hmDpL4G7eprnPc3ifkGdIvdJlhoU6Op38fhKvn0gtqXPHd+6PLViB9nq/RhMoblplSCsCWc
+	vXk0YZw+7Xc5JesdJXOfb9BF87UL71KhaHI1+fGwOioQyX5IQ6FUZGJ+lbItnLsjdZJkoWc5qXONu
+	AN9LqBLjJ37ZC8laTqXU/xv0gdXQy94wqCtZQE/4Ylzu4/gSekMzKoAcjMm2V5OA/edAtjcpC/gfj
+	nY0UnMBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNdXV-0000000CJ9j-1h9A;
+	id 1vNdXU-0000000CJ9f-3t9g;
 	Mon, 24 Nov 2025 20:52:01 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+Received: from mail-pg1-x534.google.com ([2607:f8b0:4864:20::534])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNdXT-0000000CJ9E-1C8n
+	id 1vNdXP-0000000CJ8r-0cZh
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Nov 2025 20:52:00 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9F18A44325;
-	Mon, 24 Nov 2025 20:51:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7E166C16AAE;
-	Mon, 24 Nov 2025 20:51:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764017518;
-	bh=V+Uwt+ZdbJkBrqBbLMY3BQCOogr0mkRy+ckU06EArFU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=L02WjnJWfVbhAXiT/h0NFN+hEBPiubc2NS6O7J/ZHxdyXcS1jbjrfE+8/mkySFlWC
-	 +J1GyjhG4rnXHRJxtVcP+E+x5wH1wFw8JjpWj3CSwJnbww2zMaQrJth8PvqiFzyThv
-	 mte/qHteRbAC1XoXRdGk8DO/Vbx9zkUXEsOhNnqis4YOMsreRPRDuQLYZNomi0PS2d
-	 pvfgsmGDp43gT75M70iuE9R66srWy+7U2YGbiZFaY4pTZGvzflx+q2Tz+aOTxVHKJ3
-	 13ZIb762wmHtP/QjIE/AY5p6Bq+j8B4q5pcIstUC6Szso82GawAH0AENekc5Ozk3wP
-	 axLDfP4QuBp+A==
-Date: Mon, 24 Nov 2025 12:51:58 -0800
-From: Kees Cook <kees@kernel.org>
-To: Ryan Roberts <ryan.roberts@arm.com>
-Cc: Will Deacon <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Jeremy Linton <jeremy.linton@arm.com>,
-	Catalin Marinas <Catalin.Marinas@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
-Subject: Re: [DISCUSSION] kstack offset randomization: bugs and performance
-Message-ID: <202511241250.EB2ADED@keescook>
-References: <66c4e2a0-c7fb-46c2-acce-8a040a71cd8e@arm.com>
- <dd8c37bc-795f-4c7a-9086-69e584d8ab24@arm.com>
- <aSRtaVjfNc11EtKg@willie-the-truck>
- <B696956E-579E-412E-B774-AAADCFA4B31C@kernel.org>
- <ecc11ec7-ba00-41f1-8a2a-8f3a83c9ffd9@arm.com>
+	Mon, 24 Nov 2025 20:51:59 +0000
+Received: by mail-pg1-x534.google.com with SMTP id 41be03b00d2f7-bc09b3d3afeso2583643a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Nov 2025 12:51:54 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1764017514; x=1764622314; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=z6idQiT/Lk41XT3er1JulNtEcFMX7tPcBFqFIy23wX4=;
+        b=TBg9hwFMKrNT3W6l8i2RqchE8Ncx1PAt52pDaLFF+G2DSZzneHd4wjS/UhDCP4xVBP
+         vSZxSn7ZAjdxq3H0GQaCP3gttKCCGX5xNp65UdyVSNMSyltGytwJ+wNe+p/JU6sUmW8y
+         EQhlkCO450FPinI7oTz+rwgYOEGMdsRkLUZvLYXxBm0PYCtZILeubWxrxXXVNGRAB5mr
+         FRTnx87sJdovBqWRhooPEsTBFP14/uxHTMPK7vmJ21+uPODSUyAjEI1f3yal8+iiopaM
+         H4+WqSflymHqvd3oDZsploWcLISu9a+smvk6z6s4+JUuEoWRSjrhDYAZoWPnZ9KueY+8
+         FSFA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1764017514; x=1764622314;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=z6idQiT/Lk41XT3er1JulNtEcFMX7tPcBFqFIy23wX4=;
+        b=xQGwi4jXk32qLQ1xOfqioVbx3R9YLXbXTuqd/8NPvU0H/fY80JECWgZSvJrQ15eDhD
+         bfUa5yLbF0WO0OyjPxDeFq0RMK2eatm/K795LpSzkL9YwsZGXWMZvF29NkqFM/nwflaP
+         tyixy1aOoCDXRwqRX0jvx2VO30+ptUD2FlYIpfzin1lKUaLzjMueAAcmHTT0gkyy/Spa
+         ulYipTHW77pDI+Lhys1Oi6CvoaK0KLK6j1om8mwkKCWr/9SfMAmTqQ2HDsIN+6fPp49s
+         b0bv4zgb2Gn20eVjn1rH/OkfVV45lTBfq8eQ6V5h7S4n8wkvirkw64PCjpn+REWyKRPP
+         mTlw==
+X-Forwarded-Encrypted: i=1; AJvYcCWxVJrKCRvZxCQhN9sDjit/aHx2AwzIXTZq9Fut1WgaIsGvq8ROJ44lOhsZVp/d+d0RPakR8Vcw8JF4qdTyprsL@lists.infradead.org
+X-Gm-Message-State: AOJu0YyhgJlfI3HDWGwBXXIGqQMUb+ew+7wSJZuSz5DXPbZ5IL9RVmux
+	LkEGb6uSKn6JuWsM9xOF8uWFrvznSdyYNTvY4iEqzGsCWyS30sZK3y1HxoX+2hgX94vx8u4PsNX
+	QcNqPOgFjInojBlaKNE+q9i65k6fXGeOFtb0bLt0aBA==
+X-Gm-Gg: ASbGnctQWEw5bmIrycnmELyW1zmkopWWa7QmjezTH9CxE9TPsy8lHJ3Ai++v/YaUSuw
+	pKm5SB8bBNQQAZ3QepjYdfSQaCzMRH4uNMHmxsXLRT0fPzDmcj/XsKINFflJuYvyiL1KUNXCSfa
+	J116QFPQm80sM0us72szFN9FuM4ltG9av6TYkRgKyaev9MmMbn5vqX9fWr5DQRyCvx9pK2lhpG6
+	7WrGIDsogAFCLU0UecSLxWGS643llpLnFGoNbIWnxGJiVvrELsDAUqK4ea5NooM/kK0IMvnKs+w
+	4gGlZ1WyY01ghjwCZdwGlki83gJyqg==
+X-Google-Smtp-Source: AGHT+IFjLWT6yOg2hi2wu5H1G4MoFcdeFYH0BRB30KFAuwP0u2IagJSBzMzfwB9OaD6Hyztv/D0RJutCW3MA+Q+DdWM=
+X-Received: by 2002:a05:7301:4586:b0:2a6:9d86:48a8 with SMTP id
+ 5a478bee46e88-2a7195c9662mr7982342eec.17.1764017513591; Mon, 24 Nov 2025
+ 12:51:53 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <ecc11ec7-ba00-41f1-8a2a-8f3a83c9ffd9@arm.com>
+References: <20251124-exynos-clkout-fix-ubsan-bounds-error-v1-1-224a5282514b@kernel.org>
+In-Reply-To: <20251124-exynos-clkout-fix-ubsan-bounds-error-v1-1-224a5282514b@kernel.org>
+From: Sam Protsenko <semen.protsenko@linaro.org>
+Date: Mon, 24 Nov 2025 14:51:42 -0600
+X-Gm-Features: AWmQ_bkR6_YnQmKNQToJOLZtI9vyDFo3HYMS0rYpoLLIQEjyJTPF_i9DJ12NbWk
+Message-ID: <CAPLW+4k=My6np3uKoRmODDVbUekTs+yDdBbwoH_Ba743sRQTRg@mail.gmail.com>
+Subject: Re: [PATCH] clk: samsung: exynos-clkout: Assign .num before accessing .hws
+To: Nathan Chancellor <nathan@kernel.org>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, Sylwester Nawrocki <s.nawrocki@samsung.com>, 
+	Chanwoo Choi <cw00.choi@samsung.com>, Alim Akhtar <alim.akhtar@samsung.com>, 
+	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, Kees Cook <kees@kernel.org>, 
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>, Salvatore Bonaccorso <carnil@debian.org>, 
+	linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-hardening@vger.kernel.org, stable@vger.kernel.org, 
+	Jochen Sprickerhof <jochen@sprickerhof.de>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251124_125159_486320_493DFA9A 
-X-CRM114-Status: GOOD (  28.04  )
+X-CRM114-CacheID: sfid-20251124_125155_226972_4E8BAAEE 
+X-CRM114-Status: GOOD (  22.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,56 +102,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 24, 2025 at 05:50:14PM +0000, Ryan Roberts wrote:
-> On 24/11/2025 17:11, Kees Cook wrote:
-> > 
-> > 
-> > On November 24, 2025 6:36:25 AM PST, Will Deacon <will@kernel.org> wrote:
-> >> On Mon, Nov 17, 2025 at 11:31:22AM +0000, Ryan Roberts wrote:
-> >>> On 17/11/2025 11:30, Ryan Roberts wrote:
-> >>>> Could this give us a middle ground between strong-crng and
-> >>>> weak-timestamp-counter? Perhaps the main issue is that we need to store the
-> >>>> secret key for a long period?
-> >>>>
-> >>>>
-> >>>> Anyway, I plan to work up a series with the bugfixes and performance
-> >>>> improvements. I'll add the siphash approach as an experimental addition and get
-> >>>> some more detailed numbers for all the options. But wanted to raise it all here
-> >>>> first to get any early feedback.
-> >>
-> >> FWIW, I share Mark's concerns about using a counter for this. Given that
-> >> the feature currently appears to be both slow _and_ broken I'd vote for
-> >> either removing it or switching over to per-thread offsets as a first
-> >> step.
-> > 
-> > That it has potential weaknesses doesn't mean it should be entirely removed.
-> > 
-> >> We already have a per-task stack canary with
-> >> CONFIG_STACKPROTECTOR_PER_TASK so I don't understand the reluctance to
-> >> do something similar here.
-> > 
-> > That's not a reasonable comparison: the stack canary cannot change arbitrarily for a task or it would immediately crash on a function return. :)
-> > 
-> >> Speeding up the crypto feels like something that could happen separately.
-> > 
-> > Sure. But let's see what Ryan's patches look like. The suggested changes sound good to me.
-> 
-> Just to say I haven't forgotten about this; I ended up having to switch to
-> something more urgent. Hoping to get back to it later this week. I don't think
-> this is an urgent issue, so hopefully folks are ok waiting.
-> 
-> I propose to post whatever I end up with then we can all disscuss from there.
-> But the rough shape so far:
-> 
-> Fixes:
->  - Remove choose_random_kstack_offset()
->  - arch passes random into add_random_kstack_offset() (fixes migration bypass)
->  - Move add_random_kstack_offset() to el0_svc()/el0_svc_compat() (before
->    enabling interrupts) to fix non-preemption requirement (arm64)
+On Mon, Nov 24, 2025 at 1:11=E2=80=AFPM Nathan Chancellor <nathan@kernel.or=
+g> wrote:
+>
+> Commit f316cdff8d67 ("clk: Annotate struct clk_hw_onecell_data with
+> __counted_by") annotated the hws member of 'struct clk_hw_onecell_data'
+> with __counted_by, which informs the bounds sanitizer (UBSAN_BOUNDS)
+> about the number of elements in .hws[], so that it can warn when .hws[]
+> is accessed out of bounds. As noted in that change, the __counted_by
+> member must be initialized with the number of elements before the first
+> array access happens, otherwise there will be a warning from each access
+> prior to the initialization because the number of elements is zero. This
+> occurs in exynos_clkout_probe() due to .num being assigned after .hws[]
+> has been accessed:
+>
+>   UBSAN: array-index-out-of-bounds in drivers/clk/samsung/clk-exynos-clko=
+ut.c:178:18
+>   index 0 is out of range for type 'clk_hw *[*]'
+>
+> Move the .num initialization to before the first access of .hws[],
+> clearing up the warning.
+>
+> Cc: stable@vger.kernel.org
+> Fixes: f316cdff8d67 ("clk: Annotate struct clk_hw_onecell_data with __cou=
+nted_by")
+> Reported-by: Jochen Sprickerhof <jochen@sprickerhof.de>
+> Closes: https://lore.kernel.org/aSIYDN5eyKFKoXKL@eldamar.lan/
+> Tested-by: Jochen Sprickerhof <jochen@sprickerhof.de>
+> Signed-off-by: Nathan Chancellor <nathan@kernel.org>
+> ---
 
-I thought we'd keep choose_random_kstack_offset() and just move
-everything into a per-task location? (And for arm64 only)
+Reviewed-by: Sam Protsenko <semen.protsenko@linaro.org>
 
--- 
-Kees Cook
+>  drivers/clk/samsung/clk-exynos-clkout.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>
+> diff --git a/drivers/clk/samsung/clk-exynos-clkout.c b/drivers/clk/samsun=
+g/clk-exynos-clkout.c
+> index 5f1a4f5e2e59..5b21025338bd 100644
+> --- a/drivers/clk/samsung/clk-exynos-clkout.c
+> +++ b/drivers/clk/samsung/clk-exynos-clkout.c
+> @@ -175,6 +175,7 @@ static int exynos_clkout_probe(struct platform_device=
+ *pdev)
+>         clkout->mux.shift =3D EXYNOS_CLKOUT_MUX_SHIFT;
+>         clkout->mux.lock =3D &clkout->slock;
+>
+> +       clkout->data.num =3D EXYNOS_CLKOUT_NR_CLKS;
+>         clkout->data.hws[0] =3D clk_hw_register_composite(NULL, "clkout",
+>                                 parent_names, parent_count, &clkout->mux.=
+hw,
+>                                 &clk_mux_ops, NULL, NULL, &clkout->gate.h=
+w,
+> @@ -185,7 +186,6 @@ static int exynos_clkout_probe(struct platform_device=
+ *pdev)
+>                 goto err_unmap;
+>         }
+>
+> -       clkout->data.num =3D EXYNOS_CLKOUT_NR_CLKS;
+>         ret =3D of_clk_add_hw_provider(clkout->np, of_clk_hw_onecell_get,=
+ &clkout->data);
+>         if (ret)
+>                 goto err_clk_unreg;
+>
+> ---
+> base-commit: b6430552c8cd95e90bb842ce2f421e7a5381859f
+> change-id: 20251124-exynos-clkout-fix-ubsan-bounds-error-93071375ec78
+>
+> Best regards,
+> --
+> Nathan Chancellor <nathan@kernel.org>
+>
+>
 
