@@ -4,85 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4B85CFD313
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 17:42:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB6D2CFD313
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 17:43:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wJlK4WkEfRbWEw3zV/b5T4Bu/Nyg8DEPoH+DiAjRgFs=; b=TaS8IX/uSNa2srm7RM9ksBAMRQ
-	++jHYaF1tjGgNvEYClYe9fv3JKDWOyxduhZ5vM6RGr/bk0+XDrUUOIkJoOsi6EvG8K9gpQdZTLAJd
-	jnqnOXOOkkPVDDmpMlzV9+mPloGMgu7E2AxJKaLOIlUY9ZdNYa/esM9KAjYhFTCP6cyUlkVZxWG2c
-	d8YLiyQknq6RBCnbC/cm9SVuIqOPUzgFfBgQZW7OzdME1VNxJ+Wxg2qj8JGEpaq0fsqMgYSRj8AEE
-	URi6dEjz71Nvuu3+NcYgXsQ7qKFK0UOzCQXfNljJ/WWFNYC7eg5Vp05G7w2JmayabiMcGb9/zd6Io
-	nZG/SeuA==;
+	bh=4hjjEBOSkqmJPVfW3xGLQ4StMoP98ZoZnBqbZYvDp4M=; b=TkU76xYGl71USxyqjizMc7nj15
+	uQtcalkNw+G/66Na78b9euxT7J8tUjN9/iDwfOxyiCgsjyAKEJL41NJe8hhEjGo2m6NoSFJh6eBW5
+	70HR18n3RO1cFSPVz1D5DfJFoDHHcf+NnRcOUzW5SYr2lo2gRMO1RLzzuObDK6ja75vixfPRfUfpk
+	BWVucYddBb7ht64gKcMVj6TExYFo0+nKxrOvDtXxtZQVDDEh2PRws4Xn8SmRMbmciOW/v+2FwK0Jy
+	dCa33hjD4bh46p2PmKTGZuN+vmnI02ttCUHhTHgY3W+uGK8ojsMswm73trRLQpO4OTlgnaikszQLp
+	/2cHTxKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNaaG-0000000C7TY-2Q1A;
-	Mon, 24 Nov 2025 17:42:40 +0000
-Received: from mail-qt1-x830.google.com ([2607:f8b0:4864:20::830])
+	id 1vNab2-0000000C7bN-3qhs;
+	Mon, 24 Nov 2025 17:43:28 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNaaC-0000000C7Sd-19ER
+	id 1vNab1-0000000C7ax-0iTf
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 24 Nov 2025 17:43:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
+	:Content-Type:References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=4hjjEBOSkqmJPVfW3xGLQ4StMoP98ZoZnBqbZYvDp4M=; b=QLJPpbjLF5JzYT/I8jpft7F+sV
+	nxprM+AieOXlzWu20HeehjrDOo/bF28Ku7YicIj/fgg1YZDj8Kwvffj0XksCsezc+xIzZ6zNsmRp5
+	Fx+D3BxnZUs/Xr8EX45RRNuNMfmAwUIqF6Mz3BZKhJGlrrCIWG5D2Ze99YzBbJxurfgFYnT4z4Nwg
+	C6ZDLJzjHIHxL3C1V6J4vEdf37px5ws5JNUoKFrLXtdPif2VehisZAqd95sKnz5BRDZ7K16FZqCxb
+	utd5vVrFOPV+IVzO8LpOan+UBoRV9q6EJGYzhQkihRRr+EaCzhkicobGhqwzI24vKhONBH59/zymU
+	yNfqHoPA==;
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vNZjN-00000004Epv-07BC
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Nov 2025 17:42:39 +0000
-Received: by mail-qt1-x830.google.com with SMTP id d75a77b69052e-4ee1939e70bso43729011cf.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Nov 2025 09:42:35 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1764006155; x=1764610955; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=wJlK4WkEfRbWEw3zV/b5T4Bu/Nyg8DEPoH+DiAjRgFs=;
-        b=IXSf4VedzHsjPeddTT6I7erSptcCUY3omGE7AuZ6O3mCr5BgDFAmzL20C43FBTyhnV
-         W3Hs5DpGyITj1OU7/q2t2dfKLCKtrPa6oqr7RpVwhFP+Z35OrSfiS8jY4mr3jOxolAer
-         rVRtdWq3I89ZYfXi8wypYg7EmccW2bIW00Ilqoxm+pqyue3bJCI1eiy5bGFCOY6qRaFt
-         APEct51P4a8GHB++V7KS8BVxb+oICGbLZ3y3qoFqxIPGZRNN/TIZrXJUom84AS2ZYBnP
-         C823dbYNpnpeSf+azQMGF8MUFc+USnZ65EK9Y/p+AbMSi8el/vI6FM9LHHE2ebTnakjc
-         GPgw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764006155; x=1764610955;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=wJlK4WkEfRbWEw3zV/b5T4Bu/Nyg8DEPoH+DiAjRgFs=;
-        b=ddLSOzGH4sZ/7gaVzjgFtqoz8QeYnQYB4Vq9k5EuasBctL+G/vjrbW8rpZdybiS87x
-         kkfEegChKgFYSS8q84n66XEnhDYaHpTctPAGyD3L14f66+rEYnsFiF2dJglM7sodizAc
-         +3mwPRgZqK7YmSLKc9rjFUcfxmArnQRcMg6M/IVOfpV+78FVZ73p7yebPnSelaWg/bB4
-         OmoD3K3Gpd+bEaV9Jz3slNcvSoxNztsbd7RBgTvpwTsjtKTm3Jj8XNj+vmte5M4kEMYH
-         t64uidcH+eHvZDSMVBOBeCYfPLiaYTLshDYubPaUBRYKrGiLRCTpVe2PVreHM0lsYIoC
-         HaEA==
-X-Forwarded-Encrypted: i=1; AJvYcCVl9DqCsrK3Nc1sdRwlUOmfrJ1LBBGfwk8DzaInUkGYxPu/tIgCFZpnxu/mgbyKODUvQix3n90oKE7whM/NYl0C@lists.infradead.org
-X-Gm-Message-State: AOJu0YxhhcFsrxHB2Yc3DYPMfmBsX+zl6+bBiNDhNQ5VQl2gKYtjQWn4
-	Zgu2ug5B0l5wyk2n8VurRa19e9YEF9QZR6X4gN3q2+q70IXqsptIhKda7uGE/sr8a5sM7T1UJ00
-	ashJoXoDIcrg2ofL4XskKHbhEJa+fRB0perksHy8OIg==
-X-Gm-Gg: ASbGncsG4yRbmedZeaU8O5+ssQpGmyo34KN6sNQuROS9XlWieAz2cBXyICOj8QESKX1
-	5BbRjNye6GxZ4VTD7DiK2M41+tBpsN6fsxVcV2upSNhJ3QDfv+Wy3OJ2XgB8Pg5Z97MeZmFuesU
-	r8aRQ3CFKx+4d4pJOEyibQ9pavfy5hM74BHcDuyRdvRxR1HUkxSbQ6xhEE2wjaB5q61gqiAlvxX
-	/7druahN5AOPX7AT71RNN/Kwa3RDtFOvqmUCd5isH/zJiloSl2npMmsbCbSY7T2XtL1wxY=
-X-Google-Smtp-Source: AGHT+IH68eFLCxGAwB70YXKDcrzscx1x/5nopbEjXq3rg0i05BtoHBXKwXgwKJ1Je/SGb0RGBvXAIWmKGfE/9kaXr84=
-X-Received: by 2002:ac8:59c5:0:b0:4ee:24e8:c9a1 with SMTP id
- d75a77b69052e-4ee588908eamr163978631cf.44.1764006154636; Mon, 24 Nov 2025
- 09:42:34 -0800 (PST)
-MIME-Version: 1.0
-References: <CGME20251117073601epcas2p2c72bdd8689a69b35b988894653300c75@epcas2p2.samsung.com>
- <20251117074140.4090939-1-youngmin.nam@samsung.com>
-In-Reply-To: <20251117074140.4090939-1-youngmin.nam@samsung.com>
-From: Peter Griffin <peter.griffin@linaro.org>
-Date: Mon, 24 Nov 2025 17:42:22 +0000
-X-Gm-Features: AWmQ_bkIQmeVVQ1__i6Ji95mfG_JBQNHpbx1ya0fFzrMqWuIcxJaF_YHxRYrtX0
-Message-ID: <CADrjBPrPpgy93At1bBanBoka14eyRbAArep5zuvbGWcOEnOuRQ@mail.gmail.com>
-Subject: Re: [RFT PATCH v2 0/5] pinctrl: samsung: exynos9 cleanups and fixes
-To: Youngmin Nam <youngmin.nam@samsung.com>
-Cc: krzk@kernel.org, s.nawrocki@samsung.com, alim.akhtar@samsung.com, 
-	linus.walleij@linaro.org, semen.protsenko@linaro.org, ryu.real@samsung.com, 
-	d7271.choe@samsung.com, linux-arm-kernel@lists.infradead.org, 
-	linux-samsung-soc@vger.kernel.org, linux-gpio@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
+	Mon, 24 Nov 2025 16:48:02 +0000
+Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=[IPv6:::1])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <l.stach@pengutronix.de>)
+	id 1vNaaZ-0000Ib-4x; Mon, 24 Nov 2025 18:42:59 +0100
+Message-ID: <53cb1a8e87f80d8bb1a9b6463077a99b2268e46c.camel@pengutronix.de>
+Subject: Re: [PATCH 2/2] media: verisilicon: Avoid G2 bus error while
+ decoding H.264 and HEVC
+From: Lucas Stach <l.stach@pengutronix.de>
+To: ming.qian@oss.nxp.com, linux-media@vger.kernel.org
+Cc: mchehab@kernel.org, hverkuil-cisco@xs4all.nl, nicolas@ndufresne.ca, 
+ benjamin.gaignard@collabora.com, p.zabel@pengutronix.de, 
+ sebastian.fricke@collabora.com, shawnguo@kernel.org,
+ ulf.hansson@linaro.org,  s.hauer@pengutronix.de, kernel@pengutronix.de,
+ festevam@gmail.com,  linux-imx@nxp.com, peng.fan@nxp.com,
+ eagle.zhou@nxp.com, imx@lists.linux.dev,  linux-pm@vger.kernel.org,
+ linux-kernel@vger.kernel.org,  linux-arm-kernel@lists.infradead.org
+Date: Mon, 24 Nov 2025 18:42:57 +0100
+In-Reply-To: <20251121081911.1682-2-ming.qian@oss.nxp.com>
+References: <20251121081911.1682-1-ming.qian@oss.nxp.com>
+	 <20251121081911.1682-2-ming.qian@oss.nxp.com>
 Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.52.4 (3.52.4-2.fc40) 
+MIME-Version: 1.0
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
+X-SA-Exim-Mail-From: l.stach@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251124_094237_836581_64BA64BF 
-X-CRM114-Status: GOOD (  22.17  )
+X-CRM114-CacheID: sfid-20251124_164801_115510_D66C23BB 
+X-CRM114-Status: GOOD (  20.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,111 +88,144 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Youngmin,
+Hi Ming,
 
-On Mon, 17 Nov 2025 at 07:36, Youngmin Nam <youngmin.nam@samsung.com> wrote:
->
-> Several SoCs carried near-duplicate pin bank macro families, making
-> tables verbose and hard to share when only the bank type (alive/off)
-> differs.
->
-> GS101 had its own helpers even though the newer EXYNOS9_* helpers cover
-> the same semantics, including per-bank filter control (FLTCON) offsets.
->
-> Some pin-bank tables didn't match the SoC TRMs (bank type, EINT class,
-> or bank names), and FLTCON wasn't always at a contiguous offset from
-> EINT.
->
-> This series does
-> - Consolidate on EXYNOS9_* pin-bank macros. Pass bank_type explicitly.
-> - Fix table errors on Exynos2200/7885/8890/8895 per TRM.
-> - Add explicit per-bank FLTCON offsets and update affected tables.
-> - Drop GS101-specific macros in favor of EXYNOS9_*.
-> - Rename gs101_pinctrl_{suspend,resume} ->
->   exynos9_pinctrl_{suspend,resume}.
->
-> This series was based on the pinctrl/samsung tree [1].
->
-> I tested on Exynos850 through boot and verified the pin values as
-> follows:
+Am Freitag, dem 21.11.2025 um 16:19 +0800 schrieb
+ming.qian@oss.nxp.com:
+> From: Ming Qian <ming.qian@oss.nxp.com>
+>=20
+> For the i.MX8MQ platform, there is a hardware limitation: the g1 VPU and
+> g2 VPU cannot decode simultaneously; otherwise, it will cause below bus
+> error and produce corrupted pictures, even led to system hang.
+>=20
+> [  110.527986] hantro-vpu 38310000.video-codec: frame decode timed out.
+> [  110.583517] hantro-vpu 38310000.video-codec: bus error detected.
+>=20
+> Therefore, it is necessary to ensure that g1 and g2 operate alternately.
+> Then this allows for successful multi-instance decoding of H.264 and HEVC=
+.
+>=20
+Is there any more info available on what's actually causing the hang?
+Is there some kind of overflow of the interconnect request capacity?
 
-One thing I just noticed is exynos850_pin_ctrl isn't actually setting
-the .suspend and .resume callbacks so some of this code won't be
-executed there (specifically saving/restoring the fltcon register). If
-you're using e850 platform to test this series, you likely want to set
+I'm asking to understand the issue a bit better, as locking both
+decoder instances against each other seems like a pretty big hammer.
 
-.suspend = exynos9_pinctrl_suspend,
-.resume = exynos9_pinctrl_resume,
+Regards,
+Lucas
 
-in exynos850_pin_ctrl for the alive bank
+> Fixes: cb5dd5a0fa518 ("media: hantro: Introduce G2/HEVC decoder")
+> Signed-off-by: Ming Qian <ming.qian@oss.nxp.com>
+> ---
+>  drivers/media/platform/verisilicon/hantro.h   |  1 +
+>  .../media/platform/verisilicon/hantro_drv.c   | 26 +++++++++++++++++++
+>  .../media/platform/verisilicon/imx8m_vpu_hw.c |  4 +++
+>  3 files changed, 31 insertions(+)
+>=20
+> diff --git a/drivers/media/platform/verisilicon/hantro.h b/drivers/media/=
+platform/verisilicon/hantro.h
+> index e0fdc4535b2d..8baebf767d26 100644
+> --- a/drivers/media/platform/verisilicon/hantro.h
+> +++ b/drivers/media/platform/verisilicon/hantro.h
+> @@ -101,6 +101,7 @@ struct hantro_variant {
+>  	unsigned int double_buffer : 1;
+>  	unsigned int legacy_regs : 1;
+>  	unsigned int late_postproc : 1;
+> +	atomic_t *shared_resource;
+>  };
+> =20
+>  /**
+> diff --git a/drivers/media/platform/verisilicon/hantro_drv.c b/drivers/me=
+dia/platform/verisilicon/hantro_drv.c
+> index 60b95b5d8565..036ce43c9359 100644
+> --- a/drivers/media/platform/verisilicon/hantro_drv.c
+> +++ b/drivers/media/platform/verisilicon/hantro_drv.c
+> @@ -19,6 +19,7 @@
+>  #include <linux/slab.h>
+>  #include <linux/videodev2.h>
+>  #include <linux/workqueue.h>
+> +#include <linux/iopoll.h>
+>  #include <media/v4l2-event.h>
+>  #include <media/v4l2-mem2mem.h>
+>  #include <media/videobuf2-core.h>
+> @@ -93,6 +94,9 @@ static void hantro_job_finish(struct hantro_dev *vpu,
+> =20
+>  	clk_bulk_disable(vpu->variant->num_clocks, vpu->clocks);
+> =20
+> +	if (vpu->variant->shared_resource)
+> +		atomic_cmpxchg(vpu->variant->shared_resource, 0, 1);
+> +
+>  	hantro_job_finish_no_pm(vpu, ctx, result);
+>  }
+> =20
+> @@ -166,12 +170,34 @@ void hantro_end_prepare_run(struct hantro_ctx *ctx)
+>  			      msecs_to_jiffies(2000));
+>  }
+> =20
+> +static int hantro_wait_shared_resource(struct hantro_dev *vpu)
+> +{
+> +	u32 data;
+> +	int ret;
+> +
+> +	if (!vpu->variant->shared_resource)
+> +		return 0;
+> +
+> +	ret =3D read_poll_timeout(atomic_cmpxchg, data, data, 10, 300 * NSEC_PE=
+R_MSEC, false,
+> +				vpu->variant->shared_resource, 1, 0);
+> +	if (ret) {
+> +		dev_err(vpu->dev, "Failed to wait shared resource\n");
+> +		return -EINVAL;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+>  static void device_run(void *priv)
+>  {
+>  	struct hantro_ctx *ctx =3D priv;
+>  	struct vb2_v4l2_buffer *src, *dst;
+>  	int ret;
+> =20
+> +	ret =3D hantro_wait_shared_resource(ctx->dev);
+> +	if (ret < 0)
+> +		goto err_cancel_job;
+> +
+>  	src =3D hantro_get_src_buf(ctx);
+>  	dst =3D hantro_get_dst_buf(ctx);
+> =20
+> diff --git a/drivers/media/platform/verisilicon/imx8m_vpu_hw.c b/drivers/=
+media/platform/verisilicon/imx8m_vpu_hw.c
+> index 5be0e2e76882..1b3a0bfbf890 100644
+> --- a/drivers/media/platform/verisilicon/imx8m_vpu_hw.c
+> +++ b/drivers/media/platform/verisilicon/imx8m_vpu_hw.c
+> @@ -324,6 +324,8 @@ static const char * const imx8mq_reg_names[] =3D { "g=
+1", "g2", "ctrl" };
+>  static const char * const imx8mq_g1_clk_names[] =3D { "g1" };
+>  static const char * const imx8mq_g2_clk_names[] =3D { "g2" };
+> =20
+> +static atomic_t imx8mq_shared_resource =3D ATOMIC_INIT(1);
+> +
+>  const struct hantro_variant imx8mq_vpu_variant =3D {
+>  	.dec_fmts =3D imx8m_vpu_dec_fmts,
+>  	.num_dec_fmts =3D ARRAY_SIZE(imx8m_vpu_dec_fmts),
+> @@ -356,6 +358,7 @@ const struct hantro_variant imx8mq_vpu_g1_variant =3D=
+ {
+>  	.num_irqs =3D ARRAY_SIZE(imx8mq_irqs),
+>  	.clk_names =3D imx8mq_g1_clk_names,
+>  	.num_clocks =3D ARRAY_SIZE(imx8mq_g1_clk_names),
+> +	.shared_resource =3D &imx8mq_shared_resource,
+>  };
+> =20
+>  const struct hantro_variant imx8mq_vpu_g2_variant =3D {
+> @@ -371,6 +374,7 @@ const struct hantro_variant imx8mq_vpu_g2_variant =3D=
+ {
+>  	.num_irqs =3D ARRAY_SIZE(imx8mq_g2_irqs),
+>  	.clk_names =3D imx8mq_g2_clk_names,
+>  	.num_clocks =3D ARRAY_SIZE(imx8mq_g2_clk_names),
+> +	.shared_resource =3D &imx8mq_shared_resource,
+>  };
+> =20
+>  const struct hantro_variant imx8mm_vpu_g1_variant =3D {
 
-You can then #define DEBUG in drivers/pinctrl/samsung/pinctrl-exynos.c
-
-Recompile, and do
-
-echo platform > /sys/power/pm_test
-echo mem > /sys/power/state
-
-and you should see all the debug from the newly enabled exynos9
-suspend/resume callbacks
-
-[  871.104840][  T741] gph2: save     con 0x00000000
-[  871.104932][  T741] gph2: save fltcon0 0x00000000
-[  871.105022][  T741] gph2: save fltcon1 0x00000000
-[  871.105109][  T741] gph2: save    mask 0x0000003f
-<snip>
-
-Prior to adding fltcon_offset and the gs101 (now exynos9) specific
-suspend/resume callbacks this would generate a SError on gs101
-
-Thanks,
-
-Peter
-
->
-> $:/sys/kernel/debug/pinctrl/139b0000.pinctrl-samsung-pinctrl# cat pins
-> registered pins: 42
-> pin 0 (gpg0-0) 0:gpg0 CON(0x0) DAT(0x0) PUD(0x1) DRV(0x2) CON_PDN(0x2) PUD_PDN(0x1)
-> pin 1 (gpg0-1) 1:gpg0 CON(0x0) DAT(0x0) PUD(0x1) DRV(0x2) CON_PDN(0x2) PUD_PDN(0x1)
-> ...
->
-> Additional testing on the affected Exynos9-era platforms would be
-> appreciated.
->
-> [1] https://git.kernel.org/pub/scm/linux/kernel/git/pinctrl/samsung.git
->
-> Changes in v2:
->   - Added base tree for this series (pinctrl/samsung).
->   - Renamed the macro parameter from 'types' to 'bank_type' for clarity
->     (struct member remains 'type').
->   - Reflowed commit messages (wrap at ~72 cols).
->   - Replaced non-ASCII characters with ASCII equivalents.
->   - Collected tags:
->       Reviewed-by: Sam Protsenko <semen.protsenko@linaro.org>
->       Tested-by: Sam Protsenko <semen.protsenko@linaro.org>
->   - Normalized hex literals to lowercase and removed double spaces.
->   - Aligned backslashes in macro definitions to form a vertical column
->     for readability.
->   - Added missing mailing lists (including linux-kernel) to Cc per
->     scripts/get_maintainer.pl.
->
-> Youngmin Nam (5):
->   pinctrl: samsung: Consolidate pin-bank macros under EXYNOS9_* and pass
->     bank_type explicitly
->   pinctrl: samsung: fix incorrect pin-bank entries on
->     Exynos2200/7885/8890/8895
->   pinctrl: samsung: add per-bank FLTCON offset to EXYNOS9_PIN_BANK_* and
->     fix tables
->   pinctrl: samsung: fold GS101 pin-bank macros into EXYNOS9_*
->   pinctrl: samsung: rename gs101_pinctrl_* to exynos9_pinctrl_*
->
->  .../pinctrl/samsung/pinctrl-exynos-arm64.c    | 1069 ++++++++---------
->  drivers/pinctrl/samsung/pinctrl-exynos.c      |    4 +-
->  drivers/pinctrl/samsung/pinctrl-exynos.h      |   97 +-
->  drivers/pinctrl/samsung/pinctrl-samsung.h     |    4 +-
->  4 files changed, 562 insertions(+), 612 deletions(-)
->
-> --
-> 2.39.2
->
 
