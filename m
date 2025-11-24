@@ -4,76 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4038ACFD313
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 00:40:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7731FCFD2F6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 00:54:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:
+	Content-Type:Content-Transfer-Encoding:References:In-Reply-To:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=86enG1PQ3QTR1WF+DT1Ds1EXXz9bxif0pdXC7YZNrqs=; b=XRTb5sMqtb1d93r7jegJxAB4Yn
-	WuDCOjaCH+vYTGlT7CzNERV9fA9PpxzlUmgt9OTFjDj4LYIjwEl3htbijxO6YeBwBCd2Io9JiTXNu
-	xIxKshbgo0AXcTk5+7uTujFfN+hQFYVBqDnfMJBfOn22jghN8rOCUEs5Zdza4oX+RiX9EMEWA5JpL
-	VEgy0c7JlNh0pOp7ddA3LFBV4TndIH3WK2GHMJlPqXw/jZiHl4BcmOF56bqlBNgZSgWuv1gtRTvYE
-	vnIRd0wBlR1k19IokJb3A0dYUdbzYE2y43CtRHrIlQUFeeh5uq7DZPp9ZcYY2OwIU5AuX5haSj7nj
-	sQ260u0g==;
+	bh=+tjng9tWNpJXzRw6RmT3s8rul1Av3/jTSsqhuCeS02g=; b=b0fhdpAuyhTb5Zew4HxIsLM3JE
+	RLHuqkJpNLeQ9L8kutqE2u3vcLOOzR3Ra+EMziKlEeP7R0soLkzBT3kUey1Wchw1EocGuYp9QCDOv
+	c3900zKyRGtp5kkRST9q3o6UCYEy7GuHllHNYFsEIyi1yFdwKoCkSp/xPbYX67KqzJpaz3bxIYmtz
+	4fpTAl3DCFsCa0vV8qpA+V82boW2hGHv1rCfAVaEgX4d096HJvUM9xaf7MCWGz0k+NhYbPruA4t2l
+	d3vYR4LfgEHbZxMc8bRDv6aSj0wxnxaXgrfpXbig7/1LIs/AMuXKJeWaO0AEvNdFsmrUB8Zs8FRiO
+	zEp7ekIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNKcr-0000000Art3-0Oya;
-	Mon, 24 Nov 2025 00:40:17 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vNKq7-0000000At3P-2nJa;
+	Mon, 24 Nov 2025 00:53:59 +0000
+Received: from m16.mail.163.com ([117.135.210.4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNKca-0000000ArcI-0qJ5
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Nov 2025 00:40:00 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7E0BC60161;
-	Mon, 24 Nov 2025 00:39:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 33965C16AAE;
-	Mon, 24 Nov 2025 00:39:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763944799;
-	bh=59dk9hx3CmiQzssyFO/uVMRkm/znXuNpXQsoz9Ju1v4=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=eUur5oNjmxtcf4hxClFd72vx7xSlcJlWZv3a2cGpXd9ZweM8caP4vuTHt26Dkk1ST
-	 l03zsuZWGwyVEnWhfgao0jFv9kQb9FUFsWQ6xOFctSu8wQN09fXB2fCaPVlQ4dD6es
-	 OEQCeIVpDF4ZlpQTb3GLdF7oI0Jjbea/HX36T5B8KqVeLkJw2DoT6NVZ9IymvrUIAF
-	 vpFAvQOiawC81th0Qybi0jXxL0Y4B+acgJw+8fY0twpctgmgJ0Yen1t/7rtpSyoxv4
-	 KgI260pZ0BC7R0mizvQODUG2XaIM207DFKEhkISDdTvWVFxqLywTTx8MLXANZX/5rw
-	 6F7tIhuOWPzhA==
-From: Jisheng Zhang <jszhang@kernel.org>
-To: Doug Berger <opendmb@gmail.com>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	bcm-kernel-feedback-list@broadcom.com,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>,
-	Hoan Tran <hoan@os.amperecomputing.com>,
-	Andy Shevchenko <andy@kernel.org>,
-	Daniel Palmer <daniel@thingy.jp>,
-	Romain Perier <romain.perier@gmail.com>,
-	Grygorii Strashko <grygorii.strashko@ti.com>,
-	Santosh Shilimkar <ssantosh@kernel.org>,
-	Kevin Hilman <khilman@kernel.org>,
-	Robert Jarzmik <robert.jarzmik@free.fr>,
-	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>,
-	Srinivas Neeli <srinivas.neeli@amd.com>,
-	Michal Simek <michal.simek@amd.com>
-Cc: linux-gpio@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-omap@vger.kernel.org,
-	Andy Shevchenko <andriy.shevchenko@intel.com>
-Subject: [PATCH v5 14/14] gpio: zynq: Use modern PM macros
-Date: Mon, 24 Nov 2025 08:21:05 +0800
-Message-ID: <20251124002105.25429-15-jszhang@kernel.org>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20251124002105.25429-1-jszhang@kernel.org>
-References: <20251124002105.25429-1-jszhang@kernel.org>
+	id 1vNKq3-0000000At1v-1BST;
+	Mon, 24 Nov 2025 00:53:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=Date:From:To:Subject:Content-Type:MIME-Version:
+	Message-ID; bh=1ojNoYcSRgOUItS36fhXAjSvyt7+UNGNmIcHggvRc3w=; b=c
+	cQtoVBJuCsQ92yBqd5UX1B0lyf0g+pDfzW/dD/Yi8EJYfFOB2sa+bwy/hF/qTVrD
+	2KjU10veZsWvO1H6xjD7U1n1yLoVTjK8aIPPp+LNcLYvAPU9Vv4DJGx/Vy7RmvYn
+	wu0w+y6PxYjH2AfoV6eM5nmem3hCL627qDvjV4HTdY=
+Received: from andyshrk$163.com ( [58.22.7.114] ) by
+ ajax-webmail-wmsvr-40-144 (Coremail) ; Mon, 24 Nov 2025 08:52:47 +0800
+ (CST)
+X-Originating-IP: [58.22.7.114]
+Date: Mon, 24 Nov 2025 08:52:47 +0800 (CST)
+From: "Andy Yan" <andyshrk@163.com>
+To: "Heiko Stuebner" <heiko@sntech.de>
+Cc: dmitry.baryshkov@oss.qualcomm.com, neil.armstrong@linaro.org,
+	andrzej.hajda@intel.com, mripard@kernel.org,
+	jernej.skrabec@gmail.com, jonas@kwiboo.se,
+	Laurent.pinchart@ideasonboard.com, maarten.lankhorst@linux.intel.com,
+	rfoss@kernel.org, simona@ffwll.ch, tzimmermann@suse.de,
+	knaerzche@gmail.com, devicetree@vger.kernel.org,
+	dri-devel@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	"Andy Yan" <andy.yan@rock-chips.com>, m.wilczynski@samsung.com
+Subject: Re:Re: [PATCH v8 1/2] drm/rockchip: inno-hdmi: Convert to drm
+ bridge
+X-Priority: 3
+X-Mailer: Coremail Webmail Server Version 2023.4-cmXT build
+ 20250723(a044bf12) Copyright (c) 2002-2025 www.mailtech.cn 163com
+In-Reply-To: <8913609.MhkbZ0Pkbq@phil>
+References: <20251016083843.76675-1-andyshrk@163.com>
+ <20251016083843.76675-2-andyshrk@163.com> <8913609.MhkbZ0Pkbq@phil>
+X-CM-CTRLMSGS: ARNM03BsdXM9MTc2Mzk0NTU2Nzc2MF9mMWFkMThkZGU5MGVhNWVjOWMxY2Q4N
+ TIyODc1ODVlYw==
+X-NTES-SC: AL_Qu2dAfWfuk0t4SecYOkfmUgWjuw/WsG1v/Ul1YBSP556jC3r1gsLcEV5OV7n7/K1KhiBjx+mVR1uxOl/e7Rgbog6ztD4kGMVyG9OqD90thYGFw==
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset=UTF-8
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Message-ID: <7cc43fc7.843.19ab3595609.Coremail.andyshrk@163.com>
+X-Coremail-Locale: zh_CN
+X-CM-TRANSID: kCgvCgDnUTxfrCNpAWAoAA--.919W
+X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/xtbCxR9lw2kjrF+srwAA3G
+X-Coremail-Antispam: 1U5529EdanIXcx71UUUUU7vcSsGvfC2KfnxnUU==
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251123_165355_731543_DA0EAFBF 
+X-CRM114-Status: UNSURE (   5.40  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,79 +86,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use the modern PM macros for the suspend and resume functions to be
-automatically dropped by the compiler when CONFIG_PM or
-CONFIG_PM_SLEEP are disabled, without having to use __maybe_unused
-
-Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-Acked-by: Linus Walleij <linus.walleij@linaro.org>
-Reviewed-by: Andy Shevchenko <andriy.shevchenko@intel.com>
----
- drivers/gpio/gpio-zynq.c | 15 +++++++--------
- 1 file changed, 7 insertions(+), 8 deletions(-)
-
-diff --git a/drivers/gpio/gpio-zynq.c b/drivers/gpio/gpio-zynq.c
-index 0ffd76e8951f..97780c57ab56 100644
---- a/drivers/gpio/gpio-zynq.c
-+++ b/drivers/gpio/gpio-zynq.c
-@@ -735,7 +735,7 @@ static void zynq_gpio_restore_context(struct zynq_gpio *gpio)
- 	}
- }
- 
--static int __maybe_unused zynq_gpio_suspend(struct device *dev)
-+static int zynq_gpio_suspend(struct device *dev)
- {
- 	struct zynq_gpio *gpio = dev_get_drvdata(dev);
- 	struct irq_data *data = irq_get_irq_data(gpio->irq);
-@@ -756,7 +756,7 @@ static int __maybe_unused zynq_gpio_suspend(struct device *dev)
- 	return 0;
- }
- 
--static int __maybe_unused zynq_gpio_resume(struct device *dev)
-+static int zynq_gpio_resume(struct device *dev)
- {
- 	struct zynq_gpio *gpio = dev_get_drvdata(dev);
- 	struct irq_data *data = irq_get_irq_data(gpio->irq);
-@@ -779,7 +779,7 @@ static int __maybe_unused zynq_gpio_resume(struct device *dev)
- 	return 0;
- }
- 
--static int __maybe_unused zynq_gpio_runtime_suspend(struct device *dev)
-+static int zynq_gpio_runtime_suspend(struct device *dev)
- {
- 	struct zynq_gpio *gpio = dev_get_drvdata(dev);
- 
-@@ -788,7 +788,7 @@ static int __maybe_unused zynq_gpio_runtime_suspend(struct device *dev)
- 	return 0;
- }
- 
--static int __maybe_unused zynq_gpio_runtime_resume(struct device *dev)
-+static int zynq_gpio_runtime_resume(struct device *dev)
- {
- 	struct zynq_gpio *gpio = dev_get_drvdata(dev);
- 
-@@ -814,9 +814,8 @@ static void zynq_gpio_free(struct gpio_chip *chip, unsigned int offset)
- }
- 
- static const struct dev_pm_ops zynq_gpio_dev_pm_ops = {
--	SET_SYSTEM_SLEEP_PM_OPS(zynq_gpio_suspend, zynq_gpio_resume)
--	SET_RUNTIME_PM_OPS(zynq_gpio_runtime_suspend,
--			   zynq_gpio_runtime_resume, NULL)
-+	SYSTEM_SLEEP_PM_OPS(zynq_gpio_suspend, zynq_gpio_resume)
-+	RUNTIME_PM_OPS(zynq_gpio_runtime_suspend, zynq_gpio_runtime_resume, NULL)
- };
- 
- static const struct zynq_platform_data versal_gpio_def = {
-@@ -1022,7 +1021,7 @@ static void zynq_gpio_remove(struct platform_device *pdev)
- static struct platform_driver zynq_gpio_driver = {
- 	.driver	= {
- 		.name = DRIVER_NAME,
--		.pm = &zynq_gpio_dev_pm_ops,
-+		.pm = pm_ptr(&zynq_gpio_dev_pm_ops),
- 		.of_match_table = zynq_gpio_of_match,
- 	},
- 	.probe = zynq_gpio_probe,
--- 
-2.51.0
-
+CgpwaW5nLi4uLgoKQXQgMjAyNS0xMC0yMCAyMDo0NTozNCwgIkhlaWtvIFN0dWVibmVyIiA8aGVp
+a29Ac250ZWNoLmRlPiB3cm90ZToKPkFtIERvbm5lcnN0YWcsIDE2LiBPa3RvYmVyIDIwMjUsIDEw
+OjM4OjMxIE1pdHRlbGV1cm9ww6Rpc2NoZSBTb21tZXJ6ZWl0IHNjaHJpZWIgQW5keSBZYW46Cj4+
+IEZyb206IEFuZHkgWWFuIDxhbmR5LnlhbkByb2NrLWNoaXBzLmNvbT4KPj4gCj4+IENvbnZlcnQg
+aXQgdG8gZHJtIGJyaWRnZSBkcml2ZXIsIGl0IHdpbGwgYmUgY29udmVuaWVudCBmb3IgdXMgdG8K
+Pj4gbWlncmF0ZSB0aGUgY29ubmVjdG9yIHBhcnQgdG8gdGhlIGRpc3BsYXkgZHJpdmVyIGxhdGVy
+Lgo+PiAKPj4gU2lnbmVkLW9mZi1ieTogQW5keSBZYW4gPGFuZHkueWFuQHJvY2stY2hpcHMuY29t
+Pgo+Cj5SZXZpZXdlZC1ieTogSGVpa28gU3R1ZWJuZXIgPGhlaWtvQHNudGVjaC5kZT4KPgo+QnV0
+IG9mIGNvdXJzZSBJIHdvdWxkIGJlIHJlYWxseSBoYXBweSBpZiBzb21lb25lIHdpdGggbW9yZSBl
+eHBlcmllbmNlCj5vbiBnZW5lcmFsIGJyaWRnZXMgY291bGQgYWxzbyB0YWtlIGEgbG9vay4KPgo+
+Cj5IZWlrbwo+Cj4KPgo+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX18KPkxpbnV4LXJvY2tjaGlwIG1haWxpbmcgbGlzdAo+TGludXgtcm9ja2NoaXBAbGlzdHMu
+aW5mcmFkZWFkLm9yZwo+aHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5m
+by9saW51eC1yb2NrY2hpcAo=
 
