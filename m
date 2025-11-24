@@ -4,60 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B20F7CFD340
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 17:50:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 528BCCFD341
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 17:56:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uMxwzkjUbHSlCREDuWZdbtMRE9C753ReQvDktnODA4A=; b=AKFzNMhRDOUql6oQWjvNuHZoKG
-	nXRnAYanf2hwYi3p+Nog3c44WdJHeYUsSikFcx8s17RBMyfzoElroS8VN/Ep3JL7SU0tz/CQebRpK
-	pV/knFe2xC06eI3SncwvOqur/7LIrP5EpsJTL+t7oJCjSVE3ClQzDFoyt2xjUWV7+k6I4JO97LF57
-	HqkJA6dofcrij1MEdWcFYG3fzMcvLlAWY5ZYbeaJg37FY4/8imRV0R5ui/uMlNQup8GMWunajwT1f
-	evSccK4qFPNpd5fTv3bABkWugL40sgqoBLISrQrTHje8SUVXqQTaJnEQT7QtSO1YeD8JXRNnsfHWA
-	fcW7DBog==;
+	bh=dgj16XmQKLfzuMiMJnYwYhnRMSc7HIdJxo40jdxC8fc=; b=ag9nkNInkv70F/YOSHANTDLhrV
+	bnX0faXWWkjlVwxcpIL2reufhtT1uiLNrmd6L2RhUKSs6Qsd8QHctYwkjHtRMq1WEEKbhuKTKyvt8
+	xKNQNM0owTIfKLhJuSgL91fHOLwQMnFhRU9H4sYbfbVxKDAZ4id6JrM8f16pEmdL4DKlBhOONi5d1
+	d355yoAw2wPsfpYtR38LYLRV8fUzPxcrNjl6F/jsUc01VqOVCtkIm+95yiwvIDK9N40/+UI8Mpjs2
+	j6Jlctt5r1xEs7Xk0LAOs/f5a3P9Nit2Pgqy9wY5TOrr14HCuw9/8YN0DdLoRH5H2gQEARNOUG/Of
+	ZR2yGMDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNahi-0000000C8I1-28nn;
-	Mon, 24 Nov 2025 17:50:22 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNahf-0000000C8HX-0p2H
+	id 1vNank-0000000C8b3-1a1k;
+	Mon, 24 Nov 2025 17:56:36 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vNanh-0000000C8aD-2SN3
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Nov 2025 17:50:20 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4374D1477;
-	Mon, 24 Nov 2025 09:50:10 -0800 (PST)
-Received: from [10.57.88.238] (unknown [10.57.88.238])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4D8623F73B;
-	Mon, 24 Nov 2025 09:50:16 -0800 (PST)
-Message-ID: <ecc11ec7-ba00-41f1-8a2a-8f3a83c9ffd9@arm.com>
-Date: Mon, 24 Nov 2025 17:50:14 +0000
+	Mon, 24 Nov 2025 17:56:34 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-477ba2c1ca2so48258485e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Nov 2025 09:56:32 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1764006991; x=1764611791; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=dgj16XmQKLfzuMiMJnYwYhnRMSc7HIdJxo40jdxC8fc=;
+        b=A/n34a9DxVpJXi1RaTVFZj284yFUdo0wNHNJQ54to2LNre9Rn0d23Gy0hvLGa2NleQ
+         0RS+HhnhHVsPYBD+9ebSxWir4/uvzW3dotWaBZM+xUQKJJQlqU1MCmM0uW+EA5OEc7r1
+         OWJul8K5/ELRHoyOyaK2n9Dkobv9QbVdGHK+KvX0XTOOEdyjaZMG/+UTYQGO6GxSgq19
+         aI4G5jHEkiFjPDD/mOIODI4miCSWrzyUHnzEDMTICMyDN5fhVlhZwEY5JDiimeEi5p9i
+         GVgLQgBlQU4bLGvMZ9yOn/D89STKWHOmNb4s2iq1bPATKh58Sy7wrSm77htUPEs1YXUE
+         JBJg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1764006991; x=1764611791;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=dgj16XmQKLfzuMiMJnYwYhnRMSc7HIdJxo40jdxC8fc=;
+        b=ULWHLqmezr6cSaPTTfriXuzWdVVkqmojqavnhYfQpxWmSq7UA8fmFJFe10yz8NXRL7
+         Wtc8ptVfxFAqoLksEdMDsYkCl0glsVqmqW+XM+QomJPHx8BGKOtIdM1SSBNyLgrgWCW8
+         R5CCI3XOgAJqvceVuz0AMsGxXCZuZ618Dr4/OaRP2jzls/u+HZOYNGYXBL7y3iriod+E
+         ZWrJMhTbfcUoaL/rvYTUvO22elyhBiP/yAVn8t9gvYkLU8/TT9TIBXYvVmgCYvrwqQop
+         rh40QXvQscKZILrurlrMvGOPQ+qGA1nVPqtfJdnjSnYELlPcdFVIzJ9qRRwn5bZ1fNvv
+         RZ9Q==
+X-Forwarded-Encrypted: i=1; AJvYcCV6b4QDhruffH77zVqtyPBQG8W+ttGNh8fKpWnLJ5uzlFNyAeCQmZBDL8SHipuYiddneOm1SO1thrbMb0J/aifj@lists.infradead.org
+X-Gm-Message-State: AOJu0YxUx2NRd3ExtlCDZ6BXV5PhpSUNaBR3Sse9IU75BoDHcBLdx4JZ
+	jqmFGwHh/SUzCdkrsK6IGotGcSmjJYAN0T1BGmkMYEmkhyXaizRg7m9eNqf+zCyrVXc=
+X-Gm-Gg: ASbGncsK1V15FikKCrikDFpem7VzRm1+kbeX6Z8vDvb6kC5d1pQjX+4t4jkcaKYxQzP
+	NZMLCft7zejAIxGjApEvuz9SJFp7bgPQtBKXb/7i3wVg3cuQQ0uFbTJR/p6pnEQVco/owpXUE1K
+	WRI9XCHafqoAKy9xWY6ykNQ1ConcmwI6dsdf0ySyDre2rqPXA8xXVZbTA/J7jNSa5INen3Hbqmb
+	sAJsVW7c627RC/+eby6VRLQck7IyUDH/3xPNOkBG2GLhmQLnLcKUueS/zrJhb1HHSt0t/IzGiZk
+	94T/vjGxS8fvxumustVQroPLmdGEwypoYmWC5/F64WxVHIfVMoVEfP9Luhdrfd33Tpui9JIPNys
+	gvXaoZZNcY/cfXur1HFJuigy5whynov+J9QT9gIlD8MW+2LTZesNPTxo4WfAfMoEKjACkrfTL9y
+	gan8W7jS732a8e+x4grVYIXPn8w1UL8X5KaECOfyPnNcfl4zbsg0zpEkV2kQyA5NgnXJK6FQs7P
+	3SC
+X-Google-Smtp-Source: AGHT+IF9jQYjGDYWRD+2xNGzxOUo7frTRxo+/YiP6cBgQWSgQQXQD/fGaLUkrkLZhoAvTfv/zaiUjQ==
+X-Received: by 2002:a05:600c:1f94:b0:477:28c1:26ce with SMTP id 5b1f17b1804b1-477c016bbd5mr123402035e9.7.1764006991417;
+        Mon, 24 Nov 2025 09:56:31 -0800 (PST)
+Received: from ?IPV6:2a05:6e02:1041:c10:a756:bb6c:7b35:af9b? ([2a05:6e02:1041:c10:a756:bb6c:7b35:af9b])
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-477bf198a67sm217894095e9.0.2025.11.24.09.56.30
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 24 Nov 2025 09:56:30 -0800 (PST)
+Message-ID: <190003b6-2931-406a-a8f6-ec8909c65162@linaro.org>
+Date: Mon, 24 Nov 2025 18:56:29 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [DISCUSSION] kstack offset randomization: bugs and performance
-Content-Language: en-GB
-To: Kees Cook <kees@kernel.org>, Will Deacon <will@kernel.org>
-Cc: Arnd Bergmann <arnd@arndb.de>, Ard Biesheuvel <ardb@kernel.org>,
- Jeremy Linton <jeremy.linton@arm.com>,
- Catalin Marinas <Catalin.Marinas@arm.com>,
- Mark Rutland <mark.rutland@arm.com>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
-References: <66c4e2a0-c7fb-46c2-acce-8a040a71cd8e@arm.com>
- <dd8c37bc-795f-4c7a-9086-69e584d8ab24@arm.com>
- <aSRtaVjfNc11EtKg@willie-the-truck>
- <B696956E-579E-412E-B774-AAADCFA4B31C@kernel.org>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <B696956E-579E-412E-B774-AAADCFA4B31C@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH v4 3/9] thermal/drivers/mediatek/lvts: Fail probe if
+ temp_factor is zero
+To: Laura Nao <laura.nao@collabora.com>, srini@kernel.org, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, rafael@kernel.org,
+ rui.zhang@intel.com, lukasz.luba@arm.com, matthias.bgg@gmail.com,
+ angelogioacchino.delregno@collabora.com
+Cc: nfraprado@collabora.com, arnd@arndb.de, colin.i.king@gmail.com,
+ u.kleine-koenig@baylibre.com, andrew-ct.chen@mediatek.com,
+ lala.lin@mediatek.com, bchihi@baylibre.com, frank-w@public-files.de,
+ wenst@chromium.org, fshao@chromium.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ kernel@collabora.com
+References: <20251121-mt8196-lvts-v4-v4-0-357f955a3176@collabora.com>
+ <20251121-mt8196-lvts-v4-v4-3-357f955a3176@collabora.com>
+Content-Language: en-US
+From: Daniel Lezcano <daniel.lezcano@linaro.org>
+In-Reply-To: <20251121-mt8196-lvts-v4-v4-3-357f955a3176@collabora.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251124_095019_387023_CA625EC3 
-X-CRM114-Status: GOOD (  23.13  )
+X-CRM114-CacheID: sfid-20251124_095633_654390_AD98F62A 
+X-CRM114-Status: GOOD (  17.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,72 +113,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 24/11/2025 17:11, Kees Cook wrote:
+On 11/21/25 12:16, Laura Nao wrote:
+> temp_factor is used in lvts_temp_to_raw() and lvts_raw_to_temp(). If
+> platform data is incorrect and temp_factor is zero, it could cause a
+> division by zero. Fail the probe early to prevent a kernel crash.
 > 
+> Signed-off-by: Laura Nao <laura.nao@collabora.com>
+> ---
+>   drivers/thermal/mediatek/lvts_thermal.c | 5 +++++
+>   1 file changed, 5 insertions(+)
 > 
-> On November 24, 2025 6:36:25 AM PST, Will Deacon <will@kernel.org> wrote:
->> On Mon, Nov 17, 2025 at 11:31:22AM +0000, Ryan Roberts wrote:
->>> On 17/11/2025 11:30, Ryan Roberts wrote:
->>>> Could this give us a middle ground between strong-crng and
->>>> weak-timestamp-counter? Perhaps the main issue is that we need to store the
->>>> secret key for a long period?
->>>>
->>>>
->>>> Anyway, I plan to work up a series with the bugfixes and performance
->>>> improvements. I'll add the siphash approach as an experimental addition and get
->>>> some more detailed numbers for all the options. But wanted to raise it all here
->>>> first to get any early feedback.
->>
->> FWIW, I share Mark's concerns about using a counter for this. Given that
->> the feature currently appears to be both slow _and_ broken I'd vote for
->> either removing it or switching over to per-thread offsets as a first
->> step.
-> 
-> That it has potential weaknesses doesn't mean it should be entirely removed.
-> 
->> We already have a per-task stack canary with
->> CONFIG_STACKPROTECTOR_PER_TASK so I don't understand the reluctance to
->> do something similar here.
-> 
-> That's not a reasonable comparison: the stack canary cannot change arbitrarily for a task or it would immediately crash on a function return. :)
-> 
->> Speeding up the crypto feels like something that could happen separately.
-> 
-> Sure. But let's see what Ryan's patches look like. The suggested changes sound good to me.
+> diff --git a/drivers/thermal/mediatek/lvts_thermal.c b/drivers/thermal/mediatek/lvts_thermal.c
+> index 1c54d0b75b1a..b49441d82ffd 100644
+> --- a/drivers/thermal/mediatek/lvts_thermal.c
+> +++ b/drivers/thermal/mediatek/lvts_thermal.c
+> @@ -1346,6 +1346,11 @@ static int lvts_probe(struct platform_device *pdev)
+>   	if (irq < 0)
+>   		return irq;
+>   
+> +	if (!lvts_data->temp_factor)
+> +		return dev_err_probe(
+> +			dev, -EINVAL,
+> +			"temp_factor should never be zero; check platform data.\n");
+> +
 
-Just to say I haven't forgotten about this; I ended up having to switch to
-something more urgent. Hoping to get back to it later this week. I don't think
-this is an urgent issue, so hopefully folks are ok waiting.
+ From my POV, this is not really useful. The temp_factor is set for each 
+version statically in the code. The scope is limited to the driver, IOW 
+it is not a parameter other subsystems passes to the driver.
 
-I propose to post whatever I end up with then we can all disscuss from there.
-But the rough shape so far:
-
-Fixes:
- - Remove choose_random_kstack_offset()
- - arch passes random into add_random_kstack_offset() (fixes migration bypass)
- - Move add_random_kstack_offset() to el0_svc()/el0_svc_compat() (before
-   enabling interrupts) to fix non-preemption requirement (arm64)
-
-Perf Improvements:
- - Based on Jeremy's prng, but buffer the 32 bits and use 6 bits per syscall (so
-   cost of prng generation is amortized over 5 syscalls)
- - Reseed prng using get_random_u64() every 64K prng invocations (so cost of
-   get_random_u64() is amortized over 64K*5 syscalls)
- - So while get_random_u64() still has a latency spike, it's so infrequent that
-   it doesn't show up in p99.9 for my benchmarks.
- - If we want to change it to per-task, I think it's all amenable.
- - I'll leave the timer off limits for arm64.
-
-Although I'm seeing some inconsistencies in the performance measurements, so
-need to get that understood properly first.
-
-Thanks,
-Ryan
+If it is NULL, then shame on the submitter who did not test the driver 
+before sending ;)
 
 
-> 
-> -Kees
-> 
-> 
 
+-- 
+<http://www.linaro.org/> Linaro.org │ Open source software for ARM SoCs
+
+Follow Linaro:  <http://www.facebook.com/pages/Linaro> Facebook |
+<http://twitter.com/#!/linaroorg> Twitter |
+<http://www.linaro.org/linaro-blog/> Blog
 
