@@ -4,144 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AF4BCFD362
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 22:41:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5E23CFD360
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 22:44:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UVuSA1MEe25byhZRPl21B7PBxJ3HyHnoSfu+7Oa6oqk=; b=m134VWR9EaCsbTLB8QqFlxC79b
-	i+dEo52iWVIqVHlYQIbrhAqG9Yk4KD2GPqWFZ6ph4NcsynfxNa2CBFyUu4jujAOVyvwdQNS9MCvHR
-	gbd7Zi4u+n+qcbGBw2NyfSVEFsHaWqEJG8xMzIzbM60MCSZDA8EG0BcwCbb3Dz+ynP/BL93st3TMV
-	skXX0cMEgFKX5RelW7YkPwK85qXYiC9FWbLhMyKQCiLdW72f04PjNZ0lJXJgPAoM9VCOBRZaDgfhg
-	cUkuK8ONvTUOqkdnzz6QO8ave7tFDqulFuBMPdUejmrocMN7x/YA/oT+PJvf4yosJTA96fVcejC70
-	M10pQcuQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WRfDMiT0+cfffmbIo+m0r0fBMX0WeEDnAhtfvLhI1U8=; b=TUYqogjBqIYEaPyjBECZqPqvky
+	x69sm7mU51U0J5/+btYCgmVgINTWSrGxH039lenQkQCdbZgheqdZC5ZYl7Fdm3FdyxWnfptaGS2vy
+	1eUk2Edi/h+mJYt2R8ctjWr+1hytwqembNFpNxOe7CIvDwOG00W6JcrpeRpU19wvE1V3jNkwf4TFK
+	6RhA4ETzqmYn473sCyJAkT7to7evHMjy+sZyU9IgmNcCQMTVgxI/iu9yfrve57cgnhnGRH/cLDawo
+	Kyigwe1gMZGktSTD+TpVYuR+dIaE4UWLg8DM2geOu6WSvst/A/QS3WmcJZWirIhOJHj7cd2AJ+EiY
+	s9WCCTsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNfFi-0000000CPDi-3A1C;
-	Mon, 24 Nov 2025 22:41:46 +0000
-Received: from mail-centralusazon11011045.outbound.protection.outlook.com ([52.101.62.45] helo=DM5PR21CU001.outbound.protection.outlook.com)
+	id 1vNfI0-0000000CPOO-0tJ2;
+	Mon, 24 Nov 2025 22:44:08 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNfFg-0000000CPDM-2Tbm
+	id 1vNfHy-0000000CPOE-2rzb
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Nov 2025 22:41:46 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=s8WVRgPuzIzL6lh4T011lEXi0ZOdb+2ZTptYiHJgCCsv+1yJQhNOkq9zc3ot0ftCm8W/jtwlNj9iCSUuKrJDDYVKg6YiyYJ75nRn9JNcUchJMRQuH++MHYOfN4SiX1PZ/zlx21+/bhcNMAdUvBoKJqbC8yTbiXq2rdXL4MWvrZeDwHJAv5bvwzO9dRr7wBjQU6iFhPA9tFX0HBctDL9+sXJo6vZ3HfF4oXEIcbYC7gNaT8fm0O18sfv9SXOmFnqB4xITcc1/Eh55OkLHf6r1vqgE81cHelCXtqOUw+Mm8ke6DPepRTR7mHwGTPbr0vWQYxASKEH7gqJi2wiQC0k6kg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=UVuSA1MEe25byhZRPl21B7PBxJ3HyHnoSfu+7Oa6oqk=;
- b=K5HGjD3ln5fgx0zOAdH3JeiKusN1gjn4lLxlWnNI2iTDAxRkHpsueLywYDkfohk5DCIQlVamZWqGPxrlCQqySJIzs2EsKezXahTSXlB/J2dCMwV4ViwtgcsHr8KjP/1rTB6IHyzl0/wRWUq3bkAzBYCeh3ru1sUad77jfseNQrpyQlElpCTS8GQSF9upn+MW4f5kGBaEP+f6WBik0hZEPnDm1nxdru4/vltzhu4tCFwWQTulrcnGRz1YVQGoLK11sjxaFQun880hHCfWw7prKL/cd93E2V/gP5GZAnqzTSGHn2zy9f9azA8iimFFav/rvzcwQTDsHPlwc5kmtjCy7g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.160) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=UVuSA1MEe25byhZRPl21B7PBxJ3HyHnoSfu+7Oa6oqk=;
- b=MTC5gWG/J7xUWLKoqG58T1LOLASlNskizDb1KYXyVz/aRraLb1IvsRfJwPqjAlteQq2BIFeZ/Af/m3kkXtlTS329elhAuycRqxesEPBKma+Gw3TAA58ps/7qoFMGroKgoThDvbJcmNcST5+/E40ccTBHppXuJ02O8m/931BPWjWe/cMkfDxcLg6BkkjR/ZF5tCnDwc98DhwH4VZANgIuktp8cCTWMP4p+liT7D3WvNXbcBd5BBe3781BxkfztkH8BO24kj/ncP3VtW1DUyPCYKDr07qpCyF8Dwnz645yo+VPGGwpFg/o3e8oRgvPqUbvSMcUKzhgk4kVQ8mOX+4fJw==
-Received: from DM6PR02CA0051.namprd02.prod.outlook.com (2603:10b6:5:177::28)
- by SJ0PR12MB6942.namprd12.prod.outlook.com (2603:10b6:a03:449::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9343.17; Mon, 24 Nov
- 2025 22:41:33 +0000
-Received: from CH2PEPF0000009A.namprd02.prod.outlook.com
- (2603:10b6:5:177:cafe::6f) by DM6PR02CA0051.outlook.office365.com
- (2603:10b6:5:177::28) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9343.17 via Frontend Transport; Mon,
- 24 Nov 2025 22:41:33 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.160) by
- CH2PEPF0000009A.mail.protection.outlook.com (10.167.244.22) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9366.7 via Frontend Transport; Mon, 24 Nov 2025 22:41:33 +0000
-Received: from rnnvmail203.nvidia.com (10.129.68.9) by mail.nvidia.com
- (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 24 Nov
- 2025 14:41:18 -0800
-Received: from rnnvmail201.nvidia.com (10.129.68.8) by rnnvmail203.nvidia.com
- (10.129.68.9) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 24 Nov
- 2025 14:41:17 -0800
-Received: from Asurada-Nvidia (10.127.8.13) by mail.nvidia.com (10.129.68.8)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Mon, 24 Nov 2025 14:41:16 -0800
-Date: Mon, 24 Nov 2025 14:41:15 -0800
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Will Deacon <will@kernel.org>
-CC: <jean-philippe@linaro.org>, <robin.murphy@arm.com>, <joro@8bytes.org>,
-	<jgg@nvidia.com>, <balbirs@nvidia.com>, <miko.lenczewski@arm.com>,
-	<peterz@infradead.org>, <kevin.tian@intel.com>, <praan@google.com>,
-	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
-	<linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v5 3/7] iommu/arm-smmu-v3: Introduce a per-domain
- arm_smmu_invs array
-Message-ID: <aSTfC5WFoa6sJlBj@Asurada-Nvidia>
-References: <cover.1762588839.git.nicolinc@nvidia.com>
- <eea7bffde13574e099212e3b3823a0f192d6aec3.1762588839.git.nicolinc@nvidia.com>
- <aSTRRyTBh1nATwBa@willie-the-truck>
+	Mon, 24 Nov 2025 22:44:06 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id CB16A6000A;
+	Mon, 24 Nov 2025 22:44:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 55050C4CEF1;
+	Mon, 24 Nov 2025 22:44:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1764024245;
+	bh=iq+pBVpT6OeYuuhJ6C0yJpr7YyPJWT2pNltOJSC4Pac=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=Pkwq5+A6/E6eA5+8ydkywqZONDULSBGc7UBLcLjWZMvudaQSNlHetO/ntIefIEX94
+	 rELf0GKjddm9EQ28nRSFsMLBILa76VTIEfVRQSfHY4n0dwatlT+cfb06/01ufKhS+C
+	 zhXTrjOn4c8Ckqwogte8kYCp4joay0q7JcsJ00kwEAM10iNOXUc8HbubTrsnuSa8/6
+	 TM7QPDyDQRhew57iahAs7HxgBlZvozLSYXFuIj/9sdePZTPLy4LyBOpW329GGMA4wy
+	 R8xfMCZSDPjvDUfBugNt12cMtcN9gghx1geU1OZgFUlh+Drsze5gQVdAX1sENZnaU6
+	 3WhX7vk2Wrq0w==
+From: Oliver Upton <oupton@kernel.org>
+To: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	kvm@vger.kernel.org,
+	Marc Zyngier <maz@kernel.org>
+Cc: Oliver Upton <oupton@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Christoffer Dall <christoffer.dall@arm.com>,
+	Fuad Tabba <tabba@google.com>,
+	Mark Brown <broonie@kernel.org>
+Subject: Re: [PATCH v4 00/49] KVM: arm64: Add LR overflow infrastructure (the final one, I swear!)
+Date: Mon, 24 Nov 2025 14:44:01 -0800
+Message-ID: <176402422342.855688.6586598326485098287.b4-ty@kernel.org>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20251120172540.2267180-1-maz@kernel.org>
+References: <20251120172540.2267180-1-maz@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <aSTRRyTBh1nATwBa@willie-the-truck>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH2PEPF0000009A:EE_|SJ0PR12MB6942:EE_
-X-MS-Office365-Filtering-Correlation-Id: 1a83bbee-eadd-4a04-34fe-08de2baa9e71
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|1800799024|376014|7416014|36860700013;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?+zFQC9v0kZ7pfjbPbRcWyMKWzsPeNQCJFQYOmi5mqqoLZVP6iGM39+0vqgi4?=
- =?us-ascii?Q?BLcDWHAIPL9STPj0W+hZnL5bVpYnVwZf4y0H4yIyxfJl3jyhYxL2Fm5weLZO?=
- =?us-ascii?Q?Xp6ZLGMFXSaOGPzXptUcjB6Bay5NAcH0xz3XNmdf7/fAr1lLq4/YSMx5sCLe?=
- =?us-ascii?Q?wyVXPpVVO/n/07ZpEVOcH6U8/LKGq2dO2bNMFiPDgIfTHRUTOO1hOdT88uOM?=
- =?us-ascii?Q?CaITCDJtd9fFSArz5K9o+B8Vg5EP4Q5ExXfr+YxakQr8BaTzjdybUF4BP4WE?=
- =?us-ascii?Q?eWVcKJ8uwYui2ayDzXl9hkBLnV32mltsuKeIriIRkXtXdVO5cf2ud9unkGcp?=
- =?us-ascii?Q?nzwxGAif7GqAj6iAMWeiQQbXnDGsf1NpaUHUbUmCgzvUzc3iPcXQcaZGCaYf?=
- =?us-ascii?Q?C/QcnN5o8XRilVWD4U5t9Lmpii+Q6UBu3b+B7D+tU0jCakeVjrY2wMhfgbkY?=
- =?us-ascii?Q?hxaBvIFFu6IggKb3HXH6tJnmgLBBX6wU/shHVUoZyfj2xfNyQo20UMerGLzB?=
- =?us-ascii?Q?mrb/rRqrXnLdude4Rr2CDrZGwCu+c30QRFSmeMx8cDp2CRCsoQSPj09wSl26?=
- =?us-ascii?Q?epB6SA5b0qpwYJgmjyl4cYJ1tij6Aut4JvZXNl9WJnT88B5fOqGPLe+nhHtp?=
- =?us-ascii?Q?cTQ2ofpq6yWmMjJcinU1doB4LhT9LHSvDxcwTv6SUs4cAOD5wBgDbUFk9Bel?=
- =?us-ascii?Q?UuSLOUqnKwH5KnyOyIxncBGPtLORc+6sswPSKs9x1LUCj5v5V2GhguK/xZwA?=
- =?us-ascii?Q?Ex/n1xFi+ojB8ddLhoT55AL5AqfaBhcG6yYNy+bii+WwUA6aGH9zusW4Af99?=
- =?us-ascii?Q?D9bDkScPxFXRYKDcRHXF8WgGc2Pu2jv9JBmKFaNKgwvBldBQsr9mNYbAr5P7?=
- =?us-ascii?Q?D328at0p1mzwCuhmwnyoRfXfUqffYMnFbVlQWBv5FPpSbVNLkQPpKCAn2Mjz?=
- =?us-ascii?Q?UWOoXqm30j5Qi85MjqaGSx/Nx71lt+P/+/6d70CAxhfj4dYN36lrPU6UH+Lp?=
- =?us-ascii?Q?IDFa05aoXzgtnqyusUorAPdMVfjt0+urEuU5Mq804REtZ1+n48LTsGw57MxB?=
- =?us-ascii?Q?U72zY9mQ0w4PDmndU6VQ+pOmcVdjgStz7e+V6vZTy450gZj8GfIfdpOHF+XX?=
- =?us-ascii?Q?sqAH/xUJ1X8NhqjWYsnS5+G/BOPdXReoHnbtFz1KmG7thz5Q26qyi3Rb/YAY?=
- =?us-ascii?Q?9bKtX5PgkHIbR0HXG6cdGRU8TbeicuuHcxulzqdI3HFCdqI9JaWeDFTe4bxU?=
- =?us-ascii?Q?s9Q6VXnPGEnaB1LRrovnyqx1fiXPOaLKaHTkHWf19tS8mh9hPMpPtf46d4KL?=
- =?us-ascii?Q?cLBu19zVOLLb3k1qivJybSegG386V2tk6hMheTouA/bkgnWWEnucu3pjLbmX?=
- =?us-ascii?Q?u+Uc4nhd72vUSG5fM+olo7jDNTnitecHgykhIxIW67oj6/gSgdn2At5Uopou?=
- =?us-ascii?Q?jk8PA+WO3H73TyYzHYdhSSNup7V+CRc7f7ItFYGjxPYtQtleAPpso8SUgpRL?=
- =?us-ascii?Q?orBFHznaPq5lagp374Eg1GJ0k+BEZkveq6CtkqfR6Zjjjdg01FJ/ERHzNVT3?=
- =?us-ascii?Q?PnsUg4UJ0YIxPrmvUM0=3D?=
-X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(376014)(7416014)(36860700013);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Nov 2025 22:41:33.4291
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1a83bbee-eadd-4a04-34fe-08de2baa9e71
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: CH2PEPF0000009A.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR12MB6942
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251124_144144_653836_E4788247 
-X-CRM114-Status: GOOD (  10.59  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,21 +77,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 24, 2025 at 09:42:31PM +0000, Will Deacon wrote:
-> On Sat, Nov 08, 2025 at 12:08:04AM -0800, Nicolin Chen wrote:
-
-> > +EXPORT_SYMBOL_IF_KUNIT(arm_smmu_invs_merge);
+On Thu, 20 Nov 2025 17:24:50 +0000, Marc Zyngier wrote:
+> As $SUBJECT says, I really hope this is the last dance for this
+> particular series -- I'm done with it! It was supposed to be a 5 patch
+> job, and we're close to 50. Something went really wrong...
 > 
-> There's nothing really SMMU-specific about this data structure manipulation.
-> Do you think we can abstract the invalidation array concept into a library
-> which other IOMMU drivers could use too?
+> Most of the fixes have now been squashed back into the base patches,
+> and the only new patch is plugging the deactivation helper into the NV
+> code, making it more correct.
+> 
+> [...]
 
-Yea, I am trying to shift to that at this moment, hopefully to
-combine the iotlb tag (asid/vmid) allocation as well. We do see
-it could be quite useful in AMD driver already.
+Applied to next, thanks!
 
-And I will address the other remarks of yours.
+[01/49] irqchip/gic: Add missing GICH_HCR control bits
+        https://git.kernel.org/kvmarm/kvmarm/c/8cb4ecec5e36
+[02/49] irqchip/gic: Expose CPU interface VA to KVM
+        https://git.kernel.org/kvmarm/kvmarm/c/fa8f11e8e183
+[03/49] irqchip/apple-aic: Spit out ICH_MISR_EL2 value on spurious vGIC MI
+        https://git.kernel.org/kvmarm/kvmarm/c/08f4f41c1e95
+[04/49] KVM: arm64: Turn vgic-v3 errata traps into a patched-in constant
+        https://git.kernel.org/kvmarm/kvmarm/c/8d3dfab1d305
+[05/49] KVM: arm64: vgic-v3: Fix GICv3 trapping in protected mode
+        https://git.kernel.org/kvmarm/kvmarm/c/567ebfedb5bd
+[06/49] KVM: arm64: GICv3: Detect and work around the lack of ICV_DIR_EL1 trapping
+        https://git.kernel.org/kvmarm/kvmarm/c/2a28810cbb8b
+[07/49] KVM: arm64: Repack struct vgic_irq fields
+        https://git.kernel.org/kvmarm/kvmarm/c/a4413a7c31cf
+[08/49] KVM: arm64: Add tracking of vgic_irq being present in a LR
+        https://git.kernel.org/kvmarm/kvmarm/c/879a7fd4fd64
+[09/49] KVM: arm64: Add LR overflow handling documentation
+        https://git.kernel.org/kvmarm/kvmarm/c/0dc433e79ad0
+[10/49] KVM: arm64: GICv3: Drop LPI active state when folding LRs
+        https://git.kernel.org/kvmarm/kvmarm/c/73c9726975af
+[11/49] KVM: arm64: GICv3: Preserve EOIcount on exit
+        https://git.kernel.org/kvmarm/kvmarm/c/f4ded7b0848e
+[12/49] KVM: arm64: GICv3: Decouple ICH_HCR_EL2 programming from LRs
+        https://git.kernel.org/kvmarm/kvmarm/c/00c6d0d4a805
+[13/49] KVM: arm64: GICv3: Extract LR folding primitive
+        https://git.kernel.org/kvmarm/kvmarm/c/438e47b697f7
+[14/49] KVM: arm64: GICv3: Extract LR computing primitive
+        https://git.kernel.org/kvmarm/kvmarm/c/1ae0448ca797
+[15/49] KVM: arm64: GICv2: Preserve EOIcount on exit
+        https://git.kernel.org/kvmarm/kvmarm/c/5ceb3dac8022
+[16/49] KVM: arm64: GICv2: Decouple GICH_HCR programming from LRs being loaded
+        https://git.kernel.org/kvmarm/kvmarm/c/a00c88ac1f90
+[17/49] KVM: arm64: GICv2: Extract LR folding primitive
+        https://git.kernel.org/kvmarm/kvmarm/c/3aa9a50c2007
+[18/49] KVM: arm64: GICv2: Extract LR computing primitive
+        https://git.kernel.org/kvmarm/kvmarm/c/0660bc4a2b70
+[19/49] KVM: arm64: Compute vgic state irrespective of the number of interrupts
+        https://git.kernel.org/kvmarm/kvmarm/c/dd598fc1139f
+[20/49] KVM: arm64: Eagerly save VMCR on exit
+        https://git.kernel.org/kvmarm/kvmarm/c/cf72ee637119
+[21/49] KVM: arm64: Revamp vgic maintenance interrupt configuration
+        https://git.kernel.org/kvmarm/kvmarm/c/6780a756044c
+[22/49] KVM: arm64: Turn kvm_vgic_vcpu_enable() into kvm_vgic_vcpu_reset()
+        https://git.kernel.org/kvmarm/kvmarm/c/f04b8a5a83db
+[23/49] KVM: arm64: Make vgic_target_oracle() globally available
+        https://git.kernel.org/kvmarm/kvmarm/c/76b2eda65ccc
+[24/49] KVM: arm64: Invert ap_list sorting to push active interrupts out
+        https://git.kernel.org/kvmarm/kvmarm/c/05984ba67eb6
+[25/49] KVM: arm64: Move undeliverable interrupts to the end of ap_list
+        https://git.kernel.org/kvmarm/kvmarm/c/33c1f60b3213
+[26/49] KVM: arm64: Use MI to detect groups being enabled/disabled
+        https://git.kernel.org/kvmarm/kvmarm/c/a69e2d6f8934
+[27/49] KVM: arm64: GICv3: Handle LR overflow when EOImode==0
+        https://git.kernel.org/kvmarm/kvmarm/c/3cfd59f81e0f
+[28/49] KVM: arm64: GICv3: Handle deactivation via ICV_DIR_EL1 traps
+        https://git.kernel.org/kvmarm/kvmarm/c/cd4f6ee99b28
+[29/49] KVM: arm64: GICv3: Add GICv2 SGI handling to deactivation primitive
+        https://git.kernel.org/kvmarm/kvmarm/c/295b69216558
+[30/49] KVM: arm64: GICv3: Set ICH_HCR_EL2.TDIR when interrupts overflow LR capacity
+        https://git.kernel.org/kvmarm/kvmarm/c/70fd60bdedc9
+[31/49] KVM: arm64: GICv3: Add SPI tracking to handle asymmetric deactivation
+        https://git.kernel.org/kvmarm/kvmarm/c/1c3b3cadcd69
+[32/49] KVM: arm64: GICv3: Handle in-LR deactivation when possible
+        https://git.kernel.org/kvmarm/kvmarm/c/ca3c34da3644
+[33/49] KVM: arm64: GICv3: Avoid broadcast kick on CPUs lacking TDIR
+        https://git.kernel.org/kvmarm/kvmarm/c/84792050e039
+[34/49] KVM: arm64: GICv3: nv: Resync LRs/VMCR/HCR early for better MI emulation
+        https://git.kernel.org/kvmarm/kvmarm/c/eb33ffa2bd3f
+[35/49] KVM: arm64: GICv3: nv: Plug L1 LR sync into deactivation primitive
+        https://git.kernel.org/kvmarm/kvmarm/c/6dd333c8942b
+[36/49] KVM: arm64: GICv3: Force exit to sync ICH_HCR_EL2.En
+        https://git.kernel.org/kvmarm/kvmarm/c/78ffc28456f5
+[37/49] KVM: arm64: GICv2: Handle LR overflow when EOImode==0
+        https://git.kernel.org/kvmarm/kvmarm/c/281c6c06e2a7
+[38/49] KVM: arm64: GICv2: Handle deactivation via GICV_DIR traps
+        https://git.kernel.org/kvmarm/kvmarm/c/255de897e7fb
+[39/49] KVM: arm64: GICv2: Always trap GICV_DIR register
+        https://git.kernel.org/kvmarm/kvmarm/c/07bb1c5622a5
+[40/49] KVM: arm64: selftests: gic_v3: Add irq group setting helper
+        https://git.kernel.org/kvmarm/kvmarm/c/a1650de7c160
+[41/49] KVM: arm64: selftests: gic_v3: Disable Group-0 interrupts by default
+        https://git.kernel.org/kvmarm/kvmarm/c/2366295c76c2
+[42/49] KVM: arm64: selftests: vgic_irq: Fix GUEST_ASSERT_IAR_EMPTY() helper
+        https://git.kernel.org/kvmarm/kvmarm/c/27392612c882
+[43/49] KVM: arm64: selftests: vgic_irq: Change configuration before enabling interrupt
+        https://git.kernel.org/kvmarm/kvmarm/c/8b7888c5114d
+[44/49] KVM: arm64: selftests: vgic_irq: Exclude timer-controlled interrupts
+        https://git.kernel.org/kvmarm/kvmarm/c/5053c2ab92a1
+[45/49] KVM: arm64: selftests: vgic_irq: Remove LR-bound limitation
+        https://git.kernel.org/kvmarm/kvmarm/c/fd5fa1c8d09a
+[46/49] KVM: arm64: selftests: vgic_irq: Perform EOImode==1 deactivation in ack order
+        https://git.kernel.org/kvmarm/kvmarm/c/b6c68612ab41
+[47/49] KVM: arm64: selftests: vgic_irq: Add asymmetric SPI deaectivation test
+        https://git.kernel.org/kvmarm/kvmarm/c/d2dee2e84983
+[48/49] KVM: arm64: selftests: vgic_irq: Add Group-0 enable test
+        https://git.kernel.org/kvmarm/kvmarm/c/1c9c71ac1b9f
+[49/49] KVM: arm64: selftests: vgic_irq: Add timer deactivation test
+        https://git.kernel.org/kvmarm/kvmarm/c/de8842327728
 
-Thanks
-Nicolin
+--
+Best,
+Oliver
 
