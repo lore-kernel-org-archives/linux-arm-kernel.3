@@ -4,76 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE222CFD313
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 19:18:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 527FCCFD313
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 19:19:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4lk9iSSgZ0K7NUDTpfPogbBYuXleRT/4S8QKOKfm8Fo=; b=UFSrXjXCvwKmEMyYV+m2+iLpTM
-	XtjGFtRFIpQXPZlAHBUdS7eSeb9iQ7PReXvAb6V4v86ZIBQagWaUYbUwAmX68LFksAskMWBiBbQPA
-	wbNd1MI8vPx0Dg0kSmPhxbqTCp+m0i0+JX0lyItbhaQU56hJyFGG/su1evfX4IHdZwfE06oFEZ6bz
-	68cB+T5Qa8fozW7FOHoNZXFXjOjseP9pl/p77Qy6a6rhzH3edQcmhDR/l/+sCJpDUI22utHAh0pHL
-	7m9ZnxXYgvQQeSYg1k4lyXCJXXdImBYbLLz9XEKZP50AvJl0dAh6CbgylTu7Kz+O3MW3FVjfLqzVS
-	wZBi/LPg==;
+	bh=+NJpAaLVEZOl4JnKY8fUm20R2JSvuBJYu+/COo9746o=; b=GGFN8ejpenFmoI8HzekznyDwFR
+	tWQ78/vSGTgYzT+PLO/fXKRIrmv4f3eTckjio5+15qN/QKJ6wn+rD3uXJEClct0fAL817j6e3xFiG
+	Ep6iqr0jb+uOxV9p8qmQKBLrLbx/HHLB8VeJ5FiVCRlMrlFJdsU9jxJT0S9SeMELLzq5uUHGMX4ND
+	0yHXQ0J8UoqV2yvcERJWv7oA+LMO5wXc3ykHS7OUMO7NipnGsh9wXR6J/MLE/Ls8Ifx+q3a5Zl/qe
+	8EAVmbuLgGm3aN465EHYifwZRVYozQYRD2sd8CoNwcEq7+O4JYetMc9fLvvt2paOYP671LEG8ZByF
+	HpeKU0zg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNc5E-0000000CEXq-2l4E;
-	Mon, 24 Nov 2025 19:18:44 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vNc5U-0000000CEbo-1v9D;
+	Mon, 24 Nov 2025 19:19:00 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNc5E-0000000CEXj-0sM8
+	id 1vNc5K-0000000CEZQ-1N0l
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Nov 2025 19:18:44 +0000
+	Mon, 24 Nov 2025 19:18:51 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5E2A360122;
+	by sea.source.kernel.org (Postfix) with ESMTP id 968AC41AEB;
+	Mon, 24 Nov 2025 19:18:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ACD7AC4CEF1;
 	Mon, 24 Nov 2025 19:18:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E117BC4CEF1;
-	Mon, 24 Nov 2025 19:18:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764011923;
-	bh=Tx8AB1SA68OjpJGaBGshivP2neQNWcZSQoIkHV53Fdc=;
+	s=k20201202; t=1764011928;
+	bh=rDkSwbW4xoasbdAG1a25incEAfgJNunRzcR8e9Kx9qo=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=dvE/K7+Yx5Mgd0+r3X5BUhZ5lArb5ERUn2RxDc4De0sYovnYUBB0PHGcv5PBQ1A1v
-	 be1PUQOAI7nJ3fbWzIiTbl4p+AS74dLMl/1LBZ4tJgs6wJoYlxeFZoaniybyT8ZsgU
-	 bylxn5id1LvzAKZWdnmLsWlziCk/FyEETRZWw0mTeHF4j42QfI549aSdqLmCknFZrK
-	 NLeX46GbzfxfHj7cZg8lxmD5z4KHgr6DNB9oBAwi3flWUci0tvO83nf1ybL/fYFiMy
-	 R4/YFrw2sXVxC+yBrtjXXzHbJl2Q/mN+TAeHLf32dFBpq0LU9K0/Nc/QXjD9kUVYxd
-	 DK3W/w55oHGTw==
+	b=k7Vox0tiC6aEBy+NvJaadSN3/y2+MnSeI16LLh4WWU7Wt1gcm7dngn98Eidpbh+Zi
+	 uiiuASO0fqEp+TXKWvf0/zEp9FV1oGU+xaNcZpFi7aTPesnk81dS6cBEoRFZz6gotJ
+	 0XG1DpTk1Y9N1fjuK1rCaYdIxKvwLfw2bNAkA/22FbzwPXFISHtAO5ky794Fp8f5Pn
+	 ikwAnf3fH6xzB/d29obYib/CuWsaz3JJpw8MhGpEHoPo8LXM48dX5S3uFQkfMeuUVV
+	 pXHjDz2toelygeC/7FhZnqgn/omotVps3GjsGPCkppJ+Z3SDoDzdpgv02dQxBQwaWh
+	 S7uz3yF4CeFmQ==
 From: Will Deacon <will@kernel.org>
-To: Frank Li <Frank.li@nxp.com>,
-	Xu Yang <xu.yang_2@nxp.com>,
+To: Catalin Marinas <catalin.marinas@arm.com>,
 	Mark Rutland <mark.rutland@arm.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Frank Li <Frank.Li@nxp.com>
-Cc: catalin.marinas@arm.com,
-	kernel-team@android.com,
+	Jonathan Corbet <corbet@lwn.net>,
+	Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Leo Yan <leo.yan@arm.com>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	James Clark <james.clark@linaro.org>
+Cc: kernel-team@android.com,
 	Will Deacon <will@kernel.org>,
-	Frank Li <frank.li@nxp.com>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
-	Joakim Zhang <qiangqing.zhang@nxp.com>,
-	Jacky Bai <ping.bai@nxp.com>
-Subject: Re: [PATCH v3 0/6] perf/imx_ddr: Add i.MX8QM and pmu in DB (system interconnects)
-Date: Mon, 24 Nov 2025 19:18:30 +0000
-Message-Id: <176399874665.521575.3051557105547982197.b4-ty@kernel.org>
+	linux-perf-users@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	kvmarm@lists.linux.dev
+Subject: Re: [PATCH v10 0/5] perf: arm_spe: Armv8.8 SPE features
+Date: Mon, 24 Nov 2025 19:18:31 +0000
+Message-Id: <176399995950.525942.8372760882667197136.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20251103-qm_dts-v3-0-2bfda8ee14c2@nxp.com>
-References: <20251103-qm_dts-v3-0-2bfda8ee14c2@nxp.com>
+In-Reply-To: <20251111-james-perf-feat_spe_eft-v10-0-1e1b5bf2cd05@linaro.org>
+References: <20251111-james-perf-feat_spe_eft-v10-0-1e1b5bf2cd05@linaro.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251124_111850_389511_21D3F4E9 
+X-CRM114-Status: UNSURE (   7.28  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,26 +96,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 03 Nov 2025 16:48:27 -0500, Frank Li wrote:
-> dts: add soc specific compatible string for imx8qm, imx8qxp, imx8dxl in db.
-> driver:
->  - did some cleanup
->  - add support for pmu in imx8dxl DB
-> binding:
->  - add compatible string for imx8qm, imx8qxp, imx8dxl in db
+On Tue, 11 Nov 2025 11:37:54 +0000, James Clark wrote:
+> Support SPE_FEAT_FDS data source filtering.
 > 
-> [...]
 
-Applied driver changes to will (for-next/perf), thanks!
+Applied kernel changes to will (for-next/perf), thanks!
 
-[1/6] dt-bindings: perf: fsl-imx-ddr: Add compatible string for i.MX8QM, i.MX8QXP and i.MX8DXL
-      https://git.kernel.org/will/c/de8209e55408
-[2/6] perf/imx_ddr: Move ida_alloc() from ddr_perf_init() to ddr_perf_probe()
-      https://git.kernel.org/will/c/66db99ffdfcb
-[3/6] perf/imx_ddr: Get and enable optional clks
-      https://git.kernel.org/will/c/037e8cf67178
-[4/6] perf/imx_ddr: Add support for PMU in DB (system interconnects)
-      https://git.kernel.org/will/c/11abb4e87b0e
+[1/5] perf: Add perf_event_attr::config4
+      https://git.kernel.org/will/c/cbbfba4847b8
+[2/5] perf: arm_spe: Add support for filtering on data source
+      https://git.kernel.org/will/c/e6a27290d800
 
 Cheers,
 -- 
