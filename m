@@ -4,82 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBC21CFD317
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 14:12:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA9D2CFD313
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 14:12:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KMDKfFvqxZF3OgYS2Y3qGBHTWecl6sSIcgPW0EPBoLA=; b=uv3rqV/Ra6xjpRWAgjzg9BZxs7
-	Xl1AGRuT+7OqejTCne9fln0UII8n8C35LFS4NWZS/Bz2w7i7BbVczfSyN6EZlw4ZRq+ufNgUlnOS/
-	7ZGR7bH65CAHKa48qk9v8sn+RJggD9pmvnDPqjLSK9+sVYdFfaB/cSawtAl+rX8VD0XUCyTMIa6ee
-	As1SwIEHlOFpdziyR82o376dWjWOhu7YXiQucu/xnNnKOKOBxi8s8tI8bBapEIji3oNwTAGwj6dPg
-	nOC2zBwIRxEdrg0+3kH1sOlayWBPbdod1EHSB7RB6sthF5iS0y+wnqIkMjnYtQleqNIgU0SjZygXO
-	3AGCk+Aw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4njhsvGuitioLOdrcVQiBZ2QgBIo+SstLvtMppsyWMQ=; b=5EzfdcHGn3h83oB6lJPySnviRS
+	yy88cWPf5VAdaVVeXfZVnL2ph+ugg87Ky+AZ1oZE9pLVX0qU/dimOjpY96Fw/DELx7IuaOlUYhgUp
+	nMMBHsiIcg1qlRmBv+24IJYm+3iugPZnonzs4sxX3DewDG5/GkHUk32PnKR4ODDHxT0NTSPxk2IqJ
+	qy2NELeIrfYxgs8WeGeX1OMY1Zh1Tkz1Z629pDfEpK/ibnrQfSYoon571YSnlvG7bguycMXC2MlNu
+	0FXwdrT/05q/PJMu45wvQuGeTdZyDwgUSTPjMXzf35FRBHyynv0VNdNvyMN5gFpoZeKlI1SEzPtt6
+	ejanLvOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNXIM-0000000Bp0D-16v3;
-	Mon, 24 Nov 2025 14:11:58 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vNXIm-0000000Bp5q-2UoA;
+	Mon, 24 Nov 2025 14:12:24 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNXIK-0000000Bp00-3rfI
+	id 1vNXIk-0000000Bp5E-0wMi
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Nov 2025 14:11:57 +0000
+	Mon, 24 Nov 2025 14:12:23 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 123B2601A7;
-	Mon, 24 Nov 2025 14:11:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EE78BC116C6;
-	Mon, 24 Nov 2025 14:11:46 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 988A243C73;
+	Mon, 24 Nov 2025 14:12:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 70D8DC4CEF1;
+	Mon, 24 Nov 2025 14:12:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763993515;
-	bh=pKRds4IT+BzPKh2fxA3wO0tgnvzHdhCWGBCp+0CwG9A=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=TjUGt8Li6YfogSyMUKImhk9t7zCEyR/5lyaBjeNw6RcKDKrbRq6HnmNGUOxqptBCd
-	 dLRr5vxSkWtTK/HdcfyyhBGI6jbvcRygLDwJPNmugo/e/qBVwdADZJpApwewQnH0Lz
-	 Zvd3xoS+6vTxsekxWrHLixtrCO8PmynL3TGa54AYYvreiAeQp5nXHtEPY83/MIXq9v
-	 IDvhAooUaPXLRXgkrwnbgHUW6P169b7ay8AKZtPjbmGcLHflIqg6kF1HvRTZ7a8+u+
-	 51pYm9HXbc2JA+xZLuh0Y9NS3lb+de9hbRLWFhjCNgsTJpUFrYKe7BdliclaVXA64P
-	 5nWYBjsK1rt0g==
-Message-ID: <9800804f-6e8a-4d08-8eb1-f114df6d6b7a@kernel.org>
-Date: Mon, 24 Nov 2025 15:11:44 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 07/12] mm: bail out of lazy_mmu_mode_* in interrupt
- context
-To: Kevin Brodsky <kevin.brodsky@arm.com>, linux-mm@kvack.org
-Cc: linux-kernel@vger.kernel.org, Alexander Gordeev <agordeev@linux.ibm.com>,
- Andreas Larsson <andreas@gaisler.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Boris Ostrovsky <boris.ostrovsky@oracle.com>, Borislav Petkov
- <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>,
- Christophe Leroy <christophe.leroy@csgroup.eu>,
- Dave Hansen <dave.hansen@linux.intel.com>,
- "David S. Miller" <davem@davemloft.net>,
- David Woodhouse <dwmw2@infradead.org>, "H. Peter Anvin" <hpa@zytor.com>,
- Ingo Molnar <mingo@redhat.com>, Jann Horn <jannh@google.com>,
- Juergen Gross <jgross@suse.com>, "Liam R. Howlett"
- <Liam.Howlett@oracle.com>, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
- Madhavan Srinivasan <maddy@linux.ibm.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Michal Hocko <mhocko@suse.com>,
- Mike Rapoport <rppt@kernel.org>, Nicholas Piggin <npiggin@gmail.com>,
- Peter Zijlstra <peterz@infradead.org>,
- "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
- Ryan Roberts <ryan.roberts@arm.com>, Suren Baghdasaryan <surenb@google.com>,
- Thomas Gleixner <tglx@linutronix.de>,
- Venkat Rao Bagalkote <venkat88@linux.ibm.com>,
- Vlastimil Babka <vbabka@suse.cz>, Will Deacon <will@kernel.org>,
- Yeoreum Yun <yeoreum.yun@arm.com>, linux-arm-kernel@lists.infradead.org,
- linuxppc-dev@lists.ozlabs.org, sparclinux@vger.kernel.org,
- xen-devel@lists.xenproject.org, x86@kernel.org
-References: <20251124132228.622678-1-kevin.brodsky@arm.com>
- <20251124132228.622678-8-kevin.brodsky@arm.com>
-From: "David Hildenbrand (Red Hat)" <david@kernel.org>
-Content-Language: en-US
-In-Reply-To: <20251124132228.622678-8-kevin.brodsky@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+	s=k20201202; t=1763993541;
+	bh=EQ3IrSxU9ixy8cMHUjletLF6L8CoG51o0Abml8Nr8Ok=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=lYlI9cONxGOzokkOHF53pJrHJ7D2yC6ma6q+pV2nhsp8ve+1sdF40XbavTNBwsxJU
+	 du92OarhfouJygiW342aACY40yalGgHtEfd0jA4P74hF3bKo6u8OyyDuNdNog6YuRv
+	 Xi6IIGSKauDhUUZoIKed9dJNZRkLORCEZ0oRuOKWhrKOwJP/ubbjH2JhXkHbisER4I
+	 CpXoHPmL6VirUxs7SYylIIWNF64SO7BLBxNkVuI7mHqf9Rvzs5D5lGho/Zra8u0iMr
+	 mwc6wg+iywYqrRLVr1NwOcG3D9rA7ccRJOWaFaoAM+bskfeiCdJx2oMV1ygYD7pfd1
+	 pqN33vHJqJCiA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vNXIh-00000007s51-1lBx;
+	Mon, 24 Nov 2025 14:12:19 +0000
+Date: Mon, 24 Nov 2025 14:12:18 +0000
+Message-ID: <86jyzfr03h.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Mark Brown <broonie@kernel.org>
+Cc: Fuad Tabba <tabba@google.com>,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	kvm@vger.kernel.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Christoffer Dall <christoffer.dall@arm.com>,
+	Volodymyr Babchuk <Volodymyr_Babchuk@epam.com>,
+	Yao Yuan <yaoyuan@linux.alibaba.com>
+Subject: Re: [PATCH v2 29/45] KVM: arm64: GICv3: Set ICH_HCR_EL2.TDIR when interrupts overflow LR capacity
+In-Reply-To: <86ldjvr1kc.wl-maz@kernel.org>
+References: <20251109171619.1507205-1-maz@kernel.org>
+	<20251109171619.1507205-30-maz@kernel.org>
+	<CA+EHjTzRwswNq+hZQDD5tXj+-0nr04OmR201mHmi82FJ0VHuJA@mail.gmail.com>
+	<86cy5ku06v.wl-maz@kernel.org>
+	<51f5b5d7-9e98-40b8-8f8b-f50254573f3d@sirena.org.uk>
+	<86o6orr356.wl-maz@kernel.org>
+	<342302ba-5678-408a-ab63-1a854099d4a1@sirena.org.uk>
+	<86ldjvr1kc.wl-maz@kernel.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: broonie@kernel.org, tabba@google.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, christoffer.dall@arm.com, Volodymyr_Babchuk@epam.com, yaoyuan@linux.alibaba.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251124_061222_280617_617724AE 
+X-CRM114-Status: GOOD (  11.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,38 +99,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/24/25 14:22, Kevin Brodsky wrote:
-> The lazy MMU mode cannot be used in interrupt context. This is
-> documented in <linux/pgtable.h>, but isn't consistently handled
-> across architectures.
+On Mon, 24 Nov 2025 13:40:35 +0000,
+Marc Zyngier <maz@kernel.org> wrote:
 > 
-> arm64 ensures that calls to lazy_mmu_mode_* have no effect in
-> interrupt context, because such calls do occur in certain
-> configurations - see commit b81c688426a9 ("arm64/mm: Disable barrier
-> batching in interrupt contexts"). Other architectures do not check
-> this situation, most likely because it hasn't occurred so far.
+> Something is badly screwed in -next, and I'm not convinced it is KVM.
 > 
-> Let's handle this in the new generic lazy_mmu layer, in the same
-> fashion as arm64: bail out of lazy_mmu_mode_* if in_interrupt().
-> Also remove the arm64 handling that is now redundant.
+> 	d0f23ccf6ba9e cpumask: Cache num_possible_cpus()
 > 
-> Both arm64 and x86/Xen also ensure that any lazy MMU optimisation is
-> disabled while in interrupt (see queue_pte_barriers() and
-> xen_get_lazy_mode() respectively). This will be handled in the
-> generic layer in a subsequent patch.
-> 
-> Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
-> ---
+> is my current suspect.
 
-(resending as I pushed the wrong button there ...)
+Confirmed, and the fix is at 21782b3a5cd40892cb2995aa1ec3e74dd1112f1d.
 
-Moving this patch earlier LGTM, hoping we don't get any unexpected
-surprises ...
-
-Acked-by: David Hildenbrand (Red Hat) <david@kernel.org>
+	M.
 
 -- 
-Cheers
-
-David
+Without deviation from the norm, progress is not possible.
 
