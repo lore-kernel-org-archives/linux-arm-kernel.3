@@ -4,177 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AC75CFD31C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 09:25:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDB7BCFA466
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 09:27:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=E/u4PNaC/v5+kgENonOo++rclOh+Fmc29vKGf5YNsfE=; b=3owp4FoxHIR//rQ+tBjB4BRGCx
-	b0AFJy0wcodaBgoZsZlyz5J7vqoB/1EMJMgZj/C3DwIIKFzLp7kKaymilvU0FW8O/y1VWadRsylJw
-	up9uXDoy+LK//t77gNnuRuQp4llaSmGEyg0YjI5iE7/8uTfrR3h4wJaCqqsx+kRte9sFmw4VM3YSp
-	3GBiTxEvN6+b+xmiWnbvO1uPGy0hakGBAVGokYgAY0bdbx5mZZBofC6ql6CdXuCObB5ZjihB/3Bs2
-	VjS+iZPwVwMKDR2MNCL25lMQIrtVdPlh+BN751wBzMovQaAPEFSovWcoQcyWbPAsOM6SHoJjGhYeZ
-	EtQeyfyw==;
+	bh=U1MsvOkvY0k2X769TfRivDRIjdc4gRIxH1Da4VZs1TU=; b=oQ4r1Yn0kk3r/bXI0s26nCfCE1
+	mBf/zWuoJEiJQ4E0M6zpNvpcj6otVhz/eFcgv4e/1lCEMiTrTMoCfU2Y0LcAwQQH1M0+ypclB26Ml
+	Cs//TxlmqtNMrIbQCGrcgpTy1iNmrFgSoYwf1wJUzEpWW+bO4QYt3KxzRgLRva4C7HSCSP0+5qrbA
+	JvYQQWNxAkvQjQNLka5gNjcqbfLKPG0OQS5QDjfDhrgKG4TV07oj43n1tBwZ5vTd8ypVSkbz2Ckza
+	aLyMsKUM0OK14UJytgboZKtYHhY84iAw9LB7UARNbKxcflA7qqjRXb1/XrHJN1/O53TxkMa+3aOff
+	YZ4XgEjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNSoi-0000000BKz8-0ZtM;
-	Mon, 24 Nov 2025 09:25:04 +0000
-Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1vNSqq-0000000BLMl-1HTO;
+	Mon, 24 Nov 2025 09:27:16 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNSoe-0000000BKx8-2JsM
+	id 1vNSqD-0000000BLJ0-0u6J
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Nov 2025 09:25:02 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=UV2bb5ZyGKCXm+hrl/lfLYG+TNmPpkZowR/5151kydTbbvbEGAec6sVijJ5EOuvBFsylBMcwH9AZBFZnKIDlpDoMBKAYTDmbNC6ReiTeKmKBj52RSlmkdtHdaaN+IrketAyWtfoqkGQDdOPL91nPy6af1YfMQC5OXhHYhhHzAalR0yBV1GjWrJTK1vpSFOrUcgv+cvwHoFLFxDPPdfjixovGe8FNrIneDW/qIQBMHUe1dU64W24mK9EtHkb4hZYkV6DHrQMIclmb5Z7W7NVy4I4IfEzbtqYMtA17qacoErSAWlBafckI/gxLlEOPGwpbBZGzIPt4f/SSNjIKk5D3Wg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=E/u4PNaC/v5+kgENonOo++rclOh+Fmc29vKGf5YNsfE=;
- b=dXaJ+Qamya1KXRfLHcyO+ar9LlYxtr28VYbKF0+o/ZpuDTeJo9hMCy4xQF1F/aSvrF63A8qOfj9j3GvnktrhJNsC8oWmBtoOS60x0gvVqKGpqKS8ZwMuFl5Vr9cLP00dqCnV01ydaXAmlYrOXCweb2X0j/Sx1EiTDQkDip6VnI8281JngXRizaxq5L2z4Ea03JjOeEr+aSPbH7axyom4im7jRJp6J12MM70QW4EO/kZjJXC6vT7GoNCJ03Vu6PywozQ79ttZm5QR2k/jXmUnd8p/KLsdj9W3T2IAavb+G1TAyBWj1Mar4v1h433mIp1ONCTspeF8R7dOkfCci11obg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=E/u4PNaC/v5+kgENonOo++rclOh+Fmc29vKGf5YNsfE=;
- b=BFqTI+2ksBnVcTEf38BCEUKGc9Bu8xvIFORMnXvGI1yogz4/cvJP3FfYMWkDHQ4Qe2wG9ev8JhaIXqhtWQy75kVFevgBPqvyb0JxV53YkdIdByQPGSnZ/4i31kH0jPRIs7CtuyC9MxTtk3LUPhRpvkOWOt8jj5XZy2eBBwsTdRbmYbmrCQRPrNJ4kmqD3KrjWgQnc5M9sFJ3EttnLfKquPmRxaGR2gZGLNvsc97PvrFXhWHPAdd3gxKv6l5f/99AVmJDGKZx3R9QHLcXd5HGhVjRBS36yTRLcmi484JK2tCRwY55a550bUrb9wHUKYOBhnmLlHIXfXGh/6WHHhX5qQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from DU0PR04MB9496.eurprd04.prod.outlook.com (2603:10a6:10:32d::19)
- by PA1PR04MB10697.eurprd04.prod.outlook.com (2603:10a6:102:482::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9343.17; Mon, 24 Nov
- 2025 09:24:56 +0000
-Received: from DU0PR04MB9496.eurprd04.prod.outlook.com
- ([fe80::868b:3935:5e0f:6a33]) by DU0PR04MB9496.eurprd04.prod.outlook.com
- ([fe80::868b:3935:5e0f:6a33%6]) with mapi id 15.20.9343.016; Mon, 24 Nov 2025
- 09:24:56 +0000
-From: Haibo Chen <haibo.chen@nxp.com>
-Date: Mon, 24 Nov 2025 17:25:22 +0800
-Subject: [PATCH v5 2/2] spi: add driver for NXP XSPI controller
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20251124-xspi-v5-2-6fd03a6cb766@nxp.com>
-References: <20251124-xspi-v5-0-6fd03a6cb766@nxp.com>
-In-Reply-To: <20251124-xspi-v5-0-6fd03a6cb766@nxp.com>
-To: Han Xu <han.xu@nxp.com>, Mark Brown <broonie@kernel.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>
-Cc: linux-spi@vger.kernel.org, imx@lists.linux.dev, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, Haibo Chen <haibo.chen@nxp.com>, 
- frank.li@nxp.com
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1763976342; l=43377;
- i=haibo.chen@nxp.com; s=20250421; h=from:subject:message-id;
- bh=giu9TMVmc+V4YPdy6AntuAj3bpvwl+p45g8tBZjgthc=;
- b=oTB62E21CwAs1jpYx/vvnNoJDewe6Ex/VTX8sAzXS8WHReEUdFVyqTAwebW/D5AksjeCsfbY5
- WGYPh+G97PUCmRNO2HAVrdnNLVPHduBz7hu+qXwxFkDaMnQXEOPM/fg
-X-Developer-Key: i=haibo.chen@nxp.com; a=ed25519;
- pk=HR9LLTuVOg3BUNeAf4/FNOIkMaZvuwVJdNrGpvKDKaI=
-X-ClientProxiedBy: MA5P287CA0252.INDP287.PROD.OUTLOOK.COM
- (2603:1096:a01:1ae::8) To DU0PR04MB9496.eurprd04.prod.outlook.com
- (2603:10a6:10:32d::19)
+	Mon, 24 Nov 2025 09:26:40 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-47790b080e4so21056405e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Nov 2025 01:26:36 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1763976395; x=1764581195; darn=lists.infradead.org;
+        h=mime-version:message-id:date:user-agent:references:in-reply-to
+         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=U1MsvOkvY0k2X769TfRivDRIjdc4gRIxH1Da4VZs1TU=;
+        b=3SIyLOqkBUd7E++I0wybkWvV/HmttwgCR32BezjY+m28h2af1fYRcKdOoEtAQ9lyDA
+         tyA2hT9c+9d4UyGSz+C4ddzIfhxHMDyQr8YGmBubL2DZVrf6N013ZVbRPhPqGHdi3/ob
+         CngQC/CBx/Cwjr3Dx7nReOsGfZYNToEoptbmbleVbm/o8lquTpsAGs8In3eOTro2kFi8
+         +xs+UfYtlbD2TN4reBaJ2t8DHDhNsEzhIv3ohdR7fELBW19dLZ7nUaCNgA1t2C+LpnFO
+         wcIrpRKyfD4yWpKmveNcJq4QqI5MWNCU94k52CL+aQys4nt4jNDcrCp/6mIRSFm7DNCT
+         iq+A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1763976395; x=1764581195;
+        h=mime-version:message-id:date:user-agent:references:in-reply-to
+         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=U1MsvOkvY0k2X769TfRivDRIjdc4gRIxH1Da4VZs1TU=;
+        b=VKQxuDHcKO+HAd5u+5jKNHg2O98/EybqOJH8+r5qo+UC8oXJ1pu7IRtXqi+CACdNt4
+         WfLxMKyKCcZetF+0I/5vTsWdm6NaXCTEaEB+UhwM3BVxY5lje6OvkmQlnYXaMU2EXBAH
+         Hvh9+Rb98rTMmch6AZTtIanDBIrKfVVrWxagmDLUnL0kuS44ER7FXQxw1zsHLYdE8hZM
+         KaKjK3ew3wG2v69ER9ccHk6teZM4kd4FLJeqri8wCF9vjKHGxwi/9KkFkgr/CqXf99D3
+         IJliSILguCjyEO0JVLTSTrODqQZKbT0wgrrgVe9aABZ6J1OZ4FuTSL1Nzco0iHKMhkTG
+         zXQA==
+X-Forwarded-Encrypted: i=1; AJvYcCXaO2do8mOK/x97Q0HwSLfGa62RqLPV2BkQBVI/tJuSvY+8Svwky1fDYCYrVA3s9ku9JvSY1mXNzFDs2KE4SeMm@lists.infradead.org
+X-Gm-Message-State: AOJu0YxDRCHiMmwuFASzB9dvgcZbg30yNtIFxoBej4+Kxs18N8O3BchB
+	r/+5Jdmek1rz+weBEXRcxf0AaX4B1CLhKNCXwDY9jSi0hAgWUz5gXf/jPGm1VZWTio8BpEjpPd6
+	Aejbn
+X-Gm-Gg: ASbGnctibaxTiRLu5CX6Q/zDVUVrlHNf7YmcjIDo6WM8QFX5jNZdVF+fMYPIz0mPAOE
+	H/r8TG6eukbIpX/+sjO/lF0tTdtOPBwG6uZJ+cBv2MIac0oNEWy1xW67F9cSmU3Wc38k1j2puJC
+	A8v+dcZ7jRQRia6giZArIjHeCSmr5OVlYa9qD/Bb2bAPgcso6OlWz+ig1QgcbyzN13YNGr3ovGF
+	YPr9685yc2vMVyxooDQymGg7Ovh6noMQ895vSKbbiDXf1RIyf6xPBIEocJF+EPSbgVsr5WAtIEp
+	iXhkrHiFe4em9uu3RIZ1E7AQVhlcZRG0DSvhf9AD5Ne5zRfCRW/xxvW176WiruzPEMKyEbvhiXw
+	RUjqqv3pNKePaXNzxmt9T7d+f8za0Cu+N9/95jhDPdA/rq00kKWyFL7jf2i0j26ksOoOpv86V3U
+	F65sPdT4ZX2A==
+X-Google-Smtp-Source: AGHT+IFA6RvzcWL7SV4PhOa1l4cOrOZaMwrOpdRtONh9euKXAAoa1cN4d9OgvE8FKw3tGhlOJ4g8QQ==
+X-Received: by 2002:a05:600c:1909:b0:477:7b16:5f9f with SMTP id 5b1f17b1804b1-477c11337e0mr111008585e9.31.1763976394379;
+        Mon, 24 Nov 2025 01:26:34 -0800 (PST)
+Received: from localhost ([2a01:e0a:3c5:5fb1:4e2e:74ae:77df:106f])
+        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-477bf3af0e1sm182199065e9.10.2025.11.24.01.26.33
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 24 Nov 2025 01:26:33 -0800 (PST)
+From: Jerome Brunet <jbrunet@baylibre.com>
+To: Jian Hu <jian.hu@amlogic.com>
+Cc: Xianwei Zhao <xianwei.zhao@amlogic.com>,  Chuan Liu
+ <chuan.liu@amlogic.com>,  Neil Armstrong <neil.armstrong@linaro.org>,
+  Kevin Hilman <khilman@baylibre.com>,  "Stephen Boyd" <sboyd@kernel.org>,
+  Michael Turquette <mturquette@baylibre.com>,  "Dmitry Rokosov"
+ <ddrokosov@sberdevices.ru>,  robh+dt <robh+dt@kernel.org>,  Rob Herring
+ <robh@kernel.org>,  devicetree <devicetree@vger.kernel.org>,  linux-clk
+ <linux-clk@vger.kernel.org>,  linux-amlogic
+ <linux-amlogic@lists.infradead.org>,  linux-kernel
+ <linux-kernel@vger.kernel.org>,  linux-arm-kernel
+ <linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH v5 4/5] clk: meson: t7: add support for the T7 SoC PLL
+ clock
+In-Reply-To: <20251121105934.1759745-5-jian.hu@amlogic.com> (Jian Hu's message
+	of "Fri, 21 Nov 2025 18:59:33 +0800")
+References: <20251121105934.1759745-1-jian.hu@amlogic.com>
+	<20251121105934.1759745-5-jian.hu@amlogic.com>
+User-Agent: mu4e 1.12.9; emacs 30.1
+Date: Mon, 24 Nov 2025 10:26:33 +0100
+Message-ID: <1ja50bvl12.fsf@starbuckisacylon.baylibre.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU0PR04MB9496:EE_|PA1PR04MB10697:EE_
-X-MS-Office365-Filtering-Correlation-Id: 59142734-bced-4faf-ae52-08de2b3b54d8
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|366016|1800799024|376014|7416014|52116014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?Ym9OOWJUYkpaOE9FOFlyVkg1MkpzY2JZNXJCNkdxOEJLMFgzamUxMC9oQzFj?=
- =?utf-8?B?THZEVmtkWFJQbHo2ZklSN3NFNUdJN2VvdmZ6SXdnajV6NkE0aEtoY1FPcHdo?=
- =?utf-8?B?eU55MXBsVFMrK2lDZHJTZzgwWDZCelFML1A5MU91LzhuQVhxZFIwbkZTNnYx?=
- =?utf-8?B?K2FlL2VXYzNqa2N3VGtVMVBqSGpFZ29iT0NyU0JCV0oxVmhlckhrZjBNMDkx?=
- =?utf-8?B?ZEhhWFZYdG1hS3dlVUtjM0s4elh0UlQycFYxRkZPbXlFVXpwM2lJelJKUk8w?=
- =?utf-8?B?NWs2dU9BMWxNU1dqVHAyUUxqWXFXN21VZVhmdWl2RnAzR3NFUHNhY0JidWF0?=
- =?utf-8?B?UXZ5K0xoZkxKS3FRdmZlUVdjenBvRk1tU2RnNTV0R21HTEFPOVVMNzBhVTBu?=
- =?utf-8?B?VkhNRzFLVm9EejZTb1ZwYUhuUnlRbHFFZTBPNE5GUlZ0SEwvdDhJckRHWUpv?=
- =?utf-8?B?UGZ2VVE0VXdGS1BWYmZxZjkyWG80cGdyNlBVcWdKbGRMaVVkQ2M4R3dmTVh3?=
- =?utf-8?B?b0FIOGR0MU1ja2x2Z1prZzU2U0c2bDJVcTZpWUlTZW9YTDBNOFQyWlMwZmF5?=
- =?utf-8?B?ZElJQ2pzZEU5SnQwWkNFSDN0YUQ2dUZpcTAxTmZ1VHVUeWRzd21kaGZuOC9S?=
- =?utf-8?B?TXVpd3dGRFZ4dFpFc1VVM0tGbDU1a3VTbzlJTFh5aHBVWFVzMnRUTnJmS2ZO?=
- =?utf-8?B?SnhPWnFMT3hyQmcxK0JhTVFWOWpveUhzN0dqY2l5ejAxUmVTcUNvVzZNMXFW?=
- =?utf-8?B?RnJON2ZsMzRVdUVKQjNvWnVCc3ozYlh1S0tISXBCSHhYTXJBZ2RPaGJwSDd3?=
- =?utf-8?B?S2Y5YVc1cDNHVTZ4SjVqVVUxekdWWUJ5eHU2RFMzU3RncnNrN1gySWlKS3cv?=
- =?utf-8?B?eTlxV3pLUTRLL3lqUW1JdnJsNlFkb2N5dzB4Z21RZzJocDlEaHpXUUtvZk82?=
- =?utf-8?B?MVVXNjBIM1ZWcTQ0d2ZLTWZXSkdYZnNLRU1CUEltL2E2b0w3Q1RCbnVmNkNk?=
- =?utf-8?B?TEVlUTNra3dWWWhicFdJQTdWZDlSUFNVUWdXU0I5dFBuSGFlNU9PSTBPdnZL?=
- =?utf-8?B?UjZ5dEV2YTlmcVJUZ3NUaUJPa1FPdUVJdFBXcjdYZVREOXZ2d1ZDVXhpRDk4?=
- =?utf-8?B?TUhOS094bFJkenFncDJOQkpHUm5OTGZSWGo0bFpEL3A1bmVlTmFsdVBVdWNZ?=
- =?utf-8?B?elNuS2VKeVhNa0FrTk5FVHcrRWlWWjRaejhGR2JTYWgyUEk5M2dFVXNqalN1?=
- =?utf-8?B?NSs3cFZVbmdzMEVUWTNlOFI5MzNvYUw2RGRJUVhGdUEzU1N0Wi9RemdkQmtL?=
- =?utf-8?B?c3UrRklBMUF6MlpuR0I2a0xiS3h5WUlJVkprOEVIekMvUE5NTjlIZFRYS3Vk?=
- =?utf-8?B?NnJFbThoOUxsNThCVzRLbGlDMldiOFB3L2IzQWNoT3Q4NE5DREhERDBObFM3?=
- =?utf-8?B?eTZBZ2UwQVkxS3lFWmZkVUpxOXRNZE5JeFZHejg3K2JrZXZVd1RBTWJWS2pm?=
- =?utf-8?B?MWdMUkJ1eVJqaUNKdlREeTVaczJzSm5VRzk3cjcyVFplcWhQaTVvUmxUa2hp?=
- =?utf-8?B?aUFoaGl3K3RlT0NwU1pnTkM2WFlxOGxZT0duVFM2eENsYmw0ZEtBa0NjRVd4?=
- =?utf-8?B?bXpWb09jaVowRmpoOXBERnowV3UwTFoxMDU2YlBkaDZDOG1Qblo3MmN4UWdp?=
- =?utf-8?B?dFJZdk5ETzhyc3Z3UzAyNkpJVHR1TGh3Z1VKRWdnS1FLVjhZd21VMmFldTJu?=
- =?utf-8?B?RFdyRHlxUUZlSTQyM3ErSUd6TXRqRGg1R0pyTjk0VFJnUUNXVGRYc0VzakE1?=
- =?utf-8?B?bnBoOXRIcGRBTXRWZHZkZmhpQ0tyYmNIZTNET2ZXQktBUjdESGtDNithUUtY?=
- =?utf-8?B?TitDZi9RLzg4eC95SStMM0RCa2NWelBsVG02RGZkcUlWNDUrbWhpdmZiaUVE?=
- =?utf-8?B?Z3Y5a0xoaTl5Q3R1OENaUXo0bnpuUElBWVQwUzNUaGRlREJMZHcxb21lVmI3?=
- =?utf-8?B?Q0QwaUMzcHRpRS9hNmxxNlFLYmJKWU1TQVlqQ1BpZXhXYlYvWWxkTFZSeWhS?=
- =?utf-8?Q?p6DvxW?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU0PR04MB9496.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(366016)(1800799024)(376014)(7416014)(52116014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?SWUya1dpMHg2Ym9ON3QzOWpnUjNJdHRkdWFJbzVrTndUQ0N6clo3ZDNucGEy?=
- =?utf-8?B?eFVRT3RwRkNSVHRSRCtMTmtHUm9wbW9kSVBVNG1XYnorSVRBVDlMZGZtRko4?=
- =?utf-8?B?cVoyNWpuem82UTZVWmJUS0NmL3pudFNvVnJpWVFuM3BuVTFFM0ZtM2lrQzVw?=
- =?utf-8?B?S0psWkwzRkgrTTZ6aWNHZ3pFYjRTVXMyU3JYL1hRbjhmNWZrMzUvZkVBNVNR?=
- =?utf-8?B?bGlLQUw3TysvNTFpRGcvQWdMWW53enJvblprN21qTzR6TXFqNHZQUFdSeG1Z?=
- =?utf-8?B?VmEycjRxVmFVTjZLN3B2OElnMzZRbXRIZlhzLzQ3NVR2MkVJbDhSQ09tcWk4?=
- =?utf-8?B?K2JPU0JORFpFTCs4NkxWK3U5by9PQStBZkFFOXJ5TmNwN3ZDS0RGVkRVeFNS?=
- =?utf-8?B?cUlMV3VtUXRTWjQ1Vzh0b3VMN09qTytteFhqK3dNSzZuTUFpZzl1bFR3QUdx?=
- =?utf-8?B?SG5DRXBXaXY2NmJzOWpjcFpiZlZyMy9RNGVPRUpHQ1pPVDNmekQvQWUveVRB?=
- =?utf-8?B?dktBNDVncmduT2lpWVJLQmZXaXVYOGFLR1BmSmZaWnI2U2xlOG9vUjRLdTMz?=
- =?utf-8?B?QXVidXRPZXVNTWdUYjNNakpoakZDb1djM1cydnNMQ3NhemhBd0MySWkzSzJv?=
- =?utf-8?B?dEVjUlpjQVFqS1ByeFNrL3dCR2hieGx5K0UzRlEveXBvY2kvQ2VtZ1BMejhs?=
- =?utf-8?B?cWV4UnJBOVlrYkViUW9xcGZ2R09NV0t2empLcVhwcDVkVENyR0F0eHRGYVoy?=
- =?utf-8?B?eGlCaWpCMHdSQ1FvMDErR29XV0EzZkpKUldMcFdSU0hsRW5oSThtcHozcDFL?=
- =?utf-8?B?dnEyUXlkYWVoUVhXWGw2RnJsTEpYcHEyZGZmYUs3TlBPSm5BVnlxeXB0MVB4?=
- =?utf-8?B?MUE3ekFxZU5ocldQUTl2eGExWWFWaGVTUS9xMUp5MHpDbm94bzc5ZTNoMlR5?=
- =?utf-8?B?ZjNOcTkrYTNDdFFBTVc0bStTS2ZDR0FQeWptNHE4QWsybmVFeGI1ZU1HM0VT?=
- =?utf-8?B?bjhNaXo0STZmTU1XYlIxRmdhN0tDZzZCWmJkT3NCaHJ1S25kVVkwdUdWTXZI?=
- =?utf-8?B?R1l0MGFTOE5FbnRrZE5UcWI2by91eHNqTWprVnpEZDNRaUc4NG5Lem0vVUxL?=
- =?utf-8?B?TytsSmtnbHVBbnMxMWVsSWdNZXBHVVRnNmtQL3ByaXFNcHB2bVlVY3dTU0JS?=
- =?utf-8?B?WWZKaGRpMzhnMFUwbGgwVFdrbko1a2FJZGtYWWFzMU1vSDFvUEw2T21LZEFQ?=
- =?utf-8?B?WWxwbnBEaW9aSHZ1Y2hGc0tWemNwVWMrRm9lVllJcEdzSlpZOUd3WXhVS1oz?=
- =?utf-8?B?ZnpxQUV0aFJYMi9pL3h2UUt3QTgyd3BleWVxM1IwZWRxQ3pRdlpMZUhhS3Bk?=
- =?utf-8?B?cW9mSUtPSGpzTWJoSkNpOU9QbXhzc09DYnc4R3laT2tzS1YwMXZteFBJd1R2?=
- =?utf-8?B?Rk9iRngrNTBEeHMyblp4WTJieHUyZXpLMVo0NWg2WVdyLzY2em5CTjhNNGZU?=
- =?utf-8?B?Unp4UXpiYjdCcFFIai9mSW4vMHFWbDdnWm1IWkVtM2p4dHJBbFlMbGhSV3NF?=
- =?utf-8?B?M0EycW5TY3Z1TWRWcnlDdDQ4YXZTSk5VTmRHc2NNMnlxZC8yeFR0YWp2Z3F2?=
- =?utf-8?B?cU1xYjRKSDZwVC9qQjQ4NUp2QUMyNHF2QmlpdjByRVJ2MUEvMlgyTzdXWE1h?=
- =?utf-8?B?ZnBxSEkxQUVyVUZTaE9rVUNEZUVEZ1lJNmdxZXpidXljTnVJZSszMHRZaFdn?=
- =?utf-8?B?YzBONGtEaHlLWmpON1pkMVMzTzBZUkxZaFNWTUNQdmJZQkpQWm5aaWNzMC9U?=
- =?utf-8?B?MEFRSm9hNXIwQlBnc2RDK094ZU9HN1N2WUZtRFNzZFk0eXZ0aEx3Y2JlZ0p0?=
- =?utf-8?B?bXFDQnlYV1ZwUklqZFA2TDliZk9aTytrNjl5d1VrVXZod013VTk0WmZteGts?=
- =?utf-8?B?RURrSDdHNkJoNm9OcTk1a2R0MDkzdy94QU0rZEVYcTBwaGtmU0RZQzFaKzZ3?=
- =?utf-8?B?SEtQSlFoZndtWFNXbUlGSnlVRkQybjBrbW5kREFUbnBzdVJacE9sVXl4b1Rr?=
- =?utf-8?B?d1Iva1kxbmRIUHdtcnlSU2YrRDlwcHpMR1c1UkVvNW1CMzQ0NEhNQ3lJQmhx?=
- =?utf-8?Q?JnFCTHaOrHXs3VLPeTuVKM2cB?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 59142734-bced-4faf-ae52-08de2b3b54d8
-X-MS-Exchange-CrossTenant-AuthSource: DU0PR04MB9496.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Nov 2025 09:24:56.5328
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: /6eIhqD12MoS2b7A8C+FkZfC92M3Xx5YhDwntfLHrQ336Cj10pTORO6S1wwjK6mMJnJv9mxet56cay8gyC+Etw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB10697
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251124_012500_961066_6D04135C 
-X-CRM114-Status: GOOD (  22.96  )
+X-CRM114-CacheID: sfid-20251124_012637_729265_E58F777B 
+X-CRM114-Status: GOOD (  24.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -189,1454 +110,1132 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add driver support for NXP XSPI controller.
+On Fri 21 Nov 2025 at 18:59, Jian Hu <jian.hu@amlogic.com> wrote:
 
-XSPI is a flexible SPI host controller which supports up to
-2 external devices (2 CS). It support Single/Dual/Quad/Octal
-mode data transfer.
+> Add PLL clock controller driver for the Amlogic T7 SoC family.
+>
+> Signed-off-by: Jian Hu <jian.hu@amlogic.com>
+> ---
+>  drivers/clk/meson/Kconfig  |   14 +
+>  drivers/clk/meson/Makefile |    1 +
+>  drivers/clk/meson/t7-pll.c | 1068 ++++++++++++++++++++++++++++++++++++
+>  3 files changed, 1083 insertions(+)
+>  create mode 100644 drivers/clk/meson/t7-pll.c
+>
+> diff --git a/drivers/clk/meson/Kconfig b/drivers/clk/meson/Kconfig
+> index 71481607a6d5..6cdc6a96e105 100644
+> --- a/drivers/clk/meson/Kconfig
+> +++ b/drivers/clk/meson/Kconfig
+> @@ -201,4 +201,18 @@ config COMMON_CLK_S4_PERIPHERALS
+>  	help
+>  	  Support for the peripherals clock controller on Amlogic S805X2 and S905Y4
+>  	  devices, AKA S4. Say Y if you want S4 peripherals clock controller to work.
+> +
+> +config COMMON_CLK_T7_PLL
+> +	tristate "Amlogic T7 SoC PLL controller support"
+> +	depends on ARM64
+> +	default ARCH_MESON
+> +	select COMMON_CLK_MESON_REGMAP
+> +	select COMMON_CLK_MESON_CLKC_UTILS
+> +	select COMMON_CLK_MESON_PLL
+> +	imply COMMON_CLK_SCMI
+> +	help
+> +	  Support for the PLL clock controller on Amlogic A311D2 based
+> +	  device, AKA T7. PLLs are required by most peripheral to operate
+> +	  Say Y if you are a T7 based device.
+> +
+>  endmenu
+> diff --git a/drivers/clk/meson/Makefile b/drivers/clk/meson/Makefile
+> index c6998e752c68..8e3f7f94c639 100644
+> --- a/drivers/clk/meson/Makefile
+> +++ b/drivers/clk/meson/Makefile
+> @@ -26,3 +26,4 @@ obj-$(CONFIG_COMMON_CLK_G12A) += g12a.o g12a-aoclk.o
+>  obj-$(CONFIG_COMMON_CLK_MESON8B) += meson8b.o meson8-ddr.o
+>  obj-$(CONFIG_COMMON_CLK_S4_PLL) += s4-pll.o
+>  obj-$(CONFIG_COMMON_CLK_S4_PERIPHERALS) += s4-peripherals.o
+> +obj-$(CONFIG_COMMON_CLK_T7_PLL) += t7-pll.o
+> diff --git a/drivers/clk/meson/t7-pll.c b/drivers/clk/meson/t7-pll.c
+> new file mode 100644
+> index 000000000000..bee8a7489371
+> --- /dev/null
+> +++ b/drivers/clk/meson/t7-pll.c
+> @@ -0,0 +1,1068 @@
+> +// SPDX-License-Identifier: (GPL-2.0-only OR MIT)
+> +/*
+> + * Copyright (C) 2024-2025 Amlogic, Inc. All rights reserved.
+> + * Author: Jian Hu <jian.hu@amlogic.com>
+> + */
+> +
+> +#include <linux/clk-provider.h>
+> +#include <linux/platform_device.h>
+> +#include "clk-regmap.h"
+> +#include "clk-pll.h"
+> +#include "clk-mpll.h"
+> +#include "meson-clkc-utils.h"
+> +#include <dt-bindings/clock/amlogic,t7-pll-clkc.h>
+> +
+> +#define GP0PLL_CTRL0		0x00
+> +#define GP0PLL_CTRL1		0x04
+> +#define GP0PLL_CTRL2		0x08
+> +#define GP0PLL_CTRL3		0x0c
+> +#define GP0PLL_CTRL4		0x10
+> +#define GP0PLL_CTRL5		0x14
+> +#define GP0PLL_CTRL6		0x18
+> +#define GP0PLL_STS		0x1c
 
-The difference between XSPI and Flexspi:
-1.the register layout is total different.
-2.XSPI support multiple independent execution environments
-(EENVs) for HW virtualization with some limitations. Each EENV
-has its own interrupt and its own set of programming registers
-that exists in a specific offset range in the XSPI memory map.
-The main environment (EENV0) address space contains all of the
-registers for controlling EENV0 plus all of the general XSPI
-control and programming registers. The register mnemonics for
-the user environments (EENV1 to EENV4) have "_SUB_n" appended
-to the mnemonic for the corresponding main-environment register.
+A new line between each register region would help readability
 
-Current driver based on EENV0, which means system already give
-EENV0 right to linux.
+> +#define GP1PLL_CTRL0		0x00
+> +#define GP1PLL_CTRL1		0x04
+> +#define GP1PLL_CTRL2		0x08
+> +#define GP1PLL_CTRL3		0x0c
+> +#define GP1PLL_STS		0x1c
+> +#define HIFIPLL_CTRL0		0x00
+> +#define HIFIPLL_CTRL1		0x04
+> +#define HIFIPLL_CTRL2		0x08
+> +#define HIFIPLL_CTRL3		0x0c
+> +#define HIFIPLL_CTRL4		0x10
+> +#define HIFIPLL_CTRL5		0x14
+> +#define HIFIPLL_CTRL6		0x18
+> +#define HIFIPLL_STS		0x1c
+> +#define PCIEPLL_CTRL0		0x00
+> +#define PCIEPLL_CTRL1		0x04
+> +#define PCIEPLL_CTRL2		0x08
+> +#define PCIEPLL_CTRL3		0x0c
+> +#define PCIEPLL_CTRL4		0x10
+> +#define PCIEPLL_CTRL5		0x14
+> +#define PCIEPLL_STS		0x18
+> +#define MPLL_CTRL0		0x00
+> +#define MPLL_CTRL1		0x04
+> +#define MPLL_CTRL2		0x08
+> +#define MPLL_CTRL3		0x0c
+> +#define MPLL_CTRL4		0x10
+> +#define MPLL_CTRL5		0x14
+> +#define MPLL_CTRL6		0x18
+> +#define MPLL_CTRL7		0x1c
+> +#define MPLL_CTRL8		0x20
+> +#define MPLL_STS		0x24
+> +#define HDMIPLL_CTRL0		0x00
+> +#define HDMIPLL_CTRL1		0x04
+> +#define HDMIPLL_CTRL2		0x08
+> +#define HDMIPLL_CTRL3		0x0c
+> +#define HDMIPLL_CTRL4		0x10
+> +#define HDMIPLL_CTRL5		0x14
+> +#define HDMIPLL_CTRL6		0x18
+> +#define HDMIPLL_STS		0x1c
+> +#define MCLK_PLL_CNTL0		0x00
+> +#define MCLK_PLL_CNTL1		0x04
+> +#define MCLK_PLL_CNTL2		0x08
+> +#define MCLK_PLL_CNTL3		0x0c
+> +#define MCLK_PLL_CNTL4		0x10
+> +#define MCLK_PLL_STS		0x14
+> +
+> +static const struct pll_mult_range t7_media_pll_mult_range = {
+> +	.min = 125,
+> +	.max = 250,
+> +};
+> +
+> +static const struct reg_sequence t7_gp0_init_regs[] = {
+> +	{ .reg = GP0PLL_CTRL1,  .def = 0x00000000 },
+> +	{ .reg = GP0PLL_CTRL2,  .def = 0x00000000 },
+> +	{ .reg = GP0PLL_CTRL3,  .def = 0x48681c00 },
+> +	{ .reg = GP0PLL_CTRL4,  .def = 0x88770290 },
+> +	{ .reg = GP0PLL_CTRL5,  .def = 0x3927200a },
+> +	{ .reg = GP0PLL_CTRL6,  .def = 0x56540000 },
+> +};
+> +
+> +static struct clk_regmap t7_gp0_pll_dco = {
+> +	.data = &(struct meson_clk_pll_data){
+> +		.en = {
+> +			.reg_off = GP0PLL_CTRL0,
+> +			.shift   = 28,
+> +			.width   = 1,
+> +		},
+> +		.m = {
+> +			.reg_off = GP0PLL_CTRL0,
+> +			.shift   = 0,
+> +			.width   = 8,
+> +		},
+> +		.n = {
+> +			.reg_off = GP0PLL_CTRL0,
+> +			.shift   = 10,
+> +			.width   = 5,
+> +		},
+> +		.l = {
+> +			.reg_off = GP0PLL_STS,
+> +			.shift   = 31,
+> +			.width   = 1,
+> +		},
+> +		.rst = {
+> +			.reg_off = GP0PLL_CTRL0,
+> +			.shift   = 29,
+> +			.width   = 1,
+> +		},
+> +		.range = &t7_media_pll_mult_range,
+> +		.init_regs = t7_gp0_init_regs,
+> +		.init_count = ARRAY_SIZE(t7_gp0_init_regs),
+> +	},
+> +	.hw.init = &(struct clk_init_data){
+> +		.name = "gp0_pll_dco",
+> +		.ops = &meson_clk_pll_ops,
+> +		.parent_data = &(const struct clk_parent_data) {
+> +			.fw_name = "in0",
+> +		},
+> +		.num_parents = 1,
+> +	},
+> +};
+> +
+> +static struct clk_regmap t7_gp0_pll = {
+> +	.data = &(struct clk_regmap_div_data){
+> +		.offset = GP0PLL_CTRL0,
+> +		.shift = 16,
+> +		.width = 3,
+> +		.flags = CLK_DIVIDER_POWER_OF_TWO,
+> +	},
+> +	.hw.init = &(struct clk_init_data) {
+> +		.name = "gp0_pll",
+> +		.ops = &clk_regmap_divider_ops,
+> +		.parent_hws = (const struct clk_hw *[]) {
+> +			&t7_gp0_pll_dco.hw
+> +		},
+> +		.num_parents = 1,
+> +		.flags = CLK_SET_RATE_PARENT,
+> +	},
+> +};
+> +
+> +/*
+> + * The gp1 pll IP is different with gp0 pll, the PLL DCO range is
+> + * 1.6GHZ - 3.2GHZ, and the reg_sequence is short
+> + */
 
-This driver use SPI memory interface of the SPI framework to issue
-flash memory operations. Tested this driver with mtd_debug and
-UBIFS on NXP i.MX943 EVK board which has one MT35XU512ABA spi nor
-flash. NOw this driver has the following key features:
-- Support up to OCT DDR mode
-- Support AHB read
-- Support IP read and IP write
-- Support two CS
+Nitpick: if you are not going to explain why the reg_sequence is short
+the last part of the comment is not very useful.
 
-Signed-off-by: Haibo Chen <haibo.chen@nxp.com>
----
- MAINTAINERS                |    1 +
- drivers/spi/Kconfig        |   10 +
- drivers/spi/Makefile       |    1 +
- drivers/spi/spi-nxp-xspi.c | 1357 ++++++++++++++++++++++++++++++++++++++++++++
- 4 files changed, 1369 insertions(+)
-
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 0f3ce467100d7600f498656dbe36b52a2a575cb3..3c6ffca0137f6a3ba705a2dcd76a6dfc0f2609b3 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -18907,6 +18907,7 @@ L:	linux-spi@vger.kernel.org
- L:	imx@lists.linux.dev
- S:	Maintained
- F:	Documentation/devicetree/bindings/spi/nxp,imx94-xspi.yaml
-+F:	drivers/spi/spi-nxp-xspi.c
- 
- NXP-NCI NFC DRIVER
- S:	Orphan
-diff --git a/drivers/spi/Kconfig b/drivers/spi/Kconfig
-index e34aa246eef90ea9e43b58f603e50653e0fadfd3..09472a38b93376b09f6efb6ba90ebf6f7dbd6b4b 100644
---- a/drivers/spi/Kconfig
-+++ b/drivers/spi/Kconfig
-@@ -481,6 +481,16 @@ config SPI_NXP_FLEXSPI
- 	  This controller does not support generic SPI messages and only
- 	  supports the high-level SPI memory interface.
- 
-+config SPI_NXP_XSPI
-+        tristate "NXP xSPI controller"
-+	depends on ARCH_MXC || COMPILE_TEST
-+	depends on HAS_IOMEM
-+	help
-+	  This enables support for the xSPI controller. Up to two devices
-+	  can be connected to one host.
-+	  This controller does not support generic SPI messages and only
-+	  supports the high-level SPI memory interface.
-+
- config SPI_GPIO
- 	tristate "GPIO-based bitbanging SPI Master"
- 	depends on GPIOLIB || COMPILE_TEST
-diff --git a/drivers/spi/Makefile b/drivers/spi/Makefile
-index 863b628ff1ec0b938be81dff024aa7dc7d50c36d..649dcba0aa1140da7d9bd969138859922a2e03b0 100644
---- a/drivers/spi/Makefile
-+++ b/drivers/spi/Makefile
-@@ -102,6 +102,7 @@ obj-$(CONFIG_SPI_WPCM_FIU)		+= spi-wpcm-fiu.o
- obj-$(CONFIG_SPI_NPCM_FIU)		+= spi-npcm-fiu.o
- obj-$(CONFIG_SPI_NPCM_PSPI)		+= spi-npcm-pspi.o
- obj-$(CONFIG_SPI_NXP_FLEXSPI)		+= spi-nxp-fspi.o
-+obj-$(CONFIG_SPI_NXP_XSPI)		+= spi-nxp-xspi.o
- obj-$(CONFIG_SPI_OC_TINY)		+= spi-oc-tiny.o
- spi-octeon-objs				:= spi-cavium.o spi-cavium-octeon.o
- obj-$(CONFIG_SPI_OCTEON)		+= spi-octeon.o
-diff --git a/drivers/spi/spi-nxp-xspi.c b/drivers/spi/spi-nxp-xspi.c
-new file mode 100644
-index 0000000000000000000000000000000000000000..0399652a7a103f2cefff2d00b276ea7f5fad8807
---- /dev/null
-+++ b/drivers/spi/spi-nxp-xspi.c
-@@ -0,0 +1,1357 @@
-+// SPDX-License-Identifier: GPL-2.0+
-+
-+/*
-+ * NXP xSPI controller driver.
-+ *
-+ * Copyright 2025 NXP
-+ *
-+ * xSPI is a flexible SPI host controller which supports single
-+ * external devices. This device can have up to eight bidirectional
-+ * data lines, this means xSPI support Single/Dual/Quad/Octal mode
-+ * data transfer (1/2/4/8 bidirectional data lines).
-+ *
-+ * xSPI controller is driven by the LUT(Look-up Table) registers
-+ * LUT registers are a look-up-table for sequences of instructions.
-+ * A valid sequence consists of five LUT registers.
-+ * Maximum 16 LUT sequences can be programmed simultaneously.
-+ *
-+ * LUTs are being created at run-time based on the commands passed
-+ * from the spi-mem framework, thus using single LUT index.
-+ *
-+ * Software triggered Flash read/write access by IP Bus.
-+ *
-+ * Memory mapped read access by AHB Bus.
-+ *
-+ * Based on SPI MEM interface and spi-nxp-fspi.c driver.
-+ *
-+ * Author:
-+ *     Haibo Chen <haibo.chen@nxp.com>
-+ * Co-author:
-+ *     Han Xu <han.xu@nxp.com>
-+ */
-+
-+#include <linux/bitops.h>
-+#include <linux/bitfield.h>
-+#include <linux/clk.h>
-+#include <linux/completion.h>
-+#include <linux/delay.h>
-+#include <linux/err.h>
-+#include <linux/errno.h>
-+#include <linux/interrupt.h>
-+#include <linux/io.h>
-+#include <linux/iopoll.h>
-+#include <linux/jiffies.h>
-+#include <linux/kernel.h>
-+#include <linux/log2.h>
-+#include <linux/module.h>
-+#include <linux/mutex.h>
-+#include <linux/of.h>
-+#include <linux/platform_device.h>
-+#include <linux/pinctrl/consumer.h>
-+#include <linux/pm_runtime.h>
-+#include <linux/spi/spi.h>
-+#include <linux/spi/spi-mem.h>
-+
-+/* Runtime pm timeout */
-+#define XSPI_RPM_TIMEOUT_MS 50	/* 50ms */
-+/*
-+ * The driver only uses one single LUT entry, that is updated on
-+ * each call of exec_op(). Index 0 is preset at boot with a basic
-+ * read operation, so let's use the last entry (15).
-+ */
-+#define	XSPI_SEQID_LUT			15
-+
-+#define XSPI_MCR			0x0
-+#define XSPI_MCR_CKN_FA_EN		BIT(26)
-+#define XSPI_MCR_DQS_FA_SEL_MASK	GENMASK(25, 24)
-+#define XSPI_MCR_ISD3FA			BIT(17)
-+#define XSPI_MCR_ISD2FA			BIT(16)
-+#define XSPI_MCR_DOZE			BIT(15)
-+#define XSPI_MCR_MDIS			BIT(14)
-+#define XSPI_MCR_DLPEN			BIT(12)
-+#define XSPI_MCR_CLR_TXF		BIT(11)
-+#define XSPI_MCR_CLR_RXF		BIT(10)
-+#define XSPI_MCR_IPS_TG_RST		BIT(9)
-+#define XSPI_MCR_VAR_LAT_EN		BIT(8)
-+#define XSPI_MCR_DDR_EN			BIT(7)
-+#define XSPI_MCR_DQS_EN			BIT(6)
-+#define XSPI_MCR_DQS_LAT_EN		BIT(5)
-+#define XSPI_MCR_DQS_OUT_EN		BIT(4)
-+#define XSPI_MCR_SWRSTHD		BIT(1)
-+#define XSPI_MCR_SWRSTSD		BIT(0)
-+
-+#define XSPI_IPCR			0x8
-+
-+#define XSPI_FLSHCR			0xC
-+#define XSPI_FLSHCR_TDH_MASK		GENMASK(17, 16)
-+#define XSPI_FLSHCR_TCSH_MASK		GENMASK(11, 8)
-+#define XSPI_FLSHCR_TCSS_MASK		GENMASK(3, 0)
-+
-+#define XSPI_BUF0CR			0x10
-+#define XSPI_BUF1CR			0x14
-+#define XSPI_BUF2CR			0x18
-+#define XSPI_BUF3CR			0x1C
-+#define XSPI_BUF3CR_ALLMST		BIT(31)
-+#define XSPI_BUF3CR_ADATSZ_MASK		GENMASK(17, 8)
-+#define XSPI_BUF3CR_MSTRID_MASK		GENMASK(3, 0)
-+
-+#define XSPI_BFGENCR			0x20
-+#define XSPI_BFGENCR_SEQID_WR_MASK	GENMASK(31, 28)
-+#define XSPI_BFGENCR_ALIGN_MASK		GENMASK(24, 22)
-+#define XSPI_BFGENCR_PPWF_CLR		BIT(20)
-+#define XSPI_BFGENCR_WR_FLUSH_EN	BIT(21)
-+#define XSPI_BFGENCR_SEQID_WR_EN	BIT(17)
-+#define XSPI_BFGENCR_SEQID_MASK		GENMASK(15, 12)
-+
-+#define XSPI_BUF0IND			0x30
-+#define XSPI_BUF1IND			0x34
-+#define XSPI_BUF2IND			0x38
-+
-+#define XSPI_DLLCRA			0x60
-+#define XSPI_DLLCRA_DLLEN		BIT(31)
-+#define XSPI_DLLCRA_FREQEN		BIT(30)
-+#define XSPI_DLLCRA_DLL_REFCNTR_MASK	GENMASK(27, 24)
-+#define XSPI_DLLCRA_DLLRES_MASK		GENMASK(23, 20)
-+#define XSPI_DLLCRA_SLV_FINE_MASK	GENMASK(19, 16)
-+#define XSPI_DLLCRA_SLV_DLY_MASK	GENMASK(14, 12)
-+#define XSPI_DLLCRA_SLV_DLY_COARSE_MASK	GENMASK(11,  8)
-+#define XSPI_DLLCRA_SLV_DLY_FINE_MASK	GENMASK(7, 5)
-+#define XSPI_DLLCRA_DLL_CDL8		BIT(4)
-+#define XSPI_DLLCRA_SLAVE_AUTO_UPDT	BIT(3)
-+#define XSPI_DLLCRA_SLV_EN		BIT(2)
-+#define XSPI_DLLCRA_SLV_DLL_BYPASS	BIT(1)
-+#define XSPI_DLLCRA_SLV_UPD		BIT(0)
-+
-+#define XSPI_SFAR			0x100
-+
-+#define XSPI_SFACR			0x104
-+#define XSPI_SFACR_FORCE_A10		BIT(22)
-+#define XSPI_SFACR_WA_4B_EN		BIT(21)
-+#define XSPI_SFACR_CAS_INTRLVD		BIT(20)
-+#define XSPI_SFACR_RX_BP_EN		BIT(18)
-+#define XSPI_SFACR_BYTE_SWAP		BIT(17)
-+#define XSPI_SFACR_WA			BIT(16)
-+#define XSPI_SFACR_CAS_MASK		GENMASK(3, 0)
-+
-+#define XSPI_SMPR			0x108
-+#define XSPI_SMPR_DLLFSMPFA_MASK	GENMASK(26, 24)
-+#define XSPI_SMPR_FSDLY			BIT(6)
-+#define XSPI_SMPR_FSPHS			BIT(5)
-+
-+#define XSPI_RBSR			0x10C
-+
-+#define XSPI_RBCT			0x110
-+#define XSPI_RBCT_WMRK_MASK		GENMASK(6, 0)
-+
-+#define XSPI_DLLSR			0x12C
-+#define XSPI_DLLSR_DLLA_LOCK		BIT(15)
-+#define XSPI_DLLSR_SLVA_LOCK		BIT(14)
-+#define XSPI_DLLSR_DLLA_RANGE_ERR	BIT(13)
-+#define XSPI_DLLSR_DLLA_FINE_UNDERFLOW	BIT(12)
-+
-+#define XSPI_TBSR			0x150
-+
-+#define XSPI_TBDR			0x154
-+
-+#define XSPI_TBCT			0x158
-+#define XSPI_TBCT_WMRK_MASK		GENMASK(7, 0)
-+
-+#define XSPI_SR				0x15C
-+#define XSPI_SR_TXFULL			BIT(27)
-+#define XSPI_SR_TXDMA			BIT(26)
-+#define XSPI_SR_TXWA			BIT(25)
-+#define XSPI_SR_TXNE			BIT(24)
-+#define XSPI_SR_RXDMA			BIT(23)
-+#define XSPI_SR_ARB_STATE_MASK		GENMASK(23, 20)
-+#define XSPI_SR_RXFULL			BIT(19)
-+#define XSPI_SR_RXWE			BIT(16)
-+#define XSPI_SR_ARB_LCK			BIT(15)
-+#define XSPI_SR_AHBnFUL			BIT(11)
-+#define XSPI_SR_AHBnNE			BIT(7)
-+#define XSPI_SR_AHBTRN			BIT(6)
-+#define XSPI_SR_AWRACC			BIT(4)
-+#define XSPI_SR_AHB_ACC			BIT(2)
-+#define XSPI_SR_IP_ACC			BIT(1)
-+#define XSPI_SR_BUSY			BIT(0)
-+
-+#define XSPI_FR				0x160
-+#define XSPI_FR_DLPFF			BIT(31)
-+#define XSPI_FR_DLLABRT			BIT(28)
-+#define XSPI_FR_TBFF			BIT(27)
-+#define XSPI_FR_TBUF			BIT(26)
-+#define XSPI_FR_DLLUNLCK		BIT(24)
-+#define XSPI_FR_ILLINE			BIT(23)
-+#define XSPI_FR_RBOF			BIT(17)
-+#define XSPI_FR_RBDF			BIT(16)
-+#define XSPI_FR_AAEF			BIT(15)
-+#define XSPI_FR_AITEF			BIT(14)
-+#define XSPI_FR_AIBSEF			BIT(13)
-+#define XSPI_FR_ABOF			BIT(12)
-+#define XSPI_FR_CRCAEF			BIT(10)
-+#define XSPI_FR_PPWF			BIT(8)
-+#define XSPI_FR_IPIEF			BIT(6)
-+#define XSPI_FR_IPEDERR			BIT(5)
-+#define XSPI_FR_PERFOVF			BIT(2)
-+#define XSPI_FR_RDADDR			BIT(1)
-+#define XSPI_FR_TFF			BIT(0)
-+
-+#define XSPI_RSER			0x164
-+#define XSPI_RSER_TFIE			BIT(0)
-+
-+#define XSPI_SFA1AD			0x180
-+
-+#define XSPI_SFA2AD			0x184
-+
-+#define XSPI_RBDR0			0x200
-+
-+#define XSPI_LUTKEY			0x300
-+#define XSPI_LUT_KEY_VAL		(0x5AF05AF0UL)
-+
-+#define XSPI_LCKCR			0x304
-+#define XSPI_LOKCR_LOCK			BIT(0)
-+#define XSPI_LOKCR_UNLOCK		BIT(1)
-+
-+#define XSPI_LUT			0x310
-+#define XSPI_LUT_OFFSET			(XSPI_SEQID_LUT * 5 * 4)
-+#define XSPI_LUT_REG(idx) \
-+	(XSPI_LUT + XSPI_LUT_OFFSET + (idx) * 4)
-+
-+#define XSPI_MCREXT			0x4FC
-+#define XSPI_MCREXT_RST_MASK		GENMASK(3, 0)
-+
-+
-+#define XSPI_FRAD0_WORD2		0x808
-+#define XSPI_FRAD0_WORD2_MD0ACP_MASK	GENMASK(2, 0)
-+
-+#define XSPI_FRAD0_WORD3		0x80C
-+#define XSPI_FRAD0_WORD3_VLD		BIT(31)
-+
-+#define XSPI_TG0MDAD			0x900
-+#define XSPI_TG0MDAD_VLD		BIT(31)
-+
-+#define XSPI_TG1MDAD			0x910
-+
-+#define XSPI_MGC			0x920
-+#define XSPI_MGC_GVLD			BIT(31)
-+#define XSPI_MGC_GVLDMDAD		BIT(29)
-+#define XSPI_MGC_GVLDFRAD		BIT(27)
-+
-+#define XSPI_MTO			0x928
-+
-+#define XSPI_ERRSTAT			0x938
-+#define XSPI_INT_EN			0x93C
-+
-+#define XSPI_SFP_TG_IPCR		0x958
-+#define XSPI_SFP_TG_IPCR_SEQID_MASK	GENMASK(27, 24)
-+#define XSPI_SFP_TG_IPCR_ARB_UNLOCK	BIT(23)
-+#define XSPI_SFP_TG_IPCR_ARB_LOCK	BIT(22)
-+#define XSPI_SFP_TG_IPCR_IDATSZ_MASK	GENMASK(15, 0)
-+
-+#define XSPI_SFP_TG_SFAR 0x95C
-+
-+/* Register map end */
-+
-+/********* XSPI CMD definitions ***************************/
-+#define LUT_STOP	0x00
-+#define LUT_CMD_SDR	0x01
-+#define LUT_ADDR_SDR	0x02
-+#define LUT_DUMMY	0x03
-+#define LUT_MODE8_SDR	0x04
-+#define LUT_MODE2_SDR	0x05
-+#define LUT_MODE4_SDR	0x06
-+#define LUT_READ_SDR	0x07
-+#define LUT_WRITE_SDR	0x08
-+#define LUT_JMP_ON_CS	0x09
-+#define LUT_ADDR_DDR	0x0A
-+#define LUT_MODE8_DDR	0x0B
-+#define LUT_MODE2_DDR	0x0C
-+#define LUT_MODE4_DDR	0x0D
-+#define LUT_READ_DDR	0x0E
-+#define LUT_WRITE_DDR	0x0F
-+#define LUT_DATA_LEARN	0x10
-+#define LUT_CMD_DDR	0x11
-+#define LUT_CADDR_SDR	0x12
-+#define LUT_CADDR_DDR	0x13
-+#define JMP_TO_SEQ	0x14
-+
-+#define XSPI_64BIT_LE	0x3
-+/*
-+ * Calculate number of required PAD bits for LUT register.
-+ *
-+ * The pad stands for the number of IO lines [0:7].
-+ * For example, the octal read needs eight IO lines,
-+ * so you should use LUT_PAD(8). This macro
-+ * returns 3 i.e. use eight (2^3) IP lines for read.
-+ */
-+#define LUT_PAD(x) (fls(x) - 1)
-+
-+/*
-+ * Macro for constructing the LUT entries with the following
-+ * register layout:
-+ *
-+ *  ---------------------------------------------------
-+ *  | INSTR1 | PAD1 | OPRND1 | INSTR0 | PAD0 | OPRND0 |
-+ *  ---------------------------------------------------
-+ */
-+#define PAD_SHIFT		8
-+#define INSTR_SHIFT		10
-+#define OPRND_SHIFT		16
-+
-+/* Macros for constructing the LUT register. */
-+#define LUT_DEF(idx, ins, pad, opr)			  \
-+	((((ins) << INSTR_SHIFT) | ((pad) << PAD_SHIFT) | \
-+	(opr)) << (((idx) % 2) * OPRND_SHIFT))
-+
-+#define NXP_XSPI_MIN_IOMAP	SZ_4M
-+#define NXP_XSPI_MAX_CHIPSELECT		2
-+#define POLL_TOUT_US		5000
-+
-+/* Access flash memory using IP bus only */
-+#define XSPI_QUIRK_USE_IP_ONLY	BIT(0)
-+
-+struct nxp_xspi_devtype_data {
-+	unsigned int rxfifo;
-+	unsigned int txfifo;
-+	unsigned int ahb_buf_size;
-+	unsigned int quirks;
-+};
-+
-+static struct nxp_xspi_devtype_data imx94_data = {
-+	.rxfifo = SZ_512,       /* (128 * 4 bytes)  */
-+	.txfifo = SZ_1K,        /* (256 * 4 bytes)  */
-+	.ahb_buf_size = SZ_4K,  /* (1024 * 4 bytes)  */
-+};
-+
-+struct nxp_xspi {
-+	void __iomem *iobase;
-+	void __iomem *ahb_addr;
-+	u32 memmap_phy;
-+	u32 memmap_phy_size;
-+	u32 memmap_start;
-+	u32 memmap_len;
-+	struct clk *clk;
-+	struct device *dev;
-+	struct completion c;
-+	const struct nxp_xspi_devtype_data *devtype_data;
-+	/* mutex lock for each operation */
-+	struct mutex lock;
-+	int selected;
-+#define XSPI_DTR_PROTO		BIT(0)
-+	int flags;
-+	/* Save the previous operation clock rate */
-+	unsigned long pre_op_rate;
-+	/* The max clock rate xspi supported output to device */
-+	unsigned long support_max_rate;
-+};
-+
-+static inline int needs_ip_only(struct nxp_xspi *xspi)
-+{
-+	return xspi->devtype_data->quirks & XSPI_QUIRK_USE_IP_ONLY;
-+}
-+
-+static irqreturn_t nxp_xspi_irq_handler(int irq, void *dev_id)
-+{
-+	struct nxp_xspi *xspi = dev_id;
-+	u32 reg;
-+
-+	reg = readl(xspi->iobase + XSPI_FR);
-+	if (reg & XSPI_FR_TFF) {
-+		/* Clear interrupt */
-+		writel(XSPI_FR_TFF, xspi->iobase + XSPI_FR);
-+		complete(&xspi->c);
-+		return IRQ_HANDLED;
-+	}
-+
-+	return IRQ_NONE;
-+}
-+
-+static int nxp_xspi_check_buswidth(struct nxp_xspi *xspi, u8 width)
-+{
-+	return (is_power_of_2(width) && width <= 8) ? 0 : -EOPNOTSUPP;
-+}
-+
-+static bool nxp_xspi_supports_op(struct spi_mem *mem,
-+				 const struct spi_mem_op *op)
-+{
-+	struct nxp_xspi *xspi = spi_controller_get_devdata(mem->spi->controller);
-+	int ret;
-+
-+	ret = nxp_xspi_check_buswidth(xspi, op->cmd.buswidth);
-+
-+	if (op->addr.nbytes)
-+		ret |= nxp_xspi_check_buswidth(xspi, op->addr.buswidth);
-+
-+	if (op->dummy.nbytes)
-+		ret |= nxp_xspi_check_buswidth(xspi, op->dummy.buswidth);
-+
-+	if (op->data.nbytes)
-+		ret |= nxp_xspi_check_buswidth(xspi, op->data.buswidth);
-+
-+	if (ret)
-+		return false;
-+
-+	/*
-+	 * The number of address bytes should be equal to or less than 4 bytes.
-+	 */
-+	if (op->addr.nbytes > 4)
-+		return false;
-+
-+	/* Max 32 dummy clock cycles supported */
-+	if (op->dummy.buswidth &&
-+	    (op->dummy.nbytes * 8 / op->dummy.buswidth > 64))
-+		return false;
-+
-+	if (needs_ip_only(xspi) && op->data.dir == SPI_MEM_DATA_IN &&
-+	    op->data.nbytes > xspi->devtype_data->rxfifo)
-+		return false;
-+
-+	if (op->data.dir == SPI_MEM_DATA_OUT &&
-+			op->data.nbytes > xspi->devtype_data->txfifo)
-+		return false;
-+
-+	return spi_mem_default_supports_op(mem, op);
-+}
-+
-+static void nxp_xspi_prepare_lut(struct nxp_xspi *xspi,
-+				 const struct spi_mem_op *op)
-+{
-+	void __iomem *base = xspi->iobase;
-+	u32 lutval[5] = {};
-+	int lutidx = 1, i;
-+
-+	/* cmd */
-+	if (op->cmd.dtr) {
-+		lutval[0] |= LUT_DEF(0, LUT_CMD_DDR, LUT_PAD(op->cmd.buswidth),
-+				     op->cmd.opcode >> 8);
-+		lutval[lutidx / 2] |= LUT_DEF(lutidx, LUT_CMD_DDR,
-+					      LUT_PAD(op->cmd.buswidth),
-+					      op->cmd.opcode & 0x00ff);
-+		lutidx++;
-+	} else {
-+		lutval[0] |= LUT_DEF(0, LUT_CMD_SDR, LUT_PAD(op->cmd.buswidth),
-+				     op->cmd.opcode);
-+	}
-+
-+	/* Addr bytes */
-+	if (op->addr.nbytes) {
-+		lutval[lutidx / 2] |= LUT_DEF(lutidx, op->addr.dtr ?
-+					      LUT_ADDR_DDR : LUT_ADDR_SDR,
-+					      LUT_PAD(op->addr.buswidth),
-+					      op->addr.nbytes * 8);
-+		lutidx++;
-+	}
-+
-+	/* Dummy bytes, if needed */
-+	if (op->dummy.nbytes) {
-+		lutval[lutidx / 2] |= LUT_DEF(lutidx, LUT_DUMMY,
-+					      LUT_PAD(op->data.buswidth),
-+					      op->dummy.nbytes * 8 /
-+						/* need distinguish ddr mode */
-+					      op->dummy.buswidth / (op->dummy.dtr ? 2 : 1));
-+		lutidx++;
-+	}
-+
-+	/* Read/Write data bytes */
-+	if (op->data.nbytes) {
-+		lutval[lutidx / 2] |= LUT_DEF(lutidx,
-+					      op->data.dir == SPI_MEM_DATA_IN ?
-+					      (op->data.dtr ? LUT_READ_DDR : LUT_READ_SDR) :
-+					      (op->data.dtr ? LUT_WRITE_DDR : LUT_WRITE_SDR),
-+					      LUT_PAD(op->data.buswidth),
-+					      0);
-+		lutidx++;
-+	}
-+
-+	/* Stop condition. */
-+	lutval[lutidx / 2] |= LUT_DEF(lutidx, LUT_STOP, 0, 0);
-+
-+	/* Unlock LUT */
-+	writel(XSPI_LUT_KEY_VAL, xspi->iobase + XSPI_LUTKEY);
-+	writel(XSPI_LOKCR_UNLOCK, xspi->iobase + XSPI_LCKCR);
-+
-+	/* Fill LUT */
-+	for (i = 0; i < ARRAY_SIZE(lutval); i++)
-+		writel(lutval[i], base + XSPI_LUT_REG(i));
-+
-+	dev_dbg(xspi->dev, "CMD[%02x] lutval[0:%08x 1:%08x 2:%08x 3:%08x 4:%08x], size: 0x%08x\n",
-+		op->cmd.opcode, lutval[0], lutval[1], lutval[2], lutval[3], lutval[4],
-+		op->data.nbytes);
-+
-+	/* Lock LUT */
-+	writel(XSPI_LUT_KEY_VAL, xspi->iobase + XSPI_LUTKEY);
-+	writel(XSPI_LOKCR_LOCK, xspi->iobase + XSPI_LCKCR);
-+}
-+
-+static void nxp_xspi_disable_ddr(struct nxp_xspi *xspi)
-+{
-+	void __iomem *base = xspi->iobase;
-+	u32 reg;
-+
-+	/* Disable module */
-+	reg = readl(base + XSPI_MCR);
-+	reg |= XSPI_MCR_MDIS;
-+	writel(reg, base + XSPI_MCR);
-+
-+	reg &= ~XSPI_MCR_DDR_EN;
-+	reg &= ~XSPI_MCR_DQS_FA_SEL_MASK;
-+	/* Use dummy pad loopback mode to sample data */
-+	reg |= FIELD_PREP(XSPI_MCR_DQS_FA_SEL_MASK, 0x01);
-+	writel(reg, base + XSPI_MCR);
-+	xspi->support_max_rate = 133000000;
-+
-+	reg = readl(base + XSPI_FLSHCR);
-+	reg &= ~XSPI_FLSHCR_TDH_MASK;
-+	writel(reg, base + XSPI_FLSHCR);
-+
-+	/* Select sampling at inverted clock */
-+	reg = FIELD_PREP(XSPI_SMPR_DLLFSMPFA_MASK, 0) | XSPI_SMPR_FSPHS;
-+	writel(reg, base + XSPI_SMPR);
-+
-+	/* Enable module */
-+	reg = readl(base + XSPI_MCR);
-+	reg &= ~XSPI_MCR_MDIS;
-+	writel(reg, base + XSPI_MCR);
-+}
-+
-+static void nxp_xspi_enable_ddr(struct nxp_xspi *xspi)
-+{
-+	void __iomem *base = xspi->iobase;
-+	u32 reg;
-+
-+	/* Disable module */
-+	reg = readl(base + XSPI_MCR);
-+	reg |= XSPI_MCR_MDIS;
-+	writel(reg, base + XSPI_MCR);
-+
-+	reg |= XSPI_MCR_DDR_EN;
-+	reg &= ~XSPI_MCR_DQS_FA_SEL_MASK;
-+	/* Use external dqs to sample data */
-+	reg |= FIELD_PREP(XSPI_MCR_DQS_FA_SEL_MASK, 0x03);
-+	writel(reg, base + XSPI_MCR);
-+	xspi->support_max_rate = 200000000;
-+
-+	reg = readl(base + XSPI_FLSHCR);
-+	reg &= ~XSPI_FLSHCR_TDH_MASK;
-+	reg |= FIELD_PREP(XSPI_FLSHCR_TDH_MASK, 0x01);
-+	writel(reg, base + XSPI_FLSHCR);
-+
-+	reg = FIELD_PREP(XSPI_SMPR_DLLFSMPFA_MASK, 0x04);
-+	writel(reg, base + XSPI_SMPR);
-+
-+	/* Enable module */
-+	reg = readl(base + XSPI_MCR);
-+	reg &= ~XSPI_MCR_MDIS;
-+	writel(reg, base + XSPI_MCR);
-+}
-+
-+static void nxp_xspi_sw_reset(struct nxp_xspi *xspi)
-+{
-+	void __iomem *base = xspi->iobase;
-+	bool mdis_flag = false;
-+	u32 reg;
-+	int ret;
-+
-+	reg = readl(base + XSPI_MCR);
-+
-+	/*
-+	 * Per RM, when reset SWRSTSD and SWRSTHD, XSPI must be
-+	 * enabled (MDIS = 0).
-+	 * So if MDIS is 1, should clear it before assert SWRSTSD
-+	 * and SWRSTHD.
-+	 */
-+	if (reg & XSPI_MCR_MDIS) {
-+		reg &= ~XSPI_MCR_MDIS;
-+		writel(reg, base + XSPI_MCR);
-+		mdis_flag = true;
-+	}
-+
-+	/* Software reset for AHB domain and Serial flash memory domain */
-+	reg |= XSPI_MCR_SWRSTHD | XSPI_MCR_SWRSTSD;
-+	/* Software Reset for IPS Target Group Queue 0 */
-+	reg |= XSPI_MCR_IPS_TG_RST;
-+	writel(reg, base + XSPI_MCR);
-+
-+	/* IPS_TG_RST will self-clear to 0 once IPS_TG_RST complete */
-+	ret = readl_poll_timeout(base + XSPI_MCR, reg, !(reg & XSPI_MCR_IPS_TG_RST),
-+			      100, 5000);
-+	if (ret == -ETIMEDOUT)
-+		dev_warn(xspi->dev, "XSPI_MCR_IPS_TG_RST do not self-clear in 5ms!");
-+
-+	/*
-+	 * Per RM, must wait for at least three system cycles and
-+	 * three flash cycles after changing the value of reset field.
-+	 * delay 5us for safe.
-+	 */
-+	fsleep(5);
-+
-+	/*
-+	 * Per RM, before dessert SWRSTSD and SWRSTHD, XSPI must be
-+	 * disabled (MIDS = 1).
-+	 */
-+	reg = readl(base + XSPI_MCR);
-+	reg |= XSPI_MCR_MDIS;
-+	writel(reg, base + XSPI_MCR);
-+
-+	/* deassert software reset */
-+	reg &= ~(XSPI_MCR_SWRSTHD | XSPI_MCR_SWRSTSD);
-+	writel(reg, base + XSPI_MCR);
-+
-+	/*
-+	 * Per RM, must wait for at least three system cycles and
-+	 * three flash cycles after changing the value of reset field.
-+	 * delay 5us for safe.
-+	 */
-+	fsleep(5);
-+
-+	/* Re-enable XSPI if it is enabled at beginning */
-+	if (!mdis_flag) {
-+		reg &= ~XSPI_MCR_MDIS;
-+		writel(reg, base + XSPI_MCR);
-+	}
-+}
-+
-+static void nxp_xspi_dll_bypass(struct nxp_xspi *xspi)
-+{
-+	void __iomem *base = xspi->iobase;
-+	int ret;
-+	u32 reg;
-+
-+	nxp_xspi_sw_reset(xspi);
-+
-+	writel(0, base + XSPI_DLLCRA);
-+
-+	/* Set SLV EN first */
-+	reg = XSPI_DLLCRA_SLV_EN;
-+	writel(reg, base + XSPI_DLLCRA);
-+
-+	reg = XSPI_DLLCRA_FREQEN |
-+	      FIELD_PREP(XSPI_DLLCRA_SLV_DLY_COARSE_MASK, 0x0) |
-+	      XSPI_DLLCRA_SLV_EN | XSPI_DLLCRA_SLV_DLL_BYPASS;
-+	writel(reg, base + XSPI_DLLCRA);
-+
-+	reg |= XSPI_DLLCRA_SLV_UPD;
-+	writel(reg, base + XSPI_DLLCRA);
-+
-+	ret = readl_poll_timeout(base + XSPI_DLLSR, reg,
-+			      reg & XSPI_DLLSR_SLVA_LOCK, 0, POLL_TOUT_US);
-+	if (ret)
-+		dev_err(xspi->dev,
-+			"DLL SLVA unlock, the DLL status is %x, need to check!\n",
-+			readl(base + XSPI_DLLSR));
-+}
-+
-+static void nxp_xspi_dll_auto(struct nxp_xspi *xspi, unsigned long rate)
-+{
-+	void __iomem *base = xspi->iobase;
-+	int ret;
-+	u32 reg;
-+
-+	nxp_xspi_sw_reset(xspi);
-+
-+	writel(0, base + XSPI_DLLCRA);
-+
-+	/* Set SLV EN first */
-+	reg = XSPI_DLLCRA_SLV_EN;
-+	writel(reg, base + XSPI_DLLCRA);
-+
-+	reg = FIELD_PREP(XSPI_DLLCRA_DLL_REFCNTR_MASK, 0x02) |
-+	      FIELD_PREP(XSPI_DLLCRA_DLLRES_MASK, 0x08) |
-+	      XSPI_DLLCRA_SLAVE_AUTO_UPDT | XSPI_DLLCRA_SLV_EN;
-+	if (rate > 133000000)
-+		reg |= XSPI_DLLCRA_FREQEN;
-+
-+	writel(reg, base + XSPI_DLLCRA);
-+
-+	reg |= XSPI_DLLCRA_SLV_UPD;
-+	writel(reg, base + XSPI_DLLCRA);
-+
-+	reg |= XSPI_DLLCRA_DLLEN;
-+	writel(reg, base + XSPI_DLLCRA);
-+
-+	ret = readl_poll_timeout(base + XSPI_DLLSR, reg,
-+			      reg & XSPI_DLLSR_DLLA_LOCK, 0, POLL_TOUT_US);
-+	if (ret)
-+		dev_err(xspi->dev,
-+			"DLL unlock, the DLL status is %x, need to check!\n",
-+			readl(base + XSPI_DLLSR));
-+
-+	ret = readl_poll_timeout(base + XSPI_DLLSR, reg,
-+			      reg & XSPI_DLLSR_SLVA_LOCK, 0, POLL_TOUT_US);
-+	if (ret)
-+		dev_err(xspi->dev,
-+			"DLL SLVA unlock, the DLL status is %x, need to check!\n",
-+			readl(base + XSPI_DLLSR));
-+}
-+
-+static void nxp_xspi_select_mem(struct nxp_xspi *xspi, struct spi_device *spi,
-+				const struct spi_mem_op *op)
-+{
-+	/* xspi only support one DTR mode: 8D-8D-8D */
-+	bool op_is_dtr = op->cmd.dtr && op->addr.dtr && op->dummy.dtr && op->data.dtr;
-+	unsigned long root_clk_rate, rate;
-+	uint64_t cs0_top_address;
-+	uint64_t cs1_top_address;
-+	u32 reg;
-+	int ret;
-+
-+	/*
-+	 * Return when following condition all meet,
-+	 * 1, if previously selected target device is same as current
-+	 *    requested target device.
-+	 * 2, the DTR or STR mode do not change.
-+	 * 3, previous operation max rate equals current one.
-+	 *
-+	 * For other case, need to re-config.
-+	 */
-+	if (xspi->selected == spi_get_chipselect(spi, 0) &&
-+	    (!!(xspi->flags & XSPI_DTR_PROTO) == op_is_dtr) &&
-+	    (xspi->pre_op_rate == op->max_freq))
-+		return;
-+
-+	if (op_is_dtr) {
-+		nxp_xspi_enable_ddr(xspi);
-+		xspi->flags |= XSPI_DTR_PROTO;
-+	} else {
-+		nxp_xspi_disable_ddr(xspi);
-+		xspi->flags &= ~XSPI_DTR_PROTO;
-+	}
-+	rate = min_t(unsigned long, xspi->support_max_rate, op->max_freq);
-+	/*
-+	 * There is two dividers between xspi_clk_root(from SoC CCM) and xspi_sfif.
-+	 * xspi_clk_root ---->divider1 ----> ipg_clk_2xsfif
-+	 *                              |
-+	 *                              |
-+	 *                              |---> divider2 ---> ipg_clk_sfif
-+	 * divider1 is controlled by SOCCR, SOCCR default value is 0.
-+	 * divider2 fix to divide 2.
-+	 * when SOCCR = 0:
-+	 *        ipg_clk_2xsfif = xspi_clk_root
-+	 *        ipg_clk_sfif = ipg_clk_2xsfif / 2 = xspi_clk_root / 2
-+	 * ipg_clk_2xsfif is used for DTR mode.
-+	 * xspi_sck(output to device) is defined based on xspi_sfif clock.
-+	 */
-+	root_clk_rate = rate * 2;
-+
-+	clk_disable_unprepare(xspi->clk);
-+
-+	ret = clk_set_rate(xspi->clk, root_clk_rate);
-+	if (ret)
-+		return;
-+
-+	ret = clk_prepare_enable(xspi->clk);
-+	if (ret)
-+		return;
-+
-+	xspi->pre_op_rate = op->max_freq;
-+	xspi->selected = spi_get_chipselect(spi, 0);
-+
-+	if (xspi->selected) {		/* CS1 select */
-+		cs0_top_address = xspi->memmap_phy;
-+		cs1_top_address = SZ_4G - 1;
-+	} else {			/* CS0 select */
-+		cs0_top_address = SZ_4G - 1;
-+		cs1_top_address = SZ_4G - 1;
-+	}
-+	writel(cs0_top_address, xspi->iobase + XSPI_SFA1AD);
-+	writel(cs1_top_address, xspi->iobase + XSPI_SFA2AD);
-+
-+	reg = readl(xspi->iobase + XSPI_SFACR);
-+	if (op->data.swap16)
-+		reg |= XSPI_SFACR_BYTE_SWAP;
-+	else
-+		reg &= ~XSPI_SFACR_BYTE_SWAP;
-+	writel(reg, xspi->iobase + XSPI_SFACR);
-+
-+	if (!op_is_dtr || rate < 60000000)
-+		nxp_xspi_dll_bypass(xspi);
-+	else
-+		nxp_xspi_dll_auto(xspi, rate);
-+}
-+
-+static int nxp_xspi_ahb_read(struct nxp_xspi *xspi, const struct spi_mem_op *op)
-+{
-+	u32 start = op->addr.val;
-+	u32 len = op->data.nbytes;
-+
-+	/* If necessary, ioremap before AHB read */
-+	if ((!xspi->ahb_addr) || start < xspi->memmap_start ||
-+	     start + len > xspi->memmap_start + xspi->memmap_len) {
-+		if (xspi->ahb_addr)
-+			iounmap(xspi->ahb_addr);
-+
-+		xspi->memmap_start = start;
-+		xspi->memmap_len = len > NXP_XSPI_MIN_IOMAP ?
-+				len : NXP_XSPI_MIN_IOMAP;
-+
-+		xspi->ahb_addr = ioremap(xspi->memmap_phy + xspi->memmap_start,
-+					 xspi->memmap_len);
-+
-+		if (!xspi->ahb_addr) {
-+			dev_err(xspi->dev, "failed to alloc memory\n");
-+			return -ENOMEM;
-+		}
-+	}
-+
-+	/* Read out the data directly from the AHB buffer. */
-+	memcpy_fromio(op->data.buf.in,
-+			xspi->ahb_addr + start - xspi->memmap_start, len);
-+
-+	return 0;
-+}
-+
-+static void nxp_xspi_fill_txfifo(struct nxp_xspi *xspi,
-+				 const struct spi_mem_op *op)
-+{
-+	void __iomem *base = xspi->iobase;
-+	u8 *buf = (u8 *)op->data.buf.out;
-+	u32 reg, left;
-+	int i;
-+
-+	for (i = 0; i < ALIGN(op->data.nbytes, 4); i += 4) {
-+		reg = readl(base + XSPI_FR);
-+		reg |= XSPI_FR_TBFF;
-+		writel(reg, base + XSPI_FR);
-+		/* Read again to check whether the tx fifo has rom */
-+		reg = readl(base + XSPI_FR);
-+		WARN_ON(!(reg & XSPI_FR_TBFF));
-+		if (i == ALIGN_DOWN(op->data.nbytes, 4)) {
-+			/* Use 0xFF for extra bytes */
-+			left = 0xFFFFFFFF;
-+			/* The last 1 to 3 bytes */
-+			memcpy((u8 *)&left, buf + i, op->data.nbytes - i);
-+			writel(left, base + XSPI_TBDR);
-+		} else {
-+			writel(*(u32 *)(buf + i), base + XSPI_TBDR);
-+		}
-+	}
-+}
-+
-+static void nxp_xspi_read_rxfifo(struct nxp_xspi *xspi,
-+				const struct spi_mem_op *op)
-+{
-+	u32 watermark, watermark_bytes, reg;
-+	void __iomem *base = xspi->iobase;
-+	u8 *buf = (u8 *) op->data.buf.in;
-+	int i, ret, len;
-+
-+	/*
-+	 * Config the rx watermark half of the 64 memory-mapped RX data buffer RBDRn
-+	 * refer to the RBCT config in nxp_xspi_do_op()
-+	 */
-+	watermark = 32;
-+	watermark_bytes = watermark * 4;
-+
-+	len = op->data.nbytes;
-+
-+	while (len >= watermark_bytes) {
-+		/* Make sure the RX FIFO contains valid data before read */
-+		ret = readl_poll_timeout(base + XSPI_FR, reg,
-+				      reg & XSPI_FR_RBDF, 0, POLL_TOUT_US);
-+		WARN_ON(ret);
-+		for (i = 0; i < watermark; i++)
-+			*(u32 *)(buf + i * 4) = readl(base + XSPI_RBDR0 + i * 4);
-+
-+		len = len - watermark_bytes;
-+		buf = buf + watermark_bytes;
-+		/* Pop up data to RXFIFO for next read. */
-+		reg = readl(base + XSPI_FR);
-+		reg |= XSPI_FR_RBDF;
-+		writel(reg, base + XSPI_FR);
-+	}
-+
-+	/* Wait for the total data transfer finished */
-+	ret = readl_poll_timeout(base + XSPI_SR, reg, !(reg & XSPI_SR_BUSY), 0, POLL_TOUT_US);
-+	WARN_ON(ret);
-+
-+	i = 0;
-+	while (len >= 4) {
-+		*(u32 *)(buf) = readl(base + XSPI_RBDR0 + i);
-+		i += 4;
-+		len -= 4;
-+		buf += 4;
-+	}
-+
-+	if (len > 0) {
-+		reg = readl(base + XSPI_RBDR0 + i);
-+		memcpy(buf, (u8 *)&reg, len);
-+	}
-+
-+	/* Invalid RXFIFO first */
-+	reg = readl(base + XSPI_MCR);
-+	reg |= XSPI_MCR_CLR_RXF;
-+	writel(reg, base + XSPI_MCR);
-+	/* Wait for the CLR_RXF clear */
-+	ret = readl_poll_timeout(base + XSPI_MCR, reg,
-+			      !(reg & XSPI_MCR_CLR_RXF), 1, POLL_TOUT_US);
-+	WARN_ON(ret);
-+}
-+
-+static int nxp_xspi_do_op(struct nxp_xspi *xspi, const struct spi_mem_op *op)
-+{
-+	void __iomem *base = xspi->iobase;
-+	int watermark, err = 0;
-+	u32 reg, len;
-+
-+	len = op->data.nbytes;
-+	if (op->data.nbytes && op->data.dir == SPI_MEM_DATA_OUT) {
-+		/* Clear the TX FIFO. */
-+		reg = readl(base + XSPI_MCR);
-+		reg |= XSPI_MCR_CLR_TXF;
-+		writel(reg, base + XSPI_MCR);
-+		/* Wait for the CLR_TXF clear */
-+		err = readl_poll_timeout(base + XSPI_MCR, reg,
-+				      !(reg & XSPI_MCR_CLR_TXF), 1, POLL_TOUT_US);
-+		WARN_ON(err);
-+		/* Cover the no 4bytes alignment data length */
-+		watermark = (xspi->devtype_data->txfifo - ALIGN(op->data.nbytes, 4)) / 4 + 1;
-+		reg = FIELD_PREP(XSPI_TBCT_WMRK_MASK, watermark);
-+		writel(reg, base + XSPI_TBCT);
-+		/*
-+		 * According to the RM, for TBDR register, a write transaction on the
-+		 * flash memory with data size of less than 32 bits leads to the removal
-+		 * of one data entry from the TX buffer. The valid bits are used and the
-+		 * rest of the bits are discarded.
-+		 * But for data size large than 32 bits, according to test, for no 4bytes
-+		 * alignment data, the last 1~3 bytes will lost, because TX buffer use
-+		 * 4 bytes entries.
-+		 * So here adjust the transfer data length to make it 4bytes alignment.
-+		 * then will meet the upper watermark setting, trigger the 4bytes entries
-+		 * pop out.
-+		 * Will use extra 0xff to append, refer to nxp_xspi_fill_txfifo().
-+		 */
-+		if (len > 4)
-+			len = ALIGN(op->data.nbytes, 4);
-+
-+	} else if (op->data.nbytes && op->data.dir == SPI_MEM_DATA_IN) {
-+		/* Invalid RXFIFO first */
-+		reg = readl(base + XSPI_MCR);
-+		reg |= XSPI_MCR_CLR_RXF;
-+		writel(reg, base + XSPI_MCR);
-+		/* Wait for the CLR_RXF clear */
-+		err = readl_poll_timeout(base + XSPI_MCR, reg,
-+				      !(reg & XSPI_MCR_CLR_RXF), 1, POLL_TOUT_US);
-+		WARN_ON(err);
-+		reg = FIELD_PREP(XSPI_RBCT_WMRK_MASK, 31);
-+		writel(reg, base + XSPI_RBCT);
-+	}
-+
-+	init_completion(&xspi->c);
-+
-+	/* Config the data address */
-+	writel(op->addr.val + xspi->memmap_phy, base + XSPI_SFP_TG_SFAR);
-+
-+	/* Config the data size and lut id, trigger the transfer */
-+	reg = FIELD_PREP(XSPI_SFP_TG_IPCR_SEQID_MASK, XSPI_SEQID_LUT) |
-+	      FIELD_PREP(XSPI_SFP_TG_IPCR_IDATSZ_MASK, len);
-+	writel(reg, base + XSPI_SFP_TG_IPCR);
-+
-+	if (op->data.nbytes && op->data.dir == SPI_MEM_DATA_OUT)
-+		nxp_xspi_fill_txfifo(xspi, op);
-+
-+	/* Wait for the interrupt. */
-+	if (!wait_for_completion_timeout(&xspi->c, msecs_to_jiffies(1000)))
-+		err = -ETIMEDOUT;
-+
-+	/* Invoke IP data read, if request is of data read. */
-+	if (!err && op->data.nbytes && op->data.dir == SPI_MEM_DATA_IN)
-+		nxp_xspi_read_rxfifo(xspi, op);
-+
-+	return err;
-+}
-+
-+static int nxp_xspi_exec_op(struct spi_mem *mem, const struct spi_mem_op *op)
-+{
-+	struct nxp_xspi *xspi = spi_controller_get_devdata(mem->spi->controller);
-+	void __iomem *base = xspi->iobase;
-+	u32 reg;
-+	int err;
-+
-+	guard(mutex)(&xspi->lock);
-+
-+	PM_RUNTIME_ACQUIRE_AUTOSUSPEND(xspi->dev, pm);
-+	err = PM_RUNTIME_ACQUIRE_ERR(&pm);
-+	if (err)
-+		return err;
-+
-+	/* Wait for controller being ready. */
-+	err = readl_poll_timeout(base + XSPI_SR, reg,
-+			      !(reg & XSPI_SR_BUSY), 1, POLL_TOUT_US);
-+	if (err) {
-+		dev_err(xspi->dev, "SR keeps in BUSY!");
-+		return err;
-+	}
-+
-+	nxp_xspi_select_mem(xspi, mem->spi, op);
-+
-+	nxp_xspi_prepare_lut(xspi, op);
-+
-+	/*
-+	 * For read:
-+	 *     the address in AHB mapped range will use AHB read.
-+	 *     the address out of AHB mapped range will use IP read.
-+	 * For write:
-+	 *     all use IP write.
-+	 */
-+	if ((op->data.dir == SPI_MEM_DATA_IN) && !needs_ip_only(xspi)
-+		&& ((op->addr.val + op->data.nbytes) <= xspi->memmap_phy_size))
-+		err = nxp_xspi_ahb_read(xspi, op);
-+	else
-+		err = nxp_xspi_do_op(xspi, op);
-+
-+	nxp_xspi_sw_reset(xspi);
-+
-+	return err;
-+}
-+
-+static int nxp_xspi_adjust_op_size(struct spi_mem *mem, struct spi_mem_op *op)
-+{
-+	struct nxp_xspi *xspi = spi_controller_get_devdata(mem->spi->controller);
-+
-+	if (op->data.dir == SPI_MEM_DATA_OUT) {
-+		if (op->data.nbytes > xspi->devtype_data->txfifo)
-+			op->data.nbytes = xspi->devtype_data->txfifo;
-+	} else {
-+		/* Limit data bytes to RX FIFO in case of IP read only */
-+		if (needs_ip_only(xspi) && (op->data.nbytes > xspi->devtype_data->rxfifo))
-+			op->data.nbytes = xspi->devtype_data->rxfifo;
-+
-+		/* Address in AHB mapped range prefer to use AHB read. */
-+		if (!needs_ip_only(xspi) && (op->addr.val < xspi->memmap_phy_size)
-+			&& ((op->addr.val + op->data.nbytes) > xspi->memmap_phy_size))
-+			op->data.nbytes = xspi->memmap_phy_size - op->addr.val;
-+	}
-+
-+	return 0;
-+}
-+
-+static void nxp_xspi_config_ahb_buffer(struct nxp_xspi *xspi)
-+{
-+	void __iomem *base = xspi->iobase;
-+	u32 ahb_data_trans_size;
-+	u32 reg;
-+
-+	writel(0xA, base + XSPI_BUF0CR);
-+	writel(0x2, base + XSPI_BUF1CR);
-+	writel(0xD, base + XSPI_BUF2CR);
-+
-+	/* Configure buffer3 for All Master Access */
-+	reg = FIELD_PREP(XSPI_BUF3CR_MSTRID_MASK, 0x06) |
-+	      XSPI_BUF3CR_ALLMST;
-+
-+	ahb_data_trans_size = xspi->devtype_data->ahb_buf_size / 8;
-+	reg |= FIELD_PREP(XSPI_BUF3CR_ADATSZ_MASK, ahb_data_trans_size);
-+	writel(reg, base + XSPI_BUF3CR);
-+
-+	/* Only the buffer3 is used */
-+	writel(0, base + XSPI_BUF0IND);
-+	writel(0, base + XSPI_BUF1IND);
-+	writel(0, base + XSPI_BUF2IND);
-+
-+	/* AHB only use ID=15 for read */
-+	reg = FIELD_PREP(XSPI_BFGENCR_SEQID_MASK, XSPI_SEQID_LUT);
-+	reg |= XSPI_BFGENCR_WR_FLUSH_EN;
-+	/* No limit for align */
-+	reg |= FIELD_PREP(XSPI_BFGENCR_ALIGN_MASK, 0);
-+	writel(reg, base + XSPI_BFGENCR);
-+}
-+
-+static int nxp_xspi_default_setup(struct nxp_xspi *xspi)
-+{
-+	void __iomem *base = xspi->iobase;
-+	u32 reg;
-+
-+	/* Bypass SFP check, clear MGC_GVLD, MGC_GVLDMDAD, MGC_GVLDFRAD */
-+	writel(0, base + XSPI_MGC);
-+
-+	/* Enable the EENV0 SFP check */
-+	reg = readl(base + XSPI_TG0MDAD);
-+	reg |= XSPI_TG0MDAD_VLD;
-+	writel(reg, base + XSPI_TG0MDAD);
-+
-+	/* Give read/write access right to EENV0 */
-+	reg = readl(base + XSPI_FRAD0_WORD2);
-+	reg &= ~XSPI_FRAD0_WORD2_MD0ACP_MASK;
-+	reg |= FIELD_PREP(XSPI_FRAD0_WORD2_MD0ACP_MASK, 0x03);
-+	writel(reg, base + XSPI_FRAD0_WORD2);
-+
-+	/* Enable the FRAD check for EENV0 */
-+	reg = readl(base + XSPI_FRAD0_WORD3);
-+	reg |= XSPI_FRAD0_WORD3_VLD;
-+	writel(reg, base + XSPI_FRAD0_WORD3);
-+
-+	/*
-+	 * Config the timeout to max value, this timeout will affect the
-+	 * TBDR and RBDRn access right after IP cmd triggered.
-+	 */
-+	writel(0xFFFFFFFF, base + XSPI_MTO);
-+
-+	/* Disable module */
-+	reg = readl(base + XSPI_MCR);
-+	reg |= XSPI_MCR_MDIS;
-+	writel(reg, base + XSPI_MCR);
-+
-+	nxp_xspi_sw_reset(xspi);
-+
-+	reg = readl(base + XSPI_MCR);
-+	reg &= ~(XSPI_MCR_CKN_FA_EN | XSPI_MCR_DQS_FA_SEL_MASK |
-+		 XSPI_MCR_DOZE | XSPI_MCR_VAR_LAT_EN |
-+		 XSPI_MCR_DDR_EN | XSPI_MCR_DQS_OUT_EN);
-+	reg |= XSPI_MCR_DQS_EN;
-+	reg |= XSPI_MCR_ISD3FA | XSPI_MCR_ISD2FA;
-+	writel(reg, base + XSPI_MCR);
-+
-+	reg = readl(base + XSPI_SFACR);
-+	reg &= ~(XSPI_SFACR_FORCE_A10 | XSPI_SFACR_WA_4B_EN |
-+		 XSPI_SFACR_BYTE_SWAP | XSPI_SFACR_WA |
-+		 XSPI_SFACR_CAS_MASK);
-+	reg |= XSPI_SFACR_FORCE_A10;
-+	writel(reg, base + XSPI_SFACR);
-+
-+	nxp_xspi_config_ahb_buffer(xspi);
-+
-+	reg = FIELD_PREP(XSPI_FLSHCR_TCSH_MASK, 0x03) |
-+	      FIELD_PREP(XSPI_FLSHCR_TCSS_MASK, 0x03);
-+	writel(reg, base + XSPI_FLSHCR);
-+
-+	/* Enable module */
-+	reg = readl(base + XSPI_MCR);
-+	reg &= ~XSPI_MCR_MDIS;
-+	writel(reg, base + XSPI_MCR);
-+
-+	xspi->selected = -1;
-+
-+	/* Enable the interrupt */
-+	writel(XSPI_RSER_TFIE, base + XSPI_RSER);
-+
-+	return 0;
-+}
-+
-+static const char *nxp_xspi_get_name(struct spi_mem *mem)
-+{
-+	struct nxp_xspi *xspi = spi_controller_get_devdata(mem->spi->controller);
-+	struct device *dev = &mem->spi->dev;
-+	const char *name;
-+
-+	/* Set custom name derived from the platform_device of the controller. */
-+	if (of_get_available_child_count(xspi->dev->of_node) == 1)
-+		return dev_name(xspi->dev);
-+
-+	name = devm_kasprintf(dev, GFP_KERNEL,
-+			      "%s-%d", dev_name(xspi->dev),
-+			      spi_get_chipselect(mem->spi, 0));
-+
-+	if (!name) {
-+		dev_err(dev, "failed to get memory for custom flash name\n");
-+		return ERR_PTR(-ENOMEM);
-+	}
-+
-+	return name;
-+}
-+
-+static const struct spi_controller_mem_ops nxp_xspi_mem_ops = {
-+	.adjust_op_size = nxp_xspi_adjust_op_size,
-+	.supports_op = nxp_xspi_supports_op,
-+	.exec_op = nxp_xspi_exec_op,
-+	.get_name = nxp_xspi_get_name,
-+};
-+
-+static const struct spi_controller_mem_caps nxp_xspi_mem_caps = {
-+	.dtr = true,
-+	.per_op_freq = true,
-+	.swap16 = true,
-+};
-+
-+static void nxp_xspi_cleanup(void *data)
-+{
-+	struct nxp_xspi *xspi = data;
-+	u32 reg;
-+
-+	pm_runtime_get_sync(xspi->dev);
-+
-+	/* Disable interrupt */
-+	writel(0, xspi->iobase + XSPI_RSER);
-+	/* Clear all the internal logic flags */
-+	writel(0xFFFFFFFF, xspi->iobase + XSPI_FR);
-+	/* Disable the hardware */
-+	reg = readl(xspi->iobase + XSPI_MCR);
-+	reg |= XSPI_MCR_MDIS;
-+	writel(reg, xspi->iobase + XSPI_MCR);
-+
-+	pm_runtime_put_sync(xspi->dev);
-+
-+	if (xspi->ahb_addr)
-+		iounmap(xspi->ahb_addr);
-+}
-+
-+static int nxp_xspi_probe(struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct spi_controller *ctlr;
-+	struct nxp_xspi *xspi;
-+	struct resource *res;
-+	int ret, irq;
-+
-+	ctlr = devm_spi_alloc_host(dev, sizeof(*xspi));
-+	if (!ctlr)
-+		return -ENOMEM;
-+
-+	ctlr->mode_bits = SPI_RX_DUAL | SPI_RX_QUAD | SPI_RX_OCTAL |
-+			  SPI_TX_DUAL | SPI_TX_QUAD | SPI_TX_OCTAL;
-+
-+	xspi = spi_controller_get_devdata(ctlr);
-+	xspi->dev = dev;
-+	xspi->devtype_data = device_get_match_data(dev);
-+	if (!xspi->devtype_data)
-+		return -ENODEV;
-+
-+	platform_set_drvdata(pdev, xspi);
-+
-+	/* Find the resources - configuration register address space */
-+	xspi->iobase = devm_platform_ioremap_resource_byname(pdev, "base");
-+	if (IS_ERR(xspi->iobase))
-+		return PTR_ERR(xspi->iobase);
-+
-+	/* Find the resources - controller memory mapped space */
-+	res = platform_get_resource_byname(pdev, IORESOURCE_MEM, "mmap");
-+	if (!res)
-+		return -ENODEV;
-+
-+	/* Assign memory mapped starting address and mapped size. */
-+	xspi->memmap_phy = res->start;
-+	xspi->memmap_phy_size = resource_size(res);
-+
-+	/* Find the clocks */
-+	xspi->clk = devm_clk_get(dev, "per");
-+	if (IS_ERR(xspi->clk))
-+		return PTR_ERR(xspi->clk);
-+
-+	/* Find the irq */
-+	irq = platform_get_irq(pdev, 0);
-+	if (irq < 0)
-+		return dev_err_probe(dev, irq,  "Failed to get irq source");
-+
-+	pm_runtime_set_autosuspend_delay(dev, XSPI_RPM_TIMEOUT_MS);
-+	pm_runtime_use_autosuspend(dev);
-+	devm_pm_runtime_enable(dev);
-+
-+	PM_RUNTIME_ACQUIRE_AUTOSUSPEND(dev, pm);
-+	ret = PM_RUNTIME_ACQUIRE_ERR(&pm);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "Failed to enable clock");
-+
-+	/* Clear potential interrupt by write xspi errstat */
-+	writel(0xFFFFFFFF, xspi->iobase + XSPI_ERRSTAT);
-+	writel(0xFFFFFFFF, xspi->iobase + XSPI_FR);
-+
-+	nxp_xspi_default_setup(xspi);
-+
-+	ret = devm_request_irq(dev, irq,
-+			nxp_xspi_irq_handler, 0, pdev->name, xspi);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "failed to request irq");
-+
-+	ret = devm_mutex_init(dev, &xspi->lock);
-+	if (ret)
-+		return ret;
-+
-+	ret = devm_add_action_or_reset(dev, nxp_xspi_cleanup, xspi);
-+	if (ret)
-+		return ret;
-+
-+	ctlr->bus_num = -1;
-+	ctlr->num_chipselect = NXP_XSPI_MAX_CHIPSELECT;
-+	ctlr->mem_ops = &nxp_xspi_mem_ops;
-+	ctlr->mem_caps = &nxp_xspi_mem_caps;
-+	ctlr->dev.of_node = dev->of_node;
-+
-+	return devm_spi_register_controller(dev, ctlr);
-+}
-+
-+static int nxp_xspi_runtime_suspend(struct device *dev)
-+{
-+	struct nxp_xspi *xspi = dev_get_drvdata(dev);
-+	u32 reg;
-+
-+	reg = readl(xspi->iobase + XSPI_MCR);
-+	reg |= XSPI_MCR_MDIS;
-+	writel(reg, xspi->iobase + XSPI_MCR);
-+
-+	clk_disable_unprepare(xspi->clk);
-+
-+	return 0;
-+}
-+
-+static int nxp_xspi_runtime_resume(struct device *dev)
-+{
-+	struct nxp_xspi *xspi = dev_get_drvdata(dev);
-+	u32 reg;
-+	int ret;
-+
-+	ret = clk_prepare_enable(xspi->clk);
-+	if (ret)
-+		return ret;
-+
-+	reg = readl(xspi->iobase + XSPI_MCR);
-+	reg &= ~XSPI_MCR_MDIS;
-+	writel(reg, xspi->iobase + XSPI_MCR);
-+
-+	return 0;
-+}
-+
-+static int nxp_xspi_suspend(struct device *dev)
-+{
-+	int ret;
-+
-+	ret = pinctrl_pm_select_sleep_state(dev);
-+	if (ret) {
-+		dev_err(dev, "select flexspi sleep pinctrl failed!\n");
-+		return ret;
-+	}
-+
-+	return pm_runtime_force_suspend(dev);
-+}
-+
-+static int nxp_xspi_resume(struct device *dev)
-+{
-+	struct nxp_xspi *xspi = dev_get_drvdata(dev);
-+	int ret;
-+
-+	ret = pm_runtime_force_resume(dev);
-+	if (ret)
-+		return ret;
-+
-+	nxp_xspi_default_setup(xspi);
-+
-+	ret = pinctrl_pm_select_default_state(dev);
-+	if (ret)
-+		dev_err(dev, "select flexspi default pinctrl failed!\n");
-+
-+	return ret;
-+}
-+
-+
-+static const struct dev_pm_ops nxp_xspi_pm_ops = {
-+	RUNTIME_PM_OPS(nxp_xspi_runtime_suspend, nxp_xspi_runtime_resume, NULL)
-+	SYSTEM_SLEEP_PM_OPS(nxp_xspi_suspend, nxp_xspi_resume)
-+};
-+
-+static const struct of_device_id nxp_xspi_dt_ids[] = {
-+	{ .compatible = "nxp,imx94-xspi", .data = (void *)&imx94_data, },
-+	{ /* sentinel */ }
-+};
-+MODULE_DEVICE_TABLE(of, nxp_xspi_dt_ids);
-+
-+static struct platform_driver nxp_xspi_driver = {
-+	.driver = {
-+		.name	= "nxp-xspi",
-+		.of_match_table = nxp_xspi_dt_ids,
-+		.pm =   pm_ptr(&nxp_xspi_pm_ops),
-+	},
-+	.probe          = nxp_xspi_probe,
-+};
-+module_platform_driver(nxp_xspi_driver);
-+
-+MODULE_DESCRIPTION("NXP xSPI Controller Driver");
-+MODULE_AUTHOR("NXP Semiconductor");
-+MODULE_AUTHOR("Haibo Chen <haibo.chen@nxp.com>");
-+MODULE_LICENSE("GPL");
+> +static const struct pll_mult_range t7_gp1_pll_mult_range = {
+> +	.min = 67,
+> +	.max = 133,
+> +};
+> +
+> +static const struct reg_sequence t7_gp1_init_regs[] = {
+> +	{ .reg = GP1PLL_CTRL1,  .def = 0x1420500f },
+> +	{ .reg = GP1PLL_CTRL2,  .def = 0x00023001 },
+> +	{ .reg = GP1PLL_CTRL3,  .def = 0x00000000 },
+> +};
+> +
+> +static struct clk_regmap t7_gp1_pll_dco = {
+> +	.data = &(struct meson_clk_pll_data){
+> +		.en = {
+> +			.reg_off = GP1PLL_CTRL0,
+> +			.shift   = 28,
+> +			.width   = 1,
+> +		},
+> +		.m = {
+> +			.reg_off = GP1PLL_CTRL0,
+> +			.shift   = 0,
+> +			.width   = 8,
+> +		},
+> +		.n = {
+> +			.reg_off = GP1PLL_CTRL0,
+> +			.shift   = 16,
+> +			.width   = 5,
+> +		},
+> +		.l = {
+> +			.reg_off = GP1PLL_STS,
+> +			.shift   = 31,
+> +			.width   = 1,
+> +		},
+> +		.rst = {
+> +			.reg_off = GP1PLL_CTRL0,
+> +			.shift   = 29,
+> +			.width   = 1,
+> +		},
+> +		.range = &t7_gp1_pll_mult_range,
+> +		.init_regs = t7_gp1_init_regs,
+> +		.init_count = ARRAY_SIZE(t7_gp1_init_regs),
+> +	},
+> +	.hw.init = &(struct clk_init_data){
+> +		.name = "gp1_pll_dco",
+> +		.ops = &meson_clk_pll_ops,
+> +		.parent_data = &(const struct clk_parent_data) {
+> +			.fw_name = "in0",
+> +		},
+> +		.num_parents = 1,
+> +	},
+> +};
+> +
+> +static struct clk_regmap t7_gp1_pll = {
+> +	.data = &(struct clk_regmap_div_data){
+> +		.offset = GP1PLL_CTRL0,
+> +		.shift = 12,
+> +		.width = 3,
+> +		.flags = CLK_DIVIDER_POWER_OF_TWO,
+> +	},
+> +	.hw.init = &(struct clk_init_data) {
+> +		.name = "gp1_pll",
+> +		.ops = &clk_regmap_divider_ops,
+> +		.parent_hws = (const struct clk_hw *[]) {
+> +			&t7_gp1_pll_dco.hw
+> +		},
+> +		.num_parents = 1,
+> +		.flags = CLK_SET_RATE_PARENT,
+> +	},
+> +};
+> +
+> +static const struct reg_sequence t7_hifi_init_regs[] = {
+> +	{ .reg = HIFIPLL_CTRL1, .def = 0x00000000 },
+> +	{ .reg = HIFIPLL_CTRL2, .def = 0x00000000 },
+> +	{ .reg = HIFIPLL_CTRL3, .def = 0x6a285c00 },
+> +	{ .reg = HIFIPLL_CTRL4, .def = 0x65771290 },
+> +	{ .reg = HIFIPLL_CTRL5, .def = 0x3927200a },
+> +	{ .reg = HIFIPLL_CTRL6, .def = 0x56540000 }
+> +};
+> +
+> +static struct clk_regmap t7_hifi_pll_dco = {
+> +	.data = &(struct meson_clk_pll_data){
+> +		.en = {
+> +			.reg_off = HIFIPLL_CTRL0,
+> +			.shift   = 28,
+> +			.width   = 1,
+> +		},
+> +		.m = {
+> +			.reg_off = HIFIPLL_CTRL0,
+> +			.shift   = 0,
+> +			.width   = 8,
+> +		},
+> +		.n = {
+> +			.reg_off = HIFIPLL_CTRL0,
+> +			.shift   = 10,
+> +			.width   = 5,
+> +		},
+> +		.frac = {
+> +			.reg_off = HIFIPLL_CTRL1,
+> +			.shift   = 0,
+> +			.width   = 17,
+> +		},
+> +		.l = {
+> +			.reg_off = HIFIPLL_STS,
+> +			.shift   = 31,
+> +			.width   = 1,
+> +		},
+> +		.rst = {
+> +			.reg_off = HIFIPLL_CTRL0,
+> +			.shift   = 29,
+> +			.width   = 1,
+> +		},
+> +		.range = &t7_media_pll_mult_range,
+> +		.init_regs = t7_hifi_init_regs,
+> +		.init_count = ARRAY_SIZE(t7_hifi_init_regs),
+> +		.frac_max = 100000,
+> +	},
+> +	.hw.init = &(struct clk_init_data){
+> +		.name = "hifi_pll_dco",
+> +		.ops = &meson_clk_pll_ops,
+> +		.parent_data = &(const struct clk_parent_data) {
+> +			.fw_name = "in0",
+> +		},
+> +		.num_parents = 1,
+> +	},
+> +};
+> +
+> +static struct clk_regmap t7_hifi_pll = {
+> +	.data = &(struct clk_regmap_div_data){
+> +		.offset = HIFIPLL_CTRL0,
+> +		.shift = 16,
+> +		.width = 2,
+> +		.flags = CLK_DIVIDER_POWER_OF_TWO,
+> +	},
+> +	.hw.init = &(struct clk_init_data) {
+> +		.name = "hifi_pll",
+> +		.ops = &clk_regmap_divider_ops,
+> +		.parent_hws = (const struct clk_hw *[]) {
+> +			&t7_hifi_pll_dco.hw
+> +		},
+> +		.num_parents = 1,
+> +		.flags = CLK_SET_RATE_PARENT,
+> +	},
+> +};
+> +
+> +/*
+> + * The T7 PCIE PLL is fined tuned to deliver a very precise
+> + * 100MHz reference clock for the PCIe Analog PHY, and thus requires
+> + * a strict register sequence to enable the PLL.
+> + */
+> +static const struct reg_sequence t7_pcie_pll_init_regs[] = {
+> +	{ .reg = PCIEPLL_CTRL0,	.def = 0x200c04c8 },
+> +	{ .reg = PCIEPLL_CTRL0,	.def = 0x300c04c8 },
+> +	{ .reg = PCIEPLL_CTRL1,	.def = 0x30000000 },
+> +	{ .reg = PCIEPLL_CTRL2,	.def = 0x00001100 },
+> +	{ .reg = PCIEPLL_CTRL3,	.def = 0x10058e00 },
+> +	{ .reg = PCIEPLL_CTRL4,	.def = 0x000100c0 },
+> +	{ .reg = PCIEPLL_CTRL5,	.def = 0x68000048 },
+> +	{ .reg = PCIEPLL_CTRL5,	.def = 0x68000068, .delay_us = 20 },
+> +	{ .reg = PCIEPLL_CTRL4,	.def = 0x008100c0, .delay_us = 20 },
+> +	{ .reg = PCIEPLL_CTRL0,	.def = 0x340c04c8 },
+> +	{ .reg = PCIEPLL_CTRL0,	.def = 0x140c04c8, .delay_us = 20 },
+> +	{ .reg = PCIEPLL_CTRL2,	.def = 0x00001000 }
+> +};
+> +
+> +static struct clk_regmap t7_pcie_pll_dco = {
+> +	.data = &(struct meson_clk_pll_data){
+> +		.en = {
+> +			.reg_off = PCIEPLL_CTRL0,
+> +			.shift   = 28,
+> +			.width   = 1,
+> +		},
+> +		.m = {
+> +			.reg_off = PCIEPLL_CTRL0,
+> +			.shift   = 0,
+> +			.width   = 8,
+> +		},
+> +		.n = {
+> +			.reg_off = PCIEPLL_CTRL0,
+> +			.shift   = 10,
+> +			.width   = 5,
+> +		},
+> +		.l = {
+> +			.reg_off = PCIEPLL_CTRL0,
+> +			.shift   = 31,
+> +			.width   = 1,
+> +		},
+> +		.rst = {
+> +			.reg_off = PCIEPLL_CTRL0,
+> +			.shift   = 29,
+> +			.width   = 1,
+> +		},
+> +		.init_regs = t7_pcie_pll_init_regs,
+> +		.init_count = ARRAY_SIZE(t7_pcie_pll_init_regs),
+> +	},
+> +	.hw.init = &(struct clk_init_data){
+> +		.name = "pcie_pll_dco",
+> +		.ops = &meson_clk_pcie_pll_ops,
+> +		.parent_data = &(const struct clk_parent_data) {
+> +			.fw_name = "in0",
+> +		},
+> +		.num_parents = 1,
+> +	},
+> +};
+> +
+> +static struct clk_fixed_factor t7_pcie_pll_dco_div2 = {
+> +	.mult = 1,
+> +	.div = 2,
+> +	.hw.init = &(struct clk_init_data){
+> +		.name = "pcie_pll_dco_div2",
+> +		.ops = &clk_fixed_factor_ops,
+> +		.parent_hws = (const struct clk_hw *[]) {
+> +			&t7_pcie_pll_dco.hw
+> +		},
+> +		.num_parents = 1,
+> +		.flags = CLK_SET_RATE_PARENT,
+> +	},
+> +};
+> +
+> +static struct clk_regmap t7_pcie_pll_od = {
+> +	.data = &(struct clk_regmap_div_data){
+> +		.offset = PCIEPLL_CTRL0,
+> +		.shift = 16,
+> +		.width = 5,
+> +		/* the divisor is 32 when [16:21] = 0 */
+> +		.flags = CLK_DIVIDER_MAX_AT_ZERO,
+> +	},
+> +	.hw.init = &(struct clk_init_data){
+> +		.name = "pcie_pll_od",
+> +		.ops = &clk_regmap_divider_ops,
+> +		.parent_hws = (const struct clk_hw *[]) {
+> +			&t7_pcie_pll_dco_div2.hw
+> +		},
+> +		.num_parents = 1,
+> +		.flags = CLK_SET_RATE_PARENT,
+> +	},
+> +};
+> +
+> +static struct clk_fixed_factor t7_pcie_pll = {
+> +	.mult = 1,
+> +	.div = 2,
+> +	.hw.init = &(struct clk_init_data){
+> +		.name = "pcie_pll",
+> +		.ops = &clk_fixed_factor_ops,
+> +		.parent_hws = (const struct clk_hw *[]) {
+> +			&t7_pcie_pll_od.hw
+> +		},
+> +		.num_parents = 1,
+> +		.flags = CLK_SET_RATE_PARENT,
+> +	},
+> +};
+> +
+> +static struct clk_fixed_factor t7_mpll_prediv = {
+> +	.mult = 1,
+> +	.div = 2,
+> +	.hw.init = &(struct clk_init_data){
+> +		.name = "mpll_prediv",
+> +		.ops = &clk_fixed_factor_ops,
+> +		.parent_data = &(const struct clk_parent_data) {
+> +			.fw_name = "in0",
+> +		},
+> +		.num_parents = 1,
+> +	},
+> +};
+> +
+> +static const struct reg_sequence t7_mpll0_init_regs[] = {
+> +	{ .reg = MPLL_CTRL2, .def = 0x40000033 }
+> +};
+> +
+> +static struct clk_regmap t7_mpll0_div = {
+> +	.data = &(struct meson_clk_mpll_data){
+> +		.sdm = {
+> +			.reg_off = MPLL_CTRL1,
+> +			.shift   = 0,
+> +			.width   = 14,
+> +		},
+> +		.sdm_en = {
+> +			.reg_off = MPLL_CTRL1,
+> +			.shift   = 30,
+> +			.width	 = 1,
+> +		},
+> +		.n2 = {
+> +			.reg_off = MPLL_CTRL1,
+> +			.shift   = 20,
+> +			.width   = 9,
+> +		},
+> +		.ssen = {
+> +			.reg_off = MPLL_CTRL1,
+> +			.shift   = 29,
+> +			.width	 = 1,
+> +		},
+> +		.init_regs = t7_mpll0_init_regs,
+> +		.init_count = ARRAY_SIZE(t7_mpll0_init_regs),
+> +	},
+> +	.hw.init = &(struct clk_init_data){
+> +		.name = "mpll0_div",
+> +		.ops = &meson_clk_mpll_ops,
+> +		.parent_hws = (const struct clk_hw *[]) {
+> +			&t7_mpll_prediv.hw
+> +		},
+> +		.num_parents = 1,
+> +	},
+> +};
+> +
+> +static struct clk_regmap t7_mpll0 = {
+> +	.data = &(struct clk_regmap_gate_data){
+> +		.offset = MPLL_CTRL1,
+> +		.bit_idx = 31,
+> +	},
+> +	.hw.init = &(struct clk_init_data){
+> +		.name = "mpll0",
+> +		.ops = &clk_regmap_gate_ops,
+> +		.parent_hws = (const struct clk_hw *[]) { &t7_mpll0_div.hw },
+> +		.num_parents = 1,
+> +		.flags = CLK_SET_RATE_PARENT,
+> +	},
+> +};
+> +
+> +static const struct reg_sequence t7_mpll1_init_regs[] = {
+> +	{ .reg = MPLL_CTRL4,	.def = 0x40000033 }
+> +};
+> +
+> +static struct clk_regmap t7_mpll1_div = {
+> +	.data = &(struct meson_clk_mpll_data){
+> +		.sdm = {
+> +			.reg_off = MPLL_CTRL3,
+> +			.shift   = 0,
+> +			.width   = 14,
+> +		},
+> +		.sdm_en = {
+> +			.reg_off = MPLL_CTRL3,
+> +			.shift   = 30,
+> +			.width	 = 1,
+> +		},
+> +		.n2 = {
+> +			.reg_off = MPLL_CTRL3,
+> +			.shift   = 20,
+> +			.width   = 9,
+> +		},
+> +		.ssen = {
+> +			.reg_off = MPLL_CTRL3,
+> +			.shift   = 29,
+> +			.width	 = 1,
+> +		},
+> +		.init_regs = t7_mpll1_init_regs,
+> +		.init_count = ARRAY_SIZE(t7_mpll1_init_regs),
+> +	},
+> +	.hw.init = &(struct clk_init_data){
+> +		.name = "mpll1_div",
+> +		.ops = &meson_clk_mpll_ops,
+> +		.parent_hws = (const struct clk_hw *[]) {
+> +			&t7_mpll_prediv.hw
+> +		},
+> +		.num_parents = 1,
+> +	},
+> +};
+> +
+> +static struct clk_regmap t7_mpll1 = {
+> +	.data = &(struct clk_regmap_gate_data){
+> +		.offset = MPLL_CTRL3,
+> +		.bit_idx = 31,
+> +	},
+> +	.hw.init = &(struct clk_init_data){
+> +		.name = "mpll1",
+> +		.ops = &clk_regmap_gate_ops,
+> +		.parent_hws = (const struct clk_hw *[]) { &t7_mpll1_div.hw },
+> +		.num_parents = 1,
+> +		.flags = CLK_SET_RATE_PARENT,
+> +	},
+> +};
+> +
+> +static const struct reg_sequence t7_mpll2_init_regs[] = {
+> +	{ .reg = MPLL_CTRL6, .def = 0x40000033 }
+> +};
+> +
+> +static struct clk_regmap t7_mpll2_div = {
+> +	.data = &(struct meson_clk_mpll_data){
+> +		.sdm = {
+> +			.reg_off = MPLL_CTRL5,
+> +			.shift   = 0,
+> +			.width   = 14,
+> +		},
+> +		.sdm_en = {
+> +			.reg_off = MPLL_CTRL5,
+> +			.shift   = 30,
+> +			.width	 = 1,
+> +		},
+> +		.n2 = {
+> +			.reg_off = MPLL_CTRL5,
+> +			.shift   = 20,
+> +			.width   = 9,
+> +		},
+> +		.ssen = {
+> +			.reg_off = MPLL_CTRL5,
+> +			.shift   = 29,
+> +			.width	 = 1,
+> +		},
+> +		.init_regs = t7_mpll2_init_regs,
+> +		.init_count = ARRAY_SIZE(t7_mpll2_init_regs),
+> +	},
+> +	.hw.init = &(struct clk_init_data){
+> +		.name = "mpll2_div",
+> +		.ops = &meson_clk_mpll_ops,
+> +		.parent_hws = (const struct clk_hw *[]) {
+> +			&t7_mpll_prediv.hw
+> +		},
+> +		.num_parents = 1,
+> +	},
+> +};
+> +
+> +static struct clk_regmap t7_mpll2 = {
+> +	.data = &(struct clk_regmap_gate_data){
+> +		.offset = MPLL_CTRL5,
+> +		.bit_idx = 31,
+> +	},
+> +	.hw.init = &(struct clk_init_data){
+> +		.name = "mpll2",
+> +		.ops = &clk_regmap_gate_ops,
+> +		.parent_hws = (const struct clk_hw *[]) { &t7_mpll2_div.hw },
+> +		.num_parents = 1,
+> +		.flags = CLK_SET_RATE_PARENT,
+> +	},
+> +};
+> +
+> +static const struct reg_sequence t7_mpll3_init_regs[] = {
+> +	{ .reg = MPLL_CTRL8, .def = 0x40000033 }
+> +};
+> +
+> +static struct clk_regmap t7_mpll3_div = {
+> +	.data = &(struct meson_clk_mpll_data){
+> +		.sdm = {
+> +			.reg_off = MPLL_CTRL7,
+> +			.shift   = 0,
+> +			.width   = 14,
+> +		},
+> +		.sdm_en = {
+> +			.reg_off = MPLL_CTRL7,
+> +			.shift   = 30,
+> +			.width	 = 1,
+> +		},
+> +		.n2 = {
+> +			.reg_off = MPLL_CTRL7,
+> +			.shift   = 20,
+> +			.width   = 9,
+> +		},
+> +		.ssen = {
+> +			.reg_off = MPLL_CTRL7,
+> +			.shift   = 29,
+> +			.width	 = 1,
+> +		},
+> +		.init_regs = t7_mpll3_init_regs,
+> +		.init_count = ARRAY_SIZE(t7_mpll3_init_regs),
+> +	},
+> +	.hw.init = &(struct clk_init_data){
+> +		.name = "mpll3_div",
+> +		.ops = &meson_clk_mpll_ops,
+> +		.parent_hws = (const struct clk_hw *[]) {
+> +			&t7_mpll_prediv.hw
+> +		},
+> +		.num_parents = 1,
+> +	},
+> +};
+> +
+> +static struct clk_regmap t7_mpll3 = {
+> +	.data = &(struct clk_regmap_gate_data){
+> +		.offset = MPLL_CTRL7,
+> +		.bit_idx = 31,
+> +	},
+> +	.hw.init = &(struct clk_init_data){
+> +		.name = "mpll3",
+> +		.ops = &clk_regmap_gate_ops,
+> +		.parent_hws = (const struct clk_hw *[]) { &t7_mpll3_div.hw },
+> +		.num_parents = 1,
+> +		.flags = CLK_SET_RATE_PARENT,
+> +	},
+> +};
+> +
+> +static const struct reg_sequence t7_hdmi_init_regs[] = {
+> +	{ .reg = HDMIPLL_CTRL1, .def = 0x00000000 },
+> +	{ .reg = HDMIPLL_CTRL2, .def = 0x00000000 },
+> +	{ .reg = HDMIPLL_CTRL3, .def = 0x6a28dc00 },
+> +	{ .reg = HDMIPLL_CTRL4, .def = 0x65771290 },
+> +	{ .reg = HDMIPLL_CTRL5, .def = 0x39272000 },
+> +	{ .reg = HDMIPLL_CTRL6, .def = 0x56540000 }
+> +};
+> +
+> +static struct clk_regmap t7_hdmi_pll_dco = {
+> +	.data = &(struct meson_clk_pll_data){
+> +		.en = {
+> +			.reg_off = HDMIPLL_CTRL0,
+> +			.shift   = 28,
+> +			.width   = 1,
+> +		},
+> +		.m = {
+> +			.reg_off = HDMIPLL_CTRL0,
+> +			.shift   = 0,
+> +			.width   = 9,
+> +		},
+> +		.n = {
+> +			.reg_off = HDMIPLL_CTRL0,
+> +			.shift   = 10,
+> +			.width   = 5,
+> +		},
+> +		.l = {
+> +			.reg_off = HDMIPLL_CTRL0,
+> +			.shift   = 31,
+> +			.width   = 1,
+> +		},
+> +		.rst = {
+> +			.reg_off = HDMIPLL_CTRL0,
+> +			.shift   = 29,
+> +			.width   = 1,
+> +		},
+> +		.range = &t7_media_pll_mult_range,
+> +		.init_regs = t7_hdmi_init_regs,
+> +		.init_count = ARRAY_SIZE(t7_hdmi_init_regs),
+> +	},
+> +	.hw.init = &(struct clk_init_data){
+> +		.name = "hdmi_pll_dco",
+> +		.ops = &meson_clk_pll_ops,
+> +		.parent_data = (const struct clk_parent_data []) {
+> +			{ .fw_name = "in0", }
+> +		},
+> +		.num_parents = 1,
+> +	},
+> +};
+> +
+> +static struct clk_regmap t7_hdmi_pll_od = {
+> +	.data = &(struct clk_regmap_div_data){
+> +		.offset = HDMIPLL_CTRL0,
+> +		.shift = 16,
+> +		.width = 4,
+> +		.flags = CLK_DIVIDER_POWER_OF_TWO,
+> +	},
+> +	.hw.init = &(struct clk_init_data){
+> +		.name = "hdmi_pll_od",
+> +		.ops = &clk_regmap_divider_ops,
+> +		.parent_hws = (const struct clk_hw *[]) {
+> +			&t7_hdmi_pll_dco.hw
+> +		},
+> +		.num_parents = 1,
+> +		.flags = CLK_SET_RATE_PARENT,
+> +	},
+> +};
+> +
+> +static struct clk_regmap t7_hdmi_pll = {
+> +	.data = &(struct clk_regmap_div_data){
+> +		.offset = HDMIPLL_CTRL0,
+> +		.shift = 20,
+> +		.width = 2,
+> +		.flags = CLK_DIVIDER_POWER_OF_TWO,
+> +	},
+> +	.hw.init = &(struct clk_init_data){
+> +		.name = "hdmi_pll",
+> +		.ops = &clk_regmap_divider_ops,
+> +		.parent_hws = (const struct clk_hw *[]) {
+> +			&t7_hdmi_pll_od.hw
+> +		},
+> +		.num_parents = 1,
+> +		.flags = CLK_SET_RATE_PARENT,
+> +	},
+> +};
+> +
+> +static const struct pll_mult_range t7_mclk_pll_mult_range = {
+> +	.min = 67,
+> +	.max = 133,
+> +};
+> +
+> +static const struct reg_sequence t7_mclk_init_regs[] = {
+> +	{ .reg = MCLK_PLL_CNTL1, .def = 0x1470500f },
+> +	{ .reg = MCLK_PLL_CNTL2, .def = 0x00023001 },
+> +	{ .reg = MCLK_PLL_CNTL3, .def = 0x18180000 },
+> +	{ .reg = MCLK_PLL_CNTL4, .def = 0x00180303 },
+> +};
+> +
+> +static struct clk_regmap t7_mclk_pll_dco = {
+> +	.data = &(struct meson_clk_pll_data){
+> +		.en = {
+> +			.reg_off = MCLK_PLL_CNTL0,
+> +			.shift   = 28,
+> +			.width   = 1,
+> +		},
+> +		.m = {
+> +			.reg_off = MCLK_PLL_CNTL0,
+> +			.shift   = 0,
+> +			.width   = 8,
+> +		},
+> +		.n = {
+> +			.reg_off = MCLK_PLL_CNTL0,
+> +			.shift   = 16,
+> +			.width   = 5,
+> +		},
+> +		.l = {
+> +			.reg_off = MCLK_PLL_CNTL0,
+> +			.shift   = 31,
+> +			.width   = 1,
+> +		},
+> +		.rst = {
+> +			.reg_off = MCLK_PLL_CNTL0,
+> +			.shift   = 29,
+> +			.width   = 1,
+> +		},
+> +		.l_detect = {
+> +			.reg_off = MCLK_PLL_CNTL2,
+> +			.shift   = 6,
+> +			.width   = 1,
+> +		},
+> +		.range = &t7_mclk_pll_mult_range,
+> +		.init_regs = t7_mclk_init_regs,
+> +		.init_count = ARRAY_SIZE(t7_mclk_init_regs),
+> +	},
+> +	.hw.init = &(struct clk_init_data){
+> +		.name = "mclk_pll_dco",
+> +		.ops = &meson_clk_pll_ops,
+> +		.parent_data = &(const struct clk_parent_data) {
+> +			.fw_name = "in0",
+> +		},
+> +		.num_parents = 1,
+> +	},
+> +};
+> +
+> +/* max div is 16 */
+> +static const struct clk_div_table t7_mclk_div[] = {
+> +	{ .val = 0, .div = 1 },
+> +	{ .val = 1, .div = 2 },
+> +	{ .val = 2, .div = 4 },
+> +	{ .val = 3, .div = 8 },
+> +	{ .val = 4, .div = 16 },
+> +	{ /* sentinel */ }
+> +};
+> +
+> +static struct clk_regmap t7_mclk_pre_od = {
+> +	.data = &(struct clk_regmap_div_data){
+> +		.offset = MCLK_PLL_CNTL0,
+> +		.shift = 12,
+> +		.width = 3,
+> +		.table = t7_mclk_div,
+> +	},
+> +	.hw.init = &(struct clk_init_data){
+> +		.name = "mclk_pre_od",
+> +		.ops = &clk_regmap_divider_ops,
+> +		.parent_hws = (const struct clk_hw *[]) {
+> +			&t7_mclk_pll_dco.hw
+> +		},
+> +		.num_parents = 1,
+> +		.flags = CLK_SET_RATE_PARENT,
+> +	},
+> +};
+> +
+> +static struct clk_regmap t7_mclk_pll = {
+> +	.data = &(struct clk_regmap_div_data){
+> +		.offset = MCLK_PLL_CNTL4,
+> +		.shift = 16,
+> +		.width = 5,
+> +		.flags = CLK_DIVIDER_ONE_BASED,
+> +	},
+> +	.hw.init = &(struct clk_init_data){
+> +		.name = "mclk_pll",
+> +		.ops = &clk_regmap_divider_ops,
+> +		.parent_hws = (const struct clk_hw *[]) {
+> +			&t7_mclk_pre_od.hw
+> +		},
+> +		.num_parents = 1,
+> +		.flags = CLK_SET_RATE_PARENT,
+> +	},
+> +};
+> +
+> +static struct clk_regmap t7_mclk_0_sel = {
+> +	.data = &(struct clk_regmap_mux_data){
+> +		.offset = MCLK_PLL_CNTL4,
+> +		.mask = 0x3,
+> +		.shift = 4,
+> +	},
+> +	.hw.init = &(struct clk_init_data){
+> +		.name = "mclk_0_sel",
+> +		.ops = &clk_regmap_mux_ops,
+> +		.parent_data = (const struct clk_parent_data []) {
+> +			{ .hw = &t7_mclk_pll.hw },
+> +			{ .fw_name = "in1", },
+> +			{ .fw_name = "in2", },
+> +		},
+> +		.num_parents = 3,
+> +	},
+> +};
+> +
+> +static struct clk_fixed_factor t7_mclk_0_div2 = {
+> +	.mult = 1,
+> +	.div = 2,
+> +	.hw.init = &(struct clk_init_data){
+> +		.name = "mclk_0_div2",
+> +		.ops = &clk_fixed_factor_ops,
+> +		.parent_hws = (const struct clk_hw *[]) { &t7_mclk_0_sel.hw },
+> +		.num_parents = 1,
+> +		.flags = CLK_SET_RATE_PARENT,
+> +	},
+> +};
+> +
+> +static struct clk_regmap t7_mclk_0_pre = {
+> +	.data = &(struct clk_regmap_gate_data){
+> +		.offset = MCLK_PLL_CNTL4,
+> +		.bit_idx = 2,
+> +	},
+> +	.hw.init = &(struct clk_init_data) {
+> +		.name = "mclk_0_pre",
+> +		.ops = &clk_regmap_gate_ops,
+> +		.parent_hws = (const struct clk_hw *[]) {
+> +			&t7_mclk_0_div2.hw
+> +		},
+> +		.num_parents = 1,
+> +		.flags = CLK_SET_RATE_PARENT,
+> +	},
+> +};
+> +
+> +static struct clk_regmap t7_mclk_0 = {
+> +	.data = &(struct clk_regmap_gate_data){
+> +		.offset = MCLK_PLL_CNTL4,
+> +		.bit_idx = 0,
+> +	},
+> +	.hw.init = &(struct clk_init_data) {
+> +		.name = "mclk_0",
+> +		.ops = &clk_regmap_gate_ops,
+> +		.parent_hws = (const struct clk_hw *[]) {
+> +			&t7_mclk_0_pre.hw
+> +		},
+> +		.num_parents = 1,
+> +		.flags = CLK_SET_RATE_PARENT,
+> +	},
+> +};
+> +
+> +static struct clk_regmap t7_mclk_1_sel = {
+> +	.data = &(struct clk_regmap_mux_data){
+> +		.offset = MCLK_PLL_CNTL4,
+> +		.mask = 0x3,
+> +		.shift = 12,
+> +	},
+> +	.hw.init = &(struct clk_init_data){
+> +		.name = "mclk_1_sel",
+> +		.ops = &clk_regmap_mux_ops,
+> +		.parent_data = (const struct clk_parent_data []) {
+> +			{ .hw = &t7_mclk_pll.hw },
+> +			{ .fw_name = "in1", },
+> +			{ .fw_name = "in2", },
+> +		},
+> +		.num_parents = 3,
+> +	},
+> +};
+> +
+> +static struct clk_fixed_factor t7_mclk_1_div2 = {
+> +	.mult = 1,
+> +	.div = 2,
+> +	.hw.init = &(struct clk_init_data){
+> +		.name = "mclk_1_div2",
+> +		.ops = &clk_fixed_factor_ops,
+> +		.parent_hws = (const struct clk_hw *[]) { &t7_mclk_1_sel.hw },
+> +		.num_parents = 1,
+> +		.flags = CLK_SET_RATE_PARENT,
+> +	},
+> +};
+> +
+> +static struct clk_regmap t7_mclk_1_pre = {
+> +	.data = &(struct clk_regmap_gate_data){
+> +		.offset = MCLK_PLL_CNTL4,
+> +		.bit_idx = 10,
+> +	},
+> +	.hw.init = &(struct clk_init_data) {
+> +		.name = "mclk_1_pre",
+> +		.ops = &clk_regmap_gate_ops,
+> +		.parent_hws = (const struct clk_hw *[]) {
+> +			&t7_mclk_1_div2.hw
+> +		},
+> +		.num_parents = 1,
+> +		.flags = CLK_SET_RATE_PARENT,
+> +	},
+> +};
+> +
+> +static struct clk_regmap t7_mclk_1 = {
+> +	.data = &(struct clk_regmap_gate_data){
+> +		.offset = MCLK_PLL_CNTL4,
+> +		.bit_idx = 8,
+> +	},
+> +	.hw.init = &(struct clk_init_data) {
+> +		.name = "mclk_1",
+> +		.ops = &clk_regmap_gate_ops,
+> +		.parent_hws = (const struct clk_hw *[]) {
+> +			&t7_mclk_1_pre.hw
+> +		},
+> +		.num_parents = 1,
+> +		.flags = CLK_SET_RATE_PARENT,
+> +	},
+> +};
+> +
+> +static struct clk_hw *t7_gp0_hw_clks[] = {
+> +	[CLKID_GP0_PLL_DCO]		= &t7_gp0_pll_dco.hw,
+> +	[CLKID_GP0_PLL]			= &t7_gp0_pll.hw,
+> +};
+> +
+> +static struct clk_hw *t7_gp1_hw_clks[] = {
+> +	[CLKID_GP1_PLL_DCO]		= &t7_gp1_pll_dco.hw,
+> +	[CLKID_GP1_PLL]			= &t7_gp1_pll.hw,
+> +};
+> +
+> +static struct clk_hw *t7_hifi_hw_clks[] = {
+> +	[CLKID_HIFI_PLL_DCO]		= &t7_hifi_pll_dco.hw,
+> +	[CLKID_HIFI_PLL]		= &t7_hifi_pll.hw,
+> +};
+> +
+> +static struct clk_hw *t7_pcie_hw_clks[] = {
+> +	[CLKID_PCIE_PLL_DCO]		= &t7_pcie_pll_dco.hw,
+> +	[CLKID_PCIE_PLL_DCO_DIV2]	= &t7_pcie_pll_dco_div2.hw,
+> +	[CLKID_PCIE_PLL_OD]		= &t7_pcie_pll_od.hw,
+> +	[CLKID_PCIE_PLL]		= &t7_pcie_pll.hw,
+> +};
+> +
+> +static struct clk_hw *t7_mpll_hw_clks[] = {
+> +	[CLKID_MPLL_PREDIV]		= &t7_mpll_prediv.hw,
+> +	[CLKID_MPLL0_DIV]		= &t7_mpll0_div.hw,
+> +	[CLKID_MPLL0]			= &t7_mpll0.hw,
+> +	[CLKID_MPLL1_DIV]		= &t7_mpll1_div.hw,
+> +	[CLKID_MPLL1]			= &t7_mpll1.hw,
+> +	[CLKID_MPLL2_DIV]		= &t7_mpll2_div.hw,
+> +	[CLKID_MPLL2]			= &t7_mpll2.hw,
+> +	[CLKID_MPLL3_DIV]		= &t7_mpll3_div.hw,
+> +	[CLKID_MPLL3]			= &t7_mpll3.hw,
+> +};
+> +
+> +static struct clk_hw *t7_hdmi_hw_clks[] = {
+> +	[CLKID_HDMI_PLL_DCO]		= &t7_hdmi_pll_dco.hw,
+> +	[CLKID_HDMI_PLL_OD]		= &t7_hdmi_pll_od.hw,
+> +	[CLKID_HDMI_PLL]		= &t7_hdmi_pll.hw,
+> +};
+> +
+> +static struct clk_hw *t7_mclk_hw_clks[] = {
+> +	[CLKID_MCLK_PLL_DCO]		= &t7_mclk_pll_dco.hw,
+> +	[CLKID_MCLK_PRE]		= &t7_mclk_pre_od.hw,
+> +	[CLKID_MCLK_PLL]		= &t7_mclk_pll.hw,
+> +	[CLKID_MCLK_0_SEL]		= &t7_mclk_0_sel.hw,
+> +	[CLKID_MCLK_0_DIV2]		= &t7_mclk_0_div2.hw,
+> +	[CLKID_MCLK_0_PRE]		= &t7_mclk_0_pre.hw,
+> +	[CLKID_MCLK_0]			= &t7_mclk_0.hw,
+> +	[CLKID_MCLK_1_SEL]		= &t7_mclk_1_sel.hw,
+> +	[CLKID_MCLK_1_DIV2]		= &t7_mclk_1_div2.hw,
+> +	[CLKID_MCLK_1_PRE]		= &t7_mclk_1_pre.hw,
+> +	[CLKID_MCLK_1]			= &t7_mclk_1.hw,
+> +};
+> +
+> +static const struct meson_clkc_data t7_gp0_data = {
+> +	.hw_clks = {
+> +		.hws = t7_gp0_hw_clks,
+> +		.num = ARRAY_SIZE(t7_gp0_hw_clks),
+> +	},
+> +};
+> +
+> +static const struct meson_clkc_data t7_gp1_data = {
+> +	.hw_clks = {
+> +		.hws = t7_gp1_hw_clks,
+> +		.num = ARRAY_SIZE(t7_gp1_hw_clks),
+> +	},
+> +};
+> +
+> +static const struct meson_clkc_data t7_hifi_data = {
+> +	.hw_clks = {
+> +		.hws = t7_hifi_hw_clks,
+> +		.num = ARRAY_SIZE(t7_hifi_hw_clks),
+> +	},
+> +};
+> +
+> +static const struct meson_clkc_data t7_pcie_data = {
+> +	.hw_clks = {
+> +		.hws = t7_pcie_hw_clks,
+> +		.num = ARRAY_SIZE(t7_pcie_hw_clks),
+> +	},
+> +};
+> +
+> +static const struct reg_sequence t7_mpll_init_regs[] = {
+> +	{ .reg = MPLL_CTRL0, .def = 0x00000543 }
+> +};
+> +
+> +static const struct meson_clkc_data t7_mpll_data = {
+> +	.hw_clks = {
+> +		.hws = t7_mpll_hw_clks,
+> +		.num = ARRAY_SIZE(t7_mpll_hw_clks),
+> +	},
+> +	.init_regs = t7_mpll_init_regs,
+> +	.init_count = ARRAY_SIZE(t7_mpll_init_regs),
+> +};
+> +
+> +static const struct meson_clkc_data t7_hdmi_data = {
+> +	.hw_clks = {
+> +		.hws = t7_hdmi_hw_clks,
+> +		.num = ARRAY_SIZE(t7_hdmi_hw_clks),
+> +	},
+> +};
+> +
+> +static const struct meson_clkc_data t7_mclk_data = {
+> +	.hw_clks = {
+> +		.hws = t7_mclk_hw_clks,
+> +		.num = ARRAY_SIZE(t7_mclk_hw_clks),
+> +	},
+> +};
+> +
+> +static const struct of_device_id t7_pll_clkc_match_table[] = {
+> +	{ .compatible = "amlogic,t7-gp0-pll",	.data = &t7_gp0_data, },
+> +	{ .compatible = "amlogic,t7-gp1-pll",	.data = &t7_gp1_data, },
+> +	{ .compatible = "amlogic,t7-hifi-pll",	.data = &t7_hifi_data, },
+> +	{ .compatible = "amlogic,t7-pcie-pll",	.data = &t7_pcie_data, },
+> +	{ .compatible = "amlogic,t7-mpll",	.data = &t7_mpll_data, },
+> +	{ .compatible = "amlogic,t7-hdmi-pll",	.data = &t7_hdmi_data, },
+> +	{ .compatible = "amlogic,t7-mclk-pll",	.data = &t7_mclk_data, },
+> +	{}
+> +};
+> +MODULE_DEVICE_TABLE(of, t7_pll_clkc_match_table);
+> +
+> +static struct platform_driver t7_pll_clkc_driver = {
+> +	.probe = meson_clkc_mmio_probe,
+> +	.driver = {
+> +		.name = "t7-pll-clkc",
+> +		.of_match_table = t7_pll_clkc_match_table,
+> +	},
+> +};
+> +module_platform_driver(t7_pll_clkc_driver);
+> +
+> +MODULE_DESCRIPTION("Amlogic T7 PLL Clock Controller driver");
+> +MODULE_AUTHOR("Jian Hu <jian.hu@amlogic.com>");
+> +MODULE_LICENSE("GPL");
+> +MODULE_IMPORT_NS("CLK_MESON");
 
 -- 
-2.34.1
-
+Jerome
 
