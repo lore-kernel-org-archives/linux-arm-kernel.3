@@ -4,70 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC078CFD313
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 11:07:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE3B8CFD317
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 11:07:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qSGx250uhdjdakZcPHoX8Nbq5J4cWyRmd4SLOgVrrcg=; b=NqD5OsTIKb8KWSO3q70nbAg7ik
-	AjcvR2J1cphULddLpCaJQVhzkTUVvVjS/MW7sZdC3NXm4Yq0OIR23JjkYW7XLI9k4gbfOaPDFCWR3
-	GS8CWxL+Tu8tTBvFjplhGpj8pRtVPkjMSOF/hqJz5Dgl/olbmOctWrBV8ePPTYeLfeqdOI8bQmJu3
-	AIub1lR0i0izVTOUtoiZkH+1YqlK68S1A2/xoD7CwrOxynta2Q5MayNlyNYASO6hYV4MgtOg1tw7P
-	9dx+OgGPczt17vrala02TXlrdlffAthaXvd7ANkkdmCFA+snDWQW4crtZMx0rGl8QTWs7xia484J1
-	5Yx6SQjA==;
+	bh=9c3Qpc7AsTRxWwpMRyYkuInfLdtrj7kwxB62DhZpoe8=; b=d0+TmTOtCiHi+KRT7TRXp4zN5l
+	/kMGZD6PfP9L6G5Dv7uOkVmYvHORT7XJnmCiZXkIkt99cgLN+P1IlSZS5HawY9EqC+uTYeys6g3oE
+	DT6LAFCMypnwJb+xwScIyzOpZF1ky6uwXpi5gyMa+yzEWfV16hENz88FAYxKock9TXtAoJpUhxuvC
+	Y5fwi3LBa/ylStxSCAOPNbrCj4AHfTobnowimtNgmPu9c5MtOgKt3A1X+L11z/9oBcsD8jggiqN8T
+	1iQeG8SNAScZas/JLhqBqM9qq60H0y3sVI7fNSUAdmZ85vqOnJCp4prnW0FBkMjMVd1ej/wbAHtG3
+	H1oN1BdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNUPw-0000000BVQH-340D;
+	id 1vNUPw-0000000BVPK-0iSu;
 	Mon, 24 Nov 2025 11:07:36 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNUPq-0000000BVKc-2ZF6;
-	Mon, 24 Nov 2025 11:07:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=qSGx250uhdjdakZcPHoX8Nbq5J4cWyRmd4SLOgVrrcg=; b=CitzKFYiWYoD5I2MsGcEwRMKC5
-	uPiNMXNRhJcI0ql3q+uVqKWd6pEHtDmx7ggxNtP4YdPu540qSHMCWtLRzbvVfqau6oYP7PSnY6Lsl
-	vf+2xAVvokivCN9+K5RMxBxX1OtiJ1gcAuA/cVdbpnTGmNIwkvDaB3k9PtRQtA1xZbeqCPD862eNy
-	Sb5naYXGM+/MeSRmczZFD1VQL1yjk7qBefVj0O5uI1VwqM7vEpq7g75XcbZNFMj68UsL3ksoSTUBe
-	HimT0XSJ/kAYDkmtza1jooejja+oxEhH9xyHXMjjUsdjbFapr1l9ZO3oTe+FbT0EiyoUXFOp1a9n8
-	5oKUrL0g==;
 Received: from sender3-pp-f112.zoho.com ([136.143.184.112])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNTYB-00000003UI1-0Dnu;
-	Mon, 24 Nov 2025 10:12:06 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1763982433; cv=none; 
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vNUPn-0000000BVIk-3s13;
+	Mon, 24 Nov 2025 11:07:29 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1763982439; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=IXS8IHBlRkcxzbrqOTzjgOfUGwHgAeNekmQt1A56O8FmgN29sqvy+RBK5umlrJwt7srj03ctCnkYy6vjpLGhvMKHl25X620EkQzd0BCP9YXPQaSbKWIPTzWTJnzrchnBC1VeMPcv0vXJC22dLwVVmFiVfJwPTy8ceyYWIuMeVhs=
+	b=CbICZw+MJLYvDM75sIfnRqr2fQ91fmNYtir5j9yJLOmhLrEZDyZeM0mJ7ETOgQi82FE5ryyxrMo8qwNY+a65frh+aCiYJGMyMhtOC+QYdKZYI4HDUG+YLjF6xDCNm0G2j0svY/ir7cklB4tW6jmeSo6N9v222P1wEb7M1x2lsm4=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1763982433; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=qSGx250uhdjdakZcPHoX8Nbq5J4cWyRmd4SLOgVrrcg=; 
-	b=EjNhvEdyxDbs/2bwxjR2DwjWci/LOks7rzSYdsVfv/xKZrHfarjhKE4NQ6qJOWbgLkv4uMEw3WltDmWeytXs0zsaBiloWhbbij7AC91gCsfDMYkc3VqZ7jGm4F8ganM+iXLikrnbBV34/P2vgkbvK8isz5C9L3eamqdpnOqvogQ=
+	t=1763982439; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=9c3Qpc7AsTRxWwpMRyYkuInfLdtrj7kwxB62DhZpoe8=; 
+	b=i3gBuUhesyaZ61vargUjnt8QzA7kpAtaYe0e5ub4wZ1HtAzRm2az09KbCboHtLBR7zSjSIVCWHZ8cjk0kRm7HeIzv3aMntpZETntLdW7fT2/Wg/XXagLS7jcTLAlnpRlwdF/vOJ2QP66Ypi33D0lzzuHd3hBZNrS6YfbI+DmGKI=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
 	dkim=pass  header.i=collabora.com;
 	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
 	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1763982433;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1763982439;
 	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
 	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
-	bh=qSGx250uhdjdakZcPHoX8Nbq5J4cWyRmd4SLOgVrrcg=;
-	b=KmZwvMFrlZHV0mUn6TEmW8GPNOzPiVgf1uruk15TGaZwaVIqiDuh6abQ1aihVGgF
-	ibLFU2sEz51fQy1Yxn/JAwspmO5VUb42f2yUcTl5l7uQAN5tkeLx75vbp5ygLGphK3D
-	MGC7rMq+gPdTd/mirTF7ZHZORoew461w9nxU1bsw=
-Received: by mx.zohomail.com with SMTPS id 1763982430549222.18364403003534;
-	Mon, 24 Nov 2025 03:07:10 -0800 (PST)
+	bh=9c3Qpc7AsTRxWwpMRyYkuInfLdtrj7kwxB62DhZpoe8=;
+	b=AbFR2dWGm4T/wE7qV5gHcdokKuzuKOQWD6pN1nurdR3VqNMf1l3314XxXgqbFh3v
+	1i618vg7bx8ghfIZCoke0Z0LIAMZqu5njm0Ni2j95LELOdD9+VlahcIO1Mj3zAZKYuU
+	HDtZ3s9Dsnlo3N+h5tmE7BkJG2UVXFtgdI2knhKU=
+Received: by mx.zohomail.com with SMTPS id 1763982437295434.8072143379791;
+	Mon, 24 Nov 2025 03:07:17 -0800 (PST)
 From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Date: Mon, 24 Nov 2025 12:06:53 +0100
-Subject: [PATCH v2 04/13] soc: mediatek: mtk-dvfsrc: Change error check for
- DVFSRCv4 START cmd
+Date: Mon, 24 Nov 2025 12:06:55 +0100
+Subject: [PATCH v2 06/13] soc: mediatek: mtk-dvfsrc: Add a new callback for
+ calc_dram_bw
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251124-mt8196-dvfsrc-v2-4-d9c1334db9f3@collabora.com>
+Message-Id: <20251124-mt8196-dvfsrc-v2-6-d9c1334db9f3@collabora.com>
 References: <20251124-mt8196-dvfsrc-v2-0-d9c1334db9f3@collabora.com>
 In-Reply-To: <20251124-mt8196-dvfsrc-v2-0-d9c1334db9f3@collabora.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -81,8 +67,8 @@ Cc: kernel@collabora.com, devicetree@vger.kernel.org,
  Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251124_101203_431444_ACE8DD3B 
-X-CRM114-Status: GOOD (  15.19  )
+X-CRM114-CacheID: sfid-20251124_030728_051230_1C8D2168 
+X-CRM114-Status: GOOD (  13.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,31 +85,62 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 
-In preparation for adding support for DVFSRC Version 4, change the
-error check for the MTK_SIP_DVFSRC_START command in the probe
-function to error out only if BIT(0) is set: this is still valid
-for the previous DVFSRC versions, as those always set this bit in
-a fail reply anyway.
+In preparation for adding support for DVFSRC Version 4, add a new
+callback for calculating the dram bandwidth, assign the current
+calculation algo to all of the currently supported SoCs, and use
+this in __dvfsrc_set_dram_bw_v1().
 
 Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 ---
- drivers/soc/mediatek/mtk-dvfsrc.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/soc/mediatek/mtk-dvfsrc.c | 10 +++++++++-
+ 1 file changed, 9 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/soc/mediatek/mtk-dvfsrc.c b/drivers/soc/mediatek/mtk-dvfsrc.c
-index 41add5636b03..7708b07ab2d6 100644
+index a684e405daf7..3cbccbb7469a 100644
 --- a/drivers/soc/mediatek/mtk-dvfsrc.c
 +++ b/drivers/soc/mediatek/mtk-dvfsrc.c
-@@ -440,7 +440,7 @@ static int mtk_dvfsrc_probe(struct platform_device *pdev)
- 	/* Everything is set up - make it run! */
- 	arm_smccc_smc(MTK_SIP_DVFSRC_VCOREFS_CONTROL, MTK_SIP_DVFSRC_START,
- 		      0, 0, 0, 0, 0, 0, &ares);
--	if (ares.a0)
-+	if (ares.a0 & BIT(0))
- 		return dev_err_probe(&pdev->dev, -EINVAL, "Cannot start DVFSRC: %lu\n", ares.a0);
+@@ -73,6 +73,7 @@ struct mtk_dvfsrc {
+ struct dvfsrc_soc_data {
+ 	const int *regs;
+ 	const struct dvfsrc_opp_desc *opps_desc;
++	u32 (*calc_dram_bw)(struct mtk_dvfsrc *dvfsrc, int type, u64 bw);
+ 	u32 (*get_target_level)(struct mtk_dvfsrc *dvfsrc);
+ 	u32 (*get_current_level)(struct mtk_dvfsrc *dvfsrc);
+ 	u32 (*get_vcore_level)(struct mtk_dvfsrc *dvfsrc);
+@@ -274,10 +275,15 @@ static void dvfsrc_set_vscp_level_v2(struct mtk_dvfsrc *dvfsrc, u32 level)
+ 	dvfsrc_writel(dvfsrc, DVFSRC_VCORE, val);
+ }
  
- 	return 0;
++static u32 dvfsrc_calc_dram_bw_v1(struct mtk_dvfsrc *dvfsrc, int type, u64 bw)
++{
++	return (u32)div_u64(bw, 100 * 1000);
++}
++
+ static void __dvfsrc_set_dram_bw_v1(struct mtk_dvfsrc *dvfsrc, u32 reg,
+ 				    int type, u16 max_bw, u16 min_bw, u64 bw)
+ {
+-	u32 new_bw = (u32)div_u64(bw, 100 * 1000);
++	u32 new_bw = dvfsrc->dvd->calc_dram_bw(dvfsrc, type, bw);
+ 
+ 	/* If bw constraints (in mbps) are defined make sure to respect them */
+ 	if (max_bw)
+@@ -519,6 +525,7 @@ static const struct dvfsrc_opp_desc dvfsrc_opp_mt8183_desc[] = {
+ static const struct dvfsrc_soc_data mt8183_data = {
+ 	.opps_desc = dvfsrc_opp_mt8183_desc,
+ 	.regs = dvfsrc_mt8183_regs,
++	.calc_dram_bw = dvfsrc_calc_dram_bw_v1,
+ 	.get_target_level = dvfsrc_get_target_level_v1,
+ 	.get_current_level = dvfsrc_get_current_level_v1,
+ 	.get_vcore_level = dvfsrc_get_vcore_level_v1,
+@@ -549,6 +556,7 @@ static const struct dvfsrc_opp_desc dvfsrc_opp_mt8195_desc[] = {
+ static const struct dvfsrc_soc_data mt8195_data = {
+ 	.opps_desc = dvfsrc_opp_mt8195_desc,
+ 	.regs = dvfsrc_mt8195_regs,
++	.calc_dram_bw = dvfsrc_calc_dram_bw_v1,
+ 	.get_target_level = dvfsrc_get_target_level_v2,
+ 	.get_current_level = dvfsrc_get_current_level_v2,
+ 	.get_vcore_level = dvfsrc_get_vcore_level_v2,
 
 -- 
 2.52.0
