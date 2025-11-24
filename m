@@ -4,144 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC045CFD362
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 22:44:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B48ACFD365
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 22:47:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eJ0UuIIwRPps0Hl1qsqDtPlCU9+/lqATvKmsoQC1j44=; b=T0lYTVjNv+Scdpgu5saN3UXDOr
-	yrWg+xjO2HlYTu876Ur+vyBfzc1Fxuafw8rSmKOOQjQAkkdvrl8+oBiIRwfY+X6AIjsNO67NEPr3d
-	VHDFYlNSTbQVPgwC1gW2UUQ7X0XAbsoC2qIE6fu+hPMbe+72dI0WA3UvsUFysA0cKR/3ARsicb+il
-	Ja3+ENf10rSIxlukwtVgI2L+070OxeaVSvwbPA2s5KMsrNxZE63QolkpKYiTpteWeJFv2BBAFtHb9
-	yrUadAyqki8CB74FOuBhgnk5s/YOZTJ6WnWb16FUSZS5HQ/GMuVOdlIdrxb45CZJGdyVEqesJ8hc+
-	q6NvO59w==;
+	bh=81ZZyTqpr/VTRgjV5SNyhefBc8GXmhSu3D/xLVl/wcc=; b=EFRNGM8nYRy7gjxfBfPXX2Dp03
+	GGYrTABoBz7fqQ0HGBI+OGwgf8Z0aM/IJ3Hbnxr1ZvOqVFklsjBfmKAadqpRn/mEnXDtnUK8M9SqZ
+	EQnLfaEFyi07Y2layOv4gEpxxALQ/DjJqsGPKHWQDCSZrlrt/1Hqexz0/XgE/OYxbjNH9w5XojPmy
+	xEhgVK4QSRbjDwz07AVRmyePeNFE1kOw2aRylKhcx0IQ7eFOw2UaJmn/ccwo4HYPJcPQZzsLqj7tH
+	ZP7bz+UeL/RMR1W2FTSVix9dc7h0WqD4sNFjv+YsdCBgoz5Xx5y6ubmbzGNOMuHKGcYD7S9AcK7U3
+	ox0R3WHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNfIG-0000000CPR9-2Gss;
-	Mon, 24 Nov 2025 22:44:24 +0000
-Received: from mail-southcentralusazon11012066.outbound.protection.outlook.com ([40.93.195.66] helo=SN4PR2101CU001.outbound.protection.outlook.com)
+	id 1vNfLR-0000000CPjD-2mVT;
+	Mon, 24 Nov 2025 22:47:41 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNfID-0000000CPQT-3FAo
+	id 1vNfLP-0000000CPim-1Lin
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Nov 2025 22:44:22 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=KVpDLdi8Z2VS9vHOaujB1f3TfmFpEB1pjrdYXSOGJd7cyYg40uLwHHJcywGeOggcQbhCcfIfXlwuf6BtbrE2RDQA8O+mBrTCGZN/nCIl2a+CN4sstcuTjjT5DeAzwQimRs04QtA2QgK1h6EveLiWXStzKJJEDgCAuCDX11t+49gJXTxalUQhUBWHsmAjdfNXRzSkKpJbjdv7yYkmHvvR8Wd0Ep8WH4BjSDkufSR28cknYPLIZvgNUrvGdBx52zsviE+Ulm3YYgUPmTjlB31L2m45maS/knu8ZqTZD6nP82jDNW/bhdlAUXBaZC3oDhD56m53QkPD7RPRZcROLQCQ2Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=eJ0UuIIwRPps0Hl1qsqDtPlCU9+/lqATvKmsoQC1j44=;
- b=gttQQ3voTDCuhv33VpNl7MW7UAGvR5vCSf0GPS0Rw75jt4Lsma9ymYS7g+H7MEDhwSE6IuxppigR9kSJ0xH2voLUuyjc562THt09xgIUJm4RGYMj+7pHZFCemgGxcjEu6G4LXZ2G3ald8ItvT45XelobgjD4H7nwkORaGA7zBLP7Vq9w3jL6ufAEodVRrXs8w4h7ZcZJseGON88ujXkq1QT+XRSQzTP5Ju28vpUkplo+lPS+umnDQ6UrHaFn/fTwXdBEmC/YVNIuvmIATo+TU/vQ0K/9n0B4klrzZCPBMBRPhBoPzX6UGk1QabCgC1OBq21Db3qdlEomrDiMGB9gbw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.161) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=eJ0UuIIwRPps0Hl1qsqDtPlCU9+/lqATvKmsoQC1j44=;
- b=obceW/EgPs1zroZC6m+e4IVKUHeucV0F5u13dbDCrBIzn+LpT2v8QJWcl1eGuI8slLpqoap0N/jspc4XHlkJITSbNMoNk2TwGYQj4h7NEsWiMlfiA95MR0kA1w0Eq9pHK3IiXObgSjhuILhAt8mS90VIugQAHoh4zKf0gdOK4NwyE/f/PHMjdjtsv+cpgBf498KcnX2Qp/mm+o2uUwmQGRe3rzUbHbIdl7R3X0ohXj8jETvXPTQRZGjGn3NAC6VjlD4k61kucrRVXn9C5TxLRGEo9R06w/81GMsPtbkI8tSTAOoxnvxt++hmsKum1986an9qtO0wy0SbKULyRQq+Fg==
-Received: from CH2PR18CA0029.namprd18.prod.outlook.com (2603:10b6:610:4f::39)
- by DS0PR12MB9322.namprd12.prod.outlook.com (2603:10b6:8:1bd::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9343.17; Mon, 24 Nov
- 2025 22:44:15 +0000
-Received: from CH1PEPF0000AD82.namprd04.prod.outlook.com
- (2603:10b6:610:4f:cafe::98) by CH2PR18CA0029.outlook.office365.com
- (2603:10b6:610:4f::39) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9343.17 via Frontend Transport; Mon,
- 24 Nov 2025 22:43:37 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.161) by
- CH1PEPF0000AD82.mail.protection.outlook.com (10.167.244.91) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9366.7 via Frontend Transport; Mon, 24 Nov 2025 22:44:15 +0000
-Received: from rnnvmail205.nvidia.com (10.129.68.10) by mail.nvidia.com
- (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 24 Nov
- 2025 14:44:00 -0800
-Received: from rnnvmail204.nvidia.com (10.129.68.6) by rnnvmail205.nvidia.com
- (10.129.68.10) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 24 Nov
- 2025 14:44:00 -0800
-Received: from Asurada-Nvidia (10.127.8.13) by mail.nvidia.com (10.129.68.6)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Mon, 24 Nov 2025 14:43:59 -0800
-Date: Mon, 24 Nov 2025 14:43:58 -0800
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Will Deacon <will@kernel.org>
-CC: <jean-philippe@linaro.org>, <robin.murphy@arm.com>, <joro@8bytes.org>,
-	<jgg@nvidia.com>, <balbirs@nvidia.com>, <miko.lenczewski@arm.com>,
-	<peterz@infradead.org>, <kevin.tian@intel.com>, <praan@google.com>,
-	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
-	<linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v5 4/7] iommu/arm-smmu-v3: Pre-allocate a per-master
- invalidation array
-Message-ID: <aSTfrp9D7i03XhyU@Asurada-Nvidia>
-References: <cover.1762588839.git.nicolinc@nvidia.com>
- <b6e1b5d0ac0157fc06b5cd20c5cd72caec892c47.1762588839.git.nicolinc@nvidia.com>
- <aSTRX5RJJhfNU6l3@willie-the-truck>
+	Mon, 24 Nov 2025 22:47:40 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 3017343D17;
+	Mon, 24 Nov 2025 22:47:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 90D94C4CEF1;
+	Mon, 24 Nov 2025 22:47:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1764024458;
+	bh=2wy8ehXzr9jvFTSWp5rIJ9UVgYX28BfvWePNf2TNPXM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Qgc6Wl7aaPK5/FaCkyrpsXlSpoMlG/loLGZakm6F7R/Avo/8iLoiyZ9fxVQpSlG9z
+	 oCtri/77Aw2AgHimvGWZmU38fkY5E1Fl+N3XqFftGKXG0bm7r1hAD3H4k0aq8isnxf
+	 EZh4reQ/TZs8uWbsdLFkioZ/0ohC0M6uiWczaG/Xgc0jtlT2wMdczPyXl5LeQuqCXU
+	 62d9EjQa+SPj8DzsRnXQSaXlb5px6GCu8dCV+QUca9b33WycMwa0zspke6DBt6/fkL
+	 /KN6Ts77sXkz5XtubqTfCDeQZ+2KmzwratNuYN4FhmWDXlxIr5h0CoMv2pBhuflKKA
+	 b7U0Bq1vElYYA==
+Date: Mon, 24 Nov 2025 23:47:35 +0100
+From: Frederic Weisbecker <frederic@kernel.org>
+To: "Paul E. McKenney" <paulmck@kernel.org>
+Cc: Will Deacon <will@kernel.org>, rcu@vger.kernel.org,
+	linux-kernel@vger.kernel.org, kernel-team@meta.com,
+	rostedt@goodmis.org, Catalin Marinas <catalin.marinas@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org
+Subject: Re: [PATCH v2 15/16] srcu: Optimize SRCU-fast-updown for arm64
+Message-ID: <aSTgh8B0SiKz2t5c@pavilion.home>
+References: <bb177afd-eea8-4a2a-9600-e36ada26a500@paulmck-laptop>
+ <20251105203216.2701005-15-paulmck@kernel.org>
+ <aQ9AoauJKLYeYvrn@willie-the-truck>
+ <d53a5852-f84a-4dae-9bf4-312751880452@paulmck-laptop>
+ <aRHLV8lLX0fxQICR@willie-the-truck>
+ <ab6cd1c2-39c5-4b39-9585-6123835a6229@paulmck-laptop>
+ <aSRX1HKNdks5pHsd@willie-the-truck>
+ <c632fb32-dccb-4c61-9b2e-d0c2b55fb2e4@paulmck-laptop>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
+Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
-In-Reply-To: <aSTRX5RJJhfNU6l3@willie-the-truck>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH1PEPF0000AD82:EE_|DS0PR12MB9322:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0744bd3f-6ac3-403e-e1c9-08de2baafed2
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|7416014|376014|1800799024|82310400026;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?B3WmQnWEB/WX1V3rK6mkSRr0BLBVPHfs5ld7CqTHSNCWGV+5GNlNiEoQ7Baz?=
- =?us-ascii?Q?UoBRlQs+uQO2nppkZ43/iAErJpKro94pbsUojxHCW6DtQBvVDti+OhI5yKh9?=
- =?us-ascii?Q?+gt90wQTJFO8BDMbGe33sM54+9s7x2pIZkb7dz0stNer1xtWWTM5lmrBt7wT?=
- =?us-ascii?Q?7JwZxMDLWZe/mP2Y2sjetCEuKW/2Gb8wehD8qtvY5NgimQIFEqb7GfgvEKuY?=
- =?us-ascii?Q?Lbe8kzcB+m/TP+zsrql2ogSznnp0yBwG0ea3Pptn2zxhAXpoHi6a7h3UEf/T?=
- =?us-ascii?Q?Anr8D7RgF3afhqGKN35LwhpPzTcXqrVd3pCaZRKatFILhr77J2TftcaMJqfY?=
- =?us-ascii?Q?+Y1WYQQgt6rD0PQYbt/WW0TMk4VHl2gxcUDwvYYJI0jBrlaX4MTu+ekhiHB7?=
- =?us-ascii?Q?Zey5ODY/lpQmr5NBPR8QKrhdpxS8imHZ/cvc4GuJUIk1fPGO+177VEkg/fuA?=
- =?us-ascii?Q?TrXHNCxdK+EO1aGdcPn/rWFxUYQl9Um/gt8BBl7Umd4r57HIpOvoylJOixee?=
- =?us-ascii?Q?FwdcxXVyCwEW45kvi+x/xjQgA747SpNX/vavUAZl+lLMR6bX2nm0uFWvMS/x?=
- =?us-ascii?Q?WWLLxgqmkixDlNl+5GCZ+fMQ+Zv/vBqIyQbJSuVjy+FyBt27pbHLXXuYp4Vx?=
- =?us-ascii?Q?KYgbrN+Fz612KbkqYNQ5B0/QNiZ4UmmNH/lkmgrBfjuPqu1SlNidUuKickRS?=
- =?us-ascii?Q?IgeYUK5p+uRf7+r0lOfFvUcuFuFuVQGPG87eZeK0Y4gww1JJwCcacO19kEKs?=
- =?us-ascii?Q?ivEvVl2UJIy6dVteJQq13lkpuXlFAmgTXqObYbvoB19FKQUbY+a9OXQUZq00?=
- =?us-ascii?Q?nVaicR+4vC8lpx1qkXbav6QCo78PEKiZAqAHaEtwmlv9VqHn4RZZ1hZnKo+M?=
- =?us-ascii?Q?5FmOTKDoL/KYbhL74YZvjTJ66JbMn/HnXp+0ohn0AjwEi5B+YNkJn6IXEsYr?=
- =?us-ascii?Q?xd7X+1TDvY8cIUvvU9Yc464ll48zFCPx+b5zg7QKyOkPyyAjJg0iDJOlXYjs?=
- =?us-ascii?Q?3ysQaRR74WtF9ho0w7gliyyWD246MxDD3jHSmgNyZxhv65oIzi79tpUuy+3B?=
- =?us-ascii?Q?yauJ/qMxnFLCFrGgxke9bDOveaye0IlGLJ4v30N4RCu4ARWtM5XfsBls6uKy?=
- =?us-ascii?Q?Hogo1m3fiq4jsEz+zU55kaWzu/HJOaMjBPxxUqzUy+p+SYdnijmLa4HDfqJx?=
- =?us-ascii?Q?CCHGHeI8K8u0bsYLX6ojornykorEDy0ViUkmOP3P6ossTFtLN/rvcbsWiLR3?=
- =?us-ascii?Q?XALjhCStFxjTTPMzbE3ohhQI5oAGdDRX9Swh3Erk2gCnJbUwJx0DoaD76YGO?=
- =?us-ascii?Q?/YtpDqGUFlwkrEekqyUADoMfb8DKCFvYHNy91/diyOnodw+uQ/c9GsNdZRGX?=
- =?us-ascii?Q?+rSFeh0oPBR0JHEoK+r8ftnovE7RBpti2RKtfCtx1vZ19HhgQWVjkTSUw5se?=
- =?us-ascii?Q?30f7ZVX+0yiOm+KFwhPpAXdotKLEhZN+Mh/5L37iY3cHoaN6W1ixkwnHfLUe?=
- =?us-ascii?Q?BunUNb7duTWs7B5WIx7yvm+t+UyPnCQw+1EBvPfNL9chqAiDuuIrHF+ElCsX?=
- =?us-ascii?Q?OtOns0f6w/+Is0NTko4=3D?=
-X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(36860700013)(7416014)(376014)(1800799024)(82310400026);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Nov 2025 22:44:15.1262
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0744bd3f-6ac3-403e-e1c9-08de2baafed2
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: CH1PEPF0000AD82.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB9322
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <c632fb32-dccb-4c61-9b2e-d0c2b55fb2e4@paulmck-laptop>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251124_144421_815005_299152D4 
-X-CRM114-Status: GOOD (  14.25  )
+X-CRM114-CacheID: sfid-20251124_144739_402880_96705E5E 
+X-CRM114-Status: GOOD (  31.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,23 +84,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 24, 2025 at 09:42:55PM +0000, Will Deacon wrote:
-> On Sat, Nov 08, 2025 at 12:08:05AM -0800, Nicolin Chen wrote:
-> > +		/* Put the ids into order for sorted to_merge/to_unref arrays */
-> > +		sort_nonatomic(fwspec->ids, fwspec->num_ids,
-> > +			       sizeof(fwspec->ids[0]), arm_smmu_ids_cmp, NULL);
-> > +		/* ATS case adds num_ids of entries, on top of the base case */
-> > +		master->build_invs = arm_smmu_invs_alloc(2 + fwspec->num_ids);
+Le Mon, Nov 24, 2025 at 09:20:25AM -0800, Paul E. McKenney a écrit :
+> On Mon, Nov 24, 2025 at 01:04:20PM +0000, Will Deacon wrote:
+> > On Mon, Nov 10, 2025 at 09:29:43AM -0800, Paul E. McKenney wrote:
+> > > On Mon, Nov 10, 2025 at 11:24:07AM +0000, Will Deacon wrote:
+> > > > On Sat, Nov 08, 2025 at 10:38:32AM -0800, Paul E. McKenney wrote:
+> > > > > On Sat, Nov 08, 2025 at 01:07:45PM +0000, Will Deacon wrote:
+> > > > > > On Wed, Nov 05, 2025 at 12:32:15PM -0800, Paul E. McKenney wrote:
+> > > > > > > Some arm64 platforms have slow per-CPU atomic operations, for example,
+> > > > > > > the Neoverse V2.  This commit therefore moves SRCU-fast from per-CPU
+> > > > > > > atomic operations to interrupt-disabled non-read-modify-write-atomic
+> > > > > > > atomic_read()/atomic_set() operations.  This works because
+> > > > > > > SRCU-fast-updown is not invoked from read-side primitives, which
+> > > > > > > means that if srcu_read_unlock_fast() NMI handlers.  This means that
+> > > > > > > srcu_read_lock_fast_updown() and srcu_read_unlock_fast_updown() can
+> > > > > > > exclude themselves and each other
+> > > > > > > 
+> > > > > > > This reduces the overhead of calls to srcu_read_lock_fast_updown() and
+> > > > > > > srcu_read_unlock_fast_updown() from about 100ns to about 12ns on an ARM
+> > > > > > > Neoverse V2.  Although this is not excellent compared to about 2ns on x86,
+> > > > > > > it sure beats 100ns.
+> > > > > > > 
+> > > > > > > This command was used to measure the overhead:
+> > > > > > > 
+> > > > > > > tools/testing/selftests/rcutorture/bin/kvm.sh --torture refscale --allcpus --duration 5 --configs NOPREEMPT --kconfig "CONFIG_NR_CPUS=64 CONFIG_TASKS_TRACE_RCU=y" --bootargs "refscale.loops=100000 refscale.guest_os_delay=5 refscale.nreaders=64 refscale.holdoff=30 torture.disable_onoff_at_boot refscale.scale_type=srcu-fast-updown refscale.verbose_batched=8 torture.verbose_sleep_frequency=8 torture.verbose_sleep_duration=8 refscale.nruns=100" --trust-make
+> > > > > > > 
+> > > > > > > Signed-off-by: Paul E. McKenney <paulmck@kernel.org>
+> > > > > > > Cc: Catalin Marinas <catalin.marinas@arm.com>
+> > > > > > > Cc: Will Deacon <will@kernel.org>
+> > > > > > > Cc: Mark Rutland <mark.rutland@arm.com>
+> > > > > > > Cc: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
+> > > > > > > Cc: Steven Rostedt <rostedt@goodmis.org>
+> > > > > > > Cc: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+> > > > > > > Cc: <linux-arm-kernel@lists.infradead.org>
+> > > > > > > Cc: <bpf@vger.kernel.org>
+> > > > > > > ---
+> > > > > > >  include/linux/srcutree.h | 51 +++++++++++++++++++++++++++++++++++++---
+> > > > > > >  1 file changed, 48 insertions(+), 3 deletions(-)
+> > > > > > 
+> > > > > > I've queued the per-cpu tweak from Catalin in the arm64 fixes tree [1]
+> > > > > > for 6.18, so please can you drop this SRCU commit from your tree?
+> > > > > 
+> > > > > Very good!  Adding Frederic on CC since he is doing the pull request
+> > > > > for the upcoming merge window.
+> > > > > 
+> > > > > But if this doesn't show up in -rc1, we reserve the right to put it
+> > > > > back in.
+> > > > > 
+> > > > > Sorry, couldn't resist!   ;-)
+> > > > 
+> > > > I've merged it as a fix, so hopefully it will show up in v6.18-rc6.
+> > > 
+> > > Even better, thank you!!!
+> > 
+> > It landed in Linus' tree here:
+> > 
+> > https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/arch/arm64?id=535fdfc5a228524552ee8810c9175e877e127c27
 > 
-> Although I can't point at a specific issue here, I'm nervous about mutating
-> the 'fwspec->ids' array from within the driver, The array isn't allocated
-> or populated directly by the driver and so I don't think we really have any
-> business sorting it. Could we hack iommu_fwspec_add_ids() to keep the array
-> ordered instead?
+> Again, thank you, and Breno has started backporting it for use in
+> our fleet.
+> 
+> > Please can you drop the SRCU change from -next? It still shows up in
+> > 20251121.
+> 
+> This one?
+> 
+> 11f748499236 ("srcu: Optimize SRCU-fast-updown for arm64")
+> 
+> if so, Frederic, could you please drop this commit?
 
-Yea, I think it makes sense to do it in the core, once we have the
-data structure provided by the core as well.
+Dropped, thanks!
 
-Thanks
-Nicolin
+(And I'm glad to do so given how error-prone it can be).
+
+-- 
+Frederic Weisbecker
+SUSE Labs
 
