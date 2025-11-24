@@ -4,122 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56D60CFD31C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 08:27:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F136ACFA466
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 08:44:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
-	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qxBsA+u52Glx00g9dRDSH7FR8fkXTnZDlelCU5NPOqk=; b=WUKLkAFhsifPbKi0FuktUwNz66
-	bKrYST0HpNtnrEL5eq89Fa6P9NrxPVLEEt9eOnj5uw/aFGu2a9u5tYtF6jvyKLIda29oBjD2RPp8X
-	76cu++LhQYnDYEGJ7pTut5CK/hUEwt9uwo6WVsggg3oLbCh3BS5A8KQ8HauydW48bOSAmj1vn1jdV
-	6+NgV9fWLRH68nu5u75Swq9BK3ryqEtXtKSyQTsVHQx4S58fBluYYLOhIKFwm6X8/Td5/XapAZud+
-	vhMdYehgU8JZx7Vctymlez9zoBT7ceMjTD/NkUt3+lnp9mcIFlLgoBy27iOTFJbiX607u2rafTwQo
-	XSX8KsZg==;
+	bh=lsszvakFMADLxt1ailSrb4YFGJxrr+DQEL8j+TCc3fo=; b=hj7jhArXUqV7RrINcRPqychd+K
+	AQf0+Ji9NJ64fN7j2h3QxKuyyPG3NCFqbp0o8gm3947dkd3U2tWNoFHhNxBUdV6fRw2spfz4kXqtz
+	OITBGVZ0vJxEniGpcaZ/pATbHF+kGzq2luJ5KAqjt+HCgrpfrQlBZOeCRjFev04mmaUhkheJOiOl/
+	0M0qIPKxXo8/hgnqZvfB/s5tkyNBgValmj9OyRgK6M5eKHa7Wxe6BZKJv7I081Gh90NSAJGj4MY0f
+	XXkBW+6kHJ7lgFQg7PgtoeKXPSF2ThNeIGDkBlVxzR3M7nEFwBeLyJgoDkimUoooIif0DNF+U+JUQ
+	4FWfI0sg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNRus-0000000BHNo-1XSZ;
-	Mon, 24 Nov 2025 08:27:22 +0000
-Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
+	id 1vNSAu-0000000BID7-2IfV;
+	Mon, 24 Nov 2025 08:43:56 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNRup-0000000BHMv-1S2K
+	id 1vNSAq-0000000BICd-48uS
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Nov 2025 08:27:20 +0000
-Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-47798ded6fcso24033175e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Nov 2025 00:27:18 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1763972837; x=1764577637; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:references:cc:to:subject:reply-to:from:user-agent
-         :mime-version:date:message-id:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=qxBsA+u52Glx00g9dRDSH7FR8fkXTnZDlelCU5NPOqk=;
-        b=juppovyMtJg4SlbtVnJkLD76VXEGU5fIB/z35/zdG7prsFzoik4UsFg2PFTh6ku2UU
-         L9Ii7bUKg6NofytSj8bsF183imIjgEJhEgXqsWCAdlcWRb+8QH8fLSF/i/tvFM+nDPlS
-         RQ+aamrJfmKGwx1kjxcLrflLmStCsAepA7YhFMqOR6C1R7a2eHaoRracnyLV+RR8tcQd
-         v+oHgNxpFWDIUw+VJX/dmVuw3M8GFZu5tFa1x9+wtDsiOiRh+OC98lxJgLZCkDzB6mZY
-         HBDSEg2mlVg8bl28zXIk3TH0KfABNUhPLYZDRfnXaVqJSK3vZWRgvudMYxt6kCIMMxyp
-         8kjQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763972837; x=1764577637;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:references:cc:to:subject:reply-to:from:user-agent
-         :mime-version:date:message-id:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=qxBsA+u52Glx00g9dRDSH7FR8fkXTnZDlelCU5NPOqk=;
-        b=cguKuzKVdxVhOG4R25vdsgs5KxOkLjNOpaCH7zjvjaQwT6ZgXkbWRRpkOGf6Xi/uhT
-         3Sy3hzur4IqbDmplxYUO3ioYcBqr0X/sGkYSPcE3feVSSPx1+OWX3/of/uyciyU5aB0B
-         pRtCHGgsYk2lNYBtBgNlCkmIZgxmgpAR3r6av7fn6lwLfDnCm1KFMcWqtKnvtrN+7vem
-         YgA+pigKq/KMg2JMzL99UcMNiiwLTD5A7EFQyhNB6sImrCxAXz2DoHTzjbLY6a3sQ9mf
-         WHkn3MfrLH0Pc3lxHyyEU5+5xtyd/0tLiOUzPMpbq15xVIARAhPgqbs1FuN4w20B9R33
-         d/Hg==
-X-Forwarded-Encrypted: i=1; AJvYcCXEIpWkB6gr+3yQ2cyNAoRRjli93zgxeFuiA7aDtNf3TYq9Gmr33NBK1eljmVS2GqhgwgpzKwnoJ02RCH9K++j+@lists.infradead.org
-X-Gm-Message-State: AOJu0YwUF/8BBAg7KJLN6t144UnXiWfXiRqa+i9pS5QA/9n/6PDoGiEF
-	hSs76sLhP0O3hmLAdtlbjajrJjLwhx2elLTYpzXsHyZFVUbFGzGI1krt2/pMTyYqLco=
-X-Gm-Gg: ASbGnctgZ3MYxgVttwwvkebAfDrKmJeF/tsL8kMZHY6uPGkWiNZeDsE/TKAFs7T+IJy
-	BVS5M28IFwyKnKFtB9HexhAgq+4mxjeCgWtH/TCCeVuNrrR7Q964YKmhuT0LPeXOZIuwQpELjVf
-	oAcExwu7BdF8lTKWtctB96bD0A4GOI47KF6yFsnQ7kMH46ZgTY+3H8GUeBv2BQZeVCDK2KStf31
-	Ck37vubDxpGaW1zxxuhq1DeTS4upbzbcFin4fMZbZy8/vaxi5dQpAG6OUeC7JVPu82F5HsM5E8K
-	4mjhAH1jmPT5DVI4E8ikdMFZlDlWxFEgp/Aq7NZtjuQQzRaIt1C5MXg+eyOB68qrX2HolJxf1tj
-	2lbuDXSbmbkhvQ2LxDRUXaWNish3HS1t2wrEem7VWiTTBmLsF6GimtYeOAda/g3fdYSxe5haHbS
-	+LyJ9putTdqVJ/U1qyXoWB62OKUGyMsAPLbiyPT4xNQOIwKo27Aq3U/y4xxESwM+I=
-X-Google-Smtp-Source: AGHT+IEmDEtuYmnXYRV6tZiqi54hm2qUz17sARsuhORYI/DXmb/Dj/FFZngja8G3IWf3t5i4YFRQNg==
-X-Received: by 2002:a05:600c:1c98:b0:46e:37fc:def0 with SMTP id 5b1f17b1804b1-477c10d4887mr86783455e9.9.1763972836912;
-        Mon, 24 Nov 2025 00:27:16 -0800 (PST)
-Received: from ?IPV6:2a01:e0a:3d9:2080:ab13:96f5:1459:8396? ([2a01:e0a:3d9:2080:ab13:96f5:1459:8396])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-477bf355af6sm183596525e9.3.2025.11.24.00.27.16
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 24 Nov 2025 00:27:16 -0800 (PST)
-Message-ID: <144870b7-133c-47e6-944f-b780605618a7@linaro.org>
-Date: Mon, 24 Nov 2025 09:27:15 +0100
+	Mon, 24 Nov 2025 08:43:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=lsszvakFMADLxt1ailSrb4YFGJxrr+DQEL8j+TCc3fo=; b=WoPfX9Uk8qnphiu8EMJ3Wlfh16
+	fPLyXjYCpwt/dCPT6kNlprnhYXeKIRcWI5lhGA5SPVpmDY4zIb+SQNvHNwTY7q1amDotdwNRZhwxN
+	XRWp2OiV7dOsu6nawrJm5uDsuE/Qg+77SskyUXygzsRmKeFn1MIdaJ3clWI9SMhZovhqHL7kUzk9p
+	WfNK2S01Df+Xmvd4kwQQSpM6azjYTOP6sFMdetNhUpmSTj7HUF2mnA+LyLSNsvIUdWY1bxfsjEcRB
+	ZFdOIpcz85N32G0iv8F/sSNWBrTGJI99SHb2i9oKctm/ypWRfLEP5uKWETLRfla8Tr1hJn6MGpEQh
+	IgHOebmA==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:40182)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1vNSAl-000000001TY-3flY;
+	Mon, 24 Nov 2025 08:43:47 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1vNSAj-0000000088I-3hgz;
+	Mon, 24 Nov 2025 08:43:45 +0000
+Date: Mon, 24 Nov 2025 08:43:45 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Cc: Wei Fang <wei.fang@nxp.com>, Clark Wang <xiaoning.wang@nxp.com>,
+	Oleksij Rempel <o.rempel@pengutronix.de>,
+	Emanuele Ghidoli <ghidoliemanuele@gmail.com>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	Daniel Scally <dan.scally@ideasonboard.com>,
+	Kieran Bingham <kieran.bingham@ideasonboard.com>,
+	Stefan Klug <stefan.klug@ideasonboard.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Fabio Estevam <festevam@gmail.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>
+Subject: Re: [PATCH] arm64: dts: imx8mp-debix-model-a: Disable EEE for 1000T
+Message-ID: <aSQawUazSYykHeT4@shell.armlinux.org.uk>
+References: <aRW6CxvmIEqkMrfA@shell.armlinux.org.uk>
+ <20251114222654.GI30434@pendragon.ideasonboard.com>
+ <PAXPR04MB8510E17B2B8C612DD02175CE88D6A@PAXPR04MB8510.eurprd04.prod.outlook.com>
+ <20251122072246.GA16239@pendragon.ideasonboard.com>
+ <aSGJHV9Sga2kBIBX@shell.armlinux.org.uk>
+ <20251123053802.GA25329@pendragon.ideasonboard.com>
+ <aSLLMMNkHnfwyO0y@shell.armlinux.org.uk>
+ <20251123152356.GF15447@pendragon.ideasonboard.com>
+ <aSNAP9G4cwRKvxng@shell.armlinux.org.uk>
+ <20251124001214.GI15447@pendragon.ideasonboard.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: Neil Armstrong <neil.armstrong@linaro.org>
-Subject: Re: [PATCH] arm64: dts: amlogic: meson-g12b: Fix L2 cache reference
- for S922X CPUs
-To: Guillaume La Roque <glaroque@baylibre.com>, Rob Herring
- <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Kevin Hilman <khilman@baylibre.com>,
- Jerome Brunet <jbrunet@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- Anand Moon <linux.amoon@gmail.com>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20251123-fixkhadas-v1-1-045348f0a4c2@baylibre.com>
-Content-Language: en-US, fr
-Autocrypt: addr=neil.armstrong@linaro.org; keydata=
- xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
- GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
- BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
- qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
- 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
- AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
- OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
- Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
- YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
- GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
- UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
- GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
- yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
- QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
- SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
- 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
- Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
- oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
- M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
- 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
- KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
- 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
- QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
-Organization: Linaro
-In-Reply-To: <20251123-fixkhadas-v1-1-045348f0a4c2@baylibre.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251124001214.GI15447@pendragon.ideasonboard.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251124_002719_408344_1423BA27 
-X-CRM114-Status: GOOD (  14.99  )
+X-CRM114-CacheID: sfid-20251124_004353_049997_8A8CA0E3 
+X-CRM114-Status: GOOD (  15.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,51 +98,31 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: Neil Armstrong <neil.armstrong@linaro.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/23/25 18:14, Guillaume La Roque wrote:
-> The original addition of cache information for the Amlogic S922X SoC
-> used the wrong next-level cache node for CPU cores 100 and 101,
-> incorrectly referencing `l2_cache_l`. These cores actually belong to
-> the big cluster and should reference `l2_cache_b`. Update the device
-> tree accordingly.
+On Mon, Nov 24, 2025 at 09:12:14AM +0900, Laurent Pinchart wrote:
+> On Sun, Nov 23, 2025 at 05:11:27PM +0000, Russell King (Oracle) wrote:
+> > On Mon, Nov 24, 2025 at 12:23:56AM +0900, Laurent Pinchart wrote:
+> > > You're right. I've checked replied to the patch with the following
+> > > numbers.
+> > > 
+> > > 100TX link, eee-broken-* set: 7000 interrupts
+> > > 1000T link, eee-broken-* set: 2711 interrupts
+> > > 100TX link, eee-broken-* unset: 9450 interrupts
+> > > 1000T link, eee-broken-* unset: 6066 interrupts
+> > 
+> > Sadly, I think this means for iMX8MP, the correct answer is to disable
+> > EEE completely. What I was thinking when I brought this up is as follows
+> > and dwmac-imx.c can set STMMAC_FLAG_EEE_DISABLE for iMX8MP to prevent
+> > the use of EEE.
 > 
-> Fixes: e7f85e6c155a ("arm64: dts: amlogic: Add cache information to the Amlogic S922X SoC")
-> Signed-off-by: Guillaume La Roque <glaroque@baylibre.com>
-> ---
->   arch/arm64/boot/dts/amlogic/meson-g12b.dtsi | 4 ++--
->   1 file changed, 2 insertions(+), 2 deletions(-)
-> 
-> diff --git a/arch/arm64/boot/dts/amlogic/meson-g12b.dtsi b/arch/arm64/boot/dts/amlogic/meson-g12b.dtsi
-> index f04efa828256..23358d94844c 100644
-> --- a/arch/arm64/boot/dts/amlogic/meson-g12b.dtsi
-> +++ b/arch/arm64/boot/dts/amlogic/meson-g12b.dtsi
-> @@ -87,7 +87,7 @@ cpu100: cpu@100 {
->   			i-cache-line-size = <32>;
->   			i-cache-size = <0x8000>;
->   			i-cache-sets = <32>;
-> -			next-level-cache = <&l2_cache_l>;
-> +			next-level-cache = <&l2_cache_b>;
->   			#cooling-cells = <2>;
->   		};
->   
-> @@ -103,7 +103,7 @@ cpu101: cpu@101 {
->   			i-cache-line-size = <32>;
->   			i-cache-size = <0x8000>;
->   			i-cache-sets = <32>;
-> -			next-level-cache = <&l2_cache_l>;
-> +			next-level-cache = <&l2_cache_b>;
->   			#cooling-cells = <2>;
->   		};
->   
-> 
-> ---
-> base-commit: 6a23ae0a96a600d1d12557add110e0bb6e32730c
-> change-id: 20251123-fixkhadas-c84da7d7c47c
-> 
-> Best regards,
+> I suppose there's no way to disable EEE in the RX path while keeping it
+> enabled in the TX path ?
 
-Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
+Sadly not, sorry.
+
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
