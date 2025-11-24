@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4FB8CFD31C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 07:38:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D47ABCFD31C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 07:39:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NTCCKnqNGLOCh2frHdSCe0Vsmzs/yQtwA+1J+xfd50s=; b=RcSwYE9uQs710prUbvNst4p1s9
-	iv/r9OkopKeFp4XbPdJnlavWU/H+dJyW+i+G+9OdFo57BIr9yua76U3W6yBAurv3Bc4XdOreiSlXb
-	nMQVPNukSxQoA3WS3j2lnR3pMYYiDL3ww/cVZlkE123JdOnGB/DUTD/yPGIoAnuhMS+7T3KyIUfqN
-	oNwn146MFE9e6TD8njbfvMrDUVuNiR081d58qfdPdHH312i35B4ffvMnBOW14sOPezuPVYjGDVgLE
-	2NttieWkxSpNctbsLpKGOModrBfYrdADFAx/RleR2SwbOozRcsZOmlAjApxsMP6szo1OtI5PuVsu/
-	eWV0zXhg==;
+	bh=EbfNQbneTwDg/Qam42digSIDomFoRBUd7z3gC5lrups=; b=a/Pk3FCyC1twRCHrkgjAnzOLMb
+	M/FszutZ9j0SqbEJ9VK7wH1Qx0c2Ub6cwr5nkY8LyHDOcX4PI2Sf00AD2wytLYcCGS/80VrVq8Wpu
+	18ExGqp6vHKwfpMqiqksOO6k37t3F+1GAN5v/9PEpQgG+5uGPuz97FEm9l9rQt7ir6nfX5l5Fqg5L
+	UoHGlYw37hb5Td4DGl+GEZIndeA7glJzduMPxkHFbVewFwQiUk0l/3Ws8IYrLMp8JxPMxanAMj0pJ
+	1VPnt3XmZ2TiQvAmGPVGwFV3Zf/6NugE70rnWK5U0X2qRunTRmXEhLl1pgNyHFtbPclx2L5VPAOiX
+	utOG+nfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNR9p-0000000BDti-1zZF;
-	Mon, 24 Nov 2025 07:38:45 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vNRAb-0000000BE0z-3PEo;
+	Mon, 24 Nov 2025 07:39:33 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNR9n-0000000BDtB-3tWS
+	id 1vNRAa-0000000BE0c-2BjS
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Nov 2025 07:38:45 +0000
+	Mon, 24 Nov 2025 07:39:32 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 47BF142B7B;
-	Mon, 24 Nov 2025 07:38:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AD434C4CEF1;
-	Mon, 24 Nov 2025 07:38:38 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id A89B660181;
+	Mon, 24 Nov 2025 07:39:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EC155C4CEF1;
+	Mon, 24 Nov 2025 07:39:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763969923;
-	bh=jcqHT8d/CWoQ3azcqnOtlOMFkmeAcleUjrV6ER4fSB0=;
+	s=k20201202; t=1763969971;
+	bh=sY8ilj4l0AMnsXFPN9kmU/jiVIb75XyvDgZpSSSWnSg=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=SJB/GigqJovwxfBej0jv7UuRin8x9M2yVhnawzc02sEz3/cQrN7w+iKwlBP4L0AKo
-	 yJh5zaTiesTiLEfeWepvhwDD475Ij2sAjOBOS4uSY3dWzpfill/zBKwQkcOL35SIve
-	 xhlGgo20C6VTgJ2iwqd/N1bzxFTJeXNf3gSTkeLgBHvuTNZ6BcCI0Ctq4CBBQ6wrQ2
-	 bEpk5PqgQfy/Aw4BSQKttxIfVpkRUSXloz6Y5fQ0gxvA/mTQLAuFqiXRNeqx7Ogrmp
-	 59b1gJ7WMzx87AbmyqzmM8UUdr8nvi/sjUTcFzkf1m/f70ySoo0ZGuaqwvg+qvYD6p
-	 O7spWg3+NzJgA==
-Message-ID: <86e922e9-f314-44f6-a8de-d804d38d593c@kernel.org>
-Date: Mon, 24 Nov 2025 08:38:37 +0100
+	b=oP6c8ESSz+1kdVH8Q0hzjVVODYpyAnTH8DGgGcbFPm7ukYHA2TjaL1+Kv+JIeSdUW
+	 DdMbmmnn6NPp2ydP1RDbDQx8rtTct/f4l6Fj6teRmVBC7CNcmjjeehqjwuPNb2rndI
+	 Y3Axynuv2H2B6XZmyoCYvtgBnCShrE3ppcVQ3B7sMesaafsldM1xDBiDNsln/rCYBq
+	 KU7pHWqY+zLbtFxuxIofk9bH2bn89lJOpjv3pW56HYiT2JO3gR1ALboL7T4+SNFYBB
+	 JoVgOq3gdwFhsDT1YG3bWzrhvTgZu0P6fZJ36x2QWHQ3vYvpLKdZwxEoUZb77oCG0i
+	 P+VOESIfyhG2w==
+Message-ID: <d2184e6b-ba22-423a-8d3c-3b8c2f8ec329@kernel.org>
+Date: Mon, 24 Nov 2025 08:39:25 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH 4/6] mfd: max77759: modify irq configs
-To: amitsd@google.com, Sebastian Reichel <sre@kernel.org>,
+To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
+ amitsd@google.com, Sebastian Reichel <sre@kernel.org>,
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, =?UTF-8?Q?Andr=C3=A9_Draszik?=
- <andre.draszik@linaro.org>, Lee Jones <lee@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Lee Jones <lee@kernel.org>,
  Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
  Badhri Jagan Sridharan <badhri@google.com>,
  Heikki Krogerus <heikki.krogerus@linux.intel.com>,
@@ -63,6 +63,7 @@ Cc: linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
  RD Babiera <rdbabiera@google.com>, Kyle Tso <kyletso@google.com>
 References: <20251123-max77759-charger-v1-0-6b2e4b8f7f54@google.com>
  <20251123-max77759-charger-v1-4-6b2e4b8f7f54@google.com>
+ <5c901a6c831775a04924880cc9f783814f75b6aa.camel@linaro.org>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -108,13 +109,9 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20251123-max77759-charger-v1-4-6b2e4b8f7f54@google.com>
+In-Reply-To: <5c901a6c831775a04924880cc9f783814f75b6aa.camel@linaro.org>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251123_233844_024258_CB555D68 
-X-CRM114-Status: UNSURE (   7.07  )
-X-CRM114-Notice: Please train this message.
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,16 +126,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 23/11/2025 09:35, Amit Sunil Dhamne via B4 Relay wrote:
-> From: Amit Sunil Dhamne <amitsd@google.com>
+On 24/11/2025 07:21, André Draszik wrote:
 > 
-> Define specific bit-level masks for charger's registers and modify the
-> irq mask for charger irq_chip. Also, configure the max77759 interrupt
-> lines as active low to all interrupt registrations to ensure the
-> interrupt controllers are configured with the correct trigger type.
+>>  	if (ret)
+>>  		return dev_err_probe(&client->dev, ret,
+>>  				     "MAX77759_MAXQ_INT_APCMDRESI failed\n");
+>> @@ -633,7 +643,7 @@ static int max77759_probe(struct i2c_client *client)
+>>  		return dev_err_probe(&client->dev, -EINVAL,
+>>  				     "invalid IRQ: %d\n", client->irq);
+>>  
+>> -	irq_flags = IRQF_ONESHOT | IRQF_SHARED;
+>> +	irq_flags = IRQF_ONESHOT | IRQF_SHARED | IRQF_TRIGGER_LOW;
+> 
+> I don't believe IRQF_TRIGGER_LOW should be added here, as this is board-specific.
+> The polarity is meant to be set via DT (and the only current user of this driver
+> does so).
+> 
 
-This is just redundant explanation. You did not actually explain why you
-need to set the trigger.
+
+If this is the main chip interrupt, then you are right and the code is
+obviously wrong. What's more, it is completely unexplained in the commit
+msg, because that vague statement cannot be taken as any reasonable
+explanation.
 
 Best regards,
 Krzysztof
