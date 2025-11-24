@@ -4,84 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E466CFD313
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 13:23:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C49E0CFD317
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 13:23:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
-	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=V5dzayblpdF1vlzKWS5caJlHdTw7aeZro6Iuh+hGe3s=; b=jVYXWZ8CaPYqaAg+8w3X/ZP/pL
-	zCWT2+6HdBMfCCH1ANOD9Ud1+xY3nbxwxJ+rdidTgTl1ofSOTWIAxnypoa7sGhLed7P/HZn1E3vzL
-	5pHK+YWoakVombE7IBss/HIhbXg0ggBR+PL2YCr8c5TjvNV5lIkcWb9jRM94KHAFXi8oE0M7u8n7O
-	3I2pi/a2hwdjOGSxmWFDS3Z0lsiCZ/Knrs22GtShtTgBQjWDnj2YjR7mIKvomkbfMrKC3YH8Z9Y1G
-	ebG9bTKEv8rtOUqXZXYKt36OA/FStd4pS/4zx6Vbzvsf2w7WQFpRPIVDYfEnXVB2li45eDJleF/r5
-	AJfQwPuA==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vgN1Dl8//YP4AAH7YH7ckHY2/xdqQ5K9UykyI+hwA0g=; b=TOAie1cTqWZodYfXVxpeB85pRI
+	ZgCmChBAVd4CkhBF8sMlHMYhSWMfwFm+rLhAkh7fK7ZkhSqPuMah11DrbkeY5lmOXxW/6JHG5fhE4
+	O/Id8VCdwMTiIdQBLj4wp8EXOZJGOxxcWbr1u5hLtij7WdpZP1DBBNqGvLbmLHmumB2CIrBTZ5N/c
+	JnmdlJqurCfQpca3pATZ6gjsZhPSFsDZxKdZ8hvZgiiIAu19CNA1c7snQE6KHmDsucHfZTjwS48Et
+	CFUzBsvm2O5FhLctNG2PaYY66xtl7CoBfsUPskxo/4d7/sKOajrGTpeHqvt+QzF4cuOa4mAUL3vmt
+	BT7dG+DQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNWWv-0000000Bj3z-2Egn;
+	id 1vNWWv-0000000Bj4L-3cw0;
 	Mon, 24 Nov 2025 13:22:57 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNWWp-0000000Bj0i-3Tqv
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vNWWs-0000000Bj2G-0lb7
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Nov 2025 13:22:53 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 328924032F;
-	Mon, 24 Nov 2025 13:22:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0C351C4CEF1;
-	Mon, 24 Nov 2025 13:22:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763990571;
-	bh=OtU6aho4DVI3g6jpWkZccv9Y0k88412t6zYkWXTFktI=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=T3n9exZJ15G0U6tXHmL7uG4lkGcQmMVNTcDKBzI+7ad/ouwSGNA1U16fP4uZdXbVB
-	 Fp2Rxkud7FLlQtUWu07idSRMn2LBW3e9bz3OloTV9VNqkX1+smTwz1v1gMRg5mJg8p
-	 Vn8gpj5u8bAqvRakwQf/ht8wO1CMkaHKj8EsvhZaCJP6EyVzdbhoE0bT8MXHymP14P
-	 9PONcQWTuP9uvhqJvUAdPYmCuBjQ0ylPGvV+iFwXp7Dm2kSxuMH1F8pGp54J/wUr3G
-	 iJCoSFMNYYEXUVm9+010r1JzPKKzoi30xYI5riBFYYmaYxu6Qihon5lc7oHn6iItcs
-	 eXD1XbgNzVuQA==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1vNWWm-00000007rBS-2lh1;
-	Mon, 24 Nov 2025 13:22:48 +0000
-Date: Mon, 24 Nov 2025 13:22:48 +0000
-Message-ID: <86ms4br2dz.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Kornel =?UTF-8?B?RHVsxJliYQ==?= <korneld@google.com>
-Cc: Oliver Upton <oupton@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
+	Mon, 24 Nov 2025 13:22:55 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 351551515;
+	Mon, 24 Nov 2025 05:22:46 -0800 (PST)
+Received: from e123572-lin.arm.com (e123572-lin.cambridge.arm.com [10.1.194.54])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 85C673F73B;
+	Mon, 24 Nov 2025 05:22:48 -0800 (PST)
+From: Kevin Brodsky <kevin.brodsky@arm.com>
+To: linux-mm@kvack.org
+Cc: linux-kernel@vger.kernel.org,
+	Kevin Brodsky <kevin.brodsky@arm.com>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Andreas Larsson <andreas@gaisler.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Boris Ostrovsky <boris.ostrovsky@oracle.com>,
+	Borislav Petkov <bp@alien8.de>,
 	Catalin Marinas <catalin.marinas@arm.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	David Hildenbrand <david@redhat.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	David Woodhouse <dwmw2@infradead.org>,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Ingo Molnar <mingo@redhat.com>,
+	Jann Horn <jannh@google.com>,
+	Juergen Gross <jgross@suse.com>,
+	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
+	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Michal Hocko <mhocko@suse.com>,
+	Mike Rapoport <rppt@kernel.org>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	"Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Venkat Rao Bagalkote <venkat88@linux.ibm.com>,
+	Vlastimil Babka <vbabka@suse.cz>,
 	Will Deacon <will@kernel.org>,
-	Bartlomiej Grzesik <bgrzesik@google.com>,
-	Tomasz Nowicki <tnowicki@google.com>,
-	Sebastian Ene <sebastianene@google.com>,
+	Yeoreum Yun <yeoreum.yun@arm.com>,
 	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] KVM: arm64: Fix error checking for FFA_VERSION
-In-Reply-To: <CACF_fqmWwtuF_7+OJ2rUPvDJzs4ubJO6XCf6N9cW2-AABSx_NQ@mail.gmail.com>
-References: <20251114-pkvm_init_noffa-v1-1-87a82e87c345@google.com>
-	<86y0nyqoy9.wl-maz@kernel.org>
-	<CACF_fqmWwtuF_7+OJ2rUPvDJzs4ubJO6XCf6N9cW2-AABSx_NQ@mail.gmail.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: korneld@google.com, oupton@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, bgrzesik@google.com, tnowicki@google.com, sebastianene@google.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	linuxppc-dev@lists.ozlabs.org,
+	sparclinux@vger.kernel.org,
+	xen-devel@lists.xenproject.org,
+	x86@kernel.org
+Subject: [PATCH v5 02/12] x86/xen: simplify flush_lazy_mmu()
+Date: Mon, 24 Nov 2025 13:22:18 +0000
+Message-ID: <20251124132228.622678-3-kevin.brodsky@arm.com>
+X-Mailer: git-send-email 2.51.2
+In-Reply-To: <20251124132228.622678-1-kevin.brodsky@arm.com>
+References: <20251124132228.622678-1-kevin.brodsky@arm.com>
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251124_052251_909287_BA2BC2BD 
-X-CRM114-Status: GOOD (  33.43  )
+X-CRM114-CacheID: sfid-20251124_052254_270818_B2F85E4B 
+X-CRM114-Status: GOOD (  10.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,98 +98,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 24 Nov 2025 11:49:08 +0000,
-Kornel Dul=C4=99ba <korneld@google.com> wrote:
->=20
-> On Sat, Nov 22, 2025 at 12:36=E2=80=AFPM Marc Zyngier <maz@kernel.org> wr=
-ote:
-> >
-> > On Fri, 14 Nov 2025 11:11:53 +0000,
-> > "=3D?utf-8?q?Kornel_Dul=3DC4=3D99ba?=3D" <korneld@google.com> wrote:
-> > >
-> > > According to section 13.2 of the DEN0077 FF-A specification, when
-> > > firmware does not support the requested version, it should reply with
-> > > FFA_RET_NOT_SUPPORTED(-1). Table 13.6 specifies the type of the error
-> > > code as int32.
-> > > Currently, the error checking logic compares the unsigned long return
-> > > value it got from the SMC layer, against a "-1" literal. This fails d=
-ue
-> > > to a type mismatch: the literal is extended to 64 bits, whereas the
-> > > register contains only 32 bits of ones(0x00000000ffffffff).
-> > > Consequently, hyp_ffa_init misinterprets the "-1" return value as an
-> > > invalid FF-A version. This prevents pKVM initialization on devices wh=
-ere
-> > > FF-A is not supported in firmware.
-> >
-> > Is this statement accurate? I regularly boot KVM in protected mode in
-> > environments that really cannot be suspected of implementing FF-A
-> > (there is no EL3 to start with). And yet I don't see any failure of
-> > the sort.
-> >
-> > Please clarify the circumstances this is triggered.
->=20
-> I do have EL3 enabled, but the FF-A itself is not implemented.
->=20
-> Without this change kvm initialization fails with the following:
->=20
-> [    0.946776][    T1] kvm [1]: nv: 554 coarse grained trap handlers
-> [    0.952880][    T1] kvm [1]: nv: 669 fine grained trap handlers
-> [    0.958813][    T1] kvm [1]: IPA Size Limit: 44 bits
-> (...)
-> [    1.034089][    T1] kvm [1]: Failed to init hyp memory protection
-> [    1.041213][    T1] kvm [1]: error initializing Hyp mode: -95
+arch_flush_lazy_mmu_mode() is called when outstanding batched
+pgtable operations must be completed immediately. There should
+however be no need to leave and re-enter lazy MMU completely. The
+only part of that sequence that we really need is xen_mc_flush();
+call it directly.
 
-[    0.045492] kvm [1]: nv: 568 coarse grained trap handlers
-[    0.045860] kvm [1]: nv: 664 fine grained trap handlers
-[    0.046194] kvm [1]: IPA Size Limit: 42 bits
-[    0.220184] kvm [1]: GICv3: no GICV resource entry
-[    0.220525] kvm [1]: disabling GICv2 emulation
-[    0.220852] kvm [1]: GIC system register CPU interface enabled
-[    0.221264] kvm [1]: vgic interrupt IRQ9
-[    0.221565] kvm [1]: Protected hVHE mode initialized successfully
+Reviewed-by: David Hildenbrand <david@redhat.com>
+Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
+Reviewed-by: Juergen Gross <jgross@suse.com>
+Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
+---
+ arch/x86/xen/mmu_pv.c | 6 ++----
+ 1 file changed, 2 insertions(+), 4 deletions(-)
 
-Ergo, it works here without FFA (this is in a nested guest that is not
-exposed anything but PSCI in the FW emulation).
+diff --git a/arch/x86/xen/mmu_pv.c b/arch/x86/xen/mmu_pv.c
+index 2a4a8deaf612..7a35c3393df4 100644
+--- a/arch/x86/xen/mmu_pv.c
++++ b/arch/x86/xen/mmu_pv.c
+@@ -2139,10 +2139,8 @@ static void xen_flush_lazy_mmu(void)
+ {
+ 	preempt_disable();
+ 
+-	if (xen_get_lazy_mode() == XEN_LAZY_MMU) {
+-		arch_leave_lazy_mmu_mode();
+-		arch_enter_lazy_mmu_mode();
+-	}
++	if (xen_get_lazy_mode() == XEN_LAZY_MMU)
++		xen_mc_flush();
+ 
+ 	preempt_enable();
+ }
+-- 
+2.51.2
 
-> I managed to narrow this down to the FFA version check by examining
-> all of the places in kvm initialization logic where -EOPNOTSUPP is
-> returned. Since printing anything in this part of the code is somewhat
-> problematic I replaced =E2=80=9Creturn -EOPNOTSUPP=E2=80=9D with =E2=80=
-=9Creturn res.s0=E2=80=9D to
-> examine the problematic register value:
->=20
-> [1.041229][    T1] kvm [1]: error initializing Hyp mode: -1
->=20
-> Note that the return code itself is cast to int before being printed.
-> Then a colleague of mine recommended looking into the arm_ffa driver.
-> (=E2=80=9Cdrivers/firmware/arm_ffa/driver.c=E2=80=9D) There I found that =
-in the
-> ffa_version_check function, the return value from the SMC call is cast
-> to s32 before being checked for errors.
-> I did the same in the kvm initialization logic, which is how this
-> patch was created. Furthermore I also examined the FF-A
-> specification(DEN0077), where the error code value type is specified
-> as int32.
-> With this change applied I can now see that kvm is up and running:
->=20
-> [    0.946839][    T1] kvm [1]: nv: 554 coarse grained trap handlers
-> [    0.952940][    T1] kvm [1]: nv: 669 fine grained trap handlers
-> [    0.958867][    T1] kvm [1]: IPA Size Limit: 44 bits
-> (...)
-> [    1.061717][    T1] kvm [1]: Protected hVHE mode initialized successfu=
-lly
->=20
-> The /dev/kvm file is also there.
-
-I don't dispute the bug. I dispute the assertion that the absence of
-FFA triggers it. So either your testing environment influences the
-behaviour, or you have extra patches that also change the behaviour,
-or something else.
-
-Thanks,
-
-	M.
-
---=20
-Without deviation from the norm, progress is not possible.
 
