@@ -4,88 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0A6ECFD313
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 16:30:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46FD5CFD313
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 16:33:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=x8SFzpOuhO5EV5iKn74UZD68ssvHanb60bdCcaWpzCo=; b=W9vpFTC24JTBYlrkRraFif12oq
-	eUarNReaUNg1J9jhsFygnCvzF1WNpkY98nAGkxAYdBXi73IMcI3xgQZxHf7Bo5Uceg0CvLmHyUtaJ
-	n0GnfLxm/SRY3ro6/gyfCG6FOwBvQJhSDvbRIQ3RUCAcv7EsXQPnZMMbz2vBIpBrlIb7sIkVbctah
-	hopD0Ii2crlxOiN54DZxt5WdjT0HoB0UKzeEMelObQjqsynRT55WofzlZ7xwblmhfCQRnT1Dxy6VK
-	CRzCJR/f+0/8PfIejzxNW45Cghp7XcgzHYIA0lBe/54ZUJQBhqdIgWSotHpPIkUiPR8cOVrGSrRiz
-	fAEVDFVA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=r8dse397mKQuH+i0q15EHVnsUl93xS6YyZyzx9NW954=; b=QzNiGsgOFzCsz/XfzzTQO0LJaa
+	9hzvdziL5rh785r6jgGoZwY6wxHgjYQ8U1ATR8tODANBQD1/Q4Q2yHVJKcNvXWV0/PzJvu6pF1sWZ
+	4lr88r6JqH+t1REh9WIO2g+Aq/5r/dvDTF09wohDDJ5VT8J6Xz4uhzC5CcH9NXfI9qz5ajFXnxZRA
+	2UHAZmuEI5CYSmXoUlVh1n9Ep2LHWJa1zQs6uvrZtEj1FCd7u/WWTZPT/RYXkSirLh4h/eteSLREc
+	Pi5ssC0QCqRB2FZeQZVAMeDzBvCmiiXtLo2CzEA8QIfo3tZblkP4l9kcVEI3LjjxoWv3Y1+MMnwZi
+	cChAu5jQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNZRz-0000000BzpV-3Bng;
-	Mon, 24 Nov 2025 16:30:03 +0000
-Received: from mail-lj1-x22e.google.com ([2a00:1450:4864:20::22e])
+	id 1vNZVN-0000000C04D-1YJV;
+	Mon, 24 Nov 2025 16:33:33 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNZRw-0000000Bzoj-3ybj
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Nov 2025 16:30:02 +0000
-Received: by mail-lj1-x22e.google.com with SMTP id 38308e7fff4ca-37a33bd356fso3025091fa.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Nov 2025 08:29:59 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1764001798; x=1764606598; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=x8SFzpOuhO5EV5iKn74UZD68ssvHanb60bdCcaWpzCo=;
-        b=w/S9rWvgeLycacjbERRzOHNoHZ8hor5MKS7iTyw4DMjjx2gOgOBoz8EipCM4kSMEnj
-         r1kQnDYcxUUYCOKegwGm/koZvLAOF6fsHPMqiGCEATo3eEjauuF75S6EX3T2caDNvpIG
-         PjaCXzlH5uOPQYMh+u3MfTy9jzEQ3HymFuvvlELFJfOUiA+a95PA3Gun36HRBJId/xJD
-         HFYXfYlx2d9/tLxZxjbay1YjhEml0epu4sZ9NMiseYXdMjFeHRfH7I2cUa2XIzsf6ejL
-         XykgZNU4WBv7uf9210Ae04Br+ElgGVaVhWVq+ap3oCF/igxp0SLeSRFNjc1KoqztjO78
-         a6Zg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764001798; x=1764606598;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=x8SFzpOuhO5EV5iKn74UZD68ssvHanb60bdCcaWpzCo=;
-        b=KPY6fVs7LLbsLN+UCRrjU3pnrxXwh7IuBd8K3hEcjIFEX2gkOmKZcdg+tBoJzPoypS
-         ojj1zwNBci5uaaTBZCA/mt3jGKfhM1Lt/wlM7+JQ0KMd56q67L/5IDPXuopzl694CSg7
-         FvS7HeCQ4SpeS+urizhufdRZKVF6t8qG3vf7ltscBXl190zHzq1EgoKW90XUQcieiV7Q
-         iUij5aEzgBC/BenOIthCKcp7MJYW8uIFw1Gd+CyGy9DOm2C1cp9FzyzAJmGyakhe0IsZ
-         dj6uNSlfjzSlnvvk0t2eXuGDtveaZOk3PpXBn09RJ8ttkZvWh/cDE7lyP2oirp/xqiYT
-         vQAw==
-X-Forwarded-Encrypted: i=1; AJvYcCWcYKBKiMl99C7hT7Lca5be9RXwePm0DIAQ4HNaUv+dMb4Dr+64caYJbbtBOwwTNpKhLJc0txv09VPQuwLLMnXS@lists.infradead.org
-X-Gm-Message-State: AOJu0YyHqwaNIf4Gti1BlfmniYTbHdTFJjp8iQIKuMIssqzXr5940aYf
-	tq5fXx/helUg3u+yFJ2TptjNJ38rfZ36Jz9JTkBIPUN1Ofqu0i3koYp5HoQHyDvRnpq0dxerkxG
-	yswS5
-X-Gm-Gg: ASbGncsfKf+3eQvdl9f0F8XxD+rT4tVnD7tojSiLwrQzed3RQPxVQIIT+KBUyIHLjeo
-	9deyiFwYKLWCWWB9hbfO7lZiRI5OGDIxo+qVnzn27o9n2Cx80gYQe7sHbPGygalfiyId4m2vgNy
-	0jdI3jdWv0P0DQFHN4Cf1NffYOXi/1NY3kzBOuERNWlllFhoKyCTUpqvftgYCH2dFbSDESeytMV
-	BjvKW9Z54VBDBvVvX/yriAWi8A3stspYJKMrrZtv0PJB9zdc1ksQhSpYymhzSulObQNc9nia/JQ
-	/r6xUucICZd3ateJPt7uqwONTWIbDUjk7X03lxHNjI5BfbjCW87+vspRNiZKh7HiFT2US9fCWpB
-	q3O3EbP+Ww9tJzmn4+w6olxuR2P+6/LWOhVFP3fESwceIowkzierBVroKEy+zEQucUU/FIMM0qO
-	/XgeB9S00a1d8xjnkJw6BAj7E16OxmeaVX74DCwKF7Y0OTohOYk2IEJA==
-X-Google-Smtp-Source: AGHT+IGZmldA/dcXthKfsFSI/Byy+Zk4BBl9hUAYfTjD9FcbnSy7TF6y62wi1hHTVinHRFed17AYiA==
-X-Received: by 2002:a05:651c:31cd:b0:37b:926c:26f7 with SMTP id 38308e7fff4ca-37cdc1a7ba9mr17520421fa.2.1764001798220;
-        Mon, 24 Nov 2025 08:29:58 -0800 (PST)
-Received: from thyme.. (91-159-24-186.elisa-laajakaista.fi. [91.159.24.186])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-37cc6b63acbsm28357671fa.21.2025.11.24.08.29.57
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 24 Nov 2025 08:29:57 -0800 (PST)
-From: Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>
-Cc: Marc Zyngier <maz@kernel.org>,
-	Mark Brown <broonie@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-arm-msm@vger.kernel.org
-Subject: [PATCH] arm64: cpufeature: Unrestrict ID_AA64MMFR1_EL1 bit assignments
-Date: Mon, 24 Nov 2025 18:29:55 +0200
-Message-ID: <20251124162955.3616314-1-vladimir.zapolskiy@linaro.org>
-X-Mailer: git-send-email 2.49.0
+	id 1vNZVL-0000000C041-1rMD;
+	Mon, 24 Nov 2025 16:33:31 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 8E38D60173;
+	Mon, 24 Nov 2025 16:33:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B2D80C116C6;
+	Mon, 24 Nov 2025 16:33:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
+	s=korg; t=1764002010;
+	bh=b0HsFdIr9UYeg1Jbb+ezqHtOK4AZhADd9B70yMMGZFc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=g+47ol/xVPKvHq8mO+c2fpgR8DW18YAaKTmijBBG2VtkLGfdTcX8n57jEGZgYFtXt
+	 DF01gZjsrt73ZFaL90qrJ9go9zBaa62onSiMzWQEv3i/waUjE3nOD4/TVDH9cmjl4K
+	 53oeGgUWsOdxH3qnIhbrSMDif3kOexD/8BLXzSs0=
+Date: Mon, 24 Nov 2025 17:33:27 +0100
+From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+Cc: Chaoyi Chen <kernel@airkyi.com>,
+	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+	Peter Chen <hzpeterchen@gmail.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>, Sandy Huang <hjc@rock-chips.com>,
+	Andy Yan <andy.yan@rock-chips.com>,
+	Yubing Zhang <yubing.zhang@rock-chips.com>,
+	Frank Wang <frank.wang@rock-chips.com>,
+	Andrzej Hajda <andrzej.hajda@intel.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Robert Foss <rfoss@kernel.org>,
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Amit Sunil Dhamne <amitsd@google.com>,
+	Dragan Simic <dsimic@manjaro.org>, Johan Jonker <jbx6244@gmail.com>,
+	Diederik de Haas <didi.debian@cknow.org>,
+	Peter Robinson <pbrobinson@gmail.com>, linux-usb@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, dri-devel@lists.freedesktop.org
+Subject: Re: [PATCH v10 01/11] usb: typec: Add notifier functions
+Message-ID: <2025112448-brush-porcupine-c851@gregkh>
+References: <20251120022343.250-1-kernel@airkyi.com>
+ <20251120022343.250-2-kernel@airkyi.com>
+ <2025112102-laurel-mulch-58e4@gregkh>
+ <462ad1bd-7eec-4f26-b383-96b049e14559@rock-chips.com>
+ <2025112402-unopposed-polio-e6e9@gregkh>
+ <a80483de-518d-45d5-b46a-9b70cca5b236@rock-chips.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251124_083001_096022_6F17F99F 
-X-CRM114-Status: GOOD (  12.82  )
+In-Reply-To: <a80483de-518d-45d5-b46a-9b70cca5b236@rock-chips.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,41 +98,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-It appears that 4 out of 8 Qualcomm SM8450 SoC cores do not generate
-an SError interrupt due to an External abort on a speculative read,
-and it is reported as a failed sanity check on boot:
+On Mon, Nov 24, 2025 at 04:05:53PM +0800, Chaoyi Chen wrote:
+> Hi Greg,
+> 
+> On 11/24/2025 3:10 PM, Greg Kroah-Hartman wrote:
+> 
+> > On Mon, Nov 24, 2025 at 09:40:03AM +0800, Chaoyi Chen wrote:
+> > > Hi Greg,
+> > > 
+> > > On 11/21/2025 10:07 PM, Greg Kroah-Hartman wrote:
+> > > > On Thu, Nov 20, 2025 at 10:23:33AM +0800, Chaoyi Chen wrote:
+> > > > > From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+> > > > > 
+> > > > > Some other part of kernel may want to know the event of typec bus.
+> > > > Be specific, WHAT part of the kernel will need to know this?
+> > > For now, it is DRM.
+> > Then say this.
+> 
+> Okay, please refer to the discussion below.
+> 
+> > 
+> > > > And why a new notifier, why not just use the existing notifiers that you
+> > > > already have?  And what is this going to be used for?
+> > > We have discussed this before, but the current bus notifier cannot achieve the expected notification [0].
+> > > 
+> > > [0] https://lore.kernel.org/all/aPsuLREPS_FEV3DS@kuha.fi.intel.com/
+> > Then you need to document the heck out of this in the changelog text.
+> > But I'm still not quite understanding why the bus notifier does not work
+> > here, as you only want this information if the usb device is bound to
+> > the bus there, you do not want to know this if it did not complete.
+> > 
+> > That thread says you want this not "too late", but why?  What is the
+> > problem there, and how will you handle your code getting loaded after
+> > the typec code is loaded?  Notifier callbacks don't work for that
+> > situation, right?
+> 
+> In fact, the typec_register_altmode() function generates two
+> registered events. The first one is the registered event of the port
+> device, and the second one is the registered event of the partner
+> device. The second one event only occurs after a Type-C device is
+> inserted.
+> The bus notifier event does not actually take effect for the port
+> device, because it only sets the bus for the partner device:
+> 
+>     /* The partners are bind to drivers */
+>     if (is_typec_partner(parent))
+>         alt->adev.dev.bus = &typec_bus;
 
-    CPU features: SANITY CHECK: Unexpected variation in SYS_ID_AA64MMFR1_EL1. Boot CPU: 0x00000011212122, CPU4: 0x00000010212122
-    CPU features: SANITY CHECK: Unexpected variation in SYS_ID_AA64MMFR1_EL1. Boot CPU: 0x00000011212122, CPU5: 0x0000001021212
-    CPU features: SANITY CHECK: Unexpected variation in SYS_ID_AA64MMFR1_EL1. Boot CPU: 0x00000011212122, CPU6: 0x00000010212122
-    CPU features: SANITY CHECK: Unexpected variation in SYS_ID_AA64MMFR1_EL1. Boot CPU: 0x00000011212122, CPU7: 0x00000010212122
+Setting the bus is correct, then it needs to be registered with the
+driver core so the bus link shows up (and a driver is bound to it.)
+That is when the bus notifier can happen, right?
 
-Due to the failed sanity check the kernel is marked as tainted in runtime:
+> I hope it's not too late. In fact, the notifier here will notify DRM to establish a bridge chain.
 
-    Tainted: [S]=CPU_OUT_OF_SPEC
+What is a "bridge chain"?
 
-Unrestrict the ID_AA64MMFR1_EL1 SpecSEI bits, since apparently it's
-a supported option at least on this heterogeneous SoC.
+> The downstream DP controller driver hopes to obtain the fwnode of the last-level Type-C device
+> through this bridge chain to create a DRM connector. And when a device is inserted,
+> drivers/usb/typec/altmodes/displayport.c can notify the HPD (Hot Plug Detect) event.
 
-Signed-off-by: Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>
----
- arch/arm64/kernel/cpufeature.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+But aren't you just the driver for the "partner device"?
 
-diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-index 5ed401ff79e3..df562b0f42af 100644
---- a/arch/arm64/kernel/cpufeature.c
-+++ b/arch/arm64/kernel/cpufeature.c
-@@ -472,7 +472,7 @@ static const struct arm64_ftr_bits ftr_id_aa64mmfr1[] = {
- 	ARM64_FTR_BITS(FTR_HIDDEN, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64MMFR1_EL1_ETS_SHIFT, 4, 0),
- 	ARM64_FTR_BITS(FTR_HIDDEN, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64MMFR1_EL1_TWED_SHIFT, 4, 0),
- 	ARM64_FTR_BITS(FTR_HIDDEN, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64MMFR1_EL1_XNX_SHIFT, 4, 0),
--	ARM64_FTR_BITS(FTR_HIDDEN, FTR_STRICT, FTR_HIGHER_SAFE, ID_AA64MMFR1_EL1_SpecSEI_SHIFT, 4, 0),
-+	ARM64_FTR_BITS(FTR_HIDDEN, FTR_NONSTRICT, FTR_HIGHER_SAFE, ID_AA64MMFR1_EL1_SpecSEI_SHIFT, 4, 0),
- 	ARM64_FTR_BITS(FTR_HIDDEN, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64MMFR1_EL1_PAN_SHIFT, 4, 0),
- 	ARM64_FTR_BITS(FTR_HIDDEN, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64MMFR1_EL1_LO_SHIFT, 4, 0),
- 	ARM64_FTR_BITS(FTR_HIDDEN, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64MMFR1_EL1_HPDS_SHIFT, 4, 0),
--- 
-2.49.0
+If not, why isn't a real device being created that you then bind to,
+what "fake" type of thing are you attempting to do here that would
+require you to do this out-of-band?
 
+> If relying on the second event, the bridge chain may never be established, and the operations of the DP driver will be
+> always deferred. Furthermore, other parts of the display controller driver will also be deferred accordingly.
+
+What operations?  What exactly is delayed?  You should not be touching a
+device before you have it on your bus, right?
+
+> > > > Notifiers are a pain, and should almost never be added.  Use real
+> > > > function calls instead.
+> > > In v6, I used direct function calls, but had to switch to notifiers because couldn't resolve the dependencies between DRM and Type-C [1]. Do you have any good ideas? Thank you.
+> > Only allow this DRM code to be built if typec code is enabled, do NOT
+> > use a select, use a depends in the drm code.
+> 
+> Sorry, I didn't get your point. Does this mean that the current notifiers approach still needs to be changed to direct function calls?
+
+If you somehow convince me that the existing bus notifiers will not
+work, yes :)
+
+> If so, then based on the previous discussion, typec should not depend
+> on any DRM components. Does this mean that we should add the if
+> (IS_REACHABLE(CONFIG_DRM_AUX_BRIDGE)) before the direct function call?
+
+No, do it properly like any other function call to another subsystem.
+
+> Additionally, the current version of CONFIG_DRM_AUX_BRIDGE is selected
+> by the DP driver in patch9.
+
+Don't do "select" if at all possible, always try to do "depends on".
+
+thanks,
+
+greg k-h
 
