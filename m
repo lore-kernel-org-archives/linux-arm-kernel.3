@@ -4,57 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31CA2CFD313
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 12:12:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDDFECFD313
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 12:12:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Nk8/5nWBofggtO4HKczYMg6PfcYGq3JDVme1biZjuQk=; b=PDl+t/Q+YcvHQcAeCJ9z7t09Xy
-	AVsAr01mjsOFjAs1H2S32rloJKbqdkGfu3oLSMfwLHVluUK890v+YVEkUZ1O5ch1vgnMkjaedxDja
-	Pdi8gLCbvVKwasE8gSi/kGw9Bx8ly5514ZcDvmIuDMvguRC7E6bpV9OM80xot5HGIWg+zlIr+DjFx
-	VfHmC41Xb2pFKd7HTiWHHJhT4Goc7h2H6QBw75ye2sY38eyYjaOb3tUQfDdPds7T1oCG2EUK9wIQM
-	DJ/XDY6qHZcRzo3labK/Cw10ljXMaQKPzjqLgc11U3JrGCNZNCboy6VI9N0Q63ZKO13QqBI3zafR3
-	0UQZ/JxQ==;
+	bh=B2hI/4dowBRGpaKHG6snEbJMYWAUf1IL+KFnXhHfRdE=; b=TuqeYwK/t1SquIqGabQugcAcMH
+	FufU6n0eP5phaGUMmp8uPHiiElP3nyhljampAoYYISKbfEC/owmfVQ5MC7dyzCwCrEjG5FWjB+T13
+	UoeZ03J1mJgV1d59Z60c8beWSb7BtIoOGVUwqO5A1k8LlMkptGGupKBbdCe1/mhk6MvSe9KTjni+W
+	0I7t3k3CYvsV1xgiLEKM5RH1KB3IDwdXp7qpzwOQkIma8ouCWu2YSIZif8j6aKuy7MGMDZpTwlheN
+	BmtkkBkZz3ig7GdyJYZ2GX3KZEd2H7hdeWYXY1Q8uo/rMI4Z1wrtmBsDO7KZmwbFgFqfeQ4rtZ4vm
+	yjD22kVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNVQY-0000000BcTI-0EH6;
-	Mon, 24 Nov 2025 12:12:18 +0000
-Received: from mgamail.intel.com ([192.198.163.12])
+	id 1vNVQh-0000000BcYu-2KZy;
+	Mon, 24 Nov 2025 12:12:27 +0000
+Received: from mgamail.intel.com ([192.198.163.7])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNVQQ-0000000BcPH-2zFs;
-	Mon, 24 Nov 2025 12:12:13 +0000
+	id 1vNVQR-0000000BcPY-2Iw5;
+	Mon, 24 Nov 2025 12:12:14 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1763986330; x=1795522330;
+  t=1763986331; x=1795522331;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=nUvI1SoM4FGg3QQHNwgNidRdOH1tF5MQSJvXCQ4IzUg=;
-  b=eTax8LoCRsWvbyFRvTwNFsHYf0BY/tYwiZxMDeCPUFL9JOxuVSrnDQU2
-   0LNi2CIqdAYxOE/loPLsoTDmRrlWSeCNp/5MDXYyQWKxYJk7Op137pKkx
-   oUYWqwaqzVsZm4u8O7cc4ic6OWjPutJKQYEevylBy72RVVZNsM91ks/FE
-   uUmXF48pHYI4KUjKqp4iQZ+eFYfJlwCUn2TxhquHCaap87hn+XSYhzgGF
-   Y4BFes0xPYlgfM9lMUeeZ5Sz4CRf2ro71U6kJg2WK3RUmVxXWr7NyKG9c
-   XVE8j9IGzp/twKe5Q4QXLQJhSY6hC15cAAhrirwFMWCEm4qPZmXUd4v9v
+  bh=1Su3S1OYlS3Av5yiXyt302P5FfhwZUhZFXIJtWLZ5yY=;
+  b=TG0q9onF8QOF0g3vVjFNDxdFc+ATtaFSSTEIYO5UV75+05bpWK7S6E2l
+   lKdVf0rsTEZnsqfmvU2BA0K550aIGRNVLZ6H0JmyylySgnmkcDqwdzPF2
+   yfQPr4/ctsSVdIoAMJRjqbu+K/qkQDORJp1FOlXxiXGSSCQnBRd/JOpcK
+   p73UNFXRo5mvTgsnF4esgp+pIhPB+wmPS3XvL6bGfQhuMawlF6+NVJ+hW
+   /hU9ymck12WMQkwBP4ti4vDtvfjfgAimqbskfjIjFEfpG8Wgf2igZRKOk
+   77PfF+nUbAKvHuiwDibQfmt7ZzQXlfvrDAIZ99j3oPsMVuLuUMwmiy4Oe
    g==;
-X-CSE-ConnectionGUID: 5u13NA4MRZSrrgDf5zyyPg==
-X-CSE-MsgGUID: A3bkHbbmS3i06khxYtR5SQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11622"; a="69847544"
+X-CSE-ConnectionGUID: 8sZXpxYLTjaewYtWyJUjnQ==
+X-CSE-MsgGUID: IrIdVBcdTTOeLT7VgAValQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11622"; a="91467937"
 X-IronPort-AV: E=Sophos;i="6.20,222,1758610800"; 
-   d="scan'208";a="69847544"
-Received: from orviesa002.jf.intel.com ([10.64.159.142])
-  by fmvoesa106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2025 04:12:10 -0800
-X-CSE-ConnectionGUID: O5zO3YrlQIGH3jGTtG1/RQ==
-X-CSE-MsgGUID: FlLlvMcMQWWorE6BXZ13rw==
+   d="scan'208";a="91467937"
+Received: from fmviesa008.fm.intel.com ([10.60.135.148])
+  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2025 04:12:09 -0800
+X-CSE-ConnectionGUID: nCKfT6NBTvG88CwjFB0MBg==
+X-CSE-MsgGUID: 6Dk4WXZfS/+KdrHlY06iSg==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.20,222,1758610800"; 
-   d="scan'208";a="222970324"
+   d="scan'208";a="192559538"
 Received: from black.igk.intel.com ([10.91.253.5])
-  by orviesa002.jf.intel.com with ESMTP; 24 Nov 2025 04:12:04 -0800
+  by fmviesa008.fm.intel.com with ESMTP; 24 Nov 2025 04:12:04 -0800
 Received: by black.igk.intel.com (Postfix, from userid 1003)
-	id 52C24A3; Mon, 24 Nov 2025 13:12:03 +0100 (CET)
+	id 56D2CA4; Mon, 24 Nov 2025 13:12:03 +0100 (CET)
 From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 To: Bjorn Andersson <andersson@kernel.org>,
 	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
@@ -83,18 +83,17 @@ Cc: Olivier Dautricourt <olivierdautricourt@gmail.com>,
 	Raj Kumar Rampelli <raj.kumar.rampelli@amd.com>,
 	Michal Simek <michal.simek@amd.com>,
 	Andrew Morton <akpm@linux-foundation.org>
-Subject: [PATCH v4 03/13] dmaengine: axi-dmac: use sg_nents_for_dma() helper
-Date: Mon, 24 Nov 2025 13:09:21 +0100
-Message-ID: <20251124121202.424072-4-andriy.shevchenko@linux.intel.com>
+Subject: [PATCH v4 04/13] dmaengine: bcm2835-dma: use sg_nents_for_dma() helper
+Date: Mon, 24 Nov 2025 13:09:22 +0100
+Message-ID: <20251124121202.424072-5-andriy.shevchenko@linux.intel.com>
 X-Mailer: git-send-email 2.50.1
 In-Reply-To: <20251124121202.424072-1-andriy.shevchenko@linux.intel.com>
 References: <20251124121202.424072-1-andriy.shevchenko@linux.intel.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251124_041210_763345_FBC17EAB 
-X-CRM114-Status: UNSURE (   9.91  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251124_041211_615682_290C9538 
+X-CRM114-Status: GOOD (  10.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,25 +113,46 @@ Instead of open coded variant let's use recently introduced helper.
 Reviewed-by: Bjorn Andersson <andersson@kernel.org>
 Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 ---
- drivers/dma/dma-axi-dmac.c | 5 +----
- 1 file changed, 1 insertion(+), 4 deletions(-)
+ drivers/dma/bcm2835-dma.c | 19 +------------------
+ 1 file changed, 1 insertion(+), 18 deletions(-)
 
-diff --git a/drivers/dma/dma-axi-dmac.c b/drivers/dma/dma-axi-dmac.c
-index 5b06b0dc67ee..5d4436e7d2ee 100644
---- a/drivers/dma/dma-axi-dmac.c
-+++ b/drivers/dma/dma-axi-dmac.c
-@@ -674,10 +674,7 @@ static struct dma_async_tx_descriptor *axi_dmac_prep_slave_sg(
- 	if (direction != chan->direction)
- 		return NULL;
+diff --git a/drivers/dma/bcm2835-dma.c b/drivers/dma/bcm2835-dma.c
+index 0117bb2e8591..802b23be2fd8 100644
+--- a/drivers/dma/bcm2835-dma.c
++++ b/drivers/dma/bcm2835-dma.c
+@@ -260,23 +260,6 @@ static void bcm2835_dma_create_cb_set_length(
+ 	control_block->info |= finalextrainfo;
+ }
  
--	num_sgs = 0;
--	for_each_sg(sgl, sg, sg_len, i)
--		num_sgs += DIV_ROUND_UP(sg_dma_len(sg), chan->max_length);
+-static inline size_t bcm2835_dma_count_frames_for_sg(
+-	struct bcm2835_chan *c,
+-	struct scatterlist *sgl,
+-	unsigned int sg_len)
+-{
+-	size_t frames = 0;
+-	struct scatterlist *sgent;
+-	unsigned int i;
+-	size_t plength = bcm2835_dma_max_frame_length(c);
 -
-+	num_sgs = sg_nents_for_dma(sgl, sg_len, chan->max_length);
- 	desc = axi_dmac_alloc_desc(chan, num_sgs);
- 	if (!desc)
- 		return NULL;
+-	for_each_sg(sgl, sgent, sg_len, i)
+-		frames += bcm2835_dma_frames_for_length(
+-			sg_dma_len(sgent), plength);
+-
+-	return frames;
+-}
+-
+ /**
+  * bcm2835_dma_create_cb_chain - create a control block and fills data in
+  *
+@@ -672,7 +655,7 @@ static struct dma_async_tx_descriptor *bcm2835_dma_prep_slave_sg(
+ 	}
+ 
+ 	/* count frames in sg list */
+-	frames = bcm2835_dma_count_frames_for_sg(c, sgl, sg_len);
++	frames = sg_nents_for_dma(sgl, sg_len, bcm2835_dma_max_frame_length(c));
+ 
+ 	/* allocate the CB chain */
+ 	d = bcm2835_dma_create_cb_chain(chan, direction, false,
 -- 
 2.50.1
 
