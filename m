@@ -4,65 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C13BCCFD313
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 13:14:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA1C6CFA466
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 13:22:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=t+Nt4PwtSCWJNIshSoQ6Pe0T+do8j4Lql840RsA+7Cs=; b=pfYA2jPRn17P2qM29edIyJ2V6L
-	cysr8l/rBxcggbIqtzKHfSQeJFEYNOMXrhrvP25snmgqAqtHwoOLFoyalpEeEHhwkyY96kUbjFkmK
-	QIta58/QkAGGG//hIjXHPHzV8mUPPRL5Fi3NcjWobygcsJRuQnPg6ijydxitNIOmYBYyXIpOFLdz0
-	OBVdrd38U64z6T/zOW0qPsDRZeDUa1r24JqBBGfjmYtad+d2n7ahvC3WZ/9Qp6rl8LH08YfXP8Zjc
-	mSt3iPfA+MRjgh50SMAu9xFx7JuvaTYL7b/pQyaTh3cbXpqMkKoh6kC3Xf1N8pazJ5CcI76eoXMjz
-	iZMCa7LQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=EDGbPPsRPziooSK7Hh0RxfwOuXGzBG+EdJKmYVIhHpg=; b=aDmmijBilqCsRK+nAZNQLPHyLP
+	T1xAM0OBPfDVbPOj3DPQgz7n4+zDC6CitCsp07T5TF/cqpSoY9zEy5vyVA65zzkorMyQ35VXYIcHX
+	tP7ALPXdqw3475SovvHfRwD+5g2kV4YeiCddfcekte9uSJ4yEYWD0oE3n19SM8sIDz/Ywg15c5Vqg
+	LZAf/C1ByxLmBwYFbjDqGDF/SrhApG3FhBrJHSzCtj44UmYEe5FTs9oVUqY8Y0AUKqwAvAMzsFzhx
+	dOPnRgQnj31tQ7E9QVYniTYcG0HPf6Id3vVJ0a4md/NnuiCf4bY+yqxlBdN2SW/qp+cKDSPgT+/q5
+	lrIoXfoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNWOm-0000000BiT9-0rJx;
-	Mon, 24 Nov 2025 13:14:32 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNWOl-0000000BiSi-1Fmf
+	id 1vNWWl-0000000Bizd-1m1O;
+	Mon, 24 Nov 2025 13:22:47 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vNWWh-0000000Biz6-3qKw
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Nov 2025 13:14:31 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 66699601B8;
-	Mon, 24 Nov 2025 13:14:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8E64EC116C6;
-	Mon, 24 Nov 2025 13:14:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763990070;
-	bh=RkP3XoBrROfWxpPBrDgZoNSdZ6SM16qUrh12yE+95MM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=jmZ/16DT0AV5S1MN9ZABpryaAZ3eE5oVUK1vVTDTfYkNQzDDlagWodLtTcSEHSRHE
-	 bBx8CzXdWq6kmAoB0um7jWzu6RT21Mfp0Y3UUfrAI5iWePndMdFXpN7ipEpuY+4Xvg
-	 wUGWCymAWyCllQgPeKsZ8sBhc3U6xtF/RTRcQlBafh5TYS2ZCqC8fIh3Ys8LYgDJUW
-	 xYw++b6a0Eae2yMUU3qNcVzlRd20nTzHxqDqLVCgqcj6fbs1H77qJSk8OYmdc7VyP/
-	 Hx1Yi91I9FhKM2ctMbelRoQU4RInZZX77QIz2CdYeKYKZ2up2tFxBslyS0aHGgWBZz
-	 S4d793LsYiBxg==
-Date: Mon, 24 Nov 2025 13:14:24 +0000
-From: Will Deacon <will@kernel.org>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>
-Cc: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>,
-	Jonathan Cameron <Jonathan.Cameron@huawei.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-coco@lists.linux.dev, catalin.marinas@arm.com,
-	gshan@redhat.com, aneesh.kumar@kernel.org, sami.mujawar@arm.com,
-	sudeep.holla@arm.com, steven.price@arm.com,
-	regressions@lists.linux.dev
-Subject: Re: [REGRESSION] GHES firmware can't be readonly - Was: Re: [PATCH
- v3 3/3] arm64: acpi: Enable ACPI CCEL support
-Message-ID: <aSRaME9ZO-nchE1I@willie-the-truck>
-References: <20250918125618.2125733-1-suzuki.poulose@arm.com>
- <20250918125618.2125733-4-suzuki.poulose@arm.com>
- <20251121224611.07efa95a@foz.lan>
- <4a750da6-7883-4afa-94c1-4806677e61c2@arm.com>
+	Mon, 24 Nov 2025 13:22:45 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 433AD497;
+	Mon, 24 Nov 2025 05:22:35 -0800 (PST)
+Received: from e123572-lin.arm.com (e123572-lin.cambridge.arm.com [10.1.194.54])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8F32D3F73B;
+	Mon, 24 Nov 2025 05:22:37 -0800 (PST)
+From: Kevin Brodsky <kevin.brodsky@arm.com>
+To: linux-mm@kvack.org
+Cc: linux-kernel@vger.kernel.org,
+	Kevin Brodsky <kevin.brodsky@arm.com>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Andreas Larsson <andreas@gaisler.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Boris Ostrovsky <boris.ostrovsky@oracle.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	David Hildenbrand <david@redhat.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	David Woodhouse <dwmw2@infradead.org>,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Ingo Molnar <mingo@redhat.com>,
+	Jann Horn <jannh@google.com>,
+	Juergen Gross <jgross@suse.com>,
+	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
+	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Michal Hocko <mhocko@suse.com>,
+	Mike Rapoport <rppt@kernel.org>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	"Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Venkat Rao Bagalkote <venkat88@linux.ibm.com>,
+	Vlastimil Babka <vbabka@suse.cz>,
+	Will Deacon <will@kernel.org>,
+	Yeoreum Yun <yeoreum.yun@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linuxppc-dev@lists.ozlabs.org,
+	sparclinux@vger.kernel.org,
+	xen-devel@lists.xenproject.org,
+	x86@kernel.org
+Subject: [PATCH v5 00/12] Nesting support for lazy MMU mode
+Date: Mon, 24 Nov 2025 13:22:16 +0000
+Message-ID: <20251124132228.622678-1-kevin.brodsky@arm.com>
+X-Mailer: git-send-email 2.51.2
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <4a750da6-7883-4afa-94c1-4806677e61c2@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251124_052244_039204_4D5C2428 
+X-CRM114-Status: GOOD (  26.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,60 +97,244 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 24, 2025 at 05:21:00AM +0000, Suzuki K Poulose wrote:
-> On 21/11/2025 21:46, Mauro Carvalho Chehab wrote:
-> > Hi,
-> > 
-> > Em Thu, 18 Sep 2025 13:56:18 +0100
-> > Suzuki K Poulose <suzuki.poulose@arm.com> escreveu:
-> > 
-> > > Add support for ACPI CCEL by handling the EfiACPIMemoryNVS type memory.
-> > > As per UEFI specifications NVS memory is reserved for Firmware use even
-> > > after exiting boot services. Thus map the region as read-only.
-> > > 
-> > > Cc: Sami Mujawar <sami.mujawar@arm.com>
-> > > Cc: Will Deacon <will@kernel.org>
-> > > Cc: Catalin Marinas <catalin.marinas@arm.com>
-> > > Cc: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
-> > > Cc: Steven Price <steven.price@arm.com>
-> > > Cc: Sudeep Holla <sudeep.holla@arm.com>
-> > > Cc: Gavin Shan <gshan@redhat.com>
-> > > Reviewed-by: Gavin Shan <gshan@redhat.com>
-> > > Tested-by: Sami Mujawar <sami.mujawar@arm.com>
-> > > Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-> > > ---
-> > >   arch/arm64/kernel/acpi.c | 10 ++++++++++
-> > >   1 file changed, 10 insertions(+)
-> > > 
-> > > diff --git a/arch/arm64/kernel/acpi.c b/arch/arm64/kernel/acpi.c
-> > > index 4d529ff7ba51..b3195b3b895f 100644
-> > > --- a/arch/arm64/kernel/acpi.c
-> > > +++ b/arch/arm64/kernel/acpi.c
-> > > @@ -357,6 +357,16 @@ void __iomem *acpi_os_ioremap(acpi_physical_address phys, acpi_size size)
-> > >   			 * as long as we take care not to create a writable
-> > >   			 * mapping for executable code.
-> > >   			 */
-> > > +			fallthrough;
-> > > +
-> > > +		case EFI_ACPI_MEMORY_NVS:
-> > > +			/*
-> > > +			 * ACPI NVS marks an area reserved for use by the
-> > > +			 * firmware, even after exiting the boot service.
-> > > +			 * This may be used by the firmware for sharing dynamic
-> > > +			 * tables/data (e.g., ACPI CCEL) with the OS. Map it
-> > > +			 * as read-only.
-> > > +			 */
-> > >   			prot = PAGE_KERNEL_RO;
-> > 
-> > Please revert this change.
-> > 
-> > Making area reserved to be used by firmware breaks some APEI
-> > notification mechanisms:
-> 
-> Thanks for the report. Clearly, we missed this case. I am happy for this
-> patch to be reverted and we can work out the handling of NVS later.
+When the lazy MMU mode was introduced eons ago, it wasn't made clear
+whether such a sequence was legal:
 
-I'll revert the change shortly.
+	arch_enter_lazy_mmu_mode()
+	...
+		arch_enter_lazy_mmu_mode()
+		...
+		arch_leave_lazy_mmu_mode()
+	...
+	arch_leave_lazy_mmu_mode()
 
-Will
+It seems fair to say that nested calls to
+arch_{enter,leave}_lazy_mmu_mode() were not expected, and most
+architectures never explicitly supported it.
+
+Nesting does in fact occur in certain configurations, and avoiding it
+has proved difficult. This series therefore enables lazy_mmu sections to
+nest, on all architectures.
+
+Nesting is handled using a counter in task_struct (patch 8), like other
+stateless APIs such as pagefault_{disable,enable}(). This is fully
+handled in a new generic layer in <linux/pgtable.h>; the arch_* API
+remains unchanged. A new pair of calls, lazy_mmu_mode_{pause,resume}(),
+is also introduced to allow functions that are called with the lazy MMU
+mode enabled to temporarily pause it, regardless of nesting.
+
+An arch now opts in to using the lazy MMU mode by selecting
+CONFIG_ARCH_LAZY_MMU; this is more appropriate now that we have a
+generic API, especially with state conditionally added to task_struct.
+
+---
+
+Background: Ryan Roberts' series from March [1] attempted to prevent
+nesting from ever occurring, and mostly succeeded. Unfortunately, a
+corner case (DEBUG_PAGEALLOC) may still cause nesting to occur on arm64.
+Ryan proposed [2] to address that corner case at the generic level but
+this approach received pushback; [3] then attempted to solve the issue
+on arm64 only, but it was deemed too fragile.
+
+It feels generally difficult to guarantee that lazy_mmu sections don't
+nest, because callers of various standard mm functions do not know if
+the function uses lazy_mmu itself.
+
+The overall approach in v3/v4 is very close to what David Hildenbrand
+proposed on v2 [4].
+
+Unlike in v1/v2, no special provision is made for architectures to
+save/restore extra state when entering/leaving the mode. Based on the
+discussions so far, this does not seem to be required - an arch can
+store any relevant state in thread_struct during arch_enter() and
+restore it in arch_leave(). Nesting is not a concern as these functions
+are only called at the top level, not in nested sections.
+
+The introduction of a generic layer, and tracking of the lazy MMU state
+in task_struct, also allows to streamline the arch callbacks - this
+series removes 67 lines from arch/.
+
+Patch overview:
+
+* Patch 1: cleanup - avoids having to deal with the powerpc
+  context-switching code
+
+* Patch 2-4: prepare arch_flush_lazy_mmu_mode() to be called from the
+  generic layer (patch 8)
+
+* Patch 5-6: new API + CONFIG_ARCH_LAZY_MMU
+
+* Patch 7: ensure correctness in interrupt context
+
+* Patch 8: nesting support
+
+* Patch 9-12: replace arch-specific tracking of lazy MMU mode with
+  generic API
+
+This series has been tested by running the mm kselftests on arm64 with
+DEBUG_VM, DEBUG_PAGEALLOC, KFENCE and KASAN. It was also build-tested on
+other architectures (with and without XEN_PV on x86).
+
+- Kevin
+
+[1] https://lore.kernel.org/all/20250303141542.3371656-1-ryan.roberts@arm.com/
+[2] https://lore.kernel.org/all/20250530140446.2387131-1-ryan.roberts@arm.com/
+[3] https://lore.kernel.org/all/20250606135654.178300-1-ryan.roberts@arm.com/
+[4] https://lore.kernel.org/all/ef343405-c394-4763-a79f-21381f217b6c@redhat.com/
+---
+Changelog
+
+v4..v5:
+
+- Rebased on mm-unstable
+- Patch 3: added missing radix_enabled() check in arch_flush()
+  [Ritesh Harjani]
+- Patch 6: declare arch_flush_lazy_mmu_mode() as static inline on x86
+  [Ryan Roberts]
+- Patch 7 (formerly 12): moved before patch 8 to ensure correctness in
+  interrupt context [Ryan]. The diffs in in_lazy_mmu_mode() and
+  queue_pte_barriers() are moved to patch 8 and 9 resp.
+- Patch 8:
+  * Removed all restrictions regarding lazy_mmu_mode_{pause,resume}().
+    They may now be called even when lazy MMU isn't enabled, and
+    any call to lazy_mmu_mode_* may be made while paused (such calls
+    will be ignored). [David, Ryan]
+  * lazy_mmu_state.{nesting_level,active} are replaced with
+    {enable_count,pause_count} to track arbitrary nesting of both
+    enable/disable and pause/resume [Ryan]
+  * Added __task_lazy_mmu_mode_active() for use in patch 12 [David]
+  * Added documentation for all the functions [Ryan]
+- Patch 9: keep existing test + set TIF_LAZY_MMU_PENDING instead of
+  atomic RMW [David, Ryan]
+- Patch 12: use __task_lazy_mmu_mode_active() instead of accessing
+  lazy_mmu_state directly [David]
+- Collected R-b/A-b tags
+
+v4: https://lore.kernel.org/all/20251029100909.3381140-1-kevin.brodsky@arm.com/
+
+v3..v4:
+
+- Patch 2: restored ordering of preempt_{disable,enable}() [Dave Hansen]
+- Patch 5 onwards: s/ARCH_LAZY_MMU/ARCH_HAS_LAZY_MMU_MODE/ [Mike Rapoport]
+- Patch 7: renamed lazy_mmu_state members, removed VM_BUG_ON(),
+  reordered writes to lazy_mmu_state members [David Hildenbrand]
+- Dropped patch 13 as it doesn't seem justified [David H]
+- Various improvements to commit messages [David H]
+
+v3: https://lore.kernel.org/all/20251015082727.2395128-1-kevin.brodsky@arm.com/
+
+v2..v3:
+
+- Full rewrite; dropped all Acked-by/Reviewed-by.
+- Rebased on v6.18-rc1.
+
+v2: https://lore.kernel.org/all/20250908073931.4159362-1-kevin.brodsky@arm.com/
+
+v1..v2:
+- Rebased on mm-unstable.
+- Patch 2: handled new calls to enter()/leave(), clarified how the "flush"
+  pattern (leave() followed by enter()) is handled.
+- Patch 5,6: removed unnecessary local variable [Alexander Gordeev's
+  suggestion].
+- Added Mike Rapoport's Acked-by.
+
+v1: https://lore.kernel.org/all/20250904125736.3918646-1-kevin.brodsky@arm.com/
+---
+Cc: Alexander Gordeev <agordeev@linux.ibm.com>
+Cc: Andreas Larsson <andreas@gaisler.com>
+Cc: Andrew Morton <akpm@linux-foundation.org>
+Cc: Boris Ostrovsky <boris.ostrovsky@oracle.com>
+Cc: Borislav Petkov <bp@alien8.de>
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Christophe Leroy <christophe.leroy@csgroup.eu>
+Cc: Dave Hansen <dave.hansen@linux.intel.com>
+Cc: David Hildenbrand <david@redhat.com>
+Cc: "David S. Miller" <davem@davemloft.net>
+Cc: David Woodhouse <dwmw2@infradead.org>
+Cc: "H. Peter Anvin" <hpa@zytor.com>
+Cc: Ingo Molnar <mingo@redhat.com>
+Cc: Jann Horn <jannh@google.com>
+Cc: Juergen Gross <jgross@suse.com>
+Cc: "Liam R. Howlett" <Liam.Howlett@oracle.com>
+Cc: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
+Cc: Madhavan Srinivasan <maddy@linux.ibm.com>
+Cc: Michael Ellerman <mpe@ellerman.id.au>
+Cc: Michal Hocko <mhocko@suse.com>
+Cc: Mike Rapoport <rppt@kernel.org>
+Cc: Nicholas Piggin <npiggin@gmail.com>
+Cc: Peter Zijlstra <peterz@infradead.org>
+Cc: Ritesh Harjani (IBM) <ritesh.list@gmail.com>
+Cc: Ryan Roberts <ryan.roberts@arm.com>
+Cc: Suren Baghdasaryan <surenb@google.com>
+Cc: Thomas Gleixner <tglx@linutronix.de>
+Cc: Venkat Rao Bagalkote <venkat88@linux.ibm.com>
+Cc: Vlastimil Babka <vbabka@suse.cz>
+Cc: Will Deacon <will@kernel.org>
+Cc: Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org
+Cc: linuxppc-dev@lists.ozlabs.org
+Cc: sparclinux@vger.kernel.org
+Cc: xen-devel@lists.xenproject.org
+Cc: x86@kernel.org
+---
+Alexander Gordeev (1):
+  powerpc/64s: Do not re-activate batched TLB flush
+
+Kevin Brodsky (11):
+  x86/xen: simplify flush_lazy_mmu()
+  powerpc/mm: implement arch_flush_lazy_mmu_mode()
+  sparc/mm: implement arch_flush_lazy_mmu_mode()
+  mm: introduce CONFIG_ARCH_HAS_LAZY_MMU_MODE
+  mm: introduce generic lazy_mmu helpers
+  mm: bail out of lazy_mmu_mode_* in interrupt context
+  mm: enable lazy_mmu sections to nest
+  arm64: mm: replace TIF_LAZY_MMU with in_lazy_mmu_mode()
+  powerpc/mm: replace batch->active with in_lazy_mmu_mode()
+  sparc/mm: replace batch->active with in_lazy_mmu_mode()
+  x86/xen: use lazy_mmu_state when context-switching
+
+ arch/arm64/Kconfig                            |   1 +
+ arch/arm64/include/asm/pgtable.h              |  41 +----
+ arch/arm64/include/asm/thread_info.h          |   3 +-
+ arch/arm64/mm/mmu.c                           |   4 +-
+ arch/arm64/mm/pageattr.c                      |   4 +-
+ .../include/asm/book3s/64/tlbflush-hash.h     |  20 ++-
+ arch/powerpc/include/asm/thread_info.h        |   2 -
+ arch/powerpc/kernel/process.c                 |  25 ---
+ arch/powerpc/mm/book3s64/hash_tlb.c           |  10 +-
+ arch/powerpc/mm/book3s64/subpage_prot.c       |   4 +-
+ arch/powerpc/platforms/Kconfig.cputype        |   1 +
+ arch/sparc/Kconfig                            |   1 +
+ arch/sparc/include/asm/tlbflush_64.h          |   5 +-
+ arch/sparc/mm/tlb.c                           |  14 +-
+ arch/x86/Kconfig                              |   1 +
+ arch/x86/boot/compressed/misc.h               |   1 +
+ arch/x86/boot/startup/sme.c                   |   1 +
+ arch/x86/include/asm/paravirt.h               |   1 -
+ arch/x86/include/asm/pgtable.h                |   1 +
+ arch/x86/include/asm/thread_info.h            |   4 +-
+ arch/x86/xen/enlighten_pv.c                   |   3 +-
+ arch/x86/xen/mmu_pv.c                         |   6 +-
+ fs/proc/task_mmu.c                            |   4 +-
+ include/linux/mm_types_task.h                 |   5 +
+ include/linux/pgtable.h                       | 147 +++++++++++++++++-
+ include/linux/sched.h                         |  45 ++++++
+ mm/Kconfig                                    |   3 +
+ mm/kasan/shadow.c                             |   8 +-
+ mm/madvise.c                                  |  18 +--
+ mm/memory.c                                   |  16 +-
+ mm/migrate_device.c                           |   8 +-
+ mm/mprotect.c                                 |   4 +-
+ mm/mremap.c                                   |   4 +-
+ mm/userfaultfd.c                              |   4 +-
+ mm/vmalloc.c                                  |  12 +-
+ mm/vmscan.c                                   |  12 +-
+ 36 files changed, 282 insertions(+), 161 deletions(-)
+
+
+base-commit: 1f1edd95f9231ba58a1e535b10200cb1eeaf1f67
+-- 
+2.51.2
+
 
