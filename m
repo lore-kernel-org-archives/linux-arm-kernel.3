@@ -4,35 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E7BCCFD340
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 13:23:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9290FCFD317
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 13:23:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Gj4iFN3ZQ6JLJ3lvMpJahEbnH4amdNlDjqaEep+jSnc=; b=gQZ4/rT2no4SS40PDtZZ5P5LaE
-	INNLEFQKsHONWtor8r17RqJUjjEawHexJRyvMrg1ailVKzaLBeZ0MqBl/WsDtL2bkvwi+ekifKKuG
-	1GgiIq4Oa9c4o0HRBkjtWkvejsucSv5Fe+Xaang0rOSMT2nlQRclOI8qEBy2084GIx9g3v/4ViR5e
-	+0eFYik9dWIegjUgWP3VyP6v28AV1Q5jJdzg5WpK8JV/Gq5Cj60418S8Z8ZNLCIAnbAjZGkg66sYs
-	HUtD3VsIr0wIlhsFdJy9516BRE3RNTt6ho5uZaqYGIf1uz4N2Kn+4mwCISu0QyuU6Ss8fFxcXDflP
-	UpOLWM5w==;
+	bh=6neHqDqqmDp48WmbQozlyzAi+O+eJryJUIDYSpPhRuE=; b=kbucRzmrZhmhlbxYQonBSB+ZSJ
+	LBjZ998Ir1qjhVLO2cGC7tqxXfEamkarfyNILgzxiAAlXfGvMfGps/MgtPN4iYpSrOUif+Eg8vjk3
+	BSFtTTWpbsfRkMbj5SGsqrmKBe/f4CH7AJaWJorTswycAjgUNAItHQMR5dpzxlb2vNecKXPIF+/6Z
+	W/OB6t8F8KXZ+o/4TDlj3Qzlkp6JElpaCyMoCcv0Y0BPTF7qDZnELi3ryLOjcoSe6IzEuCXr12X//
+	dOrzhq8zTjaLTI9ea95Xa6UWbi3KEF+d6DAgLE0ROdJD6pRKbenDxaIqLpmHnkds3sCOj0wJrBE9b
+	yyg9HDQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNWXi-0000000Bjhu-1q2c;
-	Mon, 24 Nov 2025 13:23:46 +0000
+	id 1vNWXj-0000000BjjH-1JuF;
+	Mon, 24 Nov 2025 13:23:47 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vNWXe-0000000Bjep-2Dde
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 24 Nov 2025 13:23:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=6neHqDqqmDp48WmbQozlyzAi+O+eJryJUIDYSpPhRuE=; b=GX2KxYjXkTtRYHm+7TdeMQ+Xg5
+	wsqIiNgVC6LSuCbqiNOOiNODfzQJWAJbFDPunM8ldDN9zzQjoXHeGgjlRIyfCYr3Qsq4jHtElfhUg
+	x8DfYZ6OyantgOKLpMlS77RGmdRrg9XGopUyv8WNCwZ7KYScBXxbCldHs4mX4OeWaaPO4aqZzsBTT
+	vDvAoc1kVNCqoEDG7MswDRdMKRX/2qzUrWoz1q/CVtYEXO13DFDs+boffYb2EJUgbel17rU3mM3jF
+	MSSRZPPbVOeRhD29T3Hg733+D50ugugULdGQADuo7+BQdMSWWiiPqrxN0eSvxRJhpUO4SNUClWNLe
+	rnibMsNQ==;
 Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNWXP-0000000BjTx-0rYz
+	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vNVfz-00000003kRh-3Tc4
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Nov 2025 13:23:29 +0000
+	Mon, 24 Nov 2025 12:28:17 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2C3A11655;
-	Mon, 24 Nov 2025 05:23:19 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1DBA81691;
+	Mon, 24 Nov 2025 05:23:30 -0800 (PST)
 Received: from e123572-lin.arm.com (e123572-lin.cambridge.arm.com [10.1.194.54])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7D3443F73B;
-	Mon, 24 Nov 2025 05:23:21 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6EF3F3F73B;
+	Mon, 24 Nov 2025 05:23:32 -0800 (PST)
 From: Kevin Brodsky <kevin.brodsky@arm.com>
 To: linux-mm@kvack.org
 Cc: linux-kernel@vger.kernel.org,
@@ -73,18 +88,17 @@ Cc: linux-kernel@vger.kernel.org,
 	sparclinux@vger.kernel.org,
 	xen-devel@lists.xenproject.org,
 	x86@kernel.org
-Subject: [PATCH v5 08/12] mm: enable lazy_mmu sections to nest
-Date: Mon, 24 Nov 2025 13:22:24 +0000
-Message-ID: <20251124132228.622678-9-kevin.brodsky@arm.com>
+Subject: [PATCH v5 10/12] powerpc/mm: replace batch->active with in_lazy_mmu_mode()
+Date: Mon, 24 Nov 2025 13:22:26 +0000
+Message-ID: <20251124132228.622678-11-kevin.brodsky@arm.com>
 X-Mailer: git-send-email 2.51.2
 In-Reply-To: <20251124132228.622678-1-kevin.brodsky@arm.com>
 References: <20251124132228.622678-1-kevin.brodsky@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251124_052327_382000_F5EC6600 
-X-CRM114-Status: GOOD (  33.10  )
+X-CRM114-CacheID: sfid-20251124_122816_179981_702B10BD 
+X-CRM114-Status: GOOD (  15.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,317 +113,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Despite recent efforts to prevent lazy_mmu sections from nesting, it
-remains difficult to ensure that it never occurs - and in fact it
-does occur on arm64 in certain situations (CONFIG_DEBUG_PAGEALLOC).
-Commit 1ef3095b1405 ("arm64/mm: Permit lazy_mmu_mode to be nested")
-made nesting tolerable on arm64, but without truly supporting it:
-the inner call to leave() disables the batching optimisation before
-the outer section ends.
+A per-CPU batch struct is activated when entering lazy MMU mode; its
+lifetime is the same as the lazy MMU section (it is deactivated when
+leaving the mode). Preemption is disabled in that interval to ensure
+that the per-CPU reference remains valid.
 
-This patch actually enables lazy_mmu sections to nest by tracking
-the nesting level in task_struct, in a similar fashion to e.g.
-pagefault_{enable,disable}(). This is fully handled by the generic
-lazy_mmu helpers that were recently introduced.
+The generic lazy_mmu layer now tracks whether a task is in lazy MMU
+mode. We can therefore use the generic helper in_lazy_mmu_mode()
+to tell whether a batch struct is active instead of tracking it
+explicitly.
 
-lazy_mmu sections were not initially intended to nest, so we need to
-clarify the semantics w.r.t. the arch_*_lazy_mmu_mode() callbacks.
-This patch takes the following approach:
-
-* The outermost calls to lazy_mmu_mode_{enable,disable}() trigger
-  calls to arch_{enter,leave}_lazy_mmu_mode() - this is unchanged.
-
-* Nested calls to lazy_mmu_mode_{enable,disable}() are not forwarded
-  to the arch via arch_{enter,leave} - lazy MMU remains enabled so
-  the assumption is that these callbacks are not relevant. However,
-  existing code may rely on a call to disable() to flush any batched
-  state, regardless of nesting. arch_flush_lazy_mmu_mode() is
-  therefore called in that situation.
-
-A separate interface was recently introduced to temporarily pause
-the lazy MMU mode: lazy_mmu_mode_{pause,resume}(). pause() fully
-exits the mode *regardless of the nesting level*, and resume()
-restores the mode at the same nesting level.
-
-pause()/resume() are themselves allowed to nest, so we actually
-store two nesting levels in task_struct: enable_count and
-pause_count. A new helper in_lazy_mmu_mode() is introduced to
-determine whether we are currently in lazy MMU mode; this will be
-used in subsequent patches to replace the various ways arch's
-currently track whether the mode is enabled.
-
-In summary (enable/pause represent the values *after* the call):
-
-lazy_mmu_mode_enable()		-> arch_enter()	    enable=1 pause=0
-    lazy_mmu_mode_enable()	-> ø		    enable=2 pause=0
-	lazy_mmu_mode_pause()	-> arch_leave()     enable=2 pause=1
-	lazy_mmu_mode_resume()	-> arch_enter()     enable=2 pause=0
-    lazy_mmu_mode_disable()	-> arch_flush()     enable=1 pause=0
-lazy_mmu_mode_disable()		-> arch_leave()     enable=0 pause=0
-
-Note: in_lazy_mmu_mode() is added to <linux/sched.h> to allow arch
-headers included by <linux/pgtable.h> to use it.
-
+Acked-by: David Hildenbrand <david@redhat.com>
+Reviewed-by: Ritesh Harjani (IBM) <ritesh.list@gmail.com>
 Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
 ---
- arch/arm64/include/asm/pgtable.h |  12 ----
- include/linux/mm_types_task.h    |   5 ++
- include/linux/pgtable.h          | 115 +++++++++++++++++++++++++++++--
- include/linux/sched.h            |  45 ++++++++++++
- 4 files changed, 158 insertions(+), 19 deletions(-)
+ arch/powerpc/include/asm/book3s/64/tlbflush-hash.h | 9 ---------
+ arch/powerpc/mm/book3s64/hash_tlb.c                | 2 +-
+ 2 files changed, 1 insertion(+), 10 deletions(-)
 
-diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
-index e596899f4029..a7d99dee3dc4 100644
---- a/arch/arm64/include/asm/pgtable.h
-+++ b/arch/arm64/include/asm/pgtable.h
-@@ -82,18 +82,6 @@ static inline void queue_pte_barriers(void)
+diff --git a/arch/powerpc/include/asm/book3s/64/tlbflush-hash.h b/arch/powerpc/include/asm/book3s/64/tlbflush-hash.h
+index 565c1b7c3eae..6cc9abcd7b3d 100644
+--- a/arch/powerpc/include/asm/book3s/64/tlbflush-hash.h
++++ b/arch/powerpc/include/asm/book3s/64/tlbflush-hash.h
+@@ -12,7 +12,6 @@
+ #define PPC64_TLB_BATCH_NR 192
+ 
+ struct ppc64_tlb_batch {
+-	int			active;
+ 	unsigned long		index;
+ 	struct mm_struct	*mm;
+ 	real_pte_t		pte[PPC64_TLB_BATCH_NR];
+@@ -26,8 +25,6 @@ extern void __flush_tlb_pending(struct ppc64_tlb_batch *batch);
  
  static inline void arch_enter_lazy_mmu_mode(void)
  {
--	/*
--	 * lazy_mmu_mode is not supposed to permit nesting. But in practice this
--	 * does happen with CONFIG_DEBUG_PAGEALLOC, where a page allocation
--	 * inside a lazy_mmu_mode section (such as zap_pte_range()) will change
--	 * permissions on the linear map with apply_to_page_range(), which
--	 * re-enters lazy_mmu_mode. So we tolerate nesting in our
--	 * implementation. The first call to arch_leave_lazy_mmu_mode() will
--	 * flush and clear the flag such that the remainder of the work in the
--	 * outer nest behaves as if outside of lazy mmu mode. This is safe and
--	 * keeps tracking simple.
--	 */
+-	struct ppc64_tlb_batch *batch;
 -
- 	set_thread_flag(TIF_LAZY_MMU);
- }
- 
-diff --git a/include/linux/mm_types_task.h b/include/linux/mm_types_task.h
-index a82aa80c0ba4..11bf319d78ec 100644
---- a/include/linux/mm_types_task.h
-+++ b/include/linux/mm_types_task.h
-@@ -88,4 +88,9 @@ struct tlbflush_unmap_batch {
- #endif
- };
- 
-+struct lazy_mmu_state {
-+	u8 enable_count;
-+	u8 pause_count;
-+};
-+
- #endif /* _LINUX_MM_TYPES_TASK_H */
-diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
-index 8ff6fdb4b13d..24fdb6f5c2e1 100644
---- a/include/linux/pgtable.h
-+++ b/include/linux/pgtable.h
-@@ -230,39 +230,140 @@ static inline int pmd_dirty(pmd_t pmd)
-  * (In practice, for user PTE updates, the appropriate page table lock(s) are
-  * held, but for kernel PTE updates, no lock is held). The mode is disabled in
-  * interrupt context and calls to the lazy_mmu API have no effect.
-- * Nesting is not permitted.
-+ *
-+ * The lazy MMU mode is enabled for a given block of code using:
-+ *
-+ *   lazy_mmu_mode_enable();
-+ *   <code>
-+ *   lazy_mmu_mode_disable();
-+ *
-+ * Nesting is permitted: <code> may itself use an enable()/disable() pair.
-+ * A nested call to enable() has no functional effect; however disable() causes
-+ * any batched architectural state to be flushed regardless of nesting. After a
-+ * call to disable(), the caller can therefore rely on all previous page table
-+ * modifications to have taken effect, but the lazy MMU mode may still be
-+ * enabled.
-+ *
-+ * In certain cases, it may be desirable to temporarily pause the lazy MMU mode.
-+ * This can be done using:
-+ *
-+ *   lazy_mmu_mode_pause();
-+ *   <code>
-+ *   lazy_mmu_mode_resume();
-+ *
-+ * pause() ensures that the mode is exited regardless of the nesting level;
-+ * resume() re-enters the mode at the same nesting level. Any call to the
-+ * lazy_mmu_mode_* API between those two calls has no effect. In particular,
-+ * this means that pause()/resume() pairs may nest.
-+ *
-+ * in_lazy_mmu_mode() can be used to check whether the lazy MMU mode is
-+ * currently enabled.
-  */
- #ifdef CONFIG_ARCH_HAS_LAZY_MMU_MODE
-+/**
-+ * lazy_mmu_mode_enable() - Enable the lazy MMU mode.
-+ *
-+ * Enters a new lazy MMU mode section; if the mode was not already enabled,
-+ * enables it and calls arch_enter_lazy_mmu_mode().
-+ *
-+ * Must be paired with a call to lazy_mmu_mode_disable().
-+ *
-+ * Has no effect if called:
-+ * - While paused - see lazy_mmu_mode_pause()
-+ * - In interrupt context
-+ */
- static inline void lazy_mmu_mode_enable(void)
- {
--	if (in_interrupt())
-+	struct lazy_mmu_state *state = &current->lazy_mmu_state;
-+
-+	if (in_interrupt() || state->pause_count > 0)
+ 	if (radix_enabled())
  		return;
- 
--	arch_enter_lazy_mmu_mode();
-+	VM_WARN_ON_ONCE(state->enable_count == U8_MAX);
-+
-+	if (state->enable_count++ == 0)
-+		arch_enter_lazy_mmu_mode();
+ 	/*
+@@ -35,8 +32,6 @@ static inline void arch_enter_lazy_mmu_mode(void)
+ 	 * operating on kernel page tables.
+ 	 */
+ 	preempt_disable();
+-	batch = this_cpu_ptr(&ppc64_tlb_batch);
+-	batch->active = 1;
  }
  
-+/**
-+ * lazy_mmu_mode_disable() - Disable the lazy MMU mode.
-+ *
-+ * Exits the current lazy MMU mode section. If it is the outermost section,
-+ * disables the mode and calls arch_leave_lazy_mmu_mode(). Otherwise (nested
-+ * section), calls arch_flush_lazy_mmu_mode().
-+ *
-+ * Must match a call to lazy_mmu_mode_enable().
-+ *
-+ * Has no effect if called:
-+ * - While paused - see lazy_mmu_mode_pause()
-+ * - In interrupt context
-+ */
- static inline void lazy_mmu_mode_disable(void)
+ static inline void arch_flush_lazy_mmu_mode(void)
+@@ -53,14 +48,10 @@ static inline void arch_flush_lazy_mmu_mode(void)
+ 
+ static inline void arch_leave_lazy_mmu_mode(void)
  {
--	if (in_interrupt())
-+	struct lazy_mmu_state *state = &current->lazy_mmu_state;
-+
-+	if (in_interrupt() || state->pause_count > 0)
+-	struct ppc64_tlb_batch *batch;
+-
+ 	if (radix_enabled())
  		return;
+-	batch = this_cpu_ptr(&ppc64_tlb_batch);
  
--	arch_leave_lazy_mmu_mode();
-+	VM_WARN_ON_ONCE(state->enable_count == 0);
-+
-+	if (--state->enable_count == 0)
-+		arch_leave_lazy_mmu_mode();
-+	else /* Exiting a nested section */
-+		arch_flush_lazy_mmu_mode();
-+
+ 	arch_flush_lazy_mmu_mode();
+-	batch->active = 0;
+ 	preempt_enable();
  }
  
-+/**
-+ * lazy_mmu_mode_pause() - Pause the lazy MMU mode.
-+ *
-+ * Pauses the lazy MMU mode; if it is currently active, disables it and calls
-+ * arch_leave_lazy_mmu_mode().
-+ *
-+ * Must be paired with a call to lazy_mmu_mode_resume(). Calls to the
-+ * lazy_mmu_mode_* API have no effect until the matching resume() call.
-+ *
-+ * Has no effect if called:
-+ * - While paused (inside another pause()/resume() pair)
-+ * - In interrupt context
-+ */
- static inline void lazy_mmu_mode_pause(void)
- {
-+	struct lazy_mmu_state *state = &current->lazy_mmu_state;
-+
- 	if (in_interrupt())
+diff --git a/arch/powerpc/mm/book3s64/hash_tlb.c b/arch/powerpc/mm/book3s64/hash_tlb.c
+index 787f7a0e27f0..72b83f582b6d 100644
+--- a/arch/powerpc/mm/book3s64/hash_tlb.c
++++ b/arch/powerpc/mm/book3s64/hash_tlb.c
+@@ -100,7 +100,7 @@ void hpte_need_flush(struct mm_struct *mm, unsigned long addr,
+ 	 * Check if we have an active batch on this CPU. If not, just
+ 	 * flush now and return.
+ 	 */
+-	if (!batch->active) {
++	if (!in_lazy_mmu_mode()) {
+ 		flush_hash_page(vpn, rpte, psize, ssize, mm_is_thread_local(mm));
+ 		put_cpu_var(ppc64_tlb_batch);
  		return;
- 
--	arch_leave_lazy_mmu_mode();
-+	VM_WARN_ON_ONCE(state->pause_count == U8_MAX);
-+
-+	if (state->pause_count++ == 0 && state->enable_count > 0)
-+		arch_leave_lazy_mmu_mode();
- }
- 
-+/**
-+ * lazy_mmu_mode_pause() - Resume the lazy MMU mode.
-+ *
-+ * Resumes the lazy MMU mode; if it was active at the point where the matching
-+ * call to lazy_mmu_mode_pause() was made, re-enables it and calls
-+ * arch_enter_lazy_mmu_mode().
-+ *
-+ * Must match a call to lazy_mmu_mode_pause().
-+ *
-+ * Has no effect if called:
-+ * - While paused (inside another pause()/resume() pair)
-+ * - In interrupt context
-+ */
- static inline void lazy_mmu_mode_resume(void)
- {
-+	struct lazy_mmu_state *state = &current->lazy_mmu_state;
-+
- 	if (in_interrupt())
- 		return;
- 
--	arch_enter_lazy_mmu_mode();
-+	VM_WARN_ON_ONCE(state->pause_count == 0);
-+
-+	if (--state->pause_count == 0 && state->enable_count > 0)
-+		arch_enter_lazy_mmu_mode();
- }
- #else
- static inline void lazy_mmu_mode_enable(void) {}
-diff --git a/include/linux/sched.h b/include/linux/sched.h
-index b469878de25c..847e242376db 100644
---- a/include/linux/sched.h
-+++ b/include/linux/sched.h
-@@ -1441,6 +1441,10 @@ struct task_struct {
- 
- 	struct page_frag		task_frag;
- 
-+#ifdef CONFIG_ARCH_HAS_LAZY_MMU_MODE
-+	struct lazy_mmu_state		lazy_mmu_state;
-+#endif
-+
- #ifdef CONFIG_TASK_DELAY_ACCT
- 	struct task_delay_info		*delays;
- #endif
-@@ -1724,6 +1728,47 @@ static inline char task_state_to_char(struct task_struct *tsk)
- 	return task_index_to_char(task_state_index(tsk));
- }
- 
-+#ifdef CONFIG_ARCH_HAS_LAZY_MMU_MODE
-+/**
-+ * __task_lazy_mmu_mode_active() - Test the lazy MMU mode state for a task.
-+ * @tsk: The task to check.
-+ *
-+ * Test whether @tsk has its lazy MMU mode state set to active (i.e. enabled
-+ * and not paused).
-+ *
-+ * This function only considers the state saved in task_struct; to test whether
-+ * current actually is in lazy MMU mode, in_lazy_mmu_mode() should be used
-+ * instead.
-+ *
-+ * This function is intended for architectures that implement the lazy MMU
-+ * mode; it must not be called from generic code.
-+ */
-+static inline bool __task_lazy_mmu_mode_active(struct task_struct *tsk)
-+{
-+	struct lazy_mmu_state *state = &tsk->lazy_mmu_state;
-+
-+	return state->enable_count > 0 && state->pause_count == 0;
-+}
-+
-+/**
-+ * in_lazy_mmu_mode() - Test whether we are currently in lazy MMU mode.
-+ *
-+ * Test whether the current context is in lazy MMU mode. This is true if both:
-+ * 1. We are not in interrupt context
-+ * 2. Lazy MMU mode is active for the current task
-+ *
-+ * This function is intended for architectures that implement the lazy MMU
-+ * mode; it must not be called from generic code.
-+ */
-+static inline bool in_lazy_mmu_mode(void)
-+{
-+	if (in_interrupt())
-+		return false;
-+
-+	return __task_lazy_mmu_mode_active(current);
-+}
-+#endif
-+
- extern struct pid *cad_pid;
- 
- /*
 -- 
 2.51.2
 
