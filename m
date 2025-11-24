@@ -4,106 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98B45CFD31C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 07:50:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4AB4CFA466
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 07:52:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mJiuKaFO9xY29F0lH3L4Fu13sEGhR2k+m3i3j9RfCZs=; b=bsXHtg2E4hNUqFch70q3xJ8V6Y
-	xF3D6eHBTQ75Y+WW1Y5bM8NQcVsSbccKosoIt3enzDJqNjZFf5uONEX/+MiEfjtpMNEJo9XDkx26+
-	NnzjwCMNG+ywztm5dEW0VH0+PiWMI/T0+01ohr23RlUzVLm8IKvxQF8bd4GqP2cRgBFE/ji1HO94K
-	XptN/iG0q+nGI1TrzGb/Szyqn/rnamvgmxSWL5cnwEAhTZ6v9y3t2WVz5tmSXMQOR8/kMHp6b1QVo
-	RWOcdAGrJsCI2fEhl3VTld9TnGjzl0v3MfbuYd2S/g2jbYM+vUaVIBjR1luFGBf85Y2qsG9m2L5LP
-	nD3J05QA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3qO3poRUudH72SRFjqfuJ9Yk18cHNHwHb6Ky7Ks3bHw=; b=3C+VmEpZJELgxp0Pqu67Mc4ePU
+	LsTd2NQJbVNO+kCQ0Tn2C59RKTeigRUwnkf3VXuPBlB/BOPE/Q3hQy6D4Bc7YAL2ztlWRHl4oR2tu
+	1K8DDg0fsvMYoH5f4xMkDOuWRDjeSqAtuDjxlSCDJj9ozvqWatOH1L2sWUM2Aue1A5gROuCUKuUWF
+	CiTabmDd1z6PFzIRPtugPzuy5Uy5r/egNrBla8G9VnFUoa/HdEipr+sbrJNUvG8l43IrtOBQR0Qja
+	Ruxl0OsOBiFXewn/L7XdwNj3veWdr50sF+IY+PFBNd/I1EDm/C91KwPO2YOMrcApm4CO3bRaPEJcO
+	/ilvbqUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNRKn-0000000BEVe-0aaz;
-	Mon, 24 Nov 2025 07:50:05 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vNRMZ-0000000BEkQ-3hfK;
+	Mon, 24 Nov 2025 07:51:55 +0000
+Received: from mgamail.intel.com ([192.198.163.11])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNRKk-0000000BEV7-1VY1
+	id 1vNRMX-0000000BEjk-135R
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Nov 2025 07:50:03 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9C77E401BA;
-	Mon, 24 Nov 2025 07:50:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 33493C4CEF1;
-	Mon, 24 Nov 2025 07:50:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1763970601;
-	bh=KABm2DVqKO27Id5/uV0UFwNWUvZYC3fd6Ekc3hp8LRs=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=GAD3uzhreW+AWmQ2T5+IwakHdheOOcAT1oAAwWMRRp02aRWpRuYaNx7tUnEUErjTG
-	 ta7gxa+kQJUWCSECZe4Ua9H4B9REUkztAP9ZcY7vKZyJP4PFG/rO/aR7IAQhfnyC/h
-	 5FFA9mU/XrSUpIF12jcxV8W88iCQ0WpowjdO8KXU7xMeOJSfUl6YdCzopq30G4wsnU
-	 w3zxiK7JloxvNMzx3EGiX15qyOguh58lr6hBhYumwcIETh1YC1uOYisUI42LWePLN/
-	 Fjey6cWIWzd/nEYcgFuZ52PRYvUGp0XZgE3egAKt2bnwr6hI1Fadr/OrRrXxCkQri4
-	 Uopsioa1sIYBw==
-Message-ID: <69dc1405-9acb-4b3e-b354-8725b05b39ea@kernel.org>
-Date: Mon, 24 Nov 2025 08:49:58 +0100
+	Mon, 24 Nov 2025 07:51:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1763970713; x=1795506713;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=FXdcsNT83bzISlwMMljD1n6AKms9qZXmDn9X2sjfCng=;
+  b=L5IK8/g6zNbsvBi0n7cJrliQ+sF6twjrwiSYR1D/XEDOfQ5FZZR8Zy0S
+   J6u5XsnA6VqVsWYA73EeyXKzxei2jISjrc4MilaBdPAnfkNsOhfvUyEmm
+   Spgwb9iegFss9z0ZFZVuSjMtn0H5l/sv3FBFVqFoyXaRDhoM7qtSlT9Ze
+   vB07MMLGRjCCMz+cbXtXpP4hE90TF/w1GyxFi6HUogDG9ismU5G96zTmp
+   JMgPN7l3xZ59RFkD+w++puhwKt4fRDe5i5/XPs5wlxBvN6zhinFeAd8QY
+   CtAFwwb68DqsikkR7bmh/eN0uzNh9C/60IO5TcGQMk1hCBkEBMZSaNAI4
+   w==;
+X-CSE-ConnectionGUID: CgYvDgyZSeG1Z8xnuBptUw==
+X-CSE-MsgGUID: J/uH3+BMR2OG6ilwatgszA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11622"; a="76576951"
+X-IronPort-AV: E=Sophos;i="6.20,222,1758610800"; 
+   d="scan'208";a="76576951"
+Received: from fmviesa002.fm.intel.com ([10.60.135.142])
+  by fmvoesa105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2025 23:51:51 -0800
+X-CSE-ConnectionGUID: ksLs+7wdSoqwQVozj0FSGg==
+X-CSE-MsgGUID: 3C/TwgOxSCGblUyziKv2mQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.20,222,1758610800"; 
+   d="scan'208";a="215612518"
+Received: from egrumbac-mobl6.ger.corp.intel.com (HELO localhost) ([10.245.244.5])
+  by fmviesa002-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2025 23:51:47 -0800
+Date: Mon, 24 Nov 2025 09:51:44 +0200
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Jisheng Zhang <jszhang@kernel.org>
+Cc: Doug Berger <opendmb@gmail.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	bcm-kernel-feedback-list@broadcom.com,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Bartosz Golaszewski <brgl@bgdev.pl>,
+	Hoan Tran <hoan@os.amperecomputing.com>,
+	Andy Shevchenko <andy@kernel.org>, Daniel Palmer <daniel@thingy.jp>,
+	Romain Perier <romain.perier@gmail.com>,
+	Grygorii Strashko <grygorii.strashko@ti.com>,
+	Santosh Shilimkar <ssantosh@kernel.org>,
+	Kevin Hilman <khilman@kernel.org>,
+	Robert Jarzmik <robert.jarzmik@free.fr>,
+	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>,
+	Srinivas Neeli <srinivas.neeli@amd.com>,
+	Michal Simek <michal.simek@amd.com>, linux-gpio@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-omap@vger.kernel.org
+Subject: Re: [PATCH v5 02/14] gpio: brcmstb: Use modern PM macros
+Message-ID: <aSQOkP0fPZfFEytq@smile.fi.intel.com>
+References: <20251124002105.25429-1-jszhang@kernel.org>
+ <20251124002105.25429-3-jszhang@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: linux-next: duplicate patch in the samsung-krzk tree
-To: Stephen Rothwell <sfr@canb.auug.org.au>, Arnd Bergmann <arnd@arndb.de>
-Cc: ARM <linux-arm-kernel@lists.infradead.org>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- Linux Next Mailing List <linux-next@vger.kernel.org>
-References: <20251124120913.76374412@canb.auug.org.au>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20251124120913.76374412@canb.auug.org.au>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251124002105.25429-3-jszhang@kernel.org>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251123_235002_449818_CA5AC4E1 
-X-CRM114-Status: UNSURE (   9.98  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251123_235153_302953_294C1CBA 
+X-CRM114-Status: GOOD (  12.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,22 +103,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 24/11/2025 02:09, Stephen Rothwell wrote:
-> Hi all,
+On Mon, Nov 24, 2025 at 08:20:53AM +0800, Jisheng Zhang wrote:
+> Use the modern PM macros for the suspend and resume functions to be
+> automatically dropped by the compiler when CONFIG_PM or
+> CONFIG_PM_SLEEP are disabled, without having to use #ifdef guards.
 > 
-> The following commit is also in the arm-soc tree as a different commit
-> (but the same patch):
-> 
->   2e646b21df4c ("arm64: defconfig: enable Exynos ACPM clocks")
-> 
-> This is commit
-> 
->   38c8787f1b81 ("arm64: defconfig: enable Exynos ACPM clocks")
-> 
-> in the arm-soc tree.
+> This has the advantage of always compiling these functions in,
+> independently of any Kconfig option. Thanks to that, bugs and other
+> regressions are subsequently easier to catch.
 
-Thanks, that's expected. I dropped mine now.
+I think converting to the respective macros for NO_IRQ case makes sense in
+the same patch. But I leave this to Bart, I'm not going to give tag here
+due to the above.
 
-Best regards,
-Krzysztof
+-- 
+With Best Regards,
+Andy Shevchenko
+
+
 
