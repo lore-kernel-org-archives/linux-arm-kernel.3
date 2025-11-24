@@ -4,93 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB234CFD313
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 12:40:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3C9DCFD317
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Nov 2025 12:48:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oVT+P2Q2FNbO4yzzfNdRhD+z/9sACB9TSBL1VHafyeM=; b=TnnYoQJEklhTR4YSGUxpHaMSvn
-	sheGjZ890Vpbuyrxvpax2KnoUvXyvzTsrYVyldjdZFkGpAlCApJF13csbhSa51Rqx2cVfnHMZ8ZVL
-	rzuGwk2thgxfKTnj2bd1FQzTw0mfWEs2r+ZVp8UYWwvlAQAKfFbXcceYjB+SOvpSxUHdMNONaa5l/
-	JDI4d6NekVKWEp+pu8ktsXK3Rug2O1RRS++344XRnMw7V89IoA4oNJ5t+y3k0zt7L5HEnbR6TVLBQ
-	dm/Mfq/LkpVcZLxXOsvCgAgEkiesHzG87RCCiuGkpr3KuGyjvszZxBJJWqMhh7DmULegVQ78WVckt
-	b8tJyyiA==;
+	bh=pU+jnmvgd+G4YbcI1jrZhswEj1b5jzOEmkm4kKdxr30=; b=Xa1P3PZ4YDGo5jMNLOGiOEyZeC
+	yzB7G11mlAOAKCbs/dz2pa/p7zcPep760iD1KBgrAWWfnv4gcAZHW9oGOx/acESkhn0nTXCS7sG4a
+	kVebNkRvsHFpsCQ1JGtntI7NkLMsCo9IBdaQ4Jimgi5z2NWFpINnA8fgcow/ZCTTBywzlQa/TMCMf
+	ZeWkHeUaOiBfi+R1KTPxyHYtHlxNp6xXi/p9K3kFQSrir6WuCEJ/yo9r/r0A+BJRz3RS09DXY1qUe
+	+0K5n6PhFIlRWaO9j0NhFae7VciI+Xe21X8MMNpRUfRS+PvvQvaVf7OXT/IYJKmwyhva2y0xLzJts
+	Lpg2sKyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNVrb-0000000BfCS-2AQ0;
-	Mon, 24 Nov 2025 12:40:15 +0000
-Received: from mail-yx1-xb129.google.com ([2607:f8b0:4864:20::b129])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNVrZ-0000000BfBx-2xeg
+	id 1vNVzF-0000000BfeT-1jMd;
+	Mon, 24 Nov 2025 12:48:09 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vNVzC-0000000Bfdg-1SlP
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Nov 2025 12:40:14 +0000
-Received: by mail-yx1-xb129.google.com with SMTP id 956f58d0204a3-642fcb38f35so2780092d50.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Nov 2025 04:40:13 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1763988012; x=1764592812; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=oVT+P2Q2FNbO4yzzfNdRhD+z/9sACB9TSBL1VHafyeM=;
-        b=LL6SgA+G4n1mZ2kwzaoH0vRCQhNIJp5Cr3sjNrpsMjZg5YvYCDy9khV6zuUSDNDZe5
-         nXv/FfXd/F/7imfZcye98CLrtH0BKvfEpclfa/dAMMBgb22cFKJ/wwa43iEaSva+7u0s
-         LgOuhWmxULTnAK1tLNN1GFqa5bCrOsQfoOrJhC9eca4CHyH7ltmCxbHDWwbKnXnQeBDF
-         lMJmZLn/0a9HBIQnJLDRqFybS4zfWiqwTw/qNahlHeHCUVfXsII4Q3fXqV8C0oOD0ZcL
-         S58gUsAj3YpurcX/K+aj65vVWPuFoI3N8kNhiMzdr7PV271zf94+G9MrNaAChEqQHu8l
-         En2A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1763988012; x=1764592812;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=oVT+P2Q2FNbO4yzzfNdRhD+z/9sACB9TSBL1VHafyeM=;
-        b=kZOlHAsDgRyKCNXNSZUPowtViPS17vMqp25RGvFO1kGiYlbAg3tIGQSjVHOEMjCU0N
-         7tnR6EHfomLFL3MfGvtnWcNFJ2XU9KjlV1/+XMWJs/ZTXqIwGMzlW0mM/s76uVKC9TTY
-         IooAEc3UXcj3D7aJir16yUX65Dhc/UaKzRl6tALD/ue+kKj9UfVtjsC/enbeES423VuG
-         E9E2sRiWXHKwrP7D0RuXEBycQnYytkQMWjyLE/J+xbWht0TMzZ5N3pM3k0X7GxpFiCkL
-         tj8EjMiNoiBCBDKqjWfZkgZj8NuRhNtMFnp6Vy5mtUJssvrpKo6VEV+9aXriQINRnXPO
-         VEvw==
-X-Forwarded-Encrypted: i=1; AJvYcCXZENcoUuRG2fl0No4h7L/tjqEJRb/jujeh4O2ENg5Ppw0Z213jZS7FGKVaEiPZbHr1HoSi6cEVjN4DOLzdawJc@lists.infradead.org
-X-Gm-Message-State: AOJu0YzxQGj3bz6y2BeEbvjtYhWeg6gH53st40M02L/RpQh54B3ZykkM
-	4F2kG1EEtW3SReQWbRzKjVUzA1zH/KLKuqAoNbBRNFE2DW631xxqDrk2jCtr2gQ5z9bRlfNaMIz
-	1ekHZwTvy6Y3cgudCJWeKT/nbD7JbOzE=
-X-Gm-Gg: ASbGncs9AfidAgDVEFfP7eeZnS5bbnY0j3sr+zAMCtWDeDgQw/wXrUkeNp/vSfJc//K
-	jPobcdioTOH9fOSiEyMd18NGQndys5FOL8XVgMl40lzJsKWDwh5egsf2PkGWb5axaHhq60Rcxgm
-	QFeaqR150xhTiJu3hGhrrAQCcCBMx66o9tCCk3WIJKVfDYfSlhq6fovV/Vax449yAckbN3csQJF
-	PMwC49KJXcj5FHM5ofwrdjvXfB/JLe3oqCY4IAotLDwEjZJG/UAinvrRHDzzgrSwADBhw==
-X-Google-Smtp-Source: AGHT+IE1Llqkx1CcVPt39GnPt1w3RJWhFY7IsrU1F2MFCRvzmfovoyNjDStaDNVwB1QPHBPj5tW2Qo84aqI3y8Nh/Kc=
-X-Received: by 2002:a53:c0d0:0:b0:63f:7d36:ac28 with SMTP id
- 956f58d0204a3-64302acba70mr5672331d50.59.1763988012200; Mon, 24 Nov 2025
- 04:40:12 -0800 (PST)
+	Mon, 24 Nov 2025 12:48:08 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 57038497;
+	Mon, 24 Nov 2025 04:47:57 -0800 (PST)
+Received: from [10.57.40.193] (unknown [10.57.40.193])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id AEF4F3F6A8;
+	Mon, 24 Nov 2025 04:47:56 -0800 (PST)
+Message-ID: <f36ebc15-c724-487a-8e4a-9ca95edc544a@arm.com>
+Date: Mon, 24 Nov 2025 13:47:53 +0100
 MIME-Version: 1.0
-References: <20251124002105.25429-1-jszhang@kernel.org> <20251124002105.25429-3-jszhang@kernel.org>
-In-Reply-To: <20251124002105.25429-3-jszhang@kernel.org>
-From: Jonas Gorski <jonas.gorski@gmail.com>
-Date: Mon, 24 Nov 2025 13:40:01 +0100
-X-Gm-Features: AWmQ_blA870SHKIPqlSbPujYnm4wsQ6WId53r5BZ0bZ7_9yU2yeH8bEzT4EwQes
-Message-ID: <CAOiHx==ttP2T=VLsSE9nLr5Cai_D+Khr6ePJVdOEim8ThWSdmA@mail.gmail.com>
-Subject: Re: [PATCH v5 02/14] gpio: brcmstb: Use modern PM macros
-To: Jisheng Zhang <jszhang@kernel.org>
-Cc: Doug Berger <opendmb@gmail.com>, Florian Fainelli <florian.fainelli@broadcom.com>, 
-	bcm-kernel-feedback-list@broadcom.com, 
-	Linus Walleij <linus.walleij@linaro.org>, Bartosz Golaszewski <brgl@bgdev.pl>, 
-	Hoan Tran <hoan@os.amperecomputing.com>, Andy Shevchenko <andy@kernel.org>, 
-	Daniel Palmer <daniel@thingy.jp>, Romain Perier <romain.perier@gmail.com>, 
-	Grygorii Strashko <grygorii.strashko@ti.com>, Santosh Shilimkar <ssantosh@kernel.org>, 
-	Kevin Hilman <khilman@kernel.org>, Robert Jarzmik <robert.jarzmik@free.fr>, 
-	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>, Masami Hiramatsu <mhiramat@kernel.org>, 
-	Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>, Srinivas Neeli <srinivas.neeli@amd.com>, 
-	Michal Simek <michal.simek@amd.com>, linux-gpio@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-omap@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 06/12] mm: introduce generic lazy_mmu helpers
+From: Kevin Brodsky <kevin.brodsky@arm.com>
+To: Ryan Roberts <ryan.roberts@arm.com>, linux-mm@kvack.org
+Cc: linux-kernel@vger.kernel.org, Alexander Gordeev <agordeev@linux.ibm.com>,
+ Andreas Larsson <andreas@gaisler.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Boris Ostrovsky <boris.ostrovsky@oracle.com>, Borislav Petkov
+ <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>,
+ Christophe Leroy <christophe.leroy@csgroup.eu>,
+ Dave Hansen <dave.hansen@linux.intel.com>,
+ David Hildenbrand <david@redhat.com>, "David S. Miller"
+ <davem@davemloft.net>, David Woodhouse <dwmw2@infradead.org>,
+ "H. Peter Anvin" <hpa@zytor.com>, Ingo Molnar <mingo@redhat.com>,
+ Jann Horn <jannh@google.com>, Juergen Gross <jgross@suse.com>,
+ "Liam R. Howlett" <Liam.Howlett@oracle.com>,
+ Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+ Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Michal Hocko <mhocko@suse.com>,
+ Mike Rapoport <rppt@kernel.org>, Nicholas Piggin <npiggin@gmail.com>,
+ Peter Zijlstra <peterz@infradead.org>, Suren Baghdasaryan
+ <surenb@google.com>, Thomas Gleixner <tglx@linutronix.de>,
+ Vlastimil Babka <vbabka@suse.cz>, Will Deacon <will@kernel.org>,
+ Yeoreum Yun <yeoreum.yun@arm.com>, linux-arm-kernel@lists.infradead.org,
+ linuxppc-dev@lists.ozlabs.org, sparclinux@vger.kernel.org,
+ xen-devel@lists.xenproject.org, x86@kernel.org
+References: <20251029100909.3381140-1-kevin.brodsky@arm.com>
+ <20251029100909.3381140-7-kevin.brodsky@arm.com>
+ <71418b31-aedb-4600-9558-842515dd6c44@arm.com>
+ <b44825dd-aef9-4d3e-91fd-a44122264c23@arm.com>
+Content-Language: en-GB
+In-Reply-To: <b44825dd-aef9-4d3e-91fd-a44122264c23@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251124_044013_796645_7D30AFDF 
-X-CRM114-Status: GOOD (  23.01  )
+X-CRM114-CacheID: sfid-20251124_044806_552933_70163B56 
+X-CRM114-Status: GOOD (  14.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,72 +87,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On 10/11/2025 11:45, Kevin Brodsky wrote:
+>>> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+>>> index b8d37eb037fc..d9c8e94f140f 100644
+>>> --- a/arch/arm64/mm/mmu.c
+>>> +++ b/arch/arm64/mm/mmu.c
+>>> @@ -731,7 +731,7 @@ int split_kernel_leaf_mapping(unsigned long start, unsigned long end)
+>>>  		return -EINVAL;
+>>>  
+>>>  	mutex_lock(&pgtable_split_lock);
+>>> -	arch_enter_lazy_mmu_mode();
+>>> +	lazy_mmu_mode_enable();
+>>>  
+>>>  	/*
+>>>  	 * The split_kernel_leaf_mapping_locked() may sleep, it is not a
+>> This is a bit unfortunate, IMHO. The rest of this comment explains that although
+>> you're not supposed to sleep inside lazy mmu mode, it's fine for arm64's
+>> implementation. But we are no longer calling arm64's implementation; we are
+>> calling a generic function, which does who knows what.
+>>
+>> I think it all still works, but we are no longer containing our assumptions in
+>> arm64 code. We are relying on implementation details of generic code.
+> I see your point. The change itself is still correct (and required
+> considering patch 8), but maybe the documentation of the generic
+> interface should be clarified to guarantee that the generic layer can
+> itself cope with sleeping - without any guarantee regarding the
+> behaviour of arch_*_lazy_mmu_mode.
 
-On Mon, Nov 24, 2025 at 1:39=E2=80=AFAM Jisheng Zhang <jszhang@kernel.org> =
-wrote:
->
-> Use the modern PM macros for the suspend and resume functions to be
-> automatically dropped by the compiler when CONFIG_PM or
-> CONFIG_PM_SLEEP are disabled, without having to use #ifdef guards.
->
-> This has the advantage of always compiling these functions in,
-> independently of any Kconfig option. Thanks to that, bugs and other
-> regressions are subsequently easier to catch.
->
-> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-> Acked-by: Doug Berger <opendmb@gmail.com>
-> Reviewed-by: Florian Fainelli <florian.fainelli@broadcom.com>
-> Acked-by: Linus Walleij <linus.walleij@linaro.org>
-> ---
->  drivers/gpio/gpio-brcmstb.c | 12 +++---------
->  1 file changed, 3 insertions(+), 9 deletions(-)
->
-> diff --git a/drivers/gpio/gpio-brcmstb.c b/drivers/gpio/gpio-brcmstb.c
-> index f40c9472588b..af9287ff5dc4 100644
-> --- a/drivers/gpio/gpio-brcmstb.c
-> +++ b/drivers/gpio/gpio-brcmstb.c
-> @@ -533,7 +533,6 @@ static void brcmstb_gpio_shutdown(struct platform_dev=
-ice *pdev)
->         brcmstb_gpio_quiesce(&pdev->dev, false);
->  }
->
-> -#ifdef CONFIG_PM_SLEEP
->  static void brcmstb_gpio_bank_restore(struct brcmstb_gpio_priv *priv,
->                                       struct brcmstb_gpio_bank *bank)
->  {
-> @@ -572,14 +571,9 @@ static int brcmstb_gpio_resume(struct device *dev)
->         return 0;
->  }
->
-> -#else
-> -#define brcmstb_gpio_suspend   NULL
-> -#define brcmstb_gpio_resume    NULL
-> -#endif /* CONFIG_PM_SLEEP */
-> -
->  static const struct dev_pm_ops brcmstb_gpio_pm_ops =3D {
-> -       .suspend_noirq  =3D brcmstb_gpio_suspend,
-> -       .resume_noirq =3D brcmstb_gpio_resume,
-> +       .suspend_noirq =3D pm_sleep_ptr(brcmstb_gpio_suspend),
-> +       .resume_noirq =3D pm_sleep_ptr(brcmstb_gpio_resume),
->  };
->
->  static int brcmstb_gpio_probe(struct platform_device *pdev)
-> @@ -755,7 +749,7 @@ static struct platform_driver brcmstb_gpio_driver =3D=
- {
->         .driver =3D {
->                 .name =3D "brcmstb-gpio",
->                 .of_match_table =3D brcmstb_gpio_of_match,
-> -               .pm =3D &brcmstb_gpio_pm_ops,
-> +               .pm =3D pm_sleep_ptr(&brcmstb_gpio_pm_ops),
+Re-reading the existing comment in <linux/pgtable.h>, I think it already
+makes clear that sleeping is not forbidden by design:
 
-won't this cause a "brcmstb_gpio_pm_ops is unused" compile warning for
-!CONFIG_PM_SLEEP?
+>  * In the general case, no lock is guaranteed to be held between entry
+> and exit
+>  * of the lazy mode. So the implementation must assume preemption may
+> be enabled
+>  * and cpu migration is possible; it must take steps to be robust
+> against this.
 
-You probably need to add a __maybe_unused to brcmstb_gpio_pm_ops
-(which incidentally DEFINE_NOIRQ_DEV_PM_OPS() also doesn't set, but
-all other *_DEV_PM_OPS() macros do).
+The arch implementation may disable preemption, but arm64 code can rely
+on the arm64 implementation allowing sleeping.
 
-Best regards,
-Jonas
+- Kevin
+
 
