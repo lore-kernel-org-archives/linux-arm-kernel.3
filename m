@@ -4,59 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0C8DD0E6EC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 15:03:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 113F6D0E6F9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 15:13:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=x2q8nzzwX4cOOZf3rTMsE1p/X9/CMAzNgmBlOjPV4iY=; b=Mrp1o6ZmGQzq85PgbeRJ8mGZQV
-	cHjvPDJHtKTCUFK/xScm+w0Xt8O9e0XY4LkSkFm0BrMQFFWqGwCpeVnaQ5kh2/16Kzr6tsQNcLUr9
-	jJGBFOH6ycCNaRIbdQ+rdgVn7p6jxSTZ6fKJ6H3ZWVeo2RePDaZ6lvQkPpWoqJqc9W5UM87sk80Hv
-	zoH0JVrWyCMNjh/FlHlmui4DhtKjRvKJR6H1SFWvF1qSs1cLwv1Irxrj2SFoZu9TlauZ4WMp1AuAT
-	wuA9DI/SFT2LWK9FiWjmMBN+XVNe4Cta+2MH8o2TWfTPoMuwEQ1pff0XWA8HyfVS+XqQofSJ91RIr
-	IH/d0LoA==;
+	bh=p/JpHn1xRbA/zkUq4z+2VMIqfFZdMRGxJilqVj6pn8Q=; b=bypYqJ+TyEc1mRzDXtB0T9vhOw
+	pBkOjzAGdpuz1GABh2HKyrBeZUMXsQVBaW1FwrHqnqcG8BhJOlKmwQ4cPeyUkFcXJUDQOEuVW+iv3
+	vOKJZb58EMQmsDhmHoQz0aw8OMEiqQOEYxW4VFnI1DEOP46aH75KOItWiKawDuaa/AddTSSxCj9U5
+	C0XN/rnkMw55JgMKx+GFN+LgXIJIJOGdqw12ZGO2TXw9ub4aiTTItiY4g85JxukcJHOf/Z/j0KD+8
+	jY9gwpnSN+FX+GYxqb9FBHcxsl9FjNreiYDmT2NGtcOyhZYBjh6eK4/ItNcXUgMtra9NURqIO8tZy
+	3t+0qR7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNuZb-0000000DTYu-2LTY;
-	Tue, 25 Nov 2025 15:03:19 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNuZY-0000000DTYN-3UT2
+	id 1vNujB-0000000DUJI-33Zj;
+	Tue, 25 Nov 2025 15:13:16 +0000
+Received: from mout-p-201.mailbox.org ([80.241.56.171])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vNuj9-0000000DUHh-1WJJ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Nov 2025 15:03:18 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7A912168F;
-	Tue, 25 Nov 2025 07:03:08 -0800 (PST)
-Received: from [10.1.197.1] (ewhatever.cambridge.arm.com [10.1.197.1])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B2DC63F73B;
-	Tue, 25 Nov 2025 07:03:14 -0800 (PST)
-Message-ID: <d6277c87-d20c-459e-8314-d5fd99cf9b00@arm.com>
-Date: Tue, 25 Nov 2025 15:03:13 +0000
+	Tue, 25 Nov 2025 15:13:12 +0000
+Received: from smtp2.mailbox.org (smtp2.mailbox.org [10.196.197.2])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-201.mailbox.org (Postfix) with ESMTPS id 4dG5m536Knz9v6q;
+	Tue, 25 Nov 2025 16:12:53 +0100 (CET)
+From: Lukas Timmermann <linux@timmermann.space>
+Date: Tue, 25 Nov 2025 16:12:40 +0100
+Subject: [PATCH v2 1/3] dt-bindings: ARM: samsung: Add Google Manta (Nexus
+ 10)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 06/49] KVM: arm64: GICv3: Detect and work around the
- lack of ICV_DIR_EL1 trapping
-To: Marc Zyngier <maz@kernel.org>
-Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- kvm@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
- Oliver Upton <oupton@kernel.org>, Zenghui Yu <yuzenghui@huawei.com>,
- Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
- Mark Brown <broonie@kernel.org>
-References: <20251120172540.2267180-1-maz@kernel.org>
- <20251120172540.2267180-7-maz@kernel.org>
- <5df713d4-8b79-4456-8fd1-707ca89a61b6@arm.com> <86h5uiql4b.wl-maz@kernel.org>
- <e67decb6-20a5-4659-8401-8534049f9229@arm.com> <86fra2qhq9.wl-maz@kernel.org>
-Content-Language: en-US
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <86fra2qhq9.wl-maz@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20251125-google-manta-v2-1-0f097cfff39c@timmermann.space>
+References: <20251125-google-manta-v2-0-0f097cfff39c@timmermann.space>
+In-Reply-To: <20251125-google-manta-v2-0-0f097cfff39c@timmermann.space>
+To: Krzysztof Kozlowski <krzk@kernel.org>, 
+ Alim Akhtar <alim.akhtar@samsung.com>, Rob Herring <robh@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Russell King <linux@armlinux.org.uk>
+Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Lukas Timmermann <linux@timmermann.space>, 
+ Alexandre Marquet <tb@a-marquet.fr>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251125_070316_962436_32B83CD0 
-X-CRM114-Status: GOOD (  35.41  )
+X-CRM114-CacheID: sfid-20251125_071311_541356_0BCEBE43 
+X-CRM114-Status: UNSURE (   8.76  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,200 +68,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 25/11/2025 15:01, Marc Zyngier wrote:
-> On Tue, 25 Nov 2025 14:14:25 +0000,
-> Suzuki K Poulose <suzuki.poulose@arm.com> wrote:
->>
->> On 25/11/2025 13:48, Marc Zyngier wrote:
->>> On Tue, 25 Nov 2025 11:26:10 +0000,
->>> Suzuki K Poulose <suzuki.poulose@arm.com> wrote:
->>>>
->>>> On 20/11/2025 17:24, Marc Zyngier wrote:
->>>>> A long time ago, an unsuspecting architect forgot to add a trap
->>>>> bit for ICV_DIR_EL1 in ICH_HCR_EL2. Which was unfortunate, but
->>>>> what's a bit of spec between friends? Thankfully, this was fixed
->>>>> in a later revision, and ARM "deprecates" the lack of trapping
->>>>> ability.
->>>>>
->>>>> Unfortuantely, a few (billion) CPUs went out with that defect,
->>>>> anything ARMv8.0 from ARM, give or take. And on these CPUs,
->>>>> you can't trap DIR on its own, full stop.
->>>>>
->>>>> As the next best thing, we can trap everything in the common group,
->>>>> which is a tad expensive, but hey ho, that's what you get. You can
->>>>> otherwise recycle the HW in the neaby bin.
->>>>>
->>>>> Tested-by: Fuad Tabba <tabba@google.com>
->>>>> Signed-off-by: Marc Zyngier <maz@kernel.org>
->>>>> ---
->>>>>     arch/arm64/include/asm/virt.h  |  7 ++++-
->>>>>     arch/arm64/kernel/cpufeature.c | 52 ++++++++++++++++++++++++++++++++++
->>>>>     arch/arm64/kernel/hyp-stub.S   |  5 ++++
->>>>>     arch/arm64/kvm/vgic/vgic-v3.c  |  3 ++
->>>>>     arch/arm64/tools/cpucaps       |  1 +
->>>>>     5 files changed, 67 insertions(+), 1 deletion(-)
->>>>>
->>>>> diff --git a/arch/arm64/include/asm/virt.h b/arch/arm64/include/asm/virt.h
->>>>> index aa280f356b96a..8eb63d3294974 100644
->>>>> --- a/arch/arm64/include/asm/virt.h
->>>>> +++ b/arch/arm64/include/asm/virt.h
->>>>> @@ -40,8 +40,13 @@
->>>>>      */
->>>>>     #define HVC_FINALISE_EL2	3
->>>>>     +/*
->>>>> + * HVC_GET_ICH_VTR_EL2 - Retrieve the ICH_VTR_EL2 value
->>>>> + */
->>>>> +#define HVC_GET_ICH_VTR_EL2	4
->>>>> +
->>>>>     /* Max number of HYP stub hypercalls */
->>>>> -#define HVC_STUB_HCALL_NR 4
->>>>> +#define HVC_STUB_HCALL_NR 5
->>>>>       /* Error returned when an invalid stub number is passed into x0
->>>>> */
->>>>>     #define HVC_STUB_ERR	0xbadca11
->>>>> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
->>>>> index 5ed401ff79e3e..5de51cb1b8fe2 100644
->>>>> --- a/arch/arm64/kernel/cpufeature.c
->>>>> +++ b/arch/arm64/kernel/cpufeature.c
->>>>> @@ -2303,6 +2303,49 @@ static bool has_gic_prio_relaxed_sync(const struct arm64_cpu_capabilities *entry
->>>>>     }
->>>>>     #endif
->>>>>     +static bool can_trap_icv_dir_el1(const struct
->>>>> arm64_cpu_capabilities *entry,
->>>>> +				 int scope)
->>>>> +{
->>>>> +	static const struct midr_range has_vgic_v3[] = {
->>>>> +		MIDR_ALL_VERSIONS(MIDR_APPLE_M1_ICESTORM),
->>>>> +		MIDR_ALL_VERSIONS(MIDR_APPLE_M1_FIRESTORM),
->>>>> +		MIDR_ALL_VERSIONS(MIDR_APPLE_M1_ICESTORM_PRO),
->>>>> +		MIDR_ALL_VERSIONS(MIDR_APPLE_M1_FIRESTORM_PRO),
->>>>> +		MIDR_ALL_VERSIONS(MIDR_APPLE_M1_ICESTORM_MAX),
->>>>> +		MIDR_ALL_VERSIONS(MIDR_APPLE_M1_FIRESTORM_MAX),
->>>>> +		MIDR_ALL_VERSIONS(MIDR_APPLE_M2_BLIZZARD),
->>>>> +		MIDR_ALL_VERSIONS(MIDR_APPLE_M2_AVALANCHE),
->>>>> +		MIDR_ALL_VERSIONS(MIDR_APPLE_M2_BLIZZARD_PRO),
->>>>> +		MIDR_ALL_VERSIONS(MIDR_APPLE_M2_AVALANCHE_PRO),
->>>>> +		MIDR_ALL_VERSIONS(MIDR_APPLE_M2_BLIZZARD_MAX),
->>>>> +		MIDR_ALL_VERSIONS(MIDR_APPLE_M2_AVALANCHE_MAX),
->>>>> +		{},
->>>>> +	};
->>>>> +	struct arm_smccc_res res = {};
->>>>> +
->>>>> +	BUILD_BUG_ON(ARM64_HAS_ICH_HCR_EL2_TDIR <= ARM64_HAS_GICV3_CPUIF);
->>>>> +	BUILD_BUG_ON(ARM64_HAS_ICH_HCR_EL2_TDIR <= ARM64_HAS_GICV5_LEGACY);
->>>>> +	if (!cpus_have_cap(ARM64_HAS_GICV3_CPUIF) &&
->>>>> +	    !is_midr_in_range_list(has_vgic_v3))
->>>>> +		return false;
->>>>> +
->>>>> +	if (!is_hyp_mode_available())
->>>>> +		return false;
->>>>> +
->>>>> +	if (cpus_have_cap(ARM64_HAS_GICV5_LEGACY))
->>>>> +		return true;
->>>>> +
->>>>> +	if (is_kernel_in_hyp_mode())
->>>>> +		res.a1 = read_sysreg_s(SYS_ICH_VTR_EL2);
->>>>> +	else
->>>>> +		arm_smccc_1_1_hvc(HVC_GET_ICH_VTR_EL2, &res);
->>>>
->>>> We are reading the register on the current CPU and this capability,
->>>> being a SYSTEM_FEATURE, relies on the "probing CPU". If there CPUs
->>>> with differing values (which I don't think is practical, but hey,
->>>> never say..). This is would better be a
->>>> ARM64_CPUCAP_EARLY_LOCAL_CPU_FEATURE, which would run through all
->>>> boot CPUs and would set the capability when it matches.
->>>
->>> While I agree that SYSTEM_FEATURE is most probably the wrong thing, I
->>> can't help but notice that
->>>
->>> - ARM64_HAS_GICV3_CPUIF,
->>> - ARM64_HAS_GIC_PRIO_MASKING
->>> - ARM64_HAS_GIC_PRIO_RELAXED_SYNC
->>>
->>> are all ARM64_CPUCAP_STRICT_BOOT_CPU_FEATURE.
->>
->> Which means, if GICV3_CPUIF is set any booting CPU must have them.
->>
->>>
->>> On the other ARM64_HAS_GICV5_LEGACY is ARM64_CPUCAP_EARLY_LOCAL_CPU_FEATURE.
->>>
->>> Given that ARM64_HAS_ICH_HCR_EL2_TDIR is dependent on both
->>> ARM64_HAS_GICV3_CPUIF and ARM64_HAS_GICV5_LEGACY, shouldn't these two
->>> (and their dependencies) be aligned to have the same behaviour?
->>
->> Yes, but it also depends on how you are detecting the feature.
->>
->> BOOT_CPU_FEATURES are finalized with BOOT CPU and thusanything that
->> boots up later must have it. So it is fine, as long
->> as a SYSTEM cap depends on it and can do its own additional checks
->> in a system wide safe manner.
-> 
-> I had a quick go at it, and things are a bit murky. As it turns out,
-> the GICv3 stuff is STRICT_BOOT_CPU_FEATURE because we need the GIC
-> super early, before secondary CPUs can be brought up.
-> 
-> However, virtualisation-specific features only get used way down the
-> line, so both ICH_HCR_EL2_TDIR and GICV5_LEGACY can be delayed until
-> all CPUs have booted.
-> 
->> But in your case, we a have SYSTEM cap, which only performs the check
->> on the "running CPU" and not considering a system wide safe value for
->> ICH_VTR_EL2_TDS. In order to do this, we need to switch to something
->> like the GICV5_LEGACY cap, which chooses to perform the check on all
->> booting CPUs (as we don't keep the system wide safe value for the
->> bit it is looking for).
->>
->> e.g., your cap may be incorrectly SET, when the BOOT cpu (which
->> mostly runs the SYSTEM scope), but another CPU didn't have the
->> ICH_VTR_EL2_TDS.
-> 
-> Yup, that's the conclusion I also came to.
-> 
->> Does that help ?
-> 
-> It does. I came up with the fix below, which I'll spin as a patch shortly.
-> 
-> Thanks,
+From: Alexandre Marquet <tb@a-marquet.fr>
 
-Thanks, the below looks good to me.
+Add the Google Nexus 10 board to documentation.
 
+Signed-off-by: Alexandre Marquet <tb@a-marquet.fr>
+Signed-off-by: Lukas Timmermann <linux@timmermann.space>
+---
+ Documentation/devicetree/bindings/arm/samsung/samsung-boards.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-Cheers
-Suzuki
+diff --git a/Documentation/devicetree/bindings/arm/samsung/samsung-boards.yaml b/Documentation/devicetree/bindings/arm/samsung/samsung-boards.yaml
+index f8e20e602c20..13d97257f070 100644
+--- a/Documentation/devicetree/bindings/arm/samsung/samsung-boards.yaml
++++ b/Documentation/devicetree/bindings/arm/samsung/samsung-boards.yaml
+@@ -117,6 +117,7 @@ properties:
+       - description: Exynos5250 based boards
+         items:
+           - enum:
++              - google,manta                    # Google Manta (Nexus 10)
+               - google,snow-rev5                # Google Snow Rev 5+
+               - google,spring                   # Google Spring
+               - insignal,arndale                # Insignal Arndale
 
-> 
-> 	M.
-> 
-> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-> index ff2b05f7226a9..c840a93b9ef95 100644
-> --- a/arch/arm64/kernel/cpufeature.c
-> +++ b/arch/arm64/kernel/cpufeature.c
-> @@ -2326,14 +2326,14 @@ static bool can_trap_icv_dir_el1(const struct arm64_cpu_capabilities *entry,
->   
->   	BUILD_BUG_ON(ARM64_HAS_ICH_HCR_EL2_TDIR <= ARM64_HAS_GICV3_CPUIF);
->   	BUILD_BUG_ON(ARM64_HAS_ICH_HCR_EL2_TDIR <= ARM64_HAS_GICV5_LEGACY);
-> -	if (!cpus_have_cap(ARM64_HAS_GICV3_CPUIF) &&
-> +	if (!this_cpu_has_cap(ARM64_HAS_GICV3_CPUIF) &&
->   	    !is_midr_in_range_list(has_vgic_v3))
->   		return false;
->   
->   	if (!is_hyp_mode_available())
->   		return false;
->   
-> -	if (cpus_have_cap(ARM64_HAS_GICV5_LEGACY))
-> +	if (this_cpu_has_cap(ARM64_HAS_GICV5_LEGACY))
->   		return true;
->   
->   	if (is_kernel_in_hyp_mode())
-> @@ -2864,7 +2864,7 @@ static const struct arm64_cpu_capabilities arm64_features[] = {
->   		 */
->   		.desc = "ICV_DIR_EL1 trapping",
->   		.capability = ARM64_HAS_ICH_HCR_EL2_TDIR,
-> -		.type = ARM64_CPUCAP_SYSTEM_FEATURE,
-> +		.type = ARM64_CPUCAP_EARLY_LOCAL_CPU_FEATURE,
->   		.matches = can_trap_icv_dir_el1,
->   	},
->   #ifdef CONFIG_ARM64_E0PD
-> 
+-- 
+2.52.0
 
 
