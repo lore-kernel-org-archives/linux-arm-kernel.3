@@ -4,83 +4,150 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E512CFD364
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 07:18:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F1E9CFD364
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 07:20:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VTc+iHYIfY6BT0FJuK7oQoucYlObBps7bEJ5JLzDQO8=; b=PmXQXYw580DZ4ohYNlHW6ARmse
-	a6muBEsieYYrHgy9842BKkJXDIh9yjFUkDAI6I0QnSP9ii6hj8k6xqJ/d8hXYs8dEMoXAzcRDKAMj
-	7t46Tjo/OKZcI0fX/ll20WjBCFyyHhk3UHQ9ZYZRXLc6X4K1xOREivr5DigjQoPPyqSpuG9lTlYqF
-	zFuZlRSqD3KUtJ5sYTzVzyvn1gLAUMzLRBTtPQNuOnkFJy6gZHabkkB4zEyw0FbChRAbCV/xZxJmn
-	3KG1w+/4MT8jq3WWQR+kQ8+R1kUFUZct6zqTkDyizazFKlhqG6XzITuhXtSbCUWfFlDifCekwvJ2i
-	muuqviiw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TPntlOqdFWfhwr/Kbhykec41hobmmKyQB3TzxwFkUv4=; b=IyC3WT6PLF29wNiheWXjkWMek1
+	3oMLdCzBad/IonViWc1okUhlHDU76jj32T+g9dXMOkh/MSzr6z6cpf1TNc6GuecAg0koauURH1YL+
+	1szY5G4SXp2s5b0iblIycp58AWhgOKII1xf3m3FX0CkMRHJqpfgzdq0k8cCy35vxSdtq4hv8UMEvM
+	ObLdjsCpB4sHvxZrht2HOXPjyetU8AM29yTz8n6TXYloORZHxQFO7esCrM2szvTFgvdU1gcQL7BJe
+	xNvSj1AZHu1QEMX2ciFmPSPJ10KDUxhDd0AOd6SZQN7TfzYZlcHzbR+n3qdMaq5pNO/lXNpR+R7DN
+	l+ZxGEhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNnK2-0000000Csg3-3CPK;
-	Tue, 25 Nov 2025 07:18:46 +0000
-Received: from mgamail.intel.com ([198.175.65.13])
+	id 1vNnLC-0000000Csoc-2r29;
+	Tue, 25 Nov 2025 07:19:58 +0000
+Received: from smtp-out1.suse.de ([195.135.223.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNnJz-0000000CsfL-2OHd;
-	Tue, 25 Nov 2025 07:18:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1764055124; x=1795591124;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=/X+wco292UFJAKK39s6qaccyy9GGH1wWRxkeCx6P5qw=;
-  b=EJodWv/q+w5Yl4a4bVJSIRu1c1K3DGoQW48ZJmwd9IeSzgWeC/mzJ/L3
-   4OOYT0jRorbigNHuMx7o7j0YOKtrcmqzDttQjRPgh2NFjSXRE3uyWHyuM
-   HKWQLL4bRq6qrc5lOfVgVu5UOjzHmof4vjhJEhmGAre9GQgzRTpX19bB6
-   ldW76n/zmUZG1y7RajctYHTMnT9y07Z+O+llXqFEte4XI50tSDsHZBBAV
-   T1QivDwybaVH9J9dF+6tgzkBXFr7CiEA/U2FqAOh3ZK9N59r/ifXfIHEh
-   GHq+Mg7RxhV4UHrkMFI7oJ05PoSEtYWOBAZlx4Qrj59RPxcuNXjEbW7zE
-   g==;
-X-CSE-ConnectionGUID: MjET/q0lRDSnb3h+nbuv2w==
-X-CSE-MsgGUID: v8MLXfmyQ02UT5AkZKxvPQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11623"; a="77176688"
-X-IronPort-AV: E=Sophos;i="6.20,224,1758610800"; 
-   d="scan'208";a="77176688"
-Received: from orviesa001.jf.intel.com ([10.64.159.141])
-  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2025 23:18:41 -0800
-X-CSE-ConnectionGUID: BWEPn88hRXSOdQ6eSCA73A==
-X-CSE-MsgGUID: n8YhzwQNQE+i8HSVsoquTQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.20,224,1758610800"; 
-   d="scan'208";a="229840402"
-Received: from abityuts-desk.ger.corp.intel.com (HELO localhost) ([10.245.244.152])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2025 23:18:37 -0800
-Date: Tue, 25 Nov 2025 09:18:34 +0200
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>
-Cc: Lorenzo Bianconi <lorenzo@kernel.org>, Ray Liu <ray.liu@airoha.com>,
-	Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Andy Shevchenko <andy@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-spi@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-mediatek@lists.infradead.org,
-	Andreas Gnau <andreas.gnau@iopsys.eu>
-Subject: Re: [PATCH v4 1/3] spi: airoha-snfi: en7523: workaround flash
- damaging if UART_TXD was short to GND
-Message-ID: <aSVYShXLirW--bYe@smile.fi.intel.com>
-References: <20251125021051.857159-1-mikhail.kshevetskiy@iopsys.eu>
- <20251125021051.857159-2-mikhail.kshevetskiy@iopsys.eu>
+	id 1vNnL9-0000000CsnV-2Xuv
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 25 Nov 2025 07:19:57 +0000
+Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id 99FA922653;
+	Tue, 25 Nov 2025 07:19:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1764055193; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=TPntlOqdFWfhwr/Kbhykec41hobmmKyQB3TzxwFkUv4=;
+	b=WUdO/WfD173ZFq/tfqsxWjrcSCfzNOy7tCuCaHuzEzYTyMWLfWbSib+W6SkFD1tRLlwL/q
+	DwpKjQoEkV9VRf3QULw259l6zaM7JVcR8IAq395MIcXM75BJY7k0P2uefrI5y2ffhOsh6Z
+	sE6cnd7fyct7T3tkXKZJnYk4rUZ0pjA=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1764055193;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=TPntlOqdFWfhwr/Kbhykec41hobmmKyQB3TzxwFkUv4=;
+	b=dl8Ok7ikIupkgbJXbm1AVIfcq/9jM7IhiDaGX+BG12s20Hlm7OY4gJHWiPARPiIZOS2wnd
+	GrZUz0T1bdH7R3AQ==
+Authentication-Results: smtp-out1.suse.de;
+	none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1764055193; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=TPntlOqdFWfhwr/Kbhykec41hobmmKyQB3TzxwFkUv4=;
+	b=WUdO/WfD173ZFq/tfqsxWjrcSCfzNOy7tCuCaHuzEzYTyMWLfWbSib+W6SkFD1tRLlwL/q
+	DwpKjQoEkV9VRf3QULw259l6zaM7JVcR8IAq395MIcXM75BJY7k0P2uefrI5y2ffhOsh6Z
+	sE6cnd7fyct7T3tkXKZJnYk4rUZ0pjA=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1764055193;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=TPntlOqdFWfhwr/Kbhykec41hobmmKyQB3TzxwFkUv4=;
+	b=dl8Ok7ikIupkgbJXbm1AVIfcq/9jM7IhiDaGX+BG12s20Hlm7OY4gJHWiPARPiIZOS2wnd
+	GrZUz0T1bdH7R3AQ==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 2035F3EA63;
+	Tue, 25 Nov 2025 07:19:53 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id ynIsBplYJWn5QQAAD6G6ig
+	(envelope-from <tzimmermann@suse.de>); Tue, 25 Nov 2025 07:19:53 +0000
+Message-ID: <8ff77586-724e-48a4-9282-643e8fa84d96@suse.de>
+Date: Tue, 25 Nov 2025 08:19:52 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251125021051.857159-2-mikhail.kshevetskiy@iopsys.eu>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 08/10] efi: Support EDID information
+To: Ard Biesheuvel <ardb@kernel.org>
+Cc: javierm@redhat.com, arnd@arndb.de, richard.lyu@suse.com, x86@kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-efi@vger.kernel.org, loongarch@lists.linux.dev,
+ linux-riscv@lists.infradead.org, dri-devel@lists.freedesktop.org,
+ linux-hyperv@vger.kernel.org, linux-pci@vger.kernel.org,
+ linux-fbdev@vger.kernel.org
+References: <20251124165116.502813-1-tzimmermann@suse.de>
+ <20251124165116.502813-9-tzimmermann@suse.de>
+ <CAMj1kXFu4=L=ROVAaRORG5HMmYWHb6OXQf6pJ3yAZpeDmfmSeg@mail.gmail.com>
+ <CAMj1kXFtsneE3dFgUx6Hd=iBhD8YpvjfTSi-KZpuNaXfX07KyA@mail.gmail.com>
+Content-Language: en-US
+From: Thomas Zimmermann <tzimmermann@suse.de>
+Autocrypt: addr=tzimmermann@suse.de; keydata=
+ xsBNBFs50uABCADEHPidWt974CaxBVbrIBwqcq/WURinJ3+2WlIrKWspiP83vfZKaXhFYsdg
+ XH47fDVbPPj+d6tQrw5lPQCyqjwrCPYnq3WlIBnGPJ4/jreTL6V+qfKRDlGLWFjZcsrPJGE0
+ BeB5BbqP5erN1qylK9i3gPoQjXGhpBpQYwRrEyQyjuvk+Ev0K1Jc5tVDeJAuau3TGNgah4Yc
+ hdHm3bkPjz9EErV85RwvImQ1dptvx6s7xzwXTgGAsaYZsL8WCwDaTuqFa1d1jjlaxg6+tZsB
+ 9GluwvIhSezPgnEmimZDkGnZRRSFiGP8yjqTjjWuf0bSj5rUnTGiyLyRZRNGcXmu6hjlABEB
+ AAHNJ1Rob21hcyBaaW1tZXJtYW5uIDx0emltbWVybWFubkBzdXNlLmRlPsLAjgQTAQgAOAIb
+ AwULCQgHAgYVCgkICwIEFgIDAQIeAQIXgBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftODH
+ AAoJEGgNwR1TC3ojx1wH/0hKGWugiqDgLNXLRD/4TfHBEKmxIrmfu9Z5t7vwUKfwhFL6hqvo
+ lXPJJKQpQ2z8+X2vZm/slsLn7J1yjrOsoJhKABDi+3QWWSGkaGwRJAdPVVyJMfJRNNNIKwVb
+ U6B1BkX2XDKDGffF4TxlOpSQzdtNI/9gleOoUA8+jy8knnDYzjBNOZqLG2FuTdicBXblz0Mf
+ vg41gd9kCwYXDnD91rJU8tzylXv03E75NCaTxTM+FBXPmsAVYQ4GYhhgFt8S2UWMoaaABLDe
+ 7l5FdnLdDEcbmd8uLU2CaG4W2cLrUaI4jz2XbkcPQkqTQ3EB67hYkjiEE6Zy3ggOitiQGcqp
+ j//OwE0EWznS4AEIAMYmP4M/V+T5RY5at/g7rUdNsLhWv1APYrh9RQefODYHrNRHUE9eosYb
+ T6XMryR9hT8XlGOYRwKWwiQBoWSDiTMo/Xi29jUnn4BXfI2px2DTXwc22LKtLAgTRjP+qbU6
+ 3Y0xnQN29UGDbYgyyK51DW3H0If2a3JNsheAAK+Xc9baj0LGIc8T9uiEWHBnCH+RdhgATnWW
+ GKdDegUR5BkDfDg5O/FISymJBHx2Dyoklv5g4BzkgqTqwmaYzsl8UxZKvbaxq0zbehDda8lv
+ hFXodNFMAgTLJlLuDYOGLK2AwbrS3Sp0AEbkpdJBb44qVlGm5bApZouHeJ/+n+7r12+lqdsA
+ EQEAAcLAdgQYAQgAIAIbDBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftOH6AAoJEGgNwR1T
+ C3ojVSkIALpAPkIJPQoURPb1VWjh34l0HlglmYHvZszJWTXYwavHR8+k6Baa6H7ufXNQtThR
+ yIxJrQLW6rV5lm7TjhffEhxVCn37+cg0zZ3j7zIsSS0rx/aMwi6VhFJA5hfn3T0TtrijKP4A
+ SAQO9xD1Zk9/61JWk8OysuIh7MXkl0fxbRKWE93XeQBhIJHQfnc+YBLprdnxR446Sh8Wn/2D
+ Ya8cavuWf2zrB6cZurs048xe0UbSW5AOSo4V9M0jzYI4nZqTmPxYyXbm30Kvmz0rYVRaitYJ
+ 4kyYYMhuULvrJDMjZRvaNe52tkKAvMevcGdt38H4KSVXAylqyQOW5zvPc4/sq9c=
+In-Reply-To: <CAMj1kXFtsneE3dFgUx6Hd=iBhD8YpvjfTSi-KZpuNaXfX07KyA@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Spamd-Result: default: False [-4.30 / 50.00];
+	BAYES_HAM(-3.00)[100.00%];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	NEURAL_HAM_SHORT(-0.20)[-0.999];
+	MIME_GOOD(-0.10)[text/plain];
+	FUZZY_RATELIMITED(0.00)[rspamd.com];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	MIME_TRACE(0.00)[0:+];
+	ARC_NA(0.00)[];
+	RCPT_COUNT_TWELVE(0.00)[14];
+	MID_RHS_MATCH_FROM(0.00)[];
+	RCVD_TLS_ALL(0.00)[];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	FROM_HAS_DN(0.00)[];
+	TO_DN_SOME(0.00)[];
+	FROM_EQ_ENVFROM(0.00)[];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	RCVD_COUNT_TWO(0.00)[2];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:email,suse.de:mid,suse.com:url]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251124_231843_688464_DD4A6430 
-X-CRM114-Status: GOOD (  19.17  )
+X-CRM114-CacheID: sfid-20251124_231955_924774_101C8BB5 
+X-CRM114-Status: GOOD (  11.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,58 +162,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 25, 2025 at 05:10:49AM +0300, Mikhail Kshevetskiy wrote:
-> Airoha EN7523 specific bug
-> --------------------------
-> We found that some serial console may pull TX line to GROUND during board
-> boot time. Airoha uses TX line as one of it's BOOT pins.
+Hi
 
-I know the term bootstrap, what does BOOT mean?
+Am 24.11.25 um 18:04 schrieb Ard Biesheuvel:
+> On Mon, 24 Nov 2025 at 18:01, Ard Biesheuvel <ardb@kernel.org> wrote:
+>> On Mon, 24 Nov 2025 at 17:52, Thomas Zimmermann <tzimmermann@suse.de> wrote:
+>>> Add LINUX_EFI_PRIMARY_DISPLAY_TABLE_GUID to the list of config-table
+>>> UUIDs. Read sysfb_primary_display from the entry. The UUID has been
+>>> generated with uuidgen.
+>>>
+>>> Still support LINUX_EFI_SCREEN_INFO_TABLE_GUID as fallback in case an
+>>> older boot loader invokes the kernel.
+>>>
+>>> If CONFIG_FIRMWARE_EDID=n, EDID information is disabled.
+>>>
+>>> Make the Kconfig symbol CONFIG_FIRMWARE_EDID available with EFI. Setting
+>>> the value to 'n' disables EDID support.
+>>>
+>>> Signed-off-by: Thomas Zimmermann <tzimmermann@suse.de>
+>> Why are we adding a new config table again?
+>>
+>>
+> Note that LINUX_EFI_SCREEN_INFO_TABLE_GUID is internal ABI only
+> between the EFI stub and the core kernel.
 
-> On the EN7523 SoC this may lead to booting in RESERVED boot mode.
-> 
-> It was found that some flashes operates incorrectly in RESERVED mode.
-> Micron and Skyhigh flashes are definitely affected by the issue,
-> Winbond flashes are NOT affected.
+Ah, ok. That's my misconception. I was thinking that we have to support 
+external boot loaders building a config table.
 
-NOT --> not
+I'll just extend the existing UUID then.
 
-> Details:
-> --------
-> DMA reading of odd pages on affected flashes operates incorrectly. Page
-> reading offset (start of the page) on hardware level is replaced by 0x10.
-> Thus results in incorrect data reading. As result OS loading becomes
-> impossible.
-> 
-> Usage of UBI make things even worse. On attaching, UBI will detects
-> corruptions (because of wrong reading of odd pages) and will try to
-> recover. For recovering UBI will erase and write 'damaged' blocks with
-> a valid information. This will destroy all UBI data.
-> 
-> Non-DMA reading is OK.
-> 
-> This patch detects booting in reserved mode, turn off DMA and print big
-> fat warning.
+Best regards
+Thomas
 
-...
-
-> -	err = dma_set_mask(as_ctrl->dev, DMA_BIT_MASK(32));
-> -	if (err)
-> -		return err;
-
-> +	if (dma_enable) {
-> +		err = dma_set_mask(as_ctrl->dev, DMA_BIT_MASK(32));
-> +		if (err)
-> +			return err;
-> +	}
-
-Why do you need this to be conditional? The settings of DMA mask should not
-affect the (in)ability of the device to perform DMA. I.o.w. it should not
-influence PIO mode. Can you confirm this?
 
 -- 
-With Best Regards,
-Andy Shevchenko
+--
+Thomas Zimmermann
+Graphics Driver Developer
+SUSE Software Solutions Germany GmbH
+Frankenstr. 146, 90461 Nürnberg, Germany, www.suse.com
+GF: Jochen Jaser, Andrew McDonald, Werner Knoblich, (HRB 36809, AG Nürnberg)
 
 
 
