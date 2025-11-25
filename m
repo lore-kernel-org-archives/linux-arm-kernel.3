@@ -4,144 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F3E5CFD36C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 04:15:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 770B3CFD364
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 05:03:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K1n7SrvDxnUEaiKxNV+Oj7BxRu0XEsMlZSrXU5cmk8E=; b=KPGzZlJuU9TVGhjyCOA7XPwqVl
-	gwj2BVPMZCLumX68SInXDiY+EJQ8z7ViBauMfA4qriTcIe6W65fTJjNZDhWuOyZDiKhHFBVBiTdgx
-	/u0oKERhQaNhToKJH5Z3IP2EQqAaqSF4a5r1dmEpTmvWFsTZUugLsn5HTY3npesZzEmjJsGEjGyMT
-	XNMU953BltQi90Rv+97qB9tRwBlpeS1qJ83eWBFDabZTJIzITv94sv0RjA4ppdl7PgHoRIcrJE3MR
-	5QvYetEEorWDsN43Rkm5RyzS2W5EneO1flbhID4t/jicr+wsUEKHD/d/de9Mg3ikIOOjurrOSi0oJ
-	8n4FdEPA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=H/IpVNPJeIJslvkWcf3WXaaxdB67FrQ6N/vDSlpiXwc=; b=qxlZzSiyTcy+WZYwhN2l8qP/TJ
+	LNVI4bCGU7Scaaug7j9hFVo4PbznIZ+WypWsT8hZBQVnXP2oOroBGsV7c6rXgRiO/eYnjnhtulDN8
+	JUg44UwU+iJ5CaUb3BbMxtoGy4xgg506nwiBhpx5J8SldRKFyjRj+adYEpR3Ihb/AJ/8vyM4c8W8M
+	zLJ0P89szfY43zVegjuoUmWxms5hiQ0Y5AVYVzUO+ee/mjZBNXcUpnmW8bULC5ZswBlRsHqdToKan
+	HzWppHjbOWhFyDnacPTKfKO9TWMcSkA0FgvxBZwnoeUrI5yqKjagnNa783uM2NDn4Q24k0tlNxl7y
+	QMsIBTyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNkSD-0000000CjVv-19bC;
-	Tue, 25 Nov 2025 04:15:01 +0000
-Received: from mail-northcentralusazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c105::5] helo=CH5PR02CU005.outbound.protection.outlook.com)
+	id 1vNlCf-0000000ClS2-1vCM;
+	Tue, 25 Nov 2025 05:03:01 +0000
+Received: from mgamail.intel.com ([198.175.65.16])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNkSB-0000000CjVA-0alb
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Nov 2025 04:15:00 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=TGvO/OY4FeBTqwBr8XkcDJo9HmOByqqBrT4VjihzDbKcP6HLS0blTZSRcrWEHP8lqLBAtts9+CEKuZw1ca4/sgQUweNL11lQK2eFjGHh9QbSa+HmkhRqQz6V5prsdNLD9YjcH1Nd4AYrlcb1Go8TtFcYesS6xmgYB/uOHGIGokjbQShaOz9qMhcH8eWRU3RzSXkifKaSjRI9nzIjaOZAGs3gsYSibXaWM0iirWnuJL30G76YJ7TsgnqXNAmKuMp+LBv2TnP5imYQV9DyX9/zEQP2YJ1mVrBkgRScsxnZT5n9SPLZhoZliNVZqOxdzC4GG0EKj4kxhUmv6AHGVhknrg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=K1n7SrvDxnUEaiKxNV+Oj7BxRu0XEsMlZSrXU5cmk8E=;
- b=QPcb+elxKReVbNIcfECaCYuaWuUuEBrdvBWB2YYybi2j5wzSyklEDvsgDTWn/FN36qIpWl1zPnyuEo8uJm+XwVsaLdgGSeq8lOd5VtUEcDIDxCU/HoH7FbVLKDleRa0trR1Wc1pgO75h++Na9A7Exhq8vYhxF+LCEaiRzIRWi1FK0sSpEfzNQnwJ2laSzFlY+BUdQhNceg0u7E+QMQ/wLpTXxOqwC91H5Cbn/6c8OD+Ox4OhCHFKIvjdfYZo78jhhh4UmIMW4YC9tCdIBDdNOteSwYK+PIr8RfJdb/ncQtVyUORhTCUfj/78q1CJzOET3l3st2KC3N6LgHb0h49ktQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.118.232) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=K1n7SrvDxnUEaiKxNV+Oj7BxRu0XEsMlZSrXU5cmk8E=;
- b=sxCxUTLPUqASx6rZfuBBDKHs4cqlGp1EQOhrliBouPTUT/9smV2PC8RUrj62uujq4zekgsXYiY+F+4Dz8RuzEdloVDhgLOYx/5WtblkGCb1AKUzHb7DPv8mgc066Xoy4kbNxUX8JSbMnLkT5JWYggjb25zYJ2XbskDyfCx8TB3MLnTE1/as1zptTSikpIA+RQHgJokRVPd1uQfcJW+qjJUW0fGoMYv0EA0d95N7nsP2FMwLaGV2dHKA7y0UQlVDbt1OYRnSkCiRJzHnOu2ryi/YsmFxVx7tU6kDQcKvOllU/v3MkOSEDwxi7Dhu8vZj9JslVAU2bRYw4TND2hgsxEw==
-Received: from DM6PR08CA0056.namprd08.prod.outlook.com (2603:10b6:5:1e0::30)
- by DS7PR12MB5840.namprd12.prod.outlook.com (2603:10b6:8:7b::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9343.17; Tue, 25 Nov
- 2025 04:14:49 +0000
-Received: from DS2PEPF0000343B.namprd02.prod.outlook.com
- (2603:10b6:5:1e0:cafe::82) by DM6PR08CA0056.outlook.office365.com
- (2603:10b6:5:1e0::30) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9343.17 via Frontend Transport; Tue,
- 25 Nov 2025 04:14:49 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.232)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.118.232 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.118.232; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.118.232) by
- DS2PEPF0000343B.mail.protection.outlook.com (10.167.18.38) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9366.7 via Frontend Transport; Tue, 25 Nov 2025 04:14:49 +0000
-Received: from drhqmail203.nvidia.com (10.126.190.182) by mail.nvidia.com
- (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 24 Nov
- 2025 20:14:41 -0800
-Received: from drhqmail201.nvidia.com (10.126.190.180) by
- drhqmail203.nvidia.com (10.126.190.182) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.20; Mon, 24 Nov 2025 20:14:40 -0800
-Received: from Asurada-Nvidia (10.127.8.13) by mail.nvidia.com
- (10.126.190.180) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Mon, 24 Nov 2025 20:14:40 -0800
-Date: Mon, 24 Nov 2025 20:14:39 -0800
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Will Deacon <will@kernel.org>
-CC: <jean-philippe@linaro.org>, <robin.murphy@arm.com>, <joro@8bytes.org>,
-	<jgg@nvidia.com>, <balbirs@nvidia.com>, <miko.lenczewski@arm.com>,
-	<peterz@infradead.org>, <kevin.tian@intel.com>, <praan@google.com>,
-	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
-	<linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v5 3/7] iommu/arm-smmu-v3: Introduce a per-domain
- arm_smmu_invs array
-Message-ID: <aSUtL9qxYa6/GCfP@Asurada-Nvidia>
-References: <cover.1762588839.git.nicolinc@nvidia.com>
- <eea7bffde13574e099212e3b3823a0f192d6aec3.1762588839.git.nicolinc@nvidia.com>
- <aSTRRyTBh1nATwBa@willie-the-truck>
+	id 1vNlCc-0000000ClRI-0kd9;
+	Tue, 25 Nov 2025 05:02:59 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1764046978; x=1795582978;
+  h=message-id:date:mime-version:subject:to:references:from:
+   in-reply-to:content-transfer-encoding;
+  bh=CxuoyWDMjnvPVlANis+bdBxUp4A0mu3YzVIP24vTdmw=;
+  b=jTPVMannSWMfc3fm+OSavYVcsCmnGbne+dbW1FG5nA7sGPkFWRtBNLWp
+   VuVrx/aqCG6JKLrrVABkL1TzZs8q2Cf/VxVA4aJgAaY2lia67aw0bnD7g
+   Fwtj/siUvr3JCtXVEfAR9QBKFxSh7VoJQma3SP7axSGR3wOE2mVcH6KQ3
+   7TUK/nyZCRARppkKwGO9JKPTAi/xFeT3CwVALAoNkCrKAh3adzudcJ8bh
+   h88cLGohhxCwPkjFqDtk438C47dWYq8pTHyVlb4H9fymLLa/kAjDT+ZL/
+   VnYTtY+w+dI0pcfAF0TvTA5QFuL46hIYyj+35Y4VWBopSR49Ebc236pXq
+   A==;
+X-CSE-ConnectionGUID: ptbUomSoQlOTg8soc63A7Q==
+X-CSE-MsgGUID: ZbTzBQ77T6+SQZtmczzajA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11623"; a="66219506"
+X-IronPort-AV: E=Sophos;i="6.20,224,1758610800"; 
+   d="scan'208";a="66219506"
+Received: from orviesa006.jf.intel.com ([10.64.159.146])
+  by orvoesa108.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2025 21:02:56 -0800
+X-CSE-ConnectionGUID: rs3B5ijhTVGv+kSjCL9fAA==
+X-CSE-MsgGUID: urT/xi6OQOK7RTeKmDyI0w==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.20,224,1758610800"; 
+   d="scan'208";a="191669191"
+Received: from dapengmi-mobl1.ccr.corp.intel.com (HELO [10.124.240.213]) ([10.124.240.213])
+  by orviesa006-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2025 21:02:48 -0800
+Message-ID: <83067602-325a-4655-a1b7-e6bd6a31eed4@linux.intel.com>
+Date: Tue, 25 Nov 2025 13:02:46 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <aSTRRyTBh1nATwBa@willie-the-truck>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS2PEPF0000343B:EE_|DS7PR12MB5840:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5b9e0a95-b60d-445e-947b-08de2bd92d10
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|1800799024|82310400026|7416014|376014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?7Ijf22WFcv3FaKn28lVyXUZyiEaR6KHv3JRu8vdzQeHsdKOnwfCipMqVPnAP?=
- =?us-ascii?Q?YeahfZnqmCfEMwoah17xg3Mgy4LqLwy04o7qKfHu0qf7sjLMyUsxqtPTRToB?=
- =?us-ascii?Q?+shw90bI4YoJ0VizHHQOD4Zc3mx36mrB7JHPdtOSA4mcZ7x0FJqpnnKaPiFX?=
- =?us-ascii?Q?lHm/7mlJebVjHPBsvD+42MPI1TEw0uvPAaCV2PO45Qg7TJhqANfnhxXk4Ccj?=
- =?us-ascii?Q?WdRZct7JG7buXzHma/2cwTODYAK9YTQS7ZFgALget3oqR2CT7fCh3u27gkUM?=
- =?us-ascii?Q?0Zbux+isYSgIrYr7GHFWBrzitvGYfftozo9R46xgevJqJurO4HRz249xHUg0?=
- =?us-ascii?Q?z7oxbvfIxAkzYv1YcYbxH5fnMvsQKQP2Eh/G6qLFFYOpR4jlPcc2FJaicPVS?=
- =?us-ascii?Q?eRkHg5NhRalRqKqXLW8IVuWRnKeodqGL+GbqFTGel8eidgQLN36gHlLtsj/P?=
- =?us-ascii?Q?H/feJ+OzIuHdv5spqN5SadyoZnyoqbOBFFpBpfdsYBk5mNVVsx/lsiVC1gc1?=
- =?us-ascii?Q?Ppz6K+PZI7ZDbuTP1o1MEKjPuF2X7iShDeJHIwM4m68RiF0e5Mv0jLA+ZGpi?=
- =?us-ascii?Q?p3DnGv5f9+2Ene4kcxL0RRmAxpXOepBJ1bItZj0y1CBMZvSsXXINGykogcFY?=
- =?us-ascii?Q?b9NqX7CamA6tSm9oP9bBqFfArco0q2fnPLxSAAWS7ARGG00I1Ej0AmVffugt?=
- =?us-ascii?Q?KeEy4HEAWblfuX+pm38vnVrS1+zlpsDi/P1pex22OEU4mafCczA3BOrqLrBW?=
- =?us-ascii?Q?Y/EMR9WRrvr8jSYQDb8Txkd5fPhCn+HCw4bzhflQWi3GHl2rzYMYX7u0QARw?=
- =?us-ascii?Q?poR2pAhzLfW8+h2VF+v5kDDocK/ClOqHvj47GzmfeMihf+Lid2DjulN56fXz?=
- =?us-ascii?Q?BsrQ2bFXmdsB53OTT5QVAit8abnfexqAzJ7ov9o/ZsEaHCGxX49MDe0mvQIW?=
- =?us-ascii?Q?o8BhTyKwoGB+l6vQAV0jvx8AqPuiMG1QxoKaJSAOufO9Ahd81Lkxb7AcxAC2?=
- =?us-ascii?Q?pO6o20O3OCNOXjjayb3mCpcgs0CeMOSZLNKnrjc3cUjDYeqdUoTR34s52gtu?=
- =?us-ascii?Q?xZ/gnlrhqyX4dnJVLpKMJwulTBXme6ZkJk6QggHu4YjnMX+ZLgQolyrf43cU?=
- =?us-ascii?Q?nMfQzDBQtiMUbhUnH/u/VteG0eWLgan0lh3GN3dFIb7iaSaVHME/HXI1rpMi?=
- =?us-ascii?Q?KNys4VhVYml3yQ5K7zHASmX1Q/SaZ0R+5xR3/uChiqzVyTUAD1EhzzuskqLh?=
- =?us-ascii?Q?JsrghO4fhc2XxsOPz8JospMKOIU5va0i3vbQtN/IOOCi/20YbHaEDo1q2/z3?=
- =?us-ascii?Q?faX7s1yvFk7hyighg5DIug+5/B9cmvlmm/0rkK17Qc9CKsPIBa+TcxyJU9Am?=
- =?us-ascii?Q?tt2XyhA5UbzZv2lTXiuUIv9nMPElsn/H1myO4vpKQYHs6VHESB8MRmhPzqNK?=
- =?us-ascii?Q?h+7TWyybL6sOU3fEZDyXfyiMcsJc/qSQI1C1Rum8ifgYvLl1Uzu9NiWBNPN0?=
- =?us-ascii?Q?fEVZS0rTbf8q8nn4i0DUhjnGS65+nS8Pkyz+MAwOYenKB3XX/P3c0lqGzipZ?=
- =?us-ascii?Q?6sI8lh879iF2Jt0cm/8=3D?=
-X-Forefront-Antispam-Report: CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(36860700013)(1800799024)(82310400026)(7416014)(376014);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Nov 2025 04:14:49.6079
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5b9e0a95-b60d-445e-947b-08de2bd92d10
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: DS2PEPF0000343B.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS7PR12MB5840
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 28/44] KVM: x86/pmu: Load/save GLOBAL_CTRL via
+ entry/exit fields for mediated PMU
+To: Sean Christopherson <seanjc@google.com>, Marc Zyngier <maz@kernel.org>,
+ Oliver Upton <oliver.upton@linux.dev>, Tianrui Zhao
+ <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>,
+ Huacai Chen <chenhuacai@kernel.org>, Anup Patel <anup@brainfault.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Xin Li <xin@zytor.com>, "H. Peter Anvin" <hpa@zytor.com>,
+ Andy Lutomirski <luto@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
+ Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>,
+ Namhyung Kim <namhyung@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
+ linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+ kvm@vger.kernel.org, loongarch@lists.linux.dev,
+ kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
+ Kan Liang <kan.liang@linux.intel.com>, Yongwei Ma <yongwei.ma@intel.com>,
+ Mingwei Zhang <mizhang@google.com>,
+ Xiong Zhang <xiong.y.zhang@linux.intel.com>,
+ Sandipan Das <sandipan.das@amd.com>
+References: <20250806195706.1650976-1-seanjc@google.com>
+ <20250806195706.1650976-29-seanjc@google.com> <aSUK8FuWT4lpMP3F@google.com>
+Content-Language: en-US
+From: "Mi, Dapeng" <dapeng1.mi@linux.intel.com>
+In-Reply-To: <aSUK8FuWT4lpMP3F@google.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251124_201459_389966_F085A8AF 
-X-CRM114-Status: GOOD (  10.32  )
+X-CRM114-CacheID: sfid-20251124_210258_295909_1A1BFEFD 
+X-CRM114-Status: GOOD (  29.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,30 +101,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 24, 2025 at 09:42:31PM +0000, Will Deacon wrote:
-> On Sat, Nov 08, 2025 at 12:08:04AM -0800, Nicolin Chen wrote:
-> > +VISIBLE_IF_KUNIT
-> > +struct arm_smmu_invs *arm_smmu_invs_merge(struct arm_smmu_invs *invs,
-> > +					  struct arm_smmu_invs *to_merge)
-> > +{
-> > +	struct arm_smmu_invs *new_invs;
-> > +	struct arm_smmu_inv *new;
-> > +	size_t num_trashes = 0;
-> > +	size_t num_adds = 0;
-> > +	size_t i, j;
-> > +
-> > +	for (i = j = 0; i < invs->num_invs || j < to_merge->num_invs;) {
-> 
-> Maybe worth having a simple iterator macro for this?
 
-I added two macros:
+On 11/25/2025 9:48 AM, Sean Christopherson wrote:
+> On Wed, Aug 06, 2025, Sean Christopherson wrote:
+>> From: Dapeng Mi <dapeng1.mi@linux.intel.com>
+>>
+>> When running a guest with a mediated PMU, context switch PERF_GLOBAL_CTRL
+>> via the dedicated VMCS fields for both host and guest.  For the host,
+>> always zero GLOBAL_CTRL on exit as the guest's state will still be loaded
+>> in hardware (KVM will context switch the bulk of PMU state outside of the
+>> inner run loop).  For the guest, use the dedicated fields to atomically
+>> load and save PERF_GLOBAL_CTRL on all entry/exits.
+>>
+>> Note, VM_EXIT_SAVE_IA32_PERF_GLOBAL_CTRL was introduced by Sapphire
+>> Rapids, and is expected to be supported on all CPUs with PMU v4+.  WARN if
+>> that expectation is not met.  Alternatively, KVM could manually save
+>> PERF_GLOBAL_CTRL via the MSR save list, but the associated complexity and
+>> runtime overhead is unjustified given that the feature should always be
+>> available on relevant CPUs.
+> This is wrong, PMU v4 has been supported since Skylake.
 
-+#define arm_smmu_invs_for_each_inv(invs, idx, inv)              \
-+	for (idx = 0, inv = &invs->inv[0]; idx < invs->num_invs; \
-+	     inv = &invs->inv[++idx])
-+#define arm_smmu_invs_for_each_idx_dual(invs1, idx1, invs2, idx2) \
-+	for (idx1 = idx2 = 0; idx1 < invs1->num_invs || idx2 < invs2->num_invs;)
+Yes, the v4+ restriction is to meet the requirement of existence of
+IA32_PERF_GLOBAL_STATUS_SET MSR which is needed to restore the guest
+global_ctrl.
 
-Thanks
-Nicolin
+
+>
+>> diff --git a/arch/x86/kvm/vmx/pmu_intel.c b/arch/x86/kvm/vmx/pmu_intel.c
+>> index 7ab35ef4a3b1..98f7b45ea391 100644
+>> --- a/arch/x86/kvm/vmx/pmu_intel.c
+>> +++ b/arch/x86/kvm/vmx/pmu_intel.c
+>> @@ -787,7 +787,23 @@ static bool intel_pmu_is_mediated_pmu_supported(struct x86_pmu_capability *host_
+>>  	 * Require v4+ for MSR_CORE_PERF_GLOBAL_STATUS_SET, and full-width
+>>  	 * writes so that KVM can precisely load guest counter values.
+>>  	 */
+>> -	return host_pmu->version >= 4 && host_perf_cap & PERF_CAP_FW_WRITES;
+>> +	if (host_pmu->version < 4 || !(host_perf_cap & PERF_CAP_FW_WRITES))
+>> +		return false;
+>> +
+>> +	/*
+>> +	 * All CPUs that support a mediated PMU are expected to support loading
+>> +	 * and saving PERF_GLOBAL_CTRL via dedicated VMCS fields.
+>> +	 */
+>> +	if (WARN_ON_ONCE(!cpu_has_load_perf_global_ctrl() ||
+>> +			 !cpu_has_save_perf_global_ctrl()))
+>> +		return false;
+> And so this WARN fires due to cpu_has_save_perf_global_ctrl() being false.  The
+> bad changelog is mine, but the code isn't entirely my fault.  I did suggest the
+> WARN in v3[1], probably because I forgot when PMU v4 was introduced and no one
+> corrected me.
+>
+> v4 of the series[2] then made cpu_has_save_perf_global_ctrl() a hard requirement,
+> based on my miguided feedback.
+>
+>    * Only support GLOBAL_CTRL save/restore with VMCS exec_ctrl, drop the MSR
+>      save/retore list support for GLOBAL_CTRL, thus the support of mediated
+>      vPMU is constrained to SapphireRapids and later CPUs on Intel side.
+>
+> Doubly frustrating is that this was discussed in the original RFC, where Jim
+> pointed out[3] that requiring VM_EXIT_SAVE_IA32_PERF_GLOBAL_CTRL would prevent
+> enabling the mediated PMU on Skylake+, and I completely forgot that conversation
+> by the time v3 of the series rolled around :-(
+
+VM_EXIT_SAVE_IA32_PERF_GLOBAL_CTRL is introduced from SPR and later. I
+remember the original requirements includes to support Skylake and Icelake,
+but I ever thought there were some offline sync and the requirement changed...
+
+My bad, I should double confirm this at then.
+
+
+>
+> As mentioned in the discussion with Jim, _if_ PMU v4 was introduced with ICX (or
+> later), then I'd be in favor of making VM_EXIT_SAVE_IA32_PERF_GLOBAL_CTRL a hard
+> requirement.  But losing supporting Skylake+ is a bit much.
+>
+> There are a few warts with nVMX's use of the auto-store list that need to be
+> cleaned up, but on the plus side it's also a good excuse to clean up
+> {add,clear}_atomic_switch_msr(), which have accumulated some cruft and quite a
+> bit of duplicate code.  And while I still dislike using the auto-store list, the
+> code isn't as ugly as it was back in v3 because we _can_ make the "load" VMCS
+> controls mandatory without losing support for any CPUs (they predate PMU v4).
+
+Yes, xxx_atomic_switch_msr() helpers need to be cleaned up and optimized. I
+suppose we can have an independent patch-set to clean up and support
+global_ctrl with auto-store list for Skylake and Icelake.
+
+
+>
+> [1] https://lore.kernel.org/all/ZzyWKTMdNi5YjvEM@google.com
+> [2] https://lore.kernel.org/all/20250324173121.1275209-1-mizhang@google.com
+> [3] https://lore.kernel.org/all/CALMp9eQ+-wcj8QMmFR07zvxFF22-bWwQgV-PZvD04ruQ=0NBBA@mail.gmail.com
 
