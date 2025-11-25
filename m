@@ -4,87 +4,156 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B85EDCFD36B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 02:23:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98526CFD374
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 02:24:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WyU3dF+cmW7YqGT8mV3RtcRJh2bg16/Cu/kc8VrUlCE=; b=TCec4GbM52DkA37R+6DdiCnbbf
-	Bfr/HdPekfyQkReAHYQ19mxcRZEK8i+L2AV9JtwOCTWK+W+QV0WSyt/MQnIGmsC14Rtxrq3/9rf3V
-	skopEGCAcOpW0sRN6omqOQZ0YbACyxUaBUg7laK2dyx7tdx04qThQALoMUS6AsE7FtMCeGBSvadeS
-	iZii03xrvhan9VKFunrjk4avdevjrG+MH8YuODgenGU2vGyiYz20709QEfgmHfahTte77grMTlONa
-	5lIeu7Aqcb1oAOSeOKiZzeeM9n2N3rDwIFH+k5+87Qw3TzlmnzSFKdteOaTTVRNdGc40Qja+waNxs
-	e+O5N25A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=v3f3nXLDIzcdvwKeTYCSstBZ4dqo0GsnKlXaGQsrrR8=; b=4Xym6umPv4pSrY5uPys11YwYVn
+	DPeQaUrlpMmIv//4JQMtYThetVOkeAI3w9xhixnHMpCzh/bfQmoi/LmuSyey2tV+B8LMpRB4knPlx
+	U1t6z/hNZPJKE6poziEZCtYcsqcC6zYGEgRSIaYkeXXmIb8cnYBvs6OLFzNsu+NDpXMHDEb34VAsV
+	c5igUrW1tKGCArfD8+TVZ8d4+ZJroOlhY18iYVMvvxkS9m+bw8wV8P1gFp8Eac2j39lQUQ/ncNQjN
+	LXzbnlQU078ml0F4lUJc6SW0J1I0vc+4aSE6p3ajh4gMs3Y4/q38AWR8TP8LRXpgwRjHGOmbSSIvz
+	9gDHoDgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNii5-0000000Cc1o-3Tb5;
-	Tue, 25 Nov 2025 02:23:17 +0000
-Received: from mail-m49248.qiye.163.com ([45.254.49.248])
+	id 1vNijH-0000000CcCH-0gWj;
+	Tue, 25 Nov 2025 02:24:31 +0000
+Received: from mail-northeuropeazon11011049.outbound.protection.outlook.com ([52.101.65.49] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNii1-0000000Cc0y-1awe;
-	Tue, 25 Nov 2025 02:23:15 +0000
-Received: from [172.16.12.51] (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 2ac234cab;
-	Tue, 25 Nov 2025 10:23:04 +0800 (GMT+08:00)
-Message-ID: <c9cb7b79-37c8-4fef-97a6-7d6b8898f9c4@rock-chips.com>
-Date: Tue, 25 Nov 2025 10:23:02 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v10 01/11] usb: typec: Add notifier functions
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: Chaoyi Chen <kernel@airkyi.com>,
- Heikki Krogerus <heikki.krogerus@linux.intel.com>,
- Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
- Peter Chen <hzpeterchen@gmail.com>, Luca Ceresoli
- <luca.ceresoli@bootlin.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>,
- Kishon Vijay Abraham I <kishon@kernel.org>, Heiko Stuebner
- <heiko@sntech.de>, Sandy Huang <hjc@rock-chips.com>,
- Andy Yan <andy.yan@rock-chips.com>,
- Yubing Zhang <yubing.zhang@rock-chips.com>,
- Frank Wang <frank.wang@rock-chips.com>,
- Andrzej Hajda <andrzej.hajda@intel.com>,
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Amit Sunil Dhamne <amitsd@google.com>, Dragan Simic <dsimic@manjaro.org>,
- Johan Jonker <jbx6244@gmail.com>, Diederik de Haas <didi.debian@cknow.org>,
- Peter Robinson <pbrobinson@gmail.com>, linux-usb@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, dri-devel@lists.freedesktop.org
-References: <20251120022343.250-1-kernel@airkyi.com>
- <20251120022343.250-2-kernel@airkyi.com>
- <2025112102-laurel-mulch-58e4@gregkh>
- <462ad1bd-7eec-4f26-b383-96b049e14559@rock-chips.com>
- <2025112402-unopposed-polio-e6e9@gregkh>
- <a80483de-518d-45d5-b46a-9b70cca5b236@rock-chips.com>
- <2025112448-brush-porcupine-c851@gregkh>
+	id 1vNijE-0000000CcBW-36hQ
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 25 Nov 2025 02:24:30 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=uEMXrHFBCx4zHK55EPlHM6AuYogoUBPviOEdzc2r+hJsVlqhbIS6hYrEh/kGZNLtZ2NrDZOqBJwCzRNUONdVbCrjafkXzyWrDmHBP2iowR+L5QydcK9IYFGuwfN4pn2lkav/o0XTLGKn9/NtCSgZ1x/smk4cbw9Bza670KTZLpI1n/WAkv23F5zVqkKnOdYmbaEfK7iFs9o6rF7b0MgjViaeq2FjQboF1OodaMqXwFBY79x4mt4BvzYpT2J1OuXycatSNue22GYQ9T3K9xh17i7G4cylH94I3eRbspbRGOVroRIrz6DzEAXndI6cjWMAmSt50Tj4YSxm018G1Gfkog==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=v3f3nXLDIzcdvwKeTYCSstBZ4dqo0GsnKlXaGQsrrR8=;
+ b=xhm0Mwem2Aclm9fUVlPfc0sQ7TL+nKKekwdyi05Nii1s1QH5yqlEpS4/f2HmWpD8UVZ0mkfclbXcdH1OXzB/ICuM9lrm3q2GMQIjGncZnZQXqhDi7oerT7DWuVRS/lEh6b4TQ1hRGVxHYO7KMtwSVds+OWJDWyerqhMMNQzWLRleEygnz0jIZjkecmMjtwSd3sgqVd1pypv3YPrcMbweVFTK16XiBQ4AVhYFukvi70QyEvuVAdD47lnIqM5prORpVNezV2DkWidmVeMLcoO+yOfGKWgA31uB/XCODtueV7bUamAwOk4ATnNE4DdNZbQVWkXNHjzsxc6eqgMJpPAWug==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=v3f3nXLDIzcdvwKeTYCSstBZ4dqo0GsnKlXaGQsrrR8=;
+ b=hQn2cZHZp97527jmgII0OSIeRaKz59YPDE7DFozos9s9NaCuP4GQIIcLMRrGLJnMB3VM375a3QOYRhbChosTV1XEh+atOkEj3PnRVlDn49RAO9Ikl5KEl4rMg5UmIZSLUbMWIrfrXK1PaAiiV9EgJGWiU1d6BZwUyioPUER0wwrwVsAEVPgqJEQNXFypX6O7SMf+qzMXdrY0yyfhjB7y/H35xnYfp6jPT0VUPeoeiY3hz5lHyF2g+iFKEQ/ronarTwQ6G7qnfxBJ7n78xPLH8MvMOt3UAdVFw+ubrtLMSXQJ9wBeiPoZd3+S4CQDmAw1kPNSL8DP9D2csPak1PyBdA==
+Received: from DU0PR04MB9496.eurprd04.prod.outlook.com (2603:10a6:10:32d::19)
+ by AS8PR04MB8449.eurprd04.prod.outlook.com (2603:10a6:20b:407::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9366.11; Tue, 25 Nov
+ 2025 02:24:23 +0000
+Received: from DU0PR04MB9496.eurprd04.prod.outlook.com
+ ([fe80::868b:3935:5e0f:6a33]) by DU0PR04MB9496.eurprd04.prod.outlook.com
+ ([fe80::868b:3935:5e0f:6a33%6]) with mapi id 15.20.9343.016; Tue, 25 Nov 2025
+ 02:24:23 +0000
+From: Bough Chen <haibo.chen@nxp.com>
+To: Frank Li <frank.li@nxp.com>
+CC: Han Xu <han.xu@nxp.com>, Mark Brown <broonie@kernel.org>, Rob Herring
+	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+	<conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer
+	<s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, "linux-spi@vger.kernel.org"
+	<linux-spi@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
+Subject: RE: [PATCH v5 2/2] spi: add driver for NXP XSPI controller
+Thread-Topic: [PATCH v5 2/2] spi: add driver for NXP XSPI controller
+Thread-Index: AQHcXSQyemrLaYsQdkihJDyose79m7UCCoWAgACf4VA=
+Date: Tue, 25 Nov 2025 02:24:23 +0000
+Message-ID: <DU0PR04MB9496647CDAB3D15A5245693390D1A@DU0PR04MB9496.eurprd04.prod.outlook.com>
+References: <20251124-xspi-v5-0-6fd03a6cb766@nxp.com>
+ <20251124-xspi-v5-2-6fd03a6cb766@nxp.com>
+ <aSSMxU6iNdAGheSc@lizhi-Precision-Tower-5810>
+In-Reply-To: <aSSMxU6iNdAGheSc@lizhi-Precision-Tower-5810>
+Accept-Language: zh-CN, en-US
 Content-Language: en-US
-From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-In-Reply-To: <2025112448-brush-porcupine-c851@gregkh>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a9ab8d257a503abkunm85208c3c48921c
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQ0hCTVZNQk1CS0tLSU8dTE1WFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSEpOTE
-	9VSktLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=APsyQcaE+WXuz1ZfmEJ+WZ6W93w9m9gj8aanG9iA1pAa04/ZZ4qUlxWMSBF/y1Kuz0hn22w2GY3XxUdKA4pZgY7iBuHd1G2GGJZ+egD8kodC8sOEYhMBPvftnWjlHJCq2jJ1MeEE5yxsfan4/EAAC32D22P3AEqDF+ZCmqn80RI=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=WyU3dF+cmW7YqGT8mV3RtcRJh2bg16/Cu/kc8VrUlCE=;
-	h=date:mime-version:subject:message-id:from;
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: DU0PR04MB9496:EE_|AS8PR04MB8449:EE_
+x-ms-office365-filtering-correlation-id: b17be3b5-86c6-4646-553c-08de2bc9bf85
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|19092799006|366016|38070700021;
+x-microsoft-antispam-message-info: =?us-ascii?Q?iY1VCHSt6k7nl8VU8yucSSxYh34gmwWyzgGK0Sj4b+UTcUD73B05fRYVuLsA?=
+ =?us-ascii?Q?4o6R1S0cBYyvVzYr/T+7EtUmW0vUUT0mf9DCONxHWzvgST4MO6TafeBPUEhc?=
+ =?us-ascii?Q?uY4M+s0ijvSmxASfaGbir0p7RzpDQXU82eg2+Rt4IHqUW1KLhsqINDzgNnZb?=
+ =?us-ascii?Q?GKkdE57gbkwYP1IG70CZlefgp8CB58GqLp1ovyjU66ogoh+CXls/BUOrHHU9?=
+ =?us-ascii?Q?+R7x8g37Frzs90HD7K7rSMNg7OIOcZICh2GkO27xD04RKWO+STQQrXDdM5eU?=
+ =?us-ascii?Q?zwKs13+2pjJZ9DUso42ybspQfF6ZCgsEUorPUqntZGCX/rRV1b4Jv7Wm8eZ5?=
+ =?us-ascii?Q?LzT/Nf4Od9xWngFWlE7nMO4hVv+nHcyOELxMTPoQUDZiXGMcupCOQu/anCiY?=
+ =?us-ascii?Q?NqLnEHNgkkDKUNOVEnYxWtpg23LonuO+NMKnmUuddGXJJdqXM3CLv+3h4UMp?=
+ =?us-ascii?Q?6g1D6Kykq5Di/YMXTtP7DvsFbmjRNW2PivP7j5gAU7WhkeBThDCsKczGqPDJ?=
+ =?us-ascii?Q?3jncR9KI6BeCrELocsUgSF6k6MmRRI6vZ4YMCTly6fiHjuGx/IZkunZhjKVX?=
+ =?us-ascii?Q?+uMqQwelMz7P+DrYF6k5Un7LBPZg6Wo/5hGm9xV9Xl1SqeyBxoCebqUmz3+s?=
+ =?us-ascii?Q?6K2Y5uAJ91YrP0zq9FfsbxLdgHe4gLRHNqp4aHv/p7t97rHKuOhB3P/SKcSB?=
+ =?us-ascii?Q?3N8hWB9CUp063YQQ/6MihMUgdJy0/dvxQ61FR150vtwGKYm/Z3QiMYsB7jX7?=
+ =?us-ascii?Q?/+I7AOybfve/hvsTpZ5K6skmIaFM7/sYLnr9X6NVHAGWyJi5QRch3pDFZr7+?=
+ =?us-ascii?Q?+ZI7AOtLorm387EWPrpjKFvbs0qJybwOpHpKyxLoO8ekXKf1PD0nC9ykFWLY?=
+ =?us-ascii?Q?r6ALvm4O9NLCkFMKdvOYekZHnGRjiOdndb06rH6Ip2PrQZ5QcRKjIvWyFcJY?=
+ =?us-ascii?Q?NuNaPnUmQCOt0cvKBA5Qowwv/m37ToVzBS/WBdfJGMO0g7nY2g7BODKoW6x7?=
+ =?us-ascii?Q?z2vwhWU1FN70rQbUtf+0z6nQ4I1j9RtEIGmTlR7q6hYMYIr/IA4NTAJDLe0F?=
+ =?us-ascii?Q?8NRGziw0lK2WSvUzK/4oAGt0MP/2a8SjpzcWVVwNArI3jfENQykVp94tqd7/?=
+ =?us-ascii?Q?PFo4h/1BM1Ty91/1G2OD3EOeCeMrswT7vI5fW0HiGyuf7bjE+AETT7F479Aj?=
+ =?us-ascii?Q?OIyvw229Uo4Ff99fnSZ+xQRUJaA/92tc5LGGsFEacvkSHuXxK8fsOHheN0Cp?=
+ =?us-ascii?Q?LrAMJ3puoCziwCHZr1njUAj0tf0JjdRIDGSy7D45iUGsY0e+fAB9LyX9KFQu?=
+ =?us-ascii?Q?iP3RVV+HtMoMexibR2i8N45aKHSFOUesc8+BhIWQBxkOMSKgumNyhLaY/RK8?=
+ =?us-ascii?Q?+TneygooDjMlL+ELI/iS25q2k+qjQzFUAAqzOwEVj6yRET31jplLAv3+KGEo?=
+ =?us-ascii?Q?20FCjdtDhvUq6OiOSDdIwyQuIL3Lp860/rC6j2jxvCZBabemvfCrmV1zU7Or?=
+ =?us-ascii?Q?QB7f12gOsagkfLpP5kKUYN+wXnyyWiUHBNsb?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU0PR04MB9496.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(19092799006)(366016)(38070700021);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?wUtT5b5KbNeqaffHVojLBc7EFg2z4K+0CDXfzgsjWjb8aAK6PMJPFx+u1zOo?=
+ =?us-ascii?Q?zswRlacyt/QxH/54cevef2O/KLRHH1NSMe4FrbYAmdcmzaJC3Q8oFUnyKcWn?=
+ =?us-ascii?Q?N5VTC9fb/Q5P7CafZRmiSKhhzIJDnMAqSaeXkHmnYI++RoR8aI5T2ywEW9QL?=
+ =?us-ascii?Q?9eXdkpFT9ni8v/Q6GPBOFzQTcrLTB/EIfoS6vWQlNQ8lNqDhiZnCIuy3HsWs?=
+ =?us-ascii?Q?VbRQZ8vrI5ZSZ4SpJd9czI63ISZ1bSopaJT0Xw+dW8AWIEjmh1AJBH6t9fOF?=
+ =?us-ascii?Q?Iv0beuWZIMLldrC/w3gOCG57JrjVvRyFaRZAFI7EcJXngTuIwnndutgwme0x?=
+ =?us-ascii?Q?kfySs9zS7Z2Lwvm0WGWAJpDZ5KepfWrf2Gl0NGm1iqWr2vw5ZcS7KDEDYqNb?=
+ =?us-ascii?Q?XuyOwb4aI0cxAO7G4DMIIxdX6L2zNBhdCVKQETE5kfFx5kWHrs9bLJreX/e9?=
+ =?us-ascii?Q?wA52Z5dLcsLkpOXdwfz+6+ED5kl/uIdeY6m4qz97rOUWcK3VFXxdJW+fgekE?=
+ =?us-ascii?Q?99mw+YbumG6WVkgVBcQyyur6N0adOb4b5IZk5oFoVwpJ/dtO4ixRJI79/X83?=
+ =?us-ascii?Q?nbIhsf0abEeZ81N2HL2N20z8s4ZQ0DXWa+SBpoqOxb/l/e86TKGmHJ+SOz9M?=
+ =?us-ascii?Q?r9y9XgRtDw2av0OtOf3rfYIQahYK46ce8fDcDl3yh26lzI3aVOIwDptnPS/v?=
+ =?us-ascii?Q?nnullPpqBMGe3eu8PglKjvV5mSc/psRS5o2yJBf+sPJye25gENRipeE8bZGN?=
+ =?us-ascii?Q?P8hD+u34l7Rfiymduj8Ub2ERO4QflWi0aYe8kkkKf3n8WLQHUtYNdLt6/tBM?=
+ =?us-ascii?Q?SV9O/mV30EA8VEPLkIlFIH04pS8qXWlla+cBJb1/g1yvGb3nNi1JinGagrSa?=
+ =?us-ascii?Q?ahiCplOANcNC3VaYANqwZoty/imZRQsnN6xLzfBpA1jU2r1FoZjK5jN3+1cq?=
+ =?us-ascii?Q?WFSpgt18teemsLSpzeS4jsjiJANo3MxFftud697GXGCYYpd0IVrb+IjVxNDK?=
+ =?us-ascii?Q?DlmvW7ovBaTECDPAgW6WPfev0968MG2gD5lEURSykYk/EWrzh3Pq7QoYUKJL?=
+ =?us-ascii?Q?iIun8NTy9Lwb6D5/L2U5nGC7PAZ/sb6z/HtuMEXUMbFNrH7beYa5tY3nrfvd?=
+ =?us-ascii?Q?akQM0iT1nTdJ+t5FN7e1x2UNANMb/mZpAXtTkOE8h8UGPi63aPcEHgGm3257?=
+ =?us-ascii?Q?a0BbU2n2brb4aaDeDtnDqjAgJpybfIBtfTHA9itzC1gfWqq4v0aYUlwVKF1f?=
+ =?us-ascii?Q?rRnVlQYsOI6+4rUVrDuktEPs3PKECo6dpcylpOf5O3NFvNXMa80qbL4lZMRx?=
+ =?us-ascii?Q?BZDTFIkcrQkgZvWc4GYxwsbcpsViAXnJVtUA08yqPPKJ4o8X+wr90T4dyUdR?=
+ =?us-ascii?Q?iNFsW7gPe0LI0fS2pbaJj3AgUtR0uXkfLAaaAL+qgS5q+0we9ZKMsmoRiF0s?=
+ =?us-ascii?Q?N8tU2exwA4k9ByVAsuWHo/oSiqcnL1U9DiAruFvnxYApA4FPg0x5cFFNC2Cl?=
+ =?us-ascii?Q?qwtuPAV/R2MxhIGqJtM2E/nYwJX2hnIjQ3UIBSAjJHD6X56wDU5Oy79Gwho5?=
+ =?us-ascii?Q?R+kJZipLQDHNfMeILcM=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: DU0PR04MB9496.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: b17be3b5-86c6-4646-553c-08de2bc9bf85
+X-MS-Exchange-CrossTenant-originalarrivaltime: 25 Nov 2025 02:24:23.4474
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: dQca7nkOW3L1iLH46pbGuVvsEz+oEDoPdvgpQnkGZRS1QdFq5l4nDTUVoeB4ugPhYRl8F+kg8GXpFD2rO8J+ng==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8449
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251124_182314_073272_C5EBD49A 
-X-CRM114-Status: GOOD (  43.83  )
+X-CRM114-CacheID: sfid-20251124_182428_971779_496302F8 
+X-CRM114-Status: GOOD (  34.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,140 +168,236 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/25/2025 12:33 AM, Greg Kroah-Hartman wrote:
-> On Mon, Nov 24, 2025 at 04:05:53PM +0800, Chaoyi Chen wrote:
->> Hi Greg,
->>
->> On 11/24/2025 3:10 PM, Greg Kroah-Hartman wrote:
->>
->>> On Mon, Nov 24, 2025 at 09:40:03AM +0800, Chaoyi Chen wrote:
->>>> Hi Greg,
->>>>
->>>> On 11/21/2025 10:07 PM, Greg Kroah-Hartman wrote:
->>>>> On Thu, Nov 20, 2025 at 10:23:33AM +0800, Chaoyi Chen wrote:
->>>>>> From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
->>>>>>
->>>>>> Some other part of kernel may want to know the event of typec bus.
->>>>> Be specific, WHAT part of the kernel will need to know this?
->>>> For now, it is DRM.
->>> Then say this.
->> Okay, please refer to the discussion below.
->>
->>>>> And why a new notifier, why not just use the existing notifiers that you
->>>>> already have?  And what is this going to be used for?
->>>> We have discussed this before, but the current bus notifier cannot achieve the expected notification [0].
->>>>
->>>> [0] https://lore.kernel.org/all/aPsuLREPS_FEV3DS@kuha.fi.intel.com/
->>> Then you need to document the heck out of this in the changelog text.
->>> But I'm still not quite understanding why the bus notifier does not work
->>> here, as you only want this information if the usb device is bound to
->>> the bus there, you do not want to know this if it did not complete.
->>>
->>> That thread says you want this not "too late", but why?  What is the
->>> problem there, and how will you handle your code getting loaded after
->>> the typec code is loaded?  Notifier callbacks don't work for that
->>> situation, right?
->> In fact, the typec_register_altmode() function generates two
->> registered events. The first one is the registered event of the port
->> device, and the second one is the registered event of the partner
->> device. The second one event only occurs after a Type-C device is
->> inserted.
->> The bus notifier event does not actually take effect for the port
->> device, because it only sets the bus for the partner device:
->>
->>      /* The partners are bind to drivers */
->>      if (is_typec_partner(parent))
->>          alt->adev.dev.bus = &typec_bus;
-> Setting the bus is correct, then it needs to be registered with the
-> driver core so the bus link shows up (and a driver is bound to it.)
-> That is when the bus notifier can happen, right?
-Yes, this is valid for the partner device. But for the port device, since the bus is not specified here, the corresponding bus notifier will not take effect.
+> On Mon, Nov 24, 2025 at 05:25:22PM +0800, Haibo Chen wrote:
+> > Add driver support for NXP XSPI controller.
+> >
+> > XSPI is a flexible SPI host controller which supports up to
+> > 2 external devices (2 CS). It support Single/Dual/Quad/Octal mode data
+> > transfer.
+> >
+> > The difference between XSPI and Flexspi:
+> > 1.the register layout is total different.
+> > 2.XSPI support multiple independent execution environments
+> > (EENVs) for HW virtualization with some limitations. Each EENV has its
+> > own interrupt and its own set of programming registers that exists in
+> > a specific offset range in the XSPI memory map.
+> > The main environment (EENV0) address space contains all of the
+> > registers for controlling EENV0 plus all of the general XSPI control
+> > and programming registers. The register mnemonics for the user
+> > environments (EENV1 to EENV4) have "_SUB_n" appended to the mnemonic
+> > for the corresponding main-environment register.
+>=20
+> Nit: please wrap at 75 char if need respin patch.
 
->
->> I hope it's not too late. In fact, the notifier here will notify DRM to establish a bridge chain.
-> What is a "bridge chain"?
-In DRM, the bridge chain is often used to describe the chain connection relationship
-of the output of multi level display conversion chips. The bridge chain we are referring to here
-is actually a chain  structure formed by connecting various devices using a simple transparent bridge [0].
+Okay.
 
-For example, the schematic diagram of a bridge chain is as follows:
+>=20
+> >
+> > Current driver based on EENV0, which means system already give
+> > EENV0 right to linux.
+> >
+> ...
+> > +	/* Wait for the CLR_RXF clear */
+> > +	ret =3D readl_poll_timeout(base + XSPI_MCR, reg,
+> > +			      !(reg & XSPI_MCR_CLR_RXF), 1, POLL_TOUT_US);
+> > +	WARN_ON(ret);
+> > +}
+> > +
+> > +static int nxp_xspi_do_op(struct nxp_xspi *xspi, const struct
+> > +spi_mem_op *op) {
+> > +	void __iomem *base =3D xspi->iobase;
+> > +	int watermark, err =3D 0;
+> > +	u32 reg, len;
+> > +
+> > +	len =3D op->data.nbytes;
+> > +	if (op->data.nbytes && op->data.dir =3D=3D SPI_MEM_DATA_OUT) {
+> > +		/* Clear the TX FIFO. */
+> > +		reg =3D readl(base + XSPI_MCR);
+> > +		reg |=3D XSPI_MCR_CLR_TXF;
+> > +		writel(reg, base + XSPI_MCR);
+> > +		/* Wait for the CLR_TXF clear */
+> > +		err =3D readl_poll_timeout(base + XSPI_MCR, reg,
+> > +				      !(reg & XSPI_MCR_CLR_TXF), 1, POLL_TOUT_US);
+> > +		WARN_ON(err);
+>=20
+> Is it enough by just print a warning? If timeout happen, is it to continu=
+e below
+> operation? and other void helper function (such as above WARN_ON(ret);)
+>=20
+> If clean FIFO fail, suppose garbage data still is in FIFO. It think it sh=
+ould return err
+> to user space to indicate op failure.
 
-DP controller bridge -> DP PHY bridge -> onnn,nb7vpq904m retimer bridge -> fsa4480 analog audio switch bridge -> fusb302 HPD bridge
+Return err seems safer, let me check whether other places also.
 
-Here, apart from the DP controller bridge, the rest are transparent DRM bridges, which are used solely to
-describe the link relationships between various devices.
+>=20
+> Or are you sure our hardware can tolerant this error.
+>=20
+> > +		/* Cover the no 4bytes alignment data length */
+> > +		watermark =3D (xspi->devtype_data->txfifo - ALIGN(op->data.nbytes, 4=
+))
+> / 4 + 1;
+> > +		reg =3D FIELD_PREP(XSPI_TBCT_WMRK_MASK, watermark);
+> > +		writel(reg, base + XSPI_TBCT);
+> > +		/*
+> > +		 * According to the RM, for TBDR register, a write transaction on th=
+e
+> > +		 * flash memory with data size of less than 32 bits leads to the
+> removal
+> > +		 * of one data entry from the TX buffer. The valid bits are used and
+> the
+> > +		 * rest of the bits are discarded.
+> > +		 * But for data size large than 32 bits, according to test, for no 4=
+bytes
+> > +		 * alignment data, the last 1~3 bytes will lost, because TX buffer u=
+se
+> > +		 * 4 bytes entries.
+> > +		 * So here adjust the transfer data length to make it 4bytes
+> alignment.
+> > +		 * then will meet the upper watermark setting, trigger the 4bytes
+> entries
+> > +		 * pop out.
+> > +		 * Will use extra 0xff to append, refer to nxp_xspi_fill_txfifo().
+> > +		 */
+> > +		if (len > 4)
+> > +			len =3D ALIGN(op->data.nbytes, 4);
+> > +
+> > +	} else if (op->data.nbytes && op->data.dir =3D=3D SPI_MEM_DATA_IN) {
+> > +		/* Invalid RXFIFO first */
+> > +		reg =3D readl(base + XSPI_MCR);
+> > +		reg |=3D XSPI_MCR_CLR_RXF;
+> > +		writel(reg, base + XSPI_MCR);
+> > +		/* Wait for the CLR_RXF clear */
+> > +		err =3D readl_poll_timeout(base + XSPI_MCR, reg,
+> > +				      !(reg & XSPI_MCR_CLR_RXF), 1, POLL_TOUT_US);
+> > +		WARN_ON(err);
+> > +		reg =3D FIELD_PREP(XSPI_RBCT_WMRK_MASK, 31);
+> > +		writel(reg, base + XSPI_RBCT);
+> > +	}
+> > +
+> > +	init_completion(&xspi->c);
+> > +
+> > +	/* Config the data address */
+> > +	writel(op->addr.val + xspi->memmap_phy, base + XSPI_SFP_TG_SFAR);
+> > +
+> > +	/* Config the data size and lut id, trigger the transfer */
+> > +	reg =3D FIELD_PREP(XSPI_SFP_TG_IPCR_SEQID_MASK, XSPI_SEQID_LUT) |
+> > +	      FIELD_PREP(XSPI_SFP_TG_IPCR_IDATSZ_MASK, len);
+> > +	writel(reg, base + XSPI_SFP_TG_IPCR);
+> > +
+> > +	if (op->data.nbytes && op->data.dir =3D=3D SPI_MEM_DATA_OUT)
+> > +		nxp_xspi_fill_txfifo(xspi, op);
+> > +
+> > +	/* Wait for the interrupt. */
+> > +	if (!wait_for_completion_timeout(&xspi->c, msecs_to_jiffies(1000)))
+> > +		err =3D -ETIMEDOUT;
+> > +
+> > +	/* Invoke IP data read, if request is of data read. */
+> > +	if (!err && op->data.nbytes && op->data.dir =3D=3D SPI_MEM_DATA_IN)
+> > +		nxp_xspi_read_rxfifo(xspi, op);
+> > +
+> > +	return err;
+> > +}
+> ...
+> > +static int nxp_xspi_probe(struct platform_device *pdev) {
+> > +	struct device *dev =3D &pdev->dev;
+> > +	struct spi_controller *ctlr;
+> > +	struct nxp_xspi *xspi;
+> > +	struct resource *res;
+> > +	int ret, irq;
+> > +
+> > +	ctlr =3D devm_spi_alloc_host(dev, sizeof(*xspi));
+> > +	if (!ctlr)
+> > +		return -ENOMEM;
+> > +
+> > +	ctlr->mode_bits =3D SPI_RX_DUAL | SPI_RX_QUAD | SPI_RX_OCTAL |
+> > +			  SPI_TX_DUAL | SPI_TX_QUAD | SPI_TX_OCTAL;
+> > +
+> > +	xspi =3D spi_controller_get_devdata(ctlr);
+> > +	xspi->dev =3D dev;
+> > +	xspi->devtype_data =3D device_get_match_data(dev);
+> > +	if (!xspi->devtype_data)
+> > +		return -ENODEV;
+> > +
+> > +	platform_set_drvdata(pdev, xspi);
+> > +
+> > +	/* Find the resources - configuration register address space */
+> > +	xspi->iobase =3D devm_platform_ioremap_resource_byname(pdev, "base");
+> > +	if (IS_ERR(xspi->iobase))
+> > +		return PTR_ERR(xspi->iobase);
+> > +
+> > +	/* Find the resources - controller memory mapped space */
+> > +	res =3D platform_get_resource_byname(pdev, IORESOURCE_MEM, "mmap");
+> > +	if (!res)
+> > +		return -ENODEV;
+> > +
+> > +	/* Assign memory mapped starting address and mapped size. */
+> > +	xspi->memmap_phy =3D res->start;
+> > +	xspi->memmap_phy_size =3D resource_size(res);
+> > +
+> > +	/* Find the clocks */
+> > +	xspi->clk =3D devm_clk_get(dev, "per");
+> > +	if (IS_ERR(xspi->clk))
+> > +		return PTR_ERR(xspi->clk);
+> > +
+> > +	/* Find the irq */
+> > +	irq =3D platform_get_irq(pdev, 0);
+> > +	if (irq < 0)
+> > +		return dev_err_probe(dev, irq,  "Failed to get irq source");
+> > +
+> > +	pm_runtime_set_autosuspend_delay(dev, XSPI_RPM_TIMEOUT_MS);
+> > +	pm_runtime_use_autosuspend(dev);
+> > +	devm_pm_runtime_enable(dev);
+>=20
+> need check return value here.
 
+Okay.
 
-[0] https://patchwork.freedesktop.org/patch/msgid/20231203114333.1305826-2-dmitry.baryshkov@linaro.org
->
->> The downstream DP controller driver hopes to obtain the fwnode of the last-level Type-C device
->> through this bridge chain to create a DRM connector. And when a device is inserted,
->> drivers/usb/typec/altmodes/displayport.c can notify the HPD (Hot Plug Detect) event.
-> But aren't you just the driver for the "partner device"?
->
-> If not, why isn't a real device being created that you then bind to,
-> what "fake" type of thing are you attempting to do here that would
-> require you to do this out-of-band?
-The HPD event is pass by drm_connector_oob_hotplug_event(), which does not use the device in Type-C.
-This function will find the corresponding DRM connector device, and the lookup of the DRM connector is
-done through the fwnode.
-
-And the partner device and the port device have the same fwnode.
-
->
->> If relying on the second event, the bridge chain may never be established, and the operations of the DP driver will be
->> always deferred. Furthermore, other parts of the display controller driver will also be deferred accordingly.
-> What operations?  What exactly is delayed?  You should not be touching a
-> device before you have it on your bus, right?
-To complete the HPD operation, it is necessary to create a drm connector device that
-has the appropriate fwnode. This operation will be carried out by the DP controller driver.
-
-As you can see, since it cross multiple devices, we need to set the fwnode to the last device fusb302.
-This requires relying on the bridge chain. We can register bridges for multiple devices and then connect
-them to form a chain. The connection process is completed through drm_bridge_attach().
-
-A brief example of the process of establishing a bridge chain is as follows, starting from the last bridge:
-
-step1: fusb302 HPD bridge
-step2: fsa4480 analog audio switch bridge -> fusb302 HPD bridge
-step3: onnn,nb7vpq904m retimer bridge -> fsa4480 analog audio switch bridge -> fusb302 HPD bridge
-step4: DP PHY bridge -> onnn,nb7vpq904m retimer bridge -> fsa4480 analog audio switch bridge -> fusb302 HPD bridge
-step5: DP controller bridge -> DP PHY bridge -> onnn,nb7vpq904m retimer bridge -> fsa4480 analog audio switch bridge -> fusb302 HPD bridge
-
-Step 1 is the most crucial, because essentially, regardless of whether we use notifiers or not, what we ultimately want to achieve is to create an HPD bridge.
-The DP controller needs to wait for the subsequent bridge chain to be established because it needs to know the connection relationships of the devices.
-
-The question now is when to create the HPD bridge, during the registration of the port device or during the registration of the partner device.
-If it's the latter, then the delay occurs here.
-
-And I don't think I'm touching the Type-C device here. I'm just using the bridge chain to get a suitable fwnode and create a suitable DRM connector device.
-The subsequent Type-C HPD events will be on the DRM connector device.
-
-This solution is somewhat complex, and I apologize once again for any confusion caused earlier.
-
->
->>>>> Notifiers are a pain, and should almost never be added.  Use real
->>>>> function calls instead.
->>>> In v6, I used direct function calls, but had to switch to notifiers because couldn't resolve the dependencies between DRM and Type-C [1]. Do you have any good ideas? Thank you.
->>> Only allow this DRM code to be built if typec code is enabled, do NOT
->>> use a select, use a depends in the drm code.
->> Sorry, I didn't get your point. Does this mean that the current notifiers approach still needs to be changed to direct function calls?
-> If you somehow convince me that the existing bus notifiers will not
-> work, yes :)
->
->> If so, then based on the previous discussion, typec should not depend
->> on any DRM components. Does this mean that we should add the if
->> (IS_REACHABLE(CONFIG_DRM_AUX_BRIDGE)) before the direct function call?
-> No, do it properly like any other function call to another subsystem.
->
->> Additionally, the current version of CONFIG_DRM_AUX_BRIDGE is selected
->> by the DP driver in patch9.
-> Don't do "select" if at all possible, always try to do "depends on".
-Thank you for clarifying this. However, CONFIG_DRM_AUX_BRIDGE is not exposed in the menu, and it is not intended for the end user to select it by design. Therefore, I think there still needs to be some place to select it?
-
--- 
-Best,
-Chaoyi
-
-
+Regards
+Haibo Chen
+>=20
+> Frank
+> > +
+> > +	PM_RUNTIME_ACQUIRE_AUTOSUSPEND(dev, pm);
+> > +	ret =3D PM_RUNTIME_ACQUIRE_ERR(&pm);
+> > +	if (ret)
+> > +		return dev_err_probe(dev, ret, "Failed to enable clock");
+> > +
+> > +	/* Clear potential interrupt by write xspi errstat */
+> > +	writel(0xFFFFFFFF, xspi->iobase + XSPI_ERRSTAT);
+> > +	writel(0xFFFFFFFF, xspi->iobase + XSPI_FR);
+> > +
+> > +	nxp_xspi_default_setup(xspi);
+> > +
+> > +	ret =3D devm_request_irq(dev, irq,
+> > +			nxp_xspi_irq_handler, 0, pdev->name, xspi);
+> > +	if (ret)
+> > +		return dev_err_probe(dev, ret, "failed to request irq");
+> > +
+> > +	ret =3D devm_mutex_init(dev, &xspi->lock);
+> > +	if (ret)
+> > +		return ret;
+> > +
+> > +	ret =3D devm_add_action_or_reset(dev, nxp_xspi_cleanup, xspi);
+> > +	if (ret)
+> > +		return ret;
+> > +
+> > +	ctlr->bus_num =3D -1;
+> > +	ctlr->num_chipselect =3D NXP_XSPI_MAX_CHIPSELECT;
+> > +	ctlr->mem_ops =3D &nxp_xspi_mem_ops;
+> > +	ctlr->mem_caps =3D &nxp_xspi_mem_caps;
+> > +	ctlr->dev.of_node =3D dev->of_node;
+> > +
+> > +	return devm_spi_register_controller(dev, ctlr); }
+> > +
+> ...
+> > +MODULE_DESCRIPTION("NXP xSPI Controller Driver");
+> MODULE_AUTHOR("NXP
+> > +Semiconductor"); MODULE_AUTHOR("Haibo Chen
+> <haibo.chen@nxp.com>");
+> > +MODULE_LICENSE("GPL");
+> >
+> > --
+> > 2.34.1
+> >
 
