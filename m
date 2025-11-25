@@ -4,71 +4,148 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3022D0E6FA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 15:28:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C619D0E6EC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 15:32:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:
-	To:Cc:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HgxEQ0f8MNjzesLOK80vetYWR3YMKzv8RvyUGva3XLk=; b=lNk7tzrhrRDnvyOqbcoaqdRUx/
-	5dtpTX2sEX1fHz9dJP06eSbILoNvMKCxmRSueeMuAss2pzxOutz1ZH/S40hY+ywuZ9+GkMW6C6xfe
-	K2v6tcfOxTeGd/9pXd/+h4v4bfSPffzeoXEQZokA1QNYIOv+QvtfSruvwUsGAza445o7KWrjFcNrT
-	bE3k4GDN3n+UxrntFWmfjVn3fb4oYPL6hekSL0EK/X18S9rzeJr1wSA08zToo5zqbz4U2Ma/m7tze
-	3S54XPy4PGP738JyRV+P1aLW5wFHftoYNeF/ZOimdPd2zzVvsUETc62sF+XBwmG/axM1lb/lL+Mls
-	pGtzKsaA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nzGVxEsgKgVco2ykYSBlL8xbt1b3aPYQnx2kvpLQ50Q=; b=0Qg8c5iH3bNtxl+MwUaUSddRzc
+	4gqnVH5OhKgLGorXDVpzmCPxsPPBJAyaEEEObSc90XgsEbxq3BGi68RKVta92T3k5K0cC4Q1xr4Iu
+	m+etaLpvz53bKFf2SogLWCJnJQ1ASGRZlCoIHsroV2HEG/eaU9DDlMIPpGi89x8wx41OeOkKY5FIF
+	7DPTs1GsY6mdb1YriUb4oPFDyo5RphhoE4T4fnUUk6qm6k7uBafoEtLTLusGC06OaQv39iKq5kB0U
+	68nLbnUJj5p6Sbjlryr8H5Qfrra1QrrSOBxWgvmxdIuk9wfElKvMOXpqxvKQAXDFzjVIeC03eC1Ig
+	ynNEcfZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNuxm-0000000DVgp-2b2G;
-	Tue, 25 Nov 2025 15:28:18 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1vNv1t-0000000DVyn-3P2t;
+	Tue, 25 Nov 2025 15:32:33 +0000
+Received: from mail-northeuropeazon11010017.outbound.protection.outlook.com ([52.101.84.17] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNuxj-0000000DVfV-0q7j
+	id 1vNv1q-0000000DVyR-3kif
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Nov 2025 15:28:17 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 980514E418C2;
-	Tue, 25 Nov 2025 15:28:10 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 59A4C606A1;
-	Tue, 25 Nov 2025 15:28:10 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id D30E1102F07FE;
-	Tue, 25 Nov 2025 16:28:04 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1764084489; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=HgxEQ0f8MNjzesLOK80vetYWR3YMKzv8RvyUGva3XLk=;
-	b=K/Fp02xZ1WhDXcE/vwFa8uDqUxs4cBpya3Uwrcrop9bEq7pfenZOXIQyIXmx2DHkO7Vgru
-	QqSq4h0+JFNQ4AA67Sn0cYZHfB1XsjSR1ooUUoj8w1JL9dwGdr5FK/bNugHt3wAJe41uYr
-	uAX2fsP/UxHVQy6Cp+qpfCDuelKkDjEso0lEUbKRDvXz3BX5Oo6QQjoSWTQ/RBxJyF4tNg
-	aiVyQt7GC6EQJPS67xcwL2bBmQY3GHV8dd9afsLEylbbo+dcisEEf93H8jk/AzarBLOuX9
-	3d+Hht7rhKBAo9weo3A/zJ1cvtKmN9Mkk5o3USEarkGCBY+ykGchBqPb5EvKaw==
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Tue, 25 Nov 2025 16:28:04 +0100
-Message-Id: <DEHVRC8CY12S.3LSC6UVSMU0C1@bootlin.com>
-Subject: Re: [PATCH 1/2] phy: rockchip: inno-usb2: fix disconnection in
- gadget mode
-Cc: "Kever Yang" <kever.yang@rock-chips.com>, "Minas Harutyunyan"
- <Minas.Harutyunyan@synopsys.com>, "Alan Stern" <stern@rowland.harvard.edu>,
- "Louis Chauvet" <louis.chauvet@bootlin.com>, =?utf-8?q?Herv=C3=A9_Codina?=
- <herve.codina@bootlin.com>, "Thomas Petazzoni"
- <thomas.petazzoni@bootlin.com>, <linux-phy@lists.infradead.org>,
- <linux-rockchip@lists.infradead.org>, <linux-usb@vger.kernel.org>,
- <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-To: "Luca Ceresoli" <luca.ceresoli@bootlin.com>, "Vinod Koul"
- <vkoul@kernel.org>, "Kishon Vijay Abraham I" <kishon@kernel.org>, "Heiko
- Stuebner" <heiko@sntech.de>, "William Wu" <wulf@rock-chips.com>
-From: =?utf-8?q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>
-X-Mailer: aerc 0.21.0-0-g5549850facc2
-References: <20250722-rk3308-fix-usb-gadget-phy-disconnect-v1-0-239872f05f17@bootlin.com> <20250722-rk3308-fix-usb-gadget-phy-disconnect-v1-1-239872f05f17@bootlin.com>
-In-Reply-To: <20250722-rk3308-fix-usb-gadget-phy-disconnect-v1-1-239872f05f17@bootlin.com>
-X-Last-TLS-Session-Version: TLSv1.3
+	Tue, 25 Nov 2025 15:32:32 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=pkEdAxiM1g84nldO3A2iYcgDgkOR+nVXAzS63rgjadCTUPzTRvSuX7CIUsqjeNsuuhsJXcD6P07HzGzuHPe/YDM60q9HoFXG45WTFI7vSMg+GZahvt7zmVRuNy/rapn3550KMqFsXo4kjLLkI7DZu7IgGb7guRTtLtAUn9GKijAt/LtzJXI1uPazGlCcWKxBuN7ELM91mOdQVEM8PLrZR/jriQ0rk09iqEYtCMd/gCMN35ykBcwn++GAtzPycOCEjYwPfC00ZRxrwV6/3/s9dU749iD4hZFAHh4VpiqiKr7BDKh7ItdXzUKY07HirLfflBOT9DqCtXPa/xfTieY+nQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=nzGVxEsgKgVco2ykYSBlL8xbt1b3aPYQnx2kvpLQ50Q=;
+ b=qw+gcMmDHFnsq+1sc0gYlGBDqeM84S7VfPRJTnKlqPfGlK7CBGhLnwewu+YyFU6w5uhZqesLd8/zBGXIbsWHnyOiwVt8WuuKV8SOrxbFNTXRIJKf5RbZLMJt1eZIox5UKOb8/vKHqWMukPYnCwCBBN4kf14UsgQXk6eV6d+GQr/phV2/wa7B+NqmOdMPM2zSR9A1DzSxLRBdlnLYcSv9KbOPCL3k5EAilpQeeyEQFLup0Ua1RmgSYChAkyf8uzL/L5wU5pE1Z1wmaR3FBtbUuqZQH1CjJDH2yHSoCSKVyH8acpnCs5oYcKFwOgdJjy8NqojjpdaEmQwb8QJRgnaneQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=nzGVxEsgKgVco2ykYSBlL8xbt1b3aPYQnx2kvpLQ50Q=;
+ b=mnO2H22mQDYxIeo7oZhHZjUDlLCh+Ao+Br6ZrpJG7eQ/fRyUTGoY4h7MAOK33IcaqnUtWa+W4PDqliXS+2CnvkEn3LkvH+a/UH1db5pQPhHS3NFjI6eDWG+e5GdSm5T2JBH6+/X/8JC+7aFyDI9OHM3iqza2S0HYHVDqQO17U9pOUOm6Jk5ncP2cVckmnMW3cdpxbVeoKrIc0BpYnemBzFRVBTreZ/MVqzkYkyaL1DJA/joEFY13StjGDQiWKrUWXp2H2gcZQoptNXkoQ6uBYFzKMlrBEj/PBrwQD8yRP1rrJpik7IyKdn2xR7CvNOVuY/EzviBL8saaEoL5/jwF9g==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from DU2PR04MB8951.eurprd04.prod.outlook.com (2603:10a6:10:2e2::22)
+ by DU4PR04MB10433.eurprd04.prod.outlook.com (2603:10a6:10:55f::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9343.18; Tue, 25 Nov
+ 2025 15:32:25 +0000
+Received: from DU2PR04MB8951.eurprd04.prod.outlook.com
+ ([fe80::753c:468d:266:196]) by DU2PR04MB8951.eurprd04.prod.outlook.com
+ ([fe80::753c:468d:266:196%4]) with mapi id 15.20.9366.009; Tue, 25 Nov 2025
+ 15:32:25 +0000
+Date: Tue, 25 Nov 2025 10:32:16 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: Carlos Song <carlos.song@nxp.com>
+Cc: broonie@kernel.org, hawnguo@kernel.org, s.hauer@pengutronix.de,
+	kernel@pengutronix.de, festevam@gmail.com,
+	linux-spi@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/6] spi: imx: group spi_imx_dma_configure() with
+ spi_imx_dma_transfer()
+Message-ID: <aSXMAElWzwpT3Fbk@lizhi-Precision-Tower-5810>
+References: <20251125100618.2159770-1-carlos.song@nxp.com>
+ <20251125100618.2159770-2-carlos.song@nxp.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251125100618.2159770-2-carlos.song@nxp.com>
+X-ClientProxiedBy: PH7PR17CA0049.namprd17.prod.outlook.com
+ (2603:10b6:510:325::26) To DU2PR04MB8951.eurprd04.prod.outlook.com
+ (2603:10a6:10:2e2::22)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU2PR04MB8951:EE_|DU4PR04MB10433:EE_
+X-MS-Office365-Filtering-Correlation-Id: 302362b3-06a2-4e02-f10a-08de2c37d5a5
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|52116014|376014|366016|1800799024|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?Op+o7+oB4AtktZoWTnro+54BPJtc1VxCK28vcOLTU2Xkwz00fqPJTsTGo31q?=
+ =?us-ascii?Q?22y3O6Ccim4qG0T0W87karCaUwfC70oeX/Dx08NN3oWK6AW5dhI3EzZ3jNgj?=
+ =?us-ascii?Q?DQ8sha6NW9kqakbBrDKTQ8MpgNEJ7PazU34GRVpRbZhaYDcxHsZNDJuN/ZVH?=
+ =?us-ascii?Q?x4118aljxBG43x5qo6Uagpz9xjli0HXgE4bXrYP07qce37PG4FZ3Bxv5LSmE?=
+ =?us-ascii?Q?phWgllVHih3lFc3/SIv5VJQeLNN8QC5c+yCBOaC62DiAFML7feQKeFgIh6/9?=
+ =?us-ascii?Q?/KRT7A2cASq/g0XVDzHDXQNZ40MOQDbcxCpOkd40uRrQuGpn/XEJIkJ3CtC4?=
+ =?us-ascii?Q?khTPyqrY/cH4ZKPnn2osm1KrzoKOpmuenNinueYYP5D1RaktfWwRRhdcuwMm?=
+ =?us-ascii?Q?nLu2FTY0WgHt24QVEV/4oFm9Afe2N6nFi+F3VXrUUpNOwOP5o8pcdYOkjaH1?=
+ =?us-ascii?Q?BZM1cJLcKmXYCPRU8WNivDDeWBMh0rCzYNbldF0SBDIPU/0G7e4Eylp57Jwq?=
+ =?us-ascii?Q?kQu8wT8JDy1wfTw6oMb4UyeWeBj1z7vxdsNxudAt5dxd0sVoheGQMw3AkaOv?=
+ =?us-ascii?Q?0bsrSkQyrKqFLktzpECLnIbVGxb2YBRAJLRTimDcJMn3GvdPcmSCkFJAIn55?=
+ =?us-ascii?Q?deQ1OWdJGmP3EaWcQc2sHjDyp0Qn15/53NvXL6nsDUHTIgy/zo3raBSdDX55?=
+ =?us-ascii?Q?xD5205LMVdWSkTLRA4geqzs2luJTyYCROrKGKbZsvh+7Q8CelE1xZs6S6hT+?=
+ =?us-ascii?Q?wXeeblXTkUufNjriX7uwiQMsH/eLXaUNnlckRAkVlVOd0QfmTOvVhFItcHQm?=
+ =?us-ascii?Q?2xt1T27+U7e8L9kWE4UdIlx62QoZw6+oVkdxbuIRpyvJz2Yn8YsFq+qGGiIs?=
+ =?us-ascii?Q?rPr0DzYqZGC2iVcSfEnMAjxx/7FUTM2uq/CRK7UPDNtd0bz8AXLiuGT2RoBT?=
+ =?us-ascii?Q?6YTdgjtG58U/amZ1lB661bXkwUP/6tWP5lYwxkdqjENe68h+VWRYt3/dJ09T?=
+ =?us-ascii?Q?nM8yoe67Utu8SNwGmyzdHb8e00y+NH+VquYs+38mwkHJ/lccZ7KsOzW0v+zf?=
+ =?us-ascii?Q?IWVl5g134eFOrWcJXYiJYC7gXo44N2ZXj8to9KeGCtHpeCin91iU56ZfHQYz?=
+ =?us-ascii?Q?5+3gkS8rqiuDCOgLM4paQzGSnhlA8NOtwS0s2ZgFlLT3mr93f17NbpZkMaZD?=
+ =?us-ascii?Q?5xPyQkWnrgZ2Yjy8biTQa6b9c7MCNW0NgHXm81vq+kSwpRauk44ngJuqNfrj?=
+ =?us-ascii?Q?Si3a2LIZPuciP5pA7/jPSXpna1S7k1T+5XaCSetp5yHt0dwCtDzbNzW9NBQj?=
+ =?us-ascii?Q?b6Wgtx4FHDBJSXZ8ICzct7hnE/mGWnLBQsK3ge9AuNjwKfZEW+nNVs2DVn9l?=
+ =?us-ascii?Q?UD+hHkmKRc2ErttquJdHd0ispfwA0FaTEOuihe8h788ex5JscrFVTJirFXx8?=
+ =?us-ascii?Q?WTrDGCu/KrB/KE/pCmvnQWXAnP8TXzwb/gV4ChqC/F/T5Or42lw5uIDou3WW?=
+ =?us-ascii?Q?KuROloA7YYPGmMqAA2euxfwYZh4vwsiKftgW?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8951.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(52116014)(376014)(366016)(1800799024)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?KdBM49Vh85nxbBSezsnxuylQ5kUfOYiDRAIUjoVxHAWrw02J0OSk9ZTKTKRw?=
+ =?us-ascii?Q?RUeb/kc0iLaSaYimRa84Q9CCxNyA67vsmmw6f2q+4kT/2ky6pPkdqwBym/k/?=
+ =?us-ascii?Q?ChNfeqN0x55Mxxe/q/mj4ASM5cK7mQGU7R8lP4ENLjLrcNCoj9em8r5euE6e?=
+ =?us-ascii?Q?8LhX1arStniDh0LO/KJvr9DRlEnUo9xmsFDWFmfoPdr7Hsdz9nn42kKDREtp?=
+ =?us-ascii?Q?c/DMHycBZ5K0Sb5nOfFyZeqZEG/720OhjmZcBOP0yEq7WOeuAVUAb/9C99Nh?=
+ =?us-ascii?Q?BcNb+3MXnrP6PTpf5bsEL3rzRHOk0g/bvHR12ERtwxAYtiCiXe+i/umkmuyz?=
+ =?us-ascii?Q?vK3wBbB6GFT00HAtXJjQ5F8gUqzJ2zQAynRJuRfd+YcRjj5PHIJZpkArMO3z?=
+ =?us-ascii?Q?rg33Bzm3UzZMfGZz5jI08GfxjDmbinQ5EP/p4/64hbaodT6H89qwHI0KONG0?=
+ =?us-ascii?Q?Fx+mSYCT2UJMOKTBjAjAqGyMojeJICQhjQTb+sm0sbwwT7orxDGVcXUuezZ6?=
+ =?us-ascii?Q?7PEPHfJHb44NmociELFntYuAC8icsn3VAkVJQovO3PyBndlfGp31Q08PnTys?=
+ =?us-ascii?Q?1pskGeok9x+KbgSW7hYnlr5ebC/pmx56gI+JpjBcXM6CFYmZrHu4vaE/mr9W?=
+ =?us-ascii?Q?Vrfzp4sMW/dx+JB21LQ4zSWL14iHsGtMH3M0gCo3MyfKtUG8o+OSrxl2JLob?=
+ =?us-ascii?Q?jYYgZdzVhN5UGb4x6ScPRw3kT/WemBzAxQUvUWDEmYwRjkB9AkBPZSe0lq/+?=
+ =?us-ascii?Q?uVN2BXvHZqu+MzN3ZQFVQamLDLJ92GB6nd0yEU/ZSin0wyoOyQidBkr+yz3h?=
+ =?us-ascii?Q?zH2Yqw1olra8x2h8t3QI/YdEU/dWfqMAvyJKeMPmJrvBvYhrrocZrS2gQqeS?=
+ =?us-ascii?Q?vNgFaCc+n02Rk5YWI2MfgHKgYx6zgOHGBosIrMlJKJ/h3EUe/AQwLPvewBlx?=
+ =?us-ascii?Q?zwwOrfkHfbKgZgh43gRCUorb07JQZQU0RtnlBnGZp38WW9UYeCB+/Td2fhmQ?=
+ =?us-ascii?Q?37RdH7swI3pKtGhE2TYUgzIrF+jpeQ6OETcYK338oHuv+SGnI0tuaF2SUb0D?=
+ =?us-ascii?Q?lsHf4wUdtz0NcYYMvz6hfEoeNSQ8gAYZXmQnFqbFIV+7OjT+1XxJZu9Bypw9?=
+ =?us-ascii?Q?X6xvTVQPxuPR0C8KV0eDosr00vZV0Yd1zvhfirgAcwEswr2riqMg8mqWK4iK?=
+ =?us-ascii?Q?fWl4RltBXQz6W+zm5eTNxDwdLhuydzD6+TVBKvLIBoElwnV+nCl/IZRTzgTZ?=
+ =?us-ascii?Q?3/8fUhZc9Djl5qkZwWJrBQeDuRLvZmKdmCXXPNJbM4Dz1FqFRaVfgK9Vp0ZE?=
+ =?us-ascii?Q?zC9XcxQfUt11VAaBIYu2bjXGXdw1xkdkEtHWsud0kIhS18ML16WekqchraxK?=
+ =?us-ascii?Q?Si7rGGpL8WPs8M3zeD8wiACJqoydPo+1BtZ//On5DME992dtCecdiPyJhSmr?=
+ =?us-ascii?Q?xdh9sIEwAHNESQGE0NlaZC7RNsLb/PYTYQ4AALpO2oWAHQcTmspKFS6sWBiy?=
+ =?us-ascii?Q?Gt/aa7Zub4z3AyQH5uMF8ZqeOfLBsq+XGX+5abFFS3IOwf0LFvv+9lX6Biyk?=
+ =?us-ascii?Q?sDxsrqBONv00HBCK1i6wCK6BsMn55vbP98QSh37t?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 302362b3-06a2-4e02-f10a-08de2c37d5a5
+X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8951.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Nov 2025 15:32:25.5417
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: CtCjHfuIoxUfB1Q1GNNiSHmMfI6NUp/pvkniVdtxHXbb+CHYYguV8eoCKxnbz3NbsfdyVNPHgLT3my7kg4b7Hw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB10433
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251125_072815_497141_5299B36A 
-X-CRM114-Status: GOOD (  20.47  )
+X-CRM114-CacheID: sfid-20251125_073230_966815_15FC492E 
+X-CRM114-Status: GOOD (  20.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,98 +160,126 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Luca,
-
-On Tue Jul 22, 2025 at 10:43 AM CEST, Luca Ceresoli wrote:
-> From: Louis Chauvet <louis.chauvet@bootlin.com>
+On Tue, Nov 25, 2025 at 06:06:13PM +0800, Carlos Song wrote:
+> Relocate spi_imx_dma_configure() next to spi_imx_dma_transfer() so that
+> all DMA-related functions are grouped together for better readability.
+> No functional changes.
 >
-> When the OTG USB port is used to power to SoC, configured as peripheral a=
-nd
+> Signed-off-by: Carlos Song <carlos.song@nxp.com>
+> ---
 
-typo: is used to power *the* SoC
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
-> used in gadget mode, there is a disconnection about 6 seconds after the
-> gadget is configured and enumerated.
+>  drivers/spi/spi-imx.c | 88 +++++++++++++++++++++----------------------
+>  1 file changed, 44 insertions(+), 44 deletions(-)
 >
-> The problem was observed on a Radxa Rock Pi S board, which can only be
-> powered by the only USB-C connector. That connector is the only one usabl=
-e
-
-"which can only be powered by the only USB-C connector"
-double "only" makes it a super exclusive connector!
-
-> in gadget mode. This implies the USB cable is connected from before boot
-> and never disconnects while the kernel runs.
+> diff --git a/drivers/spi/spi-imx.c b/drivers/spi/spi-imx.c
+> index b8b79bb7fec3..e78e02a84b50 100644
+> --- a/drivers/spi/spi-imx.c
+> +++ b/drivers/spi/spi-imx.c
+> @@ -1282,50 +1282,6 @@ static irqreturn_t spi_imx_isr(int irq, void *dev_id)
+>  	return IRQ_HANDLED;
+>  }
 >
-> The problem happens because of the PHY driver code flow, summarized as:
+> -static int spi_imx_dma_configure(struct spi_controller *controller)
+> -{
+> -	int ret;
+> -	enum dma_slave_buswidth buswidth;
+> -	struct dma_slave_config rx = {}, tx = {};
+> -	struct spi_imx_data *spi_imx = spi_controller_get_devdata(controller);
+> -
+> -	switch (spi_imx_bytes_per_word(spi_imx->bits_per_word)) {
+> -	case 4:
+> -		buswidth = DMA_SLAVE_BUSWIDTH_4_BYTES;
+> -		break;
+> -	case 2:
+> -		buswidth = DMA_SLAVE_BUSWIDTH_2_BYTES;
+> -		break;
+> -	case 1:
+> -		buswidth = DMA_SLAVE_BUSWIDTH_1_BYTE;
+> -		break;
+> -	default:
+> -		return -EINVAL;
+> -	}
+> -
+> -	tx.direction = DMA_MEM_TO_DEV;
+> -	tx.dst_addr = spi_imx->base_phys + MXC_CSPITXDATA;
+> -	tx.dst_addr_width = buswidth;
+> -	tx.dst_maxburst = spi_imx->wml;
+> -	ret = dmaengine_slave_config(controller->dma_tx, &tx);
+> -	if (ret) {
+> -		dev_err(spi_imx->dev, "TX dma configuration failed with %d\n", ret);
+> -		return ret;
+> -	}
+> -
+> -	rx.direction = DMA_DEV_TO_MEM;
+> -	rx.src_addr = spi_imx->base_phys + MXC_CSPIRXDATA;
+> -	rx.src_addr_width = buswidth;
+> -	rx.src_maxburst = spi_imx->wml;
+> -	ret = dmaengine_slave_config(controller->dma_rx, &rx);
+> -	if (ret) {
+> -		dev_err(spi_imx->dev, "RX dma configuration failed with %d\n", ret);
+> -		return ret;
+> -	}
+> -
+> -	return 0;
+> -}
+> -
+>  static int spi_imx_setupxfer(struct spi_device *spi,
+>  				 struct spi_transfer *t)
+>  {
+> @@ -1481,6 +1437,50 @@ static int spi_imx_calculate_timeout(struct spi_imx_data *spi_imx, int size)
+>  	return secs_to_jiffies(2 * timeout);
+>  }
 >
->  * UDC start code (triggered via configfs at any time after boot)
->    -> phy_init
->        -> rockchip_usb2phy_init
->            -> schedule_delayed_work(otg_sm_work [A], 6 sec)
->    -> phy_power_on
->        -> rockchip_usb2phy_power_on
->            -> enable clock
->            -> rockchip_usb2phy_reset
+> +static int spi_imx_dma_configure(struct spi_controller *controller)
+> +{
+> +	int ret;
+> +	enum dma_slave_buswidth buswidth;
+> +	struct dma_slave_config rx = {}, tx = {};
+> +	struct spi_imx_data *spi_imx = spi_controller_get_devdata(controller);
+> +
+> +	switch (spi_imx_bytes_per_word(spi_imx->bits_per_word)) {
+> +	case 4:
+> +		buswidth = DMA_SLAVE_BUSWIDTH_4_BYTES;
+> +		break;
+> +	case 2:
+> +		buswidth = DMA_SLAVE_BUSWIDTH_2_BYTES;
+> +		break;
+> +	case 1:
+> +		buswidth = DMA_SLAVE_BUSWIDTH_1_BYTE;
+> +		break;
+> +	default:
+> +		return -EINVAL;
+> +	}
+> +
+> +	tx.direction = DMA_MEM_TO_DEV;
+> +	tx.dst_addr = spi_imx->base_phys + MXC_CSPITXDATA;
+> +	tx.dst_addr_width = buswidth;
+> +	tx.dst_maxburst = spi_imx->wml;
+> +	ret = dmaengine_slave_config(controller->dma_tx, &tx);
+> +	if (ret) {
+> +		dev_err(spi_imx->dev, "TX dma configuration failed with %d\n", ret);
+> +		return ret;
+> +	}
+> +
+> +	rx.direction = DMA_DEV_TO_MEM;
+> +	rx.src_addr = spi_imx->base_phys + MXC_CSPIRXDATA;
+> +	rx.src_addr_width = buswidth;
+> +	rx.src_maxburst = spi_imx->wml;
+> +	ret = dmaengine_slave_config(controller->dma_rx, &rx);
+> +	if (ret) {
+> +		dev_err(spi_imx->dev, "RX dma configuration failed with %d\n", ret);
+> +		return ret;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+>  static int spi_imx_dma_transfer(struct spi_imx_data *spi_imx,
+>  				struct spi_transfer *transfer)
+>  {
+> --
+> 2.34.1
 >
->  * Now the gadget interface is up and running.
->
->  * 6 seconds later otg_sm_work starts [A]
->    -> rockchip_usb2phy_otg_sm_work():
->        if (B_IDLE state && VBUS present && ...):
->            schedule_delayed_work(&rport->chg_work [B], 0);
->
->  * immediately the chg_detect_work starts [B]
->    -> rockchip_chg_detect_work():
->        if chg_state is UNDEFINED:
->            if (!rport->suspended):
->                rockchip_usb2phy_power_off() <--- [X]
->
-> At [X], the PHY is powered off, causing a disconnection. This quickly
-> triggers a new connection and following re-enumeration, but any connectio=
-n
-> that had been established during the 6 seconds is broken.
->
-> The code already checks for !rport->suspended, so add a guard for VBUS as
-> well to avoid a disconnection when a cable is connected.
-
-Your commit message was clear but I was missing one key point: what
-rport->suspended means. It isn't what I first thought. Instead it means
-phy is powered off. Naming is bad but unrelated to your series. Maybe
-add a comment to your commit message like the following?
-
-  The code already checks for !rport->suspended (PHY is powered on), ...
-
-> Fixes: 98898f3bc83c ("phy: rockchip-inno-usb2: support otg-port for rk339=
-9")
-> Closes: https://lore.kernel.org/lkml/20250414185458.7767aabc@booty/
-> Co-developed-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
-> Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
-> Signed-off-by: Louis Chauvet <louis.chauvet@bootlin.com>
-
-I believe there is an issue with your SoB ordering. It is meant to
-signal the path's route from author into the kernel tree. In that
-sense, it should start with author followed by you as submitter. Then
-the maintainer will append its own.
-
-Documentation/process/submitting-patches.rst is semi-explicitly writing
-that out:
-> Any further SoBs [...] following the author's SoB [...]
-https://elixir.bootlin.com/linux/v6.17.9/source/Documentation/process/submi=
-tting-patches.rst#L449-L453
-
-One good way to check is that all maintainers always append their SoB
-rather than prepend.
-
-With that,
-
-Reviewed-by: Th=C3=A9o Lebrun <theo.lebrun@bootlin.com>
-
-Thanks,
-
---
-Th=C3=A9o Lebrun, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
-
 
