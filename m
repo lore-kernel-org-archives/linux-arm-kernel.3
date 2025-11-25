@@ -4,77 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DABFED10369
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 23:19:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24DDFD1036C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 23:34:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ukMBHd2xprh1k/N8cNGlN+MYj/FJerUlkN0OU+0nrSM=; b=FjDTXAclVHu1pnwMEfnUg7Ctcb
-	gxz8zZbKlc0kxEPnd0cpuxta07sulRJHxeJcLvxq57U0NOViR32n1LlPY6qa20pni0bulk/8voNUM
-	cThbX9uzkcfLhhGu8ldQboxUnZZjua1bO/kjb2TGdC23m4sBHyaojZllz9PTxuwBXSAx1YVA0/lFK
-	Ebx48vc6JF/mM1qTCuKoakWOM7pnMeD8U6f7oCWv/8YbxQFHLQRTgMriPp5a/3VaU4BHXqutqSKJX
-	bYCX1N0MnkwlrxR0p5pKz63P7QvFxpLlbYHmn6oQBvpQjS6h3rZPjZ3tewThxVczGzJGl44XDnN0h
-	ywEmnMZg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YSgFECtP1z+NfavQTbIkfavnGHKDphcmbRff6uSNyR4=; b=JARBEFxfTy/o5XMD75fxgT7ocX
+	itQEKLRfS9y5QbUiHT588QvIgtMrtV1JiLatSPIMPImK8piN/i/NAyrue0lLwY+WRm+e/xWUex9gC
+	oLMZKFN7MseVTH29tLaECgmf/HiEq8X1stOdoXm7cFF96p/6dEQxmGCMqT/KO8Im2ydFzHapq4XQk
+	ZGvy258E3Vhp91JzA+jODGGm4CWNkyraUYhftMi7H+o8nNrCMXyKkMaQvm9cXAI/zOv/HHPHVbgqK
+	9Rh+10XanGX+cvUIc1cgsndoUR6XCgUCubTMUYzZApDG7MvFJ+CypuSEB2LlgFcDKcYYeIFKz24zY
+	Hi2ueucQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vO2Jn-0000000E3IH-2dzs;
-	Tue, 25 Nov 2025 23:19:31 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1vO2Y5-0000000E45g-11fw;
+	Tue, 25 Nov 2025 23:34:17 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vO2Jj-0000000E3Hd-45mh
+	id 1vO2Y3-0000000E45B-0cTX
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Nov 2025 23:19:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=ukMBHd2xprh1k/N8cNGlN+MYj/FJerUlkN0OU+0nrSM=; b=Tmkl9DgGtXT1tFoDpAdbmsXLu2
-	wPfi67ITjX3MMczRG20rf2PbUhq4ZGCG/KDNkBGrpGO+cN+ZFzUAi1UFWV1q9dAU55D65VFvfK/+v
-	CijIMS61dPmELwsL21oN9hO8F057RmwJbKrEu0o9u66hmRyhu7TYQJL4I1Xcyzr9ienz1xQ78akqf
-	RquMtihWgU9RyHFTEoJ+Hw2IsjlFXCPXyzGrOLfg2QnvLGfG0eFuUlqnxqH1oCpROSyT/AjVs7xCl
-	VuniJyZ9A2qMyXOxayYK+EASCMWoEKAOE3jDp0UaeuKiqTAxpRI140EdlLrjJIwKMqVxAEAdPTBM4
-	4wrPwEKQ==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:56056)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1vO2JU-000000003IU-2m6E;
-	Tue, 25 Nov 2025 23:19:12 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1vO2JQ-000000001AF-0Uv7;
-	Tue, 25 Nov 2025 23:19:08 +0000
-Date: Tue, 25 Nov 2025 23:19:07 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: rohan.g.thomas@altera.com
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Richard Cochran <richardcochran@gmail.com>,
-	Jose Abreu <Jose.Abreu@synopsys.com>,
-	Fugang Duan <fugang.duan@nxp.com>,
-	Kurt Kanzenbach <kurt@linutronix.de>, netdev@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net-next] net: stmmac: Fix E2E delay mechanism
-Message-ID: <aSY5ayT0X_zFeYFs@shell.armlinux.org.uk>
-References: <20251125-ext-ptp-fix-v1-1-83f9f069cb36@altera.com>
+	Tue, 25 Nov 2025 23:34:16 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-4779cc419b2so58212225e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Nov 2025 15:34:14 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1764113653; x=1764718453; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=YSgFECtP1z+NfavQTbIkfavnGHKDphcmbRff6uSNyR4=;
+        b=BTke/OEoJ+8v60MP449Pn9o2hEKx0xVr/s+wVFVY/SNM5jy1rRfX4/6Bc3vYICN4xk
+         xAPAX7Xh1wHia0JWNiPwz4P1589ISlOv/6blBhv38UvXRN5FpPQbsnUOQpDAeTcOhTLa
+         NncMD0L/kyw20wRYOrfyVLw3MkJeNciJ/wSvoX4LzYu9L+j3XRTFanDT6/O/AiY812jl
+         6E57qSf4eofesWWoCsH0opp+kepfcJzNlRjG0XfyoqhZwOe3mA2DckkXwgFhCjN00RZy
+         SJiTDCrANaJzmUblbxrUA/VnUk07bKZYo6LdcoK0DQGz8H6oNIGM038CSjp8JsF0StmS
+         fU4g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1764113653; x=1764718453;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=YSgFECtP1z+NfavQTbIkfavnGHKDphcmbRff6uSNyR4=;
+        b=GSneYTYZXtVpiV1I06088GMd6qMHt9YEN63jnaBpsbwaqLCt18S0uKDO+d1IQPrYrb
+         NhR1Byp2MCPXVQLliDvun9cUNVXzYBuWiboBkPl6zinLw56AK7mUX9XogXCnpISTKzzx
+         +Tk8TzuewoLCRCGFVfntoYYHnRQB587xk0oEmwZgF1338URw8kjGjvtMVKyZcr51Ct/Q
+         ksKZN345akEhUq7ijphxFvQyQbxHLr8Q1vV/tHHGm2kJ/k6jcD0Z1VqRUJ64E9Sr4JZR
+         H9MCQwAIpFfLnSnnlNxKUkChQdkD6PWubwGUjGXYP1SLI3EatvIuWIKMJMUiRGzWgkKX
+         uvtA==
+X-Forwarded-Encrypted: i=1; AJvYcCW+TuG6GtURv+/wIPKnSZiPNg0g/Z9msRYwzY/mlPoh6/TKR0J/TqWV0l2xMaPB5oHEuEYH3mPfJOAXp7nIpMZS@lists.infradead.org
+X-Gm-Message-State: AOJu0YyOKVH8NKAglx54kMMksALcxGv3x2ZY0HPh0EtzfBQj4Xla+r5z
+	qAHiiteNX2NVmcr321QhcUN0qwNihldG60fUZdP5qyxn5tNoQ9E8dwf6
+X-Gm-Gg: ASbGncsz1H90Slk+TLa/L+d6nPKgsDhhaa7D2TDsByTv3G8xcmAf0D9+FRxEEpQmWvJ
+	DCbaNkKkvG0iOX4jv8mqNptJyXWgVIfrgishaMogOaMAALL4n1dQAU8cihrfvyMMf3VEH/48rVW
+	k7lOyUeSFBSdOpDuEGyF5smIZUiDOipAQd2BmAbRotRb2iDOo+BXP6ZNZO0R35hjJq8/H7oZqYd
+	5CpRBY+1YdWSdobDW6UspxV4/uWVl5/amupkt/wqhx6KyUmizDdAkS4UrgkAHOsMUyrMmOicuhE
+	SHkk97Rg5GTS4JlQnTSL9banxtCfwkZ0B9mjGkYJ/RCa4N27JFB5SrcLYtFee6gd7z7L1Ok3qUL
+	Nl5VN+dj7Kr3AkKPQ+Q20xilvdpFBwgx4ENowrnE9DemDgVxFp2uZ6xRA5JJIj7/AgnzwMgk74M
+	cZq+g69FKz3Frf46PhOxOr8zLAXHM8E124f5W8m2VZlw==
+X-Google-Smtp-Source: AGHT+IFalyeW7faMHDifKV64koi9lzILMgomHzb1dC1jupNeqdx4t6uHO6adv/AIDeDahL7H73btnA==
+X-Received: by 2002:a05:600c:4443:b0:477:af74:ed64 with SMTP id 5b1f17b1804b1-477c114f00amr174145245e9.27.1764113652924;
+        Tue, 25 Nov 2025 15:34:12 -0800 (PST)
+Received: from [192.168.1.129] ([82.79.237.20])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4790addeeaasm12850205e9.7.2025.11.25.15.34.11
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 25 Nov 2025 15:34:12 -0800 (PST)
+Message-ID: <9ce8bcf1-7a62-44ce-81e3-f1c51f8be9b0@gmail.com>
+Date: Wed, 26 Nov 2025 01:34:10 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251125-ext-ptp-fix-v1-1-83f9f069cb36@altera.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 2/6] reset: imx8mp-audiomix: Replace mask with bit
+ index
+To: Philipp Zabel <p.zabel@pengutronix.de>, Frank Li <Frank.li@nxp.com>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Fabio Estevam <festevam@gmail.com>, Daniel Baluta <daniel.baluta@nxp.com>,
+ Shengjiu Wang <shengjiu.wang@nxp.com>, devicetree@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Pengutronix Kernel Team <kernel@pengutronix.de>
+References: <20251114133738.1762-1-laurentiumihalcea111@gmail.com>
+ <20251114133738.1762-3-laurentiumihalcea111@gmail.com>
+ <aSCHjNqj3CV3ahX0@lizhi-Precision-Tower-5810>
+ <6be8a682-6c72-45c8-be0e-880ab66045ff@gmail.com>
+ <aSR8q5cE/XXbZuF0@lizhi-Precision-Tower-5810>
+ <4a022153-009c-44fd-8c4b-39819ae69390@gmail.com>
+ <9f07e541fc000d9065c1ff1716f1edc4c2278c8d.camel@pengutronix.de>
+Content-Language: en-US
+From: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
+In-Reply-To: <9f07e541fc000d9065c1ff1716f1edc4c2278c8d.camel@pengutronix.de>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251125_151928_018182_47B77153 
-X-CRM114-Status: UNSURE (   9.88  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251125_153415_218239_120F072C 
+X-CRM114-Status: GOOD (  25.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,25 +113,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 25, 2025 at 10:50:02PM +0800, Rohan G Thomas via B4 Relay wrote:
-> From: Rohan G Thomas <rohan.g.thomas@altera.com>
-> 
-> For E2E delay mechanism, "received DELAY_REQ without timestamp" error
-> messages shows up for dwmac v3.70+ and dwxgmac IPs.
-> 
-> This issue affects socfpga platforms, Agilex7 (dwmac 3.70) and
-> Agilex5 (dwxgmac). According to the databook, to enable timestamping
-> for all events, the SNAPTYPSEL bit in the MAC_Timestamp_Control
 
-bits
+On 11/25/2025 12:40 PM, Philipp Zabel wrote:
+> On Di, 2025-11-25 at 01:59 -0800, Laurentiu Mihalcea wrote:
+>> On 11/24/2025 7:41 AM, Frank Li wrote:
+>>> On Mon, Nov 24, 2025 at 01:28:32AM -0800, Laurentiu Mihalcea wrote:
+>>>> On 11/21/2025 7:38 AM, Frank Li wrote:
+>>>>> On Fri, Nov 14, 2025 at 05:37:34AM -0800, Laurentiu Mihalcea wrote:
+>>>>>> From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+>>>>>>
+>>>>>> Replace the reset map mask with the bit index to make it clear that all
+>>>>>> reset lines are managed by exactly 1 bit.
+>>>>> I don't think there are benefit because I met some periphal need a magic
+>>>>> number to reset.
+> Toggling multiple bits in unison is different from having to write a
+> magic number to a register field. The driver currently supports
+> neither. That is why I suggested to change from mask to bit.
+>
+>>>> Please provide more information. What SoC? Which peripherals? What block control?
+>>>>
+>>> I can't reminder exact one. I grep some code
+>>>
+>>> [IMX8MP_MEDIABLK_PD_LCDIF_1] = {
+>>>                 .name = "mediablk-lcdif-1",
+>>>                 .clk_names = (const char *[]){ "disp1", "apb", "axi", },
+>>>                 .num_clks = 3,
+>>>                 .gpc_name = "lcdif1",
+>>>                 .rst_mask = BIT(4) | BIT(5) | BIT(23),
+>>>                 .clk_mask = BIT(4) | BIT(5) | BIT(23),
+> According to the reference manual, these are three separate software
+> resets for three separate clocks: lcdif_pixel_clk, lcdif_apb_clk, and
+> lcdif_axi_clk.
+>
+>>>                 .path_names = (const char *[]){"lcdif-rd", "lcdif-wr"},
+>>>                 .num_paths = 2,
+>>>         },
+>>>
+>>> mask is more extenable and easily support more hardware in future.
+> If such hardware appears in the future, it will be easy to adapt the
+> driver. Usually we don't prematurely add complexity for possible future
+> hardware.
+>
+>>> Change to bit number have not big benefit.
+> It improves readability as it makes immediately clear from the code
+> that all resets correspond to a single bit.
+>
+>> sure, I'm fine with the mask-based approach. The big idea here is to make this driver
+>> usable in as many scenarios as possible.
+>>
+>> Philipp, please let me know if you're okay with the proposal. Will also have to tweak
+>> one of the subsequent patches since, so far, we've been operating under the assumption
+>> that reset lines are 1 bit.
+> Given that the current code is already using mask, and if you think it
+> is likely that there will be need for reset controls that require
+> toggling multiple bits with a single write, I'm fine with keeping the
+> mask.
 
-> register must be set to 2'b00, and the TSEVNTENA bit must be cleared
-> to 0'b0.
 
-Are you sure 3.70 is the appropriate point. According to the 3.74
-databook, SNAPTYPSEL changed between 3.5 and 3.6.
+ACK. Unfortunately, I don't have an use-case for this driver in which we'd want to
 
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+manage multiple underlying reset lines as a single one like in Frank's example. I'm
+
+also assuming Frank doesn't have one either based on his previous comment.
+
+
+Despite this, however, the previous version of the driver was already able to handle
+
+this use-case. The single-bit reset restriction was introduced by this series. Therefore, I
+
+suggest we reduce the number of changes and revert to the old behavior.
+
+
+This way, we'll avoid reverting the patches if someone does ever come up with
+
+such an use-case. I'd say the driver is simple enough that the code readability will
+
+not be severely impacted.
+
+
+Either way, I think we'd be fine with any of the two approaches in the end.
+
+
+>
+> regards
+> Philipp
 
