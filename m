@@ -4,49 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EA9BD0E6F8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 15:21:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C45BD0E6FB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 15:22:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IQ/bgnJBq9VZO9tUnN6Pr1uZ02Kwqo6FOS/RfI2FjP8=; b=kVdRYEFerjQOWzIXPrQJPCBPS3
-	1JoRHNzX4QpDjEoyP5ES2oW7UuxE66MXfFXJzSwIZ6wOIdRrEUc4qnhnu/qukl4nwhtS5+w0Euwr9
-	fIf5jnNoZJASP/IJEXV8gbPQLUQpAtEOuYbRkB80sPU+datzsmPHwv0dqsQx034ahcx2ka1pPFe5+
-	4l7SqEQGrK27eQikcgfC7aAQd6cUv1TbNBI9S/09UIK68q6oYFMaQYlmes1a2XZnxxOG7rFT0SWJW
-	c+f2i/WZfPETHY3+9rzFcDKoyhNQT3D2UnA1C6XfPjfD4PWmS+Ca7HQizErBizbEWzp1cgT43Lika
-	/j7ryiLA==;
+	bh=gF1TMUlgJsk8nZTSrxVRpBDUCtiYX7EJ7Y0GlV/GkQ8=; b=u7ZQSrZukx3Lsp2zItuOPypl8p
+	ulPvBl01rKG+/Fu76tewue4gaXoHmoqb+TWdqThdnNReoZgJ+i7BW5Tj9bf/HhWRczEH8BfjEah1y
+	s2ILwyq48yOQXBdtvJJS0hNoFEknTY2Se+FRmA2pCCGmCme2Mqw3mOTyLE42PMAWyPIGe5r0HS20m
+	NBq1JKpSDXP2AcHWoZ2fqLAskdaqRJT2OS2R5tVy+JC5NDqYPBFPrX+M+IUnneQ2S7hz1Z36t0SpF
+	EA5+mdp8FOIMOYL70I6ZNZiY59H0LGdJq1U4M7Z1vs80PsRhYfgQJ2n6SiZjWkMvxw7Q4mzg+lwCh
+	WSvU+DvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNuqe-0000000DV1Q-024q;
-	Tue, 25 Nov 2025 15:20:56 +0000
+	id 1vNusU-0000000DVB6-1whH;
+	Tue, 25 Nov 2025 15:22:50 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNuqc-0000000DV1A-3yNU
+	id 1vNusT-0000000DVB0-3Uaw
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Nov 2025 15:20:55 +0000
+	Tue, 25 Nov 2025 15:22:49 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E8E436011E;
-	Tue, 25 Nov 2025 15:20:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 46FFEC4CEF1;
-	Tue, 25 Nov 2025 15:20:51 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 46BEA60052;
+	Tue, 25 Nov 2025 15:22:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AFF0CC4CEF1;
+	Tue, 25 Nov 2025 15:22:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764084053;
-	bh=BCA8gecQ3jJz8DBdFOqLh4OALdI1WHN0hfpkk/7n8pY=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=p8idKUxjKA+57pibMAm68jJjT+fXczK225xsHYTZR3aLRLsWm/U3ltAQ6wF9uty75
-	 8N9WsTWbcjjQkt5mQU/yTHSaOvkcMT0hbcPVY4V6QggX2pmDKAs2iXWfIUXBDB+XMc
-	 m8UmMvInGICR7qNS8MTZciQe9kOv5cZO4gwcPh9C9GqpXecsGaLZjQ5BuVInLZxZXn
-	 lyYkQ1oCfoS6wPd1DAGlz8LoJ0px9pxaYmw6KmENyuoN+OmIGt0j4qJTM4DJd8enb5
-	 /hrYU9iqnv7+4nfzTQKJcdzReh6Xs60IjXjVRcGCVi2No9KGENZVcOckt0V15BwUr1
-	 12o1FBhsmBXqg==
-Message-ID: <84f68f5f-2b38-410f-81b1-7f349c870a66@kernel.org>
-Date: Tue, 25 Nov 2025 16:20:49 +0100
+	s=k20201202; t=1764084169;
+	bh=MPNblq4mG15gjOci6IPAXY2vrTTh/GoLPR4P1hIGfhw=;
+	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
+	b=G6QZJdLP0zp67kcwM305/SM2MYzN8O1Y7xv+TjD/ZNhZSdeQ8ThW3NBogm5huZr3Q
+	 DInskdz9GO5+4kMSJ8dhBlha/C87xCUBxZgEeJrxVIfih6l05UUu3ZtCGNq75LyUS+
+	 gwufv2J0eBos850MIfPemf01ckaXvLeSLSC0EE3rZaUSjoAARUmd2hhnuioOll96aS
+	 UJ7Mn+M+D0mfcBcYCl2543Pi07+H7MDWQx/6ROz3uut6XOD+FW85ypwLXRtac31lLd
+	 0fg0yJgMgk9ewr3mMo5APrzPsEuQWNVZRVfUlDnBfqkRIGhNqzqGbPXTtoof27la2Y
+	 vses5zjX3PfTA==
+Message-ID: <ee3a70bf-ff44-4d84-944f-04447945d8b3@kernel.org>
+Date: Tue, 25 Nov 2025 16:22:44 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v2 0/3] Add support for exynos5250-manta (Google Nexus 10)
+From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Lukas Timmermann <linux@timmermann.space>,
  Alim Akhtar <alim.akhtar@samsung.com>, Rob Herring <robh@kernel.org>,
  Conor Dooley <conor+dt@kernel.org>, Russell King <linux@armlinux.org.uk>
@@ -54,7 +55,7 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  Alexandre Marquet <tb@a-marquet.fr>
 References: <20251125-google-manta-v2-0-0f097cfff39c@timmermann.space>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+ <84f68f5f-2b38-410f-81b1-7f349c870a66@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
  xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
@@ -99,7 +100,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20251125-google-manta-v2-0-0f097cfff39c@timmermann.space>
+In-Reply-To: <84f68f5f-2b38-410f-81b1-7f349c870a66@kernel.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -116,22 +117,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 25/11/2025 16:12, Lukas Timmermann wrote:
-> This patch series adds initial support for the google-manta board, known
-> as Google Nexus 10 to users. The device is powered by
-> the Exynos 5250 SoC. The notification led driver (as3668) is already 
-> (tho not applied) in the kernel mailing list and can be found here:
-> https://lore.kernel.org/linux-leds/20251125114015.355487-1-linux@timmermann.space/
+On 25/11/2025 16:20, Krzysztof Kozlowski wrote:
+> On 25/11/2025 16:12, Lukas Timmermann wrote:
+>> This patch series adds initial support for the google-manta board, known
+>> as Google Nexus 10 to users. The device is powered by
+>> the Exynos 5250 SoC. The notification led driver (as3668) is already 
+>> (tho not applied) in the kernel mailing list and can be found here:
+>> https://lore.kernel.org/linux-leds/20251125114015.355487-1-linux@timmermann.space/
+>>
 > 
+> Thank you for your patches.
+> 
+> Nothing in the cover letter improved regarding my request - you clearly
+> need to document, in a very explicit and obvious way, that this uses
+> bindings where not applied. Drivers don't matter here. I need here list
 
-Thank you for your patches.
+... "bindings which were not applied."
 
-Nothing in the cover letter improved regarding my request - you clearly
-need to document, in a very explicit and obvious way, that this uses
-bindings where not applied. Drivers don't matter here. I need here list
-of bindings this is using which were not yet applied by maintainers.
+> of bindings this is using which were not yet applied by maintainers.
+> 
+> If there is going to be v3, please be sure you fix the cover letter.
+> 
+> Best regards,
+> Krzysztof
 
-If there is going to be v3, please be sure you fix the cover letter.
 
 Best regards,
 Krzysztof
