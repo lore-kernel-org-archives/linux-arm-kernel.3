@@ -4,77 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 536F2CFD364
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 04:00:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF184CFD36C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 04:01:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ELXTwGY0hM7dn0+0iq2f3NZlNVlqA0NTCJCNOs3mI/4=; b=TxFDZYr8FBbQ0szWAH7wqbJ9DV
-	iTNoMiBLd6lQa/90dtx1UZPm5RAewgjuI76Whkv4tpJmo8ZuYNrHDu0Fq2mVp6fP8auD6ugCwoa9t
-	/X5MdNnYutWyu2vrXAPFNAq05UHi0oGe56w/InRyQ627TuSeMQ65ufTSYP+GuOqI97O7L0YS+y1Tp
-	Q3g9cGVNFN9Dz2vkLOzk0AWwlysp5D33nHYbBMvmQKlJqlYELFrN3hiUskRiGGGBTZrMHgGdsZmSd
-	wvF7MUVkofLTpRQt/AvDP/QjIhpXTngep9+t9zGUxt5CB/whogqPjunQco8CFh8Tf4Rz2PRtFysIY
-	UG8cc0JA==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9abnR12V6f9wIFLZjn2vUXAQKKli2tOvJLAdE0+p95A=; b=IhpjISkj14+ku1mbmpzVKPrWFE
+	5zfzJVfu8gg+uOFg5TxwRCHt5ciza0ev64YE7TeXzewUhh3knwi/I6dGItl+UsGtaj5ySIwfp1p4Y
+	XZ2Umuf7pCgze28XtBHUZdC0Ogfzmxt5yHA3TMteM9r9SkWGhU2ZK1+3kMmn8bYJiWvdutD02yA0M
+	l7tYTX/gArN0WH3f3c8brBBPWM3mcd5yhQc0z0zkv/6JxLmdhHzLnA6fn9KbwPqbXwV4hmEhUpzbx
+	ravv8wBKPz0wv7GADLx/sVoUit2AHan290BSyeikwLqBo9+0XAAIMOmVrXVCLU5jXmZJCkYebQpRX
+	UDIz9qpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNkEF-0000000CiQe-06VI;
-	Tue, 25 Nov 2025 04:00:35 +0000
-Received: from canpmsgout02.his.huawei.com ([113.46.200.217])
+	id 1vNkF4-0000000CiX0-1eWC;
+	Tue, 25 Nov 2025 04:01:26 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNkEB-0000000CiQ5-2H2U
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Nov 2025 04:00:33 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=ELXTwGY0hM7dn0+0iq2f3NZlNVlqA0NTCJCNOs3mI/4=;
-	b=IEDyH3OHckz0WjRzWbzdGrAxLHl5zOZAkGjmivqq5y8T9xeIZe4YwAvuJNmhVgwUBo9Ga8nE0
-	kye4yRE8OnZQd5gVcXVwXzIJdqGqzmqx4Jw2lf4aUeqcmIskEsahF7vzGokgq1ISc/3lLAwh7UK
-	pfkBhEvyIRWUXbaMe5wwvLI=
-Received: from mail.maildlp.com (unknown [172.19.163.174])
-	by canpmsgout02.his.huawei.com (SkyGuard) with ESMTPS id 4dFpnb36PCzcZyV;
-	Tue, 25 Nov 2025 11:58:11 +0800 (CST)
-Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id 41F4C14022D;
-	Tue, 25 Nov 2025 12:00:24 +0800 (CST)
-Received: from [10.67.109.254] (10.67.109.254) by
- dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Tue, 25 Nov 2025 12:00:23 +0800
-Message-ID: <a832b414-8da7-6333-b01e-ffd509f52ab7@huawei.com>
-Date: Tue, 25 Nov 2025 12:00:22 +0800
+	id 1vNkF2-0000000CiWC-0Jpj;
+	Tue, 25 Nov 2025 04:01:25 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 1E90041A28;
+	Tue, 25 Nov 2025 04:01:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E7257C4CEF1;
+	Tue, 25 Nov 2025 04:01:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1764043283;
+	bh=noWNmsId45ZeifrOlfH6mMR0VrmwkWZ6zYS8nnrBPoY=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=Qb4W4Rf6dcMuhndBOCJQPmNvmiFZMdJBcyJv3vvyldUdON0Bmt6qM+LfgW6osuSNK
+	 U38o9WsY9lI+bUq53QM6ZZhTFAXLau8K1phukRoPrXJh2j/AXDyhQCinlBctfG+fgp
+	 6S7J3eOc7OTXdlvNipXaN54KCBAH/+DHl6mEblEiKXs386QpoqIH+69GBL7iIvfwwv
+	 kQrKSO/pGakH4jz2x2vIwvSFL9nExiGeiNvnlDkhu/OiCnbc8Dx/e1xam4Q99UFzsI
+	 LWTIgsAWsD4Ygh3O1/jyuBiot4F4fMU9uYSC/rAmw74hk3JAU+u70LTvAGmW38Obgk
+	 oTQqFyRbTDb/A==
+Date: Mon, 24 Nov 2025 20:01:21 -0800
+From: Jakub Kicinski <kuba@kernel.org>
+To: Vladimir Oltean <vladimir.oltean@nxp.com>
+Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-phy@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ Daniel Golle <daniel@makrotopia.org>, Horatiu Vultur
+ <horatiu.vultur@microchip.com>, Andrew Lunn <andrew@lunn.ch>, Heiner
+ Kallweit <hkallweit1@gmail.com>, Russell King <linux@armlinux.org.uk>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet
+ <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Rob Herring
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham
+ I <kishon@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Eric
+ Woudstra <ericwouds@gmail.com>, Marek =?UTF-8?B?QmVow7pu?=
+ <kabel@kernel.org>, Lee Jones <lee@kernel.org>, Patrice Chotard
+ <patrice.chotard@foss.st.com>
+Subject: Re: [PATCH net-next 5/9] phy: add phy_get_rx_polarity() and
+ phy_get_tx_polarity()
+Message-ID: <20251124200121.5b82f09e@kernel.org>
+In-Reply-To: <20251122193341.332324-6-vladimir.oltean@nxp.com>
+References: <20251122193341.332324-1-vladimir.oltean@nxp.com>
+	<20251122193341.332324-6-vladimir.oltean@nxp.com>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.2.0
-Subject: Re: [PATCH v7 10/11] arm64: entry: Convert to generic entry
-Content-Language: en-US
-To: Kevin Brodsky <kevin.brodsky@arm.com>, <catalin.marinas@arm.com>,
-	<will@kernel.org>, <oleg@redhat.com>, <tglx@linutronix.de>,
-	<peterz@infradead.org>, <luto@kernel.org>, <shuah@kernel.org>,
-	<kees@kernel.org>, <wad@chromium.org>, <akpm@linux-foundation.org>,
-	<ldv@strace.io>, <macro@orcam.me.uk>, <deller@gmx.de>,
-	<mark.rutland@arm.com>, <song@kernel.org>, <mbenes@suse.cz>,
-	<ryan.roberts@arm.com>, <ada.coupriediaz@arm.com>,
-	<anshuman.khandual@arm.com>, <broonie@kernel.org>, <pengcan@kylinos.cn>,
-	<dvyukov@google.com>, <kmal@cock.li>, <lihongbo22@huawei.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<linux-kselftest@vger.kernel.org>
-References: <20251117133048.53182-1-ruanjinjie@huawei.com>
- <20251117133048.53182-11-ruanjinjie@huawei.com>
- <39243d7f-e72a-4d37-8cd2-fb9c9f53e751@arm.com>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <39243d7f-e72a-4d37-8cd2-fb9c9f53e751@arm.com>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.109.254]
-X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
- dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251124_200032_332855_B5D5094F 
-X-CRM114-Status: GOOD (  25.51  )
+X-CRM114-CacheID: sfid-20251124_200124_162155_ED8B4D0A 
+X-CRM114-Status: GOOD (  16.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,166 +85,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Sat, 22 Nov 2025 21:33:37 +0200 Vladimir Oltean wrote:
+> Add helpers in the generic PHY folder which can be used using 'select
+> GENERIC_PHY_COMMON_PROPS' from Kconfig, without otherwise needing to
+> enable GENERIC_PHY.
+> 
+> These helpers need to deal with the slight messiness of the fact that
+> the polarity properties are arrays per protocol, and with the fact that
+> there is no default value mandated by the standard properties, all
+> default values depend on driver and protocol (PHY_POL_NORMAL may be a
+> good default for SGMII, whereas PHY_POL_AUTO may be a good default for
+> PCIe).
+> 
+> Push the supported mask of polarities to these helpers, to simplify
+> drivers such that they don't need to validate what's in the device tree
+> (or other firmware description).
+> 
+> The proposed maintainership model is joint custody between netdev and
+> linux-phy, because of the fact that these properties can be applied to
+> Ethernet PCS blocks just as well as Generic PHY devices. I've added as
+> maintainers those from "ETHERNET PHY LIBRARY", "NETWORKING DRIVERS" and
+> "GENERIC PHY FRAMEWORK".
 
+I dunno.. ain't no such thing as "joint custody" maintainership.
+We have to pick one tree. Given the set of Ms here, I suspect 
+the best course of action may be to bubble this up to its own tree.
+Ask Konstantin for a tree in k.org, then you can "co-post" the patches
+for review + PR link in the cover letter (e.g. how Tony from Intel
+submits their patches). This way not networking and PHY can pull
+the shared changes with stable commit IDs.
 
-On 2025/11/19 1:14, Kevin Brodsky wrote:
-> On 17/11/2025 14:30, Jinjie Ruan wrote:
->> [...]
->>
->> diff --git a/arch/arm64/include/asm/syscall.h b/arch/arm64/include/asm/syscall.h
->> index 6225981fbbdb..c91938718468 100644
->> --- a/arch/arm64/include/asm/syscall.h
->> +++ b/arch/arm64/include/asm/syscall.h
->> @@ -9,6 +9,8 @@
->>  #include <linux/compat.h>
->>  #include <linux/err.h>
->>  
->> +#include <asm/vdso.h>
->> +
->>  typedef long (*syscall_fn_t)(const struct pt_regs *regs);
->>  
->>  extern const syscall_fn_t sys_call_table[];
->> @@ -114,12 +116,30 @@ static inline int syscall_get_arch(struct task_struct *task)
->>  	return AUDIT_ARCH_AARCH64;
->>  }
->>  
->> -static inline bool has_syscall_work(unsigned long flags)
->> +static inline bool arch_syscall_is_vdso_sigreturn(struct pt_regs *regs)
->>  {
->> -	return unlikely(flags & _TIF_SYSCALL_WORK);
->> -}
->> +	unsigned long vdso = (unsigned long)current->mm->context.vdso;
->> +	unsigned long vdso_pages, vdso_text_len;
->> +	unsigned long pc = regs->pc - 4;
-> 
-> On AArch32 (i.e. COMPAT), instructions may be 16-bit (in T32/Thumb), so
-> we shouldn't blindly use PC - 4.
-> 
->>  
->> -int syscall_trace_enter(struct pt_regs *regs, long syscall, unsigned long flags);
->> -void syscall_exit_to_user_mode_prepare(struct pt_regs *regs);
->> +#ifdef CONFIG_COMPAT
->> +	if (is_compat_task()) {
->> +		vdso = (unsigned long)current->mm->context.sigpage;
->> +		if (pc >= vdso && pc < vdso + PAGE_SIZE)
-> 
-> Just return that expression (instead of true/false).
-> 
-> I think the approach is reasonable, as we have 4 possible trampolines in
-> COMPAT and they all live in a dedicated page. I don't think we need to
-> worry about offsetting PC, because even if it points after the last
-> trampoline, it will still fall within the page. IOW, just use the
-> unmodified value of regs->pc.
-> 
->> +			return true;
->> +
->> +		return false;
->> +	}
->> +#endif
->> +	if (regs->syscallno != __NR_rt_sigreturn)
->> +		return false;
->> +
->> +	vdso_pages = (vdso_end - vdso_start) >> PAGE_SHIFT;
->> +	vdso_text_len = vdso_pages << PAGE_SHIFT;
->> +	if (pc < vdso || pc >= vdso + vdso_text_len)
->> +		return false;
-> 
-> Why not use the same approach as x86 and simply check that regs->pc
-> points after the trampoline? We already have a way to get the address of
-> the vDSO's sigreturn trampoline on arm64:
-> VDSO_SYMBOL(current->mm->context.vdso, sigtramp) (see signal.c). The
-> trampoline consists of two instructions that cannot be changed (pretty
-> much part of the ABI), so we could compare regs->pc with sigtramp + 8.
+We can do out-of-sequence netdev call tomorrow if folks want to talk
+this thru (8:30am Pacific)
 
-Will update it.
+> +GENERIC PHY COMMON PROPERTIES
+> +M:	Andrew Lunn <andrew@lunn.ch>
+> +M:	"David S. Miller" <davem@davemloft.net>
+> +M:	Eric Dumazet <edumazet@google.com>
+> +M:	Heiner Kallweit <hkallweit1@gmail.com>
+> +M:	Jakub Kicinski <kuba@kernel.org>
+> +M:	Kishon Vijay Abraham I <kishon@kernel.org>
+> +M:	Paolo Abeni <pabeni@redhat.com>
+> +R:	Russell King <linux@armlinux.org.uk>
+> +M:	Vinod Koul <vkoul@kernel.org>
 
-> 
->> +
->> +	return true;
->> +}
->>  #endif	/* __ASM_SYSCALL_H */
->> diff --git a/arch/arm64/include/asm/thread_info.h b/arch/arm64/include/asm/thread_info.h
->> index f241b8601ebd..0c083be23018 100644
->> --- a/arch/arm64/include/asm/thread_info.h
->> +++ b/arch/arm64/include/asm/thread_info.h
->> @@ -43,6 +43,7 @@ struct thread_info {
->>  	void			*scs_sp;
->>  #endif
->>  	u32			cpu;
->> +	unsigned long		syscall_work;   /* SYSCALL_WORK_ flags */
->>  };
->>  
->>  #define thread_saved_pc(tsk)	\
->> @@ -65,11 +66,6 @@ void arch_setup_new_exec(void);
->>  #define TIF_UPROBE		5	/* uprobe breakpoint or singlestep */
->>  #define TIF_MTE_ASYNC_FAULT	6	/* MTE Asynchronous Tag Check Fault */
->>  #define TIF_NOTIFY_SIGNAL	7	/* signal notifications exist */
->> -#define TIF_SYSCALL_TRACE	8	/* syscall trace active */
->> -#define TIF_SYSCALL_AUDIT	9	/* syscall auditing */
->> -#define TIF_SYSCALL_TRACEPOINT	10	/* syscall tracepoint for ftrace */
->> -#define TIF_SECCOMP		11	/* syscall secure computing */
->> -#define TIF_SYSCALL_EMU		12	/* syscall emulation active */
->>  #define TIF_PATCH_PENDING	13	/* pending live patching update */
->>  #define TIF_MEMDIE		18	/* is terminating due to OOM killer */
->>  #define TIF_FREEZE		19
->> @@ -92,30 +88,14 @@ void arch_setup_new_exec(void);
->>  #define _TIF_NEED_RESCHED_LAZY	(1 << TIF_NEED_RESCHED_LAZY)
->>  #define _TIF_NOTIFY_RESUME	(1 << TIF_NOTIFY_RESUME)
->>  #define _TIF_FOREIGN_FPSTATE	(1 << TIF_FOREIGN_FPSTATE)
->> -#define _TIF_SYSCALL_TRACE	(1 << TIF_SYSCALL_TRACE)
->> -#define _TIF_SYSCALL_AUDIT	(1 << TIF_SYSCALL_AUDIT)
->> -#define _TIF_SYSCALL_TRACEPOINT	(1 << TIF_SYSCALL_TRACEPOINT)
->> -#define _TIF_SECCOMP		(1 << TIF_SECCOMP)
->> -#define _TIF_SYSCALL_EMU	(1 << TIF_SYSCALL_EMU)
->>  #define _TIF_PATCH_PENDING	(1 << TIF_PATCH_PENDING)
->>  #define _TIF_UPROBE		(1 << TIF_UPROBE)
->> -#define _TIF_SINGLESTEP		(1 << TIF_SINGLESTEP)
->>  #define _TIF_32BIT		(1 << TIF_32BIT)
->>  #define _TIF_SVE		(1 << TIF_SVE)
->>  #define _TIF_MTE_ASYNC_FAULT	(1 << TIF_MTE_ASYNC_FAULT)
->>  #define _TIF_NOTIFY_SIGNAL	(1 << TIF_NOTIFY_SIGNAL)
->>  #define _TIF_TSC_SIGSEGV	(1 << TIF_TSC_SIGSEGV)
->>  
->> -#define _TIF_WORK_MASK		(_TIF_NEED_RESCHED | _TIF_NEED_RESCHED_LAZY | \
->> -				 _TIF_NOTIFY_RESUME | _TIF_FOREIGN_FPSTATE | \
->> -				 _TIF_UPROBE | _TIF_MTE_ASYNC_FAULT | \
->> -				 _TIF_NOTIFY_SIGNAL | _TIF_SIGPENDING | \
->> -				 _TIF_PATCH_PENDING)
-> 
-> AFAICT this was already unused before this series, since commit
-> b3cf07851b6c ("arm64: entry: Switch to generic IRQ entry"). It should be
-> removed in a separate commit.
+checkpatch nit: apparently it wants all Ms first, then all Rs.
 
-Yes, it was already unused before this series
-
-> 
->> [...]
->>
->> -void syscall_exit_to_user_mode_prepare(struct pt_regs *regs)
->> -{
->> -	unsigned long flags = read_thread_flags();
->> -
->> -	rseq_syscall(regs);
->> -
->> -	if (has_syscall_work(flags) || flags & _TIF_SINGLESTEP)
-> 
-> I believe switching to the generic function introduces a change here:
-> syscall_exit_work() is only called if a flag in SYSCALL_WORK_EXIT is
-> set, and this set does not include SYSCALL_EMU and SECCOMP. Practically
-> this means that audit_syscall_exit() will no longer be called if only
-> SECCOMP and/or SYSCALL_EMU is set.
-> 
-> It doesn't feel like a major behaviour change, but it should be pointed out.
-
-We can add "ARCH_SYSCALL_WORK_EXIT" to be defined as "SECCOMP
-||SYSCALL_EMU" to keep the behaviour unchanged.
-
-> 
-> - Kevin
-> 
->> -		syscall_trace_exit(regs, flags);
->> -}
->>
->> [...]
-> 
+> +L:	linux-phy@lists.infradead.org
+> +L:	netdev@vger.kernel.org
+> +S:	Maintained
+> +Q:	https://patchwork.kernel.org/project/linux-phy/list/
+> +Q:	https://patchwork.kernel.org/project/netdevbpf/list/
+> +T:	git git://git.kernel.org/pub/scm/linux/kernel/git/netdev/net.git
+> +T:	git git://git.kernel.org/pub/scm/linux/kernel/git/netdev/net-next.git
+> +T:	git git://git.kernel.org/pub/scm/linux/kernel/git/phy/linux-phy.git
+> +F:	Documentation/devicetree/bindings/phy/phy-common-props.yaml
+> +F:	drivers/phy/phy-common-props.c
+-- 
+pw-bot: cr
 
