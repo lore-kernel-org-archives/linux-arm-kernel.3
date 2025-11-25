@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD792D0E6C5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 11:07:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F833D0E6C6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 11:09:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+p3iBX443onhYaG1ds1vtdFOZO5aHgSXuJK6totL95U=; b=urf5zHi/l74qiVHB6tgmLDE6Kp
-	Wa4j6LHb2KnEw/pybQXILMFNgsmGfa+yAtSNQiL0n/tPji5zeB5CTP5UVc9ihr1iZX20HRYk8XVYw
-	ko3zSbKa6VaRUFAIf/z2650uEfb2lIurgO2e5tdNoTwHi/aPTMcYyV0oeHX9Ae5S613m5wZeNwWvN
-	I+xwxc4kiarH/EQTobKTrA5b/1J+u1ZIRSFhU4WjmxiYPaKp7Mi3EZT1w9zqsZOTFhQektH9D9Qyg
-	20KQ4HcJBlVQu28wZBRwWhVq/+c7CSkgla0GA6I3ue6939udMm3qO6X9Yhu22sLVmSSAjgSjJxlGR
-	vmFFCVGw==;
+	bh=JUh2PC+WK5zSF1iTYOPWPX3v48DEx4xDHnT5tg1qF/I=; b=bymUq6Ah7as8R0lPR92QQrCQUi
+	qvX36aYpi+Q3dse4jLM7TRFQefg9iZ9x3mOim4+377+jQjkch3BFi+451Ghlp8TM86cEvPYQKMHel
+	FvuhgYgs3qy9H0Aygq1s+OB1hNWXEzPQhU8CNL560bFgMK2tq46sF1TfLactlIGLebqQI2anV5HQv
+	28Bj0a9w8mCetG7uOQxpd4+HzEjEGNuDH2QMgg29C6+sa5d4Pp6iYZUfs2aH3SvFTNyRp8+Y3WYN9
+	XWLSVXvRadedHiAqny9I0KjmMJg2Q89Os9kXenzaRdiAy3e2sPb98dLBjRge18ZgAY33/w1VRB/0h
+	6dJOCo4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNqss-0000000DBAe-22N7;
-	Tue, 25 Nov 2025 11:06:58 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1vNquu-0000000DBU4-0BRw;
+	Tue, 25 Nov 2025 11:09:04 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNqsp-0000000DB9Q-1i5G;
-	Tue, 25 Nov 2025 11:06:57 +0000
+	id 1vNqur-0000000DBS9-2sj3;
+	Tue, 25 Nov 2025 11:09:02 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1764068812;
-	bh=zitmyeJM/e+uubNBjBrLCDFGnrlsT/zseaM6ZX7jwWc=;
+	s=mail; t=1764068939;
+	bh=Ncc5CuNSCRB/UuJ5dRZNzT+XwsBAJ0RKRhvqese24KI=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=dHYp2lEFQ5qHF5N/dLWxalTJzB09Ety5wgNNxpS9maSF9lQvM+c2xkcVaTyIu4ia3
-	 4HPsAcnG8U8Fin/Pjy3ZMkwV+vAqthuFUSVgBkbP3kzETPcjMeB4IT1MnZTd7qkJ/j
-	 OvUduGcYE8+wxIH1qj8Of/A9K4dY0z3WtCu7FhvUh5UA74vz5wNtVhfu+Jo4jNwMoc
-	 yj/Ru2pWaMijAMO2IrGcPj3po2kes4MsZqSAcUvP2ewWRkRrVOPvHm/QbrPIiqo6g2
-	 GsunTuZgxaujnYTcRS4COnW/YT1dTvxHqxD/lErpiv148z9HMPm1wBx4aXHgdzPR5A
-	 /nrr+ClQbOcVA==
+	b=cBP91YTm3gUBT/0LvNQm69Cfb4fVet+PX86t57DJqyUtxyTZ4a2u+tCpDmHOXB+Tb
+	 174vbUE/dw7ex+0Oum1XLHsL+QGlcncPNMCtxvqY75/7DOkds4dmglPP14Jkf9rvAe
+	 KX9pfxlIaUSN4xZQjIU1F3fsqcDICDbwF7wDxbKYOPpbxIxmnzSdsXilUCxVS0Ywhf
+	 U0SBTN3M5oCu1SFmbRWQdNa4DFO/xyHV7a6fnMOHRRlq6O+guJA1rm9r9FKkfw4AP8
+	 li4Tta4VXB1ZG8DuxgI4wuXQ7t1haLBcIUUDhpUEBJnPdIecJmTFu7+9/BzYcmQC8+
+	 hWM6+pEd9v5/Q==
 Received: from laura.lan (unknown [IPv6:2001:b07:646b:e2:657b:ae76:a0f8:4811])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: laura.nao)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 9136517E12E2;
-	Tue, 25 Nov 2025 12:06:50 +0100 (CET)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id BF03917E0AC3;
+	Tue, 25 Nov 2025 12:08:57 +0100 (CET)
 From: Laura Nao <laura.nao@collabora.com>
 To: daniel.lezcano@linaro.org
 Cc: andrew-ct.chen@mediatek.com,
@@ -71,17 +71,17 @@ Cc: andrew-ct.chen@mediatek.com,
 	srini@kernel.org,
 	u.kleine-koenig@baylibre.com,
 	wenst@chromium.org
-Subject: Re: [PATCH v4 2/9] thermal/drivers/mediatek/lvts: Make number of calibration offsets configurable
-Date: Tue, 25 Nov 2025 12:06:39 +0100
-Message-Id: <20251125110639.23257-1-laura.nao@collabora.com>
+Subject: Re: [PATCH v4 3/9] thermal/drivers/mediatek/lvts: Fail probe if temp_factor is zero
+Date: Tue, 25 Nov 2025 12:08:48 +0100
+Message-Id: <20251125110848.23483-1-laura.nao@collabora.com>
 X-Mailer: git-send-email 2.39.5
-In-Reply-To: <24a5bd31-a79f-4f18-a190-6a4d886a29b2@linaro.org>
-References: <24a5bd31-a79f-4f18-a190-6a4d886a29b2@linaro.org>
+In-Reply-To: <190003b6-2931-406a-a8f6-ec8909c65162@linaro.org>
+References: <190003b6-2931-406a-a8f6-ec8909c65162@linaro.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251125_030655_604952_91667D2A 
-X-CRM114-Status: GOOD (  18.32  )
+X-CRM114-CacheID: sfid-20251125_030901_880176_B748B850 
+X-CRM114-Status: GOOD (  16.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,107 +96,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/24/25 19:25, Daniel Lezcano wrote:
+On 11/24/25 18:56, Daniel Lezcano wrote:
 > On 11/21/25 12:16, Laura Nao wrote:
->> MT8196/MT6991 use 2-byte eFuse calibration data, whereas other SoCs
->> supported by the driver rely on 3 bytes. Make the number of calibration
->> bytes per sensor configurable, enabling support for SoCs with varying
->> calibration formats.
+>> temp_factor is used in lvts_temp_to_raw() and lvts_raw_to_temp(). If
+>> platform data is incorrect and temp_factor is zero, it could cause a
+>> division by zero. Fail the probe early to prevent a kernel crash.
 >>
->> Reviewed-by: Fei Shao <fshao@chromium.org>
->> Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
->> Tested-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
->> Tested-by: Frank Wunderlich <frank-w@public-files.de>
 >> Signed-off-by: Laura Nao <laura.nao@collabora.com>
 >> ---
->>   drivers/thermal/mediatek/lvts_thermal.c | 32 ++++++++++++++++++++++----------
->>   1 file changed, 22 insertions(+), 10 deletions(-)
+>>   drivers/thermal/mediatek/lvts_thermal.c | 5 +++++
+>>   1 file changed, 5 insertions(+)
 >>
 >> diff --git a/drivers/thermal/mediatek/lvts_thermal.c b/drivers/thermal/mediatek/lvts_thermal.c
->> index ab55b20cda47..1c54d0b75b1a 100644
+>> index 1c54d0b75b1a..b49441d82ffd 100644
 >> --- a/drivers/thermal/mediatek/lvts_thermal.c
 >> +++ b/drivers/thermal/mediatek/lvts_thermal.c
->> @@ -96,12 +96,14 @@
->>     #define LVTS_MINIMUM_THRESHOLD        20000
->>   +#define LVTS_MAX_CAL_OFFSETS        3 
+>> @@ -1346,6 +1346,11 @@ static int lvts_probe(struct platform_device *pdev)
+>>       if (irq < 0)
+>>           return irq;
+>>   +    if (!lvts_data->temp_factor)
+>> +        return dev_err_probe(
+>> +            dev, -EINVAL,
+>> +            "temp_factor should never be zero; check platform data.\n");
+>> + 
 >
-> I suggest LVTS_NUM_CAL_OFFSETS then below,
+> From my POV, this is not really useful. The temp_factor is set for each version statically in the code. The scope is limited to the driver, IOW it is not a parameter other subsystems passes to the driver.
 >
-
-Right - as this is SoC-specific, I can define:
-
-#define LVTS_NUM_CAL_OFFSETS_MT7988	3
-#define LVTS_NUM_CAL_OFFSETS_MT8196	2
-
->> +
->>   static int golden_temp = LVTS_GOLDEN_TEMP_DEFAULT;
->>   static int golden_temp_offset;
->>     struct lvts_sensor_data {
->>       int dt_id;
->> -    u8 cal_offsets[3];
->> +    u8 cal_offsets[LVTS_MAX_CAL_OFFSETS];
->>   };
->>     struct lvts_ctrl_data {
->> @@ -127,6 +129,7 @@ struct lvts_data {
->>       const struct lvts_ctrl_data *lvts_ctrl;
->>       const u32 *conn_cmd;
->>       const u32 *init_cmd;
->> +    int num_cal_offsets;
->>       int num_lvts_ctrl;
->>       int num_conn_cmd;
->>       int num_init_cmd;
->> @@ -711,7 +714,7 @@ static int lvts_calibration_init(struct device *dev, struct lvts_ctrl *lvts_ctrl
->>                       u8 *efuse_calibration,
->>                       size_t calib_len)
->>   {
->> -    int i;
->> +    int i, j;
->>       u32 gt;
->>         /* A zero value for gt means that device has invalid efuse data */
->> @@ -720,17 +723,18 @@ static int lvts_calibration_init(struct device *dev, struct lvts_ctrl *lvts_ctrl
->>       lvts_for_each_valid_sensor(i, lvts_ctrl_data) {
->>           const struct lvts_sensor_data *sensor =
->>                       &lvts_ctrl_data->lvts_sensor[i];
->> +        u32 calib = 0;
->>   -        if (sensor->cal_offsets[0] >= calib_len ||
->> -            sensor->cal_offsets[1] >= calib_len ||
->> -            sensor->cal_offsets[2] >= calib_len)
->> -            return -EINVAL;
->> +        for (j = 0; j < lvts_ctrl->lvts_data->num_cal_offsets; j++) {
->> +            u8 offset = sensor->cal_offsets[j];
->> +
->> +            if (offset >= calib_len)
->> +                return -EINVAL;
->> +            calib |= efuse_calibration[offset] << (8 * j); 
->
-> May be worth for a comment here, ideally a separate function to clarify the code
+> If it is NULL, then shame on the submitter who did not test the driver before sending ;)
 >
 
-Ack - will do.
+Ack - I'll drop the patch in the next revision.
 
->> +        }
->>             if (gt) {
->> -            lvts_ctrl->calibration[i] =
->> -                (efuse_calibration[sensor->cal_offsets[0]] << 0) +
->> -                (efuse_calibration[sensor->cal_offsets[1]] << 8) +
->> -                (efuse_calibration[sensor->cal_offsets[2]] << 16);
->> +            lvts_ctrl->calibration[i] = calib;
->>           } else if (lvts_ctrl->lvts_data->def_calibration) {
->>               lvts_ctrl->calibration[i] = lvts_ctrl->lvts_data->def_calibration;
->>           } else {
->> @@ -1763,6 +1767,7 @@ static const struct lvts_data mt7988_lvts_ap_data = {
->>       .temp_factor    = LVTS_COEFF_A_MT7988,
->>       .temp_offset    = LVTS_COEFF_B_MT7988,
->>       .gt_calib_bit_offset = 24,
->> +    .num_cal_offsets = 3, 
->
-> LVTS_NUM_CAL_OFFSETS
->
->
-
-I'll submit a v5 with the required changes.
-
-Thanks!
+Thanks,
 
 Laura
 
