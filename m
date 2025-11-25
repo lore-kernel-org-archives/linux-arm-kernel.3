@@ -4,173 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5DE9CFD37A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 10:04:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16258CFD37B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 10:06:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rI9Om9Tnouz5jqpV1cYOr5Ap6EHyoZ9rUvmc1r750ZM=; b=dYWCGT+WOKeSeHR6HZSiZeJqBj
-	WNdCyVjZYsLjyUHP5AFtoGP/xfDATmIsdIM+hDQDXOz92IpLUYHbk4PM1NgaFErNERJ++WwR7FquI
-	IQaqNoOFZQW0vpyh2blCJlRmc02+fQeFsn6OtiI+4Xk7ZRaA+hFh2I8Iu96td9cxAkc4/UQVXADZO
-	7AAZ0nxqFUCutROtwDz4Rw9owTejBeiiC7pYBvTNUjYj59e+XPqfB1Ou4sVQxtTJLvJQJ+a/dpklf
-	zbkt31368b7AGF7Jm3CFNp6HGGFcC2OfYjQn5b8vWHptqMufmm1+xpZEM2Xo1ZGU1AbIzsmEnqv12
-	RGV/iGyA==;
+	bh=ILzqRBpBQQWh+jAz2E8/goSh/D8wHLcJup8jVLF7Bko=; b=dVtE37K00geMWzFMk2979tV/wl
+	8YsGFCRGgBgCYi8XufdCHvWAKNu21dj1IvyDotH2Eb1eCn16teAqpz8Q/WHgguKrR2FdPaPn95w1P
+	yi9olia1fO5Sry28H4qsRenUcMEu4GXAvmqf58HGCNcFZKXrFqYpkfgDV8XEV3Dx5Sz7Xtwx/StN4
+	VUhZJ/31OsGMp4WM56yIz0YlgQMzJSu0ZCHU3rlqU+kg56xzgKFqzRO6ZJhKn9EwqAeRY9A+6GuKj
+	COV5iYxMOsMG3jb10OErKtTM4x7BVco/KwuOKTFhltzx7Ya6iDGafYEp2NMLMmLo8Wr4MX4dHm75M
+	WtOrwvsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNpuY-0000000D4m6-3Itt;
-	Tue, 25 Nov 2025 10:04:38 +0000
-Received: from mail-northeuropeazon11021103.outbound.protection.outlook.com ([52.101.65.103] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1vNpwQ-0000000D523-2KfJ;
+	Tue, 25 Nov 2025 10:06:34 +0000
+Received: from mgamail.intel.com ([192.198.163.13])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNpuW-0000000D4l8-22sR;
-	Tue, 25 Nov 2025 10:04:38 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=W6qAy8JPZ9A9zGviaYYu/Q6Dx2WZJGntXvNAJVl6MG0E3yfuh/YyA35MheXZP1JcTpg+6b/fL+t9tlMMHYakmg1nxZRjxn6aDGciUHfwJsDiz1Y9GO3Z+A/rEYgKcq2u7vNfhUopbyAydGG17pQE6s5OvpJVSOTi4e31zO048lH7Huashglm08W4/QTbjYqsgFYC9xG9eEz7kSkRPCONyIfUFDVCixK4gshy9FgpawmxSOaAXFctIzwc91AVLKDv+aIh2ORqFOn71alVcZo4Mlnwd6OPyL7DrbsNFuOEsAm6XbR4ymZesewzM2oFW9DW0BLoF2yOdM2elPzpKe63kw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=rI9Om9Tnouz5jqpV1cYOr5Ap6EHyoZ9rUvmc1r750ZM=;
- b=ioGeDRg6XvkGWrxqe7Ke5o9+ROocBKxesGM+/NkmEjbGVeA21kFm4qdqk2XoE4JMxenk1oak6ENA8lo6egrO7tI7VKsr8zrUzOxcM26kbBkv3TfTVWQJDsVQiYJgN6EPvMk5F8OiJ7e5ut/+/zRz6C9J4sczu5F3lERRnRxG5qPxRbjMnHPso1g8F8ghqIxqllozFdnKH0ffGex4lAmFMHUceRXYk+VkykzKvQZPPSiUzJwUBca6PWLeHiPFielkKb7tevysem4HNFf5tBELb6KrqgypeIQYiC5Z688tOn0lPnzrW3IPoWh9fChtV8XhxFSztL7IEQj/NYZpAIIdwg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=genexis.eu; dmarc=pass action=none header.from=iopsys.eu;
- dkim=pass header.d=iopsys.eu; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=iopsys.eu;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=rI9Om9Tnouz5jqpV1cYOr5Ap6EHyoZ9rUvmc1r750ZM=;
- b=Gcib1rLdQmEBJRIR745iPieXI3bdWf6nllJgJ5kvJoMgX334s0qyKyACxKJnrl7yF52VrLLHbF2yzNv5a045cZ0T9F/1eIxWy7GXnhz7O2Hsd3eMkW/zlVwhMQUKTzD8ACT3r3ZlnYrvbzTl/XiXX9ptUW1wGapwpqR1yKSo+gGpCC5FKmVZV/z2UaqAkglyvSgaUyPFeysIpbPpd/KIY4XNya82UaTsrlypuX+dGuLhigvbQYoDeJmqkhGUhGBBSWEWT8YLv8n+ahAIfLDuep/bMe6ISrJ080dlAdcy/Y+Ixg3QrVpDkCg+CWffGe/oLZ7trd/nenCXcgQVw5h60g==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=iopsys.eu;
-Received: from GV2PR08MB8121.eurprd08.prod.outlook.com (2603:10a6:150:7d::22)
- by DBBPR08MB6121.eurprd08.prod.outlook.com (2603:10a6:10:204::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9343.18; Tue, 25 Nov
- 2025 10:04:23 +0000
-Received: from GV2PR08MB8121.eurprd08.prod.outlook.com
- ([fe80::4cd3:da80:2532:daa0]) by GV2PR08MB8121.eurprd08.prod.outlook.com
- ([fe80::4cd3:da80:2532:daa0%3]) with mapi id 15.20.9366.009; Tue, 25 Nov 2025
- 10:04:22 +0000
-Message-ID: <83a15a9d-8dfa-4949-b483-020bbcf0847a@iopsys.eu>
-Date: Tue, 25 Nov 2025 13:04:12 +0300
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 1/3] spi: airoha-snfi: en7523: workaround flash
- damaging if UART_TXD was short to GND
-To: Andy Shevchenko <andriy.shevchenko@intel.com>
-Cc: Lorenzo Bianconi <lorenzo@kernel.org>, Ray Liu <ray.liu@airoha.com>,
- Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Andy Shevchenko <andy@kernel.org>, linux-arm-kernel@lists.infradead.org,
- linux-spi@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org,
- Andreas Gnau <andreas.gnau@iopsys.eu>
-References: <20251125021051.857159-1-mikhail.kshevetskiy@iopsys.eu>
- <20251125021051.857159-2-mikhail.kshevetskiy@iopsys.eu>
- <aSVYShXLirW--bYe@smile.fi.intel.com>
-From: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>
-Content-Language: en-US, ru-RU
-In-Reply-To: <aSVYShXLirW--bYe@smile.fi.intel.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: FR2P281CA0098.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:9c::6) To GV2PR08MB8121.eurprd08.prod.outlook.com
- (2603:10a6:150:7d::22)
+	id 1vNpwO-0000000D51P-0PaW;
+	Tue, 25 Nov 2025 10:06:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1764065192; x=1795601192;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:content-transfer-encoding:in-reply-to;
+  bh=29iXh/6Ar9jirfEFB6sY3oHqcMP8jUND/E2p9xDZiTA=;
+  b=ZBWoxlDkm2pjIjscvaF7NKQn2aE7IZr4zfakZBjPXxm/BdXZfuJFmJa7
+   8/Gb82yMSmRFAF+ORvNvSyxWcX8hgQprTB+PAO9mkFWrgMcjlLkdCtvag
+   TpcntP/ulrZ5Qqj60xFfMOZoaorjzrCRujDPpyxcCWQmwosWxA+Kzz7U7
+   7iwVbPXXNE8BPhvhp1/GYliHpB9jJkhSNpdew5FWkiMmNrSd5Ky3VFtKW
+   bWedzoVdmUdg6S/+k2xDpEuwUBWPPpluNniHlASo9Rzk4b6DO7litfFUo
+   ph/ElbP76QaC5NPbCr/9pjU4jkXI1bpMyXq43f9UDJNsjhOurl4RdZnDl
+   g==;
+X-CSE-ConnectionGUID: P6cjyZ21S6G3y0Nx54EQIQ==
+X-CSE-MsgGUID: MJI7rIfGR+qtFYb3xrCxnw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11623"; a="68667744"
+X-IronPort-AV: E=Sophos;i="6.20,225,1758610800"; 
+   d="scan'208,223";a="68667744"
+Received: from orviesa007.jf.intel.com ([10.64.159.147])
+  by fmvoesa107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2025 02:06:31 -0800
+X-CSE-ConnectionGUID: K/jA8k83RpK/ZnK1Pja1og==
+X-CSE-MsgGUID: PQdR2EyrTQyJq0R1zTWu6Q==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.20,225,1758610800"; 
+   d="scan'208,223";a="192591005"
+Received: from vverma7-mobl3.amr.corp.intel.com (HELO kuha) ([10.124.222.196])
+  by orviesa007.jf.intel.com with SMTP; 25 Nov 2025 02:06:20 -0800
+Received: by kuha (sSMTP sendmail emulation); Tue, 25 Nov 2025 12:06:13 +0200
+Date: Tue, 25 Nov 2025 12:06:13 +0200
+From: Heikki Krogerus <heikki.krogerus@linux.intel.com>
+To: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Chaoyi Chen <kernel@airkyi.com>,
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+	Peter Chen <hzpeterchen@gmail.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>, Sandy Huang <hjc@rock-chips.com>,
+	Andy Yan <andy.yan@rock-chips.com>,
+	Yubing Zhang <yubing.zhang@rock-chips.com>,
+	Frank Wang <frank.wang@rock-chips.com>,
+	Andrzej Hajda <andrzej.hajda@intel.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Robert Foss <rfoss@kernel.org>,
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Amit Sunil Dhamne <amitsd@google.com>,
+	Dragan Simic <dsimic@manjaro.org>, Johan Jonker <jbx6244@gmail.com>,
+	Diederik de Haas <didi.debian@cknow.org>,
+	Peter Robinson <pbrobinson@gmail.com>, linux-usb@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, dri-devel@lists.freedesktop.org
+Subject: Re: [PATCH v10 01/11] usb: typec: Add notifier functions
+Message-ID: <aSV_lQYJPxN7oBM-@kuha>
+References: <20251120022343.250-1-kernel@airkyi.com>
+ <20251120022343.250-2-kernel@airkyi.com>
+ <2025112102-laurel-mulch-58e4@gregkh>
+ <462ad1bd-7eec-4f26-b383-96b049e14559@rock-chips.com>
+ <2025112402-unopposed-polio-e6e9@gregkh>
+ <a80483de-518d-45d5-b46a-9b70cca5b236@rock-chips.com>
+ <2025112448-brush-porcupine-c851@gregkh>
+ <c9cb7b79-37c8-4fef-97a6-7d6b8898f9c4@rock-chips.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR08MB8121:EE_|DBBPR08MB6121:EE_
-X-MS-Office365-Filtering-Correlation-Id: 38fcf89c-5741-4b03-d60a-08de2c0a017c
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|376014|1800799024;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?eUpHb3E3OGJOQlVPM3hWb0syZmNnYTFLUmNCVHEvanYyc3hIY2tPZ0dRKzFl?=
- =?utf-8?B?THVoWEMybE5jdmRObmhHWXdEeHQxZm91NHR4M2ZnRWpSdUQxREhpQ1dKbURW?=
- =?utf-8?B?TEZCUjFabVNqblFjZkVBWWNMT3pZUmxmemZtd24ySTE5TVpuaFBXK1F5MFZ4?=
- =?utf-8?B?NmI4RHJBU2dDZkNzLzN1bXI4eXJjOFZtQ3N1S05wbzc0MTIyUVU2NFZ0a1pJ?=
- =?utf-8?B?eHhlK2VlSU5RZVhXU1VYdFVTaGYya1pqd3FhVWNzRk1BcldSZEpONmM1cHl5?=
- =?utf-8?B?d2FLMjkrWjlER1g5cURkL29jRExSQjFHREpBR1Vwb3ZNK2Q3dGFRd2lRSUor?=
- =?utf-8?B?SHhlRWZlRFhWMTJzRlBjZ2lNbXRoUkZ0Tm5adXh3M2puR0Jaejc0Q09yeHR4?=
- =?utf-8?B?TTBjQ1ZTTTBrT1pCa0pUd3NxMThvdXFvWWVuZE1RVFJYdzI3bk5tb1pubDho?=
- =?utf-8?B?LzRMeFFPREltVEJHT3hvNUs3bTlPNGt1R1lOVkpoSmNZa1JXL1ZTaVY4YjVn?=
- =?utf-8?B?U01uL1dJQk9mdzhCU3pnZWp1NWlxb2kyS1NZbm0rKzZ0MEdBeXhYWldPVUVj?=
- =?utf-8?B?WXNvMURxQkJqN3F0WWRKbjhhNFlJNmJzSHVhWkY4UURqSHFicFlmVURVQmc2?=
- =?utf-8?B?NHhBZVIzNFUwc3VpRld2ZHQvWUZQQnVXZEhlM2FPNUFwcFZ3RUY3cnVlaHRS?=
- =?utf-8?B?ZWhtR1NhQWxPekV0NUNSUXpBTU03NW04UjdiekZ1emI1K2RvYUpDNzVrbE45?=
- =?utf-8?B?aXVrbGxKaUZNUTRDMjhMa3Rpa1JScjJsWGxZMGZZREN2dFllK05rOXliZGNT?=
- =?utf-8?B?ZzliTk1uUTkyOFBZZkhTSUxUdm9YY1g1bEF3T0dHQzd4T3VsSFNDb2ptbERE?=
- =?utf-8?B?YWpPWnJNN0pqMXVGcktHVit6elhGZUcwVVEvelZXVEM5VHR2SUgvTXVrUCtK?=
- =?utf-8?B?WEx4MXVVbU5LWVNPOGg4MnNCL3NMUDNURXIvMER2cmlqb0Q2eFpaN2xGeTNM?=
- =?utf-8?B?ZTlYSlFpSjhlelFMSWtDSjNXMlBWZTJtaHVhK1NrZ2pqMVdBcjJDZHowS01I?=
- =?utf-8?B?azhPUXdhRkl0dXpHZXdWV0NBYkZNdDZObFhIY3kvNkVkc204em56dEhBNjdQ?=
- =?utf-8?B?a3FrN1VoaWptQnVsT3RqdWdWcDQ5ZHhrT1lKcm1ScVVEWDZSdU1uRDNPZDZa?=
- =?utf-8?B?RU9VbCtTRllVNkg3UXJwR1d4YXN1WnU4c284NEJpSkhuZWdieG4vOTVrSkZK?=
- =?utf-8?B?bE9kcHhFQXhuOEp4ZXpWbGpmYTZGZTR6dmNXVWxMdEsvNG5BcDRzYnZyeU5Q?=
- =?utf-8?B?b2ErRVIzbVJobW9GZWs3RStiRWZTbHNRRGlMcG9TSXpTM2Vzd2Y1VjFpUThl?=
- =?utf-8?B?YXRWU3pIRnVLSzdFcTA4Zy9PL0VhcTNBZU1OdTZINzJac1hhWk1RRERMN215?=
- =?utf-8?B?RTd4VW1icnB2QVc4aUJvWm85bUI3NTlFSGJWVHVDVC9aa1BGZ1NpQlpOTFZk?=
- =?utf-8?B?bERRVnlnQ3hsdWZ1Smk3NUtjZWkxV2Faek92MzM0K09FM1NDWHhpejBhQVI4?=
- =?utf-8?B?NlNhZnE3cGo2eDBjYUc0QncrZFRiRUtXbDc5Z2ZXMTRlN1gxZnoxczJvQTg0?=
- =?utf-8?B?Mm5BbUQ3aFJhYm1ZSVJIMWd1UVVvOXZIUzVVQm1kdWVlUEdoMCtkdGZyYmQ0?=
- =?utf-8?B?dVBaNVp0bFRlRFZpZ08wVWlJY0diSGxoZ1RyWEd3c3FpaEFUeCtqVGwrWk1B?=
- =?utf-8?B?b2NXWTBuZS8vUmpFR0dNWjdlTkFNSTdORm1FYjNaUWdDRkxZUk54T0hmNTgr?=
- =?utf-8?B?WGRXc2FsMEYyZzFvTVpBU0JLTTY3TTgvWFc3QkpMV1JLWW43TXhoSDFXc2k5?=
- =?utf-8?B?S3R2NHYrbXhoSFMybUZlTEN5b3ZvNVFSK2tXREF4ZDRVYW8xL3Z0L3JtN2J4?=
- =?utf-8?Q?oIXHtCYAclVhVzsx8PEbCNriO1fOxv9f?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR08MB8121.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(1800799024);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?bjJBSVlYT1VKeDcyTVU3ZzhhQmxYQjFacGNiNjNkclJVdVdqb1d6c3NxTjRJ?=
- =?utf-8?B?RytxcWNSeU9FTEJ0Wmt0NU94d29pSXRmbDIwL2VRZVhmTzc4WXE5OGJXUWNI?=
- =?utf-8?B?SGVieGljOTBGbjJUYjIyNEpXbEcwNTlpYUZoZGNlNWgrZzFRVCtZV0ZEOHB2?=
- =?utf-8?B?Z1k5a0o3TlhsemRmclNBWHpOdnBnR2hJWEVCYXNlellDS2x4bU44UGdOMnc2?=
- =?utf-8?B?by9QZTFPQmdBb01iN0h4RjNiOEhRTC9ac3VCSStEcjJFWkQ3YkxWOThOR0t3?=
- =?utf-8?B?RzN6MHllMmhDZDVLL1N4ZCtzUmNCT1o1TGwzcWxTQjIxbFVPWXVwRlVaeGpM?=
- =?utf-8?B?a0JBTngwajlEV0J5bjA1TVVWdUxJM29RMnlZczdkUk9ZRnhiSVRBdkhHZmUv?=
- =?utf-8?B?N2xScDJDcmtncnhpVEpUdE12SE1xRzBEcFFHd0xZT3gxSDdoNHUwbnVydGtZ?=
- =?utf-8?B?Y1NhUDMySVNNdkQ5cU8wV3lrelhsMHNxZ2d4allDVnd2cEFKcFhQSlUrOEJK?=
- =?utf-8?B?WThXdWhtcDQ1Q0Y5ekVZQVNnUHhadDcxeVdjbkdZR0xNOHJXT200bDVDNEpT?=
- =?utf-8?B?SS8yNTNpanA2aHBxZzMvYU9iYzJHaVlOMlVZVWI4TWNsUG5mZlhIdDhIRkxi?=
- =?utf-8?B?czNsd0syUlFRZDVjaSt2NjBBZjFkdWhTRm1VQUhPUWFxUDRVL2VBQ0grZ1Mv?=
- =?utf-8?B?cFdtSnhSek1VTFhINmRudk5ldXNzeWtpcEdtWWRDODlwNC9vR0U3ci83YkVl?=
- =?utf-8?B?alZxN3J6SmtpTGtlNGJXdHNhZnZIRFozbXA1TlU1Y2R5RWNITWR5MEFqN0Z2?=
- =?utf-8?B?czQ2Qk5RMUJ4c3VmOHVEbjZpMHdOUkc2K1NyN040MUh6eGxpRENteEJVcEVU?=
- =?utf-8?B?SHJmQzBLZ3lCNWJaUWVTT2pOanN2VHlZdjNoNTkrWGJOYndjbmhWOVZ6ejdM?=
- =?utf-8?B?K240ZTdLZDRia3ZWdnU1MVlwOG5tOVYwRng3NHJMK0t2SXp6YmRqNXBFNGlw?=
- =?utf-8?B?Y1M4alV1WkxiUmkydVd6YjVmb2RJd3F5RmtLS3p1dmN0aWt5OEwyOVF4RElV?=
- =?utf-8?B?ZTMxTURUV2F3S2hWTkM1S1k1TUNQL1p1Q2ozKy9SRENhS2k2djBRY2gvSHUy?=
- =?utf-8?B?ODBLckZjWm5zWUZXdFFWNjRaTU5zOTcwZkVPazR6enJkd2w2QlpPMHJJSTg4?=
- =?utf-8?B?eVFwcEJhd1RETWFBcG5FNXlCdGN2eHMySURTZ1kvRDlzVkU2Uko1Lzc3RnlL?=
- =?utf-8?B?Zk45Y0pNWm40b2lCYVJ5L0FpaWVxRXBRMElVakpLQnRaVmhYWkVqc1NWeDRy?=
- =?utf-8?B?ayttNWFxQlNIa1lKamR1eDVURXJ6bUg2WnpCYkZWMGxNZExNUkhhTlhVbXRT?=
- =?utf-8?B?RjJxOFc0NGtQWGU4bndPUCtsVmg2NHlNV1FpZkVBR0Q1ZmRlbFQ3SEVzMkcw?=
- =?utf-8?B?aTlRZmJTb1BKY0ErRS9meG9UR1QydjdwRDNtbEFwYWxUQTF6MnhkSVVNWkt6?=
- =?utf-8?B?c0ZOTlkwalIzbG5tdVNuT0s4WklPczFrMStlWW9CaFpuODMrS0ZjWEcyZjlV?=
- =?utf-8?B?VGRqSmF2cUExYWtXUG5jSWp6WUU2eXdEQ0pxbDAvVzltTzFXamZKTkk1OS9W?=
- =?utf-8?B?aTJ6NzRhMTVmMnJhb2FkbU5zQnVEQlZaUWhOWjhtL0JEcHFXNENRemVlUjQ2?=
- =?utf-8?B?WHpJRTJZbWUrWm0rTDllQW1QNEZXM0ZLMTFUZFBjemZvaUZoN3k1eXJhek1p?=
- =?utf-8?B?dFJiTEJVWXV6ZEorZEtVaUc0SDE0ZUlxckh5dEpKR2NCV0JRbE9FcVdVMXoy?=
- =?utf-8?B?bmRMWjNmUUYyeWNvUUk1SUwvTjg2TTlIbXVWMDlpOWQzeWJKQnR1OFdrWERZ?=
- =?utf-8?B?N3lPUHZjUTFMWFdiL3JLbEgzSEdMK0pmaDlRZTJlNTdqTjFCSUFmcnFPOFZR?=
- =?utf-8?B?TitYL1VXNTBIVjRuYjUvamsxaFpzMTNQejJWazczdTR0cnhLSzNuTkJxamdw?=
- =?utf-8?B?eUxnWjNIVy9HNXZXaTJMdGpDNzA2cE9YVWhFZGJocVFFUWJGQUNsL0JrN0J3?=
- =?utf-8?B?WHNYMlhkTGloYTJUek5SV3V3dDlCc2tsMlZmQmdvMFRmZUFkTmZHL2xzS0JC?=
- =?utf-8?B?OERFNUxHZTIwejE1NGlXR2tHdUVDeWU3RS9FQ09LV093b1F5dzhPSkdzeHpl?=
- =?utf-8?Q?C0rNVPDZ+egBQEqTJvIn3fw=3D?=
-X-OriginatorOrg: iopsys.eu
-X-MS-Exchange-CrossTenant-Network-Message-Id: 38fcf89c-5741-4b03-d60a-08de2c0a017c
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR08MB8121.eurprd08.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Nov 2025 10:04:22.3748
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 8d891be1-7bce-4216-9a99-bee9de02ba58
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: o8BECgfeQwzZyxfF+ZDrCrfveC8eCi+hUGb00sL+cG4qUQCPKidQcPxwyo6MvAofTWhkMy5GVgEhtpH/qhMDb7byb2PHDJZOZ1fHZjxwi6k=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBBPR08MB6121
+Content-Type: multipart/mixed; boundary="vzc56uF0OXm6IX+X"
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <c9cb7b79-37c8-4fef-97a6-7d6b8898f9c4@rock-chips.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251125_020436_930053_6B6F4823 
-X-CRM114-Status: GOOD (  18.13  )
+X-CRM114-CacheID: sfid-20251125_020632_220090_58C30AC1 
+X-CRM114-Status: GOOD (  75.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -186,61 +120,257 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On 11/25/25 10:18, Andy Shevchenko wrote:
-> On Tue, Nov 25, 2025 at 05:10:49AM +0300, Mikhail Kshevetskiy wrote:
->> Airoha EN7523 specific bug
->> --------------------------
->> We found that some serial console may pull TX line to GROUND during board
->> boot time. Airoha uses TX line as one of it's BOOT pins.
-> I know the term bootstrap, what does BOOT mean?
+--vzc56uF0OXm6IX+X
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
 
-yes, it's bootstrap pin
+Tue, Nov 25, 2025 at 10:23:02AM +0800, Chaoyi Chen kirjoitti:
+> On 11/25/2025 12:33 AM, Greg Kroah-Hartman wrote:
+> > On Mon, Nov 24, 2025 at 04:05:53PM +0800, Chaoyi Chen wrote:
+> > > Hi Greg,
+> > > 
+> > > On 11/24/2025 3:10 PM, Greg Kroah-Hartman wrote:
+> > > 
+> > > > On Mon, Nov 24, 2025 at 09:40:03AM +0800, Chaoyi Chen wrote:
+> > > > > Hi Greg,
+> > > > > 
+> > > > > On 11/21/2025 10:07 PM, Greg Kroah-Hartman wrote:
+> > > > > > On Thu, Nov 20, 2025 at 10:23:33AM +0800, Chaoyi Chen wrote:
+> > > > > > > From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+> > > > > > > 
+> > > > > > > Some other part of kernel may want to know the event of typec bus.
+> > > > > > Be specific, WHAT part of the kernel will need to know this?
+> > > > > For now, it is DRM.
+> > > > Then say this.
+> > > Okay, please refer to the discussion below.
+> > > 
+> > > > > > And why a new notifier, why not just use the existing notifiers that you
+> > > > > > already have?  And what is this going to be used for?
+> > > > > We have discussed this before, but the current bus notifier cannot achieve the expected notification [0].
+> > > > > 
+> > > > > [0] https://lore.kernel.org/all/aPsuLREPS_FEV3DS@kuha.fi.intel.com/
+> > > > Then you need to document the heck out of this in the changelog text.
+> > > > But I'm still not quite understanding why the bus notifier does not work
+> > > > here, as you only want this information if the usb device is bound to
+> > > > the bus there, you do not want to know this if it did not complete.
+> > > > 
+> > > > That thread says you want this not "too late", but why?  What is the
+> > > > problem there, and how will you handle your code getting loaded after
+> > > > the typec code is loaded?  Notifier callbacks don't work for that
+> > > > situation, right?
+> > > In fact, the typec_register_altmode() function generates two
+> > > registered events. The first one is the registered event of the port
+> > > device, and the second one is the registered event of the partner
+> > > device. The second one event only occurs after a Type-C device is
+> > > inserted.
+> > > The bus notifier event does not actually take effect for the port
+> > > device, because it only sets the bus for the partner device:
+> > > 
+> > >      /* The partners are bind to drivers */
+> > >      if (is_typec_partner(parent))
+> > >          alt->adev.dev.bus = &typec_bus;
+> > Setting the bus is correct, then it needs to be registered with the
+> > driver core so the bus link shows up (and a driver is bound to it.)
+> > That is when the bus notifier can happen, right?
+> Yes, this is valid for the partner device. But for the port device, since the bus is not specified here, the corresponding bus notifier will not take effect.
 
->
->> On the EN7523 SoC this may lead to booting in RESERVED boot mode.
->>
->> It was found that some flashes operates incorrectly in RESERVED mode.
->> Micron and Skyhigh flashes are definitely affected by the issue,
->> Winbond flashes are NOT affected.
-> NOT --> not
-will fix
->
->> Details:
->> --------
->> DMA reading of odd pages on affected flashes operates incorrectly. Page
->> reading offset (start of the page) on hardware level is replaced by 0x10.
->> Thus results in incorrect data reading. As result OS loading becomes
->> impossible.
->>
->> Usage of UBI make things even worse. On attaching, UBI will detects
->> corruptions (because of wrong reading of odd pages) and will try to
->> recover. For recovering UBI will erase and write 'damaged' blocks with
->> a valid information. This will destroy all UBI data.
->>
->> Non-DMA reading is OK.
->>
->> This patch detects booting in reserved mode, turn off DMA and print big
->> fat warning.
-> ...
->
->> -	err = dma_set_mask(as_ctrl->dev, DMA_BIT_MASK(32));
->> -	if (err)
->> -		return err;
->> +	if (dma_enable) {
->> +		err = dma_set_mask(as_ctrl->dev, DMA_BIT_MASK(32));
->> +		if (err)
->> +			return err;
->> +	}
-> Why do you need this to be conditional? The settings of DMA mask should not
-> affect the (in)ability of the device to perform DMA. I.o.w. it should not
-> influence PIO mode. Can you confirm this?
->
-no any particular reason, just see no sense to set mask if dma will not
-be used
+Perhaps we should just fix this part and make also the port altmodes
+part of the bus.
+
+Some background, in case this is not clear; the port alternate mode
+devices represent the capability of the ports to support specific
+alternate modes. The partner alternate mode devices do the same
+for the partner devices attached to the ports, but on top of the
+showing the capability, they are also used for the alternate mode
+specific communication using the USB Power Delivery VDM (vendor
+defined messages). That's why only the partner altmodes are bound
+to the generic alternate mode drivers.
+
+And that's why the hack where the port altmodes are not added to the
+bus. But maybe it's not needed.
+
+Chaoyi, can you try the attached patch?
+
+> > > I hope it's not too late. In fact, the notifier here will notify DRM to establish a bridge chain.
+> > What is a "bridge chain"?
+> In DRM, the bridge chain is often used to describe the chain connection relationship
+> of the output of multi level display conversion chips. The bridge chain we are referring to here
+> is actually a chain  structure formed by connecting various devices using a simple transparent bridge [0].
+> 
+> For example, the schematic diagram of a bridge chain is as follows:
+> 
+> DP controller bridge -> DP PHY bridge -> onnn,nb7vpq904m retimer bridge -> fsa4480 analog audio switch bridge -> fusb302 HPD bridge
+> 
+> Here, apart from the DP controller bridge, the rest are transparent DRM bridges, which are used solely to
+> describe the link relationships between various devices.
+> 
+> 
+> [0] https://patchwork.freedesktop.org/patch/msgid/20231203114333.1305826-2-dmitry.baryshkov@linaro.org
+> > 
+> > > The downstream DP controller driver hopes to obtain the fwnode of the last-level Type-C device
+> > > through this bridge chain to create a DRM connector. And when a device is inserted,
+> > > drivers/usb/typec/altmodes/displayport.c can notify the HPD (Hot Plug Detect) event.
+> > But aren't you just the driver for the "partner device"?
+> > 
+> > If not, why isn't a real device being created that you then bind to,
+> > what "fake" type of thing are you attempting to do here that would
+> > require you to do this out-of-band?
+> The HPD event is pass by drm_connector_oob_hotplug_event(), which does not use the device in Type-C.
+> This function will find the corresponding DRM connector device, and the lookup of the DRM connector is
+> done through the fwnode.
+> 
+> And the partner device and the port device have the same fwnode.
+> 
+> > 
+> > > If relying on the second event, the bridge chain may never be established, and the operations of the DP driver will be
+> > > always deferred. Furthermore, other parts of the display controller driver will also be deferred accordingly.
+> > What operations?  What exactly is delayed?  You should not be touching a
+> > device before you have it on your bus, right?
+> To complete the HPD operation, it is necessary to create a drm connector device that
+> has the appropriate fwnode. This operation will be carried out by the DP controller driver.
+> 
+> As you can see, since it cross multiple devices, we need to set the fwnode to the last device fusb302.
+> This requires relying on the bridge chain. We can register bridges for multiple devices and then connect
+> them to form a chain. The connection process is completed through drm_bridge_attach().
+> 
+> A brief example of the process of establishing a bridge chain is as follows, starting from the last bridge:
+> 
+> step1: fusb302 HPD bridge
+> step2: fsa4480 analog audio switch bridge -> fusb302 HPD bridge
+> step3: onnn,nb7vpq904m retimer bridge -> fsa4480 analog audio switch bridge -> fusb302 HPD bridge
+> step4: DP PHY bridge -> onnn,nb7vpq904m retimer bridge -> fsa4480 analog audio switch bridge -> fusb302 HPD bridge
+> step5: DP controller bridge -> DP PHY bridge -> onnn,nb7vpq904m retimer bridge -> fsa4480 analog audio switch bridge -> fusb302 HPD bridge
+> 
+> Step 1 is the most crucial, because essentially, regardless of whether we use notifiers or not, what we ultimately want to achieve is to create an HPD bridge.
+> The DP controller needs to wait for the subsequent bridge chain to be established because it needs to know the connection relationships of the devices.
+> 
+> The question now is when to create the HPD bridge, during the registration of the port device or during the registration of the partner device.
+> If it's the latter, then the delay occurs here.
+> 
+> And I don't think I'm touching the Type-C device here. I'm just using the bridge chain to get a suitable fwnode and create a suitable DRM connector device.
+> The subsequent Type-C HPD events will be on the DRM connector device.
+> 
+> This solution is somewhat complex, and I apologize once again for any confusion caused earlier.
+> 
+> > 
+> > > > > > Notifiers are a pain, and should almost never be added.  Use real
+> > > > > > function calls instead.
+> > > > > In v6, I used direct function calls, but had to switch to notifiers because couldn't resolve the dependencies between DRM and Type-C [1]. Do you have any good ideas? Thank you.
+> > > > Only allow this DRM code to be built if typec code is enabled, do NOT
+> > > > use a select, use a depends in the drm code.
+> > > Sorry, I didn't get your point. Does this mean that the current notifiers approach still needs to be changed to direct function calls?
+> > If you somehow convince me that the existing bus notifiers will not
+> > work, yes :)
+> > 
+> > > If so, then based on the previous discussion, typec should not depend
+> > > on any DRM components. Does this mean that we should add the if
+> > > (IS_REACHABLE(CONFIG_DRM_AUX_BRIDGE)) before the direct function call?
+> > No, do it properly like any other function call to another subsystem.
+> > 
+> > > Additionally, the current version of CONFIG_DRM_AUX_BRIDGE is selected
+> > > by the DP driver in patch9.
+> > Don't do "select" if at all possible, always try to do "depends on".
+> Thank you for clarifying this. However, CONFIG_DRM_AUX_BRIDGE is not exposed in the menu, and it is not intended for the end user to select it by design. Therefore, I think there still needs to be some place to select it?
+
+You don't "select TYPEC", you already "depend on TYPEC", so you are
+all set with this one.
+
+thanks,
+
+-- 
+heikki
+
+--vzc56uF0OXm6IX+X
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: attachment;
+	filename=0001-usb-typec-Set-the-bus-also-for-the-port-altmodes.patch
+
+From 8cca23b3064bf8b33e316245732a8baf834142d2 Mon Sep 17 00:00:00 2001
+From: Heikki Krogerus <heikki.krogerus@linux.intel.com>
+Date: Tue, 25 Nov 2025 10:38:04 +0100
+Subject: [PATCH] usb: typec: Set the bus also for the port altmodes
+
+The port altmodes can't be bound to the altmode drivers
+because the altmode drivers are meant for partner
+commuication using the VDM (vendor defined messages), but
+they can still be part of the bus. The bus will make sure
+that the normal bus notifications are available also with
+the port altmodes.
+
+Signed-off-by: Heikki Krogerus <heikki.krogerus@linux.intel.com>
+---
+ drivers/usb/typec/bus.c   | 24 +++++++++++++++++++++++-
+ drivers/usb/typec/class.c |  4 +---
+ 2 files changed, 24 insertions(+), 4 deletions(-)
+
+diff --git a/drivers/usb/typec/bus.c b/drivers/usb/typec/bus.c
+index a884cec9ab7e..1daf7a353c01 100644
+--- a/drivers/usb/typec/bus.c
++++ b/drivers/usb/typec/bus.c
+@@ -445,7 +445,23 @@ static struct attribute *typec_attrs[] = {
+ 	&dev_attr_description.attr,
+ 	NULL
+ };
+-ATTRIBUTE_GROUPS(typec);
++
++static umode_t typec_is_visible(struct kobject *kobj, struct attribute *attr, int n)
++{
++	if (is_typec_port(kobj_to_dev(kobj)->parent))
++		return 0;
++	return attr->mode;
++}
++
++static const struct attribute_group typec_group = {
++	.is_visible = typec_is_visible,
++	.attrs = typec_attrs,
++};
++
++static const struct attribute_group *typec_groups[] = {
++	&typec_group,
++	NULL
++};
+ 
+ static int typec_match(struct device *dev, const struct device_driver *driver)
+ {
+@@ -453,6 +469,9 @@ static int typec_match(struct device *dev, const struct device_driver *driver)
+ 	struct typec_altmode *altmode = to_typec_altmode(dev);
+ 	const struct typec_device_id *id;
+ 
++	if (is_typec_port(dev->parent))
++		return 0;
++
+ 	for (id = drv->id_table; id->svid; id++)
+ 		if (id->svid == altmode->svid)
+ 			return 1;
+@@ -469,6 +488,9 @@ static int typec_uevent(const struct device *dev, struct kobj_uevent_env *env)
+ 	if (add_uevent_var(env, "MODE=%u", altmode->mode))
+ 		return -ENOMEM;
+ 
++	if (is_typec_port(dev->parent))
++		return 0;
++
+ 	return add_uevent_var(env, "MODALIAS=typec:id%04X", altmode->svid);
+ }
+ 
+diff --git a/drivers/usb/typec/class.c b/drivers/usb/typec/class.c
+index 9b2647cb199b..26bf76328487 100644
+--- a/drivers/usb/typec/class.c
++++ b/drivers/usb/typec/class.c
+@@ -584,9 +584,7 @@ typec_register_altmode(struct device *parent,
+ 	if (!is_port)
+ 		typec_altmode_set_partner(alt);
+ 
+-	/* The partners are bind to drivers */
+-	if (is_typec_partner(parent))
+-		alt->adev.dev.bus = &typec_bus;
++	alt->adev.dev.bus = &typec_bus;
+ 
+ 	/* Plug alt modes need a class to generate udev events. */
+ 	if (is_typec_plug(parent))
+-- 
+2.50.1
 
 
-Regards,
-
-Mikhail KshevetskiyÂ 
-
+--vzc56uF0OXm6IX+X--
 
