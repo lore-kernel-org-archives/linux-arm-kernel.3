@@ -4,166 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FDA0D0EE04
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 16:32:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0730D0EE0A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 16:37:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1yCAGBNpmSUo5p1q2NjTmfgvppJVG2i/PLStGFE5lUw=; b=iVktw1nGRgaa9DNvopYLhFVaUn
-	1N8EJr/n3GwfqwSuLJQKXeGYryVnv06YW4IIt6ydw2ixLzJ8yApDjXZxy6mlQ4p8MD6C/6YZ+E7qv
-	Kka50lAIt94x9lmON5VT5P4vnnJweNgbo4bOYsWT9IDAclTZaWkpu7D9IL1s2qWwGRTp5OcGecjXR
-	KNylFybzGM/SmwQpkgAFkQ7MtQj/sRzM3aY8pzrVO3vbYn0HvgUmN0HXLfxJ+LpZr4wbczY7+R3Dg
-	4vwYTWWfWxB9hDAtPGpn07UMQwmN986eNyPI5qgPLKjfA5iDYgalK/A2KZrDgM9XNvP2UgLUIAzBC
-	gH4kMgxw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=c2vtJM7wTZGuaoLJ6bLaJcW6ryhl5x3V9mVEZSd85AQ=; b=Hu5u1CeSHVyAONe1FHGG8Dm33D
+	Jipypx/2vw4bMCb2m6KAULJZHbA8jWh8zf1wDWhEaYsbqZerQnHrm+YI4RN8c7RXGD4/N/1dvtBAD
+	1nHxtL6UTAV144GiDPKChYwmdsuwt0UXfjijv7KekfFQfx4uiFvUlMZvXV0/mihXPtUtcPG2XT1g1
+	qTeOdz17TdObf9PU68lJaQMZBWyhdsi8r+gWsES7ANYxKE8Bu9cwcbqzggAU1+Yw8FflisG7Ls8CB
+	ptb60inCMfYshytn9QYkGC8usB6yioHM2jcoj5epTCtQXG3KMzt9bDyeHiDfDyWBbtMZmmhVv5fb5
+	KnC3nEcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNvxP-0000000DbKd-2Qh6;
-	Tue, 25 Nov 2025 16:31:59 +0000
-Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1vNw2b-0000000DbYY-1X6T;
+	Tue, 25 Nov 2025 16:37:21 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNvxM-0000000DbKD-44wp
+	id 1vNw2Y-0000000DbY7-25Ah
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Nov 2025 16:31:58 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ujFA14rvbjhQMIrhPIsrtxHAPk+tWyOIWIEvr1eAIVwv6w8g/zT25nQNzqbPEDRv5sP877bY81KxjigpjKsHe7ZNZAgbx/N1BXUqs3SO0IYjqeXApqYngaFPtY1FoYlcDme4n8UfnyK2k4B2aB63iYjRqMPJltT0eC0XSNtgALc0K8aR74RGO2EvRKlj/3+WqbYS6+txN9LOA64dxwDI43Pzpu4u59L1c0pnePu6qqimzy7E54hh4zj5/fZTgzsFu39nRyfTZ1fngvwtbBdlbFxkWvbQrwoDQ7Rt1yaexuiHo1nPNKl+GHOGQ/9XzQQILMHw+/EnsxCY+CbY74NbEA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=1yCAGBNpmSUo5p1q2NjTmfgvppJVG2i/PLStGFE5lUw=;
- b=Of9J4t6wE+5A0AIOXpa6ePRH9rjcVRwWYwB5uK8/iMgSJPCKgx53ksNE3fP83NZXg2ixIicJ0E352wIS5ELdHAXAe6SDeqGMnnvWMPGPpfFMcDU89f9Eub9ntA9Y0pOvwYuJQk9Phjv5hxq6lorja8yoRUDvtv7zPeynWEdalu6uygxxOKrXey3MFaXUGASZm7HfL2atMv+GcFHdDByqp4ifI6NlVpSvbn1ceOwtNe+m+jzNh52M1f/WKFg+n7oKwmvo5vdurBScCkz0Jb2lvIml3TC3U3l9HGWJyh4V0oC/TM4nmTetmh4mOd6//Hfd+B9QlOSKbmzSdLQ3Q30/Tw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=1yCAGBNpmSUo5p1q2NjTmfgvppJVG2i/PLStGFE5lUw=;
- b=iW9KxpoOztIQL5J7MjzlVOtlhk555LXeISj3+kdDtPMHdxfUir8cHMJoo0XuOGkrs4PMDIE4fkYvlImZUz7uRFlda8V2OAF8dJXY1api71GJqw89HiQ7CLcu3FLZz7BDsdZXOHyDI30Dl7Du4axfl2WfD/KfzkJWRbR8Ujpct8f6GFKGjm0ibMkEGq9cvJZr0iT4+/TCGPHrddijHvIxpf0pUX2nBIfwdKzSVBc+XgEyV4UL23W0aXM5mvybG6pkt/IWaNbPgtc+lUVNldXHMHgbY9/YPtaRbGgwHbnMX5EWP+ovJikQB7g3QAhYXEU/jW8OyY4Rhl5hstcnT09xWQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from DU2PR04MB8951.eurprd04.prod.outlook.com (2603:10a6:10:2e2::22)
- by PA1PR04MB10367.eurprd04.prod.outlook.com (2603:10a6:102:441::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9343.17; Tue, 25 Nov
- 2025 16:31:51 +0000
-Received: from DU2PR04MB8951.eurprd04.prod.outlook.com
- ([fe80::753c:468d:266:196]) by DU2PR04MB8951.eurprd04.prod.outlook.com
- ([fe80::753c:468d:266:196%4]) with mapi id 15.20.9366.009; Tue, 25 Nov 2025
- 16:31:51 +0000
-Date: Tue, 25 Nov 2025 11:31:44 -0500
-From: Frank Li <Frank.li@nxp.com>
-To: Carlos Song <carlos.song@nxp.com>
-Cc: aisheng.dong@nxp.com, andi.shyti@kernel.org, shawnguo@kernel.org,
-	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
-	linux-i2c@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] i2c: imx-lpi2c: Add runtime PM support for IRQ and
- clock management on i.MX8QXP/8QM
-Message-ID: <aSXZ8LntcvsvpKSZ@lizhi-Precision-Tower-5810>
-References: <20251125084718.2156168-1-carlos.song@nxp.com>
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20251125084718.2156168-1-carlos.song@nxp.com>
-X-ClientProxiedBy: PH8PR21CA0013.namprd21.prod.outlook.com
- (2603:10b6:510:2ce::22) To DU2PR04MB8951.eurprd04.prod.outlook.com
- (2603:10a6:10:2e2::22)
+	Tue, 25 Nov 2025 16:37:19 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id C655044141;
+	Tue, 25 Nov 2025 16:37:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 975F9C4CEF1;
+	Tue, 25 Nov 2025 16:37:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1764088637;
+	bh=nBeML0ip1QW4LgnV9TIkkO+eD75Thqh7vMCTrOjDcoU=;
+	h=From:Date:Subject:To:Cc:Reply-To:From;
+	b=nndKed/qvsGzyjQlpMxhJr5D8NDa+9pN2yxdtF96KeTreqZpkq5/JTdojK6YoKppl
+	 Zy9vAqTZcpuSVzs5ajKlCPCfw6m4ru9lIoDvdlWnzCoAG9obF3xqT2UbR7iLQ60KRA
+	 rKaSUfhg03RpuG+CkMbnHA7/iqyVuPqQwu1V2Yif6hWxg84aFi/THEe5qpcw8IAc58
+	 +4EB+VkfYwbXU6Z94DYDb/vb7d9LMSYYeOajfYIHxo8K2Oycuf7/25YdT30DF2A+GR
+	 cIt+d6oPRB5OfjY2Jvn1Gn+egl5ivHiUDrjRFabwbEpK7wTSiDDm9FnR+mWKoh33uh
+	 J7WHOcJmDK2sA==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 81943D0EE00;
+	Tue, 25 Nov 2025 16:37:17 +0000 (UTC)
+From: Rohan G Thomas via B4 Relay <devnull+rohan.g.thomas.altera.com@kernel.org>
+Date: Wed, 26 Nov 2025 00:37:12 +0800
+Subject: [PATCH net-next] net: stmmac: dwmac: Disable flushing frames on Rx
+ Buffer Unavailable
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU2PR04MB8951:EE_|PA1PR04MB10367:EE_
-X-MS-Office365-Filtering-Correlation-Id: 984f5611-42d8-4e56-923d-08de2c4022da
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|1800799024|376014|52116014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?OGNLbnpSYXpaTGk5MzE1MVlydWZQY3Z2TTNpVTRXWVphRnVKUVVHUE5wRmZS?=
- =?utf-8?B?TGdjYkIyejBXckFZbGZUM2FZU2xybjlpTkU0N25ZeG1mWTN1YmxjU053N3E2?=
- =?utf-8?B?QW5FQnc0Qm1QRnRMbVYzOStWWng3TWZ5b29YeXdZOWFLektQQmEybTVHYlpK?=
- =?utf-8?B?RHdhQ1lseE1OKzZMNmM2bzVkVjBOTXh3alB4ZG5MRlhTK2FqZ2tuUkJxYjZQ?=
- =?utf-8?B?bUFVMURmYVBnckQySDJKUW5GVk5la25DSVJwMUtuWjBES1JISS9WR1ZjSEV1?=
- =?utf-8?B?Y01qMUdQVWtUb0pJKy83WmxOWE85YnRtaklqUUdYS1ZGakxYRzczUnZMajl0?=
- =?utf-8?B?dEtLZVUrb3M0d25WNXlEeE5lSjFJcXExNVc2VVVGdG9qRzRCZ3hiQXpiRVRZ?=
- =?utf-8?B?N2t5Ry9jY2NnVWVCTTNmQ2ZRWngzTmJYN2hOalVucEczYWMzNlMrT05RS3ly?=
- =?utf-8?B?TmxscVViejNYcW9KTFdkT3VJL3VIUlZrcWd4QzM5VW82WHFKdFJnUnlieEY4?=
- =?utf-8?B?SzBMcm9NVlZqMWcwN21GVGJYMjRYbVVQVzVIcFJiRXcvNDZxRVhGVjZNL05D?=
- =?utf-8?B?djVuOHMzTFFIRGtEdkVGOU4ycFY2S1Y1U3ZHcllWMHMyOTB5MU1yK1h6WnJM?=
- =?utf-8?B?SmdIV1hrUE82QVF3U1VpK2RiSm01Wlo0K0Zzb3dkYzZ0OGkzWDdmNXJrWDRT?=
- =?utf-8?B?ZEk1UEd3cjJKcVM4WUFybUNtZ3VTcmsvQm1oc0pwQ2lNZ3BWWUlld3dWYU5y?=
- =?utf-8?B?V2xEa0w4L3lSbjArSGZHdm5aNnRxeHlUZ2pjYjBJNy9RVTRxTnFvQVV0d0tu?=
- =?utf-8?B?d2lkZHpnQWt0d1l4bnptaU4wczcwbzE1QnltOE1MdEtpejFMOFR4akZLZzZp?=
- =?utf-8?B?T2E2eWRsa0ZqdmR2S1ZESkdxRytIU1hmTlRQTHJORnFydnEwL0dZU1B6YU9R?=
- =?utf-8?B?TzM5SFpWNVBIVGZrRUZHanIzaDVZWlVFdjEwbHFYaTk4c21GNlhhOTJFSzBX?=
- =?utf-8?B?Ull2U0JFUEhvTGhOS2VJdUtEMEZESWZ4QlpQbytZMVdyL3NCTXpYYmZOTHd1?=
- =?utf-8?B?OVNiaEdXQmtpZnJ3T0tJVE95U0JzZFZJbVlnU0hyRlErRk9ONFNQdWJUbkky?=
- =?utf-8?B?VW42c1llOEdIZTUxaHN1MEhSTHV3M0V4eEtBNERuMlFXNG1JTTNvZDdSMzZx?=
- =?utf-8?B?eDBSSk0ybnYxZUpwU0JTcktxMkllZ3JyYUJKSWJKSU1JQkpyQmFnek5sOFZ6?=
- =?utf-8?B?cnJmR3RiaEUwZ3RZK2J2YnRPbVlyZ3ZCNWJ3VC9oMW9sOVJIbU5vQ2YwUzkv?=
- =?utf-8?B?blFpZ2hlMzJLajI2MHM4SEc4UjVUdGM3UjZaQVVmL3ZrY2g1VzNDRlZwQVdR?=
- =?utf-8?B?aWdNbFZsb2ZoYjBxRDJXUlN2ZjlGSC85YlExcS8rQnh4MXN6eXZ1WjRCQTRy?=
- =?utf-8?B?YzVYNEg2ZXI0TytDdEJPVmRWeVZZOGIxMmVYbUliTU1ua1BRQXhnaktHdklR?=
- =?utf-8?B?QWdoclMrc1BBakdlZ3JkenhISnA5eTkrb3d3RkJkSzRrdFNrR1lLTldvOUNI?=
- =?utf-8?B?YUh1c3o0VnJnYWgvSjVuS0VaS2FQMjQ3bVdKdDBCNDVla3hlTmtrSDJwdFJW?=
- =?utf-8?B?TzVaUW9OWkpVbXlhZ1U5V3RIQm93NHJ6dFUyNmdlNE93b05OR0QzTVU1cGwy?=
- =?utf-8?B?TS9ZcXJBbDJJejN4Wk9oT2QwUnd2NnM4NFlrM2dBRVNRK1NpNmgxSkxHVk1R?=
- =?utf-8?B?SlZZSlhlTTVKbHRjazUxbUdERUk5NWhOdDZjMG05ZDJnY3N5aDFRV1BWcEZJ?=
- =?utf-8?B?Y3hqeFpSNkdpK1RPR3N5SEZhVXBZdjJ4RzRxcVFsb1dGSkxsKzRzeVFuRm4x?=
- =?utf-8?B?TTlGU0N6WkNLRzBaalRKMnQxcVgyUG0vQTVTdi9zdnlPWE5RaUVjc0JCR3lF?=
- =?utf-8?B?djZpdUZCVGVsWmlXb0ZRSS9WY2xBN3pqd3g2d3VDWEFkK2ZNMHdEWFJWOHBI?=
- =?utf-8?B?aGxJaGxkWjNJbXM2U2VsWWgzNXRNbGFRczk5N0J1SUVsSnhYR3pPa1hSckNP?=
- =?utf-8?B?a0EzMkZRTHozZzVQNTB3dmZnczhuanFXaUZsdz09?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8951.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(1800799024)(376014)(52116014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?U284emE0cjVRT2pKTjN5UXBnT3RpeDlwSVNWSlRBSmpvaTVXUW5CbWd1aE5l?=
- =?utf-8?B?ODRUanRTVFF6Tk9pL3NCNlVENnRnT1NWZ2V0K0p4dmJ0SVVHbWlVMmJpV1Z0?=
- =?utf-8?B?WldrUGFHdXRxUzlZNlhaV3IyU3ZzaEMvakxlUUUvSWRxK1hoRUJXVEtSVHdP?=
- =?utf-8?B?L2ZiZ0RkMmpOeXJPQnlCdm81RVpZUENucHVhaTZEVE16eDRrRlBvVHpNOEV3?=
- =?utf-8?B?ckhNWXI5NElGZy94Vjc1eVFsT1ozUU1MbDJ0Zm1QTDhJWkZXbW1RYlJTejNP?=
- =?utf-8?B?UFZqNUpMK1FMU0thS05SbFNOWkNDbENsRFVpeWJsazJlZVVkUE1FRURPVWJr?=
- =?utf-8?B?U3NpeEs0elc5ZlRIOUlLYnphTnlFQWhvQWtKYUIvbThWM3FYTWtuN3M5V1dp?=
- =?utf-8?B?V1hSZ0xmOEwxRWdvWDRHV3JJZTMzNHVlZmJpOFJnT2JRQlFLOHZSOURGS2lJ?=
- =?utf-8?B?cjJOQ1BTdjZHNjlOM01kK0Jrbi9LbENnM2NMTExpNmozUnlRYUdTa0NWRW5O?=
- =?utf-8?B?M0RaM1JUNnNWSERpSWN4U2hRNFdFcGsxSU1MZS9sWUszRDZVMFhzNFFicjZB?=
- =?utf-8?B?OEdPanBiTjgyaUFsZGcrdCs5U3FOWXBaZEEzWkJWZTFyeGFKVzY3NEswOGxM?=
- =?utf-8?B?SHp3YTF6U2E1Yi9nQ2FPdTFhTUhuVldWT1ExUHJwQ0VBK3crYWpaUmF1WlZZ?=
- =?utf-8?B?eElUQWpNL3VLdXRTT0M1ODlVc01QOEFhVHJZaXM5VStuS1BBRjRkbll1b3li?=
- =?utf-8?B?dmg5aTF1TXk5TnVvWWRNWWFsbHh0WnhGZ2NRTkZNOVgxYTE3RVVqVUFDdGl2?=
- =?utf-8?B?OWhmN3FyYmZ4MTZHRnR2Q2xtOW5sakkzTjU2WXBGNzRMUzhsNjQzSkxUaDFO?=
- =?utf-8?B?ZStBSmRqWENNUzRzd1A2am9RcDJpZDQxQU1lUjNJWXVZV0FrOTJMT2V6K0Zn?=
- =?utf-8?B?Q3hBZFRQYUdiMU83RFJPMk9hSjMrWmVLaUZ6anhHSGtiZ0RGWU1VWjhUTnZh?=
- =?utf-8?B?OUo4OUZTV3l6VkJXcUFWOEJlMUprMk5lV2ZrckU3b3lLUXF2dTBseC81S3Ux?=
- =?utf-8?B?QmJEZEJIemRjaDZlVXh4N1JuNTZLN3AxZ2pWVS9RdU9tMmtNdnBVdGFrYzRp?=
- =?utf-8?B?dXV0SXEweGJjMWFmL0VEMXpPcEh5b3JIYkd3TXgxdmRmbFljaTR5aTJwa3R3?=
- =?utf-8?B?SjN2UEpEYzRUVkE5anQ0Vi9LRWpVU1VzWnIxZDBLVmdCWVRGWjVENDR5bi9h?=
- =?utf-8?B?WTBCTitVSHBoUDZqQmtkRVRoS3NKUWlsV0VDQ1ZNY3poK2JJdWVPMldJc1Nh?=
- =?utf-8?B?Y1Q4RDRHVDltdjRzeUIyUkpzYWcrQjhVajdBVFRERHVodDlIQ3pvYkdmbWJW?=
- =?utf-8?B?aVorT2xPVno5YkJqVnVTcEp1NFcrS0s1eUdmYWpobGJKNDg0N1dYMkwvMGw4?=
- =?utf-8?B?S1c1cGhOMTlxMEhjTlBzRTcvYm92aFV3bXRQc3dtVnNyRTU0RVN1aEQwQTg1?=
- =?utf-8?B?YVl6QnFyY0lIc1RIR0szZGR4eFlJalFPc2RUbEw3SVhGWGpqcklZeGlEOWI4?=
- =?utf-8?B?N08waVB4TWpsdVdsTDNFWm5iYkw2MFkrYk5BNGtUTnBocTVrR0s1UlFxdndM?=
- =?utf-8?B?WEVXZ1pVSk84MXRLdDdISGNtSWlWYXU2TlpRdE93YlhUaUlvbFFoWXJiRG5G?=
- =?utf-8?B?MCs5aTJjUDRpNHpZNkJKUjUwbW9GYjJ3UVdoRzEvQ2JJZG9JdTVOUmpINEhy?=
- =?utf-8?B?Z0FmK2FDaVZ3cW1DT0hFYXZCdURsNUpjM2dqbWxuZWJBUERxeEZWRjJOTWth?=
- =?utf-8?B?WnNKcGlyUEhnRC9VdmprQjRUa3Y4TDB2OUVGWlBNTmdMYSt4aUxyTkhUTlZw?=
- =?utf-8?B?eER4WFlMbFdQdTZ3eFg3TTVTcnlHL3VWakMyWjExNVlLSzJQWDc4OFAvSXBH?=
- =?utf-8?B?eWl6RzQ3Z056TVplYXd4SjJsZkdES1Q0NDduNEFUWVZLZzBOZXlEQXlsNWtO?=
- =?utf-8?B?NWtHdmJjZHBIU1ozM1lSZ090Z2dNSVJYWElVejBqdnpLYWFaQjhxUmxjYzlF?=
- =?utf-8?B?ZFZSbStrRk5YQ0krQk9Oc0IrRXMzQVZNTXVmdHpmTk1pZ1BuMGlsOUJzLzZV?=
- =?utf-8?Q?aoZYGWGEBUJlDPozml14o2Y4O?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 984f5611-42d8-4e56-923d-08de2c4022da
-X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8951.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Nov 2025 16:31:51.7011
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: bfkOkCiQsFuWerOXXaVr3RKCCgZwkNe0wkYWKlGU3oi60EyM51/AMrhPkK4GCdvFL9hF7d9A9LQCecaXYwZdHQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB10367
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20251126-a10_ext_fix-v1-1-d163507f646f@altera.com>
+X-B4-Tracking: v=1; b=H4sIADfbJWkC/x2MSwqAMAwFr1KyttAUItariIifqNlUaUWE4t0NL
+ ucxbwpkTsIZWlMg8S1ZjqiAlYF5H+PGVhZl8M4Toic7ohv4uYZVHkuBsHE0heBq0MeZWOe/1kH
+ ky0Y1oX/fDzRrBKVnAAAA
+X-Change-ID: 20251125-a10_ext_fix-5951805b9906
+To: Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ Maxime Chevallier <maxime.chevallier@bootlin.com>
+Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Rohan G Thomas <rohan.g.thomas@altera.com>, 
+ Matthew Gerlach <matthew.gerlach@altera.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1764088636; l=6674;
+ i=rohan.g.thomas@altera.com; s=20250815; h=from:subject:message-id;
+ bh=1yOOam2AS2+5uDLyswXLrju6hz3Fas3Llt1CFCEF2XQ=;
+ b=0nGCrQtOBgw4LLg/JEC16HfXKFngX7ZaZTAAG3vvYoi54fUKNVpkF6bRXIgxRlb7WXsCcGQjU
+ dUDM7EjLUYEBhyqE0IYhZ/QVwrrpo3yYvvkDOPFJ42WkL9Oa9jBoOvv
+X-Developer-Key: i=rohan.g.thomas@altera.com; a=ed25519;
+ pk=5yZXkXswhfUILKAQwoIn7m6uSblwgV5oppxqde4g4TY=
+X-Endpoint-Received: by B4 Relay for rohan.g.thomas@altera.com/20250815
+ with auth_id=494
+X-Original-From: Rohan G Thomas <rohan.g.thomas@altera.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251125_083157_175577_927E4655 
-X-CRM114-Status: GOOD (  24.94  )
+X-CRM114-CacheID: sfid-20251125_083718_588446_C3C98A32 
+X-CRM114-Status: GOOD (  17.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -175,194 +92,140 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: rohan.g.thomas@altera.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 25, 2025 at 04:47:18PM +0800, Carlos Song wrote:
-> On i.MX8QXP/8QM SoCs, both the lvds/mipi and lvds/mipi-lpi2c power domains
-> must enter low-power mode during runtime suspend to achieve deep power
-> savings.
->
-> LPI2C resides in the lvds-lpi2c/mipi-lpi2c power domain, while its IRQ is
-> routed through an irqsteer located in the lvds/mipi power domain. The LPI2C
-> clock source comes from an LPCG within the lvds-lpi2c domain.
->
-> For example, the hierarchy for lvds0 and lvds0-lpi2c0 domains is:
-> ┌───────────────────────┐
-> │ pm-domain : lvds0     │
-> │                       │
-> │    ┌──────────────┐   │
-> │    │   irqsteer   │   │
-> │    └───────▲──────┘   │
-> │            │irq       │
-> │            │          │
-> └────────────┼──────────┘
-> ┌────────────┼──────────┐
-> │        ┌───┼───┐      │
-> │        │lpi2c0 │      │
-> │        └───┬───┘clk   │
-> │   ┌────────┼───────┐  │
-> │   │       LPCG     │  │
-> │   └────────────────┘  │
-> │pm-domain:lvds0-lpi2c0 │
-> └───────────────────────┘
->
-> To allow these domains to power down in system runtime suspend:
->
-> - All irqsteer clients must release IRQs.
-> - All LPCG clients must disable and unprepare clocks.
->
-> Thus, LPI2C must:
->
-> - Free its IRQ during runtime suspend and re-request it on resume.
-> - Disable and unprepare all clocks during runtime suspend and prepare
->   and rne ble them on resume.
->
-> This enables the lvds/mipi domains to enter deep low-power mode,
-> significantly reducing power consumption compared to active mode.
->
-> Signed-off-by: Carlos Song <carlos.song@nxp.com>
-> ---
-> Changes since V1:
-> * Add unit for I2C_PM_LONG_TIMEOUT to I2C_PM_LONG_TIMEOUT_MS
-> * Reuqest lpi2c_imx->irq uncondtionally
-> * Remove help function and direct put code in original
->   lpi2c_runtime_suspend() and lpi2c_runtime_resume()
-> * Give more comments to explain why prolong PM timeout
-> ---
-> 1. Why not apply prepare and unprepare clocks management for all platforms:
-> As the report from me early:
-> https://lists.openwall.net/linux-kernel/2025/07/01/139
-> Scope of global prepare_lock is too big, it will cause dead clock
-> between RPM and prepare_lock in some specail case. But clock
-> prepare/unprepare is also necessary for low power consumption in I.MX8QXP
-> and 8QM, so I add separate clock management for these platforms to
-> avoid impacting other I.MX platforms. But it's possible that some
-> customers might encounter deadlock issues in IMX8QXP/8QM, so I prolong the
-> runtime PM timeout for 8QXP/QM platforms, which is currently a suitable
-> workaround method I think.
->
-> The dead lock happen as below call stacks
->
-> Task 117                                                Task 120
->
-> schedule()
-> clk_prepare_lock()--> wait prepare_lock(mutex_lock)     schedule() wait for power.runtime_status exit RPM_SUSPENDING
->                            ^^^^ A                       ^^^^ B
-> clk_bulk_unprepare()                                    rpm_resume()
-> lpi2c_runtime_suspend()                                 pm_runtime_resume_and_get()
-> ...                                                     lpi2c_imx_xfer()
->                                                         ...
-> rpm_suspend() set RPM_SUSPENDING                        pcf857x_set();
->                            ^^^^ B                       ...
->                                                         clk_prepare_lock() --> hold prepare_lock
->                                                         ^^^^ A
->                                                         ...
->
-> Task 117 set power.runtime_status to RPM_SUSPENDING (A) and wait for task 120 release clock's global prepare mutex (B).
->
-> Task 120 hold global prepare mutex (B) and wait for power.runtime_status finish suspend (A).
->
-> So if RPM doesn't enter auto suspend too quick after hold prepare lock, this dead lock can be avoided.
-> So I prolong the runtime PM timeout, it can ensure that LPI2C does not enter auto suspend mode too
-> frequently. It has been verified valid for the above case.
->
-> 2. Low power status report
-> Power domain status can be shown in pm_genpd_summary and sc firmware. Take
-> 8QM platform lvds0 and lvds0-lpi2c0 power domain as example, before apply
-> this patch set:
-> root@imx8qmmek:~# cat /sys/kernel/debug/pm_genpd/pm_genpd_summary
-> domain                          status          children        performance
->     /device                         runtime status               managed by
-> ---------------------------------------------------------------------------
-> lvds0-lpi2c0                    on                              0
->     lvds0_i2c0_clk                  active                      0       SW
->     56243014.clock-controller       active                      0       SW
->     56247000.i2c                    suspended                   0       SW
-> lvds0                           on                              0
->     lvds0_bypass_clk                suspended                   0       SW
->     lvds0_pixel_clk                 suspended                   0       SW
->     lvds0_phy_clk                   suspended                   0       SW
->     56240000.interrupt-controller   active                      0       SW
-> sc firmware will show the power domain status:
-> >$ power.r
->     LVDS_0 = on
->     LVDS_0_I2C_0 = on
->
-> After apply this patch set:
-> root@imx8qmmek:~# cat /sys/kernel/debug/pm_genpd/pm_genpd_summary
-> domain                          status          children        performance
->     /device                         runtime status               managed by
-> ---------------------------------------------------------------------------
-> lvds0-lpi2c0                    off-0                           0
->     lvds0_i2c0_clk                  suspended                   0        SW
->     56243014.clock-controller       suspended                   0        SW
->     56247000.i2c                    suspended                   0        SW
-> lvds0                           off-0                           0
->     lvds0_bypass_clk                suspended                   0        SW
->     lvds0_pixel_clk                 suspended                   0        SW
->     lvds0_phy_clk                   suspended                   0        SW
->     56240000.interrupt-controller   suspended                   0        SW
->
-> sc firmware will show the power domain status:
-> >$ power.r
->     LVDS_0 = lp
->     LVDS_0_I2C_0 = lp
-> ---
->  drivers/i2c/busses/i2c-imx-lpi2c.c | 84 +++++++++++++++++++++++++-----
->  1 file changed, 71 insertions(+), 13 deletions(-)
->
-> diff --git a/drivers/i2c/busses/i2c-imx-lpi2c.c b/drivers/i2c/busses/i2c-imx-lpi2c.c
-> index dfacb0aec3c0..41ad82595583 100644
-> --- a/drivers/i2c/busses/i2c-imx-lpi2c.c
-> +++ b/drivers/i2c/busses/i2c-imx-lpi2c.c
-> @@ -132,6 +132,7 @@
->  #define CHUNK_DATA	256
->
->  #define I2C_PM_TIMEOUT		10 /* ms */
-> +#define I2C_PM_LONG_TIMEOUT_MS	1000 /* Avoid dead lock caused by big clock prepare lock */
+From: Rohan G Thomas <rohan.g.thomas@altera.com>
 
-Mark:
-	I don't know where is best place to record clock dead lock issue
-with runtime PM in this patch. There are some thread disucssion this
+In Store and Forward mode, flushing frames when the receive buffer is
+unavailable, can cause the MTL Rx FIFO to go out of sync. This results
+in buffering of a few frames in the FIFO without triggering Rx DMA
+from transferring the data to the system memory until another packet
+is received. Once the issue happens, for a ping request, the packet is
+forwarded to the system memory only after we receive another packet
+and hece we observe a latency equivalent to the ping interval.
 
-	https://lore.kernel.org/imx/20250707-careful-pragmatic-quail-e1a2d8-mkl@pengutronix.de/
-	https://lore.kernel.org/all/20230421-kinfolk-glancing-e185fd9c47b4-mkl@pengutronix.de/
-	https://lore.kernel.org/all/20250326-cross-lock-dep-v1-0-3199e49e8652@bootlin.com/
+64 bytes from 192.168.2.100: seq=1 ttl=64 time=1000.344 ms
 
-	Anyways, I am fine with this patch. It takes long time to resolve
-deadlock problem.
+Also, we can observe constant gmacgrp_debug register value of
+0x00000120, which indicates "Reading frame data".
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+The issue is not reproducible after disabling frame flushing when Rx
+buffer is unavailable. But in that case, the Rx DMA enters a suspend
+state due to buffer unavailability. To resume operation, software
+must write to the receive_poll_demand register after adding new
+descriptors, which reactivates the Rx DMA.
 
->  #define I2C_DMA_THRESHOLD	8 /* bytes */
->
->  enum lpi2c_imx_mode {
-> @@ -149,6 +150,11 @@ enum lpi2c_imx_pincfg {
->  	FOUR_PIN_PP,
->  };
->
-...
->
->  	i2c_set_adapdata(&lpi2c_imx->adapter, lpi2c_imx);
->  	platform_set_drvdata(pdev, lpi2c_imx);
-> @@ -1493,7 +1520,11 @@ static int lpi2c_imx_probe(struct platform_device *pdev)
->  		return dev_err_probe(&pdev->dev, -EINVAL,
->  				     "can't get I2C peripheral clock rate\n");
->
-> -	pm_runtime_set_autosuspend_delay(&pdev->dev, I2C_PM_TIMEOUT);
-> +	if (lpi2c_imx->hwdata->need_prepare_unprepare_clk)
-> +		pm_runtime_set_autosuspend_delay(&pdev->dev, I2C_PM_LONG_TIMEOUT_MS);
-> +	else
-> +		pm_runtime_set_autosuspend_delay(&pdev->dev, I2C_PM_TIMEOUT);
-> +
->  	pm_runtime_use_autosuspend(&pdev->dev);
->  	pm_runtime_get_noresume(&pdev->dev);
->  	pm_runtime_set_active(&pdev->dev);
-...
->
->  	return 0;
-> --
-> 2.34.1
->
+This issue is observed in the socfpga platforms which has dwmac1000 IP
+like Arria 10, Cyclone V and Agilex 7. Issue is reproducible after
+running iperf3 server at the DUT for UDP lower packet sizes.
+
+Signed-off-by: Rohan G Thomas <rohan.g.thomas@altera.com>
+Reviewed-by: Matthew Gerlach <matthew.gerlach@altera.com>
+---
+ drivers/net/ethernet/stmicro/stmmac/dwmac1000_dma.c | 5 +++--
+ drivers/net/ethernet/stmicro/stmmac/dwmac_dma.h     | 1 +
+ drivers/net/ethernet/stmicro/stmmac/dwmac_lib.c     | 5 +++++
+ drivers/net/ethernet/stmicro/stmmac/hwif.h          | 3 +++
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c   | 2 ++
+ 5 files changed, 14 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac1000_dma.c b/drivers/net/ethernet/stmicro/stmmac/dwmac1000_dma.c
+index 6d9b8fac3c6d0fd76733ab4a1a8cce2420fa40b4..5877fec9f6c30ed18cdcf5398816e444e0bd0091 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac1000_dma.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac1000_dma.c
+@@ -135,10 +135,10 @@ static void dwmac1000_dma_operation_mode_rx(struct stmmac_priv *priv,
+ 
+ 	if (mode == SF_DMA_MODE) {
+ 		pr_debug("GMAC: enable RX store and forward mode\n");
+-		csr6 |= DMA_CONTROL_RSF;
++		csr6 |= DMA_CONTROL_RSF | DMA_CONTROL_DFF;
+ 	} else {
+ 		pr_debug("GMAC: disable RX SF mode (threshold %d)\n", mode);
+-		csr6 &= ~DMA_CONTROL_RSF;
++		csr6 &= ~(DMA_CONTROL_RSF | DMA_CONTROL_DFF);
+ 		csr6 &= DMA_CONTROL_TC_RX_MASK;
+ 		if (mode <= 32)
+ 			csr6 |= DMA_CONTROL_RTC_32;
+@@ -262,6 +262,7 @@ const struct stmmac_dma_ops dwmac1000_dma_ops = {
+ 	.dma_rx_mode = dwmac1000_dma_operation_mode_rx,
+ 	.dma_tx_mode = dwmac1000_dma_operation_mode_tx,
+ 	.enable_dma_transmission = dwmac_enable_dma_transmission,
++	.enable_dma_reception = dwmac_enable_dma_reception,
+ 	.enable_dma_irq = dwmac_enable_dma_irq,
+ 	.disable_dma_irq = dwmac_disable_dma_irq,
+ 	.start_tx = dwmac_dma_start_tx,
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac_dma.h b/drivers/net/ethernet/stmicro/stmmac/dwmac_dma.h
+index d1c149f7a3dd9e472b237101666e11878707f0f2..054ecb20ce3f68bce5da3efaf36acf33e430d3f0 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac_dma.h
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac_dma.h
+@@ -169,6 +169,7 @@ static inline u32 dma_chan_base_addr(u32 base, u32 chan)
+ #define NUM_DWMAC4_DMA_REGS	27
+ 
+ void dwmac_enable_dma_transmission(void __iomem *ioaddr, u32 chan);
++void dwmac_enable_dma_reception(void __iomem *ioaddr, u32 chan);
+ void dwmac_enable_dma_irq(struct stmmac_priv *priv, void __iomem *ioaddr,
+ 			  u32 chan, bool rx, bool tx);
+ void dwmac_disable_dma_irq(struct stmmac_priv *priv, void __iomem *ioaddr,
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac_lib.c b/drivers/net/ethernet/stmicro/stmmac/dwmac_lib.c
+index 467f1a05747ecf0be5b9f3392cd3d2049d676c21..97a803d68e3a2f120beaa7c3254748cf404236df 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac_lib.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac_lib.c
+@@ -33,6 +33,11 @@ void dwmac_enable_dma_transmission(void __iomem *ioaddr, u32 chan)
+ 	writel(1, ioaddr + DMA_CHAN_XMT_POLL_DEMAND(chan));
+ }
+ 
++void dwmac_enable_dma_reception(void __iomem *ioaddr, u32 chan)
++{
++	writel(1, ioaddr + DMA_CHAN_RCV_POLL_DEMAND(chan));
++}
++
+ void dwmac_enable_dma_irq(struct stmmac_priv *priv, void __iomem *ioaddr,
+ 			  u32 chan, bool rx, bool tx)
+ {
+diff --git a/drivers/net/ethernet/stmicro/stmmac/hwif.h b/drivers/net/ethernet/stmicro/stmmac/hwif.h
+index f257ce4b6c66e0bbd3180d54ac7f5be934153a6b..df6e8a567b1f646f83effbb38d8e53441a6f6150 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/hwif.h
++++ b/drivers/net/ethernet/stmicro/stmmac/hwif.h
+@@ -201,6 +201,7 @@ struct stmmac_dma_ops {
+ 	void (*dma_diagnostic_fr)(struct stmmac_extra_stats *x,
+ 				  void __iomem *ioaddr);
+ 	void (*enable_dma_transmission)(void __iomem *ioaddr, u32 chan);
++	void (*enable_dma_reception)(void __iomem *ioaddr, u32 chan);
+ 	void (*enable_dma_irq)(struct stmmac_priv *priv, void __iomem *ioaddr,
+ 			       u32 chan, bool rx, bool tx);
+ 	void (*disable_dma_irq)(struct stmmac_priv *priv, void __iomem *ioaddr,
+@@ -261,6 +262,8 @@ struct stmmac_dma_ops {
+ 	stmmac_do_void_callback(__priv, dma, dma_diagnostic_fr, __args)
+ #define stmmac_enable_dma_transmission(__priv, __args...) \
+ 	stmmac_do_void_callback(__priv, dma, enable_dma_transmission, __args)
++#define stmmac_enable_dma_reception(__priv, __args...) \
++	stmmac_do_void_callback(__priv, dma, enable_dma_reception, __args)
+ #define stmmac_enable_dma_irq(__priv, __args...) \
+ 	stmmac_do_void_callback(__priv, dma, enable_dma_irq, __priv, __args)
+ #define stmmac_disable_dma_irq(__priv, __args...) \
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+index 6cacedb2c9b3fefdd4c9ec8ba98d389443d21ebd..1ecca60baf74286da7f156b4c3c835b3cbabf1ba 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+@@ -4973,6 +4973,8 @@ static inline void stmmac_rx_refill(struct stmmac_priv *priv, u32 queue)
+ 	rx_q->rx_tail_addr = rx_q->dma_rx_phy +
+ 			    (rx_q->dirty_rx * sizeof(struct dma_desc));
+ 	stmmac_set_rx_tail_ptr(priv, priv->ioaddr, rx_q->rx_tail_addr, queue);
++	/* Wake up Rx DMA from the suspend state if required */
++	stmmac_enable_dma_reception(priv, priv->ioaddr, queue);
+ }
+ 
+ static unsigned int stmmac_rx_buf1_len(struct stmmac_priv *priv,
+
+---
+base-commit: e3daf0e7fe9758613bec324fd606ed9caa187f74
+change-id: 20251125-a10_ext_fix-5951805b9906
+
+Best regards,
+-- 
+Rohan G Thomas <rohan.g.thomas@altera.com>
+
+
 
