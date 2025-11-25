@@ -4,71 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44EC4CFD37F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 10:28:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4087CFD377
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 10:29:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=IzRQtNLFnAtgDgIyCbc0mfMGNY8QoBwvC0IxPzIvUtc=; b=h9zUcHsCW/BXxBptD5n/wtvZUi
-	BaGAcn43j1HQJ0rYX/R2apmEOlze8w0Ye4nfA8p1Lf+X5kr6LXN5fADTJEp0kXJy1Bfr5cavJjGUb
-	sV9VgvQ1TMOsMErod13J/YjMW/PrX8LcdzOBIfYn/mBHrTcAKC1eE+ZHcBs6YUIich+5xB0/vc6in
-	hLl4VsgV2PJj+bCs9O80JxjqjC0dyUDyDCiQ2jMpryOm2y9NpYwxUIpn4TDE38BjQLFq2MRO+3F/r
-	jH2kfrLKBtEyT7aFWpJAj8ifRvFo7Bs11QtH8cPHSkSlX4/6SuHXwr47vHuRiiwSryJAOzEu/wroE
-	IbDQ7XzQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Z4EFkclHnxBSnL2Rrwz4TjPZ73VeDWsjyo0Ai/6COUQ=; b=kGKfMekoLeKAdmGsb5EnDb4V3H
+	fGTcfefNooBSZagWfM/PmknGu2+uqh/o7r0PIPmpM5+DNAxUTVd+VNm7dogWFjOZnxBDoVGkRVXua
+	WEDv+s/j5LoGzHoyKtznJ3Uxm+e8SLICpylgQYatIWYKga3NNCluQyPgQQjga+AEU4NQONe+FHACH
+	p/gaCDK0qkcDDKt8NloXz7KY2OE8Vz9m5mC4ZajBVMc1v7HLFhAKgjQ94jjShT8ZlPiabeh/qYxku
+	gnkQwHFLc7egJF53zU4m2WwGEFS0seuEfDZfR5lQQpVZLBWRftDDEKhsACPvcMKtk7iUlw8uLGkEz
+	WEpwQ4qw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNqH6-0000000D7vk-0YUh;
-	Tue, 25 Nov 2025 10:27:56 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vNqId-0000000D89o-3Mhv;
+	Tue, 25 Nov 2025 10:29:31 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNqH4-0000000D7vO-1kiR
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Nov 2025 10:27:54 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C53026018E;
-	Tue, 25 Nov 2025 10:27:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 74ADDC4CEF1;
-	Tue, 25 Nov 2025 10:27:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764066473;
-	bh=hOlaNf5irREQeC5hqJ1JIn+4xJWmxsP/XfB0B/la+Qc=;
-	h=From:To:Cc:Subject:Date:From;
-	b=sygUi4OsPVIJo5N7R7GGXVq4YmxJCqdw4HGtyXMEfO1elbS7w294nfId/WFoZpzKx
-	 0s2BlgwcGlrnLQnBm2XdKMEfbsGpqYdMwvUjECwIJivjifd4zoXsIgfRX7LmWhsnSS
-	 u7Wi4R4l2VFuoYmd42zP6y1DDvp1juvwoHED1cBKTZ1NzV2CSp+99zEtA4vDH++xKR
-	 nGKlMIiNXlnucDTupcKP0/+yZw2gcYJf67wQ+1+jJI7sh60/PvnDv3MRCUjaOiCgn2
-	 BAq0K0mC1KygoWIaqYxCzN1ZZKYFpSFYSt918dV5EubdzHUXVd+tDm1vQIWiEaK8us
-	 wmYsamamDTdxQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1vNqH0-000000087dw-48ay;
-	Tue, 25 Nov 2025 10:27:51 +0000
-From: Marc Zyngier <maz@kernel.org>
-To: linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: Radu Rendec <rrendec@redhat.com>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>
-Subject: [PATCH v2] PCI: host-generic: Move bridge allocation outside of pci_host_common_init()
-Date: Tue, 25 Nov 2025 10:27:26 +0000
-Message-ID: <20251125102726.865617-1-maz@kernel.org>
-X-Mailer: git-send-email 2.47.3
+	id 1vNqIa-0000000D892-3tZ8;
+	Tue, 25 Nov 2025 10:29:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1764066565;
+	bh=7uW/PXDiLv9bv4bENX8rg44XZjAgahdiMX0JiQRX2I0=;
+	h=From:Date:Subject:To:Cc:From;
+	b=oIW8VZef+01U2T24JyiygW+GD4PPXZypkwTThVtJSJ/6SqqSF0PaErqhm4ZXIJjva
+	 oPNfpvmrzHkkFOopuTqz3rPiAgSpl/XkWUtNRS73oSI7CHeRlDclqzHaJOgRaXpOV0
+	 BDOYDGw7zw7iy74+kGvwhzNqlrOjSzOU/rzUdxKUtk66wuLUWfHG4UkG2SMrdyrcbn
+	 HnUI9QSbcWuTXmuqU/RX0MgoKeSx4+ULmZnHWY1sB2/7Bk3A6xbe0T3K7v7qdkRU2k
+	 G6spX8ulidlkVrxn9jCzw9S5TczAypVrs3OwEg5WPL7mQMIiMnTIbhUmetiQ1NckbD
+	 WmGppMOAhDDZA==
+Received: from yukiji.home (amontpellier-657-1-116-247.w83-113.abo.wanadoo.fr [83.113.51.247])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: laeyraud)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 1AD6217E10E9;
+	Tue, 25 Nov 2025 11:29:25 +0100 (CET)
+From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+Date: Tue, 25 Nov 2025 11:28:27 +0100
+Subject: [PATCH] arm64: dts: mediatek: mt8365-evk: Fix touchscreen reset
+ line polarity
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, rrendec@redhat.com, bhelgaas@google.com, mani@kernel.org, robh@kernel.org, kwilczynski@kernel.org, lpieralisi@kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20251125-mtk8365-evk-touchscreen-rst-pin-v1-1-316facb96d63@collabora.com>
+X-B4-Tracking: v=1; b=H4sIAMuEJWkC/zXNQQqDMBCF4auEWXfAJCSIVykuNB3rIElsEkUQ7
+ 95Q6fJ/i/edkCkxZejECYl2zhxDDfkQ4OYhvAn5VRtUo4yUyqAvS6utQdoXLHFzc3aJKGDKBVc
+ O6OykG6ulaRVBfVkTTXz8hGd/d6LPVqFyjzAOmdBF77l0ItBR8I9Bf11f5+jMdKIAAAA=
+X-Change-ID: 20251125-mtk8365-evk-touchscreen-rst-pin-c6f30631582e
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Hans de Goede <hansg@kernel.org>, Martyn Welch <martyn.welch@collabora.com>, 
+ Dmitry Torokhov <dmitry.torokhov@gmail.com>
+Cc: kernel@collabora.com, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, 
+ Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1764066565; l=2133;
+ i=louisalexis.eyraud@collabora.com; s=20250113; h=from:subject:message-id;
+ bh=7uW/PXDiLv9bv4bENX8rg44XZjAgahdiMX0JiQRX2I0=;
+ b=d2MA9BX2I4lYvmutC7pNGGQXPbS/4HScsFXrKxJQPCLNAMvPk5obmdysja2thJM7k1Z+KHI+R
+ +dL9j6hq2wBATRVuQttcio/vinEvWhMaa2Ob8g8DPmNe3pgGdbm8RzV
+X-Developer-Key: i=louisalexis.eyraud@collabora.com; a=ed25519;
+ pk=CHFBDB2Kqh4EHc6JIqFn69GhxJJAzc0Zr4e8QxtumuM=
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251125_022929_135979_2253243F 
+X-CRM114-Status: GOOD (  13.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,186 +90,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Having the host bridge allocation inside pci_host_common_init() results
-in a lot of complexity in the pcie-apple driver (the only direct user
-of this function outside of core PCI code).
+Commit 7363096a5a08 ("Input: goodix - remove setting of RST pin to input")
+modified the Goodix driver so it no longer tries to set reset pin as
+input.
 
-It forces the allocation of driver-specific tracking structures outside
-of the bridge allocation, which in turn requires it to use inefficient
-data structures to match the bridge and the private structure as needed.
+It led the driver to fail to probe during boot time on the Mediatek
+Genio 350-EVK board because the reset pin polarity is incorrectly
+declared in the board devicetree:
+```
+[    6.253819] Goodix-TS 1-005d: Error reading 1 bytes from 0x8140: -6
+[    6.277884] Goodix-TS 1-005d: Error reading 1 bytes from 0x8140: -6
+[    6.305503] Goodix-TS 1-005d: I2C communication failure: -6
+```
 
-Instead, let the bridge structure be passed to pci_host_common_init(),
-allowing the driver to allocate it together with the private data,
-as it is usually intended. The driver can then retrieve the bridge
-via the owning device attached to the PCI config window structure.
-This allows the pcie-apple driver to be significantly simplified.
+so fix in the mt8365-evk.dts the reset-gpios property and pinctrl
+configuration of the touchscreen node to use the proper polarity value.
 
-Both core and driver code are changed in one go to avoid going via
-a transitional interface.
-
-Reviewed-by: Radu Rendec <rrendec@redhat.com>
-Link: https://lore.kernel.org/r/86jyzms036.wl-maz@kernel.org
-Signed-off-by: Marc Zyngier <maz@kernel.org>
-Cc: Bjorn Helgaas <bhelgaas@google.com>
-Cc: Manivannan Sadhasivam <mani@kernel.org>
-Cc: Rob Herring <robh@kernel.org>
-Cc: Krzysztof Wilczyński <kwilczynski@kernel.org>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>
+Fixes: 7363096a5a08 ("Input: goodix - remove setting of RST pin to input")
+Fixes: b28c4af8e44b ("arm64: dts: mt8365-evk: Add goodix touchscreen support")
+Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
 ---
+Patch tested on Mediatek Genio 350-EVK board with kernels based on
+linux-next (tag: 20251125) and v6.18-rc7.
+---
+ arch/arm64/boot/dts/mediatek/mt8365-evk.dts | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-Notes:
-    - Removed unused list_head from apple_pcie structure
-    - Fixed numerous typos
-    - Added Radu's RB
+diff --git a/arch/arm64/boot/dts/mediatek/mt8365-evk.dts b/arch/arm64/boot/dts/mediatek/mt8365-evk.dts
+index b5dd5ef9fa11ae1d54aa754325bac2e184b90dd3..4aa802ba85ce541f57ffed439262c15e1d7bcfe3 100644
+--- a/arch/arm64/boot/dts/mediatek/mt8365-evk.dts
++++ b/arch/arm64/boot/dts/mediatek/mt8365-evk.dts
+@@ -352,7 +352,7 @@ touchscreen@5d {
+ 		pinctrl-names = "default";
+ 		pinctrl-0 = <&touch_pins>;
+ 		irq-gpios = <&pio 78 GPIO_ACTIVE_HIGH>;
+-		reset-gpios = <&pio 79 GPIO_ACTIVE_LOW>;
++		reset-gpios = <&pio 79 GPIO_ACTIVE_HIGH>;
+ 		AVDD28-supply = <&touch0_fixed_3v3>;
+ 		VDDIO-supply = <&mt6357_vrf12_reg>;
+ 	};
+@@ -695,7 +695,7 @@ ctp-int1-pins {
+ 
+ 		rst-pins {
+ 			pinmux = <MT8365_PIN_79_CMVSYNC__FUNC_GPIO79>;
+-			output-low;
++			output-high;
+ 		};
+ 	};
+ 
 
- drivers/pci/controller/pci-host-common.c | 13 +++----
- drivers/pci/controller/pci-host-common.h |  1 +
- drivers/pci/controller/pcie-apple.c      | 43 ++++--------------------
- 3 files changed, 14 insertions(+), 43 deletions(-)
+---
+base-commit: acb2ca6959161544908b4ad1537b0b70c80f052f
+change-id: 20251125-mtk8365-evk-touchscreen-rst-pin-c6f30631582e
 
-diff --git a/drivers/pci/controller/pci-host-common.c b/drivers/pci/controller/pci-host-common.c
-index 810d1c8de24e9..c473e7c03baca 100644
---- a/drivers/pci/controller/pci-host-common.c
-+++ b/drivers/pci/controller/pci-host-common.c
-@@ -53,16 +53,12 @@ struct pci_config_window *pci_host_common_ecam_create(struct device *dev,
- EXPORT_SYMBOL_GPL(pci_host_common_ecam_create);
- 
- int pci_host_common_init(struct platform_device *pdev,
-+			 struct pci_host_bridge *bridge,
- 			 const struct pci_ecam_ops *ops)
- {
- 	struct device *dev = &pdev->dev;
--	struct pci_host_bridge *bridge;
- 	struct pci_config_window *cfg;
- 
--	bridge = devm_pci_alloc_host_bridge(dev, 0);
--	if (!bridge)
--		return -ENOMEM;
--
- 	of_pci_check_probe_only();
- 
- 	platform_set_drvdata(pdev, bridge);
-@@ -85,12 +81,17 @@ EXPORT_SYMBOL_GPL(pci_host_common_init);
- int pci_host_common_probe(struct platform_device *pdev)
- {
- 	const struct pci_ecam_ops *ops;
-+	struct pci_host_bridge *bridge;
- 
- 	ops = of_device_get_match_data(&pdev->dev);
- 	if (!ops)
- 		return -ENODEV;
- 
--	return pci_host_common_init(pdev, ops);
-+	bridge = devm_pci_alloc_host_bridge(&pdev->dev, 0);
-+	if (!bridge)
-+		return -ENOMEM;
-+
-+	return pci_host_common_init(pdev, bridge, ops);
- }
- EXPORT_SYMBOL_GPL(pci_host_common_probe);
- 
-diff --git a/drivers/pci/controller/pci-host-common.h b/drivers/pci/controller/pci-host-common.h
-index 51c35ec0cf37d..b5075d4bd7eb3 100644
---- a/drivers/pci/controller/pci-host-common.h
-+++ b/drivers/pci/controller/pci-host-common.h
-@@ -14,6 +14,7 @@ struct pci_ecam_ops;
- 
- int pci_host_common_probe(struct platform_device *pdev);
- int pci_host_common_init(struct platform_device *pdev,
-+			 struct pci_host_bridge *bridge,
- 			 const struct pci_ecam_ops *ops);
- void pci_host_common_remove(struct platform_device *pdev);
- 
-diff --git a/drivers/pci/controller/pcie-apple.c b/drivers/pci/controller/pcie-apple.c
-index 0380d300adca6..2d92fc79f6ddf 100644
---- a/drivers/pci/controller/pcie-apple.c
-+++ b/drivers/pci/controller/pcie-apple.c
-@@ -187,7 +187,6 @@ struct apple_pcie {
- 	const struct hw_info	*hw;
- 	unsigned long		*bitmap;
- 	struct list_head	ports;
--	struct list_head	entry;
- 	struct completion	event;
- 	struct irq_fwspec	fwspec;
- 	u32			nvecs;
-@@ -206,9 +205,6 @@ struct apple_pcie_port {
- 	int			idx;
- };
- 
--static LIST_HEAD(pcie_list);
--static DEFINE_MUTEX(pcie_list_lock);
--
- static void rmw_set(u32 set, void __iomem *addr)
- {
- 	writel_relaxed(readl_relaxed(addr) | set, addr);
-@@ -724,32 +720,9 @@ static int apple_msi_init(struct apple_pcie *pcie)
- 	return 0;
- }
- 
--static void apple_pcie_register(struct apple_pcie *pcie)
--{
--	guard(mutex)(&pcie_list_lock);
--
--	list_add_tail(&pcie->entry, &pcie_list);
--}
--
--static void apple_pcie_unregister(struct apple_pcie *pcie)
--{
--	guard(mutex)(&pcie_list_lock);
--
--	list_del(&pcie->entry);
--}
--
- static struct apple_pcie *apple_pcie_lookup(struct device *dev)
- {
--	struct apple_pcie *pcie;
--
--	guard(mutex)(&pcie_list_lock);
--
--	list_for_each_entry(pcie, &pcie_list, entry) {
--		if (pcie->dev == dev)
--			return pcie;
--	}
--
--	return NULL;
-+	return pci_host_bridge_priv(dev_get_drvdata(dev));
- }
- 
- static struct apple_pcie_port *apple_pcie_get_port(struct pci_dev *pdev)
-@@ -875,13 +848,15 @@ static const struct pci_ecam_ops apple_pcie_cfg_ecam_ops = {
- static int apple_pcie_probe(struct platform_device *pdev)
- {
- 	struct device *dev = &pdev->dev;
-+	struct pci_host_bridge *bridge;
- 	struct apple_pcie *pcie;
- 	int ret;
- 
--	pcie = devm_kzalloc(dev, sizeof(*pcie), GFP_KERNEL);
--	if (!pcie)
-+	bridge = devm_pci_alloc_host_bridge(dev, sizeof(*pcie));
-+	if (!bridge)
- 		return -ENOMEM;
- 
-+	pcie = pci_host_bridge_priv(bridge);
- 	pcie->dev = dev;
- 	pcie->hw = of_device_get_match_data(dev);
- 	if (!pcie->hw)
-@@ -897,13 +872,7 @@ static int apple_pcie_probe(struct platform_device *pdev)
- 	if (ret)
- 		return ret;
- 
--	apple_pcie_register(pcie);
--
--	ret = pci_host_common_init(pdev, &apple_pcie_cfg_ecam_ops);
--	if (ret)
--		apple_pcie_unregister(pcie);
--
--	return ret;
-+	return pci_host_common_init(pdev, bridge, &apple_pcie_cfg_ecam_ops);
- }
- 
- static const struct of_device_id apple_pcie_of_match[] = {
+Best regards,
 -- 
-2.47.3
+Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
 
 
