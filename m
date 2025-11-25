@@ -4,83 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22EBED0E6F7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 14:50:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD905D0E6EC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 15:01:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=dko5lvmc+MUpd7w482KK6frnadAm4VGfMJlDiuZRUP4=; b=BhpZhAYqmg6FCyVOnQQ8LwkL+N
-	AQxAeQNHxKbT0NsVcyDv4upx5aXhNo7NhTRMXjYGxdOvngL6vFYbVd0zB66AamOR+GPgOOtuR3VKx
-	fdaM02EQQQqqEfdRND8m9Qixtmh6SscDSmGZ5mOhGQa5umq3IqJ1KbwPWdPAicXbaB6GrscRP0U/C
-	HAREBC2kOBdzuvIzruiu0vRIQCcBItd4RoyJX0fLtVv4gURc5uBcdT1CGYOBY1O6B217d33H+u/Xa
-	aOZClmi6PFBTSdRZyvmbJE4z8Cq34BarZ8bZXimkQ5z0bKXeAGOcTLKQoVoKQC3oWgX+pKMVhm2Rk
-	8Jj45VOw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cQ4/vRT0CYDuQWzDYwmN1gyYz+wcQC3Bs4RqOOhTSHs=; b=237Xnby9S1D2cMPX5tEAwuA8Ao
+	ooDZTCEqhAXFNo0c0s+SVlGIBv89aMIWcUb8GeYEoeyhvH0mLii3/p9r0O3sq+RqhghUWA2lTj8j8
+	MusOArYf17k+ca7I44pwDmxafxgnDk3LF8iZB3RdX+KDELLKtQTH9m2pyNbBQIGm6sKa3RYb09UT9
+	bCXVrcW252YGBtXgAt9DeP66/7cwZAwk3TA+kD0oK+cX8ZNKtE6leoLmcuKCr1jHptuu5z2jo30Tv
+	XiCT5uITEj3LjzFF/L6nVCsT7T1YKPSXHnioqhbOcWMKwPBJDe2hk6exNsoI38AEvobcFSQKVAY+n
+	Ww14LEQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNuN9-0000000DSmw-0Fu5;
-	Tue, 25 Nov 2025 14:50:27 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vNuXk-0000000DTOq-2Trr;
+	Tue, 25 Nov 2025 15:01:24 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNuN4-0000000DSmO-395T
+	id 1vNuXj-0000000DTOh-08KH
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Nov 2025 14:50:26 +0000
+	Tue, 25 Nov 2025 15:01:23 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9BBF744393;
-	Tue, 25 Nov 2025 14:50:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 6DCE7C116B1;
-	Tue, 25 Nov 2025 14:50:21 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 21A8760159;
+	Tue, 25 Nov 2025 15:01:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A8095C4CEF1;
+	Tue, 25 Nov 2025 15:01:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764082221;
-	bh=qnIFkCDyjPOP+Aq8wEfr8h2dGGoTm+MqKtVpSjr0RI4=;
-	h=From:Date:Subject:To:Cc:Reply-To:From;
-	b=PdO4IGTkM+2Mmsq++fvJwa0DxOLdP+Bh3hon0cnoragFXelxg4PSLPotTwD6Pximm
-	 xhn600uu8Ng+Q249wnSuhsqf6WKcqXUt9+zyRvYYq0J7G9A2FddfWioLz6pTngnnfi
-	 2on84xLykbwkt8YC0mk/BJLYbqAICtFTpk9eHopjSiYHW03XfWrA8RW48KJTUtwe2v
-	 H0D0Vt+edUVwtD45WAEI0JNpwseIyFQIGaPxGdhk3vs2qMmctGJAqGxy9bdK/KA3Xr
-	 Mpc89OZJS2t0lHXxUND6ENc/6GoPdRKAFyyXzh3m15dedekz8mY3faOCiHag1ZyM4K
-	 KH+oddvpHBY+Q==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 59D43D0E6F7;
-	Tue, 25 Nov 2025 14:50:21 +0000 (UTC)
-From: Rohan G Thomas via B4 Relay <devnull+rohan.g.thomas.altera.com@kernel.org>
-Date: Tue, 25 Nov 2025 22:50:02 +0800
-Subject: [PATCH net-next] net: stmmac: Fix E2E delay mechanism
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20251125-ext-ptp-fix-v1-1-83f9f069cb36@altera.com>
-X-B4-Tracking: v=1; b=H4sIABnCJWkC/x2MSwqAMAwFr1KyNmALxc9VxIXGqNnU0hYpiHc3u
- JzHvHkgcxLOMJoHEt+S5QoKtjFA5xIORtmUwbXOW+s8ci0YS8RdKlK3sieiwfcW9BET6/zXJgh
- cMKgN8/t+7LtS/mcAAAA=
-X-Change-ID: 20251125-ext-ptp-fix-c7be5ccc9581
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>, 
- Richard Cochran <richardcochran@gmail.com>, 
- Jose Abreu <Jose.Abreu@synopsys.com>, Fugang Duan <fugang.duan@nxp.com>, 
- Kurt Kanzenbach <kurt@linutronix.de>
-Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Rohan G Thomas <rohan.g.thomas@altera.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1764082219; l=2038;
- i=rohan.g.thomas@altera.com; s=20250815; h=from:subject:message-id;
- bh=9giETEfw4Xea/WCJLCrYatICsuoa8+YtsuLtOXU+oPY=;
- b=c8F4pHeoCSI1RPcep11xCPWbPXDyFRKxjwvkzhxCXXqAuX7O/zfrVBMKt4l4apHT8U4uDvcKQ
- CkeLYSEp+XHAg/w+hyLJGVQazRj6y5nXet9ekMLfvj11VXf57TVL2M5
-X-Developer-Key: i=rohan.g.thomas@altera.com; a=ed25519;
- pk=5yZXkXswhfUILKAQwoIn7m6uSblwgV5oppxqde4g4TY=
-X-Endpoint-Received: by B4 Relay for rohan.g.thomas@altera.com/20250815
- with auth_id=494
-X-Original-From: Rohan G Thomas <rohan.g.thomas@altera.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251125_065022_836425_9C5B2D7A 
-X-CRM114-Status: GOOD (  11.14  )
+	s=k20201202; t=1764082881;
+	bh=WAkDYGjEjUD6loMdNqwRHWo0dXAwvjDZthFysfdybfY=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=caV/PRL14ot/Y+cOB89A7o7aOrIeRtUmTlEc56geEq6BoQfZp5mMAw8zTglT7wys+
+	 U2qhHZ5kxWStK2UMaZ7R5t1EmyGzvWI+LITjvpjLDpIlFFwbgO4Bxldj0+38dpl47R
+	 bcmHcDHWDP7WQWPFpPMH978wyFQ8IlKrij6DC5p5vZ/HXDE5Aye7RWjhEA6X5db2dn
+	 SCEUImDkdAD2tBIIXXcu/xVG/hW+7G6rpsihcyNAMQINmQnwsYOXDPhyMUeNEoTlpj
+	 eccuQ4Jr/nxnPQak5x7GLkCGQoHO/xEWhRQSgD2noW7XsgUalXLP+qWnS3BZZxnMSn
+	 WNd3at1lXxvoQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vNuXf-00000008Bo7-1jvm;
+	Tue, 25 Nov 2025 15:01:19 +0000
+Date: Tue, 25 Nov 2025 15:01:18 +0000
+Message-ID: <86fra2qhq9.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>
+Cc: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	kvm@vger.kernel.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Christoffer Dall <christoffer.dall@arm.com>,
+	Fuad Tabba <tabba@google.com>,
+	Mark Brown <broonie@kernel.org>
+Subject: Re: [PATCH v4 06/49] KVM: arm64: GICv3: Detect and work around the lack of ICV_DIR_EL1 trapping
+In-Reply-To: <e67decb6-20a5-4659-8401-8534049f9229@arm.com>
+References: <20251120172540.2267180-1-maz@kernel.org>
+	<20251120172540.2267180-7-maz@kernel.org>
+	<5df713d4-8b79-4456-8fd1-707ca89a61b6@arm.com>
+	<86h5uiql4b.wl-maz@kernel.org>
+	<e67decb6-20a5-4659-8401-8534049f9229@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: suzuki.poulose@arm.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, joey.gouly@arm.com, oupton@kernel.org, yuzenghui@huawei.com, christoffer.dall@arm.com, tabba@google.com, broonie@kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,56 +88,196 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: rohan.g.thomas@altera.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Rohan G Thomas <rohan.g.thomas@altera.com>
+On Tue, 25 Nov 2025 14:14:25 +0000,
+Suzuki K Poulose <suzuki.poulose@arm.com> wrote:
+> 
+> On 25/11/2025 13:48, Marc Zyngier wrote:
+> > On Tue, 25 Nov 2025 11:26:10 +0000,
+> > Suzuki K Poulose <suzuki.poulose@arm.com> wrote:
+> >> 
+> >> On 20/11/2025 17:24, Marc Zyngier wrote:
+> >>> A long time ago, an unsuspecting architect forgot to add a trap
+> >>> bit for ICV_DIR_EL1 in ICH_HCR_EL2. Which was unfortunate, but
+> >>> what's a bit of spec between friends? Thankfully, this was fixed
+> >>> in a later revision, and ARM "deprecates" the lack of trapping
+> >>> ability.
+> >>> 
+> >>> Unfortuantely, a few (billion) CPUs went out with that defect,
+> >>> anything ARMv8.0 from ARM, give or take. And on these CPUs,
+> >>> you can't trap DIR on its own, full stop.
+> >>> 
+> >>> As the next best thing, we can trap everything in the common group,
+> >>> which is a tad expensive, but hey ho, that's what you get. You can
+> >>> otherwise recycle the HW in the neaby bin.
+> >>> 
+> >>> Tested-by: Fuad Tabba <tabba@google.com>
+> >>> Signed-off-by: Marc Zyngier <maz@kernel.org>
+> >>> ---
+> >>>    arch/arm64/include/asm/virt.h  |  7 ++++-
+> >>>    arch/arm64/kernel/cpufeature.c | 52 ++++++++++++++++++++++++++++++++++
+> >>>    arch/arm64/kernel/hyp-stub.S   |  5 ++++
+> >>>    arch/arm64/kvm/vgic/vgic-v3.c  |  3 ++
+> >>>    arch/arm64/tools/cpucaps       |  1 +
+> >>>    5 files changed, 67 insertions(+), 1 deletion(-)
+> >>> 
+> >>> diff --git a/arch/arm64/include/asm/virt.h b/arch/arm64/include/asm/virt.h
+> >>> index aa280f356b96a..8eb63d3294974 100644
+> >>> --- a/arch/arm64/include/asm/virt.h
+> >>> +++ b/arch/arm64/include/asm/virt.h
+> >>> @@ -40,8 +40,13 @@
+> >>>     */
+> >>>    #define HVC_FINALISE_EL2	3
+> >>>    +/*
+> >>> + * HVC_GET_ICH_VTR_EL2 - Retrieve the ICH_VTR_EL2 value
+> >>> + */
+> >>> +#define HVC_GET_ICH_VTR_EL2	4
+> >>> +
+> >>>    /* Max number of HYP stub hypercalls */
+> >>> -#define HVC_STUB_HCALL_NR 4
+> >>> +#define HVC_STUB_HCALL_NR 5
+> >>>      /* Error returned when an invalid stub number is passed into x0
+> >>> */
+> >>>    #define HVC_STUB_ERR	0xbadca11
+> >>> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+> >>> index 5ed401ff79e3e..5de51cb1b8fe2 100644
+> >>> --- a/arch/arm64/kernel/cpufeature.c
+> >>> +++ b/arch/arm64/kernel/cpufeature.c
+> >>> @@ -2303,6 +2303,49 @@ static bool has_gic_prio_relaxed_sync(const struct arm64_cpu_capabilities *entry
+> >>>    }
+> >>>    #endif
+> >>>    +static bool can_trap_icv_dir_el1(const struct
+> >>> arm64_cpu_capabilities *entry,
+> >>> +				 int scope)
+> >>> +{
+> >>> +	static const struct midr_range has_vgic_v3[] = {
+> >>> +		MIDR_ALL_VERSIONS(MIDR_APPLE_M1_ICESTORM),
+> >>> +		MIDR_ALL_VERSIONS(MIDR_APPLE_M1_FIRESTORM),
+> >>> +		MIDR_ALL_VERSIONS(MIDR_APPLE_M1_ICESTORM_PRO),
+> >>> +		MIDR_ALL_VERSIONS(MIDR_APPLE_M1_FIRESTORM_PRO),
+> >>> +		MIDR_ALL_VERSIONS(MIDR_APPLE_M1_ICESTORM_MAX),
+> >>> +		MIDR_ALL_VERSIONS(MIDR_APPLE_M1_FIRESTORM_MAX),
+> >>> +		MIDR_ALL_VERSIONS(MIDR_APPLE_M2_BLIZZARD),
+> >>> +		MIDR_ALL_VERSIONS(MIDR_APPLE_M2_AVALANCHE),
+> >>> +		MIDR_ALL_VERSIONS(MIDR_APPLE_M2_BLIZZARD_PRO),
+> >>> +		MIDR_ALL_VERSIONS(MIDR_APPLE_M2_AVALANCHE_PRO),
+> >>> +		MIDR_ALL_VERSIONS(MIDR_APPLE_M2_BLIZZARD_MAX),
+> >>> +		MIDR_ALL_VERSIONS(MIDR_APPLE_M2_AVALANCHE_MAX),
+> >>> +		{},
+> >>> +	};
+> >>> +	struct arm_smccc_res res = {};
+> >>> +
+> >>> +	BUILD_BUG_ON(ARM64_HAS_ICH_HCR_EL2_TDIR <= ARM64_HAS_GICV3_CPUIF);
+> >>> +	BUILD_BUG_ON(ARM64_HAS_ICH_HCR_EL2_TDIR <= ARM64_HAS_GICV5_LEGACY);
+> >>> +	if (!cpus_have_cap(ARM64_HAS_GICV3_CPUIF) &&
+> >>> +	    !is_midr_in_range_list(has_vgic_v3))
+> >>> +		return false;
+> >>> +
+> >>> +	if (!is_hyp_mode_available())
+> >>> +		return false;
+> >>> +
+> >>> +	if (cpus_have_cap(ARM64_HAS_GICV5_LEGACY))
+> >>> +		return true;
+> >>> +
+> >>> +	if (is_kernel_in_hyp_mode())
+> >>> +		res.a1 = read_sysreg_s(SYS_ICH_VTR_EL2);
+> >>> +	else
+> >>> +		arm_smccc_1_1_hvc(HVC_GET_ICH_VTR_EL2, &res);
+> >> 
+> >> We are reading the register on the current CPU and this capability,
+> >> being a SYSTEM_FEATURE, relies on the "probing CPU". If there CPUs
+> >> with differing values (which I don't think is practical, but hey,
+> >> never say..). This is would better be a
+> >> ARM64_CPUCAP_EARLY_LOCAL_CPU_FEATURE, which would run through all
+> >> boot CPUs and would set the capability when it matches.
+> > 
+> > While I agree that SYSTEM_FEATURE is most probably the wrong thing, I
+> > can't help but notice that
+> > 
+> > - ARM64_HAS_GICV3_CPUIF,
+> > - ARM64_HAS_GIC_PRIO_MASKING
+> > - ARM64_HAS_GIC_PRIO_RELAXED_SYNC
+> > 
+> > are all ARM64_CPUCAP_STRICT_BOOT_CPU_FEATURE.
+> 
+> Which means, if GICV3_CPUIF is set any booting CPU must have them.
+> 
+> > 
+> > On the other ARM64_HAS_GICV5_LEGACY is ARM64_CPUCAP_EARLY_LOCAL_CPU_FEATURE.
+> > 
+> > Given that ARM64_HAS_ICH_HCR_EL2_TDIR is dependent on both
+> > ARM64_HAS_GICV3_CPUIF and ARM64_HAS_GICV5_LEGACY, shouldn't these two
+> > (and their dependencies) be aligned to have the same behaviour?
+> 
+> Yes, but it also depends on how you are detecting the feature.
+> 
+> BOOT_CPU_FEATURES are finalized with BOOT CPU and thusanything that
+> boots up later must have it. So it is fine, as long
+> as a SYSTEM cap depends on it and can do its own additional checks
+> in a system wide safe manner.
 
-For E2E delay mechanism, "received DELAY_REQ without timestamp" error
-messages shows up for dwmac v3.70+ and dwxgmac IPs.
+I had a quick go at it, and things are a bit murky. As it turns out,
+the GICv3 stuff is STRICT_BOOT_CPU_FEATURE because we need the GIC
+super early, before secondary CPUs can be brought up.
 
-This issue affects socfpga platforms, Agilex7 (dwmac 3.70) and
-Agilex5 (dwxgmac). According to the databook, to enable timestamping
-for all events, the SNAPTYPSEL bit in the MAC_Timestamp_Control
-register must be set to 2'b00, and the TSEVNTENA bit must be cleared
-to 0'b0.
+However, virtualisation-specific features only get used way down the
+line, so both ICH_HCR_EL2_TDIR and GICV5_LEGACY can be delayed until
+all CPUs have booted.
 
-Commit 3cb958027cb8 ("net: stmmac: Fix E2E delay mechanism") already
-addresses this problem for all dwmacs above version v4.10. However,
-same holds true for v3.70 and above, as well as for dwxgmac. Updates
-the check accordingly.
+> But in your case, we a have SYSTEM cap, which only performs the check
+> on the "running CPU" and not considering a system wide safe value for
+> ICH_VTR_EL2_TDS. In order to do this, we need to switch to something
+> like the GICV5_LEGACY cap, which chooses to perform the check on all
+> booting CPUs (as we don't keep the system wide safe value for the
+> bit it is looking for).
+>
+> e.g., your cap may be incorrectly SET, when the BOOT cpu (which
+> mostly runs the SYSTEM scope), but another CPU didn't have the
+> ICH_VTR_EL2_TDS.
 
-Fixes: 14f347334bf2 ("net: stmmac: Correctly take timestamp for PTPv2")
-Fixes: f2fb6b6275eb ("net: stmmac: enable timestamp snapshot for required PTP packets in dwmac v5.10a")
-Fixes: 3cb958027cb8 ("net: stmmac: Fix E2E delay mechanism")
-Signed-off-by: Rohan G Thomas <rohan.g.thomas@altera.com>
----
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+Yup, that's the conclusion I also came to.
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index 6cacedb2c9b3fefdd4c9ec8ba98d389443d21ebd..2885434cb0bea7166dca2a914a6c07e21c98e5b9 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -665,7 +665,8 @@ static int stmmac_hwtstamp_set(struct net_device *dev,
- 			config->rx_filter = HWTSTAMP_FILTER_PTP_V2_EVENT;
- 			ptp_v2 = PTP_TCR_TSVER2ENA;
- 			snap_type_sel = PTP_TCR_SNAPTYPSEL_1;
--			if (priv->synopsys_id < DWMAC_CORE_4_10)
-+			if (priv->synopsys_id < DWMAC_CORE_3_70 &&
-+			    priv->plat->core_type != DWMAC_CORE_XGMAC)
- 				ts_event_en = PTP_TCR_TSEVNTENA;
- 			ptp_over_ipv4_udp = PTP_TCR_TSIPV4ENA;
- 			ptp_over_ipv6_udp = PTP_TCR_TSIPV6ENA;
+> Does that help ?
 
----
-base-commit: e3daf0e7fe9758613bec324fd606ed9caa187f74
-change-id: 20251125-ext-ptp-fix-c7be5ccc9581
+It does. I came up with the fix below, which I'll spin as a patch shortly.
 
-Best regards,
+Thanks,
+
+	M.
+
+diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+index ff2b05f7226a9..c840a93b9ef95 100644
+--- a/arch/arm64/kernel/cpufeature.c
++++ b/arch/arm64/kernel/cpufeature.c
+@@ -2326,14 +2326,14 @@ static bool can_trap_icv_dir_el1(const struct arm64_cpu_capabilities *entry,
+ 
+ 	BUILD_BUG_ON(ARM64_HAS_ICH_HCR_EL2_TDIR <= ARM64_HAS_GICV3_CPUIF);
+ 	BUILD_BUG_ON(ARM64_HAS_ICH_HCR_EL2_TDIR <= ARM64_HAS_GICV5_LEGACY);
+-	if (!cpus_have_cap(ARM64_HAS_GICV3_CPUIF) &&
++	if (!this_cpu_has_cap(ARM64_HAS_GICV3_CPUIF) &&
+ 	    !is_midr_in_range_list(has_vgic_v3))
+ 		return false;
+ 
+ 	if (!is_hyp_mode_available())
+ 		return false;
+ 
+-	if (cpus_have_cap(ARM64_HAS_GICV5_LEGACY))
++	if (this_cpu_has_cap(ARM64_HAS_GICV5_LEGACY))
+ 		return true;
+ 
+ 	if (is_kernel_in_hyp_mode())
+@@ -2864,7 +2864,7 @@ static const struct arm64_cpu_capabilities arm64_features[] = {
+ 		 */
+ 		.desc = "ICV_DIR_EL1 trapping",
+ 		.capability = ARM64_HAS_ICH_HCR_EL2_TDIR,
+-		.type = ARM64_CPUCAP_SYSTEM_FEATURE,
++		.type = ARM64_CPUCAP_EARLY_LOCAL_CPU_FEATURE,
+ 		.matches = can_trap_icv_dir_el1,
+ 	},
+ #ifdef CONFIG_ARM64_E0PD
+
 -- 
-Rohan G Thomas <rohan.g.thomas@altera.com>
-
-
+Without deviation from the norm, progress is not possible.
 
