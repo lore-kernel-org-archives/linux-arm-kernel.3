@@ -4,78 +4,176 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 475ACCFD375
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 02:37:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33BF5CFD374
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 02:40:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1QrAB75z30ci678/1yo1b+2Tia6ycFw2hkK2QWG58Jw=; b=OYi1mg7zHg3qFozUd10T/omGnC
-	YpzB2sT4StJp6akYVPyBQ40Z23etGe9fdDLvs5D/VncrjhVJ1eFTCmQMF8m9lBEmCXbzTO1rjc/q4
-	rnz/98Hzkk78aecJkqnckfiamGiY/ByEaut3d8N+WPZxHsjyi+jwnJPiO+PmipQH0zFnVyducX6sd
-	Ciz2/SEjsEJ4AiKLx01jODhizmT6DXJo3f3bjeGxdG0EJdEhfVoqOIe98Uwx0Cz3Mz/l1ch3geMpW
-	IqJcOdxrG66UVfqxcZucrnEOKZHhw0w0p/qAb+jHl6IQ06SEnPPh0cG3TXWCO0AJB0GGcwyBaOTQP
-	/5F2BNBA==;
+	bh=CGR7iRSvfk3qMO7SlipsNFOL5+ltXot+A9qlTVivCaA=; b=MHwOMmnqDaoiOeKiNp/k1zdCmc
+	pEIyYx+aJuc6IU6hgXVLQnH89RJKTDIw4dXE2IGLvIF2+j/bEGxH6A5LbQ9N+gfn5AGvH10+KMBPQ
+	O8p5OcRIgkvRPPLuogIEHsCxslH/odwe4HTYkZ6O46Xv+74XpC9M69cqot/3VawUz0WSRWeIhP6a6
+	kg19TXBlnap5nXpGfCuNg94/vaAJnujFPVobxGZO4Y7pAtST8ghhyFGJAOyHLDfEMzPPzLOdbfarF
+	vKMwOLypSPvhMcPun8blBHfwuRYgKlRNZMGqy7l7JXOGgX79bV91x/j6JdW0d3CBjoWC8WoE3NcT3
+	tqTnieKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNivG-0000000Ccke-37h8;
-	Tue, 25 Nov 2025 02:36:54 +0000
-Received: from mailgw01.mediatek.com ([216.200.240.184])
+	id 1vNiyJ-0000000CdD6-3NSC;
+	Tue, 25 Nov 2025 02:40:03 +0000
+Received: from mail-northeuropeazon11011052.outbound.protection.outlook.com ([52.101.65.52] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNivD-0000000CcjP-3Hvc;
-	Tue, 25 Nov 2025 02:36:52 +0000
-X-UUID: 95a6dd14c9a711f09f706fa2197c6ceb-20251124
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=1QrAB75z30ci678/1yo1b+2Tia6ycFw2hkK2QWG58Jw=;
-	b=Idj4DGICU629nj4a4U9EbN28jS9urOm2ovJ69p1+nrjw3yteJOwJglrpthpPk+V0wmVir5HhfHpl1nVsg/qEl3XpYolO6XG0M88g11T7OJRXaNOE4eOL88BtY1D0x2BPx4Sbp8UavYnJ0JQZR5vr2c9eWXK3YlGs1M4v6CtLv9I=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.6,REQID:102e0040-e6b0-4845-80ca-80d3fdebeb97,IP:0,UR
-	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
-	elease,TS:0
-X-CID-META: VersionHash:a9d874c,CLOUDID:15650283-b6af-4b29-9981-6bf838f9504d,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102|836|888|898,TC:-5,Content:
-	0|15|50,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:nil,COL:0,OS
-	I:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 95a6dd14c9a711f09f706fa2197c6ceb-20251124
-Received: from mtkmbs11n1.mediatek.inc [(172.21.101.185)] by mailgw01.mediatek.com
-	(envelope-from <lei.xue@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1187413620; Mon, 24 Nov 2025 19:36:45 -0700
-Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
- mtkmbs13n2.mediatek.inc (172.21.101.108) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1748.26; Tue, 25 Nov 2025 10:36:42 +0800
-Received: from gcnsap21.gcn.mediatek.inc (10.17.81.22) by
- mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1748.26 via Frontend Transport; Tue, 25 Nov 2025 10:36:42 +0800
-From: Lei Xue <lei.xue@mediatek.com>
-To: Sean Wang <sean.wang@kernel.org>, Linus Walleij
-	<linus.walleij@linaro.org>, Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-CC: <linux-kernel@vger.kernel.org>, <linux-mediatek@lists.infradead.org>,
-	<linux-gpio@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<yong.mao@mediatek.com>, <lei.xue@mediatek.com>, <qingliang.li@mediatek.com>,
-	<Fred-WY.Chen@mediatek.com>, <ot_cathy.xu@mediatek.com>,
-	<ot_shunxi.zhang@mediatek.com>, <ot_yaoy.wang@mediatek.com>,
-	<ot_ye.wang@mediatek.com>
-Subject: [PATCH 1/3] pinctrl: mediatek: Add gpio-range record in pinctrl driver
-Date: Tue, 25 Nov 2025 10:36:34 +0800
-Message-ID: <20251125023639.2416546-2-lei.xue@mediatek.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20251125023639.2416546-1-lei.xue@mediatek.com>
-References: <20251125023639.2416546-1-lei.xue@mediatek.com>
-MIME-Version: 1.0
+	id 1vNiyG-0000000CdBt-3ywP
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 25 Nov 2025 02:40:02 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=BLD/pGli7Y9BJ7SzJh+VCu0Y+7+F8mC96CprTMy10DQLAPnIgHTxRlrPY2YCnngJLH97I/NDDo+SAaakra+UyPj8rEWrZ6ljpztpQvyybw4jkQXHjzdBOeY5v3t/kjc9Y42/+22y2fg2gbTCbP77eIEmOEmOY25zJwHz+Hnl+LWnDANqRm+ZJKeBQTGw9//EoL1Fl9gz/aOl/pIptqB3GSk6Af2XWhQC7hzpLhHXvc5qRIyy+ozr7t8iKBf2pDbYd1r1V0Dg6eONguT/jy+BDAIgHoBH02WKqtbNbLoRhMHZGuwHUPOkW1LCTfmVyhqzpW45x9yJe9WWNf98m5VJyQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=CGR7iRSvfk3qMO7SlipsNFOL5+ltXot+A9qlTVivCaA=;
+ b=U33aNk3td6d+fHKPjeJwQX1rwfQSTY+XvyZwSw3oAlh1DzfB0iq8c1Gj6YHkKgn0atXpMOSEkIQiaRDNucEHLEyyekpsbE0GFxDKSKj74bVZVh+mdOfr4pjzAilAyOuIlvPVy86fTf/XamwGzDrUWlhEfLFGqnHea2JvNWzuDnpjqkvgxHVpLhwNrd3Ko22Zi2HQhOOyDNehhwB8gYkCfuUtsoy3+jO50nwPA2zJemYK+fNLKa+B5qxwKeacFNrS9v8TKRF8tBjXNnGw1gJdK1hlT0mBcmHIrg/DCMTigH8lAQ5DkBW6c2YJ2iN7EkBOlVI0LeJreekjAlgH4Q9xtg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=CGR7iRSvfk3qMO7SlipsNFOL5+ltXot+A9qlTVivCaA=;
+ b=O7Y6Q6ZT9Cm+O9YnPr5OHFjfi1fCdAHNB5FX1VIwWluSW42u9f5lqa+atLCOgzugwQ5EfBr0XAVYXuH1c8m/iLfUXtArTEbJfe9C5YolQwp2oeaubOu/Jk5x2zxaAqZu+TBmMAobkZ8mOIaGfGDBWs0cA1nQ0+DUFofgv4OiG8MaiOHcUr4o9iF6W+6S+yYY9z92GEEezfOBTBLVqUq/eGWTi/S/sD9EA5Ro8E5f6VoTj5aNRN7Vy4ThOWthgniMI92CxeUY4YjL39OnEH946ktZbJscbiQ3rvnarTrm98KVKzClAJpEpQgyHav3b9H6cN33l8fmC9rNTaVxO51HxQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PAXPR04MB8254.eurprd04.prod.outlook.com (2603:10a6:102:1cd::24)
+ by PA4PR04MB7664.eurprd04.prod.outlook.com (2603:10a6:102:f1::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9343.18; Tue, 25 Nov
+ 2025 02:39:53 +0000
+Received: from PAXPR04MB8254.eurprd04.prod.outlook.com
+ ([fe80::2755:55ac:5d6f:4f87]) by PAXPR04MB8254.eurprd04.prod.outlook.com
+ ([fe80::2755:55ac:5d6f:4f87%4]) with mapi id 15.20.9343.016; Tue, 25 Nov 2025
+ 02:39:51 +0000
+Message-ID: <7ceb9424-22d0-467f-b42c-33f0a903f5d9@oss.nxp.com>
+Date: Tue, 25 Nov 2025 10:39:41 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/2] media: verisilicon: Avoid G2 bus error while decoding
+ H.264 and HEVC
+To: Nicolas Dufresne <nicolas@ndufresne.ca>, Frank Li <Frank.li@nxp.com>
+Cc: linux-media@vger.kernel.org, mchehab@kernel.org,
+ hverkuil-cisco@xs4all.nl, benjamin.gaignard@collabora.com,
+ p.zabel@pengutronix.de, sebastian.fricke@collabora.com, shawnguo@kernel.org,
+ ulf.hansson@linaro.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
+ festevam@gmail.com, linux-imx@nxp.com, l.stach@pengutronix.de,
+ peng.fan@nxp.com, eagle.zhou@nxp.com, imx@lists.linux.dev,
+ linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20251121081911.1682-1-ming.qian@oss.nxp.com>
+ <20251121081911.1682-2-ming.qian@oss.nxp.com>
+ <aSCOZCJ2rSw7LAvE@lizhi-Precision-Tower-5810>
+ <d282811a-866d-4ca8-b9f6-fc1da3a7565e@oss.nxp.com>
+ <aSR+eaVxBhnahOl7@lizhi-Precision-Tower-5810>
+ <baec095da2b7b84be19b205b18e765f9a2305574.camel@ndufresne.ca>
+ <020d1263315b8a5ff3fdfb46d61d0108cdfa5bb3.camel@ndufresne.ca>
+From: "Ming Qian(OSS)" <ming.qian@oss.nxp.com>
+In-Reply-To: <020d1263315b8a5ff3fdfb46d61d0108cdfa5bb3.camel@ndufresne.ca>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
+X-ClientProxiedBy: SI2PR02CA0001.apcprd02.prod.outlook.com
+ (2603:1096:4:194::10) To PAXPR04MB8254.eurprd04.prod.outlook.com
+ (2603:10a6:102:1cd::24)
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8254:EE_|PA4PR04MB7664:EE_
+X-MS-Office365-Filtering-Correlation-Id: e20b8abb-f97a-49cf-d6c8-08de2bcbe821
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|19092799006|376014|7416014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?Yko5UE43ZGNZczVLdU1NZzJzeEdJUTdDRGJzbHZLTC9KRTFDMVBwZEJTZU94?=
+ =?utf-8?B?TmlBV0hlZzN1MUFXc213ZU8reWgzczhVaE0zUlRoNy83WTcwU1NXV0tpUk13?=
+ =?utf-8?B?M2g0Z09uL0RMMm55bE1CdHF0OWlpVTczN2pJWTNKUXNiN0hqWE15TDBXdHlj?=
+ =?utf-8?B?S2FIZStrTXRZMnBCd0V5Vmw0aHBPR25zaDQwUUY1VmVLbTljNnRLMlBJQ1Vo?=
+ =?utf-8?B?OERMNTk1Mk9Uc21qcnhGRWhMRnZBdlpodnZHZldsa3diOGJTOHdIWDFOakVF?=
+ =?utf-8?B?NDNlVUREWjdNT3F0YkxRamtZR21PelYzZnBSWlNMVUJaNytNaHZUZnE5V2Ro?=
+ =?utf-8?B?UFQvbExvNHI2aS8vYTgyLzlYY1p0blNnSTdpdVBuWWhvS214NXAzbHFWVXF0?=
+ =?utf-8?B?S0czYXdNTHFZS2Z1dDdTR01RdFQvdGJvUmlvMXRxK2YrZ3RBdVoyRERkdVc2?=
+ =?utf-8?B?QWp2S0pqZFRkcmZvOS91dmE2bHFsSkw3OUJQbEpFWXdMYldHcWhoOUtDYW5v?=
+ =?utf-8?B?UDBCV2VoQWFWSGdOcVBXL2RPajJMUzJUZVdFTmpXNGRSN3R1K3hDNGVBelgy?=
+ =?utf-8?B?bkdjL001M0FoTVk2b280OXRnY1grZGoxN2lEcUR5dHI0VlZOcEh2amJ5QTRJ?=
+ =?utf-8?B?TDhuMUQvd29saHczQjRtOFdiT0hkVkFOb0xRNVBKazJEdlE1RjltVFhyc29j?=
+ =?utf-8?B?OWdzUTNFVjZXNjRLL01EWVNiR0JOMGVqVFdGRE5lNGljWUprZjd0M0IvRWg0?=
+ =?utf-8?B?VEl1ajIxU3A5ZG5mWU1XRjZHaFNHdUNobUMvNCt0V0hYQUNURmtla25YcFdq?=
+ =?utf-8?B?cWJZUlNqRFBGSFJtZ1lsem5lTjVmTkt3YnhrMGdyTCtDaGdtRHVpenN2OUZq?=
+ =?utf-8?B?RXYwbnY0dUsvVHZjWmg1VmlVR2NydmRXd3o0Z1ExRVJIWS8wdGttd1FFUHM4?=
+ =?utf-8?B?ZzRZd2JpVzNZVTIvSk1NOFFRSTVhb1U0THIwRXhlbDFwajNJU1RMRDgzcmhu?=
+ =?utf-8?B?Y2g2UFIrbEE0bjZ0SmZlUlVaeXFnK3htU1pSaHd1cTB6bkJGSWxKL0xCaEtK?=
+ =?utf-8?B?c3d6a2dYVFRtdVJJcHR6WlRaalFINXNXZmRvTUR0RU1UZm9zYVhtRWxUOUJN?=
+ =?utf-8?B?YzNQUy9qYmJWY3ZJRU8yWndNRm0rc2pBWVpPaVNFUHFIU05VY09UVTRjUkVs?=
+ =?utf-8?B?dXpTeU5tWFM3d0R5N0FzWUNIb2Q0WEU5eUM5VWFlVktJd0E1Tm1rcnFXVmtG?=
+ =?utf-8?B?Y0llRmNhT09HbWc5R3QzOHdCeVpRcXgyMDhONFV5QzNZcEdsaFJzdjdVb1U4?=
+ =?utf-8?B?UnQ5TEZHbTJhSEdldnNlTlFNZVVoYlhnek1LWUJqU0FzUUhOampJTFY2SjJm?=
+ =?utf-8?B?L3dyNk9BRXVHWmRpRlRNSkM3dklvZVNmMTBHTWw3ZzNNRGF2ZTM3YnFwT3lw?=
+ =?utf-8?B?bE4zS1F1SlRJdHhRTEVmb1BZMllUQmlES3RiT25ETmhMWUhnSGdXd3pFY1c3?=
+ =?utf-8?B?YkdWeEFLSmhpdmVaRjJaaWlZL0VjUHp2cXVsUkZKT1NLWlRJSm5YOWMvbk1q?=
+ =?utf-8?B?MitKaCs3cC9ock4ydnE1RU43V3dndWw5eS92WERYKzkzVzZxNzY2djJlcU5x?=
+ =?utf-8?B?R3A1eWJLRmg4UUpXR1Fxb0tiZDk2Y1pGc3A1QXdZMHRxMVVxS0xKZlVKU3RR?=
+ =?utf-8?B?M25qUjhiUURSU0pOZjNCTXptc0hYVXpnQnZ6WW9SQUFoWjFvU0NZcjlZUFhr?=
+ =?utf-8?B?QmZlTXUzQnRkZS9mM09qNTRwQWp3bTR1U0dSMlo0VnV5QUFXSXJZN0lFL2Jp?=
+ =?utf-8?B?STg5WkVQbGx6eHBFc21ISlpVNEJWME13TzlPQkxpOE5ZVzBEMFE1ekMxN3pI?=
+ =?utf-8?B?aW1rL3BlelRLd09OVThQN1ZuQzkzY2EwZytrUlpvOUxRQ3c9PQ==?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8254.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(19092799006)(376014)(7416014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?ZTZvRkprOWdGbjRoYmRTSE9hdCthcVZweHFieC9JeTJvMlgyS1IxV05mMHhk?=
+ =?utf-8?B?S0MvbUFuTTJkbmlxbWFRcUowZHB3alo2T0liMjlXbXVxRU5hcjFwb1lBRjk0?=
+ =?utf-8?B?bVRRVXBYeDF1UFhpcG9vZmxiUjFib0NlcEluY3lIWHFEY2txd0diWHJJMHpS?=
+ =?utf-8?B?V1BjakJUYmNkZG9Edjd2YlI5SUFoczBsUTNDTkoxNC8waWMzb20yVXUvVXFL?=
+ =?utf-8?B?YjhpSzlyczdXdlNMdmZFcStXSUwwby82UE9wcEpuN3lJRkNQYWJIRzZYd0Zw?=
+ =?utf-8?B?R2xHeFVYR3RtdGZ0My9kYjJUOUcyK1UyUEk3YW1lRXM1eUd1MXdzS1JVdUZq?=
+ =?utf-8?B?alJiZC9kZ25iSGIwUllZRnFlSVd5N3Y4bjlTNGZYd2NTdTduZkp0WUVOdGR1?=
+ =?utf-8?B?VUVXQml4N2xRS0F1eEhuZEVoSVphTTAyRGFCb2M2dnNzYzFCZEs1T0VyNnlq?=
+ =?utf-8?B?MmsxVmsvdWpBYjJrVUhzNk9wS3NNdDdiR3grbThKQmIyaC84VVh6ZW92c2Nv?=
+ =?utf-8?B?RmVidlhRZGFDY0k5SjVtK0U5ZUFOM1djT2Q1ZW9ORVYvQm5YTG9RNE9DODRS?=
+ =?utf-8?B?TTE2MEI0cFNSRXYwRStjS21BYk1kVVZXcWU4d3lXVjdia2REWG1MdXhHQy93?=
+ =?utf-8?B?U3prMDQvQXdKbjBEcFlxZ2gvQjBFekhCM0MwY0hvYnhXVWRZeTlxb0NrRDIz?=
+ =?utf-8?B?ampLT3Z2L1YyTjNWUDQ5a08rQk5pZFlVaE0xTHpLMXMzRFFta3ZXSXVQbjRV?=
+ =?utf-8?B?Sjg4blBVaVVaU1RoTVFBbG5RN01WWUVKcVM4dGNKUzNnajZPSzVCcGw1MDZq?=
+ =?utf-8?B?YlBqRHlHbWw1QWp0M1gvK1B4cWhkMlc2TVVtWGx5MXgxUWlycS8rZnczNE5x?=
+ =?utf-8?B?RlFjeUE3c0w5dGt6SUdHaW5XMGVMa1VVZ1NkNTJnYWlFQlpzZ0p3eWFWVGRL?=
+ =?utf-8?B?cW1UQVgxNDF1bHMrTHNBWEdwRW1ERFdPM2xWdDlyLzZXUE1uVXhZTVdwMjFi?=
+ =?utf-8?B?RDBzd2lxcUgvWDI2YWtWOThKUkN3MHFRdlF1WFB4aVNPMkdXalVkYktKV2Yv?=
+ =?utf-8?B?WFY5NXRRc0R0K01HT25CbExmRHM0OFJXTVFjR3ZEWjJ6TUg3WFZQSVA1QXY4?=
+ =?utf-8?B?NUFlcFc3Vmh5ak9FMmpNNmlHSlRWVmZBdEppckZMNkRNNkZQKzNGemF4ZGRV?=
+ =?utf-8?B?MEhkSG5CN3d3N2VlQXZTU0M2OHQzbjIyTnNJdGRVcmhqN0JFd1g5YkEzS0hs?=
+ =?utf-8?B?cjFwaXFBNmxqSzI5VWJ5bXBHS2hsdXREWHpKQk93UDAvc0QycFFLNko3OEU2?=
+ =?utf-8?B?VUZQYWNCQWk1V0RsM3BySDVudDhjaGFhNzI3UW5rb0YxZnVxN3QycUNtZ1hI?=
+ =?utf-8?B?Ymh2NHRycUpSbXlkM1NTTGE1M3dQMC95NWQvRlIxZzZiNGRFMzRmcWZDT1cw?=
+ =?utf-8?B?Y1hvVTcxbG9kTTk1K0grQ0tRbDZ1OXZEekd0V3JsZytwQmxOZFpUbURTcEx5?=
+ =?utf-8?B?d1p1ditpd0hSc0Vya1BlYnZUMjJLYTkrb0ZURUp0ZE1US1NVKzlOZXo5bXZC?=
+ =?utf-8?B?NlBKUzFBT1NsYjBYd1ZUR3A4WXJuQnVLZjMwbE1rN3JRdkxTTVEvaVJJcldC?=
+ =?utf-8?B?MlZZZWFBZWt6MTdma3AwbGZwb20rWG1DNGFLTGZoUDNMRnNicU5ORjRjTnF5?=
+ =?utf-8?B?YisrelhvZlNCdWVzWC91cHBRK0ZjVDdMdURVYU0reWd5WlhGRkFraHdvZ3ZD?=
+ =?utf-8?B?QmlhcXpQKzZtTXduVlNXdTB5cDI0dUExUU84ZC9sSFdTUmJDNWR5WmJHR2ov?=
+ =?utf-8?B?WlR1VUNmbEtmcW1WTUYybWhuNHNSMVpKQVR0L0s5S29WTzJvaUY5dWdNTDNm?=
+ =?utf-8?B?NUhScVYxS25scUxkbUNiUTlYUVNvZzh3bkhqOE9hU2crS2swNUh6ZkxjOGhH?=
+ =?utf-8?B?N3lXUC9ZOHNaVHFPVTg3RnByVmp2RlN1aWJtWDlmbXA4U0dRdWsySFY1L292?=
+ =?utf-8?B?T3RUSlo3S0JxcFVYc09ucHpXOWk1YVQ3ZDRYSVZJV096UkJKRnN1Rmg1SDVD?=
+ =?utf-8?B?NU9xZ2FuRU56dGlUV0RFSXArbzZCcnhvSmdRWnVBRVhZSFl0ME9VYWhlaXpv?=
+ =?utf-8?Q?9P1ZZML+HJIF/vwDAkCsSre7A?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: e20b8abb-f97a-49cf-d6c8-08de2bcbe821
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8254.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Nov 2025 02:39:51.1739
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: pRulYb/YCcWn6zjOUFsWo3C8UiU5WXtVlrEU9PpkjdhrS299XBYW9nIShkhkCgGQWQd3lsMKIat9TaAKDQRojw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR04MB7664
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251124_183651_833881_7F441E4E 
-X-CRM114-Status: GOOD (  15.31  )
+X-CRM114-CacheID: sfid-20251124_184001_177961_2432A219 
+X-CRM114-Status: GOOD (  28.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,77 +188,152 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Kernel GPIO subsystem mapping hardware pin number to a different
-range of gpio number. Add gpio-range structure to hold
-the mapped gpio range in pinctrl driver. That enables the kernel
-to search a range of mapped gpio range against a pinctrl device.
+Hi Nicolas and Frank,
 
-Signed-off-by: Lei Xue <lei.xue@mediatek.com>
----
- drivers/pinctrl/mediatek/pinctrl-mtk-common-v2.h |  1 +
- drivers/pinctrl/mediatek/pinctrl-paris.c         | 15 ++++++++++++++-
- 2 files changed, 15 insertions(+), 1 deletion(-)
+On 11/25/2025 12:55 AM, Nicolas Dufresne wrote:
+> Le lundi 24 novembre 2025 à 11:39 -0500, Nicolas Dufresne a écrit :
+>> Hi,
+>>
+>> Le lundi 24 novembre 2025 à 10:49 -0500, Frank Li a écrit :
+>>> On Mon, Nov 24, 2025 at 09:38:15AM +0800, Ming Qian(OSS) wrote:
+>>>> Hi Frank,
+>>>>
+>>>> On 11/22/2025 12:08 AM, Frank Li wrote:
+>>>>> On Fri, Nov 21, 2025 at 04:19:09PM +0800, ming.qian@oss.nxp.com wrote:
+>>>>>> From: Ming Qian <ming.qian@oss.nxp.com>
+>>>>>>
+>>>>>> For the i.MX8MQ platform, there is a hardware limitation: the g1 VPU and
+>>>>>> g2 VPU cannot decode simultaneously; otherwise, it will cause below bus
+>>>>>> error and produce corrupted pictures, even led to system hang.
+>>>>>>
+>>>>>> [  110.527986] hantro-vpu 38310000.video-codec: frame decode timed out.
+>>>>>> [  110.583517] hantro-vpu 38310000.video-codec: bus error detected.
+>>>>>>
+>>>>>> Therefore, it is necessary to ensure that g1 and g2 operate alternately.
+>>>>>> Then this allows for successful multi-instance decoding of H.264 and
+>>>>>> HEVC.
+>>>>>>
+>>>>>> Fixes: cb5dd5a0fa518 ("media: hantro: Introduce G2/HEVC decoder")
+>>>>>> Signed-off-by: Ming Qian <ming.qian@oss.nxp.com>
+>>>>>> ---
+>>>>>>    drivers/media/platform/verisilicon/hantro.h   |  1 +
+>>>>>>    .../media/platform/verisilicon/hantro_drv.c   | 26 +++++++++++++++++++
+>>>>>>    .../media/platform/verisilicon/imx8m_vpu_hw.c |  4 +++
+>>>>>>    3 files changed, 31 insertions(+)
+>>>>>>
+>>>>> ...
+>>>>>>    #include <linux/workqueue.h>
+>>>>>> +#include <linux/iopoll.h>
+>>>>>>    #include <media/v4l2-event.h>
+>>>>>>    #include <media/v4l2-mem2mem.h>
+>>>>>>    #include <media/videobuf2-core.h>
+>>>>>> @@ -93,6 +94,9 @@ static void hantro_job_finish(struct hantro_dev *vpu,
+>>>>>>
+>>>>>>    	clk_bulk_disable(vpu->variant->num_clocks, vpu->clocks);
+>>>>>>
+>>>>>> +	if (vpu->variant->shared_resource)
+>>>>>> +		atomic_cmpxchg(vpu->variant->shared_resource, 0, 1);
+>>>>>> +
+>>>>>>    	hantro_job_finish_no_pm(vpu, ctx, result);
+>>>>>>    }
+>>>>>>
+>>>>>> @@ -166,12 +170,34 @@ void hantro_end_prepare_run(struct hantro_ctx
+>>>>>> *ctx)
+>>>>>>    			      msecs_to_jiffies(2000));
+>>>>>>    }
+>>>>>>
+>>>>>> +static int hantro_wait_shared_resource(struct hantro_dev *vpu)
+>>>>>> +{
+>>>>>> +	u32 data;
+>>>>>> +	int ret;
+>>>>>> +
+>>>>>> +	if (!vpu->variant->shared_resource)
+>>>>>> +		return 0;
+>>>>>> +
+>>>>>> +	ret = read_poll_timeout(atomic_cmpxchg, data, data, 10, 300 *
+>>>>>> NSEC_PER_MSEC, false,
+>>>>>> +				vpu->variant->shared_resource, 1, 0);
+>>>>>> +	if (ret) {
+>>>>>> +		dev_err(vpu->dev, "Failed to wait shared resource\n");
+>>>>>> +		return -EINVAL;
+>>>>>> +	}
+>>>>>
+>>>>> why not use a mutex?
+>>>>>
+>>>>> mutex() lock here, unlock at hantro_job_finish(), if second instance
+>>>>> run to here, mutex() will block thread, until previous hantro_job_finish()
+>>>>> finish.
+>>>>>
+>>>>> Frank
+>>>>
+>>>> G1 and G2 are two different devices. If I were to use a mutex, I would
+>>>> need to define a global mutex. Therefore, to avoid using a global mutex,
+>>>> I only define a static atomic variable.
+>>>
+>>> static atomic varible also is global.  Global mutex is allowed if it is
+>>> really needed.
+>>>
+>>>>
+>>>> If a static mutex is acceptable, I think I can change it to a mutex.
+>>>
+>>> ref to
+>>> https://elixir.bootlin.com/linux/v6.18-rc6/source/drivers/base/core.c#L43
+>>
+>> My main concern with either of these approaches is that it kills the ability to
+>> rmmod the driver forever. The only working approach would be that both drivers
+>> depends on a third driver that provide the synchronization services.
+> 
+> I do realize after the fact that my answer is a little off considering its a
+> drivers against itself (not cross-driver, that would be a huge pain if it was
+> the case).
+> 
+> Checking further, the ref to the counter (or mutex) should cleanly be gone by
+> the time the driver is removed, so perhaps its fine, though best to test it.
+> Though, in both cases, I'm not happy to see code that will wait for multiple
+> milliseconds on either home made mutex or a real mutex. Adding another arbitrary
+> timeout is also not very nice either. The current software watchdog already get
+> in the way when testing simulated IP.
+> 
+> I know its work, but what about a recounted singleton, with a notifier so we can
+> schedule work when the resource is free ?
+> 
+> Nicolas
+> 
 
-diff --git a/drivers/pinctrl/mediatek/pinctrl-mtk-common-v2.h b/drivers/pinctrl/mediatek/pinctrl-mtk-common-v2.h
-index fa7c0ed49346..df8dce14744f 100644
---- a/drivers/pinctrl/mediatek/pinctrl-mtk-common-v2.h
-+++ b/drivers/pinctrl/mediatek/pinctrl-mtk-common-v2.h
-@@ -302,6 +302,7 @@ struct mtk_pinctrl {
- 	spinlock_t lock;
- 	/* identify rsel setting by si unit or rsel define in dts node */
- 	bool rsel_si_unit;
-+	struct pinctrl_gpio_range	range;
- };
- 
- void mtk_rmw(struct mtk_pinctrl *pctl, u8 i, u32 reg, u32 mask, u32 set);
-diff --git a/drivers/pinctrl/mediatek/pinctrl-paris.c b/drivers/pinctrl/mediatek/pinctrl-paris.c
-index 6bf37d8085fa..2cf61cfe809e 100644
---- a/drivers/pinctrl/mediatek/pinctrl-paris.c
-+++ b/drivers/pinctrl/mediatek/pinctrl-paris.c
-@@ -3,7 +3,7 @@
-  * MediaTek Pinctrl Paris Driver, which implement the vendor per-pin
-  * bindings for MediaTek SoC.
-  *
-- * Copyright (C) 2018 MediaTek Inc.
-+ * Copyright (C) 2018-2025 MediaTek Inc.
-  * Author: Sean Wang <sean.wang@mediatek.com>
-  *	   Zhiyong Tao <zhiyong.tao@mediatek.com>
-  *	   Hongzhou.Yang <hongzhou.yang@mediatek.com>
-@@ -936,6 +936,15 @@ static int mtk_gpio_set_config(struct gpio_chip *chip, unsigned int offset,
- 	return mtk_eint_set_debounce(hw->eint, desc->eint.eint_n, debounce);
- }
- 
-+static void mtk_pinctrl_gpio_range_init(struct mtk_pinctrl *hw, struct gpio_chip *chip)
-+{
-+	hw->range.name = "mtk_pinctrl_gpio_range";
-+	hw->range.id = 0;
-+	hw->range.pin_base = 0;
-+	hw->range.base = chip->base;
-+	hw->range.npins = hw->soc->npins;
-+}
-+
- static int mtk_build_gpiochip(struct mtk_pinctrl *hw)
- {
- 	struct gpio_chip *chip = &hw->chip;
-@@ -959,6 +968,8 @@ static int mtk_build_gpiochip(struct mtk_pinctrl *hw)
- 	if (ret < 0)
- 		return ret;
- 
-+	mtk_pinctrl_gpio_range_init(hw, chip);
-+
- 	return 0;
- }
- 
-@@ -1077,6 +1088,8 @@ int mtk_paris_pinctrl_probe(struct platform_device *pdev)
- 	if (err)
- 		return dev_err_probe(dev, err, "Failed to add gpio_chip\n");
- 
-+	pinctrl_add_gpio_range(hw->pctrl, &hw->range);
-+
- 	platform_set_drvdata(pdev, hw);
- 
- 	return 0;
--- 
-2.45.2
+Thank you for your comments. I will consider a better solution.
 
+Regards,
+Ming
+
+>>
+>> Nicolas
+>>
+>>>
+>>> Frank
+>>>>
+>>>> Regards,
+>>>> Ming
+>>>>
+>>>>>> +
+>>>>>> +	return 0;
+>>>>>> +}
+>>>>>> +
+>>>>>>    static void device_run(void *priv)
+>>>>>>    {
+>>>>>>    	struct hantro_ctx *ctx = priv;
+>>>>>>    	struct vb2_v4l2_buffer *src, *dst;
+>>>>>>    	int ret;
+>>>>>>
+>>>>>> +	ret = hantro_wait_shared_resource(ctx->dev);
+>>>>>> +	if (ret < 0)
+>>>>>> +		goto err_cancel_job;
+>>>>>> +
+>>>>>>    	src = hantro_get_src_buf(ctx);
+>>>>>>    	dst = hantro_get_dst_buf(ctx);
+>>>>> ...
+>>>>>
+>>>>>>
+>>>>>> --
+>>>>>> 2.34.1
+>>>>>>
 
