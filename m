@@ -4,146 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20F23D0E6F5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 16:20:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37D86CFD37C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 16:23:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EVIQk8GmbQWblErAO4GglGFzw3dH9lR5KCcvV77+QUM=; b=zGaUkzR3Gn0hLAsSuMffOiLTnA
-	s8NFdDiq/RazicSmONa2yiHbY/u2ka1F4JeZgxB/50fCifMqsfmqz5jpsA3p4y/Ab3bXmicV6QbHC
-	cA3S86WRuQ5F2hDZmBqac/JdgXt1r/rrV5C0txqzpyP0t9g4EbUwhlCxO6IOXtOrMAYkvuKvtCmE0
-	cOn201x/EeGSbkEcbDeWdPbuIBUIbV8GKiUAPeOalhDdVgzLdSijhIQPjpeLXM6F8ZlIdoFTHWtz1
-	SuizJA7Pfqb5fxj25l1uaEP92+x/FRsKcCazp9ezRJzMo7SHZa96AYianEocYmzlVlXfdLgPQ1uo7
-	Dh38k/hA==;
+	bh=ySvDsTYJvLgXmuHERNi3kLoFGjXTAaw/jQMLOzTg4ug=; b=Pg+LND4g4xHh6YrcdB4N4FqadQ
+	nYW+yVEtgJ4ideeHLMGHIMqBqu+f4hUkOJWCWVZnwWu1YjKJ321FZrAi1ViSmNMxs6PqtuN3Ni478
+	OOBeO1ecnjmv3a0u83QgJyQKcTkJ2xOfk407ISqKtdt+YkGCdWG5XzAVFoP4TB37mzc+TtIbhAfeA
+	7kaXnD1+cxsLDhHf4oFnzauxeg+e48JmgshSehp1xBHOmDCApY5IKwyX3yOi7c/HCSRwr/beJlqij
+	iADqgHHyLo/gyuPL8u71B+hg5/fUDRUlfXDlfn7C+HHtxC0HVvbpLkOrw6aIY4RmXKhkZpLD8JCWx
+	u6VkN1pg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNvmZ-0000000DaHw-3RaP;
-	Tue, 25 Nov 2025 16:20:47 +0000
-Received: from mail-centralusazlp170110009.outbound.protection.outlook.com ([2a01:111:f403:c111::9] helo=DM5PR21CU001.outbound.protection.outlook.com)
+	id 1vNvp3-0000000DaZ9-1fJN;
+	Tue, 25 Nov 2025 16:23:21 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNvmY-0000000DaHA-0TPK
+	id 1vNvp0-0000000DaYm-0ZFv
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Nov 2025 16:20:47 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=O96HMEgXovjP+hjcSPv2InjvIYXLTnCbkc7MGz5DFLPok9RitsDpawClq9Cu+UPOgk2QYB6oQy9nklXeb6E58+WLcp9Al+hVxCbbZLYMtRoIgT55kPjU/DSw51ui1AWvjs6bC5mT25omx340D7rrnA/8lT7SInMya8KNY1hdkrXGHfU4nRVubMFZGJWgB88xlvGRYTWOwCOAO9Qf9ZahF6umMfZtRXYFveOBL72Jj7uJTzR1otYN6ZdCWIQdeVhuypGbo9mBCIeqWBzMGiEU6tANSvCKVPIKStgYiKjJIunyi7wAd8XietkHeJUaNyI20peHjVbqY0lunSBJSxNdpw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=EVIQk8GmbQWblErAO4GglGFzw3dH9lR5KCcvV77+QUM=;
- b=YUCFMfJbwxjQVTYT6vIA3YYe/4dUiKqT+cR6xH10HLuESPvkg3afntC/cYqQ6fhbWqvBfFcIAJOacLjHyZaxF3zsNtyForTAchOzj422gtm01Cht6q022WBnZKChILWiXxpD1PniCmWEdk8dajQuoWmx1qbhwVj/f5mdvfS6U6HlRq+aqEaF2uF8SJk3tXwZzPO6R3NSZNVhiHjKEGWYajbhMaeRXbaEOaxjFLQLOmziqKgvf2sfMl64JlrQpE3GYnVezlZrG2VyBZVwW9bYNExCrT+wk4Tw5bVb2NYVrPYCL47xS4lQWw/i4FGH1tDx1LBVR2GlNn59N89uZZsplQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.161) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=EVIQk8GmbQWblErAO4GglGFzw3dH9lR5KCcvV77+QUM=;
- b=k62t2cg4SzW7khlCQ2axpIYt9z+oqkwro9A4ULEr3XnEUglxI5RQHTVxid7BAyY/t3QHF9mYMDW/yQufbuMILO6Sj3/qgPRUkXtUj0ACk7T61jTz87J6Z49B4pfjRs0wRhi1+MfXg7H7Cvq9RUFti7NdDeG/wbH8Kdgy/tKRZZPVoE4c80oSa6InAe5NBeeBDxQzr6yUUIsXZ0Ps9B5sduCQDEAtPiZlEWmMg9tDYov82l0G9bvegpm7oRHQvW2XqXnoiT16QW7rC7eQS9kuzHGmLVh7AZdZuGY5gHhfcJXEUpkRjlBHgxv/KyiioiFFjgv9y2NJupwAArGZROCrsg==
-Received: from SN6PR2101CA0008.namprd21.prod.outlook.com
- (2603:10b6:805:106::18) by CH3PR12MB9196.namprd12.prod.outlook.com
- (2603:10b6:610:197::6) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9343.17; Tue, 25 Nov
- 2025 16:20:38 +0000
-Received: from SN1PEPF00036F3E.namprd05.prod.outlook.com
- (2603:10b6:805:106:cafe::1b) by SN6PR2101CA0008.outlook.office365.com
- (2603:10b6:805:106::18) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9388.3 via Frontend Transport; Tue,
- 25 Nov 2025 16:20:37 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.161) by
- SN1PEPF00036F3E.mail.protection.outlook.com (10.167.248.22) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9366.7 via Frontend Transport; Tue, 25 Nov 2025 16:20:37 +0000
-Received: from rnnvmail202.nvidia.com (10.129.68.7) by mail.nvidia.com
- (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 25 Nov
- 2025 08:20:20 -0800
-Received: from rnnvmail204.nvidia.com (10.129.68.6) by rnnvmail202.nvidia.com
- (10.129.68.7) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 25 Nov
- 2025 08:20:19 -0800
-Received: from Asurada-Nvidia (10.127.8.13) by mail.nvidia.com (10.129.68.6)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Tue, 25 Nov 2025 08:20:19 -0800
-Date: Tue, 25 Nov 2025 08:20:17 -0800
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-CC: Will Deacon <will@kernel.org>, <jean-philippe@linaro.org>,
-	<robin.murphy@arm.com>, <joro@8bytes.org>, <balbirs@nvidia.com>,
-	<miko.lenczewski@arm.com>, <peterz@infradead.org>, <kevin.tian@intel.com>,
-	<praan@google.com>, <linux-arm-kernel@lists.infradead.org>,
-	<iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v5 3/7] iommu/arm-smmu-v3: Introduce a per-domain
- arm_smmu_invs array
-Message-ID: <aSXXQUevF41ATX8g@Asurada-Nvidia>
-References: <cover.1762588839.git.nicolinc@nvidia.com>
- <eea7bffde13574e099212e3b3823a0f192d6aec3.1762588839.git.nicolinc@nvidia.com>
- <aSTRRyTBh1nATwBa@willie-the-truck>
- <aSUtL9qxYa6/GCfP@Asurada-Nvidia>
- <20251125134321.GQ153257@nvidia.com>
+	Tue, 25 Nov 2025 16:23:19 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 2F04643D64;
+	Tue, 25 Nov 2025 16:23:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0B29FC4CEF1;
+	Tue, 25 Nov 2025 16:23:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1764087797;
+	bh=PcLADs44vvxztti6xA2k6nYOIqCl+7fL8uUhpgP/J9Q=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=lmalkPb8fVz7b5+GlztZ5+HHHOuzrOl0RtAT8gFgVDBR/DLjIoQ2dcz3+1tKdVuVD
+	 mqonXjkH0+ePWquB4TxGAnDv6nsCqDb4FwCl5a2geimEsyf5sWycoW0YOlitcd7x8Z
+	 HQRFHr/okwp7v95ucCfUDrsdrh6Ji39Vz74W1mg+cbrFa5HY1Fyyk1B9EbaZ224ZJT
+	 HCg5n6HBradD9l6Qh7wcO9ViElqp2j0WtU6jlkQJfkX9xBbog8jDnBNT1DuGLAC5ye
+	 H6GAjD+6XbxDQlEJiBs5CTkUPiCxP/KqTWHrRpejVAlMziiJwdKjCZKIem4PwkBGLW
+	 KcnsMhBp+nNlg==
+From: "Rafael J. Wysocki" <rafael@kernel.org>
+To: Val Packett <val@packett.cool>
+Cc: Daniel Lezcano <daniel.lezcano@linaro.org>,
+ Christian Loehle <christian.loehle@arm.com>,
+ Artem Bityutskiy <artem.bityutskiy@linux.intel.com>,
+ linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+ "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>, linux-pm@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+Subject: [PATCH v1] cpuidle: Warn instead of bailing out if target residency check
+ fails
+Date: Tue, 25 Nov 2025 17:23:12 +0100
+Message-ID: <2808566.mvXUDI8C0e@rafael.j.wysocki>
+Organization: Linux Kernel Development
+In-Reply-To: <CAJZ5v0h1VTozCKweKvma3dQiUCz8KkR88Hue1cL_jDaKiP+BEw@mail.gmail.com>
+References: <20251121010756.6687-1-val@packett.cool>
+ <CAJZ5v0h1VTozCKweKvma3dQiUCz8KkR88Hue1cL_jDaKiP+BEw@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20251125134321.GQ153257@nvidia.com>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SN1PEPF00036F3E:EE_|CH3PR12MB9196:EE_
-X-MS-Office365-Filtering-Correlation-Id: ae382a37-74a1-4c1a-28a3-08de2c3e919f
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|1800799024|376014|7416014|36860700013;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?3LX0CvvYQx/HAbQ2Q4TXj4yy3vD04cfPvN39IoAtjYElgHORD5FFvu2fbnLG?=
- =?us-ascii?Q?UZUOl73sPIlxI+X1Ey4CBrtvR26nI2tO4Hx0vPRLdr2bRpuxHNeeO5nvftAo?=
- =?us-ascii?Q?9YQPqIdCdF7nUSDGzLw8xndRUkR+ZDOAVxa01T1dwSap2rj79TWejW7b+/CR?=
- =?us-ascii?Q?08bxAnlDXu7kBz5cgqUSdQhBalEoiCwdtve8e8HPPb+pznh8+ETk5gca24M7?=
- =?us-ascii?Q?5b3rbb3OTWKDQJWaRO97MqORY54anTpFFIyfjKO79ieXB/mGqf9UI13CDKXt?=
- =?us-ascii?Q?c555oWqk4a63NpVak4dZOdFgCZsdFmmvtSa7xP+qkSTPPR8GXpUnQpsZYiuk?=
- =?us-ascii?Q?YOfALQbyrrk5Il0t80U73BTbnCIplLg3X5Zl+vcjElV53t7zSONGtPev+rsc?=
- =?us-ascii?Q?e1S/hXd6OeQSxIIzkDDk+zZVGaID4/Fiod65++q8M35yPRhESFgt9ugmaEta?=
- =?us-ascii?Q?0TpvwfMGqBtSVZJaM/Py9Ptf4QV+JWXquMINWL90NGar1ELkj5GlvOvZAi48?=
- =?us-ascii?Q?Cyn4H3+UPP+RoZcgDr03q1THv2MqzQ8F4I09t53tUbnuS8y+P9xnz49BeKF9?=
- =?us-ascii?Q?TF6QAE4TPASChHPRWkY4ro+KrZ43ekQU1gunlczhBUPp1owzwDee0/VmBtLW?=
- =?us-ascii?Q?GU0tNVTAYKiVn+ROEyU3Zl7uAPNosJPhApZYLgDI5S5MufiIw4NB8rwBWSHe?=
- =?us-ascii?Q?uI8mt2oYbBfgQ0X1BAnzErHsQkBQkRXrlGpitba+nAUdBP0Vv5LTWeJuRq6S?=
- =?us-ascii?Q?hWqJcRFB54KYDSlDtL1boJwOaJWtIC0WHy7vGtGIS+2FgUn3aV8mg9DJnBMU?=
- =?us-ascii?Q?4NT5Nirutrx+A8vixu6+7hx5Lco2k9XvI6/OLk6+Z4hZQrMcwncPuM4FQjSo?=
- =?us-ascii?Q?H1imUevHGYMivFINfJ8eveIQw6HG17x4EL0dZaKVs48F/K1DpTuVFhm8SOAp?=
- =?us-ascii?Q?QVneU4TCJPyAy5cEH2SJiy9eccA7R3+pzGJwvvbhpfjIADQinE7eeq0RSNAX?=
- =?us-ascii?Q?0/yWIAbqqF+SDi5LD7ncUEfrgz1WFAKj5pe+tUWOx/92N095THYxNwHMpdy8?=
- =?us-ascii?Q?RlFR0mxP1TWqVQK8BVMplk/DRDtTbdyh2uaptfsD8WVShzqrylaIkkwUd6DQ?=
- =?us-ascii?Q?YyFUPgogpun0HBfG1F6txUaMo7FmoYd2FYvZ35by/Q3y+pvlctNmp/zStU4p?=
- =?us-ascii?Q?6QIUijq/aX+ifsudqF/8xMp+J4AUGxxYtW4+Rn5ybY4DZxZtvixukwndyrwb?=
- =?us-ascii?Q?m7mBOy01oM58y+sUEtK3BrygXi54dAUG2yxfXzl/wPPTaHFSMtO3uC7JtTSx?=
- =?us-ascii?Q?SGE4HFbPTye0o+CsgCtPSlqECeUAY7ZxcBOLX1c+F+8feqWkg7rjZayYHux1?=
- =?us-ascii?Q?5IT1l18hr5esgzOdBOjm0j0EILcRCIN82sJUXubNGr6pRF/r99Or5NgHUzLG?=
- =?us-ascii?Q?KoPAXRHoDAf+pcEDB3A/pspfloulxUXvnTNevdf0khVvcjYOeijOKjSeOH6G?=
- =?us-ascii?Q?w38pg0HhFmY+1tf3Sofs4Gfsoiacqc6pKZtf63QKg6YjqOR5lB6PaoJMoPYa?=
- =?us-ascii?Q?DPVchWQ+7Yv7EldnNOc=3D?=
-X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(376014)(7416014)(36860700013);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Nov 2025 16:20:37.4564
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: ae382a37-74a1-4c1a-28a3-08de2c3e919f
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: SN1PEPF00036F3E.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB9196
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251125_082046_158434_09F89608 
-X-CRM114-Status: GOOD (  20.82  )
+X-CRM114-CacheID: sfid-20251125_082318_212498_21403811 
+X-CRM114-Status: GOOD (  34.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,116 +78,144 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 25, 2025 at 09:43:21AM -0400, Jason Gunthorpe wrote:
-> On Mon, Nov 24, 2025 at 08:14:39PM -0800, Nicolin Chen wrote:
-> > On Mon, Nov 24, 2025 at 09:42:31PM +0000, Will Deacon wrote:
-> > > On Sat, Nov 08, 2025 at 12:08:04AM -0800, Nicolin Chen wrote:
-> > > > +VISIBLE_IF_KUNIT
-> > > > +struct arm_smmu_invs *arm_smmu_invs_merge(struct arm_smmu_invs *invs,
-> > > > +					  struct arm_smmu_invs *to_merge)
-> > > > +{
-> > > > +	struct arm_smmu_invs *new_invs;
-> > > > +	struct arm_smmu_inv *new;
-> > > > +	size_t num_trashes = 0;
-> > > > +	size_t num_adds = 0;
-> > > > +	size_t i, j;
-> > > > +
-> > > > +	for (i = j = 0; i < invs->num_invs || j < to_merge->num_invs;) {
-> > > 
-> > > Maybe worth having a simple iterator macro for this?
-> > 
-> > I added two macros:
-> > 
-> > +#define arm_smmu_invs_for_each_inv(invs, idx, inv)              \
-> > +	for (idx = 0, inv = &invs->inv[0]; idx < invs->num_invs; \
-> > +	     inv = &invs->inv[++idx])
-> > +#define arm_smmu_invs_for_each_idx_dual(invs1, idx1, invs2, idx2) \
-> > +	for (idx1 = idx2 = 0; idx1 < invs1->num_invs || idx2 < invs2->num_invs;)
-> 
-> I think pull more stuff in. Something like this:
-> 
-> static inline struct arm_smmu_inv *
-> arm_smmu_invs_iter_next(struct arm_smmu_invs *invs, size_t next,
-> 			size_t *idx)
-> {
-> 	while (true) {
-> 		if (next >= invs->num_invs) {
-> 			*idx = next;
-> 			return NULL;
-> 		}
-> 		if (!refcount_read(&invs->inv[next].users)) {
-> 			next++;
-> 			continue;
-> 		}
-> 		*idx = next;
-> 		return &invs->inv[next];
-> 	}
-> }
-> 
-> static int arm_smmu_inv_cmp(const struct arm_smmu_inv *l,
-> 			    const struct arm_smmu_inv *r)
-> {
-> 	if (l->smmu != r->smmu)
-> 		return cmp_int((uintptr_t)l->smmu, (uintptr_t)r->smmu);
-> 	if (l->type != r->type)
-> 		return cmp_int(l->type, r->type);
-> 	return cmp_int(l->id, r->id);
-> }
-> 
-> static inline int arm_smmu_invs_iter_next_cmp(struct arm_smmu_invs *invs_lhs,
-> 					      size_t next_lhs, size_t *idx_lhs,
-> 					      struct arm_smmu_invs *invs_rhs,
-> 					      size_t next_rhs, size_t *idx_rhs)
-> {
-> 	struct arm_smmu_inv *cur_lhs =
-> 		arm_smmu_invs_iter_next(invs_lhs, 0, idx_lhs);
-> 
-> 	/*
-> 	 * Compare of two sorted arrays items. If one side is past the end of
-> 	 * the array, return the other side to let it run out the iteration.
-> 	 */
-> 	if (!cur_lhs)
-> 		return -1;
-> 	if (next_rhs >= invs_rhs->num_invs)
-> 		return 1;
-> 	return arm_smmu_inv_cmp(cur_lhs, &invs_rhs->inv[next_rhs]);
-> }
-> 
-> /*
->  * Iterates over all non-trash entries in invs. idx is a stack variable
->  * to store the index, cur is a stack variable of 'struct arm_smmu_inv *'
->  */
-> #define arm_smmu_invs_for_each_inv(invs, idx, cur)              \
-> 	for (cur = arm_smmu_invs_iter_next(invs, 0, &(idx)); cur; \
-> 	     cur = arm_smmu_invs_iter_next(invs, idx + 1, &(idx)))
-> 
-> /*
->  * Iterate over two sorted arrays computing a merge sort
->  */
-> #define arm_smmu_invs_for_each_merge(invs_lhs, idx_lhs, invs_rhs, idx_rhs, \
-> 				     cmp)                                  \
-> 	for (cmp = arm_smmu_invs_iter_next_cmp(invs_lhs, 0, &(idx_lhs),    \
-> 					       invs_rhs, 0, &(idx_rhs));   \
-> 	     idx_lhs < invs_lhs->num_invs || idx_rhs < invs_rhs->num_invs; \
-> 	     cmp = arm_smmu_invs_iter_next_cmp(                            \
-> 		     invs_lhs, idx_lhs + (cmp <= 0 ? 1 : 0), &(idx_lhs),   \
-> 		     invs_rhs, idx_rhs + (cmp >= 0 ? 1 : 0), &(idx_rhs)))
-> 
-> 
-> 
-> And then change the loops computing num_trash to work directly on actual things ignoring trash:
-> 
-> 	arm_smmu_invs_for_each_merge(invs, i, to_merge, j, cmp)
-> 		new_size++;
-> 	new_invs = arm_smmu_invs_alloc(new_size);
+On Friday, November 21, 2025 2:10:57 PM CET Rafael J. Wysocki wrote:
+> On Fri, Nov 21, 2025 at 2:08=E2=80=AFAM Val Packett <val@packett.cool> wr=
+ote:
+> >
+> > On Device Tree platforms, the latency and target residency values come
+> > directly from device trees, which are numerous and weren't all written
+> > with cpuidle invariants in mind. For example, qcom/hamoa.dtsi currently
+> > trips this check: exit latency 680000 > residency 600000.
+>=20
+> So this breaks cpuidle expectations and it doesn't work correctly on
+> the affected platforms.
+>=20
+> > Instead of harshly rejecting the entire cpuidle driver with a mysterious
+> > error message, print a warning and set the target residency value to be
+> > equal to the exit latency.
+>=20
+> This generally doesn't work because the new target residency may be
+> greater than the target residency of the next state.
+>=20
+> > Fixes: 76934e495cdc ("cpuidle: Add sanity check for exit latency and ta=
+rget residency")
+> > Signed-off-by: Val Packett <val@packett.cool>
+> > ---
+> >  drivers/cpuidle/driver.c | 7 +++++--
+> >  1 file changed, 5 insertions(+), 2 deletions(-)
+> >
+> > diff --git a/drivers/cpuidle/driver.c b/drivers/cpuidle/driver.c
+> > index 1c295a93d582..06aeb59c1017 100644
+> > --- a/drivers/cpuidle/driver.c
+> > +++ b/drivers/cpuidle/driver.c
+> > @@ -199,8 +199,11 @@ static int __cpuidle_driver_init(struct cpuidle_dr=
+iver *drv)
+> >                  * exceed its target residency which is assumed in cpui=
+dle in
+> >                  * multiple places.
+> >                  */
+> > -               if (s->exit_latency_ns > s->target_residency_ns)
+> > -                       return -EINVAL;
+> > +               if (s->exit_latency_ns > s->target_residency_ns) {
+> > +                       pr_warn("cpuidle: state %d: exit latency %lld >=
+ residency %lld (fixing)\n",
+> > +                               i, s->exit_latency_ns, s->target_reside=
+ncy_ns);
+> > +                       s->target_residency_ns =3D s->exit_latency_ns;
+>=20
+> And you also need to update s->target_residency.
+>=20
+> Moreover, that needs to be done when all of the target residency and
+> exit latency values have been computed and full sanitization of all
+> the states would need to be done (including the ordering checks), but
+> the kernel has insufficient information to do that (for instance, if
+> the ordering is not as expected, it is not clear how to fix it up).
+> Even the above sanitization is unlikely to result in the intended
+> behavior.
+>=20
+> So if returning the error code doesn't work, printing a warning is as
+> much as can be done, like in the attached patch.
+>=20
+> If this works for you, I'll submit it properly later.
+>=20
 
-Cool. I will integrate this and send v6 today. Thanks for the help!
+No response, so I assume no objections.
 
-> Name should probably be for_each_.... though
+=2D--
+=46rom: Rafael J. Wysocki <rafael.j.wysocki@intel.com>
 
-Hmm, I thought it's more common to see structname_for_each_item,
-such as list_for_each_item and xa_for_each?
+It turns out that the change in commit 76934e495cdc ("cpuidle: Add
+sanity check for exit latency and target residency") goes too far
+because there are systems in the field on which the check introduced
+by that commit does not pass.
 
-Thanks
-Nicolin
+=46or this reason, change __cpuidle_driver_init() return type back to void
+and make it print a warning when the check mentioned above does not
+pass.
+
+=46ixes: 76934e495cdc ("cpuidle: Add sanity check for exit latency and targ=
+et residency")
+Reported-by: Val Packett <val@packett.cool>
+Closes: https://lore.kernel.org/linux-pm/20251121010756.6687-1-val@packett.=
+cool/
+Signed-off-by: Rafael J. Wysocki <rafael.j.wysocki@intel.com>
+=2D--
+ drivers/cpuidle/driver.c |   18 ++++++++----------
+ 1 file changed, 8 insertions(+), 10 deletions(-)
+
+=2D-- a/drivers/cpuidle/driver.c
++++ b/drivers/cpuidle/driver.c
+@@ -8,6 +8,8 @@
+  * This code is licenced under the GPL.
+  */
+=20
++#define pr_fmt(fmt) KBUILD_MODNAME ": " fmt
++
+ #include <linux/mutex.h>
+ #include <linux/module.h>
+ #include <linux/sched.h>
+@@ -152,7 +154,7 @@ static void cpuidle_setup_broadcast_time
+  * __cpuidle_driver_init - initialize the driver's internal data
+  * @drv: a valid pointer to a struct cpuidle_driver
+  */
+=2Dstatic int __cpuidle_driver_init(struct cpuidle_driver *drv)
++static void __cpuidle_driver_init(struct cpuidle_driver *drv)
+ {
+ 	int i;
+=20
+@@ -195,15 +197,13 @@ static int __cpuidle_driver_init(struct
+ 			s->exit_latency =3D div_u64(s->exit_latency_ns, NSEC_PER_USEC);
+=20
+ 		/*
+=2D		 * Ensure that the exit latency of a CPU idle state does not
+=2D		 * exceed its target residency which is assumed in cpuidle in
+=2D		 * multiple places.
++		 * Warn if the exit latency of a CPU idle state exceeds its
++		 * target residency which is assumed to never happen in cpuidle
++		 * in multiple places.
+ 		 */
+ 		if (s->exit_latency_ns > s->target_residency_ns)
+=2D			return -EINVAL;
++			pr_warn("Idle state %d target residency too low\n", i);
+ 	}
+=2D
+=2D	return 0;
+ }
+=20
+ /**
+@@ -233,9 +233,7 @@ static int __cpuidle_register_driver(str
+ 	if (cpuidle_disabled())
+ 		return -ENODEV;
+=20
+=2D	ret =3D __cpuidle_driver_init(drv);
+=2D	if (ret)
+=2D		return ret;
++	__cpuidle_driver_init(drv);
+=20
+ 	ret =3D __cpuidle_set_driver(drv);
+ 	if (ret)
+
+
+
+
 
