@@ -4,62 +4,147 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5914D0E6F5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 16:02:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BCEAD0EE04
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 16:06:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ujarf0HhLd0YUbNiTzYBNfsZtAIBvfeqtU76RofDTew=; b=EmeJrPONcavN2mWIC1Mf4QAiNP
-	/kP7tZ2G+9Vi7YV+yWm12BxCGsIj+vlWE+8EqDYHzxBMKQG1WTYB/Glny6EBWyBiWbjrmTjMd8OFP
-	5aMcKxD0aMsq7doG8e6Clm0/o1eltBCUSZFbQLHrWG1Ix3vfdGXpENM0aEMGgkmbaEJ5Aj8B67Uik
-	tkmaffIehKZPW/WcKj161Jt4TAoIPXMj1rkf5AxiJfv8U601Ud1+gAwMtJBkgtiurEBwsHcDe/i4B
-	GJmJ0CWtRhVTrvGvWm9XlildkQxpZL7xn4h2vhP7zwatFjny5NISYZbsuucbNzlNDf/vSuX9hMZKs
-	QQsGHR8g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5cORYgXD24tEvmENoBfdkigftzkce/ZLpD6EvL9fPU8=; b=BbF4VsnIDM4sdJ+tLPIiMoWcEQ
+	//WZqlNToNYgd7Hu0bFoCMaS2eXzz9gHHYKuXi7uYVcK6Aqmoy57q/E/96jXPEeZoYpRCn8DeDRbG
+	RA7Do+GYTkpbsTBRF1Mm7hZJgQRtAULj0mtsryXlmkO/82B5pF5Tx62H7jKvH3ztRJS3nPWct7wmk
+	1yGATW7ke3pTGpVxlQuQ1udt2OzW4Izn5gVKSgHi26qfNmYalQDxROj+iPQEGFJ5H5ZsJ46rQgdIh
+	pSeV4ESdOjFOL3dGT4L4LDA8mQHVhEq80kaCp0uLpjkaZcbYkvBeuJ2h6PoCCjaz8f7ZMj7/+fO5W
+	f14+W98w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNvV1-0000000DY0G-2hoa;
-	Tue, 25 Nov 2025 16:02:39 +0000
-Received: from stravinsky.debian.org ([2001:41b8:202:deb::311:108])
+	id 1vNvYU-0000000DYPs-2Ebk;
+	Tue, 25 Nov 2025 16:06:14 +0000
+Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNvUy-0000000DXz8-2Y4B
+	id 1vNvYQ-0000000DYPT-2cUU
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Nov 2025 16:02:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=debian.org;
-	s=smtpauto.stravinsky; h=X-Debian-User:Content-Type:MIME-Version:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=ujarf0HhLd0YUbNiTzYBNfsZtAIBvfeqtU76RofDTew=; b=aXmDuS9atrcFgVvKmBnzcQmoZq
-	Zs5GjYNJ3IoaqY/v/uk+jaWaLmnUJUUb9M3XGpuxHmwMhL1LKNrLtLAySNO4T8hkxT8ZrO+6PFZa7
-	sBvGgGlyat0YpoCMHF0mppYhRcgfPlzWRCKFTe7S2fM30oCdHqmk7cXOiNNiuojScDwvd7DMalWHP
-	X0F8VxuIKRAFwotSUPdq4QtBcZTHZMP28jbSb24R8qK3yDsi9NgPrh6pd9Zj+tDdAcP8jhcb+REXw
-	6zEn5sTlLweSbLM4O52/Mi7zC08QaP1wsIUX4v3alBOEHVaC3sii9eEe/NH94q0WZFv5vkkKlkNCU
-	D7F3PuiQ==;
-Received: from authenticated user
-	by stravinsky.debian.org with esmtpsa (TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
-	(Exim 4.94.2)
-	(envelope-from <leitao@debian.org>)
-	id 1vNvUj-003Vwc-JH; Tue, 25 Nov 2025 16:02:21 +0000
-Date: Tue, 25 Nov 2025 08:02:16 -0800
-From: Breno Leitao <leitao@debian.org>
-To: john.ogness@linutronix.de, pmladek@suse.com, linux@armlinux.org.uk, 
-	paulmck@kernel.org
-Cc: usamaarif642@gmail.com, leo.yan@arm.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, kernel-team@meta.com, 
-	rmikey@meta.com
-Subject: CSD lockup during kexec due to unbounded busy-wait in
- pl011_console_write_atomic (arm64)
-Message-ID: <sqwajvt7utnt463tzxgwu2yctyn5m6bjwrslsnupfexeml6hkd@v6sqmpbu3vvu>
-MIME-Version: 1.0
+	Tue, 25 Nov 2025 16:06:13 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=KQ2Tpw7aoUBtM9vibs2QnZeswtEBmEr8G0t716T2k3+g/hLwj8K/0PZEZHbMe+16zFFGh71Z5Tkc8QvSyqIXHip++gOk2zQweOid3l5abfnNBusfD3VDLdHJhFfHKPzLHxg/ZkzuIRoeDmXC8j98kdiLwin+mZzKCdXkZwJK90UaKwRljI3aTdyqjB9UigE6cTGQa/ybrJuCTmzJjv+EuyGCUEeXikRWD85pEZekF9oJd2gGg9fhDw/1r4L1b8byTxYRkB2kzunqW1vO35DxPojrpCrEVLMzDHKw94FtoG8oX8O8Y1aGnSE/HAG0TisG5+ZHNQEEIblIeFNY39scJA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=5cORYgXD24tEvmENoBfdkigftzkce/ZLpD6EvL9fPU8=;
+ b=bLgfUtYKsfkVH8RYFQqDjujW/WP0K7yGBISp6xFczIVC5vCxHAF5VEiGjaF2VZWeqr9lUZ9ALYW+7+Y5CJTkNUNNRZXWI7gV2bKw8f2oQYtcZUBTwL2vNA6/9OAkHBR1S9iz/Rt40o7qvbxE4WRrWlh7mXGNjvdAMoEnPx7zLSVaEYEcAkJFP/F0hOUrIeBx6Tmuk/hm099ro7q5gh3xqJtPlVJqMOv4WX93FWNnerqpe77PlxdVsE4xPDR6eMpdQS1RSByWht5LnyoMzZqTeoEJWLf1gLUotkoWVas1VjK5t6NhxZP7anfW6JJ75rVa7OkzVnFOYl5Na38hxlZ08g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=5cORYgXD24tEvmENoBfdkigftzkce/ZLpD6EvL9fPU8=;
+ b=mE90f2lExmRHvE823ZC/3Wwlbp0zReEQN9By3HTTDk9imE8kbtS451uYfuj/+PHBzTGhxByl8oxIuSaz+XGXfn4JDvV78O9J0B5MfHsIXWRGUJGovrhSrbwCF5ITkGQiO75eGBOqBcyVAOaUnY4iLfcLqkaK/mxo11CeZzksBx2cCu7k0A1M75RJlRpxGwJrrJ8np222bBvVLnzcpnNWweKW5wUEyk4SkzNC49rE8m+/HZpI7OBOALpb3ejXa38h3g7EcQYnmKORHDGidOipPVeWIOm7SUeeP9HaKX5sRSEsTfib7HJ+rAaY95LUFxEeyACl0y1aDBwgVAiAXd5cLw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from DU2PR04MB8951.eurprd04.prod.outlook.com (2603:10a6:10:2e2::22)
+ by DU4PR04MB12082.eurprd04.prod.outlook.com (2603:10a6:10:645::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9343.18; Tue, 25 Nov
+ 2025 16:06:06 +0000
+Received: from DU2PR04MB8951.eurprd04.prod.outlook.com
+ ([fe80::753c:468d:266:196]) by DU2PR04MB8951.eurprd04.prod.outlook.com
+ ([fe80::753c:468d:266:196%4]) with mapi id 15.20.9366.009; Tue, 25 Nov 2025
+ 16:06:05 +0000
+Date: Tue, 25 Nov 2025 11:05:58 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: Carlos Song <carlos.song@nxp.com>
+Cc: broonie@kernel.org, hawnguo@kernel.org, s.hauer@pengutronix.de,
+	kernel@pengutronix.de, festevam@gmail.com,
+	linux-spi@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 6/6] spi: imx: enable DMA mode for target operation
+Message-ID: <aSXT5tzhfHYVUrGy@lizhi-Precision-Tower-5810>
+References: <20251125100618.2159770-1-carlos.song@nxp.com>
+ <20251125100618.2159770-7-carlos.song@nxp.com>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-X-Debian-User: leitao
+In-Reply-To: <20251125100618.2159770-7-carlos.song@nxp.com>
+X-ClientProxiedBy: PH7P220CA0052.NAMP220.PROD.OUTLOOK.COM
+ (2603:10b6:510:32b::34) To DU2PR04MB8951.eurprd04.prod.outlook.com
+ (2603:10a6:10:2e2::22)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU2PR04MB8951:EE_|DU4PR04MB12082:EE_
+X-MS-Office365-Filtering-Correlation-Id: 7829e566-fba3-422e-d55a-08de2c3c8967
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|52116014|366016|1800799024|19092799006|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?5NKqNblbUezjTx4E4Fy8NSWvExvzSHNawE9/IHKqS6eG+RFc0TBe92HsbMqT?=
+ =?us-ascii?Q?tJc3T3A5A46zcSX0gLBTlw4p9XcXMLDMtUJyVd1mNOjNuDHgIOhq7Z9RA5AD?=
+ =?us-ascii?Q?vEow+OWC2Jyy2lEfBrinfBaRuH/RBvAPRG3euCa0zHO/fj1PiS5iR6ZMywWq?=
+ =?us-ascii?Q?/PTSSqTFz7JzqUCK2gzr1bkNJP+61V2sy/6asTxAStMZMmTN5HfT5xdpqzZL?=
+ =?us-ascii?Q?IQ3P3J1wER/U4I0mWnjhKqkdxs3w9sMshKLgoMO3xbA10gtFEBdmIlq4HBs6?=
+ =?us-ascii?Q?WPcs/MVTwnKvGCMEg7hBgKttsv/riKgJ1hZJPuqaFVQansJnhFFXrnB4BOJb?=
+ =?us-ascii?Q?InwdNLu4ISApsO4jdBLA9uCRVSCeoChG0MyME39JNkggM4V8lFUPf2Mz1r9J?=
+ =?us-ascii?Q?XtZ8cl4sf0FQ+g4tvAdOxr6TLya5w047u1dE/f2B6D4tvB85fktM2m2fSDsF?=
+ =?us-ascii?Q?ccnu5wzf4lrdbl5lLOTVo7rdx1JQCILVHHr2fQZyMVI3ewqoORKxOlGIvAPZ?=
+ =?us-ascii?Q?8jVWjJSSxPlCEikYCftfLO+USqHQpAgHk6ZEBdDM62UrBRKHY5+c3vagTAAj?=
+ =?us-ascii?Q?C1nFsXWyjGQEDuaGkd617z8eYoI/q026IBeElJIKFCDq6pu9vSVJZhoPxaeW?=
+ =?us-ascii?Q?n/mddTqXU5h+k/StdKs9Fpb9DQcGfssUkKfDhQ2Fzr9yYXcBRaU1fMuMJF6U?=
+ =?us-ascii?Q?9QEqC9kKXTnkvbOyWXC1dIWzhRrAdk6u34KzXC/g03Z7ojMUBMF4NF60NGJd?=
+ =?us-ascii?Q?EysfVEXa0fbVZ+dp62uhggek3Pvdy6GeF4Gv60TN1O9P+fRp1jDm/xm2H32/?=
+ =?us-ascii?Q?VvdJ5kJ0+BNVnFo4IkrlIln/dXtZK9KZQJS60rExJIrKkyOf/UYfbAbRCWKl?=
+ =?us-ascii?Q?DF6IuN7s59nHii5CaQuz5ONxSx13HPWrJpS/4h1Ku0Oh+1lCyxBJsHMXZJVE?=
+ =?us-ascii?Q?3LqpwoWRsqZDgoRrVAPyly52958Ob3RN9T8GqtCwi/5/K59rWQcWPHnXVnof?=
+ =?us-ascii?Q?EcxuO4Mfzt0Qi3nJd/adUZ/UTnTcFfOAMo0VjU20TKj72XGNgXOmbR3CBF3l?=
+ =?us-ascii?Q?EsDPuIGCulFyvq3oFqMAQyYUsLz+XCi0fG++88igHCRynYDT7sIigiKvpWOT?=
+ =?us-ascii?Q?KwBMKfExGoh+eJEDYSDHNYuL12Ff57vxK6EF1lKG1KLkGoEMwF2TxKaqdIw/?=
+ =?us-ascii?Q?O4E219AJ6lEuuEVOB6urvzOzmTSJlle47TGih6GSZgMG9jMmGZC/3sYUoE0i?=
+ =?us-ascii?Q?c4cRTixhco6qfG0Ci1lBRnlGpvGFeaFg3MQiApCRYEQ+TsckAcw+bhXxZNuA?=
+ =?us-ascii?Q?0+2NW5bESmIRvhJR1azyGzsxmRqOxyr3oAt66nbM725APKuxPseSSl77Jees?=
+ =?us-ascii?Q?JGy1/sYCSXh2sR3Yau2V5/bP1b23qCabRpPW+hLdHvlyRSC9AQtzVNbtarnd?=
+ =?us-ascii?Q?zgM9SCh5Ne+XWAMCuj4eGF987FP0mTybJzCsEWC8LPcU8V/RM7lnHhw0LiEB?=
+ =?us-ascii?Q?f8BoUxcLmt7FsL6OZjzJlpNCT4Hj44k/T0Gp?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8951.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(52116014)(366016)(1800799024)(19092799006)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?jrR3oytEvRhnUoSqAXyyPQCoo4G275TTyHyiD8Ezmkry2Mqnp4D/l2F07HRr?=
+ =?us-ascii?Q?+YLRvATJvyiwOT8+2Y8XvaQA/ntmvtbmTO56vB/K+GlDUlIgWSWWp6o5I4Ol?=
+ =?us-ascii?Q?T7jWQ6H1FYVDOfe/MEEeFZJR3RIBtOr30WT+YtwL/b3KhRYQdLQETwsULk4y?=
+ =?us-ascii?Q?7yzGe/rZ+PmP8C+6QLBtea6NPvo07sWvzWrtg4Rs8rfatPxV8gW8hBzP+JRm?=
+ =?us-ascii?Q?GzH2rHUD77HgWrrWeWYhRn64djU2Z7zVQ65ZCABzJ12xCuqsGLR89t8rBfSW?=
+ =?us-ascii?Q?Lw/v37yWDsHO6tcFB+lGlAOEvjFGqbH10w2PSdxvGIn7mjs3rZUGhDJj7A42?=
+ =?us-ascii?Q?q3JbiyaBC19yJr/gVASxBXxI2298hHbDOtvL0uTV/LvPmgaUqLbG9qUiLrKc?=
+ =?us-ascii?Q?IOYQRGYJwFGC4UeqGpNTpJplKG4p3vmxSB2AugFVWFDBMdARu0cSA/TpcR2L?=
+ =?us-ascii?Q?M/Uxgg6rqcW+xykYT8PYVnwJaKhioIcBAuz5WIRUPCE2sE3aGhThoUbqWddA?=
+ =?us-ascii?Q?QBZuJjyrm8HhsCNGbVi/TjTJo/vCYQPMTiepbHCGKylagrw3zmySASXNtUry?=
+ =?us-ascii?Q?ApHTz3C/MoMsxpRTFYqo/xO6JvRjglIYh5B5ONbBeE7SGiy44V0i2bUVrVZZ?=
+ =?us-ascii?Q?KoUSZVzew+r7MTZU9/UUP0tduZXfrUFz4g25eDP3latT+aqaNMdwK2nUnpNq?=
+ =?us-ascii?Q?t2yotTZfI+xJIyhCnqREXWuj9FSTZ2wazQxK7eEUQ/Amjxv85bR/EOankf6y?=
+ =?us-ascii?Q?EB5xSlaSaQ04kTEuBYi+8jhkcaS0peK1EvcIInaVSnTil2xPCFu+ELJ94VxC?=
+ =?us-ascii?Q?3KqqBTnXl7HeD1cMYn00tNCyMpv2n+pRWVND4uy52gJiXXUB6PcfnxjTU919?=
+ =?us-ascii?Q?WWPDI56uLq0etvKUny1XPQHHC/o5Tft/ec2L4DL0STrjtlNU9f6EV0kut5yW?=
+ =?us-ascii?Q?8YJGOKlqJrtFUM9r0g28GtAlRCnJVk4DkaeZD7apAIAhEeazONsg1rlqyK0B?=
+ =?us-ascii?Q?A8tZpIAsQnd+YB7gLr18arGG5B+NrvmVO53/4g5znY97hT/QZLC8dRWoiEaN?=
+ =?us-ascii?Q?esioOC8vg/7hfFvpoqovf1zkW6F98UUuw4hdFpb+4wvGoK9uBFNrNPxYJs2j?=
+ =?us-ascii?Q?8m4yxBtIvP8LXMtzEyNHMJWOycnDnmCFX9OpV7R42+zJRS/UUgM7mG13EoQC?=
+ =?us-ascii?Q?cyxxSRor5sC86ItwFbs0uH+VDkeJ/9vNCMWodJYGdazZP/LmhH7i+CQ6jDNB?=
+ =?us-ascii?Q?xLnA1rfstmZG2FvxiCEvlOTNiB/c/5FOZ+nnDERZ1mGvdydm4c4RmqvWZb9y?=
+ =?us-ascii?Q?al2IeBnxVeupj/x0i3xzbmwi72OeqT4ahdzZz+h9qEXQULJONecmlViubqsP?=
+ =?us-ascii?Q?2b9nv8K1jE9jMuOBqZsAPG7+z45GZUH2+u8yXBc0XJHE9p02773isMKTSFVc?=
+ =?us-ascii?Q?FbIB+2lOueNGoAm2eqqy16qQiL1u0Hahf4LM84PaioPH1NH1dA8sxzUCbs2a?=
+ =?us-ascii?Q?W9uJdSGlZYtkVggWzhg7k/EXKPGwAkbRBi7/V+UWCKXdQRiANhDtSglZyeEm?=
+ =?us-ascii?Q?yyDoF90k/UGsvWJ30MI=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7829e566-fba3-422e-d55a-08de2c3c8967
+X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8951.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Nov 2025 16:06:05.0080
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: nG7e5Gth9VmxqPLKwUwHEQIXafgTZv9TepWtR5c4ZJoM9e97xW2J4WKalwbTDWBstE+BsJwTGZ8k3VIvMLEnoA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB12082
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251125_080236_656467_5F694191 
-X-CRM114-Status: UNSURE (   8.12  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251125_080610_692358_D58A126E 
+X-CRM114-Status: GOOD (  25.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,126 +159,142 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
+On Tue, Nov 25, 2025 at 06:06:18PM +0800, Carlos Song wrote:
+> Enable DMA mode for SPI IMX in target mode.
+> Disable the word delay feature for target mode, because target mode should
+> always keep high performance to make sure it can follow the master. Target
+> mode continues to operate in dynamic burst mode.
 
-I am reporting a CSD lockup issue that occurs during kexec on ARM64 hosts,
-which I have traced to the amba-pl011 serial driver waiting for hardware with
-IRQs disabled in the nbcon atomic write path.
+If two paragraph, need extra empty line. If one parapraph, move to previous
+line.
 
+>
+> Signed-off-by: Carlos Song <carlos.song@nxp.com>
+> ---
+>  drivers/spi/spi-imx.c | 78 +++++++++++++++++++++++++++++++------------
+>  1 file changed, 56 insertions(+), 22 deletions(-)
+>
+...
+>
+> @@ -1756,23 +1753,51 @@ static int spi_imx_dma_submit(struct spi_imx_data *spi_imx,
+>
+>  	transfer_timeout = spi_imx_calculate_timeout(spi_imx, transfer->len);
+>
+> -	/* Wait SDMA to finish the data transfer.*/
+> -	time_left = wait_for_completion_timeout(&spi_imx->dma_tx_completion,
+> -						transfer_timeout);
+> -	if (!time_left) {
+> -		dev_err(spi_imx->dev, "I/O Error in DMA TX\n");
+> -		dmaengine_terminate_all(controller->dma_tx);
+> -		dmaengine_terminate_all(controller->dma_rx);
+> -		return -ETIMEDOUT;
+> -	}
+> +	if (!spi_imx->target_mode) {
+> +		/* Wait SDMA to finish the data transfer.*/
+> +		time_left = wait_for_completion_timeout(&spi_imx->dma_tx_completion,
+> +							transfer_timeout);
+> +		if (!time_left) {
+> +			dev_err(spi_imx->dev, "I/O Error in DMA TX\n");
+> +			dmaengine_terminate_all(controller->dma_tx);
+> +			dmaengine_terminate_all(controller->dma_rx);
+> +			return -ETIMEDOUT;
+> +		}
+>
+> -	time_left = wait_for_completion_timeout(&spi_imx->dma_rx_completion,
+> -						transfer_timeout);
+> -	if (!time_left) {
+> -		dev_err(&controller->dev, "I/O Error in DMA RX\n");
+> -		spi_imx->devtype_data->reset(spi_imx);
+> -		dmaengine_terminate_all(controller->dma_rx);
+> -		return -ETIMEDOUT;
+> +		time_left = wait_for_completion_timeout(&spi_imx->dma_rx_completion,
+> +							transfer_timeout);
+> +		if (!time_left) {
+> +			dev_err(&controller->dev, "I/O Error in DMA RX\n");
+> +			spi_imx->devtype_data->reset(spi_imx);
+> +			dmaengine_terminate_all(controller->dma_rx);
+> +			return -ETIMEDOUT;
+> +		}
+> +	} else {
+> +		spi_imx->target_aborted = false;
+> +
+> +		if (wait_for_completion_interruptible(&spi_imx->dma_tx_completion) ||
+> +		    spi_imx->target_aborted) {
 
-PROBLEM SUMMARY:
-================
-During kexec, a CSD lockup occurs when pl011_console_write_atomic() performs
-an unbounded busy-wait for hardware synchronization while IRQs are disabled.
-This blocks other CPUs for extended periods (>11 seconds observed), triggering
-CSD lock timeouts.
+Suppose somewhere set target_aborted to true. I think here should use
+READ_ONCE() to make sure read from memory.
 
+Not sure why here use wait_for_completion_interruptible() but at master
+mode use wait_for_completion_timeout().
 
-KERNEL VERSION:
-===============
-Observed on kernel 6.13, but the code path appears similar in upstream.
+> +			dev_dbg(spi_imx->dev, "I/O Error in DMA TX interrupted\n");
+> +			dmaengine_terminate_all(controller->dma_tx);
+> +			dmaengine_terminate_all(controller->dma_rx);
+> +			return -EINTR;
+> +		}
+> +
+> +		if (wait_for_completion_interruptible(&spi_imx->dma_rx_completion) ||
+> +		    spi_imx->target_aborted) {
+> +			dev_dbg(spi_imx->dev, "I/O Error in DMA RX interrupted\n");
+> +			dmaengine_terminate_all(controller->dma_rx);
+> +			return -EINTR;
+> +		}
+> +
+> +		/*
+> +		 * ECSPI has a HW issue when works in Target mode, after 64 words
+> +		 * writtern to TXFIFO, even TXFIFO becomes empty, ECSPI_TXDATA keeps
+> +		 * shift out the last word data, so we have to disable ECSPI when in
+> +		 * target mode after the transfer completes.
+> +		 */
+> +		if (spi_imx->devtype_data->disable)
+> +			spi_imx->devtype_data->disable(spi_imx);
+>  	}
+>
+>  	return 0;
+> @@ -1895,10 +1920,16 @@ static int spi_imx_dma_package_transfer(struct spi_imx_data *spi_imx,
+>  static int spi_imx_dma_transfer(struct spi_imx_data *spi_imx,
+>  				struct spi_transfer *transfer)
+>  {
+> -	bool word_delay = transfer->word_delay.value != 0;
+> +	bool word_delay = transfer->word_delay.value != 0 && !spi_imx->target_mode;
+>  	int ret;
+>  	int i;
+>
+> +	if (transfer->len > MX53_MAX_TRANSFER_BYTES && spi_imx->target_mode) {
 
+why only target have len limiation?
 
-ERROR MESSAGE:
-==============
-  mlx5_core 0000:03:00.0: Shutdown was called
-  kvm: exiting hardware virtualization
-  arm-smmu-v3 arm-smmu-v3.10.auto: CMD_SYNC timeout at 0x00000103 [hwprod 0x00000104, hwcons 0x00000102]
-  smp: csd: Detected non-responsive CSD lock (#1) on CPU#4, waiting 5000000032 ns for CPU#00 do_nothing (kernel/smp.c:1057)
-  smp:     csd: CSD lock (#1) unresponsive.
-  Sending NMI from CPU 4 to CPUs 0:
-  NMI backtrace for cpu 0
-  pstate: 03401009 (nzcv daif +PAN -UAO +TCO +DIT +SSBS BTYPE=--)
-  pc : pl011_console_write_atomic (./arch/arm64/include/asm/vdso/processor.h:12 drivers/tty/serial/amba-pl011.c:2540)
-  lr : pl011_console_write_atomic (drivers/tty/serial/amba-pl011.c:292 drivers/tty/serial/amba-pl011.c:298 drivers/tty/serial/amba-pl011.c:2539)
-  sp : ffff80010e26fae0
-  pmr: 000000c0
-  x29: ffff80010e26fae0 x28: ffff800082ddb000 x27: 00000000000000e0
-  x26: 0000000000000001 x25: ffff8000826a8de8 x24: 00000000000008eb
-  x23: 0000000000000000 x22: 0000000000000001 x21: 0000000000000000
-  x20: ffff00009c19c880 x19: ffff80010e26fb88 x18: 0000000000000018
-  x17: 696f70646e452065 x16: 4943502032303830 x15: 3130783020737361
-  x14: 6c63203030206570 x13: 746e696f70646e45 x12: 0000000000000000
-  x11: 0000000000000008 x10: 0000000000000000 x9 : ffff800081888d80
-  x8 : 0000000000000018 x7 : 205d313332363336 x6 : 362e31202020205b
-  x5 : ffff000097d4700f x4 : ffff80010e26f99f x3 : ffff800081125220
-  x2 : 0000000000000052 x1 : 000000000000000a x0 : ffff00009c19c880
-  Call trace:
-  pl011_console_write_atomic (./arch/arm64/include/asm/vdso/processor.h:12 drivers/tty/serial/amba-pl011.c:2540) (P)
-  nbcon_emit_next_record (kernel/printk/nbcon.c:1049)
-  __nbcon_atomic_flush_pending_con (kernel/printk/nbcon.c:1517)
-  __nbcon_atomic_flush_pending.llvm.15488114865160659019 (./arch/arm64/include/asm/alternative-macros.h:254 ./arch/arm64/include/asm/cpufeature.h:808 ./arch/arm64/include/asm/irqflags.h:192 kernel/printk/nbcon.c:1562 kernel/printk/nbcon.c:1612)
-  nbcon_atomic_flush_pending (kernel/printk/nbcon.c:1629)
-  printk_kthreads_shutdown (kernel/printk/printk.c:?)
-  syscore_shutdown (drivers/base/syscore.c:120)
-  kernel_kexec (kernel/kexec_core.c:1045)
-  __arm64_sys_reboot (kernel/reboot.c:794 kernel/reboot.c:722 kernel/reboot.c:722)
-  invoke_syscall (arch/arm64/kernel/syscall.c:50)
-  el0_svc_common.llvm.14158405452757855239 (arch/arm64/kernel/syscall.c:?)
-  do_el0_svc (arch/arm64/kernel/syscall.c:152)
-  el0_svc (./arch/arm64/include/asm/alternative-macros.h:254 ./arch/arm64/include/asm/cpufeature.h:808 ./arch/arm64/include/asm/irqflags.h:73 arch/arm64/kernel/entry-common.c:169 arch/arm64/kernel/entry-common.c:182 arch/arm64/kernel/entry-common.c:749)
-  el0t_64_sync_handler (arch/arm64/kernel/entry-common.c:820)
-  el0t_64_sync (arch/arm64/kernel/entry.S:600)
-  smp: csd: Re-sending CSD lock (#1) IPI from CPU#04 to CPU#00
-  Workqueue: events_unbound toggle_allocation_gate
-
-  Call trace:
-  show_stack (arch/arm64/kernel/stacktrace.c:503) (C)
-  dump_stack_lvl (lib/dump_stack.c:122)
-  smp_call_function_many_cond.llvm.3022501501692466737 (lib/dump_stack.c:? kernel/smp.c:305 kernel/smp.c:326 kernel/smp.c:336 kernel/smp.c:884)
-  kick_all_cpus_sync (kernel/smp.c:1076)
-  __jump_label_update (kernel/jump_label.c:522)
-  jump_label_update (kernel/jump_label.c:921)
-  static_key_enable_cpuslocked (kernel/jump_label.c:?)
-  toggle_allocation_gate (kernel/jump_label.c:224 mm/kfence/core.c:849)
-  process_scheduled_works (kernel/workqueue.c:3245 kernel/workqueue.c:3321)
-  worker_thread (./include/linux/list.h:373 kernel/workqueue.c:950 kernel/workqueue.c:3403)
-  kthread (kernel/kthread.c:391)
-  ret_from_fork (arch/arm64/kernel/entry.S:863)
-  smp: csd: CSD lock (#1) got unstuck on CPU#04, CPU#00 released the lock.
-  kexec_core: Starting new kernel
-
-
-ROOT CAUSE ANALYSIS:
-====================
-The issue occurs through the following sequence:
-
-1. System initiates kexec shutdown on an ARM64 host
-2. NBCON enters atomic mode during shutdown (printk_kthreads_shutdown)
-3. NBCON calls pl011_console_write_atomic() with the following call path:
-
-   local_irq_save()
-     __nbcon_atomic_flush_pending_con()
-       pl011_console_write_atomic()
-
-4. Inside pl011_console_write_atomic(), the driver performs an unbounded
-busy-wait for the hardware to become ready before leaving ->write_atomic()
-
-   while ((pl011_read(uap, REG_FR) ^ uap->vendor->inv_fr) & uap->vendor->fr_busy)
-       cpu_relax();            // drivers/tty/serial/amba-pl011.c:2540
-
-5. With IRQs disabled, this busy-wait blocks the CPU for >11 seconds waiting
-for the hardware to clear its busy state.
-
-6. Meanwhile, kfence's toggle_allocation_gate() on another CPU attempts to
-perform a synchronous operation across all CPUs, which correctly triggers a CSD
-lock timeout because CPU#0 is stuck in the busy loop with IRQs disabled.
-
-NOTES:
-======
-
-This is slightly similar to a report I gave a while ago [1] that got
-fixed by Petr's a7df4ed0af77 ("printk: Allow to use the printk kthread
-immediately even for 1st nbcon")
-
-https://lore.kernel.org/all/aGVn%2FSnOvwWewkOW@gmail.com/
-
-QUESTION
-========
-
-1) Should nbcon wait for hardware synchronizations with IRQ disabled?
-2) Can the hardware synchronization be moved of the IRQ disabled path?
-
-Thanks
---breno
+Frank
+> +		dev_err(spi_imx->dev, "Transaction too big, max size is %d bytes\n",
+> +			MX53_MAX_TRANSFER_BYTES);
+> +		return -EMSGSIZE;
+> +	}
+> +
+>  	ret = spi_imx_dma_data_prepare(spi_imx, transfer, word_delay);
+>  	if (ret < 0) {
+>  		transfer->error |= SPI_TRANS_FAIL_NO_START;
+> @@ -2104,7 +2135,7 @@ static int spi_imx_transfer_one(struct spi_controller *controller,
+>  	while (spi_imx->devtype_data->rx_available(spi_imx))
+>  		readl(spi_imx->base + MXC_CSPIRXDATA);
+>
+> -	if (spi_imx->target_mode)
+> +	if (spi_imx->target_mode && !spi_imx->usedma)
+>  		return spi_imx_pio_transfer_target(spi, transfer);
+>
+>  	/*
+> @@ -2116,7 +2147,10 @@ static int spi_imx_transfer_one(struct spi_controller *controller,
+>  		ret = spi_imx_dma_transfer(spi_imx, transfer);
+>  		if (transfer->error & SPI_TRANS_FAIL_NO_START) {
+>  			spi_imx->usedma = false;
+> -			return spi_imx_pio_transfer(spi, transfer);
+> +			if (spi_imx->target_mode)
+> +				return spi_imx_pio_transfer_target(spi, transfer);
+> +			else
+> +				return spi_imx_pio_transfer(spi, transfer);
+>  		}
+>  		return ret;
+>  	}
+> --
+> 2.34.1
+>
 
