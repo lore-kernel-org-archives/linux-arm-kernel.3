@@ -4,99 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E79ED0E6C3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 10:50:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34E7BD0E6C3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 10:55:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=IB2BJ+NjsePf+RBusrruQxj2A7QMZouxVFNIpo9FL7Y=; b=WF5DVjBzfKKiqAnARk4dIekcvN
-	Wl198+tkRGLE58LKD0gMJKRoOY6AZztfps247wIQOM3nLj3u+f+ETH7Pj9SZtT38Z0jz70Y9LhfMn
-	/q8Yd+y3rw3wxMxWgtHnWq++GTFbjjBo7Xe3NV8/kIFbE2NtGl8ORXW0hZQWil8Dya0t6DA/23N3k
-	/M/sfVdwF1FJDixqCaAgAPDNRwqQoi3ARijldCQ6X7DsSMttGyFFbx/N1SbzzZ7W2mRRz5ELrfA7O
-	mn+qm1MdRmxNSOld2v5/EIvi9eZmxEB0BF42TjKTlfX33U4bJy1SNVKqc7Qj4G6e2teGtwWueu2Ts
-	2FikZG7g==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yI/hAgt1yN84sa7TO1laWAMsbF2HgT2Td6qWpvlvHjM=; b=mvRQkmPiuW7VG16GvtvvO32PHM
+	L8UXR55TAFehrkJH/GtG5Z1oG12LK1EchZx8EccAh0y8ohWh0ScbroztaY66E+cZv7L3NuPXjd7je
+	8mbrNKAyTOTlj/T3am9ixmfCTcjf+Zz/yw/rTtaalPrSmSOTLms9wIahMJpuU/nsUH8c+wVJKhXUp
+	cQ65EbNK3nZyw3VyrJxPuDs29qr1fpIL/D9s3bjNP+hfviEo+01Z1v1uICqP8CbuZKYARqeeCDAAn
+	/tzfAClSNP1bg58KQb8NXQCjjfwC8l+nIXoTR9Tk8u13GtgzFxrIYAXvPhoqGp/kOGTDTLVZFnqCO
+	vL6AyheA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNqd8-0000000D9cl-0DP4;
-	Tue, 25 Nov 2025 10:50:42 +0000
-Received: from mx-relay49-hz3.antispameurope.com ([94.100.134.238])
+	id 1vNqhA-0000000D9r5-1peQ;
+	Tue, 25 Nov 2025 10:54:52 +0000
+Received: from mail-m158233.netease.com ([47.251.158.233])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNqd4-0000000D9cA-1PiR
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Nov 2025 10:50:40 +0000
-ARC-Authentication-Results: i=1; mx-gate49-hz3.hornetsecurity.com 1; spf=pass
- reason=mailfrom (ip=94.100.132.6, headerfrom=ew.tq-group.com)
- smtp.mailfrom=ew.tq-group.com
- smtp.helo=hmail-p-smtp01-out04-hz1.hornetsecurity.com; dmarc=pass
- header.from=ew.tq-group.com orig.disposition=pass
-ARC-Message-Signature: a=rsa-sha256;
- bh=IB2BJ+NjsePf+RBusrruQxj2A7QMZouxVFNIpo9FL7Y=; c=relaxed/relaxed;
- d=hornetsecurity.com; h=from:to:date:subject:mime-version:; i=1; s=hse1;
- t=1764067824;
- b=EIAYyYWcP2EjEgXVHiV99Q3x46WJlZbK5+o/GMlGIoxHN3ktrZnUjqH/CxF+BBRDBXGNhZmj
- AiAmWHjypv183LoziKdQvF+UQOYOYlew90V3jFInxgiq+8hQRoxxLFMgnjUdyoKU7Hqa8MFO76S
- W8Zud+CdAReJkXR6j27DJw4knGqnsWWefPs1GOcrUECI/dF6iZ1zkTTz0s1mCuPA+421IbxBAAD
- TGUsPsvyyQ2law65EwGNEprCh7DxzTqb45vTpu/KtJSTwzAYh0T0ZghKphT5rIfVRFtkgbzrzTY
- cWHG9hGmGG5F2iQuvAf9LWmNkFPSgFBah8jl2m5IfewWA==
-ARC-Seal: a=rsa-sha256; cv=none; d=hornetsecurity.com; i=1; s=hse1;
- t=1764067824;
- b=W0TgE5G0Z3R7UVha0JqrVpHbenQtVyEG9R+ICSkCc82r+tdht2FNc/LNB9I/dYCE1/lh67ib
- yfx4oXn02/El6s+MBxeNJV4X24Doqtzf1jI3XiNNOa32OUKr14W3e9dcBRbgsjcyTtBEGgV1anW
- R8IBobCPR8NBr4dTyfDF9NshGBuh8IyIIcffDi/gdhAgJXQuWIY/3woBttiBC7jMRvpnS6A2WyS
- uFmw3BMRQ1BfgtAtZs+dDhcXHH0JtO5chvDmHUNuJmbxsWcpOpe36HjVXYi1KfXbWDIqNVjgcHH
- iBDeCxRUnQVLe+OppSawb1EdwIdhbZ3ZRVtpTqGR5s07Q==
-Received: from he-nlb01-hz1.hornetsecurity.com ([94.100.132.6]) by mx-relay49-hz3.antispameurope.com;
- Tue, 25 Nov 2025 11:50:24 +0100
-Received: from steina-w.tq-net.de (host-82-135-125-110.customer.m-online.net [82.135.125.110])
-	(Authenticated sender: alexander.stein@ew.tq-group.com)
-	by hmail-p-smtp01-out04-hz1.hornetsecurity.com (Postfix) with ESMTPSA id 77AEF220B93;
-	Tue, 25 Nov 2025 11:50:10 +0100 (CET)
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Peng Fan <peng.fan@nxp.com>
-Cc: Alexander Stein <alexander.stein@ew.tq-group.com>,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 1/1] dt-bindings: soc: imx93-media-blk-ctrl: Fix indentation
-Date: Tue, 25 Nov 2025 11:50:05 +0100
-Message-ID: <20251125105006.1612348-1-alexander.stein@ew.tq-group.com>
-X-Mailer: git-send-email 2.43.0
+	id 1vNqh4-0000000D9qE-1tdA;
+	Tue, 25 Nov 2025 10:54:49 +0000
+Received: from [127.0.0.1] (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 2ad58d4a7;
+	Tue, 25 Nov 2025 18:54:38 +0800 (GMT+08:00)
+Message-ID: <d970873f-eb76-432e-a881-72b2c5cb2a9c@rock-chips.com>
+Date: Tue, 25 Nov 2025 18:54:37 +0800
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-cloud-security-sender: alexander.stein@ew.tq-group.com
-X-cloud-security-recipient: linux-arm-kernel@lists.infradead.org
-X-cloud-security-crypt: load encryption module
-X-cloud-security-Mailarchiv: E-Mail archived for: alexander.stein@ew.tq-group.com
-X-cloud-security-Mailarchivtype: outbound
-X-cloud-security-Virusscan: CLEAN
-X-cloud-security-disclaimer: This E-Mail was scanned by E-Mailservice on mx-relay49-hz3.antispameurope.com with 4dFzwz1Gpdz3yZQL
-X-cloud-security-connect: he-nlb01-hz1.hornetsecurity.com[94.100.132.6], TLS=1, IP=94.100.132.6
-X-cloud-security-Digest: 61951b6827d5fb2c244f892ba8d9d357
-X-cloud-security: scantime:1.869
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v10 01/11] usb: typec: Add notifier functions
+To: Heikki Krogerus <heikki.krogerus@linux.intel.com>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Chaoyi Chen <kernel@airkyi.com>,
+ Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+ Peter Chen <hzpeterchen@gmail.com>, Luca Ceresoli
+ <luca.ceresoli@bootlin.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>,
+ Kishon Vijay Abraham I <kishon@kernel.org>, Heiko Stuebner
+ <heiko@sntech.de>, Sandy Huang <hjc@rock-chips.com>,
+ Andy Yan <andy.yan@rock-chips.com>,
+ Yubing Zhang <yubing.zhang@rock-chips.com>,
+ Frank Wang <frank.wang@rock-chips.com>,
+ Andrzej Hajda <andrzej.hajda@intel.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Amit Sunil Dhamne <amitsd@google.com>, Dragan Simic <dsimic@manjaro.org>,
+ Johan Jonker <jbx6244@gmail.com>, Diederik de Haas <didi.debian@cknow.org>,
+ Peter Robinson <pbrobinson@gmail.com>, linux-usb@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, dri-devel@lists.freedesktop.org
+References: <20251120022343.250-1-kernel@airkyi.com>
+ <20251120022343.250-2-kernel@airkyi.com>
+ <2025112102-laurel-mulch-58e4@gregkh>
+ <462ad1bd-7eec-4f26-b383-96b049e14559@rock-chips.com>
+ <2025112402-unopposed-polio-e6e9@gregkh>
+ <a80483de-518d-45d5-b46a-9b70cca5b236@rock-chips.com>
+ <2025112448-brush-porcupine-c851@gregkh>
+ <c9cb7b79-37c8-4fef-97a6-7d6b8898f9c4@rock-chips.com> <aSV_lQYJPxN7oBM-@kuha>
+Content-Language: en-US
+From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+In-Reply-To: <aSV_lQYJPxN7oBM-@kuha>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-HM-Tid: 0a9abaa6b39603abkunmf8a5d99d4f8c0e
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQh1JGFYeTUJCGUIfHkxKSUpWFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSEpPSE
+	xVSktLVUpCS0tZBg++
 DKIM-Signature: a=rsa-sha256;
- bh=IB2BJ+NjsePf+RBusrruQxj2A7QMZouxVFNIpo9FL7Y=; c=relaxed/relaxed;
- d=ew.tq-group.com;
- h=content-type:mime-version:subject:from:to:message-id:date; s=hse1;
- t=1764067824; v=1;
- b=f4Cf8KYbIsAeOggRVLWvcDc5fovtC3mucsPUCcySD0n8aNHwWELByiO0Gu8DpivhK/KJxGLA
- w2YEEXOrvWvCy54DDtxvJkidvdiIseqZjvYKYjKON9gvhw7Rt41Y/KIS5epi4NtPA2JqYdBgGwY
- yKjpbkJBQ0TJZBoIBRs8UFaYFAnsmc83cnAMSHLUsXW8XhIDkFCs0P+jU4aNtPsz0U4mzAydJAL
- 3kFel6SyRmFalBXytDTOjLW1Slb/Q39caoz3ywMcTHq2I2VvLm76pXAciKjGXwGCDKRDR3/28H+
- aA+ob+QGfi8jdmru8viETGXFZHhjGIyEas5qXIxJuyAhg==
+	b=JmPSKE0naaEWonVAqnH+ebFcZ8I+ZaubhDn1Lu1sJwZYovoWm9xlCD0EbQr1LZQl4bFixizGQ6l3gHP2TxaD3Zhphb10gZrS7e/ZMixDHMMTdbLuAApeD/UMfz1ch2jrJqkFmLpsQJTb1gQD3kuOJC3jC94P065Hy9hGENQlW/s=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=yI/hAgt1yN84sa7TO1laWAMsbF2HgT2Td6qWpvlvHjM=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251125_025038_754115_FEB47EDC 
-X-CRM114-Status: GOOD (  10.44  )
+X-CRM114-CacheID: sfid-20251125_025447_594636_4C10A298 
+X-CRM114-Status: GOOD (  49.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,55 +100,168 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Indentation is 4 spaces in DT bindings.
+On 11/25/2025 6:06 PM, Heikki Krogerus wrote:
+> Tue, Nov 25, 2025 at 10:23:02AM +0800, Chaoyi Chen kirjoitti:
+>> On 11/25/2025 12:33 AM, Greg Kroah-Hartman wrote:
+>>> On Mon, Nov 24, 2025 at 04:05:53PM +0800, Chaoyi Chen wrote:
+>>>> Hi Greg,
+>>>>
+>>>> On 11/24/2025 3:10 PM, Greg Kroah-Hartman wrote:
+>>>>
+>>>>> On Mon, Nov 24, 2025 at 09:40:03AM +0800, Chaoyi Chen wrote:
+>>>>>> Hi Greg,
+>>>>>>
+>>>>>> On 11/21/2025 10:07 PM, Greg Kroah-Hartman wrote:
+>>>>>>> On Thu, Nov 20, 2025 at 10:23:33AM +0800, Chaoyi Chen wrote:
+>>>>>>>> From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+>>>>>>>>
+>>>>>>>> Some other part of kernel may want to know the event of typec bus.
+>>>>>>> Be specific, WHAT part of the kernel will need to know this?
+>>>>>> For now, it is DRM.
+>>>>> Then say this.
+>>>> Okay, please refer to the discussion below.
+>>>>
+>>>>>>> And why a new notifier, why not just use the existing notifiers that you
+>>>>>>> already have?  And what is this going to be used for?
+>>>>>> We have discussed this before, but the current bus notifier cannot achieve the expected notification [0].
+>>>>>>
+>>>>>> [0] https://lore.kernel.org/all/aPsuLREPS_FEV3DS@kuha.fi.intel.com/
+>>>>> Then you need to document the heck out of this in the changelog text.
+>>>>> But I'm still not quite understanding why the bus notifier does not work
+>>>>> here, as you only want this information if the usb device is bound to
+>>>>> the bus there, you do not want to know this if it did not complete.
+>>>>>
+>>>>> That thread says you want this not "too late", but why?  What is the
+>>>>> problem there, and how will you handle your code getting loaded after
+>>>>> the typec code is loaded?  Notifier callbacks don't work for that
+>>>>> situation, right?
+>>>> In fact, the typec_register_altmode() function generates two
+>>>> registered events. The first one is the registered event of the port
+>>>> device, and the second one is the registered event of the partner
+>>>> device. The second one event only occurs after a Type-C device is
+>>>> inserted.
+>>>> The bus notifier event does not actually take effect for the port
+>>>> device, because it only sets the bus for the partner device:
+>>>>
+>>>>      /* The partners are bind to drivers */
+>>>>      if (is_typec_partner(parent))
+>>>>          alt->adev.dev.bus = &typec_bus;
+>>> Setting the bus is correct, then it needs to be registered with the
+>>> driver core so the bus link shows up (and a driver is bound to it.)
+>>> That is when the bus notifier can happen, right?
+>> Yes, this is valid for the partner device. But for the port device, since the bus is not specified here, the corresponding bus notifier will not take effect.
+> 
+> Perhaps we should just fix this part and make also the port altmodes
+> part of the bus.
+> 
+> Some background, in case this is not clear; the port alternate mode
+> devices represent the capability of the ports to support specific
+> alternate modes. The partner alternate mode devices do the same
+> for the partner devices attached to the ports, but on top of the
+> showing the capability, they are also used for the alternate mode
+> specific communication using the USB Power Delivery VDM (vendor
+> defined messages). That's why only the partner altmodes are bound
+> to the generic alternate mode drivers.
+> 
+> And that's why the hack where the port altmodes are not added to the
+> bus. But maybe it's not needed.
+> 
+> Chaoyi, can you try the attached patch?
+> 
 
-Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
----
- .../soc/imx/fsl,imx93-media-blk-ctrl.yaml     | 32 +++++++++----------
- 1 file changed, 16 insertions(+), 16 deletions(-)
+Thank you for providing the background information. Maybe this is what
+we really want. I will try this in v11 :)
 
-diff --git a/Documentation/devicetree/bindings/soc/imx/fsl,imx93-media-blk-ctrl.yaml b/Documentation/devicetree/bindings/soc/imx/fsl,imx93-media-blk-ctrl.yaml
-index 34aea58094e55..3173f0c112b0a 100644
---- a/Documentation/devicetree/bindings/soc/imx/fsl,imx93-media-blk-ctrl.yaml
-+++ b/Documentation/devicetree/bindings/soc/imx/fsl,imx93-media-blk-ctrl.yaml
-@@ -96,20 +96,20 @@ examples:
-     #include <dt-bindings/power/fsl,imx93-power.h>
- 
-     system-controller@4ac10000 {
--      compatible = "fsl,imx93-media-blk-ctrl", "syscon";
--      reg = <0x4ac10000 0x10000>;
--      power-domains = <&mediamix>;
--      clocks = <&clk IMX93_CLK_MEDIA_APB>,
--               <&clk IMX93_CLK_MEDIA_AXI>,
--               <&clk IMX93_CLK_NIC_MEDIA_GATE>,
--               <&clk IMX93_CLK_MEDIA_DISP_PIX>,
--               <&clk IMX93_CLK_CAM_PIX>,
--               <&clk IMX93_CLK_PXP_GATE>,
--               <&clk IMX93_CLK_LCDIF_GATE>,
--               <&clk IMX93_CLK_ISI_GATE>,
--               <&clk IMX93_CLK_MIPI_CSI_GATE>,
--               <&clk IMX93_CLK_MIPI_DSI_GATE>;
--               clock-names = "apb", "axi", "nic", "disp", "cam",
--                             "pxp", "lcdif", "isi", "csi", "dsi";
--      #power-domain-cells = <1>;
-+        compatible = "fsl,imx93-media-blk-ctrl", "syscon";
-+        reg = <0x4ac10000 0x10000>;
-+        power-domains = <&mediamix>;
-+        clocks = <&clk IMX93_CLK_MEDIA_APB>,
-+                 <&clk IMX93_CLK_MEDIA_AXI>,
-+                 <&clk IMX93_CLK_NIC_MEDIA_GATE>,
-+                 <&clk IMX93_CLK_MEDIA_DISP_PIX>,
-+                 <&clk IMX93_CLK_CAM_PIX>,
-+                 <&clk IMX93_CLK_PXP_GATE>,
-+                 <&clk IMX93_CLK_LCDIF_GATE>,
-+                 <&clk IMX93_CLK_ISI_GATE>,
-+                 <&clk IMX93_CLK_MIPI_CSI_GATE>,
-+                 <&clk IMX93_CLK_MIPI_DSI_GATE>;
-+        clock-names = "apb", "axi", "nic", "disp", "cam",
-+                      "pxp", "lcdif", "isi", "csi", "dsi";
-+        #power-domain-cells = <1>;
-     };
+>>>> I hope it's not too late. In fact, the notifier here will notify DRM to establish a bridge chain.
+>>> What is a "bridge chain"?
+>> In DRM, the bridge chain is often used to describe the chain connection relationship
+>> of the output of multi level display conversion chips. The bridge chain we are referring to here
+>> is actually a chain  structure formed by connecting various devices using a simple transparent bridge [0].
+>>
+>> For example, the schematic diagram of a bridge chain is as follows:
+>>
+>> DP controller bridge -> DP PHY bridge -> onnn,nb7vpq904m retimer bridge -> fsa4480 analog audio switch bridge -> fusb302 HPD bridge
+>>
+>> Here, apart from the DP controller bridge, the rest are transparent DRM bridges, which are used solely to
+>> describe the link relationships between various devices.
+>>
+>>
+>> [0] https://patchwork.freedesktop.org/patch/msgid/20231203114333.1305826-2-dmitry.baryshkov@linaro.org
+>>>
+>>>> The downstream DP controller driver hopes to obtain the fwnode of the last-level Type-C device
+>>>> through this bridge chain to create a DRM connector. And when a device is inserted,
+>>>> drivers/usb/typec/altmodes/displayport.c can notify the HPD (Hot Plug Detect) event.
+>>> But aren't you just the driver for the "partner device"?
+>>>
+>>> If not, why isn't a real device being created that you then bind to,
+>>> what "fake" type of thing are you attempting to do here that would
+>>> require you to do this out-of-band?
+>> The HPD event is pass by drm_connector_oob_hotplug_event(), which does not use the device in Type-C.
+>> This function will find the corresponding DRM connector device, and the lookup of the DRM connector is
+>> done through the fwnode.
+>>
+>> And the partner device and the port device have the same fwnode.
+>>
+>>>
+>>>> If relying on the second event, the bridge chain may never be established, and the operations of the DP driver will be
+>>>> always deferred. Furthermore, other parts of the display controller driver will also be deferred accordingly.
+>>> What operations?  What exactly is delayed?  You should not be touching a
+>>> device before you have it on your bus, right?
+>> To complete the HPD operation, it is necessary to create a drm connector device that
+>> has the appropriate fwnode. This operation will be carried out by the DP controller driver.
+>>
+>> As you can see, since it cross multiple devices, we need to set the fwnode to the last device fusb302.
+>> This requires relying on the bridge chain. We can register bridges for multiple devices and then connect
+>> them to form a chain. The connection process is completed through drm_bridge_attach().
+>>
+>> A brief example of the process of establishing a bridge chain is as follows, starting from the last bridge:
+>>
+>> step1: fusb302 HPD bridge
+>> step2: fsa4480 analog audio switch bridge -> fusb302 HPD bridge
+>> step3: onnn,nb7vpq904m retimer bridge -> fsa4480 analog audio switch bridge -> fusb302 HPD bridge
+>> step4: DP PHY bridge -> onnn,nb7vpq904m retimer bridge -> fsa4480 analog audio switch bridge -> fusb302 HPD bridge
+>> step5: DP controller bridge -> DP PHY bridge -> onnn,nb7vpq904m retimer bridge -> fsa4480 analog audio switch bridge -> fusb302 HPD bridge
+>>
+>> Step 1 is the most crucial, because essentially, regardless of whether we use notifiers or not, what we ultimately want to achieve is to create an HPD bridge.
+>> The DP controller needs to wait for the subsequent bridge chain to be established because it needs to know the connection relationships of the devices.
+>>
+>> The question now is when to create the HPD bridge, during the registration of the port device or during the registration of the partner device.
+>> If it's the latter, then the delay occurs here.
+>>
+>> And I don't think I'm touching the Type-C device here. I'm just using the bridge chain to get a suitable fwnode and create a suitable DRM connector device.
+>> The subsequent Type-C HPD events will be on the DRM connector device.
+>>
+>> This solution is somewhat complex, and I apologize once again for any confusion caused earlier.
+>>
+>>>
+>>>>>>> Notifiers are a pain, and should almost never be added.  Use real
+>>>>>>> function calls instead.
+>>>>>> In v6, I used direct function calls, but had to switch to notifiers because couldn't resolve the dependencies between DRM and Type-C [1]. Do you have any good ideas? Thank you.
+>>>>> Only allow this DRM code to be built if typec code is enabled, do NOT
+>>>>> use a select, use a depends in the drm code.
+>>>> Sorry, I didn't get your point. Does this mean that the current notifiers approach still needs to be changed to direct function calls?
+>>> If you somehow convince me that the existing bus notifiers will not
+>>> work, yes :)
+>>>
+>>>> If so, then based on the previous discussion, typec should not depend
+>>>> on any DRM components. Does this mean that we should add the if
+>>>> (IS_REACHABLE(CONFIG_DRM_AUX_BRIDGE)) before the direct function call?
+>>> No, do it properly like any other function call to another subsystem.
+>>>
+>>>> Additionally, the current version of CONFIG_DRM_AUX_BRIDGE is selected
+>>>> by the DP driver in patch9.
+>>> Don't do "select" if at all possible, always try to do "depends on".
+>> Thank you for clarifying this. However, CONFIG_DRM_AUX_BRIDGE is not exposed in the menu, and it is not intended for the end user to select it by design. Therefore, I think there still needs to be some place to select it?
+> 
+> You don't "select TYPEC", you already "depend on TYPEC", so you are
+> all set with this one.
+> 
+> thanks,
+> 
+
+Ah, it is.
+
 -- 
-2.43.0
-
+Best, 
+Chaoyi
 
