@@ -4,63 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4F0CD0EE3D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 21:26:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44A68D0EE3D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 21:28:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tSpRIR702+FeMvO11khfPDA+po/fNNhJC4ebj7CI+P8=; b=CyhM5s+HspHlB+zymFG79/dM/5
-	TfJyv13XRVVyRlJpyTJKG01YFsC6a902PkU1/wLYq6MM/x5GTTXIOHL1DmZMQv4KJWO2ZBByUciQ7
-	iA7/wLyd7SiD65h+ygIZSWkGK1KWghCFzEPxJtYzv5XQCKzgPVo1NeFRIwbNnWVAdFDbWe3E1ukeW
-	hXFBfRLzIbbfMoJI6I1Su/zP6dx7buXTbNq5n3QJicPnQVX+yDHFDMRHveXXNHt/RU0/DUEr1fUlj
-	zO2r4/S1cM6B6py1x6q2Yo+narhzN06Zi9p0OVmMfo9GSpk0aKdPoHzIOgiATReQm8DWwR+rGjBzf
-	AP6RxXjA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uwy8lEzu0DXK5GvcEEbZtQoKcEvxsPJIvPgI9uQM5Z4=; b=hLEEry9eF0E0/yhxL+SF5jAHa0
+	9QkuPrll/Da2LVfwvy6HyUG43D1CN5UabNEEYCfdqlsq+iZzpHG+2LZoqsPFcnf1qacuUOsvz4P2E
+	fu7CVsjSr/1uSa/QXIp3vwn/TDvbwXdor5Oy+i7Okrg7wiFDiXsQSUBOscseYXeJ+C1mo2itIl9N2
+	wD16bRRF0zAIkNiW6wHlJ6V6LI2DkWMwP+kVauS3gbcO8e142SHj/uvVDwmy3olSidTxaPEOReCZb
+	tXNJK0+nGXtkFpM25JESVsv7Qb0sTvJpBzkgsaXFvrXeiZQBzYuJmz1WA+kaBe/ZYoCLFZL8yJYTe
+	oV88SoTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vO0Yc-0000000DxlQ-2Pt8;
-	Tue, 25 Nov 2025 21:26:42 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vO0Zx-0000000DxzV-0CKl;
+	Tue, 25 Nov 2025 21:28:05 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vO0Yb-0000000Dxks-0k98
+	id 1vO0Zu-0000000Dxz9-3YBW
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Nov 2025 21:26:41 +0000
+	Tue, 25 Nov 2025 21:28:03 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9C37A600AA;
-	Tue, 25 Nov 2025 21:26:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 25AD0C4CEF1;
-	Tue, 25 Nov 2025 21:26:40 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 2181F43EFD;
+	Tue, 25 Nov 2025 21:28:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D7399C4CEF1;
+	Tue, 25 Nov 2025 21:28:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764106000;
-	bh=j3PFuvojslHLNYmdmCoF9SEmIH4R95D0u/HjVyTT8uw=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=ScWFMkJ1QIkfkGpwHoZvxJn8uc6QJ2SBxnfKVzjoHJzbaAoMYPFDWH6e5hre/DrVs
-	 kT0yl90HJc90N+9huQqq9fb/dK5KXOTehydvzJ+fS/lMsytXH8pphr4KpxIsw6ukUf
-	 70yYrpktNvn8Z1QuVtrdFTP4jRihoqC1HfsgkZzeOoxHV5XlQ4E2gUmC7KwSOF1Eq5
-	 Mt8jg6J6NSD48NhaCXWLRRIgUBQNCT6UnAvRKqnLGeUWmpGZpuSLclz1rGad0Jz2tr
-	 H3ujKq2PDX2yTyCKFPM+NmsNpqulbkQRSTmPoktP95+SrSUyrts0kvV28bYxMnoORw
-	 VbUDZaZj3gfEA==
+	s=k20201202; t=1764106082;
+	bh=Lthp2oIt0CjSTyCBl6DdHeK3C8f8yjc6ypdos1FTR5E=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=CgIVQwWURIbdEZ3ocsensRhZKL7wV1xvWkKKDVbNit1OCAkrfIeYyvEjdmnrc/WnJ
+	 0ZQtSoKlCgewMZ4UKWi61o3MsHQ+eY96LzKigyGHVcQSj9BDvAhwMgJqJuZfYDPkMx
+	 fhK0jT5wwgXCvV+tYevIKTXpj0YudgyN21qUXMtAbPlNDE+jdNt2CHLfbaC+8OBotj
+	 Q9l0MqTSDTXyg9bMiJP9qmT6BTqs2wKAz03bgDfb2PPIr+JBauloeEB36jvAG1Wqhh
+	 TVzKkVFvkKsK0taA215mB//BuTcCRSzNP0I7Li/RBDqMJXsWLFU92GMvMt0FJ4febN
+	 LaBG86xAkv65g==
+Date: Tue, 25 Nov 2025 13:28:00 -0800
 From: Oliver Upton <oupton@kernel.org>
-To: kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	kvm@vger.kernel.org,
-	Marc Zyngier <maz@kernel.org>
-Cc: Oliver Upton <oupton@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	kernel test robot <lkp@intel.com>
-Subject: Re: [PATCH v2] KVM: arm64: Add endian casting to kvm_swap_s[12]_desc()
-Date: Tue, 25 Nov 2025 13:26:37 -0800
-Message-ID: <176410599244.1757287.4209231567146876775.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20251125204848.1136383-1-maz@kernel.org>
-References: <20251125204848.1136383-1-maz@kernel.org>
+To: Marc Zyngier <maz@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Ben Horgan <ben.horgan@arm.com>, will@kernel.org,
+	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	shuah@kernel.org
+Subject: Re: [PATCH v2 0/2] set_id_regs cleanup
+Message-ID: <aSYfYC4UE3H9SDs7@kernel.org>
+References: <20251125101207.1492580-1-ben.horgan@arm.com>
+ <86cy56qgi3.wl-maz@kernel.org>
+ <aSX2CSJEwUYkn5GQ@arm.com>
+ <87cy55galp.wl-maz@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <87cy55galp.wl-maz@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251125_132802_925777_F5027DD5 
+X-CRM114-Status: GOOD (  19.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,18 +77,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 25 Nov 2025 20:48:48 +0000, Marc Zyngier wrote:
-> Keep sparse quiet by explicitly casting endianness conversion
-> when swapping S1 and S2 descriptors.
+On Tue, Nov 25, 2025 at 07:45:22PM +0000, Marc Zyngier wrote:
+> On Tue, 25 Nov 2025 18:31:37 +0000,
+> Catalin Marinas <catalin.marinas@arm.com> wrote:
+> > 
+> > On Tue, Nov 25, 2025 at 03:27:48PM +0000, Marc Zyngier wrote:
+> > > On Tue, 25 Nov 2025 10:12:05 +0000,
+> > > Ben Horgan <ben.horgan@arm.com> wrote:
+> > > > 
+> > > > For this v2 I've dropped the ksft_test accounting fix. Mark Brown has
+> > > > more extensive changes [1] and looks to be a user of the set_id_regs
+> > > > test rather than someone just doing some cleanup. The other change in
+> > > > this series is to remove ARM64_FEATURE_FIELD_BITS from the tools
+> > > > sysreg.h header rather than the kernel version. I'll send a separate
+> > > > patch to remove the kernel version.
+> > > > 
+> > > > Tidies up a few small things in set_id_regs. The removal of
+> > > > ARM64_FEATURE_FIELD_BITS touches other code only so much as it removes
+> > > > the define but set_id_regs.c is the only place its used.
+> > > 
+> > > Acked-by: Marc Zyngier <maz@kernel.org>
+> > 
+> > Thanks Marc. Shall I take these through the arm64 tree, together with
+> > the removal of the macro? They should have probably been a single
+> > series.
 > 
-> 
+> Oliver is in charge of the merge window this time around, so I'll
+> defer to him, but that's absolutely fine from my PoV.
 
-Applied to next, thanks!
+Catalin, please go ahead and apply. I don't believe I have anything that
+will conflict.
 
-[1/1] KVM: arm64: Add endian casting to kvm_swap_s[12]_desc()
-      https://git.kernel.org/kvmarm/kvmarm/c/1625e20fc198
+Acked-by: Oliver Upton <oupton@kernel.org>
 
---
-Best,
+Thanks,
 Oliver
 
