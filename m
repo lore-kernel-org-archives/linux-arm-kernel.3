@@ -4,147 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BCEAD0EE04
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 16:06:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C73BED0EE04
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 16:07:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5cORYgXD24tEvmENoBfdkigftzkce/ZLpD6EvL9fPU8=; b=BbF4VsnIDM4sdJ+tLPIiMoWcEQ
-	//WZqlNToNYgd7Hu0bFoCMaS2eXzz9gHHYKuXi7uYVcK6Aqmoy57q/E/96jXPEeZoYpRCn8DeDRbG
-	RA7Do+GYTkpbsTBRF1Mm7hZJgQRtAULj0mtsryXlmkO/82B5pF5Tx62H7jKvH3ztRJS3nPWct7wmk
-	1yGATW7ke3pTGpVxlQuQ1udt2OzW4Izn5gVKSgHi26qfNmYalQDxROj+iPQEGFJ5H5ZsJ46rQgdIh
-	pSeV4ESdOjFOL3dGT4L4LDA8mQHVhEq80kaCp0uLpjkaZcbYkvBeuJ2h6PoCCjaz8f7ZMj7/+fO5W
-	f14+W98w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=x183q8Lv5lYovCm/drajJTNNl61NFGZ5dpKECcejKow=; b=2OuN+GNpbiukRzSaMQeOk9Z6HQ
+	DdxlAu2YDpNtKCKmhpQkeuVNQduQLjnxiHiWA22WoLcW4+KmbsBjmeOqqdcaBIabhoJ8kHYyL/FBS
+	4C9JCpL7vbldqnfP9ThZIzLMdcH48wQQoxS9IkERQmQviD7RD4CqpTQ9Ntdsgan2oIg0P7YDIrqAp
+	657ohDA4eu9BoqJZZG+WNZEcgWT5qOmiJX7zQvnGMsPu1SPIx1iv0nSBMQ0YIASUuxvIsk67RF2rf
+	NnCBHlFFmqZQ3zxpPT8TGR8DQVP7tz6kR/ed8cTzbiCcMkgtkpmLoSreO4ur6kCL2ZLTvFuoa0BIH
+	r5iCcpvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNvYU-0000000DYPs-2Ebk;
-	Tue, 25 Nov 2025 16:06:14 +0000
-Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNvYQ-0000000DYPT-2cUU
+	id 1vNva6-0000000DYcG-0dD7;
+	Tue, 25 Nov 2025 16:07:54 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vNva2-0000000DYbt-2Nyd
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Nov 2025 16:06:13 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=KQ2Tpw7aoUBtM9vibs2QnZeswtEBmEr8G0t716T2k3+g/hLwj8K/0PZEZHbMe+16zFFGh71Z5Tkc8QvSyqIXHip++gOk2zQweOid3l5abfnNBusfD3VDLdHJhFfHKPzLHxg/ZkzuIRoeDmXC8j98kdiLwin+mZzKCdXkZwJK90UaKwRljI3aTdyqjB9UigE6cTGQa/ybrJuCTmzJjv+EuyGCUEeXikRWD85pEZekF9oJd2gGg9fhDw/1r4L1b8byTxYRkB2kzunqW1vO35DxPojrpCrEVLMzDHKw94FtoG8oX8O8Y1aGnSE/HAG0TisG5+ZHNQEEIblIeFNY39scJA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=5cORYgXD24tEvmENoBfdkigftzkce/ZLpD6EvL9fPU8=;
- b=bLgfUtYKsfkVH8RYFQqDjujW/WP0K7yGBISp6xFczIVC5vCxHAF5VEiGjaF2VZWeqr9lUZ9ALYW+7+Y5CJTkNUNNRZXWI7gV2bKw8f2oQYtcZUBTwL2vNA6/9OAkHBR1S9iz/Rt40o7qvbxE4WRrWlh7mXGNjvdAMoEnPx7zLSVaEYEcAkJFP/F0hOUrIeBx6Tmuk/hm099ro7q5gh3xqJtPlVJqMOv4WX93FWNnerqpe77PlxdVsE4xPDR6eMpdQS1RSByWht5LnyoMzZqTeoEJWLf1gLUotkoWVas1VjK5t6NhxZP7anfW6JJ75rVa7OkzVnFOYl5Na38hxlZ08g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=5cORYgXD24tEvmENoBfdkigftzkce/ZLpD6EvL9fPU8=;
- b=mE90f2lExmRHvE823ZC/3Wwlbp0zReEQN9By3HTTDk9imE8kbtS451uYfuj/+PHBzTGhxByl8oxIuSaz+XGXfn4JDvV78O9J0B5MfHsIXWRGUJGovrhSrbwCF5ITkGQiO75eGBOqBcyVAOaUnY4iLfcLqkaK/mxo11CeZzksBx2cCu7k0A1M75RJlRpxGwJrrJ8np222bBvVLnzcpnNWweKW5wUEyk4SkzNC49rE8m+/HZpI7OBOALpb3ejXa38h3g7EcQYnmKORHDGidOipPVeWIOm7SUeeP9HaKX5sRSEsTfib7HJ+rAaY95LUFxEeyACl0y1aDBwgVAiAXd5cLw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from DU2PR04MB8951.eurprd04.prod.outlook.com (2603:10a6:10:2e2::22)
- by DU4PR04MB12082.eurprd04.prod.outlook.com (2603:10a6:10:645::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9343.18; Tue, 25 Nov
- 2025 16:06:06 +0000
-Received: from DU2PR04MB8951.eurprd04.prod.outlook.com
- ([fe80::753c:468d:266:196]) by DU2PR04MB8951.eurprd04.prod.outlook.com
- ([fe80::753c:468d:266:196%4]) with mapi id 15.20.9366.009; Tue, 25 Nov 2025
- 16:06:05 +0000
-Date: Tue, 25 Nov 2025 11:05:58 -0500
-From: Frank Li <Frank.li@nxp.com>
-To: Carlos Song <carlos.song@nxp.com>
-Cc: broonie@kernel.org, hawnguo@kernel.org, s.hauer@pengutronix.de,
-	kernel@pengutronix.de, festevam@gmail.com,
-	linux-spi@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 6/6] spi: imx: enable DMA mode for target operation
-Message-ID: <aSXT5tzhfHYVUrGy@lizhi-Precision-Tower-5810>
-References: <20251125100618.2159770-1-carlos.song@nxp.com>
- <20251125100618.2159770-7-carlos.song@nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251125100618.2159770-7-carlos.song@nxp.com>
-X-ClientProxiedBy: PH7P220CA0052.NAMP220.PROD.OUTLOOK.COM
- (2603:10b6:510:32b::34) To DU2PR04MB8951.eurprd04.prod.outlook.com
- (2603:10a6:10:2e2::22)
+	Tue, 25 Nov 2025 16:07:52 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 36089168F;
+	Tue, 25 Nov 2025 08:07:41 -0800 (PST)
+Received: from [10.57.74.181] (unknown [10.57.74.181])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8F5C83F6A8;
+	Tue, 25 Nov 2025 08:07:47 -0800 (PST)
+Message-ID: <39801881-0e48-4daf-a195-4af0603a5bf9@arm.com>
+Date: Tue, 25 Nov 2025 16:07:45 +0000
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU2PR04MB8951:EE_|DU4PR04MB12082:EE_
-X-MS-Office365-Filtering-Correlation-Id: 7829e566-fba3-422e-d55a-08de2c3c8967
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|52116014|366016|1800799024|19092799006|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?5NKqNblbUezjTx4E4Fy8NSWvExvzSHNawE9/IHKqS6eG+RFc0TBe92HsbMqT?=
- =?us-ascii?Q?tJc3T3A5A46zcSX0gLBTlw4p9XcXMLDMtUJyVd1mNOjNuDHgIOhq7Z9RA5AD?=
- =?us-ascii?Q?vEow+OWC2Jyy2lEfBrinfBaRuH/RBvAPRG3euCa0zHO/fj1PiS5iR6ZMywWq?=
- =?us-ascii?Q?/PTSSqTFz7JzqUCK2gzr1bkNJP+61V2sy/6asTxAStMZMmTN5HfT5xdpqzZL?=
- =?us-ascii?Q?IQ3P3J1wER/U4I0mWnjhKqkdxs3w9sMshKLgoMO3xbA10gtFEBdmIlq4HBs6?=
- =?us-ascii?Q?WPcs/MVTwnKvGCMEg7hBgKttsv/riKgJ1hZJPuqaFVQansJnhFFXrnB4BOJb?=
- =?us-ascii?Q?InwdNLu4ISApsO4jdBLA9uCRVSCeoChG0MyME39JNkggM4V8lFUPf2Mz1r9J?=
- =?us-ascii?Q?XtZ8cl4sf0FQ+g4tvAdOxr6TLya5w047u1dE/f2B6D4tvB85fktM2m2fSDsF?=
- =?us-ascii?Q?ccnu5wzf4lrdbl5lLOTVo7rdx1JQCILVHHr2fQZyMVI3ewqoORKxOlGIvAPZ?=
- =?us-ascii?Q?8jVWjJSSxPlCEikYCftfLO+USqHQpAgHk6ZEBdDM62UrBRKHY5+c3vagTAAj?=
- =?us-ascii?Q?C1nFsXWyjGQEDuaGkd617z8eYoI/q026IBeElJIKFCDq6pu9vSVJZhoPxaeW?=
- =?us-ascii?Q?n/mddTqXU5h+k/StdKs9Fpb9DQcGfssUkKfDhQ2Fzr9yYXcBRaU1fMuMJF6U?=
- =?us-ascii?Q?9QEqC9kKXTnkvbOyWXC1dIWzhRrAdk6u34KzXC/g03Z7ojMUBMF4NF60NGJd?=
- =?us-ascii?Q?EysfVEXa0fbVZ+dp62uhggek3Pvdy6GeF4Gv60TN1O9P+fRp1jDm/xm2H32/?=
- =?us-ascii?Q?VvdJ5kJ0+BNVnFo4IkrlIln/dXtZK9KZQJS60rExJIrKkyOf/UYfbAbRCWKl?=
- =?us-ascii?Q?DF6IuN7s59nHii5CaQuz5ONxSx13HPWrJpS/4h1Ku0Oh+1lCyxBJsHMXZJVE?=
- =?us-ascii?Q?3LqpwoWRsqZDgoRrVAPyly52958Ob3RN9T8GqtCwi/5/K59rWQcWPHnXVnof?=
- =?us-ascii?Q?EcxuO4Mfzt0Qi3nJd/adUZ/UTnTcFfOAMo0VjU20TKj72XGNgXOmbR3CBF3l?=
- =?us-ascii?Q?EsDPuIGCulFyvq3oFqMAQyYUsLz+XCi0fG++88igHCRynYDT7sIigiKvpWOT?=
- =?us-ascii?Q?KwBMKfExGoh+eJEDYSDHNYuL12Ff57vxK6EF1lKG1KLkGoEMwF2TxKaqdIw/?=
- =?us-ascii?Q?O4E219AJ6lEuuEVOB6urvzOzmTSJlle47TGih6GSZgMG9jMmGZC/3sYUoE0i?=
- =?us-ascii?Q?c4cRTixhco6qfG0Ci1lBRnlGpvGFeaFg3MQiApCRYEQ+TsckAcw+bhXxZNuA?=
- =?us-ascii?Q?0+2NW5bESmIRvhJR1azyGzsxmRqOxyr3oAt66nbM725APKuxPseSSl77Jees?=
- =?us-ascii?Q?JGy1/sYCSXh2sR3Yau2V5/bP1b23qCabRpPW+hLdHvlyRSC9AQtzVNbtarnd?=
- =?us-ascii?Q?zgM9SCh5Ne+XWAMCuj4eGF987FP0mTybJzCsEWC8LPcU8V/RM7lnHhw0LiEB?=
- =?us-ascii?Q?f8BoUxcLmt7FsL6OZjzJlpNCT4Hj44k/T0Gp?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8951.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(52116014)(366016)(1800799024)(19092799006)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?jrR3oytEvRhnUoSqAXyyPQCoo4G275TTyHyiD8Ezmkry2Mqnp4D/l2F07HRr?=
- =?us-ascii?Q?+YLRvATJvyiwOT8+2Y8XvaQA/ntmvtbmTO56vB/K+GlDUlIgWSWWp6o5I4Ol?=
- =?us-ascii?Q?T7jWQ6H1FYVDOfe/MEEeFZJR3RIBtOr30WT+YtwL/b3KhRYQdLQETwsULk4y?=
- =?us-ascii?Q?7yzGe/rZ+PmP8C+6QLBtea6NPvo07sWvzWrtg4Rs8rfatPxV8gW8hBzP+JRm?=
- =?us-ascii?Q?GzH2rHUD77HgWrrWeWYhRn64djU2Z7zVQ65ZCABzJ12xCuqsGLR89t8rBfSW?=
- =?us-ascii?Q?Lw/v37yWDsHO6tcFB+lGlAOEvjFGqbH10w2PSdxvGIn7mjs3rZUGhDJj7A42?=
- =?us-ascii?Q?q3JbiyaBC19yJr/gVASxBXxI2298hHbDOtvL0uTV/LvPmgaUqLbG9qUiLrKc?=
- =?us-ascii?Q?IOYQRGYJwFGC4UeqGpNTpJplKG4p3vmxSB2AugFVWFDBMdARu0cSA/TpcR2L?=
- =?us-ascii?Q?M/Uxgg6rqcW+xykYT8PYVnwJaKhioIcBAuz5WIRUPCE2sE3aGhThoUbqWddA?=
- =?us-ascii?Q?QBZuJjyrm8HhsCNGbVi/TjTJo/vCYQPMTiepbHCGKylagrw3zmySASXNtUry?=
- =?us-ascii?Q?ApHTz3C/MoMsxpRTFYqo/xO6JvRjglIYh5B5ONbBeE7SGiy44V0i2bUVrVZZ?=
- =?us-ascii?Q?KoUSZVzew+r7MTZU9/UUP0tduZXfrUFz4g25eDP3latT+aqaNMdwK2nUnpNq?=
- =?us-ascii?Q?t2yotTZfI+xJIyhCnqREXWuj9FSTZ2wazQxK7eEUQ/Amjxv85bR/EOankf6y?=
- =?us-ascii?Q?EB5xSlaSaQ04kTEuBYi+8jhkcaS0peK1EvcIInaVSnTil2xPCFu+ELJ94VxC?=
- =?us-ascii?Q?3KqqBTnXl7HeD1cMYn00tNCyMpv2n+pRWVND4uy52gJiXXUB6PcfnxjTU919?=
- =?us-ascii?Q?WWPDI56uLq0etvKUny1XPQHHC/o5Tft/ec2L4DL0STrjtlNU9f6EV0kut5yW?=
- =?us-ascii?Q?8YJGOKlqJrtFUM9r0g28GtAlRCnJVk4DkaeZD7apAIAhEeazONsg1rlqyK0B?=
- =?us-ascii?Q?A8tZpIAsQnd+YB7gLr18arGG5B+NrvmVO53/4g5znY97hT/QZLC8dRWoiEaN?=
- =?us-ascii?Q?esioOC8vg/7hfFvpoqovf1zkW6F98UUuw4hdFpb+4wvGoK9uBFNrNPxYJs2j?=
- =?us-ascii?Q?8m4yxBtIvP8LXMtzEyNHMJWOycnDnmCFX9OpV7R42+zJRS/UUgM7mG13EoQC?=
- =?us-ascii?Q?cyxxSRor5sC86ItwFbs0uH+VDkeJ/9vNCMWodJYGdazZP/LmhH7i+CQ6jDNB?=
- =?us-ascii?Q?xLnA1rfstmZG2FvxiCEvlOTNiB/c/5FOZ+nnDERZ1mGvdydm4c4RmqvWZb9y?=
- =?us-ascii?Q?al2IeBnxVeupj/x0i3xzbmwi72OeqT4ahdzZz+h9qEXQULJONecmlViubqsP?=
- =?us-ascii?Q?2b9nv8K1jE9jMuOBqZsAPG7+z45GZUH2+u8yXBc0XJHE9p02773isMKTSFVc?=
- =?us-ascii?Q?FbIB+2lOueNGoAm2eqqy16qQiL1u0Hahf4LM84PaioPH1NH1dA8sxzUCbs2a?=
- =?us-ascii?Q?W9uJdSGlZYtkVggWzhg7k/EXKPGwAkbRBi7/V+UWCKXdQRiANhDtSglZyeEm?=
- =?us-ascii?Q?yyDoF90k/UGsvWJ30MI=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7829e566-fba3-422e-d55a-08de2c3c8967
-X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8951.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Nov 2025 16:06:05.0080
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: nG7e5Gth9VmxqPLKwUwHEQIXafgTZv9TepWtR5c4ZJoM9e97xW2J4WKalwbTDWBstE+BsJwTGZ8k3VIvMLEnoA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB12082
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] KVM: arm64: Convert ICH_HCR_EL2_TDIR cap to
+ EARLY_LOCAL_CPU_FEATURE
+Content-Language: en-GB
+To: Marc Zyngier <maz@kernel.org>, kvmarm@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org
+Cc: Joey Gouly <joey.gouly@arm.com>, Oliver Upton <oupton@kernel.org>,
+ Zenghui Yu <yuzenghui@huawei.com>
+References: <20251125160144.1086511-1-maz@kernel.org>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <20251125160144.1086511-1-maz@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251125_080610_692358_D58A126E 
-X-CRM114-Status: GOOD (  25.45  )
+X-CRM114-CacheID: sfid-20251125_080750_655102_EF9F779D 
+X-CRM114-Status: GOOD (  16.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -159,142 +66,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 25, 2025 at 06:06:18PM +0800, Carlos Song wrote:
-> Enable DMA mode for SPI IMX in target mode.
-> Disable the word delay feature for target mode, because target mode should
-> always keep high performance to make sure it can follow the master. Target
-> mode continues to operate in dynamic burst mode.
+On 25/11/2025 16:01, Marc Zyngier wrote:
+> Suzuki notices that making the ICH_HCR_EL2_TDIR capability a system
+> one isn't a very good idea, should we end-up with CPUs that have
+> asymmetric TDIR support (somehow unlikely, but you never know what
+> level of stupidity vendors are up to). For this hypothetical setup,
+> making this an "EARLY_LOCAL_CPU_FEATURE" is a much better option.
+> 
+> This is actually consistent with what we already do with GICv5
+> legacy interface, so flip the capability over.
+> 
+> Reported-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
+> Fixes: 2a28810cbb8b2 ("KVM: arm64: GICv3: Detect and work around the lack of ICV_DIR_EL1 trapping")
+> Link: https://lore.kerenl.org/r/5df713d4-8b79-4456-8fd1-707ca89a61b6@arm.com
 
-If two paragraph, need extra empty line. If one parapraph, move to previous
-line.
+Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
 
->
-> Signed-off-by: Carlos Song <carlos.song@nxp.com>
 > ---
->  drivers/spi/spi-imx.c | 78 +++++++++++++++++++++++++++++++------------
->  1 file changed, 56 insertions(+), 22 deletions(-)
->
-...
->
-> @@ -1756,23 +1753,51 @@ static int spi_imx_dma_submit(struct spi_imx_data *spi_imx,
->
->  	transfer_timeout = spi_imx_calculate_timeout(spi_imx, transfer->len);
->
-> -	/* Wait SDMA to finish the data transfer.*/
-> -	time_left = wait_for_completion_timeout(&spi_imx->dma_tx_completion,
-> -						transfer_timeout);
-> -	if (!time_left) {
-> -		dev_err(spi_imx->dev, "I/O Error in DMA TX\n");
-> -		dmaengine_terminate_all(controller->dma_tx);
-> -		dmaengine_terminate_all(controller->dma_rx);
-> -		return -ETIMEDOUT;
-> -	}
-> +	if (!spi_imx->target_mode) {
-> +		/* Wait SDMA to finish the data transfer.*/
-> +		time_left = wait_for_completion_timeout(&spi_imx->dma_tx_completion,
-> +							transfer_timeout);
-> +		if (!time_left) {
-> +			dev_err(spi_imx->dev, "I/O Error in DMA TX\n");
-> +			dmaengine_terminate_all(controller->dma_tx);
-> +			dmaengine_terminate_all(controller->dma_rx);
-> +			return -ETIMEDOUT;
-> +		}
->
-> -	time_left = wait_for_completion_timeout(&spi_imx->dma_rx_completion,
-> -						transfer_timeout);
-> -	if (!time_left) {
-> -		dev_err(&controller->dev, "I/O Error in DMA RX\n");
-> -		spi_imx->devtype_data->reset(spi_imx);
-> -		dmaengine_terminate_all(controller->dma_rx);
-> -		return -ETIMEDOUT;
-> +		time_left = wait_for_completion_timeout(&spi_imx->dma_rx_completion,
-> +							transfer_timeout);
-> +		if (!time_left) {
-> +			dev_err(&controller->dev, "I/O Error in DMA RX\n");
-> +			spi_imx->devtype_data->reset(spi_imx);
-> +			dmaengine_terminate_all(controller->dma_rx);
-> +			return -ETIMEDOUT;
-> +		}
-> +	} else {
-> +		spi_imx->target_aborted = false;
-> +
-> +		if (wait_for_completion_interruptible(&spi_imx->dma_tx_completion) ||
-> +		    spi_imx->target_aborted) {
+>   arch/arm64/kernel/cpufeature.c | 6 +++---
+>   1 file changed, 3 insertions(+), 3 deletions(-)
+> 
+> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+> index 5de51cb1b8fe2..75fb9a0efcc8e 100644
+> --- a/arch/arm64/kernel/cpufeature.c
+> +++ b/arch/arm64/kernel/cpufeature.c
+> @@ -2325,14 +2325,14 @@ static bool can_trap_icv_dir_el1(const struct arm64_cpu_capabilities *entry,
+>   
+>   	BUILD_BUG_ON(ARM64_HAS_ICH_HCR_EL2_TDIR <= ARM64_HAS_GICV3_CPUIF);
+>   	BUILD_BUG_ON(ARM64_HAS_ICH_HCR_EL2_TDIR <= ARM64_HAS_GICV5_LEGACY);
+> -	if (!cpus_have_cap(ARM64_HAS_GICV3_CPUIF) &&
+> +	if (!this_cpu_has_cap(ARM64_HAS_GICV3_CPUIF) &&
+>   	    !is_midr_in_range_list(has_vgic_v3))
+>   		return false;
+>   
+>   	if (!is_hyp_mode_available())
+>   		return false;
+>   
+> -	if (cpus_have_cap(ARM64_HAS_GICV5_LEGACY))
+> +	if (this_cpu_has_cap(ARM64_HAS_GICV5_LEGACY))
+>   		return true;
+>   
+>   	if (is_kernel_in_hyp_mode())
+> @@ -2863,7 +2863,7 @@ static const struct arm64_cpu_capabilities arm64_features[] = {
+>   		 */
+>   		.desc = "ICV_DIR_EL1 trapping",
+>   		.capability = ARM64_HAS_ICH_HCR_EL2_TDIR,
+> -		.type = ARM64_CPUCAP_SYSTEM_FEATURE,
+> +		.type = ARM64_CPUCAP_EARLY_LOCAL_CPU_FEATURE,
+>   		.matches = can_trap_icv_dir_el1,
+>   	},
+>   #ifdef CONFIG_ARM64_E0PD
 
-Suppose somewhere set target_aborted to true. I think here should use
-READ_ONCE() to make sure read from memory.
-
-Not sure why here use wait_for_completion_interruptible() but at master
-mode use wait_for_completion_timeout().
-
-> +			dev_dbg(spi_imx->dev, "I/O Error in DMA TX interrupted\n");
-> +			dmaengine_terminate_all(controller->dma_tx);
-> +			dmaengine_terminate_all(controller->dma_rx);
-> +			return -EINTR;
-> +		}
-> +
-> +		if (wait_for_completion_interruptible(&spi_imx->dma_rx_completion) ||
-> +		    spi_imx->target_aborted) {
-> +			dev_dbg(spi_imx->dev, "I/O Error in DMA RX interrupted\n");
-> +			dmaengine_terminate_all(controller->dma_rx);
-> +			return -EINTR;
-> +		}
-> +
-> +		/*
-> +		 * ECSPI has a HW issue when works in Target mode, after 64 words
-> +		 * writtern to TXFIFO, even TXFIFO becomes empty, ECSPI_TXDATA keeps
-> +		 * shift out the last word data, so we have to disable ECSPI when in
-> +		 * target mode after the transfer completes.
-> +		 */
-> +		if (spi_imx->devtype_data->disable)
-> +			spi_imx->devtype_data->disable(spi_imx);
->  	}
->
->  	return 0;
-> @@ -1895,10 +1920,16 @@ static int spi_imx_dma_package_transfer(struct spi_imx_data *spi_imx,
->  static int spi_imx_dma_transfer(struct spi_imx_data *spi_imx,
->  				struct spi_transfer *transfer)
->  {
-> -	bool word_delay = transfer->word_delay.value != 0;
-> +	bool word_delay = transfer->word_delay.value != 0 && !spi_imx->target_mode;
->  	int ret;
->  	int i;
->
-> +	if (transfer->len > MX53_MAX_TRANSFER_BYTES && spi_imx->target_mode) {
-
-why only target have len limiation?
-
-Frank
-> +		dev_err(spi_imx->dev, "Transaction too big, max size is %d bytes\n",
-> +			MX53_MAX_TRANSFER_BYTES);
-> +		return -EMSGSIZE;
-> +	}
-> +
->  	ret = spi_imx_dma_data_prepare(spi_imx, transfer, word_delay);
->  	if (ret < 0) {
->  		transfer->error |= SPI_TRANS_FAIL_NO_START;
-> @@ -2104,7 +2135,7 @@ static int spi_imx_transfer_one(struct spi_controller *controller,
->  	while (spi_imx->devtype_data->rx_available(spi_imx))
->  		readl(spi_imx->base + MXC_CSPIRXDATA);
->
-> -	if (spi_imx->target_mode)
-> +	if (spi_imx->target_mode && !spi_imx->usedma)
->  		return spi_imx_pio_transfer_target(spi, transfer);
->
->  	/*
-> @@ -2116,7 +2147,10 @@ static int spi_imx_transfer_one(struct spi_controller *controller,
->  		ret = spi_imx_dma_transfer(spi_imx, transfer);
->  		if (transfer->error & SPI_TRANS_FAIL_NO_START) {
->  			spi_imx->usedma = false;
-> -			return spi_imx_pio_transfer(spi, transfer);
-> +			if (spi_imx->target_mode)
-> +				return spi_imx_pio_transfer_target(spi, transfer);
-> +			else
-> +				return spi_imx_pio_transfer(spi, transfer);
->  		}
->  		return ret;
->  	}
-> --
-> 2.34.1
->
 
