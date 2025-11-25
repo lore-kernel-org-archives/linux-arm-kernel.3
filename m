@@ -4,83 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97AD7D0E6C4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 10:57:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BA3AD0E6C3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 11:00:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=gNOIyqsndGQOXXdpVgh65LPrGWqk+xJmkNe4l+FKetE=; b=rb9WFdL79xz4APiwmcMa4/tjjB
-	maG0+8+gSAxReGTMJO3Abqe/HnlOphy6dkCzE4qh9goOO6P1ka6XXaoz4iIdBcPUEAtZCY9fV5nLW
-	6RgLg4Uu3s7Mi+08Zt8TLgqBfnLkuNzKRKUd7s6XU/NWUrSyTSdKrqBQtLN4sYsqn2CINwBXvFMi4
-	nUNrN1OLE9nDaIV7ImgodUEMcMaxAOJjWMriqZ9IApCISdP0kiGCSOvzlVL70orE/OC2P9lcXQW0i
-	gR1QfwD2mJIJULfXdwop7Fd6Qd5s9TvjjA7JtXA/dmWZDz8rX4piWXufDksQmHDo2SgBqvgZpw/Ag
-	3FDSfK+g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=y2JQER0lFK1M26fgvZXl0qEaOQl6f/vBNAqV/ub35qM=; b=YZwzfgLaYFD5qhFofDZxNc6Wu5
+	KhXt9UPd6IQoCDF7oMi6hWhOUZ1KxCyWVAeoE5QiigCkx+KinOpB5aXSvSBCWrx+v/zWVpQdpMW2J
+	Matp40BMTe/uoT6LzWRjIckxkhUeiLbC92npkeRmFJRbue/u71R8Hish9Gx9aMdzirY4goUs25ug2
+	EXG6IzPAd8cYfPn8dai7K3+NDsDzXM+OTM/qfBiLYijxfkK5kUTkP6wLlFim6OPbA+rHWtymhYvRx
+	2FjFdTra+n287lD7/zsbUoJ6JtKdeK3idGtjWOuU/lh1nirrj4Q2fKAq3m5SCcOMvofjTSVTmb3o9
+	5jFAl3aw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNqj7-0000000DA8e-28i8;
-	Tue, 25 Nov 2025 10:56:53 +0000
-Received: from mailgw01.mediatek.com ([216.200.240.184])
+	id 1vNqmw-0000000DAfz-25e6;
+	Tue, 25 Nov 2025 11:00:50 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNqiz-0000000DA4d-10Jk;
-	Tue, 25 Nov 2025 10:56:46 +0000
-X-UUID: 6b717d1ac9ed11f09f706fa2197c6ceb-20251125
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=gNOIyqsndGQOXXdpVgh65LPrGWqk+xJmkNe4l+FKetE=;
-	b=fbBITHrh7PPruvSZW+R2GOSa1nWUZDmhM9H0YXlRXxsK/B0y68vDurjFinFEf0jdcM3fIokzEFZAOkq9gJXOYJpXvIRfrYiCPx/+XJd5HfwaGisrsjAlYcqfDY13dhGHzehUQscfTYlw1GSri7yLxsbQyqm+1+eszATyKP5GkAw=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.6,REQID:05ac54d7-4ac0-4b0b-acfb-d2d4f42aa63d,IP:0,UR
-	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
-	elease,TS:0
-X-CID-META: VersionHash:a9d874c,CLOUDID:d4be0783-b6af-4b29-9981-6bf838f9504d,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102|836|888|898,TC:-5,Content:0|15|5
-	0,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OS
-	A:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 6b717d1ac9ed11f09f706fa2197c6ceb-20251125
-Received: from mtkmbs10n2.mediatek.inc [(172.21.101.183)] by mailgw01.mediatek.com
-	(envelope-from <macpaul.lin@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 299024937; Tue, 25 Nov 2025 03:56:39 -0700
-Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
- MTKMBS09N1.mediatek.inc (172.21.101.35) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1748.26; Tue, 25 Nov 2025 18:56:36 +0800
-Received: from mtksitap99.mediatek.inc (10.233.130.16) by
- mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1748.26 via Frontend Transport; Tue, 25 Nov 2025 18:56:36 +0800
-From: Macpaul Lin <macpaul.lin@mediatek.com>
-To: Ulf Hansson <ulf.hansson@linaro.org>, Matthias Brugger
-	<matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>,
-	=?UTF-8?q?N=C3=ADcolas=20F=20=2E=20R=20=2E=20A=20=2E=20Prado?=
-	<nfraprado@collabora.com>, Macpaul Lin <macpaul.lin@mediatek.com>, "Chen-Yu
- Tsai" <wenst@chromium.org>, <linux-pm@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-mediatek@lists.infradead.org>
-CC: Weiyi Lu <Weiyi.Lu@mediatek.com>, Jian Hui Lee
-	<jianhui.lee@canonical.com>, Irving-CH Lin <Irving-CH.Lin@mediatek.com>,
-	<conor@kernel.org>, <krzk@kernel.org>, Louis-Alexis Eyraud
-	<louisalexis.eyraud@collabora.com>, Bear Wang <bear.wang@mediatek.com>,
-	"Pablo Sun" <pablo.sun@mediatek.com>, Ramax Lo <ramax.lo@mediatek.com>,
-	Macpaul Lin <macpaul@gmail.com>, MediaTek Chromebook Upstream
-	<Project_Global_Chrome_Upstream_Group@mediatek.com>
-Subject: [PATCH] pmdomains: mtk-pm-domains: improve spinlock recursion fix in probe
-Date: Tue, 25 Nov 2025 18:56:17 +0800
-Message-ID: <20251125105617.1564725-1-macpaul.lin@mediatek.com>
-X-Mailer: git-send-email 2.45.2
+	id 1vNqms-0000000DAfa-2DWW
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 25 Nov 2025 11:00:49 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 960EE4185E;
+	Tue, 25 Nov 2025 11:00:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7036CC4CEF1;
+	Tue, 25 Nov 2025 11:00:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1764068445;
+	bh=QiOgoJoXqDk9M6kPeTKYdXRgOzf255a/k246EvsS2gQ=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Yb8IaVk8lxZFuHa84VJqUArkGxDdR1eb6k/enxf2TEAf46rpXl/9aoySTcS0gYEHI
+	 NXmUrLr/haloP6mbpuZJRRz9kPzaQzfoCe9COK7CAG2TEVRE2bjd1vDnmANEK2aYWP
+	 z0qBsks04D/X/DW8rq+UhwUhXLDePpUar1sRQsqbkkZvmTIJp6fEgy8qDtYM+D8gfj
+	 BGFQDR1pAl9J91CsWuOA2AAzZZK9aF3liUM4XPSWWixCuNxNYkItV9ARC0O1AdIgLx
+	 XFuyIjfA7WO9kf3NBNuJPwc1EoYSAZpvvsIzm6Fq3dP8ykasNKiUDAraOr2jFb1zHj
+	 T82gAXSDVItFQ==
+Message-ID: <25ee55eb-91d6-4da2-a798-b704acfae4fe@kernel.org>
+Date: Tue, 25 Nov 2025 12:00:41 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-MTK: N
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] dt-bindings: firmware: coreboot: Convert to YAML
+To: Chen-Yu Tsai <wenst@chromium.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
+ chrome-platform@lists.linux.dev, Julius Werner <jwerner@chromium.org>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20251125064851.3781993-1-wenst@chromium.org>
+ <20251125-outgoing-boisterous-millipede-6dabaf@kuoka>
+ <CAGXv+5FPaJMuN7wCP7g0Rxa0mXD3Ru0rxka=m8B_rv+XUkJPWA@mail.gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <CAGXv+5FPaJMuN7wCP7g0Rxa0mXD3Ru0rxka=m8B_rv+XUkJPWA@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251125_025645_333522_AD80B9F7 
-X-CRM114-Status: GOOD (  11.79  )
+X-CRM114-CacheID: sfid-20251125_030046_631986_FF8E8714 
+X-CRM114-Status: GOOD (  21.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,75 +120,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Remove scpsys_get_legacy_regmap() and update usages with
-of_find_node_with_property(). Use an explicit of_node_get(np) to ensure
-correct node referencing against of_node_put() and ensuring it is called
-in a safe context (i.e., not while holding devtree_lock).
+On 25/11/2025 11:41, Chen-Yu Tsai wrote:
+>>> diff --git a/Documentation/devicetree/bindings/firmware/coreboot.yaml b/Documentation/devicetree/bindings/firmware/coreboot.yaml
+>>> new file mode 100644
+>>> index 000000000000..568afd1abb92
+>>> --- /dev/null
+>>> +++ b/Documentation/devicetree/bindings/firmware/coreboot.yaml
+>>> @@ -0,0 +1,60 @@
+>>> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+>>> +%YAML 1.2
+>>> +---
+>>> +$id: http://devicetree.org/schemas/firmware/coreboot.yaml#
+>>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+>>> +
+>>> +title: COREBOOT firmware information
+>>
+>> Coreboot
+> 
+> OK. Side note, coreboot is stylized in all lowercase letters.
+> Should I follow that or just use standard English rules?
 
-If fwnode_count_parents() obtains parent nodes via
-fwnode_for_each_parent_node() and this process requires device tree
-operations, it may result in repeated acquisition of devtree_lock in
-the same thread/context, leading to spinlock recursion errors.
+Just choose one. Here was capitals, but in description not. Preferably
+Coreboot or coreboot
 
-Signed-off-by: Macpaul Lin <macpaul.lin@mediatek.com>
----
- drivers/pmdomain/mediatek/mtk-pm-domains.c | 21 ++++++---------------
- 1 file changed, 6 insertions(+), 15 deletions(-)
 
-diff --git a/drivers/pmdomain/mediatek/mtk-pm-domains.c b/drivers/pmdomain/mediatek/mtk-pm-domains.c
-index 80561d27f2b2..f64f24d520dd 100644
---- a/drivers/pmdomain/mediatek/mtk-pm-domains.c
-+++ b/drivers/pmdomain/mediatek/mtk-pm-domains.c
-@@ -984,18 +984,6 @@ static void scpsys_domain_cleanup(struct scpsys *scpsys)
- 	}
- }
- 
--static struct device_node *scpsys_get_legacy_regmap(struct device_node *np, const char *pn)
--{
--	struct device_node *local_node;
--
--	for_each_child_of_node(np, local_node) {
--		if (of_property_present(local_node, pn))
--			return local_node;
--	}
--
--	return NULL;
--}
--
- static int scpsys_get_bus_protection_legacy(struct device *dev, struct scpsys *scpsys)
- {
- 	const u8 bp_blocks[3] = {
-@@ -1017,7 +1005,8 @@ static int scpsys_get_bus_protection_legacy(struct device *dev, struct scpsys *s
- 	 * this makes it then possible to allocate the array of bus_prot
- 	 * regmaps and convert all to the new style handling.
- 	 */
--	node = scpsys_get_legacy_regmap(np, "mediatek,infracfg");
-+	of_node_get(np);
-+	node = of_find_node_with_property(np, "mediatek,infracfg");
- 	if (node) {
- 		regmap[0] = syscon_regmap_lookup_by_phandle(node, "mediatek,infracfg");
- 		of_node_put(node);
-@@ -1030,7 +1019,8 @@ static int scpsys_get_bus_protection_legacy(struct device *dev, struct scpsys *s
- 		regmap[0] = NULL;
- 	}
- 
--	node = scpsys_get_legacy_regmap(np, "mediatek,smi");
-+	of_node_get(np);
-+	node = of_find_node_with_property(np, "mediatek,smi");
- 	if (node) {
- 		smi_np = of_parse_phandle(node, "mediatek,smi", 0);
- 		of_node_put(node);
-@@ -1048,7 +1038,8 @@ static int scpsys_get_bus_protection_legacy(struct device *dev, struct scpsys *s
- 		regmap[1] = NULL;
- 	}
- 
--	node = scpsys_get_legacy_regmap(np, "mediatek,infracfg-nao");
-+	of_node_get(np);
-+	node = of_find_node_with_property(np, "mediatek,infracfg-nao");
- 	if (node) {
- 		regmap[2] = syscon_regmap_lookup_by_phandle(node, "mediatek,infracfg-nao");
- 		num_regmaps++;
--- 
-2.45.2
+> 
+>>> +
+>>> +maintainers:
+>>> +  - Julius Werner <jwerner@chromium.org>
+>>> +
+>>> +description:
+>>> +  The device tree node to communicate the location of coreboot's
+>>> +  memory-resident bookkeeping structures to the kernel. Coreboot's
+>>> +  FIT image payload can insert the node into the device tree. If a
+>>> +  second-stage bootloader (a coreboot "payload") is used, then it
+>>> +  is responsible for inserting the node.
+>>> +
+>>> +properties:
+>>> +  compatible:
+>>> +    const: coreboot
+>>
+>> Blank line (it is always here, there is no example without, which makes
+>> me wonder which file you took as starting point)
+> 
+> I actually converted the existing text file directly, copying
+> boilerplate, i.e. the top few lines, from another file.
+> 
+>>> +  reg:
+>>> +    description: Address and length of the following two memory regions
+>>
+>> Drop description, redundant.
+> 
+> Ack.
+> 
+>>> +    items:
+>>> +      - description:
+>>> +          The coreboot table. This is a list of variable-sized descriptors
+>>> +          that contain various compile- and run-time generated firmware
+>>> +          parameters. It is identified by the magic string "LBIO" in its first
+>>> +          four bytes.
+>>> +
+>>> +          See coreboot's src/commonlib/include/commonlib/coreboot_tables.h for
+>>> +          details.
+>>> +      - description:
+>>> +          The CBMEM area. This is a downward-growing memory region used by
+>>> +          coreboot to dynamically allocate data structures that remain resident.
+>>> +          It may or may not include the coreboot table as one of its members. It
+>>> +          is identified by a root node descriptor with the magic number
+>>> +          0xc0389481 that resides in the topmost 8 bytes of the area.
+>>> +
+>>> +          See coreboot's src/include/imd.h for details.
+>>> +
+>>> +required:
+>>> +  - compatible
+>>> +  - reg
+>>> +
+>>> +additionalProperties: false
+>>> +
+>>> +examples:
+>>> +  - |
+>>> +    firmware {
+>>> +        #address-cells = <1>;
+>>> +        #size-cells = <1>;
+>>> +        ranges;
+>>> +
+>>> +        /* Firmware actually emits "coreboot" node without unit name */
+>>> +        coreboot@fdfea000 {
+>>> +            compatible = "coreboot";
+>>> +            reg = <0xfdfea000 0x264>, <0xfdfea000 0x16000>;
+>>
+>> That's the same address in both places, so the same one entry. You need
+>> two distinctive addresses or binding needs changes to have only one item
+>> as well.
+> 
+> The description does mention that the latter block can include the
+> former. It's really up to the firmware. If you like I can include
+> two examples to cover both cases.
 
+Lovely, I don't think we should accept growing this binding at all until
+coreboot fixes this mess (duplicated entry and missing unit address).
+
+
+Best regards,
+Krzysztof
 
