@@ -4,62 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86FABD0EE00
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 16:39:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF2FDD0EE0A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 16:42:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Date:Message-Id:
-	References:In-Reply-To:From:Subject:Reply-To:MIME-Version:Content-Type:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ec+PJsFNScKvid3I88r05kROVZ4/3JFFDun+if0yz3c=; b=RjbQ4aulTZ71kF2uG+lCBJZfUC
-	4BThY+yTibT0BL8cBrZifLwqFE8ouxhkN7k+BIxhibAM/Ten1AvDTLkWR3d6lkc5P1TC/TvSPUyEN
-	E+gPa3VZh+OmCds0nyW/npgUsepbe3j73+MrgcClVouOV+aDA13+/L/ppAsdo3Sbp37isTnQ8LmuV
-	kHJioClpsv4kdsBI2C4dl6+9uu76j/Hx1f6mdmHxckHuLjERFHEIggKBxfiaAmcFeU5YeJqIFO7q+
-	dy8no4fMStILNKu+s9x1j9oklDBxhHRZzEvBKav6DNpMZQGLq8lMjg6wZH/BO1oebGZbQwFn+C5pQ
-	siUfrg4Q==;
+	bh=RqI/He4CXhxTqt1ORMpFG3AopoID5E8hGxslNMITl9U=; b=qH0WZHE4ELdLgWh0W1dev6gugP
+	aF249h7dgw8NJyrvNXU3/lyJ+db8cBsQN0SR4NAsrVOYY7k86PIYYFH+zi8gS+JVu4k/dMBSCZw4/
+	hHCQAsz2UA0iZWNQkug4+iPiRuFksot1bkreqXKpAkRUCerPwRH+tMPSVWKWo5qEQWaJZBSWGWmXL
+	LzYhH+bb1cDmt45m4S9sOa6WRP4fLXzaoomjzrRDjCnOAgZ14pTEuz5nzq3sdLnJR8rFRHtFtFpeD
+	0Tp2s/qTvVf5jbKtqFZ5ChgVHKLhyYl/G60o00W2tlnwEEuQA8+Osjd7wJkzTkBUml0itmSMI5iA7
+	/kQqvIlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNw4u-0000000Dbma-28Z7;
-	Tue, 25 Nov 2025 16:39:44 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vNw7P-0000000DbxF-0432;
+	Tue, 25 Nov 2025 16:42:19 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNw4t-0000000DbmT-2sgK
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Nov 2025 16:39:43 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D41CE60052;
-	Tue, 25 Nov 2025 16:39:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 84F33C4CEF1;
-	Tue, 25 Nov 2025 16:39:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764088782;
-	bh=iZThQimlsG8TKf8OL5N1/FhDLMdo23++qLMrXiXLtk8=;
-	h=Subject:From:In-Reply-To:References:Date:To:Cc:From;
-	b=g1/vOXSZCwGZaCMPNAmXKnRzLFBmx8j4bua4bdiOJd1/9LohGj4iNLeXVlMwj/OPp
-	 92rIrqjqWjv0hq1BhO7CE32ez4RKMsXWgSEzE3w6sZTBgNK5TLldtopDr3lot4VMcK
-	 R/GUcdHoyNOIsz4hlemBOBhdlKkeBneGHcmiDqNe4hi8sH+ykBRsnTOGi0kOyykcLg
-	 Xgfu4Q7XvY7GtbgK1CTRLK5HxZallq+mtACq6QdH1+KfPP9+SluD1pQHhNvDq5ciQE
-	 gZ1cqskdY+n53mLxNkMipzhT36VkCtqIXYIhlDCvA7hnq2KI/PT6/2iuca4oQBikVG
-	 iLWGWgyjD5FXg==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 33BE3380AA61;
-	Tue, 25 Nov 2025 16:39:06 +0000 (UTC)
-Subject: Re: [GIT PULL] arm64 fixes for 6.18
-From: pr-tracker-bot@kernel.org
-In-Reply-To: <aSXVXLWDyDguHgiA@willie-the-truck>
-References: <aSXVXLWDyDguHgiA@willie-the-truck>
-X-PR-Tracked-List-Id: <linux-kernel.vger.kernel.org>
-X-PR-Tracked-Message-Id: <aSXVXLWDyDguHgiA@willie-the-truck>
-X-PR-Tracked-Remote: git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git tags/arm64-fixes
-X-PR-Tracked-Commit-Id: 165eb13e485c5c25c7cb276ac85f788a2bd200cb
-X-PR-Merge-Tree: torvalds/linux.git
-X-PR-Merge-Refname: refs/heads/master
-X-PR-Merge-Commit-Id: 30f09200cc4aefbd8385b01e41bde2e4565a6f0e
-Message-Id: <176408874468.833675.2451392502687434129.pr-tracker-bot@kernel.org>
-Date: Tue, 25 Nov 2025 16:39:04 +0000
-To: Will Deacon <will@kernel.org>
-Cc: torvalds@linux-foundation.org, catalin.marinas@arm.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, kernel-team@android.com
+	id 1vNw7M-0000000DbwY-1KwN;
+	Tue, 25 Nov 2025 16:42:17 +0000
+From: Thomas Gleixner <tglx@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1764088931;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=RqI/He4CXhxTqt1ORMpFG3AopoID5E8hGxslNMITl9U=;
+	b=BRKm/5YqnAEslcwBxsyMTHuzR9ldnsuWz5QiEuNFqf6Se/BSvMJiR62denHc38fMMV4/eH
+	64t5YjC0QO/W2zS2TC0JL0kvOFnBWPZHF9jcRRykf+l27iFAt+a8QrveFiHX9863iZL5T8
+	U8B4peXW0sJ3fWr0chktkJW9MxnnqjpknThCAy58LcqvYP2Hl5tWO8o1MPrnDe2CiwY4kB
+	rFceVWN50zghNvXg7aWDItckZ3VYOCi66Kgx39EdPemmB5IVLoy5cxJAyZ3nxXRfCgE4Hu
+	vueYJUllGCVGlcc2AVMUHXKWOdq+2JlKWCKT6HVlVrCOyb0fMOCS6SoyurqXbA==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1764088931;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=RqI/He4CXhxTqt1ORMpFG3AopoID5E8hGxslNMITl9U=;
+	b=omlDhUqqI0HGAMnbqE8yDvcl2p3bPEETMZA4RakZOyDhFjiNjQm864/EESg8nt/uuNgwwB
+	kpjfamcMhA9S/5Dw==
+To: niliqiang <ni_liqiang@126.com>, maz@kernel.org
+Cc: ajones@ventanamicro.com, anup@brainfault.org, apatel@ventanamicro.com,
+ atishp@atishpatra.org, bjorn@kernel.org, conor+dt@kernel.org,
+ dai.hualiang@zte.com.cn, deng.weixian@zte.com.cn,
+ devicetree@vger.kernel.org, frowand.list@gmail.com, guo.chang2@zte.com.cn,
+ hu.yuye@zte.com.cn, krzysztof.kozlowski+dt@linaro.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, liu.qingtao2@zte.com.cn,
+ liu.wenhong35@zte.com.cn, ni.liqiang@zte.com.cn, ni_liqiang@126.com,
+ palmer@dabbelt.com, paul.walmsley@sifive.com, robh+dt@kernel.org,
+ saravanak@google.com, sunilvl@ventanamicro.com, wu.jiabao@zte.com.cn
+Subject: Re: [PATCH v16 6/9] irqchip: Add RISC-V advanced PLIC driver for
+ direct-mode
+In-Reply-To: <20251125160731.4902-1-ni_liqiang@126.com>
+References: <87ms4eflvt.wl-maz@kernel.org>
+ <20251125160731.4902-1-ni_liqiang@126.com>
+Date: Tue, 25 Nov 2025 17:42:09 +0100
+Message-ID: <87qztmgj32.ffs@tglx>
+MIME-Version: 1.0
+Content-Type: text/plain
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251125_084216_516767_5039CAAD 
+X-CRM114-Status: UNSURE (   9.71  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,16 +84,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The pull request you sent on Tue, 25 Nov 2025 16:12:12 +0000:
+On Wed, Nov 26 2025 at 00:07, niliqiang wrote:
+> We've noticed that PCIe enumeration order tends to vary across system reboots (for example: first
+> boot showed PC08->PC06->PC10->PC07->PC11->PC09, while second boot showed
+> PC09->PC06->PC08->PC11->PC07->PC10), even though the ACPI firmware consistently reports the root
+> bridge sequence as PC06->PC07->PC08->PC09->PC10->PC11.
+>
+> In our testing, we found that adjusting the registration priority of the aplic driver seems to help
+> ensure the interrupt controller initializes before PCI enumeration, leading to more consistent
+> device ordering.
 
-> git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git tags/arm64-fixes
+You're repeating yourself over and over, but you're missing the point.
 
-has been merged into torvalds/linux.git:
-https://git.kernel.org/torvalds/c/30f09200cc4aefbd8385b01e41bde2e4565a6f0e
+The ACPI table does not provide a sequence, it provides a collection and
+it's nowhere written in stone that this collection has to be processed
+in order.
 
-Thank you!
+If you want a sequence then put dependencies into the table and be done
+with it, no?
 
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/prtracker.html
+Thanks,
+
+        tglx
 
