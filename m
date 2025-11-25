@@ -4,54 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DB5DD0E6F5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 16:12:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D1E1D0E6F5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 16:17:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=zg66MIfEW+duz6kJ+2zQr70CTx7GNtXEtQfGPRXqGdU=; b=W4pvyqQTKUAQdG/mtYPflaxzNQ
-	gkYMceTpEu4n9STubXIuidsnKVkGI1uhwfbpHuHHg4Je0wd2NHsxbekxFvGJKh83DovqIUdD+Vcav
-	8Bqi599u5s+LIXosc18S9V87asazoVgPhrx64f5Fuzrvcl/9AKRxM2SVQAwu2KBrqkxBLxYv1U/1b
-	H6Vnbf6MT9H55tyOx1vHDKZ4SU3omc2Eg71T4gOMl+r9XJ3SfWTmvqYL159MkFfyq081akxI1mNU6
-	N1v/HUiwGoUxyu0Z9eJBkjdDTb2EmrYil1CrJvhcWPvSrpZIyl2HbvmW8nSo5yTmBJHrQIAIJuial
-	bgqlBJ2Q==;
+	bh=2oixCPLWmXb4XmrJDjEvMCSDQw2K3rFeOyW5cd8mN7Y=; b=g2q32ztclZFz2O20TuFrQPMPie
+	DhpRrtAhOaCGRSExDY4DUxxzCxSVVQ4xbSSkYnWfr0kGLLzwCdMikz5iahI0BiHb4hcmOD4yNfuHc
+	f8DLXvXEAqY1icBfW494l6o+5LpClp1IT6SR299OD3VODSbgmcpkmVe8u5zzJdX8Shvt1sQwLYmjr
+	0dwSbPgmn8BYW1EpvLUL9j53zNi0okmy/b8wV8SCJDUlTXWjOB/MgFoWugKPFcy0LqXmsm+TVfCfz
+	vM+JOBH+WraTVuSKCz5u7u5EIoTZ+dxO2pxR4GdTStlMq9tdMBFWD+/oSfWzp/3G1op12Q4+eZB6Q
+	f8GXaWPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNveN-0000000DYyp-1k7u;
-	Tue, 25 Nov 2025 16:12:19 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vNvjb-0000000DZGA-0gNF;
+	Tue, 25 Nov 2025 16:17:43 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNveM-0000000DYyh-0hyE
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Nov 2025 16:12:18 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 511446011F;
-	Tue, 25 Nov 2025 16:12:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D66E6C4CEF1;
-	Tue, 25 Nov 2025 16:12:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764087137;
-	bh=sKdAesoRju7t5yt9nfunvApjuoRxWs5flWmaHfe8950=;
-	h=Date:From:To:Cc:Subject:From;
-	b=cMnpbViVR2B2ZYJ8FUk4h0iTOL3mP0sofnBOBHuUDIa3Y71/raZ7TM7bus0hEifM2
-	 DAC+qpsUPUvHw2gWRS5pr86vtD1nU/0pJwQGyyI472wy8nexke5N50v+vv1zNmZ2+i
-	 0ufyv2xxj8CQvA6hLpkQy5stlvU2SbUd5hK9Z9k921sarvVBAQIF6dlMkgyYYqXT7X
-	 WHVz00xdljjav5n2SoBKZSiR/xasehl4iSEi9jZDWv5ggsAweM53ZuJ0PsU4BErF2A
-	 yptNPY6sKKC8Py7TezyHT6QWJSn3BWFy7XHpo+MQmcYw4OM47UnjSCZWI7eUg6uWat
-	 KqnYg5zpTuIFg==
-Date: Tue, 25 Nov 2025 16:12:12 +0000
-From: Will Deacon <will@kernel.org>
-To: torvalds@linux-foundation.org
-Cc: catalin.marinas@arm.com, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, kernel-team@android.com
-Subject: [GIT PULL] arm64 fixes for 6.18
-Message-ID: <aSXVXLWDyDguHgiA@willie-the-truck>
+	id 1vNvjX-0000000DZFL-4B6r;
+	Tue, 25 Nov 2025 16:17:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1764087456;
+	bh=B2nk7PV+5zaefXrB72GFZ6SD1N4A8I+iUXxYutK2H0s=;
+	h=From:To:Cc:Subject:Date:From;
+	b=OD+EaOhpDL4UiZ+EO/YsVjRFyw0CoiJAO7B8aMXG2WtH6KLmuuKmvC0qzTW4ehYRD
+	 PxxVpFmUsZ8jqwO8DGZ6bm93MrMezla+J+X9eeO/qkY4h1Fpn95brJ2iBot4Lvm5W6
+	 sL1U0Lz4hFDfETbsP8Sv0vcuC97ySF59xXKaBWCtIRNwh3zx1rFU1QlkNCpPXy/kXo
+	 N5L/p0ayZmvKgYpZlDc56uEXFIqadO70elP/vRr4ZWzy0oc4R9u2AfkPNxN+8BxHdi
+	 lxSBfqzq3MPGX94PRegcdYriPtwxiGRJ2Y+Z+N+3u4QCavanSMDxbNlVvHf/RiuBrs
+	 LpHCB1waW+teQ==
+Received: from laura.lan (unknown [IPv6:2001:b07:646b:e2:feae:4183:be92:e051])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: laura.nao)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 64BF717E04D6;
+	Tue, 25 Nov 2025 17:17:35 +0100 (CET)
+From: Laura Nao <laura.nao@collabora.com>
+To: srini@kernel.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	rafael@kernel.org,
+	daniel.lezcano@linaro.org,
+	rui.zhang@intel.com,
+	lukasz.luba@arm.com,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com
+Cc: nfraprado@collabora.com,
+	arnd@arndb.de,
+	colin.i.king@gmail.com,
+	u.kleine-koenig@baylibre.com,
+	andrew-ct.chen@mediatek.com,
+	lala.lin@mediatek.com,
+	bchihi@baylibre.com,
+	frank-w@public-files.de,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-pm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	kernel@collabora.com,
+	wenst@chromium.org,
+	fshao@chromium.org,
+	Laura Nao <laura.nao@collabora.com>
+Subject: [PATCH v5 0/8] Add thermal sensor driver support for Mediatek MT8196
+Date: Tue, 25 Nov 2025 17:16:50 +0100
+Message-Id: <20251125-mt8196-lvts-v4-v5-0-6db7eb903fb7@collabora.com>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Content-Type: text/plain; charset="utf-8"
+X-Change-ID: 20251121-mt8196-lvts-v4-a61fb5c27216
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251125_081740_212191_D0907C40 
+X-CRM114-Status: GOOD (  11.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,57 +96,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Linus,
+This patch series extends the MediaTek LVTS thermal driver to support the
+MT8196 SoC.
 
-Apologies for sending this during the US holidays but please can you
-pull these three straightforward arm64 fixes for 6.18?
+MT8196 requires a different implementation of the lvts_temp_to_raw()
+function.
 
-We've got a revert due to one of the recent CCA commits breaking ACPI
-firmware-based error reporting, a fix for a hard-lockup introduced by a
-prior fix affecting non-default (CONFIG_EXPERT) configurations and
-another ACPI fix for systems using MMIO-based timers.
+To support this, the series introduces:
 
-Other than that, we're looking pretty good.
+- A new struct lvts_platform_ops to allow platform-specific
+  conversion logic between raw sensor values and temperature
+- A variant of the lvts_temp_to_raw() implementation
+- Platform data and controller definitions for MT8196
 
-Cheers,
+Link to v4: https://lore.kernel.org/r/20251121-mt8196-lvts-v4-v4-0-357f955a3176@collabora.com
 
-Will
+Changes in v5:
+- Dropped patch 3
+- Added LVTS_NUM_CAL_OFFSETS_MT7988/LVTS_NUM_CAL_OFFSETS_MT8196 defines
+- Moved code that assembles calibration bytes from the efuse data into 
+  a dedicated lvts_decode_sensor_calibration() helper
+- Fixed prefix in patch 4 commit message
+- Dropped R-b/T-b tags on patch 2
 
---->8
+---
+Laura Nao (8):
+      dt-bindings: thermal: mediatek: Add LVTS thermal controller support for MT8196
+      thermal/drivers/mediatek/lvts: Make number of calibration offsets configurable
+      thermal/drivers/mediatek/lvts: Add platform ops to support alternative conversion logic
+      thermal/drivers/mediatek/lvts: Add lvts_temp_to_raw variant
+      thermal/drivers/mediatek/lvts: Add support for ATP mode
+      thermal/drivers/mediatek/lvts: Support MSR offset for 16-bit calibration data
+      thermal/drivers/mediatek/lvts_thermal: Add MT8196 support
+      dt-bindings: nvmem: mediatek: efuse: Add support for MT8196
 
-The following changes since commit 8e8ae788964aa2573b4335026db4068540fa6a86:
+ .../devicetree/bindings/nvmem/mediatek,efuse.yaml  |   1 +
+ .../bindings/thermal/mediatek,lvts-thermal.yaml    |   2 +
+ drivers/thermal/mediatek/lvts_thermal.c            | 326 +++++++++++++++++++--
+ .../dt-bindings/thermal/mediatek,lvts-thermal.h    |  26 ++
+ 4 files changed, 333 insertions(+), 22 deletions(-)
+---
+base-commit: abadc219d77ce0e61fcac0147cc6cc69164af43e
+change-id: 20251121-mt8196-lvts-v4-a61fb5c27216
 
-  arm64: Reject modules with internal alternative callbacks (2025-11-07 15:00:14 +0000)
-
-are available in the Git repository at:
-
-  git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git tags/arm64-fixes
-
-for you to fetch changes up to 165eb13e485c5c25c7cb276ac85f788a2bd200cb:
-
-  arm64: proton-pack: Fix hard lockup when !MITIGATE_SPECTRE_BRANCH_HISTORY (2025-11-24 13:31:50 +0000)
-
-----------------------------------------------------------------
-arm64 fixes for 6.18
-
-- Avoid hardlockup when CONFIG_MITIGATE_SPECTRE_BRANCH_HISTORY=n
-
-- Fix regression in APEI/GHES error handling
-
-- Fix MMIO timers when probed via ACPI
-
-----------------------------------------------------------------
-Jonathan Marek (1):
-      arm64: proton-pack: Fix hard lockup when !MITIGATE_SPECTRE_BRANCH_HISTORY
-
-Marc Zyngier (1):
-      ACPI: GTDT: Correctly number platform devices for MMIO timers
-
-Will Deacon (1):
-      Revert "arm64: acpi: Enable ACPI CCEL support"
-
- arch/arm64/kernel/acpi.c        | 10 ----------
- arch/arm64/kernel/proton-pack.c |  2 ++
- drivers/acpi/arm64/gtdt.c       |  4 ++--
- 3 files changed, 4 insertions(+), 12 deletions(-)
+Best regards,
+-- 
+Laura Nao <laura.nao@collabora.com>
 
