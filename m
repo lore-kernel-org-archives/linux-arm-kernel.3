@@ -4,166 +4,172 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61E7ACFD373
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 02:58:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EAEFCFD374
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 03:06:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jXNRs/9XXgWtQxjvnue+81VvtB40Se3E6I+DAsP8UfU=; b=Di5xP0vgTHOFWnbuB0STYVMVxx
-	L2WKoygCHQ4uRoinowMhMjutV0pk6i20ni47lGcfsh1yngyd3xSthIYUkaFojWIDZBvJmr53HAzfe
-	9WPD/GVVbmlRh5NDhxbatJnCLjLdAL0QousoT08xKUqJL1KDDg5jCxWPSch7IBs+Ig+1a2cnHmj82
-	w1kKJVWb1Xtx+yGx46PV5DB7w9ABk+SmcXt7N1EWvbYlIWcHhlqIJ+Uaecx6M5IRWczjDL3MPN/Sq
-	vl4KNnu6xRMv4egM7PM+H2ltoFnasdIwcDWYgb+cKe2cD4Il8e+PxDWSeITwIZ1lZnw8Rd8oTseFA
-	9nv+cpTw==;
+	bh=06IMffk7mSl4K6Cb8NQNv2+GCZ4TxZfSyWF0LqOZl0A=; b=Rhh000yYnfb9jP9lH+oADsnF+5
+	yks3MVt58bM14xtl51kJAhV0+NCfoV298r0OmRNQB7fULAF91phf3N+6ZpTCGvG6nzskk3VeCx51t
+	1UvwzNitDD0/S6nRJ+xn3MBFoQH+VbqOkT7V6nX0be3n9157GCPSmNQmbTyxPz3TvOZVQDzlZQMOL
+	LNBhPoAcNYrpISghtjLNgcKFPJAAQFLzX835jeiEEyzjh5lwIPDFQiw2kPWiCmUyscXy97vblmDpu
+	Aq4fr96+BYE/u9jkHgmdwQpJUAXUxqI5b7E3lZjILGxpDYCZ9xpR6M0dWt0IXIy1jeskSeByb3Rwm
+	+xi2jMeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNjGT-0000000CeHc-2ks4;
-	Tue, 25 Nov 2025 02:58:49 +0000
-Received: from mail-japanwestazon11022084.outbound.protection.outlook.com ([40.107.75.84] helo=OS8PR02CU002.outbound.protection.outlook.com)
+	id 1vNjOI-0000000Ceo8-3YqW;
+	Tue, 25 Nov 2025 03:06:54 +0000
+Received: from mail-northeuropeazon11012017.outbound.protection.outlook.com ([52.101.66.17] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNjGQ-0000000CeH7-1h7H
+	id 1vNjOG-0000000Cenh-1r6i
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Nov 2025 02:58:48 +0000
+	Tue, 25 Nov 2025 03:06:53 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=cZDheLo2w74ul70hmqFzBPuoWGNSNy2Fg5TVuewbxPVmADLp2QNa9QVrIONaX0jKiCfPmWRRTAfUaHiVhRwo6lOmiwp630mCh+ycVIKWhyNAEFt6Om0+PNwOpjeVKMuyJNB32ZSDoEs55Td0UwX24ht7UGVldh9tx/xhJXOhL6EBzwr+Ax1U/bv9jJIEIVBVrwlEK6gK6iucL9WWHjIW/3VUS0zJx4Xu02l8AG2YOpaPW7Bs+TJZ7aaIUY0Z9L+MX8n100CNcjfPhEYltZJ5sbQApDVcullxCeCD+DYwakvCXePbb/nO0m5nfHAoans9X0K6392TqwXIMtbml7Bs3Q==
+ b=oS4ug6Orp0XZj2JdC85rEJ5DAv5PF/OypJmbB6UGvbqH37qu7+/mYks6BxxV2G2ngwFuib/pk1DKBZRE1q5+Y7rOB8IFqcqIwonsW79bMCoeXG8fILI5TNh1eImu97ZXZ0Ppg0F9fFl2Av9IJatweCDxxyd1c5q58q26DrnUjuP+APtizh2jr6H1RcOicPHYhiOVi8naQ4bHQmI6p6YFPBT6tEM/uEKQFT0rg5HfT6+n/XtieiCfng/T4J4SKZl8KN4hH2V9k95I2KDGUNyhvUkcWbWDvwszBQt8rqfCWP/tH4tkfI5C2nidRscGc+s1uswCU+KO9H9oGzhaGUqVlA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=jXNRs/9XXgWtQxjvnue+81VvtB40Se3E6I+DAsP8UfU=;
- b=ZKFBJ8EveMgcPtJW8vvKy3ahLYv37/xCaeWTejB0w7RaNSD35k/GSxlRIl4wb9WVYnGLbynZABvTo2bEb4xyQ1AOmJkuA3FRmtwWGVK07DdqQ2ZYwpVKtl9Qytnkg7P6Cpu5qN4oMsK+w0j6c0qlsK//S4+EFBnovAXItb0M3ThnCA3+vZP1M2nKsWCh+w1VbpT55XaQktORwXylq6RZn5Vd2gD8cOW9ueqw1jESUgRrLxcZrtUsegkrZQ8PmVYjMEdpnxnpdJbiP78oQhrettqZDDGQHgN7ExRkpX4FSOB6PSm1Mbwh0W9cU7LxT632tfV1Wpd+NT3OFqc8JcH7BA==
+ bh=06IMffk7mSl4K6Cb8NQNv2+GCZ4TxZfSyWF0LqOZl0A=;
+ b=DLE076R0kLUdKKo7mxrFyG8cG4VV7NcRN4jJRxzgdXUWs3ADMc37kWNIqGPsoCT1zEINzrjVuknRZsoNHdEjeFNPKgZPnF+skjqemwEyWvDxLmXqQc/3XRyTw9ZcnRpWDQbpZK56ELoPNkvsTUQB6nXkYV2HUflZs9ucwEAnZnqxsGNPO2+lsd11HF1nChaZORahtilizF4Jv5dMvt527+bO0kQLEM5wlOlvXoxttyMAPpUYD2OGASb8/fNTKNynhFNtn7CfIV3XcDaks0ZZ0L16odCbXATszGnbaE76nWc1F9hvCEOnbJSSXjz0NFqFnIAac8K2mnP/2vzdEThYGw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=aspeedtech.com; dmarc=pass action=none
- header.from=aspeedtech.com; dkim=pass header.d=aspeedtech.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=aspeedtech.com;
- s=selector1;
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=jXNRs/9XXgWtQxjvnue+81VvtB40Se3E6I+DAsP8UfU=;
- b=E8Ls+LIDuA5EjSUwNwawvmmgWEbiqT7z3Gwj/d7VZe8Hdee1W907GiHKLqBp3l2J2QjofjGCLhH9VMw8GJ9cmdWKyCXbnM864JlGfDCX16m0jbAaZjgkR+pVLUddqOrOH/mtG/GdM+0Iw/doaEk8dW3OZxp5uaUNxRNvQRfWX3UNCIECladZ1bFonq8UxhOGottolOP7/F+56ybmEK8Lebi3WEUDndrMsEPBDp5wlyXTtuZ3di+Rb7oLnOI2AtB1S9ynlXENYc6F9wDTdgnoZUrymeE1VHVtmI2yf60MsdirRqpY5yuIlcw6Bkn6fj2iUzhaPURLPyjdpZcHTvmOkg==
-Received: from SEYPR06MB5134.apcprd06.prod.outlook.com (2603:1096:101:5a::12)
- by SEYPR06MB5648.apcprd06.prod.outlook.com (2603:1096:101:c0::14) with
+ bh=06IMffk7mSl4K6Cb8NQNv2+GCZ4TxZfSyWF0LqOZl0A=;
+ b=TX1PWPN3U7dt9Yt7fObrE1gmK0QbUoc9EWNnuUE/isBzHhGo06n+9BiGEncvIAED/x8pBj3WpOGNL+VkkayIutdn6quG6N+nKWYC73qB3N66IvQJSoJGCZly71FZjNIWZ49GWkVYlY7msTFUrJZ9K/vIZQstGjiJmXVyZ0vByiOjRL3BIAR7EvY2MhIuEIXYfbgOqG8rA6lxW1YcW2pcy/se9wv6gMfClG7uTh4pzdt3Lsapw6C3Ue1UcEq37rgdndhXo82N8t78sbE1EkpnbMeICJMyDAnZDY2uvRBcLvlLw57EbVZXZl8kN2d2yhd0cIbNETCxZ96WbI6NPCd2+A==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PAXPR04MB8254.eurprd04.prod.outlook.com (2603:10a6:102:1cd::24)
+ by DB9PR04MB11557.eurprd04.prod.outlook.com (2603:10a6:10:607::22) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9343.11; Tue, 25 Nov
- 2025 02:58:34 +0000
-Received: from SEYPR06MB5134.apcprd06.prod.outlook.com
- ([fe80::6b58:6014:be6e:2f28]) by SEYPR06MB5134.apcprd06.prod.outlook.com
- ([fe80::6b58:6014:be6e:2f28%6]) with mapi id 15.20.9343.016; Tue, 25 Nov 2025
- 02:58:34 +0000
-From: Jacky Chou <jacky_chou@aspeedtech.com>
-To: Andrew Lunn <andrew@lunn.ch>
-CC: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
-	<davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
-	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring
-	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
-	<conor+dt@kernel.org>, Po-Yu Chuang <ratbert@faraday-tech.com>, Joel Stanley
-	<joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>,
-	"netdev@vger.kernel.org" <netdev@vger.kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-aspeed@lists.ozlabs.org"
-	<linux-aspeed@lists.ozlabs.org>, "taoren@meta.com" <taoren@meta.com>
-Subject: [PATCH net-next v4 4/4] net: ftgmac100: Add RGMII delay support for
- AST2600
-Thread-Topic: [PATCH net-next v4 4/4] net: ftgmac100: Add RGMII delay support
- for AST2600
-Thread-Index: AQHcUjKRp/5wUPPeG0Wo2Pz9fS4A+7TsCtCAgAJeVpCAAKBqgIABWbLAgAPq3QCADnQYkA==
-Date: Tue, 25 Nov 2025 02:58:33 +0000
-Message-ID: <SEYPR06MB5134BC17E80DB66DD385024D9DD1A@SEYPR06MB5134.apcprd06.prod.outlook.com>
-References: <20251110-rgmii_delay_2600-v4-0-5cad32c766f7@aspeedtech.com>
- <20251110-rgmii_delay_2600-v4-4-5cad32c766f7@aspeedtech.com>
- <68f10ee1-d4c8-4498-88b0-90c26d606466@lunn.ch>
- <SEYPR06MB5134EBA2235B3D4BE39B19359DCCA@SEYPR06MB5134.apcprd06.prod.outlook.com>
- <3af52caa-88a7-4b88-bd92-fd47421cc81a@lunn.ch>
- <SEYPR06MB51342977EC2246163D14BDC19DCDA@SEYPR06MB5134.apcprd06.prod.outlook.com>
- <041e23a2-67e6-4ebb-aee5-14400491f99c@lunn.ch>
-In-Reply-To: <041e23a2-67e6-4ebb-aee5-14400491f99c@lunn.ch>
-Accept-Language: zh-TW, en-US
-Content-Language: zh-TW
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=aspeedtech.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: SEYPR06MB5134:EE_|SEYPR06MB5648:EE_
-x-ms-office365-filtering-correlation-id: cc29e808-26b8-4492-9b0e-08de2bce858b
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016|38070700021;
-x-microsoft-antispam-message-info: =?us-ascii?Q?7y1pgz3vSY8HSE7PKFuh+1w+8Tc6MBOaIhvAZoQv1AJVt7PuMk5se8XRSHKM?=
- =?us-ascii?Q?e6VkiqUCKWtdfahteA755RyLOUD9fZO2FB8ouwBFQ8ypVIXuKikGUAMMDVdu?=
- =?us-ascii?Q?087qG6+KjRpwrHJDG1CPX53rY+P9ELs9p73nSDaUQxyXqUcwLTCB7XMKyMhb?=
- =?us-ascii?Q?vdYuXiqu95O41v1TIOqSsuRWcHy0cDMoncmEafUUw5RHibWEurTKZdqPkHEh?=
- =?us-ascii?Q?UdFaEbaX0vnA/zyZ4MT3bogjiQvT7GSrJNDPxowF+KLxBszUBKZNerTm6vLD?=
- =?us-ascii?Q?3RVS/nKWlob3EkVqZg1E3KlmkaPuIcNt7UKEP6VQeCr5Iu/C6LJlbeDYdyoG?=
- =?us-ascii?Q?KvZAmMYZM5V+TFvSG+sJeL+Btsq3TroVHN3I5x0DciOR4vu862STTAusGSLS?=
- =?us-ascii?Q?FK8WrylZL34gmev94h7QB7grXNnAzwHEEwq4xFX5ZHegoX24uRG9PWiUJrOX?=
- =?us-ascii?Q?DOnBqMoXeimdVcqMa0RvoDRtSTirN6wsLlD9PLCsqhI4IqNQqvEUOe1vY2/3?=
- =?us-ascii?Q?F6xnPXXAr1tWUOBkcmtyU3wSJe3ijwNOfuNMSzDgzmEIt7Qa5dPnIyAfK+Nb?=
- =?us-ascii?Q?FdqAj4THhtxz26b0Ljk2uhyso2rt5htPBEN6oZENPYZYJNIqDNMPXgZLQcRY?=
- =?us-ascii?Q?RAmOUoLsZQN1N8+IvJN73xtaIf5RwfdDjnZ+Nv92JgPYqW/zn7Khtizw6ziv?=
- =?us-ascii?Q?DoqDPFVUVKjbHoSD8RYg5Uef16XCoum/9mYaWsFo7hZQ1oPn5eKLxxkS0L9e?=
- =?us-ascii?Q?mM76NwOAKjqZw/KscEvVjs66HTv3WlST0DJ/+YVhLVRnPQGRih2gaRMcZMCD?=
- =?us-ascii?Q?Y+4r51xA1oHt1R01aS/ENyvkv6IcoOt1oqWS5yqAYbKOqZ9zLhbjoXVjXn2E?=
- =?us-ascii?Q?du78h4yX3MeozMfl+Bsh5vN+IxcIv4sc/4f9RyLBaOM9Q+AoGMQrA6dOgft8?=
- =?us-ascii?Q?bwTCxoCODPGR1QvaZeVbdNyIS3Z4Q1Qi6S3gEdPG/AxOekEWV3foDBzwbhi0?=
- =?us-ascii?Q?hn7A7nMBdMKj9h4Aejy4IjWeRfq7W5kDsY6VzZBKU3w0L8vjguasuoZIwMuQ?=
- =?us-ascii?Q?tu+30xiTHmAAUm3GloadcTAaUBTGLVmrPK5ASoB1Fz+BZSem8TV64DzXjixN?=
- =?us-ascii?Q?9zXIuYmth+MLG4CT0jwUeqsTDbXvp8lENNwRa643nxZgEENmrPKAFLxDJQ7J?=
- =?us-ascii?Q?acNgl/1MAPOcG7z5/90iUdAwxRXdX1z1jm78Bd8J+UD0kCg4yXv6aY+V87qK?=
- =?us-ascii?Q?s9zE1jvLwq6u+qkyjruNUq80Qx18V9KnKY27EWF+ztsiPUxNrRF/MPbBOSWB?=
- =?us-ascii?Q?1h9nBLrDqfw513gR5JZ/Hh/xFOX3t48BkU1aDlrl9YKrlb9zWWrQujYLj/VG?=
- =?us-ascii?Q?eV5tzK1w5qJzZtjrflTqYhtSrvAtu32x0/1O9ePX2ga0WIPHsZvPOLj46rzF?=
- =?us-ascii?Q?Os2CyyeMWd/Hvfh9B5oAqVxqAMng9p8Ew/kDzQm32rSYvMgOqX4ceNAFzVJT?=
- =?us-ascii?Q?Pm3ZH0lvivGRhGrQQcm+B1rWea2B/b5EhNs1?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SEYPR06MB5134.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016)(38070700021);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?OYihrf9LpzDsrLDxThUMoTOtke8C6tkpphb6ZybOuXpaSg5+fL4zye7onSse?=
- =?us-ascii?Q?aafnKRS11kbyyFimoypXo6PL6/jM9NiqbnHEkjTmRvtQmR6xLZSUfLCZa4H5?=
- =?us-ascii?Q?0qAw2HN0WRiuokFerrAba8DS0R2RXs/31N6r+E0J/K3J8wWtJh3ApX9pphJq?=
- =?us-ascii?Q?Rak2AD3MPco/co/na8meFgS0nLlna36wXbxZpRpnptYCP1foDmB3XOJzKOp/?=
- =?us-ascii?Q?pYKr+pehej9AyGDw9NTpWVl4NuGqSGW0XEoY/YKQp4e482FUU50Lv50IHp7+?=
- =?us-ascii?Q?lcdGJ0F51QkCFu7+lA8PeLBR0V2orE4u0W32Ku1GSqOWIfnuocBvYvuqfczd?=
- =?us-ascii?Q?FxSHu/D/Sd0tWJHo/7iGHzIkA+QcPHL+3YxyvB7PmJ3si/bkOVoaqxFXMWzp?=
- =?us-ascii?Q?HWG6g070Cpr8/xz3kyIbdV3z04flS+v3kwAtYTua3k15mojbUULwC1eWOa0f?=
- =?us-ascii?Q?Q9TCwDA+SSwldlzT3NC2wkmScIYS42y9BYdPtF9WUzB5zfBTVETD1qEpT6sA?=
- =?us-ascii?Q?f/mb6/UF7U8L9Roz9gJ5ZV5qiPTcFLDb2srADCul1LBRGqSGjuwSYbC3V0co?=
- =?us-ascii?Q?JGg2VxGrxISaV9Rf34MHMQmAKnLPXdhpf6D3aA9ngYR//CfzcFyBVS0asrxM?=
- =?us-ascii?Q?zvOdHKwGVrLpr08akHBKeVpYClIB1I9e0VvKOJ+6wfgJ77k8QGC8oF23HxNb?=
- =?us-ascii?Q?OXFc58yVqhoKGnby+Sxm1QMWI3aMCKwJ1QB9IIYVxipgBwW5+AePF7VJAGM5?=
- =?us-ascii?Q?SELtv/mYy4ogtSU2jJKfJezbTbBBj0YKy8zm7ok0T9CGRh0gIlJYwVEYXJTU?=
- =?us-ascii?Q?BEihzdlWwRsShMesz1uKD5Qgin3af4q3Ap+tpqQJK1mW3+f8d9rXo85CiBbP?=
- =?us-ascii?Q?km+lnucJNWLLIwqh1T8s2V8UqmPE7y0tBNFAFx5CMzbjo/+AWtHPdQoaKKmE?=
- =?us-ascii?Q?S+kTc12QotjhXtLXSHXHuSC7QSL8yZWlxoEvzb9Egs8uVx57UnFHMZI33qhA?=
- =?us-ascii?Q?G/X/ZuydxnqEh8TNzgJRMl9f5qaouq42T6n5pXP17UDJJnDEL/f8P32FmYZ/?=
- =?us-ascii?Q?mXvfpZ91zubl4GnTI1Su+spAhqpbznIOrwfeQJ8AH2vtRmGlHweF/ZruELgl?=
- =?us-ascii?Q?/Cfi04+SNEXdN6KC4sw5tz0WBKCACQN0D8wSaN23ziY8mJr1yZndnnJCVjmN?=
- =?us-ascii?Q?1MvifmeiO4yrf1wF/2aPaqrtF8vcIegkOgUXKFZ0X4svBzC46/eJR+T+mXPG?=
- =?us-ascii?Q?yJto1y1/0Hkq2g3RkLUjGbGUcyZEXZN9zk2Cfqa+D3mtYwU903n9gtg7eN5c?=
- =?us-ascii?Q?CX9j+fCpiw9UcHnJvIY7GZ010jnUXdn+UAdPB6AJ1VuJmMZsABmXC3fsyZkp?=
- =?us-ascii?Q?7zL0yqZfCsY78ej6RGnaIgcF8t1r3pibqJ7/PF8OhjQGKltdYGhYZpCTroyf?=
- =?us-ascii?Q?weMaiqOV9M9RxEYd6CzzRFsSmLvL8a/2g6kJ6JmLK97n0heHcwr58IWwyaQP?=
- =?us-ascii?Q?x+sSWsWK07qHQcK6zafjFcJ+MIyxAAfLQl7Dahpe8aJWmHz7M+c14gK48/l4?=
- =?us-ascii?Q?68MyOOIbJmpPeSdqrqX2tq9ELfEPgh+Sr0ibEp5e?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9343.18; Tue, 25 Nov
+ 2025 03:06:47 +0000
+Received: from PAXPR04MB8254.eurprd04.prod.outlook.com
+ ([fe80::2755:55ac:5d6f:4f87]) by PAXPR04MB8254.eurprd04.prod.outlook.com
+ ([fe80::2755:55ac:5d6f:4f87%4]) with mapi id 15.20.9343.016; Tue, 25 Nov 2025
+ 03:06:47 +0000
+Message-ID: <a4e516d3-ff8e-4233-b959-7a8d4222e5d6@oss.nxp.com>
+Date: Tue, 25 Nov 2025 11:06:37 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/2] media: verisilicon: Avoid G2 bus error while decoding
+ H.264 and HEVC
+To: Lucas Stach <l.stach@pengutronix.de>, linux-media@vger.kernel.org
+Cc: mchehab@kernel.org, hverkuil-cisco@xs4all.nl, nicolas@ndufresne.ca,
+ benjamin.gaignard@collabora.com, p.zabel@pengutronix.de,
+ sebastian.fricke@collabora.com, shawnguo@kernel.org, ulf.hansson@linaro.org,
+ s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
+ linux-imx@nxp.com, peng.fan@nxp.com, eagle.zhou@nxp.com,
+ imx@lists.linux.dev, linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20251121081911.1682-1-ming.qian@oss.nxp.com>
+ <20251121081911.1682-2-ming.qian@oss.nxp.com>
+ <53cb1a8e87f80d8bb1a9b6463077a99b2268e46c.camel@pengutronix.de>
+From: "Ming Qian(OSS)" <ming.qian@oss.nxp.com>
+In-Reply-To: <53cb1a8e87f80d8bb1a9b6463077a99b2268e46c.camel@pengutronix.de>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: SI2PR04CA0005.apcprd04.prod.outlook.com
+ (2603:1096:4:197::16) To PAXPR04MB8254.eurprd04.prod.outlook.com
+ (2603:10a6:102:1cd::24)
 MIME-Version: 1.0
-X-OriginatorOrg: aspeedtech.com
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8254:EE_|DB9PR04MB11557:EE_
+X-MS-Office365-Filtering-Correlation-Id: ceef1564-b131-4687-57b8-08de2bcfaba2
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|19092799006|1800799024|7416014|366016;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?NzVpb1Bwbmpka1F6blRzSUxuay9DelFUVVRhcHcwaGs2Z0ZGenpkYjZ5cDhU?=
+ =?utf-8?B?S3N5NXZrbmpGVkxJbmxkYUpvVlU4c2QvaUpXOWsybFpWQzlqK2t2R1BXeXla?=
+ =?utf-8?B?TFdLaWwrOWNzejk2cFlYeEJrSTZkSEpWVElCaE5pVldWb2VKTUhDejVoekp4?=
+ =?utf-8?B?Mm5WQmpTQ2VKSjRjdzV1STVDWkIxT2c4SDFIUXhkdGV2WEpxbkNwQnY5VTJP?=
+ =?utf-8?B?OWRRUCs2a1IvdGRxUjJXVWlUM2kwSGl3cThnTHhmem0ySEJYVTEycjhvdG5F?=
+ =?utf-8?B?QW10L1M3cVlvS3JnVmZNcU1qL3lSWG9rTFNmbUNFWVp1WVBoY2E0Wnlpdkto?=
+ =?utf-8?B?aUhIdWsyZm5MQ3lQUlY1L3NYZExHTFhzMlptUnhwNnp2eFovTThUU1dnbm5Z?=
+ =?utf-8?B?cXUrS1RDWWRIQjRBM002YkJWdXN4eE0yell2bnlaQU1OMWtvbCtveUlqMWdk?=
+ =?utf-8?B?SWVWYTNPMzNzNndObkYyUkpCMkJYMWsrQW1uT2l3T2hPcURSSlp2Y2hkam02?=
+ =?utf-8?B?WUlRbUdEeDR3RWFlY2xldUdnaHJienRWSVdHQlVDN29yTmFlVWFzVnNJTFVq?=
+ =?utf-8?B?L3RDZFI1SlBra1lBc256ZE15K2dpSU9sT1IxV3NPMXk4YmllTUMvVHJSVjVu?=
+ =?utf-8?B?RVpaSHBMMU1JaVlERXByR0RjbjZTaHlOOVB0WVAxNi85N1drdkVvcEhsdmo0?=
+ =?utf-8?B?YmhqTE9ac2VUclJqMENVNXpRRFRuWVNOdGFrazBVRWF4UGpRNGRGVjhSOVdx?=
+ =?utf-8?B?Z09haG1oY0pELzlqbmlrc3E0b1pubnU0d0VoeGtIMmM0RXROanVRNE9JekZv?=
+ =?utf-8?B?MGNFRW1nakEzVmJaMDZiSEVFSmwvM2NsMGZLNWNzbDZwUEI5bVBBVm5ab1I5?=
+ =?utf-8?B?VUhlTWNaYnBKUEZMbGIrVGRTSTdseFNFUVl5NFNCZ1hVbU9CRFl6c2tOTFEv?=
+ =?utf-8?B?T3A5ODdBL0JHeHFOc3lBc3RBZm9ocFZQdFlZNDRacU5sWHBjVHRIaEM3TzdK?=
+ =?utf-8?B?MmNKRmtlM2ZjVTE0clYxVlg5eC9lWDZvdGRzbFlEN3BJSC84Nlh2bWZkYW9z?=
+ =?utf-8?B?dFEra29vbnowZ1AxeUkrYURVUnk0UThXK3RxTitXR05mR2pLVCt6aTg0cG53?=
+ =?utf-8?B?c002Qmt0UEdSMW1hK0dKWm5lQnptTDYyYmdaeHN0bEljdHdUTy9nV1FQZVVz?=
+ =?utf-8?B?RGE5WUJzb3lNVWpVcER3OGM3MjljOFlSek50MHgwYjNSVWZwcHg4elliUEpP?=
+ =?utf-8?B?aW9RdjgrNGZBZm9qOWpBNVBJV2c4cW1MVDZqRk0wcHhYNlVMaHFBcWJURkVi?=
+ =?utf-8?B?ZCt0eUhNS3QwZGd0Tm4vMGEyYUNtSmdyMGpKRGxmK0pKVjNHSjFEVEtBcHFW?=
+ =?utf-8?B?d2VQMEFMK05yREIxTzI2NXYrQ3JwV3dGRUFJN3p5aGJHZ3RqN0dwTXdWdVhV?=
+ =?utf-8?B?UTVDS01TaC9yMWJldkx4SUFzUFJ0VjkzTmY3RFZmbXpQZGUvenpmTjY2T1hq?=
+ =?utf-8?B?UkNHdWNrSXF1bzJnay96b1RuMngzVkl0aUJUTGhwWjBTVisyZ0JCSHJ6VTB4?=
+ =?utf-8?B?bGFaTlpaV2pTY3NJT3Q5WjJ5aU1YWkdRMDdDZXJPWTQxWllKMzlsSFBPYTN2?=
+ =?utf-8?B?eVc0NUJvZXFCWkhjOGxhWmNETjEzRisxd3NlNFREVFFXeTR5RGRoazBCQ3RP?=
+ =?utf-8?B?SU50N0hXQkVHVk5nZ1U1S3gzZ0tBS2dvaGpsT3ZBb3FMdG4yMCtVUGtJWk5u?=
+ =?utf-8?B?SnVTN2ViV2xSaHJ4QkZENkxLRDNxUE1XVlNES2QzYVpGRnZlV2I5WmNpWEk2?=
+ =?utf-8?B?OGYySkJDN25vV2xza2JEZjVMNDBtaHA5Z0dEU1pXZUhjRWtBMmRKeXI4SHlk?=
+ =?utf-8?B?bVNmN3JESXVPdnQxZUp2Zlk2elExNVdJdEFXUUprS3JZazU1L1RUamRUOWM5?=
+ =?utf-8?Q?+vcslLdRchDa6HwuPWSLd5frRFMGd5P2?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8254.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(19092799006)(1800799024)(7416014)(366016);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?SlpUa3VPQzlWZWlsYW9UcSsybk80VTFhdnFTdTI1NzN6eEdYcnJCVm5yZ1E5?=
+ =?utf-8?B?YTY3cjlkWEl2cEhHck1Hb0dNc3hqZjFCV3NMZ1NtcmdlYTArazJvTkVoT3Vq?=
+ =?utf-8?B?STZlc3V0NjhSQ2FWUSt1UTJtTnhkNGdSVk1rU1o4TU1uZGlLbzRBZm9BK1BK?=
+ =?utf-8?B?UTEzbEdGb3h3cGVrSnEyQVRCaGVBbGt3T2RKTDFnM2IrVzA3WUo2bG5KTnp6?=
+ =?utf-8?B?REtvMkJrK1JWcUJZeDlsUERFYWRwWW5hQXlkNi9vZk1jdWp0eTFsN2RFM1kx?=
+ =?utf-8?B?NDNBTU5sN3I2TERkVVRqMHFxbUNhWjltVjdtRVFRWVpraFZBM1NYcStqT1pm?=
+ =?utf-8?B?ZWJXaTdJYzYrZW81ZEFtaG13OWg4RkFiVVpaekU3eDRSbklySGxVcHFzZmZW?=
+ =?utf-8?B?Wmh2RkduUjI1RElRL0k1NHYvVXl5R3lObHRMais5bUZQdkNVTDZ4ZmNwOWdr?=
+ =?utf-8?B?cUVPeE9pL0FYN3ZlejVhTktCclpseCtyMmlKdisyeDZFUWZTbm1PeHBnQ05i?=
+ =?utf-8?B?TE81T1ZIOW9ySjNvWmc3eTlROEhYTHhMZnVaUE8ySlpnOTVHS1pVTEQzRHZn?=
+ =?utf-8?B?amhnYXo1a3BicjNnU2VUeklxck5BUGlWSkdJUlZUdTZPZ2VvN0QyMXZqN3Zj?=
+ =?utf-8?B?VzVYaW5BMjFTQnBYNEUyNnBKTXJGSm5mbzgyZVpLa1dINWdvWXdaVzlhVnZn?=
+ =?utf-8?B?YTkzQXdQeURwc0ZNS1lkWUdCdVgveStBZ2t2MW1qZ3k1Q1EvQ1lHUUM0RERJ?=
+ =?utf-8?B?cytnT0FDYks4aVJJNm5zakIzNUV4WGZhYnhUa2c1T2xtZ3Y0bjlkWk9KTkZq?=
+ =?utf-8?B?WlkrRjRIbnNCUkVGMVhnY3VGejhXTjZtTjhXeFYwT3JpNlVDVEhsY095MERu?=
+ =?utf-8?B?Sm93eWYrY2ZGc05KU1k3dmxpNWdDK29mR1B3NUNVZHFFclE3QjJSSTNod1hR?=
+ =?utf-8?B?ckpibWxnSGFmVW9ETFNtV083TTdhTGwrNUYyejZ3NSt5M1E4bHlyckZFRURQ?=
+ =?utf-8?B?c3RRYXlmcnVHWnVUcUV4WHE2bkNHUDhTS1hsR3dOeFlRSVhFN1hJcUpYclpS?=
+ =?utf-8?B?MU9aZndwYjhRSHZhMFA4cWtrSXJxTFc4MkN0VUhHVWZQUUc3MWRHZzgxOU1s?=
+ =?utf-8?B?TDRhV0wwY0NsZExtek8zZDduQ0dPNmRTYzdyQ3hnbVpBaGJ5RFYwUlFWcmlO?=
+ =?utf-8?B?Y29YQk4yTVdENldLeWNHdXVhQVhjSWZhcDN2ZllHdG94K2ozbEMranFRRlBw?=
+ =?utf-8?B?WTMrWkpBV09lenMrL0VTL0V3S21aWEliWnhsbVVZTjI0MndSZ2E3OUhuNjhT?=
+ =?utf-8?B?RkpTSU01b0c3WnFQZTlZZWxkWFhFVktUSm1ZUUJWaFlNaSs5MllheXFhcVBK?=
+ =?utf-8?B?TmNPMDFNUGxDZFlNak94a2gyaXhkbitvNEk0M05OYzNINWhrc0dDcFF6a3RP?=
+ =?utf-8?B?UDZCL0phOWFncERUV0RYK1lSYmdvbVJQNW03VDZMY1NKMHdZR3o5TXFKSy9z?=
+ =?utf-8?B?d2tOYzV3dU1pWXYxRjU2WVorbHp2S0JmN0E1V2FnOW9PS2F3WlpVcEh2QW4r?=
+ =?utf-8?B?SmxnNm9EMzdpaHlCKzJhV0N2MHRCUk03Y3kxZUtjekYxYk1UTmxjS0JMNHU1?=
+ =?utf-8?B?WVN6Nlo4RXp5cm5EYVFtTTFOOEZpVDZSTG45L0ZzekUwOXZtYis1TVVEdk92?=
+ =?utf-8?B?YnNSY1pqQk5HR1VGL0VPR2ZxMitBSWV3VmROSFM3RnI3d2JmTXZsR25rZS9F?=
+ =?utf-8?B?WEtDV2lWM0lkTStvL3pzcDJsbHFkUjd2OXgremN5QmltT3FBeGh3U1dYb2ZK?=
+ =?utf-8?B?NWhqN3paa3VkMVpLL2o0V3RNNWdNbS9uWUt0Y2VRU2Jxb09KRU4xaGN3dnJJ?=
+ =?utf-8?B?QXRJSzRqaVRteWo2c0w3cFQ5cmRRZmk5OVFzanhzZm1VRzhmbjhyNm44L2lG?=
+ =?utf-8?B?MXZBUmFGQWNXR2dubll2MVlzOWtIazlBbHRkcFpaYUtTOEM3VHNOWG1SZ0JG?=
+ =?utf-8?B?VjJJdFpqOUJkTUVSTXhBMi9QWVZPTGlJNXRKK1dLVTBLeW96NGFrV2tpbXRS?=
+ =?utf-8?B?UDVoL1Fxam94aTVYL2R0L2pUMms0Sy9FcWI4SWRtbE9IMTd6Q0kyUE1LbUd4?=
+ =?utf-8?Q?5+xV0sdCT03ZVAols+6DNX3NM?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ceef1564-b131-4687-57b8-08de2bcfaba2
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8254.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: SEYPR06MB5134.apcprd06.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: cc29e808-26b8-4492-9b0e-08de2bce858b
-X-MS-Exchange-CrossTenant-originalarrivaltime: 25 Nov 2025 02:58:33.6674
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Nov 2025 03:06:47.5155
  (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 43d4aa98-e35b-4575-8939-080e90d5a249
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: Ed5p0tYtBDDmEpU5H6ksHIY0PH/FS1Hg2B7eRWviTMLPDvoNvtDYYbUlAb4/szxxoHZPi/k6CODsMNISdTsRUNWp4Gzjl2jeO2onkrxQOS8=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEYPR06MB5648
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: b9P+E1GKb2zTGzNF2RHnldjJoCxubA4n7/5CMNJAJq6z/hByhJRzZ7c1WqIZcp4baBHqZgivJRY2y/Ip+YjRtw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB11557
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251124_185846_899448_5F194606 
-X-CRM114-Status: GOOD (  29.82  )
+X-CRM114-CacheID: sfid-20251124_190652_646782_238BB5CA 
+X-CRM114-Status: GOOD (  23.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -178,152 +184,157 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> > Based on the above information, I have attempted to outline my
-> understanding.
-> > 1. 'rgmii' + MAC delay:
-> > Add warming, keep MAC delay and pass "rgmii-id" to PHY driver.
->=20
-> Think about that. What delays do you get as a result?
->=20
-> > 2. 'rgmii-id' + MAC delay:
-> > disable MAC delay and pass "rgmii-id" to PHY driver
-> >
-> > 3. 'rgmii-id' + no MAC delay:
-> > Keep disabling MAC delay and pass "rgmii-id" to PHY driver
-> >
-> > 4. 'rgmii-txid' or 'rgmii-rxid':
-> > Keep original setting
->=20
-> > I have some idea to discuss with you.
-> > 1. On 'rgmii', I want to add warming and directly disable MAC delay and=
- pass
-> 'rgmii-id'
-> > to PHY driver.
->=20
-> Yep.
->=20
-> >
-> > 2. On 'rgmii-id', ignore if enabling MAC delay, all disable MAC delay a=
-nd pass
-> ' rgmii-id'
-> > to PHY driver.
-> >
-> > 3. On 'rgmii-txid' or 'rgmii-rxid', keep the above item 4.
-> >
-> > Actually, it's difficult for the driver to determine whether the MAC de=
-lay is
-> enabled or not.
-> > Our design doesn't use a single bit to indicate the delay state.
-> > Instead, the delay setting is derived from the user's configured delay =
-value.
->=20
-> But you can turn it back to ps. I would say, if it is > 1000, the intenti=
-on is it
-> provides the 2ns delay. If it is < 1000 it is just a minor tuning value b=
-ecause of
-> bad board design.
->=20
-> Do you have experience from the field, what do real boards use? Are they =
-all
-> inserting the same 2ns? Or is each customer tuning their bootloader to
-> configure the hardware differently per board design?
->=20
-> You might even need a more complex solution. If the bootloader is adding =
-a
-> delay between say 200ps and 1600ps, it suggests a poorly designed board, =
-and
-> the PHY adding 2ns is not going to work. There is a need for
-> rx-internal-delay-ps or tx-internal-delay-ps in DT. You can give a warnin=
-g, and
-> indicate what values are needed, but leave the hardware alone. If the
-> bootloader is setting the delay > 1600, passing _RGMII_ID to the PHY, and
-> disabling MAC delays is likely to work, so you just need to warn about
-> phy-mode being wrong. If the bootloader is inserting < 200ps, and phy-mod=
-e is
-> rgmii-id, that is just fine tuning. Maybe suggest rx-internal-delay-ps or
-> tx-internal-delay-ps be added in DT, but leave it alone.
->=20
-> Whatever you do, you need a lot of comments in the code and the commit
-> message to help developers understand why they are seeing warnings and
-> what they need to do.
->=20
 
-I try to summary in the following informations that I understand.
+Hi Lucas,
 
-1. with rx-internal-delay-ps OR tx-internal-delay-ps OR both
+On 11/25/2025 1:42 AM, Lucas Stach wrote:
+> Hi Ming,
+> 
+> Am Freitag, dem 21.11.2025 um 16:19 +0800 schrieb
+> ming.qian@oss.nxp.com:
+>> From: Ming Qian <ming.qian@oss.nxp.com>
+>>
+>> For the i.MX8MQ platform, there is a hardware limitation: the g1 VPU and
+>> g2 VPU cannot decode simultaneously; otherwise, it will cause below bus
+>> error and produce corrupted pictures, even led to system hang.
+>>
+>> [  110.527986] hantro-vpu 38310000.video-codec: frame decode timed out.
+>> [  110.583517] hantro-vpu 38310000.video-codec: bus error detected.
+>>
+>> Therefore, it is necessary to ensure that g1 and g2 operate alternately.
+>> Then this allows for successful multi-instance decoding of H.264 and HEVC.
+>>
+> Is there any more info available on what's actually causing the hang?
+> Is there some kind of overflow of the interconnect request capacity?
+> 
+> I'm asking to understand the issue a bit better, as locking both
+> decoder instances against each other seems like a pretty big hammer.
+> 
+> Regards,
+> Lucas
+> 
 
-  Use "rx/tx-internal-delay-ps" property to configure RGMII delay at MAC si=
-de
-  Pass "phy-mode" to PHY driver by calling of_phy_get_and_connect()
+In NXP's internal VPU solution, i.MX8MQ combines g1 and g2 into a single
+device for processing. However, i.MX8MP separates g1 and g2 into two
+separate devices.
+However, I cannot find relevant documentation.
+I can only guess that there are some hardware signals on the i.MX8MQ
+that might interfere with each other, such as G1 and G2 VPU.
 
-2. withour rx-internal-delay-ps AND tx-internal-delay-ps
+We recently encountered this problem when trying to switch to upstream
+device nodes. So we tried applying our previous strategy.
 
-  If "phy-mode" is 'rgmii-rxid' or 'rgmii-txid':
-	Keep original delay
-	Print Warning message
-	  "Update 'phy-mode' to rgmii-id and add 'rx/tx-internal-delay-ps'"
+I agree that waiting or locking is not nice enough, I will try a better
+solution.
 
-There are FOUR conditions in delay configuration:
-'X' means RGMII delay setting from bootloader
-A: 7500 <=3D X <=3D 8000, 0 <=3D X <=3D 500
-	Mean "Disable RGMII delay" at MAC side
-B: 500 < X < 1500
-C: 1500 <=3D X <=3D 2500
-	Mean "Enable RGMII delay" at MAC side
-D: 2500 < X < 7500
+Regards,
+Ming
 
-  If "phy-mode" is 'rgmii':
-	Condition A:
-		Keep original delay
-		Update "phy-mode" to 'rgmii-id'
-		Print Information message
-			"Forced 'phy-mode' to rgmii-id"
-	Condition B and D
-		Keep original delay
-		Print Warning message
-	  		"Update 'phy-mode' to rgmii-id and add 'rx/tx-internal-delay-ps'"
-	Condition C:
-		Disable RGMII delay at MAC side
-		Update "phy-mode" to 'rgmii-id'
-		Print Warning message
-	  		"Update 'phy-mode' to rgmii-id and add 'rx/tx-internal-delay-ps'"
-
-  If "phy-mode" is 'rgmii-id':
-	Condition A:
-		Keep original delay
-		Keep "phy-mode" to 'rgmii-id'
-	Condition B and D
-		Keep original delay
-		Print Warning message
-	  		"Update 'phy-mode' to rgmii-id and add 'rx/tx-internal-delay-ps'"
-	Condition C:
-		Disable RGMII delay at MAC side
-		Update "phy-mode" to 'rgmii-id'
-		Print Warning message
-	  		"Update 'phy-mode' to rgmii-id and add 'rx/tx-internal-delay-ps'"
-
-On 'rgmii' and 'rgmii-id', just condition A is different.
-
-
-
-Because the driver may need to update the "phy-mode" of dts, it need to add
-CONFIG_OF_DYNAMIC in ftgma100 of Kconfig.
-
-I list the flow in probe() in ftgmac100 driver.
--> probe()
-  -> Check and configure the RGMII delay of AST2600
-    -> Call of_phy_get_and_connect()
-
-Because of_phy_get_and_connect() will get the "phy-mode" from dts,
-The driver needs to update the "phy-mode" before calling this API to
-Connect PHY driver.
-
-I consider these adjustments can cover older board designs and remind user =
-to update
-their DTS and can also introduce new board designs with 'rx/tx-internal-del=
-ay-ps'.
-
-Thanks,
-Jacky
-
+>> Fixes: cb5dd5a0fa518 ("media: hantro: Introduce G2/HEVC decoder")
+>> Signed-off-by: Ming Qian <ming.qian@oss.nxp.com>
+>> ---
+>>   drivers/media/platform/verisilicon/hantro.h   |  1 +
+>>   .../media/platform/verisilicon/hantro_drv.c   | 26 +++++++++++++++++++
+>>   .../media/platform/verisilicon/imx8m_vpu_hw.c |  4 +++
+>>   3 files changed, 31 insertions(+)
+>>
+>> diff --git a/drivers/media/platform/verisilicon/hantro.h b/drivers/media/platform/verisilicon/hantro.h
+>> index e0fdc4535b2d..8baebf767d26 100644
+>> --- a/drivers/media/platform/verisilicon/hantro.h
+>> +++ b/drivers/media/platform/verisilicon/hantro.h
+>> @@ -101,6 +101,7 @@ struct hantro_variant {
+>>   	unsigned int double_buffer : 1;
+>>   	unsigned int legacy_regs : 1;
+>>   	unsigned int late_postproc : 1;
+>> +	atomic_t *shared_resource;
+>>   };
+>>   
+>>   /**
+>> diff --git a/drivers/media/platform/verisilicon/hantro_drv.c b/drivers/media/platform/verisilicon/hantro_drv.c
+>> index 60b95b5d8565..036ce43c9359 100644
+>> --- a/drivers/media/platform/verisilicon/hantro_drv.c
+>> +++ b/drivers/media/platform/verisilicon/hantro_drv.c
+>> @@ -19,6 +19,7 @@
+>>   #include <linux/slab.h>
+>>   #include <linux/videodev2.h>
+>>   #include <linux/workqueue.h>
+>> +#include <linux/iopoll.h>
+>>   #include <media/v4l2-event.h>
+>>   #include <media/v4l2-mem2mem.h>
+>>   #include <media/videobuf2-core.h>
+>> @@ -93,6 +94,9 @@ static void hantro_job_finish(struct hantro_dev *vpu,
+>>   
+>>   	clk_bulk_disable(vpu->variant->num_clocks, vpu->clocks);
+>>   
+>> +	if (vpu->variant->shared_resource)
+>> +		atomic_cmpxchg(vpu->variant->shared_resource, 0, 1);
+>> +
+>>   	hantro_job_finish_no_pm(vpu, ctx, result);
+>>   }
+>>   
+>> @@ -166,12 +170,34 @@ void hantro_end_prepare_run(struct hantro_ctx *ctx)
+>>   			      msecs_to_jiffies(2000));
+>>   }
+>>   
+>> +static int hantro_wait_shared_resource(struct hantro_dev *vpu)
+>> +{
+>> +	u32 data;
+>> +	int ret;
+>> +
+>> +	if (!vpu->variant->shared_resource)
+>> +		return 0;
+>> +
+>> +	ret = read_poll_timeout(atomic_cmpxchg, data, data, 10, 300 * NSEC_PER_MSEC, false,
+>> +				vpu->variant->shared_resource, 1, 0);
+>> +	if (ret) {
+>> +		dev_err(vpu->dev, "Failed to wait shared resource\n");
+>> +		return -EINVAL;
+>> +	}
+>> +
+>> +	return 0;
+>> +}
+>> +
+>>   static void device_run(void *priv)
+>>   {
+>>   	struct hantro_ctx *ctx = priv;
+>>   	struct vb2_v4l2_buffer *src, *dst;
+>>   	int ret;
+>>   
+>> +	ret = hantro_wait_shared_resource(ctx->dev);
+>> +	if (ret < 0)
+>> +		goto err_cancel_job;
+>> +
+>>   	src = hantro_get_src_buf(ctx);
+>>   	dst = hantro_get_dst_buf(ctx);
+>>   
+>> diff --git a/drivers/media/platform/verisilicon/imx8m_vpu_hw.c b/drivers/media/platform/verisilicon/imx8m_vpu_hw.c
+>> index 5be0e2e76882..1b3a0bfbf890 100644
+>> --- a/drivers/media/platform/verisilicon/imx8m_vpu_hw.c
+>> +++ b/drivers/media/platform/verisilicon/imx8m_vpu_hw.c
+>> @@ -324,6 +324,8 @@ static const char * const imx8mq_reg_names[] = { "g1", "g2", "ctrl" };
+>>   static const char * const imx8mq_g1_clk_names[] = { "g1" };
+>>   static const char * const imx8mq_g2_clk_names[] = { "g2" };
+>>   
+>> +static atomic_t imx8mq_shared_resource = ATOMIC_INIT(1);
+>> +
+>>   const struct hantro_variant imx8mq_vpu_variant = {
+>>   	.dec_fmts = imx8m_vpu_dec_fmts,
+>>   	.num_dec_fmts = ARRAY_SIZE(imx8m_vpu_dec_fmts),
+>> @@ -356,6 +358,7 @@ const struct hantro_variant imx8mq_vpu_g1_variant = {
+>>   	.num_irqs = ARRAY_SIZE(imx8mq_irqs),
+>>   	.clk_names = imx8mq_g1_clk_names,
+>>   	.num_clocks = ARRAY_SIZE(imx8mq_g1_clk_names),
+>> +	.shared_resource = &imx8mq_shared_resource,
+>>   };
+>>   
+>>   const struct hantro_variant imx8mq_vpu_g2_variant = {
+>> @@ -371,6 +374,7 @@ const struct hantro_variant imx8mq_vpu_g2_variant = {
+>>   	.num_irqs = ARRAY_SIZE(imx8mq_g2_irqs),
+>>   	.clk_names = imx8mq_g2_clk_names,
+>>   	.num_clocks = ARRAY_SIZE(imx8mq_g2_clk_names),
+>> +	.shared_resource = &imx8mq_shared_resource,
+>>   };
+>>   
+>>   const struct hantro_variant imx8mm_vpu_g1_variant = {
+> 
 
