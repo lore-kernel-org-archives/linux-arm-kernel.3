@@ -4,148 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7523FD0E6F5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 15:46:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6927D0EE04
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 16:02:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=quIgj009FucQ80i8QDVz9kixdL2VKNSELCFNH9+KuEA=; b=Hq2QvIQqaMqM0up+/ajwU/mxD8
-	DRvrrXW+Lalf51+n44oB4T0nJlG5C7VDHDUJ7CVlM0/hZKqo+gVGT/kjjcsIIo7KV5kZCl0Fdl+2E
-	iFkzGoXi1TyTYmmgmJWO1KjZccFm7ynlPTW8o4/2UlBCYltnWriWom5UN3vNXla2sticgT/eEyiav
-	SPvXLfQmlF7tmfLw2IwR3y+TVriwZa0S4ft7GlPzj3gu3ISb+DTFk1hqRhqSH5jbotZ/RSfv1nbwo
-	vriFQdaL6KpxSO5NZNFUbawro5v7qevIMumWVsYEgt6svpAy/sljyYsrOwNJQCSCiOhqTfmObIrhY
-	ayYAatig==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=CAa++IS7AbGYa+kbztTch4WvOZorGo1JgFK/O9u7lUE=; b=Lc43Wi3C6oijmtEO8s6SiKkMUi
+	m1y5K+50CZyYk9CyzgCppQII9Y4Cx/dYjkXhA7ulDBweoUVXfAGMLcN6wA35J3oXkv4gpH1M003aN
+	fF5n+x14uzB+YY1dYRZnkVoV0DjtYydBRj0Boybwi/Jm+aslPvgDP+/DfvMQQGq0rKu/MxMBhrgBt
+	LDTGX58IswzNgv67ZMWjfDsrn+HqNY7i65gS9H5UZAPkEL50hX/lkYfhXLUZLhh/QqXofwiiIjT4a
+	LarTYLGhdlNeYA+TK4G+aen4NlfnlOKmmV8MpBQVtrQCgxF3tunjNOQifcNApXbUQaFeT52FGwv7I
+	g4zfk1Sw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNvEv-0000000DX4P-3a4F;
-	Tue, 25 Nov 2025 15:46:01 +0000
-Received: from mail-norwayeastazon11013017.outbound.protection.outlook.com ([40.107.159.17] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1vNvUp-0000000DXyW-1Kaf;
+	Tue, 25 Nov 2025 16:02:27 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNvEt-0000000DX3c-1ITZ
+	id 1vNvUo-0000000DXyP-09lT
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Nov 2025 15:46:00 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=l7Z6tUjBYXy+mUk2KkqxngNuTfZMWxT4wI2lIgWA6vW+NSiMUxlzNAc5eFOTlCC4LSCg5RAtYZil8yLk3LPwKJNj7zYK8+vCtnw+DF1oddYMk/YSkWCF5CxigBnDZ2Ywhw311UXR2ED1nc2gu7aFuxKFtWTSlkh8FCjNJFNb1wUD1is5ePYmC07vSfV67NX6KbuO1LtNNiBU/QQwP7NeJFQCSykBD1Dn/yVwVk/X0sXT23VBa0jgknhYz13hzgCn8X2vS5WznoMTSRcjzGUHg8CW5sElAeyI9lJ5cz9vrkaF1A0MRxIAGnn4jYChHOj563xqU/dvneCpvtMxZOwGzA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=quIgj009FucQ80i8QDVz9kixdL2VKNSELCFNH9+KuEA=;
- b=PuQytI16xMjVi0ypiCK24W/wDnH3ZIgKXFu/ywwWncWtuVAfPFxLdUt8hLu0ODdSRYJPHaOJPOOhWK+hg0QdDX9sLlWJeyy7LP2zPV0WspTDhSlcmh2iC1n2h3P83WoQlMXJQYB+m9x+HRPEHp1LmA42r+UzHu1tr1SUofoaHwKDHK60rSk2ru0M+JdZUD8VKhW0V5viTDgr7nbsZNVQCLTGzn0JEz6zO81w1WTHo4q96soL4zJw0p7+PE8O30q2OrRGTmNfF1LSzvRYsfSlo33RDyzhGyVy0R/EbKF13fIlgEQcf9CWb2SxinKbxEMm6qewlZtocSQHfj2RUu3vCw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=quIgj009FucQ80i8QDVz9kixdL2VKNSELCFNH9+KuEA=;
- b=avAoVcQ90SF6Ug/Yu67SoeQXl6aBZgnpzPK8PaV3uu5IEdnizECR/hxoWFYVZc7JcDwejP43S4KYAQfQTCnHtSk63Ao6NvLneK39T3mnwzlJNui9neiEM6cF7bjEhgbcgb2NubbwPSpoqG5UwsYqvRaqheHyei5ezhIclijqRQTdrDvVPmfRGrGhhCzC9q7YqPbYFSOSaXrYw1VVoS/0w4tYuR2HCu6U1NUch4BgfPJtRHMAT21C2a9YI7CG/SiuL1dOKyyxqXOEbYrJP3C6B9uMuZThMFTblC7EhH41GVBye6prMck5bPcZoUU9mPCDVI6o/jqP2qGs5tbJ9JqKYA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from DU2PR04MB8951.eurprd04.prod.outlook.com (2603:10a6:10:2e2::22)
- by DU2PR04MB8839.eurprd04.prod.outlook.com (2603:10a6:10:2e2::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9366.11; Tue, 25 Nov
- 2025 15:45:54 +0000
-Received: from DU2PR04MB8951.eurprd04.prod.outlook.com
- ([fe80::753c:468d:266:196]) by DU2PR04MB8951.eurprd04.prod.outlook.com
- ([fe80::753c:468d:266:196%4]) with mapi id 15.20.9366.009; Tue, 25 Nov 2025
- 15:45:54 +0000
-Date: Tue, 25 Nov 2025 10:45:46 -0500
-From: Frank Li <Frank.li@nxp.com>
-To: Carlos Song <carlos.song@nxp.com>
-Cc: broonie@kernel.org, hawnguo@kernel.org, s.hauer@pengutronix.de,
-	kernel@pengutronix.de, festevam@gmail.com,
-	linux-spi@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 4/6] spi: imx: handle DMA submission errors with
- dma_submit_error()
-Message-ID: <aSXPKjFROYPZ12jo@lizhi-Precision-Tower-5810>
-References: <20251125100618.2159770-1-carlos.song@nxp.com>
- <20251125100618.2159770-5-carlos.song@nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251125100618.2159770-5-carlos.song@nxp.com>
-X-ClientProxiedBy: SJ0PR05CA0081.namprd05.prod.outlook.com
- (2603:10b6:a03:332::26) To DU2PR04MB8951.eurprd04.prod.outlook.com
- (2603:10a6:10:2e2::22)
+	Tue, 25 Nov 2025 16:02:26 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 2304960052;
+	Tue, 25 Nov 2025 16:02:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C96AEC116C6;
+	Tue, 25 Nov 2025 16:02:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1764086544;
+	bh=5uKOvlafiq2x+XURvl8Zo9WIMRkudbGHaY/ohACMNKs=;
+	h=From:To:Cc:Subject:Date:From;
+	b=WIDaOA/VDK7fWVSiPxyn/lU3XEpuw6/AQXwVWlcLjAJroxd3JNn4nAakhxp824DpK
+	 gc2hbsD0aVLiAHD0w06sPFUy/D5L8Q/LSTSTxFvpFWMgTgaSiAHaL2OD4hpzj8tJJt
+	 2q4ykPBpM03ZJOoa8vGj9QypwZPtQGaEkPZjrwwlrfZ+LsiNO28qpNQpONlWjQpYgD
+	 2IeC/iZDzFraAOWfVwWuDAwD5/rMXuIVC9x6dLspe/M+RbJha8+vUUm6hDKv3h4GU0
+	 LmndmXxjY6nU7hMVD5HlEwhVTiAgBY5gJBO/4XldqjyE9XSxturPq4frbxsJWfv3O5
+	 u1QcVK6m/2tkg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vNvUk-00000008Cm6-1qY2;
+	Tue, 25 Nov 2025 16:02:22 +0000
+From: Marc Zyngier <maz@kernel.org>
+To: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	kvm@vger.kernel.org
+Cc: Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>
+Subject: [PATCH] KVM: arm64: Convert ICH_HCR_EL2_TDIR cap to EARLY_LOCAL_CPU_FEATURE
+Date: Tue, 25 Nov 2025 16:01:44 +0000
+Message-ID: <20251125160144.1086511-1-maz@kernel.org>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU2PR04MB8951:EE_|DU2PR04MB8839:EE_
-X-MS-Office365-Filtering-Correlation-Id: d2378f0b-67bf-42a0-d9c0-08de2c39b79c
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|19092799006|52116014|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?9SH3L6xVI3SDuzXECToVN4SrhmZvqnGXI7eRxwIM8OmYzadqETEjn8LUDyyW?=
- =?us-ascii?Q?OVNasZBgCrYehCQFuqHU5/rxatqjYlWfcsaIxjulaUXIQc8VyCJZ0QB5iRTl?=
- =?us-ascii?Q?jnR4omi24sR6MbKgnUdK8Sn4rpB14nkOXvNuMlYrexLTWLDzMHuSkuevAVHH?=
- =?us-ascii?Q?/J9FfVsivOgiVt+190RT+fY50JK9R6N4dBcXrTIbcIq7Wn0EAJUJtLQYaOVD?=
- =?us-ascii?Q?zmFH4qRh6kHGyGA0BYjBXAjzslsaPNVm0i4fdvJmzDzkvLe7qLyfRcjfPuIl?=
- =?us-ascii?Q?4fNL8kIVX9z+AbG6Yo1TRpwQnqPLkJhLPM4q0bAT+i4r25otysiauoEhRUXY?=
- =?us-ascii?Q?mtnxNcqegIqNByMvUrq7KmebtFdSVPPPhuNNZRImrMvWghxrYq9ot2KVzbTf?=
- =?us-ascii?Q?vjJS1Y+eWEwuHgFgnMKv3aVwWCBLZQkAhlXz8ycujusEz3rfdzKlq8qPhux2?=
- =?us-ascii?Q?3l7UpTD7TidN3v/Cfag1b+qHJHqRm5aVY4oABDK/lTiPLD6cn+/vvsyxrBCB?=
- =?us-ascii?Q?pdt3GWT1+SXiF9PNhNH2XI/oyX/fxIbqucUsqbRKPth+e4gFgdKwXNRzV3yt?=
- =?us-ascii?Q?6woxH//o+b8lr8xpmFwsi9b3P3PyYg2383wnHSoC16NF7C4ROhrFcYtkTLLd?=
- =?us-ascii?Q?y1PyrOK22pLdtEXtsGnkUzVRM0T/5mCA1l5hEeTWmk7cALuV0OkIt94pDNrt?=
- =?us-ascii?Q?jr4AisZpNt84tDOPs2mKBHPP/YX3SdLJBNohMKDzStZPEYR4/hCvCnHoZBDH?=
- =?us-ascii?Q?0r0qVUOGeu8KqtDmMiK7t1b1zBHAyHd8u44ZRUtS4YIUnV6GJs4BQ3QpDzGG?=
- =?us-ascii?Q?B0vte8Yzz0sHtJ0U2Egu3NPjZYrHIsh2EIgzJbpTsqe4fD6/ALagArY/Z59S?=
- =?us-ascii?Q?qetXUUL6ljmYmuFBrluCZ5cdI9soUlXwjNkQHUeJYIcLfsLHxIbox+5zb5NV?=
- =?us-ascii?Q?kvp1L/b4bcu0inSN6kRsZWzi20KS563P6rEiNnj3KgWfRhAP3HY1C9s3Hygv?=
- =?us-ascii?Q?tEqypr8zTfudgwC5vWujas+5ZEO0PZwh47E8irLEHTFIbefB1YLNI5unju2s?=
- =?us-ascii?Q?uiv/rB6aBF7LZbGzFC/pPlzwy7itIiFXLGn0eflMB1HcLVOYaeSe8IRy4Gqn?=
- =?us-ascii?Q?e0nJdq6yaLmQXu10jVyoXiVATvQCxovrnK1Na+I6Yl8fOJd9MegLPrHHUD7C?=
- =?us-ascii?Q?xjTwXOmLWHubQNVjQffhdy6IeZASB7ErvkxjOg/0W2IPJ0+Q7y23mO6+zVe6?=
- =?us-ascii?Q?ChIc3YDgikoRDRm6vliAssRotEJ8fObRbeYxT1WhxyXc0gxyYRuzg1DJRT+R?=
- =?us-ascii?Q?4+LudsyU2VJLRBT6H80atvpPoOvjNJRWvQ4JXiNNqyLq/Iu8sfUpIUjVPiC9?=
- =?us-ascii?Q?NqzC6//LNIXvk2IQF95DnEQvSHK23WRUsV2N0ROz9xghG9tQq0aXGjTfnpkx?=
- =?us-ascii?Q?7DQuLFI1ChzHfu8Jhqgog2JwN/Bl6uL+CotJpcqCnpfrEQtwRschC6iZDWCz?=
- =?us-ascii?Q?bXG8cRAj3IPXa7iozsu490ms4a6pc8WnuOhp?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8951.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(19092799006)(52116014)(366016)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?UTXQ9KcCiEGQ6PDPWuWNIzarpXa3PtsZuG6fZW/XL/2ImVXmbvr/bERBvX5Z?=
- =?us-ascii?Q?PauwzPhyVQZbiSLJHm96O/YcpJSE1g8MQxn4bV41QIPcXexMpOngGRPkXkzQ?=
- =?us-ascii?Q?jPaV0/sDQFbdyLGr7x09Wsu+i/xz8gL0cVymjbHEg073ej95Lpk0Na5A0qxJ?=
- =?us-ascii?Q?wPMReuVCqnxFa+ldYBqiRoxEJLluw4Ei18iQtc56mbqwHxDKT478H+D6WmkC?=
- =?us-ascii?Q?bVrpr2ZQxcZEh2IDDsDsjhTnchWSuJMI5QAmsQL0EIwJKUTABoIp8NiX89Ac?=
- =?us-ascii?Q?zb/KI8KpwJGC8hHSUpmTpF8T/WHIAwo175O71jPxHQ8tofdC2pFVM6kZaMQt?=
- =?us-ascii?Q?zE3BS9Jkyz0Fu55nWlXqKdyEOetK/46zuk2cfv08rHcU2nY4BmFy52jj+BB6?=
- =?us-ascii?Q?64cARu7J2gOoAZWLUR949ICkWKJpkD7oiV/FqHK9ln48SeFI6qeiJwfbTn6/?=
- =?us-ascii?Q?V8dl7ByB6jyweVHx/LhMRj2MCWrZJ3mvL49H52RPjxvesdzFHh8FrstVUP8K?=
- =?us-ascii?Q?CMedth+78H8aoIJhIrUoso09aI0VSEh3UE6QfI6mBezREfV7iyb9je1FpVi1?=
- =?us-ascii?Q?QaC3iZ0a0JP22k63jcgj+LX20dt+/wKxARg+dxGGW0H3Zwmh63PiwiklT90w?=
- =?us-ascii?Q?L0iUgUSdfuTmWrZR/OMxjkL0BfZeUMY8XBKPTsWzls3Vn/zXJmL2VAZGcTqd?=
- =?us-ascii?Q?98DzNlb5afHiDHOKAFaVuH/CHzNda2Cn53VfYMQzDyIGPBWJQJvXrU214g54?=
- =?us-ascii?Q?Fa7na+M3qwLfvYP6icPDgMsD/8y1vp+HHW45peWmWGfTYSQtZPPocZeyJATW?=
- =?us-ascii?Q?/qw0ntqdJOVIrg9IdesDi3SmmzLDCUNqidDDct8djBK8qcp6O0TSHkc3lLW0?=
- =?us-ascii?Q?9Ehnf/lV2qNSrgkXK6+pV6k/2iUiPar2GmOovV6JsNAdfMk1KFfZDUjckxh4?=
- =?us-ascii?Q?yxsSLZocFneee2B4qInWHVm9HDhqXhek1HtiN9wmEDGLmeIVgh3VvkOr7W1T?=
- =?us-ascii?Q?L35Hwzexv9GcZJUZOCG/kWA9JEtKzJmcSly8+jT5HVApQwOqIWENpunpKSsd?=
- =?us-ascii?Q?cZBi/K0VU1EsKLyX6BV9P0i+/lOogM/beAidrsj243IoTBqHS06UbqfB3QaT?=
- =?us-ascii?Q?yjN8n5JkuihlI5LMxTavZELTIvL/HlPcg7AdPpjInEuOHacum4zdmO2PXlDG?=
- =?us-ascii?Q?/Gc5IHAeWXKBJG0XWhUiRvXV9NKnqBYwIfX5a72V5Z+OqafLQJsog51c8EkN?=
- =?us-ascii?Q?nTcaiihgix0Gb+znh5eYyrGQnw22OJRGxFVK+nWn71ntTh/V8Sk+Vw39ohlC?=
- =?us-ascii?Q?f2Ki0jpnaUvtxLGNWgUYERftv1G0P9yjI/ULka+sS5WgmbonQ9eG/mqE2TRl?=
- =?us-ascii?Q?XU4uU8ydJVnOHGKjAnCMPrpu7ZZxL/4qMaU4Qo591UTBL2GtGD/Mubad1zx3?=
- =?us-ascii?Q?wuSNzHxU6P85pZ8kkSzoahkvrhc/rFoc1EhwRsQkOCBn7nKmtwTITvRTT5Pd?=
- =?us-ascii?Q?Xx+6Q5lKghG6bIjqW8nrtwVL7pnfraSZN3C92bvH3TumE+hX5T/ecJwHQhk+?=
- =?us-ascii?Q?ZVlvJBLEO1awL4lIIzi7bXQDZNuSMOGFDjKxGlR4?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: d2378f0b-67bf-42a0-d9c0-08de2c39b79c
-X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8951.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Nov 2025 15:45:54.0039
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: RX1+wnvgeq/B6Wxw7bafE4DeTTxDSaKYIE9GzOTbFKNU/0fqvOEKdiNt7MwUdhhRPvYMlH1EKc/8LfrteUF9eQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR04MB8839
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251125_074559_360957_2BE637A8 
-X-CRM114-Status: GOOD (  18.34  )
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -160,85 +80,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 25, 2025 at 06:06:16PM +0800, Carlos Song wrote:
-> Add error handling for DMA request submission by checking the return
-> cookie with dma_submit_error(). This prevents propagating submission
-> failures through the DMA transfer process, which could otherwise lead
-> to unexpected behavior.
+Suzuki notices that making the ICH_HCR_EL2_TDIR capability a system
+one isn't a very good idea, should we end-up with CPUs that have
+asymmetric TDIR support (somehow unlikely, but you never know what
+level of stupidity vendors are up to). For this hypothetical setup,
+making this an "EARLY_LOCAL_CPU_FEATURE" is a much better option.
 
-nit:  remove "otherwise".
+This is actually consistent with what we already do with GICv5
+legacy interface, so flip the capability over.
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+Reported-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+Fixes: 2a28810cbb8b2 ("KVM: arm64: GICv3: Detect and work around the lack of ICV_DIR_EL1 trapping")
+Link: https://lore.kerenl.org/r/5df713d4-8b79-4456-8fd1-707ca89a61b6@arm.com
+---
+ arch/arm64/kernel/cpufeature.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
->
-> Signed-off-by: Carlos Song <carlos.song@nxp.com>
-> ---
->  drivers/spi/spi-imx.c | 28 ++++++++++++++++++++++------
->  1 file changed, 22 insertions(+), 6 deletions(-)
->
-> diff --git a/drivers/spi/spi-imx.c b/drivers/spi/spi-imx.c
-> index 186963d3d2e0..42f64d9535c9 100644
-> --- a/drivers/spi/spi-imx.c
-> +++ b/drivers/spi/spi-imx.c
-> @@ -1445,6 +1445,7 @@ static int spi_imx_dma_submit(struct spi_imx_data *spi_imx,
->  	struct dma_async_tx_descriptor *desc_tx, *desc_rx;
->  	unsigned long transfer_timeout;
->  	unsigned long time_left;
-> +	dma_cookie_t cookie;
->
->  	/*
->  	 * The TX DMA setup starts the transfer, so make sure RX is configured
-> @@ -1460,21 +1461,29 @@ static int spi_imx_dma_submit(struct spi_imx_data *spi_imx,
->
->  	desc_rx->callback = spi_imx_dma_rx_callback;
->  	desc_rx->callback_param = (void *)spi_imx;
-> -	dmaengine_submit(desc_rx);
-> +	cookie = dmaengine_submit(desc_rx);
-> +	if (dma_submit_error(cookie)) {
-> +		dev_err(spi_imx->dev, "submitting DMA RX failed\n");
-> +		transfer->error |= SPI_TRANS_FAIL_NO_START;
-> +		goto dmaengine_terminate_rx;
-> +	}
-> +
->  	reinit_completion(&spi_imx->dma_rx_completion);
->  	dma_async_issue_pending(controller->dma_rx);
->
->  	desc_tx = dmaengine_prep_slave_sg(controller->dma_tx,
->  					  tx->sgl, tx->nents, DMA_MEM_TO_DEV,
->  					  DMA_PREP_INTERRUPT | DMA_CTRL_ACK);
-> -	if (!desc_tx) {
-> -		dmaengine_terminate_all(controller->dma_rx);
-> -		return -EINVAL;
-> -	}
-> +	if (!desc_tx)
-> +		goto dmaengine_terminate_rx;
->
->  	desc_tx->callback = spi_imx_dma_tx_callback;
->  	desc_tx->callback_param = (void *)spi_imx;
-> -	dmaengine_submit(desc_tx);
-> +	cookie = dmaengine_submit(desc_tx);
-> +	if (dma_submit_error(cookie)) {
-> +		dev_err(spi_imx->dev, "submitting DMA TX failed\n");
-> +		goto dmaengine_terminate_tx;
-> +	}
->  	reinit_completion(&spi_imx->dma_tx_completion);
->  	dma_async_issue_pending(controller->dma_tx);
->
-> @@ -1502,6 +1511,13 @@ static int spi_imx_dma_submit(struct spi_imx_data *spi_imx,
->  	}
->
->  	return 0;
-> +
-> +dmaengine_terminate_tx:
-> +	dmaengine_terminate_all(controller->dma_tx);
-> +dmaengine_terminate_rx:
-> +	dmaengine_terminate_all(controller->dma_rx);
-> +
-> +	return -EINVAL;
->  }
->
->  static void spi_imx_dma_max_wml_find(struct spi_imx_data *spi_imx,
-> --
-> 2.34.1
->
+diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+index 5de51cb1b8fe2..75fb9a0efcc8e 100644
+--- a/arch/arm64/kernel/cpufeature.c
++++ b/arch/arm64/kernel/cpufeature.c
+@@ -2325,14 +2325,14 @@ static bool can_trap_icv_dir_el1(const struct arm64_cpu_capabilities *entry,
+ 
+ 	BUILD_BUG_ON(ARM64_HAS_ICH_HCR_EL2_TDIR <= ARM64_HAS_GICV3_CPUIF);
+ 	BUILD_BUG_ON(ARM64_HAS_ICH_HCR_EL2_TDIR <= ARM64_HAS_GICV5_LEGACY);
+-	if (!cpus_have_cap(ARM64_HAS_GICV3_CPUIF) &&
++	if (!this_cpu_has_cap(ARM64_HAS_GICV3_CPUIF) &&
+ 	    !is_midr_in_range_list(has_vgic_v3))
+ 		return false;
+ 
+ 	if (!is_hyp_mode_available())
+ 		return false;
+ 
+-	if (cpus_have_cap(ARM64_HAS_GICV5_LEGACY))
++	if (this_cpu_has_cap(ARM64_HAS_GICV5_LEGACY))
+ 		return true;
+ 
+ 	if (is_kernel_in_hyp_mode())
+@@ -2863,7 +2863,7 @@ static const struct arm64_cpu_capabilities arm64_features[] = {
+ 		 */
+ 		.desc = "ICV_DIR_EL1 trapping",
+ 		.capability = ARM64_HAS_ICH_HCR_EL2_TDIR,
+-		.type = ARM64_CPUCAP_SYSTEM_FEATURE,
++		.type = ARM64_CPUCAP_EARLY_LOCAL_CPU_FEATURE,
+ 		.matches = can_trap_icv_dir_el1,
+ 	},
+ #ifdef CONFIG_ARM64_E0PD
+-- 
+2.47.3
+
 
