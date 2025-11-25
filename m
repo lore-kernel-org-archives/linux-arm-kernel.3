@@ -4,109 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C28F1D0E6DF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 13:11:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF987D0E6DE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 13:15:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AF/ymKNU/IWkNzMOHS5V+glJ5rwSWoJx1hh9KxmKoDw=; b=mBPK8kljrSkFL4weyPT/9/Rg5E
-	JrN+fGQeIrZGyukBQ4JWbhmfbHlbsLuNxxTWTVLX8J8ok5w37zM8f6A+C4WMnfPto4UnjdrOqd+6N
-	/bOD/yHUEaF7QqTHYXJUyUl5m7oNpPu9e1jvBKdhxEhLotot9iSrkGvZjrIM6Au4hTYNHEjID/mAk
-	LXxoYXkitmkBHdW+YQNV0mve412EyatVXhHtqDeK3vNXVbrbI++r7tam2OQ9TkI6Fxc2FeQO7SCnq
-	oPY2fJiWuBqmcBXr/HpM5yOT9QtgBrdYGUbbQGRaAG7Wr5/5q310jQ4vPQNPwogQwOSt+7JA4K8ai
-	QoIsbh6A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fXwrcsGOzeGcA2i2pd7rin4jvEAGdwNQnI6Ofa/c+Xg=; b=gq2pRgaRq0zfUFDDcrE/Eb/z0J
+	rDBFWzM0HZl8cpSbQe2R1cue5LR4FK0aFMMkhZH5i2PvXWRxhb2Bux09FKsfW0PupIdtwToqH2WwT
+	VpN8owGfq9pZ+j/S43Nwm+TxYo1iiXAK/BspZI42vD0NloMB0UGpcY0cwYEUZ5vKDU6t6oxsbNB4s
+	UxsHf0BygkvA+S5JbP9N93KvAVsqpoIvEW2JxaDK7IRTEfVgfjK1T7J3mdqHvgpvp9SGGQ7dw+Muy
+	glyrj+ss92MNbIHjkNY8BgEapTQ8SyKYkSRE/gaoSrhk/PfdxMt1R7igNcUjkgvi4nvyizEb/eYHt
+	gYTNVL3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNspS-0000000DK7y-3xlL;
-	Tue, 25 Nov 2025 13:11:34 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1vNstV-0000000DKRL-2Wgc;
+	Tue, 25 Nov 2025 13:15:45 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNspQ-0000000DK7R-2YrH
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Nov 2025 13:11:33 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-477a219dbcaso49714545e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Nov 2025 05:11:31 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1764076290; x=1764681090; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=AF/ymKNU/IWkNzMOHS5V+glJ5rwSWoJx1hh9KxmKoDw=;
-        b=pjmBu2ByKPQIr5PRufysA34vGSLGf+XXmvrA5N20EsBFmLsLmlgPOEfkXuG2sp5xbe
-         uYDHYcEhYXKapSSxf0RWHQt4nI/X2hzSLsCW8KmdGgyOzuA2Kkd2ag/kBdPIsuXdcZXz
-         NkZloslTdqdaOoS8e3oeY0aWc4XcIjqAKHhvvYULMTqcurDEwP7bVm6Cva964rKPgmDH
-         St38k4RHNpcEU0ro2ulLsD9SW1qHVWTTxQzdqjdcLieR22ckpagxMFjkz4Ywf8VTPKU5
-         NEiOWqqn71jvrBLbivgCQHmF3XU/lX+BkgIM9hhAqC9lYzUWSgSwMDvQHQkuKZg0JZam
-         APWA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764076290; x=1764681090;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=AF/ymKNU/IWkNzMOHS5V+glJ5rwSWoJx1hh9KxmKoDw=;
-        b=h2GDjo6p6V75OtCyIOPUuyh7Gc3DwOzKg9eMAVlOjUWL/L0wrpzEAm9t7VtQLlaJTU
-         bindtp3B8ZX/L05iYBtrMl9UjXKycPdpyoWD3FsXbzt3ELICcLNpeouQdmXHHtivw5gz
-         4ZqItoQOn0xqlYxUtJMvAF0n8KwshGrRuMdWyWaXSmcSg56ytWyo2tl2SoJBswpbBn+r
-         zolt70tSJu5rf/DJwXc2DUKy+guO6vRLryWgZQM/vue/5anuqV8Vq4HS0FPDItmYyniz
-         lZcoL1t+yiPI6pIy26GLQENCsL8dyuV76YRSlyr1fYBgB57aDpSJz7TRRWM8WZoE1Cc3
-         CiNw==
-X-Forwarded-Encrypted: i=1; AJvYcCX4HFD83vAdA3eeeGPZolWE0tZ8ZgrYam9N1+0ZjYP9yAkEeXe7fmlrQ0Njo0gLgKKnihyB/kEcZJ2ijuwKpz9P@lists.infradead.org
-X-Gm-Message-State: AOJu0YzQxHuuhnlY2hACfTM/1hElww8v6cCcYoo5vNyv4TrpCo05V3Vn
-	/1Hz9x0bZhwa2iR2F0ssbqKU6Rx1i3vaBAEZubCkbCqHMY2A84kI528rdrc0aqvjOEA=
-X-Gm-Gg: ASbGncsdXNy0bvxeHEexlQRefxHVxAcVx3+aqLy4wd472wf4rdZKsYeemPsaD7uev/1
-	KhoW+ooOh1qwx3X/YMGbU5XcPOL25G5UXN/AjCt63cpi4AN/47tpCU8g4v/+yfnzpCRL3T6MDRU
-	0bgjiDFYOYDzSeXDXze51gnYVMV+ENkMSGdNyoIZXPGN5dICdOktnK2/cEQQ8xoZp8alCX314r9
-	tRavgKof+qyt6+euJtjQuA9V3+X5j3lENia/DA3aDus4CzYkWIyt2TJbHJFmTq/iJldPN79CNGI
-	1armS7Ho+9A6un/3Cgv52slJxnDHaxL6FJvYpVFFz2SGgCFH+nHtjWRcjaJfH+CarzNNBD20VDs
-	6POzRJWF8/3jt3VUQMSKZz1u2k9rgsSW3wxdC0NJE4XdWKQIfvCYNQOF7aValW4B9GVK4tvWZJx
-	t02OTg
-X-Google-Smtp-Source: AGHT+IF2d1dNaLQQ0BE1lb2WDqjp5F/ItE0EG7UTuAPSQpK/RrXI2v4HqgZHJSatvjjVOjwrU182GQ==
-X-Received: by 2002:a05:600c:354b:b0:46f:b327:ecfb with SMTP id 5b1f17b1804b1-477c0184c45mr143467535e9.9.1764076290301;
-        Tue, 25 Nov 2025 05:11:30 -0800 (PST)
-Received: from brgl-uxlite ([2a01:cb1d:dc:7e00:df0c:79ae:5345:c3b0])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-477bf226c2asm249328865e9.10.2025.11.25.05.11.27
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 25 Nov 2025 05:11:28 -0800 (PST)
-From: Bartosz Golaszewski <brgl@bgdev.pl>
-To: Doug Berger <opendmb@gmail.com>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	bcm-kernel-feedback-list@broadcom.com,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>,
-	Hoan Tran <hoan@os.amperecomputing.com>,
-	Andy Shevchenko <andy@kernel.org>,
-	Daniel Palmer <daniel@thingy.jp>,
-	Romain Perier <romain.perier@gmail.com>,
-	Grygorii Strashko <grygorii.strashko@ti.com>,
-	Santosh Shilimkar <ssantosh@kernel.org>,
-	Kevin Hilman <khilman@kernel.org>,
-	Robert Jarzmik <robert.jarzmik@free.fr>,
-	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>,
-	Srinivas Neeli <srinivas.neeli@amd.com>,
-	Michal Simek <michal.simek@amd.com>,
-	Jisheng Zhang <jszhang@kernel.org>
-Cc: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
-	linux-gpio@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-omap@vger.kernel.org
-Subject: Re: [PATCH v5 00/14] gpio: Use modern PM macros
-Date: Tue, 25 Nov 2025 14:11:26 +0100
-Message-ID: <176407621592.26035.10745445614533794233.b4-ty@linaro.org>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20251124002105.25429-1-jszhang@kernel.org>
-References: <20251124002105.25429-1-jszhang@kernel.org>
+	id 1vNstT-0000000DKQv-0i7v;
+	Tue, 25 Nov 2025 13:15:43 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id D7B6F6014E;
+	Tue, 25 Nov 2025 13:15:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D137FC4CEF1;
+	Tue, 25 Nov 2025 13:15:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1764076541;
+	bh=xyeAb8HK2fahKTFKKpRAL4i0ZxzwGkco4WoE+HqG/is=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
+	b=ASXrhPsa3i6t+6CdTp8v5KWjJs1sf9rqFTuzxudbTrrAhu/q0W8ZGbjN1K20e+iDo
+	 205vJs3L9pkqFzjE1+HW7DTV7jrEdcDYd24SFyCVVnDTX/wNahnOd4Qk68Z00J8kXr
+	 j1EUasFL/9VUSInsbdCYWce15cb5xFhleXGzyHy86wq3/CwNrXdMhvVrbdbwIfnv9z
+	 hPmpOxAd9NYhjoyjco93WWyazGjSNWlNkszP0XtmRsjPMJ6z4t9rTrG8MsUBLPsd1q
+	 WHW9cg96yPY9fpYkNVEOZLuzrC8Qr29uF3tWpAYeailnWxDzxKVSoWaleM9Hqkusy3
+	 TBzWlxFPukOsg==
+From: Pratyush Yadav <pratyush@kernel.org>
+To: Usama Arif <usamaarif642@gmail.com>
+Cc: Changyuan Lyu <changyuanl@google.com>,  akpm@linux-foundation.org,
+  linux-kernel@vger.kernel.org,  Mike Rapoport <rppt@kernel.org>,
+  anthony.yznaga@oracle.com,  arnd@arndb.de,  ashish.kalra@amd.com,
+  benh@kernel.crashing.org,  bp@alien8.de,  catalin.marinas@arm.com,
+  corbet@lwn.net,  dave.hansen@linux.intel.com,
+  devicetree@vger.kernel.org,  dwmw2@infradead.org,  ebiederm@xmission.com,
+  graf@amazon.com,  hpa@zytor.com,  jgowans@amazon.com,
+  kexec@lists.infradead.org,  krzk@kernel.org,
+  linux-arm-kernel@lists.infradead.org,  linux-doc@vger.kernel.org,
+  linux-mm@kvack.org,  luto@kernel.org,  mark.rutland@arm.com,
+  mingo@redhat.com,  pasha.tatashin@soleen.com,  pbonzini@redhat.com,
+  peterz@infradead.org,  robh@kernel.org,  rostedt@goodmis.org,
+  saravanak@google.com,  skinsburskii@linux.microsoft.com,
+  tglx@linutronix.de,  thomas.lendacky@amd.com,  will@kernel.org,
+  x86@kernel.org,  Breno Leitao <leitao@debian.org>,  thevlad@meta.com
+Subject: Re: [PATCH v8 12/17] x86/e820: temporarily enable KHO scratch for
+ memory below 1M
+In-Reply-To: <a0f875f1-45ad-4dfc-b5c8-ecb51b242523@gmail.com> (Usama Arif's
+	message of "Mon, 24 Nov 2025 19:24:58 +0000")
+References: <20250509074635.3187114-1-changyuanl@google.com>
+	<20250509074635.3187114-13-changyuanl@google.com>
+	<a0f875f1-45ad-4dfc-b5c8-ecb51b242523@gmail.com>
+Date: Tue, 25 Nov 2025 14:15:34 +0100
+Message-ID: <mafs01plmxngp.fsf@kernel.org>
+User-Agent: Gnus/5.13 (Gnus v5.13)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251125_051132_669541_1262CD08 
-X-CRM114-Status: GOOD (  11.93  )
+Content-Type: text/plain
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,53 +84,192 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+On Mon, Nov 24 2025, Usama Arif wrote:
+
+> On 09/05/2025 08:46, Changyuan Lyu wrote:
+>> From: Alexander Graf <graf@amazon.com>
+>> 
+>> KHO kernels are special and use only scratch memory for memblock
+>> allocations, but memory below 1M is ignored by kernel after early boot
+>> and cannot be naturally marked as scratch.
+>> 
+>> To allow allocation of the real-mode trampoline and a few (if any) other
+>> very early allocations from below 1M forcibly mark the memory below 1M
+>> as scratch.
+>> 
+>> After real mode trampoline is allocated, clear that scratch marking.
+>> 
+>> Signed-off-by: Alexander Graf <graf@amazon.com>
+>> Co-developed-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+>> Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+>> Co-developed-by: Changyuan Lyu <changyuanl@google.com>
+>> Signed-off-by: Changyuan Lyu <changyuanl@google.com>
+>> Acked-by: Dave Hansen <dave.hansen@linux.intel.com>
+>> ---
+>>  arch/x86/kernel/e820.c   | 18 ++++++++++++++++++
+>>  arch/x86/realmode/init.c |  2 ++
+>>  2 files changed, 20 insertions(+)
+>> 
+>> diff --git a/arch/x86/kernel/e820.c b/arch/x86/kernel/e820.c
+>> index 9920122018a0b..c3acbd26408ba 100644
+>> --- a/arch/x86/kernel/e820.c
+>> +++ b/arch/x86/kernel/e820.c
+>> @@ -1299,6 +1299,24 @@ void __init e820__memblock_setup(void)
+>>  		memblock_add(entry->addr, entry->size);
+>>  	}
+>>  
+>> +	/*
+>> +	 * At this point memblock is only allowed to allocate from memory
+>> +	 * below 1M (aka ISA_END_ADDRESS) up until direct map is completely set
+>> +	 * up in init_mem_mapping().
+>> +	 *
+>> +	 * KHO kernels are special and use only scratch memory for memblock
+>> +	 * allocations, but memory below 1M is ignored by kernel after early
+>> +	 * boot and cannot be naturally marked as scratch.
+>> +	 *
+>> +	 * To allow allocation of the real-mode trampoline and a few (if any)
+>> +	 * other very early allocations from below 1M forcibly mark the memory
+>> +	 * below 1M as scratch.
+>> +	 *
+>> +	 * After real mode trampoline is allocated, we clear that scratch
+>> +	 * marking.
+>> +	 */
+>> +	memblock_mark_kho_scratch(0, SZ_1M);
+>> +
+>>  	/*
+>>  	 * 32-bit systems are limited to 4BG of memory even with HIGHMEM and
+>>  	 * to even less without it.
+>> diff --git a/arch/x86/realmode/init.c b/arch/x86/realmode/init.c
+>> index f9bc444a3064d..9b9f4534086d2 100644
+>> --- a/arch/x86/realmode/init.c
+>> +++ b/arch/x86/realmode/init.c
+>> @@ -65,6 +65,8 @@ void __init reserve_real_mode(void)
+>>  	 * setup_arch().
+>>  	 */
+>>  	memblock_reserve(0, SZ_1M);
+>> +
+>> +	memblock_clear_kho_scratch(0, SZ_1M);
+>>  }
+>>  
+>>  static void __init sme_sev_setup_real_mode(struct trampoline_header *th)
+>
+> Hello!
+>
+> I am working with Breno who reported that we are seeing the below warning at boot
+> when rolling out 6.16 in Meta fleet. It is difficult to reproduce on a single host
+> manually but we are seeing this several times a day inside the fleet.
+>
+>  20:16:33  ------------[ cut here ]------------
+>  20:16:33  WARNING: CPU: 0 PID: 0 at mm/memblock.c:668 memblock_add_range+0x316/0x330
+>  20:16:33  Modules linked in:
+>  20:16:33  CPU: 0 UID: 0 PID: 0 Comm: swapper Tainted: G S                  6.16.1-0_fbk0_0_gc0739ee5037a #1 NONE 
+>  20:16:33  Tainted: [S]=CPU_OUT_OF_SPEC
+>  20:16:33  RIP: 0010:memblock_add_range+0x316/0x330
+>  20:16:33  Code: ff ff ff 89 5c 24 08 41 ff c5 44 89 6c 24 10 48 63 74 24 08 48 63 54 24 10 e8 26 0c 00 00 e9 41 ff ff ff 0f 0b e9 af fd ff ff <0f> 0b e9 b7 fd ff ff 0f 0b 0f 0b cc cc cc cc cc cc cc cc cc cc cc
+>  20:16:33  RSP: 0000:ffffffff83403dd8 EFLAGS: 00010083 ORIG_RAX: 0000000000000000
+>  20:16:33  RAX: ffffffff8476ff90 RBX: 0000000000001c00 RCX: 0000000000000002
+>  20:16:33  RDX: 00000000ffffffff RSI: 0000000000000000 RDI: ffffffff83bad4d8
+>  20:16:33  RBP: 000000000009f000 R08: 0000000000000020 R09: 8000000000097101
+>  20:16:33  R10: ffffffffff2004b0 R11: 203a6d6f646e6172 R12: 000000000009ec00
+>  20:16:33  R13: 0000000000000002 R14: 0000000000100000 R15: 000000000009d000
+>  20:16:33  FS:  0000000000000000(0000) GS:0000000000000000(0000) knlGS:0000000000000000
+>  20:16:33  CR2: ffff888065413ff8 CR3: 00000000663b7000 CR4: 00000000000000b0
+>  20:16:33  Call Trace:
+>  20:16:33   <TASK>
+>  20:16:33   ? __memblock_reserve+0x75/0x80
+>  20:16:33   ? setup_arch+0x30f/0xb10
+>  20:16:33   ? start_kernel+0x58/0x960
+>  20:16:33   ? x86_64_start_reservations+0x20/0x20
+>  20:16:33   ? x86_64_start_kernel+0x13d/0x140
+>  20:16:33   ? common_startup_64+0x13e/0x140
+>  20:16:33   </TASK>
+>  20:16:33  ---[ end trace 0000000000000000 ]--- 
+>
+>
+> Rolling out with memblock=debug is not really an option in a large scale fleet due to the
+> time added to boot. But I did try on one of the hosts (without reproducing the issue) and I see:
+>
+> [    0.000616]  memory.cnt  = 0x6
+> [    0.000617]  memory[0x0]	[0x0000000000001000-0x000000000009bfff], 0x000000000009b000 bytes flags: 0x40
+> [    0.000620]  memory[0x1]	[0x000000000009f000-0x000000000009ffff], 0x0000000000001000 bytes flags: 0x40
+> [    0.000621]  memory[0x2]	[0x0000000000100000-0x000000005ed09fff], 0x000000005ec0a000 bytes flags: 0x0
+> ...
+>
+> The 0x40 (MEMBLOCK_KHO_SCRATCH) is coming from memblock_mark_kho_scratch in e820__memblock_setup. I believe this
+> should be under ifdef like the diff at the end? (Happy to send this as a patch for review if it makes sense).
+> We have KEXEC_HANDOVER disabled in our defconfig, therefore MEMBLOCK_KHO_SCRATCH shouldnt be selected and
+> we shouldnt have any MEMBLOCK_KHO_SCRATCH type regions in our memblock reservations.
+>
+> The other thing I did was insert a while(1) just before the warning and inspected the registers in qemu.
+> R14 held the base register, and R15 held the size at that point.
+> In the warning R14 is 0x100000 meaning that someone is reserving a region with a different flag to MEMBLOCK_NONE
+> at the boundary of MEMBLOCK_KHO_SCRATCH.
+
+I don't get this... The WARN_ON() is only triggered when the regions
+overlap. Here, there should be no overlap, since the scratch region
+should end at 0x100000 (SZ_1M) and the new region starts at 0x100000
+(SZ_1M).
+
+Anyway, you do indeed point at a bug. memblock_mark_kho_scratch() should
+only be called on a KHO boot, not unconditionally. So even with
+CONFIG_MEMBLOCK_KHO_SCRATCH enabled, this should only be called on a KHO
+boot, not every time.
+
+I think the below diff should fix the warning for you by making sure the
+scratch areas are not present on non-KHO boot. I still don't know why
+you hit the warning in the first place though. If you'd be willing to
+dig deeper into that, it would be great.
+
+Can you give the below a try and if it fixes the problem for you I can
+send it on the list.
+
+diff --git a/arch/x86/kernel/e820.c b/arch/x86/kernel/e820.c
+index c3acbd26408ba..0a34dc011bf91 100644
+--- a/arch/x86/kernel/e820.c
++++ b/arch/x86/kernel/e820.c
+@@ -16,6 +16,7 @@
+ #include <linux/firmware-map.h>
+ #include <linux/sort.h>
+ #include <linux/memory_hotplug.h>
++#include <linux/kexec_handover.h>
+ 
+ #include <asm/e820/api.h>
+ #include <asm/setup.h>
+@@ -1315,7 +1316,8 @@ void __init e820__memblock_setup(void)
+ 	 * After real mode trampoline is allocated, we clear that scratch
+ 	 * marking.
+ 	 */
+-	memblock_mark_kho_scratch(0, SZ_1M);
++	if (is_kho_boot())
++		memblock_mark_kho_scratch(0, SZ_1M);
+ 
+ 	/*
+ 	 * 32-bit systems are limited to 4BG of memory even with HIGHMEM and
+diff --git a/arch/x86/realmode/init.c b/arch/x86/realmode/init.c
+index 88be32026768c..4e9b4dff17216 100644
+--- a/arch/x86/realmode/init.c
++++ b/arch/x86/realmode/init.c
+@@ -4,6 +4,7 @@
+ #include <linux/memblock.h>
+ #include <linux/cc_platform.h>
+ #include <linux/pgtable.h>
++#include <linux/kexec_handover.h>
+ 
+ #include <asm/set_memory.h>
+ #include <asm/realmode.h>
+@@ -67,7 +68,8 @@ void __init reserve_real_mode(void)
+ 	 */
+ 	memblock_reserve(0, SZ_1M);
+ 
+-	memblock_clear_kho_scratch(0, SZ_1M);
++	if (is_kho_boot())
++		memblock_clear_kho_scratch(0, SZ_1M);
+ }
+ 
+ static void __init sme_sev_setup_real_mode(struct trampoline_header *th)
 
 
-On Mon, 24 Nov 2025 08:20:51 +0800, Jisheng Zhang wrote:
-> Use the modern PM macros for the suspend and resume functions to be
-> automatically dropped by the compiler when CONFIG_PM or
-> CONFIG_PM_SLEEP are disabled, without having to use #ifdef guards or
-> __maybe_unused.
-> 
-> This has the advantage of always compiling these functions in,
-> independently of any Kconfig option. Thanks to that, bugs and other
-> regressions are subsequently easier to catch.
-> 
-> [...]
-
-Let's give it some time in linux-next to spot any potential build issues.
-
-[01/14] gpio: dwapb: Use modern PM macros
-        https://git.kernel.org/brgl/linux/c/3f19e57cbfb55d743d60aeebf5d5c48cc7fd5d4e
-[02/14] gpio: brcmstb: Use modern PM macros
-        https://git.kernel.org/brgl/linux/c/56f3a6d7538d2e0dfb8d9df7871d2a9aec3115ac
-[03/14] gpio: htc-egpio: Use modern PM macros
-        https://git.kernel.org/brgl/linux/c/2557b1f4f21a75650a03c74a56ea30bd4214866e
-[04/14] gpio: pl061: Use modern PM macros
-        https://git.kernel.org/brgl/linux/c/b40c4dacf48a42ddcd701552575945e90f5c8060
-[05/14] gpio: ml-ioh: Use modern PM macros
-        https://git.kernel.org/brgl/linux/c/1f37a9f7d1fa582833cc8e226d77e5b2397df9fa
-[06/14] gpio: mlxbf2: Use modern PM macros
-        https://git.kernel.org/brgl/linux/c/a92f492a1473eb2255be9b7b767d0720c5c3b2a9
-[07/14] gpio: msc313: Use modern PM macros
-        https://git.kernel.org/brgl/linux/c/07a251bfe3b690ebfaef7c46f6ce25ea9ccba8da
-[08/14] gpio: omap: Use modern PM macros
-        https://git.kernel.org/brgl/linux/c/2b3c8bd8e13bd101fe8833b1f02ef5e5a6e9920b
-[09/14] gpio: pch: Use modern PM macros
-        https://git.kernel.org/brgl/linux/c/0ed358a87d6ef9782dca161ef3f1311d21f257d2
-[10/14] gpio: tqmx86: Use modern PM macros
-        https://git.kernel.org/brgl/linux/c/75ff16234bf3af747b9c77b81d7ce3df5c09df8c
-[11/14] gpio: uniphier: Use modern PM macros
-        https://git.kernel.org/brgl/linux/c/46e90d3924cb58b161c2dd57ba05f3a706c1c0e2
-[12/14] gpio: xgene: Use modern PM macros
-        https://git.kernel.org/brgl/linux/c/353fdaebdc6991f1cf03ae3aaec266ad0516859b
-[13/14] gpio: xilinx: Use modern PM macros
-        https://git.kernel.org/brgl/linux/c/dbedf93d1082b4e755eb62338e5f6566f4e31fb8
-[14/14] gpio: zynq: Use modern PM macros
-        https://git.kernel.org/brgl/linux/c/23ac52a4a2dceb704d8dc1674abb8beefd93bf1a
-
-Best regards,
 -- 
-Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Regards,
+Pratyush Yadav
 
