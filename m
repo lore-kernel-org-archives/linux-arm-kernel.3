@@ -4,59 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3235ED0EE0F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 18:09:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFBFAD0EE13
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 18:10:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fCAUDF2QpscKkXOVBlyh0jMoEi7m75YgYyiKSkj9VGc=; b=VjqFANClq71wMmsC372fRDxqhn
-	AZEv+W7+FHOWgw6OpRL8zFkcbUL8oEUEx6zPbDWClHf8mpoIvFXG4kMSFYgB7zUJORlkzJvwvWrPI
-	7s8N0B8DiHRTevUBQITDmNrVWSR7UCFNDq/QbwN5H048LaGI12RWHbCXXWpyrU28vcNd7fNQGUkIK
-	QEppBTVvtLQTyniRQqsVIIuoHau8aWWEpkiwJ8hWWhWfpDCEr98ydB45RfujjSBH+G+MzqXxle28e
-	jpGwq15J/Wp8dYNEytZVlRMyHo163soWvoOelkiyKEdyvlRWshJliVbsRBIMTdXJGgUMHETf5HJmB
-	YbLnTskA==;
+	bh=Umec4MYCn7UWFTu95kobtomRxgANDBIZB5gZ37QVB98=; b=TesGDFyUgD8JsBB6mmyFLa42a+
+	eD6pP5v6PHdf/pg6z7xWZYiUxaBfzZdLunTG61pL+Zd99ihh7kXC4GsWojJdtUFOoUy9hW6+BqAj7
+	HinTOeqf6Pq6iDwCxExMr+7qhxmkWbkqkaMoegMebT33o+40WDu5PY/D5J78880oGQaKDBByhFXmq
+	tkdJm4GLA0NNNIYT3M8cn/lKkCmoqdluv1NxgGX8Zzadjx6Xr/7FDPWQ53TYCdTIhSNv7vKow33l2
+	XQ8FDZrrzpKXZJe9hKJAGU5TcCybMLGuDGFbE3K8P1wL+46WJwyxRAefRHGW6q4/pFcyzIS3njNFZ
+	61p4V2aw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNxU0-0000000Djz9-3PLP;
-	Tue, 25 Nov 2025 18:09:44 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vNxUs-0000000Dk9Z-101g;
+	Tue, 25 Nov 2025 18:10:38 +0000
+Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNxTy-0000000DjyX-475X
+	id 1vNxUq-0000000Dk93-1dsX
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Nov 2025 18:09:43 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 209A06053E;
-	Tue, 25 Nov 2025 18:09:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A59B5C116B1;
-	Tue, 25 Nov 2025 18:09:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764094181;
-	bh=A9TI1uGv3Jhr0VsYInmJA+RoLyunx8Jk4kjNxlKKpCA=;
-	h=From:Date:Cc:To:In-Reply-To:References:Subject:From;
-	b=M/VqDJhYVUdTIZ8VtubHKshI/xH7SwLgwbY1h/SNV81u/zsD7hfUg8dDbkjzVhluj
-	 bUoGFv89GU/F8NOy92Nuej1YsUSyt0HeYQl3Bk+B2KDgWOf11g2WCj6K72+RzTEzEX
-	 5Ek2B9eYaLgu/QAf2y/vSbNiycvkOlZduPfmZxnsmNmteBKmEsjR50woD4TLNO9O3F
-	 q/9tHFbi4k4OwzfzTBXUfZI/BWnPlrhqVL/jG9LBLDET8ewAdDs5L8CYj4Ou3z05AI
-	 I3TSrwczn5yrvUdJAwxcw5B6hesYp1zpa3qC08SLFtfOYu0MsAQZapBUNdLOwx5jj3
-	 rMsO8cR97fkXw==
-From: Rob Herring <robh@kernel.org>
-Date: Tue, 25 Nov 2025 12:09:40 -0600
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	Tue, 25 Nov 2025 18:10:37 +0000
+Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-297e2736308so5803525ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Nov 2025 10:10:35 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=jrife-io.20230601.gappssmtp.com; s=20230601; t=1764094235; x=1764699035; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=Umec4MYCn7UWFTu95kobtomRxgANDBIZB5gZ37QVB98=;
+        b=nBo1cvozRqilQ5QK+pvxpndg0bfpbwAlqZk0UAz//X2tQp9ub+QqxDfVxAJYJOFXWy
+         tDzbCwRcxgrvF88xN7v1CkQorJHWjgi5LBGWyla1ZX5i5p+IPl8hJayTR6z/WOBGgj1N
+         2hEIIghZ4BO6pbdwOGH405GD+D3Scis/csTOICXK4e4hnVTaCBILq0jb8ySk/mAUPYsg
+         W1GLKEm893PedwU0vSo+mYR/adQTqXaMyYJLVb0HLE1vj3LYQ9d3Y9zIWz+MjOeBqgSI
+         sJpy1lyRXu6d8OnZniRgGK7fQEALy+v9tN9mMO8zgszLGxhu/QU4LKosFJ0F0XuEB+oN
+         HhJA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1764094235; x=1764699035;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=Umec4MYCn7UWFTu95kobtomRxgANDBIZB5gZ37QVB98=;
+        b=CtIhzVypK0t8XWdlvqk6Qbg+OTWnSXGK60+qt09evTNIynUqEGnoRi3JnPG3lpOetO
+         VRSoR7WmC7vC7MUFGriG3bNoDtHa14erzWVv8af/H6vo5h6oKNm4dLMxhK3RMWRvYDsj
+         OY/InoIpGoOSEUleBHU6salqgP///6SOA/qNzvJtZDxr4GZRDHtzKjH1mMY5X5+m4A3Y
+         b1J69skOW47x6o3VqgMS5aIRkI79hoDMs+vq5Hgm5ZtIjyUCf4Iyau1AHTxrSx9zjW2A
+         W4VH90Kq4jb0u6dKN6cJDKqNDc/JFLtEv1CuqBTJmag5HWIvZIDOXfnfMhase4DGougi
+         j40w==
+X-Forwarded-Encrypted: i=1; AJvYcCW+BBhaGH+IsknkTSsV+TBpD37rk2HaYMq0smIBqff+vsrjzyP16TiyNRFqA5r2usyZhHnY52djsFD1p+sLCjR0@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy4w7ymFrO2d6DjcjygbxjWwYguDj8F1Mdq8H+9sbkEgQmbXixl
+	juU/pp32XtBIi7HYOdqmrFxeF1zNL8HkoM232NpAmX/nCOzqfeZ8OW/bPtuprwfp76g=
+X-Gm-Gg: ASbGncudKHar0nhmjQfKQc2qyaPiS+cvXJHkReuRjSK6tZiNTdopO+kObJysmB1hrGD
+	xKtsgEW3oUs+SgVlYJpTjjk9yUF3qKHKTEb8wckvI/6rz7f+5FMqgygPPj7Bu6yiLVzgoLrXfAn
+	c2FSLcrdxl2HbpgSZOQ61ZZT8uBETYpL1CJsGZvWI/DqnsZzDkVYJdEvomeBNK2E0kfADF41Klh
+	0P2we4GSR0LbcBVmzO1ht5UddOrqcD2nafXc7CsI+dAIRS6nY1SuKtrtlueA6H8bpemegQpbM22
+	gMaKByMh0XoolGSaw31IrtVW5wnM3ayYB+PIYuDIXfDU88S6fqmOHnP5MoBjJwSH1JwiRMuE+6x
+	TDmC3wuZ6uSIZgzUupjCeQYHeVOcwe2+X5uOIpkPm83aYDwRltyRSsm5CIA==
+X-Google-Smtp-Source: AGHT+IGMaalvfN9l0DOr2S33Cgy8CQf0jRx582FHWei67nCNYyq/uZZfeYcD3+INNTene/3kJVhYsA==
+X-Received: by 2002:a17:903:19f0:b0:297:f3a7:9305 with SMTP id d9443c01a7336-29b6bf6c143mr103444455ad.6.1764094235141;
+        Tue, 25 Nov 2025 10:10:35 -0800 (PST)
+Received: from t14 ([2001:5a8:47ec:d700:7dee:b1a1:fd3f:6b76])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7c3f174ba7dsm18606671b3a.64.2025.11.25.10.10.34
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 25 Nov 2025 10:10:34 -0800 (PST)
+Date: Tue, 25 Nov 2025 10:10:32 -0800
+From: Jordan Rife <jordan@jrife.io>
+To: Alexei Starovoitov <alexei.starovoitov@gmail.com>
+Cc: bpf <bpf@vger.kernel.org>, 
+	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, linux-s390 <linux-s390@vger.kernel.org>, X86 ML <x86@kernel.org>, 
+	Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
+	Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau <martin.lau@linux.dev>, 
+	Puranjay Mohan <puranjay@kernel.org>, Ilya Leoshkevich <iii@linux.ibm.com>, 
+	Ingo Molnar <mingo@redhat.com>
+Subject: Re: [RFC PATCH bpf-next 0/7] bpf: Implement BPF_LINK_UPDATE for
+ tracing links
+Message-ID: <gjfaxdq3qyz2q4ajgigwmqthhkoeffuym7sy4z764m4bvmfqdt@4eggpiyxff2i>
+References: <20251118005305.27058-1-jordan@jrife.io>
+ <CAADnVQJ-9JubH5r4oSwQneu3o6U6s8Fa0cjCsi=+6-R+9nkzHw@mail.gmail.com>
 MIME-Version: 1.0
-Cc: conor+dt@kernel.org, nicolas.ferre@microchip.com, krzk+dt@kernel.org, 
- devicetree@vger.kernel.org, claudiu.beznea@tuxon.dev, 
- alexandre.belloni@bootlin.com, linux-kernel@vger.kernel.org, 
- wsa+renesas@sang-engineering.com, linux-arm-kernel@lists.infradead.org, 
- romain.sioen@microchip.com
-To: Horatiu Vultur <horatiu.vultur@microchip.com>
-In-Reply-To: <20251125081551.1390820-1-horatiu.vultur@microchip.com>
-References: <20251125081551.1390820-1-horatiu.vultur@microchip.com>
-Message-Id: <176409395844.3843915.15817733774701768303.robh@kernel.org>
-Subject: Re: [PATCH v2 0/2] ARM: add support for pcb8385
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAADnVQJ-9JubH5r4oSwQneu3o6U6s8Fa0cjCsi=+6-R+9nkzHw@mail.gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251125_101036_630023_7B2B4C94 
+X-CRM114-Status: GOOD (  17.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,105 +105,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Tue, 25 Nov 2025 09:15:49 +0100, Horatiu Vultur wrote:
-> Add pcb8385 and the documentation for it.
-> This is a moduler board on which it can add different daughter cards.
+On Fri, Nov 21, 2025 at 05:43:28PM -0800, Alexei Starovoitov wrote:
+> On Mon, Nov 17, 2025 at 4:53 PM Jordan Rife <jordan@jrife.io> wrote:
+> >
+> > Implement update_prog for bpf_tracing_link_lops to enable
+> > BPF_LINK_UPDATE for fentry, fexit, fmod_ret, freplace, etc. links.
+> >
+> > My initial motivation for this was to enable a use case where one
+> > process creates and owns links pointing to "hooks" within a tc, xdp, ...
+> > attachment and an external "plugin" loads freplace programs and updates
+> > links to these hooks. Aside from that though, it seemed like it could
+> > be useful to be able to atomically swap out the program associated with
+> > an freplace/fentry/fexit/fmod_ret link more generally.
 > 
-> v1->v2:
-> - sort nodes in alphanumerical order
-> - move the eeprom nodes under i2c0
-> 
-> Horatiu Vultur (2):
->   dt-bindings: arm: at91: add lan966 pcb8385 board
->   ARM: dts: Add support for pcb8385
-> 
->  .../devicetree/bindings/arm/atmel-at91.yaml   |   6 +-
->  arch/arm/boot/dts/microchip/Makefile          |   3 +-
->  .../boot/dts/microchip/lan966x-pcb8385.dts    | 135 ++++++++++++++++++
->  3 files changed, 141 insertions(+), 3 deletions(-)
->  create mode 100644 arch/arm/boot/dts/microchip/lan966x-pcb8385.dts
-> 
-> --
-> 2.34.1
-> 
-> 
-> 
+> I don't think we should burden the kernel with link_update for fentry/fexit.
+> bpf trampoline is already complex enough. I don't feel that
+> additional complexity is justified.
 
+OK. I could drop fentry/fexit from the series to avoid complexity with
+the associated arch-specific stuff.
 
-My bot found new DTB warnings on the .dts files added or changed in this
-series.
-
-Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
-are fixed by another series. Ultimately, it is up to the platform
-maintainer whether these warnings are acceptable or not. No need to reply
-unless the platform maintainer has comments.
-
-If you already ran DT checks and didn't see these error(s), then
-make sure dt-schema is up to date:
-
-  pip3 install dtschema --upgrade
-
-
-This patch series was applied (using b4) to base:
- Base: attempting to guess base-commit...
- Base: tags/next-20251124 (exact match)
- Base: tags/next-20251124 (use --merge-base to override)
-
-If this is not the correct base, please add 'base-commit' tag
-(or use b4 which does this automatically)
-
-New warnings running 'make CHECK_DTBS=y for arch/arm/boot/dts/microchip/' for 20251125081551.1390820-1-horatiu.vultur@microchip.com:
-
-arch/arm/boot/dts/microchip/lan966x-pcb8385.dtb: /soc/usb@200000: failed to match any schema with compatible: ['microchip,lan9662-udc', 'atmel,sama5d3-udc']
-arch/arm/boot/dts/microchip/lan966x-pcb8385.dtb: /soc/usb@200000: failed to match any schema with compatible: ['microchip,lan9662-udc', 'atmel,sama5d3-udc']
-arch/arm/boot/dts/microchip/lan966x-pcb8385.dtb: serial@200 (atmel,at91sam9260-usart): $nodename:0: 'serial@200' does not match '^spi(@.*|-([0-9]|[1-9][0-9]+))?$'
-	from schema $id: http://devicetree.org/schemas/serial/atmel,at91-usart.yaml
-arch/arm/boot/dts/microchip/lan966x-pcb8385.dtb: serial@200 (atmel,at91sam9260-usart): False schema does not allow 32
-	from schema $id: http://devicetree.org/schemas/serial/atmel,at91-usart.yaml
-arch/arm/boot/dts/microchip/lan966x-pcb8385.dtb: serial@200 (atmel,at91sam9260-usart): $nodename:0: 'serial@200' does not match '^spi(@.*|-([0-9]|[1-9][0-9]+))?$'
-	from schema $id: http://devicetree.org/schemas/serial/atmel,at91-usart.yaml
-arch/arm/boot/dts/microchip/lan966x-pcb8385.dtb: serial@200 (atmel,at91sam9260-usart): False schema does not allow 32
-	from schema $id: http://devicetree.org/schemas/serial/atmel,at91-usart.yaml
-arch/arm/boot/dts/microchip/lan966x-pcb8385.dtb: rng@e0048000 (atmel,at91sam9g45-trng): 'oneOf' conditional failed, one must be fixed:
-	'interrupts' is a required property
-	'interrupts-extended' is a required property
-	from schema $id: http://devicetree.org/schemas/rng/atmel,at91-trng.yaml
-arch/arm/boot/dts/microchip/lan966x-pcb8385.dtb: serial@200 (atmel,at91sam9260-usart): $nodename:0: 'serial@200' does not match '^spi(@.*|-([0-9]|[1-9][0-9]+))?$'
-	from schema $id: http://devicetree.org/schemas/serial/atmel,at91-usart.yaml
-arch/arm/boot/dts/microchip/lan966x-pcb8385.dtb: serial@200 (atmel,at91sam9260-usart): False schema does not allow 32
-	from schema $id: http://devicetree.org/schemas/serial/atmel,at91-usart.yaml
-arch/arm/boot/dts/microchip/lan966x-pcb8385.dtb: serial@200 (atmel,at91sam9260-usart): $nodename:0: 'serial@200' does not match '^spi(@.*|-([0-9]|[1-9][0-9]+))?$'
-	from schema $id: http://devicetree.org/schemas/serial/atmel,at91-usart.yaml
-arch/arm/boot/dts/microchip/lan966x-pcb8385.dtb: serial@200 (atmel,at91sam9260-usart): False schema does not allow 32
-	from schema $id: http://devicetree.org/schemas/serial/atmel,at91-usart.yaml
-arch/arm/boot/dts/microchip/lan966x-pcb8385.dtb: serial@200 (atmel,at91sam9260-usart): '#size-cells' is a required property
-	from schema $id: http://devicetree.org/schemas/serial/atmel,at91-usart.yaml
-arch/arm/boot/dts/microchip/lan966x-pcb8385.dtb: serial@200 (atmel,at91sam9260-usart): '#address-cells' is a required property
-	from schema $id: http://devicetree.org/schemas/serial/atmel,at91-usart.yaml
-arch/arm/boot/dts/microchip/lan966x-pcb8385.dtb: serial@200 (atmel,at91sam9260-usart): 'atmel,usart-mode' is a required property
-	from schema $id: http://devicetree.org/schemas/serial/atmel,at91-usart.yaml
-arch/arm/boot/dts/microchip/lan966x-pcb8385.dtb: serial@200 (atmel,at91sam9260-usart): $nodename:0: 'serial@200' does not match '^spi(@.*|-([0-9]|[1-9][0-9]+))?$'
-	from schema $id: http://devicetree.org/schemas/serial/atmel,at91-usart.yaml
-arch/arm/boot/dts/microchip/lan966x-pcb8385.dtb: serial@200 (atmel,at91sam9260-usart): False schema does not allow 32
-	from schema $id: http://devicetree.org/schemas/serial/atmel,at91-usart.yaml
-arch/arm/boot/dts/microchip/lan966x-pcb8385.dtb: leds (gpio-leds): led-p1-green:linux,default-trigger: 'oneOf' conditional failed, one must be fixed:
-	'e200413c.mdio-mii:01:link' is not one of ['backlight', 'default-on', 'heartbeat', 'disk-activity', 'disk-read', 'disk-write', 'timer', 'pattern', 'audio-micmute', 'audio-mute', 'bluetooth-power', 'flash', 'kbd-capslock', 'mtd', 'nand-disk', 'netdev', 'none', 'rc-feedback', 'torch', 'usb-gadget', 'usb-host', 'usbport']
-	'e200413c.mdio-mii:01:link' does not match '^cpu[0-9]*$'
-	'e200413c.mdio-mii:01:link' does not match '^hci[0-9]+-power$'
-	'e200413c.mdio-mii:01:link' does not match '^mmc[0-9]+$'
-	'e200413c.mdio-mii:01:link' does not match '^phy[0-9]+tx$'
-	from schema $id: http://devicetree.org/schemas/leds/leds-gpio.yaml
-arch/arm/boot/dts/microchip/lan966x-pcb8385.dtb: leds (gpio-leds): led-p2-green:linux,default-trigger: 'oneOf' conditional failed, one must be fixed:
-	'e200413c.mdio-mii:02:link' is not one of ['backlight', 'default-on', 'heartbeat', 'disk-activity', 'disk-read', 'disk-write', 'timer', 'pattern', 'audio-micmute', 'audio-mute', 'bluetooth-power', 'flash', 'kbd-capslock', 'mtd', 'nand-disk', 'netdev', 'none', 'rc-feedback', 'torch', 'usb-gadget', 'usb-host', 'usbport']
-	'e200413c.mdio-mii:02:link' does not match '^cpu[0-9]*$'
-	'e200413c.mdio-mii:02:link' does not match '^hci[0-9]+-power$'
-	'e200413c.mdio-mii:02:link' does not match '^mmc[0-9]+$'
-	'e200413c.mdio-mii:02:link' does not match '^phy[0-9]+tx$'
-	from schema $id: http://devicetree.org/schemas/leds/leds-gpio.yaml
-
-
-
-
-
+Jordan
 
