@@ -4,170 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79DC1CFD379
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 08:48:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA749CFD315
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 08:52:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=fPHsgEviDcGBXc27dT+pBJbppyvUw+k3bobUCcjKu0k=; b=EHSII/B04Yx3WoW4ijfC6Ka/DJ
-	A9vWtqOCvTElgE6IdzL8+Ci9zCiFBVR3fJLyxSqE+Deh+LUt6jBtjosG+y+8LcTAupLFBowlOOgG0
-	PVlVt66tYwrEZEdEXfmFlo80t2cOSMb+NXXzCQPxtdg4Mv1sLRjFqf65eHuf8E/jSgRY6vlnn9ybp
-	Q8uvCgrSGM///GzAhcEE6feiAMpY37dH6smZQk3HN+nTZyhZpz6htdnQnRTrcu90jVYbtuYIyBMGk
-	/suu5IzMILLq5Lsl9CmaR+tL6Or7qNykDmHppZP31h9aclhf+xYd/vRD3DNDvHV+z6srwzgKaTqCa
-	0fIX5KDg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:To:From:Date:Reply-To:Cc:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=gSauOwJJuNnjyPBbUyUtrFBoFmJO4GXnpVHS0oMoaj8=; b=td14OWaBm4OrHkkJ202vxzaIns
+	1emRgEPZwXuYxcTO+0fh4RaDPowJAl0LDhElaZP0OJIayWqKYj1Pnas2yH8Mm32tA5ivDSp4LUu5z
+	4n1eEYZzCF4Nvnhky0F7nsI6qHfQfuQB5YhE6/dNUiguj7ubqmddvFCPCtM/Wg9lHgKY/dFGqKcVA
+	vUpkk02YRdlaPRCO+4paIYJ+gXxuVTdrIWdMLEAZ7c7U9SKIaVpgdeVOi4TerymVDvdYP6PqCnb6P
+	5tMpxhMC83wlpeQC6zOnNhihceXOMxmOzoZxWZPcR/aCQAJPVnBmAuvQ69tesHMooUcZFxHOC9NY2
+	amIqzwBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNoiT-0000000CzJb-14IA;
-	Tue, 25 Nov 2025 08:48:05 +0000
-Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1vNomT-0000000CzkG-3QVV;
+	Tue, 25 Nov 2025 08:52:13 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNoiR-0000000CzJ8-0Mc6
+	id 1vNomR-0000000CzjU-0D5o
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Nov 2025 08:48:04 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=I7aJwdZCiPVcAfwYktZdnHGQ5xMlUon+lKw4zYxgCt/NQbRF4GU2B54Wa3nfVr70TcPHsTDmnoGiobtPhhF+I/FJsZX73mWIpyAvEes9FwYs+EuN1cL2kYy2bnxVUeR8/dLpc55b0qSA3Ub+mC7ba9gV+8IOam4Fnps9zJscaI+QU8piNWFZbFwzUAuHg2fBDOHC++nb09pkIT3xYBKFmoXlPy2ucJxwp56bZzWrwRtbes+BgXF+Hvrl+5pRR2i6KsU8rGyB9E091I/KE63pLpIsHwQjZ+nFF6zsZ2lv96P5k3McwFiDDfbGCtEErpIoDgKRRcIsuixtLN1dY4Ao2w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=fPHsgEviDcGBXc27dT+pBJbppyvUw+k3bobUCcjKu0k=;
- b=SjOVNlJuBo9IMEAw19lExBiZkhpULahcBH/HlbM3WHn4GrIM1n2nC1mNs7YWD2fNwt4JXjXLSr/LUs/D5h1tE8DKr6nQpjwb6hnmOpXmsrB8Z5jYGz3tYE5jMQM/XDIoagnZQSbDtkhEhRJjfp7Hxh6ZA734z0G366deg0kvDi2PAGVWuh2RmOIft7cXKze61Udt/RaVlOXcGFE+4zfN2xFcud5lQzM2oYsiyTvaf5OzpyzlFVkbVV/Mho/hazruPT+DoQjx2coDYGKPEtKj9iuOWYOMH/5wW5ZnT1TK1BFBa3vCOws+0Uhe0HqO0wOS81srRPjeZAaVYZyRvHyiIg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=fPHsgEviDcGBXc27dT+pBJbppyvUw+k3bobUCcjKu0k=;
- b=IAiRNKiyvIa5sjDPhxUszmcl4OSB2ZtUrdzAn+f1GE4ao0fNfR4s0tvkf7SNXUxYL6bN13gloNrGcrUWQCLS6UhZDWWN5/EZos8nq1uRfJvWMCj44oVN07XgslqX7wL6vGSkG01hgYIPLCNMcPLYkS0/z9N7fjjzcCR01tvzap2/m1l36ov8sHmXBO5yQ18/TTjNcE371jbVCV1V380hBkc+3pbkMpFh7QE5PBEEs+0KKZE7G3uKxHscgVx2tovEq+F4eGsBaPuo7ps9LE+kb4XoAdywJkjiv5YOQFWuMTyesCi0JyQED0CU63vOWS/vdRSQrldGIil31n9AYga3YQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from VI2PR04MB11147.eurprd04.prod.outlook.com
- (2603:10a6:800:293::14) by AM0PR04MB7057.eurprd04.prod.outlook.com
- (2603:10a6:208:1a0::17) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9343.16; Tue, 25 Nov
- 2025 08:47:48 +0000
-Received: from VI2PR04MB11147.eurprd04.prod.outlook.com
- ([fe80::75ad:fac7:cfe7:b687]) by VI2PR04MB11147.eurprd04.prod.outlook.com
- ([fe80::75ad:fac7:cfe7:b687%6]) with mapi id 15.20.9343.016; Tue, 25 Nov 2025
- 08:47:48 +0000
-From: Carlos Song <carlos.song@nxp.com>
-To: frank.li@nxp.com,
-	aisheng.dong@nxp.com,
-	andi.shyti@kernel.org,
-	shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com
-Cc: linux-i2c@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Carlos Song <carlos.song@nxp.com>
-Subject: [PATCH v2] i2c: imx-lpi2c: Add runtime PM support for IRQ and clock management on i.MX8QXP/8QM
-Date: Tue, 25 Nov 2025 16:47:18 +0800
-Message-Id: <20251125084718.2156168-1-carlos.song@nxp.com>
-X-Mailer: git-send-email 2.34.1
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: AM9P192CA0006.EURP192.PROD.OUTLOOK.COM
- (2603:10a6:20b:21d::11) To VI2PR04MB11147.eurprd04.prod.outlook.com
- (2603:10a6:800:293::14)
+	Tue, 25 Nov 2025 08:52:12 +0000
+Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5AP2gf6Q1687862
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Nov 2025 08:52:10 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	content-type:date:from:message-id:mime-version:subject:to; s=
+	qcppdkim1; bh=gSauOwJJuNnjyPBbUyUtrFBoFmJO4GXnpVHS0oMoaj8=; b=iX
+	j4TveuWpA5coXgr0M0TbC+V0Zo5MHtRXOBP37sjII5XjbKOYZ6ZEbzAfWO9M5KHo
+	YduYESNZyBmpr9WSZl00qfsKxLwHsJ11pkiVdy/89e//SI0bZErQEWV9lImxPEME
+	Apil+h+ckzGQTsoBY8BoF/FLRvgJsgaYpI87PZ8jWwQUqt4txsHfP5JcOwooAXXK
+	LnaTdBHQr5V2Hp8ErRFpbR9aLnunA5GwsXvLeQsD6sbLNSXAaDNsh06mN80EBGzb
+	fuJ4d9fe82m4Jfl56VZnt74ajgMogdNuD/AJg81VrtbGn9rC16wKq6OJkgDx0s//
+	WRr8RGSCs223guPGki+w==
+Received: from mail-pj1-f70.google.com (mail-pj1-f70.google.com [209.85.216.70])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4amrv6axeb-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Nov 2025 08:52:10 +0000 (GMT)
+Received: by mail-pj1-f70.google.com with SMTP id 98e67ed59e1d1-34374bfbcccso4949776a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Nov 2025 00:52:10 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1764060729; x=1764665529; darn=lists.infradead.org;
+        h=content-disposition:mime-version:message-id:subject:to:from:date
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=gSauOwJJuNnjyPBbUyUtrFBoFmJO4GXnpVHS0oMoaj8=;
+        b=kRMMc7ImuYRxz7Yqg6W5d+lkcE+bZJJFA29h6I8UwvZv4ylMA6RP7rFj6LNzs57r9H
+         lbn+MEpNLWwi6FPxEH8Ylu0HOyE1AoGQhyzeUO9Mz5X7yzsHs81rvCMHpHOX1yusN4cA
+         FdPB7VK6VTd8bw4jzOmPLNeEiKuneE46dksDbOQUCYWTMVZGDurtXWHuxe8EUAV1UxN6
+         foGsRyYUrsvefMRQ25Htq2lysH2Sy0HW8l4KmEcacJ5wVVpuJ3OJTPKZYFSvwrWALYbU
+         v722Iwy7iVBvJd5NFOI/Y3gFPf6daifUEDBaDuZWwt35TJdTxopnbX/9kPP8psLZZkCd
+         5ECw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1764060729; x=1764665529;
+        h=content-disposition:mime-version:message-id:subject:to:from:date
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=gSauOwJJuNnjyPBbUyUtrFBoFmJO4GXnpVHS0oMoaj8=;
+        b=DDBY8U8NwL3DblAC5seLp6hEg9jGdKx1PWzJTXaNqzryWffpBtLU9Vwpk+5TY0tgRb
+         2KX7NQ6rPJPPmIQ8ZFeYl4MIwQzXhwZEDhFGTSK4fS5NJTUj/2rSmAYE40jc0CrnKFay
+         dDq387l8nVPHR1iQWXxbsfHz1iR+TPEzxcRKGg711/vllolA232B1uJakUWl6vlNjvhF
+         E55QEjPu00JAG7c8+biUZVTZekbvBmSR6wcX1f0WoNUx1XQGpP2ZosU24LtsMbGllQ19
+         FPSn691BNQaV8l7wM59Svb9eOr+ppXmDMXeSNLC6pBxilRt4GUFEua2chEnfemEyBPTF
+         3V9A==
+X-Gm-Message-State: AOJu0Yzjcghx2VxNQjM7nC1p1xgoraW8fGOeCPEZFQvUN8Yhpv3ZBjo9
+	XJWWVpSDNqTkX1IokwWrIYQSZNgegSV+gffCT4+8tUGdJqqgYkqFWj6N9EWHDJij24uC+nWzR3E
+	zVZRQNpMmVcMVGqz3QL7N5CR6ncfsN9Ax3Pd9HVEUmpBK/a00pSo0COpLBF+I/1nKxLWAQy/F9V
+	ITeXwUdr2Fdw==
+X-Gm-Gg: ASbGnctHzqFev6Ac46/mmIAEebBncoCCL3LNmEz6jMSISx72PSvfXBe8EkmHSxy08h4
+	5XdoIjQerQndWgFjFYwD8Hi3IcbJMws2nEIz8/mnA3fr6n1l4M/ldqeLtRbjalREmgRV2zrmsHa
+	UxfOAwAGg5wlhOGD7SqFhgl4jw/4CdZr9byinmqlZZT+Nk9zexkXNqHSMwSlIOyG3wHZ1TAzzSK
+	/zRbZBlWdlQPCjEo06vd4mymIPTJUfnpqQuGfQ0/FDZHEI4cZhfXnuBeuDIaW4Eyy3l03CrOnMu
+	R2YrxO6lUK9S6sWOPITqjPd/HzoOetTrzk/i/w33acSlZNMHBVOm53s3OYdvWrYyfe7GyCiFaVw
+	FmlRr3G79egOPzp/oxCzn/OTQFjA+OjnxGMzbMDArjxY=
+X-Received: by 2002:a17:90b:2587:b0:340:f7d6:dc70 with SMTP id 98e67ed59e1d1-3475ebfa0d3mr1890902a91.13.1764060729409;
+        Tue, 25 Nov 2025 00:52:09 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IHqlg2GTH+sdvTW/Lfp7+v37BUjIzLIPd+XyOx92rIomrTFQY1YmOb+Absubbcv1hwpDBnbrQ==
+X-Received: by 2002:a17:90b:2587:b0:340:f7d6:dc70 with SMTP id 98e67ed59e1d1-3475ebfa0d3mr1890883a91.13.1764060728893;
+        Tue, 25 Nov 2025 00:52:08 -0800 (PST)
+Received: from hu-pkondeti-hyd.qualcomm.com ([202.46.22.19])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-34727a36bbfsm15991068a91.0.2025.11.25.00.52.07
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 25 Nov 2025 00:52:08 -0800 (PST)
+Date: Tue, 25 Nov 2025 14:22:05 +0530
+From: Pavan Kondeti <pavan.kondeti@oss.qualcomm.com>
+To: linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+        jean-philippe@linaro.org
+Subject: PRI support in arm-smmu-v3 driver
+Message-ID: <1256faaa-e9cd-46a6-9a42-25aa74b984a8@quicinc.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: VI2PR04MB11147:EE_|AM0PR04MB7057:EE_
-X-MS-Office365-Filtering-Correlation-Id: bd88a5c6-5669-4abc-8e0b-08de2bff4f3d
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|19092799006|52116014|376014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?ZXVjYVlpOXBtcmEvaUFYVHdsTmNSK3lmMTNWaS9BQnpvbWt6RjR4My9tVEFO?=
- =?utf-8?B?cUcxTGZWM0JYbC9DejdTalM4aHAzVWJVVFdGSHFuQVpHbG5CU3ZvdkFTRDlu?=
- =?utf-8?B?dUxNZ3dIR1p4WGpPUnZrRGZTWlZGZTkzUVZmK3JGcjM2SGlBT0RoMDNHWHVh?=
- =?utf-8?B?K01TMS9VSjhRczRaN1FkalJqNmZIbldySUpEdkhmVXNpbmxOYlpHaWZmcVlG?=
- =?utf-8?B?cDZPN0sxTGtVY3o1SUo4TDB4dnhnOVhuTzJJczZiSitzamRZRDAzR1dzMmJh?=
- =?utf-8?B?Vm1tcGp2TE9WVlZTaFVEdUloTXlodkQxVXgxcmdxN0h2T3QrVnFKSXdlTzY1?=
- =?utf-8?B?UzhCSWFBRXE4S1lzQTAvVDVpUVIydS94bTBKdkxSU3BBNTF1SGNHZWFJa1Y4?=
- =?utf-8?B?UXJTK1VsY3J6Q0x6bjU3dDcyRlc3ZzJKVzdNVHVNeGdoV2VQRDJkd3ZRem0v?=
- =?utf-8?B?czlleUZKd0JLMFdCRWpVSGhQTFJneHpvaUFpdjJuMmlSVWM1aFFLL2JrZ0VV?=
- =?utf-8?B?KzRQc0JQcmxFblRSRnlBa29rbEk1YlZPYUJYeFp2YjVMYlIrbWFLaXp6NExl?=
- =?utf-8?B?SSszc2hRYkprVHlkUDZJZVJwR2k3QU1nWkpON2UrQWg5SVphVkdacGNST3NU?=
- =?utf-8?B?RkVMQjBCV3BpVUs0ZUJkSDZBbEVjdHk2ZkRpN0t6SFYwcmNUTVNsUGp6c1lN?=
- =?utf-8?B?VGlSWjBzeXVEckpSR2laRFhWeDlCR3ZoRFp0MW90cTA1djlDbzFmVzhrZU1a?=
- =?utf-8?B?MUR6UjhaVEpUQkJQbGI4TjNWZjNJdDNDc3UrK2xMUmd4VjA0a3pPRStrdzlX?=
- =?utf-8?B?bmYzaHl1UHRORExia2tCbGI3QVRoQ0JMc2trNGlsS1ZiR09vOUIwMG1qSEt0?=
- =?utf-8?B?eE42U0NzaFBFUGRJazEyem5vOVNQbGROUWUxUU9sS1JJU2tORldONkY4U1Ns?=
- =?utf-8?B?N3RPZ2pmZGt0d3ZIbkRHaGFtQ2tzUW5Ydk14Q1NVWDFsTVQwYWRwMWNUbFdS?=
- =?utf-8?B?WW5iK1JjVzNJMG5WQnJ5Z3Y1NEQ3N2M1dWlnMW0rU2hMRkIzakZJVUE1aXN4?=
- =?utf-8?B?alRzZzd0TjY5NDB2SC80a0ZoQ0p1d2dVRk1pTldvdGc1anVSM0gxMElZem11?=
- =?utf-8?B?allPSW9BaUNNdXJmbkdZbG5RaE5NWThENk83bnZTdUMvcEpCNVJ1cTkxV3c3?=
- =?utf-8?B?ZVIxaldseWNyZWU0MFM0dlhwY2dldTR1RDNUakcyaEt6SEFaNUpoVUlTc3A0?=
- =?utf-8?B?V0VaeEF1L0hpNEhvMjJ4bGtXRUdMdGxoQkZuNnlMZU1lYjJSMHlLL3dnM05y?=
- =?utf-8?B?aVA4a3piTE5xT2JiMjQwWGl4S0k4Ymkzb0Rkc2Q4N3hPa0YzUUgwci94QlVD?=
- =?utf-8?B?ekN6cDRIWnVNeUhpaHhzNk1xRjRwWjlEQnVUTkJXV3BVQzk3djFBSWluRE1s?=
- =?utf-8?B?Z1pkT3R4WHJpOUNURU96U2xRcXh2endmNVc5V2dKRk0rSkxUckJ1QVlPaW0v?=
- =?utf-8?B?YmxubXcvRXR4OHEweVZ3Qm03KzRkUUxTYzR4eWxCb3R6OE1ERmV1SmhiQjBG?=
- =?utf-8?B?dTYyUUc1T0pIcnd6WGVMTmJ2VGNKWml5MVUyZDQwb3RqR2QvdWdwRjFMazZ3?=
- =?utf-8?B?a0JUK25QeXhqc0ZrZGxuOWZqS0p2cFJ3bUNhdmNjQzFHY3ZSUHlxeXA3ZlNz?=
- =?utf-8?B?N1JFK2FLSi9zL3k5UkxZcjIxb1FiVjZKVWNnVXdUeDQ0c0JKYTF0MzJESlh4?=
- =?utf-8?B?M0VIdGFRNDZ5YTJZbVYyNWZPV0EwaEJ2bVRKT041dTR2d0FGYlZ6UGtDNDhk?=
- =?utf-8?B?b3c1MktzUHJoK1pOSmIrTTJsNVIxK1p3Mmh0RmZ5UzhoT1dIMEYvYThDZ2JK?=
- =?utf-8?B?cUoyMUtKeCtKb29hRmsvWmh4N01kZENrYzRKNWRxVnRaYnFMVlBtZVZkckNn?=
- =?utf-8?B?SmlrYThMRlRLaDFlR0EwM1orckVjaEVBY0g3YXlKS0NMcGlXdDlNempMSUtq?=
- =?utf-8?B?M04xVDkzS3V4MnVIVzdKUnJMcGVhdjhianU3UG5iQU8vRTN3cmRnNkpYZ2tw?=
- =?utf-8?Q?oTTaCP?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI2PR04MB11147.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(19092799006)(52116014)(376014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?eVJyUlJxamxKWXArRUdOajRmYWR5MStwNWN2cG5oakh6RFpLYkpwNkRVVWk2?=
- =?utf-8?B?UHRBTVVuU1BiVHN1enlBK0paUGJ4VHYyNXdBZmJua3M1aFpBeWc0amJnQnEy?=
- =?utf-8?B?ZlAybkdmTmliOWJsaGhzeC9KVkhIbVBlYmJuZnE3b1BHa1VjWjc1Z1hvcGlm?=
- =?utf-8?B?Q0ZKTExSbjFZVndBMGNidnFkcHh6eGRXbjBoTldLaDhzbUo1WjlRZ3NmRGRw?=
- =?utf-8?B?WkxsSTl3eEZQWi9oclJ0VThVbmgxUk1sWkJMaXlsc2Zub0taYjhvUXhDcERw?=
- =?utf-8?B?SmNjMW9JS0ZzbVpSdkV1eUw5ZUpZVVBlcnhOS3RUN3YwMzlhSGd3RWh3Qk5u?=
- =?utf-8?B?bm9vM1lMNjBCODVPcENHS2U5ekwwOUdhejduWG1MWUxBMW13ampjNUNJMS82?=
- =?utf-8?B?NTh4dmkwZTlxRDYwTzF2cUVRcnhzYWNnUy9xVVJseE0wOVc5azlIREV5NlBu?=
- =?utf-8?B?TGF4eUY4ams1b2swMkUyVnBTdWwwakRndVpOUUwyaE8yamo3ZVNzNUZOY3N5?=
- =?utf-8?B?REt0ck5uY3JhdkxmWVBENTR2NXFzNDBFRGcxWUZ4a1RrbTZEZjRzK2xHdkhn?=
- =?utf-8?B?YWVRc09pSmkzYmYwejlqeTZhNFJ2czFpQm9qYVB5U2ROY1NKbHV3RFFnQ2lM?=
- =?utf-8?B?NTNUMVc1cmJJTkdwWTNVRUFyc0pSVStEYkxGd2dKN2I4aTBVTitKWThiTkFj?=
- =?utf-8?B?NUdKMFVLV3cwNFdVUldFVWx0M3UxbkZsbUZ2Zk8yMjZXTXBNNzJBc1I2R0RS?=
- =?utf-8?B?VEVPS2o2LzBrai9Ec3hOSkIwNVNtVG1Uc2xMZlNYRVZlWDkwV3I1UHZiQlF6?=
- =?utf-8?B?dmhHb09aak9NU1ZzWE53Y3Z0Q1RZblFYSHRFQ2lwRGRJY3VzcUV0WDUwVnNs?=
- =?utf-8?B?TFFCV1g5ZGRIdGdzaS9CRVowVE1hY3FIRW1rWW5ObnNJVnRkSExsV1hZL1dq?=
- =?utf-8?B?bHZQcHYyS2ZHQkltNW9VNHJVTXdzYzU5dndZeGIwbER3VjVXbS9CQjBiSXc3?=
- =?utf-8?B?UHpxYk4wTU9VUzJkdlBmOVNmUUtMZS9uT3RmWGJ3aHczREU0WndWUFFyQTRa?=
- =?utf-8?B?dUc4aXFlVnBQVGdEWW01ZmlBWm9JSnVWNmV6NVdLTGRSNVV6ZE0rcjE5YWNT?=
- =?utf-8?B?TXFySkRtUy9kZ01YVHN2cXdINmdrNVVlNEtUaVpVVXBPcHVTenFxMFM2K2s2?=
- =?utf-8?B?VjJlZTlYTWVXbW03aG95WmY2SWthbzhzRThXYTNEOXIzTWlrb0pGeEU2OUdv?=
- =?utf-8?B?Kzl6NHhQMGlFQlEzSXhUZ0xweUtmbit4WjRKclJBTnJzbUJCbzN2MmdBaXpL?=
- =?utf-8?B?UW5lc1FwNW5sS2NSTGFndGxnOVFQeEYwV0dJc3hDYm1LODk1RUlSKzd0M0hx?=
- =?utf-8?B?NnBEc2IwNXBoQUxIOUZCQ2Fma0VsNWRYZkRwbTRvVS9qTnRUL3k3Wi9pczhD?=
- =?utf-8?B?V0Z4TzZGSlRPT3h5WEZaSHMwa04zZE5Ed1hsd3VreHJMdlRUQ2IvYlhlZTcy?=
- =?utf-8?B?V0o2QkVCWFhBalhPVFJUQkxNcHg3bHRuTERpSU04YXdyZWV5ZEJTMWcxS3JR?=
- =?utf-8?B?QWV2dmQ1OG9XQ29tZ09KSjlJcTYvN1dwVVBnYzd6UFlWSHRKNTJuQmhYSWJw?=
- =?utf-8?B?Tm1CanhpTThGRE9KLzMxcmN0Nk4yblVsRmd4TE9YOFcvQjg1M0UxYWxvS0x3?=
- =?utf-8?B?Z2hDOFZxaCtFVGZ5aStONjBmUThQYnQyRElNZ21xSUZaY0tSVU02S3RvdTMr?=
- =?utf-8?B?WE9kTng1Y25jNmxEZU14cWx0NGF3dm0xUVZzNG9keDVUS3orSWRVZFB0bDFu?=
- =?utf-8?B?SEVDYzJ4QzRwVFY5alBJMGlqb0ZDRm5UalJXOWFzNGNXaE5icGw0d0dBTytR?=
- =?utf-8?B?WXZpeHN4bGdWUHpuZVFqVTRCaHROWDNEdWppaUpzOTNXVkZJSGI1cFkvTkpN?=
- =?utf-8?B?cHdPN2M1VmlhMWlPMlhZRlplTlJlcWE2MjY3N1NJakVzT1NlNTBwc0daOEJD?=
- =?utf-8?B?QmV5RTlNOGF3dGw0c0g5UkJNaEhNeFhheGtnK3d4dmpXUmhpeWh4di95YlRB?=
- =?utf-8?B?STE4UkRPeHBaQWRidHBFbmxPTld2cTd5SzNYb3lueEVJM0VnZE9ZMEg4NFRm?=
- =?utf-8?Q?3nQa5HS6QRKXDg/pwHaYPJwT1?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: bd88a5c6-5669-4abc-8e0b-08de2bff4f3d
-X-MS-Exchange-CrossTenant-AuthSource: VI2PR04MB11147.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Nov 2025 08:47:48.4416
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: mf/MErFeb0UKHM3uxIYsUmAd7WLUrY5KZ4+Cfd8qlMjAXzYykfKu0ZA+fqnsHe+BkxlylAG1IADWW9lJMJOjfQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM0PR04MB7057
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMTI1MDA3MSBTYWx0ZWRfX3CtaShXpfoNT
+ 8F2W54CyVWWE4LPQV7B2UE4aqxCUzWMH+3wi2y6/8yDjfk9kfanioOgZMdSGzgcW5VSkly8MUFo
+ MOk9tkkLJ+q1j6Zad0fKMQhlUKuCLjWsSCLH29lEAMFxtHoIccFVABiG/ZtKJ2cSZFiIt0BEx5S
+ n6HoT9WBGWBsyVY8J2uRPp8mrcVI1RrSzlM4aPk39KuSrGX+EPM1XXIkPYYHd5P69jvxqVewhYX
+ Nph3RpC6S47zeUGKozGzKUny8lIHW1YiwwwZd1ABvZOo79jNjICY6gs3M/EZrsAivCbD2CQLmaB
+ SLQvAWseXxGvNS/Ys+wK90Zuaj4IXmBTNvjCZOXQELm5lI5Hh5lp2qgMSWQSIbmw6XjHDPvad86
+ kQzDeGMY/Xd/y/AuCuj1chHhi3CO8w==
+X-Proofpoint-GUID: jYeVa5WjxNx2LE3a2LPRVo-TaQR3nLoU
+X-Authority-Analysis: v=2.4 cv=f7BFxeyM c=1 sm=1 tr=0 ts=69256e3a cx=c_pps
+ a=0uOsjrqzRL749jD1oC5vDA==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
+ a=kj9zAlcOel0A:10 a=6UeiqGixMTsA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=VwQbUJbxAAAA:8 a=KKAkSRfTAAAA:8
+ a=Gpj13mTOjE8SKnWQHpIA:9 a=CjuIK1q_8ugA:10 a=mQ_c8vxmzFEMiUWkPHU9:22
+ a=cvBusfyB2V15izCimMoJ:22
+X-Proofpoint-ORIG-GUID: jYeVa5WjxNx2LE3a2LPRVo-TaQR3nLoU
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
+ definitions=2025-11-25_02,2025-11-24_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ malwarescore=0 spamscore=0 phishscore=0 adultscore=0 priorityscore=1501
+ impostorscore=0 lowpriorityscore=0 suspectscore=0 clxscore=1015 bulkscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2510240001 definitions=main-2511250071
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251125_004803_170498_F56E184E 
-X-CRM114-Status: GOOD (  13.08  )
+X-CRM114-CacheID: sfid-20251125_005211_098638_D4183C81 
+X-CRM114-Status: GOOD (  12.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -182,306 +136,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On i.MX8QXP/8QM SoCs, both the lvds/mipi and lvds/mipi-lpi2c power domains
-must enter low-power mode during runtime suspend to achieve deep power
-savings.
+Hi
 
-LPI2C resides in the lvds-lpi2c/mipi-lpi2c power domain, while its IRQ is
-routed through an irqsteer located in the lvds/mipi power domain. The LPI2C
-clock source comes from an LPCG within the lvds-lpi2c domain.
+I am trying to understand IO fault handling in Linux w/ SMMUv3. While reading
+the code, I understand that SVA domain creation allows taking IO pagefaults.
+arm_smmu_enable_iopf() checks if the master support stall upon fault
+feature or not. How do we handle page faults for PCIe devices, for which 
+transactions cannot safely be stalled? IIUC, The PRI handling in the
+driver i.e arm_smmu_priq_thread()->arm_smmu_handle_ppr() is not doing
+anything. In the SVA support for SMMUv3 series v7, I see the support for
+PRI via "Add support for PRI" patch [1] but it is not merged. 
 
-For example, the hierarchy for lvds0 and lvds0-lpi2c0 domains is:
-┌───────────────────────┐
-│ pm-domain : lvds0     │
-│                       │
-│    ┌──────────────┐   │
-│    │   irqsteer   │   │
-│    └───────▲──────┘   │
-│            │irq       │
-│            │          │
-└────────────┼──────────┘
-┌────────────┼──────────┐
-│        ┌───┼───┐      │
-│        │lpi2c0 │      │
-│        └───┬───┘clk   │
-│   ┌────────┼───────┐  │
-│   │       LPCG     │  │
-│   └────────────────┘  │
-│pm-domain:lvds0-lpi2c0 │
-└───────────────────────┘
+Can you please clarify if we can support SVA with PCIe devices w/o
+pinning the memory?
 
-To allow these domains to power down in system runtime suspend:
+[1]
+https://lore.kernel.org/all/20200519175502.2504091-25-jean-philippe@linaro.org/
 
-- All irqsteer clients must release IRQs.
-- All LPCG clients must disable and unprepare clocks.
-
-Thus, LPI2C must:
-
-- Free its IRQ during runtime suspend and re-request it on resume.
-- Disable and unprepare all clocks during runtime suspend and prepare
-  and rne ble them on resume.
-
-This enables the lvds/mipi domains to enter deep low-power mode,
-significantly reducing power consumption compared to active mode.
-
-Signed-off-by: Carlos Song <carlos.song@nxp.com>
----
-Changes since V1:
-* Add unit for I2C_PM_LONG_TIMEOUT to I2C_PM_LONG_TIMEOUT_MS
-* Reuqest lpi2c_imx->irq uncondtionally
-* Remove help function and direct put code in original
-  lpi2c_runtime_suspend() and lpi2c_runtime_resume()
-* Give more comments to explain why prolong PM timeout
----
-1. Why not apply prepare and unprepare clocks management for all platforms:
-As the report from me early:
-https://lists.openwall.net/linux-kernel/2025/07/01/139
-Scope of global prepare_lock is too big, it will cause dead clock
-between RPM and prepare_lock in some specail case. But clock
-prepare/unprepare is also necessary for low power consumption in I.MX8QXP
-and 8QM, so I add separate clock management for these platforms to
-avoid impacting other I.MX platforms. But it's possible that some
-customers might encounter deadlock issues in IMX8QXP/8QM, so I prolong the
-runtime PM timeout for 8QXP/QM platforms, which is currently a suitable
-workaround method I think.
-
-The dead lock happen as below call stacks
-
-Task 117                                                Task 120
-
-schedule()
-clk_prepare_lock()--> wait prepare_lock(mutex_lock)     schedule() wait for power.runtime_status exit RPM_SUSPENDING
-                           ^^^^ A                       ^^^^ B
-clk_bulk_unprepare()                                    rpm_resume()
-lpi2c_runtime_suspend()                                 pm_runtime_resume_and_get()
-...                                                     lpi2c_imx_xfer()
-                                                        ...
-rpm_suspend() set RPM_SUSPENDING                        pcf857x_set();
-                           ^^^^ B                       ...
-                                                        clk_prepare_lock() --> hold prepare_lock
-                                                        ^^^^ A
-                                                        ...
-
-Task 117 set power.runtime_status to RPM_SUSPENDING (A) and wait for task 120 release clock's global prepare mutex (B).
-
-Task 120 hold global prepare mutex (B) and wait for power.runtime_status finish suspend (A).
-
-So if RPM doesn't enter auto suspend too quick after hold prepare lock, this dead lock can be avoided.
-So I prolong the runtime PM timeout, it can ensure that LPI2C does not enter auto suspend mode too
-frequently. It has been verified valid for the above case.
-
-2. Low power status report
-Power domain status can be shown in pm_genpd_summary and sc firmware. Take
-8QM platform lvds0 and lvds0-lpi2c0 power domain as example, before apply
-this patch set:
-root@imx8qmmek:~# cat /sys/kernel/debug/pm_genpd/pm_genpd_summary
-domain                          status          children        performance
-    /device                         runtime status               managed by
----------------------------------------------------------------------------
-lvds0-lpi2c0                    on                              0
-    lvds0_i2c0_clk                  active                      0       SW
-    56243014.clock-controller       active                      0       SW
-    56247000.i2c                    suspended                   0       SW
-lvds0                           on                              0
-    lvds0_bypass_clk                suspended                   0       SW
-    lvds0_pixel_clk                 suspended                   0       SW
-    lvds0_phy_clk                   suspended                   0       SW
-    56240000.interrupt-controller   active                      0       SW
-sc firmware will show the power domain status:
->$ power.r
-    LVDS_0 = on
-    LVDS_0_I2C_0 = on
-
-After apply this patch set:
-root@imx8qmmek:~# cat /sys/kernel/debug/pm_genpd/pm_genpd_summary
-domain                          status          children        performance
-    /device                         runtime status               managed by
----------------------------------------------------------------------------
-lvds0-lpi2c0                    off-0                           0
-    lvds0_i2c0_clk                  suspended                   0        SW
-    56243014.clock-controller       suspended                   0        SW
-    56247000.i2c                    suspended                   0        SW
-lvds0                           off-0                           0
-    lvds0_bypass_clk                suspended                   0        SW
-    lvds0_pixel_clk                 suspended                   0        SW
-    lvds0_phy_clk                   suspended                   0        SW
-    56240000.interrupt-controller   suspended                   0        SW
-
-sc firmware will show the power domain status:
->$ power.r
-    LVDS_0 = lp
-    LVDS_0_I2C_0 = lp
----
- drivers/i2c/busses/i2c-imx-lpi2c.c | 84 +++++++++++++++++++++++++-----
- 1 file changed, 71 insertions(+), 13 deletions(-)
-
-diff --git a/drivers/i2c/busses/i2c-imx-lpi2c.c b/drivers/i2c/busses/i2c-imx-lpi2c.c
-index dfacb0aec3c0..41ad82595583 100644
---- a/drivers/i2c/busses/i2c-imx-lpi2c.c
-+++ b/drivers/i2c/busses/i2c-imx-lpi2c.c
-@@ -132,6 +132,7 @@
- #define CHUNK_DATA	256
- 
- #define I2C_PM_TIMEOUT		10 /* ms */
-+#define I2C_PM_LONG_TIMEOUT_MS	1000 /* Avoid dead lock caused by big clock prepare lock */
- #define I2C_DMA_THRESHOLD	8 /* bytes */
- 
- enum lpi2c_imx_mode {
-@@ -149,6 +150,11 @@ enum lpi2c_imx_pincfg {
- 	FOUR_PIN_PP,
- };
- 
-+struct imx_lpi2c_hwdata {
-+	bool	need_request_free_irq;		/* Needed by irqsteer */
-+	bool	need_prepare_unprepare_clk;	/* Needed by LPCG */
-+};
-+
- struct lpi2c_imx_dma {
- 	bool		using_pio_mode;
- 	u8		rx_cmd_buf_len;
-@@ -187,6 +193,21 @@ struct lpi2c_imx_struct {
- 	bool			can_use_dma;
- 	struct lpi2c_imx_dma	*dma;
- 	struct i2c_client	*target;
-+	int			irq;
-+	const struct imx_lpi2c_hwdata *hwdata;
-+};
-+
-+static const struct imx_lpi2c_hwdata imx7ulp_lpi2c_hwdata = {
-+};
-+
-+static const struct imx_lpi2c_hwdata imx8qxp_lpi2c_hwdata = {
-+	.need_request_free_irq		= true,
-+	.need_prepare_unprepare_clk	= true,
-+};
-+
-+static const struct imx_lpi2c_hwdata imx8qm_lpi2c_hwdata = {
-+	.need_request_free_irq		= true,
-+	.need_prepare_unprepare_clk	= true,
- };
- 
- #define lpi2c_imx_read_msr_poll_timeout(atomic, val, cond)                    \
-@@ -1424,7 +1445,9 @@ static const struct i2c_algorithm lpi2c_imx_algo = {
- };
- 
- static const struct of_device_id lpi2c_imx_of_match[] = {
--	{ .compatible = "fsl,imx7ulp-lpi2c" },
-+	{ .compatible = "fsl,imx7ulp-lpi2c", .data = &imx7ulp_lpi2c_hwdata,},
-+	{ .compatible = "fsl,imx8qxp-lpi2c", .data = &imx8qxp_lpi2c_hwdata,},
-+	{ .compatible = "fsl,imx8qm-lpi2c", .data = &imx8qm_lpi2c_hwdata,},
- 	{ }
- };
- MODULE_DEVICE_TABLE(of, lpi2c_imx_of_match);
-@@ -1435,19 +1458,23 @@ static int lpi2c_imx_probe(struct platform_device *pdev)
- 	struct resource *res;
- 	dma_addr_t phy_addr;
- 	unsigned int temp;
--	int irq, ret;
-+	int ret;
- 
- 	lpi2c_imx = devm_kzalloc(&pdev->dev, sizeof(*lpi2c_imx), GFP_KERNEL);
- 	if (!lpi2c_imx)
- 		return -ENOMEM;
- 
-+	lpi2c_imx->hwdata = of_device_get_match_data(&pdev->dev);
-+	if (!lpi2c_imx->hwdata)
-+		return -ENODEV;
-+
- 	lpi2c_imx->base = devm_platform_get_and_ioremap_resource(pdev, 0, &res);
- 	if (IS_ERR(lpi2c_imx->base))
- 		return PTR_ERR(lpi2c_imx->base);
- 
--	irq = platform_get_irq(pdev, 0);
--	if (irq < 0)
--		return irq;
-+	lpi2c_imx->irq = platform_get_irq(pdev, 0);
-+	if (lpi2c_imx->irq < 0)
-+		return lpi2c_imx->irq;
- 
- 	lpi2c_imx->adapter.owner	= THIS_MODULE;
- 	lpi2c_imx->adapter.algo		= &lpi2c_imx_algo;
-@@ -1467,10 +1494,10 @@ static int lpi2c_imx_probe(struct platform_device *pdev)
- 	if (ret)
- 		lpi2c_imx->bitrate = I2C_MAX_STANDARD_MODE_FREQ;
- 
--	ret = devm_request_irq(&pdev->dev, irq, lpi2c_imx_isr, IRQF_NO_SUSPEND,
-+	ret = devm_request_irq(&pdev->dev, lpi2c_imx->irq, lpi2c_imx_isr, IRQF_NO_SUSPEND,
- 			       pdev->name, lpi2c_imx);
- 	if (ret)
--		return dev_err_probe(&pdev->dev, ret, "can't claim irq %d\n", irq);
-+		return dev_err_probe(&pdev->dev, ret, "can't claim irq %d\n", lpi2c_imx->irq);
- 
- 	i2c_set_adapdata(&lpi2c_imx->adapter, lpi2c_imx);
- 	platform_set_drvdata(pdev, lpi2c_imx);
-@@ -1493,7 +1520,11 @@ static int lpi2c_imx_probe(struct platform_device *pdev)
- 		return dev_err_probe(&pdev->dev, -EINVAL,
- 				     "can't get I2C peripheral clock rate\n");
- 
--	pm_runtime_set_autosuspend_delay(&pdev->dev, I2C_PM_TIMEOUT);
-+	if (lpi2c_imx->hwdata->need_prepare_unprepare_clk)
-+		pm_runtime_set_autosuspend_delay(&pdev->dev, I2C_PM_LONG_TIMEOUT_MS);
-+	else
-+		pm_runtime_set_autosuspend_delay(&pdev->dev, I2C_PM_TIMEOUT);
-+
- 	pm_runtime_use_autosuspend(&pdev->dev);
- 	pm_runtime_get_noresume(&pdev->dev);
- 	pm_runtime_set_active(&pdev->dev);
-@@ -1548,8 +1579,16 @@ static void lpi2c_imx_remove(struct platform_device *pdev)
- static int __maybe_unused lpi2c_runtime_suspend(struct device *dev)
- {
- 	struct lpi2c_imx_struct *lpi2c_imx = dev_get_drvdata(dev);
-+	bool need_prepare_unprepare_clk = lpi2c_imx->hwdata->need_prepare_unprepare_clk;
-+	bool need_request_free_irq = lpi2c_imx->hwdata->need_request_free_irq;
-+
-+	if (need_request_free_irq)
-+		devm_free_irq(dev, lpi2c_imx->irq, lpi2c_imx);
- 
--	clk_bulk_disable(lpi2c_imx->num_clks, lpi2c_imx->clks);
-+	if (need_prepare_unprepare_clk)
-+		clk_bulk_disable_unprepare(lpi2c_imx->num_clks, lpi2c_imx->clks);
-+	else
-+		clk_bulk_disable(lpi2c_imx->num_clks, lpi2c_imx->clks);
- 	pinctrl_pm_select_sleep_state(dev);
- 
- 	return 0;
-@@ -1558,13 +1597,32 @@ static int __maybe_unused lpi2c_runtime_suspend(struct device *dev)
- static int __maybe_unused lpi2c_runtime_resume(struct device *dev)
- {
- 	struct lpi2c_imx_struct *lpi2c_imx = dev_get_drvdata(dev);
-+	bool need_prepare_unprepare_clk = lpi2c_imx->hwdata->need_prepare_unprepare_clk;
-+	bool need_request_free_irq = lpi2c_imx->hwdata->need_request_free_irq;
- 	int ret;
- 
- 	pinctrl_pm_select_default_state(dev);
--	ret = clk_bulk_enable(lpi2c_imx->num_clks, lpi2c_imx->clks);
--	if (ret) {
--		dev_err(dev, "failed to enable I2C clock, ret=%d\n", ret);
--		return ret;
-+	if (need_prepare_unprepare_clk) {
-+		ret = clk_bulk_prepare_enable(lpi2c_imx->num_clks, lpi2c_imx->clks);
-+		if (ret) {
-+			dev_err(dev, "failed to enable I2C clock, ret=%d\n", ret);
-+			return ret;
-+		}
-+	} else {
-+		ret = clk_bulk_enable(lpi2c_imx->num_clks, lpi2c_imx->clks);
-+		if (ret) {
-+			dev_err(dev, "failed to enable clock %d\n", ret);
-+			return ret;
-+		}
-+	}
-+
-+	if (need_request_free_irq) {
-+		ret = devm_request_irq(dev, lpi2c_imx->irq, lpi2c_imx_isr, IRQF_NO_SUSPEND,
-+				       dev_name(dev), lpi2c_imx);
-+		if (ret) {
-+			dev_err(dev, "can't claim irq %d\n", lpi2c_imx->irq);
-+			return ret;
-+		}
- 	}
- 
- 	return 0;
--- 
-2.34.1
-
+Thansk,
+Pavan
 
