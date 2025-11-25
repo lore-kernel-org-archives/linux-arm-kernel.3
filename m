@@ -4,147 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7222CFD315
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 07:43:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F08C0CFD364
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 07:53:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9hoXLNzasOe17sA2UErm+pJ156aufeLYkZMtIAC2WSc=; b=ENe6qpobZLiBsau18ATwXM9y1U
-	gWbB+PorH9kbiNHac2rwHJ858du4Gsrki7YZYtBpTzhXYguUtBcUbhfQv9J6A+8kCSoOGwDs60iOL
-	8/TMioDMvOSQWkJJ+/bqgR7XTodl5YWWtrjuUYTkOYAIk739pTcVdGD3S5kGH+4Hth5Smna4VSOsm
-	TJqn4wBz7fwasl/OBYk41YcvA+v5IHw9imDOtBcMuDw32EZ5ypNRVc8wTD+KdugzbWbm2upK+LnE7
-	CePr12mnc1r+VZzVIaa8kBWSoBaeJGQVBKff7+FWsGr1cLskSVKnZ24jBLjRMK4QLMsjdbvu16ayx
-	ghw0TPXg==;
+	bh=iqRqCK4rs9Q1IMwj7iTmtoWcpWNcNdp7HNUySR+q5Z4=; b=s0a8g541WIEgLvJgCdvVCDUru3
+	CFy9soWD5kwMSq1TlYzK5Azp6D90b0EuxRI3XsqXYyGAq122dUgOKR9PQp0vYMBrUhaNUP+JBQb3S
+	x2nCRawBlaWyeuJprwTKx5hp628AbwUdbHrhHr8Je2lNs+vDdEYOPMFmA5IZ+sLxLMaRLgyhLQ00+
+	hodtBOWNNpaRipEytg+KdTQ57NliOwKyvLduYGboFsf31uYnXSltAPPGdSS/0Eb+sfE1xPixEYjar
+	RbL45EmD66dFBEs1LEmkdsiNEwKNAVGIULNSjVsspkjN+eG4qT+h/pp8d6hyekqbBzEynI4tair3x
+	K9QMQ93g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNni2-0000000CuzR-0oLq;
-	Tue, 25 Nov 2025 07:43:34 +0000
-Received: from mail-eastusazlp17011000f.outbound.protection.outlook.com ([2a01:111:f403:c100::f] helo=BL2PR02CU003.outbound.protection.outlook.com)
+	id 1vNnrm-0000000CvXb-2CPW;
+	Tue, 25 Nov 2025 07:53:38 +0000
+Received: from relay5-d.mail.gandi.net ([2001:4b98:dc4:8::225])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNnhv-0000000Cuxk-0YUK
+	id 1vNnrg-0000000CvWl-1Fnf
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Nov 2025 07:43:28 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=htTuFmgU2Zg9Hass3SbpKBezUXROXpUNO5BW4IWQbW9tTq/6gWyZTNaqrebXr4NwZJqwxH/o3QstGA9vwEJBe5/ZziZaRgg1e6Q+y7J3ntq8V7aQaTZO1ZEO8lPBpQzrpUQWMub+oJ/NY6EwBjqS0b5H8JvH68dvJbzlDL5YVB16ddUemwK2IFZhz71xyRPtt7n6tvRxE/jDkMZjyQLIA1JYge/APxpThDrqf51j8fM0VhidAiaZjU/cKoo4QXdhr3ccT55mH7YAzCeBKqGfx8qW2LEsIPS2czSjW9shyv5G6YNULFGxuUMoK6rqS6/YxxQFRE3Y3N1zgpgI9MY4yw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=9hoXLNzasOe17sA2UErm+pJ156aufeLYkZMtIAC2WSc=;
- b=yoOzMbzUuj0fApr51tmlW3BLAF9B/w8uFvcycOjqs5WTszek3NO5obz9WtV5cJDjMcz0xLZHTLY+9FO4Ps/kW2VzwjcbPZvX1fl6vom0ctLsjQ1NNZQBl8mWESAEkx+MgPqpEMBTGKrbpE4itSaU+AV1JsIeE9cYT20DbpBvPTN2u05EOn9sxo7Vp+ZZG+4zjCLPQfGM0x5UIE2d/PN4GwMbjGhhAl4Tbb0SDcQrUhfftv8leaezyT+RFO/3D/ZeCbFB2b+6DjvQ+YDH7jBTT3sISIVC5Kjg8dXLLhPseEka2/gS5pMNmBLhRSru05rdBTYkkoyRZGYkiKwJlwjZxg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.118.233) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=9hoXLNzasOe17sA2UErm+pJ156aufeLYkZMtIAC2WSc=;
- b=VlyPRmL4BFK6HO0xa/gfq1f1ZvyDT2p6KARQF/pymN6486/wgsKVAw8QwUYIo+jMfO6lfpAndh6GIL21VwcNRjo5uyqC068CgX4T0dI87D2OOsbmfFopwAKbZmKMF2G4UJtQS3N5JFDoyacF3PNueUSwEKdpuMTvq6RTDS+aUJ+sD8ku4SnJfMXwiXP6/0J+BLd/0F98QGVXzWKsv7nSHWbzPPZbNMhYgcnu0LOYZzn2T0XquRMbpDRJstiQ5wO42fdIBdLnSUZXn35gPzzMtLm6PfU2FUiGnN6wJmi0QvwWyfbppxs1neK+ZN8QwGAnerxnCm5d5fr0NwXgUKMifQ==
-Received: from SJ0P220CA0006.NAMP220.PROD.OUTLOOK.COM (2603:10b6:a03:41b::29)
- by MN2PR12MB4189.namprd12.prod.outlook.com (2603:10b6:208:1d8::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9366.11; Tue, 25 Nov
- 2025 07:43:20 +0000
-Received: from MWH0EPF000971E7.namprd02.prod.outlook.com
- (2603:10b6:a03:41b:cafe::fb) by SJ0P220CA0006.outlook.office365.com
- (2603:10b6:a03:41b::29) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9343.17 via Frontend Transport; Tue,
- 25 Nov 2025 07:43:20 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.233)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.118.233 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.118.233; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.118.233) by
- MWH0EPF000971E7.mail.protection.outlook.com (10.167.243.75) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9366.7 via Frontend Transport; Tue, 25 Nov 2025 07:43:19 +0000
-Received: from drhqmail202.nvidia.com (10.126.190.181) by mail.nvidia.com
- (10.127.129.6) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 24 Nov
- 2025 23:43:13 -0800
-Received: from drhqmail202.nvidia.com (10.126.190.181) by
- drhqmail202.nvidia.com (10.126.190.181) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.20; Mon, 24 Nov 2025 23:43:13 -0800
-Received: from Asurada-Nvidia (10.127.8.13) by mail.nvidia.com
- (10.126.190.181) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Mon, 24 Nov 2025 23:43:12 -0800
-Date: Mon, 24 Nov 2025 23:43:11 -0800
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-CC: Will Deacon <will@kernel.org>, <jean-philippe@linaro.org>,
-	<robin.murphy@arm.com>, <joro@8bytes.org>, <balbirs@nvidia.com>,
-	<miko.lenczewski@arm.com>, <peterz@infradead.org>, <kevin.tian@intel.com>,
-	<praan@google.com>, <linux-arm-kernel@lists.infradead.org>,
-	<iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v5 4/7] iommu/arm-smmu-v3: Pre-allocate a per-master
- invalidation array
-Message-ID: <aSVeDwUNfzCbwgGU@Asurada-Nvidia>
-References: <cover.1762588839.git.nicolinc@nvidia.com>
- <b6e1b5d0ac0157fc06b5cd20c5cd72caec892c47.1762588839.git.nicolinc@nvidia.com>
- <aSTRX5RJJhfNU6l3@willie-the-truck>
- <aSTfrp9D7i03XhyU@Asurada-Nvidia>
- <20251124230845.GN153257@nvidia.com>
- <aSTqw4Doipb+0AfP@Asurada-Nvidia>
+	Tue, 25 Nov 2025 07:53:36 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 1B4CF43AA6;
+	Tue, 25 Nov 2025 07:53:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yoseli.org; s=gm1;
+	t=1764057207;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=iqRqCK4rs9Q1IMwj7iTmtoWcpWNcNdp7HNUySR+q5Z4=;
+	b=KneGVY3Puoqf0Rvj9nDxDabG/UNWWRnzfAtjo+uVfGfzImpELfAFw6tFC8p6BOOCnnz8mO
+	ULbM7eE6kCknKDnWQEOKEHIGHns7L6sxMxmGipNHcg/nmDUNOkhHeHUoHbyt+Grp3iLNbx
+	Z0GOE7lpy9D3qoyCeCOG+Pyt1KAScshhNRCZwGEj/ExC3rE29R88WPMAGRpwta74c2loFz
+	pUnC8XMIr1B4grD3uZZ1+ROXUOSvIuBKy++EatIFv78PLtO+bLc7JfPTDBSD6qykRNo+YV
+	XrWDoCiXEW4V5kMge+qCqlnxMiToyIJH3iANoNUtpcCJM3wd93arEF+nXH8AtQ==
+Date: Tue, 25 Nov 2025 08:53:22 +0100
+From: Jean-Michel Hautbois <jeanmichel.hautbois@yoseli.org>
+To: Frank Li <Frank.Li@nxp.com>
+Cc: Greg Ungerer <gerg@linux-m68k.org>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Olivia Mackall <olivia@selenic.com>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, oe-kbuild-all@lists.linux.dev,
+	linux-m68k@lists.linux-m68k.org, linux-kernel@vger.kernel.org,
+	linux-crypto@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v3 1/3] m68k: coldfire: Mark platform device resource
+ arrays as const
+Message-ID: <aSVgcoNNeLJshwvU@yoseli-yocto.yoseli.org>
+References: <20251124-b4-m5441x-add-rng-support-v3-1-f447251dad27@yoseli.org>
+ <202511250103.RMNoU3xH-lkp@intel.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <aSTqw4Doipb+0AfP@Asurada-Nvidia>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MWH0EPF000971E7:EE_|MN2PR12MB4189:EE_
-X-MS-Office365-Filtering-Correlation-Id: decdc4fa-1e97-4c1d-4f69-08de2bf64dd3
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|376014|7416014|1800799024|82310400026;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?D2ZVd/H55CHcaGKRPHHJ3nuKodj9EuVpBMxT0vSy//GMw2GDdg2ryDEzWm9q?=
- =?us-ascii?Q?z8NFrFhhBBaNkNM/o5ay8DpeTlDisKUCQSo+9cOTiou53b6yqQRjQD8JgfiK?=
- =?us-ascii?Q?aKZSHUuQR3uZtRQ/4EOIRfkOwzAnBfwiClH+Fh1vW18VEH8CHw3FjBQv9vXA?=
- =?us-ascii?Q?ZPM45ixjbwHoqlKorRIj1OSZ07Y4Us27OiXrWbdxYU5h9Qtvgkn8PYylxgwK?=
- =?us-ascii?Q?zF92MNjFbeom3XgIwuMb4Ni1/MUnXMBVs3FuaM0HSz/pDfcwqaopeJVupZOm?=
- =?us-ascii?Q?8HoCTCzh/k4Z5QBMnEfdPlGdNnYXVoLOot9Tp9T65REuu3t1r32pfFPEDOmm?=
- =?us-ascii?Q?rsWEo33NsfJsyCxA0TawM8Qu1hsfR0zF59YoO3iwYyX9WNrYBghJ5bufiXVf?=
- =?us-ascii?Q?eVkweFBQ52HSj14CnUjmoChhSn2nEYEhWBIAqNqIcm38WSoq0IBuLzlQfPrJ?=
- =?us-ascii?Q?9P9Y2xaPhlkDDgtA/nDx7t9BpNEHLJ44X9uYix0apHg1L7RygIXaOflzpHWm?=
- =?us-ascii?Q?s+BGF6067iUQtkEx7wCXNGJBQO6Vw6WI4HHwtHyNRSCXAek8h7I733kYAEbD?=
- =?us-ascii?Q?NjhKWhZBqw/GykhyepO6f2oXUTBlbSkJZT2QEduffjAQB/DYELh4ooeZRAuc?=
- =?us-ascii?Q?pQW6+Ry8+v8RaepGacbzDLevCTwSYfhGZ8eagzeWwbPIuSRF6u3fz3tBLfQy?=
- =?us-ascii?Q?ICmwBkMyJbe4aOEvQYgWJz43Ch5shmRMCTJuRTFRLGOFv6Sy98dKsHpifTJ+?=
- =?us-ascii?Q?Xa93QqLMTTsZ9P0X5l+jw62hmQwilpK0AMidx+my8bpiW4DDsHMJKLRqyRLg?=
- =?us-ascii?Q?H8Fk1ZV99bXYSLUo89P6nlL+Jjlc1w+CqXxNxdWQr/AYw1+2BnaCbPzs0KuK?=
- =?us-ascii?Q?F9jdQSu2uNAmH82gM5jlnPsZUcjRE8d5TpdJIJoFxvg+APQnfdCcTJSDZCwP?=
- =?us-ascii?Q?1ilatzL+ZewDCzuwPyPNn+adZFhoGzKcYn2Y8gvVDNgowrg9MoRgjQ43Z5D7?=
- =?us-ascii?Q?dwWMKEAKicg0IZd1BqAbzMjEGzxAip95Ja3hF5TBxwR3ugX3JL+mwHIBToSk?=
- =?us-ascii?Q?ft077aFH42e3CrA/Pm/GXhjQVVpT+I29qoonDvEjs5sDjKW+qSFIeeoNAfj9?=
- =?us-ascii?Q?lnHM6u/LOu2DqSuIAfs1zoQQUhQwB1KqMG5yrYHnLifsoo/YmpNa1v5qx5vT?=
- =?us-ascii?Q?0zyzXsHneRY6CykT0ScES9fQ2tyGLecRMPuPhfE4RYUnD5A0xa0dXxE/EAhy?=
- =?us-ascii?Q?lKicaVfs66VJ2qfbmtVy3nUMW7SJKd3AIvJHaN38eiiz5N168JpcMZ+mpy1Q?=
- =?us-ascii?Q?h6t11TlIRdu1JtBzg3e5vmhC9JGnSRSAhnvyIlGlUK319b/2IBzFQ4JHNF+3?=
- =?us-ascii?Q?QtIK6nJLpD2jq93GXErWiQAj/jtSQeEmNZ/5gQRoPEqDjgMEHRfmMyhoWaGp?=
- =?us-ascii?Q?qOlFVM2MPUxp1Ub8lP4vAdd0dh4aXcG56+odZIwo2d/DYHCICgNkquHhhlkY?=
- =?us-ascii?Q?hw2ZLL53leZtLfQ9xt4Kqxo+353Jw7IylEXlDzNC/dGZ8oN/9ibdNd+gjeQy?=
- =?us-ascii?Q?O1ViqfSckArCwPlZPS0=3D?=
-X-Forefront-Antispam-Report: CIP:216.228.118.233;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge2.nvidia.com;CAT:NONE;SFS:(13230040)(36860700013)(376014)(7416014)(1800799024)(82310400026);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Nov 2025 07:43:19.9946
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: decdc4fa-1e97-4c1d-4f69-08de2bf64dd3
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.233];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: MWH0EPF000971E7.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR12MB4189
+In-Reply-To: <202511250103.RMNoU3xH-lkp@intel.com>
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdeggddvgedtledvucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpeffhffvvefukfhfgggtuggjsehttdortddttddvnecuhfhrohhmpeflvggrnhdqofhitghhvghlucfjrghuthgsohhishcuoehjvggrnhhmihgthhgvlhdrhhgruhhtsghoihhsseihohhsvghlihdrohhrgheqnecuggftrfgrthhtvghrnhepudfhuedvtdetgfefveekvddvjeehfeeffffhleeludejleefudefkefhudfhuddunecuffhomhgrihhnpehgihhthhhusgdrtghomhdpkhgvrhhnvghlrdhorhhgpddtuddrohhrghenucfkphepvdgrtddumegvtdgrmeduieelmeejudegtdemkegvtdgumeekrgguudemvggvvgelmeelhegsnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvdgrtddumegvtdgrmeduieelmeejudegtdemkegvtdgumeekrgguudemvggvvgelmeelhegspdhhvghloheplhhotggrlhhhohhsthdpmhgrihhlfhhrohhmpehjvggrnhhmihgthhgvlhdrhhgruhhtsghoihhsseihohhsvghlihdrohhrghdpnhgspghrtghpthhtohepudehpdhrtghpthhtohephfhrrghnkhdrnfhisehngihprdgtohhmpdhrtghpthhtohepghgvrhhgsehlihhnuhigqdhmieekkhdrohhrg
+ hdprhgtphhtthhopehgvggvrhhtsehlihhnuhigqdhmieekkhdrohhrghdprhgtphhtthhopeholhhivhhirgesshgvlhgvnhhitgdrtghomhdprhgtphhtthhopehhvghrsggvrhhtsehgohhnughorhdrrghprghnrgdrohhrghdrrghupdhrtghpthhtohepshhhrgifnhhguhhosehkvghrnhgvlhdrohhrghdprhgtphhtthhopehsrdhhrghuvghrsehpvghnghhuthhrohhnihigrdguvgdprhgtphhtthhopehkvghrnhgvlhesphgvnhhguhhtrhhonhhigidruggv
+X-GND-Sasl: jeanmichel.hautbois@yoseli.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251124_234327_177052_609D8368 
-X-CRM114-Status: GOOD (  33.01  )
+X-CRM114-CacheID: sfid-20251124_235333_009798_1A68F2DE 
+X-CRM114-Status: GOOD (  16.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -159,108 +85,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 24, 2025 at 03:31:17PM -0800, Nicolin Chen wrote:
-> On Mon, Nov 24, 2025 at 07:08:45PM -0400, Jason Gunthorpe wrote:
-> > On Mon, Nov 24, 2025 at 02:43:58PM -0800, Nicolin Chen wrote:
-> > > On Mon, Nov 24, 2025 at 09:42:55PM +0000, Will Deacon wrote:
-> > > > On Sat, Nov 08, 2025 at 12:08:05AM -0800, Nicolin Chen wrote:
-> > > > > +		/* Put the ids into order for sorted to_merge/to_unref arrays */
-> > > > > +		sort_nonatomic(fwspec->ids, fwspec->num_ids,
-> > > > > +			       sizeof(fwspec->ids[0]), arm_smmu_ids_cmp, NULL);
-> > > > > +		/* ATS case adds num_ids of entries, on top of the base case */
-> > > > > +		master->build_invs = arm_smmu_invs_alloc(2 + fwspec->num_ids);
-> > > > 
-> > > > Although I can't point at a specific issue here, I'm nervous about mutating
-> > > > the 'fwspec->ids' array from within the driver, The array isn't allocated
-> > > > or populated directly by the driver and so I don't think we really have any
-> > > > business sorting it. Could we hack iommu_fwspec_add_ids() to keep the array
-> > > > ordered instead?
-> > > 
-> > > Yea, I think it makes sense to do it in the core, once we have the
-> > > data structure provided by the core as well.
-> > 
-> > I would be more worried about sorting it everywhere for every
-> > driver. I feel confident SMMUv3 doesn't use it, but something really
-> > old and embedded focused like tegra or omap, IDK.
-> > 
-> > So I wouldn't propose to change iommu_fwspec_add_ids().
+On Tue, Nov 25, 2025 at 01:48:24AM +0800, kernel test robot wrote:
+> Hi Jean-Michel,
 > 
-> Perhaps a different helper iommu_fwspec_add_ids_sorted()? Drivers
-> can choose to use the sorted version, when they want to implement
-> the invalidation array. And SMMU can be the first only caller.
+> kernel test robot noticed the following build warnings:
 > 
-> > If you want to be conservative then the thing to do is sort the
-> > master->streams that arm_smmu_insert_master() copies the fwspec
-> > into. It just has to be sorted prior to feeding it into the rbtree.
-> > 
-> > Then consistently use master->streams as the sorted list.
+> [auto build test WARNING on ac3fd01e4c1efce8f2c054cdeb2ddd2fc0fb150d]
 > 
-> How about kmemdup() an local id array to bridge betwen fwspec->ids
-> and rbtree?
+> url:    https://github.com/intel-lab-lkp/linux/commits/Jean-Michel-Hautbois/m68k-coldfire-Mark-platform-device-resource-arrays-as-const/20251124-210737
+> base:   ac3fd01e4c1efce8f2c054cdeb2ddd2fc0fb150d
+> patch link:    https://lore.kernel.org/r/20251124-b4-m5441x-add-rng-support-v3-1-f447251dad27%40yoseli.org
+> patch subject: [PATCH v3 1/3] m68k: coldfire: Mark platform device resource arrays as const
+> config: m68k-allnoconfig (https://download.01.org/0day-ci/archive/20251125/202511250103.RMNoU3xH-lkp@intel.com/config)
+> compiler: m68k-linux-gcc (GCC) 15.1.0
+> reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20251125/202511250103.RMNoU3xH-lkp@intel.com/reproduce)
+> 
+> If you fix the issue in a separate patch/commit (i.e. not just a new version of
+> the same patch/commit), kindly add following tags
+> | Reported-by: kernel test robot <lkp@intel.com>
+> | Closes: https://lore.kernel.org/oe-kbuild-all/202511250103.RMNoU3xH-lkp@intel.com/
+> 
+> All warnings (new ones prefixed by >>):
+> 
+> >> arch/m68k/coldfire/device.c:141:35: warning: initialization discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+>      141 |         .resource               = mcf_fec0_resources,
+>          |                                   ^~~~~~~~~~~~~~~~~~
+> 
+> 
+> vim +/const +141 arch/m68k/coldfire/device.c
 
-Does this look okay?
+Frank, I mentionned this warning in v2, do you have a suggestion ?
 
-@@ -3713,6 +3713,7 @@ static int arm_smmu_insert_master(struct arm_smmu_device *smmu,
- {
- 	int i;
- 	int ret = 0;
-+	u32 *ids, *ids_sorted = NULL;
- 	struct iommu_fwspec *fwspec = dev_iommu_fwspec_get(master->dev);
- 	bool ats_supported = dev_is_pci(master->dev) &&
- 			     pci_ats_supported(to_pci_dev(master->dev));
-@@ -3723,26 +3724,38 @@ static int arm_smmu_insert_master(struct arm_smmu_device *smmu,
- 		return -ENOMEM;
- 	master->num_streams = fwspec->num_ids;
- 
-+	ids = fwspec->ids;
- 	if (!ats_supported) {
- 		/* Base case has 1 ASID entry or maximum 2 VMID entries */
- 		master->build_invs = arm_smmu_invs_alloc(2);
- 	} else {
- 		/* Put the ids into order for sorted to_merge/to_unref arrays */
--		sort_nonatomic(fwspec->ids, fwspec->num_ids,
--			       sizeof(fwspec->ids[0]), arm_smmu_ids_cmp, NULL);
-+		if (fwspec->num_ids > 1) {
-+			ids = kmemdup_array(fwspec->ids, fwspec->num_ids,
-+					    sizeof(*ids), GFP_KERNEL);
-+			if (!ids) {
-+				kfree(master->streams);
-+				return -ENOMEM;
-+			}
-+
-+			sort_nonatomic(ids, fwspec->num_ids, sizeof(*ids),
-+				       arm_smmu_ids_cmp, NULL);
-+			ids_sorted = ids;
-+		}
- 		/* ATS case adds num_ids of entries, on top of the base case */
- 		master->build_invs = arm_smmu_invs_alloc(2 + fwspec->num_ids);
- 	}
--	if (IS_ERR(master->build_invs)) {
-+	if (!master->build_invs) {
- 		kfree(master->streams);
--		return PTR_ERR(master->build_invs);
-+		ret = -ENOMEM;
-+		goto out;
- 	}
- 
- 	mutex_lock(&smmu->streams_mutex);
- 	for (i = 0; i < fwspec->num_ids; i++) {
- 		struct arm_smmu_stream *new_stream = &master->streams[i];
- 		struct rb_node *existing;
--		u32 sid = fwspec->ids[i];
-+		u32 sid = ids[i];
- 
- 		new_stream->id = sid;
- 		new_stream->master = master;
-@@ -3779,6 +3792,8 @@ static int arm_smmu_insert_master(struct arm_smmu_device *smmu,
- 	}
- 	mutex_unlock(&smmu->streams_mutex);
- 
-+out:
-+	kfree(ids_sorted);
- 	return ret;
- }
- 
-Thanks
-Nicolin
+Thanks !
+JM
+
+> 
+> b7ce7f0d0efc1a arch/m68k/platform/coldfire/device.c Greg Ungerer      2011-12-24  136  
+> b7ce7f0d0efc1a arch/m68k/platform/coldfire/device.c Greg Ungerer      2011-12-24  137  static struct platform_device mcf_fec0 = {
+> bea8bcb12da09b arch/m68k/platform/coldfire/device.c Steven King       2012-06-06  138  	.name			= FEC_NAME,
+> b7ce7f0d0efc1a arch/m68k/platform/coldfire/device.c Greg Ungerer      2011-12-24  139  	.id			= 0,
+> b7ce7f0d0efc1a arch/m68k/platform/coldfire/device.c Greg Ungerer      2011-12-24  140  	.num_resources		= ARRAY_SIZE(mcf_fec0_resources),
+> b7ce7f0d0efc1a arch/m68k/platform/coldfire/device.c Greg Ungerer      2011-12-24 @141  	.resource		= mcf_fec0_resources,
+> f61e64310b7573 arch/m68k/coldfire/device.c          Greg Ungerer      2018-03-28  142  	.dev = {
+> f61e64310b7573 arch/m68k/coldfire/device.c          Greg Ungerer      2018-03-28  143  		.dma_mask		= &mcf_fec0.dev.coherent_dma_mask,
+> f61e64310b7573 arch/m68k/coldfire/device.c          Greg Ungerer      2018-03-28  144  		.coherent_dma_mask	= DMA_BIT_MASK(32),
+> f61e64310b7573 arch/m68k/coldfire/device.c          Greg Ungerer      2018-03-28  145  		.platform_data		= FEC_PDATA,
+> f61e64310b7573 arch/m68k/coldfire/device.c          Greg Ungerer      2018-03-28  146  	}
+> b7ce7f0d0efc1a arch/m68k/platform/coldfire/device.c Greg Ungerer      2011-12-24  147  };
+> 63a24cf8cc330e arch/m68k/coldfire/device.c          Antonio Quartulli 2024-10-29  148  #endif /* MCFFEC_BASE0 */
+> b7ce7f0d0efc1a arch/m68k/platform/coldfire/device.c Greg Ungerer      2011-12-24  149  
+> 
+> -- 
+> 0-DAY CI Kernel Test Service
+> https://github.com/intel/lkp-tests/wiki
 
