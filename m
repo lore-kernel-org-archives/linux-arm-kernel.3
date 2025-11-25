@@ -4,78 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 745F1CFD370
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 03:47:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 536F2CFD364
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 04:00:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JzZABeAYulUeIHDux7AiMsfkgfuuN1tOa0JyGnwjxcc=; b=H0Z+UDfF15xGP3yxb1oZLh5ih0
-	AstivX7x4l5uBgpgFWtpRWMy1o2IcJ8LcAcMEOaL7qAZeTvhH2npGcFmySqSIW44ucfVNPY4w4MBG
-	/JTNWV0zjTL8fn7Ee5n/HGix4r4d1J3S2cffW9nj3r8pqW/6Pi4QfT7dbUl8kbzTB491WrBqgnC65
-	93MK0qIXLw/WnAGSAhIPX4WQ972DCOVZLTo2kO0shJasW3jRgBtEPcKsrZgCWuX3eAPJBLLt/TztL
-	UXkaMDYxRgUyUJHPKoXCQUmyVBI+UUR8kGBV1hdzbxPqdx34PpAfMav+IgC22nrHCWlqCacwgrI2N
-	Q1cxkKNg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ELXTwGY0hM7dn0+0iq2f3NZlNVlqA0NTCJCNOs3mI/4=; b=TxFDZYr8FBbQ0szWAH7wqbJ9DV
+	iTNoMiBLd6lQa/90dtx1UZPm5RAewgjuI76Whkv4tpJmo8ZuYNrHDu0Fq2mVp6fP8auD6ugCwoa9t
+	/X5MdNnYutWyu2vrXAPFNAq05UHi0oGe56w/InRyQ627TuSeMQ65ufTSYP+GuOqI97O7L0YS+y1Tp
+	Q3g9cGVNFN9Dz2vkLOzk0AWwlysp5D33nHYbBMvmQKlJqlYELFrN3hiUskRiGGGBTZrMHgGdsZmSd
+	wvF7MUVkofLTpRQt/AvDP/QjIhpXTngep9+t9zGUxt5CB/whogqPjunQco8CFh8Tf4Rz2PRtFysIY
+	UG8cc0JA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNk1I-0000000ChIR-04nV;
-	Tue, 25 Nov 2025 03:47:12 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vNkEF-0000000CiQe-06VI;
+	Tue, 25 Nov 2025 04:00:35 +0000
+Received: from canpmsgout02.his.huawei.com ([113.46.200.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNk19-0000000ChC9-0up9;
-	Tue, 25 Nov 2025 03:47:05 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 91E8D443D0;
-	Tue, 25 Nov 2025 03:47:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 6B11AC19425;
-	Tue, 25 Nov 2025 03:47:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764042421;
-	bh=5l7nup7DC0Y8dqHhsU6KY6mQSCmRILk4Zjbco+Fq9Jg=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=G7rQxDp6LFp6SImskkZNkYHvZPColq6OuCe6e4ZatPWGKyMNMwN6pTbMa5mc4UrL8
-	 JJfhHqaO99P9+y4crcXyUSo73vOwoOLudUyuqhazf0q7CQS8Jp0n5mVy0t/a3kUdBx
-	 b+5+c8gTQmWLEvQ/6lhxsplLxr53X+4Z39DX5y6BfGw5jXbV72FkR1b28GFXlWpXQO
-	 NvClOrdOYnW1Cn+v0cc4xmFq226HIfN2QLIe9QdTM6JXjHnfToPuQ3iEa01xGGnz5C
-	 LTSEEvim94ktPiCaakYMkpE3ttBexenN8dfJTp0K2d3midMmVyyzsL6E/TE3ooYyvH
-	 ks0APOMsFFlug==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 5F4CACFD37A;
-	Tue, 25 Nov 2025 03:47:01 +0000 (UTC)
-From: Rudraksha Gupta via B4 Relay <devnull+guptarud.gmail.com@kernel.org>
-Date: Mon, 24 Nov 2025 19:47:02 -0800
-Subject: [PATCH v5 3/4] arm64: dts: rockchip: Add magnetometer sensor to
- Pinephone Pro
+	id 1vNkEB-0000000CiQ5-2H2U
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 25 Nov 2025 04:00:33 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=ELXTwGY0hM7dn0+0iq2f3NZlNVlqA0NTCJCNOs3mI/4=;
+	b=IEDyH3OHckz0WjRzWbzdGrAxLHl5zOZAkGjmivqq5y8T9xeIZe4YwAvuJNmhVgwUBo9Ga8nE0
+	kye4yRE8OnZQd5gVcXVwXzIJdqGqzmqx4Jw2lf4aUeqcmIskEsahF7vzGokgq1ISc/3lLAwh7UK
+	pfkBhEvyIRWUXbaMe5wwvLI=
+Received: from mail.maildlp.com (unknown [172.19.163.174])
+	by canpmsgout02.his.huawei.com (SkyGuard) with ESMTPS id 4dFpnb36PCzcZyV;
+	Tue, 25 Nov 2025 11:58:11 +0800 (CST)
+Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
+	by mail.maildlp.com (Postfix) with ESMTPS id 41F4C14022D;
+	Tue, 25 Nov 2025 12:00:24 +0800 (CST)
+Received: from [10.67.109.254] (10.67.109.254) by
+ dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Tue, 25 Nov 2025 12:00:23 +0800
+Message-ID: <a832b414-8da7-6333-b01e-ffd509f52ab7@huawei.com>
+Date: Tue, 25 Nov 2025 12:00:22 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.2.0
+Subject: Re: [PATCH v7 10/11] arm64: entry: Convert to generic entry
+Content-Language: en-US
+To: Kevin Brodsky <kevin.brodsky@arm.com>, <catalin.marinas@arm.com>,
+	<will@kernel.org>, <oleg@redhat.com>, <tglx@linutronix.de>,
+	<peterz@infradead.org>, <luto@kernel.org>, <shuah@kernel.org>,
+	<kees@kernel.org>, <wad@chromium.org>, <akpm@linux-foundation.org>,
+	<ldv@strace.io>, <macro@orcam.me.uk>, <deller@gmx.de>,
+	<mark.rutland@arm.com>, <song@kernel.org>, <mbenes@suse.cz>,
+	<ryan.roberts@arm.com>, <ada.coupriediaz@arm.com>,
+	<anshuman.khandual@arm.com>, <broonie@kernel.org>, <pengcan@kylinos.cn>,
+	<dvyukov@google.com>, <kmal@cock.li>, <lihongbo22@huawei.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<linux-kselftest@vger.kernel.org>
+References: <20251117133048.53182-1-ruanjinjie@huawei.com>
+ <20251117133048.53182-11-ruanjinjie@huawei.com>
+ <39243d7f-e72a-4d37-8cd2-fb9c9f53e751@arm.com>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <39243d7f-e72a-4d37-8cd2-fb9c9f53e751@arm.com>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251124-ppp_light_accel_mag_vol-down-v5-3-f9a10a0a50eb@gmail.com>
-References: <20251124-ppp_light_accel_mag_vol-down-v5-0-f9a10a0a50eb@gmail.com>
-In-Reply-To: <20251124-ppp_light_accel_mag_vol-down-v5-0-f9a10a0a50eb@gmail.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
- phone-devel@vger.kernel.org, Rudraksha Gupta <guptarud@gmail.com>, 
- Ondrej Jirman <megi@xff.cz>, "Leonardo G. Trombetta" <lgtrombetta@gmx.com>, 
- Pavel Machek <pavel@ucw.cz>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1764042420; l=1356;
- i=guptarud@gmail.com; s=20240916; h=from:subject:message-id;
- bh=6kNPA+rufMDaioiLjzVrw3yC2YKarI4Xs7vCiBTyO0Y=;
- b=mjYYXO4VbxbQzJyStmB8AZAeOSbBj75gjJppJVbTQOdHHt/2CWOeQhbgrytShK5eHi5ku4QNZ
- fuP4qIKj7w2AxQqtJKaj3+ht/F8kA6jIf1mEFpB6PerrijUO2jTOo6z
-X-Developer-Key: i=guptarud@gmail.com; a=ed25519;
- pk=ETrudRugWAtOpr0OhRiheQ1lXM4Kk4KGFnBySlKDi2I=
-X-Endpoint-Received: by B4 Relay for guptarud@gmail.com/20240916 with
- auth_id=211
-X-Original-From: Rudraksha Gupta <guptarud@gmail.com>
+X-Originating-IP: [10.67.109.254]
+X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
+ dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251124_194703_325235_7973F77B 
-X-CRM114-Status: UNSURE (   9.41  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251124_200032_332855_B5D5094F 
+X-CRM114-Status: GOOD (  25.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,57 +86,169 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: guptarud@gmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Ondrej Jirman <megi@xff.cz>
-
-Pinephone Pro uses AF8133J according to the schematic.
-
-The mount-matrix was added by Leonardo on top of Ondrej's work of adding
-the magnetometer. It was verified with Leonardo's compass app:
-
-https://gitlab.com/lgtrombetta/compass
-
-Co-developed-by: Leonardo G. Trombetta <lgtrombetta@gmx.com>
-Signed-off-by: Leonardo G. Trombetta <lgtrombetta@gmx.com>
-Signed-off-by: Ondrej Jirman <megi@xff.cz>
-Signed-off-by: Rudraksha Gupta <guptarud@gmail.com>
-Reviewed-by: Pavel Machek <pavel@ucw.cz>
----
- arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts | 15 +++++++++++++++
- 1 file changed, 15 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts b/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
-index f8c74b43ae9f..03721d71766c 100644
---- a/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
-@@ -553,6 +553,21 @@ mpu6500@68 {
- 	};
- };
- 
-+&i2c4 {
-+	af8133j: compass@1c {
-+		compatible = "voltafield,af8133j";
-+		reg = <0x1c>;
-+		reset-gpios = <&gpio1 RK_PA1 GPIO_ACTIVE_LOW>;
-+		avdd-supply = <&vcc_3v0>;
-+		dvdd-supply = <&vcc_1v8>;
-+
-+		mount-matrix =
-+			"0", "1", "0",
-+			"-1", "0", "0",
-+			"0", "0", "1";
-+	};
-+};
-+
- &io_domains {
- 	bt656-supply = <&vcc1v8_dvp>;
- 	audio-supply = <&vcca1v8_codec>;
-
--- 
-2.52.0
 
 
+On 2025/11/19 1:14, Kevin Brodsky wrote:
+> On 17/11/2025 14:30, Jinjie Ruan wrote:
+>> [...]
+>>
+>> diff --git a/arch/arm64/include/asm/syscall.h b/arch/arm64/include/asm/syscall.h
+>> index 6225981fbbdb..c91938718468 100644
+>> --- a/arch/arm64/include/asm/syscall.h
+>> +++ b/arch/arm64/include/asm/syscall.h
+>> @@ -9,6 +9,8 @@
+>>  #include <linux/compat.h>
+>>  #include <linux/err.h>
+>>  
+>> +#include <asm/vdso.h>
+>> +
+>>  typedef long (*syscall_fn_t)(const struct pt_regs *regs);
+>>  
+>>  extern const syscall_fn_t sys_call_table[];
+>> @@ -114,12 +116,30 @@ static inline int syscall_get_arch(struct task_struct *task)
+>>  	return AUDIT_ARCH_AARCH64;
+>>  }
+>>  
+>> -static inline bool has_syscall_work(unsigned long flags)
+>> +static inline bool arch_syscall_is_vdso_sigreturn(struct pt_regs *regs)
+>>  {
+>> -	return unlikely(flags & _TIF_SYSCALL_WORK);
+>> -}
+>> +	unsigned long vdso = (unsigned long)current->mm->context.vdso;
+>> +	unsigned long vdso_pages, vdso_text_len;
+>> +	unsigned long pc = regs->pc - 4;
+> 
+> On AArch32 (i.e. COMPAT), instructions may be 16-bit (in T32/Thumb), so
+> we shouldn't blindly use PC - 4.
+> 
+>>  
+>> -int syscall_trace_enter(struct pt_regs *regs, long syscall, unsigned long flags);
+>> -void syscall_exit_to_user_mode_prepare(struct pt_regs *regs);
+>> +#ifdef CONFIG_COMPAT
+>> +	if (is_compat_task()) {
+>> +		vdso = (unsigned long)current->mm->context.sigpage;
+>> +		if (pc >= vdso && pc < vdso + PAGE_SIZE)
+> 
+> Just return that expression (instead of true/false).
+> 
+> I think the approach is reasonable, as we have 4 possible trampolines in
+> COMPAT and they all live in a dedicated page. I don't think we need to
+> worry about offsetting PC, because even if it points after the last
+> trampoline, it will still fall within the page. IOW, just use the
+> unmodified value of regs->pc.
+> 
+>> +			return true;
+>> +
+>> +		return false;
+>> +	}
+>> +#endif
+>> +	if (regs->syscallno != __NR_rt_sigreturn)
+>> +		return false;
+>> +
+>> +	vdso_pages = (vdso_end - vdso_start) >> PAGE_SHIFT;
+>> +	vdso_text_len = vdso_pages << PAGE_SHIFT;
+>> +	if (pc < vdso || pc >= vdso + vdso_text_len)
+>> +		return false;
+> 
+> Why not use the same approach as x86 and simply check that regs->pc
+> points after the trampoline? We already have a way to get the address of
+> the vDSO's sigreturn trampoline on arm64:
+> VDSO_SYMBOL(current->mm->context.vdso, sigtramp) (see signal.c). The
+> trampoline consists of two instructions that cannot be changed (pretty
+> much part of the ABI), so we could compare regs->pc with sigtramp + 8.
+
+Will update it.
+
+> 
+>> +
+>> +	return true;
+>> +}
+>>  #endif	/* __ASM_SYSCALL_H */
+>> diff --git a/arch/arm64/include/asm/thread_info.h b/arch/arm64/include/asm/thread_info.h
+>> index f241b8601ebd..0c083be23018 100644
+>> --- a/arch/arm64/include/asm/thread_info.h
+>> +++ b/arch/arm64/include/asm/thread_info.h
+>> @@ -43,6 +43,7 @@ struct thread_info {
+>>  	void			*scs_sp;
+>>  #endif
+>>  	u32			cpu;
+>> +	unsigned long		syscall_work;   /* SYSCALL_WORK_ flags */
+>>  };
+>>  
+>>  #define thread_saved_pc(tsk)	\
+>> @@ -65,11 +66,6 @@ void arch_setup_new_exec(void);
+>>  #define TIF_UPROBE		5	/* uprobe breakpoint or singlestep */
+>>  #define TIF_MTE_ASYNC_FAULT	6	/* MTE Asynchronous Tag Check Fault */
+>>  #define TIF_NOTIFY_SIGNAL	7	/* signal notifications exist */
+>> -#define TIF_SYSCALL_TRACE	8	/* syscall trace active */
+>> -#define TIF_SYSCALL_AUDIT	9	/* syscall auditing */
+>> -#define TIF_SYSCALL_TRACEPOINT	10	/* syscall tracepoint for ftrace */
+>> -#define TIF_SECCOMP		11	/* syscall secure computing */
+>> -#define TIF_SYSCALL_EMU		12	/* syscall emulation active */
+>>  #define TIF_PATCH_PENDING	13	/* pending live patching update */
+>>  #define TIF_MEMDIE		18	/* is terminating due to OOM killer */
+>>  #define TIF_FREEZE		19
+>> @@ -92,30 +88,14 @@ void arch_setup_new_exec(void);
+>>  #define _TIF_NEED_RESCHED_LAZY	(1 << TIF_NEED_RESCHED_LAZY)
+>>  #define _TIF_NOTIFY_RESUME	(1 << TIF_NOTIFY_RESUME)
+>>  #define _TIF_FOREIGN_FPSTATE	(1 << TIF_FOREIGN_FPSTATE)
+>> -#define _TIF_SYSCALL_TRACE	(1 << TIF_SYSCALL_TRACE)
+>> -#define _TIF_SYSCALL_AUDIT	(1 << TIF_SYSCALL_AUDIT)
+>> -#define _TIF_SYSCALL_TRACEPOINT	(1 << TIF_SYSCALL_TRACEPOINT)
+>> -#define _TIF_SECCOMP		(1 << TIF_SECCOMP)
+>> -#define _TIF_SYSCALL_EMU	(1 << TIF_SYSCALL_EMU)
+>>  #define _TIF_PATCH_PENDING	(1 << TIF_PATCH_PENDING)
+>>  #define _TIF_UPROBE		(1 << TIF_UPROBE)
+>> -#define _TIF_SINGLESTEP		(1 << TIF_SINGLESTEP)
+>>  #define _TIF_32BIT		(1 << TIF_32BIT)
+>>  #define _TIF_SVE		(1 << TIF_SVE)
+>>  #define _TIF_MTE_ASYNC_FAULT	(1 << TIF_MTE_ASYNC_FAULT)
+>>  #define _TIF_NOTIFY_SIGNAL	(1 << TIF_NOTIFY_SIGNAL)
+>>  #define _TIF_TSC_SIGSEGV	(1 << TIF_TSC_SIGSEGV)
+>>  
+>> -#define _TIF_WORK_MASK		(_TIF_NEED_RESCHED | _TIF_NEED_RESCHED_LAZY | \
+>> -				 _TIF_NOTIFY_RESUME | _TIF_FOREIGN_FPSTATE | \
+>> -				 _TIF_UPROBE | _TIF_MTE_ASYNC_FAULT | \
+>> -				 _TIF_NOTIFY_SIGNAL | _TIF_SIGPENDING | \
+>> -				 _TIF_PATCH_PENDING)
+> 
+> AFAICT this was already unused before this series, since commit
+> b3cf07851b6c ("arm64: entry: Switch to generic IRQ entry"). It should be
+> removed in a separate commit.
+
+Yes, it was already unused before this series
+
+> 
+>> [...]
+>>
+>> -void syscall_exit_to_user_mode_prepare(struct pt_regs *regs)
+>> -{
+>> -	unsigned long flags = read_thread_flags();
+>> -
+>> -	rseq_syscall(regs);
+>> -
+>> -	if (has_syscall_work(flags) || flags & _TIF_SINGLESTEP)
+> 
+> I believe switching to the generic function introduces a change here:
+> syscall_exit_work() is only called if a flag in SYSCALL_WORK_EXIT is
+> set, and this set does not include SYSCALL_EMU and SECCOMP. Practically
+> this means that audit_syscall_exit() will no longer be called if only
+> SECCOMP and/or SYSCALL_EMU is set.
+> 
+> It doesn't feel like a major behaviour change, but it should be pointed out.
+
+We can add "ARCH_SYSCALL_WORK_EXIT" to be defined as "SECCOMP
+||SYSCALL_EMU" to keep the behaviour unchanged.
+
+> 
+> - Kevin
+> 
+>> -		syscall_trace_exit(regs, flags);
+>> -}
+>>
+>> [...]
+> 
 
