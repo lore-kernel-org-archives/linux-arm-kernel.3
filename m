@@ -4,89 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 770B3CFD364
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 05:03:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D595DCFD364
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 05:25:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=H/IpVNPJeIJslvkWcf3WXaaxdB67FrQ6N/vDSlpiXwc=; b=qxlZzSiyTcy+WZYwhN2l8qP/TJ
-	LNVI4bCGU7Scaaug7j9hFVo4PbznIZ+WypWsT8hZBQVnXP2oOroBGsV7c6rXgRiO/eYnjnhtulDN8
-	JUg44UwU+iJ5CaUb3BbMxtoGy4xgg506nwiBhpx5J8SldRKFyjRj+adYEpR3Ihb/AJ/8vyM4c8W8M
-	zLJ0P89szfY43zVegjuoUmWxms5hiQ0Y5AVYVzUO+ee/mjZBNXcUpnmW8bULC5ZswBlRsHqdToKan
-	HzWppHjbOWhFyDnacPTKfKO9TWMcSkA0FgvxBZwnoeUrI5yqKjagnNa783uM2NDn4Q24k0tlNxl7y
-	QMsIBTyA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=k+XlqYejp1nd6UpVqZkSXuV/N5F57js+F6ejiEmgZEM=; b=oMS+ctEIxUg2bSCbrrL1yt2inM
+	dBeTyiiy0SWEgI4waoW+SnOOWDwfKzkHgcYh2IlLvMuiaDiq9vEemJft4Xw20PNsyD+ZnjAXFuM5r
+	QfnfmC9cu1WFQrlvlSvewZtzswznzDPhIfbHjgTTMtoEyIqQVRXX4p7ZBj7aPfNlNWk1FoTNI8/z5
+	KsxE3ur8o+aUm0Aw1bzqdm9xMKPzAzbD9yOoDUjlbmWUR1y56ZBPHAlftXxJlWjAiXtGDC3L6TcQk
+	Oy8Yb3JgoIp5DakklcD7cr/vgJdb8dlKM3rqcKeXsk+irsFMNb9UAGRjfO/rIe66ZGne/H7kUF0wi
+	SHGRJsYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNlCf-0000000ClS2-1vCM;
-	Tue, 25 Nov 2025 05:03:01 +0000
-Received: from mgamail.intel.com ([198.175.65.16])
+	id 1vNlYN-0000000CmUc-1YzJ;
+	Tue, 25 Nov 2025 05:25:27 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNlCc-0000000ClRI-0kd9;
-	Tue, 25 Nov 2025 05:02:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1764046978; x=1795582978;
-  h=message-id:date:mime-version:subject:to:references:from:
-   in-reply-to:content-transfer-encoding;
-  bh=CxuoyWDMjnvPVlANis+bdBxUp4A0mu3YzVIP24vTdmw=;
-  b=jTPVMannSWMfc3fm+OSavYVcsCmnGbne+dbW1FG5nA7sGPkFWRtBNLWp
-   VuVrx/aqCG6JKLrrVABkL1TzZs8q2Cf/VxVA4aJgAaY2lia67aw0bnD7g
-   Fwtj/siUvr3JCtXVEfAR9QBKFxSh7VoJQma3SP7axSGR3wOE2mVcH6KQ3
-   7TUK/nyZCRARppkKwGO9JKPTAi/xFeT3CwVALAoNkCrKAh3adzudcJ8bh
-   h88cLGohhxCwPkjFqDtk438C47dWYq8pTHyVlb4H9fymLLa/kAjDT+ZL/
-   VnYTtY+w+dI0pcfAF0TvTA5QFuL46hIYyj+35Y4VWBopSR49Ebc236pXq
-   A==;
-X-CSE-ConnectionGUID: ptbUomSoQlOTg8soc63A7Q==
-X-CSE-MsgGUID: ZbTzBQ77T6+SQZtmczzajA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11623"; a="66219506"
-X-IronPort-AV: E=Sophos;i="6.20,224,1758610800"; 
-   d="scan'208";a="66219506"
-Received: from orviesa006.jf.intel.com ([10.64.159.146])
-  by orvoesa108.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2025 21:02:56 -0800
-X-CSE-ConnectionGUID: rs3B5ijhTVGv+kSjCL9fAA==
-X-CSE-MsgGUID: urT/xi6OQOK7RTeKmDyI0w==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.20,224,1758610800"; 
-   d="scan'208";a="191669191"
-Received: from dapengmi-mobl1.ccr.corp.intel.com (HELO [10.124.240.213]) ([10.124.240.213])
-  by orviesa006-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2025 21:02:48 -0800
-Message-ID: <83067602-325a-4655-a1b7-e6bd6a31eed4@linux.intel.com>
-Date: Tue, 25 Nov 2025 13:02:46 +0800
+	id 1vNlYM-0000000CmUR-0k5T;
+	Tue, 25 Nov 2025 05:25:26 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 2316A600CB;
+	Tue, 25 Nov 2025 05:25:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 16B55C4CEF1;
+	Tue, 25 Nov 2025 05:25:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1764048324;
+	bh=YHZk6TcZwXmXzYNfBZm7hYEmK00oZ2fzc7kALopA/iw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=NCRQKFYe4AGwbOGth+WonBD537brle2qfV23NP/0JbJqlNKIMy34lTEnbNZnsouqP
+	 iGDQsNWg34Enf6PU6Mqn3gIs4luGiFY608RjtOWmTLeHgRjYX/OfmjnbRIWhVDBWc5
+	 IFja6EOGJpovJUa6QxGzx6czN9OYxf1k99RH/PPAn4Lu8uZB1Zh7bfVxrpVHDJexKh
+	 i4KbLJOncMBRudrHnQ8xQNvwjPNRnunAqaLE9WwUAohaSK8zynKgO/rdyYQqY/zMsG
+	 DF5OhgOJ9mBs1TlZoj2BM/wJvkhKvT3SpXXKrBrNXkgYmuA73WF0UABBYvuAXaqF0k
+	 oDFfjlwCNIDNg==
+Date: Tue, 25 Nov 2025 10:55:05 +0530
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Bjorn Helgaas <helgaas@kernel.org>
+Cc: Niklas Cassel <cassel@kernel.org>, 
+	Shawn Lin <shawn.lin@rock-chips.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, Rob Herring <robh@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+	Kever Yang <kever.yang@rock-chips.com>, Simon Xue <xxm@rock-chips.com>, 
+	Damien Le Moal <dlemoal@kernel.org>, Dragan Simic <dsimic@manjaro.org>, 
+	FUKAUMI Naoki <naoki@radxa.com>, Diederik de Haas <diederik@cknow-tech.com>, 
+	Richard Zhu <hongxing.zhu@nxp.com>, Frank Li <Frank.li@nxp.com>, 
+	Lucas Stach <l.stach@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
+	Conor Dooley <conor@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>, 
+	Thierry Reding <thierry.reding@gmail.com>, Jonathan Hunter <jonathanh@nvidia.com>, 
+	Hans Zhang <hans.zhang@cixtech.com>, linux-tegra@vger.kernel.org, linux-pci@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, kernel@pengutronix.de, 
+	Bjorn Helgaas <bhelgaas@google.com>
+Subject: Re: [PATCH v2 1/4] PCI: dwc: Advertise L1 PM Substates only if
+ driver requests it
+Message-ID: <swchohhrkhyuzukrtonu4f3bzx3h6mha23rt6twqict42we2za@pq5hwfa75fps>
+References: <wja7vxtg7bqq2udepl5r3mvgg5swvuqtuzk6cnimgcbw2aegqs@hru6yzg4xx3o>
+ <20251124211903.GA2712341@bhelgaas>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 28/44] KVM: x86/pmu: Load/save GLOBAL_CTRL via
- entry/exit fields for mediated PMU
-To: Sean Christopherson <seanjc@google.com>, Marc Zyngier <maz@kernel.org>,
- Oliver Upton <oliver.upton@linux.dev>, Tianrui Zhao
- <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>,
- Huacai Chen <chenhuacai@kernel.org>, Anup Patel <anup@brainfault.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Xin Li <xin@zytor.com>, "H. Peter Anvin" <hpa@zytor.com>,
- Andy Lutomirski <luto@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
- Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>,
- Namhyung Kim <namhyung@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
- linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
- kvm@vger.kernel.org, loongarch@lists.linux.dev,
- kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
- Kan Liang <kan.liang@linux.intel.com>, Yongwei Ma <yongwei.ma@intel.com>,
- Mingwei Zhang <mizhang@google.com>,
- Xiong Zhang <xiong.y.zhang@linux.intel.com>,
- Sandipan Das <sandipan.das@amd.com>
-References: <20250806195706.1650976-1-seanjc@google.com>
- <20250806195706.1650976-29-seanjc@google.com> <aSUK8FuWT4lpMP3F@google.com>
-Content-Language: en-US
-From: "Mi, Dapeng" <dapeng1.mi@linux.intel.com>
-In-Reply-To: <aSUK8FuWT4lpMP3F@google.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251124_210258_295909_1A1BFEFD 
-X-CRM114-Status: GOOD (  29.16  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20251124211903.GA2712341@bhelgaas>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,94 +82,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, Nov 24, 2025 at 03:19:03PM -0600, Bjorn Helgaas wrote:
+> On Thu, Nov 20, 2025 at 01:10:56PM +0530, Manivannan Sadhasivam wrote:
+> > On Tue, Nov 18, 2025 at 03:42:15PM -0600, Bjorn Helgaas wrote:
+> > > From: Bjorn Helgaas <bhelgaas@google.com>
+> > > 
+> > > L1 PM Substates require the CLKREQ# signal and may also require
+> > > device-specific support.  If CLKREQ# is not supported or driver support is
+> > > lacking, enabling L1.1 or L1.2 may cause errors when accessing devices,
+> > > e.g.,
+> > > 
+> > >   nvme nvme0: controller is down; will reset: CSTS=0xffffffff, PCI_STATUS=0x10
+> > > 
+> > > If the kernel is built with CONFIG_PCIEASPM_POWER_SUPERSAVE=y or users
+> > > enable L1.x via sysfs, users may trip over these errors even if L1
+> > > Substates haven't been enabled by firmware or the driver.
+> > > 
+> > > To prevent such errors, disable advertising the L1 PM Substates unless the
+> > > driver sets "dw_pcie.l1ss_support" to indicate that it knows CLKREQ# is
+> > > present and any device-specific configuration has been done.
+> > 
+> > Going by this reasoning, why can't we enable L1 PM Substates for
+> > these platforms by default?
+> 
+> I think we can, in a separate series.  I don't have time to deal with
+> this before the v6.19 merge window, but you can certainly do that.
+> 
 
-On 11/25/2025 9:48 AM, Sean Christopherson wrote:
-> On Wed, Aug 06, 2025, Sean Christopherson wrote:
->> From: Dapeng Mi <dapeng1.mi@linux.intel.com>
->>
->> When running a guest with a mediated PMU, context switch PERF_GLOBAL_CTRL
->> via the dedicated VMCS fields for both host and guest.  For the host,
->> always zero GLOBAL_CTRL on exit as the guest's state will still be loaded
->> in hardware (KVM will context switch the bulk of PMU state outside of the
->> inner run loop).  For the guest, use the dedicated fields to atomically
->> load and save PERF_GLOBAL_CTRL on all entry/exits.
->>
->> Note, VM_EXIT_SAVE_IA32_PERF_GLOBAL_CTRL was introduced by Sapphire
->> Rapids, and is expected to be supported on all CPUs with PMU v4+.  WARN if
->> that expectation is not met.  Alternatively, KVM could manually save
->> PERF_GLOBAL_CTRL via the MSR save list, but the associated complexity and
->> runtime overhead is unjustified given that the feature should always be
->> available on relevant CPUs.
-> This is wrong, PMU v4 has been supported since Skylake.
+I will take it up. Not sure if I can do it for v6.19 though.
 
-Yes, the v4+ restriction is to meet the requirement of existence of
-IA32_PERF_GLOBAL_STATUS_SET MSR which is needed to restore the guest
-global_ctrl.
+- Mani
 
-
->
->> diff --git a/arch/x86/kvm/vmx/pmu_intel.c b/arch/x86/kvm/vmx/pmu_intel.c
->> index 7ab35ef4a3b1..98f7b45ea391 100644
->> --- a/arch/x86/kvm/vmx/pmu_intel.c
->> +++ b/arch/x86/kvm/vmx/pmu_intel.c
->> @@ -787,7 +787,23 @@ static bool intel_pmu_is_mediated_pmu_supported(struct x86_pmu_capability *host_
->>  	 * Require v4+ for MSR_CORE_PERF_GLOBAL_STATUS_SET, and full-width
->>  	 * writes so that KVM can precisely load guest counter values.
->>  	 */
->> -	return host_pmu->version >= 4 && host_perf_cap & PERF_CAP_FW_WRITES;
->> +	if (host_pmu->version < 4 || !(host_perf_cap & PERF_CAP_FW_WRITES))
->> +		return false;
->> +
->> +	/*
->> +	 * All CPUs that support a mediated PMU are expected to support loading
->> +	 * and saving PERF_GLOBAL_CTRL via dedicated VMCS fields.
->> +	 */
->> +	if (WARN_ON_ONCE(!cpu_has_load_perf_global_ctrl() ||
->> +			 !cpu_has_save_perf_global_ctrl()))
->> +		return false;
-> And so this WARN fires due to cpu_has_save_perf_global_ctrl() being false.  The
-> bad changelog is mine, but the code isn't entirely my fault.  I did suggest the
-> WARN in v3[1], probably because I forgot when PMU v4 was introduced and no one
-> corrected me.
->
-> v4 of the series[2] then made cpu_has_save_perf_global_ctrl() a hard requirement,
-> based on my miguided feedback.
->
->    * Only support GLOBAL_CTRL save/restore with VMCS exec_ctrl, drop the MSR
->      save/retore list support for GLOBAL_CTRL, thus the support of mediated
->      vPMU is constrained to SapphireRapids and later CPUs on Intel side.
->
-> Doubly frustrating is that this was discussed in the original RFC, where Jim
-> pointed out[3] that requiring VM_EXIT_SAVE_IA32_PERF_GLOBAL_CTRL would prevent
-> enabling the mediated PMU on Skylake+, and I completely forgot that conversation
-> by the time v3 of the series rolled around :-(
-
-VM_EXIT_SAVE_IA32_PERF_GLOBAL_CTRL is introduced from SPR and later. I
-remember the original requirements includes to support Skylake and Icelake,
-but I ever thought there were some offline sync and the requirement changed...
-
-My bad, I should double confirm this at then.
-
-
->
-> As mentioned in the discussion with Jim, _if_ PMU v4 was introduced with ICX (or
-> later), then I'd be in favor of making VM_EXIT_SAVE_IA32_PERF_GLOBAL_CTRL a hard
-> requirement.  But losing supporting Skylake+ is a bit much.
->
-> There are a few warts with nVMX's use of the auto-store list that need to be
-> cleaned up, but on the plus side it's also a good excuse to clean up
-> {add,clear}_atomic_switch_msr(), which have accumulated some cruft and quite a
-> bit of duplicate code.  And while I still dislike using the auto-store list, the
-> code isn't as ugly as it was back in v3 because we _can_ make the "load" VMCS
-> controls mandatory without losing support for any CPUs (they predate PMU v4).
-
-Yes, xxx_atomic_switch_msr() helpers need to be cleaned up and optimized. I
-suppose we can have an independent patch-set to clean up and support
-global_ctrl with auto-store list for Skylake and Icelake.
-
-
->
-> [1] https://lore.kernel.org/all/ZzyWKTMdNi5YjvEM@google.com
-> [2] https://lore.kernel.org/all/20250324173121.1275209-1-mizhang@google.com
-> [3] https://lore.kernel.org/all/CALMp9eQ+-wcj8QMmFR07zvxFF22-bWwQgV-PZvD04ruQ=0NBBA@mail.gmail.com
+-- 
+மணிவண்ணன் சதாசிவம்
 
