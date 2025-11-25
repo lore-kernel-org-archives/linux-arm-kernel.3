@@ -4,77 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1715CFD368
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 05:44:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9BBFCFD36C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 06:49:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=wU758igsmLPYBRY5GuEqnwep8DpXhcYVva2ZYDF4Duo=; b=SoRrx/eqCY2tex2NVmcTBHl4Ch
-	zEMiQhOA0tjFwe+eFZ17awJc+e4P1vGA+RzEW/xNP554Oc7Z5dKj1xf9C8aD9ewYu/jb0wAnIS7Zc
-	CyD8haLIL/PQwAwu1NZa+pM4RIfs9Z9/ybVv6sqAjBwo+Ms/oo9CXoJjE/4nQV5Acgswmwle/iNm6
-	uCPEIc8kq81je1aMDrPnwSJReHhijafBCkLwyoRn5WuZXs1YHeJvzRqCOFpuJpHJwhBsiuh+fe/X9
-	S0aBj93dM2hbZcNdfQI+uht/PBwe/wU7Q3U+7MSOHDrhNNpmot63QSmlTtjRnblnel1sEQNsXwG6W
-	3NKstHlA==;
+	bh=88kFkP2tiIFI/W0cIcRfnFOjGOXOrhask+3UfD3dOMc=; b=qV1LfNunRtuzPeyokyjdgj2Psj
+	BiiFKyNuZcxH0IXhpM7aI2gA4hC/6Opy/v6VssMy5CDLKNSgpG61oXs4BwFtTL3T5gxpf9H/oA+F/
+	LjPGHXqwjmR5Wt3PyqcRNqo+44GV2zqvGTbrPWp4on2FdLxrn08ftdwcp0+06IOn6qL6BbskE7XOq
+	uH77yn9hMVSiGoHlIHl4uB6sS6tC3XWwVarSjXVNbCMnuR9LTbAorg/SpRprb2J6I0Dmh2LS0JWtg
+	vfI4oFSjTeBIV12Snzh/Dq0SGhhFAKTZf4qPUc2lYuRqsZ4gHVcJHALOfa6CNjBU8I0UUCO66vGqR
+	W1sHHjrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNlqy-0000000CnIu-0UI4;
-	Tue, 25 Nov 2025 05:44:40 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vNmrS-0000000CqAv-00sK;
+	Tue, 25 Nov 2025 06:49:14 +0000
+Received: from mail-pf1-x42c.google.com ([2607:f8b0:4864:20::42c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNlqw-0000000CnIo-2GqX
+	id 1vNmrQ-0000000CqAX-0Dns
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Nov 2025 05:44:38 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9BAF4600CB;
-	Tue, 25 Nov 2025 05:44:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 3A3E9C4CEF1;
-	Tue, 25 Nov 2025 05:44:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764049477;
-	bh=qY2QP76VbEE+tQpE3vnVHe7Qa+9ipLp7VVuCWmmPAE0=;
-	h=From:Date:Subject:To:Cc:Reply-To:From;
-	b=uB8rb81RgN5g1U2MJPK3YTSwg67bDTxqxez1scm+9P/JAtBfft28yvhcQdIs2um3x
-	 CXtQY1dk93LzK0lhK8lUDIUJh9oLHu9ThaVMX7udfEg1fZUQuhkTmOL0oN2w1nOLOs
-	 ml7/h8LDO5OsxNRrKdKRS47spisRzgZnt9EKP6Zvu5W+C6zkyTk//kvq/ptqVrUl9p
-	 4wXfUySn2tvChCK6gkd1TxowWNzauFgVfTET46fLpUrDgeBLGdR5I3la5zT0loM4we
-	 GvM9CCFO+BX1y2S/5QN32GRQHdt5LDv2goMmby7Z/Y0H7mSj9i9NfFZeoDEXFOdZS+
-	 JXV++XHOr7eug==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 24DB3CFD315;
-	Tue, 25 Nov 2025 05:44:37 +0000 (UTC)
-From: Kimi Chen via B4 Relay <devnull+kimi.zy.chen.fii-foxconn.com@kernel.org>
-Date: Tue, 25 Nov 2025 13:42:50 +0800
-Subject: [PATCH v4] ARM: dts: aspeed: clemente: add gpio line name to io
- expander
+	Tue, 25 Nov 2025 06:49:13 +0000
+Received: by mail-pf1-x42c.google.com with SMTP id d2e1a72fcca58-7bf0ad0cb87so5043591b3a.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Nov 2025 22:49:11 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1764053351; x=1764658151; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=88kFkP2tiIFI/W0cIcRfnFOjGOXOrhask+3UfD3dOMc=;
+        b=KKdERuOM27q5qx9tKOY+E/3QuMJW5bqEXaVqjDsmJ25OGlceeDL0eYSiAKlaiH9EHS
+         G9noWvRiawd78b/lUivpymaFIK5jIFgYzvV1hQJTymjs6ECq2lYrrfGfHJb/PfsgKXn/
+         jHpnkTq05yquD5Ulgvq6bmT+cdeMr2ZHLA50c=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1764053351; x=1764658151;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=88kFkP2tiIFI/W0cIcRfnFOjGOXOrhask+3UfD3dOMc=;
+        b=jCD5lXXL/oc+HJ7gkhpv+Mh2vrVwwp42WaZT3tEu37uL4jYNjYbGBAZwz0XCCluX5i
+         ICDoWzhLAwNj1AuOMLZRCQnWqzhoXuxAPJtj5Iyy4OReY3sZnb5nmHtbHVVEu8hy3ZO4
+         qigAthTWQOCGETjqjBoWHpyEdNy5zpQRCSBptrTkYqizVJEKc+ovNxBgbWXnh8g43Of0
+         XVtvRn/gP3DjI9/XCd0gsZGDB6lnvRX6r3cUf3nRPrmxDcRnu5UXGPISiM4L9DfWZ+09
+         qO61I+IiZ3b/b3mXZOJ7PCPfEokxFXwAgNDWPzdXF27ht/qWBPzkCjvk99c2wHVV8gIJ
+         FTzg==
+X-Forwarded-Encrypted: i=1; AJvYcCVVBVeLU4dNcpoRtYSFYYvyco2BpH0jFELYuLeRSdaFBGbrTpZhMtt7eT36Z8nXB+zcDSEXJiEhJoBWd58RlJXy@lists.infradead.org
+X-Gm-Message-State: AOJu0YzlF9qONhweZdpq6pJGBlECf4yGEHKBKGpMDiKlsp2JCkkRL6X1
+	Rhk1Gt/oAEvQx8Lc70zF11Ve9s3ZF1YID17ZB7RMojLu8AtaJtZpMzf6+2ANIm+wcQ==
+X-Gm-Gg: ASbGnctOKoPhEBq5NTCv7Kd89UaRyBApCJtO9hKVYEdS0dnqB+BtSiYwLiN1o2tHCUO
+	NwOFFo0PBCcN4NiJetl65Hb93A6jG8IdGdrQ9TW6lrC3tgzjxE0UNFlFFeAUa8Gvg0oEdLbYubS
+	IJGe69s6atZmK3H81CCYAQYdQWlZyy8rqY7Pnv9VSoZam7+Wc+sw4kaI80mxTCh/cgKJgio3tX7
+	rDqHvK643LUMCCU4ItFreUz8eBoQmbhSh26jt21qLH3gx3IC96eafdpPNRgK09UQ1uJph45tWya
+	FVNELmHATNV8qQEwolCrDHqMdfd24I8wpm0GAx4U1c3puyMIA/uiMR6LbMXXvTlA9aLQk84WZJZ
+	U2Apq/HtiTeX8f2FtcaTqI0C83qkXYhbqtHlbt2wWcSOU0kDTQJ+6TYcPTUAkmzybgljDaE0lBp
+	KB52vQ3tnfIFJZQmbeZmmldvJVx9Fxh1IkkL9OlhCaKAsxj8eWJCYXHhL9CfxRH/R9jZAv
+X-Google-Smtp-Source: AGHT+IElth1ajKpACCGhmlgof/CcbLxkdUN0v+MBgrJOs6SF5vNzmM++ExuwEs9TPuCVCvtXkQXH5Q==
+X-Received: by 2002:a05:6a00:228a:b0:7aa:a2a8:980f with SMTP id d2e1a72fcca58-7c58db2cd79mr14042173b3a.20.1764053350629;
+        Mon, 24 Nov 2025 22:49:10 -0800 (PST)
+Received: from wenstp920.tpe.corp.google.com ([2a00:79e0:201d:8:2b48:6622:575f:f283])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7c3ed471022sm16853335b3a.21.2025.11.24.22.49.08
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 24 Nov 2025 22:49:10 -0800 (PST)
+From: Chen-Yu Tsai <wenst@chromium.org>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Cc: Chen-Yu Tsai <wenst@chromium.org>,
+	devicetree@vger.kernel.org,
+	chrome-platform@lists.linux.dev,
+	Julius Werner <jwerner@chromium.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] dt-bindings: firmware: coreboot: Convert to YAML
+Date: Tue, 25 Nov 2025 14:48:49 +0800
+Message-ID: <20251125064851.3781993-1-wenst@chromium.org>
+X-Mailer: git-send-email 2.52.0.460.gd25c4c69ec-goog
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20251125-dts-add-gpio-to-io-expander-v4-1-e6d31f80470c@fii-foxconn.com>
-X-B4-Tracking: v=1; b=H4sIANlBJWkC/43NwY7CIBDG8VcxnHcMUIZ2PfkexgMdBuWw0EDT1
- Ji++6InkzVmL5P85/D77qJyiVzFYXcXhZdYY04tzNdO0NWlC0P0rYWWGpWSFvxcwXkPlylmmDO
- 0y+vkkucCzlCniQJa50QTpsIhrk/9dG59jXXO5fYcW9Tj+z93UaBgNL1Fkt+aRz6GGCHklXJKe
- 8o/4qEv+lXsP4u6iTigN8NgEI19L3Yvopafxa6JNFqUjnobBvwrbtv2CxBfBOlwAQAA
-X-Change-ID: 20251106-dts-add-gpio-to-io-expander-a4c32ccf56aa
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, 
- Andrew Jeffery <andrew@codeconstruct.com.au>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
- george.kw.lee@fii-foxconn.com, Kimi Chen <kimi.zy.chen@fii-foxconn.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1764049476; l=2917;
- i=kimi.zy.chen@fii-foxconn.com; s=20251105; h=from:subject:message-id;
- bh=XlfLH7aJAuTw4x56m8cEY+a7zkKS1LZ5QGzrmf+4eBo=;
- b=NVYxgBZKetYbHl9F3aQlJ7gp9sSKijq+JKD+rU92nilq7JM5ipsoFXrjWvIGef2z64tNRTNIQ
- qSN5/IqtucmCxhNuRN8OiiBkm4RQXn/SyVOOPkY8buZeVkVwKT1wjQE
-X-Developer-Key: i=kimi.zy.chen@fii-foxconn.com; a=ed25519;
- pk=3zHetsW/3CYYIgQlYV9dqSS7aW7aZXLUaIvc+OKr3NM=
-X-Endpoint-Received: by B4 Relay for kimi.zy.chen@fii-foxconn.com/20251105
- with auth_id=559
-X-Original-From: Kimi Chen <kimi.zy.chen@fii-foxconn.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251124_224912_236360_0E475C6F 
+X-CRM114-Status: GOOD (  23.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,74 +96,132 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: kimi.zy.chen@fii-foxconn.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Kimi Chen <kimi.zy.chen@fii-foxconn.com>
+Convert the existing text binding to YAML.
 
-The chassis power cycle process requires a forced shutdown before
-cutting off the standby power. The SCM CPLD implements a hard shutdown
-host function that is controlled through the IO expander in the
-Clemente platform.
+The description has been change to reflect the possibility of coreboot
+inserting the node itself.
 
-This change adds a new GPIO line named "shdn_force_l_cpld" to the
-PCA9555 IO expander's gpio-line-names at index 10. When asserted,
-this GPIO signals the CPLD to pull the HPM's SHDN_FORCE_L pin low,
-which triggers a forced host shutdown.
+The example has been modified to compile and pass validation without
+any errors. A comment was added to note what the firmware actually
+emits.
 
-Signed-off-by: Kimi Chen <kimi.zy.chen@fii-foxconn.com>
+Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
 ---
-Changes in v4:
-- Rebased onto latest kernel; corrected "shdn_force_l_cpld" positioning
-  in gpio-line-names from line 6 (v3) to index 10 (dts array index, not device pin).
-- Updated commit message to clarify "index 10" refers to gpio-line-names
-  array position, not PCA9555 device pin.
-- Link to v3: https://lore.kernel.org/r/20251120-dts-add-gpio-to-io-expander-v3-1-cb650ac76f85@fii-foxconn.com
+ .../devicetree/bindings/firmware/coreboot.txt | 33 ----------
+ .../bindings/firmware/coreboot.yaml           | 60 +++++++++++++++++++
+ 2 files changed, 60 insertions(+), 33 deletions(-)
+ delete mode 100644 Documentation/devicetree/bindings/firmware/coreboot.txt
+ create mode 100644 Documentation/devicetree/bindings/firmware/coreboot.yaml
 
-Changes in v3:
-- Improve commit message clarity: restructure the description to clarify the 
-  complete signal flow (BMC → IO expander → "shdn_force_l_cpld" GPIO → CPLD → 
-  SHDN_FORCE_L pin → HPM → forced host shutdown).
-- Rename GPIO line to match the schematics net naming convention.
-- Add rationale: The current standby-AC power cycling process is suboptimal.
-  When HSC power is turned off while host power remains active, the FPGA may
-  detect a power fault. During this fault window, the FPGA—sustained by holdup
-  capacitance—asserts power brake and initiates power-down sequence. A forced
-  shutdown before cutting standby power ensures the FPGA properly handles the
-  AC cycle event without spurious fault assertions. This patch enables the BMC
-  to perform forced shutdown via the IO expander GPIO, thereby optimizing the
-  standby-AC power cycling process.
-- Link to v2: https://lore.kernel.org/r/20251107-dts-add-gpio-to-io-expander-v2-1-585d48845546@fii-foxconn.com
-
-Changes in v2:
-- Add "hard_shutdown_host" GPIO line name to PCA9555 IO expander for Clemente platform.
-- Link to v1: https://lore.kernel.org/r/20251106-dts-add-gpio-to-io-expander-v1-1-b4765c092ebe@fii-foxconn.com
----
- arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dts | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dts
-index 885c50a7d665..dfe8f6d0eeef 100644
---- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dts
-+++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dts
-@@ -1013,7 +1013,7 @@ io_expander4: gpio@4f {
- 			"",
- 			"",
- 			"",
--			"",
-+			"shdn_force_l_cpld",
- 			"",
- 			"",
- 			"",
-
----
-base-commit: f5f4511ccb747e01ed5364e9eec7be8b62020c4b
-change-id: 20251106-dts-add-gpio-to-io-expander-a4c32ccf56aa
-
-Best regards,
+diff --git a/Documentation/devicetree/bindings/firmware/coreboot.txt b/Documentation/devicetree/bindings/firmware/coreboot.txt
+deleted file mode 100644
+index 4c955703cea8..000000000000
+--- a/Documentation/devicetree/bindings/firmware/coreboot.txt
++++ /dev/null
+@@ -1,33 +0,0 @@
+-COREBOOT firmware information
+-
+-The device tree node to communicate the location of coreboot's memory-resident
+-bookkeeping structures to the kernel. Since coreboot itself cannot boot a
+-device-tree-based kernel (yet), this node needs to be inserted by a
+-second-stage bootloader (a coreboot "payload").
+-
+-Required properties:
+- - compatible: Should be "coreboot"
+- - reg: Address and length of the following two memory regions, in order:
+-	1.) The coreboot table. This is a list of variable-sized descriptors
+-	that contain various compile- and run-time generated firmware
+-	parameters. It is identified by the magic string "LBIO" in its first
+-	four bytes.
+-	See coreboot's src/commonlib/include/commonlib/coreboot_tables.h for
+-	details.
+-	2.) The CBMEM area. This is a downward-growing memory region used by
+-	coreboot to dynamically allocate data structures that remain resident.
+-	It may or may not include the coreboot table as one of its members. It
+-	is identified by a root node descriptor with the magic number
+-	0xc0389481 that resides in the topmost 8 bytes of the area.
+-	See coreboot's src/include/imd.h for details.
+-
+-Example:
+-	firmware {
+-		ranges;
+-
+-		coreboot {
+-			compatible = "coreboot";
+-			reg = <0xfdfea000 0x264>,
+-			      <0xfdfea000 0x16000>;
+-		}
+-	};
+diff --git a/Documentation/devicetree/bindings/firmware/coreboot.yaml b/Documentation/devicetree/bindings/firmware/coreboot.yaml
+new file mode 100644
+index 000000000000..568afd1abb92
+--- /dev/null
++++ b/Documentation/devicetree/bindings/firmware/coreboot.yaml
+@@ -0,0 +1,60 @@
++# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/firmware/coreboot.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: COREBOOT firmware information
++
++maintainers:
++  - Julius Werner <jwerner@chromium.org>
++
++description:
++  The device tree node to communicate the location of coreboot's
++  memory-resident bookkeeping structures to the kernel. Coreboot's
++  FIT image payload can insert the node into the device tree. If a
++  second-stage bootloader (a coreboot "payload") is used, then it
++  is responsible for inserting the node.
++
++properties:
++  compatible:
++    const: coreboot
++  reg:
++    description: Address and length of the following two memory regions
++    items:
++      - description:
++          The coreboot table. This is a list of variable-sized descriptors
++          that contain various compile- and run-time generated firmware
++          parameters. It is identified by the magic string "LBIO" in its first
++          four bytes.
++
++          See coreboot's src/commonlib/include/commonlib/coreboot_tables.h for
++          details.
++      - description:
++          The CBMEM area. This is a downward-growing memory region used by
++          coreboot to dynamically allocate data structures that remain resident.
++          It may or may not include the coreboot table as one of its members. It
++          is identified by a root node descriptor with the magic number
++          0xc0389481 that resides in the topmost 8 bytes of the area.
++
++          See coreboot's src/include/imd.h for details.
++
++required:
++  - compatible
++  - reg
++
++additionalProperties: false
++
++examples:
++  - |
++    firmware {
++        #address-cells = <1>;
++        #size-cells = <1>;
++        ranges;
++
++        /* Firmware actually emits "coreboot" node without unit name */
++        coreboot@fdfea000 {
++            compatible = "coreboot";
++            reg = <0xfdfea000 0x264>, <0xfdfea000 0x16000>;
++        };
++    };
 -- 
-Kimi Chen <kimi.zy.chen@fii-foxconn.com>
-
+2.52.0.460.gd25c4c69ec-goog
 
 
