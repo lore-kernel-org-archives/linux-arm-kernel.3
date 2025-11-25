@@ -4,80 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40B88D0E6E3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 13:48:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18E7FD0E6E7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 13:51:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3BoF/X28BOoyaiqzRhaHYZ/mygqMWgMGsiQEFaOHpKw=; b=zL8miTktaSg/O1PMAWIus8xaif
-	5jNQdkdA5DtgCR/Jfn3vPuU39YDeDH3Z/BvZ0dCLU+o0CkpJ2DfmqKijrjUJnL/wndSNDXRgQ7AR8
-	1IFwNwLk/x2+6IZakxuRvGYhw/oXLbZXuIr3uqdVmIY0Gv+UXMRQjnMV0aBIF9naFdRCktgpCFCPC
-	rHWXyI8vK4m/DUe/DouYT5umD1wlNXt0ztzWkmtI8T7yKAtFFhg/HYiTTshsuS5fB1Yp9RbLU6KTy
-	Vc4mXpH2hIt5QSy0UUAT74kwygRoUshGb8SNzEHcLQAb0rHxVathXIz/KQDHxhgpBt8GEaWMskxa/
-	IW1HM4Gw==;
+	bh=YDzLnaqJnF4GelhzBMoaCpTQL1e98pE3glMvvfEO1xE=; b=ojyCNVjwd/Ta6FO9dVhwdhSHsH
+	tUm1cRY3iUNReCpRBPf1ELJuQGcIFsylMllZBfXBhf9uwwJ4YLSO0+PI6Dm/GvCm10RNtEEQ2jR6c
+	UIQSCYvc19DHpHOlxsWSIHcZSkLaXHWqLGLEyVYWSl1YgI2riUyqvzoJlLswr9p1kCAa2es2RmGU6
+	Fx0NJIBhrgSjnUgVobfQhTIkcN3tYZxPxFDJ6wTL2Rx+5csDjl4sffHwf3Ovxm1abvE+tP8/QcCuX
+	2pEYKORYkrKnZAdrCCMEoh8N1B+NMwDawh9dSSVkZh3axDtZNAfzFJKW0UtcVDhsVDWXoyOpmnzyZ
+	FO+oW5BA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNtOt-0000000DN4G-0rpF;
-	Tue, 25 Nov 2025 13:48:11 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vNtRb-0000000DNFW-0FLz;
+	Tue, 25 Nov 2025 13:50:59 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNtOr-0000000DN3u-0H4N
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Nov 2025 13:48:10 +0000
+	id 1vNtRZ-0000000DNFD-0G8x;
+	Tue, 25 Nov 2025 13:50:57 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8FA3C43699;
-	Tue, 25 Nov 2025 13:48:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 67227C116B1;
-	Tue, 25 Nov 2025 13:48:07 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id BF8D960159;
+	Tue, 25 Nov 2025 13:50:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BEF3BC4CEF1;
+	Tue, 25 Nov 2025 13:50:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764078487;
-	bh=v1vD+BGAe1IfybLjeiZYe5naHAG4W/wc0Z6DAqSf8Tw=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=kFEOUjxncfJmOGX/axqEJ0fQ3xOlt2OKe2bWcrqMJOmJeHoPcUSToOaJq3Pi7jMi1
-	 d+T27+5hJLqJKFtwntWGjlUJlOesEI1GhO08eLcfwBeNlU3PPw/qSp18W6+Jhb0lJU
-	 UV+aYflCUMYPez+kXuAfcSKcGU1YgbO+hHUH4vv+j3zMqVQ+/SaXeOrwUJoApE0lA2
-	 Xk4MjhATfwn6mPrQSvoTzb0y3eXcJ/fb9Dvq20T2AEl6ZIJoVtDFMqbeH9kDL0h35b
-	 wfe1SPv5Bj9pRNZ7RExLiRRVt7aIOcRourBP8wuZ/QG9AgLzwWFHqCxOqSmhV0XQ42
-	 tKviKm5VWq3Xg==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1vNtOn-00000008AYp-0HiX;
-	Tue, 25 Nov 2025 13:48:05 +0000
-Date: Tue, 25 Nov 2025 13:48:04 +0000
-Message-ID: <86h5uiql4b.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>
-Cc: kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	kvm@vger.kernel.org,
-	Joey Gouly <joey.gouly@arm.com>,
-	Oliver Upton <oupton@kernel.org>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Christoffer Dall <christoffer.dall@arm.com>,
-	Fuad Tabba <tabba@google.com>,
-	Mark Brown <broonie@kernel.org>
-Subject: Re: [PATCH v4 06/49] KVM: arm64: GICv3: Detect and work around the lack of ICV_DIR_EL1 trapping
-In-Reply-To: <5df713d4-8b79-4456-8fd1-707ca89a61b6@arm.com>
-References: <20251120172540.2267180-1-maz@kernel.org>
-	<20251120172540.2267180-7-maz@kernel.org>
-	<5df713d4-8b79-4456-8fd1-707ca89a61b6@arm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: suzuki.poulose@arm.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, joey.gouly@arm.com, oupton@kernel.org, yuzenghui@huawei.com, christoffer.dall@arm.com, tabba@google.com, broonie@kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251125_054809_142054_A4F5F4BA 
-X-CRM114-Status: GOOD (  34.22  )
+	s=k20201202; t=1764078655;
+	bh=6xfio8cFRmyYhEhLPbb1/bShqDICsN94++aEKRQdnVg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=etmqten45YBPrROyon9PprwIWauaqW4vDxwB4L84pqD7TXNr/ypb4xYMDIP4pjB2t
+	 I6pUXdOAlcm3mtXkvpziSOCffrWvM0oGTMqA7Zm5s4hpL0Rcc1PagcmomjSt786jzx
+	 Lk029vWmPIXMRsUYt3aBWDLpCgu+hw9ZZtw1XBJ+ZXzQv7tWlInhER4wOvVAT6wtO4
+	 CX7RmMAPnlTNzj+7sF03AhReF/bZfb/oUlctXBVHcOQLNSMXTaXktvJiVooMyZiRo9
+	 z2UUCAhTbCL7rlsH4WP3KE1MMqL8hN0MiuNqowV/NXWjxtHBKLrDRelqvMCn5M52OQ
+	 70clwxd6RUYEA==
+Date: Tue, 25 Nov 2025 15:50:40 +0200
+From: Mike Rapoport <rppt@kernel.org>
+To: Pratyush Yadav <pratyush@kernel.org>
+Cc: Usama Arif <usamaarif642@gmail.com>,
+	Changyuan Lyu <changyuanl@google.com>, akpm@linux-foundation.org,
+	linux-kernel@vger.kernel.org, anthony.yznaga@oracle.com,
+	arnd@arndb.de, ashish.kalra@amd.com, benh@kernel.crashing.org,
+	bp@alien8.de, catalin.marinas@arm.com, corbet@lwn.net,
+	dave.hansen@linux.intel.com, devicetree@vger.kernel.org,
+	dwmw2@infradead.org, ebiederm@xmission.com, graf@amazon.com,
+	hpa@zytor.com, jgowans@amazon.com, kexec@lists.infradead.org,
+	krzk@kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org, linux-mm@kvack.org, luto@kernel.org,
+	mark.rutland@arm.com, mingo@redhat.com, pasha.tatashin@soleen.com,
+	pbonzini@redhat.com, peterz@infradead.org, robh@kernel.org,
+	rostedt@goodmis.org, saravanak@google.com,
+	skinsburskii@linux.microsoft.com, tglx@linutronix.de,
+	thomas.lendacky@amd.com, will@kernel.org, x86@kernel.org,
+	Breno Leitao <leitao@debian.org>, thevlad@meta.com
+Subject: Re: [PATCH v8 12/17] x86/e820: temporarily enable KHO scratch for
+ memory below 1M
+Message-ID: <aSW0MF9BXjLnY2Fr@kernel.org>
+References: <20250509074635.3187114-1-changyuanl@google.com>
+ <20250509074635.3187114-13-changyuanl@google.com>
+ <a0f875f1-45ad-4dfc-b5c8-ecb51b242523@gmail.com>
+ <mafs01plmxngp.fsf@kernel.org>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <mafs01plmxngp.fsf@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,123 +85,193 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 25 Nov 2025 11:26:10 +0000,
-Suzuki K Poulose <suzuki.poulose@arm.com> wrote:
+Hi,
+
+On Tue, Nov 25, 2025 at 02:15:34PM +0100, Pratyush Yadav wrote:
+> On Mon, Nov 24 2025, Usama Arif wrote:
+
+> >> --- a/arch/x86/realmode/init.c
+> >> +++ b/arch/x86/realmode/init.c
+> >> @@ -65,6 +65,8 @@ void __init reserve_real_mode(void)
+> >>  	 * setup_arch().
+> >>  	 */
+> >>  	memblock_reserve(0, SZ_1M);
+> >> +
+> >> +	memblock_clear_kho_scratch(0, SZ_1M);
+> >>  }
+> >>  
+> >>  static void __init sme_sev_setup_real_mode(struct trampoline_header *th)
+> >
+> > Hello!
+> >
+> > I am working with Breno who reported that we are seeing the below warning at boot
+> > when rolling out 6.16 in Meta fleet. It is difficult to reproduce on a single host
+> > manually but we are seeing this several times a day inside the fleet.
+> >
+> >  20:16:33  ------------[ cut here ]------------
+> >  20:16:33  WARNING: CPU: 0 PID: 0 at mm/memblock.c:668 memblock_add_range+0x316/0x330
+> >  20:16:33  Modules linked in:
+> >  20:16:33  CPU: 0 UID: 0 PID: 0 Comm: swapper Tainted: G S                  6.16.1-0_fbk0_0_gc0739ee5037a #1 NONE 
+> >  20:16:33  Tainted: [S]=CPU_OUT_OF_SPEC
+> >  20:16:33  RIP: 0010:memblock_add_range+0x316/0x330
+> >  20:16:33  Code: ff ff ff 89 5c 24 08 41 ff c5 44 89 6c 24 10 48 63 74 24 08 48 63 54 24 10 e8 26 0c 00 00 e9 41 ff ff ff 0f 0b e9 af fd ff ff <0f> 0b e9 b7 fd ff ff 0f 0b 0f 0b cc cc cc cc cc cc cc cc cc cc cc
+> >  20:16:33  RSP: 0000:ffffffff83403dd8 EFLAGS: 00010083 ORIG_RAX: 0000000000000000
+> >  20:16:33  RAX: ffffffff8476ff90 RBX: 0000000000001c00 RCX: 0000000000000002
+> >  20:16:33  RDX: 00000000ffffffff RSI: 0000000000000000 RDI: ffffffff83bad4d8
+> >  20:16:33  RBP: 000000000009f000 R08: 0000000000000020 R09: 8000000000097101
+> >  20:16:33  R10: ffffffffff2004b0 R11: 203a6d6f646e6172 R12: 000000000009ec00
+> >  20:16:33  R13: 0000000000000002 R14: 0000000000100000 R15: 000000000009d000
+> >  20:16:33  FS:  0000000000000000(0000) GS:0000000000000000(0000) knlGS:0000000000000000
+> >  20:16:33  CR2: ffff888065413ff8 CR3: 00000000663b7000 CR4: 00000000000000b0
+> >  20:16:33  Call Trace:
+> >  20:16:33   <TASK>
+> >  20:16:33   ? __memblock_reserve+0x75/0x80
+
+Do you have faddr2line for this?
+
+> >  20:16:33   ? setup_arch+0x30f/0xb10
+
+And this?
+
+> >  20:16:33   ? start_kernel+0x58/0x960
+> >  20:16:33   ? x86_64_start_reservations+0x20/0x20
+> >  20:16:33   ? x86_64_start_kernel+0x13d/0x140
+> >  20:16:33   ? common_startup_64+0x13e/0x140
+> >  20:16:33   </TASK>
+> >  20:16:33  ---[ end trace 0000000000000000 ]--- 
+> >
+> >
+> > Rolling out with memblock=debug is not really an option in a large scale fleet due to the
+> > time added to boot. But I did try on one of the hosts (without reproducing the issue) and I see:
+
+Is it a problem to roll out a kernel that has additional debug printouts as
+Breno suggested earlier? I.e.
+
+	if (flags != MEMBLOCK_NONE && flags != rgn->flags) {
+		pr_warn("memblock: Flag mismatch at region [%pa-%pa]\n",
+			&rgn->base, &rend);
+		pr_warn("  Existing region flags: %#x\n", rgn->flags);
+		pr_warn("  New range flags: %#x\n", flags);
+		pr_warn("  New range: [%pa-%pa]\n", &base, &end);
+		WARN_ON_ONCE(1);
+	}
+
+> > [    0.000616]  memory.cnt  = 0x6
+> > [    0.000617]  memory[0x0]	[0x0000000000001000-0x000000000009bfff], 0x000000000009b000 bytes flags: 0x40
+> > [    0.000620]  memory[0x1]	[0x000000000009f000-0x000000000009ffff], 0x0000000000001000 bytes flags: 0x40
+> > [    0.000621]  memory[0x2]	[0x0000000000100000-0x000000005ed09fff], 0x000000005ec0a000 bytes flags: 0x0
+> > ...
+> >
+> > The 0x40 (MEMBLOCK_KHO_SCRATCH) is coming from memblock_mark_kho_scratch in e820__memblock_setup. I believe this
+> > should be under ifdef like the diff at the end? (Happy to send this as a patch for review if it makes sense).
+> > We have KEXEC_HANDOVER disabled in our defconfig, therefore MEMBLOCK_KHO_SCRATCH shouldnt be selected and
+> > we shouldnt have any MEMBLOCK_KHO_SCRATCH type regions in our memblock reservations.
+> >
+> > The other thing I did was insert a while(1) just before the warning and inspected the registers in qemu.
+> > R14 held the base register, and R15 held the size at that point.
+> > In the warning R14 is 0x100000 meaning that someone is reserving a region with a different flag to MEMBLOCK_NONE
+> > at the boundary of MEMBLOCK_KHO_SCRATCH.
+
+Judging by the register values, flags could be in %rcx or %r13 (0x2 - MEMBLOCK_MIRROR) or in
+%r8 (0x20 - MEMBLOCK_RSRV_KERN)
+
+Since WARN_ON() is triggered in __memblock_reserve() I'd bet on
+MEMBLOCK_RSRV_KERN.
+
+And apparently the warning triggers for some memory that was initially
+reserved with memblock_reserve() and than some of it was reserved with
+memblock_reserve_kern().
+
+If you have the logs from failing boots up to the point where SLUB reports
+about it's initialization, e.g. 
+
+[    0.134377] SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=8, Nodes=1
+
+something there may hint about what's the issue. 
+ 
+> I don't get this... The WARN_ON() is only triggered when the regions
+> overlap. Here, there should be no overlap, since the scratch region
+> should end at 0x100000 (SZ_1M) and the new region starts at 0x100000
+> (SZ_1M).
+
+Not only that, the warning is from __memblock_reserve() that works with
+memblock.reserved and the dump is for memblock.memory.
+
+> Anyway, you do indeed point at a bug. memblock_mark_kho_scratch() should
+> only be called on a KHO boot, not unconditionally. So even with
+> CONFIG_MEMBLOCK_KHO_SCRATCH enabled, this should only be called on a KHO
+> boot, not every time.
 > 
-> On 20/11/2025 17:24, Marc Zyngier wrote:
-> > A long time ago, an unsuspecting architect forgot to add a trap
-> > bit for ICV_DIR_EL1 in ICH_HCR_EL2. Which was unfortunate, but
-> > what's a bit of spec between friends? Thankfully, this was fixed
-> > in a later revision, and ARM "deprecates" the lack of trapping
-> > ability.
-> > 
-> > Unfortuantely, a few (billion) CPUs went out with that defect,
-> > anything ARMv8.0 from ARM, give or take. And on these CPUs,
-> > you can't trap DIR on its own, full stop.
-> > 
-> > As the next best thing, we can trap everything in the common group,
-> > which is a tad expensive, but hey ho, that's what you get. You can
-> > otherwise recycle the HW in the neaby bin.
-> > 
-> > Tested-by: Fuad Tabba <tabba@google.com>
-> > Signed-off-by: Marc Zyngier <maz@kernel.org>
-> > ---
-> >   arch/arm64/include/asm/virt.h  |  7 ++++-
-> >   arch/arm64/kernel/cpufeature.c | 52 ++++++++++++++++++++++++++++++++++
-> >   arch/arm64/kernel/hyp-stub.S   |  5 ++++
-> >   arch/arm64/kvm/vgic/vgic-v3.c  |  3 ++
-> >   arch/arm64/tools/cpucaps       |  1 +
-> >   5 files changed, 67 insertions(+), 1 deletion(-)
-> > 
-> > diff --git a/arch/arm64/include/asm/virt.h b/arch/arm64/include/asm/virt.h
-> > index aa280f356b96a..8eb63d3294974 100644
-> > --- a/arch/arm64/include/asm/virt.h
-> > +++ b/arch/arm64/include/asm/virt.h
-> > @@ -40,8 +40,13 @@
-> >    */
-> >   #define HVC_FINALISE_EL2	3
-> >   +/*
-> > + * HVC_GET_ICH_VTR_EL2 - Retrieve the ICH_VTR_EL2 value
-> > + */
-> > +#define HVC_GET_ICH_VTR_EL2	4
-> > +
-> >   /* Max number of HYP stub hypercalls */
-> > -#define HVC_STUB_HCALL_NR 4
-> > +#define HVC_STUB_HCALL_NR 5
-> >     /* Error returned when an invalid stub number is passed into x0
-> > */
-> >   #define HVC_STUB_ERR	0xbadca11
-> > diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-> > index 5ed401ff79e3e..5de51cb1b8fe2 100644
-> > --- a/arch/arm64/kernel/cpufeature.c
-> > +++ b/arch/arm64/kernel/cpufeature.c
-> > @@ -2303,6 +2303,49 @@ static bool has_gic_prio_relaxed_sync(const struct arm64_cpu_capabilities *entry
-> >   }
-> >   #endif
-> >   +static bool can_trap_icv_dir_el1(const struct
-> > arm64_cpu_capabilities *entry,
-> > +				 int scope)
-> > +{
-> > +	static const struct midr_range has_vgic_v3[] = {
-> > +		MIDR_ALL_VERSIONS(MIDR_APPLE_M1_ICESTORM),
-> > +		MIDR_ALL_VERSIONS(MIDR_APPLE_M1_FIRESTORM),
-> > +		MIDR_ALL_VERSIONS(MIDR_APPLE_M1_ICESTORM_PRO),
-> > +		MIDR_ALL_VERSIONS(MIDR_APPLE_M1_FIRESTORM_PRO),
-> > +		MIDR_ALL_VERSIONS(MIDR_APPLE_M1_ICESTORM_MAX),
-> > +		MIDR_ALL_VERSIONS(MIDR_APPLE_M1_FIRESTORM_MAX),
-> > +		MIDR_ALL_VERSIONS(MIDR_APPLE_M2_BLIZZARD),
-> > +		MIDR_ALL_VERSIONS(MIDR_APPLE_M2_AVALANCHE),
-> > +		MIDR_ALL_VERSIONS(MIDR_APPLE_M2_BLIZZARD_PRO),
-> > +		MIDR_ALL_VERSIONS(MIDR_APPLE_M2_AVALANCHE_PRO),
-> > +		MIDR_ALL_VERSIONS(MIDR_APPLE_M2_BLIZZARD_MAX),
-> > +		MIDR_ALL_VERSIONS(MIDR_APPLE_M2_AVALANCHE_MAX),
-> > +		{},
-> > +	};
-> > +	struct arm_smccc_res res = {};
-> > +
-> > +	BUILD_BUG_ON(ARM64_HAS_ICH_HCR_EL2_TDIR <= ARM64_HAS_GICV3_CPUIF);
-> > +	BUILD_BUG_ON(ARM64_HAS_ICH_HCR_EL2_TDIR <= ARM64_HAS_GICV5_LEGACY);
-> > +	if (!cpus_have_cap(ARM64_HAS_GICV3_CPUIF) &&
-> > +	    !is_midr_in_range_list(has_vgic_v3))
-> > +		return false;
-> > +
-> > +	if (!is_hyp_mode_available())
-> > +		return false;
-> > +
-> > +	if (cpus_have_cap(ARM64_HAS_GICV5_LEGACY))
-> > +		return true;
-> > +
-> > +	if (is_kernel_in_hyp_mode())
-> > +		res.a1 = read_sysreg_s(SYS_ICH_VTR_EL2);
-> > +	else
-> > +		arm_smccc_1_1_hvc(HVC_GET_ICH_VTR_EL2, &res);
+> I think the below diff should fix the warning for you by making sure the
+> scratch areas are not present on non-KHO boot. I still don't know why
+> you hit the warning in the first place though. If you'd be willing to
+> dig deeper into that, it would be great.
 > 
-> We are reading the register on the current CPU and this capability,
-> being a SYSTEM_FEATURE, relies on the "probing CPU". If there CPUs
-> with differing values (which I don't think is practical, but hey,
-> never say..). This is would better be a
-> ARM64_CPUCAP_EARLY_LOCAL_CPU_FEATURE, which would run through all
-> boot CPUs and would set the capability when it matches.
+> Can you give the below a try and if it fixes the problem for you I can
+> send it on the list.
+> 
+> diff --git a/arch/x86/kernel/e820.c b/arch/x86/kernel/e820.c
+> index c3acbd26408ba..0a34dc011bf91 100644
+> --- a/arch/x86/kernel/e820.c
+> +++ b/arch/x86/kernel/e820.c
+> @@ -16,6 +16,7 @@
+>  #include <linux/firmware-map.h>
+>  #include <linux/sort.h>
+>  #include <linux/memory_hotplug.h>
+> +#include <linux/kexec_handover.h>
+>  
+>  #include <asm/e820/api.h>
+>  #include <asm/setup.h>
+> @@ -1315,7 +1316,8 @@ void __init e820__memblock_setup(void)
+>  	 * After real mode trampoline is allocated, we clear that scratch
+>  	 * marking.
+>  	 */
+> -	memblock_mark_kho_scratch(0, SZ_1M);
+> +	if (is_kho_boot())
+> +		memblock_mark_kho_scratch(0, SZ_1M);
 
-While I agree that SYSTEM_FEATURE is most probably the wrong thing, I
-can't help but notice that
+We'd better add an inline stub to memblock.h for
+!CONFIG_MEMBLOCK_KHO_SCRATCH
 
-- ARM64_HAS_GICV3_CPUIF,
-- ARM64_HAS_GIC_PRIO_MASKING
-- ARM64_HAS_GIC_PRIO_RELAXED_SYNC
+and move is_kho_boot() inside memblock_{mark,clear}_kho_scratch. This might
+require moving them out of line, but it's not that they are on the hot
+paths.
 
-are all ARM64_CPUCAP_STRICT_BOOT_CPU_FEATURE.
+BTW, this makes sense even if it does not help with the issue Breno and
+Usama are working on.
 
-On the other ARM64_HAS_GICV5_LEGACY is ARM64_CPUCAP_EARLY_LOCAL_CPU_FEATURE.
-
-Given that ARM64_HAS_ICH_HCR_EL2_TDIR is dependent on both
-ARM64_HAS_GICV3_CPUIF and ARM64_HAS_GICV5_LEGACY, shouldn't these two
-(and their dependencies) be aligned to have the same behaviour?
-
-Thanks,
-
-	M.
+>  
+>  	/*
+>  	 * 32-bit systems are limited to 4BG of memory even with HIGHMEM and
+> diff --git a/arch/x86/realmode/init.c b/arch/x86/realmode/init.c
+> index 88be32026768c..4e9b4dff17216 100644
+> --- a/arch/x86/realmode/init.c
+> +++ b/arch/x86/realmode/init.c
+> @@ -4,6 +4,7 @@
+>  #include <linux/memblock.h>
+>  #include <linux/cc_platform.h>
+>  #include <linux/pgtable.h>
+> +#include <linux/kexec_handover.h>
+>  
+>  #include <asm/set_memory.h>
+>  #include <asm/realmode.h>
+> @@ -67,7 +68,8 @@ void __init reserve_real_mode(void)
+>  	 */
+>  	memblock_reserve(0, SZ_1M);
+>  
+> -	memblock_clear_kho_scratch(0, SZ_1M);
+> +	if (is_kho_boot())
+> +		memblock_clear_kho_scratch(0, SZ_1M);
+>  }
+>  
+>  static void __init sme_sev_setup_real_mode(struct trampoline_header *th)
+> 
+> 
+> -- 
+> Regards,
+> Pratyush Yadav
 
 -- 
-Without deviation from the norm, progress is not possible.
+Sincerely yours,
+Mike.
 
