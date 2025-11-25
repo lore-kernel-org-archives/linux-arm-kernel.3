@@ -4,90 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E923D0EE0D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 17:08:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20CB8D0EE0E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 17:15:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=y4ndUQJXblyMVIEo31GQ2aPBJsTj4kLS2trQiSNmxdk=; b=c6eY/npusNz9k2lC5+/QzXTNcI
-	7BjzAQ41sNw1dUxgvv9gbQy3SPfk0YfCfBKCn2YD06vdbBFqyUOQJnsx8hCm1CdcN7FYM1MEg8RLM
-	adg0YKzOSpPPB7O8AE9VUFth+nuo+2PWd8wdO7LL3gdzQGegEvV/9wsunbaSE8VwVxbdr1q6YEDV3
-	cdZTYVpdfwSPXmXhpuI5nIZfzx59RukVvly6BWiAyIz1QOyu6Pc4xCF/6QaYUKZBXe+7DA5W5GFEF
-	h1niSClVYzeWZBBqyZhPYG6PAgX4um0LHRqkdDNsd9PVJOQW2SsCaLt4RyVKKlX+DC4SH9h6ukAyJ
-	4RvZ0Ujg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eRMUjzvc385emaM00QkruAlsCUJkwg3kL1OtudlNM8o=; b=jpPiW1QkUlefAQpZBgAy1Vq51r
+	iTJHwlL3A54kHgcFWKpMXMgtUegb7Wfr21PJhLJrXAfMHp4ZwjYIfPJ4ebOahX9JUYufHlv7GUIOY
+	styo0GSCj7RumDnzN/Q553khFjjUlto5hnY3iVRiSX+EVud2e0BN9xueYlIcJYv0XkXFZX81UkvSv
+	ftWL3kGvH/85XK8VIBM8sUn0k41fwa8qI7kM2pVBIlDhRWZX8Z5Yl2FcJ8FWg/cHpxA9OWZ9BspGJ
+	r5MxOWuafzMTctJqzsZU5r6SKXp5TrXisn8hGLnwF5EnWFGymQ5nNTOkrqsGSphROFQEWmNi1b08W
+	SpGhKpnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNwWb-0000000DeVW-2gCB;
-	Tue, 25 Nov 2025 17:08:21 +0000
-Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
+	id 1vNwdY-0000000Dezj-2Iyo;
+	Tue, 25 Nov 2025 17:15:32 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNwWZ-0000000DeUX-1urH
+	id 1vNwdU-0000000DezG-3p2S
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Nov 2025 17:08:20 +0000
-Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-3437863d0easo10013538a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Nov 2025 09:08:18 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1764090498; x=1764695298; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=y4ndUQJXblyMVIEo31GQ2aPBJsTj4kLS2trQiSNmxdk=;
-        b=ubR9kjIS14bAasPSbK/E7iQuxnlvvp9DpGWaWwn90UD53U4klDPtXdfZcRCewDubK2
-         Azxn/4o4k657yLxao7VLMNDLD+NZ2bvOpLpwMX/mVbf8tbKyxSx+bCTVKOX5YUpKZVNa
-         6KK2hEbUvWpO+ztfrTepcdB4CP9tm2Dn7hCAUvyoSc5ppbjyYsysVXsPf0lSzDQ1L5zh
-         8v+AQYdqG4mF0I+a7NxOeMcMJ+F7FdZNkDUhVLbC80XC03RpScVZmHzK9KCapT2Yknqc
-         rk1/nc3f/DB7x111um79YmQswakfsR0LM1IwRHD95iXtTye5siJBiQVIIvgBR1GUVIK5
-         FEcw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764090498; x=1764695298;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=y4ndUQJXblyMVIEo31GQ2aPBJsTj4kLS2trQiSNmxdk=;
-        b=t4XbkKHJqga1yzhhA9km4lkcfo25vpalTf30t6onVa306w4w+1pPFA1ow50e7NwEHR
-         35I4jeC1+h6qmjhkrWGnb9moEa5fPIi+jSC1VXICRa+YEidHgDRnAYFbg9Y2xij947z+
-         e1GWOVw0Kc+NMm9MZ69TKCPm16LSy/GhKMxcgmrc/nWZjPo3flOGvR9JGMIwSHcnY6Qq
-         Dhj0lSwq0NtO22tV6rj6HaNHQ2IYgzMbx3XNhQivnErqbeciGs/k6NFt0IDHNiCw68TW
-         zdcTdOZBBTJgFc+k2YIW/LyvHe5ZLc8emmcWqaSNIX+JtvR1nkdlbvtUQYANvmdJ18r0
-         npqA==
-X-Forwarded-Encrypted: i=1; AJvYcCXIW9Kzg55gJHX1AIn1UkhJVQrlTPlg03agE2mWvIspgaDCcipSCo63pHoup7Gm4NAPbKidRD70GatQAnsw6pDt@lists.infradead.org
-X-Gm-Message-State: AOJu0YzXtedbv99U5nQqV5h7rh6B9GlrJd9jVXCfQ0p26BxQbhxZAJqt
-	12UxNQ4ijK4Ql+9kSGIYp6XNVF5TnS7dMXbxL7TQKTk+crHZyLqz1WZlCbCsYzN0XaOYGlZ68+x
-	dFmSzgw==
-X-Google-Smtp-Source: AGHT+IFzDAUOZTDNFOssfEjC4490DRPTOVZZ7CJwR5gD19Yg3yMCKcUxEwLwt1d5WA+HAajf5nh9jS9CJiQ=
-X-Received: from pjbpw1.prod.google.com ([2002:a17:90b:2781:b0:33b:c211:1fa9])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:384f:b0:341:8c8e:38b5
- with SMTP id 98e67ed59e1d1-34733f3e483mr14061440a91.25.1764090498218; Tue, 25
- Nov 2025 09:08:18 -0800 (PST)
-Date: Tue, 25 Nov 2025 09:08:16 -0800
-In-Reply-To: <83067602-325a-4655-a1b7-e6bd6a31eed4@linux.intel.com>
-Mime-Version: 1.0
-References: <20250806195706.1650976-1-seanjc@google.com> <20250806195706.1650976-29-seanjc@google.com>
- <aSUK8FuWT4lpMP3F@google.com> <83067602-325a-4655-a1b7-e6bd6a31eed4@linux.intel.com>
-Message-ID: <aSXigAQznhuxZmy7@google.com>
-Subject: Re: [PATCH v5 28/44] KVM: x86/pmu: Load/save GLOBAL_CTRL via
- entry/exit fields for mediated PMU
-From: Sean Christopherson <seanjc@google.com>
-To: Dapeng Mi <dapeng1.mi@linux.intel.com>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
-	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, 
-	Huacai Chen <chenhuacai@kernel.org>, Anup Patel <anup@brainfault.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Xin Li <xin@zytor.com>, "H. Peter Anvin" <hpa@zytor.com>, 
-	Andy Lutomirski <luto@kernel.org>, Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
-	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
-	Paolo Bonzini <pbonzini@redhat.com>, linux-arm-kernel@lists.infradead.org, 
-	kvmarm@lists.linux.dev, kvm@vger.kernel.org, loongarch@lists.linux.dev, 
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org, 
-	Kan Liang <kan.liang@linux.intel.com>, Yongwei Ma <yongwei.ma@intel.com>, 
-	Mingwei Zhang <mizhang@google.com>, Xiong Zhang <xiong.y.zhang@linux.intel.com>, 
-	Sandipan Das <sandipan.das@amd.com>
-Content-Type: text/plain; charset="us-ascii"
+	Tue, 25 Nov 2025 17:15:30 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 277334E418B3;
+	Tue, 25 Nov 2025 17:15:24 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id DA583606A1;
+	Tue, 25 Nov 2025 17:15:23 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 9291C102F0891;
+	Tue, 25 Nov 2025 18:15:17 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1764090923; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=eRMUjzvc385emaM00QkruAlsCUJkwg3kL1OtudlNM8o=;
+	b=D+wGRgtpGAyb2M8Agj+56AXrxl6+occfRjhl8yC2nBpOqT004FDP55HpGanCzwgiqpDbTd
+	34z5t8Cgxi+lBpRfxOW3kxXxyaxuPqWLYFBU869BV2x1l7A6Zx4f7PSO5bDPFWrFeJT+lI
+	Ul7XzTaYhVCd93gFGSjGbXcJsQMM6ZJOcz6YkNPg6qs2ehKlElkDbco3sypwsEbfzBQYwS
+	75mUXzFBtSgWij5Hrh6EtI12mGMUcaEs1W+oiCkaD/4bXvvZ0BLIETnBk1iXjKSoK3GOPU
+	PZk481ms0GIAvcoGM30X+uoOFLr9qJNsrTNeP7yGYryFzQT2xBbu57XlSH442A==
+Message-ID: <58ec46bb-5850-4dde-a1ea-d242f7d95409@bootlin.com>
+Date: Tue, 25 Nov 2025 18:15:16 +0100
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next] net: stmmac: dwmac: Disable flushing frames on
+ Rx Buffer Unavailable
+To: rohan.g.thomas@altera.com, Andrew Lunn <andrew+netdev@lunn.ch>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>
+Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Matthew Gerlach <matthew.gerlach@altera.com>
+References: <20251126-a10_ext_fix-v1-1-d163507f646f@altera.com>
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Content-Language: en-US
+In-Reply-To: <20251126-a10_ext_fix-v1-1-d163507f646f@altera.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251125_090819_520924_03EC23A2 
-X-CRM114-Status: GOOD (  35.31  )
+X-CRM114-CacheID: sfid-20251125_091529_243923_8F9CA311 
+X-CRM114-Status: GOOD (  30.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,82 +82,161 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 25, 2025, Dapeng Mi wrote:
-> On 11/25/2025 9:48 AM, Sean Christopherson wrote:
-> >> +	if (host_pmu->version < 4 || !(host_perf_cap & PERF_CAP_FW_WRITES))
-> >> +		return false;
-> >> +
-> >> +	/*
-> >> +	 * All CPUs that support a mediated PMU are expected to support loading
-> >> +	 * and saving PERF_GLOBAL_CTRL via dedicated VMCS fields.
-> >> +	 */
-> >> +	if (WARN_ON_ONCE(!cpu_has_load_perf_global_ctrl() ||
-> >> +			 !cpu_has_save_perf_global_ctrl()))
-> >> +		return false;
-> > And so this WARN fires due to cpu_has_save_perf_global_ctrl() being false.  The
-> > bad changelog is mine, but the code isn't entirely my fault.  I did suggest the
-> > WARN in v3[1], probably because I forgot when PMU v4 was introduced and no one
-> > corrected me.
-> >
-> > v4 of the series[2] then made cpu_has_save_perf_global_ctrl() a hard requirement,
-> > based on my miguided feedback.
-> >
-> >    * Only support GLOBAL_CTRL save/restore with VMCS exec_ctrl, drop the MSR
-> >      save/retore list support for GLOBAL_CTRL, thus the support of mediated
-> >      vPMU is constrained to SapphireRapids and later CPUs on Intel side.
-> >
-> > Doubly frustrating is that this was discussed in the original RFC, where Jim
-> > pointed out[3] that requiring VM_EXIT_SAVE_IA32_PERF_GLOBAL_CTRL would prevent
-> > enabling the mediated PMU on Skylake+, and I completely forgot that conversation
-> > by the time v3 of the series rolled around :-(
+Hi Rohan,
+
+On 25/11/2025 17:37, Rohan G Thomas via B4 Relay wrote:
+> From: Rohan G Thomas <rohan.g.thomas@altera.com>
 > 
-> VM_EXIT_SAVE_IA32_PERF_GLOBAL_CTRL is introduced from SPR and later. I
-> remember the original requirements includes to support Skylake and Icelake,
-> but I ever thought there were some offline sync and the requirement changed...
-
-Two things:
-
- 1) Upstream's "requirements" are not the same as Google's requirements (or those
-    of any company/individual).  Upstream most definitely is influenced by the
-    needs and desires of end users, but ultimately the decision to do something
-    (or not) is one that needs to be made by the upstream community.
-
- 2) Decisions made off-list need to be summarized and communicated on-list,
-    especially in cases like this where it's a relatively minor detail in a
-    large series/feature, and thus easy to overlook.
-
-I'll follow-up internally to make sure these points are well-understood by Google
-folks as well (at least, those working on KVM).
-
-> My bad,
-
-Eh, this was a group "effort".  I'm as much to blame as anyone else.
-
-> I should double confirm this at then.
-
-No need, as above, Google's requirements (assuming the requirements you're referring
-to are coming from Google people) are effectively just one data point.  At this
-point, I want to drive the decision to support Sylake+ (or not) purely through
-discussion of upstream patches.
-
-> > As mentioned in the discussion with Jim, _if_ PMU v4 was introduced with ICX (or
-> > later), then I'd be in favor of making VM_EXIT_SAVE_IA32_PERF_GLOBAL_CTRL a hard
-> > requirement.  But losing supporting Skylake+ is a bit much.
-> >
-> > There are a few warts with nVMX's use of the auto-store list that need to be
-> > cleaned up, but on the plus side it's also a good excuse to clean up
-> > {add,clear}_atomic_switch_msr(), which have accumulated some cruft and quite a
-> > bit of duplicate code.  And while I still dislike using the auto-store list, the
-> > code isn't as ugly as it was back in v3 because we _can_ make the "load" VMCS
-> > controls mandatory without losing support for any CPUs (they predate PMU v4).
+> In Store and Forward mode, flushing frames when the receive buffer is
+> unavailable, can cause the MTL Rx FIFO to go out of sync. This results
+> in buffering of a few frames in the FIFO without triggering Rx DMA
+> from transferring the data to the system memory until another packet
+> is received. Once the issue happens, for a ping request, the packet is
+> forwarded to the system memory only after we receive another packet
+> and hece we observe a latency equivalent to the ping interval.
 > 
-> Yes, xxx_atomic_switch_msr() helpers need to be cleaned up and optimized. I
-> suppose we can have an independent patch-set to clean up and support
-> global_ctrl with auto-store list for Skylake and Icelake.
+> 64 bytes from 192.168.2.100: seq=1 ttl=64 time=1000.344 ms
+> 
+> Also, we can observe constant gmacgrp_debug register value of
+> 0x00000120, which indicates "Reading frame data".
+> 
+> The issue is not reproducible after disabling frame flushing when Rx
+> buffer is unavailable. But in that case, the Rx DMA enters a suspend
+> state due to buffer unavailability. To resume operation, software
+> must write to the receive_poll_demand register after adding new
+> descriptors, which reactivates the Rx DMA.
+> 
+> This issue is observed in the socfpga platforms which has dwmac1000 IP
+> like Arria 10, Cyclone V and Agilex 7. Issue is reproducible after
+> running iperf3 server at the DUT for UDP lower packet sizes.
+> 
+> Signed-off-by: Rohan G Thomas <rohan.g.thomas@altera.com>
+> Reviewed-by: Matthew Gerlach <matthew.gerlach@altera.com>
 
-I have the code written (I wanted to see how much complexity it would add before
-re-opening this discussion).  My plan is to put the Skylake+ support at the end
-of the series, not a separate series, so that it can be reviewed in one shot.
-E.g. if we can make a change in the "main" series that would simplify Skylake+
-support, then I'd prefer to find and implement any such change right away.
+Should this be a fix ?
+
+Can you elaborate on how to reproduce this ? I've given this a try on
+CycloneV and I can't see any difference in the ping results and iperf3
+results.
+
+From the DUT, I've tried :
+ - iperf3 -c 192.168.X.X -u -b 0 -l 64
+ - iperf3 -c 192.168.X.X -u -b 0 -l 64 -R
+ - iperf3 -c 192.168.X.X
+ - iperf3 -c 192.168.X.X -R
+
+I'm reading the same results with and without the patch
+
+I've done ping tests as well, the latency seems to be the same with and
+without this patch, at around 0.193ms RTT.
+
+I'm not familiar with the SF_DMA_MODE though, any thing special to do to
+enter that mode ?
+
+Thanks,
+
+Maxime
+
+> ---
+>  drivers/net/ethernet/stmicro/stmmac/dwmac1000_dma.c | 5 +++--
+>  drivers/net/ethernet/stmicro/stmmac/dwmac_dma.h     | 1 +
+>  drivers/net/ethernet/stmicro/stmmac/dwmac_lib.c     | 5 +++++
+>  drivers/net/ethernet/stmicro/stmmac/hwif.h          | 3 +++
+>  drivers/net/ethernet/stmicro/stmmac/stmmac_main.c   | 2 ++
+>  5 files changed, 14 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac1000_dma.c b/drivers/net/ethernet/stmicro/stmmac/dwmac1000_dma.c
+> index 6d9b8fac3c6d0fd76733ab4a1a8cce2420fa40b4..5877fec9f6c30ed18cdcf5398816e444e0bd0091 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac1000_dma.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac1000_dma.c
+> @@ -135,10 +135,10 @@ static void dwmac1000_dma_operation_mode_rx(struct stmmac_priv *priv,
+>  
+>  	if (mode == SF_DMA_MODE) {
+>  		pr_debug("GMAC: enable RX store and forward mode\n");
+> -		csr6 |= DMA_CONTROL_RSF;
+> +		csr6 |= DMA_CONTROL_RSF | DMA_CONTROL_DFF;
+>  	} else {
+>  		pr_debug("GMAC: disable RX SF mode (threshold %d)\n", mode);
+> -		csr6 &= ~DMA_CONTROL_RSF;
+> +		csr6 &= ~(DMA_CONTROL_RSF | DMA_CONTROL_DFF);
+>  		csr6 &= DMA_CONTROL_TC_RX_MASK;
+>  		if (mode <= 32)
+>  			csr6 |= DMA_CONTROL_RTC_32;
+> @@ -262,6 +262,7 @@ const struct stmmac_dma_ops dwmac1000_dma_ops = {
+>  	.dma_rx_mode = dwmac1000_dma_operation_mode_rx,
+>  	.dma_tx_mode = dwmac1000_dma_operation_mode_tx,
+>  	.enable_dma_transmission = dwmac_enable_dma_transmission,
+> +	.enable_dma_reception = dwmac_enable_dma_reception,
+>  	.enable_dma_irq = dwmac_enable_dma_irq,
+>  	.disable_dma_irq = dwmac_disable_dma_irq,
+>  	.start_tx = dwmac_dma_start_tx,
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac_dma.h b/drivers/net/ethernet/stmicro/stmmac/dwmac_dma.h
+> index d1c149f7a3dd9e472b237101666e11878707f0f2..054ecb20ce3f68bce5da3efaf36acf33e430d3f0 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac_dma.h
+> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac_dma.h
+> @@ -169,6 +169,7 @@ static inline u32 dma_chan_base_addr(u32 base, u32 chan)
+>  #define NUM_DWMAC4_DMA_REGS	27
+>  
+>  void dwmac_enable_dma_transmission(void __iomem *ioaddr, u32 chan);
+> +void dwmac_enable_dma_reception(void __iomem *ioaddr, u32 chan);
+>  void dwmac_enable_dma_irq(struct stmmac_priv *priv, void __iomem *ioaddr,
+>  			  u32 chan, bool rx, bool tx);
+>  void dwmac_disable_dma_irq(struct stmmac_priv *priv, void __iomem *ioaddr,
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac_lib.c b/drivers/net/ethernet/stmicro/stmmac/dwmac_lib.c
+> index 467f1a05747ecf0be5b9f3392cd3d2049d676c21..97a803d68e3a2f120beaa7c3254748cf404236df 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac_lib.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac_lib.c
+> @@ -33,6 +33,11 @@ void dwmac_enable_dma_transmission(void __iomem *ioaddr, u32 chan)
+>  	writel(1, ioaddr + DMA_CHAN_XMT_POLL_DEMAND(chan));
+>  }
+>  
+> +void dwmac_enable_dma_reception(void __iomem *ioaddr, u32 chan)
+> +{
+> +	writel(1, ioaddr + DMA_CHAN_RCV_POLL_DEMAND(chan));
+> +}
+> +
+>  void dwmac_enable_dma_irq(struct stmmac_priv *priv, void __iomem *ioaddr,
+>  			  u32 chan, bool rx, bool tx)
+>  {
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/hwif.h b/drivers/net/ethernet/stmicro/stmmac/hwif.h
+> index f257ce4b6c66e0bbd3180d54ac7f5be934153a6b..df6e8a567b1f646f83effbb38d8e53441a6f6150 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/hwif.h
+> +++ b/drivers/net/ethernet/stmicro/stmmac/hwif.h
+> @@ -201,6 +201,7 @@ struct stmmac_dma_ops {
+>  	void (*dma_diagnostic_fr)(struct stmmac_extra_stats *x,
+>  				  void __iomem *ioaddr);
+>  	void (*enable_dma_transmission)(void __iomem *ioaddr, u32 chan);
+> +	void (*enable_dma_reception)(void __iomem *ioaddr, u32 chan);
+>  	void (*enable_dma_irq)(struct stmmac_priv *priv, void __iomem *ioaddr,
+>  			       u32 chan, bool rx, bool tx);
+>  	void (*disable_dma_irq)(struct stmmac_priv *priv, void __iomem *ioaddr,
+> @@ -261,6 +262,8 @@ struct stmmac_dma_ops {
+>  	stmmac_do_void_callback(__priv, dma, dma_diagnostic_fr, __args)
+>  #define stmmac_enable_dma_transmission(__priv, __args...) \
+>  	stmmac_do_void_callback(__priv, dma, enable_dma_transmission, __args)
+> +#define stmmac_enable_dma_reception(__priv, __args...) \
+> +	stmmac_do_void_callback(__priv, dma, enable_dma_reception, __args)
+>  #define stmmac_enable_dma_irq(__priv, __args...) \
+>  	stmmac_do_void_callback(__priv, dma, enable_dma_irq, __priv, __args)
+>  #define stmmac_disable_dma_irq(__priv, __args...) \
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> index 6cacedb2c9b3fefdd4c9ec8ba98d389443d21ebd..1ecca60baf74286da7f156b4c3c835b3cbabf1ba 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> @@ -4973,6 +4973,8 @@ static inline void stmmac_rx_refill(struct stmmac_priv *priv, u32 queue)
+>  	rx_q->rx_tail_addr = rx_q->dma_rx_phy +
+>  			    (rx_q->dirty_rx * sizeof(struct dma_desc));
+>  	stmmac_set_rx_tail_ptr(priv, priv->ioaddr, rx_q->rx_tail_addr, queue);
+> +	/* Wake up Rx DMA from the suspend state if required */
+> +	stmmac_enable_dma_reception(priv, priv->ioaddr, queue);
+>  }
+>  
+>  static unsigned int stmmac_rx_buf1_len(struct stmmac_priv *priv,
+> 
+> ---
+> base-commit: e3daf0e7fe9758613bec324fd606ed9caa187f74
+> change-id: 20251125-a10_ext_fix-5951805b9906
+> 
+> Best regards,
+
 
