@@ -4,57 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 503ABD0EE00
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 18:00:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BB67D0E6C8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 18:01:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2Ip/j9aPCPYo4Tez2I5USFmSYi0LZgG79POUmCP/TOE=; b=P6Z8YJekoEauiuD/zWVkXMFntl
-	+lu2WveQYzkqtljJ9YtzZLjlkhPM3sjaLD48rakUFtHe/ke/eaq4cJYUUc8S8SfwB9yZdGYX8QtnF
-	AWDMbtG1hJyCeM54Q2S++1QGp+gZXTYNwbVRsOUpjgyteReLnYIZ/CmfVKKFAUH8DkYkwlQ8tkJMR
-	m5HSoLd989Ydiwk265LEMeUvob0u8AaVRHPbQCNmdq7RnTnGKWwI9SVteAt0vr2d54Vf57GVw16z6
-	hbhqohJVsfj6kx6y7cDklAoTKLXmfJ8CRAhXlT2dLj+XtgzuC2R6F+UOpiQFCMmUIXbyU/9s0ruoI
-	etZ49kyA==;
+	bh=QKzgeYsebQDoO+N+BYWdcv7RbeAc5b3sDOGORqLJhys=; b=GyLxmGcvK0UnRauRvBI/p18mCB
+	yYLb1JhUCHHMlTGSl4DnCufEYChDDvSJ0PUC9jQ3IvG4YQxl7/fz+uYFtBHvlrW25c8AeLrusUhF6
+	/7VVDSZErIz5erOlcCF0yh0iawiAiXvUXdp9JpeV62xUyjf51gOrwINl6MjXyCp5Vuf0yNMcAj/DM
+	ROm0gFh53NAFtjKpqrptFxr9k21iVc34mDe1sqGEkIGqSU/EZ2NIOOEBAVgn86T9pyGg/rxRW9jCE
+	KhhWLPQ+FmW5w7cJAhhXWkomzkeHfB/j4iBw16gU7fnF9MdbzWEOKwAVmYPR7321DJzCqz0I9x+BA
+	HAwyIbxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNxKo-0000000DiWI-2KdH;
-	Tue, 25 Nov 2025 18:00:14 +0000
+	id 1vNxME-0000000Dilx-3x0H;
+	Tue, 25 Nov 2025 18:01:42 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNxKn-0000000DiVr-0nfH
+	id 1vNxME-0000000Dilo-1A6J
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Nov 2025 18:00:13 +0000
+	Tue, 25 Nov 2025 18:01:42 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 553866018D;
-	Tue, 25 Nov 2025 18:00:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 61A84C4CEF1;
-	Tue, 25 Nov 2025 18:00:10 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id B1B2F6018D;
+	Tue, 25 Nov 2025 18:01:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 56034C116B1;
+	Tue, 25 Nov 2025 18:01:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764093612;
-	bh=7aV5v3Js8JnD672c3H3QPHvgFhNwPE7FtnDcETPF26g=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=SAC7uF2PfTHFryBDj6ceTAhUjx/ouXXDJE0/qD1S5e4lvFp4gI40PANMgDhT6/xcT
-	 nLtcaSzC6hTRB5Sg0dccifpWFye4+jdcsMefEcb7rUyIYE6gB4/SdjQO1BiMCqHf73
-	 rQ+HiruE5/uFtCaYZ8qt4uUEXdZ58TdCP7mqouIuzxAVoeX7ojCR+AOrLgFiy1mNxs
-	 tl8v0SoDu6Wjre/1nQCIITb7obRfx7anRMEoKee7B+2lVMioSvWEwSKyb8i58b1Kt9
-	 Dhr4TM4P+H+TJdMkwK6vVsLAo8nyeh76OFgklDqE0OXcVsixW1Vlxs9pgFSl1Et6pQ
-	 YkTiYsc9yTUIQ==
-Date: Tue, 25 Nov 2025 18:00:07 +0000
-From: Will Deacon <will@kernel.org>
-To: Pavan Kondeti <pavan.kondeti@oss.qualcomm.com>
-Cc: linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-	jean-philippe@linaro.org, jgg@nvidia.com, praan@google.com,
-	smostafa@google.com, robin.murphy@arm.com
-Subject: Re: PRI support in arm-smmu-v3 driver
-Message-ID: <aSXupxMeHLajOmDW@willie-the-truck>
-References: <1256faaa-e9cd-46a6-9a42-25aa74b984a8@quicinc.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <1256faaa-e9cd-46a6-9a42-25aa74b984a8@quicinc.com>
+	s=k20201202; t=1764093701;
+	bh=bj5uo4YFaea0ec4MIEwRCTbZHbCe5TlxVbvsShw1aXY=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=KFS4oVhCB+VXAulzbDF10yRzV5xjqEkoTNr/UE37efRQYxxXRggZ9Kd5TVAnMSCbs
+	 ZXj2Bs0yd26/naaJK+S3LS3BgC+9KBIaJdXHh3QgrarfrF1hayBhY1gNzW8I9nmpKw
+	 /Z4D8bRawtI0b0UPt/jlfHI6Lcwbl7p3AIloJflYxB9h48EboUoYXyYgO2tSzeCafa
+	 WetwUykAhv1Gq1gnzheNgIgsPEtsPaw/H7suS0hy6eLRgVc5aDkzimzbkAkNEgPVqa
+	 E4m07tmQ87IKQ+NkJY9B+jTKlmpMnbSZ3xcPDPu/Onrv2wyg/1qGH8+w1eW2bmApPj
+	 99UkVyOQoy56Q==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vNxMA-00000008ExP-3ppO;
+	Tue, 25 Nov 2025 18:01:39 +0000
+Date: Tue, 25 Nov 2025 18:01:38 +0000
+Message-ID: <86bjkqq9dp.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Anirudh Raybharam <anirudh@anirudhrb.com>
+Cc: kys@microsoft.com,
+	haiyangz@microsoft.com,
+	wei.liu@kernel.org,
+	decui@microsoft.com,
+	longli@microsoft.com,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	tglx@linutronix.de,
+	Arnd Bergmann <arnd@arndb.de>,
+	akpm@linux-foundation.org,
+	agordeev@linux.ibm.com,
+	guoweikang.kernel@gmail.com,
+	osandov@fb.com,
+	bsz@amazon.de,
+	linux-hyperv@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-arch@vger.kernel.org
+Subject: Re: [PATCH 2/3] irqchip/gic-v3: allocate one SGI for MSHV
+In-Reply-To: <20251125170124.2443340-3-anirudh@anirudhrb.com>
+References: <20251125170124.2443340-1-anirudh@anirudhrb.com>
+	<20251125170124.2443340-3-anirudh@anirudhrb.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: anirudh@anirudhrb.com, kys@microsoft.com, haiyangz@microsoft.com, wei.liu@kernel.org, decui@microsoft.com, longli@microsoft.com, catalin.marinas@arm.com, will@kernel.org, tglx@linutronix.de, arnd@arndb.de, akpm@linux-foundation.org, agordeev@linux.ibm.com, guoweikang.kernel@gmail.com, osandov@fb.com, bsz@amazon.de, linux-hyperv@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,33 +97,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-[+iommu list and usual suspects]
-
-Hi Pavan,
-
-On Tue, Nov 25, 2025 at 02:22:05PM +0530, Pavan Kondeti wrote:
-> I am trying to understand IO fault handling in Linux w/ SMMUv3. While reading
-> the code, I understand that SVA domain creation allows taking IO pagefaults.
-> arm_smmu_enable_iopf() checks if the master support stall upon fault
-> feature or not. How do we handle page faults for PCIe devices, for which 
-> transactions cannot safely be stalled? IIUC, The PRI handling in the
-> driver i.e arm_smmu_priq_thread()->arm_smmu_handle_ppr() is not doing
-> anything. In the SVA support for SMMUv3 series v7, I see the support for
-> PRI via "Add support for PRI" patch [1] but it is not merged. 
+On Tue, 25 Nov 2025 17:01:23 +0000,
+Anirudh Raybharam <anirudh@anirudhrb.com> wrote:
 > 
-> Can you please clarify if we can support SVA with PCIe devices w/o
-> pinning the memory?
+> From: Anirudh Rayabharam <anirudh@anirudhrb.com>
 > 
-> [1]
-> https://lore.kernel.org/all/20200519175502.2504091-25-jean-philippe@linaro.org/
+> From: Anirudh Rayabharam (Microsoft) <anirudh@anirudhrb.com>
+> 
+> Currently SGIs are allocated only for the smp subsystem. The MSHV
+> (Microsoft Hypervisor aka Hyper-V) code also needs an SGI that can be
+> programmed into the SYNIC to receive intercepts from the hypervisor. The
+> hypervisor would then assert this SGI whenever there is a guest
+> VMEXIT.
+> 
+> Allocate one SGI for MSHV use in addition to the SGIs allocated for
+> IPIs. When running under MSHV, the full SGI range can be used i.e. no
+> need to reserve SGIs 8-15 for the secure firmware.
+> 
+> Since this SGI is needed only when running as a parent partition (i.e.
+> we can create guest partitions), check for it before allocating an SGI.
 
-The only SVA client we've had for SMMUv3 in the upstream kernel is the
-"uacce" thing from HiSilicon which is a platform device (rather than a
-PCIe device) and so I think the PRI support just fell by the wayside due
-to lack of an upstream user and no ability to test it.
+Sorry, but that's not an acceptable situation.
 
-I'm not sure whether or not Jason has plans to implement PRI but maybe
-it's something you could help with if you have hardware?
+SGIs are for Linux to use, nobody else, and that allocation must be
+the same irrespective of whether Linux runs virtualised or not. This
+also won't work with GICv5 (there are no SGIs at all), so this is
+doomed from the very start, and would immediately create technical
+debt.
 
-Will
+If you want to signal an interrupt to Linux, expose a device with an
+interrupt in a firmware table (i.e. not an SGI), and use that in your
+driver.
+
+Thanks,
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
