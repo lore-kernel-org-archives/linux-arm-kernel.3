@@ -4,106 +4,158 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A897D0EE14
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 18:47:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F280D0EE0F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 19:16:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1MKt4LgiZL8PWmFKIeAL+5VfuqwKeyBt7O/W/YkhAjg=; b=IleZhitamxes7wFxWZ1zTYAO+z
-	R5bZiSVMxjfkHCms76yDS76T8ZrJNfhsbzXj/ocy+RmkmLyU+3B0rH6FXi36tnD1FarWLD1TzIEGq
-	56E7RtFxYfpRxA++2Xni7LezvtKkvEQNVUpibhNu7wNzhf0eE6+g9QGO4OUCCQvoOUCQWnbX3vkdv
-	eYrB+GHty3IMb0uGtujA5echNyJfDoYPJIRZu3IAc6ikOqvVNyzr/jNZlWjkSeeR+Cp5bRxCpi618
-	+yeqJitX2rIzb/QTCqpiF9IESACXWhHl8l1I/kJ4ouh0MO5g0ggTiJ0UL4qKYHqRDUzicGjhBeyyU
-	VffjO4XA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=9QqlxszkTg6tasUSRAg/dx2UGh+sXmH+7uo9jXtc4pI=; b=AIvEcy5OmCMciLaluWB58wnOkX
+	7GARylbaQeaYnfDuAScT7VygqsFcyy8SMaTrh3itxDSBi+BsOJdzM7GVj6LglSAcpsS6rYJa4aFwi
+	Jz9AUxRnIIWgP4YpnsatHzPItitk5DCc75spvvojv9dJyu6P06r+OwTQTA7Z1M5cB+f8v4Ve5Zqch
+	JleA3kNI2jdvtPwF2UuaISi3kwZ7REDA9KF+oe7ShAzOUluB7KffTSn70yeMQ1ZIkqgkq/cXZpOGb
+	33OqA75D495zKIA82d5xzUFlPDxpAQD8IDY900z6HGd2MD9MRT6mYC943/tojo1B9WYbQ59+ge1tn
+	JWdwTi3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNy4S-0000000DmvM-3Nr0;
-	Tue, 25 Nov 2025 18:47:24 +0000
-Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
+	id 1vNyWy-0000000DoRV-1e52;
+	Tue, 25 Nov 2025 19:16:52 +0000
+Received: from mail-francesouthazon11021116.outbound.protection.outlook.com ([40.107.130.116] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNy4P-0000000DmuO-3BQQ
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Nov 2025 18:47:24 +0000
-Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-42b3c965cc4so61617f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Nov 2025 10:47:21 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1764096440; x=1764701240; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=1MKt4LgiZL8PWmFKIeAL+5VfuqwKeyBt7O/W/YkhAjg=;
-        b=bOw2GTq0RrT8Uxr43/1FY4nl9rEQtaaWhj/Pjy9x6ogfpd7mSCmA0H9Dkd6wQ1qugc
-         FsFeIDq6jbFrhushkYFtltMJJa6siuQfnATcnPn7+KhHo98OGZ1WJUD3NMMlkZq2t9wE
-         QDHOEdgC54056kgej+iZORaoIpz5uMjWiFACAccWcVvqCwX3tby9UeLUIc5Wowcsh22U
-         PmcnSWFS4M5rS0pMTg1ugD75uzT1ug2I5OSjicbHdlQlKuxwwJsJ1L76rGpFULoIz7b1
-         +DzA7+tU4ihSL7GHdv4FCu1NZcnjhuJ9OffsKLkT2kShrIl/Kvg1Zct/WTdO3iuoQ3u3
-         7QaA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764096440; x=1764701240;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=1MKt4LgiZL8PWmFKIeAL+5VfuqwKeyBt7O/W/YkhAjg=;
-        b=vloEJ9Lr9S38Ogg10VIRvBqaSIYMOdTP1pv3r3BLErJkkg4/9B/BpJBoCDu6PywoPP
-         w71rdOM0e3uMohWs8O6Vbic/PjYYhZKy2PyShZYOjvJSRLqWiwq1IKz9ZpKBVemuuPhS
-         gphmSlsngnvQ9V2zhFIAXSQt9AVdW37J+DjgMUA76UvT8X0ctGmiAYNSZwKE1/4X0T2V
-         q+/ywgrgISp2K1O1/zSKZfmatkUFdcCGA6gE4TY4RWdB4TCFjN2F2oP2jaQNxqhcLk5X
-         AK/DH84CLyNGWq9lWbB5/nJ1hwNoqjnrks7u+cWW4VNlPtyC79g/9NxhsUAv6aKDj5U1
-         SpYQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWM/8RJN/KfJE1lcRHdBgoRkO5G1knN/IfScghDtHHdKH2TegmayuSLNYinMFLaKZTwkXKQHaQunaAZjf6vG7aU@lists.infradead.org
-X-Gm-Message-State: AOJu0YwSsotDFlX6iptRdf3pnVKZ5/8GxCatwsPfNRSJGkOc/JXuPaU5
-	ZfdD3Rhn1UI/4zqpogy4jS+FVCn4I8tZHu4uslGQcB4H3RKr++led0TT
-X-Gm-Gg: ASbGnct7yJDAxk+Wn1mu4BzGr1wfQaSmmIShh3RwUaK7fbgmSjuQmHWq6OG4kq5GHAe
-	4CjSlxWt7mcflnxX3lQlu4pLxm4XHjvflwxVxaf1BFuM7JY6NvB5lHEYdqbFCRsWRlTvqSfDqdW
-	e6k0IKGNmDwnk9jQ4UWwa190g9xiVbr7AalgwIQnU4JTUVAVnGZ2KtfbVy6CAtJvq/6Y84TI1Tp
-	bmxnExqL1W2ct+eeqK0MYiGyfAksCSlh2vLZVRU3TunREpg7v3AlExwhU85Dqu2GTPgeW0NpDdd
-	cHOFgLTkXhroC6vwbulQGqrlN1XIvTSxM2WMgvsrf+bayg90WmtDwr5jgHel0gLUqR+igj5edwj
-	KIi3RsxCaRng4fbHoP5YqJfHQ3XZJUhyxWDYgiaOPma44d8M8UEMLz5HoIgPkQkhUmAVFL1ftnV
-	KLayaw4ljwc2QPOmdfR8DINtUqPWhVlcxn9IjLaMH6Xurmi9tfSrD9UtyCDIW04po=
-X-Google-Smtp-Source: AGHT+IG/i3aZCks5WIqnGk/6a0sMPmYIN5l4APrGzVcZcpl9umy4ItmF5a7+oV8tsk34pCQpbOWSSg==
-X-Received: by 2002:a5d:584f:0:b0:428:56ed:c68e with SMTP id ffacd0b85a97d-42cba652ec0mr23828199f8f.9.1764096439172;
-        Tue, 25 Nov 2025 10:47:19 -0800 (PST)
-Received: from ?IPV6:2a03:83e0:1126:4:ce0:a4eb:eabc:d420? ([2620:10d:c092:500::5:f0ba])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-479052ec685sm22122175e9.6.2025.11.25.10.47.17
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 25 Nov 2025 10:47:18 -0800 (PST)
-Message-ID: <ba690e06-c2a1-4d2e-9428-9ca2ea9f2b86@gmail.com>
-Date: Tue, 25 Nov 2025 18:47:15 +0000
+	id 1vNyWu-0000000DoQm-4BRz;
+	Tue, 25 Nov 2025 19:16:50 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=WZgArasKTBzhcMptQ4uRvK8ZVm75mgLnOWlQA/W2sC67y+o6HazP2NOubQKyPIpFRriII49tKwipMfwZkDfFbLhMOIhlrM3Cr+qWkfwsOO47NQ8pkVVgMrTHk9peJigCRo/XpW0rP0MSz81g0x1ele1MgN4rKaVDUhH261LI27P/43z1p/hUuNIokLBPS6oKd5fZ2JFWVOh+cn4EaOZdAAYgU8N7MGMIoq6C4X4CtcHzk3tLWe0jGSyna10CVcJUZAegniYwUk+lKr64zOZavK+mpgy7BcI9suTNNYOXkKAR83yDFIbvL4lQtTESXL5v2pL6s1xHWZFGQn2H4SU3Pw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=9QqlxszkTg6tasUSRAg/dx2UGh+sXmH+7uo9jXtc4pI=;
+ b=RkhdOpV5b6vG/1E2ZtSuj3hNfuO+ruhMuYb28d7zo3Bs9/v3rOo2haioCSjK+tbI1uzAUl33Opv9BRvLVmh0j80fSEHPpVnE0Q92n6jFg783nOpSRrSY7/R4/wEtKMtu4/AvjuaAtLxkMiufg+QGl4xgcOiLlUfkcYsd7zLneste3HKEH2R5FKRNoZqJHIXDqOpqaHnFjOaRXcAhg/yiw8A+KZGEf7Ynca7c0tDizF6jjHYGZb/lYau1f5sF5w5TnwbDTwM6oVjCbwqJFJekr4EqZ8R0oNbugMtFBg41nQFkWLsFesMY+iEbliSsOPkDI984wbE7oZAQOjV+z5NgXQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=genexis.eu; dmarc=pass action=none header.from=iopsys.eu;
+ dkim=pass header.d=iopsys.eu; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=iopsys.eu;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=9QqlxszkTg6tasUSRAg/dx2UGh+sXmH+7uo9jXtc4pI=;
+ b=vbkhSplB2lTlv1KB8qrrysqsrtOQa/gkCrYLw00INPuB4gNzLTBAtBQ/K+obEB9SzSaJWRKlPUMQtGfQYLOrjBAc3B1hl3/u7yQZ55RrKjCPYwQqjuWaRN8yled0c+eh3zFhlqpppJs+zHjgPUj1Ee+v9952YrwFJzvxcxZEjm995Z6Et11RPi9WNQaaNLuNXLPHNnF+dqegC8OElnkmkhatpqUb42j0R8DdWuLn7fSf4cGkGIkEJndmEUJu27PH/OF/FeXwRgynCls5ihScPRTWDIz4OSUjbHr94tmKMXA9lc+QNGiaZxWBZyM8eCzssphLjN8x+8ZPMDBrpgrrbQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=iopsys.eu;
+Received: from GV2PR08MB8121.eurprd08.prod.outlook.com (2603:10a6:150:7d::22)
+ by DU4PR08MB10958.eurprd08.prod.outlook.com (2603:10a6:10:56e::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9343.18; Tue, 25 Nov
+ 2025 19:16:43 +0000
+Received: from GV2PR08MB8121.eurprd08.prod.outlook.com
+ ([fe80::4cd3:da80:2532:daa0]) by GV2PR08MB8121.eurprd08.prod.outlook.com
+ ([fe80::4cd3:da80:2532:daa0%3]) with mapi id 15.20.9366.009; Tue, 25 Nov 2025
+ 19:16:43 +0000
+From: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>
+To: Lorenzo Bianconi <lorenzo@kernel.org>,
+	Ray Liu <ray.liu@airoha.com>,
+	Mark Brown <broonie@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Andy Shevchenko <andy@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-spi@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-mediatek@lists.infradead.org
+Cc: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>,
+	Andreas Gnau <andreas.gnau@iopsys.eu>
+Subject: [PATCH v5 0/3] spi: airoha: add support of en7523 SoC (for 6.19)
+Date: Tue, 25 Nov 2025 22:16:32 +0300
+Message-ID: <20251125191635.1075027-1-mikhail.kshevetskiy@iopsys.eu>
+X-Mailer: git-send-email 2.51.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: GV3PEPF00007A84.SWEP280.PROD.OUTLOOK.COM
+ (2603:10a6:158:401::616) To GV2PR08MB8121.eurprd08.prod.outlook.com
+ (2603:10a6:150:7d::22)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 12/17] x86/e820: temporarily enable KHO scratch for
- memory below 1M
-Content-Language: en-GB
-To: Mike Rapoport <rppt@kernel.org>, Pratyush Yadav <pratyush@kernel.org>
-Cc: Changyuan Lyu <changyuanl@google.com>, akpm@linux-foundation.org,
- linux-kernel@vger.kernel.org, anthony.yznaga@oracle.com, arnd@arndb.de,
- ashish.kalra@amd.com, benh@kernel.crashing.org, bp@alien8.de,
- catalin.marinas@arm.com, corbet@lwn.net, dave.hansen@linux.intel.com,
- devicetree@vger.kernel.org, dwmw2@infradead.org, ebiederm@xmission.com,
- graf@amazon.com, hpa@zytor.com, jgowans@amazon.com,
- kexec@lists.infradead.org, krzk@kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
- linux-mm@kvack.org, luto@kernel.org, mark.rutland@arm.com, mingo@redhat.com,
- pasha.tatashin@soleen.com, pbonzini@redhat.com, peterz@infradead.org,
- robh@kernel.org, rostedt@goodmis.org, saravanak@google.com,
- skinsburskii@linux.microsoft.com, tglx@linutronix.de,
- thomas.lendacky@amd.com, will@kernel.org, x86@kernel.org,
- Breno Leitao <leitao@debian.org>, thevlad@meta.com
-References: <20250509074635.3187114-1-changyuanl@google.com>
- <20250509074635.3187114-13-changyuanl@google.com>
- <a0f875f1-45ad-4dfc-b5c8-ecb51b242523@gmail.com>
- <mafs01plmxngp.fsf@kernel.org> <aSW0MF9BXjLnY2Fr@kernel.org>
-From: Usama Arif <usamaarif642@gmail.com>
-In-Reply-To: <aSW0MF9BXjLnY2Fr@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR08MB8121:EE_|DU4PR08MB10958:EE_
+X-MS-Office365-Filtering-Correlation-Id: 4a883078-279e-4bff-865a-08de2c572b1d
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|52116014|366016|1800799024|38350700014|921020;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?Um+mqUtYOT0pj81kYs2Bs5P7M4u0EKFd27PqZMdNAVaegXVIDKIVC1oTamAu?=
+ =?us-ascii?Q?TIk1ylc2/Qi4BYIYnvZQlQN6kCx46rgElSRKuBrG/7dzscv0fbsmEyN4CuSD?=
+ =?us-ascii?Q?N75+d0TTRE5C1n05RIR2qDUrn9zpIEv3i1sp8qpEj1lqh1CSfX9ecSrH8OIK?=
+ =?us-ascii?Q?210Rl5Ca4Nz8TB39VhmixeByj/4RjHcqWnNRXfcDD0astkkPXfbte27j6baF?=
+ =?us-ascii?Q?hqvPHelwSru93TLKzUkLJKsJrXyKu8ho0LyepwUC6Kq6B4oZ1fAXuSujmR5A?=
+ =?us-ascii?Q?0rVGZCwSSUXbst37w5cQrDYl9l2D6GHswFNX+Qj95vSo01QeUO3VdHZxqGiY?=
+ =?us-ascii?Q?igHt9UGfp82Vn5Hq2JH0Xm8ENFQxrFQEBXVeqg0ISIyjQSdQFL5uq3rNSPUy?=
+ =?us-ascii?Q?Hy6nySkfAR1qMzIKmOHkLyqac/yfdVth7+WjsKVewVwZ6HuIm7xL6jrk/oP4?=
+ =?us-ascii?Q?P2AEHE17Ay+3zVfcMPFDqv6Cxpm7GQ+61miWurl40UlNFSQ5v/Mpbn8OjPAI?=
+ =?us-ascii?Q?gYIIVBucdoM8uNu7jO/53ethi8FpoVFIuwd6lYHLTITjmijrklThxtVNkVsE?=
+ =?us-ascii?Q?mIGCYcKQ2itHUpkek8yxlMCe7zTwHmTE1ljIKrWrajeO9LpkPu9Z4pTmjtzP?=
+ =?us-ascii?Q?S+reWUw8iG46Dyao8hHZmY9IPVsbnY1bL6qWjiZaAu8WYYSaCvu0PWq54BHS?=
+ =?us-ascii?Q?T8+Z9SWTll64IoFi0ChsHZpiXqIBY45KPW6DOVzu3Q0f42vZcc8K+N6N4/tB?=
+ =?us-ascii?Q?K410mCgVVoIN1nUOYyzqubiG0Je3wZIENU1j3Q0TWQL+8dH76gQyoImuiGy+?=
+ =?us-ascii?Q?KEHlN7OtXujsrU/WwpB2JIKCxZHvw8qkEPKNnU/Zp5cyN8hGx/0T+YxuJF9v?=
+ =?us-ascii?Q?ad6uxxCLMUG3YWUcYKtWDI1WL2XKfUCSVhFNkQiZmggbAacLM68LYCr6/lv0?=
+ =?us-ascii?Q?XHCCHkVU/15vbjeeiyLJabWYUq7ODQEmMfAup0nsockOJ27ajA2UnHT2y4pG?=
+ =?us-ascii?Q?TwPnKkl28uHB0QW0hOiiw0/CTr+A7wGD1GwSN4IwRwFKqiZLIW24eALc7lAT?=
+ =?us-ascii?Q?nsK88kRsIapQ3+mhVaz/9XJRe2USn067SEThhq6lZpmHb/AQiBfD4tANySoV?=
+ =?us-ascii?Q?zNCf45Am6734rJWN3hM9B7F46DPaMExZb2uidixECfXK/O+FYdxOtwOs4ORr?=
+ =?us-ascii?Q?YaJiHSRJ9BY35sTIF5uMPjZL2vbCHwykgGfj2SyE2mmiuVVgHOT8HBtMzWHW?=
+ =?us-ascii?Q?D6P+b/pGqOe2XK03wgznq250ZL44omrYJsOKgljS4dx+AfGG9CV03ITJHjPb?=
+ =?us-ascii?Q?6KlxDVcKLawyK81MTYQMIrV03ocIiBnjeG8fIju4Wr1uYhehPW00azEOjjXc?=
+ =?us-ascii?Q?EOuf9eZAfhBRswDPllI1R01z6NQgk8QgwH4lA/ue3ZtNOcj+C3DYWRaNCOgq?=
+ =?us-ascii?Q?i2Bp70PeYPAPe4SQAYSeMTQaHrAO580V9zMFrW0u2oiM3B50q/sHmqDImZbQ?=
+ =?us-ascii?Q?0qLwpWHle5Bfvp7udTB/M1PZqcg225lPxksGqCWIYxyA67HKMdN5aW6tnw?=
+ =?us-ascii?Q?=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR08MB8121.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(52116014)(366016)(1800799024)(38350700014)(921020);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?/ICuQPCZcz1/P+WW0/5I2HIPWsUQAsggE005mh8BeTpLLTB8UsP2JPToWnrh?=
+ =?us-ascii?Q?d992peu1a0ZbEt9jjxyDMHmGZbniApp84Sazo+fnEdvElm/p+zBXnFgptQ4Y?=
+ =?us-ascii?Q?enpxy/exXof4+/axSDlwCPLjucpvRIm54q1ehE91HgtL52VJbrKZ5PzpL38O?=
+ =?us-ascii?Q?HpX3lqrUu2yr+IX1V2LSXMZ0hSqBr8Rblajp5qdBvSDe6xzU+WC4XKWPLU/v?=
+ =?us-ascii?Q?YQq/rqYmwJD3nK0XEmbcc0ggNhz9y1GwlA5MIDKV7kaDa7JuCBk1sTQ8bX1Q?=
+ =?us-ascii?Q?IiWtbQqWdQHq3jO0NqfO0L85JzKeyn32Lh6DAIpx6ws5si9Wvk16UIBMwfFs?=
+ =?us-ascii?Q?LuHN9DKaNqnk3uF8bj/8YSriYtCoqcp0yK5fLUjmInBaV+Vlbd8shL6pTl4v?=
+ =?us-ascii?Q?RGB/tgN9nOXpOdxy6Y22ungXONXMDBlGI1I4Cp0iRKEghLDPUjWoHbyCpKI4?=
+ =?us-ascii?Q?bPp9MQLd5TSoLB35waxDvXMWycTtdF5gg7aNLRMdHzdYalQTY4K3Cv71Z9vY?=
+ =?us-ascii?Q?zKpI2/5wc/sUtLHG34vU9xdvR0i+X8L0hv16E8U2CI4iKtP89YtRCfNaafHK?=
+ =?us-ascii?Q?a3bVg5JdK1m1UQPhywnO8W+fG+zHQHj+b0MljLg5nbLeF/CuuPDdiQql0Fuh?=
+ =?us-ascii?Q?2c/OtIA9TuomLcEezK5GAYIkbYd/7ZNBtgPmfnd1xYV/FW5XZ8xmCW+B23cp?=
+ =?us-ascii?Q?TeST3Qcx+03oHVYmb1yD2ytLvQCuCGQPy2betgIPeY6pJxeAN6p3rZDVqSJP?=
+ =?us-ascii?Q?ZnP4yl6rZWwAnfLmUlFevkjidTkl0/rnRl30XGIfHN0xkGav0PZX1KfcZlH8?=
+ =?us-ascii?Q?JGpGKIn3tAXrCTOn21As42NW8aTz+BlRtBtcZNDLl95SWeJDpRh1gYUfLqrt?=
+ =?us-ascii?Q?bQeUJ9TmGqpFahG18B0cwgCcoq11qj0/MatQrFpIjVdP66oFIIro/TfREV6p?=
+ =?us-ascii?Q?lio8SQhmyHhgEl2FJO52Ma/OoxVs7YdyvMgahd62Oysc3mjV6rh6cRzfB7uA?=
+ =?us-ascii?Q?CN/UwKlTqhfL/xi7vx93DJis4GN24FG8a+i7Wtocvp040oExJO2EY+5rxK6T?=
+ =?us-ascii?Q?t5q36kk5zcPvXdRcdhz4pgspii09v0Of58/XHNtkzPxlHklRLTDpzYl497CL?=
+ =?us-ascii?Q?Y300jTa0qY+hSQTvqAZB81vqHn1XOG8+lFVUmUGFGZa9Za9Bf+vJjZhHKBEx?=
+ =?us-ascii?Q?CWBdlUvIlQgORvKLmbgNSY8bM19V6TdRQQ39BRA4Ler67yhjowq1AOc1mZQI?=
+ =?us-ascii?Q?0d7vxHen13wkBC2C6DpnOTrANy4bG25L9aHXMIKZnA/NRMnNARKmHgurzk4u?=
+ =?us-ascii?Q?CdsgnsnK+r92l+uECt+NKnhhjrtVBjiVaga9c6+/UQcYfTfHOJBa6/Vpir91?=
+ =?us-ascii?Q?pifrnWJf/QDg3WuRzCVMfQLdEcDfy9T25WCwv7MSDwagFHuwe+/eV7h2yX7Y?=
+ =?us-ascii?Q?bV+xSddTZlCYGajYpjRV4q+UuhuqsyoBsdq4p+3jFV7Ke3KgzcTelBpkw//j?=
+ =?us-ascii?Q?A7vfGZcJJ3ggOjqwRfyjUoDaauXBTEwXIIHyXkCQUMFRHHdwRjRX2G+W/rIk?=
+ =?us-ascii?Q?Zf2H4ENI5aMuSPmRar6CGRCG7yA+0jm8tasflCYMgSx61IeG/RLzLllTPKzd?=
+ =?us-ascii?Q?Qvbge2Nhw8s3UWHytsPD4qA=3D?=
+X-OriginatorOrg: iopsys.eu
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4a883078-279e-4bff-865a-08de2c572b1d
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR08MB8121.eurprd08.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Nov 2025 19:16:43.2688
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 8d891be1-7bce-4216-9a99-bee9de02ba58
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 0xQjn1ciM+MkWbt+TSdRzESoLxPTMe61Wf7GVSwuCuW0pWPGZVoDpDjMZoR3uQ33ovlw/IQIflRyfw5LU5d0ETHBkJno1JPDzPvnp0dZDhM=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR08MB10958
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251125_104722_025797_D8DC6A58 
-X-CRM114-Status: GOOD (  51.58  )
+X-CRM114-CacheID: sfid-20251125_111649_557131_339C5B74 
+X-CRM114-Status: GOOD (  11.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,496 +170,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Airoha EN7523 snfi controller almost identical to AN7581 one, so the same
+driver can be used. The only known difference appears in the very specific
+boot conditions, when attached serial console force EN7523 SoC boots
+in undocumented (reserved) mode. In this mode dma reading of the flash
+works incorrectly.
 
+This patch series:
+ * add support of EN7523 SoC
+ * add spinand node to en7523 dts (so spinand flash finally becomes usable)
+ * updates dt-bindings to mark driver as compatible with en7523
+ * disable dma usage to prevent possible data damage if booting in
+   reserved mode was detected.
 
-On 25/11/2025 13:50, Mike Rapoport wrote:
-> Hi,
-> 
-> On Tue, Nov 25, 2025 at 02:15:34PM +0100, Pratyush Yadav wrote:
->> On Mon, Nov 24 2025, Usama Arif wrote:
-> 
->>>> --- a/arch/x86/realmode/init.c
->>>> +++ b/arch/x86/realmode/init.c
->>>> @@ -65,6 +65,8 @@ void __init reserve_real_mode(void)
->>>>  	 * setup_arch().
->>>>  	 */
->>>>  	memblock_reserve(0, SZ_1M);
->>>> +
->>>> +	memblock_clear_kho_scratch(0, SZ_1M);
->>>>  }
->>>>  
->>>>  static void __init sme_sev_setup_real_mode(struct trampoline_header *th)
->>>
->>> Hello!
->>>
->>> I am working with Breno who reported that we are seeing the below warning at boot
->>> when rolling out 6.16 in Meta fleet. It is difficult to reproduce on a single host
->>> manually but we are seeing this several times a day inside the fleet.
->>>
->>>  20:16:33  ------------[ cut here ]------------
->>>  20:16:33  WARNING: CPU: 0 PID: 0 at mm/memblock.c:668 memblock_add_range+0x316/0x330
->>>  20:16:33  Modules linked in:
->>>  20:16:33  CPU: 0 UID: 0 PID: 0 Comm: swapper Tainted: G S                  6.16.1-0_fbk0_0_gc0739ee5037a #1 NONE 
->>>  20:16:33  Tainted: [S]=CPU_OUT_OF_SPEC
->>>  20:16:33  RIP: 0010:memblock_add_range+0x316/0x330
->>>  20:16:33  Code: ff ff ff 89 5c 24 08 41 ff c5 44 89 6c 24 10 48 63 74 24 08 48 63 54 24 10 e8 26 0c 00 00 e9 41 ff ff ff 0f 0b e9 af fd ff ff <0f> 0b e9 b7 fd ff ff 0f 0b 0f 0b cc cc cc cc cc cc cc cc cc cc cc
->>>  20:16:33  RSP: 0000:ffffffff83403dd8 EFLAGS: 00010083 ORIG_RAX: 0000000000000000
->>>  20:16:33  RAX: ffffffff8476ff90 RBX: 0000000000001c00 RCX: 0000000000000002
->>>  20:16:33  RDX: 00000000ffffffff RSI: 0000000000000000 RDI: ffffffff83bad4d8
->>>  20:16:33  RBP: 000000000009f000 R08: 0000000000000020 R09: 8000000000097101
->>>  20:16:33  R10: ffffffffff2004b0 R11: 203a6d6f646e6172 R12: 000000000009ec00
->>>  20:16:33  R13: 0000000000000002 R14: 0000000000100000 R15: 000000000009d000
->>>  20:16:33  FS:  0000000000000000(0000) GS:0000000000000000(0000) knlGS:0000000000000000
->>>  20:16:33  CR2: ffff888065413ff8 CR3: 00000000663b7000 CR4: 00000000000000b0
->>>  20:16:33  Call Trace:
->>>  20:16:33   <TASK>
->>>  20:16:33   ? __memblock_reserve+0x75/0x80
-> 
-> Do you have faddr2line for this?
-> >>>  20:16:33   ? setup_arch+0x30f/0xb10
-> 
-> And this?
-> 
+This patch series was a part of a bigger series:
 
+  https://lore.kernel.org/lkml/20251012121707.2296160-1-mikhail.kshevetskiy@iopsys.eu/
 
-Thanks for this! I think it helped narrow down the problem.
+All patches of the bigger series (except these patches) was already accepted
+to linux-next.
 
-The stack is:
+Changes v2:
+ * small improvement proposed by Lorenzo Bianconi
 
-20:16:33 ? __memblock_reserve (mm/memblock.c:936) 
-20:16:33 ? setup_arch (arch/x86/kernel/setup.c:413 arch/x86/kernel/setup.c:499 arch/x86/kernel/setup.c:956) 
-20:16:33 ? start_kernel (init/main.c:922) 
-20:16:33 ? x86_64_start_reservations (arch/x86/kernel/ebda.c:57) 
-20:16:33 ? x86_64_start_kernel (arch/x86/kernel/head64.c:231) 
-20:16:33 ? common_startup_64 (arch/x86/kernel/head_64.S:419) 
+Changes v3:
+ * split multi-line print on a series of single line prints as suggested by
+   Mark Brown
 
-This is 6.16 kernel.
+Changes v4:
+ * improve description of Airoha en7523 SoC specific issue that may
+   lead to flash data damaging.
+ * add fixes tag
 
-20:16:33 ? __memblock_reserve (mm/memblock.c:936) 
-Thats memblock_add_range call in memblock_reserve
+Changes v5:
+ * replace 'boot pin' with 'bootstrap pin'
+ * do not use caps in some cases
+ * always set dma mask (even if dma will not be used et all)
 
-20:16:33 ? setup_arch (arch/x86/kernel/setup.c:413 arch/x86/kernel/setup.c:499 arch/x86/kernel/setup.c:956) 
-That is parse_setup_data -> add_early_ima_buffer -> add_early_ima_buffer -> memblock_reserve_kern
+Mikhail Kshevetskiy (3):
+  spi: airoha-snfi: en7523: workaround flash damaging if UART_TXD was
+    short to GND
+  dt-bindings: spi: airoha: add compatible for EN7523
+  arm: dts: airoha: en7523: add SNAND node
 
+ .../bindings/spi/airoha,en7581-snand.yaml     |  7 ++++-
+ arch/arm/boot/dts/airoha/en7523.dtsi          | 20 ++++++++++++++
+ drivers/spi/spi-airoha-snfi.c                 | 26 ++++++++++++++++++-
+ 3 files changed, 51 insertions(+), 2 deletions(-)
 
-I put a simple print like below:
-
-diff --git a/arch/x86/kernel/setup.c b/arch/x86/kernel/setup.c
-index 680d1b6dfea41..cc97ffc0083c7 100644
---- a/arch/x86/kernel/setup.c
-+++ b/arch/x86/kernel/setup.c
-@@ -409,6 +409,7 @@ static void __init add_early_ima_buffer(u64 phys_addr)
-        }
- 
-        if (data->size) {
-+               pr_err("PPP %s %s %d data->addr %llx, data->size %llx \n", __FILE__, __func__, __LINE__, data->addr, data->size);
-                memblock_reserve_kern(data->addr, data->size);
-                ima_kexec_buffer_phys = data->addr;
-                ima_kexec_buffer_size = data->size;
-
-
-and I see (without replicating the warning):
-
-[    0.000000] PPP arch/x86/kernel/setup.c add_early_ima_buffer 412 data->addr 9e000, data->size 1000                                                                                          
-....
-
-[    0.000348] MEMBLOCK configuration:
-[    0.000348]  memory size = 0x0000003fea329ff0 reserved size = 0x00000000050c969b
-[    0.000350]  memory.cnt  = 0x5
-[    0.000351]  memory[0x0]     [0x0000000000001000-0x000000000009ffff], 0x000000000009f000 bytes flags: 0x40
-[    0.000353]  memory[0x1]     [0x0000000000100000-0x0000000067c65fff], 0x0000000067b66000 bytes flags: 0x0
-[    0.000355]  memory[0x2]     [0x000000006d8db000-0x000000006fffffff], 0x0000000002725000 bytes flags: 0x0
-[    0.000356]  memory[0x3]     [0x0000000100000000-0x000000407fff8fff], 0x0000003f7fff9000 bytes flags: 0x0
-[    0.000358]  memory[0x4]     [0x000000407fffa000-0x000000407fffffff], 0x0000000000006000 bytes flags: 0x0
-[    0.000359]  reserved.cnt  = 0x7
-
-
-So MEMBLOCK_RSRV_KERN and MEMBLOCK_KHO_SCRATCH seem to overlap..
-
->>>  20:16:33   ? start_kernel+0x58/0x960
->>>  20:16:33   ? x86_64_start_reservations+0x20/0x20
->>>  20:16:33   ? x86_64_start_kernel+0x13d/0x140
->>>  20:16:33   ? common_startup_64+0x13e/0x140
->>>  20:16:33   </TASK>
->>>  20:16:33  ---[ end trace 0000000000000000 ]--- 
->>>
->>>
->>> Rolling out with memblock=debug is not really an option in a large scale fleet due to the
->>> time added to boot. But I did try on one of the hosts (without reproducing the issue) and I see:
-> 
-> Is it a problem to roll out a kernel that has additional debug printouts as
-> Breno suggested earlier? I.e.
-> 
-> 	if (flags != MEMBLOCK_NONE && flags != rgn->flags) {
-> 		pr_warn("memblock: Flag mismatch at region [%pa-%pa]\n",
-> 			&rgn->base, &rend);
-> 		pr_warn("  Existing region flags: %#x\n", rgn->flags);
-> 		pr_warn("  New range flags: %#x\n", flags);
-> 		pr_warn("  New range: [%pa-%pa]\n", &base, &end);
-> 		WARN_ON_ONCE(1);
-> 	}
-> 
-
-I can add this, but the only thing is that it might be several weeks between me putting this in the
-kernel and that kernel being deployed to enough machines that it starts to show up. I think the IMA coinciding
-with memblock_mark_kho_scratch in e820__memblock_setup could be the reason for the warning. It might be better to
-fix that case and deploy it to see if the warnings still show up?
-I can add these prints as well incase it doesnt fix the problem.
-
-
->>> [    0.000616]  memory.cnt  = 0x6
->>> [    0.000617]  memory[0x0]	[0x0000000000001000-0x000000000009bfff], 0x000000000009b000 bytes flags: 0x40
->>> [    0.000620]  memory[0x1]	[0x000000000009f000-0x000000000009ffff], 0x0000000000001000 bytes flags: 0x40
->>> [    0.000621]  memory[0x2]	[0x0000000000100000-0x000000005ed09fff], 0x000000005ec0a000 bytes flags: 0x0
->>> ...
->>>
->>> The 0x40 (MEMBLOCK_KHO_SCRATCH) is coming from memblock_mark_kho_scratch in e820__memblock_setup. I believe this
->>> should be under ifdef like the diff at the end? (Happy to send this as a patch for review if it makes sense).
->>> We have KEXEC_HANDOVER disabled in our defconfig, therefore MEMBLOCK_KHO_SCRATCH shouldnt be selected and
->>> we shouldnt have any MEMBLOCK_KHO_SCRATCH type regions in our memblock reservations.
->>>
->>> The other thing I did was insert a while(1) just before the warning and inspected the registers in qemu.
->>> R14 held the base register, and R15 held the size at that point.
->>> In the warning R14 is 0x100000 meaning that someone is reserving a region with a different flag to MEMBLOCK_NONE
->>> at the boundary of MEMBLOCK_KHO_SCRATCH.
-> 
-> Judging by the register values, flags could be in %rcx or %r13 (0x2 - MEMBLOCK_MIRROR) or in
-> %r8 (0x20 - MEMBLOCK_RSRV_KERN)
-
-
-I feel like it might be r8 (MEMBLOCK_RSRV_KERN) from IMA.
-
-> 
-> Since WARN_ON() is triggered in __memblock_reserve() I'd bet on
-> MEMBLOCK_RSRV_KERN.
-> 
-> And apparently the warning triggers for some memory that was initially
-> reserved with memblock_reserve() and than some of it was reserved with
-> memblock_reserve_kern().
-> 
-> If you have the logs from failing boots up to the point where SLUB reports
-> about it's initialization, e.g. 
-> 
-> [    0.134377] SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=8, Nodes=1
-> 
-> something there may hint about what's the issue. 
-
-
-So the boot doesnt fail, its just giving warnings in the fleet.
-I have added the dmesg to the end of the mail.
-
->  
->> I don't get this... The WARN_ON() is only triggered when the regions
->> overlap. Here, there should be no overlap, since the scratch region
->> should end at 0x100000 (SZ_1M) and the new region starts at 0x100000
->> (SZ_1M).
-> 
-> Not only that, the warning is from __memblock_reserve() that works with
-> memblock.reserved and the dump is for memblock.memory.
-> 
->> Anyway, you do indeed point at a bug. memblock_mark_kho_scratch() should
->> only be called on a KHO boot, not unconditionally. So even with
->> CONFIG_MEMBLOCK_KHO_SCRATCH enabled, this should only be called on a KHO
->> boot, not every time.
->>
->> I think the below diff should fix the warning for you by making sure the
->> scratch areas are not present on non-KHO boot. I still don't know why
->> you hit the warning in the first place though. If you'd be willing to
->> dig deeper into that, it would be great.
->>
->> Can you give the below a try and if it fixes the problem for you I can
->> send it on the list.
->>
->> diff --git a/arch/x86/kernel/e820.c b/arch/x86/kernel/e820.c
->> index c3acbd26408ba..0a34dc011bf91 100644
->> --- a/arch/x86/kernel/e820.c
->> +++ b/arch/x86/kernel/e820.c
->> @@ -16,6 +16,7 @@
->>  #include <linux/firmware-map.h>
->>  #include <linux/sort.h>
->>  #include <linux/memory_hotplug.h>
->> +#include <linux/kexec_handover.h>
->>  
->>  #include <asm/e820/api.h>
->>  #include <asm/setup.h>
->> @@ -1315,7 +1316,8 @@ void __init e820__memblock_setup(void)
->>  	 * After real mode trampoline is allocated, we clear that scratch
->>  	 * marking.
->>  	 */
->> -	memblock_mark_kho_scratch(0, SZ_1M);
->> +	if (is_kho_boot())
->> +		memblock_mark_kho_scratch(0, SZ_1M);
-> 
-> We'd better add an inline stub to memblock.h for
-> !CONFIG_MEMBLOCK_KHO_SCRATCH
-> 
-> and move is_kho_boot() inside memblock_{mark,clear}_kho_scratch. This might
-> require moving them out of line, but it's not that they are on the hot
-> paths.
-> 
-> BTW, this makes sense even if it does not help with the issue Breno and
-> Usama are working on.
-> 
-
-
-Does something like this look good? I can try deploying this (although it will take sometime to find out).
-We can get it upstream as well as that makes backports easier.
-
-diff --git a/mm/memblock.c b/mm/memblock.c
-index 154f1d73b61f2..257c6f0eee03d 100644
---- a/mm/memblock.c
-+++ b/mm/memblock.c
-@@ -1119,8 +1119,13 @@ int __init_memblock memblock_reserved_mark_noinit(phys_addr_t base, phys_addr_t
-  */
- __init int memblock_mark_kho_scratch(phys_addr_t base, phys_addr_t size)
- {
--       return memblock_setclr_flag(&memblock.memory, base, size, 1,
--                                   MEMBLOCK_KHO_SCRATCH);
-+#ifdef CONFIG_MEMBLOCK_KHO_SCRATCH
-+       if (is_kho_boot())
-+               return memblock_setclr_flag(&memblock.memory, base, size, 1,
-+                                           MEMBLOCK_KHO_SCRATCH);
-+#else
-+       return 0;
-+#endif
- }
- 
- /**
-@@ -1133,8 +1138,13 @@ __init int memblock_mark_kho_scratch(phys_addr_t base, phys_addr_t size)
-  */
- __init int memblock_clear_kho_scratch(phys_addr_t base, phys_addr_t size)
- {
--       return memblock_setclr_flag(&memblock.memory, base, size, 0,
--                                   MEMBLOCK_KHO_SCRATCH);
-+#ifdef CONFIG_MEMBLOCK_KHO_SCRATCH
-+       if (is_kho_boot())
-+               return memblock_setclr_flag(&memblock.memory, base, size, 0,
-+                                           MEMBLOCK_KHO_SCRATCH);
-+#else
-+       return 0;
-+#endif
- }
- 
- static bool should_skip_region(struct memblock_type *type,
-
->>  
->>  	/*
->>  	 * 32-bit systems are limited to 4BG of memory even with HIGHMEM and
->> diff --git a/arch/x86/realmode/init.c b/arch/x86/realmode/init.c
->> index 88be32026768c..4e9b4dff17216 100644
->> --- a/arch/x86/realmode/init.c
->> +++ b/arch/x86/realmode/init.c
->> @@ -4,6 +4,7 @@
->>  #include <linux/memblock.h>
->>  #include <linux/cc_platform.h>
->>  #include <linux/pgtable.h>
->> +#include <linux/kexec_handover.h>
->>  
->>  #include <asm/set_memory.h>
->>  #include <asm/realmode.h>
->> @@ -67,7 +68,8 @@ void __init reserve_real_mode(void)
->>  	 */
->>  	memblock_reserve(0, SZ_1M);
->>  
->> -	memblock_clear_kho_scratch(0, SZ_1M);
->> +	if (is_kho_boot())
->> +		memblock_clear_kho_scratch(0, SZ_1M);
->>  }
->>  
->>  static void __init sme_sev_setup_real_mode(struct trampoline_header *th)
-
-
-
-
-The dmesg from one of the hosts with the warning is:
-
- 20:16:33  BIOS-provided physical RAM map:
- 20:16:33  BIOS-e820: [mem 0x0000000000000000-0x000000000009ffff] usable
- 20:16:33  BIOS-e820: [mem 0x00000000000a0000-0x00000000000fffff] reserved
- 20:16:33  BIOS-e820: [mem 0x0000000000100000-0x0000000069ca3fff] usable
- 20:16:33  BIOS-e820: [mem 0x0000000069ca4000-0x000000006bda3fff] reserved
- 20:16:33  BIOS-e820: [mem 0x000000006bda4000-0x000000006be5efff] ACPI data
- 20:16:33  BIOS-e820: [mem 0x000000006be5f000-0x000000006c9b8fff] ACPI NVS
- 20:16:33  BIOS-e820: [mem 0x000000006c9b9000-0x000000006ebedfff] reserved
- 20:16:33  BIOS-e820: [mem 0x000000006ebee000-0x000000006fffffff] usable
- 20:16:33  BIOS-e820: [mem 0x0000000070000000-0x000000008fffffff] reserved
- 20:16:33  BIOS-e820: [mem 0x00000000fd000000-0x00000000fe7fffff] reserved
- 20:16:33  BIOS-e820: [mem 0x00000000fed20000-0x00000000fed44fff] reserved
- 20:16:33  BIOS-e820: [mem 0x00000000ff000000-0x00000000ffffffff] reserved
- 20:16:33  BIOS-e820: [mem 0x0000000100000000-0x000000107fff847f] usable
- 20:16:33  BIOS-e820: [mem 0x000000107fff8480-0x000000107fff848f] type 128
- 20:16:33  BIOS-e820: [mem 0x000000107fff8490-0x000000107fffffff] usable
- 20:16:33  random: crng init done
- 20:16:33  ------------[ cut here ]------------
- 20:16:33  WARNING: CPU: 0 PID: 0 at mm/memblock.c:668 memblock_add_range+0x316/0x330
- 20:16:33  Modules linked in:
- 20:16:33  CPU: 0 UID: 0 PID: 0 Comm: swapper Tainted: G S                  6.16.1-0_fbk0_0_gc0739ee5037a #1 NONE 
- 20:16:33  Tainted: [S]=CPU_OUT_OF_SPEC
- 20:16:33  RIP: 0010:memblock_add_range+0x316/0x330
- 20:16:33  Code: ff ff ff 89 5c 24 08 41 ff c5 44 89 6c 24 10 48 63 74 24 08 48 63 54 24 10 e8 26 0c 00 00 e9 41 ff ff ff 0f 0b e9 af fd ff ff <0f> 0b e9 b7 fd ff ff 0f 0b 0f 0b cc cc cc cc cc cc cc cc cc cc cc
- 20:16:33  RSP: 0000:ffffffff83403dd8 EFLAGS: 00010083 ORIG_RAX: 0000000000000000
- 20:16:33  RAX: ffffffff8476ff90 RBX: 0000000000001c00 RCX: 0000000000000002
- 20:16:33  RDX: 00000000ffffffff RSI: 0000000000000000 RDI: ffffffff83bad4d8
- 20:16:33  RBP: 000000000009f000 R08: 0000000000000020 R09: 8000000000097101
- 20:16:33  R10: ffffffffff2004b0 R11: 203a6d6f646e6172 R12: 000000000009ec00
- 20:16:33  R13: 0000000000000002 R14: 0000000000100000 R15: 000000000009d000
- 20:16:33  FS:  0000000000000000(0000) GS:0000000000000000(0000) knlGS:0000000000000000
- 20:16:33  CR2: ffff888065413ff8 CR3: 00000000663b7000 CR4: 00000000000000b0
- 20:16:33  Call Trace:
- 20:16:33   <TASK>
- 20:16:33   ? __memblock_reserve+0x75/0x80
- 20:16:33   ? setup_arch+0x30f/0xb10
- 20:16:33   ? start_kernel+0x58/0x960
- 20:16:33   ? x86_64_start_reservations+0x20/0x20
- 20:16:33   ? x86_64_start_kernel+0x13d/0x140
- 20:16:33   ? common_startup_64+0x13e/0x140
- 20:16:33   </TASK>
- 20:16:33  ---[ end trace 0000000000000000 ]---
- 20:16:33  Memory allocation profiling is enabled with compression and is turned on!
- 20:16:33  NX (Execute Disable) protection: active
- 20:16:33  APIC: Static calls initialized
- 20:16:33  efi: EFI v2.6 by American Megatrends
- 20:16:33  efi: ACPI 2.0=0x6c5ec000 ACPI=0x6c5ec000 TPMFinalLog=0x6c987000 SMBIOS=0x6e69d000 SMBIOS 3.0=0x6e69c000 MEMATTR=0xffffffffffffffff ESRT=0x67d97918 INITRD=0x5f275d18 TPMEventLog=0x6be5d018 
- 20:16:33  efi: Remove mem00: MMIO range=[0xff000000-0xffffffff] (16MB) from e820 map
- 20:16:33  efi: Not removing mem01: MMIO range=[0xfed20000-0xfed44fff] (148KB) from e820 map
- 20:16:33  efi: Remove mem02: MMIO range=[0xfd000000-0xfe7fffff] (24MB) from e820 map
- 20:16:33  efi: Remove mem03: MMIO range=[0x80000000-0x8fffffff] (256MB) from e820 map
- 20:16:33  SMBIOS 3.1.1 present.
- 20:16:33  DMI: Quanta Twin Lakes MP/Twin Lakes Passive MP, BIOS F09_3A23 12/08/2020
- 20:16:33  DMI: Memory slots populated: 4/8
- 20:16:33  tsc: Detected 1600.000 MHz processor
- 20:16:33  last_pfn = 0x1080000 max_arch_pfn = 0x400000000
- 20:16:33  MTRR map: 8 entries (3 fixed + 5 variable; max 23), built from 10 variable MTRRs
- 20:16:33  x86/PAT: Configuration [0-7]: WB  WC  UC- UC  WB  WP  UC- WT  
- 20:16:33  last_pfn = 0x70000 max_arch_pfn = 0x400000000
- 20:16:33  esrt: Reserving ESRT space from 0x0000000067d97918 to 0x0000000067d97978.
- 20:16:33  Using GB pages for direct mapping
- 20:16:33  RAMDISK: [mem 0x5ed81000-0x62ffffff]
- 20:16:33  ACPI: Early table checksum verification disabled
- 20:16:33  ACPI: RSDP 0x000000006C5EC000 000024 (v02 ALASKA)
- 20:16:33  ACPI: XSDT 0x000000006C5EC0C0 000104 (v01 ALASKA A M I    01072009 AMI  00010013)
- 20:16:33  ACPI: FACP 0x000000006C62E590 000114 (v06 ALASKA A M I    01072009 INTL 20091013)
- 20:16:33  ACPI: DSDT 0x000000006C5EC260 04232D (v02 ALASKA A M I    01072009 INTL 20091013)
- 20:16:33  ACPI: FACS 0x000000006C9B7080 000040
- 20:16:33  ACPI: FPDT 0x000000006C62E6A8 000044 (v01 ALASKA A M I    01072009 AMI  00010013)
- 20:16:33  ACPI: FIDT 0x000000006C62E6F0 00009C (v01 ALASKA A M I    01072009 AMI  00010013)
- 20:16:33  ACPI: SPMI 0x000000006C62E790 000041 (v05 ALASKA A M I    00000000 AMI. 00000000)
- 20:16:33  ACPI: UEFI 0x000000006C62E7D8 000048 (v01 ALASKA A M I    01072009      01000013)
- 20:16:33  ACPI: MCFG 0x000000006C62E820 00003C (v01 ALASKA A M I    01072009 MSFT 00000097)
- 20:16:33  ACPI: HPET 0x000000006C62E860 000038 (v01 ALASKA A M I    00000001 INTL 20091013)
- 20:16:33  ACPI: APIC 0x000000006C62E898 00071E (v03 ALASKA A M I    00000000 INTL 20091013)
- 20:16:33  ACPI: MIGT 0x000000006C62EFB8 000040 (v01 ALASKA A M I    00000000 INTL 20091013)
- 20:16:33  ACPI: PCAT 0x000000006C62EFF8 000068 (v02 ALASKA A M I    00000002 INTL 20091013)
- 20:16:33  ACPI: PCCT 0x000000006C62F060 00006E (v01 ALASKA A M I    00000002 INTL 20091013)
- 20:16:33  ACPI: RASF 0x000000006C62F0D0 000030 (v01 ALASKA A M I    00000001 INTL 20091013)
- 20:16:33  ACPI: SVOS 0x000000006C62F100 000032 (v01 ALASKA A M I    00000000 INTL 20091013)
- 20:16:33  ACPI: WDDT 0x000000006C62F138 000040 (v01 ALASKA A M I    00000000 INTL 20091013)
- 20:16:33  ACPI: OEM4 0x000000006C62F178 028A0C (v02 INTEL  CPU  CST 00003000 INTL 20140828)
- 20:16:33  ACPI: OEM1 0x000000006C657B88 00A8CC (v02 INTEL  CPU EIST 00003000 INTL 20140828)
- 20:16:33  ACPI: OEM2 0x000000006C662458 006534 (v02 INTEL  CPU  HWP 00003000 INTL 20140828)
- 20:16:33  ACPI: SSDT 0x000000006C668990 00CEB8 (v02 INTEL  SSDT  PM 00004000 INTL 20140828)
- 20:16:33  ACPI: SSDT 0x000000006C675848 00065B (v02 ALASKA A M I    00000000 INTL 20091013)
- 20:16:33  ACPI: SPCR 0x000000006C675EA8 000050 (v02 A M I  APTIO V  01072009 AMI. 0005000E)
- 20:16:33  ACPI: TPM2 0x000000006C675EF8 000034 (v04 ALASKA A M I    00000001 AMI  00000000)
- 20:16:33  ACPI: SSDT 0x000000006C675F30 001368 (v02 INTEL  SpsNm    00000002 INTL 20140828)
- 20:16:33  ACPI: DMAR 0x000000006C677298 0000E8 (v01 ALASKA A M I    00000001 INTL 20091013)
- 20:16:33  ACPI: HEST 0x000000006C677380 0000A8 (v01 ALASKA A M I    00000001 INTL 00000001)
- 20:16:33  ACPI: BERT 0x000000006C677428 000030 (v01 ALASKA A M I    00000001 INTL 00000001)
- 20:16:33  ACPI: ERST 0x000000006C677458 000230 (v01 ALASKA A M I    00000001 INTL 00000001)
- 20:16:33  ACPI: EINJ 0x000000006C677688 000150 (v01 ALASKA A M I    00000001 INTL 00000001)
- 20:16:33  ACPI: WSMT 0x000000006C6777D8 000028 (v01 ALASKA A M I    01072009 AMI  00010013)
- 20:16:33  ACPI: Reserving FACP table memory at [mem 0x6c62e590-0x6c62e6a3]
- 20:16:33  ACPI: Reserving DSDT table memory at [mem 0x6c5ec260-0x6c62e58c]
- 20:16:33  ACPI: Reserving FACS table memory at [mem 0x6c9b7080-0x6c9b70bf]
- 20:16:33  ACPI: Reserving FPDT table memory at [mem 0x6c62e6a8-0x6c62e6eb]
- 20:16:33  ACPI: Reserving FIDT table memory at [mem 0x6c62e6f0-0x6c62e78b]
- 20:16:33  ACPI: Reserving SPMI table memory at [mem 0x6c62e790-0x6c62e7d0]
- 20:16:33  ACPI: Reserving UEFI table memory at [mem 0x6c62e7d8-0x6c62e81f]
- 20:16:33  ACPI: Reserving MCFG table memory at [mem 0x6c62e820-0x6c62e85b]
- 20:16:33  ACPI: Reserving HPET table memory at [mem 0x6c62e860-0x6c62e897]
- 20:16:33  ACPI: Reserving APIC table memory at [mem 0x6c62e898-0x6c62efb5]
- 20:16:33  ACPI: Reserving MIGT table memory at [mem 0x6c62efb8-0x6c62eff7]
- 20:16:33  ACPI: Reserving PCAT table memory at [mem 0x6c62eff8-0x6c62f05f]
- 20:16:33  ACPI: Reserving PCCT table memory at [mem 0x6c62f060-0x6c62f0cd]
- 20:16:33  ACPI: Reserving RASF table memory at [mem 0x6c62f0d0-0x6c62f0ff]
- 20:16:33  ACPI: Reserving SVOS table memory at [mem 0x6c62f100-0x6c62f131]
- 20:16:33  ACPI: Reserving WDDT table memory at [mem 0x6c62f138-0x6c62f177]
- 20:16:33  ACPI: Reserving OEM4 table memory at [mem 0x6c62f178-0x6c657b83]
- 20:16:33  ACPI: Reserving OEM1 table memory at [mem 0x6c657b88-0x6c662453]
- 20:16:33  ACPI: Reserving OEM2 table memory at [mem 0x6c662458-0x6c66898b]
- 20:16:33  ACPI: Reserving SSDT table memory at [mem 0x6c668990-0x6c675847]
- 20:16:33  ACPI: Reserving SSDT table memory at [mem 0x6c675848-0x6c675ea2]
- 20:16:33  ACPI: Reserving SPCR table memory at [mem 0x6c675ea8-0x6c675ef7]
- 20:16:33  ACPI: Reserving TPM2 table memory at [mem 0x6c675ef8-0x6c675f2b]
- 20:16:33  ACPI: Reserving SSDT table memory at [mem 0x6c675f30-0x6c677297]
- 20:16:33  ACPI: Reserving DMAR table memory at [mem 0x6c677298-0x6c67737f]
- 20:16:33  ACPI: Reserving HEST table memory at [mem 0x6c677380-0x6c677427]
- 20:16:33  ACPI: Reserving BERT table memory at [mem 0x6c677428-0x6c677457]
- 20:16:33  ACPI: Reserving ERST table memory at [mem 0x6c677458-0x6c677687]
- 20:16:33  ACPI: Reserving EINJ table memory at [mem 0x6c677688-0x6c6777d7]
- 20:16:33  ACPI: Reserving WSMT table memory at [mem 0x6c6777d8-0x6c6777ff]
- 20:16:33  No NUMA configuration found
- 20:16:33  Faking a node at [mem 0x0000000000000000-0x000000107fffffff]
- 20:16:33  NODE_DATA(0) allocated [mem 0x107fffcfc0-0x107fffffff]
- 20:16:33  hugetlb_cma: reserve 6144 MiB, up to 6144 MiB per node
- 20:16:33  cma: Reserved 6144 MiB in 1 range
- 20:16:33  hugetlb_cma: reserved 6144 MiB on node 0
- 20:16:33  crashkernel reserved: 0x0000000052000000 - 0x000000005e000000 (192 MB)
- 20:16:33  Zone ranges:
- 20:16:33    DMA      [mem 0x0000000000001000-0x0000000000ffffff]
- 20:16:33    DMA32    [mem 0x0000000001000000-0x00000000ffffffff]
- 20:16:33    Normal   [mem 0x0000000100000000-0x000000107fffffff]
- 20:16:33    Device   empty
- 20:16:33  Movable zone start for each node
- 20:16:33  Early memory node ranges
- 20:16:33    node   0: [mem 0x0000000000001000-0x000000000009ffff]
- 20:16:33    node   0: [mem 0x0000000000100000-0x0000000069ca3fff]
- 20:16:33    node   0: [mem 0x000000006ebee000-0x000000006fffffff]
- 20:16:33    node   0: [mem 0x0000000100000000-0x000000107fff7fff]
- 20:16:33    node   0: [mem 0x000000107fff9000-0x000000107fffffff]
- 20:16:33  Initmem setup node 0 [mem 0x0000000000001000-0x000000107fffffff]
- 20:16:33  On node 0, zone DMA: 1 pages in unavailable ranges
- 20:16:33  On node 0, zone DMA: 96 pages in unavailable ranges
- 20:16:33  On node 0, zone DMA32: 20298 pages in unavailable ranges
- 20:16:33  On node 0, zone Normal: 1 pages in unavailable ranges
- 20:16:33  ACPI: PM-Timer IO Port: 0x508
- 20:16:33  ACPI: X2APIC_NMI (uid[0xffffffff] high level lint[0x1])
- 20:16:33  ACPI: LAPIC_NMI (acpi_id[0xff] high level lint[0x1])
- 20:16:33  IOAPIC[0]: apic_id 8, version 32, address 0xfec00000, GSI 0-23
- 20:16:33  IOAPIC[1]: apic_id 9, version 32, address 0xfec01000, GSI 24-31
- 20:16:33  IOAPIC[2]: apic_id 10, version 32, address 0xfec08000, GSI 32-39
- 20:16:33  IOAPIC[3]: apic_id 11, version 32, address 0xfec10000, GSI 40-47
- 20:16:33  IOAPIC[4]: apic_id 12, version 32, address 0xfec18000, GSI 48-55
- 20:16:33  ACPI: INT_SRC_OVR (bus 0 bus_irq 0 global_irq 2 dfl dfl)
- 20:16:33  ACPI: INT_SRC_OVR (bus 0 bus_irq 9 global_irq 9 high level)
- 20:16:33  ACPI: Using ACPI (MADT) for SMP configuration information
- 20:16:33  ACPI: HPET id: 0x8086a701 base: 0xfed00000
- 20:16:33  TSC deadline timer available
- 20:16:33  CPU topo: Max. logical packages:   1
- 20:16:33  CPU topo: Max. logical dies:       1
- 20:16:33  CPU topo: Max. dies per package:   1
- 20:16:33  CPU topo: Max. threads per core:   2
- 20:16:33  CPU topo: Num. cores per package:    18
- 20:16:33  CPU topo: Num. threads per package:  36
- 20:16:33  CPU topo: Allowing 36 present CPUs plus 0 hotplug CPUs
- 20:16:33  [mem 0x80000000-0xfed1ffff] available for PCI devices
- 20:16:33  Booting paravirtualized kernel on bare hardware
- 20:16:33  clocksource: refined-jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 1910969940391419 ns
- 20:16:33  Load bootconfig: 46 bytes 5 nodes
- 20:16:33  setup_percpu: NR_CPUS:512 nr_cpumask_bits:36 nr_cpu_ids:36 nr_node_ids:1
- 20:16:33  percpu: Embedded 78 pages/cpu s282624 r8192 d28672 u524288
- 20:16:33  Unknown kernel command line parameters "biosdevname=0", will be passed to user space.
- 20:16:33  printk: log buffer data + meta data: 2097152 + 7340032 = 9437184 bytes
- 20:16:33  Dentry cache hash table entries: 8388608 (order: 14, 67108864 bytes, linear)
- 20:16:33  Inode-cache hash table entries: 4194304 (order: 13, 33554432 bytes, linear)
- 20:16:33  software IO TLB: area num 64.
- 20:16:33  software IO TLB: SWIOTLB bounce buffer size roundup to 16MB
- 20:16:33  Fallback order for Node 0: 0 
- 20:16:33  Built 1 zonelists, mobility grouping on.  Total pages: 16691284
- 20:16:33  Policy zone: Normal
- 20:16:33  mem auto-init: stack:off, heap alloc:off, heap free:off
- 20:16:33  SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=36, Nodes=1
-
-
+-- 
+2.51.0
 
 
