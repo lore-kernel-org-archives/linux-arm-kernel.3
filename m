@@ -4,124 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA749CFD315
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 08:52:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB89DCFD315
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 09:15:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:To:From:Date:Reply-To:Cc:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=gSauOwJJuNnjyPBbUyUtrFBoFmJO4GXnpVHS0oMoaj8=; b=td14OWaBm4OrHkkJ202vxzaIns
-	1emRgEPZwXuYxcTO+0fh4RaDPowJAl0LDhElaZP0OJIayWqKYj1Pnas2yH8Mm32tA5ivDSp4LUu5z
-	4n1eEYZzCF4Nvnhky0F7nsI6qHfQfuQB5YhE6/dNUiguj7ubqmddvFCPCtM/Wg9lHgKY/dFGqKcVA
-	vUpkk02YRdlaPRCO+4paIYJ+gXxuVTdrIWdMLEAZ7c7U9SKIaVpgdeVOi4TerymVDvdYP6PqCnb6P
-	5tMpxhMC83wlpeQC6zOnNhihceXOMxmOzoZxWZPcR/aCQAJPVnBmAuvQ69tesHMooUcZFxHOC9NY2
-	amIqzwBQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WbnniyQBYsSv8LXOy0SkndmtRMhR+Nd17w4wSUmMqng=; b=KIqnYFmtMNfSWelTUtEnrf51Ig
+	7aBaLDuRd6gz2a9l6aM14dqMHJAj3qSW6axcwrYZqp2UC9h7GRX0OAsxmOlqCOVEimQV+UfzHf4V3
+	Fm4S+yZH/7ACxUmnX4g4oS53yqwYuATu4EOveHOFao81b4dHBI5UnDK01f8iAMeEeTlhG6kwzLgd2
+	wydZqooF+EIR9fbJqwr+LBedXcNOaBGu9kBSWOyH9hn5AqMPg36CeTH9Nr5i6syIFcpdnoeS3iODQ
+	1DndK1kX+iqIqXHOTPV0g9bgHPanou5iF0fowyzu7CmnDYJMmFfiu8MEZucPIzCf5JMYjtUWk6cvH
+	ECj2Pljw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNomT-0000000CzkG-3QVV;
-	Tue, 25 Nov 2025 08:52:13 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1vNp94-0000000D0w1-3bE3;
+	Tue, 25 Nov 2025 09:15:36 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNomR-0000000CzjU-0D5o
+	id 1vNp91-0000000D0ve-2jN7
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Nov 2025 08:52:12 +0000
-Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5AP2gf6Q1687862
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Nov 2025 08:52:10 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	content-type:date:from:message-id:mime-version:subject:to; s=
-	qcppdkim1; bh=gSauOwJJuNnjyPBbUyUtrFBoFmJO4GXnpVHS0oMoaj8=; b=iX
-	j4TveuWpA5coXgr0M0TbC+V0Zo5MHtRXOBP37sjII5XjbKOYZ6ZEbzAfWO9M5KHo
-	YduYESNZyBmpr9WSZl00qfsKxLwHsJ11pkiVdy/89e//SI0bZErQEWV9lImxPEME
-	Apil+h+ckzGQTsoBY8BoF/FLRvgJsgaYpI87PZ8jWwQUqt4txsHfP5JcOwooAXXK
-	LnaTdBHQr5V2Hp8ErRFpbR9aLnunA5GwsXvLeQsD6sbLNSXAaDNsh06mN80EBGzb
-	fuJ4d9fe82m4Jfl56VZnt74ajgMogdNuD/AJg81VrtbGn9rC16wKq6OJkgDx0s//
-	WRr8RGSCs223guPGki+w==
-Received: from mail-pj1-f70.google.com (mail-pj1-f70.google.com [209.85.216.70])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4amrv6axeb-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Nov 2025 08:52:10 +0000 (GMT)
-Received: by mail-pj1-f70.google.com with SMTP id 98e67ed59e1d1-34374bfbcccso4949776a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Nov 2025 00:52:10 -0800 (PST)
+	Tue, 25 Nov 2025 09:15:33 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-4775895d69cso21734565e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Nov 2025 01:15:31 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1764060729; x=1764665529; darn=lists.infradead.org;
-        h=content-disposition:mime-version:message-id:subject:to:from:date
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=gSauOwJJuNnjyPBbUyUtrFBoFmJO4GXnpVHS0oMoaj8=;
-        b=kRMMc7ImuYRxz7Yqg6W5d+lkcE+bZJJFA29h6I8UwvZv4ylMA6RP7rFj6LNzs57r9H
-         lbn+MEpNLWwi6FPxEH8Ylu0HOyE1AoGQhyzeUO9Mz5X7yzsHs81rvCMHpHOX1yusN4cA
-         FdPB7VK6VTd8bw4jzOmPLNeEiKuneE46dksDbOQUCYWTMVZGDurtXWHuxe8EUAV1UxN6
-         foGsRyYUrsvefMRQ25Htq2lysH2Sy0HW8l4KmEcacJ5wVVpuJ3OJTPKZYFSvwrWALYbU
-         v722Iwy7iVBvJd5NFOI/Y3gFPf6daifUEDBaDuZWwt35TJdTxopnbX/9kPP8psLZZkCd
-         5ECw==
+        d=linaro.org; s=google; t=1764062130; x=1764666930; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:references
+         :cc:to:subject:from:user-agent:mime-version:date:message-id:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=WbnniyQBYsSv8LXOy0SkndmtRMhR+Nd17w4wSUmMqng=;
+        b=TgnJnxtLfcrmsj9jgtbPcBKGbNcW/dtjPePG/QOSfhs/CAah9ndiJ8dcqa1qIQRLhl
+         FA74xcodLGOZwqMeaM463dN+zHLL+pbyblnl04bM0WiZq6Npd/ylSlqkE9Ppq6EHxyYk
+         g/ZgIdlYMjwwHBEi9AS8ddGbAicENl7tOpSumMUUJ9ZTC3G7QaB0sY1PGw2yNOQsOcIE
+         PEBuVhV1T42SZNLCBJm5WGsBrYRhV2e9kRf9+mz8rhsPFp+129oUHJs6BlSSUhv2Tqc5
+         MN1ZfxCgHr2r+hZul6BjHNbo1S1rwA0eFoE8KVGhUF55zVLb5Ajl81w0tRszucar23V1
+         kapg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764060729; x=1764665529;
-        h=content-disposition:mime-version:message-id:subject:to:from:date
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=gSauOwJJuNnjyPBbUyUtrFBoFmJO4GXnpVHS0oMoaj8=;
-        b=DDBY8U8NwL3DblAC5seLp6hEg9jGdKx1PWzJTXaNqzryWffpBtLU9Vwpk+5TY0tgRb
-         2KX7NQ6rPJPPmIQ8ZFeYl4MIwQzXhwZEDhFGTSK4fS5NJTUj/2rSmAYE40jc0CrnKFay
-         dDq387l8nVPHR1iQWXxbsfHz1iR+TPEzxcRKGg711/vllolA232B1uJakUWl6vlNjvhF
-         E55QEjPu00JAG7c8+biUZVTZekbvBmSR6wcX1f0WoNUx1XQGpP2ZosU24LtsMbGllQ19
-         FPSn691BNQaV8l7wM59Svb9eOr+ppXmDMXeSNLC6pBxilRt4GUFEua2chEnfemEyBPTF
-         3V9A==
-X-Gm-Message-State: AOJu0Yzjcghx2VxNQjM7nC1p1xgoraW8fGOeCPEZFQvUN8Yhpv3ZBjo9
-	XJWWVpSDNqTkX1IokwWrIYQSZNgegSV+gffCT4+8tUGdJqqgYkqFWj6N9EWHDJij24uC+nWzR3E
-	zVZRQNpMmVcMVGqz3QL7N5CR6ncfsN9Ax3Pd9HVEUmpBK/a00pSo0COpLBF+I/1nKxLWAQy/F9V
-	ITeXwUdr2Fdw==
-X-Gm-Gg: ASbGnctHzqFev6Ac46/mmIAEebBncoCCL3LNmEz6jMSISx72PSvfXBe8EkmHSxy08h4
-	5XdoIjQerQndWgFjFYwD8Hi3IcbJMws2nEIz8/mnA3fr6n1l4M/ldqeLtRbjalREmgRV2zrmsHa
-	UxfOAwAGg5wlhOGD7SqFhgl4jw/4CdZr9byinmqlZZT+Nk9zexkXNqHSMwSlIOyG3wHZ1TAzzSK
-	/zRbZBlWdlQPCjEo06vd4mymIPTJUfnpqQuGfQ0/FDZHEI4cZhfXnuBeuDIaW4Eyy3l03CrOnMu
-	R2YrxO6lUK9S6sWOPITqjPd/HzoOetTrzk/i/w33acSlZNMHBVOm53s3OYdvWrYyfe7GyCiFaVw
-	FmlRr3G79egOPzp/oxCzn/OTQFjA+OjnxGMzbMDArjxY=
-X-Received: by 2002:a17:90b:2587:b0:340:f7d6:dc70 with SMTP id 98e67ed59e1d1-3475ebfa0d3mr1890902a91.13.1764060729409;
-        Tue, 25 Nov 2025 00:52:09 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IHqlg2GTH+sdvTW/Lfp7+v37BUjIzLIPd+XyOx92rIomrTFQY1YmOb+Absubbcv1hwpDBnbrQ==
-X-Received: by 2002:a17:90b:2587:b0:340:f7d6:dc70 with SMTP id 98e67ed59e1d1-3475ebfa0d3mr1890883a91.13.1764060728893;
-        Tue, 25 Nov 2025 00:52:08 -0800 (PST)
-Received: from hu-pkondeti-hyd.qualcomm.com ([202.46.22.19])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-34727a36bbfsm15991068a91.0.2025.11.25.00.52.07
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 25 Nov 2025 00:52:08 -0800 (PST)
-Date: Tue, 25 Nov 2025 14:22:05 +0530
-From: Pavan Kondeti <pavan.kondeti@oss.qualcomm.com>
-To: linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-        jean-philippe@linaro.org
-Subject: PRI support in arm-smmu-v3 driver
-Message-ID: <1256faaa-e9cd-46a6-9a42-25aa74b984a8@quicinc.com>
+        d=1e100.net; s=20230601; t=1764062130; x=1764666930;
+        h=content-transfer-encoding:in-reply-to:content-language:references
+         :cc:to:subject:from:user-agent:mime-version:date:message-id:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=WbnniyQBYsSv8LXOy0SkndmtRMhR+Nd17w4wSUmMqng=;
+        b=d6v6Fd89QkC79aNT39CGEeng0k4Wk12IE8Ay7A6ob6qDMWt/qXXnqM+9ZLwqEq/8XJ
+         ts8dEr628geC0klrMXsJc0di0MuoNvyLjJ6Aon7HraRA5hzNs8ssWI9gnAsyAK+wzigN
+         HseZ+6DNMNaM0fthTD/gd4Qr25k0Z5o3QQlcvbHRdcqdWZuRKx0/e6AZ8hl9AfIYf6xH
+         3nYlyRBjNQhdeahJjeGXG2VZUEBHV7XxkTgfo97TpfcSRdHhiWFLltY3e0Njv7QwfyRD
+         QvPoG5oiHl/Lo3du/0N59rbUtqm9AjCQvxOzKStZxsXX+fcTQL171RE5usuCqaftpdL0
+         pqCQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVmco4iNwpk4uitzY9iKm5GIeENBARmbBPJjdQ8x+NIcfW6180jHNYIhDRl4iRo/JBzHIroOlQr+ssEJI2NNSCt@lists.infradead.org
+X-Gm-Message-State: AOJu0YyLRt0NgQ9BR9W6dWy57Uxs2wnYD0OWhNB752E0Nsz12Kvx7u22
+	Ly9FLtp/nYpddcLWgVliiyGZh5sy4nQT5ppOzBeRYEHzmPom2O5PWx/P6Hz+w5Q8xiU=
+X-Gm-Gg: ASbGncvd/SSayPuoBvEIvc1J59lJX2qtKiGfQpUd2UlRF/nmMrF60KmInLbdGaIypkO
+	X+ZIM+4gT1eB5coUCcaumhgOvtDsCCPzHX/EjlqSWO7Nm7nQaoe+ig8OdxShQ/Y4v1WlEy7jRKv
+	7usmu39wD71yUYT7nCXtJI9MUm4u9oC1Gg8ZrZdpwrtjbresH4h1O/1SOj3MePWB7x3BDHK6ez/
+	0R7iTWNw4TbR53fR6dlYRqiVGMokdyfzo/UhAkSUtkL3yJXNW6J3bAoYl5RfM6UrNQjfvDKnU7V
+	FCOOlZjnQ8ClO0PbJj1LNBaFfKlsgvB6eEJ7oQp6y/tgl1fUGAL9F3X6Mz+bjcQ3ftW9zmH9BF1
+	+7JC0iTqfj/Op7bOh66lV08XlT4SnJW86OIiXJWjRmD3gpV3tLJ6Ci1T5MoU3ajk5wo1lqTYh5d
+	zIzxFEJ2RCU92caVe5
+X-Google-Smtp-Source: AGHT+IGWFG0HxUIp9tkL1HpcvIFQSl/Uv/HgoNmqz7nTca4y0bOHNVljGRRpohMOzuAV8p5abC+yhg==
+X-Received: by 2002:a05:600c:3545:b0:477:7ab8:aba with SMTP id 5b1f17b1804b1-47904ac3ca4mr16226075e9.1.1764062129519;
+        Tue, 25 Nov 2025 01:15:29 -0800 (PST)
+Received: from [10.11.12.107] ([5.12.85.52])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-479040c70c5sm14596605e9.4.2025.11.25.01.15.25
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 25 Nov 2025 01:15:28 -0800 (PST)
+Message-ID: <5a6a749b-b2b7-41bb-bcb4-a2342e7f4e98@linaro.org>
+Date: Tue, 25 Nov 2025 11:15:24 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMTI1MDA3MSBTYWx0ZWRfX3CtaShXpfoNT
- 8F2W54CyVWWE4LPQV7B2UE4aqxCUzWMH+3wi2y6/8yDjfk9kfanioOgZMdSGzgcW5VSkly8MUFo
- MOk9tkkLJ+q1j6Zad0fKMQhlUKuCLjWsSCLH29lEAMFxtHoIccFVABiG/ZtKJ2cSZFiIt0BEx5S
- n6HoT9WBGWBsyVY8J2uRPp8mrcVI1RrSzlM4aPk39KuSrGX+EPM1XXIkPYYHd5P69jvxqVewhYX
- Nph3RpC6S47zeUGKozGzKUny8lIHW1YiwwwZd1ABvZOo79jNjICY6gs3M/EZrsAivCbD2CQLmaB
- SLQvAWseXxGvNS/Ys+wK90Zuaj4IXmBTNvjCZOXQELm5lI5Hh5lp2qgMSWQSIbmw6XjHDPvad86
- kQzDeGMY/Xd/y/AuCuj1chHhi3CO8w==
-X-Proofpoint-GUID: jYeVa5WjxNx2LE3a2LPRVo-TaQR3nLoU
-X-Authority-Analysis: v=2.4 cv=f7BFxeyM c=1 sm=1 tr=0 ts=69256e3a cx=c_pps
- a=0uOsjrqzRL749jD1oC5vDA==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
- a=kj9zAlcOel0A:10 a=6UeiqGixMTsA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=VwQbUJbxAAAA:8 a=KKAkSRfTAAAA:8
- a=Gpj13mTOjE8SKnWQHpIA:9 a=CjuIK1q_8ugA:10 a=mQ_c8vxmzFEMiUWkPHU9:22
- a=cvBusfyB2V15izCimMoJ:22
-X-Proofpoint-ORIG-GUID: jYeVa5WjxNx2LE3a2LPRVo-TaQR3nLoU
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
- definitions=2025-11-25_02,2025-11-24_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 spamscore=0 phishscore=0 adultscore=0 priorityscore=1501
- impostorscore=0 lowpriorityscore=0 suspectscore=0 clxscore=1015 bulkscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2510240001 definitions=main-2511250071
+User-Agent: Mozilla Thunderbird
+From: Tudor Ambarus <tudor.ambarus@linaro.org>
+Subject: Re: [PATCH v7 RESEND 2/3] thermal: exynos_tmu: Support new hardware
+ and update TMU interface
+To: Shin Son <shin.son@samsung.com>,
+ Bartlomiej Zolnierkiewicz <bzolnier@gmail.com>,
+ Krzysztof Kozlowski <krzk@kernel.org>, "Rafael J . Wysocki"
+ <rafael@kernel.org>, Daniel Lezcano <daniel.lezcano@linaro.org>,
+ Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>,
+ Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Alim Akhtar <alim.akhtar@samsung.com>
+Cc: Henrik Grimler <henrik@grimler.se>, linux-pm@vger.kernel.org,
+ linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Peter Griffin <peter.griffin@linaro.org>,
+ =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
+ William McVicker <willmcvicker@google.com>, jyescas@google.com
+References: <20251113064022.2701578-1-shin.son@samsung.com>
+ <CGME20251113064044epcas2p1b87addb21473eca7cc52052e4e2e9237@epcas2p1.samsung.com>
+ <20251113064022.2701578-3-shin.son@samsung.com>
+Content-Language: en-US
+In-Reply-To: <20251113064022.2701578-3-shin.son@samsung.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251125_005211_098638_D4183C81 
-X-CRM114-Status: GOOD (  12.86  )
+X-CRM114-CacheID: sfid-20251125_011531_773720_582F255F 
+X-CRM114-Status: GOOD (  18.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,23 +114,180 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi
+Hi, Shin Son,
 
-I am trying to understand IO fault handling in Linux w/ SMMUv3. While reading
-the code, I understand that SVA domain creation allows taking IO pagefaults.
-arm_smmu_enable_iopf() checks if the master support stall upon fault
-feature or not. How do we handle page faults for PCIe devices, for which 
-transactions cannot safely be stalled? IIUC, The PRI handling in the
-driver i.e arm_smmu_priq_thread()->arm_smmu_handle_ppr() is not doing
-anything. In the SVA support for SMMUv3 series v7, I see the support for
-PRI via "Add support for PRI" patch [1] but it is not merged. 
+Just trivial notes on registers description for now.
 
-Can you please clarify if we can support SVA with PCIe devices w/o
-pinning the memory?
+On 11/13/25 8:40 AM, Shin Son wrote:
+> diff --git a/drivers/thermal/samsung/exynos_tmu.c b/drivers/ 
+> thermal/ samsung/exynos_tmu.c index 47a99b3c5395..8fa188928b79 
+> 100644 --- a/ drivers/thermal/samsung/exynos_tmu.c +++ b/drivers/ 
+> thermal/samsung/ exynos_tmu.c @@ -121,8 +121,51 @@
+> 
+> #define EXYNOS_NOISE_CANCEL_MODE		4
+> 
+> +/* ExynosAutov920 specific registers */ +#define 
+> EXYNOSAUTOV920_SLOPE_COMP		25 +#define 
+> EXYNOSAUTOV920_SLOPE_COMP_MASK		0xf
 
-[1]
-https://lore.kernel.org/all/20200519175502.2504091-25-jean-philippe@linaro.org/
+Register fields shall be named
+SOC_REG_NAME_FIELD_NAME
 
-Thansk,
-Pavan
+If you include <linux/bits.h> you can substitute the above 2 definitions
+with just one:
+EXYNOSAUTOV920_TRIMINFO_SLOPE_COMP	GENMASK(28, 25)
+
+and later on in the code, instead of doing the shift and the mask, you
+can include <linux/bitfield.h> and do:
+
+data->slope_comp = FIELD_GET(EXYNOSAUTOV920_TRIMINFO_SLOPE_COMP, val);
+
+btw, above matches the GS101 definitions.
+
+> +#define EXYNOSAUTOV920_CALIB_SEL_TEMP		30 +#define 
+> EXYNOSAUTOV920_CALIB_SEL_TEMP_MASK	0x2 +
+
+is this BIT(31)?
+EXYNOSAUTOV920_TRIMINFO2_CALIB_SEL_TEMP		BIT(31)
+
+GS101 differs, it has this field defined at:
+GS101_TRIMINFO_CALIB_SEL_TEMP			BIT(0)
+where TRIMINFO is at Base Address + 0x0, not at Base Address + 0x4 as in
+your case.
+
+> +#define EXYNOSAUTOV920_SENSOR0_TRIM_INFO	0x10
+
+GS101 does not have any SENSOR0 in the reg name, so maybe rename it to:
+#define EXYNOSAUTOV920_TRIMINFO0		0x10
+
+> +#define EXYNOSAUTOV920_TRIM_MASK		0x1ff +#define 
+> EXYNOSAUTOV920_TRIMINFO_25_SHIFT	0 +#define 
+> EXYNOSAUTOV920_TRIMINFO_85_SHIFT	9
+
+#define EXYNOSAUTOV920_TRIMINFO_85_P0		GENMASK(17, 9)
+#define EXYNOSAUTOV920_TRIMINFO_25_P0		GENMASK(8, 0)
+
+> + +#define EXYNOSAUTOV920_TMU_REG_TRIMINFO2	0x04
+
+Is this a TRIMINFO_CONFIG2 register? I don't have such thing on GS101.
+
+> + +#define EXYNOSAUTOV920_TMU_REG_THRESHOLD(p)	(((p)) * 0x50 + 
+> 0x00d0)
+
+#define EXYNOSAUTOV920_THRESHOLD_TEMP_RISE7_6(p)	(((p)) * 0x50 + 0xd0)
+and then:
+#define EXYNOSAUTOV920_THRESHOLD_TEMP_RISE7_6_RISE7 	GENMASK(24, 16)
+#define EXYNOSAUTOV920_THRESHOLD_TEMP_RISE7_6_RISE6 	GENMASK(8, 0)
+you'll stop passing the shift and mask as function arguments :)
+
+
+> +#define EXYNOSAUTOV920_TMU_REG_INTEN(p)		(((p)) * 0x50 + 0x00f0)
+
+#define EXYNOSAUTOV920_INTEN(p)				(((p)) * 0x50 + 0xf0)
+
+I see you use just BIT(7) from this register. Let's define it and stop passing
+the bit offset as function argument:
+
+#define EXYNOSAUTOV920_INTEN_RISE7			BIT(7)
+
+> +#define EXYNOSAUTOV920_TMU_REG_INT_PEND(p)	(((p)) * 0x50 + 0x00f8)
+
+#define EXYNOSAUTOV920_PEND(p)				(((p)) * 0x50 + 0xf8)
+
+Are you using GENMASK(15, 0) for this register?
+
+On GS101 GENMASK(15, 9) is reserved. Here's how the bits are defined for GS101:
+
+#define EXYNOSAUTOV920_PEND_FALL(i)			BIT(16 + (i))
+#define EXYNOSAUTOV920_PEND_RISE_MASK			GENMASK(23, 16)
+#define EXYNOSAUTOV920_PEND_RISE(i)			BIT(i)
+#define EXYNOSAUTOV920_PEND_RISE_MASK			GENMASK(8, 0)
+
+Would you please verify and let me know if EXYNOSAUTOV920 differs or not?
+
+> +#define EXYNOSAUTOV920_CURRENT_TEMP_P1_P0	0x084
+
+no leading 0
+#define EXYNOSAUTOV920_CURRENT_TEMP_P1_P0		0x84
+then define the fields:
+#define EXYNOSAUTOV920_CURRENT_TEMP_P1			GENMASK(24, 16)
+#define EXYNOSAUTOV920_CURRENT_TEMP_P0			GENMASK(8, 0)
+
+
+> +#define EXYNOSAUTOV920_TMU_REG_EMUL_CON		0x0b0
+
+no TMU_REG in the name, no leading 0, define the fields as GENMASK
+#define EXYNOSAUTOV920_EMUL_CON				0xb0
+#define EXYNOSAUTOV920_EMUL_CON_EMUL_NEXT_TIME		GENMASK(31, 16)
+#define EXYNOSAUTOV920_EMUL_CON_EMUL_NEXT_DATA		GENMASK(15, 7)
+#define EXYNOSAUTOV920_EMUL_CON_EMUL_EN			BIT(0)
+
+
+> +
+> +#define EXYNOSAUTOV920_TMU_REG_CONTROL		0x50
+
+no reg in the name, control0
+#define EXYNOSAUTOV920_TMU_CONTROL0			0x50
+
+define fields as GENMASK and BIT
+
+> +#define EXYNOSAUTOV920_TMU_REG_CONTROL1		0x54
+
+ditto
+
+> +#define EXYNOSAUTOV920_TMU_REG_AVG_CONTROL	0x58
+
+ditto
+
+> +#define EXYNOSAUTOV920_TMU_SAMPLING_INTERVAL	0x70
+
+no TMU in the name, respect the registers name from the datasheet please.
+define the full genmask
+#define EXYNOSAUTOV920_SAMPLING_INTERVAL_MASK		GENMASK(31, 0)
+
+> +#define EXYNOSAUTOV920_TMU_REG_COUNTER_VALUE0	0x74
+> +#define EXYNOSAUTOV920_TMU_REG_COUNTER_VALUE1	0x78
+
+no TMU_REG in the name, define fields> +
+> +#define EXYNOSAUTOV920_TMU_T_BUF_VREF_SEL_SHIFT		8
+> +#define EXYNOSAUTOV920_TMU_T_BUF_VREF_SEL_MASK		0x1f
+> +#define EXYNOSAUTOV920_TMU_T_BUF_SLOPE_SEL_SHIFT	3
+> +#define EXYNOSAUTOV920_TMU_T_BUF_SLOPE_SEL_MASK		0xf
+> +#define EXYNOSAUTOV920_TMU_NUM_PROBE_MASK		0xf
+> +#define EXYNOSAUTOV920_TMU_NUM_PROBE_SHIFT		16
+> +#define EXYNOSAUTOV920_TMU_LPI_MODE_MASK		1
+> +#define EXYNOSAUTOV920_TMU_LPI_MODE_SHIFT		10
+
+you won't need these if you define the register fields, isn't it?> +
+> +#define EXYNOSAUTOV920_TMU_AVG_CON_UPDATE		0x0008011a
+
+no leading zeros. You better construct the fields dynamically, by using bitfields,
+no full register magic number, humans don't understand this.
+
+> +#define EXYNOSAUTOV920_TMU_COUNTER_VALUE0_UPDATE	0x030003c0
+> +#define EXYNOSAUTOV920_TMU_COUNTER_VALUE1_UPDATE	0x03c0004d
+
+same for both
+
+> +
+>  #define MCELSIUS	1000
+>  
+> +#define EXYNOS_DEFAULT_SENSOR_COUNT			1
+> +#define EXYNOS_MAX_SENSOR_COUNT	
+would it make sense to have the tzd_array to fit just the sensor count that
+we're using so that we don't waste memory? i.e. allocate tzd_array dynamically.
+
+Looking at the exynosautov9 registers that you described and comparing them with
+gs101 I see just 2 differences:
+1/ exnosautov2 has a TRIMINFO_CONFIG2 register, while gs101 doesn't
+2/ EXYNOSAUTOV920_PEND register fields differ from GS101
+
+Given the similarities, and considering the EXYNOS9_ registers rename from:
+https://lore.kernel.org/linux-samsung-soc/20251117074140.4090939-5-youngmin.nam@samsung.com/
+would it make sense to use the SoC-era name instead of specific SoC, i.e.
+s/EXYNOSAUTOV920_/EXYNOS9_ and use the latter for both exynosautov9 and gs101?
+
+Cheers,
+ta
+
 
