@@ -4,166 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABA54D0EE0D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 17:03:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8022DD0EE00
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 17:03:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TWY7MFugZ9CmdVxleLBxwXlELP55Zd08rQW98ZPdUto=; b=0q8sTZtu2NhFfuLlzepW9gaSCb
-	aU4WlaQhdAmxfvOAeTKs2CgqbVSB0SncCxQWYpiSNtspvXXJHXJPo/vAVBqDNAfCsxF/lCs+lq0Ql
-	tDpWJ2a+CkhAOqZd9K/MISIRJfhueV52+hQp7JfCxpLsZpjWAJQSv5e+NuOYzQWY83UZs5NH5bVSk
-	hb+CFFgtHj2hbiiDOdXis79A2Uu4j1ETYET74AwWpE1iSLLAsnNBo8wecPgKl/f0K6tL5vxX/8FSe
-	OQQvz6/D+vLejdm2wZtbIgM4uFONQKD7bHQjCN3POQLGwTZ1AhH/kYU972FQLc4geClI6w3fcshSu
-	fQJg2Gew==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rfmkhk6fI8nQ7zM7WRF33dysSOhxawuyL810u6pnhUo=; b=QL2ccw04ehoi4t/Ylymm9KHFAT
+	o1wk42Kb4cjTRusBmVci4BJ6ZR+Gete6ZaEAUVtDbX1zmLYiHXhP3fNQBGjF3uGL5xWJ5vNoN/TSY
+	4b9p0Idw3ZgEwpVo2lGqQ/p3DIQmAdgQnA1+7/oFeSEy/OH4u+WkKUNirsh/Yp1DhiODOSfhDvmZT
+	kThct/oHF1Cw4XBnd+HBnV/WZqD4M2DiMEKCbkDAnqQ38JqXAW/sw0KCH6uNY73CuHM9PYWhZwrjR
+	QaXBlRtv9K5AGBtXVBxTw5frXD5Wo7BZCuExJEjJ7Ed/9FVSr68dpCiw4tPNmFwUKFSuwZ/ymKoy8
+	RU58V2vg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNwRZ-0000000Ddgy-30Fw;
-	Tue, 25 Nov 2025 17:03:09 +0000
-Received: from mail-westeuropeazon11010056.outbound.protection.outlook.com ([52.101.69.56] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1vNwRo-0000000Ddph-0BTw;
+	Tue, 25 Nov 2025 17:03:24 +0000
+Received: from sender3-of-o54.zoho.com ([136.143.184.54])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNwRX-0000000DdfN-1VB5;
-	Tue, 25 Nov 2025 17:03:08 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=VyysDHgCrJs1Nkp95uOibo1v6wgOjFgw6cePwFIFDGeXc21GOUzSu8RsmeWOKJlVMhgsgb1hNjhiz+cQdPX3SGnDjPhZVekKDhyU08+yLyTIrwqA78hrrU9d3x3R4fnUDdd9Ms1cco1ZbFVG0E99XKpkaWVTKvuSecuH/MKpaijmCOkzHOqTbWF8Z9BbXlIt47RaFN6t8wVKqxpK16fZR912rb3DL5GSImLEH6/DPcBIObMigx1oyGcYLJmhHiZOzC9z0taxWXHpoS/Jqg/7vkthBXAvXg0iNc9UJNCnXAXuwypI1ENdz3GSqusam3IKCR4xyaHC78CHvU7d7uE1aQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=TWY7MFugZ9CmdVxleLBxwXlELP55Zd08rQW98ZPdUto=;
- b=cdg69Z0v5wG2/Pw0CM0emjhqmqyhGR/QgV7y8EzZXEBgF3MzOvz5X+SccggqrWK/3ViETt4R5b4+pj/AwRDQN+9eIEOLJoXZjZphoqIpkrigMVx5izxl1983/k/DT4kISaXRQbNVrPRxNnQ6nvmmxO7O+ahh87imtOw4fsKzh569+RQXmsgyPoQI9LtcrF26aNHbXmH9nGbpKUp3YwtQSwiRQVCzFpVLYisu0gcpJZp1MlZjEM8HxeqiA4km+1hb46t1Tyo26OAwHXYnrqRfXChkLXW4MIoW8C5Wzg/GXM3hYVmCwRfZhnbH+gvVRnO8w7BwFTFUZuaO/billEFfrg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=TWY7MFugZ9CmdVxleLBxwXlELP55Zd08rQW98ZPdUto=;
- b=Qyb7iBNgvz8Alw5HAF2z9hiItohZKEIjWfJ622vGI2TDXuZO5FRSPwJvd3cwsGITM02+UwMGxf0HftoZkiem1KH+YiDUxcs4VhFPLuwHraPXVMvy0YWmiD7BH/MMjHpftOg8rJlhJzS0921f3eidwU/+YNUBMNxUjYMCvzWjnEpHbUZAC6uT1AO9w32deHgQqZ4sCpH/qjzV72/UAUuHKepIRdpdhKm0BOXyAggXGqW807aXpAoYXiKpSGq+SCDGhhm/AxubN2p4bK3rkrOEsu1Yw+jTXqWyCXaRcNFr77SsSvvFjPgCi3Fq2kFnAAp7ylNe/FA85lPKdLdPmgpkrw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AM9PR04MB8585.eurprd04.prod.outlook.com (2603:10a6:20b:438::13)
- by GV4PR04MB11450.eurprd04.prod.outlook.com (2603:10a6:150:296::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9343.17; Tue, 25 Nov
- 2025 17:03:01 +0000
-Received: from AM9PR04MB8585.eurprd04.prod.outlook.com
- ([fe80::8063:666f:9a2e:1dab]) by AM9PR04MB8585.eurprd04.prod.outlook.com
- ([fe80::8063:666f:9a2e:1dab%5]) with mapi id 15.20.9343.016; Tue, 25 Nov 2025
- 17:03:01 +0000
-Date: Tue, 25 Nov 2025 19:02:57 +0200
-From: Vladimir Oltean <vladimir.oltean@nxp.com>
-To: Jakub Kicinski <kuba@kernel.org>
-Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-phy@lists.infradead.org, linux-kernel@vger.kernel.org,
+	id 1vNwRl-0000000Ddo9-47zH
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 25 Nov 2025 17:03:23 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1764090144; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=RT95WB7XP3yF4hNe0URWd4hj5n5OqH3kD0bG3yA6E5djqYfx7lyd/O0otu1Tz6H8QwoHGzGFzhnUk34OnY/iyEvZur0JmEJXLkCU3k/IsBvGCtFKgg7/8VUMby69d+qTd5nzWOy0N2Fr7ju7f7pOHOT9RNdD5XBU5NyIFcgjoLs=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1764090144; h=Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=rfmkhk6fI8nQ7zM7WRF33dysSOhxawuyL810u6pnhUo=; 
+	b=MArsVwlSCJQhqViFvr3iOkqBRz7dfxo+fKmDYMR4YAqjIQYsfEe985aISe5mjJOsX1GbhimMMB8PMNFDH2YsgL/0F/FFnc8+rPtc4a2lqdjGdG2u6ksd55fKmrOcsRX0WzDP/UEAnbP4ZhNntruD4lns/VhY2tvLKbvwwh/fPHg=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=anirudhrb.com;
+	spf=pass  smtp.mailfrom=anirudh@anirudhrb.com;
+	dmarc=pass header.from=<anirudh@anirudhrb.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1764090144;
+	s=zoho; d=anirudhrb.com; i=anirudh@anirudhrb.com;
+	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-Id:Message-Id:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Reply-To;
+	bh=rfmkhk6fI8nQ7zM7WRF33dysSOhxawuyL810u6pnhUo=;
+	b=quVQ69LJP0Zceq6Kbomc9byr+r/F65UXX+YF8LuQsXdIl2GTprpzqRZc3lgDS9aL
+	Nio8FhASGi0DQ5XEVocVIKW+T3kycdSKvIUYCkpRgn1tUVNaQc9KP0IYULFaGeRFb/0
+	VxsCIFSbiVl7IO0c7Zw5xrpLc229W/s3aLDKvGq4=
+Received: by mx.zohomail.com with SMTPS id 1764090142173941.9960396999667;
+	Tue, 25 Nov 2025 09:02:22 -0800 (PST)
+From: Anirudh Raybharam <anirudh@anirudhrb.com>
+To: kys@microsoft.com,
+	haiyangz@microsoft.com,
+	wei.liu@kernel.org,
+	decui@microsoft.com,
+	longli@microsoft.com,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	maz@kernel.org,
+	tglx@linutronix.de,
+	Arnd Bergmann <arnd@arndb.de>,
+	akpm@linux-foundation.org,
+	anirudh@anirudhrb.com,
+	agordeev@linux.ibm.com,
+	guoweikang.kernel@gmail.com,
+	osandov@fb.com,
+	bsz@amazon.de,
+	linux-hyperv@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Daniel Golle <daniel@makrotopia.org>,
-	Horatiu Vultur <horatiu.vultur@microchip.com>,
-	Andrew Lunn <andrew@lunn.ch>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Eric Woudstra <ericwouds@gmail.com>,
-	Marek =?utf-8?B?QmVo4oia4oirbg==?= <kabel@kernel.org>,
-	Lee Jones <lee@kernel.org>,
-	Patrice Chotard <patrice.chotard@foss.st.com>
-Subject: Re: [PATCH net-next 5/9] phy: add phy_get_rx_polarity() and
- phy_get_tx_polarity()
-Message-ID: <20251125170257.pk4cish65mcoeqhn@skbuf>
-References: <20251122193341.332324-1-vladimir.oltean@nxp.com>
- <20251122193341.332324-6-vladimir.oltean@nxp.com>
- <20251124200121.5b82f09e@kernel.org>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251124200121.5b82f09e@kernel.org>
-X-ClientProxiedBy: BE1P281CA0296.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:b10:8a::19) To AM9PR04MB8585.eurprd04.prod.outlook.com
- (2603:10a6:20b:438::13)
+	linux-kernel@vger.kernel.org,
+	linux-arch@vger.kernel.org
+Cc: Jinank Jain <jinankjain@microsoft.com>
+Subject: [PATCH 3/3] mshv: add support for VMEXIT interrupts on aarch64
+Date: Tue, 25 Nov 2025 17:01:24 +0000
+Message-Id: <20251125170124.2443340-4-anirudh@anirudhrb.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20251125170124.2443340-1-anirudh@anirudhrb.com>
+References: <20251125170124.2443340-1-anirudh@anirudhrb.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM9PR04MB8585:EE_|GV4PR04MB11450:EE_
-X-MS-Office365-Filtering-Correlation-Id: 9b34c9ec-75b7-4e55-ae02-08de2c447d76
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|19092799006|376014|1800799024|10070799003|7053199007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?IwTVDKRaImw0k3GS5ZlUjyHuqrqPOcro9YFXVFPewx2Tv8SafN/NLXSZxtqE?=
- =?us-ascii?Q?qUzcY/2dsyx+oQEoB1r4+/dTjlewRaifEeEDICxgmpT1Q/lRYDEe9Cfkumv2?=
- =?us-ascii?Q?2wPIedNMqAcYjYhrexC+ydef+LHocJAeIVS4+/9q8t/l1CWweWHViQhlc11E?=
- =?us-ascii?Q?oBO7KNYFqzrOy8EUClSdP+wRlYR4h+tv/DOJxw8SGyWrcnx1+fZ5Wgd8mamy?=
- =?us-ascii?Q?CeB/wehWVarAtf61myExMOGqcLk7XW/XCX+j5AP3518N/O6HcDtVdZ+GPv2T?=
- =?us-ascii?Q?jWST0WCGgvL6Fbr6j5ReynNX7rFrD3jxzomLlPUBoCYesV3Cifls7remd0mY?=
- =?us-ascii?Q?fP4fvTXxI8MKsgx1am5+xeLugkmOqTyL7MqdhujZYHhJBKUceklBZCHizcdE?=
- =?us-ascii?Q?Yq09nqwyCQaTTpW4o2NjXgENrR9cHfhsyyu9nPmvhA6GAt10g2IX0SAP185K?=
- =?us-ascii?Q?Mz9ocSx2ZXEV8U+Rsjn6oyHsQLQyyejFWbl0XEJb+jpRbZ9G06BiYIADofza?=
- =?us-ascii?Q?hEkQJ+61OmCcfSZtXpre+LuzlATRS94ZZ3xkbJqYdB65JVXdKbJuVopen7I4?=
- =?us-ascii?Q?bit1oh3oy/8Efq0k3wjdiyZsnCl8sYnagYla88cqAxkkVTtCGUaEN434ujAl?=
- =?us-ascii?Q?lIg31tM66XerwqMp231GqG1ITm4c7RaKJoCaHbhWBSKnYTrfkvI6OpBFPAtE?=
- =?us-ascii?Q?4LqDcWMqfSznYw4k+GF3oh1/4+5wFRKu2Rk8GWrqeuTiEle55mYXNaFYt4np?=
- =?us-ascii?Q?cE/bBS5rB+l+6IX3yhCVBHPNDQaEmQqQX+y4ZAwTHdJz6lA1MSvrzisY+MQ1?=
- =?us-ascii?Q?X4RPbbXyT0iLWs4x/e/4Tc7xjmnzaC2hOp864LvFsPs/4I7ppK+g2lJshWWp?=
- =?us-ascii?Q?sL6Tk5j+o+0p9QIqzxuJUWn+2jQVLerohgccnd2us5rvj+sRUE4+3XIN68zg?=
- =?us-ascii?Q?0NtURYIXxctMtYhSNoeTN1yh9HgJS9I4QYPvgNBY2/0SdIJekp4WHcAeV9v0?=
- =?us-ascii?Q?8KnLfrcSpT6yu34wwHr3NwWF5T4KL+ucqb3NjVBJM+J8lFMDZbGSfIwq2FKu?=
- =?us-ascii?Q?JVgtf53d+x0kGTJIe87NiCvMuTBniYB+iNLGBVBOx17sygXoqVUAgjxGSONH?=
- =?us-ascii?Q?Z0lnFvvsR73bCuNHR+Ew89x70nUddJ8qh7KIgFcgWUfg9j7kr54JkcmPQnfv?=
- =?us-ascii?Q?g2CZMiyOg6Bp5youIwz8vX3T9uST6SlXlzjjlVpiU1CGSKCJNCvV+1rJIM0b?=
- =?us-ascii?Q?EwL12QXzQrci2XkNir+qF5InxnrFQ2nmHkd1tDpgEr+A+hZo+TjLBo91z/DV?=
- =?us-ascii?Q?Aw1jIcRRLylSTjJg1WDUqQFOPg3PkarffMoOfTbwYs2R0myGmokglH6XS1sT?=
- =?us-ascii?Q?hV4uSzA6lK5SYzKN3ZcIQHSKo1dSEjaOqZi3ZLyWYuUzQWGyHLu+SVJdglqG?=
- =?us-ascii?Q?9zAbGi9yXtJzZVDK69f1bj76oTSpkpJl?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8585.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(19092799006)(376014)(1800799024)(10070799003)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?daH5k/lvwMnLkYcGIDV0xO/dmTyIz61yprFBGyJaGB4IXTq8yDLTQIZXwOtc?=
- =?us-ascii?Q?pBznsTKlFtXH2gdut5YTySI3thXbLKuXnXR/EAM/i0FRsvd1lO/9AEQ+4OWz?=
- =?us-ascii?Q?S27I9t9C4MJ5enIzf8HYQUMPQFVU9v1wwshXVSgg+2f4qkEDoZtn9MKiKRjA?=
- =?us-ascii?Q?VLFV8/WDlyK9KoSinnctUyaCGYh5cMqpkaUexTQJ2yzZMkG14kptYzn4T3Ot?=
- =?us-ascii?Q?ft/rVkOp+SF1PTTYMB/sILot1G6+N5SLr1937w57Q1+CBwFNOgcTEJl5f9RJ?=
- =?us-ascii?Q?R5h/Bsu0+sEGLH2ZhINRJlyxA8rZop4+fI7py/XdmvoMpHqsWVGxtHehBJAw?=
- =?us-ascii?Q?l3MBBfz/vCmL5qDcXoDe2r2iKqoavhogyuVCVriECNv0L4Wtcv6Tj9krHrlc?=
- =?us-ascii?Q?JD6PuYruuH+SK0a7C9DE3Qw99XeXKl2q4405CQSfRYyhV79nu+Ot/yaezgd3?=
- =?us-ascii?Q?dnKt/SKDviaiB+kn8HeYNIsEEe3ZxAVNVUdUl6YXbvOvLQnCWelzCEpMzblv?=
- =?us-ascii?Q?OdvgGPjlIDstplQpWKxrv0++dwkbEYXXRWCh8ddNWR1H8nm8WXvvQJctYrDA?=
- =?us-ascii?Q?SA02oRDzkQuDoKghJTgDQ9X5tl67+WYGQxxx+H77HZgfN1qbQhfbBK2tLjyJ?=
- =?us-ascii?Q?Pjg5aoKdpsqhMlk4JuIxTP/BaVr+RUEI1YqyZLEgVL3Waz0yRLXJKegikDby?=
- =?us-ascii?Q?Q/fnC9ZM9sXFC11zhRhzv9lF9RfwcDpcycFBaztZ9K7cl7ytMVbBVVrKPOZA?=
- =?us-ascii?Q?2+QMwNoTzHfRH8fwFw+nDrV3uRS7uwhv+l2pyq9BwUQui7O74QYgXtwqQvvH?=
- =?us-ascii?Q?bkRPIO7B3+Hx8WDdcZ+RKxBZyfJKddcPiz+UF++0W2skHDEhU6tyvBgET3GA?=
- =?us-ascii?Q?yIws8H1G4BrZwrgfsfKhd9lzkuUuF7P09owTiRgvh+U1PgfAb+3mzdziNGAM?=
- =?us-ascii?Q?tpDdygWvGAi9HMz7i7ZBXMNWFWHoAgRMA+/ZfDl2KfnfNH5d5C9zWMPKz1Ql?=
- =?us-ascii?Q?rn2xFfuRYOBEFXkBNnb5v/NIrcC8b1IbeQ1mbOPxuNYo2hTNmr+qLYXrslsg?=
- =?us-ascii?Q?Q7jDOdm4Mce7qx5qu5ZJG0RRTO7x5TI0JwCBheFeYx5A8A0bZB/2cjsjvtiR?=
- =?us-ascii?Q?egDJK+j0WjUy5+KJZKEc/DmroR+61XoTX47XD0eMFjvaEkEpzXM+1MrozMap?=
- =?us-ascii?Q?olBQIusr7xZwTyHbGHFuHlgPjnlx4b8RhnaMO/egG+qXpGsDG1AdSTGgFsgS?=
- =?us-ascii?Q?tzaZIzYVwUs6H+ECuyXoljfv5U47XcYnp+KrgicaL7moCr9sH44cudbo3ybi?=
- =?us-ascii?Q?CQIO/tvRPIxhOKiQ+IcqTL05ktaXKYoO4WAm8BDNQ5B3+1CCL8OLzorcEJ61?=
- =?us-ascii?Q?rH4uan2QEINDrHOWzbo9Ow3mJ/lCiM/7lJNIhT9ZwT+8EYT0EWSPtTyQAa0z?=
- =?us-ascii?Q?Zj2d97NFjjjAASeJzu6khoLIp4hr5KrUWDIF5GYFd/F7iYXVn1RUEd+MUhhM?=
- =?us-ascii?Q?z6ou0AzFNieRPPDSCdOfojmAgz0S4ZpPzmXO5NzTZLZITHwW2F/1mmMRnOpe?=
- =?us-ascii?Q?7GYoRd74DC1lXUJ9UhveJNOacj07MpK3443Ly5Fjuuwd6IlzjYk9VS4CJbQv?=
- =?us-ascii?Q?7k/b6wS/OGJcEeKgONt/koka0x1pRrWn9QMKHFLRsXPTiogDgggggh0e3oVV?=
- =?us-ascii?Q?XSVsHQ=3D=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9b34c9ec-75b7-4e55-ae02-08de2c447d76
-X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8585.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Nov 2025 17:03:01.0959
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Q4RB/as5JojhWnUC0kUnmdD3sGAJtoXnSqGTfqgmR7ULoKxlOCZzYCGQ604x0Tro6asKsIUR2K4fPw82C8pnwQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV4PR04MB11450
+Content-Transfer-Encoding: 8bit
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251125_090307_404203_3FF1BE89 
-X-CRM114-Status: GOOD (  18.41  )
+X-CRM114-CacheID: sfid-20251125_090322_095504_0BEC3E90 
+X-CRM114-Status: GOOD (  19.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -178,46 +95,197 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 24, 2025 at 08:01:21PM -0800, Jakub Kicinski wrote:
-> > The proposed maintainership model is joint custody between netdev and
-> > linux-phy, because of the fact that these properties can be applied to
-> > Ethernet PCS blocks just as well as Generic PHY devices. I've added as
-> > maintainers those from "ETHERNET PHY LIBRARY", "NETWORKING DRIVERS" and
-> > "GENERIC PHY FRAMEWORK".
-> 
-> I dunno.. ain't no such thing as "joint custody" maintainership.
-> We have to pick one tree. Given the set of Ms here, I suspect 
-> the best course of action may be to bubble this up to its own tree.
-> Ask Konstantin for a tree in k.org, then you can "co-post" the patches
-> for review + PR link in the cover letter (e.g. how Tony from Intel
-> submits their patches). This way not networking and PHY can pull
-> the shared changes with stable commit IDs.
+From: Anirudh Rayabharam <anirudh@anirudhrb.com>
 
-I can see how this makes some sense. If nobody has any objection, I'll
-follow up to this by emailing Konstantin about a git tree for shared
-infrastructure between generic PHY and networking.
+From: Anirudh Rayabharam (Microsoft) <anirudh@anirudhrb.com>
 
-> We can do out-of-sequence netdev call tomorrow if folks want to talk
-> this thru (8:30am Pacific)
+Use the SGI allocated for MSHV as the interrupt vector to get notified
+of hypervisor intercepts.
 
-Not sure it's that big of a discussion topic.
+Currently, HYPERVISOR_CALLBACK_VECTOR is hardcoded for this. This macro
+exists only for x86. To make things generic, introduce an arch-specific
+init function mshv_arch_parent_partition_init() which, for now, is
+responsible for setting up the interception interrupt and writing it to
+the mshv_interrupt global. mshv_interrupt is then used when programming
+the SYNIC.
 
-> > +GENERIC PHY COMMON PROPERTIES
-> > +M:	Andrew Lunn <andrew@lunn.ch>
-> > +M:	"David S. Miller" <davem@davemloft.net>
-> > +M:	Eric Dumazet <edumazet@google.com>
-> > +M:	Heiner Kallweit <hkallweit1@gmail.com>
-> > +M:	Jakub Kicinski <kuba@kernel.org>
-> > +M:	Kishon Vijay Abraham I <kishon@kernel.org>
-> > +M:	Paolo Abeni <pabeni@redhat.com>
-> > +R:	Russell King <linux@armlinux.org.uk>
-> > +M:	Vinod Koul <vkoul@kernel.org>
-> 
-> checkpatch nit: apparently it wants all Ms first, then all Rs.
+Co-developed-by: Jinank Jain <jinankjain@microsoft.com>
+Signed-off-by: Jinank Jain <jinankjain@microsoft.com>
+Signed-off-by: Anirudh Rayabharam (Microsoft) <anirudh@anirudhrb.com>
+---
+ drivers/hv/mshv_root_main.c    | 59 ++++++++++++++++++++++++++++++++++
+ drivers/hv/mshv_synic.c        | 15 +++++----
+ include/asm-generic/mshyperv.h |  3 ++
+ 3 files changed, 70 insertions(+), 7 deletions(-)
 
-Thanks for pointing this out.
+diff --git a/drivers/hv/mshv_root_main.c b/drivers/hv/mshv_root_main.c
+index bc15d6f6922f..e48a89688ecb 100644
+--- a/drivers/hv/mshv_root_main.c
++++ b/drivers/hv/mshv_root_main.c
+@@ -17,7 +17,9 @@
+ #include <linux/file.h>
+ #include <linux/anon_inodes.h>
+ #include <linux/mm.h>
++#include <linux/interrupt.h>
+ #include <linux/io.h>
++#include <linux/irq.h>
+ #include <linux/cpuhotplug.h>
+ #include <linux/random.h>
+ #include <asm/mshyperv.h>
+@@ -75,6 +77,11 @@ static vm_fault_t mshv_vp_fault(struct vm_fault *vmf);
+ static int mshv_init_async_handler(struct mshv_partition *partition);
+ static void mshv_async_hvcall_handler(void *data, u64 *status);
+ 
++
++int mshv_interrupt = -1;
++int mshv_irq = -1;
++static long __percpu *mshv_evt;
++
+ static const union hv_input_vtl input_vtl_zero;
+ static const union hv_input_vtl input_vtl_normal = {
+ 	.target_vtl = HV_NORMAL_VTL,
+@@ -2311,6 +2318,47 @@ static void mshv_init_vmm_caps(struct device *dev)
+ 	dev_dbg(dev, "vmm_caps = %#llx\n", mshv_root.vmm_caps.as_uint64[0]);
+ }
+ 
++#if IS_ENABLED(CONFIG_ARM64)
++static irqreturn_t mshv_percpu_isr(int irq, void *dev_id)
++{
++	mshv_isr();
++	add_interrupt_randomness(irq);
++	return IRQ_HANDLED;
++}
++
++static int mshv_arch_parent_partition_init(struct device *dev)
++{
++	int ret;
++
++	mshv_irq = mshv_get_intercept_irq();
++	mshv_interrupt = irq_get_irq_data(mshv_irq)->hwirq;
++
++	mshv_evt = alloc_percpu(long);
++	if (!mshv_evt) {
++		dev_err(dev, "Failed to allocate percpu event\n");
++		return -ENOMEM;
++	}
++
++	ret = request_percpu_irq(mshv_irq, mshv_percpu_isr, "MSHV", mshv_evt);
++	if (ret) {
++		dev_err(dev, "Failed to request percpu irq\n");
++		goto free_percpu_buf;
++	}
++
++	return ret;
++
++free_percpu_buf:
++	free_percpu(mshv_evt);
++	return ret;
++}
++#elif IS_ENABLED(CONFIG_X86_64)
++static int mshv_arch_parent_partition_init(struct device *dev)
++{
++	mshv_interrupt = HYPERVISOR_CALLBACK_VECTOR;
++	return 0;
++}
++#endif
++
+ static int __init mshv_parent_partition_init(void)
+ {
+ 	int ret;
+@@ -2329,6 +2377,10 @@ static int __init mshv_parent_partition_init(void)
+ 
+ 	dev = mshv_dev.this_device;
+ 
++	ret = mshv_arch_parent_partition_init(dev);
++	if (ret)
++		return ret;
++
+ 	if (version_info.build_number < MSHV_HV_MIN_VERSION ||
+ 	    version_info.build_number > MSHV_HV_MAX_VERSION) {
+ 		dev_err(dev, "Running on unvalidated Hyper-V version\n");
+@@ -2396,6 +2448,13 @@ static void __exit mshv_parent_partition_exit(void)
+ 	mshv_irqfd_wq_cleanup();
+ 	if (hv_root_partition())
+ 		mshv_root_partition_exit();
++	if (mshv_irq >= 0) {
++		if (mshv_evt) {
++			free_percpu_irq(mshv_irq, mshv_evt);
++			free_percpu(mshv_evt);
++			mshv_evt = NULL;
++		}
++	}
+ 	cpuhp_remove_state(mshv_cpuhp_online);
+ 	free_percpu(mshv_root.synic_pages);
+ }
+diff --git a/drivers/hv/mshv_synic.c b/drivers/hv/mshv_synic.c
+index f8b0337cdc82..3bdb798f8948 100644
+--- a/drivers/hv/mshv_synic.c
++++ b/drivers/hv/mshv_synic.c
+@@ -10,6 +10,7 @@
+ #include <linux/kernel.h>
+ #include <linux/slab.h>
+ #include <linux/mm.h>
++#include <linux/interrupt.h>
+ #include <linux/io.h>
+ #include <linux/random.h>
+ #include <asm/mshyperv.h>
+@@ -451,9 +452,7 @@ int mshv_synic_init(unsigned int cpu)
+ 	union hv_synic_simp simp;
+ 	union hv_synic_siefp siefp;
+ 	union hv_synic_sirbp sirbp;
+-#ifdef HYPERVISOR_CALLBACK_VECTOR
+ 	union hv_synic_sint sint;
+-#endif
+ 	union hv_synic_scontrol sctrl;
+ 	struct hv_synic_pages *spages = this_cpu_ptr(mshv_root.synic_pages);
+ 	struct hv_message_page **msg_page = &spages->hyp_synic_message_page;
+@@ -496,10 +495,13 @@ int mshv_synic_init(unsigned int cpu)
+ 
+ 	hv_set_non_nested_msr(HV_MSR_SIRBP, sirbp.as_uint64);
+ 
+-#ifdef HYPERVISOR_CALLBACK_VECTOR
++
++	if (mshv_irq > 0)
++		enable_percpu_irq(mshv_irq, 0);
++
+ 	/* Enable intercepts */
+ 	sint.as_uint64 = 0;
+-	sint.vector = HYPERVISOR_CALLBACK_VECTOR;
++	sint.vector = mshv_interrupt;
+ 	sint.masked = false;
+ 	sint.auto_eoi = hv_recommend_using_aeoi();
+ 	hv_set_non_nested_msr(HV_MSR_SINT0 + HV_SYNIC_INTERCEPTION_SINT_INDEX,
+@@ -507,13 +509,12 @@ int mshv_synic_init(unsigned int cpu)
+ 
+ 	/* Doorbell SINT */
+ 	sint.as_uint64 = 0;
+-	sint.vector = HYPERVISOR_CALLBACK_VECTOR;
++	sint.vector = mshv_interrupt;
+ 	sint.masked = false;
+-	sint.as_intercept = 1;
+ 	sint.auto_eoi = hv_recommend_using_aeoi();
++	sint.as_intercept = 1;
+ 	hv_set_non_nested_msr(HV_MSR_SINT0 + HV_SYNIC_DOORBELL_SINT_INDEX,
+ 			      sint.as_uint64);
+-#endif
+ 
+ 	/* Enable global synic bit */
+ 	sctrl.as_uint64 = hv_get_non_nested_msr(HV_MSR_SCONTROL);
+diff --git a/include/asm-generic/mshyperv.h b/include/asm-generic/mshyperv.h
+index ecedab554c80..8e30347f7946 100644
+--- a/include/asm-generic/mshyperv.h
++++ b/include/asm-generic/mshyperv.h
+@@ -189,6 +189,9 @@ void hv_setup_crash_handler(void (*handler)(struct pt_regs *regs));
+ void hv_remove_crash_handler(void);
+ void hv_setup_mshv_handler(void (*handler)(void));
+ 
++extern int mshv_interrupt;
++extern int mshv_irq;
++
+ #if IS_ENABLED(CONFIG_HYPERV)
+ /*
+  * Hypervisor's notion of virtual processor ID is different from
+-- 
+2.34.1
 
-This will probably have to be changed quite a bit in v2 if the "separate
-git tree" idea is going to be implemented. I'll probably start with an
-empty list and request volunteers to step up.
 
