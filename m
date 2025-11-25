@@ -4,70 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20CB8D0EE0E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 17:15:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B477D0EE00
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 17:25:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eRMUjzvc385emaM00QkruAlsCUJkwg3kL1OtudlNM8o=; b=jpPiW1QkUlefAQpZBgAy1Vq51r
-	iTJHwlL3A54kHgcFWKpMXMgtUegb7Wfr21PJhLJrXAfMHp4ZwjYIfPJ4ebOahX9JUYufHlv7GUIOY
-	styo0GSCj7RumDnzN/Q553khFjjUlto5hnY3iVRiSX+EVud2e0BN9xueYlIcJYv0XkXFZX81UkvSv
-	ftWL3kGvH/85XK8VIBM8sUn0k41fwa8qI7kM2pVBIlDhRWZX8Z5Yl2FcJ8FWg/cHpxA9OWZ9BspGJ
-	r5MxOWuafzMTctJqzsZU5r6SKXp5TrXisn8hGLnwF5EnWFGymQ5nNTOkrqsGSphROFQEWmNi1b08W
-	SpGhKpnw==;
+	bh=lQmM6amtvyUAIhMb4KVdNQHnz1RSVl/M3Gx+eWCtNUE=; b=x77J2m3L0GNUSWODqnDy22BinZ
+	VwMLSea00s7C+xr2XSuYK+Kc0KTAGZdRB8mRdgiJuLDBQXNYXlxh9A08rZwKdQuwjyHyS5P1OXmu5
+	B/NlGgn5efdJRoKEabWvOLLfOJD7WhdjvvoCNKjSSpJNXWy60uwnZL+5/aUPbsw5GgyXX2i8jFB9X
+	VnQ5wUCqcbsRc38ZMOgKuWD61nSLSLuH0JOj9ziDNGe2n/AQgtUMTvLr00S9/leylxdhPIgFkPWJy
+	3ElxB6LlBqpGXm6JFL1CESWZlkr9Jynas2TI0bkjyyvcDZE83boIGr/LqijU/VBi2PCc8jzutx2yO
+	1HanNc6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNwdY-0000000Dezj-2Iyo;
-	Tue, 25 Nov 2025 17:15:32 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNwdU-0000000DezG-3p2S
+	id 1vNwnC-0000000DfO0-2PQy;
+	Tue, 25 Nov 2025 17:25:30 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vNwn9-0000000DfNZ-0pUh
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Nov 2025 17:15:30 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 277334E418B3;
-	Tue, 25 Nov 2025 17:15:24 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id DA583606A1;
-	Tue, 25 Nov 2025 17:15:23 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 9291C102F0891;
-	Tue, 25 Nov 2025 18:15:17 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1764090923; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=eRMUjzvc385emaM00QkruAlsCUJkwg3kL1OtudlNM8o=;
-	b=D+wGRgtpGAyb2M8Agj+56AXrxl6+occfRjhl8yC2nBpOqT004FDP55HpGanCzwgiqpDbTd
-	34z5t8Cgxi+lBpRfxOW3kxXxyaxuPqWLYFBU869BV2x1l7A6Zx4f7PSO5bDPFWrFeJT+lI
-	Ul7XzTaYhVCd93gFGSjGbXcJsQMM6ZJOcz6YkNPg6qs2ehKlElkDbco3sypwsEbfzBQYwS
-	75mUXzFBtSgWij5Hrh6EtI12mGMUcaEs1W+oiCkaD/4bXvvZ0BLIETnBk1iXjKSoK3GOPU
-	PZk481ms0GIAvcoGM30X+uoOFLr9qJNsrTNeP7yGYryFzQT2xBbu57XlSH442A==
-Message-ID: <58ec46bb-5850-4dde-a1ea-d242f7d95409@bootlin.com>
-Date: Tue, 25 Nov 2025 18:15:16 +0100
+	Tue, 25 Nov 2025 17:25:28 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id F3365168F;
+	Tue, 25 Nov 2025 09:25:14 -0800 (PST)
+Received: from [10.1.30.102] (unknown [10.1.30.102])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DED8B3F73B;
+	Tue, 25 Nov 2025 09:25:19 -0800 (PST)
+Message-ID: <b0f94951-2896-49a2-ac19-b885903067ad@arm.com>
+Date: Tue, 25 Nov 2025 17:25:16 +0000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next] net: stmmac: dwmac: Disable flushing frames on
- Rx Buffer Unavailable
-To: rohan.g.thomas@altera.com, Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>
-Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Matthew Gerlach <matthew.gerlach@altera.com>
-References: <20251126-a10_ext_fix-v1-1-d163507f646f@altera.com>
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Content-Language: en-US
-In-Reply-To: <20251126-a10_ext_fix-v1-1-d163507f646f@altera.com>
-Content-Type: text/plain; charset=UTF-8
+Subject: Re: [PATCH V2 1/3] iommu/arm-smmu-v3: Add device-tree support for
+ CMDQV driver
+To: Ashish Mhetre <amhetre@nvidia.com>, will@kernel.org, joro@8bytes.org,
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, nicolinc@nvidia.com
+Cc: thierry.reding@gmail.com, jonathanh@nvidia.com, vdumpa@nvidia.com,
+ jgg@ziepe.ca, linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-tegra@vger.kernel.org
+References: <20251125071659.3048659-1-amhetre@nvidia.com>
+ <20251125071659.3048659-2-amhetre@nvidia.com>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <20251125071659.3048659-2-amhetre@nvidia.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251125_091529_243923_8F9CA311 
-X-CRM114-Status: GOOD (  30.06  )
+X-CRM114-CacheID: sfid-20251125_092527_359586_2EBB691B 
+X-CRM114-Status: GOOD (  29.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,161 +69,186 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Rohan,
-
-On 25/11/2025 17:37, Rohan G Thomas via B4 Relay wrote:
-> From: Rohan G Thomas <rohan.g.thomas@altera.com>
+On 2025-11-25 7:16 am, Ashish Mhetre wrote:
+> Add device tree support to the CMDQV driver to enable usage on Tegra264
+> SoCs. The implementation parses the nvidia,cmdqv phandle from the SMMU
+> device tree node to associate each SMMU with its corresponding CMDQV
+> instance.
 > 
-> In Store and Forward mode, flushing frames when the receive buffer is
-> unavailable, can cause the MTL Rx FIFO to go out of sync. This results
-> in buffering of a few frames in the FIFO without triggering Rx DMA
-> from transferring the data to the system memory until another packet
-> is received. Once the issue happens, for a ping request, the packet is
-> forwarded to the system memory only after we receive another packet
-> and hece we observe a latency equivalent to the ping interval.
+> Update the dependency from Kconfig as the driver now supports both
+> ACPI and device tree initialization through conditional compilation.
 > 
-> 64 bytes from 192.168.2.100: seq=1 ttl=64 time=1000.344 ms
+> Add nvidia,tegra264-smmu to the arm-smmu-v3 device tree match table to
+> enable device tree based probing on Nvidia Tegra264 platforms and
+> restrict CMDQV usage to other vendors.
 > 
-> Also, we can observe constant gmacgrp_debug register value of
-> 0x00000120, which indicates "Reading frame data".
+> Reviewed-by: Nicolin Chen <nicolinc@nvidia.com>
+> Signed-off-by: Ashish Mhetre <amhetre@nvidia.com>
+> ---
+>   drivers/iommu/arm/Kconfig                     |  2 +-
+>   drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c   | 32 ++++++++++++++
+>   .../iommu/arm/arm-smmu-v3/tegra241-cmdqv.c    | 43 ++++++++++++++++++-
+>   3 files changed, 75 insertions(+), 2 deletions(-)
 > 
-> The issue is not reproducible after disabling frame flushing when Rx
-> buffer is unavailable. But in that case, the Rx DMA enters a suspend
-> state due to buffer unavailability. To resume operation, software
-> must write to the receive_poll_demand register after adding new
-> descriptors, which reactivates the Rx DMA.
-> 
-> This issue is observed in the socfpga platforms which has dwmac1000 IP
-> like Arria 10, Cyclone V and Agilex 7. Issue is reproducible after
-> running iperf3 server at the DUT for UDP lower packet sizes.
-> 
-> Signed-off-by: Rohan G Thomas <rohan.g.thomas@altera.com>
-> Reviewed-by: Matthew Gerlach <matthew.gerlach@altera.com>
+> diff --git a/drivers/iommu/arm/Kconfig b/drivers/iommu/arm/Kconfig
+> index ef42bbe07dbe..168ada9c3d68 100644
+> --- a/drivers/iommu/arm/Kconfig
+> +++ b/drivers/iommu/arm/Kconfig
+> @@ -121,7 +121,7 @@ config ARM_SMMU_V3_KUNIT_TEST
+>   
+>   config TEGRA241_CMDQV
+>   	bool "NVIDIA Tegra241 CMDQ-V extension support for ARM SMMUv3"
+> -	depends on ACPI
+> +	depends on OF || ACPI
 
-Should this be a fix ?
+This now does nothing, since ARM_SMMU_V3 depends on ARM64 which already 
+implies at least OF anyway.
 
-Can you elaborate on how to reproduce this ? I've given this a try on
-CycloneV and I can't see any difference in the ping results and iperf3
-results.
+>   	help
+>   	  Support for NVIDIA CMDQ-Virtualization extension for ARM SMMUv3. The
+>   	  CMDQ-V extension is similar to v3.3 ECMDQ for multi command queues
+> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> index a33fbd12a0dd..2eec7cd4f3de 100644
+> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> @@ -4530,6 +4530,34 @@ static int arm_smmu_device_hw_probe(struct arm_smmu_device *smmu)
+>   	return 0;
+>   }
+>   
+> +#ifdef CONFIG_TEGRA241_CMDQV
+> +static void tegra_cmdqv_dt_probe(struct device_node *smmu_node,
+> +				 struct arm_smmu_device *smmu)
+> +{
+> +	struct platform_device *pdev;
+> +	struct device_node *np;
+> +
+> +	np = of_parse_phandle(smmu_node, "nvidia,cmdqv", 0);
+> +	if (!np)
+> +		return;
+> +
+> +	pdev = of_find_device_by_node(np);
+> +	of_node_put(np);
+> +	if (!pdev)
+> +		return;
+> +
 
-From the DUT, I've tried :
- - iperf3 -c 192.168.X.X -u -b 0 -l 64
- - iperf3 -c 192.168.X.X -u -b 0 -l 64 -R
- - iperf3 -c 192.168.X.X
- - iperf3 -c 192.168.X.X -R
+You need to drop the reference on the platform device too.
 
-I'm reading the same results with and without the patch
+> +	smmu->impl_dev = &pdev->dev;
+> +	smmu->options |= ARM_SMMU_OPT_TEGRA241_CMDQV;
+> +	dev_info(smmu->dev, "found companion CMDQV device: %s\n",
+> +		 dev_name(smmu->impl_dev));
+> +}
+> +#else
+> +static void tegra_cmdqv_dt_probe(struct device_node *smmu_node,
+> +				 struct arm_smmu_device *smmu)
+> +{
+> +}
+> +#endif
+> +
+>   #ifdef CONFIG_ACPI
+>   #ifdef CONFIG_TEGRA241_CMDQV
+>   static void acpi_smmu_dsdt_probe_tegra241_cmdqv(struct acpi_iort_node *node,
+> @@ -4634,6 +4662,9 @@ static int arm_smmu_device_dt_probe(struct platform_device *pdev,
+>   	if (of_dma_is_coherent(dev->of_node))
+>   		smmu->features |= ARM_SMMU_FEAT_COHERENCY;
+>   
+> +	if (of_device_is_compatible(dev->of_node, "nvidia,tegra264-smmu"))
+> +		tegra_cmdqv_dt_probe(dev->of_node, smmu);
+> +
+>   	return ret;
+>   }
+>   
+> @@ -4867,6 +4898,7 @@ static void arm_smmu_device_shutdown(struct platform_device *pdev)
+>   
+>   static const struct of_device_id arm_smmu_of_match[] = {
+>   	{ .compatible = "arm,smmu-v3", },
+> +	{ .compatible = "nvidia,tegra264-smmu", },
 
-I've done ping tests as well, the latency seems to be the same with and
-without this patch, at around 0.193ms RTT.
-
-I'm not familiar with the SF_DMA_MODE though, any thing special to do to
-enter that mode ?
+Since you're not using match data, this is pointless, as anything with 
+this compatible must still also match the generic compatible anyway.
 
 Thanks,
+Robin.
 
-Maxime
-
-> ---
->  drivers/net/ethernet/stmicro/stmmac/dwmac1000_dma.c | 5 +++--
->  drivers/net/ethernet/stmicro/stmmac/dwmac_dma.h     | 1 +
->  drivers/net/ethernet/stmicro/stmmac/dwmac_lib.c     | 5 +++++
->  drivers/net/ethernet/stmicro/stmmac/hwif.h          | 3 +++
->  drivers/net/ethernet/stmicro/stmmac/stmmac_main.c   | 2 ++
->  5 files changed, 14 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac1000_dma.c b/drivers/net/ethernet/stmicro/stmmac/dwmac1000_dma.c
-> index 6d9b8fac3c6d0fd76733ab4a1a8cce2420fa40b4..5877fec9f6c30ed18cdcf5398816e444e0bd0091 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac1000_dma.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac1000_dma.c
-> @@ -135,10 +135,10 @@ static void dwmac1000_dma_operation_mode_rx(struct stmmac_priv *priv,
->  
->  	if (mode == SF_DMA_MODE) {
->  		pr_debug("GMAC: enable RX store and forward mode\n");
-> -		csr6 |= DMA_CONTROL_RSF;
-> +		csr6 |= DMA_CONTROL_RSF | DMA_CONTROL_DFF;
->  	} else {
->  		pr_debug("GMAC: disable RX SF mode (threshold %d)\n", mode);
-> -		csr6 &= ~DMA_CONTROL_RSF;
-> +		csr6 &= ~(DMA_CONTROL_RSF | DMA_CONTROL_DFF);
->  		csr6 &= DMA_CONTROL_TC_RX_MASK;
->  		if (mode <= 32)
->  			csr6 |= DMA_CONTROL_RTC_32;
-> @@ -262,6 +262,7 @@ const struct stmmac_dma_ops dwmac1000_dma_ops = {
->  	.dma_rx_mode = dwmac1000_dma_operation_mode_rx,
->  	.dma_tx_mode = dwmac1000_dma_operation_mode_tx,
->  	.enable_dma_transmission = dwmac_enable_dma_transmission,
-> +	.enable_dma_reception = dwmac_enable_dma_reception,
->  	.enable_dma_irq = dwmac_enable_dma_irq,
->  	.disable_dma_irq = dwmac_disable_dma_irq,
->  	.start_tx = dwmac_dma_start_tx,
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac_dma.h b/drivers/net/ethernet/stmicro/stmmac/dwmac_dma.h
-> index d1c149f7a3dd9e472b237101666e11878707f0f2..054ecb20ce3f68bce5da3efaf36acf33e430d3f0 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac_dma.h
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac_dma.h
-> @@ -169,6 +169,7 @@ static inline u32 dma_chan_base_addr(u32 base, u32 chan)
->  #define NUM_DWMAC4_DMA_REGS	27
->  
->  void dwmac_enable_dma_transmission(void __iomem *ioaddr, u32 chan);
-> +void dwmac_enable_dma_reception(void __iomem *ioaddr, u32 chan);
->  void dwmac_enable_dma_irq(struct stmmac_priv *priv, void __iomem *ioaddr,
->  			  u32 chan, bool rx, bool tx);
->  void dwmac_disable_dma_irq(struct stmmac_priv *priv, void __iomem *ioaddr,
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac_lib.c b/drivers/net/ethernet/stmicro/stmmac/dwmac_lib.c
-> index 467f1a05747ecf0be5b9f3392cd3d2049d676c21..97a803d68e3a2f120beaa7c3254748cf404236df 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac_lib.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac_lib.c
-> @@ -33,6 +33,11 @@ void dwmac_enable_dma_transmission(void __iomem *ioaddr, u32 chan)
->  	writel(1, ioaddr + DMA_CHAN_XMT_POLL_DEMAND(chan));
->  }
->  
-> +void dwmac_enable_dma_reception(void __iomem *ioaddr, u32 chan)
+>   	{ },
+>   };
+>   MODULE_DEVICE_TABLE(of, arm_smmu_of_match);
+> diff --git a/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c b/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c
+> index 378104cd395e..2608bf6518b4 100644
+> --- a/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c
+> +++ b/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c
+> @@ -11,6 +11,8 @@
+>   #include <linux/iommufd.h>
+>   #include <linux/iopoll.h>
+>   #include <uapi/linux/iommufd.h>
+> +#include <linux/of_platform.h>
+> +#include <linux/platform_device.h>
+>   
+>   #include <acpi/acpixf.h>
+>   
+> @@ -917,6 +919,26 @@ tegra241_cmdqv_find_acpi_resource(struct device *dev, int *irq)
+>   	return res;
+>   }
+>   
+> +static struct resource *
+> +tegra241_cmdqv_find_dt_resource(struct device *dev, int *irq)
 > +{
-> +	writel(1, ioaddr + DMA_CHAN_RCV_POLL_DEMAND(chan));
+> +	struct platform_device *pdev = to_platform_device(dev);
+> +	struct resource *res;
+> +
+> +	res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
+> +	if (!res) {
+> +		dev_err(dev, "no memory resource found for CMDQV\n");
+> +		return NULL;
+> +	}
+> +
+> +	if (irq)
+> +		*irq = platform_get_irq_optional(pdev, 0);
+> +	if (!irq || *irq <= 0)
+> +		dev_warn(dev, "no interrupt. errors will not be reported\n");
+> +
+> +	return res;
 > +}
 > +
->  void dwmac_enable_dma_irq(struct stmmac_priv *priv, void __iomem *ioaddr,
->  			  u32 chan, bool rx, bool tx)
->  {
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/hwif.h b/drivers/net/ethernet/stmicro/stmmac/hwif.h
-> index f257ce4b6c66e0bbd3180d54ac7f5be934153a6b..df6e8a567b1f646f83effbb38d8e53441a6f6150 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/hwif.h
-> +++ b/drivers/net/ethernet/stmicro/stmmac/hwif.h
-> @@ -201,6 +201,7 @@ struct stmmac_dma_ops {
->  	void (*dma_diagnostic_fr)(struct stmmac_extra_stats *x,
->  				  void __iomem *ioaddr);
->  	void (*enable_dma_transmission)(void __iomem *ioaddr, u32 chan);
-> +	void (*enable_dma_reception)(void __iomem *ioaddr, u32 chan);
->  	void (*enable_dma_irq)(struct stmmac_priv *priv, void __iomem *ioaddr,
->  			       u32 chan, bool rx, bool tx);
->  	void (*disable_dma_irq)(struct stmmac_priv *priv, void __iomem *ioaddr,
-> @@ -261,6 +262,8 @@ struct stmmac_dma_ops {
->  	stmmac_do_void_callback(__priv, dma, dma_diagnostic_fr, __args)
->  #define stmmac_enable_dma_transmission(__priv, __args...) \
->  	stmmac_do_void_callback(__priv, dma, enable_dma_transmission, __args)
-> +#define stmmac_enable_dma_reception(__priv, __args...) \
-> +	stmmac_do_void_callback(__priv, dma, enable_dma_reception, __args)
->  #define stmmac_enable_dma_irq(__priv, __args...) \
->  	stmmac_do_void_callback(__priv, dma, enable_dma_irq, __priv, __args)
->  #define stmmac_disable_dma_irq(__priv, __args...) \
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> index 6cacedb2c9b3fefdd4c9ec8ba98d389443d21ebd..1ecca60baf74286da7f156b4c3c835b3cbabf1ba 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> @@ -4973,6 +4973,8 @@ static inline void stmmac_rx_refill(struct stmmac_priv *priv, u32 queue)
->  	rx_q->rx_tail_addr = rx_q->dma_rx_phy +
->  			    (rx_q->dirty_rx * sizeof(struct dma_desc));
->  	stmmac_set_rx_tail_ptr(priv, priv->ioaddr, rx_q->rx_tail_addr, queue);
-> +	/* Wake up Rx DMA from the suspend state if required */
-> +	stmmac_enable_dma_reception(priv, priv->ioaddr, queue);
->  }
->  
->  static unsigned int stmmac_rx_buf1_len(struct stmmac_priv *priv,
-> 
-> ---
-> base-commit: e3daf0e7fe9758613bec324fd606ed9caa187f74
-> change-id: 20251125-a10_ext_fix-5951805b9906
-> 
-> Best regards,
-
+>   static int tegra241_cmdqv_init_structures(struct arm_smmu_device *smmu)
+>   {
+>   	struct tegra241_cmdqv *cmdqv =
+> @@ -1048,11 +1070,14 @@ struct arm_smmu_device *tegra241_cmdqv_probe(struct arm_smmu_device *smmu)
+>   
+>   	if (!smmu->dev->of_node)
+>   		res = tegra241_cmdqv_find_acpi_resource(smmu->impl_dev, &irq);
+> +	else
+> +		res = tegra241_cmdqv_find_dt_resource(smmu->impl_dev, &irq);
+>   	if (!res)
+>   		goto out_fallback;
+>   
+>   	new_smmu = __tegra241_cmdqv_probe(smmu, res, irq);
+> -	kfree(res);
+> +	if (!smmu->dev->of_node)
+> +		kfree(res);
+>   
+>   	if (new_smmu)
+>   		return new_smmu;
+> @@ -1346,4 +1371,20 @@ tegra241_cmdqv_init_vintf_user(struct arm_vsmmu *vsmmu,
+>   	return ret;
+>   }
+>   
+> +static const struct of_device_id tegra241_cmdqv_of_match[] = {
+> +	{ .compatible = "nvidia,tegra264-cmdqv" },
+> +	{ /* sentinel */ }
+> +};
+> +MODULE_DEVICE_TABLE(of, tegra241_cmdqv_of_match);
+> +
+> +static struct platform_driver tegra241_cmdqv_driver = {
+> +	.driver = {
+> +		.name = "tegra241-cmdqv",
+> +		.of_match_table = tegra241_cmdqv_of_match,
+> +	},
+> +};
+> +module_platform_driver(tegra241_cmdqv_driver);
+> +
+> +MODULE_DESCRIPTION("NVIDIA Tegra241 Command Queue Virtualization Driver");
+> +MODULE_LICENSE("GPL");
+>   MODULE_IMPORT_NS("IOMMUFD");
 
