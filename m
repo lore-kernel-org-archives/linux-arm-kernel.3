@@ -4,94 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2579FD0E6C7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 11:22:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62A59D0E6C7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 11:26:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/GHs616mr7dTyieWIVUhqR8ZeVc35qwPIJKCi+VXq9s=; b=gzE7KlQVztMi1mdzbtvQnRYJxU
-	43MpjAsL6eyDrSB1W1FsaO829hhTvvwSIHXIHn+l94lO9fS8LbQb+BIK/AdVweFOfSrSKdcPWdY2N
-	ENhsaIZXrJcuK+ViCS2Tnu6WYiNgpWqgQZ7QYJY5emU+QAaovQxLXbU+6TBT15C0XpWP9N9i9FMkx
-	qq++yZBAy2ltV5GKCXtvk7Z//5iRe1a73HFKU57Z/bxqRk4sR43Lfqjy5RY5C7XCLGQRHMd5VicNN
-	Swm1TjMj3KNfR3OdpDGARuJd1czgftRn2/coVpDgSCDAdzbcx4ZCpHdT5QpzeycSG1QBGyVUUlUlL
-	7dmNXiRA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+KvCiGPp31oB2NcuhoV1w7RhiX3j0YFBsngbWmm0LeM=; b=cLeAGVQh014Ug6lasd67pdg0+5
+	4H5DMofQUynMMrGF8E1AUEDWIBRdvok0SNp3hNjfv+svt3kXdH/KGendjtaeLVyXAXGdVtyjwLTYx
+	zM5gLXXR0FAiPzMh2biT2xARjGgv9JtPvqn0I+z07UssOGzdLcNoycYgLVGz7CfIhpIcPqaIcULNX
+	yQFHfyHCHisOjbbv0l4jX+UlHTTVRzKOVmg2SfvuI7Pca0ohH/LrOI54d1Z7nLyFQdrDH6sbSn9QZ
+	fPT66vnVTlMNP7kwAh9zDdFjSNQ3zBpwxt2WEJiUZE6+QK1xnAv3IebGNh2AkXkYy3+P+/9TdcJbc
+	DicGNpVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNr82-0000000DD2s-1RQR;
-	Tue, 25 Nov 2025 11:22:38 +0000
-Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNr7z-0000000DD25-1gLf
+	id 1vNrBb-0000000DDFg-0Aec;
+	Tue, 25 Nov 2025 11:26:19 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vNrBY-0000000DDFI-1xi7
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Nov 2025 11:22:36 +0000
-Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-42b2dc17965so5088647f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Nov 2025 03:22:34 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1764069753; x=1764674553; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=/GHs616mr7dTyieWIVUhqR8ZeVc35qwPIJKCi+VXq9s=;
-        b=thV6y0tTGxCv0KPLVa8wxo6x71EsfzoBM54Qqy4JEDR0ontXQRP325FlNqufQBgVl0
-         6oEhdoIsTBdcG7KOVR0jh9ALrTOfTso0FR3H8FnMyDGgu/OGFVUAbUc6rzG4PFn00OEk
-         pkqUAnQJ8n9KG/OrLKnory+AqNkylTf3qlfRrxaar6dbbywvVJWlqVe+7v6fpUIzkYK5
-         gw/wuj3Aewnn6utp8c07SB14WC/ykWygbVZOa2iV+bksFWwmBfGn63no23LInO9Krmjz
-         NPvBp6jOSW/u2Xn54Zk+5QigtZODJiQj9MRcvNkw7lENnwzOsl6xy94eveWtii4YVpzR
-         9jsw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764069753; x=1764674553;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=/GHs616mr7dTyieWIVUhqR8ZeVc35qwPIJKCi+VXq9s=;
-        b=loOLpKwnfhbJ/DyvjiP7o8K+LeGpdBEjrn085TAycBIt3Y1Lk5OdtL+VOxSD6oARYF
-         dIjvGBC0LsjwX7kEB2c0UJtb8sNsPs7Giqv2Imua2W5xeA+ao6hgj2ZwrWcGdaXoIgOt
-         vxb063ZKh7Qhr7k0T1+QO7WXy6qXdBgZfQeo4s5EXzVtZO+hdVs4jIf8ye3cmwqKOWe6
-         rrV663I3MqO0izqs1g5r3Vh0OoQy4WDql/A7zsoGJlbI0o0csRVfEcbH/Xt4jt2aqkoX
-         TKXaXcrOcv9eFvyVH9qQo4N3f7Htgosba7zW8GcT1OMxDh+c7xHfh2C6q62IUae5OOzB
-         D+Vg==
-X-Forwarded-Encrypted: i=1; AJvYcCUbXkxRkxgt575KbFR1Wk5OnnCVsiISUHQuSiifVYqHKGb49dmGTpYd3EfvVzuAIKsBYpTxjJczjvy875eJCtDj@lists.infradead.org
-X-Gm-Message-State: AOJu0YyQ1QLLy4GFGnJqWighlu4eRzXHMMDPf+NsljbH0qE1j54kbn/e
-	n0Mk7pAReZXyzSUxUmSijU+DyOk6BRyNEBGiEp7kWr/S0mJkLAhiv9b8bsg8KH3/vg==
-X-Gm-Gg: ASbGncsKnEAaoFkfs1yBnqhnmKFI4g7B1yeSkzRprZM7d2ozOwwUg315e6PxjVhcISo
-	i5JwGOMofviJeph9NdUSzYXdPuIApQc39PF90Ec98uSVyUkbsDQz3n5viBBLAESpyiyEK5cccko
-	TaXTOM8fZD4qDgalQNWCqtJ4XXFoW1wkmWBEwTyDdeRJPKkUYXcCCTMUYa15NA91CcHGbq4sRoB
-	wqkazIzhuX3od8mnaOKTuhS7Co3KgTMIMlUhvlp/WJxw9ThW8bHexQ2N8GKFXFsckxYKJ/HNrGg
-	e6no6asxyP5Ivnp2AHWK8/+1ePHwgQWOuBJq5o59JFLrCYbVeANA+gJjdb0RlSKz7VeuJRo1Zcb
-	Su0DQvYHtu3dbDZggdkquuwnB4mI+zOiSgJT1nGeR8Wb+ggMlUjLQphOks2uwkF1DoxsjAim6Dy
-	0hUeI5/PXkfNuLYNZR35HuP4vJd1nqdCUs2uo+ttQRhx7d3E3qsw==
-X-Google-Smtp-Source: AGHT+IGTMkYeA9p+ckKB04IyPeZJ4YUR/HSDsAZGnoL2ifU24s5TxikwdtgZkZDiTjUCKMsk8yADHg==
-X-Received: by 2002:a5d:5f94:0:b0:42b:3b55:8917 with SMTP id ffacd0b85a97d-42cc1d0cd7dmr15814872f8f.36.1764069752552;
-        Tue, 25 Nov 2025 03:22:32 -0800 (PST)
-Received: from google.com (120.54.38.34.bc.googleusercontent.com. [34.38.54.120])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42cb7f2e598sm33172639f8f.4.2025.11.25.03.22.31
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 25 Nov 2025 03:22:32 -0800 (PST)
-Date: Tue, 25 Nov 2025 11:22:29 +0000
-From: Vincent Donnefort <vdonnefort@google.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: rostedt@goodmis.org, mhiramat@kernel.org,
-	mathieu.desnoyers@efficios.com, linux-trace-kernel@vger.kernel.org,
-	oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com,
-	yuzenghui@huawei.com, kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, jstultz@google.com,
-	qperret@google.com, will@kernel.org, aneesh.kumar@kernel.org,
-	kernel-team@android.com, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v8 21/28] KVM: arm64: Add tracing capability for the pKVM
- hyp
-Message-ID: <aSWRdSELuYpAXCM8@google.com>
-References: <20251107093840.3779150-1-vdonnefort@google.com>
- <20251107093840.3779150-22-vdonnefort@google.com>
- <86bjkyrly9.wl-maz@kernel.org>
+	Tue, 25 Nov 2025 11:26:17 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BBE7714BF;
+	Tue, 25 Nov 2025 03:26:05 -0800 (PST)
+Received: from [10.1.197.1] (ewhatever.cambridge.arm.com [10.1.197.1])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id ED6153F73B;
+	Tue, 25 Nov 2025 03:26:11 -0800 (PST)
+Message-ID: <5df713d4-8b79-4456-8fd1-707ca89a61b6@arm.com>
+Date: Tue, 25 Nov 2025 11:26:10 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <86bjkyrly9.wl-maz@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 06/49] KVM: arm64: GICv3: Detect and work around the
+ lack of ICV_DIR_EL1 trapping
+To: Marc Zyngier <maz@kernel.org>, kvmarm@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org
+Cc: Joey Gouly <joey.gouly@arm.com>, Oliver Upton <oupton@kernel.org>,
+ Zenghui Yu <yuzenghui@huawei.com>,
+ Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
+ Mark Brown <broonie@kernel.org>
+References: <20251120172540.2267180-1-maz@kernel.org>
+ <20251120172540.2267180-7-maz@kernel.org>
+Content-Language: en-US
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <20251120172540.2267180-7-maz@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251125_032235_472752_4D8940E4 
-X-CRM114-Status: GOOD (  13.59  )
+X-CRM114-CacheID: sfid-20251125_032616_628307_796711FB 
+X-CRM114-Status: GOOD (  26.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,47 +69,133 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-[...]
-
-> > diff --git a/arch/arm64/kvm/hyp/nvhe/Makefile b/arch/arm64/kvm/hyp/nvhe/Makefile
-> > index f55a9a17d38f..504c3b9caef8 100644
-> > --- a/arch/arm64/kvm/hyp/nvhe/Makefile
-> > +++ b/arch/arm64/kvm/hyp/nvhe/Makefile
-> > @@ -29,7 +29,7 @@ hyp-obj-y += ../vgic-v3-sr.o ../aarch32.o ../vgic-v2-cpuif-proxy.o ../entry.o \
-> >  	 ../fpsimd.o ../hyp-entry.o ../exception.o ../pgtable.o
-> >  hyp-obj-y += ../../../kernel/smccc-call.o
-> >  hyp-obj-$(CONFIG_LIST_HARDENED) += list_debug.o
-> > -hyp-obj-$(CONFIG_PKVM_TRACING) += clock.o
-> > +hyp-obj-$(CONFIG_PKVM_TRACING) += clock.o trace.o ../../../../../kernel/trace/simple_ring_buffer.o
+On 20/11/2025 17:24, Marc Zyngier wrote:
+> A long time ago, an unsuspecting architect forgot to add a trap
+> bit for ICV_DIR_EL1 in ICH_HCR_EL2. Which was unfortunate, but
+> what's a bit of spec between friends? Thankfully, this was fixed
+> in a later revision, and ARM "deprecates" the lack of trapping
+> ability.
 > 
-> Can we get something less awful here? Surely there is a way to get an
-> absolute path from the kbuild infrastructure? $(objtree) springs to
-> mind...
-
-Because of the path substitution below, I can't simply use $(objtree) here. I
-suppose that's why all other paths above are relative.
-
-However, I could probably simplify by including simple_ring_buffer.c into trace.c:
-
-  diff --git a/arch/arm64/kvm/hyp/nvhe/Makefile b/arch/arm64/kvm/hyp/nvhe/Makefile
-  -hyp-obj-$(CONFIG_TRACING) += clock.o trace.o ../../../../../kernel/trace/simple_ring_buffer.o
-  +hyp-obj-$(CONFIG_TRACING) += clock.o trace.o
-   hyp-obj-y += $(lib-objs)
-   
-  +# Path to simple_ring_buffer.c
-  +CFLAGS_trace.nvhe.o += -I$(objtree)/kernel/trace/
-  +
-  
-  
-  diff --git a/arch/arm64/kvm/hyp/nvhe/trace.c b/arch/arm64/kvm/hyp/nvhe/trace.c
-  -#include <linux/simple_ring_buffer.h>
-  +#include "simple_ring_buffer.c"
-
+> Unfortuantely, a few (billion) CPUs went out with that defect,
+> anything ARMv8.0 from ARM, give or take. And on these CPUs,
+> you can't trap DIR on its own, full stop.
 > 
-> >  hyp-obj-y += $(lib-objs)
-> >  
-> >  ##
-> > diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> As the next best thing, we can trap everything in the common group,
+> which is a tad expensive, but hey ho, that's what you get. You can
+> otherwise recycle the HW in the neaby bin.
+> 
+> Tested-by: Fuad Tabba <tabba@google.com>
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
+> ---
+>   arch/arm64/include/asm/virt.h  |  7 ++++-
+>   arch/arm64/kernel/cpufeature.c | 52 ++++++++++++++++++++++++++++++++++
+>   arch/arm64/kernel/hyp-stub.S   |  5 ++++
+>   arch/arm64/kvm/vgic/vgic-v3.c  |  3 ++
+>   arch/arm64/tools/cpucaps       |  1 +
+>   5 files changed, 67 insertions(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm64/include/asm/virt.h b/arch/arm64/include/asm/virt.h
+> index aa280f356b96a..8eb63d3294974 100644
+> --- a/arch/arm64/include/asm/virt.h
+> +++ b/arch/arm64/include/asm/virt.h
+> @@ -40,8 +40,13 @@
+>    */
+>   #define HVC_FINALISE_EL2	3
+>   
+> +/*
+> + * HVC_GET_ICH_VTR_EL2 - Retrieve the ICH_VTR_EL2 value
+> + */
+> +#define HVC_GET_ICH_VTR_EL2	4
+> +
+>   /* Max number of HYP stub hypercalls */
+> -#define HVC_STUB_HCALL_NR 4
+> +#define HVC_STUB_HCALL_NR 5
+>   
+>   /* Error returned when an invalid stub number is passed into x0 */
+>   #define HVC_STUB_ERR	0xbadca11
+> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+> index 5ed401ff79e3e..5de51cb1b8fe2 100644
+> --- a/arch/arm64/kernel/cpufeature.c
+> +++ b/arch/arm64/kernel/cpufeature.c
+> @@ -2303,6 +2303,49 @@ static bool has_gic_prio_relaxed_sync(const struct arm64_cpu_capabilities *entry
+>   }
+>   #endif
+>   
+> +static bool can_trap_icv_dir_el1(const struct arm64_cpu_capabilities *entry,
+> +				 int scope)
+> +{
+> +	static const struct midr_range has_vgic_v3[] = {
+> +		MIDR_ALL_VERSIONS(MIDR_APPLE_M1_ICESTORM),
+> +		MIDR_ALL_VERSIONS(MIDR_APPLE_M1_FIRESTORM),
+> +		MIDR_ALL_VERSIONS(MIDR_APPLE_M1_ICESTORM_PRO),
+> +		MIDR_ALL_VERSIONS(MIDR_APPLE_M1_FIRESTORM_PRO),
+> +		MIDR_ALL_VERSIONS(MIDR_APPLE_M1_ICESTORM_MAX),
+> +		MIDR_ALL_VERSIONS(MIDR_APPLE_M1_FIRESTORM_MAX),
+> +		MIDR_ALL_VERSIONS(MIDR_APPLE_M2_BLIZZARD),
+> +		MIDR_ALL_VERSIONS(MIDR_APPLE_M2_AVALANCHE),
+> +		MIDR_ALL_VERSIONS(MIDR_APPLE_M2_BLIZZARD_PRO),
+> +		MIDR_ALL_VERSIONS(MIDR_APPLE_M2_AVALANCHE_PRO),
+> +		MIDR_ALL_VERSIONS(MIDR_APPLE_M2_BLIZZARD_MAX),
+> +		MIDR_ALL_VERSIONS(MIDR_APPLE_M2_AVALANCHE_MAX),
+> +		{},
+> +	};
+> +	struct arm_smccc_res res = {};
+> +
+> +	BUILD_BUG_ON(ARM64_HAS_ICH_HCR_EL2_TDIR <= ARM64_HAS_GICV3_CPUIF);
+> +	BUILD_BUG_ON(ARM64_HAS_ICH_HCR_EL2_TDIR <= ARM64_HAS_GICV5_LEGACY);
+> +	if (!cpus_have_cap(ARM64_HAS_GICV3_CPUIF) &&
+> +	    !is_midr_in_range_list(has_vgic_v3))
+> +		return false;
+> +
+> +	if (!is_hyp_mode_available())
+> +		return false;
+> +
+> +	if (cpus_have_cap(ARM64_HAS_GICV5_LEGACY))
+> +		return true;
+> +
+> +	if (is_kernel_in_hyp_mode())
+> +		res.a1 = read_sysreg_s(SYS_ICH_VTR_EL2);
+> +	else
+> +		arm_smccc_1_1_hvc(HVC_GET_ICH_VTR_EL2, &res);
 
-[...]
+We are reading the register on the current CPU and this capability,
+being a SYSTEM_FEATURE, relies on the "probing CPU". If there CPUs
+with differing values (which I don't think is practical, but hey,
+never say..). This is would better be a 
+ARM64_CPUCAP_EARLY_LOCAL_CPU_FEATURE, which would run through all
+boot CPUs and would set the capability when it matches.
+
+That means, you may need to replace cpus_have_cap() with
+this_cpu_has_cap() for both GICV3_CPUIF and GICV5_LEGACY.
+
+
+
+> +
+> +	if (res.a0 == HVC_STUB_ERR)
+> +		return false;
+> +
+> +	return res.a1 & ICH_VTR_EL2_TDS;
+> +}
+> +
+>   #ifdef CONFIG_ARM64_BTI
+>   static void bti_enable(const struct arm64_cpu_capabilities *__unused)
+>   {
+> @@ -2814,6 +2857,15 @@ static const struct arm64_cpu_capabilities arm64_features[] = {
+>   		.matches = has_gic_prio_relaxed_sync,
+>   	},
+>   #endif
+> +	{
+> +		/*
+> +		 * Depends on having GICv3
+> +		 */
+> +		.desc = "ICV_DIR_EL1 trapping",
+> +		.capability = ARM64_HAS_ICH_HCR_EL2_TDIR,
+> +		.type = ARM64_CPUCAP_SYSTEM_FEATURE,
+
+As mentioned above, this needs to be a 
+ARM64_CPUCAP_EARLY_LOCAL_CPU_FEATURE.
+
+Suzuki
+
+
 
