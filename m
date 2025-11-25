@@ -4,161 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9A31CFD372
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 02:11:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B85EDCFD36B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 02:23:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LcjwgzJuu4GKdW6MOzMtH4k6Gjp8Fj9ec0RGvqyijPg=; b=qHbAp3ER79sxbZ7rrF7axVgDEK
-	5DeUgm8s3DlD7CPox04MkLZiZZxXELTYyoYVQrLSlH8cZc/DDIM++8DYGlFMLiVIZJRD52KK8W8+i
-	1mIVaEkDumizlsUnKEc76mxiejFS0NmiJ1grCAiMDfYDvYo+tNfvOhe4PNl62LXcIc719AQe2beAt
-	W4/LOLH0kXG2iWB0vpKk4d886NWV+xEYrFoy2/DPGpExuPWBXSOp1RtZBS7NefiGqCm1Vc7FYBpgf
-	SlptIQFkUbeZtrqGY0GqrAoZoMI6RjMEwK25l00yObno34dugaKMpzW/YaFx7W2QeoIFXxfqfWRlw
-	PNKwEn8Q==;
+	bh=WyU3dF+cmW7YqGT8mV3RtcRJh2bg16/Cu/kc8VrUlCE=; b=TCec4GbM52DkA37R+6DdiCnbbf
+	Bfr/HdPekfyQkReAHYQ19mxcRZEK8i+L2AV9JtwOCTWK+W+QV0WSyt/MQnIGmsC14Rtxrq3/9rf3V
+	skopEGCAcOpW0sRN6omqOQZ0YbACyxUaBUg7laK2dyx7tdx04qThQALoMUS6AsE7FtMCeGBSvadeS
+	iZii03xrvhan9VKFunrjk4avdevjrG+MH8YuODgenGU2vGyiYz20709QEfgmHfahTte77grMTlONa
+	5lIeu7Aqcb1oAOSeOKiZzeeM9n2N3rDwIFH+k5+87Qw3TzlmnzSFKdteOaTTVRNdGc40Qja+waNxs
+	e+O5N25A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNiWb-0000000CbJX-0gIN;
-	Tue, 25 Nov 2025 02:11:25 +0000
-Received: from mail-francecentralazon11023127.outbound.protection.outlook.com ([40.107.162.127] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1vNii5-0000000Cc1o-3Tb5;
+	Tue, 25 Nov 2025 02:23:17 +0000
+Received: from mail-m49248.qiye.163.com ([45.254.49.248])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNiWR-0000000CbDF-3Nnb;
-	Tue, 25 Nov 2025 02:11:16 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ZgXb0lt6WNZ7ttjA0sHiCSC2SnJ44+r9kQFgQfrY2R9ovn0C24ZbUQT/i2XRN5Fd6G05FkIk8WGK0eNHWi3oB4yi7dz9ILfQVeqNF/bDZY4y3eNPJG9WYjg/7tZ8OkDrdzMV4RXvS4acPaChbY7iSrNy1G3Tf1Pex/T9G0KuR4CZ82rYgZIUDGuws4XBIJhjFnIxH3uWWojPsBdr2rorbcTwcHacd29koZbeuqdEBdM2w2MjKFbYt7J3Zb4bxAK70PemDg9xR3mDHCyPU1rwWyGyoNbvmsfD5b5AnGQGnQrXEcQsDWdFMdzoq33w3HTTsCA3iSy+bYHztLpH2j1saQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=LcjwgzJuu4GKdW6MOzMtH4k6Gjp8Fj9ec0RGvqyijPg=;
- b=D+c6yLbzuYpOoJB0H5oUMGowWa6Uk7jRbpYXugI3KE+CiM6VrCOyaAhEg9uf3YYh0HWVppAn5TyjmvNf/WGQyXBlj3zPUsPKkOnR5wK1M1B0tPHZTrc/hfpdgy3WecddgfzmgKYdBpIRllVlYZ83eKwWu6U2r7kvYilM4eQlUBuXT4mmLQy+QSSS1M6XvEYdLdKeFGUWD/sARhxfKSMcXjuQfLBaC14TMUfL9mZz4r5ENIkmmfW59xYGQZcxEbtMHxl2j1hDg44iFCIy2JNcGpRGP/CeV0qVgTH0Kf6coSjaSRYqjLNcczYhnYfRp5sXUv9m3NgpQV6FAHbE4ClbWQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=genexis.eu; dmarc=pass action=none header.from=iopsys.eu;
- dkim=pass header.d=iopsys.eu; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=iopsys.eu;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=LcjwgzJuu4GKdW6MOzMtH4k6Gjp8Fj9ec0RGvqyijPg=;
- b=Gah/EbBTNhFpL2DgY6Vfowo8665zTsMfLoEmaGRKMGS1xnfmux7CcxrpTBqZijd19pWG375tWp/pvY2z3bwgLfnAz89opy4QopOsixXrKRtpx4afupeXg6/gYfIh6QUVg7n0DiD/5AMCpyZVzRix6SMPNZF7N15I79NVXPZUKxNgoR+ZQfW1GcSZz3Vo7CcuNjlnENOejgAe10szWrVgjpo2RYrl94yUAZz3moPyllSu7utc9H72AIedodQxnjdQtvujono5VvkWzXVXcdS8JNtq+A0S80iY+ltN7SvTHNKIbxlldpXo4ckB3Uias3jpyY/0G40I9mxunihSOAV3/w==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=iopsys.eu;
-Received: from GV2PR08MB8121.eurprd08.prod.outlook.com (2603:10a6:150:7d::22)
- by GVXPR08MB10638.eurprd08.prod.outlook.com (2603:10a6:150:14b::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9343.17; Tue, 25 Nov
- 2025 02:11:04 +0000
-Received: from GV2PR08MB8121.eurprd08.prod.outlook.com
- ([fe80::4cd3:da80:2532:daa0]) by GV2PR08MB8121.eurprd08.prod.outlook.com
- ([fe80::4cd3:da80:2532:daa0%3]) with mapi id 15.20.9343.016; Tue, 25 Nov 2025
- 02:11:04 +0000
-From: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>
-To: Lorenzo Bianconi <lorenzo@kernel.org>,
-	Ray Liu <ray.liu@airoha.com>,
-	Mark Brown <broonie@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Andy Shevchenko <andy@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-spi@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-mediatek@lists.infradead.org
-Cc: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>,
-	Andreas Gnau <andreas.gnau@iopsys.eu>
-Subject: [PATCH v4 3/3] arm: dts: airoha: en7523: add SNAND node
-Date: Tue, 25 Nov 2025 05:10:51 +0300
-Message-ID: <20251125021051.857159-4-mikhail.kshevetskiy@iopsys.eu>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20251125021051.857159-1-mikhail.kshevetskiy@iopsys.eu>
-References: <20251125021051.857159-1-mikhail.kshevetskiy@iopsys.eu>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: GV3P280CA0099.SWEP280.PROD.OUTLOOK.COM
- (2603:10a6:150:8::34) To GV2PR08MB8121.eurprd08.prod.outlook.com
- (2603:10a6:150:7d::22)
+	id 1vNii1-0000000Cc0y-1awe;
+	Tue, 25 Nov 2025 02:23:15 +0000
+Received: from [172.16.12.51] (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 2ac234cab;
+	Tue, 25 Nov 2025 10:23:04 +0800 (GMT+08:00)
+Message-ID: <c9cb7b79-37c8-4fef-97a6-7d6b8898f9c4@rock-chips.com>
+Date: Tue, 25 Nov 2025 10:23:02 +0800
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR08MB8121:EE_|GVXPR08MB10638:EE_
-X-MS-Office365-Filtering-Correlation-Id: 37b9d2ee-7740-4815-cea4-08de2bc7e35a
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|376014|7416014|366016|1800799024|38350700014|921020;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?r4ae9GaFmWIZQDr5Mi87ckzcz3FtbEe4DuB0kr0HsMQILSMyEkBQMSaKcnS3?=
- =?us-ascii?Q?yNZMF2pB9BfrFmMUzZCr4XGmdzOjAPCcF/ND6BWG/qrn5l9gXvXh5XYj0NqH?=
- =?us-ascii?Q?eu8iONvVuOyObXcC7jXRnkzJ5bEZZVcPHjtBk9GQoU1yrbZAVsKpZDOeNdvY?=
- =?us-ascii?Q?dpY4WZrgRN4z+UYHFS8t3TNIBQ8HD7Fl9o5uVzZWbfIJFEIStOktZJUIQTKs?=
- =?us-ascii?Q?ZBWuB7CYAAyDAkENblLBB8IGisXMBuLN7N8+FN+Ad4AHsvuqcUHzmkNumdot?=
- =?us-ascii?Q?4yqzIFXstGffdP8K4TeMNb6oZnYOjVNL3sh4dSZ7ZMPM1LJg2/3EOAj9jRTD?=
- =?us-ascii?Q?9M0j1nzKteGuN/JDl88PfA9kUwXugyo3Z9Vg3e8qyq5B3J1VotcQwEjyb37v?=
- =?us-ascii?Q?MIZ3L1N8ID4Z/gzRi/wxWgTLiiKEJs2X5PEEupp1H1IZhWK/PhoXOKAu11hE?=
- =?us-ascii?Q?O1nmIX0NQL5OEeAjNyIJkEDCYo4e4bImCskqv2HND/UA4inAw+vNr5Int7xI?=
- =?us-ascii?Q?8s73zroSG+SfLyb556Zz/jarQfL4HNtEuwVl1FSs6gKZKDZwoBATPjNgwcOX?=
- =?us-ascii?Q?2hi3oT6L5rZayGmC/d2hmE/FdDUBw+1t1SzRPFpoFHG9eQRE2yaVqGdh4VUv?=
- =?us-ascii?Q?e4Vq44nfxOjYcf0QCAss79Y2dQ/Q9XGrdOZlrh3D7IsHv9mj0UawRJVkglAc?=
- =?us-ascii?Q?5Gw+60ay2wg9lK9pXmUEmfQ35lz6s28MvZn//QQhzy3hAaG2PaS9445RDBVp?=
- =?us-ascii?Q?qoIgicjfPBU2qTEF2AuEwUOkKsQF8X+X31LnUgFuPkFjs38L/rjIWhi9E2YG?=
- =?us-ascii?Q?f2rdU82FzCbIPmp84QdZbGKjxh8H61jMds0dFd98WgHPleqmL0nsRRabIQwU?=
- =?us-ascii?Q?W+Mk9jqaLWMrbsjIBSGaTy9GOi5MQkFGxehtiO70dTDh7musiS7i5jBTKoc1?=
- =?us-ascii?Q?5kIhha4Xjju6hceNVPLtMaHdB4KyURFPqtwS2zUmmNyOATyjtnjllHS31D5g?=
- =?us-ascii?Q?yH819dtGczUO0vVKpTZdg+b6jQd5IND4nWKAo6izPUI3NQIKkxQWhLib34Qn?=
- =?us-ascii?Q?F8G7gBxXXV1wQq5ABq63eR8weAw10P2pTZKnYNrvIV5pomnI8VxoaB0AWTt3?=
- =?us-ascii?Q?ro8Q2EL3NHupvQ4XKfUp3Eqo+lWHB2tJn5sVTS95aejIy33QWIyFf/vUHjpp?=
- =?us-ascii?Q?upiTD+q/smnQmIUwAQcaPbsi6Q/V3JLAdYrDbo4kt1mWUidt8Q73d0xBRNPt?=
- =?us-ascii?Q?K5gQ+fspmW4A2xu3EPc7nqoGj1c0ExcOMMnWHpbOpWI2EFtwQWF9522I2tM/?=
- =?us-ascii?Q?B3Y9Hh1br+hLVCP0FAKMvIVS6fT1iNZt8NKmWWhmNNbtYKJ/U8tU83Rb0o8v?=
- =?us-ascii?Q?uh4nT9Se7T9Dzh9EP50B7PLFUl+7dVbs23izf1v1Vou0hbSt6TmlNcZOgzIG?=
- =?us-ascii?Q?2sHcmQcoeFIMfCPThHmtSY3IAfsp5JMA6NsvL0t9TIzb59TkGSKEgK2ialTt?=
- =?us-ascii?Q?0i72ffOjgEOvPffb7XY27BFhPCGtlyotxtLv3BIY5cSJTbGyIBeBep1hLA?=
- =?us-ascii?Q?=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR08MB8121.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(376014)(7416014)(366016)(1800799024)(38350700014)(921020);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?/BNW1YF5SmleQJczpRP2xueqwKdgqTAFUyKgoe7lnEmDttLO8Xk0Emp1BtC4?=
- =?us-ascii?Q?OlAhr3qjYdZKSq81wtxKRDcapfOSLJQmDX/bcJjVfdLtmWjdPj9wrUoGlbMw?=
- =?us-ascii?Q?20zxf+Z8mlk9VdAkRX+ly5mZ0KfBKKMjL8oyrVYo+fl+J88lHu0k3upZFgT/?=
- =?us-ascii?Q?gEXu6isEbYxgYcs6gBV3agpUCuFMiwUy2oZudHJiuLbi0T6xn1RSVDT2p0vH?=
- =?us-ascii?Q?IwqD7FDnE7eT2i329lfUbh2C/UteIZ3Sf6sRbBpf6UtFMUPgFnUFA5s2LSdh?=
- =?us-ascii?Q?RdA+4qae4JwZiP922159wnFsBqRoZ+QgRVSXRiZLDThDwJisnEne4khg42mR?=
- =?us-ascii?Q?W2b1pgVtFJ69NBKclaHYiV9xLgEWV5QOdXmv8TM3yJBctHBTqe46Gh2ccQ+L?=
- =?us-ascii?Q?BhMgf7u9nG3CnbfUvxDVswW9usxHqKCwXyUbC05Gu6sXzQ5jwvLAVWvrGKxb?=
- =?us-ascii?Q?I/2yj2LcxSGOGiBc5Xf8WBHikvmzO2lraoWy+vnR36qtRU+OfpJgalujya1J?=
- =?us-ascii?Q?0xoay4wMk9ZPdcUpoWdedZq38dh91rboTMLrh+6sIuoPt1MR/JuMsfdCW7F7?=
- =?us-ascii?Q?MUVK4tf3wUdsy8BjSqBRGZf1Y8mzwnZK+JIDmJwNZPiq9X+fX2hWazl8ndoB?=
- =?us-ascii?Q?SpCwscuW5Qa84Biz/cN2GI2sWSRezYiNeYbAaqjnYGgBryrBCi3KESJLRaMr?=
- =?us-ascii?Q?TIN8VnQ/jEZ6E8eGV8Y852QvvhWmGSjYJadqMkgGIxEPFufZ7abtHF0hGzzy?=
- =?us-ascii?Q?rcV7mCxQBfL4H+w0fGdKnUU59pLWFJ+IEI+HKrO+BL/TwbbpkEghbudv/qqo?=
- =?us-ascii?Q?KgiL04mEnQ6M50OOM8dlWNJNk2RJ/crQqjpAq7+6jg0aaIorYCc+VB+Liq70?=
- =?us-ascii?Q?6TeTDuxkL9W69i/jgY5kSEBio5EptWV/bdkTywY0ptgHlXAGdZXT3HTTyNB6?=
- =?us-ascii?Q?tBvYjttXBjcqHPwtAiNUOgUAswte8eE2L+TQaffTPQ6Qmj1W+d83lxePn8HS?=
- =?us-ascii?Q?gD4RjhtLsw/+zJV1s1/6nY8BnaPJkd8TfnBmDyxitKB2p/b9pOYBTa1sPj+A?=
- =?us-ascii?Q?BSatwe9hPP1f0O82cwqKYeRYb37BOeYF2CDYCXLvvkvdespdoZgiHqE6+qgu?=
- =?us-ascii?Q?2Xn7AlvZ64oZJ54iwxVuavFiNFxiZ41PmRdz09gIKo9ajhRcl+7HaqWO4ixR?=
- =?us-ascii?Q?Fcn9IUUrjCeSJiirfNL5TqoDtcqfCB/EXyHIDg3gqCQkUV/ZgBGdVUvL9pPF?=
- =?us-ascii?Q?UWJ4TcB7PKcCmO/XzgbJD4GE47EAHbSCh/CWdR5IRbnchCQsFsXXDsupbvFr?=
- =?us-ascii?Q?wQS3NFF4CDI/poSkYsfcHjROHsIXNkB9IAs+MsOlk581eAn9ci9MoZuuksRr?=
- =?us-ascii?Q?uYgBRiUg2A9DffcOInpS84YBd63uglJYFH506oNR2ld24dDs7quWVHLtJfW5?=
- =?us-ascii?Q?LqGLBjHNHrSqfJN94ipCzdGI2DzoCTcilsA7+nllUbEPdaLAUYFPfe33kZ2V?=
- =?us-ascii?Q?YR197uGNJt557i1Jo0aPXVstQqwwwV0o1dSeSOlAaW6xzONFABK/PLqAE7Cy?=
- =?us-ascii?Q?JiPP/cCZiMj7k/AxRoIXR+4icpTGIMDXwOYKxM6OR/sEH/qNckBem8u0Ah2V?=
- =?us-ascii?Q?SXLzqCIEyUDQgUCJT+UHZSg=3D?=
-X-OriginatorOrg: iopsys.eu
-X-MS-Exchange-CrossTenant-Network-Message-Id: 37b9d2ee-7740-4815-cea4-08de2bc7e35a
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR08MB8121.eurprd08.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Nov 2025 02:11:04.7585
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 8d891be1-7bce-4216-9a99-bee9de02ba58
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: qMbhfyTKieaIng4zHf30YhhorEW0B6N3hIoYOX8sGurJIU5nHR9rcDlX1gEG41UFZUQqGol0+MA6xAHo2yZjVUnYn1i7xGkoEpV6VT+TfU4=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR08MB10638
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v10 01/11] usb: typec: Add notifier functions
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: Chaoyi Chen <kernel@airkyi.com>,
+ Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+ Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+ Peter Chen <hzpeterchen@gmail.com>, Luca Ceresoli
+ <luca.ceresoli@bootlin.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>,
+ Kishon Vijay Abraham I <kishon@kernel.org>, Heiko Stuebner
+ <heiko@sntech.de>, Sandy Huang <hjc@rock-chips.com>,
+ Andy Yan <andy.yan@rock-chips.com>,
+ Yubing Zhang <yubing.zhang@rock-chips.com>,
+ Frank Wang <frank.wang@rock-chips.com>,
+ Andrzej Hajda <andrzej.hajda@intel.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Amit Sunil Dhamne <amitsd@google.com>, Dragan Simic <dsimic@manjaro.org>,
+ Johan Jonker <jbx6244@gmail.com>, Diederik de Haas <didi.debian@cknow.org>,
+ Peter Robinson <pbrobinson@gmail.com>, linux-usb@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, dri-devel@lists.freedesktop.org
+References: <20251120022343.250-1-kernel@airkyi.com>
+ <20251120022343.250-2-kernel@airkyi.com>
+ <2025112102-laurel-mulch-58e4@gregkh>
+ <462ad1bd-7eec-4f26-b383-96b049e14559@rock-chips.com>
+ <2025112402-unopposed-polio-e6e9@gregkh>
+ <a80483de-518d-45d5-b46a-9b70cca5b236@rock-chips.com>
+ <2025112448-brush-porcupine-c851@gregkh>
+Content-Language: en-US
+From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+In-Reply-To: <2025112448-brush-porcupine-c851@gregkh>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0a9ab8d257a503abkunm85208c3c48921c
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQ0hCTVZNQk1CS0tLSU8dTE1WFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSEpOTE
+	9VSktLVUpCS0tZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=APsyQcaE+WXuz1ZfmEJ+WZ6W93w9m9gj8aanG9iA1pAa04/ZZ4qUlxWMSBF/y1Kuz0hn22w2GY3XxUdKA4pZgY7iBuHd1G2GGJZ+egD8kodC8sOEYhMBPvftnWjlHJCq2jJ1MeEE5yxsfan4/EAAC32D22P3AEqDF+ZCmqn80RI=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=WyU3dF+cmW7YqGT8mV3RtcRJh2bg16/Cu/kc8VrUlCE=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251124_181115_851259_CD5B6D8E 
-X-CRM114-Status: UNSURE (   9.05  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251124_182314_073272_C5EBD49A 
+X-CRM114-Status: GOOD (  43.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -173,44 +99,140 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add SNAND node to enable support of attached SPI-NAND on the EN7523 SoC.
+On 11/25/2025 12:33 AM, Greg Kroah-Hartman wrote:
+> On Mon, Nov 24, 2025 at 04:05:53PM +0800, Chaoyi Chen wrote:
+>> Hi Greg,
+>>
+>> On 11/24/2025 3:10 PM, Greg Kroah-Hartman wrote:
+>>
+>>> On Mon, Nov 24, 2025 at 09:40:03AM +0800, Chaoyi Chen wrote:
+>>>> Hi Greg,
+>>>>
+>>>> On 11/21/2025 10:07 PM, Greg Kroah-Hartman wrote:
+>>>>> On Thu, Nov 20, 2025 at 10:23:33AM +0800, Chaoyi Chen wrote:
+>>>>>> From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+>>>>>>
+>>>>>> Some other part of kernel may want to know the event of typec bus.
+>>>>> Be specific, WHAT part of the kernel will need to know this?
+>>>> For now, it is DRM.
+>>> Then say this.
+>> Okay, please refer to the discussion below.
+>>
+>>>>> And why a new notifier, why not just use the existing notifiers that you
+>>>>> already have?  And what is this going to be used for?
+>>>> We have discussed this before, but the current bus notifier cannot achieve the expected notification [0].
+>>>>
+>>>> [0] https://lore.kernel.org/all/aPsuLREPS_FEV3DS@kuha.fi.intel.com/
+>>> Then you need to document the heck out of this in the changelog text.
+>>> But I'm still not quite understanding why the bus notifier does not work
+>>> here, as you only want this information if the usb device is bound to
+>>> the bus there, you do not want to know this if it did not complete.
+>>>
+>>> That thread says you want this not "too late", but why?  What is the
+>>> problem there, and how will you handle your code getting loaded after
+>>> the typec code is loaded?  Notifier callbacks don't work for that
+>>> situation, right?
+>> In fact, the typec_register_altmode() function generates two
+>> registered events. The first one is the registered event of the port
+>> device, and the second one is the registered event of the partner
+>> device. The second one event only occurs after a Type-C device is
+>> inserted.
+>> The bus notifier event does not actually take effect for the port
+>> device, because it only sets the bus for the partner device:
+>>
+>>      /* The partners are bind to drivers */
+>>      if (is_typec_partner(parent))
+>>          alt->adev.dev.bus = &typec_bus;
+> Setting the bus is correct, then it needs to be registered with the
+> driver core so the bus link shows up (and a driver is bound to it.)
+> That is when the bus notifier can happen, right?
+Yes, this is valid for the partner device. But for the port device, since the bus is not specified here, the corresponding bus notifier will not take effect.
 
-Signed-off-by: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
----
- arch/arm/boot/dts/airoha/en7523.dtsi | 20 ++++++++++++++++++++
- 1 file changed, 20 insertions(+)
+>
+>> I hope it's not too late. In fact, the notifier here will notify DRM to establish a bridge chain.
+> What is a "bridge chain"?
+In DRM, the bridge chain is often used to describe the chain connection relationship
+of the output of multi level display conversion chips. The bridge chain we are referring to here
+is actually a chain  structure formed by connecting various devices using a simple transparent bridge [0].
 
-diff --git a/arch/arm/boot/dts/airoha/en7523.dtsi b/arch/arm/boot/dts/airoha/en7523.dtsi
-index b523a868c4ad..31191b8d1430 100644
---- a/arch/arm/boot/dts/airoha/en7523.dtsi
-+++ b/arch/arm/boot/dts/airoha/en7523.dtsi
-@@ -203,4 +203,24 @@ pcie_intc1: interrupt-controller {
- 			#interrupt-cells = <1>;
- 		};
- 	};
-+
-+	spi_ctrl: spi@1fa10000 {
-+		compatible = "airoha,en7523-snand", "airoha,en7581-snand";
-+		reg = <0x1fa10000 0x140>,
-+		      <0x1fa11000 0x160>;
-+
-+		clocks = <&scu EN7523_CLK_SPI>;
-+		clock-names = "spi";
-+
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		nand: nand@0 {
-+			compatible = "spi-nand";
-+			reg = <0>;
-+			spi-max-frequency = <50000000>;
-+			spi-tx-bus-width = <1>;
-+			spi-rx-bus-width = <2>;
-+		};
-+	};
- };
+For example, the schematic diagram of a bridge chain is as follows:
+
+DP controller bridge -> DP PHY bridge -> onnn,nb7vpq904m retimer bridge -> fsa4480 analog audio switch bridge -> fusb302 HPD bridge
+
+Here, apart from the DP controller bridge, the rest are transparent DRM bridges, which are used solely to
+describe the link relationships between various devices.
+
+
+[0] https://patchwork.freedesktop.org/patch/msgid/20231203114333.1305826-2-dmitry.baryshkov@linaro.org
+>
+>> The downstream DP controller driver hopes to obtain the fwnode of the last-level Type-C device
+>> through this bridge chain to create a DRM connector. And when a device is inserted,
+>> drivers/usb/typec/altmodes/displayport.c can notify the HPD (Hot Plug Detect) event.
+> But aren't you just the driver for the "partner device"?
+>
+> If not, why isn't a real device being created that you then bind to,
+> what "fake" type of thing are you attempting to do here that would
+> require you to do this out-of-band?
+The HPD event is pass by drm_connector_oob_hotplug_event(), which does not use the device in Type-C.
+This function will find the corresponding DRM connector device, and the lookup of the DRM connector is
+done through the fwnode.
+
+And the partner device and the port device have the same fwnode.
+
+>
+>> If relying on the second event, the bridge chain may never be established, and the operations of the DP driver will be
+>> always deferred. Furthermore, other parts of the display controller driver will also be deferred accordingly.
+> What operations?  What exactly is delayed?  You should not be touching a
+> device before you have it on your bus, right?
+To complete the HPD operation, it is necessary to create a drm connector device that
+has the appropriate fwnode. This operation will be carried out by the DP controller driver.
+
+As you can see, since it cross multiple devices, we need to set the fwnode to the last device fusb302.
+This requires relying on the bridge chain. We can register bridges for multiple devices and then connect
+them to form a chain. The connection process is completed through drm_bridge_attach().
+
+A brief example of the process of establishing a bridge chain is as follows, starting from the last bridge:
+
+step1: fusb302 HPD bridge
+step2: fsa4480 analog audio switch bridge -> fusb302 HPD bridge
+step3: onnn,nb7vpq904m retimer bridge -> fsa4480 analog audio switch bridge -> fusb302 HPD bridge
+step4: DP PHY bridge -> onnn,nb7vpq904m retimer bridge -> fsa4480 analog audio switch bridge -> fusb302 HPD bridge
+step5: DP controller bridge -> DP PHY bridge -> onnn,nb7vpq904m retimer bridge -> fsa4480 analog audio switch bridge -> fusb302 HPD bridge
+
+Step 1 is the most crucial, because essentially, regardless of whether we use notifiers or not, what we ultimately want to achieve is to create an HPD bridge.
+The DP controller needs to wait for the subsequent bridge chain to be established because it needs to know the connection relationships of the devices.
+
+The question now is when to create the HPD bridge, during the registration of the port device or during the registration of the partner device.
+If it's the latter, then the delay occurs here.
+
+And I don't think I'm touching the Type-C device here. I'm just using the bridge chain to get a suitable fwnode and create a suitable DRM connector device.
+The subsequent Type-C HPD events will be on the DRM connector device.
+
+This solution is somewhat complex, and I apologize once again for any confusion caused earlier.
+
+>
+>>>>> Notifiers are a pain, and should almost never be added.  Use real
+>>>>> function calls instead.
+>>>> In v6, I used direct function calls, but had to switch to notifiers because couldn't resolve the dependencies between DRM and Type-C [1]. Do you have any good ideas? Thank you.
+>>> Only allow this DRM code to be built if typec code is enabled, do NOT
+>>> use a select, use a depends in the drm code.
+>> Sorry, I didn't get your point. Does this mean that the current notifiers approach still needs to be changed to direct function calls?
+> If you somehow convince me that the existing bus notifiers will not
+> work, yes :)
+>
+>> If so, then based on the previous discussion, typec should not depend
+>> on any DRM components. Does this mean that we should add the if
+>> (IS_REACHABLE(CONFIG_DRM_AUX_BRIDGE)) before the direct function call?
+> No, do it properly like any other function call to another subsystem.
+>
+>> Additionally, the current version of CONFIG_DRM_AUX_BRIDGE is selected
+>> by the DP driver in patch9.
+> Don't do "select" if at all possible, always try to do "depends on".
+Thank you for clarifying this. However, CONFIG_DRM_AUX_BRIDGE is not exposed in the menu, and it is not intended for the end user to select it by design. Therefore, I think there still needs to be some place to select it?
+
 -- 
-2.51.0
+Best,
+Chaoyi
+
 
 
