@@ -4,113 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EA7CD0E6C5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 10:56:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97AD7D0E6C4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 10:57:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PZ4BuRiiT+lJ7nonsdTCUBpTObre8rCRK4B92fnEpBs=; b=VXoRJOWLmsI9Qlca55PZw+1kAa
-	f/VVDeqpSAI8GZNVbESGDC4iVXicVKc9HgImT4851ydLf72f79lVBL/B9SF+8h6frufQSCQKpvncx
-	Zqafp/m3RkGkAfcj6qA/TZCEvOSYGG4GaYASSOPMgrd1q5wq/++tg29bRsjlwg9qZJ3K04gdhhMZ6
-	Q79QfAge2UAMB0NeFE1tynn8ybcBqoz/LMHon4Xlb4l0t3PRps3fLU44QSVifrvlkEWAlApXSqvDc
-	T1NsPuUpjNFyqWzlC1MHRSesoSs1g5mkGvhArR7Ohv6eMwfOs0yRwBad5VjMvDF7MSSMyChbfdgoN
-	/uxMhrHA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=gNOIyqsndGQOXXdpVgh65LPrGWqk+xJmkNe4l+FKetE=; b=rb9WFdL79xz4APiwmcMa4/tjjB
+	maG0+8+gSAxReGTMJO3Abqe/HnlOphy6dkCzE4qh9goOO6P1ka6XXaoz4iIdBcPUEAtZCY9fV5nLW
+	6RgLg4Uu3s7Mi+08Zt8TLgqBfnLkuNzKRKUd7s6XU/NWUrSyTSdKrqBQtLN4sYsqn2CINwBXvFMi4
+	nUNrN1OLE9nDaIV7ImgodUEMcMaxAOJjWMriqZ9IApCISdP0kiGCSOvzlVL70orE/OC2P9lcXQW0i
+	gR1QfwD2mJIJULfXdwop7Fd6Qd5s9TvjjA7JtXA/dmWZDz8rX4piWXufDksQmHDo2SgBqvgZpw/Ag
+	3FDSfK+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNqj6-0000000DA7v-3cbO;
-	Tue, 25 Nov 2025 10:56:52 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1vNqj7-0000000DA8e-28i8;
+	Tue, 25 Nov 2025 10:56:53 +0000
+Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNqiu-0000000DA3H-43le
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Nov 2025 10:56:45 +0000
-Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5AP9xDC32650394;
-	Tue, 25 Nov 2025 10:56:32 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=qcppdkim1; bh=PZ4BuRiiT+l
-	J7nonsdTCUBpTObre8rCRK4B92fnEpBs=; b=E51MO4mhB4iDQk4HxPPpUuUW0pi
-	3ORji1IQ2LsGztUijDgTsWEivFUBWszmsDh8TnpxF/kYxIQVTAY9OEo6jbtYu/OB
-	PB0c4U0nvEDGR/hVtyH3QMUHteSc+4Tm/PjR6rFPIy9kp/mwdE8ayFDmlBQU/8HN
-	WL5KkCGBBjI2XJ/ohv6TEDwRpImX5weD7ayTsw8WVm96iGY7ufr4cwylGn87kPXt
-	5Qja5orFaW18nZnT8yoxvdgu9Ksurw72Lqv66h18FXZrBJUQ5gRc+XpHiHXnCjcS
-	dZBDOR5xUzBYcq88nBxxk/WIBQx/3EzNPHgrysYjbjWbCeA8uR5032G01vg==
-Received: from apblrppmta02.qualcomm.com (blr-bdr-fw-01_GlobalNAT_AllZones-Outside.qualcomm.com [103.229.18.19])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4anaabr4va-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 25 Nov 2025 10:56:31 +0000 (GMT)
-Received: from pps.filterd (APBLRPPMTA02.qualcomm.com [127.0.0.1])
-	by APBLRPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTP id 5APAuSqm009131;
-	Tue, 25 Nov 2025 10:56:28 GMT
-Received: from pps.reinject (localhost [127.0.0.1])
-	by APBLRPPMTA02.qualcomm.com (PPS) with ESMTPS id 4ak68n435p-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 25 Nov 2025 10:56:28 +0000
-Received: from APBLRPPMTA02.qualcomm.com (APBLRPPMTA02.qualcomm.com [127.0.0.1])
-	by pps.reinject (8.17.1.5/8.17.1.5) with ESMTP id 5APAuRvM009100;
-	Tue, 25 Nov 2025 10:56:27 GMT
-Received: from hu-devc-hyd-u22-c.qualcomm.com (hu-mkuntuma-hyd.qualcomm.com [10.213.97.145])
-	by APBLRPPMTA02.qualcomm.com (PPS) with ESMTPS id 5APAuR97009094
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 25 Nov 2025 10:56:27 +0000
-Received: by hu-devc-hyd-u22-c.qualcomm.com (Postfix, from userid 4582077)
-	id D81EC588; Tue, 25 Nov 2025 16:26:26 +0530 (+0530)
-From: Mani Chandana Ballary Kuntumalla <quic_mkuntuma@quicinc.com>
-To: dmitry.baryshkov@oss.qualcomm.com, marijn.suijten@somainline.org,
-        swboyd@chromium.org, mripard@kernel.org, abel.vesa@linaro.org,
-        andersson@kernel.org, konradybcio@kernel.org, robh@kernel.org,
-        krzk+dt@kernel.org, conor+dt@kernel.org, robin.clark@oss.qualcomm.com,
-        jessica.zhang@oss.qualcomm.com, abhinav.kumar@linux.dev,
-        sean@poorly.run, airlied@gmail.com, simona@ffwll.ch,
-        alex.vinarskis@gmail.com
-Cc: Mani Chandana Ballary Kuntumalla <quic_mkuntuma@quicinc.com>,
-        linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
-        linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        freedreno@lists.freedesktop.org, dri-devel@lists.freedesktop.org,
-        quic_rajeevny@quicinc.com, quic_vproddut@quicinc.com,
-        quic_riteshk@quicinc.com, quic_amitsi@quicinc.com,
-        Mahadevan P <mahadevan.p@oss.qualcomm.com>
-Subject: [PATCH v2 2/3] arm64: dts: qcom: lemans: add mdss1 display device nodes
-Date: Tue, 25 Nov 2025 16:26:21 +0530
-Message-Id: <20251125105622.1755651-3-quic_mkuntuma@quicinc.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20251125105622.1755651-1-quic_mkuntuma@quicinc.com>
-References: <20251125105622.1755651-1-quic_mkuntuma@quicinc.com>
+	id 1vNqiz-0000000DA4d-10Jk;
+	Tue, 25 Nov 2025 10:56:46 +0000
+X-UUID: 6b717d1ac9ed11f09f706fa2197c6ceb-20251125
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=gNOIyqsndGQOXXdpVgh65LPrGWqk+xJmkNe4l+FKetE=;
+	b=fbBITHrh7PPruvSZW+R2GOSa1nWUZDmhM9H0YXlRXxsK/B0y68vDurjFinFEf0jdcM3fIokzEFZAOkq9gJXOYJpXvIRfrYiCPx/+XJd5HfwaGisrsjAlYcqfDY13dhGHzehUQscfTYlw1GSri7yLxsbQyqm+1+eszATyKP5GkAw=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.6,REQID:05ac54d7-4ac0-4b0b-acfb-d2d4f42aa63d,IP:0,UR
+	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
+	elease,TS:0
+X-CID-META: VersionHash:a9d874c,CLOUDID:d4be0783-b6af-4b29-9981-6bf838f9504d,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102|836|888|898,TC:-5,Content:0|15|5
+	0,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OS
+	A:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 6b717d1ac9ed11f09f706fa2197c6ceb-20251125
+Received: from mtkmbs10n2.mediatek.inc [(172.21.101.183)] by mailgw01.mediatek.com
+	(envelope-from <macpaul.lin@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 299024937; Tue, 25 Nov 2025 03:56:39 -0700
+Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
+ MTKMBS09N1.mediatek.inc (172.21.101.35) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1748.26; Tue, 25 Nov 2025 18:56:36 +0800
+Received: from mtksitap99.mediatek.inc (10.233.130.16) by
+ mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1748.26 via Frontend Transport; Tue, 25 Nov 2025 18:56:36 +0800
+From: Macpaul Lin <macpaul.lin@mediatek.com>
+To: Ulf Hansson <ulf.hansson@linaro.org>, Matthias Brugger
+	<matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>,
+	=?UTF-8?q?N=C3=ADcolas=20F=20=2E=20R=20=2E=20A=20=2E=20Prado?=
+	<nfraprado@collabora.com>, Macpaul Lin <macpaul.lin@mediatek.com>, "Chen-Yu
+ Tsai" <wenst@chromium.org>, <linux-pm@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-mediatek@lists.infradead.org>
+CC: Weiyi Lu <Weiyi.Lu@mediatek.com>, Jian Hui Lee
+	<jianhui.lee@canonical.com>, Irving-CH Lin <Irving-CH.Lin@mediatek.com>,
+	<conor@kernel.org>, <krzk@kernel.org>, Louis-Alexis Eyraud
+	<louisalexis.eyraud@collabora.com>, Bear Wang <bear.wang@mediatek.com>,
+	"Pablo Sun" <pablo.sun@mediatek.com>, Ramax Lo <ramax.lo@mediatek.com>,
+	Macpaul Lin <macpaul@gmail.com>, MediaTek Chromebook Upstream
+	<Project_Global_Chrome_Upstream_Group@mediatek.com>
+Subject: [PATCH] pmdomains: mtk-pm-domains: improve spinlock recursion fix in probe
+Date: Tue, 25 Nov 2025 18:56:17 +0800
+Message-ID: <20251125105617.1564725-1-macpaul.lin@mediatek.com>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-QCInternal: smtphost
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Authority-Analysis: v=2.4 cv=Vd36/Vp9 c=1 sm=1 tr=0 ts=69258b5f cx=c_pps
- a=Ou0eQOY4+eZoSc0qltEV5Q==:117 a=Ou0eQOY4+eZoSc0qltEV5Q==:17
- a=6UeiqGixMTsA:10 a=VkNPw1HP01LnGYTKEx00:22 a=EUspDBNiAAAA:8 a=COk6AnOGAAAA:8
- a=TLed4gVWyGG0VdZkAU8A:9 a=CMlloVamYqqzhPaX:21 a=TjNXssC_j7lpFel5tvFf:22
-X-Proofpoint-ORIG-GUID: XypMNWyF4y1M0Kgdj87zKcH_k2q6_HN2
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMTI1MDA4OSBTYWx0ZWRfX7lkJR5i1+7ka
- t6hPySaC+KDBbJyqVUX1DpZEtN0ITbEhofpJi1D56qP2TldR08RorvZUI7Rr9e2UlVfSiHojyJI
- cr4S1PlgXgxOjrLKy0N8A8PLjDHq7F172tCjfiIq9TY/Vuf942fDZJt+mtejj9FwGY2gTn3kz5D
- z+qTm5+eTb3CXd+qMMFC4frM+kmIZxub/yY7Qqfqln1rNThB7X5dUkxpepvtvsgMeBhTy9EQCri
- 8nYTxgK8pqWL85VpFF+j7vSE5LcGF5/zkODtSkKSkza3Z2ZijjDzhy05F+DQmrP6KrHn2PVNgPt
- CX69S0j/Ewme9w1fbFXD+HJXkUWa6xoBMET9HCc4FkGrG8QvotRCTdhUULXoY94qXdhKRef1OUX
- DmLqZvLEksTh0X9FfFsKcEhy21GDxg==
-X-Proofpoint-GUID: XypMNWyF4y1M0Kgdj87zKcH_k2q6_HN2
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
- definitions=2025-11-25_02,2025-11-24_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 spamscore=0 impostorscore=0 adultscore=0 phishscore=0
- suspectscore=0 malwarescore=0 priorityscore=1501 bulkscore=0
- lowpriorityscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2510240001
- definitions=main-2511250089
+Content-Type: text/plain
+X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251125_025641_067478_DBE4E348 
-X-CRM114-Status: GOOD (  12.86  )
+X-CRM114-CacheID: sfid-20251125_025645_333522_AD80B9F7 
+X-CRM114-Status: GOOD (  11.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,378 +95,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add devicetree changes to enable second Mobile Display Subsystem (mdss1),
-Display Processing Unit(DPU), Display Port(DP) controllers and eDP PHYs
-on the Qualcomm Lemans platform.
+Remove scpsys_get_legacy_regmap() and update usages with
+of_find_node_with_property(). Use an explicit of_node_get(np) to ensure
+correct node referencing against of_node_put() and ensuring it is called
+in a safe context (i.e., not while holding devtree_lock).
 
-Signed-off-by: Mahadevan P <mahadevan.p@oss.qualcomm.com>
-Signed-off-by: Mani Chandana Ballary Kuntumalla <quic_mkuntuma@quicinc.com>
+If fwnode_count_parents() obtains parent nodes via
+fwnode_for_each_parent_node() and this process requires device tree
+operations, it may result in repeated acquisition of devtree_lock in
+the same thread/context, leading to spinlock recursion errors.
+
+Signed-off-by: Macpaul Lin <macpaul.lin@mediatek.com>
 ---
- arch/arm64/boot/dts/qcom/lemans.dtsi | 338 ++++++++++++++++++++++++++-
- 1 file changed, 336 insertions(+), 2 deletions(-)
+ drivers/pmdomain/mediatek/mtk-pm-domains.c | 21 ++++++---------------
+ 1 file changed, 6 insertions(+), 15 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/qcom/lemans.dtsi b/arch/arm64/boot/dts/qcom/lemans.dtsi
-index f56ca4052c56..110189071cf1 100644
---- a/arch/arm64/boot/dts/qcom/lemans.dtsi
-+++ b/arch/arm64/boot/dts/qcom/lemans.dtsi
-@@ -6792,6 +6792,340 @@ compute-cb@3 {
- 			};
- 		};
+diff --git a/drivers/pmdomain/mediatek/mtk-pm-domains.c b/drivers/pmdomain/mediatek/mtk-pm-domains.c
+index 80561d27f2b2..f64f24d520dd 100644
+--- a/drivers/pmdomain/mediatek/mtk-pm-domains.c
++++ b/drivers/pmdomain/mediatek/mtk-pm-domains.c
+@@ -984,18 +984,6 @@ static void scpsys_domain_cleanup(struct scpsys *scpsys)
+ 	}
+ }
  
-+		mdss1: display-subsystem@22000000 {
-+			compatible = "qcom,sa8775p-mdss";
-+			reg = <0x0 0x22000000 0x0 0x1000>;
-+			reg-names = "mdss";
-+
-+			interconnects = <&mmss_noc MASTER_MDP_CORE1_0 QCOM_ICC_TAG_ALWAYS
-+					 &mc_virt SLAVE_EBI1 QCOM_ICC_TAG_ALWAYS>,
-+					<&mmss_noc MASTER_MDP_CORE1_1 QCOM_ICC_TAG_ALWAYS
-+					 &mc_virt SLAVE_EBI1 QCOM_ICC_TAG_ALWAYS>,
-+					<&gem_noc MASTER_APPSS_PROC QCOM_ICC_TAG_ACTIVE_ONLY
-+					 &config_noc SLAVE_DISPLAY_CFG QCOM_ICC_TAG_ACTIVE_ONLY>;
-+			interconnect-names = "mdp0-mem",
-+					     "mdp1-mem",
-+					     "cpu-cfg";
-+
-+			resets = <&dispcc1 MDSS_DISP_CC_MDSS_CORE_BCR>;
-+
-+			power-domains = <&dispcc1 MDSS_DISP_CC_MDSS_CORE_GDSC>;
-+
-+			clocks = <&dispcc1 MDSS_DISP_CC_MDSS_AHB_CLK>,
-+				 <&gcc GCC_DISP1_HF_AXI_CLK>,
-+				 <&dispcc1 MDSS_DISP_CC_MDSS_MDP_CLK>;
-+
-+			interrupts = <GIC_SPI 865 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupt-controller;
-+			#interrupt-cells = <1>;
-+
-+			iommus = <&apps_smmu 0x1800 0x402>;
-+
-+			#address-cells = <2>;
-+			#size-cells = <2>;
-+			ranges;
-+
-+			status = "disabled";
-+
-+			display-controller@22001000 {
-+				compatible = "qcom,sa8775p-dpu";
-+				reg = <0x0 0x22001000 0x0 0x8f000>,
-+				      <0x0 0x220b0000 0x0 0x3000>;
-+				reg-names = "mdp", "vbif";
-+
-+				clocks = <&gcc GCC_DISP1_HF_AXI_CLK>,
-+					 <&dispcc1 MDSS_DISP_CC_MDSS_AHB_CLK>,
-+					 <&dispcc1 MDSS_DISP_CC_MDSS_MDP_LUT_CLK>,
-+					 <&dispcc1 MDSS_DISP_CC_MDSS_MDP_CLK>,
-+					 <&dispcc1 MDSS_DISP_CC_MDSS_VSYNC_CLK>;
-+				clock-names = "nrt_bus",
-+					      "iface",
-+					      "lut",
-+					      "core",
-+					      "vsync";
-+
-+				assigned-clocks = <&dispcc1 MDSS_DISP_CC_MDSS_VSYNC_CLK>;
-+				assigned-clock-rates = <19200000>;
-+
-+				operating-points-v2 = <&mdss1_mdp_opp_table>;
-+				power-domains = <&rpmhpd SA8775P_MMCX>;
-+
-+				interrupt-parent = <&mdss1>;
-+				interrupts = <0>;
-+
-+				ports {
-+					#address-cells = <1>;
-+					#size-cells = <0>;
-+
-+					port@0 {
-+						reg = <0>;
-+
-+						dpu1_intf0_out: endpoint {
-+							remote-endpoint = <&mdss1_dp0_in>;
-+						};
-+					};
-+
-+					port@1 {
-+						reg = <1>;
-+
-+						dpu1_intf4_out: endpoint {
-+							remote-endpoint = <&mdss1_dp1_in>;
-+						};
-+					};
-+				};
-+
-+				mdss1_mdp_opp_table: opp-table {
-+					compatible = "operating-points-v2";
-+
-+					opp-375000000 {
-+						opp-hz = /bits/ 64 <375000000>;
-+						required-opps = <&rpmhpd_opp_svs_l1>;
-+					};
-+
-+					opp-500000000 {
-+						opp-hz = /bits/ 64 <500000000>;
-+						required-opps = <&rpmhpd_opp_nom>;
-+					};
-+
-+					opp-575000000 {
-+						opp-hz = /bits/ 64 <575000000>;
-+						required-opps = <&rpmhpd_opp_turbo>;
-+					};
-+
-+					opp-650000000 {
-+						opp-hz = /bits/ 64 <650000000>;
-+						required-opps = <&rpmhpd_opp_turbo_l1>;
-+					};
-+				};
-+			};
-+
-+			mdss1_dp0_phy: phy@220c2a00 {
-+				compatible = "qcom,sa8775p-edp-phy";
-+
-+				reg = <0x0 0x220c2a00 0x0 0x200>,
-+				      <0x0 0x220c2200 0x0 0xd0>,
-+				      <0x0 0x220c2600 0x0 0xd0>,
-+				      <0x0 0x220c2000 0x0 0x1c8>;
-+
-+				clocks = <&dispcc1 MDSS_DISP_CC_MDSS_DPTX0_AUX_CLK>,
-+					 <&dispcc1 MDSS_DISP_CC_MDSS_AHB_CLK>,
-+					 <&gcc GCC_EDP_REF_CLKREF_EN>;
-+				clock-names = "aux",
-+					      "cfg_ahb",
-+					      "ref";
-+
-+				#clock-cells = <1>;
-+				#phy-cells = <0>;
-+
-+				status = "disabled";
-+			};
-+
-+			mdss1_dp1_phy: phy@220c5a00 {
-+				compatible = "qcom,sa8775p-edp-phy";
-+
-+				reg = <0x0 0x220c5a00 0x0 0x200>,
-+				      <0x0 0x220c5200 0x0 0xd0>,
-+				      <0x0 0x220c5600 0x0 0xd0>,
-+				      <0x0 0x220c5000 0x0 0x1c8>;
-+
-+				clocks = <&dispcc1 MDSS_DISP_CC_MDSS_DPTX1_AUX_CLK>,
-+					 <&dispcc1 MDSS_DISP_CC_MDSS_AHB_CLK>,
-+					 <&gcc GCC_EDP_REF_CLKREF_EN>;
-+				clock-names = "aux",
-+					      "cfg_ahb",
-+					      "ref";
-+
-+				#clock-cells = <1>;
-+				#phy-cells = <0>;
-+
-+				status = "disabled";
-+			};
-+
-+			mdss1_dp0: displayport-controller@22154000 {
-+				compatible = "qcom,sa8775p-dp";
-+
-+				reg = <0x0 0x22154000 0x0 0x104>,
-+				      <0x0 0x22154200 0x0 0x0c0>,
-+				      <0x0 0x22155000 0x0 0x770>,
-+				      <0x0 0x22156000 0x0 0x09c>,
-+				      <0x0 0x22157000 0x0 0x09c>,
-+				      <0x0 0x22158000 0x0 0x09c>,
-+				      <0x0 0x22159000 0x0 0x09c>,
-+				      <0x0 0x2215a000 0x0 0x23c>,
-+				      <0x0 0x2215b000 0x0 0x23c>;
-+
-+				interrupt-parent = <&mdss1>;
-+				interrupts = <12>;
-+
-+				clocks = <&dispcc1 MDSS_DISP_CC_MDSS_AHB_CLK>,
-+					 <&dispcc1 MDSS_DISP_CC_MDSS_DPTX0_AUX_CLK>,
-+					 <&dispcc1 MDSS_DISP_CC_MDSS_DPTX0_LINK_CLK>,
-+					 <&dispcc1 MDSS_DISP_CC_MDSS_DPTX0_LINK_INTF_CLK>,
-+					 <&dispcc1 MDSS_DISP_CC_MDSS_DPTX0_PIXEL0_CLK>,
-+					 <&dispcc1 MDSS_DISP_CC_MDSS_DPTX0_PIXEL1_CLK>,
-+					 <&dispcc1 MDSS_DISP_CC_MDSS_DPTX0_PIXEL2_CLK>,
-+					 <&dispcc1 MDSS_DISP_CC_MDSS_DPTX0_PIXEL3_CLK>;
-+				clock-names = "core_iface",
-+					      "core_aux",
-+					      "ctrl_link",
-+					      "ctrl_link_iface",
-+					      "stream_pixel",
-+					      "stream_1_pixel",
-+					      "stream_2_pixel",
-+					      "stream_3_pixel";
-+				assigned-clocks = <&dispcc1 MDSS_DISP_CC_MDSS_DPTX0_LINK_CLK_SRC>,
-+						  <&dispcc1 MDSS_DISP_CC_MDSS_DPTX0_PIXEL0_CLK_SRC>,
-+						  <&dispcc1 MDSS_DISP_CC_MDSS_DPTX0_PIXEL1_CLK_SRC>,
-+						  <&dispcc1 MDSS_DISP_CC_MDSS_DPTX0_PIXEL2_CLK_SRC>,
-+						  <&dispcc1 MDSS_DISP_CC_MDSS_DPTX0_PIXEL3_CLK_SRC>;
-+				assigned-clock-parents = <&mdss1_dp0_phy 0>,
-+							 <&mdss1_dp0_phy 1>,
-+							 <&mdss1_dp0_phy 1>,
-+							 <&mdss1_dp0_phy 1>,
-+							 <&mdss1_dp0_phy 1>;
-+				phys = <&mdss1_dp0_phy>;
-+				phy-names = "dp";
-+
-+				operating-points-v2 = <&mdss1_dp_opp_table>;
-+				power-domains = <&rpmhpd SA8775P_MMCX>;
-+
-+				#sound-dai-cells = <0>;
-+
-+				status = "disabled";
-+
-+				ports {
-+					#address-cells = <1>;
-+					#size-cells = <0>;
-+
-+					port@0 {
-+						reg = <0>;
-+
-+						mdss1_dp0_in: endpoint {
-+							remote-endpoint = <&dpu1_intf0_out>;
-+						};
-+					};
-+
-+					port@1 {
-+						reg = <1>;
-+
-+						mdss1_dp0_out: endpoint { };
-+					};
-+				};
-+
-+				mdss1_dp_opp_table: opp-table {
-+					compatible = "operating-points-v2";
-+
-+					opp-160000000 {
-+						opp-hz = /bits/ 64 <160000000>;
-+						required-opps = <&rpmhpd_opp_low_svs>;
-+					};
-+
-+					opp-270000000 {
-+						opp-hz = /bits/ 64 <270000000>;
-+						required-opps = <&rpmhpd_opp_svs>;
-+					};
-+
-+					opp-540000000 {
-+						opp-hz = /bits/ 64 <540000000>;
-+						required-opps = <&rpmhpd_opp_svs_l1>;
-+					};
-+
-+					opp-810000000 {
-+						opp-hz = /bits/ 64 <810000000>;
-+						required-opps = <&rpmhpd_opp_nom>;
-+					};
-+				};
-+			};
-+
-+			mdss1_dp1: displayport-controller@2215c000 {
-+				compatible = "qcom,sa8775p-dp";
-+
-+				reg = <0x0 0x2215c000 0x0 0x104>,
-+				      <0x0 0x2215c200 0x0 0x0c0>,
-+				      <0x0 0x2215d000 0x0 0x770>,
-+				      <0x0 0x2215e000 0x0 0x09c>,
-+				      <0x0 0x2215f000 0x0 0x09c>,
-+				      <0x0 0x22160000 0x0 0x09c>,
-+				      <0x0 0x22161000 0x0 0x09c>,
-+				      <0x0 0x22162000 0x0 0x23c>,
-+				      <0x0 0x22163000 0x0 0x23c>;
-+
-+				interrupt-parent = <&mdss1>;
-+				interrupts = <13>;
-+
-+				clocks = <&dispcc1 MDSS_DISP_CC_MDSS_AHB_CLK>,
-+					 <&dispcc1 MDSS_DISP_CC_MDSS_DPTX1_AUX_CLK>,
-+					 <&dispcc1 MDSS_DISP_CC_MDSS_DPTX1_LINK_CLK>,
-+					 <&dispcc1 MDSS_DISP_CC_MDSS_DPTX1_LINK_INTF_CLK>,
-+					 <&dispcc1 MDSS_DISP_CC_MDSS_DPTX1_PIXEL0_CLK>,
-+					 <&dispcc1 MDSS_DISP_CC_MDSS_DPTX1_PIXEL1_CLK>;
-+				clock-names = "core_iface",
-+					      "core_aux",
-+					      "ctrl_link",
-+					      "ctrl_link_iface",
-+					      "stream_pixel",
-+					      "stream_1_pixel";
-+				assigned-clocks = <&dispcc1 MDSS_DISP_CC_MDSS_DPTX1_LINK_CLK_SRC>,
-+						  <&dispcc1 MDSS_DISP_CC_MDSS_DPTX1_PIXEL0_CLK_SRC>,
-+						  <&dispcc1 MDSS_DISP_CC_MDSS_DPTX1_PIXEL1_CLK_SRC>;
-+				assigned-clock-parents = <&mdss1_dp1_phy 0>,
-+							 <&mdss1_dp1_phy 1>,
-+							 <&mdss1_dp1_phy 1>;
-+				phys = <&mdss1_dp1_phy>;
-+				phy-names = "dp";
-+
-+				operating-points-v2 = <&mdss1_dp1_opp_table>;
-+				power-domains = <&rpmhpd SA8775P_MMCX>;
-+
-+				#sound-dai-cells = <0>;
-+
-+				status = "disabled";
-+
-+				ports {
-+					#address-cells = <1>;
-+					#size-cells = <0>;
-+
-+					port@0 {
-+						reg = <0>;
-+
-+						mdss1_dp1_in: endpoint {
-+							remote-endpoint = <&dpu1_intf4_out>;
-+						};
-+					};
-+
-+					port@1 {
-+						reg = <1>;
-+
-+						mdss1_dp1_out: endpoint { };
-+					};
-+				};
-+
-+				mdss1_dp1_opp_table: opp-table {
-+					compatible = "operating-points-v2";
-+
-+					opp-160000000 {
-+						opp-hz = /bits/ 64 <160000000>;
-+						required-opps = <&rpmhpd_opp_low_svs>;
-+					};
-+
-+					opp-270000000 {
-+						opp-hz = /bits/ 64 <270000000>;
-+						required-opps = <&rpmhpd_opp_svs>;
-+					};
-+
-+					opp-540000000 {
-+						opp-hz = /bits/ 64 <540000000>;
-+						required-opps = <&rpmhpd_opp_svs_l1>;
-+					};
-+
-+					opp-810000000 {
-+						opp-hz = /bits/ 64 <810000000>;
-+						required-opps = <&rpmhpd_opp_nom>;
-+					};
-+				};
-+			};
-+		};
-+
- 		dispcc1: clock-controller@22100000 {
- 			compatible = "qcom,sa8775p-dispcc1";
- 			reg = <0x0 0x22100000 0x0 0x20000>;
-@@ -6799,13 +7133,13 @@ dispcc1: clock-controller@22100000 {
- 				 <&rpmhcc RPMH_CXO_CLK>,
- 				 <&rpmhcc RPMH_CXO_CLK_A>,
- 				 <&sleep_clk>,
--				 <0>, <0>, <0>, <0>,
-+				 <&mdss1_dp0_phy 0>, <&mdss1_dp0_phy 1>,
-+				 <&mdss1_dp1_phy 0>, <&mdss1_dp1_phy 1>,
- 				 <0>, <0>, <0>, <0>;
- 			power-domains = <&rpmhpd SA8775P_MMCX>;
- 			#clock-cells = <1>;
- 			#reset-cells = <1>;
- 			#power-domain-cells = <1>;
--			status = "disabled";
- 		};
+-static struct device_node *scpsys_get_legacy_regmap(struct device_node *np, const char *pn)
+-{
+-	struct device_node *local_node;
+-
+-	for_each_child_of_node(np, local_node) {
+-		if (of_property_present(local_node, pn))
+-			return local_node;
+-	}
+-
+-	return NULL;
+-}
+-
+ static int scpsys_get_bus_protection_legacy(struct device *dev, struct scpsys *scpsys)
+ {
+ 	const u8 bp_blocks[3] = {
+@@ -1017,7 +1005,8 @@ static int scpsys_get_bus_protection_legacy(struct device *dev, struct scpsys *s
+ 	 * this makes it then possible to allocate the array of bus_prot
+ 	 * regmaps and convert all to the new style handling.
+ 	 */
+-	node = scpsys_get_legacy_regmap(np, "mediatek,infracfg");
++	of_node_get(np);
++	node = of_find_node_with_property(np, "mediatek,infracfg");
+ 	if (node) {
+ 		regmap[0] = syscon_regmap_lookup_by_phandle(node, "mediatek,infracfg");
+ 		of_node_put(node);
+@@ -1030,7 +1019,8 @@ static int scpsys_get_bus_protection_legacy(struct device *dev, struct scpsys *s
+ 		regmap[0] = NULL;
+ 	}
  
- 		ethernet1: ethernet@23000000 {
+-	node = scpsys_get_legacy_regmap(np, "mediatek,smi");
++	of_node_get(np);
++	node = of_find_node_with_property(np, "mediatek,smi");
+ 	if (node) {
+ 		smi_np = of_parse_phandle(node, "mediatek,smi", 0);
+ 		of_node_put(node);
+@@ -1048,7 +1038,8 @@ static int scpsys_get_bus_protection_legacy(struct device *dev, struct scpsys *s
+ 		regmap[1] = NULL;
+ 	}
+ 
+-	node = scpsys_get_legacy_regmap(np, "mediatek,infracfg-nao");
++	of_node_get(np);
++	node = of_find_node_with_property(np, "mediatek,infracfg-nao");
+ 	if (node) {
+ 		regmap[2] = syscon_regmap_lookup_by_phandle(node, "mediatek,infracfg-nao");
+ 		num_regmaps++;
 -- 
-2.34.1
+2.45.2
 
 
