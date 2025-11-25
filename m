@@ -4,153 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DEC1D0E6E0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 13:07:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8B8CD0E6DF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 13:11:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tUbFznDRlqAaFg/sxspFqdjQdRRjQjFhl/p/2D/pKpw=; b=5EabXWQNwGPDGZecQofqaf2uak
-	Ax4EYvODLgWYjBTy/DZC957SCkoEVnEXtzNb+oWEdsdde6j4U7PYwCkub7pSTMU1qaCFDMM8YwHvU
-	xtMW8uLYd0GofRU2HH8CRwvce+PfME/Uc9fM1FANTucfInCKet1s7/UFynHCsDCc9vvvs1FR0fcgW
-	jH+AeCB+fg0+jaLqmpgzv4/L4po8GISBBbPGgenxox67YpOYXum04iiCM5sYqepTKH8x9Q7p3Fe8w
-	o9YP01s/8HF5n/Wip4UzEjIh99qn+x5UGMHJjL7yvjYa+cw4gES5Y0ZuZNt7zR0p4GkwtNyHFSZha
-	4Wqrr0kw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Fu2j3Z8jbZ+kpNaRrM/0NBec0F/o4Ciz6mw9E1Xq4KY=; b=gu2YGfvRK2t01Zbzy9R7su2peh
+	IZ3HNNFbcJD+lRuJSmnTAUwOzHu5WyTwI0JsSCMDzCfItZDJQXT/HemPjOtxWx1tX+bsKdHFf1ohX
+	TikkNqmVwkMy30uxI4xHFSYYXVRculpamnt0YAHfwK2ZpgfG/5m33Ys45apuzrQsdKneJpDmgq8za
+	KbnboPES2nhTCZ7oIk665zCGIzb9OGz02r33CoujT5MzyWo5nKBQF1p5STbSuled+onuzUsj21zTK
+	u+D7SNPHWZRFYzdtle/0hREJ+AO89SDt8BCtqtKoNxcWLym7dgs6Pbzzky2C62HRkvjOUTkggLlk0
+	0+03XqJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNslQ-0000000DJdd-1ALO;
-	Tue, 25 Nov 2025 13:07:24 +0000
-Received: from mail-southcentralusazlp170120001.outbound.protection.outlook.com ([2a01:111:f403:c10d::1] helo=SN4PR2101CU001.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNslN-0000000DJca-0eKN
+	id 1vNsow-0000000DK45-2dJi;
+	Tue, 25 Nov 2025 13:11:02 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vNsot-0000000DK3i-3DJ1
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Nov 2025 13:07:23 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=gS5yaHXV0v1Y++tww1CNiT6aB8hSz38RbbtBJCJEPAmuvmKna+Cv54ZAqIy8NoHGDM9BgOGlaVrPEgWSWigr2LRx8t8KR2jUahfggaHgo3MbWuHnw+qH6oCedL+64x/kiDr03UVoRdLrlrVgiKj9/fr4RLvtmys0DfIZJxjGqmbwAK5GCQoNmzJmnJwZQ1hSD9P/FzpBvsCqXo55bipxiQlFNpkgKwOiEnAnTx8I8j0VEUjA4KDBQbe/0t0I2SAXfxZN9DwSxjQILz+dzLTYhZd0oA2b5G0oAGlHmJHtg6MgdxnTo1ZI0dEd9Xd3sT+PmwRTUtow5kvnI/p1U/KirQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=tUbFznDRlqAaFg/sxspFqdjQdRRjQjFhl/p/2D/pKpw=;
- b=j0h6gHsDzxZhjrpseUDecpL8jOIfVL8fcXdvGZ49Z5L+LwPS7pasuqdcus9JiGZQPGQcqBOpXrVj4J5GMRyPGjNm5TR+i2zgx3U117Lm5LNrdl1h+bwAVVVLfLJ1FsvT3HTe482YlgTUFUi7QG0OKIJOyJk/5UjwF0tSUTd9hEfSTaiNnjDECGE73hA5hESjzDossRKdtczXs3SNiKOw6uVQNeqodsdA/73QtOemYIXgatYDbQZgocdJ5MKa+u/IuDwAn3qnHSmzsRvGfkQGZbAfi34Vg7H6dVgEzfDIo72kkkn4nBrINdbM2gu0Q7sBLkBZ5RPJzldtkxy0qXjdoQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=tUbFznDRlqAaFg/sxspFqdjQdRRjQjFhl/p/2D/pKpw=;
- b=NNWv702SqbxPByIfQ0xx991tJdEtuBaFh7QXwHIe+4UQmCIneaI70Le2ROekF53crUZZgC9Suct4NHGEOUWe+Z7RwlsOWTYZyu9dpIMvUgG254rdOoNo0vrdredTWcWJ/ka7tguSWyv9Dd0/RiloC+4Tfl8CtgB3rcvMbIxIikdL9ixzi25IwB7c1dBZpF5wKPgvo1U8YdQwjqjn5DokIh5YTvixD8oJ+GAli9ekuatfr9FUoj/smrxFV8DIyY4UznC4JSSHKk7TDwIwwjAkXg0VIE3BjhfczyXrn3MCHI85ScS2oVyz+9yV3o8XkpEMpbF3KtHco7G0Db8rl8mfTA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from MN2PR12MB3613.namprd12.prod.outlook.com (2603:10b6:208:c1::17)
- by IA1PR12MB6484.namprd12.prod.outlook.com (2603:10b6:208:3a7::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9366.12; Tue, 25 Nov
- 2025 13:07:13 +0000
-Received: from MN2PR12MB3613.namprd12.prod.outlook.com
- ([fe80::1b3b:64f5:9211:608b]) by MN2PR12MB3613.namprd12.prod.outlook.com
- ([fe80::1b3b:64f5:9211:608b%4]) with mapi id 15.20.9343.009; Tue, 25 Nov 2025
- 13:07:13 +0000
-Date: Tue, 25 Nov 2025 09:07:12 -0400
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: Will Deacon <will@kernel.org>, jean-philippe@linaro.org,
-	robin.murphy@arm.com, joro@8bytes.org, balbirs@nvidia.com,
-	miko.lenczewski@arm.com, peterz@infradead.org, kevin.tian@intel.com,
-	praan@google.com, linux-arm-kernel@lists.infradead.org,
-	iommu@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v5 4/7] iommu/arm-smmu-v3: Pre-allocate a per-master
- invalidation array
-Message-ID: <20251125130712.GP153257@nvidia.com>
-References: <cover.1762588839.git.nicolinc@nvidia.com>
- <b6e1b5d0ac0157fc06b5cd20c5cd72caec892c47.1762588839.git.nicolinc@nvidia.com>
- <aSTRX5RJJhfNU6l3@willie-the-truck>
- <aSTfrp9D7i03XhyU@Asurada-Nvidia>
- <20251124230845.GN153257@nvidia.com>
- <aSTqw4Doipb+0AfP@Asurada-Nvidia>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aSTqw4Doipb+0AfP@Asurada-Nvidia>
-X-ClientProxiedBy: MN2PR07CA0004.namprd07.prod.outlook.com
- (2603:10b6:208:1a0::14) To MN2PR12MB3613.namprd12.prod.outlook.com
- (2603:10b6:208:c1::17)
+	Tue, 25 Nov 2025 13:11:01 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 327A51684;
+	Tue, 25 Nov 2025 05:10:51 -0800 (PST)
+Received: from [10.44.160.56] (e126510-lin.lund.arm.com [10.44.160.56])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 82DA93F73B;
+	Tue, 25 Nov 2025 05:10:52 -0800 (PST)
+Message-ID: <1a8034b2-bb8f-4e73-b205-11453df6d02b@arm.com>
+Date: Tue, 25 Nov 2025 14:10:49 +0100
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MN2PR12MB3613:EE_|IA1PR12MB6484:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2ab5ae81-64a8-4e5a-f2ed-08de2c238d11
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?+qle7YNNNor2HFAIUBbcwX7r1x3LHO60R8AwRT/PutDKgQ93wOTBl5RKQANU?=
- =?us-ascii?Q?HByA6bBCHsmRQXBUbJMgfSwmkWxLo2Nkv2ys5Xsa6dBxdfo4gOALMsMoXwpR?=
- =?us-ascii?Q?pBqkgsbRf/xiAgntpD6KDu98hfs7ixtBQAMzqwMYtxGC+T8di0YXWtMh4jZl?=
- =?us-ascii?Q?XIGttmIJnLqkx30EKiSetzmA5Nr2YYcbML1wkWp8nyPDQ8ry3w+z6c6ZViLj?=
- =?us-ascii?Q?/u4ZiH7O0BTRiUw7vQjK/UQIgS2H/PXd0+hDmUDFVGTjes3f5tVGRDoqwYxU?=
- =?us-ascii?Q?auhiV1kUkh595nFyKHEn1HjjZIrBwEojBWwrbc5eEUpfgpGZRzzAR4ResSUc?=
- =?us-ascii?Q?sG4s8KdhxiSKMuM4W33xNX69okqYMQ0JHtFQ0t0fTWVbo0zc7t8PUj5Fn5o1?=
- =?us-ascii?Q?P72e6ZQyR91gc/kWkRtGNt+ArVVIaglYm5CclcBtvYgtxqF6Y3Uqm/C9HvYR?=
- =?us-ascii?Q?Dm2N/UcMCLHUyiCHlZQyH+XVehdg5dY5nfrH7r+F7R3GReCsGnrd9nlv02rC?=
- =?us-ascii?Q?SZ2S3IFonZqCsAvCHzpDEec837HZmoPQEGdZHDxH+Yhn+uKnSssSdXV/9R2q?=
- =?us-ascii?Q?8QJX7b4c17jg4u4HfxBSnnMdZ9rRFnJyWbjepnnmxv+xKz766CD3/8OoWKRR?=
- =?us-ascii?Q?Ho0SCu86qWDz2R+jEtugWSiE6jU6Hz0P3+7W/uSWHd/GCH3JxRxUgqIkO4te?=
- =?us-ascii?Q?8994KhQq5KxCe5a9ZxfxZaF2UdHKYXO0Gz/OhQPGIxnnVHEiMU2v0yA3ee6m?=
- =?us-ascii?Q?6+OirIDpTr03blimnPXRqeZIgIb38Egay6fSKnRmR1s9a2L9kaBt0qvebk/w?=
- =?us-ascii?Q?loYte3P3zLcceVmVt61PqkXh66k4MCx9j7cJZSBljGF4K1EDZHgQgAeuKUry?=
- =?us-ascii?Q?HncQQcY3os+Y4YBdhRd5hiRtkMuLkItAhq9BevA8XE/TrwSGsI4THJGk9uVa?=
- =?us-ascii?Q?78wAX7QsE9jAaEHYAS9H7blwowZRIRuxJmO82kBLUkwDzzXGBJwQdZo8drnq?=
- =?us-ascii?Q?eMn8owzAfMyA3kPmWApkIYJY0WLUdwVbPT6NfCaYCwOlqbVM8Bh++cAmArBw?=
- =?us-ascii?Q?3LRnNoIullzCKHiR2qQ0A9gBuiRb04qByIAIuSDhKhh6yYb7UIntyBefFNQ2?=
- =?us-ascii?Q?lNYZYoajhQUli5HEcCZCFwADi0Lh8euOknVL84b4E49K23hirndjN2qxVzTU?=
- =?us-ascii?Q?LjoRuKdRJsmm5pCv5C/2IEokClVLmBbKN3fhtl/SkuEZ5mRb7JAFjXBG/TNT?=
- =?us-ascii?Q?yADTQ1ryFIHuN7QnUM6Dpw+kcujqxB8RNk22J8NWHjLaTz0hMHP74ddSYcLJ?=
- =?us-ascii?Q?SwtIchwZuVXWW9EemN5onreweLtkDhQQNFfqb82Idih0pdmAGgyDe6mFF4aR?=
- =?us-ascii?Q?tDcejy1VI7KsSui7Zmq/RB8ftk/MK8OT1o2E6p2DeICakggjwfp2Fs6de5DR?=
- =?us-ascii?Q?OgfLH9S98OgOQxKSMN/i7jGoK0r62EeU?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MN2PR12MB3613.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Ss4IL5NkJlZEBFfakzCAkKZOpmVrW30oGbC3eK05Jaxb0kbBg69YQ9t/381T?=
- =?us-ascii?Q?XkSihidS7JHRHhW/hZzLOVDVpmbZArbs+aE2QigUwDiHLglMIt4Nbbniuaw3?=
- =?us-ascii?Q?201r9dn/OH2/uB8DKFoV671lKtyZ6mZcuTy8BeDaWgqhBMT/OIxR4a9mNsek?=
- =?us-ascii?Q?TnJW0ApqgCyfDy1UjX+oExx/smimcGWCtRrwuTBtg7KauivwWMJG0IvqPjZH?=
- =?us-ascii?Q?qLnJfIlzGCOf1TyXxl604txekVSU/QYnC47dFs9vhvMcj8SPivf8dr0Y2jgW?=
- =?us-ascii?Q?qGWySJy5MgG4+TwjOwBzeZibAU6hKv6alKupWD8NiYuhue6C1eyX0XLxrsL+?=
- =?us-ascii?Q?7HTq9QBv37323o8Db8oNkT/b+LAXGZEdmESt6EieHL2+ZPBsgHF9iCDk5pE8?=
- =?us-ascii?Q?6T512Q0PuUxayT0Xnjh/8yTU/KasAvx2SuD09ZR0pErvzIgZie7Q65K7WWcX?=
- =?us-ascii?Q?HswSk5egrwE5zTf5WjEAPfp7+hnP/kX9k/kpD5H+7yInNyh8K1o45qlPvEJy?=
- =?us-ascii?Q?O2dIEj/NwP3esom1bW53FIqto1yHVZcQFWHnKNHba/qRdBxVyq02UAVTz5Gs?=
- =?us-ascii?Q?nGsLOgfZmSXCRn5K+H2HW9ePVW9NZz4GLEBRCKcx/tpknMb/0yCsU+8sf3XX?=
- =?us-ascii?Q?Qe6ZLZz8TnJfRei/AldwG5/61Ble4OpDG3gGQL7ODU+UGWPdY3jVwfqtjoE4?=
- =?us-ascii?Q?2qnYbNrrMMpffpvovL3V51oFJh2vVzQtT8T6vAUfBNgP+4WZvYnXTgNf8S/d?=
- =?us-ascii?Q?P8Gv4usa57eL8YA9aCFj6T0gfTcNqFEU17HNCxPmm8mESTMzpn5IIBetFG8m?=
- =?us-ascii?Q?YF0TGDNKQdPIS+WBnceLNi9b8wVsCjpgHcLz5WCDkNOMo58YiHNWIFb1MiG9?=
- =?us-ascii?Q?+JcrZHhkXkstyhjZyfjVClh8EbERSR+Ulz/OcflaG38yiPY9hzuVK8tQ7Qpb?=
- =?us-ascii?Q?PhoS6gzmGgxeRIc/K/cLNtfb/loL+B5yVl0axixIsO/Q1uxmo/FHQqoDl1kT?=
- =?us-ascii?Q?ZcTE1aI7BnBX7qrAXZhWtJiC0x6/4MJu5qU+3huftRdTeEp/TP06M/xdcLDr?=
- =?us-ascii?Q?gZH6a2D8O2UEw8GhjRXN+ng39AXScaDHK8N3Vx/UPrAufcWf81ljMPr1dBrI?=
- =?us-ascii?Q?2XHsHB39gPaRtfJftubNrfgfcydLU28xQCJl3GdXTOozg48uocLPR2a7lioj?=
- =?us-ascii?Q?KWJ2mS3OEE3jny6gY8o8EIJ+rTu7uZrqiTjlsy25m/o+9t9U4kkqBbnyIYpE?=
- =?us-ascii?Q?l5B7u386/PH8LpkIyzeXXdICkBGiEtQZmswQUoXGxhpC+JTPN7hHdL3htxGE?=
- =?us-ascii?Q?DEP97V5jLbQhNY3V57zw7Oe+IJjOuPt+vZuGWeYfDicbhA4fIIKjo9lkm41O?=
- =?us-ascii?Q?U8i6e7a6Ezopn1Dm0yj01QVK423RJTe+NeFhQT3Adj0epMqG+SGs4VxxUKJu?=
- =?us-ascii?Q?oe8aa/3OC/48ypj85HGDLCFzF3FGojRBd563zb+6OnXci6MPMWY8IOiwgoZ3?=
- =?us-ascii?Q?umPX9921iDT/ZaD/4upTlNlo3wPnLyLRzX3OkRejsAu/RCPRYHUa9e9bbN9q?=
- =?us-ascii?Q?vZD7QBafraLxefxItRY=3D?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2ab5ae81-64a8-4e5a-f2ed-08de2c238d11
-X-MS-Exchange-CrossTenant-AuthSource: MN2PR12MB3613.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Nov 2025 13:07:13.7178
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: DUkfL8SqTCl2cBcSiVi1E6UhiEhq52OS27hHbm2hes15RvWkSJkb10D45DZ7za2L
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB6484
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 08/11] entry: Add
+ arch_ptrace_report_syscall_entry/exit()
+To: Jinjie Ruan <ruanjinjie@huawei.com>, catalin.marinas@arm.com,
+ will@kernel.org, oleg@redhat.com, tglx@linutronix.de, peterz@infradead.org,
+ luto@kernel.org, shuah@kernel.org, kees@kernel.org, wad@chromium.org,
+ akpm@linux-foundation.org, ldv@strace.io, macro@orcam.me.uk, deller@gmx.de,
+ mark.rutland@arm.com, song@kernel.org, mbenes@suse.cz, ryan.roberts@arm.com,
+ ada.coupriediaz@arm.com, anshuman.khandual@arm.com, broonie@kernel.org,
+ pengcan@kylinos.cn, dvyukov@google.com, kmal@cock.li, lihongbo22@huawei.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-kselftest@vger.kernel.org
+References: <20251117133048.53182-1-ruanjinjie@huawei.com>
+ <20251117133048.53182-9-ruanjinjie@huawei.com>
+ <55e1345f-94d7-41a9-8f0a-694fd56f63ed@arm.com>
+ <8489ee0d-8b9c-080a-04a0-b299549e86cf@huawei.com>
+ <247aa84f-0550-42d9-8d65-615297e78a74@arm.com>
+ <48b7443a-2dd9-9764-fbe5-12dc9eef1363@huawei.com>
+Content-Language: en-GB
+From: Kevin Brodsky <kevin.brodsky@arm.com>
+In-Reply-To: <48b7443a-2dd9-9764-fbe5-12dc9eef1363@huawei.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251125_050721_224966_2D695A49 
-X-CRM114-Status: GOOD (  15.82  )
+X-CRM114-CacheID: sfid-20251125_051059_943580_4898E5AE 
+X-CRM114-Status: GOOD (  17.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -165,49 +76,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 24, 2025 at 03:31:15PM -0800, Nicolin Chen wrote:
-> > If you want to be conservative then the thing to do is sort the
-> > master->streams that arm_smmu_insert_master() copies the fwspec
-> > into. It just has to be sorted prior to feeding it into the rbtree.
-> > 
-> > Then consistently use master->streams as the sorted list.
-> 
-> How about kmemdup() an local id array to bridge betwen fwspec->ids
-> and rbtree?
+On 25/11/2025 03:43, Jinjie Ruan wrote:
+>
+> On 2025/11/24 23:23, Kevin Brodsky wrote:
+>> On 24/11/2025 10:34, Jinjie Ruan wrote:
+>>> On 2025/11/19 1:13, Kevin Brodsky wrote:
+>>>> On 17/11/2025 14:30, Jinjie Ruan wrote:
+>>>>> [...]
+>>>>>
+>>>>> diff --git a/kernel/entry/syscall-common.c b/kernel/entry/syscall-common.c
+>>>>> index 66e6ba7fa80c..27310e611567 100644
+>>>>> --- a/kernel/entry/syscall-common.c
+>>>>> +++ b/kernel/entry/syscall-common.c
+>>>>> @@ -17,6 +17,25 @@ static inline void syscall_enter_audit(struct pt_regs *regs, long syscall)
+>>>>>  	}
+>>>>>  }
+>>>>>  
+>>>>> +/**
+>>>>> + * arch_ptrace_report_syscall_entry - Architecture specific
+>>>>> + *				      ptrace_report_syscall_entry().
+>>>>> + *
+>>>>> + * Invoked from syscall_trace_enter() to wrap ptrace_report_syscall_entry().
+>>>>> + * Defaults to ptrace_report_syscall_entry.
+>>>>> + *
+>>>>> + * The main purpose is to support arch-specific ptrace_report_syscall_entry()
+>>>>> + * implementation.
+>>>>> + */
+>>>>> +static __always_inline int arch_ptrace_report_syscall_entry(struct pt_regs *regs);
+>>>>> +
+>>>>> +#ifndef arch_ptrace_report_syscall_entry
+>>>>> +static __always_inline int arch_ptrace_report_syscall_entry(struct pt_regs *regs)
+>>>>> +{
+>>>>> +	return ptrace_report_syscall_entry(regs);
+>>>> I saw that Thomas suggested this approach on v4, and it makes sense to
+>>>> me, but I find the naming surprising. If an architecture does need extra
+>>>> handling, then the generic function should never be called from generic
+>>>> code. So it seems to me that the more logical change would be:
+>>>>
+>>>> * Rename: ptrace_report_syscall_entry -> __ptrace_report_syscall_entry
+>>>> * Introduce ptrace_report_syscall_entry(), defaults to
+>>>> __ptrace_report_syscall_entry()
+>>> If ptrace_report_syscall_entry() is defined in linux/ptrace.h, and an
+>>> architecture also needs to redefine this function, but the
+>>> architecture's own <asm/entry-common.h> must include <linux/ptrace.h>,
+>>> the function will end up being defined twice and cause a "duplicate
+>>> definition" compile error.
+>> There's plenty of arch-defined functions in <linux/ptrace.h> already.
+>> __ptrace_report_syscall_entry() should be defined inside an #ifndef and
+>> architectures can define their own implementation in <asm/ptrace.h>,
+>> like force_successful_syscall_return() for instance.
+> Shared functions like ptrace_report_syscall() are all defined in
+> <linux/ptrace.h>.
+> When we want to override __ptrace_report_syscall_entry() in
+> <asm/ptrace.h> we still have to include <linux/ptrace.h> again,then the
+> redefine problem occurs again.
+>
+> What we actually need to reuse is ptrace_report_syscall_entry() (or
+> __ptrace_report_syscall_entry()).
 
-Not needed, just like this:
+You're right, this is yet another of those circular definition problems...
 
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-@@ -3454,15 +3454,21 @@ static int arm_smmu_insert_master(struct arm_smmu_device *smmu,
-        if (!master->streams)
-                return -ENOMEM;
-        master->num_streams = fwspec->num_ids;
--
--       mutex_lock(&smmu->streams_mutex);
-        for (i = 0; i < fwspec->num_ids; i++) {
-                struct arm_smmu_stream *new_stream = &master->streams[i];
--               struct rb_node *existing;
--               u32 sid = fwspec->ids[i];
- 
--               new_stream->id = sid;
-+               new_stream->id = fwspec->ids[i];
-                new_stream->master = master;
-+       }
-+
-+       sort_nonatomic(master->streams, master->num_streams,
-+                      sizeof(master->streams[0]), arm_smmu_ids_cmp, NULL);
-+
-+       mutex_lock(&smmu->streams_mutex);
-+       for (i = 0; i < master->num_streams; i++) {
-+               struct arm_smmu_stream *new_stream = &master->streams[i];
-+               struct rb_node *existing;
-+               u32 sid = new_stream->id;
- 
-                ret = arm_smmu_init_sid_strtab(smmu, sid);
-                if (ret)
+> The arch version need to reuse and wrap ptrace_report_syscall_entry(),
+> because for instance arm64 needs to perform additional operations before
+> and after this step. Therefore, I believe the current implementation is
+> appropriate.
 
-cmp would work on a struct arm_smmu_stream.
+I'm still not fond of arch_X() wrapping X() as this is unusual, but I
+don't have a better idea so let's stick to that. It also makes sense to
+have this done in syscall-common.c rather than a header considering the
+risk of circular dependency.
 
-Jason
+- Kevin
 
