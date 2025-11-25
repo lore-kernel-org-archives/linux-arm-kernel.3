@@ -4,74 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31146D0EE13
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 18:20:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8322BD0EE13
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 18:30:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1tluzEY4RrIKF2DOKsggozJgOU1t5QmUMNNGqnvi5Lc=; b=RJUgmXz7Ihh5W56ElgZBvlCd/h
-	wECnw8ScteootCYS/9fh1kChctGMueCHBzUSqno/LaayFOXZayx4+3/GOWvZvJLdOWyx2X6+qUn7s
-	qWiVmFEredp0/+qlDIofH3wOkvBQXBYAp+fjaB+mF/nSGmV1/Ql0DmRbBC4bP0Z1m9cJMFfVoJP61
-	8mxVpYKBbv91iTCSWpFQaEnu9TMY5SEtnZIjMRTZxgLh6Mbk3onrfJgZBMTJgOTVUe5SAvJI+TJ/m
-	mih4ZTe+LRidgVreEAcs9c96n75zP+hTI4St6yogZWj4PDNuld0Q5yaQq9FlRIfPnE8dGnFhxfGTX
-	9CMykO5Q==;
+	bh=jDaFpPJLHxOVd2xPLevCFq2D34frZokjsxb3owKPRtQ=; b=TqylxMgTVvx5J1XoLmj6hPi5k4
+	aXE4koU0t7jk7LuS+haoWf/zbGnJCWHPnRj6XthJrIeWRmNB8y5h9662tsxhFmtqH+JHEJEme3P3K
+	ekDrt1IhBaWo2HN930HzBO3X6wWRVuKTe/AEVOaLbpQvTQAaYWxHy5Bz3KcFi6rTfJcEMY7cAL2lJ
+	/kQGGD/cSRbfvzGP/59zod/91BR+9TcorsUb0Oe09ogN7lrSfqxOnWD+1QECfB0a33cBnk1s9L4EQ
+	mj3f8KumyOz+crW5g1rzopsho777z0o2VlanNjbCQlGlirLIwxGs6yDIlbcPfgv+q9DJiv6yN2KjF
+	Q+UaCiIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNxdx-0000000Dl0y-2Pfd;
-	Tue, 25 Nov 2025 18:20:01 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNxdu-0000000Dl0K-10Gc
+	id 1vNxnh-0000000DljN-2VTb;
+	Tue, 25 Nov 2025 18:30:05 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vNxnf-0000000DliN-05LY
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Nov 2025 18:19:59 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id CBFE643A5B;
-	Tue, 25 Nov 2025 18:19:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2EFB1C4CEF1;
-	Tue, 25 Nov 2025 18:19:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764094796;
-	bh=JqVxqmKgveQ4mM7FHqLJrAlhvzcxt5uAmECWD1G3BDw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=FoYLN0TK91L60aqjWus5gtSj8eX812KlfpiKTBBu552TlhYlvZOO0koBhaQR7WI4q
-	 IgeXNBmuQtlPIJ5EFRyJgJ6y4vNjXi+Po48mlfwrJh4xYdJxO5DhazCm3FYRwa48Rs
-	 2/S2j3YinT37RDY3To0krQUcN2Gj+k4iu1bBuLgZ+rAgwuaSfrGD4Cdj8P5Tf/dsC5
-	 y59zGnIbIN21a+aEn45awi9p+iZ/Xe7swJi5R4ldjdAemdSaklfqvB2INxYkygo7RQ
-	 9wiWZ13YN7qEnYx0SmzG4259wjEe/EepLM3eghXZP4MCLmHMi8CVlIKCUk35wQ85q/
-	 wIerVhSPQve8g==
-Date: Tue, 25 Nov 2025 10:19:51 -0800
-From: Namhyung Kim <namhyung@kernel.org>
-To: James Clark <james.clark@linaro.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>, Leo Yan <leo.yan@arm.com>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-perf-users@vger.kernel.org, linux-doc@vger.kernel.org,
-	kvmarm@lists.linux.dev
-Subject: Re: [PATCH v10 0/5] perf: arm_spe: Armv8.8 SPE features
-Message-ID: <aSXzR2Fp5N4-c0q5@google.com>
-References: <20251111-james-perf-feat_spe_eft-v10-0-1e1b5bf2cd05@linaro.org>
+	Tue, 25 Nov 2025 18:30:04 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A8DB01570;
+	Tue, 25 Nov 2025 10:29:51 -0800 (PST)
+Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 43FAE3F6A8;
+	Tue, 25 Nov 2025 10:29:56 -0800 (PST)
+Date: Tue, 25 Nov 2025 18:29:53 +0000
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: will@kernel.org, rafael@kernel.org, viresh.kumar@linaro.org,
+	sudeep.holla@arm.com, gregkh@linuxfoundation.org, dakr@kernel.org,
+	beata.michalska@arm.com, ionela.voinescu@arm.com,
+	Lifeng Zheng <zhenglifeng1@huawei.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org,
+	linuxarm@huawei.com, jonathan.cameron@huawei.com,
+	vincent.guittot@linaro.org, zhanjie9@hisilicon.com,
+	lihuisong@huawei.com, yubowen8@huawei.com, zhangpengjie2@huawei.com,
+	wangzhi12@huawei.com, linhongye@h-partners.com
+Subject: Re: [PATCH v6 0/3] arm64: topology: Handle AMU FIE setup on CPU
+ hotplug
+Message-ID: <176409538230.296584.10511015168201991664.b4-ty@arm.com>
+References: <20251119081356.2495290-1-zhenglifeng1@huawei.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251111-james-perf-feat_spe_eft-v10-0-1e1b5bf2cd05@linaro.org>
+In-Reply-To: <20251119081356.2495290-1-zhenglifeng1@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251125_101958_341485_77612CB8 
-X-CRM114-Status: GOOD (  20.14  )
+X-CRM114-CacheID: sfid-20251125_103003_158194_16940B07 
+X-CRM114-Status: UNSURE (   6.96  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,76 +70,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 11, 2025 at 11:37:54AM +0000, James Clark wrote:
-> Support SPE_FEAT_FDS data source filtering.
+On Wed, 19 Nov 2025 16:13:53 +0800, Lifeng Zheng wrote:
+> Solve a problem that causes CPUs Setup AMU FIE failed in a corner case,
+> even though they're eligible.
 > 
-> ---
-> Changes in v10:
-> - Pick up Peter's ack
-> - Slightly clarify commit message regarding the difference between the
->   data source filter and the data source
-> - Link to v9: https://lore.kernel.org/r/20251029-james-perf-feat_spe_eft-v9-0-d22536b9cf94@linaro.org
+> Changelog:
 > 
-> Changes in v9:
-> - Fix another typo in docs: s/data_src_filter/inv_data_src_filter/g
-> - Drop already applied patches for other features. Only the data source
->   filtering patches remain.
-> - Rebase on latest perf-tools-next
-> - Link to v8: https://lore.kernel.org/r/20250901-james-perf-feat_spe_eft-v8-0-2e2738f24559@linaro.org
+> v6:
 > 
-> Changes in v8:
-> - Define __spe_vers_imp before it's used
-> - "disable traps to PMSDSFR" -> "disable traps of PMSDSFR to EL2"
-> - Link to v7: https://lore.kernel.org/r/20250814-james-perf-feat_spe_eft-v7-0-6a743f7fa259@linaro.org
-> 
-> Changes in v7:
-> - Fix typo in docs: s/data_src_filter/inv_data_src_filter/g
-> - Pickup trailers
-> - Link to v6: https://lore.kernel.org/r/20250808-james-perf-feat_spe_eft-v6-0-6daf498578c8@linaro.org
-> 
-> Changes in v6:
-> - Rebase to resolve conflict with BRBE changes in el2_setup.h
-> - Link to v5: https://lore.kernel.org/r/20250721-james-perf-feat_spe_eft-v5-0-a7bc533485a1@linaro.org
-> 
-> Changes in v5:
-> - Forgot to pickup tags from v4
-> - Forgot to drop test and review tags on v4 patches that were
->   significantly modified
-> - Update commit message for data source filtering to mention inversion
-> - Link to v4: https://lore.kernel.org/r/20250721-james-perf-feat_spe_eft-v4-0-0a527410f8fd@linaro.org
-> 
-> Changes in v4:
-> - Rewrite "const u64 feat_spe_eft_bits" inline
-> - Invert data source filter so that it's possible to exclude all data
->   sources without adding an additional 'enable filter' flag
-> - Add a macro in el2_setup.h to check for an SPE version
-> - Probe valid filter bits instead of hardcoding them
-> - Take in Leo's commit to expose the filter bits as it depends on the
->   new filter probing
-> - Link to v3: https://lore.kernel.org/r/20250605-james-perf-feat_spe_eft-v3-0-71b0c9f98093@linaro.org
-> 
-> Changes in v3:
-> - Use PMSIDR_EL1_FDS instead of 1 << PMSIDR_EL1_FDS_SHIFT
-> - Add VNCR offsets
-> - Link to v2: https://lore.kernel.org/r/20250529-james-perf-feat_spe_eft-v2-0-a01a9baad06a@linaro.org
-> 
-> Changes in v2:
-> - Fix detection of FEAT_SPE_FDS in el2_setup.h
-> - Pickup Marc Z's sysreg change instead which matches the json
-> - Restructure and expand docs changes
-> - Link to v1: https://lore.kernel.org/r/20250506-james-perf-feat_spe_eft-v1-0-dd480e8e4851@linaro.org
-> 
-> ---
-> James Clark (5):
->       perf: Add perf_event_attr::config4
->       perf: arm_spe: Add support for filtering on data source
->       tools headers UAPI: Sync linux/perf_event.h with the kernel sources
->       perf tools: Add support for perf_event_attr::config4
->       perf docs: arm-spe: Document new SPE filtering features
+> [...]
 
-Applied the tools part to perf-tools-next, thanks!
+Applied to arm64 (for-next/topology), thanks!
 
-Best regards,
-Namhyung
+[1/3] arm64: topology: Skip already covered CPUs when setting freq source
+      https://git.kernel.org/arm64/c/a04fd8bcd6aa
+[2/3] cpufreq: Add new helper function returning cpufreq policy
+      https://git.kernel.org/arm64/c/709a16bebc54
+[3/3] arm64: topology: Handle AMU FIE setup on CPU hotplug
+      https://git.kernel.org/arm64/c/1ea7e37e26b3
 
+-- 
+Catalin
+
+
+-- 
+Catalin
 
