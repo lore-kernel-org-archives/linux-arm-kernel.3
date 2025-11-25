@@ -4,58 +4,155 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79C93D0EE0A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 16:50:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57AD9D0EE0A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 16:51:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=60dAgbfAKLlq2/w22BlWIRXR2dMC8m4WEnzUlnhaXuA=; b=lltsHOhfnfKqdigr5KgAKLEM8p
-	Kah4crUkOVmVRSpl1JTizM9gHB9uLh1GB3eiZvYFTqPO2MbDroeiZKgohfCWM/XAqGcnSl/S2vtZY
-	+cywrodS2Zq+Bwa8IO54EILkT3nvxRk3WAEQZCNqOoH3qWmxI8twa3aGzOkh4SfYlTWxjuPLqMD7d
-	pmArBa6aX5nq15xwbRWDqBKSsV8mzfcwRoZGSmnx4CG2jmB4H4UxYcrfrkBq7yNZ2TWEBgewelUbG
-	j/yfL5HWUWm58Qp6vBvgl4lTWXqmch9XyaMyxNH77w8ep0ksZxl+Zi1YXamxjvonI/OQUXuId/Oj9
-	IhgHOItw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=esieeSGM0P6MF42ZBRC44HSBreJyH05cavxc8O6M7dk=; b=nnTG9ohuSvtis1XLWfEk2Jr8FM
+	X7atOAAaOXkriEdQHmJuHbNeBJMkOydx9fgkbw7SkqEnO1k68FNFlwARNLfq1Aph2wqFbGU8GUh4A
+	uJ8dPT8PtzTFbHfdjtttUs6zv8W8MVgr5maivc6Qfrk03aBvgd1wXkR2yBAdvUaRwu8U5TCUB4WB3
+	3GYTwkb09xYfza9Etv6vUOXWCz1YqvD3RGFXkhOZnDe3JU8+9VR1Vd1ndxFyXZbxStQv/yftvQVCh
+	ZvUqcxeUVs/tmOIOW1OyhJdF8olwDDNJbFVzBPvHMjE4Xm1K4l4Fc9SbnIOKu2sy1Oie2KLqQGCBm
+	g01dATgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNwFL-0000000DcRA-33mP;
-	Tue, 25 Nov 2025 16:50:31 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNwFJ-0000000DcQl-0OJh
+	id 1vNwGf-0000000DcYr-0bht;
+	Tue, 25 Nov 2025 16:51:53 +0000
+Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vNwGc-0000000DcYR-3YPi
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Nov 2025 16:50:30 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 069A0168F;
-	Tue, 25 Nov 2025 08:50:18 -0800 (PST)
-Received: from [10.1.39.33] (unknown [10.1.39.33])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D21C03F6A8;
-	Tue, 25 Nov 2025 08:50:23 -0800 (PST)
-Message-ID: <f78cf081-c4c4-43d9-90a1-e32eecb9e889@arm.com>
-Date: Tue, 25 Nov 2025 16:50:22 +0000
+	Tue, 25 Nov 2025 16:51:52 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Tvo1bqoJ5eUvRT7LbxVOij3XCLLr4c2WUXP9Mz1c9XG11IkqhHE3nUzVJvVFMB3jvPYAypqDYW/Idns/jnI1rPi0Ya3DAbYCIZnKUaV1hCHrAp77JXLj/NWvzMG8MmTYRz6YQSYKq5abS+sfPLffDSlBpLXg6Dvg44n9imXyLe685D4t67uKSTdCI3LrXQOTnny7SQe2433Az1ei/RWp9S/Ck/tBREeJWn22vUqbnmebG9tA3zJsKIOWZ0MJIQ6uxeQo6fwxIenE/C4ZB2B2UFVI5ME9lxlXKufhZMjcvJ2+HSZXHp/4+AqLYtIMXNDMMbHDcTvJV2zevhFWmCKqNg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=esieeSGM0P6MF42ZBRC44HSBreJyH05cavxc8O6M7dk=;
+ b=Xoe0E/SlUNMRx39X00Cp7JLSpn541PSclOJqdwHmNCHxA0t5+00wO4cqdifukiWSKng6Y7bGGl8mL0AovD2y/vXwfKFeL0OC2JXN40xx05yR5/TNTiKliMSXpZiVbp3bxuD2duzVn+kg4j9P42Z6JGXQo+1B06Di74bS8VOsLSdw1S2yx7t98HZAK+tngRT5JO3ejOr7y/tpJGXXtzdmY7nV+DuPvIU9F8vI4MUGaGovedGicrBA5kf7Rx//NNEf7NwfUWiAaTqbW8zS+Olyi+nZpHvuW+SseDZW8k+eWjCdiBsEsXvuvj0N08gdTNdq7lkfKi9ZUrDgiQqEDbIAZw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=esieeSGM0P6MF42ZBRC44HSBreJyH05cavxc8O6M7dk=;
+ b=mMgRh28XwiOsfd9NNC8CFZFsArDDtyP2t2HXe0dnUQ/flP3br3AZtXnCzRCYePI5EIto09kHazFCm1WxDtq5/KYVb3gX2s7ctAkfw7XyG0oEbVe8hD6jrM6rQ0UIAIoFltiYUliHLXPJU4ofGMZQWaAjH0MJ+/SshP3ueVaO3iS+d/rVKdJXpKdj0NHyisgpm++OvX8yKPE5ognu0CKGP2wwhb/+KSo05l7QgS7LQrW9mNXPILpQ1yjjgY4tSBwmyWkGC28Ryzp1IUmUfB6sbaVCpXV3B/5hnPv+MM8KwlaKpkr7iGkbQokEZ4K+yDaXm03yv2dO5kMErt1wuBii+A==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from DU2PR04MB8951.eurprd04.prod.outlook.com (2603:10a6:10:2e2::22)
+ by PA1PR04MB11469.eurprd04.prod.outlook.com (2603:10a6:102:4e3::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9343.17; Tue, 25 Nov
+ 2025 16:51:47 +0000
+Received: from DU2PR04MB8951.eurprd04.prod.outlook.com
+ ([fe80::753c:468d:266:196]) by DU2PR04MB8951.eurprd04.prod.outlook.com
+ ([fe80::753c:468d:266:196%4]) with mapi id 15.20.9366.009; Tue, 25 Nov 2025
+ 16:51:47 +0000
+Date: Tue, 25 Nov 2025 11:51:39 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: Jean-Michel Hautbois <jeanmichel.hautbois@yoseli.org>
+Cc: Greg Ungerer <gerg@linux-m68k.org>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Olivia Mackall <olivia@selenic.com>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, oe-kbuild-all@lists.linux.dev,
+	linux-m68k@lists.linux-m68k.org, linux-kernel@vger.kernel.org,
+	linux-crypto@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v3 1/3] m68k: coldfire: Mark platform device resource
+ arrays as const
+Message-ID: <aSXemx7nWJJFRWwT@lizhi-Precision-Tower-5810>
+References: <20251124-b4-m5441x-add-rng-support-v3-1-f447251dad27@yoseli.org>
+ <202511250103.RMNoU3xH-lkp@intel.com>
+ <aSVgcoNNeLJshwvU@yoseli-yocto.yoseli.org>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aSVgcoNNeLJshwvU@yoseli-yocto.yoseli.org>
+X-ClientProxiedBy: PH8P222CA0016.NAMP222.PROD.OUTLOOK.COM
+ (2603:10b6:510:2d7::26) To DU2PR04MB8951.eurprd04.prod.outlook.com
+ (2603:10a6:10:2e2::22)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1] cpuidle: Warn instead of bailing out if target
- residency check fails
-To: "Rafael J. Wysocki" <rafael@kernel.org>, Val Packett <val@packett.cool>
-Cc: Daniel Lezcano <daniel.lezcano@linaro.org>,
- Artem Bityutskiy <artem.bityutskiy@linux.intel.com>,
- linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
- "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>, linux-pm@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20251121010756.6687-1-val@packett.cool>
- <CAJZ5v0h1VTozCKweKvma3dQiUCz8KkR88Hue1cL_jDaKiP+BEw@mail.gmail.com>
- <2808566.mvXUDI8C0e@rafael.j.wysocki>
-Content-Language: en-US
-From: Christian Loehle <christian.loehle@arm.com>
-In-Reply-To: <2808566.mvXUDI8C0e@rafael.j.wysocki>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU2PR04MB8951:EE_|PA1PR04MB11469:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1c312ac9-483d-4f1e-a2e4-08de2c42ebdd
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|376014|19092799006|366016|1800799024|7416014|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?Y8D1DNUIW6nFebw+yHi1FAm61NIfWmhHeb+U+aFz3f1ZLSKNbLkcuk952OP0?=
+ =?us-ascii?Q?le7PP50rJ05jUBoNNaibk9mns3JnRHjq7dP86rdRVrv9hRVi5RgbFx9didAO?=
+ =?us-ascii?Q?1iNye6NVSbrTV4/nfFPY5jegeyeI5+cIMxecm1UEgKbd+RgEXR5xsUo+qyLg?=
+ =?us-ascii?Q?wZK8hDUKMup4vmhW2Qn+1GLQl/awppIWuVvLMB4HRJ20UKRzrt6421opkDSC?=
+ =?us-ascii?Q?Ysp6NQ34sKX4pW42aY3phzh6ZoWorTLuGT69aO/ABVU9KXoL6pn7FWBC8+KJ?=
+ =?us-ascii?Q?EaPHig/xHLCawV/ovMciD7xU6dwz0sq0TJwOIdi74+7jmxP8iYfnyI9Ahrp0?=
+ =?us-ascii?Q?RU5pOCIWldLZWH8VC22rXfDNcnnHTKRNVhvEaY5f1oapgAwl3rLjpD4DtrvX?=
+ =?us-ascii?Q?C58LWt3VP0JWwwGjA3XPZd1eVXikDjh8VuoM3Q3V8K6PqJv0HPoY9kTwUcgZ?=
+ =?us-ascii?Q?anIpqCec+B2Lt6DJJ+itqtMoZ7CE7IdgJbLA6TLispNgbPkrNHQmWDsfWmtw?=
+ =?us-ascii?Q?/vX75US+oEWYgVp+0qmbIQBakohQTV4JL4PislXj0T3RbE13A5XfTegsYyKg?=
+ =?us-ascii?Q?MZxeCpP32xQ8jvnfy86Rx20ZQ1AtLcAcRIp0xDjl0A7LGsvrc2oi95cK0x8X?=
+ =?us-ascii?Q?Abhwf03JdW5ngyOai5FR/6LcJeT3O4WYCRAkB9sABZYS0BDJQSqET59MAOcZ?=
+ =?us-ascii?Q?cijmRqUVWvuygUAlCGOXrEH8EZJmLsAS6m8tijKiEywKYqiF81uYwzWr1jXz?=
+ =?us-ascii?Q?Ky2Rj5LwBEglSMnPnhTgn/Aaywyj2xEZBByBd0/aXDTyL/MIyfdIl8luxm5F?=
+ =?us-ascii?Q?e6wRc/OCzQcchAmHV0Jlanvbq8zvG96gzstJzvmXiJJy00MS6N9c8HVvX7RS?=
+ =?us-ascii?Q?eIfomuQoG2X987HE9gyD1NdYUJo0GOD/3R9ROxql09HMnGE31Y1rUcWZWg7P?=
+ =?us-ascii?Q?wq0lPXuliLlRbKr2ub9GJVbWEeH/soLc1PnNOu2Fd9G5GHHnLJXfAp6lFica?=
+ =?us-ascii?Q?upN6j1NSydsGNY1Pa3d3Srueyvy9OnQHtIwwKbp748U+OzreHj6VEzKLVrE9?=
+ =?us-ascii?Q?evpXPrOkCg4haGfjXD1d7w2HaiuS6rA9WRt8GO1SB4r+oCORC9aK6mH9F3NE?=
+ =?us-ascii?Q?renCDL9RmJd09G1kHeGRBZ0klwNNzh/2tLToJUd7Ly/TY57DVwatOVJ+eSd5?=
+ =?us-ascii?Q?2dd2Z0fzDG742dSYA81OAQKZ0Az2/wOcshXRtBEfKuR23u363uFwxV9TYVE9?=
+ =?us-ascii?Q?lQBlNjaEQ/OXH6bMx4KjwiQvVxGwbe4fngjwVysdrzXzRFc5DeBBFO1bSR4g?=
+ =?us-ascii?Q?WmgI7moRXm5Ao+PamKLilSg/ifCthlmRO6ZygAYccs5IQjNA4ooGxdAWkLwL?=
+ =?us-ascii?Q?9CRZsdb2TAX5IxctRGVFEokOmGq9weSw9HzEixJRCi24Z7z3TJpV/NB2EjtB?=
+ =?us-ascii?Q?IuTipKr8sh1UNjoAEUrSNfn044qniR7yn1VfPovNwDq+JcTKyLeF3w=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8951.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(376014)(19092799006)(366016)(1800799024)(7416014)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?yAkmvWqzE7xQycYU/hAb3BQouGSpt4N7ieGRK9ozPaIMaH7XuTdd9KdVqh33?=
+ =?us-ascii?Q?r1YcZLqGBj8uX2ntmV7E8ABMZ22OVJKo0LNtxD3OVbSQYGXSGvivWTottmgZ?=
+ =?us-ascii?Q?qzaPbA1IXiY5+V2sT4LNta0lI8G0H9jlUXHcXo6KLkLLnbb/gr+co2DDsE3K?=
+ =?us-ascii?Q?3cZdPB2Xe7AJQL5i9ax7fAl/N2qHQ5WMapN2cZLxdmdEowKZLA9dvgrF348t?=
+ =?us-ascii?Q?tOdp1g8Jj5E43mtbTA0VE0XBIlzK+8hKAKX7lpknpqrhL5l47y/KADgFjHS0?=
+ =?us-ascii?Q?SZ2woV9RfRnlSlp7QV52Yz/bRyq93I/pq9r6M4szwoLN214b69is6ySfdh5H?=
+ =?us-ascii?Q?EBH9t3isWMRWiLscl7nsYQxxyetv8TscxAxecXJQ7p164KRdwXk5Y1Ujzc/2?=
+ =?us-ascii?Q?K+jCyEvB2Wp2daBNKaURYKvUdu8web+oZYX55HBa3YV9qiLf7BQoCvfmJi9f?=
+ =?us-ascii?Q?+YCOwuXhEf3YFqDCxRqXU2FJRUPdqElrP+mJqhBW+8OuidCPwwuzOFSBS8hl?=
+ =?us-ascii?Q?9QYx3A1mC3lbWvSMcNBWNMQZTn5AooHxSoL92sWULNo1zevHV2ZvHTtME8zQ?=
+ =?us-ascii?Q?NPyUqfuloWa0rfm1X2507qc4FR4nz8QMvDL6LMy3NfG+I+s/eVsDXGibn9mF?=
+ =?us-ascii?Q?tz3YyIAAEV3KGYdREpUa8cs65a+JfmCiAvYSYbg22dILG9Bu4Is23f9pt7/Q?=
+ =?us-ascii?Q?reju/dfawFfG2FvnXRQr6QcHM+7RkSUsPCtFRNF5E9e26POV5PEVPQlYBuPe?=
+ =?us-ascii?Q?CtdbMUIG/m8LnfnTsJh3I5iBhUqpnbUXqCQH/4XMVU62unMZKyFkw9NZSoxX?=
+ =?us-ascii?Q?3qgkdgLxe7MDcTRmzeo02a///7w/Dh4LgtK1NKUxF05pDJ9FmSIkhPPw+jWT?=
+ =?us-ascii?Q?+JA3mCk9AL7mqsKAcnFH4RX8Ry8LcK334Qz9DjKyjc/XZhmWDsaZMzhLcyjf?=
+ =?us-ascii?Q?nupPWHU6xp9GwfMVVehXOTeNve1KAYqtLCjF19OerhNG1q1xdM0yG8E0o4CD?=
+ =?us-ascii?Q?1aUfDDLjb3x/nZWPsLybJI7LHc89vW/bLTO/AsYcR2uccp0o5akA47zOTEFU?=
+ =?us-ascii?Q?rdsnxx+nl4X/qydTrCumH+ANzWWvJCEQVLJESNg2uFQhekgSIGJLyvdmw4B9?=
+ =?us-ascii?Q?P5Vl19nLaMW+Tib4biGWX8imlPbiVqqv1QYDd+GQV2tcgkn6tWKFp9iyBXwX?=
+ =?us-ascii?Q?eYpeI+XRa2TkepWawZMbEOcg86q4/L2y9S3M6g1Ls1rBVmpyzZXvJP9tyq10?=
+ =?us-ascii?Q?lr4kse2NqdvhjIHjLD//B0S2xo65YBIHLOS6ODOYs72TBI01HeL9jgxXfhNr?=
+ =?us-ascii?Q?GJ9p5fmifFvVDyx8OmIvKshueW83NLwF9GVHEBSG1OBAk4AMXYEKihu1ebbq?=
+ =?us-ascii?Q?gtLAh97Uz2G2ePC4aoGGwii9GMrAWIIU407JF7+TNh5neQTN2zR04GOEw2xW?=
+ =?us-ascii?Q?LggJ7439i7CfcoeAVhHuHYBNlRAVOe2jOfNiL7TnClqDRntdFa3OMPqkkuNv?=
+ =?us-ascii?Q?1toiCVERPyE3CAT5xPxVEQ76sh4kzVDKUi9pi5HS+iFSp+r6hkI0T5iJpk8c?=
+ =?us-ascii?Q?tP4CPyKzkvZ1r08bTEbVJKkCWpX1IONWkH1cRJdG?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1c312ac9-483d-4f1e-a2e4-08de2c42ebdd
+X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8951.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Nov 2025 16:51:47.2425
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: zZGK6QhD+MLre4cd4LhyvbZn/BdjtabDYqGarw5TkRYFWP7UcsNGXGrNjVP9GwwzUa0+fmZzwv4yonGt1m1+dQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB11469
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251125_085029_245625_CD51CA4E 
-X-CRM114-Status: GOOD (  35.06  )
+X-CRM114-CacheID: sfid-20251125_085150_897552_8D61CBC9 
+X-CRM114-Status: GOOD (  20.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,137 +167,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/25/25 16:23, Rafael J. Wysocki wrote:
-> On Friday, November 21, 2025 2:10:57 PM CET Rafael J. Wysocki wrote:
->> On Fri, Nov 21, 2025 at 2:08 AM Val Packett <val@packett.cool> wrote:
->>>
->>> On Device Tree platforms, the latency and target residency values come
->>> directly from device trees, which are numerous and weren't all written
->>> with cpuidle invariants in mind. For example, qcom/hamoa.dtsi currently
->>> trips this check: exit latency 680000 > residency 600000.
->>
->> So this breaks cpuidle expectations and it doesn't work correctly on
->> the affected platforms.
->>
->>> Instead of harshly rejecting the entire cpuidle driver with a mysterious
->>> error message, print a warning and set the target residency value to be
->>> equal to the exit latency.
->>
->> This generally doesn't work because the new target residency may be
->> greater than the target residency of the next state.
->>
->>> Fixes: 76934e495cdc ("cpuidle: Add sanity check for exit latency and target residency")
->>> Signed-off-by: Val Packett <val@packett.cool>
->>> ---
->>>  drivers/cpuidle/driver.c | 7 +++++--
->>>  1 file changed, 5 insertions(+), 2 deletions(-)
->>>
->>> diff --git a/drivers/cpuidle/driver.c b/drivers/cpuidle/driver.c
->>> index 1c295a93d582..06aeb59c1017 100644
->>> --- a/drivers/cpuidle/driver.c
->>> +++ b/drivers/cpuidle/driver.c
->>> @@ -199,8 +199,11 @@ static int __cpuidle_driver_init(struct cpuidle_driver *drv)
->>>                  * exceed its target residency which is assumed in cpuidle in
->>>                  * multiple places.
->>>                  */
->>> -               if (s->exit_latency_ns > s->target_residency_ns)
->>> -                       return -EINVAL;
->>> +               if (s->exit_latency_ns > s->target_residency_ns) {
->>> +                       pr_warn("cpuidle: state %d: exit latency %lld > residency %lld (fixing)\n",
->>> +                               i, s->exit_latency_ns, s->target_residency_ns);
->>> +                       s->target_residency_ns = s->exit_latency_ns;
->>
->> And you also need to update s->target_residency.
->>
->> Moreover, that needs to be done when all of the target residency and
->> exit latency values have been computed and full sanitization of all
->> the states would need to be done (including the ordering checks), but
->> the kernel has insufficient information to do that (for instance, if
->> the ordering is not as expected, it is not clear how to fix it up).
->> Even the above sanitization is unlikely to result in the intended
->> behavior.
->>
->> So if returning the error code doesn't work, printing a warning is as
->> much as can be done, like in the attached patch.
->>
->> If this works for you, I'll submit it properly later.
->>
-> 
-> No response, so I assume no objections.
-> 
-> ---
-> From: Rafael J. Wysocki <rafael.j.wysocki@intel.com>
-> 
-> It turns out that the change in commit 76934e495cdc ("cpuidle: Add
-> sanity check for exit latency and target residency") goes too far
-> because there are systems in the field on which the check introduced
-> by that commit does not pass.
-> 
-> For this reason, change __cpuidle_driver_init() return type back to void
-> and make it print a warning when the check mentioned above does not
-> pass.
-> 
-> Fixes: 76934e495cdc ("cpuidle: Add sanity check for exit latency and target residency")
-> Reported-by: Val Packett <val@packett.cool>
-> Closes: https://lore.kernel.org/linux-pm/20251121010756.6687-1-val@packett.cool/
-> Signed-off-by: Rafael J. Wysocki <rafael.j.wysocki@intel.com>
-> ---
->  drivers/cpuidle/driver.c |   18 ++++++++----------
->  1 file changed, 8 insertions(+), 10 deletions(-)
-> 
-> --- a/drivers/cpuidle/driver.c
-> +++ b/drivers/cpuidle/driver.c
-> @@ -8,6 +8,8 @@
->   * This code is licenced under the GPL.
->   */
->  
-> +#define pr_fmt(fmt) KBUILD_MODNAME ": " fmt
-> +
->  #include <linux/mutex.h>
->  #include <linux/module.h>
->  #include <linux/sched.h>
-> @@ -152,7 +154,7 @@ static void cpuidle_setup_broadcast_time
->   * __cpuidle_driver_init - initialize the driver's internal data
->   * @drv: a valid pointer to a struct cpuidle_driver
->   */
-> -static int __cpuidle_driver_init(struct cpuidle_driver *drv)
-> +static void __cpuidle_driver_init(struct cpuidle_driver *drv)
->  {
->  	int i;
->  
-> @@ -195,15 +197,13 @@ static int __cpuidle_driver_init(struct
->  			s->exit_latency = div_u64(s->exit_latency_ns, NSEC_PER_USEC);
->  
->  		/*
-> -		 * Ensure that the exit latency of a CPU idle state does not
-> -		 * exceed its target residency which is assumed in cpuidle in
-> -		 * multiple places.
-> +		 * Warn if the exit latency of a CPU idle state exceeds its
-> +		 * target residency which is assumed to never happen in cpuidle
-> +		 * in multiple places.
->  		 */
->  		if (s->exit_latency_ns > s->target_residency_ns)
-> -			return -EINVAL;
-> +			pr_warn("Idle state %d target residency too low\n", i);
->  	}
-> -
-> -	return 0;
->  }
->  
->  /**
-> @@ -233,9 +233,7 @@ static int __cpuidle_register_driver(str
->  	if (cpuidle_disabled())
->  		return -ENODEV;
->  
-> -	ret = __cpuidle_driver_init(drv);
-> -	if (ret)
-> -		return ret;
-> +	__cpuidle_driver_init(drv);
->  
->  	ret = __cpuidle_set_driver(drv);
->  	if (ret)
-> 
+On Tue, Nov 25, 2025 at 08:53:22AM +0100, Jean-Michel Hautbois wrote:
+> On Tue, Nov 25, 2025 at 01:48:24AM +0800, kernel test robot wrote:
+> > Hi Jean-Michel,
+> >
+> > kernel test robot noticed the following build warnings:
+> >
+> > [auto build test WARNING on ac3fd01e4c1efce8f2c054cdeb2ddd2fc0fb150d]
+> >
+> > url:    https://github.com/intel-lab-lkp/linux/commits/Jean-Michel-Hautbois/m68k-coldfire-Mark-platform-device-resource-arrays-as-const/20251124-210737
+> > base:   ac3fd01e4c1efce8f2c054cdeb2ddd2fc0fb150d
+> > patch link:    https://lore.kernel.org/r/20251124-b4-m5441x-add-rng-support-v3-1-f447251dad27%40yoseli.org
+> > patch subject: [PATCH v3 1/3] m68k: coldfire: Mark platform device resource arrays as const
+> > config: m68k-allnoconfig (https://download.01.org/0day-ci/archive/20251125/202511250103.RMNoU3xH-lkp@intel.com/config)
+> > compiler: m68k-linux-gcc (GCC) 15.1.0
+> > reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20251125/202511250103.RMNoU3xH-lkp@intel.com/reproduce)
+> >
+> > If you fix the issue in a separate patch/commit (i.e. not just a new version of
+> > the same patch/commit), kindly add following tags
+> > | Reported-by: kernel test robot <lkp@intel.com>
+> > | Closes: https://lore.kernel.org/oe-kbuild-all/202511250103.RMNoU3xH-lkp@intel.com/
+> >
+> > All warnings (new ones prefixed by >>):
+> >
+> > >> arch/m68k/coldfire/device.c:141:35: warning: initialization discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+> >      141 |         .resource               = mcf_fec0_resources,
+> >          |                                   ^~~~~~~~~~~~~~~~~~
+> >
+> >
+> > vim +/const +141 arch/m68k/coldfire/device.c
+>
+> Frank, I mentionned this warning in v2, do you have a suggestion ?
 
-FWIW I also prefer this to a weird fixing-up-states logic that we would never test!
-Reviewed-by: Christian Loehle <christian.loehle@arm.com>
+Maybe defer add const until platform_device change define.
+
+Frank
+
+>
+> Thanks !
+> JM
+>
+> >
+> > b7ce7f0d0efc1a arch/m68k/platform/coldfire/device.c Greg Ungerer      2011-12-24  136
+> > b7ce7f0d0efc1a arch/m68k/platform/coldfire/device.c Greg Ungerer      2011-12-24  137  static struct platform_device mcf_fec0 = {
+> > bea8bcb12da09b arch/m68k/platform/coldfire/device.c Steven King       2012-06-06  138  	.name			= FEC_NAME,
+> > b7ce7f0d0efc1a arch/m68k/platform/coldfire/device.c Greg Ungerer      2011-12-24  139  	.id			= 0,
+> > b7ce7f0d0efc1a arch/m68k/platform/coldfire/device.c Greg Ungerer      2011-12-24  140  	.num_resources		= ARRAY_SIZE(mcf_fec0_resources),
+> > b7ce7f0d0efc1a arch/m68k/platform/coldfire/device.c Greg Ungerer      2011-12-24 @141  	.resource		= mcf_fec0_resources,
+> > f61e64310b7573 arch/m68k/coldfire/device.c          Greg Ungerer      2018-03-28  142  	.dev = {
+> > f61e64310b7573 arch/m68k/coldfire/device.c          Greg Ungerer      2018-03-28  143  		.dma_mask		= &mcf_fec0.dev.coherent_dma_mask,
+> > f61e64310b7573 arch/m68k/coldfire/device.c          Greg Ungerer      2018-03-28  144  		.coherent_dma_mask	= DMA_BIT_MASK(32),
+> > f61e64310b7573 arch/m68k/coldfire/device.c          Greg Ungerer      2018-03-28  145  		.platform_data		= FEC_PDATA,
+> > f61e64310b7573 arch/m68k/coldfire/device.c          Greg Ungerer      2018-03-28  146  	}
+> > b7ce7f0d0efc1a arch/m68k/platform/coldfire/device.c Greg Ungerer      2011-12-24  147  };
+> > 63a24cf8cc330e arch/m68k/coldfire/device.c          Antonio Quartulli 2024-10-29  148  #endif /* MCFFEC_BASE0 */
+> > b7ce7f0d0efc1a arch/m68k/platform/coldfire/device.c Greg Ungerer      2011-12-24  149
+> >
+> > --
+> > 0-DAY CI Kernel Test Service
+> > https://github.com/intel/lkp-tests/wiki
+>
 
