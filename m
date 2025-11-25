@@ -4,70 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F180AD0EE11
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 18:06:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBCC6D0EE0F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 18:09:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lp+Mc2LjVyhDfZiwstCaChFpHcgAv27Nujzsi0u4HYw=; b=mDUI0u3fiEsWcq9afd5tDSwVHW
-	QUGfhMzpTTgH8PQ8DwwKtO9u5JHUIsVdiPgW3PvtXh+voftmAJV2BdxRNij0sQ5IhzuLAu6CHPjTa
-	noDo9koc/dkgfWGpBwX4ZWs7WuB5OWspjGzY4TJoXcSrFLQrOaKVART1LfGjInZkFu+3yKawSGFF7
-	2oOFPIOUxuweTvNqLKHdZGbQBxhNenQaHv6pQmeZ5lMWRra3b0Q8zMH9txEwygqaF13K5XOOitQMf
-	uAdDzdJzPae4r2Jpfij2tuetHZA0tFnGcC34ZtXWE8AmPErPscVvpHRNMD5n4ZVxK8NaUvscnpMj9
-	kfZR7rxA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=j3/S4Hf1y59pjCnEL7qw1EexDcmqot8Q1p1anizWLA8=; b=ag5+xpGElzC44Qb26sVOI4zUNg
+	rxgU1fTn/LLvisUEqx0wRvS4W8BHFC5rUzsNlQzj6C8cnGOwD7maaYTffNEikdyAeDmXPHbhVvfsL
+	pZjQ5qanze7QlgkfE1TGAvuDoaZ87yX9wBC7QFIRB9uqXyU9GZpe6GRBQoT14BoDSYKS6nJHjVJjA
+	qangsuXD0wxslA+z8Y1FdbwqAAaTzTjYQwWaj7sUvGrWH5vpi50w9vTfo/HrLyzEQCcpHH0kvxDI7
+	SA+/dWK8nnRBtK3b4/tXSHaVhik1BIutDvxrGimlhdA86jn86bj3H0+1CRKwPeYdxN/UcrzqexY/O
+	hnEA/z7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNxQL-0000000DjWb-0neh;
-	Tue, 25 Nov 2025 18:05:57 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1vNxTv-0000000Djxu-26sq;
+	Tue, 25 Nov 2025 18:09:39 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNxQI-0000000DjVQ-338H
+	id 1vNxTu-0000000Djxn-10EB
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Nov 2025 18:05:56 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id B748E4E418B9;
-	Tue, 25 Nov 2025 18:05:52 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 83FEF606A1;
-	Tue, 25 Nov 2025 18:05:52 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 8C31A102F08B4;
-	Tue, 25 Nov 2025 19:05:48 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1764093951; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=lp+Mc2LjVyhDfZiwstCaChFpHcgAv27Nujzsi0u4HYw=;
-	b=2MT85Y8WbOH/m30D+UIp0mzIxbW0XIkxpgaKXoqNFqVjl+uJrbiMolxTm7BkcQ8ICAOtDc
-	lQoeSqDR/N+HxoZohW3agU9D8VRYd6MpLCAtXB1t82kHFtzMgcR8s9cE8U+o3Jclhgl1Ot
-	iRjxhH/2dY/9lyEZLceMytSCQ2THl5kCZmcWNIV3ehsEFcyBEi011lxuFp6cnQQIvE2EjI
-	Ijcd30oQ6zCON1gSoZMHi052SrixULQ2AUvBuzAQGpp6vPIKCPQTcQnssJVwknWhJcngGx
-	PPTWJEAFiKTJ6Z6Wa16J+lFLf5ZwMvUJuNF745DCtiAlv/iCGHKIetdBzZFPaA==
-Message-ID: <bcfcfcb1-33d3-4e03-95c7-565f6a76f3d8@bootlin.com>
-Date: Tue, 25 Nov 2025 19:05:47 +0100
+	Tue, 25 Nov 2025 18:09:38 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id A3D1A6023C;
+	Tue, 25 Nov 2025 18:09:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5372CC4CEF1;
+	Tue, 25 Nov 2025 18:09:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1764094177;
+	bh=/mvfUzi1Qw/4Y5kr212cUVhQ1RqPh58sZxHLxmDAY+M=;
+	h=From:Date:Cc:To:In-Reply-To:References:Subject:From;
+	b=T5xXmqeS+/oH53FIpbyhDSoWH/3vPI/1rNwHCdWGhlaVbQI8Sh8EvfLvn4fgZCN+J
+	 0UhbZVikkjQqQM3F+qdS0qmkYrakKQukVb+NsriVuDgkqs+l/7W1762mlVTl4p/Beo
+	 qaCYC7fvlYxeRYgOcM4gflVSwBtNHLnCgoQoTJC8O05IrFkLUYlV9/3zYTYOX9GbIw
+	 XAuQHRoWoQA9P0McfnRMmBvC2klCkjI2oL3KEVzqO2jDU/1HrwXrJZVnfI5GOCvtqz
+	 x1DeUdbNhxnowfC78YZePpKtK1f4dyOdyD3k4W/h19xwQhXIYk7rs5VnPLTBxHBkaf
+	 GDv0f44YyThOA==
+From: Rob Herring <robh@kernel.org>
+Date: Tue, 25 Nov 2025 12:09:35 -0600
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next] net: stmmac: dwmac: Disable flushing frames on
- Rx Buffer Unavailable
-To: rohan.g.thomas@altera.com, Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>
-Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Matthew Gerlach <matthew.gerlach@altera.com>
-References: <20251126-a10_ext_fix-v1-1-d163507f646f@altera.com>
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Content-Language: en-US
-In-Reply-To: <20251126-a10_ext_fix-v1-1-d163507f646f@altera.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251125_100554_910555_A721D7E0 
-X-CRM114-Status: GOOD (  26.31  )
+Cc: Conor Dooley <conor.dooley@microchip.com>, 
+ Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org, 
+ Joel Stanley <joel@jms.id.au>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Andrew Jeffery <andrew@codeconstruct.com.au>, linux-kernel@vger.kernel.org, 
+ linux-aspeed@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org
+To: Marc Olberding <molberding@nvidia.com>
+In-Reply-To: <20251124-msx1_devicetree-v4-0-a3ebe3110a67@nvidia.com>
+References: <20251124-msx1_devicetree-v4-0-a3ebe3110a67@nvidia.com>
+Message-Id: <176409395426.3843808.13226161866300781148.robh@kernel.org>
+Subject: Re: [PATCH v4 0/2] Add device tree for Nvidia BMC msx4 cx8
+ switchboard
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,144 +72,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
 
-On 25/11/2025 17:37, Rohan G Thomas via B4 Relay wrote:
-> From: Rohan G Thomas <rohan.g.thomas@altera.com>
+On Mon, 24 Nov 2025 15:14:16 -0800, Marc Olberding wrote:
+> Patch 1 Adds the binding for the msx4 cx8 switchboard
+> Patch 2 Adds the device tree for the msx4 cx8 switchboard reference implementation.
 > 
-> In Store and Forward mode, flushing frames when the receive buffer is
-> unavailable, can cause the MTL Rx FIFO to go out of sync. This results
-> in buffering of a few frames in the FIFO without triggering Rx DMA
-> from transferring the data to the system memory until another packet
-> is received. Once the issue happens, for a ping request, the packet is
-> forwarded to the system memory only after we receive another packet
-> and hece we observe a latency equivalent to the ping interval.
+> This is an Aspeed AST2600 based reference implementation for a BMC
+> managing the nvidia mgx cx8 switchboard.
 > 
-> 64 bytes from 192.168.2.100: seq=1 ttl=64 time=1000.344 ms
+> Reference to Ast2600 Soc [1].
 > 
-> Also, we can observe constant gmacgrp_debug register value of
-> 0x00000120, which indicates "Reading frame data".
+> Link: https://www.aspeedtech.com/server_ast2600/ [1]
 > 
-> The issue is not reproducible after disabling frame flushing when Rx
-> buffer is unavailable. But in that case, the Rx DMA enters a suspend
-> state due to buffer unavailability. To resume operation, software
-> must write to the receive_poll_demand register after adding new
-> descriptors, which reactivates the Rx DMA.
-> 
-> This issue is observed in the socfpga platforms which has dwmac1000 IP
-> like Arria 10, Cyclone V and Agilex 7. Issue is reproducible after
-> running iperf3 server at the DUT for UDP lower packet sizes.
-> 
-> Signed-off-by: Rohan G Thomas <rohan.g.thomas@altera.com>
-> Reviewed-by: Matthew Gerlach <matthew.gerlach@altera.com>
-
-I'll let others comment on the correctness of the dwmac1000 part, but
-still :
-
-Tested-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
-
-Maxime
-
+> Signed-off-by: Marc Olberding <molberding@nvidia.com>
 > ---
->  drivers/net/ethernet/stmicro/stmmac/dwmac1000_dma.c | 5 +++--
->  drivers/net/ethernet/stmicro/stmmac/dwmac_dma.h     | 1 +
->  drivers/net/ethernet/stmicro/stmmac/dwmac_lib.c     | 5 +++++
->  drivers/net/ethernet/stmicro/stmmac/hwif.h          | 3 +++
->  drivers/net/ethernet/stmicro/stmmac/stmmac_main.c   | 2 ++
->  5 files changed, 14 insertions(+), 2 deletions(-)
+> Changes in v4:
+> - Changed model name to be accurate per Andrew Jeffery
+> - Added comments about why there are no i2c devices described here per Andrew Jeffery
+> - Added support for probing the backup spi device through fmc
+> - Link to v3: https://lore.kernel.org/r/20251108-msx1_devicetree-v3-0-c7cb477ade27@nvidia.com
 > 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac1000_dma.c b/drivers/net/ethernet/stmicro/stmmac/dwmac1000_dma.c
-> index 6d9b8fac3c6d0fd76733ab4a1a8cce2420fa40b4..5877fec9f6c30ed18cdcf5398816e444e0bd0091 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac1000_dma.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac1000_dma.c
-> @@ -135,10 +135,10 @@ static void dwmac1000_dma_operation_mode_rx(struct stmmac_priv *priv,
->  
->  	if (mode == SF_DMA_MODE) {
->  		pr_debug("GMAC: enable RX store and forward mode\n");
-> -		csr6 |= DMA_CONTROL_RSF;
-> +		csr6 |= DMA_CONTROL_RSF | DMA_CONTROL_DFF;
->  	} else {
->  		pr_debug("GMAC: disable RX SF mode (threshold %d)\n", mode);
-> -		csr6 &= ~DMA_CONTROL_RSF;
-> +		csr6 &= ~(DMA_CONTROL_RSF | DMA_CONTROL_DFF);
->  		csr6 &= DMA_CONTROL_TC_RX_MASK;
->  		if (mode <= 32)
->  			csr6 |= DMA_CONTROL_RTC_32;
-> @@ -262,6 +262,7 @@ const struct stmmac_dma_ops dwmac1000_dma_ops = {
->  	.dma_rx_mode = dwmac1000_dma_operation_mode_rx,
->  	.dma_tx_mode = dwmac1000_dma_operation_mode_tx,
->  	.enable_dma_transmission = dwmac_enable_dma_transmission,
-> +	.enable_dma_reception = dwmac_enable_dma_reception,
->  	.enable_dma_irq = dwmac_enable_dma_irq,
->  	.disable_dma_irq = dwmac_disable_dma_irq,
->  	.start_tx = dwmac_dma_start_tx,
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac_dma.h b/drivers/net/ethernet/stmicro/stmmac/dwmac_dma.h
-> index d1c149f7a3dd9e472b237101666e11878707f0f2..054ecb20ce3f68bce5da3efaf36acf33e430d3f0 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac_dma.h
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac_dma.h
-> @@ -169,6 +169,7 @@ static inline u32 dma_chan_base_addr(u32 base, u32 chan)
->  #define NUM_DWMAC4_DMA_REGS	27
->  
->  void dwmac_enable_dma_transmission(void __iomem *ioaddr, u32 chan);
-> +void dwmac_enable_dma_reception(void __iomem *ioaddr, u32 chan);
->  void dwmac_enable_dma_irq(struct stmmac_priv *priv, void __iomem *ioaddr,
->  			  u32 chan, bool rx, bool tx);
->  void dwmac_disable_dma_irq(struct stmmac_priv *priv, void __iomem *ioaddr,
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac_lib.c b/drivers/net/ethernet/stmicro/stmmac/dwmac_lib.c
-> index 467f1a05747ecf0be5b9f3392cd3d2049d676c21..97a803d68e3a2f120beaa7c3254748cf404236df 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac_lib.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac_lib.c
-> @@ -33,6 +33,11 @@ void dwmac_enable_dma_transmission(void __iomem *ioaddr, u32 chan)
->  	writel(1, ioaddr + DMA_CHAN_XMT_POLL_DEMAND(chan));
->  }
->  
-> +void dwmac_enable_dma_reception(void __iomem *ioaddr, u32 chan)
-> +{
-> +	writel(1, ioaddr + DMA_CHAN_RCV_POLL_DEMAND(chan));
-> +}
-> +
->  void dwmac_enable_dma_irq(struct stmmac_priv *priv, void __iomem *ioaddr,
->  			  u32 chan, bool rx, bool tx)
->  {
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/hwif.h b/drivers/net/ethernet/stmicro/stmmac/hwif.h
-> index f257ce4b6c66e0bbd3180d54ac7f5be934153a6b..df6e8a567b1f646f83effbb38d8e53441a6f6150 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/hwif.h
-> +++ b/drivers/net/ethernet/stmicro/stmmac/hwif.h
-> @@ -201,6 +201,7 @@ struct stmmac_dma_ops {
->  	void (*dma_diagnostic_fr)(struct stmmac_extra_stats *x,
->  				  void __iomem *ioaddr);
->  	void (*enable_dma_transmission)(void __iomem *ioaddr, u32 chan);
-> +	void (*enable_dma_reception)(void __iomem *ioaddr, u32 chan);
->  	void (*enable_dma_irq)(struct stmmac_priv *priv, void __iomem *ioaddr,
->  			       u32 chan, bool rx, bool tx);
->  	void (*disable_dma_irq)(struct stmmac_priv *priv, void __iomem *ioaddr,
-> @@ -261,6 +262,8 @@ struct stmmac_dma_ops {
->  	stmmac_do_void_callback(__priv, dma, dma_diagnostic_fr, __args)
->  #define stmmac_enable_dma_transmission(__priv, __args...) \
->  	stmmac_do_void_callback(__priv, dma, enable_dma_transmission, __args)
-> +#define stmmac_enable_dma_reception(__priv, __args...) \
-> +	stmmac_do_void_callback(__priv, dma, enable_dma_reception, __args)
->  #define stmmac_enable_dma_irq(__priv, __args...) \
->  	stmmac_do_void_callback(__priv, dma, enable_dma_irq, __priv, __args)
->  #define stmmac_disable_dma_irq(__priv, __args...) \
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> index 6cacedb2c9b3fefdd4c9ec8ba98d389443d21ebd..1ecca60baf74286da7f156b4c3c835b3cbabf1ba 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> @@ -4973,6 +4973,8 @@ static inline void stmmac_rx_refill(struct stmmac_priv *priv, u32 queue)
->  	rx_q->rx_tail_addr = rx_q->dma_rx_phy +
->  			    (rx_q->dirty_rx * sizeof(struct dma_desc));
->  	stmmac_set_rx_tail_ptr(priv, priv->ioaddr, rx_q->rx_tail_addr, queue);
-> +	/* Wake up Rx DMA from the suspend state if required */
-> +	stmmac_enable_dma_reception(priv, priv->ioaddr, queue);
->  }
->  
->  static unsigned int stmmac_rx_buf1_len(struct stmmac_priv *priv,
+> Changes in v3:
+> - Removed mac and mdio node completely per Andrew Lunn's request. Will add back
+>     once the mac driver is fixed
+> - Link to v2: https://lore.kernel.org/r/20251107-msx1_devicetree-v2-0-6e36eb878db2@nvidia.com
+> 
+> Changes in v2:
+> - Added ack by Conor Dooley on patch 1
+> - Changed phy-mode attribute after discussion with Andrew Jeffery and feedback from Andrew Lunn
+>     and added a comment with a better explanation
+> - Link to v1: https://lore.kernel.org/r/20250918-msx1_devicetree-v1-1-18dc07e02118@nvidia.com
 > 
 > ---
-> base-commit: e3daf0e7fe9758613bec324fd606ed9caa187f74
-> change-id: 20251125-a10_ext_fix-5951805b9906
+> Marc Olberding (2):
+>       dt-bindings: arm: aspeed: Add Nvidia msx4 board
+>       dts: aspeed: Add a dts for the nvidia msx4 hpm
+> 
+>  .../devicetree/bindings/arm/aspeed/aspeed.yaml     |   1 +
+>  arch/arm/boot/dts/aspeed/Makefile                  |   1 +
+>  .../boot/dts/aspeed/aspeed-bmc-nvidia-msx4-bmc.dts | 248 +++++++++++++++++++++
+>  3 files changed, 250 insertions(+)
+> ---
+> base-commit: ac3fd01e4c1efce8f2c054cdeb2ddd2fc0fb150d
+> change-id: 20250908-msx1_devicetree-7af2c1fc15d0
 > 
 > Best regards,
+> --
+> Marc Olberding <molberding@nvidia.com>
+> 
+> 
+> 
+
+
+My bot found new DTB warnings on the .dts files added or changed in this
+series.
+
+Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
+are fixed by another series. Ultimately, it is up to the platform
+maintainer whether these warnings are acceptable or not. No need to reply
+unless the platform maintainer has comments.
+
+If you already ran DT checks and didn't see these error(s), then
+make sure dt-schema is up to date:
+
+  pip3 install dtschema --upgrade
+
+
+This patch series was applied (using b4) to base:
+ Base: ac3fd01e4c1efce8f2c054cdeb2ddd2fc0fb150d (use --merge-base to override)
+
+If this is not the correct base, please add 'base-commit' tag
+(or use b4 which does this automatically)
+
+New warnings running 'make CHECK_DTBS=y for arch/arm/boot/dts/aspeed/' for 20251124-msx1_devicetree-v4-0-a3ebe3110a67@nvidia.com:
+
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-msx4-bmc.dtb: timer (arm,armv7-timer): 'clocks' does not match any of the regexes: '^pinctrl-[0-9]+$'
+	from schema $id: http://devicetree.org/schemas/timer/arm,arch_timer.yaml
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-msx4-bmc.dtb: sdram@1e6e0000 (aspeed,ast2600-sdram-edac): compatible: ['aspeed,ast2600-sdram-edac', 'syscon'] is too long
+	from schema $id: http://devicetree.org/schemas/edac/aspeed,ast2400-sdram-edac.yaml
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-msx4-bmc.dtb: bus@1e600000 (aspeed,ast2600-ahbc): compatible: ['aspeed,ast2600-ahbc', 'syscon'] is too long
+	from schema $id: http://devicetree.org/schemas/bus/aspeed,ast2600-ahbc.yaml
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-msx4-bmc.dtb: syscon@1e6e2000 (aspeed,ast2600-scu): 'smp-memram@180' does not match any of the regexes: '^interrupt-controller@[0-9a-f]+$', '^p2a-control@[0-9a-f]+$', '^pinctrl(@[0-9a-f]+)?$', '^pinctrl-[0-9]+$', '^silicon-id@[0-9a-f]+$'
+	from schema $id: http://devicetree.org/schemas/mfd/aspeed,ast2x00-scu.yaml
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-msx4-bmc.dtb: /ahb/apb/syscon@1e6e2000/smp-memram@180: failed to match any schema with compatible: ['aspeed,ast2600-smpmem']
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-msx4-bmc.dtb: adc@1e6e9000 (aspeed,ast2600-adc0): 'interrupts' does not match any of the regexes: '^pinctrl-[0-9]+$'
+	from schema $id: http://devicetree.org/schemas/iio/adc/aspeed,ast2600-adc.yaml
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-msx4-bmc.dtb: adc@1e6e9100 (aspeed,ast2600-adc1): 'interrupts' does not match any of the regexes: '^pinctrl-[0-9]+$'
+	from schema $id: http://devicetree.org/schemas/iio/adc/aspeed,ast2600-adc.yaml
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-msx4-bmc.dtb: crypto@1e6fa000 (aspeed,ast2600-acry): 'aspeed,ahbc' does not match any of the regexes: '^pinctrl-[0-9]+$'
+	from schema $id: http://devicetree.org/schemas/crypto/aspeed,ast2600-acry.yaml
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-msx4-bmc.dtb: /ahb/apb/lpc@1e789000/lhc@a0: failed to match any schema with compatible: ['aspeed,ast2600-lhc']
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-msx4-bmc.dtb: /ahb/apb/lpc@1e789000/ibt@140: failed to match any schema with compatible: ['aspeed,ast2600-ibt-bmc']
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-msx4-bmc.dtb: /ahb/apb/dma-controller@1e79e000: failed to match any schema with compatible: ['aspeed,ast2600-udma']
+
+
+
+
 
 
