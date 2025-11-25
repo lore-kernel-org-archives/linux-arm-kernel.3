@@ -4,77 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B50F8D10362
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 22:33:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE311D10366
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 22:45:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=H7pG8R0U/pnahoXJymPcP4KNsItn4TlRtbOwE4F9lRw=; b=MFGOj+80vileNDBusfkzQyncQM
-	rqtKUY9NQMbZMeXw52e+XGMHSlfWcrGrYUW7P85D7voM+iZWvyMOgDWDzdgd27WJEiiAZ/ktWRxdc
-	0McUyUydPaLwlLs6YkN0qW5GjzdNODvOxAijY+wijV0ifJTSvHeXA8s9p5YZ5EPktzizSQEf+BM3G
-	j31N91+FQqD20dOYMCFTr+KSo2mO/ua7yoL7Memdcety2GCVyNugqQ5w/gE5YKn0DrhEThLF/mc/7
-	7Yf7Hu0eX7RQqBp1By6DvX+rHCfD4v45JuHMvRii4+FgpCpoKgQ40QRhQUX64H9yZudr6xyI2mQJ9
-	sE0DJdog==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=eksKHdOuLUxEaSCZSa3Yy26LV0Sk/VcK0aODv8ehgYo=; b=pyvDPKXFfuKGZ+eGEVjp07Idh4
+	1/FkXhRVHpjny84RTN5foAiJBYNv5xuTEbdT6o4//gUBE9ebr7cDc0PJZ+8Lqup54nFj6JKhr2vu3
+	PqUgOPehk/mfj7YItAW9iU0VCSw5r3o1P/8Jl8RPfY5/Z7Yu60232G7aNykRe8ZJlRYb3L6VDxCHY
+	2rwbzD7/8joW/V+D3O5BdvtPMHT9i6robUHenwNnsK0x1FFeygw0O1byL0ft/HkTjzcl6+VMGcdKF
+	tBP6kBJHbK2OVMrHC6un7gQbxHR1s/z9/jUGO/UdXf8UN8JoBndDeqir3HsKYXLGPyIk/Q6rcstWu
+	b8ObTzvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vO1b6-0000000E0gO-1kNG;
-	Tue, 25 Nov 2025 22:33:20 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1vO1mm-0000000E1Oe-2svU;
+	Tue, 25 Nov 2025 22:45:24 +0000
+Received: from mail.ozlabs.org ([2404:9400:2221:ea00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vO1b3-0000000E0fj-41y8;
-	Tue, 25 Nov 2025 22:33:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=H7pG8R0U/pnahoXJymPcP4KNsItn4TlRtbOwE4F9lRw=; b=LCjZZPNNMiWvKKVuIMq+NBWWVY
-	kj2//mzyNplsQdeFC+RyOKTf8t+MwaN0S14WCYwwiiI6YBOR6mPugvwt510BaAjc+urPg8HVK+ndP
-	jLLDH1e55AnEW9hdS6pnP/NPCWj63lVW1n+gslTWIa975faElFKixJwNT78z9QYPIPog=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1vO1av-00F46S-5T; Tue, 25 Nov 2025 23:33:09 +0100
-Date: Tue, 25 Nov 2025 23:33:09 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Vladimir Oltean <vladimir.oltean@nxp.com>
-Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-phy@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Daniel Golle <daniel@makrotopia.org>,
-	Horatiu Vultur <horatiu.vultur@microchip.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Eric Woudstra <ericwouds@gmail.com>,
-	Marek =?utf-8?B?QmVo4oia4oirbg==?= <kabel@kernel.org>,
-	Lee Jones <lee@kernel.org>,
-	Patrice Chotard <patrice.chotard@foss.st.com>
-Subject: Re: [PATCH net-next 1/9] dt-bindings: phy: rename
- transmit-amplitude.yaml to phy-common-props.yaml
-Message-ID: <b4597333-e485-426d-975e-3082895e09f6@lunn.ch>
-References: <20251122193341.332324-1-vladimir.oltean@nxp.com>
- <20251122193341.332324-2-vladimir.oltean@nxp.com>
- <0faccdb7-0934-4543-9b7f-a655a632fa86@lunn.ch>
- <20251125214450.qeljlyt3d27zclfr@skbuf>
+	id 1vO1mj-0000000E1O4-0fqo
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 25 Nov 2025 22:45:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canb.auug.org.au;
+	s=202503; t=1764110715;
+	bh=eksKHdOuLUxEaSCZSa3Yy26LV0Sk/VcK0aODv8ehgYo=;
+	h=Date:From:To:Cc:Subject:From;
+	b=kIHrQiZanUsmzChCYawVsUgciFwE5e/p1WqtnwXukSWhS4w2zSZ+O9bPkZK8m57yA
+	 nuzu4dHKilgEhb/nKaJCekMjgaZigWa7zM7jgJvSdoaKlv+DnLj6y2ISJa0+/qzkJ5
+	 HIokRsaItbWjPtzFRqq6/Yx/3tF+3n4Z4kDJzZUQOZOYdja7NAQh95sUHZKTsSC/T7
+	 xVItKYouK3Fl3Fb6vRyPTHKPbfZY8AkIbXdkb48+iOvveHMtynxe44hf12BT+bbVqq
+	 vhBrXC/w8Y5A20L8Kax7RWcwQ7j3o76cgsxnByLHp6b3kAtLwuKZctMGSeAKxAODjh
+	 hlKdhHKgkz0xQ==
+Received: from authenticated.ozlabs.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(Client did not present a certificate)
+	by mail.ozlabs.org (Postfix) with ESMTPSA id 4dGHp11Z6qz4w1g;
+	Wed, 26 Nov 2025 09:45:13 +1100 (AEDT)
+Date: Wed, 26 Nov 2025 09:45:11 +1100
+From: Stephen Rothwell <sfr@canb.auug.org.au>
+To: Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul@pwsan.com>,
+ Arnd Bergmann <arnd@arndb.de>
+Cc: =?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>, Drew Fustini
+ <dfustini@oss.tenstorrent.com>, Himanshu Chauhan
+ <hchauhan@ventanamicro.com>, Lukas Bulwahn <lukas.bulwahn@redhat.com>, Paul
+ Walmsley <pjw@kernel.org>, ARM <linux-arm-kernel@lists.infradead.org>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, Linux Next
+ Mailing List <linux-next@vger.kernel.org>
+Subject: linux-next: manual merge of the risc-v tree with the arm-soc tree
+Message-ID: <20251126094511.07bdf834@canb.auug.org.au>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251125214450.qeljlyt3d27zclfr@skbuf>
+Content-Type: multipart/signed; boundary="Sig_/.XwE.T2DMYxV6T2GESnyxjg";
+ protocol="application/pgp-signature"; micalg=pgp-sha256
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251125_143318_024017_3D7F8802 
-X-CRM114-Status: GOOD (  20.47  )
+X-CRM114-CacheID: sfid-20251125_144521_610019_35F73156 
+X-CRM114-Status: GOOD (  16.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,34 +75,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> Yeah, although as things currently stand, I'd say that is the lesser of
-> problems. The only user (mv88e6xxx) does something strange: it says it
-> wants to configure the TX amplitude of SerDes ports, but instead follows
-> the phy-handle and applies the amplitude specified in that node.
-> 
-> I tried to mentally follow how things would work in 2 cases:
-> 1. PHY referenced by phy-handle is internal, then by definition it's not
->    a SerDes port.
-> 2. PHY referenced by phy-handle is external, then the mv88e6xxx driver
->    looks at what is essentially a device tree description of the PHY's
->    TX, and applies that as a mirror image to the local SerDes' TX.
-> 
-> I think the logic is used in mv88e6xxx through case #2, i.e. we
-> externalize the mv88e6xxx SerDes electrical properties to an unrelated
-> OF node, the connected Ethernet PHY.
+--Sig_/.XwE.T2DMYxV6T2GESnyxjg
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
 
-My understanding of the code is the same, #2. Although i would
-probably not say it is an unrelated node. I expect the PHY is on the
-other end of the SERDES link which is having the TX amplitudes
-set. This clearly will not work if there is an SFP cage on the other
-end, but it does for an SGMII PHY.
+Hi all,
 
-I guess this code is from before the time Russell converted the
-mv88e6xxx SERDES code into PCS drivers. The register being set is
-within the PCS register set.  The mv88e6xxx also does not make use of
-generic phys to represent the SERDES part of the PCS. So there is no
-phys phandle to follow since there is no phy.
+Today's linux-next merge of the risc-v tree got a conflict in:
 
-	Andrew
+  MAINTAINERS
 
+between commit:
+
+  4de28f1edcfb ("dt-bindings: riscv: Add Tenstorrent Blackhole compatible")
+
+from the arm-soc tree and commits:
+
+  e0ce62cfe3a9 ("drivers: firmware: add riscv SSE support")
+  832fd6c2e55c ("MAINTAINERS: refer to intended files in RISC-V SSE DRIVER")
+
+from the risc-v tree.
+
+I fixed it up (see below) and can carry the fix as necessary. This
+is now fixed as far as linux-next is concerned, but any non trivial
+conflicts should be mentioned to your upstream maintainer when your tree
+is submitted for merging.  You may also want to consider cooperating
+with the maintainer of the conflicting tree to minimise any particularly
+complex conflicts.
+
+--=20
+Cheers,
+Stephen Rothwell
+
+diff --cc MAINTAINERS
+index aacd4a754dab,6fa1048c248a..000000000000
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@@ -22247,15 -22195,14 +22254,23 @@@ F:	arch/riscv/boot/dts/spacemit
+  N:	spacemit
+  K:	spacemit
+ =20
++ RISC-V SSE DRIVER
++ M:	Cl=C3=A9ment L=C3=A9ger <cleger@rivosinc.com>
++ R:	Himanshu Chauhan <himanshu@thechauhan.dev>
++ L:	linux-riscv@lists.infradead.org
++ S:	Maintained
++ F:	drivers/firmware/riscv/riscv_sbi_sse.c
++ F:	include/linux/riscv_sbi_sse.h
++=20
+ +RISC-V TENSTORRENT SoC SUPPORT
+ +M:	Drew Fustini <dfustini@oss.tenstorrent.com>
+ +M:	Joel Stanley <jms@oss.tenstorrent.com>
+ +L:	linux-riscv@lists.infradead.org
+ +S:	Maintained
+ +T:	git https://github.com/tenstorrent/linux.git
+ +F:	Documentation/devicetree/bindings/riscv/tenstorrent.yaml
+ +F:	arch/riscv/boot/dts/tenstorrent/
+ +
+  RISC-V THEAD SoC SUPPORT
+  M:	Drew Fustini <fustini@kernel.org>
+  M:	Guo Ren <guoren@kernel.org>
+
+--Sig_/.XwE.T2DMYxV6T2GESnyxjg
+Content-Type: application/pgp-signature
+Content-Description: OpenPGP digital signature
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAEBCAAdFiEENIC96giZ81tWdLgKAVBC80lX0GwFAmkmMXcACgkQAVBC80lX
+0GzpGQgAhK/qILso2Esrem1e40pmdu5h8IUjXCSlwm9rK5r73iC7GVdk1g5LPZBR
+NBRKPeF/eLkMGEIP/mb2pqa0ibSs/ST+41cLJl5OA7FMgWkBPLBfq+lXRKrArsft
+t8QcF1zSQkhN0tRJ5IkWFpcac/i05mw33nQx8u60ee6gK6Wc2MyqxiG5icw47lfH
+DLy5kNfs28CcQDdtm1xTtvp3AZfXVHgYaESvA4T0bC7niKSiqKMaKrDO3PH3N/G1
+He6nu3KV63skp2uHbNnqmjhkMfOLKWEvNseCix9tZO90jjV2PLZFAsLVRDIQxrwa
+wdXTxX/IQ7hs0UUiqnUAJFDppfvSiA==
+=+TU5
+-----END PGP SIGNATURE-----
+
+--Sig_/.XwE.T2DMYxV6T2GESnyxjg--
 
