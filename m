@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D1E1D0E6F5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 16:17:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D1F8CFD37C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 16:17:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=2oixCPLWmXb4XmrJDjEvMCSDQw2K3rFeOyW5cd8mN7Y=; b=g2q32ztclZFz2O20TuFrQPMPie
-	DhpRrtAhOaCGRSExDY4DUxxzCxSVVQ4xbSSkYnWfr0kGLLzwCdMikz5iahI0BiHb4hcmOD4yNfuHc
-	f8DLXvXEAqY1icBfW494l6o+5LpClp1IT6SR299OD3VODSbgmcpkmVe8u5zzJdX8Shvt1sQwLYmjr
-	0dwSbPgmn8BYW1EpvLUL9j53zNi0okmy/b8wV8SCJDUlTXWjOB/MgFoWugKPFcy0LqXmsm+TVfCfz
-	vM+JOBH+WraTVuSKCz5u7u5EIoTZ+dxO2pxR4GdTStlMq9tdMBFWD+/oSfWzp/3G1op12Q4+eZB6Q
-	f8GXaWPw==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nwrZWFruCRFVeMkDxpfmhcer5ovY68cuDak2onLke2c=; b=RcZISUmCrKyuK1dNL3eMuK/7+7
+	+Wj0/6HH53svoV4xbwRJgh2aicbctG8g1zI1LZ/POZfJaX9OTZGQd9uV3dsANJz1zFmPydvDNqYpR
+	6m9tWIJVlPp1IV88RHUql1RwHJbSAgBzlU8R7mCtLmrzCdh2UzatJ7bXMKrCpnlJA4651niVnZNF0
+	lPSmP+stifyGYpXYkPdIOK5PPI1xJCKnFxlW26xk1RTzvI+OhaMz6hnE1c8AlVhg1660J8pKYhJW1
+	WFVBBOSFNgP3JXQhpv6v/FaecH0zPgJXws2lmN48Miw/hJvp7F2OoMCAUXwRau8QjPfysaQtpBNsF
+	bRQ3mVMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNvjb-0000000DZGA-0gNF;
-	Tue, 25 Nov 2025 16:17:43 +0000
+	id 1vNvjg-0000000DZJl-1833;
+	Tue, 25 Nov 2025 16:17:48 +0000
 Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNvjX-0000000DZFL-4B6r;
-	Tue, 25 Nov 2025 16:17:42 +0000
+	id 1vNvja-0000000DZFl-0fsu;
+	Tue, 25 Nov 2025 16:17:43 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1764087456;
-	bh=B2nk7PV+5zaefXrB72GFZ6SD1N4A8I+iUXxYutK2H0s=;
-	h=From:To:Cc:Subject:Date:From;
-	b=OD+EaOhpDL4UiZ+EO/YsVjRFyw0CoiJAO7B8aMXG2WtH6KLmuuKmvC0qzTW4ehYRD
-	 PxxVpFmUsZ8jqwO8DGZ6bm93MrMezla+J+X9eeO/qkY4h1Fpn95brJ2iBot4Lvm5W6
-	 sL1U0Lz4hFDfETbsP8Sv0vcuC97ySF59xXKaBWCtIRNwh3zx1rFU1QlkNCpPXy/kXo
-	 N5L/p0ayZmvKgYpZlDc56uEXFIqadO70elP/vRr4ZWzy0oc4R9u2AfkPNxN+8BxHdi
-	 lxSBfqzq3MPGX94PRegcdYriPtwxiGRJ2Y+Z+N+3u4QCavanSMDxbNlVvHf/RiuBrs
-	 LpHCB1waW+teQ==
+	s=mail; t=1764087458;
+	bh=wA3DIGO1oIoEB6lNDjSI7psqvT6nGHbhXESVUEEIA40=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=iNbRyOAMQh38tdj75MP0NNuwgPM8OdZVrXIskWaix9m9LTcbMoSKWus+lfLXECudS
+	 iKtiMhfbnWwOOXUrr8iKMX/g4X1O48GtPwGhDSC30hFinVJpEMBLkbjeV30l7/9bP5
+	 yK7uzzrh7jZ1WxndSqto7igFVH5oq/lBDDEmsAPGmPI/lliqSX2mH2uSKUSFPqjmZe
+	 gLNb7domjMX7y/4Qys0e4ShVAf+a8Zxvyda2RC9uW8ipBCTudGO0TIP/2gdMmcqJQ3
+	 qjWiHVouKt6t9mDJs/uGhgI1pWfKck+xA56Qi3jxV1w6liOSDMfNxgl5LWwbrzra5j
+	 ROD0U3DkwMLcA==
 Received: from laura.lan (unknown [IPv6:2001:b07:646b:e2:feae:4183:be92:e051])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: laura.nao)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 64BF717E04D6;
-	Tue, 25 Nov 2025 17:17:35 +0100 (CET)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 0159C17E10E7;
+	Tue, 25 Nov 2025 17:17:36 +0100 (CET)
 From: Laura Nao <laura.nao@collabora.com>
 To: srini@kernel.org,
 	robh@kernel.org,
@@ -70,18 +70,21 @@ Cc: nfraprado@collabora.com,
 	kernel@collabora.com,
 	wenst@chromium.org,
 	fshao@chromium.org,
-	Laura Nao <laura.nao@collabora.com>
-Subject: [PATCH v5 0/8] Add thermal sensor driver support for Mediatek MT8196
-Date: Tue, 25 Nov 2025 17:16:50 +0100
-Message-Id: <20251125-mt8196-lvts-v4-v5-0-6db7eb903fb7@collabora.com>
+	Laura Nao <laura.nao@collabora.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: [PATCH v5 1/8] dt-bindings: thermal: mediatek: Add LVTS thermal controller support for MT8196
+Date: Tue, 25 Nov 2025 17:16:51 +0100
+Message-Id: <20251125-mt8196-lvts-v4-v5-1-6db7eb903fb7@collabora.com>
 X-Mailer: git-send-email 2.39.5
+In-Reply-To: <20251125-mt8196-lvts-v4-v5-0-6db7eb903fb7@collabora.com>
+References: <20251125-mt8196-lvts-v4-v5-0-6db7eb903fb7@collabora.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-X-Change-ID: 20251121-mt8196-lvts-v4-a61fb5c27216
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251125_081740_212191_D0907C40 
-X-CRM114-Status: GOOD (  11.40  )
+X-CRM114-CacheID: sfid-20251125_081742_351596_A9238C00 
+X-CRM114-Status: UNSURE (   8.77  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,50 +99,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patch series extends the MediaTek LVTS thermal driver to support the
-MT8196 SoC.
+Add LVTS thermal controller binding for MediaTek MT8196.
 
-MT8196 requires a different implementation of the lvts_temp_to_raw()
-function.
-
-To support this, the series introduces:
-
-- A new struct lvts_platform_ops to allow platform-specific
-  conversion logic between raw sensor values and temperature
-- A variant of the lvts_temp_to_raw() implementation
-- Platform data and controller definitions for MT8196
-
-Link to v4: https://lore.kernel.org/r/20251121-mt8196-lvts-v4-v4-0-357f955a3176@collabora.com
-
-Changes in v5:
-- Dropped patch 3
-- Added LVTS_NUM_CAL_OFFSETS_MT7988/LVTS_NUM_CAL_OFFSETS_MT8196 defines
-- Moved code that assembles calibration bytes from the efuse data into 
-  a dedicated lvts_decode_sensor_calibration() helper
-- Fixed prefix in patch 4 commit message
-- Dropped R-b/T-b tags on patch 2
-
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Tested-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Tested-by: Frank Wunderlich <frank-w@public-files.de>
+Signed-off-by: Laura Nao <laura.nao@collabora.com>
 ---
-Laura Nao (8):
-      dt-bindings: thermal: mediatek: Add LVTS thermal controller support for MT8196
-      thermal/drivers/mediatek/lvts: Make number of calibration offsets configurable
-      thermal/drivers/mediatek/lvts: Add platform ops to support alternative conversion logic
-      thermal/drivers/mediatek/lvts: Add lvts_temp_to_raw variant
-      thermal/drivers/mediatek/lvts: Add support for ATP mode
-      thermal/drivers/mediatek/lvts: Support MSR offset for 16-bit calibration data
-      thermal/drivers/mediatek/lvts_thermal: Add MT8196 support
-      dt-bindings: nvmem: mediatek: efuse: Add support for MT8196
+ .../bindings/thermal/mediatek,lvts-thermal.yaml    |  2 ++
+ .../dt-bindings/thermal/mediatek,lvts-thermal.h    | 26 ++++++++++++++++++++++
+ 2 files changed, 28 insertions(+)
 
- .../devicetree/bindings/nvmem/mediatek,efuse.yaml  |   1 +
- .../bindings/thermal/mediatek,lvts-thermal.yaml    |   2 +
- drivers/thermal/mediatek/lvts_thermal.c            | 326 +++++++++++++++++++--
- .../dt-bindings/thermal/mediatek,lvts-thermal.h    |  26 ++
- 4 files changed, 333 insertions(+), 22 deletions(-)
----
-base-commit: abadc219d77ce0e61fcac0147cc6cc69164af43e
-change-id: 20251121-mt8196-lvts-v4-a61fb5c27216
+diff --git a/Documentation/devicetree/bindings/thermal/mediatek,lvts-thermal.yaml b/Documentation/devicetree/bindings/thermal/mediatek,lvts-thermal.yaml
+index 0259cd3ce9c5..beccdabe110b 100644
+--- a/Documentation/devicetree/bindings/thermal/mediatek,lvts-thermal.yaml
++++ b/Documentation/devicetree/bindings/thermal/mediatek,lvts-thermal.yaml
+@@ -26,6 +26,8 @@ properties:
+       - mediatek,mt8192-lvts-mcu
+       - mediatek,mt8195-lvts-ap
+       - mediatek,mt8195-lvts-mcu
++      - mediatek,mt8196-lvts-ap
++      - mediatek,mt8196-lvts-mcu
+ 
+   reg:
+     maxItems: 1
+diff --git a/include/dt-bindings/thermal/mediatek,lvts-thermal.h b/include/dt-bindings/thermal/mediatek,lvts-thermal.h
+index ddc7302a510a..0ec8ad184d47 100644
+--- a/include/dt-bindings/thermal/mediatek,lvts-thermal.h
++++ b/include/dt-bindings/thermal/mediatek,lvts-thermal.h
+@@ -80,4 +80,30 @@
+ #define MT8192_AP_MD1   15
+ #define MT8192_AP_MD2   16
+ 
++#define MT8196_MCU_MEDIUM_CPU6_0        0
++#define MT8196_MCU_MEDIUM_CPU6_1        1
++#define MT8196_MCU_DSU2                 2
++#define MT8196_MCU_DSU3                 3
++#define MT8196_MCU_LITTLE_CPU3          4
++#define MT8196_MCU_LITTLE_CPU0          5
++#define MT8196_MCU_LITTLE_CPU1          6
++#define MT8196_MCU_LITTLE_CPU2          7
++#define MT8196_MCU_MEDIUM_CPU4_0        8
++#define MT8196_MCU_MEDIUM_CPU4_1        9
++#define MT8196_MCU_MEDIUM_CPU5_0        10
++#define MT8196_MCU_MEDIUM_CPU5_1        11
++#define MT8196_MCU_DSU0                 12
++#define MT8196_MCU_DSU1                 13
++#define MT8196_MCU_BIG_CPU7_0           14
++#define MT8196_MCU_BIG_CPU7_1           15
++
++#define MT8196_AP_TOP0                  0
++#define MT8196_AP_TOP1                  1
++#define MT8196_AP_TOP2                  2
++#define MT8196_AP_TOP3                  3
++#define MT8196_AP_BOT0                  4
++#define MT8196_AP_BOT1                  5
++#define MT8196_AP_BOT2                  6
++#define MT8196_AP_BOT3                  7
++
+ #endif /* __MEDIATEK_LVTS_DT_H */
 
-Best regards,
 -- 
-Laura Nao <laura.nao@collabora.com>
+2.39.5
 
