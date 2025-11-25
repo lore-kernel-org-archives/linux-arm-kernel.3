@@ -4,80 +4,166 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A105CFD374
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 02:43:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61E7ACFD373
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 02:58:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8+eUWJFw0hDATzVyoymAn34cz1/y9o5OALJowK6mO3Y=; b=f9wiaRYaaHNkOQ/2ZUQwZaG2Gj
-	fTI+Rt9Uhx9/j6vRTX6Yy6Kz8FQqpVNnNdnZGZvihWafUisXPvmVnCYWJPAxSPl9awsWmIeGeeSy7
-	R5kOJUuCAOVXLh9pKqihxDC6Jb3XhtBu6rgqwYXJXlX2z9GW2Ze6rYFJgFMFq91G9joA/xEXQwleb
-	eR6pzKaOUflAdkE7KhUzvU00sR6mTq8aDpgOTA2VKcStyxvVV01GF+MGH/gqxx9t0Md7Rw50c16rM
-	k0bQzcDJKKEsLDRtSafp9DXk7bI/BvjX5cnadp9/Z5Z7trNRjeMW7oQcb9D381zwYsHFwcLN9Yv+B
-	jr1qPgEA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jXNRs/9XXgWtQxjvnue+81VvtB40Se3E6I+DAsP8UfU=; b=Di5xP0vgTHOFWnbuB0STYVMVxx
+	L2WKoygCHQ4uRoinowMhMjutV0pk6i20ni47lGcfsh1yngyd3xSthIYUkaFojWIDZBvJmr53HAzfe
+	9WPD/GVVbmlRh5NDhxbatJnCLjLdAL0QousoT08xKUqJL1KDDg5jCxWPSch7IBs+Ig+1a2cnHmj82
+	w1kKJVWb1Xtx+yGx46PV5DB7w9ABk+SmcXt7N1EWvbYlIWcHhlqIJ+Uaecx6M5IRWczjDL3MPN/Sq
+	vl4KNnu6xRMv4egM7PM+H2ltoFnasdIwcDWYgb+cKe2cD4Il8e+PxDWSeITwIZ1lZnw8Rd8oTseFA
+	9nv+cpTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNj1d-0000000Cdby-1p8m;
-	Tue, 25 Nov 2025 02:43:29 +0000
-Received: from canpmsgout10.his.huawei.com ([113.46.200.225])
+	id 1vNjGT-0000000CeHc-2ks4;
+	Tue, 25 Nov 2025 02:58:49 +0000
+Received: from mail-japanwestazon11022084.outbound.protection.outlook.com ([40.107.75.84] helo=OS8PR02CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNj1Z-0000000CdbV-2u15
+	id 1vNjGQ-0000000CeH7-1h7H
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Nov 2025 02:43:27 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=8+eUWJFw0hDATzVyoymAn34cz1/y9o5OALJowK6mO3Y=;
-	b=SqqrohGmLZV+sDK9qVmNpsLM+SPimd9bMrmLYYka9Q0Ig0cr7ipqTprCZljyNZd7+o05B1kca
-	OnIMa1WKdruPldnfNnEWscPoE1wjdbjyfIOV6LFA80v59CJxrfc751C7f5oQXK4f5mwWeKCqmIo
-	9yTZDGW5T3VILAvFgf2D3zE=
-Received: from mail.maildlp.com (unknown [172.19.163.17])
-	by canpmsgout10.his.huawei.com (SkyGuard) with ESMTPS id 4dFn5870Jsz1K96Y;
-	Tue, 25 Nov 2025 10:41:32 +0800 (CST)
-Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id 8720A1A0188;
-	Tue, 25 Nov 2025 10:43:18 +0800 (CST)
-Received: from [10.67.109.254] (10.67.109.254) by
- dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Tue, 25 Nov 2025 10:43:17 +0800
-Message-ID: <48b7443a-2dd9-9764-fbe5-12dc9eef1363@huawei.com>
-Date: Tue, 25 Nov 2025 10:43:16 +0800
+	Tue, 25 Nov 2025 02:58:48 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=cZDheLo2w74ul70hmqFzBPuoWGNSNy2Fg5TVuewbxPVmADLp2QNa9QVrIONaX0jKiCfPmWRRTAfUaHiVhRwo6lOmiwp630mCh+ycVIKWhyNAEFt6Om0+PNwOpjeVKMuyJNB32ZSDoEs55Td0UwX24ht7UGVldh9tx/xhJXOhL6EBzwr+Ax1U/bv9jJIEIVBVrwlEK6gK6iucL9WWHjIW/3VUS0zJx4Xu02l8AG2YOpaPW7Bs+TJZ7aaIUY0Z9L+MX8n100CNcjfPhEYltZJ5sbQApDVcullxCeCD+DYwakvCXePbb/nO0m5nfHAoans9X0K6392TqwXIMtbml7Bs3Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=jXNRs/9XXgWtQxjvnue+81VvtB40Se3E6I+DAsP8UfU=;
+ b=ZKFBJ8EveMgcPtJW8vvKy3ahLYv37/xCaeWTejB0w7RaNSD35k/GSxlRIl4wb9WVYnGLbynZABvTo2bEb4xyQ1AOmJkuA3FRmtwWGVK07DdqQ2ZYwpVKtl9Qytnkg7P6Cpu5qN4oMsK+w0j6c0qlsK//S4+EFBnovAXItb0M3ThnCA3+vZP1M2nKsWCh+w1VbpT55XaQktORwXylq6RZn5Vd2gD8cOW9ueqw1jESUgRrLxcZrtUsegkrZQ8PmVYjMEdpnxnpdJbiP78oQhrettqZDDGQHgN7ExRkpX4FSOB6PSm1Mbwh0W9cU7LxT632tfV1Wpd+NT3OFqc8JcH7BA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=aspeedtech.com; dmarc=pass action=none
+ header.from=aspeedtech.com; dkim=pass header.d=aspeedtech.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=aspeedtech.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=jXNRs/9XXgWtQxjvnue+81VvtB40Se3E6I+DAsP8UfU=;
+ b=E8Ls+LIDuA5EjSUwNwawvmmgWEbiqT7z3Gwj/d7VZe8Hdee1W907GiHKLqBp3l2J2QjofjGCLhH9VMw8GJ9cmdWKyCXbnM864JlGfDCX16m0jbAaZjgkR+pVLUddqOrOH/mtG/GdM+0Iw/doaEk8dW3OZxp5uaUNxRNvQRfWX3UNCIECladZ1bFonq8UxhOGottolOP7/F+56ybmEK8Lebi3WEUDndrMsEPBDp5wlyXTtuZ3di+Rb7oLnOI2AtB1S9ynlXENYc6F9wDTdgnoZUrymeE1VHVtmI2yf60MsdirRqpY5yuIlcw6Bkn6fj2iUzhaPURLPyjdpZcHTvmOkg==
+Received: from SEYPR06MB5134.apcprd06.prod.outlook.com (2603:1096:101:5a::12)
+ by SEYPR06MB5648.apcprd06.prod.outlook.com (2603:1096:101:c0::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9343.11; Tue, 25 Nov
+ 2025 02:58:34 +0000
+Received: from SEYPR06MB5134.apcprd06.prod.outlook.com
+ ([fe80::6b58:6014:be6e:2f28]) by SEYPR06MB5134.apcprd06.prod.outlook.com
+ ([fe80::6b58:6014:be6e:2f28%6]) with mapi id 15.20.9343.016; Tue, 25 Nov 2025
+ 02:58:34 +0000
+From: Jacky Chou <jacky_chou@aspeedtech.com>
+To: Andrew Lunn <andrew@lunn.ch>
+CC: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+	<davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
+	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring
+	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+	<conor+dt@kernel.org>, Po-Yu Chuang <ratbert@faraday-tech.com>, Joel Stanley
+	<joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>,
+	"netdev@vger.kernel.org" <netdev@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-aspeed@lists.ozlabs.org"
+	<linux-aspeed@lists.ozlabs.org>, "taoren@meta.com" <taoren@meta.com>
+Subject: [PATCH net-next v4 4/4] net: ftgmac100: Add RGMII delay support for
+ AST2600
+Thread-Topic: [PATCH net-next v4 4/4] net: ftgmac100: Add RGMII delay support
+ for AST2600
+Thread-Index: AQHcUjKRp/5wUPPeG0Wo2Pz9fS4A+7TsCtCAgAJeVpCAAKBqgIABWbLAgAPq3QCADnQYkA==
+Date: Tue, 25 Nov 2025 02:58:33 +0000
+Message-ID: <SEYPR06MB5134BC17E80DB66DD385024D9DD1A@SEYPR06MB5134.apcprd06.prod.outlook.com>
+References: <20251110-rgmii_delay_2600-v4-0-5cad32c766f7@aspeedtech.com>
+ <20251110-rgmii_delay_2600-v4-4-5cad32c766f7@aspeedtech.com>
+ <68f10ee1-d4c8-4498-88b0-90c26d606466@lunn.ch>
+ <SEYPR06MB5134EBA2235B3D4BE39B19359DCCA@SEYPR06MB5134.apcprd06.prod.outlook.com>
+ <3af52caa-88a7-4b88-bd92-fd47421cc81a@lunn.ch>
+ <SEYPR06MB51342977EC2246163D14BDC19DCDA@SEYPR06MB5134.apcprd06.prod.outlook.com>
+ <041e23a2-67e6-4ebb-aee5-14400491f99c@lunn.ch>
+In-Reply-To: <041e23a2-67e6-4ebb-aee5-14400491f99c@lunn.ch>
+Accept-Language: zh-TW, en-US
+Content-Language: zh-TW
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=aspeedtech.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: SEYPR06MB5134:EE_|SEYPR06MB5648:EE_
+x-ms-office365-filtering-correlation-id: cc29e808-26b8-4492-9b0e-08de2bce858b
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016|38070700021;
+x-microsoft-antispam-message-info: =?us-ascii?Q?7y1pgz3vSY8HSE7PKFuh+1w+8Tc6MBOaIhvAZoQv1AJVt7PuMk5se8XRSHKM?=
+ =?us-ascii?Q?e6VkiqUCKWtdfahteA755RyLOUD9fZO2FB8ouwBFQ8ypVIXuKikGUAMMDVdu?=
+ =?us-ascii?Q?087qG6+KjRpwrHJDG1CPX53rY+P9ELs9p73nSDaUQxyXqUcwLTCB7XMKyMhb?=
+ =?us-ascii?Q?vdYuXiqu95O41v1TIOqSsuRWcHy0cDMoncmEafUUw5RHibWEurTKZdqPkHEh?=
+ =?us-ascii?Q?UdFaEbaX0vnA/zyZ4MT3bogjiQvT7GSrJNDPxowF+KLxBszUBKZNerTm6vLD?=
+ =?us-ascii?Q?3RVS/nKWlob3EkVqZg1E3KlmkaPuIcNt7UKEP6VQeCr5Iu/C6LJlbeDYdyoG?=
+ =?us-ascii?Q?KvZAmMYZM5V+TFvSG+sJeL+Btsq3TroVHN3I5x0DciOR4vu862STTAusGSLS?=
+ =?us-ascii?Q?FK8WrylZL34gmev94h7QB7grXNnAzwHEEwq4xFX5ZHegoX24uRG9PWiUJrOX?=
+ =?us-ascii?Q?DOnBqMoXeimdVcqMa0RvoDRtSTirN6wsLlD9PLCsqhI4IqNQqvEUOe1vY2/3?=
+ =?us-ascii?Q?F6xnPXXAr1tWUOBkcmtyU3wSJe3ijwNOfuNMSzDgzmEIt7Qa5dPnIyAfK+Nb?=
+ =?us-ascii?Q?FdqAj4THhtxz26b0Ljk2uhyso2rt5htPBEN6oZENPYZYJNIqDNMPXgZLQcRY?=
+ =?us-ascii?Q?RAmOUoLsZQN1N8+IvJN73xtaIf5RwfdDjnZ+Nv92JgPYqW/zn7Khtizw6ziv?=
+ =?us-ascii?Q?DoqDPFVUVKjbHoSD8RYg5Uef16XCoum/9mYaWsFo7hZQ1oPn5eKLxxkS0L9e?=
+ =?us-ascii?Q?mM76NwOAKjqZw/KscEvVjs66HTv3WlST0DJ/+YVhLVRnPQGRih2gaRMcZMCD?=
+ =?us-ascii?Q?Y+4r51xA1oHt1R01aS/ENyvkv6IcoOt1oqWS5yqAYbKOqZ9zLhbjoXVjXn2E?=
+ =?us-ascii?Q?du78h4yX3MeozMfl+Bsh5vN+IxcIv4sc/4f9RyLBaOM9Q+AoGMQrA6dOgft8?=
+ =?us-ascii?Q?bwTCxoCODPGR1QvaZeVbdNyIS3Z4Q1Qi6S3gEdPG/AxOekEWV3foDBzwbhi0?=
+ =?us-ascii?Q?hn7A7nMBdMKj9h4Aejy4IjWeRfq7W5kDsY6VzZBKU3w0L8vjguasuoZIwMuQ?=
+ =?us-ascii?Q?tu+30xiTHmAAUm3GloadcTAaUBTGLVmrPK5ASoB1Fz+BZSem8TV64DzXjixN?=
+ =?us-ascii?Q?9zXIuYmth+MLG4CT0jwUeqsTDbXvp8lENNwRa643nxZgEENmrPKAFLxDJQ7J?=
+ =?us-ascii?Q?acNgl/1MAPOcG7z5/90iUdAwxRXdX1z1jm78Bd8J+UD0kCg4yXv6aY+V87qK?=
+ =?us-ascii?Q?s9zE1jvLwq6u+qkyjruNUq80Qx18V9KnKY27EWF+ztsiPUxNrRF/MPbBOSWB?=
+ =?us-ascii?Q?1h9nBLrDqfw513gR5JZ/Hh/xFOX3t48BkU1aDlrl9YKrlb9zWWrQujYLj/VG?=
+ =?us-ascii?Q?eV5tzK1w5qJzZtjrflTqYhtSrvAtu32x0/1O9ePX2ga0WIPHsZvPOLj46rzF?=
+ =?us-ascii?Q?Os2CyyeMWd/Hvfh9B5oAqVxqAMng9p8Ew/kDzQm32rSYvMgOqX4ceNAFzVJT?=
+ =?us-ascii?Q?Pm3ZH0lvivGRhGrQQcm+B1rWea2B/b5EhNs1?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SEYPR06MB5134.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016)(38070700021);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?OYihrf9LpzDsrLDxThUMoTOtke8C6tkpphb6ZybOuXpaSg5+fL4zye7onSse?=
+ =?us-ascii?Q?aafnKRS11kbyyFimoypXo6PL6/jM9NiqbnHEkjTmRvtQmR6xLZSUfLCZa4H5?=
+ =?us-ascii?Q?0qAw2HN0WRiuokFerrAba8DS0R2RXs/31N6r+E0J/K3J8wWtJh3ApX9pphJq?=
+ =?us-ascii?Q?Rak2AD3MPco/co/na8meFgS0nLlna36wXbxZpRpnptYCP1foDmB3XOJzKOp/?=
+ =?us-ascii?Q?pYKr+pehej9AyGDw9NTpWVl4NuGqSGW0XEoY/YKQp4e482FUU50Lv50IHp7+?=
+ =?us-ascii?Q?lcdGJ0F51QkCFu7+lA8PeLBR0V2orE4u0W32Ku1GSqOWIfnuocBvYvuqfczd?=
+ =?us-ascii?Q?FxSHu/D/Sd0tWJHo/7iGHzIkA+QcPHL+3YxyvB7PmJ3si/bkOVoaqxFXMWzp?=
+ =?us-ascii?Q?HWG6g070Cpr8/xz3kyIbdV3z04flS+v3kwAtYTua3k15mojbUULwC1eWOa0f?=
+ =?us-ascii?Q?Q9TCwDA+SSwldlzT3NC2wkmScIYS42y9BYdPtF9WUzB5zfBTVETD1qEpT6sA?=
+ =?us-ascii?Q?f/mb6/UF7U8L9Roz9gJ5ZV5qiPTcFLDb2srADCul1LBRGqSGjuwSYbC3V0co?=
+ =?us-ascii?Q?JGg2VxGrxISaV9Rf34MHMQmAKnLPXdhpf6D3aA9ngYR//CfzcFyBVS0asrxM?=
+ =?us-ascii?Q?zvOdHKwGVrLpr08akHBKeVpYClIB1I9e0VvKOJ+6wfgJ77k8QGC8oF23HxNb?=
+ =?us-ascii?Q?OXFc58yVqhoKGnby+Sxm1QMWI3aMCKwJ1QB9IIYVxipgBwW5+AePF7VJAGM5?=
+ =?us-ascii?Q?SELtv/mYy4ogtSU2jJKfJezbTbBBj0YKy8zm7ok0T9CGRh0gIlJYwVEYXJTU?=
+ =?us-ascii?Q?BEihzdlWwRsShMesz1uKD5Qgin3af4q3Ap+tpqQJK1mW3+f8d9rXo85CiBbP?=
+ =?us-ascii?Q?km+lnucJNWLLIwqh1T8s2V8UqmPE7y0tBNFAFx5CMzbjo/+AWtHPdQoaKKmE?=
+ =?us-ascii?Q?S+kTc12QotjhXtLXSHXHuSC7QSL8yZWlxoEvzb9Egs8uVx57UnFHMZI33qhA?=
+ =?us-ascii?Q?G/X/ZuydxnqEh8TNzgJRMl9f5qaouq42T6n5pXP17UDJJnDEL/f8P32FmYZ/?=
+ =?us-ascii?Q?mXvfpZ91zubl4GnTI1Su+spAhqpbznIOrwfeQJ8AH2vtRmGlHweF/ZruELgl?=
+ =?us-ascii?Q?/Cfi04+SNEXdN6KC4sw5tz0WBKCACQN0D8wSaN23ziY8mJr1yZndnnJCVjmN?=
+ =?us-ascii?Q?1MvifmeiO4yrf1wF/2aPaqrtF8vcIegkOgUXKFZ0X4svBzC46/eJR+T+mXPG?=
+ =?us-ascii?Q?yJto1y1/0Hkq2g3RkLUjGbGUcyZEXZN9zk2Cfqa+D3mtYwU903n9gtg7eN5c?=
+ =?us-ascii?Q?CX9j+fCpiw9UcHnJvIY7GZ010jnUXdn+UAdPB6AJ1VuJmMZsABmXC3fsyZkp?=
+ =?us-ascii?Q?7zL0yqZfCsY78ej6RGnaIgcF8t1r3pibqJ7/PF8OhjQGKltdYGhYZpCTroyf?=
+ =?us-ascii?Q?weMaiqOV9M9RxEYd6CzzRFsSmLvL8a/2g6kJ6JmLK97n0heHcwr58IWwyaQP?=
+ =?us-ascii?Q?x+sSWsWK07qHQcK6zafjFcJ+MIyxAAfLQl7Dahpe8aJWmHz7M+c14gK48/l4?=
+ =?us-ascii?Q?68MyOOIbJmpPeSdqrqX2tq9ELfEPgh+Sr0ibEp5e?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.2.0
-Subject: Re: [PATCH v7 08/11] entry: Add
- arch_ptrace_report_syscall_entry/exit()
-To: Kevin Brodsky <kevin.brodsky@arm.com>, <catalin.marinas@arm.com>,
-	<will@kernel.org>, <oleg@redhat.com>, <tglx@linutronix.de>,
-	<peterz@infradead.org>, <luto@kernel.org>, <shuah@kernel.org>,
-	<kees@kernel.org>, <wad@chromium.org>, <akpm@linux-foundation.org>,
-	<ldv@strace.io>, <macro@orcam.me.uk>, <deller@gmx.de>,
-	<mark.rutland@arm.com>, <song@kernel.org>, <mbenes@suse.cz>,
-	<ryan.roberts@arm.com>, <ada.coupriediaz@arm.com>,
-	<anshuman.khandual@arm.com>, <broonie@kernel.org>, <pengcan@kylinos.cn>,
-	<dvyukov@google.com>, <kmal@cock.li>, <lihongbo22@huawei.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<linux-kselftest@vger.kernel.org>
-References: <20251117133048.53182-1-ruanjinjie@huawei.com>
- <20251117133048.53182-9-ruanjinjie@huawei.com>
- <55e1345f-94d7-41a9-8f0a-694fd56f63ed@arm.com>
- <8489ee0d-8b9c-080a-04a0-b299549e86cf@huawei.com>
- <247aa84f-0550-42d9-8d65-615297e78a74@arm.com>
-Content-Language: en-US
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <247aa84f-0550-42d9-8d65-615297e78a74@arm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.109.254]
-X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
- dggpemf500011.china.huawei.com (7.185.36.131)
+X-OriginatorOrg: aspeedtech.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: SEYPR06MB5134.apcprd06.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: cc29e808-26b8-4492-9b0e-08de2bce858b
+X-MS-Exchange-CrossTenant-originalarrivaltime: 25 Nov 2025 02:58:33.6674
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 43d4aa98-e35b-4575-8939-080e90d5a249
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: Ed5p0tYtBDDmEpU5H6ksHIY0PH/FS1Hg2B7eRWviTMLPDvoNvtDYYbUlAb4/szxxoHZPi/k6CODsMNISdTsRUNWp4Gzjl2jeO2onkrxQOS8=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEYPR06MB5648
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251124_184326_386186_5F716AE3 
-X-CRM114-Status: GOOD (  15.89  )
+X-CRM114-CacheID: sfid-20251124_185846_899448_5F194606 
+X-CRM114-Status: GOOD (  29.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,81 +178,152 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+> > Based on the above information, I have attempted to outline my
+> understanding.
+> > 1. 'rgmii' + MAC delay:
+> > Add warming, keep MAC delay and pass "rgmii-id" to PHY driver.
+>=20
+> Think about that. What delays do you get as a result?
+>=20
+> > 2. 'rgmii-id' + MAC delay:
+> > disable MAC delay and pass "rgmii-id" to PHY driver
+> >
+> > 3. 'rgmii-id' + no MAC delay:
+> > Keep disabling MAC delay and pass "rgmii-id" to PHY driver
+> >
+> > 4. 'rgmii-txid' or 'rgmii-rxid':
+> > Keep original setting
+>=20
+> > I have some idea to discuss with you.
+> > 1. On 'rgmii', I want to add warming and directly disable MAC delay and=
+ pass
+> 'rgmii-id'
+> > to PHY driver.
+>=20
+> Yep.
+>=20
+> >
+> > 2. On 'rgmii-id', ignore if enabling MAC delay, all disable MAC delay a=
+nd pass
+> ' rgmii-id'
+> > to PHY driver.
+> >
+> > 3. On 'rgmii-txid' or 'rgmii-rxid', keep the above item 4.
+> >
+> > Actually, it's difficult for the driver to determine whether the MAC de=
+lay is
+> enabled or not.
+> > Our design doesn't use a single bit to indicate the delay state.
+> > Instead, the delay setting is derived from the user's configured delay =
+value.
+>=20
+> But you can turn it back to ps. I would say, if it is > 1000, the intenti=
+on is it
+> provides the 2ns delay. If it is < 1000 it is just a minor tuning value b=
+ecause of
+> bad board design.
+>=20
+> Do you have experience from the field, what do real boards use? Are they =
+all
+> inserting the same 2ns? Or is each customer tuning their bootloader to
+> configure the hardware differently per board design?
+>=20
+> You might even need a more complex solution. If the bootloader is adding =
+a
+> delay between say 200ps and 1600ps, it suggests a poorly designed board, =
+and
+> the PHY adding 2ns is not going to work. There is a need for
+> rx-internal-delay-ps or tx-internal-delay-ps in DT. You can give a warnin=
+g, and
+> indicate what values are needed, but leave the hardware alone. If the
+> bootloader is setting the delay > 1600, passing _RGMII_ID to the PHY, and
+> disabling MAC delays is likely to work, so you just need to warn about
+> phy-mode being wrong. If the bootloader is inserting < 200ps, and phy-mod=
+e is
+> rgmii-id, that is just fine tuning. Maybe suggest rx-internal-delay-ps or
+> tx-internal-delay-ps be added in DT, but leave it alone.
+>=20
+> Whatever you do, you need a lot of comments in the code and the commit
+> message to help developers understand why they are seeing warnings and
+> what they need to do.
+>=20
+
+I try to summary in the following informations that I understand.
+
+1. with rx-internal-delay-ps OR tx-internal-delay-ps OR both
+
+  Use "rx/tx-internal-delay-ps" property to configure RGMII delay at MAC si=
+de
+  Pass "phy-mode" to PHY driver by calling of_phy_get_and_connect()
+
+2. withour rx-internal-delay-ps AND tx-internal-delay-ps
+
+  If "phy-mode" is 'rgmii-rxid' or 'rgmii-txid':
+	Keep original delay
+	Print Warning message
+	  "Update 'phy-mode' to rgmii-id and add 'rx/tx-internal-delay-ps'"
+
+There are FOUR conditions in delay configuration:
+'X' means RGMII delay setting from bootloader
+A: 7500 <=3D X <=3D 8000, 0 <=3D X <=3D 500
+	Mean "Disable RGMII delay" at MAC side
+B: 500 < X < 1500
+C: 1500 <=3D X <=3D 2500
+	Mean "Enable RGMII delay" at MAC side
+D: 2500 < X < 7500
+
+  If "phy-mode" is 'rgmii':
+	Condition A:
+		Keep original delay
+		Update "phy-mode" to 'rgmii-id'
+		Print Information message
+			"Forced 'phy-mode' to rgmii-id"
+	Condition B and D
+		Keep original delay
+		Print Warning message
+	  		"Update 'phy-mode' to rgmii-id and add 'rx/tx-internal-delay-ps'"
+	Condition C:
+		Disable RGMII delay at MAC side
+		Update "phy-mode" to 'rgmii-id'
+		Print Warning message
+	  		"Update 'phy-mode' to rgmii-id and add 'rx/tx-internal-delay-ps'"
+
+  If "phy-mode" is 'rgmii-id':
+	Condition A:
+		Keep original delay
+		Keep "phy-mode" to 'rgmii-id'
+	Condition B and D
+		Keep original delay
+		Print Warning message
+	  		"Update 'phy-mode' to rgmii-id and add 'rx/tx-internal-delay-ps'"
+	Condition C:
+		Disable RGMII delay at MAC side
+		Update "phy-mode" to 'rgmii-id'
+		Print Warning message
+	  		"Update 'phy-mode' to rgmii-id and add 'rx/tx-internal-delay-ps'"
+
+On 'rgmii' and 'rgmii-id', just condition A is different.
 
 
-On 2025/11/24 23:23, Kevin Brodsky wrote:
-> On 24/11/2025 10:34, Jinjie Ruan wrote:
->>
->> On 2025/11/19 1:13, Kevin Brodsky wrote:
->>> On 17/11/2025 14:30, Jinjie Ruan wrote:
->>>> [...]
->>>>
->>>> diff --git a/kernel/entry/syscall-common.c b/kernel/entry/syscall-common.c
->>>> index 66e6ba7fa80c..27310e611567 100644
->>>> --- a/kernel/entry/syscall-common.c
->>>> +++ b/kernel/entry/syscall-common.c
->>>> @@ -17,6 +17,25 @@ static inline void syscall_enter_audit(struct pt_regs *regs, long syscall)
->>>>  	}
->>>>  }
->>>>  
->>>> +/**
->>>> + * arch_ptrace_report_syscall_entry - Architecture specific
->>>> + *				      ptrace_report_syscall_entry().
->>>> + *
->>>> + * Invoked from syscall_trace_enter() to wrap ptrace_report_syscall_entry().
->>>> + * Defaults to ptrace_report_syscall_entry.
->>>> + *
->>>> + * The main purpose is to support arch-specific ptrace_report_syscall_entry()
->>>> + * implementation.
->>>> + */
->>>> +static __always_inline int arch_ptrace_report_syscall_entry(struct pt_regs *regs);
->>>> +
->>>> +#ifndef arch_ptrace_report_syscall_entry
->>>> +static __always_inline int arch_ptrace_report_syscall_entry(struct pt_regs *regs)
->>>> +{
->>>> +	return ptrace_report_syscall_entry(regs);
->>> I saw that Thomas suggested this approach on v4, and it makes sense to
->>> me, but I find the naming surprising. If an architecture does need extra
->>> handling, then the generic function should never be called from generic
->>> code. So it seems to me that the more logical change would be:
->>>
->>> * Rename: ptrace_report_syscall_entry -> __ptrace_report_syscall_entry
->>> * Introduce ptrace_report_syscall_entry(), defaults to
->>> __ptrace_report_syscall_entry()
->> If ptrace_report_syscall_entry() is defined in linux/ptrace.h, and an
->> architecture also needs to redefine this function, but the
->> architecture's own <asm/entry-common.h> must include <linux/ptrace.h>,
->> the function will end up being defined twice and cause a "duplicate
->> definition" compile error.
-> 
-> There's plenty of arch-defined functions in <linux/ptrace.h> already.
-> __ptrace_report_syscall_entry() should be defined inside an #ifndef and
-> architectures can define their own implementation in <asm/ptrace.h>,
-> like force_successful_syscall_return() for instance.
 
-Shared functions like ptrace_report_syscall() are all defined in
-<linux/ptrace.h>.
-When we want to override __ptrace_report_syscall_entry() in
-<asm/ptrace.h> we still have to include <linux/ptrace.h> again,then the
-redefine problem occurs again.
+Because the driver may need to update the "phy-mode" of dts, it need to add
+CONFIG_OF_DYNAMIC in ftgma100 of Kconfig.
 
-What we actually need to reuse is ptrace_report_syscall_entry() (or
-__ptrace_report_syscall_entry()).
+I list the flow in probe() in ftgmac100 driver.
+-> probe()
+  -> Check and configure the RGMII delay of AST2600
+    -> Call of_phy_get_and_connect()
 
-The arch version need to reuse and wrap ptrace_report_syscall_entry(),
-because for instance arm64 needs to perform additional operations before
-and after this step. Therefore, I believe the current implementation is
-appropriate.
+Because of_phy_get_and_connect() will get the "phy-mode" from dts,
+The driver needs to update the "phy-mode" before calling this API to
+Connect PHY driver.
 
-> 
-> - Kevin
-> 
->>> All this would be done in <linux/ptrace.h>, where it clearly belongs.
->>> The __ prefix makes it clear that the generic function is not the main
->>> interface. Even better, no need to change any caller with that approach.
->>>
->>> - Kevin
->>>
->>>> [...]
-> 
+I consider these adjustments can cover older board designs and remind user =
+to update
+their DTS and can also introduce new board designs with 'rx/tx-internal-del=
+ay-ps'.
+
+Thanks,
+Jacky
+
 
