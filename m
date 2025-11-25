@@ -4,94 +4,135 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF6E0D0E6EC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 13:59:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 905E9D0E6E5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 14:11:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
-	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8Wq6qWRdMJT8JkFWrdlIBvOjsRwtEbw2p0Rqikaex0U=; b=bu+ucQHwOQMctuM2ibkt+CEPw4
-	KQ1Bpqc0XuQEGmQAt1VfCc7AkgPG/TNniGQemvq6QB6D+Ayoyken+7rPOLEyF4UVYMJQjOxFSKX09
-	oYGnAVZjYoSQKS9MuuBIRoydM9jb9RKHwf/8NZAS3bGssyA4AlIk5BhPgpXFPqaPw/qy6lSOxkEK7
-	dodFf6a/5gl5aqJD3v89eZdR9J9uEYWOBOngNWvZ1mUPmmqIOyD3WFJaPL9/F8kppdIL3/oNVMmnC
-	W1QCiCq9gpU/mcUkr2466NhaO8zclOiUJ/bEUY1Hq1dKDi7+jo5g5JTRMEhwno6A+6OclI9YiziiR
-	M+eObmLQ==;
+	bh=KdtGzIoGcsgehrQYj1xofUWFHq7b2VQbVK64G5NpfMg=; b=Hi2W+joz/IJrEdXZZVLJIR5GUR
+	5LFNv2Ey7eNu7rauj4h6Jhtjjn1Jyrn0BQOCMSH09E3UaFDa0bVdzxDyRk6Wt+D8/3kLN/2lozkLo
+	vKuljvXn0AnLX4W6NZeL9TevTNqa+kAzjJRoTytxAH8HmVBZz4NH4ibYvfDxojuFbLllPYGXX8NzV
+	ehDt/H7T/AFVKrza7GPCWXi+Jmj6GCoElZcsylTVe8xe2RgQaemWYp8HEDIOiInYQQ1Qyo2FGfoWj
+	y5uGVu++nHKBDRmbJ8tCa+xFsf0FHu2wdHR39fNiDEV6TbV2U53+3wnFcO+7S3WseSRP2EGMViEgr
+	M//NSX4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNtaB-0000000DOO5-47vP;
-	Tue, 25 Nov 2025 13:59:51 +0000
-Received: from mail-pf1-x42b.google.com ([2607:f8b0:4864:20::42b])
+	id 1vNtlW-0000000DPD0-0JjU;
+	Tue, 25 Nov 2025 14:11:34 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNta4-0000000DOL1-4C4L
+	id 1vNtlT-0000000DPCd-347j
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Nov 2025 13:59:46 +0000
-Received: by mail-pf1-x42b.google.com with SMTP id d2e1a72fcca58-7aa9be9f03aso4838368b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Nov 2025 05:59:44 -0800 (PST)
+	Tue, 25 Nov 2025 14:11:33 +0000
+Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5APBKlkR1672147
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Nov 2025 14:11:31 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	KdtGzIoGcsgehrQYj1xofUWFHq7b2VQbVK64G5NpfMg=; b=iiqUOT3OsAvsfMiI
+	eLJntZ1MaBHzYT2msDVKHkBzZoJ/mCg2JwUIWKvOIAud8MV6bp9WGgUfHR0/aBG6
+	95dwn3eaC8j/m3w5oPgdHEUT01dgNKxcLUYqC8x1d+LGoY/ck/GUhW6lrJFv/oFa
+	jrNZezlxcSGqeUT+FvwIXJHvnebxrpJkcK3WEfrxKJ9EgWgrub6qJ/yeUgi9sqdy
+	AAMncwwzwJAI63e78Dho3IMMFEf3C5+4mhL+o/Rtiagi+zOcVB1lC0RQLvp9FEJr
+	UAG8dEaV8XakIVPJ5QfaU/a/BLlQ0et4OF5xNGySj7DYii4LKlFt4LnfA+6gnAnn
+	HuVlPg==
+Received: from mail-pl1-f197.google.com (mail-pl1-f197.google.com [209.85.214.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4an5w81mvx-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Nov 2025 14:11:30 +0000 (GMT)
+Received: by mail-pl1-f197.google.com with SMTP id d9443c01a7336-297e1cf9aedso135577245ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Nov 2025 06:11:30 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1764079184; x=1764683984; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=8Wq6qWRdMJT8JkFWrdlIBvOjsRwtEbw2p0Rqikaex0U=;
-        b=Mvm0VRinI6MP1RugNt/Qg7s47IAXj1QMeCu43B0NNzJ3e++fJ5JTXiNR5BG8iNsX7+
-         KfTkeXk1xtLgyUd2XdjNPadfOXFbi7oGqGGf+68LEdIAEPy3TDob9+ta4Tx997HH+ewp
-         2uLgcxt4jMAG4iEA5EDatfKksqIm5rZAH19lNsbulUKRIv9T9eDkzGy1hXek0pnh695G
-         BH8KISrVNtDt6n8nvwoMAlblT33pcYjOZ4M+OzCzLKYKK3hCzDroFWcAzwylD5DBfaHM
-         vAeKDUL68BSoHp20gb7aHad80iY7YOHQW1dqiXnIChVvIGWASh8YupTghlpSdznMOXTX
-         zhfw==
+        d=oss.qualcomm.com; s=google; t=1764079890; x=1764684690; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:date:message-id:subject
+         :references:in-reply-to:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=KdtGzIoGcsgehrQYj1xofUWFHq7b2VQbVK64G5NpfMg=;
+        b=VcYJu6mYErQ7TIFAae43UMmucg9L+oNGFAK611QQ4APtF6GuXWtObWqVh5aOZvc1Mr
+         /EFd17830WZwk+Iv2DM4w+r2MwMGBAtn/HTk30Ko+rNS6Ok5AxDfqYlJgDuhE0jctQQp
+         J88AcO0aLg2X2H/MLzt0HhyqjfD5DpPsuSbiLBZZ+aJWgh1BHn11vkCk4oOl6h4BcOzo
+         kVD6px1dBc8GG6lC4WcHkcvD0x13ZeGoi6iWGMwT6Cp4WDs0wGHXxy+EtL+1FfPvG+9W
+         555YzmyGEKZJxHPtlgHCt46bDbBRIB6Ql5vlkYtzgVssp2T/O+6mPjRDLToNEX6Hb+GP
+         oM6A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764079184; x=1764683984;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=8Wq6qWRdMJT8JkFWrdlIBvOjsRwtEbw2p0Rqikaex0U=;
-        b=iORY6bcznzhPVuChbH+nS8/tCxc1CdHoCSL7/tiCeMizCzIKdnCxVgIHOQAj8npnhb
-         ELgTgOPLBtGepNyuMXGJyy0WJX5f7dyJNlClktWsX6XoFjFa+/3j48cI7b2rIGo9cD1S
-         FSVXdi4hFKN4VcT7oXul6ezrE3mUsmuz8gBtiD7O3ATz4bzv70zUua8XYOREbpfJbOow
-         BteayocIX5F9z2+wht89t17nSBTyBixSxVgz61m0/590Cs0zVcS6u32mGS1Vbj0vftk3
-         szJOtV3BAoiGKTrC2iLMHZIRCWjv+iKHgdFvSQbKSA9b28mBQL1NfZXJssjWRF+51+RK
-         h/oA==
-X-Forwarded-Encrypted: i=1; AJvYcCVYLiDDSDWRJV618kRb7PJ1jAUqzB7YJBTkkr2iDyyiY+WT4j+cpLLh2FTKu/DxsoOY0q6s1zW3PcOI4vFKTafV@lists.infradead.org
-X-Gm-Message-State: AOJu0YwO5uw05u5rMFUk1PaSm4UoeoYZIe3aaeKLkeZI7T18DOW9ddif
-	qJx5SCYmfBuq1gtYo+ME246totDJSKKbbmxA7xaB0woljPhAx6XgjGRV
-X-Gm-Gg: ASbGnctk36XPwSo5h+9/Wm2kZW6yeUnn2Ux0jSJr1pr7ZCF49K/bs46/PmAd2J/nEPc
-	x27xDKLiSebIHyBi3PZTvs7OWKKZzqszmfWNIto6NsoG8mZJFG1ofbkFsem4yE6S6BxKR/i6MNY
-	Nycsa+yIRlItWm8byb+aHcMTGyCVRyTcUBU8mMZYM+I7Zr+6HMlBpeuaVt9CO+2Q4yOL3/hHh4T
-	bQeP5YL4le66EYGI22mrsMozh78n6XS4n/rt6J/tb+L+BuwBk/2z8W7DTlK8et2k7PoHlN2xJJD
-	SHAQb773Z98oPjF4Qp+KppCZM34QqR5CxPQIPq6FUQlgUyq81Er0ok08NjjOig3x5URwQYoEACB
-	GfXSBG0/9ywLOW1DuDoOuBWRTv9X58pE1aae3jKmg89+o2Knq+/trA0kGBNSuKJe4VByL14dTBU
-	XXtvYZZ36l3GDJycs+dFSrxMweluvjwiKMcouaSjdJMjC+C9nC/RNkBz6k2ojxRxVVnDV9vTWeB
-	0o=
-X-Google-Smtp-Source: AGHT+IGLG5ulH7QtmwgR215gpFL6u62RMBu83STuoUngtVM+z2Xb/xW3EJ/jrvfLs+uU70SnKpeLsQ==
-X-Received: by 2002:a05:6a00:3d12:b0:7b9:df65:93a9 with SMTP id d2e1a72fcca58-7c58eaf27a7mr17838247b3a.32.1764079184121;
-        Tue, 25 Nov 2025 05:59:44 -0800 (PST)
-Received: from fred-System-Product-Name.. (61-220-246-151.hinet-ip.hinet.net. [61.220.246.151])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7c3f0b63dbcsm18216028b3a.50.2025.11.25.05.59.42
+        d=1e100.net; s=20230601; t=1764079890; x=1764684690;
+        h=content-transfer-encoding:mime-version:date:message-id:subject
+         :references:in-reply-to:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=KdtGzIoGcsgehrQYj1xofUWFHq7b2VQbVK64G5NpfMg=;
+        b=sdLpap+wYDmjzFycCEWVixEvgxEfTCrgZRdEUTPxbKTvmGc4TK4E1mQOhT5c3CEZ8W
+         vLDSBUeTOs4eQZmbBmRn/+4i6Q70SMMShZuscVkJc6XOrm0ec24UEfecVM/HPBsryRpD
+         skDllOc5KRY5uFvx4xFYOAaBZmykCL2PXmro1Te+r1CU1Rfc8rVGkI/e/FOMKPu55x2S
+         VefFyKIJRLFeMWipUdSJYk8rP1DnkLaiTPbweBikUVmicsdN6mhN77s8NTw1ueDAbrvJ
+         Jc9cQwzkL9qw+M3e7qwIvdYYZo6f8pOaRwd+dIqDXhEyscNu77H3WPk9X5BNhAES9dZu
+         sPRg==
+X-Forwarded-Encrypted: i=1; AJvYcCU5zLmVsEZj7ADzuRRmPSh0ok/4hQzFcbTKyBrEE+eouc2kFUiu7D7m8fcNiDAkHG71RCnkJwliiuiEGvrKDlgt@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz0hVhjaGiC3D3kDhL/TY+7kkG+Rix9NGAMMAvRRI/UV/cQbsu0
+	nCjRSjWVrauGQXtzempIF4mtKJb2F5MHH67iELumtuN9gU48wl2gtYetL+gSXO6/Gu4Ztdd5Kqq
+	xCWaNjg8e56z2UrR/lK/pngEymtbgmEq4fWEzIgPtsN7jBHV2KoMmwcMAtrgVCIAOxSiuUqiLo7
+	uprQ==
+X-Gm-Gg: ASbGnctha9j3PAAfPuK5jJ61wu6kEu0Km/cxvvhsoxJQyQzRxjQ7NY+eBStDCAZJTZw
+	bR3yDEl37HvGGp+/xqRVWQZD8LVhxFAlmAC6I9B8dFnbWnzdw9KxPfzw6kVz1koova5ri1kSfpZ
+	qeKYIVvb/FBqZOcHxQX/kCYsc48JGsHXgMHmsdOWGAoAjAtkJyd7C0Gh4WRTyNG7x5GQAXzbyst
+	Jkn2i4+oj1efsEvQlgEBCbxiVzjyLE5NNrszNEA8lNFU9rvzzdhkOOIeQm90wgEZZFyKg6Xz6cA
+	TuEkO7noAR8aFvDUOQEfy4CAvnDIHqo3a5sLCyiIBIW5AKIZXytj4eXjGAr0prwrbVkWTKgqOSy
+	DPewKOgre
+X-Received: by 2002:a17:903:986:b0:295:1e92:6b6d with SMTP id d9443c01a7336-29b6bf762e2mr179884435ad.46.1764079890258;
+        Tue, 25 Nov 2025 06:11:30 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IGDdJzjmEfULVH4U40vj7hFWYZbDC9ldO4MPl4fLHvCDnTdfxPW+aFnKkbKvy6S17W0LV0gBg==
+X-Received: by 2002:a17:903:986:b0:295:1e92:6b6d with SMTP id d9443c01a7336-29b6bf762e2mr179884025ad.46.1764079889763;
+        Tue, 25 Nov 2025 06:11:29 -0800 (PST)
+Received: from [192.168.1.2] ([2401:4900:88e8:55c:689:49de:1265:4666])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-29b5b25e558sm171977765ad.55.2025.11.25.06.11.25
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 25 Nov 2025 05:59:43 -0800 (PST)
-From: Fred Chen <fredchen.openbmc@gmail.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Joel Stanley <joel@jms.id.au>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-aspeed@lists.ozlabs.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v1 2/2] ARM: dts: aspeed: santabarbara: Enable ipmb device for OCP debug card
-Date: Tue, 25 Nov 2025 21:59:31 +0800
-Message-ID: <20251125135934.3138781-3-fredchen.openbmc@gmail.com>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20251125135934.3138781-1-fredchen.openbmc@gmail.com>
-References: <20251125135934.3138781-1-fredchen.openbmc@gmail.com>
+        Tue, 25 Nov 2025 06:11:29 -0800 (PST)
+From: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
+X-Google-Original-From: Manivannan Sadhasivam <mani@kernel.org>
+To: linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-kernel@vger.kernel.org, Marc Zyngier <maz@kernel.org>
+Cc: Radu Rendec <rrendec@redhat.com>, Bjorn Helgaas <bhelgaas@google.com>,
+        Rob Herring <robh@kernel.org>,
+        =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+        Lorenzo Pieralisi <lpieralisi@kernel.org>
+In-Reply-To: <20251125102726.865617-1-maz@kernel.org>
+References: <20251125102726.865617-1-maz@kernel.org>
+Subject: Re: [PATCH v2] PCI: host-generic: Move bridge allocation outside
+ of pci_host_common_init()
+Message-Id: <176407988578.155590.11732737188227682700.b4-ty@kernel.org>
+Date: Tue, 25 Nov 2025 19:41:25 +0530
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.14.3
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMTI1MDExOCBTYWx0ZWRfXz+k69POxSPeB
+ 5gV8vZ3KBh3jZUW64ylCXjSLJcqMdtf9mnVCBUtvkrPDnvtSjkr98uEFuxpP8DEYAjuYsMiVLpf
+ +OmdcXinNUd1lGvIVMGfX7SyFccM4XBijA/2vlmkcApriGyNV6sT/N8u62lssSmbyPBar4jKhcc
+ 0dM/o9mIrtQLwHAU2rJIlfFZuskQrh3UHDHLf9Jx5kN4Zsv6BN3BMH/Hvqij9+hP0c0yVT7J5KX
+ NJzAp6XVuXVK1BiLtqHFz9yvnGW8G9YO9yvH8ZOkYu7sYHZRJXvqXVy2IqtdRMPopDL9ANzZTcu
+ Z79P9vhLocQfHSFh59G8FxtQ1LXrhVezAafFlCs+geZzpcocejcdFeQborgC7TUiYibJ3apjlAU
+ GeETFMzocD+r3JaBPvqtnKbHn2apNQ==
+X-Authority-Analysis: v=2.4 cv=RvTI7SmK c=1 sm=1 tr=0 ts=6925b912 cx=c_pps
+ a=cmESyDAEBpBGqyK7t0alAg==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
+ a=6UeiqGixMTsA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=VwQbUJbxAAAA:8 a=M9iB-ojpKhN3dxfJ59YA:9 a=QEXdDO2ut3YA:10
+ a=1OuFwYUASf3TG4hYMiVC:22
+X-Proofpoint-ORIG-GUID: Lb7K9whu3TavHlGwoe0vSkQUerh0pi64
+X-Proofpoint-GUID: Lb7K9whu3TavHlGwoe0vSkQUerh0pi64
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
+ definitions=2025-11-25_02,2025-11-25_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ phishscore=0 spamscore=0 priorityscore=1501 malwarescore=0 clxscore=1015
+ bulkscore=0 suspectscore=0 impostorscore=0 lowpriorityscore=0 adultscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2510240001 definitions=main-2511250118
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251125_055945_043012_469586ED 
-X-CRM114-Status: GOOD (  10.16  )
+X-CRM114-CacheID: sfid-20251125_061131_802833_E74D32C4 
+X-CRM114-Status: GOOD (  12.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,33 +147,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add an IPMB node for OCP debug card to support IPMI communication.
 
-Signed-off-by: Fred Chen <fredchen.openbmc@gmail.com>
----
- .../boot/dts/aspeed/aspeed-bmc-facebook-santabarbara.dts   | 7 +++++++
- 1 file changed, 7 insertions(+)
+On Tue, 25 Nov 2025 10:27:26 +0000, Marc Zyngier wrote:
+> Having the host bridge allocation inside pci_host_common_init() results
+> in a lot of complexity in the pcie-apple driver (the only direct user
+> of this function outside of core PCI code).
+> 
+> It forces the allocation of driver-specific tracking structures outside
+> of the bridge allocation, which in turn requires it to use inefficient
+> data structures to match the bridge and the private structure as needed.
+> 
+> [...]
 
-diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-santabarbara.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-santabarbara.dts
-index 4312ead311df..0a3e2e241063 100644
---- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-santabarbara.dts
-+++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-santabarbara.dts
-@@ -845,7 +845,14 @@ temperature-sensor@49 {
- };
- 
- &i2c7 {
-+	multi-master;
- 	status = "okay";
-+
-+	ipmb@10 {
-+		compatible = "ipmb-dev";
-+		reg = <(0x10 | I2C_OWN_SLAVE_ADDRESS)>;
-+		i2c-protocol;
-+	};
- };
- 
- &i2c8 {
+Applied, thanks!
+
+[1/1] PCI: host-generic: Move bridge allocation outside of pci_host_common_init()
+      commit: b1e24e05e1408602d3414b95031242bbaa72226a
+
+Best regards,
 -- 
-2.49.0
+Manivannan Sadhasivam <mani@kernel.org>
 
 
