@@ -4,58 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 757C4D0E6E5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 14:14:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86570D0E6EC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 14:16:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZSpwKkYhopNjor++N+l1Ke42BFoslY5Xx86Uc7opx7A=; b=WXiO/VdyflaPDA06C6A+L724y8
-	dnqIe4MncD1CymgX24WfqiEIYpJ5XSrdPSH6B7WC85zziGsM/jD70cBf8Z1txEHwTY+AuB/l9WQqJ
-	0/UsveAdt1KvjCJY4S9oaY/zCrpAmNjXrz7Rj68LoIq95i+dZoAQbmZ3dFvFDybWKAQvY875V5/u5
-	9uQN60mTS77R1OjjJIj79BQdgLuyj2e6TO+DdiqR0BGcJuMFnz9EvhMK2z3MXsenYsN4iwNeUJGwn
-	rdUA0kKeskOqYZlOMbrin5YWABl/8TE2LOBJOcZBV+Fl8FzDTucB5dCKAy/9LEKGyp+92WQx1xKBR
-	5n+71Pgg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=RBCGfEbl1HIFGG3+FoiwYJRUyMgK98DWtC50atpXzIQ=; b=J4N4qU5eAAlNrPP9bsZHu8E/gR
+	hXc6lkLMPTBgY/Y+FDDkZBWHMSsYnYpuPHyB75hwHItcQpvY87dQx/pQX/m5ZayR8Ffpo9aV8ksMf
+	a7sCcC0MMwnQQs9LAJhKuxpPlmK3LrR7ft9diXN4GNsSChBPsynK/+3yz5eMd8Ki6/eux0ZFbkpQ9
+	n5eWiZH2pCl4ftpkgXVqN2zsC3c+1cZBan6dj68A8m2zWPT0lpVqUTGif0bH5TYgPp44tnp/7+/Yw
+	NUZA+Lbf32v9zFHfcHSONNG92nNnwr0Nkg15FT8yW0GNYNkEx5DRY/DsFsgNjp8655HP437dVBhPQ
+	3jl5wwgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNtoO-0000000DPa5-0MwD;
-	Tue, 25 Nov 2025 14:14:32 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNtoL-0000000DPYx-0tni
+	id 1vNtqS-0000000DPpH-2Qvj;
+	Tue, 25 Nov 2025 14:16:40 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vNtqR-0000000DPp7-1CL1
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Nov 2025 14:14:30 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8B82B168F;
-	Tue, 25 Nov 2025 06:14:20 -0800 (PST)
-Received: from [10.1.197.1] (ewhatever.cambridge.arm.com [10.1.197.1])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B6D883F86F;
-	Tue, 25 Nov 2025 06:14:26 -0800 (PST)
-Message-ID: <e67decb6-20a5-4659-8401-8534049f9229@arm.com>
-Date: Tue, 25 Nov 2025 14:14:25 +0000
+	Tue, 25 Nov 2025 14:16:39 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 714D560159;
+	Tue, 25 Nov 2025 14:16:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 08AF2C4CEF1;
+	Tue, 25 Nov 2025 14:16:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1764080198;
+	bh=j3nfGadwUDjMgTdXCatHDQbxvZr231jjSff4Bmlfkh0=;
+	h=Date:From:To:Cc:Subject:From;
+	b=sBP4fdOMkH7WwZqDbZ8ETIqRyvSpTJjZ5lZSp8MYTiLhb+JOmGfklgIkOBNHZ+b9s
+	 /oe57QWnlcgRj36YKsBvcL6/LPA4DlELXQSHetbOPCZgU6EB4izdADkguiDl/dS72a
+	 7kI78H+hP+Pvt8YDg1lMFJCuqbrr8MMLkLC1Q8ZHQwxXUUrBVVf3sf8i5Efc8t8NYJ
+	 WX0OGputg0ScCLnDUOic3UvE20x5BFbPToHCXQFxQSj4eQsrgg8lbQ8HcIVYX5LpB6
+	 f2di8AyLRGhJMEhfQ9Gv05qb1/g0EM81VYwBUZQvhlOCP7WnS604r5oX9FLyveljGo
+	 yO3m5SyX1dMRQ==
+Received: by wens.tw (Postfix, from userid 1000)
+	id 99C835FD53; Tue, 25 Nov 2025 22:16:35 +0800 (CST)
+Date: Tue, 25 Nov 2025 22:16:35 +0800
+From: Chen-Yu Tsai <wens@kernel.org>
+To: soc@kernel.org
+Cc: Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej@kernel.org>,
+	Samuel Holland <samuel@sholland.org>, linux-sunxi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: [GIT PULL] Allwinner fixes for 6.18
+Message-ID: <aSW6QyCvqM_DChbG@wens.tw>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 06/49] KVM: arm64: GICv3: Detect and work around the
- lack of ICV_DIR_EL1 trapping
-To: Marc Zyngier <maz@kernel.org>
-Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- kvm@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
- Oliver Upton <oupton@kernel.org>, Zenghui Yu <yuzenghui@huawei.com>,
- Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
- Mark Brown <broonie@kernel.org>
-References: <20251120172540.2267180-1-maz@kernel.org>
- <20251120172540.2267180-7-maz@kernel.org>
- <5df713d4-8b79-4456-8fd1-707ca89a61b6@arm.com> <86h5uiql4b.wl-maz@kernel.org>
-Content-Language: en-US
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <86h5uiql4b.wl-maz@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251125_061429_340016_4164B0CA 
-X-CRM114-Status: GOOD (  27.10  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="DJKq9zpsa0m/tR0v"
+Content-Disposition: inline
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,149 +70,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 25/11/2025 13:48, Marc Zyngier wrote:
-> On Tue, 25 Nov 2025 11:26:10 +0000,
-> Suzuki K Poulose <suzuki.poulose@arm.com> wrote:
->>
->> On 20/11/2025 17:24, Marc Zyngier wrote:
->>> A long time ago, an unsuspecting architect forgot to add a trap
->>> bit for ICV_DIR_EL1 in ICH_HCR_EL2. Which was unfortunate, but
->>> what's a bit of spec between friends? Thankfully, this was fixed
->>> in a later revision, and ARM "deprecates" the lack of trapping
->>> ability.
->>>
->>> Unfortuantely, a few (billion) CPUs went out with that defect,
->>> anything ARMv8.0 from ARM, give or take. And on these CPUs,
->>> you can't trap DIR on its own, full stop.
->>>
->>> As the next best thing, we can trap everything in the common group,
->>> which is a tad expensive, but hey ho, that's what you get. You can
->>> otherwise recycle the HW in the neaby bin.
->>>
->>> Tested-by: Fuad Tabba <tabba@google.com>
->>> Signed-off-by: Marc Zyngier <maz@kernel.org>
->>> ---
->>>    arch/arm64/include/asm/virt.h  |  7 ++++-
->>>    arch/arm64/kernel/cpufeature.c | 52 ++++++++++++++++++++++++++++++++++
->>>    arch/arm64/kernel/hyp-stub.S   |  5 ++++
->>>    arch/arm64/kvm/vgic/vgic-v3.c  |  3 ++
->>>    arch/arm64/tools/cpucaps       |  1 +
->>>    5 files changed, 67 insertions(+), 1 deletion(-)
->>>
->>> diff --git a/arch/arm64/include/asm/virt.h b/arch/arm64/include/asm/virt.h
->>> index aa280f356b96a..8eb63d3294974 100644
->>> --- a/arch/arm64/include/asm/virt.h
->>> +++ b/arch/arm64/include/asm/virt.h
->>> @@ -40,8 +40,13 @@
->>>     */
->>>    #define HVC_FINALISE_EL2	3
->>>    +/*
->>> + * HVC_GET_ICH_VTR_EL2 - Retrieve the ICH_VTR_EL2 value
->>> + */
->>> +#define HVC_GET_ICH_VTR_EL2	4
->>> +
->>>    /* Max number of HYP stub hypercalls */
->>> -#define HVC_STUB_HCALL_NR 4
->>> +#define HVC_STUB_HCALL_NR 5
->>>      /* Error returned when an invalid stub number is passed into x0
->>> */
->>>    #define HVC_STUB_ERR	0xbadca11
->>> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
->>> index 5ed401ff79e3e..5de51cb1b8fe2 100644
->>> --- a/arch/arm64/kernel/cpufeature.c
->>> +++ b/arch/arm64/kernel/cpufeature.c
->>> @@ -2303,6 +2303,49 @@ static bool has_gic_prio_relaxed_sync(const struct arm64_cpu_capabilities *entry
->>>    }
->>>    #endif
->>>    +static bool can_trap_icv_dir_el1(const struct
->>> arm64_cpu_capabilities *entry,
->>> +				 int scope)
->>> +{
->>> +	static const struct midr_range has_vgic_v3[] = {
->>> +		MIDR_ALL_VERSIONS(MIDR_APPLE_M1_ICESTORM),
->>> +		MIDR_ALL_VERSIONS(MIDR_APPLE_M1_FIRESTORM),
->>> +		MIDR_ALL_VERSIONS(MIDR_APPLE_M1_ICESTORM_PRO),
->>> +		MIDR_ALL_VERSIONS(MIDR_APPLE_M1_FIRESTORM_PRO),
->>> +		MIDR_ALL_VERSIONS(MIDR_APPLE_M1_ICESTORM_MAX),
->>> +		MIDR_ALL_VERSIONS(MIDR_APPLE_M1_FIRESTORM_MAX),
->>> +		MIDR_ALL_VERSIONS(MIDR_APPLE_M2_BLIZZARD),
->>> +		MIDR_ALL_VERSIONS(MIDR_APPLE_M2_AVALANCHE),
->>> +		MIDR_ALL_VERSIONS(MIDR_APPLE_M2_BLIZZARD_PRO),
->>> +		MIDR_ALL_VERSIONS(MIDR_APPLE_M2_AVALANCHE_PRO),
->>> +		MIDR_ALL_VERSIONS(MIDR_APPLE_M2_BLIZZARD_MAX),
->>> +		MIDR_ALL_VERSIONS(MIDR_APPLE_M2_AVALANCHE_MAX),
->>> +		{},
->>> +	};
->>> +	struct arm_smccc_res res = {};
->>> +
->>> +	BUILD_BUG_ON(ARM64_HAS_ICH_HCR_EL2_TDIR <= ARM64_HAS_GICV3_CPUIF);
->>> +	BUILD_BUG_ON(ARM64_HAS_ICH_HCR_EL2_TDIR <= ARM64_HAS_GICV5_LEGACY);
->>> +	if (!cpus_have_cap(ARM64_HAS_GICV3_CPUIF) &&
->>> +	    !is_midr_in_range_list(has_vgic_v3))
->>> +		return false;
->>> +
->>> +	if (!is_hyp_mode_available())
->>> +		return false;
->>> +
->>> +	if (cpus_have_cap(ARM64_HAS_GICV5_LEGACY))
->>> +		return true;
->>> +
->>> +	if (is_kernel_in_hyp_mode())
->>> +		res.a1 = read_sysreg_s(SYS_ICH_VTR_EL2);
->>> +	else
->>> +		arm_smccc_1_1_hvc(HVC_GET_ICH_VTR_EL2, &res);
->>
->> We are reading the register on the current CPU and this capability,
->> being a SYSTEM_FEATURE, relies on the "probing CPU". If there CPUs
->> with differing values (which I don't think is practical, but hey,
->> never say..). This is would better be a
->> ARM64_CPUCAP_EARLY_LOCAL_CPU_FEATURE, which would run through all
->> boot CPUs and would set the capability when it matches.
-> 
-> While I agree that SYSTEM_FEATURE is most probably the wrong thing, I
-> can't help but notice that
-> 
-> - ARM64_HAS_GICV3_CPUIF,
-> - ARM64_HAS_GIC_PRIO_MASKING
-> - ARM64_HAS_GIC_PRIO_RELAXED_SYNC
-> 
-> are all ARM64_CPUCAP_STRICT_BOOT_CPU_FEATURE.
 
-Which means, if GICV3_CPUIF is set any booting CPU must have them.
+--DJKq9zpsa0m/tR0v
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-> 
-> On the other ARM64_HAS_GICV5_LEGACY is ARM64_CPUCAP_EARLY_LOCAL_CPU_FEATURE.
-> 
-> Given that ARM64_HAS_ICH_HCR_EL2_TDIR is dependent on both
-> ARM64_HAS_GICV3_CPUIF and ARM64_HAS_GICV5_LEGACY, shouldn't these two
-> (and their dependencies) be aligned to have the same behaviour?
+The following changes since commit 3a8660878839faadb4f1a6dd72c3179c1df56787:
 
-Yes, but it also depends on how you are detecting the feature.
+  Linux 6.18-rc1 (2025-10-12 13:42:36 -0700)
 
-BOOT_CPU_FEATURES are finalized with BOOT CPU and thusanything that 
-boots up later must have it. So it is fine, as long
-as a SYSTEM cap depends on it and can do its own additional checks
-in a system wide safe manner.
+are available in the Git repository at:
 
-But in your case, we a have SYSTEM cap, which only performs the check
-on the "running CPU" and not considering a system wide safe value for
-ICH_VTR_EL2_TDS. In order to do this, we need to switch to something
-like the GICV5_LEGACY cap, which chooses to perform the check on all
-booting CPUs (as we don't keep the system wide safe value for the
-bit it is looking for).
+  https://git.kernel.org/pub/scm/linux/kernel/git/sunxi/linux.git sunxi-fixes-for-6.18
 
-e.g., your cap may be incorrectly SET, when the BOOT cpu (which
-mostly runs the SYSTEM scope), but another CPU didn't have the
-ICH_VTR_EL2_TDS.
+for you to fetch changes up to 9f393d8e757f79060baf4b2e703bd6b2d0d8d323:
 
-Does that help ?
+  riscv: dts: allwinner: d1: fix vlenb property (2025-11-22 09:19:42 +0800)
 
-Suzuki
+----------------------------------------------------------------
+Allwinner fixes for 6.18
 
-> 
-> Thanks,
-> 
-> 	M.
-> 
+Just one fix to correct the "thead,vlenb" property for the RISC-V based
+D1 SoC family.
 
+----------------------------------------------------------------
+Sergey Matyukevich (1):
+      riscv: dts: allwinner: d1: fix vlenb property
+
+ arch/riscv/boot/dts/allwinner/sun20i-d1s.dtsi | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+--DJKq9zpsa0m/tR0v
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEE2nN1m/hhnkhOWjtHOJpUIZwPJDAFAmklukMACgkQOJpUIZwP
+JDCkOA//TvgyXYI40m3/T4+wHSjBhxtFFCnQ9h+dF4bcE64TvWSwcOyCHO1k8zaM
+KJOYYXm3wXaNDvWN1H8/tY7hJHAPpsfTRzgEFX88rlr6/9c2AtGZnm37rtnGQ3NU
+Z9fziFumZrzUWLvOKD55I+rZKS9N1xA4Qq4seilfkuuiwY4xivgiDEA4HeimK5MC
+mdwICWEDgxWBNW8Xcw2kbuHW8ScpDhVkahreqkhGArYJHOavqGQtUbV1pvN/uYlo
+89/lVKX7KPv6a8y335R0He6KqcPY+oPSRW+0nABT9NEot6Q++tUSc4aUBV1tErej
+na/AF9DDP/UtZZBIxOVnwD2pYBqfvsOhPbG0dyt0r0c5sYjsZN+9D5iuWa5GKovC
++jh9lx+5xDaPrqc4v0jXWY97wKHAvU3Sxd5J7zoYcAcQTuxMUZFyDGovtSdUqfQC
+96M3lFGx/ue7Ky4VOqELLsF+NNyBbDzSc7XITXmq6rXh8c0Sh/C1vgTozjCsNQfb
+9ayXF84Xax1a8Fml5lyEYIXeHTu26CzlmbE/0vL2FuQXb8T31hsp6v0SRQmNj4XT
+OW1h1tJ5tN98ASGJ8GOwPcef8vsJr4AHGCYa5qbb7xlaHwsDHhNCKVRepOn6a2+f
+FKjQgdy8zWKny4DewnGGTQJ3mOLmnYWjWNpWB1RxEgoK9xLK/+g=
+=jqdm
+-----END PGP SIGNATURE-----
+
+--DJKq9zpsa0m/tR0v--
 
