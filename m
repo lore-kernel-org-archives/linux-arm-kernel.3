@@ -4,152 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9C86CFD364
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 07:58:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FF93CFD364
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 08:06:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OirmIjUKENxPdU70FNmnmNoJlq3JWulXNqb6h8cf55k=; b=psWu5oLxB3QeEQOvx9XprckgI5
-	Brs7CqrCx17UR+qHx4LLJcvj4i82jQXYOo1BmE6nlN3ey16Z2ZzEm12kB7748zlnYvIYDAv3VCEAB
-	awonj0al89iuSECXOuognXNBTiV+81j+r2tSxmJfXcyjHRpAyys2tYL6Vhr1CchLogZoYb928di9L
-	POqEa3NO5x4TEOQzTVqwzV3CVM/CgySRuxqHjhUqNxhfXY0S6YcZYi8vPke4lrOehWYev+bzYNeOx
-	GqO33XB85SJ1gho9fNTrcsYvpmCn/98rfzcqv2mbIMe+A/fjpfsXbCY5BW9TEXId2y+xNpjaJt/Z3
-	4LnM7PJw==;
+	bh=yjf9nElP4xRo/evEet3Ndawinw3/P3yEeqcpeGgXScI=; b=uul8DtZkjTW3iJJZXpl7kYMEpi
+	PblNyzEfjASn4JRwIRkxgKlGArnCZLER7Gw50o8yra3BZbfg6T6HcJLkLjo1vfP9FSO6pgWd35lWN
+	PkFJl//ZLPhESGk2l7xfXK01M/ACpFQigK1hkIjzJPLyXys0WMof6UVtfnrrsrz7OzdOKbLsr6KqT
+	pfMktSlCAxnBExMzEEY6TdnksFY+ILtvgtiIhcbvjt+ZsC6QQaC2hpgCgS9jhNiT+bLeYQzXQkvU/
+	eNPILqZXgqBd5HhnmfbGCerL8q2gDBhi6LvDcDsVyuZI8Ecv6uKiWoV2Nnu6s7/uxMeVkcLNEr4+Z
+	hgPiiCFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNnwr-0000000CwV4-0Akz;
-	Tue, 25 Nov 2025 07:58:53 +0000
-Received: from mail-francecentralazon11013036.outbound.protection.outlook.com ([40.107.162.36] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1vNo3i-0000000CxDY-0GBF;
+	Tue, 25 Nov 2025 08:05:58 +0000
+Received: from canpmsgout11.his.huawei.com ([113.46.200.226])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNnwo-0000000CwUW-1d3C;
-	Tue, 25 Nov 2025 07:58:51 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=YxV36knawdg0gW3iu+oyl6xfSVSYO0BxgmQaknHCEeHhPh/FVO2LftQ7JeDuK7Co2sIEusdoWUyvhmx0yq8rl2w2DkBReWsamShOjs0oa1vvKJusGetObC05WFkgPj39K9seHxKbaAObraVQDOasTjavJxcqn+trxXo8T2DWHdsVJU4VkZ6BPLHzKTCaCKfcZjRcLLflsZi/nY+041NnpKU6CVJqHKbOjk7TqaZEjT5tDvuktUqLlpzkJV8MhARHa/vBJBMs38WIZk/9+qxwBDf9ZUv5Tw1XtBVoLyZOLmgOyMAVuki/q3h4CiHZk+cUnItyIZ2kXVxoEiKk8myhfg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=OirmIjUKENxPdU70FNmnmNoJlq3JWulXNqb6h8cf55k=;
- b=kaVKJQPyPzusZ5N7UUE4AUpPP+frXwlgrMi7HUBPOKzwxgc1+KgLDiL0L1v5N45/jYuF5shRRF+EKc5OYJzUArR+hpK2S531open/wJSm7zzrgCaqxE9R9ixe36t4GLt4gA9i63bjOJ3l1BQj467yu4Ks2ruC8pHEocgXKH1LsnQ7ocn0rRZOxH+EgtCzg2u5i7LSCmS4Kz19fUtDDWXDB7L+5vLal+8DFNy5J/wYI7QibWQ+ZiyAobdp4Tu5Lq+9cNjvS8K+A0vBy6JIXBK/gVp2tnuEk2jTEn7tqFojUWVhvtI29ZTcX0KD5zAXHNTjyE3OtdNCRA2kAwP0rAMHA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=OirmIjUKENxPdU70FNmnmNoJlq3JWulXNqb6h8cf55k=;
- b=Y5uU86PaDGzehy0ajjF9QUJiXILCNqq3LOrcsuaC9FMm0gNZbO0G3J7JVZAa6/5ndQvnuj7jKcZNSr8s7cUufexeT9/h1C6jFbWS/1/t+HUsrMwwxhsFlRev16pQWUCnr9b/j6RKDadih8FY4temKHBp+mdVz9jJYyjiJAnAvx773zWh8NlM446/RBHVzPi1+1F6wgqepT2QFwQgr/++0+gofzXzqwZx0S0iq5ykZwZ/rhURl28hPIt7n1kk+PJ2fJi0Y43XOGxRF6/8yhMMqkYGsMpaECmdAy+uF4DmNvbvgNFCCWhDwtC2CqkoHAYvnuYmiO1wsfTuQtsOpKarlQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AM9PR04MB8825.eurprd04.prod.outlook.com (2603:10a6:20b:408::7)
- by DBBPR04MB7881.eurprd04.prod.outlook.com (2603:10a6:10:1ea::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9366.11; Tue, 25 Nov
- 2025 07:58:44 +0000
-Received: from AM9PR04MB8825.eurprd04.prod.outlook.com
- ([fe80::67fa:3e46:acd8:78d0]) by AM9PR04MB8825.eurprd04.prod.outlook.com
- ([fe80::67fa:3e46:acd8:78d0%3]) with mapi id 15.20.9343.016; Tue, 25 Nov 2025
- 07:58:43 +0000
-Date: Tue, 25 Nov 2025 15:51:58 +0800
-From: Xu Yang <xu.yang_2@nxp.com>
-To: Francesco Dolcini <francesco@dolcini.it>
-Cc: Franz Schnyder <fra.schnyder@gmail.com>, Vinod Koul <vkoul@kernel.org>, 
-	Kishon Vijay Abraham I <kishon@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Franz Schnyder <franz.schnyder@toradex.com>, 
-	linux-phy@lists.infradead.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Francesco Dolcini <francesco.dolcini@toradex.com>, 
-	stable@vger.kernel.org
-Subject: Re: [PATCH v1] phy: fsl-imx8mq-usb: fix typec orientation switch
- when built as module
-Message-ID: <nk7hrpl22awyp7zqnkmqnlenj6hvc2itdpfepzdgcotkljx2fl@7vma3ss46juh>
-References: <20251124095006.588735-1-fra.schnyder@gmail.com>
- <w2dpsbfspr4od2j5seidi3tcpo3r2revhahhxiuacqehkqy3nn@2zjb3xvso45d>
- <20251125072011.GA5375@francesco-nb>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251125072011.GA5375@francesco-nb>
-X-ClientProxiedBy: SG2PR02CA0038.apcprd02.prod.outlook.com
- (2603:1096:3:18::26) To AM9PR04MB8825.eurprd04.prod.outlook.com
- (2603:10a6:20b:408::7)
+	id 1vNo3e-0000000CxC9-2Hnc
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 25 Nov 2025 08:05:56 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=yjf9nElP4xRo/evEet3Ndawinw3/P3yEeqcpeGgXScI=;
+	b=Rga2IjF2HlNF7ekhZSdD4p3e4SOzBEOPMtAIootld1mBOdMFmpvxUQ8dR2Oe+i+zdDHhjn14U
+	iyhSBheEltYWmVmmnxvoFu5L1quM39QERlqqppWPitbi8odee+c8UCiczuXoCEqSGlQJRY5xrh+
+	ChDj1pzB3WecjiV/fJX3gQY=
+Received: from mail.maildlp.com (unknown [172.19.88.234])
+	by canpmsgout11.his.huawei.com (SkyGuard) with ESMTPS id 4dFwF933hXzKm4X;
+	Tue, 25 Nov 2025 16:03:57 +0800 (CST)
+Received: from dggemv705-chm.china.huawei.com (unknown [10.3.19.32])
+	by mail.maildlp.com (Postfix) with ESMTPS id 60095140259;
+	Tue, 25 Nov 2025 16:05:45 +0800 (CST)
+Received: from kwepemn100008.china.huawei.com (7.202.194.111) by
+ dggemv705-chm.china.huawei.com (10.3.19.32) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Tue, 25 Nov 2025 16:05:44 +0800
+Received: from localhost.huawei.com (10.90.31.46) by
+ kwepemn100008.china.huawei.com (7.202.194.111) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.36; Tue, 25 Nov 2025 16:05:43 +0800
+From: Yushan Wang <wangyushan12@huawei.com>
+To: <xuwei5@hisilicon.com>, <Jonathan.Cameron@huawei.com>,
+	<wanghuiqiang@huawei.com>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linuxarm@huawei.com>
+CC: <prime.zeng@hisilicon.com>, <fanghao11@huawei.com>,
+	<wangyushan12@huawei.com>
+Subject: [RFC PATCH 2/3] soc cache: L3 cache lockdown support for HiSilicon SoC
+Date: Tue, 25 Nov 2025 16:05:41 +0800
+Message-ID: <20251125080542.3721829-3-wangyushan12@huawei.com>
+X-Mailer: git-send-email 2.33.0
+In-Reply-To: <20251125080542.3721829-1-wangyushan12@huawei.com>
+References: <20251125080542.3721829-1-wangyushan12@huawei.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM9PR04MB8825:EE_|DBBPR04MB7881:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0da62c71-deca-435a-be42-08de2bf8743e
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|19092799006|7416014|376014|366016|52116014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?qJPV8v6ULSBgNAulh9CbAogrrPigR+zEPRveRiUv/I2lstuvLjvh72twx2xz?=
- =?us-ascii?Q?KpMb7dEjY2lDI8NTCYiZoNCWkGTmMlnqQDxY5RobcN8v/vjUWKxoB88BPX0n?=
- =?us-ascii?Q?//Ia+v+a5K+pIYpVirnpV1h20qZRWTjvw/mTZeRQtlDl2aHENJtbr1GC/CRj?=
- =?us-ascii?Q?zXlgLQm18o2372SqXc6Ri+SnTkt4xbKt20NWNs3QmFUIDtmvKPF2YVIgQwMf?=
- =?us-ascii?Q?eGuRHAGFLbGvKWJt2YDfOoEghHptAet1aRheoEXlpgdooP3mE7evjbZ31GbY?=
- =?us-ascii?Q?dMQ92lX0fuZuJKx8U9X0xG5HaIOe9XHu/tNZhVo0L5NbX5Hg7NE77y3ExM0Z?=
- =?us-ascii?Q?+1AaSeNmf0lwuCZApFcKIrVt+ueD8+akUeAy3B2DZlZ9NhXW/4YFtqbEfAon?=
- =?us-ascii?Q?gw8Nr8G4cj8wRwxiHX72q6Q+je4outbO6+n4pYLYhUNWMrqfUjCGhHeXS6g4?=
- =?us-ascii?Q?5QDErL/PSio+g+ra3B7TcSpOkQaKVToq2VG3/KJaWgH6GC0LK34HavE4DTZu?=
- =?us-ascii?Q?9/td+2YOUmcJN2BgTfV4uhhGQbaa+OIpoekmUwumxqeErC0LVjIdXmiHHeLF?=
- =?us-ascii?Q?KvoPjHSh3g9Io4OSL4KajfCtSaLMxqdk7ATWvMAl90Jp2GDjis3Elt4omvEv?=
- =?us-ascii?Q?L9GS9KoGJzlaZfZeaUn+A/1CiQc+5tzzFn9T1D8Vbfvx31b2YO1mA05cxPg4?=
- =?us-ascii?Q?/3Fx0Uln5dWhnfGKUEzygb3ogIEOvq2BVUi9O4xSoOVddNAD33mFpJfUPvqf?=
- =?us-ascii?Q?f3WfBNGWGjfFrsl2tKa6V7Ov15P827zHg/1k3I51ZK8HNM5J0YAax6rsRKwd?=
- =?us-ascii?Q?PaWexMXrqlYr+Z16RarPVjFJfUll9d2RBEOKbiJzlVCK1yuM/1ECzbAbtzo9?=
- =?us-ascii?Q?rr1sEi8RTW04lSdu0PrIQ0jw3Sp7PPHvil6Ch0WmFQd4nDJursHX30J2wwVH?=
- =?us-ascii?Q?cMGSw1i5mwpuT6xXy+Le7S9H3o8GV6EFpKq8fxbvsBIl1oZ2tkrV2QUOyHph?=
- =?us-ascii?Q?P+tIJiANNCqojlN10plU6T71yjqia9Dqap8zidywHJnfM9oAOzU/4tnWWLB9?=
- =?us-ascii?Q?bRNtCPTG94Jpbj+8DqCgjycaFt2RnHup74kUHFAPtN5f9VbR6ij3H1fOkvka?=
- =?us-ascii?Q?Gjkev4G5ySYs6JMSzb7W1iQHjXAynxnG754bBzKoY6XFv5k0XvPf43N7AfND?=
- =?us-ascii?Q?JBjZOYVDGG0A4MAozUlBWqHDxS5oNeVf4ElF1stlQRB62l3qdR+QMCTm/Tpf?=
- =?us-ascii?Q?PoDi8UTB3DNe8iQiWDs9zEtQigsQbY64pa5eQCcTzqHwx1vUzYKQCX+lTGMV?=
- =?us-ascii?Q?a5DmpI5h/nhJO2iWnGuWVh+J4Vhd9KKRqukGTMT5eLoQeBl33622bRiRFWA0?=
- =?us-ascii?Q?YTtrc2/gfYk89Y4jPf8OowizkQURI7OjAxBTbeuwO8g9fhD5fduYquL0NLVO?=
- =?us-ascii?Q?YMxBNaKz/BHKX/6PxNU68vaSZ0ZhPEb6VOdvjRF2x8p9J1XNMsMzHEWtavqK?=
- =?us-ascii?Q?Rf15XRvV+YkNI+5qvTeK2Ym0BOsQWjr7MnPR?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8825.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(19092799006)(7416014)(376014)(366016)(52116014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?dRWVTYihLALdmtCS5s7KFSyvKzlcG5YnnqEIlJrpQAEiZFh8/X1IWV9NmftV?=
- =?us-ascii?Q?XfN9gtWQwI2gjHt+wPgDQ84vsGMP4Zbi7OwwlHB35a5LKETrEDIwN7H/BaC5?=
- =?us-ascii?Q?XcmLAIVItKH0aOAr3r3J24Ml20yZp/KZnyOFCURHd2bLlz7PkIHgfNpY9GrG?=
- =?us-ascii?Q?bufUAszkQJtW1rJ4fPbVjzj7sBHAAmcqQYMecntMISnIgAIr1D8BVyfpfgth?=
- =?us-ascii?Q?3RyRjUvZkHoBNgjxHL1Mq1KUdF3tPQCxLzRH4Tho0tNqaXedMlwDXO0ejINY?=
- =?us-ascii?Q?dEF1hzxTXTEmaJXjPgjfzyYgtdVn02PxE8PMIT2QpbS+sEJWv4WyDs6Lfw+A?=
- =?us-ascii?Q?LZSqoCSTvcJAA8OzL8Ju4FdWPoyrosVZQOXkCHOeDWX/i0+0ZpjdpdF8pUAm?=
- =?us-ascii?Q?1BD9hunFeDuAOSWWzm+upe158sIefRSNxjm8aaDN5ijofgGeMRY9NUtuTpRF?=
- =?us-ascii?Q?6+ukywCx2zK7xgEj9HU6nYW1kkQvcIoTv0fdTf9l0gKkRl49Qli1F9Pldfsx?=
- =?us-ascii?Q?WFdIjqUp/p4LzN2NOVCZsDYCLcs7mT2//gs9rSLM1j9wG8jIMKUApCEkjolc?=
- =?us-ascii?Q?ZOdNcCal6cRCfd+Jm0CLeM8M8355t+gDprxWA8TEap/EDWqpAVAH3dPictS9?=
- =?us-ascii?Q?sVk2qhyo6zFvOb1inzRH9JlKCYKuK3j4n+BQsJqopw8ldno5/jws+47v/I52?=
- =?us-ascii?Q?/oxlqSv6HT/p++1ChaSZhb/9l03dx3yZlPqRL6BRunZTg5HLA7YJpXXxyKe7?=
- =?us-ascii?Q?Tw5gZ5YhrQ9ZBYR1Ia8XJVOWXrJF5RauEuXwvFfNnM+sUPtTnCq6GGSFoz7d?=
- =?us-ascii?Q?7BoIn+xxz3At4VJgGmOWNMfFs2/yH/lxx7LDTT2EvdKZkwcSCdTNeexDvqiZ?=
- =?us-ascii?Q?vNYXJfVvighZSOTsGb9huG0dsYaywWqLahaGySVreiKcPHP6wTWYT7loGCoP?=
- =?us-ascii?Q?DBeEqHZGZ+tf0YZgvnFsQfBKsvlgUiBXIBwtbFYt3DpWIHuMyEsrL1VeXwpr?=
- =?us-ascii?Q?h7iT7Mk0AfO+q/2Ks9NqB2rz1V1R/vkb/FdqHq5v1cH5ZhAOAtfEcIl0Vw3+?=
- =?us-ascii?Q?4v5CroSTQtiX7V4MgXfz9o5NZFViQ2mdYjWe15Av254whIgWJFURrXSYC/rr?=
- =?us-ascii?Q?uwY8e5yffmh3oLDvrmAVBdMbizJ2u2EkLh1igK5gVT5FPMpS/zswVh7KMmHy?=
- =?us-ascii?Q?F+B+kcSmNSuS4j8LjeGdtmM5f6OEodiAPO/IRZxG5f4sYfbEoVg1cuNKgy4s?=
- =?us-ascii?Q?Rr9JPqj8oRoZxuj37vyU5VDy5YrTKyq7KctJqwFqTYpAhGUe4mtdEREI816m?=
- =?us-ascii?Q?FZg4kBf1Ul/GRIQsHcvVYBIRH+YAMxPBDItqkj8+0VWtefhsfGp8j7vjQE0R?=
- =?us-ascii?Q?WHv8KI5QG2tMq6Ax9QEiNWE0OmsIaIvc2yby8aTltGaYlA782xh6kDHEUM51?=
- =?us-ascii?Q?PRa5nV8leU5gCDQG00NZ9b+tsHCM1Q7Wtl7H5DA7PoxOhsEkVeTMvlYO3VPf?=
- =?us-ascii?Q?o2v+XoVP5LHM9SBCQkvaPxDYQJjMJWVJIQBSLNQM8QanvWpwMwwpstSKgrQX?=
- =?us-ascii?Q?qQl0zIDRj+ie1yd51AAY34mstgZBZlF2cDk1DxA/?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0da62c71-deca-435a-be42-08de2bf8743e
-X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8825.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Nov 2025 07:58:43.8420
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: L91VBbodQJ6uYUySdvyFHAQzCwRpRdyaC/QbkLDARRXeG4b9mjZBL5HTvSwI7EtQR1OxbjwkxX21kdbp65xAWA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBBPR04MB7881
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.90.31.46]
+X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
+ kwepemn100008.china.huawei.com (7.202.194.111)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251124_235850_448495_9649C518 
-X-CRM114-Status: GOOD (  28.50  )
+X-CRM114-CacheID: sfid-20251125_000555_164422_8445DF5B 
+X-CRM114-Status: GOOD (  28.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -164,65 +83,594 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Francesco,
+This driver implements the interface exposed by framework, passes cache
+lock/unlock requests to hardware.
 
-On Tue, Nov 25, 2025 at 08:20:11AM +0100, Francesco Dolcini wrote:
-> On Tue, Nov 25, 2025 at 03:04:43PM +0800, Xu Yang wrote:
-> > On Mon, Nov 24, 2025 at 10:50:04AM +0100, Franz Schnyder wrote:
-> > > From: Franz Schnyder <franz.schnyder@toradex.com>
-> > > 
-> > > Currently, the PHY only registers the typec orientation switch when it
-> > > is built in. If the typec driver is built as a module, the switch
-> > > registration is skipped due to the preprocessor condition, causing
-> > > orientation detection to fail.
-> > > 
-> > > This patch replaces the preprocessor condition so that the orientation
-> > > switch is correctly registered for both built-in and module builds.
-> > > 
-> > > Fixes: b58f0f86fd61 ("phy: fsl-imx8mq-usb: add tca function driver for imx95")
-> > > Cc: stable@vger.kernel.org
-> > > Signed-off-by: Franz Schnyder <franz.schnyder@toradex.com>
-> > > ---
-> > >  drivers/phy/freescale/phy-fsl-imx8mq-usb.c | 2 +-
-> > >  1 file changed, 1 insertion(+), 1 deletion(-)
-> > > 
-> > > diff --git a/drivers/phy/freescale/phy-fsl-imx8mq-usb.c b/drivers/phy/freescale/phy-fsl-imx8mq-usb.c
-> > > index b94f242420fc..d498a6b7234b 100644
-> > > --- a/drivers/phy/freescale/phy-fsl-imx8mq-usb.c
-> > > +++ b/drivers/phy/freescale/phy-fsl-imx8mq-usb.c
-> > > @@ -124,7 +124,7 @@ struct imx8mq_usb_phy {
-> > >  static void tca_blk_orientation_set(struct tca_blk *tca,
-> > >  				enum typec_orientation orientation);
-> > >  
-> > > -#ifdef CONFIG_TYPEC
-> > > +#if IS_ENABLED(CONFIG_TYPEC)
-> > 
-> > With below commit:
-> > 
-> > 45fe729be9a6 usb: typec: Stub out typec_switch APIs when CONFIG_TYPEC=n
-> > 
-> > I think this #if/else/endif condition can be removed.
-> 
-> This patch should go to stable, and that commit is not present in any
-> such previous kernel.
+The number of locked memory region is limited according to firmware,
+and the total size of locked memory regions must be less than 70% of
+cache size.
 
-Well, commit 45fe729be9a6 was merged in v6.18-rc2. Previous stable kernel
-doesn't have it yet.
+Signed-off-by: Yushan Wang <wangyushan12@huawei.com>
+---
+ drivers/soc/hisilicon/hisi_soc_l3c.c | 520 ++++++++++++++++++++++++++-
+ 1 file changed, 519 insertions(+), 1 deletion(-)
 
-> 
-> Should we have 2 patches or "force" 45fe729be9a6 to be also backported?
-> 
-> What's the general advise in these situations?
+diff --git a/drivers/soc/hisilicon/hisi_soc_l3c.c b/drivers/soc/hisilicon/hisi_soc_l3c.c
+index 2c196c4dfff1..1e3419436173 100644
+--- a/drivers/soc/hisilicon/hisi_soc_l3c.c
++++ b/drivers/soc/hisilicon/hisi_soc_l3c.c
+@@ -8,19 +8,49 @@
+ 
+ #define pr_fmt(fmt) KBUILD_MODNAME ": " fmt
+ 
++#include <linux/acpi.h>
+ #include <linux/cleanup.h>
++#include <linux/cpuhotplug.h>
+ #include <linux/init.h>
++#include <linux/io.h>
++#include <linux/iopoll.h>
+ #include <linux/mm.h>
+ #include <linux/miscdevice.h>
+ #include <linux/module.h>
++#include <linux/platform_device.h>
+ #include <linux/spinlock.h>
+ #include <linux/spinlock_types.h>
+ #include <linux/types.h>
++#include <linux/xarray.h>
+ 
+ #include <asm/cputype.h>
+ 
+ #include <uapi/misc/hisi_l3c.h>
+ 
++#define HISI_L3C_LOCK_CTRL	0x0530
++#define HISI_L3C_LOCK_AREA	0x0534
++#define HISI_L3C_LOCK_START_L	0x0538
++#define HISI_L3C_LOCK_START_H	0x053C
++
++#define HISI_L3C_DYNAMIC_AUCTRL	0x0404
++
++#define HISI_L3C_LOCK_CTRL_POLL_GAP_US	10
++#define HISI_L3C_LOCK_CTRL_POLL_MAX_US	10000
++
++/* L3C control register bit definition */
++#define HISI_L3C_LOCK_CTRL_LOCK_EN		BIT(0)
++#define HISI_L3C_LOCK_CTRL_LOCK_DONE		BIT(1)
++#define HISI_L3C_LOCK_CTRL_UNLOCK_EN		BIT(2)
++#define HISI_L3C_LOCK_CTRL_UNLOCK_DONE		BIT(3)
++
++#define HISI_L3C_LOCK_MIN_SIZE		(1 * 1024 * 1024)
++#define HISI_L3_CACHE_LINE_SIZE		64
++
++/* Allow maximum 70% of cache locked. */
++#define HISI_L3C_MAX_LOCK_SIZE(size)	((size) / 10 * 7)
++
++#define l3c_lock_reg_offset(reg, set)	((reg) + 16 * (set))
++
+ #define to_hisi_l3c(p) container_of((p), struct hisi_l3c, comp)
+ 
+ /**
+@@ -85,8 +115,280 @@ struct hisi_soc_comp_list {
+ 	spinlock_t lock;
+ };
+ 
++struct hisi_l3c {
++	struct hisi_soc_comp comp;
++	cpumask_t associated_cpus;
++
++	/* Stores the first address locked by each register sets. */
++	struct xarray lock_sets;
++	/* Locks lock_sets to forbid overlapping access. */
++	spinlock_t reg_lock;
++
++	struct hlist_node node;
++	void __iomem *base;
++
++	/* ID of Super CPU cluster on where the L3 cache locates. */
++	int sccl_id;
++	/* ID of CPU cluster where L3 cache is located. */
++	int ccl_id;
++};
++
++static int hisi_l3c_cpuhp_state;
++
+ static struct hisi_soc_comp_list l3c_devs;
+ 
++/**
++ * hisi_l3c_alloc_lock_reg_set - Allocate an available control register set
++ *				     of L3 cache for lock & unlock operations.
++ * @l3c:	The L3C instance on which the register set will be allocated.
++ * @addr:	The address to be locked.
++ * @size:	The size to be locked.
++ *
++ * @return:
++ *   - -EBUSY: If there is no available register sets.
++ *   - -ENOMEM: If there is no available memory for lock region struct.
++ *   - -EINVAL: If there is no available cache size for lock.
++ *   - 0: If allocation succeeds.
++ *
++ * Maintains the resource of control registers of L3 cache.  On allocation,
++ * the index of a spare set of registers is returned, then the address is
++ * stored inside for future match of unlock operation.
++ */
++static int hisi_l3c_alloc_lock_reg_set(struct hisi_l3c *l3c, phys_addr_t addr, size_t size)
++{
++	struct hisi_l3c_lock_info *info = l3c->comp.private;
++	struct hisi_l3c_lock_region *lr;
++	void *entry;
++	int idx, ret;
++
++	if (size > info->lock_size)
++		return -EINVAL;
++
++	for (idx = 0; idx < info->lock_region_num; ++idx) {
++		entry = xa_load(&l3c->lock_sets, idx);
++		if (!entry)
++			break;
++	}
++
++	if (idx > info->lock_region_num)
++		return -EBUSY;
++
++	lr = kzalloc(sizeof(*lr), GFP_KERNEL);
++	if (!lr)
++		return -ENOMEM;
++
++	lr->addr = addr;
++	lr->size = size;
++
++	ret = xa_alloc(&l3c->lock_sets, &idx, lr, xa_limit_31b, GFP_KERNEL);
++	if (ret) {
++		kfree(lr);
++		return ret;
++	}
++
++	info->lock_size -= size;
++	info->lock_region_num -= 1;
++
++	return idx;
++}
++
++/**
++ * hisi_l3c_get_locked_reg_set - Get the index of an allocated register set
++ *				     by locked address.
++ * @l3c:	The L3C instance on which the register set is allocated.
++ * @addr:	The locked address.
++ *
++ * @return:
++ *   - >= 0: index of register set which controls locked memory region of @addr.
++ *   - -EINVAL: If @addr is not locked in this cache.
++ */
++static int hisi_l3c_get_locked_reg_set(struct hisi_l3c *l3c, phys_addr_t addr)
++{
++	struct hisi_l3c_lock_region *entry;
++	unsigned long idx;
++
++	xa_for_each(&l3c->lock_sets, idx, entry) {
++		if (entry->addr == addr)
++			return idx;
++	}
++	return -EINVAL;
++}
++
++/**
++ * hisi_l3c_free_lock_reg_set - Free an allocated register set by locked
++ *				    address.
++ *
++ * @l3c:	The L3C instance on which the register set is allocated.
++ * @regset:	ID of Register set to be freed.
++ */
++static void hisi_l3c_free_lock_reg_set(struct hisi_l3c *l3c, int regset)
++{
++	struct hisi_l3c_lock_info *info = l3c->comp.private;
++	struct hisi_l3c_lock_region *entry;
++
++	if (regset < 0)
++		return;
++
++	entry = xa_erase(&l3c->lock_sets, regset);
++	if (!entry)
++		return;
++
++	info->lock_size += entry->size;
++	info->lock_region_num += 1;
++	kfree(entry);
++}
++
++static bool hisi_l3c_lock_wait_finished(struct hisi_l3c *l3c, int regset)
++{
++	void *reg = l3c->base + l3c_lock_reg_offset(HISI_L3C_LOCK_CTRL, regset);
++	/* Wait until neither lock or unlock operation is going on. */
++	u32 mask = HISI_L3C_LOCK_CTRL_LOCK_DONE | HISI_L3C_LOCK_CTRL_UNLOCK_DONE;
++	u32 val;
++
++	/*
++	 * Lock/unlock done bits are initially 0 if no lock operation was ever
++	 * issued, and will be set until next operation comes.
++	 * Check if this is the first lock operation after boot by checking if
++	 * the register is 0. If so, proceed with the operation.
++	 */
++	val = readl(reg);
++	if (!val)
++		return true;
++
++	return !readl_poll_timeout_atomic(reg, val, val & mask,
++			HISI_L3C_LOCK_CTRL_POLL_GAP_US,
++			HISI_L3C_LOCK_CTRL_POLL_MAX_US);
++}
++
++static int hisi_l3c_do_lock(struct hisi_soc_comp *comp, phys_addr_t addr, size_t size)
++{
++	struct hisi_l3c *l3c = to_hisi_l3c(comp);
++	struct hisi_l3c_lock_info *info = l3c->comp.private;
++	void *base = l3c->base;
++	int regset;
++	u32 ctrl;
++
++	if (info->address_alignment && addr % size != 0)
++		return -EINVAL;
++
++	if (size < info->min_lock_size || size > info->max_lock_size)
++		return -EINVAL;
++
++	guard(spinlock)(&l3c->reg_lock);
++
++	regset = hisi_l3c_alloc_lock_reg_set(l3c, addr, size);
++	if (regset < 0)
++		return -EBUSY;
++
++	if (!hisi_l3c_lock_wait_finished(l3c, regset)) {
++		hisi_l3c_free_lock_reg_set(l3c, regset);
++		return -EBUSY;
++	}
++
++	writel(lower_32_bits(addr),
++	       base + l3c_lock_reg_offset(HISI_L3C_LOCK_START_L, regset));
++	writel(upper_32_bits(addr),
++	       base + l3c_lock_reg_offset(HISI_L3C_LOCK_START_H, regset));
++	writel(size, base + l3c_lock_reg_offset(HISI_L3C_LOCK_AREA, regset));
++
++	ctrl = readl(base + HISI_L3C_DYNAMIC_AUCTRL);
++	ctrl |= BIT(regset);
++	writel(ctrl, base + HISI_L3C_DYNAMIC_AUCTRL);
++
++	ctrl = readl(base + l3c_lock_reg_offset(HISI_L3C_LOCK_CTRL, regset));
++	ctrl = (ctrl | HISI_L3C_LOCK_CTRL_LOCK_EN) &
++		~HISI_L3C_LOCK_CTRL_UNLOCK_EN;
++	writel(ctrl, base + l3c_lock_reg_offset(HISI_L3C_LOCK_CTRL, regset));
++
++	return 0;
++}
++
++static int hisi_l3c_poll_lock_done(struct hisi_soc_comp *comp, phys_addr_t addr, size_t size)
++{
++	struct hisi_l3c *l3c = to_hisi_l3c(comp);
++	int regset;
++
++	guard(spinlock)(&l3c->reg_lock);
++
++	regset = hisi_l3c_get_locked_reg_set(l3c, addr);
++	if (regset < 0)
++		return -EINVAL;
++
++	if (!hisi_l3c_lock_wait_finished(l3c, regset))
++		return -ETIMEDOUT;
++
++	return 0;
++}
++
++static int hisi_l3c_do_unlock(struct hisi_soc_comp *comp, phys_addr_t addr)
++{
++	struct hisi_l3c *l3c = to_hisi_l3c(comp);
++	void *base = l3c->base;
++	int regset;
++	u32 ctrl;
++
++	guard(spinlock)(&l3c->reg_lock);
++
++	regset = hisi_l3c_get_locked_reg_set(l3c, addr);
++	if (regset < 0)
++		return -EINVAL;
++
++	if (!hisi_l3c_lock_wait_finished(l3c, regset))
++		return -EBUSY;
++
++	ctrl = readl(base + HISI_L3C_DYNAMIC_AUCTRL);
++	ctrl &= ~BIT(regset);
++	writel(ctrl, base + HISI_L3C_DYNAMIC_AUCTRL);
++
++	ctrl = readl(base + l3c_lock_reg_offset(HISI_L3C_LOCK_CTRL, regset));
++	ctrl = (ctrl | HISI_L3C_LOCK_CTRL_UNLOCK_EN) &
++		~HISI_L3C_LOCK_CTRL_LOCK_EN;
++	writel(ctrl, base + l3c_lock_reg_offset(HISI_L3C_LOCK_CTRL, regset));
++
++	return 0;
++}
++
++static int hisi_l3c_poll_unlock_done(struct hisi_soc_comp *comp, phys_addr_t addr)
++{
++	struct hisi_l3c *l3c = to_hisi_l3c(comp);
++	int regset;
++
++	guard(spinlock)(&l3c->reg_lock);
++
++	regset = hisi_l3c_get_locked_reg_set(l3c, addr);
++	if (regset < 0)
++		return -EINVAL;
++
++	if (!hisi_l3c_lock_wait_finished(l3c, regset))
++		return -ETIMEDOUT;
++
++	hisi_l3c_free_lock_reg_set(l3c, regset);
++
++	return 0;
++}
++
++static void hisi_l3c_remove_locks(struct hisi_l3c *l3c)
++{
++	void *base = l3c->base;
++	unsigned long regset;
++	void *entry;
++
++	guard(spinlock)(&l3c->reg_lock);
++
++	xa_for_each(&l3c->lock_sets, regset, entry) {
++		int timeout;
++		u32 ctrl;
++
++		ctrl = readl(base + l3c_lock_reg_offset(HISI_L3C_LOCK_CTRL, regset));
++		ctrl = (ctrl | HISI_L3C_LOCK_CTRL_UNLOCK_EN) & ~HISI_L3C_LOCK_CTRL_LOCK_EN;
++		writel(ctrl, base + l3c_lock_reg_offset(HISI_L3C_LOCK_CTRL, regset));
++
++		timeout = hisi_l3c_lock_wait_finished(l3c, regset);
++		if (timeout)
++			pr_err("failed to remove %lu-th cache lock.\n", regset);
++	}
++}
++
+ static int hisi_l3c_lock(int cpu, phys_addr_t addr, size_t size)
+ {
+ 	struct hisi_soc_comp *comp;
+@@ -315,6 +617,196 @@ static int hisi_l3c_lock_restriction(unsigned long arg)
+ 	return -ENODEV;
+ }
+ 
++static int hisi_l3c_init_lock_capacity(struct hisi_l3c *l3c, struct device *dev)
++{
++	int ret;
++	u32 val;
++
++	struct hisi_l3c_lock_info *info __free(kfree) = kmalloc(sizeof(*info), GFP_KERNEL);
++	if (!info)
++		return -ENOMEM;
++
++	ret = device_property_read_u32(dev, "hisilicon,l3c-lockregion-num", &val);
++	if (ret || val <= 0)
++		return -EINVAL;
++
++	info->lock_region_num = val;
++
++	ret = device_property_read_u32(dev, "hisilicon,l3c-max-single-lockregion-size", &val);
++	if (ret || val <= 0)
++		return -EINVAL;
++
++	info->lock_size = HISI_L3C_MAX_LOCK_SIZE(val);
++	info->address_alignment = info->lock_region_num == 1;
++	info->max_lock_size = HISI_L3C_MAX_LOCK_SIZE(val);
++	info->min_lock_size = info->lock_region_num == 1
++					? HISI_L3C_LOCK_MIN_SIZE
++					: HISI_L3_CACHE_LINE_SIZE;
++
++	l3c->comp.private = no_free_ptr(info);
++
++	return 0;
++}
++
++static int hisi_l3c_init_topology(struct hisi_l3c *l3c, struct device *dev)
++{
++	l3c->sccl_id = -1;
++	l3c->ccl_id = -1;
++
++	if (device_property_read_u32(dev, "hisilicon,scl-id", &l3c->sccl_id) ||
++	    l3c->sccl_id < 0)
++		return -EINVAL;
++
++	if (device_property_read_u32(dev, "hisilicon,ccl-id", &l3c->ccl_id) ||
++	    l3c->ccl_id < 0)
++		return -EINVAL;
++
++	return 0;
++}
++
++static void hisi_init_associated_cpus(struct hisi_l3c *l3c)
++{
++	if (!cpumask_empty(&l3c->associated_cpus))
++		return;
++	cpumask_clear(&l3c->associated_cpus);
++	cpumask_copy(&l3c->comp.affinity_mask, &l3c->associated_cpus);
++}
++
++static struct hisi_soc_comp_ops hisi_comp_ops = {
++	.do_lock = hisi_l3c_do_lock,
++	.poll_lock_done = hisi_l3c_poll_lock_done,
++	.do_unlock = hisi_l3c_do_unlock,
++	.poll_unlock_done = hisi_l3c_poll_unlock_done,
++};
++
++static struct hisi_soc_comp hisi_comp = {
++	.ops = &hisi_comp_ops,
++};
++
++static int hisi_l3c_probe(struct platform_device *pdev)
++{
++	struct hisi_l3c *l3c;
++	struct resource *mem;
++	int ret;
++
++	l3c = devm_kzalloc(&pdev->dev, sizeof(*l3c), GFP_KERNEL);
++	if (!l3c)
++		return -ENOMEM;
++
++	platform_set_drvdata(pdev, l3c);
++
++	mem = platform_get_resource(pdev, IORESOURCE_MEM, 0);
++	if (!mem)
++		return -ENODEV;
++
++	l3c->base = devm_ioremap(&pdev->dev, mem->start, resource_size(mem));
++	if (IS_ERR_OR_NULL(l3c->base))
++		return PTR_ERR(l3c->base);
++
++	l3c->comp = hisi_comp;
++	spin_lock_init(&l3c->reg_lock);
++	xa_init_flags(&l3c->lock_sets, XA_FLAGS_ALLOC);
++
++	ret = hisi_l3c_init_lock_capacity(l3c, &pdev->dev);
++	if (ret)
++		goto err_xa;
++
++	hisi_init_associated_cpus(l3c);
++
++	ret = hisi_l3c_init_topology(l3c, &pdev->dev);
++	if (ret)
++		goto err_xa;
++
++	ret = cpuhp_state_add_instance(hisi_l3c_cpuhp_state, &l3c->node);
++	if (ret)
++		goto err_xa;
++
++	hisi_soc_comp_add(&l3c->comp);
++
++	return 0;
++
++err_xa:
++	xa_destroy(&l3c->lock_sets);
++	return ret;
++}
++
++static void hisi_l3c_remove(struct platform_device *pdev)
++{
++	struct hisi_l3c *l3c = platform_get_drvdata(pdev);
++	unsigned long idx;
++	struct hisi_l3c_lock_region *entry;
++
++	hisi_l3c_remove_locks(l3c);
++
++	hisi_soc_comp_del(&l3c->comp);
++
++	cpuhp_state_remove_instance_nocalls(hisi_l3c_cpuhp_state, &l3c->node);
++
++	xa_for_each(&l3c->lock_sets, idx, entry)
++		entry = xa_erase(&l3c->lock_sets, idx);
++
++	xa_destroy(&l3c->lock_sets);
++}
++
++static void hisi_read_sccl_and_ccl_id(int *scclp, int *cclp)
++{
++	u64 mpidr = read_cpuid_mpidr();
++	int aff3 = MPIDR_AFFINITY_LEVEL(mpidr, 3);
++	int aff2 = MPIDR_AFFINITY_LEVEL(mpidr, 2);
++	int aff1 = MPIDR_AFFINITY_LEVEL(mpidr, 1);
++	int sccl, ccl;
++
++	if (mpidr & MPIDR_MT_BITMASK) {
++		sccl = aff3;
++		ccl = aff2;
++	} else {
++		sccl = aff2;
++		ccl = aff1;
++	}
++
++	*scclp = sccl;
++	*cclp = ccl;
++}
++
++static bool hisi_l3c_is_associated(struct hisi_l3c *l3c)
++{
++	int sccl_id, ccl_id;
++
++	hisi_read_sccl_and_ccl_id(&sccl_id, &ccl_id);
++
++	return sccl_id == l3c->sccl_id && ccl_id == l3c->ccl_id;
++}
++
++static int hisi_l3c_online_cpu(unsigned int cpu, struct hlist_node *node)
++{
++	struct hisi_l3c *l3c = hlist_entry_safe(node, struct hisi_l3c, node);
++
++	if (!cpumask_test_cpu(cpu, &l3c->associated_cpus)) {
++		if (!(hisi_l3c_is_associated(l3c)))
++			return 0;
++
++		cpumask_set_cpu(cpu, &l3c->associated_cpus);
++		cpumask_copy(&l3c->comp.affinity_mask,
++			     &l3c->associated_cpus);
++	}
++	return 0;
++}
++
++static const struct acpi_device_id hisi_l3c_acpi_match[] = {
++	{ "HISI0501", },
++	{ }
++};
++MODULE_DEVICE_TABLE(acpi, hisi_l3c_acpi_match);
++
++static struct platform_driver hisi_l3c_driver = {
++	.driver = {
++		.name = "hisi_l3c",
++		.acpi_match_table = hisi_l3c_acpi_match,
++	},
++	.probe = hisi_l3c_probe,
++	.remove = hisi_l3c_remove,
++};
++
+ static long hisi_l3c_ioctl(struct file *file, u32 cmd, unsigned long arg)
+ {
+ 	switch (cmd) {
+@@ -340,15 +832,41 @@ static struct miscdevice l3c_miscdev = {
+ 
+ static int __init hisi_l3c_init(void)
+ {
++	int ret;
++
+ 	spin_lock_init(&l3c_devs.lock);
+ 	INIT_LIST_HEAD(&l3c_devs.node);
+ 
+-	return misc_register(&l3c_miscdev);
++	ret = misc_register(&l3c_miscdev);
++	if (ret)
++		return ret;
++
++	ret = cpuhp_setup_state_multi(CPUHP_AP_ONLINE_DYN, "hisi_l3c",
++				      hisi_l3c_online_cpu, NULL);
++	if (ret < 0)
++		goto err_hp;
++
++	hisi_l3c_cpuhp_state = ret;
++
++	ret = platform_driver_register(&hisi_l3c_driver);
++	if (ret)
++		goto err_plat;
++
++	return 0;
++
++err_plat:
++	cpuhp_remove_multi_state(CPUHP_AP_ONLINE_DYN);
++err_hp:
++	misc_deregister(&l3c_miscdev);
++
++	return ret;
+ }
+ module_init(hisi_l3c_init);
+ 
+ static void __exit hisi_l3c_exit(void)
+ {
++	platform_driver_unregister(&hisi_l3c_driver);
++	cpuhp_remove_multi_state(CPUHP_AP_ONLINE_DYN);
+ 	misc_deregister(&l3c_miscdev);
+ 	hisi_soc_comp_del(NULL);
+ }
+-- 
+2.33.0
 
-I am not quite sure either.
-But commit b58f0f86fd61 was merged in v6.15-rc2. So the stable version to be fixed
-will be v6.18, right? Then commit 45fe729be9a6 will be included already. If so,
-I think only 1 patch will be enough.
-
-Thanks,
-Xu Yang
-
-> 
-> Francesco
-> 
 
