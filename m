@@ -4,52 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5796CCFD377
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 10:27:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44EC4CFD37F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 10:28:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=6vak7hUnY/mgENvQk9VnnCYTDjzSaDicqFjgbOl/hZ0=; b=3xapcrbymt0Qk+YocHke6EscSK
-	JHzm41e2ojJkm3ZBQzbhif6xfO9/3Q2bbXbLG2Y4bVcEqAfjlYoosu0qGE6DkFIZsgGnHh0rDDseS
-	2KjXWd7hNCat2i1MNV8ok+u5tHU0wo75OmU9rZ56/hf367KLb0+l/C22ggodMkLWoB+wtYIQ4p6TJ
-	nkRbNLcpmwKQKzuUe6TvLny652bDqZgffSOfIi+Mqn9CotUgoX7LbcqXZQBxr+q8X6jdbc9xMUGGL
-	LGvVa7wQYZtEmSEUp0hevRAY3FeDICBAm4lgSew7btFaM7xKq5fEq07LG8z57OjeWgrKW5Aop8C4T
-	DY3UR6Qg==;
+	bh=IzRQtNLFnAtgDgIyCbc0mfMGNY8QoBwvC0IxPzIvUtc=; b=h9zUcHsCW/BXxBptD5n/wtvZUi
+	BaGAcn43j1HQJ0rYX/R2apmEOlze8w0Ye4nfA8p1Lf+X5kr6LXN5fADTJEp0kXJy1Bfr5cavJjGUb
+	sV9VgvQ1TMOsMErod13J/YjMW/PrX8LcdzOBIfYn/mBHrTcAKC1eE+ZHcBs6YUIich+5xB0/vc6in
+	hLl4VsgV2PJj+bCs9O80JxjqjC0dyUDyDCiQ2jMpryOm2y9NpYwxUIpn4TDE38BjQLFq2MRO+3F/r
+	jH2kfrLKBtEyT7aFWpJAj8ifRvFo7Bs11QtH8cPHSkSlX4/6SuHXwr47vHuRiiwSryJAOzEu/wroE
+	IbDQ7XzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNqGz-0000000D7uM-3aXt;
-	Tue, 25 Nov 2025 10:27:49 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNqGx-0000000D7tt-1TZU
+	id 1vNqH6-0000000D7vk-0YUh;
+	Tue, 25 Nov 2025 10:27:56 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vNqH4-0000000D7vO-1kiR
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Nov 2025 10:27:48 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0A38114BF;
-	Tue, 25 Nov 2025 02:27:38 -0800 (PST)
-Received: from e134344.cambridge.arm.com (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 75C643F86F;
-	Tue, 25 Nov 2025 02:27:44 -0800 (PST)
-From: Ben Horgan <ben.horgan@arm.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: catalin.marinas@arm.com,
-	will@kernel.org,
-	maz@kernel.org,
-	oliver.upton@linux.dev,
-	Ben Horgan <ben.horgan@arm.com>
-Subject: [PATCH v1] arm64/sysreg: Remove unused define ARM64_FEATURE_FIELD_BITS
-Date: Tue, 25 Nov 2025 10:27:32 +0000
-Message-ID: <20251125102732.1494863-1-ben.horgan@arm.com>
-X-Mailer: git-send-email 2.43.0
+	Tue, 25 Nov 2025 10:27:54 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id C53026018E;
+	Tue, 25 Nov 2025 10:27:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 74ADDC4CEF1;
+	Tue, 25 Nov 2025 10:27:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1764066473;
+	bh=hOlaNf5irREQeC5hqJ1JIn+4xJWmxsP/XfB0B/la+Qc=;
+	h=From:To:Cc:Subject:Date:From;
+	b=sygUi4OsPVIJo5N7R7GGXVq4YmxJCqdw4HGtyXMEfO1elbS7w294nfId/WFoZpzKx
+	 0s2BlgwcGlrnLQnBm2XdKMEfbsGpqYdMwvUjECwIJivjifd4zoXsIgfRX7LmWhsnSS
+	 u7Wi4R4l2VFuoYmd42zP6y1DDvp1juvwoHED1cBKTZ1NzV2CSp+99zEtA4vDH++xKR
+	 nGKlMIiNXlnucDTupcKP0/+yZw2gcYJf67wQ+1+jJI7sh60/PvnDv3MRCUjaOiCgn2
+	 BAq0K0mC1KygoWIaqYxCzN1ZZKYFpSFYSt918dV5EubdzHUXVd+tDm1vQIWiEaK8us
+	 wmYsamamDTdxQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vNqH0-000000087dw-48ay;
+	Tue, 25 Nov 2025 10:27:51 +0000
+From: Marc Zyngier <maz@kernel.org>
+To: linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: Radu Rendec <rrendec@redhat.com>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>
+Subject: [PATCH v2] PCI: host-generic: Move bridge allocation outside of pci_host_common_init()
+Date: Tue, 25 Nov 2025 10:27:26 +0000
+Message-ID: <20251125102726.865617-1-maz@kernel.org>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251125_022747_435696_10BECED2 
-X-CRM114-Status: UNSURE (   9.53  )
-X-CRM114-Notice: Please train this message.
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, rrendec@redhat.com, bhelgaas@google.com, mani@kernel.org, robh@kernel.org, kwilczynski@kernel.org, lpieralisi@kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,36 +83,186 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The define ARM64_FEATURE_FIELD_BITS is now unused and feature id
-fields don't always have 4 bits. Remove it.
+Having the host bridge allocation inside pci_host_common_init() results
+in a lot of complexity in the pcie-apple driver (the only direct user
+of this function outside of core PCI code).
 
-Signed-off-by: Ben Horgan <ben.horgan@arm.com>
+It forces the allocation of driver-specific tracking structures outside
+of the bridge allocation, which in turn requires it to use inefficient
+data structures to match the bridge and the private structure as needed.
+
+Instead, let the bridge structure be passed to pci_host_common_init(),
+allowing the driver to allocate it together with the private data,
+as it is usually intended. The driver can then retrieve the bridge
+via the owning device attached to the PCI config window structure.
+This allows the pcie-apple driver to be significantly simplified.
+
+Both core and driver code are changed in one go to avoid going via
+a transitional interface.
+
+Reviewed-by: Radu Rendec <rrendec@redhat.com>
+Link: https://lore.kernel.org/r/86jyzms036.wl-maz@kernel.org
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+Cc: Bjorn Helgaas <bhelgaas@google.com>
+Cc: Manivannan Sadhasivam <mani@kernel.org>
+Cc: Rob Herring <robh@kernel.org>
+Cc: Krzysztof Wilczyński <kwilczynski@kernel.org>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>
 ---
-It is still used in tools/testing/selftests/kvm/arm64/set_id_regs.c
-but this uses the define in tools/arch/arm64/include/asm/sysreg.h.
-I have submitted a separate patch to remove it from these as well:
 
-https://lore.kernel.org/kvmarm/20251125101207.1492580-2-ben.horgan@arm.com/
+Notes:
+    - Removed unused list_head from apple_pcie structure
+    - Fixed numerous typos
+    - Added Radu's RB
 
-Based on Linux 6.18-rc4
----
- arch/arm64/include/asm/sysreg.h | 2 --
- 1 file changed, 2 deletions(-)
+ drivers/pci/controller/pci-host-common.c | 13 +++----
+ drivers/pci/controller/pci-host-common.h |  1 +
+ drivers/pci/controller/pcie-apple.c      | 43 ++++--------------------
+ 3 files changed, 14 insertions(+), 43 deletions(-)
 
-diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/sysreg.h
-index c231d2a3e515..1f3303d09a27 100644
---- a/arch/arm64/include/asm/sysreg.h
-+++ b/arch/arm64/include/asm/sysreg.h
-@@ -1129,8 +1129,6 @@
- #define gicr_insn(insn)			read_sysreg_s(GICV5_OP_GICR_##insn)
- #define gic_insn(v, insn)		write_sysreg_s(v, GICV5_OP_GIC_##insn)
+diff --git a/drivers/pci/controller/pci-host-common.c b/drivers/pci/controller/pci-host-common.c
+index 810d1c8de24e9..c473e7c03baca 100644
+--- a/drivers/pci/controller/pci-host-common.c
++++ b/drivers/pci/controller/pci-host-common.c
+@@ -53,16 +53,12 @@ struct pci_config_window *pci_host_common_ecam_create(struct device *dev,
+ EXPORT_SYMBOL_GPL(pci_host_common_ecam_create);
  
--#define ARM64_FEATURE_FIELD_BITS	4
+ int pci_host_common_init(struct platform_device *pdev,
++			 struct pci_host_bridge *bridge,
+ 			 const struct pci_ecam_ops *ops)
+ {
+ 	struct device *dev = &pdev->dev;
+-	struct pci_host_bridge *bridge;
+ 	struct pci_config_window *cfg;
+ 
+-	bridge = devm_pci_alloc_host_bridge(dev, 0);
+-	if (!bridge)
+-		return -ENOMEM;
 -
- #ifdef __ASSEMBLY__
+ 	of_pci_check_probe_only();
  
- 	.macro	mrs_s, rt, sreg
+ 	platform_set_drvdata(pdev, bridge);
+@@ -85,12 +81,17 @@ EXPORT_SYMBOL_GPL(pci_host_common_init);
+ int pci_host_common_probe(struct platform_device *pdev)
+ {
+ 	const struct pci_ecam_ops *ops;
++	struct pci_host_bridge *bridge;
+ 
+ 	ops = of_device_get_match_data(&pdev->dev);
+ 	if (!ops)
+ 		return -ENODEV;
+ 
+-	return pci_host_common_init(pdev, ops);
++	bridge = devm_pci_alloc_host_bridge(&pdev->dev, 0);
++	if (!bridge)
++		return -ENOMEM;
++
++	return pci_host_common_init(pdev, bridge, ops);
+ }
+ EXPORT_SYMBOL_GPL(pci_host_common_probe);
+ 
+diff --git a/drivers/pci/controller/pci-host-common.h b/drivers/pci/controller/pci-host-common.h
+index 51c35ec0cf37d..b5075d4bd7eb3 100644
+--- a/drivers/pci/controller/pci-host-common.h
++++ b/drivers/pci/controller/pci-host-common.h
+@@ -14,6 +14,7 @@ struct pci_ecam_ops;
+ 
+ int pci_host_common_probe(struct platform_device *pdev);
+ int pci_host_common_init(struct platform_device *pdev,
++			 struct pci_host_bridge *bridge,
+ 			 const struct pci_ecam_ops *ops);
+ void pci_host_common_remove(struct platform_device *pdev);
+ 
+diff --git a/drivers/pci/controller/pcie-apple.c b/drivers/pci/controller/pcie-apple.c
+index 0380d300adca6..2d92fc79f6ddf 100644
+--- a/drivers/pci/controller/pcie-apple.c
++++ b/drivers/pci/controller/pcie-apple.c
+@@ -187,7 +187,6 @@ struct apple_pcie {
+ 	const struct hw_info	*hw;
+ 	unsigned long		*bitmap;
+ 	struct list_head	ports;
+-	struct list_head	entry;
+ 	struct completion	event;
+ 	struct irq_fwspec	fwspec;
+ 	u32			nvecs;
+@@ -206,9 +205,6 @@ struct apple_pcie_port {
+ 	int			idx;
+ };
+ 
+-static LIST_HEAD(pcie_list);
+-static DEFINE_MUTEX(pcie_list_lock);
+-
+ static void rmw_set(u32 set, void __iomem *addr)
+ {
+ 	writel_relaxed(readl_relaxed(addr) | set, addr);
+@@ -724,32 +720,9 @@ static int apple_msi_init(struct apple_pcie *pcie)
+ 	return 0;
+ }
+ 
+-static void apple_pcie_register(struct apple_pcie *pcie)
+-{
+-	guard(mutex)(&pcie_list_lock);
+-
+-	list_add_tail(&pcie->entry, &pcie_list);
+-}
+-
+-static void apple_pcie_unregister(struct apple_pcie *pcie)
+-{
+-	guard(mutex)(&pcie_list_lock);
+-
+-	list_del(&pcie->entry);
+-}
+-
+ static struct apple_pcie *apple_pcie_lookup(struct device *dev)
+ {
+-	struct apple_pcie *pcie;
+-
+-	guard(mutex)(&pcie_list_lock);
+-
+-	list_for_each_entry(pcie, &pcie_list, entry) {
+-		if (pcie->dev == dev)
+-			return pcie;
+-	}
+-
+-	return NULL;
++	return pci_host_bridge_priv(dev_get_drvdata(dev));
+ }
+ 
+ static struct apple_pcie_port *apple_pcie_get_port(struct pci_dev *pdev)
+@@ -875,13 +848,15 @@ static const struct pci_ecam_ops apple_pcie_cfg_ecam_ops = {
+ static int apple_pcie_probe(struct platform_device *pdev)
+ {
+ 	struct device *dev = &pdev->dev;
++	struct pci_host_bridge *bridge;
+ 	struct apple_pcie *pcie;
+ 	int ret;
+ 
+-	pcie = devm_kzalloc(dev, sizeof(*pcie), GFP_KERNEL);
+-	if (!pcie)
++	bridge = devm_pci_alloc_host_bridge(dev, sizeof(*pcie));
++	if (!bridge)
+ 		return -ENOMEM;
+ 
++	pcie = pci_host_bridge_priv(bridge);
+ 	pcie->dev = dev;
+ 	pcie->hw = of_device_get_match_data(dev);
+ 	if (!pcie->hw)
+@@ -897,13 +872,7 @@ static int apple_pcie_probe(struct platform_device *pdev)
+ 	if (ret)
+ 		return ret;
+ 
+-	apple_pcie_register(pcie);
+-
+-	ret = pci_host_common_init(pdev, &apple_pcie_cfg_ecam_ops);
+-	if (ret)
+-		apple_pcie_unregister(pcie);
+-
+-	return ret;
++	return pci_host_common_init(pdev, bridge, &apple_pcie_cfg_ecam_ops);
+ }
+ 
+ static const struct of_device_id apple_pcie_of_match[] = {
 -- 
-2.43.0
+2.47.3
 
 
