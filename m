@@ -4,138 +4,151 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01E0CD0E6E2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 13:40:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3623CD0E6E3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 13:43:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
-	From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=t9k46YKiR0yToOqPC8tJLWldUv3bkY2Nm4TLf+L1CEI=; b=crDMLPoKvKc9LvEWTasx2P7qOK
-	+n0GsHrt+SkxPeZgxk0sYDJX7VhfEGCBeTR8G0zeoDNDrHS1vmE/nnWHu1FqhC2o09dLvcYeQUqo4
-	xKhKf9wqEkxjuRx+uQKF4sTH/+ZC0EQYr/uV6j4T5P1FH4HpVK249a43aJp12gDUfEAM6LM1xnk3X
-	kuZy4aMmyHpRkdoL9Zls6vS7g6/UUouWKZfj9PUmOlv5qBTqQCk89Y4JfKabXui31FEhg26SgzLpR
-	qG8C3UswppjkxoAitlfeYPff+q07ImVG4HKh2CLoycU975x0SGp3i59ze2RdYSwDHZufpNHQgw1rJ
-	+7NFIFYw==;
+	bh=r0vSyDN+vQ0yQvtbuSEDVpGFWiXCxou95SUvGwT/2bE=; b=dmiVm0FtU5TYPUvAYBU2a3Q8Uw
+	V+CbuWCZ11QveD3DJ1+S4bfDhmkHZgaUuTe8xlDBUQmSXAdmbUaVn8nTij0U6zvg88ko58uAN65Cy
+	CRZj8wpcYwqk+i/7Ev9b0OJMyidZVmksEptSnvHNFgaktFNa7zM8qszdBhaGUtv8TDtWwxRbn3jqc
+	eSbXjpWfCymdxrG8MqFC9lgwaBiU8CMXhzCu+Mp/Iw3Ldgo6PKRLe+AYK0GY/CfdPo/GiluJGbQef
+	w3d7z/hiS7LD5AWmmdV2sGymZl2ydOXZL3qDWVo1myRVVWiq0ib3KxGvov8iMN7iVqb5jYg//E4FI
+	nAYcRcWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNtH1-0000000DMYv-0oZl;
-	Tue, 25 Nov 2025 13:40:03 +0000
-Received: from mail-ed1-x530.google.com ([2a00:1450:4864:20::530])
+	id 1vNtKO-0000000DMkl-3Pk4;
+	Tue, 25 Nov 2025 13:43:32 +0000
+Received: from mail-westus3azlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c107::3] helo=PH0PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNtGy-0000000DMYE-1MVr
+	id 1vNtKM-0000000DMkE-1ZEU
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Nov 2025 13:40:01 +0000
-Received: by mail-ed1-x530.google.com with SMTP id 4fb4d7f45d1cf-640a503fbe8so9771685a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Nov 2025 05:39:59 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1764077998; x=1764682798; darn=lists.infradead.org;
-        h=in-reply-to:autocrypt:from:content-language:references:cc:to
-         :subject:user-agent:mime-version:date:message-id:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=t9k46YKiR0yToOqPC8tJLWldUv3bkY2Nm4TLf+L1CEI=;
-        b=O7bSqjUM+qDOy9nay8f42uuZCMrh4LSrdBB+4VArpYMXV1dB3FgUE6dJWarB7foVvq
-         ShLctso9n6OcLe3c4sGfyy5AV6Vafz4r0RGjkJPdJN1SJZeUjEeqw9NhzgKGqBytnTke
-         NcQSMl2pT5nuuY09H0NqBhglvWHMfvhbG+sgs7Aj7sIgqg7TH0Eioc52nasCg6+onZO6
-         VxYn/5fRzp8GGE9iqTdWJQUSMESxMYZ9S2cTURirrqEVxKyLvTw+/KOS2f3pdKKV6S97
-         laRdGmxGaWo2hr0AzzeZdGGcd7AY9tB7WdFrbXS3YlJfRw1B2vpPUtZvdJ4LkZX4yxQP
-         YOng==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764077998; x=1764682798;
-        h=in-reply-to:autocrypt:from:content-language:references:cc:to
-         :subject:user-agent:mime-version:date:message-id:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=t9k46YKiR0yToOqPC8tJLWldUv3bkY2Nm4TLf+L1CEI=;
-        b=VlFdoInRn0ck3DkRgErmCnEPguurCVGyKQ4x+eANwbSoz2cCjXgVvgBUx7+r2lVzUW
-         Lt5kKfAWS2igiwxbuceZ/vSCaF+OVkdttUaXEYxSpmGn4Y0UNWZ/Hn/LpdQ/IM5hEke/
-         0G27L+q7nor1eab9LSbUtxfz0CLXzz0nWpnlxogLK3V5/YH3AMN/QHzrLz6tEQyvxC2P
-         NEZFbOgkuO3sseCQ418+8/eKvSpI3gxun/hAxA0msPDmmVgMjCXkHgj1qgFyQfZSHRIc
-         kSBS6IRcPQcQoRjz9Y1UnUoSz5qbw2FknH3MJNbMmHdgy3DW/ucy4XnKIK8OsygZnajo
-         KpYw==
-X-Forwarded-Encrypted: i=1; AJvYcCWyMP5TlNfO3tUGlrtRwXf1zue/IDA9dn5Lb7+8OMxDCzAsJ2XQod7E8Gp13bjggXqLRFRGIIMN3CsI+CP56NzO@lists.infradead.org
-X-Gm-Message-State: AOJu0YwGn8NMPZWgVI8PdiEEu24Sn7PPwMJg29JUwIow3+nE3kjPAY0G
-	Sp8LzbIM4W0SAp3snmCsBET5hWL3p+9Ko6Rm5sd7T957vTaA03b7YMNEJ16zOxiP2hk=
-X-Gm-Gg: ASbGncvJttSUjXA+pkEugkAXU1HwNyz+uZAd6Fbx2v9YKEYolNsqAL7qsAsVciMovL7
-	nEW6nEIY0IKs7jlUyuC4ulysMuIGk+CPccufa+u4n+5S7oaDzaAy8fC2kkK/bMY6rDjZPWYM0i4
-	yu0w2YvD8wBJyX3p2CJlgPgGo0Pfy9pA5MzZgLmiQppmjo3eENvbB3qUE0E9BsFTx1FPceOmpLs
-	7J8AXJL0aTfcXcFhYns8S6+CdNnGWqJ1xVYdJPj+Vw9TrhB/h0lURteeoD6JQ8nYD5rSs33mm1u
-	T73yGtA/B3Uqbu+Uj/WvwkVyqg4QrQoBxfsmxF1dLoxAQzrZ/OvqxqnsbUz/e7SlGK6JuRfnG2w
-	UB47gFU06ufgv2Z527kYRvoPEP76oYn0GtoPI9PB3OxbBO0ITOB8JkY3QvjOlgNDQahLVXwR5S9
-	IVi2IRwfHFgFLOmMQIWo5fzZXGufR08+qZOQII6TZ2qjk19knKRZmtTrkvgsQumpTwMv8v+Lrb2
-	f5wMT9Vp+9AJZTMGaS45kYwKobHMsciV9bNZ/A2qefTmUULDg==
-X-Google-Smtp-Source: AGHT+IFEyicFSi+PL/7sV+Rr65T6PnnmK37s9BQnogitw6aYlavVnxgivz8dWx5vdwjWsip7TwnDGQ==
-X-Received: by 2002:a05:6402:1d50:b0:640:cd2a:3cc1 with SMTP id 4fb4d7f45d1cf-645eaf9e5d6mr2598230a12.0.1764077997753;
-        Tue, 25 Nov 2025 05:39:57 -0800 (PST)
-Received: from ?IPV6:2003:e5:871a:de00:dd24:7204:f00a:bf44? (p200300e5871ade00dd247204f00abf44.dip0.t-ipconnect.de. [2003:e5:871a:de00:dd24:7204:f00a:bf44])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-64536443a9csm14940329a12.29.2025.11.25.05.39.56
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 25 Nov 2025 05:39:57 -0800 (PST)
-Message-ID: <263d6867-bf94-40b5-87f8-96b40e797ebe@suse.com>
-Date: Tue, 25 Nov 2025 14:39:56 +0100
+	Tue, 25 Nov 2025 13:43:31 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=t/67d3wIOkdo5zNeGUur1xoXzurLet2Fpj9CNA3+8D04a1Z52fZwvqdJjtKA3iccik/uu5crsVr/qaPU+KqETmwO6qiztGsBGEXGaTRMu6RdaEbBQmezRYwTnnicNSHY1rMozrSQyUSbN5x6B/PIouGqvbaLbXBeblyghqb94vrUh4XKegQ0HmYkvj2fFqGDgYdnQe8CGe7+gC+11xkM/vcauTTEWSZ93SkMIQSXeykkN0PTuR/+BkA3YPVP/SDrcjBibNP70sIoHxi2t36nf17uPqtlvxCUBy7c2UFoV3HUFUOwHSBZV2D+c1lAeCst1lbuyqDXUVRuBGsq1bYGBg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=r0vSyDN+vQ0yQvtbuSEDVpGFWiXCxou95SUvGwT/2bE=;
+ b=nVjNFYc8HhIm3i/EaYERUXMrqxIMQvqHHEzlt0QbnJ2ov640wlo2M6sCLPDBLl+2Mv9PjVtKktCFw+pQZHxcxwrg+G284b3PJeTY1FdhbvenZ/wUHDsuIaFsvS0zRgbc/17DaICI0pA2exCIHG952kK2YebW5W9l71k2Xs4M0KUIuXjhZmxRMzIsRJqq0kfwhfTJysguHrbe9rv75oSsInQIXtfO7QL/aeJJRS8135fhT46tXBhw55CMfhHhEqE1dxrewODeoThT/GydaeW6j5qF70EMlypyQNuLgo/6oCcaPLENV5jWw93chppDfbM3cfcL2UBagdlkjGvYKnS65A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=r0vSyDN+vQ0yQvtbuSEDVpGFWiXCxou95SUvGwT/2bE=;
+ b=gAIjmKsCudYk02PM7Stl1abkSbxMEH+ILdLVXDOwQJiqQau0132uEJqwYQlzx7fEBHV6d638cAp3IdtarY10a4wY5S4At+O8rMrSG+Dl4H1UzunssH6Dk2GNMLEBHYkjQLetsl623heXcgTFPAmq+lGJeVkCWzXY6/ZQljcpt+bOiZXxiIqkqaq/QXdTlXbRSjbSMIaYiv9KJMHP0wjFmBMlyrIFiXyiqghAgXdMCy2qOog2xZRTxB7wpRtpsUB/jBsZEjj9mzXq73KBV8yWHH6Qt3kyu/1qHQSVOc/qHZCQnEdhTafhBh5lUnFJzE7DNEEW1+O0zKra455LgkErGw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from MN2PR12MB3613.namprd12.prod.outlook.com (2603:10b6:208:c1::17)
+ by LV2PR12MB6016.namprd12.prod.outlook.com (2603:10b6:408:14e::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9343.17; Tue, 25 Nov
+ 2025 13:43:22 +0000
+Received: from MN2PR12MB3613.namprd12.prod.outlook.com
+ ([fe80::1b3b:64f5:9211:608b]) by MN2PR12MB3613.namprd12.prod.outlook.com
+ ([fe80::1b3b:64f5:9211:608b%4]) with mapi id 15.20.9343.009; Tue, 25 Nov 2025
+ 13:43:22 +0000
+Date: Tue, 25 Nov 2025 09:43:21 -0400
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: Will Deacon <will@kernel.org>, jean-philippe@linaro.org,
+	robin.murphy@arm.com, joro@8bytes.org, balbirs@nvidia.com,
+	miko.lenczewski@arm.com, peterz@infradead.org, kevin.tian@intel.com,
+	praan@google.com, linux-arm-kernel@lists.infradead.org,
+	iommu@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v5 3/7] iommu/arm-smmu-v3: Introduce a per-domain
+ arm_smmu_invs array
+Message-ID: <20251125134321.GQ153257@nvidia.com>
+References: <cover.1762588839.git.nicolinc@nvidia.com>
+ <eea7bffde13574e099212e3b3823a0f192d6aec3.1762588839.git.nicolinc@nvidia.com>
+ <aSTRRyTBh1nATwBa@willie-the-truck>
+ <aSUtL9qxYa6/GCfP@Asurada-Nvidia>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aSUtL9qxYa6/GCfP@Asurada-Nvidia>
+X-ClientProxiedBy: BL6PEPF0001641A.NAMP222.PROD.OUTLOOK.COM
+ (2603:10b6:22e:400:0:1004:0:6) To MN2PR12MB3613.namprd12.prod.outlook.com
+ (2603:10b6:208:c1::17)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 12/12] x86/xen: use lazy_mmu_state when
- context-switching
-To: Kevin Brodsky <kevin.brodsky@arm.com>, linux-mm@kvack.org
-Cc: linux-kernel@vger.kernel.org, Alexander Gordeev <agordeev@linux.ibm.com>,
- Andreas Larsson <andreas@gaisler.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Boris Ostrovsky <boris.ostrovsky@oracle.com>, Borislav Petkov
- <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>,
- Christophe Leroy <christophe.leroy@csgroup.eu>,
- Dave Hansen <dave.hansen@linux.intel.com>,
- David Hildenbrand <david@redhat.com>, "David S. Miller"
- <davem@davemloft.net>, David Woodhouse <dwmw2@infradead.org>,
- "H. Peter Anvin" <hpa@zytor.com>, Ingo Molnar <mingo@redhat.com>,
- Jann Horn <jannh@google.com>, "Liam R. Howlett" <Liam.Howlett@oracle.com>,
- Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
- Madhavan Srinivasan <maddy@linux.ibm.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Michal Hocko <mhocko@suse.com>,
- Mike Rapoport <rppt@kernel.org>, Nicholas Piggin <npiggin@gmail.com>,
- Peter Zijlstra <peterz@infradead.org>,
- "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
- Ryan Roberts <ryan.roberts@arm.com>, Suren Baghdasaryan <surenb@google.com>,
- Thomas Gleixner <tglx@linutronix.de>,
- Venkat Rao Bagalkote <venkat88@linux.ibm.com>,
- Vlastimil Babka <vbabka@suse.cz>, Will Deacon <will@kernel.org>,
- Yeoreum Yun <yeoreum.yun@arm.com>, linux-arm-kernel@lists.infradead.org,
- linuxppc-dev@lists.ozlabs.org, sparclinux@vger.kernel.org,
- xen-devel@lists.xenproject.org, x86@kernel.org
-References: <20251124132228.622678-1-kevin.brodsky@arm.com>
- <20251124132228.622678-13-kevin.brodsky@arm.com>
-Content-Language: en-US
-From: =?UTF-8?B?SsO8cmdlbiBHcm/Dnw==?= <jgross@suse.com>
-Autocrypt: addr=jgross@suse.com; keydata=
- xsBNBFOMcBYBCACgGjqjoGvbEouQZw/ToiBg9W98AlM2QHV+iNHsEs7kxWhKMjrioyspZKOB
- ycWxw3ie3j9uvg9EOB3aN4xiTv4qbnGiTr3oJhkB1gsb6ToJQZ8uxGq2kaV2KL9650I1SJve
- dYm8Of8Zd621lSmoKOwlNClALZNew72NjJLEzTalU1OdT7/i1TXkH09XSSI8mEQ/ouNcMvIJ
- NwQpd369y9bfIhWUiVXEK7MlRgUG6MvIj6Y3Am/BBLUVbDa4+gmzDC9ezlZkTZG2t14zWPvx
- XP3FAp2pkW0xqG7/377qptDmrk42GlSKN4z76ELnLxussxc7I2hx18NUcbP8+uty4bMxABEB
- AAHNH0p1ZXJnZW4gR3Jvc3MgPGpncm9zc0BzdXNlLmNvbT7CwHkEEwECACMFAlOMcK8CGwMH
- CwkIBwMCAQYVCAIJCgsEFgIDAQIeAQIXgAAKCRCw3p3WKL8TL8eZB/9G0juS/kDY9LhEXseh
- mE9U+iA1VsLhgDqVbsOtZ/S14LRFHczNd/Lqkn7souCSoyWsBs3/wO+OjPvxf7m+Ef+sMtr0
- G5lCWEWa9wa0IXx5HRPW/ScL+e4AVUbL7rurYMfwCzco+7TfjhMEOkC+va5gzi1KrErgNRHH
- kg3PhlnRY0Udyqx++UYkAsN4TQuEhNN32MvN0Np3WlBJOgKcuXpIElmMM5f1BBzJSKBkW0Jc
- Wy3h2Wy912vHKpPV/Xv7ZwVJ27v7KcuZcErtptDevAljxJtE7aJG6WiBzm+v9EswyWxwMCIO
- RoVBYuiocc51872tRGywc03xaQydB+9R7BHPzsBNBFOMcBYBCADLMfoA44MwGOB9YT1V4KCy
- vAfd7E0BTfaAurbG+Olacciz3yd09QOmejFZC6AnoykydyvTFLAWYcSCdISMr88COmmCbJzn
- sHAogjexXiif6ANUUlHpjxlHCCcELmZUzomNDnEOTxZFeWMTFF9Rf2k2F0Tl4E5kmsNGgtSa
- aMO0rNZoOEiD/7UfPP3dfh8JCQ1VtUUsQtT1sxos8Eb/HmriJhnaTZ7Hp3jtgTVkV0ybpgFg
- w6WMaRkrBh17mV0z2ajjmabB7SJxcouSkR0hcpNl4oM74d2/VqoW4BxxxOD1FcNCObCELfIS
- auZx+XT6s+CE7Qi/c44ibBMR7hyjdzWbABEBAAHCwF8EGAECAAkFAlOMcBYCGwwACgkQsN6d
- 1ii/Ey9D+Af/WFr3q+bg/8v5tCknCtn92d5lyYTBNt7xgWzDZX8G6/pngzKyWfedArllp0Pn
- fgIXtMNV+3t8Li1Tg843EXkP7+2+CQ98MB8XvvPLYAfW8nNDV85TyVgWlldNcgdv7nn1Sq8g
- HwB2BHdIAkYce3hEoDQXt/mKlgEGsLpzJcnLKimtPXQQy9TxUaLBe9PInPd+Ohix0XOlY+Uk
- QFEx50Ki3rSDl2Zt2tnkNYKUCvTJq7jvOlaPd6d/W0tZqpyy7KVay+K4aMobDsodB3dvEAs6
- ScCnh03dDAFgIq5nsB11j3KPKdVoPlfucX2c7kGNH+LUMbzqV6beIENfNexkOfxHfw==
-In-Reply-To: <20251124132228.622678-13-kevin.brodsky@arm.com>
-Content-Type: multipart/signed; micalg=pgp-sha256;
- protocol="application/pgp-signature";
- boundary="------------aG2Ac2AfdT2tzwl0XdLF1SjN"
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MN2PR12MB3613:EE_|LV2PR12MB6016:EE_
+X-MS-Office365-Filtering-Correlation-Id: 09f648cc-2c11-4f96-01a9-08de2c2899b2
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?nZKBCmfyupBrQAindEWOMWZlp/pu372CxDZEiSpmdlFYx6tiJ3Hmnx+OntfR?=
+ =?us-ascii?Q?VYJEMwGVPguy2iq8TXmMln9QXhE1PVy1IemJGGtiGcF9OMFc2H4hMFjMmUfy?=
+ =?us-ascii?Q?fQRIL2wUDTpRpNrywwwCNp7e/htfcn51T/8P4FkoqT7YWDKK3A0evR2zwFQy?=
+ =?us-ascii?Q?7ZxnscnXiYSou3+fIqzeVPiC1bjc+DgOJEb4zeeN+dmYkJdWGo1iAHCvycGl?=
+ =?us-ascii?Q?sgPDTMTNup8HrJLXEmKAMCpehJ1djvp0xMSt7KrWTKTdOLKKmLMqnORDnoAb?=
+ =?us-ascii?Q?MGETyfEyru8Z2gluZw8jcaMuHLWT6rC4jtXGz8U6Th85/5axkwHpWuu13DlF?=
+ =?us-ascii?Q?mHMV2/pWHHMu6iKTfMcd+ir9L+xDF/IH2zkZCOf0Lc9LYMMdQ7AvMkdeN2Uz?=
+ =?us-ascii?Q?APeT2YWRxu8DUhINNhOuVzFrUPUwZxlfv+qeX+u7INPrVPZHydvzCZJPqdFY?=
+ =?us-ascii?Q?UD0Kxe2D9JtjLxTs9eZeovxW+ihMpRVZBUtJmTQVChEJwGg7jFL5rNFZ9+Nx?=
+ =?us-ascii?Q?g0K0JoFNQDaaievdPd7uzCn2g3bnWS8Rwx8QHcQTweWiN830UrhgbejcTxol?=
+ =?us-ascii?Q?DcSGbL0mdEq1DhKuSiYdd0CLSTFNpJXRa/KoYoDUw0nxxnLctOZhJtiRSksC?=
+ =?us-ascii?Q?epuu4t0DEAXdvMKTY1wrGcvh6tikOiTK5Vb/OZ/w8wA5FAn3sber9qpJs1tb?=
+ =?us-ascii?Q?/9ouNIfqPwZ6Xjl9vt77ZvILEG9W2qh3WtvG2ZUTu/a3LPUNAKHFAtDKOdFR?=
+ =?us-ascii?Q?pSWart6Fd5UcCRc/uOyQqWabtGmOg9hksHS5seUFbbbf0d920OnXdexLitD0?=
+ =?us-ascii?Q?5tX9Jb2wSBrm5DA/KAgWvK1TkGuGLaDsjP+EXS380B1G1U+mVvJmjEa240Fe?=
+ =?us-ascii?Q?ohmAikmbRC5zi7QBpIGyc73QRWxbdZu0etM5zqlv99ZDY2s0TuhyuuPf4NVr?=
+ =?us-ascii?Q?HJerpfrh9e7uzFFVP/frTXMg8Ql4vedrAaIFl8rGDx/EbenGs5Ll3HdygNTq?=
+ =?us-ascii?Q?JKGjFhkq01hRgbQPxrcoKF+lvqpv+bHNDuT2pZmEXe451HXsU+X2X6BghL8n?=
+ =?us-ascii?Q?kjkMqMmmTgbKBd3YBBvVTdkSXbFaDzfcylb101ozocuep+4F1oTQzRRlcoP4?=
+ =?us-ascii?Q?FVbE00D/0maJuaeCV5PJ90KH1B7sxL5uKE7k6gLZV9hbAcBdwlRVBBv313qg?=
+ =?us-ascii?Q?c7JUDu7pwuVhLU6w0I9enaZKZ8YdDHpOiD7ST7WrQhI9fohGauc0IWR7bHI/?=
+ =?us-ascii?Q?O0vmr6ktsX60QVbcbBkxXecF5szj6iUzmssaBV6b5Dd8Rvc80A37+4mP9i1T?=
+ =?us-ascii?Q?hFVDQtlEqe1jqIkpPEOKGaPO8qcCo6uD3kfHMyYAxbmwt58yUjGdUkUrGp3s?=
+ =?us-ascii?Q?l72aGenDTwZWYByVczjGBjB5GijNuc/9r5OWaKs26ORYkFNqQ7bzc4Mi0qco?=
+ =?us-ascii?Q?5fW6YtwzyPzehY2+34ussIWfLf9K3YXW?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MN2PR12MB3613.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?dv5vL7Go7A23m9mBrvx+9i8yCVxhHkPxPxf6IgejtmjsGl1Jhzlc3pt3fOzf?=
+ =?us-ascii?Q?1kI9gqZlrXLkE8If7M7dusdw/FzM6w9oxER4pBlMOLMpRDKUYoviFJMIZTeK?=
+ =?us-ascii?Q?2+HWN6g2NEXq2gTD+6d9brCWhXJM4PpYIN8oN5K1ZcPnvFzoDG17JV+ySC61?=
+ =?us-ascii?Q?o/hVuNplTKNlK8PWJAi1nUD0fg83mjcyCbC46aanh7F8drzWrsodWXGIKBxJ?=
+ =?us-ascii?Q?QtdBnVca5U7doNPERqkSL/JtkU0XqJjmaaTMlbWOMs3oGQhxofU3EALgxyrQ?=
+ =?us-ascii?Q?++eBG0n8ztKYJC6UyFGHvh90eezPFak0KjH0XJx89YnWsPJdGw8Hrs+0MRgB?=
+ =?us-ascii?Q?Si01oi8h+ZXa3hK7QVHYZNq4u4XoWyyhC79csKgz7O4bw7cIzvX2jRcZ+wKL?=
+ =?us-ascii?Q?g80bSUNM9XCIZV6LQu9OkfTo1X8Bq/u+3xHA0wu/Qo7bae18rfLtZ7R2zfRE?=
+ =?us-ascii?Q?pu4pTcI8iEyDLtxbAMztSoYLoC2gQ8eXOY5tI+gobdJofRBVLAwsi6ia0Dg9?=
+ =?us-ascii?Q?vteHF1uZoKoIjw0WxUJIPCD95s/bu1AQ2NPsxgyUJU8pfTBpMM1CBd7i20MC?=
+ =?us-ascii?Q?RLwyDD9+3zdslbYLXU6OyiDU9O/sa66n8U1QZDp1IP0U8qn0CH0vbstJX1kx?=
+ =?us-ascii?Q?sUbcPF0eqdUMn90fGMgDFqBiqlBnAmVrASK2+U5YfCUDZMGlyF2jf4pBbxAl?=
+ =?us-ascii?Q?R4S20RnlEML9AeQidUVHqWrq9MxiisfWJr2UlfUjtfVQasRs1NBROnU1zxi/?=
+ =?us-ascii?Q?39qXgFhWyyg8aq7L9UwbpB7vnPz6Lj8+SAvcaDdekw2e31RmEBMa6ygRWk6d?=
+ =?us-ascii?Q?jNXng1qaWu+xavtpoKJ4FYzjzs/JZq2bp1JaBkf9N3s6av2GNghnhYjXvWQw?=
+ =?us-ascii?Q?pBT6DG1uIq5Evn8JOdYPdHRcSZ1gMybfRcj4jXRORgY57SPlJ+elz8S1ruHS?=
+ =?us-ascii?Q?l5bpVEUfoz83J92/hFLV28jF/gyAi577U/zs0u0lKLoJXxHmLEqvoEcwl+XT?=
+ =?us-ascii?Q?W1lDIbhwYxzxcvOdfSYPuEeq2pTp4GxRYZD7WtSYXbTJP4JxZ67jn0otZuhE?=
+ =?us-ascii?Q?3gnT5tevYgfAFUu6iCuW0bo0dLkAtnuPu8y6EuP3mLIUJn9oYV5+x2sifFJl?=
+ =?us-ascii?Q?NrMgRljHkm4DZGcrWoUAgOuR4Q5UXtvCbsmBL/6UOAiW4yOe4UmRv2SE5FsI?=
+ =?us-ascii?Q?TZ9qvCOiLSOiofcrDlzafWKXRAkFkw6JE/9CGOCRTyYK5wV5XiDtNU45p3yh?=
+ =?us-ascii?Q?jB7g6y/2Y2SCmA2Hllc1LMXkpUpM8ErjRNIZgrQjRdYTpqJrFfXx70rlKkf3?=
+ =?us-ascii?Q?ypVOwXPRBWtbwWvKerST5V1MhNKdBqqwZUWy2BVfWYofXH2hLe0d6HBhnyaX?=
+ =?us-ascii?Q?W/nK4JTCX+Xrn+PqVkes3FPCh6ut3fRRoXRo+YKt1PUAgiIlJvid3ucV/bXc?=
+ =?us-ascii?Q?suRCy967HYZ4gkVos3FfAIHGFTBMsn/nDVcl1G0UU1rdDXMWhEVX1PT8xuV5?=
+ =?us-ascii?Q?eqMmMCzRoQSbal4uSc0z+JnmSIvIdkE573XRpXzH6bk9Ib2etneUMQ5ip12R?=
+ =?us-ascii?Q?OKSixy6BaewBk5ZJ8hY=3D?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 09f648cc-2c11-4f96-01a9-08de2c2899b2
+X-MS-Exchange-CrossTenant-AuthSource: MN2PR12MB3613.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Nov 2025 13:43:22.5582
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: pIIbB0eEQsldQvELIxQXNQU4Q7XbV/Uysl1svma2Y4MYjgyrrTJHF86TXgu6fQ11
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV2PR12MB6016
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251125_054000_449375_C8C852A8 
-X-CRM114-Status: GOOD (  15.09  )
+X-CRM114-CacheID: sfid-20251125_054330_787586_1565636E 
+X-CRM114-Status: GOOD (  14.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,146 +163,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This is an OpenPGP/MIME signed message (RFC 4880 and 3156)
---------------aG2Ac2AfdT2tzwl0XdLF1SjN
-Content-Type: multipart/mixed; boundary="------------uiRZ28tjJaLdZE5TT0DoL5p0";
- protected-headers="v1"
-From: =?UTF-8?B?SsO8cmdlbiBHcm/Dnw==?= <jgross@suse.com>
-To: Kevin Brodsky <kevin.brodsky@arm.com>, linux-mm@kvack.org
-Cc: linux-kernel@vger.kernel.org, Alexander Gordeev <agordeev@linux.ibm.com>,
- Andreas Larsson <andreas@gaisler.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Boris Ostrovsky <boris.ostrovsky@oracle.com>, Borislav Petkov
- <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>,
- Christophe Leroy <christophe.leroy@csgroup.eu>,
- Dave Hansen <dave.hansen@linux.intel.com>,
- David Hildenbrand <david@redhat.com>, "David S. Miller"
- <davem@davemloft.net>, David Woodhouse <dwmw2@infradead.org>,
- "H. Peter Anvin" <hpa@zytor.com>, Ingo Molnar <mingo@redhat.com>,
- Jann Horn <jannh@google.com>, "Liam R. Howlett" <Liam.Howlett@oracle.com>,
- Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
- Madhavan Srinivasan <maddy@linux.ibm.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Michal Hocko <mhocko@suse.com>,
- Mike Rapoport <rppt@kernel.org>, Nicholas Piggin <npiggin@gmail.com>,
- Peter Zijlstra <peterz@infradead.org>,
- "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
- Ryan Roberts <ryan.roberts@arm.com>, Suren Baghdasaryan <surenb@google.com>,
- Thomas Gleixner <tglx@linutronix.de>,
- Venkat Rao Bagalkote <venkat88@linux.ibm.com>,
- Vlastimil Babka <vbabka@suse.cz>, Will Deacon <will@kernel.org>,
- Yeoreum Yun <yeoreum.yun@arm.com>, linux-arm-kernel@lists.infradead.org,
- linuxppc-dev@lists.ozlabs.org, sparclinux@vger.kernel.org,
- xen-devel@lists.xenproject.org, x86@kernel.org
-Message-ID: <263d6867-bf94-40b5-87f8-96b40e797ebe@suse.com>
-Subject: Re: [PATCH v5 12/12] x86/xen: use lazy_mmu_state when
- context-switching
-References: <20251124132228.622678-1-kevin.brodsky@arm.com>
- <20251124132228.622678-13-kevin.brodsky@arm.com>
-In-Reply-To: <20251124132228.622678-13-kevin.brodsky@arm.com>
+On Mon, Nov 24, 2025 at 08:14:39PM -0800, Nicolin Chen wrote:
+> On Mon, Nov 24, 2025 at 09:42:31PM +0000, Will Deacon wrote:
+> > On Sat, Nov 08, 2025 at 12:08:04AM -0800, Nicolin Chen wrote:
+> > > +VISIBLE_IF_KUNIT
+> > > +struct arm_smmu_invs *arm_smmu_invs_merge(struct arm_smmu_invs *invs,
+> > > +					  struct arm_smmu_invs *to_merge)
+> > > +{
+> > > +	struct arm_smmu_invs *new_invs;
+> > > +	struct arm_smmu_inv *new;
+> > > +	size_t num_trashes = 0;
+> > > +	size_t num_adds = 0;
+> > > +	size_t i, j;
+> > > +
+> > > +	for (i = j = 0; i < invs->num_invs || j < to_merge->num_invs;) {
+> > 
+> > Maybe worth having a simple iterator macro for this?
+> 
+> I added two macros:
+> 
+> +#define arm_smmu_invs_for_each_inv(invs, idx, inv)              \
+> +	for (idx = 0, inv = &invs->inv[0]; idx < invs->num_invs; \
+> +	     inv = &invs->inv[++idx])
+> +#define arm_smmu_invs_for_each_idx_dual(invs1, idx1, invs2, idx2) \
+> +	for (idx1 = idx2 = 0; idx1 < invs1->num_invs || idx2 < invs2->num_invs;)
 
---------------uiRZ28tjJaLdZE5TT0DoL5p0
-Content-Type: multipart/mixed; boundary="------------yTa6J58m2WgehpiHUf7cxco6"
+I think pull more stuff in. Something like this:
 
---------------yTa6J58m2WgehpiHUf7cxco6
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: base64
+static inline struct arm_smmu_inv *
+arm_smmu_invs_iter_next(struct arm_smmu_invs *invs, size_t next,
+			size_t *idx)
+{
+	while (true) {
+		if (next >= invs->num_invs) {
+			*idx = next;
+			return NULL;
+		}
+		if (!refcount_read(&invs->inv[next].users)) {
+			next++;
+			continue;
+		}
+		*idx = next;
+		return &invs->inv[next];
+	}
+}
 
-T24gMjQuMTEuMjUgMTQ6MjIsIEtldmluIEJyb2Rza3kgd3JvdGU6DQo+IFdlIGN1cnJlbnRs
-eSBzZXQgYSBUSUYgZmxhZyB3aGVuIHNjaGVkdWxpbmcgb3V0IGEgdGFzayB0aGF0IGlzIGlu
-DQo+IGxhenkgTU1VIG1vZGUsIGluIG9yZGVyIHRvIHJlc3RvcmUgaXQgd2hlbiB0aGUgdGFz
-ayBpcyBzY2hlZHVsZWQNCj4gYWdhaW4uDQo+IA0KPiBUaGUgZ2VuZXJpYyBsYXp5X21tdSBs
-YXllciBub3cgdHJhY2tzIHdoZXRoZXIgYSB0YXNrIGlzIGluIGxhenkgTU1VDQo+IG1vZGUg
-aW4gdGFza19zdHJ1Y3Q6OmxhenlfbW11X3N0YXRlLiBXZSBjYW4gdGhlcmVmb3JlIGNoZWNr
-IHRoYXQNCj4gc3RhdGUgd2hlbiBzd2l0Y2hpbmcgdG8gdGhlIG5ldyB0YXNrLCBpbnN0ZWFk
-IG9mIHVzaW5nIGEgc2VwYXJhdGUNCj4gVElGIGZsYWcuDQo+IA0KPiBTaWduZWQtb2ZmLWJ5
-OiBLZXZpbiBCcm9kc2t5IDxrZXZpbi5icm9kc2t5QGFybS5jb20+DQoNClJldmlld2VkLWJ5
-OiBKdWVyZ2VuIEdyb3NzIDxqZ3Jvc3NAc3VzZS5jb20+DQoNCg0KSnVlcmdlbg0K
---------------yTa6J58m2WgehpiHUf7cxco6
-Content-Type: application/pgp-keys; name="OpenPGP_0xB0DE9DD628BF132F.asc"
-Content-Disposition: attachment; filename="OpenPGP_0xB0DE9DD628BF132F.asc"
-Content-Description: OpenPGP public key
-Content-Transfer-Encoding: quoted-printable
+static int arm_smmu_inv_cmp(const struct arm_smmu_inv *l,
+			    const struct arm_smmu_inv *r)
+{
+	if (l->smmu != r->smmu)
+		return cmp_int((uintptr_t)l->smmu, (uintptr_t)r->smmu);
+	if (l->type != r->type)
+		return cmp_int(l->type, r->type);
+	return cmp_int(l->id, r->id);
+}
 
------BEGIN PGP PUBLIC KEY BLOCK-----
+static inline int arm_smmu_invs_iter_next_cmp(struct arm_smmu_invs *invs_lhs,
+					      size_t next_lhs, size_t *idx_lhs,
+					      struct arm_smmu_invs *invs_rhs,
+					      size_t next_rhs, size_t *idx_rhs)
+{
+	struct arm_smmu_inv *cur_lhs =
+		arm_smmu_invs_iter_next(invs_lhs, 0, idx_lhs);
 
-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
-kt+z4drzFUyEjLM1vVvIMjkUoJs=3D
-=3DeeAB
------END PGP PUBLIC KEY BLOCK-----
+	/*
+	 * Compare of two sorted arrays items. If one side is past the end of
+	 * the array, return the other side to let it run out the iteration.
+	 */
+	if (!cur_lhs)
+		return -1;
+	if (next_rhs >= invs_rhs->num_invs)
+		return 1;
+	return arm_smmu_inv_cmp(cur_lhs, &invs_rhs->inv[next_rhs]);
+}
 
---------------yTa6J58m2WgehpiHUf7cxco6--
+/*
+ * Iterates over all non-trash entries in invs. idx is a stack variable
+ * to store the index, cur is a stack variable of 'struct arm_smmu_inv *'
+ */
+#define arm_smmu_invs_for_each_inv(invs, idx, cur)              \
+	for (cur = arm_smmu_invs_iter_next(invs, 0, &(idx)); cur; \
+	     cur = arm_smmu_invs_iter_next(invs, idx + 1, &(idx)))
 
---------------uiRZ28tjJaLdZE5TT0DoL5p0--
+/*
+ * Iterate over two sorted arrays computing a merge sort
+ */
+#define arm_smmu_invs_for_each_merge(invs_lhs, idx_lhs, invs_rhs, idx_rhs, \
+				     cmp)                                  \
+	for (cmp = arm_smmu_invs_iter_next_cmp(invs_lhs, 0, &(idx_lhs),    \
+					       invs_rhs, 0, &(idx_rhs));   \
+	     idx_lhs < invs_lhs->num_invs || idx_rhs < invs_rhs->num_invs; \
+	     cmp = arm_smmu_invs_iter_next_cmp(                            \
+		     invs_lhs, idx_lhs + (cmp <= 0 ? 1 : 0), &(idx_lhs),   \
+		     invs_rhs, idx_rhs + (cmp >= 0 ? 1 : 0), &(idx_rhs)))
 
---------------aG2Ac2AfdT2tzwl0XdLF1SjN
-Content-Type: application/pgp-signature; name="OpenPGP_signature.asc"
-Content-Description: OpenPGP digital signature
-Content-Disposition: attachment; filename="OpenPGP_signature.asc"
 
------BEGIN PGP SIGNATURE-----
 
-wsB5BAABCAAjFiEEhRJncuj2BJSl0Jf3sN6d1ii/Ey8FAmklsawFAwAAAAAACgkQsN6d1ii/Ey9M
-5gf9EkkVr+UGKF/wariaJTMLeEayZP1qBy09TFMvwrlbuCyD1J20iKHWJ2c/xfac/xcQdvzxGK3Y
-nMX8Dg+6nWgGk7tT/9p0s2dcvsYF2fnh4WI7yS6FTimnkkmwDCj9T7zl1nziZEYUlj7oSea1hRVz
-v5iiijrTDLW6L4D3oVzmqLK1XGNpOTClCzJcn9gz45Pw5+8laVmiYBcktiYFOT/TcJvnIeHTH8Fx
-P0/i23ndybO8Xtkp5yj+KAjX+75J2bEJOx79yOSaRu5z3yYhY2XBKE9tsxsVb7uoaIhxnhc2Z5ZH
-ms+Hk03X+jeJhvbey+a5MrddNG95o9MtcKNcDmNH6g==
-=ph6L
------END PGP SIGNATURE-----
+And then change the loops computing num_trash to work directly on actual things ignoring trash:
 
---------------aG2Ac2AfdT2tzwl0XdLF1SjN--
+	arm_smmu_invs_for_each_merge(invs, i, to_merge, j, cmp)
+		new_size++;
+	new_invs = arm_smmu_invs_alloc(new_size);
+
+
+Name should probably be for_each_.... though
+
+Jason
 
