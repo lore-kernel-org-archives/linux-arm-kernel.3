@@ -4,73 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18E7FD0E6E7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 13:51:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88D19D0E6EA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 13:52:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YDzLnaqJnF4GelhzBMoaCpTQL1e98pE3glMvvfEO1xE=; b=ojyCNVjwd/Ta6FO9dVhwdhSHsH
-	tUm1cRY3iUNReCpRBPf1ELJuQGcIFsylMllZBfXBhf9uwwJ4YLSO0+PI6Dm/GvCm10RNtEEQ2jR6c
-	UIQSCYvc19DHpHOlxsWSIHcZSkLaXHWqLGLEyVYWSl1YgI2riUyqvzoJlLswr9p1kCAa2es2RmGU6
-	Fx0NJIBhrgSjnUgVobfQhTIkcN3tYZxPxFDJ6wTL2Rx+5csDjl4sffHwf3Ovxm1abvE+tP8/QcCuX
-	2pEYKORYkrKnZAdrCCMEoh8N1B+NMwDawh9dSSVkZh3axDtZNAfzFJKW0UtcVDhsVDWXoyOpmnzyZ
-	FO+oW5BA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=5qoiP6TwSt3WsRHm0Qt9S7E0jYs8oQ+YtHQFRGroW9I=; b=ZHHcB+fUIG6GDqqB0GVxPxNAK2
+	ftRRvpesCwhXZNwyAfsJshvp5O20nwCz5KqPkcdoUFcqTIxtIl/taxaAfeUsaraQ61Jd7xINVeVO0
+	5i9qqqz+icJOQ0LB52ydqT3mkbGzjALS1S60+W/63ScxWArHM2lkU7V06qO/AvZl6GXCaL9Ace5Ju
+	7zcxJDFJm9rzFQ6+9ZTxAgRQnsx1S6rsRshYpK/XCU2B4jBV2wRtlE3a+Sqa/zMrzm5qqD6/UK7//
+	wE2oV1TV8DkjQDUzV+1ekBmzUv54sSKH346zeMDekuNf5lddbQBOpbNt/jsWzxuZbUM9GQhrU4mUk
+	8/kdaQ0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNtRb-0000000DNFW-0FLz;
-	Tue, 25 Nov 2025 13:50:59 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vNtTL-0000000DNTb-1AOu;
+	Tue, 25 Nov 2025 13:52:47 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNtRZ-0000000DNFD-0G8x;
-	Tue, 25 Nov 2025 13:50:57 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id BF8D960159;
-	Tue, 25 Nov 2025 13:50:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BEF3BC4CEF1;
-	Tue, 25 Nov 2025 13:50:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764078655;
-	bh=6xfio8cFRmyYhEhLPbb1/bShqDICsN94++aEKRQdnVg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=etmqten45YBPrROyon9PprwIWauaqW4vDxwB4L84pqD7TXNr/ypb4xYMDIP4pjB2t
-	 I6pUXdOAlcm3mtXkvpziSOCffrWvM0oGTMqA7Zm5s4hpL0Rcc1PagcmomjSt786jzx
-	 Lk029vWmPIXMRsUYt3aBWDLpCgu+hw9ZZtw1XBJ+ZXzQv7tWlInhER4wOvVAT6wtO4
-	 CX7RmMAPnlTNzj+7sF03AhReF/bZfb/oUlctXBVHcOQLNSMXTaXktvJiVooMyZiRo9
-	 z2UUCAhTbCL7rlsH4WP3KE1MMqL8hN0MiuNqowV/NXWjxtHBKLrDRelqvMCn5M52OQ
-	 70clwxd6RUYEA==
-Date: Tue, 25 Nov 2025 15:50:40 +0200
-From: Mike Rapoport <rppt@kernel.org>
-To: Pratyush Yadav <pratyush@kernel.org>
-Cc: Usama Arif <usamaarif642@gmail.com>,
-	Changyuan Lyu <changyuanl@google.com>, akpm@linux-foundation.org,
-	linux-kernel@vger.kernel.org, anthony.yznaga@oracle.com,
-	arnd@arndb.de, ashish.kalra@amd.com, benh@kernel.crashing.org,
-	bp@alien8.de, catalin.marinas@arm.com, corbet@lwn.net,
-	dave.hansen@linux.intel.com, devicetree@vger.kernel.org,
-	dwmw2@infradead.org, ebiederm@xmission.com, graf@amazon.com,
-	hpa@zytor.com, jgowans@amazon.com, kexec@lists.infradead.org,
-	krzk@kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org, linux-mm@kvack.org, luto@kernel.org,
-	mark.rutland@arm.com, mingo@redhat.com, pasha.tatashin@soleen.com,
-	pbonzini@redhat.com, peterz@infradead.org, robh@kernel.org,
-	rostedt@goodmis.org, saravanak@google.com,
-	skinsburskii@linux.microsoft.com, tglx@linutronix.de,
-	thomas.lendacky@amd.com, will@kernel.org, x86@kernel.org,
-	Breno Leitao <leitao@debian.org>, thevlad@meta.com
-Subject: Re: [PATCH v8 12/17] x86/e820: temporarily enable KHO scratch for
- memory below 1M
-Message-ID: <aSW0MF9BXjLnY2Fr@kernel.org>
-References: <20250509074635.3187114-1-changyuanl@google.com>
- <20250509074635.3187114-13-changyuanl@google.com>
- <a0f875f1-45ad-4dfc-b5c8-ecb51b242523@gmail.com>
- <mafs01plmxngp.fsf@kernel.org>
+	id 1vNtTI-0000000DNSN-3JgO
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 25 Nov 2025 13:52:46 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-4779adb38d3so39551585e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Nov 2025 05:52:43 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1764078762; x=1764683562; darn=lists.infradead.org;
+        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=5qoiP6TwSt3WsRHm0Qt9S7E0jYs8oQ+YtHQFRGroW9I=;
+        b=CbGk0s1gTWGT7c+8Bl+TTLGzmimz/PfkkZ5bVZxY/w7fCeuEqkeIidPNjTG8u2ck7H
+         ter5MYQHcjJNGF0AkFsA8mAxKtW7Mhr5GRkmz11+rbx+sjCGuIW6FxT2c6EVS+PoV+xt
+         zb+zwepR7akvL8XpIkz8hJ+3zrIJT36jl1p688rBiDVdYYNOVf7wXsBt1JP+iij3cdrV
+         JemvWldubA46PE1wM3tmGbO+Ss6MO796qDpPAmf36dSrgODzgZxSrwYaGk3GmMUd5SWK
+         /rjxxJlZDhLlFi6NgI2qu//V2M891gVIsXsiYftBoK5rfINb1aNuZzRiypMM98Ee2U2P
+         Ui/Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1764078762; x=1764683562;
+        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=5qoiP6TwSt3WsRHm0Qt9S7E0jYs8oQ+YtHQFRGroW9I=;
+        b=mXCiuUEyGzBKQMy9R/DsIjiaXkeau+5n8d/nWpgrBApQPD84tkMtQ8bmCoX51O57W6
+         7J/b57WPJnIaqdS4n6Md1/znK2m3W4HJJctGKyEdinUEWxRJt/B6SPQj9+y+yY3w6aMe
+         liIvSTBCk1EGXOJAtqrhyCLsxfncw3fyoB7PY5zY06UXUB7ohj/+TrFrmwpkEU7yHBtM
+         hqqhG4D8o71zgQzX2lEteCt4/KKguxiixrqpHeFrQtTf3xB6RjLVHmP4nGgLEAqX9g1O
+         0WWuJbaub+PqPettjLzfLlGaz8vO9SZxXN1x/O2a/jxE1TZLgW2oJJlpX6CUCj27869e
+         wryg==
+X-Forwarded-Encrypted: i=1; AJvYcCWvnr2B3F7RRoY2XIxaTIIVcMQ52N9B6zAvKGJNQ2eaU4GjDUGvh5aDEWpNCvN0TvPzlnCgEi8AgzrNbmY+6hPz@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzvrcbgmm3896dLZxTarkPa5zUUgAz37NZdAm8JdwKGuVjGmDyM
+	tTRNIKbgVEZP9O5ug/SkMeO+5bY8zNL7978A9/x6QtZJRBjUvprUF+FxJ7xYUOE39xg=
+X-Gm-Gg: ASbGnculcUosIPfEBUp/6y1r+X2Uphe9rJsXD8E2tDdi93Tzr7rjdeRGToCGOPyMQ+u
+	+hCfYm7/XRga/gpexjvingKWjHKUH1eKQNlDBskAt/fy8W0wVVPjc7WeAPGns2EDmTte716hgsK
+	VrwvtBbIPvD4GDd4+nMDqbtoCbVZ2berkf5i9Sz/hvAysBpWMCPNT7vS71J8AauOGSBX1prdCYp
+	cFVx+pSXF0nWifA/7v/GzJrYO9y6XzYnFI+mRfQbLy3m32gcwuxOGYdFk5IJ5N45FGEBV0TkdqF
+	7xYKmiVcYNgNYSaRPZ5b7biFPA3lNeUOs/BALzOOYP/2ZH2kTLTlVbRtN4dQGOgh0eqHWWeWxA9
+	V2Kl1DZP2697HMWq4FPBe74QprGFPhJIj65y4dpEM075WXgsyRcyNaxcrv+BrGQUc+Bgj5GyUQc
+	IzxDmJSa4/X48K951I
+X-Google-Smtp-Source: AGHT+IExMFPzaEj2t7R/V1HwC9wLFLjVdHnT+Jc3arjZhnTf+cI6vhU+qt5I6EYqSjZLnH2q9pLpiw==
+X-Received: by 2002:a05:600c:3545:b0:477:7ab8:aba with SMTP id 5b1f17b1804b1-47904ac3ca4mr24955445e9.1.1764078762464;
+        Tue, 25 Nov 2025 05:52:42 -0800 (PST)
+Received: from localhost ([196.207.164.177])
+        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-477bf1f365fsm254495315e9.8.2025.11.25.05.52.41
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 25 Nov 2025 05:52:41 -0800 (PST)
+Date: Tue, 25 Nov 2025 16:52:39 +0300
+From: Dan Carpenter <dan.carpenter@linaro.org>
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: Chun-Kuang Hu <chunkuang.hu@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	CK Hu <ck.hu@mediatek.com>,
+	Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>,
+	dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	kernel-janitors@vger.kernel.org
+Subject: [PATCH next] drm/mediatek: Fix platform_get_irq() error checking
+Message-ID: <aSW0p5sqnJVJsqDO@stanley.mountain>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <mafs01plmxngp.fsf@kernel.org>
+X-Mailer: git-send-email haha only kidding
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251125_055244_843381_C7EADFC8 
+X-CRM114-Status: GOOD (  14.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,193 +104,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+The platform_get_irq() function returns negative error codes on failure
+and positive non-zero IRQ numbers on success.  It never returns NULL. Fix
+the error checking to look for negatives, and change "hdmi->irq" from
+unsigned int to just int.
 
-On Tue, Nov 25, 2025 at 02:15:34PM +0100, Pratyush Yadav wrote:
-> On Mon, Nov 24 2025, Usama Arif wrote:
+Fixes: 8d0f79886273 ("drm/mediatek: Introduce HDMI/DDC v2 for MT8195/MT8188")
+Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
+---
+ drivers/gpu/drm/mediatek/mtk_hdmi_common.c | 2 +-
+ drivers/gpu/drm/mediatek/mtk_hdmi_common.h | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
 
-> >> --- a/arch/x86/realmode/init.c
-> >> +++ b/arch/x86/realmode/init.c
-> >> @@ -65,6 +65,8 @@ void __init reserve_real_mode(void)
-> >>  	 * setup_arch().
-> >>  	 */
-> >>  	memblock_reserve(0, SZ_1M);
-> >> +
-> >> +	memblock_clear_kho_scratch(0, SZ_1M);
-> >>  }
-> >>  
-> >>  static void __init sme_sev_setup_real_mode(struct trampoline_header *th)
-> >
-> > Hello!
-> >
-> > I am working with Breno who reported that we are seeing the below warning at boot
-> > when rolling out 6.16 in Meta fleet. It is difficult to reproduce on a single host
-> > manually but we are seeing this several times a day inside the fleet.
-> >
-> >  20:16:33  ------------[ cut here ]------------
-> >  20:16:33  WARNING: CPU: 0 PID: 0 at mm/memblock.c:668 memblock_add_range+0x316/0x330
-> >  20:16:33  Modules linked in:
-> >  20:16:33  CPU: 0 UID: 0 PID: 0 Comm: swapper Tainted: G S                  6.16.1-0_fbk0_0_gc0739ee5037a #1 NONE 
-> >  20:16:33  Tainted: [S]=CPU_OUT_OF_SPEC
-> >  20:16:33  RIP: 0010:memblock_add_range+0x316/0x330
-> >  20:16:33  Code: ff ff ff 89 5c 24 08 41 ff c5 44 89 6c 24 10 48 63 74 24 08 48 63 54 24 10 e8 26 0c 00 00 e9 41 ff ff ff 0f 0b e9 af fd ff ff <0f> 0b e9 b7 fd ff ff 0f 0b 0f 0b cc cc cc cc cc cc cc cc cc cc cc
-> >  20:16:33  RSP: 0000:ffffffff83403dd8 EFLAGS: 00010083 ORIG_RAX: 0000000000000000
-> >  20:16:33  RAX: ffffffff8476ff90 RBX: 0000000000001c00 RCX: 0000000000000002
-> >  20:16:33  RDX: 00000000ffffffff RSI: 0000000000000000 RDI: ffffffff83bad4d8
-> >  20:16:33  RBP: 000000000009f000 R08: 0000000000000020 R09: 8000000000097101
-> >  20:16:33  R10: ffffffffff2004b0 R11: 203a6d6f646e6172 R12: 000000000009ec00
-> >  20:16:33  R13: 0000000000000002 R14: 0000000000100000 R15: 000000000009d000
-> >  20:16:33  FS:  0000000000000000(0000) GS:0000000000000000(0000) knlGS:0000000000000000
-> >  20:16:33  CR2: ffff888065413ff8 CR3: 00000000663b7000 CR4: 00000000000000b0
-> >  20:16:33  Call Trace:
-> >  20:16:33   <TASK>
-> >  20:16:33   ? __memblock_reserve+0x75/0x80
-
-Do you have faddr2line for this?
-
-> >  20:16:33   ? setup_arch+0x30f/0xb10
-
-And this?
-
-> >  20:16:33   ? start_kernel+0x58/0x960
-> >  20:16:33   ? x86_64_start_reservations+0x20/0x20
-> >  20:16:33   ? x86_64_start_kernel+0x13d/0x140
-> >  20:16:33   ? common_startup_64+0x13e/0x140
-> >  20:16:33   </TASK>
-> >  20:16:33  ---[ end trace 0000000000000000 ]--- 
-> >
-> >
-> > Rolling out with memblock=debug is not really an option in a large scale fleet due to the
-> > time added to boot. But I did try on one of the hosts (without reproducing the issue) and I see:
-
-Is it a problem to roll out a kernel that has additional debug printouts as
-Breno suggested earlier? I.e.
-
-	if (flags != MEMBLOCK_NONE && flags != rgn->flags) {
-		pr_warn("memblock: Flag mismatch at region [%pa-%pa]\n",
-			&rgn->base, &rend);
-		pr_warn("  Existing region flags: %#x\n", rgn->flags);
-		pr_warn("  New range flags: %#x\n", flags);
-		pr_warn("  New range: [%pa-%pa]\n", &base, &end);
-		WARN_ON_ONCE(1);
-	}
-
-> > [    0.000616]  memory.cnt  = 0x6
-> > [    0.000617]  memory[0x0]	[0x0000000000001000-0x000000000009bfff], 0x000000000009b000 bytes flags: 0x40
-> > [    0.000620]  memory[0x1]	[0x000000000009f000-0x000000000009ffff], 0x0000000000001000 bytes flags: 0x40
-> > [    0.000621]  memory[0x2]	[0x0000000000100000-0x000000005ed09fff], 0x000000005ec0a000 bytes flags: 0x0
-> > ...
-> >
-> > The 0x40 (MEMBLOCK_KHO_SCRATCH) is coming from memblock_mark_kho_scratch in e820__memblock_setup. I believe this
-> > should be under ifdef like the diff at the end? (Happy to send this as a patch for review if it makes sense).
-> > We have KEXEC_HANDOVER disabled in our defconfig, therefore MEMBLOCK_KHO_SCRATCH shouldnt be selected and
-> > we shouldnt have any MEMBLOCK_KHO_SCRATCH type regions in our memblock reservations.
-> >
-> > The other thing I did was insert a while(1) just before the warning and inspected the registers in qemu.
-> > R14 held the base register, and R15 held the size at that point.
-> > In the warning R14 is 0x100000 meaning that someone is reserving a region with a different flag to MEMBLOCK_NONE
-> > at the boundary of MEMBLOCK_KHO_SCRATCH.
-
-Judging by the register values, flags could be in %rcx or %r13 (0x2 - MEMBLOCK_MIRROR) or in
-%r8 (0x20 - MEMBLOCK_RSRV_KERN)
-
-Since WARN_ON() is triggered in __memblock_reserve() I'd bet on
-MEMBLOCK_RSRV_KERN.
-
-And apparently the warning triggers for some memory that was initially
-reserved with memblock_reserve() and than some of it was reserved with
-memblock_reserve_kern().
-
-If you have the logs from failing boots up to the point where SLUB reports
-about it's initialization, e.g. 
-
-[    0.134377] SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=8, Nodes=1
-
-something there may hint about what's the issue. 
+diff --git a/drivers/gpu/drm/mediatek/mtk_hdmi_common.c b/drivers/gpu/drm/mediatek/mtk_hdmi_common.c
+index e78eb0876f16..bd7f8c56ec9c 100644
+--- a/drivers/gpu/drm/mediatek/mtk_hdmi_common.c
++++ b/drivers/gpu/drm/mediatek/mtk_hdmi_common.c
+@@ -303,7 +303,7 @@ static int mtk_hdmi_dt_parse_pdata(struct mtk_hdmi *hdmi, struct platform_device
+ 		return dev_err_probe(dev, ret, "Failed to get clocks\n");
  
-> I don't get this... The WARN_ON() is only triggered when the regions
-> overlap. Here, there should be no overlap, since the scratch region
-> should end at 0x100000 (SZ_1M) and the new region starts at 0x100000
-> (SZ_1M).
-
-Not only that, the warning is from __memblock_reserve() that works with
-memblock.reserved and the dump is for memblock.memory.
-
-> Anyway, you do indeed point at a bug. memblock_mark_kho_scratch() should
-> only be called on a KHO boot, not unconditionally. So even with
-> CONFIG_MEMBLOCK_KHO_SCRATCH enabled, this should only be called on a KHO
-> boot, not every time.
-> 
-> I think the below diff should fix the warning for you by making sure the
-> scratch areas are not present on non-KHO boot. I still don't know why
-> you hit the warning in the first place though. If you'd be willing to
-> dig deeper into that, it would be great.
-> 
-> Can you give the below a try and if it fixes the problem for you I can
-> send it on the list.
-> 
-> diff --git a/arch/x86/kernel/e820.c b/arch/x86/kernel/e820.c
-> index c3acbd26408ba..0a34dc011bf91 100644
-> --- a/arch/x86/kernel/e820.c
-> +++ b/arch/x86/kernel/e820.c
-> @@ -16,6 +16,7 @@
->  #include <linux/firmware-map.h>
->  #include <linux/sort.h>
->  #include <linux/memory_hotplug.h>
-> +#include <linux/kexec_handover.h>
->  
->  #include <asm/e820/api.h>
->  #include <asm/setup.h>
-> @@ -1315,7 +1316,8 @@ void __init e820__memblock_setup(void)
->  	 * After real mode trampoline is allocated, we clear that scratch
->  	 * marking.
->  	 */
-> -	memblock_mark_kho_scratch(0, SZ_1M);
-> +	if (is_kho_boot())
-> +		memblock_mark_kho_scratch(0, SZ_1M);
-
-We'd better add an inline stub to memblock.h for
-!CONFIG_MEMBLOCK_KHO_SCRATCH
-
-and move is_kho_boot() inside memblock_{mark,clear}_kho_scratch. This might
-require moving them out of line, but it's not that they are on the hot
-paths.
-
-BTW, this makes sense even if it does not help with the issue Breno and
-Usama are working on.
-
->  
->  	/*
->  	 * 32-bit systems are limited to 4BG of memory even with HIGHMEM and
-> diff --git a/arch/x86/realmode/init.c b/arch/x86/realmode/init.c
-> index 88be32026768c..4e9b4dff17216 100644
-> --- a/arch/x86/realmode/init.c
-> +++ b/arch/x86/realmode/init.c
-> @@ -4,6 +4,7 @@
->  #include <linux/memblock.h>
->  #include <linux/cc_platform.h>
->  #include <linux/pgtable.h>
-> +#include <linux/kexec_handover.h>
->  
->  #include <asm/set_memory.h>
->  #include <asm/realmode.h>
-> @@ -67,7 +68,8 @@ void __init reserve_real_mode(void)
->  	 */
->  	memblock_reserve(0, SZ_1M);
->  
-> -	memblock_clear_kho_scratch(0, SZ_1M);
-> +	if (is_kho_boot())
-> +		memblock_clear_kho_scratch(0, SZ_1M);
->  }
->  
->  static void __init sme_sev_setup_real_mode(struct trampoline_header *th)
-> 
-> 
-> -- 
-> Regards,
-> Pratyush Yadav
-
+ 	hdmi->irq = platform_get_irq(pdev, 0);
+-	if (!hdmi->irq)
++	if (hdmi->irq < 0)
+ 		return hdmi->irq;
+ 
+ 	hdmi->regs = device_node_to_regmap(dev->of_node);
+diff --git a/drivers/gpu/drm/mediatek/mtk_hdmi_common.h b/drivers/gpu/drm/mediatek/mtk_hdmi_common.h
+index de5e064585f8..7a644bbf5843 100644
+--- a/drivers/gpu/drm/mediatek/mtk_hdmi_common.h
++++ b/drivers/gpu/drm/mediatek/mtk_hdmi_common.h
+@@ -168,7 +168,7 @@ struct mtk_hdmi {
+ 	bool audio_enable;
+ 	bool powered;
+ 	bool enabled;
+-	unsigned int irq;
++	int irq;
+ 	enum hdmi_hpd_state hpd;
+ 	hdmi_codec_plugged_cb plugged_cb;
+ 	struct device *codec_dev;
 -- 
-Sincerely yours,
-Mike.
+2.51.0
+
 
