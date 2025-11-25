@@ -4,73 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF4E6CFD37A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 08:17:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98089CFD364
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 08:23:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=2bcwc8v6K6VBoNL6JWQk7cto0HdSwvsqgOQidTqbeGw=; b=di4T2kyTJApIwDnQ0MFsGm6eg6
-	56PUhExHd3rR+ncwnOYbCTio5NIQuu6RNs4RcokgHUOxVCzgwPl+CSZlbiMP5irw9kgb5jkjf0c2M
-	vvHNdHLp+vb4NDno6VSks156B0dTBrKgKRGoyI23Mm6zCJo0+umOaVnwJABPMfJ1b9LJewypKbbDX
-	s/K36tOqvQ4A76YROqDciB/c4Tl0iJWslAuRn1GL7sWLL2nnuF36f4ZJTFRAsj3NyOO/gLDTRL4R5
-	CisyVdRbCL1nSWuyxwDAA84vipwOmMICDn5fRzPfznSj2EPE2Od085JR5F9ZYs/aAz9zsg6ePBAbd
-	9nEIDpSg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ht1OugzOUwV/KrUVMyjQ7leJQSldE8jckGSOW5P0o/g=; b=3IpG0NCk6YNi01ao9hH+CbLxtg
+	2kYUPOWO31uD7cwtbZ93VxYJC62cSjSKZPcb9+Oi+txMLUKkaRqJ4iFowStB7VhdGVviu0Xa4/q2N
+	xdfbAlOV6Z7Ufaqt7ee0KyWHyU6R3gdUOi0BXpiwHH7NE0pRhOu1mABcnnD719UsPjTfz8LeVPEwn
+	rwKzCc+BZSJLNQjouEY/VsVatad1NY3j200Omuit7qCeqawk+u9BTQiaxM3kunTarxMk6mgb5LiAz
+	sOPgdcBGR5oGBPg0P2A+T97GS6ILokZtjPtZdvTse5kOOIF3a73DD1tC6xkT3O16DCBEdnbVsOYZB
+	PuZRan+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNoEw-0000000CxvI-2cBQ;
-	Tue, 25 Nov 2025 08:17:34 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1vNoKW-0000000CyMa-1Bq4;
+	Tue, 25 Nov 2025 08:23:20 +0000
+Received: from [203.254.224.25] (helo=mailout2.samsung.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNoEp-0000000Cxtg-47dO
+	id 1vNoKS-0000000CyM6-1Ciz
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Nov 2025 08:17:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1764058647; x=1795594647;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=6Twb8mgQPk7aj0pXX+bHnIC/oSrtic7qmC+oaQndG4M=;
-  b=cpZXvtVjbxW6ytb9/3s8L9twORIucjREShudsS0T29Avqu3w329RmlzX
-   crk464uEjpKAoASemxxwB7WylNEMFIe4K9+abNORU//3p5uW59n/kj5Ui
-   EhIiCpKv7485fat+u0RDDWoTJiU1UCmD16e4qVxrcMPrLdv/tVHZh0y4x
-   En8KESsc7CH6RHVKp+pncv8LV2kyJQv/xaLqVKi1oAX7nLxKNHTuYavgt
-   EpNTGsWqGECnDrraqBjlCwLYDRzKNtpROaGRcMU+PdPthJ5ZWZTerggUO
-   inOydyWA/1ZNavz7qldnYjl4xefVZP2kO8uipMkTI6/8nImg71hEtsL+g
-   g==;
-X-CSE-ConnectionGUID: tWv0xuV6SpSm15i19A7SVg==
-X-CSE-MsgGUID: 0oDT14BcQbmdfSmipQbBLA==
-X-IronPort-AV: E=Sophos;i="6.20,224,1758610800"; 
-   d="scan'208";a="216971709"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 25 Nov 2025 01:17:26 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
- chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.58; Tue, 25 Nov 2025 01:16:56 -0700
-Received: from DEN-DL-M31836.microchip.com (10.10.85.11) by
- chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server id
- 15.1.2507.58 via Frontend Transport; Tue, 25 Nov 2025 01:16:54 -0700
-From: Horatiu Vultur <horatiu.vultur@microchip.com>
-To: <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-	<nicolas.ferre@microchip.com>, <alexandre.belloni@bootlin.com>,
-	<claudiu.beznea@tuxon.dev>, <wsa+renesas@sang-engineering.com>,
-	<romain.sioen@microchip.com>
-CC: <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, Horatiu Vultur <horatiu.vultur@microchip.com>
-Subject: [PATCH v2 0/2] ARM: add support for pcb8385
-Date: Tue, 25 Nov 2025 09:15:49 +0100
-Message-ID: <20251125081551.1390820-1-horatiu.vultur@microchip.com>
-X-Mailer: git-send-email 2.34.1
+	Tue, 25 Nov 2025 08:23:18 +0000
+Received: from epcas2p2.samsung.com (unknown [182.195.41.54])
+	by mailout2.samsung.com (KnoxPortal) with ESMTP id 20251125082307epoutp02d90ddcd6c65c2d46391b2655c62e3e76~7Mk2UjmGG2596625966epoutp02_
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Nov 2025 08:23:07 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.samsung.com 20251125082307epoutp02d90ddcd6c65c2d46391b2655c62e3e76~7Mk2UjmGG2596625966epoutp02_
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1764058987;
+	bh=ht1OugzOUwV/KrUVMyjQ7leJQSldE8jckGSOW5P0o/g=;
+	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
+	b=NUGGobgwunfFIVm/RnNL4GpxahnQBJf5tiWmW9VeEKNcjONhmz3aHQCZH6zkzi1o4
+	 j8QaJsZxZ+bbUfXBhL2dKwuNXK6R6sJPAyeUmLxOociGG5ORSlpiAsX5YsbfPzCtEc
+	 bpidDAM5eZkbMf8DTplx2e7GmYMosSjOyLuKQCMY=
+Received: from epsnrtp04.localdomain (unknown [182.195.42.156]) by
+	epcas2p2.samsung.com (KnoxPortal) with ESMTPS id
+	20251125082307epcas2p2017c082a27abe4d786ebc4613bd3976d~7Mk1n23d_0875708757epcas2p22;
+	Tue, 25 Nov 2025 08:23:07 +0000 (GMT)
+Received: from epcas2p3.samsung.com (unknown [182.195.38.210]) by
+	epsnrtp04.localdomain (Postfix) with ESMTP id 4dFwgG43YJz6B9mB; Tue, 25 Nov
+	2025 08:23:06 +0000 (GMT)
+Received: from epsmtip1.samsung.com (unknown [182.195.34.30]) by
+	epcas2p4.samsung.com (KnoxPortal) with ESMTPA id
+	20251125082305epcas2p407d1d0314c6df8477fd07c4efb1a32f1~7Mk0hflfD3030730307epcas2p4E;
+	Tue, 25 Nov 2025 08:23:05 +0000 (GMT)
+Received: from KORCO115296 (unknown [12.80.207.128]) by epsmtip1.samsung.com
+	(KnoxPortal) with ESMTPA id
+	20251125082305epsmtip161f504ec4fc5f1b153e41448f36076e3~7Mk0Z5LcV1597415974epsmtip1V;
+	Tue, 25 Nov 2025 08:23:05 +0000 (GMT)
+From: =?utf-8?B?7IaQ7Iug?= <shin.son@samsung.com>
+To: "'Tudor Ambarus'" <tudor.ambarus@linaro.org>, "'Daniel Lezcano'"
+	<daniel.lezcano@linaro.org>, "'Bartlomiej Zolnierkiewicz'"
+	<bzolnier@gmail.com>, "'Krzysztof Kozlowski'" <krzk@kernel.org>, "'Rafael J
+ . Wysocki'" <rafael@kernel.org>, "'Zhang Rui'" <rui.zhang@intel.com>,
+	"'Lukasz	Luba'" <lukasz.luba@arm.com>, "'Rob Herring'" <robh@kernel.org>,
+	"'Conor Dooley'" <conor+dt@kernel.org>, "'Alim Akhtar'"
+	<alim.akhtar@samsung.com>
+Cc: "'Henrik Grimler'" <henrik@grimler.se>, <linux-pm@vger.kernel.org>,
+	<linux-samsung-soc@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	"'Peter	Griffin'" <peter.griffin@linaro.org>,
+	=?utf-8?Q?'Andr=C3=A9_Draszik'?= <andre.draszik@linaro.org>, "'William
+ McVicker'" <willmcvicker@google.com>, <jyescas@google.com>
+In-Reply-To: <1baaae91-f712-4965-9105-4358a59ff1d1@linaro.org>
+Subject: RE: [PATCH v7 RESEND 2/3] thermal: exynos_tmu: Support new hardware
+ and update TMU interface
+Date: Tue, 25 Nov 2025 17:23:03 +0900
+Message-ID: <00e201dc5de4$b948e0c0$2bdaa240$@samsung.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
+Content-Transfer-Encoding: quoted-printable
+X-Mailer: Microsoft Outlook 15.0
+Thread-Index: AQJR08pAfg/+KuTfxFjIW+Bmb4uKqAKoesbtAuyt0KIBiaSaQQHdj7cKAU24glUB3tS++QLNzNdgs6AJmGA=
+Content-Language: ko
+X-CMS-MailID: 20251125082305epcas2p407d1d0314c6df8477fd07c4efb1a32f1
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-Sendblock-Type: AUTO_CONFIDENTIAL
+CMS-TYPE: 102P
+cpgsPolicy: CPGSC10-234,Y
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20251113064044epcas2p1b87addb21473eca7cc52052e4e2e9237
+References: <20251113064022.2701578-1-shin.son@samsung.com>
+	<CGME20251113064044epcas2p1b87addb21473eca7cc52052e4e2e9237@epcas2p1.samsung.com>
+	<20251113064022.2701578-3-shin.son@samsung.com>
+	<2180a854-8ba6-4424-add2-eb34637530c1@linaro.org>
+	<000001dc5d2a$0697bf10$13c73d30$@samsung.com>
+	<12346382-7718-4942-a497-4de278b1d5a0@linaro.org>
+	<000b01dc5d37$3f6f5e80$be4e1b80$@samsung.com>
+	<1baaae91-f712-4965-9105-4358a59ff1d1@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251125_001728_082195_C4D7C669 
-X-CRM114-Status: UNSURE (   9.79  )
+X-CRM114-CacheID: sfid-20251125_002316_985092_756C7801 
+X-CRM114-Status: UNSURE (   7.86  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -86,24 +111,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add pcb8385 and the documentation for it.
-This is a moduler board on which it can add different daughter cards.
+Hello, Tudor Ambarus.
 
-v1->v2:
-- sort nodes in alphanumerical order
-- move the eeprom nodes under i2c0
-
-Horatiu Vultur (2):
-  dt-bindings: arm: at91: add lan966 pcb8385 board
-  ARM: dts: Add support for pcb8385
-
- .../devicetree/bindings/arm/atmel-at91.yaml   |   6 +-
- arch/arm/boot/dts/microchip/Makefile          |   3 +-
- .../boot/dts/microchip/lan966x-pcb8385.dts    | 135 ++++++++++++++++++
- 3 files changed, 141 insertions(+), 3 deletions(-)
- create mode 100644 arch/arm/boot/dts/microchip/lan966x-pcb8385.dts
-
--- 
-2.34.1
-
+> -----Original Message-----
+> From: Tudor Ambarus =5Bmailto:tudor.ambarus=40linaro.org=5D
+> Sent: Monday, November 24, 2025 9:24 PM
+> To: =EC=86=90=EC=8B=A0=20<shin.son=40samsung.com>;=20'Daniel=20Lezcano'=
+=0D=0A>=20<daniel.lezcano=40linaro.org>;=20'Bartlomiej=20Zolnierkiewicz'=0D=
+=0A>=20<bzolnier=40gmail.com>;=20'Krzysztof=20Kozlowski'=20<krzk=40kernel.o=
+rg>;=20'Rafael=20J=20.=0D=0A>=20Wysocki'=20<rafael=40kernel.org>;=20'Zhang=
+=20Rui'=20<rui.zhang=40intel.com>;=20'Lukasz=0D=0A>=20Luba'=20<lukasz.luba=
+=40arm.com>;=20'Rob=20Herring'=20<robh=40kernel.org>;=20'Conor=0D=0A>=20Doo=
+ley'=20<conor+dt=40kernel.org>;=20'Alim=20Akhtar'=20<alim.akhtar=40samsung.=
+com>=0D=0A>=20Cc:=20'Henrik=20Grimler'=20<henrik=40grimler.se>;=20linux-pm=
+=40vger.kernel.org;=20linux-=0D=0A>=20samsung-soc=40vger.kernel.org;=20devi=
+cetree=40vger.kernel.org;=20linux-arm-=0D=0A>=20kernel=40lists.infradead.or=
+g;=20linux-kernel=40vger.kernel.org;=20'Peter=20Griffin'=0D=0A>=20<peter.gr=
+iffin=40linaro.org>;=20'Andr=C3=A9=20Draszik'=20<andre.draszik=40linaro.org=
+>;=0D=0A>=20'William=20McVicker'=20<willmcvicker=40google.com>;=20jyescas=
+=40google.com=0D=0A>=20Subject:=20Re:=20=5BPATCH=20v7=20RESEND=202/3=5D=20t=
+hermal:=20exynos_tmu:=20Support=20new=0D=0A>=20hardware=20and=20update=20TM=
+U=20interface=0D=0A>=20=0D=0A>=20Hi,=20Shin=20Son,=0D=0A>=20=0D=0A>=20On=20=
+11/24/25=201:41=20PM,=20=EC=86=90=EC=8B=A0=20wrote:=0D=0A>=20>>=20Shin,=20a=
+=20bit=20unrelated=20with=20the=20patch,=20but=20I=20wanted=20to=20let=20yo=
+u=20know=0D=0A>=20>>=20that=20I=20started=20looking=20at=20the=20GS101=20TM=
+U.=20I=20assume=20it's=20very=20similar=0D=0A>=20>>=20with=20the=20TMU=20on=
+=20exynosautov920.=20Do=20you=20know=20if=20they=20share=20the=20same=20IP=
+=0D=0A>=20version?=0D=0A>=20=0D=0A>=20I=20guess=20you=20omitted=20this=20qu=
+estion.=0D=0A>=0D=0AOh,=20Sorry=20-=20I=20missed=20that=20question=20earlie=
+r.=20I=20do=20see=20many=20similarities,=0D=0ABut=20I'm=20not=20sure=20whet=
+her=20Exynosautov920=20actually=20share=20the=20same=20IP=20version=20as=20=
+GS101.=0D=0A=0D=0A>=20>=20Regarding=20ACPM,=20I=20did=20not=20introduce=20i=
+t=20earlier=20because=20I=20was=20trying=20to=0D=0A>=20align=20the=20implem=
+entation=20with=20the=20existing=20framework.=0D=0A>=20>=20However,=20if=20=
+we=20move=20toward=20a=20separate=20driver,=20I=20will=20reconsider=20wheth=
+er=0D=0A>=20ACPM=20integration=20makes=20sense=20there.=0D=0A>=20>=20Would=
+=20it=20be=20possible=20to=20get=20your=20feedback=20again=20when=20I=20pre=
+pare=20the=20next=0D=0A>=20revision=20of=20the=20driver?=0D=0A>=20=0D=0A>=
+=20Yes,=20I'll=20try=20to=20review=20it.=20Add=20me=20to=20cc=20please.=0D=
+=0A=0D=0AThanks=20a=20lot=21=0D=0A=0D=0A>=20Is=20the=20downstream=20exynosa=
+utov9=20code=20publicly=20available?=20Can=20you=20provide=0D=0A>=20some=20=
+links?=0D=0A>=20=0D=0A>=20Thanks=21=0D=0A>=20ta=0D=0A=0D=0AThank=20you=20fo=
+r=20sharing=20the=20links.=20As=20far=20as=20I=20know,=20the=20downstream=
+=20eav9=20code=20is=20not=20publicly=20available.=0D=0AIn=20the=20next=20pa=
+tch=20series,=20I'll=20make=20sure=20to=20add=20you=20to=20CC.=20I=20apprec=
+iate=20your=20help=20and=20feedback.=0D=0A=0D=0AThanks,=0D=0AShin=0D=0A=0D=
+=0A=0D=0A
 
