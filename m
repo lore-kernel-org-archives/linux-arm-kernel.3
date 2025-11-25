@@ -4,150 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F1E9CFD364
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 07:20:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0F15CFD315
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 07:20:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TPntlOqdFWfhwr/Kbhykec41hobmmKyQB3TzxwFkUv4=; b=IyC3WT6PLF29wNiheWXjkWMek1
-	3oMLdCzBad/IonViWc1okUhlHDU76jj32T+g9dXMOkh/MSzr6z6cpf1TNc6GuecAg0koauURH1YL+
-	1szY5G4SXp2s5b0iblIycp58AWhgOKII1xf3m3FX0CkMRHJqpfgzdq0k8cCy35vxSdtq4hv8UMEvM
-	ObLdjsCpB4sHvxZrht2HOXPjyetU8AM29yTz8n6TXYloORZHxQFO7esCrM2szvTFgvdU1gcQL7BJe
-	xNvSj1AZHu1QEMX2ciFmPSPJ10KDUxhDd0AOd6SZQN7TfzYZlcHzbR+n3qdMaq5pNO/lXNpR+R7DN
-	l+ZxGEhg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eP2e4OiQhKFjF8jIAfWUJ81hm27Yf/v4hmfnRrA+7u4=; b=gy6uCsYZZ6+VJLwOd9BMaM0OZP
+	bL/O6HP3L0pUYtmPqqAknRBrk9MQGcC1keyEhwO4xRnIJqYC55hvAb8pF7UzojpoCEZ/5ncohtF4Z
+	ymy1BWETEeP3/Zhi6C66YbM49yuIb8Gm9t1akOTt7HddPX78AkbL5pZZa4bV/QvgoNEB+m0FSaVla
+	aSDc+dzw1ZrRW2YhBEGFNq/cE690WRq6L7dI5d65vOo0m9c0/r+KSREhD86+/QXXR+qpCPvSLEJyF
+	/9cJdtIrK2UOkTy/pb2FTQyEY8MXMkWkWIA9Ad2tsgphxS6no/KVP/2tlpIjucUXjMmiubpw7Bfcv
+	3GIDNb2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNnLC-0000000Csoc-2r29;
-	Tue, 25 Nov 2025 07:19:58 +0000
-Received: from smtp-out1.suse.de ([195.135.223.130])
+	id 1vNnLh-0000000CstX-00Bl;
+	Tue, 25 Nov 2025 07:20:29 +0000
+Received: from mail11.truemail.it ([217.194.8.81])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNnL9-0000000CsnV-2Xuv
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Nov 2025 07:19:57 +0000
-Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id 99FA922653;
-	Tue, 25 Nov 2025 07:19:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1764055193; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=TPntlOqdFWfhwr/Kbhykec41hobmmKyQB3TzxwFkUv4=;
-	b=WUdO/WfD173ZFq/tfqsxWjrcSCfzNOy7tCuCaHuzEzYTyMWLfWbSib+W6SkFD1tRLlwL/q
-	DwpKjQoEkV9VRf3QULw259l6zaM7JVcR8IAq395MIcXM75BJY7k0P2uefrI5y2ffhOsh6Z
-	sE6cnd7fyct7T3tkXKZJnYk4rUZ0pjA=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1764055193;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=TPntlOqdFWfhwr/Kbhykec41hobmmKyQB3TzxwFkUv4=;
-	b=dl8Ok7ikIupkgbJXbm1AVIfcq/9jM7IhiDaGX+BG12s20Hlm7OY4gJHWiPARPiIZOS2wnd
-	GrZUz0T1bdH7R3AQ==
-Authentication-Results: smtp-out1.suse.de;
-	none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1764055193; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=TPntlOqdFWfhwr/Kbhykec41hobmmKyQB3TzxwFkUv4=;
-	b=WUdO/WfD173ZFq/tfqsxWjrcSCfzNOy7tCuCaHuzEzYTyMWLfWbSib+W6SkFD1tRLlwL/q
-	DwpKjQoEkV9VRf3QULw259l6zaM7JVcR8IAq395MIcXM75BJY7k0P2uefrI5y2ffhOsh6Z
-	sE6cnd7fyct7T3tkXKZJnYk4rUZ0pjA=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1764055193;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=TPntlOqdFWfhwr/Kbhykec41hobmmKyQB3TzxwFkUv4=;
-	b=dl8Ok7ikIupkgbJXbm1AVIfcq/9jM7IhiDaGX+BG12s20Hlm7OY4gJHWiPARPiIZOS2wnd
-	GrZUz0T1bdH7R3AQ==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 2035F3EA63;
-	Tue, 25 Nov 2025 07:19:53 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id ynIsBplYJWn5QQAAD6G6ig
-	(envelope-from <tzimmermann@suse.de>); Tue, 25 Nov 2025 07:19:53 +0000
-Message-ID: <8ff77586-724e-48a4-9282-643e8fa84d96@suse.de>
-Date: Tue, 25 Nov 2025 08:19:52 +0100
+	id 1vNnLd-0000000Css4-0hFv;
+	Tue, 25 Nov 2025 07:20:27 +0000
+Received: from francesco-nb (248.201.173.83.static.wline.lns.sme.cust.swisscom.ch [83.173.201.248])
+	by mail11.truemail.it (Postfix) with ESMTPA id 567FE22239;
+	Tue, 25 Nov 2025 08:20:17 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
+	s=default; t=1764055217;
+	bh=eP2e4OiQhKFjF8jIAfWUJ81hm27Yf/v4hmfnRrA+7u4=; h=From:To:Subject;
+	b=plcXhOYfkNszbCYxnXmFqaWOpn7jc3Rlx9S9egzSDXifLp+Bb333iJsRbBBPPv8yq
+	 CbBakUPdb9dSRtKzwZXj6MixsWT03hX/W2bXAjjarsZy+JHCuPZMhMHqK3Zlc+ENtQ
+	 DgYKxtsD7KiRMEuyO3FXQUjuO9wANtxjUkr0tHkB9311I7rVG3bxid1ZqWKf1JzZkC
+	 0CQtFnm6NbfCzmELIFAAxm4Ty59VCC/n8Q52D7eY23zsiRU7mpd/GcRebcivax0usU
+	 Mls6U4hAsqKVkrUKo2p2S8wRJK4pwYISYDSPSJG4OSA8QGj87euyQRFKQSL427X2Vb
+	 BIafJR4XqnsLw==
+Date: Tue, 25 Nov 2025 08:20:11 +0100
+From: Francesco Dolcini <francesco@dolcini.it>
+To: Xu Yang <xu.yang_2@nxp.com>
+Cc: Franz Schnyder <fra.schnyder@gmail.com>, Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Franz Schnyder <franz.schnyder@toradex.com>,
+	linux-phy@lists.infradead.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Francesco Dolcini <francesco.dolcini@toradex.com>,
+	stable@vger.kernel.org
+Subject: Re: [PATCH v1] phy: fsl-imx8mq-usb: fix typec orientation switch
+ when built as module
+Message-ID: <20251125072011.GA5375@francesco-nb>
+References: <20251124095006.588735-1-fra.schnyder@gmail.com>
+ <w2dpsbfspr4od2j5seidi3tcpo3r2revhahhxiuacqehkqy3nn@2zjb3xvso45d>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 08/10] efi: Support EDID information
-To: Ard Biesheuvel <ardb@kernel.org>
-Cc: javierm@redhat.com, arnd@arndb.de, richard.lyu@suse.com, x86@kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-efi@vger.kernel.org, loongarch@lists.linux.dev,
- linux-riscv@lists.infradead.org, dri-devel@lists.freedesktop.org,
- linux-hyperv@vger.kernel.org, linux-pci@vger.kernel.org,
- linux-fbdev@vger.kernel.org
-References: <20251124165116.502813-1-tzimmermann@suse.de>
- <20251124165116.502813-9-tzimmermann@suse.de>
- <CAMj1kXFu4=L=ROVAaRORG5HMmYWHb6OXQf6pJ3yAZpeDmfmSeg@mail.gmail.com>
- <CAMj1kXFtsneE3dFgUx6Hd=iBhD8YpvjfTSi-KZpuNaXfX07KyA@mail.gmail.com>
-Content-Language: en-US
-From: Thomas Zimmermann <tzimmermann@suse.de>
-Autocrypt: addr=tzimmermann@suse.de; keydata=
- xsBNBFs50uABCADEHPidWt974CaxBVbrIBwqcq/WURinJ3+2WlIrKWspiP83vfZKaXhFYsdg
- XH47fDVbPPj+d6tQrw5lPQCyqjwrCPYnq3WlIBnGPJ4/jreTL6V+qfKRDlGLWFjZcsrPJGE0
- BeB5BbqP5erN1qylK9i3gPoQjXGhpBpQYwRrEyQyjuvk+Ev0K1Jc5tVDeJAuau3TGNgah4Yc
- hdHm3bkPjz9EErV85RwvImQ1dptvx6s7xzwXTgGAsaYZsL8WCwDaTuqFa1d1jjlaxg6+tZsB
- 9GluwvIhSezPgnEmimZDkGnZRRSFiGP8yjqTjjWuf0bSj5rUnTGiyLyRZRNGcXmu6hjlABEB
- AAHNJ1Rob21hcyBaaW1tZXJtYW5uIDx0emltbWVybWFubkBzdXNlLmRlPsLAjgQTAQgAOAIb
- AwULCQgHAgYVCgkICwIEFgIDAQIeAQIXgBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftODH
- AAoJEGgNwR1TC3ojx1wH/0hKGWugiqDgLNXLRD/4TfHBEKmxIrmfu9Z5t7vwUKfwhFL6hqvo
- lXPJJKQpQ2z8+X2vZm/slsLn7J1yjrOsoJhKABDi+3QWWSGkaGwRJAdPVVyJMfJRNNNIKwVb
- U6B1BkX2XDKDGffF4TxlOpSQzdtNI/9gleOoUA8+jy8knnDYzjBNOZqLG2FuTdicBXblz0Mf
- vg41gd9kCwYXDnD91rJU8tzylXv03E75NCaTxTM+FBXPmsAVYQ4GYhhgFt8S2UWMoaaABLDe
- 7l5FdnLdDEcbmd8uLU2CaG4W2cLrUaI4jz2XbkcPQkqTQ3EB67hYkjiEE6Zy3ggOitiQGcqp
- j//OwE0EWznS4AEIAMYmP4M/V+T5RY5at/g7rUdNsLhWv1APYrh9RQefODYHrNRHUE9eosYb
- T6XMryR9hT8XlGOYRwKWwiQBoWSDiTMo/Xi29jUnn4BXfI2px2DTXwc22LKtLAgTRjP+qbU6
- 3Y0xnQN29UGDbYgyyK51DW3H0If2a3JNsheAAK+Xc9baj0LGIc8T9uiEWHBnCH+RdhgATnWW
- GKdDegUR5BkDfDg5O/FISymJBHx2Dyoklv5g4BzkgqTqwmaYzsl8UxZKvbaxq0zbehDda8lv
- hFXodNFMAgTLJlLuDYOGLK2AwbrS3Sp0AEbkpdJBb44qVlGm5bApZouHeJ/+n+7r12+lqdsA
- EQEAAcLAdgQYAQgAIAIbDBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftOH6AAoJEGgNwR1T
- C3ojVSkIALpAPkIJPQoURPb1VWjh34l0HlglmYHvZszJWTXYwavHR8+k6Baa6H7ufXNQtThR
- yIxJrQLW6rV5lm7TjhffEhxVCn37+cg0zZ3j7zIsSS0rx/aMwi6VhFJA5hfn3T0TtrijKP4A
- SAQO9xD1Zk9/61JWk8OysuIh7MXkl0fxbRKWE93XeQBhIJHQfnc+YBLprdnxR446Sh8Wn/2D
- Ya8cavuWf2zrB6cZurs048xe0UbSW5AOSo4V9M0jzYI4nZqTmPxYyXbm30Kvmz0rYVRaitYJ
- 4kyYYMhuULvrJDMjZRvaNe52tkKAvMevcGdt38H4KSVXAylqyQOW5zvPc4/sq9c=
-In-Reply-To: <CAMj1kXFtsneE3dFgUx6Hd=iBhD8YpvjfTSi-KZpuNaXfX07KyA@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Spamd-Result: default: False [-4.30 / 50.00];
-	BAYES_HAM(-3.00)[100.00%];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	NEURAL_HAM_SHORT(-0.20)[-0.999];
-	MIME_GOOD(-0.10)[text/plain];
-	FUZZY_RATELIMITED(0.00)[rspamd.com];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	MIME_TRACE(0.00)[0:+];
-	ARC_NA(0.00)[];
-	RCPT_COUNT_TWELVE(0.00)[14];
-	MID_RHS_MATCH_FROM(0.00)[];
-	RCVD_TLS_ALL(0.00)[];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	FROM_HAS_DN(0.00)[];
-	TO_DN_SOME(0.00)[];
-	FROM_EQ_ENVFROM(0.00)[];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	RCVD_COUNT_TWO(0.00)[2];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:email,suse.de:mid,suse.com:url]
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <w2dpsbfspr4od2j5seidi3tcpo3r2revhahhxiuacqehkqy3nn@2zjb3xvso45d>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251124_231955_924774_101C8BB5 
-X-CRM114-Status: GOOD (  11.12  )
+X-CRM114-CacheID: sfid-20251124_232026_246394_65C54ACA 
+X-CRM114-Status: GOOD (  21.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,46 +78,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi
+On Tue, Nov 25, 2025 at 03:04:43PM +0800, Xu Yang wrote:
+> On Mon, Nov 24, 2025 at 10:50:04AM +0100, Franz Schnyder wrote:
+> > From: Franz Schnyder <franz.schnyder@toradex.com>
+> > 
+> > Currently, the PHY only registers the typec orientation switch when it
+> > is built in. If the typec driver is built as a module, the switch
+> > registration is skipped due to the preprocessor condition, causing
+> > orientation detection to fail.
+> > 
+> > This patch replaces the preprocessor condition so that the orientation
+> > switch is correctly registered for both built-in and module builds.
+> > 
+> > Fixes: b58f0f86fd61 ("phy: fsl-imx8mq-usb: add tca function driver for imx95")
+> > Cc: stable@vger.kernel.org
+> > Signed-off-by: Franz Schnyder <franz.schnyder@toradex.com>
+> > ---
+> >  drivers/phy/freescale/phy-fsl-imx8mq-usb.c | 2 +-
+> >  1 file changed, 1 insertion(+), 1 deletion(-)
+> > 
+> > diff --git a/drivers/phy/freescale/phy-fsl-imx8mq-usb.c b/drivers/phy/freescale/phy-fsl-imx8mq-usb.c
+> > index b94f242420fc..d498a6b7234b 100644
+> > --- a/drivers/phy/freescale/phy-fsl-imx8mq-usb.c
+> > +++ b/drivers/phy/freescale/phy-fsl-imx8mq-usb.c
+> > @@ -124,7 +124,7 @@ struct imx8mq_usb_phy {
+> >  static void tca_blk_orientation_set(struct tca_blk *tca,
+> >  				enum typec_orientation orientation);
+> >  
+> > -#ifdef CONFIG_TYPEC
+> > +#if IS_ENABLED(CONFIG_TYPEC)
+> 
+> With below commit:
+> 
+> 45fe729be9a6 usb: typec: Stub out typec_switch APIs when CONFIG_TYPEC=n
+> 
+> I think this #if/else/endif condition can be removed.
 
-Am 24.11.25 um 18:04 schrieb Ard Biesheuvel:
-> On Mon, 24 Nov 2025 at 18:01, Ard Biesheuvel <ardb@kernel.org> wrote:
->> On Mon, 24 Nov 2025 at 17:52, Thomas Zimmermann <tzimmermann@suse.de> wrote:
->>> Add LINUX_EFI_PRIMARY_DISPLAY_TABLE_GUID to the list of config-table
->>> UUIDs. Read sysfb_primary_display from the entry. The UUID has been
->>> generated with uuidgen.
->>>
->>> Still support LINUX_EFI_SCREEN_INFO_TABLE_GUID as fallback in case an
->>> older boot loader invokes the kernel.
->>>
->>> If CONFIG_FIRMWARE_EDID=n, EDID information is disabled.
->>>
->>> Make the Kconfig symbol CONFIG_FIRMWARE_EDID available with EFI. Setting
->>> the value to 'n' disables EDID support.
->>>
->>> Signed-off-by: Thomas Zimmermann <tzimmermann@suse.de>
->> Why are we adding a new config table again?
->>
->>
-> Note that LINUX_EFI_SCREEN_INFO_TABLE_GUID is internal ABI only
-> between the EFI stub and the core kernel.
+This patch should go to stable, and that commit is not present in any
+such previous kernel.
 
-Ah, ok. That's my misconception. I was thinking that we have to support 
-external boot loaders building a config table.
+Should we have 2 patches or "force" 45fe729be9a6 to be also backported?
 
-I'll just extend the existing UUID then.
+What's the general advise in these situations?
 
-Best regards
-Thomas
-
-
--- 
---
-Thomas Zimmermann
-Graphics Driver Developer
-SUSE Software Solutions Germany GmbH
-Frankenstr. 146, 90461 Nürnberg, Germany, www.suse.com
-GF: Jochen Jaser, Andrew McDonald, Werner Knoblich, (HRB 36809, AG Nürnberg)
-
+Francesco
 
 
