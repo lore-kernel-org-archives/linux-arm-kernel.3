@@ -4,83 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9F88D0EE1C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 20:24:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0EE1D0EE1C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 20:49:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5jrlmrv+WE1d+q+BZ0HW8yQDBYRl1yl+/6bzuMswpF0=; b=iwntJspVeZpXQuR6wljT9s+hc2
-	yE5p5jXfSE4qbxlfFjAiM00OIuv1CA1aSD36hyWAKYHmuCvXubgeGsIIcjmm3LiezsXuccuwKbIc6
-	AKwMc5SMfE1UND6EwPdW02n5eZhaN3HxHoJDsjd4H/nD9ucme85fipyqNGv3Uc5MFtaMGSl9buIpB
-	trjvC8895T0x1Wr+WeeZ+f5wyk5hgzzMnZ/+MpUZaKu/TK2peJlIpdWliMWX/cO3EG6w6ipW1C0ti
-	7YWbhDJLTtBJsEoQCDTHrK75DMNYQFzn3jfrLuIuhf/d0HeH5i5cSUQlNcwR5pHGSYap8MmFq5bDS
-	GrZsk8fg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=VSJyFTQrD9zw8w1a89xtCcNxzkzfGIJqCWJx13KvRA8=; b=GAygbiCYMVO82loIXqXOv9tsnL
+	QBHPHIhbguuzABYNMLZNmwZAFestv7TcH2OZBvBfGTAcXH1za1sKExxgoEJ+07VhtIXXWFahxdRNm
+	oYA9syACFM6iA8/23OaaYRVUrhj5YYxwclBajeMJP/VLGFe3NbsMA666m/yU6X93n6k+FlGHzW/NU
+	139zVBUhp8C/JXHA9os7SCzkzLh6Emb7rGHCHiPjMay/FUO3URrnAWN5Osu5c2OqpJI4wdR6u/De/
+	eQn6eZEHlXTUR2RV9pOQjd+IVgkSd0qWsZ6vdvPfude/JuvznnRZl+pSfFi6tcgBt9ijwxWXKMW6E
+	DW8JFGmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNzab-0000000Du3a-35Z2;
-	Tue, 25 Nov 2025 20:24:41 +0000
-Received: from mgamail.intel.com ([198.175.65.14])
+	id 1vNzy5-0000000DvRj-0Cxn;
+	Tue, 25 Nov 2025 20:48:57 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNzaZ-0000000Du35-2kjm;
-	Tue, 25 Nov 2025 20:24:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1764102280; x=1795638280;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=nlQgA8SwbQHk5U14QPjlZByfr1U0IgvDlzMgeQQE/KI=;
-  b=SHMK0xk+sTYYUE6Oc3ds/HCz+QHEtp63jw7/l0m0hVZHsGLJ/soYtGtU
-   WmFA04bbjQfRb+zfGxSXBYCDwraM3sSSWJLGIyBfulaseQbM/dis8gdsL
-   UriedIFDY+xQ0wDXR9p2g5vGZOiNQzke3xx31wZV0d6KFOgqU3TxmHuqd
-   qfivKbf2uIZWsTJ8Q212hDpa38+LEvMCma8XSh1TlD4TDlRcvOFM1tSpt
-   u9MBCjm1q/iKbImh3ZoPQTgWAq6tTAXBsyJ3hhUhaA67nLi4ODfjVsUo4
-   zMUnOYuPGoN6JmJsaNh0y7IjgP11CRGA2n3l//x5FMjtdvj8BW7aqoxAz
-   w==;
-X-CSE-ConnectionGUID: TQv8uylxSiW+L3fH/dP4mg==
-X-CSE-MsgGUID: xwu2wT1WS8KahXtxthmg3w==
-X-IronPort-AV: E=McAfee;i="6800,10657,11624"; a="69990521"
-X-IronPort-AV: E=Sophos;i="6.20,226,1758610800"; 
-   d="scan'208";a="69990521"
-Received: from fmviesa001.fm.intel.com ([10.60.135.141])
-  by orvoesa106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2025 12:24:39 -0800
-X-CSE-ConnectionGUID: gSiRx9hWTuul5+64L2UjIw==
-X-CSE-MsgGUID: 6tBO7O20TrKO4OAE7VUosw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.20,226,1758610800"; 
-   d="scan'208";a="223722026"
-Received: from ncintean-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.22])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2025 12:24:35 -0800
-Date: Tue, 25 Nov 2025 22:24:33 +0200
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>
-Cc: Lorenzo Bianconi <lorenzo@kernel.org>, Ray Liu <ray.liu@airoha.com>,
-	Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Andy Shevchenko <andy@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-spi@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-mediatek@lists.infradead.org,
-	Andreas Gnau <andreas.gnau@iopsys.eu>
-Subject: Re: [PATCH v5 1/3] spi: airoha-snfi: en7523: workaround flash
- damaging if UART_TXD was short to GND
-Message-ID: <aSYQgZR1YoVQkbxC@smile.fi.intel.com>
-References: <20251125191635.1075027-1-mikhail.kshevetskiy@iopsys.eu>
- <20251125191635.1075027-2-mikhail.kshevetskiy@iopsys.eu>
+	id 1vNzy3-0000000DvRb-0WiK
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 25 Nov 2025 20:48:55 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 2C0B56022B;
+	Tue, 25 Nov 2025 20:48:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CF0FCC4CEF1;
+	Tue, 25 Nov 2025 20:48:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1764103733;
+	bh=JK/jjvYSwgAGtXn2/4YtYuj6bvcT8tHZpTXPO//omWg=;
+	h=From:To:Cc:Subject:Date:From;
+	b=t9mZv298Wpa5eTpRc/cfeMLeKRD7X1tEKMrtXLVf/QISI3Crlp6vonCAvSPxWQsZY
+	 ro+iytmds2t16rpz2mdFFyA4Q4PJOfadM9IcZEdnyiWmGJQC3Q0oLaGlUCjVHbzq8d
+	 NLxScvnNk6R8dlh9BJIpPLBiknpId/E1OGH4rpB9lKs+E9wgvABFin1JjAiASSzh6W
+	 i0r+a3+6yKpu4ABehDmL8J273pok8USYQHeZc4emMz5Z+u+/r/8jub4O0qifFJjHNl
+	 QZR22SlP707NVF3dA6Ghczg1rDcfZf07sz+CbJAF6zHeKqhLtE+ZkABDzVdYzowhmi
+	 75GJtcxBvhz+A==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vNzxz-00000008HI3-3DX2;
+	Tue, 25 Nov 2025 20:48:51 +0000
+From: Marc Zyngier <maz@kernel.org>
+To: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	kvm@vger.kernel.org
+Cc: Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	kernel test robot <lkp@intel.com>
+Subject: [PATCH v2] KVM: arm64: Add endian casting to kvm_swap_s[12]_desc()
+Date: Tue, 25 Nov 2025 20:48:48 +0000
+Message-ID: <20251125204848.1136383-1-maz@kernel.org>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251125191635.1075027-2-mikhail.kshevetskiy@iopsys.eu>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251125_122439_738741_E834CC13 
-X-CRM114-Status: GOOD (  11.65  )
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, lkp@intel.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,36 +81,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 25, 2025 at 10:16:33PM +0300, Mikhail Kshevetskiy wrote:
+Keep sparse quiet by explicitly casting endianness conversion
+when swapping S1 and S2 descriptors.
 
-...
+Reported-by: kernel test robot <lkp@intel.com>
+Closes: https://lore.kernel.org/oe-kbuild-all/202511260246.JQDGsQKa-lkp@intel.com/
+Closes: https://lore.kernel.org/oe-kbuild-all/202511260344.9XehvH5Q-lkp@intel.com/
+Fixes: c59ca4b5b0c3f ("KVM: arm64: Implement HW access flag management in stage-1 SW PTW")
+Fixes: 39db933ba67f8 ("KVM: arm64: nv: Implement HW access flag management in stage-2 SW PTW")
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+---
 
-> +			dev_warn(dev, "Detected booting in RESERVED mode (UART_TXD was short to GND).\n");
-> +			dev_warn(dev, "This mode is known for incorrect DMA reading of some flashes.\n");
-> +			dev_warn(dev, "Usage of DMA for flash operations will be disabled to prevent data\n");
-> +			dev_warn(dev, "damage. Unplug your serial console and power cycle the board\n");
-> +			dev_warn(dev, "to boot with full performance.\n");
+Notes:
+    Missed the S2 issue the first time, and only caught up with
+    the robot's email.
 
-One non-critical remark (for the future), the '\n' in the string literals when
-we print messages has two meanings:
- - (obviously) new line
- - (seems not so obvious for people) flush the line to the output device
+ arch/arm64/kvm/at.c     | 8 ++++----
+ arch/arm64/kvm/nested.c | 8 ++++----
+ 2 files changed, 8 insertions(+), 8 deletions(-)
 
-Due to the second property the messages might be interleaved with the other
-messages (assuming SMP machine actively doing and printing something), hence
-your messages might be split with other and imagine the user who gets in the
-middle of the text something like
-
-"Usage of DMA for flash operations will be disabled to prevent data"
-
-The first thought will be "what the heck does this mean?"
-
-TL;DR: place '\n' with a care in the messages to print not only here,
-but in general.
-
+diff --git a/arch/arm64/kvm/at.c b/arch/arm64/kvm/at.c
+index f774a02d9393b..d25fef0f66e21 100644
+--- a/arch/arm64/kvm/at.c
++++ b/arch/arm64/kvm/at.c
+@@ -386,11 +386,11 @@ static int kvm_swap_s1_desc(struct kvm_vcpu *vcpu, u64 pa, u64 old, u64 new,
+ 			    struct s1_walk_info *wi)
+ {
+ 	if (wi->be) {
+-		old = cpu_to_be64(old);
+-		new = cpu_to_be64(new);
++		old = (__force u64)cpu_to_be64(old);
++		new = (__force u64)cpu_to_be64(new);
+ 	} else {
+-		old = cpu_to_le64(old);
+-		new = cpu_to_le64(new);
++		old = (__force u64)cpu_to_le64(old);
++		new = (__force u64)cpu_to_le64(new);
+ 	}
+ 
+ 	return __kvm_at_swap_desc(vcpu->kvm, pa, old, new);
+diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
+index c3033d1fe718c..cdeeb8f09e722 100644
+--- a/arch/arm64/kvm/nested.c
++++ b/arch/arm64/kvm/nested.c
+@@ -224,11 +224,11 @@ static int swap_guest_s2_desc(struct kvm_vcpu *vcpu, phys_addr_t pa, u64 old, u6
+ 			      struct s2_walk_info *wi)
+ {
+ 	if (wi->be) {
+-		old = cpu_to_be64(old);
+-		new = cpu_to_be64(new);
++		old = (__force u64)cpu_to_be64(old);
++		new = (__force u64)cpu_to_be64(new);
+ 	} else {
+-		old = cpu_to_le64(old);
+-		new = cpu_to_le64(new);
++		old = (__force u64)cpu_to_le64(old);
++		new = (__force u64)cpu_to_le64(new);
+ 	}
+ 
+ 	return __kvm_at_swap_desc(vcpu->kvm, pa, old, new);
 -- 
-With Best Regards,
-Andy Shevchenko
-
+2.47.3
 
 
