@@ -4,151 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3623CD0E6E3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 13:43:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40B88D0E6E3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 13:48:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r0vSyDN+vQ0yQvtbuSEDVpGFWiXCxou95SUvGwT/2bE=; b=dmiVm0FtU5TYPUvAYBU2a3Q8Uw
-	V+CbuWCZ11QveD3DJ1+S4bfDhmkHZgaUuTe8xlDBUQmSXAdmbUaVn8nTij0U6zvg88ko58uAN65Cy
-	CRZj8wpcYwqk+i/7Ev9b0OJMyidZVmksEptSnvHNFgaktFNa7zM8qszdBhaGUtv8TDtWwxRbn3jqc
-	eSbXjpWfCymdxrG8MqFC9lgwaBiU8CMXhzCu+Mp/Iw3Ldgo6PKRLe+AYK0GY/CfdPo/GiluJGbQef
-	w3d7z/hiS7LD5AWmmdV2sGymZl2ydOXZL3qDWVo1myRVVWiq0ib3KxGvov8iMN7iVqb5jYg//E4FI
-	nAYcRcWQ==;
+	bh=3BoF/X28BOoyaiqzRhaHYZ/mygqMWgMGsiQEFaOHpKw=; b=zL8miTktaSg/O1PMAWIus8xaif
+	5jNQdkdA5DtgCR/Jfn3vPuU39YDeDH3Z/BvZ0dCLU+o0CkpJ2DfmqKijrjUJnL/wndSNDXRgQ7AR8
+	1IFwNwLk/x2+6IZakxuRvGYhw/oXLbZXuIr3uqdVmIY0Gv+UXMRQjnMV0aBIF9naFdRCktgpCFCPC
+	rHWXyI8vK4m/DUe/DouYT5umD1wlNXt0ztzWkmtI8T7yKAtFFhg/HYiTTshsuS5fB1Yp9RbLU6KTy
+	Vc4mXpH2hIt5QSy0UUAT74kwygRoUshGb8SNzEHcLQAb0rHxVathXIz/KQDHxhgpBt8GEaWMskxa/
+	IW1HM4Gw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNtKO-0000000DMkl-3Pk4;
-	Tue, 25 Nov 2025 13:43:32 +0000
-Received: from mail-westus3azlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c107::3] helo=PH0PR06CU001.outbound.protection.outlook.com)
+	id 1vNtOt-0000000DN4G-0rpF;
+	Tue, 25 Nov 2025 13:48:11 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNtKM-0000000DMkE-1ZEU
+	id 1vNtOr-0000000DN3u-0H4N
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Nov 2025 13:43:31 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=t/67d3wIOkdo5zNeGUur1xoXzurLet2Fpj9CNA3+8D04a1Z52fZwvqdJjtKA3iccik/uu5crsVr/qaPU+KqETmwO6qiztGsBGEXGaTRMu6RdaEbBQmezRYwTnnicNSHY1rMozrSQyUSbN5x6B/PIouGqvbaLbXBeblyghqb94vrUh4XKegQ0HmYkvj2fFqGDgYdnQe8CGe7+gC+11xkM/vcauTTEWSZ93SkMIQSXeykkN0PTuR/+BkA3YPVP/SDrcjBibNP70sIoHxi2t36nf17uPqtlvxCUBy7c2UFoV3HUFUOwHSBZV2D+c1lAeCst1lbuyqDXUVRuBGsq1bYGBg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=r0vSyDN+vQ0yQvtbuSEDVpGFWiXCxou95SUvGwT/2bE=;
- b=nVjNFYc8HhIm3i/EaYERUXMrqxIMQvqHHEzlt0QbnJ2ov640wlo2M6sCLPDBLl+2Mv9PjVtKktCFw+pQZHxcxwrg+G284b3PJeTY1FdhbvenZ/wUHDsuIaFsvS0zRgbc/17DaICI0pA2exCIHG952kK2YebW5W9l71k2Xs4M0KUIuXjhZmxRMzIsRJqq0kfwhfTJysguHrbe9rv75oSsInQIXtfO7QL/aeJJRS8135fhT46tXBhw55CMfhHhEqE1dxrewODeoThT/GydaeW6j5qF70EMlypyQNuLgo/6oCcaPLENV5jWw93chppDfbM3cfcL2UBagdlkjGvYKnS65A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=r0vSyDN+vQ0yQvtbuSEDVpGFWiXCxou95SUvGwT/2bE=;
- b=gAIjmKsCudYk02PM7Stl1abkSbxMEH+ILdLVXDOwQJiqQau0132uEJqwYQlzx7fEBHV6d638cAp3IdtarY10a4wY5S4At+O8rMrSG+Dl4H1UzunssH6Dk2GNMLEBHYkjQLetsl623heXcgTFPAmq+lGJeVkCWzXY6/ZQljcpt+bOiZXxiIqkqaq/QXdTlXbRSjbSMIaYiv9KJMHP0wjFmBMlyrIFiXyiqghAgXdMCy2qOog2xZRTxB7wpRtpsUB/jBsZEjj9mzXq73KBV8yWHH6Qt3kyu/1qHQSVOc/qHZCQnEdhTafhBh5lUnFJzE7DNEEW1+O0zKra455LgkErGw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from MN2PR12MB3613.namprd12.prod.outlook.com (2603:10b6:208:c1::17)
- by LV2PR12MB6016.namprd12.prod.outlook.com (2603:10b6:408:14e::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9343.17; Tue, 25 Nov
- 2025 13:43:22 +0000
-Received: from MN2PR12MB3613.namprd12.prod.outlook.com
- ([fe80::1b3b:64f5:9211:608b]) by MN2PR12MB3613.namprd12.prod.outlook.com
- ([fe80::1b3b:64f5:9211:608b%4]) with mapi id 15.20.9343.009; Tue, 25 Nov 2025
- 13:43:22 +0000
-Date: Tue, 25 Nov 2025 09:43:21 -0400
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: Will Deacon <will@kernel.org>, jean-philippe@linaro.org,
-	robin.murphy@arm.com, joro@8bytes.org, balbirs@nvidia.com,
-	miko.lenczewski@arm.com, peterz@infradead.org, kevin.tian@intel.com,
-	praan@google.com, linux-arm-kernel@lists.infradead.org,
-	iommu@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v5 3/7] iommu/arm-smmu-v3: Introduce a per-domain
- arm_smmu_invs array
-Message-ID: <20251125134321.GQ153257@nvidia.com>
-References: <cover.1762588839.git.nicolinc@nvidia.com>
- <eea7bffde13574e099212e3b3823a0f192d6aec3.1762588839.git.nicolinc@nvidia.com>
- <aSTRRyTBh1nATwBa@willie-the-truck>
- <aSUtL9qxYa6/GCfP@Asurada-Nvidia>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aSUtL9qxYa6/GCfP@Asurada-Nvidia>
-X-ClientProxiedBy: BL6PEPF0001641A.NAMP222.PROD.OUTLOOK.COM
- (2603:10b6:22e:400:0:1004:0:6) To MN2PR12MB3613.namprd12.prod.outlook.com
- (2603:10b6:208:c1::17)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MN2PR12MB3613:EE_|LV2PR12MB6016:EE_
-X-MS-Office365-Filtering-Correlation-Id: 09f648cc-2c11-4f96-01a9-08de2c2899b2
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?nZKBCmfyupBrQAindEWOMWZlp/pu372CxDZEiSpmdlFYx6tiJ3Hmnx+OntfR?=
- =?us-ascii?Q?VYJEMwGVPguy2iq8TXmMln9QXhE1PVy1IemJGGtiGcF9OMFc2H4hMFjMmUfy?=
- =?us-ascii?Q?fQRIL2wUDTpRpNrywwwCNp7e/htfcn51T/8P4FkoqT7YWDKK3A0evR2zwFQy?=
- =?us-ascii?Q?7ZxnscnXiYSou3+fIqzeVPiC1bjc+DgOJEb4zeeN+dmYkJdWGo1iAHCvycGl?=
- =?us-ascii?Q?sgPDTMTNup8HrJLXEmKAMCpehJ1djvp0xMSt7KrWTKTdOLKKmLMqnORDnoAb?=
- =?us-ascii?Q?MGETyfEyru8Z2gluZw8jcaMuHLWT6rC4jtXGz8U6Th85/5axkwHpWuu13DlF?=
- =?us-ascii?Q?mHMV2/pWHHMu6iKTfMcd+ir9L+xDF/IH2zkZCOf0Lc9LYMMdQ7AvMkdeN2Uz?=
- =?us-ascii?Q?APeT2YWRxu8DUhINNhOuVzFrUPUwZxlfv+qeX+u7INPrVPZHydvzCZJPqdFY?=
- =?us-ascii?Q?UD0Kxe2D9JtjLxTs9eZeovxW+ihMpRVZBUtJmTQVChEJwGg7jFL5rNFZ9+Nx?=
- =?us-ascii?Q?g0K0JoFNQDaaievdPd7uzCn2g3bnWS8Rwx8QHcQTweWiN830UrhgbejcTxol?=
- =?us-ascii?Q?DcSGbL0mdEq1DhKuSiYdd0CLSTFNpJXRa/KoYoDUw0nxxnLctOZhJtiRSksC?=
- =?us-ascii?Q?epuu4t0DEAXdvMKTY1wrGcvh6tikOiTK5Vb/OZ/w8wA5FAn3sber9qpJs1tb?=
- =?us-ascii?Q?/9ouNIfqPwZ6Xjl9vt77ZvILEG9W2qh3WtvG2ZUTu/a3LPUNAKHFAtDKOdFR?=
- =?us-ascii?Q?pSWart6Fd5UcCRc/uOyQqWabtGmOg9hksHS5seUFbbbf0d920OnXdexLitD0?=
- =?us-ascii?Q?5tX9Jb2wSBrm5DA/KAgWvK1TkGuGLaDsjP+EXS380B1G1U+mVvJmjEa240Fe?=
- =?us-ascii?Q?ohmAikmbRC5zi7QBpIGyc73QRWxbdZu0etM5zqlv99ZDY2s0TuhyuuPf4NVr?=
- =?us-ascii?Q?HJerpfrh9e7uzFFVP/frTXMg8Ql4vedrAaIFl8rGDx/EbenGs5Ll3HdygNTq?=
- =?us-ascii?Q?JKGjFhkq01hRgbQPxrcoKF+lvqpv+bHNDuT2pZmEXe451HXsU+X2X6BghL8n?=
- =?us-ascii?Q?kjkMqMmmTgbKBd3YBBvVTdkSXbFaDzfcylb101ozocuep+4F1oTQzRRlcoP4?=
- =?us-ascii?Q?FVbE00D/0maJuaeCV5PJ90KH1B7sxL5uKE7k6gLZV9hbAcBdwlRVBBv313qg?=
- =?us-ascii?Q?c7JUDu7pwuVhLU6w0I9enaZKZ8YdDHpOiD7ST7WrQhI9fohGauc0IWR7bHI/?=
- =?us-ascii?Q?O0vmr6ktsX60QVbcbBkxXecF5szj6iUzmssaBV6b5Dd8Rvc80A37+4mP9i1T?=
- =?us-ascii?Q?hFVDQtlEqe1jqIkpPEOKGaPO8qcCo6uD3kfHMyYAxbmwt58yUjGdUkUrGp3s?=
- =?us-ascii?Q?l72aGenDTwZWYByVczjGBjB5GijNuc/9r5OWaKs26ORYkFNqQ7bzc4Mi0qco?=
- =?us-ascii?Q?5fW6YtwzyPzehY2+34ussIWfLf9K3YXW?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MN2PR12MB3613.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?dv5vL7Go7A23m9mBrvx+9i8yCVxhHkPxPxf6IgejtmjsGl1Jhzlc3pt3fOzf?=
- =?us-ascii?Q?1kI9gqZlrXLkE8If7M7dusdw/FzM6w9oxER4pBlMOLMpRDKUYoviFJMIZTeK?=
- =?us-ascii?Q?2+HWN6g2NEXq2gTD+6d9brCWhXJM4PpYIN8oN5K1ZcPnvFzoDG17JV+ySC61?=
- =?us-ascii?Q?o/hVuNplTKNlK8PWJAi1nUD0fg83mjcyCbC46aanh7F8drzWrsodWXGIKBxJ?=
- =?us-ascii?Q?QtdBnVca5U7doNPERqkSL/JtkU0XqJjmaaTMlbWOMs3oGQhxofU3EALgxyrQ?=
- =?us-ascii?Q?++eBG0n8ztKYJC6UyFGHvh90eezPFak0KjH0XJx89YnWsPJdGw8Hrs+0MRgB?=
- =?us-ascii?Q?Si01oi8h+ZXa3hK7QVHYZNq4u4XoWyyhC79csKgz7O4bw7cIzvX2jRcZ+wKL?=
- =?us-ascii?Q?g80bSUNM9XCIZV6LQu9OkfTo1X8Bq/u+3xHA0wu/Qo7bae18rfLtZ7R2zfRE?=
- =?us-ascii?Q?pu4pTcI8iEyDLtxbAMztSoYLoC2gQ8eXOY5tI+gobdJofRBVLAwsi6ia0Dg9?=
- =?us-ascii?Q?vteHF1uZoKoIjw0WxUJIPCD95s/bu1AQ2NPsxgyUJU8pfTBpMM1CBd7i20MC?=
- =?us-ascii?Q?RLwyDD9+3zdslbYLXU6OyiDU9O/sa66n8U1QZDp1IP0U8qn0CH0vbstJX1kx?=
- =?us-ascii?Q?sUbcPF0eqdUMn90fGMgDFqBiqlBnAmVrASK2+U5YfCUDZMGlyF2jf4pBbxAl?=
- =?us-ascii?Q?R4S20RnlEML9AeQidUVHqWrq9MxiisfWJr2UlfUjtfVQasRs1NBROnU1zxi/?=
- =?us-ascii?Q?39qXgFhWyyg8aq7L9UwbpB7vnPz6Lj8+SAvcaDdekw2e31RmEBMa6ygRWk6d?=
- =?us-ascii?Q?jNXng1qaWu+xavtpoKJ4FYzjzs/JZq2bp1JaBkf9N3s6av2GNghnhYjXvWQw?=
- =?us-ascii?Q?pBT6DG1uIq5Evn8JOdYPdHRcSZ1gMybfRcj4jXRORgY57SPlJ+elz8S1ruHS?=
- =?us-ascii?Q?l5bpVEUfoz83J92/hFLV28jF/gyAi577U/zs0u0lKLoJXxHmLEqvoEcwl+XT?=
- =?us-ascii?Q?W1lDIbhwYxzxcvOdfSYPuEeq2pTp4GxRYZD7WtSYXbTJP4JxZ67jn0otZuhE?=
- =?us-ascii?Q?3gnT5tevYgfAFUu6iCuW0bo0dLkAtnuPu8y6EuP3mLIUJn9oYV5+x2sifFJl?=
- =?us-ascii?Q?NrMgRljHkm4DZGcrWoUAgOuR4Q5UXtvCbsmBL/6UOAiW4yOe4UmRv2SE5FsI?=
- =?us-ascii?Q?TZ9qvCOiLSOiofcrDlzafWKXRAkFkw6JE/9CGOCRTyYK5wV5XiDtNU45p3yh?=
- =?us-ascii?Q?jB7g6y/2Y2SCmA2Hllc1LMXkpUpM8ErjRNIZgrQjRdYTpqJrFfXx70rlKkf3?=
- =?us-ascii?Q?ypVOwXPRBWtbwWvKerST5V1MhNKdBqqwZUWy2BVfWYofXH2hLe0d6HBhnyaX?=
- =?us-ascii?Q?W/nK4JTCX+Xrn+PqVkes3FPCh6ut3fRRoXRo+YKt1PUAgiIlJvid3ucV/bXc?=
- =?us-ascii?Q?suRCy967HYZ4gkVos3FfAIHGFTBMsn/nDVcl1G0UU1rdDXMWhEVX1PT8xuV5?=
- =?us-ascii?Q?eqMmMCzRoQSbal4uSc0z+JnmSIvIdkE573XRpXzH6bk9Ib2etneUMQ5ip12R?=
- =?us-ascii?Q?OKSixy6BaewBk5ZJ8hY=3D?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 09f648cc-2c11-4f96-01a9-08de2c2899b2
-X-MS-Exchange-CrossTenant-AuthSource: MN2PR12MB3613.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Nov 2025 13:43:22.5582
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: pIIbB0eEQsldQvELIxQXNQU4Q7XbV/Uysl1svma2Y4MYjgyrrTJHF86TXgu6fQ11
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV2PR12MB6016
+	Tue, 25 Nov 2025 13:48:10 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 8FA3C43699;
+	Tue, 25 Nov 2025 13:48:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 67227C116B1;
+	Tue, 25 Nov 2025 13:48:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1764078487;
+	bh=v1vD+BGAe1IfybLjeiZYe5naHAG4W/wc0Z6DAqSf8Tw=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=kFEOUjxncfJmOGX/axqEJ0fQ3xOlt2OKe2bWcrqMJOmJeHoPcUSToOaJq3Pi7jMi1
+	 d+T27+5hJLqJKFtwntWGjlUJlOesEI1GhO08eLcfwBeNlU3PPw/qSp18W6+Jhb0lJU
+	 UV+aYflCUMYPez+kXuAfcSKcGU1YgbO+hHUH4vv+j3zMqVQ+/SaXeOrwUJoApE0lA2
+	 Xk4MjhATfwn6mPrQSvoTzb0y3eXcJ/fb9Dvq20T2AEl6ZIJoVtDFMqbeH9kDL0h35b
+	 wfe1SPv5Bj9pRNZ7RExLiRRVt7aIOcRourBP8wuZ/QG9AgLzwWFHqCxOqSmhV0XQ42
+	 tKviKm5VWq3Xg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vNtOn-00000008AYp-0HiX;
+	Tue, 25 Nov 2025 13:48:05 +0000
+Date: Tue, 25 Nov 2025 13:48:04 +0000
+Message-ID: <86h5uiql4b.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>
+Cc: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	kvm@vger.kernel.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Christoffer Dall <christoffer.dall@arm.com>,
+	Fuad Tabba <tabba@google.com>,
+	Mark Brown <broonie@kernel.org>
+Subject: Re: [PATCH v4 06/49] KVM: arm64: GICv3: Detect and work around the lack of ICV_DIR_EL1 trapping
+In-Reply-To: <5df713d4-8b79-4456-8fd1-707ca89a61b6@arm.com>
+References: <20251120172540.2267180-1-maz@kernel.org>
+	<20251120172540.2267180-7-maz@kernel.org>
+	<5df713d4-8b79-4456-8fd1-707ca89a61b6@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: suzuki.poulose@arm.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, joey.gouly@arm.com, oupton@kernel.org, yuzenghui@huawei.com, christoffer.dall@arm.com, tabba@google.com, broonie@kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251125_054330_787586_1565636E 
-X-CRM114-Status: GOOD (  14.76  )
+X-CRM114-CacheID: sfid-20251125_054809_142054_A4F5F4BA 
+X-CRM114-Status: GOOD (  34.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -163,110 +92,123 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 24, 2025 at 08:14:39PM -0800, Nicolin Chen wrote:
-> On Mon, Nov 24, 2025 at 09:42:31PM +0000, Will Deacon wrote:
-> > On Sat, Nov 08, 2025 at 12:08:04AM -0800, Nicolin Chen wrote:
-> > > +VISIBLE_IF_KUNIT
-> > > +struct arm_smmu_invs *arm_smmu_invs_merge(struct arm_smmu_invs *invs,
-> > > +					  struct arm_smmu_invs *to_merge)
-> > > +{
-> > > +	struct arm_smmu_invs *new_invs;
-> > > +	struct arm_smmu_inv *new;
-> > > +	size_t num_trashes = 0;
-> > > +	size_t num_adds = 0;
-> > > +	size_t i, j;
-> > > +
-> > > +	for (i = j = 0; i < invs->num_invs || j < to_merge->num_invs;) {
+On Tue, 25 Nov 2025 11:26:10 +0000,
+Suzuki K Poulose <suzuki.poulose@arm.com> wrote:
+> 
+> On 20/11/2025 17:24, Marc Zyngier wrote:
+> > A long time ago, an unsuspecting architect forgot to add a trap
+> > bit for ICV_DIR_EL1 in ICH_HCR_EL2. Which was unfortunate, but
+> > what's a bit of spec between friends? Thankfully, this was fixed
+> > in a later revision, and ARM "deprecates" the lack of trapping
+> > ability.
 > > 
-> > Maybe worth having a simple iterator macro for this?
+> > Unfortuantely, a few (billion) CPUs went out with that defect,
+> > anything ARMv8.0 from ARM, give or take. And on these CPUs,
+> > you can't trap DIR on its own, full stop.
+> > 
+> > As the next best thing, we can trap everything in the common group,
+> > which is a tad expensive, but hey ho, that's what you get. You can
+> > otherwise recycle the HW in the neaby bin.
+> > 
+> > Tested-by: Fuad Tabba <tabba@google.com>
+> > Signed-off-by: Marc Zyngier <maz@kernel.org>
+> > ---
+> >   arch/arm64/include/asm/virt.h  |  7 ++++-
+> >   arch/arm64/kernel/cpufeature.c | 52 ++++++++++++++++++++++++++++++++++
+> >   arch/arm64/kernel/hyp-stub.S   |  5 ++++
+> >   arch/arm64/kvm/vgic/vgic-v3.c  |  3 ++
+> >   arch/arm64/tools/cpucaps       |  1 +
+> >   5 files changed, 67 insertions(+), 1 deletion(-)
+> > 
+> > diff --git a/arch/arm64/include/asm/virt.h b/arch/arm64/include/asm/virt.h
+> > index aa280f356b96a..8eb63d3294974 100644
+> > --- a/arch/arm64/include/asm/virt.h
+> > +++ b/arch/arm64/include/asm/virt.h
+> > @@ -40,8 +40,13 @@
+> >    */
+> >   #define HVC_FINALISE_EL2	3
+> >   +/*
+> > + * HVC_GET_ICH_VTR_EL2 - Retrieve the ICH_VTR_EL2 value
+> > + */
+> > +#define HVC_GET_ICH_VTR_EL2	4
+> > +
+> >   /* Max number of HYP stub hypercalls */
+> > -#define HVC_STUB_HCALL_NR 4
+> > +#define HVC_STUB_HCALL_NR 5
+> >     /* Error returned when an invalid stub number is passed into x0
+> > */
+> >   #define HVC_STUB_ERR	0xbadca11
+> > diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+> > index 5ed401ff79e3e..5de51cb1b8fe2 100644
+> > --- a/arch/arm64/kernel/cpufeature.c
+> > +++ b/arch/arm64/kernel/cpufeature.c
+> > @@ -2303,6 +2303,49 @@ static bool has_gic_prio_relaxed_sync(const struct arm64_cpu_capabilities *entry
+> >   }
+> >   #endif
+> >   +static bool can_trap_icv_dir_el1(const struct
+> > arm64_cpu_capabilities *entry,
+> > +				 int scope)
+> > +{
+> > +	static const struct midr_range has_vgic_v3[] = {
+> > +		MIDR_ALL_VERSIONS(MIDR_APPLE_M1_ICESTORM),
+> > +		MIDR_ALL_VERSIONS(MIDR_APPLE_M1_FIRESTORM),
+> > +		MIDR_ALL_VERSIONS(MIDR_APPLE_M1_ICESTORM_PRO),
+> > +		MIDR_ALL_VERSIONS(MIDR_APPLE_M1_FIRESTORM_PRO),
+> > +		MIDR_ALL_VERSIONS(MIDR_APPLE_M1_ICESTORM_MAX),
+> > +		MIDR_ALL_VERSIONS(MIDR_APPLE_M1_FIRESTORM_MAX),
+> > +		MIDR_ALL_VERSIONS(MIDR_APPLE_M2_BLIZZARD),
+> > +		MIDR_ALL_VERSIONS(MIDR_APPLE_M2_AVALANCHE),
+> > +		MIDR_ALL_VERSIONS(MIDR_APPLE_M2_BLIZZARD_PRO),
+> > +		MIDR_ALL_VERSIONS(MIDR_APPLE_M2_AVALANCHE_PRO),
+> > +		MIDR_ALL_VERSIONS(MIDR_APPLE_M2_BLIZZARD_MAX),
+> > +		MIDR_ALL_VERSIONS(MIDR_APPLE_M2_AVALANCHE_MAX),
+> > +		{},
+> > +	};
+> > +	struct arm_smccc_res res = {};
+> > +
+> > +	BUILD_BUG_ON(ARM64_HAS_ICH_HCR_EL2_TDIR <= ARM64_HAS_GICV3_CPUIF);
+> > +	BUILD_BUG_ON(ARM64_HAS_ICH_HCR_EL2_TDIR <= ARM64_HAS_GICV5_LEGACY);
+> > +	if (!cpus_have_cap(ARM64_HAS_GICV3_CPUIF) &&
+> > +	    !is_midr_in_range_list(has_vgic_v3))
+> > +		return false;
+> > +
+> > +	if (!is_hyp_mode_available())
+> > +		return false;
+> > +
+> > +	if (cpus_have_cap(ARM64_HAS_GICV5_LEGACY))
+> > +		return true;
+> > +
+> > +	if (is_kernel_in_hyp_mode())
+> > +		res.a1 = read_sysreg_s(SYS_ICH_VTR_EL2);
+> > +	else
+> > +		arm_smccc_1_1_hvc(HVC_GET_ICH_VTR_EL2, &res);
 > 
-> I added two macros:
-> 
-> +#define arm_smmu_invs_for_each_inv(invs, idx, inv)              \
-> +	for (idx = 0, inv = &invs->inv[0]; idx < invs->num_invs; \
-> +	     inv = &invs->inv[++idx])
-> +#define arm_smmu_invs_for_each_idx_dual(invs1, idx1, invs2, idx2) \
-> +	for (idx1 = idx2 = 0; idx1 < invs1->num_invs || idx2 < invs2->num_invs;)
+> We are reading the register on the current CPU and this capability,
+> being a SYSTEM_FEATURE, relies on the "probing CPU". If there CPUs
+> with differing values (which I don't think is practical, but hey,
+> never say..). This is would better be a
+> ARM64_CPUCAP_EARLY_LOCAL_CPU_FEATURE, which would run through all
+> boot CPUs and would set the capability when it matches.
 
-I think pull more stuff in. Something like this:
+While I agree that SYSTEM_FEATURE is most probably the wrong thing, I
+can't help but notice that
 
-static inline struct arm_smmu_inv *
-arm_smmu_invs_iter_next(struct arm_smmu_invs *invs, size_t next,
-			size_t *idx)
-{
-	while (true) {
-		if (next >= invs->num_invs) {
-			*idx = next;
-			return NULL;
-		}
-		if (!refcount_read(&invs->inv[next].users)) {
-			next++;
-			continue;
-		}
-		*idx = next;
-		return &invs->inv[next];
-	}
-}
+- ARM64_HAS_GICV3_CPUIF,
+- ARM64_HAS_GIC_PRIO_MASKING
+- ARM64_HAS_GIC_PRIO_RELAXED_SYNC
 
-static int arm_smmu_inv_cmp(const struct arm_smmu_inv *l,
-			    const struct arm_smmu_inv *r)
-{
-	if (l->smmu != r->smmu)
-		return cmp_int((uintptr_t)l->smmu, (uintptr_t)r->smmu);
-	if (l->type != r->type)
-		return cmp_int(l->type, r->type);
-	return cmp_int(l->id, r->id);
-}
+are all ARM64_CPUCAP_STRICT_BOOT_CPU_FEATURE.
 
-static inline int arm_smmu_invs_iter_next_cmp(struct arm_smmu_invs *invs_lhs,
-					      size_t next_lhs, size_t *idx_lhs,
-					      struct arm_smmu_invs *invs_rhs,
-					      size_t next_rhs, size_t *idx_rhs)
-{
-	struct arm_smmu_inv *cur_lhs =
-		arm_smmu_invs_iter_next(invs_lhs, 0, idx_lhs);
+On the other ARM64_HAS_GICV5_LEGACY is ARM64_CPUCAP_EARLY_LOCAL_CPU_FEATURE.
 
-	/*
-	 * Compare of two sorted arrays items. If one side is past the end of
-	 * the array, return the other side to let it run out the iteration.
-	 */
-	if (!cur_lhs)
-		return -1;
-	if (next_rhs >= invs_rhs->num_invs)
-		return 1;
-	return arm_smmu_inv_cmp(cur_lhs, &invs_rhs->inv[next_rhs]);
-}
+Given that ARM64_HAS_ICH_HCR_EL2_TDIR is dependent on both
+ARM64_HAS_GICV3_CPUIF and ARM64_HAS_GICV5_LEGACY, shouldn't these two
+(and their dependencies) be aligned to have the same behaviour?
 
-/*
- * Iterates over all non-trash entries in invs. idx is a stack variable
- * to store the index, cur is a stack variable of 'struct arm_smmu_inv *'
- */
-#define arm_smmu_invs_for_each_inv(invs, idx, cur)              \
-	for (cur = arm_smmu_invs_iter_next(invs, 0, &(idx)); cur; \
-	     cur = arm_smmu_invs_iter_next(invs, idx + 1, &(idx)))
+Thanks,
 
-/*
- * Iterate over two sorted arrays computing a merge sort
- */
-#define arm_smmu_invs_for_each_merge(invs_lhs, idx_lhs, invs_rhs, idx_rhs, \
-				     cmp)                                  \
-	for (cmp = arm_smmu_invs_iter_next_cmp(invs_lhs, 0, &(idx_lhs),    \
-					       invs_rhs, 0, &(idx_rhs));   \
-	     idx_lhs < invs_lhs->num_invs || idx_rhs < invs_rhs->num_invs; \
-	     cmp = arm_smmu_invs_iter_next_cmp(                            \
-		     invs_lhs, idx_lhs + (cmp <= 0 ? 1 : 0), &(idx_lhs),   \
-		     invs_rhs, idx_rhs + (cmp >= 0 ? 1 : 0), &(idx_rhs)))
+	M.
 
-
-
-And then change the loops computing num_trash to work directly on actual things ignoring trash:
-
-	arm_smmu_invs_for_each_merge(invs, i, to_merge, j, cmp)
-		new_size++;
-	new_invs = arm_smmu_invs_alloc(new_size);
-
-
-Name should probably be for_each_.... though
-
-Jason
+-- 
+Without deviation from the norm, progress is not possible.
 
