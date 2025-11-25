@@ -4,124 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65EE6D0E6EC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 14:14:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 757C4D0E6E5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 14:14:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wOE4pVZbQk3NRzTWk4bK9iK9S5Rl6Cg6Yr2VD/4CLLg=; b=R0oh49t1N1MdpcLGtxmAT7w6oe
-	C+jcsOcnA6mHIVRYgtNxF6lklY8LaBBtX21RJGhqYVWRlGQP4TKe6TbNhuPbu7YVBDrJkRyZBuzC8
-	i84Il8i0wB3Rx1p7B9Jck6VGvYhBSLClhn1kFyF4c6T0nSDsKWc6i/b6XdAfg39Z9v4Qz16B3fyor
-	sPD8wcnWQZnXmBUdOMfnaRZK8UYqJzs4x6+lfkIWhZOrv0nLlLO1TRFbm75WzCrxj5HPSXF2GRkki
-	WhOd/UsEBrGOiAq5d9jv6zoWdnubqJ3JQ+MDd9+5Bm49FhxoxrSTj+MW1puSdOThpCwn7k0T40tG6
-	azUqjOVA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZSpwKkYhopNjor++N+l1Ke42BFoslY5Xx86Uc7opx7A=; b=WXiO/VdyflaPDA06C6A+L724y8
+	dnqIe4MncD1CymgX24WfqiEIYpJ5XSrdPSH6B7WC85zziGsM/jD70cBf8Z1txEHwTY+AuB/l9WQqJ
+	0/UsveAdt1KvjCJY4S9oaY/zCrpAmNjXrz7Rj68LoIq95i+dZoAQbmZ3dFvFDybWKAQvY875V5/u5
+	9uQN60mTS77R1OjjJIj79BQdgLuyj2e6TO+DdiqR0BGcJuMFnz9EvhMK2z3MXsenYsN4iwNeUJGwn
+	rdUA0kKeskOqYZlOMbrin5YWABl/8TE2LOBJOcZBV+Fl8FzDTucB5dCKAy/9LEKGyp+92WQx1xKBR
+	5n+71Pgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNtnt-0000000DPRT-0aew;
-	Tue, 25 Nov 2025 14:14:01 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNtno-0000000DPQU-30Nh
+	id 1vNtoO-0000000DPa5-0MwD;
+	Tue, 25 Nov 2025 14:14:32 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vNtoL-0000000DPYx-0tni
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Nov 2025 14:13:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1764080034;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=wOE4pVZbQk3NRzTWk4bK9iK9S5Rl6Cg6Yr2VD/4CLLg=;
-	b=T6F+SxOU9jXJyHqGqUaTS7RxEffwLSxS7ORIHjYPeEzjchlFyIZ8oQ1Qsg/Dwp5T7KLCcV
-	586Kgzn9kg+gPk2pUOq3DMzdX7PVCQ95Pnrl6y4XfTeoAv6/FzTrFcBbeuQrFiHn895bUt
-	4+7qSNVSgxJGD7xu1tewTO6oG7B/q4g=
-Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com
- [209.85.128.70]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-250-E3UUBB-kNx2i_PkhmH7txQ-1; Tue, 25 Nov 2025 09:13:52 -0500
-X-MC-Unique: E3UUBB-kNx2i_PkhmH7txQ-1
-X-Mimecast-MFC-AGG-ID: E3UUBB-kNx2i_PkhmH7txQ_1764080031
-Received: by mail-wm1-f70.google.com with SMTP id 5b1f17b1804b1-4775f51ce36so52621405e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Nov 2025 06:13:52 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764080031; x=1764684831;
-        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
-         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=wOE4pVZbQk3NRzTWk4bK9iK9S5Rl6Cg6Yr2VD/4CLLg=;
-        b=pSrgbaoGQO/xnkITWYjzNafxMj/nCa0koZVgqTtxEVwDYYsICPzT/l8dZxtUCvQbon
-         rziwoSUmwYuMaioWugxGnFq7kPCbLgQSfTufQJzxQWYV2kwXOQ6f/HmeSdwGEK9Bt/lf
-         2nuPckDxH0yvJyrNJ4woXliDt/LnnipGyrjsRH2fyrzYl541mt2D/835zRSOQhtcfg04
-         /jo9ts3tZGtgQZaw2aOYzFPQBYFif6pDapjBXn8dvw2sSWTqSF53aRYHR9fU2X7rVNan
-         51CjKjURisvWrsAZIsL9Mf+jEzV6zi7/JBDluf0ECLOtpkXOW+zHutf8fFK3KFSb0Umv
-         qr7w==
-X-Forwarded-Encrypted: i=1; AJvYcCUHd6nq+crXgsYJf1eGFhaotEycjJbu/s4FyIoUxltZ7j/eBSqI1yNHwa9wStsWjdSyNgnCqD/x0fJVEWZ51Vj4@lists.infradead.org
-X-Gm-Message-State: AOJu0YyzneNrJBB/ioBAp/PMPNsNOvjIKezd+v3OJ58IWsANFKCBxlFy
-	97Mkpf/F0u4ompDbwVJDDgCf+pgaVSw7IcJlktAT0qhdIa4AZR2LTnxX1Ad1yjC6x3/zr+xTD7P
-	WZOA/+DqixO7ViuB72+QUo4LdWDtgSaVdx0DImIzMUY27GxgGlCt7fxe+a83CA23kpK0m8haBS/
-	aS
-X-Gm-Gg: ASbGncvV16MRnIpRIiohloKEpn9cFQId7TiSaQ+dkueR1l78ybA7BPPRU+lcbGAIIbR
-	PdXntwXs6+wxcWBfgxj/SEfPlD00fKZWgKyDNl4C3NK9JwUFLw2OVAiLVt4+GJe0snYrlwAVNzO
-	tgTamhcmWItnecp7MB+2t/akQxSX12xsE+MFGRlgWy+vh4TQc8baba88ksj7OXeMz5MUgL8VqO0
-	tN05cOe87rR8enBBl7B6Au3niOBAwEBSxTH4YaPTLvITJB0y5y6kSLhXGlMIkmTieeNzNLNd5Em
-	8o2sC/xgcKU6ZLMNmLgmRCUjFPczYzXrnxFvuj/Y8tz0CoryN9ySTRQ+gXSELHydFwZin+nrUUh
-	4tsQO8ssJ1spe1K/5o5roVFbS/ogKa3rMV3x+Rv3nN1PTnhOWTmTKpvTI
-X-Received: by 2002:a05:600c:3111:b0:477:b734:8c53 with SMTP id 5b1f17b1804b1-477c10deffamr169342245e9.12.1764080030986;
-        Tue, 25 Nov 2025 06:13:50 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IFtA8JzDWqwpv+zLW5Ygo6VxUlFOBnDYO5W2Qk6szEUT54U+0BafPLKh5CrRqs4rY7IKqQsQw==
-X-Received: by 2002:a05:600c:3111:b0:477:b734:8c53 with SMTP id 5b1f17b1804b1-477c10deffamr169341405e9.12.1764080030289;
-        Tue, 25 Nov 2025 06:13:50 -0800 (PST)
-Received: from vschneid-thinkpadt14sgen2i.remote.csb (213-44-135-146.abo.bbox.fr. [213.44.135.146])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-477bf1e86b3sm306305045e9.6.2025.11.25.06.13.48
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 25 Nov 2025 06:13:49 -0800 (PST)
-From: Valentin Schneider <vschneid@redhat.com>
-To: Dave Hansen <dave.hansen@intel.com>, linux-kernel@vger.kernel.org,
- linux-mm@kvack.org, rcu@vger.kernel.org, x86@kernel.org,
- linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
- linux-riscv@lists.infradead.org, linux-arch@vger.kernel.org,
- linux-trace-kernel@vger.kernel.org
-Cc: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
- Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
- "H. Peter Anvin" <hpa@zytor.com>, Andy Lutomirski <luto@kernel.org>, Peter
- Zijlstra <peterz@infradead.org>, Arnaldo Carvalho de Melo
- <acme@kernel.org>, Josh Poimboeuf <jpoimboe@kernel.org>, Paolo Bonzini
- <pbonzini@redhat.com>, Arnd Bergmann <arnd@arndb.de>, Frederic Weisbecker
- <frederic@kernel.org>, "Paul E. McKenney" <paulmck@kernel.org>, Jason
- Baron <jbaron@akamai.com>, Steven Rostedt <rostedt@goodmis.org>, Ard
- Biesheuvel <ardb@kernel.org>, Sami Tolvanen <samitolvanen@google.com>,
- "David S. Miller" <davem@davemloft.net>, Neeraj Upadhyay
- <neeraj.upadhyay@kernel.org>, Joel Fernandes <joelagnelf@nvidia.com>, Josh
- Triplett <josh@joshtriplett.org>, Boqun Feng <boqun.feng@gmail.com>,
- Uladzislau Rezki <urezki@gmail.com>, Mathieu Desnoyers
- <mathieu.desnoyers@efficios.com>, Mel Gorman <mgorman@suse.de>, Andrew
- Morton <akpm@linux-foundation.org>, Masahiro Yamada
- <masahiroy@kernel.org>, Han Shen <shenhan@google.com>, Rik van Riel
- <riel@surriel.com>, Jann Horn <jannh@google.com>, Dan Carpenter
- <dan.carpenter@linaro.org>, Oleg Nesterov <oleg@redhat.com>, Juri Lelli
- <juri.lelli@redhat.com>, Clark Williams <williams@redhat.com>, Yair
- Podemsky <ypodemsk@redhat.com>, Marcelo Tosatti <mtosatti@redhat.com>,
- Daniel Wagner <dwagner@suse.de>, Petr Tesarik <ptesarik@suse.com>,
- Shrikanth Hegde <sshegde@linux.ibm.com>
-Subject: Re: [RFC PATCH v7 30/31] x86/mm, mm/vmalloc: Defer kernel TLB flush
- IPIs under CONFIG_COALESCE_TLBI=y
-In-Reply-To: <2837ea3e-c0b8-46b0-b8da-bf06906d124d@intel.com>
-References: <20251114150133.1056710-1-vschneid@redhat.com>
- <20251114151428.1064524-10-vschneid@redhat.com>
- <bad9eaaa-561a-498a-90d1-fe3a3ab8ba37@intel.com>
- <xhsmh5xb3thh6.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
- <2837ea3e-c0b8-46b0-b8da-bf06906d124d@intel.com>
-Date: Tue, 25 Nov 2025 15:13:47 +0100
-Message-ID: <xhsmh3462td2c.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
+	Tue, 25 Nov 2025 14:14:30 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8B82B168F;
+	Tue, 25 Nov 2025 06:14:20 -0800 (PST)
+Received: from [10.1.197.1] (ewhatever.cambridge.arm.com [10.1.197.1])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B6D883F86F;
+	Tue, 25 Nov 2025 06:14:26 -0800 (PST)
+Message-ID: <e67decb6-20a5-4659-8401-8534049f9229@arm.com>
+Date: Tue, 25 Nov 2025 14:14:25 +0000
 MIME-Version: 1.0
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: GY-QytLC4azw4XCPdcf1P9ThCaIdrJa-rMx8aDCJBIQ_1764080031
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 06/49] KVM: arm64: GICv3: Detect and work around the
+ lack of ICV_DIR_EL1 trapping
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ kvm@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
+ Oliver Upton <oupton@kernel.org>, Zenghui Yu <yuzenghui@huawei.com>,
+ Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
+ Mark Brown <broonie@kernel.org>
+References: <20251120172540.2267180-1-maz@kernel.org>
+ <20251120172540.2267180-7-maz@kernel.org>
+ <5df713d4-8b79-4456-8fd1-707ca89a61b6@arm.com> <86h5uiql4b.wl-maz@kernel.org>
+Content-Language: en-US
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <86h5uiql4b.wl-maz@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251125_061356_825547_6DB036C8 
-X-CRM114-Status: GOOD (  28.69  )
+X-CRM114-CacheID: sfid-20251125_061429_340016_4164B0CA 
+X-CRM114-Status: GOOD (  27.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,85 +70,149 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 21/11/25 09:50, Dave Hansen wrote:
-> On 11/21/25 09:37, Valentin Schneider wrote:
->> On 19/11/25 10:31, Dave Hansen wrote:
->>> On 11/14/25 07:14, Valentin Schneider wrote:
->>>> +static bool flush_tlb_kernel_cond(int cpu, void *info)
->>>> +{
->>>> +	return housekeeping_cpu(cpu, HK_TYPE_KERNEL_NOISE) ||
->>>> +	       per_cpu(kernel_cr3_loaded, cpu);
->>>> +}
+On 25/11/2025 13:48, Marc Zyngier wrote:
+> On Tue, 25 Nov 2025 11:26:10 +0000,
+> Suzuki K Poulose <suzuki.poulose@arm.com> wrote:
+>>
+>> On 20/11/2025 17:24, Marc Zyngier wrote:
+>>> A long time ago, an unsuspecting architect forgot to add a trap
+>>> bit for ICV_DIR_EL1 in ICH_HCR_EL2. Which was unfortunate, but
+>>> what's a bit of spec between friends? Thankfully, this was fixed
+>>> in a later revision, and ARM "deprecates" the lack of trapping
+>>> ability.
 >>>
->>> Is it OK that 'kernel_cr3_loaded' can be be stale? Since it's not part
->>> of the instruction that actually sets CR3, there's a window between when
->>> 'kernel_cr3_loaded' is set (or cleared) and CR3 is actually written.
+>>> Unfortuantely, a few (billion) CPUs went out with that defect,
+>>> anything ARMv8.0 from ARM, give or take. And on these CPUs,
+>>> you can't trap DIR on its own, full stop.
 >>>
->>> Is that OK?
+>>> As the next best thing, we can trap everything in the common group,
+>>> which is a tad expensive, but hey ho, that's what you get. You can
+>>> otherwise recycle the HW in the neaby bin.
 >>>
->>> It seems like it could lead to both unnecessary IPIs being sent and for
->>> IPIs to be missed.
+>>> Tested-by: Fuad Tabba <tabba@google.com>
+>>> Signed-off-by: Marc Zyngier <maz@kernel.org>
+>>> ---
+>>>    arch/arm64/include/asm/virt.h  |  7 ++++-
+>>>    arch/arm64/kernel/cpufeature.c | 52 ++++++++++++++++++++++++++++++++++
+>>>    arch/arm64/kernel/hyp-stub.S   |  5 ++++
+>>>    arch/arm64/kvm/vgic/vgic-v3.c  |  3 ++
+>>>    arch/arm64/tools/cpucaps       |  1 +
+>>>    5 files changed, 67 insertions(+), 1 deletion(-)
 >>>
+>>> diff --git a/arch/arm64/include/asm/virt.h b/arch/arm64/include/asm/virt.h
+>>> index aa280f356b96a..8eb63d3294974 100644
+>>> --- a/arch/arm64/include/asm/virt.h
+>>> +++ b/arch/arm64/include/asm/virt.h
+>>> @@ -40,8 +40,13 @@
+>>>     */
+>>>    #define HVC_FINALISE_EL2	3
+>>>    +/*
+>>> + * HVC_GET_ICH_VTR_EL2 - Retrieve the ICH_VTR_EL2 value
+>>> + */
+>>> +#define HVC_GET_ICH_VTR_EL2	4
+>>> +
+>>>    /* Max number of HYP stub hypercalls */
+>>> -#define HVC_STUB_HCALL_NR 4
+>>> +#define HVC_STUB_HCALL_NR 5
+>>>      /* Error returned when an invalid stub number is passed into x0
+>>> */
+>>>    #define HVC_STUB_ERR	0xbadca11
+>>> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+>>> index 5ed401ff79e3e..5de51cb1b8fe2 100644
+>>> --- a/arch/arm64/kernel/cpufeature.c
+>>> +++ b/arch/arm64/kernel/cpufeature.c
+>>> @@ -2303,6 +2303,49 @@ static bool has_gic_prio_relaxed_sync(const struct arm64_cpu_capabilities *entry
+>>>    }
+>>>    #endif
+>>>    +static bool can_trap_icv_dir_el1(const struct
+>>> arm64_cpu_capabilities *entry,
+>>> +				 int scope)
+>>> +{
+>>> +	static const struct midr_range has_vgic_v3[] = {
+>>> +		MIDR_ALL_VERSIONS(MIDR_APPLE_M1_ICESTORM),
+>>> +		MIDR_ALL_VERSIONS(MIDR_APPLE_M1_FIRESTORM),
+>>> +		MIDR_ALL_VERSIONS(MIDR_APPLE_M1_ICESTORM_PRO),
+>>> +		MIDR_ALL_VERSIONS(MIDR_APPLE_M1_FIRESTORM_PRO),
+>>> +		MIDR_ALL_VERSIONS(MIDR_APPLE_M1_ICESTORM_MAX),
+>>> +		MIDR_ALL_VERSIONS(MIDR_APPLE_M1_FIRESTORM_MAX),
+>>> +		MIDR_ALL_VERSIONS(MIDR_APPLE_M2_BLIZZARD),
+>>> +		MIDR_ALL_VERSIONS(MIDR_APPLE_M2_AVALANCHE),
+>>> +		MIDR_ALL_VERSIONS(MIDR_APPLE_M2_BLIZZARD_PRO),
+>>> +		MIDR_ALL_VERSIONS(MIDR_APPLE_M2_AVALANCHE_PRO),
+>>> +		MIDR_ALL_VERSIONS(MIDR_APPLE_M2_BLIZZARD_MAX),
+>>> +		MIDR_ALL_VERSIONS(MIDR_APPLE_M2_AVALANCHE_MAX),
+>>> +		{},
+>>> +	};
+>>> +	struct arm_smccc_res res = {};
+>>> +
+>>> +	BUILD_BUG_ON(ARM64_HAS_ICH_HCR_EL2_TDIR <= ARM64_HAS_GICV3_CPUIF);
+>>> +	BUILD_BUG_ON(ARM64_HAS_ICH_HCR_EL2_TDIR <= ARM64_HAS_GICV5_LEGACY);
+>>> +	if (!cpus_have_cap(ARM64_HAS_GICV3_CPUIF) &&
+>>> +	    !is_midr_in_range_list(has_vgic_v3))
+>>> +		return false;
+>>> +
+>>> +	if (!is_hyp_mode_available())
+>>> +		return false;
+>>> +
+>>> +	if (cpus_have_cap(ARM64_HAS_GICV5_LEGACY))
+>>> +		return true;
+>>> +
+>>> +	if (is_kernel_in_hyp_mode())
+>>> +		res.a1 = read_sysreg_s(SYS_ICH_VTR_EL2);
+>>> +	else
+>>> +		arm_smccc_1_1_hvc(HVC_GET_ICH_VTR_EL2, &res);
 >>
->> So the pattern is
->>
->>   SWITCH_TO_KERNEL_CR3
->>   FLUSH
->>   KERNEL_CR3_LOADED := 1
->>
->>   KERNEL_CR3_LOADED := 0
->>   SWITCH_TO_USER_CR3
->>
->>
->> The 0 -> 1 transition has a window between the unconditional flush and the
->> write to 1 where a remote flush IPI may be omitted. Given that the write is
->> immediately following the unconditional flush, that would really be just
->> two flushes racing with each other,
->
-> Let me fix that for you. When you wrote "a remote flush IPI may be
-> omitted" you meant to write: "there's a bug." ;)
->
+>> We are reading the register on the current CPU and this capability,
+>> being a SYSTEM_FEATURE, relies on the "probing CPU". If there CPUs
+>> with differing values (which I don't think is practical, but hey,
+>> never say..). This is would better be a
+>> ARM64_CPUCAP_EARLY_LOCAL_CPU_FEATURE, which would run through all
+>> boot CPUs and would set the capability when it matches.
+> 
+> While I agree that SYSTEM_FEATURE is most probably the wrong thing, I
+> can't help but notice that
+> 
+> - ARM64_HAS_GICV3_CPUIF,
+> - ARM64_HAS_GIC_PRIO_MASKING
+> - ARM64_HAS_GIC_PRIO_RELAXED_SYNC
+> 
+> are all ARM64_CPUCAP_STRICT_BOOT_CPU_FEATURE.
 
-Something like that :-)
+Which means, if GICV3_CPUIF is set any booting CPU must have them.
 
-> In the end, KERNEL_CR3_LOADED==0 means, "you don't need to send this CPU
-> flushing IPIs because it will flush the TLB itself before touching
-> memory that needs a flush".
->
->    SWITCH_TO_KERNEL_CR3
->    FLUSH
->    // On kernel CR3, *AND* not getting IPIs
->    KERNEL_CR3_LOADED := 1
->
->> but I could punt the kernel_cr3_loaded
->> write above the unconditional flush.
->
-> Yes, that would eliminate the window, as long as the memory ordering is
-> right. You not only need to have the KERNEL_CR3_LOADED:=1 CPU set that
-> variable, you need to ensure that it has seen the page table update.
->
+> 
+> On the other ARM64_HAS_GICV5_LEGACY is ARM64_CPUCAP_EARLY_LOCAL_CPU_FEATURE.
+> 
+> Given that ARM64_HAS_ICH_HCR_EL2_TDIR is dependent on both
+> ARM64_HAS_GICV3_CPUIF and ARM64_HAS_GICV5_LEGACY, shouldn't these two
+> (and their dependencies) be aligned to have the same behaviour?
 
-I assumed the page table update would be a self-synchronizing operation,
-but that betrays how little I know about x86; /me goes back to reading
+Yes, but it also depends on how you are detecting the feature.
 
->> The 1 -> 0 transition is less problematic, worst case a remote flush races
->> with the CPU returning to userspace and it'll get interrupted back to
->> kernelspace.
->
-> It's also not just "returning to userspace". It could well be *in*
-> userspace by the point the IPI shows up. It's not the end of the world,
-> and the window isn't infinitely long. But there certainly is still a
-> possibility of getting spurious interrupts for the precious NOHZ_FULL
-> task while it's in userspace.
+BOOT_CPU_FEATURES are finalized with BOOT CPU and thusanything that 
+boots up later must have it. So it is fine, as long
+as a SYSTEM cap depends on it and can do its own additional checks
+in a system wide safe manner.
 
-IME it's okay if the application is just starting as it needs to do some
-initialization anyway (mlockall & friends), i.e. it's not executing actual
-useful payload from the get go.
+But in your case, we a have SYSTEM cap, which only performs the check
+on the "running CPU" and not considering a system wide safe value for
+ICH_VTR_EL2_TDS. In order to do this, we need to switch to something
+like the GICV5_LEGACY cap, which chooses to perform the check on all
+booting CPUs (as we don't keep the system wide safe value for the
+bit it is looking for).
 
-If it's resuming from an interference, well we'd be making things worse.
+e.g., your cap may be incorrectly SET, when the BOOT cpu (which
+mostly runs the SYSTEM scope), but another CPU didn't have the
+ICH_VTR_EL2_TDS.
 
-I'm thinking the worst case is if this becomes a repeating pattern, but
-then that means even without those deferral hacks the isolated CPUs would
-be bombarded by IPIs in the first place.
+Does that help ?
+
+Suzuki
+
+> 
+> Thanks,
+> 
+> 	M.
+> 
 
 
