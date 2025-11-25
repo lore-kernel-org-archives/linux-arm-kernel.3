@@ -4,107 +4,152 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16258CFD37B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 10:06:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BD4BCFD37A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 10:07:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ILzqRBpBQQWh+jAz2E8/goSh/D8wHLcJup8jVLF7Bko=; b=dVtE37K00geMWzFMk2979tV/wl
-	8YsGFCRGgBgCYi8XufdCHvWAKNu21dj1IvyDotH2Eb1eCn16teAqpz8Q/WHgguKrR2FdPaPn95w1P
-	yi9olia1fO5Sry28H4qsRenUcMEu4GXAvmqf58HGCNcFZKXrFqYpkfgDV8XEV3Dx5Sz7Xtwx/StN4
-	VUhZJ/31OsGMp4WM56yIz0YlgQMzJSu0ZCHU3rlqU+kg56xzgKFqzRO6ZJhKn9EwqAeRY9A+6GuKj
-	COV5iYxMOsMG3jb10OErKtTM4x7BVco/KwuOKTFhltzx7Ya6iDGafYEp2NMLMmLo8Wr4MX4dHm75M
-	WtOrwvsw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=DyNfWaDXBNg2JzSiIwjDRCNRFWKZLpTdnIGSPYl16y8=; b=AYwZXJ5pFP0pgoAxFusIzZWQjM
+	XOCSWi4pE37D2eqvCcsyqWQS3jGHcH7PtMXWa2iJZEoJ+GzdWcP5aJqkx2vuvkmVWuWnfNybjDkHa
+	8Uo7YZc1ta+ryHjDq1G9t9otXTErQk38Ux5tjEgOfa6uZKSFUfQuG6HAlZfuxX35ot6LVNJ/+eNCX
+	6octWf8R1LZayscuhCpWQteKeJZ4uMA1rI08aqWrmMB32VRL6pSImAHdA/zmL5IgDdgPVQSujmwl2
+	oFBSD0DoBz56oo6NkTgPaIAID0D+OAO5F1brKlq6cKBrUKi1q9+yWkMzeB2uf+xsVUsUFMNIwMUwb
+	54EB/i3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNpwQ-0000000D523-2KfJ;
-	Tue, 25 Nov 2025 10:06:34 +0000
-Received: from mgamail.intel.com ([192.198.163.13])
+	id 1vNpwr-0000000D59Q-1Wtb;
+	Tue, 25 Nov 2025 10:07:01 +0000
+Received: from mail-westeuropeazon11010036.outbound.protection.outlook.com ([52.101.69.36] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNpwO-0000000D51P-0PaW;
-	Tue, 25 Nov 2025 10:06:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1764065192; x=1795601192;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=29iXh/6Ar9jirfEFB6sY3oHqcMP8jUND/E2p9xDZiTA=;
-  b=ZBWoxlDkm2pjIjscvaF7NKQn2aE7IZr4zfakZBjPXxm/BdXZfuJFmJa7
-   8/Gb82yMSmRFAF+ORvNvSyxWcX8hgQprTB+PAO9mkFWrgMcjlLkdCtvag
-   TpcntP/ulrZ5Qqj60xFfMOZoaorjzrCRujDPpyxcCWQmwosWxA+Kzz7U7
-   7iwVbPXXNE8BPhvhp1/GYliHpB9jJkhSNpdew5FWkiMmNrSd5Ky3VFtKW
-   bWedzoVdmUdg6S/+k2xDpEuwUBWPPpluNniHlASo9Rzk4b6DO7litfFUo
-   ph/ElbP76QaC5NPbCr/9pjU4jkXI1bpMyXq43f9UDJNsjhOurl4RdZnDl
-   g==;
-X-CSE-ConnectionGUID: P6cjyZ21S6G3y0Nx54EQIQ==
-X-CSE-MsgGUID: MJI7rIfGR+qtFYb3xrCxnw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11623"; a="68667744"
-X-IronPort-AV: E=Sophos;i="6.20,225,1758610800"; 
-   d="scan'208,223";a="68667744"
-Received: from orviesa007.jf.intel.com ([10.64.159.147])
-  by fmvoesa107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2025 02:06:31 -0800
-X-CSE-ConnectionGUID: K/jA8k83RpK/ZnK1Pja1og==
-X-CSE-MsgGUID: PQdR2EyrTQyJq0R1zTWu6Q==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.20,225,1758610800"; 
-   d="scan'208,223";a="192591005"
-Received: from vverma7-mobl3.amr.corp.intel.com (HELO kuha) ([10.124.222.196])
-  by orviesa007.jf.intel.com with SMTP; 25 Nov 2025 02:06:20 -0800
-Received: by kuha (sSMTP sendmail emulation); Tue, 25 Nov 2025 12:06:13 +0200
-Date: Tue, 25 Nov 2025 12:06:13 +0200
-From: Heikki Krogerus <heikki.krogerus@linux.intel.com>
-To: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Chaoyi Chen <kernel@airkyi.com>,
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-	Peter Chen <hzpeterchen@gmail.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>, Sandy Huang <hjc@rock-chips.com>,
-	Andy Yan <andy.yan@rock-chips.com>,
-	Yubing Zhang <yubing.zhang@rock-chips.com>,
-	Frank Wang <frank.wang@rock-chips.com>,
-	Andrzej Hajda <andrzej.hajda@intel.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Robert Foss <rfoss@kernel.org>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Amit Sunil Dhamne <amitsd@google.com>,
-	Dragan Simic <dsimic@manjaro.org>, Johan Jonker <jbx6244@gmail.com>,
-	Diederik de Haas <didi.debian@cknow.org>,
-	Peter Robinson <pbrobinson@gmail.com>, linux-usb@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, dri-devel@lists.freedesktop.org
-Subject: Re: [PATCH v10 01/11] usb: typec: Add notifier functions
-Message-ID: <aSV_lQYJPxN7oBM-@kuha>
-References: <20251120022343.250-1-kernel@airkyi.com>
- <20251120022343.250-2-kernel@airkyi.com>
- <2025112102-laurel-mulch-58e4@gregkh>
- <462ad1bd-7eec-4f26-b383-96b049e14559@rock-chips.com>
- <2025112402-unopposed-polio-e6e9@gregkh>
- <a80483de-518d-45d5-b46a-9b70cca5b236@rock-chips.com>
- <2025112448-brush-porcupine-c851@gregkh>
- <c9cb7b79-37c8-4fef-97a6-7d6b8898f9c4@rock-chips.com>
-MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="vzc56uF0OXm6IX+X"
-Content-Disposition: inline
+	id 1vNpwo-0000000D58S-3Xph
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 25 Nov 2025 10:06:59 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ySvqnKTkd2w86wVThPa8jhYXq57rEPjJWn3+4Ok+yAp+9ggrkfFgHte3hIUWOcjWgMjZJsxYrMKCDYgKvZ+eSiMpn/6xyr2ueQHkEmRT2l7e0HgDBFM3S6a9LJ397zXULUiuf4h0VtMhLn6LseJDPIK5HEV5lqW328mpsTBX7e1qej5EkxMzBXZ49yUf6baHnITnq9eQOcOVvD7gHYYjMWjwEvY/HZufXU+n4MpEyGrzrLtZrXokOouGVeHkWU6UPtK+5qwb3dpgjaIQhMBzXXJ/bUMEGW6XMqWaHSWZgp9gRdPdMeGgNlFfX7XthEKaUMT8sHSKj1ITdAVLc29uJQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=DyNfWaDXBNg2JzSiIwjDRCNRFWKZLpTdnIGSPYl16y8=;
+ b=kMzOznMUZx9+wsG1yoL3aCIOanBmmBVwlUT2CZIX6EWYGa3egZsEqJpY0pYnxP19m3/5rct5rGPEYGyHc934KuCzkvffZ7ul9K4FbLdjshcdBIuHJhz0XaJKqib9WB9w3/ITo0IJmX4E++8qUNAKE12ZEgwMkzwZv0TVxxdMDi5Z1O2V3uv+fcWLliO8Ve1nD8CbLIVsaEWFwfWb1uwcJL+KC7BiL9k6xyyAjvAVG5qU6a/2QAjFbWsmW8ldir4T+T9h395J2qnDlgU357ZQA2z7LoLvhLWUMmRETds/B6hxf330Z+/baOIEJ+5bVIIUmey9MGAGdByYvuJSPpMYjw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=DyNfWaDXBNg2JzSiIwjDRCNRFWKZLpTdnIGSPYl16y8=;
+ b=FnLvGXa2Km8wZbq+QOssNVrz87IlTJeoKfm0MGEL7ngklk7VK549UdqbfVrr2eoLkjMX6oWKcA+3EEo24d6w6/aTASSzZi11sbfA/LDdQFfB8whI/1R9rMBD2HfiaM4PuKvwKgoJJCTFb3CWBd9wULmVvoaZm8BUezA89I2gykwMg/gai4rsUpUOfX1iaGsND9Up0DG6ttpu4k7oQteFJKEmOCdr6VOzHeIqbO1rJf2xVsEMfV6Ii/4g9Xp2O3KMaFqWLzakfvCTClnK3zTi4j+RpSnSBprMXIh/guLsBSJlH2U6A18KF+iY9MXuV1WjaUdrcJl/hjvihs3leLlbeA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from VI2PR04MB11147.eurprd04.prod.outlook.com
+ (2603:10a6:800:293::14) by DBBPR04MB7657.eurprd04.prod.outlook.com
+ (2603:10a6:10:1f5::21) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9343.18; Tue, 25 Nov
+ 2025 10:06:55 +0000
+Received: from VI2PR04MB11147.eurprd04.prod.outlook.com
+ ([fe80::75ad:fac7:cfe7:b687]) by VI2PR04MB11147.eurprd04.prod.outlook.com
+ ([fe80::75ad:fac7:cfe7:b687%6]) with mapi id 15.20.9343.016; Tue, 25 Nov 2025
+ 10:06:54 +0000
+From: Carlos Song <carlos.song@nxp.com>
+To: broonie@kernel.org,
+	frank.li@nxp.com,
+	hawnguo@kernel.org,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com
+Cc: linux-spi@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Carlos Song <carlos.song@nxp.com>
+Subject: [PATCH 0/6] Support ECSPI dynamic burst feature for DMA mode
+Date: Tue, 25 Nov 2025 18:06:12 +0800
+Message-Id: <20251125100618.2159770-1-carlos.song@nxp.com>
+X-Mailer: git-send-email 2.34.1
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <c9cb7b79-37c8-4fef-97a6-7d6b8898f9c4@rock-chips.com>
+Content-Type: text/plain
+X-ClientProxiedBy: AS4P190CA0063.EURP190.PROD.OUTLOOK.COM
+ (2603:10a6:20b:656::14) To VI2PR04MB11147.eurprd04.prod.outlook.com
+ (2603:10a6:800:293::14)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: VI2PR04MB11147:EE_|DBBPR04MB7657:EE_
+X-MS-Office365-Filtering-Correlation-Id: cbf5f44b-4fec-48f7-e6c1-08de2c0a5c50
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|366016|52116014|376014|1800799024|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?dSQWb/4BoFl6TwK5dWup6PHIyzm274vHz+NNutPqHc6+oJn1RCl68fPnClxd?=
+ =?us-ascii?Q?vNTqkCcLCwANwZFoxaF2JnoCw9e6P6YDDvaVYuuF63t3ji6GXpojm3aRf0I3?=
+ =?us-ascii?Q?4FoQnFPw9gTyUlPVZMFea826F1akNwHFA18ejDNclwsVNscGUKJfIVRa1gGR?=
+ =?us-ascii?Q?pnd1vd8c4+g+HucMwYnt22HEVTDUTEef4bspE9XkidaTjGqJxwG8IeJxNYpw?=
+ =?us-ascii?Q?qdRHvP3ASbuwwsgo8g3biw9jp9669Hiz2k0NMt4btM6aXRj5VIvXLg5BDRIg?=
+ =?us-ascii?Q?S1yOEjDkUEuRQzSONt8VhO0bl87KQ/1TPCirty4J+WDmxFln1575h8KFd7l7?=
+ =?us-ascii?Q?4QK1F9rz/7ELg80Liv3rkVexqUDt7YnYnbU3tydyLjOmGxgF7vJDqAW2r+7P?=
+ =?us-ascii?Q?LL7zFAnaoCozJ4Ci1mEbQLGbASYy+1X4K86/sDQ6JQ6rxM+VJW5E14rfNUE1?=
+ =?us-ascii?Q?agt0ZPuqXxjGoG/gf0196vKorr+zFyUQuOdAXxyVXudKy+Codf/T5ZgbqtRp?=
+ =?us-ascii?Q?FI6TEfIrnaa/8sbYL6ZzDRryV9MsXidRaaT+YPDJHEwHhcxQiOsN22wnw643?=
+ =?us-ascii?Q?gfR5Ercb02rXTSVeybFpq57g+oq1tPiLmfk5HKFeIAgsiN+eQOQFyJMTjLVG?=
+ =?us-ascii?Q?AWPnJi84fB56WivIbt5bPYMAuAFtI7CAToblPeJOtpF3fY2gBGVM+xD32VXF?=
+ =?us-ascii?Q?xkJ1R5IQoEAQUnMX99I6TKw3n5ZIsVIpEdyk7M1GUmJqI7+rH3arRxucHLNZ?=
+ =?us-ascii?Q?3yC3X7sWgUybJ1i7AYpyFgmmcOUFTxCTHLcCfyq3Zs6QHDoLHXQH4OiWmBUb?=
+ =?us-ascii?Q?V8kK487aEJVggCfYwBjS0goEvzp98TDDWf3l7qiT9vIHFc+GYGzw3hAIwteT?=
+ =?us-ascii?Q?FkoURDzYeiAPQztmXXwDFHnbbPmQOCErgaYh9HR9u4eE6UYoJx70yINBrG+U?=
+ =?us-ascii?Q?x+cjX9l+LY2oV8IyUqg1ZtKZqJ3iXavAybmKZQS+JcoVFnR4Wm5rxmCVNTsU?=
+ =?us-ascii?Q?XGY/aD1SCi8OlzS4g5sNXeryzxPkQtglJ+5BSdF0XAsOm2AxX2wR4xSBqIFo?=
+ =?us-ascii?Q?eCKfihE3FVNDMBI08IEaJW2/cdR503rAyIHSsq9iZauI6DZ6EVjl5OGm68rH?=
+ =?us-ascii?Q?fQbjBP+zaA9f3H8T9/LxDxsxZu6obWeuRHc3V7VAHgzrZQaAo2zyHY5rLvpU?=
+ =?us-ascii?Q?vaCA9lstNGrKVzAGdYdFBXwwa60Cma8raDVdKHW6cqnbRidTHpoXfwkXxJ+Q?=
+ =?us-ascii?Q?/xMD/Bm4SwR6oSS5gyLqXLNQ1UmuPiiGFnttmFdseeKJLJBg/97JB7ezPExV?=
+ =?us-ascii?Q?LEFMxhikaWffd+le54SCg7poH/8GXrS+2cn53hDIEip+j8RD8MdhbKQ/Yp7x?=
+ =?us-ascii?Q?hLBB9pzW+sMDzN3jSw1M6v0AzJZ/01XuPJh/ReyEfDnNYbGmxy98Mn9lPabg?=
+ =?us-ascii?Q?4sw/tqg+oduCumG5OAx85ZdSpfYab74i0z4PQZmHdzJjQ6YHEcv5cLTWQI3Y?=
+ =?us-ascii?Q?2uxNLrrYELruoHpacLOlv7wk1/tk614Fc+Nh?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI2PR04MB11147.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(366016)(52116014)(376014)(1800799024)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?eKxED6SHRKy+jUfZHKBOOSALYhoWToQrqpvuTAP9yWW6D9979zaS+I2dtr+9?=
+ =?us-ascii?Q?LUxdwHBWgZool3rKxkPhPKhbO07YXlYpKEaFHCPbf+gFcgbGCaSI/J9kij8C?=
+ =?us-ascii?Q?GCS01wfd0XZD3oeCgZWxEy7EKtnSp9IQkR8J6HrKSr6Cge91GA7BoqzQSlo+?=
+ =?us-ascii?Q?GiO4RtqOBV7h47sotHPzenkbyipBGgLX7gwa+NpaeJ9axt5I3yxOwngSK0Gb?=
+ =?us-ascii?Q?JILLhCearOLf/aW45sB2GgL7PKWv38xOdtnW/sDi+V6SO1RfdAUs5Vl8d1Rj?=
+ =?us-ascii?Q?77q4hUsDzHOOSfkExKyX4hQYpCF6sJwHb4b/s9JMMpJ3zgEvdtOZF/q+TMRT?=
+ =?us-ascii?Q?dWSO39TEz+1lPbAMoHZ/f3e2+hwWDDNerVc8jm1jmRPk85zsmJt5Jtgr5Fb0?=
+ =?us-ascii?Q?tQuLvqfnWE0TddgbJrVP3Jn/+WKVQVGe5lElWVVku2WMy4hSrVqFI3nCzSIa?=
+ =?us-ascii?Q?aZQ1dhkaAsJ/Z2T58OY8mAwRFv01th2W/4U6c2amIrvfshRBqhXM8PUlBzSR?=
+ =?us-ascii?Q?x8it46ABHg1eximQHhJuMkItNkMHD+hmIFT5nT/PdIF0ugWr7b10Hi8REIV6?=
+ =?us-ascii?Q?BMJFWp0UFi/UWSMnm95tNc0t3g0PIjJOYg2V/3YRs6NsCT9U6EkHnHpD5MP+?=
+ =?us-ascii?Q?CFWka6GVh5bZgHSy9e4o6d1ww8vgJ7FW6aq3g82KRy6gW+1eEKi9bXoM2p5j?=
+ =?us-ascii?Q?t5A+g3himLjojnA/3eAKu659y9pl9MfDPj7m0dSpa4cvQ8D5DuSs96bPXchc?=
+ =?us-ascii?Q?fh2DiFzoqv+69tt0JYNElO3pR3XUpDPt4BfVMs4r/YrBzC/0KI8L2m5t4nHw?=
+ =?us-ascii?Q?Pgj5sYTICd+ak10EEY8CuuL6vx/3aDHwAqToB9j1biZxaXaWImu+isAYGNQ8?=
+ =?us-ascii?Q?CeVC1MnkTRrsI8K5Y0X5ewd+xeZktQ+yOUEGMHuJfCjn0u8d7dWeCdOKkRU3?=
+ =?us-ascii?Q?hPwon9Hc0CJHQm2TS7WCN7qdVT3jXuHAq/S9sMlffJvIEIsSMh7fubc8wBBB?=
+ =?us-ascii?Q?eXboJH9S7HJUMvxQgwTMa/ecSI3WKh4gUIBk5Q9AvKwa1zVEWhjD/Cu4hr6Q?=
+ =?us-ascii?Q?+wm82qOwlTmSqeOxo8WRwwEbUvXZffZdjuCXcXCEbw7l0kpmCZEPk6q7X2G+?=
+ =?us-ascii?Q?N6r0GL3YBuHTzfgRtrDcNnEEqigLqaPIHQ2AqacIsJuAWdFLUSjRLBlYA8Nc?=
+ =?us-ascii?Q?ghfaalIc6cfAPpgAS1SmqSD5kjRjIevakW+2RhjT7VRTQGfQD5RGETZlvfhW?=
+ =?us-ascii?Q?Lv/gLQWKIqJyRlMSE9iPANUNId3hTOplXKKkwY/XwfiSs0BVORoydSOkjJYY?=
+ =?us-ascii?Q?DkxJYUJYXIeLU9zNM/NBRk0bBhkzM1OnXTxjH5ocr3cCt9qMPTIHvABAevdd?=
+ =?us-ascii?Q?I6TvdAaYH78+gJ83mPdvmevIQBSQ6/5v5TLmfVCgI7EudiAfWfOfIw7qDXqV?=
+ =?us-ascii?Q?GQkpYJYr1v0F5TobADWJR5Oh1UcjWdxdVrpoQRaKyOEWIwwlfqa7Wf6CwjC2?=
+ =?us-ascii?Q?iWf5DzmSC/KMw5rSe1Hko3sZyK4QlEnK9YhM01I6Xr9fWdhsD2mfZvTo5z7J?=
+ =?us-ascii?Q?Fh8/PxFjXiwh8A/SkgAsPo/mxBTs5X2Gk4qhDKSq?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: cbf5f44b-4fec-48f7-e6c1-08de2c0a5c50
+X-MS-Exchange-CrossTenant-AuthSource: VI2PR04MB11147.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Nov 2025 10:06:54.7345
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: JQ1ykD4n7IhTVADyIqKRiGwPbksz9zvjy+WLvsfvNPjmwCBoAjPLchQiQv3W3Hi42IWlxA/bIMCX9S0+r7Ycxg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBBPR04MB7657
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251125_020632_220090_58C30AC1 
-X-CRM114-Status: GOOD (  75.42  )
+X-CRM114-CacheID: sfid-20251125_020658_901705_68FD6E42 
+X-CRM114-Status: UNSURE (   9.14  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,258 +164,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+ECSPI has a low throughput because of no dynamic burst support, it
+transfers only one word per frame in DMA mode, causing SCLK stalls
+between words due to BURST_LENGTH updates.
 
---vzc56uF0OXm6IX+X
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
+This patch set is to support ECSPI dynamic burst feature to help improve
+the ECSPI DMA mode performance.
 
-Tue, Nov 25, 2025 at 10:23:02AM +0800, Chaoyi Chen kirjoitti:
-> On 11/25/2025 12:33 AM, Greg Kroah-Hartman wrote:
-> > On Mon, Nov 24, 2025 at 04:05:53PM +0800, Chaoyi Chen wrote:
-> > > Hi Greg,
-> > > 
-> > > On 11/24/2025 3:10 PM, Greg Kroah-Hartman wrote:
-> > > 
-> > > > On Mon, Nov 24, 2025 at 09:40:03AM +0800, Chaoyi Chen wrote:
-> > > > > Hi Greg,
-> > > > > 
-> > > > > On 11/21/2025 10:07 PM, Greg Kroah-Hartman wrote:
-> > > > > > On Thu, Nov 20, 2025 at 10:23:33AM +0800, Chaoyi Chen wrote:
-> > > > > > > From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-> > > > > > > 
-> > > > > > > Some other part of kernel may want to know the event of typec bus.
-> > > > > > Be specific, WHAT part of the kernel will need to know this?
-> > > > > For now, it is DRM.
-> > > > Then say this.
-> > > Okay, please refer to the discussion below.
-> > > 
-> > > > > > And why a new notifier, why not just use the existing notifiers that you
-> > > > > > already have?  And what is this going to be used for?
-> > > > > We have discussed this before, but the current bus notifier cannot achieve the expected notification [0].
-> > > > > 
-> > > > > [0] https://lore.kernel.org/all/aPsuLREPS_FEV3DS@kuha.fi.intel.com/
-> > > > Then you need to document the heck out of this in the changelog text.
-> > > > But I'm still not quite understanding why the bus notifier does not work
-> > > > here, as you only want this information if the usb device is bound to
-> > > > the bus there, you do not want to know this if it did not complete.
-> > > > 
-> > > > That thread says you want this not "too late", but why?  What is the
-> > > > problem there, and how will you handle your code getting loaded after
-> > > > the typec code is loaded?  Notifier callbacks don't work for that
-> > > > situation, right?
-> > > In fact, the typec_register_altmode() function generates two
-> > > registered events. The first one is the registered event of the port
-> > > device, and the second one is the registered event of the partner
-> > > device. The second one event only occurs after a Type-C device is
-> > > inserted.
-> > > The bus notifier event does not actually take effect for the port
-> > > device, because it only sets the bus for the partner device:
-> > > 
-> > >      /* The partners are bind to drivers */
-> > >      if (is_typec_partner(parent))
-> > >          alt->adev.dev.bus = &typec_bus;
-> > Setting the bus is correct, then it needs to be registered with the
-> > driver core so the bus link shows up (and a driver is bound to it.)
-> > That is when the bus notifier can happen, right?
-> Yes, this is valid for the partner device. But for the port device, since the bus is not specified here, the corresponding bus notifier will not take effect.
+Performance test (spidev_test @10MHz, 4KB):
+  Before: tx/rx ~6651.9 kbps
+  After:  tx/rx ~9922.2 kbps (~50% improvement)
 
-Perhaps we should just fix this part and make also the port altmodes
-part of the bus.
+For compatibility with slow SPI devices, add configurable word delay in
+DMA mode. When word delay is set, dynamic burst is disabled and
+BURST_LENGTH equals word length.
 
-Some background, in case this is not clear; the port alternate mode
-devices represent the capability of the ports to support specific
-alternate modes. The partner alternate mode devices do the same
-for the partner devices attached to the ports, but on top of the
-showing the capability, they are also used for the alternate mode
-specific communication using the USB Power Delivery VDM (vendor
-defined messages). That's why only the partner altmodes are bound
-to the generic alternate mode drivers.
+Also support target DMA mode with enabled dynamic burst.
 
-And that's why the hack where the port altmodes are not added to the
-bus. But maybe it's not needed.
+Carlos Song (6):
+  spi: imx: group spi_imx_dma_configure() with spi_imx_dma_transfer()
+  spi: imx: introduce helper to clear DMA mode logic
+  spi: imx: avoid dmaengine_terminate_all() on TX prep failure
+  spi: imx: handle DMA submission errors with dma_submit_error()
+  spi: imx: support dynamic burst length for ECSPI DMA mode
+  spi: imx: enable DMA mode for target operation
 
-Chaoyi, can you try the attached patch?
-
-> > > I hope it's not too late. In fact, the notifier here will notify DRM to establish a bridge chain.
-> > What is a "bridge chain"?
-> In DRM, the bridge chain is often used to describe the chain connection relationship
-> of the output of multi level display conversion chips. The bridge chain we are referring to here
-> is actually a chain  structure formed by connecting various devices using a simple transparent bridge [0].
-> 
-> For example, the schematic diagram of a bridge chain is as follows:
-> 
-> DP controller bridge -> DP PHY bridge -> onnn,nb7vpq904m retimer bridge -> fsa4480 analog audio switch bridge -> fusb302 HPD bridge
-> 
-> Here, apart from the DP controller bridge, the rest are transparent DRM bridges, which are used solely to
-> describe the link relationships between various devices.
-> 
-> 
-> [0] https://patchwork.freedesktop.org/patch/msgid/20231203114333.1305826-2-dmitry.baryshkov@linaro.org
-> > 
-> > > The downstream DP controller driver hopes to obtain the fwnode of the last-level Type-C device
-> > > through this bridge chain to create a DRM connector. And when a device is inserted,
-> > > drivers/usb/typec/altmodes/displayport.c can notify the HPD (Hot Plug Detect) event.
-> > But aren't you just the driver for the "partner device"?
-> > 
-> > If not, why isn't a real device being created that you then bind to,
-> > what "fake" type of thing are you attempting to do here that would
-> > require you to do this out-of-band?
-> The HPD event is pass by drm_connector_oob_hotplug_event(), which does not use the device in Type-C.
-> This function will find the corresponding DRM connector device, and the lookup of the DRM connector is
-> done through the fwnode.
-> 
-> And the partner device and the port device have the same fwnode.
-> 
-> > 
-> > > If relying on the second event, the bridge chain may never be established, and the operations of the DP driver will be
-> > > always deferred. Furthermore, other parts of the display controller driver will also be deferred accordingly.
-> > What operations?  What exactly is delayed?  You should not be touching a
-> > device before you have it on your bus, right?
-> To complete the HPD operation, it is necessary to create a drm connector device that
-> has the appropriate fwnode. This operation will be carried out by the DP controller driver.
-> 
-> As you can see, since it cross multiple devices, we need to set the fwnode to the last device fusb302.
-> This requires relying on the bridge chain. We can register bridges for multiple devices and then connect
-> them to form a chain. The connection process is completed through drm_bridge_attach().
-> 
-> A brief example of the process of establishing a bridge chain is as follows, starting from the last bridge:
-> 
-> step1: fusb302 HPD bridge
-> step2: fsa4480 analog audio switch bridge -> fusb302 HPD bridge
-> step3: onnn,nb7vpq904m retimer bridge -> fsa4480 analog audio switch bridge -> fusb302 HPD bridge
-> step4: DP PHY bridge -> onnn,nb7vpq904m retimer bridge -> fsa4480 analog audio switch bridge -> fusb302 HPD bridge
-> step5: DP controller bridge -> DP PHY bridge -> onnn,nb7vpq904m retimer bridge -> fsa4480 analog audio switch bridge -> fusb302 HPD bridge
-> 
-> Step 1 is the most crucial, because essentially, regardless of whether we use notifiers or not, what we ultimately want to achieve is to create an HPD bridge.
-> The DP controller needs to wait for the subsequent bridge chain to be established because it needs to know the connection relationships of the devices.
-> 
-> The question now is when to create the HPD bridge, during the registration of the port device or during the registration of the partner device.
-> If it's the latter, then the delay occurs here.
-> 
-> And I don't think I'm touching the Type-C device here. I'm just using the bridge chain to get a suitable fwnode and create a suitable DRM connector device.
-> The subsequent Type-C HPD events will be on the DRM connector device.
-> 
-> This solution is somewhat complex, and I apologize once again for any confusion caused earlier.
-> 
-> > 
-> > > > > > Notifiers are a pain, and should almost never be added.  Use real
-> > > > > > function calls instead.
-> > > > > In v6, I used direct function calls, but had to switch to notifiers because couldn't resolve the dependencies between DRM and Type-C [1]. Do you have any good ideas? Thank you.
-> > > > Only allow this DRM code to be built if typec code is enabled, do NOT
-> > > > use a select, use a depends in the drm code.
-> > > Sorry, I didn't get your point. Does this mean that the current notifiers approach still needs to be changed to direct function calls?
-> > If you somehow convince me that the existing bus notifiers will not
-> > work, yes :)
-> > 
-> > > If so, then based on the previous discussion, typec should not depend
-> > > on any DRM components. Does this mean that we should add the if
-> > > (IS_REACHABLE(CONFIG_DRM_AUX_BRIDGE)) before the direct function call?
-> > No, do it properly like any other function call to another subsystem.
-> > 
-> > > Additionally, the current version of CONFIG_DRM_AUX_BRIDGE is selected
-> > > by the DP driver in patch9.
-> > Don't do "select" if at all possible, always try to do "depends on".
-> Thank you for clarifying this. However, CONFIG_DRM_AUX_BRIDGE is not exposed in the menu, and it is not intended for the end user to select it by design. Therefore, I think there still needs to be some place to select it?
-
-You don't "select TYPEC", you already "depend on TYPEC", so you are
-all set with this one.
-
-thanks,
+ drivers/spi/spi-imx.c | 620 ++++++++++++++++++++++++++++++++++--------
+ 1 file changed, 513 insertions(+), 107 deletions(-)
 
 -- 
-heikki
+2.34.1
 
---vzc56uF0OXm6IX+X
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: attachment;
-	filename=0001-usb-typec-Set-the-bus-also-for-the-port-altmodes.patch
-
-From 8cca23b3064bf8b33e316245732a8baf834142d2 Mon Sep 17 00:00:00 2001
-From: Heikki Krogerus <heikki.krogerus@linux.intel.com>
-Date: Tue, 25 Nov 2025 10:38:04 +0100
-Subject: [PATCH] usb: typec: Set the bus also for the port altmodes
-
-The port altmodes can't be bound to the altmode drivers
-because the altmode drivers are meant for partner
-commuication using the VDM (vendor defined messages), but
-they can still be part of the bus. The bus will make sure
-that the normal bus notifications are available also with
-the port altmodes.
-
-Signed-off-by: Heikki Krogerus <heikki.krogerus@linux.intel.com>
----
- drivers/usb/typec/bus.c   | 24 +++++++++++++++++++++++-
- drivers/usb/typec/class.c |  4 +---
- 2 files changed, 24 insertions(+), 4 deletions(-)
-
-diff --git a/drivers/usb/typec/bus.c b/drivers/usb/typec/bus.c
-index a884cec9ab7e..1daf7a353c01 100644
---- a/drivers/usb/typec/bus.c
-+++ b/drivers/usb/typec/bus.c
-@@ -445,7 +445,23 @@ static struct attribute *typec_attrs[] = {
- 	&dev_attr_description.attr,
- 	NULL
- };
--ATTRIBUTE_GROUPS(typec);
-+
-+static umode_t typec_is_visible(struct kobject *kobj, struct attribute *attr, int n)
-+{
-+	if (is_typec_port(kobj_to_dev(kobj)->parent))
-+		return 0;
-+	return attr->mode;
-+}
-+
-+static const struct attribute_group typec_group = {
-+	.is_visible = typec_is_visible,
-+	.attrs = typec_attrs,
-+};
-+
-+static const struct attribute_group *typec_groups[] = {
-+	&typec_group,
-+	NULL
-+};
- 
- static int typec_match(struct device *dev, const struct device_driver *driver)
- {
-@@ -453,6 +469,9 @@ static int typec_match(struct device *dev, const struct device_driver *driver)
- 	struct typec_altmode *altmode = to_typec_altmode(dev);
- 	const struct typec_device_id *id;
- 
-+	if (is_typec_port(dev->parent))
-+		return 0;
-+
- 	for (id = drv->id_table; id->svid; id++)
- 		if (id->svid == altmode->svid)
- 			return 1;
-@@ -469,6 +488,9 @@ static int typec_uevent(const struct device *dev, struct kobj_uevent_env *env)
- 	if (add_uevent_var(env, "MODE=%u", altmode->mode))
- 		return -ENOMEM;
- 
-+	if (is_typec_port(dev->parent))
-+		return 0;
-+
- 	return add_uevent_var(env, "MODALIAS=typec:id%04X", altmode->svid);
- }
- 
-diff --git a/drivers/usb/typec/class.c b/drivers/usb/typec/class.c
-index 9b2647cb199b..26bf76328487 100644
---- a/drivers/usb/typec/class.c
-+++ b/drivers/usb/typec/class.c
-@@ -584,9 +584,7 @@ typec_register_altmode(struct device *parent,
- 	if (!is_port)
- 		typec_altmode_set_partner(alt);
- 
--	/* The partners are bind to drivers */
--	if (is_typec_partner(parent))
--		alt->adev.dev.bus = &typec_bus;
-+	alt->adev.dev.bus = &typec_bus;
- 
- 	/* Plug alt modes need a class to generate udev events. */
- 	if (is_typec_plug(parent))
--- 
-2.50.1
-
-
---vzc56uF0OXm6IX+X--
 
