@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25403CFD377
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 03:47:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0639BCFD370
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Nov 2025 03:47:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XV95LLxcX6D3+eI+RX55lHlOM/MxuIfmbAlka9up6CE=; b=YmrmDX06hTRdkaMpk/fvMhfx9i
-	NOwqB3Xqwujo8UPsC3d3ydF+vzN3njT6V20MqMKKpTP213UXvXuDmSqylWTv3c3Z6FUtHS8EQf3A5
-	wOxFMVF61I1CTjRkgNuEQXIvceFjQoUJE8A+8z/RpSEnSE3N3HWXccIggsaifSiwnsX993KIVlnD8
-	kt1318HyWOyGe5vLKubjztRMsaqB9S5pLmwKTVvlEFxgyGjnnbXi+slzMrBzVLGms4v1Tt+w0Axnj
-	WbeZ7tNriAa+JUjy7RnNhNZm/Q/ERYP/Tgd7zkBBghKU0jTOrA/Wd3fN2eooG0D9MA9sTegEffRfM
-	LHTuerow==;
+	bh=iglTU4p+nNvHSlvwboab4Cw0zi28jb+5MkESH+gEGJo=; b=c0vpfHT/1uiUgOb53PsLtQcZ+a
+	dC19HnCv496bJC0inRZdqpMif0C04NwAiLAlm1+fO+VoAlic6iqtBgPr3g+DzdcYkQX2Pv5v1T0m3
+	HCVsxOLPFTcWNj2bIZUjU5RyVZzD+TNIjjiuhiBnZho0s1yDQFf32uzOSTCMtJlWNbfaW1Zeli9gs
+	PBrjI8DfUgfYy6/ciBA+XWYHFmcPQ5/jzrhqfrYthccLEnm3IpCY6ukdnkxldo3d9GeggQERqi2if
+	R5Mxlp1E4h6K3WlC8qsFQVg4GSXi7KFuG6w2fLPOrSsQI/xhgaglY0/qY8dK7daD7BOoXU19vgmNN
+	jFHgRJ0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNk1H-0000000ChHP-1axH;
-	Tue, 25 Nov 2025 03:47:11 +0000
+	id 1vNk1G-0000000ChFg-0ra9;
+	Tue, 25 Nov 2025 03:47:10 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vNk18-0000000ChCB-2v3D;
-	Tue, 25 Nov 2025 03:47:04 +0000
+	id 1vNk18-0000000ChC8-2uTr;
+	Tue, 25 Nov 2025 03:47:03 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B897E44444;
+	by sea.source.kernel.org (Postfix) with ESMTP id 861C844337;
 	Tue, 25 Nov 2025 03:47:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 93C5EC19421;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 599AEC116B1;
 	Tue, 25 Nov 2025 03:47:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1764042421;
-	bh=U2sKGfrG1AuXfw/WKYwLvQsUXr5m8ldv6cClmddJY0w=;
+	bh=ycM7LXSKbuEanMKnAqYP54DyEq9xsY1JOHTdVmdmdrs=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=quWUt6dYC5b3SpWV9Rye7QkchNc+YUPh0c07GZa6QaIChSx+yKRnghUkDylLw3CY2
-	 GxvxziRFCaI7e7ciC0TOlO/ux7iVCdLH6hcdkZtbGVoR2yxlTFRwZiSElB8z8abPSA
-	 ztJVURMqyMexZQtovSdr+jXwk7A0sup7hFOJxITs8LTmR6WMXqAr3srfUStRn9sNBr
-	 8TYqNbXGtI/iFMoVd7zsxzkg/YLcOd1RQsOKHqTbiCu3XG38tqbG68RIPGMTmJuydR
-	 G1YvuU5ChwnRNCxbcz8F2CgSTQuvVJCPgbVggnEMQ+/EeW9o/xEzoMf6G/OG5P7GlM
-	 Ajr3zj6sqQsVQ==
+	b=mZvPGvwSZmfA2Xv76Eaoh2Nq0QduKe/rrFDuNLRmF/sovTWu3WznWhVDq6e1yEPJk
+	 +5G7RUN3Rp7iTWY2fkJpJysWunIJ9gHAZ380zQpx55Awp4Qh46x1TwP+iSuAN29LIT
+	 4lbbLltn6usdBq675cH6sf4FTuqAEMLeNIczboIUgG6qGh+1XyK5ZEFGiMT3mkhGG3
+	 0DMU7kpCUM/Pj+bxV1Hl+Xa1xPYBRlAC16We5yjARQvEV+DWBsmNi759fYcvlcYZBf
+	 m4S12vBolPLc/EFPSw2MG0MG681zKTlI7Pxi+pZUZ1yId+klJa7srRMhsNSXLHjZzp
+	 cqAHFcAZ2sebg==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 8BD3ECFD370;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 50036CFD377;
 	Tue, 25 Nov 2025 03:47:01 +0000 (UTC)
 From: Rudraksha Gupta via B4 Relay <devnull+guptarud.gmail.com@kernel.org>
-Date: Mon, 24 Nov 2025 19:47:03 -0800
-Subject: [PATCH v5 4/4] arm64: dts: rockchip: Fix voltage threshold for
- volume keys for Pinephone Pro
+Date: Mon, 24 Nov 2025 19:47:01 -0800
+Subject: [PATCH v5 2/4] arm64: dts: rockchip: Add accelerometer sensor to
+ Pinephone Pro
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20251124-ppp_light_accel_mag_vol-down-v5-4-f9a10a0a50eb@gmail.com>
+Content-Transfer-Encoding: 8bit
+Message-Id: <20251124-ppp_light_accel_mag_vol-down-v5-2-f9a10a0a50eb@gmail.com>
 References: <20251124-ppp_light_accel_mag_vol-down-v5-0-f9a10a0a50eb@gmail.com>
 In-Reply-To: <20251124-ppp_light_accel_mag_vol-down-v5-0-f9a10a0a50eb@gmail.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -59,21 +59,24 @@ To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
  linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
  phone-devel@vger.kernel.org, Rudraksha Gupta <guptarud@gmail.com>, 
- Ondrej Jirman <megi@xff.cz>, Pavel Machek <pavel@ucw.cz>
+ Ondrej Jirman <megi@xff.cz>, Martijn Braam <martijn@brixit.nl>, 
+ =?utf-8?q?Kamil_Trzci=C5=84ski?= <ayufan@ayufan.eu>, 
+ Pavel Machek <pavel@ucw.cz>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1764042420; l=1551;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1764042420; l=1266;
  i=guptarud@gmail.com; s=20240916; h=from:subject:message-id;
- bh=8q5u/rrJlx+VcAI9BxZ+DVAqqoWsJx3wKRY3rg0cQgg=;
- b=5gNGjBiWQzw+Cia1/yrUL22IXp/WlWSV5+18Ip8iwkRCq8OzW9u5aVpnA8oMATmi3zDk8EYum
- FxWAeo9EsGXB2vf3+jyx5RVRoYyMrBeFOndSq6t47IXjeuNAi18CpJ6
+ bh=owuI4HZdlvQp/fF0o2W6LK/Li46MndqpBMI0zHW5OxA=;
+ b=FsSvN3r0QicnJ/w3S/WAeTY96iFwVszQDSQC0oT7MLn0LeC4PC5RFl3S5/VDEb1Y/4qGuCgQc
+ ciIlNIszl9wDaFG9F9VZCx+tlca+23MeQ1xrJPXA0fj6iVKW99UO08h
 X-Developer-Key: i=guptarud@gmail.com; a=ed25519;
  pk=ETrudRugWAtOpr0OhRiheQ1lXM4Kk4KGFnBySlKDi2I=
 X-Endpoint-Received: by B4 Relay for guptarud@gmail.com/20240916 with
  auth_id=211
 X-Original-From: Rudraksha Gupta <guptarud@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251124_194702_794600_C41A97CB 
-X-CRM114-Status: GOOD (  12.25  )
+X-CRM114-CacheID: sfid-20251124_194702_751726_5024311F 
+X-CRM114-Status: UNSURE (   9.06  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,46 +94,38 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Ondrej Jirman <megi@xff.cz>
 
-Previously sometimes pressing the volume-down button would register as
-a volume-up button. Match the thresholds as shown in the Pinephone Pro
-schematic.
+Pinephone Pro uses mpu6500 according to the schematic. This was verified
+via `monitor-sensor --accel`. While rotating the device, the output was
+correct (eg. when it was face up, left edge was up, vertical, etc.).
 
-Tests:
-
-~ $ evtest
-    // Mashed the volume down ~100 times with varying intensity
-    Event: time xxx, type 1 (EV_KEY), code 114 (KEY_VOLUMEDOWN), value 1
-    Event: time xxx, type 1 (EV_KEY), code 114 (KEY_VOLUMEDOWN), value 0
-    // Mashed the volume up ~100 times with varying intensity
-    Event: time xxx, type 1 (EV_KEY), code 115 (KEY_VOLUMEUP), value 1
-    Event: time xxx, type 1 (EV_KEY), code 115 (KEY_VOLUMEUP), value 0
-
+Co-developed-by: Martijn Braam <martijn@brixit.nl>
+Signed-off-by: Martijn Braam <martijn@brixit.nl>
+Co-developed-by: Kamil Trzciński <ayufan@ayufan.eu>
+Signed-off-by: Kamil Trzciński <ayufan@ayufan.eu>
 Signed-off-by: Ondrej Jirman <megi@xff.cz>
 Signed-off-by: Rudraksha Gupta <guptarud@gmail.com>
 Reviewed-by: Pavel Machek <pavel@ucw.cz>
 ---
- arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
 diff --git a/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts b/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
-index 03721d71766c..5de08a155d10 100644
+index 2d2858ee149e..f8c74b43ae9f 100644
 --- a/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
 +++ b/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
-@@ -40,13 +40,13 @@ adc-keys {
- 		button-up {
- 			label = "Volume Up";
- 			linux,code = <KEY_VOLUMEUP>;
--			press-threshold-microvolt = <100000>;
-+			press-threshold-microvolt = <2000>;
- 		};
- 
- 		button-down {
- 			label = "Volume Down";
- 			linux,code = <KEY_VOLUMEDOWN>;
--			press-threshold-microvolt = <600000>;
-+			press-threshold-microvolt = <300000>;
- 		};
+@@ -543,7 +543,13 @@ mpu6500@68 {
+ 		reg = <0x68>;
+ 		interrupt-parent = <&gpio1>;
+ 		interrupts = <RK_PC6 IRQ_TYPE_LEVEL_LOW>;
++		vdd-supply = <&vcc_1v8>;
+ 		vddio-supply = <&vcc_1v8>;
++
++		mount-matrix =
++			"1", "0", "0",
++			"0", "-1", "0",
++			"0", "0", "-1";
  	};
+ };
  
 
 -- 
