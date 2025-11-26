@@ -4,62 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4D36D116E0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 23:38:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C238D111BD
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 23:51:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1h6WNJy17sj34mCnfEYhILwT7lHGBmPDVuBZNGD7NM4=; b=dIGbM/JbCfS8SfJVPFL1DHDl7b
-	CdldAdqh1lKriYBYQo4hzStJ1v4BTUkX2DWwaGR/MHswHvDqKWXmwqBQmrHhtjKhJzjSd3ZE12lSL
-	E/bPAwV5R3W5/xZK+LLZSGJe7syRSCrXI7a479MPi8QJlsgPbgMEL8O7BwZicPscNJsrzzfigHPoi
-	5ouzzDlXC/0IFh88gS0Pk3967Ig5ZyFswy4qfrdLwwNRu3ilpJp6bRHwLKtJ4FdcEeetX+SgluZUt
-	KuHcf4V/YdbkpfVm/ZX72aj+Jqf9IgogwpKUGBIdtQqLOGAkRIhst4G6yNOMhdn0y4gx9iAfY1kp6
-	lYy9P3Hw==;
+	bh=wkC4EC2zssMx28s9No60sCNue+peZIp/avGbOKBlk10=; b=DNSO4vdw+40x/cwEI5rDBG67Hs
+	VQMdraSXAvWEpa2SuFl3jr5XbMmcp/F6buzLhtV3/J7Ni+4qGKit5WHj0LpnZax14lvq9/d6iaQTl
+	pCo50HEMBJj+5E6aFOaCQuvOtIU8BTNdfty9ubVIvemtPlbp/fqdg0/2dglg2y1nUWzlKv2o/DOCe
+	RCxV7GY8uC+OsnaLfrmB4f/if22W6BqzU+Xmrhw4Grka6BCOWSeHm1klP/52d8pHBlEDHX9UY5Tpf
+	DpB1nz4v/GxNrcexaqbGHS0QBrQm5NGWLg+8Zykv/f2YOqqD3QLp3eGN79wLgYdd6Ic/8Ldda7FA+
+	O9LyW+IA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOP5n-0000000Flqu-1b6a;
-	Wed, 26 Nov 2025 23:38:35 +0000
-Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
+	id 1vOPIR-0000000FmEs-2cxV;
+	Wed, 26 Nov 2025 23:51:39 +0000
+Received: from zeniv.linux.org.uk ([2a03:a000:7:0:5054:ff:fe1c:15ff])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOP5l-0000000FlqW-1Mc3
+	id 1vOPIO-0000000FmEX-1BAM
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Nov 2025 23:38:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=codeconstruct.com.au; s=2022a; t=1764200300;
-	bh=1h6WNJy17sj34mCnfEYhILwT7lHGBmPDVuBZNGD7NM4=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=j7MI0T4hAz8rhojuM9jtbMJ8tqsaJT2YXSHoBYHXPvC3lwXB68NI0uZGrD0ILEXE2
-	 hTxVDx45cT3CWYZOaQt5l/Vq653Y4F9C+VVrhKD9fpE9fc9lSfO1Pf92dPiDYCZl20
-	 XJqKtF3b2Pqwfc2Xavg14Tg6aJpzoUo/JVlyG03s93/K1zwq1F5e2trrBfctmcBKi5
-	 SSXAorbazL9yiqr5MirI/+TezAYp3wpY0YbSikGkoqs8dZ2xhD9Jrcot+RflgUQ6an
-	 l8/6X7bUyg9gpWoECpWMjZ/zjix6ZpDJySxNdD1JR4c7JOUnHbgxubvuWJIn3xuAYt
-	 DOd5n+rXk5i0Q==
-Received: from [192.168.68.115] (unknown [180.150.112.38])
-	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 0D70A6561D;
-	Thu, 27 Nov 2025 07:38:18 +0800 (AWST)
-Message-ID: <1db579becd8fc49e40acdc817bf4417d77feb47e.camel@codeconstruct.com.au>
-Subject: Re: [PATCH v8 2/2] ARM: dts: aspeed: Add Device Tree for Facebook
- Anacapa BMC
-From: Andrew Jeffery <andrew@codeconstruct.com.au>
-To: Peter Shen <sjg168@gmail.com>, devicetree@vger.kernel.org
-Cc: linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org, 
-	linux-kernel@vger.kernel.org, Joel Stanley <joel@jms.id.au>, Rob Herring
-	 <robh@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>, Conor Dooley
-	 <conor+dt@kernel.org>, peter.shen@amd.com, colin.huang2@amd.com
-Date: Thu, 27 Nov 2025 10:08:17 +1030
-In-Reply-To: <20251124212106.2068069-3-sjg168@gmail.com>
-References: <20251124212106.2068069-1-sjg168@gmail.com>
-	 <20251124212106.2068069-3-sjg168@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-0+deb13u1 
+	Wed, 26 Nov 2025 23:51:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=linux.org.uk; s=zeniv-20220401; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=wkC4EC2zssMx28s9No60sCNue+peZIp/avGbOKBlk10=; b=n1nD1shoa5nvuzhDtF44Purkpc
+	5bjbZrX5nCdzonSHSYJqpHMlADRQU+VwdfC5fXQJk4ojTO3bemQGJkJw4CtbUfR3/1ghTrFjzhzLX
+	xyxRHWbxXcWc/dcbMkci+w69UUeqkccHLZw+oxDejQ0dfn9XN7hKH3lGMnDlRq24PyViwiT8WzOce
+	q2moRs0tG+D5MF9A0E0YYwDfqx8PGiMrkbyZL8OzaYBxQXeFNUwufzjmsRtaWbHmJMdD6AyCQLs21
+	KjxSQ2LIwidiH62xuLMZf1PIo8EYJ2NeqssUZH5KpjxYnGZXyeoC6X9sAxibDbEo/JmThxsV/WJUM
+	r/WQtNxg==;
+Received: from viro by zeniv.linux.org.uk with local (Exim 4.99 #2 (Red Hat Linux))
+	id 1vOPII-00000006Ijc-3QlD;
+	Wed, 26 Nov 2025 23:51:30 +0000
+Date: Wed, 26 Nov 2025 23:51:30 +0000
+From: Al Viro <viro@zeniv.linux.org.uk>
+To: david laight <david.laight@runbox.com>
+Cc: "Russell King (Oracle)" <linux@armlinux.org.uk>,
+	Xie Yuanbin <xieyuanbin1@huawei.com>, brauner@kernel.org,
+	jack@suse.cz, will@kernel.org, nico@fluxnic.net,
+	akpm@linux-foundation.org, hch@lst.de, jack@suse.com,
+	wozizhi@huaweicloud.com, linux-fsdevel@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mm@kvack.org, lilinjie8@huawei.com, liaohua4@huawei.com,
+	wangkefeng.wang@huawei.com, pangliyuan1@huawei.com
+Subject: Re: [RFC PATCH] vfs: Fix might sleep in load_unaligned_zeropad()
+ with rcu read lock held
+Message-ID: <20251126235130.GG3538@ZenIV>
+References: <20251126090505.3057219-1-wozizhi@huaweicloud.com>
+ <20251126101952.174467-1-xieyuanbin1@huawei.com>
+ <20251126181031.GA3538@ZenIV>
+ <20251126184820.GB3538@ZenIV>
+ <aSdPYYqPD5V7Yeh6@shell.armlinux.org.uk>
+ <20251126192640.GD3538@ZenIV>
+ <aSdaWjgqP4IVivlN@shell.armlinux.org.uk>
+ <20251126200221.GE3538@ZenIV>
+ <20251126222505.1638a66d@pumpkin>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251126222505.1638a66d@pumpkin>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251126_153833_564233_D6B22939 
-X-CRM114-Status: GOOD (  19.44  )
+X-CRM114-CacheID: sfid-20251126_155136_324584_F8F5E882 
+X-CRM114-Status: GOOD (  19.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,135 +84,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Peter,
+On Wed, Nov 26, 2025 at 10:25:05PM +0000, david laight wrote:
 
-A few follow-ups below on further inspection. Apologies for not
-addressing more of these in your earlier submissions.
+> Can you fix it with a flag on the exception table entry that means
+> 'don't try to fault in a page'?
+> 
+> I think the logic would be the same as 'disabling pagefaults', just
+> checking a different flag.
+> After all the fault itself happens in both cases.
 
-As a bit of a nit I'd prefer we use "devicetree" instead of "Device
-Tree" in the subject. That said, it's also implied by the "dts:" part
-of the prefix, so even better would be to drop it altogether:
+The problem is getting to the point where you search the exception table
+without blocking.
 
-ARM: dts: aspeed: Add Facebook Anacapa platform
+x86 #PF had been done that way from well before the point when
+load_unaligned_zeropad() had been introduced, so everything worked
+there from the very beginning.
 
-On Tue, 2025-11-25 at 05:21 +0800, Peter Shen wrote:
-> Add the initial device tree source file for the Facebook Anacapa BMC
-> platform, based on the Aspeed AST2600 SoC.
->=20
-> This device tree configures the platform-specific peripherals and
-> aliases for OpenBMC usage.
+arm and arm64, OTOH, were different - there had been logics for
+"if trylock fails, check if we are in kernel space and have no
+matching exception table entry; bugger off if so, otherwise we
+are safe to grab mmap_sem - it's something like get_user() and
+we *want* mmap_sem there", but it did exactly the wrong thing for
+this case.
 
-This describes what we can see in the commit itself. Can you please
-rather describe the purpose of the platform? Why does the design exist?
+The only thing that prevented serious breakage from the very beginning
+was that these faults are very rare - and hard to arrange without
+KFENCE.  So it didn't blow up.  In 2017 arm64 side of problem had
+been spotted and (hopefully) fixed.  arm counterpart stayed unnoticed
+(perhaps for the lack of good reproducer) until now.
 
->=20
-> Signed-off-by: Peter Shen <sjg168@gmail.com>
-> ---
-> =C2=A0arch/arm/boot/dts/aspeed/Makefile=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0=C2=A0=C2=A0 1 +
-> =C2=A0.../aspeed/aspeed-bmc-facebook-anacapa.dts=C2=A0=C2=A0=C2=A0 | 1044=
- +++++++++++++++++
-> =C2=A02 files changed, 1045 insertions(+)
-> =C2=A0create mode 100644 arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ana=
-capa.dts
->=20
-> diff --git a/arch/arm/boot/dts/aspeed/Makefile b/arch/arm/boot/dts/aspeed=
-/Makefile
-> index 0f0b5b707654..e1b2fc7b8c08 100644
-> --- a/arch/arm/boot/dts/aspeed/Makefile
-> +++ b/arch/arm/boot/dts/aspeed/Makefile
-> @@ -17,6 +17,7 @@ dtb-$(CONFIG_ARCH_ASPEED) +=3D \
-> =C2=A0	aspeed-bmc-asus-x4tf.dtb \
-> =C2=A0	aspeed-bmc-bytedance-g220a.dtb \
-> =C2=A0	aspeed-bmc-delta-ahe50dc.dtb \
-> +	aspeed-bmc-facebook-anacapa.dtb \
-> =C2=A0	aspeed-bmc-facebook-bletchley.dtb \
-> =C2=A0	aspeed-bmc-facebook-catalina.dtb \
-> =C2=A0	aspeed-bmc-facebook-clemente.dtb \
-> diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa.dts b/a=
-rch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa.dts
-> new file mode 100644
-> index 000000000000..a9bed728339b
-> --- /dev/null
-> +++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa.dts
-> @@ -0,0 +1,1044 @@
-> +// SPDX-License-Identifier: GPL-2.0-or-later
-> +
-> +/dts-v1/;
-> +#include "aspeed-g6.dtsi"
-> +#include <dt-bindings/gpio/aspeed-gpio.h>
-> +#include <dt-bindings/i2c/i2c.h>
-> +
-> +/ {
-> +	model =3D "Facebook Anacapa BMC";
-> +	compatible =3D "facebook,anacapa-bmc", "aspeed,ast2600";
-> +
-> +	aliases {
-> +		serial0 =3D &uart1;
-> +		serial2 =3D &uart3;
+Most of the faults are from userland code, obviously, so we don't
+want to search through the exception table on the common path.
+So hanging that on a flag in exception table entry is not a good
+idea - we need a cheaper predicate checked first.
 
-Aliases should be defined sequentially. Is there a strong reason to
-skip serial1 here?
+x86 starts with separating the fault on kernel address from that on
+userland; we are not going anywhere near mmap_sem (and VMAs in general)
+in the former case and that's where load_unaligned_zeropad() faults
+end up.  arm64 fix consisted of using do_translation_fault() instead
+of do_page_fault(), with the former falling back to the latter for
+userland addresses and using do_bad_area() for kernel ones.
+Assuming that the way it's hooked up covers everything, we should
+be fine there.
 
-> +		serial3 =3D &uart4;
-> +		serial4 =3D &uart5;
-> +		i2c16 =3D &i2c0mux0ch0;
-> +		i2c17 =3D &i2c0mux0ch1;
-
-...
-
-> +
-> +&adc0 {
-> +	aspeed,int-vref-microvolt =3D <2500000>;
-> +	pinctrl-names =3D "default";
-> +	pinctrl-0 =3D <&pinctrl_adc0_default &pinctrl_adc1_default
-> +		&pinctrl_adc2_default &pinctrl_adc3_default
-> +		&pinctrl_adc4_default &pinctrl_adc5_default
-> +		&pinctrl_adc6_default &pinctrl_adc7_default>;
-> +	status =3D "okay";
-> +};
-> +
-> +&adc1 {
-> +	aspeed,int-vref-microvolt =3D <2500000>;
-> +	pinctrl-names =3D "default";
-> +	pinctrl-0 =3D <&pinctrl_adc10_default>;
-> +	status =3D "okay";
-> +};
-> +
-> +&ehci1 {
-> +	status =3D "okay";
-> +};
-> +
-> +&uhci {
-> +	status =3D "okay";
-> +};
-> +
-> +&fmc {
-
-Can you please order all label references alphabetically? There are
-other options in the DTS style guide, but alphabetical order is the
-easiest to enforce by simple inspection.
-
-Andrew
-
-> +	status =3D "okay";
-> +
-> +	flash@0 {
-> +		status =3D "okay";
-> +		m25p,fast-read;
-> +		label =3D "bmc";
-> +		spi-max-frequency =3D <50000000>;
-> +#include "openbmc-flash-layout-128.dtsi"
-> +	};
-> +
-> +	flash@1 {
-> +		status =3D "okay";
-> +		m25p,fast-read;
-> +		label =3D "alt-bmc";
-> +		spi-max-frequency =3D <50000000>;
-> +	};
-> +};
-> +
-
-...
+One potential problem _might_ be with the next PTE present, but
+write-only.  Note that it has to cope with symlink bodies as well
+and those might come from page cache rather than kmem_cache_alloc().
+I'm nowhere near being uptodate on arm64 virtual memory setup, though,
+so take that with a cartload of salt...
 
