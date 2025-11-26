@@ -4,53 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C1B0D10390
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 09:36:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09145D10397
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 09:43:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SjCJduBhG222XQINroLnKpsK8H0msREV7UfwrKJclxE=; b=wKC1MmI2in7CErr2gE6Md0r0ZL
-	IUp/NWkiNIcJqoPKcjk8M1DoCNT5WCpVCpRtu9+U5LUwa85UkLrfxH50N3HrPrZiwNlvfBKzE4Jze
-	xyPLT1dBtf8FX0U1+4kBzFUH7PBEXsMFo/NZOj+CPcWu6kNTAEGudTo2FFDV+/gRB9Fikbm36BAsg
-	N3TUVTqupxj68URChUfPWEfUbiTiRl39/QQK4WHLHcM3MPE3rQL6sG03cGTS1nogc7w6Jh3Y5yI5Z
-	c6AX0oktEk62vTOc5Vg1RWtB1/0fTIXs3rUZltG3eU4kbY9+M1dFIt4Z/G5hHV5g2UJTPKpOSbCpo
-	/NoGGsRw==;
+	bh=5YPrcYJ9CyxAaCJT86Sgc//TInOx9CnUp1Mw0Z90jiU=; b=CUAo69aqwt6CxU6Jdcs5+cT2+s
+	uXexmfd6Ulk5dGX6UWSuphv135YVMk96sxi9x1aix11kAqUzur/2XDgrV4I31fwo/gvT7qIhqkZVj
+	2yHf9alpWeFvSqfpzqk8b2WEyJxVjdMTcpLEYdsLp+Auhxg9tX3cFk9yQmtOhtJqTdfzk0nTTEHnY
+	MrMz0hUcs5bI4k/0RXCxv8/M6Ors++wX363issh6A/bWK1JFWEQhnI4YdM+zjGuuyl7WZ/QeTz2rY
+	jBFGP2XuqRTyVzRh1nwwbMYL3EHTCGRs8YuvypfXMWjHsGyzd0/ldY6P/iFj9GqFJ/nn91DBVr7Vg
+	hlUJTVAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOBx9-0000000EiwL-2VQF;
-	Wed, 26 Nov 2025 09:36:47 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOBx6-0000000Eivs-1tj0
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Nov 2025 09:36:46 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AF9EA168F;
-	Wed, 26 Nov 2025 01:36:33 -0800 (PST)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 665E93F6A8;
-	Wed, 26 Nov 2025 01:36:39 -0800 (PST)
-Date: Wed, 26 Nov 2025 09:36:32 +0000
-From: Mark Rutland <mark.rutland@arm.com>
-To: Seongsu Park <sgsu.park@samsung.com>
-Cc: will@kernel.org, peterz@infradead.org, boqun.feng@gmail.com,
-	gary@garyguo.net, catalin.marinas@arm.com,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH] arm64: atomics: lse: Remove unused parameters from
- ATOMIC_FETCH_OP_AND macros
-Message-ID: <aSa_YjbomFs2AIWv@J2N7QTR9R3>
-References: <CGME20251126021037epcas1p2c5caf948ede87748ee1d4ef536a62126@epcas1p2.samsung.com>
- <20251126021025.3239562-1-sgsu.park@samsung.com>
+	id 1vOC3V-0000000EjQP-0yaE;
+	Wed, 26 Nov 2025 09:43:21 +0000
+Received: from mgamail.intel.com ([192.198.163.18])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vOC3S-0000000EjPt-17VW;
+	Wed, 26 Nov 2025 09:43:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1764150198; x=1795686198;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=CCg+lZSEq+WcXEQmJQne7xQ4oE1yxypysTDuDghy64Q=;
+  b=iBDS2yOuRT9lKKYMJ1kxUPgu/X+Pm81Heeg6xmprFhycjI1/Ddu45gLJ
+   sU4+kAegRTlNDQHkGB4rCkIpjGY1eJQbRUs88cKTdzpMg7J+zokYgAUl7
+   xWMDT5mZ/xg/zIOMoiM+3Y/fpHvw0YzEiiwe9G/EpPxE84hu/yJ23y9kd
+   tSsDShBgxcwaAdDNLewzfBbN63X/1rIqn4HJRxXouVQxgV9vACAZEheGm
+   Jicxk4asYOHcLhXm94K5bX289tf392rPRg0kCKvMsqHKMeWJSXUgRHXBw
+   /aVrVY/L0Ai6UkHrVIEYiKC2dCZRTRASKR/8oSwfPWmi5Qb10DZFBRsAr
+   g==;
+X-CSE-ConnectionGUID: eXU6AcowSISKJNzT/EAQQA==
+X-CSE-MsgGUID: /8iNkcs7SqitRaRQmfe0vg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11624"; a="65371596"
+X-IronPort-AV: E=Sophos;i="6.20,228,1758610800"; 
+   d="scan'208";a="65371596"
+Received: from fmviesa003.fm.intel.com ([10.60.135.143])
+  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Nov 2025 01:43:14 -0800
+X-CSE-ConnectionGUID: B+T8YiSeRD+/P6Odm3S47w==
+X-CSE-MsgGUID: B/YD/UVbQWaORjBCGIUAVA==
+X-ExtLoop1: 1
+Received: from iherna2-mobl4.amr.corp.intel.com (HELO kuha) ([10.124.223.25])
+  by fmviesa003.fm.intel.com with SMTP; 26 Nov 2025 01:42:55 -0800
+Received: by kuha (sSMTP sendmail emulation); Wed, 26 Nov 2025 11:42:43 +0200
+Date: Wed, 26 Nov 2025 11:42:43 +0200
+From: Heikki Krogerus <heikki.krogerus@linux.intel.com>
+To: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Chaoyi Chen <kernel@airkyi.com>,
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+	Peter Chen <hzpeterchen@gmail.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>, Sandy Huang <hjc@rock-chips.com>,
+	Andy Yan <andy.yan@rock-chips.com>,
+	Yubing Zhang <yubing.zhang@rock-chips.com>,
+	Frank Wang <frank.wang@rock-chips.com>,
+	Andrzej Hajda <andrzej.hajda@intel.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Robert Foss <rfoss@kernel.org>,
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Amit Sunil Dhamne <amitsd@google.com>,
+	Dragan Simic <dsimic@manjaro.org>, Johan Jonker <jbx6244@gmail.com>,
+	Diederik de Haas <didi.debian@cknow.org>,
+	Peter Robinson <pbrobinson@gmail.com>, linux-usb@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, dri-devel@lists.freedesktop.org
+Subject: Re: [PATCH v10 01/11] usb: typec: Add notifier functions
+Message-ID: <aSbLkwPG0dUzZvql@kuha>
+References: <20251120022343.250-2-kernel@airkyi.com>
+ <2025112102-laurel-mulch-58e4@gregkh>
+ <462ad1bd-7eec-4f26-b383-96b049e14559@rock-chips.com>
+ <2025112402-unopposed-polio-e6e9@gregkh>
+ <a80483de-518d-45d5-b46a-9b70cca5b236@rock-chips.com>
+ <2025112448-brush-porcupine-c851@gregkh>
+ <c9cb7b79-37c8-4fef-97a6-7d6b8898f9c4@rock-chips.com>
+ <aSV_lQYJPxN7oBM-@kuha>
+ <2025112554-uncaring-curator-642a@gregkh>
+ <cbb38c08-6937-4b7d-a0b0-d5ca6c17f466@rock-chips.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251126021025.3239562-1-sgsu.park@samsung.com>
+In-Reply-To: <cbb38c08-6937-4b7d-a0b0-d5ca6c17f466@rock-chips.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251126_013644_531318_82DA2196 
-X-CRM114-Status: GOOD (  14.60  )
+X-CRM114-CacheID: sfid-20251126_014318_343926_F0FCAEC5 
+X-CRM114-Status: GOOD (  17.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,82 +118,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 26, 2025 at 11:10:25AM +0900, Seongsu Park wrote:
-> The ATOMIC_FETCH_OP_AND and ATOMIC64_FETCH_OP_AND macros accept 'mb' and 
-> 'cl' parameters but never use them in their implementation. These macros 
-> simply delegate to the corresponding andnot functions, which handle the 
-> actual atomic operations and memory barriers.
+Wed, Nov 26, 2025 at 09:46:19AM +0800, Chaoyi Chen kirjoitti:
+> On 11/25/2025 7:49 PM, Greg Kroah-Hartman wrote:
+> >> +static umode_t typec_is_visible(struct kobject *kobj, struct attribute *attr, int n)
+> >> +{
+> >> +	if (is_typec_port(kobj_to_dev(kobj)->parent))
+> > 
+> > Why look at the parent?  Doesn't the device have a type that should show
+> > this?
+> > 
+> > Otherwise, looks good to me.
 > 
-> Signed-off-by: Seongsu Park <sgsu.park@samsung.com>
+> They have same deivce type "typec_altmode_dev_type".
+> The parent device has a different device type to distinguish between
+> port device and partner device.
 
-FWIW, this was a leftover from commit:
+I was already wondering would it make sense to provide separate device
+types for the port, and also plug, alternate modes, but I'm not sure
+if that's the right thing to do.
 
-  5e9e43c987b2 ("arm64: atomics: lse: define ANDs in terms of ANDNOTs")
+There is a plan to register an "altmode" also for the USB4 mode,
+which of course is not an alternate mode. So USB4 will definitely need a
+separate device type.
 
-... where I missed the leftover macro arguments.
+So if we supply separate device types for the port, plug and partner
+alternate modes, we need to supply separate device types for port, plug
+and partner USB4 mode as well.
 
-AFAICT there aren't any other leftover macro arguments from that round
-of asm improvments (or otherwise), so:
+We certainly can still do that, but I'm just not sure if it makes
+sense?
 
-Acked-by: Mark Rutland <mark.rutland@arm.com>
+I'll prepare a new version for this and include a separate patch where
+instead of defining separate device types for the port and plug
+alternate modes I'll just supply helpers is_port_alternate_mode() and
+is_plug_alternate_mode().
 
-Mark.
+thanks,
 
-> ---
->  arch/arm64/include/asm/atomic_lse.h | 20 ++++++++++----------
->  1 file changed, 10 insertions(+), 10 deletions(-)
-> 
-> diff --git a/arch/arm64/include/asm/atomic_lse.h b/arch/arm64/include/asm/atomic_lse.h
-> index 87f568a94e55..afad1849c4cf 100644
-> --- a/arch/arm64/include/asm/atomic_lse.h
-> +++ b/arch/arm64/include/asm/atomic_lse.h
-> @@ -103,17 +103,17 @@ static __always_inline void __lse_atomic_and(int i, atomic_t *v)
->  	return __lse_atomic_andnot(~i, v);
->  }
->  
-> -#define ATOMIC_FETCH_OP_AND(name, mb, cl...)				\
-> +#define ATOMIC_FETCH_OP_AND(name)					\
->  static __always_inline int						\
->  __lse_atomic_fetch_and##name(int i, atomic_t *v)			\
->  {									\
->  	return __lse_atomic_fetch_andnot##name(~i, v);			\
->  }
->  
-> -ATOMIC_FETCH_OP_AND(_relaxed,   )
-> -ATOMIC_FETCH_OP_AND(_acquire,  a, "memory")
-> -ATOMIC_FETCH_OP_AND(_release,  l, "memory")
-> -ATOMIC_FETCH_OP_AND(        , al, "memory")
-> +ATOMIC_FETCH_OP_AND(_relaxed)
-> +ATOMIC_FETCH_OP_AND(_acquire)
-> +ATOMIC_FETCH_OP_AND(_release)
-> +ATOMIC_FETCH_OP_AND(        )
->  
->  #undef ATOMIC_FETCH_OP_AND
->  
-> @@ -210,17 +210,17 @@ static __always_inline void __lse_atomic64_and(s64 i, atomic64_t *v)
->  	return __lse_atomic64_andnot(~i, v);
->  }
->  
-> -#define ATOMIC64_FETCH_OP_AND(name, mb, cl...)				\
-> +#define ATOMIC64_FETCH_OP_AND(name)					\
->  static __always_inline long						\
->  __lse_atomic64_fetch_and##name(s64 i, atomic64_t *v)			\
->  {									\
->  	return __lse_atomic64_fetch_andnot##name(~i, v);		\
->  }
->  
-> -ATOMIC64_FETCH_OP_AND(_relaxed,   )
-> -ATOMIC64_FETCH_OP_AND(_acquire,  a, "memory")
-> -ATOMIC64_FETCH_OP_AND(_release,  l, "memory")
-> -ATOMIC64_FETCH_OP_AND(        , al, "memory")
-> +ATOMIC64_FETCH_OP_AND(_relaxed)
-> +ATOMIC64_FETCH_OP_AND(_acquire)
-> +ATOMIC64_FETCH_OP_AND(_release)
-> +ATOMIC64_FETCH_OP_AND(        )
->  
->  #undef ATOMIC64_FETCH_OP_AND
->  
-> -- 
-> 2.34.1
-> 
+-- 
+heikki
 
