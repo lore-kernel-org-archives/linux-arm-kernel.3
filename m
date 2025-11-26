@@ -4,71 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B19AD11183
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 16:18:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4457ED11183
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 16:18:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=JKOxvZQGIRK6JKVYaVZ7aEDAgMUgtEIpNRjTwaJvO/4=; b=gnGe1wLVuqEWUWIl9sTqAUTPvP
-	uelhhHobXKKJDUPphpBN/s549j9L3yVRurHYQcgrmxq7wa5KQ+srVqQdAT37vN30C3LtVe2MyxEcp
-	ER+ukPWC/KJa/Ddf+GTxxiQmoYpogmT6p0lbXMPGxfxAPI4krTCxUTCy6swJTiL75MY66NqWj7xHL
-	n02EyJjdD53gjCACVs21lC8sA2MZtdPoXIac7vVx8KHJhneNJUMnPddf5VvauULxa9FoqvdyEXBs7
-	6/M/PeU/leUGzbuXTC9y2aUSKJNgXyBx7Q78Yv4JHyluyj5/t48DbHRwtVxH5sY1im1bzUU+nKTlQ
-	/Kh+X1dQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=A8a/vfmrnuuCKlhPtRmNUE7pjBPlzlE2qXTzeU2dArw=; b=wOs9U6jLmnYE/GzuQtrgFyCbPe
+	HLrzSyWUy15OThzPQYQMfYzvWHjuFm4oXQtmL+fxf96akIQcFm2gbpxWpfZwyzbAvjaObJxHnY5DK
+	rvwyXbfe9GPbbPXpYk3wkhnPbdU7rnC5c20gYScbPU5ZIqZc7rOdv3SsqvWuwSd1/YEAKbQdmoico
+	TEEcQwIGENE8/r/Rh+O9pH0+rCeOaXkbXhLDvePEitgLlm3DWXXZJCWYVoDpqnrMj8EkyL7RSozXF
+	HLdIZMThbQReCsxpSUaOOKp8hYe4QksAIu+ag553I1Jk6FM8pbsWfRic+EhpHYtqa2YgOsBos5JJ8
+	BOOyc3mg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOIDc-0000000FHib-0O9m;
-	Wed, 26 Nov 2025 16:18:12 +0000
-Received: from mgamail.intel.com ([192.198.163.14])
+	id 1vOIEC-0000000FHrc-3oNn;
+	Wed, 26 Nov 2025 16:18:48 +0000
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOIDZ-0000000FHhr-2QMT
+	id 1vOIEA-0000000FHr4-2I9i
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Nov 2025 16:18:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1764173890; x=1795709890;
-  h=date:from:to:cc:subject:message-id;
-  bh=6oEIukgb/AoJoD80+SNUTwb93fb+O/GAQZF8TXtoLcA=;
-  b=IUBi+CKKTpmjETL1N51MBhDjBowWYe1UNCsIlTliLBvBCXaWz9fgzcC9
-   ixD6Qoh0U0Lv3Rc4XljzrJcEhtc6VcA/biIlvOUL0P6ZdkDaJ5O9y4Rry
-   nnmZWMaOsPXAEOU8uZzJaChb9MlMo1gWC1PJBdgALoHXPli+5tN/d19UU
-   L94iSXZwk7Ie4DnWHy1eQlfbfJ1UzELgLP3b4JfU2veQnyliARGqft6zn
-   GbdXtqEIsmJ6GAp8uDN5FSxz+OPxuSFlJug/wn4HT6QwxkzFo3CaPNAeG
-   taZ4sYCY/KmBubZx7aRJfFboUxANHZjt1vS4F52+6kf50ERn0ilwTDIcZ
-   Q==;
-X-CSE-ConnectionGUID: mSxnv6DdTQ++I0v+s8pZtA==
-X-CSE-MsgGUID: bu5JN5v/TA6Ipk7oNoIkvg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11625"; a="66256931"
-X-IronPort-AV: E=Sophos;i="6.20,228,1758610800"; 
-   d="scan'208";a="66256931"
-Received: from fmviesa008.fm.intel.com ([10.60.135.148])
-  by fmvoesa108.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Nov 2025 08:18:08 -0800
-X-CSE-ConnectionGUID: eWn8QgftTdyW8giyLV/nhw==
-X-CSE-MsgGUID: W5ck4acnTRmOL4BihADslw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.20,228,1758610800"; 
-   d="scan'208";a="193211499"
-Received: from lkp-server01.sh.intel.com (HELO 4664bbef4914) ([10.239.97.150])
-  by fmviesa008.fm.intel.com with ESMTP; 26 Nov 2025 08:18:07 -0800
-Received: from kbuild by 4664bbef4914 with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1vOIDU-0000000036H-3hHY;
-	Wed, 26 Nov 2025 16:18:04 +0000
-Date: Thu, 27 Nov 2025 00:17:19 +0800
-From: kernel test robot <lkp@intel.com>
-To: Philipp Zabel <p.zabel@pengutronix.de>
-Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
-Subject: [soc:drivers/reset] BUILD SUCCESS
- 1387cb78f101553c7fc14ec04ba730cab03ea3df
-Message-ID: <202511270014.PODeS1SE-lkp@intel.com>
-User-Agent: s-nail v14.9.25
+	Wed, 26 Nov 2025 16:18:47 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-477a2ab455fso73857755e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Nov 2025 08:18:45 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1764173924; x=1764778724; darn=lists.infradead.org;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=A8a/vfmrnuuCKlhPtRmNUE7pjBPlzlE2qXTzeU2dArw=;
+        b=hzuLg7mfcvEAM7ggPR5Q7JCUFL6qZCUlBM1AzbDm+EAOWMf9wIANVZvRoJRMgcfKoN
+         ERtOZ5gG8PxY9/gNNNS9+YSeq64oeXd2Gv4qZKVPFe0mevCYnoVtIKVBpfFYJ2lYmbRu
+         OgU4uURsy2i6z07ZrTz9So4pnmHi5yMgk4XseswapWaI6FA/fOTpVK3SAtGO/viJ7ml5
+         JDUIRuZCm/02T8IvTpRt6j+YSAkRlSBK2LzKgLKP5tdsrT1K/nUbpl2sq4htiiyTo+CR
+         BCegxTAN4G0RoFvYinpFY0PewJdZC/xucPxnNfPpH9cDvClTxZ9elsTzyhzhwaVhvXAY
+         j++g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1764173924; x=1764778724;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=A8a/vfmrnuuCKlhPtRmNUE7pjBPlzlE2qXTzeU2dArw=;
+        b=FaxCC4XULZfaR1Q52JmFnL+7mkkPMRiOcsZnKRHrYbaF5dMRdcjAZYgRxUojt19w6C
+         wTpuP8smc/X1Agmv7+Fr4cn6XvayVWkVVpkJrl0doW0R067LvmePCXNWayo8JlFqwDj/
+         M139lEBHr5KOqW5XaGUz/tQvAER0/4u/XtmfvPqCuaD/NBs5Rdyxd/dCV/xvILYrYGin
+         a1EEUITKZ4ZIasOg42rvK90q8oF1rprzMrclOuq1bt4Ql+JUr17JKak9l2ciDf9uDPCE
+         nbhtyVYYWPF+36VExcg0hnqbO1HQvI5rTVT1Fy1dUlAMpdwoTiu6Qu8zO5QbD5GGpgQq
+         jlrA==
+X-Forwarded-Encrypted: i=1; AJvYcCVlAoM/a3diNxZnnlCh3rFRObVSrhqJMV+qFKYcQ8iO2Ei4zJAMTveiufW+00fVvjdmGzbX9XFs7HK1HRwMd/5c@lists.infradead.org
+X-Gm-Message-State: AOJu0YyggJsS+TcqBKVzyBklOsthK2MM0CtNoD6W2KEdoBBasFRkjUN3
+	GxnGYAA0vWa43RfWM6mI6Rz0bGf/eerBfrNNqDiSe/ov6YTCbZcY9BJjQvwYbpTVp18=
+X-Gm-Gg: ASbGncstE69wqYCmliTxU6IzVm4uigjs2nw9wzesaXJTj56xX3gNTf5KPLzLgOq8suG
+	FYmdkZp8zfu0gMhj2QTN8GXL39pNpgP3FE/rRIqO10ua0L8KaRnbguH4YB/FCu9zeMJYCDUGvQp
+	xyyjuQL2ZLcij15Fy3RQlgn9VTKlvj3t2IZKbBG3OIoFH6ynfJCiS3Dbw5DhqeyWY8a0xu4wtkn
+	jBUnF4Z7aIenENXQC3TpIt0tvplSmIbiQ3EZYBRkTYgzF3BT/1Qr86pFWxPvVRRMdt34BNDEXxX
+	C+MrB+piTks4PtsR1OJ+iESGrJE+t+n22mE+o+feO5/aFowvU77atq9mWYEe3AjRWJeLD8IXYZW
+	1TqoMFKIP90IosmC5kQ6CrP6zkU/Tz/ZDgknOCL7szwD7g0Po5uMG5DlsPIh1yNMg0sQYwWmqLz
+	G9+uIGc24iL4WNg2da
+X-Google-Smtp-Source: AGHT+IHPbIx23EDNZaUTAJ6Psvz/ev1Z/O51tl6vv+BcSPNYJjiwrPTdLBSRYd1ljvmAqn0aCxUGmw==
+X-Received: by 2002:a05:600c:4f89:b0:477:9bfc:dcb6 with SMTP id 5b1f17b1804b1-477c10e2bb4mr209401045e9.14.1764173924510;
+        Wed, 26 Nov 2025 08:18:44 -0800 (PST)
+Received: from draszik.lan ([212.129.87.89])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4790add2c98sm49691755e9.5.2025.11.26.08.18.43
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 26 Nov 2025 08:18:44 -0800 (PST)
+Message-ID: <8d8201de13b4694b26812722356a3a55637406c4.camel@linaro.org>
+Subject: Re: [PATCH 3/6] dt-bindings: usb: maxim,max33359: Add supply
+ property for VBUS in OTG mode
+From: =?ISO-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
+To: Amit Sunil Dhamne <amitsd@google.com>, Krzysztof Kozlowski
+ <krzk@kernel.org>
+Cc: Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski	 <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Lee Jones	 <lee@kernel.org>, Greg Kroah-Hartman
+ <gregkh@linuxfoundation.org>, Badhri Jagan Sridharan <badhri@google.com>,
+ Heikki Krogerus <heikki.krogerus@linux.intel.com>, Peter Griffin	
+ <peter.griffin@linaro.org>, Tudor Ambarus <tudor.ambarus@linaro.org>, Alim
+ Akhtar <alim.akhtar@samsung.com>, linux-kernel@vger.kernel.org,
+ linux-pm@vger.kernel.org, 	devicetree@vger.kernel.org,
+ linux-usb@vger.kernel.org, 	linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, RD Babiera <rdbabiera@google.com>, Kyle
+ Tso <kyletso@google.com>
+Date: Wed, 26 Nov 2025 16:18:59 +0000
+In-Reply-To: <adc2d6ec-e666-4dd0-aaad-7ef014efafb6@google.com>
+References: <20251123-max77759-charger-v1-0-6b2e4b8f7f54@google.com>
+	 <20251123-max77759-charger-v1-3-6b2e4b8f7f54@google.com>
+	 <20251124-rook-of-exotic-innovation-fedcc5@kuoka>
+	 <adc2d6ec-e666-4dd0-aaad-7ef014efafb6@google.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2-2+build3 
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251126_081809_662076_240604E7 
-X-CRM114-Status: UNSURE (   5.43  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251126_081846_606630_42621E43 
+X-CRM114-Status: GOOD (  17.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,118 +114,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git drivers/reset
-branch HEAD: 1387cb78f101553c7fc14ec04ba730cab03ea3df  Documentation: reset: Remove reset_controller_add_lookup()
+On Tue, 2025-11-25 at 12:13 -0800, Amit Sunil Dhamne wrote:
+> Hi Krzysztof,
+>=20
+> On 11/23/25 11:53 PM, Krzysztof Kozlowski wrote:
+> > On Sun, Nov 23, 2025 at 08:35:50AM +0000, Amit Sunil Dhamne wrote:
+> > > Add a regulator supply property for VBUS when usb is in OTG mode.
+> > >=20
+> > > Signed-off-by: Amit Sunil Dhamne <amitsd@google.com>
+> > > Reviewed-by: Badhri Jagan Sridharan <badhri@google.com>
+> > > ---
+> > > =C2=A0 Documentation/devicetree/bindings/usb/maxim,max33359.yaml | 4 =
+++++
+> > > =C2=A0 1 file changed, 4 insertions(+)
+> > >=20
+> > > diff --git a/Documentation/devicetree/bindings/usb/maxim,max33359.yam=
+l
+> > > b/Documentation/devicetree/bindings/usb/maxim,max33359.yaml
+> > > index 3de4dc40b791..a529f18c4918 100644
+> > > --- a/Documentation/devicetree/bindings/usb/maxim,max33359.yaml
+> > > +++ b/Documentation/devicetree/bindings/usb/maxim,max33359.yaml
+> > > @@ -32,6 +32,9 @@ properties:
+> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 description:
+> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 Properties for usb c conne=
+ctor.
+> > > =C2=A0=20
+> > > +=C2=A0 otg-vbus-supply:
+> > How is the pin or supply called in the datasheet?
+>=20
+> The pin that supplies the VBUS power in OTG is referred to as Vchgin in=
+=20
 
-elapsed time: 1602m
+I think that should be chgin (without V prefix)
 
-configs tested: 98
-configs skipped: 2
+> the datasheet.
 
-The following configs have been built successfully.
-More configs may be tested in the coming days.
-
-tested configs:
-alpha                             allnoconfig    gcc-15.1.0
-arc                               allnoconfig    gcc-15.1.0
-arc                   randconfig-001-20251125    gcc-9.5.0
-arc                   randconfig-002-20251125    gcc-8.5.0
-arm                               allnoconfig    clang-22
-arm                            mmp2_defconfig    gcc-15.1.0
-arm                   randconfig-001-20251125    clang-22
-arm                   randconfig-002-20251125    gcc-10.5.0
-arm                   randconfig-003-20251125    gcc-10.5.0
-arm                   randconfig-004-20251125    gcc-8.5.0
-arm                        spear6xx_defconfig    clang-22
-arm                           spitz_defconfig    gcc-15.1.0
-arm64                             allnoconfig    gcc-15.1.0
-arm64                 randconfig-001-20251126    gcc-8.5.0
-arm64                 randconfig-003-20251126    clang-22
-csky                              allnoconfig    gcc-15.1.0
-csky                  randconfig-001-20251126    gcc-11.5.0
-csky                  randconfig-002-20251126    gcc-15.1.0
-hexagon                           allnoconfig    clang-22
-hexagon               randconfig-001-20251125    clang-19
-hexagon               randconfig-002-20251125    clang-22
-i386                              allnoconfig    gcc-14
-i386        buildonly-randconfig-001-20251126    clang-20
-i386        buildonly-randconfig-002-20251126    gcc-14
-i386        buildonly-randconfig-003-20251126    clang-20
-i386        buildonly-randconfig-004-20251126    clang-20
-i386        buildonly-randconfig-005-20251126    clang-20
-i386        buildonly-randconfig-006-20251126    gcc-14
-i386                  randconfig-001-20251126    clang-20
-i386                  randconfig-002-20251126    clang-20
-i386                  randconfig-003-20251126    gcc-14
-i386                  randconfig-004-20251126    clang-20
-i386                  randconfig-005-20251126    gcc-14
-i386                  randconfig-006-20251126    gcc-14
-i386                  randconfig-007-20251126    clang-20
-loongarch                         allnoconfig    clang-22
-loongarch             randconfig-001-20251125    gcc-15.1.0
-loongarch             randconfig-002-20251125    gcc-12.5.0
-m68k                              allnoconfig    gcc-15.1.0
-m68k                                defconfig    gcc-15.1.0
-m68k                          sun3x_defconfig    gcc-15.1.0
-microblaze                        allnoconfig    gcc-15.1.0
-microblaze                          defconfig    gcc-15.1.0
-mips                              allnoconfig    gcc-15.1.0
-mips                        bcm47xx_defconfig    clang-18
-mips                        vocore2_defconfig    clang-22
-nios2                             allnoconfig    gcc-11.5.0
-nios2                               defconfig    gcc-11.5.0
-nios2                 randconfig-001-20251125    gcc-8.5.0
-nios2                 randconfig-002-20251125    gcc-11.5.0
-openrisc                          allnoconfig    gcc-15.1.0
-openrisc                            defconfig    gcc-15.1.0
-parisc                            allnoconfig    gcc-15.1.0
-parisc                              defconfig    gcc-15.1.0
-parisc                randconfig-001-20251126    gcc-8.5.0
-parisc                randconfig-002-20251126    gcc-15.1.0
-parisc64                            defconfig    gcc-15.1.0
-powerpc                           allnoconfig    gcc-15.1.0
-powerpc                    gamecube_defconfig    clang-22
-powerpc               randconfig-001-20251126    gcc-10.5.0
-powerpc               randconfig-002-20251126    gcc-8.5.0
-powerpc64             randconfig-001-20251126    clang-19
-powerpc64             randconfig-002-20251126    clang-22
-riscv                             allnoconfig    gcc-15.1.0
-riscv                 randconfig-001-20251126    gcc-10.5.0
-riscv                 randconfig-002-20251126    clang-22
-s390                              allnoconfig    clang-22
-s390                  randconfig-001-20251126    gcc-8.5.0
-s390                  randconfig-002-20251126    gcc-8.5.0
-sh                                allnoconfig    gcc-15.1.0
-sh                                  defconfig    gcc-15.1.0
-sh                         ecovec24_defconfig    gcc-15.1.0
-sh                    randconfig-001-20251126    gcc-14.3.0
-sh                    randconfig-002-20251126    gcc-11.5.0
-sparc                             allnoconfig    gcc-15.1.0
-sparc                               defconfig    gcc-15.1.0
-sparc                 randconfig-001-20251126    gcc-8.5.0
-sparc                 randconfig-002-20251126    gcc-14.3.0
-sparc64                             defconfig    clang-20
-sparc64               randconfig-001-20251126    gcc-8.5.0
-sparc64               randconfig-002-20251126    clang-22
-um                                allnoconfig    clang-22
-um                                  defconfig    clang-22
-um                             i386_defconfig    gcc-14
-um                    randconfig-001-20251126    clang-19
-um                    randconfig-002-20251126    clang-22
-um                           x86_64_defconfig    clang-22
-x86_64                            allnoconfig    clang-20
-x86_64      buildonly-randconfig-001-20251126    clang-20
-x86_64      buildonly-randconfig-002-20251126    gcc-14
-x86_64      buildonly-randconfig-003-20251126    clang-20
-x86_64      buildonly-randconfig-004-20251126    clang-20
-x86_64      buildonly-randconfig-005-20251126    gcc-14
-x86_64      buildonly-randconfig-006-20251126    clang-20
-x86_64                              defconfig    gcc-14
-xtensa                            allnoconfig    gcc-15.1.0
-xtensa                randconfig-001-20251126    gcc-14.3.0
-xtensa                randconfig-002-20251126    gcc-10.5.0
-
---
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Cheers,
+Andre'
 
