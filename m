@@ -4,89 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7BB0D10F22
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 11:44:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10601D1039D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 11:45:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Hljvdi4hi7sXiTI6vVWHMLJla2o+JxtV4iBVLl6+trM=; b=LLMidLhl+e3lr17Sl+HAdfi16y
-	CVe/yj3nB2Q1LvSz/8mHfwHTqjMZ8tFVqjw2vxf0n9rsiewRYRCqqkY7RvIA69tYO6iQFOs6OVhtJ
-	mWEoOrOprl1SA5NfVhJ730qjL8on4sqOb4VelbYLbK1Zu4ToImICB7tEuaYdPRWbOdBUKEXDG/Dtv
-	oGFZVUW5mxCdfsbja2ca9PI7o7DqJBrmL4zwVP8sNTvrWPiEX2vjm8vZb+b+hrSDWmbI8U9IwnYWK
-	FwuxzDOtXKsHXNb04aOAuRELPoOj8fRnfu+SZGbEL7P7tjZzgT+ifxJeA3wBJAkHaa+Hz3vAuGWw2
-	sFDIztbw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=dZytgGa6Q7MhuG36xxxSgi7rzr8U7+QRNo20ij5hhvU=; b=g4H+BDOvXZibP2E4xn/Q6Mfhhd
+	LyUcrDIk4tU62Dg2k3nfFymTNd8xT9x6IeAbXpx232k7NtgLy3EzoofAxINCLzNARFfqa72fV3nG0
+	vga2CxjhoTmN7BRxY73+NuOyhPcTwp4XRyQnnYzv6MAuHu0yHAKLCFBSJaKJLBe/Rn8yczlaMmSgf
+	xYb33DSRgc4jk9jCUpr5tPfHi8A+VBQ8J6Dx60OfhklWrKCe8ZhG7Nqgdq7I0t/K/+JqRyhYxdkkY
+	OGgtvQ5cZ1+tCUN8UCAxHam224ng/5kAQlAO6RkzCV8wW7loPy3bgG7Q3/Xtx93nhGSM1sydDPU1F
+	8C8RCnZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vODwq-0000000EvOh-2bqC;
-	Wed, 26 Nov 2025 11:44:36 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vODxv-0000000Evam-2LFG;
+	Wed, 26 Nov 2025 11:45:44 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vODwp-0000000EvOU-01ww;
-	Wed, 26 Nov 2025 11:44:35 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id EFBA8601D7;
-	Wed, 26 Nov 2025 11:44:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1C877C113D0;
-	Wed, 26 Nov 2025 11:44:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1764157473;
-	bh=dQ3LNp2DPvCHpByC5YJ/LPjNqcR3n3ZIP831X7vWn8k=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=EX6HFDp6M+6sFCHy11l719FEszcZCnX/arPyanWY59AmUz7HdftavnC1U4UCkzvV0
-	 uMiLKf9hkOEIYyVgWL4ByFWeBVROb9xMXOMOAFmxeygWsa7rhDrNnpXdbZ/kbBuZPA
-	 mFQJCkSC9jrSiqVsHgOTzV+V4tdIrre3rw2MorAU=
-Date: Wed, 26 Nov 2025 12:44:17 +0100
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: Heikki Krogerus <heikki.krogerus@linux.intel.com>
-Cc: Chaoyi Chen <chaoyi.chen@rock-chips.com>,
-	Chaoyi Chen <kernel@airkyi.com>,
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-	Peter Chen <hzpeterchen@gmail.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>, Sandy Huang <hjc@rock-chips.com>,
-	Andy Yan <andy.yan@rock-chips.com>,
-	Yubing Zhang <yubing.zhang@rock-chips.com>,
-	Frank Wang <frank.wang@rock-chips.com>,
-	Andrzej Hajda <andrzej.hajda@intel.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Robert Foss <rfoss@kernel.org>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Amit Sunil Dhamne <amitsd@google.com>,
-	Dragan Simic <dsimic@manjaro.org>, Johan Jonker <jbx6244@gmail.com>,
-	Diederik de Haas <didi.debian@cknow.org>,
-	Peter Robinson <pbrobinson@gmail.com>, linux-usb@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, dri-devel@lists.freedesktop.org
-Subject: Re: [PATCH v10 01/11] usb: typec: Add notifier functions
-Message-ID: <2025112656-dreamland-retreat-2a65@gregkh>
-References: <2025112102-laurel-mulch-58e4@gregkh>
- <462ad1bd-7eec-4f26-b383-96b049e14559@rock-chips.com>
- <2025112402-unopposed-polio-e6e9@gregkh>
- <a80483de-518d-45d5-b46a-9b70cca5b236@rock-chips.com>
- <2025112448-brush-porcupine-c851@gregkh>
- <c9cb7b79-37c8-4fef-97a6-7d6b8898f9c4@rock-chips.com>
- <aSV_lQYJPxN7oBM-@kuha>
- <2025112554-uncaring-curator-642a@gregkh>
- <cbb38c08-6937-4b7d-a0b0-d5ca6c17f466@rock-chips.com>
- <aSbLkwPG0dUzZvql@kuha>
+	id 1vODxt-0000000EvZT-0EBr
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 26 Nov 2025 11:45:42 +0000
+Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=peter.mobile.pengutronix.de)
+	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
+	(envelope-from <s.pueschel@pengutronix.de>)
+	id 1vODxm-0003Bo-Up; Wed, 26 Nov 2025 12:45:34 +0100
+From: =?utf-8?q?Sven_P=C3=BCschel?= <s.pueschel@pengutronix.de>
+Date: Wed, 26 Nov 2025 12:45:08 +0100
+Subject: [PATCH] iommu/rockchip: disable fetch dte time limit
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aSbLkwPG0dUzZvql@kuha>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+Message-Id: <20251126-spu-iommudtefix-v1-1-f90003dbfcc4@pengutronix.de>
+X-B4-Tracking: v=1; b=H4sIAEPoJmkC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDI1NDQyMz3eKCUt3M/Nzc0pSS1LTMCt3kFINkUyMTk2Rzk0QloK6CIpAw2MT
+ o2NpaALjeWhBhAAAA
+X-Change-ID: 20251126-spu-iommudtefix-cd0c5244c74a
+To: Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>, 
+ Robin Murphy <robin.murphy@arm.com>, Heiko Stuebner <heiko@sntech.de>
+Cc: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Simon Xue <xxm@rock-chips.com>, kernel@pengutronix.de, 
+ =?utf-8?q?Sven_P=C3=BCschel?= <s.pueschel@pengutronix.de>
+X-Mailer: b4 0.14.3
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
+X-SA-Exim-Mail-From: s.pueschel@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251126_034541_202274_A8A741D1 
+X-CRM114-Status: GOOD (  17.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,46 +70,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 26, 2025 at 11:42:43AM +0200, Heikki Krogerus wrote:
-> Wed, Nov 26, 2025 at 09:46:19AM +0800, Chaoyi Chen kirjoitti:
-> > On 11/25/2025 7:49 PM, Greg Kroah-Hartman wrote:
-> > >> +static umode_t typec_is_visible(struct kobject *kobj, struct attribute *attr, int n)
-> > >> +{
-> > >> +	if (is_typec_port(kobj_to_dev(kobj)->parent))
-> > > 
-> > > Why look at the parent?  Doesn't the device have a type that should show
-> > > this?
-> > > 
-> > > Otherwise, looks good to me.
-> > 
-> > They have same deivce type "typec_altmode_dev_type".
-> > The parent device has a different device type to distinguish between
-> > port device and partner device.
-> 
-> I was already wondering would it make sense to provide separate device
-> types for the port, and also plug, alternate modes, but I'm not sure
-> if that's the right thing to do.
-> 
-> There is a plan to register an "altmode" also for the USB4 mode,
-> which of course is not an alternate mode. So USB4 will definitely need a
-> separate device type.
-> 
-> So if we supply separate device types for the port, plug and partner
-> alternate modes, we need to supply separate device types for port, plug
-> and partner USB4 mode as well.
-> 
-> We certainly can still do that, but I'm just not sure if it makes
-> sense?
-> 
-> I'll prepare a new version for this and include a separate patch where
-> instead of defining separate device types for the port and plug
-> alternate modes I'll just supply helpers is_port_alternate_mode() and
-> is_plug_alternate_mode().
+From: Simon Xue <xxm@rock-chips.com>
 
-That feels like it would be better in the long run as it would be
-easier to "match" on the device type.
+Disable the Bit 31 of the AUTO_GATING iommu register, as it causes
+hangups with the RGA3 (Raster Graphics Acceleration 3) peripheral.
+The RGA3 register description of the TRM already states that the bit
+must be set to 1. The vendor kernel sets the bit unconditionally to
+1 to fix VOP (Video Output Processor) screen black issues. This patch
+squashes the 2 vendor kernel commits with the following commit messages:
 
-thanks,
+Master fetch data and cpu update page table may work in parallel, may
+have the following procedure:
 
-greg k-h
+	master                  cpu
+	fetch dte               update page tabl
+	        |                       |
+	(make dte invalid)  <-  zap iotlb entry
+	        |                       |
+	fetch dte again
+	(make dte invalid)  <-  zap iotlb entry
+	        |                       |
+	fetch dte again
+	(make dte invalid)  <-  zap iotlb entry
+	        |                       |
+	fetch dte again
+	(make iommu block)  <-  zap iotlb entry
+
+New iommu version has the above bug, if fetch dte consecutively four
+times, then it will be blocked. Fortunately, we can set bit 31 of
+register MMU_AUTO_GATING to 1 to make it work as old version which does
+not have this issue.
+
+This issue only appears on RV1126 so far, so make a workaround dedicated
+to "rockchip,rv1126" machine type.
+
+iommu/rockchip: fix vop blocked and screen black on RK356X and RK3588
+
+RK3568 and RK3588 has the same issue as RV1126/RV1109 that caused by
+dte fetch time limit, So we can set BIT(31) of register 0x24 default
+to 1 as a workaround.
+
+Signed-off-by: Simon Xue <xxm@rock-chips.com>
+Signed-off-by: Sven Püschel <s.pueschel@pengutronix.de>
+---
+During testing of a newly developed driver for the RGA3 peripheral [1]
+(Raster Graphic Acceleration 3) of the RK3588 some sporadic hangs
+have been observed. The upstream rockchip-iommu driver is used to handle
+the RGA3 IOMMU register space.
+
+After a closer look at the TRM for the RK3588, the RGA3 iommu register
+description of the RGA3_MMU_AUTO_GATING register (offset 0x24) mentions
+a mmu_bug_fixed_disable bit, which must be set to 1 but defaults to 0.
+
+Looking at the commits in the vendor kernel, the bit is unconditionally
+set to 1 and mentions that it fixes a blocked VOP (Video Output
+Processor) [3]. Therefore squash the relevant vendor commits
+[2] and [3] into a single patch, combine the commit messages and keep
+the Signed-off-by line from the original author.
+
+[1] https://lore.kernel.org/all/20251007-spu-rga3-v1-0-36ad85570402@pengutronix.de/
+[2] https://github.com/rockchip-linux/kernel/commit/7f8158fb41b5cc8e738aaeebc3637c50ebd74cae
+[3] https://github.com/rockchip-linux/kernel/commit/6a355e5f9a2069a2309e240791bc3aad63b7324e
+---
+ drivers/iommu/rockchip-iommu.c | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+
+diff --git a/drivers/iommu/rockchip-iommu.c b/drivers/iommu/rockchip-iommu.c
+index 0861dd469bd86..2d0dabb0d101a 100644
+--- a/drivers/iommu/rockchip-iommu.c
++++ b/drivers/iommu/rockchip-iommu.c
+@@ -76,6 +76,8 @@
+ #define SPAGE_ORDER 12
+ #define SPAGE_SIZE (1 << SPAGE_ORDER)
+ 
++#define DISABLE_FETCH_DTE_TIME_LIMIT BIT(31)
++
+  /*
+   * Support mapping any size that fits in one page table:
+   *   4 KiB to 4 MiB
+@@ -930,6 +932,7 @@ static int rk_iommu_enable(struct rk_iommu *iommu)
+ 	struct iommu_domain *domain = iommu->domain;
+ 	struct rk_iommu_domain *rk_domain = to_rk_domain(domain);
+ 	int ret, i;
++	u32 auto_gate;
+ 
+ 	ret = clk_bulk_enable(iommu->num_clocks, iommu->clocks);
+ 	if (ret)
+@@ -948,6 +951,11 @@ static int rk_iommu_enable(struct rk_iommu *iommu)
+ 			       rk_ops->mk_dtentries(rk_domain->dt_dma));
+ 		rk_iommu_base_command(iommu->bases[i], RK_MMU_CMD_ZAP_CACHE);
+ 		rk_iommu_write(iommu->bases[i], RK_MMU_INT_MASK, RK_MMU_IRQ_MASK);
++
++		/* Workaround for iommu blocked, BIT(31) default to 1 */
++		auto_gate = rk_iommu_read(iommu->bases[i], RK_MMU_AUTO_GATING);
++		auto_gate |= DISABLE_FETCH_DTE_TIME_LIMIT;
++		rk_iommu_write(iommu->bases[i], RK_MMU_AUTO_GATING, auto_gate);
+ 	}
+ 
+ 	ret = rk_iommu_enable_paging(iommu);
+
+---
+base-commit: 30f09200cc4aefbd8385b01e41bde2e4565a6f0e
+change-id: 20251126-spu-iommudtefix-cd0c5244c74a
+
+Best regards,
+-- 
+Sven Püschel <s.pueschel@pengutronix.de>
+
 
