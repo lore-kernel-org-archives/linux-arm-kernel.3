@@ -4,81 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94D53D10F4D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 13:31:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09C10D10F4D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 13:42:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CS5bNS4HsHIVgUMro4BxZwmmQdTOdwXTFNysJUBiNbc=; b=QaKLj9LkfMxqzROwAXk6J+UheV
-	owPPGVxX+TE6/X+rdKLRVCr2jXxs1Xd5+wzr9RDj7Utul7LT6n0QjA/s10rtfYCWmQ54RoPeT7H+L
-	MhewyWwUHUuFOVkavxdtzsOtY5qiEpeleQBRUiCDSthojHqs53HE4ho9ECYlFrAgJUXK9b1rgxd0j
-	bK7U2zmBkKYT7Yd+86nJPW2AuUqlP17QU0bJ/z2qZNury1K7SKOTt5lARLU5RQLl9fPnDe5QS47k3
-	h5C9v4FXC8HZvsAdzYnJcTI0Sc7N8J2xpEwai9K6HD0lc35aI+qm8iAW07JFf3X7vWToQ0L1qiI/h
-	kAwvLtLA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yYqC5VqW18CbTRA/bzdW/9ZxP4+JQNJgMWyBxI64pjg=; b=b02xw13JIwEG7QUQ8N5dLXvGFT
+	GZezxPjVEb5eGm3td91t5uRC4ttCH8zqi1wdvp+2lwA7YHeXZVuCxqgQnGtyItZsVElxkHJTiqfee
+	2vTzmWfEsM94C33Zb9ChMTqW/arrCMv50mn2hoaVVhlZIOd6qcMbD/q62EWqxVXPtcyzBbKwBCKyg
+	RVdCZkyM/Ozu+0qXWEBH0bBrIKC3oXI8eBvSSfAU1Cgsg8iUQYxZGgtGFWRzbLnG48Azjrki50NxV
+	YhZWuCNLNUhuHrlcGXpXMJpfllxL8IQQXw6ceyIDmZC5WPJZ8DIW5aICVUrdT05K9SJjvtpiTG7Tj
+	YoRVkWfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOFc1-0000000F2vU-1XYw;
-	Wed, 26 Nov 2025 13:31:13 +0000
-Received: from smtpbgau1.qq.com ([54.206.16.166])
+	id 1vOFnF-0000000F3MK-0OYZ;
+	Wed, 26 Nov 2025 13:42:49 +0000
+Received: from mail-qk1-x72d.google.com ([2607:f8b0:4864:20::72d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOFby-0000000F2t7-0fMN;
-	Wed, 26 Nov 2025 13:31:11 +0000
-X-QQ-mid: zesmtpip2t1764163812t7f9a4d6f
-X-QQ-Originating-IP: QzsTEkFPDfqXuxj5d2hYwNbuoMtvYYg2/9uIfCzBt8w=
-Received: from [IPV6:240f:10b:7440:1:db14:8483 ( [localhost])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Wed, 26 Nov 2025 21:30:07 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 12122122324758629906
-Message-ID: <7667E818D7D31A4E+cf7c83d4-b99c-469d-8d46-588fc95b843f@radxa.com>
-Date: Wed, 26 Nov 2025 22:30:06 +0900
+	id 1vOFnC-0000000F3Lw-1GsY
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 26 Nov 2025 13:42:47 +0000
+Received: by mail-qk1-x72d.google.com with SMTP id af79cd13be357-8b2dcdde698so984663885a.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Nov 2025 05:42:45 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1764164565; x=1764769365; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=yYqC5VqW18CbTRA/bzdW/9ZxP4+JQNJgMWyBxI64pjg=;
+        b=dd3g/9mL5XXR2rzp8iD05+Ml/J8ZBqxkYi3C5RmXc4LvD74YvoE9AZ6AFKYPOjIvTG
+         2uqsGi7LeHLAnG4EGNVT+21rdd4gSrEaBWRbDW8F6ndLz738c2zjz4jptAvuMWcIhsdf
+         rgAQhtiN9HpOg4WuOzpO8ZwaiUx8XNphvWxH5fV1ToRNqBCgRyTAHTnzrE7FerSWSr3d
+         b7Li8uxalSYWZslxgxBO/cG4SSqDPV+38srzhBAsEHhQS29aS5dvq2TsVaVlAJPdTmcD
+         xz7W3vUVelmrakTtkyw89wOwi7AL08+R9q6/J4f3yJ0Py27BbLfWJrCkh0zv75SD6Igs
+         /agw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1764164565; x=1764769365;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=yYqC5VqW18CbTRA/bzdW/9ZxP4+JQNJgMWyBxI64pjg=;
+        b=UvQ6FvqmqAnkXidOdX9suXtHzU2dDdkgz4IPY2To+lpIrjzhyn/+JgEx1OcmyOhgGw
+         UnUEq6Sq7vYSm6W6k9iWPiXgn+RWCpgLWE1oC82qSiidguPE6Tb83JTDLoO7XhqoUcpr
+         A56P9vSySuJixkALvKvOgJW48kEvSNt1EeBfyUMnBl/4UvbKY3rm5TjXeerPKim6VYQr
+         zb98A79w8f8Nq+0zbFWLDM1ZbZXVvPPg63rIDYXpyqbAxvkcwAWJCy0a2cl5a84fvxr+
+         Sflgm1NKYdDxx9yzQKs68uNVCGWF+rzeegaVyXI6KTaHi9bL3NPTiXi+jpy+Rd5a4KKl
+         ZhPQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXqRDzAGs59Ybsk+h6QzmzODKhn8PRv+XEsrLDw+ERRF32DZikUiNR0q9vqMestJm/ushqVF41JzNU5A6BeiBb1@lists.infradead.org
+X-Gm-Message-State: AOJu0YxsnyVpQ3xzIrxicZ3D9OZHYNbb3b1pPiQ6w3VW/YnInxQHsaUR
+	436OdqgUwiZZaCdi3MgoDFTn82Zdj5PkTrzCQKpobCFfL95efL4/3QimM3QnJf5xE3ut8lm0Dl+
+	qhoAyhZg8mPAZ0Jjy4leJoKmRKyEUmLc7liyC+LSDTQ==
+X-Gm-Gg: ASbGncsIiuwno+8bWYgYh+YjjJAt0l2AzSgInAnq4uG5TXGZHOPM1qyPI/1xrGClkqQ
+	WI9FHqWS6WTHFxD86lqUrERyh02n5DzzbTuvL7TD4ZIzmfFL7DdbMIjzHr6cdR6T/Ck5hd4e4/c
+	73IKBFcQTSJvlK5TWLg5wVDu1xOxZ8wJbin4tqC2BAx07Zuijcl0pVr7cWqUhLcWxolijM3GWr2
+	2E76pHRCLM4iH5hK2TO9BOxexMRl/GyM+KLywBXYdDfXfc0AeSiysTGdaUDIgDLXqwKvZsGv06e
+	y2YDw0bO5NTYTl+2FP4kdnb/qEwQ
+X-Google-Smtp-Source: AGHT+IF16f+LBozWfSlajgVtiNEHe7YwB3yeI33b8xj/QmKG19UYrToXkagFpmBhiNJbfaVPhOYcGETkgy0Ug82F8FA=
+X-Received: by 2002:a05:620a:460d:b0:8a3:9a05:ec10 with SMTP id
+ af79cd13be357-8b33d1cf9famr2449174785a.14.1764164564714; Wed, 26 Nov 2025
+ 05:42:44 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/6] PCI: dwc: Revert Link Up IRQ support
-To: Niklas Cassel <cassel@kernel.org>, Manivannan Sadhasivam <mani@kernel.org>
-Cc: Jingoo Han <jingoohan1@gmail.com>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
- Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
- Heiko Stuebner <heiko@sntech.de>, Shawn Lin <shawn.lin@rock-chips.com>,
- Krishna chaitanya chundru <quic_krichai@quicinc.com>,
- linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-arm-msm@vger.kernel.org
-References: <20251111105100.869997-8-cassel@kernel.org>
- <mt7miqkipr4dvxemftq6octxqzauueln252ncrcwy6i2t7wfhi@jtwokeilhwsi>
- <aSRli_Mb6qoQ9TZO@ryzen>
-Content-Language: en-US
-From: FUKAUMI Naoki <naoki@radxa.com>
-In-Reply-To: <aSRli_Mb6qoQ9TZO@ryzen>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-QQ-SENDSIZE: 520
-Feedback-ID: zesmtpip:radxa.com:qybglogicsvrsz:qybglogicsvrsz4b-0
-X-QQ-XMAILINFO: OFmqBoMnUeCYoCYmT/PAeSnidH+myWQkEJuUbX68ZpA8kaAkRhdH54hD
-	WVa4Qo55lES8tk/pBWd6D5ezuhDVasR1VpBh/2pN9j5WHfuFm3IuN3gPosiztJvnGDPEwZ5
-	7TunZvT5XdNlE6iF9BwOqTRku5E6+ixg459JY0D1INsP7wOk6NT07jikmKUTcy568trr69h
-	mxk+4gOrl0GaqIwdKddw8doLILueQTb8q/oLItsK2v81fZKbzpSgiGl6gUGzZioP/Asi3Q0
-	Mz+cnuUtutIboqQwKbd/C2tiq218bb5/vEKWiG3mXZEW/OaBlSUlrsK0sor2QzoYEE8EeNL
-	hRn2ZWOklkKqWABTN6qzD2SNqp5QfNUF+5hnwNPL/Gm9hadqZapbw9QOVKhM9lG3qpn7fUc
-	N/2ptxoGFugVdr0b0ruIenJYVhT9Mzd0/cRAYcBTzn2DGLtXrnbNc58rVh3KmMI2ETYtvB8
-	i6ndiwcaQPVaOKfA9+SNpBCxlClHOA7OdKDx7h7JtuXI6k/Frq+DvZx+/v7Yztk06I8lBlR
-	1lnLC7Ru5U6kr3Oi7FpuKvC3Mx+SqAAX+VvhHYrgiKfJJQFTM480HUQ8a2os/8SPDKFM9fx
-	KC3ZjyR5zhvHFrmFWmZuuAguISmZrOVE9erNTChLT4ereOWpi2qGb4UdrqyGZdbjgycIo+j
-	zqUJzl5oZJ++TyGv1gke89zuVcREr9+IFsNFFSDPR3k1SBM6dsAZogMkHSCsZy4bXQOxCyh
-	cmspOdj0dF9iIiloVTsQjBYsPlH7PCoAPKtWn6JYuFRmNt6eZMBi2xOWgaFBK4KlyT5TcXt
-	C3dcQWqSftOQ6H9hyYxx1dUpmjsp6n7JR6h2jYV06xm0F7PP9Y06zNmcUOd4FP+fTfecQ79
-	5x7C+OY7E3+uvxCBqXjqS+cKFqltp6f2iUmEIzy3+oKAx6GLnjXL6e6+CDG1lGcj9uW3+EB
-	XfYDatYJzkBqjvt9tWRsGjG9/vNIjWf37VRj8AgSEbvRph7PPAhAU0jDsK/ShUB7WwpqU8S
-	aP1MmEpj6SYVAzir1R4QQrS4ccJFs=
-X-QQ-XMRINFO: M/715EihBoGSf6IYSX1iLFg=
-X-QQ-RECHKSPAM: 0
+References: <20251121002350.1166758-1-visitorckw@gmail.com>
+ <20251126120914.GH724103@e132581.arm.com> <da2a3e18-80e0-4aca-bbc7-45c1353217d3@linaro.org>
+ <20251126123147.GI724103@e132581.arm.com>
+In-Reply-To: <20251126123147.GI724103@e132581.arm.com>
+From: Mike Leach <mike.leach@linaro.org>
+Date: Wed, 26 Nov 2025 13:42:33 +0000
+X-Gm-Features: AWmQ_bm9xMV0nAGtFKkCsxx02xoDxeRHGq1LlXck1Z4k6q6h1wStzWViyiYh1jk
+Message-ID: <CAJ9a7VhD2p3qMGXNg6deYjE8myB5euHR4FcAFwgg0KWF2HO9JQ@mail.gmail.com>
+Subject: Re: [PATCH] coresight: etm3x: Fix buffer overwrite in cntr_val_show()
+To: Leo Yan <leo.yan@arm.com>
+Cc: James Clark <james.clark@linaro.org>, Kuan-Wei Chiu <visitorckw@gmail.com>, suzuki.poulose@arm.com, 
+	alexander.shishkin@linux.intel.com, pratikp@codeaurora.org, 
+	mathieu.poirier@linaro.org, gregkh@linuxfoundation.org, 
+	jserv@ccns.ncku.edu.tw, marscheng@google.com, ericchancf@google.com, 
+	milesjiang@google.com, nickpan@google.com, coresight@lists.linaro.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251126_053110_699864_726DF1A4 
-X-CRM114-Status: GOOD (  18.14  )
+X-CRM114-CacheID: sfid-20251126_054246_361477_8A613E56 
+X-CRM114-Status: GOOD (  22.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,66 +100,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Niklas,
+Hi,
 
-I apologize for the delayed response.
+On Wed, 26 Nov 2025 at 12:31, Leo Yan <leo.yan@arm.com> wrote:
+>
+> On Wed, Nov 26, 2025 at 12:11:05PM +0000, James Clark wrote:
+>
+> [...]
+>
+> > > This fix can still be applied to older kernels, but seems to me that
+> > > now might be an appropriate time to consider removing the ETMv3 driver
+> > > from the mainline kernel?
+> >
+> > Yeah, if anyone is using it it would be on an old kernel surely?
+>
+> We can confirm this in another way: if I don't miss anything, over the
+> past several years (since 2017), we have not received any questions or
+> bug reports based on hands-on practice regarding ETMv3 on the Coresight
+> or perf mailing lists.
+>
+> Thanks,
+> Leo
 
-On 11/24/25 23:02, Niklas Cassel wrote:
-> On Mon, Nov 24, 2025 at 06:07:44PM +0530, Manivannan Sadhasivam wrote:
->> While I suggested to revert the link up IRQ patch for rockchip earlier, I didn't
->> expect to drop the support for Qcom. The reason is, on Qcom SoCs, we have not
->> seen a case where people connect a random PCIe switch and saw failures. Most of
->> the Qcom usecases were around the M.2 and other proprietary connectors. There is
->> only one in-house PCIe switch that is being actively used in our products, but
->> so far, none of the bootloaders have turned them ON before kernel booting. So
->> kernel relies on the newly merged pwrctrl driver to do the job. Even though it
->> also suffers from the same resource allocation issue, this series won't help in
->> any way as pwrctrl core performs rescan after the switch power ON, and by that
->> time, it will be very late anyway.
->>
->> So I'm happy to take the rockhip patches from this series as they fix the real
->> issue that people have reported. But once the pwrctrl rework series gets merged,
->> and the rockchip drivers support them, we can bring back the reverted changes.
-> 
-> FUKAUMI Naoki, just to confirm:
-> 
-> Neither my suggested approach:
-> https://lore.kernel.org/linux-pci/aRHdeVCY3rRmxe80@ryzen/
-> 
-> nor Shawn's suggested approach:
-> https://lore.kernel.org/linux-pci/dc932773-af5b-4af7-a0d0-8cc72dfbd3c7@rock-chips.com/
-> 
-> worked for you?
+The key to this is not the questions we are asked, but which platforms
+are still supported by the linux kernel.
 
-Yes, I re-tested the two methods mentioned above, separately, on 
-v6.18-rc7, but neither of them resolved the issue in my environment 
-(ROCK 5C + ASM2806).
+The ETMv3 driver supports both ETMv3 and PTM trace (the programming
+model is the same, even if the trace decode is vastly different).
 
-> If so, I don't see many alternative but for Mani to apply patch 1 and
-> patch 2 from this series.
+So as long as there are  platforms supported that use either of those,
+we need to keep the driver in.
 
-I believe applying patch 1 and patch 2 should be sufficient.
+Mike
 
-----
-
-Incidentally, (probably) while applying patch 1 and patch 2, I have 
-encountered the following issue several times:
-
-[    1.709614] pcieport 0004:41:00.0: of_irq_parse_pci: failed with rc=134
-[    1.710208] pcieport 0004:41:00.0: Unable to change power state from 
-D3cold to D0, device inaccessible
-
-I am still investigating this matter, and the conditions under which it 
-occurs are currently unknown.
-
-Best regards,
-
---
-FUKAUMI Naoki
-Radxa Computer (Shenzhen) Co., Ltd.
-
-> Kind regards,
-> Niklas
-> 
-
+-- 
+Mike Leach
+Principal Engineer, ARM Ltd.
+Manchester Design Centre. UK
 
