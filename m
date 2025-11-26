@@ -4,72 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D933ED1118A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 17:15:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 395D1D1118A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 17:18:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SEHyNpxhuTM6UTblssdrMq5WeQqf5U5sTe2un/ZyP9I=; b=LkzisgVmQ39yrKa1ydKaxQs03y
-	AbD068XiVUMg24s/765yDbiQL9DGYsJyGdHaWJ+OuHoJ/ZkT9mjmtiLiCe0Ow4eMEIptFWq2L7/7q
-	VFg/jPRJ3cVE5y3cnfrNA5mhRd1tmr1bAyOAHXG+ZDg3umET4Hl7PwZWdKha9T1FyI3c6qrqnmhJJ
-	aK6Lh92rCQ520Rqie6S246oM9DjUOu0oXykRJqeQiY2NiUgfF1i5hp+9IgQ4rnh6KfFQq0857SvKP
-	V5MEC19OQJj9J96SABCrFPCTokxZw6XavUBsQYqRhNAPRpaMBvRykWU7v00TLysf4nA2S0Aap9Buk
-	rZt+Bmkg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JIATeLLHFUQMl6oNTOwv/zu2OSZhFjRfKgrLqLFKVso=; b=2up1npwne/p442r1LoVyRbtV5k
+	MEyAj9hxyhNJGbzmmEtpebVRuVxXTBh+So6WzTJb7I9w4Bi1RjXFeJUgPUiFSIrADAVOvQO8KEmBZ
+	IZDwHRRjFcBN9vzptCdjBlAUNiAnwSs4KtN/HxLmjt6OQ2DRkPb/XJ57waXscZ5SD4PKVVUWk8B6+
+	cw4q6jhx2JbU2D3YhprJWvgDw7iicvhIQOrQEzxvYWqGKzixthLhqR50UgiKM5cw8JA0y2Y0HR/DD
+	sQbw1g9ofGBzSTNZL+mCi0QRqm9gmxtXZvL2dDYfwMgPta6Vxijb1hx5Vc1iajX2x/48x2WU5XU8G
+	bYKZxWKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOJ6d-0000000FNOb-2bM2;
-	Wed, 26 Nov 2025 17:15:03 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vOJAB-0000000FNcr-1jTM;
+	Wed, 26 Nov 2025 17:18:43 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOJ6c-0000000FNOP-0f4l
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 26 Nov 2025 17:15:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=SEHyNpxhuTM6UTblssdrMq5WeQqf5U5sTe2un/ZyP9I=; b=FW7V4w/fboOB8fql9koyc6hV+p
-	6ijbsD6bNyABZquMjoVcZJ1XAUKQBrQAR4S/vWO7KbDdEsAXKBMyA748J8lDAWciFK9ck1tbHD9xv
-	UCQ9hXPCBtghJeYi2jhgcMdyk+uDYBLcxzNp0iizOIvCN7WGGnYDU5HQw3nTT6/LJrf3WbxZz9Ln6
-	j34U6W79YoQUyueZpRGW/fOSupDnajhbvD5oN/3hT7YxD+xE8d32IeG/gjjKGnx1YhJdrJpmv4zdg
-	AzoaJmnP52JZKx50NJQ1Q3QVdEHcc942+mfsnG52F9hvKVOGxxjWpzus88REGMvFudvgBBvrEQY5s
-	qRMF6+nQ==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOIEy-00000008Twy-2I8n
+	id 1vOJA9-0000000FNcT-3G6X
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Nov 2025 16:19:38 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BACE01692;
-	Wed, 26 Nov 2025 09:14:49 -0800 (PST)
-Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 19CB03F66E;
-	Wed, 26 Nov 2025 09:14:55 -0800 (PST)
-Message-ID: <60736c21-f4c7-4f76-87dd-acbad8c300fa@arm.com>
-Date: Wed, 26 Nov 2025 17:14:54 +0000
+	Wed, 26 Nov 2025 17:18:42 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 2621C401FE;
+	Wed, 26 Nov 2025 17:18:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A5784C4CEF7;
+	Wed, 26 Nov 2025 17:18:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1764177521;
+	bh=QNpZf3xUex3YCkCt1bo+5+Se1H+g3kaaOupJjR57dYs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=BHor0WDvsu5cCGZ1MM77lOYKzwX+hbRxkuaEXcL4019i0PaMKsd3bqxDwrrzDaQbb
+	 K6+Gm2jD0vhvIHIW60L7Sw1iLEMhnB9NlxEKOr3eQHzjmo4GAk0kX8lRXndMVB/qdV
+	 yUeFFG1dNicKXHyOiH1f2lx4pNyisGTsVEAPo7SRAkPEQlrbsh+opctTnQc5yYRloa
+	 BQUXa/PrpdBzWI6iDu2XagLLQzk7lH+hi4riT6+c9I6fm2cOYIMLKcffik434bQO2N
+	 j+Q62yza6zPdMoNkqUeFQm3uFpRn13I+iL+ObWlX8TK/R65xVGwXaqe+20Q4gCtQ2b
+	 /hT+PcTGi7VTw==
+Date: Wed, 26 Nov 2025 18:18:26 +0100
+From: Lorenzo Pieralisi <lpieralisi@kernel.org>
+To: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
+Cc: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Souvik Chakravarty <Souvik.Chakravarty@arm.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Andy Yan <andy.yan@rock-chips.com>,
+	Mark Rutland <mark.rutland@arm.com>, Arnd Bergmann <arnd@arndb.de>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	cros-qcom-dts-watchers@chromium.org, Vinod Koul <vkoul@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Moritz Fischer <moritz.fischer@ettus.com>,
+	John Stultz <john.stultz@linaro.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+	Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>,
+	Stephen Boyd <swboyd@chromium.org>,
+	Andre Draszik <andre.draszik@linaro.org>,
+	Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>,
+	linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-arm-msm@vger.kernel.org,
+	Elliot Berman <quic_eberman@quicinc.com>,
+	Xin Liu <xin.liu@oss.qualcomm.com>,
+	Srinivas Kandagatla <srini@kernel.org>,
+	Umang Chheda <umang.chheda@oss.qualcomm.com>,
+	Nirmesh Kumar Singh <nirmesh.singh@oss.qualcomm.com>
+Subject: Re: [PATCH v17 07/12] firmware: psci: Implement vendor-specific
+ resets as reboot-mode
+Message-ID: <aSc2Yh3AvLXOBvcz@lpieralisi>
+References: <20251109-arm-psci-system_reset2-vendor-reboots-v17-0-46e085bca4cc@oss.qualcomm.com>
+ <20251109-arm-psci-system_reset2-vendor-reboots-v17-7-46e085bca4cc@oss.qualcomm.com>
+ <aRIfc9iuC2b9DqI+@lpieralisi>
+ <80e68e44-a8e0-464a-056e-9f087ad40d51@oss.qualcomm.com>
+ <aRxmWrAkD0Vu4pF+@lpieralisi>
+ <1da024e7-efb1-3a1c-cc13-0ae5212ed8bd@oss.qualcomm.com>
+ <aR2P4CxQNebac6oU@lpieralisi>
+ <682b1a0c-644f-2aff-1860-cbf9a53bc62b@oss.qualcomm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 4/5] KVM: arm64: Report optional ID register traps with
- a 0x18 syndrome
-From: Ben Horgan <ben.horgan@arm.com>
-To: Marc Zyngier <maz@kernel.org>, kvmarm@lists.linux.dev,
- kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Cc: Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose
- <suzuki.poulose@arm.com>, Oliver Upton <oupton@kernel.org>,
- Zenghui Yu <yuzenghui@huawei.com>
-References: <20251126155951.1146317-1-maz@kernel.org>
- <20251126155951.1146317-5-maz@kernel.org>
- <26d62f83-c5e2-4706-84ad-b3dbe313dfd1@arm.com>
-Content-Language: en-US
-In-Reply-To: <26d62f83-c5e2-4706-84ad-b3dbe313dfd1@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <682b1a0c-644f-2aff-1860-cbf9a53bc62b@oss.qualcomm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251126_161936_794732_975F2670 
-X-CRM114-Status: GOOD (  13.45  )
+X-CRM114-CacheID: sfid-20251126_091841_860709_8E38BB8D 
+X-CRM114-Status: GOOD (  23.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,52 +108,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, Nov 19, 2025 at 05:32:42PM +0530, Shivendra Pratap wrote:
+> 
+> 
+> On 11/19/2025 3:07 PM, Lorenzo Pieralisi wrote:
+> > On Tue, Nov 18, 2025 at 11:11:33PM +0530, Shivendra Pratap wrote:
+> > 
+> > [...]
+> > 
+> >>> Yes this could be a potential way forward but that's decoupled from the
+> >>> options below. If we take this route PSCI maintainers should be added
+> >>> as maintainers for this reboot mode driver.
+> >>
+> >> you mean the new psci_reset driver? yes. Maintainer would be PSCI maintainer,
+> >> if we create a new  psci_reset reboot mode driver.
+> > 
+> > Yes.
+> > 
+> >>>> - struct with pre-built psci reset_types - (warm, soft, cold). Currently
+> >>>>   only two modes supported, anything other than warm/soft defaults to cold.
+> >>>> - vendor resets to be added as per vendor choice, inside psci device tree(SOC specific).
+> >>>> - psci_reset registers with reboot-mode for registering  vendor resets. Here, we
+> >>>>   have a problem, the pre-built psci reset_types - (warm, soft, cold) cannot be added via
+> >>>>   reboot-mode framework.
+> >>>
+> >>> Why ?
+> >>
+> >> If we want the new psci_reset to take the reboot-mode framework route, is it ok to
+> >> add default modes (warm, cold) in the device tree?
+> >> If not, then the design of reboot-mode framework(power:reset:reboot-mode.c) needs to be
+> >> further changed to equip this new feature. 
+> > 
+> > Well, yes, all it needs to do is allowing prepopulated reboot modes on top
+> > of which DT based ones are added.
+> 
+> The mode-cold , adds a third variable to reboot-modes as the first parameter for 
+> invoke_psci_fn is different for cold vs warm/vendor.
+> 
+> cold reset call       : invoke_psci_fn(PSCI_0_2_FN_SYSTEM_RESET, 0, 0, 0);
+> vendor/warm reset call: invoke_psci_fn(PSCI_FN_NATIVE(1_1, SYSTEM_RESET2), vendor, cookiee, 0);
+> 
+> Each mode will have 3 argument - like:
+> _ _ _ _ _ _ _ _ _ _ _ _ _  _ _ _ _ _ _ 
+> MODE   , cold reset, reset_type, cookie
+> _ _ _ _ _ _ _ _ _ _ _ _ _  _ _ _ _ _ _ - 
+> COLD   ,   1       ,    0      ,     0
+> WARM   ,   0       ,    0      ,     0
+> vendor1,   0       ,0x80000000 ,     1
+> vendor2,   0       ,0x80000010 ,     0
+> 
+> So reboot-mode framework will now define and support upto three 32 bit arguments for each mode?
 
+The cookie value is unused for SYSTEM_WARM_RESET, you can encode there whether
+it is a cold (SYSTEM_RESET) or warm (SYSTEM_RESET2 - SYSTEM_WARM_RESET) architectural
+reset when the magic value(aka reset_type) == 0x0 ?
 
-On 11/26/25 17:10, Ben Horgan wrote:
-> Hi Marc,
-> 
-> On 11/26/25 15:59, Marc Zyngier wrote:
->> With FEAT_IDST, unimplemented system registers in the feature ID space
->> must be reported using EC=0x18 at the closest handling EL, rather than
->> with an UNDEF.
->>
->> Most of these system registers are always implemented thanks to their
->> dependency on FEAT_AA64, except for a set of (currently) three registers:
->> GMID_EL1 (depending on MTE2), CCSIDR2_EL1 (depending on FEAT_CCIDX),
->> and SMIDR_EL1 (depending on SME).
->>
->> For these three registers, report their trap as EC=0x18 if they
->> end-up trapping into KVM and that FEAT_IDST is not implemented in the
->> guest. Otherwise, just make them UNDEF.
-> 
-> Missed it before but there is a stray 'not' in there. You get the
-> EC=0x18 trap if FEAT_IDST is implemented.
-> 
->>
->> Signed-off-by: Marc Zyngier <maz@kernel.org>
->> ---
->>  arch/arm64/kvm/sys_regs.c | 16 +++++++++++++---
->>  1 file changed, 13 insertions(+), 3 deletions(-)
-> 
-> The code looks good.
-> 
-> Reviewed-by: Ben Horgan
+The reboot mode parameters do not necessarily need to map to PSCI function
+calls parameters - provided we define that explicitly.
 
-Just to complete that tag.
-
-Reviewed-by: Ben Horgan <ben.horgan@arm.com>
-
-> 
-> Thanks,
-> 
-> Ben
-> 
-> 
-
--- 
-Thanks,
-
-Ben
-
+Lorenzo
 
