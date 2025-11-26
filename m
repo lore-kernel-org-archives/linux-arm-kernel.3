@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 722C7D1118B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 17:37:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1527AD1118E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 17:37:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8TfK+4PegTpbC0dzvRLmi5aNfYCQa5XXLe69RiPnQcY=; b=1nmb2RDDumVO938mQFELmgcab7
-	BBM5ZrbC12WgaTuhp+cj/V0x6gBNT6wEpY0odFesKVjMgOaIRY/zt4KrHehBd/cOSaQVoizYd+XPe
-	xdBpxSBDwsbTGqGpeXiOSs4GrA4T0oZ9of4FkNdr7r4I7cxw0yFsHNX2pcFV3wI5G+hSwwunDLFsz
-	bwe/F9IPrgX/daMNGXEb70f+8Kos2HwxoerXTRWzjDOP7NVJtSuyiB7E/NIr4BKXRqsbeKRGB/1k3
-	C0Av+b6yc8pp3pElMtOGVYvFRfNSRbZ2Fo//GW2mdkWMOPaQ+hN+xytsW+6XCJ7PCeVXU08HaI3Ob
-	L/9CFReQ==;
+	bh=IJWtf2kIy8lCBpcz/JyBziECbeFa7hVjHuwMzNqnPPg=; b=ysH01mCwWqGOt37BHQ4y00s588
+	eTEFdWAocd3FDigEyZvZVQSsO0ipgXjcO+S+DL/jHo5r5/mXUGeTYArG99Lk2iK2h9xLAdSXBwkh5
+	O+hUAbUSs0GyyZZ6V79uxyCle06q88IVhBxYijSL4RAJDOQr9MxRp7fP7MSb0xn9bIemuWKXU8v66
+	wtLPcOd1xpS2D6wpsuJqfD17mU/s6cyBYqcDcVshRTGTmHeplR8hzS6LSI0ge8FQw9XjNnXV89qUg
+	8FYRNhaRffKrzya8mNG6bbFkOAd5LcHeSWZ/+HDQIgF0DciYkE8ZpYsnr549mYkTApCRYyLx0Z6SW
+	Hqy6dUyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOJRx-0000000FOiU-2Z6t;
+	id 1vOJRx-0000000FOiu-3vV9;
 	Wed, 26 Nov 2025 17:37:05 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOJRs-0000000FOfD-2ooo
+	id 1vOJRu-0000000FOgV-2S1B
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Nov 2025 17:37:02 +0000
+	Wed, 26 Nov 2025 17:37:03 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 653271A1D87;
-	Wed, 26 Nov 2025 17:36:52 +0000 (UTC)
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 2EAEB4E418FB;
+	Wed, 26 Nov 2025 17:37:01 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 37ED460721;
-	Wed, 26 Nov 2025 17:36:52 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id C1501102F2334;
-	Wed, 26 Nov 2025 18:36:48 +0100 (CET)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 0359460721;
+	Wed, 26 Nov 2025 17:37:01 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id E57BA102F22B1;
+	Wed, 26 Nov 2025 18:36:56 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1764178610; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1764178619; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=8TfK+4PegTpbC0dzvRLmi5aNfYCQa5XXLe69RiPnQcY=;
-	b=dbOe6nvTTRT3KyxTM0HZMVyjYxjsxEVyjrBR2sL0RV3JL/toUrH7apvFsou7CQSCyf+bVf
-	Asoyscn89JIcI5txhm/zJ1Iu4GjPsKjKSIzB3sPyuWDxGYEbl2OWN2U91hd1+Xay2Lp+oY
-	b3ZHwEyv9bzLzRGdcBj/3z7deDxy3PhUlKtAljDKtLoloZSrnf+C2LOgCnEAAAj2PIjGIE
-	Mr9xnaDiR+swuF8PCQjwYvH5aUXC/gqV+NNzndsSGaPlZeJ/lIKYeI+Ei+tKoHo7l35nvL
-	JALtExV+DFvkXaKBhRCoHlKl58B0+MLKkD7dhY8x9/fqK9C+I2D67PinkipMiA==
+	bh=IJWtf2kIy8lCBpcz/JyBziECbeFa7hVjHuwMzNqnPPg=;
+	b=01lxaJvy4NvnD7Bd7na8RY3i95UleIWUh8amKU6GPWbeGPSOgB6sIoOBbKxdQPfJvJuvAg
+	B4gll/zh9mLakH7nQjwwJ9dPhtOCmGs+4uIVsaVx+26avrGtGArYrNAR72Mxg/iTZcEGdI
+	4SF3dWBYfcrC1hj7IQnDBQatbJ4BM10+4yJSSGFUOBSTE8GRwSYPZCMvTo7IVV2wBky1Xo
+	thBSdQwQR5wp9SYaDT9g/AjY7xzr8fqaRPYB1PvS2YUTui3bfSWKoarRBGgqcTXUTERybS
+	XaJLTRjpIJYpVVzuOSoN0EFVeddiy8URdVKQ1UyxCx0gHYvLxQRJQF1C7cSNcw==
 From: "Kory Maincent (TI.com)" <kory.maincent@bootlin.com>
-Date: Wed, 26 Nov 2025 18:35:44 +0100
-Subject: [PATCH 02/21] dt-bindings: display: tilcdc: Add fifo-threshold
- property
+Date: Wed, 26 Nov 2025 18:35:47 +0100
+Subject: [PATCH 05/21] ARM: dts: omap: Bind panel to panel-dpi instead of
+ ti,tilcdc,panel driver
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251126-feature_tilcdc-v1-2-49b9ef2e3aa0@bootlin.com>
+Message-Id: <20251126-feature_tilcdc-v1-5-49b9ef2e3aa0@bootlin.com>
 References: <20251126-feature_tilcdc-v1-0-49b9ef2e3aa0@bootlin.com>
 In-Reply-To: <20251126-feature_tilcdc-v1-0-49b9ef2e3aa0@bootlin.com>
 To: Jyri Sarha <jyri.sarha@iki.fi>, 
@@ -78,8 +78,8 @@ Cc: Markus Schneider-Pargmann <msp@baylibre.com>,
 X-Mailer: b4 0.14.3
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251126_093700_850056_7023A97A 
-X-CRM114-Status: GOOD (  10.76  )
+X-CRM114-CacheID: sfid-20251126_093702_772371_B9B5C2BE 
+X-CRM114-Status: GOOD (  15.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,45 +94,344 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the fifo-threshold property to control the DMA FIFO threshold level,
-which specifies the number of words that must be loaded before the DMA
-FIFO becomes ready.
-
-This property is needed to support the da850-evm board configuration
-which requires a non-default FIFO threshold value. Currently, this value
-is specified through the deprecated ti,tilcdc,panel binding. Adding this
-property to the tilcdc binding allows for proper configuration while
-migrating away from the non-standard panel binding.
-
-The default value is 8 words, with valid values being powers of 2 from
-8 to 512.
-
-Related commit: 55da73fa7a68c ("ARM: dts: davinci: da850-evm: Increase
-fifo threshold")
+Use panel-dpi driver instead of the deprecated tilcdc-panel driver in
+preparation for removing the tilcdc-panel driver and binding.
 
 Signed-off-by: Kory Maincent (TI.com) <kory.maincent@bootlin.com>
 ---
- Documentation/devicetree/bindings/display/tilcdc/tilcdc.yaml | 7 +++++++
- 1 file changed, 7 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/display/tilcdc/tilcdc.yaml b/Documentation/devicetree/bindings/display/tilcdc/tilcdc.yaml
-index 34ac1fd04d5c6..bf6d506e25e17 100644
---- a/Documentation/devicetree/bindings/display/tilcdc/tilcdc.yaml
-+++ b/Documentation/devicetree/bindings/display/tilcdc/tilcdc.yaml
-@@ -46,6 +46,13 @@ properties:
-       The maximum pixel clock that can be supported by the lcd controller
-       in KHz.
+This patch is not tested. It would be nice if someone with one of this
+board could test and validate it.
+---
+ arch/arm/boot/dts/ti/davinci/da850-evm.dts    | 26 +++++++++++++-------------
+ arch/arm/boot/dts/ti/omap/am335x-guardian.dts | 25 +++++++++----------------
+ arch/arm/boot/dts/ti/omap/am335x-pdu001.dts   | 21 ++++++++++-----------
+ arch/arm/boot/dts/ti/omap/am335x-pepper.dts   | 22 +++++++++++-----------
+ arch/arm/boot/dts/ti/omap/am335x-sbc-t335.dts | 25 +++++++++++++------------
+ arch/arm/boot/dts/ti/omap/am335x-sl50.dts     | 25 ++++++++++++-------------
+ 6 files changed, 68 insertions(+), 76 deletions(-)
+
+diff --git a/arch/arm/boot/dts/ti/davinci/da850-evm.dts b/arch/arm/boot/dts/ti/davinci/da850-evm.dts
+index 38a191fb04149..79cca1f6205ef 100644
+--- a/arch/arm/boot/dts/ti/davinci/da850-evm.dts
++++ b/arch/arm/boot/dts/ti/davinci/da850-evm.dts
+@@ -40,7 +40,7 @@ backlight: backlight-pwm {
+ 	};
  
-+  fifo-threshold:
-+    $ref: /schemas/types.yaml#/definitions/uint32
-+    enum: [8, 16, 32, 64, 128, 256, 512]
-+    description:
-+      Number of words loaded before the DMA fifo becomes ready. The default
-+      value is 8.
+ 	panel {
+-		compatible = "ti,tilcdc,panel";
++		compatible = "panel-dpi";
+ 		pinctrl-names = "default";
+ 		pinctrl-0 = <&lcd_pins>;
+ 		/*
+@@ -50,17 +50,10 @@ panel {
+ 		 */
+ 		status = "okay";
+ 		enable-gpios = <&gpio 40 GPIO_ACTIVE_HIGH>; /* lcd_panel_pwr */
+-
+-		panel-info {
+-			ac-bias = <255>;
+-			ac-bias-intrpt = <0>;
+-			dma-burst-sz = <16>;
+-			bpp = <16>;
+-			fdd = <0x80>;
+-			sync-edge = <0>;
+-			sync-ctrl = <1>;
+-			raster-order = <0>;
+-			fifo-th = <1>;
++		port {
++			panel_in: endpoint {
++				remote-endpoint = <&lcdc_out>;
++			};
+ 		};
+ 
+ 		display-timings {
+@@ -222,6 +215,13 @@ &rtc0 {
+ };
+ 
+ &lcdc {
++	fifo-threshold = <16>;
 +
-   blue-and-red-wiring:
-     enum: [straight, crossed]
-     description:
++	port {
++		lcdc_out: endpoint {
++			remote-endpoint = <&panel_in>;
++		};
++	};
+ 	status = "okay";
+ };
+ 
+@@ -459,7 +459,7 @@ &vpif {
+ 	pinctrl-0 = <&vpif_capture_pins>, <&vpif_display_pins>;
+ 	/*
+ 	 * The vpif and the LCD are mutually exclusive.
+-	 * To enable VPIF, disable the ti,tilcdc,panel then
++	 * To enable VPIF, disable the panel-dpi then
+ 	 * change the status below to 'okay'
+ 	 */
+ 	status = "disabled";
+diff --git a/arch/arm/boot/dts/ti/omap/am335x-guardian.dts b/arch/arm/boot/dts/ti/omap/am335x-guardian.dts
+index 4b070e634b281..f38ce9be2c106 100644
+--- a/arch/arm/boot/dts/ti/omap/am335x-guardian.dts
++++ b/arch/arm/boot/dts/ti/omap/am335x-guardian.dts
+@@ -68,10 +68,15 @@ gpio-poweroff {
+ 	};
+ 
+ 	panel {
+-		compatible = "ti,tilcdc,panel";
++		compatible = "panel-dpi";
+ 		pinctrl-names = "default", "sleep";
+ 		pinctrl-0 = <&lcd_pins_default &lcd_disen_pins>;
+ 		pinctrl-1 = <&lcd_pins_sleep>;
++		port {
++			panel_in: endpoint {
++				remote-endpoint = <&lcdc_out>;
++			};
++		};
+ 
+ 		display-timings {
+ 			timing-320x240 {
+@@ -86,21 +91,9 @@ timing-320x240 {
+ 				clock-frequency = <9000000>;
+ 				hsync-active    = <0>;
+ 				vsync-active    = <0>;
++				pixelclk-active = <1>;
+ 			};
+ 		};
+-		panel-info {
+-			ac-bias           = <255>;
+-			ac-bias-intrpt    = <0>;
+-			dma-burst-sz      = <16>;
+-			bpp               = <24>;
+-			bus-width         = <16>;
+-			fdd               = <0x80>;
+-			sync-edge         = <0>;
+-			sync-ctrl         = <1>;
+-			raster-order      = <0>;
+-			fifo-th           = <0>;
+-		};
+-
+ 	};
+ 
+ 	guardian_beeper: pwm-7 {
+@@ -265,8 +258,8 @@ &lcdc {
+ 	blue-and-red-wiring = "crossed";
+ 	status = "okay";
+ 	port {
+-		lcdc_0: endpoint@0 {
+-			remote-endpoint = <0>;
++		lcdc_out: endpoint@0 {
++			remote-endpoint = <&panel_in>;
+ 		};
+ 	};
+ };
+diff --git a/arch/arm/boot/dts/ti/omap/am335x-pdu001.dts b/arch/arm/boot/dts/ti/omap/am335x-pdu001.dts
+index c9ccb9de21ad7..2c5229d05ade7 100644
+--- a/arch/arm/boot/dts/ti/omap/am335x-pdu001.dts
++++ b/arch/arm/boot/dts/ti/omap/am335x-pdu001.dts
+@@ -50,20 +50,14 @@ lis3_reg: fixedregulator@1 {
+ 	};
+ 
+ 	panel {
+-		compatible = "ti,tilcdc,panel";
++		compatible = "panel-dpi";
+ 		status = "okay";
+ 		pinctrl-names = "default";
+ 		pinctrl-0 = <&lcd_pins_s0>;
+-		panel-info {
+-			ac-bias           = <255>;
+-			ac-bias-intrpt    = <0>;
+-			dma-burst-sz      = <16>;
+-			bpp               = <16>;
+-			fdd               = <0x80>;
+-			sync-edge         = <0>;
+-			sync-ctrl         = <1>;
+-			raster-order      = <0>;
+-			fifo-th           = <0>;
++		port {
++			panel_in: endpoint {
++				remote-endpoint = <&lcdc_out>;
++			};
+ 		};
+ 
+ 		display-timings {
+@@ -395,6 +389,11 @@ &rtc {
+ 
+ &lcdc {
+ 	status = "okay";
++	port {
++		lcdc_out: endpoint {
++			remote-endpoint = <&panel_in>;
++		};
++	};
+ };
+ 
+ &elm {
+diff --git a/arch/arm/boot/dts/ti/omap/am335x-pepper.dts b/arch/arm/boot/dts/ti/omap/am335x-pepper.dts
+index e7d561a527fdd..2760c0eab50c2 100644
+--- a/arch/arm/boot/dts/ti/omap/am335x-pepper.dts
++++ b/arch/arm/boot/dts/ti/omap/am335x-pepper.dts
+@@ -31,7 +31,7 @@ leds: user-leds-pins {
+ 	};
+ 
+ 	panel: lcd_panel {
+-		compatible = "ti,tilcdc,panel";
++		compatible = "panel-dpi";
+ 	};
+ 
+ 	sound: sound_iface {
+@@ -189,16 +189,10 @@ &panel {
+ 	status = "okay";
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&lcd_pins>;
+-	panel-info {
+-		ac-bias = <255>;
+-		ac-bias-intrpt = <0>;
+-		dma-burst-sz = <16>;
+-		bpp = <32>;
+-		fdd = <0x80>;
+-		sync-edge = <0>;
+-		sync-ctrl = <1>;
+-		raster-order = <0>;
+-		fifo-th = <0>;
++	port {
++		panel_in: endpoint {
++			remote-endpoint = <&lcdc_out>;
++		};
+ 	};
+ 	display-timings {
+ 		native-mode = <&timing0>;
+@@ -214,12 +208,18 @@ timing0: timing-480x272 {
+ 			vsync-len = <10>;
+ 			hsync-active = <1>;
+ 			vsync-active = <1>;
++			pixelclk-active = <1>;
+ 		};
+ 	};
+ };
+ 
+ &lcdc {
+ 	status = "okay";
++	port {
++		lcdc_out: endpoint {
++			remote-endpoint = <&panel_in>;
++		};
++	};
+ };
+ 
+ &am33xx_pinmux {
+diff --git a/arch/arm/boot/dts/ti/omap/am335x-sbc-t335.dts b/arch/arm/boot/dts/ti/omap/am335x-sbc-t335.dts
+index 2841e95d9a094..25ee855dd21a7 100644
+--- a/arch/arm/boot/dts/ti/omap/am335x-sbc-t335.dts
++++ b/arch/arm/boot/dts/ti/omap/am335x-sbc-t335.dts
+@@ -13,23 +13,17 @@ / {
+ 
+ 	/* DRM display driver */
+ 	panel {
+-		compatible = "ti,tilcdc,panel";
++		compatible = "panel-dpi";
+ 		status = "okay";
+ 		pinctrl-names = "default", "sleep";
+ 		pinctrl-0 = <&lcd_pins_default>;
+ 		pinctrl-1 = <&lcd_pins_sleep>;
+-
+-		panel-info {
+-			ac-bias           = <255>;
+-			ac-bias-intrpt    = <0>;
+-			dma-burst-sz      = <16>;
+-			bpp               = <32>;
+-			fdd               = <0x80>;
+-			sync-edge         = <0>;
+-			sync-ctrl         = <1>;
+-			raster-order      = <0>;
+-			fifo-th           = <0>;
++		port {
++			panel_in: endpoint {
++				remote-endpoint = <&lcdc_out>;
++			};
+ 		};
++
+ 		display-timings {
+ 			/* Timing selection performed by U-Boot */
+ 			timing0: lcd {/* 800x480p62 */
+@@ -44,6 +38,7 @@ timing0: lcd {/* 800x480p62 */
+ 				vsync-len = <2>;
+ 				hsync-active = <1>;
+ 				vsync-active = <1>;
++				pixelclk-active = <1>;
+ 			};
+ 			timing1: dvi { /* 1024x768p60 */
+ 				clock-frequency = <65000000>;
+@@ -57,6 +52,7 @@ timing1: dvi { /* 1024x768p60 */
+ 				vsync-len = <6>;
+ 				hsync-active = <0>;
+ 				vsync-active = <0>;
++				pixelclk-active = <1>;
+ 			};
+ 		};
+ 	};
+@@ -173,4 +169,9 @@ lcd-ena-hog {
+ /* Display */
+ &lcdc {
+ 	status = "okay";
++	port {
++		lcdc_out: endpoint {
++			remote-endpoint = <&panel_in>;
++		};
++	};
+ };
+diff --git a/arch/arm/boot/dts/ti/omap/am335x-sl50.dts b/arch/arm/boot/dts/ti/omap/am335x-sl50.dts
+index f3524e5ee43e2..b4b2b6d18d646 100644
+--- a/arch/arm/boot/dts/ti/omap/am335x-sl50.dts
++++ b/arch/arm/boot/dts/ti/omap/am335x-sl50.dts
+@@ -123,22 +123,14 @@ audio_mclk: audio_mclk_gate@0 {
+ 	};
+ 
+ 	panel: lcd_panel {
+-		compatible = "ti,tilcdc,panel";
++		compatible = "panel-dpi";
+ 		pinctrl-names = "default";
+ 		pinctrl-0 = <&lcd_pins>;
+ 
+-		panel-info {
+-			ac-bias = <255>;
+-			ac-bias-intrpt = <0>;
+-			dma-burst-sz = <16>;
+-			bpp = <16>;
+-			fdd = <0x80>;
+-			tft-alt-mode = <0>;
+-			mono-8bit-mode = <0>;
+-			sync-edge = <0>;
+-			sync-ctrl = <1>;
+-			raster-order = <0>;
+-			fifo-th = <0>;
++		port {
++			panel_in: endpoint {
++				remote-endpoint = <&lcdc_out>;
++			};
+ 		};
+ 
+ 		display-timings {
+@@ -157,6 +149,8 @@ timing0: 960x128 {
+ 				vfront-porch = <8>;
+ 				vsync-len = <4>;
+ 				vsync-active = <0>;
++
++				pixelclk-active = <1>;
+ 			};
+ 		};
+ 	};
+@@ -711,6 +705,11 @@ &ehrpwm1 {
+ 
+ &lcdc {
+ 	status = "okay";
++	port {
++		lcdc_out: endpoint {
++			remote-endpoint = <&panel_in>;
++		};
++	};
+ };
+ 
+ &tscadc {
 
 -- 
 2.43.0
