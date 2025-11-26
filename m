@@ -4,105 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17538D1119B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 22:05:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEDBCCAC5A8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 22:05:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ay1HyD/YXcJtqug9NBApq+fmqHdHRxdWGXWcfRUTS3Q=; b=Hu1Xl2idch3R/yTvm9L2PsiTOm
-	OyIveeY/GcNotI9a2gZ7uxtHA2V2dmh6nb31PZU+IlekQ9QyTZ6x1lB3F7v/8KIruh3qYKCtNyRli
-	jotvgBtUPks8TDn/qDlfe+ZHT4gyzFFuwqDEIikR6iGcAjfIAWaLvmPj9xfWYBX8KhBQJb7gIpU55
-	SiVNyb5VjXpkb4xiAjr/XovMX428zfgLLauJBeOHRfWXSxyhL6PdnOMCmZDIjB3FvPRw6wEGfhV/Q
-	YCOLssmiOsIuW8DuCGtTu4cOLwdkx7L5rTkQC2tkvt28Fee1WE9wEcPnR29xI8EzioMS92D4QsJZn
-	qG63LZkg==;
+	bh=wvwO2B91MSoJzjUbG+aFdaY1a90YF3q4uxdd57PU4fg=; b=BEcnYoCX2gBf+5NP8/ZqFxBXNd
+	C6a3/+2oIUjFIGyKhNHwHGVbZdr8sIsy8CoL1ABi8I06wz7EEVHrbCEjwvPWml1To8B8of9NWBsYH
+	71RuGu/0YQzhLy+G7y/xQ8aWG5wc6znBCgIGeP1lA0uGe20GdtyTnD5oV01G2/RYKeN0oCWo7qe00
+	JhxA3tYIPF1gNs+iFDj4jHAbbSbeRolWeKMTj6V13NbSutAlEt/Ksd7yqCCGgtq3LMI6vjdnZyv/n
+	XbgO46tAWgq2O9ApiorIjoxOIGYxP344Gswk7jWUEWfjQZl/ZgzbY/X792TPkw1lpU4uyBO1mfRA8
+	uBPGrKpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vONdA-0000000FhPU-0kCX;
-	Wed, 26 Nov 2025 22:04:56 +0000
-Received: from mail-pf1-x42d.google.com ([2607:f8b0:4864:20::42d])
+	id 1vONdf-0000000FhVx-2DJC;
+	Wed, 26 Nov 2025 22:05:27 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vONd8-0000000FhP6-1xIj
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Nov 2025 22:04:55 +0000
-Received: by mail-pf1-x42d.google.com with SMTP id d2e1a72fcca58-7b8bbf16b71so226408b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Nov 2025 14:04:54 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1764194694; x=1764799494; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=Ay1HyD/YXcJtqug9NBApq+fmqHdHRxdWGXWcfRUTS3Q=;
-        b=HMBloqvPMKokQXgOpX3VVOPot2vYKJCubPruGBPz4S9yyYujO4vUOSFfZbN7dVlVLv
-         K9NmJeenhNW0jqX2h9snP7PBmLwTr0F9qabnvN59TjXywzEUnF2a6edh541bl2kL73H2
-         j60jHpj5T9u4zF4ChxRlGj/5Sl4pv4muBvhocS1hCGN4wfI4FKWJ5MctuH/SWpMY3Wr0
-         GEYKHxD5iD4YsV9hqIbVeiqM6gUW6c1Xemi6Vuhu/reY0fT+/GrD9fon4uoU0O9O54uF
-         Qvl5pV9Zp8fnDoHrkP1LH+FQQ6mQPeeco/uluiFk0rczg83GwqVufSrBAWxFET+eeBOC
-         bodw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764194694; x=1764799494;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Ay1HyD/YXcJtqug9NBApq+fmqHdHRxdWGXWcfRUTS3Q=;
-        b=Bb+mWj8TFEgmIDCFJMTstslSUUuO5IdDrwUBsZxQAcdh71mAr8pMIc3xKw67IGxomx
-         hKtF6k+m70GXMG7GU5WzgslZbiRWQ+JFyvFN2HkmsKootCc4FhH9F4AIfc9OjRKcqbY2
-         qChCAD//7VfB/6HbNs4tm0Q0wDe4FwjZDpNiuShFQsavRDKxhrakoGX2USbZ/v1D6w6S
-         5iA87S35keVfatlEaHgFEYb7DGGZbNF1YyOpuCGOeEbFV4WXT6rGWzpAcpDEa0Vify8P
-         f/eq4d2tMzbOCoL3MAbDY4NHulqkqzyDTpB4dqG0RwYsCfWqo8KVgm0BeV6MP8U2f8Gd
-         J6gw==
-X-Forwarded-Encrypted: i=1; AJvYcCU4Z+vsFGeCsjciasvwn+b9/s4c/0za7o8tyrsktqiRdhZwL/Oq07yhz7MaYoq0d4foVtSvH650fHAUoj6IEEAQ@lists.infradead.org
-X-Gm-Message-State: AOJu0YwxLvroMopRWvqkAOmAL8SoFrPnggabdyHPTb0tbJn32Jvn3lyv
-	5p92bjlF+7xaoI3mNNKDlcU9OCC7tRTCKvKYkT5GhjzZ1NPDTRqVGmcfiR6zryxo/w==
-X-Gm-Gg: ASbGnct2dBgUeMmsznyMvAOvnFSv4AevNJ6D9KrB7zSKULPm88iZkYs/+3E+dJITM08
-	cPC4jjeVPHfahgoKY+NxWjgOVtmmtHGt5vriM2gLkQ1qc85ZZEe+HeysUEZpY5LMqybMyA+4pUs
-	X6IAFulnMs5bq3ipjmBUgpGUKPZl3tTGBetPxxVvasUUQr9Utw5srCzslFBjNr+Ov8KB6PCT/5x
-	CqYMCSAIQPlPc9xCjiLVUFqf1rSxnG1hcP9fqwfesGWxK3WydiYD+PtvK/FjREQ/2cksWjtD6qz
-	faA8WcpnOMFNm5+bYouCF59HOMYDQm3J6ognHmFeix3Awn9Dka7zBTFL5Ymq7md4zYYMcneT1yL
-	wEaNv6DcQvvMmNF8ZKh3b/rqjLtsuJfFt43FvokfWwnnpXtVMAtXmT/UiEU+yGAAJ2WFbzhRl49
-	FyO0q55Byr27s9ZnCcxga+JlcMfPzPPVdtSBTzhFR6N6uFUo2OEzwp23NJsjOCU/USya0i3gmFu
-	9Ve6VSqbpIvIQ==
-X-Google-Smtp-Source: AGHT+IHgCBAVlJ/1/Oj2H+nvmtjVOEfs8Cj4GuvQ7p3t9lR/WHGAMof8mvn31hs8D+Fx43GprBkfMw==
-X-Received: by 2002:a05:6a20:244d:b0:343:64dc:8cc with SMTP id adf61e73a8af0-3614eb15e9fmr24287915637.12.1764194693250;
-        Wed, 26 Nov 2025 14:04:53 -0800 (PST)
-Received: from ?IPV6:2a00:79e0:2e7c:8:c116:b1c9:632d:a902? ([2a00:79e0:2e7c:8:c116:b1c9:632d:a902])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-bd75def6346sm20451772a12.4.2025.11.26.14.04.51
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 26 Nov 2025 14:04:52 -0800 (PST)
-Message-ID: <be908072-fd0a-48dc-97e0-b120539f5584@google.com>
-Date: Wed, 26 Nov 2025 14:04:51 -0800
+	id 1vONdd-0000000FhVA-2Zv8;
+	Wed, 26 Nov 2025 22:05:26 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id D77DC404B5;
+	Wed, 26 Nov 2025 22:05:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B09DBC4CEF7;
+	Wed, 26 Nov 2025 22:05:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1764194724;
+	bh=qjypqAhSdHEv0LGJSOTuNEGmIHFAdFLubLTiD2vfKh8=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=hQjUTUTioHpjSn3KWvOSVDRP5yBj9Ei9rzYGZ02nf0cp2wYg20DdIRCiy3j65sm7/
+	 2KcPaygyNgF50QidfArsgNDNi3xAlVju+aC9gOKirWUxzJNrslqqNrW2hz89Wyffgw
+	 Sd67zPOe+jz2lw5C4bbvgel1bVz5m15SRo7KMupDqD8g0LyWbRvJWXjmYyzt0rp+oF
+	 +pGtuuPCrukGrGXcy+h8EpLlwEYfeXocLfCtE4h949uXdYYxbljSkg6U+CaT5ItrH4
+	 DO9I5QDSRnw0EqLtAR1fzZLutAZoEjJxYNUZsUQaigCohTRNfjUawP5Uw+pNR4RIpV
+	 VjTln1jq4nbQw==
+From: Mark Brown <broonie@kernel.org>
+To: Liam Girdwood <lgirdwood@gmail.com>, 
+ Bartosz Golaszewski <brgl@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Samuel Kayode <samkay014@gmail.com>, 
+ Matti Vaittinen <mazziesaccount@gmail.com>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, imx@lists.linux.dev
+In-Reply-To: <20251126-container-of-const-regulator-v1-0-eeec378144d4@oss.qualcomm.com>
+References: <20251126-container-of-const-regulator-v1-0-eeec378144d4@oss.qualcomm.com>
+Subject: Re: [PATCH 0/8] regulator: Use container_of_const() when all types
+ are const
+Message-Id: <176419472245.151653.5849861246383246238.b4-ty@kernel.org>
+Date: Wed, 26 Nov 2025 22:05:22 +0000
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 5/6] power: supply: max77759: add charger driver
-To: kernel test robot <lkp@intel.com>,
- Amit Sunil Dhamne via B4 Relay <devnull+amitsd.google.com@kernel.org>,
- Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
- Lee Jones <lee@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Badhri Jagan Sridharan <badhri@google.com>,
- Heikki Krogerus <heikki.krogerus@linux.intel.com>,
- Peter Griffin <peter.griffin@linaro.org>,
- Tudor Ambarus <tudor.ambarus@linaro.org>,
- Alim Akhtar <alim.akhtar@samsung.com>
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
- linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
- devicetree@vger.kernel.org, linux-usb@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- RD Babiera <rdbabiera@google.com>, Kyle Tso <kyletso@google.com>
-References: <20251123-max77759-charger-v1-5-6b2e4b8f7f54@google.com>
- <202511261521.hSYp4ttf-lkp@intel.com>
-Content-Language: en-US
-From: Amit Sunil Dhamne <amitsd@google.com>
-In-Reply-To: <202511261521.hSYp4ttf-lkp@intel.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.15-dev-88d78
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251126_140454_535368_6579AF80 
-X-CRM114-Status: GOOD (  14.68  )
+X-CRM114-CacheID: sfid-20251126_140525_697922_187319A3 
+X-CRM114-Status: GOOD (  12.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,39 +78,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, 26 Nov 2025 17:58:43 +0100, Krzysztof Kozlowski wrote:
+> Use container_of_const(), which is preferred over container_of(), when
+> the argument 'ptr' and returned pointer are already const, for better
+> code safety and readability.
+> 
+> Some drivers already have const everywhere, so container_of_const can be
+> directly used. In few other drivers, the final pointer can be constified
+> that way.
+> 
+> [...]
 
-On 11/25/25 11:38 PM, kernel test robot wrote:
-> Hi Amit,
->
-> kernel test robot noticed the following build errors:
->
-> [auto build test ERROR on 39f90c1967215375f7d87b81d14b0f3ed6b40c29]
->
-> url:    https://github.com/intel-lab-lkp/linux/commits/Amit-Sunil-Dhamne-via-B4-Relay/dt-bindings-power-supply-Add-Maxim-MAX77759-charger/20251123-163840
-> base:   39f90c1967215375f7d87b81d14b0f3ed6b40c29
-> patch link:    https://lore.kernel.org/r/20251123-max77759-charger-v1-5-6b2e4b8f7f54%40google.com
-> patch subject: [PATCH 5/6] power: supply: max77759: add charger driver
-> config: um-randconfig-001-20251126 (https://download.01.org/0day-ci/archive/20251126/202511261521.hSYp4ttf-lkp@intel.com/config)
-> compiler: clang version 19.1.7 (https://github.com/llvm/llvm-project cd708029e0b2869e80abe31ddb175f7c35361f90)
-> reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20251126/202511261521.hSYp4ttf-lkp@intel.com/reproduce)
->
-> If you fix the issue in a separate patch/commit (i.e. not just a new version of
-> the same patch/commit), kindly add following tags
-> | Reported-by: kernel test robot <lkp@intel.com>
-> | Closes: https://lore.kernel.org/oe-kbuild-all/202511261521.hSYp4ttf-lkp@intel.com/
->
-> All errors (new ones prefixed by >>):
->
->     /usr/bin/ld: warning: .tmp_vmlinux1 has a LOAD segment with RWX permissions
->     /usr/bin/ld: drivers/power/supply/max77759_charger.o: in function `max77759_charger_probe':
->>> max77759_charger.c:(.ltext+0x27b): undefined reference to `devm_regulator_register'
->     /usr/bin/ld: drivers/power/supply/max77759_charger.o: in function `enable_usb_otg':
->>> max77759_charger.c:(.ltext+0x983): undefined reference to `rdev_get_drvdata'
->     /usr/bin/ld: drivers/power/supply/max77759_charger.o: in function `disable_usb_otg':
->     max77759_charger.c:(.ltext+0x9c3): undefined reference to `rdev_get_drvdata'
->     /usr/bin/ld: drivers/power/supply/max77759_charger.o: in function `usb_otg_status':
->     max77759_charger.c:(.ltext+0xa06): undefined reference to `rdev_get_drvdata'
->     clang: error: linker command failed with exit code 1 (use -v to see invocation)
-I believe this is because of a missing "depends on REGULATOR". Will fix 
-it in the next revision.
+Applied to
+
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/regulator.git for-next
+
+Thanks!
+
+[1/8] regulator: Use container_of_const() when all types are const
+      commit: ac1530cdea9846c6bff31827c0c4dffcbc186e6a
+[2/8] regulator: bd71815: Constify pointers to 'regulator_desc' wrap struct
+      commit: 788915a22bdfde0925c074056056e7d408c242d0
+[3/8] regulator: bd71828: Constify pointers to 'regulator_desc' wrap struct
+      commit: d02ea816cccae6c02c7c026b5a74bf99a784c9c8
+[4/8] regulator: bd718x7: Constify pointers to 'regulator_desc' wrap struct
+      commit: 7a7e1ed307de6cc68639f602f3fa247ec0903354
+[5/8] regulator: bd96801: Constify pointers to 'regulator_desc' wrap struct
+      commit: 50011cacaeb9556d65067ec8e757e3987ecf0f2b
+[6/8] regulator: mt6358: Constify pointers to 'regulator_desc' wrap struct
+      commit: 438e90a287c86253dbb47e7fa43c4474f91ee7eb
+[7/8] regulator: pca9450: Constify pointers to 'regulator_desc' wrap struct
+      commit: 03c3bdebaad23d6698a3cb8a11a915d8bdebf28f
+[8/8] regulator: pf9453: Constify pointers to 'regulator_desc' wrap struct
+      commit: 6341646f7225343f57c8cbcb6a4d25b3270f4111
+
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
+
 
