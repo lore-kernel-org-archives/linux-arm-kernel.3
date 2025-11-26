@@ -4,107 +4,161 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12CB6D111A6
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 21:46:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82C0CD1119B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 21:46:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DR4A76Dv8qf/+6WmZVEh6koqxlO2WxAmz56oNgGMFDY=; b=elt1ZsVwDuQTRDYfEGAG2DJu5l
-	iqrL12THxAuPwfOKdrXw2nOOl+nOjBqr0tyTML08oCgxJNOIh3XSyg3fAn00mL2ilYHO1ZkaSbf8D
-	cLWFTv4GRVBUUmNooTlrHs9pTbPkB3oY2FUC0rdTeAiV3VHesas7815ntGQ41qp8zs6m0wGK+i/Ct
-	x2WcUnqyMSjYz2/vCwCcqtnunY7H20gfxlggqJC1ocUr79ip8Z+VJ2l942MtKacZoefwk5qhLAB26
-	q0NQjuPkg0e4k7yRkSIEGnSWyg5vWggxRM68cOgbv136OMlM0KRfWMkESrQXVzK/aiF3y8s0xCRQu
-	54HX5+0g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DAH7TSllJqLzrSEto1R+ETCUq+g62co/0lC4UO36/ac=; b=o6BW8wjua5a0HACRNEeWdflr++
+	5rrxGZEAHl67cPCdCudkVWML2vKEDmMr7U2hpL1LEZic8CUwj0LOFRDA6rsOhAUF7kB3EHzQMLasy
+	4x3w4HwR8YzREx4G4PyBuRAYHD3QfiuFeROOdmhiqq2qWDKxvUz28YOsQG7n5HjuLkDUvPHumcoW6
+	uLf0OEK1g1fR16tiEYwJc8u3EFiWYSe2iqw0GYgzv/FJ87dVX+YIKb2Sd/J7IMoyOyf7a1gwmR+i7
+	2TGq3CSorAy3di0HPAVqnc9V55IKg0j8VL6W+Fs1nYjWS9z+tOSkt9oJFLxQAR/8MAZD2P7Cc9wyn
+	DCaiR91A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vONKy-0000000FgNQ-2yO4;
-	Wed, 26 Nov 2025 21:46:08 +0000
-Received: from mail-ej1-x62d.google.com ([2a00:1450:4864:20::62d])
+	id 1vONLc-0000000FgUk-0Wz1;
+	Wed, 26 Nov 2025 21:46:48 +0000
+Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vONKv-0000000FgMj-36Zn
+	id 1vONLa-0000000FgTk-08dU
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Nov 2025 21:46:06 +0000
-Received: by mail-ej1-x62d.google.com with SMTP id a640c23a62f3a-b71397df721so43981966b.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Nov 2025 13:46:05 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linux-foundation.org; s=google; t=1764193564; x=1764798364; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=DR4A76Dv8qf/+6WmZVEh6koqxlO2WxAmz56oNgGMFDY=;
-        b=JYv4an4IJCn5S5seu2aU7KA/rRW0bezivj5Xp1mLkajqUhz4TxIc0mwYbCuqpIFWJa
-         gJkPNgyWIwwzu8bg8I5JTEDrvj2tclCWgl/CWoB0VuOVe08y1e+6/jGUN5r8J/VzAN+E
-         Dhf10vCC6OiF+FjNk02HScBMt2CZF4W8gvKuY=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764193564; x=1764798364;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=DR4A76Dv8qf/+6WmZVEh6koqxlO2WxAmz56oNgGMFDY=;
-        b=hK7R4tcCa5iRjTkP09xqgOr+rpxEY1yZRb5pPY7UhGgVjVLMjK8qLaFzQIJe/NWtnG
-         S+XSE/6T2EIGHGDh0VO1KZtVejURXEDoeg6/TC71DTIaK9PoibNEylsSPpO22mxiVqmF
-         82HDfOzd5U/tVW6VSt2GVzKJYDC/hoVHkAmYcTh9Djv4Ezdwp91XkRmIIXHEADhBwmsQ
-         XT17iDTThWmsqk8CNk1Btn1gxdtVr4mHdvBSYatZzVF1BSSxjroYLiTuRacR6sqXVx95
-         JyWPycq0hIS8m/Uidqvke04oVDvJL1QcQgg2v33fyjhMdDIoyVcHCUGAexWH/Hs0cd05
-         6gbg==
-X-Forwarded-Encrypted: i=1; AJvYcCVmqjbrGWG1U0WIpwl4dJQiZQnF3VmvY7DgRo4IliuJTFoYXhiDGZjyy+txbs9/98woxfBqrSVjR6geZakgEy1B@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxw+7RfJsCAo7BhXhSg1979GOJRtWR2WpbVP4Yhp7FgK/hb++Mf
-	JOnAu40t3j66O+jyuhBmTBmVbuRHMIq8NipjGCklS0WfVxJlFi+oVnqDNbHOjhaq68ZZ7N1yZSG
-	5xBZUemlumQ==
-X-Gm-Gg: ASbGncs/M0pk7Dpxhd9nOcBuy3TJenu+Q27dCCfkX1MUq7z4jy5j+o0wo9Ba699UPqM
-	WGIW5L4sWCNQoDjfR/ek6TXYgvJBmMIhCR8NtcS0NiVK2+765Aa6aCR1aHoKSAms/c+mBrxO9fL
-	S89M/+pjXMpy5zKJ/xdYGQE2j8p8v/hRFDg16/9K2GkiPZ9uywPHRkzDGd9SB41/yvEQAMR8GeP
-	YCil79K54WbnXdUpD1jNcYBJ8m0NXMuNOYoyHEZayyOjk8jVBOKxDPnbuGRN2Gt3abTE4K9xVaE
-	FSqjLokWVCWBOXhw1er+t/KAuoGQ2swCv0ggKYoMuNLU/VLYrtKjb/lcEQstS9/QlBoO7FcPItn
-	6HhrA4r49X+0OQsZpFRcb9QiV//QJhKv3LhQ9712U3QpOrbP99IORivFiyfTLbzDNAvOH1ogShr
-	g1M/ThNzDtErlNeZcJSyWFTIQcSp9AUNegLoPwrWTf4jk+nHBK4QijVEPnzEv/
-X-Google-Smtp-Source: AGHT+IE+s1VTp3mMyMI3xKlrnjctESZOa1h9jEb3A35+2iU0AAlV02dfB37dexg6dtTlN+9aR2FhfQ==
-X-Received: by 2002:a17:907:9706:b0:b72:7cc6:a143 with SMTP id a640c23a62f3a-b76c555cbfcmr910739666b.40.1764193563621;
-        Wed, 26 Nov 2025 13:46:03 -0800 (PST)
-Received: from mail-ed1-f53.google.com (mail-ed1-f53.google.com. [209.85.208.53])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b7654d50328sm2011507666b.20.2025.11.26.13.46.02
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 26 Nov 2025 13:46:02 -0800 (PST)
-Received: by mail-ed1-f53.google.com with SMTP id 4fb4d7f45d1cf-64312565c10so445435a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Nov 2025 13:46:02 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCXkfH+71yy03wI8i5v9npCLnUSuw9SSLz6/x76yAJ8QSsivhhVZe6qY2daFZ1dGsQ9jnhHPLlbe1FxKCvqG722F@lists.infradead.org
-X-Received: by 2002:a05:6402:13cb:b0:640:c454:e8 with SMTP id
- 4fb4d7f45d1cf-645eb2b7f7emr8102794a12.30.1764193562184; Wed, 26 Nov 2025
- 13:46:02 -0800 (PST)
-MIME-Version: 1.0
-References: <20251113005529.2494066-1-jon@nutanix.com> <CACGkMEtQZ3M-sERT2P8WV=82BuXCbBHeJX+zgxx+9X7OUTqi4g@mail.gmail.com>
- <E1226897-C6D1-439C-AB3B-012F8C4A72DF@nutanix.com> <CACGkMEuPK4=Tf3x-k0ZHY1rqL=2rg60-qdON8UJmQZTqpUryTQ@mail.gmail.com>
- <A0AFD371-1FA3-48F7-A259-6503A6F052E5@nutanix.com> <CACGkMEvD16y2rt+cXupZ-aEcPZ=nvU7+xYSYBkUj7tH=ER3f-A@mail.gmail.com>
- <121ABD73-9400-4657-997C-6AEA578864C5@nutanix.com> <CACGkMEtk7veKToaJO9rwo7UeJkN+reaoG9_XcPG-dKAho1dV+A@mail.gmail.com>
- <61102cff-bb35-4fe4-af61-9fc31e3c65e0@app.fastmail.com> <02B0FDF1-41D4-4A7D-A57E-089D2B69CEF2@nutanix.com>
- <32530984-cbaa-49e8-9c1e-34f04271538d@app.fastmail.com> <0D4EA459-C3E5-4557-97EB-17ABB4F817E5@nutanix.com>
-In-Reply-To: <0D4EA459-C3E5-4557-97EB-17ABB4F817E5@nutanix.com>
-From: Linus Torvalds <torvalds@linux-foundation.org>
-Date: Wed, 26 Nov 2025 13:45:45 -0800
-X-Gmail-Original-Message-ID: <CAHk-=wiEg3yO5znyPD+soCkVi_emP=wHrRZk2sv4VS768S3a2g@mail.gmail.com>
-X-Gm-Features: AWmQ_bkSLlyCoqZg3bYaZu1P_V2VILWs6lgJjJBJnYgDxxhAqc51xHDCsThFNYo
-Message-ID: <CAHk-=wiEg3yO5znyPD+soCkVi_emP=wHrRZk2sv4VS768S3a2g@mail.gmail.com>
-Subject: Re: [PATCH net-next] vhost: use "checked" versions of get_user() and put_user()
-To: Jon Kohler <jon@nutanix.com>
-Cc: Arnd Bergmann <arnd@arndb.de>, Jason Wang <jasowang@redhat.com>, 
-	"Michael S. Tsirkin" <mst@redhat.com>, =?UTF-8?Q?Eugenio_P=C3=A9rez?= <eperezma@redhat.com>, 
-	"kvm@vger.kernel.org" <kvm@vger.kernel.org>, 
-	"virtualization@lists.linux.dev" <virtualization@lists.linux.dev>, Netdev <netdev@vger.kernel.org>, 
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, Borislav Petkov <bp@alien8.de>, 
-	Sean Christopherson <seanjc@google.com>, 
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, Russell King <linux@armlinux.org.uk>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Krzysztof Kozlowski <krzk@kernel.org>, Alexandre Belloni <alexandre.belloni@bootlin.com>, 
-	Linus Walleij <linus.walleij@linaro.org>, Drew Fustini <fustini@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
+	Wed, 26 Nov 2025 21:46:47 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=uuZLKrMPY9qBb7qycHq3zp4kJ6R9V9XCFTGlyQ1T2HuUJ7FMo4LwW6a01ISlXmxu3TjRA7DiaKifqR4bPC9/9a7jrNiTf2oytgPXQgQSn6HHOcbb7uH66eW2o08JotlZnC7pmOOgjsSZuaRQiikl4uO/vrkYCNaLvbWY4D8bDqNQ2nmRrJaObJB7+Xm27qEvTnbS5bkxkAp/QJzTJpdtw1x2mo3SoAZt/J8+o5EUQBTCfYLgTLpO3jFCx7VtCWHokoburcXpp7AKmIwhQhnLa4yzGLpYRYgtM7sgGNgqitR5/L8iKEyoDbtU8agzCGLV3tVCKfj3txpL/uT3CndoRQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=DAH7TSllJqLzrSEto1R+ETCUq+g62co/0lC4UO36/ac=;
+ b=n9E5ILGGcOczFJiRSLCVIXf3fqOI/LPR1TUkm/RqAI7QA4pJr6ZoFYR/QOe0xQQ49R59bR+a9vZNSmo7lxQ7sn4qfTebqyoFd9rmVP3MLpHW7qZHAH8eTU+s1IvR53kHAClqxS4ZchLkAvODwQkLYePmW1Q4EfpjSOycKtJNV5+plQTU6uRR5ZWJaYna6TvJ+zHciDnyueQEcZvzdyfPiw118hRxhjjVPp7BOuLgOBMOTEAFRUiq3F3YsQ15IalK4CaGXSMb1512RH/VVvNcf3L9P3gDGZzDT5mIpOMcbVaNPykNZ7Co6wkEkIOCWRAhzqLOMPNBiGMs0aNzM+Ghng==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=DAH7TSllJqLzrSEto1R+ETCUq+g62co/0lC4UO36/ac=;
+ b=eEqoF6T3r4BT2SqO2uwSRxoHLwXhp2gd5zhwZ2C5bdh09I2tRDqTKm5LvUMnOZpADi2ZPXfgMYKCsiEhfy3nfsHpxb0BWlBUtlesI72IrPi+rW4wsfBnNfw4tzaaBwkywmxaKlyuf/yLYiGbDE1VGDkUC2NqXnbDYhFLmg8T/Ew7GiWnr0QByXqaUBPmMWO32RUXSMsc+qavk2y//HgpTkuUON8kXehwNDH9UDrVY5o0/L3q3N0+vCSXQGcJ8+BNGThsh40jsBORuxe7AJJxMm91siOx8+07eP6GDtI61vkBGUzGhm3FNU2TRSjHMsg/9PpgFeRzEPBflTdqNg80/w==
+Received: from PAXPR04MB9185.eurprd04.prod.outlook.com (2603:10a6:102:231::11)
+ by PA1PR04MB10208.eurprd04.prod.outlook.com (2603:10a6:102:454::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9366.12; Wed, 26 Nov
+ 2025 21:46:39 +0000
+Received: from PAXPR04MB9185.eurprd04.prod.outlook.com
+ ([fe80::21bf:975e:f24d:1612]) by PAXPR04MB9185.eurprd04.prod.outlook.com
+ ([fe80::21bf:975e:f24d:1612%5]) with mapi id 15.20.9366.012; Wed, 26 Nov 2025
+ 21:46:38 +0000
+From: Shenwei Wang <shenwei.wang@nxp.com>
+To: Mathieu Poirier <mathieu.poirier@linaro.org>
+CC: Bjorn Andersson <andersson@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
+	Jonathan Corbet <corbet@lwn.net>, Linus Walleij <linus.walleij@linaro.org>,
+	Bartosz Golaszewski <brgl@bgdev.pl>, Pengutronix Kernel Team
+	<kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Peng Fan
+	<peng.fan@nxp.com>, "linux-remoteproc@vger.kernel.org"
+	<linux-remoteproc@vger.kernel.org>, "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-doc@vger.kernel.org"
+	<linux-doc@vger.kernel.org>, dl-linux-imx <linux-imx@nxp.com>
+Subject: Re: [PATCH v5 2/5] remoteproc: imx_rproc: Populate devices under
+ "rpmsg" subnode
+Thread-Topic: [PATCH v5 2/5] remoteproc: imx_rproc: Populate devices under
+ "rpmsg" subnode
+Thread-Index: AQHcXx4kXpDfv0IsNkKFKKfcxjW6HA==
+Date: Wed, 26 Nov 2025 21:46:38 +0000
+Message-ID: <PAXPR04MB91857863B163B3F38A26647389DEA@PAXPR04MB9185.eurprd04.prod.outlook.com>
+References: <20251104203315.85706-1-shenwei.wang@nxp.com>
+ <20251104203315.85706-3-shenwei.wang@nxp.com> <aSdMufLCeqvVyKsp@p14s>
+In-Reply-To: <aSdMufLCeqvVyKsp@p14s>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: PAXPR04MB9185:EE_|PA1PR04MB10208:EE_
+x-ms-office365-filtering-correlation-id: 69bd0c2c-fb35-4b94-8ec1-08de2d354773
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|19092799006|376014|7416014|1800799024|38070700021;
+x-microsoft-antispam-message-info: =?us-ascii?Q?bQ0ru9Oea48A2cbzCMtRmfxJLkEie70Upo67HO8fZTFrvplkzFSnI9+eVMG0?=
+ =?us-ascii?Q?+6vz41NCyXRmf5U93a4I47k7Xc/3NuSJ70MULE007LezQLGsxpJWyq+JlBil?=
+ =?us-ascii?Q?xFrocVgtIjD27VexQUj6X2plhav8Al3IELq8OenjAEW6DN+njA522i2a12Ra?=
+ =?us-ascii?Q?vxrpUL5u4o3FIrhxH82a411ED7+XmduIr0bF/ZoBVfSFhC+oNusEPhDgWExD?=
+ =?us-ascii?Q?rhZqxHqr02EpZBo0st4VcQpeJjTuT4Z683KATTj3fdgxGaMzZ/NKchJTgiwe?=
+ =?us-ascii?Q?ZnT1gx0gbnVAp4fcRjgAIy71X9Ti6Md1VU7DofwjLrmNHxmrCZLnZnxmdJse?=
+ =?us-ascii?Q?5lYfSIQ91H6BBxA/arf1/co/uyhJNQWsn2bDylLgV56GxsCXMrbI0napKc/T?=
+ =?us-ascii?Q?bH+koVE6Sj/d/qloRSuxC8uinYiHJumM21RjeLYk+Xrdl52H1OJnOGHob45G?=
+ =?us-ascii?Q?riKp0akZiW8cU/WmT1yWTRpYpiqZeL+jNsREF6HPuzRGyPn5Vuj5SiCufrVZ?=
+ =?us-ascii?Q?6iijnWX/lDJmCIjp9b2FqmrYDmzheRVu7K4tC+s8aTLXRDmOFlnxYWLx8Cyj?=
+ =?us-ascii?Q?rxLOxNjob0fmWrw0uCaQR/mqfQAW64uXMOrU2idB6boawNTWzvpEDO5pChOY?=
+ =?us-ascii?Q?Ig1aS4wuwSLH9jv7P5YxhJCmnrYw+Vx/cnenM7by+a5xF55yHrTBIK3go3ru?=
+ =?us-ascii?Q?MVmWndI/tW5W+3PNcnh4A/XEGoM5tkVdZ0ulO8XuO97xMz0WnkNajzU0RwIR?=
+ =?us-ascii?Q?hfITML3EkJJ3WE6qJc0hquT9YOb/0YtULeKkdaEbvUVOIQEN8cuJ6PPpQhBr?=
+ =?us-ascii?Q?KT0YgJHS2GzzsedzTltjGKX1tNQlejnz2zEYztHwH8e2R3qp6jsEnf+jltnm?=
+ =?us-ascii?Q?mvqfSrEdMFZ3g3Qn/4KuefTWLPJSpxQVVlxetC/Al3bt8yUkbbkt85zURKKq?=
+ =?us-ascii?Q?5FFzh5B9H5sIl5jWrnRNwfZmnuEfgevYqbq23NBP2I7da1HIG+1c+XwkO5wq?=
+ =?us-ascii?Q?8tb0sR1T83aQgnn1XJC7QcNn81Gfz6pFyQJXSFueP3Lpax+xia9pW2mizESb?=
+ =?us-ascii?Q?/26VMrwHv1xDwMjs41yup01s1w/1ug9QdMgJlHiocQUUgioDmxwkFJ73FfUS?=
+ =?us-ascii?Q?vIDTlGoTkB72O3bt+G7OKgnRLz+0BpZmq7h1RD1QObXp/LBn18kTOh9tH4gP?=
+ =?us-ascii?Q?9Cxw8Jw2u4NYn5ClRpx1J6esO4HzhJtDRkI1qlQL1FoBKnbhFiHtrfcEhieu?=
+ =?us-ascii?Q?cXxrXmgPEcp+//i6DLwgQLqMjhPEk6KSfvC2Y9drVYXb/VAFXS77WJbaKZx4?=
+ =?us-ascii?Q?+oEmucsN7h2Zhh9oqxL0+IOcuP79G/zmMs9PBQgmVkWIgqHgmYsjbZt8BwN6?=
+ =?us-ascii?Q?GVSidz8fQH5MqF/qxuJr9qaHbSsdleyAMrIYJ4eUj8/L6rJxuXVWM+Pe7MOW?=
+ =?us-ascii?Q?vGHIf5tFRCt0ZZTz68GL/wvd3/dA6chRLtVCjCHUsB+xgamuRVoY9b1j0RCq?=
+ =?us-ascii?Q?ardqQ8HVhkeHTmUFYCBALHg0t+ebQ01sr8RQ?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9185.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(376014)(7416014)(1800799024)(38070700021);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?T5Dn0gC2Na07ul9ElNP9mu3R3I7ikTJwEEpinzchu+OcT2JU3D0++5iopEP2?=
+ =?us-ascii?Q?P9PNqG+8yahrZJNx3JoFofPVvwbdKKq73mN8zcXDWKbUYM9G69aMmUIi2dF3?=
+ =?us-ascii?Q?fYlAJa6K6Nuo6SQQjmRxzaek9HWd3SN61Gf16kDCxvL5G4WpJqD7nNeyTHKl?=
+ =?us-ascii?Q?Qfh0JpKA3rzUEfMiv+IWZibN8oVTfFjFAMaucXGwLZtx8iiLobDDXQhRsahq?=
+ =?us-ascii?Q?WW/i5vwO9HCi7wp+fsvXxqJXJml3vPN7Ew9DyikuagYnVN9vbooGa/Hw3OD1?=
+ =?us-ascii?Q?Uw/FET+eHmBywd24M2to8HuZsyRYX06YBN6jqt6FW1w16Z4hpnhU7FJMmaa9?=
+ =?us-ascii?Q?93dL2aqV7ngoDPf9kAHGPXpOY9xEQjWn9mDHx6G4o1/HFYQvYjV0MNbMgj0s?=
+ =?us-ascii?Q?pJ32ElntN05i/lAJToa70S9a75nJoOEKvKWgLpCaolyEQ7BuNFagBm6ZbiOV?=
+ =?us-ascii?Q?T+OfaMEvKGg8TCVNibhqkRTOuWcJBRgBEnJmN9RJ92qcG1u7qQEQOOlMQKTl?=
+ =?us-ascii?Q?+yANptRhtn26Klg1KG+U8nf1jJlc8Lp4ygDD1owkoffVy0EewOMfiqqn6mp0?=
+ =?us-ascii?Q?4f6EG3buuceAl4v0J1n9z1gzTT+uJ5FiU630uaeUw44EiwW/MqvnECjI40vt?=
+ =?us-ascii?Q?ofkQEnACzsX/xhp4ynbKAU4YJuE1dESPb73jX3E1lAq0qcmIoprRAnoXfYtE?=
+ =?us-ascii?Q?CCO8QBWnt2WN/C+eIg8v+FOJHryZYvzQNnWdp2FUToDFJSy0o2gVCQs2WUhh?=
+ =?us-ascii?Q?Jhsv4qylS/mP3jmgbUCZCeqqRdwF/7eEvHSPwnkhgmRsTG7Noab7C56Vriyr?=
+ =?us-ascii?Q?FsUaAyMsMYBZs48LPGV3K/pZqC1IPF2Cr9SjJGGNwga+EXxHToJlzE/rvhU1?=
+ =?us-ascii?Q?rIxcoBsy1MsOx0C4DOe9giL88hbJhKYeAUmQ5HddH4b0shm+9JkD7KLpuYn9?=
+ =?us-ascii?Q?P1G8SJr2Zu4VfVzBiO4hp2N8T03BuUNcoB0nwBd5Pr70Kb1IqAg/MATueNU3?=
+ =?us-ascii?Q?haMzZTaeLfJhahbadbFO8TWnGn54JeegH1cAuDSHWiHDtDZuMgub215iHns8?=
+ =?us-ascii?Q?H96zFEZWiiIdxMdh5kQEvh9AkRPyjIii4OPVY8wxzX8nUTuzoErULwd96jhs?=
+ =?us-ascii?Q?gJxtLiEvJwNokDkAs0A78TThoE7vL2BqNujMWypLtRXvXvGvEJpLcnhuYrDK?=
+ =?us-ascii?Q?J9F03IQco9m/YHkXdldVib96j+fnXU7HMhbfc0k/VpPhBaJ+0wuy63hb+vL7?=
+ =?us-ascii?Q?wtspR7kXsYO3a3/xoJ/gF0mE9vyDYjkM3g/fIOLhSww7xlkwZPSQnbwsXNSm?=
+ =?us-ascii?Q?4oWgX2F3zyzSJk6AhD4p1cOIsRuZOeuADj4Is7oH/Kg15aFLqLGLNcX7HOuS?=
+ =?us-ascii?Q?9l/GtLlE5TNoCwQ5gdeq4aio7dKfCENEjXBg96RrrnMtM3Cwz0oFdvlzjoc0?=
+ =?us-ascii?Q?hf3SsVCWlXi15OYH0NzvGzyBP3PXlOHDY4pBz2dNGabAXE2ryBLl9n/ZJU6y?=
+ =?us-ascii?Q?okTbBJfdk67zsp0W2dAOstm5th0auXfQTYFkwfin6O9O5ekMvI9LMradcDi5?=
+ =?us-ascii?Q?VlHb9iyWw/dmGpXfdO4l7V4MFGtt/7FEbb30n5hI?=
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9185.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 69bd0c2c-fb35-4b94-8ec1-08de2d354773
+X-MS-Exchange-CrossTenant-originalarrivaltime: 26 Nov 2025 21:46:38.8021
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: OeZhsfyH0kXhqoQyGncFY9xXPufnjbCkYaUvFzHFDfQ4P+fF7zz7QJWk/IjzVcO/Un0cmTwBIt1AfK1iHGBzMg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB10208
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251126_134605_819987_7CEA679A 
-X-CRM114-Status: GOOD (  13.87  )
+X-CRM114-CacheID: sfid-20251126_134646_090977_52A9F305 
+X-CRM114-Status: GOOD (  17.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,18 +173,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 26 Nov 2025 at 13:43, Jon Kohler <jon@nutanix.com> wrote:
->
-> Linus mentioned he might get into the mix and do a bulk
-> change and kill the whole thing once and for all, so I=E2=80=99m
-> simply trying to help knock an incremental amount of work
-> off the pile in advance of that (and reap some performance
-> benefits at the same time, at least on the x86 side).
 
-So I'm definitely going to do some bulk conversion at some point, but
-honestly, I'll be a lot happier if most users already self-converted
-before that, and I only end up doing a "convert unmaintained old code
-that nobody really cares about".
 
-                  Linus
+> -----Original Message-----
+> From: Mathieu Poirier <mathieu.poirier@linaro.org>
+> Sent: Wednesday, November 26, 2025 12:54 PM
+> To: Shenwei Wang <shenwei.wang@nxp.com>
+> Cc: Bjorn Andersson <andersson@kernel.org>; Rob Herring <robh@kernel.org>=
+;
+> Krzysztof Kozlowski <krzk+dt@kernel.org>; Conor Dooley
+> <conor+dt@kernel.org>; Shawn Guo <shawnguo@kernel.org>; Sascha Hauer
+> <s.hauer@pengutronix.de>; Jonathan Corbet <corbet@lwn.net>; Linus Walleij
+> <linus.walleij@linaro.org>; Bartosz Golaszewski <brgl@bgdev.pl>; Pengutro=
+nix
+> Kernel Team <kernel@pengutronix.de>; Fabio Estevam <festevam@gmail.com>;
+> Peng Fan <peng.fan@nxp.com>; linux-remoteproc@vger.kernel.org;
+> devicetree@vger.kernel.org; imx@lists.linux.dev; linux-arm-
+> kernel@lists.infradead.org; linux-kernel@vger.kernel.org; linux-
+> doc@vger.kernel.org; dl-linux-imx <linux-imx@nxp.com>
+> Subject: [EXT] Re: [PATCH v5 2/5] remoteproc: imx_rproc: Populate devices
+> under "rpmsg" subnode
+> > +
+> > +     drvdata =3D dev_get_drvdata(&rpdev->dev);
+> > +     if (drvdata && drvdata->rx_callback)
+> > +             return drvdata->rx_callback(rpdev, data, len, priv,
+> > + src);
+> > +
+> > +     return 0;
+> > +}
+> > +
+> > +static void imx_rpmsg_endpoint_remove(struct rpmsg_device *rpdev) {
+> > +     of_platform_depopulate(&rpdev->dev);
+> > +}
+> > +
+> > +static int imx_rpmsg_endpoint_probe(struct rpmsg_device *rpdev) {
+>=20
+> Where does the rpmsg_device come from?  Usually there is a call to
+> rpmsg_register_device() and I don't see it anywhere in this patchset.  I =
+also don't
+> see a link to the remote processor.  I can't continue with this set for a=
+s long as I
+> don't have this information.
+>=20
+
+It is in the function below named imx_of_rpmsg_register_rpdriver.
+
+Thanks,
+Shenwei
+
+> > +
+> > +static int imx_of_rpmsg_register_rpdriver(struct device_node *channel,
+> > +                                       struct device *dev, int idx) {
+> > +     struct imx_rpmsg_driver_data *driver_data;
+> > +     struct imx_rpmsg_driver *rp_driver;
+> > +     struct rpmsg_device_id *rpdev_id;
+> > +
+> > +     rpdev_id =3D devm_kzalloc(dev, sizeof(*rpdev_id) * 2, GFP_KERNEL)=
+;
+> > +     if (!rpdev_id)
+> > +             return -ENOMEM;
+> > +
+> > +     strscpy(rpdev_id[0].name, channel_device_map[idx][0],
+> > + RPMSG_NAME_SIZE);
+> > +
+> > +     rp_driver =3D devm_kzalloc(dev, sizeof(*rp_driver), GFP_KERNEL);
+> > +     if (!rp_driver)
+> > +             return -ENOMEM;
+> > +
+> > +     driver_data =3D devm_kzalloc(dev, sizeof(*driver_data), GFP_KERNE=
+L);
+> > +     if (!driver_data)
+> > +             return -ENOMEM;
+> > +
+> > +     driver_data->rproc_name =3D dev->of_node->name;
+> > +     driver_data->channel_node =3D channel;
+> > +     driver_data->map_idx =3D idx;
+> > +
+> > +     rp_driver->rpdrv.drv.name =3D channel_device_map[idx][0];
+> > +     rp_driver->rpdrv.id_table =3D rpdev_id;
+> > +     rp_driver->rpdrv.probe =3D imx_rpmsg_endpoint_probe;
+> > +     rp_driver->rpdrv.remove =3D imx_rpmsg_endpoint_remove;
+> > +     rp_driver->rpdrv.callback =3D imx_rpmsg_endpoint_cb;
+> > +     rp_driver->driver_data =3D driver_data;
+> > +
+> > +     register_rpmsg_driver(&rp_driver->rpdrv);
+> > +
+> > +     return 0;
+> > +}
 
