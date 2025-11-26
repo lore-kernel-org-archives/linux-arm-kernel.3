@@ -4,63 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49ED0D1118A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 17:24:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DB6AD1118A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 17:29:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=s3beuvWb8u9josQ5wjgvAv1PRS+pkllGPH/64ZoOaps=; b=2wN9lMaSytf5crGbd1lSmgXQPR
-	/BllSJtTcP1vbXkcSuikVf7b7kuAli7RNsZshmMu47Wqv9jxgvBRS5GC/zKSZ5seg/F3OVC5bZbTR
-	km+3Pjb46iVnj1EffeIwqu/A9/tbekxMU4ghN6OEju2Bc2BalNblIoNiRVcFTANJ4+xXsaaNJ4qSj
-	QtOMyGXs5BVX4YnzXikDb2Kx1yhVR6+ANYLw8w6F+Hk8yXOPt8q6UbtRnixEXagfPZoFDKyXFi4fW
-	bPtmKuJrK2Ldo7ZqomMSaaPouaaUaunH+FEAxO5Yaak6jRHudE095DhT92gcAnVsFiaY3hnNLLpTk
-	mAYCkRdg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=+CmMiYXQJW31BOewvDmB7+A6aw7QBgAMvMFdWMh8HIg=; b=WaHoZzF7wj07XnT7UXVUbzf0Lo
+	PyPhAmkdJ+SLtz1pH9ZaHkyXtIhIuooW/E9kXhiPZX7Zr2vlDmyzpDgg5BBrKpvHhYBkX4a5sRGoJ
+	79xSDTZrqXbshl4nJ7ZeJL4Xsu3Eo3okFIXyrkZkH20ijuXikMfqpsIZzbIEQ2QijfffDDTYNF+YE
+	GJZoBpyRH6TYSHFf/T8lGIPKeNarMfdzK82FabfhfpK9QhG2vjEApZT0zI77W/4Wz0hRNwl7WKiqL
+	QMlR07j8sI951ePioVXPZOhBGl8S8Pn+Gi9WsNHE+sXF8xrxBMXdCTJkkr6Fq5e/357D3MBIAVzln
+	yIEbNdmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOJFK-0000000FNtI-0cGC;
-	Wed, 26 Nov 2025 17:24:02 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOJFH-0000000FNsk-40JG
+	id 1vOJKA-0000000FOAH-1lQK;
+	Wed, 26 Nov 2025 17:29:02 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vOJK8-0000000FO9Y-1c1p
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Nov 2025 17:24:01 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E4D80168F;
-	Wed, 26 Nov 2025 09:23:48 -0800 (PST)
-Received: from e133380.arm.com (e133380.arm.com [10.1.197.66])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 14E853F66E;
-	Wed, 26 Nov 2025 09:23:53 -0800 (PST)
-Date: Wed, 26 Nov 2025 17:23:47 +0000
-From: Dave Martin <Dave.Martin@arm.com>
-To: Mark Brown <broonie@kernel.org>
-Cc: Peter Maydell <peter.maydell@linaro.org>, Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Will Deacon <will@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
-	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>,
-	Fuad Tabba <tabba@google.com>, Mark Rutland <mark.rutland@arm.com>,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org, kvm@vger.kernel.org,
-	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org,
-	Eric Auger <eric.auger@redhat.com>
-Subject: Re: [PATCH v8 11/29] KVM: arm64: Document the KVM ABI for SME
-Message-ID: <aScfSMZEKCeUq7Zn@e133380.arm.com>
-References: <20250902-kvm-arm64-sme-v8-0-2cb2199c656c@kernel.org>
- <20250902-kvm-arm64-sme-v8-11-2cb2199c656c@kernel.org>
- <CAFEAcA_GJ7gzn7aMCZYxHnJWvx4tHSHBKsOxtQ7NTb4gPjkMJQ@mail.gmail.com>
- <df712591-397e-422b-b9c9-fbf080cad9aa@sirena.org.uk>
+	Wed, 26 Nov 2025 17:29:01 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 52BB740210;
+	Wed, 26 Nov 2025 17:28:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 51E7BC4CEF7;
+	Wed, 26 Nov 2025 17:28:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1764178139;
+	bh=CRd9ZrPYpoyGd8r/7/O5tFeVFSuVBLHqNThxe4BQ6DY=;
+	h=From:To:Cc:Subject:Date:From;
+	b=PKe6QrMK9/RRLA2iPoGFGomnlP/IGi0Rfu4K8dfgQXiKHMaAbuT9BFpQO950pPOSh
+	 /PdOcxwGIUFC7BvPAhflnJiVI3w/VURWOYtz4JDYPUJc5Hgjs6G8uMJRnf1QTAd91z
+	 r8MVUj2fDEjxSdMbFrLZ+71OkV4bnZ9To4gyHIZyEQA0y2WSXoTbk6ma2YgOOswgrZ
+	 uLIUP4cGotrOPORToq3obJq1lcmi/w1iCs0O8D9WU6ablY5rhuuh/TzSc3PUjPAwN4
+	 1ruRZUgJx4+Bse8OdPgkygBq/ILQLM//ny9wTNwdkOregdb3Hj67CtYANM9EgGl6Av
+	 DEp8ZBcO11hbg==
+From: Bjorn Andersson <andersson@kernel.org>
+To: Stephen Boyd <sboyd@kernel.org>,
+	linux-clk@vger.kernel.org
+Cc: linux-arm-msm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Taniya Das <taniya.das@oss.qualcomm.com>,
+	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+	Luo Jie <quic_luoj@quicinc.com>,
+	Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>,
+	Luca Weiss <luca.weiss@fairphone.com>,
+	Jens Reidel <adrian@mainlining.org>,
+	Alexey Minnekhanov <alexeymin@postmarketos.org>,
+	Gabor Juhos <j4g8y7@gmail.com>,
+	Nathan Chancellor <nathan@kernel.org>
+Subject: [GIT PULL] Qualcomm clock updates for v6.19
+Date: Wed, 26 Nov 2025 11:34:30 -0600
+Message-ID: <20251126173430.1556604-1-andersson@kernel.org>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <df712591-397e-422b-b9c9-fbf080cad9aa@sirena.org.uk>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251126_092400_088383_941492BB 
-X-CRM114-Status: GOOD (  58.21  )
+X-CRM114-CacheID: sfid-20251126_092900_463400_3D6DADD2 
+X-CRM114-Status: GOOD (  13.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,163 +79,156 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
 
-On Mon, Nov 24, 2025 at 08:12:56PM +0000, Mark Brown wrote:
-> On Mon, Nov 24, 2025 at 03:48:06PM +0000, Peter Maydell wrote:
-> > On Tue, 2 Sept 2025 at 12:45, Mark Brown <broonie@kernel.org> wrote:
-> 
-> > > SME, the Scalable Matrix Extension, is an arm64 extension which adds
-> > > support for matrix operations, with core concepts patterned after SVE.
-> 
-> > I haven't actually tried writing any code that uses this proposed
-> > ABI, but mostly it looks OK to me. I have a few nits below, but
-> > my main concern is the bits of text that say (or seem to say --
-> > maybe I'm misinterpreting them) that various parts of how userspace
-> > accesses the guest state (e.g. the fp regs) depend on the current
-> > state of the vcpu, rather than being only a function of how the
-> > vcpu was configured. That seems to me like it's unnecessarily awkward.
-> > (More detail below.)
-> 
-> That was deliberate and I agree it is awkward, it was introduced as a
-> result of earlier review comments.  I had originally implemented an ABI
-> where the VL for the vector registers was the maximum of the SVE and SME
-> VLs but the feedback was that the ABI should instead follow what the
-> architecture does with the vector length and potentially presence of the
-> vector registers depending on the current streaming mode configuration.
-> It sounds like you would prefer something more like what was there
-> originally?
-> 
-> > > For SME unware VMMs on systems with both SVE and SME support the SVE
-> > > registers may be larger than expected, this should be less disruptive
-> > > than on a system without SVE as they will simply ignore the high bits of
-> > > the registers.
-> 
-> > I think that since enabling SME is something the VMM has to actively
-> > do, it isn't a big deal that they also need to do something in the
-> > fp or sve register access codepaths to handle SME. You can't get
-> > SME by surprise (same as you can't get SVE by surprise).
-> 
-> Yes, it's not going to affect anything without enabling it.  I can't
-> remember what that was in reference to, it clearly needs an update.
-> 
-> > >  .. [1] These encodings are not accepted for SVE-enabled vcpus.  See
-> > > -       :ref:`KVM_ARM_VCPU_INIT`.
-> > > +       :ref:`KVM_ARM_VCPU_INIT`.  They are also not accepted when SME is
-> > > +       enabled without SVE and the vcpu is in streaming mode.
-> 
-> > Does this mean that on an SME-no-SVE VM the VMM needs to know
-> > if the vcpu is currently in streaming mode or not to determine
-> > whether to read the FP registers as fp_regs or sve regs? That
-> > seems unpleasant -- I was expecting this to be strictly a
-> > matter of how the VM was configured (as it is with SVE).
-> 
-> Yes, it does.
+The following changes since commit 3a8660878839faadb4f1a6dd72c3179c1df56787:
 
-Ditto from me about not having looked at this earlier...
+  Linux 6.18-rc1 (2025-10-12 13:42:36 -0700)
 
+are available in the Git repository at:
 
-Is the above condition right re streaming mode?  The original reason
-for this restriction was that the SVE Z-regs and FPSIMD V-regs are
-aliases when SVE is present.  To avoid having to worry about how to
-order register accesses and/or paste parts of them together, we went
-down the road of banishing encodings that alias a subset of the
-register state accessed by some other encoding.
+  https://git.kernel.org/pub/scm/linux/kernel/git/qcom/linux.git tags/qcom-clk-for-6.19
 
-In line with this principle, with SME Vn and Zn are aliases when
-*not* in streaming mode, so allowing access through the Vn view feels
-problematic too?  (And when in streaming mode, the Vn regs don't exist
-at all.)
+for you to fetch changes up to 3664282f3345fdfa6a154feb6ed6c3217a8b3b0d:
 
-Whether the proposed ABI is considered awkward for VMMs or not is a
-separate matter...)
+  clk: qcom: x1e80100-dispcc: Add USB4 router link resets (2025-11-18 16:11:37 -0600)
 
-> 
-> > > +arm64 SME registers have the following bit patterns:
-> 
-> > > +  0x6080 0000 0017 00 <n:5> <slice:5>   ZA.H[n] bits[2048*slice + 2047 : 2048*slice]
-> > > +  0x60XX 0000 0017 0100                 ZT0
-> 
-> > What's the XX here ?
-> 
-> Sorry, will fill that in - thanks for spotting it.
-> 
-> > > +  0x6060 0000 0017 fffe                 KVM_REG_ARM64_SME_VLS pseudo-register
-> > > +
-> > > +Access to Z, P or ZA register IDs where 2048 * slice >= 128 * max_vq
-> > > +will fail with ENOENT.  max_vq is the vcpu's maximum supported vector
-> > > +length in 128-bit quadwords: see [2]_ below.
-> 
-> > What about FFR registers ? Is their ENOENT condition the same,
-> > or different?
-> 
-> It should be the same, will update to clarify.
->
-> > > +       max_vq.  This is the maximum vector length currently available to
-> > > +       the guest on this vcpu, and determines which register slices are
-> > > +       visible through this ioctl interface.
-> 
-> > > +       If SME is supported then the max_vq used for the Z and P registers
-> > > +       while SVCR.SM is 1 this vector length will be the maximum SME
-> > > +       vector length available for the guest, otherwise it will be the
-> > > +       maximum SVE vector length available.
+----------------------------------------------------------------
+Qualcomm clock updates for v6.19
 
-The max_vq name here is not ABI; it's just linking concepts together in
-the documentation text.
+Introduce support for the IPQ5424 Network Subsystem Clock Controller and
+the video clock controller for SM8750.
 
-So, can we give explicitly different names to these two max_vq values?
+Describe the parent/child relationship among the Titan GDSCs on SM845,
+SM6350, SM7150, SM8250, SM8450, and SM8550.
 
-Splitting the affected register descriptions into "SVCR.SM == 0" and
-"SVCR.SM == 1" cases also be helpful to make this special-casing clear.
+Define display subsystem reset signals for SM6350, SM7150, and SDM660.
 
-> 
-> > I can't figure out what this paragraph is trying to say, partly
-> > because it seems like it might be missing some text between
-> > "is 1" and "this vector length".
-> 
-> > In any case, the "while SVCR.SM is 1" part seems odd -- I
-> > don't think this ABI should care about the runtime vcpu state,
-> > only what the vcpu's max vector lengths were configured as.
-> > My expectation would be that the max_vq for VMM register
-> > access would be the maximum of the SVE and SME vector lengths
-> > configured for the vcpu.
-> 
-> This is attempting to say that the VL for the Z and P registers (and
-> FFR) will vary depending on if the vCPU is in streaming mode or not if
-> the maximum VL for SVE and SME differs, similarly to how the Z, P and
-> FFR registers disappear when we are not in streaming mode in a SME only
-> system.
+Add missing USB4 clocks and resets on Hamoa.
 
-May flipping SVCR.SM through KVM_SET_ONE_REG have the architectural
-effect of zeroing the vector regs?  That feels like something that
-should be stated explicitly.
+Address a variety of smaller issues across the drivers, and a few more
+Kconfig dependency issues.
 
+----------------------------------------------------------------
+Alexey Minnekhanov (2):
+      dt-bindings: clock: mmcc-sdm660: Add missing MDSS reset
+      clk: qcom: mmcc-sdm660: Add missing MDSS reset
 
-Also, in general:
+Bjorn Andersson (5):
+      Merge branch '20251003-topic-hamoa_gcc_usb4-v2-1-61d27a14ee65@oss.qualcomm.com' into clk-for-6.19
+      Merge branch '20250919-sm6350-mdss-reset-v1-1-48dcac917c73@fairphone.com' into clk-for-6.19
+      Merge branch '20250919-sm7150-dispcc-fixes-v1-1-308ad47c5fce@mainlining.org' into clk-for-6.19
+      Merge branch '20251014-qcom_ipq5424_nsscc-v7-2-081f4956be02@quicinc.com' into clk-for-6.19
+      Merge branch '20251030-gcc_kaanapali-v2-v2-3-a774a587af6f@oss.qualcomm.com' into clk-for-6.19
 
-I'd agree that this mutating interface feels odd, and does not follow
-the original spirit of the design here.
+Gabor Juhos (2):
+      clk: qcom: apss-ipq5424: remove unused 'apss_clk' structure
+      clk: qcom: use different Kconfig prompts for APSS IPQ5424/6018 drivers
 
-But the SME architecture doesn't fit well with the spirit of the
-original KVM ABI here either, so I guess there won't be a perfect
-solution.
+Jens Reidel (3):
+      dt-bindings: clock: sm7150-dispcc: Add MDSS_CORE reset
+      clk: qcom: dispcc-sm7150: Add MDSS_CORE reset
+      clk: qcom: dispcc-sm7150: Fix dispcc_mdss_pclk0_clk_src
 
+Konrad Dybcio (8):
+      dt-bindings: clock: qcom,x1e80100-gcc: Add missing USB4 clocks/resets
+      clk: qcom: gcc-x1e80100: Add missing USB4 clocks/resets
+      clk: qcom: rpmh: Define RPMH_IPA_CLK on QCS615
+      clk: qcom: gcc-sc8280xp: Remove 85.71 MHz USB4 master clock frequency
+      clk: qcom: gcc-x1e80100: Remove 85.71 MHz USB4 master clock frequency
+      clk: qcom: gcc-glymur: Remove 85.71 MHz USB4 master clock frequency
+      dt-bindings: clock: qcom: x1e80100-dispcc: Add USB4 router link resets
+      clk: qcom: x1e80100-dispcc: Add USB4 router link resets
 
-It seems that when SME is enabled in the vCPU features and the VMM is
-planning to dump or set affected registers, there is a requirement to
-dump / set SVCR.SM first, and then go down one of two code paths.  Can
-this be called out explicitly?  This is a departure from the the
-previous interaction model, so it probably deserves its own section,
-which can then be cross-referenced from individual reg
-descriptions.
+Luca Weiss (4):
+      dt-bindings: clock: dispcc-sm6350: Add MDSS_CORE & MDSS_RSCC resets
+      clk: qcom: dispcc-sm6350: Add MDSS_CORE & MDSS_RSCC resets
+      clk: qcom: camcc-sm6350: Fix PLL config of PLL2
+      clk: qcom: camcc-sm7150: Fix PLL config of PLL2
 
-SVCR.SM exhibits this modality w.r.t a specific set of affected
-register encodings; it would be good to have that captured clearly in
-one place.
+Luo Jie (8):
+      dt-bindings: clock: Add "#interconnect-cells" property in IPQ9574 example
+      dt-bindings: interconnect: Add Qualcomm IPQ5424 NSSNOC IDs
+      dt-bindings: clock: gcc-ipq5424: Add definition for GPLL0_OUT_AUX
+      dt-bindings: clock: qcom: Add NSS clock controller for IPQ5424 SoC
+      clk: qcom: gcc-ipq5424: Correct the icc_first_node_id
+      clk: qcom: gcc-ipq5424: Enable NSS NoC clocks to use icc-clk
+      clk: qcom: gcc-ipq5424: Add gpll0_out_aux clock
+      clk: qcom: Add NSS clock controller driver for IPQ5424
 
-(This may or may not make life easier for VMMs -- I'll leave it to
-Peter to comment on that!)
+Nathan Chancellor (2):
+      clk: qcom: Fix SM_VIDEOCC_6350 dependencies
+      clk: qcom: Fix dependencies of QCS_{DISP,GPU,VIDEO}CC_615
 
-Cheers
----Dave
+Taniya Das (12):
+      clk: qcom: gcc-sm8750: Add a new frequency for sdcc2 clock
+      clk: qcom: gcc-glymur: Update the halt check flags for pipe clocks
+      clk: qcom: gcc-qcs615: Update the SDCC clock to use shared_floor_ops
+      clk: qcom: tcsrcc-glymur: Update register offsets for clock refs
+      dt-bindings: clock: qcom-rpmhcc: Add RPMHCC for Kaanapali
+      dt-bindings: clock: qcom: Document the Kaanapali TCSR Clock Controller
+      dt-bindings: clock: qcom: Add Kaanapali Global clock controller
+      clk: qcom: clk_mem_branch: add enable mask and invert flags
+      clk: qcom: ecpricc-qdu100: Add mem_enable_mask to the clock memory branch
+      clk: qcom: branch: Extend invert logic for branch2 mem clocks
+      dt-bindings: clock: qcom: Add SM8750 video clock controller
+      clk: qcom: videocc-sm8750: Add video clock controller driver for SM8750
+
+Vladimir Zapolskiy (6):
+      clk: qcom: camcc-sm8550: Specify Titan GDSC power domain as a parent to other
+      clk: qcom: camcc-sm6350: Specify Titan GDSC power domain as a parent to other
+      clk: qcom: camcc-sdm845: Specify Titan GDSC power domain as a parent to other
+      clk: qcom: camcc-sm7150: Specify Titan GDSC power domain as a parent to IPEx and BPS
+      clk: qcom: camcc-sm8250: Specify Titan GDSC power domain as a parent to IPE/BPS/SBI
+      clk: qcom: camcc-sm8450: Specify Titan GDSC power domain as a parent to IPE/BPS/SBI
+
+ .../bindings/clock/qcom,ipq9574-nsscc.yaml         |   63 +-
+ .../devicetree/bindings/clock/qcom,rpmhcc.yaml     |    1 +
+ .../bindings/clock/qcom,sm8450-videocc.yaml        |    5 +-
+ .../bindings/clock/qcom,sm8550-tcsr.yaml           |    1 +
+ .../devicetree/bindings/clock/qcom,sm8750-gcc.yaml |    8 +-
+ .../bindings/clock/qcom,x1e80100-gcc.yaml          |   62 +-
+ drivers/clk/qcom/Kconfig                           |   32 +-
+ drivers/clk/qcom/Makefile                          |    2 +
+ drivers/clk/qcom/apss-ipq5424.c                    |    7 -
+ drivers/clk/qcom/camcc-sdm845.c                    |    3 +
+ drivers/clk/qcom/camcc-sm6350.c                    |   13 +-
+ drivers/clk/qcom/camcc-sm7150.c                    |    9 +-
+ drivers/clk/qcom/camcc-sm8250.c                    |    3 +
+ drivers/clk/qcom/camcc-sm8450.c                    |    3 +
+ drivers/clk/qcom/camcc-sm8550.c                    |   10 +
+ drivers/clk/qcom/clk-branch.c                      |    8 +-
+ drivers/clk/qcom/clk-branch.h                      |    4 +
+ drivers/clk/qcom/clk-rpmh.c                        |    1 +
+ drivers/clk/qcom/dispcc-sm6350.c                   |    7 +
+ drivers/clk/qcom/dispcc-sm7150.c                   |    9 +-
+ drivers/clk/qcom/dispcc-x1e80100.c                 |    3 +
+ drivers/clk/qcom/ecpricc-qdu1000.c                 |   30 +
+ drivers/clk/qcom/gcc-glymur.c                      |   25 +-
+ drivers/clk/qcom/gcc-ipq5424.c                     |   28 +-
+ drivers/clk/qcom/gcc-qcs615.c                      |    6 +-
+ drivers/clk/qcom/gcc-sc8280xp.c                    |    1 -
+ drivers/clk/qcom/gcc-sm8750.c                      |    1 +
+ drivers/clk/qcom/gcc-x1e80100.c                    |  699 +++++++++-
+ drivers/clk/qcom/mmcc-sdm660.c                     |    1 +
+ drivers/clk/qcom/nsscc-ipq5424.c                   | 1340 ++++++++++++++++++++
+ drivers/clk/qcom/tcsrcc-glymur.c                   |   54 +-
+ drivers/clk/qcom/videocc-sm8750.c                  |  463 +++++++
+ include/dt-bindings/clock/qcom,dispcc-sm6350.h     |    4 +
+ include/dt-bindings/clock/qcom,ipq5424-gcc.h       |    3 +-
+ include/dt-bindings/clock/qcom,ipq5424-nsscc.h     |   65 +
+ include/dt-bindings/clock/qcom,kaanapali-gcc.h     |  241 ++++
+ include/dt-bindings/clock/qcom,mmcc-sdm660.h       |    1 +
+ include/dt-bindings/clock/qcom,sm7150-dispcc.h     |    3 +
+ include/dt-bindings/clock/qcom,sm8750-videocc.h    |   40 +
+ include/dt-bindings/clock/qcom,x1e80100-dispcc.h   |    3 +
+ include/dt-bindings/clock/qcom,x1e80100-gcc.h      |   61 +
+ include/dt-bindings/interconnect/qcom,ipq5424.h    |   33 +
+ include/dt-bindings/reset/qcom,ipq5424-nsscc.h     |   46 +
+ 43 files changed, 3298 insertions(+), 104 deletions(-)
+ create mode 100644 drivers/clk/qcom/nsscc-ipq5424.c
+ create mode 100644 drivers/clk/qcom/videocc-sm8750.c
+ create mode 100644 include/dt-bindings/clock/qcom,ipq5424-nsscc.h
+ create mode 100644 include/dt-bindings/clock/qcom,kaanapali-gcc.h
+ create mode 100644 include/dt-bindings/clock/qcom,sm8750-videocc.h
+ create mode 100644 include/dt-bindings/reset/qcom,ipq5424-nsscc.h
 
