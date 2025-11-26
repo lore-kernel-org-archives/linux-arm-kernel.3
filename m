@@ -4,54 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B248D1118C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 17:37:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17B4FD1118B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 17:37:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/0rPK6beH6AckUJmL2vrwOQlS80WMvwhCKTP9WHJs4k=; b=EG5AXErO4KRhqVaOjbIgtJTNRo
-	Uv64cNb8iBIgpLZwbR0Ny3yHgvp45avadSxnC9khZ06hK5bt65WX5H9eRQtpTSCdRtUxofrbtAQx6
-	kgwu4As4crEYvcpx4XNWS3V5FuHFueVx9tI4EjpTM9ZNmXZhKCpPqc31R5eLdngCHHIKQOMxGh/G4
-	hJStzkF65xuHmKQDgW1sTLdQVJFqNRgcWjBTsHhqnPgEHt9ipfsgeZWxPJnvkWMa6vnT/Am2k2N7n
-	xI9brWp4vSpCZc9EUcTXiwFRnOEN3hqTx7dv74ip2LLjKNCmDCZETKya8FfJXrlYKMaKrlY6HeL8K
-	xwcqjU5g==;
+	bh=EWslL5MJAu1ktwPaDyDYlweDV4/0Xu50P9NpGLLvPzI=; b=12Wh9OmkFSQUh3yb5zqruUQAAg
+	QND8JMCmG1HzBOmDe0dFkYI1GO0lVDQnzCVmIrKYQZH0AR8sJ1fQ6S4NqEOFSS3wnwW3mhPlT4Fk9
+	LLfYBaGEByoBeFlHUHw3hAj3pQU4Qj4hNy+uooqB9AOYPPLkrnM+apw1ModireOZc+kEKVNDcxPsU
+	nB/BEZeTu1c+XpQuZ82qqXxwoSwrVkdScDMM2DtQ9usfdDhqZ0B9PGK+ajo3mi9+zGi5X0/9wyTXm
+	1+WMlBsuzp8lp7Tk6PnVzr1WLrH070XinSxGS/K5v2KgrLyF5iojUx9w2Fvp23QF8NMbqLp2feyvQ
+	Kyu8JeBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOJRx-0000000FOhz-1Kkq;
-	Wed, 26 Nov 2025 17:37:05 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
+	id 1vOJSF-0000000FOwD-3a4I;
+	Wed, 26 Nov 2025 17:37:23 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOJRr-0000000FOf9-2VCh
+	id 1vOJRx-0000000FOhc-2wLu
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Nov 2025 17:37:01 +0000
+	Wed, 26 Nov 2025 17:37:07 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 3B66AC16A0B;
-	Wed, 26 Nov 2025 17:36:35 +0000 (UTC)
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 4AA1B4E418DB;
+	Wed, 26 Nov 2025 17:37:04 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 0326A60721;
-	Wed, 26 Nov 2025 17:36:58 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id DBCB6102F221D;
-	Wed, 26 Nov 2025 18:36:53 +0100 (CET)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 1E8B060721;
+	Wed, 26 Nov 2025 17:37:04 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id E28F4102F22D9;
+	Wed, 26 Nov 2025 18:36:59 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1764178616; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1764178622; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=/0rPK6beH6AckUJmL2vrwOQlS80WMvwhCKTP9WHJs4k=;
-	b=kdjWgvyTz00gcyMZ6nHqPphHqp8JXUsfKKrV8SynMj3/cweCesoFg5Y3Uu2GEpEuMK68Z+
-	+7K0nb55DueYUOtLI3SvfbOgqcfcf9keAfKvszVCp7Cas6SHnuzNkcRFwBVBTrpSu+351Q
-	xNI+SR4KfG0DHb6u9ycsBmXONtaetbrrD4oar1sH0+A0Gy23dMORwJ6NrYrBO9oAiqQpeV
-	KKvA8dO5TvEhhf59Moiu4cSqi3ByZy9TF+0mC2i0OCdRrjAzNj6QgSRZmbXORo6avc7K+j
-	OYv5XrrOq4nbwg8XefASzfwdAy6LoalgC6iBe1eacbjBr6gZdHboGNjSNn3KLQ==
+	bh=EWslL5MJAu1ktwPaDyDYlweDV4/0Xu50P9NpGLLvPzI=;
+	b=urmWOWiOCRBQAaoKMUKHRNe7j5UlKQhDEabtHMlCvM1TGAhlLuB+6X45QYYWZNSKGwwm69
+	l3PZTZjW3W6qIfDfh/qnPs3VW+hLmQ+MfuadSI3knL03/q0LZ1eM5N8kx7JkuyjppmOTc8
+	b9GVdtvZ6b20OoB/85QkDEDzmcDujK+oYN24M5A/fLSuGuVdh4NdEhYkUc5WnuO2mqggJa
+	3vEk7KOmZQGFpmcX15aegIJY2/WRrOq6pQDQMhlUyw8G5TttJqc7qvbarJ9o2r7csdbJ/H
+	Jy8lJW2nADY63oCd7wPItAFFyEpdjeh5fWz6eH8nur/0b2LUpJAJZv24W/wh8Q==
 From: "Kory Maincent (TI.com)" <kory.maincent@bootlin.com>
-Date: Wed, 26 Nov 2025 18:35:46 +0100
-Subject: [PATCH 04/21] drm/tilcdc: Add support for DRM bus flags and
- simplify panel config
+Date: Wed, 26 Nov 2025 18:35:48 +0100
+Subject: [PATCH 06/21] dt-bindings: display: tilcdc: Remove panel binding
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251126-feature_tilcdc-v1-4-49b9ef2e3aa0@bootlin.com>
+Message-Id: <20251126-feature_tilcdc-v1-6-49b9ef2e3aa0@bootlin.com>
 References: <20251126-feature_tilcdc-v1-0-49b9ef2e3aa0@bootlin.com>
 In-Reply-To: <20251126-feature_tilcdc-v1-0-49b9ef2e3aa0@bootlin.com>
 To: Jyri Sarha <jyri.sarha@iki.fi>, 
@@ -78,8 +77,8 @@ Cc: Markus Schneider-Pargmann <msp@baylibre.com>,
 X-Mailer: b4 0.14.3
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251126_093659_948094_0A2B2445 
-X-CRM114-Status: GOOD (  15.59  )
+X-CRM114-CacheID: sfid-20251126_093706_039271_FFED3224 
+X-CRM114-Status: GOOD (  13.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,141 +93,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Migrate CRTC mode configuration to use standard DRM bus flags in
-preparation for removing the tilcdc_panel driver and its custom
-tilcdc_panel_info structure.
+Remove the deprecated ti,tilcdc,panel binding which violates devicetree
+design principles by placing display controller configuration
+(DMA burst size, FIFO thresholds, AC bias, etc.) inside the panel node
+instead of the controller node where it belongs.
 
-Add support for DRM_BUS_FLAG_PIXDATA_DRIVE_NEGEDGE and
-DRM_BUS_FLAG_SYNC_DRIVE_NEGEDGE flags to control pixel clock and sync
-signal edge polarity, while maintaining backward compatibility with the
-existing tilcdc panel info structure.
+This non-standard binding has several critical issues:
+- Mixes controller-specific hardware parameters with panel properties
+- Lacks the standard port/endpoint graph for panel connections
+- Cannot work with the standard DRM panel infrastructure
+- Forces vendor-specific binding instead of reusable panel-dpi binding
 
-Simplify several hardware parameters by setting them to fixed defaults
-based on common usage across existing device trees:
-- DMA burst size: 16 (previously configurable via switch statement)
-- AC bias frequency: 255 (previously panel-specific)
-- FIFO DMA request delay: 128 (previously panel-specific)
+The tilcdc driver has been updated to work with standard DRM panels and
+bridges, and all in-tree users have been migrated to use the generic
+panel-dpi binding with proper port/endpoint connections. Controller
+parameters like fifo-threshold are now correctly specified in the
+tilcdc node itself.
 
-These parameters show no variation in real-world usage, so hardcoding
-them simplifies the driver without losing functionality.
+While removing bindings is exceptional, keeping this binding would:
+- Perpetuate incorrect devicetree design patterns
+- Require maintaining a non-standard panel driver solely for tilcdc
+- Block proper integration with the DRM panel subsystem
+- Prevent devicetree reusability across different display controllers
 
-Preserve FIFO threshold configurability by adding a new "fifo-threshold"
-device tree property at the display controller level, as this parameter
-varies across different display configurations in existing device trees.
+This removal completes the migration to standard DRM panel bindings.
 
 Signed-off-by: Kory Maincent (TI.com) <kory.maincent@bootlin.com>
 ---
- drivers/gpu/drm/tilcdc/tilcdc_crtc.c | 48 ++++++++++++++----------------------
- drivers/gpu/drm/tilcdc/tilcdc_drv.c  |  2 ++
- drivers/gpu/drm/tilcdc/tilcdc_drv.h  |  2 ++
- 3 files changed, 22 insertions(+), 30 deletions(-)
+ .../devicetree/bindings/display/tilcdc/panel.txt   | 66 ----------------------
+ 1 file changed, 66 deletions(-)
 
-diff --git a/drivers/gpu/drm/tilcdc/tilcdc_crtc.c b/drivers/gpu/drm/tilcdc/tilcdc_crtc.c
-index b06b1453db2dd..1b5475c48f6ad 100644
---- a/drivers/gpu/drm/tilcdc/tilcdc_crtc.c
-+++ b/drivers/gpu/drm/tilcdc/tilcdc_crtc.c
-@@ -285,27 +285,15 @@ static void tilcdc_crtc_set_mode(struct drm_crtc *crtc)
- 
- 	/* Configure the Burst Size and fifo threshold of DMA: */
- 	reg = tilcdc_read(dev, LCDC_DMA_CTRL_REG) & ~0x00000770;
--	switch (info->dma_burst_sz) {
--	case 1:
--		reg |= LCDC_DMA_BURST_SIZE(LCDC_DMA_BURST_1);
--		break;
--	case 2:
--		reg |= LCDC_DMA_BURST_SIZE(LCDC_DMA_BURST_2);
--		break;
--	case 4:
--		reg |= LCDC_DMA_BURST_SIZE(LCDC_DMA_BURST_4);
--		break;
--	case 8:
--		reg |= LCDC_DMA_BURST_SIZE(LCDC_DMA_BURST_8);
--		break;
--	case 16:
--		reg |= LCDC_DMA_BURST_SIZE(LCDC_DMA_BURST_16);
--		break;
--	default:
--		dev_err(dev->dev, "invalid burst size\n");
--		return;
-+	/* Use 16 bit DMA burst size by default */
-+	reg |= LCDC_DMA_BURST_SIZE(LCDC_DMA_BURST_16);
-+	if (priv->fifo_th) {
-+		int fifo_th_val = const_ilog2(priv->fifo_th) - 3;
-+
-+		reg |= (fifo_th_val << 8);
-+	} else {
-+		reg |= (info->fifo_th << 8);
- 	}
--	reg |= (info->fifo_th << 8);
- 	tilcdc_write(dev, LCDC_DMA_CTRL_REG, reg);
- 
- 	/* Configure timings: */
-@@ -321,8 +309,8 @@ static void tilcdc_crtc_set_mode(struct drm_crtc *crtc)
- 
- 	/* Set AC Bias Period and Number of Transitions per Interrupt: */
- 	reg = tilcdc_read(dev, LCDC_RASTER_TIMING_2_REG) & ~0x000fff00;
--	reg |= LCDC_AC_BIAS_FREQUENCY(info->ac_bias) |
--		LCDC_AC_BIAS_TRANSITIONS_PER_INT(info->ac_bias_intrpt);
-+	/* Use 255 AC Bias Pin Frequency by default */
-+	reg |= LCDC_AC_BIAS_FREQUENCY(255);
- 
- 	/*
- 	 * subtract one from hfp, hbp, hsw because the hardware uses
-@@ -392,20 +380,20 @@ static void tilcdc_crtc_set_mode(struct drm_crtc *crtc)
- 			return;
- 		}
- 	}
--	reg |= info->fdd << 12;
-+	/* Use 128 FIFO DMA Request Delay by default */
-+	reg |= 128 << 12;
- 	tilcdc_write(dev, LCDC_RASTER_CTRL_REG, reg);
- 
--	if (info->invert_pxl_clk)
-+	if (info->invert_pxl_clk ||
-+	    mode->flags == DRM_BUS_FLAG_PIXDATA_DRIVE_NEGEDGE)
-+
- 		tilcdc_set(dev, LCDC_RASTER_TIMING_2_REG, LCDC_INVERT_PIXEL_CLOCK);
- 	else
- 		tilcdc_clear(dev, LCDC_RASTER_TIMING_2_REG, LCDC_INVERT_PIXEL_CLOCK);
- 
--	if (info->sync_ctrl)
--		tilcdc_set(dev, LCDC_RASTER_TIMING_2_REG, LCDC_SYNC_CTRL);
--	else
--		tilcdc_clear(dev, LCDC_RASTER_TIMING_2_REG, LCDC_SYNC_CTRL);
+diff --git a/Documentation/devicetree/bindings/display/tilcdc/panel.txt b/Documentation/devicetree/bindings/display/tilcdc/panel.txt
+deleted file mode 100644
+index 808216310ea27..0000000000000
+--- a/Documentation/devicetree/bindings/display/tilcdc/panel.txt
++++ /dev/null
+@@ -1,66 +0,0 @@
+-Device-Tree bindings for tilcdc DRM generic panel output driver
 -
--	if (info->sync_edge)
-+	tilcdc_set(dev, LCDC_RASTER_TIMING_2_REG, LCDC_SYNC_CTRL);
-+	if (info->sync_edge ||
-+	    mode->flags == DRM_BUS_FLAG_SYNC_DRIVE_NEGEDGE)
- 		tilcdc_set(dev, LCDC_RASTER_TIMING_2_REG, LCDC_SYNC_EDGE);
- 	else
- 		tilcdc_clear(dev, LCDC_RASTER_TIMING_2_REG, LCDC_SYNC_EDGE);
-diff --git a/drivers/gpu/drm/tilcdc/tilcdc_drv.c b/drivers/gpu/drm/tilcdc/tilcdc_drv.c
-index 3dcbec312bacb..76eb336b5d4e7 100644
---- a/drivers/gpu/drm/tilcdc/tilcdc_drv.c
-+++ b/drivers/gpu/drm/tilcdc/tilcdc_drv.c
-@@ -309,6 +309,8 @@ static int tilcdc_init(const struct drm_driver *ddrv, struct device *dev)
- 
- 	DBG("Maximum Pixel Clock Value %dKHz", priv->max_pixelclock);
- 
-+	of_property_read_u32(node, "fifo-threshold", &priv->fifo_th);
-+
- 	ret = tilcdc_crtc_create(ddev);
- 	if (ret < 0) {
- 		dev_err(dev, "failed to create crtc\n");
-diff --git a/drivers/gpu/drm/tilcdc/tilcdc_drv.h b/drivers/gpu/drm/tilcdc/tilcdc_drv.h
-index 3aba3a1155ba0..79078b4ae7393 100644
---- a/drivers/gpu/drm/tilcdc/tilcdc_drv.h
-+++ b/drivers/gpu/drm/tilcdc/tilcdc_drv.h
-@@ -61,6 +61,8 @@ struct tilcdc_drm_private {
- 	 */
- 	uint32_t max_width;
- 
-+	u32 fifo_th;
-+
- 	/* Supported pixel formats */
- 	const uint32_t *pixelformats;
- 	uint32_t num_pixelformats;
+-Required properties:
+- - compatible: value should be "ti,tilcdc,panel".
+- - panel-info: configuration info to configure LCDC correctly for the panel
+-   - ac-bias: AC Bias Pin Frequency
+-   - ac-bias-intrpt: AC Bias Pin Transitions per Interrupt
+-   - dma-burst-sz: DMA burst size
+-   - bpp: Bits per pixel
+-   - fdd: FIFO DMA Request Delay
+-   - sync-edge: Horizontal and Vertical Sync Edge: 0=rising 1=falling
+-   - sync-ctrl: Horizontal and Vertical Sync: Control: 0=ignore
+-   - raster-order: Raster Data Order Select: 1=Most-to-least 0=Least-to-most
+-   - fifo-th: DMA FIFO threshold
+- - display-timings: typical videomode of lcd panel.  Multiple video modes
+-   can be listed if the panel supports multiple timings, but the 'native-mode'
+-   should be the preferred/default resolution.  Refer to
+-   Documentation/devicetree/bindings/display/panel/display-timing.txt for display
+-   timing binding details.
+-
+-Optional properties:
+-- backlight: phandle of the backlight device attached to the panel
+-- enable-gpios: GPIO pin to enable or disable the panel
+-
+-Recommended properties:
+- - pinctrl-names, pinctrl-0: the pincontrol settings to configure
+-   muxing properly for pins that connect to TFP410 device
+-
+-Example:
+-
+-	/* Settings for CDTech_S035Q01 / LCD3 cape: */
+-	lcd3 {
+-		compatible = "ti,tilcdc,panel";
+-		pinctrl-names = "default";
+-		pinctrl-0 = <&bone_lcd3_cape_lcd_pins>;
+-		backlight = <&backlight>;
+-		enable-gpios = <&gpio3 19 0>;
+-
+-		panel-info {
+-			ac-bias           = <255>;
+-			ac-bias-intrpt    = <0>;
+-			dma-burst-sz      = <16>;
+-			bpp               = <16>;
+-			fdd               = <0x80>;
+-			sync-edge         = <0>;
+-			sync-ctrl         = <1>;
+-			raster-order      = <0>;
+-			fifo-th           = <0>;
+-		};
+-		display-timings {
+-			native-mode = <&timing0>;
+-			timing0: 320x240 {
+-				hactive         = <320>;
+-				vactive         = <240>;
+-				hback-porch     = <21>;
+-				hfront-porch    = <58>;
+-				hsync-len       = <47>;
+-				vback-porch     = <11>;
+-				vfront-porch    = <23>;
+-				vsync-len       = <2>;
+-				clock-frequency = <8000000>;
+-				hsync-active    = <0>;
+-				vsync-active    = <0>;
+-			};
+-		};
+-	};
 
 -- 
 2.43.0
