@@ -4,146 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59951D10371
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 01:08:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7373D10371
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 01:10:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fRDkPuZHe2aNLg5QG6wZSH4NQ7XWtjiyMXSaT5CEdu4=; b=CVrYWbKebQcSUMJYEk8/MSTx+0
-	3QT5DaCxgesez79uee2dD2ZomEFKVTrzUu33rYA2aN/0PaFelzNFcVvNP3RaVgkwXK6AS1bOKnfUz
-	agxZWQuYMrdw1n2a+M24smrFxjn+RSWkbYtjdaVZ94PNYak8iTEGuwbJNdzXO8HoVnbng3/RXtRBo
-	usIrCSJOJJJCM3xRdzIRzZcw5H2dLAlpHMrRhjFVaneNKOSoQGFVkscKPrigGb37HBI0WiGlMynkB
-	aCoUemDZWLxYFeAc+2xhaMhICxAEMqzGgU6RbYYSBWno5n6p+zkEqHZdNTaQW4O6+YaR7jdacAk/P
-	3V8dlylA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4uKMid7mHBul9Q0TO4PibzdXQbMZDvFms1DpBKwMu7E=; b=oA9iEUMxI4wEwQHgWH3S6rEU6J
+	jmmKXAbTJqbWsdw2b1riOjBAqF/4mfUkZVOQLYStKUGofNsnFnWeybrzC5tfdJgu5wFwKkBkL08+Y
+	udiA+3kBMeLejhu4E698yGtwSrKM1hLlPAOg4ed+x1qEhhupJhWUkw3JrK9na7HFu8ONUHKj873jJ
+	mdteruLWZd+pluvZ10AFfZt34F7Ogo0Gmpg9bruML0m7GAzNkdpAWsvhWOOXAUJOMRBkbyx/cTs/q
+	TFkB+GVVr8PI25SbbSGoKEyynJcCUEzBYpcMFh9uV/VLb4EToezGEUDXmtXSsbWYTn9Jz7d1IWDSr
+	z2CvtjNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vO41B-0000000E9LG-2IVu;
-	Wed, 26 Nov 2025 01:08:25 +0000
-Received: from mail-westcentralusazlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c112::5] helo=CY7PR03CU001.outbound.protection.outlook.com)
+	id 1vO42o-0000000E9Vd-1sxZ;
+	Wed, 26 Nov 2025 01:10:06 +0000
+Received: from mail-pf1-x434.google.com ([2607:f8b0:4864:20::434])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vO418-0000000E9Kc-2ovC
+	id 1vO42m-0000000E9VE-1AU8
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Nov 2025 01:08:24 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=MWwx7M7dzKe2UkAEsGgYNAAJz56ZPNwYk8LRCDp8FX3wbGbKuvsPT8IByXXdMEx8R+1Ts9J3TDMsy5SBaAnzE1aJn3k1THVWAoWNpldSDt0pIkEzr8kli6/9/NC0Wyej3u60aHHna7hXAa3PQ0k1JJy0w9gPY7iBZTytXh/p6qPMfqpIDGvehuW+CKKK2fAmWTpAL5dhT3M91d9knx9BcifpACI5NqwcS8L1Q1XLOUo6X/Ebh4oTOT7I0ejBXUgyKOvW8ieIQGPt0vj93OlEP3sFGb+6ZYgxbtNfoTwA34WFF6ydTeFgJ5lEQ8Afvn58Zr187vStyJI+3EbWIuKgHw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=fRDkPuZHe2aNLg5QG6wZSH4NQ7XWtjiyMXSaT5CEdu4=;
- b=IJUxpMnK7osfKLMLAzqHRB0ahtCfggSiSMoEMnVoPlt6xVKHpdIvf8SP+beAFRbPNWZ9HWQkiyPgz2pldz9x99gAcHpEK5jSYThQ3oBOE+IzmD8JSdKpPvjg/JCG5ZQV7QtBJhjhORTKAf3BPistEjoUa726SWKXXdMSJi9u67FJMItgJ1AkbiZkK1DALDKDOlx+1FafAbc8blKdnhGwXGbjDOYi3Omn/Xh7e6GSh3BvB/1t9r/meDcn+dY6QMfnpKQtuXAA7ivmbIK3vtJ/dHscx4wxRHe4FEbmnTzzja7lICdu3mPuOLiWQzzg5VsgvnwOughc+cpr9XQiw70wkQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.160) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=fRDkPuZHe2aNLg5QG6wZSH4NQ7XWtjiyMXSaT5CEdu4=;
- b=d9O2ENulupTgOH06JKtfmk9W7HAnKhBCDBRnSl0VeHuWIWqqjfYVHTsB1jtjistgss6dHu0BEAzfuTOWNbRaS+YBOy8dm/fLtEe19Uo3FJp+Uny+tacaXDKzUYnMbIxQ7IVG3OKIWntJm9xRnBTlIeF/GOVdkmJHbNwcClDmzqHiMvEiP8BXJNAxwk4fHFwKPswRCEVhO+Eua+h/oiJJm4Xi8sdlBzIoAOKaTqX1TpmnwMcuTinO4QZ18ajEEUhV/KMF/sV6q3fB8DXmvU7y9SdBzqnZnF/J10qpRoMupfP8rxloCktUQkSDNxzMYtcv6CldWVQq1nHFT/JvzEc8HA==
-Received: from SA1P222CA0136.NAMP222.PROD.OUTLOOK.COM (2603:10b6:806:3c2::16)
- by LV8PR12MB9110.namprd12.prod.outlook.com (2603:10b6:408:18b::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9366.12; Wed, 26 Nov
- 2025 01:08:03 +0000
-Received: from SA2PEPF00003AE5.namprd02.prod.outlook.com
- (2603:10b6:806:3c2:cafe::34) by SA1P222CA0136.outlook.office365.com
- (2603:10b6:806:3c2::16) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9366.12 via Frontend Transport; Wed,
- 26 Nov 2025 01:08:03 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.160) by
- SA2PEPF00003AE5.mail.protection.outlook.com (10.167.248.5) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9366.7 via Frontend Transport; Wed, 26 Nov 2025 01:08:03 +0000
-Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
- (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 25 Nov
- 2025 17:07:50 -0800
-Received: from rnnvmail204.nvidia.com (10.129.68.6) by rnnvmail201.nvidia.com
- (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 25 Nov
- 2025 17:07:49 -0800
-Received: from Asurada-Nvidia (10.127.8.13) by mail.nvidia.com (10.129.68.6)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Tue, 25 Nov 2025 17:07:48 -0800
-Date: Tue, 25 Nov 2025 17:07:47 -0800
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-CC: Will Deacon <will@kernel.org>, <jean-philippe@linaro.org>,
-	<robin.murphy@arm.com>, <joro@8bytes.org>, <balbirs@nvidia.com>,
-	<miko.lenczewski@arm.com>, <peterz@infradead.org>, <kevin.tian@intel.com>,
-	<praan@google.com>, <linux-arm-kernel@lists.infradead.org>,
-	<iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v5 3/7] iommu/arm-smmu-v3: Introduce a per-domain
- arm_smmu_invs array
-Message-ID: <aSZS44uOqo1c8L2S@Asurada-Nvidia>
-References: <cover.1762588839.git.nicolinc@nvidia.com>
- <eea7bffde13574e099212e3b3823a0f192d6aec3.1762588839.git.nicolinc@nvidia.com>
- <aSTRRyTBh1nATwBa@willie-the-truck>
- <aSTfC5WFoa6sJlBj@Asurada-Nvidia>
- <20251124230333.GM153257@nvidia.com>
+	Wed, 26 Nov 2025 01:10:05 +0000
+Received: by mail-pf1-x434.google.com with SMTP id d2e1a72fcca58-7ade456b6abso4977066b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Nov 2025 17:10:04 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1764119403; x=1764724203; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=4uKMid7mHBul9Q0TO4PibzdXQbMZDvFms1DpBKwMu7E=;
+        b=aI0h6fmDGjQIVLh0OR1KYYnZdW1mszaWSZv7o0Q6f7EJbwCv2gYDUrdEJSuJpa0hNf
+         qfEWy+pRrs9VEP/nxVtldY4nVG4hiCsWbvOqe3+DHC1IqZRkg5qhWq+4XYsMVvKqueru
+         EWKxXpTXtM6RmXir1VlQLIt/kspSMnHgL7Q9z1ps1iqFo5ru8k8UDOLs+iIinc+fFVt8
+         jGrmojQQu+TJuqnlyETO6qi3Gpi+HT2xPg69Aygs3I3pjqZOgA0t3f2dPnPnCPwSvodC
+         SYkQCgVGRv7CGijeO7HrsIVb9RaBJjC2jl9bUZ/VJYw2LuEHfjV3bG9MZMZy88XqY6V3
+         vFYg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1764119403; x=1764724203;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=4uKMid7mHBul9Q0TO4PibzdXQbMZDvFms1DpBKwMu7E=;
+        b=NnJ1tQU5Da3t8eZPul3xhQUdaUEBt1kifYG3feBtOerXS2g0kxrX+7kDfio3Anmm0c
+         3nYNFSy0NY55Upw0DPloMeKmv5EbRj3NYyrAFQk58G4w1w4RgKPJ0ii5UpnLBcvxZX7L
+         PVoY0gnElKWRK3VYNht3hqxMgzk9P/eioNIea1B+9ecafb5h6qicSIDoXQ2WJ8LwJere
+         jB2ubcYIBuRwOVE1hPvoFDznRTh+SOeAKjVA79zinNdIJGYLHKkydf5xhtVzQ95AnGY1
+         8UB+0vOQaVVdbtfZn/kEqZMYfcqXvix3/AbeUQ5QyqPSzwCs5eHISe+V+2X0h6j3xg+Z
+         ZF+w==
+X-Forwarded-Encrypted: i=1; AJvYcCV7bQKS+3NdnjVfhZuol3a+eIPVW+meBhyWY8KnGUC0H6QtUzCv1ZYpTQYkflA/5zEB7i9hxSFsEY4gq21XNUOd@lists.infradead.org
+X-Gm-Message-State: AOJu0YybUMrQBGGxhEW8EEDz9uYQM67KPI/IkDaK7xkEja3FEsPTsAV5
+	2o1L9iBh+aveGEg64+QgxCe7XMIzmVONQJJz4IYvOH2PKPZpx+eTdRMOtpYaMtHjoA==
+X-Gm-Gg: ASbGncuSKaYIOnXJmbRq9MRm+MODKV2lbiUG4ptdi+TFa4cWGiiwDhWSjnjrxX76y+c
+	jfdK+0OH+frrBSCHZls62+TK91IYbldzSiltnC3XQ9Nnv64wBi5lFfXy+Z0hCxrqOtSp6tHaFPR
+	3Vi63PlDdxuE/gDwNWj6WO3aKXWLydpByDzoSBCHQeCXJWVfVv07K17F8Qd4FUCQqr5QclvtISC
+	l2oeJG+3rmyu5DN+G7kjd7hEJhmIIRIu5DZA38z/5F0LTCb3QjLilZOx74O8OIWDmlLgRGBRnUh
+	eFJIg+0HpD7umTi9MbCisnFJicFyqy/2b9lbcmKWxfQxpmG2v/hYAUlBVV1W73b6aSYZRGp8zIW
+	zT3UExrVKmd1FdntzuBzBGuIbpnHvPYnZtaomg7wQe3mFFNkmjLjaCbv0etC6kzJmz5c6fI3yy5
+	+M2pMPw1jDhJKuhpQKWMyC8xcODAnYJWPQpjQ/KNW14yicEgNgYiDKAodHPJS3k6frWpR7uVcp5
+	GX6r+THg8DxrQ==
+X-Google-Smtp-Source: AGHT+IFsz/ljJrcpzA2pBF+IG/pUKgJQ17kleGBABcAzWrEfAKNQP91IPN/fvXc4LjZFpbtSbbWOBg==
+X-Received: by 2002:a05:7022:ec16:b0:119:e56b:91da with SMTP id a92af1059eb24-11c9d811990mr11140572c88.11.1764119402831;
+        Tue, 25 Nov 2025 17:10:02 -0800 (PST)
+Received: from ?IPV6:2a00:79e0:2e7c:8:c98d:9e96:d0be:bc30? ([2a00:79e0:2e7c:8:c98d:9e96:d0be:bc30])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-11cc631c236sm17216416c88.7.2025.11.25.17.10.01
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 25 Nov 2025 17:10:02 -0800 (PST)
+Message-ID: <aa7bdeb1-c8a9-4353-af56-869f16a083c2@google.com>
+Date: Tue, 25 Nov 2025 17:10:01 -0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20251124230333.GM153257@nvidia.com>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SA2PEPF00003AE5:EE_|LV8PR12MB9110:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0b6f47db-8ee6-47bb-299d-08de2c88400b
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|82310400026|376014|7416014|1800799024;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?6JGVWSbgmSp6N2NuxolFCkCa34ywBTOwo2qAlwVeR+49KzWVmI5ao8E0Ltkd?=
- =?us-ascii?Q?dTXauswyRLYtfQEF1UYCZ2gMJlNS5UD5XiIQA9C/THXa9S6GgVF/ar8q/5z6?=
- =?us-ascii?Q?FrLnGt4afu/Jk86QN9zgnVax8Ctze8KeioJVS+gz+T8Rp7OvyASp+ayezmYV?=
- =?us-ascii?Q?Eb2IHTZ9Y9O5CSfpuam4xSH8xhXW7eyTdJTQS8TwS11JP82/G5Hd4/cApx8Y?=
- =?us-ascii?Q?Q35RZd6fE2cYVu5Ary7JLnZz84tJdKQyB0HXi+4QHXzYrE4xyGTBFVthXqF3?=
- =?us-ascii?Q?m+cajEfqQVbEy1mTa2ygEojuEwECi/4FHfkAr3t3+tthwI4cQyj4iVGC2Xcl?=
- =?us-ascii?Q?vulKg38XbI4j7n2OxxQ9hp5agwVFUJfP1y7qEWhcGWAJHw2duYYUYmEUouWm?=
- =?us-ascii?Q?Hzxas79TjcFTrXEKTbKE9h2pGWZYXf8b7Df7t4XHkYLSpQAaMCNKvPvzvqpX?=
- =?us-ascii?Q?LoRdQQ2qIRbj7QNU+MF0mUXnXkSJACWK2IBCjHFWbof+Qm2B1IJcNen3eHAp?=
- =?us-ascii?Q?kCOCE2qEsPYqcoBKPIBOerPaNkP7Pfm/nruNdkDAFjSF0bx+Fk+0pup1GwtZ?=
- =?us-ascii?Q?1F92QylTLHddnKLYZUGm41/Hvx+jM2hgK5BaPddHxtJpIGuegiDxJjFPUI7R?=
- =?us-ascii?Q?w4n8QYkgdZ39oXhPrf7X05xFUYHa1/m/9fTUq6e5vRs5V6jmkbDkoVt/c9rC?=
- =?us-ascii?Q?IHQ/MEY1eT8NWudgIUMQvuPagEPu/pRsD5cGNNo9iKRYyLNvd68CqvfLRl1/?=
- =?us-ascii?Q?CTLyXyx+iZ+YbzXmy81SEtFnqeMYLESjUKo6fO+LP7HceaMFv7QXrOBrhCTP?=
- =?us-ascii?Q?yqljp/gp6MHgcIFq+975fQ90A9pxNWgHgDxx/oH6jpZyrAN90gh3ZcYzXSYB?=
- =?us-ascii?Q?u6cN+brgK5zdbP5xmQhRx8J2lxU43btLywqpe+CqhRits3Uq28cJmcb7AnQZ?=
- =?us-ascii?Q?/t1RiMc2h+zBOjMr7ElZM9u2KOcLrZ1YdpF6XhSgedpSqkKxpzIOdLYOl7Kp?=
- =?us-ascii?Q?o9FNITtWbeAs7gWaSqOBhmRBDGixIt/CJX64wsIhJVlrUvBca7dmGdRR18Oa?=
- =?us-ascii?Q?A/tbDKNcxNSjt8WjSbGHGB/PmMONYp9sGRAz24AetosyKVJZ9ZC8Fl4w79hh?=
- =?us-ascii?Q?/mGPD896ODZU/57C0RY1PY6nEl2HCrx/nIPUtqyjBRKOPzzSB0fqUnto+I7I?=
- =?us-ascii?Q?6/jRSwsXTTqC/Ro+ZSBidT032nIpoRR1P0bRA/yn0rW6g4xzU/e+/ozSHFfH?=
- =?us-ascii?Q?Tn2Z1fHl81M1+3D3kq4XGMUFshKidmBkZ8Mix6/YSxD2rIkZbIIWNaot+o2F?=
- =?us-ascii?Q?FmPRX9rhe/UcNanCBPCASdVDcD+AHuG77T2TVA3BLS+eshES6AJakZDtabEo?=
- =?us-ascii?Q?5SbQkfiEBgodaBhJ2QPf2APTUOF+0HftWNDyqdwAjzsGsOR4912lwabhDzxx?=
- =?us-ascii?Q?+Alc7lJdXSzvC0ZD9PRnsB8MNFNIKuGbIQK1HDjrO0PCXgAYr0NxSmVR+rw1?=
- =?us-ascii?Q?J9xXJ82fqKe3sxb8KRcoVq7kKVbSKMttLBW0On3yIdDNvIzE1a/iWhy21ypn?=
- =?us-ascii?Q?Qq/T2stiE3N6A8d3xoU=3D?=
-X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(36860700013)(82310400026)(376014)(7416014)(1800799024);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Nov 2025 01:08:03.3349
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0b6f47db-8ee6-47bb-299d-08de2c88400b
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: SA2PEPF00003AE5.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV8PR12MB9110
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 4/6] mfd: max77759: modify irq configs
+To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
+ Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Lee Jones <lee@kernel.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Badhri Jagan Sridharan <badhri@google.com>,
+ Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+ Peter Griffin <peter.griffin@linaro.org>,
+ Tudor Ambarus <tudor.ambarus@linaro.org>,
+ Alim Akhtar <alim.akhtar@samsung.com>
+Cc: linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-usb@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+ RD Babiera <rdbabiera@google.com>, Kyle Tso <kyletso@google.com>
+References: <20251123-max77759-charger-v1-0-6b2e4b8f7f54@google.com>
+ <20251123-max77759-charger-v1-4-6b2e4b8f7f54@google.com>
+ <5c901a6c831775a04924880cc9f783814f75b6aa.camel@linaro.org>
+Content-Language: en-US
+From: Amit Sunil Dhamne <amitsd@google.com>
+In-Reply-To: <5c901a6c831775a04924880cc9f783814f75b6aa.camel@linaro.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251125_170822_735824_C7DD5447 
-X-CRM114-Status: GOOD (  22.30  )
+X-CRM114-CacheID: sfid-20251125_171004_329065_9E43B071 
+X-CRM114-Status: GOOD (  33.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,39 +116,159 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 24, 2025 at 07:03:33PM -0400, Jason Gunthorpe wrote:
-> On Mon, Nov 24, 2025 at 02:41:15PM -0800, Nicolin Chen wrote:
-> > On Mon, Nov 24, 2025 at 09:42:31PM +0000, Will Deacon wrote:
-> > > On Sat, Nov 08, 2025 at 12:08:04AM -0800, Nicolin Chen wrote:
-> > 
-> > > > +EXPORT_SYMBOL_IF_KUNIT(arm_smmu_invs_merge);
-> > > 
-> > > There's nothing really SMMU-specific about this data structure manipulation.
-> > > Do you think we can abstract the invalidation array concept into a library
-> > > which other IOMMU drivers could use too?
-> > 
-> > Yea, I am trying to shift to that at this moment, hopefully to
-> > combine the iotlb tag (asid/vmid) allocation as well. We do see
-> > it could be quite useful in AMD driver already.
-> 
-> I do want to see this, but also without doing work on the other
-> drivers to integrate something it will be hard to design.
-> 
-> My preference is to get the basic system agreed here in ARM and then
-> move to a generalization. There is quite a bit of work needed in the
-> other drivers before they could use it - which makes me worry it might
-> never happen anyhow. riscv is probably the closest, followed by intel.
+Hi André,
 
-OK. I'm sending a v6, keeping it as-is. I think this itself could
-be merged as an introductory series, so long as Will is okay with
-it.
+On 11/23/25 10:21 PM, André Draszik wrote:
+> Hi Amit,
+>
+> Thanks for your patches to enable the charger!
 
-Meanwhile, I will spare a bit more time to organize the ASID/VMID
-allocation (part-2) to hopefully integrate into the array helpers
-that will be required to share a nesting parent domain.
+Ack!
 
-After that, we may think of shifting it to a core library.
 
-Thanks
-Nicolin
+>> From: Amit Sunil Dhamne <amitsd@google.com>
+>>
+>> Define specific bit-level masks for charger's registers and modify the
+>> irq mask for charger irq_chip. Also, configure the max77759 interrupt
+>> lines as active low to all interrupt registrations to ensure the
+>> interrupt controllers are configured with the correct trigger type.
+>>
+>> Signed-off-by: Amit Sunil Dhamne <amitsd@google.com>
+>> ---
+>>   drivers/mfd/max77759.c       | 24 +++++++++++++++++-------
+>>   include/linux/mfd/max77759.h |  9 +++++++++
+>>   2 files changed, 26 insertions(+), 7 deletions(-)
+>>
+>> diff --git a/drivers/mfd/max77759.c b/drivers/mfd/max77759.c
+>> index 6cf6306c4a3b..5fe22884f362 100644
+>> --- a/drivers/mfd/max77759.c
+>> +++ b/drivers/mfd/max77759.c
+>> @@ -256,8 +256,17 @@ static const struct regmap_irq max77759_topsys_irqs[] = {
+>>   };
+>>   
+>>   static const struct regmap_irq max77759_chgr_irqs[] = {
+>> -	REGMAP_IRQ_REG(MAX77759_CHARGER_INT_1, 0, GENMASK(7, 0)),
+>> -	REGMAP_IRQ_REG(MAX77759_CHARGER_INT_2, 1, GENMASK(7, 0)),
+>> +	REGMAP_IRQ_REG(MAX77759_CHARGER_INT_1, 0,
+>> +		       MAX77759_CHGR_REG_CHG_INT_AICL |
+>> +		       MAX77759_CHGR_REG_CHG_INT_CHGIN |
+>> +		       MAX77759_CHGR_REG_CHG_INT_CHG |
+>> +		       MAX77759_CHGR_REG_CHG_INT_INLIM),
+>> +	REGMAP_IRQ_REG(MAX77759_CHARGER_INT_2, 1,
+>> +		       MAX77759_CHGR_REG_CHG_INT2_BAT_OILO |
+>> +		       MAX77759_CHGR_REG_CHG_INT2_CHG_STA_CC |
+>> +		       MAX77759_CHGR_REG_CHG_INT2_CHG_STA_CV |
+>> +		       MAX77759_CHGR_REG_CHG_INT2_CHG_STA_TO |
+>> +		       MAX77759_CHGR_REG_CHG_INT2_CHG_STA_DONE),
+>>   };
+>>   
+>>   static const struct regmap_irq_chip max77759_pmic_irq_chip = {
+>> @@ -486,8 +495,8 @@ static int max77759_add_chained_irq_chip(struct device *dev,
+>>   				     "failed to get parent vIRQ(%d) for chip %s\n",
+>>   				     pirq, chip->name);
+>>   
+>> -	ret = devm_regmap_add_irq_chip(dev, regmap, irq,
+>> -				       IRQF_ONESHOT | IRQF_SHARED, 0, chip,
+>> +	ret = devm_regmap_add_irq_chip(dev, regmap, irq, IRQF_ONESHOT |
+>> +				       IRQF_SHARED | IRQF_TRIGGER_LOW, 0, chip,
+>>   				       data);
+> Please correct me if I'm wrong, but I don't think this makes sense for a
+> chained IRQ in this case. What problem does this change fix?
+
+While this patch was meant only for modifying the interrupt mask, I 
+added this for consistency because the main SoC -> PMIC line is active 
+low. However, I agree it is not strictly necessary here. I will drop it 
+in the next revision.
+
+
+>
+>>   	if (ret)
+>>   		return dev_err_probe(dev, ret, "failed to add %s IRQ chip\n",
+>> @@ -519,8 +528,9 @@ static int max77759_add_chained_maxq(struct i2c_client *client,
+>>   
+>>   	ret = devm_request_threaded_irq(&client->dev, apcmdres_irq,
+>>   					NULL, apcmdres_irq_handler,
+>> -					IRQF_ONESHOT | IRQF_SHARED,
+>> -					dev_name(&client->dev), max77759);
+>> +					IRQF_ONESHOT | IRQF_SHARED |
+>> +					IRQF_TRIGGER_LOW, dev_name(&client->dev),
+>> +					max77759);
+> dito.
+
+Agreed, will drop.
+
+
+>
+>>   	if (ret)
+>>   		return dev_err_probe(&client->dev, ret,
+>>   				     "MAX77759_MAXQ_INT_APCMDRESI failed\n");
+>> @@ -633,7 +643,7 @@ static int max77759_probe(struct i2c_client *client)
+>>   		return dev_err_probe(&client->dev, -EINVAL,
+>>   				     "invalid IRQ: %d\n", client->irq);
+>>   
+>> -	irq_flags = IRQF_ONESHOT | IRQF_SHARED;
+>> +	irq_flags = IRQF_ONESHOT | IRQF_SHARED | IRQF_TRIGGER_LOW;
+> I don't believe IRQF_TRIGGER_LOW should be added here, as this is board-specific.
+> The polarity is meant to be set via DT (and the only current user of this driver
+> does so).
+
+You are correct. Since I am already retrieving the trigger type from DT 
+via irqd_get_trigger_type() below, I will drop this change.
+
+
+>>   	irq_flags |= irqd_get_trigger_type(irq_data);
+> That's what gets us the config from DT.
+>
+>>   
+>>   	ret = devm_regmap_add_irq_chip(&client->dev, max77759->regmap_top,
+>> diff --git a/include/linux/mfd/max77759.h b/include/linux/mfd/max77759.h
+>> index c6face34e385..0ef29a48deec 100644
+>> --- a/include/linux/mfd/max77759.h
+>> +++ b/include/linux/mfd/max77759.h
+>> @@ -62,7 +62,16 @@
+>>   #define MAX77759_CHGR_REG_CHG_INT               0xb0
+>>   #define MAX77759_CHGR_REG_CHG_INT2              0xb1
+>>   #define MAX77759_CHGR_REG_CHG_INT_MASK          0xb2
+>> +#define MAX77759_CHGR_REG_CHG_INT_AICL          BIT(7)
+>> +#define MAX77759_CHGR_REG_CHG_INT_CHGIN         BIT(6)
+>> +#define MAX77759_CHGR_REG_CHG_INT_CHG           BIT(4)
+>> +#define MAX77759_CHGR_REG_CHG_INT_INLIM         BIT(2)
+>>   #define MAX77759_CHGR_REG_CHG_INT2_MASK         0xb3
+>> +#define MAX77759_CHGR_REG_CHG_INT2_BAT_OILO     BIT(4)
+>> +#define MAX77759_CHGR_REG_CHG_INT2_CHG_STA_CC   BIT(3)
+>> +#define MAX77759_CHGR_REG_CHG_INT2_CHG_STA_CV   BIT(2)
+>> +#define MAX77759_CHGR_REG_CHG_INT2_CHG_STA_TO   BIT(1)
+>> +#define MAX77759_CHGR_REG_CHG_INT2_CHG_STA_DONE BIT(0)
+> Even if wireless out of scope, it'd still be nice to add macros for
+> the remaining bits to make this complete and avoid having to update
+> these again in case wireless support gets added in the future.
+
+I would prefer to only define the macros I am currently using to keep 
+the review focused, unless you consider this a strict requirement.
+
+
+>
+> Also, would be nice to keep existing style and indent the bits from
+> the registers (see existing bit definitions in this file a few lines
+> further up).
+> Finally, can you add the bits below the respective register (0xb0 / 0xb1)
+> please, to keep suffix meaningful, and to follow existing style for cases
+> like this (see MAX77759_MAXQ_REG_UIC_INT1).
+
+I will fix the indentation and ordering in the next revision.
+
+Regarding bit definitions: In [PATCH 5/6], the max77759_charger.c driver 
+defines bits for the register addresses defined in this file. Currently, 
+those macros are only used locally by the max77759 charger driver. Would 
+you prefer I move those definitions to this header file as well?
+
+BR,
+
+Amit
+
+
+>
+>
+> Cheers,
+> Andre'
 
