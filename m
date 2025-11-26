@@ -4,99 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A506ED10F5F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 14:54:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EC8ED10F58
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 14:55:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=j5e6BAzVHQo/JQ0cSQqz1ZzKrk4PTlqrgNjLAIGVOFo=; b=36SGzrJypHfhgHMYOvUCh4v/dG
-	ujhCudFZgH01EG0ORT5qBJfwZawMTBtgu2z4fUjLPUgtC8sf1Vl6JL0Q/Erru3YuSX+ZHBFUu29d7
-	iwJQ2cJS33FWkKampjfXmj9+VcQFblWuFsgcUD/kbvfl3EcwI+htXATvil7VP3Itfo/BBwec84I7r
-	onrIGXxxDua76Ow+QbkW6vqdFZh4ACvMqIx1tajZRzvaXqtxGphHZFpzXQrXiOf5/XY64k6ZQ4sYW
-	WdLgo47kvwpWiDrYt0CTtr+jXI1anesr8h4UHo1N3QjgZ8on9GNk/hcM+3KYSj77+pyiKrIIc5x4K
-	hAfybKoA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gMAlKyQZ4W1o56NI0K8gYAmxYW1legwujSD4ppPGA7A=; b=SIuyAAbH13iy7Img6f36QfDCD0
+	Pak/aivfBIn2oPo55yvf1qLKkVnCt4oqiqRoyDW46uCQITPE6ruNzewtFLVHFULdudhTjBkKQ7np2
+	fQOQZNHRaXHrAYp8xw8klJasUOmxNgDe9sPMbwSqHnCfNRJyzvT9UoLWsqkzKH0yegcEBXwApPPxI
+	R+vMX41hP+Y2FEXVHkKMwgYcNQCT2zjAzm3K5jcrLywZYYCVY9BqxiLuCWFof1eol4JDX16ADpOND
+	H4EwYXCGGrPuhEDLC6/5/4RK3Ogt/581gYBipHYPeLhS2WihD2pcmAuOH1Cxpv4ePUveLEd1a87l+
+	beUC4jFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOGuZ-0000000F8yk-3Qmk;
-	Wed, 26 Nov 2025 14:54:28 +0000
-Received: from mail-lf1-x134.google.com ([2a00:1450:4864:20::134])
+	id 1vOGvF-0000000F96R-3l7R;
+	Wed, 26 Nov 2025 14:55:09 +0000
+Received: from mail-pf1-x42b.google.com ([2607:f8b0:4864:20::42b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOGuX-0000000F8y7-3X0z
+	id 1vOGvB-0000000F95P-02Aa
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Nov 2025 14:54:27 +0000
-Received: by mail-lf1-x134.google.com with SMTP id 2adb3069b0e04-5957e017378so7100143e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Nov 2025 06:54:25 -0800 (PST)
+	Wed, 26 Nov 2025 14:55:07 +0000
+Received: by mail-pf1-x42b.google.com with SMTP id d2e1a72fcca58-7aae5f2633dso7876859b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Nov 2025 06:55:03 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1764168864; x=1764773664; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=j5e6BAzVHQo/JQ0cSQqz1ZzKrk4PTlqrgNjLAIGVOFo=;
-        b=cyYZ6z1S+7f4re8GJGjHjGQ68MHjdP9Wxqdy4srf792Rnrad1kMbUR6BJ2o5uBacdF
-         ns+1fMbd9nBmT5Kn/Jtn70bVYQmXjWhLW7njdg+rEtEZEkL3LcMO53FBFuGUXECIJ7Nk
-         6yRtm+l6ctysnhRWlHiN1uYy9y9zbA9sKN3vLWgHDo4HfdUark3Nl6tRp1/wbx6R4yoj
-         bovFY5qx7GvUroLsDZw2vhgQu4hJ6tyXR7SIu+VTmnAVduqZmCRVuv+jAAuxOuwU4YAs
-         CI/nsC/ma+zaUNt4Z5QINqIEhtsmdTWET+lo8pa6YB8cXQCXtiVxpRDowO/hwGfDF0Qn
-         FGmA==
+        d=google.com; s=20230601; t=1764168903; x=1764773703; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=gMAlKyQZ4W1o56NI0K8gYAmxYW1legwujSD4ppPGA7A=;
+        b=p6cyiFrAMgz8oUGvdCuuBPkB+iMTDS3Dv0J1gy2ei0MBjuOGV2H/UrSCOxFE0xMJrR
+         77aajN2hUFVppnXUkNNMVaZb2NQxzp0tGIDzGaHs5K2d+QhPahtSpuphwrjqxuHwLTw8
+         UGpl/WE+x4yV7UoHAd5k/8iyMKXhYIjik7R2nA6wzaW55FCbW+LCaoXpE1EaekaCOy9B
+         2wqs7PQDS92b/SkaOq0z3hvarFLy3vMicuLpGJT4F7+SrZhcDBmAfSHKPLP5Re+g4GvK
+         MFczr5z1Erw4jituMs36Fhmc0lfGQAqI4xt93x5YLBrH+gZwNKbrD0jErArsXT1Tc/4z
+         xjcA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764168864; x=1764773664;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=j5e6BAzVHQo/JQ0cSQqz1ZzKrk4PTlqrgNjLAIGVOFo=;
-        b=NskzTfEpmy4LFab/wOGSt7u4cupGmWyFhFlBwmURX7c/OsUrh4fdISuGB/p1N9wqPc
-         zDQN4A3rZGcacXwJXWqD7Y2q+ePbgCQWZ6QcdUxRRN0ulAXEMLISHMRc3n+DuY+8Zxdd
-         uFTg5926t3h+7cOuyf+1Xpjw8jtNO6zfQbocee8SGw5xPFfhNL+fk7NmCR4jmfoKqpBN
-         +HCeY9dz+S2KQAifE720MTuYRjFwJde3us49nekpxrvo80pcbwCxzUNbC5n6pJKB1sT5
-         OcuiVg1/xlv4uXwsZJDsd7UY0Sl0bUixYjtryApBwcCJmcit9x8Z30Eapw2UgGGuo59T
-         LUbw==
-X-Forwarded-Encrypted: i=1; AJvYcCX7TI56D0Sj4ktYHKcvuBCGpehrRa4vWN0riMzHeaFzVpz9IIdjo2z/Hdtjp8gQ/h4emfbjJ6T7HS3cUlj7i9iy@lists.infradead.org
-X-Gm-Message-State: AOJu0YzVWs+UVilZuxZFL8EsSINru1GrJ/6OxESBkIn9HM0luxwhjkHo
-	zNtpeju1CZymxf7X6kGXDm1ZUooGK2iRWl9u+43IMO6/hkWztG5EhN53Tf8l+XUgAVsH1qjEZT+
-	5b6Jf9c/pTAJlft8f5kAFGnaB0jQ5eHlOxq2FzfeFlQ==
-X-Gm-Gg: ASbGnctHs3r6Kaw9QqKSfsoDMnv3EOnRI1sLP/LqJK4EreQ0+0emRLJlfY24hmJqyjO
-	9wkzYN48M8b/PDwgp18alh5tsM3NW8iebLbuy/PkQ9imqwZuDvmR0/Lc6yhbQ+GMXMIYg0VrPS5
-	ICRNSoCKcI43P1syt77Xk6WtotGOLz6vGluc/Dj7fkgMD49uTzKftkjvzuJJoy/cV2mnz1Xx3TP
-	uMxqM+vz09bQg1WGbI9eOrWp36zy2f5jwggstJB0vl5SIY9tfHMWhzTVfOR02e2P3OxV24yEYex
-	kSaZ3QkhzRkrXYqjr/bd9oeF42C0IgqRa8WiFQ==
-X-Google-Smtp-Source: AGHT+IEuBoP7FLJ7RKfybPU4wnzQPfOfSBPELfecZJf498k1Kqq4aLbclQ82Xa0VbYulJKemI9mt9GiaCUGy6s0Qdlc=
-X-Received: by 2002:a05:6512:3188:b0:595:9d90:5dc6 with SMTP id
- 2adb3069b0e04-596a3ecd4d0mr7181931e87.19.1764168863690; Wed, 26 Nov 2025
- 06:54:23 -0800 (PST)
+        d=1e100.net; s=20230601; t=1764168903; x=1764773703;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=gMAlKyQZ4W1o56NI0K8gYAmxYW1legwujSD4ppPGA7A=;
+        b=M3QVtjP2/Zd4hYt1gx57l4FkxOUOZtsivef5RUXuAaFcBEU0AqlWMkGkJ5n+CPSTBp
+         vz6p826fsbPaE6E95Cm35NCysRcn9tT2Eb/v5oabXaeWyVGYepjZX+zR9M74fx5FdA1b
+         8BiccLZsp1npBg2Ps4W9vVKcnjlNY2GCd3svVtp3L34c2T3np3fwLL3ik2LSQhgBYeba
+         2CjUcK6BJhMNt+QbSkDVlXahWCUw8fmd+lgrwrxjKkd86+WDoEtUop4Urpbn207G2chg
+         R8298oy9Rzw0kqERAOUywJQ6gpaSwUADac1gzs01g1yLNLPw5NpWGdsG8kN8eWb0qek/
+         MM5w==
+X-Forwarded-Encrypted: i=1; AJvYcCV58MZn1ShDlNUrxvi+bBD+h7Bc8ZVbL9ZKno4rpXa+XMoKOGj/zjK/5q1yGp9afTUidQuU3sRm+St1rzvHGNi/@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz2DIRt/mDSGBA2rUYzK80SuKhVrROm54wRqyizRiQK+Ggk7J+z
+	6VhKKgz5spkuCna60SFQvuBNAZnhnTlrITuhEDYcZGEM6AvKhOv/J0vVyr35t7vkJEn2FiDY7eE
+	MI4+nJLl9Yai8khKehaLlW9PIQ7Sxjid/YQWWW39V
+X-Gm-Gg: ASbGncsUDs9OqBx8/MozuMc6iNXaD2DbHNqlrxibDiYrHZkjbJb4T12MBA1/oRjOZmv
+	M6VdH7vehNYYHXGpgCy7lU5Chtrpdh7kbJZK4sdUyPk/gFt6cMAWb2AuPzYoyrJfFWQf5mXDAuG
+	HcNQ3Hj6myr4WyC28ei19gvtnu7nexjCRlpSqq91RNYj7OReyEWxbvx/hsbPJTeR2eWc+bUZy57
+	UtdpdZpawRXPUhtCJDicLNpflrcIfg6fBd6Jc7gurNYQ4YPC8TPrSCi6Fp4GPzq8i31uKTkOTl9
+	yW9POHgRmfU26ozS4RccycEEAIk=
+X-Google-Smtp-Source: AGHT+IHBzLs9oB17QaQDXDcDSkt3GF6reTzmdGSXuSykjIbrozIhYaExrIXyN9YI1bM4Cxw+CXR/CG3RNk2OXQwp9cE=
+X-Received: by 2002:a05:7022:690:b0:119:e569:fbb5 with SMTP id
+ a92af1059eb24-11c9d864eebmr14056160c88.36.1764168902698; Wed, 26 Nov 2025
+ 06:55:02 -0800 (PST)
 MIME-Version: 1.0
-References: <20251112-gpio-shared-v4-0-b51f97b1abd8@linaro.org>
- <20251112-gpio-shared-v4-7-b51f97b1abd8@linaro.org> <0829a21c-f97d-41b6-90bc-2acaec42caab@nvidia.com>
- <CAMRc=MdPvF+okfnRuwvAFG9UfyZ-araDsaaKMxKASEbc3rhyjQ@mail.gmail.com> <705186a9-a9db-46f0-bf2b-b499def050dd@nvidia.com>
-In-Reply-To: <705186a9-a9db-46f0-bf2b-b499def050dd@nvidia.com>
-From: Bartosz Golaszewski <brgl@bgdev.pl>
-Date: Wed, 26 Nov 2025 15:54:12 +0100
-X-Gm-Features: AWmQ_bntaAt919-HW3rKjIZ6zdRdh3lB3VLls8nYAX3XHQRBb1qUUSQSnMgYz4w
-Message-ID: <CAMRc=MdQ8QgbdAd2sudZLgcDZu9DxBRJh5sfLeXwcTDEE0F7Uw@mail.gmail.com>
-Subject: Re: [PATCH v4 07/10] arm64: select HAVE_SHARED_GPIOS for ARCH_QCOM
-To: Jon Hunter <jonathanh@nvidia.com>
-Cc: Kees Cook <kees@kernel.org>, Mika Westerberg <westeri@kernel.org>, 
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>, Andrew Morton <akpm@linux-foundation.org>, 
-	Linus Walleij <linus.walleij@linaro.org>, Manivannan Sadhasivam <mani@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Saravana Kannan <saravanak@google.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Andy Shevchenko <andy@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Srinivas Kandagatla <srini@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
-	Alexey Klimov <alexey.klimov@linaro.org>, Bjorn Andersson <andersson@kernel.org>, 
-	Konrad Dybcio <konradybcio@kernel.org>, linux-hardening@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-sound@vger.kernel.org, 
-	linux-arm-msm@vger.kernel.org, 
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>, 
-	"linux-tegra@vger.kernel.org" <linux-tegra@vger.kernel.org>
+References: <sqwajvt7utnt463tzxgwu2yctyn5m6bjwrslsnupfexeml6hkd@v6sqmpbu3vvu> <k4awh5dgzdd3dp3wmyl3z3a7w6nhoo6pszgeflbnbtdyxz47yd@ir5cgbvypdct>
+In-Reply-To: <k4awh5dgzdd3dp3wmyl3z3a7w6nhoo6pszgeflbnbtdyxz47yd@ir5cgbvypdct>
+From: Marco Elver <elver@google.com>
+Date: Wed, 26 Nov 2025 15:54:26 +0100
+X-Gm-Features: AWmQ_bkdcQGpEywajea9M9MaObnxb3B6H0v13jPKgL3UpjH7060tA1EcV-cDw3g
+Message-ID: <CANpmjNOsSmKUxrLxTWYMD3RKnzSw5dfM=7QNJ02GMFG7BMeOGA@mail.gmail.com>
+Subject: Re: CSD lockup during kexec due to unbounded busy-wait in
+ pl011_console_write_atomic (arm64)
+To: Breno Leitao <leitao@debian.org>
+Cc: glider@google.com, dvyukov@google.com, usamaarif642@gmail.com, 
+	leo.yan@arm.com, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, kernel-team@meta.com, rmikey@meta.com, 
+	john.ogness@linutronix.de, pmladek@suse.com, linux@armlinux.org.uk, 
+	paulmck@kernel.org, kasan-dev@googlegroups.com
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251126_065425_917037_B0F8AA65 
-X-CRM114-Status: GOOD (  24.19  )
+X-CRM114-CacheID: sfid-20251126_065505_053789_69425E03 
+X-CRM114-Status: GOOD (  27.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,78 +98,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 26, 2025 at 3:51=E2=80=AFPM Jon Hunter <jonathanh@nvidia.com> w=
-rote:
+On Wed, 26 Nov 2025 at 15:13, Breno Leitao <leitao@debian.org> wrote:
 >
+> On Tue, Nov 25, 2025 at 08:02:16AM -0800, Breno Leitao wrote:
+> > 6. Meanwhile, kfence's toggle_allocation_gate() on another CPU attempts to
+> > perform a synchronous operation across all CPUs, which correctly triggers a CSD
+> > lock timeout because CPU#0 is stuck in the busy loop with IRQs disabled.
 >
-> On 26/11/2025 14:28, Bartosz Golaszewski wrote:
-> > On Wed, Nov 26, 2025 at 3:24=E2=80=AFPM Jon Hunter <jonathanh@nvidia.co=
-m> wrote:
-> >>
-> >> Hi Bartosz,
-> >>
-> >> On 12/11/2025 13:55, Bartosz Golaszewski wrote:
-> >>> From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-> >>>
-> >>> Some qualcomm platforms use shared GPIOs. Enable support for them by
-> >>> selecting the Kconfig switch provided by GPIOLIB.
-> >>>
-> >>> Acked-by: Linus Walleij <linus.walleij@linaro.org>
-> >>> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-> >>> ---
-> >>>    arch/arm64/Kconfig.platforms | 1 +
-> >>>    1 file changed, 1 insertion(+)
-> >>>
-> >>> diff --git a/arch/arm64/Kconfig.platforms b/arch/arm64/Kconfig.platfo=
-rms
-> >>> index 13173795c43d4f28e2d47acc700f80a165d44671..3dbff0261f0add0516d8c=
-b3fd0f29e277af94f20 100644
-> >>> --- a/arch/arm64/Kconfig.platforms
-> >>> +++ b/arch/arm64/Kconfig.platforms
-> >>> @@ -316,6 +316,7 @@ config ARCH_QCOM
-> >>>        select GPIOLIB
-> >>>        select PINCTRL
-> >>>        select HAVE_PWRCTRL if PCI
-> >>> +     select HAVE_SHARED_GPIOS
-> >>>        help
-> >>>          This enables support for the ARMv8 based Qualcomm chipsets.
-> >>>
-> >>
-> >> I have noticed the following kernel warning on our Tegra platforms ...
-> >>
-> >>    ERR KERN OF: /__symbols__: could not find phandle 794981747
-> >>
-> >> Bisect is pointing to this commit and reverting this does prevent it. =
-I
-> >> am not sure if anyone else has seen this?
-> >>
-> >
-> > I assume it comes from drivers/of/base.c:1295 - could you please post
-> > a stack trace of how you're getting there?
+> I've hacked a patch to disable kfence IPIs during machine shutdown, and
+> with it loaded, I don't reproduce the problem described in this thread.
 >
-> Yes looks like it does and I see ...
+>         Author: Breno Leitao <leitao@debian.org>
+>         Date:   Tue Nov 25 07:21:55 2025 -0800
 >
-> [    0.123356] OF: /__symbols__: could not find phandle 794981747
-> [    0.123401] CPU: 0 UID: 0 PID: 1 Comm: swapper/0 Not tainted 6.18.0-rc=
-7-next-20251126-00002-g1cd98992c487-dirty #19 PREEMPT
-> [    0.123418] Hardware name: NVIDIA Jetson AGX Xavier Developer Kit (DT)
-> [    0.123447] Call trace:
-> [    0.123453]  show_stack+0x18/0x24 (C)
-> [    0.123472]  dump_stack_lvl+0x74/0x8c
-> [    0.123487]  dump_stack+0x18/0x24
-> [    0.123518]  of_phandle_iterator_next+0x18c/0x1c4
-> [    0.123536]  of_count_phandle_with_args+0xa0/0xc8
-> [    0.123551]  gpio_shared_of_traverse+0xb8/0x47c
-> [    0.123566]  gpio_shared_of_traverse+0x158/0x47c
-> [    0.123578]  gpio_shared_init+0x110/0x1f0
-> [    0.123595]  do_one_initcall+0x7c/0x1c0
-> [    0.123607]  kernel_init_freeable+0x204/0x2e0
-> [    0.123622]  kernel_init+0x20/0x1d8
-> [    0.123637]  ret_from_fork+0x10/0x20
+>         mm/kfence: add reboot notifier to disable KFENCE on shutdown
 >
+>         Register a reboot notifier to disable KFENCE and cancel any pending
+>         timer work during system shutdown. This prevents potential IPI
+>         synchronization issues that can occur when KFENCE is active during
+>         the reboot process.
+>
+>         The notifier runs with high priority (INT_MAX) to ensure KFENCE is
+>         disabled early in the shutdown sequence.
+>
+>         Signed-off-by: Breno Leitao <leitao@debian.org>
+>
+>         diff --git a/mm/kfence/core.c b/mm/kfence/core.c
+>         index 727c20c94ac5..5810afaaf6b4 100644
+>         --- a/mm/kfence/core.c
+>         +++ b/mm/kfence/core.c
+>         @@ -26,6 +26,7 @@
+>         #include <linux/panic_notifier.h>
+>         #include <linux/random.h>
+>         #include <linux/rcupdate.h>
+>         +#include <linux/reboot.h>
+>         #include <linux/sched/clock.h>
+>         #include <linux/seq_file.h>
+>         #include <linux/slab.h>
+>         @@ -819,6 +820,21 @@ static struct notifier_block kfence_check_canary_notifier = {
+>
+>         static struct delayed_work kfence_timer;
+>
+>         +static int kfence_reboot_callback(struct notifier_block *nb,
+>         +                                 unsigned long action, void *data)
+>         +{
+>         +       /* Disable KFENCE to avoid IPI synchronization during shutdown */
+>         +       WRITE_ONCE(kfence_enabled, false);
+>         +       /* Cancel any pending timer work */
+>         +       cancel_delayed_work_sync(&kfence_timer);
+>         +       return NOTIFY_OK;
+>         +}
+>         +
+>         +static struct notifier_block kfence_reboot_notifier = {
+>         +       .notifier_call = kfence_reboot_callback,
+>         +       .priority = INT_MAX, /* Run early to stop timers ASAP */
+>         +};
 
-Is the device-tree used here upstream? Can you enable DEBUG_GPIO in
-Kconfig and post the entire kernel log on pastebin?
+Just place it under the #ifdef CONFIG_KFENCE_STATIS_KEYS below, I do
+not think this is required if CONFIG_KFENCE_STATIC_KEYS is unset.
 
-Bartosz
+>         #ifdef CONFIG_KFENCE_STATIC_KEYS
+>         /* Wait queue to wake up allocation-gate timer task. */
+>         static DECLARE_WAIT_QUEUE_HEAD(allocation_wait);
+>         @@ -901,6 +917,8 @@ static void kfence_init_enable(void)
+>                 if (kfence_check_on_panic)
+>                         atomic_notifier_chain_register(&panic_notifier_list, &kfence_check_canary_notifier);
+>
+>         +       register_reboot_notifier(&kfence_reboot_notifier);
+>         +
+>                 WRITE_ONCE(kfence_enabled, true);
+>                 queue_delayed_work(system_unbound_wq, &kfence_timer, 0);
+>
+>
+> Alexander, Marco and Kasan maintainers:
+>
+> What is the potential impact of disabling KFENCE during reboot
+> procedures?
+
+But only if CONFIG_KFENCE_STATIC_KEYS is enabled?
+That would be reasonable, given our recommendation has been to disable
+CONFIG_KFENCE_STATIC_KEYS since
+https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=4f612ed3f748962cbef1316ff3d323e2b9055b6e
+in most cases.
+
+I believe some low-CPU count systems are still benefiting from it, but
+in general, I'd advise against it.
+
+> The primary motivation is to avoid triggering IPIs during the machine
+> teardown process, mainly when the nbconsole is not running in threaded
+> mode.
+
+Thanks,
+-- Marco
 
