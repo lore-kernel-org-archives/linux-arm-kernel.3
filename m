@@ -4,36 +4,36 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0824AD10371
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 01:11:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76C35D1036F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 01:11:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3FUS3J7ddqTG9iTzGTOqOIvTTqkZWKjY7Lu16MSGs34=; b=PuCt/dsGLRjTqFeXzAYNWeSX6e
-	s5ykibgB3Nd4n869ZUEWFhLxCvtNjuW+Mk+6/enfjlN9HesFzaNhNobKsd39lcq/pBY8QPORxxIav
-	+b35I8cLj0+3RY41BzlmDncD7qFkqGB7DlxGzyltCVRTxoLU0NV3KnKGBBwlTWi/c4Jpn91txzdwf
-	vIAKQlaYn1xcA3ENCDyTrCODUY/RwnfUpHiqc32vwA9rTQUhseiF1kwgvitqAmu5UVWlsJnjUVgmO
-	tVj7ykEkbwc9uBXaGD8FuCoKei5yBfc2tBaFSuRfu/jY0chE/Uz+cqBEVz+SeRZQN9UYcF2H4/0iz
-	XsBwmpRA==;
+	bh=GTyglggHnM7R4czbRlwlHjByTv4VfR4ZiiD7B+F603Y=; b=VDiG6+nxVRpIeYVVQYGOzpmhTm
+	r4NidvDnVRyuKn4xgFhtQIyzgXCTdRYU2qupcEVZxy3R2t0A9634FC/edn1WJN4ZeYwG2VSHSCSQ/
+	j7fkPWokS6DQJ6xnBP3xDiZB67Uwtbw0PBqjbY8P0QlNdLFJapQd1vBeGKWJnfQttvg8u3Ra3MaOf
+	kf5RE3+dGYbKa/3bBpX+Quq1aZ/+FCCk2C6h+nWaQZkUJ2+m91kA3mPvJ7HyQTZvTN9Re3nWMezM+
+	Ay01FxuF1VXrFQ8jzJlRyTC2zxcTerDHS93ht7GuNjOp6Gp8HLwmBhexjgHEVOHkSi1NR1A7WWrdC
+	IYT5GpHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vO43w-0000000E9jR-1rMc;
-	Wed, 26 Nov 2025 01:11:16 +0000
-Received: from mail-westusazon11012035.outbound.protection.outlook.com ([52.101.43.35] helo=SJ2PR03CU001.outbound.protection.outlook.com)
+	id 1vO43x-0000000E9ke-1kcW;
+	Wed, 26 Nov 2025 01:11:17 +0000
+Received: from mail-northcentralusazon11010066.outbound.protection.outlook.com ([52.101.193.66] helo=CH1PR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vO43n-0000000E9ee-08o2
+	id 1vO43p-0000000E9g5-0hVk
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Nov 2025 01:11:08 +0000
+	Wed, 26 Nov 2025 01:11:10 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=nYF8Tds2C0DqQHI95D1apjWb1Qcc2hY5p+kNCyiuTdbE2hBCR8mVW1BRyMpIeTHfGVw4fpBii30Di3xvUtAmopf/zViJRxKEIyPuCmMxhMAaLUy4T95WuJkXJSv+3n2u9mn+o05y307F5iV7fjFUWgNlsor0DrPNL6s2oY73zxEzesFzrZhnTqW7s5LXuSwyCTh0R7tcToYjd3Um9NPy23R0cU/Jr3OxhArtbtXz4yscWW+HgBLI1RxfnFJ8B5ouhBxNuLq5V+FFjCw2Np4rx/pnyuWPvLn7MyOmEWOEaHD04nDXrIvKdgq9Aa2Kg2p54l5surscbAVhAmNrRDzB5A==
+ b=j/xZ0LJXxsApyvzwbsnpcR6urpB3vHjG/DoLztFc8XKcvVVvtacgYzmljdErRhZU99y3cajrdagbRl9hLlBLPyUixv3NTEXY6a5ASR2T0JkH9ULmy6dZYJFhsJ7fEuEOEAbEv88cPe0I6QfI7NP+Zn/JqYO+eLkqjiItxFKWJDV2v5F0X1JmGePt5Wp409ods7aERMSZh6eg8ogJkzknkyicdqLD7E8FUknA1X/GWbfyiR4+BSm2s3mBjHP2+ZnxUfcs3WA+lE1H2jiMzVqNgwcIQDJEdAihkt2YfKDFhH7obadyb7us7nY88lJvUJ/+5qLf8/pzB04IPOtszXML3w==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=3FUS3J7ddqTG9iTzGTOqOIvTTqkZWKjY7Lu16MSGs34=;
- b=URkhc+Z3NjWRJfumPmiTC1FDaoS064gu2NP/7VD7jx5R4JpOrpUgEQ4sGWmZDzYHsrCpOwo8M1TxVPoZt2WQqfCFUXk2XkKQrSAHp99KMXlgWRY+hhdUTojPYvOCbAmLyp7diHFY2EZc2wEVtDD5qU3CXj2AcDrX08/56m4m+Yv9xbICnKcAaLqF7s8jShoDdcLtxPJPmjry4RULaRLyjcSOWjchHvYagNF/lZBngxas9CZK2rznS17oi8g3LPeF3jZ01N1gi9FTRKxuQbyCtoDTcwD5PT2xUORMgDDYxGzv+37e3CK8mHQNjRztjSpoigkxf/lWU04C89Q1OrCupg==
+ bh=GTyglggHnM7R4czbRlwlHjByTv4VfR4ZiiD7B+F603Y=;
+ b=IPGJIO4sXxuo002WTCGQ5AmbV3NXhX1r121fmgCm6eHDvrSKfkop1TN87B+vX8tzoL4U0BSUyGsYqz2r8m7EgoUpx5tTTbT3LP2rQtoXjFgDB4VrKiOLIrqczOSSjqP694TeWsAQc7mwCGwGHH7XhmJHaW4H+geJz+oN/poFkUjHiwoXil8W/DhOgElOvgjTNduIEjW4TNl5OIHGO+tSloUBFdCu891VISX3xDEaQXD/HwE3pEvP1XVjKIWjKqgeaXb9n0Sgk33tP2W63LfHzFV5zLg5daaUqQm3rJrzxtWEs+UopdJ/BkA14zRkVvp6TQnqprDJxvlOZ1E9skbFOw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  216.228.117.161) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
  dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
@@ -41,18 +41,17 @@ ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
  s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=3FUS3J7ddqTG9iTzGTOqOIvTTqkZWKjY7Lu16MSGs34=;
- b=IvfwI6LKNmHMpY7GgbZg5vYcjydax6JRXTZ25Fy2/6IWco8oEYwbsoR33oJTNnYBwaBqSacywvhHDKQgUDpqqsYRut5m6mMWeXlYPaDnuV5c6h76FZWUwuuxzz0pRbpK/fhbsSye3E4cFVoCILyG1jFvhXhzIUoeAp5wHxpLsZh3oivr3lNL0+9d88q9B0yWppIGZErCiYDmuZTV08aiArZuHF/+xKFFpBUlcpKE1ftGUYKJ3I6b1lj40k/bpqJs3IQV6eK+3QnquYtytF79z66Aii5ooLuVRRdAhE+MoYy+suZAGBCm2YUCbfh0jPnR5+RuMDNMk+gCr3gkhAQx1A==
-Received: from DS7PR03CA0360.namprd03.prod.outlook.com (2603:10b6:8:55::33) by
- SJ5PPFF6E64BC2C.namprd12.prod.outlook.com (2603:10b6:a0f:fc02::9aa) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9366.11; Wed, 26 Nov
- 2025 01:10:58 +0000
+ bh=GTyglggHnM7R4czbRlwlHjByTv4VfR4ZiiD7B+F603Y=;
+ b=naCcWFlns2YV1rLSkzNIMQmsjgSWcgn6JfU68PLVedF8uZqRL5WSFxwql31dOSWAoPV5TymXoJYvrbkLa/Z6Uwj18P5YPKPI3yzOzlhmj5Cf8/hxLsUipdngZX+6jxrbpTF6Udh7nZktdH6X2vEf6o2h/iNL9l5BJtPURr3mKIQFB6SBq5ZcdzeJEnJMw/GQ8YPM3xqC+8q6c02pI16C+qjQGf5CZ+lRadvKZRka/59b0X4j8adPGsu1kgE6Rl1uHD4rQG73cOMsKHF9XISCVGeHKTWTFBgSEeKq40GC9Hy6rIBHZz7NXLurwtB8eDUjaTdCTsHGuqNiNea7/cdNUg==
+Received: from DS7PR03CA0337.namprd03.prod.outlook.com (2603:10b6:8:55::25) by
+ MN0PR12MB6001.namprd12.prod.outlook.com (2603:10b6:208:37d::6) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9343.17; Wed, 26 Nov 2025 01:11:02 +0000
 Received: from DS3PEPF000099D8.namprd04.prod.outlook.com
- (2603:10b6:8:55:cafe::5d) by DS7PR03CA0360.outlook.office365.com
- (2603:10b6:8:55::33) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9343.17 via Frontend Transport; Wed,
- 26 Nov 2025 01:10:57 +0000
+ (2603:10b6:8:55:cafe::cc) by DS7PR03CA0337.outlook.office365.com
+ (2603:10b6:8:55::25) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9366.11 via Frontend Transport; Wed,
+ 26 Nov 2025 01:11:01 +0000
 X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
  smtp.mailfrom=nvidia.com; dkim=none (message not signed)
  header.d=none;dmarc=pass action=none header.from=nvidia.com;
@@ -62,18 +61,18 @@ Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
 Received: from mail.nvidia.com (216.228.117.161) by
  DS3PEPF000099D8.mail.protection.outlook.com (10.167.17.9) with Microsoft SMTP
  Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9366.7 via Frontend Transport; Wed, 26 Nov 2025 01:10:57 +0000
-Received: from rnnvmail202.nvidia.com (10.129.68.7) by mail.nvidia.com
+ 15.20.9366.7 via Frontend Transport; Wed, 26 Nov 2025 01:11:01 +0000
+Received: from rnnvmail203.nvidia.com (10.129.68.9) by mail.nvidia.com
  (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 25 Nov
- 2025 17:10:39 -0800
-Received: from rnnvmail203.nvidia.com (10.129.68.9) by rnnvmail202.nvidia.com
- (10.129.68.7) with Microsoft SMTP Server (version=TLS1_2,
+ 2025 17:10:41 -0800
+Received: from rnnvmail203.nvidia.com (10.129.68.9) by rnnvmail203.nvidia.com
+ (10.129.68.9) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 25 Nov
- 2025 17:10:39 -0800
+ 2025 17:10:41 -0800
 Received: from Asurada-Nvidia.nvidia.com (10.127.8.13) by mail.nvidia.com
  (10.129.68.9) with Microsoft SMTP Server id 15.2.2562.20 via Frontend
- Transport; Tue, 25 Nov 2025 17:10:38 -0800
+ Transport; Tue, 25 Nov 2025 17:10:40 -0800
 From: Nicolin Chen <nicolinc@nvidia.com>
 To: <will@kernel.org>
 CC: <jean-philippe@linaro.org>, <robin.murphy@arm.com>, <joro@8bytes.org>,
@@ -81,9 +80,9 @@ CC: <jean-philippe@linaro.org>, <robin.murphy@arm.com>, <joro@8bytes.org>,
 	<peterz@infradead.org>, <kevin.tian@intel.com>, <praan@google.com>,
 	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
 	<linux-kernel@vger.kernel.org>
-Subject: [PATCH v6 2/7] iommu/arm-smmu-v3: Add an inline arm_smmu_domain_free()
-Date: Tue, 25 Nov 2025 17:10:07 -0800
-Message-ID: <271ea7ce11292aa8e51fbdf06f69e9a527e0bb3b.1764119291.git.nicolinc@nvidia.com>
+Subject: [PATCH v6 4/7] iommu/arm-smmu-v3: Pre-allocate a per-master invalidation array
+Date: Tue, 25 Nov 2025 17:10:09 -0800
+Message-ID: <da24bfca47fec6886915c1707ca58eccf3cd4116.1764119291.git.nicolinc@nvidia.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <cover.1764119291.git.nicolinc@nvidia.com>
 References: <cover.1764119291.git.nicolinc@nvidia.com>
@@ -93,52 +92,52 @@ Content-Type: text/plain
 X-NV-OnPremToCloud: ExternallySecured
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS3PEPF000099D8:EE_|SJ5PPFF6E64BC2C:EE_
-X-MS-Office365-Filtering-Correlation-Id: bc8f93ba-40d2-4efd-0014-08de2c88a7cc
+X-MS-TrafficTypeDiagnostic: DS3PEPF000099D8:EE_|MN0PR12MB6001:EE_
+X-MS-Office365-Filtering-Correlation-Id: 766cce6b-9fe6-48f2-bcdd-08de2c88aa48
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|82310400026|1800799024|376014|7416014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?mlksDGBVWyxGjdk72DE/SXQG1bfyimmOa4GwHPX2a7aoTg3zO8l+Nc4tQjJH?=
- =?us-ascii?Q?dz75QXFTExwXttm1nhU5nI96UG6xhm0cPicxTqAsyeoVTREo+h52ztR1m4X/?=
- =?us-ascii?Q?sTLNYMsy9gMfAwVr1M/k2g3bCMyV+mkslvYSYLj0K4ekxLgLBfz0VSp/3PAo?=
- =?us-ascii?Q?lxZcnDoTMfsAcPIzdfdRsHyrD3+/48+es9UIWZA83mR9ulz+opvrL7WTKgxx?=
- =?us-ascii?Q?qhbV0aO2CwPtU3wsEgL82w0FIyxthIm0NkUs4XGvinO3DWVCbmW0LCX7p1QN?=
- =?us-ascii?Q?BE7ZztQbZv0SaMu0AR2jKKU/rUdPFa3oNxERuvv/HtyqPOAhLnBwpa/PGez/?=
- =?us-ascii?Q?0UiJWkY+xRWxxYfu6dJxZvHWz8PPA3PQmOGwPgsb2dNaiIpQm1gsynwvUk2F?=
- =?us-ascii?Q?FrY7XO2jrGZOF+z0TAztgx3kzS+TXKnaTnHnxgsLaBisDoZ2aaeRgtkkMZlx?=
- =?us-ascii?Q?R+DXNbNqUXe6u66Mip2TPnQj8PrbBUVh2v47/uOMiYrVyI/zciqF4ZbqAec2?=
- =?us-ascii?Q?dqYbqQdjrNXx0nvOvNN/gJE+AT83oXeD0rKZa+ylPd2CrR5h9BVpunroKggn?=
- =?us-ascii?Q?GA6wYsdncuk6OJj/RXxx0mrgHQziO019L6dOYcLhdo5qyAWKtwyK1X0Ri8px?=
- =?us-ascii?Q?iuxaeTck8lhUVGS4y086AwM1XU025JRR3snaQjHgp+jGxDlDDIuS+G01Igof?=
- =?us-ascii?Q?jKo6SQZPq5QY/aDUBvPYetW+Xbg8pI1PTb/DkUbbgZC4mh3uU/KXyeVUajmO?=
- =?us-ascii?Q?4Lhlv3EtYyZFlZrwXkGDAEmXFXvq1JaU98vRhB4+Lt6KRrxxW1Jvs9oy6aEi?=
- =?us-ascii?Q?0L3Ev00G7Y7IxuXbHOHzOVRVpxfSDPrALe0+9bD5ty0cZJIURVxXxoAH5f3/?=
- =?us-ascii?Q?UJiQtBwHDuK8xo+bV6VPNBahVTOCAcxwgVkGM5s+zoHh3j3ITNm0orN7s0UH?=
- =?us-ascii?Q?Oa4WD4pynLpfwFNjzUPWGqXFfIaYHqFs1E3CVaI1c350gwKVt3Pb3URbY19e?=
- =?us-ascii?Q?1LWYMhtoCBk2d0qTWlMbSsa3gQi4BubHb/8dYhnMkzCiiNNy3T89JBod4OrY?=
- =?us-ascii?Q?ujl+i5GgACmkL9Yox/b2Uqox9bG1IvD16GBd+hVWSljA/saMwyCnHDivw3Dp?=
- =?us-ascii?Q?pY0a2Fe3MqO24JTM5A/x/BUao1stAdJ824I9CHf+tqYvC6LiKShXCch+aDRr?=
- =?us-ascii?Q?A83hG1QMYYSt7wwKFEy6zjS32T4mrYNU09fb6XZ4p47pErqrYEEOTf+yWyTB?=
- =?us-ascii?Q?0n31xb3nhlDgGKhByolvPSzmZrhVqvbazMoX1V4bj1N/VR4eL2J8t2hrxuOt?=
- =?us-ascii?Q?OqaqA4k8op7NJX+PvrurKLkjeiKYwWc7OGBDaI6CaUdV6gJoKAts6rgKNrDR?=
- =?us-ascii?Q?2qfdN+m0Ss8soGfEI0gsKPvsXaW02C0ez/orDrnLNH52zu97kF1WzO0E1I39?=
- =?us-ascii?Q?EeO20FUotkxJ8XlTfEh1VWndnyoVkghF19NnYZXf/8d0VE42Y/1UwYeozoH9?=
- =?us-ascii?Q?3TtzK14PHU+u9DGEyKZPEzhu/y/btmuLlTPg+hbkJIufMljRxngoC6jH749v?=
- =?us-ascii?Q?i6lLRI0LE3JVA3y3TV0=3D?=
-X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(36860700013)(82310400026)(1800799024)(376014)(7416014);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|1800799024|376014|82310400026|7416014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?C0dGwRoYh5sjSp/cR3SunbXv6OiTyiPBQtqhrQtFrMJu+Uim+tx4nSf0n1ef?=
+ =?us-ascii?Q?w0sD8u1HFRjK3cddCMuj6Dpw91ilnE4bV1459iIocG/5fcvvF6qkiJykoY9X?=
+ =?us-ascii?Q?gXryfL20gXbhxqLBOimnVjI859r4Wq536oh3+INTRZaLcL94o8wqwEQeoWJR?=
+ =?us-ascii?Q?5Kj7gAHVgbqPzU+b0i8GaIj2t8Fu3IQPs/1S2h7akP05x1yNkj5SybKaUeaZ?=
+ =?us-ascii?Q?ctOxBiRmT9XUn09L+Xk0pilvORlYvJvES+0+aLgllpHcl6NwRkRZqOA1IkTE?=
+ =?us-ascii?Q?lbKoqYG2I+mnzYUq8jHKTiw2dvtvf+8lK4XB11fJs9SJDV3Yitz1LWI39n5G?=
+ =?us-ascii?Q?l1pkMLTcJ0CA1ur33zO2RoEs+KaysEUmbcVn1YNqSx7hCl0FpZUmtODlv5PH?=
+ =?us-ascii?Q?UUY3CcoxY4BU7Hx6IdsORW7OvPeLT9BQ7CG9hgviQ7/yVMUP2c5Q4fv4MbGx?=
+ =?us-ascii?Q?qwzNb2or8CjzAY/NlRPINSZa/5gHCv3iJ0Gu2aSZ+W5KUDdsEKFfELGdLSV8?=
+ =?us-ascii?Q?wklDE9ItjlRqKZcRnzRiboA6BbGBGRFsljBf0jNKeuNNX/PHJzpOWJ4aA+nU?=
+ =?us-ascii?Q?cCtv09Z1K3RVAISTYr9vtNnCOozj6L0ETmDpFSiQ2ti76IrESYKzADOh3pTS?=
+ =?us-ascii?Q?tbHDO8UYVQKG8TSuzYyZeYtkw4qmApTCpD7K3YZrcMqEVIM1/DLQoT/qqb35?=
+ =?us-ascii?Q?yzQ0JkxS/K7PZw2GSke29Ll4vpqGteAOBjOgYDDMV6m3Ix4wvQV22VadUQ96?=
+ =?us-ascii?Q?HmrvsxkOCEL0SEZG0MmLlK9dGPQeHVwLMydDd0tSct+FuOScxOc/r5JNXedF?=
+ =?us-ascii?Q?3RbzQtk+sxXI+ZUUjeo3DMr/vp1auLXgiPcx3rKuZ/4TwrZnxBZuFhi3gIcn?=
+ =?us-ascii?Q?xQJbswdnRA0KmiaY9GixPNz9UsmZKx5OsZQ5hrkB3HAla4nh2RQB97N7iRiu?=
+ =?us-ascii?Q?DXF56cpQbpSuXSBxOOom86YU/6s+tzgyCoPvq4E+xqOXKXOtP4+fie0UspsQ?=
+ =?us-ascii?Q?3j/c1UmmbFDYmWoTyO840gR7y83HfIZ81K09iQ7jEPgm6hWyHAu8wOc1N/cc?=
+ =?us-ascii?Q?4N/sItRg4CIESX7SHGWUe0BNodRTlNI8cJKlyDYLM+p7hfKCBUj0Sr6aahTb?=
+ =?us-ascii?Q?Yt07sTMI6Nt0lTAFlhXnhxcWzlJxJ23AlQET0z2ytnP+4lOUerp0pfvbKH/e?=
+ =?us-ascii?Q?zbb+4WvEJdzanULTJx9Mm7Tv1scIGpDmrk4WNkQnxByYnKkcgb0JtIxtA3xr?=
+ =?us-ascii?Q?/ME8H10qSB57PEZHi+EXW+UtduzM2WSnoWZOkfKVpdylgNv3RqyBKRK8lsQ2?=
+ =?us-ascii?Q?iVWDsni6nyD00izOIOZil+R+jKTq0AXQ9b8src6dMM8kDc5HZA2tLT9IvJTX?=
+ =?us-ascii?Q?H0bIgcj5CctwMm/cmuOlLhTYpPmKY6pDfWsDs1kECAbNu/xl089c8jOlGCyk?=
+ =?us-ascii?Q?iHx7JCwEBWT+gJ2Clf4PJAbLxyw+YzNNGOoxnpiioItyHeLKoiNPMNJ5plxX?=
+ =?us-ascii?Q?701dQxqgtGMD7WC/WgKm36UKsCmv0ghMIYGbc+W70qzRGjCmPvDzABZF+jeJ?=
+ =?us-ascii?Q?QWqv489u5Z9RyZGot/s=3D?=
+X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(36860700013)(1800799024)(376014)(82310400026)(7416014);DIR:OUT;SFP:1101;
 X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Nov 2025 01:10:57.4108
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Nov 2025 01:11:01.5676
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: bc8f93ba-40d2-4efd-0014-08de2c88a7cc
+X-MS-Exchange-CrossTenant-Network-Message-Id: 766cce6b-9fe6-48f2-bcdd-08de2c88aa48
 X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
 X-MS-Exchange-CrossTenant-AuthSource: DS3PEPF000099D8.namprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ5PPFF6E64BC2C
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN0PR12MB6001
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251125_171107_082773_9DE15DF6 
-X-CRM114-Status: GOOD (  13.08  )
+X-CRM114-CacheID: sfid-20251125_171109_220208_FA075FCE 
+X-CRM114-Status: GOOD (  22.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,79 +152,134 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-There will be a bit more things to free than smmu_domain itself. So keep a
-simple inline function in the header to share aross files.
+When a master is attached from an old domain to a new domain, it needs to
+build an invalidation array to delete and add the array entries from/onto
+the invalidation arrays of those two domains, passed via the to_merge and
+to_unref arguments into arm_smmu_invs_merge/unref() respectively.
 
-Suggested-by: Jason Gunthorpe <jgg@nvidia.com>
+Since the master->num_streams might differ across masters, a memory would
+have to be allocated when building an to_merge/to_unref array which might
+fail with -ENOMEM.
+
+On the other hand, an attachment to arm_smmu_blocked_domain must not fail
+so it's the best to avoid any memory allocation in that path.
+
+Pre-allocate a fixed size invalidation array for every master. This array
+will be used as a scratch to fill dynamically when building a to_merge or
+to_unref invs array. Sort fwspec->ids in an ascending order to fit to the
+arm_smmu_invs_merge() function.
+
+Co-developed-by: Jason Gunthorpe <jgg@nvidia.com>
+Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
 Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
-Acked-by: Balbir Singh <balbirs@nvidia.com>
 Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
 ---
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h     | 5 +++++
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c | 5 +++--
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c     | 4 ++--
- 3 files changed, 10 insertions(+), 4 deletions(-)
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h |  8 ++++
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 41 +++++++++++++++++++--
+ 2 files changed, 45 insertions(+), 4 deletions(-)
 
 diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-index 5c0b38595d20..96a23ca633cb 100644
+index c6fb84fc9201..922a599ce0f1 100644
 --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
 +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-@@ -954,6 +954,11 @@ extern struct mutex arm_smmu_asid_lock;
- 
- struct arm_smmu_domain *arm_smmu_domain_alloc(void);
- 
-+static inline void arm_smmu_domain_free(struct arm_smmu_domain *smmu_domain)
-+{
-+	kfree(smmu_domain);
-+}
-+
- void arm_smmu_clear_cd(struct arm_smmu_master *master, ioasid_t ssid);
- struct arm_smmu_cd *arm_smmu_get_cd_ptr(struct arm_smmu_master *master,
- 					u32 ssid);
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c
-index 6097f1f540d8..440ad8cc07de 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c
-@@ -197,7 +197,8 @@ static void arm_smmu_mm_release(struct mmu_notifier *mn, struct mm_struct *mm)
- 
- static void arm_smmu_mmu_notifier_free(struct mmu_notifier *mn)
- {
--	kfree(container_of(mn, struct arm_smmu_domain, mmu_notifier));
-+	arm_smmu_domain_free(
-+		container_of(mn, struct arm_smmu_domain, mmu_notifier));
- }
- 
- static const struct mmu_notifier_ops arm_smmu_mmu_notifier_ops = {
-@@ -365,6 +366,6 @@ struct iommu_domain *arm_smmu_sva_domain_alloc(struct device *dev,
- err_asid:
- 	xa_erase(&arm_smmu_asid_xa, smmu_domain->cd.asid);
- err_free:
--	kfree(smmu_domain);
-+	arm_smmu_domain_free(smmu_domain);
- 	return ERR_PTR(ret);
- }
+@@ -929,6 +929,14 @@ struct arm_smmu_master {
+ 	struct arm_smmu_device		*smmu;
+ 	struct device			*dev;
+ 	struct arm_smmu_stream		*streams;
++	/*
++	 * Scratch memory for a to_merge or to_unref array to build a per-domain
++	 * invalidation array. It'll be pre-allocated with enough enries for all
++	 * possible build scenarios. It can be used by only one caller at a time
++	 * until the arm_smmu_invs_merge/unref() finishes. Must be locked by the
++	 * iommu_group mutex.
++	 */
++	struct arm_smmu_invs		*build_invs;
+ 	struct arm_smmu_vmaster		*vmaster; /* use smmu->streams_mutex */
+ 	/* Locked by the iommu core using the group mutex */
+ 	struct arm_smmu_ctx_desc_cfg	cd_table;
 diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-index 9d9f24a08062..e9759e8af0c0 100644
+index f6bca44c78bf..81b5e28a5868 100644
 --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
 +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-@@ -2492,7 +2492,7 @@ static void arm_smmu_domain_free_paging(struct iommu_domain *domain)
- 			ida_free(&smmu->vmid_map, cfg->vmid);
+@@ -3707,12 +3707,22 @@ static int arm_smmu_init_sid_strtab(struct arm_smmu_device *smmu, u32 sid)
+ 	return 0;
+ }
+ 
++static int arm_smmu_stream_id_cmp(const void *_l, const void *_r)
++{
++	const typeof_member(struct arm_smmu_stream, id) *l = _l;
++	const typeof_member(struct arm_smmu_stream, id) *r = _r;
++
++	return cmp_int(*l, *r);
++}
++
+ static int arm_smmu_insert_master(struct arm_smmu_device *smmu,
+ 				  struct arm_smmu_master *master)
+ {
+ 	int i;
+ 	int ret = 0;
+ 	struct iommu_fwspec *fwspec = dev_iommu_fwspec_get(master->dev);
++	bool ats_supported = dev_is_pci(master->dev) &&
++			     pci_ats_supported(to_pci_dev(master->dev));
+ 
+ 	master->streams = kcalloc(fwspec->num_ids, sizeof(*master->streams),
+ 				  GFP_KERNEL);
+@@ -3720,14 +3730,35 @@ static int arm_smmu_insert_master(struct arm_smmu_device *smmu,
+ 		return -ENOMEM;
+ 	master->num_streams = fwspec->num_ids;
+ 
+-	mutex_lock(&smmu->streams_mutex);
++	if (!ats_supported) {
++		/* Base case has 1 ASID entry or maximum 2 VMID entries */
++		master->build_invs = arm_smmu_invs_alloc(2);
++	} else {
++		/* ATS case adds num_ids of entries, on top of the base case */
++		master->build_invs = arm_smmu_invs_alloc(2 + fwspec->num_ids);
++	}
++	if (!master->build_invs) {
++		kfree(master->streams);
++		return -ENOMEM;
++	}
++
+ 	for (i = 0; i < fwspec->num_ids; i++) {
+ 		struct arm_smmu_stream *new_stream = &master->streams[i];
+-		struct rb_node *existing;
+-		u32 sid = fwspec->ids[i];
+ 
+-		new_stream->id = sid;
++		new_stream->id = fwspec->ids[i];
+ 		new_stream->master = master;
++	}
++
++	/* Put the ids into order for sorted to_merge/to_unref arrays */
++	sort_nonatomic(master->streams, master->num_streams,
++		       sizeof(master->streams[0]), arm_smmu_stream_id_cmp,
++		       NULL);
++
++	mutex_lock(&smmu->streams_mutex);
++	for (i = 0; i < fwspec->num_ids; i++) {
++		struct arm_smmu_stream *new_stream = &master->streams[i];
++		struct rb_node *existing;
++		u32 sid = new_stream->id;
+ 
+ 		ret = arm_smmu_init_sid_strtab(smmu, sid);
+ 		if (ret)
+@@ -3757,6 +3788,7 @@ static int arm_smmu_insert_master(struct arm_smmu_device *smmu,
+ 		for (i--; i >= 0; i--)
+ 			rb_erase(&master->streams[i].node, &smmu->streams);
+ 		kfree(master->streams);
++		kfree(master->build_invs);
  	}
+ 	mutex_unlock(&smmu->streams_mutex);
  
--	kfree(smmu_domain);
-+	arm_smmu_domain_free(smmu_domain);
+@@ -3778,6 +3810,7 @@ static void arm_smmu_remove_master(struct arm_smmu_master *master)
+ 	mutex_unlock(&smmu->streams_mutex);
+ 
+ 	kfree(master->streams);
++	kfree(master->build_invs);
  }
  
- static int arm_smmu_domain_finalise_s1(struct arm_smmu_device *smmu,
-@@ -3359,7 +3359,7 @@ arm_smmu_domain_alloc_paging_flags(struct device *dev, u32 flags,
- 	return &smmu_domain->domain;
- 
- err_free:
--	kfree(smmu_domain);
-+	arm_smmu_domain_free(smmu_domain);
- 	return ERR_PTR(ret);
- }
- 
+ static struct iommu_device *arm_smmu_probe_device(struct device *dev)
 -- 
 2.43.0
 
