@@ -4,98 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EF92D10384
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 07:36:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EDA1D10384
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 07:39:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=huaG+/GxqBZsLsw0w3QyMKo1sHeAUCmpJPn5GUTjThY=; b=GnMoynWEI5p3GfWwvOmDzb7bnm
-	MwXmpCDZsJzAz5JhNFbvQnhdEzNoBa0rd7IyzOuWaYDtK6LQW3m/HSk5eZKh82SXQJMV/2THJwo/D
-	7z6elX0o/rEJ0SQYcDGNNFSVQIXCQuq/8fGj29OW5uZwK2l394Zecy6Sob/BbyqwChAQDngB4jzea
-	i7CA+xWwcMqo/iJiI0iSLdx4JupxUAaaf36VQjtA5h21z3nLQ1tQHAXrlgeKH8kbQejYatA0WoTXf
-	C/HhAtE3d+2B46NBcXkMKzorPr/7M+DdmF6eLC0r+oWsHBPx4N+mPTYfSiThq4UYiRLqocQn6VXzk
-	Y2qd0PYA==;
+	bh=Yl1EYo+dH7jDK00m7bNSAK3ZtAmbF0QnTKPkRFraQqw=; b=SsLhI8ILnVHeKITIO+rmnBatiJ
+	tJPKBXmEB5+fL6vDPI75qnydwBPR152gBYtxaJmMzQwK0cSGHUty1DZ68biiuAzV8dw84RiNGfW8/
+	rbtjZIY7pMfzIOzVDVo28qmKNZoYHlEjeQsD24zlFQ8Pc76kEyEHkH5ftqTjSVuTUYwrhuDfl4AoH
+	7YJtTbASsYK3BrROjpCrw4UpwVl6cyDvJJbsXV/UdqFBf5gIVOreQ5CwJNjF1UdD7VBTHYpiXFJbK
+	2NNi1ap4nKJLiLv+wpCRih7SCK1Bj8qRVtdCUAAx3WrImMx4Ti1PLX+LqiADfMMIGX+9t8v6orJVi
+	4/91eSNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOA4y-0000000EWrY-0x6R;
-	Wed, 26 Nov 2025 07:36:44 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
+	id 1vOA7v-0000000EXA2-2yN2;
+	Wed, 26 Nov 2025 07:39:47 +0000
+Received: from mgamail.intel.com ([198.175.65.10])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOA4v-0000000EWqv-1NQj
+	id 1vOA7s-0000000EX8U-1Agw
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Nov 2025 07:36:42 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-47790b080e4so33425435e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Nov 2025 23:36:40 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1764142599; x=1764747399; darn=lists.infradead.org;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=huaG+/GxqBZsLsw0w3QyMKo1sHeAUCmpJPn5GUTjThY=;
-        b=HiRXkWILnHakOKYURQfa89eiVC9YgfqYSNbGdUSsdQKqzTK3hNIdAXTuF6P+FfxfaC
-         KwTiWYrTZ6bru4/ww+hoephAJrQjsfmKEHpDY9obyInGBIuGuPc9/0DCuxZ3++d+5tiq
-         P1OjXELK67yidWATiUi+xjry4Hm0gkWFtyaETjoWkKfSgFvaOKJ5yZ6s8kxsjP7jki2O
-         kGJG71L8kxSuHj/miGgMoZWuF+n3MjkXSW9IlS0Up+R1y36avwLt9c0Oc30UIXNGgDBf
-         XrkFWHhPLtYsajUBlNjzkNYOvsCe96dLnFFQDGPAPqAw7x89zjPVoDbeg721Dh7Dv6nQ
-         jL9Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764142599; x=1764747399;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=huaG+/GxqBZsLsw0w3QyMKo1sHeAUCmpJPn5GUTjThY=;
-        b=X8ibLMLJ3v1a2kB7Ld07XG2c7LLFcvz3eMar0XWn+qU6SvGlUMIJUG5C1IEP8JUMhF
-         GjRWK3q2OhyOeNiVhY5rFpRlbe6Uvy9nx7XWgP22xnDhzALYQTmbvtxwzLZzrzeTph+4
-         r23gIBVgtNNx8qJfDhNkpJfqkQBJ87ZVgbD2oZBXrykpBDpGOQLijtuZ8Y6h6j3HW0k3
-         g8HmZhe8VRjZUoqmjqxy2aIKZEgcXyPt+nC7j1vKopdiqgFwP5z+Qy4Ikgjicvd0beuu
-         iYKcM8X73PtyIrmbL8/8vxr+aAOwO83wyICQLpJF+a/4qda1SGqMn/RnndYF27mKHK9n
-         W5TA==
-X-Forwarded-Encrypted: i=1; AJvYcCX6e/WKCpK8CRyuLMSpjxb+eC/bfX4/Owq6CzT6gMw86+Ibh0eAKthHM1zmxqVLcj96rMMPLzQ2UT8JYoYdSDJR@lists.infradead.org
-X-Gm-Message-State: AOJu0YxaDgnDZ9M8dtYY7zPP3jAJ/4uM86AJekkEUudM2A1UkOYhZ6o0
-	BoMyT5r4zhp2TOli9V7PwXxZOSut9Q/bJ2J8Y3CazmIuBPGPislRooxTSNgbKpPB83KQNg5bnWI
-	a7N57
-X-Gm-Gg: ASbGncu85fS9RueDlzK5rcRU1LR5ec85JAzkQHWn851izuEHw4kdgseTIJQgZWb08nA
-	PbpXtYWBK61lBUXk4Puf1WRt+wJChEQlFj6Wx6R+45KolZjor+R4I1QAceorwaZSNVjU1J+erNa
-	ry8hemt7Fd/bzOBZhVcoKsTF2HRGCeymMRDptjFBGPACWGXYqb+Jm258GkwbkaVrDBZaRrDO6QT
-	skPmbSR3mVLCEgfXRIbZS24b/VJaNcJ05sOyrA9g00MIzaeNdVcW9+F1+ohCdHx+fBQYz8Tw5iP
-	RORjYnSzTR8DugpD/dqIucH/NlY7/QjKqxwEZfGcanKOZ7rmy883PQPlYSqv8Jty+iZiYfM95vf
-	arzd62fOJjSepDdIFLeVMuA2W9cdEhENcymnE+H/Wg57Bm+zGJW3Ql0SD8TVdw/iQpHBLUVkMi2
-	xVq6SIP7asxi8MM2eKNA9zlOw0iNM=
-X-Google-Smtp-Source: AGHT+IGERlOuApsMignFjxRwNc06zHKXZ2/JbcDEMkz/E1/5bE/ahRgimkLS4/dK9MW3yfyecDo0DA==
-X-Received: by 2002:a05:600c:1d0d:b0:475:dd9a:f791 with SMTP id 5b1f17b1804b1-477c1126d1emr170754625e9.28.1764142599438;
-        Tue, 25 Nov 2025 23:36:39 -0800 (PST)
-Received: from draszik.lan ([212.129.87.89])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4790ab8bb21sm29049505e9.0.2025.11.25.23.36.37
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 25 Nov 2025 23:36:39 -0800 (PST)
-Message-ID: <7c326abd0d48c77c4b7df64da87870644d093757.camel@linaro.org>
+	Wed, 26 Nov 2025 07:39:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1764142785; x=1795678785;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=EMct42WoiiGjcksMl7vwP//cvhacHtrR+zrVyuvWuGI=;
+  b=bH2/l5Hj2cFnXbIG6TdgCUAma34mFxHlz8s0KTFpn35TFLu7BBflonP9
+   QQ0d8RS20EMyS1Js1IcbYGQZMyxcTn4WHilkbSdSjQ+Vg+yS710izzJh5
+   xvqQ4RjQyftRstzDfUAF0fqKLOAYvAncYKPmWJ878jDcOHoCNFROiQGIO
+   Rd3Etf2n9vs+xaQSGkXuNuQCflYgQCWPBVwM5DHe7U0RLO0L9R0EgvTXj
+   l/wUHnI2AHrxmQcn9MCtksTaZ3ssrFzezDIKWQw3hVWhmF1uITQ9PuSr1
+   nneX3skvtiXoSZrJ0LvfYxizRWmJjVJLxtdv75Y/c8OVbNzVmiXZHfwrG
+   A==;
+X-CSE-ConnectionGUID: kVXiC3T3SdulexTMTczsJA==
+X-CSE-MsgGUID: v5tObHr6RPm7slFhIvoBAw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11624"; a="83563496"
+X-IronPort-AV: E=Sophos;i="6.20,227,1758610800"; 
+   d="scan'208";a="83563496"
+Received: from fmviesa009.fm.intel.com ([10.60.135.149])
+  by orvoesa102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2025 23:39:43 -0800
+X-CSE-ConnectionGUID: U+ariKqbS4mjldTk3ROtsw==
+X-CSE-MsgGUID: LJpZH5gTQ9ah/6mzKzzK6Q==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.20,227,1758610800"; 
+   d="scan'208";a="193297094"
+Received: from lkp-server01.sh.intel.com (HELO 4664bbef4914) ([10.239.97.150])
+  by fmviesa009.fm.intel.com with ESMTP; 25 Nov 2025 23:39:37 -0800
+Received: from kbuild by 4664bbef4914 with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1vOA7i-000000002bl-41Uh;
+	Wed, 26 Nov 2025 07:39:34 +0000
+Date: Wed, 26 Nov 2025 15:38:54 +0800
+From: kernel test robot <lkp@intel.com>
+To: Amit Sunil Dhamne via B4 Relay <devnull+amitsd.google.com@kernel.org>,
+	Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	=?iso-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>,
+	Lee Jones <lee@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Badhri Jagan Sridharan <badhri@google.com>,
+	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+	Peter Griffin <peter.griffin@linaro.org>,
+	Tudor Ambarus <tudor.ambarus@linaro.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-usb@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org,
+	RD Babiera <rdbabiera@google.com>, Kyle Tso <kyletso@google.com>,
+	Amit Sunil Dhamne <amitsd@google.com>
 Subject: Re: [PATCH 5/6] power: supply: max77759: add charger driver
-From: =?ISO-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
-To: amitsd@google.com, Sebastian Reichel <sre@kernel.org>, Rob Herring	
- <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley	
- <conor+dt@kernel.org>, Lee Jones <lee@kernel.org>, Greg Kroah-Hartman	
- <gregkh@linuxfoundation.org>, Badhri Jagan Sridharan <badhri@google.com>, 
- Heikki Krogerus <heikki.krogerus@linux.intel.com>, Peter Griffin
- <peter.griffin@linaro.org>, Tudor Ambarus	 <tudor.ambarus@linaro.org>, Alim
- Akhtar <alim.akhtar@samsung.com>
-Cc: linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-usb@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, RD
- Babiera <rdbabiera@google.com>, Kyle Tso <kyletso@google.com>
-Date: Wed, 26 Nov 2025 07:36:54 +0000
-In-Reply-To: <20251123-max77759-charger-v1-5-6b2e4b8f7f54@google.com>
-References: <20251123-max77759-charger-v1-0-6b2e4b8f7f54@google.com>
-	 <20251123-max77759-charger-v1-5-6b2e4b8f7f54@google.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-2+build3 
+Message-ID: <202511261521.hSYp4ttf-lkp@intel.com>
+References: <20251123-max77759-charger-v1-5-6b2e4b8f7f54@google.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251123-max77759-charger-v1-5-6b2e4b8f7f54@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251125_233641_417246_D9B22819 
-X-CRM114-Status: GOOD (  34.13  )
+X-CRM114-CacheID: sfid-20251125_233944_361411_0307F33C 
+X-CRM114-Status: GOOD (  11.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,249 +105,37 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Hi Amit,
 
-Just a quick comment below for something I noticed during a brief look.
+kernel test robot noticed the following build errors:
 
-On Sun, 2025-11-23 at 08:35 +0000, Amit Sunil Dhamne via B4 Relay wrote:
-> From: Amit Sunil Dhamne <amitsd@google.com>
->=20
-> Add support for MAX77759 battery charger driver. This is a 4A 1-Cell
-> Li+/LiPoly dual input switch mode charger. While the device can support
-> USB & wireless charger inputs, this implementation only supports USB
-> input. This implementation supports both buck and boost modes.
->=20
-> Signed-off-by: Amit Sunil Dhamne <amitsd@google.com>
-> ---
-> =C2=A0MAINTAINERS=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0=C2=A0 7 +
-> =C2=A0drivers/mfd/max77759.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0=C2=A0 3 +=
--
-> =C2=A0drivers/power/supply/Kconfig=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0 11 +
-> =C2=A0drivers/power/supply/Makefile=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0=C2=A0 1 +
-> =C2=A0drivers/power/supply/max77759_charger.c | 866 +++++++++++++++++++++=
-+++++++++++
-> =C2=A05 files changed, 887 insertions(+), 1 deletion(-)
->=20
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index fed6cd812d79..f1b1015c08b5 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -15053,6 +15053,13 @@ F:	drivers/mfd/max77759.c
-> =C2=A0F:	drivers/nvmem/max77759-nvmem.c
-> =C2=A0F:	include/linux/mfd/max77759.h
-> =C2=A0
-> +MAXIM MAX77759 BATTERY CHARGER DRIVER
-> +M:	Amit Sunil Dhamne <amitsd@google.com>
-> +L:	linux-kernel@vger.kernel.org
-> +S:	Maintained
-> +F:	Documentation/devicetree/bindings/power/supply/maxim,max77759-charger=
-.yaml
-> +F:	drivers/power/supply/max77759_charger.c
-> +
-> =C2=A0MAXIM MAX77802 PMIC REGULATOR DEVICE DRIVER
-> =C2=A0M:	Javier Martinez Canillas <javier@dowhile0.org>
-> =C2=A0L:	linux-kernel@vger.kernel.org
-> diff --git a/drivers/mfd/max77759.c b/drivers/mfd/max77759.c
-> index 5fe22884f362..8a22838be1b0 100644
-> --- a/drivers/mfd/max77759.c
-> +++ b/drivers/mfd/max77759.c
-> @@ -349,7 +349,8 @@ static const struct mfd_cell max77759_maxq_cells[] =
-=3D {
-> =C2=A0};
-> =C2=A0
-> =C2=A0static const struct mfd_cell max77759_charger_cells[] =3D {
-> -	MFD_CELL_RES("max77759-charger", max77759_charger_resources),
-> +	MFD_CELL_OF("max77759-charger", max77759_charger_resources, NULL, 0, 0,
-> +		=C2=A0=C2=A0=C2=A0 "maxim,max77759-charger"),
-> =C2=A0};
-> =C2=A0
-> =C2=A0int max77759_maxq_command(struct max77759 *max77759,
-> diff --git a/drivers/power/supply/Kconfig b/drivers/power/supply/Kconfig
-> index 79ddb006e2da..b97990cc0b92 100644
-> --- a/drivers/power/supply/Kconfig
-> +++ b/drivers/power/supply/Kconfig
-> @@ -1074,4 +1074,15 @@ config FUEL_GAUGE_MM8013
-> =C2=A0	=C2=A0 the state of charge, temperature, cycle count, actual and d=
-esign
-> =C2=A0	=C2=A0 capacity, etc.
-> =C2=A0
-> +config CHARGER_MAX77759
-> +	tristate "MAX77759 Charger Driver"
-> +	depends on MFD_MAX77759
-> +	default MFD_MAX77759
-> +	help
-> +	=C2=A0 Say M or Y here to enable the MAX77759 Charger Driver. MAX77759
-> +	=C2=A0 charger is a function of the MAX77759 PMIC. This is a dual input
-> +	=C2=A0 switch-mode charger. This driver supports buck and OTG boost mod=
-es.
-> +
-> +	=C2=A0 If built as a module, it will be called max77759_charger.
-> +
-> =C2=A0endif # POWER_SUPPLY
-> diff --git a/drivers/power/supply/Makefile b/drivers/power/supply/Makefil=
-e
-> index f943c9150b32..12669734cfe3 100644
-> --- a/drivers/power/supply/Makefile
-> +++ b/drivers/power/supply/Makefile
-> @@ -122,3 +122,4 @@ obj-$(CONFIG_CHARGER_SURFACE)	+=3D surface_charger.o
-> =C2=A0obj-$(CONFIG_BATTERY_UG3105)	+=3D ug3105_battery.o
-> =C2=A0obj-$(CONFIG_CHARGER_QCOM_SMB2)	+=3D qcom_smbx.o
-> =C2=A0obj-$(CONFIG_FUEL_GAUGE_MM8013)	+=3D mm8013.o
-> +obj-$(CONFIG_CHARGER_MAX77759)	+=3D max77759_charger.o
-> diff --git a/drivers/power/supply/max77759_charger.c b/drivers/power/supp=
-ly/max77759_charger.c
-> new file mode 100644
-> index 000000000000..51637e87182b
-> --- /dev/null
-> +++ b/drivers/power/supply/max77759_charger.c
-> @@ -0,0 +1,866 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +/*
-> + * max77759_charger.c - Battery charger driver for MAX77759 charger devi=
-ce.
-> + *
-> + * Copyright 2025 Google LLC.
-> + */
-> +
-> +#include <linux/bitfield.h>
-> +#include <linux/cleanup.h>
-> +#include <linux/device.h>
-> +#include <linux/devm-helpers.h>
-> +#include <linux/interrupt.h>
-> +#include <linux/irq.h>
-> +#include <linux/math64.h>
-> +#include <linux/mfd/max77759.h>
-> +#include <linux/module.h>
-> +#include <linux/mod_devicetable.h>
-> +#include <linux/mutex.h>
-> +#include <linux/of.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/power_supply.h>
-> +#include <linux/regmap.h>
-> +#include <linux/regulator/driver.h>
-> +#include <linux/string_choices.h>
-> +
-> +/* CHG_INT_OK */
-> +#define CHG_INT_OK_AICL_OK			BIT(7)
-> +#define CHG_INT_OK_CHGIN_OK			BIT(6)
-> +#define CHG_INT_OK_CHG_OK			BIT(4)
-> +#define CHG_INT_OK_INLIM_OK			BIT(2)
-> +
+[auto build test ERROR on 39f90c1967215375f7d87b81d14b0f3ed6b40c29]
 
-[...]
+url:    https://github.com/intel-lab-lkp/linux/commits/Amit-Sunil-Dhamne-via-B4-Relay/dt-bindings-power-supply-Add-Maxim-MAX77759-charger/20251123-163840
+base:   39f90c1967215375f7d87b81d14b0f3ed6b40c29
+patch link:    https://lore.kernel.org/r/20251123-max77759-charger-v1-5-6b2e4b8f7f54%40google.com
+patch subject: [PATCH 5/6] power: supply: max77759: add charger driver
+config: um-randconfig-001-20251126 (https://download.01.org/0day-ci/archive/20251126/202511261521.hSYp4ttf-lkp@intel.com/config)
+compiler: clang version 19.1.7 (https://github.com/llvm/llvm-project cd708029e0b2869e80abe31ddb175f7c35361f90)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20251126/202511261521.hSYp4ttf-lkp@intel.com/reproduce)
 
-> +static irqreturn_t irq_handler(int irq, void *data)
-> +{
-> +	struct max77759_charger *chg =3D data;
-> +	u32 irq_status, chgint_ok, idx =3D 0;
-> +	int ret;
-> +
-> +	if (irq =3D=3D chg->irq[0])
-> +		idx =3D 0;
-> +	else
-> +		idx =3D 1;
-> +
-> +	ret =3D regmap_read(chg->regmap, MAX77759_CHGR_REG_CHG_INT + idx,
-> +			=C2=A0 &irq_status);
-> +	if (ret) {
-> +		dev_err(chg->dev, "regmap_read_error idx=3D%d ret=3D%d", idx, ret);
-> +		return IRQ_HANDLED;
-> +	}
-> +
-> +	regmap_write(chg->regmap, MAX77759_CHGR_REG_CHG_INT + idx,
-> +		=C2=A0=C2=A0=C2=A0=C2=A0 irq_status);
-> +	regmap_read(chg->regmap, MAX77759_CHGR_REG_CHG_INT_OK, &chgint_ok);
-> +
-> +	if (idx =3D=3D 0) {
-> +		if (irq_status & MAX77759_CHGR_REG_CHG_INT_AICL)
-> +			dev_dbg(chg->dev, "AICL mode: %s",
-> +				str_no_yes(chgint_ok & CHG_INT_OK_AICL_OK));
-> +
-> +		if (irq_status & MAX77759_CHGR_REG_CHG_INT_CHGIN)
-> +			dev_dbg(chg->dev, "CHGIN input valid: %s",
-> +				str_yes_no(chgint_ok & CHG_INT_OK_CHGIN_OK));
-> +
-> +		if (irq_status & MAX77759_CHGR_REG_CHG_INT_CHG)
-> +			dev_dbg(chg->dev, "CHG status okay/off: %s",
-> +				str_yes_no(chgint_ok & CHG_INT_OK_CHG_OK));
-> +
-> +		if (irq_status & MAX77759_CHGR_REG_CHG_INT_INLIM)
-> +			dev_dbg(chg->dev, "Current Limit reached: %s",
-> +				str_no_yes(chgint_ok & CHG_INT_OK_INLIM_OK));
-> +	} else {
-> +		if (irq_status & MAX77759_CHGR_REG_CHG_INT2_BAT_OILO)
-> +			dev_dbg(chg->dev,
-> +				"Battery over-current threshold crossed");
-> +
-> +		if (irq_status & MAX77759_CHGR_REG_CHG_INT2_CHG_STA_CC)
-> +			dev_dbg(chg->dev, "Charger reached CC stage");
-> +
-> +		if (irq_status & MAX77759_CHGR_REG_CHG_INT2_CHG_STA_CV)
-> +			dev_dbg(chg->dev, "Charger reached CV stage");
-> +
-> +		if (irq_status & MAX77759_CHGR_REG_CHG_INT2_CHG_STA_TO)
-> +			dev_dbg(chg->dev, "Charger reached TO stage");
-> +
-> +		if (irq_status & MAX77759_CHGR_REG_CHG_INT2_CHG_STA_DONE)
-> +			dev_dbg(chg->dev, "Charger reached Done stage");
-> +	}
-> +
-> +	power_supply_changed(chg->psy);
-> +	return IRQ_HANDLED;
-> +}
-> +
-> +static int max77759_init_irqhandler(struct max77759_charger *chg)
-> +{
-> +	static const char * const irq_res_names[] =3D { "INT1", "INT2" };
-> +	struct device *dev =3D chg->dev;
-> +	unsigned long irq_flags;
-> +	struct irq_data *irqd;
-> +	int *irq =3D chg->irq;
-> +	int ret, i;
-> +
-> +	for (i =3D 0; i < 2; i++) {
-> +		irq[i] =3D platform_get_irq_byname(to_platform_device(dev),
-> +						 irq_res_names[i]);
-> +		if (irq[i] < 0) {
-> +			dev_err(dev, "unable to find %s irq", irq_res_names[i]);
-> +			return irq[i];
-> +		}
-> +
-> +		irq_flags =3D IRQF_ONESHOT | IRQF_SHARED;
-> +		irqd =3D irq_get_irq_data(irq[i]);
-> +		if (irqd)
-> +			irq_flags |=3D irqd_get_trigger_type(irqd);
-> +
-> +		ret =3D devm_request_threaded_irq(dev, irq[i], NULL, irq_handler,
-> +						irq_flags, dev_name(dev), chg);
-> +		if (ret) {
-> +			dev_err(dev, "Unable to register threaded irq handler");
-> +			return ret;
-> +		}
-> +	}
-> +
-> +	return 0;
-> +}
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202511261521.hSYp4ttf-lkp@intel.com/
 
-The way you're requesting the IRQ here I don't think you need to modify
-max77759_chgr_irqs[] in patch 4 at all. You're requesting the interrupt
-and are manually demultiplexing and acknowledging the actual event in your
-IRQ handler.
+All errors (new ones prefixed by >>):
 
-Your change in patch 4 would instead allow your charger driver to call
-request_irq for each individual bit of the interrupt register(s), letting
-regmap-irq demultiplex and acknowledge the event for you before calling
-your handler(s). As an example, see how the ACPM result interrupt is
-requested in max77759_add_chained_maxq().
+   /usr/bin/ld: warning: .tmp_vmlinux1 has a LOAD segment with RWX permissions
+   /usr/bin/ld: drivers/power/supply/max77759_charger.o: in function `max77759_charger_probe':
+>> max77759_charger.c:(.ltext+0x27b): undefined reference to `devm_regulator_register'
+   /usr/bin/ld: drivers/power/supply/max77759_charger.o: in function `enable_usb_otg':
+>> max77759_charger.c:(.ltext+0x983): undefined reference to `rdev_get_drvdata'
+   /usr/bin/ld: drivers/power/supply/max77759_charger.o: in function `disable_usb_otg':
+   max77759_charger.c:(.ltext+0x9c3): undefined reference to `rdev_get_drvdata'
+   /usr/bin/ld: drivers/power/supply/max77759_charger.o: in function `usb_otg_status':
+   max77759_charger.c:(.ltext+0xa06): undefined reference to `rdev_get_drvdata'
+   clang: error: linker command failed with exit code 1 (use -v to see invocation)
 
-It's probably cleaner to let regmap-irq deal with demultiplexing etc.
-
-
-Cheers,
-Andre
-
-
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
