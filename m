@@ -4,104 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46312D1037B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 10:46:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AFADD1039D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 10:46:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Ujz+iQZ3aq/Eu2hONyHsL8Ecg6vhJZ81zHq90HSGIsI=; b=TtNRVcBrA8uMHi1b3cWmpiJanF
-	45WU4Jt4Kj0mnS09+0jd4CL29cAViju444Zp+vTo0YvtDs2ApKUTroFMiarHpHjXd6Wbj+CaDehhW
-	33P2jF/tKxPEQ6MiVlDKw+2yOREhQ5s8KtbY3UvEubzkrY/cZ36sGmGWs5+SRXsokoKXdqeV3J0Zq
-	lmif3xtxTFgPlk4LPPsbQbt3fkJxE5dUZpx0R5YjAOUXXWXjzZZBwKkXJXK+bNW4cYuBkTzisOOFA
-	Jpe812Zy4+HmtunELtQzKE/jyyymKDywucC4lcwb71ezNdnYL+SKICLVgEbUkcefVqE/lcAXS8/mu
-	Lwu0cNcg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JQa7pr2d2LWfMGLERrFlEKDeH19thDdsNOy8z01FBYg=; b=ozFRtKOgM8TppK5MOLSN4nR9Om
+	VxqJHNnpFlFyqhvkg9o5nuXLKYwONBXh4hQ06WZCZi7O4r1QvO6VFYbUgTzdpRe51uzVs64CK6HQZ
+	cRa5CmvV2P04oxy5j4Z5Q0yUk8BBKGb4+i+Gb80rz2NA8M3I6uhGIgxvJeZhVfRwn/wKtzUtHvzlH
+	2NsfntzqGxAICWNZTJyt2xys67fKA2TnuEviuvk2TteAAGQxqCGtH9/tlE04dgmF1D03kpIzXvAmD
+	aQIT+/FGnA6gof1aoI5BnJj/7x2tqoRYUxNCopLPmoa60heBnDnoJv+nOmFO2Pl2y/JKJh8YF/LiW
+	3YnNBz6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOD2P-0000000EpSe-1b1S;
-	Wed, 26 Nov 2025 10:46:17 +0000
-Received: from mail-lj1-x22b.google.com ([2a00:1450:4864:20::22b])
+	id 1vOD2v-0000000EpYK-3Eyu;
+	Wed, 26 Nov 2025 10:46:49 +0000
+Received: from sender3-of-o54.zoho.com ([136.143.184.54])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOD2N-0000000EpRn-0URB
+	id 1vOD2t-0000000EpXh-1REM
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Nov 2025 10:46:16 +0000
-Received: by mail-lj1-x22b.google.com with SMTP id 38308e7fff4ca-37cd7f9de7cso39531611fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Nov 2025 02:46:13 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bell-sw-com.20230601.gappssmtp.com; s=20230601; t=1764153972; x=1764758772; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=Ujz+iQZ3aq/Eu2hONyHsL8Ecg6vhJZ81zHq90HSGIsI=;
-        b=EsKpzL/R1N9q+YuoRQxy+OqYpyKZWVZCr2FaA5zEsWm//BL8FbADjbO3EZSdf4IBF3
-         +WdN8vDAx0GZuHjjAWEnisnUpCjsn3G7cW/92t7n8Ercx3tWjZIn8J7gaQKLomk2Xbef
-         8dIiL01trRktEVezByfxKBC5/syrganNzXwc3tI3N1qpmbJYUK3wACSlNk+XMUpT/DgU
-         TU/17ECbdbAB27T4LvhuE5wR7Nkdp8Brfq3YxH6cREyCL2xQ6fpAz2JX6ecLN+e8CMU3
-         g06KUK6nQvwUkH+nD6EWQTO7YuS1OEefd9Qfykif9oX4HxlL53dKcRlNJNGJhcSC7UXQ
-         ym/A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764153972; x=1764758772;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Ujz+iQZ3aq/Eu2hONyHsL8Ecg6vhJZ81zHq90HSGIsI=;
-        b=jQqWUrEa99Q6G+rtlnxg9dlk+sPQ58oUMn/pEgDN3tTaoTNvPbTkE1giri6VfZMjZx
-         3VEUaAoxNDy9i/3nqeb7llqRlu+07YPrn6je7RNrMl7II7J46gvKyVC2X9yL16evuxy3
-         hOJYXndCfXHmakiyTDyq7cl76eKZ3iAP0/62H/4A9lI/a017xEQjNRSKlygR+7yZJpw9
-         ArvU737LInmpqR280+oRHPA6hdD7fGnta1ir2xJYp4uvayN7P5Cp/3GOOjHZWR9V31W7
-         kpAcvO4il6x1HL0gGgNelOCXgGUBlYHKuaIKbnu6egbzxY5f6BCrbPWdIvNAlz0e6si6
-         kMaA==
-X-Forwarded-Encrypted: i=1; AJvYcCWZJHFnT2fTzR2g/7wYfai8oSlpto5V+tE49ED5lKvZfsRZBXOMDR1ciXJj6k3st0IClzserv+IBXk7ZnYQr5M6@lists.infradead.org
-X-Gm-Message-State: AOJu0YxEV/+cADXoc2A/IN/jHM0+/VcZOF4GFiZbhk28RwIZZPnC+jDz
-	7GDCmNuZx2PHsGtXYoykOZ/ZfR5+n/HcRxkxF0M4xFxr9iXB9QbOF1kDiKVaIgxR8g==
-X-Gm-Gg: ASbGncthLOji6v8Z2QOZ2ERBzaOK6JrbL0uzxoKAF8DYkeyemWyrZ4NR+f/JwmBwZex
-	yRyB8SK48q8t1EAS63UUN4tdQmBMApps2ZETM8K0O5NU/0n4WeSce6GldjA/S/QCPW+n7qAfVeM
-	30ozssZExXnS383s6Ga1XlRlzLpTBfjvle/ChA+Rqg8shqU//W8veS9vOECjtaPQrgdRlThXaeR
-	dePyUOVcrrv+EFaiBZlxJAf9iHW4SRQqHWQ8PUDUW00unjc1LN/PCl0R3HNgO3xU2g2Ml6PDQrM
-	0b0bQs54n6H9JlwVDPwj7+2w5REiZ6T4GUQqluohAi95MnCeZCVDTIYBmVn34HL/tg5RIzWtnTi
-	GVxz5XrLdHUKZMgCFD/DkazEjFhZRJq6VRSEe2YQnwq0KiPVatLWxmJ7isbI1vcHxYVjffKyj0N
-	ft0X7AdKnr0Ff3st8TvuIJGcLKHYuuJRUyiLJ8vQ==
-X-Google-Smtp-Source: AGHT+IHV4NJoDgpYQn/p/OIs9fXgEtrHCXvixk5XgByH3mJPfB4RceqYh5UKXpB1J5NvcM+BGdDNkA==
-X-Received: by 2002:a2e:9215:0:b0:37b:9a1d:dee3 with SMTP id 38308e7fff4ca-37cd91a992fmr45052241fa.16.1764153972348;
-        Wed, 26 Nov 2025 02:46:12 -0800 (PST)
-Received: from localhost.localdomain ([5.8.36.109])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-37cc6b59f01sm37275861fa.17.2025.11.26.02.46.11
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 26 Nov 2025 02:46:11 -0800 (PST)
-From: Alexey Kodanev <aleksei.kodanev@bell-sw.com>
-To: netdev@vger.kernel.org
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Jesper Dangaard Brouer <hawk@kernel.org>,
-	John Fastabend <john.fastabend@gmail.com>,
-	Stanislav Fomichev <sdf@fomichev.me>,
-	Russell King <rmk+kernel@armlinux.org.uk>,
-	Furong Xu <0x1207@gmail.com>,
-	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
-	Vladimir Oltean <vladimir.oltean@nxp.com>,
-	Ong Boon Leong <boon.leong.ong@intel.com>,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	Jochen Henneberg <jh@henneberg-systemdesign.com>,
-	Piotr Raczynski <piotr.raczynski@intel.com>,
-	Alexey Kodanev <aleksei.kodanev@bell-sw.com>
-Subject: [PATCH net-next] net: stmmac: fix rx limit check in stmmac_rx_zc()
-Date: Wed, 26 Nov 2025 10:43:27 +0000
-Message-Id: <20251126104327.175590-1-aleksei.kodanev@bell-sw.com>
-X-Mailer: git-send-email 2.25.1
+	Wed, 26 Nov 2025 10:46:48 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1764153999; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=SUtnv6J7VsnEM7W/tPWaAY59MO76NcqiqWLy59E4stpw0Oy/UoQu/9x5KWlWm6p+XmkPpbVbaRwEVfqvVSo8MPTkQGjtP96pRr2cEfN1amil6n/gpsbQ5x5L5/MGEFiHgyaqZgeoi6qGxlz3vs7bbQfI2pilJ5iDZMNdg8MDUAw=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1764153999; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=JQa7pr2d2LWfMGLERrFlEKDeH19thDdsNOy8z01FBYg=; 
+	b=RGG3sMdrXFgh+ACK59yNKbWfUlgf3Xw8ab1jH2jy1YZcunteDjaeLXR6tBuN/KK9yxgcGroPLEGVhQvDenfKjYN8u5foLnS4MkYL0hmsdWFr9WbudSL7izeledchIbfm+PcCf4mYJI96Oaosa5OfrwLjA/zVf3T4vzR16tFwN7s=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=anirudhrb.com;
+	spf=pass  smtp.mailfrom=anirudh@anirudhrb.com;
+	dmarc=pass header.from=<anirudh@anirudhrb.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1764153999;
+	s=zoho; d=anirudhrb.com; i=anirudh@anirudhrb.com;
+	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:References:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
+	bh=JQa7pr2d2LWfMGLERrFlEKDeH19thDdsNOy8z01FBYg=;
+	b=GjLHrdFlCRbKQosUewtLukpsHWYOb1Q/Zw4/NlQxgEGfHGJiVw4DAm6MhlPCBDB0
+	80W0hYhphDDhtGxj4WlqgsDBPLev+nRAmE1NUKmIduuP57b4WfPRbw1mJ8QcfQKosMR
+	uycMbEuEGlqVDGsxpHB0wrEeYYRpaG0guYCZU/g4=
+Received: by mx.zohomail.com with SMTPS id 1764153997500477.0715187596991;
+	Wed, 26 Nov 2025 02:46:37 -0800 (PST)
+Date: Wed, 26 Nov 2025 10:46:31 +0000
+From: Anirudh Rayabharam <anirudh@anirudhrb.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: kys@microsoft.com, haiyangz@microsoft.com, wei.liu@kernel.org,
+	decui@microsoft.com, longli@microsoft.com, catalin.marinas@arm.com,
+	will@kernel.org, tglx@linutronix.de, Arnd Bergmann <arnd@arndb.de>,
+	akpm@linux-foundation.org, agordeev@linux.ibm.com,
+	guoweikang.kernel@gmail.com, osandov@fb.com, bsz@amazon.de,
+	linux-hyperv@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org
+Subject: Re: [PATCH 2/3] irqchip/gic-v3: allocate one SGI for MSHV
+Message-ID: <aSbahzqu_3GN-PPJ@anirudh-surface.localdomain>
+References: <20251125170124.2443340-1-anirudh@anirudhrb.com>
+ <20251125170124.2443340-3-anirudh@anirudhrb.com>
+ <86bjkqq9dp.wl-maz@kernel.org>
+ <aSa_rxG80LDXDlhr@anirudh-surface.localdomain>
+ <86a509qi8p.wl-maz@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <86a509qi8p.wl-maz@kernel.org>
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251126_024615_281238_91172796 
-X-CRM114-Status: GOOD (  16.64  )
+X-CRM114-CacheID: sfid-20251126_024647_439926_F42FD771 
+X-CRM114-Status: GOOD (  36.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,63 +86,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The extra "count >= limit" check in stmmac_rx_zc() is redundant and
-has no effect because the value of "count" doesn't change after the
-while condition at this point.
+On Wed, Nov 26, 2025 at 09:02:30AM +0000, Marc Zyngier wrote:
+> On Wed, 26 Nov 2025 08:51:59 +0000,
+> Anirudh Rayabharam <anirudh@anirudhrb.com> wrote:
+> > 
+> > On Tue, Nov 25, 2025 at 06:01:38PM +0000, Marc Zyngier wrote:
+> > > On Tue, 25 Nov 2025 17:01:23 +0000,
+> > > Anirudh Raybharam <anirudh@anirudhrb.com> wrote:
+> > > > 
+> > > > From: Anirudh Rayabharam <anirudh@anirudhrb.com>
+> > > > 
+> > > > From: Anirudh Rayabharam (Microsoft) <anirudh@anirudhrb.com>
+> > > > 
+> > > > Currently SGIs are allocated only for the smp subsystem. The MSHV
+> > > > (Microsoft Hypervisor aka Hyper-V) code also needs an SGI that can be
+> > > > programmed into the SYNIC to receive intercepts from the hypervisor. The
+> > > > hypervisor would then assert this SGI whenever there is a guest
+> > > > VMEXIT.
+> > > > 
+> > > > Allocate one SGI for MSHV use in addition to the SGIs allocated for
+> > > > IPIs. When running under MSHV, the full SGI range can be used i.e. no
+> > > > need to reserve SGIs 8-15 for the secure firmware.
+> > > > 
+> > > > Since this SGI is needed only when running as a parent partition (i.e.
+> > > > we can create guest partitions), check for it before allocating an SGI.
+> > > 
+> > > Sorry, but that's not an acceptable situation.
+> > > 
+> > > SGIs are for Linux to use, nobody else, and that allocation must be
+> > 
+> > Why does this restriction exist? In the code SGIs 8-15 are left for
+> > secure firmware. So, things other than Linux can use SGIs. Why not MSHV
+> > then?
+> 
+> Because SGIs are for *internal* usage. Not usage from another random
+> piece of SW. The ACPI tables explicitly don't describe SGIs. DT
+> explicitly don't describe SGIs. Do you get the clue?
 
-However, it can change after "read_again:" label:
+The name Software Generated Interrupts suggests that it is supposed to be
+used by pieces of SW.
 
-        while (count < limit) {
-            ...
+Yes, ACPI/DT don't describe SGIs because they're not supposed to be used
+by devices. SW has full control over SGIs and it is up to the SW to
+assign meaning to them, isn't it?
 
-            if (count >= limit)
-                break;
-    read_again:
-            ...
-            /* XSK pool expects RX frame 1:1 mapped to XSK buffer */
-            if (likely(status & rx_not_ls)) {
-                xsk_buff_free(buf->xdp);
-                buf->xdp = NULL;
-                dirty++;
-                count++;
-                goto read_again;
-            }
-            ...
+> 
+> > > the same irrespective of whether Linux runs virtualised or not. This
+> > > also won't work with GICv5 (there are no SGIs at all), so this is
+> > > doomed from the very start, and would immediately create technical
+> > > debt.
+> > 
+> > Hyper-V always presents a GICv3 so we don't need to worry about GICv5.
+> 
+> Well, that's pretty short sighted of you, and eventually you'll have
+> to support it, or just die. So do the right thing from the beginning.
 
-This patch addresses the same issue previously resolved in stmmac_rx()
-by commit fa02de9e7588 ("net: stmmac: fix rx budget limit check").
-The fix is the same: move the check after the label to ensure that it
-bounds the goto loop.
+Well, we don't when or if that will happen. But if it does happen, we
+can solve it in a way that makes sense for GICv5. If there are no SGIs
+at all, great, maybe we'll have a nicer solution then.
 
-Detected using the static analysis tool - Svace.
-Fixes: bba2556efad6 ("net: stmmac: Enable RX via AF_XDP zero-copy")
-Signed-off-by: Alexey Kodanev <aleksei.kodanev@bell-sw.com>
----
+> 
+> > >
+> > > If you want to signal an interrupt to Linux, expose a device with an
+> > > interrupt in a firmware table (i.e. not an SGI), and use that in your
+> > > driver.
+> > 
+> > You mean in the ACPI tables? That would require us to modify the
+> > firmware to expose this virtual device right?
+> 
+> Yes. How is that surprising?
 
-After creating the patch, I also found the previous attempt to fix this issue
-from 2023, but I'm not sure what went wrong or why it wasn't applied:
-https://lore.kernel.org/netdev/ZBRd2HyZdz52eXyz@nimitz/
+It's not ideal that we would need some custom firmware to run Linux on
+MSHV (as a parent). Do you think there could be some other possible solution
+for handling this in the kernel? Maybe by thinking of it as a platform specific
+quirk or something?
 
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Thanks,
+Anirudh.
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index 7b90ecd3a55e..86e912471dea 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -5258,10 +5258,10 @@ static int stmmac_rx_zc(struct stmmac_priv *priv, int limit, u32 queue)
- 			len = 0;
- 		}
- 
-+read_again:
- 		if (count >= limit)
- 			break;
- 
--read_again:
- 		buf1_len = 0;
- 		entry = next_entry;
- 		buf = &rx_q->buf_pool[entry];
--- 
-2.25.1
-
+> 
+> 	M.
+> 
+> -- 
+> Without deviation from the norm, progress is not possible.
 
