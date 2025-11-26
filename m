@@ -4,71 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04109D1038F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 08:20:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70BBCD10391
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 08:26:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VFktZE3EcM1dZYPl89+UC+LcSEJH2RUBfky3xnM4BZ4=; b=1gMqVfWns6+NwVj5od08uTTv3t
-	iQvuPz849mYqET7PI9vPO+UMFPqQqmuP+d9fek3L4kWjys5qft1yIM9qqnUkos82KLmIupQrdGswa
-	1s9nH55spIprfM2Nie4JbYnFreca6JvVOEq8ZzY5w0Xa13lisKurR29vky+FF1IXEbglQPZrpRP4v
-	q9e1BrU1K0DcziGisJ127o/h+MMW5eNKEzOICSTwu2wQZuuU66fbIyqoGH6TMnhZLO1PGNMYX1LL1
-	RrNO6kvfx+W0d7DBvHOs/rsFynDnvuYlEKzcWlsAR2UatZOZwzkW22uz4yE3ANUJGtBQ15apdVLy9
-	IIObJkCA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=+vJ8EaE+nu0lIUJABRQHfDnIDkTZEuMj0mTHD0scIYU=; b=pX6vXIKo5hW0QU
+	Z0MMp83Il77J49TYuXDqlQGRxXx1JXA5m1Uv5oFedX8fv0RUf1uwP9iQW9z8RQqivGntlgGHHndxq
+	jdPCSTJKxRmbkNfXJ1V0kthUgfH53Q6xDOa4KaQIk6VFT7cH3Ue4GI61RMR53Vg+vhp9jOhj1nuTn
+	2Kwl+xkg0ZIQvIOX/SQtUtAJHhxcq9BwK4g/r5I6Aq3T/0xtppjFS1QCSWAztZ04fFup4dWS3R/Nj
+	u3h1/rnAHmEnwSjRhhhQ1Tiy0shRO+mo58LggSClwuQhUwnRPhnyQ6hPh1SMsSDFFHuFnhBcPnG29
+	u3rkIE2otCPDL3xcsfpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOAlH-0000000Eau5-1nZo;
-	Wed, 26 Nov 2025 08:20:27 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1vOArP-0000000EbLj-2dDj;
+	Wed, 26 Nov 2025 08:26:47 +0000
+Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOAlE-0000000Eati-2Uro
+	id 1vOArN-0000000EbKy-1I6w
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Nov 2025 08:20:25 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <mkl@pengutronix.de>)
-	id 1vOAlA-0003q1-0T; Wed, 26 Nov 2025 09:20:20 +0100
-Received: from moin.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::7b] helo=bjornoya.blackshift.org)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <mkl@pengutronix.de>)
-	id 1vOAl9-002ZMf-2B;
-	Wed, 26 Nov 2025 09:20:19 +0100
-Received: from pengutronix.de (p54b152ce.dip0.t-ipconnect.de [84.177.82.206])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(Client did not present a certificate)
-	(Authenticated sender: mkl-all@blackshift.org)
-	by smtp.blackshift.org (Postfix) with ESMTPSA id 583B84A8769;
-	Wed, 26 Nov 2025 08:20:19 +0000 (UTC)
-Date: Wed, 26 Nov 2025 09:20:19 +0100
-From: Marc Kleine-Budde <mkl@pengutronix.de>
-To: Carlos Song <carlos.song@nxp.com>
-Cc: broonie@kernel.org, frank.li@nxp.com, hawnguo@kernel.org, 
-	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com, 
-	linux-spi@vger.kernel.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 5/6] spi: imx: support dynamic burst length for ECSPI DMA
- mode
-Message-ID: <20251126-invisible-almond-bee-86a27d-mkl@pengutronix.de>
-References: <20251125100618.2159770-1-carlos.song@nxp.com>
- <20251125100618.2159770-6-carlos.song@nxp.com>
+	Wed, 26 Nov 2025 08:26:46 +0000
+Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Wed, 26 Nov
+ 2025 16:26:30 +0800
+Received: from [127.0.1.1] (192.168.10.13) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
+ Transport; Wed, 26 Nov 2025 16:26:30 +0800
+From: Ryan Chen <ryan_chen@aspeedtech.com>
+Subject: [PATCH 0/2] Add AST2700 support for Aspeed vhub
+Date: Wed, 26 Nov 2025 16:26:29 +0800
+Message-ID: <20251126-upstream_vhub-v1-0-910709937ee0@aspeedtech.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="aiz3hjsasyrkiwwy"
-Content-Disposition: inline
-In-Reply-To: <20251125100618.2159770-6-carlos.song@nxp.com>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: mkl@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIALW5JmkC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDI1NDQyNT3dKC4pKi1MTc+LKM0iRd41QjAxML40QTU9NUJaCegqLUtMwKsHn
+ RsbW1AJvgbwNfAAAA
+X-Change-ID: 20251125-upstream_vhub-3e20483a455e
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Rob Herring
+	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+	<conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, Andrew Jeffery
+	<andrew@codeconstruct.com.au>, Benjamin Herrenschmidt
+	<benh@kernel.crashing.org>, Philipp Zabel <p.zabel@pengutronix.de>
+CC: <linux-usb@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-aspeed@lists.ozlabs.org>,
+	<linux-kernel@vger.kernel.org>, Ryan Chen <ryan_chen@aspeedtech.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1764145590; l=793;
+ i=ryan_chen@aspeedtech.com; s=20251126; h=from:subject:message-id;
+ bh=7cC5jeCkWsYO33bINv8Y064Z31IpWkHiFJYzubZI4AA=;
+ b=vEIO1LfVfQsPoR4eEKhpTG48ZIF//W0qo8MEjrlqB1chhzuwEI/NdKsBkFpT4MhOn0WevIT6E
+ yUvLUm5ZfSiAy8uqh+Uh6cFFrNf8ODVkst3oLi1RJDHX9pHr0D+kZPu
+X-Developer-Key: i=ryan_chen@aspeedtech.com; a=ed25519;
+ pk=Xe73xY6tcnkuRjjbVAB/oU30KdB3FvG4nuJuILj7ZVc=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251126_002024_669497_02BC5C28 
-X-CRM114-Status: GOOD (  19.17  )
+X-CRM114-CacheID: sfid-20251126_002645_356264_04EFA4FA 
+X-CRM114-Status: UNSURE (   7.14  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,102 +79,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+This series add Aspeed vhub support for AST2700.
+The AST2700 vhub requires a reset and uses 64-bit DMA.
+This series updates the binding and driver to support these two
+requirements.
 
---aiz3hjsasyrkiwwy
-Content-Type: text/plain; protected-headers=v1; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH 5/6] spi: imx: support dynamic burst length for ECSPI DMA
- mode
-MIME-Version: 1.0
+Signed-off-by: Ryan Chen <ryan_chen@aspeedtech.com>
+---
+Ryan Chen (2):
+      dt-bindings: usb: aspeed,usb-vhub: Add ast2700 support
+      usb: gadget: aspeed-vhub: Add ast2700 support
 
-On 25.11.2025 18:06:17, Carlos Song wrote:
-> +static int spi_imx_dma_transfer(struct spi_imx_data *spi_imx,
-> +				struct spi_transfer *transfer)
-> +{
-> +	bool word_delay =3D transfer->word_delay.value !=3D 0;
-> +	int ret;
-> +	int i;
-> +
-> +	ret =3D spi_imx_dma_data_prepare(spi_imx, transfer, word_delay);
-> +	if (ret < 0) {
-> +		transfer->error |=3D SPI_TRANS_FAIL_NO_START;
-> +		dev_err(spi_imx->dev, "DMA data prepare fail\n");
-> +		goto fallback_pio;
-> +	}
-> +
-> +	spi_imx->rx_offset =3D 0;
-> +
-> +	/* Each dma_package performs a separate DMA transfer once */
-> +	for (i =3D 0; i < spi_imx->dma_package_num; i++) {
-> +		ret =3D spi_imx_dma_map(spi_imx, &spi_imx->dma_data[i]);
-> +		if (ret < 0) {
-> +			transfer->error |=3D SPI_TRANS_FAIL_NO_START;
+ .../devicetree/bindings/usb/aspeed,usb-vhub.yaml   | 14 ++++++++++
+ drivers/usb/gadget/udc/aspeed-vhub/core.c          | 30 ++++++++++++++++++++++
+ drivers/usb/gadget/udc/aspeed-vhub/vhub.h          |  1 +
+ 3 files changed, 45 insertions(+)
+---
+base-commit: ac3fd01e4c1efce8f2c054cdeb2ddd2fc0fb150d
+change-id: 20251125-upstream_vhub-3e20483a455e
 
-What about:
+Best regards,
+-- 
+Ryan Chen <ryan_chen@aspeedtech.com>
 
-if (i =3D=3D 0)
-        transfer->error |=3D SPI_TRANS_FAIL_NO_START;
-
-instead of removing the later?
-> +			dev_err(spi_imx->dev, "DMA map fail\n");
-> +			break;
-> +		}
-> +
-> +		/* Update the CTRL register BL field */
-> +		writel(spi_imx->dma_data[i].cmd_word, spi_imx->base + MX51_ECSPI_CTRL);
-> +
-> +		ret =3D spi_imx_dma_package_transfer(spi_imx, &spi_imx->dma_data[i],
-> +						   transfer, word_delay);
-> +
-> +		/* Whether the dma transmission is successful or not, dma unmap is nec=
-essary */
-> +		spi_imx_dma_unmap(spi_imx, &spi_imx->dma_data[i]);
-> +
-> +		if (ret < 0) {
-> +			dev_dbg(spi_imx->dev, "DMA %d transfer not really finish\n", i);
-> +			break;
-> +		}
-> +	}
-> +
-> +	for (int j =3D 0; j < spi_imx->dma_package_num; j++) {
-> +		kfree(spi_imx->dma_data[j].dma_tx_buf);
-> +		kfree(spi_imx->dma_data[j].dma_rx_buf);
-> +	}
-> +	kfree(spi_imx->dma_data);
-> +
-> +fallback_pio:
-> +	/* If no any dma package data is transferred, fallback to PIO mode tran=
-sfer */
-> +	if ((transfer->error & SPI_TRANS_FAIL_NO_START) && i !=3D 0)
-> +		transfer->error &=3D !SPI_TRANS_FAIL_NO_START;
-> +
-> +	return ret;
-> +}
-> +
-
-Marc
-
---=20
-Pengutronix e.K.                 | Marc Kleine-Budde          |
-Embedded Linux                   | https://www.pengutronix.de |
-Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
-Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
-
---aiz3hjsasyrkiwwy
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEn/sM2K9nqF/8FWzzDHRl3/mQkZwFAmkmuD8ACgkQDHRl3/mQ
-kZwiBAf9GW9N+qR0qWhVntn8GvO6IQ6gsubPv+OFWvRgnCgO3CTAcLBfFllnBiQv
-wZMzBAXYjXlNA6Kb5/jWPxKumE5d9dN99c49EfAMe/cHNbhm0c/rVpAXHenaVLFN
-xP3e91a97TvtCSpbS01vjwMHm/gYZLm5xsxF1yn/nV0fU1Lhk2qm3WctwNmvHt0S
-sdHMuS13wSibUp+XR1/T0RBMxI8PQz4uGhjHX+pdc0rVJMJH22ugiLYtc0tPbY3n
-sP2qv8y0wrpySxzpF8yiFXSLbVLUKCzGpOP2+hqON3CSs4Mx5r9TR47ohKHsMR1x
-cW2sbp8OMA7VrUL1Pw0q9R48yPREYw==
-=a6Mc
------END PGP SIGNATURE-----
-
---aiz3hjsasyrkiwwy--
 
