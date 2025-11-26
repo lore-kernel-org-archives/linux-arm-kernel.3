@@ -4,74 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 945DAD10395
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 08:45:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD6EFD10395
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 08:49:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=If5OVL3w57dykoZXY7vkVztIVOk+zqcN1xcprqVY7ZA=; b=tKghDxEvMhmc5dU5zxszjLTHnY
-	PGBCGPgH+SAeqNAji8kUDEQvWMAVNCufsQcgEH3xT7uCnIUSZ+AffSXINrqHIDb75xGZxDukVQpnD
-	erACEi4eB4mVCFlxt6CbD1V5/1QAcvA/Bdf7a2lmqh3hYNTTvLKuqf0pZ4ODQppjwzk4Vyl2Pm4hp
-	hSwx3oKw8h2sWCW/LqLq8cCaEiOQFth3tIEa9NLJvrMUdXG5+lXtf7COznbuwvGs5AEbFB3q2EfjB
-	ecJzk2L7plnWlaTWAGAELY/K5tES4NiSWD+tYKcFU4PoLJrR7Rqc4tmBlIqXNu2wdMP85EwtIbrW6
-	/54dtQxQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
+	:Cc:MIME-Version:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=LRFH/e+EPYkQeoBclAzTE/ypDqMfPq55IAr+yoWm76s=; b=LfabP2qKqpbdCu
+	PJQmkV42fUle/YhCSjdgqGEnM0qq34sPjlbe62UFNSgiYn1/fthslB7MoYTPUDBBYEOdOd/x0+Zcv
+	qtYQyijF/uzX/alxQ2Q9ZtPHd3t7Te1yR2nxQH8DAE/gIy/9OaRJhh4jTgzbEIkZS0awJgBijM9Mn
+	z8YHVJ9g42mjcQtRdbnFmETlLqJz6rhJZsYZ58W2k+CwUtMT9sK2b62L+2+NQqndkdOn4VKvuJ9ai
+	VWe/1F7d5v/dlekO5Y8nYld4J8vfJhX90mbo1M+IiaObQmRbwsUfgSoHyKmW5kKJY0f9SeD/enHOs
+	I4kp2e8Tev2K73CmYoew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOB95-0000000EdWi-0ejr;
-	Wed, 26 Nov 2025 08:45:03 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1vOBDO-0000000Ee58-14yE;
+	Wed, 26 Nov 2025 08:49:30 +0000
+Received: from slateblue.cherry.relay.mailchannels.net ([23.83.223.168])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOB8z-0000000EdSz-1HMH
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Nov 2025 08:44:58 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <mkl@pengutronix.de>)
-	id 1vOB8w-0006Ex-UC; Wed, 26 Nov 2025 09:44:54 +0100
-Received: from moin.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::7b] helo=bjornoya.blackshift.org)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <mkl@pengutronix.de>)
-	id 1vOB8w-002ZUP-24;
-	Wed, 26 Nov 2025 09:44:54 +0100
-Received: from pengutronix.de (p54b152ce.dip0.t-ipconnect.de [84.177.82.206])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(Client did not present a certificate)
-	(Authenticated sender: mkl-all@blackshift.org)
-	by smtp.blackshift.org (Postfix) with ESMTPSA id 4BBEA4A87B2;
-	Wed, 26 Nov 2025 08:44:54 +0000 (UTC)
-Date: Wed, 26 Nov 2025 09:44:53 +0100
-From: Marc Kleine-Budde <mkl@pengutronix.de>
-To: Carlos Song <carlos.song@nxp.com>
-Cc: "broonie@kernel.org" <broonie@kernel.org>, Frank Li <frank.li@nxp.com>, 
-	"s.hauer@pengutronix.de" <s.hauer@pengutronix.de>, "kernel@pengutronix.de" <kernel@pengutronix.de>, 
-	"festevam@gmail.com" <festevam@gmail.com>, "linux-spi@vger.kernel.org" <linux-spi@vger.kernel.org>, 
-	"imx@lists.linux.dev" <imx@lists.linux.dev>, 
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Subject: Re: RE: [EXT] Re: [PATCH 5/6] spi: imx: support dynamic burst length
- for ECSPI DMA mode
-Message-ID: <20251126-aloof-stalwart-worm-343112-mkl@pengutronix.de>
-References: <20251125100618.2159770-1-carlos.song@nxp.com>
- <20251125100618.2159770-6-carlos.song@nxp.com>
- <20251126-invisible-almond-bee-86a27d-mkl@pengutronix.de>
- <VI2PR04MB1114788C5ADCB9D42399D12C1E8DEA@VI2PR04MB11147.eurprd04.prod.outlook.com>
+	id 1vOBDL-0000000Ee4T-1NyA;
+	Wed, 26 Nov 2025 08:49:29 +0000
+X-Sender-Id: hostingeremail|x-authuser|michael.opdenacker@rootcommit.com
+Received: from relay.mailchannels.net (localhost [127.0.0.1])
+	by relay.mailchannels.net (Postfix) with ESMTP id 7A578441E6C;
+	Wed, 26 Nov 2025 08:49:22 +0000 (UTC)
+Received: from de-fra-smtpout3.hostinger.io (trex-green-7.trex.outbound.svc.cluster.local [100.96.77.42])
+	(Authenticated sender: hostingeremail)
+	by relay.mailchannels.net (Postfix) with ESMTPA id 593ED441145;
+	Wed, 26 Nov 2025 08:49:20 +0000 (UTC)
+ARC-Seal: i=1; a=rsa-sha256; d=mailchannels.net; s=arc-2022; cv=none;
+	t=1764146962;
+	b=3c6GjMIYiw+vY+FoBKHU2nlqtdZzbTL004Q/fu9Ax7Z2rRTILGN2oR/4hXriSmnhLg6vfL
+	FHPfh60BE/uPH/Y7gyuZV1k4g892397WsGGodxe76HMox4SHVKKkJMDGmSZM04f1PSYc7o
+	Rd2ApPASfkDkuWe+5uF97kQv9QB81blOuLupXDLSpKzHG0h1EcwOghlfhrXuys26D//b3p
+	Gxe6z6SCp2bBjs0W6mihJhzEzkA2b56ix/f1gs9eD5UQpIglIqMd2AAWCNQZii0wPYYSGL
+	tBlkU4GJuR71LklhS0KKewa+Sp5CGNK2bGweP8bhfDZJ25jFa8LuF7A5uyFgBw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=mailchannels.net;
+	s=arc-2022; t=1764146962;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:dkim-signature;
+	bh=LRFH/e+EPYkQeoBclAzTE/ypDqMfPq55IAr+yoWm76s=;
+	b=9kJx9uX77hmyGUABE1xGLuSSar7r1QNgTqwPNxFWAMqNA5teIGOxJ3Q2nefJ+Tr84SSQpC
+	/Xmr3gvm4f6fGN29F3S6pR1wi1K05oKlWVtjcJLwNSoHgI3w/cV7gnSK/mSuMc29tVCASA
+	7XHTVuNEW6Ie3hOYOvzLqSoNlfndLUfDEV2pr+bLbicGGne2AB7bYxZmKQTmvrZwLYlZqy
+	Xk8eIK7Is0IAt1pCrpG332/yLDm5bpbkOyyDjBpB6YAuebuhT7Kh9fR+16FzPdz4qozAQ2
+	qeBjp76/3/FKuqIoZo/+OkhTZ8VQ7+2CyQkVVaiSA+1bRUweLKumJlpPWxRj+w==
+ARC-Authentication-Results: i=1;
+	rspamd-7bff5db4cb-6gxzj;
+	auth=pass smtp.auth=hostingeremail
+ smtp.mailfrom=michael.opdenacker@rootcommit.com
+X-Sender-Id: hostingeremail|x-authuser|michael.opdenacker@rootcommit.com
+X-MC-Relay: Neutral
+X-MailChannels-SenderId: hostingeremail|x-authuser|michael.opdenacker@rootcommit.com
+X-MailChannels-Auth-Id: hostingeremail
+X-Stretch-Harbor: 5ca944300a683b5f_1764146962264_120106243
+X-MC-Loop-Signature: 1764146962264:3432847594
+X-MC-Ingress-Time: 1764146962264
+Received: from de-fra-smtpout3.hostinger.io (de-fra-smtpout3.hostinger.io
+ [148.222.55.15])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384)
+	by 100.96.77.42 (trex/7.1.3);
+	Wed, 26 Nov 2025 08:49:22 +0000
+Received: from [IPV6:2001:861:4450:d360:9d39:ba01:31fa:9155] (unknown [IPv6:2001:861:4450:d360:9d39:ba01:31fa:9155])
+	(Authenticated sender: michael.opdenacker@rootcommit.com)
+	by smtp.hostinger.com (smtp.hostinger.com) with ESMTPSA id 4dGYC221Zkz3x6d;
+	Wed, 26 Nov 2025 08:49:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rootcommit.com;
+	s=hostingermail-a; t=1764146958;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=LRFH/e+EPYkQeoBclAzTE/ypDqMfPq55IAr+yoWm76s=;
+	b=X6jBVttoL3yARGLzIsFqnVB5ahkH4vBfjFRADu/XlO7tZcd8jMS9nwhERpwYkOSpudvedq
+	j6wDwpqztA4o2AsvLyZqhMB7gVpP/b8P/m6N1A8wNIOQ0MvRyyhNfU9k3tgjtjcVGB8xug
+	wNo2/uqFM00hYcx5kexi7tb3vvewLOL+O2FlJgK/QbpCcqv7yeDxlqNLwQpWYCLL6KVIvh
+	pBZj/7BjNS94pJODh0bQDigsqpeLSOcfY62wPsdcF8p4EqEA/nNmxcTf9w+juvYOjbUfWo
+	CsrfWrA6VtcQ/hqkzXgYN19YuzuhIjQInBHLPgJyXUR3L1ZTUCp2xxdqGdAt0A==
+Message-ID: <45aac7ef-a5dc-4e93-bb11-30bb88259974@rootcommit.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="lpjpsnbozts7gelo"
-Content-Disposition: inline
-In-Reply-To: <VI2PR04MB1114788C5ADCB9D42399D12C1E8DEA@VI2PR04MB11147.eurprd04.prod.outlook.com>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: mkl@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+User-Agent: Mozilla Thunderbird
+Cc: michael.opdenacker@rootcommit.com, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-rockchip@lists.infradead.org" <linux-rockchip@lists.infradead.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH] arm64: dts: rockchip: Enable i2c2 on Orange Pi 3B
+To: Jonas Karlman <jonas@kwiboo.se>, Heiko Stuebner <heiko@sntech.de>
+References: <20251120-orangepi3-enable-i2c2-v1-1-2e023a74012a@rootcommit.com>
+ <d66f81e4-9d9f-4df8-916b-e6f68c85d813@kwiboo.se>
+Content-Language: en-US, fr
+From: Michael Opdenacker <michael.opdenacker@rootcommit.com>
+Organization: Root Commit
+In-Reply-To: <d66f81e4-9d9f-4df8-916b-e6f68c85d813@kwiboo.se>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+Date: Wed, 26 Nov 2025 08:49:16 +0000 (UTC)
+X-CM-Analysis: v=2.4 cv=ALriHGRn c=1 sm=1 tr=0 ts=6926bf0e a=YaLPeadj3FvY5eBQhwgDrg==:617 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10 a=5dAzR5NRAAAA:8 a=d70CFdQeAAAA:8 a=Lmt_ZpWL_zpAlULcO8oA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10 a=ZKAZAlVgJm32z6MX8p4a:22 a=NcxpMcIZDGm-g932nG_k:22
+X-CM-Envelope: MS4xfPRGcvVSXLekHcmNkq6vTuUkhR318co5HtaTHzpmaZ6VNLzeJ0uYr82ojz55048VLXFP+jax2UkHjwRaJWbDiMc+s/jbRrKIUkHnAqZr8oEUoaeGJxtd ZWcSxrHYEY/+2T4GcuyRaEaIcM/+I7Niz2TaeTFiQaoDx/D25Cy37vrrGb/4ytyUvkZbwOcbZPMc+OUJHoMwzZyoayOFqPMJqaRu11GDG/i+4wqQQ3+dq+Rx V3ALG0xjoRffADbWQ9aZ6/diCTQNh7qMCHQ7SUhG2Euggy0NATI/8IeNUTGZAB7iBSP3YztxVjzHN5sTqlNMscxErpvI4DZVHqdV7LkEAO23EVsY9uOUe5i1 69BDFS8Yt3kQuPPn9FryKyrFXwtf9/akntyjMXof76h3ZHIU4GssATbDtQLqgJKQ1sT/n8rS+NIOtetmzLDC5zyye37PkywqS0E7BH7PLUo15tc1/Gv1Dh6w zRqTITaT1jpbZHyZuYLKjLQrGpa6OhLcZtnrfW0kv9quZo5cEGAhOCWkG5Bc2odrKr1GSYxtKvKCwFBNJ2POfw2EcJp0EIT1KmVLDLAwCrSxcZ7kba+hbGtr FJIOZiQWwa9iFuSq7SZxJdbSSVWd1otA+R/Lb4ABOW3b+NCXrFa/avrDMkM5dOMFD/Y=
+X-AuthUser: michael.opdenacker@rootcommit.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251126_004457_394685_11AAB7CA 
-X-CRM114-Status: GOOD (  20.36  )
+X-CRM114-CacheID: sfid-20251126_004927_687264_B9975876 
+X-CRM114-Status: GOOD (  20.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,89 +128,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Jonas
 
---lpjpsnbozts7gelo
-Content-Type: text/plain; protected-headers=v1; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: RE: [EXT] Re: [PATCH 5/6] spi: imx: support dynamic burst length
- for ECSPI DMA mode
-MIME-Version: 1.0
+Thanks for the review!
 
-On 26.11.2025 08:34:18, Carlos Song wrote:
-> > On 25.11.2025 18:06:17, Carlos Song wrote:
-> > > +static int spi_imx_dma_transfer(struct spi_imx_data *spi_imx,
-> > > +				struct spi_transfer *transfer)
-> > > +{
-> > > +	bool word_delay =3D transfer->word_delay.value !=3D 0;
-> > > +	int ret;
-> > > +	int i;
-> > > +
-> > > +	ret =3D spi_imx_dma_data_prepare(spi_imx, transfer, word_delay);
-> > > +	if (ret < 0) {
-> > > +		transfer->error |=3D SPI_TRANS_FAIL_NO_START;
-> > > +		dev_err(spi_imx->dev, "DMA data prepare fail\n");
-> > > +		goto fallback_pio;
-> > > +	}
-> > > +
-> > > +	spi_imx->rx_offset =3D 0;
-> > > +
-> > > +	/* Each dma_package performs a separate DMA transfer once */
-> > > +	for (i =3D 0; i < spi_imx->dma_package_num; i++) {
-> > > +		ret =3D spi_imx_dma_map(spi_imx, &spi_imx->dma_data[i]);
-> > > +		if (ret < 0) {
-> > > +			transfer->error |=3D SPI_TRANS_FAIL_NO_START;
-> >
-> > What about:
-> >
-> > if (i =3D=3D 0)
-> >         transfer->error |=3D SPI_TRANS_FAIL_NO_START;
-> >
-> > instead of removing the later?
+On 11/26/25 09:40, Jonas Karlman wrote:
+> Hi Michael,
 >
-> 	for (i =3D 0; i < spi_imx->dma_package_num; i++) {
-> 		ret =3D spi_imx_dma_map(spi_imx, &spi_imx->dma_data[i]);
-> 		if (ret < 0) {
-> 			if (I =3D=3D 0)
-                            ^ i
-> 				transfer->error |=3D SPI_TRANS_FAIL_NO_START;
-> 			dev_err(spi_imx->dev, "DMA map fail\n");
-> 			break;
-> 		}
-> ...
-> -	/* If no any dma package data is transferred, fallback to PIO mode tran=
-sfer */
-> -	if ((transfer->error & SPI_TRANS_FAIL_NO_START) && i !=3D 0)
-> -		transfer->error &=3D !SPI_TRANS_FAIL_NO_START;
+> On 11/20/2025 8:00 PM, Michael Opdenacker wrote:
+>> Enable the "i2c2" bus on header pins 3 (I2C_SDA_M1)
+>> and 5 (I2C2_SCL_M1) of the Orange Pi 3B board.
+>>
+>> As documented on http://www.orangepi.org/img/pi3b/0719-pi3b-19.png
+>> such pins are the only ones offering I2C functionality
+>> without conflicting with other SoC blocks.
+> This is strictly not true, these pins are by default used as GPIO, this
+> patch change them to use the I2C2 func, something that should normally
+> be enabled in an overlay.
 >
-> 	return ret;
+> Functions for these pins:
 >
-> Just like this? I accept this. I can fix this in V2
+> 	func 0		func 1
+>
+> 	GPIO4_B4_d	I2C2_SDA_M1
+> 	GPIO4_B5_d	I2C2_SCL_M1
 
-Yes, with the fixed typo.
 
-Marc
+Correct. My idea was that GPIOs are easy to get on other pins, and I 
+found that I2C2 on such pins would be a convenient default.
 
---=20
-Pengutronix e.K.                 | Marc Kleine-Budde          |
-Embedded Linux                   | https://www.pengutronix.de |
-Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
-Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
+>
+>> Signed-off-by: Michael Opdenacker <michael.opdenacker@rootcommit.com>
+>> ---
+>>   arch/arm64/boot/dts/rockchip/rk3566-orangepi-3b.dtsi | 5 +++++
+>>   1 file changed, 5 insertions(+)
+>>
+>> diff --git a/arch/arm64/boot/dts/rockchip/rk3566-orangepi-3b.dtsi b/arch/arm64/boot/dts/rockchip/rk3566-orangepi-3b.dtsi
+>> index d539570f531e..e2f0ccc6dbe7 100644
+>> --- a/arch/arm64/boot/dts/rockchip/rk3566-orangepi-3b.dtsi
+>> +++ b/arch/arm64/boot/dts/rockchip/rk3566-orangepi-3b.dtsi
+>> @@ -435,6 +435,11 @@ regulator-state-mem {
+>>   	};
+>>   };
+>>   
+>> +&i2c2 {
+>> +	pinctrl-0 = <&i2c2m1_xfer>;
+> pinctrl-names should also be added here.
 
---lpjpsnbozts7gelo
-Content-Type: application/pgp-signature; name="signature.asc"
 
------BEGIN PGP SIGNATURE-----
+Actually, the "pinctrl-names" property is already available in the 
+definition of i2c2. That's why I didn't add it again.
 
-iQEzBAABCgAdFiEEn/sM2K9nqF/8FWzzDHRl3/mQkZwFAmkmvgIACgkQDHRl3/mQ
-kZzAvAgArvXzrutjT/izZ7sdLJgRn2brxxdTsRIw5MxG8cSN6QHYKhE4ADZ8ZU0I
-UHPcxx5UbhoxLC/nEnzjYS4l48XGBq66gxtkTBSff01akyulQeAHT9FeS97f2hIE
-lNH+SUqzeMtm94s1FysvscYnaYJgR7X/Gl7zT9/Nx6abM2gLL9NdqWEmFg1jfKdp
-nGqJlcW13MIjrQHwG4Cf8oa4Yc6K6iPfv5HaryQ/V43mnlpUtmZ2WkbDxlak5zTe
-X0ORcy/w2DeRjzXkvdlBV31kUZCpZbjJn6ZhPTXR+VpRDzUzurD5JJfmOmt3kBXp
-Aig2qZuQQ5x71CbySJajSzNmYJvqQw==
-=eUsF
------END PGP SIGNATURE-----
+>
+>> +	status = "okay";
+> As mentioned above, this should be enabled in an DT overlay not in the
+> board DT.
 
---lpjpsnbozts7gelo--
+I don't mind if my patch is removed, no hard feelings :)
+
+BTW, is there a convenient location for sharing overlays like these? 
+Some overlays are sometimes tricky to develop, and sharing them with 
+others is useful for the community.  I guess the question was asked 
+before, but I don't know its answer :)
+
+Thanks again
+Cheers
+Michael.
+
+-- 
+Michael Opdenacker
+Root Commit
+Yocto Project and OpenEmbedded Training course - Learn by doing:
+https://rootcommit.com/training/yocto/
+
 
