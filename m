@@ -4,150 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48E40D11183
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 16:16:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F8C4D10F58
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 16:17:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Sav0FY6ptI9rKW8HiKmizaVGGLS/Yn+0d4lKtuL2tpI=; b=n1OhUGjMHgp+icSVnDEpToSDKw
-	sb9ZbRfEdAZqA6OGxJv62uKb6OAfhXKt3s3ZGuv8R4XNgXIqBYFEDpzkqjbehAvQOVhtcWIpAhMI2
-	PxdnxkNDKJE8mObUxe03i4H5kv3DGYlzZt6fq6YYGERY5rUergMcXU4vBTaHGLeNQcj1HLs/pougp
-	7JWUNFMLgFNLBL2GCufVXGT28iaZXY+RJI92MSBrgRM9R62jYdLNQPNge+NRprOscltcVhQC2u23l
-	E34BApifJuBXw+PUXDOm94T7BG9dSKMcgpG6EIEDXgb6Cp+TZnyT/5tBgpqPLwYM4Y4KVQ3VdDVY2
-	dqv0yeNg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0wKcNy5FCGaqY9FV62oZYjgf+u3MGcY8a3yEAdQ09gg=; b=amccF4Ih+sJ0hbs2Hg5ZcY5f6p
+	qz6R26MD1nG0gUr8FvarE0vNSEtji3BqYj+Y89wRydlUxYhZgthw5kHVkjzMcZIup6AZnV3FRndWy
+	NU3lg1yCFBSkMTKUCMlxYKMCaAqpp4O43d5ml22R0eFQs1WcJFzeRoJ7jEAOYyheOiuvV6Wh0Mbe0
+	0ZEBacC3C/RoIHWCFdgLCj/SoF3VXcgBGgg7LQpet82NVx+/iKEyVg4gULgzj9L/7fhhXYkISd8/t
+	SJ67IV0dgzLEoMl1t2LIf716r0oMoni1MemJ1X2p3Q2aKs4rG/Vr5jr1kDuHUeoVBPcV1MLHU6mGx
+	EjAjJqyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOICJ-0000000FHMQ-0x7M;
-	Wed, 26 Nov 2025 16:16:51 +0000
-Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1vOICZ-0000000FHPi-0RLv;
+	Wed, 26 Nov 2025 16:17:07 +0000
+Received: from m16.mail.126.com ([117.135.210.9])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOICH-0000000FHM2-07qR
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Nov 2025 16:16:50 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=rup0NaBGXqo8EZDAQC4vhsx3ptQg7VsgksPUvfmS6ICJv/sBPIoi+PSY0/+fnZOUmx+RgXfcbsvu/pfRfOkL5RY7pXa3fvw0jwnps/BKy1xmNakVAReduZ3ZzwfS84vNfM4nBBAwmcLPMy6JgWRMcVerxmwp8x8Se90nOavSTpu1w8mW7M9eW+tSGPW9gtoVNwtQEEtivau+lfvK3jBPF/vP6tXjeSB9uLG02DXm+YY7YexmL9+PA6Vrq2sHp3fInvG2f2waFn7i3ZgFbWEb36xABQmAgticRuy7lXBNchD+kbwDqcwKhjOAG6O2SRHJnvPYmE8WPbP8PEk8EYj0UA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Sav0FY6ptI9rKW8HiKmizaVGGLS/Yn+0d4lKtuL2tpI=;
- b=Ei0yRHsNKN98VuoiHCeyt+UftLGMSyyBQYtirIkv1DuinannsTd2/Zkdivmi0+e+skzRh0jf5T/NCGesDnUdYn8IHI55XzklLKO4YLffh1QkWxXQXhmLs8mi2CBSXSh+/eIJ/TTccNiDJ8BhS6LCSWIznba+jCszGMlc7IAbu/zXUiGOhM6We2UYbBIE/9/PCxfpqQwPgUUp1KwgKZ/T+KmvC/njE6zP8AcxS6EINw1GA4JCn6sslMgJyyqonJ52O7wbcbSQKiESjmh6QUkOmL1GnNb4xcUMMKbDLnWfOBukjEFitcahi/FWkDcdiCKT5j9wxp8QvQ4I5mYL0aub0A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Sav0FY6ptI9rKW8HiKmizaVGGLS/Yn+0d4lKtuL2tpI=;
- b=dstT60ihVuQKIne0LaHX6WCE1pnpyxTOxzlERwRQEpsLCi9j0NGIIA/wjEgUGyJEVn96pSq4Icedndo/PtfcfSy4OfTG96CnLTJ8/4htt03hmhGKAcbqakoxucfh5F8LSAQ93lXcWhswhXw7FzSOcbQZqnJT+sAtJ7RMqDAt4jXbC1XOc0+9rhv6f0KuR8qgJlRJvidT3Dzf9niiFPrcivS+7M5pB96dvoq1ZmihdffkMhxhGzYQQvRrG8I8CiYcxEMlpWDhEu0qLf004tMDns7HwhLl85QnTYWMWmj/stMyhoQMVFLF3EyNU8vCBufe5VXn1b9GA84i5wxi3lJdpA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from DU2PR04MB8951.eurprd04.prod.outlook.com (2603:10a6:10:2e2::22)
- by PR3PR04MB7259.eurprd04.prod.outlook.com (2603:10a6:102:8a::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9366.12; Wed, 26 Nov
- 2025 16:16:44 +0000
-Received: from DU2PR04MB8951.eurprd04.prod.outlook.com
- ([fe80::753c:468d:266:196]) by DU2PR04MB8951.eurprd04.prod.outlook.com
- ([fe80::753c:468d:266:196%4]) with mapi id 15.20.9366.009; Wed, 26 Nov 2025
- 16:16:43 +0000
-Date: Wed, 26 Nov 2025 11:16:36 -0500
-From: Frank Li <Frank.li@nxp.com>
-To: Haibo Chen <haibo.chen@nxp.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3] arm64: dts: imx943-evk: add flexcan support
-Message-ID: <aScn5NsbzXxOd4Zx@lizhi-Precision-Tower-5810>
-References: <20251126-dts-v3-1-7545d957e795@nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251126-dts-v3-1-7545d957e795@nxp.com>
-X-ClientProxiedBy: PH8PR05CA0014.namprd05.prod.outlook.com
- (2603:10b6:510:2cc::7) To DU2PR04MB8951.eurprd04.prod.outlook.com
- (2603:10a6:10:2e2::22)
+	id 1vOICX-0000000FHO8-08Cq;
+	Wed, 26 Nov 2025 16:17:06 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=126.com;
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version:
+	Content-Type; bh=0wKcNy5FCGaqY9FV62oZYjgf+u3MGcY8a3yEAdQ09gg=;
+	b=OS4HJrS2AI3Mq9+R1ebwCF7RSLe0YDcy9vKKM7EgPNueQa5eKfuFJcNqGQt/+a
+	FPmV2XYlcxtPlEa7HwrepPyZX2FZvOXuDWKb/q6VEoKYSWiyBiMpQYO5wXPlJTLG
+	3xYALoktHnRmfdQQwX4sg8mMV78vnwIW+DNg0tWNCdDEE=
+Received: from nilq-virtual-machine.. (unknown [])
+	by gzga-smtp-mtada-g0-0 (Coremail) with SMTP id _____wD3b++sJydpfQcMAA--.52027S2;
+	Thu, 27 Nov 2025 00:15:42 +0800 (CST)
+From: niliqiang <ni_liqiang@126.com>
+To: tglx@linutronix.de
+Cc: ajones@ventanamicro.com,
+	anup@brainfault.org,
+	apatel@ventanamicro.com,
+	atishp@atishpatra.org,
+	bjorn@kernel.org,
+	conor+dt@kernel.org,
+	dai.hualiang@zte.com.cn,
+	deng.weixian@zte.com.cn,
+	devicetree@vger.kernel.org,
+	frowand.list@gmail.com,
+	guo.chang2@zte.com.cn,
+	hu.yuye@zte.com.cn,
+	krzysztof.kozlowski+dt@linaro.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	liu.qingtao2@zte.com.cn,
+	liu.wenhong35@zte.com.cn,
+	maz@kernel.org,
+	ni.liqiang@zte.com.cn,
+	ni_liqiang@126.com,
+	palmer@dabbelt.com,
+	paul.walmsley@sifive.com,
+	robh+dt@kernel.org,
+	saravanak@google.com,
+	sunilvl@ventanamicro.com,
+	wu.jiabao@zte.com.cn
+Subject: Re: [PATCH v16 6/9] irqchip: Add RISC-V advanced PLIC driver for direct-mode
+Date: Thu, 27 Nov 2025 00:15:40 +0800
+Message-Id: <20251126161540.6460-1-ni_liqiang@126.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <87qztmgj32.ffs@tglx>
+References: <87qztmgj32.ffs@tglx>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU2PR04MB8951:EE_|PR3PR04MB7259:EE_
-X-MS-Office365-Filtering-Correlation-Id: b1a514c4-e3f0-4531-7ea3-08de2d0730a1
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|52116014|7416014|376014|1800799024|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?HdMeVIMwnkJp1s4jHjsooHBGW6bqsryZasgvOMgDT7BQUwi6hjh2n0rUSZaT?=
- =?us-ascii?Q?Y8t9ihSAA582h3r056YUmoJLuSOMlKsXlH3ZQSxNUVzbGlK11Dh53vFWmaZI?=
- =?us-ascii?Q?WZDIrKL9ZnIKs0FjPcbrnNf7kQDeCgotoQQXENCX1Q8cJg8y6nhD+TekiVMc?=
- =?us-ascii?Q?EPS91tR6Qs7dLy8XErvgSGDwZSwpWLpcLWUVD65GAertdYoOC3hrBzFAiwUS?=
- =?us-ascii?Q?AvaHsc2Jj8ieozeU0IpHg4GF0trunJN4/YaG9+QfpXVKuOR1DODGaOyBS5fh?=
- =?us-ascii?Q?YRaU/WT+xWCZII+9/g5sVuYbaUFb33IfMIvKqR/jRNqfPwLJFOg+iVsC6FIr?=
- =?us-ascii?Q?0/i/SzlHao5DQQFHaVdep+BQE+Ngd8RTnaPiIxyVtaz+sqwSWf++pjt7QjHH?=
- =?us-ascii?Q?ETCNhinIi7t4V1MTK4zaAge8E2MYZiy/hxdcDdXW44K7jx4LV2ZbE4/PXxiJ?=
- =?us-ascii?Q?sJCwQfiFTN6aMJQX3Ru4J5exCV0oqcAUyIeplr2C/+jBwNHxXySzchFA8v+R?=
- =?us-ascii?Q?xw5dgv5polFu7fpxFYmnbRcT/32vJqaiKhlXUTSmfZOFQrdud+f6+2jjDT40?=
- =?us-ascii?Q?P6ebtAYqVrcBOVie2PUkNnxzqIjkVPcGJtgfIXhTn6pKYr5C4o89CnYZN9PO?=
- =?us-ascii?Q?H+DAmyRqxQzhlqgaKo3mMQv9JXzZMppP6PEJhT0RL0VrL7IbcSPlqPPC+EGW?=
- =?us-ascii?Q?X1srGgYS7I7nUzOjRzgUtYipT+GUso9JW6XE9C0BdLiILtSUHfnuo5yyJEuL?=
- =?us-ascii?Q?NX4f0oQyr3i7NXxK/jfWZPfbG2y8QzfCPwrJ+aBlsyRnRn1LOoGOLVx1XL8F?=
- =?us-ascii?Q?2Qr2PRbwRsP+D4Jq69aypBI1S9LVrLOR/f6SBGfp+wszYS0t7R6GmlmErM/W?=
- =?us-ascii?Q?V1wW78F7pGhdUgP7/E18EWJZ2rUPJT5ndUfhQt+OppN+Gr2qHv9oCA7rD+Iw?=
- =?us-ascii?Q?M5x53NPEjG8xElULr/MJ7g081q9lcXhSRT/OvweptG8VLOOoTr4VBVw3oIZA?=
- =?us-ascii?Q?ed2whXnIrKEqgqbFANSsswOKYWj+YY7X9uH/CPRrpug9eHz0vIOELUYkigt/?=
- =?us-ascii?Q?jyZbpSdslGJfmSwwYc4FEdC7SdBCWZw5u0zekNSDTq5O8tmyL8B1c0yEeTSc?=
- =?us-ascii?Q?yjQRvENWx5UuE1raf7jy9WuFLCWtT5e9lGo1KFxz9wdZiXI4wy/SgzBu+oe6?=
- =?us-ascii?Q?AaAuMRJRyjJBWDHxJ6ztEixAc33+GaRsGBkMa//yxye+ziUiw2/w6zGi2Ugz?=
- =?us-ascii?Q?eFAPEXeCO1/nN0qG0bwHhULKmC2PNkb94iGfLvM7CwNJF4XHjNaaD51vTraY?=
- =?us-ascii?Q?QNTpNWmF0Ww1f/vW7Wr3FH1hDRDS3yhB4cB3M3xMqhHeP4mM6O00H5fH+j5X?=
- =?us-ascii?Q?I+hqD4kcH9BclVaHtitsHYbGOzmulSRNmOqLdM9/eOB4Td6cOqJ5u9bmOweP?=
- =?us-ascii?Q?uvQUvqffJGiBxzG7+2cQu4R4o+/jnE2Wo/4TFPNlHUy44xT4BvDNPaltqRjl?=
- =?us-ascii?Q?e8gAgN+sHYroZ/S7vyTDcbDM+w9PIRczpZiuGSdF5G69tRtXdtMFxJkDjA?=
- =?us-ascii?Q?=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8951.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(52116014)(7416014)(376014)(1800799024)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?2FOfT+s3/RZ4VZMwyNSS6DXSFFDm1SShTxjm3h1JmbMDg0u8rRgcRx7Vimud?=
- =?us-ascii?Q?6yDP8EUz6GWLLVSScGV91uhqVVu4A2HcyasIHKT3Ju1OR9sTqzsQeSaVelSI?=
- =?us-ascii?Q?5KoljTi+kuuWZXbELQN01ZHv6qFBLL4DOoaHe6yld9VwLAg0zwwHD2Qat4pU?=
- =?us-ascii?Q?HzuUZHx4qv2Nmqt2/tmlN6BWZcQYeRUTtbjZrSj/DmPk/jV3amHtVxOqFzX9?=
- =?us-ascii?Q?6pkq7aRPxzL6dJK0ouYFeaF8wxgOkv0zTEU2BmVI6ewr+t1Luuz+J4/ITYGf?=
- =?us-ascii?Q?8fAGCib1Yq/qk8+vIPa9wJXoW8jpnRzwkeJoFueTbEnQSCgqpdsGumk5qZ6v?=
- =?us-ascii?Q?yESePTsex7UJrI48YdyVIfCAykTUqIdjc6NcY85vQXo9pO//Y6I0zA/v4bxT?=
- =?us-ascii?Q?osmVWbrfBq+1BEUkn2Yx5/dwDVRKwOehTDjAb7S9/LiC6Lhdkt+/h9TFOqnc?=
- =?us-ascii?Q?c9hTmC5mSNGQ8ILxu8tOZlW0gqVYPbU15Yd5uQh+Wd1mfWc8rXDjXfsiFdRz?=
- =?us-ascii?Q?oD3bYtbo1yB5kZ8RXBZQ2/NNf5WKYp/jTSSqqYUHlKgmQy17CkSChVSfuylL?=
- =?us-ascii?Q?CboGTGhJYStuA3DZt7yztlf+K8kkbWRLsyzNheJvNqWk9++1TSw9fzD/j7zV?=
- =?us-ascii?Q?CARVGkwkhP44OWisdeETAQ+sW0ylpUhCS0gEH4eWa4sV7vxiQ+TTc9xoDglA?=
- =?us-ascii?Q?byEfM7zwXyGjc7+ZYeUz+WeuTiP/LMzZNrX0NhUuLK9/deUeKaQXMds4yoHs?=
- =?us-ascii?Q?+6YdIO96JOJW6VUI2cEZZt9sm+z1Y3A/6AR9OPEmxdrMZ1D2VLgU3I/muEDh?=
- =?us-ascii?Q?ReAd8ZvD4RasVeuv+0jZqSHczjBqeFG/kiXqf6Srs5/nkTXYPwyQnwwWaESP?=
- =?us-ascii?Q?2zsEgi3CjTg6wzZBWAYtHExQzg2LjtrPVMegoj10afpSoQzGZXHTY8pxP8D0?=
- =?us-ascii?Q?yvU11SvAPSFX13FNiQZnljmjGC39o91zZpG44nEPOIsFkTBz2GcBfBhuFZK3?=
- =?us-ascii?Q?NGK7QarBx+Dp6MujzCz8lbrBMNz3H6z5XuYQuKWdRpqJY7LJW4Kyb5k0Qhx5?=
- =?us-ascii?Q?/SkYSpRJGk7yJRgMOc2fyS/K0JDCU/OXA/aRByMSPDPfi1QwVD6SCBrzY2sT?=
- =?us-ascii?Q?5rW6hC+YQJ/4YrJIJ2Xc5LLZbdjYZVSqW0rg+44FQw4Xuj7THkbGNzOrKIOl?=
- =?us-ascii?Q?7zvjHc1SsZJ5uRat0CTVSwv59a7QeCrv2FP32RdoOJX5eDNlHF2XBYpfwaxN?=
- =?us-ascii?Q?JmiHffpt0AYZzQiEOltfNCiVDtA+XnbDFDtSUeoraRd7uD64PhlB5PCA9fqN?=
- =?us-ascii?Q?XFjcAswSfMbtSKvq2NjsbZUZKfVyWPdcmQPQkArHmy3+d69jN7YhEY8hOicF?=
- =?us-ascii?Q?zVTsAVbdnVNPEXD45/JaIttYnhkP0/9eiwuK8eO8ne63qCLGpyDdZ6XzT5/O?=
- =?us-ascii?Q?FdY9UVfK130p1j0weI9SVQaBq13NmCriyMs4ReeSv9MzmUWhYilfnzwvZu/R?=
- =?us-ascii?Q?j+FeJ7ptTp43N1nU0+uqz/1xNyH3Xq9AAWrzrDJxZhWCmDDaSdcV89QbXnQt?=
- =?us-ascii?Q?VaSZlBxYuyp7+uPYIoyN8V4BPBw3G+cuDF/KpDoJ?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: b1a514c4-e3f0-4531-7ea3-08de2d0730a1
-X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8951.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Nov 2025 16:16:43.8711
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: w4pB0sfE4vC+Nv2e39VaTs848KPKk6v40KXMQpZ2atwxi9OyMRpjADBJaFSe5evzFCMJESWrviltIeR5hclRbA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PR3PR04MB7259
+Content-Type: text/plain; charset=y
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: _____wD3b++sJydpfQcMAA--.52027S2
+X-Coremail-Antispam: 1Uf129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7v73
+	VFW2AGmfu7bjvjm3AaLaJ3UbIYCTnIWIevJa73UjIFyTuYvjxUjeHqDUUUU
+X-Originating-IP: [111.162.113.123]
+X-CM-SenderInfo: xqlbzxxtld0wa6rslhhfrp/1tbirwES5WknGuiyWgAAsN
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251126_081649_075980_DB483262 
-X-CRM114-Status: GOOD (  19.42  )
+X-CRM114-CacheID: sfid-20251126_081705_475936_F5BEF06D 
+X-CRM114-Status: GOOD (  14.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,100 +95,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 26, 2025 at 04:06:44PM +0800, Haibo Chen wrote:
-> Add flexcan2 and flexcan4, and related phys support.
->
-> Signed-off-by: Haibo Chen <haibo.chen@nxp.com>
-> ---
+Hi, tglx
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+> > We've noticed that PCIe enumeration order tends to vary across system reboots (for example: first
+> > boot showed PC08->PC06->PC10->PC07->PC11->PC09, while second boot showed
+> > PC09->PC06->PC08->PC11->PC07->PC10), even though the ACPI firmware consistently reports the root
+> > bridge sequence as PC06->PC07->PC08->PC09->PC10->PC11.
+> 
+> > In our testing, we found that adjusting the registration priority of the aplic driver seems to help
+> > ensure the interrupt controller initializes before PCI enumeration, leading to more consistent
+> > device ordering.
 
-> Changes in v3:
-> - make all the changes in alperbate order
-> - Link to v2: https://lore.kernel.org/r/20251119-dts-v2-1-e8f8d91280dd@nxp.com
->
-> Changes in v2:
-> - move the can-phy0/1 before dmic, use nodename order.
-> - Link to v1: https://lore.kernel.org/r/20251118-dts-v1-1-81b6249f455f@nxp.com
-> ---
->  arch/arm64/boot/dts/freescale/imx943-evk.dts | 43 ++++++++++++++++++++++++++++
->  1 file changed, 43 insertions(+)
->
-> diff --git a/arch/arm64/boot/dts/freescale/imx943-evk.dts b/arch/arm64/boot/dts/freescale/imx943-evk.dts
-> index c8c3eff9df1a23c52e74bf2bc5d4ba543bb5a65b..9f68f491fea07312be595fd6829617fb59413616 100644
-> --- a/arch/arm64/boot/dts/freescale/imx943-evk.dts
-> +++ b/arch/arm64/boot/dts/freescale/imx943-evk.dts
-> @@ -25,6 +25,22 @@ bt_sco_codec: bt-sco-codec {
->  		#sound-dai-cells = <1>;
->  	};
->
-> +	flexcan2_phy: can-phy0 {
-> +		compatible = "nxp,tjr1443";
-> +		#phy-cells = <0>;
-> +		enable-gpios = <&pcal6416_i2c6_u50 3 GPIO_ACTIVE_HIGH>;
-> +		max-bitrate = <8000000>;
-> +		standby-gpios = <&pcal6416_i2c6_u50 4 GPIO_ACTIVE_LOW>;
-> +	};
-> +
-> +	flexcan4_phy: can-phy1 {
-> +		compatible = "nxp,tjr1443";
-> +		#phy-cells = <0>;
-> +		enable-gpios = <&pcal6416_i2c3_u171 0 GPIO_ACTIVE_HIGH>;
-> +		max-bitrate = <8000000>;
-> +		standby-gpios = <&pcal6416_i2c3_u171 1 GPIO_ACTIVE_LOW>;
-> +	};
-> +
->  	chosen {
->  		stdout-path = &lpuart1;
->  	};
-> @@ -127,6 +143,20 @@ memory@80000000 {
->  	};
->  };
->
-> +&flexcan2 {
-> +	phys = <&flexcan2_phy>;
-> +	pinctrl-0 = <&pinctrl_flexcan2>;
-> +	pinctrl-names = "default";
-> +	status = "okay";
-> +};
-> +
-> +&flexcan4 {
-> +	phys = <&flexcan4_phy>;
-> +	pinctrl-0 = <&pinctrl_flexcan4>;
-> +	pinctrl-names = "default";
-> +	status = "okay";
-> +};
-> +
->  &lpi2c3 {
->  	clock-frequency = <400000>;
->  	pinctrl-0 = <&pinctrl_lpi2c3>;
-> @@ -431,6 +461,19 @@ &sai3 {
->  };
->
->  &scmi_iomuxc {
-> +	pinctrl_flexcan2: flexcan2grp {
-> +		fsl,pins = <
-> +			IMX94_PAD_GPIO_IO34__CAN2_TX		0x39e
-> +			IMX94_PAD_GPIO_IO35__CAN2_RX		0x39e
-> +		>;
-> +	};
-> +
-> +	pinctrl_flexcan4: flexcan4grp {
-> +		fsl,pins = <
-> +			IMX94_PAD_GPIO_IO36__CAN4_TX		0x39e
-> +			IMX94_PAD_GPIO_IO37__CAN4_RX		0x39e
-> +		>;
-> +	};
->
->  	pinctrl_ioexpander_int2: ioexpanderint2grp {
->  		fsl,pins = <
->
-> ---
-> base-commit: 187dac290bfd0741b9d7d5490af825c33fd9baa4
-> change-id: 20251118-dts-ad4bd4fdacd6
->
-> Best regards,
-> --
-> Haibo Chen <haibo.chen@nxp.com>
->
+> The ACPI table does not provide a sequence, it provides a collection and
+> it's nowhere written in stone that this collection has to be processed
+> in order.
+> If you want a sequence then put dependencies into the table and be done
+> with it, no?
+
+Thank you for your suggestions. 
+
+Through our validation, We have observed that the current kernel appears to lack an effective
+dependency resolution mechanism between ACPI PCIe host bridge devices.
+
+The specific manifestation is as follows: when establishing dependencies between host bridges via
+the _DEP method (for example, PC07 depends on PC06), only PC06 is enumerated successfully, while
+PC07 is skipped. Our investigation reveals that the root cause lies in the current limitation where
+ACPI PCIe devices have only a single opportunity to resolve dependencies—specifically within the
+acpi_dev_clear_dependencies function inside the APLIC driver. PC06, having its dependency resolved
+earlier by the APLIC driver, is asynchronously processed in the system_unbound_wq queue. At this
+point, PC07 still depends on PC06, which has not yet completed enumeration. As a result, PC07 cannot
+proceed and subsequently misses its enumeration opportunity.
+
+To address this issue, we have introduced the following dependency resolution mechanism at the end
+of the acpi_pci_root_add function in the kernel's PCIe enumeration path to achieve the desired
+fixed-order enumeration:
+
+#ifdef CONFIG_ACPI
+if (!acpi_disabled)
+acpi_dev_clear_dependencies(device);
+#endif
+
+We have observed that other drivers in the kernel also utilize acpi_dev_clear_dependencies to handle
+device dependencies. We seek confirmation on whether this approach is reasonable and welcome
+feedback regarding alternative effective solutions.
+
+Best regards,
+Liqiang
+
 
