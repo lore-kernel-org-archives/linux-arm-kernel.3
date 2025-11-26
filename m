@@ -4,99 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB2AED1119B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 21:13:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B325D111A2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 21:17:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8hrjCGTokKrR0BnJSuEojRuEu2dsqESmm8qkZ4/vDpA=; b=2de9Ewhc1ZxiBoq9Z5mYd5omhi
-	bMnyrLfRvlBAQULVZ+yzV2+lsuijqPEwm5McL99YrJHPu85N3aop93zv7jBJB8FFOqsqI9ykgxzvn
-	5VM+iPHUJ4TKf9bpIuDbCqLWBNq6tDyzD4PWBuu19nRoIJO0b/o7XPbABUpNDxyMugX8L7KCZdynp
-	e6vs2jr31XVNVs3pYOECd3t2B8z9gysK+PfecBuIvSUXUGVz9Dd+zJOo6Qc3lOq8Ux4PS9Vhdn2+J
-	J1sNynBBRJGJGxIE16mSr4viqge3QJcR3l6ByuitVUA07lUUJVNwIKc/aG2e/xylzZfhJFhwrIULB
-	CXYfqzhw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=JRt4FOqb+cxebYzpTusmfYDJqVSBuXj/fYgBxabbYbE=; b=dUmMt0XbR+cgmPFU1voYRU/qSE
+	KdyS+uoUIjmjzmQMzSvEdKLEIlpBbJKyuWvnz6r90FDa8VClaGaZiTWpmY/bceiWze9TGuvPut//2
+	wQA7BMfGUlXRzppvVGuWdBZFaLkkzlv2nIatiL2UoO4IDxVQVbHBvcL514p+Ckbbku+CLAYZy8qQC
+	BIJAyTtd70Om0PamC3aPV3dCEyUPgNCR0zlBp/VNxD4HL66n6rdrZStceiT5SpU3Tl9c+Yrmjauee
+	YuH+1EZq1/0OmS6ivbbg6ug82GGFIZ7/JBzR6GfW6yhNFSQ96/LQ9pKhgxUPp+vMu6MPfgIZL1XRV
+	3biB8UaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOMoy-0000000Fezr-1zHG;
-	Wed, 26 Nov 2025 21:13:04 +0000
-Received: from mail-ej1-x635.google.com ([2a00:1450:4864:20::635])
+	id 1vOMsj-0000000FfAd-0FZC;
+	Wed, 26 Nov 2025 21:16:57 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOMou-0000000FezS-1ChW
+	id 1vOMsg-0000000Ff9v-1jQn
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Nov 2025 21:13:02 +0000
-Received: by mail-ej1-x635.google.com with SMTP id a640c23a62f3a-b762de65c07so31781366b.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Nov 2025 13:12:58 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linux-foundation.org; s=google; t=1764191577; x=1764796377; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=8hrjCGTokKrR0BnJSuEojRuEu2dsqESmm8qkZ4/vDpA=;
-        b=HfPayCUQgrm4NSLSfWqjg7iIp9rNsj8xx9NqfIZNEcZqVlPjboidwytoJGblApjUXY
-         08Jlnrji4dShLQ+FwC4w/MfTDeZ0tPWwg6IcbM9M1XN1t3QkEIkieoPEfe0YpEUI7Ra+
-         e02shNso/Bh5elNsdn1FkqRpbpu/x4kfC4rDU=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764191577; x=1764796377;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=8hrjCGTokKrR0BnJSuEojRuEu2dsqESmm8qkZ4/vDpA=;
-        b=QmOaR+DOHhB6UUMXm9jPym/AV+aCxH7VRMXyTc2adrliZlsgicBpNzvbuwte8gziDp
-         vc/jHr/SeQdhJlREptpeXp33ScFSypwCGeVpC68d8tPs3GjCSBKLokDBhz6/tUtG6WZV
-         /xtEcMPbjErUUJDhlO8nu8fzR6RxL/AytgKXgzsHJEuxlyxqGRKWkfUYlDbZAeXIg3Ii
-         I7BBl7uiOSpDiNXMr4Ehrv5smqXCe3dNcQdJRow8K1Jr2i4yhcNu5dsUSHUkCQSlj2B0
-         C2Vw42pl7IVDxRTFsHTUSWLNghUYg/cu8CPJDS2aOc6qUAkUCe2cMg3s8pCF776/UZ/G
-         +VjQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUS9f7a/jYnEl1j5sQb2yoDaqvUmBlyjN3oyIO+Xwe+IlHC+9NFuEihifmsen95CFxf/PDapUyNKOd+NBtULXi3@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzi9ltzsklOtXaT1qCp7TNNhWoQpxWCAU/LESeYg/amw3sLlLKG
-	UqJMaD9NthXzbwqBvYt0jn26bTi92QB2BqmMLGGtJprPNKJorEJJjAqeEkc6+xtNR3Z9ic/YGpW
-	xrERinwjXoQ==
-X-Gm-Gg: ASbGncsUkOzkbDqLpoPVfdAYBjrAKX16iYCTA7/LMLZYSHp8vKrVND8f+EeBrSNkzKB
-	5kqNYbpXAHDkBc0NgSzBEtjmBq9HN/0ch2A5Qc3osP8om72ZAY6R74M7zlJiWthcLuh4WVnxBoq
-	eyotV1ospNE5Wb9bFtzkXJXOltmMurrkp81XYbCqQS4krjdujEIhsfeByTASBZiPy8tFbqD0smU
-	3ZFrGXrtwp2GuSo7GKBlpa6VuUm4ZNlaM/gpHBsN2YieVTIAmY34fpcQ3uOYkxkDXKmLqiW25Lp
-	0MQvedT3CA3cPECO1S6Q0fy833BzG6kRJvl5HQm3UYXIMU1tDbUllSoBemRmAkBNRYls4dyNWWZ
-	rwIOgLmLPMOaVETwAcXFdAA2TMPMnUdQeRxSe5+/G4txJJoRk9xozE9fiIFPZvV8MA5WQox2dKs
-	wfaNxfdC7q5IfcdcLnhXBmFaz/Cl12WVS/ebiycGhdYeBfxIDYIXTuknAJUclh
-X-Google-Smtp-Source: AGHT+IFOKeMz22AfR+P7N0EGoBQ+LZWzvRXLmrQrLNVuvfa/ZCLRFSukmG0jsM74/3MHhjwMwdUcIg==
-X-Received: by 2002:a17:907:3e86:b0:b73:74b4:f236 with SMTP id a640c23a62f3a-b76c563c190mr870362066b.46.1764191577117;
-        Wed, 26 Nov 2025 13:12:57 -0800 (PST)
-Received: from mail-ed1-f54.google.com (mail-ed1-f54.google.com. [209.85.208.54])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b7654ce15e7sm2004319466b.8.2025.11.26.13.12.55
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 26 Nov 2025 13:12:55 -0800 (PST)
-Received: by mail-ed1-f54.google.com with SMTP id 4fb4d7f45d1cf-640a0812658so461836a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Nov 2025 13:12:55 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCXJCWZ/wNjM4HMRTYS4pxXyEWeiREf0NDg1cdpO2142orchBm53sTo6NcgpA/+/+XTfJR3zbD9Ou5FZb4pxZyvr@lists.infradead.org
-X-Received: by 2002:a05:6402:5192:b0:640:d061:e6b1 with SMTP id
- 4fb4d7f45d1cf-645eb23b736mr8204227a12.10.1764191575057; Wed, 26 Nov 2025
- 13:12:55 -0800 (PST)
+	Wed, 26 Nov 2025 21:16:55 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 24C0B433F7
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Nov 2025 21:16:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CA15FC4CEF7;
+	Wed, 26 Nov 2025 21:16:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1764191813;
+	bh=6FSXv6lvj8Cxw9bAiqE0JGXXnCopMs910raX/aEiueY=;
+	h=From:To:Cc:Subject:Date:From;
+	b=uWO3HjYDThOYfpBqwCtm91Yweuelw481K2wJe9VK1m6sVqnffr5zIpgjGG4v9fgrO
+	 kOrwjAd9Igw0VIi6uBggtNY5tutVTD+S4n5xw53rJ+hLK0W3CqyboSK9rAzb8iPO4e
+	 c+2CJl5TFMrzbaPVEOSDW+WILmlv0tL0Wqv5UFoiQqgLYtzYasDIOvucKcQuZn86lr
+	 hhqJByiQ1s89fbrPRgL+kA20E2KUjjVvabCUobhN4F77ZggEOA23JHnFWnQKSGg36v
+	 4exweOY9ZaZN6L44+ODCcQ+NfdXUv0duQTZhe9V0Vu5xwu9NJhYIvm8ZxY0srkGEj+
+	 8aeIA6Uh1M0aA==
+From: Sven Peter <sven@kernel.org>
+To: soc@lists.linux.dev
+Cc: asahi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Sven Peter <sven@kernel.org>
+Subject: [GIT PULL] Apple SoC driver changes for v6.19
+Date: Wed, 26 Nov 2025 22:16:32 +0100
+Message-ID: <20251126211634.8864-1-sven@kernel.org>
+X-Mailer: git-send-email 2.50.1
 MIME-Version: 1.0
-References: <20251126090505.3057219-1-wozizhi@huaweicloud.com> <33ab4aef-020e-49e7-8539-31bf78dac61a@huaweicloud.com>
-In-Reply-To: <33ab4aef-020e-49e7-8539-31bf78dac61a@huaweicloud.com>
-From: Linus Torvalds <torvalds@linux-foundation.org>
-Date: Wed, 26 Nov 2025 13:12:38 -0800
-X-Gmail-Original-Message-ID: <CAHk-=wh1Wfwt9OFB4AfBbjyeu4JVZuSWQ4A8OoT3W6x9btddfw@mail.gmail.com>
-X-Gm-Features: AWmQ_bmijlsSBxI6qiVA8VQBddyswwSNhEs1F3E3qSXMF5yTCuTDAsS8SQqTKN0
-Message-ID: <CAHk-=wh1Wfwt9OFB4AfBbjyeu4JVZuSWQ4A8OoT3W6x9btddfw@mail.gmail.com>
-Subject: Re: [Bug report] hash_name() may cross page boundary and trigger
- sleep in RCU context
-To: Zizhi Wo <wozizhi@huaweicloud.com>, Russell King <linux@armlinux.org.uk>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
-Cc: jack@suse.com, brauner@kernel.org, hch@lst.de, akpm@linux-foundation.org, 
-	linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org, 
-	yangerkun@huawei.com, wangkefeng.wang@huawei.com, pangliyuan1@huawei.com, 
-	xieyuanbin1@huawei.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251126_131300_351333_E77AC2D2 
-X-CRM114-Status: GOOD (  16.34  )
+X-CRM114-CacheID: sfid-20251126_131654_473464_B32405CE 
+X-CRM114-Status: UNSURE (   9.30  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,74 +72,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 26 Nov 2025 at 02:27, Zizhi Wo <wozizhi@huaweicloud.com> wrote:
->
-> =E5=9C=A8 2025/11/26 17:05, Zizhi Wo =E5=86=99=E9=81=93:
-> > We're running into the following issue on an ARM32 platform with the li=
-nux
-> > 5.10 kernel:
-> >
-> > During the execution of hash_name()->load_unaligned_zeropad(), a potent=
-ial
-> > memory access beyond the PAGE boundary may occur.
+Hi,
 
-That is correct.
-
-However:
-
-> >                This triggers a page fault,
-> > which leads to a call to do_page_fault()->mmap_read_trylock().
-
-That should *not* happen.  For kernel addresses, mmap_read_trylock()
-should never trigger, much less the full mmap_read_lock().
-
-See for example the x86 fault handling in  handle_page_fault():
-
-        if (unlikely(fault_in_kernel_space(address))) {
-                do_kern_addr_fault(regs, error_code, address);
-
-and the kernel address case never triggers the mmap lock, because
-while faults on kernel addresses can happen for various reasons, they
-are never memory mappings.
-
-I'm seeing similar logic in the arm tree, although the check is
-different. do_translation_fault() checks for TASK_SIZE.
-
-        if (addr < TASK_SIZE)
-                return do_page_fault(addr, fsr, regs);
-
-but it appears that there are paths to do_page_fault() that do not
-have this check, ie that do_DataAbort() function does
-
-        if (!inf->fn(addr, fsr & ~FSR_LNX_PF, regs))
-                return;
+Please pull the following changes for Apple SoC drivers. These have been in
+-next for a few weeks as usual and details are in the signed tag.
 
 
-and It's not immediately obvious, but that can call do_page_fault()
-too though the fsr_info[] and ifsr_info[] arrays in
-arch/arm/mm/fsr-2level.c.
+Thanks,
 
-The arm64 case looks like it might have similar issues, but while I'm
-more familiar with arm than I _used_ to be, I do not know the
-low-level exception handling code at all, so I'm just adding Russell,
-Catalin and Will to the participants.
 
-Catalin, Will - the arm64 case uses
+Sven
 
-        if (is_ttbr0_addr(addr))
-                return do_page_fault(far, esr, regs);
 
-instead, but like the 32-bit code that is only triggered for
-do_translation_fault().  That may all be ok, because the other cases
-seem to be "there is a TLB entry, but we lack privileges", so maybe
-will never trigger for a kernel access to a kernel area because they
-either do not exist, or we have permissions?
+The following changes since commit 3a8660878839faadb4f1a6dd72c3179c1df56787:
 
-Anyway, possibly a few of those 'do_page_fault' entries should be
-'do_translation_fault'? It certainly seems that way at least on 32-bit
-arm.
+  Linux 6.18-rc1 (2025-10-12 13:42:36 -0700)
 
-Over to more competent people. Russell?
+are available in the Git repository at:
 
-              Linus
+  https://git.kernel.org/pub/scm/linux/kernel/git/sven/linux.git tags/apple-soc-drivers-6.19
+
+for you to fetch changes up to f95f3bceade25914cca30c871187b2d33db23f34:
+
+  soc: apple: sart: drop device reference after lookup (2025-10-13 18:32:53 +0200)
+
+----------------------------------------------------------------
+Apple SoC driver updates for 6.18
+
+Two small fixes:
+- mailbox: Stop leaking a reference to the mbox platform device during
+  lookup
+- sart: drop device reference after lookup since it's no longer used
+  afterwards
+
+Signed-off-by: Sven Peter <sven@kernel.org>
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQS3vz815OHsEaWy0u9EEX0kKnUe6QUCaSdsTAAKCRBEEX0kKnUe
+6Q3TAP9LzbLNHLFbDgCQXRRU5Qb5RxakNQ6o6eoyJP2I4C16SwEA0PChp6r/yH7I
+US56W3mTG3vlJKag472fLyDmZITkFw0=
+=9YPH
+-----END PGP SIGNATURE-----
+
+----------------------------------------------------------------
+Johan Hovold (2):
+      soc: apple: mailbox: fix device leak on lookup
+      soc: apple: sart: drop device reference after lookup
+
+ drivers/soc/apple/mailbox.c | 15 +++++++++++----
+ drivers/soc/apple/sart.c    | 13 ++-----------
+ 2 files changed, 13 insertions(+), 15 deletions(-)
 
