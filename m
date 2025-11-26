@@ -4,90 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A8A1D11181
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 16:09:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76ECCD10F58
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 16:14:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0gcVBypLWbERJY8p8vcyLVaTMKTzyQc3bsZYqIHWRB8=; b=k0S30U8v8kv37c/dEmAQHUtsh4
-	bXTnbRPkEb/6TXDNieGLViCB1x/ZLQ+lww0f7dfth3zaalIr9vnO3OfS6SctN1kXy9vTPTMnSXNPD
-	jOX4cp3iphZnj6nTbTPKzGDOqQOCi9nxxNbX8mworfKx/LFtHrAXFqcJ5Kfk2XBNu55yVvMflpQk0
-	u0QfRv5ST1QFKL8xgdJFKwyZQLV8eJmBEBRz5Kr/V1XeJxmyZVN/RFF0AHeXaI/Ys2tbnGx5FDo/8
-	RipVPzDHwxlMbMb8aqmWRmLfWDzMxtxdVG1AzTrmThRUS7kREyVkf0e3gfNOfBFoTutP1o83n/Saw
-	X1hYkAqg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tcQcqpW0XvFTJM+qj42pfjnjpcqJ+uxxP4g6ALjEIwU=; b=CR6US2YS6oy9DhUnRlDh3ChNOo
+	f+RB84DzTbUsjOaNYp7kvsr8Mb4DIuE+Jqaz65mJERfTqH05ojphs/BBTQu1OHFyCn5Yfy/38bGGY
+	hxSJq2X3O+GY4G8JxI+YQDa6jbfD9bauuzWfdfk719BsVc3uBAm89h5BH7e+VMV7RD1syukeEIQBV
+	19q5LxWd1OT8zM1IzBjzOuaXcjh4UJY5pn7kB7CYSyOxLwra+Bw8541b1vxyt1P8+0e+YqB/fHt0m
+	/JuD4cZaJ/J6dhESuGeD9UzgkrjgorlMC4fO+U6FsJJi6Vj0DbdlEnrcvCIeh1FiMRAhxIeS+8nTh
+	ie6GiiQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOI5Q-0000000FFty-3vJ0;
-	Wed, 26 Nov 2025 16:09:44 +0000
-Received: from mail-pf1-x42a.google.com ([2607:f8b0:4864:20::42a])
+	id 1vOIA8-0000000FH6y-35Ws;
+	Wed, 26 Nov 2025 16:14:36 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOI5K-0000000FFky-2e7L
+	id 1vOIA6-0000000FH6F-3wpX
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 26 Nov 2025 16:14:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:Subject:Message-ID:
+	Date:From:In-Reply-To:References:MIME-Version:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=tcQcqpW0XvFTJM+qj42pfjnjpcqJ+uxxP4g6ALjEIwU=; b=eLxhXHbXg80TsbXJpRQFike7/M
+	rgfawVMG5gr5HXE0G3G+qqboHmGxJkKx34uI2GEFSYiGXEAcucBT60MASGx+R+sMBBgcFEk7CY2rl
+	2VWy3g1gWqcC+39efsVPsEK/6eebicM67J0pEWO+1qtyRVUha/eJWi3O6yY2DfD+R2aTOEq06vU9A
+	JhIhkMxNSh4bD1kJ4kIexoGOqrW8jel8P4tJ4WW32be0Y1F/NixGnxvcBl9uJQgh0dGgTQNcZKq7o
+	of3khALRPvRBiq+If7Dm608cM9A6ub6k21QiGwlMpvHL+evB0EHk4f6k9pBqvlLYC58oRPrckkY0p
+	7KBspZiw==;
+Received: from mail-qk1-x731.google.com ([2607:f8b0:4864:20::731])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vOHIT-00000008M4h-2nUz
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Nov 2025 16:09:40 +0000
-Received: by mail-pf1-x42a.google.com with SMTP id d2e1a72fcca58-7b86e0d9615so8396649b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Nov 2025 08:09:38 -0800 (PST)
+	Wed, 26 Nov 2025 15:19:11 +0000
+Received: by mail-qk1-x731.google.com with SMTP id af79cd13be357-8b23b6d9f11so672834085a.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Nov 2025 08:14:31 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1764173377; x=1764778177; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=0gcVBypLWbERJY8p8vcyLVaTMKTzyQc3bsZYqIHWRB8=;
-        b=rBwg8I/D/Kesw+3ipXm4dRVl+szncXIGfSU/Yld48hA0d6FDSTsUbL9st02muKmNJ1
-         VLOfO9ctMPdZtkrwn4S0Q21ixdIOqF+fGK7RNZvHpzPFBV3b5boM/MEaSXeNRxkN8c+n
-         IJjg5w45+wQlH6lq2qXs35uI3e43Wt2rbRysFEj7bJpDsQrdl1M0hSdyslUVikOcM7Ht
-         I9jjd/dXNFXJSVo6YMgQyOlkvCGqk31VAh6OASbdzxLOpktfLXLm1Io2LY+IqNqZ+GEY
-         1vt09qIqGvWi/ShOefUL9+qD6e0C4kcYdx4V5R9cnv6Xkn6FxQQxNzeRHdXw9VVm/9pv
-         F78A==
+        d=linaro.org; s=google; t=1764173670; x=1764778470; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=tcQcqpW0XvFTJM+qj42pfjnjpcqJ+uxxP4g6ALjEIwU=;
+        b=UzL30gqefcUeVHuwCuht82228iOIL5WdBR9/evt0xlG4Alh4DmaftBSvXgyTGAbS4f
+         PH9/axLxIREuePS5x5LcWUHVw+SLTFgI4uUkLMgdgUeTe7LEimLwz8ouXonuGgLq3Kc5
+         0cLkaH5/RgG99LnbrMMmsoA6BXdLl0dYGhCVCu/wcsdm4qPNRWoQ67syosKz8ARm/pzC
+         eHogdvkcPnS9RgPMUVgFyD2iCGGqf5GXfQVj4AgC6oz8W6ectxnbaedgIXrlgZZeQiNv
+         ErtqHFCfS3keZqHxQ+laDk68feTF5ZGG9ZhwpnmVBsZHnRffwaMGcmAtHg+ZPn4QzA2+
+         0tHA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764173377; x=1764778177;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=0gcVBypLWbERJY8p8vcyLVaTMKTzyQc3bsZYqIHWRB8=;
-        b=aR2ZVYBHi6E2/ajgmNL+arDvbqAVBvu6sLf6WgK7DUEPTtQVQ2y1hdRZMxsHX7ldID
-         kinZQ03XAc9hNinWU+9IMZ0wTYTupE2ILIIzTmoSJ3eVeOUI7GqFczgZLx/zCuFdJMut
-         z4qNTa5PpyzgVlpX8uSe9m2df2MDP3nK/7vf1mdFAcLhSF3edJabPgWfbLo752+7rwgn
-         CBmcH66Zc1iZtLNvXUbBpFnmj/zm+7CEP8J43kMGyHPM3gyh17PBggnyjNPVsv3bAH7d
-         mYtPGy4B5Id9nL5X5jNmseq5hHQlHuWzpQ/Jz1ulNA9WH5vYnFkvUFxXv/oUJDKzq5Dg
-         OxWg==
-X-Forwarded-Encrypted: i=1; AJvYcCXq9s+tKO0uCpsReioyL3tUKax8IaKhzZNMw2Lzk9fv4b9rk4ACEbs0jn7LaVj4l40OhEWsLelH6YQQLLriKVon@lists.infradead.org
-X-Gm-Message-State: AOJu0YzArkhZgj7bXpOolCUt3eBScexGW+I+DEUSlCs9GDuPwqaFXKDT
-	zEloegGapPSW3y25zLi6a04W/bLL4hqDn58XVa7d8C0tZQpunFHvh/q16HJSnguA3XvrNlI2W2g
-	tw+R4qoqsBmPt5+4WDf4LRqfcarFZxdPL5Gdrokdj
-X-Gm-Gg: ASbGnctKDXmMz2WyZrazvVOWMg95MF1sKyeaGPqLNJcXW4K65NpaUQYURMEc5yUh3zd
-	dMTvGvmpz7+wjXqHXhUk9udvghG4O0TZQmppP2VEs7GE9vW98My8MguBsSitBTlGcE+No1CaJME
-	aOhVJPoqf2FNi3YXwtEivH71ezL6r0k+G+cBDQWisHgJ7mf/QH41mmn8Al1UbvqkehrLX2shyPj
-	iVUApuuSj4q7ttlYa62ZHNcgBtJdmhFFqYIexuAiIr6rOQSNuO6JpZQttFv3DHXZMrqK0aZqfvS
-	rYMVahDo62346zdPGJ3VhvHDR5Ej5msPOUsX
-X-Google-Smtp-Source: AGHT+IGAEhibvtZ1cVjwHMHCZDx1pcwD0RfdJLVdTeE/4gtS8XoedlAk5KmMPIaBUkyCzvh/tSvw7tdpzJxiPpbYPHQ=
-X-Received: by 2002:a05:7022:4293:b0:11b:7f9a:9f00 with SMTP id
- a92af1059eb24-11c9d6128f8mr16441440c88.4.1764173376414; Wed, 26 Nov 2025
- 08:09:36 -0800 (PST)
+        d=1e100.net; s=20230601; t=1764173670; x=1764778470;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=tcQcqpW0XvFTJM+qj42pfjnjpcqJ+uxxP4g6ALjEIwU=;
+        b=iSGpN7K6iv444p+FzMv8PklHRWJ6YwjvR3QqVecEHoHL8MtDg9aKsR4oQ8RIBclKeE
+         BKxp65PHKI72/rGj7wasDPT0RrbGH5CPvCX491sQrryQtjPBQcx6H6xP4vOpnsyWo/F7
+         p4eCc8VmyhE9lYZNFFaQYhqcL/3xa8wyfigtEs9X90XBiEIOTC8SMFChiODlV0jA6ut7
+         NEgtxip+V27LV/kdVYz6XUspSE6fon7BYu6N5yWrNbr7lRn8e39xY1gEvXg628eKqgJ/
+         hladE5B/T3JRQJMiACf2e9fKXd/z53HL04BqPa25EBmw3dMctQaiU4gfReOwwXMqSAdu
+         NaKw==
+X-Forwarded-Encrypted: i=1; AJvYcCWvSjfyt57sRWA72aHznopLd/K+/VxMZwkWUhViIzFzvHmo5v6IJLrLR8X9cYM76mvN9gqu74hRrdOzvoQnXZzf@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx7qmodHsBDnjbh6ikRxh8J5m87wQJzg06D2vtRsZLtAmGopkD3
+	mneVyo/d1W5zwlERSKxzPY1N440ZN435yxMnq71sfiZGcDA98693xBq4YGvIwAsDgsewVn5Cmqy
+	CiFLzXwbDR2QaLOzhF75GYSQDFNrUIg82JdA1fjaeqw==
+X-Gm-Gg: ASbGncuX0fG4XpwQEAFhTQLCFdPmezxGROlbU9Tg0OjOn8CwFleksGCK928lHacTWFS
+	V7bGMFw2dzquCLRAzeqeGVeR2lJ2Re/gBiOyCv3TlO0xOmVnKgiSGVESnz9txz06WKcCa2WClxA
+	g+IxhNRDbv9AdI4M091rD0TyZssBbDw5NyU+copKR3U2i+/apxcOfeE/h8oB7DNZQThFk9HDeR6
+	VZr6Ex/bYbyJmT2KhgHLWZQuUDT3/ByIHf52adDdC0NOLZztTfDUZAj+eR6uug6z/KDLJOOMluy
+	QAFKw3j/0a/N3ZFVpB/vuO99/0QtpgokzeCVIgw=
+X-Google-Smtp-Source: AGHT+IEYREzZ9a7aW5w2u2QphT4cr+PBQEzrQyXIwSBSSErZpcXFaCjLBZbKaBvfO3UbpLcp8YPMk++YD4vxAtw67BU=
+X-Received: by 2002:a05:620a:700b:b0:8b2:db27:4262 with SMTP id
+ af79cd13be357-8b33d469984mr2401094885a.74.1764173670053; Wed, 26 Nov 2025
+ 08:14:30 -0800 (PST)
 MIME-Version: 1.0
-References: <sqwajvt7utnt463tzxgwu2yctyn5m6bjwrslsnupfexeml6hkd@v6sqmpbu3vvu>
- <k4awh5dgzdd3dp3wmyl3z3a7w6nhoo6pszgeflbnbtdyxz47yd@ir5cgbvypdct>
- <CANpmjNOsSmKUxrLxTWYMD3RKnzSw5dfM=7QNJ02GMFG7BMeOGA@mail.gmail.com> <l2tbxtfyjtu32wqv73hqc3loerzdshoq2mdkfpfnigtjjonrdc@3yacamzjcrti>
-In-Reply-To: <l2tbxtfyjtu32wqv73hqc3loerzdshoq2mdkfpfnigtjjonrdc@3yacamzjcrti>
-From: Marco Elver <elver@google.com>
-Date: Wed, 26 Nov 2025 17:08:59 +0100
-X-Gm-Features: AWmQ_bmhx5AyJc3aUebiyMdQ90XhVN16c7wvxxmC6w0jKeAhLXYecNNdM1Ixy_0
-Message-ID: <CANpmjNMnKJGvneNDOCFRfC8xUWq-uuXVjLRQZsPYo86Xau5UHw@mail.gmail.com>
-Subject: Re: CSD lockup during kexec due to unbounded busy-wait in
- pl011_console_write_atomic (arm64)
-To: Breno Leitao <leitao@debian.org>
-Cc: glider@google.com, dvyukov@google.com, usamaarif642@gmail.com, 
-	leo.yan@arm.com, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, kernel-team@meta.com, rmikey@meta.com, 
-	john.ogness@linutronix.de, pmladek@suse.com, linux@armlinux.org.uk, 
-	paulmck@kernel.org, kasan-dev@googlegroups.com
+References: <20251121002350.1166758-1-visitorckw@gmail.com>
+ <20251126120914.GH724103@e132581.arm.com> <da2a3e18-80e0-4aca-bbc7-45c1353217d3@linaro.org>
+ <20251126123147.GI724103@e132581.arm.com> <CAJ9a7VhD2p3qMGXNg6deYjE8myB5euHR4FcAFwgg0KWF2HO9JQ@mail.gmail.com>
+ <15d536f2-0829-4f3f-b111-b15b14236bd2@linaro.org>
+In-Reply-To: <15d536f2-0829-4f3f-b111-b15b14236bd2@linaro.org>
+From: Mike Leach <mike.leach@linaro.org>
+Date: Wed, 26 Nov 2025 16:14:19 +0000
+X-Gm-Features: AWmQ_bmzLUfnVGvYj-Hu5IiwK8dzQhWo3y6s6dN-IrML8oCpNj4bF4oF31DLYeA
+Message-ID: <CAJ9a7Vjia4ENewP48nyDWBcBFbDmwb3vM2JNbNCw4-3yF3ABVQ@mail.gmail.com>
+Subject: Re: [PATCH] coresight: etm3x: Fix buffer overwrite in cntr_val_show()
+To: James Clark <james.clark@linaro.org>
+Cc: Leo Yan <leo.yan@arm.com>, Kuan-Wei Chiu <visitorckw@gmail.com>, suzuki.poulose@arm.com, 
+	alexander.shishkin@linux.intel.com, pratikp@codeaurora.org, 
+	mathieu.poirier@linaro.org, gregkh@linuxfoundation.org, 
+	jserv@ccns.ncku.edu.tw, marscheng@google.com, ericchancf@google.com, 
+	milesjiang@google.com, nickpan@google.com, coresight@lists.linaro.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251126_080938_802315_F653799D 
-X-CRM114-Status: GOOD (  17.69  )
+X-CRM114-CacheID: sfid-20251126_151909_824738_2C36F422 
+X-CRM114-Status: GOOD (  30.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,35 +116,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 26 Nov 2025 at 16:54, Breno Leitao <leitao@debian.org> wrote:
-[..]
-> > > Alexander, Marco and Kasan maintainers:
-> > >
-> > > What is the potential impact of disabling KFENCE during reboot
-> > > procedures?
-> >
-> > But only if CONFIG_KFENCE_STATIC_KEYS is enabled?
-> > That would be reasonable, given our recommendation has been to disable
-> > CONFIG_KFENCE_STATIC_KEYS since
-> > https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/comm=
-it/?id=3D4f612ed3f748962cbef1316ff3d323e2b9055b6e
-> > in most cases.
-> >
-> > I believe some low-CPU count systems are still benefiting from it, but
-> > in general, I'd advise against it.
+On Wed, 26 Nov 2025 at 15:33, James Clark <james.clark@linaro.org> wrote:
 >
-> Thanks for your review and guidance.
 >
-> Just to confirm my understanding: You=E2=80=99re okay with me adding this
-> notifier specifically for CONFIG_KFENCE_STATIC_KEYS (which is what
-> I need), but you would not support adding it for the general case where
-> !CONFIG_KFENCE_STATIC_KEYS, correct?
+>
+> On 26/11/2025 1:42 pm, Mike Leach wrote:
+> > Hi,
+> >
+> > On Wed, 26 Nov 2025 at 12:31, Leo Yan <leo.yan@arm.com> wrote:
+> >>
+> >> On Wed, Nov 26, 2025 at 12:11:05PM +0000, James Clark wrote:
+> >>
+> >> [...]
+> >>
+> >>>> This fix can still be applied to older kernels, but seems to me that
+> >>>> now might be an appropriate time to consider removing the ETMv3 driver
+> >>>> from the mainline kernel?
+> >>>
+> >>> Yeah, if anyone is using it it would be on an old kernel surely?
+> >>
+> >> We can confirm this in another way: if I don't miss anything, over the
+> >> past several years (since 2017), we have not received any questions or
+> >> bug reports based on hands-on practice regarding ETMv3 on the Coresight
+> >> or perf mailing lists.
+> >>
+> >> Thanks,
+> >> Leo
+> >
+> > The key to this is not the questions we are asked, but which platforms
+> > are still supported by the linux kernel.
+> >
+> > The ETMv3 driver supports both ETMv3 and PTM trace (the programming
+> > model is the same, even if the trace decode is vastly different).
+> >
+> > So as long as there are  platforms supported that use either of those,
+> > we need to keep the driver in.
+> >
+> > Mike
+> >
+>
+> We're not running tests though, so if we find out it's fundamentally
+> broken somehow it could be another justification to remove it, even if
+> the kernel supports the devices. Do you have a board that you can test
+> on Mike?
+>
 
-Yes, correct. If there's a real issue with CONFIG_KFENCE_STATIC_KEYS,
-it's worth fixing if there are still valid uses for it. But I wouldn't
-pessimize the now default mode, which is !CONFIG_KFENCE_STATIC_KEYS,
-as it doesn't appear to have this problem.
+Don't have one myself, but I believe the TC2 was used in development,
+(that's the A15/A7 32 bit part - not total compute!) which somewhat
+conveniently had both etmv3 and ptm trace.
 
-Thanks,
--- Marco
+
+
+> Maintenance hasn't been zero cost either, even build testing for arm32
+> is annoying enough.
+>
+
+Pretty much the seem for any of the arm32 drivers I guess.
+
+Until arm32 kernels are no longer supported, not sure it is safe to
+drop the etm3 driver as we do not know who out there might be using
+it.
+
+Mike
+
+
+
+
+--
+Mike Leach
+Principal Engineer, ARM Ltd.
+Manchester Design Centre. UK
 
