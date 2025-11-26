@@ -4,184 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E32F6D10F5A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 14:24:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A54E8D10F58
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 14:25:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dfSHgf1N1K9CZAN7sp47x+/xXwVsoot20GOBz6cdE5w=; b=YsEnciM2d3+z6DqZtwwzvyq+sZ
-	pTH8fXu+TkPfETvmYjwB39rO/ipZl4lJqgSq05Il+SWa4LK11gz72bOd5aMJxrracBb5meHRYoRCJ
-	u4W0wgDM8IFtTqkpocWHocbE4ypbKElp5v8J28Ok/YJFlJkcGCBqI6JORBkmzQRCro3hJed3etJCX
-	uSYKXgA3qJVuhui2J5AUK3GC1uurwbXDs08nUVatOUtA0c74LHUr9At5xgpvTSJqC/EeoKKamUV0e
-	O/irknuCIix3FCSp8awiwPL4JEtBtfW9Zzb0QqSLrYEjb8OzdxP0UltmBncxeE0vVIbU2/dinJDzc
-	kKpoOxJA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Sbs0A8qAYuq+r/+1fjxriavvnUhEfhMgY7SBF5X8V08=; b=cPPRd/1PF+EAG6fg5JYeB5SIk8
+	yr4ElumDppcsCwomdzaC5E9FUh7YRhmhKXvCfMW130FqhdtVCn5S8mxQjay+gYknHyyJ6k+oh7NcU
+	MQPDGR+f+oC4+Vz82bp6xnTE7j/DQn8DVjwTKvmtP9P36KqB4S3tiFCvFCp1nQmwgLTk9ZZPltMI5
+	GTXSkPiJ/x8jMGxxbIoUJZjr1HexC3IgWJEk6bH79cvxQww26gxkRMTeSe/hQXe/olA7i3VAv915j
+	ldEMOs32zjk20VrQSpLxucYrtQ7hVAb5ZRacXSKUfp1zPaenryIKvHxAXaurfql3gcH2hCtfPoZw0
+	AZA+nFTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOGRX-0000000F6er-2P7g;
-	Wed, 26 Nov 2025 14:24:27 +0000
-Received: from mail-centralusazlp170110009.outbound.protection.outlook.com ([2a01:111:f403:c111::9] helo=DM5PR21CU001.outbound.protection.outlook.com)
+	id 1vOGSN-0000000F6nH-28OF;
+	Wed, 26 Nov 2025 14:25:19 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOGRU-0000000F6eL-0sXV
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Nov 2025 14:24:25 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=H+XAqY15hEcvENrNYerY4J9wFFJOyH9P7koBupWutvkMoIRYok4WJ9LHd1tH4/C2sUF9oWM86/maUGyhozyTCfVZfaqAoTRZNgUZu2fVO51ITedWcoVrb8oErJUjU384FsCNNyH/3vC1bpTzPOUfS3wRv/GgIBrojocmCk55jpy//Xt44JffUhibEf43wXPi225mp8TZEE0srdBb31w0kFBuRh44LTy4fuSnCyBfWOdVJCTZJmC4iEI39vPCkE9Q3z6pytshaUmxiKd6vNnXhp14XchVTDOTELJ/Wxz3RD3SgEsAbrCrJifYnSwfqwcaod1N/MbGXWN/y0e+XWHKiQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=dfSHgf1N1K9CZAN7sp47x+/xXwVsoot20GOBz6cdE5w=;
- b=r1g33ejZah2W1aow30bVx/jMQEupG1NQOvDLadPcMKTprmOgtSl9PWGkehP8s9LoL12h65EqvxYqKulsi2sJAIoe4dpQBzMaYwHHLlY/b++LKVKr9fqHOPYdJH8c5MYaL0el2XNazmf7h4Hav5WkG4K1FxnsudHDuvBrZjratT8SVdBYdjFyueQ3LnvvFU+Z3CW9svHPVAk6913GUwGjD5hemKathfGz49ffiJNZ4dMOLt7p8EGUL/gDLJ41wtjEb2j4y5XMxYJsBRIeC3d83QoLtMYkOxhXai2GfHZXmdpdFdw9oVKeyhJ/TZg6oG60hkk01TsbZzSAOREGx5QTOQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=dfSHgf1N1K9CZAN7sp47x+/xXwVsoot20GOBz6cdE5w=;
- b=rqEsemurCntALUbeYgsZvb63I/irbTlmEvpkQr8Hb/2424EQarPqV7V0htf7ic8h5qONgRg8GFRtgNYba2qlYXulToXhnDPbBB3SXnbYlANUGpSnSNPd1hIJKApa5+Hbq4VzUazyJ1xmOIG5P2xG005YSGitnXPGf+HGgJxOWhVxGcG82p7sINz3QQBKIKDqaMMxoVkKdWHEdnDMPevVZGWHgicnswe85mFHIpt4gwLEFkGvmRZ3UzFrvJ/2p2BFR1H3McRanNZx9n4p4MbroYgo/0RhJD4NyS0KCdTHeUxCnN++qutQ+ei2OurDllJB4F6FVIe601MyUUPSrmnZfg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from SJ2PR12MB8784.namprd12.prod.outlook.com (2603:10b6:a03:4d0::11)
- by DS4PR12MB9795.namprd12.prod.outlook.com (2603:10b6:8:29e::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9366.12; Wed, 26 Nov
- 2025 14:24:11 +0000
-Received: from SJ2PR12MB8784.namprd12.prod.outlook.com
- ([fe80::1660:3173:eef6:6cd9]) by SJ2PR12MB8784.namprd12.prod.outlook.com
- ([fe80::1660:3173:eef6:6cd9%7]) with mapi id 15.20.9343.016; Wed, 26 Nov 2025
- 14:24:11 +0000
-Message-ID: <0829a21c-f97d-41b6-90bc-2acaec42caab@nvidia.com>
-Date: Wed, 26 Nov 2025 14:24:02 +0000
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 07/10] arm64: select HAVE_SHARED_GPIOS for ARCH_QCOM
-To: Bartosz Golaszewski <brgl@bgdev.pl>, Kees Cook <kees@kernel.org>,
- Mika Westerberg <westeri@kernel.org>,
- Dmitry Torokhov <dmitry.torokhov@gmail.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Linus Walleij <linus.walleij@linaro.org>,
- Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Saravana Kannan <saravanak@google.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Andy Shevchenko <andy@kernel.org>, Catalin Marinas
- <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Srinivas Kandagatla <srini@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>,
- Mark Brown <broonie@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
- Takashi Iwai <tiwai@suse.com>, Alexey Klimov <alexey.klimov@linaro.org>,
- Bjorn Andersson <andersson@kernel.org>,
- Konrad Dybcio <konradybcio@kernel.org>
-Cc: linux-hardening@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-sound@vger.kernel.org, linux-arm-msm@vger.kernel.org,
- Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
- "linux-tegra@vger.kernel.org" <linux-tegra@vger.kernel.org>
-References: <20251112-gpio-shared-v4-0-b51f97b1abd8@linaro.org>
- <20251112-gpio-shared-v4-7-b51f97b1abd8@linaro.org>
-Content-Language: en-US
-From: Jon Hunter <jonathanh@nvidia.com>
-In-Reply-To: <20251112-gpio-shared-v4-7-b51f97b1abd8@linaro.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: LO4P123CA0577.GBRP123.PROD.OUTLOOK.COM
- (2603:10a6:600:276::21) To SJ2PR12MB8784.namprd12.prod.outlook.com
- (2603:10b6:a03:4d0::11)
+	id 1vOGSJ-0000000F6mH-2ETG;
+	Wed, 26 Nov 2025 14:25:17 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id A0186C15D78;
+	Wed, 26 Nov 2025 14:24:49 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 578AB60721;
+	Wed, 26 Nov 2025 14:25:12 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 64B5A102F08EF;
+	Wed, 26 Nov 2025 15:25:01 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1764167111; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=Sbs0A8qAYuq+r/+1fjxriavvnUhEfhMgY7SBF5X8V08=;
+	b=k0ooTJYIYW0FYBMVhrgVBpA7A6kXMyqERAgQSrzwOurSlWfmkbqR/cAmccU11VWLC5YJEI
+	n6WrPplsAi0/qCeWTP5rC5r6OVtJarSahnvu8/ytGNtL2IhjV2o4qcZLK1BKZ9REOhbIne
+	GpHwbaHF7/xV6QP11Em8OqvJQxr/vpKrq/B/xhMU6iRCotsKbsvezuDAlSdbcWdLA7WkHY
+	PgHtTABkVp75O1gL9djdWOv4/kvWgJGTXQQtoWevSW4VHF0gnednfaSxWzHACT5hKJnynF
+	DcFAau2f9LPmwhjE9ZTrqGuSx7982EfRtb9Sv1Y9Gy4TO0KRoTFUYh71zTNEkA==
+Message-ID: <9c2518d8-a0ea-46ba-9069-999c2574cd24@bootlin.com>
+Date: Wed, 26 Nov 2025 15:25:00 +0100
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ2PR12MB8784:EE_|DS4PR12MB9795:EE_
-X-MS-Office365-Filtering-Correlation-Id: 76ea447a-98e9-46b6-3868-08de2cf777db
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|10070799003|1800799024|366016|921020;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?M2NEbGY1NFdCUnpZLzdHMkcrN1p4STVzYnV0RGV2RHNISTZtRUxUUWZvV09p?=
- =?utf-8?B?RE9qRS9hZ25wOHJiQzhjQmFsalQzMmhCci9TYnZvc0ZSeE9PbFpNZnFXb2tv?=
- =?utf-8?B?emJWcW5uQzRDTG1hMGRwQWdOZ0J0OTJoL0lidHZ2bVdRclNFUFJwZ0M5QkVa?=
- =?utf-8?B?TVVmQ1E4TkNFTm12eXRSTTJRTlIwci9jQ0tEZkc0NVNiVG1GY2Rhc2tJLzUw?=
- =?utf-8?B?amdBZkk3STVpWHBLZTVRQi9JTHdRcjN2eCtvc1c4Nm5vOENrVVlGRWpscXFY?=
- =?utf-8?B?U0Zhd0t4emRkRTlEMTZNejRyblhxaldTKzUwQ0VJc1gvVkV5REh2UFlRbGtQ?=
- =?utf-8?B?STIwR1BCN1IycXNWdC9HZUVZYkRGZGRjN2d6Q001U0JMK0h6dlNWMHF5bnBm?=
- =?utf-8?B?RnVQR2c2WUFLeElmV3kxcnI5TEpSU3dDSmp6SlFkQk8zWUpQVkNSR1FZaXRE?=
- =?utf-8?B?SkZPQU83S0pRNE1LS0xLS0Y3Tm9sMU9KMWg1b05jWG1vVkZUTUNyd04wTXp1?=
- =?utf-8?B?V2ltNXBmalljU0p5ek5YWU93ZUhOc2VsVGxWSE9DWEhUUHRCbWQ5dlM5V0xz?=
- =?utf-8?B?czg1Nkc4T0I0U1JjU2dySm03UkVmMmVrV2QwaUk4ZnFhOXhKQ3IrdnVoR2E0?=
- =?utf-8?B?WThkUUxOUGp1VGZKZ0VDVW5VZ1RUSm5WTkV1T3Y2bGVJL1c1aWdhSWJWeTBh?=
- =?utf-8?B?OUlqT1hwRSsxZ1ByTnBUQjZGaDMyaDMwM051S253aHpraVVuZGRIUVZZczNC?=
- =?utf-8?B?UEJkcHJZM0VmVVZ1UXRYZlV4SjBRSGhFZGI5Z2l4M1MzbnN3ZTR2azZnemJZ?=
- =?utf-8?B?WWhDZEdKMjhBOVNBb0VXQ3RYdWdhd2Z1NHpYTVBGa1RvL1hnNS9hV0Q5YldH?=
- =?utf-8?B?Qi83eE1RdVJBeFNmYVQxczNubXVTWVNlVURIVk81L1JINVZYaVdGSWhkZFVG?=
- =?utf-8?B?eUNCMmtTbXJlb1JXWlIvUGpmK0MvYW4wSjRqVGhpR0ZQN1VFc1ZRMUc3VkZB?=
- =?utf-8?B?bmNEYjkyOHNwTEQrRTJVSzg0SWRrTUc0bStZSDl6T0VXS3F5UC84b2tPMThU?=
- =?utf-8?B?aFNnVzhISmRvRXhiZGRKM2xOK0ZLMjVwTElKd1h6djNOTElSeExNOGxIUUl6?=
- =?utf-8?B?enZyQ2xHNWZQS1NZNDc5ZHIxMmd5MS95ejFUeElsRlVKZU9MNDdvK0RvaERM?=
- =?utf-8?B?Q2gvd3hrSGFDc05xMmZBaTRGZjNLWmk3UDhhUndnVVJZMGYrU2UzeE1ROFlK?=
- =?utf-8?B?a1FSaDhpL1hMb0hlSGxsSVIzNHRJcVdRWVlzWkVlOHU4eURwRWhkR1g1V29U?=
- =?utf-8?B?eGNRRFJFTndFQjkxenRNOCs3OUtHdk9QZDdidmpzMkpabmtkQjlublByRmZl?=
- =?utf-8?B?a2hTZ3hFN2FvK2MyR1VtdUd3aWNEWDlPMjJzN0c4N1Yxd1ZTY0UvN2ltNHlm?=
- =?utf-8?B?a0tVR2VRRTQ3a1JFQTJINVhHV2ZWSm9IeEtwNWE4VitXWGlWU0lPc2hMMXla?=
- =?utf-8?B?QlJXcGp4QWw2cDVvSWV3WXlNbE52Y3JadldRdHk2NTJ2bDZuS0hSV09WenRR?=
- =?utf-8?B?Nk5qQXNWUWFqZk0wMnB3MDYyNHR0R2RGcE4wcTB6WlNlampNYXF3NWxSRENE?=
- =?utf-8?B?dHVtbTRLVXN2SVBpdVVvMGNWY0RFR0hkNUpocXp3SkZRQ0twSCtKZ3FoMnFU?=
- =?utf-8?B?Q1plcHBBMXlyZUdSWjkvMkFEdHphUDFDS3RpK2tzZmxmdlAyckFabldHM1ND?=
- =?utf-8?B?QWMyYWM5S3IxVFJOcnRwcUY4bVRNU1VxWkg3VjREZUxwU2RQekpKTW5oTTBu?=
- =?utf-8?B?MDZHOC9sREN5UkhGcUFTWWZHZmdJdjVVVzJlUi9iV2VoQjdjQlBxV3NvNVU0?=
- =?utf-8?B?VXYrWWFTYXU4RS9JNlFZc3RJRzRNbkttMzhQZ0pmc2hoRTdUb0FhU3ljaW91?=
- =?utf-8?B?TFlYZm9JcEFScERIL2dwS3FkcFU5UFFyTWZDZ21ONWZiUFgxd3N4dm5YdzlB?=
- =?utf-8?Q?a0PkSKIVGERy7kcC4+tpoqtJX2Q4Lc=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR12MB8784.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(10070799003)(1800799024)(366016)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?ZExTTVhqR3E5ZWhxVEFOSkliMHdScUlqMnZmb1pzeWhjaXZsT0ZrY2RBbFR0?=
- =?utf-8?B?bVJpR3Y0Nm5SRHg1WXByUGlpM1kvSEdNdjZpM2tIZVdjcFNkSUJlYldNMGJK?=
- =?utf-8?B?d1RoTG1hRnBhMkxUMmZ6NEhJV1lHYzNWWGhwQXBzalpZVGYzVUdPL1IrWGNi?=
- =?utf-8?B?YjhqcXpjUjRZY1lkZXNtckRlS01Sb1BXVnBEUDNNRTYvTlRhb1M4NllGV0xW?=
- =?utf-8?B?RXBXR0tBakpsVXJLVy9FbkhsY0pKQlNQYzg3U0RFQVJMNmhZWE9aNWM0aWF4?=
- =?utf-8?B?NGtheDFWVUpYblEvWlBVK08yakNvZkhiZ3RIK1BuREVDZ3FhUnhXNXZja3ZX?=
- =?utf-8?B?RFFBM0dyRTJLQU14VzZ3OGJKNHcwUWNtWXRDSXlBSWdzeldwVkcxdVBJTnN4?=
- =?utf-8?B?L0dNU3dwelEvQzYyYmVNeFJyMEZxczBVdnBkU2NtNk85YVRsc0xCS1d1Y3N4?=
- =?utf-8?B?c1EzaFd0bVBjNHE3Y1dzOE9SUTdiL2JKY0E5Z2gwVDNMRHkxRWxNdXUwTTNF?=
- =?utf-8?B?aGdNSU9mTjRiTk95Zy9wMmNGOXhmak5vYTkrRjBiU3BYS21vUzFFdFF6U0Jj?=
- =?utf-8?B?VE5YakM2UHFZZnA4V29GZ0F2aDI4aE5GT1pzRlNDL25LTk45TDR0alRZMWxu?=
- =?utf-8?B?bjB5ZGlKczJsVEtNTmFCNEN2RjVZU1R0a2xaVzJHcDZPcEVudk5LTnRNS1hp?=
- =?utf-8?B?STJTU3FXSmtIWVovcG9RYmxnUGk5UG1JN0wzYjNmMHJOdmV6UUxYTmtRbGpY?=
- =?utf-8?B?RjZ4UzZRYWdnSjU3WlcxTmJ0MlJxZ28wZlIzNTNwQks0Yzk2NGFxSHRSVVZs?=
- =?utf-8?B?ZnJQdWMwYlg5UWsyejV3OW13alJDY2c4R3JFYXUxckpKbEIwT2lXREpyemdr?=
- =?utf-8?B?eVdLR0wySU1vRTl4T2x4eGhwdGd5cU9XVmNnVCtqb0VyaFdTbVg5TkE5VnlJ?=
- =?utf-8?B?SklzNUNZR0FjV25QU2JtUWJPY3NLM09xaFF0aU5QcnN6Y3hZMkJpakhBY1Qr?=
- =?utf-8?B?MVlHNDV1MVBnUGcwV1UzN0NFWHgwYms4VExFSjRYOWo3NlJNL0NEUzZrOVgr?=
- =?utf-8?B?SEI0SzJKaG9IbHB6RSs3WktOaXlSZ3ppcHc3Y0VNY3MxdzNER0QvYmtYQjVT?=
- =?utf-8?B?RHNISmNCMVZPanZNZ3RMaTJzclJBcEc3Vzd6NUduMnJDK1ludUl6bUZxa25E?=
- =?utf-8?B?YVVIWU11YUZNVmpOMVN3RlRCckgySGZhUGc4MTlHcmJKT05jbnVpb3k5QWJm?=
- =?utf-8?B?UGU0RTZRb0VxYWFSaXZnWk1nKzNRY3lxdmJuVWdBMkpTRWNjNVdNdlBRdDBB?=
- =?utf-8?B?dzRodGY2TTNCZXdhdHI2MTRzaDdFeXpQVU51cmZnbTFtaGJUZkFTeFNIQkk5?=
- =?utf-8?B?VEFVL3BQMnB0djdMMnZpY2tyUDlvbjB6a3JNT2lNOUowVy94L1BSK2pEaEE3?=
- =?utf-8?B?YUZyekxkUGhXcTBxRjBTaEVXbTF3bG84NTNzK0g3SzJ5M00wbzRwc2dKVTBk?=
- =?utf-8?B?WkZvUTFZY0NlNldYWVEvMTd5MVg5b1hvcEpzVHl0MXlPTGFlVnN5U2R3MWcv?=
- =?utf-8?B?S1NxZnJwMWQ0anZzamZFc3ZvaHJPb1BkYTFOOUh0SHJFc2ZOTm0xU3QwalM4?=
- =?utf-8?B?UTFVbTg0b1pSS09zdWZvWjJaWi9MOVVIdTdqQW8wY1RUWEswMDFNTXRiLzdJ?=
- =?utf-8?B?MDF6YjRVRDQrQkM3RHZuaXVnVElsVm1Tdkx2UndTVktSU3VSNkNUa3NvWkdI?=
- =?utf-8?B?K1pOQkRZenVxRGlPNXQ3dGFMbWhyUkI5dUFVT3hGaWN0aWF2MlE5K3BKekMv?=
- =?utf-8?B?OEVVZFJBTzRLeURnY0t0NkZ6cGFhOUEvaUlxQ2k0UitjbFEzRWlRc3QyY1pJ?=
- =?utf-8?B?Z3RLbWFvd3FDRWRMSmh4dDkxTy9zR3ZYanZOamNHU0pacmoveEhERWFtbmdt?=
- =?utf-8?B?R1UrTDlDbHRlU1YvdVlORkFZalYyRit3Z2VZSk9YbVZRNEtKYitwVlo2VVFE?=
- =?utf-8?B?Z2ExZGV6TEIvUnFWYzVyS0gva0UrZkdOaTJDWUFiK2tOU1VVbHZsQ0QvM3Fo?=
- =?utf-8?B?MXJvTU1qMHhieTVSMmx4TU4weGh4ZEhxc1VSeHlWM2tEaWJLVWFWVUlwQjBF?=
- =?utf-8?B?QmFBS21ZZWNHZG8xSzljZW1nd1dYOWZLaFF1TlQ2TlduemttNjNQU0x4a21M?=
- =?utf-8?Q?8jJrKpcyfkN4F70hWj4iF7qHUsc56XxIfO89J9E1mgmG?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 76ea447a-98e9-46b6-3868-08de2cf777db
-X-MS-Exchange-CrossTenant-AuthSource: SJ2PR12MB8784.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Nov 2025 14:24:11.5254
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: DvlXUzglgHHgfJt8Qr1OkffDBQqN8uBlKSNLzzLTt31h7160MpQtIrfclRz1i+QYqFir0AOKUL7eZQ40mpihlQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS4PR12MB9795
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next 1/9] dt-bindings: phy: rename
+ transmit-amplitude.yaml to phy-common-props.yaml
+To: Vladimir Oltean <vladimir.oltean@nxp.com>, Andrew Lunn <andrew@lunn.ch>
+Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-phy@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ Daniel Golle <daniel@makrotopia.org>,
+ Horatiu Vultur <horatiu.vultur@microchip.com>,
+ Heiner Kallweit <hkallweit1@gmail.com>, Russell King
+ <linux@armlinux.org.uk>, "David S. Miller" <davem@davemloft.net>,
+ Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>,
+ Kishon Vijay Abraham I <kishon@kernel.org>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Eric Woudstra <ericwouds@gmail.com>, =?UTF-8?B?TWFyZWsgQmVo4oia4oirbg==?=
+ <kabel@kernel.org>, Lee Jones <lee@kernel.org>,
+ Patrice Chotard <patrice.chotard@foss.st.com>,
+ Holger Brunck <holger.brunck@hitachienergy.com>
+References: <20251122193341.332324-1-vladimir.oltean@nxp.com>
+ <20251122193341.332324-2-vladimir.oltean@nxp.com>
+ <0faccdb7-0934-4543-9b7f-a655a632fa86@lunn.ch>
+ <20251125214450.qeljlyt3d27zclfr@skbuf>
+ <b4597333-e485-426d-975e-3082895e09f6@lunn.ch>
+ <20251126072638.wqwbhhab3afxvm7x@skbuf>
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Content-Language: en-US
+In-Reply-To: <20251126072638.wqwbhhab3afxvm7x@skbuf>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251126_062424_262165_466928F8 
-X-CRM114-Status: GOOD (  17.18  )
+X-CRM114-CacheID: sfid-20251126_062515_764248_D0E7DF9C 
+X-CRM114-Status: GOOD (  24.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -196,42 +97,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Bartosz,
+Hi,
 
-On 12/11/2025 13:55, Bartosz Golaszewski wrote:
-> From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+On 26/11/2025 08:26, Vladimir Oltean wrote:
+> +Maxime, Holger
+> thread at https://lore.kernel.org/netdev/20251122193341.332324-2-vladimir.oltean@nxp.com/
 > 
-> Some qualcomm platforms use shared GPIOs. Enable support for them by
-> selecting the Kconfig switch provided by GPIOLIB.
+> On Tue, Nov 25, 2025 at 11:33:09PM +0100, Andrew Lunn wrote:
+>>> Yeah, although as things currently stand, I'd say that is the lesser of
+>>> problems. The only user (mv88e6xxx) does something strange: it says it
+>>> wants to configure the TX amplitude of SerDes ports, but instead follows
+>>> the phy-handle and applies the amplitude specified in that node.
+>>>
+>>> I tried to mentally follow how things would work in 2 cases:
+>>> 1. PHY referenced by phy-handle is internal, then by definition it's not
+>>>    a SerDes port.
+>>> 2. PHY referenced by phy-handle is external, then the mv88e6xxx driver
+>>>    looks at what is essentially a device tree description of the PHY's
+>>>    TX, and applies that as a mirror image to the local SerDes' TX.
+>>>
+>>> I think the logic is used in mv88e6xxx through case #2, i.e. we
+>>> externalize the mv88e6xxx SerDes electrical properties to an unrelated
+>>> OF node, the connected Ethernet PHY.
+>>
+>> My understanding of the code is the same, #2. Although i would
+>> probably not say it is an unrelated node. I expect the PHY is on the
+>> other end of the SERDES link which is having the TX amplitudes
+>> set. This clearly will not work if there is an SFP cage on the other
+>> end, but it does for an SGMII PHY.
 > 
-> Acked-by: Linus Walleij <linus.walleij@linaro.org>
-> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-> ---
->   arch/arm64/Kconfig.platforms | 1 +
->   1 file changed, 1 insertion(+)
+> It is unrelated in the sense that the SGMII PHY is a different kernel
+> object, and the mv88e6xxx is polluting its OF node with properties which
+> it then interprets as its own, when the PHY driver may have wanted to
+> configure its SGMII TX amplitude too, via those same generic properties.
 > 
-> diff --git a/arch/arm64/Kconfig.platforms b/arch/arm64/Kconfig.platforms
-> index 13173795c43d4f28e2d47acc700f80a165d44671..3dbff0261f0add0516d8cb3fd0f29e277af94f20 100644
-> --- a/arch/arm64/Kconfig.platforms
-> +++ b/arch/arm64/Kconfig.platforms
-> @@ -316,6 +316,7 @@ config ARCH_QCOM
->   	select GPIOLIB
->   	select PINCTRL
->   	select HAVE_PWRCTRL if PCI
-> +	select HAVE_SHARED_GPIOS
->   	help
->   	  This enables support for the ARMv8 based Qualcomm chipsets.
->   
+>> I guess this code is from before the time Russell converted the
+>> mv88e6xxx SERDES code into PCS drivers. The register being set is
+>> within the PCS register set.  The mv88e6xxx also does not make use of
+>> generic phys to represent the SERDES part of the PCS. So there is no
+>> phys phandle to follow since there is no phy.
+> 
+> In my view, the phy-common-props.yaml are supposed to be applicable to either:
+> (1) a network PHY with SerDes host-side connection (I suppose the media
+>     side electrical properties would be covered by Maxime's phy_port
+>     work - Maxime, please confirm).
 
-I have noticed the following kernel warning on our Tegra platforms ...
+True, but we could definitely conceive applying phy-common-props.yaml on
+the media-side as well :) I don't have a use-case for it right now
+though, and we don't yet have detailed descriptions of the electrical
+properties.
 
-  ERR KERN OF: /__symbols__: could not find phandle 794981747
-
-Bisect is pointing to this commit and reverting this does prevent it. I 
-am not sure if anyone else has seen this?
-
-Jon
--- 
-nvpublic
+Maxime
 
 
