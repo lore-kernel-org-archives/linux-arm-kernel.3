@@ -4,81 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4022AD10390
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 09:15:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37F0FD10399
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 09:21:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=SYrF8vtHOzZA8g/R+xrV1eMlzbnF/Fjt++a/NVV0g2s=; b=sfZrj4WMbGjsm+Au9A5V0sUE0q
-	a5sKYUs0foBReSK6XqL3ukL4lmFpOyPiPWIe+V+dR5DXgBEn/jUAuHVsHk7coOXUy4C6MDBYmvo3X
-	uelrthuLlUBH6U9HPbEZEFwBZ4LjiIyNiF9+YykEntErI2/2Cr9EKpl5HxGhw1FfRwxxM6aqSJa8i
-	fHwYz966+P+RLYjxHJJXtGY/wgJgtaEcjYYHU2pAc5ZAshypSSAC5YZGgWzk9G2ZE54tkDF/rbYuC
-	ANu1/56zysyDPyufGh2ZRQr638kYEZI0fmX1r3XE1wgUlJmsFxdVdAdD9Xq7OJtSZg06i5dRSojru
-	iam8FHrQ==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JPZr/XNvb8iNxFUbgomB4BCl6EzqteQOa6tv7krwi+o=; b=yBo+QQbPQn9NE+qQxxbq/DfD/9
+	SyKHTmfTKyJa28MqCNYv3zU9YKJ0mL64PlJithVCus060RylV64h50vVHI5kUyqWnfKBHqBFiDIv6
+	9gSYhqY2XhKyY/2hbcPB1SQHAPup+gFSei2pYeVctUrXOF0NNcwPQxqHrz/O0AY6korFuKtpEqTn5
+	Tqwasr5vAzkHPQYNTNwm0ZxXiXMBGtfyZmih27jNNYuIolxxFD4LoyAOm9S6rl34FawdsU46enw5O
+	b4rpgNBpQl4KWEE5Vphl6B+T5h+apSVPsuShzoRdBtw3u29tOpC16qA3zT9keGkP4uqc0wnsARnxV
+	QJTyzhFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOBcA-0000000Eh8V-1MIb;
-	Wed, 26 Nov 2025 09:15:06 +0000
-Received: from dggsgout12.his.huawei.com ([45.249.212.56])
+	id 1vOBib-0000000EhXu-1mHH;
+	Wed, 26 Nov 2025 09:21:45 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOBc5-0000000Eh5f-02ag
+	id 1vOBiY-0000000EhXU-09Md
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Nov 2025 09:15:04 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.235])
-	by dggsgout12.his.huawei.com (SkyGuard) with ESMTPS id 4dGYld5F9BzKHMxB
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Nov 2025 17:14:05 +0800 (CST)
-Received: from mail02.huawei.com (unknown [10.116.40.128])
-	by mail.maildlp.com (Postfix) with ESMTP id 480201A0F8C
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Nov 2025 17:14:44 +0800 (CST)
-Received: from huaweicloud.com (unknown [10.50.87.129])
-	by APP4 (Coremail) with SMTP id gCh0CgAXQV4DxSZpUsJHCA--.59425S4;
-	Wed, 26 Nov 2025 17:14:44 +0800 (CST)
-From: Zizhi Wo <wozizhi@huaweicloud.com>
-To: jack@suse.com,
-	brauner@kernel.org,
-	hch@lst.de,
-	akpm@linux-foundation.org,
-	linux@armlinux.org.uk
-Cc: linux-fsdevel@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-mm@kvack.org,
-	linux-arm-kernel@lists.infradead.org,
-	wozizhi@huawei.com,
-	yangerkun@huawei.com,
-	wangkefeng.wang@huawei.com,
-	pangliyuan1@huawei.com,
-	xieyuanbin1@huawei.com
-Subject: [Bug report] hash_name() may cross page boundary and trigger sleep in RCU context
-Date: Wed, 26 Nov 2025 17:05:05 +0800
-Message-Id: <20251126090505.3057219-1-wozizhi@huaweicloud.com>
-X-Mailer: git-send-email 2.39.2
+	Wed, 26 Nov 2025 09:21:43 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-4779ce2a624so56625485e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Nov 2025 01:21:40 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1764148899; x=1764753699; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=JPZr/XNvb8iNxFUbgomB4BCl6EzqteQOa6tv7krwi+o=;
+        b=sfac/yThg6GyQOm1bL6tuR2Bmb3dN5925wPrxQJ7emWiurqICkJNuUDOHLs2dH3KnE
+         o4HOku78wg0Dn/XRczJa6f3AfWcvLDxRxg4ZN78uiEtebGhbM5dW26SXOmIYoP+5Eey8
+         hz6o73kyS64HVJltNVtI3ZxRRvqcCAZjKRjRuK6+/GTot7R9QiFdiVhusos0liYw4Y8A
+         6fw1GzmnVL8Wqofeylr4tfulz6Tdlu+wh2Kf0gSDaglBdpmeh4NQMgZyINiXKBDgDc5R
+         NJr6v9GsJPPC27jz036CG2jnSy0jydLggO447d68S+6FHchIJetZkhvVHY99Y9wRX9p5
+         30XA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1764148899; x=1764753699;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=JPZr/XNvb8iNxFUbgomB4BCl6EzqteQOa6tv7krwi+o=;
+        b=DIdy4Uldfxqbaw72Qn8JzTXtlojelhaYrzj4D7ozAjtUodqmS+vhMCkx1x0pc25g9F
+         NAkR1LIZYDcgIO8xH4cvh+Gxm9fBdahObzHQJ8ZooztA12PFWvfL7Mo/JY+HPxm07PNo
+         OmptqTGGCz437nZdGl6SgYOMdUnzHiE5mcJYApyGfEJ08+dy8KuSOtI990oleBqgGRV/
+         oK3ivA69dm7l1A3BneAiFJjjP8TSSq2cqu2RAsqISq38m1xdIh1jHugtUjPqeyZ2rtfq
+         fKIqrWfg8QQTQgePoSR+DFqpa9UWWuAoCd8wseUzA8jzHsYqEstB9Tcyyn199DaxM5gP
+         TVZA==
+X-Forwarded-Encrypted: i=1; AJvYcCWhIUDp/FI+fKDJL640+WWBNshQ0x1rYEn5C/rTUUKHoC7DvdPRybWAi5D8O/xCER4pRFOOz6QsR20tDvXTcmwq@lists.infradead.org
+X-Gm-Message-State: AOJu0YzvL+9J+1AnOS3F9srGeNnXTwaGznQ8Ipi5oqiPmMbaiZaz09+i
+	WbCkv/9pb3xABpvGfvUOd0kTeby8BpskGlCxTRqu7BlbK07H0z1XTzwz/iY9tFfCAxw=
+X-Gm-Gg: ASbGnculChZDXwaO3E4x7PnZxpqYSegtuqPKhcjWFPBkgdu87Nr3UtV91N1REvs+aO3
+	VHn323AE6gifflTlXsd5VMnbmtKtW57X1KtTHEsMAEkWdp7FnR1yp9G2tUqxiybYGTW62crCk/+
+	zbSbBssrduxy6118aFvwXmY+g5CZXt4IUhri/1fa/n5kv6N0bKVF05W4BE5WI/bsp5lTLyGTX02
+	Slu0akjGhR7LH96VT4hm+3p/YlKINPbgl/OGcPQQ7B6CnsYh1u9IjiGC5v0Y2BnncJ584oixH4g
+	JLinkrL4RzPtT9Zath92I3IV7OMpxLfQCjqMs/OFQoBW1Bxi2p5KyhDfgt4Yd92TRZLsWC26sxq
+	i5E7HpF0VmavHKJvCw9Cpck5U+KZXNWNfjBEnhn9PI2UxQ7tKO2rHEO1sZerjLFAgc1FR2g1WJs
+	KF4GQY6e85rNHsZI1+
+X-Google-Smtp-Source: AGHT+IHu5mjVSJftAmmd8mkUWGgVLFw7C7td0QXt6C37n/EMphfyxyx6zRNAnmmqGIwLaBqQANGUSw==
+X-Received: by 2002:a05:600c:6287:b0:477:7bca:8b34 with SMTP id 5b1f17b1804b1-47904acae5fmr50881635e9.6.1764148899568;
+        Wed, 26 Nov 2025 01:21:39 -0800 (PST)
+Received: from [10.11.12.107] ([5.12.85.52])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-479040b3092sm39152885e9.1.2025.11.26.01.21.37
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 26 Nov 2025 01:21:38 -0800 (PST)
+Message-ID: <401ed9b9-19a4-4a19-b397-0f353e9f0c97@linaro.org>
+Date: Wed, 26 Nov 2025 11:21:36 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 RESEND 2/3] thermal: exynos_tmu: Support new hardware
+ and update TMU interface
+To: =?UTF-8?B?7IaQ7Iug?= <shin.son@samsung.com>,
+ 'Bartlomiej Zolnierkiewicz' <bzolnier@gmail.com>,
+ 'Krzysztof Kozlowski' <krzk@kernel.org>,
+ "'Rafael J . Wysocki'" <rafael@kernel.org>,
+ 'Daniel Lezcano' <daniel.lezcano@linaro.org>,
+ 'Zhang Rui' <rui.zhang@intel.com>, 'Lukasz Luba' <lukasz.luba@arm.com>,
+ 'Rob Herring' <robh@kernel.org>, 'Conor Dooley' <conor+dt@kernel.org>,
+ 'Alim Akhtar' <alim.akhtar@samsung.com>, youngmin.nam@samsung.com
+Cc: 'Henrik Grimler' <henrik@grimler.se>, linux-pm@vger.kernel.org,
+ linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ 'Peter Griffin' <peter.griffin@linaro.org>,
+ =?UTF-8?Q?=27Andr=C3=A9_Draszik=27?= <andre.draszik@linaro.org>,
+ 'William McVicker' <willmcvicker@google.com>, jyescas@google.com
+References: <20251113064022.2701578-1-shin.son@samsung.com>
+ <CGME20251113064044epcas2p1b87addb21473eca7cc52052e4e2e9237@epcas2p1.samsung.com>
+ <20251113064022.2701578-3-shin.son@samsung.com>
+ <5a6a749b-b2b7-41bb-bcb4-a2342e7f4e98@linaro.org>
+ <015501dc5ea5$0c7dd460$25797d20$@samsung.com>
+Content-Language: en-US
+From: Tudor Ambarus <tudor.ambarus@linaro.org>
+In-Reply-To: <015501dc5ea5$0c7dd460$25797d20$@samsung.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: gCh0CgAXQV4DxSZpUsJHCA--.59425S4
-X-Coremail-Antispam: 1UD129KBjvJXoW7tFW7Jr45Ww1xtF1rury5XFb_yoW5JFWrpr
-	45CryYkrZxZryrZr10ka9IgFyYyayUGr43Grs2qryUua1agF1avF48ta4Y9r9Iqr1DWa9r
-	Wrs09wn7uw1q9FUanT9S1TB71UUUUUDqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUvab4IE77IF4wAFF20E14v26r4j6ryUM7CY07I20VC2zVCF04k2
-	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4
-	vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_tr0E3s1l84ACjcxK6xIIjxv20xvEc7Cj
-	xVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x
-	0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG
-	6I80ewAv7VC0I7IYx2IY67AKxVWUAVWUtwAv7VC2z280aVAFwI0_Gr1j6F4UJwAm72CE4I
-	kC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1lc7Cj
-	xVAaw2AFwI0_Jw0_GFyl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2
-	IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v2
-	6r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2
-	IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv
-	67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyT
-	uYvjxUoEfOUUUUU
-X-CM-SenderInfo: pzr2x6tkl6x35dzhxuhorxvhhfrp/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251126_011501_399031_AB6C0DD6 
-X-CRM114-Status: UNSURE (   8.01  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251126_012142_106523_88CD3347 
+X-CRM114-Status: GOOD (  15.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,47 +118,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-We're running into the following issue on an ARM32 platform with the linux
-5.10 kernel:
+Hi, Shin Son,
 
-[<c0300b78>] (__dabt_svc) from [<c0529cb8>] (link_path_walk.part.7+0x108/0x45c)
-[<c0529cb8>] (link_path_walk.part.7) from [<c052a948>] (path_openat+0xc4/0x10ec)
-[<c052a948>] (path_openat) from [<c052cf90>] (do_filp_open+0x9c/0x114)
-[<c052cf90>] (do_filp_open) from [<c0511e4c>] (do_sys_openat2+0x418/0x528)
-[<c0511e4c>] (do_sys_openat2) from [<c0513d98>] (do_sys_open+0x88/0xe4)
-[<c0513d98>] (do_sys_open) from [<c03000c0>] (ret_fast_syscall+0x0/0x58)
-...
-[<c0315e34>] (unwind_backtrace) from [<c030f2b0>] (show_stack+0x20/0x24)
-[<c030f2b0>] (show_stack) from [<c14239f4>] (dump_stack+0xd8/0xf8)
-[<c14239f4>] (dump_stack) from [<c038d188>] (___might_sleep+0x19c/0x1e4)
-[<c038d188>] (___might_sleep) from [<c031b6fc>] (do_page_fault+0x2f8/0x51c)
-[<c031b6fc>] (do_page_fault) from [<c031bb44>] (do_DataAbort+0x90/0x118)
-[<c031bb44>] (do_DataAbort) from [<c0300b78>] (__dabt_svc+0x58/0x80)
-...
+On 11/26/25 9:19 AM, 손신 wrote:
+>> Looking at the exynosautov9 registers that you described and comparing
+>> them with
+>> gs101 I see just 2 differences:
+>> 1/ exnosautov2 has a TRIMINFO_CONFIG2 register, while gs101 doesn't 2/
+>> EXYNOSAUTOV920_PEND register fields differ from GS101
+> TRIMINFO_CONFIG2 doesn't exist on eav920 either; I simply misnamed it.
+> However, the PEND register indeed differs from GS101.
+> 
+>> Given the similarities, and considering the EXYNOS9_ registers rename from:
+>> https://lore.kernel.org/linux-samsung-soc/20251117074140.4090939-5-
+>> youngmin.nam@samsung.com/
+>> would it make sense to use the SoC-era name instead of specific SoC, i.e.
+>> s/EXYNOSAUTOV920_/EXYNOS9_ and use the latter for both exynosautov9 and
+>> gs101?
+>>
+> First of all, as far as I know, EXYNOS9 is not the same as exynosautov9, and exynosautov920 also differs from exynosautov9.
 
-During the execution of hash_name()->load_unaligned_zeropad(), a potential
-memory access beyond the PAGE boundary may occur. For example, when the
-filename length is near the PAGE_SIZE boundary. This triggers a page fault,
-which leads to a call to do_page_fault()->mmap_read_trylock(). If we can't
-acquire the lock, we have to fall back to the mmap_read_lock() path, which
-calls might_sleep(). This breaks RCU semantics because path lookup occurs
-under an RCU read-side critical section. In linux-mainline, arm/arm64
-do_page_fault() still has this problem:
+See also see this patch, or maybe the entire patch set:
+https://lore.kernel.org/linux-samsung-soc/20251117074140.4090939-2-youngmin.nam@samsung.com/
 
-lock_mm_and_find_vma->get_mmap_lock_carefully->mmap_read_lock_killable.
+It's not just autov9 and gs101 that have similar TMU registers (with the two
+exceptions AFAICT), it's also exynos850 that seems identical with autov9.
 
-And before commit bfcfaa77bdf0 ("vfs: use 'unsigned long' accesses for
-dcache name comparison and hashing"), hash_name accessed the name byte by
-byte.
+All seem to be part of the same "Exynos9-era" SoCs. Let's think about how
+gs101/exynos850 TMU addition will follow. Shall one use the EXYNOSAUTOV920
+registers? That seems misleading. Shall one redefine the entire register set?
+That won't fly because of the code duplication.
 
-To prevent load_unaligned_zeropad() from accessing beyond the valid memory
-region, we would need to intercept such cases beforehand? But doing so
-would require replicating the internal logic of load_unaligned_zeropad(),
-including handling endianness and constructing the correct value manually.
-Given that load_unaligned_zeropad() is used in many places across the
-kernel, we currently haven't found a good solution to address this cleanly.
+Thus I propose to use the EXYNOS9 prefix for the register definitions, and if
+there are SoCs with slight differences, that can be handled with compatible
+match data and specific SoC definitions, but only where things differ.
 
-What would be the recommended way to handle this situation? Would
-appreciate any feedback and guidance from the community. Thanks!
+> So while sharing a common prefix is a good suggestion in general, I believe it's not appropriate here
+> Because the register definitions are not fully compatible across these SoCs. Using a common name array may introduce confusion later.
 
+Please reconsider this. Maybe Youngmin Nam or others can intervene.
+
+Thanks!
+ta
 
