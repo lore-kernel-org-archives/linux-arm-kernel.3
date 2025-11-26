@@ -4,54 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01D07D1118C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 17:37:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C5B8D1118B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 17:37:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CnBJhHhRDeeDaJv2IAkXOHIOLztU83Vb3/7QhOHwzDE=; b=rYBkS3bXM4sT5lnp6p7wEP7rtB
-	S7Oe64ubkUQTjIDzcP24Ainjb19Exs8Y1ea7KO5faFc+/Rulb59qcfdLHMzTurl8P3d0ZOLx7KI+S
-	VPuICqTeCm1iQRIaVEFa5I2T+LkAlDrhfatSgXwyEXGvp0e0H/HRC8+EEfU/BW+EAFW2tRYaQUWvz
-	M06wXOObD0EbBE0/b9NCM+chUVvTh5L5NNZyIBwnlhkbad+VWMEd1pcqG/t46csVDc8fk5Zs/nS1y
-	UjJvExkYPRJawTU59V17APYp5T0ZRGqupL5QtkFWwLtrAr8ZIRO1FacuIMx9CqV3uF50O56V6tHYW
-	nnYion2g==;
+	bh=OWe7Xk1y8e6IQtzqXJ/sIyFn6NDrsN9OVkWkS3zi9BY=; b=KkaiDYdotvuZMvMmDnA+pxhPml
+	2r3BcMKN336C0ULklIaN4ou+L+NVnMY3IBL8uzuSLwnfxfZ4p0N8GsDA+k10G+U/tFQ1bvy+ncw1t
+	7rrlYX34s/nxTPwKjZDILsrFc7zCIhMo3IaZzFMqsmYbacMyoKdKzqAZKONXlOWh/MQ7Sk+WdMlN1
+	VV1I1pIFZk4nDCpfLIzwxRKVoMMaCfi9P3xI7/caZaIJIWf0KCkJzwD3xXDWBKesNsNE6kx0tdx+h
+	D4lobgFaFmrdRtfEM1kqiYvMIOyAhCa+BW/LotTfkQU+spAdJSqX8pkljv8PTfkRCKhSxTbxpmYnt
+	i1xWc0nQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOJSH-0000000FOy6-0cpd;
-	Wed, 26 Nov 2025 17:37:25 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
+	id 1vOJSe-0000000FPKr-35jI;
+	Wed, 26 Nov 2025 17:37:48 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOJS9-0000000FOrW-1ZUY
+	id 1vOJSG-0000000FOwB-2FrY
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 26 Nov 2025 17:37:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=OWe7Xk1y8e6IQtzqXJ/sIyFn6NDrsN9OVkWkS3zi9BY=; b=L+nRPn/9TQMFfHxQxxzifdeRk5
+	vpMlveeDftNlXAFKWJj9jvAosyzch5wKyU/9AD858/WLIlgbSKqeAbaaB0row9rfv7l63vgHMF0Oc
+	kY1b+O/EEpJKOMwL2ICh1Ko/Zt8JdkPfCYFZng85QUQSZa7qATrYWDqI1D7L1cwrUEWIZ+6L7aiae
+	tqNUXYGOGjXl3rr2UBvTR6sbF2FHNfYiU1B5g8KySJgbIsj//CPShVCZnSRisz0cNnS308B8rXjIM
+	6nfru05r8dUdx59v0I9wf3QKyxzo6qzDOyEj+Vu7cU6be1CMfCCLA4Zs6LXniVdZwQldJ/7IAj7NL
+	EZwE69ig==;
+Received: from smtpout-03.galae.net ([185.246.85.4])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vOIad-00000008Vy1-0vyt
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Nov 2025 17:37:18 +0000
+	Wed, 26 Nov 2025 16:42:00 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 03FB6C16A0B;
-	Wed, 26 Nov 2025 17:36:53 +0000 (UTC)
+	by smtpout-03.galae.net (Postfix) with ESMTPS id EC7E64E418F9;
+	Wed, 26 Nov 2025 17:37:12 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id BF96160721;
-	Wed, 26 Nov 2025 17:37:15 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id D2A83102F1D8D;
-	Wed, 26 Nov 2025 18:37:11 +0100 (CET)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id C1A6C60721;
+	Wed, 26 Nov 2025 17:37:12 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 0593D102F2343;
+	Wed, 26 Nov 2025 18:37:08 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1764178634; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1764178631; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=CnBJhHhRDeeDaJv2IAkXOHIOLztU83Vb3/7QhOHwzDE=;
-	b=M3AWRTOAZLvMEjv/7WU9UrNSScWEKSgIGFwOWOXWnnJe9ogneVFk4rGq+DO3mbtFT2wv63
-	zQY/exhgXeFRDhpeVhATOyoC+SLdNp3hi1Xkj6oOerd9j5NWZbRU5kYi2HqZCzC38zyupg
-	0hVk+wyUmiAb0B/yBse5L5sLyUDHKhAskz7s51VQ633abskO+dkCibTwLwQETQU9r6q2At
-	t2g5RKPeDmZVEeOMU8XHH3HoCnkX++jQKBgxHdfhmDaM4eDXNi3v+CIqPMhnO9ORa9rcBo
-	QcQhlZTuWdSdSnpBUiduCwMTDviBeYjE9QuPZf7o94gmTlCxtzdzu24PFvp83g==
+	bh=OWe7Xk1y8e6IQtzqXJ/sIyFn6NDrsN9OVkWkS3zi9BY=;
+	b=iMjBJp2ZTjN8XNJpZAcX4/KmnqteG8zd7pfojCk8xUTuZGeKsEe3sjTyVUGu6zzt1VVQIK
+	RRyPRAVaRuQNRXICVoi2e5ulJFv33n0dWIz4g86yBDewJDTiA2kpGxykwL75ohr/WDry0D
+	DGyyEXsH3VjiyJCk8TpBKmHx3Jv3P0FUDjKaxFr7WhsADQXToXzDF6AM1wMaJbNmYIYvzo
+	jYHqOE7byJLnTDj2rjWWoA2GpHyS0FQfZQm9MrRzWfUq5gL5O/r+JzQ/YI6doZ9UmNiwxw
+	sdVW6Ev/N7tRrQDhW+YumoQJwFque+z5D1LttwLMrner8kpCNVLV6CcEeLfNxA==
 From: "Kory Maincent (TI.com)" <kory.maincent@bootlin.com>
-Date: Wed, 26 Nov 2025 18:35:52 +0100
-Subject: [PATCH 10/21] drm/tilcdc: Remove redundant #endif/#ifdef in
- debugfs code
+Date: Wed, 26 Nov 2025 18:35:51 +0100
+Subject: [PATCH 09/21] drm/tilcdc: Remove tilcdc_panel_info structure
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251126-feature_tilcdc-v1-10-49b9ef2e3aa0@bootlin.com>
+Message-Id: <20251126-feature_tilcdc-v1-9-49b9ef2e3aa0@bootlin.com>
 References: <20251126-feature_tilcdc-v1-0-49b9ef2e3aa0@bootlin.com>
 In-Reply-To: <20251126-feature_tilcdc-v1-0-49b9ef2e3aa0@bootlin.com>
 To: Jyri Sarha <jyri.sarha@iki.fi>, 
@@ -78,9 +92,8 @@ Cc: Markus Schneider-Pargmann <msp@baylibre.com>,
 X-Mailer: b4 0.14.3
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251126_093717_582154_3385D469 
-X-CRM114-Status: UNSURE (   9.03  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251126_164159_341045_13E6580A 
+X-CRM114-Status: GOOD (  18.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,29 +108,214 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Remove the unnecessary #endif/#ifdef CONFIG_DEBUG_FS pair that splits
-the debugfs code section. This keeps all debugfs-related code within a
-single preprocessor conditional block, improving code readability.
+Remove the tilcdc_panel_info structure and its associated helper
+function as the structure contains only redundant or unused parameters.
+
+Most panel configuration parameters in tilcdc_panel_info are either:
+- Already represented by existing DRM mode flags (invert_pxl_clk,
+  sync_edge via DRM_BUS_FLAG_*), or
+- Set to identical values across all instances (panel_info_default),
+  making them effectively constants
+
+The removed fifo_th field is already handled by priv->fifo_th when set.
+Other removed fields (tft_alt_mode, raster_order) were always set to 0
+in the only instance (panel_info_default) and thus had no effect.
+
+This simplifies the code by eliminating unnecessary abstraction while
+preserving all functional behavior.
 
 Signed-off-by: Kory Maincent (TI.com) <kory.maincent@bootlin.com>
 ---
- drivers/gpu/drm/tilcdc/tilcdc_drv.c | 3 ---
- 1 file changed, 3 deletions(-)
+ drivers/gpu/drm/tilcdc/tilcdc_crtc.c     | 29 +++-------------------
+ drivers/gpu/drm/tilcdc/tilcdc_drv.h      | 42 --------------------------------
+ drivers/gpu/drm/tilcdc/tilcdc_external.c | 14 -----------
+ 3 files changed, 3 insertions(+), 82 deletions(-)
 
-diff --git a/drivers/gpu/drm/tilcdc/tilcdc_drv.c b/drivers/gpu/drm/tilcdc/tilcdc_drv.c
-index 2df3957ee0dc1..a5623247bc697 100644
---- a/drivers/gpu/drm/tilcdc/tilcdc_drv.c
-+++ b/drivers/gpu/drm/tilcdc/tilcdc_drv.c
-@@ -418,9 +418,6 @@ static const struct {
- #undef REG
+diff --git a/drivers/gpu/drm/tilcdc/tilcdc_crtc.c b/drivers/gpu/drm/tilcdc/tilcdc_crtc.c
+index a244051ab5163..3955b3b99befe 100644
+--- a/drivers/gpu/drm/tilcdc/tilcdc_crtc.c
++++ b/drivers/gpu/drm/tilcdc/tilcdc_crtc.c
+@@ -31,7 +31,6 @@ struct tilcdc_crtc {
+ 	struct drm_crtc base;
+ 
+ 	struct drm_plane primary;
+-	const struct tilcdc_panel_info *info;
+ 	struct drm_pending_vblank_event *event;
+ 	struct mutex enable_lock;
+ 	bool enabled;
+@@ -272,14 +271,10 @@ static void tilcdc_crtc_set_mode(struct drm_crtc *crtc)
+ 	struct tilcdc_crtc *tilcdc_crtc = to_tilcdc_crtc(crtc);
+ 	struct drm_device *dev = crtc->dev;
+ 	struct tilcdc_drm_private *priv = dev->dev_private;
+-	const struct tilcdc_panel_info *info = tilcdc_crtc->info;
+ 	uint32_t reg, hbp, hfp, hsw, vbp, vfp, vsw;
+ 	struct drm_display_mode *mode = &crtc->state->adjusted_mode;
+ 	struct drm_framebuffer *fb = crtc->primary->state->fb;
+ 
+-	if (WARN_ON(!info))
+-		return;
+-
+ 	if (WARN_ON(!fb))
+ 		return;
+ 
+@@ -287,12 +282,11 @@ static void tilcdc_crtc_set_mode(struct drm_crtc *crtc)
+ 	reg = tilcdc_read(dev, LCDC_DMA_CTRL_REG) & ~0x00000770;
+ 	/* Use 16 bit DMA burst size by default */
+ 	reg |= LCDC_DMA_BURST_SIZE(LCDC_DMA_BURST_16);
++
+ 	if (priv->fifo_th) {
+ 		int fifo_th_val = const_ilog2(priv->fifo_th) - 3;
+ 
+ 		reg |= (fifo_th_val << 8);
+-	} else {
+-		reg |= (info->fifo_th << 8);
+ 	}
+ 	tilcdc_write(dev, LCDC_DMA_CTRL_REG, reg);
+ 
+@@ -360,8 +354,6 @@ static void tilcdc_crtc_set_mode(struct drm_crtc *crtc)
+ 		  LCDC_V2_TFT_24BPP_MODE | LCDC_V2_TFT_24BPP_UNPACK |
+ 		  0x000ff000 /* Palette Loading Delay bits */);
+ 	reg |= LCDC_TFT_MODE; /* no monochrome/passive support */
+-	if (info->tft_alt_mode)
+-		reg |= LCDC_TFT_ALT_ENABLE;
+ 	if (priv->rev == 2) {
+ 		switch (fb->format->format) {
+ 		case DRM_FORMAT_BGR565:
+@@ -384,16 +376,13 @@ static void tilcdc_crtc_set_mode(struct drm_crtc *crtc)
+ 	reg |= 128 << 12;
+ 	tilcdc_write(dev, LCDC_RASTER_CTRL_REG, reg);
+ 
+-	if (info->invert_pxl_clk ||
+-	    mode->flags == DRM_BUS_FLAG_PIXDATA_DRIVE_NEGEDGE)
+-
++	if (mode->flags == DRM_BUS_FLAG_PIXDATA_DRIVE_NEGEDGE)
+ 		tilcdc_set(dev, LCDC_RASTER_TIMING_2_REG, LCDC_INVERT_PIXEL_CLOCK);
+ 	else
+ 		tilcdc_clear(dev, LCDC_RASTER_TIMING_2_REG, LCDC_INVERT_PIXEL_CLOCK);
+ 
+ 	tilcdc_set(dev, LCDC_RASTER_TIMING_2_REG, LCDC_SYNC_CTRL);
+-	if (info->sync_edge ||
+-	    mode->flags == DRM_BUS_FLAG_SYNC_DRIVE_NEGEDGE)
++	if (mode->flags == DRM_BUS_FLAG_SYNC_DRIVE_NEGEDGE)
+ 		tilcdc_set(dev, LCDC_RASTER_TIMING_2_REG, LCDC_SYNC_EDGE);
+ 	else
+ 		tilcdc_clear(dev, LCDC_RASTER_TIMING_2_REG, LCDC_SYNC_EDGE);
+@@ -408,11 +397,6 @@ static void tilcdc_crtc_set_mode(struct drm_crtc *crtc)
+ 	else
+ 		tilcdc_clear(dev, LCDC_RASTER_TIMING_2_REG, LCDC_INVERT_VSYNC);
+ 
+-	if (info->raster_order)
+-		tilcdc_set(dev, LCDC_RASTER_CTRL_REG, LCDC_RASTER_ORDER);
+-	else
+-		tilcdc_clear(dev, LCDC_RASTER_CTRL_REG, LCDC_RASTER_ORDER);
+-
+ 	tilcdc_crtc_set_clk(crtc);
+ 
+ 	tilcdc_crtc_load_palette(crtc);
+@@ -839,13 +823,6 @@ static const struct drm_crtc_helper_funcs tilcdc_crtc_helper_funcs = {
+ 	.atomic_flush	= tilcdc_crtc_atomic_flush,
  };
  
--#endif
+-void tilcdc_crtc_set_panel_info(struct drm_crtc *crtc,
+-		const struct tilcdc_panel_info *info)
+-{
+-	struct tilcdc_crtc *tilcdc_crtc = to_tilcdc_crtc(crtc);
+-	tilcdc_crtc->info = info;
+-}
 -
--#ifdef CONFIG_DEBUG_FS
- static int tilcdc_regs_show(struct seq_file *m, void *arg)
+ void tilcdc_crtc_update_clk(struct drm_crtc *crtc)
  {
- 	struct drm_info_node *node = (struct drm_info_node *) m->private;
+ 	struct drm_device *dev = crtc->dev;
+diff --git a/drivers/gpu/drm/tilcdc/tilcdc_drv.h b/drivers/gpu/drm/tilcdc/tilcdc_drv.h
+index c23b593dc61f6..181b9d7a515b6 100644
+--- a/drivers/gpu/drm/tilcdc/tilcdc_drv.h
++++ b/drivers/gpu/drm/tilcdc/tilcdc_drv.h
+@@ -114,53 +114,11 @@ void tilcdc_module_init(struct tilcdc_module *mod, const char *name,
+ 		const struct tilcdc_module_ops *funcs);
+ void tilcdc_module_cleanup(struct tilcdc_module *mod);
+ 
+-/* Panel config that needs to be set in the crtc, but is not coming from
+- * the mode timings.  The display module is expected to call
+- * tilcdc_crtc_set_panel_info() to set this during modeset.
+- */
+-struct tilcdc_panel_info {
+-
+-	/* AC Bias Pin Frequency */
+-	uint32_t ac_bias;
+-
+-	/* AC Bias Pin Transitions per Interrupt */
+-	uint32_t ac_bias_intrpt;
+-
+-	/* DMA burst size */
+-	uint32_t dma_burst_sz;
+-
+-	/* Bits per pixel */
+-	uint32_t bpp;
+-
+-	/* FIFO DMA Request Delay */
+-	uint32_t fdd;
+-
+-	/* TFT Alternative Signal Mapping (Only for active) */
+-	bool tft_alt_mode;
+-
+-	/* Invert pixel clock */
+-	bool invert_pxl_clk;
+-
+-	/* Horizontal and Vertical Sync Edge: 0=rising 1=falling */
+-	uint32_t sync_edge;
+-
+-	/* Horizontal and Vertical Sync: Control: 0=ignore */
+-	uint32_t sync_ctrl;
+-
+-	/* Raster Data Order Select: 1=Most-to-least 0=Least-to-most */
+-	uint32_t raster_order;
+-
+-	/* DMA FIFO threshold */
+-	uint32_t fifo_th;
+-};
+-
+ #define DBG(fmt, ...) DRM_DEBUG(fmt"\n", ##__VA_ARGS__)
+ 
+ int tilcdc_crtc_create(struct drm_device *dev);
+ irqreturn_t tilcdc_crtc_irq(struct drm_crtc *crtc);
+ void tilcdc_crtc_update_clk(struct drm_crtc *crtc);
+-void tilcdc_crtc_set_panel_info(struct drm_crtc *crtc,
+-		const struct tilcdc_panel_info *info);
+ void tilcdc_crtc_shutdown(struct drm_crtc *crtc);
+ void tilcdc_crtc_destroy(struct drm_crtc *crtc);
+ int tilcdc_crtc_update_fb(struct drm_crtc *crtc,
+diff --git a/drivers/gpu/drm/tilcdc/tilcdc_external.c b/drivers/gpu/drm/tilcdc/tilcdc_external.c
+index 2970c41d9c3eb..81c90c2754c6c 100644
+--- a/drivers/gpu/drm/tilcdc/tilcdc_external.c
++++ b/drivers/gpu/drm/tilcdc/tilcdc_external.c
+@@ -14,18 +14,6 @@
+ #include "tilcdc_drv.h"
+ #include "tilcdc_external.h"
+ 
+-static const struct tilcdc_panel_info panel_info_default = {
+-		.ac_bias                = 255,
+-		.ac_bias_intrpt         = 0,
+-		.dma_burst_sz           = 16,
+-		.bpp                    = 16,
+-		.fdd                    = 0x80,
+-		.tft_alt_mode           = 0,
+-		.sync_edge              = 0,
+-		.sync_ctrl              = 1,
+-		.raster_order           = 0,
+-};
+-
+ static
+ struct drm_connector *tilcdc_encoder_find_connector(struct drm_device *ddev,
+ 						    struct drm_encoder *encoder)
+@@ -55,8 +43,6 @@ int tilcdc_attach_bridge(struct drm_device *ddev, struct drm_bridge *bridge)
+ 	if (ret)
+ 		return ret;
+ 
+-	tilcdc_crtc_set_panel_info(priv->crtc, &panel_info_default);
+-
+ 	priv->external_connector =
+ 		tilcdc_encoder_find_connector(ddev, priv->external_encoder);
+ 	if (!priv->external_connector)
 
 -- 
 2.43.0
