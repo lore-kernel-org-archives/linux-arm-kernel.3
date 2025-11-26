@@ -4,77 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3F52D10F34
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 12:51:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68A76D10F38
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 12:52:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q3Pb48Eict5MIHFTWo5KBCPk+CLXMHDQJS2pecWv7U0=; b=MuteSMCbJUmuQzz0dvn19sv0dM
-	cOJjAbbtCahOD1DV+gAfBDHWKMffxkpTt2f/hGGSMYcJptuTCXjpx2AQvnkiN8Atdb/6o4J5itJR/
-	E+odxZb2IFsTsJDS0aKxXMN8XxNFUJ+rXA3lHnJJl01WHJCIs2W0tM9hJJqTXHdDTy6CQfupeQqtb
-	Rp6uIW+9H9QMcjHyZQ9n9PeTsgNe63m0bGEaiwMCPbB0Nuq5ubc08B9Jc8WRRLIR0ETN9sz1sZjdB
-	2Jq+vlIdts9I23VJFgWImRRzXDqL8apWJ2ULnmUYE+1XMjvAlUXqxhkhulDsAN6fwpVGtXUdzPprk
-	3gl+tbEg==;
+	bh=xLa97cJ3CblokdgyeIhfUqOeYp/BzLJFatFz+vFkZ4k=; b=xzaqfN+udXeOwDaVDrTj8gTSzm
+	xlW8pml+F9o/bM+o0vFvuI9lZuJWpfSg3cRs8xZ1sAGz8JN3R8nNw/FkgXT12gHgQSX7jRNYoUkH7
+	MJ0pcEu1E62Qxn4OEwCfLqwFv72oPIR/D5O6Jxb3kUXyOFTO3azr5gPtWmwYqgianhotJ3sJWrI/s
+	WCZi+TUq64O/DIzDrO6G2n1WYkBpBzs31qMfKjjVy4wQDj0RoHmx3Po8oQlDsBSrtK5tRmslTZjHl
+	TWvgdN1X/Ong72LPqTzmbDfISP1mWkcJHb1fW8O2NSTrMbnjyYQFHLxxHaAr4/jYj5snx514mzliL
+	M7hrQ5SQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOEzv-0000000F0zp-0ccn;
-	Wed, 26 Nov 2025 12:51:51 +0000
-Received: from sender3-pp-f112.zoho.com ([136.143.184.112])
+	id 1vOF0W-0000000F17L-05F7;
+	Wed, 26 Nov 2025 12:52:28 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOEzp-0000000F0xE-1iNf;
-	Wed, 26 Nov 2025 12:51:47 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1764161490; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=TVw7O+xRO81xQKDOxL6b3InI4Tkrk5n982EQ1YzF4192HP0Jfizh9Q/Ql8HkKswJf6P27lUkKYmZriF7XbX9Xuke4EV9osC7ssDyV7kghvLmedE7QQajFG6EK+E4XE/19MfMgCVEnC21opNKaV2aupeEvhVn2Xjj4KywTPll6Gc=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1764161490; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=Q3Pb48Eict5MIHFTWo5KBCPk+CLXMHDQJS2pecWv7U0=; 
-	b=i1a7vdxlI+8qmcB2okofPQQZCq971AAQbkriNnwC00eztMdI1bK/3bGPNCprZXXo5MZwNDjHoSXJX4yXQkWalDi8p3UdoKP8CkZCJNfC58LTR87r1uZBph3mLAlsaUSmxYOE8cX+gLJMG5ZzRsZkHS8ayYk+0++T6owD0aXL7Fc=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=louisalexis.eyraud@collabora.com;
-	dmarc=pass header.from=<louisalexis.eyraud@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1764161490;
-	s=zohomail; d=collabora.com; i=louisalexis.eyraud@collabora.com;
-	h=Message-ID:Subject:Subject:From:From:To:To:Cc:Cc:Date:Date:In-Reply-To:References:Content-Type:Content-Transfer-Encoding:MIME-Version:Message-Id:Reply-To;
-	bh=Q3Pb48Eict5MIHFTWo5KBCPk+CLXMHDQJS2pecWv7U0=;
-	b=W7GQD0z/SvUaIDKs8vlKz4H/4Mfizeh6EcozCtPUx8YrLe2ha0NkRCvD17Au7W8A
-	aGTwJbF9718OhNX0YHHXLL+6v4XjI3SLU7OBOpPXKNoju8JA+ypfWICV4EOC3trunEc
-	ncX55Yi0GDJU+wASgRo6B5RAqDBR0aiahpaNWrEs=
-Received: by mx.zohomail.com with SMTPS id 1764161488066506.1829610871971;
-	Wed, 26 Nov 2025 04:51:28 -0800 (PST)
-Message-ID: <47cb520046a1dab6ea49abd402d3a9647aabf7b0.camel@collabora.com>
-Subject: Re: [PATCH] pmdomains: mtk-pm-domains: improve spinlock recursion
- fix in probe
-From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-To: Macpaul Lin <macpaul.lin@mediatek.com>, Ulf Hansson
- <ulf.hansson@linaro.org>,  Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- =?ISO-8859-1?Q?N=EDcolas?= "F . R . A . Prado"	 <nfraprado@collabora.com>,
- Chen-Yu Tsai <wenst@chromium.org>, 	linux-pm@vger.kernel.org,
- linux-kernel@vger.kernel.org, 	linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org
-Cc: Weiyi Lu <Weiyi.Lu@mediatek.com>, Jian Hui Lee
- <jianhui.lee@canonical.com>,  Irving-CH Lin <Irving-CH.Lin@mediatek.com>,
- conor@kernel.org, krzk@kernel.org, Bear Wang <bear.wang@mediatek.com>, 
- Pablo Sun <pablo.sun@mediatek.com>, Ramax Lo <ramax.lo@mediatek.com>,
- Macpaul Lin <macpaul@gmail.com>,  MediaTek Chromebook Upstream
- <Project_Global_Chrome_Upstream_Group@mediatek.com>
-Date: Wed, 26 Nov 2025 13:51:23 +0100
-In-Reply-To: <20251125105617.1564725-1-macpaul.lin@mediatek.com>
-References: <20251125105617.1564725-1-macpaul.lin@mediatek.com>
-Organization: Collabora Ltd
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2 (3.56.2-2.fc42) 
+	id 1vOF0R-0000000F16V-1yOf
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 26 Nov 2025 12:52:26 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <mkl@pengutronix.de>)
+	id 1vOF0P-0003KP-5V; Wed, 26 Nov 2025 13:52:21 +0100
+Received: from moin.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::7b] helo=bjornoya.blackshift.org)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <mkl@pengutronix.de>)
+	id 1vOF0O-002bsV-2Q;
+	Wed, 26 Nov 2025 13:52:20 +0100
+Received: from pengutronix.de (p54b152ce.dip0.t-ipconnect.de [84.177.82.206])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(Client did not present a certificate)
+	(Authenticated sender: mkl-all@blackshift.org)
+	by smtp.blackshift.org (Postfix) with ESMTPSA id 6B7F14A8C49;
+	Wed, 26 Nov 2025 12:52:20 +0000 (UTC)
+Date: Wed, 26 Nov 2025 13:52:20 +0100
+From: Marc Kleine-Budde <mkl@pengutronix.de>
+To: Carlos Song <carlos.song@nxp.com>
+Cc: "broonie@kernel.org" <broonie@kernel.org>, Frank Li <frank.li@nxp.com>, 
+	"s.hauer@pengutronix.de" <s.hauer@pengutronix.de>, "kernel@pengutronix.de" <kernel@pengutronix.de>, 
+	"festevam@gmail.com" <festevam@gmail.com>, "linux-spi@vger.kernel.org" <linux-spi@vger.kernel.org>, 
+	"imx@lists.linux.dev" <imx@lists.linux.dev>, 
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: Re: RE: [EXT] Re: [PATCH 5/6] spi: imx: support dynamic burst length
+ for ECSPI DMA mode
+Message-ID: <20251126-glistening-rampant-dragon-4ec9d3-mkl@pengutronix.de>
+References: <20251125100618.2159770-1-carlos.song@nxp.com>
+ <20251125100618.2159770-6-carlos.song@nxp.com>
+ <20251126-loyal-lobster-of-virtuosity-0aa824-mkl@pengutronix.de>
+ <VI2PR04MB111470B46C3B7B6AF66B69D07E8DEA@VI2PR04MB11147.eurprd04.prod.outlook.com>
 MIME-Version: 1.0
-X-ZohoMailClient: External
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="o5sidt4qwxpc2qbb"
+Content-Disposition: inline
+In-Reply-To: <VI2PR04MB111470B46C3B7B6AF66B69D07E8DEA@VI2PR04MB11147.eurprd04.prod.outlook.com>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: mkl@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251126_045145_756541_06049993 
-X-CRM114-Status: GOOD (  24.64  )
+X-CRM114-CacheID: sfid-20251126_045223_559320_F593FE75 
+X-CRM114-Status: GOOD (  22.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,116 +86,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Macpaul,
 
-On Tue, 2025-11-25 at 18:56 +0800, Macpaul Lin wrote:
-> Remove scpsys_get_legacy_regmap() and update usages with
-> of_find_node_with_property(). Use an explicit of_node_get(np) to
-> ensure
-> correct node referencing against of_node_put() and ensuring it is
-> called
-> in a safe context (i.e., not while holding devtree_lock).
->=20
-> If fwnode_count_parents() obtains parent nodes via
-> fwnode_for_each_parent_node() and this process requires device tree
-> operations, it may result in repeated acquisition of devtree_lock in
-> the same thread/context, leading to spinlock recursion errors.
->=20
-> Signed-off-by: Macpaul Lin <macpaul.lin@mediatek.com>
-> ---
-> =C2=A0drivers/pmdomain/mediatek/mtk-pm-domains.c | 21 ++++++-------------=
--
-> -
-> =C2=A01 file changed, 6 insertions(+), 15 deletions(-)
->=20
-> diff --git a/drivers/pmdomain/mediatek/mtk-pm-domains.c
-> b/drivers/pmdomain/mediatek/mtk-pm-domains.c
-> index 80561d27f2b2..f64f24d520dd 100644
-> --- a/drivers/pmdomain/mediatek/mtk-pm-domains.c
-> +++ b/drivers/pmdomain/mediatek/mtk-pm-domains.c
-> @@ -984,18 +984,6 @@ static void scpsys_domain_cleanup(struct scpsys
-> *scpsys)
-> =C2=A0	}
-> =C2=A0}
-> =C2=A0
-> -static struct device_node *scpsys_get_legacy_regmap(struct
-> device_node *np, const char *pn)
-> -{
-> -	struct device_node *local_node;
-> -
-> -	for_each_child_of_node(np, local_node) {
-> -		if (of_property_present(local_node, pn))
-> -			return local_node;
-> -	}
-> -
-> -	return NULL;
-> -}
-> -
-> =C2=A0static int scpsys_get_bus_protection_legacy(struct device *dev,
-> struct scpsys *scpsys)
-> =C2=A0{
-> =C2=A0	const u8 bp_blocks[3] =3D {
-> @@ -1017,7 +1005,8 @@ static int
-> scpsys_get_bus_protection_legacy(struct device *dev, struct scpsys *s
-> =C2=A0	 * this makes it then possible to allocate the array of
-> bus_prot
-> =C2=A0	 * regmaps and convert all to the new style handling.
-> =C2=A0	 */
-> -	node =3D scpsys_get_legacy_regmap(np, "mediatek,infracfg");
-> +	of_node_get(np);
-> +	node =3D of_find_node_with_property(np, "mediatek,infracfg");
+--o5sidt4qwxpc2qbb
+Content-Type: text/plain; protected-headers=v1; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: RE: [EXT] Re: [PATCH 5/6] spi: imx: support dynamic burst length
+ for ECSPI DMA mode
+MIME-Version: 1.0
 
-with a kernel based on next-20251125 plus this patch, my Mediatek Genio
-350, 510 and 1200 EVK boards booted OK.
+On 26.11.2025 12:29:35, Carlos Song wrote:
+> > On 25.11.2025 18:06:17, Carlos Song wrote:
+> > >  static int spi_imx_pio_transfer(struct spi_device *spi,
+> > >  				struct spi_transfer *transfer)
+> > >  {
+> > > @@ -1780,9 +2112,14 @@ static int spi_imx_transfer_one(struct
+> > spi_controller *controller,
+> > >  	 * transfer, the SPI transfer has already been mapped, so we
+> > >  	 * have to do the DMA transfer here.
+> > >  	 */
+> > > -	if (spi_imx->usedma)
+> > > -		return spi_imx_dma_transfer(spi_imx, transfer);
+> > > -
+> > > +	if (spi_imx->usedma) {
+> > > +		ret =3D spi_imx_dma_transfer(spi_imx, transfer);
+> > > +		if (transfer->error & SPI_TRANS_FAIL_NO_START) {
+> > > +			spi_imx->usedma =3D false;
+> > > +			return spi_imx_pio_transfer(spi, transfer);
+> > > +		}
+> > > +		return ret;
+> > > +	}
+> >
+> > Why do you do this? AFAICS the framework already does this for you see:
+> > spi_transfer_one_message().
+> >
+> Hi,
+>
+> In frame work:
+> 				if ((xfer->tx_sg_mapped || xfer->rx_sg_mapped) &&
+> 				    (xfer->error & SPI_TRANS_FAIL_NO_START)) {
+> 					__spi_unmap_msg(ctlr, msg);
+> 					ctlr->fallback =3D true;
+> 					xfer->error &=3D ~SPI_TRANS_FAIL_NO_START;
+> 					goto fallback_pio;
+> 				}
+>
+> It only will help do this for "framework finished DMA map case". But DMA =
+dynamic burst feature is mapped in driver.
+> So this condition never meet: (xfer->tx_sg_mapped || xfer->rx_sg_mapped) =
+I think..
 
-About the patch itself, it looks that you try to balance the
-of_node_put() done by of_find_node_with_property() on its `from`
-parameter (np in this case):=20
-https://elixir.bootlin.com/linux/v6.18-rc7/source/drivers/of/base.c#L1066
+=2E..and you remove "controller->can_dma" this deserves some comments in
+the commit message. That you fool the framework, that you cannot do DMA,
+and do all the mapping on your own.
 
-Your patch description is a bit unclear about that and could be
-reworded.
+If you can make it work with DMA_SLAVE_BUSWIDTH_1_BYTES then you can use
+controller->prepare_message and controller->unprepare_message to do the
+byte swapping. These functions are called before and after the DMA sync.
 
-I'm not sure if it is the proper way to use the
-of_find_node_with_property API, seems a bit hacky. Though, I found=20
-similar sequences for other of_find_* calls (like
-of_find_compatible_node or of_find_node_by_name) in the `from is not
-null` case but not all the times. Hope someone else can confirm if
-using of_node_get before calling these API is OK.
+Marc
 
-Finally the patch also misses the Fixes tag since it is a follow up
-one.
+--=20
+Pengutronix e.K.                 | Marc Kleine-Budde          |
+Embedded Linux                   | https://www.pengutronix.de |
+Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
+Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
 
-Regards,
-Louis-Alexis
+--o5sidt4qwxpc2qbb
+Content-Type: application/pgp-signature; name="signature.asc"
 
-> =C2=A0	if (node) {
-> =C2=A0		regmap[0] =3D syscon_regmap_lookup_by_phandle(node,
-> "mediatek,infracfg");
-> =C2=A0		of_node_put(node);
-> @@ -1030,7 +1019,8 @@ static int
-> scpsys_get_bus_protection_legacy(struct device *dev, struct scpsys *s
-> =C2=A0		regmap[0] =3D NULL;
-> =C2=A0	}
-> =C2=A0
-> -	node =3D scpsys_get_legacy_regmap(np, "mediatek,smi");
-> +	of_node_get(np);
-> +	node =3D of_find_node_with_property(np, "mediatek,smi");
-> =C2=A0	if (node) {
-> =C2=A0		smi_np =3D of_parse_phandle(node, "mediatek,smi", 0);
-> =C2=A0		of_node_put(node);
-> @@ -1048,7 +1038,8 @@ static int
-> scpsys_get_bus_protection_legacy(struct device *dev, struct scpsys *s
-> =C2=A0		regmap[1] =3D NULL;
-> =C2=A0	}
-> =C2=A0
-> -	node =3D scpsys_get_legacy_regmap(np, "mediatek,infracfg-
-> nao");
-> +	of_node_get(np);
-> +	node =3D of_find_node_with_property(np, "mediatek,infracfg-
-> nao");
-> =C2=A0	if (node) {
-> =C2=A0		regmap[2] =3D syscon_regmap_lookup_by_phandle(node,
-> "mediatek,infracfg-nao");
-> =C2=A0		num_regmaps++;
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEn/sM2K9nqF/8FWzzDHRl3/mQkZwFAmkm+AEACgkQDHRl3/mQ
+kZz2aAf+NfQMom5cSlCV1sp4geNMQsYmqG4QERaSHYNr/okdJJwdai4uuxAdpfA6
+R1bnr+JPDx2fFHsixxpkJkWtiLo0RE4uNAARa63gWSVKHLFRjN2hXYmHR1uoDyy5
+cYVMTcIdNn2DvheQ6eVfzN3LZI67RyiYL3sfwnjuHwsORJhghMpj14hqoR2dJeCB
+kdDMm71JUrfDfEa4VHMCRFokKLi3A1KBKlImfvTq60UREvHsG+Z2aGxCxyjEldhj
+zEC1Lw6eCED/bZf+VroSpoDGjvpbMQbRMviVPfqxOy8obbxiwjxezBwqCzswi0X/
+2cuNSWCvVtynRv4wdL6WdK7JDO+csg==
+=w9CB
+-----END PGP SIGNATURE-----
+
+--o5sidt4qwxpc2qbb--
 
