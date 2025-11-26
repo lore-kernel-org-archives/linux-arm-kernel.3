@@ -4,113 +4,161 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37806D111A7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 22:33:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0B33D111A7
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 22:43:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mDzAY5BQNTDP+ZymhsBaphBdvEkLLREriCn5MDuFOK4=; b=IXh5NGxmCV8yM8Pi8gb4mw9xQ2
-	CuyfDEMQ/78t0jPzkWWYgofy1z3gMJGAaJaPTW5pMQ4iew0xnBRDrIQrCxX1TgSTQaEFjxBrwhdFJ
-	UuOcA0TF8kdztQffaTcpqjRZi2GQHCtVpzPBJesdimF3memR6m877fRP1KsgyGHXPSJWPMzyb4fYi
-	d86Oj98bXxuI7uKDPVBUqoUDqakCLIqvAXI9FA7y0StG+NHgxjTwK1HJckqgU09pPe6WKHFhewhRM
-	XZGrgqMAVuDM86VKzaU7YOHgEbw27EOjsEHRLlu/1fZS0uHg1fIqX2LR1ZSDxNQ/eTGJy0h9Ha7Xu
-	NSryFdYw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pMjQjg+RJKf+BeZBmvF+z0E0+aA4D2XbRrY6ne7fYCg=; b=l4/t+7s3QdQiiHUmve4OcL16sV
+	4vM7E2B5FADPnKWp+YirIP8kJxSZZeHxNRzEwHK6slJHx5Ffonbqk85A/D8+FAKGSlSdFenF6Vgq7
+	BQNHA4X0fcikN0LEIX4vZyHEp9Wu50g3B6bU99664gb8St0VAnDsakchR5ppcMDDh9RR97fPG7+Xc
+	USCCaKbjubqUzF1V63sTgAktu8d7nvYgB6iWazFNIucVe0aXTcjO06Eu5rw6fSpuE6j9ELtrHDEvr
+	hh42VcugnBmsMblTqKpcgH1kAuJ1Euih/yi3MbZdqVR7SAtpXS0k2f0Pvm6TM6M6fVm6q4wn8ILCw
+	nvGiCRJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOO4c-0000000Fiu4-3xKO;
-	Wed, 26 Nov 2025 22:33:18 +0000
-Received: from ip-94-112-25-9.bb.vodafone.cz ([94.112.25.9] helo=ixit.cz)
+	id 1vOOEl-0000000FjCG-2bZ8;
+	Wed, 26 Nov 2025 22:43:47 +0000
+Received: from mail-westeuropeazon11010051.outbound.protection.outlook.com ([52.101.69.51] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOO4Z-0000000Fite-0mk8
+	id 1vOOEi-0000000FjBk-1XZb
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Nov 2025 22:33:17 +0000
-Received: from [10.0.0.200] (unknown [10.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange x25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by ixit.cz (Postfix) with ESMTPSA id 73B195341212;
-	Wed, 26 Nov 2025 23:33:07 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ixit.cz; s=dkim;
-	t=1764196387;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=mDzAY5BQNTDP+ZymhsBaphBdvEkLLREriCn5MDuFOK4=;
-	b=coLOGpXuIFgIQyK824bTAuEq7YC6YLNMupKzK46/B5lSv8hlx0SG3v8vz5gKe3a4vGhDpQ
-	29W0N54doDNwfk6MHd8qmvRU9RU7thek7Na6t9qENDRiWcFHPrDEB7Q9MpiAVsMlqq7qdU
-	K3WWWvT7Uu5BasAHin6jV05kTMbin/U=
-Message-ID: <a243e024-c7df-4a3d-a855-4738a4970de2@ixit.cz>
-Date: Wed, 26 Nov 2025 23:33:07 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH QUESTION] arm64: configs: Add Snapdragon 845 config
- fragment
-To: Casey Connolly <casey.connolly@linaro.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Joel Selvaraj <foss@joelselvaraj.com>,
- Alexander Martinz <amartinz@shiftphones.com>,
- Dzmitry Sankouski <dsankouski@gmail.com>,
- =?UTF-8?Q?Pablo_Correa_G=C3=B3mez?= <ablocorrea@hotmail.com>
-Cc: =?UTF-8?Q?Guido_G=C3=BCnther?= <agx@sigxcpu.org>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- phone-devel@vger.kernel.org
-References: <20251126-sdm845-config-question-v1-1-ffa91ed53095@ixit.cz>
- <9c3f64b4-adb3-450c-b1e6-d6731b723215@linaro.org>
+	Wed, 26 Nov 2025 22:43:45 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=wfzfu4/7IW8OmDO84idER01W48LcLuv1vaRH9ZrBoFQWoWXN8HirZ6Iaq5WiFTXO53vPFeZytNG99uOY+tKuQJBqZfC+SKdkCK4O6hDAkfgfNnXM2b3SJNTh2yERx+FPkjvAi7IfIcCMaZUoWgCXmt/bUa81FfpSeTXJ5tyGHLYpFJ3MgubbF6/wcUs+ykGSsuKYIpBgUgR+FJ8vaU2EqbNVsiMBjcuxD2xxFqsVyAjS3PpDum0PRhi3bvWiYcMT/caWZ6oJyLtFjJKUfV//rSUKkd5usI1M/zJIZDaEDSPVTKAyubaI7WZkKK5O2JD5Dsxlh7Re+/G5FNmz4lg1Vw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=pMjQjg+RJKf+BeZBmvF+z0E0+aA4D2XbRrY6ne7fYCg=;
+ b=QfvlHxwspL55XVLmCWQiPpdP/igMVtxlfumg8EaBmJJ+047rBluCQ3UzoodLAcJ2HHNdWCsj1gW7K+crwzqVWnyArY5y+atQc9kQVgC8ItDWnrmjV4x3Y3AkkKkOzsb578pbad0naAkc/qz7dO97fPGxAZ6aoBGCM9K6rwgPKsXywjx1YHx6aQvY91jODcC7Vfjp0zm2mZ3/r7UhwucQ3RlCYuxVvBUOTIQsOCEKxfHmUu4JMvjd198gn4bFTyhVuWKjfSyITe7VdBIMZvQfPeh15QUnOh0q4q6y0WsAZjiUOThAF7ZxEPMPEMVkHZCLgdkKuBMoICvaU/8ZOtR4uw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=pMjQjg+RJKf+BeZBmvF+z0E0+aA4D2XbRrY6ne7fYCg=;
+ b=Vht99z5LoJEb6IuwsEal+W5rBBJeMUnF5sqiIp3G4NzE2qPLkazktuUIeGaMHfdv8hA/fEf4x6Q406QzwTaBmeSSCpYsvpXzmfqhrShF1uLZEF6LanvzKWcg6KFmCMWk9xKKhoWL7qFzjdHH/MZsdolJBm3ucrXAVBL1kbu6QxRgDtplA7ruGAFEiz2lG4Ll1r4yOVZD7zG2N956/jGVx+vym1egfDM6l5KEsKSCibia5Z4IfrPv1ZR20hJ/yohArBllfFTiwSEKkmpuJQRdAyzGboSjISIH0QzKk3SRNVX66VX18tCA5NY/oFZmPYsgb4rS0SS1kKYR0MtfgzOZfQ==
+Received: from PAXPR04MB9185.eurprd04.prod.outlook.com (2603:10a6:102:231::11)
+ by AS8PR04MB8578.eurprd04.prod.outlook.com (2603:10a6:20b:425::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9366.13; Wed, 26 Nov
+ 2025 22:43:39 +0000
+Received: from PAXPR04MB9185.eurprd04.prod.outlook.com
+ ([fe80::21bf:975e:f24d:1612]) by PAXPR04MB9185.eurprd04.prod.outlook.com
+ ([fe80::21bf:975e:f24d:1612%5]) with mapi id 15.20.9366.012; Wed, 26 Nov 2025
+ 22:43:38 +0000
+From: Shenwei Wang <shenwei.wang@nxp.com>
+To: Mathieu Poirier <mathieu.poirier@linaro.org>
+CC: Bjorn Andersson <andersson@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
+	Jonathan Corbet <corbet@lwn.net>, Linus Walleij <linus.walleij@linaro.org>,
+	Bartosz Golaszewski <brgl@bgdev.pl>, Pengutronix Kernel Team
+	<kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Peng Fan
+	<peng.fan@nxp.com>, "linux-remoteproc@vger.kernel.org"
+	<linux-remoteproc@vger.kernel.org>, "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-doc@vger.kernel.org"
+	<linux-doc@vger.kernel.org>, dl-linux-imx <linux-imx@nxp.com>
+Subject: Re: [PATCH v5 2/5] remoteproc: imx_rproc: Populate devices under
+ "rpmsg" subnode
+Thread-Topic: [PATCH v5 2/5] remoteproc: imx_rproc: Populate devices under
+ "rpmsg" subnode
+Thread-Index: AQHcXyYbYEZBcUEOnkejT1wasvqIlQ==
+Date: Wed, 26 Nov 2025 22:43:38 +0000
+Message-ID: <PAXPR04MB91855348A84594B68F05ECA689DEA@PAXPR04MB9185.eurprd04.prod.outlook.com>
+References: <20251104203315.85706-1-shenwei.wang@nxp.com>
+ <20251104203315.85706-3-shenwei.wang@nxp.com> <aSXhtAcFBOgJoCWd@p14s>
+In-Reply-To: <aSXhtAcFBOgJoCWd@p14s>
+Accept-Language: en-US
 Content-Language: en-US
-From: David Heidelberg <david@ixit.cz>
-Autocrypt: addr=david@ixit.cz; keydata=
- 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
-In-Reply-To: <9c3f64b4-adb3-450c-b1e6-d6731b723215@linaro.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: PAXPR04MB9185:EE_|AS8PR04MB8578:EE_
+x-ms-office365-filtering-correlation-id: e9a982ed-ded4-43aa-ba8a-08de2d3d3df7
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|7416014|376014|366016|1800799024|19092799006|38070700021;
+x-microsoft-antispam-message-info: =?us-ascii?Q?zKHykcuLXWVsRK6wFPMTx+NzRmaMAngeNAWiUll1Jqg4LyZP2C8bQZeDPGu9?=
+ =?us-ascii?Q?SE6+1xjqqiVceOiW11vhddfahxmfSn7m8bP6cbMPG6d16RGZC5xZjtoJl6zY?=
+ =?us-ascii?Q?QE83u3B2KJWrIt/oAvBjxIfVQMwa25Fm6rQAO1sBt+xlUtin6+lfr9iIMyCu?=
+ =?us-ascii?Q?MPfe8+rTkKUXYG6v69VebdctJ19pGJRh8jmfhvsCjOHGs1Pp03oyJDnZXnoB?=
+ =?us-ascii?Q?gCaWTNo9Tz6SZrOLaP3/ZrszRitLNCN+98wAIZRdboK+jyaNsykOWaVbJfFY?=
+ =?us-ascii?Q?5/4q+KeAU01quk9BUnES0zhLyTlqIvZ1MtkRB8dnH3q4RIe12Wgr4kbOkyRQ?=
+ =?us-ascii?Q?en/1yqv+zEui7QWONtwSf7bhtQKIafZbjoNKsjv8KL8FwHFxlgNZ/gadh2au?=
+ =?us-ascii?Q?E4oVE1O3YWH5i2pbCa6LUd5TBkW34v3H/DXGipGVG18pBAOj4/N3sdbToT3s?=
+ =?us-ascii?Q?bm2v2Oyd0eSK8D/NwgxXodrJiFEOSocVxXoaWw7bdIhjWUyMKmwxFiLnXDRp?=
+ =?us-ascii?Q?v83idi+uLjqjkIvBKjJl0aTnHa294C4lHkQBrCqtiMthekyErZnuu2pzp3p9?=
+ =?us-ascii?Q?yQMZnFLR86y7s6TFawagPZ5ATaSlPWhXW0V7YYMNwMBBqdb4WXJFyhJuSzZZ?=
+ =?us-ascii?Q?IYTU7f4yPol3yIlGlMUPj/i6UPvo2Faqbr/a4RosneD6F+JRyVcnDxVY8of2?=
+ =?us-ascii?Q?XS8PPqdF1B5t89X09Zs+j6nKSZtPY/A2/HFIOlw4SJwOQJLacFZHR3pBFH3v?=
+ =?us-ascii?Q?MLEvq6Y4vhsJ4HjzaNar4bNCqmnPi7VEyZUoeUuPirY8BetUYBhV3TclSN8k?=
+ =?us-ascii?Q?IqcEoKhkpmRpgE+JRxMHe1EWVcuJIWBb3jPHASNYnWBjJdyIikzzLtwXpQg5?=
+ =?us-ascii?Q?r6k2wHYqCQI/APt6Xq7OKN3b8UCbJB+60xEOX/23ll6v0WDXRLPllFOJZeww?=
+ =?us-ascii?Q?FDPM7vZw6Dw23tlFTzq902M9o1HeggDEaI5Kil46CuYROOWwfP4DLwdj3LFY?=
+ =?us-ascii?Q?bZ6jC6qfNpC07tYE0VblY/3I17HFQVv9Ce64PK1BOkIfWFZT9y7P2XruU90G?=
+ =?us-ascii?Q?59aK1QN03qly23gO1NTxo/mv4gy1W5zGxTOO/bKkdfUni141hCWoI7WQml3z?=
+ =?us-ascii?Q?t57ty5rZnHOmWbvLeFtcr4bUUekDhCrem2Tl/kDuUOEGFLHzKIi3973n6rHO?=
+ =?us-ascii?Q?xQoh1qf1QCf+jcsRj20+ADIIAUwHa3d9hh0X+lANQs22e6qATYnoDVaTy+Fl?=
+ =?us-ascii?Q?9izNpY4NZq3liECnecZaJE8rpWWCrtrsjJ6oqQbOkzMAamDdLqHsWpUXarNO?=
+ =?us-ascii?Q?Ou//0bFApTRxe6Kn6HWM9xf83nZEgSKJ44BPKVxZ5dn9fg3LeoiDp2IZkAv+?=
+ =?us-ascii?Q?1tMoicsbroW9hxawRwLU80Sk3PUxViYX9fj9ZsjHTOzmDWAIsUmff3cEu60v?=
+ =?us-ascii?Q?bYExfTiniiazEWy2OHSro//bhs5DtPOZX5jSS6/JmcBUYUJmCh7U90w/itgN?=
+ =?us-ascii?Q?AS00OOu7/eWeMKtXvRunx9qYJJ8lPxGNduXg?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9185.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024)(19092799006)(38070700021);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?xS26TfW+P+VczqyTE+FU40bViHxvo0oS/g7WmEfuAbYoWINuEeWR3Da3muGS?=
+ =?us-ascii?Q?svASQ/61NudiWliIu/gLD3QV8/JizZOZED2f7wkxBOAyWrGTqmud6BEUFtTv?=
+ =?us-ascii?Q?sudoG2ty+UKttlAr2aNLnLc4gZTDvfaqwlMPW9fqboW7IsQIyQA+BXFN5tbl?=
+ =?us-ascii?Q?51NXKR4cLwLrMIxQ3AT7G1gzdA1FNCuYlDQiQcU38hwVzxq/fAdP+urKvtkB?=
+ =?us-ascii?Q?Z1FRkbpF+SX3EnZeJ1y5vexsZVQmpaSR8QuNOEGVw1SGjp7i37fqfIawuRBk?=
+ =?us-ascii?Q?ClYoUUp8JQ2L3ugc8JlwVVvtYNOw0XU+UUtlh9ADyTM+S/9Knp2HzPZkGM22?=
+ =?us-ascii?Q?FlILX3MxlOU5eOE4umOXOgeAYQ+wTipvsiAmK7rgEPTyfGTAsciAi83b/H0E?=
+ =?us-ascii?Q?HBpc6NAKUi2hEvYmTldQkrNzYr/DPVPZgpsY2ahku5qebRXTabrNh5wBImID?=
+ =?us-ascii?Q?L4xp0SUjZHJkTS69wSBkb2T9wIAE42mNIEKCkDqW6b9ZOkkmN6RrUxWAyokg?=
+ =?us-ascii?Q?USRA3agtfJDVqp8bmJ335YPquyvuHw1LCaNtJnFY7sRJ8aXpoTRXYpcIfLXo?=
+ =?us-ascii?Q?YvSsKRvVXFMM/W/FKSLjadxVPKr5HGdIiLSha9wZkNm3qMnmJDDop1LkU12q?=
+ =?us-ascii?Q?WhGbGPuAZL2Unn7FwjY0BkrziEcN6cCJDrajA61+A6Ma4i4mBf9IpmA8bXJR?=
+ =?us-ascii?Q?+2uskkwTc1mSPRO47DKPm1RgOobNacsRIfCLlGodDzXsndtiVQLsInZlUHva?=
+ =?us-ascii?Q?UoTJSMakZVYKP7sUSqQTZ3ThYv9Vnj24NSE+OW1XVAlaPiEjrwVhaQxrGpm1?=
+ =?us-ascii?Q?y9nG8Vg6r+qG/4bqrZMBVWa+8OHtwBBL78Qk69iY0ARfwCUrAVDYKEaqoh7i?=
+ =?us-ascii?Q?l3qPxfqspJ0NZMKQy2HdDEWMcmBnto9jYWqs+8yGtiWZvrsLywjK418GmnKd?=
+ =?us-ascii?Q?L/Uc1Jx9Ym8V87FquHDuDl9jMCn30momRuTzRkR5jhbp1xMyQ7XxDqItnbuB?=
+ =?us-ascii?Q?T5gni0CgP5eqvitYbbIyZVYfsfZaQjcmR9rt5ivrL1gue4wVIClCPWmGa179?=
+ =?us-ascii?Q?kJtmxn1zUeUtYkuRy1/+NUamnDVfUhlnyhnavIDtCA3009o/bTn46tMSQHbe?=
+ =?us-ascii?Q?Qgm2Da+EeI91iliC7/CxpICU0QAaUkzyBY3DljhexaMUdLs03j+AGJhgLOQa?=
+ =?us-ascii?Q?PMJNKXTYRLNxny9+8Ml2bTNHs/5yaAaGcFrHu2mXwvkF3TumBRaH8cKNxplH?=
+ =?us-ascii?Q?7U0/Xcvs7Xy7A8K6ajMITXYvBBnY3mlHiana5Rc0KmUzMGDr5mdvnrEzT7oH?=
+ =?us-ascii?Q?2EyTybB1GjrGzmKOvLeSI6ukjyCGhdzimrq+eFFs3jNMki2hcwXrzblJ8tSY?=
+ =?us-ascii?Q?cTNF/g26dcHskgyignln4+XkVPWinlqqjbZNLKcgAvIUXrmtFPFGw9SQ2Gmd?=
+ =?us-ascii?Q?in3Mh8LHatJ5xGPza5EaoBRLClBCMa3k+FcNPVRZ2jwTSzvMudwf3BHuccJ6?=
+ =?us-ascii?Q?AKie2t231HsLqnPDqjM7HRwFZcxRRzNpa035psBlG/zJo2mE+w01jP3uji0n?=
+ =?us-ascii?Q?nG1iw1oOgvdDcEbhSyU7GlfXEw9zHX6yCBpLW43r?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9185.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: e9a982ed-ded4-43aa-ba8a-08de2d3d3df7
+X-MS-Exchange-CrossTenant-originalarrivaltime: 26 Nov 2025 22:43:38.8676
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: vjPPeMNs7zGiDVPoE7YV+iKvwb/D09TWXbAbe5hpLH8E25fB9WMhXz4c7LcUBduckvliJPow1gT0eOAoZqFpPA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8578
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251126_143315_624927_143A9995 
-X-CRM114-Status: GOOD (  41.06  )
+X-CRM114-CacheID: sfid-20251126_144344_566749_CC5633A9 
+X-CRM114-Status: GOOD (  27.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,132 +173,402 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 26/11/2025 20:03, Casey Connolly wrote:
-> Hi David,
-> 
-> On 26/11/2025 17:19, David Heidelberg via B4 Relay wrote:
->> From: Casey Connolly <casey.connolly@linaro.org>
-> 
-> It's not the first time you're sending patches with my authorship and
-> SoB upstream without even a heads up... fixes and minor feature
-> additions I can understand (particularly if you're doing the work to
-> polish them off and get them accepted), but frankly I think it's little
-> unprofessional to post a very clearly "never-intended-for-upstream"
-> patch verbatim to the list, particularly when it has someone elses name
-> on it.
 
-I wanted to use the patch as starting point for the discussion, not a 
-patch to get things upstreamed right away.
 
-I respect the original authorship. I wouldn't feel comfortable send code 
-someone else wrote with my name.
-Other remaining option here would be never send it, but I think people 
-could benefit from the config fragment.
+> -----Original Message-----
+> From: Mathieu Poirier <mathieu.poirier@linaro.org>
+> Sent: Tuesday, November 25, 2025 11:05 AM
+> To: Shenwei Wang <shenwei.wang@nxp.com>
+> Cc: Bjorn Andersson <andersson@kernel.org>; Rob Herring <robh@kernel.org>=
+;
+> Krzysztof Kozlowski <krzk+dt@kernel.org>; Conor Dooley
+> <conor+dt@kernel.org>; Shawn Guo <shawnguo@kernel.org>; Sascha Hauer
+> <s.hauer@pengutronix.de>; Jonathan Corbet <corbet@lwn.net>; Linus Walleij
+> <linus.walleij@linaro.org>; Bartosz Golaszewski <brgl@bgdev.pl>; Pengutro=
+nix
+> Kernel Team <kernel@pengutronix.de>; Fabio Estevam <festevam@gmail.com>;
+> Peng Fan <peng.fan@nxp.com>; linux-remoteproc@vger.kernel.org;
+> devicetree@vger.kernel.org; imx@lists.linux.dev; linux-arm-
+> kernel@lists.infradead.org; linux-kernel@vger.kernel.org; linux-
+> doc@vger.kernel.org; dl-linux-imx <linux-imx@nxp.com>
+> Subject: [EXT] Re: [PATCH v5 2/5] remoteproc: imx_rproc: Populate devices
+> under "rpmsg" subnode
+> > The following illustrates the expected DTS layout structure:
+> >
+> >       cm33: remoteproc-cm33 {
+> >               compatible =3D "fsl,imx8ulp-cm33";
+> >
+> >               rpmsg {
+> >                       rpmsg-io-channel {
+> >                               gpio@0 {
+> >                                       compatible =3D "fsl,imx-rpmsg-gpi=
+o";
+> >                                       reg =3D <0>;
+> >                               };
+> >
+> >                               gpio@1 {
+> >                                       compatible =3D "fsl,imx-rpmsg-gpi=
+o";
+> >                                       reg =3D <1>;
+> >                               };
+> >
+> >                               ...
+> >                       };
+> >
+> >                       rpmsg-i2c-channel {
+> >                               i2c@0 {
+> >                                       compatible =3D "fsl,imx-rpmsg-i2c=
+";
+> >                                       reg =3D <0>;
+> >                               };
+> >                       };
+> >
+> >                       ...
+> >               };
+> >       };
+>=20
+> 2 observations here:
+>=20
+> (1) Why are you trying to introduce both i2c and GPIO in the same patchse=
+t?
 
-Here, I wanted to have a discussion (thus it's marked as [QUESTION]) 
-what is the best way how to address this fragment, while not end up 
-being separated from the mainline development.
+The patch is to populate the "rpmsg" node under the remoteproc. This is a c=
+ommon function for the remoteproc.
+Listing two examples (GPIO and I2C) here could give us an overview of the d=
+ts structure.
 
-I and many others see a value to keep this file upstream and care about 
-the file there, as that would ease changes done to upstream defconfig to 
-be reflected onto sdm845 fragment, when bigger changes are introduced to 
-the Linux kernel.
+> (2) My first impression is that i2c, GPIO and others should be bundled wi=
+th the
+> platform definitions for i2c and GPIO, with a phandle to the remote proce=
+ssor
+> they hang off from.  My opinion may change once I have reviewed the other
+> patches in this set.
+>=20
 
-> 
->>
->> This fragment provides reasonable default for the mobile devices
->> based on Snapdragon 845 architecture. While default config could be
->> used, the reality is it brings many issues to the development workflows,
->> which are much harder to address than on generic boards or devices with
->> available UART console.
->>
->> This config fragment produces the .config used by distributions.
->> It is designed to be fairly minimal and specific to the
->> supported SDM845 devices whilst offering all the features you would
->> expect.
-> 
-> I wrote this like 4+ years ago and it's even more wrong now than it was
-> then (not least because I eventually found the UART XD).
+The design is to let the remoteproc to populate the "rpmsg" node, and separ=
+ate the rpmsg endpoint driver and its above function driver like GPIO.
+Bunding the GPIO and rpdev driver together would make the driver become a m=
+ulti-function driver. I am not sure if it is still suitable to put it in th=
+e directory of "drivers/gpio".
 
-Yeah, but since then people continue activelycontribute to it, so 
-generally it's pretty up-to-date =)
+> >
+> > Signed-off-by: Shenwei Wang <shenwei.wang@nxp.com>
+> > ---
+> >  drivers/remoteproc/imx_rproc.c  | 146
+> > ++++++++++++++++++++++++++++++++  include/linux/rpmsg/imx_rpmsg.h |
+> > 48 +++++++++++
+> >  2 files changed, 194 insertions(+)
+> >  create mode 100644 include/linux/rpmsg/imx_rpmsg.h
+> >
+> > diff --git a/drivers/remoteproc/imx_rproc.c
+> > b/drivers/remoteproc/imx_rproc.c index a6eef0080ca9..e21a7980c490
+> > 100644
+> > --- a/drivers/remoteproc/imx_rproc.c
+> > +++ b/drivers/remoteproc/imx_rproc.c
+> > @@ -8,6 +8,7 @@
+> >  #include <linux/clk.h>
+> >  #include <linux/err.h>
+> >  #include <linux/firmware/imx/sci.h>
+> > +#include <linux/rpmsg/imx_rpmsg.h>
+> >  #include <linux/interrupt.h>
+> >  #include <linux/kernel.h>
+> >  #include <linux/mailbox_client.h>
+> > @@ -15,6 +16,8 @@
+> >  #include <linux/module.h>
+> >  #include <linux/of.h>
+> >  #include <linux/of_address.h>
+> > +#include <linux/of_irq.h>
+> > +#include <linux/of_platform.h>
+> >  #include <linux/of_reserved_mem.h>
+> >  #include <linux/platform_device.h>
+> >  #include <linux/pm_domain.h>
+> > @@ -22,6 +25,7 @@
+> >  #include <linux/reboot.h>
+> >  #include <linux/regmap.h>
+> >  #include <linux/remoteproc.h>
+> > +#include <linux/rpmsg.h>
+> >  #include <linux/workqueue.h>
+> >
+> >  #include "imx_rproc.h"
+> > @@ -1084,6 +1088,144 @@ static int imx_rproc_sys_off_handler(struct
+> sys_off_data *data)
+> >       return NOTIFY_DONE;
+> >  }
+> >
+> > +struct imx_rpmsg_driver {
+> > +     struct rpmsg_driver rpdrv;
+> > +     void *driver_data;
+> > +};
+> > +
+> > +static char *channel_device_map[][2] =3D {
+> > +     {"rpmsg-io-channel", "fsl,imx-rpmsg-gpio"},
+> > +     {"rpmsg-i2c-channel", "fsl,imx-rpmsg-i2c"}, };
+> > +
+> > +static int imx_rpmsg_endpoint_cb(struct rpmsg_device *rpdev, void *dat=
+a,
+> > +                              int len, void *priv, u32 src) {
+> > +     struct imx_rpmsg_driver_data *drvdata;
+> > +
+> > +     drvdata =3D dev_get_drvdata(&rpdev->dev);
+> > +     if (drvdata && drvdata->rx_callback)
+> > +             return drvdata->rx_callback(rpdev, data, len, priv,
+> > + src);
+> > +
+> > +     return 0;
+> > +}
+> > +
+> > +static void imx_rpmsg_endpoint_remove(struct rpmsg_device *rpdev) {
+> > +     of_platform_depopulate(&rpdev->dev);
+> > +}
+> > +
+> > +static int imx_rpmsg_endpoint_probe(struct rpmsg_device *rpdev) {
+> > +     struct imx_rpmsg_driver_data *drvdata;
+> > +     struct imx_rpmsg_driver *imx_rpdrv;
+> > +     struct device *dev =3D &rpdev->dev;
+> > +     struct of_dev_auxdata *auxdata;
+> > +     struct rpmsg_driver *rpdrv;
+> > +     int i;
+> > +
+> > +     rpdrv =3D container_of(dev->driver, struct rpmsg_driver, drv);
+> > +     imx_rpdrv =3D container_of(rpdrv, struct imx_rpmsg_driver, rpdrv)=
+;
+> > +
+> > +     if (!imx_rpdrv->driver_data)
+> > +             return -EINVAL;
+> > +
+> > +     drvdata =3D devm_kmemdup(dev, imx_rpdrv->driver_data,
+> > + sizeof(*drvdata), GFP_KERNEL);
+>=20
+> Something with the overall design of this feature doesn't work if you nee=
+d to do
+> this.
+>=20
 
->>
->> It disables other arm64 architectures to speed up build times and
->> decrease the size of the kernel image.
->>
->> To generate a .config use "make defconfig sdm845.config"
->>
->> [David]
->>   - Dropped distribution specific options.
->>   - Added entry into the MAINTAINERS file.
->>
->> Signed-off-by: Casey Connolly <casey@connolly.tech>
->> Co-developed-by: Joel Selvaraj <foss@joelselvaraj.com>
->> Signed-off-by: Joel Selvaraj <foss@joelselvaraj.com>
->> Co-developed-by: Alexander Martinz <amartinz@shiftphones.com>
->> Signed-off-by: Alexander Martinz <amartinz@shiftphones.com>
->> Co-developed-by: Dzmitry Sankouski <dsankouski@gmail.com>
->> Signed-off-by: Dzmitry Sankouski <dsankouski@gmail.com>
->> Co-developed-by: Pablo Correa Gómez <ablocorrea@hotmail.com>
->> Signed-off-by: Pablo Correa Gómez <ablocorrea@hotmail.com>
->> Co-developed-by: David Heidelberg <david@ixit.cz>
->> Signed-off-by: David Heidelberg <david@ixit.cz>
->> ---
->> This patch is a question, if it would be viable to introduce this
->> configuration fragment as part of mainline kernel, so keeping it in sync
->> with recent kernel updates would be more straighforward.
->>
->> When this file is kept by distributions, it cannot be reused on latest
->> releases and for building latest kernels, as the options gets
->> desynchronized.>
->> I offer to maintain this file within the mainline kernel, and I believe
->> most likely some of the co-authors of the file will likely step up to
->> keep it up-to-date, so people who want to contribute can avoid fighting
-> 
-> The same co-authors who knew you were going to post this??
+Could you elaborate further?
 
-I assume people who made it may want this to become useful for others. 
-If not, I said I offer maintaining it.
+> > +     if (!drvdata)
+> > +             return -ENOMEM;
+> > +
+> > +     i =3D drvdata->map_idx;
+> > +     if (i >=3D ARRAY_SIZE(channel_device_map))
+> > +             return -ENODEV;
+> > +
+> > +     auxdata =3D devm_kzalloc(dev, sizeof(*auxdata) * 2, GFP_KERNEL);
+> > +     if (!auxdata)
+> > +             return -ENOMEM;
+> > +
+> > +     drvdata->rpdev =3D rpdev;
+> > +     auxdata[0].compatible =3D channel_device_map[i][1];
+> > +     auxdata[0].platform_data =3D drvdata;
+> > +     dev_set_drvdata(dev, drvdata);
+> > +
+> > +     of_platform_populate(drvdata->channel_node, NULL, auxdata, dev);
+> > +     of_node_put(drvdata->channel_node);
+>=20
+> Why is there a need for of_node_put() when imx_of_rprmsg_node_init() is u=
+sing
+> for_each_child_of_node_scoped()?
+>=20
 
-> 
->> with old configuration file downloaded from downstream project and can
->> focus on fixing actual bugs.
->>
->> In case this fragment gets unmaintained status in the future, there
->> shouldn't be any issues to just remove it from the kernel.
->>
->> What do you think?
-> 
-> I don't think it makes sense to put a platform+distro-specific (read:
-> opinionated) config fragment into the kernel, any distro trying to use
-> this would likely always find themselves carrying patches (sending a
-> patch to enable a driver or whatever just doesn't scale very well),
-> nevermind if multiple distros with different requirements tried to use it.
+You are right. This "put" should be deleted.
 
-I tried to shave the distro specific bits to keep only the HW relevant 
-changes. I think each distro can apply the specific bits themselves and 
-keep here the sdm845 generics.
+> > +
+> > +     return 0;
+> > +}
+> > +
+> > +static int imx_of_rpmsg_is_in_map(const char *name) {
+> > +     int i;
+> > +
+> > +     for (i =3D 0; i < ARRAY_SIZE(channel_device_map); i++) {
+> > +             if (strcmp(name, channel_device_map[i][0]) =3D=3D 0)
+> > +                     return i;
+> > +     }
+> > +
+> > +     return -1;
+>=20
+> Please return a real error code.
+>=20
+> > +}
+> > +
+> > +static int imx_of_rpmsg_register_rpdriver(struct device_node *channel,
+> > +                                       struct device *dev, int idx) {
+> > +     struct imx_rpmsg_driver_data *driver_data;
+> > +     struct imx_rpmsg_driver *rp_driver;
+> > +     struct rpmsg_device_id *rpdev_id;
+> > +
+> > +     rpdev_id =3D devm_kzalloc(dev, sizeof(*rpdev_id) * 2, GFP_KERNEL)=
+;
+>=20
+> I had a really good time figuring out why 2 instances were needed.  Revie=
+wing
+> this work without a single line of comment isn't motivating.
+>=20
+> > +     if (!rpdev_id)
+> > +             return -ENOMEM;
+> > +
+> > +     strscpy(rpdev_id[0].name, channel_device_map[idx][0],
+> > + RPMSG_NAME_SIZE);
+> > +
+> > +     rp_driver =3D devm_kzalloc(dev, sizeof(*rp_driver), GFP_KERNEL);
+> > +     if (!rp_driver)
+> > +             return -ENOMEM;
+> > +
+> > +     driver_data =3D devm_kzalloc(dev, sizeof(*driver_data), GFP_KERNE=
+L);
+> > +     if (!driver_data)
+> > +             return -ENOMEM;
+> > +
+> > +     driver_data->rproc_name =3D dev->of_node->name;
+> > +     driver_data->channel_node =3D channel;
+> > +     driver_data->map_idx =3D idx;
+>=20
+> struct rpmsg_device_id already contains a @driver_data.  As with my other
+> comment above, something in the design of this feature is not working if =
+you need
+> to do something like this.
+>=20
 
-I would like to reduce the fragmentation and leverage good review 
-process of the mainline kernel.
+The purpose is to use the existing driver_data pointer inside the rpmsg dri=
+ver to pass the instance relating data.
+If you think there is another standard method, please let me know.
 
-Distributions should really apply only their custom changes, not some 
-version of sdm845.config fragment based on very different 
-sdm845-mainline versions (multiple currently) or sdm845-next version.
+> > +
+> > +     rp_driver->rpdrv.drv.name =3D channel_device_map[idx][0];
+> > +     rp_driver->rpdrv.id_table =3D rpdev_id;
+> > +     rp_driver->rpdrv.probe =3D imx_rpmsg_endpoint_probe;
+> > +     rp_driver->rpdrv.remove =3D imx_rpmsg_endpoint_remove;
+> > +     rp_driver->rpdrv.callback =3D imx_rpmsg_endpoint_cb;
+> > +     rp_driver->driver_data =3D driver_data;
+> > +
+> > +     register_rpmsg_driver(&rp_driver->rpdrv);
+> > +
+> > +     return 0;
+> > +}
+> > +
+> > +static int imx_of_rpmsg_node_init(struct platform_device *pdev) {
+> > +     struct device_node *np __free(device_node);
+> > +     struct device *dev =3D &pdev->dev;
+> > +     int idx, ret;
+> > +
+> > +     np =3D of_get_child_by_name(dev->of_node, "rpmsg");
+> > +     if (!np)
+> > +             return 0;
+> > +
+> > +     for_each_child_of_node_scoped(np, child) {
+> > +             idx =3D imx_of_rpmsg_is_in_map(child->name);
+> > +             if (idx < 0)
+> > +                     ret =3D of_platform_default_populate(child, NULL,
+> > + dev);
+>=20
+> Why is this called?
+>=20
 
-How can we version the sdm845.config, while keeping configs from:
-1. generic stable releases
-2. generic development / -next versions
-3. distributions optimized configs
+This is to populate the rpmsg channels not in the defined map under the "rp=
+msg" node in a default method.
 
-IMHO would be nice to have one source of truth, at least for base option 
-related to one upstream kernel version which makes the hardware works.
+> > +             else
+> > +                     ret =3D imx_of_rpmsg_register_rpdriver(child, dev=
+,
+> > + idx);
+> > +
+> > +             if (ret < 0)
+> > +                     return ret;
+>=20
+> In case of an error, the reference to @np is not released.
 
-With upstreaming the fragment, we can use mainline and `Fixes / Cc: 
-stable` tags to mark what should belong where without confusion.
+It will be released when the function returns, because it is defined as=20
+	struct device_node *np __free(device_node);
 
-David
+Thanks,
+Shenwei
 
-[...]
+>=20
+> > +     }
+> > +
+> > +     return 0;
+> > +}
+> > +
+>=20
+> If we were to keep the current design, all of the above should be in
+> drivers/rpmsg/imx_rpmsg.c.
+>=20
+> >  static int imx_rproc_probe(struct platform_device *pdev)  {
+> >       struct device *dev =3D &pdev->dev; @@ -1177,6 +1319,10 @@ static
+> > int imx_rproc_probe(struct platform_device *pdev)
+> >               goto err_put_clk;
+> >       }
+> >
+> > +     ret =3D imx_of_rpmsg_node_init(pdev);
+> > +     if (ret < 0)
+> > +             dev_info(dev, "populating 'rpmsg' node failed\n");
+> > +
+> >       return 0;
+> >
+> >  err_put_clk:
+> > diff --git a/include/linux/rpmsg/imx_rpmsg.h
+> > b/include/linux/rpmsg/imx_rpmsg.h new file mode 100644 index
+> > 000000000000..04a5ad2d4a1d
+> > --- /dev/null
+> > +++ b/include/linux/rpmsg/imx_rpmsg.h
+> > @@ -0,0 +1,48 @@
+> > +/* SPDX-License-Identifier: GPL-2.0 */
+> > +/* Copyright 2025 NXP */
+> > +
+> > +/*
+> > + * @file linux/imx_rpmsg.h
+> > + *
+> > + * @brief Global header file for iMX RPMSG
+> > + *
+> > + * @ingroup RPMSG
+> > + */
+> > +#ifndef __LINUX_IMX_RPMSG_H__
+> > +#define __LINUX_IMX_RPMSG_H__
+> > +
+> > +/* Category define */
+> > +#define IMX_RMPSG_LIFECYCLE  1
+> > +#define IMX_RPMSG_PMIC               2
+> > +#define IMX_RPMSG_AUDIO              3
+> > +#define IMX_RPMSG_KEY                4
+> > +#define IMX_RPMSG_GPIO               5
+> > +#define IMX_RPMSG_RTC                6
+> > +#define IMX_RPMSG_SENSOR     7
+> > +
+> > +/* rpmsg version */
+> > +#define IMX_RMPSG_MAJOR              1
+> > +#define IMX_RMPSG_MINOR              0
+> > +
+> > +#define MAX_DEV_PER_CHANNEL  10
+> > +
+> > +struct imx_rpmsg_head {
+> > +     u8 cate;        /* Category */
+> > +     u8 major;       /* Major version */
+> > +     u8 minor;       /* Minor version */
+> > +     u8 type;        /* Message type */
+> > +     u8 cmd;         /* Command code */
+> > +     u8 reserved[5];
+> > +} __packed;
+>=20
+> This structure is not used in this file, please remove.
+>=20
+> > +
+> > +struct imx_rpmsg_driver_data {
+> > +     int map_idx;
+> > +     const char *rproc_name;
+> > +     struct rpmsg_device *rpdev;
+> > +     struct device_node *channel_node;
+> > +     int (*rx_callback)(struct rpmsg_device *rpdev, void *data,
+> > +                        int len, void *priv, u32 src);
+> > +     void *channel_devices[MAX_DEV_PER_CHANNEL];
+> > +};
+>=20
+> For the above 2 struct, proper documentation is needed.
+>=20
+> Thanks,
+> Mathieu
+>=20
+> > +
+> > +#endif /* __LINUX_IMX_RPMSG_H__ */
+> > --
+> > 2.43.0
+> >
 
