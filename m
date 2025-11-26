@@ -4,63 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2896D111B3
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 22:25:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AA99CCF9F5
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 22:25:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=15uRdP8/cHAmu2xvFRuF7gS6KSSEI6PGSSoUqxRzVAk=; b=zEPvAE2qEpSv1COup0ZZyToSsR
-	+dKWZtOWXmX2SKi5+4n7oIrMFD9scXKXyPLO9DixVjc/AJtRyRc9iMRlsoqPR+txt5lvCxLt1zQzQ
-	qc9Eo8fLgqHz+1LWFT5y+dykFt1tEy6jE/j/HBcTh+a4TIVndCUc67At0OiGPgXvwZF2vUkfiExXR
-	OfwaI9+CbzsQ5aRVjuZrcwf7csddBAo5sPVQqnz7mJeZYmR5f6QjApTTVsdcZMQ8yGU7S8dlzw63t
-	QN2pbynAG3P3uE5kOIgKO5xoCOVwaS4+bnJKoyk5vu4G0Ju+mQsJOoM7RAH1mQbtmb3ttSqCV+sWX
-	sAQH18SQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JdiNBuFehcyPOmOy5sppRLIzajFbdjUkb07I69kLGso=; b=Y29lbLqtIajXWl97aGWB6OdHw0
+	mEsiNCs0azvdhlDlIPfsM98rnEDQyvGs6xSRfIWnNefweYOJIcteyWD4yWQrb1zGrRqTXWCjvbb+Y
+	2VVj+qX72zeIjutYnr8giAbJ7+5eFt9AUlPTTBwbqPzQqfmzKI38Do2XawqC7TdMqH34oBepB+zW+
+	1jJgDHtUwRsjXIZIyVFVBQNYa8R5WuJsHNIt7xh639bqrhcyXaaWIDQa5jEzk1ZK9/N367ivKkHv8
+	Ab4WzB33eisxIIyoRaFpzHGD+AF8hjPORcwv6MzGwpoBYmlD7rCB9yxLWes3vh71xC4ntW3GHgBzd
+	WxNOBEUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vONww-0000000FiL3-0pFy;
-	Wed, 26 Nov 2025 22:25:22 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vONxU-0000000FiPq-2BWj;
+	Wed, 26 Nov 2025 22:25:56 +0000
+Received: from mailtransmit04.runbox.com ([2a0c:5a00:149::25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vONwu-0000000FiKu-3Eyr
+	id 1vONxR-0000000FiNg-3KO5
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Nov 2025 22:25:20 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id BA9D060215;
-	Wed, 26 Nov 2025 22:25:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 286FCC113D0;
-	Wed, 26 Nov 2025 22:25:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764195919;
-	bh=vi3sXuoq8NW4X5pAcVp0cXxkzqgvDgMYVY32kpZLpT0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=VaMoRZ0gYufKwy89nGlnYRXsSbkvzfjN/4HSsLlH0zGOWVl+uwyAEosiAATPxNtFp
-	 lfEueX4VbHiUN4/BDDnC2DFdOtackaJXgwLSTfhJU8ReCAvFFi7cg1MEep4TSRC/68
-	 gQvHFBwc7153fEYeGlk4hDv0DPyr1WcI4cmLj0xpzhYuevHrROQ+uH3WLpnwivyUsq
-	 AVNz578ogLHWx20x1F/GL+igi9XCcTQMBbxYmrfV7spLqv5XTDLoGL9fX5wifpXyS2
-	 5t2pTO7KakTznKxIqEuBC+oY6OFvyhgQNrBlJdP9cWI3plNw56aH8hhltL4h/7QMXV
-	 dnrl20kgh8ffA==
-Date: Wed, 26 Nov 2025 22:25:17 +0000
-From: Wei Liu <wei.liu@kernel.org>
-To: Anirudh Raybharam <anirudh@anirudhrb.com>
-Cc: kys@microsoft.com, haiyangz@microsoft.com, wei.liu@kernel.org,
-	decui@microsoft.com, longli@microsoft.com, catalin.marinas@arm.com,
-	will@kernel.org, maz@kernel.org, tglx@linutronix.de,
-	Arnd Bergmann <arnd@arndb.de>, akpm@linux-foundation.org,
-	agordeev@linux.ibm.com, guoweikang.kernel@gmail.com, osandov@fb.com,
-	bsz@amazon.de, linux-hyperv@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-arch@vger.kernel.org
-Subject: Re: [PATCH 2/3] irqchip/gic-v3: allocate one SGI for MSHV
-Message-ID: <20251126222517.GA1387324@liuwe-devbox-debian-v2.local>
-References: <20251125170124.2443340-1-anirudh@anirudhrb.com>
- <20251125170124.2443340-3-anirudh@anirudhrb.com>
+	Wed, 26 Nov 2025 22:25:55 +0000
+Received: from mailtransmit02.runbox ([10.9.9.162] helo=aibo.runbox.com)
+	by mailtransmit04.runbox.com with esmtps  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+	(Exim 4.93)
+	(envelope-from <david.laight@runbox.com>)
+	id 1vONws-00Anzk-V3; Wed, 26 Nov 2025 23:25:18 +0100
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=runbox.com;
+	 s=selector1; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date;
+	bh=JdiNBuFehcyPOmOy5sppRLIzajFbdjUkb07I69kLGso=; b=xcD55qt/yTlHbRKdH+dBDSqh0U
+	D42VMdh3YZT9pboyItqPjUEFlMjqGvWOkqKAMtxuETcqWYgXpz4rKroO5l/tRmc3L1BOxUfisIxkl
+	rB1Iby8Ydzrb+bQCoPA7DatT6VLRSGNsdHwRDRTFQ5z0moPBOyfGsIcUf8++5wUiEyW+pE4J/YgUA
+	OPPMAkQtF/m5Q1ardScEOjgI2eA0Y9fd/zb1MeRycorFUZdoNr0n/uOOSlhpqKg4fAk3vPaH5FtCr
+	IgHttiJ0P0sh6EEouRQ3I09DwKT03Sa31APrSym62KaZbRen3hdZZ1gjJ53lTWC+Ky3pEFG8BjzHd
+	gB2J9ibQ==;
+Received: from [10.9.9.74] (helo=submission03.runbox)
+	by mailtransmit02.runbox with esmtp (Exim 4.86_2)
+	(envelope-from <david.laight@runbox.com>)
+	id 1vONwr-0006Pi-3U; Wed, 26 Nov 2025 23:25:17 +0100
+Received: by submission03.runbox with esmtpsa  [Authenticated ID (1493616)]  (TLS1.2:ECDHE_SECP256R1__RSA_SHA256__AES_256_GCM:256)
+	(Exim 4.93)
+	id 1vONwi-00EfwT-M2; Wed, 26 Nov 2025 23:25:08 +0100
+Date: Wed, 26 Nov 2025 22:25:05 +0000
+From: david laight <david.laight@runbox.com>
+To: Al Viro <viro@zeniv.linux.org.uk>
+Cc: "Russell King (Oracle)" <linux@armlinux.org.uk>, Xie Yuanbin
+ <xieyuanbin1@huawei.com>, brauner@kernel.org, jack@suse.cz,
+ will@kernel.org, nico@fluxnic.net, akpm@linux-foundation.org, hch@lst.de,
+ jack@suse.com, wozizhi@huaweicloud.com, linux-fsdevel@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mm@kvack.org, lilinjie8@huawei.com, liaohua4@huawei.com,
+ wangkefeng.wang@huawei.com, pangliyuan1@huawei.com
+Subject: Re: [RFC PATCH] vfs: Fix might sleep in load_unaligned_zeropad()
+ with rcu read lock held
+Message-ID: <20251126222505.1638a66d@pumpkin>
+In-Reply-To: <20251126200221.GE3538@ZenIV>
+References: <20251126090505.3057219-1-wozizhi@huaweicloud.com>
+	<20251126101952.174467-1-xieyuanbin1@huawei.com>
+	<20251126181031.GA3538@ZenIV>
+	<20251126184820.GB3538@ZenIV>
+	<aSdPYYqPD5V7Yeh6@shell.armlinux.org.uk>
+	<20251126192640.GD3538@ZenIV>
+	<aSdaWjgqP4IVivlN@shell.armlinux.org.uk>
+	<20251126200221.GE3538@ZenIV>
+X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251125170124.2443340-3-anirudh@anirudhrb.com>
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251126_142553_839234_84CC04B6 
+X-CRM114-Status: GOOD (  28.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,49 +91,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 25, 2025 at 05:01:23PM +0000, Anirudh Raybharam wrote:
-> From: Anirudh Rayabharam <anirudh@anirudhrb.com>
-[...]
->  /* SMCCC hypercall parameters */
->  #define HV_SMCCC_FUNC_NUMBER	1
->  #define HV_FUNC_ID	ARM_SMCCC_CALL_VAL(			\
-> diff --git a/drivers/irqchip/irq-gic-v3.c b/drivers/irqchip/irq-gic-v3.c
-> index 3de351e66ee8..56013dd0564c 100644
-> --- a/drivers/irqchip/irq-gic-v3.c
-> +++ b/drivers/irqchip/irq-gic-v3.c
-> @@ -35,6 +35,7 @@
->  #include <asm/exception.h>
->  #include <asm/smp_plat.h>
->  #include <asm/virt.h>
-> +#include <asm/mshyperv.h>
->  
->  #include "irq-gic-common.h"
->  
-> @@ -1456,8 +1457,24 @@ static void __init gic_smp_init(void)
->  		.fwnode		= gic_data.fwnode,
->  		.param_count	= 1,
->  	};
-> +	/* Register all 8 non-secure SGIs */
-> +	const int NR_SMP_SGIS = 8;
-> +	int nr_sgis = NR_SMP_SGIS;
->  	int base_sgi;
->  
-> +	/*
-> +	 * Allocate one more SGI for use by Hyper-V. This is only needed when
-> +	 * Linux is running in a parent partition. Hyper-V will use this interrupt
-> +	 * to notify the parent partition of intercepts.
-> +	 *
-> +	 * When running on Hyper-V, it is okay to use SGIs 8-15. They're not reserved
-> +	 * for secure firmware.
-> +	 */
-> +#if IS_ENABLED(CONFIG_HYPERV)
-> +	if (hv_parent_partition())
-> +		nr_sgis += 1;
-> +#endif
-> +
+On Wed, 26 Nov 2025 20:02:21 +0000
+Al Viro <viro@zeniv.linux.org.uk> wrote:
 
-This is far too intrusive. Let's take Marc's feedback and work with the
-hypervisor team to resolve this properly.
+> On Wed, Nov 26, 2025 at 07:51:54PM +0000, Russell King (Oracle) wrote:
+> 
+> > I don't understand how that helps. Wasn't the report that the filename
+> > crosses a page boundary in userspace, but the following page is
+> > inaccessible which causes a fault to be taken (as it always would do).
+> > Thus, wouldn't "addr" be a userspace address (that the kernel is
+> > accessing) and thus be below TASK_SIZE ?
+> > 
+> > I'm also confused - if we can't take a fault and handle it while
+> > reading the filename from userspace, how are pages that have been
+> > swapped out or evicted from the page cache read back in from storage
+> > which invariably results in sleeping - which we can't do here because
+> > of the RCU context (not that I've ever understood RCU, which is why
+> > I've always referred those bugs to Paul.)  
+> 
+> No, the filename is already copied in kernel space *and* it's long enough
+> to end right next to the end of page.  There's NUL before the end of page,
+> at that, with '/' a couple of bytes prior.  We attempt to save on memory
+> accesses, doing word-by-word fetches, starting from the beginning of
+> component.  We *will* detect NUL and ignore all subsequent bytes; the
+> problem is that the last 3 bytes of page might be '/', 'x' and '\0'.
+> We call load_unaligned_zeropad() on page + PAGE_SIZE - 2.  And get
+> a fetch that spans the end of page.
+> 
+> We don't care what's in the next page, if there is one mapped there
+> to start with.  If there's nothing mapped, we want zeroes read from
+> it, but all we really care about is having the bytes within *our*
+> page read correctly - and no oops happening, obviously.
+> 
+> That fault is an extremely cold case on a fairly hot path.  We don't
+> want to mess with disabling pagefaults, etc. - not for the sake
+> of that.
+> 
 
-Wei
+Can you fix it with a flag on the exception table entry that means
+'don't try to fault in a page'?
+
+I think the logic would be the same as 'disabling pagefaults', just
+checking a different flag.
+After all the fault itself happens in both cases.
+
+	David
 
