@@ -4,72 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C238D111BD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 23:51:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C2D2D116E0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 23:54:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wkC4EC2zssMx28s9No60sCNue+peZIp/avGbOKBlk10=; b=DNSO4vdw+40x/cwEI5rDBG67Hs
-	VQMdraSXAvWEpa2SuFl3jr5XbMmcp/F6buzLhtV3/J7Ni+4qGKit5WHj0LpnZax14lvq9/d6iaQTl
-	pCo50HEMBJj+5E6aFOaCQuvOtIU8BTNdfty9ubVIvemtPlbp/fqdg0/2dglg2y1nUWzlKv2o/DOCe
-	RCxV7GY8uC+OsnaLfrmB4f/if22W6BqzU+Xmrhw4Grka6BCOWSeHm1klP/52d8pHBlEDHX9UY5Tpf
-	DpB1nz4v/GxNrcexaqbGHS0QBrQm5NGWLg+8Zykv/f2YOqqD3QLp3eGN79wLgYdd6Ic/8Ldda7FA+
-	O9LyW+IA==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=ZZ0phuZgX22EeC5jqvr0+xobTopn6OyGqzoURnCrk4A=; b=ccIZhyDWn7/2Dz
+	slNTrZEfIgxLIY6xDcVmrfZuGt7d7SvD9La+4ggtK05DpN3AyM+JSvY/sch9FdLpRIQtXQ5fk6bYw
+	MeDvZaeWG131gj5yV3Q3SgJtfN4z6Mowh8/jrILwNdH9kBuXtIb7ShBn4sQRnvmaX2fTMC9nBlRmL
+	QGntghbU3ncphaUQwBYyiHeYJBYRvvoBlvtuYtAXlalnEgnKEPUHjN+RTGfnCCTBEvDZNF/igj35j
+	tM+L4TlJ4w9TfUVvDSdmJdZHGaIkofSWanliCjA/GM5AH2KbkGIyzskJcfo7cNrrS7v2a+Fs2pyDm
+	5tDPzIkiwuY8FUdlE3eg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOPIR-0000000FmEs-2cxV;
-	Wed, 26 Nov 2025 23:51:39 +0000
-Received: from zeniv.linux.org.uk ([2a03:a000:7:0:5054:ff:fe1c:15ff])
+	id 1vOPLJ-0000000FmRV-2qhX;
+	Wed, 26 Nov 2025 23:54:37 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOPIO-0000000FmEX-1BAM
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Nov 2025 23:51:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=linux.org.uk; s=zeniv-20220401; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=wkC4EC2zssMx28s9No60sCNue+peZIp/avGbOKBlk10=; b=n1nD1shoa5nvuzhDtF44Purkpc
-	5bjbZrX5nCdzonSHSYJqpHMlADRQU+VwdfC5fXQJk4ojTO3bemQGJkJw4CtbUfR3/1ghTrFjzhzLX
-	xyxRHWbxXcWc/dcbMkci+w69UUeqkccHLZw+oxDejQ0dfn9XN7hKH3lGMnDlRq24PyViwiT8WzOce
-	q2moRs0tG+D5MF9A0E0YYwDfqx8PGiMrkbyZL8OzaYBxQXeFNUwufzjmsRtaWbHmJMdD6AyCQLs21
-	KjxSQ2LIwidiH62xuLMZf1PIo8EYJ2NeqssUZH5KpjxYnGZXyeoC6X9sAxibDbEo/JmThxsV/WJUM
-	r/WQtNxg==;
-Received: from viro by zeniv.linux.org.uk with local (Exim 4.99 #2 (Red Hat Linux))
-	id 1vOPII-00000006Ijc-3QlD;
-	Wed, 26 Nov 2025 23:51:30 +0000
-Date: Wed, 26 Nov 2025 23:51:30 +0000
-From: Al Viro <viro@zeniv.linux.org.uk>
-To: david laight <david.laight@runbox.com>
-Cc: "Russell King (Oracle)" <linux@armlinux.org.uk>,
-	Xie Yuanbin <xieyuanbin1@huawei.com>, brauner@kernel.org,
-	jack@suse.cz, will@kernel.org, nico@fluxnic.net,
-	akpm@linux-foundation.org, hch@lst.de, jack@suse.com,
-	wozizhi@huaweicloud.com, linux-fsdevel@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mm@kvack.org, lilinjie8@huawei.com, liaohua4@huawei.com,
-	wangkefeng.wang@huawei.com, pangliyuan1@huawei.com
-Subject: Re: [RFC PATCH] vfs: Fix might sleep in load_unaligned_zeropad()
- with rcu read lock held
-Message-ID: <20251126235130.GG3538@ZenIV>
-References: <20251126090505.3057219-1-wozizhi@huaweicloud.com>
- <20251126101952.174467-1-xieyuanbin1@huawei.com>
- <20251126181031.GA3538@ZenIV>
- <20251126184820.GB3538@ZenIV>
- <aSdPYYqPD5V7Yeh6@shell.armlinux.org.uk>
- <20251126192640.GD3538@ZenIV>
- <aSdaWjgqP4IVivlN@shell.armlinux.org.uk>
- <20251126200221.GE3538@ZenIV>
- <20251126222505.1638a66d@pumpkin>
+	id 1vOPLG-0000000FmQy-3mFr;
+	Wed, 26 Nov 2025 23:54:36 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 027DE4197D;
+	Wed, 26 Nov 2025 23:54:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A5A68C4CEF7;
+	Wed, 26 Nov 2025 23:54:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1764201273;
+	bh=g9nM4cO2Nu/TJJjgqtJ77MJB0fTDSxhxd0RQ+LzrMi4=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=RQCfpfeZnsMlL2sUCsmFtjvqUATIhGbpQyu2dIi70gm8+BkN4dpSOM8JiXvAM5ZkP
+	 BoBfquJLzroZc5wGIAhoeSIkCUnY0qS/5icO4JnicFJ0PPsD5DfEBBC7hBmvplQj5F
+	 ri2lDTXygjlNAnWYiAyrbQd22ZR9ML4QDBiPfJIqcB9nPwDfqKnpAU2yVmhPKxrPRg
+	 2EumjNk/YuuXvFGVk84zVWHzVu4QY6ZGevOp5ULfj/A+7wtKaM0W8Gbch+y00woMe/
+	 yBcP4f8YtTSAWZMVLl6ZP0I+y/MtkKXo+hfPfxFy9bKI4FmbV42CSLYgrYvTEV6ahp
+	 pmVD44qu7aO0w==
+Date: Wed, 26 Nov 2025 17:54:32 -0600
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Hans Zhang <18255117159@163.com>
+Cc: lpieralisi@kernel.org, kwilczynski@kernel.org, bhelgaas@google.com,
+	heiko@sntech.de, mani@kernel.org, yue.wang@amlogic.com,
+	pali@kernel.org, neil.armstrong@linaro.org, robh@kernel.org,
+	jingoohan1@gmail.com, khilman@baylibre.com, jbrunet@baylibre.com,
+	martin.blumenstingl@googlemail.com, cassel@kernel.org,
+	linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-amlogic@lists.infradead.org,
+	linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH v6 1/2] PCI: Configure Root Port MPS during host probing
+Message-ID: <20251126235432.GA2726707@bhelgaas>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251126222505.1638a66d@pumpkin>
+In-Reply-To: <20251104165125.174168-2-18255117159@163.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251126_155136_324584_F8F5E882 
-X-CRM114-Status: GOOD (  19.45  )
+X-CRM114-CacheID: sfid-20251126_155434_983171_AC023225 
+X-CRM114-Status: GOOD (  22.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,52 +76,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 26, 2025 at 10:25:05PM +0000, david laight wrote:
-
-> Can you fix it with a flag on the exception table entry that means
-> 'don't try to fault in a page'?
+On Wed, Nov 05, 2025 at 12:51:24AM +0800, Hans Zhang wrote:
+> Current PCIe initialization logic may leave Root Ports (root bridges)
+> operating with non-optimal Maximum Payload Size (MPS) settings. Existing
+> code in pci_configure_mps() returns early for devices without an upstream
+> bridge (!bridge) which includes Root Ports, so their MPS values remain
+> at firmware/hardware defaults. This fails to utilize the controller's full
+> capabilities, leading to suboptimal data transfer efficiency across the
+> PCIe hierarchy.
 > 
-> I think the logic would be the same as 'disabling pagefaults', just
-> checking a different flag.
-> After all the fault itself happens in both cases.
+> With this patch, during the host controller probing phase:
+> - When PCIe bus tuning is enabled (not PCIE_BUS_TUNE_OFF), and
+> - The device is a Root Port without an upstream bridge (!bridge),
+> The Root Port's MPS is set to its hardware-supported maximum value
+> (128 << dev->pcie_mpss).
+> 
+> Note that this initial maximum MPS setting may be reduced later, during
+> downstream device enumeration, if any downstream device does not suppor
+> the Root Port's maximum MPS.
+> 
+> This change ensures Root Ports are properly initialized before downstream
+> devices negotiate MPS, while maintaining backward compatibility via the
+> PCIE_BUS_TUNE_OFF check.
 
-The problem is getting to the point where you search the exception table
-without blocking.
+"Properly" is sort of a junk word for me because all it really says is
+we were stupid before, and we're smarter now, but it doesn't explain
+exactly *what* was wrong and why this new thing is "proper."
 
-x86 #PF had been done that way from well before the point when
-load_unaligned_zeropad() had been introduced, so everything worked
-there from the very beginning.
+It's obvious that the Max_Payload_Size power-on default (128 bytes) is
+suboptimal in some situations, so you don't even need to say that.
+And I think 128 bytes *is* optimal in the PCIE_BUS_PEER2PEER case.
 
-arm and arm64, OTOH, were different - there had been logics for
-"if trylock fails, check if we are in kernel space and have no
-matching exception table entry; bugger off if so, otherwise we
-are safe to grab mmap_sem - it's something like get_user() and
-we *want* mmap_sem there", but it did exactly the wrong thing for
-this case.
+s/Root Ports (root bridges)/Root Ports/
+s/bridge (!bridge)/bridge/     # a couple times
+s/hardware-supported//         # unnecessary
+s/(128 << dev->pcie_mpss)//    # we can read the spec
+s/suppor/support/
 
-The only thing that prevented serious breakage from the very beginning
-was that these faults are very rare - and hard to arrange without
-KFENCE.  So it didn't blow up.  In 2017 arm64 side of problem had
-been spotted and (hopefully) fixed.  arm counterpart stayed unnoticed
-(perhaps for the lack of good reproducer) until now.
+> Suggested-by: Niklas Cassel <cassel@kernel.org>
+> Suggested-by: Manivannan Sadhasivam <mani@kernel.org>
+> Signed-off-by: Hans Zhang <18255117159@163.com>
+> ---
+>  drivers/pci/probe.c | 12 ++++++++++++
+>  1 file changed, 12 insertions(+)
+> 
+> diff --git a/drivers/pci/probe.c b/drivers/pci/probe.c
+> index 0ce98e18b5a8..2459def3af9b 100644
+> --- a/drivers/pci/probe.c
+> +++ b/drivers/pci/probe.c
+> @@ -2196,6 +2196,18 @@ static void pci_configure_mps(struct pci_dev *dev)
+>  		return;
+>  	}
+>  
+> +	/*
+> +	 * Unless MPS strategy is PCIE_BUS_TUNE_OFF (don't touch MPS at all),
+> +	 * start off by setting Root Ports' MPS to MPSS. This only applies to
+> +	 * Root Ports without an upstream bridge (root bridges), as other Root
+> +	 * Ports will have downstream bridges.
 
-Most of the faults are from userland code, obviously, so we don't
-want to search through the exception table on the common path.
-So hanging that on a flag in exception table entry is not a good
-idea - we need a cheaper predicate checked first.
+I can't parse this sentence.  *No* Root Port has an upstream bridge.
+So I don't know what "other Root Ports" would be or why they would
+have downstream bridges (any Root Port is likely to have downstream
+endpoints or bridges).
 
-x86 starts with separating the fault on kernel address from that on
-userland; we are not going anywhere near mmap_sem (and VMAs in general)
-in the former case and that's where load_unaligned_zeropad() faults
-end up.  arm64 fix consisted of using do_translation_fault() instead
-of do_page_fault(), with the former falling back to the latter for
-userland addresses and using do_bad_area() for kernel ones.
-Assuming that the way it's hooked up covers everything, we should
-be fine there.
-
-One potential problem _might_ be with the next PTE present, but
-write-only.  Note that it has to cope with symlink bodies as well
-and those might come from page cache rather than kmem_cache_alloc().
-I'm nowhere near being uptodate on arm64 virtual memory setup, though,
-so take that with a cartload of salt...
+> +	   ... Depending on the MPS strategy
+> +	 * and MPSS of downstream devices, the Root Port's MPS may be
+> +	 * overridden later.
+> +	 */
+> +	if (!bridge && pci_pcie_type(dev) == PCI_EXP_TYPE_ROOT_PORT &&
+> +	    pcie_bus_config != PCIE_BUS_TUNE_OFF)
+> +		pcie_set_mps(dev, 128 << dev->pcie_mpss);
+> +
+>  	if (!bridge || !pci_is_pcie(bridge))
+>  		return;
+>  
+> -- 
+> 2.34.1
+> 
 
