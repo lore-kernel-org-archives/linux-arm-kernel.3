@@ -4,92 +4,174 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADFE8D10F21
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 10:34:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53371D10F23
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 10:34:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=foQtgXluHgTEmm+M28mbH0G/ymfZYd9e4+/49QIlVd8=; b=2fSAODdijc6tVK+owj6+DZjutm
-	rc9zP33r0+2PjBkzvkHq+rqncAu0Rwj3Oaghad0BTuWrLKBJ5U9F6Oz8IJoWYwvBpy/678ryosNup
-	mH1n76l4srujZennCDOSaLqiHYja3FAuMqBtyewyn0QPxfs8JarX94Vb4SlMIk38H/o/Ln0Fw0EsV
-	9Bbf4cYYBb7cruXmWTA8N5rlinLp6cKP/5p++bF257wB42fkGJpcEArWfxX5hzRGUHJLPrLpo7m1N
-	wmKJ713Uzt9l/iXazjRrCJ+erSDE4LozCYQ0KRwVgx+eA5PJCvXKo/FFwfxZaiYDoGcG/r+IY79S/
-	KStcJ77g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pjhKJWIbCge66uLinH9tRqx7+xXROWBjd+EkbNsuId8=; b=0H0LOoDCEAQURQEI/elo9OtmGN
+	5cVhyjWAgV1Xpu5FQK1UZrlstqQTjWHTW7uK2xwd2nC/5+58DkGPF7PYON9wrnaS0Ffr5IDpYIvqU
+	OrGYR6tam13xo6DmxIWcMd2ne9wdMI49AHpHS3KkPpb7TKFBO/d6Xo2Z22KkRDfnOocwVD3mtkFyi
+	MxMrTLNXF1RgAxjMLgfw0fOON50X/gfYWZ8C3fC/VdYScqgdsKjEEHeEA2LofrVX+p9Owpfi9Suq5
+	da8nVa6gLbrHR9qo7WUA0JjgG7H1Q+fEYP3MmAeqRayF6Q+B3aOxVT5hlSbXe2/3IorAv5vNGHF09
+	2nKllNwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOCqU-0000000Enxd-2t9S;
-	Wed, 26 Nov 2025 10:33:58 +0000
-Received: from mail-ed1-x536.google.com ([2a00:1450:4864:20::536])
+	id 1vOCqj-0000000Eo4a-0S9q;
+	Wed, 26 Nov 2025 10:34:13 +0000
+Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOCqR-0000000EnwZ-3xMY
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Nov 2025 10:33:57 +0000
-Received: by mail-ed1-x536.google.com with SMTP id 4fb4d7f45d1cf-6418b55f86dso11049865a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Nov 2025 02:33:54 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1764153233; x=1764758033; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=foQtgXluHgTEmm+M28mbH0G/ymfZYd9e4+/49QIlVd8=;
-        b=VlgCi42/55rQ5YzseegSKoqJyHJvmwt9dvCZOu0Z3ikIkQ+A1KlUh1Djgx27u6H+v3
-         Xl22seWqMLbNM9ABtB4KtL3eyo/j8mh4xydOG6NPTRXRn9wZY33jUGcBkrbDSucy14J4
-         OiyoC8OGeZHW3tSCTlyU0FOJxh4SExilq+RBMH0atWUtMEaIbRX0mUct8ifNXlt1UgFL
-         23GsoCR8QKydDwlLQ6uXgE4IGz0ZJBPOkuWjAIOtnYjHqnbvNH7a4cgPK+yGT4nBVDKc
-         RzDj9MApeTvfGE0u7T2RnWnJDuGoZJgnyIJb+4BxbgDvf2+vvEXSwcmpFTbiSmKUiKlX
-         mPdw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764153233; x=1764758033;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=foQtgXluHgTEmm+M28mbH0G/ymfZYd9e4+/49QIlVd8=;
-        b=nCFUv8SD5+BQUudeAArnk3wE9Grk8tAqhDJ3mrUHL566t6Lx88P+6mLZcoAeegi1V7
-         GJMAP+vhYtZDtn0vqkJ10yWa6hSe9xA/CBdxMkN5Bq67D2O+1on+8I3Z3BMmNDysLBz3
-         2pojHqb0nvuUJ7ze+i6Ngrq31/T9I6nLP88BzPsI/wbc8wpLGe9wl2zedOpVYf47pF2+
-         iXt8E750iuN/1bbQHDjc04Sge0oXTRehJpSVEaLblUeRndkfmkhSI/C15bZcuSuKYDRs
-         95loBKvdIT2VQrZ7hNfbMLm2pW7m2KkkvjXYHoE6zkB9+oabQsZoac/i4njMoYQt9s5H
-         gDAw==
-X-Forwarded-Encrypted: i=1; AJvYcCVfCe3kmP75linB5K5P3WOFsvu6NhZUgTylkC3A/JVfuB1q8Canjz2+PJvXPt40tKjQjNxxlKD3Sg6kjuv96OMh@lists.infradead.org
-X-Gm-Message-State: AOJu0YywDPa0vibDMDHf60OSNstHHofxVYfj1cOjD1H/pIVYJJhyZUeN
-	VPAMJ97sa0LZ77zSkCm0+MyCRbUAb0FJyM2xllSQBYxfVvrWszRr2HgS8wO8rEVfzT8Fq2pBQ/R
-	uB2K87HC6jxDuAso+4xsHNOHMYdjOnjg=
-X-Gm-Gg: ASbGnctSZxudiIgEmKAv7Yq7dgnei+HJCnZ9TeqJikWsOofVf1vM7YTxXm3SpeQKC01
-	nbigZ2/qbmEBSk961FyK+Wd8O8P8/Q/rSiE+9JchgwTvfDiPSszwNN3DZCByZ0Mtp2YyLH5bwEd
-	k5RTIHKV3GCLuDU+4OvAM+ysGowp3JX3l6BAVn/ibdnsfPRp8A1hK20xkniwaqKRBI9fHtBQftB
-	M1pM8kuUR/VtTf1sX/RuoHBKapAkVBE4+hWy60Ka+OgwJSCfGBZ3o/8kKHe7sK/qGW3ai/zWkMM
-	WSr3
-X-Google-Smtp-Source: AGHT+IHwEpZIkU4ztpi99N+Agj881yof+tktEGMPxvRvRn22BHFyRowGIui+kGeAB8yZdBx1EeG9uRV3hFSv93scQ+I=
-X-Received: by 2002:a05:6402:1476:b0:641:7a6b:c84b with SMTP id
- 4fb4d7f45d1cf-6455469c4ccmr15889378a12.27.1764153233256; Wed, 26 Nov 2025
- 02:33:53 -0800 (PST)
+	id 1vOCqV-0000000EnxU-26LD;
+	Wed, 26 Nov 2025 10:34:00 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=HfHMNMAZHiDuhFxjatl6IhGkksSgB2yMD88UYbRVQ6AWfehzUvBqM9HgT8Ol0QeZKOK95n3UPYjDbEMM4pc4Kap6kZgp3SfBbD+R0Dy8DKHvQ5wSPja+Uma9FhjnIJ4qXuT5ypI5WueDNvWy/zDDZ8vTbPwMLzagWI7uGM2/AatN4UD35F/n4znnKMANHvVcyB/FXiXIQ028418W37icEJokdv6FSaIkQl82HTcZZXykepz1OvH3x2ILz/tzE6QZG93ZZOZcpJSH0pWw3ZwjXHdKVPFrnjsjA1yMu9XgqTAulp2kLdTaSv/dzcnZueZnexSxfI52AZ5yNpOPQQMhsQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=pjhKJWIbCge66uLinH9tRqx7+xXROWBjd+EkbNsuId8=;
+ b=mIlKzd+K0iv+bPNAkKuAfL4TLPmgEnxwWP+Zy6eVcpf42lYY5TfjqQ1QjvK5kgmYe535Ssjtet/rj0jjCVtbbhVeR16nwYKatp5LTUoTT9jKV//fR9C7F6Bwe7+Ow0Z7OUF2EIFtwREUqiXuejc/Gv2opr7ODsz65L2X3W4Kvd5TEsqpgFnBTMXVM1oNCvcneFQSvIYyY1gUXWlN14QHZxw8qbJMTkC/SNPTW2PeBvcbuxEeoHYusT1DUQDSI1VjbcGb79p63uQ8Rz10rjuMeMIbZ4bOM0OVLZZ4bgJ5QLLC/hN9FwJIqgwLxqvZYKr9TgBrxIq13pW/ZaCMn/NfrA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=pjhKJWIbCge66uLinH9tRqx7+xXROWBjd+EkbNsuId8=;
+ b=IehudGtK2dDLvUmZ6Q/9Q+gSep90edvqFA/rQu3a7RbiLs9x4SMfqjuWyp4uV6GU5FewOpGJBTy2g5G7GmgU4sfW9oqQHFmbU4bmQ1iDRwQLCOTlefEisnOwL5c3Ccsmrn0zVyl+5XQWJK5DWTG6j+2hO9R9nPLfXZSYgJ+MdJiyyvwwCBTqp4QI+jo8CqfELrDe4TaJklT2aV8ZCq/nRLgcUA1r5+1Zi8WRkJnsY3OejFUaBxBd3I9AoY9rL4tGjhleGgIEHwD4e6BvpQggZ+azj5nm8k+PPPjxojA3ohf0PB3OBcijCJnZGelJXTBk87iHSGv1832GkhzZxLjACw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AM9PR04MB8585.eurprd04.prod.outlook.com (2603:10a6:20b:438::13)
+ by DU4PR04MB11411.eurprd04.prod.outlook.com (2603:10a6:10:5ed::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9366.11; Wed, 26 Nov
+ 2025 10:33:54 +0000
+Received: from AM9PR04MB8585.eurprd04.prod.outlook.com
+ ([fe80::8063:666f:9a2e:1dab]) by AM9PR04MB8585.eurprd04.prod.outlook.com
+ ([fe80::8063:666f:9a2e:1dab%5]) with mapi id 15.20.9366.009; Wed, 26 Nov 2025
+ 10:33:54 +0000
+Date: Wed, 26 Nov 2025 12:33:50 +0200
+From: Vladimir Oltean <vladimir.oltean@nxp.com>
+To: Holger Brunck <holger.brunck@hitachienergy.com>
+Cc: Andrew Lunn <andrew@lunn.ch>,
+	"netdev@vger.kernel.org" <netdev@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-phy@lists.infradead.org" <linux-phy@lists.infradead.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
+	Daniel Golle <daniel@makrotopia.org>,
+	Horatiu Vultur <horatiu.vultur@microchip.com>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Eric Woudstra <ericwouds@gmail.com>,
+	Marek =?utf-8?B?QmVo4oia4oirbg==?= <kabel@kernel.org>,
+	Lee Jones <lee@kernel.org>,
+	Patrice Chotard <patrice.chotard@foss.st.com>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>
+Subject: Re: [PATCH net-next 1/9] dt-bindings: phy: rename
+ transmit-amplitude.yaml to phy-common-props.yaml
+Message-ID: <20251126103350.el6mzde47sg5v6od@skbuf>
+References: <20251122193341.332324-1-vladimir.oltean@nxp.com>
+ <20251122193341.332324-2-vladimir.oltean@nxp.com>
+ <0faccdb7-0934-4543-9b7f-a655a632fa86@lunn.ch>
+ <20251125214450.qeljlyt3d27zclfr@skbuf>
+ <b4597333-e485-426d-975e-3082895e09f6@lunn.ch>
+ <20251126072638.wqwbhhab3afxvm7x@skbuf>
+ <AM0PR06MB10396D06E6F06F6B8AB3CFCBEF7DEA@AM0PR06MB10396.eurprd06.prod.outlook.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <AM0PR06MB10396D06E6F06F6B8AB3CFCBEF7DEA@AM0PR06MB10396.eurprd06.prod.outlook.com>
+X-ClientProxiedBy: VI1PR06CA0143.eurprd06.prod.outlook.com
+ (2603:10a6:803:a0::36) To AM9PR04MB8585.eurprd04.prod.outlook.com
+ (2603:10a6:20b:438::13)
 MIME-Version: 1.0
-References: <CANAwSgRHuwoQjr95sXp-X97=L-X3vqUPxjR5=2jNtFZA+4gnwQ@mail.gmail.com>
- <20251120034437.GA2625966@bhelgaas> <CANAwSgStRZW322X3H_B4wK5CthFube_4MBUBw=U1BRjyRGeu9g@mail.gmail.com>
-In-Reply-To: <CANAwSgStRZW322X3H_B4wK5CthFube_4MBUBw=U1BRjyRGeu9g@mail.gmail.com>
-From: Anand Moon <linux.amoon@gmail.com>
-Date: Wed, 26 Nov 2025 16:03:37 +0530
-X-Gm-Features: AWmQ_blLxnf_4M31Oxa4iWUXkTj660l08seBmojzspPm2hBEwSqSc-XGST03jow
-Message-ID: <CANAwSgQMfu2E+oR0Yi9siKA-PZJ_nyDVCQF=Ua7REHcMRDo0Fg@mail.gmail.com>
-Subject: Re: [RFC v1 1/5] PCI: rockchip: Fix Link Control register offset and
- enable ASPM/CLKREQ
-To: Bjorn Helgaas <helgaas@kernel.org>
-Cc: Shawn Lin <shawn.lin@rock-chips.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-	=?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
-	Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
-	Heiko Stuebner <heiko@sntech.de>, 
-	"open list:PCIE DRIVER FOR ROCKCHIP" <linux-pci@vger.kernel.org>, 
-	"open list:PCIE DRIVER FOR ROCKCHIP" <linux-rockchip@lists.infradead.org>, 
-	"moderated list:ARM/Rockchip SoC support" <linux-arm-kernel@lists.infradead.org>, 
-	open list <linux-kernel@vger.kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM9PR04MB8585:EE_|DU4PR04MB11411:EE_
+X-MS-Office365-Filtering-Correlation-Id: 913ca29d-5e04-484d-c29e-08de2cd74c4a
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|10070799003|376014|19092799006|1800799024|366016;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?UDeTW0V/e6tdtfDWp+FpdAHdoTwqV2zQFOYvUtyDVzMkaEnr/DicSG2QyPZ2?=
+ =?us-ascii?Q?D5SdEP54n9yIAUnloBNKormtznJfH5ubo//j3oM9xVjck1aDoS5WP79nCh39?=
+ =?us-ascii?Q?hjF5yta8tf/D3fdSZKC9IncMiVLr00MmmUVOo4V5ZXf/3IGfeQ2WXOgF5sf3?=
+ =?us-ascii?Q?vZtsMXdjFe/hA7PfXRfUEyd/5ltRafsfTRLPlfzCvme9epgfZ7zYUa0spOeQ?=
+ =?us-ascii?Q?3jErhoqwYI14KQ+vFcuxwNJFR5sq+UmhfvglvFbtMNpeAeBSRCXQXvrW2cXV?=
+ =?us-ascii?Q?kfxJqetOo4LKLV5CumQyv4p/gYd0WaMFKf/wNirdUJrzJUPYXgDzkGg5eusp?=
+ =?us-ascii?Q?bQlciHqZyCITGtZgIZRjPCVFJkRP5R7KDboBTuO2Qrjv2W33B7E8NsZNmAlo?=
+ =?us-ascii?Q?gp1pgfh7oPn+GfJvskLVc7QyN7PSnPp1XmUovI2jdshpB9a7dRbicQio61iT?=
+ =?us-ascii?Q?CIwHU543KBsmi0mB0lmP4uLganyepB916QusUwlsMFPslajchp4esoVowkQ1?=
+ =?us-ascii?Q?xh10KIUygUTuHPRwWxsrjv2//kQ3+z+Brzhjv7DJaRpM7zQRhFGsOnKUZQ60?=
+ =?us-ascii?Q?ooxONuvMKsE1gwLApoOOIlMVB5Bmde064pjSnzThobSF9wqh4Z5GsjDEGXoH?=
+ =?us-ascii?Q?S/7fEWxvC/EiA78iJlaGbGTK15F1Ets6mL/YQ8d5uwahfC6vTwHjelsTanwp?=
+ =?us-ascii?Q?eqIF12WpmisaFpzjp2af5KDk2Np6SIDF74iU9yYCeJsepVDn6ecDyoz117fc?=
+ =?us-ascii?Q?VVhSQONDqIbFx15J/RH3xiN9KLHDPyTlErCXDcvExJmNYpvrVLeRvLI5htqm?=
+ =?us-ascii?Q?0mSguvoow8bQl7Xhbj+emMVHKxlDt0GNZhXkQ1YeRa5hskioUro2wliyTxTG?=
+ =?us-ascii?Q?IwpJOa187++OTFM8/Y4fM8j1p/GVbpgEXEQH9/1bPWLNJFYAdoMoMiG9DzTU?=
+ =?us-ascii?Q?2sh/Y4PvEjVMSFVyYNhujXKFW6PszcoKsyvZvHlm1CJZ2ndnJOq7d/J+F9bP?=
+ =?us-ascii?Q?ZJwZATmqunC3rTMZZ9lmS5JuXaLXhzng0irHnEwXz/0OWytgfkyCjiu8dVdG?=
+ =?us-ascii?Q?/8+yX8fLGhub4b87klREA6XhNmkpMbV5KvFvMXoD2FkSKk2Pt8q9fJl1U+2V?=
+ =?us-ascii?Q?cXKu5PJKuIMH6uF7P1DOVqkrV7TkCRAVlZPMqZWz289CyJowYI5fwHuuNFaF?=
+ =?us-ascii?Q?huuTbHT/FtRi0/yrk6cIXVgI3wf2Pgg5I1/58FY65eq5hu3DTeIFld38LAEA?=
+ =?us-ascii?Q?t/QnOqIUu1iph1t4A3GR8s32y5QatY69gXT/7LAVtGD7OkVs2IDTn4Pz8qsb?=
+ =?us-ascii?Q?eNXRBteSv1ui+rahwyOVvctaa5D9vOI4Zr32DWdI1wb2a+O24u8FbT8j49Nb?=
+ =?us-ascii?Q?Fi4RnGbmlg8R7aSvAzn5VZzhtZRUqAilEc7l6NpXMlZBVlDqG+0egU2HRdsF?=
+ =?us-ascii?Q?560Xew7ZyX5Ij/u+UCEjZZ+3zqhUxs3i?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8585.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(10070799003)(376014)(19092799006)(1800799024)(366016);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ksI1yYoVjTMxcpEe6lhR2ifKOvDykTEssCLI2YIUsf5qU+3lPegJKR1fvR/P?=
+ =?us-ascii?Q?A9PfeehwV/4WxPog+MoEML4Y3M9kswvkW7iEEmJ76HB1xSdAEfNhrzTn341g?=
+ =?us-ascii?Q?EXUjLBv4Y/eNSFxai7rTQpqG4tTgC1LUNzV/O8GtTLS81kV26B03WnyoPW/7?=
+ =?us-ascii?Q?ruGsF5rR5PIpA8hQAwBMBHFF4RSlKuv84u81W8mdCdxr/RwRM2m63+XwkwDF?=
+ =?us-ascii?Q?psw27lTXPrehepntkSBWQyuo2oFsjGQnNKufQU4snTTLw5PcL4VSKSmDP1dL?=
+ =?us-ascii?Q?B7EtPWGAnlwaJiR2tIcss7MK94HYI6VzJsD3trFxuC+F+gyGsAuQ5EnIP2JK?=
+ =?us-ascii?Q?7+i9fs1KvApg/rrHszGdJNaUxjtboCQMcuy8IYxmoSflV1auPIHaNKaL/CBE?=
+ =?us-ascii?Q?9hwDB+GAY0q9j73wYYR9X/1434BhN6dXvrw2CPvnlzAWhcaZrORNzoZNTWHl?=
+ =?us-ascii?Q?STsNzIP0g3XWFEVo5/no9S4jkfOc73odmvHxTDM/FMu3CemJzUvYHx4Z3kCp?=
+ =?us-ascii?Q?vBJYw9UzgM4RRgwNL57Mh3FZsYMtlpWWmoJvByZFEM83uxEEsmw4Cit5yvRN?=
+ =?us-ascii?Q?TPAegVY4TUCIRdGJO8V1OjHNEkC0PzmKTq6/5X8ufLau+K1ywZrlPa1bYnO8?=
+ =?us-ascii?Q?/EWfxKpkNia6gUXsnn2c/43s37YYmS8IBb6RDg+kc6sXDPtTwveuWnrwegTM?=
+ =?us-ascii?Q?fgrzyT//N7BRehpd5B+h/pD/N+x9Bh1h8byRfqS/Io4tGsPA/aXyeiOX/gFF?=
+ =?us-ascii?Q?3YS6sTwD/N6WisK91cgmBi0Cb5QMbrNoaetnqHpwyKLVb0hb6dHkIO3Tw4SO?=
+ =?us-ascii?Q?kDKDznjeXRv+3qfcpcBV6LQReBcT1JO4TyLcDwrSIxw1lE46BMEI0b9egT5f?=
+ =?us-ascii?Q?C6L30tZcBLmUo3ygaNwrrOsyiseMkNFVtvtDCP/zE2CSpns8j4TpcQyTzpmU?=
+ =?us-ascii?Q?tIOlMmNWgI5XUQU/8JCBEb4EUmM50U7g7Q1EO+Z2Nscs6egxjikclKZHW+3l?=
+ =?us-ascii?Q?WKqExMTSjABjpPiEKgNlHdRvlVbDnNCvudJq0wosO9h2rN7prCmOnpzlJ1pv?=
+ =?us-ascii?Q?6XRzdcA2uhZdBAwJghlWbGisj/g2aUsSw6mD2uVaOkuPtbb/svCYp9PHWphO?=
+ =?us-ascii?Q?m4BZIvpEWvy1YMpucYfcKdWYhiwS2sja7yEwAkpygMCddO1Yto8fDcSmgw+u?=
+ =?us-ascii?Q?b2ZXvdORcuLTLNOQZnbE0ONZleUOytDHPv6eZv21XU/HOpcTyCPMz/AAWhPR?=
+ =?us-ascii?Q?kwSf3qp4NDejdE9BiNhSVomc6o/gzZoTsw7RPvuKHhiNQ5Q1Y46A5XbWZY61?=
+ =?us-ascii?Q?82cVgp/7lgfzwLpzZgnkZEXgz7P8RAdwO51Q5SZlujYG4ODr7a/uZ3RyKP27?=
+ =?us-ascii?Q?geLBWaIKLHaENwaJpWlF8ubEKKJF6uEWipPxUq8rZYz8yJCJ7XFhhUMjs4j9?=
+ =?us-ascii?Q?v0IGgLnzzCap7zMtMe7Ordd1JMg3egHpkpyjZRKTfphK3hMfSrmDoP7sMV+x?=
+ =?us-ascii?Q?Vwvt+w8j5CMTZpNaVBZY5qcel1lVqcs10EtqqHgZqy4wnTuRBO1cimZz9KrN?=
+ =?us-ascii?Q?6slkyU54IBaclNHGbU5gCD2c2fqokP0z3zM0+lPEwdn+ZvZ3T2eIoeCuYEUd?=
+ =?us-ascii?Q?SxpDzbzukA1AMNHuzWP1rSFvghrJI1T1NiN4xDH9awpct3SInn9WI/9lnTkC?=
+ =?us-ascii?Q?o0ufKQ=3D=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 913ca29d-5e04-484d-c29e-08de2cd74c4a
+X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8585.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Nov 2025 10:33:54.5870
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: d8Q23+LwBUJb3e5Tlpx6I0Ycy78HPwlOH0J5dVwlymxdPsWn0q846Ku21+FEhAiDmmylcF3XqC9i9GkQWo7/Mg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB11411
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251126_023356_033093_9EF63975 
-X-CRM114-Status: GOOD (  38.20  )
+X-CRM114-CacheID: sfid-20251126_023359_705998_BD64A947 
+X-CRM114-Status: GOOD (  50.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,236 +186,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi All,
+Hi Holger,
 
-On Thu, 20 Nov 2025 at 19:28, Anand Moon <linux.amoon@gmail.com> wrote:
->
-> Hi Bjorn,
->
-> Thanks for your input.
->
-> On Thu, 20 Nov 2025 at 09:14, Bjorn Helgaas <helgaas@kernel.org> wrote:
-> >
-> > On Wed, Nov 19, 2025 at 07:49:06PM +0530, Anand Moon wrote:
-> > > On Tue, 18 Nov 2025 at 23:20, Bjorn Helgaas <helgaas@kernel.org> wrot=
-e:
-> > > > On Mon, Nov 17, 2025 at 11:40:09PM +0530, Anand Moon wrote:
-> > > > > As per the RK3399 TRM (Part 2, 17.6.6.1.31), the Link Control reg=
-ister
-> > > > > (RC_CONFIG_LC) resides at an offset of 0xd0 within the Root Compl=
-ex (RC)
-> > > > > configuration space, not at the offset of the PCI Express Capabil=
-ity List
-> > > > > (0xc0). Following changes correct the register offset to use
-> > > > > PCIE_RC_CONFIG_LC (0xd0) to configure link control.
-> > > ...
-> >
-> > > > Don't do two things at once in the same patch.  Fix the register
-> > > > offset in one patch.  Actually, as I mentioned at [1], there's a lo=
-t
-> > > > of fixing to do there, and I'm not even going to consider other
-> > > > changes until the #define mess is cleaned up.
-> >
-> > > > [1] https://lore.kernel.org/r/20251118005056.GA2541796@bhelgaas
+On Wed, Nov 26, 2025 at 09:32:30AM +0000, Holger Brunck wrote:
+> Hi Vladimir,
+>  
+> > On Tue, Nov 25, 2025 at 11:33:09PM +0100, Andrew Lunn wrote:
+> > > > Yeah, although as things currently stand, I'd say that is the lesser
+> > > > of problems. The only user (mv88e6xxx) does something strange: it
+> > > > says it wants to configure the TX amplitude of SerDes ports, but
+> > > > instead follows the phy-handle and applies the amplitude specified in that
+> > node.
+> > > >
+> > > > I tried to mentally follow how things would work in 2 cases:
+> > > > 1. PHY referenced by phy-handle is internal, then by definition it's not
+> > > >    a SerDes port.
+> > > > 2. PHY referenced by phy-handle is external, then the mv88e6xxx driver
+> > > >    looks at what is essentially a device tree description of the PHY's
+> > > >    TX, and applies that as a mirror image to the local SerDes' TX.
+> > > >
+> > > > I think the logic is used in mv88e6xxx through case #2, i.e. we
+> > > > externalize the mv88e6xxx SerDes electrical properties to an
+> > > > unrelated OF node, the connected Ethernet PHY.
 > > >
-> > > According to the RK3399 Technical Reference Manual (TRM), and pci_reg=
-s.h
-> > > already includes the correct, pre-defined offsets for all PCI Express
-> > > device types
-> > > and their capabilities registers. To avoid overlapping register mappi=
-ngs,
-> > > we should explicitly remove the addition of manual offsets within the=
- code.
-> >
-> > > Here is the example. Is this the correct approach?
-> >
-> > > -       status =3D rockchip_pcie_read(rockchip, PCIE_RC_CONFIG_CR +
-> > > PCI_EXP_LNKCTL);
-> > > +       status =3D rockchip_pcie_read(rockchip, PCIE_RC_CONFIG_LC);
-> > >         status |=3D (PCI_EXP_LNKCTL_LBMIE | PCI_EXP_LNKCTL_LABIE);
-> > > -       rockchip_pcie_write(rockchip, status, PCIE_RC_CONFIG_CR +
-> > > PCI_EXP_LNKCTL);
-> > > +       rockchip_pcie_write(rockchip, status, PCIE_RC_CONFIG_LC);
-> >
-> > No.  The call should include PCI_EXP_LNKCTL because that's what we
-> > grep for when we want to see where Link Control is updated.
-> >
-> > See my example from [1] above:
-> >
-> >   rockchip_pcie_read(rockchip, ROCKCHIP_RP_PCIE_CAP + PCI_EXP_DEVCAP)
-> >   rockchip_pcie_read(rockchip, ROCKCHIP_RP_PCIE_CAP + PCI_EXP_LNKCTL)
-> >
-> > You should have a single #define for the offset of the PCIe
-> > Capability, e.g., ROCKCHIP_RP_PCIE_CAP.  Every access to registers in
-> > that capability would use ROCKCHIP_RP_PCIE_CAP and the relevant
-> > PCI_EXP_* offset, e.g., PCI_EXP_DEVCAP, PCI_EXP_DEVCTL,
-> > PCI_EXP_DEVSTA, PCI_EXP_LNKCAP, PCI_EXP_LNKCTL, PCI_EXP_LNKSTA, etc.
-> >
-> I apologize for not fully understanding the issue earlier. I did not
-> carefully review your email,
->  which caused me to overlook the required changes.
->
-> So, as per the TRM
->
-> 17.6.4.5.1 PCI Express Capability List Register
-> Propname=EF=BC=9APCI Express Capability List Register
-> Address=EF=BC=9A@0xc0
->
-> #define PCIE_EP_CONFIG_DID_VID          (PCIE_EP_CONFIG_BASE + 0x00)
-> #define PCIE_EP_CONFIG_LCS              (PCIE_EP_CONFIG_BASE + 0xd0)
-> #define PCIE_RC_CONFIG_RID_CCR          (PCIE_RC_CONFIG_BASE + 0x08)
-> #define PCIE_RC_CONFIG_CR               (PCIE_RC_CONFIG_BASE + 0xc0)
-> #define ROCKCHIP_RP_PCIE_CAP            (PCIE_RC_CONFIG_BASE + 0xc0)
-> /* Link Control and Status Register */
-> #define PCIE_RC_CONFIG_LC               (ROCKCHIP_RP_PCIE_CAP + 0xd0)
-> /* Device Control */
-> #define PCIE_RC_CONFIG_DC               (ROCKCHIP_RP_PCIE_CAP + 0xc8)
-> /* Slot Capability Register */
-> #define PCIE_RC_CONFIG_SC               (ROCKCHIP_RP_PCIE_CAP + 0xd4)
-> /* Link Control 2 Register */
-> #define PCIE_RC_CONFIG_LC2              (ROCKCHIP_RP_PCIE_CAP + 0xf0)
-> /* Linkwidth Control Register */
-> #define PCIE_RC_CONFIG_LWC              (ROCKCHIP_RP_PCIE_CAP + 0x50)
->
-> And then use these like this.
->
-> status =3D rockchip_pcie_read(rockchip, PCIE_RC_CONFIG_LC + PCI_EXP_LNKCT=
-L);
-> status =3D rockchip_pcie_read(rockchip, PCIE_RC_CONFIG_DC + PCI_EXP_DEVCT=
-L);
-> status =3D rockchip_pcie_read(rockchip, PCIE_RC_CONFIG_SC + PCI_EXP_DEVCA=
-P);
-> status =3D rockchip_pcie_read(rockchip, PCIE_RC_CONFIG_LC2 + PCI_EXP_LNKC=
-TL2);
-> status =3D rockchip_pcie_read(rockchip, PCIE_RC_CONFIG_LWC + PCI_EXP_LNKC=
-TL);
->
-> If you agree that this approach correctly resolves the issue,
-> I would prefer to confirm now to prevent further iterative changes
-> that might confuse.
->
-I was making some changes to the system when my device stopped working,
-The lspci utility started crashing with a segmentation fault.
+> > > My understanding of the code is the same, #2. Although i would
+> > > probably not say it is an unrelated node. I expect the PHY is on the
+> > > other end of the SERDES link which is having the TX amplitudes set.
+> > > This clearly will not work if there is an SFP cage on the other end,
+> > > but it does for an SGMII PHY.
+> > 
+> > It is unrelated in the sense that the SGMII PHY is a different kernel object, and
+> > the mv88e6xxx is polluting its OF node with properties which it then interprets as
+> > its own, when the PHY driver may have wanted to configure its SGMII TX
+> > amplitude too, via those same generic properties.
+> > 
+> > > I guess this code is from before the time Russell converted the
+> > > mv88e6xxx SERDES code into PCS drivers. The register being set is
+> > > within the PCS register set.  The mv88e6xxx also does not make use of
+> > > generic phys to represent the SERDES part of the PCS. So there is no
+> > > phys phandle to follow since there is no phy.
+> > 
+> > In my view, the phy-common-props.yaml are supposed to be applicable to
+> > either:
+> > (1) a network PHY with SerDes host-side connection (I suppose the media
+> >     side electrical properties would be covered by Maxime's phy_port
+> >     work - Maxime, please confirm).
+> > (2) a phylink_pcs with SerDes registers within the same register set
+> > (3) a generic PHY
+> > 
+> > My patch 8/9 (net: phy: air_en8811h: deprecate "airoha,pnswap-rx" and
+> > "airoha,pnswap-tx") is an example of case (1) for polarities. Also, for example,
+> > at least Aquantia Gen3 PHYs (AQR111, AQR112) have a (not very well
+> > documented) "SerDes Lane 0 Amplitude" field in the PHY XS Receive (XAUI TX)
+> > Reserved Vendor Provisioning 4 register (address 4.E413).
+> > 
+> > My patch 7/9 (net: pcs: xpcs: allow lane polarity inversion) is an example of case
+> > (2).
+> > 
+> > I haven't submitted an example of case (3) yet, but the Lynx PCS and Lynx SerDes
+> > would fall into that category. The PCS would be free of describing electrical
+> > properties, and those would go to the generic PHY (SerDes).
+> > 
+> > All I'm trying to say is that we're missing an OF node to describe mv88e6xxx PCS
+> > electrical properties, because otherwise, it collides with case (1). My note
+> > regarding "phys" was just a guess that the "phy-handle"
+> > may have been mistaken for the port's SerDes PHY. Although there is a chance
+> > Holger knew what he was doing. In any case, I think we need to sort this one
+> > way or another, leaving the phy-handle logic a discouraged fallback path.
+> > 
+> 
+> I was checking our use case, and it is a bit special. We have the port in question
+> directly connected to a FPGA which has also have a SerDes interface. We are then
+> configuring a fixed link to the FPGA without a phy in between so there is also no
+> phy handle in our case. But in general, the board in question is now in maintenance
+> and there will be no kernel update anymore in the future. Therefore, it is fine with
+> me if you remove or rework the code in question completely. Hope that helps.
+> 
+> Best regards
+> Holger
 
-$ sudo lspci -vvv
-[sudo] password for alarm:
-Segmentation fault         sudo lspci -vvv
-
-# dmesg logs
-
-[   21.225526] rockchip-pm-domain
-ff310000.power-management:power-controller: sync_state() pending due
-to ff660000.video-codec
-[   34.935331] Internal error: synchronous external abort:
-0000000096000210 [#1]  SMP
-[   34.936027] Modules linked in: 8021q garp mrp stp llc af_alg
-brcmfmac_wcc snd_soc_hdmi_codec hantro_vpu dw_hdmi_i2s_audio
-dw_hdmi_cec rockchip_rga hci_uart v4l2_vp9 rockchipdrm brcmfmac
-brcmutil btqca dw_hdmi_qp snd_soc_simple_card nvme v4l2_h264
-snd_soc_audio_graph_card analogix_dp videobuf2_dma_sg v4l2_jpeg
-snd_soc_es8316 btbcm snd_soc_simple_card_utils dw_mipi_dsi nvme_core
-snd_soc_spdif_tx snd_soc_rockchip_i2s videobuf2_dma_contig
-v4l2_mem2mem drm_dp_aux_bus bluetooth snd_soc_core dw_hdmi
-videobuf2_memops drm_display_helper panfrost videobuf2_v4l2
-snd_compress dwmac_rk videodev ecdh_generic cec snd_pcm_dmaengine
-drm_shmem_helper ax88179_178a stmmac_platform drm_client_lib snd_pcm
-ecc gpu_sched drm_dma_helper videobuf2_common usbnet rockchip_saradc
-stmmac drm_kms_helper pwrseq_core snd_timer reset_gpio
-phy_rockchip_pcie mc industrialio_triggered_buffer snd rockchip_dfi
-rockchip_thermal coresight_cpu_debug soundcore rtc_rk808 kfifo_buf
-pcs_xpcs coresight pcie_rockchip_host sha256 cfg80211 rfkill drm fuse
-backlight
-[   34.936326]  dm_mod ipv6
-[   34.944344] CPU: 1 UID: 0 PID: 796 Comm: lspci Tainted: G   M
-         6.18.0-rc7-dirty #1 PREEMPT
-[   34.945187] Tainted: [M]=3DMACHINE_CHECK
-[   34.945518] Hardware name: Radxa ROCK Pi 4B+ (DT)
-[   34.945932] pstate: 600000c5 (nZCv daIF -PAN -UAO -TCO -DIT -SSBS BTYPE=
-=3D--)
-[   34.946545] pc : rockchip_pcie_rd_conf+0x178/0x27c [pcie_rockchip_host]
-[   34.947138] lr : rockchip_pcie_rd_conf+0x170/0x27c [pcie_rockchip_host]
-[   34.947722] sp : ffff8000848b3bc0
-[   34.948015] x29: ffff8000848b3bc0 x28: ffff0000013e30c0 x27: 00000000000=
-00000
-[   34.948652] x26: 000000000000000f x25: ffff0000013e30c0 x24: 00000000000=
-00040
-[   34.949287] x23: 0000000000000040 x22: ffff8000848b3c44 x21: ffff8000848=
-b3bf4
-[   34.949920] x20: ffff800082100000 x19: 0000000000000004 x18: 00000000000=
-00000
-[   34.950555] x17: 0000000000000000 x16: ffffc37c34322808 x15: 00000000000=
-00000
-[   34.951188] x14: 0000000000000000 x13: 0000000000000000 x12: 00000000000=
-00000
-[   34.951821] x11: 0000000000000000 x10: 0000000000000000 x9 : 00000000000=
-00000
-[   34.952454] x8 : 0000000000000000 x7 : ffff0000084093c0 x6 : ffff000009c=
-d7000
-[   34.953087] x5 : ffff000009cd7800 x4 : ffff800085000000 x3 : 0000000000c=
-00008
-[   34.953722] x2 : 000000000080000a x1 : ffff800085c00008 x0 : ffff800085c=
-0000c
-[   34.954356] Call trace:
-[   34.954576]  rockchip_pcie_rd_conf+0x178/0x27c [pcie_rockchip_host] (P)
-[   34.955164]  pci_user_read_config_dword+0x7c/0x120
-[   34.955598]  pci_read_config+0xe4/0x2a0
-[   34.955944]  sysfs_kf_bin_read+0x7c/0xbc
-[   34.956298]  kernfs_fop_read_iter+0xb0/0x1bc
-[   34.956679]  vfs_read+0x230/0x320
-[   34.956981]  __arm64_sys_pread64+0xac/0xd4
-[   34.957350]  invoke_syscall+0x48/0x10c
-[   34.957691]  el0_svc_common.constprop.0+0x40/0xe0
-[   34.958113]  do_el0_svc+0x1c/0x28
-[   34.958414]  el0_svc+0x34/0xec
-[   34.958694]  el0t_64_sync_handler+0xa0/0xe4
-[   34.959070]  el0t_64_sync+0x198/0x19c
-[   34.959405] Code: 52800141 940000ae 7100127f 54fff801 (b9400294)
-[   34.959940] ---[ end trace 0000000000000000 ]---
-[   34.960349] note: lspci[796] exited with irqs disabled
-[   34.960879] note: lspci[796] exited with preempt_count 1
-
-Either I am doing something wrong, or it's broken; I am not getting
-this to work.
-
-Upon further investigation, the issue was narrowed down to a specific
-modification
-that I made locally,
-
-According to section 17.6.6.1.32 of the manual, the Power Limit Value
-and Power Limit Scale fields
-are part of the Slot Capability Register, not the Device Capability Registe=
-r.
-
-This assumption led to the segmentation fault because the code was attempti=
-ng to
-access invalid memory addresses.
-
-Do you think these are valid changes? Because this change caused a
-freeze on the NVMe device.
-
-$ git  diff drivers/pci/controller/pcie-rockchip-host.c
-diff --git a/drivers/pci/controller/pcie-rockchip-host.c
-b/drivers/pci/controller/pcie-rockchip-host.c
-index ee1822ca01db..743a04e36a1c 100644
---- a/drivers/pci/controller/pcie-rockchip-host.c
-+++ b/drivers/pci/controller/pcie-rockchip-host.c
-@@ -270,10 +270,10 @@ static void rockchip_pcie_set_power_limit(struct
-rockchip_pcie *rockchip)
-                power =3D power / 10;
-        }
-
--       status =3D rockchip_pcie_read(rockchip, PCIE_RC_CONFIG_CR +
-PCI_EXP_DEVCAP);
-+       status =3D rockchip_pcie_read(rockchip, PCIE_RC_CONFIG_CR +
-PCI_EXP_SLTCAP);
-        status |=3D FIELD_PREP(PCI_EXP_DEVCAP_PWR_VAL, power);
-        status |=3D FIELD_PREP(PCI_EXP_DEVCAP_PWR_SCL, scale);
--       rockchip_pcie_write(rockchip, status, PCIE_RC_CONFIG_CR +
-PCI_EXP_DEVCAP);
-+       rockchip_pcie_write(rockchip, status, PCIE_RC_CONFIG_CR +
-PCI_EXP_SLTCAP);
- }
-
-Thanks
--Anand
+Thanks for the response. So given this clarification, how was commit
+926eae604403 ("dsa: mv88e6xxx: make serdes SGMII/Fiber tx amplitude
+configurable") useful for you?
 
