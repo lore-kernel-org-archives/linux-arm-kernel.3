@@ -4,78 +4,155 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73016D10371
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 02:11:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFCD1D10371
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 02:11:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:List-Owner;
-	bh=TZ4RYHKWMk6te1n8wHtQDmZfYAX6NhBLOmrUfw40bIM=; b=Fx7CQjmN4SQhAkZBKkP3cqKzPL
-	5J23CYxIMOOZ4EK3HbuM9Kuy0Dwd9G89+QFWZG71bHZuQ1tgrAFuLc1mI4n+5FOhtycIaEVLIBNHL
-	6ahomWJsA5YDDCTb3StoBI2zEKArhEyXvjSIHmRnl9c1YTVheACRFoBzzWH3uiC7oMZNpOpb27EK8
-	QjqAC/G5tNiJ+fI6qYyK6Cv0VKk1Jw1/WD3V8RMZEOBIozOdkmE5jxEMKliTNeeRcLgjFjDLqWONj
-	ovelES/A/sMClz3/SwBfenX03kLFYf4cyk/Gb0G2jSrCu1ME6IfSHb1AH02N41YE3WqxzqUeXVJO9
-	uUU49PyQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yJka8YDPUVdVAIHHHIAtRD/XCcr4rJkdWdO1ylU53bk=; b=l0RdElehpHfrzvd9+Js7Bkp7nY
+	z55v4lcD+DhWrLCsiW37EiY62QkSv79ZclLuVf2y5yiupui9BuVqddaH8jKCHEf73l3zopPttQXU4
+	bgBZ6DhdIvVBvCoV5ndDG/7JWBZnBQqfNE9cMpG1yQAemzSRKmv28K5HeG/5dxUjftbv0cESP300T
+	+dVrh3ymCBIRF6Iktrn7/SXB0HeHMO/yJLmbZX3yodmFwPl3dFvHalukcNg6dUboQ9XYq42xl2rVA
+	JS9Gk6tMNzhfqdwrKfGAjpacoOmdFYEOFqsfgnOdj3Zg75+Br/NwOgOWmsQhyjGXjCyymmVOzosW1
+	H7S8SxaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vO4zd-0000000ED4E-2E4k;
-	Wed, 26 Nov 2025 02:10:53 +0000
-Received: from mailout3.samsung.com ([203.254.224.33])
+	id 1vO504-0000000ED7H-3YOG;
+	Wed, 26 Nov 2025 02:11:20 +0000
+Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vO4zZ-0000000ED2y-1Vwt
+	id 1vO503-0000000ED6f-0C76
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Nov 2025 02:10:52 +0000
-Received: from epcas1p1.samsung.com (unknown [182.195.41.45])
-	by mailout3.samsung.com (KnoxPortal) with ESMTP id 20251126021038epoutp039a35e4617bcc379539d5a074b397c939~7bI6dAuWn1983519835epoutp03E
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Nov 2025 02:10:38 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout3.samsung.com 20251126021038epoutp039a35e4617bcc379539d5a074b397c939~7bI6dAuWn1983519835epoutp03E
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1764123038;
-	bh=TZ4RYHKWMk6te1n8wHtQDmZfYAX6NhBLOmrUfw40bIM=;
-	h=From:To:Cc:Subject:Date:References:From;
-	b=rKVKRvBBvU5BY+QrBUwfEMtjnbtiABJzpELgY2BFq/gX1zwnnZpe0t3p7pS24oi80
-	 57jZfTt8mx2V+hiqz6mJlYZIejTb03QKYpjwpF3qficxMvaHNvm++Xm7EUZlM72tnW
-	 GYl0zFP+iTOsXkaf6haNq6pak/kBJny7mMuY8vrQ=
-Received: from epsnrtp02.localdomain (unknown [182.195.42.154]) by
-	epcas1p1.samsung.com (KnoxPortal) with ESMTPS id
-	20251126021038epcas1p1c283c8fe460a1e65238782769ebc8917~7bI6G1SU50544105441epcas1p1L;
-	Wed, 26 Nov 2025 02:10:38 +0000 (GMT)
-Received: from epcas1p4.samsung.com (unknown [182.195.38.195]) by
-	epsnrtp02.localdomain (Postfix) with ESMTP id 4dGNM21jQzz2SSKZ; Wed, 26 Nov
-	2025 02:10:38 +0000 (GMT)
-Received: from epsmtip1.samsung.com (unknown [182.195.34.30]) by
-	epcas1p2.samsung.com (KnoxPortal) with ESMTPA id
-	20251126021037epcas1p2c5caf948ede87748ee1d4ef536a62126~7bI5OUK9C0541505415epcas1p2b;
-	Wed, 26 Nov 2025 02:10:37 +0000 (GMT)
-Received: from U20PB1-0362.tn.corp.samsungelectronics.net (unknown
-	[10.91.131.200]) by epsmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20251126021037epsmtip1ffbc329e8ad9878e1e32a954ca9cdc60~7bI5LSh-Y1245212452epsmtip1a;
-	Wed, 26 Nov 2025 02:10:37 +0000 (GMT)
-From: Seongsu Park <sgsu.park@samsung.com>
-To: will@kernel.org, peterz@infradead.org, boqun.feng@gmail.com,
-	mark.rutland@arm.com, gary@garyguo.net, catalin.marinas@arm.com
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	Seongsu Park <sgsu.park@samsung.com>
-Subject: [PATCH] arm64: atomics: lse: Remove unused parameters from
- ATOMIC_FETCH_OP_AND macros
-Date: Wed, 26 Nov 2025 11:10:25 +0900
-Message-Id: <20251126021025.3239562-1-sgsu.park@samsung.com>
-X-Mailer: git-send-email 2.25.1
+	Wed, 26 Nov 2025 02:11:20 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=goJfUauYl4AyJl9M0DETMT0nNAGU77LJETX9iPp3kijB1uvDLiZHFB4/F07N6OJs/nD0N2/QRq85OzlxVDgjmzBWFYgM4ZOQrJBGK+Z2LebYHAkh0IIiruODIJMv8OUvHOK0H0BibCSK2aBBTM5Z4QpVeiNeZGEnJG9/PDjN47JPK0jYJu9Da9jD4hIwxVJH8eof9Llppqlv2H25xUKsfMup3jqHvSIcvSZ0B3DS3qJytp9Vp/Ox/S+CW61Mv7F1+1pX3pXLqlyKkNZ7LgNYr3oFp6Api35Boa/rZgGdAEkk0afLfdxNGR2XGWwFyY/KYCzDcml69wP5nnh+X9uIVg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=yJka8YDPUVdVAIHHHIAtRD/XCcr4rJkdWdO1ylU53bk=;
+ b=beVo6IZFqLysoodE87B/6C/WOPwxP32fMJ2n5MUPzvsfkSVSGeaXyet81QGDvu+NjlY8GJd/N4VAl3FKsLUTKqc83u8b24jwmvfZjsShKNgarT3sJI6QP5VuaJZOWX5YVFF+rftukcNX18QaMnpENkvW46JpSJSR7V9i/ntD5Tb4FMNhfuz0eeDpG7pcNPNMUzRxqVhimtE29xIBdk5YZMpVnN++v6cxxOkwRaSWij48Eb4lUfD4XZBGOhgazxLPF8ifFXM0IfHmM4lNCfqi+ZkgBecFdee6OdU67JQsmGT01RFdN5EnkafQnsFoTy18FhPOYdJ121exyaiipIqHzA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=yJka8YDPUVdVAIHHHIAtRD/XCcr4rJkdWdO1ylU53bk=;
+ b=jRcdMAImuxaqAQcK55OG7or5Q3+9FyleEyGl2nTYWHyh1w9RMt+DiNHhPouA2Or+T6ElhYdpY8VwsWPzU0Jr9TKwMvlxxUKv/RTCKuv6j2Li4DVNuVDyc1zor6Z0DFcfhb1nSkH5+/8hbniefjc52fbEjWBlVjHxY+JstbTDXDyAjtZWIzQPMuyghm4l2Qz91lmvgtnbjugDYZ2uE21MZ4+xBneXLPSKRpq9H/t0Sx46qdOQr3mHgdHSNUeJ0F3G2JbqUlms20U9AzbQkGbhR3YJqlWViIGpt+zuxdpouCWLUE3ssMVjnT/aaMsUZwbBnv53nOdH9qynexwNckBqRw==
+Received: from VI2PR04MB11147.eurprd04.prod.outlook.com
+ (2603:10a6:800:293::14) by VI2PR04MB10620.eurprd04.prod.outlook.com
+ (2603:10a6:800:26f::19) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9366.12; Wed, 26 Nov
+ 2025 02:11:14 +0000
+Received: from VI2PR04MB11147.eurprd04.prod.outlook.com
+ ([fe80::75ad:fac7:cfe7:b687]) by VI2PR04MB11147.eurprd04.prod.outlook.com
+ ([fe80::75ad:fac7:cfe7:b687%6]) with mapi id 15.20.9343.016; Wed, 26 Nov 2025
+ 02:11:14 +0000
+From: Carlos Song <carlos.song@nxp.com>
+To: Frank Li <frank.li@nxp.com>
+CC: "broonie@kernel.org" <broonie@kernel.org>, "hawnguo@kernel.org"
+	<hawnguo@kernel.org>, "s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
+	"kernel@pengutronix.de" <kernel@pengutronix.de>, "festevam@gmail.com"
+	<festevam@gmail.com>, "linux-spi@vger.kernel.org"
+	<linux-spi@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>
+Subject: RE: [PATCH 6/6] spi: imx: enable DMA mode for target operation
+Thread-Topic: [PATCH 6/6] spi: imx: enable DMA mode for target operation
+Thread-Index: AQHcXfNYgnkhVybOTEWLiW6Jy5/IP7UDjt8AgACo8nA=
+Date: Wed, 26 Nov 2025 02:11:14 +0000
+Message-ID: <VI2PR04MB111475132F3380BF3B5ED635AE8DEA@VI2PR04MB11147.eurprd04.prod.outlook.com>
+References: <20251125100618.2159770-1-carlos.song@nxp.com>
+ <20251125100618.2159770-7-carlos.song@nxp.com>
+ <aSXT5tzhfHYVUrGy@lizhi-Precision-Tower-5810>
+In-Reply-To: <aSXT5tzhfHYVUrGy@lizhi-Precision-Tower-5810>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: VI2PR04MB11147:EE_|VI2PR04MB10620:EE_
+x-ms-office365-filtering-correlation-id: 45e91cae-254e-4bc7-416d-08de2c9113ca
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|19092799006|1800799024|376014|366016|38070700021|7053199007;
+x-microsoft-antispam-message-info: =?us-ascii?Q?EjtabvfLreSxlIV3JA1UphvuE4dkfAEP7c4mXTd6AIJ3bDV653o2z3OuChKU?=
+ =?us-ascii?Q?RVUHQaGO9gTmLoiq8fRtYoA5LmMJWUDAuEaG1QuKagRbDsps9JSkA5cLUEt/?=
+ =?us-ascii?Q?6NpChX1e0IpL6fSZA+wkB9G6+MGiD2OBZVeZNl77dFw+NL6rWo9fAtO3AwLx?=
+ =?us-ascii?Q?/RTPQa/G4Dm1TNZpsD+vJc8hWSA1o6R4BmoRn0armwJR41TYw9gVlvwxPpF2?=
+ =?us-ascii?Q?Rao8HQvEFTnIEteI2MR+WhQ0fLreGTdN8Y8FmGTYJKA73BPrXaH/eZi/1mc3?=
+ =?us-ascii?Q?gW5HE4mZt3texzC2m4WajDvR7RGvGO1sUCAVoyjybo/1GqTiWqob1e0clmw1?=
+ =?us-ascii?Q?rx8v2tQ4h9/NSaqSDipPyKQH/4cJw6uQnBNe/Uk7IrDZd4+10r9DMqozdNUJ?=
+ =?us-ascii?Q?iLvKpeq5o5UnUselujEgT48VA19fCa3q8sW9qFs9248VO1BGHyKT0G67cEnG?=
+ =?us-ascii?Q?i9CAldCavp/NS5anTUUrqqQ73qf0sgQByr6a1Nv8b51D8/+PoIvq2E7coA0o?=
+ =?us-ascii?Q?c5WCfIKSXVA/D8kcru1mJnY634BQcukmuoie087IcMkMH9jBuyVRIbSmOTAF?=
+ =?us-ascii?Q?obPqKS6f+JNb10LI/5iumExJA8bjAy0L1CMbkq5mtoZ7YNUoK6LtIfgtJ6gm?=
+ =?us-ascii?Q?QbGZuQ8hpHwRR/f7WDvB5dnJqW9tVl0VYsPI7cvWCqWtSdr5eYkavOaHZD3l?=
+ =?us-ascii?Q?K5TuqVjpWfU1MaR4f48TXUvFg4X2fPQAMPiWv4S0lHwn2BSJXH0ETd956tT9?=
+ =?us-ascii?Q?7dKofUjrZkVivReXtdEbKvWKhJv9C6KVJZ3N0XY2d3DvDCAmLvnQfmLqPZG5?=
+ =?us-ascii?Q?eoMFcXgx+wzW+QjbRUy99eaVa+cjBSwim1pReIYRi4Zc6DelpPqIRyXVh5tS?=
+ =?us-ascii?Q?dUom2IaylXe9VCUOVWA6DVSW45Jvt1UtahQZ+KO0n7xKRb3Qdy26iY7LkmP5?=
+ =?us-ascii?Q?cnlH1QmiW8UWiu9N4DvAH1OlaZXS2wIbq1iS/0GZ2TAwt5oFJHFc4LnCQuA4?=
+ =?us-ascii?Q?xhfOcWfrEkptopmqymxkFoSxszSLAfpJ+ftu33is2+2f+Lq1FdHsdUIdkd+v?=
+ =?us-ascii?Q?b0fpivUFAmC+7zoxLYMLKgwdxBwSurtuVafaPhG129Y1LxIaslbHUXuF8CkE?=
+ =?us-ascii?Q?C65p81yNc6OTKzpkUZIAy5NBSKsbkX0pvx8iMscM7ak7kVhEHnCbu7HgcBZn?=
+ =?us-ascii?Q?4IyArne1eWSRWCE2dBX3m4JQ9sSqYVU7GHFkzcT+U3l+9gDSytvLdSQv9ASK?=
+ =?us-ascii?Q?pqQ7mhnPB0qyffU2ZrQlLXj5EjL/LECqcO0/4MIpPF9F8YjcyrsxXC21OPH6?=
+ =?us-ascii?Q?5qFW5L8ETsbchNav0IvE3PD+NWFmg+AhNCE78K/jhkTiIMt/PG4glW1GGxRw?=
+ =?us-ascii?Q?An+egnq8KEcSavrUYWmq11zuseDiXPrhZc5hgwSo1icCdE7eLdxpQ54u5gju?=
+ =?us-ascii?Q?OQ5gVeKXFDtTQjRegvnWhyq+4hX3nMuB0yI9OjBSZtY5EPa0aLaZnW823Sx/?=
+ =?us-ascii?Q?c9SIWVaLueZx1ulJr9sfab/EciuttDDQTsun?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI2PR04MB11147.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(1800799024)(376014)(366016)(38070700021)(7053199007);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?5hxX8tBzPbpfmxu+wwSMoGY8ekPLFjepTJNI9Ah07Av6rmIpeFFMnlbqLHbp?=
+ =?us-ascii?Q?w0JVOtxPmBHyiNrnWEiCJFsY8JAwMM765lB4+23QFh1ZvFz5QUYQB3TOzd2F?=
+ =?us-ascii?Q?U3k8fQFltPfT+gFRzSBt8VmL/wuC8QB9z3YJaEtikCGVEwMiZib8Q9Lox+f+?=
+ =?us-ascii?Q?vGaKlhJCxFEleTDtsfU9mxgqVFdV7hlDswy2WkPDV3R5MM2pA2UHzljWEtYa?=
+ =?us-ascii?Q?I7Z3hMF6W5gWpRE3kV3gwyht+HIoR5mZCoRoSetv5uYA7be5UhoNFnFcNA/u?=
+ =?us-ascii?Q?n9MBb0ndXr+n+Oo8nEyQVDnAcMyAY6YciEg+WSHQ1hBQ8FxwRnR473zTo7mR?=
+ =?us-ascii?Q?9VZiItE3hD0HLrCxMhxc974/X3DZbvUcsl9vsGbrHZzsr1cbXIqlYDxZlBIb?=
+ =?us-ascii?Q?kFVM2epDZabA91EJhoAUJpmKzhRwtTazKSXPsB/SYxz1PkFfGVJKyz06x8vr?=
+ =?us-ascii?Q?rKd3PlBknMtyraEALo6R0A/F3MFqs1gC/ldiVpqOukZTSZWjgjaUlvx2lXaI?=
+ =?us-ascii?Q?SChNgM8St4WcAPav3QjBvBlXUECpE0d+v8lBmZLbWGVazCxx6ynwDoBCLSKP?=
+ =?us-ascii?Q?HPHEM0piRUBHzHYzL8NYBirWw2TQPmxIBy0/ms1BT6OY0H3De8vd97ceGias?=
+ =?us-ascii?Q?wdUWfFBNsyIuSIcdQM6jH+T/sRmQqbg9H7+BZZ8njFppZBi0eUwKiaacNkll?=
+ =?us-ascii?Q?SA/mF30EMYT7/O7YQi8uZ1Qty/dsRRCkGqoxFd49FPPsVafjlitdQOhZ48w9?=
+ =?us-ascii?Q?1AaJ2T6Yvc/t1s3mIfVAybLPNeOIVL3u47YdJifJiAMqbg+f8IB5SB6vRF8t?=
+ =?us-ascii?Q?QHJ+aN01iyIO82WiAXllIhKWmZRRe+4oDXJMHDAJfOrpASADhoaW9NeWY9QG?=
+ =?us-ascii?Q?bkXLOefRh662fQv7eAk8Ea/27mufXa/X52HrOIAsmphpxpyf1ct/r3VMs/ne?=
+ =?us-ascii?Q?TWdr4rsGYx9xcX+znwJqiC8yZHC/2L45PZy9I4YvrWeD1AfuwvBzOZhcYBDZ?=
+ =?us-ascii?Q?o0EkZSU+aeqUvtzYlQveKLYKd5glrlupJoGx5alwU3M/Xvw/Kja6mHbqTGHP?=
+ =?us-ascii?Q?jGNipXQFxNI8YBMB8zHZNNLwXHckP8SuN8EoEU4gkMvgAa6VsAYImtraEL2L?=
+ =?us-ascii?Q?BV2EeJJj6DFztNuB+uk2oQJnU1h6VqT98ARz0ZpEcBZ0zTw5Ny0DN8iPOK5f?=
+ =?us-ascii?Q?HUywREfDWZBfTSpAzGOXD4mgb6sgBvp3dqroEvusdLGPPntSqbi0NLyhx1Ce?=
+ =?us-ascii?Q?Sg/vmBlj8xKHc3Bzr9hJXnlawBVOGz284Krh6qty7OJtdCShrfq4hBlaVGAy?=
+ =?us-ascii?Q?gENDPkZ1kV+QFkzPzdJTHeU8+NfijMf4h0I6FE4GtjWHPSK0t89hClau2pS2?=
+ =?us-ascii?Q?A7AzDOpp1AtQ9tbPbNKNd8SPFzEQQufR+iI3r+WVWrHsKN4TaryJ+HgH6VCg?=
+ =?us-ascii?Q?5yzTLk7OLnccX1yn2q9Ohs46ncAhdO+ohRiSK6ItHmoMXCa6AJtKZqZB/J2G?=
+ =?us-ascii?Q?wvjAksrZaZwFcEnPfIArxQrsME/8+VNF7lyS4O2xWS3zFG90C4nJKPDyH0g+?=
+ =?us-ascii?Q?s7lsvaU/B6DdIj+DnIABtRlhRwMs86eotNy6+sAZ?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CMS-MailID: 20251126021037epcas1p2c5caf948ede87748ee1d4ef536a62126
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-CMS-TYPE: 101P
-cpgsPolicy: CPGSC10-711,Y
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20251126021037epcas1p2c5caf948ede87748ee1d4ef536a62126
-References: <CGME20251126021037epcas1p2c5caf948ede87748ee1d4ef536a62126@epcas1p2.samsung.com>
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: VI2PR04MB11147.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 45e91cae-254e-4bc7-416d-08de2c9113ca
+X-MS-Exchange-CrossTenant-originalarrivaltime: 26 Nov 2025 02:11:14.7072
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: 160L3Hn4MagZqwR28Y+8HQTZqXhNkps6S3jl2KAQ6et6U3AwDo/3PIMPpGtnu2y/DcmtbBjH4GU7McPVvMWIgg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI2PR04MB10620
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251125_181050_831010_C103CD00 
-X-CRM114-Status: GOOD (  11.34  )
+X-CRM114-CacheID: sfid-20251125_181119_229827_49763B36 
+X-CRM114-Status: GOOD (  31.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,67 +167,174 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The ATOMIC_FETCH_OP_AND and ATOMIC64_FETCH_OP_AND macros accept 'mb' and 
-'cl' parameters but never use them in their implementation. These macros 
-simply delegate to the corresponding andnot functions, which handle the 
-actual atomic operations and memory barriers.
 
-Signed-off-by: Seongsu Park <sgsu.park@samsung.com>
----
- arch/arm64/include/asm/atomic_lse.h | 20 ++++++++++----------
- 1 file changed, 10 insertions(+), 10 deletions(-)
 
-diff --git a/arch/arm64/include/asm/atomic_lse.h b/arch/arm64/include/asm/atomic_lse.h
-index 87f568a94e55..afad1849c4cf 100644
---- a/arch/arm64/include/asm/atomic_lse.h
-+++ b/arch/arm64/include/asm/atomic_lse.h
-@@ -103,17 +103,17 @@ static __always_inline void __lse_atomic_and(int i, atomic_t *v)
- 	return __lse_atomic_andnot(~i, v);
- }
- 
--#define ATOMIC_FETCH_OP_AND(name, mb, cl...)				\
-+#define ATOMIC_FETCH_OP_AND(name)					\
- static __always_inline int						\
- __lse_atomic_fetch_and##name(int i, atomic_t *v)			\
- {									\
- 	return __lse_atomic_fetch_andnot##name(~i, v);			\
- }
- 
--ATOMIC_FETCH_OP_AND(_relaxed,   )
--ATOMIC_FETCH_OP_AND(_acquire,  a, "memory")
--ATOMIC_FETCH_OP_AND(_release,  l, "memory")
--ATOMIC_FETCH_OP_AND(        , al, "memory")
-+ATOMIC_FETCH_OP_AND(_relaxed)
-+ATOMIC_FETCH_OP_AND(_acquire)
-+ATOMIC_FETCH_OP_AND(_release)
-+ATOMIC_FETCH_OP_AND(        )
- 
- #undef ATOMIC_FETCH_OP_AND
- 
-@@ -210,17 +210,17 @@ static __always_inline void __lse_atomic64_and(s64 i, atomic64_t *v)
- 	return __lse_atomic64_andnot(~i, v);
- }
- 
--#define ATOMIC64_FETCH_OP_AND(name, mb, cl...)				\
-+#define ATOMIC64_FETCH_OP_AND(name)					\
- static __always_inline long						\
- __lse_atomic64_fetch_and##name(s64 i, atomic64_t *v)			\
- {									\
- 	return __lse_atomic64_fetch_andnot##name(~i, v);		\
- }
- 
--ATOMIC64_FETCH_OP_AND(_relaxed,   )
--ATOMIC64_FETCH_OP_AND(_acquire,  a, "memory")
--ATOMIC64_FETCH_OP_AND(_release,  l, "memory")
--ATOMIC64_FETCH_OP_AND(        , al, "memory")
-+ATOMIC64_FETCH_OP_AND(_relaxed)
-+ATOMIC64_FETCH_OP_AND(_acquire)
-+ATOMIC64_FETCH_OP_AND(_release)
-+ATOMIC64_FETCH_OP_AND(        )
- 
- #undef ATOMIC64_FETCH_OP_AND
- 
--- 
-2.34.1
-
+> -----Original Message-----
+> From: Frank Li <frank.li@nxp.com>
+> Sent: Wednesday, November 26, 2025 12:06 AM
+> To: Carlos Song <carlos.song@nxp.com>
+> Cc: broonie@kernel.org; hawnguo@kernel.org; s.hauer@pengutronix.de;
+> kernel@pengutronix.de; festevam@gmail.com; linux-spi@vger.kernel.org;
+> imx@lists.linux.dev; linux-arm-kernel@lists.infradead.org;
+> linux-kernel@vger.kernel.org
+> Subject: Re: [PATCH 6/6] spi: imx: enable DMA mode for target operation
+>=20
+> On Tue, Nov 25, 2025 at 06:06:18PM +0800, Carlos Song wrote:
+> > Enable DMA mode for SPI IMX in target mode.
+> > Disable the word delay feature for target mode, because target mode
+> > should always keep high performance to make sure it can follow the
+> > master. Target mode continues to operate in dynamic burst mode.
+>=20
+> If two paragraph, need extra empty line. If one parapraph, move to previo=
+us
+> line.
+>=20
+Will do this in V2.
+> >
+> > Signed-off-by: Carlos Song <carlos.song@nxp.com>
+> > ---
+> >  drivers/spi/spi-imx.c | 78
+> > +++++++++++++++++++++++++++++++------------
+> >  1 file changed, 56 insertions(+), 22 deletions(-)
+> >
+> ...
+> >
+> > @@ -1756,23 +1753,51 @@ static int spi_imx_dma_submit(struct
+> > spi_imx_data *spi_imx,
+> >
+> >  	transfer_timeout =3D spi_imx_calculate_timeout(spi_imx,
+> > transfer->len);
+> >
+> > -	/* Wait SDMA to finish the data transfer.*/
+> > -	time_left =3D wait_for_completion_timeout(&spi_imx->dma_tx_completion=
+,
+> > -						transfer_timeout);
+> > -	if (!time_left) {
+> > -		dev_err(spi_imx->dev, "I/O Error in DMA TX\n");
+> > -		dmaengine_terminate_all(controller->dma_tx);
+> > -		dmaengine_terminate_all(controller->dma_rx);
+> > -		return -ETIMEDOUT;
+> > -	}
+> > +	if (!spi_imx->target_mode) {
+> > +		/* Wait SDMA to finish the data transfer.*/
+> > +		time_left =3D
+> wait_for_completion_timeout(&spi_imx->dma_tx_completion,
+> > +							transfer_timeout);
+> > +		if (!time_left) {
+> > +			dev_err(spi_imx->dev, "I/O Error in DMA TX\n");
+> > +			dmaengine_terminate_all(controller->dma_tx);
+> > +			dmaengine_terminate_all(controller->dma_rx);
+> > +			return -ETIMEDOUT;
+> > +		}
+> >
+> > -	time_left =3D wait_for_completion_timeout(&spi_imx->dma_rx_completion=
+,
+> > -						transfer_timeout);
+> > -	if (!time_left) {
+> > -		dev_err(&controller->dev, "I/O Error in DMA RX\n");
+> > -		spi_imx->devtype_data->reset(spi_imx);
+> > -		dmaengine_terminate_all(controller->dma_rx);
+> > -		return -ETIMEDOUT;
+> > +		time_left =3D
+> wait_for_completion_timeout(&spi_imx->dma_rx_completion,
+> > +							transfer_timeout);
+> > +		if (!time_left) {
+> > +			dev_err(&controller->dev, "I/O Error in DMA RX\n");
+> > +			spi_imx->devtype_data->reset(spi_imx);
+> > +			dmaengine_terminate_all(controller->dma_rx);
+> > +			return -ETIMEDOUT;
+> > +		}
+> > +	} else {
+> > +		spi_imx->target_aborted =3D false;
+> > +
+> > +		if (wait_for_completion_interruptible(&spi_imx->dma_tx_completion)
+> ||
+> > +		    spi_imx->target_aborted) {
+>=20
+> Suppose somewhere set target_aborted to true. I think here should use
+> READ_ONCE() to make sure read from memory.
+>=20
+> Not sure why here use wait_for_completion_interruptible() but at master m=
+ode
+> use wait_for_completion_timeout().
+>=20
+> > +			dev_dbg(spi_imx->dev, "I/O Error in DMA TX interrupted\n");
+> > +			dmaengine_terminate_all(controller->dma_tx);
+> > +			dmaengine_terminate_all(controller->dma_rx);
+> > +			return -EINTR;
+> > +		}
+> > +
+> > +		if (wait_for_completion_interruptible(&spi_imx->dma_rx_completion)
+> ||
+> > +		    spi_imx->target_aborted) {
+> > +			dev_dbg(spi_imx->dev, "I/O Error in DMA RX interrupted\n");
+> > +			dmaengine_terminate_all(controller->dma_rx);
+> > +			return -EINTR;
+> > +		}
+> > +
+> > +		/*
+> > +		 * ECSPI has a HW issue when works in Target mode, after 64 words
+> > +		 * writtern to TXFIFO, even TXFIFO becomes empty, ECSPI_TXDATA
+> keeps
+> > +		 * shift out the last word data, so we have to disable ECSPI when in
+> > +		 * target mode after the transfer completes.
+> > +		 */
+> > +		if (spi_imx->devtype_data->disable)
+> > +			spi_imx->devtype_data->disable(spi_imx);
+> >  	}
+> >
+> >  	return 0;
+> > @@ -1895,10 +1920,16 @@ static int spi_imx_dma_package_transfer(struct
+> > spi_imx_data *spi_imx,  static int spi_imx_dma_transfer(struct spi_imx_=
+data
+> *spi_imx,
+> >  				struct spi_transfer *transfer)
+> >  {
+> > -	bool word_delay =3D transfer->word_delay.value !=3D 0;
+> > +	bool word_delay =3D transfer->word_delay.value !=3D 0 &&
+> > +!spi_imx->target_mode;
+> >  	int ret;
+> >  	int i;
+> >
+> > +	if (transfer->len > MX53_MAX_TRANSFER_BYTES &&
+> spi_imx->target_mode)
+> > +{
+>=20
+> why only target have len limiation?
+>=20
+> Frank
+> > +		dev_err(spi_imx->dev, "Transaction too big, max size is %d bytes\n",
+> > +			MX53_MAX_TRANSFER_BYTES);
+> > +		return -EMSGSIZE;
+> > +	}
+> > +
+> >  	ret =3D spi_imx_dma_data_prepare(spi_imx, transfer, word_delay);
+> >  	if (ret < 0) {
+> >  		transfer->error |=3D SPI_TRANS_FAIL_NO_START; @@ -2104,7 +2135,7
+> @@
+> > static int spi_imx_transfer_one(struct spi_controller *controller,
+> >  	while (spi_imx->devtype_data->rx_available(spi_imx))
+> >  		readl(spi_imx->base + MXC_CSPIRXDATA);
+> >
+> > -	if (spi_imx->target_mode)
+> > +	if (spi_imx->target_mode && !spi_imx->usedma)
+> >  		return spi_imx_pio_transfer_target(spi, transfer);
+> >
+> >  	/*
+> > @@ -2116,7 +2147,10 @@ static int spi_imx_transfer_one(struct
+> spi_controller *controller,
+> >  		ret =3D spi_imx_dma_transfer(spi_imx, transfer);
+> >  		if (transfer->error & SPI_TRANS_FAIL_NO_START) {
+> >  			spi_imx->usedma =3D false;
+> > -			return spi_imx_pio_transfer(spi, transfer);
+> > +			if (spi_imx->target_mode)
+> > +				return spi_imx_pio_transfer_target(spi, transfer);
+> > +			else
+> > +				return spi_imx_pio_transfer(spi, transfer);
+> >  		}
+> >  		return ret;
+> >  	}
+> > --
+> > 2.34.1
+> >
 
