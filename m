@@ -4,115 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2DF6D111A7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 23:10:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 138E2D111BB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 23:22:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NPueFMP8zr9ixlLxuRFFtrM4qKgsXQNTW6I5E7fZYTk=; b=LU/rcdj0gWM3IatWisKciraFPS
-	iBWxToqCALu5sOeM53e3r6P0MQAZ7jgcJNGGb1jtylfdasSLA6RPqziPgymtET0OsStKBm6NjHDf4
-	rTOSIpyu8JiKDFXHK28QsoP7m67mgDsC/LjVUj4KP/mOoxCeQqYx2/GIGSyhgLPv82jPypBvv0OwG
-	CDQon/m/iFFPXb/VhJLxl1hcsvqpN/iG+mbj4YmuYmsc+nI9msYtM2Cgc52igbod2S/PAz9QPSqS8
-	flglcCQxWnI3OMJE6bWR+USTJbu8l7GzdfSv8y+O5rpgzhfNSc6w4SfMyFhUBFPzz9sdxjxZGLGtf
-	tYpWHJWQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=/iRi3Go6HxiPV0+AXntFkNz5muUXA20RHvVZ2K38/4U=; b=zjsGRe5W8BOPOW3r7OImvuK/E0
+	Ga8zrvmZafr9On8w9NjKUMd63opi2dpVtlIO7FnQGElrRGzKVTyDarutBtV9ey0CAu/CrWq/Qv/0F
+	KSL3DlsIvSH8DWQEO5xiof4n/y656VDajKKLyq9xl1QIzCkj4CgtiR57DhpObin1nVjBXY1XkCyuP
+	P6T29WNiSDjYdYWzeVIooZFK2ayoIUpYG0oRX8eeVhE2ZbGNeN1vnt8c+4uIjWB/OOCX+5GsQS87M
+	1StGI7Yrp3v+3dlmBvoIT2c5UNa6MDjpmmEAAjJpDKAbIcRYTI5stno5OU4EE7wEA4dnRFRthdWWZ
+	IEERXS2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOOeU-0000000FkMs-1fvz;
-	Wed, 26 Nov 2025 23:10:22 +0000
-Received: from ip-94-112-25-9.bb.vodafone.cz ([94.112.25.9] helo=ixit.cz)
+	id 1vOOqH-0000000FkrQ-2Sgu;
+	Wed, 26 Nov 2025 23:22:33 +0000
+Received: from mgamail.intel.com ([198.175.65.9])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOOeR-0000000FkMX-2DPm
+	id 1vOOqE-0000000Fkr5-3C3E
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Nov 2025 23:10:21 +0000
-Received: from [10.0.0.200] (unknown [10.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange x25519)
-	(No client certificate requested)
-	by ixit.cz (Postfix) with ESMTPSA id 57F865340144;
-	Thu, 27 Nov 2025 00:10:14 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ixit.cz; s=dkim;
-	t=1764198614;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=NPueFMP8zr9ixlLxuRFFtrM4qKgsXQNTW6I5E7fZYTk=;
-	b=tDHvVjlkoK/0Syp2CpMFQaIpJsH6m/6ARly12dyRYOO4ZqyLgWSiSaHrGSsuT8XNLaTvQx
-	s5bQwWwSdNgUFDs87aCmVEdNJb9D0m7o/Q7saD4fnCSm/zhj6hNzhLFSISNs1Bs/gMIP0A
-	Q1SERYTjnu5z/F/Jz2qeNOxDRU8yxYg=
-Message-ID: <3e808b6a-9dba-4b48-bc39-c0a8aa674d24@ixit.cz>
-Date: Thu, 27 Nov 2025 00:10:14 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH QUESTION] arm64: configs: Add Snapdragon 845 config
- fragment
-To: Catalin Marinas <catalin.marinas@arm.com>,
- David Heidelberg via B4 Relay <devnull+david.ixit.cz@kernel.org>
-Cc: Will Deacon <will@kernel.org>, Casey Connolly
- <casey.connolly@linaro.org>, Casey Connolly <casey@connolly.tech>,
- Joel Selvaraj <foss@joelselvaraj.com>,
- Alexander Martinz <amartinz@shiftphones.com>,
- Dzmitry Sankouski <dsankouski@gmail.com>,
- =?UTF-8?Q?Pablo_Correa_G=C3=B3mez?= <ablocorrea@hotmail.com>,
- =?UTF-8?Q?Guido_G=C3=BCnther?= <agx@sigxcpu.org>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- phone-devel@vger.kernel.org, Arnd Bergmann <arnd@arndb.de>
-References: <20251126-sdm845-config-question-v1-1-ffa91ed53095@ixit.cz>
- <aSdCryMAOb7Qk-qq@arm.com>
-Content-Language: en-US
-From: David Heidelberg <david@ixit.cz>
-Autocrypt: addr=david@ixit.cz; keydata=
- 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
-In-Reply-To: <aSdCryMAOb7Qk-qq@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+	Wed, 26 Nov 2025 23:22:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1764199351; x=1795735351;
+  h=date:from:to:cc:subject:message-id;
+  bh=3fEZoMR7CS4oEatALhhdK+W0f1pcborkI9YfPg5HUy4=;
+  b=ZE0S/2XCl7ur3gdaVtF+R1yIe3QnKKe+IvFKkLTSPcCpnOvT5wQNG3HG
+   o+UlxMUmKj5qNne894bOyyU6WJIDV/Wpx0onQ0RjaNu8JZ9a1lwEtsFaE
+   0AQUXcMkSPFWRRgliKaJDm1Br4WbqkGq0ycSe3UU5h1IzPCZ612Qt6fBs
+   OC5YagtETopZLIriVhSiforCqY96PlUoepps/VpXqYnZObmTQZCaMq1mq
+   x5L7RCL/+Kf8ONkSsSPPiAwAfn7cCgKHbmjS+7a3T0ezgDrrxRMTF6exZ
+   rHZZu0nLE8lTofJuWUA80a0IxV4xhWO0xsdo/XkhEt1gVzagVJj4No3/x
+   Q==;
+X-CSE-ConnectionGUID: zQrbeD53RQiWxOUpns0Rbg==
+X-CSE-MsgGUID: eBWfKx/YRTeZop1rFtDkew==
+X-IronPort-AV: E=McAfee;i="6800,10657,11625"; a="88889941"
+X-IronPort-AV: E=Sophos;i="6.20,229,1758610800"; 
+   d="scan'208";a="88889941"
+Received: from fmviesa006.fm.intel.com ([10.60.135.146])
+  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Nov 2025 15:22:29 -0800
+X-CSE-ConnectionGUID: wAkh4MERQmalO7nO220J6Q==
+X-CSE-MsgGUID: BseIR4o5Qvq8t9gOQ2rIKw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.20,229,1758610800"; 
+   d="scan'208";a="192978670"
+Received: from lkp-server01.sh.intel.com (HELO 4664bbef4914) ([10.239.97.150])
+  by fmviesa006.fm.intel.com with ESMTP; 26 Nov 2025 15:22:28 -0800
+Received: from kbuild by 4664bbef4914 with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1vOOq9-000000003Sc-3YLe;
+	Wed, 26 Nov 2025 23:22:25 +0000
+Date: Thu, 27 Nov 2025 07:22:23 +0800
+From: kernel test robot <lkp@intel.com>
+To: Dinh Nguyen <dinguyen@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
+Subject: [soc:socfpga/dt] BUILD SUCCESS
+ 38eff72f2d3a83475d70ac3a1280b5051d1e46b0
+Message-ID: <202511270718.s8QferSn-lkp@intel.com>
+User-Agent: s-nail v14.9.25
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251126_151019_802716_2F4CD477 
-X-CRM114-Status: GOOD (  25.98  )
+X-CRM114-CacheID: sfid-20251126_152230_841361_927218DB 
+X-CRM114-Status: UNSURE (   5.84  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,69 +83,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 26/11/2025 19:10, Catalin Marinas wrote:
-> On Wed, Nov 26, 2025 at 05:19:20PM +0100, David Heidelberg via B4 Relay wrote:
->> From: Casey Connolly <casey.connolly@linaro.org>
->>
->> This fragment provides reasonable default for the mobile devices
->> based on Snapdragon 845 architecture. While default config could be
->> used, the reality is it brings many issues to the development workflows,
->> which are much harder to address than on generic boards or devices with
->> available UART console.
->>
->> This config fragment produces the .config used by distributions.
->> It is designed to be fairly minimal and specific to the
->> supported SDM845 devices whilst offering all the features you would
->> expect.
->>
->> It disables other arm64 architectures to speed up build times and
->> decrease the size of the kernel image.
->>
->> To generate a .config use "make defconfig sdm845.config"
->>
->> [David]
->>   - Dropped distribution specific options.
->>   - Added entry into the MAINTAINERS file.
-> [...]
->>   MAINTAINERS                      |    5 +
->>   arch/arm64/configs/sdm845.config | 1048 ++++++++++++++++++++++++++++++++++++++
->>   2 files changed, 1053 insertions(+)
-> 
-> I really don't think the kernel should carry configs other than the
-> generic ones used by developers. We had this on arm32 but mostly because
-> we didn't have a single kernel image for a long time (and when we got
-> it, it was mostly for v7 cores). I don't want to get back to hosting a
-> multitude of configs in mainline.
-> 
+tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git socfpga/dt
+branch HEAD: 38eff72f2d3a83475d70ac3a1280b5051d1e46b0  arm64: dts: socfpga: agilex5: update qspi partitions for 013b board
 
-On the arm32 it was custom defconfigs.
-Here we use default defconfig with the sdm845 fragment to accommodate 
-mobile devices (e.g. `make defconfig sdm845.config`).
+elapsed time: 13640m
 
-So far, I would say phones based on sdm845 are one of the most popular 
-for daily-driving, thus I think giving it extra care until the drivers 
-gets rock solid to work with default defconfig would make sense.
+configs tested: 68
+configs skipped: 0
 
-We could have sdm845 config in a separate git tree and developers would 
-contribute to it, but why not have it inside the mainline itself?
-We have the SoC, drivers, most of stuff  needed to get the phones 
-running, why keep the latest piece of puzzle out of kernel?
+The following configs have been built successfully.
+More configs may be tested in the coming days.
 
-One of the best outcomes in long-term would be get rid of it, but we're 
-not there yet.
+tested configs:
+alpha                   allnoconfig    gcc-15.1.0
+alpha                  allyesconfig    gcc-15.1.0
+arc                    allmodconfig    gcc-15.1.0
+arc                     allnoconfig    gcc-15.1.0
+arc                    allyesconfig    gcc-15.1.0
+arm                     allnoconfig    clang-22
+arm                    allyesconfig    gcc-15.1.0
+arm64                  allmodconfig    clang-19
+arm64                   allnoconfig    gcc-15.1.0
+csky                   allmodconfig    gcc-15.1.0
+csky                    allnoconfig    gcc-15.1.0
+hexagon                allmodconfig    clang-17
+hexagon                 allnoconfig    clang-22
+hexagon     randconfig-001-20251122    clang-22
+hexagon     randconfig-002-20251122    clang-17
+i386                   allmodconfig    gcc-14
+i386                    allnoconfig    gcc-14
+i386                   allyesconfig    gcc-14
+loongarch              allmodconfig    clang-19
+loongarch               allnoconfig    clang-22
+loongarch   randconfig-001-20251122    gcc-12.5.0
+loongarch   randconfig-002-20251122    gcc-14.3.0
+m68k                   allmodconfig    gcc-15.1.0
+m68k                    allnoconfig    gcc-15.1.0
+m68k                   allyesconfig    gcc-15.1.0
+microblaze              allnoconfig    gcc-15.1.0
+microblaze             allyesconfig    gcc-15.1.0
+mips                   allmodconfig    gcc-15.1.0
+mips                    allnoconfig    gcc-15.1.0
+mips                   allyesconfig    gcc-15.1.0
+nios2                  allmodconfig    gcc-11.5.0
+nios2                   allnoconfig    gcc-11.5.0
+nios2       randconfig-001-20251122    gcc-11.5.0
+nios2       randconfig-002-20251122    gcc-8.5.0
+openrisc               allmodconfig    gcc-15.1.0
+openrisc                allnoconfig    gcc-15.1.0
+parisc                 allmodconfig    gcc-15.1.0
+parisc                  allnoconfig    gcc-15.1.0
+parisc                 allyesconfig    gcc-15.1.0
+powerpc                allmodconfig    gcc-15.1.0
+powerpc                 allnoconfig    gcc-15.1.0
+riscv                  allmodconfig    clang-22
+riscv                   allnoconfig    gcc-15.1.0
+riscv                  allyesconfig    clang-16
+s390                   allmodconfig    clang-18
+s390                    allnoconfig    clang-22
+s390                   allyesconfig    gcc-15.1.0
+sh                     allmodconfig    gcc-15.1.0
+sh                      allnoconfig    gcc-15.1.0
+sh                     allyesconfig    gcc-15.1.0
+sparc                   allnoconfig    gcc-15.1.0
+sparc64                allmodconfig    clang-22
+um                     allmodconfig    clang-19
+um                      allnoconfig    clang-22
+um                     allyesconfig    gcc-14
+x86_64                 allmodconfig    clang-20
+x86_64                  allnoconfig    clang-20
+x86_64                 allyesconfig    clang-20
+x86_64                        kexec    clang-20
+x86_64                     rhel-9.4    clang-20
+x86_64                 rhel-9.4-bpf    gcc-14
+x86_64                rhel-9.4-func    clang-20
+x86_64          rhel-9.4-kselftests    clang-20
+x86_64               rhel-9.4-kunit    gcc-14
+x86_64                 rhel-9.4-ltp    gcc-14
+x86_64                rhel-9.4-rust    clang-20
+xtensa                  allnoconfig    gcc-15.1.0
+xtensa                 allyesconfig    gcc-15.1.0
 
-Example: In -next tree for sdm845, I recently had to enable 
-`REGULATOR_QCOM_REFGEN=y`, but that means I need to communicate with 
-everyone else trying to use sdm845.config that they need to enable it 
-with 6.19 or their -next tree experiments.
-If it was in mainline, people carrying custom changes on top of sdm845 
-fragment or combining it with distribution fragment would get it 
-together with 6.19 prior without effort with clear commit why this 
-option was enabled instead of fixing/squashing commits.
-
-Do you think the fragment could cause some issues for people working on 
-things outside sdm845 phones area? Or the concert was more about 
-possible precedent?
-
-David
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
