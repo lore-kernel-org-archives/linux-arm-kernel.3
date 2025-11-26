@@ -4,157 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4F3AD11183
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 16:19:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0246D10F28
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 16:20:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MsodfgddKhOSDG2GBtD27ZGo+y0PDAT9cAr9o2A8mRk=; b=k15blVjg4dzGXd15v9tP6cliEg
-	Tt1xE9mJobJ74Fs+h2BH56nTa0OQgH8mTM/cugrMvBlkpFtxMbAVSFIyObbB5ZlWCp+IYi4NUHGZJ
-	vlZBr/D2rKPLpADs4Iz/b9ukGH90DHsGpaTfvG2ETSQoIZr71QazygBHEvw8d3u4FjWtsViT27Thx
-	xV1zUvBh+tPoCbblZAUdepsCARonj35lCKRSLhP7MGEcKmo0rYbrd/845KheSMiAKwCodKjeUmD/B
-	hxL1GM05e0ka/6RdoiINaao2G/XNmn+2Qo35u3pHPqZ8FGOcfn/Bh/u3UVmoA/R29wQoxPDwLl1GH
-	hQ5Bof9A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=BWrAMKdvJakTIIjThg/Gt5HjqTMiTwDW2hXkv7/rxGk=; b=uW3zYTiqul7bHh2RPn3HeEIaY4
+	fdbOuBV95auvXffeddGJAbiWsXwN0Dw/F2I/eVRe+3hvQWESr1XbqsIqehjY8tsMZnP5zBSgdOurb
+	Kh1N6pymDbJrfmUx1dYFPovHNG9xew3/M68ElbCk5vtgxL3jy0UWJOfRY0Gji7bP1miud/IYhDPPJ
+	M939nWI3BsZSj7TlOe+iWZiMyqB85l7i33T5+ExuvFqhHnPWRcCr+filrch0rg3o41AMi06A1wq87
+	gHVGkr2Mz2buDL8AdoQn+NTcghrRhHzqNHZhYyMkmONtxurD/fLmSAg89ntmxPmW8x2nbGDJEwyuC
+	EnrG7N4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOIEo-0000000FHxi-19Uf;
-	Wed, 26 Nov 2025 16:19:26 +0000
-Received: from mail-southcentralusazon11013038.outbound.protection.outlook.com ([40.93.196.38] helo=SA9PR02CU001.outbound.protection.outlook.com)
+	id 1vOIFd-0000000FI50-3JXU;
+	Wed, 26 Nov 2025 16:20:17 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOIEm-0000000FHx9-0w4t
+	id 1vOIFc-0000000FI4n-038A
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 26 Nov 2025 16:20:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Reply-To:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender:
+	Content-ID:Content-Description:In-Reply-To:References;
+	bh=BWrAMKdvJakTIIjThg/Gt5HjqTMiTwDW2hXkv7/rxGk=; b=K0u+NJsf6zGN9Gk0BTbxw5ZV2H
+	XZlfBmNE6VewrQ2WYFHuuKbQNWGTcv0NgwVWgNuXFISRwVIpclm4Y8TU/yVi65KAeBrquC8Z3iJC0
+	6/8ib92qrGupwpmMhcyL3Gsxu/L0GvbIvVW8ojEhKG2yIlwDoDNn3rui5dlgGybBMxV76yizzTdRH
+	pMKbwoxs1OZxEZiiObjHVOo4TytFKZlu9HFi54ItgxsDd8E4sCdMV3fSEjrhY3W9z/df4i3aqvNYR
+	NQaDI4lw31QcwO7Ucg4jzIG/wzULQNu2SY9mGzvSaaKOKuvSSh7vA8wf9cEzk+oqNOaQy/rcRKSak
+	OYHu7FIw==;
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vOHNx-00000008Mqi-463m
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Nov 2025 16:19:25 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=uRv4HsvUO7XnPs2Dz420b4UhMElRmFBQwrdqbEFmPwXyUfOZdFRKKCOMz+ROinvJE45l+qvOvc676C+pEBjvInqtSreET6lI4bfb1Du3gjt57DEblRTaLLVgT6rtJgaSKHQwIK6PDNi/csuhQHGBVQy6IPELAiKCb8Q5jRRfv+EFCA97k3hoY/djgkBCBexrgoLgOXt+iTKPdKIRoujTKRYjvNiQeGdnnqGtBEkvf/rY1gmba/+ObJDQHRfvkEOeCH3XGLtlEAEF3GB9VBoLC9efQZuLc6J9IrRPcZVz5gCNQqfOGX+ywr32xMyA+aTtsfo/bmB8RbF+BlnUs/S0TQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=MsodfgddKhOSDG2GBtD27ZGo+y0PDAT9cAr9o2A8mRk=;
- b=A6BE55ZRZgBj9z2JubIQKPcVqhYdp41os9P1yQj3vqjf70HDFyZ/760+8fQtgeUtaM9VoaGIw8VWYM03lkL+xydxbOOlQu4EKRSVKW91h8DU8jJfpG/7ACu46aDZV3ac0ItIm/IUIWhqCw0oGncs0fs5p0tIGqEymK+w9RggaiDf3p4YbG5XwWd2uiPk+LWA69WCg+jxxdxsNq0aQ6HLyl9Ys26yl4UUVJb1yK1p70E0Ov+fwZPVi7JBJfZNsmVWcqxlGA40cOmtfVt85J8mtthf0UJFpqifkd1x7A1bYAQp/GE0BKzdVnyaanSrM9UqcS0bMXjrmPrOGJ//wn6gIQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=nvidia.com smtp.mailfrom=amd.com; dmarc=pass
- (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=MsodfgddKhOSDG2GBtD27ZGo+y0PDAT9cAr9o2A8mRk=;
- b=SB4v7UFwtxGDl6oousoZBIBIWqkpwlubDkXlblTO7eAfs2N/CPbgJRxhEI4ey7aXtP69MzMV7EgTqDDtROyIfqo364c7+LiRzLw0W6didT7kQK5TdshMcjUmaRGgLHaPry4a2CDYbH94Vun5OmEe79jdMmdU2aI9ISSp1W85d2Y=
-Received: from BL0PR02CA0011.namprd02.prod.outlook.com (2603:10b6:207:3c::24)
- by MW4PR12MB7118.namprd12.prod.outlook.com (2603:10b6:303:213::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9366.11; Wed, 26 Nov
- 2025 16:19:11 +0000
-Received: from BL6PEPF0001AB76.namprd02.prod.outlook.com
- (2603:10b6:207:3c:cafe::3b) by BL0PR02CA0011.outlook.office365.com
- (2603:10b6:207:3c::24) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9366.13 via Frontend Transport; Wed,
- 26 Nov 2025 16:19:11 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
- smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
-Received: from satlexmb07.amd.com (165.204.84.17) by
- BL6PEPF0001AB76.mail.protection.outlook.com (10.167.242.169) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9366.7 via Frontend Transport; Wed, 26 Nov 2025 16:19:10 +0000
-Received: from satlexmb10.amd.com (10.181.42.219) by satlexmb07.amd.com
- (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Wed, 26 Nov
- 2025 10:19:10 -0600
-Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb10.amd.com
- (10.181.42.219) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Wed, 26 Nov
- 2025 08:19:10 -0800
-Received: from [10.252.200.251] (10.180.168.240) by satlexmb08.amd.com
- (10.181.42.217) with Microsoft SMTP Server id 15.2.2562.17 via Frontend
- Transport; Wed, 26 Nov 2025 08:19:05 -0800
-Message-ID: <451ce2f9-732a-4424-bd45-d20a4d819d46@amd.com>
-Date: Wed, 26 Nov 2025 21:49:04 +0530
+	Wed, 26 Nov 2025 15:24:52 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 42EC541874;
+	Wed, 26 Nov 2025 16:20:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 178B1C4CEF7;
+	Wed, 26 Nov 2025 16:20:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1764174008;
+	bh=f/+K4q94WP2HfVUA3ZDGpKnpJY4+xUq94dXJdHaORYo=;
+	h=From:Date:Subject:To:Cc:Reply-To:From;
+	b=PpNjwrIfgEz88jRq9TK3eBwZ7HVo9feWYdDM+F8kQicOAHLwqqP1ThG9IQEhm6YCv
+	 Ovpu4w7R2NNCyIMMaJhA+OGFtB58Ar/EvEV88EcfD0MGPZ/0utfHhSi4yyDdmxInk2
+	 iG5tbRw1vduD8BSXYMbcmFDsXVIDK3i0xadUfesq3XmlmBeC51VxUqSls3luorIffC
+	 dFlxAAPjwAwX8s7xFcWmiYAX9zsrPUKHicX16kebfwoa3KpJryRGa82b+oWVM9+oKy
+	 mfggwTV2ZxcbNxQ+92l39v2SpQkyAlTEuJXwbZVJvupKOdZiahuGmYFx5PhLx/zfP+
+	 Pc2mqQiWCnuLA==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 08D18D10F28;
+	Wed, 26 Nov 2025 16:20:08 +0000 (UTC)
+From: David Heidelberg via B4 Relay <devnull+david.ixit.cz@kernel.org>
+Date: Wed, 26 Nov 2025 17:19:20 +0100
+Subject: [PATCH QUESTION] arm64: configs: Add Snapdragon 845 config
+ fragment
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 1/5] iommu: Lock group->mutex in
- iommu_deferred_attach()
-To: Nicolin Chen <nicolinc@nvidia.com>, "Srivastava, Dheeraj Kumar"
-	<dhsrivas@amd.com>
-CC: <joro@8bytes.org>, <afael@kernel.org>, <bhelgaas@google.com>,
-	<alex@shazbot.org>, <jgg@nvidia.com>, <will@kernel.org>,
-	<robin.murphy@arm.com>, <lenb@kernel.org>, <kevin.tian@intel.com>,
-	<baolu.lu@linux.intel.com>, <linux-arm-kernel@lists.infradead.org>,
-	<iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
-	<linux-acpi@vger.kernel.org>, <linux-pci@vger.kernel.org>,
-	<kvm@vger.kernel.org>, <patches@lists.linux.dev>, <pjaroszynski@nvidia.com>,
-	<vsethi@nvidia.com>, <helgaas@kernel.org>, <etzhao1900@gmail.com>
-References: <cover.1763775108.git.nicolinc@nvidia.com>
- <a7ebae88c78e81e7ff0d14788ddff2e6a9fcecd3.1763775108.git.nicolinc@nvidia.com>
- <1f65de37-db9f-4807-a3ff-6cd377c855a5@amd.com>
- <aScn9t5ctN7FgRKD@Asurada-Nvidia>
-Content-Language: en-US
-From: Dheeraj Kumar Srivastava <dheerajkumar.srivastava@amd.com>
-In-Reply-To: <aScn9t5ctN7FgRKD@Asurada-Nvidia>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BL6PEPF0001AB76:EE_|MW4PR12MB7118:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6207d0a6-74bf-40e0-7773-08de2d078860
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|82310400026|36860700013;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?YXcraEFZcXowMmNqSjlERjQwUlNZQXdMRXMvNTdmMnRVZGRqL1lqWG1Yc1F5?=
- =?utf-8?B?K3Z4VlFGRG5WNDNxaE5FU0U2R25tVnZHQkhsa0YrN1NZV2dkVE4vd3lBU0ph?=
- =?utf-8?B?bmtDZjUzZXlKbkVqa21nMzBhL0s4ZFB6RzB6Y0NCR1dZbm9BemxNempMY1NV?=
- =?utf-8?B?bGk3Z1M4NWJYK2VyZnNnMGZNM2JDaFJQUE5GR2N4dkZyYjRUZUFDS1hxcjBY?=
- =?utf-8?B?eFpkWXkyTEJ4WWcrQTJjR0RuVHRPejdmcS9CL2FGcjRNM01ZTnpMeWs2ZVVk?=
- =?utf-8?B?V1ArMFR4Wk1UeHdURkVMaFFvOUUwZFRSMVZIQkRzMC9QdkFQNlVHTHJNME1K?=
- =?utf-8?B?ZEhnYVZ3bi9XS3VtWHhLd004ellhUDlJaDhFQm52SzdtbFpGWW9UUUNNVWNm?=
- =?utf-8?B?MmZKZHBpdWx2RjAyVDJOTldra2VZdlpoRDNsbWlST1BBZHhYaklTYmp2RHcx?=
- =?utf-8?B?LytqczEzNXh3VjR0RWhrY1diNDBqN3ZPYUZCWlFyTEFKOWF1Z0RwRnE1VXVl?=
- =?utf-8?B?V29ManpYL1dmbm9GSWdDQVczaEQ0ZnBUWHJ2dGEyRWRoV1luK0ZGZlBXdHlK?=
- =?utf-8?B?ZFZIV252Lzc4MUVBQjJTMTVCNS95SGhlUnVWR1psY1NlYmpUTzFoUkNodkhs?=
- =?utf-8?B?RmpHclFCZUkwdXNpd2JKQXNtOGc1elRJSS9CcVdCbTVpL2U1amcwSW1ZQ3pU?=
- =?utf-8?B?VklQNnJMQjJFcGVXVE1NbXV4RGlqRko1WWxrVVVFNHlyNTNpVHVmL3NteFVX?=
- =?utf-8?B?Nll6Mk1MeHNSUXMrdmtNQ2UvcEhUbXU4TEhMNVBXZnd0dXpCQXZNWitxQ0Rh?=
- =?utf-8?B?TXo5Q3YvSG4weERxSkpZbXZWV1c1ZGhQR0RlMDhBVXBpVlliL2FYa08rYy9L?=
- =?utf-8?B?ai9vZjhGUktCSm5uMWUwc0p6b2dlMDNqS3U5SzBoazhyS1VQZktjbWVUMVQz?=
- =?utf-8?B?QWgxdVJOTTRXejRobVVGNEdJYk1VU2RiOFd1L0pTTDFJNGdSK3hDNE9WYjQy?=
- =?utf-8?B?T0UzMVJVKzNMVHIrVEU2UitvYXp3YmNBMkNNYzZ4NmE3Y3pKdXJxQldBcTlK?=
- =?utf-8?B?R0U2WGplME9HajVTZ0NFaEFwa3BxTTh0cUlOWXpYelVIS0o5M3BxaXU0TnBO?=
- =?utf-8?B?Y09RN3RiYTV6elVOZmNpajFtTkJtRFJLVE50enFpNlQ4RmpEMHF3ejdnZXdx?=
- =?utf-8?B?S1FRSmxkcjJxN2tGeGdDaGhlUk4zWDFIZnlsUTg2MjNxV1NHaFpLYzdRZVJK?=
- =?utf-8?B?d09IOXFoV0U4MWJDZU1vSlpFTEo1ZjJxNG56Vkdua1JQT3RCYllxU1RSV2Q4?=
- =?utf-8?B?V3FjSWoyNk1GakpZR1NjMnFJL0RzTlRSVXBobld6WjRaN25YVWFMSFJ3dXFO?=
- =?utf-8?B?N05KRE5WOHNxSzhzV052SHJhMStaUXZmZUJJbGlnZlFzbWcyak5PcWtEa2pu?=
- =?utf-8?B?RzFWbFV2UElLNk9Vdm05VFZJV2hKS01pWDlMbk4rQ09tcWlDWTlPaXZzSlgw?=
- =?utf-8?B?RWlPUVZwLzJ4ekhKY3UyckNFVTRMdWd1RE9jZzgyT2F2R296UkV2THZyS0pj?=
- =?utf-8?B?MStTeVNDK1J3RGlmVVk2b0hQNEdueHd3SC9DREJycEZJdmsyVXk1MUszbmZH?=
- =?utf-8?B?S2RxaldNWDVTSkpFcjF3V1ZvbS9lemNVZHdoUWk5dTVscTNJSzBYc1h6akF3?=
- =?utf-8?B?RjVsL0ZvT3JBMHRQQVQrb2x2OFA4ayt2MDlmanh5TXBSNGZQS2laZE1KSUda?=
- =?utf-8?B?cVpjU0RhNW9WcE9ZOHd1UlYvSnJzRjNFY1JMU25uKzBSRVpLNE1wdC9ua25v?=
- =?utf-8?B?WGZ2RU1CdDR2MStrSVdoMG1wRm9WdXZpTURDMjR0TmRnVmJ1V0FOcU1JUHF6?=
- =?utf-8?B?NDR4NUNMbGtTMkpQNGpHNE45SjBaUGFLN2M1dU9scmVJaWxQbldONWw0R2g0?=
- =?utf-8?B?R0dxQ3VGY2laa09ZZHF4eXlmMWNvdlhIUEZMK05ockNlTmhCbmpiY1U4WVpR?=
- =?utf-8?B?RWNoem14cjJpa2VTK2lFNEh6OEhYOWdLMjRqNHErQnM0ZU9CUGdhSmpZQ1dC?=
- =?utf-8?B?UVJubVVLZVZ0MlR5d1hRdEtPZEpUUWI5T0RRRm14cnZsRUoydURXaFNVS1B0?=
- =?utf-8?Q?b3E0=3D?=
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(82310400026)(36860700013);DIR:OUT;SFP:1101;
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Nov 2025 16:19:10.8788
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6207d0a6-74bf-40e0-7773-08de2d078860
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: BL6PEPF0001AB76.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW4PR12MB7118
+Message-Id: <20251126-sdm845-config-question-v1-1-ffa91ed53095@ixit.cz>
+X-B4-Tracking: v=1; b=H4sIAIcoJ2kC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDI1NDQyMz3eKUXAsTU93k/Ly0zHTdwtLU4hKgFt0US0MTQ2PzJDNjE0sloOa
+ CotS0zAqwwdFKgaGuwSGe/n5KsbW1AJmqNsRyAAAA
+X-Change-ID: 20251126-sdm845-config-question-d914137b6349
+To: David Heidelberg <david@ixit.cz>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+ Casey Connolly <casey.connolly@linaro.org>, 
+ Casey Connolly <casey@connolly.tech>, Joel Selvaraj <foss@joelselvaraj.com>, 
+ Alexander Martinz <amartinz@shiftphones.com>, 
+ Dzmitry Sankouski <dsankouski@gmail.com>, 
+ =?utf-8?q?Pablo_Correa_G=C3=B3mez?= <ablocorrea@hotmail.com>
+Cc: =?utf-8?q?Guido_G=C3=BCnther?= <agx@sigxcpu.org>, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ phone-devel@vger.kernel.org
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=29573; i=david@ixit.cz;
+ h=from:subject:message-id;
+ bh=mCp16WtBzdRwjahfOn7gcPHlg+RA/wzZ0Yn7TVsP1go=;
+ b=owEBbQKS/ZANAwAIAWACP8TTSSByAcsmYgBpJyi2l9q21pmdlTuBT9Xj7o/VpeoVErzSw8UkY
+ aVQgKGKYwqJAjMEAAEIAB0WIQTXegnP7twrvVOnBHRgAj/E00kgcgUCaScotgAKCRBgAj/E00kg
+ ci68D/96PZSrFShfKiTwbUvRoNY1i3BojznGE8eM329v97OZ0DRQooHIHdSKYZU3u3SKcYGiQcu
+ FL3ishgkD9hi4pX4eaMHJVFITbTtlGAU6MoUnQk8HR7MCnq1jsCRjS8fp52AsQP1BlQ1kXDlFTx
+ 4G2JvtGAteUhtBiXU9ZoEq4XFh4DLTKoXindSDWmZpmI7omMy44qnfGTMcDLAmbkQvWTGKmFTCl
+ vBlu0VWYQ2jEHK1NJ6XNOI4GpCbg5GfzaVwwyOvvt1b0uxxHImqaOszRAiFaq4r7Uu9Wu/tB6hL
+ HENJlzs0sF0KF7XreS86HNbX1Zs+NHr7yTgAE9hq1Y8dt+BA8p//MHIGDcPovisVOhnBqV0t/28
+ 9X+vrgdBeJN9iP1oYLGWHx3I+PpieyOqnI9qv1m9qCCqDq+qzyCK0AVVSNZY1z4qfaIuW8c4jaP
+ EzOReKjS5AwuFrZZpEsUioFHEpXdX1+mTypsKOTaYS3L8p+dB5m3uTHMWYpqDds5teKvaF3/sx2
+ Br6cylvtjb36FWv7aNZuCVTFBqE9uFZkDGjrT6SIxBLSnX++yaV9dZcz28KKub0uFDHHLxYXuKp
+ An74i6iQeniMZZ5gYy14oK8liHL3THYGw16bTxyLcwjNMYq2+8r5fIq4v8WvlKlKMZEPjLRs2OP
+ QgL059HR+EJoSpg==
+X-Developer-Key: i=david@ixit.cz; a=openpgp;
+ fpr=D77A09CFEEDC2BBD53A7047460023FC4D3492072
+X-Endpoint-Received: by B4 Relay for david@ixit.cz/default with auth_id=355
+X-Original-From: David Heidelberg <david@ixit.cz>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251126_081924_411301_3D406196 
-X-CRM114-Status: GOOD (  13.32  )
+X-CRM114-CacheID: sfid-20251126_152450_690670_FF684F5C 
+X-CRM114-Status: GOOD (  22.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -166,59 +116,1151 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: david@ixit.cz
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi
+From: Casey Connolly <casey.connolly@linaro.org>
 
-On 11/26/2025 9:46 PM, Nicolin Chen wrote:
-> On Wed, Nov 26, 2025 at 06:25:34PM +0530, Srivastava, Dheeraj Kumar wrote:
->> On 11/22/2025 7:27 AM, Nicolin Chen wrote:
->>> The iommu_deferred_attach() function invokes __iommu_attach_device(), but
->>> doesn't hold the group->mutex like other __iommu_attach_device() callers.
->>>
->>> Though there is no pratical bug being triggered so far, it would be better
->>> to apply the same locking to this __iommu_attach_device(), since the IOMMU
->>> drivers nowaday are more aware of the group->mutex -- some of them use the
->>> iommu_group_mutex_assert() function that could be potentially in the path
->>> of an attach_dev callback function invoked by the __iommu_attach_device().
->>>
->>> Worth mentioning that the iommu_deferred_attach() will soon need to check
->>> group->resetting_domain that must be locked also.
->>>
->>> Thus, grab the mutex to guard __iommu_attach_device() like other callers.
->>>
->>
->> Tested the series with PCI reset on PFs and VFs, including device
->> pass-through to a Linux guest. All scenarios worked as expected.
->>
->> Tested-by: Dheeraj Kumar Srivastava <dheerajkumar.srivastava@amd.com>
-> 
-> Thanks for testing!
-> 
-> Yet, this is replying to PATCH-1. So, you might want to reply with
-> your "Tested-by" tag to PATCH-0 :)
-> 
+This fragment provides reasonable default for the mobile devices
+based on Snapdragon 845 architecture. While default config could be
+used, the reality is it brings many issues to the development workflows,
+which are much harder to address than on generic boards or devices with
+available UART console.
 
-Sure.
+This config fragment produces the .config used by distributions.
+It is designed to be fairly minimal and specific to the
+supported SDM845 devices whilst offering all the features you would
+expect.
 
-Thanks
-Dheeraj
+It disables other arm64 architectures to speed up build times and
+decrease the size of the kernel image.
 
-> Otherwise, default B4 command might miss your tag in other patches:
-> 
->    ✗ [PATCH v7 1/5] iommu: Lock group->mutex in iommu_deferred_attach()
->      + Tested-by: Dheeraj Kumar Srivastava <dheerajkumar.srivastava@amd.com> (✓ DKIM/amd.com)
->    ✗ [PATCH v7 2/5] iommu: Tidy domain for iommu_setup_dma_ops()
->      + Reviewed-by: Jason Gunthorpe <jgg@nvidia.com> (✗ DKIM/Nvidia.com)
->    ✗ [PATCH v7 3/5] iommu: Add iommu_driver_get_domain_for_dev() helper
->      + Reviewed-by: Jason Gunthorpe <jgg@nvidia.com> (✗ DKIM/Nvidia.com)
->    ✗ [PATCH v7 4/5] iommu: Introduce pci_dev_reset_iommu_prepare/done()
->      + Reviewed-by: Jason Gunthorpe <jgg@nvidia.com> (✗ DKIM/Nvidia.com)
->    ✗ [PATCH v7 5/5] PCI: Suspend iommu function prior to resetting a device
->      + Reviewed-by: Jason Gunthorpe <jgg@nvidia.com> (✗ DKIM/Nvidia.com)
-> 
-> Thank you
-> Nicolin
+To generate a .config use "make defconfig sdm845.config"
+
+[David]
+ - Dropped distribution specific options.
+ - Added entry into the MAINTAINERS file.
+
+Signed-off-by: Casey Connolly <casey@connolly.tech>
+Co-developed-by: Joel Selvaraj <foss@joelselvaraj.com>
+Signed-off-by: Joel Selvaraj <foss@joelselvaraj.com>
+Co-developed-by: Alexander Martinz <amartinz@shiftphones.com>
+Signed-off-by: Alexander Martinz <amartinz@shiftphones.com>
+Co-developed-by: Dzmitry Sankouski <dsankouski@gmail.com>
+Signed-off-by: Dzmitry Sankouski <dsankouski@gmail.com>
+Co-developed-by: Pablo Correa Gómez <ablocorrea@hotmail.com>
+Signed-off-by: Pablo Correa Gómez <ablocorrea@hotmail.com>
+Co-developed-by: David Heidelberg <david@ixit.cz>
+Signed-off-by: David Heidelberg <david@ixit.cz>
+---
+This patch is a question, if it would be viable to introduce this
+configuration fragment as part of mainline kernel, so keeping it in sync
+with recent kernel updates would be more straighforward.
+
+When this file is kept by distributions, it cannot be reused on latest
+releases and for building latest kernels, as the options gets
+desynchronized.
+
+I offer to maintain this file within the mainline kernel, and I believe
+most likely some of the co-authors of the file will likely step up to
+keep it up-to-date, so people who want to contribute can avoid fighting
+with old configuration file downloaded from downstream project and can
+focus on fixing actual bugs.
+
+In case this fragment gets unmaintained status in the future, there
+shouldn't be any issues to just remove it from the kernel.
+
+What do you think?
+
+Thank you
+David
+
+P.S. in case of possible acceptance of this patch, we would definitely
+put effort to clean it up and tidy it.
+---
+ MAINTAINERS                      |    5 +
+ arch/arm64/configs/sdm845.config | 1048 ++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 1053 insertions(+)
+
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 24b9298c43855..62fff5d365225 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -3272,6 +3272,11 @@ F:	include/linux/firmware/qcom
+ F:	include/linux/soc/qcom/
+ F:	include/soc/qcom/
+ 
++ARM/QUALCOMM 845 ARCHITECTURE SUPPORT
++M:	David Heidelberg <david@ixit.cz
++S:	Maintained
++F:	arch/arm64/configs/sdm845.config
++
+ ARM/RDA MICRO ARCHITECTURE
+ M:	Manivannan Sadhasivam <mani@kernel.org>
+ L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
+diff --git a/arch/arm64/configs/sdm845.config b/arch/arm64/configs/sdm845.config
+new file mode 100644
+index 0000000000000..255ba5b05450e
+--- /dev/null
++++ b/arch/arm64/configs/sdm845.config
+@@ -0,0 +1,1048 @@
++# Qualcomm Snapdragon 845 (SDM845) config fragment
++CONFIG_LOCALVERSION="-sdm845"
++
++# This introduces some weird race conditions. Stick to the
++# userspace one for now (6.13)
++CONFIG_QCOM_PD_MAPPER=n
++
++# OnePlus 6
++CONFIG_DRM_PANEL_SAMSUNG_SOFEF00=y
++CONFIG_BATTERY_BQ27XXX=m
++CONFIG_HID_RMI=m
++CONFIG_RMI4_CORE=m
++CONFIG_RMI4_I2C=m
++CONFIG_RMI4_F55=y
++CONFIG_VIDEO_IMX371=m
++CONFIG_VIDEO_IMX376=m
++CONFIG_VIDEO_IMX519=m
++CONFIG_VIDEO_LC898217XC=m
++
++# OnePlus 6T
++CONFIG_DRM_PANEL_SAMSUNG_S6E3FC2X01=y
++CONFIG_SND_SOC_TFA98XX=m
++
++# Pocophone F1
++CONFIG_DRM_PANEL_NOVATEK_NT36672A=y
++CONFIG_DRM_PANEL_EBBG_FT8719=y
++CONFIG_TOUCHSCREEN_NOVATEK_NVT_TS=m
++CONFIG_QCOM_GPI_DMA=m
++CONFIG_SND_SOC_TAS2559=m
++CONFIG_VIDEO_IMX363=m
++
++# Samsung S9 SM-G9600(starqltechn)
++CONFIG_SND_SOC_MAX98512=y
++CONFIG_SND_SOC_MAXIM_DSM=y
++CONFIG_SND_SOC_MAXIM_DSM_CAL=y
++CONFIG_DRM_PANEL_SAMSUNG_S6E3HA8=y
++CONFIG_TOUCHSCREEN_S6SY761=m
++CONFIG_MFD_SEC_CORE=m
++CONFIG_REGULATOR_S2DOS05=m
++CONFIG_MFD_MAX77705=m
++CONFIG_LEDS_MAX77705=m
++CONFIG_CHARGER_MAX77705=m
++CONFIG_BATTERY_MAX17042=m
++CONFIG_INPUT_MAX77693_HAPTIC=m
++CONFIG_PWM_CLK=m
++
++# SHIFT6mq
++CONFIG_DRM_PANEL_VISIONOX_RM69299=y
++CONFIG_SND_SOC_TFA989X=m
++
++# Pixel 3
++CONFIG_DRM_PANEL_LG_SW43408=y
++CONFIG_SND_SOC_CS35L36=m
++
++# Odin
++# Driver has been dropped
++CONFIG_DRM_PANEL_INNOLUX_TD4328=y
++
++# Mi Mix 2S
++CONFIG_DRM_PANEL_NOVATEK_NT35596S=y
++
++# Mi Mix 3
++CONFIG_DRM_PANEL_SAMSUNG_EA8076=y
++CONFIG_SND_SOC_TAS2557=m
++
++# C630
++CONFIG_DRM_TI_SN65DSI86=y
++CONFIG_DRM_PANEL_EDP=y
++CONFIG_PHY_QCOM_EDP=y
++CONFIG_I2C_HID_OF_ELAN=m
++CONFIG_BACKLIGHT_PWM=y
++CONFIG_EC_LENOVO_YOGA_C630=m
++CONFIG_BATTERY_LENOVO_YOGA_C630=m
++
++# SOC
++CONFIG_FORCE_NR_CPUS=y
++CONFIG_NR_CPUS=8
++CONFIG_SCSI_UFS_QCOM=y
++CONFIG_QCOM_GSBI=y
++CONFIG_QCOM_LLCC=y
++CONFIG_QCOM_OCMEM=y
++CONFIG_QCOM_RMTFS_MEM=y
++CONFIG_QCOM_SOCINFO=y
++CONFIG_QCOM_WCNSS_CTRL=y
++CONFIG_QCOM_APR=y
++CONFIG_POWER_RESET_QCOM_PON=y
++CONFIG_QCOM_SPMI_TEMP_ALARM=y
++CONFIG_QCOM_LMH=y
++CONFIG_SCHED_CLUSTER=y
++CONFIG_SND_SOC_QDSP6_Q6VOICE=m
++CONFIG_SCSI_UFS_BSG=y
++CONFIG_PHY_QCOM_QMP_PCIE=y
++CONFIG_BACKLIGHT_CLASS_DEVICE=y
++CONFIG_INTERCONNECT_QCOM_OSM_L3=y
++# Notification LED
++# Must be builtin as it won't be automatically modprobed
++CONFIG_LEDS_TRIGGER_PATTERN=y
++CONFIG_LEDS_CLASS_MULTICOLOR=m
++CONFIG_LEDS_QCOM_LPG=m
++CONFIG_I2C_QCOM_GENI=y
++
++# Flash LED
++CONFIG_LEDS_QCOM_FLASH=m
++
++# Touchscreen - Pocophone F1 / SHIFT6mq
++CONFIG_TOUCHSCREEN_EDT_FT5X06=m
++
++# Remoteproc
++CONFIG_SLIMBUS=y
++CONFIG_SLIM_QCOM_CTRL=y
++CONFIG_SLIM_QCOM_NGD_CTRL=y
++CONFIG_REMOTEPROC_CDEV=y
++
++# Battery
++CONFIG_BATTERY_QCOM_FG=m
++CONFIG_CHARGER_QCOM_SMB2=m
++CONFIG_QCOM_SPMI_RRADC=m
++
++# Graphics
++CONFIG_DRM=y
++CONFIG_FB_SIMPLE=y
++CONFIG_DRM_MSM=y
++CONFIG_REGULATOR_QCOM_REFGEN=y
++# Virtual video test driver
++CONFIG_VIDEO_VIVID=m
++
++# Brightness Control
++CONFIG_REGULATOR_QCOM_LABIBB=y
++CONFIG_BACKLIGHT_QCOM_WLED=y
++
++# Haptics
++CONFIG_FF_MEMLESS=y
++CONFIG_INPUT_QCOM_SPMI_HAPTICS=m
++
++# Power management
++CONFIG_PM_AUTOSLEEP=y
++CONFIG_PM_WAKELOCKS=y
++
++# MGLRU
++CONFIG_LRU_GEN=y
++CONFIG_LRU_GEN_ENABLED=y
++
++# libcamera
++CONFIG_DMABUF_HEAPS_CMA=y
++CONFIG_DMABUF_HEAPS=y
++CONFIG_DMA_CMA=y
++CONFIG_CMA=y
++CONFIG_CMA_SIZE_MBYTES=256
++
++# Misc useful things
++CONFIG_SCSI_SCAN_ASYNC=y
++CONFIG_UDMABUF=y
++CONFIG_DMABUF_HEAPS_SYSTEM=y
++CONFIG_HZ_1000=y
++# Alpine can't seem to handle this
++CONFIG_MODULE_DECOMPRESS=y
++
++# Usage clamping (scale CPU for specific tasks)
++CONFIG_UCLAMP_TASK=y
++CONFIG_UCLAMP_TASK_GROUP=y
++
++# Needed for mounting userdata on android
++CONFIG_QFMT_V2=y
++
++# HID/Input
++CONFIG_LCD_CLASS_DEVICE=m
++CONFIG_I2C_HID=y
++CONFIG_HID_GENERIC=m
++CONFIG_UHID=m
++CONFIG_USB_HID=m
++CONFIG_INPUT_EVDEV=y
++CONFIG_BT_HIDP=m
++CONFIG_INPUT_JOYDEV=m
++CONFIG_HID_ACCUTOUCH=m
++CONFIG_HID_ACRUX=m
++CONFIG_HID_ACRUX_FF=y
++CONFIG_HID_ALPS=m
++CONFIG_HID_APPLEIR=m
++CONFIG_HID_AUREAL=m
++CONFIG_HID_BETOP_FF=m
++CONFIG_HID_BIGBEN_FF=m
++CONFIG_HID_CMEDIA=m
++CONFIG_HID_CORSAIR=m
++CONFIG_HID_COUGAR=m
++CONFIG_HID_CP2112=m
++CONFIG_HID_CREATIVE_SB0540=m
++CONFIG_HID_DRAGONRISE=m
++CONFIG_HID_ELAN=m
++CONFIG_HID_ELECOM=m
++CONFIG_HID_ELO=m
++CONFIG_HID_EMS_FF=m
++CONFIG_HID_FT260=m
++CONFIG_HID_GEMBIRD=m
++CONFIG_HID_GFRM=m
++CONFIG_HID_GLORIOUS=m
++CONFIG_HID_GREENASIA=m
++CONFIG_HID_GT683R=m
++CONFIG_HID_GYRATION=m
++CONFIG_HID_HOLTEK=m
++CONFIG_HID_ICADE=m
++CONFIG_HID_JABRA=m
++CONFIG_HID_KEYTOUCH=m
++CONFIG_HID_KYE=m
++CONFIG_HID_LCPOWER=m
++CONFIG_HID_LED=m
++CONFIG_HID_LENOVO=m
++CONFIG_HID_LETSKETCH=m
++CONFIG_HID_LOGITECH_DJ=m
++CONFIG_HID_LOGITECH_HIDPP=m
++CONFIG_HID_MACALLY=m
++CONFIG_HID_MAGICMOUSE=m
++CONFIG_HID_MALTRON=m
++CONFIG_HID_MAYFLASH=m
++CONFIG_HID_MCP2221=m
++CONFIG_HID_MEGAWORLD_FF=m
++CONFIG_HID_NTI=m
++CONFIG_HID_NTRIG=m
++CONFIG_HID_ORTEK=m
++CONFIG_HID_PANTHERLORD=m
++CONFIG_HID_PENMOUNT=m
++CONFIG_HID_PETALYNX=m
++CONFIG_HID_PICOLCD=m
++CONFIG_HID_PICOLCD_BACKLIGHT=y
++CONFIG_HID_PICOLCD_FB=y
++CONFIG_HID_PICOLCD_LCD=y
++CONFIG_HID_PICOLCD_LEDS=y
++CONFIG_HID_PID=y
++CONFIG_HID_PLANTRONICS=m
++CONFIG_HID_PLAYSTATION=m
++CONFIG_HID_PRIMAX=m
++CONFIG_HID_PRODIKEYS=m
++CONFIG_HID_PXRC=m
++CONFIG_HID_RAZER=m
++CONFIG_HID_RETRODE=m
++CONFIG_HID_ROCCAT=m
++CONFIG_HID_SAITEK=m
++CONFIG_HID_SAMSUNG=m
++CONFIG_HID_SEMITEK=m
++CONFIG_HID_SENSOR_ACCEL_3D=m
++CONFIG_HID_SENSOR_ALS=m
++CONFIG_HID_SENSOR_CUSTOM_INTEL_HINGE=m
++CONFIG_HID_SENSOR_DEVICE_ROTATION=m
++CONFIG_HID_SENSOR_GYRO_3D=m
++CONFIG_HID_SENSOR_HUB=m
++CONFIG_HID_SENSOR_HUMIDITY=m
++CONFIG_HID_SENSOR_IIO_COMMON=m
++CONFIG_HID_SENSOR_IIO_TRIGGER=m
++CONFIG_HID_SENSOR_INCLINOMETER_3D=m
++CONFIG_HID_SENSOR_MAGNETOMETER_3D=m
++CONFIG_HID_SENSOR_TEMP=m
++CONFIG_HID_SIGMAMICRO=m
++CONFIG_HID_SMARTJOYPLUS=m
++CONFIG_HID_SPEEDLINK=m
++CONFIG_HID_STEAM=m
++CONFIG_HID_STEELSERIES=m
++CONFIG_HID_SUNPLUS=m
++CONFIG_HID_THINGM=m
++CONFIG_HID_THRUSTMASTER=m
++CONFIG_HID_TIVO=m
++CONFIG_HID_TOPRE=m
++CONFIG_HID_TOPSEED=m
++CONFIG_HID_TWINHAN=m
++CONFIG_HID_U2FZERO=m
++CONFIG_HID_UCLOGIC=m
++CONFIG_HID_UDRAW_PS3=m
++CONFIG_HID_VIEWSONIC=m
++CONFIG_HID_VIVALDI=m
++CONFIG_HID_WACOM=m
++CONFIG_HID_WALTOP=m
++CONFIG_HID_WIIMOTE=m
++CONFIG_HID_XIAOMI=m
++CONFIG_HID_XINMO=m
++CONFIG_HID_ZEROPLUS=m
++CONFIG_HID_ZYDACRON=m
++CONFIG_HID_EVISION=m
++CONFIG_HID_NVIDIA_SHIELD=m
++CONFIG_HID_GOOGLE_STADIA_FF=m
++CONFIG_HID_WINWING=m
++CONFIG_HID_GOODIX_SPI=m
++CONFIG_HID_BPF=y
++
++# Persistent store
++CONFIG_PSTORE=y
++CONFIG_PSTORE_CONSOLE=y
++CONFIG_PSTORE_PMSG=y
++CONFIG_PSTORE_RAM=y
++CONFIG_PSTORE_DEFLATE_COMPRESS=y
++
++# USB
++CONFIG_USB_CONFIGFS=y
++CONFIG_USB_CONFIGFS_F_HID=y
++
++CONFIG_REGULATOR_QCOM_USB_VBUS=m
++
++CONFIG_LEDS_TRIGGER_ONESHOT=y
++CONFIG_LEDS_TRIGGER_BACKLIGHT=y
++CONFIG_LEDS_TRIGGER_ACTIVITY=y
++
++# Platform
++CONFIG_EFI_GENERIC_STUB=y
++CONFIG_EFI_ZBOOT=y
++# Causes issues with u-boot
++CONFIG_FB_EFI=n
++
++# sm8250
++CONFIG_INTERCONNECT_QCOM_SM8250=y
++CONFIG_PHY_QCOM_QMP_USB=y
++
++# Qcom stuff
++CONFIG_RPMSG_CHAR=y
++CONFIG_QCOM_Q6V5_ADSP=m
++CONFIG_BT_RFCOMM=m
++CONFIG_BT_RFCOMM_TTY=y
++CONFIG_BT_BNEP=m
++CONFIG_BT_BNEP_MC_FILTER=y
++CONFIG_BT_BNEP_PROTO_FILTER=y
++CONFIG_BT_HS=y
++CONFIG_BT_LE=y
++CONFIG_HID_BATTERY_STRENGTH=y
++CONFIG_HIDRAW=y
++CONFIG_QCOM_COINCELL=m
++CONFIG_QCOM_FASTRPC=m
++CONFIG_QCOM_SPMI_VADC=y
++CONFIG_QCOM_SPMI_ADC5=y
++CONFIG_PHY_QCOM_QMP=y
++CONFIG_PHY_QCOM_QUSB2=y
++CONFIG_PHY_QCOM_QMP_UFS=y
++CONFIG_TYPEC=y
++CONFIG_PHY_QCOM_QMP_COMBO=y
++CONFIG_LEDS_CLASS_FLASH=y
++CONFIG_TCP_CONG_ADVANCED=y
++CONFIG_TCP_CONG_WESTWOOD=y
++CONFIG_DEFAULT_WESTWOOD=y
++CONFIG_BLK_DEV_RAM=y
++CONFIG_BLK_DEV_RAM_SIZE=8192
++CONFIG_BTRFS_FS=y
++CONFIG_BTRFS_FS_POSIX_ACL=y
++CONFIG_F2FS_FS=y
++CONFIG_NLS_UTF8=y
++CONFIG_NLS_DEFAULT="utf8"
++CONFIG_FAT_DEFAULT_UTF8=y
++CONFIG_EXFAT_FS=m
++CONFIG_CPU_FREQ_GOV_POWERSAVE=y
++CONFIG_SYN_COOKIES=y
++CONFIG_UEVENT_HELPER=y
++CONFIG_INPUT_UINPUT=m
++CONFIG_U_SERIAL_CONSOLE=y
++CONFIG_USB_ANNOUNCE_NEW_DEVICES=y
++
++# Qcomlt
++CONFIG_BLK_INLINE_ENCRYPTION=y
++CONFIG_QCOM_QMI_COOLING=m
++CONFIG_PHY_QCOM_SNPS_EUSB2=m
++CONFIG_MFD_QCOM_QCA639X=y
++CONFIG_MFD_QCOM_RPM=y
++CONFIG_USB_DWC3_ULPI=y
++CONFIG_USB_REPEATER=y
++CONFIG_SCSI_UFS_CRYPTO=y
++CONFIG_PHY_QCOM_USB_HS=y
++CONFIG_PHY_QCOM_USB_SNPS_FEMTO_V2=y
++CONFIG_INTERCONNECT_QCOM_SM6115=y
++CONFIG_SM_DISPCC_6115=y
++CONFIG_FS_ENCRYPTION=y
++CONFIG_FS_ENCRYPTION_INLINE_CRYPT=y
++CONFIG_CRYPTO_USER_API_AEAD=y
++CONFIG_CRYPTO_DEV_QCE=y
++CONFIG_SM_GPUCC_6115=y
++CONFIG_USB_ONBOARD_HUB=n # Breaks USB on rb2
++CONFIG_INTERCONNECT_QCOM_QCM2290=y
++
++# Anbox
++CONFIG_BRIDGE_NETFILTER=y
++CONFIG_CHECKPOINT_RESTORE=y
++CONFIG_PACKET_DIAG=y
++CONFIG_UNIX_DIAG=y
++CONFIG_NETLINK_DIAG=m
++CONFIG_NETFILTER_XT_MATCH_COMMENT=m
++CONFIG_ASHMEM=y
++CONFIG_ANDROID=y
++CONFIG_ANDROID_BINDER_IPC=y
++CONFIG_SQUASHFS_XATTR=y
++CONFIG_SQUASHFS_LZ4=y
++CONFIG_SQUASHFS_LZO=y
++CONFIG_SQUASHFS_XZ=y
++
++# Waydroid
++CONFIG_PSI=y
++
++# WLAN debugging
++CONFIG_ATH10K_DEBUG=y
++CONFIG_ATH10K_DEBUGFS=y
++CONFIG_ATH10K_SPECTRAL=y
++
++CONFIG_NET_SCH_HTB=y
++CONFIG_NET_SCH_PRIO=y
++CONFIG_NET_SCH_MULTIQ=y
++
++# Debugging stuff
++CONFIG_STACKTRACE=y
++
++# Disable all unrelated stuffs afaik
++CONFIG_ARCH_BLAIZE=n
++CONFIG_ARCH_SPARX5=n
++CONFIG_HIBERNATION=n
++CONFIG_FW_LOADER_USER_HELPER=n
++CONFIG_FW_LOADER_USER_HELPER_FALLBACK=n
++CONFIG_BLK_DEV_NVME=n
++CONFIG_ATA=n
++CONFIG_MTD=n
++CONFIG_SRAM=n
++CONFIG_MEGARAID_SAS=n
++CONFIG_RAID6_PQ_BENCHMARK=n
++CONFIG_EEPROM_AT25=n
++CONFIG_SCSI_MPT3SAS=n
++CONFIG_BLK_DEV_MD=n
++CONFIG_DM_MIRROR=n
++CONFIG_DM_ZERO=n
++CONFIG_EXT2_FS=n
++CONFIG_EXT3_FS=n
++CONFIG_USB_DWC2=n
++CONFIG_USB_CHIPIDEA=n
++CONFIG_USB_MUSB_HDRC=n
++CONFIG_USB_ISP1760=n
++CONFIG_USB_HSIC_USB3503=n
++CONFIG_USB_NET_PLUSB=n
++CONFIG_TYPEC_FUSB302=n
++CONFIG_EXTCON_PTN5150=n
++CONFIG_REALTEK_PHY=n
++CONFIG_NET_VENDOR_NI=n
++CONFIG_NET_9P=n
++CONFIG_CAN=n
++CONFIG_BNX2X=n
++CONFIG_MACB=n
++CONFIG_IGB=n
++CONFIG_IGBVF=n
++CONFIG_SMC91X=n
++CONFIG_MLX4_EN=n
++CONFIG_MLX5_CORE=n
++CONFIG_STMMAC_ETH=n
++CONFIG_ATL1C=n
++CONFIG_BRCMFMAC=n
++CONFIG_WL18XX=n
++CONFIG_WLCORE=n
++CONFIG_ATH10K_PCI=n
++CONFIG_NET_SCH_CBS=n
++CONFIG_NET_SCH_ETF=n
++CONFIG_NET_SCH_TAPRIO=n
++CONFIG_NET_SCH_MQPRIO=n
++CONFIG_NET_CLS_BASIC=n
++CONFIG_NET_CLS_FLOWER=n
++CONFIG_NET_CLS_ACT=n
++CONFIG_NET_ACT_GACT=n
++CONFIG_NET_ACT_MIRRED=n
++CONFIG_NET_ACT_GATE=n
++CONFIG_MDIO_BUS_MUX_MMIOREG=n
++CONFIG_MDIO_BUS_MUX_MULTIPLEXER=n
++CONFIG_SND_SOC_ES7134=n
++CONFIG_SND_SOC_ES7241=n
++CONFIG_SND_SOC_TAS571X=n
++CONFIG_SND_SOC_SIMPLE_AMPLIFIER=n
++CONFIG_GPIO_DWAPB=n
++CONFIG_COMMON_CLK_XGENE=n
++CONFIG_SENSORS_ARM_SCPI=n
++CONFIG_TCG_TPM=n
++CONFIG_BATTERY_SBS=n
++CONFIG_REGULATOR_VCTRL=n
++CONFIG_SND_SOC_MAX98357A=n
++CONFIG_SND_SOC_RL6231=n
++CONFIG_THUNDER_NIC_BGX=n
++CONFIG_THUNDER_NIC_RGX=n
++CONFIG_MDIO_THUNDER=n
++CONFIG_CAVIUM_ERRATUM_22375=n
++CONFIG_CAVIUM_ERRATUM_23154=n
++CONFIG_CAVIUM_ERRATUM_27456=n
++CONFIG_CAVIUM_ERRATUM_30115=n
++CONFIG_CAVIUM_TX2_ERRATUM_219=n
++CONFIG_HW_RANDOM_CAVIUM=n
++CONFIG_EEPROM_AT24=n
++CONFIG_NET_DSA=n
++CONFIG_AQUANTIA_PHY=n
++CONFIG_MICROSEMI_PHY=n
++CONFIG_VITESSE_PHY=n
++CONFIG_I2C_MUX_PCA954x=n
++CONFIG_SND_SOC_PCM3168A_I2C=n
++CONFIG_SENSORS_LM90=n
++CONFIG_SENSORS_INA2XX=n
++CONFIG_RTC_DRV_DS3232=n
++CONFIG_SPI_NXP_FLEXSPI=n
++CONFIG_GPIO_MAX732X=n
++CONFIG_SENSORS_ISL29018=n
++CONFIG_MPL3115=n
++CONFIG_MFD_ROHM_BD718XX=n
++CONFIG_ARM_SBSA_WATCHDOG=n
++CONFIG_ARM_SMC_WATCHDOG=n
++CONFIG_REGULATOR_PCA9450=n
++CONFIG_REGULATOR_PFUZE100=n
++CONFIG_DRM_PANEL_RAYDIUM_RM67191=n
++CONFIG_DRM_PANEL_SITRONIX_ST7703=n
++CONFIG_PHY_MIXEL_MIPI_DPHY=n
++CONFIG_DRM_NWL_MIPI_DSI=n
++CONFIG_DRM_MXSFB=n
++CONFIG_SND_SOC_FSL_SAI=n
++CONFIG_SND_SOC_FSL_ASRC=n
++CONFIG_SND_SOC_FSL_MICFIL=n
++CONFIG_SND_SOC_FSL_AUDMIX=n
++CONFIG_SND_SOC_FSL_SPDIF=n
++CONFIG_SND_SOC_WM8904=n
++CONFIG_RTC_DRV_RV8803=n
++CONFIG_RTC_DRV_DS1307=n
++CONFIG_RTC_DRV_PCF85363=n
++CONFIG_RTC_DRV_PCF2127=n
++CONFIG_PHY_FSL_IMX8MQ_USB=n
++CONFIG_FUJITSU_ERRATUM_010001=n
++CONFIG_PCI_PASID=n
++CONFIG_UACCE=n
++CONFIG_SPI_CADENCE_QUADSPI=n
++CONFIG_DW_WATCHDOG=n
++CONFIG_NOP_USB_XCEIV=n
++CONFIG_SURFACE_PLATFORMS=n
++CONFIG_GPIO_PCA953X=n
++CONFIG_BACKLIGHT_LP855X=n
++CONFIG_MFD_MAX77620=n
++CONFIG_SENSORS_PWM_FAN=n
++CONFIG_SENSORS_INA3221=n
++CONFIG_REGULATOR_MAX8973=n
++CONFIG_USB_CONN_GPIO=n
++CONFIG_MICREL_PHY=n
++CONFIG_MFD_BD9571MWV=n
++CONFIG_DRM_PANEL_LVDS=n
++CONFIG_DRM_RCAR_LVDS=n
++CONFIG_COMMON_CLK_VC5=n
++CONFIG_CRYPTO_DEV_CCREE=n
++CONFIG_VIDEO_IMX219=n
++CONFIG_VIDEO_OV5645=n
++CONFIG_SND_SOC_AK4613=n
++CONFIG_SND_SIMPLE_CARD=n
++CONFIG_SND_SIMPLE_CARD_UTILS=n
++CONFIG_SND_AUDIO_GRAPH_CARD=n
++CONFIG_TYPEC_HD3SS3220=n
++CONFIG_RTC_DRV_RX8581=n
++CONFIG_COMMON_CLK_CS2000_CP=n
++CONFIG_KEYBOARD_ADC=n
++CONFIG_REGULATOR_FAN53555=n
++CONFIG_TOUCHSCREEN_ATMEL_MXT=n
++CONFIG_RTC_DRV_HYM8563=n
++CONFIG_PL330_DMA=n
++CONFIG_GPIO_MB86S7X=n
++CONFIG_MMC_SDHCI_F_SDH30=n
++CONFIG_MMC_SDHCI_CADENCE=n
++CONFIG_SOCIONEXT_SYNQUACER_PREITS=n
++CONFIG_NET_VENDOR_SOCIONEXT=n
++CONFIG_ARCH_ACTIONS=n
++CONFIG_ARCH_AGILEX=n
++CONFIG_ARCH_N5X=n
++CONFIG_ARCH_SUNXI=n
++CONFIG_ARCH_ALPINE=n
++CONFIG_ARCH_APPLE=n
++CONFIG_ARCH_BCM2835=n
++CONFIG_ARCH_BCM4908=n
++CONFIG_ARCH_BCM_IPROC=n
++CONFIG_ARCH_BERLIN=n
++CONFIG_ARCH_BRCMSTB=n
++CONFIG_ARCH_EXYNOS=n
++CONFIG_ARCH_K3=n
++CONFIG_ARCH_LAYERSCAPE=n
++CONFIG_ARCH_LG1K=n
++CONFIG_ARCH_HISI=n
++CONFIG_ARCH_KEEMBAY=n
++CONFIG_ARCH_MEDIATEK=n
++CONFIG_ARCH_MESON=n
++CONFIG_ARCH_MVEBU=n
++CONFIG_ARCH_MXC=n
++CONFIG_ARCH_RENESAS=n
++CONFIG_ARCH_ROCKCHIP=n
++CONFIG_ARCH_S32=n
++CONFIG_ARCH_SEATTLE=n
++CONFIG_ARCH_INTEL_SOCFPGA=n
++CONFIG_ARCH_SYNQUACER=n
++CONFIG_ARCH_TEGRA=n
++CONFIG_ARCH_SPRD=n
++CONFIG_ARCH_THUNDER=n
++CONFIG_ARCH_THUNDER2=n
++CONFIG_ARCH_UNIPHIER=n
++CONFIG_ARCH_VEXPRESS=n
++CONFIG_ARCH_VISCONTI=n
++CONFIG_ARCH_XGENE=n
++CONFIG_ARCH_ZX=n
++CONFIG_ARCH_ZYNQMP=n
++CONFIG_ARM_ALLWINNER_SUN50I_CPUFREQ_NVMEM=n
++CONFIG_ARM_ARMADA_37XX_CPUFREQ=n
++CONFIG_ARM_IMX_CPUFREQ_DT=n
++CONFIG_ARM_RASPBERRYPI_CPUFREQ=n
++CONFIG_ARM_TEGRA186_CPUFREQ=n
++CONFIG_QORIQ_CPUFREQ=n
++CONFIG_RASPBERRYPI_FIRMWARE=n
++CONFIG_INTEL_STRATIX10_SERVICE=n
++CONFIG_INTEL_STRATIX10_RSU=n
++CONFIG_IMX_SCU=n
++CONFIG_IMX_SCU_PD=n
++CONFIG_CAN_RCAR=n
++CONFIG_CAN_RCAR_CANFD=n
++CONFIG_CAN_FLEXCAN=n
++CONFIG_PCI_AARDVARK=n
++CONFIG_PCI_TEGRA=n
++CONFIG_PCIE_RCAR_HOST=n
++CONFIG_PCIE_RCAR_EP=n
++CONFIG_PCI_XGENE=n
++CONFIG_PCIE_ALTERA=n
++CONFIG_PCIE_ALTERA_MSI=n
++CONFIG_PCI_HOST_THUNDER_PEM=n
++CONFIG_PCI_HOST_THUNDER_ECAM=n
++CONFIG_PCIE_ROCKCHIP_HOST=n
++CONFIG_PCIE_BRCMSTB=n
++CONFIG_PCI_IMX6=n
++CONFIG_PCI_LAYERSCAPE=n
++CONFIG_PCIE_LAYERSCAPE_GEN4=n
++CONFIG_PCI_HISI=n
++CONFIG_PCIE_ARMADA_8K=n
++CONFIG_PCIE_KIRIN=n
++CONFIG_PCIE_HISI_STB=n
++CONFIG_PCIE_TEGRA194_HOST=n
++CONFIG_HISILICON_LPC=n
++CONFIG_FSL_MC_BUS=n
++CONFIG_TEGRA_ACONNECT=n
++CONFIG_MTD_CFI_INTELEXT=n
++CONFIG_MTD_CFI_AMDSTD=n
++CONFIG_MTD_CFI_STAA=n
++CONFIG_MTD_SST25L=n
++CONFIG_MTD_NAND_DENALI_DT=n
++CONFIG_MTD_NAND_MARVELL=n
++CONFIG_MTD_NAND_FSL_IFC=n
++CONFIG_SCSI_HISI_SAS=n
++CONFIG_SCSI_HISI_SAS_PCI=n
++CONFIG_SCSI_UFS_HISI=n
++CONFIG_SCSI_UFS_EXYNOS=n
++CONFIG_AHCI_CEVA=n
++CONFIG_AHCI_MVEBU=n
++CONFIG_AHCI_XGENE=n
++CONFIG_AHCI_QORIQ=n
++CONFIG_SATA_SIL24=n
++CONFIG_SATA_RCAR=n
++CONFIG_FSL_FMAN=n
++CONFIG_FSL_DPAA_ETH=n
++CONFIG_FSL_DPAA2_ETH=n
++CONFIG_FSL_ENETC=n
++CONFIG_FSL_ENETC_VF=n
++CONFIG_FSL_ENETC_QOS=n
++CONFIG_HIX5HD2_GMAC=n
++CONFIG_HNS_DSAF=n
++CONFIG_HNS_ENET=n
++CONFIG_HNS3=n
++CONFIG_HNS3_HCLGE=n
++CONFIG_HNS3_ENET=n
++CONFIG_SERIAL_MESON=n
++CONFIG_SERIAL_MESON_CONSOLE=n
++CONFIG_SERIAL_SAMSUNG=n
++CONFIG_SERIAL_SAMSUNG_CONSOLE=n
++CONFIG_SERIAL_TEGRA=n
++CONFIG_SERIAL_TEGRA_TCU=n
++CONFIG_SERIAL_IMX=n
++CONFIG_SERIAL_IMX_CONSOLE=n
++CONFIG_SERIAL_XILINX_PS_UART=n
++CONFIG_SERIAL_XILINX_PS_UART_CONSOLE=n
++CONFIG_SERIAL_FSL_LPUART=n
++CONFIG_SERIAL_FSL_LPUART_CONSOLE=n
++CONFIG_SERIAL_FSL_LINFLEXUART=n
++CONFIG_SERIAL_FSL_LINFLEXUART_CONSOLE=n
++CONFIG_SERIAL_MVEBU_UART=n
++CONFIG_SERIAL_OWL=n
++CONFIG_I2C_BCM2835=n
++CONFIG_I2C_DESIGNWARE_PLATFORM=n
++CONFIG_I2C_IMX=n
++CONFIG_I2C_IMX_LPI2C=n
++CONFIG_I2C_MESON=n
++CONFIG_I2C_MT65XX=n
++CONFIG_I2C_MV64XXX=n
++CONFIG_I2C_OMAP=n
++CONFIG_I2C_OWL=n
++CONFIG_I2C_PXA=n
++CONFIG_I2C_RK3X=n
++CONFIG_I2C_SH_MOBILE=n
++CONFIG_I2C_TEGRA=n
++CONFIG_I2C_UNIPHIER_F=n
++CONFIG_I2C_RCAR=n
++CONFIG_SPI_ARMADA_3700=n
++CONFIG_SPI_BCM2835=n
++CONFIG_SPI_BCM2835AUX=n
++CONFIG_SPI_DESIGNWARE=n
++CONFIG_SPI_DW_DMA=n
++CONFIG_SPI_DW_MMIO=n
++CONFIG_SPI_FSL_LPSPI=n
++CONFIG_SPI_FSL_QUADSPI=n
++CONFIG_SPI_IMX=n
++CONFIG_SPI_FSL_DSPI=n
++CONFIG_SPI_MESON_SPICC=n
++CONFIG_SPI_MESON_SPIFC=n
++CONFIG_SPI_ORION=n
++CONFIG_SPI_PL022=n
++CONFIG_SPI_ROCKCHIP=n
++CONFIG_SPI_RPCIF=n
++CONFIG_SPI_S3C64XX=n
++CONFIG_SPI_SH_MSIOF=n
++CONFIG_SPI_SUN6I=n
++CONFIG_PINCTRL_MAX77620=n
++CONFIG_PINCTRL_OWL=n
++CONFIG_PINCTRL_S700=n
++CONFIG_PINCTRL_S900=n
++CONFIG_PINCTRL_IMX8MM=n
++CONFIG_PINCTRL_IMX8MN=n
++CONFIG_PINCTRL_IMX8MP=n
++CONFIG_PINCTRL_IMX8MQ=n
++CONFIG_PINCTRL_IMX8QM=n
++CONFIG_PINCTRL_IMX8QXP=n
++CONFIG_PINCTRL_IMX8DXL=n
++CONFIG_GPIO_ALTERA=n
++CONFIG_GPIO_DAVINCI=n
++CONFIG_GPIO_MPC8XXX=n
++CONFIG_GPIO_MXC=n
++CONFIG_GPIO_PL061=n
++CONFIG_GPIO_RCAR=n
++CONFIG_GPIO_UNIPHIER=n
++CONFIG_GPIO_VISCONTI=n
++CONFIG_GPIO_XGENE=n
++CONFIG_GPIO_XGENE_SB=n
++CONFIG_GPIO_PCA953X_IRQ=n
++CONFIG_GPIO_BD9571MWV=n
++CONFIG_GPIO_MAX77620=n
++CONFIG_GPIO_SL28CPLD=n
++CONFIG_ROCKCHIP_IODOMAIN=n
++CONFIG_POWER_RESET_XGENE=n
++CONFIG_POWER_RESET_SYSCON=n
++CONFIG_GNSS_MTK_SERIAL=n
++CONFIG_SENSORS_RASPBERRYPI_HWMON=n
++CONFIG_SENSORS_SL28CPLD=n
++CONFIG_QORIQ_THERMAL=n
++CONFIG_SUN8I_THERMAL=n
++CONFIG_IMX_SC_THERMAL=n
++CONFIG_IMX8MM_THERMAL=n
++CONFIG_ROCKCHIP_THERMAL=n
++CONFIG_RCAR_THERMAL=n
++CONFIG_RCAR_GEN3_THERMAL=n
++CONFIG_ARMADA_THERMAL=n
++CONFIG_BCM2711_THERMAL=n
++CONFIG_BCM2835_THERMAL=n
++CONFIG_BRCMSTB_THERMAL=n
++CONFIG_EXYNOS_THERMAL=n
++CONFIG_TEGRA_BPMP_THERMAL=n
++CONFIG_TEGRA_SOCTHERM=n
++CONFIG_UNIPHIER_THERMAL=n
++CONFIG_SL28CPLD_WATCHDOG=n
++CONFIG_ARM_SP805_WATCHDOG=n
++CONFIG_S3C2410_WATCHDOG=n
++CONFIG_SUNXI_WATCHDOG=n
++CONFIG_IMX2_WDT=n
++CONFIG_IMX_SC_WDT=n
++CONFIG_MESON_GXBB_WATCHDOG=n
++CONFIG_MESON_WATCHDOG=n
++CONFIG_RENESAS_WDT=n
++CONFIG_UNIPHIER_WATCHDOG=n
++CONFIG_BCM2835_WDT=n
++CONFIG_MFD_ALTERA_SYSMGR=n
++CONFIG_MFD_AXP20X_I2C=n
++CONFIG_MFD_AXP20X_RSB=n
++CONFIG_MFD_EXYNOS_LPASS=n
++CONFIG_MFD_HI6421_PMIC=n
++CONFIG_MFD_HI655X_PMIC=n
++CONFIG_MFD_MT6397=n
++CONFIG_MFD_RK808=n
++CONFIG_MFD_SL28CPLD=n
++CONFIG_REGULATOR_AXP20X=n
++CONFIG_REGULATOR_BD718XX=n
++CONFIG_REGULATOR_BD9571MWV=n
++CONFIG_REGULATOR_HI6421V530=n
++CONFIG_REGULATOR_HI655X=n
++CONFIG_REGULATOR_MAX77620=n
++CONFIG_REGULATOR_MP8859=n
++CONFIG_REGULATOR_MT6358=n
++CONFIG_REGULATOR_MT6397=n
++CONFIG_REGULATOR_PF8X00=n
++CONFIG_REGULATOR_RK808=n
++CONFIG_REGULATOR_S2MPS11=n
++CONFIG_REGULATOR_TPS65132=n
++CONFIG_IR_MESON=n
++CONFIG_IR_SUNXI=n
++CONFIG_MEDIA_ANALOG_TV_SUPPORT=n
++CONFIG_MEDIA_DIGITAL_TV_SUPPORT=n
++CONFIG_MEDIA_SDR_SUPPORT=n
++CONFIG_VIDEO_RCAR_CSI2=n
++CONFIG_VIDEO_RCAR_VIN=n
++CONFIG_VIDEO_SUN6I_CSI=n
++CONFIG_VIDEO_SAMSUNG_S5P_JPEG=n
++CONFIG_VIDEO_SAMSUNG_S5P_MFC=n
++CONFIG_VIDEO_SAMSUNG_EXYNOS_GSC=n
++CONFIG_VIDEO_RENESAS_FDP1=n
++CONFIG_VIDEO_RENESAS_FCP=n
++CONFIG_VIDEO_RENESAS_VSP1=n
++CONFIG_SDR_PLATFORM_DRIVERS=n
++CONFIG_VIDEO_RCAR_DRIF=n
++CONFIG_DRM_I2C_NXP_TDA998X=n
++CONFIG_DRM_MALI_DISPLAY=n
++CONFIG_DRM_NOUVEAU=n
++CONFIG_DRM_EXYNOS=n
++CONFIG_DRM_EXYNOS5433_DECON=n
++CONFIG_DRM_EXYNOS7_DECON=n
++CONFIG_DRM_EXYNOS_DSI=n
++CONFIG_DRM_EXYNOS_HDMI=n
++CONFIG_DRM_EXYNOS_MIC=n
++CONFIG_DRM_ROCKCHIP=n
++CONFIG_ROCKCHIP_ANALOGIX_DP=n
++CONFIG_ROCKCHIP_CDN_DP=n
++CONFIG_ROCKCHIP_DW_HDMI=n
++CONFIG_ROCKCHIP_DW_MIPI_DSI=n
++CONFIG_ROCKCHIP_INNO_HDMI=n
++CONFIG_ROCKCHIP_LVDS=n
++CONFIG_DRM_RCAR_DU=n
++CONFIG_DRM_RCAR_DW_HDMI=n
++CONFIG_DRM_SUN4I=n
++CONFIG_DRM_SUN6I_DSI=n
++CONFIG_DRM_SUN8I_DW_HDMI=n
++CONFIG_DRM_SUN8I_MIXER=n
++CONFIG_DRM_TEGRA=n
++CONFIG_DRM_PARADE_PS8640=n
++CONFIG_DRM_SII902X=n
++CONFIG_DRM_THINE_THC63LVD1024=n
++CONFIG_DRM_VC4=n
++CONFIG_DRM_ETNAVIV=n
++CONFIG_DRM_HISI_HIBMC=n
++CONFIG_DRM_HISI_KIRIN=n
++CONFIG_DRM_MEDIATEK=n
++CONFIG_DRM_MEDIATEK_HDMI=n
++CONFIG_DRM_MESON=n
++CONFIG_DRM_PL111=n
++CONFIG_DRM_LIMA=n
++CONFIG_DRM_PANFROST=n
++CONFIG_SND_HDA_TEGRA=n
++CONFIG_SND_HDA_CODEC_HDMI=n
++CONFIG_SND_BCM2835_SOC_I2S=n
++CONFIG_SND_SOC_FSL_EASRC=n
++CONFIG_SND_IMX_SOC=n
++CONFIG_SND_SOC_IMX_SGTL5000=n
++CONFIG_SND_SOC_IMX_SPDIF=n
++CONFIG_SND_SOC_IMX_AUDMIX=n
++CONFIG_SND_SOC_FSL_ASOC_CARD=n
++CONFIG_SND_MESON_AXG_SOUND_CARD=n
++CONFIG_SND_MESON_GX_SOUND_CARD=n
++CONFIG_SND_SOC_ROCKCHIP=n
++CONFIG_SND_SOC_ROCKCHIP_SPDIF=n
++CONFIG_SND_SOC_ROCKCHIP_RT5645=n
++CONFIG_SND_SOC_RK3399_GRU_SOUND=n
++CONFIG_SND_SOC_SAMSUNG=n
++CONFIG_SND_SOC_RCAR=n
++CONFIG_SND_SUN4I_I2S=n
++CONFIG_SND_SUN4I_SPDIF=n
++CONFIG_SND_SOC_TEGRA=n
++CONFIG_SND_SOC_TEGRA210_AHUB=n
++CONFIG_SND_SOC_TEGRA210_DMIC=n
++CONFIG_SND_SOC_TEGRA210_I2S=n
++CONFIG_SND_SOC_TEGRA186_DSPK=n
++CONFIG_SND_SOC_TEGRA210_ADMAIF=n
++CONFIG_SND_SOC_TEGRA_AUDIO_GRAPH_CARD=n
++CONFIG_SND_SOC_GTM601=n
++CONFIG_SND_SOC_RT5659=n
++CONFIG_SND_SOC_WM8960=n
++CONFIG_SND_SOC_WM8962=n
++CONFIG_USB_XHCI_PCI_RENESAS=n
++CONFIG_USB_XHCI_TEGRA=n
++CONFIG_USB_EHCI_EXYNOS=n
++CONFIG_USB_OHCI_EXYNOS=n
++CONFIG_USB_RENESAS_USBHS_HCD=n
++CONFIG_USB_RENESAS_USBHS=n
++CONFIG_USB_CHIPIDEA_UDC=n
++CONFIG_USB_CHIPIDEA_HOST=n
++CONFIG_USB_RENESAS_USBHS_UDC=n
++CONFIG_USB_RENESAS_USB3=n
++CONFIG_USB_TEGRA_XUDC=n
++CONFIG_MMC_SDHCI_OF_ARASAN=n
++CONFIG_MMC_SDHCI_OF_ESDHC=n
++CONFIG_MMC_SDHCI_ESDHC_IMX=n
++CONFIG_MMC_SDHCI_TEGRA=n
++CONFIG_MMC_MESON_GX=n
++CONFIG_MMC_DW_EXYNOS=n
++CONFIG_MMC_DW_HI3798CV200=n
++CONFIG_MMC_DW_K3=n
++CONFIG_MMC_DW_ROCKCHIP=n
++CONFIG_MMC_SUNXI=n
++CONFIG_MMC_BCM2835=n
++CONFIG_MMC_MTK=n
++CONFIG_MMC_SDHCI_XENON=n
++CONFIG_MMC_SDHCI_AM654=n
++CONFIG_MMC_OWL=n
++CONFIG_RTC_DRV_MAX77686=n
++CONFIG_RTC_DRV_RK808=n
++CONFIG_RTC_DRV_M41T80=n
++CONFIG_RTC_DRV_RV3028=n
++CONFIG_RTC_DRV_S5M=n
++CONFIG_RTC_DRV_FSL_FTM_ALARM=n
++CONFIG_RTC_DRV_S3C=n
++CONFIG_RTC_DRV_PL031=n
++CONFIG_RTC_DRV_SUN6I=n
++CONFIG_RTC_DRV_ARMADA38X=n
++CONFIG_RTC_DRV_TEGRA=n
++CONFIG_RTC_DRV_SNVS=n
++CONFIG_RTC_DRV_IMX_SC=n
++CONFIG_RTC_DRV_XGENE=n
++CONFIG_DMA_BCM2835=n
++CONFIG_DMA_SUN6I=n
++CONFIG_FSL_EDMA=n
++CONFIG_IMX_SDMA=n
++CONFIG_K3_DMA=n
++CONFIG_MV_XOR=n
++CONFIG_MV_XOR_V2=n
++CONFIG_OWL_DMA=n
++CONFIG_TEGRA20_APB_DMA=n
++CONFIG_TEGRA210_ADMA=n
++CONFIG_RCAR_DMAC=n
++CONFIG_RENESAS_USB_DMAC=n
++CONFIG_TI_K3_UDMA=n
++CONFIG_TI_K3_UDMA_GLUE_LAYER=n
++CONFIG_COMMON_CLK_RK808=n
++CONFIG_COMMON_CLK_FSL_SAI=n
++CONFIG_COMMON_CLK_S2MPS11=n
++CONFIG_COMMON_CLK_ZYNQMP=n
++CONFIG_COMMON_CLK_BD718XX=n
++CONFIG_CLK_RASPBERRYPI=n
++CONFIG_CLK_IMX8MM=n
++CONFIG_CLK_IMX8MN=n
++CONFIG_CLK_IMX8MP=n
++CONFIG_CLK_IMX8MQ=n
++CONFIG_CLK_IMX8QXP=n
++CONFIG_TI_SCI_CLK=n
++CONFIG_IMX_MBOX=n
++CONFIG_BCM2835_MBOX=n
++CONFIG_ROCKCHIP_IOMMU=n
++CONFIG_TEGRA_IOMMU_SMMU=n
++CONFIG_MTK_IOMMU=n
++CONFIG_OWL_PM_DOMAINS=n
++CONFIG_RASPBERRYPI_POWER=n
++CONFIG_FSL_DPAA=n
++CONFIG_FSL_MC_DPIO=n
++CONFIG_FSL_RCPM=n
++CONFIG_MTK_PMIC_WRAP=n
++CONFIG_ARCH_R8A774A1=n
++CONFIG_ARCH_R8A774B1=n
++CONFIG_ARCH_R8A774C0=n
++CONFIG_ARCH_R8A774E1=n
++CONFIG_ARCH_R8A77950=n
++CONFIG_ARCH_R8A77951=n
++CONFIG_ARCH_R8A77960=n
++CONFIG_ARCH_R8A77961=n
++CONFIG_ARCH_R8A77965=n
++CONFIG_ARCH_R8A77970=n
++CONFIG_ARCH_R8A77980=n
++CONFIG_ARCH_R8A77990=n
++CONFIG_ARCH_R8A77995=n
++CONFIG_ARCH_R8A779A0=n
++CONFIG_ARCH_R9A07G044=n
++CONFIG_ROCKCHIP_PM_DOMAINS=n
++CONFIG_ARCH_TEGRA_132_SOC=n
++CONFIG_ARCH_TEGRA_210_SOC=n
++CONFIG_ARCH_TEGRA_186_SOC=n
++CONFIG_ARCH_TEGRA_194_SOC=n
++CONFIG_ARCH_TEGRA_234_SOC=n
++CONFIG_TI_SCI_PM_DOMAINS=n
++CONFIG_ARM_IMX_BUS_DEVFREQ=n
++CONFIG_ARM_IMX8M_DDRC_DEVFREQ=n
++CONFIG_RENESAS_RPCIF=n
++CONFIG_EXYNOS_ADC=n
++CONFIG_MAX9611=n
++CONFIG_ROCKCHIP_SARADC=n
++CONFIG_PWM_BCM2835=n
++CONFIG_PWM_IMX27=n
++CONFIG_PWM_MESON=n
++CONFIG_PWM_MTK_DISP=n
++CONFIG_PWM_MEDIATEK=n
++CONFIG_PWM_RCAR=n
++CONFIG_PWM_ROCKCHIP=n
++CONFIG_PWM_SAMSUNG=n
++CONFIG_PWM_SL28CPLD=n
++CONFIG_PWM_SUN4I=n
++CONFIG_PWM_TEGRA=n
++CONFIG_PWM_VISCONTI=n
++CONFIG_SL28CPLD_INTC=n
++CONFIG_RESET_IMX7=n
++CONFIG_RESET_TI_SCI=n
++CONFIG_PHY_XGENE=n
++CONFIG_PHY_SUN4I_USB=n
++CONFIG_PHY_HI6220_USB=n
++CONFIG_PHY_HISTB_COMBPHY=n
++CONFIG_PHY_HISI_INNO_USB2=n
++CONFIG_PHY_MVEBU_CP110_COMPHY=n
++CONFIG_PHY_MTK_TPHY=n
++CONFIG_PHY_RCAR_GEN3_PCIE=n
++CONFIG_PHY_RCAR_GEN3_USB2=n
++CONFIG_PHY_RCAR_GEN3_USB3=n
++CONFIG_PHY_ROCKCHIP_EMMC=n
++CONFIG_PHY_ROCKCHIP_INNO_HDMI=n
++CONFIG_PHY_ROCKCHIP_INNO_USB2=n
++CONFIG_PHY_ROCKCHIP_INNO_DSIDPHY=n
++CONFIG_PHY_ROCKCHIP_PCIE=n
++CONFIG_PHY_ROCKCHIP_TYPEC=n
++CONFIG_PHY_SAMSUNG_UFS=n
++CONFIG_PHY_UNIPHIER_USB2=n
++CONFIG_PHY_UNIPHIER_USB3=n
++CONFIG_PHY_TEGRA_XUSB=n
++CONFIG_FSL_IMX8_DDR_PMU=n
++CONFIG_HISI_PMU=n
++CONFIG_NVMEM_IMX_OCOTP=n
++CONFIG_NVMEM_IMX_OCOTP_SCU=n
++CONFIG_MTK_EFUSE=n
++CONFIG_ROCKCHIP_EFUSE=n
++CONFIG_NVMEM_SUNXI_SID=n
++CONFIG_UNIPHIER_EFUSE=n
++CONFIG_MESON_EFUSE=n
++CONFIG_NVMEM_RMEM=n
++CONFIG_FPGA=n
++CONFIG_FPGA_MGR_STRATIX10_SOC=n
++CONFIG_FPGA_BRIDGE=n
++CONFIG_ALTERA_FREEZE_BRIDGE=n
++CONFIG_FPGA_REGION=n
++CONFIG_OF_FPGA_REGION=n
++CONFIG_INTERCONNECT_IMX=n
++CONFIG_INTERCONNECT_IMX8MQ=n
++CONFIG_INTERCONNECT_QCOM_MSM8996=n
++CONFIG_INTERCONNECT_QCOM_QCS404=n
++CONFIG_ARCH_BCMBCA=n
++CONFIG_ARCH_NPCM=n
++CONFIG_SERIAL_BCM63XX=n
++CONFIG_PINCTRL_SC8280XP=n
++CONFIG_SC_GCC_8280XP=n
++CONFIG_BCM_SBA_RAID=n
++CONFIG_DMA_ENGINE_RAID=n
++CONFIG_SENSORS_GPIO_FAN=n
++CONFIG_ARCH_BCM=n
++CONFIG_ARCH_NXP=n
++CONFIG_NET_VENDOR_ADI=n
++CONFIG_PINCTRL_SC8180X=n
++CONFIG_SND_SOC_SC7180=n
++CONFIG_SND_SOC_SC7280=n
++CONFIG_SND_SOC_ADAU7002=n
++CONFIG_SND_SOC_RT5682=n
++CONFIG_SND_SOC_RT5682_I2C=n
++CONFIG_SND_SOC_RT5682S=n
++CONFIG_SND_SOC_WCD938X=n
++CONFIG_SND_SOC_WCD938X_SDW=n
++CONFIG_MMC_SDHCI_OF_DWCMSHC=n
++CONFIG_IOMMU_IO_PGTABLE_DART=n
++CONFIG_MEMORY_HOTPLUG=n
++CONFIG_MELLANOX_PLATFORM=n
+
+---
+base-commit: 663d0d1af3faefe673cabf4b6b077149a87ad71f
+change-id: 20251126-sdm845-config-question-d914137b6349
+
+Best regards,
+-- 
+David Heidelberg <david@ixit.cz>
+
 
 
