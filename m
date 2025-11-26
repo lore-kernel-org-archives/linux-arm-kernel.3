@@ -4,187 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 762E8D10F5F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 15:29:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C789D10F5D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 15:30:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ROrOQFbEwHNqV+alHJJ410Ksj76oLH5LiVFlbIGYsnk=; b=JwzHpE6j+dL8GqDCBlUCPWbI+p
-	APQsYicG40kSSksynaW4DBTxOwYfLC1s/yS6KOagt0AsxpEZdEXwqPAhNAASVESKjuOqtPlLS7fWQ
-	ROPNfygDCTN0zOH8kr+j2/oRtT0ExcUk1v61KBr5S0THzdkuYe+hGjlZK5bFGY9I7aY7ThX4t6dS2
-	Twy7CP/YxAqcsqP+AWYiiYc+FSY68CW4axokCT5u2NwofLcr1SPMQx0bXr3A57v93AxavzEH93Mzp
-	fP8C8A2CER/AGZ0XPKE84pVnlMGv/KDUfTkYgbBaeA0Qj5/1hWz5dCVSKOFwCMa6vlZ4Fi/gFZX2C
-	dqOaYZbQ==;
+	bh=aAXzGtzKYAGkSDscqzBxfEqNOGOIiaMptw+3k0mw0Co=; b=Pt1iosOHpdpoXMFygyC1Qek10O
+	dWIKZW6UygO7Djrf2EVI2uKu1EQQpl3HVUPA3U/xyiMY6ebi9LC+3QBO7B9EpEdecWjRK4Jx4OPp+
+	6FZUlTEQs/UkHjxis6LKvLksDDqqCMxYHsTb54yztza22SthAIDrDhDYfTmDcK9AOdylA0BsUr5jw
+	lQyHuvbEW+Ggy/+WTXQyAIFlZb+PjPQBX+cwNAeXH8CCoPYqdcAbQULroTDPmRkO4GDBim0mwi1I0
+	QObnSsWCdiD6O1srNJkTgWn/Jo6Rl/BbZDydMYkSfAEWlODpSg1CluMufdOf8jK6miAoahKQgjACo
+	itQR33qQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOHSN-0000000FBMP-284Y;
-	Wed, 26 Nov 2025 15:29:23 +0000
-Received: from mail-centralusazlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c111::5] helo=DM1PR04CU001.outbound.protection.outlook.com)
+	id 1vOHTd-0000000FBSv-3hNk;
+	Wed, 26 Nov 2025 15:30:41 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOHSK-0000000FBLi-3yxD
+	id 1vOHTc-0000000FBSf-38dv
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Nov 2025 15:29:22 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=XHQE3GtjtXK59ju7FWaqN3Dj8OHmrxPbYUvHLLPWwdsFtCqbVLAKux8k3u8FZl9NzxVAWP/XDSL658py2tlWXm8jVKkE5gYwpv1jd5cT8YZhK3+LPGWquY4sMcyfxCSUUXqa6pi5f3GkMWfByi3vCQX+IpWQ9IsDWW5RFGGaFC/zrAt9Ytc4xXvwF0fUZjd8kqOB5bc19vnUt5iZvjODPui/tpB0EgclHdK45Mn0oi6LwhcB5ueGY877P5dDCZHYTjpgU3pOKf5P/eNb4Q10M71qRdIkGZMmc3lAJBhfGG09WoqyptWCA+6c6aaAmaEaws7YjwzyXEN8SWyVBf+zeg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ROrOQFbEwHNqV+alHJJ410Ksj76oLH5LiVFlbIGYsnk=;
- b=HX3fkwwEvUjvjbtgnMe573e8PaCRJ+zCs4qo7xeNhjj1XKNqA3eLX39/zbLmQHINQJpfMVAjsZOMS0DV09Zdd2QK19QyRxnP3OoF1ojsNSCtNSpCVemwznis49yDCsZVj54VC15iz1vgJInOBtft1lRP6Nf4F7GZSxhP134xtYh1fSEpLl7IIRNI0XXvKtsWZ07NAr5HOz87Du+bO3yfBrs0WDQvdLBeeBtqjwFmFk4d1bGrWDL4sV/2Xlu4X3XjaRaoQngK3HPDbjc8juGm+rlFqjON2HYsuVkFurWWXoiSyYm0yik49F2B7UKY8ZI0o36yRB/J9esPI1X9kx6lyQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ROrOQFbEwHNqV+alHJJ410Ksj76oLH5LiVFlbIGYsnk=;
- b=uN90rsMTcE8TU2oXfydGNCHKck5Uu3f6hrJDPaaH9rLZ5rysv/j6HHCezNlWbbMahWXGNol2q4yuJaGuGSImqpBfRCBp85D6G4NG5vyLxQj/lzvY7obJSW75hi7rQsdxtwZCHfaqdS/YJf+LgfCKIdpxWabP98kLfofyMFvivb2ujVHf5Szo9IEbLbsY+aWMnOquWz24pAJcaWJ0fNvzuz+ZlbbnQkBtM7spTvYQVlzSUD8Myv5QVyc7Z35nYFM75Jdr7899Z0F6MGiBivNamVKW9OPtC9Zl9XzVegeEj1HRcziLuvWJ38pt3y2zSyiEOzE5HDvt+9zlT9iYx8GhrA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from SJ2PR12MB8784.namprd12.prod.outlook.com (2603:10b6:a03:4d0::11)
- by DS0PR12MB7726.namprd12.prod.outlook.com (2603:10b6:8:130::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9366.12; Wed, 26 Nov
- 2025 15:29:14 +0000
-Received: from SJ2PR12MB8784.namprd12.prod.outlook.com
- ([fe80::1660:3173:eef6:6cd9]) by SJ2PR12MB8784.namprd12.prod.outlook.com
- ([fe80::1660:3173:eef6:6cd9%7]) with mapi id 15.20.9343.016; Wed, 26 Nov 2025
- 15:29:14 +0000
-Message-ID: <c4081961-0875-4a2d-ac84-40df128534e7@nvidia.com>
-Date: Wed, 26 Nov 2025 15:29:05 +0000
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 07/10] arm64: select HAVE_SHARED_GPIOS for ARCH_QCOM
-To: Bartosz Golaszewski <brgl@bgdev.pl>
-Cc: Kees Cook <kees@kernel.org>, Mika Westerberg <westeri@kernel.org>,
- Dmitry Torokhov <dmitry.torokhov@gmail.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Linus Walleij <linus.walleij@linaro.org>,
- Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Saravana Kannan <saravanak@google.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Andy Shevchenko <andy@kernel.org>, Catalin Marinas
- <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Srinivas Kandagatla <srini@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>,
- Mark Brown <broonie@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
- Takashi Iwai <tiwai@suse.com>, Alexey Klimov <alexey.klimov@linaro.org>,
- Bjorn Andersson <andersson@kernel.org>,
- Konrad Dybcio <konradybcio@kernel.org>, linux-hardening@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sound@vger.kernel.org,
- linux-arm-msm@vger.kernel.org,
- Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
- "linux-tegra@vger.kernel.org" <linux-tegra@vger.kernel.org>
-References: <20251112-gpio-shared-v4-0-b51f97b1abd8@linaro.org>
- <20251112-gpio-shared-v4-7-b51f97b1abd8@linaro.org>
- <0829a21c-f97d-41b6-90bc-2acaec42caab@nvidia.com>
- <CAMRc=MdPvF+okfnRuwvAFG9UfyZ-araDsaaKMxKASEbc3rhyjQ@mail.gmail.com>
- <705186a9-a9db-46f0-bf2b-b499def050dd@nvidia.com>
- <CAMRc=MdQ8QgbdAd2sudZLgcDZu9DxBRJh5sfLeXwcTDEE0F7Uw@mail.gmail.com>
-From: Jon Hunter <jonathanh@nvidia.com>
-Content-Language: en-US
-In-Reply-To: <CAMRc=MdQ8QgbdAd2sudZLgcDZu9DxBRJh5sfLeXwcTDEE0F7Uw@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: LO4P123CA0328.GBRP123.PROD.OUTLOOK.COM
- (2603:10a6:600:18c::9) To SJ2PR12MB8784.namprd12.prod.outlook.com
- (2603:10b6:a03:4d0::11)
+	Wed, 26 Nov 2025 15:30:40 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id D9E026020A;
+	Wed, 26 Nov 2025 15:30:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2A71CC113D0;
+	Wed, 26 Nov 2025 15:30:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1764171039;
+	bh=cWNAxYYMlJ5hlWBj+1KaKsCm5HgO/QaekBh3jUhGvR0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=LOQKjj12rKHrxKvXRLfq9BjbK9W2ch3ArAAYC9S/g/0F6wGUqOIyFJ1O9VbsmdPar
+	 AqYSWadNmVot4bE4eh+qrSux+Mw4m47QZOaAcmUuiv1WPxnEV5L2wwm3ykDju0A78+
+	 Wd2tqcjrBZJ27Ga2UTrnsXzGQ02jB64ncXvj55jE1oq2SXo6bXS3OlyII4VVkpbAZ7
+	 651FWy0P/W9UwQravJMfTKLngVYf9wSB2dw06eEJfp9V4KJpGOFqd67Nsn2ysAsfU5
+	 JdpzGipTfMc/HHl4zEiNtfdon0W3YLcOKgjV69DAxkIoDf08NU/zCmmk7FR9MBE/9c
+	 2LwP0JGKxTJ+g==
+Date: Wed, 26 Nov 2025 09:30:34 -0600
+From: Drew Fustini <fustini@kernel.org>
+To: Stephen Rothwell <sfr@canb.auug.org.au>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul@pwsan.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	=?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>,
+	Drew Fustini <dfustini@oss.tenstorrent.com>,
+	Himanshu Chauhan <hchauhan@ventanamicro.com>,
+	Lukas Bulwahn <lukas.bulwahn@redhat.com>,
+	Paul Walmsley <pjw@kernel.org>,
+	ARM <linux-arm-kernel@lists.infradead.org>,
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+	Linux Next Mailing List <linux-next@vger.kernel.org>
+Subject: Re: linux-next: manual merge of the risc-v tree with the arm-soc tree
+Message-ID: <aScdGuUjxJ3FkwYg@gen8>
+References: <20251126094511.07bdf834@canb.auug.org.au>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ2PR12MB8784:EE_|DS0PR12MB7726:EE_
-X-MS-Office365-Filtering-Correlation-Id: c58c94b3-673d-46d0-c0c4-08de2d008e12
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|376014|10070799003|1800799024;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?SEpEYWxmNjdNR0xlbjBvNU1CRU9ZNTJhMlB1MFZRRlR0WEdOaGVjamRKcEJI?=
- =?utf-8?B?SE8vUGljK3RFSWgyaUxNMTZYYW9kck5iQWJNdUVrQmFpcDZLcktZb0NHbG1q?=
- =?utf-8?B?a3crL2V3MmJ3WGpobUlieHFhUS9iK01ibzJINWlqUzhPS216cGg3NU9hR0Rl?=
- =?utf-8?B?eDVNME9ob1kwMXoxRndDZUFIaWhYeXJPK1ZOa3Q4S3VXZ2puZFhSMFVmUVh4?=
- =?utf-8?B?UkZpcXI0dTVtR3Evc2NrVVAwY0lWR0swMWt4MmtDWFU1VTZzSU5hNFpPR0lo?=
- =?utf-8?B?MTRvbkdMdjJiMVNaQ1VsS2FnN3ZHdkhFNlNGQzlKOUpoVmVHVzZ2S0tQcWhL?=
- =?utf-8?B?RldaNVVqazUxOVhZOEwxNkZkK0pMdmo5MG42L3dzaVpHaVF2UzgwcUdvYnRR?=
- =?utf-8?B?ZWlaS2RPTEtKQnFBV0srVlE3c2hBOTJSM2l2OXdoN0RrTC9rOTdSdkpDZG1p?=
- =?utf-8?B?TDVQeVRObnUrdnN6T3c3WWpQbjNFQUlZbmV3WEM2UmRieUZLbnUrUm13b3NH?=
- =?utf-8?B?S0FyUjcrOHFieXFBZ0pFREx1Yk1yRXRQWDdnVWh4UFRYVjBWWTI2cmJ1dkpo?=
- =?utf-8?B?Y3V6Nm9jNDRxeXh3bHkwT1hMU2l6OFc5QmdRcm9FVTFuZ1JHdlM1WDMvN0M5?=
- =?utf-8?B?Vk1JRkZmZzl6aW9XR1BSTHVsV1ZPeVhleTNYOEpOVXNObWM2UG5hTGN3WXZl?=
- =?utf-8?B?Sksvb2dnczZKaTR6RnhxU2F2NDZOSWo1RlZPK1dXQXdCWHllakN4M0ttR09S?=
- =?utf-8?B?Nno1UVB6STVGR3RBWCtsZmhGTndLWk16d1FlUjZlUTBTTGxmdkxaVU5vV0R1?=
- =?utf-8?B?d0F0SVUyYU5nZ1NHMllqTWI1amVZR2loa0JrNlFIT0NhU0lSUHh0U3VKS1J2?=
- =?utf-8?B?NTR0QkRXN2xrTTB4c0VBazJmd3ZXNWc5VFZiMHk0cHl0Nk5XL3lJcXVwdGdv?=
- =?utf-8?B?cURGMERWU3AwV0lMSnNMZzVLdmVRL2dRaS9QMDUxS2ZWOGpsUWYzalVQRWRh?=
- =?utf-8?B?OXNkQ2NYRkZwUjQ1NFc4SStkYWFPdmxwbE9MN3NlcUJhZUdOTFVnOUFXUFh4?=
- =?utf-8?B?WjJsWFJ4RkVIR2lSa3A1ckFOaGRzUElsTWkyN3dOS1BxczdWZkdCbFBaWUdj?=
- =?utf-8?B?OXR3My9PcnBqMmJJSFhlSjFXbUk5U1FMekpXZEdOcGVpWlBHY3pxN24ydWZK?=
- =?utf-8?B?VzBjMzlPYzFxQnNWMGtobnNsU21kcnZDQnRSaW1OT3JhSzFqTnltOFNhUTQ5?=
- =?utf-8?B?QTN3dFV4eXl3Y0Nsd2NlZFBMUFN4VGhoTzdQTGlydllQN0N2OEZyVEFQcmlp?=
- =?utf-8?B?K0ZuOWRhendHT05DNUJpbERLRHQrVEFKb3VLTkF2V1ZSaUxqaElEdjMxeXVw?=
- =?utf-8?B?K0U0b3ZFMnZKa2tXcEx5YzZGQ0lnaVNSUVFPTkhqWWJ5dm9qWUwwbzNUSnJ4?=
- =?utf-8?B?QUt2eDNydGZGeFVjNWJOcTkrOCtiVEFYRTdBekJCVVc4bTNoZHlTWmlPTThP?=
- =?utf-8?B?bkJiQWRROHZKckoyY05tcmNPRDZGZEVBemthbmlKR1VQOFhkYnY3YVhpeGYv?=
- =?utf-8?B?WG84Z2NqRlEwaUJFK3Z2TGdGUUN3NGV1anVqM3NyVE13RWl1SCtpSHd3SXZQ?=
- =?utf-8?B?dlFBL2M1SkZjVWtJRmpJY01NMkQwekJ6MUJsc3ZVMGtBL3g1TzVIRjFMQ1V1?=
- =?utf-8?B?eEE2VGhFVC9jV1llS2JTeXdTZThMTlBScElERmh1UjZvc1lOMFc5RnBYVG9j?=
- =?utf-8?B?TXlEUHY2L1RBTjRWeXVFZEoybithZUhjZkFrR0tETWc0SUZWNHlxK242RXJ5?=
- =?utf-8?B?OERrUlo2bWxhMWdlMmtoSWpxcm4zWDFQTmxyREhjc1FJN1ZRaEEyWXBZejU0?=
- =?utf-8?B?cXRlSVNpQmE1SkFUOTE2OFR6QjQzN0VXS1VLVEU2cXEvRFBUdldzK2tzYncw?=
- =?utf-8?Q?6+qaaRPGFf0y7uLJJ8Pgdld5TbKbw9JZ?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR12MB8784.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(10070799003)(1800799024);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?OEw5N3BhZ1VtZEJOM3A0Zk5VKzZ3SzZ2bVI5c0lkWnRrOFlyQUdBTlRjTVlu?=
- =?utf-8?B?ZVNRdXJTRkQ2Nkp3UEtxd05Fc1BBdStTb2dVUk52aVVReGhGWTRxZjk2RUZZ?=
- =?utf-8?B?L0VkTHRMSHZWUzF4cS9lR2N2MW5GU2N1RDVXdGxqMHBIT0lDWSt5TjZSL1dw?=
- =?utf-8?B?QU8ySTlGRTh0M3dPcVREWlhDdGR2WGRRQ3l3UHJRK3J6ZTZ4dDlabWFRWm9S?=
- =?utf-8?B?U1Riajh0ZW1EVWJDSEREU0gvaUZzTncyazJFS3U5YlBoZ1BCaTNCM0ZWMWhw?=
- =?utf-8?B?ZzdmdXdmR3ZibzRlZ0lqMjlJMkcyZi91SnpYdnZQOE9sSU5kR2hBZGFvYmgy?=
- =?utf-8?B?THVFYXprbnVmMG9makQrUHdab0hCNnA3UEs5WnJ4RGUvWk9wYzNBUEVQeXdz?=
- =?utf-8?B?SVYyVUxsb3JwNWVjczUySFlZWlZISHYyWDFkL0doWUNWS1RiQVdqUndvZGRZ?=
- =?utf-8?B?SVpIaktKWU1xb21lVkFqdVAwQ1hvNDhKQXlyNGZ6UDNoM2FYMDgxRlBoeDlO?=
- =?utf-8?B?TlZEYjVIQWVxRXNwZHFQbEx3SW5QTGluQWhjUWJJUGhIczlnU05jNWswQnJj?=
- =?utf-8?B?WVZyMWNsUUFiWXl1ZjVjb21wMnlHRHFkTzhOVzY1TFo0bkE3TkFMZ292WGxn?=
- =?utf-8?B?aEpyYVU3ZC9GTUNUalhvbWZVSmVHbTYvWGlqK0RmSkVJMzVsRDVpWVJIRDBF?=
- =?utf-8?B?eDFsUkxFU3pYMm9oa3pKeXpPN1JoMDdUaG1VN09wM0JPbmFaSzJKRTFSUStn?=
- =?utf-8?B?VXkzZEV2VjY5NE84RUJSMnZ0d0JDdms3Z2pFT2hoTDJuOFNnMENUcVhzZGJ4?=
- =?utf-8?B?U2EvUEpIZnRtUjRPTWtZemJMSDN1S3RlL0ZnL2VFMVZLV1hiUHVhRlRZdXlp?=
- =?utf-8?B?blloZ0piK2ZrMG5CM2RYd204aUhNR003TXM4TDVwQ0g1c3Vjb2FWRGIwQXlB?=
- =?utf-8?B?cHd5ZDV3YXJNK1U4Z0xKWjJad1Btamw0RkJxRGdUNlYrUTJSTzF1ZkFCak9R?=
- =?utf-8?B?LzBteVRNbCtYbXZHdnlCbWdLSmpXWk1jMDZyYnpVTGNXNE5KZHQ1dGR6ZkFs?=
- =?utf-8?B?RllNNXJpMURYaHBua2t3dUxmeGI3OEdXUGpPY2NTaHJ6RXF0cjVMMEhMNUQ1?=
- =?utf-8?B?MlBUWTd6YTlPOXJ2bVhDeUF1WlF1bDg2MFQ4WEQ2a1UwZkJqT0s4aGlXZEJh?=
- =?utf-8?B?ZGQ2OFd0eXBLMlo3VzBDQmpUQSt1ZzdVSTRHeFkwVGl1MTZNMnNqT2FtQzkx?=
- =?utf-8?B?WVRoN3R1Lzd4dzE0UG1PWjBrUzBYZFdsL3ZJTktIYVVjMFpPeEJVZE4zQmtW?=
- =?utf-8?B?OXkwODQ1Y1JCUUtCYzg3ZHErZG1QRU8rRWpNcDRtMzFkR3M0MTIzZ2ZzOFpU?=
- =?utf-8?B?OExjMTFheVlpd2FBKyt1UHN2eUwwMWU3OC90NUUzZ1YzcmVYYTUwYlFRTjA1?=
- =?utf-8?B?eG04U1lDeGRSNEJLbzhSZ0t0WXNxOWtCeXpuQlRvajljdkJNUnMwOFlOWEZo?=
- =?utf-8?B?cVlLTW52VTJmdE43M2JtR28zRmI2bXJRVVVlMW9tTW03KzljQTlDakRlMXl1?=
- =?utf-8?B?ZjBXSzNPQ2pLYUVlOHhBOXJiRlBMbGY2czRSaml3a3dXQ2JrMVo1YlljZW1o?=
- =?utf-8?B?UHNXSTF2eW1mZDAxZzZwTUVvbGtKanNtdFJ4V2JDUFF1QmFjeVlybkhVaS9w?=
- =?utf-8?B?MmI4MTB2SUJaWWltbnQ4QkxncWNoZEtSakRySHVTd2RvYTR2OFRpM1ZUaUVD?=
- =?utf-8?B?OWRBTkh5bWZCVmN0cFJBMXN1WFFuMmIxWkY2cHE3MW1JQWkyWFJSWjBqcm1U?=
- =?utf-8?B?dlJiL3Y4dGpnT2QxbGw5QUNvM3A2M1dzQzdXRkkzNzNTZEdnQ3RtVjFDUEJr?=
- =?utf-8?B?eE44WjY5aG9lK2RuL01NMGVnakNXb0Z2dGRsdGdyWUN3Nk5keVhqdXJHVDhD?=
- =?utf-8?B?SkdxQTNmeHQrd0E5OUttb2Y5Y0ZVU0lodG1IUTVQL2pRd0lTOHU5Y1VFdDhx?=
- =?utf-8?B?M1NVTmw5N1ZKdFRyTzR2V0N5V1dvQTZ0TVE0U2UvTkJmbllHalViRS8wSnRT?=
- =?utf-8?B?YlFXSXRIbm56M3c5UktXY2Z2d3AwVFhxR1Vmc0ppd2lRUjRXSXd1NTVmdy9x?=
- =?utf-8?B?eUVnb0RhSlpCc2JKTEE0cU04MFo3b2MyT0QwNFM2YzdOb0dEM3ozR3Q4cFo4?=
- =?utf-8?Q?p0ZXQuGeqnBtNOIivO6nn9T3So4Y7vum/BMrXnvkp87H?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c58c94b3-673d-46d0-c0c4-08de2d008e12
-X-MS-Exchange-CrossTenant-AuthSource: SJ2PR12MB8784.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Nov 2025 15:29:14.2816
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Ihq2RqnJ+G0Ehj+Uw/joFb7DzMb6D+gnTaEQrhJRp59pLlvQ/esEH9w7qTxSLRHy4C+yoZfWeh7ToMiQaQZtWw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB7726
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251126_072921_017185_99C67119 
-X-CRM114-Status: GOOD (  18.36  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="RlElvJGJSVm6EJMd"
+Content-Disposition: inline
+In-Reply-To: <20251126094511.07bdf834@canb.auug.org.au>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -200,80 +78,92 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On 26/11/2025 14:54, Bartosz Golaszewski wrote:
-> On Wed, Nov 26, 2025 at 3:51 PM Jon Hunter <jonathanh@nvidia.com> wrote:
->>
->>
->> On 26/11/2025 14:28, Bartosz Golaszewski wrote:
->>> On Wed, Nov 26, 2025 at 3:24 PM Jon Hunter <jonathanh@nvidia.com> wrote:
->>>>
->>>> Hi Bartosz,
->>>>
->>>> On 12/11/2025 13:55, Bartosz Golaszewski wrote:
->>>>> From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
->>>>>
->>>>> Some qualcomm platforms use shared GPIOs. Enable support for them by
->>>>> selecting the Kconfig switch provided by GPIOLIB.
->>>>>
->>>>> Acked-by: Linus Walleij <linus.walleij@linaro.org>
->>>>> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
->>>>> ---
->>>>>     arch/arm64/Kconfig.platforms | 1 +
->>>>>     1 file changed, 1 insertion(+)
->>>>>
->>>>> diff --git a/arch/arm64/Kconfig.platforms b/arch/arm64/Kconfig.platforms
->>>>> index 13173795c43d4f28e2d47acc700f80a165d44671..3dbff0261f0add0516d8cb3fd0f29e277af94f20 100644
->>>>> --- a/arch/arm64/Kconfig.platforms
->>>>> +++ b/arch/arm64/Kconfig.platforms
->>>>> @@ -316,6 +316,7 @@ config ARCH_QCOM
->>>>>         select GPIOLIB
->>>>>         select PINCTRL
->>>>>         select HAVE_PWRCTRL if PCI
->>>>> +     select HAVE_SHARED_GPIOS
->>>>>         help
->>>>>           This enables support for the ARMv8 based Qualcomm chipsets.
->>>>>
->>>>
->>>> I have noticed the following kernel warning on our Tegra platforms ...
->>>>
->>>>     ERR KERN OF: /__symbols__: could not find phandle 794981747
->>>>
->>>> Bisect is pointing to this commit and reverting this does prevent it. I
->>>> am not sure if anyone else has seen this?
->>>>
->>>
->>> I assume it comes from drivers/of/base.c:1295 - could you please post
->>> a stack trace of how you're getting there?
->>
->> Yes looks like it does and I see ...
->>
->> [    0.123356] OF: /__symbols__: could not find phandle 794981747
->> [    0.123401] CPU: 0 UID: 0 PID: 1 Comm: swapper/0 Not tainted 6.18.0-rc7-next-20251126-00002-g1cd98992c487-dirty #19 PREEMPT
->> [    0.123418] Hardware name: NVIDIA Jetson AGX Xavier Developer Kit (DT)
->> [    0.123447] Call trace:
->> [    0.123453]  show_stack+0x18/0x24 (C)
->> [    0.123472]  dump_stack_lvl+0x74/0x8c
->> [    0.123487]  dump_stack+0x18/0x24
->> [    0.123518]  of_phandle_iterator_next+0x18c/0x1c4
->> [    0.123536]  of_count_phandle_with_args+0xa0/0xc8
->> [    0.123551]  gpio_shared_of_traverse+0xb8/0x47c
->> [    0.123566]  gpio_shared_of_traverse+0x158/0x47c
->> [    0.123578]  gpio_shared_init+0x110/0x1f0
->> [    0.123595]  do_one_initcall+0x7c/0x1c0
->> [    0.123607]  kernel_init_freeable+0x204/0x2e0
->> [    0.123622]  kernel_init+0x20/0x1d8
->> [    0.123637]  ret_from_fork+0x10/0x20
->>
-> 
-> Is the device-tree used here upstream? Can you enable DEBUG_GPIO in
-> Kconfig and post the entire kernel log on pastebin?
+--RlElvJGJSVm6EJMd
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-The kernel log is here: https://pastebin.com/7rBh3T3T
+On Wed, Nov 26, 2025 at 09:45:11AM +1100, Stephen Rothwell wrote:
+> Hi all,
+>=20
+> Today's linux-next merge of the risc-v tree got a conflict in:
+>=20
+>   MAINTAINERS
+>=20
+> between commit:
+>=20
+>   4de28f1edcfb ("dt-bindings: riscv: Add Tenstorrent Blackhole compatible=
+")
+>=20
+> from the arm-soc tree and commits:
+>=20
+>   e0ce62cfe3a9 ("drivers: firmware: add riscv SSE support")
+>   832fd6c2e55c ("MAINTAINERS: refer to intended files in RISC-V SSE DRIVE=
+R")
+>=20
+> from the risc-v tree.
+>=20
+> I fixed it up (see below) and can carry the fix as necessary. This
+> is now fixed as far as linux-next is concerned, but any non trivial
+> conflicts should be mentioned to your upstream maintainer when your tree
+> is submitted for merging.  You may also want to consider cooperating
+> with the maintainer of the conflicting tree to minimise any particularly
+> complex conflicts.
+>=20
+> --=20
+> Cheers,
+> Stephen Rothwell
+>=20
+> diff --cc MAINTAINERS
+> index aacd4a754dab,6fa1048c248a..000000000000
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@@ -22247,15 -22195,14 +22254,23 @@@ F:	arch/riscv/boot/dts/spacemit
+>   N:	spacemit
+>   K:	spacemit
+>  =20
+> + RISC-V SSE DRIVER
+> + M:	Cl=E9ment L=E9ger <cleger@rivosinc.com>
+> + R:	Himanshu Chauhan <himanshu@thechauhan.dev>
+> + L:	linux-riscv@lists.infradead.org
+> + S:	Maintained
+> + F:	drivers/firmware/riscv/riscv_sbi_sse.c
+> + F:	include/linux/riscv_sbi_sse.h
+> +=20
+>  +RISC-V TENSTORRENT SoC SUPPORT
+>  +M:	Drew Fustini <dfustini@oss.tenstorrent.com>
+>  +M:	Joel Stanley <jms@oss.tenstorrent.com>
+>  +L:	linux-riscv@lists.infradead.org
+>  +S:	Maintained
+>  +T:	git https://github.com/tenstorrent/linux.git
+>  +F:	Documentation/devicetree/bindings/riscv/tenstorrent.yaml
+>  +F:	arch/riscv/boot/dts/tenstorrent/
+>  +
+>   RISC-V THEAD SoC SUPPORT
+>   M:	Drew Fustini <fustini@kernel.org>
+>   M:	Guo Ren <guoren@kernel.org>
 
-Thanks
-Jon
+Thanks for fixing this up. It looks like the correct resolution to me.
 
--- 
-nvpublic
+Tenstorrent MAINTAINERS patch is in the tag tenstorrent-dt-for-v6.19 [1]
+that I used for the 6.19 pull request [2].
 
+Drew
+
+[1] https://git.kernel.org/pub/scm/linux/kernel/git/tenstorrent/linux.git/t=
+ag/?h=3Dtenstorrent-dt-for-v6.19
+[2] https://lore.kernel.org/all/aPUemXdOFZEdkayE@x1/
+
+--RlElvJGJSVm6EJMd
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQSy8G7QpEpV9aCf6Lbb7CzD2SixDAUCaScdFQAKCRDb7CzD2Six
+DAlpAP9MEEev3Nsw6UvuNV6ewwCGZ/1J4EvRmRaTGObPhydPpgD9F9R95uB6LoRK
+zChI5YQNXgMlHGxKgwkD+QAvgFf5Hw0=
+=FM5A
+-----END PGP SIGNATURE-----
+
+--RlElvJGJSVm6EJMd--
 
