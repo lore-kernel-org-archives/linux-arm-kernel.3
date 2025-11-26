@@ -4,81 +4,145 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7ECBD0EE10
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 00:36:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F030ED0EE10
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 00:57:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n5PIGTFLdkW4IniYiOexcRvEmMURl8sUXIKPSPYdx5o=; b=wheghTBOSsByHM68W8wuLbe5De
-	Eu6QCg2L++ivNSleGFehbqZZYoBw+OGqEdrVb7fqsluW7GMd2ZMiciNjeqv2WKb8sWkiFI5UTgtVy
-	b4JQ1bJ3kTgVgeol7/PcAtfVSfBErz7be+AP/ZLatfA3oRI8NMRPN5Cg53QZIYj6OSWS0Q7DDhrkA
-	sEe34aBpHfc3vhlhzk2gs3img+xU1HuTvpiP2f4t7CCsOwGqL/twz83ABDn0I4IvDVJqJt6Eu39iv
-	Sy5GslgukYrSHIePj834dwPie3HHM5mKzj8VmD7TnMp3N9YzG0W2m0CzDZwXcbIE5LsE1fJGTzBOz
-	sU+iXQ4w==;
+	bh=unHHh0NLbpnnPNI7bBp35AJ1/bCWYR9F7f3PwCfNM7M=; b=FuyYysCgm9UrU62L6WtwpuLc9K
+	9piQwCFmrykCFxqlEMryF2yWJq1wxT4N1LNQv8czL45bvYriuSRAASS0U5O7z7b/CGJm6xYH9w9ze
+	Qdyj0cNYd1YPlT8bgEb3Go0iXUsbFx8snwh1hIdXVNuSHydfhly8T9V53XNfNvIBi1A7Ys7gGqHiS
+	3wsg03BwfuQ0YpKr5obznsct0iGfy6l4yS1M2hsi6N/ZjypwvrkXnIs2kaV1kw+3wPFmyA7B5Z4Ya
+	6UBEmdpb0l7FbPao+FupHhmuBA7Vk1V9tCPuKWiRFgvlCOiDWdf7fN/ePP1mFYw1tLm3X2t5GgHja
+	Wnx/+f7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vO3WD-0000000E7rA-3Yf1;
-	Wed, 26 Nov 2025 00:36:25 +0000
-Received: from mail-qt1-x831.google.com ([2607:f8b0:4864:20::831])
+	id 1vO3qL-0000000E8nD-1pWO;
+	Wed, 26 Nov 2025 00:57:13 +0000
+Received: from mail-eastusazon11011064.outbound.protection.outlook.com ([52.101.52.64] helo=BL2PR02CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vO3WB-0000000E7qd-17jl
+	id 1vO3qH-0000000E8mM-46th
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Nov 2025 00:36:24 +0000
-Received: by mail-qt1-x831.google.com with SMTP id d75a77b69052e-4ed67a143c5so158321cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Nov 2025 16:36:22 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1764117381; x=1764722181; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=n5PIGTFLdkW4IniYiOexcRvEmMURl8sUXIKPSPYdx5o=;
-        b=OUwHloeo0aXRo5tA2yZfl6xLO8X4++tnC6rb8ZyL4LkDH79p6x/zDkcEy77pBlCAKu
-         oiuz7AOS4ZIpx8FDM6dbwMaIqBuUiSlemaTp2iLyWPN3Ep/0uWoBLWDrvV8dDV+nA1Xs
-         Sl6yQ091Yx0fpe0tR/gCUQCCPJrTMFC1D1o/Q=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764117381; x=1764722181;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=n5PIGTFLdkW4IniYiOexcRvEmMURl8sUXIKPSPYdx5o=;
-        b=U0pv6ISyLCcQzAUOdxDx4VXHEH/88DRV6SxqedhVIpTAcN51glSklL6Pq+qQtaS4b4
-         xdYqHjCzGW96R7PAlb2MYvG94bMF0Ok83B2hGs05XAp9Tb10UjDwod0JsmB8RGI9fdlg
-         VXYVTNQnIReKoZbEaVL6ck36ghwkvBcGGue7R/lNGT41cJwxV1tNXzCZ8HVqgGIzW7uu
-         yirpTtBf/Lxu+qMJspmd73EagfLokCKoq5dwjh2VhxH1hoXjZogr/3XGEG225RPGEBB9
-         qbbkw9429WNV3+cUTJ9BbfAMf0KOekRH5O3YtrKVhuX+ZmzkzMS+XAvpfbtWgk8KpeC4
-         nrLw==
-X-Forwarded-Encrypted: i=1; AJvYcCWK4j/XAI7kzMynw6lYkzYeaJ3sE0lzZGdIXwupJyUolfq1HkFGd77GsMKiar/IWgbO/RZgWQwacPqTma3nTl1Q@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywpq3GGJiLJ60z7JmnpE/cATGuiObixUj0qME/rYU7BakT8nE9w
-	aUyV4S3R1+cgIMy8BuqPaIt4HT9IxVouECbmq6DU1h4ky7e0NzXffeOlUidqHTYQOV6huAYBjyC
-	k3fqj8CPukWG8ePX6l3Lu9kBCT/Z+niqvOFhLWjU3
-X-Gm-Gg: ASbGnct+3GcHv6z52oxaVobw+0bg7CocdjUdCvsYhqO8PJ8IhaiFn+/TjZvw63jvznr
-	GkYTaPNjvxZBStcyidenZneHBBFmDMbZ0shjFrWsz04hcZEPqwyNzlH7ToRz3+VYN2zITomphu9
-	I6dBeytE+KSHMwE8Gg4nRu/kpb3jj2H85oN+z9iReCM4/tJup1f8liogIUKB2v8YJqx/yV4BNHw
-	rB9nRZTMnIjw4xGkyvGT7k4qT7/5/3UBK1hGJftamIaQ4NVsovOBFLLwk/KMlUyMWneSdE=
-X-Google-Smtp-Source: AGHT+IGP6oX1F/D2CxJOatUpgvnDhypTahl/TVp41rMeFMAZHUR682n0RVM907rgexwTnBhQMCJvipynTviLMfsb/Ok=
-X-Received: by 2002:ac8:580e:0:b0:4b7:a72f:55d9 with SMTP id
- d75a77b69052e-4efc83b0345mr1017551cf.13.1764117380805; Tue, 25 Nov 2025
- 16:36:20 -0800 (PST)
+	Wed, 26 Nov 2025 00:57:11 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ndyOZ2b+lR25NNDi3p19JLcDqzGAfavUXFuXSBqvAKt0CeFwiROrPyxlWtJaOkEWAvqZwIODmIpleofXoCeVa5pA5rAkJfHfDRehNxtzCIUROASEw5uxRsPTOB8brZG/WaYuJsxg64q2VLNO93DeipktW1fMpmEOr5qeQK22fTmDIJhNiZTtgGS4htHQG6jBymUZh739V/m0To1iUrOR1rEcd+xkEAe69k43Ra9xi+hJjGoJl21eugWh1BLESHfzWL5jj6yI12W7yTR9hJj6YPvzHgu9Z31/frl/rtdFiHxeYxLPTNEC4lh6NOVX2cyaJeFss1i0RH36bv/dkR4k/A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=unHHh0NLbpnnPNI7bBp35AJ1/bCWYR9F7f3PwCfNM7M=;
+ b=uEAiIfzUdWCoCwmwl8dF/W3SQPtT/a87QD0eeffsFbw3R7M1QYEB8bNjDOpxJz4bLDgdax4AWJ2LgC0M4dk+AyKwkHojEn1ZY5lcLGXQ4UL7PwlCXNUjKeEx7N9viK+M2SJvkWH4X0akvF2/koBl+FRMd32BXrJbVJJ4SIciAKAGmxni/s1/wVH8xd73jCPk+FutInBd3LHXpxLlzudxdCymGLLiQ83KzfH6+FOhd8DqUO8iNHNjKtG2xsoZ6MkzA5XC2hv1JpwYj/ROb2uhwVhzVIuLTmPuCy5K8j4jDK17fDp0+V/olDhnbX1VVhvWaTx8Pvoj0Gwrm47ZiDii7g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.161) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=unHHh0NLbpnnPNI7bBp35AJ1/bCWYR9F7f3PwCfNM7M=;
+ b=YUSr1vQwMnUpg8ZV2RO757MJBWE1b+fQ84GwApVmxgRbr+x4FVDv4nwIv/MQ+ItYLK9LXWzPgl3xRRlytUviLHOz22CiPX96Hn4ZRivHikEZy+Erfq8ax3qGp9DFN9jZa2+Vjj2yEwTbNS45NVCi7TdvZ1XtdAUhXfEE1wZREb8H1F8EjWZcm/qsXZrdQjTVlnb0LjP53l4QQdN4tEOSI5yxIpbvt+GsMCz/VhdaiXszZSFr0LJG4AQAzDlx1Bjx5qVqLrv1QZm3BJJdmGSxxo5Y7u/Yo3A39z+cc/bYwL2gQpMm7fsnO4dwv/FyhX+h1a8LWsvHdEiMQM208nnA1g==
+Received: from MN2PR05CA0055.namprd05.prod.outlook.com (2603:10b6:208:236::24)
+ by DS0PR12MB8042.namprd12.prod.outlook.com (2603:10b6:8:141::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9366.11; Wed, 26 Nov
+ 2025 00:56:59 +0000
+Received: from MN1PEPF0000ECD9.namprd02.prod.outlook.com
+ (2603:10b6:208:236:cafe::ad) by MN2PR05CA0055.outlook.office365.com
+ (2603:10b6:208:236::24) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9366.12 via Frontend Transport; Wed,
+ 26 Nov 2025 00:56:55 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.161) by
+ MN1PEPF0000ECD9.mail.protection.outlook.com (10.167.242.138) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9366.7 via Frontend Transport; Wed, 26 Nov 2025 00:56:59 +0000
+Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
+ (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 25 Nov
+ 2025 16:56:45 -0800
+Received: from rnnvmail205.nvidia.com (10.129.68.10) by rnnvmail201.nvidia.com
+ (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 25 Nov
+ 2025 16:56:44 -0800
+Received: from Asurada-Nvidia (10.127.8.13) by mail.nvidia.com (10.129.68.10)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Tue, 25 Nov 2025 16:56:43 -0800
+Date: Tue, 25 Nov 2025 16:56:42 -0800
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+CC: Will Deacon <will@kernel.org>, <jean-philippe@linaro.org>,
+	<robin.murphy@arm.com>, <joro@8bytes.org>, <balbirs@nvidia.com>,
+	<miko.lenczewski@arm.com>, <peterz@infradead.org>, <kevin.tian@intel.com>,
+	<praan@google.com>, <linux-arm-kernel@lists.infradead.org>,
+	<iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v5 5/7] iommu/arm-smmu-v3: Populate smmu_domain->invs
+ when attaching masters
+Message-ID: <aSZQSsP9t0nyfNkx@Asurada-Nvidia>
+References: <cover.1762588839.git.nicolinc@nvidia.com>
+ <ebf35fa1b2025be736475950503f0dc0612371f4.1762588839.git.nicolinc@nvidia.com>
+ <aSTRdltJpMeFLDN8@willie-the-truck>
+ <20251124231341.GO153257@nvidia.com>
 MIME-Version: 1.0
-References: <20251125064851.3781993-1-wenst@chromium.org> <20251125-outgoing-boisterous-millipede-6dabaf@kuoka>
- <CAGXv+5FPaJMuN7wCP7g0Rxa0mXD3Ru0rxka=m8B_rv+XUkJPWA@mail.gmail.com> <25ee55eb-91d6-4da2-a798-b704acfae4fe@kernel.org>
-In-Reply-To: <25ee55eb-91d6-4da2-a798-b704acfae4fe@kernel.org>
-From: Julius Werner <jwerner@chromium.org>
-Date: Tue, 25 Nov 2025 16:36:07 -0800
-X-Gm-Features: AWmQ_bkYsZKnR0Rl94iSzfQ_dAjBcO2VNFs_DTYgpRBgQH_dr4_09XaXBAvsBPc
-Message-ID: <CAODwPW_LfeC7UFnDMxJFfKCFBoGBvu2O6S=otD0Sj7ssOSJVgw@mail.gmail.com>
-Subject: Re: [PATCH] dt-bindings: firmware: coreboot: Convert to YAML
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Chen-Yu Tsai <wenst@chromium.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org, 
-	chrome-platform@lists.linux.dev, Julius Werner <jwerner@chromium.org>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20251124231341.GO153257@nvidia.com>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MN1PEPF0000ECD9:EE_|DS0PR12MB8042:EE_
+X-MS-Office365-Filtering-Correlation-Id: f3883b56-68f9-44c8-0d9d-08de2c86b466
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|82310400026|1800799024|36860700013;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?Y8+XLWgFKX1qWHn7VroElFXpgdu05RvHBoKoFU5ZN7fy6793YZXnFa4UgwOj?=
+ =?us-ascii?Q?AYiWV6aqhhfO6l3KnnNjg59G5bODbYzKIG4moEbSexjtpxODexZAE5SPfcs9?=
+ =?us-ascii?Q?yDWLWB3QLz3nQwbZteCtcm0r0Rw1cqXzUK6ru5E0eJvHdXjG3JoG0kRIdWVI?=
+ =?us-ascii?Q?tRy0VhmMCbr6zDAD41SBha6hSbHBJIroEsxMKVa1wQGh46CgNO6bVpEGrk8n?=
+ =?us-ascii?Q?GfFG+qjRCXMVKWAXjo7Wv+Lu/S4LXEXYjOpyY91Zr9TnwKev4qzZRNOBseSf?=
+ =?us-ascii?Q?K8sZl/1do3RtfzGaV08XDddjtjIKWQvMyBVNlEZvKNClEvSnZfH53HWVabzs?=
+ =?us-ascii?Q?pQPziPVwRoJuCLrFl5NtPifKWcO7DGLWVwip/pTg3SkRDQ9LKNvT4dprKvcv?=
+ =?us-ascii?Q?RQy82C9L/QZ2iwTKlXkFtBoSN5061OWJIsCA8Mdw9FJE+Ynm7CHyDF9kzscN?=
+ =?us-ascii?Q?T2unCSv9LcUYLZwS+XZ/dKWr+vLfhAzRmzdBAkPGYFANzvYiz6gx++kUEoYK?=
+ =?us-ascii?Q?7tEQJungR3tGtciYSsD/fOaduT/GQ3JezCzok8mit6JGbO7eNTsrbrb8Vivh?=
+ =?us-ascii?Q?5QAIZNFUlQPXwIX1egk0eKpdVdQh+TqtpMUQTAsmpLak+o6Mu30LJ9siJTdG?=
+ =?us-ascii?Q?MMup2J+EV61ADSqDJ6v1n4wzq1Bc7LakyYxcbLb2PCPaqLdPKrny77+IGoiG?=
+ =?us-ascii?Q?iaZM4l/U4vfX3137sWWlE3Slv4uLr0K4pU5H2Bn/h6py0IqK+g6Tk8z5TsMY?=
+ =?us-ascii?Q?US7hhHZA+9Kk8j002GLBsdEZ2KUDJYLR4q6DBRe/65IUqQUy/cSBjEAzptfc?=
+ =?us-ascii?Q?VGB3xCa6Askbet+JNPacgn/tAjtw4N1uBcwzxTba7B/+0YET8UWy3wvOYtk1?=
+ =?us-ascii?Q?BHoQvM0ewy3KFpkkHSIGF2tVP7y2pPScPqcB4oL2b1SdcGbkc+kkyi5lDmHB?=
+ =?us-ascii?Q?3ZIQgJOfl6Org4DMqTtjmakqdbL1cxi84fNI5RXWNcdviDZRPebsMTdPPCXx?=
+ =?us-ascii?Q?EcSisZ3Skjcx2AkluUVex/W5Qzq5mzsFfw1t3g7doa5sXC9ys373NYsqSE0K?=
+ =?us-ascii?Q?+OQ+ixeePzP2K5YivW/It+1NMqztBs56bOrdpU6rH3Y8+oQpLNDQw6SULecZ?=
+ =?us-ascii?Q?YM9Sy19S79QgWEmfdNQUPLIsOiiO/2hwnM1I+3acrlqXPRz4DG+zTjhB6RY7?=
+ =?us-ascii?Q?Z45iDmIMYR2oKyLlJf4doXEdTM6n+uDqdUVDkHBGJnaH44gcGQGqZAhSYRvC?=
+ =?us-ascii?Q?b4nMrF+L/ccX7bvRRH8/PhfkOBiAvcfd+qMX4HjAVe3P0LiBTnCTdgtAxBg3?=
+ =?us-ascii?Q?rWvfi0gnt8+ORFm5vSP2eEYqUPswyiOFrj2mqWfq8QoVpyHl69pcoBnPX5Cy?=
+ =?us-ascii?Q?o/p17R1ZKs4qOBscvohUUv590Bk9g+v2+ml8rNqvOetFkeaTMzDnv8oM4S5J?=
+ =?us-ascii?Q?t6E8vnHS/0ytOdxdkommonojGhXmEgf2VW/id13kB3DyDQIFZ+kSPMH8K+78?=
+ =?us-ascii?Q?X9FL7zQb3fOY2prQ/hJg2h5m0PMKoMuQtOxd6aE1PIz7hFcVv9D0MTzY2cRm?=
+ =?us-ascii?Q?U/uKHbhs8hvvrHtQmRM=3D?=
+X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(376014)(7416014)(82310400026)(1800799024)(36860700013);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Nov 2025 00:56:59.5170
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: f3883b56-68f9-44c8-0d9d-08de2c86b466
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: MN1PEPF0000ECD9.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB8042
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251125_163623_436963_2B31E285 
-X-CRM114-Status: GOOD (  28.34  )
+X-CRM114-CacheID: sfid-20251125_165710_112186_37E6E2CA 
+X-CRM114-Status: GOOD (  26.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,61 +157,215 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> >>> +title: COREBOOT firmware information
-> >>
-> >> Coreboot
-> >
-> > OK. Side note, coreboot is stylized in all lowercase letters.
-> > Should I follow that or just use standard English rules?
->
-> Just choose one. Here was capitals, but in description not. Preferably
-> Coreboot or coreboot
+On Mon, Nov 24, 2025 at 07:13:41PM -0400, Jason Gunthorpe wrote:
+> On Mon, Nov 24, 2025 at 09:43:18PM +0000, Will Deacon wrote:
+> > > +	switch (smmu_domain->stage) {
+> > > +	case ARM_SMMU_DOMAIN_SVA:
+> > > +	case ARM_SMMU_DOMAIN_S1:
+> > > +		*cur = (struct arm_smmu_inv){
+> > > +			.smmu = master->smmu,
+> > > +			.type = INV_TYPE_S1_ASID,
+> > > +			.id = smmu_domain->cd.asid,
+> > > +			.size_opcode = e2h ? CMDQ_OP_TLBI_EL2_VA :
+> > > +					     CMDQ_OP_TLBI_NH_VA,
+> > > +			.nsize_opcode = e2h ? CMDQ_OP_TLBI_EL2_ASID :
+> > > +					      CMDQ_OP_TLBI_NH_ASID
+> > > +		};
+> > > +		break;
+> > > +	case ARM_SMMU_DOMAIN_S2:
+> > > +		*cur = (struct arm_smmu_inv){
+> > > +			.smmu = master->smmu,
+> > > +			.type = INV_TYPE_S2_VMID,
+> > > +			.id = smmu_domain->s2_cfg.vmid,
+> > > +			.size_opcode = CMDQ_OP_TLBI_S2_IPA,
+> > > +			.nsize_opcode = CMDQ_OP_TLBI_S12_VMALL,
+> > > +		};
+> > > +		break;
+> > 
+> > Having a helper to add an invalidation command would make this a little
+> > more compact and you could also check against the size of the array.
+> 
+> Yeah but it makes all the parameters positional instead of nicely
+> named..
 
-coreboot should always be written all lowercase, even at the start of
-a sentence (i.e. "...bookkeeping structures to the kernel. coreboot's
-FIT image payload can insert..."). Not sure why I wrote it in caps in
-the heading here, that was never really correct, not even back then.
+Will's remarks did raise an issue that __counted_by() requires a
+max_invs v.s. num_invs that can be smaller due to the removal of
+tailing trash entries.
 
-> >>> +  The device tree node to communicate the location of coreboot's
-> >>> +  memory-resident bookkeeping structures to the kernel. Coreboot's
-> >>> +  FIT image payload can insert the node into the device tree. If a
+Then, it's probably nicer to add a check against the max_invs.
 
-nit: Not really sure what "coreboot's FIT image payload" is supposed
-to be? Do you mean "coreboot's FIT image code"? (The file is just
-called fit_payload.c because the FIT image takes the place of the
-usual coreboot payload, but the code that does the device tree
-stitching itself is still coreboot proper.) To make the point you're
-trying to make here, why not just say: "This node may be inserted
-either by coreboot itself or by a second-stage bootloader (a coreboot
-"payload"), depending on where the kernel device tree is finalized."
+I did the following, which doesn't look too bad to me:
 
-> >>> +        /* Firmware actually emits "coreboot" node without unit name */
-> >>> +        coreboot@fdfea000 {
-> >>> +            compatible = "coreboot";
-> >>> +            reg = <0xfdfea000 0x264>, <0xfdfea000 0x16000>;
-> >>
-> >> That's the same address in both places, so the same one entry. You need
-> >> two distinctive addresses or binding needs changes to have only one item
-> >> as well.
-> >
-> > The description does mention that the latter block can include the
-> > former. It's really up to the firmware. If you like I can include
-> > two examples to cover both cases.
->
-> Lovely, I don't think we should accept growing this binding at all until
-> coreboot fixes this mess (duplicated entry and missing unit address).
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+index b04936e76cfd..28765febf99f 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+@@ -3066,6 +3066,51 @@ static void arm_smmu_disable_iopf(struct arm_smmu_master *master,
+ 		iopf_queue_remove_device(master->smmu->evtq.iopf, master->dev);
+ }
+ 
++static struct arm_smmu_inv *
++arm_smmu_master_build_inv(struct arm_smmu_master *master,
++			  enum arm_smmu_inv_type type, u32 id, ioasid_t ssid,
++			  size_t pgsize)
++{
++	struct arm_smmu_invs *build_invs = master->build_invs;
++	struct arm_smmu_inv *cur, inv = {
++		.smmu = master->smmu,
++		.type = type,
++		.id = id,
++		.pgsize = pgsize,
++	};
++
++	if (WARN_ON(build_invs->num_invs >= build_invs->max_invs))
++		return NULL;
++	cur = &build_invs->inv[build_invs->num_invs];
++	build_invs->num_invs++;
++
++	*cur = inv;
++	switch (type) {
++	case INV_TYPE_S1_ASID:
++		if (master->smmu->features & ARM_SMMU_FEAT_E2H) {
++			cur->size_opcode = CMDQ_OP_TLBI_EL2_VA;
++			cur->nsize_opcode = CMDQ_OP_TLBI_EL2_ASID;
++		} else {
++			cur->size_opcode = CMDQ_OP_TLBI_NH_VA;
++			cur->nsize_opcode = CMDQ_OP_TLBI_NH_ASID;
++		}
++		break;
++	case INV_TYPE_S2_VMID:
++		cur->size_opcode = CMDQ_OP_TLBI_S2_IPA;
++		cur->nsize_opcode = CMDQ_OP_TLBI_S12_VMALL;
++		break;
++	case INV_TYPE_S2_VMID_S1_CLEAR:
++		cur->size_opcode = cur->nsize_opcode = CMDQ_OP_TLBI_NH_ALL;
++		break;
++	case INV_TYPE_ATS:
++	case INV_TYPE_ATS_FULL:
++		cur->size_opcode = cur->nsize_opcode = CMDQ_OP_ATC_INV;
++		break;
++	}
++
++	return cur;
++}
++
+ /*
+  * Use the preallocated scratch array at master->build_invs, to build a to_merge
+  * or to_unref array, to pass into a following arm_smmu_invs_merge/unref() call.
+@@ -3077,84 +3122,58 @@ static struct arm_smmu_invs *
+ arm_smmu_master_build_invs(struct arm_smmu_master *master, bool ats_enabled,
+ 			   ioasid_t ssid, struct arm_smmu_domain *smmu_domain)
+ {
+-	const bool e2h = master->smmu->features & ARM_SMMU_FEAT_E2H;
+-	struct arm_smmu_invs *build_invs = master->build_invs;
+ 	const bool nesting = smmu_domain->nest_parent;
+-	struct arm_smmu_inv *cur;
++	size_t pgsize = 0, i;
+ 
+ 	iommu_group_mutex_assert(master->dev);
+ 
+-	cur = build_invs->inv;
++	master->build_invs->num_invs = 0;
++
++	/* Range-based invalidation requires the leaf pgsize for calculation */
++	if (master->smmu->features & ARM_SMMU_FEAT_RANGE_INV)
++		pgsize = __ffs(smmu_domain->domain.pgsize_bitmap);
+ 
+ 	switch (smmu_domain->stage) {
+ 	case ARM_SMMU_DOMAIN_SVA:
+ 	case ARM_SMMU_DOMAIN_S1:
+-		*cur = (struct arm_smmu_inv){
+-			.smmu = master->smmu,
+-			.type = INV_TYPE_S1_ASID,
+-			.id = smmu_domain->cd.asid,
+-			.size_opcode = e2h ? CMDQ_OP_TLBI_EL2_VA :
+-					     CMDQ_OP_TLBI_NH_VA,
+-			.nsize_opcode = e2h ? CMDQ_OP_TLBI_EL2_ASID :
+-					      CMDQ_OP_TLBI_NH_ASID
+-		};
++		if (!arm_smmu_master_build_inv(master, INV_TYPE_S1_ASID,
++					       smmu_domain->cd.asid,
++					       IOMMU_NO_PASID, pgsize))
++			return NULL;
+ 		break;
+ 	case ARM_SMMU_DOMAIN_S2:
+-		*cur = (struct arm_smmu_inv){
+-			.smmu = master->smmu,
+-			.type = INV_TYPE_S2_VMID,
+-			.id = smmu_domain->s2_cfg.vmid,
+-			.size_opcode = CMDQ_OP_TLBI_S2_IPA,
+-			.nsize_opcode = CMDQ_OP_TLBI_S12_VMALL,
+-		};
++		if (!arm_smmu_master_build_inv(master, INV_TYPE_S2_VMID,
++					       smmu_domain->s2_cfg.vmid,
++					       IOMMU_NO_PASID, pgsize))
++			return NULL;
+ 		break;
+ 	default:
+ 		WARN_ON(true);
+ 		return NULL;
+ 	}
+ 
+-	/* Range-based invalidation requires the leaf pgsize for calculation */
+-	if (master->smmu->features & ARM_SMMU_FEAT_RANGE_INV)
+-		cur->pgsize = __ffs(smmu_domain->domain.pgsize_bitmap);
+-	cur++;
+-
+ 	/* All the nested S1 ASIDs have to be flushed when S2 parent changes */
+ 	if (nesting) {
+-		*cur = (struct arm_smmu_inv){
+-			.smmu = master->smmu,
+-			.type = INV_TYPE_S2_VMID_S1_CLEAR,
+-			.id = smmu_domain->s2_cfg.vmid,
+-			.size_opcode = CMDQ_OP_TLBI_NH_ALL,
+-			.nsize_opcode = CMDQ_OP_TLBI_NH_ALL,
+-		};
+-		cur++;
++		if (!arm_smmu_master_build_inv(
++			    master, INV_TYPE_S2_VMID_S1_CLEAR,
++			    smmu_domain->s2_cfg.vmid, IOMMU_NO_PASID, 0))
++			return NULL;
+ 	}
+ 
+-	if (ats_enabled) {
+-		size_t i;
+-
+-		for (i = 0; i < master->num_streams; i++) {
+-			/*
+-			 * If an S2 used as a nesting parent is changed we have
+-			 * no option but to completely flush the ATC.
+-			 */
+-			*cur = (struct arm_smmu_inv){
+-				.smmu = master->smmu,
+-				.type = nesting ? INV_TYPE_ATS_FULL :
+-						  INV_TYPE_ATS,
+-				.id = master->streams[i].id,
+-				.ssid = ssid,
+-				.size_opcode = CMDQ_OP_ATC_INV,
+-				.nsize_opcode = CMDQ_OP_ATC_INV,
+-			};
+-			cur++;
+-		}
++	for (i = 0; ats_enabled && i < master->num_streams; i++) {
++		/*
++		 * If an S2 used as a nesting parent is changed we have no
++		 * option but to completely flush the ATC.
++		 */
++		if (!arm_smmu_master_build_inv(
++			    master, nesting ? INV_TYPE_ATS_FULL : INV_TYPE_ATS,
++			    master->streams[i].id, ssid, 0))
++			return NULL;
+ 	}
+ 
+ 	/* Note this build_invs must have been sorted */
+ 
+-	build_invs->num_invs = cur - build_invs->inv;
+-	return build_invs;
++	return master->build_invs;
+ }
+ 
+ static void arm_smmu_remove_master_domain(struct arm_smmu_master *master,
 
-As Chen-Yu said, the second region usually contains the first. It is
-possible (in fact tends to be common on many platforms, because the
-coreboot table is often the last region added to the downward-growing
-CBMEM) for the start addresses to match. That is not an error or a
-"duplicate", they're still describing two different things.
-
-We can start adding the @<address> part if you want but it hasn't
-really been relevant in practice since there will always be only one
-coreboot in the system anyway. As far as I understand, node names are
-just informational in the device tree and the compatible string is
-what identifies the actual binding. Since bootloaders on older
-platforms often don't get updated, it is probably still a good idea to
- mention that in a comment like Chen-Yu did here even if we change it.
+Thanks
+Nicolin
 
