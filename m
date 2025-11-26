@@ -4,63 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 860FBD10F52
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 13:54:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1F02D10F55
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 14:00:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BBVNER9L9oV3VRDlonWtyD3NWeY+HyYBe1TaqmaWD3Q=; b=Xur88gaDS7pd6VK0Kra30o13NA
-	5IEiPhUbnznOinkygRLPZEGTef8fabcg4vDAQItoBe8rkuLQTu0aCKNzXNYCc9i4RGNgCEix1rdoA
-	Ot1J6o5IjdcFDOIyEQVyotkHPjysOytRt/9JjspfcAR7IahgwLK11F+TFwTFbVrjOqN9TGa/CPL5L
-	X+cEiYXu/e1G1SsvzjqYlHnNKMhBQpaQwRBx8tQUlwJgF29CxAVkmnCLaT6XmIfBIs+xjPtwPU4gz
-	tgdUE/Z0dv2Ma5ov0vp1zrTzjtZDfmvJ5RfHuBwSJHpL9fwAaqCznmkpsfFGwdXU7aavcx7+Uno7C
-	hPh3/1pQ==;
+	bh=K6TXj88pT79Ji4c9P5GR/lSVInBo3iyb9JfIKcbSTcg=; b=fu94LF9lW+QdvZ0mwLpHn08wu8
+	Syuhj032DBs+WPfuGRVU1ZLcq9Eewu7ofeteo/W5GE9jcZwobUn1y9a0yGaWYomz2OsXrdepCbiyS
+	fValL2y6Ov9NQa2W2OY7LFZdJ4478Ny5Kmnr7M67xnjnyS7u4FV47HfvNGRCJrVEBR6L2Wekpkeki
+	NMbE+QGluezigcnJTxQ3W648VPQyKFt3bk06dEUaoJZ3Tmm9G0t71zb1WbY4XCqsyqfpuTcNqaU1W
+	kvPJ/+ME7+mSETPNUTUnOQFQr956ahSBwQsQlq9dZC2lGOzKC0vCKDBAMYs56GQE15IOHXVTEHZVB
+	Vqen/FJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOFyZ-0000000F3zd-19CP;
-	Wed, 26 Nov 2025 13:54:31 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOFyW-0000000F3zS-2K0a;
-	Wed, 26 Nov 2025 13:54:28 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id EFB17601A6;
-	Wed, 26 Nov 2025 13:54:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A41F0C4CEF7;
-	Wed, 26 Nov 2025 13:54:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764165267;
-	bh=65eP/lbRfzZhiS3efIMJ0dY3HA+WW/ppdXfaAdFXkXw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=rXGloj682brw4JG9ho9TLCbP6OZOgbIAdWrbM83Y1+iW88vaXKENgqq87df2en3mV
-	 +8zv1bQG2I92tKoSuoDzMUTC0uzlqs0tFHYm/1G4Q8R80bu9glzVIUJxoT5dOhHSgA
-	 TosUxL9eSMeVVtz+265ZiVNcigHqDJYGsIJgVhaBN+YRQazc37LvJi244kGJgE+0do
-	 vdj919xaDkRYIVCDIA9ty+Uf7wRSuDV4neXBF3SF85fUW4cKfwiJpuhQDAGVKrHMJd
-	 hFHbaWSq0DUpb50dhfWyT2CVMJgqqBm9mLuUTVxa0+kaELIPv4FxRmvul8D5zk2ZXt
-	 +fbUEcZH5JRvw==
-Date: Wed, 26 Nov 2025 19:24:15 +0530
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: FUKAUMI Naoki <naoki@radxa.com>
-Cc: Niklas Cassel <cassel@kernel.org>, Jingoo Han <jingoohan1@gmail.com>, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
-	Heiko Stuebner <heiko@sntech.de>, Shawn Lin <shawn.lin@rock-chips.com>, 
-	Krishna chaitanya chundru <quic_krichai@quicinc.com>, linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, linux-arm-msm@vger.kernel.org
-Subject: Re: [PATCH 0/6] PCI: dwc: Revert Link Up IRQ support
-Message-ID: <pbcemex3hdu4ryw2r7iy6xxt3chwaytlm2eina7mm4ukjfcagt@x4777z7ral26>
-References: <20251111105100.869997-8-cassel@kernel.org>
- <mt7miqkipr4dvxemftq6octxqzauueln252ncrcwy6i2t7wfhi@jtwokeilhwsi>
- <aSRli_Mb6qoQ9TZO@ryzen>
- <7667E818D7D31A4E+cf7c83d4-b99c-469d-8d46-588fc95b843f@radxa.com>
+	id 1vOG4b-0000000F4Iq-1ZiO;
+	Wed, 26 Nov 2025 14:00:45 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vOG4Z-0000000F4IQ-0Y7O
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 26 Nov 2025 14:00:44 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AFBAA168F;
+	Wed, 26 Nov 2025 06:00:33 -0800 (PST)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B07783F73B;
+	Wed, 26 Nov 2025 06:00:40 -0800 (PST)
+Date: Wed, 26 Nov 2025 14:00:38 +0000
+From: Leo Yan <leo.yan@arm.com>
+To: James Clark <james.clark@linaro.org>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Mike Leach <mike.leach@linaro.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Randy Dunlap <rdunlap@infradead.org>, coresight@lists.linaro.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-doc@vger.kernel.org
+Subject: Re: [PATCH v7 00/13] coresight: Update timestamp attribute to be an
+ interval instead of bool
+Message-ID: <20251126140038.GJ724103@e132581.arm.com>
+References: <20251126-james-cs-syncfreq-v7-0-7fae5e0e5e16@linaro.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <7667E818D7D31A4E+cf7c83d4-b99c-469d-8d46-588fc95b843f@radxa.com>
+In-Reply-To: <20251126-james-cs-syncfreq-v7-0-7fae5e0e5e16@linaro.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251126_060043_230450_5F54ED2D 
+X-CRM114-Status: GOOD (  17.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,66 +68,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 26, 2025 at 10:30:06PM +0900, FUKAUMI Naoki wrote:
-> Hi Niklas,
+On Wed, Nov 26, 2025 at 10:54:29AM +0000, James Clark wrote:
+> Do some cleanups then expand the timestamp format attribute from 1 bit
+> to 4 bits for ETMv4 in Perf mode. The current interval is too high for
+> most use cases, and particularly on the FVP the number of timestamps
+> generated is excessive. This change not only still allows disabling or
+> enabling timestamps, but also allows the interval to be configured.
 > 
-> I apologize for the delayed response.
+> The old bit is kept deprecated and undocumented for now. There are known
+> broken versions of Perf that don't read the format attribute positions
+> from sysfs and instead hard code the timestamp bit. We can leave the old
+> bit in the driver until we need the bit for another feature or enough
+> time has passed that these old Perfs are unlikely to be used.
 > 
-> On 11/24/25 23:02, Niklas Cassel wrote:
-> > On Mon, Nov 24, 2025 at 06:07:44PM +0530, Manivannan Sadhasivam wrote:
-> > > While I suggested to revert the link up IRQ patch for rockchip earlier, I didn't
-> > > expect to drop the support for Qcom. The reason is, on Qcom SoCs, we have not
-> > > seen a case where people connect a random PCIe switch and saw failures. Most of
-> > > the Qcom usecases were around the M.2 and other proprietary connectors. There is
-> > > only one in-house PCIe switch that is being actively used in our products, but
-> > > so far, none of the bootloaders have turned them ON before kernel booting. So
-> > > kernel relies on the newly merged pwrctrl driver to do the job. Even though it
-> > > also suffers from the same resource allocation issue, this series won't help in
-> > > any way as pwrctrl core performs rescan after the switch power ON, and by that
-> > > time, it will be very late anyway.
-> > > 
-> > > So I'm happy to take the rockhip patches from this series as they fix the real
-> > > issue that people have reported. But once the pwrctrl rework series gets merged,
-> > > and the rockchip drivers support them, we can bring back the reverted changes.
-> > 
-> > FUKAUMI Naoki, just to confirm:
-> > 
-> > Neither my suggested approach:
-> > https://lore.kernel.org/linux-pci/aRHdeVCY3rRmxe80@ryzen/
-> > 
-> > nor Shawn's suggested approach:
-> > https://lore.kernel.org/linux-pci/dc932773-af5b-4af7-a0d0-8cc72dfbd3c7@rock-chips.com/
-> > 
-> > worked for you?
+> The interval option is added as an event format attribute, rather than a
+> Coresight config because it's something that the driver is already
+> configuring automatically in Perf mode using any unused counter, so it's
+> not possible to modify this with a config.
 > 
-> Yes, I re-tested the two methods mentioned above, separately, on v6.18-rc7,
-> but neither of them resolved the issue in my environment (ROCK 5C +
-> ASM2806).
+> Applies to coresight/next
 > 
-> > If so, I don't see many alternative but for Mani to apply patch 1 and
-> > patch 2 from this series.
-> 
-> I believe applying patch 1 and patch 2 should be sufficient.
-> 
-> ----
-> 
-> Incidentally, (probably) while applying patch 1 and patch 2, I have
-> encountered the following issue several times:
->
+> Signed-off-by: James Clark <james.clark@linaro.org>
 
-Do you see the below issue *after* applying the patches? I don't know how to
-interpret "while applying".
- 
-> [    1.709614] pcieport 0004:41:00.0: of_irq_parse_pci: failed with rc=134
-> [    1.710208] pcieport 0004:41:00.0: Unable to change power state from
-> D3cold to D0, device inaccessible
-> 
+Tested on Juno-r2 board (though all timestamps are zeros but it still
+can record timestamp packets):
 
-Looks like the device was seen during bus scan, but then it went down
-afterwards.
+# perf record -e cs_etm/timestamp=15/ -- ls
+# perf script -D | grep I_TIMESTAMP | wc
+   1324   11916   84561
 
-- Mani
+# perf record -e cs_etm/timestamp=14/ -- ls
+# perf script -D | grep I_TIMESTAMP | wc
+   2415   21735  154205
 
--- 
-மணிவண்ணன் சதாசிவம்
+# perf record -e cs_etm/timestamp=1/ -- ls
+# perf script -D | grep I_TIMESTAMP | wc
+   130743 1176687 8359898
+
+# perf record -e cs_etm/timestamp=0/ -- ls
+# perf script -D | grep I_TIMESTAMP | wc
+      0       0       0
+
+Tested-by: Leo Yan <leo.yan@arm.com>
 
