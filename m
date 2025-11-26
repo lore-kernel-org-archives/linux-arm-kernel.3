@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8631FD1118A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 17:37:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B0A6D1118A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 17:37:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0CUr9ddV3oZ41q3/D/0z/oo3oYkxXbRVdv8SyL1wMI0=; b=HWPAue0uA7SD/DhKVtLx7fYtpF
-	3wmn5Bq6FHneZLP6dpi2fXlN8wpDrOIyKiJpt2CMl0s1YSISwWqQeT8qQS7LB9oj0MsahYZ7AmXve
-	EZHaes7fe9Mq5jisIaQcUxEcN/NdSHOGngIo6QOKuWyaVTbgxZCB/zVQrPnIbUQQ2whB7dTJAZsHr
-	Sy4Rkm6u/XUKvm4Ql7anbKbsox89QV9MxAN35KGNpKTVRlKXMtnBWwTFVcQ6iAHEbFdYtgXefwsVU
-	zULOSrp08j/Dv5kU9OoTI76Ia7Zt8vuUgWHv6Y2rUXg6KgPwvfVud1RFqavtqSqUxkUSHgWVhHjWE
-	jE15RNYQ==;
+	bh=i06U48V1QlfdC71Az6GT0AOQaJkHqXg7US8ufDzb8no=; b=1UQNtycWQ8Nwbn0Ypv4OuEtleu
+	fRE6LRtzPpjPWGZPgbX0OmE06IhyDiJqLNw63C3Jq7InJtj6vpXc8yTeOevjM3Ob4/xElmqModGDB
+	XJ+F8GbXQMZhhrSBk5/5WhJZNSilul4Ggm7mwzRZzFqDPHK9dSF4AEDbGTgCd0S8Q8QqnuNwU8nFd
+	WQlLVDUTmKc7+nY2tvtjiP2zpOKaFmTwXxUE87+tF8407jSZf2M8F6o8Bz1bLpwHErwVhuSU89t6z
+	NTz7uCe0EHbNn3om2fouqh3X4MfthVX4+lko0ldz3PoAkB8gmzbz/50ImduldYfNmxNbk3dl1yyDJ
+	n7oel6yQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOJRn-0000000FOdB-0kVD;
-	Wed, 26 Nov 2025 17:36:55 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
+	id 1vOJRx-0000000FOhh-06Jf;
+	Wed, 26 Nov 2025 17:37:05 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOJRj-0000000FOc6-1iDw
+	id 1vOJRp-0000000FOdi-3YBb
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Nov 2025 17:36:53 +0000
+	Wed, 26 Nov 2025 17:36:59 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id EED5AC16A0C;
-	Wed, 26 Nov 2025 17:36:26 +0000 (UTC)
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 270E94E418FC;
+	Wed, 26 Nov 2025 17:36:55 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id B41D560721;
-	Wed, 26 Nov 2025 17:36:49 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id C6A24102F221D;
-	Wed, 26 Nov 2025 18:36:45 +0100 (CET)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id EE4BB60721;
+	Wed, 26 Nov 2025 17:36:54 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 484F2102F1D8D;
+	Wed, 26 Nov 2025 18:36:51 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1764178608; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1764178613; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=0CUr9ddV3oZ41q3/D/0z/oo3oYkxXbRVdv8SyL1wMI0=;
-	b=XdIHFCWMG+5JwqdNGZHvzcPTLjOUAqtIc13sFCqdx8WbFpzLBq7SdG5+3ABrAJ8zaffh5F
-	tkcakLaIexbu6VluNW93m3bfPyk0TfF53m9C03x3trO4Uacq1qfZzewsxrv5K+BrLiC+WZ
-	VDS74JMKtjMMvi+/Dkcfzet1BBW4jP23Z9t4SWYxNpEcFDv23hnIL5Jug3P9Sv3GD5AYYM
-	vR4A3S477UtgpN6NysxxlAHkihiyW4fRxuk0fH7h9iFbQ5+O6OTy7ZIa5gwhz7zI391bbq
-	I1AuNnFoS50wmEKc3LcPCiOu2zUlf+h+p4i1Oz0kvLA/x2t3qH4+tAhyhDC0PQ==
+	bh=i06U48V1QlfdC71Az6GT0AOQaJkHqXg7US8ufDzb8no=;
+	b=oAhKwQJbXv1B8OIDDEkR/Pl5h1rjaKwT0MbKkEtkULn2G/7yxDc7yOGnNLXZN3Xs7Fptjq
+	tunuXn4gCrA3lX64/cG3BjB9z6L/rklyyo1Bo7QcJMUAhDyqV2HQqA8dz9XtvMR+2Wx33m
+	lgeiU788HZYm8Q7XQUkwg7jeMlWbx2g313bGuC/el00k3X4ZsC2n/k/Wx1pVTcaqlcEzRQ
+	N38WyJ94yc4AslbZJ/D2TKdVLQcY/jBmcofuhVhsqQ16xARbMkwdKNAJpl6SiSFeXE8YGA
+	gdSKgIeSjfoQE0xBo1Aly43VYA8Jg5PdaYzQcdayRqmGTHVItN/VHwqX/2n2qg==
 From: "Kory Maincent (TI.com)" <kory.maincent@bootlin.com>
-Date: Wed, 26 Nov 2025 18:35:43 +0100
-Subject: [PATCH 01/21] dt-bindings: display: tilcdc: Convert to DT schema
+Date: Wed, 26 Nov 2025 18:35:45 +0100
+Subject: [PATCH 03/21] drm/tilcdc: Remove simulate_vesa_sync flag
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251126-feature_tilcdc-v1-1-49b9ef2e3aa0@bootlin.com>
+Message-Id: <20251126-feature_tilcdc-v1-3-49b9ef2e3aa0@bootlin.com>
 References: <20251126-feature_tilcdc-v1-0-49b9ef2e3aa0@bootlin.com>
 In-Reply-To: <20251126-feature_tilcdc-v1-0-49b9ef2e3aa0@bootlin.com>
 To: Jyri Sarha <jyri.sarha@iki.fi>, 
@@ -77,8 +77,8 @@ Cc: Markus Schneider-Pargmann <msp@baylibre.com>,
 X-Mailer: b4 0.14.3
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251126_093651_847090_668ACBD1 
-X-CRM114-Status: GOOD (  21.78  )
+X-CRM114-CacheID: sfid-20251126_093658_034733_77E0896E 
+X-CRM114-Status: GOOD (  16.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,205 +93,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Convert the device tree binding documentation for tilcdc
-from plain text to DT binding schema.
+The tilcdc hardware does not generate VESA-compliant sync signals. It
+aligns the vertical sync (VS) on the second edge of the horizontal sync
+(HS) instead of the first edge. To compensate for this hardware
+behavior, the driver applies a timing adjustment in mode_fixup().
+
+Previously, this adjustment was conditional based on the simulate_vesa_sync
+flag, which was only set when using external encoders. This appears
+problematic because:
+
+1. The timing adjustment seems needed for the hardware behavior regardless
+   of whether an external encoder is used
+2. The external encoder infrastructure is driver-specific and being
+   removed due to design issues
+3. Boards using tilcdc without bridges (e.g., am335x-evm, am335x-evmsk)
+   may not be getting the necessary timing adjustments
+
+Remove the simulate_vesa_sync flag and apply the VESA sync timing
+adjustment unconditionally, ensuring consistent behavior across all
+configurations. While it's unclear if the previous conditional behavior
+was causing actual issues, the unconditional adjustment better reflects
+the hardware's characteristics.
 
 Signed-off-by: Kory Maincent (TI.com) <kory.maincent@bootlin.com>
 ---
- .../devicetree/bindings/display/tilcdc/tilcdc.txt  | 82 ------------------
- .../devicetree/bindings/display/tilcdc/tilcdc.yaml | 96 ++++++++++++++++++++++
- 2 files changed, 96 insertions(+), 82 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/display/tilcdc/tilcdc.txt b/Documentation/devicetree/bindings/display/tilcdc/tilcdc.txt
-deleted file mode 100644
-index 3b3d0bbfcfff4..0000000000000
---- a/Documentation/devicetree/bindings/display/tilcdc/tilcdc.txt
-+++ /dev/null
-@@ -1,82 +0,0 @@
--Device-Tree bindings for tilcdc DRM driver
+Only few board currently use tilcdc not associated to a bridge like the
+am335x_evm or the am335x-evmsk.
+---
+ drivers/gpu/drm/tilcdc/tilcdc_crtc.c     | 16 ----------------
+ drivers/gpu/drm/tilcdc/tilcdc_drv.h      |  2 --
+ drivers/gpu/drm/tilcdc/tilcdc_external.c |  1 -
+ 3 files changed, 19 deletions(-)
+
+diff --git a/drivers/gpu/drm/tilcdc/tilcdc_crtc.c b/drivers/gpu/drm/tilcdc/tilcdc_crtc.c
+index 52c95131af5af..b06b1453db2dd 100644
+--- a/drivers/gpu/drm/tilcdc/tilcdc_crtc.c
++++ b/drivers/gpu/drm/tilcdc/tilcdc_crtc.c
+@@ -47,9 +47,6 @@ struct tilcdc_crtc {
+ 
+ 	struct drm_framebuffer *next_fb;
+ 
+-	/* Only set if an external encoder is connected */
+-	bool simulate_vesa_sync;
 -
--Required properties:
-- - compatible: value should be one of the following:
--    - "ti,am33xx-tilcdc" for AM335x based boards
--    - "ti,da850-tilcdc" for DA850/AM18x/OMAP-L138 based boards
-- - interrupts: the interrupt number
-- - reg: base address and size of the LCDC device
+ 	int sync_lost_count;
+ 	bool frame_intact;
+ 	struct work_struct recover_work;
+@@ -642,11 +639,6 @@ static bool tilcdc_crtc_mode_fixup(struct drm_crtc *crtc,
+ 		const struct drm_display_mode *mode,
+ 		struct drm_display_mode *adjusted_mode)
+ {
+-	struct tilcdc_crtc *tilcdc_crtc = to_tilcdc_crtc(crtc);
 -
--Recommended properties:
-- - ti,hwmods: Name of the hwmod associated to the LCDC
+-	if (!tilcdc_crtc->simulate_vesa_sync)
+-		return true;
 -
--Optional properties:
-- - max-bandwidth: The maximum pixels per second that the memory
--   interface / lcd controller combination can sustain
-- - max-width: The maximum horizontal pixel width supported by
--   the lcd controller.
-- - max-pixelclock: The maximum pixel clock that can be supported
--   by the lcd controller in KHz.
-- - blue-and-red-wiring: Recognized values "straight" or "crossed".
--   This property deals with the LCDC revision 2 (found on AM335x)
--   color errata [1].
--    - "straight" indicates normal wiring that supports RGB565,
--      BGR888, and XBGR8888 color formats.
--    - "crossed" indicates wiring that has blue and red wires
--      crossed. This setup supports BGR565, RGB888 and XRGB8888
--      formats.
--    - If the property is not present or its value is not recognized
--      the legacy mode is assumed. This configuration supports RGB565,
--      RGB888 and XRGB8888 formats. However, depending on wiring, the red
--      and blue colors are swapped in either 16 or 24-bit color modes.
+ 	/*
+ 	 * tilcdc does not generate VESA-compliant sync but aligns
+ 	 * VS on the second edge of HS instead of first edge.
+@@ -866,14 +858,6 @@ void tilcdc_crtc_set_panel_info(struct drm_crtc *crtc,
+ 	tilcdc_crtc->info = info;
+ }
+ 
+-void tilcdc_crtc_set_simulate_vesa_sync(struct drm_crtc *crtc,
+-					bool simulate_vesa_sync)
+-{
+-	struct tilcdc_crtc *tilcdc_crtc = to_tilcdc_crtc(crtc);
 -
--Optional nodes:
+-	tilcdc_crtc->simulate_vesa_sync = simulate_vesa_sync;
+-}
 -
-- - port/ports: to describe a connection to an external encoder. The
--   binding follows Documentation/devicetree/bindings/graph.txt and
--   supports a single port with a single endpoint.
--
-- - See also Documentation/devicetree/bindings/display/tilcdc/panel.txt and
--   Documentation/devicetree/bindings/display/bridge/ti,tfp410.yaml for connecting
--   tfp410 DVI encoder or lcd panel to lcdc
--
--[1] There is an errata about AM335x color wiring. For 16-bit color mode
--    the wires work as they should (LCD_DATA[0:4] is for Blue[3:7]),
--    but for 24 bit color modes the wiring of blue and red components is
--    crossed and LCD_DATA[0:4] is for Red[3:7] and LCD_DATA[11:15] is
--    for Blue[3-7]. For more details see section 3.1.1 in AM335x
--    Silicon Errata:
--    https://www.ti.com/general/docs/lit/getliterature.tsp?baseLiteratureNumber=sprz360
--
--Example:
--
--	fb: fb@4830e000 {
--		compatible = "ti,am33xx-tilcdc", "ti,da850-tilcdc";
--		reg = <0x4830e000 0x1000>;
--		interrupt-parent = <&intc>;
--		interrupts = <36>;
--		ti,hwmods = "lcdc";
--
--		blue-and-red-wiring = "crossed";
--
--		port {
--			lcdc_0: endpoint {
--				remote-endpoint = <&hdmi_0>;
--			};
--		};
--	};
--
--	tda19988: tda19988 {
--		compatible = "nxp,tda998x";
--		reg = <0x70>;
--
--		pinctrl-names = "default", "off";
--		pinctrl-0 = <&nxp_hdmi_bonelt_pins>;
--		pinctrl-1 = <&nxp_hdmi_bonelt_off_pins>;
--
--		port {
--			hdmi_0: endpoint {
--				remote-endpoint = <&lcdc_0>;
--			};
--		};
--	};
-diff --git a/Documentation/devicetree/bindings/display/tilcdc/tilcdc.yaml b/Documentation/devicetree/bindings/display/tilcdc/tilcdc.yaml
-new file mode 100644
-index 0000000000000..34ac1fd04d5c6
---- /dev/null
-+++ b/Documentation/devicetree/bindings/display/tilcdc/tilcdc.yaml
-@@ -0,0 +1,96 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/display/tilcdc/tilcdc.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: TI LCD Controller, found on AM335x, DA850, AM18x and OMAP-L138
-+
-+maintainers:
-+  - Kory Maincent <kory.maincent@bootlin.com>
-+
-+properties:
-+  compatible:
-+    enum:
-+      - ti,am33xx-tilcdc
-+      - ti,da850-tilcdc
-+
-+  reg:
-+    maxItems: 1
-+
-+  interrupts:
-+    maxItems: 1
-+
-+  port:
-+    $ref: /schemas/graph.yaml#/properties/port
-+
-+  ti,hwmods:
-+    $ref: /schemas/types.yaml#/definitions/string
-+    description:
-+      Name of the hwmod associated to the LCDC
-+
-+  max-bandwidth:
-+    $ref: /schemas/types.yaml#/definitions/uint32
-+    description:
-+      The maximum pixels per second that the memory interface / lcd
-+      controller combination can sustain
-+
-+  max-width:
-+    $ref: /schemas/types.yaml#/definitions/uint32
-+    description:
-+      The maximum horizontal pixel width supported by the lcd controller.
-+
-+  max-pixelclock:
-+    $ref: /schemas/types.yaml#/definitions/uint32
-+    description:
-+      The maximum pixel clock that can be supported by the lcd controller
-+      in KHz.
-+
-+  blue-and-red-wiring:
-+    enum: [straight, crossed]
-+    description:
-+      This property deals with the LCDC revision 2 (found on AM335x)
-+      color errata [1].
-+       - "straight" indicates normal wiring that supports RGB565,
-+         BGR888, and XBGR8888 color formats.
-+       - "crossed" indicates wiring that has blue and red wires
-+         crossed. This setup supports BGR565, RGB888 and XRGB8888
-+         formats.
-+       - If the property is not present or its value is not recognized
-+         the legacy mode is assumed. This configuration supports RGB565,
-+         RGB888 and XRGB8888 formats. However, depending on wiring, the red
-+         and blue colors are swapped in either 16 or 24-bit color modes.
-+
-+       [1] There is an errata about AM335x color wiring. For 16-bit color
-+       mode the wires work as they should (LCD_DATA[0:4] is for Blue[3:7]),
-+       but for 24 bit color modes the wiring of blue and red components is
-+       crossed and LCD_DATA[0:4] is for Red[3:7] and LCD_DATA[11:15] is
-+       for Blue[3-7]. For more details see section 3.1.1 in AM335x
-+       Silicon Errata
-+       https://www.ti.com/general/docs/lit/getliterature.tsp?baseLiteratureNumber=sprz360
-+
-+required:
-+  - compatible
-+  - interrupts
-+  - reg
-+  - port
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    tilcdc: tilcdc@4830e000 {
-+        compatible = "ti,am33xx-tilcdc";
-+        reg = <0x4830e000 0x1000>;
-+        interrupt-parent = <&intc>;
-+        interrupts = <36>;
-+        ti,hwmods = "lcdc";
-+
-+        blue-and-red-wiring = "crossed";
-+
-+        port {
-+            lcdc_0: endpoint {
-+                remote-endpoint = <&hdmi_0>;
-+            };
-+        };
-+    };
+ void tilcdc_crtc_update_clk(struct drm_crtc *crtc)
+ {
+ 	struct drm_device *dev = crtc->dev;
+diff --git a/drivers/gpu/drm/tilcdc/tilcdc_drv.h b/drivers/gpu/drm/tilcdc/tilcdc_drv.h
+index 58b276f82a669..3aba3a1155ba0 100644
+--- a/drivers/gpu/drm/tilcdc/tilcdc_drv.h
++++ b/drivers/gpu/drm/tilcdc/tilcdc_drv.h
+@@ -160,8 +160,6 @@ irqreturn_t tilcdc_crtc_irq(struct drm_crtc *crtc);
+ void tilcdc_crtc_update_clk(struct drm_crtc *crtc);
+ void tilcdc_crtc_set_panel_info(struct drm_crtc *crtc,
+ 		const struct tilcdc_panel_info *info);
+-void tilcdc_crtc_set_simulate_vesa_sync(struct drm_crtc *crtc,
+-					bool simulate_vesa_sync);
+ void tilcdc_crtc_shutdown(struct drm_crtc *crtc);
+ void tilcdc_crtc_destroy(struct drm_crtc *crtc);
+ int tilcdc_crtc_update_fb(struct drm_crtc *crtc,
+diff --git a/drivers/gpu/drm/tilcdc/tilcdc_external.c b/drivers/gpu/drm/tilcdc/tilcdc_external.c
+index 3b86d002ef62e..da755a411d9ff 100644
+--- a/drivers/gpu/drm/tilcdc/tilcdc_external.c
++++ b/drivers/gpu/drm/tilcdc/tilcdc_external.c
+@@ -80,7 +80,6 @@ int tilcdc_add_component_encoder(struct drm_device *ddev)
+ 		return -ENODEV;
+ 
+ 	/* Only tda998x is supported at the moment. */
+-	tilcdc_crtc_set_simulate_vesa_sync(priv->crtc, true);
+ 	tilcdc_crtc_set_panel_info(priv->crtc, &panel_info_tda998x);
+ 
+ 	return 0;
 
 -- 
 2.43.0
