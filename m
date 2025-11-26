@@ -4,94 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB2F5D10F21
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 10:30:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADFE8D10F21
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 10:34:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nqXXBAAUKdwSAUjfq+x6n5cNsQrS4X3kIhKEGzMVOJw=; b=H70iYRPr+BYM1Pq5A5lF6QAm2s
-	i0btUnPIkkO8qHFtg5/vvawPQSauC8BjvEPpR4vxse3is+4KB3yGdEdhnDfAkOLvNJmwu+EYy88eO
-	IgwYdFOlCJMIRTW7Bv4uYimOGnVPqMz967kyQXDvG2Bu7utxcbHPEFve/t1I0TAeXPYM1m71b1Tr9
-	L/SVPY6qbtpJYACg4NZsspUl98xSqb6SfQcUJzSObqasCzeslkSmwH6nCe7QYcJOhF7n2NhQn/mHb
-	vUD23QULGZpHq3sw0WDJuwr7o25liGu3jRL4AR8/8MnGv3PD7rXzrLpW9WZRnC9CFWv6afKlXwkeP
-	mKLv488A==;
+	bh=foQtgXluHgTEmm+M28mbH0G/ymfZYd9e4+/49QIlVd8=; b=2fSAODdijc6tVK+owj6+DZjutm
+	rc9zP33r0+2PjBkzvkHq+rqncAu0Rwj3Oaghad0BTuWrLKBJ5U9F6Oz8IJoWYwvBpy/678ryosNup
+	mH1n76l4srujZennCDOSaLqiHYja3FAuMqBtyewyn0QPxfs8JarX94Vb4SlMIk38H/o/Ln0Fw0EsV
+	9Bbf4cYYBb7cruXmWTA8N5rlinLp6cKP/5p++bF257wB42fkGJpcEArWfxX5hzRGUHJLPrLpo7m1N
+	wmKJ713Uzt9l/iXazjRrCJ+erSDE4LozCYQ0KRwVgx+eA5PJCvXKo/FFwfxZaiYDoGcG/r+IY79S/
+	KStcJ77g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOCma-0000000EnSs-2ULC;
-	Wed, 26 Nov 2025 10:29:56 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1vOCqU-0000000Enxd-2t9S;
+	Wed, 26 Nov 2025 10:33:58 +0000
+Received: from mail-ed1-x536.google.com ([2a00:1450:4864:20::536])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOCmY-0000000EnSO-0MFq
+	id 1vOCqR-0000000EnwZ-3xMY
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Nov 2025 10:29:55 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-477563e28a3so4956825e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Nov 2025 02:29:53 -0800 (PST)
+	Wed, 26 Nov 2025 10:33:57 +0000
+Received: by mail-ed1-x536.google.com with SMTP id 4fb4d7f45d1cf-6418b55f86dso11049865a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Nov 2025 02:33:54 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1764152992; x=1764757792; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=nqXXBAAUKdwSAUjfq+x6n5cNsQrS4X3kIhKEGzMVOJw=;
-        b=eVW/S1+WIDZYmRn1eCHJRgpoElh+PDn1n4nGizjD95jb18WIhQN8wF3iBmCadfc4DO
-         Oz6HFJNXKkSF6/iYMALq2pyWld4SnFgKHjavOexwzHK/xFAUh5TEOeEADXs7/gxJSvFK
-         DsjTAQBOnoMOb18DmCvox/1oDLvSbxG8YfHirgm4wJOWc/d5QydOhgNQTku1rxXTBpE0
-         X47dbVM73BRJ+gCYnGxGTYvMHEBPzZTbi+AsWWENSOGw+MXklShtkgLIvCOoJG11hXo5
-         up5qzp13FoIXrit8olPMCfPaxqgQYETUgGKKkbmfq18L/9HPNg/kmFZL32LaFh6btMOa
-         AF+g==
+        d=gmail.com; s=20230601; t=1764153233; x=1764758033; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=foQtgXluHgTEmm+M28mbH0G/ymfZYd9e4+/49QIlVd8=;
+        b=VlgCi42/55rQ5YzseegSKoqJyHJvmwt9dvCZOu0Z3ikIkQ+A1KlUh1Djgx27u6H+v3
+         Xl22seWqMLbNM9ABtB4KtL3eyo/j8mh4xydOG6NPTRXRn9wZY33jUGcBkrbDSucy14J4
+         OiyoC8OGeZHW3tSCTlyU0FOJxh4SExilq+RBMH0atWUtMEaIbRX0mUct8ifNXlt1UgFL
+         23GsoCR8QKydDwlLQ6uXgE4IGz0ZJBPOkuWjAIOtnYjHqnbvNH7a4cgPK+yGT4nBVDKc
+         RzDj9MApeTvfGE0u7T2RnWnJDuGoZJgnyIJb+4BxbgDvf2+vvEXSwcmpFTbiSmKUiKlX
+         mPdw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764152992; x=1764757792;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=nqXXBAAUKdwSAUjfq+x6n5cNsQrS4X3kIhKEGzMVOJw=;
-        b=NKmq5q6hlGHEIcPeuWmA5z0JuUJts/oPTp/Ax6lX+Nh/zzeIDYQmS9BrlwRX5BXlCf
-         6J2TmIf7hv2WAqXO/1QuocAClMkmEqrhWxcq/JTSYhx6j2beElKlfqW4aO4i6nAJchDA
-         nWIY/iI4FhekK9GvEv5RYIR2iFKK8m/yPB9gDrxBK/adAZLOQH/WyCWjTteA/llkqJDp
-         7A9YR2uZH590G8TNV7tuM0poaOQJtYBI1z3ZR5UkPXjY/1McmM3B6s2AM38zXkoq4C4Z
-         jyxn9rUjJhgW380d/qWhZxM+adDJF9eallXeFHXwmluquXhODRlQvOZ/lw0W4PH648cL
-         y+IQ==
-X-Forwarded-Encrypted: i=1; AJvYcCW5D0gGJoyzXJNL56oQGGn5vULsDJ10AiN6qnFp8NmvXkUTnbMjXuxcyUIOsWm+qCtu7p+tn4qh5ivP2OKmflEK@lists.infradead.org
-X-Gm-Message-State: AOJu0YzP7czrHov0Pw/C9XliMQB79vMsPOSvoe6wPEIhaseuxCr2j0Ev
-	5NS6DWuQu06j1YLavPkNbctMoIJ8z+1bs+/v12kNcW41w8mT5rpl0/LubgxUPWFY9R0=
-X-Gm-Gg: ASbGnctiK+uT+N09XwpTeEeTOcGdRKo5dAtdyNbSzVnetxbq9hKw5fklt2phJSKLi8q
-	BsRUQR9d/yyodQfymPNWzBpd2dPxw4BCQFbtjmY8A+FyKmU/lqR9A7Elx1MprzkKV7lYhAekZ3h
-	VVyDK5asuVuo2eadTJZJ07UTu8gFzaAEM92OEPTb9TJKnv9w7WkHrjJLkd49fdM1QBXaUya1bAk
-	SRPKqeLMZq1GmEn2buhXANngS5Hh77OU+tCcHZe/5X9kb9SSIXxsD9ET/hGxslI/MhLk1GIdBbz
-	pMHY7v0TBiVQjrff0B2INy3KWwGhTOYnjoNen3H2ZlEB0vkoe1WJIS9oGH0cheanbyMkVYJNUJ0
-	g4L5iEVuPZIy6xh9+mkAZxnVLUsKIrT5sJv9rAFQrLQTzKbYJccuisYKAa6RA5LTFx4W+V4utVI
-	IKP52d85K0nHFVAA8RHzEV+wdHdOE=
-X-Google-Smtp-Source: AGHT+IG2IZKv123EVs8kI5aI78wn3FAXbfwHqvjiNrCaHccsQTuoIt0ndnqH5ZptLtGnsp5kH6xE1Q==
-X-Received: by 2002:a05:600c:4746:b0:477:a289:d854 with SMTP id 5b1f17b1804b1-477c04cfa31mr194777345e9.5.1764152991840;
-        Wed, 26 Nov 2025 02:29:51 -0800 (PST)
-Received: from [192.168.1.3] ([185.48.77.170])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4790add5b80sm37746505e9.6.2025.11.26.02.29.50
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 26 Nov 2025 02:29:51 -0800 (PST)
-Message-ID: <d94e17d3-41db-42f8-8039-e1d6a694788c@linaro.org>
-Date: Wed, 26 Nov 2025 10:29:50 +0000
+        d=1e100.net; s=20230601; t=1764153233; x=1764758033;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=foQtgXluHgTEmm+M28mbH0G/ymfZYd9e4+/49QIlVd8=;
+        b=nCFUv8SD5+BQUudeAArnk3wE9Grk8tAqhDJ3mrUHL566t6Lx88P+6mLZcoAeegi1V7
+         GJMAP+vhYtZDtn0vqkJ10yWa6hSe9xA/CBdxMkN5Bq67D2O+1on+8I3Z3BMmNDysLBz3
+         2pojHqb0nvuUJ7ze+i6Ngrq31/T9I6nLP88BzPsI/wbc8wpLGe9wl2zedOpVYf47pF2+
+         iXt8E750iuN/1bbQHDjc04Sge0oXTRehJpSVEaLblUeRndkfmkhSI/C15bZcuSuKYDRs
+         95loBKvdIT2VQrZ7hNfbMLm2pW7m2KkkvjXYHoE6zkB9+oabQsZoac/i4njMoYQt9s5H
+         gDAw==
+X-Forwarded-Encrypted: i=1; AJvYcCVfCe3kmP75linB5K5P3WOFsvu6NhZUgTylkC3A/JVfuB1q8Canjz2+PJvXPt40tKjQjNxxlKD3Sg6kjuv96OMh@lists.infradead.org
+X-Gm-Message-State: AOJu0YywDPa0vibDMDHf60OSNstHHofxVYfj1cOjD1H/pIVYJJhyZUeN
+	VPAMJ97sa0LZ77zSkCm0+MyCRbUAb0FJyM2xllSQBYxfVvrWszRr2HgS8wO8rEVfzT8Fq2pBQ/R
+	uB2K87HC6jxDuAso+4xsHNOHMYdjOnjg=
+X-Gm-Gg: ASbGnctSZxudiIgEmKAv7Yq7dgnei+HJCnZ9TeqJikWsOofVf1vM7YTxXm3SpeQKC01
+	nbigZ2/qbmEBSk961FyK+Wd8O8P8/Q/rSiE+9JchgwTvfDiPSszwNN3DZCByZ0Mtp2YyLH5bwEd
+	k5RTIHKV3GCLuDU+4OvAM+ysGowp3JX3l6BAVn/ibdnsfPRp8A1hK20xkniwaqKRBI9fHtBQftB
+	M1pM8kuUR/VtTf1sX/RuoHBKapAkVBE4+hWy60Ka+OgwJSCfGBZ3o/8kKHe7sK/qGW3ai/zWkMM
+	WSr3
+X-Google-Smtp-Source: AGHT+IHwEpZIkU4ztpi99N+Agj881yof+tktEGMPxvRvRn22BHFyRowGIui+kGeAB8yZdBx1EeG9uRV3hFSv93scQ+I=
+X-Received: by 2002:a05:6402:1476:b0:641:7a6b:c84b with SMTP id
+ 4fb4d7f45d1cf-6455469c4ccmr15889378a12.27.1764153233256; Wed, 26 Nov 2025
+ 02:33:53 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 2/9] KVM: arm64: Fix Trace Buffer trap polarity for
- protected VMs
-To: Marc Zyngier <maz@kernel.org>, Fuad Tabba <tabba@google.com>
-Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- oliver.upton@linux.dev, will@kernel.org, joey.gouly@arm.com,
- suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com,
- vladimir.murzin@arm.com
-References: <20251118103807.707500-1-tabba@google.com>
- <20251118103807.707500-3-tabba@google.com> <868qftqehe.wl-maz@kernel.org>
-Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <868qftqehe.wl-maz@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+References: <CANAwSgRHuwoQjr95sXp-X97=L-X3vqUPxjR5=2jNtFZA+4gnwQ@mail.gmail.com>
+ <20251120034437.GA2625966@bhelgaas> <CANAwSgStRZW322X3H_B4wK5CthFube_4MBUBw=U1BRjyRGeu9g@mail.gmail.com>
+In-Reply-To: <CANAwSgStRZW322X3H_B4wK5CthFube_4MBUBw=U1BRjyRGeu9g@mail.gmail.com>
+From: Anand Moon <linux.amoon@gmail.com>
+Date: Wed, 26 Nov 2025 16:03:37 +0530
+X-Gm-Features: AWmQ_blLxnf_4M31Oxa4iWUXkTj660l08seBmojzspPm2hBEwSqSc-XGST03jow
+Message-ID: <CANAwSgQMfu2E+oR0Yi9siKA-PZJ_nyDVCQF=Ua7REHcMRDo0Fg@mail.gmail.com>
+Subject: Re: [RFC v1 1/5] PCI: rockchip: Fix Link Control register offset and
+ enable ASPM/CLKREQ
+To: Bjorn Helgaas <helgaas@kernel.org>
+Cc: Shawn Lin <shawn.lin@rock-chips.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+	=?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
+	Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
+	Heiko Stuebner <heiko@sntech.de>, 
+	"open list:PCIE DRIVER FOR ROCKCHIP" <linux-pci@vger.kernel.org>, 
+	"open list:PCIE DRIVER FOR ROCKCHIP" <linux-rockchip@lists.infradead.org>, 
+	"moderated list:ARM/Rockchip SoC support" <linux-arm-kernel@lists.infradead.org>, 
+	open list <linux-kernel@vger.kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251126_022954_152794_AE45ED65 
-X-CRM114-Status: GOOD (  17.51  )
+X-CRM114-CacheID: sfid-20251126_023356_033093_9EF63975 
+X-CRM114-Status: GOOD (  38.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,57 +104,236 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi All,
 
+On Thu, 20 Nov 2025 at 19:28, Anand Moon <linux.amoon@gmail.com> wrote:
+>
+> Hi Bjorn,
+>
+> Thanks for your input.
+>
+> On Thu, 20 Nov 2025 at 09:14, Bjorn Helgaas <helgaas@kernel.org> wrote:
+> >
+> > On Wed, Nov 19, 2025 at 07:49:06PM +0530, Anand Moon wrote:
+> > > On Tue, 18 Nov 2025 at 23:20, Bjorn Helgaas <helgaas@kernel.org> wrot=
+e:
+> > > > On Mon, Nov 17, 2025 at 11:40:09PM +0530, Anand Moon wrote:
+> > > > > As per the RK3399 TRM (Part 2, 17.6.6.1.31), the Link Control reg=
+ister
+> > > > > (RC_CONFIG_LC) resides at an offset of 0xd0 within the Root Compl=
+ex (RC)
+> > > > > configuration space, not at the offset of the PCI Express Capabil=
+ity List
+> > > > > (0xc0). Following changes correct the register offset to use
+> > > > > PCIE_RC_CONFIG_LC (0xd0) to configure link control.
+> > > ...
+> >
+> > > > Don't do two things at once in the same patch.  Fix the register
+> > > > offset in one patch.  Actually, as I mentioned at [1], there's a lo=
+t
+> > > > of fixing to do there, and I'm not even going to consider other
+> > > > changes until the #define mess is cleaned up.
+> >
+> > > > [1] https://lore.kernel.org/r/20251118005056.GA2541796@bhelgaas
+> > >
+> > > According to the RK3399 Technical Reference Manual (TRM), and pci_reg=
+s.h
+> > > already includes the correct, pre-defined offsets for all PCI Express
+> > > device types
+> > > and their capabilities registers. To avoid overlapping register mappi=
+ngs,
+> > > we should explicitly remove the addition of manual offsets within the=
+ code.
+> >
+> > > Here is the example. Is this the correct approach?
+> >
+> > > -       status =3D rockchip_pcie_read(rockchip, PCIE_RC_CONFIG_CR +
+> > > PCI_EXP_LNKCTL);
+> > > +       status =3D rockchip_pcie_read(rockchip, PCIE_RC_CONFIG_LC);
+> > >         status |=3D (PCI_EXP_LNKCTL_LBMIE | PCI_EXP_LNKCTL_LABIE);
+> > > -       rockchip_pcie_write(rockchip, status, PCIE_RC_CONFIG_CR +
+> > > PCI_EXP_LNKCTL);
+> > > +       rockchip_pcie_write(rockchip, status, PCIE_RC_CONFIG_LC);
+> >
+> > No.  The call should include PCI_EXP_LNKCTL because that's what we
+> > grep for when we want to see where Link Control is updated.
+> >
+> > See my example from [1] above:
+> >
+> >   rockchip_pcie_read(rockchip, ROCKCHIP_RP_PCIE_CAP + PCI_EXP_DEVCAP)
+> >   rockchip_pcie_read(rockchip, ROCKCHIP_RP_PCIE_CAP + PCI_EXP_LNKCTL)
+> >
+> > You should have a single #define for the offset of the PCIe
+> > Capability, e.g., ROCKCHIP_RP_PCIE_CAP.  Every access to registers in
+> > that capability would use ROCKCHIP_RP_PCIE_CAP and the relevant
+> > PCI_EXP_* offset, e.g., PCI_EXP_DEVCAP, PCI_EXP_DEVCTL,
+> > PCI_EXP_DEVSTA, PCI_EXP_LNKCAP, PCI_EXP_LNKCTL, PCI_EXP_LNKSTA, etc.
+> >
+> I apologize for not fully understanding the issue earlier. I did not
+> carefully review your email,
+>  which caused me to overlook the required changes.
+>
+> So, as per the TRM
+>
+> 17.6.4.5.1 PCI Express Capability List Register
+> Propname=EF=BC=9APCI Express Capability List Register
+> Address=EF=BC=9A@0xc0
+>
+> #define PCIE_EP_CONFIG_DID_VID          (PCIE_EP_CONFIG_BASE + 0x00)
+> #define PCIE_EP_CONFIG_LCS              (PCIE_EP_CONFIG_BASE + 0xd0)
+> #define PCIE_RC_CONFIG_RID_CCR          (PCIE_RC_CONFIG_BASE + 0x08)
+> #define PCIE_RC_CONFIG_CR               (PCIE_RC_CONFIG_BASE + 0xc0)
+> #define ROCKCHIP_RP_PCIE_CAP            (PCIE_RC_CONFIG_BASE + 0xc0)
+> /* Link Control and Status Register */
+> #define PCIE_RC_CONFIG_LC               (ROCKCHIP_RP_PCIE_CAP + 0xd0)
+> /* Device Control */
+> #define PCIE_RC_CONFIG_DC               (ROCKCHIP_RP_PCIE_CAP + 0xc8)
+> /* Slot Capability Register */
+> #define PCIE_RC_CONFIG_SC               (ROCKCHIP_RP_PCIE_CAP + 0xd4)
+> /* Link Control 2 Register */
+> #define PCIE_RC_CONFIG_LC2              (ROCKCHIP_RP_PCIE_CAP + 0xf0)
+> /* Linkwidth Control Register */
+> #define PCIE_RC_CONFIG_LWC              (ROCKCHIP_RP_PCIE_CAP + 0x50)
+>
+> And then use these like this.
+>
+> status =3D rockchip_pcie_read(rockchip, PCIE_RC_CONFIG_LC + PCI_EXP_LNKCT=
+L);
+> status =3D rockchip_pcie_read(rockchip, PCIE_RC_CONFIG_DC + PCI_EXP_DEVCT=
+L);
+> status =3D rockchip_pcie_read(rockchip, PCIE_RC_CONFIG_SC + PCI_EXP_DEVCA=
+P);
+> status =3D rockchip_pcie_read(rockchip, PCIE_RC_CONFIG_LC2 + PCI_EXP_LNKC=
+TL2);
+> status =3D rockchip_pcie_read(rockchip, PCIE_RC_CONFIG_LWC + PCI_EXP_LNKC=
+TL);
+>
+> If you agree that this approach correctly resolves the issue,
+> I would prefer to confirm now to prevent further iterative changes
+> that might confuse.
+>
+I was making some changes to the system when my device stopped working,
+The lspci utility started crashing with a segmentation fault.
 
-On 26/11/2025 10:23 am, Marc Zyngier wrote:
-> On Tue, 18 Nov 2025 10:37:59 +0000,
-> Fuad Tabba <tabba@google.com> wrote:
->>
->> The E2TB bits in MDCR_EL2 control trapping of Trace Buffer system
->> register accesses. These accesses are trapped to EL2 when the bits are
->> clear.
->>
->> The trap initialization logic for protected VMs in pvm_init_traps_mdcr()
->> had the polarity inverted. When a guest did not support the Trace Buffer
->> feature, the code was setting E2TB. This incorrectly disabled the trap,
->> potentially allowing a protected guest to access registers for a feature
->> it was not given.
->>
->> Fix this by inverting the operation.
->>
->> Fixes: f50758260bff ("KVM: arm64: Group setting traps for protected VMs by control register")
->> Signed-off-by: Fuad Tabba <tabba@google.com>
->> ---
->>   arch/arm64/kvm/hyp/nvhe/pkvm.c | 2 +-
->>   1 file changed, 1 insertion(+), 1 deletion(-)
->>
->> diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
->> index 8d06a246dfd1..f6f8996c4f97 100644
->> --- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
->> +++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
->> @@ -118,7 +118,7 @@ static void pvm_init_traps_mdcr(struct kvm_vcpu *vcpu)
->>   		val |= MDCR_EL2_TTRF;
->>   
->>   	if (!kvm_has_feat(kvm, ID_AA64DFR0_EL1, TraceBuffer, IMP))
->> -		val |= MDCR_EL2_E2TB_MASK;
->> +		val &= ~MDCR_EL2_E2TB_MASK;
-> 
-> This does not only change the trapping logic (bit 24). It also change
-> the ownership of the buffer (bit 25). I wonder whether you should do
-> something for that, maybe by clearing TRBLIMITR_EL1.E, because
-> otherwise, you keep tracing, but using an EL2 VA. What could possibly
-> go wrong?
-> 
-> Overall, I'm very uneasy about TRBE in the context of pKVM.
-> 
-> Thanks,
-> 
-> 	M.
-> 
+$ sudo lspci -vvv
+[sudo] password for alarm:
+Segmentation fault         sudo lspci -vvv
 
-Don't we already clear TRBLIMITR_EL1.E in __trace_needs_drain() for pKVM 
-when switching to the guest?
+# dmesg logs
 
-James
+[   21.225526] rockchip-pm-domain
+ff310000.power-management:power-controller: sync_state() pending due
+to ff660000.video-codec
+[   34.935331] Internal error: synchronous external abort:
+0000000096000210 [#1]  SMP
+[   34.936027] Modules linked in: 8021q garp mrp stp llc af_alg
+brcmfmac_wcc snd_soc_hdmi_codec hantro_vpu dw_hdmi_i2s_audio
+dw_hdmi_cec rockchip_rga hci_uart v4l2_vp9 rockchipdrm brcmfmac
+brcmutil btqca dw_hdmi_qp snd_soc_simple_card nvme v4l2_h264
+snd_soc_audio_graph_card analogix_dp videobuf2_dma_sg v4l2_jpeg
+snd_soc_es8316 btbcm snd_soc_simple_card_utils dw_mipi_dsi nvme_core
+snd_soc_spdif_tx snd_soc_rockchip_i2s videobuf2_dma_contig
+v4l2_mem2mem drm_dp_aux_bus bluetooth snd_soc_core dw_hdmi
+videobuf2_memops drm_display_helper panfrost videobuf2_v4l2
+snd_compress dwmac_rk videodev ecdh_generic cec snd_pcm_dmaengine
+drm_shmem_helper ax88179_178a stmmac_platform drm_client_lib snd_pcm
+ecc gpu_sched drm_dma_helper videobuf2_common usbnet rockchip_saradc
+stmmac drm_kms_helper pwrseq_core snd_timer reset_gpio
+phy_rockchip_pcie mc industrialio_triggered_buffer snd rockchip_dfi
+rockchip_thermal coresight_cpu_debug soundcore rtc_rk808 kfifo_buf
+pcs_xpcs coresight pcie_rockchip_host sha256 cfg80211 rfkill drm fuse
+backlight
+[   34.936326]  dm_mod ipv6
+[   34.944344] CPU: 1 UID: 0 PID: 796 Comm: lspci Tainted: G   M
+         6.18.0-rc7-dirty #1 PREEMPT
+[   34.945187] Tainted: [M]=3DMACHINE_CHECK
+[   34.945518] Hardware name: Radxa ROCK Pi 4B+ (DT)
+[   34.945932] pstate: 600000c5 (nZCv daIF -PAN -UAO -TCO -DIT -SSBS BTYPE=
+=3D--)
+[   34.946545] pc : rockchip_pcie_rd_conf+0x178/0x27c [pcie_rockchip_host]
+[   34.947138] lr : rockchip_pcie_rd_conf+0x170/0x27c [pcie_rockchip_host]
+[   34.947722] sp : ffff8000848b3bc0
+[   34.948015] x29: ffff8000848b3bc0 x28: ffff0000013e30c0 x27: 00000000000=
+00000
+[   34.948652] x26: 000000000000000f x25: ffff0000013e30c0 x24: 00000000000=
+00040
+[   34.949287] x23: 0000000000000040 x22: ffff8000848b3c44 x21: ffff8000848=
+b3bf4
+[   34.949920] x20: ffff800082100000 x19: 0000000000000004 x18: 00000000000=
+00000
+[   34.950555] x17: 0000000000000000 x16: ffffc37c34322808 x15: 00000000000=
+00000
+[   34.951188] x14: 0000000000000000 x13: 0000000000000000 x12: 00000000000=
+00000
+[   34.951821] x11: 0000000000000000 x10: 0000000000000000 x9 : 00000000000=
+00000
+[   34.952454] x8 : 0000000000000000 x7 : ffff0000084093c0 x6 : ffff000009c=
+d7000
+[   34.953087] x5 : ffff000009cd7800 x4 : ffff800085000000 x3 : 0000000000c=
+00008
+[   34.953722] x2 : 000000000080000a x1 : ffff800085c00008 x0 : ffff800085c=
+0000c
+[   34.954356] Call trace:
+[   34.954576]  rockchip_pcie_rd_conf+0x178/0x27c [pcie_rockchip_host] (P)
+[   34.955164]  pci_user_read_config_dword+0x7c/0x120
+[   34.955598]  pci_read_config+0xe4/0x2a0
+[   34.955944]  sysfs_kf_bin_read+0x7c/0xbc
+[   34.956298]  kernfs_fop_read_iter+0xb0/0x1bc
+[   34.956679]  vfs_read+0x230/0x320
+[   34.956981]  __arm64_sys_pread64+0xac/0xd4
+[   34.957350]  invoke_syscall+0x48/0x10c
+[   34.957691]  el0_svc_common.constprop.0+0x40/0xe0
+[   34.958113]  do_el0_svc+0x1c/0x28
+[   34.958414]  el0_svc+0x34/0xec
+[   34.958694]  el0t_64_sync_handler+0xa0/0xe4
+[   34.959070]  el0t_64_sync+0x198/0x19c
+[   34.959405] Code: 52800141 940000ae 7100127f 54fff801 (b9400294)
+[   34.959940] ---[ end trace 0000000000000000 ]---
+[   34.960349] note: lspci[796] exited with irqs disabled
+[   34.960879] note: lspci[796] exited with preempt_count 1
 
+Either I am doing something wrong, or it's broken; I am not getting
+this to work.
+
+Upon further investigation, the issue was narrowed down to a specific
+modification
+that I made locally,
+
+According to section 17.6.6.1.32 of the manual, the Power Limit Value
+and Power Limit Scale fields
+are part of the Slot Capability Register, not the Device Capability Registe=
+r.
+
+This assumption led to the segmentation fault because the code was attempti=
+ng to
+access invalid memory addresses.
+
+Do you think these are valid changes? Because this change caused a
+freeze on the NVMe device.
+
+$ git  diff drivers/pci/controller/pcie-rockchip-host.c
+diff --git a/drivers/pci/controller/pcie-rockchip-host.c
+b/drivers/pci/controller/pcie-rockchip-host.c
+index ee1822ca01db..743a04e36a1c 100644
+--- a/drivers/pci/controller/pcie-rockchip-host.c
++++ b/drivers/pci/controller/pcie-rockchip-host.c
+@@ -270,10 +270,10 @@ static void rockchip_pcie_set_power_limit(struct
+rockchip_pcie *rockchip)
+                power =3D power / 10;
+        }
+
+-       status =3D rockchip_pcie_read(rockchip, PCIE_RC_CONFIG_CR +
+PCI_EXP_DEVCAP);
++       status =3D rockchip_pcie_read(rockchip, PCIE_RC_CONFIG_CR +
+PCI_EXP_SLTCAP);
+        status |=3D FIELD_PREP(PCI_EXP_DEVCAP_PWR_VAL, power);
+        status |=3D FIELD_PREP(PCI_EXP_DEVCAP_PWR_SCL, scale);
+-       rockchip_pcie_write(rockchip, status, PCIE_RC_CONFIG_CR +
+PCI_EXP_DEVCAP);
++       rockchip_pcie_write(rockchip, status, PCIE_RC_CONFIG_CR +
+PCI_EXP_SLTCAP);
+ }
+
+Thanks
+-Anand
 
