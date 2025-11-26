@@ -4,122 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EFCDD10F22
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 10:25:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49F40D1039D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 10:27:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4n8XpKIntFouevCoTYjY7Dj+z9sDyT8dkxo4H6FtRSs=; b=dbLyGfMHsBNc0z0cQfP/hvd1N5
-	2to9KX7ib+1qi4I05zHmKgxiIT7n/FxxwJhd/RAUJxm4SqFAZlAgVCLD0Pb0NMKSJgHYbwu/vsHk5
-	HAax3ILp0TN5R0IDfx8Ft991bKeA43dKfnOyDM+cUxktCV1EthIlnHbQA3XHyAZICjuJSKpEMokML
-	FoXjb63K/Rudl3C9Ot21C/6wa9T9iFI97LwxoieJvBRz37DS1FXqAKJvQSjeDnLZsUIYIp0zKte//
-	gzPyEIr48PhPCgZz+zDOftQjiYL027zUyjDqOaaJsJYCxLM2DtcoSdqw/djmMVAJhIa6om8NaYY7c
-	gvSql1eA==;
+	bh=hsxVht4tUlNSpx96uvLTVdGsr7Bsu+NkiRatDCwiX2c=; b=UBC2vjiP4at6kT8wl015nWjLHi
+	G59yc8t15mCqRxlVHyYBLeN/8HSXYeuPRflAsJypbiQkDs4GCpVNz1teRjVdfJA0dN6H2gSbpEpN9
+	TulodgKSukXujnGUZUpjt3R4FvbHTYigGj0WtW2qwHgJ8jkTNdVUXVo1QzG+cGx7Ijc7TM2mrW5IV
+	rrUMw1ipRJ8ulQatA4ftL67IjudpXOYS7u9tz1XSNdnE5PNI+I3zs87yKDjBHvJmlC9k/ChJUct1O
+	GA06hM9TPCcSyE0wecJ0fFUhzGoLuMfAxGW4gXty5VlA3KQJoyJA2IJsqPFVTh9K0yAa6xui52STi
+	1pVqjeUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOCiW-0000000Emfb-3N6C;
-	Wed, 26 Nov 2025 10:25:44 +0000
-Received: from fhigh-b5-smtp.messagingengine.com ([202.12.124.156])
+	id 1vOCkF-0000000En69-0E9o;
+	Wed, 26 Nov 2025 10:27:31 +0000
+Received: from dggsgout11.his.huawei.com ([45.249.212.51])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOCiU-0000000Emdh-1Xsq
+	id 1vOCkA-0000000En4o-3X0t
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Nov 2025 10:25:44 +0000
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailfhigh.stl.internal (Postfix) with ESMTP id A50DF7A01B0;
-	Wed, 26 Nov 2025 05:25:38 -0500 (EST)
-Received: from phl-imap-17 ([10.202.2.105])
-  by phl-compute-04.internal (MEProxy); Wed, 26 Nov 2025 05:25:39 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm3; t=1764152738;
-	 x=1764239138; bh=4n8XpKIntFouevCoTYjY7Dj+z9sDyT8dkxo4H6FtRSs=; b=
-	bcJWPcdJy9XUMVMxzHRJ7mgJiP+gJKvAYMEZzJ4SwIAUpSqwbsV8zAfG8iOrq7jM
-	zlcmu6LJxHz8mcOZmNZbLT3O9iXuP4eA6kCfwxTHFJjjw/gzejFFLMWYc5MwtbRY
-	TqxwgiGjQ4LvaXarsMvEoZQmVclmbNiIDLjW69CkAN1ki9gmzBPfyLED1JLKF9n1
-	RtoroRFgNLDV/yfBJVSDiC+RSqSvC+6si7u5FMnJwk5g6szSdQNv6CK8R03F8Gca
-	0SI86kO2sv/wbEaMXPZ/0jR4pnqEVc4BMYtgRHicZ7fT6UpMbaq/3HYcqgmr2g4b
-	8p3Gk7RhucTn2zw3+wMHtg==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1764152738; x=
-	1764239138; bh=4n8XpKIntFouevCoTYjY7Dj+z9sDyT8dkxo4H6FtRSs=; b=t
-	BDACi4mgxthTaMQcoTilxJNS1MmZo/PuTErFfVFwRA8heCOrMeRhw10lTSyeWXYY
-	nVwwk7DBUwKNlXh7JO2H1gfzeyLBUpTGcltXwcj6lHaWs9GRK7ZKRzZN0cJ0OI5M
-	8W6PEOGhnjQHkbFRQ+l93VyIWfp01voDZKPJpNV2fOj0VKTYh8yz1GMfoDM3DFNJ
-	cZOk0up9qOVOb2/Tr28enJzMHzMjNf8e25KvzlcUyutpPBn3+4f0HENO0E/RBkdt
-	5dPSah3SACrcMwGxFE0AjKlRsem9B1TrOBB63vlVocKgXtkvRP/F8nr2QIMo4uDt
-	ZPaVXUiJzHhuodFuaFiwg==
-X-ME-Sender: <xms:odUmaSf39wj41CvRNp2Miqek7s_ldsswuePkHc0P5sFs3oMWlvEcPQ>
-    <xme:odUmaXAZJB-ZnhmvXw96bHdwPGB0oKTeAZyo2BaxsV0DAO3Ooq1RWE6hoIMpj2f-s
-    MBcwzVpMDLcpNJiNodwexPR41kigX_N81bZp_fKN8C2Ryd8oJH4Kbg>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdeggddvgeeguddtucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
-    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
-    gurhepofggfffhvfevkfgjfhfutgfgsehtqhertdertdejnecuhfhrohhmpedftehrnhgu
-    uceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrthhtvg
-    hrnhepvdfhvdekueduveffffetgfdvveefvdelhedvvdegjedvfeehtdeggeevheefleej
-    necuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprghrnh
-    gusegrrhhnuggsrdguvgdpnhgspghrtghpthhtohepudelpdhmohguvgepshhmthhpohhu
-    thdprhgtphhtthhopegsphesrghlihgvnhekrdguvgdprhgtphhtthhopegtrghtrghlih
-    hnrdhmrghrihhnrghssegrrhhmrdgtohhmpdhrtghpthhtoheplhhinhhugiesrghrmhhl
-    ihhnuhigrdhorhhgrdhukhdprhgtphhtthhopegrlhgvgigrnhgurhgvrdgsvghllhhonh
-    hisegsohhothhlihhnrdgtohhmpdhrtghpthhtohepshgvrghnjhgtsehgohhoghhlvgdr
-    tghomhdprhgtphhtthhopehfuhhsthhinhhisehkvghrnhgvlhdrohhrghdprhgtphhtth
-    hopehkrhiikheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepfihilhhlsehkvghrnhgv
-    lhdrohhrghdprhgtphhtthhopehlihhnuhhsrdifrghllhgvihhjsehlihhnrghrohdroh
-    hrgh
-X-ME-Proxy: <xmx:odUmaT_IRtIlzJdVQn44HB9PAdPvPZjLxwxYLrFtThG6QXT-vSeKYQ>
-    <xmx:odUmabkrIzgtpu4N5ma7NguB5yy65rfZwabeOHWE8ow8k_IvQahlzA>
-    <xmx:odUmaci64UXCXftbolXHlelT5NXaAABP3vw5y3J-GvteHgOV0GwPuQ>
-    <xmx:odUmaTYhv4LeNBM7C6688gra0ssZ3jlWwrAaVluLiS-H2GjEi0VlaQ>
-    <xmx:otUmaRUktK8pc6SeFNGE7LDKqpLNwgFKrf2gdTJeciV2SqKD1dcxsUFL>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 17AB2C40054; Wed, 26 Nov 2025 05:25:37 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Wed, 26 Nov 2025 10:27:30 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.216])
+	by dggsgout11.his.huawei.com (SkyGuard) with ESMTPS id 4dGbM8589kzYQtrn
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Nov 2025 18:26:28 +0800 (CST)
+Received: from mail02.huawei.com (unknown [10.116.40.112])
+	by mail.maildlp.com (Postfix) with ESMTP id 73D4E1A018C
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Nov 2025 18:27:20 +0800 (CST)
+Received: from [10.174.176.88] (unknown [10.174.176.88])
+	by APP1 (Coremail) with SMTP id cCh0CgC3PkgH1iZpi0Q3CA--.23367S3;
+	Wed, 26 Nov 2025 18:27:20 +0800 (CST)
+Message-ID: <33ab4aef-020e-49e7-8539-31bf78dac61a@huaweicloud.com>
+Date: Wed, 26 Nov 2025 18:27:19 +0800
 MIME-Version: 1.0
-X-ThreadId: AnJT6xfv7F9s
-Date: Wed, 26 Nov 2025 11:25:16 +0100
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Jason Wang" <jasowang@redhat.com>, "Jon Kohler" <jon@nutanix.com>
-Cc: "Michael S. Tsirkin" <mst@redhat.com>,
- =?UTF-8?Q?Eugenio_P=C3=A9rez?= <eperezma@redhat.com>,
- "kvm@vger.kernel.org" <kvm@vger.kernel.org>,
- "virtualization@lists.linux.dev" <virtualization@lists.linux.dev>,
- Netdev <netdev@vger.kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "Linus Torvalds" <torvalds@linux-foundation.org>,
- "Borislav Petkov" <bp@alien8.de>, "Sean Christopherson" <seanjc@google.com>,
- linux-arm-kernel@lists.infradead.org, "Russell King" <linux@armlinux.org.uk>,
- "Catalin Marinas" <catalin.marinas@arm.com>, "Will Deacon" <will@kernel.org>,
- "Krzysztof Kozlowski" <krzk@kernel.org>,
- "Alexandre Belloni" <alexandre.belloni@bootlin.com>,
- "Linus Walleij" <linus.walleij@linaro.org>,
- "Drew Fustini" <fustini@kernel.org>
-Message-Id: <61102cff-bb35-4fe4-af61-9fc31e3c65e0@app.fastmail.com>
-In-Reply-To: <CACGkMEtk7veKToaJO9rwo7UeJkN+reaoG9_XcPG-dKAho1dV+A@mail.gmail.com>
-References: <20251113005529.2494066-1-jon@nutanix.com>
- <CACGkMEtQZ3M-sERT2P8WV=82BuXCbBHeJX+zgxx+9X7OUTqi4g@mail.gmail.com>
- <E1226897-C6D1-439C-AB3B-012F8C4A72DF@nutanix.com>
- <CACGkMEuPK4=Tf3x-k0ZHY1rqL=2rg60-qdON8UJmQZTqpUryTQ@mail.gmail.com>
- <A0AFD371-1FA3-48F7-A259-6503A6F052E5@nutanix.com>
- <CACGkMEvD16y2rt+cXupZ-aEcPZ=nvU7+xYSYBkUj7tH=ER3f-A@mail.gmail.com>
- <121ABD73-9400-4657-997C-6AEA578864C5@nutanix.com>
- <CACGkMEtk7veKToaJO9rwo7UeJkN+reaoG9_XcPG-dKAho1dV+A@mail.gmail.com>
-Subject: Re: [PATCH net-next] vhost: use "checked" versions of get_user() and
- put_user()
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+From: Zizhi Wo <wozizhi@huaweicloud.com>
+Subject: Re: [Bug report] hash_name() may cross page boundary and trigger
+ sleep in RCU context
+To: Zizhi Wo <wozizhi@huaweicloud.com>, jack@suse.com, brauner@kernel.org,
+ hch@lst.de, akpm@linux-foundation.org, linux@armlinux.org.uk,
+ torvalds@linux-foundation.org
+Cc: linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org,
+ yangerkun@huawei.com, wangkefeng.wang@huawei.com, pangliyuan1@huawei.com,
+ xieyuanbin1@huawei.com
+References: <20251126090505.3057219-1-wozizhi@huaweicloud.com>
+In-Reply-To: <20251126090505.3057219-1-wozizhi@huaweicloud.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: cCh0CgC3PkgH1iZpi0Q3CA--.23367S3
+X-Coremail-Antispam: 1UD129KBjvJXoWxArWDWFyxKr45XryxGr43GFg_yoW5XFW5pr
+	4rCryYkrsxZry5Aw109a9IgFy5Jw4UGr43GrnagryUuw45WF12vF4UKry09F9xW3WDWayx
+	Wr1qgwn7uas0gFUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUvK14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26F1j6w1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26F4j
+	6r4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AKxVW0oV
+	Cq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
+	I7IYx2IY67AKxVWUAVWUtwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r
+	4UM4x0Y48IcVAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628vn2kI
+	c2xKxwCY1x0262kKe7AKxVWUtVW8ZwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbV
+	WUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF
+	67kF1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42
+	IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF
+	0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxh
+	VjvjDU0xZFpf9x0JUL0edUUUUU=
+X-CM-SenderInfo: pzr2x6tkl6x35dzhxuhorxvhhfrp/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251126_022542_839629_4538B82C 
-X-CRM114-Status: GOOD (  16.75  )
+X-CRM114-CacheID: sfid-20251126_022727_302438_8C8D81FA 
+X-CRM114-Status: GOOD (  14.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,54 +89,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 26, 2025, at 07:04, Jason Wang wrote:
-> On Wed, Nov 26, 2025 at 3:45=E2=80=AFAM Jon Kohler <jon@nutanix.com> w=
-rote:
->> > On Nov 19, 2025, at 8:57=E2=80=AFPM, Jason Wang <jasowang@redhat.co=
-m> wrote:
->> > On Tue, Nov 18, 2025 at 1:35=E2=80=AFAM Jon Kohler <jon@nutanix.com=
-> wrote:
->> Same deal goes for __put_user() vs put_user by way of commit
->> e3aa6243434f ("ARM: 8795/1: spectre-v1.1: use put_user() for __put_us=
-er()=E2=80=9D)
->>
->> Looking at arch/arm/mm/Kconfig, there are a variety of scenarios
->> where CONFIG_CPU_SPECTRE will be enabled automagically. Looking at
->> commit 252309adc81f ("ARM: Make CONFIG_CPU_V7 valid for 32bit ARMv8 i=
-mplementations")
->> it says that "ARMv8 is a superset of ARMv7", so I=E2=80=99d guess tha=
-t just
->> about everything ARM would include this by default?
 
-I think the more relevant commit is for 64-bit Arm here, but this does
-the same thing, see 84624087dd7e ("arm64: uaccess: Don't bother
-eliding access_ok checks in __{get, put}_user").
 
-Note that there is no KVM on 32-bit Arm any more, so we really don't
-care about vhost performance there. The added access_ok() check in
-arm32 __get_user() is probably avoidable, as embedded systems with
-in-order cores could turn off the spectre workarounds, but as
-Will explained in the arm64 commit, it's not that expensive either.
+在 2025/11/26 17:05, Zizhi Wo 写道:
+> We're running into the following issue on an ARM32 platform with the linux
+> 5.10 kernel:
+> 
+> [<c0300b78>] (__dabt_svc) from [<c0529cb8>] (link_path_walk.part.7+0x108/0x45c)
+> [<c0529cb8>] (link_path_walk.part.7) from [<c052a948>] (path_openat+0xc4/0x10ec)
+> [<c052a948>] (path_openat) from [<c052cf90>] (do_filp_open+0x9c/0x114)
+> [<c052cf90>] (do_filp_open) from [<c0511e4c>] (do_sys_openat2+0x418/0x528)
+> [<c0511e4c>] (do_sys_openat2) from [<c0513d98>] (do_sys_open+0x88/0xe4)
+> [<c0513d98>] (do_sys_open) from [<c03000c0>] (ret_fast_syscall+0x0/0x58)
+> ...
+> [<c0315e34>] (unwind_backtrace) from [<c030f2b0>] (show_stack+0x20/0x24)
+> [<c030f2b0>] (show_stack) from [<c14239f4>] (dump_stack+0xd8/0xf8)
+> [<c14239f4>] (dump_stack) from [<c038d188>] (___might_sleep+0x19c/0x1e4)
+> [<c038d188>] (___might_sleep) from [<c031b6fc>] (do_page_fault+0x2f8/0x51c)
+> [<c031b6fc>] (do_page_fault) from [<c031bb44>] (do_DataAbort+0x90/0x118)
+> [<c031bb44>] (do_DataAbort) from [<c0300b78>] (__dabt_svc+0x58/0x80)
+> ...
+> 
+> During the execution of hash_name()->load_unaligned_zeropad(), a potential
+> memory access beyond the PAGE boundary may occur. For example, when the
+> filename length is near the PAGE_SIZE boundary. This triggers a page fault,
+> which leads to a call to do_page_fault()->mmap_read_trylock(). If we can't
+> acquire the lock, we have to fall back to the mmap_read_lock() path, which
+> calls might_sleep(). This breaks RCU semantics because path lookup occurs
+> under an RCU read-side critical section. In linux-mainline, arm/arm64
+> do_page_fault() still has this problem:
+> 
+> lock_mm_and_find_vma->get_mmap_lock_carefully->mmap_read_lock_killable.
+> 
+> And before commit bfcfaa77bdf0 ("vfs: use 'unsigned long' accesses for
+> dcache name comparison and hashing"), hash_name accessed the name byte by
+> byte.
+> 
+> To prevent load_unaligned_zeropad() from accessing beyond the valid memory
+> region, we would need to intercept such cases beforehand? But doing so
+> would require replicating the internal logic of load_unaligned_zeropad(),
+> including handling endianness and constructing the correct value manually.
+> Given that load_unaligned_zeropad() is used in many places across the
+> kernel, we currently haven't found a good solution to address this cleanly.
+> 
+> What would be the recommended way to handle this situation? Would
+> appreciate any feedback and guidance from the community. Thanks!
+> 
 
->> If so, that mean at least for a non-zero population of ARM=E2=80=99er=
-s,
->> they wouldn=E2=80=99t notice anything from this patch, yea?
->
-> Adding ARM maintainers for more thought.
+As a detail, we enabled CONFIG_DEBUG_PREEMPT and CONFIG_KFENCE, which
+allowed us to catch the potential out-of-bounds access.
 
-I would think that if we change the __get_user() to get_user()
-in this driver, the same should be done for the
-__copy_{from,to}_user(), which similarly skips the access_ok()
-check but not the PAN/SMAP handling.
+Thanks,
+Zizhi Wo
 
-In general, the access_ok()/__get_user()/__copy_from_user()
-pattern isn't really helpful any more, as Linus already
-explained. I can't tell from the vhost driver code whether
-we can just drop the access_ok() here and use the plain
-get_user()/copy_from_user(), or if it makes sense to move
-to the newer user_access_begin()/unsafe_get_user()/
-unsafe_copy_from_user()/user_access_end() and try optimize
-out a few PAN/SMAP flips in the process.
-
-     Arnd
 
