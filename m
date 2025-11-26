@@ -4,125 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C63AD11196
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 19:59:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 166C6D11195
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 20:00:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jmMZwZ3T/H2UJyGQvvWkg6V9yZfwMQ6Q8YhFI2Lxf0o=; b=Njbvf9je6u7s0mCdN7Ma9MeG7P
-	1bAhaQs8InXsXlNYOMid3vlcnPUyqluASTLPFSIXH3kEzRTRIOlaTHbMaNLAEUyW0eJsesZCJ6kmT
-	clfnzKPFjaBr8OsWlRUjMdYaoVCLqu/vllEq0ohPXHAnSa5SX4YyPRk6GRXkfxiJBBComsnFWsVZA
-	sLyKIunIMcA4OwLktqq1yhoUnViB9snLVvm1T1NjQVLm9n9+Mf8Z7RxAI7NUAjZC8UuDgCLH/IVqA
-	qvV0GJlYU9fELh+qFargYUW+les8BFLbDGYd3NDzD0d9CJfp9EORTU4lJAZDumW10UYLtYL6vuKdZ
-	bixtMeNg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wi8uih8ofLo5efaX/ubMnimRmRfmY8bXqmgKuWa3CVc=; b=OxNFOzO4zf3A3W1x1ucZtt/8sX
+	PulNXBx3uOJHn0xxCVnoQajeR2PGYhY6kQr0CdcJplXCDm3emf4GFwovyCXIH7MIiQvBQxvZ2stfU
+	8JeVpHvkWw8qi5q3gII87iK3SplziV1v+P+4/GLomBcQsGsA1RNMmTzq2lA6xQ5Rlps2wwy0HUxtN
+	Oxod6UfxWA+VNw6wUeA0EHyiFMqUmmKp/liCDqyj8/TLz224pJcWefidiKQ8K4nh8WDLv26wlvAtd
+	LNAgU/+fcDSy4CuCx99HazJwp3Ftl0tpclXrFZ8C9w16qRTHBJi78gwFsm4mkgup0lUYiIjZlkjxV
+	JXdo4GLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOLfX-0000000Fa2M-1Tqi;
-	Wed, 26 Nov 2025 19:59:15 +0000
-Received: from fhigh-a6-smtp.messagingengine.com ([103.168.172.157])
+	id 1vOLgp-0000000FaOd-1IaK;
+	Wed, 26 Nov 2025 20:00:35 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOLfT-0000000Fa20-2vzK
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Nov 2025 19:59:13 +0000
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailfhigh.phl.internal (Postfix) with ESMTP id 9C1DB1400218;
-	Wed, 26 Nov 2025 14:59:09 -0500 (EST)
-Received: from phl-imap-17 ([10.202.2.105])
-  by phl-compute-04.internal (MEProxy); Wed, 26 Nov 2025 14:59:09 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm3; t=1764187149;
-	 x=1764273549; bh=jmMZwZ3T/H2UJyGQvvWkg6V9yZfwMQ6Q8YhFI2Lxf0o=; b=
-	aXj9lRQCNWAg9nsQ3DHf3eJO56Ou7rmq/jMqfUdkcvEl3Igc2cwgVR63q0j6sLKB
-	LLI6BQ4kAh7qcrep92D8t8ghU8ingP8rHM50p6XkpIVhDJR9imjdHX9dgEhNwKgR
-	Ioq0wnS+dgmqPluOodIkQ851x028SfGd7rZL/G1h7IfovUjhV28TOFmK6+/a0ypX
-	iFrFnMBe/wHY/ElBvYN1PnMkah3XfKA5xPT+Fo0mKU9cJNaF+aIBuyAaWEnU7jTG
-	d0kQl90ND8Ij5whgfSh79gEYZtl3BSLbAokAEmzpP/Y6uj9SOEcXdIWPyoduDj43
-	UQ6364S9k1z254Jrae7j9A==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1764187149; x=
-	1764273549; bh=jmMZwZ3T/H2UJyGQvvWkg6V9yZfwMQ6Q8YhFI2Lxf0o=; b=Y
-	SDcHdp8GQ7IzQIVS83yReQWGCFr+ftfC3+5X1e/72e0s+N+IXnKV7dm335FR6uJ3
-	bZCmcpLGXmxMZjOUZ9+EYBJ2ih3+JJab7J8s1kRJAbmzOj90vTQ2ymdT9alPz9uJ
-	FpID1ozUKzuP1LS+4szGBYkZHD2lVHY4Cws+pvqhFPRDV1TSNJRN5WKqjQ62Shys
-	vnGgg3ypLBgZHywYZwmKw6es6bhKtvLqrUwhlDt7IlxhgXSCW1bZc65k3VMp1rqK
-	/9D51S5ThKzdftuLacypWLUQjgaPb6Lauv7I0skdfgf9kVDnFLRtZ/W9//Q6CC12
-	gC28Tr/zl4GgGkwgMf/9A==
-X-ME-Sender: <xms:DFwnaZnXEDX8hixgp4KZxtf1qli86L99SPR_wC_aBNdFxNDNOQXS1g>
-    <xme:DFwnafoVegS1uccN98WmrhAHQkc3jI0Mun_VBsaeYVCokUg21OmzDC20AxQVbDenU
-    _PnxZRJl8yKMoaxlbvj79gHuEv1VW6wU_9dYqZrI-HmeVYDmdIYkAg>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdeggddvgeehvdegucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
-    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
-    gurhepofggfffhvfevkfgjfhfutgfgsehtqhertdertdejnecuhfhrohhmpedftehrnhgu
-    uceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrthhtvg
-    hrnhepvdfhvdekueduveffffetgfdvveefvdelhedvvdegjedvfeehtdeggeevheefleej
-    necuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprghrnh
-    gusegrrhhnuggsrdguvgdpnhgspghrtghpthhtohepudelpdhmohguvgepshhmthhpohhu
-    thdprhgtphhtthhopegsphesrghlihgvnhekrdguvgdprhgtphhtthhopegtrghtrghlih
-    hnrdhmrghrihhnrghssegrrhhmrdgtohhmpdhrtghpthhtoheplhhinhhugiesrghrmhhl
-    ihhnuhigrdhorhhgrdhukhdprhgtphhtthhopegrlhgvgigrnhgurhgvrdgsvghllhhonh
-    hisegsohhothhlihhnrdgtohhmpdhrtghpthhtohepshgvrghnjhgtsehgohhoghhlvgdr
-    tghomhdprhgtphhtthhopehfuhhsthhinhhisehkvghrnhgvlhdrohhrghdprhgtphhtth
-    hopehkrhiikheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepfihilhhlsehkvghrnhgv
-    lhdrohhrghdprhgtphhtthhopehlihhnuhhsrdifrghllhgvihhjsehlihhnrghrohdroh
-    hrgh
-X-ME-Proxy: <xmx:DFwnabEsRwyQZAaT5vShCyjURj3S120JsvuLYehrvOnQYv7EzMhwvQ>
-    <xmx:DFwnaUNcpLntQ5v6e89jBepgrtjQYQaQY2k1qKZaHxemlycXAxQ8TA>
-    <xmx:DFwnaYpht-bc3cmc7a2nkvlr2wt5xEbcnlpU-vq8v79qG5pajXukgA>
-    <xmx:DFwnadBtYehufbSh_R8RiQF57DlNd5NYmyStkx96fELHzRzDOOmkKA>
-    <xmx:DVwnaXyJiCsUCvOA8Yv7sI0ij7ZOnBYDabjmrvbUqWOwf5tpq2wIrJVK>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 89CC5C4006B; Wed, 26 Nov 2025 14:59:08 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	id 1vOLgn-0000000FaOE-2SFX;
+	Wed, 26 Nov 2025 20:00:33 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id B17E160139;
+	Wed, 26 Nov 2025 20:00:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 98B21C4CEF7;
+	Wed, 26 Nov 2025 20:00:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1764187232;
+	bh=R2AGU5XnORZusZ1iGFwJY7bQHmgaVS26nysHAWjHEZU=;
+	h=Date:From:To:cc:Subject:In-Reply-To:References:From;
+	b=OiC5469NkF4URpfQxVhISBbvN9Wlj4COaxPmDOmpqX9Je9mrZq0t8wEeFdRxkE5AC
+	 ADwdtpeKcrjTBxUE0NeUXamP5TMq7NMXzJP07tTUsEWZrOcYT4kNlC6sZ2a1DrCf6o
+	 5X+R6ScykcAahBHN7Q/dMZ5KZ/GluORcTWH11Gv+hzY+H7XpduiuILm+vWWF6JDwh3
+	 lrMA6Hnx+2B+Gs0eBRGMsqfkr4F95LIXIUYmrMuedGvuLzWH/dm/es9ZGIGidP348z
+	 i4r2C4ECAh0UdAH0YHsOYDY7Bk6Z/Pitnm8ybxXCObnxSt9pICI8/i+v9vWwwoXgYP
+	 ep0ohDllFnRHg==
+Date: Wed, 26 Nov 2025 13:00:28 -0700 (MST)
+From: Paul Walmsley <pjw@kernel.org>
+To: =?ISO-8859-15?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>
+cc: Paul Walmsley <pjw@kernel.org>, linux-riscv@lists.infradead.org, 
+    paul.walmsley@sifive.com, palmer@dabbelt.com, linux-kernel@vger.kernel.org, 
+    linux-arm-kernel@lists.infradead.org, hchauhan@ventanamicro.com, 
+    apatel@ventanamicro.com, luxu.kernel@bytedance.com, atishp@atishpatra.org, 
+    bjorn@rivosinc.com, cuiyunhui@bytedance.com, 
+    =?GB2312?B?1cXVucX0?= <zhangzhanpeng.jasper@bytedance.com>
+Subject: Re: [PATCH v8 0/5] riscv: add support for SBI Supervisor Software
+ Events
+In-Reply-To: <4b22e7c4-4d3d-43b9-bc27-ffd7a86ad26a@rivosinc.com>
+Message-ID: <39079362-64ce-e951-6906-0302b1e9e55d@kernel.org>
+References: <20251105082639.342973-1-cleger@rivosinc.com> <176355541775.758643.18140349571928540394.git-patchwork-notify@kernel.org> <350edd01-56ce-6558-1473-4b9231647e1e@kernel.org> <4b22e7c4-4d3d-43b9-bc27-ffd7a86ad26a@rivosinc.com>
 MIME-Version: 1.0
-X-ThreadId: AnJT6xfv7F9s
-Date: Wed, 26 Nov 2025 20:58:48 +0100
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Jon Kohler" <jon@nutanix.com>
-Cc: "Jason Wang" <jasowang@redhat.com>, "Michael S. Tsirkin" <mst@redhat.com>,
- =?UTF-8?Q?Eugenio_P=C3=A9rez?= <eperezma@redhat.com>,
- "kvm@vger.kernel.org" <kvm@vger.kernel.org>,
- "virtualization@lists.linux.dev" <virtualization@lists.linux.dev>,
- Netdev <netdev@vger.kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "Linus Torvalds" <torvalds@linux-foundation.org>,
- "Borislav Petkov" <bp@alien8.de>, "Sean Christopherson" <seanjc@google.com>,
- "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
- "Russell King" <linux@armlinux.org.uk>,
- "Catalin Marinas" <catalin.marinas@arm.com>, "Will Deacon" <will@kernel.org>,
- "Krzysztof Kozlowski" <krzk@kernel.org>,
- "Alexandre Belloni" <alexandre.belloni@bootlin.com>,
- "Linus Walleij" <linus.walleij@linaro.org>,
- "Drew Fustini" <fustini@kernel.org>
-Message-Id: <32530984-cbaa-49e8-9c1e-34f04271538d@app.fastmail.com>
-In-Reply-To: <02B0FDF1-41D4-4A7D-A57E-089D2B69CEF2@nutanix.com>
-References: <20251113005529.2494066-1-jon@nutanix.com>
- <CACGkMEtQZ3M-sERT2P8WV=82BuXCbBHeJX+zgxx+9X7OUTqi4g@mail.gmail.com>
- <E1226897-C6D1-439C-AB3B-012F8C4A72DF@nutanix.com>
- <CACGkMEuPK4=Tf3x-k0ZHY1rqL=2rg60-qdON8UJmQZTqpUryTQ@mail.gmail.com>
- <A0AFD371-1FA3-48F7-A259-6503A6F052E5@nutanix.com>
- <CACGkMEvD16y2rt+cXupZ-aEcPZ=nvU7+xYSYBkUj7tH=ER3f-A@mail.gmail.com>
- <121ABD73-9400-4657-997C-6AEA578864C5@nutanix.com>
- <CACGkMEtk7veKToaJO9rwo7UeJkN+reaoG9_XcPG-dKAho1dV+A@mail.gmail.com>
- <61102cff-bb35-4fe4-af61-9fc31e3c65e0@app.fastmail.com>
- <02B0FDF1-41D4-4A7D-A57E-089D2B69CEF2@nutanix.com>
-Subject: Re: [PATCH net-next] vhost: use "checked" versions of get_user() and
- put_user()
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251126_115912_168945_13BF240F 
-X-CRM114-Status: GOOD (  24.59  )
+Content-Type: multipart/mixed; boundary="8323329-1617688475-1764187232=:894490"
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,64 +71,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 26, 2025, at 20:47, Jon Kohler wrote:
->> On Nov 26, 2025, at 5:25=E2=80=AFAM, Arnd Bergmann <arnd@arndb.de> wr=
-ote:
->> On Wed, Nov 26, 2025, at 07:04, Jason Wang wrote:
->>> On Wed, Nov 26, 2025 at 3:45=E2=80=AFAM Jon Kohler <jon@nutanix.com>=
- wrote:
->> I think the more relevant commit is for 64-bit Arm here, but this does
->> the same thing, see 84624087dd7e ("arm64: uaccess: Don't bother
->> eliding access_ok checks in __{get, put}_user").
->
-> Ah! Right, this is definitely the important bit, as it makes it
-> crystal clear that these are exactly the same thing. The current
-> code is:
-> #define get_user	__get_user
-> #define put_user	__put_user
->
-> So, this patch changing from __* to regular versions is a no-op
-> on arm side of the house, yea?
+  This message is in MIME format.  The first part should be readable text,
+  while the remaining parts are likely unreadable without MIME-aware tools.
 
-Certainly on 64-bit, and almost always on 32-bit, yes.
+--8323329-1617688475-1764187232=:894490
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: 8BIT
 
->> I would think that if we change the __get_user() to get_user()
->> in this driver, the same should be done for the
->> __copy_{from,to}_user(), which similarly skips the access_ok()
->> check but not the PAN/SMAP handling.
->
-> Perhaps, thats a good call out. I=E2=80=99d file that under one battle
-> at a time. Let=E2=80=99s get get/put user dusted first, then go down
-> that road?
+Hi Clément,
 
-It depends on what your bigger plan is. Are you working on
-improving the vhost driver specifically, or are you trying
-to kill off the __get_user/__put_user calls across the
-entire kernel?
+On Wed, 26 Nov 2025, Clément Léger wrote:
 
-In the latter case, I would suggest you do one driver
-at a time but address access_ok(), __{get,put}_user and
-__copy_{from,to}_user() with a single patch per driver
-as long as this is simple enough. For vhost specifically,
-doing it piecemeal is probably fine since the interaction
-is more complicated than most others.
+> On 11/19/25 16:52, Paul Walmsley wrote:
+> > 
+> > To add more context:
+> > 
+> > On Wed, 19 Nov 2025, patchwork-bot+linux-riscv@kernel.org wrote:
+> > 
+> >> This series was applied to riscv/linux.git (for-next)
+> >> by Paul Walmsley <pjw@kernel.org>:
+> >>
+> >> On Wed,  5 Nov 2025 08:26:32 +0000 you wrote:
+> >>> The SBI Supervisor Software Events (SSE) extensions provides a mechanism
+> >>> to inject software events from an SBI implementation to supervisor
+> >>> software such that it preempts all other supervisor level traps and
+> >>> interrupts. This extension is introduced by the SBI v3.0 specification[1].
+> >>>
+> >>> Various events are defined and can be send asynchronously to supervisor
+> >>> software (RAS, PMU, DEBUG, Asynchronous page fault) from SBI as well
+> >>> as platform specific events. Events can be either local (per-hart) or
+> >>> global. Events can be nested on top of each other based on priority and
+> >>> can interrupt the kernel at any time.
+> >>>
+> >>> [...]
+> >>
+> >> Here is the summary with links:
+> >>   - [v8,1/5] riscv: add SBI SSE extension definitions
+> >>     https://git.kernel.org/riscv/c/7bba38249b8a
+> >>   - [v8,2/5] riscv: add support for SBI Supervisor Software Events extension
+> >>     https://git.kernel.org/riscv/c/b52179e6de7d
+> >>   - [v8,3/5] drivers: firmware: add riscv SSE support
+> >>     https://git.kernel.org/riscv/c/5ffe60d26107
+> >>   - [v8,4/5] perf: RISC-V: add support for SSE event
+> >>     https://git.kernel.org/riscv/c/c6f3f04d2a9c
+> >>   - [v8,5/5] selftests/riscv: add SSE test module
+> >>     https://git.kernel.org/riscv/c/a123316660af
+> > 
+> > This is a pretty sophisticated series.  I was hoping to get more test 
+> > reports on it and reviews (as Clément requested as well). In the meantime 
+> > I've pulled them into for-next in the hopes that it might increase the 
+> > number of potential testers.  Am still very much interested in any test 
+> > reports or additional reviews; if they come in this week, I'll consider 
+> > rebuilding for-next to add them.
+> 
+> Since we gathered additional bug/starvation reports with SSE from
+> Zhanpeng, it would be preferable to remove this series from your branch
+> if still possible. I'm not currently really available (just had a
+> newborn) so I won't be able to fix this quickly.
 
->> In general, the access_ok()/__get_user()/__copy_from_user()
->> pattern isn't really helpful any more, as Linus already
->> explained. I can't tell from the vhost driver code whether
->> we can just drop the access_ok() here and use the plain
->> get_user()/copy_from_user(), or if it makes sense to move
->> to the newer user_access_begin()/unsafe_get_user()/
->> unsafe_copy_from_user()/user_access_end() and try optimize
->> out a few PAN/SMAP flips in the process.
->
-> In general, I think there are a few spots where we might be
-> able to optimize (vhost_get_vq_desc perhaps?) as that gets
-> called quite a bit and IIRC there are at least two flips
-> in there that perhaps we could elide to one? An investigation
-> for another day I think.
+No problem, we'll drop it.
 
-Yes, sounds good.
 
-      Arnd
+Congratulations on the new addition to your family,
+
+- Paul
+--8323329-1617688475-1764187232=:894490--
 
