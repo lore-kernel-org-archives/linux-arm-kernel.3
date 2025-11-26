@@ -4,105 +4,160 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D471FD1036F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 02:32:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64848D1036F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 02:56:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=viQFfejLa2fvgnA/CMY2Ia3y/w3OWlv3mFzKSwgxerg=; b=OWxawQf9pZen1cAUA6+A5j2gL4
-	Gk7Ne0QD+Sv88ypVfkENaRLHhg+koFJGbjMCvZMaQ/9fmcf4Jm1PXLs+Du8uh0awGttMcPF/h61v0
-	Te2fkNaAYVmqW5bJREpmTWQcQahvshaW1iPg/+p/RlX+wtLoOx8GXTPt/VEJLjUX5xgq57To/I5Ze
-	k6X4WEFz+kNicq7kLH1nsZIboMWQu76ythcL2AyIcw8PC9fz0LLQnL8VAjy8ski8+g21dybQTiNZo
-	b4CExmQSHXvmqI7bvmgWkfdm7i3L2OosHiwxXC2VkBNvuobpyJECFpM6vdyoc/3FdYGlRFrKPzED+
-	pufUoMtA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+q5WaB0+6MDy/08YGtt7+wgsYiTS56YB+WpuE95ELm0=; b=H5LjvvjJDhx3tY48N7YLD0DxT0
+	gp0OWjFR5kkNunyREf/5jWIw2ZC05vXzwP0O9LqwQp5SPLhc/dc5TmgmGGAkvky1INcO2rhsr85KF
+	SDbc8XMqzOjztz/5/ZoPVmm+IQfnckFe/eXg+fWj1Vy264+EcODBauoiaNhy6tsrwLu6bQ+SatFgh
+	ultI/r+ZpAJGe7RuRWekiUsoTKvMjY2tfZTSNQQlfeVWaYkqbCGNu0C+PK2sRdj4OTnwOwLqA3336
+	1rd2yZMHhElGlwjv5ZjFCMW9MI5UBDxKcVvYj0cq9vAq3YMb3vWl3EeRV27BnUcXy9br4eY79RfG/
+	DAjA0s6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vO5Ks-0000000EFeW-0B3E;
-	Wed, 26 Nov 2025 02:32:52 +0000
-Received: from mail-pg1-x532.google.com ([2607:f8b0:4864:20::532])
+	id 1vO5ho-0000000EGxQ-1gqr;
+	Wed, 26 Nov 2025 02:56:32 +0000
+Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vO5Ko-0000000EFde-2u6F
+	id 1vO5hm-0000000EGwr-0ZHK
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Nov 2025 02:32:48 +0000
-Received: by mail-pg1-x532.google.com with SMTP id 41be03b00d2f7-b553412a19bso5495956a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Nov 2025 18:32:46 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1764124366; x=1764729166; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=viQFfejLa2fvgnA/CMY2Ia3y/w3OWlv3mFzKSwgxerg=;
-        b=0STQFNBmDilxTBy7N91kSVqwVA+783gql8kR597geFoVa+iO2fuhuXvCGFlOSsKWNS
-         DKtvmIy8jmQXD2OkdAKhvaH9K3YGwKLSvR4rqo0xAawftc5LpR2u0Ww0CQ0rF7R1A8i5
-         8Ql2M7Q8jTemc/w0PdpGIjJ5U6FKES443NlJnKIP335x/RwU5cZ8P/7qIVv4yMupnCnP
-         oXwjSqE9qPhzhDcWrSPxjO5cqiixshYlRdvpI4F5OpyNVoTdeNrnUUeLSSDMT36Lw9pO
-         Ycq1Q8RdMOTNqmVypWNe5v9Q1L/NGEOmoVHRnpY3TbIYL8o3YtLwfnPw8zvGPL6OYOKi
-         cQNg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764124366; x=1764729166;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=viQFfejLa2fvgnA/CMY2Ia3y/w3OWlv3mFzKSwgxerg=;
-        b=Ihw2i/HVdoQkjhq2s5IWAV4wFdQNX822018frMHy5PC2TQuwphcpuDJhfdvza/YMph
-         FQPhIhWRvjKwJqr9jQLevsSSlhgNPX3qTJg2IGB40DHucN/Og+c+r1HHsXFA3AHwhNfU
-         badqKiAGjyioqkNTluxQvq5ARABY0r9BOduvDmdcD4jYH3mgi4gsXkGKVkzOJkMNq6fp
-         NSSr2Ds1B2KgpbqmIJcVrtQnCkr2Gp33QO+b6qCCixrSGmLQZy6kOfTyjNk7MSJoVRSe
-         ye2B6ZtNGCMHTBV7JSVgn85thXToXF41YVHSCO57GMaak5OoOqayHjdC4ey7UgZijr9t
-         /fNQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXLsHAMkJQokucBN1KWF+r2K8t7AkZytyhgYeECJ+/8B/luNMvNk4TvGgxLFl+cXGtI5hS1Xm7XCRgCVMmvIG+I@lists.infradead.org
-X-Gm-Message-State: AOJu0YyO5EG0L219StFsHjoNjYuLWoSLOu9TDWsEe9YxELbq44Q/6qi4
-	wKBbWzNZCQvYecWYRIgJIRQqQzqweJXtfMx4SWHadOIrukgdZv99CdPhHn+m5aq8pw==
-X-Gm-Gg: ASbGncvq2qxti8AytBap9vsqpooWwXdfShJOSqNKLDdRZnj3Y/dkcKYAQw+p25ElHfL
-	JZpeGrhf2h4BuYyNQDrKoYNrvt1CXuZzMzX3HwkH+9SD3YlpW0zpcQd1qFy5uYyHr9r3U8QCFyV
-	XM3NsWrmFjhzeh846W+yGcgVMLRXUnqX12+FsmdwaZFRWEzjyDfaq/ZV+Gk5oqWXKgIPUUSxoy+
-	qtW/Hv/6hYcs6UZ75zk7irA0A7Kup+0lP/aMGfeqMsnJmFA1oD43TzXTYDYiComlE6shO14hZ/n
-	vaaQ2hbGtQpM4LM3NVUmjRSK5EaxJwMEfANyXCuxK5X0FPf/h0PZyF8Sn7OJAkILi9OsiB9s8By
-	uxqorF47leYeI/CHNHZV1ej2+J8yyuhTUSFsEU0EPUqvX9D9rFLHuUX2V44Jyu/muQu+VDWSl/a
-	pjJJk1GT4TEThf+SLk3u1rAuH99tldoNJ2v+FoCB1myA4NqORHsqrKmaRI2KzjsqiBro62AtNVj
-	+vvnBEAfAuJNQ==
-X-Google-Smtp-Source: AGHT+IGD1s0jwsigC9CKjP4TkneuimTCZulkIKuNhVDm4i5DPzY9T5r6E8+KK5g9yvP0crM19wwRsw==
-X-Received: by 2002:a05:7300:230e:b0:2a4:3593:645c with SMTP id 5a478bee46e88-2a71910598amr11369897eec.12.1764124365326;
-        Tue, 25 Nov 2025 18:32:45 -0800 (PST)
-Received: from ?IPV6:2a00:79e0:2e7c:8:c98d:9e96:d0be:bc30? ([2a00:79e0:2e7c:8:c98d:9e96:d0be:bc30])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-11c93e6dbc8sm91444566c88.10.2025.11.25.18.32.44
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 25 Nov 2025 18:32:44 -0800 (PST)
-Message-ID: <0a43b5a2-dc2f-402a-8ec7-1d5c88602ffc@google.com>
-Date: Tue, 25 Nov 2025 18:32:43 -0800
+	Wed, 26 Nov 2025 02:56:31 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=CMYHNNBVo9OHjnp2j40mZ2p6TO2fNRRVgXqpMq30V3YCDSYtArf+9npLN0t/NVK7XIOV1+X1/DkNTp5TrpsdoMQ+fPRlP+4yBeBsAgKVpdXPjqZg/vLozIM2BffWBhf6m4CJw2VpVqGNtaZ4RecZj7EdMHYCVvOjgjHf+9wSJ5kXAaUDeMMEsid/TgVmphOII1hu7Jhqkmr/i4gKTl/YzW23359c8XqYVk0zma7+XYGOfE72NH4UcuFVyNZR++U+FbiRB4R9eDIjcsjFpntYK5CZYIFJS1vritoElRoWtg8MWcSjsrIaQ2dRJ5RCI2en6ry2jSrJk/+Q/zFWYHU/8A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=+q5WaB0+6MDy/08YGtt7+wgsYiTS56YB+WpuE95ELm0=;
+ b=SUfckBlMjBJVXo7SOecfVN/E4lMGG3S2bm9L+LZlLBLFerRu38xUcrUWwC7bXzgJj9+c+4fpW0vsu5wxwhDL/0BoDRYXPsVEcwO+nqVXZVbfqGvf4BG8xmzhIMszwQozsu3QBLW8vB70C4mkUX41DHNDNmBr51tjQ3tyhAUm2G2ei5Iel4qmRbLmp1i7LTFV9vc0iBg9CWZBN1q+JgoFcPnMVKesoXcgG9jNnmgtVlIgoQteGeCR3CQXpZXEWiKlC+G8QFh5Vp6gLMzyuiV9wQ5CVlY1Y21mEmqxycdo0WRLxS0T38wO1DKMR+2K1Ham3jN2mbIETpxmSzG78caKcw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=+q5WaB0+6MDy/08YGtt7+wgsYiTS56YB+WpuE95ELm0=;
+ b=LlVFJJ7+cVxs717Da603QVx4u4uz9Pp/jnH60Wex9shndQs6wjVKr/YkOOzfT1m7mmyhWU3+CyWFUFPxkS0Q2PViHatbMZ1DQ8P9D1qY3TbH3xhmKkAZMt2/48neglLjcyvctH1mFcCkWSSnV0Sljnc7eOK50VOR31K/wdQvlqfUr5OV+RqjYvxvh13RERD3az+qowL6qxdeeygMgrmryLWhrVmpgywrbQjudAPpLCQK2EP7+5GU940TpttFOHRYEu5V09bKVatdNrjUdRjAEwsOSEmCJAxVWZ3Dec/GdgTBBFCDvLaFu7iK1k3a8ceEoj+tQ9UjMMq2ntzipY8LdQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+ by GVXPR04MB10405.eurprd04.prod.outlook.com (2603:10a6:150:1d8::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9320.16; Wed, 26 Nov
+ 2025 02:56:23 +0000
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630%4]) with mapi id 15.20.9366.009; Wed, 26 Nov 2025
+ 02:56:23 +0000
+Date: Wed, 26 Nov 2025 10:57:15 +0800
+From: Peng Fan <peng.fan@oss.nxp.com>
+To: Frank Li <Frank.li@nxp.com>
+Cc: Bjorn Andersson <andersson@kernel.org>,
+	Mathieu Poirier <mathieu.poirier@linaro.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Daniel Baluta <daniel.baluta@nxp.com>,
+	linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, Peng Fan <peng.fan@nxp.com>
+Subject: Re: [PATCH v3 4/5] remoteproc: imx_rproc: Add support for System
+ Manager API
+Message-ID: <aSZsixcVpSeVfwQp@shlinux89>
+References: <20251122-imx95-rproc-2025-11-20-v3-0-9ae6ee619a78@nxp.com>
+ <20251122-imx95-rproc-2025-11-20-v3-4-9ae6ee619a78@nxp.com>
+ <aSSVoOi3VIn7LefK@lizhi-Precision-Tower-5810>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aSSVoOi3VIn7LefK@lizhi-Precision-Tower-5810>
+X-ClientProxiedBy: SI2P153CA0035.APCP153.PROD.OUTLOOK.COM
+ (2603:1096:4:190::14) To PAXPR04MB8459.eurprd04.prod.outlook.com
+ (2603:10a6:102:1da::15)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 6/6] usb: typec: tcpm/tcpci_maxim: deprecate WAR for
- setting charger mode
-To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
- Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Lee Jones <lee@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Badhri Jagan Sridharan <badhri@google.com>,
- Heikki Krogerus <heikki.krogerus@linux.intel.com>,
- Peter Griffin <peter.griffin@linaro.org>,
- Tudor Ambarus <tudor.ambarus@linaro.org>,
- Alim Akhtar <alim.akhtar@samsung.com>
-Cc: linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
- devicetree@vger.kernel.org, linux-usb@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- RD Babiera <rdbabiera@google.com>, Kyle Tso <kyletso@google.com>
-References: <20251123-max77759-charger-v1-0-6b2e4b8f7f54@google.com>
- <20251123-max77759-charger-v1-6-6b2e4b8f7f54@google.com>
- <9cad7b42dbfea351fb3b708736bf6f6715bcf694.camel@linaro.org>
-Content-Language: en-US
-From: Amit Sunil Dhamne <amitsd@google.com>
-In-Reply-To: <9cad7b42dbfea351fb3b708736bf6f6715bcf694.camel@linaro.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|GVXPR04MB10405:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0cd2fd37-46f9-422e-48b7-08de2c97618c
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|376014|7416014|1800799024|19092799006|366016|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?sFv5C+YYwuJNTQpG6UQcNq7JZMO1/Tkd95TFUCVPAMMWDMGc3/raXdqhxWVp?=
+ =?us-ascii?Q?zO/iNyEhN5OwpR3Twl9heutuEDgaTt3QQwjMaFBwTf41997IwjUAj4RO+LAS?=
+ =?us-ascii?Q?Nqig4HHNNDLDA/PKG/RHCCoRMX5ekpX5wM5nrgGPEhtM81kdhiviR5x3v9Je?=
+ =?us-ascii?Q?ozVqcdyQJvkdBXPxsgAKzJ16UzS4T7lrZdopNyY4drTWI6bB2wIVIjy083er?=
+ =?us-ascii?Q?CP+n6bTjUkqGYc3RXqQRxdGnZdeZL239Dom8YyL+GPuGx3eq6n2BNGHJMAwM?=
+ =?us-ascii?Q?fNJpuf3g3cgGXjeQjtt3W9eT8ra5CQFTMb92WcvKxLn/wd8+wVugxiS830fn?=
+ =?us-ascii?Q?1AyhRTRJeGec9tkDUwFfP/gYA/dHKqBsFEaKQQNylwlXZYXWjbnsazonNcHF?=
+ =?us-ascii?Q?veidprHde/0QguG8jMdc5bU6ApxyMFN5gNO7/4etKCK25L50VDaHIgQy6UUP?=
+ =?us-ascii?Q?+hY+lKA0Yzkl9+ObtGH6G1bKqoDOqlXjw/zWJUcYL0JF6P85CCmj10OJp4XW?=
+ =?us-ascii?Q?zqXhZrzj1Fs0FtDmyJGg6F4DFAqAPPfbzqEemivd27E5gkdgEiMokXUBjzni?=
+ =?us-ascii?Q?OAHkBoYLeNqTfndzSO1t98xYDTeR0ak0LyJ4EKzpmlOny+EwL3KICJCZqKqe?=
+ =?us-ascii?Q?PZwF0eX6VyHPqKNCT1pf5NrGXN0JMCScQtJ2q8dthSi4c0YqjI14DgdNDPuR?=
+ =?us-ascii?Q?Za3TxCqDTSulV5/eqN4Lu1PCw8SvGL6yATrNZLhi4eTDWcOxo+tufWsXIRho?=
+ =?us-ascii?Q?jknTMZ648QL65dtbf3W+9HMMFHah0b2MQTkpMXlHqO2c4yvp0bKs9u0kk/qr?=
+ =?us-ascii?Q?InOcSaoajN/PltLhR36hC+rMfJ0q1EkfIDrvAWFg+uM46/LO2SoQNj2M2VQU?=
+ =?us-ascii?Q?nhB5gQBpwUZw5gRldf6iIudY+3+3gUYr/MFwAr9uEGBaimx646nyCj7cg/Zi?=
+ =?us-ascii?Q?bWYdlePZcf3sffTPQ/ZaTStg/WVJFiSeS4vARofPzjoQf4zTEcAUB/2SzNOH?=
+ =?us-ascii?Q?AWZ3nsJw0AnoVaP8ncjuUvnKS5EoYhGN2zE7Lvgj2DXtUeox/btvIEcKK7fm?=
+ =?us-ascii?Q?vBCY9UFbie1XX5VoWnF8g2eS8xp7YtcGTEsY2zW9mua70HzOX7TyLZhZswhz?=
+ =?us-ascii?Q?GxTZCNP+PlGjq7DYG0q7L2yqVXETis8oF4tj9ByBv/U7T8XzE9zNdry2adwP?=
+ =?us-ascii?Q?brdDkhyAGMGWKS55qHywrc8QV7DYYPnsB67niBFbadb1/mw1BL4flOU3sTxJ?=
+ =?us-ascii?Q?q3IrAycPFuLvaweUxhcocVrNymDBAA56U6uPwWFMGZ173EixateCkGBrjy4A?=
+ =?us-ascii?Q?zUQF9NGrXPPZFXY/TvCtTg1kOsITVw39cdwmYLC5NkKss4swongGjAYjFwS7?=
+ =?us-ascii?Q?sYPFoUrWSdz6OVV2p0xdg7Bkzx/J90AjfEGwk0CoozxMKblanRglM/3xLD2P?=
+ =?us-ascii?Q?n5aVD7zXPtXZ48aACvZ3pRxC+GpTsWtAKl0xgChZEA4ggKKSkgv7tpzCejTk?=
+ =?us-ascii?Q?u/VPOzGmtAsMOJby/GlHv5SXnBslvC8POZ+/?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(376014)(7416014)(1800799024)(19092799006)(366016)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?jPfJJ6kJfcTHWShsnnYNO64rMj8KitRcJs2IIzrGCmC4HEJZoU5kznt3aq53?=
+ =?us-ascii?Q?Jn/HjLiXbSEtmnH2ibg7rcYW5vAbsvZ8aVVwM+njg3JqDh9VzNfsqmq/qYDQ?=
+ =?us-ascii?Q?JUBHkohhchWDKmTjbfLpuOwjDZGrJUJrU2UNQkKlqnG5zQNN+sKxGrpIP+Rt?=
+ =?us-ascii?Q?yZkm3Uv8AN3v3GDfWATFtJ7I/oYKjgmL1atq2PMPParshpnC5JIiq55NOtqZ?=
+ =?us-ascii?Q?Uhy3mguDSO/UokAdspQtBQQogE9pe3iVqWG/ma1LHUimke+6knefFKngEpQz?=
+ =?us-ascii?Q?gYqyNK5SvIiMHv1BNBKdfEqccrF/TRpPcj17TCjrZkAOT0HT0GJvgq5Lpys/?=
+ =?us-ascii?Q?k1XdF+3IKn223J02muSZLswTjdX5eZbniKJejes6wBW8eMDSnWjXimt7omeE?=
+ =?us-ascii?Q?6H+E3Su4hKkIdWsfoEcgkKR9r/AXRyZ6mARhWx1lqkpL9WnxM280X7xrwoag?=
+ =?us-ascii?Q?OGgT9Uma1aKnN1AQP7iFwb3dcICL8FWG0m2GXgujGCwEO17cyggFgHNpzeCw?=
+ =?us-ascii?Q?OlC10tvI5ePYS9TUDxNayK8UsoxoRlxRLR87NBbEggMBR2Cl5F7ZiSFSPm0U?=
+ =?us-ascii?Q?MaQ5e85dZ8xHzTNVxqmBU27BIyWyyWLsn8KhQEqXRYlOx2F2ZBxW6ioaJDsF?=
+ =?us-ascii?Q?5VOxH6B/gL3JIShOFcmL4f3VLR9hSd1corhk9plxieHQwFSCrd46+KxLY4c2?=
+ =?us-ascii?Q?4QpAuXJ+qwPH38k3oYJ14uxGD5vxnNe55Gp43qrgyqT2A8Y6AN5QON7ytOpt?=
+ =?us-ascii?Q?dRBk29bNBmTa9dIhx15th0YfO2QTqU3JYKWD3zyCdAUIN0+AyrVW528+4Dxp?=
+ =?us-ascii?Q?HaYe5Eq+XsfRkUJ2JzfyGo2reERJctMxKXwi26ev6Rau0ltxxaJEYL1PJW8x?=
+ =?us-ascii?Q?PGKVaVZuRz4wospUVIS2Tf0Sr5fYmRhlh1kIFyZkdY/fADTlcUmW5Rn7ilT0?=
+ =?us-ascii?Q?je0HmpESm+zHjV14u1E6saeoWgq8aS312/ri9CxUPoi8QovA9IpNmPK521kp?=
+ =?us-ascii?Q?lpU0CxBtaTCweMzGBdlY3hUDuexM3FEDFy710Ep2T/0VELuiz5rptdJ7fX6n?=
+ =?us-ascii?Q?T8QTId8wYFe4yUbNa5ceK5BvIDSVNDcrdW0NaT/QJdIgePo5bsTUV+oSeern?=
+ =?us-ascii?Q?FqtqzdsvtGONLwBmdZn7S6zKhdi5FTOZLXnM+jPxNo4JlXZO+bgJ6smgEqts?=
+ =?us-ascii?Q?NRqR0b5tDg0CdGWlL3jKuZDlhUrJb+a3JU5KR0blGW015bXt5B3ILxO1ngaU?=
+ =?us-ascii?Q?vu9I8ljyhutXy/g4+/FppOhLHBuTzLO7v2HtIhIrMVJe6Sp9DyHZ208gXeLb?=
+ =?us-ascii?Q?6OwhWOIR5HDJMXFOMZpOvMYtLkeiRyBRCXRoxgHQ53i0Ve8bkodXNFJvgmfz?=
+ =?us-ascii?Q?bFLtyYCpz82YuERCsdTlNEUCWsa26Q1V+3jN+3ON2Ofu1lJF/vZsluA6WUI7?=
+ =?us-ascii?Q?FybzyfcOiFUF+xV6lF1Gi86QZ75VVmWcOpficC12sdl77idUIZ9np/aWgc4J?=
+ =?us-ascii?Q?4TEX+Il9oNuCFUuyAAvxZ7xfGwApsMPewU/9izYE24DyEU6GhR9L4KL4wmQs?=
+ =?us-ascii?Q?OzcR6xI+uSHt4yPs9RgYocOWyNMTS2CCbnRODciD?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0cd2fd37-46f9-422e-48b7-08de2c97618c
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Nov 2025 02:56:22.9713
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 36VTsKJ+ObWxgPolnAxZtywc+1sdUOb3FbuqYovdXSo46KqubxjEblxLhZFhT6frgDgb3l8WJ01o3QMKLBtheg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB10405
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251125_183246_759120_C5DD360C 
-X-CRM114-Status: GOOD (  28.91  )
+X-CRM114-CacheID: sfid-20251125_185630_205932_D679F468 
+X-CRM114-Status: GOOD (  25.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,154 +172,120 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On 11/24/25 1:09 AM, André Draszik wrote:
-> Hi Amit,
->
-> On Sun, 2025-11-23 at 08:35 +0000, Amit Sunil Dhamne via B4 Relay wrote:
->> From: Amit Sunil Dhamne <amitsd@google.com>
+On Mon, Nov 24, 2025 at 12:28:00PM -0500, Frank Li wrote:
+>On Sat, Nov 22, 2025 at 08:58:19AM +0800, Peng Fan (OSS) wrote:
+>> From: Peng Fan <peng.fan@nxp.com>
 >>
->> TCPCI maxim driver directly writes to the charger's register space to
->> set charger mode depending on the power role. As MAX77759 chg driver
->> exists, this WAR is not required.
+>> i.MX95 features a Cortex-M33 core, six Cortex-A55 cores, and
+>> one Cortex-M7 core. The System Control Management Interface(SCMI)
+>> firmware runs on the M33 core. The i.MX95 SCMI firmware named System
+>> Manager(SM) includes vendor extension protocols, Logical Machine
+>> Management(LMM) protocol and CPU protocol and etc.
 >>
->> Instead, use a regulator interface to set OTG Boost mode.
+>> Depending on SM configuration, M7 can be used as follows:
+>>  (1) M7 in a separate Logical Machine (LM) from A55 cores, that Linux
+>>      can't control
+>>  (2) M7 in a separate LM from A55 cores that Linux can control using LMM
+>>      protocol.
+>>  (3) M7 runs in same Logical Machine as A55 cores, so Linux can control it
+>>      using CPU protocol
 >>
->> Signed-off-by: Amit Sunil Dhamne <amitsd@google.com>
+>> So extend the driver to using LMM and CPU protocol to manage the M7 core.
+>>  - Compare linux LM ID(got using scmi_imx_lmm_info) and M7 LM ID(the ID
+>>    is fixed as 1 in SM firmware if M7 is in a separate LM),
+>>    if Linux LM ID equals M7 LM ID(linux and M7 in same LM), use CPU
+>>    protocol to start/stop. Otherwise, use LMM protocol to start/stop.
+>>    Whether using CPU or LMM protocol to start/stop, the M7 status
+>>    detection could use CPU protocol to detect started or not. So
+>>    in imx_rproc_detect_mode, use scmi_imx_cpu_started to check the
+>>    status of M7.
+>>  - For above case (1) and (2), Use SCMI_IMX_LMM_POWER_ON to detect whether
+>>    the M7 LM is under control of A55 LM.
+>>  - For above case , after using SCMI_IMX_LMM_POWER_ON to check
+>>    permission, SCMI_IMX_LMM_SHUTDOWN API should be called to shutdown
+>>    the M7 LM to save power only when M7 LM is going to be started by
+>>    remoteproc framework. Otherwise bypass SCMI_IMX_LMM_SHUTDOWN API if
+>>    M7 LM is started before booting Linux.
+>>
+>> Current setup relies on pre-Linux software(U-Boot) to do M7 TCM ECC
+>> initialization. In future, we could add the support in Linux to decouple
+>> U-Boot and Linux.
+>>
+>> Signed-off-by: Peng Fan <peng.fan@nxp.com>
 >> ---
->>   drivers/usb/typec/tcpm/tcpci_maxim.h      |  1 +
->>   drivers/usb/typec/tcpm/tcpci_maxim_core.c | 48 +++++++++++++++++++++----------
->>   2 files changed, 34 insertions(+), 15 deletions(-)
+>>  drivers/remoteproc/Kconfig     |   2 +
+>>  drivers/remoteproc/imx_rproc.c | 193 +++++++++++++++++++++++++++++++++++++++++
+>>  drivers/remoteproc/imx_rproc.h |   3 +
+>>  3 files changed, 198 insertions(+)
 >>
->> diff --git a/drivers/usb/typec/tcpm/tcpci_maxim.h b/drivers/usb/typec/tcpm/tcpci_maxim.h
->> index b33540a42a95..6c82a61efe46 100644
->> --- a/drivers/usb/typec/tcpm/tcpci_maxim.h
->> +++ b/drivers/usb/typec/tcpm/tcpci_maxim.h
->> @@ -60,6 +60,7 @@ struct max_tcpci_chip {
->>   	struct tcpm_port *port;
->>   	enum contamiant_state contaminant_state;
->>   	bool veto_vconn_swap;
->> +	struct regulator *otg_reg;
->>   };
->>   
->>   static inline int max_tcpci_read16(struct max_tcpci_chip *chip, unsigned int reg, u16 *val)
->> diff --git a/drivers/usb/typec/tcpm/tcpci_maxim_core.c b/drivers/usb/typec/tcpm/tcpci_maxim_core.c
->> index 19f638650796..6d819a762fa1 100644
->> --- a/drivers/usb/typec/tcpm/tcpci_maxim_core.c
->> +++ b/drivers/usb/typec/tcpm/tcpci_maxim_core.c
->> @@ -10,6 +10,7 @@
->>   #include <linux/kernel.h>
->>   #include <linux/module.h>
->>   #include <linux/regmap.h>
->> +#include <linux/regulator/consumer.h>
->>   #include <linux/usb/pd.h>
->>   #include <linux/usb/tcpci.h>
->>   #include <linux/usb/tcpm.h>
->> @@ -202,32 +203,49 @@ static void process_rx(struct max_tcpci_chip *chip, u16 status)
->>   	tcpm_pd_receive(chip->port, &msg, rx_type);
->>   }
->>   
->> +static int get_otg_regulator_handle(struct max_tcpci_chip *chip)
+>...
+>> +
+>> +static int imx_rproc_sm_lmm_check(struct rproc *rproc, bool started)
 >> +{
->> +	if (IS_ERR_OR_NULL(chip->otg_reg)) {
->> +		chip->otg_reg = devm_regulator_get_exclusive(chip->dev,
->> +							     "otg-vbus");
->> +		if (IS_ERR_OR_NULL(chip->otg_reg)) {
->> +			dev_err(chip->dev,
->> +				"Failed to get otg regulator handle");
->> +			return -ENODEV;
+>> +	struct imx_rproc *priv = rproc->priv;
+>> +	const struct imx_rproc_dcfg *dcfg = priv->dcfg;
+>> +	struct device *dev = priv->dev;
+>> +	int ret;
+>> +
+>> +	/*
+>> +	 * Use power on to do permission check. If rproc is in different LM,
+>> +	 * and linux has permission to handle the LM, set IMX_RPROC_FLAGS_SM_LMM_AVAIL.
+>> +	 */
+>> +	ret = scmi_imx_lmm_operation(dcfg->lmid, SCMI_IMX_LMM_POWER_ON, 0);
+>> +	if (ret != 0) {
+>
+>if (ret)
+
+Fix in next version.
+
+>
+>> +		if (ret == -EACCES) {
+>> +			/*
+>> +			 * rproc LM is booted before Linux and not under Linux Control, so only
+>> +			 * do IPC between RPROC and Linux, not return failure
+>> +			 */
+>> +			dev_info(dev, "lmm(%d) not under Linux Control\n", dcfg->lmid);
+>> +			return 0;
 >> +		}
+>> +
+>> +		dev_err(dev, "power on lmm(%d) failed: %d\n", dcfg->lmid, ret);
+>> +		return ret;
+>> +	}
+>> +
+>> +	priv->flags |= IMX_RPROC_FLAGS_SM_LMM_AVAIL;
+>> +
+>> +	/* rproc was started before boot Linux and under control of Linux, directly return */
+>> +	if (started)
+>> +		return 0;
+>
+>should it be before scmi_imx_lmm_operation()? If started, supposed need
+>check scmi_imx_lmm_operation()?
+
+No. We need to detect whether M7 is under control of Linux before return.
+
+Thanks,
+Peng
+
+>
+>Frank
+>> +
+>> +	/* else shutdown the LM to save power */
+>> +	ret = scmi_imx_lmm_operation(dcfg->lmid, SCMI_IMX_LMM_SHUTDOWN, 0);
+>> +	if (ret) {
+>> +		priv->flags &= ~IMX_RPROC_FLAGS_SM_LMM_AVAIL;
+>> +		dev_err(dev, "shutdown lmm(%d) failed: %d\n", dcfg->lmid, ret);
+>> +		return ret;
 >> +	}
 >> +
 >> +	return 0;
 >> +}
 >> +
->>   static int max_tcpci_set_vbus(struct tcpci *tcpci, struct tcpci_data *tdata, bool source, bool sink)
->>   {
->>   	struct max_tcpci_chip *chip = tdata_to_max_tcpci(tdata);
->> -	u8 buffer_source[2] = {MAX_BUCK_BOOST_OP, MAX_BUCK_BOOST_SOURCE};
->> -	u8 buffer_sink[2] = {MAX_BUCK_BOOST_OP, MAX_BUCK_BOOST_SINK};
->> -	u8 buffer_none[2] = {MAX_BUCK_BOOST_OP, MAX_BUCK_BOOST_OFF};
-> You should also remove the corresponding #defines at the top of this file.
-
-Ack!
-
-
->
->> -	struct i2c_client *i2c = chip->client;
->>   	int ret;
->>   
->> -	struct i2c_msg msgs[] = {
->> -		{
->> -			.addr = MAX_BUCK_BOOST_SID,
->> -			.flags = i2c->flags & I2C_M_TEN,
->> -			.len = 2,
->> -			.buf = source ? buffer_source : sink ? buffer_sink : buffer_none,
->> -		},
->> -	};
->> -
->>   	if (source && sink) {
->>   		dev_err(chip->dev, "Both source and sink set\n");
->>   		return -EINVAL;
->>   	}
->>   
->> -	ret = i2c_transfer(i2c->adapter, msgs, 1);
->> +	ret = get_otg_regulator_handle(chip);
->> +	if (ret) {
->> +		/*
->> +		 * Regulator is not necessary for sink only applications. Return
->> +		 * success in cases where sink mode is being modified.
->> +		 */
->> +		return source ? ret : 1;
->> +	}
->> +
->> +	if (source) {
->> +		if (!regulator_is_enabled(chip->otg_reg))
->> +			ret = regulator_enable(chip->otg_reg);
->> +	} else {
->> +		if (regulator_is_enabled(chip->otg_reg))
->> +			ret = regulator_disable(chip->otg_reg);
->> +	}
-> Given otg_reg is the fake regulator created by a previous patch in this
-> series, this means that the regulator API is really used to configure two
-> out of 16 possible charger modes here. That doesn't look right.
-
-
-I understand the concern, but I believe the regulator framework is the 
-correct interface here for three reasons:
-
-1.  The TCPCI driver's responsibility is only to signal the intent to 
-source VBUS (OTG) or not. It should not be aware of the specific 
-register values or mode bits of the companion charger chip. The charger 
-driver (via the regulator enable op) is responsible for translating that 
-intent into the correct hardware-specific register value (e.g., 
-selecting the correct OTG mode).
-
-2. While the charger supports multiple modes, sourcing VBUS via OTG and 
-sinking VBUS (charging) are mutually exclusive states on Type-C and 
-there are no modes to support both. If complex scenarios arise (like 
-wireless charging + USB OTG), the logic to select the specific register 
-mode belongs in the charger driver (the regulator provider), not the 
-TCPCI consumer. Now say theoretically, we support wireless charging and 
-want to turn it on (sink) while USB OTG mode (source) is on. The charger 
-driver would set an appropriate mode based on this info (wireless 
-power-supply on, USB otg regulator on, so select XX mode). We can game 
-this for any 10 of the *valid* modes (refer [1]) supported by the chip 
-and this would work. Using a regulator framework here will not pose a 
-restriction on the number of charger modes now or in the future.
-
-3. This design pattern is standard in the kernel from my study. Drivers 
-such as bq24190_charger and rt9471 expose USB OTG functionality via the 
-regulator framework.
-
-[1] 
-https://android.googlesource.com/kernel/google-modules/bms/+/refs/heads/android-gs-raviole-mainline/max77759_regs.h#52
-
-BR,
-
-Amit
-
->
-> Cheers,
-> Andre'
+>...
+>>  };
+>>
+>>  #endif /* _IMX_RPROC_H */
+>>
+>> --
+>> 2.37.1
+>>
 
