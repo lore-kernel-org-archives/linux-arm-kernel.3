@@ -4,72 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C580DD1038C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 08:52:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 716ECD1038C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 08:57:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4kMxEju5M/nKc9DOThZPJgB81pFJ1BBy6AQBjiH7yQ8=; b=X5tNSP55bUyFzmQ7qjVxk/jog0
-	Zh/fhMeVuwIfJjV8hAz7FaxQ0aASWxQPzczBZb13cV8G9uvdkmTHjTEFeKEX4GmgBKGFdCtO07U5e
-	VTiCGYAc5nBy66y7YRltqicpCc8doaIICUWYmiKGRRJ6gQYgQKaqAm6GRn6WSPV1TAIcZwY3bhiWw
-	qXo4HdJGn5viwD4jGsGFOjCZ+rmr11Z2wgV6/i73m7fG3ImcxUFwQeGBfhbckHtx8X85OTkGepc5Z
-	fP/GYv8mpPGFQsRC3sZsLsbhwYxOrC5T7zPi6qn6UMo5COZtjO6QpN1VW0+I8B0sdkuOEYMzwq2lN
-	49ugBbrg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Subject:To:From:Date:Message-ID:Reply-To:Cc:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Q6Mp/vCJCiZNgk6fb7utkqIErbcoVoR/CugPofoeCtU=; b=ktDDUyb1jfMdY76UJ3Y7vWZNUy
+	3vMe/GcsnjTnwr0N5DRTGCny8BU8Geh2hZKxwLxKvBYFJc0GkIptNsi4CRMT2J3mNboM+pSEUtmgw
+	jfDrvz98w67k0kri5ToCKEokMz+PnHnEbjyB5Zop8Pv4Rv1HF981BJKeACG8rB7X9oy07JftCgr3G
+	exS34ubRqt8BoAXTV/fADX2m2bQLAhIbGZI2FKH+9VXPMuuPxc5hR0o1dBYd72ifunWf+rhr2ixSi
+	XuqCaa9JAg+TxMUa3nZo3Ag3PryIo+WyzbDaMlYM6mfuGspUVasfhURjn2WQdMpbnvrRFHladEqWH
+	sm+c49OA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOBG7-0000000EeLz-3AH1;
-	Wed, 26 Nov 2025 08:52:19 +0000
-Received: from sender3-of-o54.zoho.com ([136.143.184.54])
+	id 1vOBL2-0000000EehR-23YE;
+	Wed, 26 Nov 2025 08:57:24 +0000
+Received: from mail.vexro.pl ([141.94.250.70])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOBG4-0000000EeL9-3vXx
+	id 1vOBKx-0000000Eege-03L0
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Nov 2025 08:52:18 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1764147129; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=EozE+DQrrfnCJQj1hNrK39Qej1ArM2OEIOAdUb9dYdn4ekF/mV6GCULrPHmc+HXFeUDf91WkI1WLUk5M+antVsx8OhxVU97UOIWlE9JXQJvTPv+g7O4CTRFWcGE32iBNLOaLQ1SXZqXVFyhG+GOIYjD0XEhgpCJKy6UgxD+0gf8=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1764147129; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=4kMxEju5M/nKc9DOThZPJgB81pFJ1BBy6AQBjiH7yQ8=; 
-	b=XO/k7zRjvg5DJES+Z7O4fBVDcXkr495nzZ2gZiefk84q4eMNybbNzMS1+a5fk4/gVJVmbBLAChWpiq9pG+X3VuyikUTiwHT+JP4jsCcWjkXr/oqE5um5IzX3X6eko3IZj8wTSXFxZXBTMwVmyZ9eNMol2L9Un8zIxvZKuldfur0=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=anirudhrb.com;
-	spf=pass  smtp.mailfrom=anirudh@anirudhrb.com;
-	dmarc=pass header.from=<anirudh@anirudhrb.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1764147128;
-	s=zoho; d=anirudhrb.com; i=anirudh@anirudhrb.com;
-	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:References:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
-	bh=4kMxEju5M/nKc9DOThZPJgB81pFJ1BBy6AQBjiH7yQ8=;
-	b=AzWGxEINhyaf9Qe+BWKH+NZJVrxv8NBMjcNINDPYzYvRpgYVKYnnKEYrqYkUdDtv
-	z7qjNz41mKXNNgDt3cgB04f4MvxZhrGhjZZoDuxIvmjrITReaIHHMPsZkjYXkxd7ZAF
-	15eQYl9dVfhiZaVJGab8YnaExsH59ZlBynzqldzQ=
-Received: by mx.zohomail.com with SMTPS id 1764147125272486.14699736135515;
-	Wed, 26 Nov 2025 00:52:05 -0800 (PST)
-Date: Wed, 26 Nov 2025 08:51:59 +0000
-From: Anirudh Rayabharam <anirudh@anirudhrb.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: kys@microsoft.com, haiyangz@microsoft.com, wei.liu@kernel.org,
-	decui@microsoft.com, longli@microsoft.com, catalin.marinas@arm.com,
-	will@kernel.org, tglx@linutronix.de, Arnd Bergmann <arnd@arndb.de>,
-	akpm@linux-foundation.org, agordeev@linux.ibm.com,
-	guoweikang.kernel@gmail.com, osandov@fb.com, bsz@amazon.de,
-	linux-hyperv@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org
-Subject: Re: [PATCH 2/3] irqchip/gic-v3: allocate one SGI for MSHV
-Message-ID: <aSa_rxG80LDXDlhr@anirudh-surface.localdomain>
-References: <20251125170124.2443340-1-anirudh@anirudhrb.com>
- <20251125170124.2443340-3-anirudh@anirudhrb.com>
- <86bjkqq9dp.wl-maz@kernel.org>
+	Wed, 26 Nov 2025 08:57:23 +0000
+Received: by mail.vexro.pl (Postfix, from userid 1002)
+	id 7C8E3A82FF; Wed, 26 Nov 2025 09:56:32 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=vexro.pl; s=mail;
+	t=1764147435; bh=Q6Mp/vCJCiZNgk6fb7utkqIErbcoVoR/CugPofoeCtU=;
+	h=Date:From:To:Subject:From;
+	b=Ba0M9Z/EJilxPevX8BkG5Hdg7M0jbn79Y5vIqYYFHkfh4GsDSHBL8Rc/PUnOUxmKU
+	 m04ETZuZrjtXtDgA1oGMaa/ueaa+XTACxK4rs7SmuN3W5sR+2vTrDrzA1xhtG+1+Pl
+	 skWNEb5miQAHs8xm/uJWpIYh3/5ngLiXYmYvG4ubUh+iOSfTfTbGslXLp6M8VItrgq
+	 7awDCNr+PDw/4zDCQd2u+48YXhunHTVVwiICThd/VRxh+aAt85dpO1mm9CYpjFYHq2
+	 Lj3k5UhwvAXlfVJ3EvRb7SU2wEZc2YsbYfeGwJsZiMf6vQvy3c4Cje6ku4sYaJpDWr
+	 YvMP8IiyRIaow==
+Received: by mail.vexro.pl for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Nov 2025 08:56:00 GMT
+Message-ID: <20251126084500-0.1.ot.4m7no.0.k6e57z9p2l@vexro.pl>
+Date: Wed, 26 Nov 2025 08:56:00 GMT
+From: "Adam Drzewiecki" <adam.drzewiecki@vexro.pl>
+To: <linux-arm-kernel@lists.infradead.org>
+Subject: =?UTF-8?Q?Pytanie_o_samoch=C3=B3d_?=
+X-Mailer: mail.vexro.pl
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <86bjkqq9dp.wl-maz@kernel.org>
-X-ZohoMailClient: External
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251126_005217_160034_BBB8F906 
-X-CRM114-Status: GOOD (  24.53  )
+X-CRM114-CacheID: sfid-20251126_005719_306110_A8FBDF34 
+X-CRM114-Status: UNSURE (   3.14  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,57 +66,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 25, 2025 at 06:01:38PM +0000, Marc Zyngier wrote:
-> On Tue, 25 Nov 2025 17:01:23 +0000,
-> Anirudh Raybharam <anirudh@anirudhrb.com> wrote:
-> > 
-> > From: Anirudh Rayabharam <anirudh@anirudhrb.com>
-> > 
-> > From: Anirudh Rayabharam (Microsoft) <anirudh@anirudhrb.com>
-> > 
-> > Currently SGIs are allocated only for the smp subsystem. The MSHV
-> > (Microsoft Hypervisor aka Hyper-V) code also needs an SGI that can be
-> > programmed into the SYNIC to receive intercepts from the hypervisor. The
-> > hypervisor would then assert this SGI whenever there is a guest
-> > VMEXIT.
-> > 
-> > Allocate one SGI for MSHV use in addition to the SGIs allocated for
-> > IPIs. When running under MSHV, the full SGI range can be used i.e. no
-> > need to reserve SGIs 8-15 for the secure firmware.
-> > 
-> > Since this SGI is needed only when running as a parent partition (i.e.
-> > we can create guest partitions), check for it before allocating an SGI.
-> 
-> Sorry, but that's not an acceptable situation.
-> 
-> SGIs are for Linux to use, nobody else, and that allocation must be
+Dzie=C5=84 dobry,
 
-Why does this restriction exist? In the code SGIs 8-15 are left for
-secure firmware. So, things other than Linux can use SGIs. Why not MSHV
-then?
+Czy interesuje Pa=C5=84stwa rozwi=C4=85zanie umo=C5=BCliwiaj=C4=85ce moni=
+torowanie samochod=C3=B3w firmowych oraz optymalizacj=C4=99 koszt=C3=B3w =
+ich utrzymania?=20
 
-> the same irrespective of whether Linux runs virtualised or not. This
-> also won't work with GICv5 (there are no SGIs at all), so this is
-> doomed from the very start, and would immediately create technical
-> debt.
 
-Hyper-V always presents a GICv3 so we don't need to worry about GICv5.
-
-> 
-> If you want to signal an interrupt to Linux, expose a device with an
-> interrupt in a firmware table (i.e. not an SGI), and use that in your
-> driver.
-
-You mean in the ACPI tables? That would require us to modify the
-firmware to expose this virtual device right?
-
-Anirudh.
-
-> 
-> Thanks,
-> 
-> 	M.
-> 
-> -- 
-> Without deviation from the norm, progress is not possible.
+Pozdrawiam
+Adam Drzewiecki
 
