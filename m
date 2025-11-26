@@ -4,104 +4,150 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76ECCD10F58
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 16:14:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48E40D11183
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 16:16:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tcQcqpW0XvFTJM+qj42pfjnjpcqJ+uxxP4g6ALjEIwU=; b=CR6US2YS6oy9DhUnRlDh3ChNOo
-	f+RB84DzTbUsjOaNYp7kvsr8Mb4DIuE+Jqaz65mJERfTqH05ojphs/BBTQu1OHFyCn5Yfy/38bGGY
-	hxSJq2X3O+GY4G8JxI+YQDa6jbfD9bauuzWfdfk719BsVc3uBAm89h5BH7e+VMV7RD1syukeEIQBV
-	19q5LxWd1OT8zM1IzBjzOuaXcjh4UJY5pn7kB7CYSyOxLwra+Bw8541b1vxyt1P8+0e+YqB/fHt0m
-	/JuD4cZaJ/J6dhESuGeD9UzgkrjgorlMC4fO+U6FsJJi6Vj0DbdlEnrcvCIeh1FiMRAhxIeS+8nTh
-	ie6GiiQQ==;
+	bh=Sav0FY6ptI9rKW8HiKmizaVGGLS/Yn+0d4lKtuL2tpI=; b=n1OhUGjMHgp+icSVnDEpToSDKw
+	sb9ZbRfEdAZqA6OGxJv62uKb6OAfhXKt3s3ZGuv8R4XNgXIqBYFEDpzkqjbehAvQOVhtcWIpAhMI2
+	PxdnxkNDKJE8mObUxe03i4H5kv3DGYlzZt6fq6YYGERY5rUergMcXU4vBTaHGLeNQcj1HLs/pougp
+	7JWUNFMLgFNLBL2GCufVXGT28iaZXY+RJI92MSBrgRM9R62jYdLNQPNge+NRprOscltcVhQC2u23l
+	E34BApifJuBXw+PUXDOm94T7BG9dSKMcgpG6EIEDXgb6Cp+TZnyT/5tBgpqPLwYM4Y4KVQ3VdDVY2
+	dqv0yeNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOIA8-0000000FH6y-35Ws;
-	Wed, 26 Nov 2025 16:14:36 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vOICJ-0000000FHMQ-0x7M;
+	Wed, 26 Nov 2025 16:16:51 +0000
+Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOIA6-0000000FH6F-3wpX
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 26 Nov 2025 16:14:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:Subject:Message-ID:
-	Date:From:In-Reply-To:References:MIME-Version:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=tcQcqpW0XvFTJM+qj42pfjnjpcqJ+uxxP4g6ALjEIwU=; b=eLxhXHbXg80TsbXJpRQFike7/M
-	rgfawVMG5gr5HXE0G3G+qqboHmGxJkKx34uI2GEFSYiGXEAcucBT60MASGx+R+sMBBgcFEk7CY2rl
-	2VWy3g1gWqcC+39efsVPsEK/6eebicM67J0pEWO+1qtyRVUha/eJWi3O6yY2DfD+R2aTOEq06vU9A
-	JhIhkMxNSh4bD1kJ4kIexoGOqrW8jel8P4tJ4WW32be0Y1F/NixGnxvcBl9uJQgh0dGgTQNcZKq7o
-	of3khALRPvRBiq+If7Dm608cM9A6ub6k21QiGwlMpvHL+evB0EHk4f6k9pBqvlLYC58oRPrckkY0p
-	7KBspZiw==;
-Received: from mail-qk1-x731.google.com ([2607:f8b0:4864:20::731])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOHIT-00000008M4h-2nUz
+	id 1vOICH-0000000FHM2-07qR
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Nov 2025 15:19:11 +0000
-Received: by mail-qk1-x731.google.com with SMTP id af79cd13be357-8b23b6d9f11so672834085a.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Nov 2025 08:14:31 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1764173670; x=1764778470; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=tcQcqpW0XvFTJM+qj42pfjnjpcqJ+uxxP4g6ALjEIwU=;
-        b=UzL30gqefcUeVHuwCuht82228iOIL5WdBR9/evt0xlG4Alh4DmaftBSvXgyTGAbS4f
-         PH9/axLxIREuePS5x5LcWUHVw+SLTFgI4uUkLMgdgUeTe7LEimLwz8ouXonuGgLq3Kc5
-         0cLkaH5/RgG99LnbrMMmsoA6BXdLl0dYGhCVCu/wcsdm4qPNRWoQ67syosKz8ARm/pzC
-         eHogdvkcPnS9RgPMUVgFyD2iCGGqf5GXfQVj4AgC6oz8W6ectxnbaedgIXrlgZZeQiNv
-         ErtqHFCfS3keZqHxQ+laDk68feTF5ZGG9ZhwpnmVBsZHnRffwaMGcmAtHg+ZPn4QzA2+
-         0tHA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764173670; x=1764778470;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=tcQcqpW0XvFTJM+qj42pfjnjpcqJ+uxxP4g6ALjEIwU=;
-        b=iSGpN7K6iv444p+FzMv8PklHRWJ6YwjvR3QqVecEHoHL8MtDg9aKsR4oQ8RIBclKeE
-         BKxp65PHKI72/rGj7wasDPT0RrbGH5CPvCX491sQrryQtjPBQcx6H6xP4vOpnsyWo/F7
-         p4eCc8VmyhE9lYZNFFaQYhqcL/3xa8wyfigtEs9X90XBiEIOTC8SMFChiODlV0jA6ut7
-         NEgtxip+V27LV/kdVYz6XUspSE6fon7BYu6N5yWrNbr7lRn8e39xY1gEvXg628eKqgJ/
-         hladE5B/T3JRQJMiACf2e9fKXd/z53HL04BqPa25EBmw3dMctQaiU4gfReOwwXMqSAdu
-         NaKw==
-X-Forwarded-Encrypted: i=1; AJvYcCWvSjfyt57sRWA72aHznopLd/K+/VxMZwkWUhViIzFzvHmo5v6IJLrLR8X9cYM76mvN9gqu74hRrdOzvoQnXZzf@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx7qmodHsBDnjbh6ikRxh8J5m87wQJzg06D2vtRsZLtAmGopkD3
-	mneVyo/d1W5zwlERSKxzPY1N440ZN435yxMnq71sfiZGcDA98693xBq4YGvIwAsDgsewVn5Cmqy
-	CiFLzXwbDR2QaLOzhF75GYSQDFNrUIg82JdA1fjaeqw==
-X-Gm-Gg: ASbGncuX0fG4XpwQEAFhTQLCFdPmezxGROlbU9Tg0OjOn8CwFleksGCK928lHacTWFS
-	V7bGMFw2dzquCLRAzeqeGVeR2lJ2Re/gBiOyCv3TlO0xOmVnKgiSGVESnz9txz06WKcCa2WClxA
-	g+IxhNRDbv9AdI4M091rD0TyZssBbDw5NyU+copKR3U2i+/apxcOfeE/h8oB7DNZQThFk9HDeR6
-	VZr6Ex/bYbyJmT2KhgHLWZQuUDT3/ByIHf52adDdC0NOLZztTfDUZAj+eR6uug6z/KDLJOOMluy
-	QAFKw3j/0a/N3ZFVpB/vuO99/0QtpgokzeCVIgw=
-X-Google-Smtp-Source: AGHT+IEYREzZ9a7aW5w2u2QphT4cr+PBQEzrQyXIwSBSSErZpcXFaCjLBZbKaBvfO3UbpLcp8YPMk++YD4vxAtw67BU=
-X-Received: by 2002:a05:620a:700b:b0:8b2:db27:4262 with SMTP id
- af79cd13be357-8b33d469984mr2401094885a.74.1764173670053; Wed, 26 Nov 2025
- 08:14:30 -0800 (PST)
+	Wed, 26 Nov 2025 16:16:50 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=rup0NaBGXqo8EZDAQC4vhsx3ptQg7VsgksPUvfmS6ICJv/sBPIoi+PSY0/+fnZOUmx+RgXfcbsvu/pfRfOkL5RY7pXa3fvw0jwnps/BKy1xmNakVAReduZ3ZzwfS84vNfM4nBBAwmcLPMy6JgWRMcVerxmwp8x8Se90nOavSTpu1w8mW7M9eW+tSGPW9gtoVNwtQEEtivau+lfvK3jBPF/vP6tXjeSB9uLG02DXm+YY7YexmL9+PA6Vrq2sHp3fInvG2f2waFn7i3ZgFbWEb36xABQmAgticRuy7lXBNchD+kbwDqcwKhjOAG6O2SRHJnvPYmE8WPbP8PEk8EYj0UA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Sav0FY6ptI9rKW8HiKmizaVGGLS/Yn+0d4lKtuL2tpI=;
+ b=Ei0yRHsNKN98VuoiHCeyt+UftLGMSyyBQYtirIkv1DuinannsTd2/Zkdivmi0+e+skzRh0jf5T/NCGesDnUdYn8IHI55XzklLKO4YLffh1QkWxXQXhmLs8mi2CBSXSh+/eIJ/TTccNiDJ8BhS6LCSWIznba+jCszGMlc7IAbu/zXUiGOhM6We2UYbBIE/9/PCxfpqQwPgUUp1KwgKZ/T+KmvC/njE6zP8AcxS6EINw1GA4JCn6sslMgJyyqonJ52O7wbcbSQKiESjmh6QUkOmL1GnNb4xcUMMKbDLnWfOBukjEFitcahi/FWkDcdiCKT5j9wxp8QvQ4I5mYL0aub0A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Sav0FY6ptI9rKW8HiKmizaVGGLS/Yn+0d4lKtuL2tpI=;
+ b=dstT60ihVuQKIne0LaHX6WCE1pnpyxTOxzlERwRQEpsLCi9j0NGIIA/wjEgUGyJEVn96pSq4Icedndo/PtfcfSy4OfTG96CnLTJ8/4htt03hmhGKAcbqakoxucfh5F8LSAQ93lXcWhswhXw7FzSOcbQZqnJT+sAtJ7RMqDAt4jXbC1XOc0+9rhv6f0KuR8qgJlRJvidT3Dzf9niiFPrcivS+7M5pB96dvoq1ZmihdffkMhxhGzYQQvRrG8I8CiYcxEMlpWDhEu0qLf004tMDns7HwhLl85QnTYWMWmj/stMyhoQMVFLF3EyNU8vCBufe5VXn1b9GA84i5wxi3lJdpA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from DU2PR04MB8951.eurprd04.prod.outlook.com (2603:10a6:10:2e2::22)
+ by PR3PR04MB7259.eurprd04.prod.outlook.com (2603:10a6:102:8a::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9366.12; Wed, 26 Nov
+ 2025 16:16:44 +0000
+Received: from DU2PR04MB8951.eurprd04.prod.outlook.com
+ ([fe80::753c:468d:266:196]) by DU2PR04MB8951.eurprd04.prod.outlook.com
+ ([fe80::753c:468d:266:196%4]) with mapi id 15.20.9366.009; Wed, 26 Nov 2025
+ 16:16:43 +0000
+Date: Wed, 26 Nov 2025 11:16:36 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: Haibo Chen <haibo.chen@nxp.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3] arm64: dts: imx943-evk: add flexcan support
+Message-ID: <aScn5NsbzXxOd4Zx@lizhi-Precision-Tower-5810>
+References: <20251126-dts-v3-1-7545d957e795@nxp.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251126-dts-v3-1-7545d957e795@nxp.com>
+X-ClientProxiedBy: PH8PR05CA0014.namprd05.prod.outlook.com
+ (2603:10b6:510:2cc::7) To DU2PR04MB8951.eurprd04.prod.outlook.com
+ (2603:10a6:10:2e2::22)
 MIME-Version: 1.0
-References: <20251121002350.1166758-1-visitorckw@gmail.com>
- <20251126120914.GH724103@e132581.arm.com> <da2a3e18-80e0-4aca-bbc7-45c1353217d3@linaro.org>
- <20251126123147.GI724103@e132581.arm.com> <CAJ9a7VhD2p3qMGXNg6deYjE8myB5euHR4FcAFwgg0KWF2HO9JQ@mail.gmail.com>
- <15d536f2-0829-4f3f-b111-b15b14236bd2@linaro.org>
-In-Reply-To: <15d536f2-0829-4f3f-b111-b15b14236bd2@linaro.org>
-From: Mike Leach <mike.leach@linaro.org>
-Date: Wed, 26 Nov 2025 16:14:19 +0000
-X-Gm-Features: AWmQ_bmzLUfnVGvYj-Hu5IiwK8dzQhWo3y6s6dN-IrML8oCpNj4bF4oF31DLYeA
-Message-ID: <CAJ9a7Vjia4ENewP48nyDWBcBFbDmwb3vM2JNbNCw4-3yF3ABVQ@mail.gmail.com>
-Subject: Re: [PATCH] coresight: etm3x: Fix buffer overwrite in cntr_val_show()
-To: James Clark <james.clark@linaro.org>
-Cc: Leo Yan <leo.yan@arm.com>, Kuan-Wei Chiu <visitorckw@gmail.com>, suzuki.poulose@arm.com, 
-	alexander.shishkin@linux.intel.com, pratikp@codeaurora.org, 
-	mathieu.poirier@linaro.org, gregkh@linuxfoundation.org, 
-	jserv@ccns.ncku.edu.tw, marscheng@google.com, ericchancf@google.com, 
-	milesjiang@google.com, nickpan@google.com, coresight@lists.linaro.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU2PR04MB8951:EE_|PR3PR04MB7259:EE_
+X-MS-Office365-Filtering-Correlation-Id: b1a514c4-e3f0-4531-7ea3-08de2d0730a1
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|52116014|7416014|376014|1800799024|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?HdMeVIMwnkJp1s4jHjsooHBGW6bqsryZasgvOMgDT7BQUwi6hjh2n0rUSZaT?=
+ =?us-ascii?Q?Y8t9ihSAA582h3r056YUmoJLuSOMlKsXlH3ZQSxNUVzbGlK11Dh53vFWmaZI?=
+ =?us-ascii?Q?WZDIrKL9ZnIKs0FjPcbrnNf7kQDeCgotoQQXENCX1Q8cJg8y6nhD+TekiVMc?=
+ =?us-ascii?Q?EPS91tR6Qs7dLy8XErvgSGDwZSwpWLpcLWUVD65GAertdYoOC3hrBzFAiwUS?=
+ =?us-ascii?Q?AvaHsc2Jj8ieozeU0IpHg4GF0trunJN4/YaG9+QfpXVKuOR1DODGaOyBS5fh?=
+ =?us-ascii?Q?YRaU/WT+xWCZII+9/g5sVuYbaUFb33IfMIvKqR/jRNqfPwLJFOg+iVsC6FIr?=
+ =?us-ascii?Q?0/i/SzlHao5DQQFHaVdep+BQE+Ngd8RTnaPiIxyVtaz+sqwSWf++pjt7QjHH?=
+ =?us-ascii?Q?ETCNhinIi7t4V1MTK4zaAge8E2MYZiy/hxdcDdXW44K7jx4LV2ZbE4/PXxiJ?=
+ =?us-ascii?Q?sJCwQfiFTN6aMJQX3Ru4J5exCV0oqcAUyIeplr2C/+jBwNHxXySzchFA8v+R?=
+ =?us-ascii?Q?xw5dgv5polFu7fpxFYmnbRcT/32vJqaiKhlXUTSmfZOFQrdud+f6+2jjDT40?=
+ =?us-ascii?Q?P6ebtAYqVrcBOVie2PUkNnxzqIjkVPcGJtgfIXhTn6pKYr5C4o89CnYZN9PO?=
+ =?us-ascii?Q?H+DAmyRqxQzhlqgaKo3mMQv9JXzZMppP6PEJhT0RL0VrL7IbcSPlqPPC+EGW?=
+ =?us-ascii?Q?X1srGgYS7I7nUzOjRzgUtYipT+GUso9JW6XE9C0BdLiILtSUHfnuo5yyJEuL?=
+ =?us-ascii?Q?NX4f0oQyr3i7NXxK/jfWZPfbG2y8QzfCPwrJ+aBlsyRnRn1LOoGOLVx1XL8F?=
+ =?us-ascii?Q?2Qr2PRbwRsP+D4Jq69aypBI1S9LVrLOR/f6SBGfp+wszYS0t7R6GmlmErM/W?=
+ =?us-ascii?Q?V1wW78F7pGhdUgP7/E18EWJZ2rUPJT5ndUfhQt+OppN+Gr2qHv9oCA7rD+Iw?=
+ =?us-ascii?Q?M5x53NPEjG8xElULr/MJ7g081q9lcXhSRT/OvweptG8VLOOoTr4VBVw3oIZA?=
+ =?us-ascii?Q?ed2whXnIrKEqgqbFANSsswOKYWj+YY7X9uH/CPRrpug9eHz0vIOELUYkigt/?=
+ =?us-ascii?Q?jyZbpSdslGJfmSwwYc4FEdC7SdBCWZw5u0zekNSDTq5O8tmyL8B1c0yEeTSc?=
+ =?us-ascii?Q?yjQRvENWx5UuE1raf7jy9WuFLCWtT5e9lGo1KFxz9wdZiXI4wy/SgzBu+oe6?=
+ =?us-ascii?Q?AaAuMRJRyjJBWDHxJ6ztEixAc33+GaRsGBkMa//yxye+ziUiw2/w6zGi2Ugz?=
+ =?us-ascii?Q?eFAPEXeCO1/nN0qG0bwHhULKmC2PNkb94iGfLvM7CwNJF4XHjNaaD51vTraY?=
+ =?us-ascii?Q?QNTpNWmF0Ww1f/vW7Wr3FH1hDRDS3yhB4cB3M3xMqhHeP4mM6O00H5fH+j5X?=
+ =?us-ascii?Q?I+hqD4kcH9BclVaHtitsHYbGOzmulSRNmOqLdM9/eOB4Td6cOqJ5u9bmOweP?=
+ =?us-ascii?Q?uvQUvqffJGiBxzG7+2cQu4R4o+/jnE2Wo/4TFPNlHUy44xT4BvDNPaltqRjl?=
+ =?us-ascii?Q?e8gAgN+sHYroZ/S7vyTDcbDM+w9PIRczpZiuGSdF5G69tRtXdtMFxJkDjA?=
+ =?us-ascii?Q?=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8951.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(52116014)(7416014)(376014)(1800799024)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?2FOfT+s3/RZ4VZMwyNSS6DXSFFDm1SShTxjm3h1JmbMDg0u8rRgcRx7Vimud?=
+ =?us-ascii?Q?6yDP8EUz6GWLLVSScGV91uhqVVu4A2HcyasIHKT3Ju1OR9sTqzsQeSaVelSI?=
+ =?us-ascii?Q?5KoljTi+kuuWZXbELQN01ZHv6qFBLL4DOoaHe6yld9VwLAg0zwwHD2Qat4pU?=
+ =?us-ascii?Q?HzuUZHx4qv2Nmqt2/tmlN6BWZcQYeRUTtbjZrSj/DmPk/jV3amHtVxOqFzX9?=
+ =?us-ascii?Q?6pkq7aRPxzL6dJK0ouYFeaF8wxgOkv0zTEU2BmVI6ewr+t1Luuz+J4/ITYGf?=
+ =?us-ascii?Q?8fAGCib1Yq/qk8+vIPa9wJXoW8jpnRzwkeJoFueTbEnQSCgqpdsGumk5qZ6v?=
+ =?us-ascii?Q?yESePTsex7UJrI48YdyVIfCAykTUqIdjc6NcY85vQXo9pO//Y6I0zA/v4bxT?=
+ =?us-ascii?Q?osmVWbrfBq+1BEUkn2Yx5/dwDVRKwOehTDjAb7S9/LiC6Lhdkt+/h9TFOqnc?=
+ =?us-ascii?Q?c9hTmC5mSNGQ8ILxu8tOZlW0gqVYPbU15Yd5uQh+Wd1mfWc8rXDjXfsiFdRz?=
+ =?us-ascii?Q?oD3bYtbo1yB5kZ8RXBZQ2/NNf5WKYp/jTSSqqYUHlKgmQy17CkSChVSfuylL?=
+ =?us-ascii?Q?CboGTGhJYStuA3DZt7yztlf+K8kkbWRLsyzNheJvNqWk9++1TSw9fzD/j7zV?=
+ =?us-ascii?Q?CARVGkwkhP44OWisdeETAQ+sW0ylpUhCS0gEH4eWa4sV7vxiQ+TTc9xoDglA?=
+ =?us-ascii?Q?byEfM7zwXyGjc7+ZYeUz+WeuTiP/LMzZNrX0NhUuLK9/deUeKaQXMds4yoHs?=
+ =?us-ascii?Q?+6YdIO96JOJW6VUI2cEZZt9sm+z1Y3A/6AR9OPEmxdrMZ1D2VLgU3I/muEDh?=
+ =?us-ascii?Q?ReAd8ZvD4RasVeuv+0jZqSHczjBqeFG/kiXqf6Srs5/nkTXYPwyQnwwWaESP?=
+ =?us-ascii?Q?2zsEgi3CjTg6wzZBWAYtHExQzg2LjtrPVMegoj10afpSoQzGZXHTY8pxP8D0?=
+ =?us-ascii?Q?yvU11SvAPSFX13FNiQZnljmjGC39o91zZpG44nEPOIsFkTBz2GcBfBhuFZK3?=
+ =?us-ascii?Q?NGK7QarBx+Dp6MujzCz8lbrBMNz3H6z5XuYQuKWdRpqJY7LJW4Kyb5k0Qhx5?=
+ =?us-ascii?Q?/SkYSpRJGk7yJRgMOc2fyS/K0JDCU/OXA/aRByMSPDPfi1QwVD6SCBrzY2sT?=
+ =?us-ascii?Q?5rW6hC+YQJ/4YrJIJ2Xc5LLZbdjYZVSqW0rg+44FQw4Xuj7THkbGNzOrKIOl?=
+ =?us-ascii?Q?7zvjHc1SsZJ5uRat0CTVSwv59a7QeCrv2FP32RdoOJX5eDNlHF2XBYpfwaxN?=
+ =?us-ascii?Q?JmiHffpt0AYZzQiEOltfNCiVDtA+XnbDFDtSUeoraRd7uD64PhlB5PCA9fqN?=
+ =?us-ascii?Q?XFjcAswSfMbtSKvq2NjsbZUZKfVyWPdcmQPQkArHmy3+d69jN7YhEY8hOicF?=
+ =?us-ascii?Q?zVTsAVbdnVNPEXD45/JaIttYnhkP0/9eiwuK8eO8ne63qCLGpyDdZ6XzT5/O?=
+ =?us-ascii?Q?FdY9UVfK130p1j0weI9SVQaBq13NmCriyMs4ReeSv9MzmUWhYilfnzwvZu/R?=
+ =?us-ascii?Q?j+FeJ7ptTp43N1nU0+uqz/1xNyH3Xq9AAWrzrDJxZhWCmDDaSdcV89QbXnQt?=
+ =?us-ascii?Q?VaSZlBxYuyp7+uPYIoyN8V4BPBw3G+cuDF/KpDoJ?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: b1a514c4-e3f0-4531-7ea3-08de2d0730a1
+X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8951.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Nov 2025 16:16:43.8711
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: w4pB0sfE4vC+Nv2e39VaTs848KPKk6v40KXMQpZ2atwxi9OyMRpjADBJaFSe5evzFCMJESWrviltIeR5hclRbA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PR3PR04MB7259
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251126_151909_824738_2C36F422 
-X-CRM114-Status: GOOD (  30.65  )
+X-CRM114-CacheID: sfid-20251126_081649_075980_DB483262 
+X-CRM114-Status: GOOD (  19.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,74 +162,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 26 Nov 2025 at 15:33, James Clark <james.clark@linaro.org> wrote:
+On Wed, Nov 26, 2025 at 04:06:44PM +0800, Haibo Chen wrote:
+> Add flexcan2 and flexcan4, and related phys support.
 >
+> Signed-off-by: Haibo Chen <haibo.chen@nxp.com>
+> ---
+
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
+
+> Changes in v3:
+> - make all the changes in alperbate order
+> - Link to v2: https://lore.kernel.org/r/20251119-dts-v2-1-e8f8d91280dd@nxp.com
 >
+> Changes in v2:
+> - move the can-phy0/1 before dmic, use nodename order.
+> - Link to v1: https://lore.kernel.org/r/20251118-dts-v1-1-81b6249f455f@nxp.com
+> ---
+>  arch/arm64/boot/dts/freescale/imx943-evk.dts | 43 ++++++++++++++++++++++++++++
+>  1 file changed, 43 insertions(+)
 >
-> On 26/11/2025 1:42 pm, Mike Leach wrote:
-> > Hi,
-> >
-> > On Wed, 26 Nov 2025 at 12:31, Leo Yan <leo.yan@arm.com> wrote:
-> >>
-> >> On Wed, Nov 26, 2025 at 12:11:05PM +0000, James Clark wrote:
-> >>
-> >> [...]
-> >>
-> >>>> This fix can still be applied to older kernels, but seems to me that
-> >>>> now might be an appropriate time to consider removing the ETMv3 driver
-> >>>> from the mainline kernel?
-> >>>
-> >>> Yeah, if anyone is using it it would be on an old kernel surely?
-> >>
-> >> We can confirm this in another way: if I don't miss anything, over the
-> >> past several years (since 2017), we have not received any questions or
-> >> bug reports based on hands-on practice regarding ETMv3 on the Coresight
-> >> or perf mailing lists.
-> >>
-> >> Thanks,
-> >> Leo
-> >
-> > The key to this is not the questions we are asked, but which platforms
-> > are still supported by the linux kernel.
-> >
-> > The ETMv3 driver supports both ETMv3 and PTM trace (the programming
-> > model is the same, even if the trace decode is vastly different).
-> >
-> > So as long as there are  platforms supported that use either of those,
-> > we need to keep the driver in.
-> >
-> > Mike
-> >
+> diff --git a/arch/arm64/boot/dts/freescale/imx943-evk.dts b/arch/arm64/boot/dts/freescale/imx943-evk.dts
+> index c8c3eff9df1a23c52e74bf2bc5d4ba543bb5a65b..9f68f491fea07312be595fd6829617fb59413616 100644
+> --- a/arch/arm64/boot/dts/freescale/imx943-evk.dts
+> +++ b/arch/arm64/boot/dts/freescale/imx943-evk.dts
+> @@ -25,6 +25,22 @@ bt_sco_codec: bt-sco-codec {
+>  		#sound-dai-cells = <1>;
+>  	};
 >
-> We're not running tests though, so if we find out it's fundamentally
-> broken somehow it could be another justification to remove it, even if
-> the kernel supports the devices. Do you have a board that you can test
-> on Mike?
+> +	flexcan2_phy: can-phy0 {
+> +		compatible = "nxp,tjr1443";
+> +		#phy-cells = <0>;
+> +		enable-gpios = <&pcal6416_i2c6_u50 3 GPIO_ACTIVE_HIGH>;
+> +		max-bitrate = <8000000>;
+> +		standby-gpios = <&pcal6416_i2c6_u50 4 GPIO_ACTIVE_LOW>;
+> +	};
+> +
+> +	flexcan4_phy: can-phy1 {
+> +		compatible = "nxp,tjr1443";
+> +		#phy-cells = <0>;
+> +		enable-gpios = <&pcal6416_i2c3_u171 0 GPIO_ACTIVE_HIGH>;
+> +		max-bitrate = <8000000>;
+> +		standby-gpios = <&pcal6416_i2c3_u171 1 GPIO_ACTIVE_LOW>;
+> +	};
+> +
+>  	chosen {
+>  		stdout-path = &lpuart1;
+>  	};
+> @@ -127,6 +143,20 @@ memory@80000000 {
+>  	};
+>  };
 >
-
-Don't have one myself, but I believe the TC2 was used in development,
-(that's the A15/A7 32 bit part - not total compute!) which somewhat
-conveniently had both etmv3 and ptm trace.
-
-
-
-> Maintenance hasn't been zero cost either, even build testing for arm32
-> is annoying enough.
+> +&flexcan2 {
+> +	phys = <&flexcan2_phy>;
+> +	pinctrl-0 = <&pinctrl_flexcan2>;
+> +	pinctrl-names = "default";
+> +	status = "okay";
+> +};
+> +
+> +&flexcan4 {
+> +	phys = <&flexcan4_phy>;
+> +	pinctrl-0 = <&pinctrl_flexcan4>;
+> +	pinctrl-names = "default";
+> +	status = "okay";
+> +};
+> +
+>  &lpi2c3 {
+>  	clock-frequency = <400000>;
+>  	pinctrl-0 = <&pinctrl_lpi2c3>;
+> @@ -431,6 +461,19 @@ &sai3 {
+>  };
 >
-
-Pretty much the seem for any of the arm32 drivers I guess.
-
-Until arm32 kernels are no longer supported, not sure it is safe to
-drop the etm3 driver as we do not know who out there might be using
-it.
-
-Mike
-
-
-
-
---
-Mike Leach
-Principal Engineer, ARM Ltd.
-Manchester Design Centre. UK
+>  &scmi_iomuxc {
+> +	pinctrl_flexcan2: flexcan2grp {
+> +		fsl,pins = <
+> +			IMX94_PAD_GPIO_IO34__CAN2_TX		0x39e
+> +			IMX94_PAD_GPIO_IO35__CAN2_RX		0x39e
+> +		>;
+> +	};
+> +
+> +	pinctrl_flexcan4: flexcan4grp {
+> +		fsl,pins = <
+> +			IMX94_PAD_GPIO_IO36__CAN4_TX		0x39e
+> +			IMX94_PAD_GPIO_IO37__CAN4_RX		0x39e
+> +		>;
+> +	};
+>
+>  	pinctrl_ioexpander_int2: ioexpanderint2grp {
+>  		fsl,pins = <
+>
+> ---
+> base-commit: 187dac290bfd0741b9d7d5490af825c33fd9baa4
+> change-id: 20251118-dts-ad4bd4fdacd6
+>
+> Best regards,
+> --
+> Haibo Chen <haibo.chen@nxp.com>
+>
 
