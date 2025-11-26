@@ -4,92 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9A59D111A2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 21:27:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEACBD1119B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 21:41:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=o9tue26DQxO++HXVs02pyq6EWYiqrHxraR4WKyqzNvM=; b=VeXbYyBsbAOvyqRcOQ78JCqKV3
-	bfVWoXu8fWwIfZ5uIKK8/TAF6LiwndddHpgFU99Dv6TUDWy75GxkY23U9S8x3tGIszRxB8/lqbLyk
-	WiJQxAxtHXSYuHXQHoL2uUtqhRgE4rWxRKE2suiO8NEO2wESYu0i1w+lhjAAA1PmmrWtALYYRNg3k
-	iBJ/wjZ48MjEL3h4hq9Ut+leiqpnnmR9Rdu6qNL+vhHCImjRg8YSwherFdH9tqQ9dGaOZ1T/oplA2
-	XghYRXn2v/LrsoqA3RxPEYpj+DKwxfLA++YPsIxRPjjr1gUk0GpBg2X7pIrTNkAeeMdchHaCM9uFn
-	pvMg3RLA==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=AeZLCA/ukJVy22YlmqoolDh7BmlQLUxhqcEr79cX498=; b=jDvuFAqQfQmZxH
+	9ThsViMtbvhTQnAetK52v1ounSnTKYS3GgQOaqOamqjzC7ICO+Lg1d6uYWhfXONbTJeGQ3DuCtA92
+	I+1MNAsXQavAVGKpbvEPAZqU3YAJAWNXynU82alCeNPKWPP4XJVCMKZuN4RV44IT989TcxJNJ7FHi
+	FLnFDBUD4098BcZmo04QhR6K72E7uxQdz+SMXbtKfwzFa6OtHn/f/DsiR+nSBefPRpWzxXph5Xuys
+	QWNoG/emkfdBvzRhC1W1otucMnDsUCPeU5TV4Kf1zMH+EoRNWRdyEp5hOrgxt9QNIC+Ow0n8Efz8q
+	7mdge5cNgnNbe+jWUflQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vON2n-0000000FfSx-3nmP;
-	Wed, 26 Nov 2025 21:27:21 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vONGZ-0000000Ffuf-2tGU;
+	Wed, 26 Nov 2025 21:41:35 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vON2l-0000000FfSc-26PJ
+	id 1vONGY-0000000FfuZ-1hDc
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Nov 2025 21:27:20 +0000
+	Wed, 26 Nov 2025 21:41:34 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C9629434C7;
-	Wed, 26 Nov 2025 21:27:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9EF23C4CEF7;
-	Wed, 26 Nov 2025 21:27:18 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 7A7FE60139;
+	Wed, 26 Nov 2025 21:41:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 057E7C4CEF7;
+	Wed, 26 Nov 2025 21:41:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764192438;
-	bh=UQnLWxc/wM1eSVgZ7FgjAB7Jt2Jd2XH4TEEk2eldkFE=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=oanYzg0+6qQ6bkc5msMLK23EZpc5t7l3oAAM0cDZap+sXWaFe6qamvPE3j7NAWahy
-	 v5GaDqN0z8F9SL3BZWpCHx+siUz3P41tyRsMTRCmSmT44bPSrWGPAC4lOxeOK/T/Fw
-	 JNyqaKR5CWbGDhvnGsR33e81HTibzU9xvH7K+5/dVKw2DyAWsYnuzHGc8pnJYpYI1m
-	 Pnklm7wqgie49eoz7UxUBldhzW1xfRslCt+3XSAckF9hrXNY8JaqrHS8dOzGSNQ1SW
-	 3iiC3J5aaZbnti0Xe5Yzr8kmJs8FhExih/A2TAKKR3YHnWyf33OnzwtWEKIKd+uOHJ
-	 HmyBMZRYhkrQQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1vON2i-00000008c68-0hch;
-	Wed, 26 Nov 2025 21:27:16 +0000
-Date: Wed, 26 Nov 2025 21:27:15 +0000
-Message-ID: <87bjkofpsc.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Anirudh Rayabharam <anirudh@anirudhrb.com>
-Cc: kys@microsoft.com,
-	haiyangz@microsoft.com,
-	wei.liu@kernel.org,
-	decui@microsoft.com,
-	longli@microsoft.com,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	tglx@linutronix.de,
-	Arnd Bergmann <arnd@arndb.de>,
-	akpm@linux-foundation.org,
-	agordeev@linux.ibm.com,
-	guoweikang.kernel@gmail.com,
-	osandov@fb.com,
-	bsz@amazon.de,
-	linux-hyperv@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-arch@vger.kernel.org
-Subject: Re: [PATCH 2/3] irqchip/gic-v3: allocate one SGI for MSHV
-In-Reply-To: <aSbahzqu_3GN-PPJ@anirudh-surface.localdomain>
-References: <20251125170124.2443340-1-anirudh@anirudhrb.com>
-	<20251125170124.2443340-3-anirudh@anirudhrb.com>
-	<86bjkqq9dp.wl-maz@kernel.org>
-	<aSa_rxG80LDXDlhr@anirudh-surface.localdomain>
-	<86a509qi8p.wl-maz@kernel.org>
-	<aSbahzqu_3GN-PPJ@anirudh-surface.localdomain>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: anirudh@anirudhrb.com, kys@microsoft.com, haiyangz@microsoft.com, wei.liu@kernel.org, decui@microsoft.com, longli@microsoft.com, catalin.marinas@arm.com, will@kernel.org, tglx@linutronix.de, arnd@arndb.de, akpm@linux-foundation.org, agordeev@linux.ibm.com, guoweikang.kernel@gmail.com, osandov@fb.com, bsz@amazon.de, linux-hyperv@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251126_132719_606559_F8136D5E 
-X-CRM114-Status: GOOD (  47.89  )
+	s=k20201202; t=1764193293;
+	bh=VKmA/6mAURUWzEVcZzYO7/+r+cvqBLcFui3VsZzeq5E=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=uns+OFKRel+FuTsKfHkbDzNE1hZXYrMcqFMDExplp/C29jVUpES+Osyp92ZmcK8d9
+	 fPE87c5VtNVjjqPvM6B9/5uZeU/YtuZEh8MW2NATGIt5F2omL8gSk5wwFJJ3Nex4UB
+	 5lbGQr6gCY2S5XfjnG0dZSPpeJMga/fOTN6csWcs+K2FZlGDBxWOcvqAHs/iQkX7SB
+	 CKjx507RNExmTvkVFMjxFFEsQ6MtzOiw/J7ZLBkAC4oJu2JDBScX/9eX0AcwtPRCu0
+	 wYazpiGdXgBpgp0v2Ed8Vm87xhgDo2kyIwzD+UCVOJhPeY9xSsm8/3aRQiQa7VCmvX
+	 g1wNrWabfRBwg==
+Date: Wed, 26 Nov 2025 15:41:31 -0600
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Vincent Guittot <vincent.guittot@linaro.org>
+Cc: chester62515@gmail.com, mbrugger@suse.com,
+	ghennadi.procopciuc@oss.nxp.com, s32@nxp.com, bhelgaas@google.com,
+	jingoohan1@gmail.com, lpieralisi@kernel.org, kwilczynski@kernel.org,
+	mani@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, Ionut.Vicovan@nxp.com, larisa.grigore@nxp.com,
+	Ghennadi.Procopciuc@nxp.com, ciprianmarian.costea@nxp.com,
+	bogdan.hamciuc@nxp.com, Frank.li@nxp.com,
+	linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev, cassel@kernel.org,
+	Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
+Subject: Re: [PATCH 4/4 v6] MAINTAINERS: Add MAINTAINER for NXP S32G PCIe
+ driver
+Message-ID: <20251126214131.GA2852425@bhelgaas>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251121164920.2008569-5-vincent.guittot@linaro.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,106 +77,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 26 Nov 2025 10:46:31 +0000,
-Anirudh Rayabharam <anirudh@anirudhrb.com> wrote:
+[+cc Ciprian @oss.nxp.com, see email addr question below]
+
+On Fri, Nov 21, 2025 at 05:49:20PM +0100, Vincent Guittot wrote:
+> Add a new entry for S32G PCIe driver.
 > 
-> On Wed, Nov 26, 2025 at 09:02:30AM +0000, Marc Zyngier wrote:
-> > On Wed, 26 Nov 2025 08:51:59 +0000,
-> > Anirudh Rayabharam <anirudh@anirudhrb.com> wrote:
-> > > 
-> > > On Tue, Nov 25, 2025 at 06:01:38PM +0000, Marc Zyngier wrote:
-> > > > On Tue, 25 Nov 2025 17:01:23 +0000,
-> > > > Anirudh Raybharam <anirudh@anirudhrb.com> wrote:
-> > > > > 
-> > > > > From: Anirudh Rayabharam <anirudh@anirudhrb.com>
-> > > > > 
-> > > > > From: Anirudh Rayabharam (Microsoft) <anirudh@anirudhrb.com>
-> > > > > 
-> > > > > Currently SGIs are allocated only for the smp subsystem. The MSHV
-> > > > > (Microsoft Hypervisor aka Hyper-V) code also needs an SGI that can be
-> > > > > programmed into the SYNIC to receive intercepts from the hypervisor. The
-> > > > > hypervisor would then assert this SGI whenever there is a guest
-> > > > > VMEXIT.
-> > > > > 
-> > > > > Allocate one SGI for MSHV use in addition to the SGIs allocated for
-> > > > > IPIs. When running under MSHV, the full SGI range can be used i.e. no
-> > > > > need to reserve SGIs 8-15 for the secure firmware.
-> > > > > 
-> > > > > Since this SGI is needed only when running as a parent partition (i.e.
-> > > > > we can create guest partitions), check for it before allocating an SGI.
-> > > > 
-> > > > Sorry, but that's not an acceptable situation.
-> > > > 
-> > > > SGIs are for Linux to use, nobody else, and that allocation must be
-> > > 
-> > > Why does this restriction exist? In the code SGIs 8-15 are left for
-> > > secure firmware. So, things other than Linux can use SGIs. Why not MSHV
-> > > then?
-> > 
-> > Because SGIs are for *internal* usage. Not usage from another random
-> > piece of SW. The ACPI tables explicitly don't describe SGIs. DT
-> > explicitly don't describe SGIs. Do you get the clue?
+> Signed-off-by: Vincent Guittot <vincent.guittot@linaro.org>
+> Reviewed-by: Frank Li <Frank.Li@nxp.com>
+> ---
+>  MAINTAINERS | 9 +++++++++
+>  1 file changed, 9 insertions(+)
 > 
-> The name Software Generated Interrupts suggests that it is supposed to be
-> used by pieces of SW.
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index e64b94e6b5a9..bec5d5792a5f 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -3137,6 +3137,15 @@ F:	arch/arm64/boot/dts/freescale/s32g*.dts*
+>  F:	drivers/pinctrl/nxp/
+>  F:	drivers/rtc/rtc-s32g.c
+>  
+> +ARM/NXP S32G PCIE CONTROLLER DRIVER
+> +M:	Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>
 
-I'm so glad you spell it out for me, I had no idea. I can't help but
-notice that it is not called SGIFRPOSIDKA (Software Generated
-Interrupt From Random Piece Of Software I Don't Know About).
+I'd be happy to change to
+Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
+per https://lore.kernel.org/r/f38396c7-0605-4876-9ea6-0a179d6577c7@oss.nxp.com
 
-Linux owns the SGIs, full stop. If you want to generate interrupts
-from outside of Linux, use a standard interrupts. Not rocket science.
+I notice that most nxp.com addresses in MAINTAINERS use "@nxp.com"
+addresses, not "@oss.nxp.com".
 
-> Yes, ACPI/DT don't describe SGIs because they're not supposed to be used
-> by devices. SW has full control over SGIs and it is up to the SW to
-> assign meaning to them, isn't it?
+Let me know your preference.
 
-No. It means that a single *consistent* software agent *owns* these
-interrupts and doesn't have to let *anyone* else use them from outer
-space.
-
-> > > > the same irrespective of whether Linux runs virtualised or not. This
-> > > > also won't work with GICv5 (there are no SGIs at all), so this is
-> > > > doomed from the very start, and would immediately create technical
-> > > > debt.
-> > > 
-> > > Hyper-V always presents a GICv3 so we don't need to worry about GICv5.
-> > 
-> > Well, that's pretty short sighted of you, and eventually you'll have
-> > to support it, or just die. So do the right thing from the beginning.
-> 
-> Well, we don't when or if that will happen. But if it does happen, we
-> can solve it in a way that makes sense for GICv5. If there are no SGIs
-> at all, great, maybe we'll have a nicer solution then.
-
-Great. See you then. In the meantime, I have no interest in this sort
-of sorry hacks polluting the stuff I maintain.
-
-> > > > If you want to signal an interrupt to Linux, expose a device with an
-> > > > interrupt in a firmware table (i.e. not an SGI), and use that in your
-> > > > driver.
-> > > 
-> > > You mean in the ACPI tables? That would require us to modify the
-> > > firmware to expose this virtual device right?
-> > 
-> > Yes. How is that surprising?
-> 
-> It's not ideal that we would need some custom firmware to run Linux on
-> MSHV (as a parent). Do you think there could be some other possible solution
-> for handling this in the kernel? Maybe by thinking of it as a platform specific
-> quirk or something?
-
-You either do it the *correct* way, by exposing a virtual device, with
-an edge-triggered PPI, just like other hypervisors have done, or you
-keep your toy to yourself.  It is that simple. We don't have to accept
-ugly crap in Linux just for the sake of you not having to do the right
-thing in your firmware.
-
-Feel free to post a new series once you have something that matches
-the above expectations.
-
-	M.
-
--- 
-Jazz isn't dead. It just smells funny.
+Bjorn
 
