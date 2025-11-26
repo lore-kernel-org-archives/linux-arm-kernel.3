@@ -4,71 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE974D1039D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 12:43:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84D66D10F34
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 12:43:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=wyKInZW9vOOeMqe71nBxJ7HXJ/bNznUlqhwyoDm1B3s=; b=i0oXZDkDsNvi+xJqTSNqxXpor0
-	57TyiXECTfBMC5FTZTZnT9B9Nex9AL2sT+gQXkM8EqcxNCgyVCJUKbsAz0vTMghndQKm8mb2UIbgM
-	741OMyypVovpLhR+oMTfIDfPclOA2Y8+5V/fIcY58vz+qv3Aaq/tk5wCJ/zGW6H4HbpszXs368tSa
-	4UpvWmoZugFNHz2yd/Y+VfsnbXBpvvGgZnQjKt8DEad8hc5m/W0651h3P9CmKoT55ztYk7LZxASmn
-	flW9xzX2hSwaprkonKo48xC2qG1yaUynu6yLAQZ4MUz+FYNoEkrCKhT13z3yfV/LzqSeU2stLnIk6
-	LskmqAug==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=URd/ONh2/S9cNJVZREq3Fly7rFEXScu5qM+CsEx4Im0=; b=IYF+ta+ZXQ3f1+nvj3dcLs+hVp
+	o94BllcEShaDsEoUCvqIyUvrb6UunmgvSAHqS23WtPv07bLe0jUkiqpQQrfb3+Z/rzy2KXM/Zpw+8
+	nyJNFIw1FK5728FBvXKi6WxbE49eKIXBUJ6KZ8frqVl5m3zwzrZn/2KqAWr7KmU1t2GqLOuPIribi
+	s4EhAXO+qWRL9pMEfZ7HJUaoSwi6mDnxE+/M6ZUxxk+o+7HpQp7g660ygCwb/OZRjS8nyPODcVvLA
+	bYZCfU7BR2H0GlTo3qBRQTSGHlGX8UFHGEWsyV1dKJdX67qk9A2MQoczJ+fMwAKgKaDfcb7nv6B4n
+	KFh1V5ag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOErR-0000000Ezis-0W7M;
-	Wed, 26 Nov 2025 12:43:05 +0000
-Received: from mail-ed1-x530.google.com ([2a00:1450:4864:20::530])
+	id 1vOErX-0000000Ezl5-2R2e;
+	Wed, 26 Nov 2025 12:43:12 +0000
+Received: from mail-ej1-x629.google.com ([2a00:1450:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOErM-0000000EziH-3VjM
+	id 1vOErQ-0000000Ezic-341Z
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Nov 2025 12:43:03 +0000
-Received: by mail-ed1-x530.google.com with SMTP id 4fb4d7f45d1cf-640ca678745so11302148a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Nov 2025 04:42:59 -0800 (PST)
+	Wed, 26 Nov 2025 12:43:06 +0000
+Received: by mail-ej1-x629.google.com with SMTP id a640c23a62f3a-b728a43e410so1163428466b.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Nov 2025 04:43:04 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1764160978; x=1764765778; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=wyKInZW9vOOeMqe71nBxJ7HXJ/bNznUlqhwyoDm1B3s=;
-        b=Vmz0/1jiQp8YU9DcG6YHo7HlH6icPF6A/vgzJfdcdSExXUPerd/3yXAfYxs4Hl7zh3
-         +4yoKoXb8YHb49C7k9xsIdY8a1R1UCu/7d1JAtdMNY7C4ftL1kBqz6ntu1nAuKHnlPpf
-         EK6ELVtvQFqKXD9uKYqPicO4OzQwI+7OqnA25/g/cBvbZkwDNhCEpqXQSj/EV8GJOS6Q
-         lytrOxnlOk60YbOZpEC+CaPwBQV9m9o92D28pTxC66hiKZhLBW2LrLr7HniekCdZF3t8
-         jaUXPsucdL8Srmy6kUdCi16mlCdn5FtBe1D6d3iSdqLpljvNf1W/nZc3MXdRssDt2Uxq
-         SQsg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764160978; x=1764765778;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20230601; t=1764160983; x=1764765783; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=wyKInZW9vOOeMqe71nBxJ7HXJ/bNznUlqhwyoDm1B3s=;
-        b=Xsb025JyhrIMhnxXTRWMjaUJTqC+2xsRVfD5jJMk4HUcj69+lc2Pd/+iAoh4wdRhgw
-         vJ7pQAZJATtQb+h9GUHye3AgcqSnv/EZL6PEGlDSLtftsdKG5nVN6wMkSztD0HWPplyg
-         RVN5nxU1nzwzpez9UwYtoMGMIkI3pj5mjLT/4DZqJkBJV5co0qfY+biI491hdou1Nzik
-         zW93kuMbB4w+jvINe94VrZWT3SsiP6Lh+zWVwYnViCy+kl/FMZvAZNo7C9Zo4rcXHGrE
-         GYMeoa1f+NzS9GEbrrPB+F8+6tTUzsUp7SwwICnRPu9tmXGM3Bqg/oxhOpNye8+6Gvlf
-         jzfw==
-X-Forwarded-Encrypted: i=1; AJvYcCU697b5rnlFVju5lypo0UD2XooQYxxBrVaLIkGlLCIZyaEKQDOlt7IVrECOg5gwgULbj2xEkiNHjyIGR0neuIbQ@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy3BmgokUqxiaLnLAUvzUCuPdoi9sNNmvuz9bopgDMc5NeVAYXO
-	4IZLW6oSNBku7iS2r/e+65LFTctcoj85hdzYZhLfItNgAWpGhwZnryX+
-X-Gm-Gg: ASbGncuNpXsNIuKJynVZTWIheoCnFaXv9dsSFI6oiPMkcIWwWUqKWVRQfz5Ch45Orz5
-	hWwNts4RALW9QKl71WUtbigcDajoo2YFO0Ac/+1pf5F5C6nuMKMhdWz7SbW22LTY3W0jyMl1Fmn
-	yuob9tAbqX+IRn5gVTCRLKAhLnemRa8RzobjtuiAuCZygPdBAPqeSFtOjsUpOcvTXMnrteXP0J9
-	ZJpw1bSPLcebGIUnry2/Lv/UpD1vyTzWhvw3H2VTMeM56lpIr6O9bmQ0Dn/9yEW12p8gM1PeAMm
-	Rxf6AoIx7Yad0fmfX+euNCB4LssNvTD3+A/QpRDybwG4sPTYR5xSXU9gx2852BSUNeu4nLv0uVK
-	IZzyl/7uzOglJtPnIzJxfuRfyE93Tp7KlgOt4U8gNupiEaIccP2C/huMw69teIpRXhX7xYMtA7Y
-	MCLESSe15Y0iSStOcmJJ4iqPcf41so3Pqz4C5T
-X-Google-Smtp-Source: AGHT+IElqG7jPteIbIhzrUyHVFQTvghK+ylGI6dlqjj76G/QOs8gr0LlFJkvAARUAUVCGYrcNiuMVQ==
-X-Received: by 2002:a05:6402:2787:b0:641:2a61:7da2 with SMTP id 4fb4d7f45d1cf-64555be1db0mr17215942a12.17.1764160978101;
-        Wed, 26 Nov 2025 04:42:58 -0800 (PST)
+        bh=URd/ONh2/S9cNJVZREq3Fly7rFEXScu5qM+CsEx4Im0=;
+        b=T/blQHKXIXNwLGjTGn1ffefpqAozNbafKquBucpAMpGaQ4CWwcAwuTYhRQOvUNvsv4
+         0FoB8JcZpRNZfbL0uLQarRRIS6zGWNyhbx70D1xLfzGBChtLsMLGOcVFVbPi3vYLjJs6
+         sxySqf1AWEAu9i9h61AEV//Tahu8yF2Bz/B3b7ceSDOpxdXo5J+zuGgGPxBG3cuYzBg/
+         zWOQKclgZPfFDNqrFnelQOu2bL8z4OKFf6QK5qQtGs1Cpgz8qD4r2Uakl1YE5G7IbYe2
+         QbCK8mTYPq+AhB1A3iERtNEyAexzdc2sBe+bQinHU6Lqzh3rd8jzwLBVyTKL/0xe9Ro0
+         VKzg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1764160983; x=1764765783;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=URd/ONh2/S9cNJVZREq3Fly7rFEXScu5qM+CsEx4Im0=;
+        b=GhkM+d65h37kaw4pQ3O4e15KSZu67zNbnRIxUfE2TKmNt0fc+KTOWJyalFIYIhzdW/
+         woNxDZtcSDPBBsAyt8swRsVJDgYVzA0BbSdBnYqyxdiPRa1MkrDC/SHGN6MIPRRoi3u6
+         /V/s+NUMdAOHy78CKArNs618ued7PAGuFVtps07ggtIVRePOnfT5hczmLvyDfuBG50Rl
+         y6gMt1/QCFPqNZPG5GurkHgCHFJPbVjvN7FUDc+08u1bMKSU+Dhudc38RPQkk4MRY7c0
+         uswwRQBvG6Otzd7kNUH8hevyFIS2H2RyshYiPQqgO+f//SbTAECasWF+7WDk94NwUKPf
+         ueBQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUER0z71Vlhdj76rzyuH7yqYyVB+q+3j1E2jvaFeejHb0U3oneRaskz9ZcVPJZ82AicNZI5TvHXyeP9T3QWkBWS@lists.infradead.org
+X-Gm-Message-State: AOJu0YxvPYYOt6G6ShzjfFOxDQcg5S69/QX344MSH+yip5OpFac2iHgH
+	ShiwctwtgKFyRsOq6ketNFXGyUMVT8yhtIgqdulKIyjfH5XAqIA/pkpE
+X-Gm-Gg: ASbGnctxYIU07wKZSRnZBMBMAWJNFcFpxig4KGlNvEQzn4Q+omIjaRJemW8vi4wdZok
+	CfrB4btcr8tSrJQu6ZL/k/hulN8vGX7hka46TjQC13bQWQGctc+8W3RcGDdS5Oje4henxRbGsSV
+	6CQD/7pY60+R3gQ7CXGJj4la2BMsXCru8jZxsUBqay891ExHhGTIciLz2bFAVmDXKH/c5tGB5WI
+	q+xdDieG468il7Gu+vL6PCYM8j6hMzF01AhE/bkn/laQ09lncCfvYx+dDXo3ysVxbxd2ApkY+eC
+	B1vW8+7N4RpT6AKxTI9WjVfwQh2bC4iaz+sb0TYxOTQUdnCzKtPqbgB0n8H5fa3QUytg5mHxuP8
+	no0OxJa1k877GLCL36byD6H3PArqCjzRbzBsXA/UOOH9w3mSDwAtO908kBN52vGzuyyViwmdXMZ
+	5Fyfuj62jadnRlgkyktpTAeQzhIIGgGcG1ad1C3aiJSTwktwY=
+X-Google-Smtp-Source: AGHT+IFZ3jJn6ZtuPHP8d1zHAviRf2Hf5JxHWcSBJlcuwsyLTvUvL+Ag9uQmMJeg0bd+BjS0LWB2ew==
+X-Received: by 2002:a17:907:a893:b0:b76:3548:cdef with SMTP id a640c23a62f3a-b76715af3bbmr2271548866b.25.1764160982366;
+        Wed, 26 Nov 2025 04:43:02 -0800 (PST)
 Received: from SMW024614.wbi.nxp.com ([128.77.115.157])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-64536459d92sm17654824a12.31.2025.11.26.04.42.56
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-64536459d92sm17654824a12.31.2025.11.26.04.43.01
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 26 Nov 2025 04:42:57 -0800 (PST)
+        Wed, 26 Nov 2025 04:43:02 -0800 (PST)
 From: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
 To: Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
@@ -83,15 +84,17 @@ Cc: devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Pengutronix Kernel Team <kernel@pengutronix.de>
-Subject: [PATCH v6 0/5] Add support for i.MX8ULP's SIM LPAV
-Date: Wed, 26 Nov 2025 04:42:13 -0800
-Message-ID: <20251126124218.803-1-laurentiumihalcea111@gmail.com>
+Subject: [PATCH v6 1/5] reset: imx8mp-audiomix: Drop unneeded macros
+Date: Wed, 26 Nov 2025 04:42:14 -0800
+Message-ID: <20251126124218.803-2-laurentiumihalcea111@gmail.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20251126124218.803-1-laurentiumihalcea111@gmail.com>
+References: <20251126124218.803-1-laurentiumihalcea111@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251126_044301_714021_E26A55BB 
-X-CRM114-Status: GOOD (  19.77  )
+X-CRM114-CacheID: sfid-20251126_044304_888387_D27C032F 
+X-CRM114-Status: GOOD (  15.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,107 +111,67 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
 
-The LPAV System Integration Module (SIM) is an IP found inside i.MX8ULP's
-LPAV subsystem, which offers clock gating, reset line
-assertion/de-assertion, and various other misc. options.
+The macros defining the mask values for the EARC, EARC PHY resets,
+and the DSP RUN_STALL signal can be dropped as they are not and will
+not be used anywhere else except to set the value of the "mask" field
+from "struct imx8mp_reset_map". In this particular case, based on the
+name of the "mask" field, you can already deduce what these values are
+for, which is why defining macros for them doesn't offer any new
+information, nor does it help with the code readability.
 
-This series adds support for the IP by introducing a new clock HW provider
-driver and by modifying i.MX8MP's AUDIOMIX block control reset driver to
-allow it to be used for i.MX8ULP's SIM LPAV as well.
-
-This series is a spin-off from [1].
-
-[1]: https://lore.kernel.org/lkml/20240922174225.75948-1-laurentiumihalcea111@gmail.com/
-
+Reviewed-by: Daniel Baluta <daniel.baluta@nxp.com>
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
+Reviewed-by: Philipp Zabel <p.zabel@pengutronix.de>
+Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
 ---
-Changes in v6:
+ drivers/reset/reset-imx8mp-audiomix.c | 11 ++++-------
+ 1 file changed, 4 insertions(+), 7 deletions(-)
 
-* store a "const struct imx8mp_reset_map" pointer instead of
-  a "const struct imx8mp_reset_info" pointer in
-  "struct imx8mp_audiomix_reset"
-* switch back to the mask-based approach
-* link to v5: https://lore.kernel.org/lkml/20251114133738.1762-1-laurentiumihalcea111@gmail.com/
-
-Changes in v5:
-
-* drop patches that were already picked up by Philipp/Abel.
-* include the "bits.h" header.
-* replace mask with bit index.
-* link to v4: https://lore.kernel.org/lkml/20251104120301.913-1-laurentiumihalcea111@gmail.com/
-
-Changes in v4:
-
-* shorten commit message for patch 5
-* drop base from "struct imx8mp_audiomix_reset" and use local variable
-* imx8mp_audiomix_reset_get_regmap() now takes "struct imx8mp_audiomix_reset *"
-  as its argument instead of a "struct device *"
-* use base pointer as the data argument for devm_add_action_or_reset()
-* shorten commit message for patch 6
-* drop regmap field from "struct clk_imx8ulp_sim_lpav_data", use local
-  variable and let devres manage it
-* drop base field from "struct clk_imx8ulp_sim_lpav_data", use local
-  variable and let devres manage it.
-* CONFIG_CLK_IMX8ULP now selects CONFIG_AUXILIARY_BUS, which is needed
-  for devm_auxiliary_device_create().
-* drop static definition of "struct regmap_config" and change to using
-  local one in the clock driver.
-* link to v3: https://lore.kernel.org/lkml/20251029135229.890-1-laurentiumihalcea111@gmail.com/
-
-Changes in v3:
-
-* rename "lpav_bus", "hifi_core", and "hifi_plat" to "bus", "core", "plat"
-* don't assign the "name" field of "struct clk_parent_data". Previously, we
-  were assigning the local parent name to this field, which wouldn't have
-  worked anyways if, for whatever reason, the fallback mechanism would kick in.
-* replace the whole auxiliary reset driver creation chunk by
-  a single devm_auxiliary_device_create() call.
-* replace the "shift" field from "struct imx8mp_reset_map" with the usage of
-  ffs()
-* shorten commit description for patch 6
-* cast "id->driver_data" to "void *" instead of the previous
-  "const struct imx8mp_reset_info *", which makes the line shorter.
-* open question resulting from Peng Fan's comment on V2: how to access
-  interconnect QoS registers? do we need to model the sim_lpav as an
-  interconnect provider as well or is it fine to have another interconnect
-  provider that references the sim_lpav node and accesses its registers
-  via regmap (dev_get_regmap(), specifically, NOT syscon).
-* link to v2: https://lore.kernel.org/lkml/20251017112025.11997-1-laurentiumihalcea111@gmail.com/
-
-Changes in v2:
-
-* drop redundant description for "#clock-cells"/"#reset-cells" properties
-  from binding
-* make "mux-controller" and "#reset-cells" properties mandatory
-* add "mux-controller" child to binding example node
-* drop the compatiblity with syscon - this was never actually needed and
-  it was done to allow using "mmio-mux", which requires a syscon parent
-* modify the auxiliary reset driver to use regmap - this will allow the
-  mux controller, clock control and reset control APIs to use the same
-  spinlock.
-* rename "imx8ulp-reset-sim-lpav.h" to "fsl,imx8ulp-sim-lpav.h"
-* drop the "IMX8ULP_CLK_SIM_LPAV_END" macro, which doesn't belong to the
-  binding headers
-* fix the values of "IMX8MP_AUDIOMIX_EARC_RESET_MASK" and
-  "IMX8MP_AUDIOMIX_EARC_PHY_RESET_MASK", which were previously incorrect
-* drop redundant macros from auxiliary reset driver - replace their
-  occurrences with their values
-* squash the binding-related macro additions into the binding patch
-* add mux-controller child node to the sim_lpav node
-* make the "gates" array static
-* link to v1: https://lore.kernel.org/lkml/20250804155407.285353-1-laurentiumihalcea111@gmail.com/
----
-
-Laurentiu Mihalcea (5):
-  reset: imx8mp-audiomix: Drop unneeded macros
-  reset: imx8mp-audiomix: Switch to using regmap API
-  reset: imx8mp-audiomix: Extend the driver usage
-  reset: imx8mp-audiomix: Support i.MX8ULP SIM LPAV
-  arm64: dts: imx8ulp: add sim lpav node
-
- arch/arm64/boot/dts/freescale/imx8ulp.dtsi |  17 +++
- drivers/reset/reset-imx8mp-audiomix.c      | 169 +++++++++++++++------
- 2 files changed, 142 insertions(+), 44 deletions(-)
-
+diff --git a/drivers/reset/reset-imx8mp-audiomix.c b/drivers/reset/reset-imx8mp-audiomix.c
+index eceb37ff5dc5..acfa92b15329 100644
+--- a/drivers/reset/reset-imx8mp-audiomix.c
++++ b/drivers/reset/reset-imx8mp-audiomix.c
+@@ -6,6 +6,7 @@
+ #include <dt-bindings/reset/imx8mp-reset-audiomix.h>
+ 
+ #include <linux/auxiliary_bus.h>
++#include <linux/bits.h>
+ #include <linux/device.h>
+ #include <linux/io.h>
+ #include <linux/module.h>
+@@ -14,11 +15,7 @@
+ #include <linux/reset-controller.h>
+ 
+ #define IMX8MP_AUDIOMIX_EARC_RESET_OFFSET	0x200
+-#define IMX8MP_AUDIOMIX_EARC_RESET_MASK		BIT(0)
+-#define IMX8MP_AUDIOMIX_EARC_PHY_RESET_MASK	BIT(1)
+-
+ #define IMX8MP_AUDIOMIX_DSP_RUNSTALL_OFFSET	0x108
+-#define IMX8MP_AUDIOMIX_DSP_RUNSTALL_MASK	BIT(5)
+ 
+ struct imx8mp_reset_map {
+ 	unsigned int offset;
+@@ -29,17 +26,17 @@ struct imx8mp_reset_map {
+ static const struct imx8mp_reset_map reset_map[] = {
+ 	[IMX8MP_AUDIOMIX_EARC_RESET] = {
+ 		.offset	= IMX8MP_AUDIOMIX_EARC_RESET_OFFSET,
+-		.mask	= IMX8MP_AUDIOMIX_EARC_RESET_MASK,
++		.mask = BIT(0),
+ 		.active_low = true,
+ 	},
+ 	[IMX8MP_AUDIOMIX_EARC_PHY_RESET] = {
+ 		.offset	= IMX8MP_AUDIOMIX_EARC_RESET_OFFSET,
+-		.mask	= IMX8MP_AUDIOMIX_EARC_PHY_RESET_MASK,
++		.mask = BIT(1),
+ 		.active_low = true,
+ 	},
+ 	[IMX8MP_AUDIOMIX_DSP_RUNSTALL] = {
+ 		.offset	= IMX8MP_AUDIOMIX_DSP_RUNSTALL_OFFSET,
+-		.mask	= IMX8MP_AUDIOMIX_DSP_RUNSTALL_MASK,
++		.mask = BIT(5),
+ 		.active_low = false,
+ 	},
+ };
 -- 
 2.43.0
 
