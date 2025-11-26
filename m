@@ -4,63 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 649CFD11184
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 22:46:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E19AAD11184
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 22:46:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
 	References:In-Reply-To:To:Cc:MIME-Version:Content-Transfer-Encoding:
 	Content-Type:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lNo2/9XxLj76NFFNAw5IPKpzYJ7DMZToyMamPUQ83A4=; b=gi/VV+JiwkBrQbGzRlBmB94KYp
-	9Gf6sdiPXYAsspqWZrxJe+4PxAW9IRwkKV45EK9iGB60fSibzJhEMnLFW3MOiAz2YCH2YvtTzxGJW
-	aeJvGglXLJtJO5a2TtqLGZ1XIYYvWR/iojHZ59AbPSmULMGmInu601+P5NkGSjwiPC9y+c+Szcp/H
-	XPI9r47fqGp0JyQX7LC4aTfB8NLUMXOVQoV2h1T1RLk0TczbaZHgThSkZChZxZaw27asQRcIS/Hy5
-	Y7ENyj/WUGMTFctV+PUYjGtcxvUX+6antUMVo5u7a7C4MDR1kWViqX2YGn6KXt6fqUcw5lLeAcCEX
-	47aAJ7pQ==;
+	bh=AdrMnZaHol+gh7JC5IZ54DjhTXaK6ZsW1Zs+wLD7OTs=; b=ryjoyOY3PgJdO1zEc1qOZQN2EV
+	uiKjo5b7lSOJyTt/tjb7u9OwgthP5zJAFY1mHgmwNCXpVl2t+CBlRIFKaBCL9vrXQj1QOPUIubxku
+	yYL4iw9tWVjw3kHy87K85IBUzOjRJzV4qciWad0+0KKc76UsUxvCSBLPlzIY/93ef1QvjGrYyY65l
+	pNnX4orY/YNACzJxLcfXaGstj9oeIgdI5G+Q+GpFyiswLC2ptKSAF+fepV2LXE4EQuv/Rb+GOzJHW
+	OvZ4h8riImHXxv0OG15y+D5BvBAlXsU/PC73LLTjUiTTTmP2JwHDqx9zv16HVkNmjRaYIOcPyb8Nf
+	PQXF11bw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOOHR-0000000FjKg-0Yde;
-	Wed, 26 Nov 2025 22:46:33 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vOOHX-0000000FjMp-3q2K;
+	Wed, 26 Nov 2025 22:46:39 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOOHP-0000000FjK6-0Mzd
+	id 1vOOHP-0000000FjKL-3KS9
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Nov 2025 22:46:32 +0000
+	Wed, 26 Nov 2025 22:46:33 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id CAD2B41967;
-	Wed, 26 Nov 2025 22:46:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 87C91C4CEF7;
-	Wed, 26 Nov 2025 22:46:29 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 3512A4382C;
+	Wed, 26 Nov 2025 22:46:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E1E1BC113D0;
+	Wed, 26 Nov 2025 22:46:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764197189;
-	bh=mpEgD7T+cSmzwIvW7UnTNgT/3UN7QoNuldwzSnsc2HQ=;
+	s=k20201202; t=1764197191;
+	bh=bNM+CROlydlXKDMoCqe7N1HXOL9Z+z1dmdlwlkSYP0M=;
 	h=From:Date:Cc:To:In-Reply-To:References:Subject:From;
-	b=syayuq003B1hcNtLi7XKLgfkbkpv/Kp4m008QzM5IfJYeIoj0X187jotHnrw8BH8r
-	 K2AsNyyel45bff58zaTtmJCEE/z4YNwcwYCZekfLiIJ9G+sVMcBMhg+fcjyAWlNjdG
-	 3if1NVNo/R7+L7SzZZTUapkp7vhabn7YM+VCTzIQt5r08IOs5e7uUkh0s+afHf5D7n
-	 D0WvcY7/JrXdMXK4PiYiMRi8h442VXVuIpXigl8w4KKXOEgdfco2StDFAmZKSDh+Og
-	 dP4K/EMlQNk8QDuY/G2sbkH0raPB9blpXbpxCnMOnsO2kUKVOWZ2aqNnXqnxWjTEdT
-	 Krj8Zubrg9PTQ==
+	b=TRJ4EDK2vXcBHljpyUP3HNsgF9G+D3tNgwh+DrxhZ9yfpcpyM/dS/0fGQV/N+b42N
+	 bmE+4rvbDG+8gWDot8lbdqHfFrUGElOT90ksM6tOOdxTr4d4SMFvUY4wXayiUn4FeF
+	 dfYYinsTEpY/qiLKRvDhJRP4cg1jppxD29RaFf7K/8drflhFeBg2DDH1aKiJ9wJwbN
+	 /qSoiRC7gl5/C1cM33xgZuA/cnEHKuR1FATScWakDQfHELUxMda8wSexd7FnRWhVAK
+	 o6zyHzTgkgyJc24FintKqpdG5eWyUOfhzx9gMdsoIiX2Amrl6phT/YP8+8e4IvtBqS
+	 4uzfOpQCI8fow==
 From: Rob Herring <robh@kernel.org>
-Date: Wed, 26 Nov 2025 16:46:27 -0600
+Date: Wed, 26 Nov 2025 16:46:29 -0600
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Russell King <linux@armlinux.org.uk>, 
- linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
- Alim Akhtar <alim.akhtar@samsung.com>, linux-samsung-soc@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Alexandre Marquet <tb@a-marquet.fr>
-To: Lukas Timmermann <linux@timmermann.space>
-In-Reply-To: <20251125-google-manta-v2-0-0f097cfff39c@timmermann.space>
-References: <20251125-google-manta-v2-0-0f097cfff39c@timmermann.space>
-Message-Id: <176419714377.2726224.15005423904347214785.robh@kernel.org>
-Subject: Re: [PATCH v2 0/3] Add support for exynos5250-manta (Google Nexus
- 10)
+Cc: conor+dt@kernel.org, wsa+renesas@sang-engineering.com, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, Ryan.Wanner@microchip.com, 
+ romain.sioen@microchip.com, nicolas.ferre@microchip.com, 
+ claudiu.beznea@tuxon.dev, alexandre.belloni@bootlin.com, krzk+dt@kernel.org
+To: Horatiu Vultur <horatiu.vultur@microchip.com>
+In-Reply-To: <20251126100151.1559590-1-horatiu.vultur@microchip.com>
+References: <20251126100151.1559590-1-horatiu.vultur@microchip.com>
+Message-Id: <176419714481.2726359.16798282036348525511.robh@kernel.org>
+Subject: Re: [PATCH v3 0/2] ARM: add support for pcb8385
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251126_144631_168068_7187FBD9 
-X-CRM114-Status: GOOD (  25.99  )
+X-CRM114-CacheID: sfid-20251126_144631_874954_A5E2D90F 
+X-CRM114-Status: GOOD (  17.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,40 +75,29 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Tue, 25 Nov 2025 16:12:39 +0100, Lukas Timmermann wrote:
-> This patch series adds initial support for the google-manta board, known
-> as Google Nexus 10 to users. The device is powered by
-> the Exynos 5250 SoC. The notification led driver (as3668) is already
-> (tho not applied) in the kernel mailing list and can be found here:
-> https://lore.kernel.org/linux-leds/20251125114015.355487-1-linux@timmermann.space/
+On Wed, 26 Nov 2025 11:01:49 +0100, Horatiu Vultur wrote:
+> Add pcb8385 and the documentation for it.
+> This is a moduler board on which it can add different daughter cards.
 > 
-> The first two patches add the necessary device tree files and
-> bindings, while the last patch makes a small modification to
-> allow CPU1 to boot, as it requires a call to it's underlying firmware.
+> v2->v3:
+> - remove the linux,default-trigger properties
 > 
-> This first iteration only provides basic support to get the board
-> up and running and usable via UART and with WiFi support. We will upstream additional
-> features in future patches. All patches have been tested on real hardware.
+> v1->v2:
+> - sort nodes in alphanumerical order
+> - move the eeprom nodes under i2c0
 > 
-> Signed-off-by: Lukas Timmermann <linux@timmermann.space>
-> ---
-> Alexandre Marquet (3):
->       dt-bindings: ARM: samsung: Add Google Manta (Nexus 10)
->       ARM: dts: exynos: Add Google Manta (Nexus 10)
->       ARM: samsung: exynos5250: Allow CPU1 to boot
+> Horatiu Vultur (2):
+>   dt-bindings: arm: at91: add lan966 pcb8385 board
+>   ARM: dts: Add support for pcb8385
 > 
->  .../bindings/arm/samsung/samsung-boards.yaml       |   1 +
->  arch/arm/boot/dts/samsung/Makefile                 |   1 +
->  arch/arm/boot/dts/samsung/exynos5250-manta.dts     | 516 +++++++++++++++++++++
->  arch/arm/mach-exynos/firmware.c                    |   4 +-
->  4 files changed, 520 insertions(+), 2 deletions(-)
-> ---
-> base-commit: 6a23ae0a96a600d1d12557add110e0bb6e32730c
-> change-id: 20251125-google-manta-79545e179d10
+>  .../devicetree/bindings/arm/atmel-at91.yaml   |   6 +-
+>  arch/arm/boot/dts/microchip/Makefile          |   3 +-
+>  .../boot/dts/microchip/lan966x-pcb8385.dts    | 133 ++++++++++++++++++
+>  3 files changed, 139 insertions(+), 3 deletions(-)
+>  create mode 100644 arch/arm/boot/dts/microchip/lan966x-pcb8385.dts
 > 
-> Best regards,
 > --
-> Lukas Timmermann <linux@timmermann.space>
+> 2.34.1
 > 
 > 
 > 
@@ -130,18 +118,47 @@ make sure dt-schema is up to date:
 
 
 This patch series was applied (using b4) to base:
- Base: 6a23ae0a96a600d1d12557add110e0bb6e32730c (use --merge-base to override)
+ Base: attempting to guess base-commit...
+ Base: tags/next-20251124 (exact match)
+ Base: tags/next-20251124 (use --merge-base to override)
 
 If this is not the correct base, please add 'base-commit' tag
 (or use b4 which does this automatically)
 
-New warnings running 'make CHECK_DTBS=y for arch/arm/boot/dts/samsung/' for 20251125-google-manta-v2-0-0f097cfff39c@timmermann.space:
+New warnings running 'make CHECK_DTBS=y for arch/arm/boot/dts/microchip/' for 20251126100151.1559590-1-horatiu.vultur@microchip.com:
 
-arch/arm/boot/dts/samsung/exynos5250-manta.dtb: /soc/i2c@12c70000/led-controller@42: failed to match any schema with compatible: ['ams,as3668']
-arch/arm/boot/dts/samsung/exynos5250-manta.dtb: rtc@101e0000 (samsung,s3c6410-rtc): clock-names: ['rtc'] is too short
-	from schema $id: http://devicetree.org/schemas/rtc/s3c-rtc.yaml
-arch/arm/boot/dts/samsung/exynos5250-manta.dtb: rtc@101e0000 (samsung,s3c6410-rtc): clocks: [[2, 337]] is too short
-	from schema $id: http://devicetree.org/schemas/rtc/s3c-rtc.yaml
+arch/arm/boot/dts/microchip/lan966x-pcb8385.dtb: /soc/usb@200000: failed to match any schema with compatible: ['microchip,lan9662-udc', 'atmel,sama5d3-udc']
+arch/arm/boot/dts/microchip/lan966x-pcb8385.dtb: /soc/usb@200000: failed to match any schema with compatible: ['microchip,lan9662-udc', 'atmel,sama5d3-udc']
+arch/arm/boot/dts/microchip/lan966x-pcb8385.dtb: serial@200 (atmel,at91sam9260-usart): $nodename:0: 'serial@200' does not match '^spi(@.*|-([0-9]|[1-9][0-9]+))?$'
+	from schema $id: http://devicetree.org/schemas/serial/atmel,at91-usart.yaml
+arch/arm/boot/dts/microchip/lan966x-pcb8385.dtb: serial@200 (atmel,at91sam9260-usart): False schema does not allow 32
+	from schema $id: http://devicetree.org/schemas/serial/atmel,at91-usart.yaml
+arch/arm/boot/dts/microchip/lan966x-pcb8385.dtb: serial@200 (atmel,at91sam9260-usart): $nodename:0: 'serial@200' does not match '^spi(@.*|-([0-9]|[1-9][0-9]+))?$'
+	from schema $id: http://devicetree.org/schemas/serial/atmel,at91-usart.yaml
+arch/arm/boot/dts/microchip/lan966x-pcb8385.dtb: serial@200 (atmel,at91sam9260-usart): False schema does not allow 32
+	from schema $id: http://devicetree.org/schemas/serial/atmel,at91-usart.yaml
+arch/arm/boot/dts/microchip/lan966x-pcb8385.dtb: rng@e0048000 (atmel,at91sam9g45-trng): 'oneOf' conditional failed, one must be fixed:
+	'interrupts' is a required property
+	'interrupts-extended' is a required property
+	from schema $id: http://devicetree.org/schemas/rng/atmel,at91-trng.yaml
+arch/arm/boot/dts/microchip/lan966x-pcb8385.dtb: serial@200 (atmel,at91sam9260-usart): $nodename:0: 'serial@200' does not match '^spi(@.*|-([0-9]|[1-9][0-9]+))?$'
+	from schema $id: http://devicetree.org/schemas/serial/atmel,at91-usart.yaml
+arch/arm/boot/dts/microchip/lan966x-pcb8385.dtb: serial@200 (atmel,at91sam9260-usart): False schema does not allow 32
+	from schema $id: http://devicetree.org/schemas/serial/atmel,at91-usart.yaml
+arch/arm/boot/dts/microchip/lan966x-pcb8385.dtb: serial@200 (atmel,at91sam9260-usart): $nodename:0: 'serial@200' does not match '^spi(@.*|-([0-9]|[1-9][0-9]+))?$'
+	from schema $id: http://devicetree.org/schemas/serial/atmel,at91-usart.yaml
+arch/arm/boot/dts/microchip/lan966x-pcb8385.dtb: serial@200 (atmel,at91sam9260-usart): False schema does not allow 32
+	from schema $id: http://devicetree.org/schemas/serial/atmel,at91-usart.yaml
+arch/arm/boot/dts/microchip/lan966x-pcb8385.dtb: serial@200 (atmel,at91sam9260-usart): '#size-cells' is a required property
+	from schema $id: http://devicetree.org/schemas/serial/atmel,at91-usart.yaml
+arch/arm/boot/dts/microchip/lan966x-pcb8385.dtb: serial@200 (atmel,at91sam9260-usart): '#address-cells' is a required property
+	from schema $id: http://devicetree.org/schemas/serial/atmel,at91-usart.yaml
+arch/arm/boot/dts/microchip/lan966x-pcb8385.dtb: serial@200 (atmel,at91sam9260-usart): 'atmel,usart-mode' is a required property
+	from schema $id: http://devicetree.org/schemas/serial/atmel,at91-usart.yaml
+arch/arm/boot/dts/microchip/lan966x-pcb8385.dtb: serial@200 (atmel,at91sam9260-usart): $nodename:0: 'serial@200' does not match '^spi(@.*|-([0-9]|[1-9][0-9]+))?$'
+	from schema $id: http://devicetree.org/schemas/serial/atmel,at91-usart.yaml
+arch/arm/boot/dts/microchip/lan966x-pcb8385.dtb: serial@200 (atmel,at91sam9260-usart): False schema does not allow 32
+	from schema $id: http://devicetree.org/schemas/serial/atmel,at91-usart.yaml
 
 
 
