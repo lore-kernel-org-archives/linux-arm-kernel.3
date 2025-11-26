@@ -4,102 +4,157 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4457ED11183
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 16:18:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4F3AD11183
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 16:19:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A8a/vfmrnuuCKlhPtRmNUE7pjBPlzlE2qXTzeU2dArw=; b=wOs9U6jLmnYE/GzuQtrgFyCbPe
-	HLrzSyWUy15OThzPQYQMfYzvWHjuFm4oXQtmL+fxf96akIQcFm2gbpxWpfZwyzbAvjaObJxHnY5DK
-	rvwyXbfe9GPbbPXpYk3wkhnPbdU7rnC5c20gYScbPU5ZIqZc7rOdv3SsqvWuwSd1/YEAKbQdmoico
-	TEEcQwIGENE8/r/Rh+O9pH0+rCeOaXkbXhLDvePEitgLlm3DWXXZJCWYVoDpqnrMj8EkyL7RSozXF
-	HLdIZMThbQReCsxpSUaOOKp8hYe4QksAIu+ag553I1Jk6FM8pbsWfRic+EhpHYtqa2YgOsBos5JJ8
-	BOOyc3mg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MsodfgddKhOSDG2GBtD27ZGo+y0PDAT9cAr9o2A8mRk=; b=k15blVjg4dzGXd15v9tP6cliEg
+	Tt1xE9mJobJ74Fs+h2BH56nTa0OQgH8mTM/cugrMvBlkpFtxMbAVSFIyObbB5ZlWCp+IYi4NUHGZJ
+	vlZBr/D2rKPLpADs4Iz/b9ukGH90DHsGpaTfvG2ETSQoIZr71QazygBHEvw8d3u4FjWtsViT27Thx
+	xV1zUvBh+tPoCbblZAUdepsCARonj35lCKRSLhP7MGEcKmo0rYbrd/845KheSMiAKwCodKjeUmD/B
+	hxL1GM05e0ka/6RdoiINaao2G/XNmn+2Qo35u3pHPqZ8FGOcfn/Bh/u3UVmoA/R29wQoxPDwLl1GH
+	hQ5Bof9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOIEC-0000000FHrc-3oNn;
-	Wed, 26 Nov 2025 16:18:48 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1vOIEo-0000000FHxi-19Uf;
+	Wed, 26 Nov 2025 16:19:26 +0000
+Received: from mail-southcentralusazon11013038.outbound.protection.outlook.com ([40.93.196.38] helo=SA9PR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOIEA-0000000FHr4-2I9i
+	id 1vOIEm-0000000FHx9-0w4t
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Nov 2025 16:18:47 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-477a2ab455fso73857755e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Nov 2025 08:18:45 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1764173924; x=1764778724; darn=lists.infradead.org;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=A8a/vfmrnuuCKlhPtRmNUE7pjBPlzlE2qXTzeU2dArw=;
-        b=hzuLg7mfcvEAM7ggPR5Q7JCUFL6qZCUlBM1AzbDm+EAOWMf9wIANVZvRoJRMgcfKoN
-         ERtOZ5gG8PxY9/gNNNS9+YSeq64oeXd2Gv4qZKVPFe0mevCYnoVtIKVBpfFYJ2lYmbRu
-         OgU4uURsy2i6z07ZrTz9So4pnmHi5yMgk4XseswapWaI6FA/fOTpVK3SAtGO/viJ7ml5
-         JDUIRuZCm/02T8IvTpRt6j+YSAkRlSBK2LzKgLKP5tdsrT1K/nUbpl2sq4htiiyTo+CR
-         BCegxTAN4G0RoFvYinpFY0PewJdZC/xucPxnNfPpH9cDvClTxZ9elsTzyhzhwaVhvXAY
-         j++g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764173924; x=1764778724;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=A8a/vfmrnuuCKlhPtRmNUE7pjBPlzlE2qXTzeU2dArw=;
-        b=FaxCC4XULZfaR1Q52JmFnL+7mkkPMRiOcsZnKRHrYbaF5dMRdcjAZYgRxUojt19w6C
-         wTpuP8smc/X1Agmv7+Fr4cn6XvayVWkVVpkJrl0doW0R067LvmePCXNWayo8JlFqwDj/
-         M139lEBHr5KOqW5XaGUz/tQvAER0/4u/XtmfvPqCuaD/NBs5Rdyxd/dCV/xvILYrYGin
-         a1EEUITKZ4ZIasOg42rvK90q8oF1rprzMrclOuq1bt4Ql+JUr17JKak9l2ciDf9uDPCE
-         nbhtyVYYWPF+36VExcg0hnqbO1HQvI5rTVT1Fy1dUlAMpdwoTiu6Qu8zO5QbD5GGpgQq
-         jlrA==
-X-Forwarded-Encrypted: i=1; AJvYcCVlAoM/a3diNxZnnlCh3rFRObVSrhqJMV+qFKYcQ8iO2Ei4zJAMTveiufW+00fVvjdmGzbX9XFs7HK1HRwMd/5c@lists.infradead.org
-X-Gm-Message-State: AOJu0YyggJsS+TcqBKVzyBklOsthK2MM0CtNoD6W2KEdoBBasFRkjUN3
-	GxnGYAA0vWa43RfWM6mI6Rz0bGf/eerBfrNNqDiSe/ov6YTCbZcY9BJjQvwYbpTVp18=
-X-Gm-Gg: ASbGncstE69wqYCmliTxU6IzVm4uigjs2nw9wzesaXJTj56xX3gNTf5KPLzLgOq8suG
-	FYmdkZp8zfu0gMhj2QTN8GXL39pNpgP3FE/rRIqO10ua0L8KaRnbguH4YB/FCu9zeMJYCDUGvQp
-	xyyjuQL2ZLcij15Fy3RQlgn9VTKlvj3t2IZKbBG3OIoFH6ynfJCiS3Dbw5DhqeyWY8a0xu4wtkn
-	jBUnF4Z7aIenENXQC3TpIt0tvplSmIbiQ3EZYBRkTYgzF3BT/1Qr86pFWxPvVRRMdt34BNDEXxX
-	C+MrB+piTks4PtsR1OJ+iESGrJE+t+n22mE+o+feO5/aFowvU77atq9mWYEe3AjRWJeLD8IXYZW
-	1TqoMFKIP90IosmC5kQ6CrP6zkU/Tz/ZDgknOCL7szwD7g0Po5uMG5DlsPIh1yNMg0sQYwWmqLz
-	G9+uIGc24iL4WNg2da
-X-Google-Smtp-Source: AGHT+IHPbIx23EDNZaUTAJ6Psvz/ev1Z/O51tl6vv+BcSPNYJjiwrPTdLBSRYd1ljvmAqn0aCxUGmw==
-X-Received: by 2002:a05:600c:4f89:b0:477:9bfc:dcb6 with SMTP id 5b1f17b1804b1-477c10e2bb4mr209401045e9.14.1764173924510;
-        Wed, 26 Nov 2025 08:18:44 -0800 (PST)
-Received: from draszik.lan ([212.129.87.89])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4790add2c98sm49691755e9.5.2025.11.26.08.18.43
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 26 Nov 2025 08:18:44 -0800 (PST)
-Message-ID: <8d8201de13b4694b26812722356a3a55637406c4.camel@linaro.org>
-Subject: Re: [PATCH 3/6] dt-bindings: usb: maxim,max33359: Add supply
- property for VBUS in OTG mode
-From: =?ISO-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
-To: Amit Sunil Dhamne <amitsd@google.com>, Krzysztof Kozlowski
- <krzk@kernel.org>
-Cc: Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski	 <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Lee Jones	 <lee@kernel.org>, Greg Kroah-Hartman
- <gregkh@linuxfoundation.org>, Badhri Jagan Sridharan <badhri@google.com>,
- Heikki Krogerus <heikki.krogerus@linux.intel.com>, Peter Griffin	
- <peter.griffin@linaro.org>, Tudor Ambarus <tudor.ambarus@linaro.org>, Alim
- Akhtar <alim.akhtar@samsung.com>, linux-kernel@vger.kernel.org,
- linux-pm@vger.kernel.org, 	devicetree@vger.kernel.org,
- linux-usb@vger.kernel.org, 	linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, RD Babiera <rdbabiera@google.com>, Kyle
- Tso <kyletso@google.com>
-Date: Wed, 26 Nov 2025 16:18:59 +0000
-In-Reply-To: <adc2d6ec-e666-4dd0-aaad-7ef014efafb6@google.com>
-References: <20251123-max77759-charger-v1-0-6b2e4b8f7f54@google.com>
-	 <20251123-max77759-charger-v1-3-6b2e4b8f7f54@google.com>
-	 <20251124-rook-of-exotic-innovation-fedcc5@kuoka>
-	 <adc2d6ec-e666-4dd0-aaad-7ef014efafb6@google.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-2+build3 
+	Wed, 26 Nov 2025 16:19:25 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=uRv4HsvUO7XnPs2Dz420b4UhMElRmFBQwrdqbEFmPwXyUfOZdFRKKCOMz+ROinvJE45l+qvOvc676C+pEBjvInqtSreET6lI4bfb1Du3gjt57DEblRTaLLVgT6rtJgaSKHQwIK6PDNi/csuhQHGBVQy6IPELAiKCb8Q5jRRfv+EFCA97k3hoY/djgkBCBexrgoLgOXt+iTKPdKIRoujTKRYjvNiQeGdnnqGtBEkvf/rY1gmba/+ObJDQHRfvkEOeCH3XGLtlEAEF3GB9VBoLC9efQZuLc6J9IrRPcZVz5gCNQqfOGX+ywr32xMyA+aTtsfo/bmB8RbF+BlnUs/S0TQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=MsodfgddKhOSDG2GBtD27ZGo+y0PDAT9cAr9o2A8mRk=;
+ b=A6BE55ZRZgBj9z2JubIQKPcVqhYdp41os9P1yQj3vqjf70HDFyZ/760+8fQtgeUtaM9VoaGIw8VWYM03lkL+xydxbOOlQu4EKRSVKW91h8DU8jJfpG/7ACu46aDZV3ac0ItIm/IUIWhqCw0oGncs0fs5p0tIGqEymK+w9RggaiDf3p4YbG5XwWd2uiPk+LWA69WCg+jxxdxsNq0aQ6HLyl9Ys26yl4UUVJb1yK1p70E0Ov+fwZPVi7JBJfZNsmVWcqxlGA40cOmtfVt85J8mtthf0UJFpqifkd1x7A1bYAQp/GE0BKzdVnyaanSrM9UqcS0bMXjrmPrOGJ//wn6gIQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=nvidia.com smtp.mailfrom=amd.com; dmarc=pass
+ (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=MsodfgddKhOSDG2GBtD27ZGo+y0PDAT9cAr9o2A8mRk=;
+ b=SB4v7UFwtxGDl6oousoZBIBIWqkpwlubDkXlblTO7eAfs2N/CPbgJRxhEI4ey7aXtP69MzMV7EgTqDDtROyIfqo364c7+LiRzLw0W6didT7kQK5TdshMcjUmaRGgLHaPry4a2CDYbH94Vun5OmEe79jdMmdU2aI9ISSp1W85d2Y=
+Received: from BL0PR02CA0011.namprd02.prod.outlook.com (2603:10b6:207:3c::24)
+ by MW4PR12MB7118.namprd12.prod.outlook.com (2603:10b6:303:213::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9366.11; Wed, 26 Nov
+ 2025 16:19:11 +0000
+Received: from BL6PEPF0001AB76.namprd02.prod.outlook.com
+ (2603:10b6:207:3c:cafe::3b) by BL0PR02CA0011.outlook.office365.com
+ (2603:10b6:207:3c::24) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9366.13 via Frontend Transport; Wed,
+ 26 Nov 2025 16:19:11 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
+ smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
+Received: from satlexmb07.amd.com (165.204.84.17) by
+ BL6PEPF0001AB76.mail.protection.outlook.com (10.167.242.169) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9366.7 via Frontend Transport; Wed, 26 Nov 2025 16:19:10 +0000
+Received: from satlexmb10.amd.com (10.181.42.219) by satlexmb07.amd.com
+ (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Wed, 26 Nov
+ 2025 10:19:10 -0600
+Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb10.amd.com
+ (10.181.42.219) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Wed, 26 Nov
+ 2025 08:19:10 -0800
+Received: from [10.252.200.251] (10.180.168.240) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server id 15.2.2562.17 via Frontend
+ Transport; Wed, 26 Nov 2025 08:19:05 -0800
+Message-ID: <451ce2f9-732a-4424-bd45-d20a4d819d46@amd.com>
+Date: Wed, 26 Nov 2025 21:49:04 +0530
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 1/5] iommu: Lock group->mutex in
+ iommu_deferred_attach()
+To: Nicolin Chen <nicolinc@nvidia.com>, "Srivastava, Dheeraj Kumar"
+	<dhsrivas@amd.com>
+CC: <joro@8bytes.org>, <afael@kernel.org>, <bhelgaas@google.com>,
+	<alex@shazbot.org>, <jgg@nvidia.com>, <will@kernel.org>,
+	<robin.murphy@arm.com>, <lenb@kernel.org>, <kevin.tian@intel.com>,
+	<baolu.lu@linux.intel.com>, <linux-arm-kernel@lists.infradead.org>,
+	<iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
+	<linux-acpi@vger.kernel.org>, <linux-pci@vger.kernel.org>,
+	<kvm@vger.kernel.org>, <patches@lists.linux.dev>, <pjaroszynski@nvidia.com>,
+	<vsethi@nvidia.com>, <helgaas@kernel.org>, <etzhao1900@gmail.com>
+References: <cover.1763775108.git.nicolinc@nvidia.com>
+ <a7ebae88c78e81e7ff0d14788ddff2e6a9fcecd3.1763775108.git.nicolinc@nvidia.com>
+ <1f65de37-db9f-4807-a3ff-6cd377c855a5@amd.com>
+ <aScn9t5ctN7FgRKD@Asurada-Nvidia>
+Content-Language: en-US
+From: Dheeraj Kumar Srivastava <dheerajkumar.srivastava@amd.com>
+In-Reply-To: <aScn9t5ctN7FgRKD@Asurada-Nvidia>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BL6PEPF0001AB76:EE_|MW4PR12MB7118:EE_
+X-MS-Office365-Filtering-Correlation-Id: 6207d0a6-74bf-40e0-7773-08de2d078860
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|82310400026|36860700013;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?YXcraEFZcXowMmNqSjlERjQwUlNZQXdMRXMvNTdmMnRVZGRqL1lqWG1Yc1F5?=
+ =?utf-8?B?K3Z4VlFGRG5WNDNxaE5FU0U2R25tVnZHQkhsa0YrN1NZV2dkVE4vd3lBU0ph?=
+ =?utf-8?B?bmtDZjUzZXlKbkVqa21nMzBhL0s4ZFB6RzB6Y0NCR1dZbm9BemxNempMY1NV?=
+ =?utf-8?B?bGk3Z1M4NWJYK2VyZnNnMGZNM2JDaFJQUE5GR2N4dkZyYjRUZUFDS1hxcjBY?=
+ =?utf-8?B?eFpkWXkyTEJ4WWcrQTJjR0RuVHRPejdmcS9CL2FGcjRNM01ZTnpMeWs2ZVVk?=
+ =?utf-8?B?V1ArMFR4Wk1UeHdURkVMaFFvOUUwZFRSMVZIQkRzMC9QdkFQNlVHTHJNME1K?=
+ =?utf-8?B?ZEhnYVZ3bi9XS3VtWHhLd004ellhUDlJaDhFQm52SzdtbFpGWW9UUUNNVWNm?=
+ =?utf-8?B?MmZKZHBpdWx2RjAyVDJOTldra2VZdlpoRDNsbWlST1BBZHhYaklTYmp2RHcx?=
+ =?utf-8?B?LytqczEzNXh3VjR0RWhrY1diNDBqN3ZPYUZCWlFyTEFKOWF1Z0RwRnE1VXVl?=
+ =?utf-8?B?V29ManpYL1dmbm9GSWdDQVczaEQ0ZnBUWHJ2dGEyRWRoV1luK0ZGZlBXdHlK?=
+ =?utf-8?B?ZFZIV252Lzc4MUVBQjJTMTVCNS95SGhlUnVWR1psY1NlYmpUTzFoUkNodkhs?=
+ =?utf-8?B?RmpHclFCZUkwdXNpd2JKQXNtOGc1elRJSS9CcVdCbTVpL2U1amcwSW1ZQ3pU?=
+ =?utf-8?B?VklQNnJMQjJFcGVXVE1NbXV4RGlqRko1WWxrVVVFNHlyNTNpVHVmL3NteFVX?=
+ =?utf-8?B?Nll6Mk1MeHNSUXMrdmtNQ2UvcEhUbXU4TEhMNVBXZnd0dXpCQXZNWitxQ0Rh?=
+ =?utf-8?B?TXo5Q3YvSG4weERxSkpZbXZWV1c1ZGhQR0RlMDhBVXBpVlliL2FYa08rYy9L?=
+ =?utf-8?B?ai9vZjhGUktCSm5uMWUwc0p6b2dlMDNqS3U5SzBoazhyS1VQZktjbWVUMVQz?=
+ =?utf-8?B?QWgxdVJOTTRXejRobVVGNEdJYk1VU2RiOFd1L0pTTDFJNGdSK3hDNE9WYjQy?=
+ =?utf-8?B?T0UzMVJVKzNMVHIrVEU2UitvYXp3YmNBMkNNYzZ4NmE3Y3pKdXJxQldBcTlK?=
+ =?utf-8?B?R0U2WGplME9HajVTZ0NFaEFwa3BxTTh0cUlOWXpYelVIS0o5M3BxaXU0TnBO?=
+ =?utf-8?B?Y09RN3RiYTV6elVOZmNpajFtTkJtRFJLVE50enFpNlQ4RmpEMHF3ejdnZXdx?=
+ =?utf-8?B?S1FRSmxkcjJxN2tGeGdDaGhlUk4zWDFIZnlsUTg2MjNxV1NHaFpLYzdRZVJK?=
+ =?utf-8?B?d09IOXFoV0U4MWJDZU1vSlpFTEo1ZjJxNG56Vkdua1JQT3RCYllxU1RSV2Q4?=
+ =?utf-8?B?V3FjSWoyNk1GakpZR1NjMnFJL0RzTlRSVXBobld6WjRaN25YVWFMSFJ3dXFO?=
+ =?utf-8?B?N05KRE5WOHNxSzhzV052SHJhMStaUXZmZUJJbGlnZlFzbWcyak5PcWtEa2pu?=
+ =?utf-8?B?RzFWbFV2UElLNk9Vdm05VFZJV2hKS01pWDlMbk4rQ09tcWlDWTlPaXZzSlgw?=
+ =?utf-8?B?RWlPUVZwLzJ4ekhKY3UyckNFVTRMdWd1RE9jZzgyT2F2R296UkV2THZyS0pj?=
+ =?utf-8?B?MStTeVNDK1J3RGlmVVk2b0hQNEdueHd3SC9DREJycEZJdmsyVXk1MUszbmZH?=
+ =?utf-8?B?S2RxaldNWDVTSkpFcjF3V1ZvbS9lemNVZHdoUWk5dTVscTNJSzBYc1h6akF3?=
+ =?utf-8?B?RjVsL0ZvT3JBMHRQQVQrb2x2OFA4ayt2MDlmanh5TXBSNGZQS2laZE1KSUda?=
+ =?utf-8?B?cVpjU0RhNW9WcE9ZOHd1UlYvSnJzRjNFY1JMU25uKzBSRVpLNE1wdC9ua25v?=
+ =?utf-8?B?WGZ2RU1CdDR2MStrSVdoMG1wRm9WdXZpTURDMjR0TmRnVmJ1V0FOcU1JUHF6?=
+ =?utf-8?B?NDR4NUNMbGtTMkpQNGpHNE45SjBaUGFLN2M1dU9scmVJaWxQbldONWw0R2g0?=
+ =?utf-8?B?R0dxQ3VGY2laa09ZZHF4eXlmMWNvdlhIUEZMK05ockNlTmhCbmpiY1U4WVpR?=
+ =?utf-8?B?RWNoem14cjJpa2VTK2lFNEh6OEhYOWdLMjRqNHErQnM0ZU9CUGdhSmpZQ1dC?=
+ =?utf-8?B?UVJubVVLZVZ0MlR5d1hRdEtPZEpUUWI5T0RRRm14cnZsRUoydURXaFNVS1B0?=
+ =?utf-8?Q?b3E0=3D?=
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(82310400026)(36860700013);DIR:OUT;SFP:1101;
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Nov 2025 16:19:10.8788
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6207d0a6-74bf-40e0-7773-08de2d078860
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: BL6PEPF0001AB76.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW4PR12MB7118
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251126_081846_606630_42621E43 
-X-CRM114-Status: GOOD (  17.01  )
+X-CRM114-CacheID: sfid-20251126_081924_411301_3D406196 
+X-CRM114-Status: GOOD (  13.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,41 +169,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 2025-11-25 at 12:13 -0800, Amit Sunil Dhamne wrote:
-> Hi Krzysztof,
->=20
-> On 11/23/25 11:53 PM, Krzysztof Kozlowski wrote:
-> > On Sun, Nov 23, 2025 at 08:35:50AM +0000, Amit Sunil Dhamne wrote:
-> > > Add a regulator supply property for VBUS when usb is in OTG mode.
-> > >=20
-> > > Signed-off-by: Amit Sunil Dhamne <amitsd@google.com>
-> > > Reviewed-by: Badhri Jagan Sridharan <badhri@google.com>
-> > > ---
-> > > =C2=A0 Documentation/devicetree/bindings/usb/maxim,max33359.yaml | 4 =
-++++
-> > > =C2=A0 1 file changed, 4 insertions(+)
-> > >=20
-> > > diff --git a/Documentation/devicetree/bindings/usb/maxim,max33359.yam=
-l
-> > > b/Documentation/devicetree/bindings/usb/maxim,max33359.yaml
-> > > index 3de4dc40b791..a529f18c4918 100644
-> > > --- a/Documentation/devicetree/bindings/usb/maxim,max33359.yaml
-> > > +++ b/Documentation/devicetree/bindings/usb/maxim,max33359.yaml
-> > > @@ -32,6 +32,9 @@ properties:
-> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 description:
-> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 Properties for usb c conne=
-ctor.
-> > > =C2=A0=20
-> > > +=C2=A0 otg-vbus-supply:
-> > How is the pin or supply called in the datasheet?
->=20
-> The pin that supplies the VBUS power in OTG is referred to as Vchgin in=
-=20
+Hi
 
-I think that should be chgin (without V prefix)
+On 11/26/2025 9:46 PM, Nicolin Chen wrote:
+> On Wed, Nov 26, 2025 at 06:25:34PM +0530, Srivastava, Dheeraj Kumar wrote:
+>> On 11/22/2025 7:27 AM, Nicolin Chen wrote:
+>>> The iommu_deferred_attach() function invokes __iommu_attach_device(), but
+>>> doesn't hold the group->mutex like other __iommu_attach_device() callers.
+>>>
+>>> Though there is no pratical bug being triggered so far, it would be better
+>>> to apply the same locking to this __iommu_attach_device(), since the IOMMU
+>>> drivers nowaday are more aware of the group->mutex -- some of them use the
+>>> iommu_group_mutex_assert() function that could be potentially in the path
+>>> of an attach_dev callback function invoked by the __iommu_attach_device().
+>>>
+>>> Worth mentioning that the iommu_deferred_attach() will soon need to check
+>>> group->resetting_domain that must be locked also.
+>>>
+>>> Thus, grab the mutex to guard __iommu_attach_device() like other callers.
+>>>
+>>
+>> Tested the series with PCI reset on PFs and VFs, including device
+>> pass-through to a Linux guest. All scenarios worked as expected.
+>>
+>> Tested-by: Dheeraj Kumar Srivastava <dheerajkumar.srivastava@amd.com>
+> 
+> Thanks for testing!
+> 
+> Yet, this is replying to PATCH-1. So, you might want to reply with
+> your "Tested-by" tag to PATCH-0 :)
+> 
 
-> the datasheet.
+Sure.
 
-Cheers,
-Andre'
+Thanks
+Dheeraj
+
+> Otherwise, default B4 command might miss your tag in other patches:
+> 
+>    ✗ [PATCH v7 1/5] iommu: Lock group->mutex in iommu_deferred_attach()
+>      + Tested-by: Dheeraj Kumar Srivastava <dheerajkumar.srivastava@amd.com> (✓ DKIM/amd.com)
+>    ✗ [PATCH v7 2/5] iommu: Tidy domain for iommu_setup_dma_ops()
+>      + Reviewed-by: Jason Gunthorpe <jgg@nvidia.com> (✗ DKIM/Nvidia.com)
+>    ✗ [PATCH v7 3/5] iommu: Add iommu_driver_get_domain_for_dev() helper
+>      + Reviewed-by: Jason Gunthorpe <jgg@nvidia.com> (✗ DKIM/Nvidia.com)
+>    ✗ [PATCH v7 4/5] iommu: Introduce pci_dev_reset_iommu_prepare/done()
+>      + Reviewed-by: Jason Gunthorpe <jgg@nvidia.com> (✗ DKIM/Nvidia.com)
+>    ✗ [PATCH v7 5/5] PCI: Suspend iommu function prior to resetting a device
+>      + Reviewed-by: Jason Gunthorpe <jgg@nvidia.com> (✗ DKIM/Nvidia.com)
+> 
+> Thank you
+> Nicolin
+
 
