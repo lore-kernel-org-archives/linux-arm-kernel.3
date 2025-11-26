@@ -4,96 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78D1AD1039B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 17:14:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D933ED1118A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 17:15:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EKxxWS88sRLsch0GDN5eUzk0Z8XTysZ7hNh3XkKXTY0=; b=SeFoHAuq+l2Dik+xeViUp91CUd
-	KHStmuHBlyKTK8ZclNqZwot3ZF0YU/QgKROLLd6edyksXApF7eXnTTdhMjN9B1dNRwZfr8XVTatiJ
-	9xhFfG+rU8/8UCQVjX1nv0GfcxaFVQMXTzijfVMunhJYJIVvBWZ86Fir7sPrvMgI/QhvtzMK4Hrdh
-	AhDjA7FU1qYl+Vo9VEoxL7e2p1RadHQwo0gzv3m0f3L07mjcceb6wmnqgttDCO3dpIGyA8b2Nrfqq
-	0XZq41tSutKZJ6eU5mLjCnRxH37oudaxZ77Hnu3R1eMQGckTiErBzyq4lMv01U7hQQQakAfstHUEY
-	baMl1wbg==;
+	bh=SEHyNpxhuTM6UTblssdrMq5WeQqf5U5sTe2un/ZyP9I=; b=LkzisgVmQ39yrKa1ydKaxQs03y
+	AbD068XiVUMg24s/765yDbiQL9DGYsJyGdHaWJ+OuHoJ/ZkT9mjmtiLiCe0Ow4eMEIptFWq2L7/7q
+	VFg/jPRJ3cVE5y3cnfrNA5mhRd1tmr1bAyOAHXG+ZDg3umET4Hl7PwZWdKha9T1FyI3c6qrqnmhJJ
+	aK6Lh92rCQ520Rqie6S246oM9DjUOu0oXykRJqeQiY2NiUgfF1i5hp+9IgQ4rnh6KfFQq0857SvKP
+	V5MEC19OQJj9J96SABCrFPCTokxZw6XavUBsQYqRhNAPRpaMBvRykWU7v00TLysf4nA2S0Aap9Buk
+	rZt+Bmkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOJ5o-0000000FNHx-1Bon;
-	Wed, 26 Nov 2025 17:14:12 +0000
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+	id 1vOJ6d-0000000FNOb-2bM2;
+	Wed, 26 Nov 2025 17:15:03 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOJ5l-0000000FNHY-0V9I
+	id 1vOJ6c-0000000FNOP-0f4l
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 26 Nov 2025 17:15:02 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=SEHyNpxhuTM6UTblssdrMq5WeQqf5U5sTe2un/ZyP9I=; b=FW7V4w/fboOB8fql9koyc6hV+p
+	6ijbsD6bNyABZquMjoVcZJ1XAUKQBrQAR4S/vWO7KbDdEsAXKBMyA748J8lDAWciFK9ck1tbHD9xv
+	UCQ9hXPCBtghJeYi2jhgcMdyk+uDYBLcxzNp0iizOIvCN7WGGnYDU5HQw3nTT6/LJrf3WbxZz9Ln6
+	j34U6W79YoQUyueZpRGW/fOSupDnajhbvD5oN/3hT7YxD+xE8d32IeG/gjjKGnx1YhJdrJpmv4zdg
+	AzoaJmnP52JZKx50NJQ1Q3QVdEHcc942+mfsnG52F9hvKVOGxxjWpzus88REGMvFudvgBBvrEQY5s
+	qRMF6+nQ==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vOIEy-00000008Twy-2I8n
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Nov 2025 17:14:11 +0000
-Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-47798ded6fcso41465995e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Nov 2025 09:14:08 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1764177247; x=1764782047; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=EKxxWS88sRLsch0GDN5eUzk0Z8XTysZ7hNh3XkKXTY0=;
-        b=cNE47hs7osc1kpfVARgEol5fLDHd8Xwq4WieQ9AZ05xcYrFRroIzQNtNFkBZD8tV1n
-         1LDK0vph4t3BfsaG4iTiXtOYD+IL9vRAVZvuAmQuKjOJ/3oLf6xWAWOel4oTiG6g24sD
-         eQ8WSizfN0Q0aXwWncK5TpW/94o10lNFufXcYWdeo2jjyMDqyscCL8KlHEsNqg+tGwdx
-         wtsW6Xg4KZP1OLn203N8W3PINhTmgFOMmGGs8G0c8EF8W1dRyi/2+iAubHpSoAFKGBvv
-         HSAGeeonghHS9+Bn6Y8cyTCiTQHZfH2IlimjIT0inGwoli2A7EEsJTkdVTN6XlzmusgL
-         mHIQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764177247; x=1764782047;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=EKxxWS88sRLsch0GDN5eUzk0Z8XTysZ7hNh3XkKXTY0=;
-        b=OE94Qkc1CVyYBQuF+4E4mFccKpVn0pw3U4vQpYaNci4j/Wru3FgxNQrBYJBp1WWFxc
-         bhVvDW7vIbCEOIpoXCyc2TypwKrb8Sgj3MgaWaysFXpnQ0cwZ41nD7AKGEpvCmEACYl6
-         hdrq4Ks32B+t4FcS72kCiENnQH8wGRVMarTS0dctomzJkbgCEqw9UgRiB2V6Bc4IVLd1
-         4MUvMQtL83EWN/g6Zy6sLbrtCYOuCmp19dp41ofQHfQRLR8SIdn4YtRuVQhn9JRZvkKS
-         Lzx6iAPOm1WkF4K0TEqCE77Ko0I7yyaWGaqeX9HmrFBbYiUa1Esd8LPFIk7/EOYmVcFQ
-         QvnA==
-X-Forwarded-Encrypted: i=1; AJvYcCUQfkjFD1KecG4VT9b+O6lvdIW8ZtecwR49crEVV+dx3NFqgTSfpR5jKhEgIkuWHYy0DnPtpMnlWoTKScNYGM65@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz6xmZWDOAvocukSwQKy3ZHWZxEIOtL7fv+eC4Tv2HaU7lr9gTH
-	89AoNp/OhGiH+wKp2SXoo8DolVBMsN1f1dDhLJpwvrHpbjaCoLff1IC/
-X-Gm-Gg: ASbGnct9TmYbYjN4s0h/wXek8R8PcMQWVGs8mLA0S61E7u2gbR93Clza/D2eL3UPCOY
-	+5YXWf3eGRNFL0TcevROs2ls6nKPCJVQwE8MkIxdMetjMp6OdqamUyVke015gc7CAygsiHmSbYV
-	A9N739lsKaOYdeZq5DEGIDzZk3q+9YyJ8Vaj3Yb3127/DFhhBBHwO0a/tuRgNSsNgGQJ8dlN3A7
-	cJmIszWZcZu+r+QFNZcDztyTWpttIxmb8ON2e9/PKTN7zSSVBv5LlCDtYgbowbMrI9tgg2dgcrY
-	yJYmGEyD4GjKKxmBcYlO+hEYMtHqxmdIxmiFInK4yROsIdksuC5S4nRBjBU3kqI+JVt5srqkEpX
-	Ppv4YKVWa2w5SlKKZrTBUYRCK8d84meJKbiue8EA/fnHJda+7WTIIOQdMSPr4x/BaP67GexHtrq
-	68+gSMeOusM4+h9s7H2ftYzapOpp1eFCuDAA==
-X-Google-Smtp-Source: AGHT+IEeUlabJkkeU4URSCYq6YEVT7i8LLPu8eSrASZVzCkAxvaNf+MzxONBZP4ebaKs4/OMcLwVpg==
-X-Received: by 2002:a05:600c:1d1b:b0:477:9671:3a42 with SMTP id 5b1f17b1804b1-477c1133e4bmr203373495e9.35.1764177246757;
-        Wed, 26 Nov 2025 09:14:06 -0800 (PST)
-Received: from [10.24.66.241] ([15.248.2.233])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42cb7f34ffesm42577404f8f.10.2025.11.26.09.14.05
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 26 Nov 2025 09:14:06 -0800 (PST)
-Message-ID: <5cffcb56-26f7-4dac-a0ae-44329084d27d@gmail.com>
-Date: Wed, 26 Nov 2025 17:14:05 +0000
+	Wed, 26 Nov 2025 16:19:38 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BACE01692;
+	Wed, 26 Nov 2025 09:14:49 -0800 (PST)
+Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 19CB03F66E;
+	Wed, 26 Nov 2025 09:14:55 -0800 (PST)
+Message-ID: <60736c21-f4c7-4f76-87dd-acbad8c300fa@arm.com>
+Date: Wed, 26 Nov 2025 17:14:54 +0000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/3] KVM: arm64: Add pre_fault_memory implementation
-To: Marc Zyngier <maz@kernel.org>
-Cc: oliver.upton@linux.dev, pbonzini@redhat.com, joey.gouly@arm.com,
- suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com,
- will@kernel.org, shuah@kernel.org, linux-arm-kernel@lists.infradead.org,
- kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org,
- linux-kselftest@vger.kernel.org, isaku.yamahata@intel.com,
- xmarcalx@amazon.co.uk, kalyazin@amazon.co.uk, jackabt@amazon.com
-References: <20251119154910.97716-1-jackabt.amazon@gmail.com>
- <20251119154910.97716-2-jackabt.amazon@gmail.com>
- <86see3r7e9.wl-maz@kernel.org> <86pl97r3ox.wl-maz@kernel.org>
+Subject: Re: [PATCH v2 4/5] KVM: arm64: Report optional ID register traps with
+ a 0x18 syndrome
+From: Ben Horgan <ben.horgan@arm.com>
+To: Marc Zyngier <maz@kernel.org>, kvmarm@lists.linux.dev,
+ kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Cc: Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose
+ <suzuki.poulose@arm.com>, Oliver Upton <oupton@kernel.org>,
+ Zenghui Yu <yuzenghui@huawei.com>
+References: <20251126155951.1146317-1-maz@kernel.org>
+ <20251126155951.1146317-5-maz@kernel.org>
+ <26d62f83-c5e2-4706-84ad-b3dbe313dfd1@arm.com>
 Content-Language: en-US
-From: "Thomson, Jack" <jackabt.amazon@gmail.com>
-In-Reply-To: <86pl97r3ox.wl-maz@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+In-Reply-To: <26d62f83-c5e2-4706-84ad-b3dbe313dfd1@arm.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251126_091409_197994_6323923E 
-X-CRM114-Status: GOOD (  15.61  )
+X-CRM114-CacheID: sfid-20251126_161936_794732_975F2670 
+X-CRM114-Status: GOOD (  13.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,46 +86,50 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-On 24/11/2025 12:54 pm, Marc Zyngier wrote:
-> On Mon, 24 Nov 2025 11:34:38 +0000,
-> Marc Zyngier <maz@kernel.org> wrote:
+On 11/26/25 17:10, Ben Horgan wrote:
+> Hi Marc,
+> 
+> On 11/26/25 15:59, Marc Zyngier wrote:
+>> With FEAT_IDST, unimplemented system registers in the feature ID space
+>> must be reported using EC=0x18 at the closest handling EL, rather than
+>> with an UNDEF.
 >>
->> On Wed, 19 Nov 2025 15:49:08 +0000,
->> Jack Thomson <jackabt.amazon@gmail.com> wrote:
->>>
+>> Most of these system registers are always implemented thanks to their
+>> dependency on FEAT_AA64, except for a set of (currently) three registers:
+>> GMID_EL1 (depending on MTE2), CCSIDR2_EL1 (depending on FEAT_CCIDX),
+>> and SMIDR_EL1 (depending on SME).
+>>
+>> For these three registers, report their trap as EC=0x18 if they
+>> end-up trapping into KVM and that FEAT_IDST is not implemented in the
+>> guest. Otherwise, just make them UNDEF.
 > 
-> [...]
+> Missed it before but there is a stray 'not' in there. You get the
+> EC=0x18 trap if FEAT_IDST is implemented.
 > 
->>> +	fault_info->hpfar_el2 = HPFAR_EL2_NS |
->>> +		FIELD_PREP(HPFAR_EL2_FIPA, ipa >> 12);
->>> +
->>> +	if (kvm_slot_has_gmem(memslot)) {
->>> +		ret = gmem_abort(vcpu, ipa, NULL, memslot, false);
->>> +	} else {
->>> +		hva = gfn_to_hva_memslot_prot(memslot, gfn, NULL);
->>> +		if (kvm_is_error_hva(hva)) {
->>> +			ret = -EFAULT;
->>> +			goto out;
->>> +		}
->>> +		ret = user_mem_abort(vcpu, ipa, NULL, memslot, &page_size, hva,
->>> +				     false);
->>> +	}
+>>
+>> Signed-off-by: Marc Zyngier <maz@kernel.org>
+>> ---
+>>  arch/arm64/kvm/sys_regs.c | 16 +++++++++++++---
+>>  1 file changed, 13 insertions(+), 3 deletions(-)
 > 
-> And thinking of it a bit more, this is completely broken. What happens
-> if the vcpu is in a nested context? You just populate random pages in
-> an IPA space that is not relevant at all, corrupting the guest state.
+> The code looks good.
 > 
-> You must correctly handle the context the vcpu is in, instead of
-> assuming that this is the canonical context. This means going via the
-> *guest's* S2 translation, just like handle_mem_abort() does.
-> 
-> 	M.
-> 
+> Reviewed-by: Ben Horgan
 
-Thanks Marc for taking a look, I'll update to fix these issues and
-address the other comments.
+Just to complete that tag.
+
+Reviewed-by: Ben Horgan <ben.horgan@arm.com>
+
+> 
+> Thanks,
+> 
+> Ben
+> 
+> 
 
 -- 
 Thanks,
-Jack
+
+Ben
+
 
