@@ -4,89 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D6FED10F58
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 16:00:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FB5BD11181
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 16:00:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xFhAcay03ch7P92KUy+gVdHfIHe3YtQM91fB6LwAipU=; b=qJH8y2Tq7LoyMDZNIKkra4bASd
-	NIRLjx4j0NYoFnIi6cf5LX8SulLxDNMfLoHRA/no8NsnUM06JuXtlK30Gcdm1XS55YIuw1EUN4ioe
-	TjtHVvcuOvV67v6xxe7nPzKbLKH9UAx1cnTUjTBRLLqKeawDR6WDoqnczemxARn66nJovTMpQc0R2
-	nEuuNuvRvCHJrM/u9WsEPtgAY2hHDI5jIErQxbLmfqR2z3gqbjximKSPKiRpuRPLwINuUIZ6XfRSo
-	jRtYZvLky5vb7R7dXSNUUAf6GcnAQnuPfxPDH9YXlOVq3anCRPSfZiemla2aJJjnC9BlarRNuTesJ
-	XQi7SrFA==;
+	bh=CKUmPojsBEaS1Fv5ikaphx/1DJX8hiMLHRzmJuvC1HY=; b=kqe8zZw+XZM+JHnA7K99gwmWoN
+	GnC6QB1RCEf+48i6+s4M4Woa/T7cpXNbBl/vlaPWDjus5Lac+fTfa6CF1AuYViucnNBUNErTe9y9M
+	V2l4tuh/Wn/KzMupfWIEnQC+CTSaLyRfwKwWwGgR/RkFgRFm0YjdDmAnBw9STDoQSEHjaWFNPlMq0
+	dsW2TCOGhdpDmSyRdL10NhxK3WjKIU1oi2UiAdQSV1aTIqkJj/ef7AzHw41w8uXavbKDBl2V1noUG
+	E/IzlzgE3Sn8JlAXxHMxP104/zQmzxs4tPIAIh2Eo/eIV7MBYAvMqzl5b3TFXn1L3pyamIfNBYFf2
+	JGkvzy4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOHwR-0000000FE0o-44nN;
-	Wed, 26 Nov 2025 16:00:27 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vOHwT-0000000FE30-3sI6;
+	Wed, 26 Nov 2025 16:00:29 +0000
+Received: from mail-lf1-x129.google.com ([2a00:1450:4864:20::129])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOHw8-0000000FDlz-2Pld
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 26 Nov 2025 16:00:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=xFhAcay03ch7P92KUy+gVdHfIHe3YtQM91fB6LwAipU=; b=IVB05gjzzuZpdPqdBbtI7/1Oqk
-	MwfBRXQ+p7CvR0pY0qHVUYk6SxYiSGcFmipAtGO6YfG9BsGx0gLDGVzIGRPoPXlyAG23IzB2MmNL1
-	WqQRu0Ez+TtOuubOOZLRFh+RrVy7Zx5kqBkHUGAbWTtynn/+gJxcwcylfOvxEZMPknqM0n858QJeq
-	0AYnv9iBtcnt1Qg5Zu81fJ2iH+pCXWR6GdOC9tA4kiwwiCQSC99trkPKmYXba8lE999QYum0f03R0
-	tS5eCACQK6DQBzvPv/zZLObjzDWUq2uhSwmB0jFhhyoNmYsBb7E2K3OAlbtL73YG/QDk8hD0WRpZR
-	IOapFZnw==;
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOH4V-00000008JnK-02dp
+	id 1vOHwL-0000000FDvR-0YXY
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Nov 2025 15:04:44 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B1B8F44299;
-	Wed, 26 Nov 2025 16:00:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 843EBC19424;
-	Wed, 26 Nov 2025 16:00:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764172801;
-	bh=oMUFNhJwoz5712RpwSGLvZcN/b61b7Nh7mKR2kXcc4A=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=cc+ij8tSa4xgyJVhUE0KraHDww+nZLCb1jt7kLYoun/0UO7q9ryxfxSB06Cwlh6FE
-	 GRQHgd7NIEb12Q5q4Py7hTpC4D6DTbW3PyZ5I3bs2U3cbBlCo4l+qXu1k2t3iZKMkO
-	 89wC2E7FRi47mWqhDzUMr9xEAg7F987gQ4ZwuzYsWrgjuVO07p/PxER0wp6k+l5C/k
-	 7b7jqfVqD+F3bmfF50fDNDb+nAadU/ac6s36McjzdI1Po2Qs393+1BWGvlBJw08cyX
-	 Fap20KzZHDce1HhIofR38IYTvHeraq8i7N/e9810QVO4yHo4fYFtJ4AVdI94NGIiKi
-	 raPK/sudkO2vg==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1vOHvz-00000008WrH-00Zc;
-	Wed, 26 Nov 2025 15:59:59 +0000
-From: Marc Zyngier <maz@kernel.org>
-To: kvmarm@lists.linux.dev,
-	kvm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Cc: Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oupton@kernel.org>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Ben Horgan <ben.horgan@arm.com>
-Subject: [PATCH v2 3/5] KVM: arm64: Add a generic synchronous exception injection primitive
-Date: Wed, 26 Nov 2025 15:59:49 +0000
-Message-ID: <20251126155951.1146317-4-maz@kernel.org>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20251126155951.1146317-1-maz@kernel.org>
-References: <20251126155951.1146317-1-maz@kernel.org>
+	Wed, 26 Nov 2025 16:00:22 +0000
+Received: by mail-lf1-x129.google.com with SMTP id 2adb3069b0e04-59577c4c7c1so996258e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Nov 2025 08:00:20 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1764172819; x=1764777619; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=CKUmPojsBEaS1Fv5ikaphx/1DJX8hiMLHRzmJuvC1HY=;
+        b=1jk29wZeZGxjBQYig0v7WyrtS/K+bHZQ7KAtwffky9883YuXHmrc+f5y3qTuxkVjxC
+         WIxwLIjh3CiD00W8evW6uHbXk3JhPjCU8sh5PA/KCKYXq2s6lXmDOKViOx3bHSaYD0fs
+         syg3onGjYb8C9d8beU/+RskQUgl33SITDZL00KZoW+/I9bn15Nl/Xz8hvtIkrpUaHAvs
+         ZKGvgk2o02CBK20BjYzdefF+3UcScQtfrijC0VT3ORI+yi+o3kRg9ULb7CRU31bSGdEj
+         u0jiiA8SY6bAPEc4hMHJg9p8qx+I3YLmz5w3c1ovuBXL8+gLG9b107aSBmKSNK4RzJwM
+         TrRA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1764172819; x=1764777619;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=CKUmPojsBEaS1Fv5ikaphx/1DJX8hiMLHRzmJuvC1HY=;
+        b=u3fhGF32hGTKVDfaI7lQkos2cat6jJkLLxLgvFEcDJjHNeJSA+x6QkEwgPt39FhBTc
+         oKY225BjUjI+ax/CCGlFbdKm5Z6hWeq9bnMPglG24nXr2bPixmryz7M9uira+kV1Oyh3
+         VTMVRyGTsMNL8k84ibfScusJ330t4cxSh+UampeZ47rG4Rc/2uGVIlvZNO2BS4RRR1ET
+         1VcPSJCyYqnaa2todAPn9T6kgThlm4hykh3Pf+/QA3UARfjUeWBaleegqm2pyAfo4m+J
+         Z5CRLKy6W3vgG4F3C1n8AeCt4EuLFrujeJ5f0TVoXVoz7wZpUx5wwawjubH37TT0Scq5
+         7bYA==
+X-Forwarded-Encrypted: i=1; AJvYcCUVViPWW0n7wEfr5PoFAxhdaAg798/mFgKg3gTfQCJljHI+DvDGYSmtzrz4++bj2e4UKRZXwyia5Q/TRBSMofvf@lists.infradead.org
+X-Gm-Message-State: AOJu0YyVrrm2p1vpoMPvnZiFfBvnM+QPMkRVNSu4PeEpbbPf/qtCWX6L
+	dEdy4H/DBjNOMG2dHU8M0BlggyY16tvTdgnV9kZoZ4d+qxoHctni3HEMUqU+QTTIfHFQUyk+4EN
+	ag8jPEHOS+zBupAIwuZX4AQcNN39T+/7MzyNWCFDNGA==
+X-Gm-Gg: ASbGnctAo9S+nxfh+xPU5iwljIFC5Pd+wMb1gggMgWLa/vYYqYJ0nAcMTeLIHd4KoHb
+	QAOHZv9up1giJHzkYpdWRXRfmKq57luedOha7zbiZp77cFYC/113hdnNkAcu+MVkvBhpxIsKPeV
+	J/qrgLhtqsfIGeedgZTyGbBxXfOcPd30EYc25e2Beu5iZUswwkzKUxie1U4vTu4teNAh5E8Cm9W
+	WQhe7KwxON4cyLo3UgUNW5s6d/HacOR4+B3h9xY6YSiZSBOU5ppR5tz9HfiVTLwHKcEebWlWHOu
+	j74ZOk593WpFL8xKQvHMkuesMUA=
+X-Google-Smtp-Source: AGHT+IG/dq5r5WmQcoWn78HBF8tifFKLQkNqXoHsJ8uu05KTdYoqo/JzkNcCqS3q8x6xdOxAcwscTDG+CXZmPir3agk=
+X-Received: by 2002:a05:6512:33cc:b0:595:9929:c8a4 with SMTP id
+ 2adb3069b0e04-5969ea35615mr7886071e87.22.1764172818843; Wed, 26 Nov 2025
+ 08:00:18 -0800 (PST)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, ben.horgan@arm.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+References: <20251112-gpio-shared-v4-0-b51f97b1abd8@linaro.org>
+ <20251112-gpio-shared-v4-7-b51f97b1abd8@linaro.org> <0829a21c-f97d-41b6-90bc-2acaec42caab@nvidia.com>
+ <CAMRc=MdPvF+okfnRuwvAFG9UfyZ-araDsaaKMxKASEbc3rhyjQ@mail.gmail.com>
+ <705186a9-a9db-46f0-bf2b-b499def050dd@nvidia.com> <CAMRc=MdQ8QgbdAd2sudZLgcDZu9DxBRJh5sfLeXwcTDEE0F7Uw@mail.gmail.com>
+ <c4081961-0875-4a2d-ac84-40df128534e7@nvidia.com> <CAMRc=McSrKgL=q8xfH_Vndg7rCfy1TVgRh+dFRqFCiBwT_J2yw@mail.gmail.com>
+ <b166f160-e4e2-43a2-866a-3341cc91a13e@nvidia.com>
+In-Reply-To: <b166f160-e4e2-43a2-866a-3341cc91a13e@nvidia.com>
+From: Bartosz Golaszewski <brgl@bgdev.pl>
+Date: Wed, 26 Nov 2025 17:00:05 +0100
+X-Gm-Features: AWmQ_blfhwNoOC_5q4Y6Ua8mUZE4gIa1ItGMpnk3IeLNBCFsJ0ovvbGWZGIVjOo
+Message-ID: <CAMRc=MfWi=cU1tK_AXW18A0X7K2TGp_u9Dwg4uSfW7Te83HvqQ@mail.gmail.com>
+Subject: Re: [PATCH v4 07/10] arm64: select HAVE_SHARED_GPIOS for ARCH_QCOM
+To: Jon Hunter <jonathanh@nvidia.com>
+Cc: Kees Cook <kees@kernel.org>, Mika Westerberg <westeri@kernel.org>, 
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>, Andrew Morton <akpm@linux-foundation.org>, 
+	Linus Walleij <linus.walleij@linaro.org>, Manivannan Sadhasivam <mani@kernel.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Saravana Kannan <saravanak@google.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Andy Shevchenko <andy@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Srinivas Kandagatla <srini@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
+	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
+	Alexey Klimov <alexey.klimov@linaro.org>, Bjorn Andersson <andersson@kernel.org>, 
+	Konrad Dybcio <konradybcio@kernel.org>, linux-hardening@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-sound@vger.kernel.org, 
+	linux-arm-msm@vger.kernel.org, 
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>, 
+	"linux-tegra@vger.kernel.org" <linux-tegra@vger.kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251126_150443_349612_AA355BA2 
-X-CRM114-Status: GOOD (  11.61  )
+X-CRM114-CacheID: sfid-20251126_080021_209548_B8977D0D 
+X-CRM114-Status: GOOD (  19.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,63 +114,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Maybe in a surprising way, we don't currently have a generic way
-to inject a synchronous exception at the EL the vcpu is currently
-running at.
+On Wed, Nov 26, 2025 at 4:47=E2=80=AFPM Jon Hunter <jonathanh@nvidia.com> w=
+rote:
+>
+>
+>
+> On 26/11/2025 15:33, Bartosz Golaszewski wrote:
+> > On Wed, Nov 26, 2025 at 4:29=E2=80=AFPM Jon Hunter <jonathanh@nvidia.co=
+m> wrote:
+> >>
+> >>>>
+> >>>
+> >>> Is the device-tree used here upstream? Can you enable DEBUG_GPIO in
+> >>> Kconfig and post the entire kernel log on pastebin?
+> >>
+> >> The kernel log is here: https://pastebin.com/7rBh3T3T
+> >
+> > This is not telling me much, can you try again with the printk() I
+> > posted earlier, please?
+>
+> Yes, sorry I missed that before kicking off the last test. With
+> this print I see ...
+>
+> [    0.120432] gpio_shared_of_traverse: /bus@0/ethernet@2490000 phy-reset=
+-gpios
+> [    0.121407] gpio_shared_of_traverse: /bus@0/mmc@3400000 cd-gpios
+> [    0.121891] gpio_shared_of_traverse: /bus@0/host1x@13e00000/sor@15b800=
+00 nvidia,hpd-gpio
+> [    0.122035] gpio_shared_of_traverse: /bus@0/pcie-ep@141a0000 reset-gpi=
+os
+> [    0.122075] gpio_shared_of_traverse: /bus@0/pcie-ep@141a0000 nvidia,re=
+fclk-select-gpios
+> [    0.122342] gpio_shared_of_traverse: /regulator-vdd-hdmi gpio
+> [    0.122381] gpio_shared_of_traverse: /regulator-vdd-3v3-pcie gpio
+> [    0.122420] gpio_shared_of_traverse: /regulator-vdd-12v-pcie gpio
+> [    0.122453] gpio_shared_of_traverse: /regulator-vdd-5v0-sata gpio
+> [    0.122486] gpio_shared_of_traverse: /gpio-keys/key-force-recovery gpi=
+os
+> [    0.122551] gpio_shared_of_traverse: /gpio-keys/key-power gpios
+> [    0.122615] gpio_shared_of_traverse: /__symbols__ gpio
 
-Extract such primitive from the UNDEF injection code.
+So I have no idea why the special __symbols__ node has a "gpio"
+property but as this is a special case, I think we should just
+explicitly ignore it.
 
-Signed-off-by: Marc Zyngier <maz@kernel.org>
----
- arch/arm64/include/asm/kvm_emulate.h |  1 +
- arch/arm64/kvm/inject_fault.c        | 10 +++++++---
- 2 files changed, 8 insertions(+), 3 deletions(-)
+Let me send a patch.
 
-diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
-index c9eab316398e2..df20d47f0d256 100644
---- a/arch/arm64/include/asm/kvm_emulate.h
-+++ b/arch/arm64/include/asm/kvm_emulate.h
-@@ -45,6 +45,7 @@ bool kvm_condition_valid32(const struct kvm_vcpu *vcpu);
- void kvm_skip_instr32(struct kvm_vcpu *vcpu);
- 
- void kvm_inject_undefined(struct kvm_vcpu *vcpu);
-+void kvm_inject_sync(struct kvm_vcpu *vcpu, u64 esr);
- int kvm_inject_serror_esr(struct kvm_vcpu *vcpu, u64 esr);
- int kvm_inject_sea(struct kvm_vcpu *vcpu, bool iabt, u64 addr);
- void kvm_inject_size_fault(struct kvm_vcpu *vcpu);
-diff --git a/arch/arm64/kvm/inject_fault.c b/arch/arm64/kvm/inject_fault.c
-index dfcd66c655179..7102424a3fa5e 100644
---- a/arch/arm64/kvm/inject_fault.c
-+++ b/arch/arm64/kvm/inject_fault.c
-@@ -162,12 +162,16 @@ static void inject_abt64(struct kvm_vcpu *vcpu, bool is_iabt, unsigned long addr
- 	vcpu_write_sys_reg(vcpu, esr, exception_esr_elx(vcpu));
- }
- 
-+void kvm_inject_sync(struct kvm_vcpu *vcpu, u64 esr)
-+{
-+	pend_sync_exception(vcpu);
-+	vcpu_write_sys_reg(vcpu, esr, exception_esr_elx(vcpu));
-+}
-+
- static void inject_undef64(struct kvm_vcpu *vcpu)
- {
- 	u64 esr = (ESR_ELx_EC_UNKNOWN << ESR_ELx_EC_SHIFT);
- 
--	pend_sync_exception(vcpu);
--
- 	/*
- 	 * Build an unknown exception, depending on the instruction
- 	 * set.
-@@ -175,7 +179,7 @@ static void inject_undef64(struct kvm_vcpu *vcpu)
- 	if (kvm_vcpu_trap_il_is32bit(vcpu))
- 		esr |= ESR_ELx_IL;
- 
--	vcpu_write_sys_reg(vcpu, esr, exception_esr_elx(vcpu));
-+	kvm_inject_sync(vcpu, esr);
- }
- 
- #define DFSR_FSC_EXTABT_LPAE	0x10
--- 
-2.47.3
+Bart
 
+> [    0.122672] OF: /__symbols__: could not find phandle 794981747
+> [    0.122701] CPU: 0 UID: 0 PID: 1 Comm: swapper/0 Not tainted 6.18.0-rc=
+7-next-20251126-00002-g1cd98992c487-dirty #21 PREEMPT
+> [    0.122739] Hardware name: NVIDIA Jetson AGX Xavier Developer Kit (DT)
+> [    0.122747] Call trace:
+> [    0.122753]  show_stack+0x18/0x24 (C)
+> [    0.122772]  dump_stack_lvl+0x74/0x8c
+> [    0.122788]  dump_stack+0x18/0x24
+> [    0.122801]  of_phandle_iterator_next+0x18c/0x1c4
+> [    0.122819]  of_count_phandle_with_args+0xa0/0xc8
+> [    0.122832]  gpio_shared_of_traverse+0xd4/0x4c8
+> [    0.122848]  gpio_shared_of_traverse+0x178/0x4c8
+> [    0.122860]  gpio_shared_init+0x11c/0x1f8
+> [    0.122878]  do_one_initcall+0x7c/0x1c0
+> [    0.122892]  kernel_init_freeable+0x204/0x2e0
+> [    0.122908]  kernel_init+0x20/0x1d8
+> [    0.122923]  ret_from_fork+0x10/0x20
+> [    0.123055] gpiolib_shared: Finished scanning firmware nodes for share=
+d GPIOs
+>
 
