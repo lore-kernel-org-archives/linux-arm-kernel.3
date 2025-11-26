@@ -4,89 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88705D1039D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 11:51:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0853D10F22
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 11:52:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=h7ZJhr+0x5ygBrBW8UPFMD6T08Tpdt0hEWVktbHPqtg=; b=1aasOALQlHi2TJMU2z53nPg3NC
-	G5F/HHJsCRhnm7qpmzejR4GYXxl5NahZShLAkegfbg1jUUcK877cz9URSYWCWwIYSbUzI5YVjWGrN
-	reaqARMaXeWUuvFj16L7ddynnqc6jvXKP6CgU5Un/AsJ0sffMPZYuvykPaAJ18fx7iM+hdro8h0At
-	WB3w2U2E3A76lrurA3PcAIel86TbSfkD5V/OTiPeERHaRH/3NC8WAxmQXTMb4joDV7GLoBrqylP8u
-	9QJZang+kMbLIQaMjTm3qCi4sKFQHtNt/IcPR1Ag1oogfK312b42SxNHgiFDoPP8HVOElJnYrSHg+
-	7JrTrikg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=joNFeCkdd3S4KenEQOGHKsnCh+9NeO00TItHMLiqyCc=; b=2g2rgv///iiuduZxJpu5/AlGP+
+	idANVvqGePe/EzRt9t35lH0GB9QCzwF9G2zcPJiBD/Si6VqaznaC4gfkFg07i47iEgM0k/6g4REXU
+	eSe41oYgmK5/QbCzPuVylLtwCA3wpXlgR05M6Tn3dI5urfq50VWMDaueH4K3jvvLdD8LvZWtQJaBk
+	9lp1hklMCUrGtqOxsAjIz3s/EoXSxosiEnjyNiC6ZSRFnPdcyyW8L+a9GF7LlxjCN9QN0qukC8y4Y
+	yR2zQ5GGIy89QEj1IDKXWhz7rBDjzTbNZ79nCpwkgzsi+2OZzRa20gLLx8a716nviuCa1W7MMYQwI
+	f+dao88w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOE3p-0000000Ew6p-34VA;
-	Wed, 26 Nov 2025 11:51:49 +0000
-Received: from mail-m49213.qiye.163.com ([45.254.49.213])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOE3k-0000000Ew5q-2dqU;
-	Wed, 26 Nov 2025 11:51:46 +0000
-Received: from [172.16.12.51] (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 2afc8ccb9;
-	Wed, 26 Nov 2025 19:51:34 +0800 (GMT+08:00)
-Message-ID: <e48e1918-8ee0-4ffe-93d5-e096af241f77@rock-chips.com>
-Date: Wed, 26 Nov 2025 19:51:33 +0800
+	id 1vOE4L-0000000EwCH-16gd;
+	Wed, 26 Nov 2025 11:52:21 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vOE4J-0000000EwBl-0i3o
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 26 Nov 2025 11:52:20 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 19960168F;
+	Wed, 26 Nov 2025 03:52:10 -0800 (PST)
+Received: from bogus (e133711.arm.com [10.1.196.55])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6CE493F73B;
+	Wed, 26 Nov 2025 03:52:16 -0800 (PST)
+Date: Wed, 26 Nov 2025 11:52:13 +0000
+From: Sudeep Holla <sudeep.holla@arm.com>
+To: Robin Murphy <robin.murphy@arm.com>
+Cc: <vincenzo.frascino@arm.com>, <liviu.dudau@arm.com>,
+	Sudeep Holla <sudeep.holla@arm.com>, <lpieralisi@kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH] arm64: dts: morello: Add CMN PMU
+Message-ID: <20251126-bipedal-lumpy-rabbit-d92d1d@sudeepholla>
+References: <cbeb3832ded539c8c4616d49d3133078a34f88ad.1748350539.git.robin.murphy@arm.com>
+ <f06636ed-c96f-4504-9706-9274cfd0c15b@arm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v10 01/11] usb: typec: Add notifier functions
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Heikki Krogerus <heikki.krogerus@linux.intel.com>
-Cc: Chaoyi Chen <kernel@airkyi.com>,
- Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
- Peter Chen <hzpeterchen@gmail.com>, Luca Ceresoli
- <luca.ceresoli@bootlin.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>,
- Kishon Vijay Abraham I <kishon@kernel.org>, Heiko Stuebner
- <heiko@sntech.de>, Sandy Huang <hjc@rock-chips.com>,
- Andy Yan <andy.yan@rock-chips.com>,
- Yubing Zhang <yubing.zhang@rock-chips.com>,
- Frank Wang <frank.wang@rock-chips.com>,
- Andrzej Hajda <andrzej.hajda@intel.com>,
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Amit Sunil Dhamne <amitsd@google.com>, Dragan Simic <dsimic@manjaro.org>,
- Johan Jonker <jbx6244@gmail.com>, Diederik de Haas <didi.debian@cknow.org>,
- Peter Robinson <pbrobinson@gmail.com>, linux-usb@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, dri-devel@lists.freedesktop.org
-References: <2025112102-laurel-mulch-58e4@gregkh>
- <462ad1bd-7eec-4f26-b383-96b049e14559@rock-chips.com>
- <2025112402-unopposed-polio-e6e9@gregkh>
- <a80483de-518d-45d5-b46a-9b70cca5b236@rock-chips.com>
- <2025112448-brush-porcupine-c851@gregkh>
- <c9cb7b79-37c8-4fef-97a6-7d6b8898f9c4@rock-chips.com> <aSV_lQYJPxN7oBM-@kuha>
- <2025112554-uncaring-curator-642a@gregkh>
- <cbb38c08-6937-4b7d-a0b0-d5ca6c17f466@rock-chips.com> <aSbLkwPG0dUzZvql@kuha>
- <2025112656-dreamland-retreat-2a65@gregkh>
-Content-Language: en-US
-From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-In-Reply-To: <2025112656-dreamland-retreat-2a65@gregkh>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-HM-Tid: 0a9ac001308e03abkunmdaa20eca5ea8c5
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQk4dHVZIHUIeGBhNTRlNQh5WFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSEpPSE
-	xVSktLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=jBANWdfCXUE5gDGcQIlQs4pqUaqXDsXzhdChC4iwSgqp3kPQUaUPgNli4XbRKmNmCnFKOqtpFUnKe9D+Kt7p8xXmLhuiJ9Cw18Swcx5cYBTi/Gz5LHMm7Y0xygV99pjgLmQ02+Ajw3beBLk0/GiLF/nG8ov6UkJaZYaaBF/MbrY=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=h7ZJhr+0x5ygBrBW8UPFMD6T08Tpdt0hEWVktbHPqtg=;
-	h=date:mime-version:subject:message-id:from;
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <f06636ed-c96f-4504-9706-9274cfd0c15b@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251126_035145_552628_141D03D8 
-X-CRM114-Status: GOOD (  19.56  )
+X-CRM114-CacheID: sfid-20251126_035219_248316_DB07F4A7 
+X-CRM114-Status: GOOD (  13.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,57 +65,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/26/2025 7:44 PM, Greg Kroah-Hartman wrote:
-> On Wed, Nov 26, 2025 at 11:42:43AM +0200, Heikki Krogerus wrote:
->> Wed, Nov 26, 2025 at 09:46:19AM +0800, Chaoyi Chen kirjoitti:
->>> On 11/25/2025 7:49 PM, Greg Kroah-Hartman wrote:
->>>>> +static umode_t typec_is_visible(struct kobject *kobj, struct attribute *attr, int n)
->>>>> +{
->>>>> +	if (is_typec_port(kobj_to_dev(kobj)->parent))
->>>>
->>>> Why look at the parent?  Doesn't the device have a type that should show
->>>> this?
->>>>
->>>> Otherwise, looks good to me.
->>>
->>> They have same deivce type "typec_altmode_dev_type".
->>> The parent device has a different device type to distinguish between
->>> port device and partner device.
->>
->> I was already wondering would it make sense to provide separate device
->> types for the port, and also plug, alternate modes, but I'm not sure
->> if that's the right thing to do.
->>
->> There is a plan to register an "altmode" also for the USB4 mode,
->> which of course is not an alternate mode. So USB4 will definitely need a
->> separate device type.
->>
->> So if we supply separate device types for the port, plug and partner
->> alternate modes, we need to supply separate device types for port, plug
->> and partner USB4 mode as well.
->>
->> We certainly can still do that, but I'm just not sure if it makes
->> sense?
->>
->> I'll prepare a new version for this and include a separate patch where
->> instead of defining separate device types for the port and plug
->> alternate modes I'll just supply helpers is_port_alternate_mode() and
->> is_plug_alternate_mode().
+On Mon, Nov 24, 2025 at 04:35:39PM +0000, Robin Murphy wrote:
+> [ Trying to catch up with loose ends... ]
 > 
-> That feels like it would be better in the long run as it would be
-> easier to "match" on the device type.
+> On 2025-05-27 1:55 pm, Robin Murphy wrote:
+> > Although CMN-Skeena is mildly modified for the Morello hardware
+> > architecture, it still identifies itself as CMN-600 r3p1. Since
+> > there are also no documented changes to its PMU functionality,
+> > we can make the PMU accessible via the standard CMN-600 binding.
+> > In general, PMU registers are non-functional on CMN Fast Models,
+> > so this is only meaningful for the real SDP hardware.
+> 
+> Vincenzo, Sudeep, any opinion on this? I believe it was considered useful by
+> at least the one person who asked me about it :)
 >
 
-It make sense. But now can we first use the current "match" device type
-operation and then modify them later?
-
-> thanks,
-> 
-> greg k-h
-> 
-> 
+Sorry for missing it earlier and even this almost 😉. Anyways too late for
+v6.19, will pick it up for following merge window.
 
 -- 
-Best, 
-Chaoyi
+Regards,
+Sudeep
 
