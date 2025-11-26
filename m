@@ -4,189 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13265D10F5F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 15:47:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3877D10F5F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 15:48:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QXvTazOd+XkWGZAW04skcdntL2lR+h9zsTS9cUQsKKI=; b=Ljt3+oWJLUMRi6gH+q6wqLN9du
-	cmws6kMDfxLBxKurwoikkl+ut+KN/RRt4VPmFjTmwwj+0AXa/0WnzHnq+YUyipzBth6fHWLmpnE8s
-	69y2pB49datRc/iag/TSI2xWlenHha/8Za1t+MPMlolyH63U0o7u9tmaW9v9ZjKu9sJBG5NzuHXUq
-	ke5nd+YaP8CZmfOlqLbaFxyXxAZlUnx+xLbHnfW2GgUIF4REpgRfNXb2yKRjIA4M59ZenbX0cfwUm
-	xf8JFI3o6hneBwolrPgTDNlR/eExIHWPmgjug91FgQYGx7zupcRDVO5i2R0j2FCcyWwDKbYRyduCG
-	y0dz0DoQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dFuVp5mjywP+NMccfEdA1smMO0SeI/6ihvGyik/4sgc=; b=499VfpN1EeHp+bRUzZh6cCgBEu
+	nclRknoWf8lZeBMZ+Ot0Ai5bekFO6+Dc6P7id5nHlPF1Ph3wGWVrld1fyJHIsG8sGZBBf8jgVd8tf
+	HLOTq37Ks9yOBlEzuR8IxA5+HpgBbfP+0MplHLL+7U9U9yFaw7g7yFZmVTwVAXBJkO3lJt9Mw9d1o
+	wMWTGGvcnfve7RBFv9N93LO9Wl2L8k/CheBRy17t9eZC6sPFEnExqARSkSNy/nILNI6i8N5+sMazu
+	LDLfzVWBglRa7EKbwDhvvLrVAdDp8w5qyQpvg140j68ICUasLiC1eIit4ziC4j6gPoHDpphDKuzZK
+	Jj/LmZ6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOHkC-0000000FChm-0zEb;
-	Wed, 26 Nov 2025 15:47:48 +0000
-Received: from mail-westus3azlp170100009.outbound.protection.outlook.com ([2a01:111:f403:c107::9] helo=PH7PR06CU001.outbound.protection.outlook.com)
+	id 1vOHkY-0000000FCpY-1not;
+	Wed, 26 Nov 2025 15:48:10 +0000
+Received: from mail-lj1-x231.google.com ([2a00:1450:4864:20::231])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOHk9-0000000FCgq-31UP
+	id 1vOHkW-0000000FCnz-0srD
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Nov 2025 15:47:47 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=c87G7idahMFIOCwAVaFQfvNPtwwaZW08WRHUFtXEQiv4FbFIGxFDMVPHIzImKd2D7pBzBtBYNr3OyfR+d2DUfQ2ZeDNzf1CYzHsSpPhFRKegRMP5a9PDYyQ95IgYOkUm9RdiPdZvADk2uC13R797ZdWEJ7qDfO7zk6IUI2St5Qv4No/vGHNj9XB73NNHeHUEfurG1SsqvkTjtsJs5St5IqxJxRYb9YTLZqiD1ADtAFE+O78HFx92+MMXVxhIgnFna8Sq53kGfR6X9Ubme4VMVJUOE+taRdzjGy7BoElgo3ZJQ7NCIPT9DzCBfwfvmaDUAMVZEqlXc03s180Q8F4EXw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=QXvTazOd+XkWGZAW04skcdntL2lR+h9zsTS9cUQsKKI=;
- b=ga+H0lZMhTjP0xrJnctvjHnvp20z5oZX39lrSIXG/OX3naLER4p8vRuhe6U7ZFjOoT7Nrt+ymEySejYGqBRFllRFEOCCrodWp9/rAU+dgwuF3W5V///x820TVYv5ZORNTmgFljf59V/0aqYmXAGi6AiLpr1csB37qWCYlEv09VsN7Js55/wuFkw6CBxfdLnHEg4vHzp+V+1HzYNUHhLik+Ql4xARYuV1O8KpWwaESZMYyqKIiBNbCnxDmqs/EUzkCx/zVNPnUxFl9eYoCqsCvE0OkFI0Rs8gks+EtEm7/8oZlFCWgNgHzE812/VsgSfCJk4NNtbMjnzXl27aSpoPmw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=QXvTazOd+XkWGZAW04skcdntL2lR+h9zsTS9cUQsKKI=;
- b=HYrfLUSr8mAtynkIXEqoVgPukidGSWuGUT4I3JFFwYOL9xCMfHUFmO9f9ivG5P6GvhTleG1AU/bYM2vaYrQqzEI1RAyJt5MJg6en9GKt297lo6lA3bv0wH/2cRqAZ+8ja16MzitJcWyXYPqxCDUaz0XPYXSSfZPzyQjtz/yInyM+vYNmM6i/4zxqImM8jultqC6hyTDGoOFGvw7womucj/nB1QCa8B3QCf7eKoal+aA/t9cgTFBb83nk1nrrGK1qCxZBoK8x9xlVuDImD0ElcslFXsAAt5Br8PfRGYjNyDHOYbAwI9EzJQJjnN8KmWTlDxDJvevmnlJxnJeoXwKCJg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from SJ2PR12MB8784.namprd12.prod.outlook.com (2603:10b6:a03:4d0::11)
- by PH8PR12MB6723.namprd12.prod.outlook.com (2603:10b6:510:1ce::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9366.11; Wed, 26 Nov
- 2025 15:47:38 +0000
-Received: from SJ2PR12MB8784.namprd12.prod.outlook.com
- ([fe80::1660:3173:eef6:6cd9]) by SJ2PR12MB8784.namprd12.prod.outlook.com
- ([fe80::1660:3173:eef6:6cd9%7]) with mapi id 15.20.9343.016; Wed, 26 Nov 2025
- 15:47:38 +0000
-Message-ID: <b166f160-e4e2-43a2-866a-3341cc91a13e@nvidia.com>
-Date: Wed, 26 Nov 2025 15:47:28 +0000
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 07/10] arm64: select HAVE_SHARED_GPIOS for ARCH_QCOM
-To: Bartosz Golaszewski <brgl@bgdev.pl>
-Cc: Kees Cook <kees@kernel.org>, Mika Westerberg <westeri@kernel.org>,
- Dmitry Torokhov <dmitry.torokhov@gmail.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Linus Walleij <linus.walleij@linaro.org>,
- Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Saravana Kannan <saravanak@google.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Andy Shevchenko <andy@kernel.org>, Catalin Marinas
- <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Srinivas Kandagatla <srini@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>,
- Mark Brown <broonie@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
- Takashi Iwai <tiwai@suse.com>, Alexey Klimov <alexey.klimov@linaro.org>,
- Bjorn Andersson <andersson@kernel.org>,
- Konrad Dybcio <konradybcio@kernel.org>, linux-hardening@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sound@vger.kernel.org,
- linux-arm-msm@vger.kernel.org,
- Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
- "linux-tegra@vger.kernel.org" <linux-tegra@vger.kernel.org>
-References: <20251112-gpio-shared-v4-0-b51f97b1abd8@linaro.org>
- <20251112-gpio-shared-v4-7-b51f97b1abd8@linaro.org>
- <0829a21c-f97d-41b6-90bc-2acaec42caab@nvidia.com>
- <CAMRc=MdPvF+okfnRuwvAFG9UfyZ-araDsaaKMxKASEbc3rhyjQ@mail.gmail.com>
- <705186a9-a9db-46f0-bf2b-b499def050dd@nvidia.com>
- <CAMRc=MdQ8QgbdAd2sudZLgcDZu9DxBRJh5sfLeXwcTDEE0F7Uw@mail.gmail.com>
- <c4081961-0875-4a2d-ac84-40df128534e7@nvidia.com>
- <CAMRc=McSrKgL=q8xfH_Vndg7rCfy1TVgRh+dFRqFCiBwT_J2yw@mail.gmail.com>
-From: Jon Hunter <jonathanh@nvidia.com>
-Content-Language: en-US
-In-Reply-To: <CAMRc=McSrKgL=q8xfH_Vndg7rCfy1TVgRh+dFRqFCiBwT_J2yw@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: LO4P123CA0619.GBRP123.PROD.OUTLOOK.COM
- (2603:10a6:600:294::19) To SJ2PR12MB8784.namprd12.prod.outlook.com
- (2603:10b6:a03:4d0::11)
+	Wed, 26 Nov 2025 15:48:09 +0000
+Received: by mail-lj1-x231.google.com with SMTP id 38308e7fff4ca-37b999d0c81so49303751fa.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Nov 2025 07:48:07 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1764172086; x=1764776886; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=dFuVp5mjywP+NMccfEdA1smMO0SeI/6ihvGyik/4sgc=;
+        b=u27ZGP3W5BtKTMtYJhH6gifajuRboz/LL7BKdRkSTxwtiJ4EGJ3WZT70YqZAbtjGAh
+         XCmY5Fd9ANv4/A3M0eElLO1Fvupr9E+0PL4kiECQq0fa0bixnXn+tz3eurflR6X4p0n4
+         UI5D/DZlBY+fClTsCXcI4scTgpHdXm2kcbTPNqunGGDLuzbiwSH4OTNryS3m0KX1M0Dx
+         oLwQZZPsvgKxJZ19rAhbPFKkaVLehsvgfmcHgoeOG0FjgPygKklEXIMW1+LBatklYCsm
+         fZruc2ZXpr+EGVriSbxMEozAfn24gTGEvHbAq+o1E4ctkRClaTDm8/FiOWuFsxRRqInh
+         fRfw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1764172086; x=1764776886;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=dFuVp5mjywP+NMccfEdA1smMO0SeI/6ihvGyik/4sgc=;
+        b=bIEbr2tIfixwmPPhf9vY2ma3OEarsigBYgbivRLEw4y3GXEY6ocUEwg9G/KSC9/ykA
+         1wjfuotlKXjAVkBzKK97tkdDVzRSokbbfHM+dgT6Q4WTEKiBaxtvN9ER5hP5o5hWtOio
+         Z5Zcqa8HNH1vz43tbO4lq9RwjK5hk1/Vj4oqCz0DpLkMTn/23lXbcxPQasmEB3up9Rfg
+         KTmQna5zN06Q4TVLUTlHmSv1FZPegEqQ/JeWeFKUlcBuOj4fL8rmjlOvod2+hjYUV+ZZ
+         d/tjAyJrtcXEbB0o7rS2JakujFPgUqwY3ax1jlUZkaP9OZMHXQ9WnuoRNw4sYDaOpKZ7
+         R48Q==
+X-Forwarded-Encrypted: i=1; AJvYcCX7egPIzXVsulj4OOwFyaRqGTvMdMsKN5MGxxLBZCSiGzqZYTSuMihD5uKGPSMjg6SPTqwJBdQtrS8E7UkaHO00@lists.infradead.org
+X-Gm-Message-State: AOJu0YyHIAYLcPSM2aI46QdAiYJKjDZ8utCh6iK1HLlTMJ1O2f/eHPl6
+	rg5xkV3v+fdcmXNF4UWZzXvr7eElKCSEU32etlJjbOkjNYIM6Wr10dNF4bF3fOsrJVv5PgvQyzf
+	xDUHS9p4xEWypzj0XYuJRFGxyNd3LW/2IjP0QzqoLdg==
+X-Gm-Gg: ASbGncua3zFL8YxlnOUCRNvHHeudQg/rRUs615xqEi1ZbxMKtZHCgBVWrgnWJdQhDV5
+	mub+++6zPp41o4SVTbNqR1g8yUCz4ACZgYK4eVt9Ca94nUv6dnZTriysH6co4Y+t2geBAFt6FFQ
+	sMjzYsZUYk48sgAvtI/6RBRT6nb27pUeREE2TV5H585yex5DJMDp/IrH2vNXiTOTcSO2yy/7I0A
+	gr1TbwsE1pZ8b93CUJL3Spx+VIohzzUiakeYXE5+EhC/ZHZ5+3wGXKvHn+jUWgQ5j/ueSLtNuG8
+	4jgXNJ70u0bNolukSIrL+GeHK+I=
+X-Google-Smtp-Source: AGHT+IEhUl1jNda9/yp2GCLrKXBikNNwXFAiy8yPxeZdtimGdt9zzATr5ITlVaihFGQ0IjBdRUtALikJOU6Bmen20go=
+X-Received: by 2002:a05:6512:10c2:b0:594:51ac:148 with SMTP id
+ 2adb3069b0e04-596b4e5618fmr2340043e87.15.1764172085977; Wed, 26 Nov 2025
+ 07:48:05 -0800 (PST)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ2PR12MB8784:EE_|PH8PR12MB6723:EE_
-X-MS-Office365-Filtering-Correlation-Id: 36bc498a-c47f-4a3a-21c9-08de2d031fed
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|10070799003|1800799024|7416014|376014|366016;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?VWVSc2U3STNGQ1hqM1ZHQWVNU2lobm5JMTlyQkE4QmxtTHlTbmNmanhlRlNB?=
- =?utf-8?B?eVk1bGNMczNvNXFVS0FWVzVKaWM1dDFLUG1wcEdMc2NIbHltd3o5R0tBMDdZ?=
- =?utf-8?B?d0NYTXR5NHVpalk4YTJzVCtMZ1NSaG9VNmxXQS9LVkNVcE9YK0FXeEh6Tzcy?=
- =?utf-8?B?R0RERnRWc3E5R3krdUxTNml5MUx2VjVUb3Bvdkt2Mm5ab2k2L2VEMmJ0MEQy?=
- =?utf-8?B?TGZUSlNHd0Ixc2xhU2t0ZW9lREhNSzcvVFlJczJISGNibUZ3WmhieWd0Qmlk?=
- =?utf-8?B?ZWZGRU5iZmpMdVlndGcxWjc4MmZzSWxIcnJIcXRPdXVqMzg4VHRyMHViVTFO?=
- =?utf-8?B?OHZlRkMrdkQvYm9JNzRsNVROUytKcmIyMkhXT3ZFT1ZOdkJKbStNVXdISk1u?=
- =?utf-8?B?dWE1V0NyMitYSTg2ZmxxN0ZISmdWM25RRVkxVWd5cGM0TVpJQTY0emMrclpp?=
- =?utf-8?B?Q0ozamc3VnNGUkI4K1drNXNIbE83a3hIQkcrWkhzZFVPN3lZc2pCNzQrVkZ5?=
- =?utf-8?B?OVppa1I0MDZyN0hSRDUyM0dtcnNWMXVtQklrQll5UENOSU5GanRWdUVkUDZU?=
- =?utf-8?B?ZWliL1lXYXZaWnVENmhVc2szYlc0dDdhOTR6LzNCQ2p2VlErTjh3R01DVEI0?=
- =?utf-8?B?M0NvSG84cm5PSkNabnIxenkwVXZUdEZpK3FpWlpGUERKa2lSaVkrb0g3UXVI?=
- =?utf-8?B?R2UyamhjajE4M20zeDVuVWZKS0F1ajl2YlNYMS9PNGRUcVRraVdGS1RMNCtF?=
- =?utf-8?B?ZkxWdGQ2Q1RvUHhab0V5TDZVcmhOMzlkNjhhdGx5dDE5Y0R2WVplV2VBVEdt?=
- =?utf-8?B?Q3J4eU1XOWQ0bUk3NU1vVmxSOFdjRm9FdnNOQVJWQzBOVlRpV0RnU3lXMnRM?=
- =?utf-8?B?SVgyRGoxZ3hiNkZ5WGlJbnU0c2tSSDQ4QnpqdUZQTTd0M01Mc0ZEOGFFajBS?=
- =?utf-8?B?U005Z2x3eTFoVE1XcjBDS0VJYWFxK2psUzVkS1hlSWlETWduSFNQMG01TTYr?=
- =?utf-8?B?bWRaUXNnODE2Rm9hN1N1UWtXZHFNZXNTQ0lyVWFyNGFWckU0SE5ISkdjODNa?=
- =?utf-8?B?cjh0cHl3Y011VkRHUHZkd09LT3czNXBJTmdQWFliMFIyUlJnOWphK0wwSVhX?=
- =?utf-8?B?U2lWSGlLM1JUS1llSHYxK1cwSTVyaDYzMUFLVUkvSzE2ekhNZmNSeVJLTWxP?=
- =?utf-8?B?bjRsaisvSUluNGdCNHFEelc4NDdqb2h5cnN1eWM3aVRVTEoyWWhMS21mMzY1?=
- =?utf-8?B?TzVIUUM5SThTY1UvK1oyUUpnaDNPMGpvMkNYYmsvUGNSbUlFaG8rUER3MlR2?=
- =?utf-8?B?UFI3VmZ1d25hS0hQdk1ZUzVHeEdZR3NrQkM5R0hpMXZMYTdjVFp2TVE2MU4z?=
- =?utf-8?B?d0Z2QUtveTl5VW1vTUM3RHZtQk5LOWQvck14ZHM1Tzc5WHQ2c2tibUpLQjl5?=
- =?utf-8?B?TnFUUTlLY2pUcnRwcndHaWFWSzNsbnA4d0c2WFVkZFI5U2s3d0p6dEp1ekVO?=
- =?utf-8?B?Z1F1ckR3MEF2NWEzaDlzRXdpRVk1NlBLcHhaT2dyYjZ2Q2llTkdFSEVCM1hm?=
- =?utf-8?B?VXdYVG1sY2Y3L3dRVFNnWktSTHhEaGM4UjluTVZFY2FUZGRha1RwVi9RK29l?=
- =?utf-8?B?NmxleHV5MWx3TE9mY3IzU0hkZzRDSlc5ZU1CV1RLalNzRUtVaGZmaTg3ZzBH?=
- =?utf-8?B?ZHU4S3o5R2ZDU0JoN1ZHcS9zNy92VjlxdGc3eWVuTWdaMVkrS3grdDNnWG9D?=
- =?utf-8?B?a0pjWnB2TC85eXYwdExxYjgvVGpCcUVuemhZeFNGV2hNbFdjeStSWkVoRklt?=
- =?utf-8?B?THh4U2xJWVpDYlIrMGQ4UStOYmwveE5INnZERVdJa2doN01HdmJ5RHRhV1Yr?=
- =?utf-8?B?UjUrdHNSNE8vOWphQjJzK2NjUmhnQUU3dFdFWCtyL29yUTJuQWZ0emdZeHJU?=
- =?utf-8?Q?eb7glFSr2caSTK9x6rp7qQMu5O6fp6bx?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR12MB8784.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(10070799003)(1800799024)(7416014)(376014)(366016);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?d29ORzN4Nmd4dFBCcW1RL1FpWFVwZXZIckVoT2JmdHVRcURDTDhjelM2QUg4?=
- =?utf-8?B?SkFFQ3h6SG9wWE1UZE8ydS8vNWdFSDBHV1prZkxkWEp4VHovdXFhbjFJMkh6?=
- =?utf-8?B?bml2dm45T0p1L0oyVlAvdDNVdGRHa2dlOUl4dkE3cGxFWERocmVKNDN5OTV4?=
- =?utf-8?B?MThJOW5tVDIwelJGSzhKbkZOU3g1RHYxOHlQQmVNZ2Nxd3pmaFVSRzhtZ3BZ?=
- =?utf-8?B?aDB3NHZ1eUMzWVVvdFhBcml5ME9yLzZwRUJ5TWJvNDJUOENGeEhpY2kzcUFj?=
- =?utf-8?B?dk5TSlRzYWVUOFdXZTVrT1h4eTc2RlFQeWR5N21hUGh6NjBLYXZRSFFwMnQ5?=
- =?utf-8?B?eXV5bDhlV0dqZlBOTVJjQWJRVU1jb2VlcWVvWEY0RzdqdTNMRlZCWWdISDAv?=
- =?utf-8?B?ZTNkbEZHamo0UVFrQlEwbWllczV4UTFqVWs0eCtCTkJKODcrdG80dUxPTlN4?=
- =?utf-8?B?TzJoME1kZUMwcWl3eGl4eVhBdWcrS2lWZUtnMU1XVUh1YkVTSzRUQ3Q0TnJw?=
- =?utf-8?B?c0F6amo3NG5Lb2ZCUTdqdTVBVXhMMUlrSUNXRGlHREhMcFJpVThIQmxEbE5s?=
- =?utf-8?B?ZG1YK002aW5veGxER1JzRlZFYmRvNnFHRXdkSVkrQUxtTUlzYlgraC9TMjlq?=
- =?utf-8?B?RUoyWXhWQmpaaGMyNnhtVzFSbnNhU0UwWE1uUUlkRUpxMmlCQWpJOHJpemtr?=
- =?utf-8?B?ZE9IRDZPcnBJSzFKMUVZQ0M2UER1eFhjZGUwRWpJMWVoTTQ2djVzU2VqSXBU?=
- =?utf-8?B?bEtlY21nUzVFek5nMzBoTUFBMDV5MVE2bm5lS0NUUGppc0dMUXJYVDV1Z1U4?=
- =?utf-8?B?bm1wanloTFRzTFlUTWhzWnhXZm56VG1zYmtEQ2JrKzNqUXpMeU1icGczNFFD?=
- =?utf-8?B?Q2Y1dXZhbzFzZnJ6L1htMTBLQlJ5TG1GMWIrWWx5dklIMG1EOUcyTzluWm9D?=
- =?utf-8?B?QmJYMFdwQWxaUWF3N3liRnh1K1VtY0lZZkw5bTNWTHRXMFkxOFpyaHZrOVZV?=
- =?utf-8?B?czhQeGlhRHJWaUpab0x4YUkrU1BLRVNrclhLQXFxak9HY1RVaWF1Q05LNGZ5?=
- =?utf-8?B?dTdpcXpMLyt4YUQzTVVhcitWbVlpTmFjWW9nelhacEZkbWZCRXRRaWRGdGw3?=
- =?utf-8?B?WmtPdUtLeTh5Wnc5aVZWa2FSQjd1d1V3TkdVSUxOZnpQSGNtWTh5RVBuMEh1?=
- =?utf-8?B?akljUGd0ZG1nNmQrWVA5WE1wUktLQmNjeDRtb1ZPMkVZTXJCWkJscmNqaDhZ?=
- =?utf-8?B?OVo0Qmt1S3ZTV0pQbC9GaWxqNnhaKzY2NEVaZkduSjMzTms5RFVUTitIR2V2?=
- =?utf-8?B?NDY1Q0JBZElEV1NlcjNUSEJlSlRxd3ZRVU41MEw2SmE2Y0hDUTRteDdZckFj?=
- =?utf-8?B?YU5VSVd5aHBxYzlhOUZvWWM3VzFNNDlPVUNYMFpoVm1iSXJWMVYvQmd4RDMy?=
- =?utf-8?B?Qm1wS3BOVzMvOXYwMGxsNGJOVlNrdXJCM0VuVDdvdXdkNEdqc1RCWGpxTGlt?=
- =?utf-8?B?OXJXUVBiNlZlSGlxSGpkdjJQNVpBSi9SWkhGdlBsd0czOE8xQlB4cW1wcVkz?=
- =?utf-8?B?d254OWE5QU1vdVVkbTY0b1hrMFpxaVlnaFRlVEQzRXpiU2dXKzEyZjFZS01L?=
- =?utf-8?B?WEdzZ2VNWHROc0VBeGF6WExXVGF4ZDQ1QWtVSjZLRm56V0h3WUh3ZXNWcEp0?=
- =?utf-8?B?UG1FQmNxU3RNS2tEM0NwYkZCNnhnNXlRUllZTHdQSmliRUdhWjA1Wm8xUHJG?=
- =?utf-8?B?dzZjSlVGQU5vS04rR3llTm1abi9sdXdjTVVJaStBUHA1ckRhOFA5dU5hVzhP?=
- =?utf-8?B?RjNYUVZITVdIUTA4VFdIYVRYZENSeHRwRkZlZmk0QVZIL1hKaWIzZlcvZGdY?=
- =?utf-8?B?dkJ3MEpEUFZBNzA0RERreEg5NFQ5d1ZIcFZpMmYyVVNHNlBGcUxEUy9qcjR2?=
- =?utf-8?B?KzE0REEySkJFcEJwYTBta1RBQlRiUVBKS3JLalpONjM3NnVKZ0I0SDFiNklT?=
- =?utf-8?B?cnF1aGkxRmlWdTVzT2tIZ3ErRmo0THpSVzczeXhWM0NIdTdxbUVZdDlxcWs0?=
- =?utf-8?B?VDNXLzFCZTNzZ2k3M0dQc041ZEhjRmN5TVNWVDh6Q2dmNzliN1Rkdm9pYnFB?=
- =?utf-8?B?QThzOTVYOHhOUkpRZDFoZGxhTmtmdmhaWUpleXp0RmFnS0d3cVovcG1UZzB3?=
- =?utf-8?Q?B0hLP8Ps2YMGwSajRmIgPEDkhvSNV5xYDLsigannR6H+?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 36bc498a-c47f-4a3a-21c9-08de2d031fed
-X-MS-Exchange-CrossTenant-AuthSource: SJ2PR12MB8784.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Nov 2025 15:47:38.0029
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: NPgjEFZNVkHbGoLZmBuhP/Zxa7y5zGFzK4Lx/4EkVACWV6anq+MuVc4wx+HYG8a/H736VWOzBbnoJrWTmhQyPw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH8PR12MB6723
+References: <20251112-gpio-shared-v4-0-b51f97b1abd8@linaro.org>
+ <20251112-gpio-shared-v4-3-b51f97b1abd8@linaro.org> <2d96e464-e17c-4ff5-9a08-b215b77da04f@gmail.com>
+In-Reply-To: <2d96e464-e17c-4ff5-9a08-b215b77da04f@gmail.com>
+From: Bartosz Golaszewski <brgl@bgdev.pl>
+Date: Wed, 26 Nov 2025 16:47:54 +0100
+X-Gm-Features: AWmQ_bnK-S4TlEVeOIf3ITE7TZsWB2TJ1MXZpLcLB_4C4obVKenyvukRrMrvtB4
+Message-ID: <CAMRc=Mexa9eSe+qy9dm_q=+gBKtc-EZ7M0RXsgSe6fhWj1FV4A@mail.gmail.com>
+Subject: Re: [PATCH v4 03/10] gpiolib: implement low-level, shared GPIO support
+To: Cosmin Tanislav <demonsingur@gmail.com>
+Cc: Kees Cook <kees@kernel.org>, Mika Westerberg <westeri@kernel.org>, 
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>, Andrew Morton <akpm@linux-foundation.org>, 
+	Linus Walleij <linus.walleij@linaro.org>, Manivannan Sadhasivam <mani@kernel.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Saravana Kannan <saravanak@google.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Andy Shevchenko <andy@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Srinivas Kandagatla <srini@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
+	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
+	Alexey Klimov <alexey.klimov@linaro.org>, Bjorn Andersson <andersson@kernel.org>, 
+	Konrad Dybcio <konradybcio@kernel.org>, linux-hardening@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-sound@vger.kernel.org, 
+	linux-arm-msm@vger.kernel.org, 
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251126_074745_761166_47118200 
-X-CRM114-Status: GOOD (  13.05  )
+X-CRM114-CacheID: sfid-20251126_074808_271580_105FD879 
+X-CRM114-Status: GOOD (  20.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -201,56 +109,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, Nov 26, 2025 at 4:34=E2=80=AFPM Cosmin Tanislav <demonsingur@gmail.=
+com> wrote:
+>
+> > +
+> > +             count =3D of_count_phandle_with_args(curr, prop->name,
+> > +                                                "#gpio-cells");
+>
+> This call causes error messages to be printed for gpio-hog entries, like
+> this one from arch/arm64/boot/dts/renesas/rzt2h-n2h-evk-common.dtsi:
+>
 
+Thanks for the report.
 
-On 26/11/2025 15:33, Bartosz Golaszewski wrote:
-> On Wed, Nov 26, 2025 at 4:29 PM Jon Hunter <jonathanh@nvidia.com> wrote:
->>
->>>>
->>>
->>> Is the device-tree used here upstream? Can you enable DEBUG_GPIO in
->>> Kconfig and post the entire kernel log on pastebin?
->>
->> The kernel log is here: https://pastebin.com/7rBh3T3T
-> 
-> This is not telling me much, can you try again with the printk() I
-> posted earlier, please?
+Please trim your responses to just the relevant context though, you
+included the entire huge patch.
 
-Yes, sorry I missed that before kicking off the last test. With
-this print I see ...
+>         sdhi0-emmc-iovs-hog {
+>                 gpio-hog;
+>                 gpios =3D <RZT2H_GPIO(2, 6) GPIO_ACTIVE_HIGH>;
+>                 output-high;
+>                 line-name =3D "SD0_IOVS";
+>         };
+>
+> For gpio-hog entries, the first element is not a phandle (gpio-hog is
+> already under its parent).
+>
+> of_count_phandle_with_args() will however try to interpret it as a
+> parent either way, causing the following error to be printed.
+>
+> OF: /soc/pinctrl@802c0000/sdhi0-emmc-iovs-hog: could not get #gpio-cells
+> for /soc/ethernet@92010000/mdio/ethernet-phy@2
+>
+> RZT2H_GPIO(2, 6) expands to 22, or 0x16.
+>
+> Coincidentally, in the decompiled dts file we have:
+>
+> ethernet-phy@2 {
+>         ...
+>         phandle =3D <0x16>;
+> };
+>
 
-[    0.120432] gpio_shared_of_traverse: /bus@0/ethernet@2490000 phy-reset-gpios
-[    0.121407] gpio_shared_of_traverse: /bus@0/mmc@3400000 cd-gpios
-[    0.121891] gpio_shared_of_traverse: /bus@0/host1x@13e00000/sor@15b80000 nvidia,hpd-gpio
-[    0.122035] gpio_shared_of_traverse: /bus@0/pcie-ep@141a0000 reset-gpios
-[    0.122075] gpio_shared_of_traverse: /bus@0/pcie-ep@141a0000 nvidia,refclk-select-gpios
-[    0.122342] gpio_shared_of_traverse: /regulator-vdd-hdmi gpio
-[    0.122381] gpio_shared_of_traverse: /regulator-vdd-3v3-pcie gpio
-[    0.122420] gpio_shared_of_traverse: /regulator-vdd-12v-pcie gpio
-[    0.122453] gpio_shared_of_traverse: /regulator-vdd-5v0-sata gpio
-[    0.122486] gpio_shared_of_traverse: /gpio-keys/key-force-recovery gpios
-[    0.122551] gpio_shared_of_traverse: /gpio-keys/key-power gpios
-[    0.122615] gpio_shared_of_traverse: /__symbols__ gpio
-[    0.122672] OF: /__symbols__: could not find phandle 794981747
-[    0.122701] CPU: 0 UID: 0 PID: 1 Comm: swapper/0 Not tainted 6.18.0-rc7-next-20251126-00002-g1cd98992c487-dirty #21 PREEMPT
-[    0.122739] Hardware name: NVIDIA Jetson AGX Xavier Developer Kit (DT)
-[    0.122747] Call trace:
-[    0.122753]  show_stack+0x18/0x24 (C)
-[    0.122772]  dump_stack_lvl+0x74/0x8c
-[    0.122788]  dump_stack+0x18/0x24
-[    0.122801]  of_phandle_iterator_next+0x18c/0x1c4
-[    0.122819]  of_count_phandle_with_args+0xa0/0xc8
-[    0.122832]  gpio_shared_of_traverse+0xd4/0x4c8
-[    0.122848]  gpio_shared_of_traverse+0x178/0x4c8
-[    0.122860]  gpio_shared_init+0x11c/0x1f8
-[    0.122878]  do_one_initcall+0x7c/0x1c0
-[    0.122892]  kernel_init_freeable+0x204/0x2e0
-[    0.122908]  kernel_init+0x20/0x1d8
-[    0.122923]  ret_from_fork+0x10/0x20
-[    0.123055] gpiolib_shared: Finished scanning firmware nodes for shared GPIOs
+Yes, because behind the scenes, a phandle really is nothing more than
+an integer.
 
-Jon
--- 
-nvpublic
+> Maybe a check for gpio-hogs should be added?
+>
+> Something like the following before the call to
+> of_count_phandle_with_args().
+>
+> if (strcmp(prop->name, "gpios") =3D=3D 0 &&
+>      of_property_present(curr, "gpio-hog"))
+>         continue;
+>
 
+Yes, that's a good idea, thanks. Let me cook up a patch.
+
+Bart
 
