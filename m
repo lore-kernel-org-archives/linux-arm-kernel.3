@@ -4,88 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C23E9CCF9F5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 22:26:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4A51D1119B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 22:31:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=9SJuhZNExCqQMugpeBqSuCp4/sWFcqR6NYcpSf34oxY=; b=yh6C3Tz7fcdHNI6EWBgTSczi4q
-	0BAdH9wvBACryBLxbxhCMdyuYP0pIqH+Co+tAt1pku/YsnCTu0jhwUHs5KK8qoN0nlZimnCo7YT0G
-	Cx+mhwrhMCa+DN56RDvephdgcjWWKQhXOKGIK1Sx/k6KmyOQvW2pd2/9ypBSEmgGLw/jqiTUhrszv
-	YrMeWLkXh5H0kR6LWVYRWUop4jNOzY4QG0N37CSSlqgrBxTcGWAXV9+tsVf5pL4FsvakbLtAes9+h
-	0OQeTSBWKESut5QI9Ru/aPkKcZ4qVEAYr8h2AeP3sRd4xKcIQiL+4vy9VBRlQu5na6wrio3OcT8eQ
-	Btj8hWNg==;
+	bh=06gB16fa6KS/zoSWFVr7c45ocEVqzhsuohxeJKfmG+g=; b=Pjk8hkAe8lD3aKE4SKMd1QtBxo
+	b3vR+6Fo0ISfdRpK7e5utTHTQY0FRFTuboIuiCQpab6lh6qAN3dPgi50qDvzQ8Reg8ZhVm4JowQYm
+	7sY0mGVWcEquwz2ej2KOTvjfo0jJ1Qlf9L/uP1xG50qQ3VN0aWC0ZAkeIa613eWJ1MW/IFuqV3d/h
+	2xHafmonZlm2pYNsRBKi2J5vFPg6DNfjCAmUtRpzzJUk7iDPRn26zap22tVnADJ9gnFmPtGLKlemo
+	EPOP2oE2MB5JG8vOUC/jKpBu0IGDurZVUjHm0ToFuGCaBtuB3OEaA2QA3cLAONpAfKdFTEZ7GkBNn
+	zaWIeRhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vONy3-0000000FiWy-3XXk;
-	Wed, 26 Nov 2025 22:26:31 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1vOO33-0000000Fimt-2Jqh;
+	Wed, 26 Nov 2025 22:31:41 +0000
+Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vONy1-0000000FiWO-27sm
+	id 1vOO30-0000000Fima-2sjb
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Nov 2025 22:26:30 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-477b5e0323bso7843205e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Nov 2025 14:26:28 -0800 (PST)
+	Wed, 26 Nov 2025 22:31:39 +0000
+Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-42b3ad51fecso239378f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Nov 2025 14:31:38 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1764195987; x=1764800787; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1764196297; x=1764801097; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=9SJuhZNExCqQMugpeBqSuCp4/sWFcqR6NYcpSf34oxY=;
-        b=EyrUEIYpsrUo9yQyteHhM5Ytba4dE43yqenOlDUYFk0+N3G+6RkNhP3ixw2DOT+iQJ
-         mPliTxxBwvofYqRxCT/co0LDo6qdSTWuURYoYPWEOUZc1YfBMR26eYJSvchq4jYFpZS8
-         FEkmpwB5WaXazhNyfVvQqjWvRorhvmq4ScDMuaE2sHmkrBiTQlxLN6AGZ0dty7TkQlkD
-         fjPlI/86XUvpEz0rEHjWd/7mQByO7y/vn6rLSHQuLoHnp9WN7oxRuc9vpGpuaGVjkckU
-         g71NcIWM1QpKK7T9cCoQtO0pdHbgbT+/Q/MHGxTm1ibZ0/hHo/tlF49fEE33opbhrtE2
-         OIbw==
+        bh=06gB16fa6KS/zoSWFVr7c45ocEVqzhsuohxeJKfmG+g=;
+        b=UZtKqkHxreBIm6Xv8JDfs/yVWLhyNl0+Uv8l1BiFy905OczqbL/qMhS3phDwz7IzO1
+         lPpaDY60VaKMSAoALkSdvlS/Ww20vjrFtPN1aOWbpdFyOxRE7Kdzy69THN1WRWGe8lXn
+         2T4V6D5YvkfqtvD+XVgSFL93O6AN+m+4xPhd6VugvC/yhGjWG5+RdFaclhaF+wn7/kIl
+         xWjqgUHyM47yZXl7NRcYZ6/fprqfLJjQSkS+QrVTkuOgtjU8V7l1KxvKap1fRcUQDtBI
+         ZsYi19UNhi9bUKrpW3ZzCxWUKG8HUf/MeaKnnevSmCilgGOXZExzXupWxkE7kYTcuUub
+         g6zQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764195987; x=1764800787;
+        d=1e100.net; s=20230601; t=1764196297; x=1764801097;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=9SJuhZNExCqQMugpeBqSuCp4/sWFcqR6NYcpSf34oxY=;
-        b=uVw8ZRyuuqkNdy76vMCnpegEuQRz/sIsvbgDEqUXPWowBNMvUmc/cg/EB3X42KcO5q
-         Bt42az/dda5expUDhaXqWDTz8OFP/z3KXbt6a/YZpyxkmiSkQnbMwyYiEH71Xhw/TW5N
-         Cya1FZ5XKwHvpcIAexNQ/crNsy4ehU5zSTAQp/AACUuDdJV5BB34VtJv3gqfobqLODX3
-         mzvlKUVK+ORw8SggwEfwCZ2vwxZlmZbGqZ9qm8ZCdtUz6/PXKsM2nI57hDk71dah62eq
-         qoYEB6UcftfAyRWV0HWReSh9v6li79it4bb4QupiiYrF8Xl06tlZP+70Ks7zOSY0xeH4
-         48Gg==
-X-Gm-Message-State: AOJu0YzmiWX2Dckt2BOYhQ8+25CETY++//bfj580/NlTK3zCYQxfuZLW
-	dXJeDxJwUeTdHh9axRMY7IkFwpWqhERF4xaHoZLSCHt0npP3j7yudoQ1
-X-Gm-Gg: ASbGncsRlbV5yNS0rilBNntLR6qPy9nupX+sByGGRrUbSNFRd5Zw8Frlp6xo22/CV57
-	lCLODTERTJZKI7V5DwvcRppeSgPF82GYergW8nzbFWfkYK2VYKPmgwQYv/RpsS9HaIcy8HXSqrZ
-	YwR4Qzg6BZJHtUmfwGoaqN2nov/LuvkoMzg3T944EvSttvoJX2U9OHnFsn6vHlmhWPp/vAh94GY
-	GeSt5UF/za6osGTdDF12CKLkUmGzgvc8I/9x6KRyF8BmVzgCk49B18i7t06io/c2S85VG82LuHm
-	2XerAO6jZPcO/7bCNbYyjsFIeQveeDcQx/yrmKliTWkeHSLd7TI650/nc4rGi3/ecnhFUiUqynz
-	U7Zbz9gG8iTmTP9Npoml7z8VUhk/EVN6pLXbEZiJzGg571dG1rPueICqCGm61XB9VmjopyDzj+p
-	T1U1K7tkRYuSGkcKY=
-X-Google-Smtp-Source: AGHT+IGFRhfKwd0O9NuIoXvf6KEKvdve+8muU9KsMCG0UwC5refNIeG3tBGirL/CPfCmXHPQAQCl3A==
-X-Received: by 2002:a05:600c:4515:b0:477:7a5c:6a8e with SMTP id 5b1f17b1804b1-477c0513800mr199456735e9.9.1764195987375;
-        Wed, 26 Nov 2025 14:26:27 -0800 (PST)
+        bh=06gB16fa6KS/zoSWFVr7c45ocEVqzhsuohxeJKfmG+g=;
+        b=EQ6sL0ji/XBJTWpA88L+NoSjS62evbNzKg2KUwAaY9mzGjUF4Tx2gvLOgKq8OLiLRh
+         drX1uUtoNl9pq4nWApZXEOAMUxuyrFePbbkZ9UnYZncbelUUU2ELx7HFkP1sgzqS1JK9
+         oXuqR9DG99bT5ZAKE8YhqtRxU7yS/FL2BkR096ZIMYNR7fYVjpgd/uPBW6qx+xnbctGy
+         U3q39qMQZp89a5+AII76IWmyhPWHFzW+nK2aV2Nmm9eXDX6gZVLWzMjmCvkmARyMyfVq
+         TYMhXliBWuauGEGMZ2TPMVT84R+cYR37G/jMVyGgvkn2SNrFASgjLaqKjGPMCDaE82IQ
+         4dxg==
+X-Gm-Message-State: AOJu0YxkWqdGjBqCPjk1+r2Lgn+FBYK2hsHuw8br3m3KQS6pXX+lEb8P
+	v6H26OK+QyCeJsz8I20bFfq5ffDZB5sB2MJbi4+tT7Nx+BQkJWVigy0W
+X-Gm-Gg: ASbGncv7N+FJGZfnYP4tiJAk4H9xb639SKQPg/P91DP88DKgkrkzkuR6mii2DLH8nPe
+	SxUgfKbC2JwdTuMcstWd7sEN1ULYs0+IeWk2LC81aU8/Rwk/hyMYsBpS/RpaKzULzX3AxuATtyl
+	T+wjJZH+kaNxf6ZeHf4bGA3V9Vms21X+G7Tki9x0Wxl27fMNG1AwdXdWksngO0k29n9W9m2deAa
+	0xaghPh5k/8vbK5nHHvcafa8DPYG1sz9aq/ZMUFIvAA0Boj5ObxZRqGNrS21nzX+/ZdI28CIqg9
+	PVAZv/EAaurar4ayTTU6h/X9qMAjodA1aHbdPHmbiVBtGZKlmUMzD8e34uHDyY663jZtNQCCi8o
+	Q7D15XeT7OUqmRGpwa5f6koi1A7bE1tx58R/owrP0Awpf3cW4OeydyJtpmXLFbouCYrWuPln9VR
+	ip6s4XW4wHxnMts1o=
+X-Google-Smtp-Source: AGHT+IFTq8xGRpCwoprbCeF3K9a3D/FqGda4o3Yl7FBKNxyW3D3EyyqfUlnqh/otuuy2/Zh5V/gmtg==
+X-Received: by 2002:a5d:5d08:0:b0:42b:41d3:daf9 with SMTP id ffacd0b85a97d-42e0f1d5993mr9362364f8f.2.1764196296510;
+        Wed, 26 Nov 2025 14:31:36 -0800 (PST)
 Received: from osama.. ([2c0f:fc89:129:990a:83a3:6137:cef9:6de9])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4790b0c3a28sm67152705e9.9.2025.11.26.14.26.24
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42cb7fa3592sm41705453f8f.21.2025.11.26.14.31.33
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 26 Nov 2025 14:26:26 -0800 (PST)
+        Wed, 26 Nov 2025 14:31:36 -0800 (PST)
 From: Osama Abdelkader <osama.abdelkader@gmail.com>
-To: catalin.marinas@arm.com,
-	will@kernel.org,
-	mark.rutland@arm.com,
-	ada.coupriediaz@arm.com,
-	smostafa@google.com
+To: mhiramat@kernel.org,
+	oleg@redhat.com,
+	peterz@infradead.org,
+	catalin.marinas@arm.com,
+	will@kernel.org
 Cc: linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org,
 	Osama Abdelkader <osama.abdelkader@gmail.com>
-Subject: [PATCH] arm64: Remove unreachable break after die
-Date: Thu, 27 Nov 2025 00:26:20 +0200
-Message-ID: <20251126222620.215245-1-osama.abdelkader@gmail.com>
+Subject: [PATCH] arm64: simplify arch_uprobe_xol_was_trapped return
+Date: Thu, 27 Nov 2025 00:31:30 +0200
+Message-ID: <20251126223130.216302-1-osama.abdelkader@gmail.com>
 X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251126_142629_546429_E9334B32 
-X-CRM114-Status: UNSURE (   9.18  )
+X-CRM114-CacheID: sfid-20251126_143138_737299_494625CC 
+X-CRM114-Status: UNSURE (   9.46  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -101,25 +102,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-die() never returns, the break is unreachable in arch/arm64/kernel/traps.c
+convert arch_uprobe_xol_was_trapped() from explicit if/return true
+return false pattern to direct boolean expression return in
+arch/arm64/kernel/probes/uprobes.c
 
 Signed-off-by: Osama Abdelkader <osama.abdelkader@gmail.com>
 ---
- arch/arm64/kernel/traps.c | 1 -
- 1 file changed, 1 deletion(-)
+ arch/arm64/kernel/probes/uprobes.c | 5 +----
+ 1 file changed, 1 insertion(+), 4 deletions(-)
 
-diff --git a/arch/arm64/kernel/traps.c b/arch/arm64/kernel/traps.c
-index 681939ef5d16..81dd2d7759eb 100644
---- a/arch/arm64/kernel/traps.c
-+++ b/arch/arm64/kernel/traps.c
-@@ -1003,7 +1003,6 @@ int bug_brk_handler(struct pt_regs *regs, unsigned long esr)
- 	switch (report_bug(regs->pc, regs)) {
- 	case BUG_TRAP_TYPE_BUG:
- 		die("Oops - BUG", regs, esr);
--		break;
+diff --git a/arch/arm64/kernel/probes/uprobes.c b/arch/arm64/kernel/probes/uprobes.c
+index 2799bdb2fb82..b38c1dab7eb4 100644
+--- a/arch/arm64/kernel/probes/uprobes.c
++++ b/arch/arm64/kernel/probes/uprobes.c
+@@ -103,10 +103,7 @@ bool arch_uprobe_xol_was_trapped(struct task_struct *t)
+ 	 * insn itself is trapped, then detect the case with the help of
+ 	 * invalid fault code which is being set in arch_uprobe_pre_xol
+ 	 */
+-	if (t->thread.fault_code != UPROBE_INV_FAULT_CODE)
+-		return true;
+-
+-	return false;
++	return t->thread.fault_code != UPROBE_INV_FAULT_CODE;
+ }
  
- 	case BUG_TRAP_TYPE_WARN:
- 		break;
+ bool arch_uprobe_skip_sstep(struct arch_uprobe *auprobe, struct pt_regs *regs)
 -- 
 2.43.0
 
