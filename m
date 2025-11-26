@@ -4,79 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AA99CCF9F5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 22:25:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C23E9CCF9F5
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 22:26:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JdiNBuFehcyPOmOy5sppRLIzajFbdjUkb07I69kLGso=; b=Y29lbLqtIajXWl97aGWB6OdHw0
-	mEsiNCs0azvdhlDlIPfsM98rnEDQyvGs6xSRfIWnNefweYOJIcteyWD4yWQrb1zGrRqTXWCjvbb+Y
-	2VVj+qX72zeIjutYnr8giAbJ7+5eFt9AUlPTTBwbqPzQqfmzKI38Do2XawqC7TdMqH34oBepB+zW+
-	1jJgDHtUwRsjXIZIyVFVBQNYa8R5WuJsHNIt7xh639bqrhcyXaaWIDQa5jEzk1ZK9/N367ivKkHv8
-	Ab4WzB33eisxIIyoRaFpzHGD+AF8hjPORcwv6MzGwpoBYmlD7rCB9yxLWes3vh71xC4ntW3GHgBzd
-	WxNOBEUg==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=9SJuhZNExCqQMugpeBqSuCp4/sWFcqR6NYcpSf34oxY=; b=yh6C3Tz7fcdHNI6EWBgTSczi4q
+	0BAdH9wvBACryBLxbxhCMdyuYP0pIqH+Co+tAt1pku/YsnCTu0jhwUHs5KK8qoN0nlZimnCo7YT0G
+	Cx+mhwrhMCa+DN56RDvephdgcjWWKQhXOKGIK1Sx/k6KmyOQvW2pd2/9ypBSEmgGLw/jqiTUhrszv
+	YrMeWLkXh5H0kR6LWVYRWUop4jNOzY4QG0N37CSSlqgrBxTcGWAXV9+tsVf5pL4FsvakbLtAes9+h
+	0OQeTSBWKESut5QI9Ru/aPkKcZ4qVEAYr8h2AeP3sRd4xKcIQiL+4vy9VBRlQu5na6wrio3OcT8eQ
+	Btj8hWNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vONxU-0000000FiPq-2BWj;
-	Wed, 26 Nov 2025 22:25:56 +0000
-Received: from mailtransmit04.runbox.com ([2a0c:5a00:149::25])
+	id 1vONy3-0000000FiWy-3XXk;
+	Wed, 26 Nov 2025 22:26:31 +0000
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vONxR-0000000FiNg-3KO5
+	id 1vONy1-0000000FiWO-27sm
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Nov 2025 22:25:55 +0000
-Received: from mailtransmit02.runbox ([10.9.9.162] helo=aibo.runbox.com)
-	by mailtransmit04.runbox.com with esmtps  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
-	(Exim 4.93)
-	(envelope-from <david.laight@runbox.com>)
-	id 1vONws-00Anzk-V3; Wed, 26 Nov 2025 23:25:18 +0100
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=runbox.com;
-	 s=selector1; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date;
-	bh=JdiNBuFehcyPOmOy5sppRLIzajFbdjUkb07I69kLGso=; b=xcD55qt/yTlHbRKdH+dBDSqh0U
-	D42VMdh3YZT9pboyItqPjUEFlMjqGvWOkqKAMtxuETcqWYgXpz4rKroO5l/tRmc3L1BOxUfisIxkl
-	rB1Iby8Ydzrb+bQCoPA7DatT6VLRSGNsdHwRDRTFQ5z0moPBOyfGsIcUf8++5wUiEyW+pE4J/YgUA
-	OPPMAkQtF/m5Q1ardScEOjgI2eA0Y9fd/zb1MeRycorFUZdoNr0n/uOOSlhpqKg4fAk3vPaH5FtCr
-	IgHttiJ0P0sh6EEouRQ3I09DwKT03Sa31APrSym62KaZbRen3hdZZ1gjJ53lTWC+Ky3pEFG8BjzHd
-	gB2J9ibQ==;
-Received: from [10.9.9.74] (helo=submission03.runbox)
-	by mailtransmit02.runbox with esmtp (Exim 4.86_2)
-	(envelope-from <david.laight@runbox.com>)
-	id 1vONwr-0006Pi-3U; Wed, 26 Nov 2025 23:25:17 +0100
-Received: by submission03.runbox with esmtpsa  [Authenticated ID (1493616)]  (TLS1.2:ECDHE_SECP256R1__RSA_SHA256__AES_256_GCM:256)
-	(Exim 4.93)
-	id 1vONwi-00EfwT-M2; Wed, 26 Nov 2025 23:25:08 +0100
-Date: Wed, 26 Nov 2025 22:25:05 +0000
-From: david laight <david.laight@runbox.com>
-To: Al Viro <viro@zeniv.linux.org.uk>
-Cc: "Russell King (Oracle)" <linux@armlinux.org.uk>, Xie Yuanbin
- <xieyuanbin1@huawei.com>, brauner@kernel.org, jack@suse.cz,
- will@kernel.org, nico@fluxnic.net, akpm@linux-foundation.org, hch@lst.de,
- jack@suse.com, wozizhi@huaweicloud.com, linux-fsdevel@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mm@kvack.org, lilinjie8@huawei.com, liaohua4@huawei.com,
- wangkefeng.wang@huawei.com, pangliyuan1@huawei.com
-Subject: Re: [RFC PATCH] vfs: Fix might sleep in load_unaligned_zeropad()
- with rcu read lock held
-Message-ID: <20251126222505.1638a66d@pumpkin>
-In-Reply-To: <20251126200221.GE3538@ZenIV>
-References: <20251126090505.3057219-1-wozizhi@huaweicloud.com>
-	<20251126101952.174467-1-xieyuanbin1@huawei.com>
-	<20251126181031.GA3538@ZenIV>
-	<20251126184820.GB3538@ZenIV>
-	<aSdPYYqPD5V7Yeh6@shell.armlinux.org.uk>
-	<20251126192640.GD3538@ZenIV>
-	<aSdaWjgqP4IVivlN@shell.armlinux.org.uk>
-	<20251126200221.GE3538@ZenIV>
-X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
+	Wed, 26 Nov 2025 22:26:30 +0000
+Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-477b5e0323bso7843205e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Nov 2025 14:26:28 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1764195987; x=1764800787; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=9SJuhZNExCqQMugpeBqSuCp4/sWFcqR6NYcpSf34oxY=;
+        b=EyrUEIYpsrUo9yQyteHhM5Ytba4dE43yqenOlDUYFk0+N3G+6RkNhP3ixw2DOT+iQJ
+         mPliTxxBwvofYqRxCT/co0LDo6qdSTWuURYoYPWEOUZc1YfBMR26eYJSvchq4jYFpZS8
+         FEkmpwB5WaXazhNyfVvQqjWvRorhvmq4ScDMuaE2sHmkrBiTQlxLN6AGZ0dty7TkQlkD
+         fjPlI/86XUvpEz0rEHjWd/7mQByO7y/vn6rLSHQuLoHnp9WN7oxRuc9vpGpuaGVjkckU
+         g71NcIWM1QpKK7T9cCoQtO0pdHbgbT+/Q/MHGxTm1ibZ0/hHo/tlF49fEE33opbhrtE2
+         OIbw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1764195987; x=1764800787;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=9SJuhZNExCqQMugpeBqSuCp4/sWFcqR6NYcpSf34oxY=;
+        b=uVw8ZRyuuqkNdy76vMCnpegEuQRz/sIsvbgDEqUXPWowBNMvUmc/cg/EB3X42KcO5q
+         Bt42az/dda5expUDhaXqWDTz8OFP/z3KXbt6a/YZpyxkmiSkQnbMwyYiEH71Xhw/TW5N
+         Cya1FZ5XKwHvpcIAexNQ/crNsy4ehU5zSTAQp/AACUuDdJV5BB34VtJv3gqfobqLODX3
+         mzvlKUVK+ORw8SggwEfwCZ2vwxZlmZbGqZ9qm8ZCdtUz6/PXKsM2nI57hDk71dah62eq
+         qoYEB6UcftfAyRWV0HWReSh9v6li79it4bb4QupiiYrF8Xl06tlZP+70Ks7zOSY0xeH4
+         48Gg==
+X-Gm-Message-State: AOJu0YzmiWX2Dckt2BOYhQ8+25CETY++//bfj580/NlTK3zCYQxfuZLW
+	dXJeDxJwUeTdHh9axRMY7IkFwpWqhERF4xaHoZLSCHt0npP3j7yudoQ1
+X-Gm-Gg: ASbGncsRlbV5yNS0rilBNntLR6qPy9nupX+sByGGRrUbSNFRd5Zw8Frlp6xo22/CV57
+	lCLODTERTJZKI7V5DwvcRppeSgPF82GYergW8nzbFWfkYK2VYKPmgwQYv/RpsS9HaIcy8HXSqrZ
+	YwR4Qzg6BZJHtUmfwGoaqN2nov/LuvkoMzg3T944EvSttvoJX2U9OHnFsn6vHlmhWPp/vAh94GY
+	GeSt5UF/za6osGTdDF12CKLkUmGzgvc8I/9x6KRyF8BmVzgCk49B18i7t06io/c2S85VG82LuHm
+	2XerAO6jZPcO/7bCNbYyjsFIeQveeDcQx/yrmKliTWkeHSLd7TI650/nc4rGi3/ecnhFUiUqynz
+	U7Zbz9gG8iTmTP9Npoml7z8VUhk/EVN6pLXbEZiJzGg571dG1rPueICqCGm61XB9VmjopyDzj+p
+	T1U1K7tkRYuSGkcKY=
+X-Google-Smtp-Source: AGHT+IGFRhfKwd0O9NuIoXvf6KEKvdve+8muU9KsMCG0UwC5refNIeG3tBGirL/CPfCmXHPQAQCl3A==
+X-Received: by 2002:a05:600c:4515:b0:477:7a5c:6a8e with SMTP id 5b1f17b1804b1-477c0513800mr199456735e9.9.1764195987375;
+        Wed, 26 Nov 2025 14:26:27 -0800 (PST)
+Received: from osama.. ([2c0f:fc89:129:990a:83a3:6137:cef9:6de9])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4790b0c3a28sm67152705e9.9.2025.11.26.14.26.24
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 26 Nov 2025 14:26:26 -0800 (PST)
+From: Osama Abdelkader <osama.abdelkader@gmail.com>
+To: catalin.marinas@arm.com,
+	will@kernel.org,
+	mark.rutland@arm.com,
+	ada.coupriediaz@arm.com,
+	smostafa@google.com
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Osama Abdelkader <osama.abdelkader@gmail.com>
+Subject: [PATCH] arm64: Remove unreachable break after die
+Date: Thu, 27 Nov 2025 00:26:20 +0200
+Message-ID: <20251126222620.215245-1-osama.abdelkader@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251126_142553_839234_84CC04B6 
-X-CRM114-Status: GOOD (  28.17  )
+X-CRM114-CacheID: sfid-20251126_142629_546429_E9334B32 
+X-CRM114-Status: UNSURE (   9.18  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,49 +101,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 26 Nov 2025 20:02:21 +0000
-Al Viro <viro@zeniv.linux.org.uk> wrote:
+die() never returns, the break is unreachable in arch/arm64/kernel/traps.c
 
-> On Wed, Nov 26, 2025 at 07:51:54PM +0000, Russell King (Oracle) wrote:
-> 
-> > I don't understand how that helps. Wasn't the report that the filename
-> > crosses a page boundary in userspace, but the following page is
-> > inaccessible which causes a fault to be taken (as it always would do).
-> > Thus, wouldn't "addr" be a userspace address (that the kernel is
-> > accessing) and thus be below TASK_SIZE ?
-> > 
-> > I'm also confused - if we can't take a fault and handle it while
-> > reading the filename from userspace, how are pages that have been
-> > swapped out or evicted from the page cache read back in from storage
-> > which invariably results in sleeping - which we can't do here because
-> > of the RCU context (not that I've ever understood RCU, which is why
-> > I've always referred those bugs to Paul.)  
-> 
-> No, the filename is already copied in kernel space *and* it's long enough
-> to end right next to the end of page.  There's NUL before the end of page,
-> at that, with '/' a couple of bytes prior.  We attempt to save on memory
-> accesses, doing word-by-word fetches, starting from the beginning of
-> component.  We *will* detect NUL and ignore all subsequent bytes; the
-> problem is that the last 3 bytes of page might be '/', 'x' and '\0'.
-> We call load_unaligned_zeropad() on page + PAGE_SIZE - 2.  And get
-> a fetch that spans the end of page.
-> 
-> We don't care what's in the next page, if there is one mapped there
-> to start with.  If there's nothing mapped, we want zeroes read from
-> it, but all we really care about is having the bytes within *our*
-> page read correctly - and no oops happening, obviously.
-> 
-> That fault is an extremely cold case on a fairly hot path.  We don't
-> want to mess with disabling pagefaults, etc. - not for the sake
-> of that.
-> 
+Signed-off-by: Osama Abdelkader <osama.abdelkader@gmail.com>
+---
+ arch/arm64/kernel/traps.c | 1 -
+ 1 file changed, 1 deletion(-)
 
-Can you fix it with a flag on the exception table entry that means
-'don't try to fault in a page'?
+diff --git a/arch/arm64/kernel/traps.c b/arch/arm64/kernel/traps.c
+index 681939ef5d16..81dd2d7759eb 100644
+--- a/arch/arm64/kernel/traps.c
++++ b/arch/arm64/kernel/traps.c
+@@ -1003,7 +1003,6 @@ int bug_brk_handler(struct pt_regs *regs, unsigned long esr)
+ 	switch (report_bug(regs->pc, regs)) {
+ 	case BUG_TRAP_TYPE_BUG:
+ 		die("Oops - BUG", regs, esr);
+-		break;
+ 
+ 	case BUG_TRAP_TYPE_WARN:
+ 		break;
+-- 
+2.43.0
 
-I think the logic would be the same as 'disabling pagefaults', just
-checking a different flag.
-After all the fault itself happens in both cases.
-
-	David
 
