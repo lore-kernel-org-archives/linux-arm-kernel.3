@@ -4,68 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B266D1037B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 11:27:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85E48D10F23
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 11:33:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5lDPV95vs0qVoBBJYSuHnv+zdRK6P0LP4DS6+lF/sVg=; b=EUO5xoZNZQhdQIJypp6C7wEU+M
-	eCv3ckAhHeeFkQ8BudtMxzOoEXgebNNEAXEUDHkT4g44KLw2oQCSWt3EAO6SnM8IGF6xO9XGqy4C+
-	ZrSvO+Fu2RaNBiecl7zDfDpV81BU4mwNLZWIk1BKWyTXFmvBvnBsjtDmwGyZHI98tz9P60CrTxHhk
-	Jb3Xx0nD+vArKQNRMUpxbBAeoIfisWFcHal439KGnXpPzLHtX42oaaIyXoaFW6h3utA8OMFfRdS06
-	0tNm2sWGZKjW6IEEQodkIUeXeZ+EqYgyyP99IK4lesRJNttyQpQHes4TzByFBPibQzKjSjOGicSZ4
-	7BUCIMdQ==;
+	bh=2tyyhCVfPZVGVbQWEIjLv+ZnyqZ0OW01VEz0K7p1BRY=; b=OKUFvXSik3WB98/HM8zrRVGwEj
+	s8voqalE0hx07Ksa9igmIRjWk4bWbrhpqneHzTPVlotJBU2V/LGR1e0BW/difmY7KlAFAD1kd7XX0
+	Eoku6BrJR+KMU3YF4M6VsFpDubIIjdre1Unj55MTqI5ysECXyziCtBXuvbldE8iwxKYriid7xHE0h
+	YCxBYclxiqNCFXbN8uMrxH0PsKgcWsiz3Vycz8Qqhkj0d0kGm1GU8dQMP9cXVd3ZAjvRr9u3SYBjQ
+	JAlIcx5wYOMHMZhf/eze4NMs+lfi3OBaaGZrCtCToTkbzwd57JwK+zSWufNxDOt770JSvdrMVlJdt
+	yUXbD2WQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vODfj-0000000EuIq-3uuq;
-	Wed, 26 Nov 2025 11:26:55 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1vODlb-0000000Eusp-1vXu;
+	Wed, 26 Nov 2025 11:32:59 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vODfh-0000000EuHw-1FqI
+	id 1vODla-0000000Eusi-3HgY
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Nov 2025 11:26:54 +0000
-Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=[127.0.0.1])
-	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
-	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1vODff-0000m0-Cc; Wed, 26 Nov 2025 12:26:51 +0100
-Message-ID: <28e18785-1336-4fbc-9f2b-69aa6bb06375@pengutronix.de>
-Date: Wed, 26 Nov 2025 12:26:49 +0100
+	Wed, 26 Nov 2025 11:32:58 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id A7987601DE;
+	Wed, 26 Nov 2025 11:32:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 06FB3C113D0;
+	Wed, 26 Nov 2025 11:32:53 +0000 (UTC)
+Message-ID: <7d85ed0e-c551-44d4-9d4f-ec72d9da5c45@linux-m68k.org>
+Date: Wed, 26 Nov 2025 21:32:49 +1000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 6/8] kbuild: Allow adding modules into the FIT ramdisk
-To: =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>,
- Simon Glass <sjg@chromium.org>
-Cc: linux-arm-kernel@lists.infradead.org,
- Masahiro Yamada <masahiroy@kernel.org>, Tom Rini <trini@konsulko.com>,
- =?UTF-8?Q?J=2E_Neusch=C3=A4fer?= <j.ne@posteo.net>,
- Nicolas Schier <nicolas@fjasle.eu>, Chen-Yu Tsai <wenst@chromium.org>,
- Nicolas Schier <nsc@kernel.org>, Nathan Chancellor <nathan@kernel.org>,
- Ard Biesheuvel <ardb@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
- Josh Poimboeuf <jpoimboe@kernel.org>, Kees Cook <kees@kernel.org>,
- Miguel Ojeda <ojeda@kernel.org>, Nicolas Schier <nicolas.schier@linux.dev>,
- Rong Xu <xur@google.com>, Tamir Duberstein <tamird@gmail.com>,
- Will Deacon <will@kernel.org>, linux-kbuild@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20251119181333.991099-1-sjg@chromium.org>
- <20251119181333.991099-7-sjg@chromium.org>
- <20251120084201-53a3c98f-6a3c-4116-8635-be67d58fd57b@linutronix.de>
- <CAFLszTjsgkPV_-Si79RY5T_Fxd5+f-b1VbpG11uS3E9Lk4Ofmg@mail.gmail.com>
- <20251126080620-921e6880-cacf-44c5-bd8b-f380fbb8090a@linutronix.de>
-From: Ahmad Fatoum <a.fatoum@pengutronix.de>
-Content-Language: en-US, de-DE, de-BE
-In-Reply-To: <20251126080620-921e6880-cacf-44c5-bd8b-f380fbb8090a@linutronix.de>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
-X-SA-Exim-Mail-From: a.fatoum@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251126_032653_427963_4BCA9D27 
-X-CRM114-Status: GOOD (  29.24  )
+Subject: Re: [PATCH v3 1/3] m68k: coldfire: Mark platform device resource
+ arrays as const
+To: Jean-Michel Hautbois <jeanmichel.hautbois@yoseli.org>,
+ Frank Li <Frank.Li@nxp.com>
+Cc: Geert Uytterhoeven <geert@linux-m68k.org>,
+ Olivia Mackall <olivia@selenic.com>, Herbert Xu
+ <herbert@gondor.apana.org.au>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, oe-kbuild-all@lists.linux.dev,
+ linux-m68k@lists.linux-m68k.org, linux-kernel@vger.kernel.org,
+ linux-crypto@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org
+References: <20251124-b4-m5441x-add-rng-support-v3-1-f447251dad27@yoseli.org>
+ <202511250103.RMNoU3xH-lkp@intel.com>
+ <aSVgcoNNeLJshwvU@yoseli-yocto.yoseli.org>
+Content-Language: en-US
+From: Greg Ungerer <gerg@linux-m68k.org>
+In-Reply-To: <aSVgcoNNeLJshwvU@yoseli-yocto.yoseli.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,102 +71,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Hi Jean-Michel,
 
-On 11/26/25 8:16 AM, Thomas Weißschuh wrote:
-> On Tue, Nov 25, 2025 at 02:58:12PM -0700, Simon Glass wrote:
->> On Thu, 20 Nov 2025 at 00:49, Thomas Weißschuh
->> <thomas.weissschuh@linutronix.de> wrote:
->>>
->>> On Wed, Nov 19, 2025 at 11:13:27AM -0700, Simon Glass wrote:
-> 
-> (...)
-> 
->>>>  quiet_cmd_fit = FIT     $@
->>>>        cmd_fit = $(MAKE_FIT) -o $@ --arch $(UIMAGE_ARCH) --os linux \
->>>> -             --name '$(UIMAGE_NAME)' \
->>>> +             --name '$(UIMAGE_NAME)' $(MAKE_FIT_FLAGS) \
->>>
->>> Remnant of a previous revision?
+On 25/11/25 17:53, Jean-Michel Hautbois wrote:
+> On Tue, Nov 25, 2025 at 01:48:24AM +0800, kernel test robot wrote:
+>> Hi Jean-Michel,
 >>
->> The flags are there to allow extra options to be passed if needed.
-> 
-> Are they necessary for the module functionality added here?
-> If not I'd put them into a dedicated commit.
-> 
->>>
->>>>               $(if $(findstring 1,$(KBUILD_VERBOSE)),-v) \
->>>>               $(if $(FIT_DECOMPOSE_DTBS),--decompose-dtbs) \
->>>> +             $(if $(FIT_MODULES),--modules @$(objtree)/modules.order) \
->>>
->>> I am wondering how module dependencies work without the depmod invocation
->>> and modules.dep file.
+>> kernel test robot noticed the following build warnings:
 >>
->> We have a mechanism to place a pre-build initrd with the filesystem,
->> etc. into the FIT. But for this particular feature (suggested by Ahmad
->> Fatoum) we are just providing the raw modules. Presumably another
->> initrd would be needed to provide the startup files?
+>> [auto build test WARNING on ac3fd01e4c1efce8f2c054cdeb2ddd2fc0fb150d]
+>>
+>> url:    https://github.com/intel-lab-lkp/linux/commits/Jean-Michel-Hautbois/m68k-coldfire-Mark-platform-device-resource-arrays-as-const/20251124-210737
+>> base:   ac3fd01e4c1efce8f2c054cdeb2ddd2fc0fb150d
+>> patch link:    https://lore.kernel.org/r/20251124-b4-m5441x-add-rng-support-v3-1-f447251dad27%40yoseli.org
+>> patch subject: [PATCH v3 1/3] m68k: coldfire: Mark platform device resource arrays as const
+>> config: m68k-allnoconfig (https://download.01.org/0day-ci/archive/20251125/202511250103.RMNoU3xH-lkp@intel.com/config)
+>> compiler: m68k-linux-gcc (GCC) 15.1.0
+>> reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20251125/202511250103.RMNoU3xH-lkp@intel.com/reproduce)
+>>
+>> If you fix the issue in a separate patch/commit (i.e. not just a new version of
+>> the same patch/commit), kindly add following tags
+>> | Reported-by: kernel test robot <lkp@intel.com>
+>> | Closes: https://lore.kernel.org/oe-kbuild-all/202511250103.RMNoU3xH-lkp@intel.com/
+>>
+>> All warnings (new ones prefixed by >>):
+>>
+>>>> arch/m68k/coldfire/device.c:141:35: warning: initialization discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+>>       141 |         .resource               = mcf_fec0_resources,
+>>           |                                   ^~~~~~~~~~~~~~~~~~
+>>
+>>
+>> vim +/const +141 arch/m68k/coldfire/device.c
 > 
-> modules.dep is more than optional and generic startup files but an integral
-> part of a module tree. Without it, any module depending on another module's
-> symbols will fail to load. Also the modules will be unsigned, potentially
-> making them unloadable.
+> Frank, I mentionned this warning in v2, do you have a suggestion ?
 
-I'll use the occasion to elaborate a bit on why I thought adding modules
-is a good idea.
+FWIW, I looked at other similar use cases - that is platform drivers specifying
+constant resources like this - and it seems they mostly do not use const for
+them. There is quite a few cases throughout superh and arm architecture code.
 
-- You have a system boot from FIT and maybe even a r/o rootfs
-- You want to boot a different kernel without any userspace changes,
-e.g. to bisect
-- Fortunately, you have a build target that generates you a FIT with
-kernel, enabled device trees and all modules (including deps and such)
-- In the bootloader[1], you specify that a CPIO with a minimal init[2]
-that bindmounts /lib/modules in the initramfs over the rootfs modules
-before pivot_root
+Regards
+Greg
 
-and that's it, you are running your new kernel with the old rootfs
-unchanged. I believe this would be really handy, which is why I
-suggested it.
 
-> Ahmad's patch does produce a complete and fully
-> functional module tree by means of 'make headers_install'.
 
-I originally thought that we could generate the CPIO normally as part of
-the kernel build and then we can readily depend on it in the rule that
-invokes make_fit.py.
-
-If this proves to be too cumbersome, I think it's already an improvement
-if the user can manually run make modules-cpio-pkg and then make
-image.fit with the initrd specified. A single target would be neater of
-course, but I didn't intend for this to stall the series.
-
-It can always follow later.
-
-[1]: For my particular usage, I intend to extend the barebox boot
-override mechanism. Currently, it's possible to do:
-barebox$ boot -o bootm.initrd=/mnt/tftp/my-ramdisk.cpio /mnt/tftp/my-fit
-and I want to extend it to allow appending any number of CPIOs:
-barebox$ boot -o bootm.initrd=":/mnt/tftp/my-init.cpio" /mnt/tftp/my-fit
-
-[2]: The bind mount logic for the initramfs init will probably go into
-https://github.com/pengutronix/rsinit, which I can compile once per
-architecture, put into my TFTP srv path and then not have to worry about it.
-
-Cheers,
-Ahmad
-
+> Thanks !
+> JM
 > 
->>>>               --compress $(FIT_COMPRESSION) -k $< @$(word 2,$^)
->>>>
->>>>  # XZ
->>>> --
->>>> 2.43.0
-> 
-
--- 
-Pengutronix e.K.                  |                             |
-Steuerwalder Str. 21              | http://www.pengutronix.de/  |
-31137 Hildesheim, Germany         | Phone: +49-5121-206917-0    |
-Amtsgericht Hildesheim, HRA 2686  | Fax:   +49-5121-206917-5555 |
+>>
+>> b7ce7f0d0efc1a arch/m68k/platform/coldfire/device.c Greg Ungerer      2011-12-24  136
+>> b7ce7f0d0efc1a arch/m68k/platform/coldfire/device.c Greg Ungerer      2011-12-24  137  static struct platform_device mcf_fec0 = {
+>> bea8bcb12da09b arch/m68k/platform/coldfire/device.c Steven King       2012-06-06  138  	.name			= FEC_NAME,
+>> b7ce7f0d0efc1a arch/m68k/platform/coldfire/device.c Greg Ungerer      2011-12-24  139  	.id			= 0,
+>> b7ce7f0d0efc1a arch/m68k/platform/coldfire/device.c Greg Ungerer      2011-12-24  140  	.num_resources		= ARRAY_SIZE(mcf_fec0_resources),
+>> b7ce7f0d0efc1a arch/m68k/platform/coldfire/device.c Greg Ungerer      2011-12-24 @141  	.resource		= mcf_fec0_resources,
+>> f61e64310b7573 arch/m68k/coldfire/device.c          Greg Ungerer      2018-03-28  142  	.dev = {
+>> f61e64310b7573 arch/m68k/coldfire/device.c          Greg Ungerer      2018-03-28  143  		.dma_mask		= &mcf_fec0.dev.coherent_dma_mask,
+>> f61e64310b7573 arch/m68k/coldfire/device.c          Greg Ungerer      2018-03-28  144  		.coherent_dma_mask	= DMA_BIT_MASK(32),
+>> f61e64310b7573 arch/m68k/coldfire/device.c          Greg Ungerer      2018-03-28  145  		.platform_data		= FEC_PDATA,
+>> f61e64310b7573 arch/m68k/coldfire/device.c          Greg Ungerer      2018-03-28  146  	}
+>> b7ce7f0d0efc1a arch/m68k/platform/coldfire/device.c Greg Ungerer      2011-12-24  147  };
+>> 63a24cf8cc330e arch/m68k/coldfire/device.c          Antonio Quartulli 2024-10-29  148  #endif /* MCFFEC_BASE0 */
+>> b7ce7f0d0efc1a arch/m68k/platform/coldfire/device.c Greg Ungerer      2011-12-24  149
+>>
+>> -- 
+>> 0-DAY CI Kernel Test Service
+>> https://github.com/intel/lkp-tests/wiki
 
 
