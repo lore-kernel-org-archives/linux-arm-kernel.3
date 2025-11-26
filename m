@@ -4,155 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6581D11180
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 15:58:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09AD3D11181
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 16:00:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KERdB35fdZJQwlTkaIBbWBNw1MQAyN5I4+Q3sKDn7oY=; b=r4rc4NeiNe1SyWIrLLnkox/9kz
-	93+ViQN0snKArb4Q+mFRJELIJjrVYD8Fmo7kWvRJGbDxJ2JWhlwj4kgG78+Vb+SkPBgSgTA6gwjau
-	WC7jnXqzUns/J0WcqytUv7TY3ShHTxgD2Fbw5myrAZpiKr5rXyt5l9mXb1fwExuR821r55iL2jTCd
-	kKFM5YL9gQmB3RIo2JMY+9sKBHEn0SIjFd9qtOwi/wboBoxHM30ASXy9flYzEMZCzt+Xf7ewgBKxI
-	7rQ+EA7aUWBmI6wlsQfA7MJkx/rD4eBIbvFz9Xk9BRAaU9hkCuNUO6iEPB5511A2x/p4fNb5kGh8B
-	1z7GJOyA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VUBQjnuVkQ9eQw+q3UnS+cSzAR6ILnUOV2y2V/JRSkQ=; b=C8ATVB9z2jBNrtDoXiE58tRCXV
+	cgI1x8s7RobfAhiAznMqIj3ipL+dpiQrD52WcB/ODoXnCjgbf9/22KoxzAtIxMC12p5txH4kSn/nL
+	nLSzDZBF9w56vLVxFtUD7LJRRaUAEwJ1qEFXaNmxPPFaLJhaJjRsUh+4PcKibJUor5XZ5S2GGXeNf
+	2/d2eO4Mx2/8lbp5YLYESOXylqzjHLvmSwz4HCWoLsnbzqW9i7pvoEqvXgIhflrDvTUZm9VCr0qm+
+	PBmqLwVQLo89MBO7n5UDL+C3DnQIIsC4CFVNONBkk0+mJ3fDAFAIdhQaMRhtbZs4LETPkIRXPLFUB
+	fj4rhVwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOHub-0000000FDV9-1g3w;
-	Wed, 26 Nov 2025 15:58:33 +0000
-Received: from mail-northeuropeazon11010022.outbound.protection.outlook.com ([52.101.84.22] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1vOHw7-0000000FDlh-2171;
+	Wed, 26 Nov 2025 16:00:07 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOHuY-0000000FDTt-3QWT;
-	Wed, 26 Nov 2025 15:58:31 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=dTmBb+irpDGNjiwwHnoIEG1jcWHH+cT/zdhp4Eg8qP6mGBNaeHrMkCKHLKtr4D35UTf8bMYbkzQmZX7D5/lsaWP4clEzZcubde4yjI/lTBEcXs5RHsn6hjfog+CV7AhuwxpFeX8o5MBSBpF6W8TI7XEd6Y+irS2o1OYAzXrWqaGRiOtmKd0jUUXd3/1jNDXf9dyZeOhHB/zdaKwu4NJKAeirPapuU8A0+bWWwfruVGNIi5Q/OV2fBlsvyjz7D+RxiSBr8YvDCj/yBvmxYgIzXzfnS6yzI6jcd+MQgCsdw1MphD5rR3JqtGn73neyq6ZLM1KEwIYpiwOsedaY1/HBJg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=KERdB35fdZJQwlTkaIBbWBNw1MQAyN5I4+Q3sKDn7oY=;
- b=JdPjcysr4LjSjadceeMNWa5vZw8M+nvunBuYJsxHNgANnb/VnHKtQKS+HZR+ZR4bS0Jf2uRwBPBpFmXW6bxalN2zpbYs91x7gPVZr/Wq6rMqPNJNGdnbKxtslprLmoQ56g/c5KR3KCpglGCBKUR0FcM8NC9C38duQSCc9bGGIoU129oWT7rOPwHa56BHPYpY93W+bCDl99Sec1RZhNriNsQ4MFOB/GA3YG2nTgNWJjL1rtOSysh4+mYUp7AbqIb7PyXXec/O3SsFkwJ//so9B7goTXfwuuwXc27vxxgWEMe210/5BX/2LT3dRyfwUUxvk5ELhBqYUNF9/HgW0Jf/iw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=KERdB35fdZJQwlTkaIBbWBNw1MQAyN5I4+Q3sKDn7oY=;
- b=NMmUKV8jCpHlpt+bWZHO1KPOAZXjGRiTwkF9yLGuJMjrxhd+JeZUxrl0DQhHQZk3Xk5IMfqoJe2u4aJDwTK0esPCo3OPbjb2oUWscOFJzH3I3jGgadRcwcZvC90cUVFkBCEJxlbGUB8hQlowU2P1NPg94pw6fLGKOGatsVmYw9l9FXB2eQaoO7cMRIzhSXQFtbBqtcPoYwfhteYR2wEUt0LrvoKh9LBbEQhaKajrW4/QTKuqDSaifJPHh6jfXSGEUJP7JP8SZRVLMrwfCSktcvwT1FiWB56TfEw75k4tcIRueogivni3lyoMltC4IQKr9+ZfechDBFf36jqoo4RpUQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from DU2PR04MB8951.eurprd04.prod.outlook.com (2603:10a6:10:2e2::22)
- by VE1PR04MB7487.eurprd04.prod.outlook.com (2603:10a6:800:1a2::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9366.12; Wed, 26 Nov
- 2025 15:58:23 +0000
-Received: from DU2PR04MB8951.eurprd04.prod.outlook.com
- ([fe80::753c:468d:266:196]) by DU2PR04MB8951.eurprd04.prod.outlook.com
- ([fe80::753c:468d:266:196%4]) with mapi id 15.20.9366.009; Wed, 26 Nov 2025
- 15:58:23 +0000
-Date: Wed, 26 Nov 2025 10:58:11 -0500
-From: Frank Li <Frank.li@nxp.com>
-To: Franz Schnyder <fra.schnyder@gmail.com>
-Cc: Vinod Koul <vkoul@kernel.org>,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Franz Schnyder <franz.schnyder@toradex.com>,
-	linux-phy@lists.infradead.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Francesco Dolcini <francesco.dolcini@toradex.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>, stable@vger.kernel.org,
-	Xu Yang <xu.yang_2@nxp.com>
-Subject: Re: [PATCH v2] phy: fsl-imx8mq-usb: fix typec orientation switch
- when built as module
-Message-ID: <aScjk7WR5gkF1NeO@lizhi-Precision-Tower-5810>
-References: <20251126140136.1202241-1-fra.schnyder@gmail.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251126140136.1202241-1-fra.schnyder@gmail.com>
-X-ClientProxiedBy: SJ0PR13CA0211.namprd13.prod.outlook.com
- (2603:10b6:a03:2c1::6) To DU2PR04MB8951.eurprd04.prod.outlook.com
- (2603:10a6:10:2e2::22)
+	id 1vOHw2-0000000FDhm-2FSg
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 26 Nov 2025 16:00:02 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id A17E760215;
+	Wed, 26 Nov 2025 16:00:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 45745C4CEF7;
+	Wed, 26 Nov 2025 16:00:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1764172801;
+	bh=sJ9Nj0RO2E3MleSVWlAJM1EaUuH0Yx6I5YRixpnnKkM=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=NZmF4txmq6wWCNGsVXXWCTVwE7bQLTDTxBkd+P70S1S4Lnw+c2XKern/AJTYf+5wi
+	 Si++rC+wE0WhYYGtHwE4UA6fCKOGXuCqp6kwNlZntstO3sEj9DbXm1R6pYR4G2gBXa
+	 IvP4HYHzesIm4/T2zbg24iDbnzf7Wp9fVwMPIBbAxeART6B0o+Vs+ccdP5dzrIMC1X
+	 sBJ15AVEalPCod7BhDkzLC/M1x5mwJnpRKpa5xZV9BSxYIn72m7AT1gjMnF24fs4Wp
+	 31B6r2z4kwNHK82X7xYUnwWWHpRvaXpImj5lMbUDr6kRTWC3jSNOw2MbNlVTQN3LYG
+	 LmKTgF35lPFzg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vOHvy-00000008WrH-2KuL;
+	Wed, 26 Nov 2025 15:59:58 +0000
+From: Marc Zyngier <maz@kernel.org>
+To: kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Cc: Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Ben Horgan <ben.horgan@arm.com>
+Subject: [PATCH v2 1/5] KVM: arm64: Add routing/handling for GMID_EL1
+Date: Wed, 26 Nov 2025 15:59:47 +0000
+Message-ID: <20251126155951.1146317-2-maz@kernel.org>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20251126155951.1146317-1-maz@kernel.org>
+References: <20251126155951.1146317-1-maz@kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU2PR04MB8951:EE_|VE1PR04MB7487:EE_
-X-MS-Office365-Filtering-Correlation-Id: 1a4d856f-3fd1-4d56-e3b1-08de2d04a0c7
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|7416014|52116014|376014|1800799024|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?u5RJXJivFuapdvxglPZJ9xqw0snk3ZNLsqJG6xb3D9llwxPQ39ZVlNbUzacj?=
- =?us-ascii?Q?4A17zNk6ZRaTsUv66PJPZW72jeehHyvDa7k144g2D9/vMVvfHg/JIERRKfrk?=
- =?us-ascii?Q?zs4XmUba60NY15gHQd6pKCly+3S5MVry4xQKXSLJJQzR6XK1oLRVFVr3xa9c?=
- =?us-ascii?Q?VpEvhsODLDm83q4LlGuUBzdqDhwY6XfTInD1/LFox9RASLlxxMBOU1ZqYP93?=
- =?us-ascii?Q?OxCSv/Rc1r0ID6di887lQ+qwIGloTPYRrAdYUoikL134eHr0wCmIpmZK05JT?=
- =?us-ascii?Q?orT1i2TzG01EWD4nKteaJePWg+z4j9fGOxHaw3Xfv6AbD11s6tHzwej1UfbV?=
- =?us-ascii?Q?DRMMVg2BCJq0balYXsGZQUueAX0xaITBpOZYDqyfkPoeUZII5o0fLPQAto0r?=
- =?us-ascii?Q?AadrfCAu8dbxikdXEke1r8T/S8dHjYO6BXQwdBUIG62CSUfuEm0FsoO6hGYo?=
- =?us-ascii?Q?JWNiv6nNIHuV3vdtFMQT3ySaigF7O0u1Ie9U6wRYDSAjxpTjM3nqpw1xqSvr?=
- =?us-ascii?Q?657eoVTNIU18JV9tmCC/OkyybbfGt8BSo1QJ1OHyAqtO66ihPiQ6ekjw/PDd?=
- =?us-ascii?Q?foSLKhOOaM/sjxciy6vasWWVDMZPN09GcfiSTA2ZkEIvhgeC+LRqP3dIaZG1?=
- =?us-ascii?Q?TJJ0c+JNhpmHwMF/ydd55PjDnCBQsrYAMww0/oy6q0Q072DQhGaj75NP2cbW?=
- =?us-ascii?Q?UTTjCzlRk8s4nM8NUGAd4baCnmGQVpmKEEIxcR5s/QPRj+W9jzv7urRhzLN3?=
- =?us-ascii?Q?cYV9tLlMSqvDhjbwV0R5RvTK7BXxTvgnEOWMn2EJY5xZw3YzOaiGNfwWnCnZ?=
- =?us-ascii?Q?Sz+CTee5w97cAMJownVHtFE+tuD2RVPqDnYU75X2lXi/PNIeqnbBD4846Sys?=
- =?us-ascii?Q?8mIWbtVQ/Ufm0bz/JBYjj52Hw7J3e/4wpsQ0AT0YbB0OGWewUCWM5XvRzgkg?=
- =?us-ascii?Q?NGI+uVPxho/UNHujzRkCKKS5XPzqNklM6Y8qtTuPwiNKwmBU0QtEqbgTLW2r?=
- =?us-ascii?Q?yLhT1LcrvFjY1SooFq5eUSTr4kP3FNvFcdjGpobX1LWvAZgAc6PrbqVPS3Fw?=
- =?us-ascii?Q?G+/H/+STIn3zJTT2dWlz45hE04OchsKdCdXfThQ3SOFTGlTKOgspKLqNhtbb?=
- =?us-ascii?Q?Gn8xLxiTSUBu3jwwYedlGUxnOwtbqVnYG/UOUNAjkXRIMTh2EotLHNRngnm6?=
- =?us-ascii?Q?dfbBCb7giYPvbKkDgGUC+027JkX8G+twyp6mYIdeFFSvuoZgL2uQU8MB2DMf?=
- =?us-ascii?Q?f0SAkN6B/CbYU31BUAVlXbXnCTr48DC0exUhnm9zYUsEKH7LriTG7ldbQNRe?=
- =?us-ascii?Q?YlNbV7wBsuSSrqDnq3lWJjR6Jp+S4gDOK3hH53/pQqxclB4zcsWepdgWbS/B?=
- =?us-ascii?Q?bKhZfv3SUDR90IUL0hD95XwtpfFUUQZ6O2Vss/8anhspCHhMuUHQTGlFmxGx?=
- =?us-ascii?Q?Rl2CMXfUwvc+W38TLsY55tp3ksOu/ragtmBKTscVGM+DZU7MTUKLXbtY37qH?=
- =?us-ascii?Q?UhlzpYERJP4ZWUhnYbdKRIPqKhS3q8bsrxi7?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8951.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(7416014)(52116014)(376014)(1800799024)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?xi9mJXOlv/mWS4fRCqGOP7aS2Hz8wldYptL+6JpB7+H7wpXpeCh8l/Z17SiG?=
- =?us-ascii?Q?NXLgQg3flnKoaQ4L++4YYM9AurwP5unyeVtn9V5IzFBQA0/G8Vbj+xV1GwGj?=
- =?us-ascii?Q?KBGkyZtbZNmwTrdn1lJSbFRLlkmNTUs93j8pStKoaFR1Jnk9Tmkepza/tjcN?=
- =?us-ascii?Q?Rz2xw0K/6vsM6X3l5C0npWUPZ4TIivTMbbO09PZMw+hEKWtlQG3UgJBKoXa7?=
- =?us-ascii?Q?za3m1ccAXbE9TfuLAEckHBeT8oJeZlwtZfla27IMKTQxVUbSRxubjjoxxuQ+?=
- =?us-ascii?Q?RdrujQy6mSZuQlt1GsQREU7YN6EcC/UY4I/t4NggNZSxcfN0E7fbrOAveMGp?=
- =?us-ascii?Q?aPwrMkYqYdCo9hfrr5Eljh3nqaNTEjgf31p9JkGkhXjgMbe1zyxiSuIGzjxh?=
- =?us-ascii?Q?PbfaPDQNq5i/zKTcEA/7sWCQoTzk0rcQONBAURmACHOYyh563JU6PmXifDTY?=
- =?us-ascii?Q?0joLTe3gmi/pcKuGwrRtrIV/bSw5xsS243QxmcfXV/FFUIBYeAUmJ8pv0lLc?=
- =?us-ascii?Q?Mw1jwNSMtyFhw3z1/VUPVlsosdTYQDFSi7qbffwr7/vkqpTDGyKHLC0q3i57?=
- =?us-ascii?Q?/ltueXNSnUZX2ZDlSEsV3/3MzfybexNa5OAZdf0X2Xl3b7mxaLBPCYtQGP3L?=
- =?us-ascii?Q?q4ZdtTMZarqs2xzdG6QCHU6gCjSD/NAzUw5LHC3eNELMdVmTJ8/k7oFpvKDy?=
- =?us-ascii?Q?S/XojSZSdgMghp77RxZzSUIX7of9jx29euEUdMsADiWsRCKv/KAzBT0C2zSl?=
- =?us-ascii?Q?RdamgNVmg1uC6Emx79NtaJqePGOZcooZZAVgT4RE1596nMnkM60Pju3+G7Fx?=
- =?us-ascii?Q?XrKs4es4nlxzi/wQtVYftpXU3IKV9c3LHAvGgvCSLBwNkDi8LeVgCeCJ2ijG?=
- =?us-ascii?Q?cRdHw++lPyS6XLhk4zlOSxoDUTlM2CNZNoc9NtYWcUYHnuP0yEgYw3St/XuW?=
- =?us-ascii?Q?l/89siji2rlfYZoMp/Cyv1iEZjjjHgBAzgamNrU5ghEGa2vM5DXKFGpFNtnn?=
- =?us-ascii?Q?PsvZo+GYw2tSkZqwplnLk5j9zsHiYI711SzUGSHXZEmIyX36yU+TkfA23U3H?=
- =?us-ascii?Q?/MaK1ZrvYO95crq8xrut1s9jHhOsyyxyJJZ+Ah5MQqN2xK59MVN6HHxsRUTW?=
- =?us-ascii?Q?b064OT+tBAV0X9Gs5EIwDSOtu+qiQVeGOIp8pMGSTD267GGYNSM3zim7wxl4?=
- =?us-ascii?Q?so8K5E3nsceDyGsLtM52F6EBGrFfMB8Bmn9eqdk2JyYSTAMpNFKJmLfpgGdS?=
- =?us-ascii?Q?nUPCF2wyYR1ca6zIGbPwJvxGm+PCQU+7F+q6TSEjJRerOX/6gIOgH9L/yU5s?=
- =?us-ascii?Q?jfYLuQfy7RfiUJ8DiulvfT6+7ytxi3kboZvSRv6JGMr4P0UWKezW/+ZnQA8i?=
- =?us-ascii?Q?5BMCrkvdeYs6VA4af+cdJSzIkm+juKex3UMysq937EpWl07L9jxceejhjT+X?=
- =?us-ascii?Q?tdQ2FG3F+HTROOWkq40mmtxs7FioB5iOe22Mpvi/2PRVqYyL24m7AKJ3eggl?=
- =?us-ascii?Q?DYgqDHuCTHVsyuv7IGPiXjhUkqEBp27EqN5ATHadtmxjJKrHm4p1gdsT+6R5?=
- =?us-ascii?Q?oS6GOW8lrl42TFjMDjmcLQpeKHVR42HfO9Thwe5H?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1a4d856f-3fd1-4d56-e3b1-08de2d04a0c7
-X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8951.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Nov 2025 15:58:23.6355
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: LIozV+PFPYjJcvV+k0Wib7bUGTAVy0lof02nWtTA3QQmW1ez7Ff8x0T5QaBLbC7L2VR5JVu2/pTw2sYwtBaYSg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VE1PR04MB7487
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251126_075830_879645_8CF44AD8 
-X-CRM114-Status: GOOD (  20.77  )
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, ben.horgan@arm.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -167,66 +83,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 26, 2025 at 03:01:33PM +0100, Franz Schnyder wrote:
-> From: Franz Schnyder <franz.schnyder@toradex.com>
->
-> Currently, the PHY only registers the typec orientation switch when it
-> is built in. If the typec driver is built as a module, the switch
-> registration is skipped due to the preprocessor condition, causing
-> orientation detection to fail.
->
-> With commit
-> 45fe729be9a6 ("usb: typec: Stub out typec_switch APIs when CONFIG_TYPEC=n")
-> the preprocessor condition is not needed anymore and the orientation
-> switch is correctly registered for both built-in and module builds.
->
-> Fixes: b58f0f86fd61 ("phy: fsl-imx8mq-usb: add tca function driver for imx95")
-> Cc: stable@vger.kernel.org
-> Suggested-by: Xu Yang <xu.yang_2@nxp.com>
-> Signed-off-by: Franz Schnyder <franz.schnyder@toradex.com>
-> ---
-> v2: Drop the preprocessor condition after a better suggestion.
->     Reviewed-by Neil tag not added as patch is different
-> ---
+HCR_EL2.TID5 is currently ignored by the trap routing infrastructure,
+and we currently don't handle GMID_EL1 either (the only register trapped
+by TID5).
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+Wire both the trap bit and a default UNDEF handler.
 
->  drivers/phy/freescale/phy-fsl-imx8mq-usb.c | 14 --------------
->  1 file changed, 14 deletions(-)
->
-> diff --git a/drivers/phy/freescale/phy-fsl-imx8mq-usb.c b/drivers/phy/freescale/phy-fsl-imx8mq-usb.c
-> index b94f242420fc..72e8aff38b92 100644
-> --- a/drivers/phy/freescale/phy-fsl-imx8mq-usb.c
-> +++ b/drivers/phy/freescale/phy-fsl-imx8mq-usb.c
-> @@ -124,8 +124,6 @@ struct imx8mq_usb_phy {
->  static void tca_blk_orientation_set(struct tca_blk *tca,
->  				enum typec_orientation orientation);
->
-> -#ifdef CONFIG_TYPEC
-> -
->  static int tca_blk_typec_switch_set(struct typec_switch_dev *sw,
->  				enum typec_orientation orientation)
->  {
-> @@ -173,18 +171,6 @@ static void tca_blk_put_typec_switch(struct typec_switch_dev *sw)
->  	typec_switch_unregister(sw);
->  }
->
-> -#else
-> -
-> -static struct typec_switch_dev *tca_blk_get_typec_switch(struct platform_device *pdev,
-> -			struct imx8mq_usb_phy *imx_phy)
-> -{
-> -	return NULL;
-> -}
-> -
-> -static void tca_blk_put_typec_switch(struct typec_switch_dev *sw) {}
-> -
-> -#endif /* CONFIG_TYPEC */
-> -
->  static void tca_blk_orientation_set(struct tca_blk *tca,
->  				enum typec_orientation orientation)
->  {
-> --
-> 2.43.0
->
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+---
+ arch/arm64/kvm/emulate-nested.c | 8 ++++++++
+ arch/arm64/kvm/sys_regs.c       | 1 +
+ 2 files changed, 9 insertions(+)
+
+diff --git a/arch/arm64/kvm/emulate-nested.c b/arch/arm64/kvm/emulate-nested.c
+index 834f13fb1fb7d..616eb6ad68701 100644
+--- a/arch/arm64/kvm/emulate-nested.c
++++ b/arch/arm64/kvm/emulate-nested.c
+@@ -70,6 +70,7 @@ enum cgt_group_id {
+ 	CGT_HCR_ENSCXT,
+ 	CGT_HCR_TTLBIS,
+ 	CGT_HCR_TTLBOS,
++	CGT_HCR_TID5,
+ 
+ 	CGT_MDCR_TPMCR,
+ 	CGT_MDCR_TPM,
+@@ -308,6 +309,12 @@ static const struct trap_bits coarse_trap_bits[] = {
+ 		.mask		= HCR_TTLBOS,
+ 		.behaviour	= BEHAVE_FORWARD_RW,
+ 	},
++	[CGT_HCR_TID5] = {
++		.index		= HCR_EL2,
++		.value		= HCR_TID5,
++		.mask		= HCR_TID5,
++		.behaviour	= BEHAVE_FORWARD_RW,
++	},
+ 	[CGT_MDCR_TPMCR] = {
+ 		.index		= MDCR_EL2,
+ 		.value		= MDCR_EL2_TPMCR,
+@@ -665,6 +672,7 @@ static const struct encoding_to_trap_config encoding_to_cgt[] __initconst = {
+ 	SR_TRAP(SYS_CCSIDR2_EL1,	CGT_HCR_TID2_TID4),
+ 	SR_TRAP(SYS_CLIDR_EL1,		CGT_HCR_TID2_TID4),
+ 	SR_TRAP(SYS_CSSELR_EL1,		CGT_HCR_TID2_TID4),
++	SR_TRAP(SYS_GMID_EL1,		CGT_HCR_TID5),
+ 	SR_RANGE_TRAP(SYS_ID_PFR0_EL1,
+ 		      sys_reg(3, 0, 0, 7, 7), CGT_HCR_TID3),
+ 	SR_TRAP(SYS_ICC_SGI0R_EL1,	CGT_HCR_IMO_FMO_ICH_HCR_TC),
+diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+index 8ae2bca816148..9e4c46fbfd802 100644
+--- a/arch/arm64/kvm/sys_regs.c
++++ b/arch/arm64/kvm/sys_regs.c
+@@ -3400,6 +3400,7 @@ static const struct sys_reg_desc sys_reg_descs[] = {
+ 	{ SYS_DESC(SYS_CLIDR_EL1), access_clidr, reset_clidr, CLIDR_EL1,
+ 	  .set_user = set_clidr, .val = ~CLIDR_EL1_RES0 },
+ 	{ SYS_DESC(SYS_CCSIDR2_EL1), undef_access },
++	{ SYS_DESC(SYS_GMID_EL1), undef_access },
+ 	{ SYS_DESC(SYS_SMIDR_EL1), undef_access },
+ 	IMPLEMENTATION_ID(AIDR_EL1, GENMASK_ULL(63, 0)),
+ 	{ SYS_DESC(SYS_CSSELR_EL1), access_csselr, reset_unknown, CSSELR_EL1 },
+-- 
+2.47.3
+
 
