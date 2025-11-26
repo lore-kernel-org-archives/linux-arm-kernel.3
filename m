@@ -4,58 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10601D1039D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 11:45:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6969AD1039D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 11:47:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=dZytgGa6Q7MhuG36xxxSgi7rzr8U7+QRNo20ij5hhvU=; b=g4H+BDOvXZibP2E4xn/Q6Mfhhd
-	LyUcrDIk4tU62Dg2k3nfFymTNd8xT9x6IeAbXpx232k7NtgLy3EzoofAxINCLzNARFfqa72fV3nG0
-	vga2CxjhoTmN7BRxY73+NuOyhPcTwp4XRyQnnYzv6MAuHu0yHAKLCFBSJaKJLBe/Rn8yczlaMmSgf
-	xYb33DSRgc4jk9jCUpr5tPfHi8A+VBQ8J6Dx60OfhklWrKCe8ZhG7Nqgdq7I0t/K/+JqRyhYxdkkY
-	OGgtvQ5cZ1+tCUN8UCAxHam224ng/5kAQlAO6RkzCV8wW7loPy3bgG7Q3/Xtx93nhGSM1sydDPU1F
-	8C8RCnZw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=idZH2h/5MOn2BpvO2NsaMW9MH0PQn/xXe34joZcJV90=; b=2ncEwq8c5Q6nRS47AxBqJJRgcN
+	vJ4MUZfbWHml/srmZcRtJB5h0P1e3s/5dmXOWqIqSvsl/ljKOPY25SZ1ynGuMsYOLBO9DQv1SqvAE
+	AXyjKDNcIKMmQ8T+s8PTXzRJmGw1l+Rsl5xzcLQ4eXYGy4o90ZJL8xfmU4aCtM5+5CSSJeezdIqxv
+	Pc8vJP+Pl+QSNLZxtOvkP0uu0FDgErAVj04yh1MGHYx8t7gcj7zvGRTwVQvSUCMfzpDdTLl2hgB9j
+	IlSqKAbojfPqSV9NTctX1GtPPjEYUhYKMSy8WYHDD2RDkY3cIfWgDxX2RdMM/9TfPqfAg7S6U9Uvp
+	8OFxKEnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vODxv-0000000Evam-2LFG;
-	Wed, 26 Nov 2025 11:45:44 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1vODzA-0000000Evim-3vm2;
+	Wed, 26 Nov 2025 11:47:00 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vODxt-0000000EvZT-0EBr
+	id 1vODz7-0000000EviH-1qFB
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Nov 2025 11:45:42 +0000
-Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=peter.mobile.pengutronix.de)
-	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
-	(envelope-from <s.pueschel@pengutronix.de>)
-	id 1vODxm-0003Bo-Up; Wed, 26 Nov 2025 12:45:34 +0100
-From: =?utf-8?q?Sven_P=C3=BCschel?= <s.pueschel@pengutronix.de>
-Date: Wed, 26 Nov 2025 12:45:08 +0100
-Subject: [PATCH] iommu/rockchip: disable fetch dte time limit
+	Wed, 26 Nov 2025 11:46:59 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=idZH2h/5MOn2BpvO2NsaMW9MH0PQn/xXe34joZcJV90=; b=k+oI7hx2JT1gTwNlxw/iufN1GT
+	7bt0/SdgGFl5jlQEdkfaSucsJojlmITuzJwAn229N3JVCTWmhCnMfSZPeeh/ccu5uC9qEEcc8MXLp
+	7FjQvYmR5gJQeJ6crmXSOMbMcKuRcuOqXqnhiQffmCeEYUsdeRF8AKlMEbUZyWpx1NWudpsImv9yg
+	USevgdzZANgGK9MVBYLJwilcW/iTX37QoMpWvidMCi2rIsFEcIp1cM+9I1zcRGjMVf4VbaCr+J9MN
+	eBrKYxh2q/KGiFxSfEE6/fKErhEuNP/VqFGrhyMpjesHyJH9K8omSJQozflB7ZRiHIbtn8SR7lHUP
+	31XfM12w==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:41852)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1vODyj-000000003vq-3gDf;
+	Wed, 26 Nov 2025 11:46:33 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1vODye-000000001gr-06HK;
+	Wed, 26 Nov 2025 11:46:28 +0000
+Date: Wed, 26 Nov 2025 11:46:27 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Alexey Kodanev <aleksei.kodanev@bell-sw.com>
+Cc: netdev@vger.kernel.org, Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Jesper Dangaard Brouer <hawk@kernel.org>,
+	John Fastabend <john.fastabend@gmail.com>,
+	Stanislav Fomichev <sdf@fomichev.me>, Furong Xu <0x1207@gmail.com>,
+	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
+	Vladimir Oltean <vladimir.oltean@nxp.com>,
+	Ong Boon Leong <boon.leong.ong@intel.com>,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	Jochen Henneberg <jh@henneberg-systemdesign.com>,
+	Piotr Raczynski <piotr.raczynski@intel.com>
+Subject: Re: [PATCH net-next] net: stmmac: fix rx limit check in
+ stmmac_rx_zc()
+Message-ID: <aSbok34XaG1DrlKp@shell.armlinux.org.uk>
+References: <20251126104327.175590-1-aleksei.kodanev@bell-sw.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20251126-spu-iommudtefix-v1-1-f90003dbfcc4@pengutronix.de>
-X-B4-Tracking: v=1; b=H4sIAEPoJmkC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDI1NDQyMz3eKCUt3M/Nzc0pSS1LTMCt3kFINkUyMTk2Rzk0QloK6CIpAw2MT
- o2NpaALjeWhBhAAAA
-X-Change-ID: 20251126-spu-iommudtefix-cd0c5244c74a
-To: Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>, 
- Robin Murphy <robin.murphy@arm.com>, Heiko Stuebner <heiko@sntech.de>
-Cc: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Simon Xue <xxm@rock-chips.com>, kernel@pengutronix.de, 
- =?utf-8?q?Sven_P=C3=BCschel?= <s.pueschel@pengutronix.de>
-X-Mailer: b4 0.14.3
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
-X-SA-Exim-Mail-From: s.pueschel@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251126104327.175590-1-aleksei.kodanev@bell-sw.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251126_034541_202274_A8A741D1 
-X-CRM114-Status: GOOD (  17.57  )
+X-CRM114-CacheID: sfid-20251126_034657_855736_6ABE9C25 
+X-CRM114-Status: GOOD (  23.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,111 +95,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Simon Xue <xxm@rock-chips.com>
+On Wed, Nov 26, 2025 at 10:43:27AM +0000, Alexey Kodanev wrote:
+> The extra "count >= limit" check in stmmac_rx_zc() is redundant and
+> has no effect because the value of "count" doesn't change after the
+> while condition at this point.
+> 
+> However, it can change after "read_again:" label:
+> 
+>         while (count < limit) {
+>             ...
+> 
+>             if (count >= limit)
+>                 break;
+>     read_again:
+>             ...
+>             /* XSK pool expects RX frame 1:1 mapped to XSK buffer */
+>             if (likely(status & rx_not_ls)) {
+>                 xsk_buff_free(buf->xdp);
+>                 buf->xdp = NULL;
+>                 dirty++;
+>                 count++;
+>                 goto read_again;
+>             }
+>             ...
+> 
+> This patch addresses the same issue previously resolved in stmmac_rx()
+> by commit fa02de9e7588 ("net: stmmac: fix rx budget limit check").
+> The fix is the same: move the check after the label to ensure that it
+> bounds the goto loop.
+> 
+> Detected using the static analysis tool - Svace.
+> Fixes: bba2556efad6 ("net: stmmac: Enable RX via AF_XDP zero-copy")
+> Signed-off-by: Alexey Kodanev <aleksei.kodanev@bell-sw.com>
+> ---
+> 
+> After creating the patch, I also found the previous attempt to fix this issue
+> from 2023, but I'm not sure what went wrong or why it wasn't applied:
+> https://lore.kernel.org/netdev/ZBRd2HyZdz52eXyz@nimitz/
 
-Disable the Bit 31 of the AUTO_GATING iommu register, as it causes
-hangups with the RGA3 (Raster Graphics Acceleration 3) peripheral.
-The RGA3 register description of the TRM already states that the bit
-must be set to 1. The vendor kernel sets the bit unconditionally to
-1 to fix VOP (Video Output Processor) screen black issues. This patch
-squashes the 2 vendor kernel commits with the following commit messages:
+It was because:
 
-Master fetch data and cpu update page table may work in parallel, may
-have the following procedure:
+https://lore.kernel.org/netdev/871qli0wap.fsf@henneberg-systemdesign.com/
 
-	master                  cpu
-	fetch dte               update page tabl
-	        |                       |
-	(make dte invalid)  <-  zap iotlb entry
-	        |                       |
-	fetch dte again
-	(make dte invalid)  <-  zap iotlb entry
-	        |                       |
-	fetch dte again
-	(make dte invalid)  <-  zap iotlb entry
-	        |                       |
-	fetch dte again
-	(make iommu block)  <-  zap iotlb entry
+indicated that the author was going to do further work on the patchset,
+so the patch submission was marked as "Changes Requested":
 
-New iommu version has the above bug, if fetch dte consecutively four
-times, then it will be blocked. Fortunately, we can set bit 31 of
-register MMU_AUTO_GATING to 1 to make it work as old version which does
-not have this issue.
+https://patchwork.kernel.org/project/netdevbpf/list/?series=730639&state=*
 
-This issue only appears on RV1126 so far, so make a workaround dedicated
-to "rockchip,rv1126" machine type.
+My guess is the author never came back with any patches.
 
-iommu/rockchip: fix vop blocked and screen black on RK356X and RK3588
+netdev is based on patchwork, which means once a patch series has been
+marked in such a way that it isn't going to be applied, it won't get
+looked at again, and it's up to the author to resubmit. If the author
+doesn't resubmit, no action will happens, especially for a driver such
+as stmmac which doesn't have a maintainer.
 
-RK3568 and RK3588 has the same issue as RV1126/RV1109 that caused by
-dte fetch time limit, So we can set BIT(31) of register 0x24 default
-to 1 as a workaround.
+I think this is a safe change.
 
-Signed-off-by: Simon Xue <xxm@rock-chips.com>
-Signed-off-by: Sven Püschel <s.pueschel@pengutronix.de>
----
-During testing of a newly developed driver for the RGA3 peripheral [1]
-(Raster Graphic Acceleration 3) of the RK3588 some sporadic hangs
-have been observed. The upstream rockchip-iommu driver is used to handle
-the RGA3 IOMMU register space.
+Reviewed-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 
-After a closer look at the TRM for the RK3588, the RGA3 iommu register
-description of the RGA3_MMU_AUTO_GATING register (offset 0x24) mentions
-a mmu_bug_fixed_disable bit, which must be set to 1 but defaults to 0.
+Thanks!
 
-Looking at the commits in the vendor kernel, the bit is unconditionally
-set to 1 and mentions that it fixes a blocked VOP (Video Output
-Processor) [3]. Therefore squash the relevant vendor commits
-[2] and [3] into a single patch, combine the commit messages and keep
-the Signed-off-by line from the original author.
-
-[1] https://lore.kernel.org/all/20251007-spu-rga3-v1-0-36ad85570402@pengutronix.de/
-[2] https://github.com/rockchip-linux/kernel/commit/7f8158fb41b5cc8e738aaeebc3637c50ebd74cae
-[3] https://github.com/rockchip-linux/kernel/commit/6a355e5f9a2069a2309e240791bc3aad63b7324e
----
- drivers/iommu/rockchip-iommu.c | 8 ++++++++
- 1 file changed, 8 insertions(+)
-
-diff --git a/drivers/iommu/rockchip-iommu.c b/drivers/iommu/rockchip-iommu.c
-index 0861dd469bd86..2d0dabb0d101a 100644
---- a/drivers/iommu/rockchip-iommu.c
-+++ b/drivers/iommu/rockchip-iommu.c
-@@ -76,6 +76,8 @@
- #define SPAGE_ORDER 12
- #define SPAGE_SIZE (1 << SPAGE_ORDER)
- 
-+#define DISABLE_FETCH_DTE_TIME_LIMIT BIT(31)
-+
-  /*
-   * Support mapping any size that fits in one page table:
-   *   4 KiB to 4 MiB
-@@ -930,6 +932,7 @@ static int rk_iommu_enable(struct rk_iommu *iommu)
- 	struct iommu_domain *domain = iommu->domain;
- 	struct rk_iommu_domain *rk_domain = to_rk_domain(domain);
- 	int ret, i;
-+	u32 auto_gate;
- 
- 	ret = clk_bulk_enable(iommu->num_clocks, iommu->clocks);
- 	if (ret)
-@@ -948,6 +951,11 @@ static int rk_iommu_enable(struct rk_iommu *iommu)
- 			       rk_ops->mk_dtentries(rk_domain->dt_dma));
- 		rk_iommu_base_command(iommu->bases[i], RK_MMU_CMD_ZAP_CACHE);
- 		rk_iommu_write(iommu->bases[i], RK_MMU_INT_MASK, RK_MMU_IRQ_MASK);
-+
-+		/* Workaround for iommu blocked, BIT(31) default to 1 */
-+		auto_gate = rk_iommu_read(iommu->bases[i], RK_MMU_AUTO_GATING);
-+		auto_gate |= DISABLE_FETCH_DTE_TIME_LIMIT;
-+		rk_iommu_write(iommu->bases[i], RK_MMU_AUTO_GATING, auto_gate);
- 	}
- 
- 	ret = rk_iommu_enable_paging(iommu);
-
----
-base-commit: 30f09200cc4aefbd8385b01e41bde2e4565a6f0e
-change-id: 20251126-spu-iommudtefix-cd0c5244c74a
-
-Best regards,
 -- 
-Sven Püschel <s.pueschel@pengutronix.de>
-
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
