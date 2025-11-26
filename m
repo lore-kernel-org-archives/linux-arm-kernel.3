@@ -4,79 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 861D1D111BE
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 23:31:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DA9FD116E1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 23:36:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ICd8G5D0Nxy6iHBtTIxjwZs9PaKgLQ/+fqX/nFiMHTk=; b=As/op79yNxUWk4HMNwMi2EDsPs
-	8Yr/aG5KcnMPjmXMvkPHa07nTYuFyQzDyzbltZ51YOrOh/aJgnRNu9A7O/5f/P9nTVwL/fNfUPPHe
-	MwsG3vNjXp4xDk/UnM/ZQwNYRCv8DDoba5CcmYnLsLRSrPoj4jSKFvHf2hIM42+rJkKtLAw5AWB89
-	MD0ugAJmj0UwG45gmDhSgZST+WkZ86z8JiO/aI1DRjIg24aPa1nS+RPltfNaogsw1hLeezbgeQH2i
-	L+uTjGIDZcJug9ayTEc1eV6FTi+JZ/qHW6uZSTyWt6NIwxOaH7WTwoZuO7aPF+/H5jY8kHixhZ3CQ
-	thX1ZUJg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mAh/9vM7Pm/mIku5jqVDyLYqYlyxjYJprDKgq8r/Rmo=; b=alsRolpeMKAye/jBaPPih8Eunm
+	QKrgNK6fzW+fSqT1nR/vn2uGqPT5RvY2eMZme4E1enIfFPRY0tlO19jtVD0WFZ2OXPS/FQXpaU9uM
+	YCsNU8ckA1pIsU9mZCUDfwtWOq/3t7qvJ7QXOttGjeUZ4vhkFP/Ar674m9b5YzHuTLAXkWt9hbwQ/
+	2e6dhE8C84ivoMfigDkA0Xo4f7mvQOUPYtq+2w7Xzz7WemUNJd0lRfohQWU0M2sGEkShkHwlKdQqP
+	l3b+5oaZNW2RE2HL8BpJ00V6AIoUd5rfLLbuyZ1i9LuGA5PiAytKlGXcFmZiNGMM2tOR8Ho8Z2fgE
+	/iHyFwtw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOOyq-0000000FlSA-00em;
-	Wed, 26 Nov 2025 23:31:24 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1vOP3o-0000000Fli2-2zNc;
+	Wed, 26 Nov 2025 23:36:32 +0000
+Received: from smtpbgau1.qq.com ([54.206.16.166])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOOyn-0000000FlRP-19ob
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Nov 2025 23:31:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=ICd8G5D0Nxy6iHBtTIxjwZs9PaKgLQ/+fqX/nFiMHTk=; b=OMQTGPEv+0m2vczeCsiycqa7Ei
-	Wuo0I3V8eJv5d0zYs5flQN4ysmgsl3TmQvaNIjAK5mAX+icsKntbdAQLW7GcLaWXNhd3Cs7yk3Zz0
-	LVB+3AsbzWJ/versa1R4lmzwjvA2MQsPskSNcbiAyvLXQoEW2yueeaVi7E1gnca2sAi9NasppJXra
-	45y58mWzoBjoFcYosAc1YeAPNKd+F0JIELmxQavxHiBvwlH1USlL6c8XfFXYFkFIud8OHr+DyswYd
-	dPVYh1U0qeE6tFGZ7kYTuGifiPS99/Z05fE3k+aNQiCNiYTvsW2+IUZHFHM3U1IgOoCo6j4ec6asQ
-	9HlCJLWQ==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:59528)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1vOOyW-000000004bn-3yEF;
-	Wed, 26 Nov 2025 23:31:05 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1vOOyS-00000000274-2rWk;
-	Wed, 26 Nov 2025 23:31:00 +0000
-Date: Wed, 26 Nov 2025 23:31:00 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Al Viro <viro@zeniv.linux.org.uk>
-Cc: Xie Yuanbin <xieyuanbin1@huawei.com>, brauner@kernel.org, jack@suse.cz,
-	will@kernel.org, nico@fluxnic.net, akpm@linux-foundation.org,
-	hch@lst.de, jack@suse.com, wozizhi@huaweicloud.com,
-	linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
-	lilinjie8@huawei.com, liaohua4@huawei.com,
-	wangkefeng.wang@huawei.com, pangliyuan1@huawei.com
-Subject: Re: [RFC PATCH] vfs: Fix might sleep in load_unaligned_zeropad()
- with rcu read lock held
-Message-ID: <aSeNtFxD1WRjFaiR@shell.armlinux.org.uk>
-References: <20251126090505.3057219-1-wozizhi@huaweicloud.com>
- <20251126101952.174467-1-xieyuanbin1@huawei.com>
- <20251126181031.GA3538@ZenIV>
- <20251126184820.GB3538@ZenIV>
- <aSdPYYqPD5V7Yeh6@shell.armlinux.org.uk>
- <20251126192640.GD3538@ZenIV>
- <aSdaWjgqP4IVivlN@shell.armlinux.org.uk>
- <20251126200221.GE3538@ZenIV>
+	id 1vOP3m-0000000Flh2-0oMM;
+	Wed, 26 Nov 2025 23:36:31 +0000
+X-QQ-mid: zesmtpip3t1764200140t26c1d66f
+X-QQ-Originating-IP: hgMl6M65ccjvhNfvtBjTl6QJMNwIooehNHyypEk8E9k=
+Received: from [IPV6:240f:10b:7440:1:c95a:801a ( [localhost])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Thu, 27 Nov 2025 07:35:37 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 3508264673174158136
+Message-ID: <A528C970F1441854+e82f1fbb-b82e-436c-9336-7b34f515b67b@radxa.com>
+Date: Thu, 27 Nov 2025 08:35:37 +0900
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251126200221.GE3538@ZenIV>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/6] PCI: dwc: Revert Link Up IRQ support
+To: Manivannan Sadhasivam <mani@kernel.org>
+Cc: Niklas Cassel <cassel@kernel.org>, Jingoo Han <jingoohan1@gmail.com>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+ Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+ Heiko Stuebner <heiko@sntech.de>, Shawn Lin <shawn.lin@rock-chips.com>,
+ Krishna chaitanya chundru <quic_krichai@quicinc.com>,
+ linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-arm-msm@vger.kernel.org
+References: <20251111105100.869997-8-cassel@kernel.org>
+ <mt7miqkipr4dvxemftq6octxqzauueln252ncrcwy6i2t7wfhi@jtwokeilhwsi>
+ <aSRli_Mb6qoQ9TZO@ryzen>
+ <7667E818D7D31A4E+cf7c83d4-b99c-469d-8d46-588fc95b843f@radxa.com>
+ <pbcemex3hdu4ryw2r7iy6xxt3chwaytlm2eina7mm4ukjfcagt@x4777z7ral26>
+Content-Language: en-US
+From: FUKAUMI Naoki <naoki@radxa.com>
+In-Reply-To: <pbcemex3hdu4ryw2r7iy6xxt3chwaytlm2eina7mm4ukjfcagt@x4777z7ral26>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpip:radxa.com:qybglogicsvrsz:qybglogicsvrsz4b-0
+X-QQ-XMAILINFO: N0mS+7D7RQfjFYYGJptHmc9BX10V8/GiKGnkFoMyqJq3T/FWSSBisagX
+	UDta+xTFuX9m+ncgk+oglFqAJ1E8Yq2IdnpxtreKYOqjdEjytpC78BAXPRfAIyB+X111Dyy
+	8pMZ1vSD5RArFx0OoZa/9ACQmopa1R6iPdpQmG7vK0VYLvfzzCCh9JgqjFtiKHyxOm6Tlk5
+	3pj/ws7aeyOj4iuOYUPjgKsr/J6IpZnT57neijWcn/JvA/IuH01wn1Gf/QhYswQUJ05NvZ6
+	zicSaBPrs/JYuyXtPGGlmGWMUBfS0fihXKjINFolqMM4KjtNe1/fM2jP/DbhZcANZjbsDMU
+	Rp5NFCt55Y3doM9xSZaA3ckxfcZD9zgKRjuuWxRsIm876nepQ/4KuLdQCc2gJw1yj1hnlZ+
+	FL6gFEWMAcdmewLj98figUNn1x10mFyQHL0wzvd1NxLHYjsBu0aIOj/o/+LN7bZkWkvRprt
+	zygFKiNkoH321ZKlvYUx1w7oiWqdTE32LO+9AJOPkZc7BUuVWoqf72SAKO5guoRSgdWDr+B
+	O58Xuj41xsGCJOxaUqtlRnNdX4twjFKdHbPJXnOFvWKj953wgj/K4Q6viwIHRLvNtFWaOlE
+	yp0xBRYZcD921M7o+enVGKTAdEmOTHCk5Sm67kTaLlsiLlMByajHhfyLf+CtB+iOsfy1+VS
+	MPwGOHP4OxN8AjX7r5EnO3CcNy5dZ+N+a3Br5XyW1sDRfM2omcMq9OPXN+tbv66t5RctJ9u
+	BJw1uokOm/3O/Jmv7lEob5u4bk/g5IFjvWJJiM/VMvOLQymJ8VzXrFmfVp6VRcXExHdIGde
+	Vpwe40plfglZIR5fQKInfcTaj6SAbOEpP8Y1Uy2thLWbB/6Y2KbtrhnsPhm19j2bzrtIByy
+	zf3qFi5dixqqpLM75IMELwse2F3cAQ29sre9tJDJWEApW6v2Ty9dsOnd0EvFWqS0tW0/0BO
+	sMNx4u3FiSTwWFi59vOm3OczPmrQvRGeDLTGvtCt68WHMWtHsIrxtn70DE+baKf6qrNt5j/
+	N4qa7i+Q==
+X-QQ-XMRINFO: MSVp+SPm3vtS1Vd6Y4Mggwc=
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251126_153121_321505_1D57CA47 
-X-CRM114-Status: GOOD (  40.49  )
+X-CRM114-CacheID: sfid-20251126_153630_704061_8B7C694C 
+X-CRM114-Status: GOOD (  21.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,106 +95,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 26, 2025 at 08:02:21PM +0000, Al Viro wrote:
-> On Wed, Nov 26, 2025 at 07:51:54PM +0000, Russell King (Oracle) wrote:
+Hi Mani,
+
+On 11/26/25 22:54, Manivannan Sadhasivam wrote:
+> On Wed, Nov 26, 2025 at 10:30:06PM +0900, FUKAUMI Naoki wrote:
+>> Hi Niklas,
+>>
+>> I apologize for the delayed response.
+>>
+>> On 11/24/25 23:02, Niklas Cassel wrote:
+>>> On Mon, Nov 24, 2025 at 06:07:44PM +0530, Manivannan Sadhasivam wrote:
+>>>> While I suggested to revert the link up IRQ patch for rockchip earlier, I didn't
+>>>> expect to drop the support for Qcom. The reason is, on Qcom SoCs, we have not
+>>>> seen a case where people connect a random PCIe switch and saw failures. Most of
+>>>> the Qcom usecases were around the M.2 and other proprietary connectors. There is
+>>>> only one in-house PCIe switch that is being actively used in our products, but
+>>>> so far, none of the bootloaders have turned them ON before kernel booting. So
+>>>> kernel relies on the newly merged pwrctrl driver to do the job. Even though it
+>>>> also suffers from the same resource allocation issue, this series won't help in
+>>>> any way as pwrctrl core performs rescan after the switch power ON, and by that
+>>>> time, it will be very late anyway.
+>>>>
+>>>> So I'm happy to take the rockhip patches from this series as they fix the real
+>>>> issue that people have reported. But once the pwrctrl rework series gets merged,
+>>>> and the rockchip drivers support them, we can bring back the reverted changes.
+>>>
+>>> FUKAUMI Naoki, just to confirm:
+>>>
+>>> Neither my suggested approach:
+>>> https://lore.kernel.org/linux-pci/aRHdeVCY3rRmxe80@ryzen/
+>>>
+>>> nor Shawn's suggested approach:
+>>> https://lore.kernel.org/linux-pci/dc932773-af5b-4af7-a0d0-8cc72dfbd3c7@rock-chips.com/
+>>>
+>>> worked for you?
+>>
+>> Yes, I re-tested the two methods mentioned above, separately, on v6.18-rc7,
+>> but neither of them resolved the issue in my environment (ROCK 5C +
+>> ASM2806).
+>>
+>>> If so, I don't see many alternative but for Mani to apply patch 1 and
+>>> patch 2 from this series.
+>>
+>> I believe applying patch 1 and patch 2 should be sufficient.
+>>
+>> ----
+>>
+>> Incidentally, (probably) while applying patch 1 and patch 2, I have
+>> encountered the following issue several times:
+>>
 > 
-> > I don't understand how that helps. Wasn't the report that the filename
-> > crosses a page boundary in userspace, but the following page is
-> > inaccessible which causes a fault to be taken (as it always would do).
-> > Thus, wouldn't "addr" be a userspace address (that the kernel is
-> > accessing) and thus be below TASK_SIZE ?
-> > 
-> > I'm also confused - if we can't take a fault and handle it while
-> > reading the filename from userspace, how are pages that have been
-> > swapped out or evicted from the page cache read back in from storage
-> > which invariably results in sleeping - which we can't do here because
-> > of the RCU context (not that I've ever understood RCU, which is why
-> > I've always referred those bugs to Paul.)
+> Do you see the below issue *after* applying the patches? I don't know how to
+> interpret "while applying".
+>   
+>> [    1.709614] pcieport 0004:41:00.0: of_irq_parse_pci: failed with rc=134
+>> [    1.710208] pcieport 0004:41:00.0: Unable to change power state from
+>> D3cold to D0, device inaccessible
+>>
 > 
-> No, the filename is already copied in kernel space *and* it's long enough
-> to end right next to the end of page.  There's NUL before the end of page,
-> at that, with '/' a couple of bytes prior.  We attempt to save on memory
-> accesses, doing word-by-word fetches, starting from the beginning of
-> component.  We *will* detect NUL and ignore all subsequent bytes; the
-> problem is that the last 3 bytes of page might be '/', 'x' and '\0'.
-> We call load_unaligned_zeropad() on page + PAGE_SIZE - 2.  And get
-> a fetch that spans the end of page.
+> Looks like the device was seen during bus scan, but then it went down
+> afterwards.
+
+Sorry, I meant "after". But I guess it occurred with vanilla kernel in 
+the past:
+
+  https://lore.kernel.org/linux-pci/4487DA40249CC821+19232169-a096-4737-bc6a-5cec9592d65f@radxa.com/
+  https://gist.github.com/RadxaNaoki/b42252ce3209d9f6bc2d4c90c71956ae#file-gistfile1-txt-L551
+
+This time I unset CONFIG_PCI_DYNAMIC_OF_NODES, but this error occurred 
+at same location when kernel oops occurred.
+
+It might be a problem with ROCK 5C, (or *my* ROCK 5C), so I'll test 
+again with ROCK 5B.
+
+Best regards,
+
+--
+FUKAUMI Naoki
+Radxa Computer (Shenzhen) Co., Ltd.
+
+> - Mani
 > 
-> We don't care what's in the next page, if there is one mapped there
-> to start with.  If there's nothing mapped, we want zeroes read from
-> it, but all we really care about is having the bytes within *our*
-> page read correctly - and no oops happening, obviously.
-> 
-> That fault is an extremely cold case on a fairly hot path.  We don't
-> want to mess with disabling pagefaults, etc. - not for the sake
-> of that.
 
-I think, looking at the x86 handling, 32-bit ARM has missed a heck of
-a lot of changes to the fault handling code, going all the way back to
-pre-git history.
-
-I seem to remember that I had updated it to match i386's implementation
-at one point in the distant past, which is essentially what we have
-today with a few tweaks. As code ages, it gets more difficult to
-justify wholesale rewrites to bring it back up.
-
-Relevant to this, looking at i386, that at some point added:
-
-+       /*
-+        * We fault-in kernel-space virtual memory on-demand. The
-+        * 'reference' page table is init_mm.pgd.
-+        *
-+        * NOTE! We MUST NOT take any locks for this case. We may
-+        * be in an interrupt or a critical region, and should
-+        * only copy the information from the master page table,
-+        * nothing more.
-+        *
-+        * This verifies that the fault happens in kernel space
-+        * (error_code & 4) == 0, and that the fault was not a
-+        * protection error (error_code & 1) == 0.
-+        */
-+       if (unlikely(address >= TASK_SIZE)) {
-+               if (!(error_code & 5))
-+                       goto vmalloc_fault;
-+               /*
-+                * Don't take the mm semaphore here. If we fixup a prefetch
-+                * fault we could otherwise deadlock.
-+                */
-+               goto bad_area_nosemaphore;
-+       }
-
-which is after notify_die() and the test to see whether we need a
-local_irq_enable(). This means we go straight to the fixing up etc
-for these addresses.
-
-In today's kernel, this has morphed into:
-
-        /* Was the fault on kernel-controlled part of the address space? */
-        if (unlikely(fault_in_kernel_space(address))) {
-                do_kern_addr_fault(regs, error_code, address);
-        } else {
-                do_user_addr_fault(regs, error_code, address);
-
-meaning any page fault for a kernel space address is handled entirely
-separately from the normal page fault handling, and it looks like
-this is entirely sensible.
-
-Interestingly, however, I notice that x86 appears to no longer call
-notify_die(DIE_PAGE_FAULT) in its page fault handling path, and I
-wonder whether that's a regression on x86.
-
-Now, for 32-bit ARM, I think I am coming to the conclusion that Al's
-suggestion is probably the easiest solution. However, whether it has
-side effects, I couldn't say - the 32-bit ARM fault code has been
-modified by quite a few people in ways I don't yet understand, so I
-can't be certain at the moment whether it would cause problems.
-
-I think the only thing to do is to try the solution and see what
-breaks. I'm not in a position to be able to do that as, having not
-had reason to touch 32-bit ARM for years, I don't have a hackable
-platform nearby. Maybe Xie Yuanbin can test it?
-
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
