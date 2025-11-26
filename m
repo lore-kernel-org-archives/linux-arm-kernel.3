@@ -4,156 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C047BD1036E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 06:23:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CC2BD1037E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 06:24:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Kn2cQW3RG7LoZEPE3YpPkNrxY2RF2SwFFfyXbC/li30=; b=ljBZGnbMaMtwuBJxPCaiSh8Qma
-	5X3os+R8zf1fKIMxwhxGirJ2dkeGyf9LCyBX1UxPtTw/yR8XZx8ftMx99b4EvLE7kcak2o3El1bAt
-	T/ksnJckMS21JYksdKjuT+uRcV41bG0pSKlP+4SdUgc6xIxho2uZwvzFlzIQfwzW1TcN8/mQ0HbLs
-	yJrTHB/7PICRQOR+Q4BBqsEes1Q+DKjvjgJdyCgGEPHCwPooOK0/+VJeOVlDXQ7S3CbmFpHkotxyK
-	yVZryeT1Ywqs0HfgLgTiulqnKE5MEqGo5MwWVbXok6CVCHuih1d5Nc882bXKLEwe3VQjuA95/Lc9G
-	qeKuvY6A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=M011qkyuR20qRDOUluBYMghjw9AXrEBk6NCoxE4iRz0=; b=OYJl/++URk7Pmm8C5EI77/A7oI
+	wrWkN5k/64yDURfUXGD6VsmsqqXyQRwdZKtp3L7ixyxQcAzTxAs9gJ4iySdi+eu2rykBlZSGto4SR
+	sEnwtGf2KfFVxq8dpMS5VYbSljFW6WHw7NHQvLL45FjzGeI0nj7dYspFgHPgHE7Bx6MT2kVo3vLKP
+	j1fdhWtWpLy6nI2eP7HE407wL1z8PsRu2/yTwuQ8oJOe4EE8+WmH+KsKGaOI4B89UoqRfPFIlcbdZ
+	nBgnWWAY6tvCBT/qFW3HKCt24O6WHmMgk3i8y2K+PYFiBfDCd7uwmoWdDHWoX1ssnFTg1F35ZM0Sb
+	E+RVD+mw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vO8vx-0000000ER6w-0KFE;
-	Wed, 26 Nov 2025 06:23:21 +0000
-Received: from mail-northcentralusazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c105::5] helo=CH5PR02CU005.outbound.protection.outlook.com)
+	id 1vO8x0-0000000ERFU-42ox;
+	Wed, 26 Nov 2025 06:24:26 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vO8vv-0000000ER6a-0KVi
+	id 1vO8wy-0000000ERF7-1bIi
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Nov 2025 06:23:20 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Ym+HckwRGjB1QBix1/r3U+cgDqSfU7DIdZ7WDE7EQ2Ck2GOtrX7Tr1BB7kCifwfxzkmso1dAg5zASy9/XxZSNNGfjwGLbUax9AkFVs5dUGzo04X/DUjs4vsBZmCUCRZ/jqTe53QJG3sl6gLqLRaYmyg0BFWTp7MYxaUGc63qYdh0DkYq7HKUXZhgLRqKp7m32+0jjDwt4ME9xbjdNtAKkNO0oVIg8Q4NwGlZpAWIuOdDYc+J0sN6h7Bx87TVeopbkLKO5cOdEWutN1kWtgQ9VZrvf+D0dCiBGJtnfTuOSkBdml4XCByNsC58uD5Rr62jxTLqaSuPND1yE6puxLWuVg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Kn2cQW3RG7LoZEPE3YpPkNrxY2RF2SwFFfyXbC/li30=;
- b=Iq5mJA9IUxaluGkX0t3wWx36Jbx7mgChOsh2gItMpMhjh8p1bY+MJINbnKrtrJeEZNx8Q6KA6Bz3bOnyFOAQAlTiKgYX9f52a9DKKsnDyCk/53VDbOXTHjrxiTsMm7lgzi5ipLMk1Z7TQ+AyaTem6Ic+EBjT/zH9H189GuATZHM5KQvHsACYqeczZotKCkZ+V9Hzd2zTlAbdx3mgX651xFUN3YcadfgAB0shNZvTUT8pgg5jj41xhKgRQulnNCm6z44OSr+qn9nEqreJwWo8vsmLY5txawQDu+yS0Jy5iTlvuclReTApYO63k4pZEvtTBsKtsavTcN5cbvWyBT6GhA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Kn2cQW3RG7LoZEPE3YpPkNrxY2RF2SwFFfyXbC/li30=;
- b=B7VW4fa+JzXqDXpnuelzKvp4DjXXE5nDBh6wj44AwPAJh+YfEj/vLiDXmpz3yLK1JXJeZ016SwDGgLWoes+wz6mY5pH/ceunNac82qUwtnS4DaeZF8bN1YIOEJ+SKnTlTA9V1SdT61AikiRJ/6fQ3Qa3sJFMZt9lGK3e1rgnWFQ=
-Received: from SA1PR12MB6798.namprd12.prod.outlook.com (2603:10b6:806:25a::22)
- by CH3PR12MB8353.namprd12.prod.outlook.com (2603:10b6:610:12c::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9366.11; Wed, 26 Nov
- 2025 06:23:13 +0000
-Received: from SA1PR12MB6798.namprd12.prod.outlook.com
- ([fe80::8ccf:715:fdc4:8a14]) by SA1PR12MB6798.namprd12.prod.outlook.com
- ([fe80::8ccf:715:fdc4:8a14%3]) with mapi id 15.20.9343.016; Wed, 26 Nov 2025
- 06:23:13 +0000
-From: "Gupta, Suraj" <Suraj.Gupta2@amd.com>
-To: "Gupta, Suraj" <Suraj.Gupta2@amd.com>, "vkoul@kernel.org"
-	<vkoul@kernel.org>, "Pandey, Radhey Shyam" <radhey.shyam.pandey@amd.com>,
-	"Simek, Michal" <michal.simek@amd.com>
-CC: "dmaengine@vger.kernel.org" <dmaengine@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>
-Subject: RE: [PATCH RESEND] dmaengine: xilinx_dma: Fix uninitialized
- addr_width when "xlnx,addrwidth" property is missing
-Thread-Topic: [PATCH RESEND] dmaengine: xilinx_dma: Fix uninitialized
- addr_width when "xlnx,addrwidth" property is missing
-Thread-Index: AQHcQrjodwqWjLqA/0OOPed0tpbls7UEtIoA
-Date: Wed, 26 Nov 2025 06:23:13 +0000
-Message-ID: <SA1PR12MB6798C7AFFCB21EBC21B6C8F5C9DEA@SA1PR12MB6798.namprd12.prod.outlook.com>
-References: <20251021183006.3434495-1-suraj.gupta2@amd.com>
-In-Reply-To: <20251021183006.3434495-1-suraj.gupta2@amd.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-msip_labels: MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_Enabled=True;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_SiteId=3dd8961f-e488-4e60-8e11-a82d994e183d;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_SetDate=2025-11-26T06:22:08.0000000Z;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_Name=AMD
- Internal Distribution
- Only;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_ContentBits=3;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_Method=Standard
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: SA1PR12MB6798:EE_|CH3PR12MB8353:EE_
-x-ms-office365-filtering-correlation-id: 273b21d7-e7d8-456e-f0a0-08de2cb4472e
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|376014|366016|1800799024|38070700021|7053199007;
-x-microsoft-antispam-message-info: =?us-ascii?Q?YXoKJ/OqMp1twXbQyQWtZCEQ2iLbvjq52ITrPvBGGx7+jQwcKHypInM4hjzH?=
- =?us-ascii?Q?sjkRFRr26MNp3vgRLqHQ5jHKZxSrIQGFyuleuPKRYI9+2jTLgBlg3zPCt/wW?=
- =?us-ascii?Q?c+4KB6HHOCHwE4EScOj27XvW4UsKx/mreXlDOM0woAPQIU4EeVSK2lHjvCSW?=
- =?us-ascii?Q?z0bQONI6ZB8ffYI7hvoOFGEBAIofOQBnh0OKe3pmT2l9FYA72lFmTZBOizCP?=
- =?us-ascii?Q?pQKy6GVn7SVP/xI4Loj8GL/gki5+oDRucEkD23MUn7IKw6yYCPTmYUR3ZqsJ?=
- =?us-ascii?Q?yLwk5OhtV82NriaF0faG+zO5n3Zhup7MxoEr3kfWUdGxfqSyowc6jXZDQuTP?=
- =?us-ascii?Q?/CxcNTHhIPovxZyNCrdUmDmNaPGBFcPuMYkpM+fVR0edfIwrpxS5U4j4SPRY?=
- =?us-ascii?Q?AZuQHEEiwh4iEd19BgGUZ5hzODs/whDvYdrRYEVHEAnqppW3/cZj12SG+5cW?=
- =?us-ascii?Q?zBzHK0PM1umHe8uENue7PITgmJTaZnjbI3rbwOblLiNVwAAmTL7XgswEL2Wn?=
- =?us-ascii?Q?fkC89bwwa6QMn59egSD3JJJlpI0x4pi9by5mSCK/jVgBMhX2J6pjxH01FsmU?=
- =?us-ascii?Q?kdQIiZS3XvJMHI0VBQDeNkOhHPBoY5A6qYu4DsLY+5TJaEoPvYYErD2Q/nt9?=
- =?us-ascii?Q?MC8pa6lLWvXWEMmS7dQ+qAreChe6WhOhFf+YvO5/F2ruHDILovKLNU9Rur1R?=
- =?us-ascii?Q?RjyLe4AvVQtfy4ZkGZHxV97xXHALQQeU52GIXtOVU38l4N8KTGLR5JCcd1AP?=
- =?us-ascii?Q?etLjyF6Aya26xLW6LQJ4ERguShtvH9CLXD2AtkNEr3MF4+6ZmWoo23YIkKgs?=
- =?us-ascii?Q?Me80bzgbMx8Zw4ViYq858S0jcTuzNmix6PszFF6wmNbu5fY5JBDO/ePU7GoZ?=
- =?us-ascii?Q?6uq/iafy/khGrX61CSEmk8yWYPB3F6v7KFToM6h83+1Ddjj8TIzRhV266wke?=
- =?us-ascii?Q?a0h/omq/oyI5gNrez+Qy0oHG2tG7XQKKMWQzY7PvRK5rmPg1UOks2OQJKx+t?=
- =?us-ascii?Q?WzNY23bbw6yYnVWKPig+hcgxe4RUOO9HxJEE7f82Tq0HqTgB17C1XdWOlRCo?=
- =?us-ascii?Q?0aSNAXiG4mnloWT/fV2gDQMSTwHKFY28CNYi4+/13QLggdrVIwd5CTYJ4NdC?=
- =?us-ascii?Q?wrNhGh0SNApDvWV7FzQuauIfLYTwl2OL51XPwLcFjCFMF+8jniDKQsZW2bh2?=
- =?us-ascii?Q?miVrtHHdXshiiKv4G7TPl8IqXgCqOdlhDaiCZkGeky9trg6AsaJVkVh7VXCd?=
- =?us-ascii?Q?ggq7IffOcGodMubFVakMuYNiN6U5wrnsickx71EVPMYq5C/kjaOty7g6gwb0?=
- =?us-ascii?Q?Bf1P492xbXKdp5vbMoNoBtGLywlJS+YBQcnf1rri8VNqYUuhC+O8uZYyQlfH?=
- =?us-ascii?Q?NiUn/AyQOmWDm3p2gT/A18hp2ONLzjzu5oZYPBquOKYsMLpvn6ZrR5I+Ta9s?=
- =?us-ascii?Q?No7xhoTwCMezfJ/3pyYFq5zPHt+b9xs5C+8kUaQXEX3rfKTxXIbgRf5V/zhG?=
- =?us-ascii?Q?wBF8HcUOwzgB/ap1HmFTTwatvHVDtz4cV+Dj?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SA1PR12MB6798.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(1800799024)(38070700021)(7053199007);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?gwpWFdD5ge6FT5ol1qNTmsQMEEITNZlp2qY5f52luxN24AxgENDNfVb+tD9v?=
- =?us-ascii?Q?eneiZCcxaqdPTmY3fwj7TNIP8NfdEnM1IPy0TiHfKe9rVLL113gPyOmlHYZ8?=
- =?us-ascii?Q?QEs+mjnRWU8QfD5l2cC4TYXMDwzdx80+SaUCmezcXOdz+LbloBaR6pFNpbwP?=
- =?us-ascii?Q?T583uYup8PdJvyQ26l04jj/2engexf63LFgMAhJVWUQW9J6QpKLTZMn8aueW?=
- =?us-ascii?Q?uxXLqrWfGOsJdJ3+vO49ZZd3EEqS5rO19pEB5bRIdosCvV2Sq3nyt5IDGO4b?=
- =?us-ascii?Q?xlo630NJwDdR21kymZk5/3/Vj66Rcwi2g0SC9YILNH50kL+LK6XtIZCvl+qd?=
- =?us-ascii?Q?clL2mSirUg1RcK7y2+Mf8DFKUsPOxsC2tBCdgg7IaIAHU50oEdH44m8Kg30P?=
- =?us-ascii?Q?vjRKRVaAJvF2iYV+Vk1BmxIFIZKR4plEDcOtHelyT6CHqjvcZggqRN19SlXN?=
- =?us-ascii?Q?ZPcTncAQyw0XV+IHImCwG/L4hzLVxi1jiX47cKRl1C4Q9/CXEpTuqZzA/ZbO?=
- =?us-ascii?Q?t12d3jgwssjgibn8dJ/su+xS+tapfw7Krv/YjxD4C13jji/mavICtrgVuH5I?=
- =?us-ascii?Q?WODZ5T8PfcA/c+q4NosmUbsItM6MvKUgU1wyqyhEeGY87BNjR9MuonwdTnB3?=
- =?us-ascii?Q?dUPkdhc5lQvWEluMTm7KaOYK/l63rCZ+mH5AQGcAnZjvyOD/Od8j6YYwMpYA?=
- =?us-ascii?Q?ee3EdwoqygaT74dlmdi58cuGbYvdGoU1Wxjs+4pbl0/I2B675SObzWkyUw/y?=
- =?us-ascii?Q?2l/JvruK9MMiJZhRxMypNb8HHW3st64kpD1Zy68tLn15TrvsyOEJBfFp2oFt?=
- =?us-ascii?Q?ylXMz+ww8bGvs6DK+SsB3FPS8Nu8vYkGNtp8VFgloh11Pjxep0HFnyRJ6ROS?=
- =?us-ascii?Q?e3dHYHJyk8+jPdLbhCjJnegQwqqb1/83RpiKqOXfCGi3uPn+5sH4xhLgaK9O?=
- =?us-ascii?Q?Wr5zWA8tHO/TDfA5bQ9cAhRKOgAHRu1cHuWqhRIQi8K72HvaZmxQFTsPBY1T?=
- =?us-ascii?Q?OZ73QJ8jjbhSDVHYi2RarbHFKB/fLzIN+kAJ2erDDLntG97znK2PgA+niCqM?=
- =?us-ascii?Q?nhpxmZJ4TeeyzK12tHW8H8sTGVBztlW53UpdJcrLb6Nbg7eaq08e/OzYD3nH?=
- =?us-ascii?Q?JavjlLn0KtLpbDwY6t5vh2OICz76JL0kB4GMpx02LLqlwOCEBLhh/mWpMI0L?=
- =?us-ascii?Q?c1bpvpnYpqHOhKGyOFx0hlkmsOOgpD/l80tI4mFHeLjW2JT5/r9oSeSQxA3q?=
- =?us-ascii?Q?KR0HNlV237sSenhpM1ufyKMxNyEoE7/owwf3XlHOELwkHMMM5JNaOSxDA+77?=
- =?us-ascii?Q?J0zD5x5LFF8Qg7kd+PCFzgEVFNQRH7AF49Wj7wTJRt866JpDx3fwjfpD1nzX?=
- =?us-ascii?Q?VUXvb/9EQLr9UUd83/qOKrlS55Odmq/wgsxyaGKptUNsCjT3k6XxCz2M688U?=
- =?us-ascii?Q?weeLuCzazuUm2ZOTVeJ/N7ew1C+YKV5EWUGuNt28KbwAPHt602jUZyZGX85G?=
- =?us-ascii?Q?NlvpMdXhU9vpkDm4j+v0QabHPuwOTGwwAPVJgVZ1DExZ38MqQ8DpT91jQBpr?=
- =?us-ascii?Q?MVApDdvLboDfXWfhm68=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Wed, 26 Nov 2025 06:24:25 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id A2C96406BA;
+	Wed, 26 Nov 2025 06:24:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5F198C113D0;
+	Wed, 26 Nov 2025 06:24:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1764138263;
+	bh=sUiCwKNe3z+sHXocE2lAIW6X2BDWSB17D73K2hnpa5U=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=u7HbiMb5vvG6nk6FBQ/uO/KiTOokMUrIiXr30Yq+FYW9t9QyYCGht/Xil4RxlxTaI
+	 +lJfXdSvyXVzUUfyfLbLwXDGZrgR4qaqRBVVLnwidX6Vao3oAv8E/HXjBIwu50LFp7
+	 tbFe8JW2jjUtelsqUyq4FcPth059RPEMNMcOZsOnZ3v8bZiSIKpG+QZe5RhEjX/5iK
+	 g/t4qeoZHTJMyHC2mdQ/dE04glKiLkuWW0HwG+q/5kxqp4VuUqy7k9EsRGldoL+A6t
+	 /xy2bkUa+2/Q3kNQf4+6DSdn3WuZ6WEdqAiKZ89QuQe6en5vOZXJKZQVZEmnvf4z3E
+	 +MYB5J6s3uI9A==
+From: Oliver Upton <oupton@kernel.org>
+To: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	kvm@vger.kernel.org,
+	Marc Zyngier <maz@kernel.org>
+Cc: Oliver Upton <oupton@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>
+Subject: Re: [PATCH] KVM: arm64: Convert ICH_HCR_EL2_TDIR cap to EARLY_LOCAL_CPU_FEATURE
+Date: Tue, 25 Nov 2025 22:24:20 -0800
+Message-ID: <176413825565.1765923.11158518614832526682.b4-ty@kernel.org>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20251125160144.1086511-1-maz@kernel.org>
+References: <20251125160144.1086511-1-maz@kernel.org>
 MIME-Version: 1.0
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: SA1PR12MB6798.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 273b21d7-e7d8-456e-f0a0-08de2cb4472e
-X-MS-Exchange-CrossTenant-originalarrivaltime: 26 Nov 2025 06:23:13.2905
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: q9ukrbMISZoYz52029I1JEFZzK53rUxpXPcwCwo1AsOp+YkJKZqrqf36YQhiWbi0Uu+vekeB6eZdvMxvHKMCoQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB8353
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251125_222319_255405_3D91D08B 
-X-CRM114-Status: GOOD (  19.50  )
+X-CRM114-CacheID: sfid-20251125_222424_567575_3311BF23 
+X-CRM114-Status: UNSURE (   8.93  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -168,85 +78,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-[AMD Official Use Only - AMD Internal Distribution Only]
+On Tue, 25 Nov 2025 16:01:44 +0000, Marc Zyngier wrote:
+> Suzuki notices that making the ICH_HCR_EL2_TDIR capability a system
+> one isn't a very good idea, should we end-up with CPUs that have
+> asymmetric TDIR support (somehow unlikely, but you never know what
+> level of stupidity vendors are up to). For this hypothetical setup,
+> making this an "EARLY_LOCAL_CPU_FEATURE" is a much better option.
+> 
+> This is actually consistent with what we already do with GICv5
+> legacy interface, so flip the capability over.
+> 
+> [...]
 
-Gentle ping.
+Applied to next, thanks!
 
-Regards,
-Suraj
+[1/1] KVM: arm64: Convert ICH_HCR_EL2_TDIR cap to EARLY_LOCAL_CPU_FEATURE
+      https://git.kernel.org/kvmarm/kvmarm/c/64d67e7add10
 
-> -----Original Message-----
-> From: Suraj Gupta <suraj.gupta2@amd.com>
-> Sent: Wednesday, October 22, 2025 12:00 AM
-> To: vkoul@kernel.org; Pandey, Radhey Shyam
-> <radhey.shyam.pandey@amd.com>; Simek, Michal <michal.simek@amd.com>
-> Cc: dmaengine@vger.kernel.org; linux-arm-kernel@lists.infradead.org; linu=
-x-
-> kernel@vger.kernel.org
-> Subject: [PATCH RESEND] dmaengine: xilinx_dma: Fix uninitialized addr_wid=
-th
-> when "xlnx,addrwidth" property is missing
->
-> Caution: This message originated from an External Source. Use proper caut=
-ion
-> when opening attachments, clicking links, or responding.
->
->
-> When device tree lacks optional "xlnx,addrwidth" property, the addr_width
-> variable remained uninitialized with garbage values, causing incorrect DM=
-A
-> mask configuration and subsequent probe failure. The fix ensures a fallba=
-ck to
-> the default 32-bit address width when this property is missing.
->
-> Signed-off-by: Suraj Gupta <suraj.gupta2@amd.com>
-> Fixes: b72db4005fe4 ("dmaengine: vdma: Add 64 bit addressing support to t=
-he
-> driver")
-> Reviewed-by: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
-> Reviewed-by: Folker Schwesinger <dev@folker-schwesinger.de>
-> ---
->  drivers/dma/xilinx/xilinx_dma.c | 7 +++++--
->  1 file changed, 5 insertions(+), 2 deletions(-)
->
-> diff --git a/drivers/dma/xilinx/xilinx_dma.c b/drivers/dma/xilinx/xilinx_=
-dma.c
-> index fabff602065f..89a8254d9cdc 100644
-> --- a/drivers/dma/xilinx/xilinx_dma.c
-> +++ b/drivers/dma/xilinx/xilinx_dma.c
-> @@ -131,6 +131,7 @@
->  #define XILINX_MCDMA_MAX_CHANS_PER_DEVICE      0x20
->  #define XILINX_DMA_MAX_CHANS_PER_DEVICE                0x2
->  #define XILINX_CDMA_MAX_CHANS_PER_DEVICE       0x1
-> +#define XILINX_DMA_DFAULT_ADDRWIDTH            0x20
->
->  #define XILINX_DMA_DMAXR_ALL_IRQ_MASK  \
->                 (XILINX_DMA_DMASR_FRM_CNT_IRQ | \ @@ -3159,7 +3160,7 @@
-> static int xilinx_dma_probe(struct platform_device *pdev)
->         struct device_node *node =3D pdev->dev.of_node;
->         struct xilinx_dma_device *xdev;
->         struct device_node *child, *np =3D pdev->dev.of_node;
-> -       u32 num_frames, addr_width, len_width;
-> +       u32 num_frames, addr_width =3D XILINX_DMA_DFAULT_ADDRWIDTH,
-> + len_width;
->         int i, err;
->
->         /* Allocate and initialize the DMA engine structure */ @@ -3235,7
-> +3236,9 @@ static int xilinx_dma_probe(struct platform_device *pdev)
->
->         err =3D of_property_read_u32(node, "xlnx,addrwidth", &addr_width)=
-;
->         if (err < 0)
-> -               dev_warn(xdev->dev, "missing xlnx,addrwidth property\n");
-> +               dev_warn(xdev->dev,
-> +                        "missing xlnx,addrwidth property, using default =
-value %d\n",
-> +                        XILINX_DMA_DFAULT_ADDRWIDTH);
->
->         if (addr_width > 32)
->                 xdev->ext_addr =3D true;
-> --
-> 2.25.1
->
-
+--
+Best,
+Oliver
 
