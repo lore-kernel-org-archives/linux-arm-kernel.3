@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB217D1118B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 17:38:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99DFFD1118B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 17:38:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Oveio8G+2g9nvCOYGYGyqpnqI1CGgVJ0FLMFM8BnlO0=; b=hBLBcA4H2K9NEmGmQRnND/+Hrk
-	Zn5+OORH7dF69EthCepdVuaz+ODyW9MahY+ZVagFQimBwIES+KQYovDt8qte1kNGvTuAmJGe87fye
-	AHCPAofuKZfx22ZNgVvzeFALGN8g1AW2eR/6xXh/EwGvWC0qICwl2ySep/9CPF03tpdyMm3441763
-	SohQHS3duKtngf8Zwrn3jSnq/VHyzuDHDClxpkAF6c8/pd3+RXox27v4AryeePjOarFiEysmyLzkW
-	GHcpjo0yFJMoo2e7Xuy62QFMlWHzieTGoQ1fQYY55uAZpc5lk+iDvcV26xChlI54Z3u9XkheDxux3
-	5Nas3kJA==;
+	bh=PkLVw483Bi2TFNGwF1BcdMAGMT/TwUDIUm6G6/HIAiA=; b=KgQjGIQLONuQlTUGfTQLlLugHT
+	D/taUMht3vZ8IaAHRdMda2ZTMFH0Yl7NDkn1u6agMVQVfp6ipPlT2Lqe50iHGl/iG8rFRmPH0M8YR
+	SUCIOGcUNjQyWUmXULd5SMZ6nracIhHsyOqRuv5UYx0/lyGxltitntX60cQyQOxdfiMTTp8UbNtGz
+	Mb9hQfJA7Q56qlq64ZX19mThQzp8rf+juUdGvX7G6oxEHFR+OxAvUQj8Pyv0wG8d1TLH/WFG5d+NH
+	GKe8ARFrp6D1vX/pqUuTGO+EJ4T/ga7LgyA26jySKipOon/XNH+tHr6yL7gB8NTHcYWVd7PXUUmK2
+	pCZimUAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOJSo-0000000FPWd-1MWv;
-	Wed, 26 Nov 2025 17:37:58 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
+	id 1vOJTS-0000000FQBr-0ZyQ;
+	Wed, 26 Nov 2025 17:38:38 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOJSZ-0000000FPFK-1ONZ
+	id 1vOJSf-0000000FPJu-0vzF
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Nov 2025 17:37:47 +0000
+	Wed, 26 Nov 2025 17:37:52 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id E0E46C16A0C;
-	Wed, 26 Nov 2025 17:37:18 +0000 (UTC)
+	by smtpout-03.galae.net (Postfix) with ESMTPS id B954F4E418DB;
+	Wed, 26 Nov 2025 17:37:47 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id A863C60721;
-	Wed, 26 Nov 2025 17:37:41 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id AD13D102F22BB;
-	Wed, 26 Nov 2025 18:37:37 +0100 (CET)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 8EB8260721;
+	Wed, 26 Nov 2025 17:37:47 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id CD295102F221D;
+	Wed, 26 Nov 2025 18:37:43 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1764178660; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1764178666; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=Oveio8G+2g9nvCOYGYGyqpnqI1CGgVJ0FLMFM8BnlO0=;
-	b=2Vxt3OReAC3dnVceNrBrBtLGi6S362OZy6NdOKPCMSecnaL4sWygiY9p5nsPEVMq4RBIZn
-	8ZysyaQNWl8Y3ZTpTqgiYWMr80/RR3jTYFXtMTYN6B4P8XfdVnTkbR7for0MKHL60qrnzf
-	aNumy7UP+wcmXqFcpZ28nWtE5QUq5G3dUmq4skTjallAkX1ha6tPTCFxGDdXNUP2qBnP1w
-	PCz+Fudt/ixcwEan/ovnSHtrQlYm1sWZIxglO6tR/8ZKvqoipnhRm/yB4UDa7TFDK/qldU
-	s2T2suemAwSXgW2w0mejFesDRdslGFDWaW5T14CYv97E7eDJRZ01EZUB+IGuNg==
+	bh=PkLVw483Bi2TFNGwF1BcdMAGMT/TwUDIUm6G6/HIAiA=;
+	b=xvaDogc5mDEAnEDR9035aVBrqE9E6VYvl5K/BNb3QgOv7fSsfDEFSjb9NuIolWZE0R9bsa
+	yJkspkRHROmfbK3IS5+XTWsA+qsiULfCBRzYjXaUEEdnaeq6Bai8WJosM//E1GvRavsn6B
+	qrcgi44o1O3bJnCQNcTwVG15/VEHidp6oE5KEPSnTnUL15Nt4Bi2WgOaT0934ll+1mU6RD
+	wAxtfVea3jGMTnQHhpNzvLkxFHEwDimlTNAd24EDLyLfW59XNlduQQuEeugYp6jnSZBis/
+	6CXWE6mGTpLjFDER+eDeTRLVJmBpoG/4DA0xjeRdzSE8cNot+DEFrJrGp4ZnyQ==
 From: "Kory Maincent (TI.com)" <kory.maincent@bootlin.com>
-Date: Wed, 26 Nov 2025 18:36:01 +0100
-Subject: [PATCH 19/21] drm/bridge: tda998x: Remove useless
- tda998x_connector_destroy wrapper
+Date: Wed, 26 Nov 2025 18:36:03 +0100
+Subject: [PATCH 21/21] drm/tilcdc: Add support for
+ DRM_BRIDGE_ATTACH_NO_CONNECTOR
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251126-feature_tilcdc-v1-19-49b9ef2e3aa0@bootlin.com>
+Message-Id: <20251126-feature_tilcdc-v1-21-49b9ef2e3aa0@bootlin.com>
 References: <20251126-feature_tilcdc-v1-0-49b9ef2e3aa0@bootlin.com>
 In-Reply-To: <20251126-feature_tilcdc-v1-0-49b9ef2e3aa0@bootlin.com>
 To: Jyri Sarha <jyri.sarha@iki.fi>, 
@@ -78,9 +78,8 @@ Cc: Markus Schneider-Pargmann <msp@baylibre.com>,
 X-Mailer: b4 0.14.3
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251126_093743_558213_D166175C 
-X-CRM114-Status: UNSURE (   9.93  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251126_093749_436581_D2F8A8A0 
+X-CRM114-Status: GOOD (  15.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,36 +94,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use directly drm_connector_cleanup in the destroy ops instead of having
-a custom function that does nothing more.
+Convert the driver to use the DRM_BRIDGE_ATTACH_NO_CONNECTOR flag when
+attaching bridges. This modernizes the driver by delegating connector
+creation to the bridge subsystem through drm_bridge_connector_init()
+instead of manually searching for connectors created by the bridge.
+
+The custom tilcdc_encoder_find_connector() function is removed and
+replaced with the standard drm_bridge_connector infrastructure, which
+simplifies the code and aligns with current DRM bridge best practices.
+
+This change is safe as there are now no in-tree devicetrees that
+connect tilcdc to bridges which do not support the
+DRM_BRIDGE_ATTACH_NO_CONNECTOR flag.
 
 Signed-off-by: Kory Maincent (TI.com) <kory.maincent@bootlin.com>
 ---
- drivers/gpu/drm/bridge/tda998x_drv.c | 7 +------
- 1 file changed, 1 insertion(+), 6 deletions(-)
+ drivers/gpu/drm/tilcdc/tilcdc_encoder.c | 38 ++++++++++++++-------------------
+ 1 file changed, 16 insertions(+), 22 deletions(-)
 
-diff --git a/drivers/gpu/drm/bridge/tda998x_drv.c b/drivers/gpu/drm/bridge/tda998x_drv.c
-index 4be49dd5bfc01..43ace6ee2ca35 100644
---- a/drivers/gpu/drm/bridge/tda998x_drv.c
-+++ b/drivers/gpu/drm/bridge/tda998x_drv.c
-@@ -1203,16 +1203,11 @@ tda998x_connector_detect(struct drm_connector *connector, bool force)
- 			connector_status_disconnected;
- }
+diff --git a/drivers/gpu/drm/tilcdc/tilcdc_encoder.c b/drivers/gpu/drm/tilcdc/tilcdc_encoder.c
+index d01e7a31a286c..11fde3a2be353 100644
+--- a/drivers/gpu/drm/tilcdc/tilcdc_encoder.c
++++ b/drivers/gpu/drm/tilcdc/tilcdc_encoder.c
+@@ -8,46 +8,40 @@
  
--static void tda998x_connector_destroy(struct drm_connector *connector)
+ #include <drm/drm_atomic_helper.h>
+ #include <drm/drm_bridge.h>
++#include <drm/drm_bridge_connector.h>
+ #include <drm/drm_of.h>
+ #include <drm/drm_simple_kms_helper.h>
+ 
+ #include "tilcdc_drv.h"
+ #include "tilcdc_encoder.h"
+ 
+-static
+-struct drm_connector *tilcdc_encoder_find_connector(struct drm_device *ddev,
+-						    struct drm_encoder *encoder)
 -{
--	drm_connector_cleanup(connector);
+-	struct drm_connector *connector;
+-
+-	list_for_each_entry(connector, &ddev->mode_config.connector_list, head) {
+-		if (drm_connector_has_possible_encoder(connector, encoder))
+-			return connector;
+-	}
+-
+-	dev_err(ddev->dev, "No connector found for %s encoder (id %d)\n",
+-		encoder->name, encoder->base.id);
+-
+-	return NULL;
 -}
 -
- static const struct drm_connector_funcs tda998x_connector_funcs = {
- 	.reset = drm_atomic_helper_connector_reset,
- 	.fill_modes = drm_helper_probe_single_connector_modes,
- 	.detect = tda998x_connector_detect,
--	.destroy = tda998x_connector_destroy,
-+	.destroy = drm_connector_cleanup,
- 	.atomic_duplicate_state = drm_atomic_helper_connector_duplicate_state,
- 	.atomic_destroy_state = drm_atomic_helper_connector_destroy_state,
- };
+ static
+ int tilcdc_attach_bridge(struct drm_device *ddev, struct drm_bridge *bridge)
+ {
+ 	struct tilcdc_drm_private *priv = ddev_to_tilcdc_priv(ddev);
++	struct drm_connector *connector;
+ 	int ret;
+ 
+ 	priv->encoder->possible_crtcs = BIT(0);
+ 
+-	ret = drm_bridge_attach(priv->encoder, bridge, NULL, 0);
++	ret = drm_bridge_attach(priv->encoder, bridge, NULL,
++				DRM_BRIDGE_ATTACH_NO_CONNECTOR);
+ 	if (ret)
+ 		return ret;
+ 
+-	priv->connector =
+-		tilcdc_encoder_find_connector(ddev, priv->encoder);
+-	if (!priv->connector)
+-		return -ENODEV;
++	connector = drm_bridge_connector_init(ddev, priv->encoder);
++	if (IS_ERR(connector)) {
++		dev_err(ddev->dev, "bridge_connector create failed\n");
++		return PTR_ERR(connector);
++	}
++
++	ret = drm_connector_attach_encoder(connector, priv->encoder);
++	if (ret) {
++		dev_err(ddev->dev, "attaching encoder to connector failed\n");
++		return ret;
++	}
+ 
++	priv->connector = connector;
+ 	return 0;
+ }
+ 
 
 -- 
 2.43.0
