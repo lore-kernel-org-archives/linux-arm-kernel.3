@@ -4,59 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5AABD1039D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 12:40:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE974D1039D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 12:43:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nOPIlqVorblbFIRIrj+tbYu7PRTcOO9samvJzTtVv1k=; b=I2oXLdTh0VDdDXjysOIqfDVcPe
-	L4YwPaSi/mcPzM8w0idVEEQ6/OZUstKTS3wyVtRSht7hqta8OulaMmdGkfB3VNaXrO2PdHexMexU8
-	pqH2ba3q+2h1ZmIhzrH89TLL4dKaI7jrZnH7O1626jK40aizbtsyi+YJLPuDkiDOy6Cm8I0YXJB1K
-	jER4H333Cf9CX7SiE6Nb4p7xfYdQLdHPo8NyIKZZOQjvvUFGzKo6bLu9nxtOB4ouswH8CpjNSdjdq
-	mvHsCwonT3YetEIceexCw+J8wbgKfYgMEAt/gUFsst3VjALeyJdLc9+Tv58A/pkMKlDv0r1Baditm
-	xFhgsfgA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=wyKInZW9vOOeMqe71nBxJ7HXJ/bNznUlqhwyoDm1B3s=; b=i0oXZDkDsNvi+xJqTSNqxXpor0
+	57TyiXECTfBMC5FTZTZnT9B9Nex9AL2sT+gQXkM8EqcxNCgyVCJUKbsAz0vTMghndQKm8mb2UIbgM
+	741OMyypVovpLhR+oMTfIDfPclOA2Y8+5V/fIcY58vz+qv3Aaq/tk5wCJ/zGW6H4HbpszXs368tSa
+	4UpvWmoZugFNHz2yd/Y+VfsnbXBpvvGgZnQjKt8DEad8hc5m/W0651h3P9CmKoT55ztYk7LZxASmn
+	flW9xzX2hSwaprkonKo48xC2qG1yaUynu6yLAQZ4MUz+FYNoEkrCKhT13z3yfV/LzqSeU2stLnIk6
+	LskmqAug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOEp0-0000000EzZL-1zF9;
-	Wed, 26 Nov 2025 12:40:34 +0000
-Received: from mail-m49198.qiye.163.com ([45.254.49.198])
+	id 1vOErR-0000000Ezis-0W7M;
+	Wed, 26 Nov 2025 12:43:05 +0000
+Received: from mail-ed1-x530.google.com ([2a00:1450:4864:20::530])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOEov-0000000EzYQ-1F73;
-	Wed, 26 Nov 2025 12:40:32 +0000
-Received: from localhost.localdomain (unknown [119.122.215.79])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 2afd22cd6;
-	Wed, 26 Nov 2025 20:40:19 +0800 (GMT+08:00)
-From: Chukun Pan <amadeus@jmu.edu.cn>
-To: amadeus@jmu.edu.cn
-Cc: heiko@sntech.de,
-	kishon@kernel.org,
+	id 1vOErM-0000000EziH-3VjM
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 26 Nov 2025 12:43:03 +0000
+Received: by mail-ed1-x530.google.com with SMTP id 4fb4d7f45d1cf-640ca678745so11302148a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Nov 2025 04:42:59 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1764160978; x=1764765778; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=wyKInZW9vOOeMqe71nBxJ7HXJ/bNznUlqhwyoDm1B3s=;
+        b=Vmz0/1jiQp8YU9DcG6YHo7HlH6icPF6A/vgzJfdcdSExXUPerd/3yXAfYxs4Hl7zh3
+         +4yoKoXb8YHb49C7k9xsIdY8a1R1UCu/7d1JAtdMNY7C4ftL1kBqz6ntu1nAuKHnlPpf
+         EK6ELVtvQFqKXD9uKYqPicO4OzQwI+7OqnA25/g/cBvbZkwDNhCEpqXQSj/EV8GJOS6Q
+         lytrOxnlOk60YbOZpEC+CaPwBQV9m9o92D28pTxC66hiKZhLBW2LrLr7HniekCdZF3t8
+         jaUXPsucdL8Srmy6kUdCi16mlCdn5FtBe1D6d3iSdqLpljvNf1W/nZc3MXdRssDt2Uxq
+         SQsg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1764160978; x=1764765778;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=wyKInZW9vOOeMqe71nBxJ7HXJ/bNznUlqhwyoDm1B3s=;
+        b=Xsb025JyhrIMhnxXTRWMjaUJTqC+2xsRVfD5jJMk4HUcj69+lc2Pd/+iAoh4wdRhgw
+         vJ7pQAZJATtQb+h9GUHye3AgcqSnv/EZL6PEGlDSLtftsdKG5nVN6wMkSztD0HWPplyg
+         RVN5nxU1nzwzpez9UwYtoMGMIkI3pj5mjLT/4DZqJkBJV5co0qfY+biI491hdou1Nzik
+         zW93kuMbB4w+jvINe94VrZWT3SsiP6Lh+zWVwYnViCy+kl/FMZvAZNo7C9Zo4rcXHGrE
+         GYMeoa1f+NzS9GEbrrPB+F8+6tTUzsUp7SwwICnRPu9tmXGM3Bqg/oxhOpNye8+6Gvlf
+         jzfw==
+X-Forwarded-Encrypted: i=1; AJvYcCU697b5rnlFVju5lypo0UD2XooQYxxBrVaLIkGlLCIZyaEKQDOlt7IVrECOg5gwgULbj2xEkiNHjyIGR0neuIbQ@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy3BmgokUqxiaLnLAUvzUCuPdoi9sNNmvuz9bopgDMc5NeVAYXO
+	4IZLW6oSNBku7iS2r/e+65LFTctcoj85hdzYZhLfItNgAWpGhwZnryX+
+X-Gm-Gg: ASbGncuNpXsNIuKJynVZTWIheoCnFaXv9dsSFI6oiPMkcIWwWUqKWVRQfz5Ch45Orz5
+	hWwNts4RALW9QKl71WUtbigcDajoo2YFO0Ac/+1pf5F5C6nuMKMhdWz7SbW22LTY3W0jyMl1Fmn
+	yuob9tAbqX+IRn5gVTCRLKAhLnemRa8RzobjtuiAuCZygPdBAPqeSFtOjsUpOcvTXMnrteXP0J9
+	ZJpw1bSPLcebGIUnry2/Lv/UpD1vyTzWhvw3H2VTMeM56lpIr6O9bmQ0Dn/9yEW12p8gM1PeAMm
+	Rxf6AoIx7Yad0fmfX+euNCB4LssNvTD3+A/QpRDybwG4sPTYR5xSXU9gx2852BSUNeu4nLv0uVK
+	IZzyl/7uzOglJtPnIzJxfuRfyE93Tp7KlgOt4U8gNupiEaIccP2C/huMw69teIpRXhX7xYMtA7Y
+	MCLESSe15Y0iSStOcmJJ4iqPcf41so3Pqz4C5T
+X-Google-Smtp-Source: AGHT+IElqG7jPteIbIhzrUyHVFQTvghK+ylGI6dlqjj76G/QOs8gr0LlFJkvAARUAUVCGYrcNiuMVQ==
+X-Received: by 2002:a05:6402:2787:b0:641:2a61:7da2 with SMTP id 4fb4d7f45d1cf-64555be1db0mr17215942a12.17.1764160978101;
+        Wed, 26 Nov 2025 04:42:58 -0800 (PST)
+Received: from SMW024614.wbi.nxp.com ([128.77.115.157])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-64536459d92sm17654824a12.31.2025.11.26.04.42.56
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 26 Nov 2025 04:42:57 -0800 (PST)
+From: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
+To: Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Fabio Estevam <festevam@gmail.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Daniel Baluta <daniel.baluta@nxp.com>,
+	Shengjiu Wang <shengjiu.wang@nxp.com>,
+	Frank Li <Frank.Li@nxp.com>
+Cc: devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	linux-phy@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	vkoul@kernel.org,
-	ziyao@disroot.org
-Subject: Re: [PATCH 1/1] phy: rockchip: naneng-combphy: use existing DT property check for rk3528
-Date: Wed, 26 Nov 2025 20:40:09 +0800
-Message-Id: <20251126124009.551884-1-amadeus@jmu.edu.cn>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20250910122000.951100-1-amadeus@jmu.edu.cn>
-References: <20250910122000.951100-1-amadeus@jmu.edu.cn>
+	Pengutronix Kernel Team <kernel@pengutronix.de>
+Subject: [PATCH v6 0/5] Add support for i.MX8ULP's SIM LPAV
+Date: Wed, 26 Nov 2025 04:42:13 -0800
+Message-ID: <20251126124218.803-1-laurentiumihalcea111@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a9ac02dd29603a2kunme8b5e61b202ca8
-X-HM-MType: 10
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVlDGE5IVksYHktMSUkeQxkeQ1YeHw5VEwETFhoSFy
-	QUDg9ZV1kYEgtZQVlKSkJVSklJVUlKTlVMQllXWRYaDxIVHRRZQVlPS0hVSktJQk1LSlVKS0tVS1
-	kG
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251126_044029_671274_19B057FD 
-X-CRM114-Status: UNSURE (   5.62  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251126_044301_714021_E26A55BB 
+X-CRM114-Status: GOOD (  19.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,15 +106,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
 
-> The naneng-combphy driver already has DT property checks for
-> "rockchip,enable-ssc" and "rockchip,ext-refclk", use it for
-> the rk3528_combphy_cfg. Also aligned the indentation of the
-> rk3528_combphy_grfcfgs parameters (using tabs).
+The LPAV System Integration Module (SIM) is an IP found inside i.MX8ULP's
+LPAV subsystem, which offers clock gating, reset line
+assertion/de-assertion, and various other misc. options.
 
-Are there still any issues with this patch?
+This series adds support for the IP by introducing a new clock HW provider
+driver and by modifying i.MX8MP's AUDIOMIX block control reset driver to
+allow it to be used for i.MX8ULP's SIM LPAV as well.
 
-Thanks,
-Chukun
+This series is a spin-off from [1].
+
+[1]: https://lore.kernel.org/lkml/20240922174225.75948-1-laurentiumihalcea111@gmail.com/
+
+---
+Changes in v6:
+
+* store a "const struct imx8mp_reset_map" pointer instead of
+  a "const struct imx8mp_reset_info" pointer in
+  "struct imx8mp_audiomix_reset"
+* switch back to the mask-based approach
+* link to v5: https://lore.kernel.org/lkml/20251114133738.1762-1-laurentiumihalcea111@gmail.com/
+
+Changes in v5:
+
+* drop patches that were already picked up by Philipp/Abel.
+* include the "bits.h" header.
+* replace mask with bit index.
+* link to v4: https://lore.kernel.org/lkml/20251104120301.913-1-laurentiumihalcea111@gmail.com/
+
+Changes in v4:
+
+* shorten commit message for patch 5
+* drop base from "struct imx8mp_audiomix_reset" and use local variable
+* imx8mp_audiomix_reset_get_regmap() now takes "struct imx8mp_audiomix_reset *"
+  as its argument instead of a "struct device *"
+* use base pointer as the data argument for devm_add_action_or_reset()
+* shorten commit message for patch 6
+* drop regmap field from "struct clk_imx8ulp_sim_lpav_data", use local
+  variable and let devres manage it
+* drop base field from "struct clk_imx8ulp_sim_lpav_data", use local
+  variable and let devres manage it.
+* CONFIG_CLK_IMX8ULP now selects CONFIG_AUXILIARY_BUS, which is needed
+  for devm_auxiliary_device_create().
+* drop static definition of "struct regmap_config" and change to using
+  local one in the clock driver.
+* link to v3: https://lore.kernel.org/lkml/20251029135229.890-1-laurentiumihalcea111@gmail.com/
+
+Changes in v3:
+
+* rename "lpav_bus", "hifi_core", and "hifi_plat" to "bus", "core", "plat"
+* don't assign the "name" field of "struct clk_parent_data". Previously, we
+  were assigning the local parent name to this field, which wouldn't have
+  worked anyways if, for whatever reason, the fallback mechanism would kick in.
+* replace the whole auxiliary reset driver creation chunk by
+  a single devm_auxiliary_device_create() call.
+* replace the "shift" field from "struct imx8mp_reset_map" with the usage of
+  ffs()
+* shorten commit description for patch 6
+* cast "id->driver_data" to "void *" instead of the previous
+  "const struct imx8mp_reset_info *", which makes the line shorter.
+* open question resulting from Peng Fan's comment on V2: how to access
+  interconnect QoS registers? do we need to model the sim_lpav as an
+  interconnect provider as well or is it fine to have another interconnect
+  provider that references the sim_lpav node and accesses its registers
+  via regmap (dev_get_regmap(), specifically, NOT syscon).
+* link to v2: https://lore.kernel.org/lkml/20251017112025.11997-1-laurentiumihalcea111@gmail.com/
+
+Changes in v2:
+
+* drop redundant description for "#clock-cells"/"#reset-cells" properties
+  from binding
+* make "mux-controller" and "#reset-cells" properties mandatory
+* add "mux-controller" child to binding example node
+* drop the compatiblity with syscon - this was never actually needed and
+  it was done to allow using "mmio-mux", which requires a syscon parent
+* modify the auxiliary reset driver to use regmap - this will allow the
+  mux controller, clock control and reset control APIs to use the same
+  spinlock.
+* rename "imx8ulp-reset-sim-lpav.h" to "fsl,imx8ulp-sim-lpav.h"
+* drop the "IMX8ULP_CLK_SIM_LPAV_END" macro, which doesn't belong to the
+  binding headers
+* fix the values of "IMX8MP_AUDIOMIX_EARC_RESET_MASK" and
+  "IMX8MP_AUDIOMIX_EARC_PHY_RESET_MASK", which were previously incorrect
+* drop redundant macros from auxiliary reset driver - replace their
+  occurrences with their values
+* squash the binding-related macro additions into the binding patch
+* add mux-controller child node to the sim_lpav node
+* make the "gates" array static
+* link to v1: https://lore.kernel.org/lkml/20250804155407.285353-1-laurentiumihalcea111@gmail.com/
+---
+
+Laurentiu Mihalcea (5):
+  reset: imx8mp-audiomix: Drop unneeded macros
+  reset: imx8mp-audiomix: Switch to using regmap API
+  reset: imx8mp-audiomix: Extend the driver usage
+  reset: imx8mp-audiomix: Support i.MX8ULP SIM LPAV
+  arm64: dts: imx8ulp: add sim lpav node
+
+ arch/arm64/boot/dts/freescale/imx8ulp.dtsi |  17 +++
+ drivers/reset/reset-imx8mp-audiomix.c      | 169 +++++++++++++++------
+ 2 files changed, 142 insertions(+), 44 deletions(-)
+
+-- 
+2.43.0
+
 
