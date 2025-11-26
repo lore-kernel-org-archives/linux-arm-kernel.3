@@ -4,59 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C40ED10F5D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 15:14:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7CF1D10F5F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 15:18:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:Cc:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rE3eAqI81XhNX4ZTRlXnqK0bOPZK9J0zxG3ZNekh/N0=; b=XoBVEKx8X/yCZXdAyRMHD6u6Bd
-	kmiAUJ31hY0AHIZYWvVVUcjtdWuYiYP3koRPQrOYlmasLaeYt+zQ5fkOjxdBLYege6IUuW7SJ0aQe
-	rDVmtS1uzAns+L5Rpv557lYhrJlYStRzRrStWEB+AALgXITLT0mP0QzlfESHP2xQQoe1y7I67UZ/f
-	adlAFXJCCv2lHMMmw1WS2PjZOJMDqQtkLEc58ZFOd0PRHZaWqgw0lKpVlM3NBsW9gfy9rgqvqeqyt
-	/gW9y6eLDE6vg3kmd9alRm0yEtzA2JjXMC8eJBYB1tr0bFK510G1wSJzubCdVglXEBkGkOGryH3um
-	4Don6seA==;
+	bh=LbmsDT5sWfaM9kD74mgCnnztyljRQSjz1T2Ch0Nw0cc=; b=eAa+ttOffBPrqfMB87h6fvtZ4E
+	liOloYzO85vQd/SSiJWV2uCALrLc3uQCKnXhd/BTonhbw3nAnia2FaOLzvm1nBZLVj88bQxbLMZ50
+	lzX5LzCFXoKcJDtNvzE1FFDaPr8KYXtB9Hg7TwXeW8ATswAzmcalB/fj2QVE7H/UHS+Yiu/hKzh1F
+	Ap+dRuakuIxoxPlXUk3qDhUJLiUVFWcrNySUm1dj+1irl/I1+0kSoat+VeV6swTVjs+ZoK8XQUNs5
+	fCu6SEe1+tvpl1s/JNBvZ3C8OWGeVZmQs+7Vp9cG5ldwIYJu2WEGrgl8S2+CilD6zEeD+hXJQJrYO
+	Xm66+VlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOHEM-0000000FAUa-2Tmf;
-	Wed, 26 Nov 2025 15:14:54 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOHEK-0000000FATh-27GO
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Nov 2025 15:14:53 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 535A7168F;
-	Wed, 26 Nov 2025 07:14:43 -0800 (PST)
-Received: from localhost (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 626683F66E;
-	Wed, 26 Nov 2025 07:14:50 -0800 (PST)
-Date: Wed, 26 Nov 2025 15:14:48 +0000
-From: Leo Yan <leo.yan@arm.com>
-To: Mike Leach <mike.leach@linaro.org>,
-	James Clark <james.clark@linaro.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Randy Dunlap <rdunlap@infradead.org>, coresight@lists.linaro.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-doc@vger.kernel.org
-Subject: Re: [PATCH v7 13/13] coresight: docs: Document etm4x timestamp
- interval option
-Message-ID: <20251126151448.GM724103@e132581.arm.com>
-References: <20251126-james-cs-syncfreq-v7-0-7fae5e0e5e16@linaro.org>
- <20251126-james-cs-syncfreq-v7-13-7fae5e0e5e16@linaro.org>
- <20251126140154.GK724103@e132581.arm.com>
- <CAJ9a7VgcAiw_h=OTxOK0Vcv=9WFCbdb-+RzDKYhigZZhepM7xg@mail.gmail.com>
- <20251126144437.GL724103@e132581.arm.com>
+	id 1vOHHZ-0000000FAiv-2Dx6;
+	Wed, 26 Nov 2025 15:18:13 +0000
+Received: from mgamail.intel.com ([198.175.65.11])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vOHHV-0000000FAiC-2JAS;
+	Wed, 26 Nov 2025 15:18:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1764170289; x=1795706289;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=OAQISPswKJq25SzgGqswUw+2peV2QjQp+1X2kjl7i/E=;
+  b=oFZKGhWSgSweT/tnejrWEuCqOsmiODdukIYa1yeD0/iCI1WzXQr9cqtr
+   YBClRJ5vwuyiv4k/1CfpEz/dTxEiyofLzjGVnej/9JyY7TpP9q8FjfdDC
+   wpbj8iPF9EYGbsYVN7YPbOkuQVzCAy8kXe1mvqlp3HaI0tPqKq0W8xTk8
+   CPXgDKUW/8ELRDiUXbiS8a00ki77YS7GBGk/1v4oTY+XRc8sv0LnY76Xs
+   5WtVX1AtNYkBR6L2fHFA9KiviFJhvHzDgZhKWXtU6SBcgkkehseb0T58Q
+   KAa39G3i0l1ZnjkoCDsYfC3kE96TqTFFo/V/oHqZZXno3U9FjV4s8uIgq
+   A==;
+X-CSE-ConnectionGUID: TCtfhiIaQ2azMurQR1/U+g==
+X-CSE-MsgGUID: xzJ5Tfz9Ski7g7GAJX+GQQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11625"; a="76534667"
+X-IronPort-AV: E=Sophos;i="6.20,228,1758610800"; 
+   d="scan'208";a="76534667"
+Received: from fmviesa006.fm.intel.com ([10.60.135.146])
+  by orvoesa103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Nov 2025 07:18:09 -0800
+X-CSE-ConnectionGUID: xKcInju7QGe/+joUlWElfA==
+X-CSE-MsgGUID: S+2yY/40TsKNxFP41vkcbw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.20,228,1758610800"; 
+   d="scan'208";a="192851038"
+Received: from lkp-server01.sh.intel.com (HELO 4664bbef4914) ([10.239.97.150])
+  by fmviesa006.fm.intel.com with ESMTP; 26 Nov 2025 07:18:02 -0800
+Received: from kbuild by 4664bbef4914 with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1vOHHM-0000000032V-21UG;
+	Wed, 26 Nov 2025 15:18:00 +0000
+Date: Wed, 26 Nov 2025 23:17:29 +0800
+From: kernel test robot <lkp@intel.com>
+To: Vladimir Oltean <vladimir.oltean@nxp.com>, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-phy@lists.infradead.org
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	Daniel Golle <daniel@makrotopia.org>,
+	Horatiu Vultur <horatiu.vultur@microchip.com>,
+	Andrew Lunn <andrew@lunn.ch>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Eric Woudstra <ericwouds@gmail.com>,
+	Marek =?iso-8859-1?Q?Beh=FAn?= <kabel@kernel.org>,
+	Lee Jones <lee@kernel.org>,
+	Patrice Chotard <patrice.chotard@foss.st.com>
+Subject: Re: [PATCH net-next 7/9] net: pcs: xpcs: allow lane polarity
+ inversion
+Message-ID: <202511262216.TzyLet3B-lkp@intel.com>
+References: <20251122193341.332324-8-vladimir.oltean@nxp.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251126144437.GL724103@e132581.arm.com>
+In-Reply-To: <20251122193341.332324-8-vladimir.oltean@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251126_071452_736425_87AE6A89 
-X-CRM114-Status: GOOD (  17.34  )
+X-CRM114-CacheID: sfid-20251126_071809_759561_F5B287D4 
+X-CRM114-Status: GOOD (  10.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,46 +106,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 26, 2025 at 02:44:37PM +0000, Coresight ML wrote:
+Hi Vladimir,
 
-[...]
+kernel test robot noticed the following build errors:
 
-> > As far as I recall when this command line parameter was a bool then:
-> > perf -e cs_etm/timestamp/ <program>
-> > is sufficient to turn on timestamping.
-> 
-> Hmm... with the latest perf, we must assign value to `timestamp`,
-> otherwise perf will report error:
-> 
->   # /mnt/build/perf record -e cs_etm/timestamp/ -C 0 -- taskset -c 0 ls
->   event syntax error: 'cs_etm/timestamp/'
->                        \___ Bad event or PMU
->   
->   Unable to find PMU or event on a PMU of 'cs_etm'
->   
->   event syntax error: 'cs_etm/timestamp/'
->                        \___ no value assigned for term
->   
->   event syntax error: 'cs_etm/timestamp/'
->                        \___ no value assigned for term
->   Run 'perf list' for a list of valid events
+[auto build test ERROR on net-next/main]
 
-Apologize for this misinformation.  When `timestamp` is bool, it does
-support the `-e cs_etm/timestamp/` format.
+url:    https://github.com/intel-lab-lkp/linux/commits/Vladimir-Oltean/dt-bindings-phy-rename-transmit-amplitude-yaml-to-phy-common-props-yaml/20251123-033900
+base:   net-next/main
+patch link:    https://lore.kernel.org/r/20251122193341.332324-8-vladimir.oltean%40nxp.com
+patch subject: [PATCH net-next 7/9] net: pcs: xpcs: allow lane polarity inversion
+config: arm-spear6xx_defconfig (https://download.01.org/0day-ci/archive/20251126/202511262216.TzyLet3B-lkp@intel.com/config)
+compiler: clang version 22.0.0git (https://github.com/llvm/llvm-project 9e9fe08b16ea2c4d9867fb4974edf2a3776d6ece)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20251126/202511262216.TzyLet3B-lkp@intel.com/reproduce)
 
-> > This is worth mentioning so users can correctly assess what happens
-> > for any existing scripts they might have.
-> > 
-> > Based on this then the same command must set the timestamp to 1 -
-> > which will have the same effect as before as we do not want to break
-> > existing behaviour.
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202511262216.TzyLet3B-lkp@intel.com/
 
-Not sure if we need to record such info.  Seems to me, it is weird that
-record a common behaviour for perf formats in this doc.
+All errors (new ones prefixed by >>):
 
-The perf error log would be sufficient for users to setup a proper
-format?
+>> ld.lld: error: undefined symbol: phy_get_rx_polarity
+   >>> referenced by pcs-xpcs.c:821 (drivers/net/pcs/pcs-xpcs.c:821)
+   >>>               drivers/net/pcs/pcs-xpcs.o:(xpcs_do_config) in archive vmlinux.a
+--
+>> ld.lld: error: undefined symbol: phy_get_tx_polarity
+   >>> referenced by pcs-xpcs.c:829 (drivers/net/pcs/pcs-xpcs.c:829)
+   >>>               drivers/net/pcs/pcs-xpcs.o:(xpcs_do_config) in archive vmlinux.a
 
-Thanks,
-Leo
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
