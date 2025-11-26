@@ -4,79 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DF07D10F20
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 10:23:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FDD4D1039D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 10:25:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qsNVWR8CDRZLg8dU4k4zTbHDGYPRZNVDAiXvM+tJl24=; b=EAKvUHptD410Pp2R7Vb3AhKmLb
-	1ygU7ON8/mXfl+6GHwoostfeUxxusavXw5P/vvoYzLsgHUJq6RcWZ0eIEJgQtKEt40FNZu0p1RbNq
-	ubIUm5Cnz9iSs4mBp9+9m6In78bTpF2IxZyhWnb6GErQ0r1d/9rTKg7rD+Lp3kenmSO1Vh784JFpm
-	HU51hKblycMy4xnUa2F3i2qruJXWA+sCgxOGyNJPxqH8Eil9qKxYjtvqCw/jYBYAT25dLTde5Cz8Z
-	XPiA/4swdffJCPoWNsu2vDU/BYqbhbgpVnxgJu+4EB5mt+bvP8qBfXIoblXNG5/sQJHX+fC0kQ9sU
-	raN4k8XA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Af+yOJYbiVtI2/3FE/zETttGHn7/Z7u8JQzsJV9ydlQ=; b=D26f98mR6ZdzPvWm+LEZIrUY6d
+	V3BtmX/EjmeTUC0vvOu6SvhBT7Q2n8E3AJZLJqC+49rg8I4y3GJnvPZTXvbD8r8mTY2yYNf84ShpU
+	zk6RER9bzDBN32dZPZIMRLF+I1cGrthOnqkxzH8zbPa9vL62DdwwNZRFdGP0Li0PdkEAXECGonHmh
+	aaaGihkL0sGcO8fZLz+d9mN0W3XC2NJcajScRLU92Tg7dz1C+YvZQikPW7qPZQzeQv83nV8fg3dQp
+	WE0gixDCU1KI8ZqgApInIwWaM+Ngyp2CSItTKib+MesgkHFX6aHsG/lhESw8KjR0REufLHWZuwuJ+
+	RYgMZ5HQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOCge-0000000EmDF-3GsH;
-	Wed, 26 Nov 2025 10:23:48 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vOChm-0000000EmOW-3KCe;
+	Wed, 26 Nov 2025 10:24:58 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOCgc-0000000EmCg-0VFf
+	id 1vOChk-0000000EmNs-0Ny8
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Nov 2025 10:23:47 +0000
+	Wed, 26 Nov 2025 10:24:57 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9D4E143EB6;
-	Wed, 26 Nov 2025 10:23:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 77F8CC113D0;
-	Wed, 26 Nov 2025 10:23:43 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id C591B41A52;
+	Wed, 26 Nov 2025 10:24:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9CB1AC113D0;
+	Wed, 26 Nov 2025 10:24:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764152623;
-	bh=//yexraZTyis7WS73zDqwOVJGLnWrX9QT5S4ffp+3a0=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=tTxjDVV5hlY1bGW3xlqxUSUlJrOjBiQ7eypyVbZX8NhieoajKUHRXVL+4USS/XJdV
-	 bSkQsIi3ub8VWBkEynowfUpOL1xLifXn/izS7tNP6XbNsPCL6DyleiTDLz39hNHHUJ
-	 49rh7/UmeAalAmE8SaHa5x6jWvHoBDcsLyZyJB6A9tVXNfCg8jfV07kMIKSU9kG/pe
-	 8f94800RO+oT6hfOGNNSR2xvoFNziJ+jR9CnuQenMLRWYYGlYkVrQJ/T1th+CZQ1vI
-	 LqE440HsXh64t2GavUBiiYTMPmTrHkC8R0ZzeYgMdrOEKJkpgB4X/9yljtZwDVdJCX
-	 t6h3w4fliyilg==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1vOCgX-00000008R5l-2455;
-	Wed, 26 Nov 2025 10:23:41 +0000
-Date: Wed, 26 Nov 2025 10:23:41 +0000
-Message-ID: <868qftqehe.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Fuad Tabba <tabba@google.com>
-Cc: kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	oliver.upton@linux.dev,
-	will@kernel.org,
-	joey.gouly@arm.com,
-	suzuki.poulose@arm.com,
-	yuzenghui@huawei.com,
-	catalin.marinas@arm.com,
-	vladimir.murzin@arm.com
-Subject: Re: [PATCH v5 2/9] KVM: arm64: Fix Trace Buffer trap polarity for protected VMs
-In-Reply-To: <20251118103807.707500-3-tabba@google.com>
-References: <20251118103807.707500-1-tabba@google.com>
-	<20251118103807.707500-3-tabba@google.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: tabba@google.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, oliver.upton@linux.dev, will@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, vladimir.murzin@arm.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	s=k20201202; t=1764152695;
+	bh=flHwoU2Ejmea62KYBv8nQ0zAUz6VROyYex7uT6xd01w=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=IeHCfS5+XCZF+aSrtHqCqW1YGgpBPwmso2WpIaQ+/IpHmUs7fZ3r7nl6qwWk8jIR0
+	 UzXutRw86pSncyZ2i0X7tLPIcVWZJ1UfxYhyDgsO9gRoCA/jXYoyFBJDqmR/vToOl8
+	 5MUqdrnT2oO7wx+0lWBH9AyUNASUCj2b4rJfdA1quym8EAjPpiI4lO5UQsqriinJB/
+	 uPJ7kHa7ZwaX0b4r7VXBPB07e2cIzZhjGrH1PAXmVpkuMGvc5g3d40LK6CGOJFxGTf
+	 z1b3gWk2zw76NPdQu6Tv9tCi++83MKpeLRvEmvS1Lg3MebsxfkpToTlG1OUbaYCXN6
+	 Gk8Tc3HhzkCxQ==
+Message-ID: <4702976d-1b08-4565-88a5-d9a1b36582f9@kernel.org>
+Date: Wed, 26 Nov 2025 11:24:50 +0100
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 2/2] ARM: dts: Add support for pcb8385
+To: Horatiu Vultur <horatiu.vultur@microchip.com>, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, nicolas.ferre@microchip.com,
+ alexandre.belloni@bootlin.com, claudiu.beznea@tuxon.dev,
+ wsa+renesas@sang-engineering.com, Ryan.Wanner@microchip.com,
+ romain.sioen@microchip.com
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20251126100151.1559590-1-horatiu.vultur@microchip.com>
+ <20251126100151.1559590-3-horatiu.vultur@microchip.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20251126100151.1559590-3-horatiu.vultur@microchip.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251126_022346_246750_A4934D07 
-X-CRM114-Status: GOOD (  21.92  )
+X-CRM114-CacheID: sfid-20251126_022456_192281_E42B9861 
+X-CRM114-Status: GOOD (  21.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,50 +121,141 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 18 Nov 2025 10:37:59 +0000,
-Fuad Tabba <tabba@google.com> wrote:
+On 26/11/2025 11:01, Horatiu Vultur wrote:
+> Add basic support for pcb8385 [1]. It is a modular board which allows
+> to add different daughter cards on which there are different PHYs.
+> This adds support for UART, LEDs and I2C.
 > 
-> The E2TB bits in MDCR_EL2 control trapping of Trace Buffer system
-> register accesses. These accesses are trapped to EL2 when the bits are
-> clear.
+> [1] https://www.microchip.com/en-us/development-tool/ev83e85a
 > 
-> The trap initialization logic for protected VMs in pvm_init_traps_mdcr()
-> had the polarity inverted. When a guest did not support the Trace Buffer
-> feature, the code was setting E2TB. This incorrectly disabled the trap,
-> potentially allowing a protected guest to access registers for a feature
-> it was not given.
-> 
-> Fix this by inverting the operation.
-> 
-> Fixes: f50758260bff ("KVM: arm64: Group setting traps for protected VMs by control register")
-> Signed-off-by: Fuad Tabba <tabba@google.com>
+> Signed-off-by: Horatiu Vultur <horatiu.vultur@microchip.com>
 > ---
->  arch/arm64/kvm/hyp/nvhe/pkvm.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
+>  arch/arm/boot/dts/microchip/Makefile          |   3 +-
+>  .../boot/dts/microchip/lan966x-pcb8385.dts    | 133 ++++++++++++++++++
+>  2 files changed, 135 insertions(+), 1 deletion(-)
+>  create mode 100644 arch/arm/boot/dts/microchip/lan966x-pcb8385.dts
 > 
-> diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-> index 8d06a246dfd1..f6f8996c4f97 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
-> +++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-> @@ -118,7 +118,7 @@ static void pvm_init_traps_mdcr(struct kvm_vcpu *vcpu)
->  		val |= MDCR_EL2_TTRF;
->  
->  	if (!kvm_has_feat(kvm, ID_AA64DFR0_EL1, TraceBuffer, IMP))
-> -		val |= MDCR_EL2_E2TB_MASK;
-> +		val &= ~MDCR_EL2_E2TB_MASK;
+> diff --git a/arch/arm/boot/dts/microchip/Makefile b/arch/arm/boot/dts/microchip/Makefile
+> index 79cd38fdc7dab..08986c24a4700 100644
+> --- a/arch/arm/boot/dts/microchip/Makefile
+> +++ b/arch/arm/boot/dts/microchip/Makefile
+> @@ -102,4 +102,5 @@ dtb-$(CONFIG_SOC_LAN966) += \
+>  	lan966x-kontron-kswitch-d10-mmt-8g.dtb \
+>  	lan966x-pcb8290.dtb \
+>  	lan966x-pcb8291.dtb \
+> -	lan966x-pcb8309.dtb
+> +	lan966x-pcb8309.dtb \
+> +	lan966x-pcb8385.dtb
+> diff --git a/arch/arm/boot/dts/microchip/lan966x-pcb8385.dts b/arch/arm/boot/dts/microchip/lan966x-pcb8385.dts
+> new file mode 100644
+> index 0000000000000..a7ac7854cdaf0
+> --- /dev/null
+> +++ b/arch/arm/boot/dts/microchip/lan966x-pcb8385.dts
+> @@ -0,0 +1,133 @@
+> +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+> +/*
+> + * lan966x-pcb8385.dts - Device Tree file for PCB8385
+> + */
+> +/dts-v1/;
+> +
+> +#include "lan966x.dtsi"
+> +#include "dt-bindings/phy/phy-lan966x-serdes.h"
+> +
+> +/ {
+> +	model = "Microchip EVB - LAN9668";
+> +	compatible = "microchip,lan9668-pcb8385", "microchip,lan9668", "microchip,lan966";
+> +
+> +	aliases {
+> +		serial0 = &usart3;
+> +	};
+> +
+> +	chosen {
+> +		stdout-path = "serial0:115200n8";
+> +	};
+> +
+> +	gpio-restart {
+> +		compatible = "gpio-restart";
+> +		gpios = <&gpio 59 GPIO_ACTIVE_LOW>;
+> +		open-source;
+> +		priority = <200>;
+> +	};
+> +
+> +	leds {
+> +		compatible = "gpio-leds";
+> +
+> +		led-p1-green {
+> +			label = "cu0:green";
+> +			gpios = <&sgpio_out 2 0 GPIO_ACTIVE_LOW>;
+> +			default-state = "off";
+> +		};
+> +
+> +		led-p1-yellow {
+> +			label = "cu0:yellow";
+> +			gpios = <&sgpio_out 2 1 GPIO_ACTIVE_LOW>;
+> +			default-state = "off";
+> +		};
+> +
+> +		led-p2-green {
+> +			label = "cu1:green";
+> +			gpios = <&sgpio_out 3 0 GPIO_ACTIVE_LOW>;
+> +			default-state = "off";
+> +		};
+> +
+> +		led-p2-yellow {
+> +			label = "cu1:yellow";
+> +			gpios = <&sgpio_out 3 1 GPIO_ACTIVE_LOW>;
+> +			default-state = "off";
+> +		};
+> +	};
+> +};
+> +
+> +&aes {
+> +	status = "disabled"; /* Reserved by secure OS */
+> +};
+> +
+> +&flx0 {
+> +	atmel,flexcom-mode = <ATMEL_FLEXCOM_MODE_TWI>;
+> +	status = "okay";
+> +
+> +	i2c0: i2c@600 {
 
-This does not only change the trapping logic (bit 24). It also change
-the ownership of the buffer (bit 25). I wonder whether you should do
-something for that, maybe by clearing TRBLIMITR_EL1.E, because
-otherwise, you keep tracing, but using an EL2 VA. What could possibly
-go wrong?
+You added a label, so this feels like a new node, but then you miss
+compatible and status feels redundant.
 
-Overall, I'm very uneasy about TRBE in the context of pKVM.
+If this is override, you should rather override by labels/phandles in
+the first place. Even when overriding by full node path, you should not
+add custom labels - they belong to the base SoC.
 
-Thanks,
+> +		pinctrl-0 = <&fc0_b_pins>;
+> +		pinctrl-names = "default";
+> +		dmas = <0>, <0>;
+> +		i2c-analog-filter;
+> +		i2c-digital-filter;
+> +		i2c-digital-filter-width-ns = <35>;
+> +		i2c-sda-hold-time-ns = <1500>;
+> +		status = "okay";
 
-	M.
+> +
+> +		eeprom@54 {
+> +			compatible = "atmel,24c01";
+> +			reg = <0x54>;
+> +			status = "okay";
 
--- 
-Without deviation from the norm, progress is not possible.
+Why? Was it disabled anywhere?
+
+> +		};
+> +
+> +		eeprom@55 {
+> +			compatible = "atmel,24c01";
+> +			reg = <0x55>;
+> +			status = "okay";
+> +		};
+> +	};
+> +};
+> +
+
+
+
+Best regards,
+Krzysztof
 
