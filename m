@@ -4,96 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 395D1D1118A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 17:18:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49ED0D1118A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 17:24:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JIATeLLHFUQMl6oNTOwv/zu2OSZhFjRfKgrLqLFKVso=; b=2up1npwne/p442r1LoVyRbtV5k
-	MEyAj9hxyhNJGbzmmEtpebVRuVxXTBh+So6WzTJb7I9w4Bi1RjXFeJUgPUiFSIrADAVOvQO8KEmBZ
-	IZDwHRRjFcBN9vzptCdjBlAUNiAnwSs4KtN/HxLmjt6OQ2DRkPb/XJ57waXscZ5SD4PKVVUWk8B6+
-	cw4q6jhx2JbU2D3YhprJWvgDw7iicvhIQOrQEzxvYWqGKzixthLhqR50UgiKM5cw8JA0y2Y0HR/DD
-	sQbw1g9ofGBzSTNZL+mCi0QRqm9gmxtXZvL2dDYfwMgPta6Vxijb1hx5Vc1iajX2x/48x2WU5XU8G
-	bYKZxWKA==;
+	bh=s3beuvWb8u9josQ5wjgvAv1PRS+pkllGPH/64ZoOaps=; b=2wN9lMaSytf5crGbd1lSmgXQPR
+	/BllSJtTcP1vbXkcSuikVf7b7kuAli7RNsZshmMu47Wqv9jxgvBRS5GC/zKSZ5seg/F3OVC5bZbTR
+	km+3Pjb46iVnj1EffeIwqu/A9/tbekxMU4ghN6OEju2Bc2BalNblIoNiRVcFTANJ4+xXsaaNJ4qSj
+	QtOMyGXs5BVX4YnzXikDb2Kx1yhVR6+ANYLw8w6F+Hk8yXOPt8q6UbtRnixEXagfPZoFDKyXFi4fW
+	bPtmKuJrK2Ldo7ZqomMSaaPouaaUaunH+FEAxO5Yaak6jRHudE095DhT92gcAnVsFiaY3hnNLLpTk
+	mAYCkRdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOJAB-0000000FNcr-1jTM;
-	Wed, 26 Nov 2025 17:18:43 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOJA9-0000000FNcT-3G6X
+	id 1vOJFK-0000000FNtI-0cGC;
+	Wed, 26 Nov 2025 17:24:02 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vOJFH-0000000FNsk-40JG
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Nov 2025 17:18:42 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2621C401FE;
-	Wed, 26 Nov 2025 17:18:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A5784C4CEF7;
-	Wed, 26 Nov 2025 17:18:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764177521;
-	bh=QNpZf3xUex3YCkCt1bo+5+Se1H+g3kaaOupJjR57dYs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=BHor0WDvsu5cCGZ1MM77lOYKzwX+hbRxkuaEXcL4019i0PaMKsd3bqxDwrrzDaQbb
-	 K6+Gm2jD0vhvIHIW60L7Sw1iLEMhnB9NlxEKOr3eQHzjmo4GAk0kX8lRXndMVB/qdV
-	 yUeFFG1dNicKXHyOiH1f2lx4pNyisGTsVEAPo7SRAkPEQlrbsh+opctTnQc5yYRloa
-	 BQUXa/PrpdBzWI6iDu2XagLLQzk7lH+hi4riT6+c9I6fm2cOYIMLKcffik434bQO2N
-	 j+Q62yza6zPdMoNkqUeFQm3uFpRn13I+iL+ObWlX8TK/R65xVGwXaqe+20Q4gCtQ2b
-	 /hT+PcTGi7VTw==
-Date: Wed, 26 Nov 2025 18:18:26 +0100
-From: Lorenzo Pieralisi <lpieralisi@kernel.org>
-To: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
-Cc: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Souvik Chakravarty <Souvik.Chakravarty@arm.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Andy Yan <andy.yan@rock-chips.com>,
-	Mark Rutland <mark.rutland@arm.com>, Arnd Bergmann <arnd@arndb.de>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	cros-qcom-dts-watchers@chromium.org, Vinod Koul <vkoul@kernel.org>,
+	Wed, 26 Nov 2025 17:24:01 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E4D80168F;
+	Wed, 26 Nov 2025 09:23:48 -0800 (PST)
+Received: from e133380.arm.com (e133380.arm.com [10.1.197.66])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 14E853F66E;
+	Wed, 26 Nov 2025 09:23:53 -0800 (PST)
+Date: Wed, 26 Nov 2025 17:23:47 +0000
+From: Dave Martin <Dave.Martin@arm.com>
+To: Mark Brown <broonie@kernel.org>
+Cc: Peter Maydell <peter.maydell@linaro.org>, Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
 	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Moritz Fischer <moritz.fischer@ettus.com>,
-	John Stultz <john.stultz@linaro.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-	Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>,
-	Stephen Boyd <swboyd@chromium.org>,
-	Andre Draszik <andre.draszik@linaro.org>,
-	Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>,
-	linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-arm-msm@vger.kernel.org,
-	Elliot Berman <quic_eberman@quicinc.com>,
-	Xin Liu <xin.liu@oss.qualcomm.com>,
-	Srinivas Kandagatla <srini@kernel.org>,
-	Umang Chheda <umang.chheda@oss.qualcomm.com>,
-	Nirmesh Kumar Singh <nirmesh.singh@oss.qualcomm.com>
-Subject: Re: [PATCH v17 07/12] firmware: psci: Implement vendor-specific
- resets as reboot-mode
-Message-ID: <aSc2Yh3AvLXOBvcz@lpieralisi>
-References: <20251109-arm-psci-system_reset2-vendor-reboots-v17-0-46e085bca4cc@oss.qualcomm.com>
- <20251109-arm-psci-system_reset2-vendor-reboots-v17-7-46e085bca4cc@oss.qualcomm.com>
- <aRIfc9iuC2b9DqI+@lpieralisi>
- <80e68e44-a8e0-464a-056e-9f087ad40d51@oss.qualcomm.com>
- <aRxmWrAkD0Vu4pF+@lpieralisi>
- <1da024e7-efb1-3a1c-cc13-0ae5212ed8bd@oss.qualcomm.com>
- <aR2P4CxQNebac6oU@lpieralisi>
- <682b1a0c-644f-2aff-1860-cbf9a53bc62b@oss.qualcomm.com>
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Will Deacon <will@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
+	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>,
+	Fuad Tabba <tabba@google.com>, Mark Rutland <mark.rutland@arm.com>,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org, kvm@vger.kernel.org,
+	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org,
+	Eric Auger <eric.auger@redhat.com>
+Subject: Re: [PATCH v8 11/29] KVM: arm64: Document the KVM ABI for SME
+Message-ID: <aScfSMZEKCeUq7Zn@e133380.arm.com>
+References: <20250902-kvm-arm64-sme-v8-0-2cb2199c656c@kernel.org>
+ <20250902-kvm-arm64-sme-v8-11-2cb2199c656c@kernel.org>
+ <CAFEAcA_GJ7gzn7aMCZYxHnJWvx4tHSHBKsOxtQ7NTb4gPjkMJQ@mail.gmail.com>
+ <df712591-397e-422b-b9c9-fbf080cad9aa@sirena.org.uk>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <682b1a0c-644f-2aff-1860-cbf9a53bc62b@oss.qualcomm.com>
+In-Reply-To: <df712591-397e-422b-b9c9-fbf080cad9aa@sirena.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251126_091841_860709_8E38BB8D 
-X-CRM114-Status: GOOD (  23.66  )
+X-CRM114-CacheID: sfid-20251126_092400_088383_941492BB 
+X-CRM114-Status: GOOD (  58.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,63 +75,163 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 19, 2025 at 05:32:42PM +0530, Shivendra Pratap wrote:
-> 
-> 
-> On 11/19/2025 3:07 PM, Lorenzo Pieralisi wrote:
-> > On Tue, Nov 18, 2025 at 11:11:33PM +0530, Shivendra Pratap wrote:
-> > 
-> > [...]
-> > 
-> >>> Yes this could be a potential way forward but that's decoupled from the
-> >>> options below. If we take this route PSCI maintainers should be added
-> >>> as maintainers for this reboot mode driver.
-> >>
-> >> you mean the new psci_reset driver? yes. Maintainer would be PSCI maintainer,
-> >> if we create a new  psci_reset reboot mode driver.
-> > 
-> > Yes.
-> > 
-> >>>> - struct with pre-built psci reset_types - (warm, soft, cold). Currently
-> >>>>   only two modes supported, anything other than warm/soft defaults to cold.
-> >>>> - vendor resets to be added as per vendor choice, inside psci device tree(SOC specific).
-> >>>> - psci_reset registers with reboot-mode for registering  vendor resets. Here, we
-> >>>>   have a problem, the pre-built psci reset_types - (warm, soft, cold) cannot be added via
-> >>>>   reboot-mode framework.
-> >>>
-> >>> Why ?
-> >>
-> >> If we want the new psci_reset to take the reboot-mode framework route, is it ok to
-> >> add default modes (warm, cold) in the device tree?
-> >> If not, then the design of reboot-mode framework(power:reset:reboot-mode.c) needs to be
-> >> further changed to equip this new feature. 
-> > 
-> > Well, yes, all it needs to do is allowing prepopulated reboot modes on top
-> > of which DT based ones are added.
-> 
-> The mode-cold , adds a third variable to reboot-modes as the first parameter for 
-> invoke_psci_fn is different for cold vs warm/vendor.
-> 
-> cold reset call       : invoke_psci_fn(PSCI_0_2_FN_SYSTEM_RESET, 0, 0, 0);
-> vendor/warm reset call: invoke_psci_fn(PSCI_FN_NATIVE(1_1, SYSTEM_RESET2), vendor, cookiee, 0);
-> 
-> Each mode will have 3 argument - like:
-> _ _ _ _ _ _ _ _ _ _ _ _ _  _ _ _ _ _ _ 
-> MODE   , cold reset, reset_type, cookie
-> _ _ _ _ _ _ _ _ _ _ _ _ _  _ _ _ _ _ _ - 
-> COLD   ,   1       ,    0      ,     0
-> WARM   ,   0       ,    0      ,     0
-> vendor1,   0       ,0x80000000 ,     1
-> vendor2,   0       ,0x80000010 ,     0
-> 
-> So reboot-mode framework will now define and support upto three 32 bit arguments for each mode?
+Hi,
 
-The cookie value is unused for SYSTEM_WARM_RESET, you can encode there whether
-it is a cold (SYSTEM_RESET) or warm (SYSTEM_RESET2 - SYSTEM_WARM_RESET) architectural
-reset when the magic value(aka reset_type) == 0x0 ?
+On Mon, Nov 24, 2025 at 08:12:56PM +0000, Mark Brown wrote:
+> On Mon, Nov 24, 2025 at 03:48:06PM +0000, Peter Maydell wrote:
+> > On Tue, 2 Sept 2025 at 12:45, Mark Brown <broonie@kernel.org> wrote:
+> 
+> > > SME, the Scalable Matrix Extension, is an arm64 extension which adds
+> > > support for matrix operations, with core concepts patterned after SVE.
+> 
+> > I haven't actually tried writing any code that uses this proposed
+> > ABI, but mostly it looks OK to me. I have a few nits below, but
+> > my main concern is the bits of text that say (or seem to say --
+> > maybe I'm misinterpreting them) that various parts of how userspace
+> > accesses the guest state (e.g. the fp regs) depend on the current
+> > state of the vcpu, rather than being only a function of how the
+> > vcpu was configured. That seems to me like it's unnecessarily awkward.
+> > (More detail below.)
+> 
+> That was deliberate and I agree it is awkward, it was introduced as a
+> result of earlier review comments.  I had originally implemented an ABI
+> where the VL for the vector registers was the maximum of the SVE and SME
+> VLs but the feedback was that the ABI should instead follow what the
+> architecture does with the vector length and potentially presence of the
+> vector registers depending on the current streaming mode configuration.
+> It sounds like you would prefer something more like what was there
+> originally?
+> 
+> > > For SME unware VMMs on systems with both SVE and SME support the SVE
+> > > registers may be larger than expected, this should be less disruptive
+> > > than on a system without SVE as they will simply ignore the high bits of
+> > > the registers.
+> 
+> > I think that since enabling SME is something the VMM has to actively
+> > do, it isn't a big deal that they also need to do something in the
+> > fp or sve register access codepaths to handle SME. You can't get
+> > SME by surprise (same as you can't get SVE by surprise).
+> 
+> Yes, it's not going to affect anything without enabling it.  I can't
+> remember what that was in reference to, it clearly needs an update.
+> 
+> > >  .. [1] These encodings are not accepted for SVE-enabled vcpus.  See
+> > > -       :ref:`KVM_ARM_VCPU_INIT`.
+> > > +       :ref:`KVM_ARM_VCPU_INIT`.  They are also not accepted when SME is
+> > > +       enabled without SVE and the vcpu is in streaming mode.
+> 
+> > Does this mean that on an SME-no-SVE VM the VMM needs to know
+> > if the vcpu is currently in streaming mode or not to determine
+> > whether to read the FP registers as fp_regs or sve regs? That
+> > seems unpleasant -- I was expecting this to be strictly a
+> > matter of how the VM was configured (as it is with SVE).
+> 
+> Yes, it does.
 
-The reboot mode parameters do not necessarily need to map to PSCI function
-calls parameters - provided we define that explicitly.
+Ditto from me about not having looked at this earlier...
 
-Lorenzo
+
+Is the above condition right re streaming mode?  The original reason
+for this restriction was that the SVE Z-regs and FPSIMD V-regs are
+aliases when SVE is present.  To avoid having to worry about how to
+order register accesses and/or paste parts of them together, we went
+down the road of banishing encodings that alias a subset of the
+register state accessed by some other encoding.
+
+In line with this principle, with SME Vn and Zn are aliases when
+*not* in streaming mode, so allowing access through the Vn view feels
+problematic too?  (And when in streaming mode, the Vn regs don't exist
+at all.)
+
+Whether the proposed ABI is considered awkward for VMMs or not is a
+separate matter...)
+
+> 
+> > > +arm64 SME registers have the following bit patterns:
+> 
+> > > +  0x6080 0000 0017 00 <n:5> <slice:5>   ZA.H[n] bits[2048*slice + 2047 : 2048*slice]
+> > > +  0x60XX 0000 0017 0100                 ZT0
+> 
+> > What's the XX here ?
+> 
+> Sorry, will fill that in - thanks for spotting it.
+> 
+> > > +  0x6060 0000 0017 fffe                 KVM_REG_ARM64_SME_VLS pseudo-register
+> > > +
+> > > +Access to Z, P or ZA register IDs where 2048 * slice >= 128 * max_vq
+> > > +will fail with ENOENT.  max_vq is the vcpu's maximum supported vector
+> > > +length in 128-bit quadwords: see [2]_ below.
+> 
+> > What about FFR registers ? Is their ENOENT condition the same,
+> > or different?
+> 
+> It should be the same, will update to clarify.
+>
+> > > +       max_vq.  This is the maximum vector length currently available to
+> > > +       the guest on this vcpu, and determines which register slices are
+> > > +       visible through this ioctl interface.
+> 
+> > > +       If SME is supported then the max_vq used for the Z and P registers
+> > > +       while SVCR.SM is 1 this vector length will be the maximum SME
+> > > +       vector length available for the guest, otherwise it will be the
+> > > +       maximum SVE vector length available.
+
+The max_vq name here is not ABI; it's just linking concepts together in
+the documentation text.
+
+So, can we give explicitly different names to these two max_vq values?
+
+Splitting the affected register descriptions into "SVCR.SM == 0" and
+"SVCR.SM == 1" cases also be helpful to make this special-casing clear.
+
+> 
+> > I can't figure out what this paragraph is trying to say, partly
+> > because it seems like it might be missing some text between
+> > "is 1" and "this vector length".
+> 
+> > In any case, the "while SVCR.SM is 1" part seems odd -- I
+> > don't think this ABI should care about the runtime vcpu state,
+> > only what the vcpu's max vector lengths were configured as.
+> > My expectation would be that the max_vq for VMM register
+> > access would be the maximum of the SVE and SME vector lengths
+> > configured for the vcpu.
+> 
+> This is attempting to say that the VL for the Z and P registers (and
+> FFR) will vary depending on if the vCPU is in streaming mode or not if
+> the maximum VL for SVE and SME differs, similarly to how the Z, P and
+> FFR registers disappear when we are not in streaming mode in a SME only
+> system.
+
+May flipping SVCR.SM through KVM_SET_ONE_REG have the architectural
+effect of zeroing the vector regs?  That feels like something that
+should be stated explicitly.
+
+
+Also, in general:
+
+I'd agree that this mutating interface feels odd, and does not follow
+the original spirit of the design here.
+
+But the SME architecture doesn't fit well with the spirit of the
+original KVM ABI here either, so I guess there won't be a perfect
+solution.
+
+
+It seems that when SME is enabled in the vCPU features and the VMM is
+planning to dump or set affected registers, there is a requirement to
+dump / set SVCR.SM first, and then go down one of two code paths.  Can
+this be called out explicitly?  This is a departure from the the
+previous interaction model, so it probably deserves its own section,
+which can then be cross-referenced from individual reg
+descriptions.
+
+SVCR.SM exhibits this modality w.r.t a specific set of affected
+register encodings; it would be good to have that captured clearly in
+one place.
+
+(This may or may not make life easier for VMMs -- I'll leave it to
+Peter to comment on that!)
+
+Cheers
+---Dave
 
